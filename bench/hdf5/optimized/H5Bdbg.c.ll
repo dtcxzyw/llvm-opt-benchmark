@@ -60,7 +60,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5B_cache_ud_t, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef %0, ptr noundef %6) #5
   %12 = icmp eq ptr %11, null
@@ -75,9 +75,9 @@ define range(i32 -1, 1) i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr nound
 17:                                               ; preds = %7
   %18 = load ptr, ptr %11, align 8
   store ptr %0, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %5, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %11, ptr %20, align 8
   %21 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %1, ptr noundef nonnull %8, i32 noundef 128) #5
   %22 = icmp eq ptr %21, null
@@ -97,29 +97,29 @@ define range(i32 -1, 1) i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr nound
   %32 = select i1 %31, ptr @.str.7, ptr @.str.8
   %33 = select i1 %30, ptr @.str.6, ptr %32
   %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.3, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.5, ptr noundef nonnull %33) #5
-  %35 = getelementptr inbounds i8, ptr %18, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.10, i64 noundef %36) #5
-  %38 = getelementptr inbounds i8, ptr %18, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.11, i64 noundef %39) #5
-  %41 = getelementptr inbounds i8, ptr %21, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1
   %44 = select i1 %43, ptr @.str.13, ptr @.str.14
   %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.3, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.12, ptr noundef nonnull %44) #5
-  %46 = getelementptr inbounds i8, ptr %21, i64 256
+  %46 = getelementptr inbounds nuw i8, ptr %21, i64 256
   %47 = load i32, ptr %46, align 8
   %48 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.15, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.16, i32 noundef %47) #5
-  %49 = getelementptr inbounds i8, ptr %21, i64 264
+  %49 = getelementptr inbounds nuw i8, ptr %21, i64 264
   %50 = load i64, ptr %49, align 8
   %51 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.18, i64 noundef %50) #5
-  %52 = getelementptr inbounds i8, ptr %21, i64 272
+  %52 = getelementptr inbounds nuw i8, ptr %21, i64 272
   %53 = load i64, ptr %52, align 8
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.19, i64 noundef %53) #5
-  %55 = getelementptr inbounds i8, ptr %21, i64 260
+  %55 = getelementptr inbounds nuw i8, ptr %21, i64 260
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %18, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.20, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %4, ptr noundef nonnull @.str.21, i32 noundef %56, i32 noundef %58) #5
   %60 = load i32, ptr %55, align 4
@@ -130,13 +130,13 @@ define range(i32 -1, 1) i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr nound
   %61 = add nsw i32 %3, 3
   %62 = call i32 @llvm.smax.i32(i32 %4, i32 3)
   %63 = add nsw i32 %62, -3
-  %64 = getelementptr inbounds i8, ptr %21, i64 288
-  %65 = getelementptr inbounds i8, ptr %5, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %21, i64 288
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %66 = add nsw i32 %3, 6
   %67 = call i32 @llvm.smax.i32(i32 %4, i32 6)
   %68 = add nsw i32 %67, -6
-  %69 = getelementptr inbounds i8, ptr %21, i64 280
-  %70 = getelementptr inbounds i8, ptr %18, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %21, i64 280
+  %70 = getelementptr inbounds nuw i8, ptr %18, i64 64
   br label %71
 
 71:                                               ; preds = %.lr.ph, %97
@@ -144,7 +144,7 @@ define range(i32 -1, 1) i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr nound
   %72 = trunc nuw i64 %indvars.iv to i32
   %73 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.22, i32 noundef %3, ptr noundef nonnull @.str.4, i32 noundef %72) #5
   %74 = load ptr, ptr %64, align 8
-  %75 = getelementptr inbounds i64, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv
   %76 = load i64, ptr %75, align 8
   %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.17, i32 noundef %61, ptr noundef nonnull @.str.4, i32 noundef %63, ptr noundef nonnull @.str.23, i64 noundef %76) #5
   %78 = load ptr, ptr %65, align 8
@@ -160,7 +160,7 @@ define range(i32 -1, 1) i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr nound
   %81 = load ptr, ptr %65, align 8
   %82 = load ptr, ptr %69, align 8
   %83 = load ptr, ptr %70, align 8
-  %84 = getelementptr inbounds i64, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv
   %85 = load i64, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %82, i64 %85
   %87 = call i32 %81(ptr noundef %2, i32 noundef %66, i32 noundef %68, ptr noundef %86, ptr noundef %6) #5
@@ -169,7 +169,7 @@ define range(i32 -1, 1) i32 @H5B_debug(ptr noundef %0, i64 noundef %1, ptr nound
   %90 = load ptr, ptr %69, align 8
   %91 = load ptr, ptr %70, align 8
   %92 = add nuw nsw i64 %indvars.iv, 1
-  %93 = getelementptr inbounds i64, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw i64, ptr %91, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %90, i64 %94
   %96 = call i32 %89(ptr noundef %2, i32 noundef %66, i32 noundef %68, ptr noundef %95, ptr noundef %6) #5
@@ -210,7 +210,7 @@ declare i32 @H5AC_unprotect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5B_cache_ud_t, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef %0, ptr noundef %3) #5
   %9 = icmp eq ptr %8, null
@@ -235,9 +235,9 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 21:                                               ; preds = %14
   store ptr %0, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %23, align 8
   %24 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %1, ptr noundef nonnull %5, i32 noundef 128) #5
   %25 = icmp eq ptr %24, null
@@ -250,7 +250,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %24, i64 248
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 248
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
@@ -275,17 +275,17 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 46:                                               ; preds = %39
   store i64 %1, ptr %40, align 8
-  %47 = getelementptr inbounds i8, ptr %24, i64 256
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 256
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %40, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 %48, ptr %49, align 8
   %50 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %1, ptr noundef nonnull %24, i32 noundef 0) #5
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %54, label %.preheader121
 
 .preheader121:                                    ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %2, i64 32
-  %53 = getelementptr inbounds i8, ptr %33, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %33, i64 64
   br label %58
 
 54:                                               ; preds = %46
@@ -310,9 +310,9 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 66:                                               ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %60, i64 256
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 256
   %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.091128, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.091128, i64 8
   %70 = load i32, ptr %69, align 8
   %.not108 = icmp eq i32 %68, %70
   br i1 %.not108, label %75, label %71
@@ -324,19 +324,19 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 75:                                               ; preds = %66
-  %76 = getelementptr inbounds i8, ptr %.091128, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.091128, i64 16
   %77 = load ptr, ptr %76, align 8
   %.not109 = icmp eq ptr %77, null
   br i1 %.not109, label %92, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %80, %68
   br i1 %81, label %82, label %92
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %60, i64 272
+  %83 = getelementptr inbounds nuw i8, ptr %60, i64 272
   %84 = load i64, ptr %83, align 8
   %.not111 = icmp eq i64 %84, -1
   br i1 %.not111, label %88, label %85
@@ -353,7 +353,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 92:                                               ; preds = %78, %75
-  %93 = getelementptr inbounds i8, ptr %60, i64 272
+  %93 = getelementptr inbounds nuw i8, ptr %60, i64 272
   %94 = load i64, ptr %93, align 8
   %.not110 = icmp eq i64 %94, -1
   br i1 %.not110, label %99, label %95
@@ -369,13 +369,13 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br i1 %.not112, label %114, label %100
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %.092127, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.092127, i64 8
   %102 = load i32, ptr %101, align 8
   %103 = icmp eq i32 %102, %68
   br i1 %103, label %104, label %114
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %60, i64 264
+  %105 = getelementptr inbounds nuw i8, ptr %60, i64 264
   %106 = load i64, ptr %105, align 8
   %.not114 = icmp eq i64 %106, -1
   br i1 %.not114, label %110, label %107
@@ -392,7 +392,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 114:                                              ; preds = %100, %99
-  %115 = getelementptr inbounds i8, ptr %60, i64 264
+  %115 = getelementptr inbounds nuw i8, ptr %60, i64 264
   %116 = load i64, ptr %115, align 8
   %.not113 = icmp eq i64 %116, -1
   br i1 %.not113, label %121, label %117
@@ -408,9 +408,9 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br i1 %.not115, label %.loopexit120, label %.preheader119
 
 .preheader119:                                    ; preds = %121
-  %122 = getelementptr inbounds i8, ptr %60, i64 260
-  %123 = getelementptr inbounds i8, ptr %60, i64 288
-  %124 = getelementptr inbounds i8, ptr %60, i64 280
+  %122 = getelementptr inbounds nuw i8, ptr %60, i64 260
+  %123 = getelementptr inbounds nuw i8, ptr %60, i64 288
+  %124 = getelementptr inbounds nuw i8, ptr %60, i64 280
   br label %125
 
 125:                                              ; preds = %.preheader119, %149
@@ -429,7 +429,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 130:                                              ; preds = %.preheader118
   %131 = load ptr, ptr %123, align 8
-  %132 = getelementptr inbounds i64, ptr %131, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %indvars.iv
   %133 = load i64, ptr %132, align 8
   %134 = icmp eq i64 %129, %133
   br i1 %134, label %135, label %139
@@ -441,7 +441,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br label %.loopexit
 
 139:                                              ; preds = %.preheader118, %130
-  %140 = getelementptr inbounds i8, ptr %.090125, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %.090125, i64 16
   %141 = load ptr, ptr %140, align 8
   %.not116 = icmp eq ptr %141, null
   br i1 %.not116, label %142, label %.preheader118
@@ -459,23 +459,23 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 149:                                              ; preds = %142
   %150 = load ptr, ptr %123, align 8
-  %151 = getelementptr inbounds i64, ptr %150, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw i64, ptr %150, i64 %indvars.iv
   %152 = load i64, ptr %151, align 8
   store i64 %152, ptr %143, align 8
   %153 = load i32, ptr %67, align 8
   %154 = add i32 %153, -1
-  %155 = getelementptr inbounds i8, ptr %143, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store i32 %154, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %.2, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   store ptr %143, ptr %156, align 8
   %157 = load ptr, ptr %52, align 8
   %158 = load ptr, ptr %124, align 8
   %159 = load ptr, ptr %53, align 8
-  %160 = getelementptr inbounds i64, ptr %159, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw i64, ptr %159, i64 %indvars.iv
   %161 = load i64, ptr %160, align 8
   %162 = getelementptr inbounds i8, ptr %158, i64 %161
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %163 = getelementptr inbounds i64, ptr %159, i64 %indvars.iv.next
+  %163 = getelementptr inbounds nuw i64, ptr %159, i64 %indvars.iv.next
   %164 = load i64, ptr %163, align 8
   %165 = getelementptr inbounds i8, ptr %158, i64 %164
   %166 = call i32 %157(ptr noundef %162, ptr noundef %3, ptr noundef %165) #5
@@ -508,7 +508,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 .preheader:                                       ; preds = %179, %.preheader
   %.094129 = phi ptr [ %182, %.preheader ], [ %40, %179 ]
-  %181 = getelementptr inbounds i8, ptr %.094129, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %.094129, i64 16
   %182 = load ptr, ptr %181, align 8
   %183 = call ptr @H5MM_xfree(ptr noundef nonnull %.094129) #5
   %.not107 = icmp eq ptr %182, null

@@ -274,7 +274,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.th
 
 107:                                              ; preds = %105, %103, %101, %99, %97, %95, %93, %91, %89, %87, %85, %.critedge.i
   %.sink.i = phi i32 [ 0, %.critedge.i ], [ 1, %85 ], [ 2, %87 ], [ 3, %89 ], [ 4, %91 ], [ 5, %93 ], [ 6, %95 ], [ 7, %97 ], [ 8, %99 ], [ 9, %101 ], [ 10, %103 ], [ 11, %105 ]
-  %108 = getelementptr inbounds i8, ptr %4, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %.sink.i, ptr %108, align 8
   %109 = getelementptr i8, ptr @log3gpp_open.linebuff, i64 %82
   %110 = getelementptr i8, ptr %109, i64 1
@@ -295,20 +295,20 @@ get_file_time_stamp.exit.thread:                  ; preds = %75, %105, %107
 112:                                              ; preds = %107
   %113 = load i32, ptr %7, align 4
   %114 = add i32 %113, -1900
-  %115 = getelementptr inbounds i8, ptr %4, i64 20
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %114, ptr %115, align 4
   %116 = load i32, ptr %6, align 4
-  %117 = getelementptr inbounds i8, ptr %4, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %116, ptr %117, align 4
   %118 = load i32, ptr %8, align 4
-  %119 = getelementptr inbounds i8, ptr %4, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %118, ptr %119, align 8
   %120 = load i32, ptr %9, align 4
-  %121 = getelementptr inbounds i8, ptr %4, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %120, ptr %121, align 4
   %122 = load i32, ptr %10, align 4
   store i32 %122, ptr %4, align 8
-  %123 = getelementptr inbounds i8, ptr %4, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 -1, ptr %123, align 8
   %124 = call i64 @mktime(ptr noundef nonnull %4) #12
   %125 = load i32, ptr %11, align 4
@@ -324,22 +324,22 @@ get_file_time_stamp.exit.thread:                  ; preds = %75, %105, %107
   %127 = call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #14
   store i64 %124, ptr %127, align 8
   %128 = load i32, ptr %11, align 4
-  %129 = getelementptr inbounds i8, ptr %127, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store i32 %128, ptr %129, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 96
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %127, ptr %130, align 8
   %131 = load i32, ptr @log3gpp_file_type_subtype, align 4
-  %132 = getelementptr inbounds i8, ptr %0, i64 20
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %131, ptr %132, align 4
-  %133 = getelementptr inbounds i8, ptr %0, i64 144
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 207, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 112
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @log3gpp_read, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 120
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @log3gpp_seek_read, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 136
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @log3gpp_close, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 148
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %137, align 4
   %138 = load i32, ptr %12, align 4
   store i32 %138, ptr %1, align 4
@@ -368,7 +368,7 @@ define internal range(i32 0, 2) i32 @log3gpp_read(ptr nocapture noundef readonly
   %13 = alloca [33 x i8], align 16
   %14 = load ptr, ptr %0, align 8
   %15 = tail call i64 @file_tell(ptr noundef %14) #12
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -440,22 +440,22 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %54 = load i32, ptr %11, align 4
   %55 = sdiv i32 %54, 100
   %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 32, ptr noundef nonnull @.str.1, i32 noundef %53, i32 noundef %55) #12
-  %57 = getelementptr inbounds i8, ptr %1, i64 64
-  %58 = getelementptr inbounds i8, ptr %1, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 207, ptr %58, align 8
   store i32 0, ptr %1, align 8
   %59 = tail call ptr @wtap_block_create(i32 noundef 5) #12
-  %60 = getelementptr inbounds i8, ptr %1, i64 232
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 1, ptr %61, align 4
   store i64 %.051.le, ptr %5, align 8
   %62 = load i64, ptr %17, align 8
   %63 = sext i32 %53 to i64
   %64 = add i64 %62, %63
-  %65 = getelementptr inbounds i8, ptr %1, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %17, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = add i32 %67, %54
   %69 = icmp ugt i32 %68, 999999
@@ -472,7 +472,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %.pre-phi = phi i32 [ %.pre91, %70 ], [ %68, %48 ]
   %73 = urem i32 %.pre-phi, 1000000
   %74 = mul nuw nsw i32 %73, 1000
-  %75 = getelementptr inbounds i8, ptr %1, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %74, ptr %75, align 8
   %76 = load i32, ptr %9, align 4
   %.not55 = icmp eq i32 %76, 0
@@ -489,7 +489,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %85 = add i64 %84, %82
   tail call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef %85) #12
   %86 = load ptr, ptr %2, align 8
-  %87 = getelementptr inbounds i8, ptr %2, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %88 = load i64, ptr %87, align 8
   %89 = getelementptr i8, ptr %86, i64 %88
   %90 = load i32, ptr %8, align 4
@@ -518,7 +518,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
   %111 = add i32 %101, 2
   %112 = add i32 %111, %110
   %113 = add i32 %112, %81
-  %114 = getelementptr inbounds i8, ptr %1, i64 68
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %113, ptr %114, align 4
   store i32 %113, ptr %57, align 8
   %.not5682 = icmp slt i32 %79, 0
@@ -604,7 +604,7 @@ hex_from_char.exit63:                             ; preds = %hex_from_char.exit,
   %150 = add i64 %149, %147
   tail call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef %150) #12
   %151 = load ptr, ptr %2, align 8
-  %152 = getelementptr inbounds i8, ptr %2, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %153 = load i64, ptr %152, align 8
   %154 = getelementptr i8, ptr %151, i64 %153
   %155 = load i32, ptr %8, align 4
@@ -633,7 +633,7 @@ hex_from_char.exit63:                             ; preds = %hex_from_char.exit,
   %176 = add i32 %166, 2
   %177 = add i32 %176, %175
   %178 = add i32 %177, %79
-  %179 = getelementptr inbounds i8, ptr %1, i64 68
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %178, ptr %179, align 4
   store i32 %178, ptr %57, align 8
   %180 = sext i32 %177 to i64
@@ -672,12 +672,12 @@ define internal range(i32 0, 2) i32 @log3gpp_seek_read(ptr nocapture noundef rea
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca [32 x i8], align 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @__errno_location() #11
   store i32 0, ptr %16, align 4
   store i32 0, ptr %4, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 @file_seek(ptr noundef %18, i64 noundef %1, i32 noundef 0, ptr noundef nonnull %4) #12
   %20 = icmp eq i64 %19, -1
@@ -741,20 +741,20 @@ read_new_line.exit:                               ; preds = %21
   %50 = load i32, ptr %10, align 4
   %51 = sdiv i32 %50, 100
   %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 32, ptr noundef nonnull @.str.1, i32 noundef %49, i32 noundef %51) #12
-  %53 = getelementptr inbounds i8, ptr %2, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 207, ptr %53, align 8
   store i32 0, ptr %2, align 8
   %54 = tail call ptr @wtap_block_create(i32 noundef 5) #12
-  %55 = getelementptr inbounds i8, ptr %2, i64 232
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %2, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %56, align 4
   %57 = load i64, ptr %15, align 8
   %58 = sext i32 %49 to i64
   %59 = add i64 %57, %58
-  %60 = getelementptr inbounds i8, ptr %2, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %15, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = add i32 %62, %50
   %64 = icmp ugt i32 %63, 999999
@@ -771,7 +771,7 @@ read_new_line.exit:                               ; preds = %21
   %.pre-phi = phi i32 [ %.pre58, %65 ], [ %63, %48 ]
   %68 = urem i32 %.pre-phi, 1000000
   %69 = mul nuw nsw i32 %68, 1000
-  %70 = getelementptr inbounds i8, ptr %2, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %69, ptr %70, align 8
   %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #13
   %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @protocol_name) #13
@@ -782,7 +782,7 @@ read_new_line.exit:                               ; preds = %21
   %77 = add i64 %76, %74
   tail call void @ws_buffer_assure_space(ptr noundef %3, i64 noundef %77) #12
   %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds i8, ptr %3, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %80 = load i64, ptr %79, align 8
   %81 = getelementptr i8, ptr %78, i64 %80
   %82 = load i32, ptr %8, align 4
@@ -921,7 +921,7 @@ hex_from_char.exit48:                             ; preds = %hex_from_char.exit,
 
 ; Function Attrs: nounwind uwtable
 define internal void @log3gpp_close(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #12
   store ptr null, ptr %2, align 8
@@ -1097,15 +1097,15 @@ define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef rea
   %75 = load i8, ptr %10, align 1
   %76 = sext i8 %75 to i32
   %77 = mul nsw i32 %76, 100000
-  %78 = getelementptr inbounds i8, ptr %10, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = sext i8 %79 to i32
   %81 = mul nsw i32 %80, 10000
-  %82 = getelementptr inbounds i8, ptr %10, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %83 = load i8, ptr %82, align 1
   %84 = sext i8 %83 to i32
   %85 = mul nsw i32 %84, 1000
-  %86 = getelementptr inbounds i8, ptr %10, i64 3
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 3
   %87 = load i8, ptr %86, align 1
   %88 = sext i8 %87 to i32
   %89 = mul nsw i32 %88, 100

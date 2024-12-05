@@ -15,16 +15,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @smgr_bulk_start_rel(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %RelationGetSmgr.exit
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   %9 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %8) #4
   store ptr %9, ptr %3, align 8
@@ -34,9 +34,9 @@ define dso_local noundef ptr @smgr_bulk_start_rel(ptr nocapture noundef %0, i32 
 
 RelationGetSmgr.exit:                             ; preds = %2, %6
   %10 = phi ptr [ %.pre.i, %6 ], [ %4, %2 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 114
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 114
   %14 = load i8, ptr %13, align 2
   %15 = icmp eq i8 %14, 112
   br i1 %15, label %16, label %27
@@ -47,13 +47,13 @@ RelationGetSmgr.exit:                             ; preds = %2, %6
   br i1 %18, label %30, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %30, label %27
@@ -67,19 +67,19 @@ RelationGetSmgr.exit:                             ; preds = %2, %6
   %31 = phi i8 [ 1, %23 ], [ 1, %16 ], [ %29, %27 ]
   %32 = tail call ptr @palloc(i64 noundef 560) #4
   store ptr %10, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 %1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i8 %31, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %32, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 536
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 536
   store i32 0, ptr %36, align 8
   %37 = tail call i64 @GetRedoRecPtr() #4
-  %38 = getelementptr inbounds i8, ptr %32, i64 544
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 544
   store i64 %37, ptr %38, align 8
   %39 = load ptr, ptr @CurrentMemoryContext, align 8
-  %40 = getelementptr inbounds i8, ptr %32, i64 552
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 552
   store ptr %39, ptr %40, align 8
   ret ptr %32
 }
@@ -89,19 +89,19 @@ define dso_local noundef ptr @smgr_bulk_start_smgr(ptr noundef %0, i32 noundef %
   %4 = zext i1 %2 to i8
   %5 = tail call ptr @palloc(i64 noundef 560) #4
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %4, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 536
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 536
   store i32 0, ptr %9, align 8
   %10 = tail call i64 @GetRedoRecPtr() #4
-  %11 = getelementptr inbounds i8, ptr %5, i64 544
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 544
   store i64 %10, ptr %11, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 552
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 552
   store ptr %12, ptr %13, align 8
   ret ptr %5
 }
@@ -114,18 +114,18 @@ declare i64 @GetRedoRecPtr() local_unnamed_addr #1
 define dso_local void @smgr_bulk_finish(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @smgr_bulk_flush(ptr noundef %0)
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, -1
   br i1 %.not, label %5, label %32
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @MyProc, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = or i32 %8, 1
   store i32 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 544
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %11 = load i64, ptr %10, align 8
   %12 = tail call i64 @GetRedoRecPtr() #4
   %.not7 = icmp eq i64 %11, %12
@@ -133,12 +133,12 @@ define dso_local void @smgr_bulk_finish(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @MyProc, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, -2
   store i32 %17, ptr %15, align 8
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i32, ptr %19, align 8
   tail call void @smgrimmedsync(ptr noundef %18, i32 noundef %20) #4
   %21 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #4
@@ -151,11 +151,11 @@ define dso_local void @smgr_bulk_finish(ptr noundef %0) local_unnamed_addr #0 {
 
 24:                                               ; preds = %5
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8
   tail call void @smgrregistersync(ptr noundef %25, i32 noundef %27) #4
   %28 = load ptr, ptr @MyProc, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 144
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, -2
   store i32 %31, ptr %29, align 8
@@ -170,9 +170,9 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [32 x i32], align 16
   %4 = alloca [32 x ptr], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = icmp eq i32 %6, 0
   br i1 %8, label %55, label %9
 
@@ -186,7 +186,7 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %11, %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i8, ptr %14, align 4
   %16 = trunc i8 %15 to i1
   br i1 %16, label %.preheader56, label %30
@@ -203,14 +203,14 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.058 = phi i1 [ true, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %18 = getelementptr %struct.PendingWrite, ptr %7, i64 %indvars.iv
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr [32 x i32], ptr %3, i64 0, i64 %indvars.iv
   store i32 %20, ptr %21, align 4
   %22 = load ptr, ptr %18, align 8
   %23 = getelementptr [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
   %spec.select = select i1 %26, i1 %.058, i1 false
@@ -221,7 +221,7 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader56
   %.0.lcssa = phi i1 [ true, %.preheader56 ], [ %spec.select, %.lr.ph ]
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
   call void @log_newpages(ptr noundef %27, i32 noundef %29, i32 noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %4, i1 noundef zeroext %.0.lcssa) #4
   br label %30
@@ -231,15 +231,15 @@ define internal fastcc void @smgr_bulk_flush(ptr noundef %0) unnamed_addr #0 {
   br i1 %31, label %.lr.ph63, label %._crit_edge64
 
 .lr.ph63:                                         ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 536
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count68 = zext nneg i32 %6 to i64
   br label %34
 
 34:                                               ; preds = %.lr.ph63, %54
   %indvars.iv65 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next66, %54 ]
   %35 = getelementptr %struct.PendingWrite, ptr %7, i64 %indvars.iv65
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = load ptr, ptr %35, align 8
   call void @PageSetChecksumInplace(ptr noundef %38, i32 noundef %37) #4
@@ -307,17 +307,17 @@ declare void @smgrregistersync(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @smgr_bulk_write(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i1 %3 to i8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
   %10 = sext i32 %8 to i64
   %11 = getelementptr [32 x %struct.PendingWrite], ptr %6, i64 0, i64 %10
   store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i8 %5, ptr %13, align 4
   %14 = load i32, ptr %7, align 8
   %15 = icmp eq i32 %14, 32
@@ -333,7 +333,7 @@ define dso_local void @smgr_bulk_write(ptr noundef %0, i32 noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @smgr_bulk_get_buf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 552
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @MemoryContextAllocAligned(ptr noundef %3, i64 noundef 8192, i64 noundef 4096, i32 noundef 0) #4
   ret ptr %4
@@ -349,9 +349,9 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @buffer_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp ugt i32 %4, %6
   %. = select i1 %7, i32 1, i32 -1

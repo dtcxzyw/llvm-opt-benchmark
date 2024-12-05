@@ -1259,13 +1259,13 @@ declare void @register_giop_user_module(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_gias(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) #0 {
   %8 = tail call i32 @is_big_endian(ptr noundef %4) #4
-  %9 = getelementptr inbounds i8, ptr %4, i64 7
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 7
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 1
   br i1 %11, label %12, label %69
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %.thread
@@ -1394,7 +1394,7 @@ decode_ex_UCO_InvalidInputParameter.exit.sink.split.i: ; preds = %decode_ex_UCO_
   br i1 %11, label %77, label %80
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.803, ptr noundef %5) #4
   br label %80
@@ -1406,13 +1406,13 @@ decode_ex_UCO_InvalidInputParameter.exit.sink.split.i: ; preds = %decode_ex_UCO_
   br i1 %.not.i.i2196, label %process_RequestOperation.exit, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %82, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8
   %.not5.i.i = icmp eq ptr %85, null
   br i1 %.not5.i.i, label %process_RequestOperation.exit, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %85, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 28
   %88 = load i32, ptr %87, align 4
   %89 = or i32 %88, 2
   store i32 %89, ptr %87, align 4
@@ -1452,7 +1452,7 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br label %decode_user_exception.exit
 
 105:                                              ; preds = %start_dissecting.exit
-  %106 = getelementptr inbounds i8, ptr %4, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %107 = load i32, ptr %106, align 8
   %switch.i = icmp ult i32 %107, 2
   br i1 %switch.i, label %decode_user_exception.exit, label %108
@@ -1484,7 +1484,7 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br i1 %11, label %121, label %124
 
 121:                                              ; preds = %120
-  %122 = getelementptr inbounds i8, ptr %1, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %123 = load ptr, ptr %122, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %123, i32 noundef 25, ptr noundef nonnull @.str.803, ptr noundef %5) #4
   br label %124
@@ -1496,13 +1496,13 @@ start_dissecting.exit:                            ; preds = %process_RequestOper
   br i1 %.not.i.i2199, label %process_RequestOperation.exit2201, label %127
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %126, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %129 = load ptr, ptr %128, align 8
   %.not5.i.i2200 = icmp eq ptr %129, null
   br i1 %.not5.i.i2200, label %process_RequestOperation.exit2201, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %129, i64 28
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 28
   %132 = load i32, ptr %131, align 4
   %133 = or i32 %132, 2
   store i32 %133, ptr %131, align 4
@@ -1532,7 +1532,7 @@ start_dissecting.exit2204:                        ; preds = %process_RequestOper
   ]
 
 143:                                              ; preds = %start_dissecting.exit2204
-  %144 = getelementptr inbounds i8, ptr %4, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %145 = load i32, ptr %144, align 8
   %switch.i2205 = icmp ult i32 %145, 2
   br i1 %switch.i2205, label %decode_user_exception.exit, label %146
@@ -1564,7 +1564,7 @@ start_dissecting.exit2204:                        ; preds = %process_RequestOper
   br i1 %11, label %159, label %162
 
 159:                                              ; preds = %158
-  %160 = getelementptr inbounds i8, ptr %1, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %161 = load ptr, ptr %160, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %161, i32 noundef 25, ptr noundef nonnull @.str.803, ptr noundef %5) #4
   br label %162
@@ -1576,13 +1576,13 @@ start_dissecting.exit2204:                        ; preds = %process_RequestOper
   br i1 %.not.i.i2206, label %process_RequestOperation.exit2208, label %165
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %164, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 32
   %167 = load ptr, ptr %166, align 8
   %.not5.i.i2207 = icmp eq ptr %167, null
   br i1 %.not5.i.i2207, label %process_RequestOperation.exit2208, label %168
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %167, i64 28
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 28
   %170 = load i32, ptr %169, align 4
   %171 = or i32 %170, 2
   store i32 %171, ptr %169, align 4
@@ -1613,7 +1613,7 @@ start_dissecting.exit2211:                        ; preds = %process_RequestOper
   ]
 
 181:                                              ; preds = %start_dissecting.exit2211
-  %182 = getelementptr inbounds i8, ptr %4, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %183 = load i32, ptr %182, align 8
   switch i32 %183, label %192 [
     i32 0, label %184
@@ -1664,7 +1664,7 @@ start_dissecting.exit2211:                        ; preds = %process_RequestOper
   br i1 %11, label %205, label %208
 
 205:                                              ; preds = %204
-  %206 = getelementptr inbounds i8, ptr %1, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %207 = load ptr, ptr %206, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %207, i32 noundef 25, ptr noundef nonnull @.str.803, ptr noundef %5) #4
   br label %208
@@ -1676,13 +1676,13 @@ start_dissecting.exit2211:                        ; preds = %process_RequestOper
   br i1 %.not.i.i2213, label %process_RequestOperation.exit2215, label %211
 
 211:                                              ; preds = %208
-  %212 = getelementptr inbounds i8, ptr %210, i64 32
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 32
   %213 = load ptr, ptr %212, align 8
   %.not5.i.i2214 = icmp eq ptr %213, null
   br i1 %.not5.i.i2214, label %process_RequestOperation.exit2215, label %214
 
 214:                                              ; preds = %211
-  %215 = getelementptr inbounds i8, ptr %213, i64 28
+  %215 = getelementptr inbounds nuw i8, ptr %213, i64 28
   %216 = load i32, ptr %215, align 4
   %217 = or i32 %216, 2
   store i32 %217, ptr %215, align 4
@@ -1724,7 +1724,7 @@ start_dissecting.exit2218:                        ; preds = %process_RequestOper
   br label %decode_user_exception.exit
 
 232:                                              ; preds = %start_dissecting.exit2218
-  %233 = getelementptr inbounds i8, ptr %4, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %234 = load i32, ptr %233, align 8
   switch i32 %234, label %236 [
     i32 0, label %235
@@ -1762,7 +1762,7 @@ start_dissecting.exit2218:                        ; preds = %process_RequestOper
   br i1 %11, label %249, label %252
 
 249:                                              ; preds = %248
-  %250 = getelementptr inbounds i8, ptr %1, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %251 = load ptr, ptr %250, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %251, i32 noundef 25, ptr noundef nonnull @.str.803, ptr noundef %5) #4
   br label %252
@@ -1774,13 +1774,13 @@ start_dissecting.exit2218:                        ; preds = %process_RequestOper
   br i1 %.not.i.i2219, label %process_RequestOperation.exit2221, label %255
 
 255:                                              ; preds = %252
-  %256 = getelementptr inbounds i8, ptr %254, i64 32
+  %256 = getelementptr inbounds nuw i8, ptr %254, i64 32
   %257 = load ptr, ptr %256, align 8
   %.not5.i.i2220 = icmp eq ptr %257, null
   br i1 %.not5.i.i2220, label %process_RequestOperation.exit2221, label %258
 
 258:                                              ; preds = %255
-  %259 = getelementptr inbounds i8, ptr %257, i64 28
+  %259 = getelementptr inbounds nuw i8, ptr %257, i64 28
   %260 = load i32, ptr %259, align 4
   %261 = or i32 %260, 2
   store i32 %261, ptr %259, align 4
@@ -1811,7 +1811,7 @@ start_dissecting.exit2224:                        ; preds = %process_RequestOper
   ]
 
 271:                                              ; preds = %start_dissecting.exit2224
-  %272 = getelementptr inbounds i8, ptr %4, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %273 = load i32, ptr %272, align 8
   switch i32 %273, label %278 [
     i32 0, label %274
@@ -1854,7 +1854,7 @@ start_dissecting.exit2224:                        ; preds = %process_RequestOper
   br i1 %11, label %291, label %294
 
 291:                                              ; preds = %290
-  %292 = getelementptr inbounds i8, ptr %1, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %293 = load ptr, ptr %292, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %293, i32 noundef 25, ptr noundef nonnull @.str.803, ptr noundef %5) #4
   br label %294
@@ -1866,13 +1866,13 @@ start_dissecting.exit2224:                        ; preds = %process_RequestOper
   br i1 %.not.i.i2225, label %process_RequestOperation.exit2227, label %297
 
 297:                                              ; preds = %294
-  %298 = getelementptr inbounds i8, ptr %296, i64 32
+  %298 = getelementptr inbounds nuw i8, ptr %296, i64 32
   %299 = load ptr, ptr %298, align 8
   %.not5.i.i2226 = icmp eq ptr %299, null
   br i1 %.not5.i.i2226, label %process_RequestOperation.exit2227, label %300
 
 300:                                              ; preds = %297
-  %301 = getelementptr inbounds i8, ptr %299, i64 28
+  %301 = getelementptr inbounds nuw i8, ptr %299, i64 28
   %302 = load i32, ptr %301, align 4
   %303 = or i32 %302, 2
   store i32 %303, ptr %301, align 4
@@ -1912,7 +1912,7 @@ start_dissecting.exit2230:                        ; preds = %process_RequestOper
   br label %decode_user_exception.exit
 
 317:                                              ; preds = %start_dissecting.exit2230
-  %318 = getelementptr inbounds i8, ptr %4, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %319 = load i32, ptr %318, align 8
   switch i32 %319, label %330 [
     i32 0, label %320
@@ -3833,7 +3833,7 @@ define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocaptu
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.803, ptr noundef %3) #4
   br label %9
@@ -3845,13 +3845,13 @@ define internal fastcc ptr @process_RequestOperation(ptr noundef %0, ptr nocaptu
   br i1 %.not.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not5.i = icmp eq ptr %14, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, 2
   store i32 %18, ptr %16, align 4
@@ -3883,7 +3883,7 @@ define internal fastcc ptr @start_dissecting(ptr noundef %0, ptr %.8.val, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_LibraryManager_get_property_names(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %23 [
     i8 0, label %.loopexit
@@ -3891,7 +3891,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_property_names(ptr n
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %21 [
     i32 0, label %13
@@ -3930,7 +3930,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_property_names(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_LibraryManager_get_property_values(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
     i8 0, label %10
@@ -3955,7 +3955,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_property_values(ptr 
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !9
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %29 [
     i32 0, label %21
@@ -3995,7 +3995,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_property_values(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_LibraryManager_get_libraries(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %.loopexit
@@ -4003,7 +4003,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_libraries(ptr nounde
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %20 [
     i32 0, label %13
@@ -4041,7 +4041,7 @@ define internal fastcc void @decode_GIAS_LibraryManager_get_libraries(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_RequestManager_get_active_requests(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %.loopexit
@@ -4049,7 +4049,7 @@ define internal fastcc void @decode_GIAS_RequestManager_get_active_requests(ptr 
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %20 [
     i32 0, label %13
@@ -4087,7 +4087,7 @@ define internal fastcc void @decode_GIAS_RequestManager_get_active_requests(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_RequestManager_get_default_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -4095,7 +4095,7 @@ define internal fastcc void @decode_GIAS_RequestManager_get_default_timeout(ptr 
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -4125,7 +4125,7 @@ define internal fastcc void @decode_GIAS_RequestManager_get_default_timeout(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_RequestManager_set_default_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %10
@@ -4141,7 +4141,7 @@ define internal fastcc void @decode_GIAS_RequestManager_set_default_timeout(ptr 
   br label %24
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i32, ptr %17, align 8
   %switch = icmp ult i32 %18, 2
   br i1 %switch, label %24, label %19
@@ -4161,7 +4161,7 @@ define internal fastcc void @decode_GIAS_RequestManager_set_default_timeout(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_RequestManager_get_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %10
@@ -4173,7 +4173,7 @@ define internal fastcc void @decode_GIAS_RequestManager_get_timeout(ptr noundef 
   br label %25
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %20 [
     i32 0, label %14
@@ -4203,7 +4203,7 @@ define internal fastcc void @decode_GIAS_RequestManager_get_timeout(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_RequestManager_set_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %10
@@ -4220,7 +4220,7 @@ define internal fastcc void @decode_GIAS_RequestManager_set_timeout(ptr noundef 
   br label %24
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i32, ptr %17, align 8
   %switch = icmp ult i32 %18, 2
   br i1 %switch, label %24, label %19
@@ -4240,7 +4240,7 @@ define internal fastcc void @decode_GIAS_RequestManager_set_timeout(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_RequestManager_delete_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
     i8 0, label %10
@@ -4252,7 +4252,7 @@ define internal fastcc void @decode_GIAS_RequestManager_delete_request(ptr nound
   br label %19
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i32, ptr %12, align 8
   %switch = icmp ult i32 %13, 2
   br i1 %switch, label %19, label %14
@@ -4272,7 +4272,7 @@ define internal fastcc void @decode_GIAS_RequestManager_delete_request(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_AccessManager_get_use_modes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %23 [
     i8 0, label %.loopexit
@@ -4280,7 +4280,7 @@ define internal fastcc void @decode_GIAS_AccessManager_get_use_modes(ptr noundef
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %21 [
     i32 0, label %13
@@ -4319,7 +4319,7 @@ define internal fastcc void @decode_GIAS_AccessManager_get_use_modes(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_AccessManager_is_available(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %24 [
     i8 0, label %10
@@ -4333,7 +4333,7 @@ define internal fastcc void @decode_GIAS_AccessManager_is_available(ptr noundef 
   br label %27
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %22 [
     i32 0, label %15
@@ -4364,7 +4364,7 @@ define internal fastcc void @decode_GIAS_AccessManager_is_available(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_AccessManager_query_availability_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %28 [
     i8 0, label %10
@@ -4383,7 +4383,7 @@ define internal fastcc void @decode_GIAS_AccessManager_query_availability_delay(
   br label %31
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %26 [
     i32 0, label %20
@@ -4413,7 +4413,7 @@ define internal fastcc void @decode_GIAS_AccessManager_query_availability_delay(
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_AccessManager_get_number_of_priorities(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %25
@@ -4421,7 +4421,7 @@ define internal fastcc void @decode_GIAS_AccessManager_get_number_of_priorities(
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %20 [
     i32 0, label %13
@@ -4452,7 +4452,7 @@ define internal fastcc void @decode_GIAS_AccessManager_get_number_of_priorities(
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_AccessManager_set_availability(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %35 [
     i8 0, label %10
@@ -4492,7 +4492,7 @@ define internal fastcc void @decode_GIAS_AccessManager_set_availability(ptr noun
   br label %38
 
 29:                                               ; preds = %7
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %31 = load i32, ptr %30, align 8
   switch i32 %31, label %33 [
     i32 0, label %32
@@ -4518,7 +4518,7 @@ define internal fastcc void @decode_GIAS_AccessManager_set_availability(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_QueryOrderMgr_get_event_descriptions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
     i8 0, label %.loopexit
@@ -4526,7 +4526,7 @@ define internal fastcc void @decode_GIAS_QueryOrderMgr_get_event_descriptions(pt
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %27 [
     i32 0, label %13
@@ -4572,7 +4572,7 @@ define internal fastcc void @decode_GIAS_QueryOrderMgr_get_event_descriptions(pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_QueryOrderMgr_submit_query_order(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %61 [
     i8 0, label %10
@@ -4666,7 +4666,7 @@ decode_GIAS_QueryOrderContents_st.exit:           ; preds = %.lr.ph.i, %decode_G
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 55:                                               ; preds = %7
-  %56 = getelementptr inbounds i8, ptr %5, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %57 = load i32, ptr %56, align 8
   switch i32 %57, label %59 [
     i32 0, label %58
@@ -4692,7 +4692,7 @@ decode_GIAS_QueryOrderContents_st.exit:           ; preds = %.lr.ph.i, %decode_G
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_OrderMgr_get_package_specifications(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %23 [
     i8 0, label %.loopexit
@@ -4700,7 +4700,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_get_package_specifications(ptr
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %21 [
     i32 0, label %13
@@ -4739,7 +4739,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_get_package_specifications(ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_OrderMgr_validate_order(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %37 [
     i8 0, label %10
@@ -4766,7 +4766,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_validate_order(ptr noundef %0,
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %35 [
     i32 0, label %21
@@ -4805,7 +4805,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_validate_order(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_OrderMgr_order(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %24 [
     i8 0, label %10
@@ -4832,7 +4832,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_order(ptr noundef %0, ptr noun
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %22 [
     i32 0, label %21
@@ -4858,7 +4858,7 @@ define internal fastcc void @decode_GIAS_OrderMgr_order(ptr noundef %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_DataModelMgr_get_data_model_date(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %24 [
     i8 0, label %10
@@ -4884,7 +4884,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_data_model_date(ptr no
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %22 [
     i32 0, label %21
@@ -4910,7 +4910,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_data_model_date(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_DataModelMgr_get_alias_categories(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
     i8 0, label %10
@@ -4936,7 +4936,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_alias_categories(ptr n
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !23
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %29 [
     i32 0, label %21
@@ -4975,7 +4975,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_alias_categories(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_aliases(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %33 [
     i8 0, label %10
@@ -5003,7 +5003,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_aliases(ptr no
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !25
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %31 [
     i32 0, label %22
@@ -5044,7 +5044,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_aliases(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_attribute_name(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
     i8 0, label %10
@@ -5077,7 +5077,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_attribute_name
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %26 = load i32, ptr %25, align 8
   switch i32 %26, label %29 [
     i32 0, label %27
@@ -5104,7 +5104,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_logical_attribute_name
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_DataModelMgr_get_view_names(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %44 [
     i8 0, label %10
@@ -5130,7 +5130,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_view_names(ptr noundef
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !28
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %42 [
     i32 0, label %21
@@ -5192,7 +5192,7 @@ decode_GIAS_View_st.exit:                         ; preds = %.lr.ph.i, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_DataModelMgr_get_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
     i8 0, label %10
@@ -5220,7 +5220,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_attributes(ptr noundef
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !31
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %29 [
     i32 0, label %22
@@ -5258,7 +5258,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_attributes(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_DataModelMgr_get_queryable_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
     i8 0, label %10
@@ -5286,7 +5286,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_queryable_attributes(p
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !33
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %29 [
     i32 0, label %22
@@ -5324,7 +5324,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_queryable_attributes(p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_DataModelMgr_get_entities(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %63 [
     i8 0, label %10
@@ -5352,7 +5352,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entities(ptr noundef %
   br i1 %exitcond.not, label %decode_UCO_EntityGraph_st.exit, label %.lr.ph, !llvm.loop !35
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %61 [
     i32 0, label %22
@@ -5431,7 +5431,7 @@ decode_UCO_EntityGraph_st.exit:                   ; preds = %.lr.ph4.i, %.lr.ph,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_DataModelMgr_get_entity_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
     i8 0, label %10
@@ -5459,7 +5459,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entity_attributes(ptr 
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !38
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %29 [
     i32 0, label %22
@@ -5497,7 +5497,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_entity_attributes(ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_DataModelMgr_get_associations(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %45 [
     i8 0, label %10
@@ -5523,7 +5523,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_associations(ptr nound
   br i1 %exitcond7.not, label %.loopexit, label %.lr.ph4, !llvm.loop !40
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %43 [
     i32 0, label %21
@@ -5589,7 +5589,7 @@ decode_GIAS_Association_st.exit:                  ; preds = %.lr.ph.i, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_DataModelMgr_get_max_vertices(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %30 [
     i8 0, label %10
@@ -5615,7 +5615,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_max_vertices(ptr nound
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !43
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %28 [
     i32 0, label %21
@@ -5646,7 +5646,7 @@ define internal fastcc void @decode_GIAS_DataModelMgr_get_max_vertices(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_CreationMgr_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %47 [
     i8 0, label %10
@@ -5725,7 +5725,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create(ptr noundef %0, ptr 
   br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !46
 
 41:                                               ; preds = %7
-  %42 = getelementptr inbounds i8, ptr %5, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %43 = load i32, ptr %42, align 8
   switch i32 %43, label %45 [
     i32 0, label %44
@@ -5751,7 +5751,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_CreationMgr_create_metadata(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %37 [
     i8 0, label %10
@@ -5807,7 +5807,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create_metadata(ptr noundef
   br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !48
 
 31:                                               ; preds = %7
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load i32, ptr %32, align 8
   switch i32 %33, label %35 [
     i32 0, label %34
@@ -5833,7 +5833,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create_metadata(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_CreationMgr_create_association(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
     i8 0, label %10
@@ -5878,7 +5878,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create_association(ptr noun
   br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !50
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %27 = load i32, ptr %26, align 8
   switch i32 %27, label %29 [
     i32 0, label %28
@@ -5904,7 +5904,7 @@ define internal fastcc void @decode_GIAS_CreationMgr_create_association(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_UpdateMgr_set_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
     i8 0, label %10
@@ -5916,7 +5916,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_set_lock(ptr noundef %0, ptr 
   br label %19
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i32, ptr %12, align 8
   %switch = icmp ult i32 %13, 2
   br i1 %switch, label %19, label %14
@@ -5936,7 +5936,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_set_lock(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_UpdateMgr_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %59 [
     i8 0, label %10
@@ -6032,7 +6032,7 @@ decode_UCO_UpdateDAG_st.exit:                     ; preds = %.lr.ph.i, %.lr.ph
   br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !54
 
 53:                                               ; preds = %7
-  %54 = getelementptr inbounds i8, ptr %5, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %55 = load i32, ptr %54, align 8
   switch i32 %55, label %57 [
     i32 0, label %56
@@ -6058,7 +6058,7 @@ decode_UCO_UpdateDAG_st.exit:                     ; preds = %.lr.ph.i, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_UpdateMgr_update_by_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
     i8 0, label %10
@@ -6091,7 +6091,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_update_by_query(ptr noundef %
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
 
 21:                                               ; preds = %7
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %25 [
     i32 0, label %24
@@ -6117,7 +6117,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_update_by_query(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_UpdateMgr_release_lock(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
     i8 0, label %10
@@ -6129,7 +6129,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_release_lock(ptr noundef %0, 
   br label %19
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i32, ptr %12, align 8
   %switch = icmp ult i32 %13, 2
   br i1 %switch, label %19, label %14
@@ -6149,7 +6149,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_release_lock(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_UpdateMgr_delete_product(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
     i8 0, label %10
@@ -6161,7 +6161,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_delete_product(ptr noundef %0
   br label %19
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i32, ptr %12, align 8
   %switch = icmp ult i32 %13, 2
   br i1 %switch, label %19, label %14
@@ -6181,7 +6181,7 @@ define internal fastcc void @decode_GIAS_UpdateMgr_delete_product(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_CatalogMgr_submit_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %45 [
     i8 0, label %10
@@ -6250,7 +6250,7 @@ define internal fastcc void @decode_GIAS_CatalogMgr_submit_query(ptr noundef %0,
   br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !58
 
 39:                                               ; preds = %7
-  %40 = getelementptr inbounds i8, ptr %5, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %41 = load i32, ptr %40, align 8
   switch i32 %41, label %43 [
     i32 0, label %42
@@ -6276,7 +6276,7 @@ define internal fastcc void @decode_GIAS_CatalogMgr_submit_query(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_CatalogMgr_hit_count(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %26 [
     i8 0, label %10
@@ -6306,7 +6306,7 @@ define internal fastcc void @decode_GIAS_CatalogMgr_hit_count(ptr noundef %0, pt
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !59
 
 20:                                               ; preds = %7
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %24 [
     i32 0, label %23
@@ -6332,7 +6332,7 @@ define internal fastcc void @decode_GIAS_CatalogMgr_hit_count(ptr noundef %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_StandingQueryMgr_get_event_descriptions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
     i8 0, label %.loopexit
@@ -6340,7 +6340,7 @@ define internal fastcc void @decode_GIAS_StandingQueryMgr_get_event_descriptions
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %27 [
     i32 0, label %13
@@ -6386,7 +6386,7 @@ define internal fastcc void @decode_GIAS_StandingQueryMgr_get_event_descriptions
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %45 [
     i8 0, label %10
@@ -6456,7 +6456,7 @@ define internal fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query(
   br i1 %exitcond12.not, label %.loopexit, label %.lr.ph8, !llvm.loop !63
 
 39:                                               ; preds = %7
-  %40 = getelementptr inbounds i8, ptr %5, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %41 = load i32, ptr %40, align 8
   switch i32 %41, label %43 [
     i32 0, label %42
@@ -6482,7 +6482,7 @@ define internal fastcc void @decode_GIAS_StandingQueryMgr_submit_standing_query(
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_ProductMgr_get_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
     i8 0, label %10
@@ -6526,7 +6526,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_parameters(ptr noundef %
   br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !65
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %27 = load i32, ptr %26, align 8
   switch i32 %27, label %29 [
     i32 0, label %28
@@ -6552,7 +6552,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_parameters(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_ProductMgr_get_related_file_types(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %24 [
     i8 0, label %10
@@ -6564,7 +6564,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_related_file_types(ptr n
   br label %.loopexit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %22 [
     i32 0, label %14
@@ -6603,7 +6603,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_related_file_types(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_ProductMgr_get_related_files(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %36 [
     i8 0, label %10
@@ -6657,7 +6657,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_related_files(ptr nounde
   br i1 %exitcond6.not, label %.loopexit, label %.lr.ph4, !llvm.loop !68
 
 30:                                               ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %5, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %32 = load i32, ptr %31, align 8
   switch i32 %32, label %34 [
     i32 0, label %33
@@ -6683,7 +6683,7 @@ define internal fastcc void @decode_GIAS_ProductMgr_get_related_files(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_IngestMgr_bulk_pull(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %29 [
     i8 0, label %10
@@ -6719,7 +6719,7 @@ define internal fastcc void @decode_GIAS_IngestMgr_bulk_pull(ptr noundef %0, ptr
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %27 [
     i32 0, label %26
@@ -6745,7 +6745,7 @@ define internal fastcc void @decode_GIAS_IngestMgr_bulk_pull(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_IngestMgr_bulk_push(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
     i8 0, label %10
@@ -6785,7 +6785,7 @@ define internal fastcc void @decode_GIAS_IngestMgr_bulk_push(ptr noundef %0, ptr
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !70
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds i8, ptr %5, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %27 = load i32, ptr %26, align 8
   switch i32 %27, label %29 [
     i32 0, label %28
@@ -6811,7 +6811,7 @@ define internal fastcc void @decode_GIAS_IngestMgr_bulk_push(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_Request_get_request_description(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
     i8 0, label %19
@@ -6819,7 +6819,7 @@ define internal fastcc void @decode_GIAS_Request_get_request_description(ptr nou
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %14 [
     i32 0, label %13
@@ -6845,7 +6845,7 @@ define internal fastcc void @decode_GIAS_Request_get_request_description(ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_Request_set_user_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %17 [
     i8 0, label %10
@@ -6858,7 +6858,7 @@ define internal fastcc void @decode_GIAS_Request_set_user_info(ptr noundef %0, p
   br label %20
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load i32, ptr %13, align 8
   %switch = icmp ult i32 %14, 2
   br i1 %switch, label %20, label %15
@@ -6878,7 +6878,7 @@ define internal fastcc void @decode_GIAS_Request_set_user_info(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_Request_get_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %28 [
     i8 0, label %31
@@ -6886,7 +6886,7 @@ define internal fastcc void @decode_GIAS_Request_get_status(ptr noundef %0, ptr 
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %26 [
     i32 0, label %13
@@ -6924,7 +6924,7 @@ define internal fastcc void @decode_GIAS_Request_get_status(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_Request_get_remaining_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
     i8 0, label %30
@@ -6932,7 +6932,7 @@ define internal fastcc void @decode_GIAS_Request_get_remaining_delay(ptr noundef
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %25 [
     i32 0, label %13
@@ -6968,7 +6968,7 @@ define internal fastcc void @decode_GIAS_Request_get_remaining_delay(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_Request_cancel(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 7
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
     i8 0, label %14
@@ -6976,7 +6976,7 @@ define internal fastcc void @decode_GIAS_Request_cancel(ptr noundef %0, ptr noun
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %switch = icmp ult i32 %8, 2
   br i1 %switch, label %14, label %9
@@ -6996,7 +6996,7 @@ define internal fastcc void @decode_GIAS_Request_cancel(ptr noundef %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_Request_register_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %18 [
     i8 0, label %10
@@ -7008,7 +7008,7 @@ define internal fastcc void @decode_GIAS_Request_register_callback(ptr noundef %
   br label %21
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %16 [
     i32 0, label %14
@@ -7035,7 +7035,7 @@ define internal fastcc void @decode_GIAS_Request_register_callback(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_Request_free_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %17 [
     i8 0, label %10
@@ -7048,7 +7048,7 @@ define internal fastcc void @decode_GIAS_Request_free_callback(ptr noundef %0, p
   br label %20
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load i32, ptr %13, align 8
   %switch = icmp ult i32 %14, 2
   br i1 %switch, label %20, label %15
@@ -7068,7 +7068,7 @@ define internal fastcc void @decode_GIAS_Request_free_callback(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_Request_get_request_manager(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
     i8 0, label %19
@@ -7076,7 +7076,7 @@ define internal fastcc void @decode_GIAS_Request_get_request_manager(ptr noundef
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %14 [
     i32 0, label %13
@@ -7102,7 +7102,7 @@ define internal fastcc void @decode_GIAS_Request_get_request_manager(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_OrderRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -7110,7 +7110,7 @@ define internal fastcc void @decode_GIAS_OrderRequest_complete(ptr noundef %0, p
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -7141,7 +7141,7 @@ define internal fastcc void @decode_GIAS_OrderRequest_complete(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_pause(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 7
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
     i8 0, label %14
@@ -7149,7 +7149,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_pause(ptr nound
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %switch = icmp ult i32 %8, 2
   br i1 %switch, label %14, label %9
@@ -7169,7 +7169,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_pause(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_resume(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 7
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
     i8 0, label %14
@@ -7177,7 +7177,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_resume(ptr noun
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %switch = icmp ult i32 %8, 2
   br i1 %switch, label %14, label %9
@@ -7197,7 +7197,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_resume(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
     i8 0, label %.loopexit
@@ -7205,7 +7205,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete_list(p
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %25 [
     i32 0, label %13
@@ -7248,7 +7248,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete_list(p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -7256,7 +7256,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete(ptr no
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -7287,7 +7287,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryOrderRequest_complete(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_CreateRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
     i8 0, label %.loopexit
@@ -7295,7 +7295,7 @@ define internal fastcc void @decode_GIAS_CreateRequest_complete(ptr noundef %0, 
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %25 [
     i32 0, label %13
@@ -7338,7 +7338,7 @@ define internal fastcc void @decode_GIAS_CreateRequest_complete(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_CreateMetaDataRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -7346,7 +7346,7 @@ define internal fastcc void @decode_GIAS_CreateMetaDataRequest_complete(ptr noun
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -7377,7 +7377,7 @@ define internal fastcc void @decode_GIAS_CreateMetaDataRequest_complete(ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_UpdateRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -7385,7 +7385,7 @@ define internal fastcc void @decode_GIAS_UpdateRequest_complete(ptr noundef %0, 
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -7415,7 +7415,7 @@ define internal fastcc void @decode_GIAS_UpdateRequest_complete(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitQueryRequest_set_number_of_hits(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %10
@@ -7431,7 +7431,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_set_number_of_hits(p
   br label %24
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i32, ptr %17, align 8
   %switch = icmp ult i32 %18, 2
   br i1 %switch, label %24, label %19
@@ -7451,7 +7451,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_set_number_of_hits(p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_DAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
     i8 0, label %.loopexit
@@ -7459,7 +7459,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_DAG_results
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %25 [
     i32 0, label %13
@@ -7502,7 +7502,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_DAG_results
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_stringDAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
     i8 0, label %.loopexit
@@ -7510,7 +7510,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_stringDAG_r
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %25 [
     i32 0, label %13
@@ -7553,7 +7553,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_stringDAG_r
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_XML_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %25
@@ -7561,7 +7561,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_XML_results
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %20 [
     i32 0, label %13
@@ -7593,7 +7593,7 @@ define internal fastcc void @decode_GIAS_SubmitQueryRequest_complete_XML_results
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_set_number_of_hits(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %10
@@ -7609,7 +7609,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_set_number_o
   br label %24
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i32, ptr %17, align 8
   %switch = icmp ult i32 %18, 2
   br i1 %switch, label %24, label %19
@@ -7629,7 +7629,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_set_number_o
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_hits(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -7637,7 +7637,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_o
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -7667,7 +7667,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_o
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_hits_in_interval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
     i8 0, label %10
@@ -7683,7 +7683,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_o
   br label %30
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i32, ptr %17, align 8
   switch i32 %18, label %25 [
     i32 0, label %19
@@ -7713,7 +7713,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_o
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_of_intervals(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -7721,7 +7721,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_o
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -7751,7 +7751,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_number_o
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_all(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 7
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
     i8 0, label %14
@@ -7759,7 +7759,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_all(pt
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %switch = icmp ult i32 %8, 2
   br i1 %switch, label %14, label %9
@@ -7779,7 +7779,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_all(pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_intervals(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %10
@@ -7795,7 +7795,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_interv
   br label %24
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load i32, ptr %17, align 8
   %switch = icmp ult i32 %18, 2
   br i1 %switch, label %24, label %19
@@ -7815,7 +7815,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_interv
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_before(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %33 [
     i8 0, label %10
@@ -7843,7 +7843,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_before
   br label %36
 
 28:                                               ; preds = %7
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = load i32, ptr %29, align 8
   %switch = icmp ult i32 %30, 2
   br i1 %switch, label %36, label %31
@@ -7863,7 +7863,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_clear_before
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_pause(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 7
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
     i8 0, label %14
@@ -7871,7 +7871,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_pause(ptr no
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %switch = icmp ult i32 %8, 2
   br i1 %switch, label %14, label %9
@@ -7891,7 +7891,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_pause(ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_resume(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 7
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 7
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %11 [
     i8 0, label %14
@@ -7899,7 +7899,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_resume(ptr n
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %switch = icmp ult i32 %8, 2
   br i1 %switch, label %14, label %9
@@ -7919,7 +7919,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_resume(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_last_executed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
     i8 0, label %19
@@ -7927,7 +7927,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_las
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %14 [
     i32 0, label %13
@@ -7953,7 +7953,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_las
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_next_execution(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %16 [
     i8 0, label %19
@@ -7961,7 +7961,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_nex
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %14 [
     i32 0, label %13
@@ -7987,7 +7987,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_get_time_nex
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_DAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
     i8 0, label %.loopexit
@@ -7995,7 +7995,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_DAG
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %25 [
     i32 0, label %13
@@ -8038,7 +8038,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_DAG
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_stringDAG_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %27 [
     i8 0, label %.loopexit
@@ -8046,7 +8046,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_str
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %25 [
     i32 0, label %13
@@ -8089,7 +8089,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_str
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_XML_results(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %22 [
     i8 0, label %25
@@ -8097,7 +8097,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_XML
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %20 [
     i32 0, label %13
@@ -8129,7 +8129,7 @@ define internal fastcc void @decode_GIAS_SubmitStandingQueryRequest_complete_XML
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_SetAvailabilityRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -8137,7 +8137,7 @@ define internal fastcc void @decode_GIAS_SetAvailabilityRequest_complete(ptr nou
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -8167,7 +8167,7 @@ define internal fastcc void @decode_GIAS_SetAvailabilityRequest_complete(ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_HitCountRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %26 [
     i8 0, label %29
@@ -8175,7 +8175,7 @@ define internal fastcc void @decode_GIAS_HitCountRequest_complete(ptr noundef %0
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %24 [
     i32 0, label %13
@@ -8210,7 +8210,7 @@ define internal fastcc void @decode_GIAS_HitCountRequest_complete(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_GetParametersRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -8218,7 +8218,7 @@ define internal fastcc void @decode_GIAS_GetParametersRequest_complete(ptr nound
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -8249,7 +8249,7 @@ define internal fastcc void @decode_GIAS_GetParametersRequest_complete(ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_GetParametersRequest_complete_StringDAG(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -8257,7 +8257,7 @@ define internal fastcc void @decode_GIAS_GetParametersRequest_complete_StringDAG
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -8288,7 +8288,7 @@ define internal fastcc void @decode_GIAS_GetParametersRequest_complete_StringDAG
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_IngestRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -8296,7 +8296,7 @@ define internal fastcc void @decode_GIAS_IngestRequest_complete(ptr noundef %0, 
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -8326,7 +8326,7 @@ define internal fastcc void @decode_GIAS_IngestRequest_complete(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_GetRelatedFilesRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %28 [
     i8 0, label %.loopexit
@@ -8334,7 +8334,7 @@ define internal fastcc void @decode_GIAS_GetRelatedFilesRequest_complete(ptr nou
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %26 [
     i32 0, label %13
@@ -8378,7 +8378,7 @@ define internal fastcc void @decode_GIAS_GetRelatedFilesRequest_complete(ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_CreateAssociationRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -8386,7 +8386,7 @@ define internal fastcc void @decode_GIAS_CreateAssociationRequest_complete(ptr n
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -8416,7 +8416,7 @@ define internal fastcc void @decode_GIAS_CreateAssociationRequest_complete(ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_GIAS_UpdateByQueryRequest_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %21 [
     i8 0, label %24
@@ -8424,7 +8424,7 @@ define internal fastcc void @decode_GIAS_UpdateByQueryRequest_complete(ptr nound
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %19 [
     i32 0, label %13
@@ -9062,7 +9062,7 @@ define internal fastcc void @decode_GIAS_AttributeInformation_st(ptr noundef %0,
   br i1 %or.cond.i, label %135, label %decode_GIAS_Domain_un.exit
 
 135:                                              ; preds = %127
-  %136 = getelementptr inbounds i8, ptr %1, i64 408
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %137 = load ptr, ptr %136, align 8
   call void @get_CDR_octet_seq(ptr noundef %137, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %3, i32 noundef %128) #4
   %138 = load ptr, ptr %136, align 8

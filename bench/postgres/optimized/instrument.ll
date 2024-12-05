@@ -48,12 +48,12 @@ define dso_local ptr @InstrAlloc(i32 noundef %0, i32 noundef %1, i1 noundef zero
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %17 = getelementptr %struct.Instrumentation, ptr %7, i64 %indvars.iv
-  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store i8 %12, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %17, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store i8 %14, ptr %19, align 2
   store i8 %15, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 3
   store i8 %4, ptr %20, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -68,12 +68,12 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @InstrInit(ptr nocapture noundef writeonly initializes((0, 400)) %0, i32 noundef %1) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = trunc i32 %1 to i8
   %5 = lshr i8 %4, 1
   %6 = and i8 %5, 1
   store i8 %6, ptr %3, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = lshr i8 %4, 3
   %9 = and i8 %8, 1
   store i8 %9, ptr %7, align 2
@@ -93,7 +93,7 @@ define dso_local void @InstrStartNode(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %4, label %5, label %19
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %16
@@ -103,7 +103,7 @@ define dso_local void @InstrStartNode(ptr nocapture noundef %0) local_unnamed_ad
   %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #13
   %11 = load i64, ptr %2, align 8
   %12 = mul i64 %11, 1000000000
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %12, %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -118,24 +118,24 @@ define dso_local void @InstrStartNode(ptr nocapture noundef %0) local_unnamed_ad
   unreachable
 
 19:                                               ; preds = %9, %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %24, ptr noundef nonnull align 8 dereferenceable(128) @pgBufferUsage, i64 128, i1 false)
   br label %25
 
 25:                                               ; preds = %23, %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %27 = load i8, ptr %26, align 2
   %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) @pgWalUsage, i64 24, i1 false)
   br label %31
 
@@ -156,7 +156,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load double, ptr %4, align 8
   %6 = fadd double %1, %5
   store double %6, ptr %4, align 8
@@ -165,7 +165,7 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
   br i1 %8, label %9, label %28
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %16
@@ -182,13 +182,13 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
   %17 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #13
   %18 = load i64, ptr %3, align 8
   %19 = mul i64 %18, 1000000000
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %19, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %23 = load i64, ptr %10, align 8
   %24 = sub i64 %22, %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %24, %26
   store i64 %27, ptr %25, align 8
@@ -196,31 +196,31 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
   br label %28
 
 28:                                               ; preds = %16, %2
-  %29 = getelementptr inbounds i8, ptr %0, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 248
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @BufferUsageAccumDiff(ptr noundef nonnull %33, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull %34)
   br label %35
 
 35:                                               ; preds = %32, %28
-  %36 = getelementptr inbounds i8, ptr %0, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %37 = load i8, ptr %36, align 2
   %38 = trunc i8 %37 to i1
   br i1 %38, label %39, label %61
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 376
-  %41 = getelementptr inbounds i8, ptr %0, i64 168
-  %42 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 16), align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 184
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 16), align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = load i64, ptr %43, align 8
   %45 = sub i64 %42, %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 392
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %45, %47
   store i64 %48, ptr %46, align 8
@@ -230,18 +230,18 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
   %52 = load i64, ptr %40, align 8
   %53 = add i64 %51, %52
   store i64 %53, ptr %40, align 8
-  %54 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 8), align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 176
+  %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %56 = load i64, ptr %55, align 8
   %57 = sub i64 %54, %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 384
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %57, %59
   store i64 %60, ptr %58, align 8
   br label %61
 
 61:                                               ; preds = %39, %35
-  %62 = getelementptr inbounds i8, ptr %0, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
   br i1 %64, label %66, label %65
@@ -251,7 +251,7 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
   br label %.sink.split
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %0, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %68 = load i8, ptr %67, align 1
   %69 = trunc i8 %68 to i1
   %70 = fcmp olt double %5, 1.000000e+00
@@ -259,11 +259,11 @@ define dso_local void @InstrStopNode(ptr nocapture noundef %0, double noundef %1
   br i1 %or.cond, label %.sink.split, label %76
 
 .sink.split:                                      ; preds = %66, %65
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = sitofp i64 %72 to double
   %74 = fdiv double %73, 1.000000e+09
-  %75 = getelementptr inbounds i8, ptr %0, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %74, ptr %75, align 8
   br label %76
 
@@ -279,138 +279,138 @@ define dso_local void @BufferUsageAccumDiff(ptr nocapture noundef %0, ptr nocapt
   %7 = load i64, ptr %0, align 8
   %8 = add i64 %6, %7
   store i64 %8, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = sub i64 %10, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %13, %15
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = sub i64 %18, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %21, %23
   store i64 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = sub i64 %26, %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %29, %31
   store i64 %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %36 = load i64, ptr %35, align 8
   %37 = sub i64 %34, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %37, %39
   store i64 %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %44 = load i64, ptr %43, align 8
   %45 = sub i64 %42, %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %45, %47
   store i64 %48, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %52 = load i64, ptr %51, align 8
   %53 = sub i64 %50, %52
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %53, %55
   store i64 %56, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %60 = load i64, ptr %59, align 8
   %61 = sub i64 %58, %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %61, %63
   store i64 %64, ptr %62, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %68 = load i64, ptr %67, align 8
   %69 = sub i64 %66, %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %69, %71
   store i64 %72, ptr %70, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %76 = load i64, ptr %75, align 8
   %77 = sub i64 %74, %76
-  %78 = getelementptr inbounds i8, ptr %0, i64 72
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %77, %79
   store i64 %80, ptr %78, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %2, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %84 = load i64, ptr %83, align 8
   %85 = sub i64 %82, %84
-  %86 = getelementptr inbounds i8, ptr %0, i64 80
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %85, %87
   store i64 %88, ptr %86, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 88
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %2, i64 88
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %92 = load i64, ptr %91, align 8
   %93 = sub i64 %90, %92
-  %94 = getelementptr inbounds i8, ptr %0, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %93, %95
   store i64 %96, ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 96
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %2, i64 96
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %100 = load i64, ptr %99, align 8
   %101 = sub i64 %98, %100
-  %102 = getelementptr inbounds i8, ptr %0, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %103 = load i64, ptr %102, align 8
   %104 = add i64 %101, %103
   store i64 %104, ptr %102, align 8
-  %105 = getelementptr inbounds i8, ptr %1, i64 104
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %2, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %108 = load i64, ptr %107, align 8
   %109 = sub i64 %106, %108
-  %110 = getelementptr inbounds i8, ptr %0, i64 104
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %111 = load i64, ptr %110, align 8
   %112 = add i64 %109, %111
   store i64 %112, ptr %110, align 8
-  %113 = getelementptr inbounds i8, ptr %1, i64 112
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %2, i64 112
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %116 = load i64, ptr %115, align 8
   %117 = sub i64 %114, %116
-  %118 = getelementptr inbounds i8, ptr %0, i64 112
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %119 = load i64, ptr %118, align 8
   %120 = add i64 %117, %119
   store i64 %120, ptr %118, align 8
-  %121 = getelementptr inbounds i8, ptr %1, i64 120
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %2, i64 120
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %124 = load i64, ptr %123, align 8
   %125 = sub i64 %122, %124
-  %126 = getelementptr inbounds i8, ptr %0, i64 120
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %127 = load i64, ptr %126, align 8
   %128 = add i64 %125, %127
   store i64 %128, ptr %126, align 8
@@ -419,12 +419,12 @@ define dso_local void @BufferUsageAccumDiff(ptr nocapture noundef %0, ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @WalUsageAccumDiff(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %5, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %8, %10
   store i64 %11, ptr %9, align 8
@@ -434,12 +434,12 @@ define dso_local void @WalUsageAccumDiff(ptr nocapture noundef %0, ptr nocapture
   %15 = load i64, ptr %0, align 8
   %16 = add i64 %14, %15
   store i64 %16, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = sub i64 %18, %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %21, %23
   store i64 %24, ptr %22, align 8
@@ -448,7 +448,7 @@ define dso_local void @WalUsageAccumDiff(ptr nocapture noundef %0, ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @InstrUpdateTupleCount(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load double, ptr %3, align 8
   %5 = fadd double %1, %4
   store double %5, ptr %3, align 8
@@ -457,13 +457,13 @@ define dso_local void @InstrUpdateTupleCount(ptr nocapture noundef %0, double no
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InstrEndLoop(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %33
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %12, label %9
@@ -476,27 +476,27 @@ define dso_local void @InstrEndLoop(ptr nocapture noundef %0) local_unnamed_addr
   unreachable
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = sitofp i64 %14 to double
   %16 = fdiv double %15, 1.000000e+09
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %20 = load double, ptr %19, align 8
   %21 = fadd double %18, %20
   store double %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %23 = load double, ptr %22, align 8
   %24 = fadd double %16, %23
   store double %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 208
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %28 = load double, ptr %27, align 8
   %29 = fadd double %26, %28
   store double %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 224
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %31 = load double, ptr %30, align 8
   %32 = fadd double %31, 1.000000e+00
   store double %32, ptr %30, align 8
@@ -510,10 +510,10 @@ define dso_local void @InstrEndLoop(ptr nocapture noundef %0) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @InstrAggNode(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %5, label %14, label %9
@@ -523,9 +523,9 @@ define dso_local void @InstrAggNode(ptr nocapture noundef %0, ptr nocapture noun
 
 10:                                               ; preds = %9
   store i8 1, ptr %3, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %12, ptr %13, align 8
   br label %22
 
@@ -533,9 +533,9 @@ define dso_local void @InstrAggNode(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %8, label %15, label %22
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load double, ptr %18, align 8
   %20 = fcmp ogt double %17, %19
   br i1 %20, label %21, label %22
@@ -545,176 +545,176 @@ define dso_local void @InstrAggNode(ptr nocapture noundef %0, ptr nocapture noun
   br label %22
 
 22:                                               ; preds = %9, %14, %15, %21, %10
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %24
   store i64 %27, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load double, ptr %30, align 8
   %32 = fadd double %29, %31
   store double %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %34 = load double, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 192
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %36 = load double, ptr %35, align 8
   %37 = fadd double %34, %36
   store double %37, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 200
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 200
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %41 = load double, ptr %40, align 8
   %42 = fadd double %39, %41
   store double %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 208
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 208
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %46 = load double, ptr %45, align 8
   %47 = fadd double %44, %46
   store double %47, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 216
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 216
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %51 = load double, ptr %50, align 8
   %52 = fadd double %49, %51
   store double %52, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 224
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %54 = load double, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 224
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %56 = load double, ptr %55, align 8
   %57 = fadd double %54, %56
   store double %57, ptr %55, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 232
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %59 = load double, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 232
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %61 = load double, ptr %60, align 8
   %62 = fadd double %59, %61
   store double %62, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 240
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %64 = load double, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 240
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %66 = load double, ptr %65, align 8
   %67 = fadd double %64, %66
   store double %67, ptr %65, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %69 = load i8, ptr %68, align 1
   %70 = trunc i8 %69 to i1
   br i1 %70, label %71, label %152
 
 71:                                               ; preds = %22
-  %72 = getelementptr inbounds i8, ptr %0, i64 248
-  %73 = getelementptr inbounds i8, ptr %1, i64 248
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %74 = load i64, ptr %73, align 8
   %75 = load i64, ptr %72, align 8
   %76 = add i64 %75, %74
   store i64 %76, ptr %72, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 256
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 256
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %80 = load i64, ptr %79, align 8
   %81 = add i64 %80, %78
   store i64 %81, ptr %79, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 264
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 264
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %85 = load i64, ptr %84, align 8
   %86 = add i64 %85, %83
   store i64 %86, ptr %84, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 272
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 272
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %90 = load i64, ptr %89, align 8
   %91 = add i64 %90, %88
   store i64 %91, ptr %89, align 8
-  %92 = getelementptr inbounds i8, ptr %1, i64 280
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 280
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %95, %93
   store i64 %96, ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 288
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %98 = load i64, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 288
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %100 = load i64, ptr %99, align 8
   %101 = add i64 %100, %98
   store i64 %101, ptr %99, align 8
-  %102 = getelementptr inbounds i8, ptr %1, i64 296
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %103 = load i64, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 296
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %105 = load i64, ptr %104, align 8
   %106 = add i64 %105, %103
   store i64 %106, ptr %104, align 8
-  %107 = getelementptr inbounds i8, ptr %1, i64 304
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 304
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %110 = load i64, ptr %109, align 8
   %111 = add i64 %110, %108
   store i64 %111, ptr %109, align 8
-  %112 = getelementptr inbounds i8, ptr %1, i64 312
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %113 = load i64, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 312
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %115 = load i64, ptr %114, align 8
   %116 = add i64 %115, %113
   store i64 %116, ptr %114, align 8
-  %117 = getelementptr inbounds i8, ptr %1, i64 320
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %118 = load i64, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 320
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %120 = load i64, ptr %119, align 8
   %121 = add i64 %120, %118
   store i64 %121, ptr %119, align 8
-  %122 = getelementptr inbounds i8, ptr %1, i64 328
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %123 = load i64, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 328
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %125 = load i64, ptr %124, align 8
   %126 = add i64 %125, %123
   store i64 %126, ptr %124, align 8
-  %127 = getelementptr inbounds i8, ptr %1, i64 336
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %128 = load i64, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 336
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %130 = load i64, ptr %129, align 8
   %131 = add i64 %130, %128
   store i64 %131, ptr %129, align 8
-  %132 = getelementptr inbounds i8, ptr %1, i64 344
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 344
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %135 = load i64, ptr %134, align 8
   %136 = add i64 %135, %133
   store i64 %136, ptr %134, align 8
-  %137 = getelementptr inbounds i8, ptr %1, i64 352
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %138 = load i64, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %0, i64 352
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %140 = load i64, ptr %139, align 8
   %141 = add i64 %140, %138
   store i64 %141, ptr %139, align 8
-  %142 = getelementptr inbounds i8, ptr %1, i64 360
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 360
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %145 = load i64, ptr %144, align 8
   %146 = add i64 %145, %143
   store i64 %146, ptr %144, align 8
-  %147 = getelementptr inbounds i8, ptr %1, i64 368
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %148 = load i64, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %0, i64 368
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %150 = load i64, ptr %149, align 8
   %151 = add i64 %150, %148
   store i64 %151, ptr %149, align 8
   br label %152
 
 152:                                              ; preds = %71, %22
-  %153 = getelementptr inbounds i8, ptr %0, i64 2
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %154 = load i8, ptr %153, align 2
   %155 = trunc i8 %154 to i1
   br i1 %155, label %156, label %172
 
 156:                                              ; preds = %152
-  %157 = getelementptr inbounds i8, ptr %0, i64 376
-  %158 = getelementptr inbounds i8, ptr %1, i64 376
-  %159 = getelementptr inbounds i8, ptr %1, i64 392
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 376
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %160 = load i64, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %0, i64 392
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %162 = load i64, ptr %161, align 8
   %163 = add i64 %162, %160
   store i64 %163, ptr %161, align 8
@@ -722,9 +722,9 @@ define dso_local void @InstrAggNode(ptr nocapture noundef %0, ptr nocapture noun
   %165 = load i64, ptr %157, align 8
   %166 = add i64 %165, %164
   store i64 %166, ptr %157, align 8
-  %167 = getelementptr inbounds i8, ptr %1, i64 384
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %168 = load i64, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %0, i64 384
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %170 = load i64, ptr %169, align 8
   %171 = add i64 %170, %168
   store i64 %171, ptr %169, align 8
@@ -746,19 +746,19 @@ define dso_local void @InstrEndParallelQuery(ptr nocapture noundef initializes((
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   tail call void @BufferUsageAccumDiff(ptr noundef %0, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull @save_pgBufferUsage)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 16), align 8
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @save_pgWalUsage, i64 16), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 16), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @save_pgWalUsage, i64 16), align 8
   %5 = sub i64 %3, %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %5, ptr %6, align 8
   %7 = load i64, ptr @pgWalUsage, align 8
   %8 = load i64, ptr @save_pgWalUsage, align 8
   %9 = sub i64 %7, %8
   store i64 %9, ptr %1, align 8
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 8), align 8
-  %11 = load i64, ptr getelementptr inbounds (i8, ptr @save_pgWalUsage, i64 8), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
+  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @save_pgWalUsage, i64 8), align 8
   %12 = sub i64 %10, %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %12, ptr %13, align 8
   ret void
 }
@@ -769,95 +769,95 @@ define dso_local void @InstrAccumParallelQuery(ptr nocapture noundef readonly %0
   %4 = load i64, ptr @pgBufferUsage, align 8
   %5 = add i64 %4, %3
   store i64 %5, ptr @pgBufferUsage, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 8), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 8), align 8
   %9 = add i64 %8, %7
-  store i64 %9, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 8), align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 8), align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 8
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 16), align 8
   %13 = add i64 %12, %11
-  store i64 %13, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 16), align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 16), align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 24), align 8
+  %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
   %17 = add i64 %16, %15
-  store i64 %17, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 24), align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %17, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %18, align 8
-  %20 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 32), align 8
+  %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 32), align 8
   %21 = add i64 %20, %19
-  store i64 %21, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 32), align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %21, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 32), align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i64, ptr %22, align 8
-  %24 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 40), align 8
+  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 40), align 8
   %25 = add i64 %24, %23
-  store i64 %25, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 40), align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %25, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 40), align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load i64, ptr %26, align 8
-  %28 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 48), align 8
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 48), align 8
   %29 = add i64 %28, %27
-  store i64 %29, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 48), align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 %29, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 48), align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load i64, ptr %30, align 8
-  %32 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 56), align 8
+  %32 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
   %33 = add i64 %32, %31
-  store i64 %33, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 56), align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %33, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load i64, ptr %34, align 8
-  %36 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 64), align 8
+  %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 64), align 8
   %37 = add i64 %36, %35
-  store i64 %37, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 64), align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %37, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 64), align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = load i64, ptr %38, align 8
-  %40 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 72), align 8
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 72), align 8
   %41 = add i64 %40, %39
-  store i64 %41, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 72), align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  store i64 %41, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 72), align 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %43 = load i64, ptr %42, align 8
-  %44 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 80), align 8
+  %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 80), align 8
   %45 = add i64 %44, %43
-  store i64 %45, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 80), align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %45, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 80), align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %47 = load i64, ptr %46, align 8
-  %48 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 88), align 8
+  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 88), align 8
   %49 = add i64 %48, %47
-  store i64 %49, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 88), align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 %49, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 88), align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %51 = load i64, ptr %50, align 8
-  %52 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 96), align 8
+  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 96), align 8
   %53 = add i64 %52, %51
-  store i64 %53, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 96), align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 104
+  store i64 %53, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 96), align 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %55 = load i64, ptr %54, align 8
-  %56 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 104), align 8
+  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 104), align 8
   %57 = add i64 %56, %55
-  store i64 %57, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 104), align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 112
+  store i64 %57, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 104), align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %59 = load i64, ptr %58, align 8
-  %60 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 112), align 8
+  %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 112), align 8
   %61 = add i64 %60, %59
-  store i64 %61, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 112), align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 120
+  store i64 %61, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 112), align 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %63 = load i64, ptr %62, align 8
-  %64 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 120), align 8
+  %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 120), align 8
   %65 = add i64 %64, %63
-  store i64 %65, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 120), align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  store i64 %65, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 120), align 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i64, ptr %66, align 8
-  %68 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 16), align 8
+  %68 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 16), align 8
   %69 = add i64 %68, %67
-  store i64 %69, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 16), align 8
+  store i64 %69, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 16), align 8
   %70 = load i64, ptr %1, align 8
   %71 = load i64, ptr @pgWalUsage, align 8
   %72 = add i64 %71, %70
   store i64 %72, ptr @pgWalUsage, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = load i64, ptr %73, align 8
-  %75 = load i64, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 8), align 8
+  %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
   %76 = add i64 %75, %74
-  store i64 %76, ptr getelementptr inbounds (i8, ptr @pgWalUsage, i64 8), align 8
+  store i64 %76, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
   ret void
 }
 

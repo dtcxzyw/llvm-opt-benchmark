@@ -21,7 +21,7 @@ define i64 @strtoull(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) l
   ]
 
 9:                                                ; preds = %6, %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %10, ptr %4, align 8
   br label %11
 
@@ -69,7 +69,7 @@ define i64 @strtoull(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) l
   %34 = sext i32 %28 to i64
   %35 = add i64 %33, %34
   %36 = load ptr, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %37, ptr %4, align 8
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
@@ -86,7 +86,7 @@ define i64 @strtoull(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) l
 
 .lr.ph41:                                         ; preds = %.loopexit, %.lr.ph41
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store ptr %46, ptr %4, align 8
   %47 = load i8, ptr %46, align 1
   %48 = sext i8 %47 to i32

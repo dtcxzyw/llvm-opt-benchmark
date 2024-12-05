@@ -41,7 +41,7 @@ define hidden zeroext range(i8 0, 2) i8 @GetApplicationHome(ptr noundef %0, i32 
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
   %.012.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %9, %4 ]
-  %10 = getelementptr inbounds i8, ptr %.012.i.i, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 5
   %11 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) @.str.10) #17
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %findLastPathComponent.exit17.thread.sink.split.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -53,7 +53,7 @@ define hidden zeroext range(i8 0, 2) i8 @GetApplicationHome(ptr noundef %0, i32 
 
 .lr.ph.i13.i:                                     ; preds = %12, %.lr.ph.i13.i
   %.012.i14.i = phi ptr [ %15, %.lr.ph.i13.i ], [ %13, %12 ]
-  %14 = getelementptr inbounds i8, ptr %.012.i14.i, i64 5
+  %14 = getelementptr inbounds nuw i8, ptr %.012.i14.i, i64 5
   %15 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) @.str.9) #17
   %.not.i15.i = icmp eq ptr %15, null
   br i1 %.not.i15.i, label %findLastPathComponent.exit17.thread.sink.split.i, label %.lr.ph.i13.i, !llvm.loop !6
@@ -93,7 +93,7 @@ define hidden zeroext range(i8 0, 2) i8 @GetApplicationHomeFromDll(ptr noundef %
 
 .lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
   %.012.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %10, %9 ]
-  %11 = getelementptr inbounds i8, ptr %.012.i.i, i64 5
+  %11 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 5
   %12 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) @.str.9) #17
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %findLastPathComponent.exit17.thread.sink.split.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -105,7 +105,7 @@ define hidden zeroext range(i8 0, 2) i8 @GetApplicationHomeFromDll(ptr noundef %
 
 .lr.ph.i13.i:                                     ; preds = %13, %.lr.ph.i13.i
   %.012.i14.i = phi ptr [ %16, %.lr.ph.i13.i ], [ %14, %13 ]
-  %15 = getelementptr inbounds i8, ptr %.012.i14.i, i64 5
+  %15 = getelementptr inbounds nuw i8, ptr %.012.i14.i, i64 5
   %16 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) @.str.10) #17
   %.not.i15.i = icmp eq ptr %16, null
   br i1 %.not.i15.i, label %findLastPathComponent.exit17.thread.sink.split.i, label %.lr.ph.i13.i, !llvm.loop !6
@@ -135,7 +135,7 @@ define hidden noundef ptr @FindExecName(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = tail call fastcc ptr @Resolve(ptr noundef nonnull @.str.1, ptr noundef nonnull %7)
   br label %39
 
@@ -185,12 +185,12 @@ define hidden noundef ptr @FindExecName(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 27:                                               ; preds = %.preheader
-  %28 = getelementptr inbounds i8, ptr %.129, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.129, i64 1
   %.pr = load i8, ptr %28, align 1
   br label %.preheader, !llvm.loop !8
 
 29:                                               ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %.129, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.129, i64 1
   store i8 0, ptr %.129, align 1
   %.pre = load i8, ptr %.028, align 1
   br label %.loopexit
@@ -237,7 +237,7 @@ define internal fastcc noundef ptr @Resolve(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not.i, label %8, label %ProgramExists.exit.thread
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 61440
   %12 = icmp eq i32 %11, 16384
@@ -344,7 +344,7 @@ declare ptr @__errno_location() local_unnamed_addr #10
 ; Function Attrs: nounwind uwtable
 define void @JLI_ReportExceptionDescription(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull %0) #16
   ret void
@@ -385,8 +385,8 @@ define hidden range(i32 -1, 1) i32 @UnsetEnv(ptr noundef readonly %0) local_unna
   br i1 %14, label %15, label %match_noeq.exit.i
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
-  %17 = getelementptr inbounds i8, ptr %.05.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 1
   %18 = icmp eq i8 %12, 61
   br i1 %18, label %match_noeq.exit.thread.i.preheader, label %11, !llvm.loop !10
 
@@ -401,7 +401,7 @@ match_noeq.exit.i:                                ; preds = %11
 
 21:                                               ; preds = %match_noeq.exit.i
   %22 = add nuw nsw i64 %.031.i, 1
-  %23 = getelementptr inbounds ptr, ptr %8, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not14.i = icmp eq ptr %24, null
   br i1 %.not14.i, label %borrowed_unsetenv.exit, label %.preheader.i, !llvm.loop !11
@@ -410,12 +410,12 @@ match_noeq.exit.thread.i:                         ; preds = %match_noeq.exit.thr
   %25 = phi ptr [ %30, %match_noeq.exit.thread.i ], [ %8, %match_noeq.exit.thread.i.preheader ]
   %.1.i = phi i64 [ %26, %match_noeq.exit.thread.i ], [ %.031.i, %match_noeq.exit.thread.i.preheader ]
   %26 = add nuw nsw i64 %.1.i, 1
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %.1.i
+  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %.1.i
   store ptr %28, ptr %29, align 8
   %30 = load ptr, ptr @environ, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %26
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %26
   %32 = load ptr, ptr %31, align 8
   %.not16.i = icmp eq ptr %32, null
   br i1 %.not16.i, label %borrowed_unsetenv.exit, label %match_noeq.exit.thread.i, !llvm.loop !12
@@ -495,7 +495,7 @@ define hidden i64 @CurrentTimeMicros() local_unnamed_addr #13 {
 3:                                                ; preds = %0
   %4 = load i64, ptr %1, align 8
   %5 = mul nsw i64 %4, 1000000
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add nsw i64 %5, %7
   br label %9

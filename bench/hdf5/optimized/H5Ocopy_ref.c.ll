@@ -109,7 +109,7 @@ define range(i32 -1, 1) i32 @H5O_copy_expand_ref(ptr noundef %0, ptr noundef %1,
 33:                                               ; preds = %7
   %34 = call ptr @H5G_rootof(ptr noundef %4) #8
   %35 = call ptr @H5G_nameof(ptr noundef %34) #8
-  %36 = getelementptr inbounds i8, ptr %23, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %35, ptr %36, align 8
   %37 = icmp eq ptr %35, null
   br i1 %37, label %38, label %42
@@ -145,9 +145,9 @@ define range(i32 -1, 1) i32 @H5O_copy_expand_ref(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %H5O__copy_expand_ref_object1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %22, i64 8
-  %51 = getelementptr inbounds i8, ptr %20, i64 8
-  %52 = getelementptr inbounds i8, ptr %21, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %53
 
 53:                                               ; preds = %105, %.lr.ph.i
@@ -271,8 +271,8 @@ H5O__copy_expand_ref_object1.exit:                ; preds = %105, %46
   br i1 %.not.i27, label %H5O__copy_expand_ref_region1.exit, label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %111
-  %112 = getelementptr inbounds i8, ptr %22, i64 8
-  %113 = getelementptr inbounds i8, ptr %21, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %114
 
 114:                                              ; preds = %158, %.lr.ph.i28
@@ -488,9 +488,9 @@ H5O__copy_expand_ref_region1.exit:                ; preds = %158, %111
   br i1 %.not183.i, label %._crit_edge.i, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %.preheader.i
-  %227 = getelementptr inbounds i8, ptr %22, i64 8
-  %228 = getelementptr inbounds i8, ptr %11, i64 8
-  %229 = getelementptr inbounds i8, ptr %21, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %234
 
 230:                                              ; preds = %223
@@ -776,7 +776,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5O__copy_obj_by_ref(ptr 
   br label %37
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp ne i64 %17, -1
   %19 = icmp ne i32 %9, 0
@@ -785,16 +785,16 @@ define internal fastcc range(i32 -1, -2147483648) i32 @H5O__copy_obj_by_ref(ptr 
 
 20:                                               ; preds = %15
   store ptr %7, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %6, ptr %21, align 8
   %22 = call i32 @H5G_loc_reset(ptr noundef nonnull %8) #8
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %7, align 8
   %24 = load i64, ptr %16, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %24, ptr %25, align 8
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 80, ptr noundef nonnull @.str.13, i64 noundef %24) #8
-  %27 = getelementptr inbounds i8, ptr %3, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %28 = load i64, ptr %27, align 8
   %29 = call i32 @H5L_link(ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %8, i64 noundef %28) #8
   %30 = icmp slt i32 %29, 0

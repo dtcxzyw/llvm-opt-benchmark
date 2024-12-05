@@ -54,7 +54,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_re
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_offchannel_stop_vifs(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1345
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1345
   %3 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %6, label %5, !prof !8
@@ -68,21 +68,21 @@ define dso_local void @ieee80211_offchannel_stop_vifs(ptr noundef %0) local_unna
 6:                                                ; preds = %1
   tail call void @ieee80211_stop_queues_by_reason(ptr noundef %0, i64 noundef 65535, i32 noundef 6, i1 noundef zeroext false) #13
   tail call void @ieee80211_flush_queues(ptr noundef %0, ptr noundef null, i1 noundef zeroext false) #13
-  %7 = getelementptr inbounds i8, ptr %0, i64 4512
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4512
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %6, %56
   %10 = phi ptr [ %57, %56 ], [ %8, %6 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 1272
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1272
   %12 = load volatile i64, ptr %11, align 8
   %13 = and i64 %12, 1
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %56, label %15
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %10, i64 4056
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 4056
   %17 = load i32, ptr %16, align 8
   switch i32 %17, label %18 [
     i32 10, label %56
@@ -91,20 +91,20 @@ define dso_local void @ieee80211_offchannel_stop_vifs(ptr noundef %0) local_unna
   ]
 
 18:                                               ; preds = %15
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11, i32 2, ptr elementtype(i8) %11) #13, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %11, i32 2, ptr nonnull elementtype(i8) %11) #13, !srcloc !12
   br label %19
 
 19:                                               ; preds = %18, %15
-  %20 = getelementptr inbounds i8, ptr %10, i64 4184
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 4184
   %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %19
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11, i32 4, ptr elementtype(i8) %11) #13, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %11, i32 4, ptr nonnull elementtype(i8) %11) #13, !srcloc !12
   store i8 0, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 3176
-  tail call void @ieee80211_link_info_change_notify(ptr noundef %10, ptr noundef %24, i64 noundef 512) #13
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 3176
+  tail call void @ieee80211_link_info_change_notify(ptr noundef %10, ptr noundef nonnull %24, i64 noundef 512) #13
   br label %25
 
 25:                                               ; preds = %23, %19
@@ -113,25 +113,25 @@ define dso_local void @ieee80211_offchannel_stop_vifs(ptr noundef %0) local_unna
   br i1 %27, label %28, label %56
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %10, i64 2117
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 2117
   %30 = load i8, ptr %29, align 1
   %31 = and i8 %30, 8
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %56, label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %10, i64 1256
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 1256
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 5408
-  %37 = tail call i32 @timer_delete_sync(ptr noundef %36) #13
-  %38 = getelementptr inbounds i8, ptr %10, i64 1984
-  %39 = tail call i32 @timer_delete_sync(ptr noundef %38) #13
-  %40 = getelementptr inbounds i8, ptr %10, i64 1944
-  %41 = tail call i32 @timer_delete_sync(ptr noundef %40) #13
-  %42 = getelementptr inbounds i8, ptr %35, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 5408
+  %37 = tail call i32 @timer_delete_sync(ptr noundef nonnull %36) #13
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 1984
+  %39 = tail call i32 @timer_delete_sync(ptr noundef nonnull %38) #13
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 1944
+  %41 = tail call i32 @timer_delete_sync(ptr noundef nonnull %40) #13
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %35, i64 5360
-  tail call void @wiphy_work_cancel(ptr noundef %43, ptr noundef %44) #13
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 5360
+  tail call void @wiphy_work_cancel(ptr noundef %43, ptr noundef nonnull %44) #13
   %45 = load i32, ptr %35, align 8
   %46 = and i32 %45, 2
   %47 = icmp eq i32 %46, 0
@@ -141,7 +141,7 @@ define dso_local void @ieee80211_offchannel_stop_vifs(ptr noundef %0) local_unna
   %49 = and i32 %45, -3
   store i32 %49, ptr %35, align 8
   %50 = tail call i32 @ieee80211_hw_config(ptr noundef %35, i32 noundef 16) #13
-  %51 = getelementptr inbounds i8, ptr %35, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 88
   %52 = load volatile i64, ptr %51, align 8
   %53 = and i64 %52, 512
   %54 = icmp eq i64 %53, 0
@@ -177,7 +177,7 @@ declare dso_local void @ieee80211_link_info_change_notify(ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_offchannel_return(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1345
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1345
   %3 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %6, label %5, !prof !8
@@ -189,14 +189,14 @@ define dso_local void @ieee80211_offchannel_return(ptr noundef %0) local_unnamed
   br label %57
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 4512
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4512
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %6, %54
   %10 = phi ptr [ %55, %54 ], [ %8, %6 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 4056
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4056
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %13 [
     i32 10, label %54
@@ -204,12 +204,12 @@ define dso_local void @ieee80211_offchannel_return(ptr noundef %0) local_unnamed
   ]
 
 13:                                               ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %10, i64 1272
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i32 -3, ptr elementtype(i8) %14) #13, !srcloc !19
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1272
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %14, i32 -3, ptr nonnull elementtype(i8) %14) #13, !srcloc !19
   br label %15
 
 15:                                               ; preds = %13, %.preheader
-  %16 = getelementptr inbounds i8, ptr %10, i64 1272
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 1272
   %17 = load volatile i64, ptr %16, align 8
   %18 = and i64 %17, 1
   %19 = icmp eq i64 %18, 0
@@ -221,16 +221,16 @@ define dso_local void @ieee80211_offchannel_return(ptr noundef %0) local_unnamed
   br i1 %22, label %23, label %47
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %10, i64 2117
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 2117
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 8
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %47, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %10, i64 1256
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 1256
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 5352
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 5352
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %35
@@ -240,19 +240,19 @@ define dso_local void @ieee80211_offchannel_return(ptr noundef %0) local_unnamed
   br label %46
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %30, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %35
   tail call void @ieee80211_send_nullfunc(ptr noundef %30, ptr noundef %10, i1 noundef zeroext false) #13
-  %40 = getelementptr inbounds i8, ptr %30, i64 5408
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 5408
   %41 = load volatile i64, ptr @jiffies, align 64
   %42 = load i32, ptr %36, align 8
   %43 = tail call i64 @__msecs_to_jiffies(i32 noundef %42) #13
   %44 = add i64 %43, %41
-  %45 = tail call i32 @mod_timer(ptr noundef %40, i64 noundef %44) #13
+  %45 = tail call i32 @mod_timer(ptr noundef nonnull %40, i64 noundef %44) #13
   br label %46
 
 46:                                               ; preds = %39, %35, %34
@@ -261,17 +261,17 @@ define dso_local void @ieee80211_offchannel_return(ptr noundef %0) local_unnamed
   br label %47
 
 47:                                               ; preds = %46, %23, %20
-  %48 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %16, i64 2, ptr elementtype(i64) %16) #13, !srcloc !20
+  %48 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %16, i64 2, ptr nonnull elementtype(i64) %16) #13, !srcloc !20
   %49 = icmp ult i8 %48, 2
   tail call void @llvm.assume(i1 %49)
   %50 = icmp eq i8 %48, 0
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %10, i64 4184
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 4184
   store i8 1, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %10, i64 3176
-  tail call void @ieee80211_link_info_change_notify(ptr noundef %10, ptr noundef %53, i64 noundef 512) #13
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 3176
+  tail call void @ieee80211_link_info_change_notify(ptr noundef %10, ptr noundef nonnull %53, i64 noundef 512) #13
   br label %54
 
 54:                                               ; preds = %51, %47, %15, %.preheader
@@ -293,7 +293,7 @@ declare dso_local void @ieee80211_wake_queues_by_reason(ptr noundef, i64 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_ready_on_channel(ptr noundef initializes((5680, 5688)) %0) #0 align 16 {
   %2 = load volatile i64, ptr @jiffies, align 64
-  %3 = getelementptr inbounds i8, ptr %0, i64 5680
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5680
   store i64 %2, ptr %3, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_api_ready_on_channel, i64 8), i32 2) #13
           to label %24 [label %4], !srcloc !22
@@ -315,7 +315,7 @@ define dso_local void @ieee80211_ready_on_channel(ptr noundef initializes((5680,
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @__SCT__tp_func_api_ready_on_channel(ptr noundef %15, ptr noundef %0) #13
   br label %17
@@ -335,10 +335,10 @@ define dso_local void @ieee80211_ready_on_channel(ptr noundef initializes((5680,
   br label %24
 
 24:                                               ; preds = %21, %17, %4, %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 5632
-  tail call void @wiphy_work_queue(ptr noundef %26, ptr noundef %27) #13
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 5632
+  tail call void @wiphy_work_queue(ptr noundef %26, ptr noundef nonnull %27) #13
   ret void
 }
 
@@ -347,8 +347,8 @@ declare dso_local void @wiphy_work_queue(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_start_next_roc(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = getelementptr inbounds i8, ptr %0, i64 5616
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5616
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %6, label %7
@@ -358,13 +358,13 @@ define dso_local void @ieee80211_start_next_roc(ptr noundef %0) local_unnamed_ad
   br label %27
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 1414
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1414
   %9 = load i8, ptr %8, align 2, !range !6, !noundef !7
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %27
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load i8, ptr %12, align 8, !range !6, !noundef !7
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %16, label %15, !prof !8
@@ -376,9 +376,9 @@ define dso_local void @ieee80211_start_next_roc(ptr noundef %0) local_unnamed_ad
   br label %27
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 448
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 456
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 456
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22
@@ -389,9 +389,9 @@ define dso_local void @ieee80211_start_next_roc(ptr noundef %0) local_unnamed_ad
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 5544
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 5544
   %26 = tail call i64 @round_jiffies_relative(i64 noundef 500) #13
-  tail call void @wiphy_delayed_work_queue(ptr noundef %24, ptr noundef %25, i64 noundef %26) #13
+  tail call void @wiphy_delayed_work_queue(ptr noundef %24, ptr noundef nonnull %25, i64 noundef %26) #13
   br label %27
 
 27:                                               ; preds = %23, %22, %15, %7, %6
@@ -403,8 +403,8 @@ declare dso_local void @ieee80211_run_deferred_scan(ptr noundef) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = getelementptr inbounds i8, ptr %0, i64 5616
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5616
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %6, label %7, !prof !33
@@ -416,7 +416,7 @@ define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_a
   br label %.loopexit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load i8, ptr %8, align 8, !range !6, !noundef !7
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %12, label %11, !prof !8
@@ -428,12 +428,12 @@ define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_a
   br label %.loopexit
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %4, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %19
 
 19:                                               ; preds = %43, %12
@@ -445,25 +445,25 @@ define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_a
   br i1 %24, label %43, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %17, align 8
   %29 = icmp eq ptr %27, %28
   br i1 %29, label %30, label %49
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %20, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %18, align 8
   %34 = icmp eq ptr %32, %33
   br i1 %34, label %35, label %49
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %20, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %37 = load i32, ptr %36, align 8
   %38 = tail call i32 @llvm.umax.i32(i32 %37, i32 %23)
   %39 = tail call i32 @llvm.umin.i32(i32 %37, i32 %22)
-  %40 = getelementptr inbounds i8, ptr %20, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %41 = load i32, ptr %40, align 8
   %42 = tail call i32 @llvm.umax.i32(i32 %41, i32 %21)
   br label %43
@@ -480,9 +480,9 @@ define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_a
   %50 = phi i32 [ %44, %43 ], [ %23, %30 ], [ %23, %25 ]
   %51 = phi i32 [ %45, %43 ], [ %22, %30 ], [ %22, %25 ]
   %52 = phi i32 [ %46, %43 ], [ %21, %30 ], [ %21, %25 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 448
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 456
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 456
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %102, label %58
@@ -501,31 +501,31 @@ define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_a
 
 66:                                               ; preds = %58
   %67 = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 376
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %68, ptr noundef nonnull @.str.2, i32 noundef %61) #14
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 376
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %68, ptr noundef nonnull @.str.2, i32 noundef %61) #14
   %69 = load ptr, ptr %3, align 8
   %70 = icmp eq ptr %69, %3
   br i1 %70, label %.loopexit15, label %.preheader14
 
 .preheader14:                                     ; preds = %66, %81
   %71 = phi ptr [ %84, %81 ], [ %69, %66 ]
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %17, align 8
   %75 = icmp eq ptr %73, %74
   br i1 %75, label %76, label %.loopexit15
 
 76:                                               ; preds = %.preheader14
-  %77 = getelementptr inbounds i8, ptr %71, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %18, align 8
   %80 = icmp eq ptr %78, %79
   br i1 %80, label %81, label %.loopexit15
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %71, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store i8 1, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %71, i64 33
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 33
   store i8 1, ptr %83, align 1
   %84 = load ptr, ptr %71, align 8
   %85 = icmp eq ptr %84, %3
@@ -533,27 +533,27 @@ define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_a
 
 .loopexit15:                                      ; preds = %81, %76, %.preheader14, %66
   %86 = load ptr, ptr %2, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 5656
-  tail call void @wiphy_work_queue(ptr noundef %86, ptr noundef %87) #13
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 5656
+  tail call void @wiphy_work_queue(ptr noundef %86, ptr noundef nonnull %87) #13
   br label %.loopexit
 
 .preheader12:                                     ; preds = %63, %98
   %88 = phi ptr [ %100, %98 ], [ %64, %63 ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %17, align 8
   %92 = icmp eq ptr %90, %91
   br i1 %92, label %93, label %.loopexit
 
 93:                                               ; preds = %.preheader12
-  %94 = getelementptr inbounds i8, ptr %88, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %18, align 8
   %97 = icmp eq ptr %95, %96
   br i1 %97, label %98, label %.loopexit
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %88, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %88, i64 32
   store i8 1, ptr %99, align 8
   %100 = load ptr, ptr %88, align 8
   %101 = icmp eq ptr %100, %3
@@ -561,13 +561,13 @@ define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_a
 
 102:                                              ; preds = %49
   %103 = load ptr, ptr %18, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 4856
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 4856
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %103, %105
   br i1 %106, label %107, label %114
 
 107:                                              ; preds = %102
-  %108 = getelementptr inbounds i8, ptr %0, i64 4864
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 4864
   %109 = load i32, ptr %108, align 8
   %110 = icmp eq i32 %109, 6
   br i1 %110, label %114, label %111
@@ -579,7 +579,7 @@ define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_a
 
 114:                                              ; preds = %111, %107, %102
   %115 = phi i8 [ 0, %107 ], [ 0, %102 ], [ %113, %111 ]
-  %116 = getelementptr inbounds i8, ptr %4, i64 36
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i8 %115, ptr %116, align 4
   tail call void @ieee80211_recalc_idle(ptr noundef %0) #13
   %117 = load i8, ptr %116, align 4, !range !6, !noundef !7
@@ -589,30 +589,30 @@ define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_a
 119:                                              ; preds = %114
   tail call void @ieee80211_offchannel_stop_vifs(ptr noundef %0)
   %120 = load ptr, ptr %18, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 4888
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 4888
   store ptr %120, ptr %121, align 8
   %122 = tail call i32 @ieee80211_hw_config(ptr noundef %0, i32 noundef 0) #13
   br label %123
 
 123:                                              ; preds = %119, %114
   %124 = load ptr, ptr %2, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 5544
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 5544
   %126 = tail call i64 @__msecs_to_jiffies(i32 noundef %51) #13
-  tail call void @wiphy_delayed_work_queue(ptr noundef %124, ptr noundef %125, i64 noundef %126) #13
+  tail call void @wiphy_delayed_work_queue(ptr noundef %124, ptr noundef nonnull %125, i64 noundef %126) #13
   %127 = load ptr, ptr %3, align 8
   %128 = icmp eq ptr %127, %3
   br i1 %128, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %123, %139
   %129 = phi ptr [ %143, %139 ], [ %127, %123 ]
-  %130 = getelementptr inbounds i8, ptr %129, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %17, align 8
   %133 = icmp eq ptr %131, %132
   br i1 %133, label %134, label %.loopexit
 
 134:                                              ; preds = %.preheader
-  %135 = getelementptr inbounds i8, ptr %129, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %18, align 8
   %138 = icmp eq ptr %136, %137
@@ -620,7 +620,7 @@ define internal fastcc void @_ieee80211_start_next_roc(ptr noundef %0) unnamed_a
 
 139:                                              ; preds = %134
   %140 = load i8, ptr %116, align 4, !range !6, !noundef !7
-  %141 = getelementptr inbounds i8, ptr %129, i64 36
+  %141 = getelementptr inbounds nuw i8, ptr %129, i64 36
   store i8 %140, ptr %141, align 4
   %142 = load volatile i64, ptr @jiffies, align 64
   tail call fastcc void @ieee80211_handle_roc_started(ptr noundef %129, i64 noundef %142)
@@ -660,7 +660,7 @@ define dso_local void @ieee80211_remain_on_channel_expired(ptr noundef %0) #0 al
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @__SCT__tp_func_api_remain_on_channel_expired(ptr noundef %13, ptr noundef %0) #13
   br label %15
@@ -680,10 +680,10 @@ define dso_local void @ieee80211_remain_on_channel_expired(ptr noundef %0) #0 al
   br label %22
 
 22:                                               ; preds = %19, %15, %2, %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 5656
-  tail call void @wiphy_work_queue(ptr noundef %24, ptr noundef %25) #13
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 5656
+  tail call void @wiphy_work_queue(ptr noundef %24, ptr noundef nonnull %25) #13
   ret void
 }
 
@@ -698,22 +698,22 @@ define dso_local i32 @ieee80211_remain_on_channel(ptr nocapture noundef readnone
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 align 16 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i16, ptr %9, align 8
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %12, label %.thread11
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 1345
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1345
   %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 448
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 456
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 456
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread11, label %22
@@ -727,42 +727,42 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
 26:                                               ; preds = %22
   %27 = icmp eq i32 %3, 0
   %28 = select i1 %27, i32 10, i32 %3
-  %29 = getelementptr inbounds i8, ptr %24, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %2, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 48
   store i32 %28, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %24, i64 52
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 52
   store i32 %28, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %24, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store ptr %5, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %24, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 80
   store i32 %6, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %24, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %1, ptr %34, align 8
   %35 = icmp eq ptr %5, null
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %26
   %37 = tail call i64 @ieee80211_mgmt_tx_cookie(ptr noundef %0) #13
-  %38 = getelementptr inbounds i8, ptr %24, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 64
   store i64 %37, ptr %38, align 8
   store i64 %37, ptr %4, align 8
   br label %42
 
 39:                                               ; preds = %26
   %40 = load i64, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %24, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 72
   store i64 %40, ptr %41, align 8
   br label %42
 
 42:                                               ; preds = %39, %36
-  %43 = getelementptr inbounds i8, ptr %0, i64 5616
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 5616
   %44 = load volatile ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %43
   br i1 %45, label %46, label %73
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 4576
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4576
   %48 = load i64, ptr %47, align 8
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %50, label %73
@@ -776,24 +776,24 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   br label %73
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %0, i64 448
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 456
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 456
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %64
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %0, i64 5624
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 5624
   %60 = load ptr, ptr %59, align 8
   store ptr %24, ptr %59, align 8
   store ptr %43, ptr %24, align 8
-  %61 = getelementptr inbounds i8, ptr %24, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %60, ptr %61, align 8
   store volatile ptr %24, ptr %60, align 8
   %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 5544
-  tail call void @wiphy_delayed_work_queue(ptr noundef %62, ptr noundef %63, i64 noundef 0) #13
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 5544
+  tail call void @wiphy_delayed_work_queue(ptr noundef %62, ptr noundef nonnull %63, i64 noundef 0) #13
   br label %.thread11
 
 64:                                               ; preds = %52
@@ -806,13 +806,13 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   br label %.thread11
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %24, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 1, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 5624
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 5624
   %71 = load ptr, ptr %70, align 8
   store ptr %24, ptr %70, align 8
   store ptr %43, ptr %24, align 8
-  %72 = getelementptr inbounds i8, ptr %24, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %71, ptr %72, align 8
   store volatile ptr %24, ptr %71, align 8
   br label %.thread11
@@ -823,36 +823,36 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   br i1 %75, label %.loopexit, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %0, i64 448
-  %78 = getelementptr inbounds i8, ptr %24, i64 8
-  %79 = getelementptr inbounds i8, ptr %24, i64 34
-  %80 = getelementptr inbounds i8, ptr %24, i64 36
-  %81 = getelementptr inbounds i8, ptr %0, i64 5544
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %78 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %24, i64 34
+  %80 = getelementptr inbounds nuw i8, ptr %24, i64 36
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 5544
   br label %82
 
 82:                                               ; preds = %.thread8, %76
   %83 = phi ptr [ %74, %76 ], [ %186, %.thread8 ]
   %84 = phi i8 [ 1, %76 ], [ %185, %.thread8 ]
-  %85 = getelementptr inbounds i8, ptr %83, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, %2
   br i1 %87, label %88, label %.thread8
 
 88:                                               ; preds = %82
-  %89 = getelementptr inbounds i8, ptr %83, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, %1
   br i1 %91, label %92, label %.thread8
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %83, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %94 = load i8, ptr %93, align 8, !range !6, !noundef !7
   %95 = icmp eq i8 %94, 0
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %92
   %97 = load ptr, ptr %83, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store ptr %24, ptr %98, align 8
   store ptr %97, ptr %24, align 8
   store ptr %83, ptr %78, align 8
@@ -866,19 +866,19 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %77, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 456
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 456
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   %107 = load volatile i64, ptr @jiffies, align 64
   br i1 %106, label %108, label %159
 
 108:                                              ; preds = %102
-  %109 = getelementptr inbounds i8, ptr %83, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %110 = load i64, ptr %109, align 8
   %111 = sub i64 %107, %110
   %112 = tail call i32 @jiffies_to_msecs(i64 noundef %111) #13
   %113 = load ptr, ptr %8, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 248
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 248
   %115 = load i16, ptr %114, align 8
   %116 = zext i16 %115 to i32
   %117 = load i32, ptr %30, align 8
@@ -888,12 +888,12 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
 
 120:                                              ; preds = %108
   %121 = load ptr, ptr %83, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %24, ptr %122, align 8
   store ptr %121, ptr %24, align 8
   store ptr %83, ptr %78, align 8
   store volatile ptr %24, ptr %83, align 8
-  %123 = getelementptr inbounds i8, ptr %83, i64 36
+  %123 = getelementptr inbounds nuw i8, ptr %83, i64 36
   %124 = load i8, ptr %123, align 4, !range !6, !noundef !7
   store i8 %124, ptr %80, align 4
   tail call fastcc void @ieee80211_handle_roc_started(ptr noundef nonnull %24, i64 noundef %107)
@@ -905,26 +905,26 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   %127 = phi ptr [ %129, %153 ], [ %125, %120 ]
   %128 = phi i64 [ %154, %153 ], [ 9223372036854775807, %120 ]
   %129 = load ptr, ptr %127, align 8
-  %130 = getelementptr inbounds i8, ptr %127, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %131 = load i8, ptr %130, align 8, !range !6, !noundef !7
   %132 = icmp eq i8 %131, 0
   br i1 %132, label %.thread, label %133
 
 133:                                              ; preds = %.lr.ph
-  %134 = getelementptr inbounds i8, ptr %127, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %127, i64 40
   %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %127, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %127, i64 48
   %137 = load i32, ptr %136, align 8
   %138 = tail call i64 @__msecs_to_jiffies(i32 noundef %137) #13
   %139 = sub i64 %135, %107
   %140 = add i64 %138, %139
-  %141 = getelementptr inbounds i8, ptr %127, i64 33
+  %141 = getelementptr inbounds nuw i8, ptr %127, i64 33
   %142 = load i8, ptr %141, align 1, !range !6, !noundef !7
   %143 = icmp eq i8 %142, 0
   br i1 %143, label %144, label %150
 
 144:                                              ; preds = %133
-  %145 = getelementptr inbounds i8, ptr %127, i64 34
+  %145 = getelementptr inbounds nuw i8, ptr %127, i64 34
   %146 = load i8, ptr %145, align 2, !range !6, !noundef !7
   %147 = icmp ne i8 %146, 0
   %148 = icmp slt i64 %140, 1
@@ -951,30 +951,30 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
 
 157:                                              ; preds = %.thread
   %158 = load ptr, ptr %8, align 8
-  tail call void @wiphy_delayed_work_queue(ptr noundef %158, ptr noundef %81, i64 noundef %.lcssa) #13
+  tail call void @wiphy_delayed_work_queue(ptr noundef %158, ptr noundef nonnull %81, i64 noundef %.lcssa) #13
   br label %.thread11
 
 159:                                              ; preds = %102
-  %160 = getelementptr inbounds i8, ptr %83, i64 34
+  %160 = getelementptr inbounds nuw i8, ptr %83, i64 34
   %161 = load i8, ptr %160, align 2, !range !6, !noundef !7
   %162 = icmp eq i8 %161, 0
   br i1 %162, label %163, label %._crit_edge29
 
 ._crit_edge29:                                    ; preds = %159
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %83, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %83, i64 48
   %.pre30 = load i32, ptr %.phi.trans.insert, align 8
   br label %168
 
 163:                                              ; preds = %159
   %164 = load i32, ptr %30, align 8
-  %165 = getelementptr inbounds i8, ptr %83, i64 48
+  %165 = getelementptr inbounds nuw i8, ptr %83, i64 48
   %166 = load i32, ptr %165, align 8
   %167 = icmp ugt i32 %164, %166
   br i1 %167, label %.thread8, label %168
 
 168:                                              ; preds = %._crit_edge29, %163
   %169 = phi i32 [ %.pre30, %._crit_edge29 ], [ %166, %163 ]
-  %170 = getelementptr inbounds i8, ptr %83, i64 40
+  %170 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %171 = load i64, ptr %170, align 8
   %172 = tail call i64 @__msecs_to_jiffies(i32 noundef %169) #13
   %173 = sub i64 %171, %107
@@ -985,9 +985,9 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   br i1 %177, label %.thread8, label %178
 
 178:                                              ; preds = %168
-  %179 = getelementptr inbounds i8, ptr %83, i64 34
+  %179 = getelementptr inbounds nuw i8, ptr %83, i64 34
   %180 = load ptr, ptr %83, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store ptr %24, ptr %181, align 8
   store ptr %180, ptr %24, align 8
   store ptr %83, ptr %78, align 8
@@ -1008,11 +1008,11 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
   br i1 %187, label %.loopexit, label %82, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.thread8, %73
-  %188 = getelementptr inbounds i8, ptr %0, i64 5624
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 5624
   %189 = load ptr, ptr %188, align 8
   store ptr %24, ptr %188, align 8
   store ptr %43, ptr %24, align 8
-  %190 = getelementptr inbounds i8, ptr %24, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %189, ptr %190, align 8
   store volatile ptr %24, ptr %189, align 8
   br label %.thread11
@@ -1032,15 +1032,15 @@ define dso_local i32 @ieee80211_cancel_remain_on_channel(ptr nocapture noundef r
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @ieee80211_cancel_roc(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %ieee80211_start_next_roc.exit, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 5632
-  tail call void @wiphy_work_flush(ptr noundef %7, ptr noundef %8) #13
-  %9 = getelementptr inbounds i8, ptr %0, i64 5616
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 5632
+  tail call void @wiphy_work_flush(ptr noundef %7, ptr noundef nonnull %8) #13
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 5616
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %9
   br i1 %11, label %ieee80211_start_next_roc.exit, label %.preheader9
@@ -1050,7 +1050,7 @@ define internal fastcc i32 @ieee80211_cancel_roc(ptr noundef %0, i64 noundef %1,
 
 .preheader9.split.us:                             ; preds = %.preheader9, %16
   %12 = phi ptr [ %17, %16 ], [ %10, %.preheader9 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, %1
   br i1 %15, label %.split.us, label %16
@@ -1062,7 +1062,7 @@ define internal fastcc i32 @ieee80211_cancel_roc(ptr noundef %0, i64 noundef %1,
 
 .preheader9.split:                                ; preds = %.preheader9, %23
   %19 = phi ptr [ %24, %23 ], [ %10, %.preheader9 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, %1
   br i1 %22, label %.split.us, label %23
@@ -1078,7 +1078,7 @@ define internal fastcc i32 @ieee80211_cancel_roc(ptr noundef %0, i64 noundef %1,
   br i1 %26, label %ieee80211_start_next_roc.exit, label %27
 
 27:                                               ; preds = %.split.us
-  %28 = getelementptr inbounds i8, ptr %.us-phi, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
   %29 = load i8, ptr %28, align 8, !range !6, !noundef !7
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %31, label %32
@@ -1088,15 +1088,15 @@ define internal fastcc i32 @ieee80211_cancel_roc(ptr noundef %0, i64 noundef %1,
   br label %ieee80211_start_next_roc.exit
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %0, i64 448
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 456
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 456
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %86, label %38
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %.us-phi, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call fastcc i32 @drv_cancel_remain_on_channel(ptr noundef %0, ptr noundef %40)
   %42 = icmp eq i32 %41, 0
@@ -1110,8 +1110,8 @@ define internal fastcc i32 @ieee80211_cancel_roc(ptr noundef %0, i64 noundef %1,
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 5656
-  tail call void @wiphy_work_cancel(ptr noundef %45, ptr noundef %46) #13
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 5656
+  tail call void @wiphy_work_cancel(ptr noundef %45, ptr noundef nonnull %46) #13
   %47 = load ptr, ptr %9, align 8
   %48 = icmp eq ptr %47, %9
   br i1 %48, label %62, label %.preheader
@@ -1119,7 +1119,7 @@ define internal fastcc i32 @ieee80211_cancel_roc(ptr noundef %0, i64 noundef %1,
 .preheader:                                       ; preds = %44, %54
   %49 = phi ptr [ %55, %54 ], [ %47, %44 ]
   %50 = phi ptr [ %57, %54 ], [ %.us-phi, %44 ]
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %52 = load i8, ptr %51, align 8, !range !6, !noundef !7
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %59, label %54
@@ -1153,13 +1153,13 @@ define internal fastcc i32 @ieee80211_cancel_roc(ptr noundef %0, i64 noundef %1,
   br label %ieee80211_start_next_roc.exit
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %0, i64 1414
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1414
   %69 = load i8, ptr %68, align 2, !range !6, !noundef !7
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %71, label %ieee80211_start_next_roc.exit
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %64, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %73 = load i8, ptr %72, align 8, !range !6, !noundef !7
   %74 = icmp eq i8 %73, 0
   br i1 %74, label %76, label %75, !prof !8
@@ -1172,7 +1172,7 @@ define internal fastcc i32 @ieee80211_cancel_roc(ptr noundef %0, i64 noundef %1,
 
 76:                                               ; preds = %71
   %77 = load ptr, ptr %33, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 456
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 456
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %82, label %81
@@ -1183,17 +1183,17 @@ define internal fastcc i32 @ieee80211_cancel_roc(ptr noundef %0, i64 noundef %1,
 
 82:                                               ; preds = %76
   %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 5544
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 5544
   %85 = tail call i64 @round_jiffies_relative(i64 noundef 500) #13
-  tail call void @wiphy_delayed_work_queue(ptr noundef %83, ptr noundef %84, i64 noundef %85) #13
+  tail call void @wiphy_delayed_work_queue(ptr noundef %83, ptr noundef nonnull %84, i64 noundef %85) #13
   br label %ieee80211_start_next_roc.exit
 
 86:                                               ; preds = %32
-  %87 = getelementptr inbounds i8, ptr %.us-phi, i64 33
+  %87 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 33
   store i8 1, ptr %87, align 1
   %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 5544
-  tail call void @wiphy_delayed_work_queue(ptr noundef %88, ptr noundef %89, i64 noundef 0) #13
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 5544
+  tail call void @wiphy_delayed_work_queue(ptr noundef %88, ptr noundef nonnull %89, i64 noundef 0) #13
   br label %ieee80211_start_next_roc.exit
 
 ieee80211_start_next_roc.exit:                    ; preds = %23, %16, %6, %82, %81, %75, %67, %66, %86, %43, %31, %.split.us, %3
@@ -1206,13 +1206,13 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   %5 = getelementptr i8, ptr %1, i64 -16
   %6 = getelementptr i8, ptr %1, i64 1240
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 33
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 33
   %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = icmp eq i8 %11, 0
   %13 = select i1 %12, i32 2097153, i32 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load i8, ptr %14, align 8, !range !6, !noundef !7
   %16 = icmp eq i8 %15, 0
   %17 = or disjoint i32 %13, 134217728
@@ -1236,20 +1236,20 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
 22:                                               ; preds = %4, %4, %4
   %23 = getelementptr i8, ptr %1, i64 1656
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 317
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 317
   br label %26
 
 26:                                               ; preds = %.thread, %22
   %.in.in = phi ptr [ %25, %22 ], [ %21, %.thread ]
   %.in = load i8, ptr %.in.in, align 1, !range !6, !noundef !7
   tail call void @__rcu_read_lock() #13
-  %27 = getelementptr inbounds i8, ptr %9, i64 4
-  %28 = tail call ptr @sta_info_get_bss(ptr noundef %5, ptr noundef %27) #13
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %28 = tail call ptr @sta_info_get_bss(ptr noundef %5, ptr noundef nonnull %27) #13
   %29 = icmp eq ptr %28, null
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %28, i64 2707
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 2707
   %32 = load i8, ptr %31, align 1, !range !6, !noundef !7
   %33 = icmp ne i8 %32, 0
   br label %34
@@ -1262,7 +1262,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   br i1 %38, label %39, label %102
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %9, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %41 = load i8, ptr %40, align 2
   switch i8 %41, label %42 [
     i8 4, label %102
@@ -1278,13 +1278,13 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   br label %298
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %2, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %46 = load i32, ptr %45, align 8
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %48, label %102
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %28, i64 2864
+  %49 = getelementptr inbounds nuw i8, ptr %28, i64 2864
   %50 = load i16, ptr %49, align 8
   %51 = zext i16 %50 to i64
   %52 = zext nneg i32 %46 to i64
@@ -1305,35 +1305,35 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   br i1 %61, label %.thread12, label %62
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %2, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %64 = load i8, ptr %63, align 8, !range !6, !noundef !7
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %81, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %2, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %81, label %70
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %7, i64 448
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 448
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 456
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 456
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %81, label %76
 
 76:                                               ; preds = %70
   %77 = getelementptr i8, ptr %1, i64 4122
-  %78 = getelementptr inbounds i8, ptr %9, i64 16
-  %79 = tail call i32 @bcmp(ptr noundef dereferenceable(6) %77, ptr noundef dereferenceable(6) %78, i64 6)
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %79 = tail call i32 @bcmp(ptr noundef dereferenceable(6) %77, ptr noundef nonnull dereferenceable(6) %78, i64 6)
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %.thread12
 
 81:                                               ; preds = %76, %70, %66, %62
   %82 = getelementptr i8, ptr %1, i64 4122
-  %83 = getelementptr inbounds i8, ptr %9, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %84 = load i32, ptr %82, align 4
   %85 = load i32, ptr %83, align 4
   %86 = xor i32 %85, %84
@@ -1348,12 +1348,12 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   br i1 %94, label %95, label %.thread34
 
 95:                                               ; preds = %81
-  %96 = tail call ptr @sta_info_get_bss(ptr noundef %5, ptr noundef %83) #13
+  %96 = tail call ptr @sta_info_get_bss(ptr noundef %5, ptr noundef nonnull %83) #13
   %97 = icmp eq ptr %96, null
   br i1 %97, label %.thread34, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %96, i64 2707
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 2707
   %100 = load i8, ptr %99, align 1, !range !6, !noundef !7
   %101 = icmp ne i8 %100, 0
   br label %.thread14
@@ -1372,7 +1372,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
 
 .thread34:                                        ; preds = %81, %95
   tail call void @__rcu_read_lock() #13
-  %107 = getelementptr inbounds i8, ptr %9, i64 10
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %108 = getelementptr i8, ptr %9, i64 14
   br label %.split.preheader
 
@@ -1388,7 +1388,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   tail call void @__rcu_read_lock() #13
   %115 = getelementptr i8, ptr %1, i64 4920
   %116 = getelementptr i8, ptr %1, i64 5046
-  %117 = getelementptr inbounds i8, ptr %9, i64 10
+  %117 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %118 = getelementptr i8, ptr %1, i64 5050
   %119 = getelementptr i8, ptr %9, i64 14
   br i1 %109, label %.split.us, label %.split.preheader
@@ -1409,7 +1409,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   br i1 %128, label %156, label %129
 
 129:                                              ; preds = %.split.us
-  %130 = getelementptr inbounds i8, ptr %127, i64 768
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 768
   %131 = load volatile ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
   br i1 %132, label %156, label %133
@@ -1433,7 +1433,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   br i1 %144, label %.thread17.loopexit, label %145
 
 145:                                              ; preds = %137, %133
-  %146 = getelementptr inbounds i8, ptr %127, i64 20
+  %146 = getelementptr inbounds nuw i8, ptr %127, i64 20
   %147 = load i32, ptr %146, align 4
   %148 = xor i32 %.pre, %147
   %149 = getelementptr i8, ptr %127, i64 24
@@ -1462,13 +1462,13 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   br i1 %166, label %184, label %167
 
 167:                                              ; preds = %.split
-  %168 = getelementptr inbounds i8, ptr %165, i64 768
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 768
   %169 = load volatile ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, null
   br i1 %170, label %184, label %171
 
 171:                                              ; preds = %167
-  %172 = getelementptr inbounds i8, ptr %165, i64 20
+  %172 = getelementptr inbounds nuw i8, ptr %165, i64 20
   %173 = load i32, ptr %172, align 4
   %174 = load i32, ptr %121, align 4
   %175 = xor i32 %174, %173
@@ -1527,7 +1527,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
 
 .thread15.thread35:                               ; preds = %.thread12, %.thread15.thread37, %.thread15
   %198 = phi i32 [ %195, %.thread15 ], [ %190, %.thread15.thread37 ], [ %104, %.thread12 ]
-  %199 = getelementptr inbounds i8, ptr %2, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %200 = load i8, ptr %199, align 8, !range !6, !noundef !7
   %201 = icmp eq i8 %200, 0
   br i1 %201, label %298, label %.thread15.thread
@@ -1535,9 +1535,9 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
 .thread15.thread:                                 ; preds = %.thread14, %.thread15.thread36, %.thread15.thread35, %.thread15
   %202 = phi i1 [ false, %.thread15.thread35 ], [ true, %.thread15 ], [ true, %.thread15.thread36 ], [ true, %.thread14 ]
   %203 = phi i32 [ %198, %.thread15.thread35 ], [ %195, %.thread15 ], [ %195, %.thread15.thread36 ], [ %110, %.thread14 ]
-  %204 = getelementptr inbounds i8, ptr %7, i64 96
+  %204 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %205 = load i32, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %2, i64 24
+  %206 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %207 = load i64, ptr %206, align 8
   %208 = trunc i64 %207 to i32
   %209 = add i32 %205, %208
@@ -1547,12 +1547,12 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
 
 212:                                              ; preds = %.thread15.thread
   %213 = load i32, ptr %204, align 8
-  %214 = getelementptr inbounds i8, ptr %210, i64 200
+  %214 = getelementptr inbounds nuw i8, ptr %210, i64 200
   %215 = load ptr, ptr %214, align 8
   %216 = sext i32 %213 to i64
   %217 = getelementptr i8, ptr %215, i64 %216
   store ptr %217, ptr %214, align 8
-  %218 = getelementptr inbounds i8, ptr %210, i64 184
+  %218 = getelementptr inbounds nuw i8, ptr %210, i64 184
   %219 = load i32, ptr %218, align 8
   %220 = add i32 %219, %213
   store i32 %220, ptr %218, align 8
@@ -1576,7 +1576,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   ]
 
 231:                                              ; preds = %229, %229, %229
-  %232 = getelementptr inbounds i8, ptr %2, i64 36
+  %232 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %233 = load i32, ptr %232, align 4
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %260, label %235
@@ -1605,8 +1605,8 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   br i1 %245, label %246, label %.thread18
 
 246:                                              ; preds = %243
-  %247 = getelementptr inbounds i8, ptr %241, i64 36
-  %248 = getelementptr inbounds i8, ptr %2, i64 40
+  %247 = getelementptr inbounds nuw i8, ptr %241, i64 36
+  %248 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %.pre33 = load i8, ptr %247, align 4
   br label %249
 
@@ -1629,11 +1629,11 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   br label %260
 
 260:                                              ; preds = %.thread18, %231, %229, %212
-  %261 = getelementptr inbounds i8, ptr %210, i64 40
+  %261 = getelementptr inbounds nuw i8, ptr %210, i64 40
   store i32 %18, ptr %261, align 8
   %262 = getelementptr i8, ptr %1, i64 1232
   %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %210, i64 16
+  %264 = getelementptr inbounds nuw i8, ptr %210, i64 16
   store ptr %263, ptr %264, align 8
   %265 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %266 = icmp eq i8 %265, 0
@@ -1663,16 +1663,16 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
   %275 = load i32, ptr %261, align 8
   %276 = or i32 %275, 33562624
   store i32 %276, ptr %261, align 8
-  %277 = getelementptr inbounds i8, ptr %7, i64 88
+  %277 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %278 = load volatile i64, ptr %277, align 8
   %279 = and i64 %278, 262144
   %280 = icmp eq i64 %279, 0
   br i1 %280, label %291, label %281
 
 281:                                              ; preds = %274
-  %282 = getelementptr inbounds i8, ptr %7, i64 133
+  %282 = getelementptr inbounds nuw i8, ptr %7, i64 133
   %283 = load i8, ptr %282, align 1
-  %284 = getelementptr inbounds i8, ptr %210, i64 44
+  %284 = getelementptr inbounds nuw i8, ptr %210, i64 44
   %285 = load i32, ptr %284, align 4
   %286 = and i8 %283, 15
   %287 = zext nneg i8 %286 to i32
@@ -1684,7 +1684,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr nocapture noundef readnone %0, ptr n
 
 291:                                              ; preds = %281, %274
   %292 = load ptr, ptr %2, align 8
-  %293 = getelementptr inbounds i8, ptr %2, i64 12
+  %293 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %294 = load i32, ptr %293, align 4
   %295 = tail call fastcc i32 @ieee80211_start_roc_work(ptr noundef %7, ptr noundef %5, ptr noundef %292, i32 noundef %294, ptr noundef %3, ptr noundef nonnull %210, i32 noundef 1)
   %296 = icmp eq i32 %295, 0
@@ -1722,36 +1722,36 @@ define dso_local i32 @ieee80211_mgmt_tx_cancel_wait(ptr noundef %0, ptr nocaptur
   unreachable
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1312
-  %8 = tail call fastcc i32 @ieee80211_cancel_roc(ptr noundef %7, i64 noundef %2, i1 noundef zeroext true)
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %8 = tail call fastcc i32 @ieee80211_cancel_roc(ptr noundef nonnull %7, i64 noundef %2, i1 noundef zeroext true)
   ret i32 %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_roc_setup(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 5632
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5632
   store volatile ptr %2, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 5640
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5640
   store volatile ptr %2, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 5648
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5648
   store ptr @ieee80211_hw_roc_start, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 5656
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5656
   store volatile ptr %5, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 5664
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 5664
   store volatile ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 5672
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5672
   store ptr @ieee80211_hw_roc_done, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 5544
-  %9 = getelementptr inbounds i8, ptr %0, i64 5576
-  tail call void @init_timer_key(ptr noundef %9, ptr noundef nonnull @wiphy_delayed_work_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 5544
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 5576
+  tail call void @init_timer_key(ptr noundef nonnull %9, ptr noundef nonnull @wiphy_delayed_work_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #13
   store volatile ptr %8, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 5552
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5552
   store volatile ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 5560
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 5560
   store ptr @ieee80211_roc_work, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 5616
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 5616
   store volatile ptr %12, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 5624
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 5624
   store volatile ptr %12, ptr %13, align 8
   ret void
 }
@@ -1769,13 +1769,13 @@ define internal void @ieee80211_hw_roc_start(ptr nocapture readnone %0, ptr noun
 
 8:                                                ; preds = %13, %6
   %9 = phi ptr [ %4, %6 ], [ %16, %13 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i8, ptr %10, align 8, !range !6, !noundef !7
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %9, i64 34
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 34
   store i8 1, ptr %14, align 2
   %15 = load i64, ptr %7, align 8
   tail call fastcc void @ieee80211_handle_roc_started(ptr noundef %9, i64 noundef %15)
@@ -1798,18 +1798,18 @@ define internal void @ieee80211_hw_roc_done(ptr nocapture readnone %0, ptr nound
 .lr.ph:                                           ; preds = %2, %30
   %7 = phi ptr [ %8, %30 ], [ %5, %2 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load i8, ptr %9, align 8, !range !6, !noundef !7
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %._crit_edge, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %16 = load i32, ptr %15, align 8
   %17 = tail call i64 @__msecs_to_jiffies(i32 noundef %16) #13
-  %18 = getelementptr inbounds i8, ptr %7, i64 33
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 33
   %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %29
@@ -1817,7 +1817,7 @@ define internal void @ieee80211_hw_roc_done(ptr nocapture readnone %0, ptr nound
 21:                                               ; preds = %12
   %22 = sub i64 %14, %3
   %23 = add i64 %22, %17
-  %24 = getelementptr inbounds i8, ptr %7, i64 34
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 34
   %25 = load i8, ptr %24, align 2, !range !6, !noundef !7
   %26 = icmp ne i8 %25, 0
   %27 = icmp slt i64 %23, 1
@@ -1850,7 +1850,7 @@ define internal void @ieee80211_hw_roc_done(ptr nocapture readnone %0, ptr nound
   br i1 %40, label %41, label %ieee80211_start_next_roc.exit
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %34, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %43 = load i8, ptr %42, align 8, !range !6, !noundef !7
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %46, label %45, !prof !8
@@ -1864,7 +1864,7 @@ define internal void @ieee80211_hw_roc_done(ptr nocapture readnone %0, ptr nound
 46:                                               ; preds = %41
   %47 = getelementptr i8, ptr %1, i64 -5208
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 456
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 456
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %53, label %52
@@ -1877,7 +1877,7 @@ define internal void @ieee80211_hw_roc_done(ptr nocapture readnone %0, ptr nound
   %54 = load ptr, ptr %33, align 8
   %55 = getelementptr i8, ptr %1, i64 -112
   %56 = tail call i64 @round_jiffies_relative(i64 noundef 500) #13
-  tail call void @wiphy_delayed_work_queue(ptr noundef %54, ptr noundef %55, i64 noundef %56) #13
+  tail call void @wiphy_delayed_work_queue(ptr noundef %54, ptr noundef nonnull %55, i64 noundef %56) #13
   br label %ieee80211_start_next_roc.exit
 
 ieee80211_start_next_roc.exit:                    ; preds = %36, %37, %45, %52, %53
@@ -1893,41 +1893,41 @@ define internal void @ieee80211_roc_work(ptr nocapture readnone %0, ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_roc_purge(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 5616
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5616
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
   br i1 %5, label %56, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq ptr %1, null
-  %8 = getelementptr inbounds i8, ptr %0, i64 448
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br i1 %7, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %6, %27
   %9 = phi ptr [ %11, %27 ], [ %4, %6 ]
   %10 = phi i8 [ %28, %27 ], [ 0, %6 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load i8, ptr %12, align 8, !range !6, !noundef !7
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %26, label %15
 
 15:                                               ; preds = %.split.us
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 456
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 456
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %9, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call fastcc i32 @drv_cancel_remain_on_channel(ptr noundef %0, ptr noundef %22)
   tail call fastcc void @ieee80211_roc_notify_destroy(ptr noundef %9)
   br label %27
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %9, i64 33
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %25, align 1
   br label %27
 
@@ -1944,20 +1944,20 @@ define dso_local void @ieee80211_roc_purge(ptr noundef %0, ptr noundef readnone 
   %30 = phi ptr [ %32, %50 ], [ %4, %6 ]
   %31 = phi i8 [ %51, %50 ], [ 0, %6 ]
   %32 = load ptr, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, %1
   br i1 %35, label %36, label %50
 
 36:                                               ; preds = %.split
-  %37 = getelementptr inbounds i8, ptr %30, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %38 = load i8, ptr %37, align 8, !range !6, !noundef !7
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %49, label %40
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 456
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 456
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %47, label %45
@@ -1968,7 +1968,7 @@ define dso_local void @ieee80211_roc_purge(ptr noundef %0, ptr noundef readnone 
   br label %50
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %30, i64 33
+  %48 = getelementptr inbounds nuw i8, ptr %30, i64 33
   store i8 1, ptr %48, align 1
   br label %50
 
@@ -2018,7 +2018,7 @@ define internal fastcc i32 @drv_cancel_remain_on_channel(ptr noundef %0, ptr nou
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @__SCT__tp_func_drv_cancel_remain_on_channel(ptr noundef %15, ptr noundef %0, ptr noundef %1) #13
   br label %17
@@ -2038,12 +2038,12 @@ define internal fastcc i32 @drv_cancel_remain_on_channel(ptr noundef %0, ptr nou
   br label %24
 
 24:                                               ; preds = %21, %17, %4, %2
-  %25 = getelementptr inbounds i8, ptr %0, i64 448
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 464
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 464
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 4056
-  %30 = tail call i32 %28(ptr noundef %0, ptr noundef %29) #13
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4056
+  %30 = tail call i32 %28(ptr noundef %0, ptr noundef nonnull %29) #13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_return_int, i64 8), i32 2) #13
           to label %51 [label %31], !srcloc !22
 
@@ -2064,7 +2064,7 @@ define internal fastcc i32 @drv_cancel_remain_on_channel(ptr noundef %0, ptr nou
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %42, ptr noundef %0, i32 noundef %30) #13
   br label %44
@@ -2090,69 +2090,69 @@ define internal fastcc i32 @drv_cancel_remain_on_channel(ptr noundef %0, ptr nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @ieee80211_roc_notify_destroy(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.cfg80211_tx_status, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #13
-  %17 = getelementptr inbounds i8, ptr %2, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %17, align 8, !annotation !72
   store i64 %11, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store ptr %13, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %16, ptr %20, align 8
-  call void @cfg80211_mgmt_tx_status_ext(ptr noundef %9, ptr noundef nonnull %2, i32 noundef 3264) #13
+  call void @cfg80211_mgmt_tx_status_ext(ptr noundef nonnull %9, ptr noundef nonnull %2, i32 noundef 3264) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #13
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1256
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1256
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %3, align 8
   call void @ieee80211_free_txskb(ptr noundef %23, ptr noundef %24) #13
   br label %25
 
 25:                                               ; preds = %6, %1
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   br i1 %28, label %32, label %37
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
-  call void @cfg80211_remain_on_channel_expired(ptr noundef %31, i64 noundef %34, ptr noundef %36, i32 noundef 3264) #13
+  call void @cfg80211_remain_on_channel_expired(ptr noundef nonnull %31, i64 noundef %34, ptr noundef %36, i32 noundef 3264) #13
   br label %40
 
 37:                                               ; preds = %25
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8
-  call void @cfg80211_tx_mgmt_expired(ptr noundef %31, i64 noundef %27, ptr noundef %39, i32 noundef 3264) #13
+  call void @cfg80211_tx_mgmt_expired(ptr noundef nonnull %31, i64 noundef %27, ptr noundef %39, i32 noundef 3264) #13
   br label %40
 
 40:                                               ; preds = %37, %32
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %42, ptr %44, align 8
   store volatile ptr %43, ptr %42, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
@@ -2163,9 +2163,9 @@ define internal fastcc void @ieee80211_roc_notify_destroy(ptr noundef %0) unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 448
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 456
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 456
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7, !prof !8
@@ -2177,7 +2177,7 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
   br label %ieee80211_start_next_roc.exit
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 5616
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 5616
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %9
   %12 = icmp eq ptr %10, null
@@ -2185,13 +2185,13 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
   br i1 %13, label %ieee80211_start_next_roc.exit, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %16 = load i8, ptr %15, align 8, !range !6, !noundef !7
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %.lr.ph.preheader
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 1345
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1345
   %20 = load i8, ptr %19, align 1, !range !6, !noundef !7
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %23, label %22, !prof !8
@@ -2207,7 +2207,7 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
   br label %ieee80211_start_next_roc.exit
 
 .lr.ph.preheader:                                 ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %10, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %25 = load i8, ptr %24, align 4, !range !6, !noundef !7
   %26 = load volatile i64, ptr @jiffies, align 64
   br label %.lr.ph
@@ -2216,26 +2216,26 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
   %27 = phi ptr [ %29, %53 ], [ %10, %.lr.ph.preheader ]
   %28 = phi i64 [ %54, %53 ], [ 9223372036854775807, %.lr.ph.preheader ]
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %31 = load i8, ptr %30, align 8, !range !6, !noundef !7
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds i8, ptr %27, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %27, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %37 = load i32, ptr %36, align 8
   %38 = tail call i64 @__msecs_to_jiffies(i32 noundef %37) #13
   %39 = sub i64 %35, %26
   %40 = add i64 %38, %39
-  %41 = getelementptr inbounds i8, ptr %27, i64 33
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 33
   %42 = load i8, ptr %41, align 1, !range !6, !noundef !7
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %33
-  %45 = getelementptr inbounds i8, ptr %27, i64 34
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 34
   %46 = load i8, ptr %45, align 2, !range !6, !noundef !7
   %47 = icmp ne i8 %46, 0
   %48 = icmp slt i64 %40, 1
@@ -2261,10 +2261,10 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %.thread
-  %58 = getelementptr inbounds i8, ptr %0, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 5544
-  tail call void @wiphy_delayed_work_queue(ptr noundef %59, ptr noundef %60, i64 noundef %.lcssa.ph) #13
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 5544
+  tail call void @wiphy_delayed_work_queue(ptr noundef %59, ptr noundef nonnull %60, i64 noundef %.lcssa.ph) #13
   br label %ieee80211_start_next_roc.exit
 
 61:                                               ; preds = %.thread
@@ -2273,7 +2273,7 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
 
 63:                                               ; preds = %61
   tail call void @ieee80211_flush_queues(ptr noundef %0, ptr noundef null, i1 noundef zeroext false) #13
-  %64 = getelementptr inbounds i8, ptr %0, i64 4888
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 4888
   store ptr null, ptr %64, align 8
   %65 = tail call i32 @ieee80211_hw_config(ptr noundef %0, i32 noundef 0) #13
   tail call void @ieee80211_offchannel_return(ptr noundef %0)
@@ -2281,7 +2281,7 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
 
 66:                                               ; preds = %63, %61
   tail call void @ieee80211_recalc_idle(ptr noundef %0) #13
-  %67 = getelementptr inbounds i8, ptr %0, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %68 = load volatile ptr, ptr %9, align 8
   %69 = icmp eq ptr %68, %9
   br i1 %69, label %70, label %71
@@ -2291,13 +2291,13 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
   br label %ieee80211_start_next_roc.exit
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %0, i64 1414
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1414
   %73 = load i8, ptr %72, align 2, !range !6, !noundef !7
   %74 = icmp eq i8 %73, 0
   br i1 %74, label %75, label %ieee80211_start_next_roc.exit
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %68, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %77 = load i8, ptr %76, align 8, !range !6, !noundef !7
   %78 = icmp eq i8 %77, 0
   br i1 %78, label %80, label %79, !prof !8
@@ -2310,7 +2310,7 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
 
 80:                                               ; preds = %75
   %81 = load ptr, ptr %2, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 456
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 456
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %86, label %85
@@ -2321,9 +2321,9 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
 
 86:                                               ; preds = %80
   %87 = load ptr, ptr %67, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 5544
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 5544
   %89 = tail call i64 @round_jiffies_relative(i64 noundef 500) #13
-  tail call void @wiphy_delayed_work_queue(ptr noundef %87, ptr noundef %88, i64 noundef %89) #13
+  tail call void @wiphy_delayed_work_queue(ptr noundef %87, ptr noundef nonnull %88, i64 noundef %89) #13
   br label %ieee80211_start_next_roc.exit
 
 ieee80211_start_next_roc.exit:                    ; preds = %86, %85, %79, %71, %70, %57, %23, %8, %7
@@ -2389,7 +2389,7 @@ define internal fastcc i32 @drv_remain_on_channel(ptr noundef %0, ptr noundef %1
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @__SCT__tp_func_drv_remain_on_channel(ptr noundef %18, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #13
   br label %20
@@ -2409,12 +2409,12 @@ define internal fastcc i32 @drv_remain_on_channel(ptr noundef %0, ptr noundef %1
   br label %27
 
 27:                                               ; preds = %24, %20, %7, %5
-  %28 = getelementptr inbounds i8, ptr %0, i64 448
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 456
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 456
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 4056
-  %33 = tail call i32 %31(ptr noundef %0, ptr noundef %32, ptr noundef %2, i32 noundef %3, i32 noundef %4) #13
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4056
+  %33 = tail call i32 %31(ptr noundef %0, ptr noundef nonnull %32, ptr noundef %2, i32 noundef %3, i32 noundef %4) #13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_return_int, i64 8), i32 2) #13
           to label %54 [label %34], !srcloc !22
 
@@ -2435,7 +2435,7 @@ define internal fastcc i32 @drv_remain_on_channel(ptr noundef %0, ptr noundef %1
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %45, ptr noundef %0, i32 noundef %33) #13
   br label %47
@@ -2466,7 +2466,7 @@ declare dso_local void @ieee80211_recalc_idle(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @ieee80211_handle_roc_started(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 35
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %4 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %7, label %6, !prof !8
@@ -2478,17 +2478,17 @@ define internal fastcc void @ieee80211_handle_roc_started(ptr nocapture noundef 
   br label %35
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %24, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18, !prof !33
@@ -2500,9 +2500,9 @@ define internal fastcc void @ieee80211_handle_roc_started(ptr nocapture noundef 
   br label %34
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 8
   tail call void @__rcu_read_lock() #13
@@ -2512,16 +2512,16 @@ define internal fastcc void @ieee80211_handle_roc_started(ptr nocapture noundef 
   br label %34
 
 24:                                               ; preds = %7
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %33 = load i32, ptr %32, align 4
-  tail call void @cfg80211_ready_on_channel(ptr noundef %27, i64 noundef %29, ptr noundef %31, i32 noundef %33, i32 noundef 3264) #13
+  tail call void @cfg80211_ready_on_channel(ptr noundef nonnull %27, i64 noundef %29, ptr noundef %31, i32 noundef %33, i32 noundef 3264) #13
   br label %34
 
 34:                                               ; preds = %24, %18, %17

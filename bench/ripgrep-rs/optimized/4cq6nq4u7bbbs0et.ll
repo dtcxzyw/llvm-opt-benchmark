@@ -53,14 +53,14 @@ define void @_ZN13grep_searcher8searcher4mmap10MmapChoice4open17h71e9772264d7faf
 
 _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.exit.i: ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
-  %21 = getelementptr inbounds i8, ptr %12, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %21, align 8
   store i64 0, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i8 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %12, i64 26
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 26
   store i8 0, ptr %23, align 2
-  %24 = getelementptr inbounds i8, ptr %12, i64 27
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 27
   store i8 0, ptr %24, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
@@ -75,7 +75,7 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   store ptr %11, ptr %7, align 8, !noalias !22
   call void @"_ZN7memmap211MmapOptions7get_len28_$u7b$$u7b$closure$u7d$$u7d$17h227bd0f422435ec2E.llvm.14751623873358387643"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8), !noalias !27
   %.pre.i = load i64, ptr %9, align 8, !range !28, !noalias !14
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %9, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.pre8.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !14
   %26 = trunc nuw i64 %.pre.i to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !14
@@ -91,7 +91,7 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   call void @_ZN7memmap22os9MmapInner3map17h43602e58fe2432d2E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %10, i64 noundef %.cast.i, i32 noundef %25, i64 noundef %28, i1 noundef zeroext %30), !noalias !27
   %31 = load i64, ptr %10, align 8, !range !28, !alias.scope !30, !noalias !33, !noundef !8
   %trunc.i7.i = trunc nuw i64 %31 to i1
-  %32 = getelementptr inbounds i8, ptr %10, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %33 = load ptr, ptr %32, align 8, !alias.scope !30, !noalias !33, !noundef !8
   br i1 %trunc.i7.i, label %40, label %35
 
@@ -99,14 +99,14 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   ret void
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %10, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %37 = load i64, ptr %36, align 8, !alias.scope !30, !noalias !33, !noundef !8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %33, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %37, ptr %39, align 8
   store i64 1, ptr %0, align 8
   br label %34
@@ -141,23 +141,23 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   store ptr %3, ptr %15, align 8
-  %48 = getelementptr inbounds i8, ptr %15, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %4, ptr %48, align 8
   store ptr %15, ptr %16, align 8
-  %49 = getelementptr inbounds i8, ptr %16, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @"_ZN57_$LT$std..path..Display$u20$as$u20$core..fmt..Display$GT$3fmt17he96c35e86e3f851bE", ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %16, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %18, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %16, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h1213a0edb2d83536E", ptr %51, align 8
   store ptr @anon.6ea0c81b63a59234a379548ab66b5c78.17, ptr %17, align 8, !alias.scope !35, !noalias !38
-  %52 = getelementptr inbounds i8, ptr %17, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 2, ptr %52, align 8, !alias.scope !35, !noalias !38
-  %53 = getelementptr inbounds i8, ptr %17, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %53, align 8, !alias.scope !35, !noalias !38
-  %54 = getelementptr inbounds i8, ptr %17, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %16, ptr %54, align 8, !alias.scope !35, !noalias !38
-  %55 = getelementptr inbounds i8, ptr %17, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 2, ptr %55, align 8, !alias.scope !35, !noalias !38
   invoke void @_ZN3log13__private_api8log_impl17hc470126f8d7e0821E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %17, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.6ea0c81b63a59234a379548ab66b5c78.20, i32 noundef 85, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %56 unwind label %44
@@ -181,7 +181,7 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   br i1 %switch.not.i.i.i.i, label %60, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdf25b10f0ddf00b0E.exit"
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %6, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hff7f29cc76a4a4b7E.llvm.9700538728918920724"(ptr noalias noundef nonnull align 8 dereferenceable(8) %61), !noalias !50
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdf25b10f0ddf00b0E.exit"
 
@@ -197,16 +197,16 @@ _ZN7memmap211MmapOptions7get_len17h94fb46ca1ef8eac6E.llvm.14751623873358387643.e
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   store ptr %18, ptr %13, align 8
-  %64 = getelementptr inbounds i8, ptr %13, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h1213a0edb2d83536E", ptr %64, align 8
   store ptr @anon.6ea0c81b63a59234a379548ab66b5c78.22, ptr %14, align 8, !alias.scope !55, !noalias !58
-  %65 = getelementptr inbounds i8, ptr %14, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 1, ptr %65, align 8, !alias.scope !55, !noalias !58
-  %66 = getelementptr inbounds i8, ptr %14, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr null, ptr %66, align 8, !alias.scope !55, !noalias !58
-  %67 = getelementptr inbounds i8, ptr %14, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %13, ptr %67, align 8, !alias.scope !55, !noalias !58
-  %68 = getelementptr inbounds i8, ptr %14, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 1, ptr %68, align 8, !alias.scope !55, !noalias !58
   invoke void @_ZN3log13__private_api8log_impl17hc470126f8d7e0821E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.6ea0c81b63a59234a379548ab66b5c78.20, i32 noundef 91, ptr noalias noundef readonly align 8 null, i64 undef)
           to label %69 unwind label %44

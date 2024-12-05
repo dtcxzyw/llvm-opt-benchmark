@@ -129,7 +129,7 @@ define void @Io_WriteBlif(ptr noundef %0, ptr nocapture noundef readonly %1, i32
   br label %44
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr (...) @Extra_TimeStamp() #10
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.3, ptr noundef %13, ptr noundef %14) #10
@@ -146,9 +146,9 @@ define void @Io_WriteBlif(ptr noundef %0, ptr nocapture noundef readonly %1, i32
   br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %18, %11
-  %22 = getelementptr inbounds i8, ptr %0, i64 176
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 4
   %.val29 = load i32, ptr %26, align 4
@@ -161,7 +161,7 @@ define void @Io_WriteBlif(ptr noundef %0, ptr nocapture noundef readonly %1, i32
   %29 = phi ptr [ %39, %36 ], [ %25, %21 ]
   %30 = getelementptr i8, ptr %29, i64 8
   %.val26 = load ptr, ptr %30, align 8
-  %31 = getelementptr inbounds ptr, ptr %.val26, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %.val26, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %0
   br i1 %33, label %36, label %34
@@ -175,7 +175,7 @@ define void @Io_WriteBlif(ptr noundef %0, ptr nocapture noundef readonly %1, i32
 36:                                               ; preds = %.lr.ph, %34
   %37 = phi ptr [ %28, %.lr.ph ], [ %.pre, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr i8, ptr %39, i64 4
   %.val = load i32, ptr %40, align 4
@@ -255,7 +255,7 @@ define void @Io_NtkWriteConvertedBox(ptr nocapture noundef %0, ptr nocapture nou
   %.val2642 = phi ptr [ %.val2639, %.lr.ph44 ], [ %.val26, %48 ]
   %15 = getelementptr i8, ptr %.val2642, i64 8
   %.val27.val = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val27.val, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %.val27.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr %0)
   tail call fastcc void @Io_NtkWritePis(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1)
@@ -360,7 +360,7 @@ define internal fastcc void @Io_NtkWritePis(ptr nocapture noundef %0, ptr nocapt
   %.03653 = phi i32 [ %31, %28 ], [ 7, %.preheader49 ]
   %10 = getelementptr i8, ptr %.val56, i64 8
   %.val42.val = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val42.val, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %.val42.val, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.val43 = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %12, i64 48
@@ -411,7 +411,7 @@ define internal fastcc void @Io_NtkWritePis(ptr nocapture noundef %0, ptr nocapt
   %.23859 = phi i32 [ %57, %54 ], [ 7, %.preheader ]
   %36 = getelementptr i8, ptr %.val4762, i64 8
   %.val48.val = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds ptr, ptr %.val48.val, i64 %indvars.iv66
+  %37 = getelementptr inbounds nuw ptr, ptr %.val48.val, i64 %indvars.iv66
   %38 = load ptr, ptr %37, align 8
   %.val45 = load ptr, ptr %38, align 8
   %39 = getelementptr i8, ptr %38, i64 48
@@ -497,7 +497,7 @@ define void @Io_NtkWriteSubcktFanins(ptr nocapture noundef %0, ptr nocapture nou
   %.val35.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %.val35.val, i64 8
   %.val35.val.val = load ptr, ptr %17, align 8
-  %18 = getelementptr inbounds i32, ptr %.val36, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %.val36, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds ptr, ptr %.val35.val.val, i64 %20
@@ -574,7 +574,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @Mio_GateReadName(ptr noundef %5) #10
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %2, ptr noundef %6) #10
@@ -596,7 +596,7 @@ define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr nocapture noundef %0, ptr no
   %.val28.val = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %.val28.val, i64 8
   %.val28.val.val = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds i32, ptr %.val29, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %.val29, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %.val28.val.val, i64 %16
@@ -643,7 +643,7 @@ define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr nocapture noundef %0, ptr no
   br label %52
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %34, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @Mio_GateReadOutName(ptr noundef %42) #10
   %.val = load ptr, ptr %34, align 8
@@ -693,14 +693,14 @@ define noundef i32 @Io_NtkWriteNodeSubckt(ptr nocapture noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 264
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %181, label %6
 
 6:                                                ; preds = %2
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
-  %7 = getelementptr inbounds i8, ptr %1, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %8 = load float, ptr %7, align 8
   %9 = fcmp une float %8, 0.000000e+00
   br i1 %9, label %10, label %13
@@ -714,14 +714,14 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %14 = tail call ptr @Abc_NtkReadDefaultArrival(ptr noundef nonnull %1) #10
   %15 = load float, ptr %14, align 4
   %16 = fpext float %15 to double
-  %17 = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = load float, ptr %17, align 4
   %19 = fpext float %18 to double
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, double noundef %16, double noundef %19) #10
   %21 = tail call ptr @Abc_NtkReadDefaultRequired(ptr noundef nonnull %1) #10
   %22 = load float, ptr %21, align 4
   %23 = fpext float %22 to double
-  %24 = getelementptr inbounds i8, ptr %21, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %25 = load float, ptr %24, align 4
   %26 = fpext float %25 to double
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, double noundef %23, double noundef %26) #10
@@ -746,7 +746,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %.val98118 = phi ptr [ %.val98, %60 ], [ %.val98115, %13 ]
   %34 = getelementptr i8, ptr %.val98118, i64 8
   %.val99.val = load ptr, ptr %34, align 8
-  %35 = getelementptr inbounds ptr, ptr %.val99.val, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %.val99.val, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @Abc_NodeReadArrival(ptr noundef %36) #10
   %38 = load float, ptr %37, align 4
@@ -755,7 +755,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %37, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %43 = load float, ptr %42, align 4
   %44 = load float, ptr %17, align 4
   %45 = fcmp oeq float %43, %44
@@ -776,7 +776,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %53 = tail call ptr @Abc_ObjName(ptr noundef %52) #10
   %54 = load float, ptr %37, align 4
   %55 = fpext float %54 to double
-  %56 = getelementptr inbounds i8, ptr %37, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %57 = load float, ptr %56, align 4
   %58 = fpext float %57 to double
   %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.27, ptr noundef %53, double noundef %55, double noundef %58) #10
@@ -796,7 +796,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %.val106122 = phi ptr [ %.val106, %.critedge ], [ %.val106119, %.critedge.preheader ]
   %64 = getelementptr i8, ptr %.val106122, i64 8
   %.val108.val = load ptr, ptr %64, align 8
-  %65 = getelementptr inbounds ptr, ptr %.val108.val, i64 %indvars.iv135
+  %65 = getelementptr inbounds nuw ptr, ptr %.val108.val, i64 %indvars.iv135
   %66 = load ptr, ptr %65, align 8
   %67 = tail call ptr @Abc_NodeReadRequired(ptr noundef %66) #10
   %68 = load float, ptr %67, align 4
@@ -805,7 +805,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %.lr.ph123
-  %72 = getelementptr inbounds i8, ptr %67, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %73 = load float, ptr %72, align 4
   %74 = load float, ptr %24, align 4
   %75 = fcmp oeq float %73, %74
@@ -826,7 +826,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %83 = tail call ptr @Abc_ObjName(ptr noundef %82) #10
   %84 = load float, ptr %67, align 4
   %85 = fpext float %84 to double
-  %86 = getelementptr inbounds i8, ptr %67, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %87 = load float, ptr %86, align 4
   %88 = fpext float %87 to double
   %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef %83, double noundef %85, double noundef %88) #10
@@ -846,7 +846,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %93 = tail call ptr @Abc_NtkReadDefaultInputDrive(ptr noundef nonnull %1) #10
   %94 = load float, ptr %93, align 4
   %95 = fcmp une float %94, 0.000000e+00
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %93, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %93, i64 4
   %.pre = load float, ptr %.phi.trans.insert, align 4
   %96 = fcmp une float %.pre, 0.000000e+00
   %or.cond = select i1 %95, i1 true, i1 %96
@@ -871,7 +871,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   br i1 %103, label %.lr.ph128, label %.critedge4
 
 .lr.ph128:                                        ; preds = %.preheader113
-  %104 = getelementptr inbounds i8, ptr %93, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %93, i64 4
   br label %105
 
 105:                                              ; preds = %.lr.ph128, %133
@@ -879,7 +879,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %.val127 = phi ptr [ %.val124, %.lr.ph128 ], [ %.val, %133 ]
   %106 = getelementptr i8, ptr %.val127, i64 8
   %.val100.val = load ptr, ptr %106, align 8
-  %107 = getelementptr inbounds ptr, ptr %.val100.val, i64 %indvars.iv138
+  %107 = getelementptr inbounds nuw ptr, ptr %.val100.val, i64 %indvars.iv138
   %108 = load ptr, ptr %107, align 8
   %109 = trunc nuw nsw i64 %indvars.iv138 to i32
   %110 = tail call ptr @Abc_NodeReadInputDrive(ptr noundef nonnull %1, i32 noundef %109) #10
@@ -889,7 +889,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   br i1 %113, label %114, label %119
 
 114:                                              ; preds = %105
-  %115 = getelementptr inbounds i8, ptr %110, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %116 = load float, ptr %115, align 4
   %117 = load float, ptr %104, align 4
   %118 = fcmp oeq float %116, %117
@@ -910,7 +910,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %126 = tail call ptr @Abc_ObjName(ptr noundef %125) #10
   %127 = load float, ptr %110, align 4
   %128 = fpext float %127 to double
-  %129 = getelementptr inbounds i8, ptr %110, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %130 = load float, ptr %129, align 4
   %131 = fpext float %130 to double
   %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, ptr noundef %126, double noundef %128, double noundef %131) #10
@@ -929,7 +929,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %137 = tail call ptr @Abc_NtkReadDefaultOutputLoad(ptr noundef nonnull %1) #10
   %138 = load float, ptr %137, align 4
   %139 = fcmp une float %138, 0.000000e+00
-  %.phi.trans.insert144 = getelementptr inbounds i8, ptr %137, i64 4
+  %.phi.trans.insert144 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %.pre145 = load float, ptr %.phi.trans.insert144, align 4
   %140 = fcmp une float %.pre145, 0.000000e+00
   %or.cond146 = select i1 %139, i1 true, i1 %140
@@ -954,7 +954,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   br i1 %147, label %.lr.ph133, label %.critedge6
 
 .lr.ph133:                                        ; preds = %.preheader
-  %148 = getelementptr inbounds i8, ptr %137, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %137, i64 4
   br label %149
 
 149:                                              ; preds = %.lr.ph133, %177
@@ -962,7 +962,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %.val105132 = phi ptr [ %.val105129, %.lr.ph133 ], [ %.val105, %177 ]
   %150 = getelementptr i8, ptr %.val105132, i64 8
   %.val107.val = load ptr, ptr %150, align 8
-  %151 = getelementptr inbounds ptr, ptr %.val107.val, i64 %indvars.iv141
+  %151 = getelementptr inbounds nuw ptr, ptr %.val107.val, i64 %indvars.iv141
   %152 = load ptr, ptr %151, align 8
   %153 = trunc nuw nsw i64 %indvars.iv141 to i32
   %154 = tail call ptr @Abc_NodeReadOutputLoad(ptr noundef nonnull %1, i32 noundef %153) #10
@@ -972,7 +972,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   br i1 %157, label %158, label %163
 
 158:                                              ; preds = %149
-  %159 = getelementptr inbounds i8, ptr %154, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 4
   %160 = load float, ptr %159, align 4
   %161 = load float, ptr %148, align 4
   %162 = fcmp oeq float %160, %161
@@ -993,7 +993,7 @@ define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_
   %170 = tail call ptr @Abc_ObjName(ptr noundef %169) #10
   %171 = load float, ptr %154, align 4
   %172 = fpext float %171 to double
-  %173 = getelementptr inbounds i8, ptr %154, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %154, i64 4
   %174 = load float, ptr %173, align 4
   %175 = fpext float %174 to double
   %176 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef %170, double noundef %172, double noundef %175) #10
@@ -1127,9 +1127,9 @@ define void @Io_NtkWriteNodeInt(ptr nocapture noundef %0, ptr nocapture noundef 
   %11 = getelementptr i8, ptr %1, i64 28
   %.val157 = load i32, ptr %11, align 4
   %12 = icmp sgt i32 %.val157, 7
-  %indvars.iv209.sroa.gep221 = getelementptr inbounds i8, ptr %9, i64 4
-  %indvars.iv209.sroa.gep224 = getelementptr inbounds i8, ptr %8, i64 16
-  %indvars.iv209.sroa.gep227 = getelementptr inbounds i8, ptr %7, i64 8
+  %indvars.iv209.sroa.gep221 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %indvars.iv209.sroa.gep224 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %indvars.iv209.sroa.gep227 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %3
@@ -1159,7 +1159,7 @@ define void @Io_NtkWriteNodeInt(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %24, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %.preheader178
-  %25 = getelementptr inbounds i8, ptr %10, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %wide.trip.count = zext nneg i32 %.val155 to i64
   br label %51
 
@@ -1181,7 +1181,7 @@ define void @Io_NtkWriteNodeInt(ptr nocapture noundef %0, ptr nocapture noundef 
   %.val153.val = load ptr, ptr %31, align 8
   %32 = getelementptr i8, ptr %.val153.val, i64 8
   %.val153.val.val = load ptr, ptr %32, align 8
-  %33 = getelementptr inbounds i32, ptr %.val154, i64 %indvars.iv212
+  %33 = getelementptr inbounds nuw i32, ptr %.val154, i64 %indvars.iv212
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds ptr, ptr %.val153.val.val, i64 %35
@@ -1215,10 +1215,10 @@ define void @Io_NtkWriteNodeInt(ptr nocapture noundef %0, ptr nocapture noundef 
 
 51:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds [10 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [10 x i32], ptr %25, i64 0, i64 %indvars.iv
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %53, ptr %52, align 4
-  %54 = getelementptr inbounds [10 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [10 x i32], ptr %10, i64 0, i64 %indvars.iv
   store i32 %53, ptr %54, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1232,7 +1232,7 @@ define void @Io_NtkWriteNodeInt(ptr nocapture noundef %0, ptr nocapture noundef 
 
 57:                                               ; preds = %.critedge2
   call void @Abc_SopToTruth7(ptr noundef %.val143, i32 noundef 7, ptr noundef nonnull %6) #10
-  %58 = getelementptr inbounds i8, ptr %8, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %59 = call i32 @If_Dec7PickBestMux(ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %58) #10
   %60 = icmp sgt i32 %59, -1
   br i1 %60, label %64, label %150
@@ -1245,8 +1245,8 @@ define void @Io_NtkWriteNodeInt(ptr nocapture noundef %0, ptr nocapture noundef 
 
 64:                                               ; preds = %57
   call void @If_Dec7MinimumBase(ptr noundef nonnull %8, ptr noundef nonnull %10, i32 noundef 7, ptr noundef nonnull %9) #10
-  %65 = getelementptr inbounds i8, ptr %10, i64 40
-  %66 = getelementptr inbounds i8, ptr %9, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @If_Dec7MinimumBase(ptr noundef nonnull %58, ptr noundef nonnull %65, i32 noundef 7, ptr noundef nonnull %66) #10
   br label %74
 
@@ -1254,10 +1254,10 @@ define void @Io_NtkWriteNodeInt(ptr nocapture noundef %0, ptr nocapture noundef 
   %67 = load i64, ptr %7, align 16
   %68 = call i64 @If_Dec6MinimumBase(i64 noundef %67, ptr noundef nonnull %10, i32 noundef %.val157, ptr noundef nonnull %9) #10
   store i64 %68, ptr %7, align 16
-  %69 = getelementptr inbounds i8, ptr %7, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %10, i64 40
-  %72 = getelementptr inbounds i8, ptr %9, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %73 = call i64 @If_Dec6MinimumBase(i64 noundef %70, ptr noundef nonnull %71, i32 noundef %.val157, ptr noundef nonnull %72) #10
   store i64 %73, ptr %69, align 8
   br label %74
@@ -1273,7 +1273,7 @@ define void @Io_NtkWriteNodeInt(ptr nocapture noundef %0, ptr nocapture noundef 
   %78 = getelementptr i8, ptr %.val149.val, i64 8
   %.val149.val.val = load ptr, ptr %78, align 8
   %79 = zext nneg i32 %.0169172 to i64
-  %80 = getelementptr inbounds i32, ptr %.val150, i64 %79
+  %80 = getelementptr inbounds nuw i32, ptr %.val150, i64 %79
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds ptr, ptr %.val149.val.val, i64 %82
@@ -1329,7 +1329,7 @@ define void @Io_NtkWriteNodeInt(ptr nocapture noundef %0, ptr nocapture noundef 
   %indvars.iv209.sroa.phi225 = phi ptr [ %7, %74 ], [ %indvars.iv209.sroa.gep227, %._crit_edge186 ]
   %indvars.iv209 = phi i64 [ 0, %74 ], [ 1, %._crit_edge186 ]
   %.val158 = load ptr, ptr %1, align 8
-  %114 = getelementptr inbounds i8, ptr %.val158, i64 256
+  %114 = getelementptr inbounds nuw i8, ptr %.val158, i64 256
   %115 = load ptr, ptr %114, align 8
   %.in = select i1 %55, ptr %indvars.iv209.sroa.phi222, ptr %indvars.iv209.sroa.phi225
   %116 = load i64, ptr %.in, align 8
@@ -1368,7 +1368,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %112, %119, %121, %1
 
 .lr.ph185:                                        ; preds = %Io_NtkDeriveSop.exit, %.lr.ph185
   %indvars.iv206 = phi i64 [ %indvars.iv.next207, %.lr.ph185 ], [ 0, %Io_NtkDeriveSop.exit ]
-  %127 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv209, i64 %indvars.iv206
+  %127 = getelementptr inbounds nuw [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv209, i64 %indvars.iv206
   %128 = load i32, ptr %127, align 4
   %.val147 = load ptr, ptr %1, align 8
   %.val148 = load ptr, ptr %76, align 8
@@ -1449,7 +1449,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %112, %119, %121, %1
   %.not = icmp eq i64 %indvars.iv202, 0
   %170 = select i1 %.not, i64 %.0118, i64 %155
   %171 = and i64 %170, 65535
-  %172 = getelementptr inbounds [2 x i64], ptr %6, i64 0, i64 %indvars.iv202
+  %172 = getelementptr inbounds nuw [2 x i64], ptr %6, i64 0, i64 %indvars.iv202
   %173 = mul nuw i64 %171, 281479271743489
   store i64 %173, ptr %172, align 8
   %174 = shl nuw nsw i64 %indvars.iv202, 5
@@ -1463,17 +1463,17 @@ Io_NtkDeriveSop.exit:                             ; preds = %112, %119, %121, %1
   %179 = lshr i64 %.0118, %178
   %180 = trunc i64 %179 to i32
   %181 = and i32 %180, 7
-  %182 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv202, i64 %indvars.iv194
+  %182 = getelementptr inbounds nuw [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv202, i64 %indvars.iv194
   store i32 %181, ptr %182, align 4
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next195, 4
   br i1 %exitcond198.not, label %183, label %176, !llvm.loop !20
 
 183:                                              ; preds = %176
-  %184 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv202
-  %185 = getelementptr inbounds [2 x i32], ptr %9, i64 0, i64 %indvars.iv202
+  %184 = getelementptr inbounds nuw [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv202
+  %185 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 0, i64 %indvars.iv202
   %186 = call i64 @If_Dec6MinimumBase(i64 noundef %173, ptr noundef nonnull %184, i32 noundef 4, ptr noundef nonnull %185) #10
-  %187 = getelementptr inbounds [2 x i64], ptr %7, i64 0, i64 %indvars.iv202
+  %187 = getelementptr inbounds nuw [2 x i64], ptr %7, i64 0, i64 %indvars.iv202
   store i64 %186, ptr %187, align 8
   %188 = call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr %0)
   %189 = load i32, ptr %185, align 4
@@ -1482,7 +1482,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %112, %119, %121, %1
 
 .lr.ph182:                                        ; preds = %183, %199
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %199 ], [ 0, %183 ]
-  %191 = getelementptr inbounds [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv202, i64 %indvars.iv199
+  %191 = getelementptr inbounds nuw [2 x [10 x i32]], ptr %10, i64 0, i64 %indvars.iv202, i64 %indvars.iv199
   %192 = load i32, ptr %191, align 4
   %193 = icmp eq i32 %192, 7
   %.val126 = load ptr, ptr %1, align 8
@@ -1532,7 +1532,7 @@ Io_NtkDeriveSop.exit:                             ; preds = %112, %119, %121, %1
   %214 = select i1 %.not, ptr @.str.50, ptr @.str.49
   %215 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef %213, ptr noundef nonnull %214) #10
   %.val159 = load ptr, ptr %1, align 8
-  %216 = getelementptr inbounds i8, ptr %.val159, i64 256
+  %216 = getelementptr inbounds nuw i8, ptr %.val159, i64 256
   %217 = load ptr, ptr %216, align 8
   %218 = load i64, ptr %187, align 8
   %219 = load i32, ptr %185, align 4
@@ -1621,7 +1621,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1
   %22 = add i8 %21, -55
   %or.cond160 = icmp ult i8 %22, -4
@@ -1641,7 +1641,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %._crit_edge
-  %32 = getelementptr inbounds i8, ptr %3, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
   %35 = add nsw i32 %34, -48
@@ -1651,7 +1651,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
   %37 = phi i32 [ %35, %31 ], [ 0, %._crit_edge ]
   %38 = add i64 %14, 4294967295
   %39 = and i64 %38, 4294967295
-  %40 = getelementptr inbounds i8, ptr %3, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = sext i8 %41 to i32
   %43 = add nsw i32 %42, -48
@@ -1691,7 +1691,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
   %.val188.val = load ptr, ptr %59, align 8
   %60 = getelementptr i8, ptr %.val188.val, i64 8
   %.val188.val.val = load ptr, ptr %60, align 8
-  %61 = getelementptr inbounds i32, ptr %.val189, i64 %indvars.iv241
+  %61 = getelementptr inbounds nuw i32, ptr %.val189, i64 %indvars.iv241
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds ptr, ptr %.val188.val.val, i64 %63
@@ -1731,8 +1731,8 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
 
 .preheader214:                                    ; preds = %79, %.preheader214
   %indvars.iv244 = phi i64 [ %indvars.iv.next245, %.preheader214 ], [ 0, %79 ]
-  %82 = getelementptr inbounds [16 x [1024 x i64]], ptr @Io_NtkWriteNodeIntStruct.TruthStore, i64 0, i64 %indvars.iv244
-  %83 = getelementptr inbounds [16 x ptr], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv244
+  %82 = getelementptr inbounds nuw [16 x [1024 x i64]], ptr @Io_NtkWriteNodeIntStruct.TruthStore, i64 0, i64 %indvars.iv244
+  %83 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv244
   store ptr %82, ptr %83, align 8
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next245, 16
@@ -1740,15 +1740,15 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
 
 .preheader212:                                    ; preds = %.preheader214, %90
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %90 ], [ 0, %.preheader214 ]
-  %84 = getelementptr inbounds [6 x i64], ptr @Io_NtkWriteModelIntStruct.Truth6, i64 0, i64 %indvars.iv252
+  %84 = getelementptr inbounds nuw [6 x i64], ptr @Io_NtkWriteModelIntStruct.Truth6, i64 0, i64 %indvars.iv252
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds [16 x ptr], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv252
+  %86 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv252
   br label %87
 
 87:                                               ; preds = %.preheader212, %87
   %indvars.iv248 = phi i64 [ 0, %.preheader212 ], [ %indvars.iv.next249, %87 ]
   %88 = load ptr, ptr %86, align 8
-  %89 = getelementptr inbounds i64, ptr %88, i64 %indvars.iv248
+  %89 = getelementptr inbounds nuw i64, ptr %88, i64 %indvars.iv248
   store i64 %85, ptr %89, align 8
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond251.not = icmp eq i64 %indvars.iv.next249, 1024
@@ -1764,7 +1764,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
   %91 = trunc i64 %indvars.iv260 to i32
   %92 = add i32 %91, -6
   %93 = shl nuw i32 1, %92
-  %94 = getelementptr inbounds [16 x ptr], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv260
+  %94 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteNodeIntStruct.pTruths, i64 0, i64 %indvars.iv260
   br label %95
 
 95:                                               ; preds = %.preheader, %95
@@ -1774,7 +1774,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
   %.not158 = icmp ne i32 %97, 0
   %98 = sext i1 %.not158 to i64
   %99 = load ptr, ptr %94, align 8
-  %100 = getelementptr inbounds i64, ptr %99, i64 %indvars.iv256
+  %100 = getelementptr inbounds nuw i64, ptr %99, i64 %indvars.iv256
   store i64 %98, ptr %100, align 8
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond259.not = icmp eq i64 %indvars.iv.next257, 1024
@@ -1804,7 +1804,7 @@ select.unfold.i:                                  ; preds = %109, %.loopexit
 
 109:                                              ; preds = %select.unfold.i
   %110 = add nsw i64 %indvars.iv.i, -1
-  %111 = getelementptr inbounds i32, ptr %6, i64 %110
+  %111 = getelementptr inbounds nuw i32, ptr %6, i64 %110
   %112 = load i32, ptr %111, align 4
   %.not.i = icmp eq i32 %112, 0
   br i1 %.not.i, label %select.unfold.i, label %select.unfold.i196, !llvm.loop !30
@@ -1817,7 +1817,7 @@ select.unfold.i196:                               ; preds = %109, %115
 
 115:                                              ; preds = %select.unfold.i196
   %116 = add nsw i64 %indvars.iv.i197, -1
-  %117 = getelementptr inbounds i32, ptr %6, i64 %116
+  %117 = getelementptr inbounds nuw i32, ptr %6, i64 %116
   %118 = load i32, ptr %117, align 4
   %.not.i199 = icmp eq i32 %118, -1
   br i1 %.not.i199, label %select.unfold.i196, label %133, !llvm.loop !31
@@ -1845,7 +1845,7 @@ select.unfold.i201:                               ; preds = %128, %Kit_TruthIsCo
 
 128:                                              ; preds = %select.unfold.i201
   %129 = add nsw i64 %indvars.iv.i202, -1
-  %130 = getelementptr inbounds i32, ptr %6, i64 %129
+  %130 = getelementptr inbounds nuw i32, ptr %6, i64 %129
   %131 = load i32, ptr %130, align 4
   %.not.i204 = icmp eq i32 %131, -1
   br i1 %.not.i204, label %select.unfold.i201, label %Kit_TruthIsConst1.exit205, !llvm.loop !31
@@ -1924,7 +1924,7 @@ Kit_TruthIsConst1.exit205:                        ; preds = %select.unfold.i201,
 166:                                              ; preds = %.lr.ph228, %166
   %indvars.iv264 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next265, %166 ]
   %167 = add nuw nsw i64 %indvars.iv264, 2
-  %168 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %167
+  %168 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %167
   %169 = load i8, ptr %168, align 1
   %.val186 = load ptr, ptr %1, align 8
   %.val187 = load ptr, ptr %165, align 8
@@ -1961,7 +1961,7 @@ Kit_TruthIsConst1.exit205:                        ; preds = %select.unfold.i201,
   %189 = call ptr @Abc_ObjName(ptr noundef %188) #10
   %190 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %189) #10
   %.val194 = load ptr, ptr %1, align 8
-  %191 = getelementptr inbounds i8, ptr %.val194, i64 256
+  %191 = getelementptr inbounds nuw i8, ptr %.val194, i64 256
   %192 = load ptr, ptr %191, align 8
   %193 = load i64, ptr %8, align 8
   %194 = load i8, ptr %11, align 16
@@ -1986,7 +1986,7 @@ Kit_TruthIsConst1.exit205:                        ; preds = %select.unfold.i201,
 204:                                              ; preds = %.lr.ph232, %215
   %indvars.iv267 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next268, %215 ]
   %205 = add nuw nsw i64 %indvars.iv267, 2
-  %206 = getelementptr inbounds [32 x i8], ptr %12, i64 0, i64 %205
+  %206 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %205
   %207 = load i8, ptr %206, align 1
   %208 = sext i8 %207 to i32
   %209 = icmp eq i32 %.val191, %208
@@ -2036,7 +2036,7 @@ Kit_TruthIsConst1.exit205:                        ; preds = %select.unfold.i201,
   %229 = call ptr @Abc_ObjName(ptr noundef %228) #10
   %230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.58, ptr noundef %229) #10
   %.val193 = load ptr, ptr %1, align 8
-  %231 = getelementptr inbounds i8, ptr %.val193, i64 256
+  %231 = getelementptr inbounds nuw i8, ptr %.val193, i64 256
   %232 = load ptr, ptr %231, align 8
   %233 = load i64, ptr %9, align 8
   %234 = load i8, ptr %12, align 16
@@ -2059,7 +2059,7 @@ Kit_TruthIsConst1.exit205:                        ; preds = %select.unfold.i201,
 243:                                              ; preds = %.lr.ph236, %260
   %indvars.iv270 = phi i64 [ 0, %.lr.ph236 ], [ %indvars.iv.next271, %260 ]
   %244 = add nuw nsw i64 %indvars.iv270, 2
-  %245 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %244
   %246 = load i8, ptr %245, align 1
   %247 = sext i8 %246 to i32
   %248 = icmp eq i32 %.val191, %247
@@ -2122,7 +2122,7 @@ Kit_TruthIsConst1.exit205:                        ; preds = %select.unfold.i201,
   %274 = call ptr @Abc_ObjName(ptr noundef %273) #10
   %275 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %274) #10
   %.val192 = load ptr, ptr %1, align 8
-  %276 = getelementptr inbounds i8, ptr %.val192, i64 256
+  %276 = getelementptr inbounds nuw i8, ptr %.val192, i64 256
   %277 = load ptr, ptr %276, align 8
   %278 = load i64, ptr %7, align 8
   %279 = load i8, ptr %10, align 16
@@ -2202,7 +2202,7 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
 
 .lr.ph202:                                        ; preds = %.lr.ph202.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph202.preheader ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %30 = load i8, ptr %29, align 1
   %31 = add i8 %30, -55
   %or.cond163 = icmp ult i8 %31, -4
@@ -2222,7 +2222,7 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %._crit_edge203
-  %41 = getelementptr inbounds i8, ptr %3, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i32
   %44 = add nsw i32 %43, -48
@@ -2232,7 +2232,7 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
   %46 = phi i32 [ %44, %40 ], [ 0, %._crit_edge203 ]
   %47 = add i64 %23, 4294967295
   %48 = and i64 %47, 4294967295
-  %49 = getelementptr inbounds i8, ptr %3, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = sext i8 %50 to i32
   %52 = add nsw i32 %51, -48
@@ -2284,8 +2284,8 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
 
 .preheader197:                                    ; preds = %73, %.preheader197
   %indvars.iv228 = phi i64 [ %indvars.iv.next229, %.preheader197 ], [ 0, %73 ]
-  %76 = getelementptr inbounds [16 x [1024 x i64]], ptr @Io_NtkWriteModelIntStruct.TruthStore, i64 0, i64 %indvars.iv228
-  %77 = getelementptr inbounds [16 x ptr], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv228
+  %76 = getelementptr inbounds nuw [16 x [1024 x i64]], ptr @Io_NtkWriteModelIntStruct.TruthStore, i64 0, i64 %indvars.iv228
+  %77 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv228
   store ptr %76, ptr %77, align 8
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next229, 16
@@ -2293,15 +2293,15 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
 
 .preheader195:                                    ; preds = %.preheader197, %84
   %indvars.iv236 = phi i64 [ %indvars.iv.next237, %84 ], [ 0, %.preheader197 ]
-  %78 = getelementptr inbounds [6 x i64], ptr @Io_NtkWriteModelIntStruct.Truth6, i64 0, i64 %indvars.iv236
+  %78 = getelementptr inbounds nuw [6 x i64], ptr @Io_NtkWriteModelIntStruct.Truth6, i64 0, i64 %indvars.iv236
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds [16 x ptr], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv236
+  %80 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv236
   br label %81
 
 81:                                               ; preds = %.preheader195, %81
   %indvars.iv232 = phi i64 [ 0, %.preheader195 ], [ %indvars.iv.next233, %81 ]
   %82 = load ptr, ptr %80, align 8
-  %83 = getelementptr inbounds i64, ptr %82, i64 %indvars.iv232
+  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv232
   store i64 %79, ptr %83, align 8
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next233, 1024
@@ -2317,7 +2317,7 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
   %85 = trunc i64 %indvars.iv244 to i32
   %86 = add i32 %85, -6
   %87 = shl nuw i32 1, %86
-  %88 = getelementptr inbounds [16 x ptr], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv244
+  %88 = getelementptr inbounds nuw [16 x ptr], ptr @Io_NtkWriteModelIntStruct.pTruths, i64 0, i64 %indvars.iv244
   br label %89
 
 89:                                               ; preds = %.preheader, %89
@@ -2327,7 +2327,7 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
   %.not161 = icmp ne i32 %91, 0
   %92 = sext i1 %.not161 to i64
   %93 = load ptr, ptr %88, align 8
-  %94 = getelementptr inbounds i64, ptr %93, i64 %indvars.iv240
+  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %indvars.iv240
   store i64 %92, ptr %94, align 8
   %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
   %exitcond243.not = icmp eq i64 %indvars.iv.next241, 1024
@@ -2357,7 +2357,7 @@ select.unfold.i:                                  ; preds = %103, %.loopexit
 
 103:                                              ; preds = %select.unfold.i
   %104 = add nsw i64 %indvars.iv.i, -1
-  %105 = getelementptr inbounds i32, ptr %6, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr %6, i64 %104
   %106 = load i32, ptr %105, align 4
   %.not.i = icmp eq i32 %106, 0
   br i1 %.not.i, label %select.unfold.i, label %select.unfold.i179, !llvm.loop !30
@@ -2373,7 +2373,7 @@ select.unfold.i184.preheader:                     ; preds = %select.unfold.i, %s
 
 109:                                              ; preds = %select.unfold.i179
   %110 = add nsw i64 %indvars.iv.i180, -1
-  %111 = getelementptr inbounds i32, ptr %6, i64 %110
+  %111 = getelementptr inbounds nuw i32, ptr %6, i64 %110
   %112 = load i32, ptr %111, align 4
   %.not.i182 = icmp eq i32 %112, -1
   br i1 %.not.i182, label %select.unfold.i179, label %121, !llvm.loop !31
@@ -2386,7 +2386,7 @@ select.unfold.i184:                               ; preds = %select.unfold.i184.
 
 115:                                              ; preds = %select.unfold.i184
   %116 = add nsw i64 %indvars.iv.i185, -1
-  %117 = getelementptr inbounds i32, ptr %6, i64 %116
+  %117 = getelementptr inbounds nuw i32, ptr %6, i64 %116
   %118 = load i32, ptr %117, align 4
   %.not.i187 = icmp eq i32 %118, -1
   br i1 %.not.i187, label %select.unfold.i184, label %Kit_TruthIsConst1.exit188, !llvm.loop !31
@@ -2462,7 +2462,7 @@ Kit_TruthIsConst1.exit188:                        ; preds = %select.unfold.i184,
 .lr.ph215:                                        ; preds = %149, %.lr.ph215
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %.lr.ph215 ], [ 0, %149 ]
   %153 = add nuw nsw i64 %indvars.iv248, 2
-  %154 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %153
   %155 = load i8, ptr %154, align 1
   %156 = sext i8 %155 to i32
   %157 = add nsw i32 %156, 97
@@ -2476,7 +2476,7 @@ Kit_TruthIsConst1.exit188:                        ; preds = %select.unfold.i184,
 ._crit_edge216:                                   ; preds = %.lr.ph215, %149
   %162 = call i64 @fwrite(ptr nonnull @.str.66, i64 6, i64 1, ptr %0)
   %.val177 = load ptr, ptr %1, align 8
-  %163 = getelementptr inbounds i8, ptr %.val177, i64 256
+  %163 = getelementptr inbounds nuw i8, ptr %.val177, i64 256
   %164 = load ptr, ptr %163, align 8
   %165 = load i64, ptr %8, align 8
   %166 = load i8, ptr %11, align 16
@@ -2497,7 +2497,7 @@ Kit_TruthIsConst1.exit188:                        ; preds = %select.unfold.i184,
 .lr.ph219:                                        ; preds = %171, %185
   %indvars.iv251 = phi i64 [ %indvars.iv.next252, %185 ], [ 0, %171 ]
   %175 = add nuw nsw i64 %indvars.iv251, 2
-  %176 = getelementptr inbounds [32 x i8], ptr %12, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 0, i64 %175
   %177 = load i8, ptr %176, align 1
   %178 = sext i8 %177 to i32
   %179 = icmp eq i32 %.val173, %178
@@ -2522,7 +2522,7 @@ Kit_TruthIsConst1.exit188:                        ; preds = %select.unfold.i184,
 ._crit_edge220:                                   ; preds = %185, %171
   %189 = call i64 @fwrite(ptr nonnull @.str.68, i64 6, i64 1, ptr %0)
   %.val176 = load ptr, ptr %1, align 8
-  %190 = getelementptr inbounds i8, ptr %.val176, i64 256
+  %190 = getelementptr inbounds nuw i8, ptr %.val176, i64 256
   %191 = load ptr, ptr %190, align 8
   %192 = load i64, ptr %9, align 8
   %193 = load i8, ptr %12, align 16
@@ -2544,7 +2544,7 @@ Kit_TruthIsConst1.exit188:                        ; preds = %select.unfold.i184,
 201:                                              ; preds = %.lr.ph223, %216
   %indvars.iv254 = phi i64 [ 0, %.lr.ph223 ], [ %indvars.iv.next255, %216 ]
   %202 = add nuw nsw i64 %indvars.iv254, 2
-  %203 = getelementptr inbounds [32 x i8], ptr %10, i64 0, i64 %202
+  %203 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 0, i64 %202
   %204 = load i8, ptr %203, align 1
   %205 = sext i8 %204 to i32
   %206 = icmp eq i32 %.val173, %205
@@ -2577,7 +2577,7 @@ Kit_TruthIsConst1.exit188:                        ; preds = %select.unfold.i184,
 ._crit_edge224:                                   ; preds = %216, %196
   %220 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.64) #10
   %.val175 = load ptr, ptr %1, align 8
-  %221 = getelementptr inbounds i8, ptr %.val175, i64 256
+  %221 = getelementptr inbounds nuw i8, ptr %.val175, i64 256
   %222 = load ptr, ptr %221, align 8
   %223 = load i64, ptr %7, align 8
   %224 = load i8, ptr %10, align 16
@@ -2603,7 +2603,7 @@ define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture no
   br label %150
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr (...) @Extra_TimeStamp() #10
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.3, ptr noundef %12, ptr noundef %13) #10
@@ -2625,7 +2625,7 @@ define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture no
   br label %20
 
 20:                                               ; preds = %19, %10
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 4
   %.val93108 = load i32, ptr %23, align 4
@@ -2637,7 +2637,7 @@ define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture no
   %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %20 ]
   %26 = getelementptr i8, ptr %25, i64 8
   %.val96.val = load ptr, ptr %26, align 8
-  %27 = getelementptr inbounds ptr, ptr %.val96.val, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %.val96.val, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 20
   %.val97 = load i32, ptr %29, align 4
@@ -2719,17 +2719,17 @@ define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture no
 
 70:                                               ; preds = %69, %.critedge
   %71 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 0, ptr %72, align 4
   store i32 65536, ptr %71, align 8
   %73 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #12
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %73, ptr %74, align 8
   %.not82 = icmp eq i32 %3, 0
   br i1 %.not82, label %.preheader, label %93
 
 .preheader:                                       ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %0, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr i8, ptr %76, i64 4
   %.val90116 = load i32, ptr %77, align 4
@@ -2745,7 +2745,7 @@ define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture no
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %88 ], [ 0, %.lr.ph118 ]
   %80 = getelementptr i8, ptr %79, i64 8
   %.val100.val.us = load ptr, ptr %80, align 8
-  %81 = getelementptr inbounds ptr, ptr %.val100.val.us, i64 %indvars.iv130
+  %81 = getelementptr inbounds nuw ptr, ptr %.val100.val.us, i64 %indvars.iv130
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %88, label %84
@@ -2773,7 +2773,7 @@ define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture no
 
 93:                                               ; preds = %70
   %fputc85 = tail call i32 @fputc(i32 10, ptr nonnull %5)
-  %94 = getelementptr inbounds i8, ptr %0, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr i8, ptr %95, i64 4
   %.val92110 = load i32, ptr %96, align 4
@@ -2785,7 +2785,7 @@ define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture no
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %108 ], [ 0, %93 ]
   %99 = getelementptr i8, ptr %98, i64 8
   %.val98.val = load ptr, ptr %99, align 8
-  %100 = getelementptr inbounds ptr, ptr %.val98.val, i64 %indvars.iv121
+  %100 = getelementptr inbounds nuw ptr, ptr %.val98.val, i64 %indvars.iv121
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %108, label %103
@@ -2826,7 +2826,7 @@ define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture no
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %126 ], [ 0, %.critedge2 ]
   %118 = getelementptr i8, ptr %117, i64 8
   %.val99.val = load ptr, ptr %118, align 8
-  %119 = getelementptr inbounds ptr, ptr %.val99.val, i64 %indvars.iv124
+  %119 = getelementptr inbounds nuw ptr, ptr %.val99.val, i64 %indvars.iv124
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
   br i1 %121, label %126, label %122
@@ -2861,7 +2861,7 @@ define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture no
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %140 ], [ 0, %.lr.ph118 ]
   %132 = getelementptr i8, ptr %131, i64 8
   %.val100.val = load ptr, ptr %132, align 8
-  %133 = getelementptr inbounds ptr, ptr %.val100.val, i64 %indvars.iv127
+  %133 = getelementptr inbounds nuw ptr, ptr %.val100.val, i64 %indvars.iv127
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %140, label %136
@@ -2937,7 +2937,7 @@ define internal fastcc void @Io_NtkWritePos(ptr nocapture noundef nonnull %0, pt
   %.03653 = phi i32 [ %31, %28 ], [ 8, %.preheader49 ]
   %10 = getelementptr i8, ptr %.val56, i64 8
   %.val42.val = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val42.val, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %.val42.val, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.val45 = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %12, i64 32
@@ -2988,7 +2988,7 @@ define internal fastcc void @Io_NtkWritePos(ptr nocapture noundef nonnull %0, pt
   %.23859 = phi i32 [ %57, %54 ], [ 8, %.preheader ]
   %36 = getelementptr i8, ptr %.val4762, i64 8
   %.val48.val = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds ptr, ptr %.val48.val, i64 %indvars.iv66
+  %37 = getelementptr inbounds nuw ptr, ptr %.val48.val, i64 %indvars.iv66
   %38 = load ptr, ptr %37, align 8
   %.val43 = load ptr, ptr %38, align 8
   %39 = getelementptr i8, ptr %38, i64 32
@@ -3101,7 +3101,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef nonnull %0, pt
 
 16:                                               ; preds = %14
   %fputc77 = tail call i32 @fputc(i32 10, ptr nonnull %0)
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 4
   %.val91121 = load i32, ptr %19, align 4
@@ -3113,7 +3113,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef nonnull %0, pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %16 ]
   %22 = getelementptr i8, ptr %21, i64 8
   %.val96.val = load ptr, ptr %22, align 8
-  %23 = getelementptr inbounds ptr, ptr %.val96.val, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %.val96.val, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 20
   %.val97 = load i32, ptr %25, align 4
@@ -3202,7 +3202,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef nonnull %0, pt
 
 71:                                               ; preds = %68, %65
   %fputc80 = tail call i32 @fputc(i32 10, ptr nonnull %0)
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr i8, ptr %73, i64 4
   %.val90123 = load i32, ptr %74, align 4
@@ -3214,7 +3214,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef nonnull %0, pt
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %83 ], [ 0, %71 ]
   %77 = getelementptr i8, ptr %76, i64 8
   %.val95.val = load ptr, ptr %77, align 8
-  %78 = getelementptr inbounds ptr, ptr %.val95.val, i64 %indvars.iv134
+  %78 = getelementptr inbounds nuw ptr, ptr %.val95.val, i64 %indvars.iv134
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr i8, ptr %79, i64 20
   %.val100 = load i32, ptr %80, align 4
@@ -3249,7 +3249,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef nonnull %0, pt
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %98 ], [ 0, %.critedge2 ]
   %92 = getelementptr i8, ptr %91, i64 8
   %.val94.val = load ptr, ptr %92, align 8
-  %93 = getelementptr inbounds ptr, ptr %.val94.val, i64 %indvars.iv137
+  %93 = getelementptr inbounds nuw ptr, ptr %.val94.val, i64 %indvars.iv137
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr i8, ptr %94, i64 20
   %.val101 = load i32, ptr %95, align 4
@@ -3281,7 +3281,7 @@ define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef nonnull %0, pt
   br i1 %.not115, label %104, label %108
 
 104:                                              ; preds = %103
-  %105 = getelementptr inbounds i8, ptr %1, i64 256
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %106 = load ptr, ptr %105, align 8
   %107 = tail call i32 @Mio_LibraryReadGateNameMax(ptr noundef %106) #10
   br label %108
@@ -3354,7 +3354,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %128, %131
   br i1 %138, label %Abc_ObjIsBarBuf.exit.i, label %Io_NtkWriteNode.exit
 
 Abc_ObjIsBarBuf.exit.i:                           ; preds = %136
-  %139 = getelementptr inbounds i8, ptr %122, i64 56
+  %139 = getelementptr inbounds nuw i8, ptr %122, i64 56
   %140 = load ptr, ptr %139, align 8
   %.not28.i = icmp eq ptr %140, null
   br i1 %.not28.i, label %141, label %Io_NtkWriteNode.exit
@@ -3410,7 +3410,7 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %136
   %.val28.val.i.i = load ptr, ptr %164, align 8
   %165 = getelementptr i8, ptr %.val28.val.i.i, i64 8
   %.val28.val.val.i.i = load ptr, ptr %165, align 8
-  %166 = getelementptr inbounds i32, ptr %.val29.i.i, i64 %indvars.iv.i.i
+  %166 = getelementptr inbounds nuw i32, ptr %.val29.i.i, i64 %indvars.iv.i.i
   %167 = load i32, ptr %166, align 4
   %168 = sext i32 %167 to i64
   %169 = getelementptr inbounds ptr, ptr %.val28.val.val.i.i, i64 %168
@@ -3515,7 +3515,7 @@ Io_NtkWriteNode.exit.thread:                      ; preds = %Io_NtkWriteNodeFani
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Io_NtkWriteSubckt(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8
@@ -3548,7 +3548,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr nocapture noundef nonnull %0,
   %.val2746 = phi ptr [ %.val2743, %.lr.ph ], [ %.val27, %15 ]
   %16 = getelementptr i8, ptr %.val2746, i64 8
   %.val28.val = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds ptr, ptr %.val28.val, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %.val28.val, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %.val31 = load ptr, ptr %18, align 8
   %19 = getelementptr i8, ptr %18, i64 48
@@ -3569,7 +3569,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr nocapture noundef nonnull %0,
   %.val39.val = load ptr, ptr %27, align 8
   %28 = getelementptr i8, ptr %.val39.val, i64 8
   %.val39.val.val = load ptr, ptr %28, align 8
-  %29 = getelementptr inbounds i32, ptr %.val40, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %.val40, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds ptr, ptr %.val39.val.val, i64 %31
@@ -3600,7 +3600,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr nocapture noundef nonnull %0,
   %.val3350 = phi ptr [ %.val3347, %.lr.ph51 ], [ %.val33, %.critedge ]
   %45 = getelementptr i8, ptr %.val3350, i64 8
   %.val34.val = load ptr, ptr %45, align 8
-  %46 = getelementptr inbounds ptr, ptr %.val34.val, i64 %indvars.iv53
+  %46 = getelementptr inbounds nuw ptr, ptr %.val34.val, i64 %indvars.iv53
   %47 = load ptr, ptr %46, align 8
   %.val35 = load ptr, ptr %47, align 8
   %48 = getelementptr i8, ptr %47, i64 32
@@ -3621,7 +3621,7 @@ define internal fastcc void @Io_NtkWriteSubckt(ptr nocapture noundef nonnull %0,
   %.val41.val = load ptr, ptr %56, align 8
   %57 = getelementptr i8, ptr %.val41.val, i64 8
   %.val41.val.val = load ptr, ptr %57, align 8
-  %58 = getelementptr inbounds i32, ptr %.val42, i64 %indvars.iv53
+  %58 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv53
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds ptr, ptr %.val41.val.val, i64 %60

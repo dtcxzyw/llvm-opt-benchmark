@@ -49,7 +49,7 @@ define noundef i32 @PMPI_Pready_list(i32 noundef %0, ptr nocapture noundef reado
   br i1 %12, label %._crit_edge.thread.sink.split, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %2, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 8
   br i1 %.not, label %.thread, label %._crit_edge.thread.sink.split
@@ -65,7 +65,7 @@ define noundef i32 @PMPI_Pready_list(i32 noundef %0, ptr nocapture noundef reado
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_part, i64 32), align 8
-  %19 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = tail call i32 %18(i64 noundef %21, i64 noundef %21, ptr noundef %2) #4
@@ -116,7 +116,7 @@ define noundef i32 @PMPI_Pready_list(i32 noundef %0, ptr nocapture noundef reado
 40:                                               ; preds = %38, %.lr.ph.i
   %41 = phi i8 [ %34, %.lr.ph.i ], [ %.pre.i.i, %38 ]
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8
   %45 = trunc i8 %41 to i1
   br i1 %45, label %46, label %opal_pointer_array_get_item.exit.i
@@ -128,13 +128,13 @@ define noundef i32 @PMPI_Pready_list(i32 noundef %0, ptr nocapture noundef reado
 
 opal_pointer_array_get_item.exit.i:               ; preds = %46, %40
   %48 = phi i8 [ %41, %40 ], [ %.pre.i, %46 ]
-  %49 = getelementptr inbounds i8, ptr %44, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, %22
   br i1 %51, label %52, label %30
 
 52:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %53 = getelementptr inbounds i8, ptr %44, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %54 = load i32, ptr %53, align 4
   br label %._crit_edge.thread.sink.split
 

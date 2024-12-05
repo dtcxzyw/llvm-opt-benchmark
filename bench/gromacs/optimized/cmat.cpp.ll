@@ -51,24 +51,24 @@ define noundef ptr @_Z8init_matib(i32 noundef %0, i1 noundef zeroext %1) local_u
   %3 = zext i1 %1 to i8
   %4 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 50, i64 noundef 1, i64 noundef 48)
   store i32 %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store float 0.000000e+00, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float 0x4415AF1D80000000, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float 0.000000e+00, ptr %9, align 4
   %10 = tail call noundef ptr @_Z9mk_matrixiib(i32 noundef %0, i32 noundef %0, i1 noundef zeroext %1)
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = sext i32 %0 to i64
   %14 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 59, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 4)
   store ptr %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 60, i64 noundef range(i64 -2147483648, 2147483648) %13, i64 noundef 4)
   store ptr %16, ptr %15, align 8
   %17 = load i32, ptr %4, align 8
@@ -78,7 +78,7 @@ define noundef ptr @_Z8init_matib(i32 noundef %0, i1 noundef zeroext %1) local_u
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %2 ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %21, ptr %20, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -100,13 +100,13 @@ define void @_Z11reset_indexP5t_mat(ptr nocapture noundef readonly %0) local_unn
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %8, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -123,9 +123,9 @@ declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noun
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_Z10copy_t_matP5t_matS0_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %10, label %7
@@ -136,29 +136,29 @@ define void @_Z10copy_t_matP5t_matS0_(ptr nocapture noundef %0, ptr nocapture no
   br label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load float, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %15 = load float, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %18, ptr %19, align 4
   %20 = load i32, ptr %5, align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %10
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
@@ -170,14 +170,14 @@ define void @_Z10copy_t_matP5t_matS0_(ptr nocapture noundef %0, ptr nocapture no
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv35
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv35
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds float, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
   %34 = load float, ptr %33, align 4
   %35 = load ptr, ptr %23, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv35
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv35
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds float, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
   store float %34, ptr %38, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %5, align 4
@@ -187,16 +187,16 @@ define void @_Z10copy_t_matP5t_matS0_(ptr nocapture noundef %0, ptr nocapture no
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %42 = load ptr, ptr %24, align 8
-  %43 = getelementptr inbounds float, ptr %42, i64 %indvars.iv35
+  %43 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv35
   %44 = load float, ptr %43, align 4
   %45 = load ptr, ptr %25, align 8
-  %46 = getelementptr inbounds float, ptr %45, i64 %indvars.iv35
+  %46 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv35
   store float %44, ptr %46, align 4
   %47 = load ptr, ptr %26, align 8
-  %48 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv35
+  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv35
   %49 = load i32, ptr %48, align 4
   %50 = load ptr, ptr %27, align 8
-  %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv35
+  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv35
   store i32 %49, ptr %51, align 4
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %52 = load i32, ptr %5, align 4
@@ -213,7 +213,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z13set_mat_entryP5t_matiif(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3) local_unnamed_addr #5 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds ptr, ptr %6, i64 %7
@@ -226,7 +226,7 @@ define void @_Z13set_mat_entryP5t_matiif(ptr nocapture noundef %0, i32 noundef %
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds float, ptr %14, i64 %7
   store float %3, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load float, ptr %16, align 4
   %18 = fcmp olt float %17, %3
   %.sroa.speculated25 = select i1 %18, float %3, float %17
@@ -235,7 +235,7 @@ define void @_Z13set_mat_entryP5t_matiif(ptr nocapture noundef %0, i32 noundef %
   br i1 %.not, label %23, label %19
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %21 = load float, ptr %20, align 4
   %22 = fcmp olt float %3, %21
   %.sroa.speculated = select i1 %22, float %3, float %21
@@ -243,11 +243,11 @@ define void @_Z13set_mat_entryP5t_matiif(ptr nocapture noundef %0, i32 noundef %
   br label %23
 
 23:                                               ; preds = %19, %4
-  %24 = getelementptr inbounds i8, ptr %0, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load float, ptr %24, align 4
   %26 = fadd float %3, %25
   store float %26, ptr %24, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4
   %.v = tail call i32 @llvm.smax.i32(i32 %2, i32 %1)
   %29 = add nsw i32 %.v, 1
@@ -260,14 +260,14 @@ define void @_Z13set_mat_entryP5t_matiif(ptr nocapture noundef %0, i32 noundef %
 define void @_Z8done_matPP5t_mat(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   tail call void @_Z11done_matrixiPPPf(i32 noundef %3, ptr noundef nonnull %4)
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef %7)
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 115, ptr noundef %10)
   %11 = load ptr, ptr %0, align 8
@@ -282,14 +282,14 @@ declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef float @_Z10mat_energyP5t_mat(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 1
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %5 = add nsw i32 %3, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %8
@@ -297,10 +297,10 @@ define noundef float @_Z10mat_energyP5t_mat(ptr nocapture noundef readonly %0) l
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.09 = phi float [ 0.000000e+00, %.lr.ph ], [ %14, %8 ]
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.next
   %12 = load float, ptr %11, align 4
   %13 = fmul float %12, %12
   %14 = fadd float %.09, %13
@@ -314,7 +314,7 @@ define noundef float @_Z10mat_energyP5t_mat(ptr nocapture noundef readonly %0) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_Z9swap_rowsP5t_matii(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i32, ptr %5, i64 %6
@@ -326,7 +326,7 @@ define void @_Z9swap_rowsP5t_matii(ptr nocapture noundef readonly %0, i32 nounde
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds i32, ptr %12, i64 %9
   store i32 %8, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %6
   %17 = load ptr, ptr %16, align 8
@@ -336,7 +336,7 @@ define void @_Z9swap_rowsP5t_matii(ptr nocapture noundef readonly %0, i32 nounde
   %20 = load ptr, ptr %14, align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %9
   store ptr %17, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -344,7 +344,7 @@ define void @_Z9swap_rowsP5t_matii(ptr nocapture noundef readonly %0, i32 nounde
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %25 = load ptr, ptr %14, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds float, ptr %27, i64 %6
   %29 = load float, ptr %28, align 4
@@ -352,7 +352,7 @@ define void @_Z9swap_rowsP5t_matii(ptr nocapture noundef readonly %0, i32 nounde
   %31 = load float, ptr %30, align 4
   store float %31, ptr %28, align 4
   %32 = load ptr, ptr %14, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds float, ptr %34, i64 %9
   store float %29, ptr %35, align 4
@@ -398,13 +398,13 @@ define void @_Z13low_rmsd_distPKcfiPPfPK16gmx_output_env_t(ptr noundef %0, float
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph42
-  %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv47
+  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv47
   br label %18
 
 18:                                               ; preds = %.lr.ph, %31
   %indvars.iv44 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next45, %31 ]
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds float, ptr %19, i64 %indvars.iv44
+  %20 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv44
   %21 = load float, ptr %20, align 4
   %22 = fmul float %12, %21
   %23 = tail call float @llvm.rint.f32(float %22)
@@ -473,7 +473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
-  %40 = getelementptr inbounds i8, ptr %7, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %41 = load ptr, ptr %40, align 8
   %.not.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %42
@@ -493,7 +493,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %39, %42
   %45 = uitofp nneg i32 %44 to float
   %46 = fdiv float %45, %12
   %47 = fpext float %46 to double
-  %48 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv52
+  %48 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv52
   %49 = load i32, ptr %48, align 4
   %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.12, double noundef %47, i32 noundef %49) #17
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -549,7 +549,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
   %10 = extractvalue { i64, ptr } %8, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %9, ptr %10) #17
   %11 = load i64, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %11, ptr %13, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %14 unwind label %18
@@ -557,7 +557,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6form
 14:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %16 unwind label %20
 
@@ -617,7 +617,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -763,11 +763,11 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z17rmsd_distributionPKcP5t_matPK16gmx_output_env_t(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load float, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
   tail call void @_Z13low_rmsd_distPKcfiPPfPK16gmx_output_env_t(ptr noundef %0, float noundef %5, i32 noundef %7, ptr noundef %9, ptr noundef %2)
   ret void
@@ -786,10 +786,10 @@ define noundef ptr @_Z11new_clustidi(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds %struct.t_clustid, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %struct.t_clustid, ptr %3, i64 %indvars.iv
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %6, ptr %5, align 4
-  %7 = getelementptr inbounds %struct.t_clustid, ptr %3, i64 %indvars.iv, i32 1
+  %7 = getelementptr inbounds nuw %struct.t_clustid, ptr %3, i64 %indvars.iv, i32 1
   store i32 %6, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

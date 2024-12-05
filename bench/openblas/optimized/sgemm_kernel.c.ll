@@ -26,61 +26,61 @@ define noundef i32 @sgemm_kernel(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   store i64 %0, ptr %10, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #3
   store i32 0, ptr %11, align 16
-  %22 = getelementptr inbounds i8, ptr %11, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 4, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 8, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 12, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %11, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 1, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %11, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 5, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %11, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 9, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 13, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %11, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 2, ptr %29, align 16
-  %30 = getelementptr inbounds i8, ptr %11, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i32 6, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %11, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 10, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %11, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store i32 14, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %11, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 3, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %11, i64 52
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 52
   store i32 7, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %11, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i32 11, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %11, i64 60
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 60
   store i32 15, ptr %36, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #3
-  %37 = getelementptr inbounds i8, ptr %12, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i32 1, ptr %37, align 16
-  %38 = getelementptr inbounds i8, ptr %12, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %12, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %12, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 28
   store i32 1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %12, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 2, ptr %41, align 16
-  %42 = getelementptr inbounds i8, ptr %12, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 36
   store i32 2, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %12, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 2, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %12, i64 44
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 44
   store i32 2, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %12, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 3, ptr %45, align 16
-  %46 = getelementptr inbounds i8, ptr %12, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 52
   store i32 3, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %12, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 3, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %12, i64 60
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 60
   store i32 3, ptr %48, align 4
   %49 = icmp sgt i64 %1, 23
   br i1 %49, label %50, label %.loopexit33

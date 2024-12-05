@@ -42,22 +42,22 @@ define range(i32 -6, 1) i32 @inflateBackInit_(ptr noundef %0, i32 noundef %1, pt
   br i1 %or.cond7, label %43, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %16
   store ptr @zcalloc, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %22, align 8
   br label %23
 
 23:                                               ; preds = %21, %16
   %24 = phi ptr [ @zcalloc, %21 ], [ %19, %16 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
@@ -67,27 +67,27 @@ define range(i32 -6, 1) i32 @inflateBackInit_(ptr noundef %0, i32 noundef %1, pt
   br label %29
 
 29:                                               ; preds = %28, %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr %24(ptr noundef %31, i32 noundef 1, i32 noundef 7152) #4
   %33 = icmp eq ptr %32, null
   br i1 %33, label %43, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %32, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i32 32768, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %32, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store i32 %1, ptr %37, align 8
   %38 = shl nuw nsw i32 1, %1
-  %39 = getelementptr inbounds i8, ptr %32, i64 52
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 52
   store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %32, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 64
   store ptr %2, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %32, i64 60
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 60
   store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %32, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 56
   store i32 0, ptr %42, align 8
   br label %43
 
@@ -107,18 +107,18 @@ define range(i32 -5, 2) i32 @inflateBack(ptr noundef %0, ptr nocapture noundef r
   br i1 %7, label %692, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %692, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr null, ptr %13, align 8
   store i32 11, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i32 0, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
   store ptr %16, ptr %6, align 8
@@ -126,37 +126,37 @@ define range(i32 -5, 2) i32 @inflateBack(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not, label %.split1141, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   br label %.split1141
 
 .split1141:                                       ; preds = %12, %17
   %20 = phi i32 [ %19, %17 ], [ 0, %12 ]
-  %21 = getelementptr inbounds i8, ptr %10, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %10, i64 124
-  %26 = getelementptr inbounds i8, ptr %10, i64 128
-  %27 = getelementptr inbounds i8, ptr %10, i64 120
-  %28 = getelementptr inbounds i8, ptr %10, i64 132
-  %29 = getelementptr inbounds i8, ptr %10, i64 144
-  %30 = getelementptr inbounds i8, ptr %10, i64 1360
-  %31 = getelementptr inbounds i8, ptr %10, i64 136
-  %32 = getelementptr inbounds i8, ptr %10, i64 96
-  %33 = getelementptr inbounds i8, ptr %10, i64 112
-  %34 = getelementptr inbounds i8, ptr %10, i64 784
-  %35 = getelementptr inbounds i8, ptr %10, i64 656
-  %36 = getelementptr inbounds i8, ptr %10, i64 104
-  %37 = getelementptr inbounds i8, ptr %10, i64 116
-  %38 = getelementptr inbounds i8, ptr %10, i64 84
-  %39 = getelementptr inbounds i8, ptr %10, i64 92
-  %40 = getelementptr inbounds i8, ptr %10, i64 88
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
-  %44 = getelementptr inbounds i8, ptr %10, i64 72
-  %45 = getelementptr inbounds i8, ptr %10, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 124
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 132
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 1360
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 784
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 656
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 116
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 84
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 92
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 80
   br label %.thread
 
 .thread:                                          ; preds = %.thread.backedge, %.split1141
@@ -218,7 +218,7 @@ define range(i32 -5, 2) i32 @inflateBack(ptr noundef %0, ptr nocapture noundef r
   %.5575 = phi i32 [ %60, %59 ], [ %.0570, %.lr.ph1062 ]
   %62 = add i32 %.5575, -1
   %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store ptr %64, ptr %6, align 8
   %65 = load i8, ptr %63, align 1
   %66 = zext i8 %65 to i64
@@ -300,7 +300,7 @@ default.unreachable1324:                          ; preds = %70
   %.7577 = phi i32 [ %91, %90 ], [ %.65761039, %.lr.ph1043 ]
   %95 = add i32 %.7577, -1
   %96 = load ptr, ptr %6, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
   store ptr %97, ptr %6, align 8
   %98 = load i8, ptr %96, align 1
   %99 = zext i8 %98 to i64
@@ -376,10 +376,10 @@ default.unreachable1324:                          ; preds = %70
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3600, ptr align 1 %123, i64 %124, i1 false)
   %125 = sub i32 %.9579, %.1528
   %126 = load ptr, ptr %6, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 %124
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 %124
   store ptr %127, ptr %6, align 8
   %128 = sub i32 %.3566, %.1528
-  %129 = getelementptr inbounds i8, ptr %.3600, i64 %124
+  %129 = getelementptr inbounds nuw i8, ptr %.3600, i64 %124
   %130 = load i32, ptr %38, align 4
   %131 = sub i32 %130, %.1528
   store i32 %131, ptr %38, align 4
@@ -413,7 +413,7 @@ default.unreachable1324:                          ; preds = %70
   %.11581 = phi i32 [ %134, %133 ], [ %.10580863, %.lr.ph ]
   %138 = add i32 %.11581, -1
   %139 = load ptr, ptr %6, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 1
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 1
   store ptr %140, ptr %6, align 8
   %141 = load i8, ptr %139, align 1
   %142 = zext i8 %141 to i64
@@ -502,7 +502,7 @@ default.unreachable1324:                          ; preds = %70
   %.14584 = phi i32 [ %169, %.._crit_edge872_crit_edge ], [ %.12582888, %.lr.ph871 ]
   %171 = add i32 %.14584, -1
   %172 = load ptr, ptr %6, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 1
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 1
   store ptr %173, ptr %6, align 8
   %174 = load i8, ptr %172, align 1
   %175 = zext i8 %174 to i64
@@ -523,10 +523,10 @@ default.unreachable1324:                          ; preds = %70
   %184 = add i32 %181, 1
   store i32 %184, ptr %28, align 4
   %185 = zext i32 %181 to i64
-  %186 = getelementptr inbounds [19 x i16], ptr @inflateBack.order, i64 0, i64 %185
+  %186 = getelementptr inbounds nuw [19 x i16], ptr @inflateBack.order, i64 0, i64 %185
   %187 = load i16, ptr %186, align 2
   %188 = zext i16 %187 to i64
-  %189 = getelementptr inbounds [320 x i16], ptr %29, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %188
   store i16 %183, ptr %189, align 2
   %190 = lshr i64 %.7543.lcssa, 3
   %191 = add i32 %.7.lcssa, -3
@@ -536,10 +536,10 @@ default.unreachable1324:                          ; preds = %70
 .lr.ph895:                                        ; preds = %.lr.ph895.preheader, %.lr.ph895
   %indvars.iv1260 = phi i64 [ %162, %.lr.ph895.preheader ], [ %indvars.iv.next1261, %.lr.ph895 ]
   %indvars.iv.next1261 = add nuw nsw i64 %indvars.iv1260, 1
-  %193 = getelementptr inbounds [19 x i16], ptr @inflateBack.order, i64 0, i64 %indvars.iv1260
+  %193 = getelementptr inbounds nuw [19 x i16], ptr @inflateBack.order, i64 0, i64 %indvars.iv1260
   %194 = load i16, ptr %193, align 2
   %195 = zext i16 %194 to i64
-  %196 = getelementptr inbounds [320 x i16], ptr %29, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %195
   store i16 0, ptr %196, align 2
   %197 = and i64 %indvars.iv.next1261, 4294967295
   %exitcond.not = icmp eq i64 %197, 19
@@ -581,8 +581,8 @@ default.unreachable1324:                          ; preds = %70
   %208 = xor i32 %notmask899, -1
   %209 = and i32 %208, %206
   %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr inbounds %struct.code, ptr %205, i64 %210
-  %.sroa.16.0..sroa_idx900 = getelementptr inbounds i8, ptr %211, i64 1
+  %211 = getelementptr inbounds nuw %struct.code, ptr %205, i64 %210
+  %.sroa.16.0..sroa_idx900 = getelementptr inbounds nuw i8, ptr %211, i64 1
   %.sroa.16.0.copyload901 = load i8, ptr %.sroa.16.0..sroa_idx900, align 1
   %212 = zext i8 %.sroa.16.0.copyload901 to i32
   %.not657904 = icmp ult i32 %.8953, %212
@@ -621,7 +621,7 @@ default.unreachable1324:                          ; preds = %70
   %.18588 = phi i32 [ %218, %._crit_edge1293 ], [ %.17587905, %.lr.ph908 ]
   %224 = add i32 %.18588, -1
   %225 = load ptr, ptr %6, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 1
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 1
   store ptr %226, ptr %6, align 8
   %227 = load i8, ptr %225, align 1
   %228 = zext i8 %227 to i64
@@ -633,8 +633,8 @@ default.unreachable1324:                          ; preds = %70
   %232 = xor i32 %notmask, -1
   %233 = and i32 %232, %231
   %234 = zext nneg i32 %233 to i64
-  %235 = getelementptr inbounds %struct.code, ptr %223, i64 %234
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %235, i64 1
+  %235 = getelementptr inbounds nuw %struct.code, ptr %223, i64 %234
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %235, i64 1
   %.sroa.16.0.copyload = load i8, ptr %.sroa.16.0..sroa_idx, align 1
   %236 = zext i8 %.sroa.16.0.copyload to i64
   %.not657 = icmp samesign ult i64 %indvars.iv.next1264, %236
@@ -652,7 +652,7 @@ default.unreachable1324:                          ; preds = %70
   %.10.lcssa = phi i32 [ %.8953, %.preheader696 ], [ %238, %._crit_edge909.loopexit ]
   %.sroa.16.0.copyload.lcssa = phi i8 [ %.sroa.16.0.copyload901, %.preheader696 ], [ %.sroa.16.0.copyload, %._crit_edge909.loopexit ]
   %.pn1144 = phi ptr [ %211, %.preheader696 ], [ %235, %._crit_edge909.loopexit ]
-  %.sroa.39.0.copyload.lcssa.in = getelementptr inbounds i8, ptr %.pn1144, i64 2
+  %.sroa.39.0.copyload.lcssa.in = getelementptr inbounds nuw i8, ptr %.pn1144, i64 2
   %.sroa.39.0.copyload.lcssa = load i16, ptr %.sroa.39.0.copyload.lcssa.in, align 2
   %239 = icmp ult i16 %.sroa.39.0.copyload.lcssa, 16
   br i1 %239, label %.preheader, label %265
@@ -686,7 +686,7 @@ default.unreachable1324:                          ; preds = %70
   %.20590 = phi i32 [ %245, %244 ], [ %.19589943, %.lr.ph946 ]
   %249 = add i32 %.20590, -1
   %250 = load ptr, ptr %6, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 1
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 1
   store ptr %251, ptr %6, align 8
   %252 = load i8, ptr %250, align 1
   %253 = zext i8 %252 to i64
@@ -711,7 +711,7 @@ default.unreachable1324:                          ; preds = %70
   %262 = add i32 %261, 1
   store i32 %262, ptr %28, align 4
   %263 = zext i32 %261 to i64
-  %264 = getelementptr inbounds [320 x i16], ptr %29, i64 0, i64 %263
+  %264 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %263
   store i16 %.sroa.39.0.copyload.lcssa, ptr %264, align 2
   %.pre1296 = load i32, ptr %25, align 4
   %.pre1297 = load i32, ptr %26, align 8
@@ -774,7 +774,7 @@ default.unreachable1324:                          ; preds = %70
   %.23593 = phi i32 [ %280, %279 ], [ %.22592925, %.lr.ph928 ]
   %284 = add i32 %.23593, -1
   %285 = load ptr, ptr %6, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 1
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 1
   store ptr %286, ptr %6, align 8
   %287 = load i8, ptr %285, align 1
   %288 = zext i8 %287 to i64
@@ -815,7 +815,7 @@ default.unreachable1324:                          ; preds = %70
 299:                                              ; preds = %._crit_edge929
   %300 = add i32 %296, -1
   %301 = zext i32 %300 to i64
-  %302 = getelementptr inbounds [320 x i16], ptr %29, i64 0, i64 %301
+  %302 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %301
   %303 = load i16, ptr %302, align 2
   %304 = trunc i64 %294 to i32
   %305 = and i32 %304, 3
@@ -844,7 +844,7 @@ default.unreachable1324:                          ; preds = %70
   %.26596 = phi i32 [ %311, %310 ], [ %.25595917, %.lr.ph920 ]
   %315 = add i32 %.26596, -1
   %316 = load ptr, ptr %6, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 1
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 1
   store ptr %317, ptr %6, align 8
   %318 = load i8, ptr %316, align 1
   %319 = zext i8 %318 to i64
@@ -892,7 +892,7 @@ default.unreachable1324:                          ; preds = %70
   %.28 = phi i32 [ %333, %332 ], [ %.27933, %.lr.ph936 ]
   %337 = add i32 %.28, -1
   %338 = load ptr, ptr %6, align 8
-  %339 = getelementptr inbounds i8, ptr %338, i64 1
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 1
   store ptr %339, ptr %6, align 8
   %340 = load i8, ptr %338, align 1
   %341 = zext i8 %340 to i64
@@ -945,7 +945,7 @@ default.unreachable1324:                          ; preds = %70
   %362 = add nsw i32 %.3942, -1
   %363 = add i32 %361, 1
   %364 = zext i32 %361 to i64
-  %365 = getelementptr inbounds [320 x i16], ptr %29, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %364
   store i16 %.0525, ptr %365, align 2
   %.not658 = icmp eq i32 %362, 0
   br i1 %.not658, label %.loopexit, label %.preheader692, !llvm.loop !14
@@ -1002,7 +1002,7 @@ default.unreachable1324:                          ; preds = %70
   store i32 6, ptr %37, align 4
   %381 = load i32, ptr %25, align 4
   %382 = zext i32 %381 to i64
-  %383 = getelementptr inbounds i16, ptr %29, i64 %382
+  %383 = getelementptr inbounds nuw i16, ptr %29, i64 %382
   %384 = load i32, ptr %26, align 8
   %385 = call i32 @inflate_table(i32 noundef 2, ptr noundef nonnull %383, i32 noundef %384, ptr noundef nonnull %31, ptr noundef nonnull %37, ptr noundef nonnull %34) #4
   %.not660 = icmp eq i32 %385, 0
@@ -1034,8 +1034,8 @@ default.unreachable1324:                          ; preds = %70
   %394 = xor i32 %notmask661958, -1
   %395 = and i32 %394, %392
   %396 = zext nneg i32 %395 to i64
-  %397 = getelementptr inbounds %struct.code, ptr %391, i64 %396
-  %.sroa.16.0..sroa_idx35959 = getelementptr inbounds i8, ptr %397, i64 1
+  %397 = getelementptr inbounds nuw %struct.code, ptr %391, i64 %396
+  %.sroa.16.0..sroa_idx35959 = getelementptr inbounds nuw i8, ptr %397, i64 1
   %.sroa.16.0.copyload36960 = load i8, ptr %.sroa.16.0..sroa_idx35959, align 1
   %398 = zext i8 %.sroa.16.0.copyload36960 to i32
   %.not662963 = icmp ult i32 %.1530, %398
@@ -1103,7 +1103,7 @@ default.unreachable1324:                          ; preds = %70
   %.30 = phi i32 [ %418, %._crit_edge1298 ], [ %.29964, %.lr.ph967 ]
   %424 = add i32 %.30, -1
   %425 = load ptr, ptr %6, align 8
-  %426 = getelementptr inbounds i8, ptr %425, i64 1
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 1
   store ptr %426, ptr %6, align 8
   %427 = load i8, ptr %425, align 1
   %428 = zext i8 %427 to i64
@@ -1115,8 +1115,8 @@ default.unreachable1324:                          ; preds = %70
   %432 = xor i32 %notmask661, -1
   %433 = and i32 %432, %431
   %434 = zext nneg i32 %433 to i64
-  %435 = getelementptr inbounds %struct.code, ptr %423, i64 %434
-  %.sroa.16.0..sroa_idx35 = getelementptr inbounds i8, ptr %435, i64 1
+  %435 = getelementptr inbounds nuw %struct.code, ptr %423, i64 %434
+  %.sroa.16.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %435, i64 1
   %.sroa.16.0.copyload36 = load i8, ptr %.sroa.16.0..sroa_idx35, align 1
   %436 = zext i8 %.sroa.16.0.copyload36 to i64
   %.not662 = icmp samesign ult i64 %indvars.iv.next1279, %436
@@ -1135,7 +1135,7 @@ default.unreachable1324:                          ; preds = %70
   %.lcssa767 = phi ptr [ %397, %.preheader706 ], [ %435, %._crit_edge968.loopexit ]
   %.sroa.16.0.copyload36.lcssa = phi i8 [ %.sroa.16.0.copyload36960, %.preheader706 ], [ %.sroa.16.0.copyload36, %._crit_edge968.loopexit ]
   %.lcssa763 = phi i32 [ %398, %.preheader706 ], [ %437, %._crit_edge968.loopexit ]
-  %.sroa.39.0.copyload64.lcssa.in = getelementptr inbounds i8, ptr %.lcssa767, i64 2
+  %.sroa.39.0.copyload64.lcssa.in = getelementptr inbounds nuw i8, ptr %.lcssa767, i64 2
   %.sroa.39.0.copyload64.lcssa = load i16, ptr %.sroa.39.0.copyload64.lcssa.in, align 2
   %.sroa.022.0.copyload31 = load i8, ptr %.lcssa767, align 2
   %440 = add i8 %.sroa.022.0.copyload31, -1
@@ -1153,8 +1153,8 @@ default.unreachable1324:                          ; preds = %70
   %447 = lshr i32 %446, %.lcssa763
   %448 = add nuw i32 %447, %442
   %449 = zext i32 %448 to i64
-  %450 = getelementptr inbounds %struct.code, ptr %439, i64 %449
-  %.sroa.16.0..sroa_idx37976 = getelementptr inbounds i8, ptr %450, i64 1
+  %450 = getelementptr inbounds nuw %struct.code, ptr %439, i64 %449
+  %.sroa.16.0..sroa_idx37976 = getelementptr inbounds nuw i8, ptr %450, i64 1
   %.sroa.16.0.copyload38977 = load i8, ptr %.sroa.16.0..sroa_idx37976, align 1
   %451 = zext i8 %.sroa.16.0.copyload38977 to i32
   %452 = add nuw nsw i32 %.lcssa763, %451
@@ -1191,7 +1191,7 @@ default.unreachable1324:                          ; preds = %70
   %.32 = phi i32 [ %457, %._crit_edge1301 ], [ %.31979, %.lr.ph982 ]
   %462 = add i32 %.32, -1
   %463 = load ptr, ptr %6, align 8
-  %464 = getelementptr inbounds i8, ptr %463, i64 1
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 1
   store ptr %464, ptr %6, align 8
   %465 = load i8, ptr %463, align 1
   %466 = zext i8 %465 to i64
@@ -1203,8 +1203,8 @@ default.unreachable1324:                          ; preds = %70
   %471 = lshr i32 %470, %.lcssa763
   %472 = add nuw i32 %471, %442
   %473 = zext i32 %472 to i64
-  %474 = getelementptr inbounds %struct.code, ptr %461, i64 %473
-  %.sroa.16.0..sroa_idx37 = getelementptr inbounds i8, ptr %474, i64 1
+  %474 = getelementptr inbounds nuw %struct.code, ptr %461, i64 %473
+  %.sroa.16.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %474, i64 1
   %.sroa.16.0.copyload38 = load i8, ptr %.sroa.16.0..sroa_idx37, align 1
   %475 = zext i8 %.sroa.16.0.copyload38 to i32
   %476 = add nuw nsw i32 %.lcssa763, %475
@@ -1222,7 +1222,7 @@ default.unreachable1324:                          ; preds = %70
   %.18.lcssa = phi i32 [ %.17.lcssa, %.preheader705 ], [ %478, %._crit_edge983.loopexit ]
   %.lcssa775 = phi ptr [ %450, %.preheader705 ], [ %474, %._crit_edge983.loopexit ]
   %.sroa.16.0.copyload38.lcssa = phi i8 [ %.sroa.16.0.copyload38977, %.preheader705 ], [ %.sroa.16.0.copyload38, %._crit_edge983.loopexit ]
-  %.sroa.39.0..sroa_idx65 = getelementptr inbounds i8, ptr %.lcssa775, i64 2
+  %.sroa.39.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %.lcssa775, i64 2
   %.sroa.39.0.copyload66 = load i16, ptr %.sroa.39.0..sroa_idx65, align 2
   %.sroa.022.0.copyload32 = load i8, ptr %.lcssa775, align 2
   %479 = zext nneg i8 %.sroa.16.0.copyload36.lcssa to i64
@@ -1268,7 +1268,7 @@ default.unreachable1324:                          ; preds = %70
   %.4601 = phi ptr [ %493, %._crit_edge1317 ], [ %.0597, %490 ]
   %.4567 = phi i32 [ %494, %._crit_edge1317 ], [ %.0563, %490 ]
   %498 = trunc i32 %497 to i8
-  %499 = getelementptr inbounds i8, ptr %.4601, i64 1
+  %499 = getelementptr inbounds nuw i8, ptr %.4601, i64 1
   store i8 %498, ptr %.4601, align 1
   %500 = add i32 %.4567, -1
   store i32 20, ptr %10, align 8
@@ -1329,7 +1329,7 @@ default.unreachable1324:                          ; preds = %70
   %.36 = phi i32 [ %513, %._crit_edge1303 ], [ %.35989, %.lr.ph992 ]
   %518 = add i32 %.36, -1
   %519 = load ptr, ptr %6, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 1
+  %520 = getelementptr inbounds nuw i8, ptr %519, i64 1
   store ptr %520, ptr %6, align 8
   %521 = load i8, ptr %519, align 1
   %522 = zext i8 %521 to i64
@@ -1372,8 +1372,8 @@ default.unreachable1324:                          ; preds = %70
   %540 = xor i32 %notmask670998, -1
   %541 = and i32 %540, %538
   %542 = zext nneg i32 %541 to i64
-  %543 = getelementptr inbounds %struct.code, ptr %537, i64 %542
-  %.sroa.16.0..sroa_idx39999 = getelementptr inbounds i8, ptr %543, i64 1
+  %543 = getelementptr inbounds nuw %struct.code, ptr %537, i64 %542
+  %.sroa.16.0..sroa_idx39999 = getelementptr inbounds nuw i8, ptr %543, i64 1
   %.sroa.16.0.copyload401000 = load i8, ptr %.sroa.16.0..sroa_idx39999, align 1
   %544 = zext i8 %.sroa.16.0.copyload401000 to i32
   %.not6711003 = icmp ult i32 %.20, %544
@@ -1412,7 +1412,7 @@ default.unreachable1324:                          ; preds = %70
   %.38 = phi i32 [ %550, %._crit_edge1306 ], [ %.371004, %.lr.ph1008 ]
   %556 = add i32 %.38, -1
   %557 = load ptr, ptr %6, align 8
-  %558 = getelementptr inbounds i8, ptr %557, i64 1
+  %558 = getelementptr inbounds nuw i8, ptr %557, i64 1
   store ptr %558, ptr %6, align 8
   %559 = load i8, ptr %557, align 1
   %560 = zext i8 %559 to i64
@@ -1424,8 +1424,8 @@ default.unreachable1324:                          ; preds = %70
   %564 = xor i32 %notmask670, -1
   %565 = and i32 %564, %563
   %566 = zext nneg i32 %565 to i64
-  %567 = getelementptr inbounds %struct.code, ptr %555, i64 %566
-  %.sroa.16.0..sroa_idx39 = getelementptr inbounds i8, ptr %567, i64 1
+  %567 = getelementptr inbounds nuw %struct.code, ptr %555, i64 %566
+  %.sroa.16.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %567, i64 1
   %.sroa.16.0.copyload40 = load i8, ptr %.sroa.16.0..sroa_idx39, align 1
   %568 = zext i8 %.sroa.16.0.copyload40 to i64
   %.not671 = icmp samesign ult i64 %indvars.iv.next1285, %568
@@ -1444,7 +1444,7 @@ default.unreachable1324:                          ; preds = %70
   %.lcssa789 = phi ptr [ %543, %536 ], [ %567, %._crit_edge1009.loopexit ]
   %.sroa.16.0.copyload40.lcssa = phi i8 [ %.sroa.16.0.copyload401000, %536 ], [ %.sroa.16.0.copyload40, %._crit_edge1009.loopexit ]
   %.lcssa785 = phi i32 [ %544, %536 ], [ %569, %._crit_edge1009.loopexit ]
-  %.sroa.39.0.copyload68.lcssa.in = getelementptr inbounds i8, ptr %.lcssa789, i64 2
+  %.sroa.39.0.copyload68.lcssa.in = getelementptr inbounds nuw i8, ptr %.lcssa789, i64 2
   %.sroa.39.0.copyload68.lcssa = load i16, ptr %.sroa.39.0.copyload68.lcssa.in, align 2
   %.sroa.022.0.copyload33 = load i8, ptr %.lcssa789, align 2
   %572 = icmp ult i8 %.sroa.022.0.copyload33, 16
@@ -1461,8 +1461,8 @@ default.unreachable1324:                          ; preds = %70
   %579 = lshr i32 %578, %.lcssa785
   %580 = add nuw i32 %579, %574
   %581 = zext i32 %580 to i64
-  %582 = getelementptr inbounds %struct.code, ptr %571, i64 %581
-  %.sroa.16.0..sroa_idx411017 = getelementptr inbounds i8, ptr %582, i64 1
+  %582 = getelementptr inbounds nuw %struct.code, ptr %571, i64 %581
+  %.sroa.16.0..sroa_idx411017 = getelementptr inbounds nuw i8, ptr %582, i64 1
   %.sroa.16.0.copyload421018 = load i8, ptr %.sroa.16.0..sroa_idx411017, align 1
   %583 = zext i8 %.sroa.16.0.copyload421018 to i32
   %584 = add nuw nsw i32 %.lcssa785, %583
@@ -1499,7 +1499,7 @@ default.unreachable1324:                          ; preds = %70
   %.40 = phi i32 [ %589, %._crit_edge1309 ], [ %.391020, %.lr.ph1023 ]
   %594 = add i32 %.40, -1
   %595 = load ptr, ptr %6, align 8
-  %596 = getelementptr inbounds i8, ptr %595, i64 1
+  %596 = getelementptr inbounds nuw i8, ptr %595, i64 1
   store ptr %596, ptr %6, align 8
   %597 = load i8, ptr %595, align 1
   %598 = zext i8 %597 to i64
@@ -1511,8 +1511,8 @@ default.unreachable1324:                          ; preds = %70
   %603 = lshr i32 %602, %.lcssa785
   %604 = add nuw i32 %603, %574
   %605 = zext i32 %604 to i64
-  %606 = getelementptr inbounds %struct.code, ptr %593, i64 %605
-  %.sroa.16.0..sroa_idx41 = getelementptr inbounds i8, ptr %606, i64 1
+  %606 = getelementptr inbounds nuw %struct.code, ptr %593, i64 %605
+  %.sroa.16.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %606, i64 1
   %.sroa.16.0.copyload42 = load i8, ptr %.sroa.16.0..sroa_idx41, align 1
   %607 = zext i8 %.sroa.16.0.copyload42 to i32
   %608 = add nuw nsw i32 %.lcssa785, %607
@@ -1530,7 +1530,7 @@ default.unreachable1324:                          ; preds = %70
   %.23.lcssa = phi i32 [ %.22.lcssa, %.preheader703 ], [ %610, %._crit_edge1024.loopexit ]
   %.lcssa797 = phi ptr [ %582, %.preheader703 ], [ %606, %._crit_edge1024.loopexit ]
   %.sroa.16.0.copyload42.lcssa = phi i8 [ %.sroa.16.0.copyload421018, %.preheader703 ], [ %.sroa.16.0.copyload42, %._crit_edge1024.loopexit ]
-  %.sroa.39.0..sroa_idx69 = getelementptr inbounds i8, ptr %.lcssa797, i64 2
+  %.sroa.39.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %.lcssa797, i64 2
   %.sroa.39.0.copyload70 = load i16, ptr %.sroa.39.0..sroa_idx69, align 2
   %.sroa.022.0.copyload34 = load i8, ptr %.lcssa797, align 2
   %611 = zext nneg i8 %.sroa.16.0.copyload40.lcssa to i64
@@ -1597,7 +1597,7 @@ default.unreachable1324:                          ; preds = %70
   %.44 = phi i32 [ %629, %._crit_edge1311 ], [ %.431030, %.lr.ph1033 ]
   %634 = add i32 %.44, -1
   %635 = load ptr, ptr %6, align 8
-  %636 = getelementptr inbounds i8, ptr %635, i64 1
+  %636 = getelementptr inbounds nuw i8, ptr %635, i64 1
   store ptr %636, ptr %6, align 8
   %637 = load i8, ptr %635, align 1
   %638 = zext i8 %637 to i64
@@ -1689,9 +1689,9 @@ default.unreachable1324:                          ; preds = %70
   %.7604 = phi ptr [ %.6603, %665 ], [ %679, %676 ]
   %.6 = phi i32 [ %.5, %665 ], [ %680, %676 ]
   %.1 = phi ptr [ %.0526, %665 ], [ %677, %676 ]
-  %677 = getelementptr inbounds i8, ptr %.1, i64 1
+  %677 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %678 = load i8, ptr %.1, align 1
-  %679 = getelementptr inbounds i8, ptr %.7604, i64 1
+  %679 = getelementptr inbounds nuw i8, ptr %.7604, i64 1
   store i8 %678, ptr %.7604, align 1
   %680 = add i32 %.6, -1
   %.not678 = icmp eq i32 %680, 0
@@ -1745,19 +1745,19 @@ define range(i32 -2, 1) i32 @inflateBackEnd(ptr noundef %0) local_unnamed_addr #
   br i1 %2, label %14, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8
   tail call void %9(ptr noundef %13, ptr noundef nonnull %5) #4
   store ptr null, ptr %4, align 8

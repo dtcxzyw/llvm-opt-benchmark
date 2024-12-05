@@ -25,7 +25,7 @@ define noundef i32 @ompi_coll_tuned_init_query(i1 noundef zeroext %0, i1 noundef
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @ompi_coll_tuned_comm_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -48,10 +48,10 @@ define noundef ptr @ompi_coll_tuned_comm_query(ptr nocapture noundef readonly %0
   br label %opal_obj_new.exit.thread
 
 12:                                               ; preds = %7
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_module_t_class, i64 56), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_tuned_module_t_class, i64 56), align 8
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #5
   %15 = load i32, ptr @opal_class_init_epoch, align 4
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_module_t_class, i64 32), align 8
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_tuned_module_t_class, i64 32), align 8
   %.not.i = icmp eq i32 %15, %16
   br i1 %.not.i, label %18, label %17
 
@@ -65,9 +65,9 @@ define noundef ptr @ompi_coll_tuned_comm_query(ptr nocapture noundef readonly %0
 
 19:                                               ; preds = %18
   store ptr @mca_coll_tuned_module_t_class, ptr %14, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store volatile i32 1, ptr %20, align 8
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_module_t_class, i64 40), align 8
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_tuned_module_t_class, i64 40), align 8
   %22 = load ptr, ptr %21, align 8
   %.not6.i.i = icmp eq ptr %22, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread28, label %.lr.ph.i.i
@@ -76,7 +76,7 @@ define noundef ptr @ompi_coll_tuned_comm_query(ptr nocapture noundef readonly %0
   %23 = phi ptr [ %25, %.lr.ph.i.i ], [ %22, %19 ]
   %.07.i.i = phi ptr [ %24, %.lr.ph.i.i ], [ %21, %19 ]
   tail call void %23(ptr noundef nonnull %14) #6
-  %24 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread28, label %.lr.ph.i.i, !llvm.loop !4
@@ -84,41 +84,41 @@ define noundef ptr @ompi_coll_tuned_comm_query(ptr nocapture noundef readonly %0
 opal_obj_new.exit.thread28:                       ; preds = %.lr.ph.i.i, %19
   %26 = load i32, ptr @ompi_coll_tuned_priority, align 4
   store i32 %26, ptr %1, align 4
-  %27 = getelementptr inbounds i8, ptr %14, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @tuned_module_enable, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr @ompi_coll_tuned_allgather_intra_dec_fixed, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr @ompi_coll_tuned_allgatherv_intra_dec_fixed, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr @ompi_coll_tuned_allreduce_intra_dec_fixed, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr @ompi_coll_tuned_alltoall_intra_dec_fixed, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %14, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr @ompi_coll_tuned_alltoallv_intra_dec_fixed, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %14, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr null, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %14, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store ptr @ompi_coll_tuned_barrier_intra_dec_fixed, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %14, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store ptr @ompi_coll_tuned_bcast_intra_dec_fixed, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %14, i64 88
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %14, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store ptr @ompi_coll_tuned_gather_intra_dec_fixed, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %14, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store ptr null, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %14, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 112
   store ptr @ompi_coll_tuned_reduce_intra_dec_fixed, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %14, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 120
   store ptr @ompi_coll_tuned_reduce_scatter_intra_dec_fixed, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %14, i64 128
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 128
   store ptr @ompi_coll_tuned_reduce_scatter_block_intra_dec_fixed, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %14, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %14, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store ptr @ompi_coll_tuned_scatter_intra_dec_fixed, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %14, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 152
   store ptr null, ptr %44, align 8
   br label %opal_obj_new.exit.thread
 
@@ -130,7 +130,7 @@ opal_obj_new.exit.thread:                         ; preds = %18, %opal_obj_new.e
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @tuned_module_enable(ptr noundef %0, ptr nocapture noundef readonly %1) #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 224
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
@@ -139,10 +139,10 @@ define internal range(i32 -1, 1) i32 @tuned_module_enable(ptr noundef %0, ptr no
   %.pn = load ptr, ptr %.pn.in, align 8
   %.0184.in = getelementptr i8, ptr %.pn, i64 16
   %.0184 = load i32, ptr %.0184.in, align 8
-  %7 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_base_comm_t_class, i64 56), align 8
+  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_base_comm_t_class, i64 56), align 8
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #5
   %9 = load i32, ptr @opal_class_init_epoch, align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_base_comm_t_class, i64 32), align 8
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_base_comm_t_class, i64 32), align 8
   %.not.i287 = icmp eq i32 %9, %10
   br i1 %.not.i287, label %12, label %11
 
@@ -156,9 +156,9 @@ define internal range(i32 -1, 1) i32 @tuned_module_enable(ptr noundef %0, ptr no
 
 13:                                               ; preds = %12
   store ptr @mca_coll_base_comm_t_class, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store volatile i32 1, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_base_comm_t_class, i64 40), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_base_comm_t_class, i64 40), align 8
   %16 = load ptr, ptr %15, align 8
   %.not6.i.i = icmp eq ptr %16, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread289, label %.lr.ph.i.i
@@ -167,7 +167,7 @@ define internal range(i32 -1, 1) i32 @tuned_module_enable(ptr noundef %0, ptr no
   %17 = phi ptr [ %19, %.lr.ph.i.i ], [ %16, %13 ]
   %.07.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %15, %13 ]
   tail call void %17(ptr noundef nonnull %8) #6
-  %18 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread289, label %.lr.ph.i.i, !llvm.loop !4
@@ -178,9 +178,9 @@ opal_obj_new.exit.thread289:                      ; preds = %.lr.ph.i.i, %13
   br i1 %21, label %22, label %166
 
 22:                                               ; preds = %opal_obj_new.exit.thread289
-  %23 = getelementptr inbounds i8, ptr %0, i64 592
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 592
   tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 0, ptr noundef nonnull %23)
-  %24 = getelementptr inbounds i8, ptr %0, i64 1032
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   store ptr null, ptr %24, align 8
   %25 = load i32, ptr %23, align 8
   %.not203 = icmp ne i32 %25, 0
@@ -199,14 +199,14 @@ select.unfold:                                    ; preds = %22
   br i1 %.not203, label %.thread, label %30
 
 .thread:                                          ; preds = %27, %select.unfold
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @ompi_coll_tuned_allgather_intra_dec_dynamic, ptr %29, align 8
   br label %30
 
 30:                                               ; preds = %27, %.thread, %select.unfold
-  %31 = getelementptr inbounds i8, ptr %0, i64 612
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 612
   tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 1, ptr noundef nonnull %31)
-  %32 = getelementptr inbounds i8, ptr %0, i64 1040
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store ptr null, ptr %32, align 8
   %33 = load i32, ptr %31, align 4
   %.not206 = icmp ne i32 %33, 0
@@ -225,14 +225,14 @@ select.unfold291:                                 ; preds = %30
   br i1 %.not206, label %.thread292, label %38
 
 .thread292:                                       ; preds = %35, %select.unfold291
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @ompi_coll_tuned_allgatherv_intra_dec_dynamic, ptr %37, align 8
   br label %38
 
 38:                                               ; preds = %35, %.thread292, %select.unfold291
-  %39 = getelementptr inbounds i8, ptr %0, i64 632
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 632
   tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 2, ptr noundef nonnull %39)
-  %40 = getelementptr inbounds i8, ptr %0, i64 1048
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store ptr null, ptr %40, align 8
   %41 = load i32, ptr %39, align 8
   %.not209 = icmp ne i32 %41, 0
@@ -251,14 +251,14 @@ select.unfold294:                                 ; preds = %38
   br i1 %.not209, label %.thread295, label %46
 
 .thread295:                                       ; preds = %43, %select.unfold294
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @ompi_coll_tuned_allreduce_intra_dec_dynamic, ptr %45, align 8
   br label %46
 
 46:                                               ; preds = %43, %.thread295, %select.unfold294
-  %47 = getelementptr inbounds i8, ptr %0, i64 652
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 652
   tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 3, ptr noundef nonnull %47)
-  %48 = getelementptr inbounds i8, ptr %0, i64 1056
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store ptr null, ptr %48, align 8
   %49 = load i32, ptr %47, align 4
   %.not212 = icmp ne i32 %49, 0
@@ -277,14 +277,14 @@ select.unfold297:                                 ; preds = %46
   br i1 %.not212, label %.thread298, label %54
 
 .thread298:                                       ; preds = %51, %select.unfold297
-  %53 = getelementptr inbounds i8, ptr %0, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @ompi_coll_tuned_alltoall_intra_dec_dynamic, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %51, %.thread298, %select.unfold297
-  %55 = getelementptr inbounds i8, ptr %0, i64 672
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 672
   tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 4, ptr noundef nonnull %55)
-  %56 = getelementptr inbounds i8, ptr %0, i64 1064
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   store ptr null, ptr %56, align 8
   %57 = load i32, ptr %55, align 8
   %.not215 = icmp ne i32 %57, 0
@@ -303,14 +303,14 @@ select.unfold300:                                 ; preds = %54
   br i1 %.not215, label %.thread301, label %62
 
 .thread301:                                       ; preds = %59, %select.unfold300
-  %61 = getelementptr inbounds i8, ptr %0, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @ompi_coll_tuned_alltoallv_intra_dec_dynamic, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %59, %.thread301, %select.unfold300
-  %63 = getelementptr inbounds i8, ptr %0, i64 692
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 692
   tail call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 5, ptr noundef nonnull %63)
-  %64 = getelementptr inbounds i8, ptr %0, i64 1072
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   store ptr null, ptr %64, align 8
   %65 = load i32, ptr %63, align 4
   %.not218 = icmp ne i32 %65, 0
@@ -329,15 +329,15 @@ select.unfold303:                                 ; preds = %62
   br i1 %.not218, label %.thread304, label %70
 
 .thread304:                                       ; preds = %67, %select.unfold303
-  %69 = getelementptr inbounds i8, ptr %0, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %69, align 8
   br label %70
 
 70:                                               ; preds = %67, %.thread304, %select.unfold303
-  %71 = getelementptr inbounds i8, ptr %0, i64 712
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 712
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %72 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_tuned_forced_params, i64 120), align 8
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_tuned_forced_params, i64 120), align 8
   %73 = call i32 @mca_base_var_get_value(i32 noundef %72, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #6
   %74 = load ptr, ptr %3, align 8
   %.not.i288 = icmp eq ptr %74, null
@@ -348,7 +348,7 @@ select.unfold303:                                 ; preds = %62
   %.fr = freeze i32 %76
   store i32 %.fr, ptr %71, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %77 = getelementptr inbounds i8, ptr %0, i64 1080
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store ptr null, ptr %77, align 8
   %.not221 = icmp ne i32 %.fr, 0
   %78 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
@@ -358,7 +358,7 @@ select.unfold303:                                 ; preds = %62
 .thread374:                                       ; preds = %70
   store i32 0, ptr %71, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %79 = getelementptr inbounds i8, ptr %0, i64 1080
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store ptr null, ptr %79, align 8
   %80 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_tuned_component, i64 288), align 8
   %.not222375 = icmp eq ptr %80, null
@@ -378,14 +378,14 @@ select.unfold308:                                 ; preds = %75
   br i1 %.not221, label %.thread309, label %select.unfold308.thread
 
 .thread309:                                       ; preds = %81, %select.unfold308
-  %86 = getelementptr inbounds i8, ptr %0, i64 72
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @ompi_coll_tuned_barrier_intra_dec_dynamic, ptr %86, align 8
   br label %select.unfold308.thread
 
 select.unfold308.thread:                          ; preds = %.thread374, %81, %.thread309, %select.unfold308
-  %87 = getelementptr inbounds i8, ptr %0, i64 732
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 732
   call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 7, ptr noundef nonnull %87)
-  %88 = getelementptr inbounds i8, ptr %0, i64 1088
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store ptr null, ptr %88, align 8
   %89 = load i32, ptr %87, align 4
   %.not224 = icmp ne i32 %89, 0
@@ -404,14 +404,14 @@ select.unfold311:                                 ; preds = %select.unfold308.th
   br i1 %.not224, label %.thread312, label %94
 
 .thread312:                                       ; preds = %91, %select.unfold311
-  %93 = getelementptr inbounds i8, ptr %0, i64 80
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr @ompi_coll_tuned_bcast_intra_dec_dynamic, ptr %93, align 8
   br label %94
 
 94:                                               ; preds = %91, %.thread312, %select.unfold311
-  %95 = getelementptr inbounds i8, ptr %0, i64 752
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 752
   call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 8, ptr noundef nonnull %95)
-  %96 = getelementptr inbounds i8, ptr %0, i64 1096
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   store ptr null, ptr %96, align 8
   %97 = load i32, ptr %95, align 8
   %.not227 = icmp ne i32 %97, 0
@@ -430,14 +430,14 @@ select.unfold314:                                 ; preds = %94
   br i1 %.not227, label %.thread315, label %102
 
 .thread315:                                       ; preds = %99, %select.unfold314
-  %101 = getelementptr inbounds i8, ptr %0, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @ompi_coll_tuned_exscan_intra_dec_dynamic, ptr %101, align 8
   br label %102
 
 102:                                              ; preds = %99, %.thread315, %select.unfold314
-  %103 = getelementptr inbounds i8, ptr %0, i64 772
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 772
   call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 9, ptr noundef nonnull %103)
-  %104 = getelementptr inbounds i8, ptr %0, i64 1104
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store ptr null, ptr %104, align 8
   %105 = load i32, ptr %103, align 4
   %.not230 = icmp ne i32 %105, 0
@@ -456,14 +456,14 @@ select.unfold317:                                 ; preds = %102
   br i1 %.not230, label %.thread318, label %110
 
 .thread318:                                       ; preds = %107, %select.unfold317
-  %109 = getelementptr inbounds i8, ptr %0, i64 96
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @ompi_coll_tuned_gather_intra_dec_dynamic, ptr %109, align 8
   br label %110
 
 110:                                              ; preds = %107, %.thread318, %select.unfold317
-  %111 = getelementptr inbounds i8, ptr %0, i64 792
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 792
   call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 10, ptr noundef nonnull %111)
-  %112 = getelementptr inbounds i8, ptr %0, i64 1112
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   store ptr null, ptr %112, align 8
   %113 = load i32, ptr %111, align 8
   %.not233 = icmp ne i32 %113, 0
@@ -482,14 +482,14 @@ select.unfold320:                                 ; preds = %110
   br i1 %.not233, label %.thread321, label %118
 
 .thread321:                                       ; preds = %115, %select.unfold320
-  %117 = getelementptr inbounds i8, ptr %0, i64 104
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %117, align 8
   br label %118
 
 118:                                              ; preds = %115, %.thread321, %select.unfold320
-  %119 = getelementptr inbounds i8, ptr %0, i64 812
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 812
   call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 11, ptr noundef nonnull %119)
-  %120 = getelementptr inbounds i8, ptr %0, i64 1120
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   store ptr null, ptr %120, align 8
   %121 = load i32, ptr %119, align 4
   %.not236 = icmp ne i32 %121, 0
@@ -508,14 +508,14 @@ select.unfold323:                                 ; preds = %118
   br i1 %.not236, label %.thread324, label %126
 
 .thread324:                                       ; preds = %123, %select.unfold323
-  %125 = getelementptr inbounds i8, ptr %0, i64 112
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @ompi_coll_tuned_reduce_intra_dec_dynamic, ptr %125, align 8
   br label %126
 
 126:                                              ; preds = %123, %.thread324, %select.unfold323
-  %127 = getelementptr inbounds i8, ptr %0, i64 832
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 832
   call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 12, ptr noundef nonnull %127)
-  %128 = getelementptr inbounds i8, ptr %0, i64 1128
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store ptr null, ptr %128, align 8
   %129 = load i32, ptr %127, align 8
   %.not239 = icmp ne i32 %129, 0
@@ -534,14 +534,14 @@ select.unfold326:                                 ; preds = %126
   br i1 %.not239, label %.thread327, label %134
 
 .thread327:                                       ; preds = %131, %select.unfold326
-  %133 = getelementptr inbounds i8, ptr %0, i64 120
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @ompi_coll_tuned_reduce_scatter_intra_dec_dynamic, ptr %133, align 8
   br label %134
 
 134:                                              ; preds = %131, %.thread327, %select.unfold326
-  %135 = getelementptr inbounds i8, ptr %0, i64 852
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 852
   call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 13, ptr noundef nonnull %135)
-  %136 = getelementptr inbounds i8, ptr %0, i64 1136
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store ptr null, ptr %136, align 8
   %137 = load i32, ptr %135, align 4
   %.not242 = icmp ne i32 %137, 0
@@ -560,14 +560,14 @@ select.unfold329:                                 ; preds = %134
   br i1 %.not242, label %.thread330, label %142
 
 .thread330:                                       ; preds = %139, %select.unfold329
-  %141 = getelementptr inbounds i8, ptr %0, i64 128
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr @ompi_coll_tuned_reduce_scatter_block_intra_dec_dynamic, ptr %141, align 8
   br label %142
 
 142:                                              ; preds = %139, %.thread330, %select.unfold329
-  %143 = getelementptr inbounds i8, ptr %0, i64 872
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 872
   call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 14, ptr noundef nonnull %143)
-  %144 = getelementptr inbounds i8, ptr %0, i64 1144
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store ptr null, ptr %144, align 8
   %145 = load i32, ptr %143, align 8
   %.not245 = icmp ne i32 %145, 0
@@ -586,14 +586,14 @@ select.unfold332:                                 ; preds = %142
   br i1 %.not245, label %.thread333, label %150
 
 .thread333:                                       ; preds = %147, %select.unfold332
-  %149 = getelementptr inbounds i8, ptr %0, i64 136
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @ompi_coll_tuned_scan_intra_dec_dynamic, ptr %149, align 8
   br label %150
 
 150:                                              ; preds = %147, %.thread333, %select.unfold332
-  %151 = getelementptr inbounds i8, ptr %0, i64 892
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 892
   call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 15, ptr noundef nonnull %151)
-  %152 = getelementptr inbounds i8, ptr %0, i64 1152
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store ptr null, ptr %152, align 8
   %153 = load i32, ptr %151, align 4
   %.not248 = icmp ne i32 %153, 0
@@ -612,14 +612,14 @@ select.unfold335:                                 ; preds = %150
   br i1 %.not248, label %.thread336, label %158
 
 .thread336:                                       ; preds = %155, %select.unfold335
-  %157 = getelementptr inbounds i8, ptr %0, i64 144
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr @ompi_coll_tuned_scatter_intra_dec_dynamic, ptr %157, align 8
   br label %158
 
 158:                                              ; preds = %155, %.thread336, %select.unfold335
-  %159 = getelementptr inbounds i8, ptr %0, i64 912
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 912
   call fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef 16, ptr noundef nonnull %159)
-  %160 = getelementptr inbounds i8, ptr %0, i64 1160
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   store ptr null, ptr %160, align 8
   %161 = load i32, ptr %159, align 8
   %.not251 = icmp ne i32 %161, 0
@@ -638,28 +638,28 @@ select.unfold338:                                 ; preds = %158
   br i1 %.not251, label %.thread339, label %166
 
 .thread339:                                       ; preds = %163, %select.unfold338
-  %165 = getelementptr inbounds i8, ptr %0, i64 152
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr null, ptr %165, align 8
   br label %166
 
 166:                                              ; preds = %163, %select.unfold338, %.thread339, %opal_obj_new.exit.thread289
-  %167 = getelementptr inbounds i8, ptr %8, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %8, i64 48
+  %168 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr null, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %8, i64 64
+  %169 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr null, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %8, i64 80
+  %170 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr null, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %8, i64 96
+  %171 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr null, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %8, i64 112
+  %172 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store ptr null, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %8, i64 128
+  %173 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store ptr null, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %8, i64 144
+  %174 = getelementptr inbounds nuw i8, ptr %8, i64 144
   store ptr null, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %0, i64 584
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr %8, ptr %175, align 8
   br label %opal_obj_new.exit.thread
 
@@ -702,7 +702,7 @@ define internal fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef %0, pt
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [22 x %struct.coll_tuned_force_algorithm_mca_param_indices_t], ptr @ompi_coll_tuned_forced_params, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = call i32 @mca_base_var_get_value(i32 noundef %6, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #6
   %8 = load ptr, ptr %3, align 8
@@ -720,7 +720,7 @@ define internal fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef %0, pt
   br i1 %.not15, label %45, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = call i32 @mca_base_var_get_value(i32 noundef %15, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #6
   %17 = load ptr, ptr %3, align 8
@@ -729,12 +729,12 @@ define internal fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef %0, pt
 
 18:                                               ; preds = %13
   %19 = load i32, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %19, ptr %20, align 4
   br label %21
 
 21:                                               ; preds = %18, %13
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = call i32 @mca_base_var_get_value(i32 noundef %23, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #6
   %25 = load ptr, ptr %3, align 8
@@ -743,12 +743,12 @@ define internal fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef %0, pt
 
 26:                                               ; preds = %21
   %27 = load i32, ptr %25, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 4
   br label %29
 
 29:                                               ; preds = %26, %21
-  %30 = getelementptr inbounds i8, ptr %5, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = call i32 @mca_base_var_get_value(i32 noundef %31, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #6
   %33 = load ptr, ptr %3, align 8
@@ -757,12 +757,12 @@ define internal fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef %0, pt
 
 34:                                               ; preds = %29
   %35 = load i32, ptr %33, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %35, ptr %36, align 4
   br label %37
 
 37:                                               ; preds = %34, %29
-  %38 = getelementptr inbounds i8, ptr %5, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %39 = load i32, ptr %38, align 4
   %40 = call i32 @mca_base_var_get_value(i32 noundef %39, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #6
   %41 = load ptr, ptr %3, align 8
@@ -771,7 +771,7 @@ define internal fastcc void @ompi_coll_tuned_forced_getvalues(i32 noundef %0, pt
 
 42:                                               ; preds = %37
   %43 = load i32, ptr %41, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %43, ptr %44, align 4
   br label %45
 

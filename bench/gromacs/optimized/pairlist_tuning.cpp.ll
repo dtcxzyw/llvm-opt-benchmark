@@ -208,7 +208,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx16EnumerationArrayINS_14MtsForceGroupsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 224
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -345,7 +345,7 @@ define void @_Z15increaseNstlistP8_IO_FILEP9t_commrecP10t_inputreciPK10gmx_mtop_
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::allocator", align 1
   %15 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %.critedge [
     i32 0, label %18
@@ -362,7 +362,7 @@ define void @_Z15increaseNstlistP8_IO_FILEP9t_commrecP10t_inputreciPK10gmx_mtop_
   br i1 %20, label %21, label %.critedge.thread
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %23 = load i32, ptr %22, align 8
   %.not = icmp sgt i32 %23, %19
   br i1 %.not, label %25, label %24
@@ -380,7 +380,7 @@ define void @_Z15increaseNstlistP8_IO_FILEP9t_commrecP10t_inputreciPK10gmx_mtop_
   br i1 %or.cond, label %28, label %42
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %2, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread
@@ -397,13 +397,13 @@ define void @_Z15increaseNstlistP8_IO_FILEP9t_commrecP10t_inputreciPK10gmx_mtop_
   ]
 
 34:                                               ; preds = %32, %32, %32, %32
-  %35 = getelementptr inbounds i8, ptr %2, i64 192
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit
 
 _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %32, %32, %34
-  %38 = getelementptr inbounds i8, ptr %2, i64 324
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 324
   %39 = load float, ptr %38, align 4
   %40 = fcmp ogt float %39, 0.000000e+00
   br i1 %40, label %42, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread
@@ -419,7 +419,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; pred
 
 44:                                               ; preds = %42, %48
   %.1249 = phi i64 [ 0, %42 ], [ %49, %48 ]
-  %45 = getelementptr inbounds [6 x i32], ptr @_ZL11nstlist_try, i64 0, i64 %.1249
+  %45 = getelementptr inbounds nuw [6 x i32], ptr @_ZL11nstlist_try, i64 0, i64 %.1249
   %46 = load i32, ptr %45, align 4
   %47 = mul nsw i32 %46, %19
   %.not180 = icmp slt i32 %43, %47
@@ -441,19 +441,19 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; pred
   ]
 
 51:                                               ; preds = %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread
-  %52 = getelementptr inbounds i8, ptr %2, i64 192
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %69
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %1, i64 52
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %63, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %1, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %61 = load i32, ptr %60, align 8
   %62 = icmp sgt i32 %61, 1
   br i1 %62, label %66, label %63
@@ -472,7 +472,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; pred
   br label %.critedge
 
 69:                                               ; preds = %.critedge.thread, %51
-  %70 = getelementptr inbounds i8, ptr %2, i64 324
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 324
   %71 = load float, ptr %70, align 4
   %72 = fcmp oeq float %71, 0.000000e+00
   %brmerge198.not = and i1 %7, %72
@@ -497,13 +497,13 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; pred
   br i1 %78, label %79, label %93
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %1, i64 52
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %87, label %83
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %1, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %85 = load i32, ptr %84, align 8
   %86 = icmp sgt i32 %85, 1
   br i1 %86, label %90, label %87
@@ -522,7 +522,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; pred
   br label %.critedge
 
 93:                                               ; preds = %77
-  %94 = getelementptr inbounds i8, ptr %2, i64 36
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread
@@ -538,7 +538,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; pred
   ]
 
 98:                                               ; preds = %97, %97, %97, %97
-  %99 = getelementptr inbounds i8, ptr %2, i64 192
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %100 = load i32, ptr %99, align 8
   %101 = icmp ne i32 %100, 0
   %102 = fcmp ogt float %71, 0.000000e+00
@@ -554,13 +554,13 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
   unreachable
 
 103:                                              ; preds = %98, %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201
-  %104 = getelementptr inbounds i8, ptr %8, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %105 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull @.str.16, i64 noundef 0) #23
   %.not181 = icmp eq i64 %105, -1
   %106 = select i1 %.not181, float 1.250000e+00, float 0x3FF6666660000000
   %107 = select i1 %7, float 0x3FF6666660000000, float %106
   %108 = fadd float %107, 0x3FB99999A0000000
-  %109 = getelementptr inbounds i8, ptr %2, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %110 = load i32, ptr %109, align 8
   %111 = icmp sgt i32 %3, 0
   br i1 %111, label %112, label %116
@@ -581,7 +581,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
   %117 = select i1 %7, i32 2, i32 1
   %118 = tail call i64 @_Z25verletbufGetSafeListSetup13ListSetupType(i32 noundef %117)
   store i64 %118, ptr %12, align 8
-  %119 = getelementptr inbounds i8, ptr %2, i64 328
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %120 = load float, ptr %119, align 8
   %121 = tail call fastcc noundef float @_ZL20getPressureTolerancef(float noundef %120)
   %122 = load i32, ptr %109, align 8
@@ -610,9 +610,9 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
   br label %140
 
 140:                                              ; preds = %135, %116
-  %141 = getelementptr inbounds i8, ptr %2, i64 332
+  %141 = getelementptr inbounds nuw i8, ptr %2, i64 332
   %142 = load float, ptr %141, align 4
-  %143 = getelementptr inbounds i8, ptr %2, i64 176
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %144 = getelementptr i8, ptr %1, i64 96
   br label %145
 
@@ -627,7 +627,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
   br label %150
 
 146:                                              ; preds = %145
-  %147 = getelementptr inbounds [6 x i32], ptr @_ZL11nstlist_try, i64 0, i64 %.2
+  %147 = getelementptr inbounds nuw [6 x i32], ptr @_ZL11nstlist_try, i64 0, i64 %.2
   %148 = load i32, ptr %147, align 4
   %149 = mul nsw i32 %148, %19
   store i32 %149, ptr %109, align 8
@@ -769,13 +769,13 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit201.thread: ; p
   %201 = fpext float %.pre269 to double
   %202 = fpext float %.0156208216224 to double
   %203 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %110, i32 noundef %198, double noundef %201, double noundef %202) #23
-  %204 = getelementptr inbounds i8, ptr %1, i64 52
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %205 = load i32, ptr %204, align 4
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %211, label %207
 
 207:                                              ; preds = %200
-  %208 = getelementptr inbounds i8, ptr %1, i64 48
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %209 = load i32, ptr %208, align 8
   %210 = icmp sgt i32 %209, 1
   br i1 %210, label %214, label %211
@@ -825,7 +825,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #23
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -833,7 +833,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -882,7 +882,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -936,11 +936,11 @@ define internal fastcc noundef float @_ZL20getPressureTolerancef(float noundef %
 17:                                               ; preds = %16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL20getPressureTolerancef, ptr %18, align 8
-  %.sroa.238.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @.str.14, ptr %.sroa.238.0..sroa_idx, align 8
-  %.sroa.339.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 134, ptr %.sroa.339.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %15, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %19 unwind label %22
@@ -1062,11 +1062,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 54:                                               ; preds = %53
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %8, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %10, align 8
-  %55 = getelementptr inbounds i8, ptr %10, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @__PRETTY_FUNCTION__._ZL20getPressureTolerancef, ptr %55, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @.str.14, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 140, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %52, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %56 unwind label %61
@@ -1178,8 +1178,8 @@ define linkonce_odr void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLoc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %6, ptr %4, align 8
   store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8
@@ -1193,7 +1193,7 @@ define linkonce_odr void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLoc
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #23
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
@@ -1207,7 +1207,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #23
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
@@ -1218,12 +1218,12 @@ _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.ex
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
@@ -1268,7 +1268,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
 
@@ -1286,13 +1286,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN3gmx14UserInputErrorD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -1300,10 +1300,10 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull ali
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -1329,10 +1329,10 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull ali
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %31, label %28
@@ -1354,7 +1354,7 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull ali
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
@@ -1375,9 +1375,9 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -1393,7 +1393,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
@@ -1493,7 +1493,7 @@ define void @_Z27setupDynamicPairlistPruningRKN3gmx8MDLoggerERK10t_inputrecRK10g
   %34 = alloca %"class.std::__cxx11::basic_string", align 8
   %35 = alloca %"class.std::allocator", align 1
   %36 = alloca %"class.gmx::LogEntryWriter", align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load float, ptr %37, align 4
   %39 = fcmp ogt float %38, 0.000000e+00
   br i1 %39, label %41, label %40
@@ -1503,27 +1503,27 @@ define void @_Z27setupDynamicPairlistPruningRKN3gmx8MDLoggerERK10t_inputrecRK10g
   unreachable
 
 41:                                               ; preds = %6
-  %42 = getelementptr inbounds i8, ptr %5, i64 17
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 17
   store i8 0, ptr %42, align 1
   %43 = load i32, ptr %5, align 4
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   store i32 %46, ptr %10, align 4
-  %47 = getelementptr inbounds i8, ptr %10, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %48 = getelementptr inbounds [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %44
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %47, align 4
   %50 = getelementptr inbounds [4 x i8], ptr @_ZL20sc_isGpuPairListType, i64 0, i64 %44
   %51 = load i8, ptr %50, align 1
   %52 = trunc i8 %51 to i1
-  %53 = getelementptr inbounds i8, ptr %1, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread
 
 56:                                               ; preds = %41
-  %57 = getelementptr inbounds i8, ptr %1, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %58 = load i32, ptr %57, align 4
   switch i32 %58, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread [
     i32 0, label %59
@@ -1535,17 +1535,17 @@ define void @_Z27setupDynamicPairlistPruningRKN3gmx8MDLoggerERK10t_inputrecRK10g
   ]
 
 59:                                               ; preds = %56, %56, %56, %56
-  %60 = getelementptr inbounds i8, ptr %1, i64 192
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %61 = load i32, ptr %60, align 8
   %62 = icmp ne i32 %61, 0
-  %63 = getelementptr inbounds i8, ptr %1, i64 324
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 324
   %64 = load float, ptr %63, align 4
   %65 = fcmp ogt float %64, 0.000000e+00
   %or.cond165 = select i1 %62, i1 %65, i1 false
   br i1 %or.cond165, label %66, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread
 
 _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56, %56
-  %.old = getelementptr inbounds i8, ptr %1, i64 324
+  %.old = getelementptr inbounds nuw i8, ptr %1, i64 324
   %.old163 = load float, ptr %.old, align 4
   %.old164 = fcmp ogt float %.old163, 0.000000e+00
   br i1 %.old164, label %66, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread
@@ -1564,7 +1564,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
   store ptr null, ptr %11, align 8
   %72 = call i64 @strtol(ptr noundef nonnull %70, ptr noundef nonnull %11, i32 noundef 10) #23
   %73 = trunc i64 %72 to i32
-  %74 = getelementptr inbounds i8, ptr %5, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %73, ptr %74, align 4
   %75 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %75, null
@@ -1575,7 +1575,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
   %.not106 = icmp eq i8 %77, 0
   %78 = icmp sgt i32 %73, 0
   %or.cond = select i1 %.not106, i1 %78, i1 false
-  %79 = getelementptr inbounds i8, ptr %1, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %80 = load i32, ptr %79, align 8
   %81 = icmp sgt i32 %80, %73
   %or.cond130 = select i1 %or.cond, i1 %81, i1 false
@@ -1597,19 +1597,19 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
 
 86:                                               ; preds = %69
   %87 = select i1 %52, i32 4, i32 5
-  %88 = getelementptr inbounds i8, ptr %5, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %87, ptr %88, align 4
   br label %89
 
 89:                                               ; preds = %76, %86
-  %90 = getelementptr inbounds i8, ptr %1, i64 328
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %91 = load float, ptr %90, align 8
   %92 = tail call fastcc noundef float @_ZL20getPressureTolerancef(float noundef %91)
   %93 = fcmp ogt float %92, 0.000000e+00
   br i1 %93, label %94, label %100
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds i8, ptr %1, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %96 = load i32, ptr %95, align 8
   %97 = load float, ptr %37, align 4
   %98 = call noundef float @_Z25verletBufferPressureErrorRK10gmx_mtop_tfRK10t_inputrecibfRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %96, i1 noundef zeroext false, float noundef %97, ptr noundef nonnull align 4 dereferenceable(8) %10)
@@ -1619,9 +1619,9 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
 100:                                              ; preds = %94, %89
   %.0.i = phi float [ %99, %94 ], [ %92, %89 ]
   %101 = call noundef i32 @_ZN3gmx18nonbondedMtsFactorERK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(856) %1)
-  %102 = getelementptr inbounds i8, ptr %5, i64 20
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %101, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %1, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %104 = load i32, ptr %103, align 8
   %105 = srem i32 %104, %101
   %106 = icmp eq i32 %105, 0
@@ -1633,13 +1633,13 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
 
 108:                                              ; preds = %100
   %109 = sub nsw i32 %104, %101
-  %110 = getelementptr inbounds i8, ptr %5, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %109, ptr %110, align 4
   br i1 %.not170, label %119, label %111
 
 111:                                              ; preds = %108
   store i8 1, ptr %42, align 1
-  %112 = getelementptr inbounds i8, ptr %5, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %113 = load i32, ptr %112, align 4
   %114 = select i1 %52, i32 0, i32 %101
   %115 = sub nsw i32 %113, %114
@@ -1650,13 +1650,13 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
   br label %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit
 
 119:                                              ; preds = %108
-  %120 = getelementptr inbounds i8, ptr %4, i64 76
-  %121 = getelementptr inbounds i8, ptr %4, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %122 = load float, ptr %120, align 4
   %123 = load float, ptr %121, align 8
   %124 = fcmp olt float %122, %123
   %125 = select i1 %124, float %123, float %122
-  %126 = getelementptr inbounds i8, ptr %5, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %127 = load i32, ptr %126, align 4
   %128 = select i1 %52, i32 0, i32 %101
   %.mask = and i8 %51, 1
@@ -1722,19 +1722,19 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
 
 _ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit.thread: ; preds = %159, %.critedge.i
   store i32 -1, ptr %126, align 4
-  %164 = getelementptr inbounds i8, ptr %5, i64 12
+  %164 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float %154, ptr %164, align 4
   br label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread.sink.split
 
 _ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit: ; preds = %111, %163
   %165 = phi i1 [ %52, %163 ], [ %118, %111 ]
   %.sink.i = phi float [ %.068.i, %163 ], [ %116, %111 ]
-  %166 = getelementptr inbounds i8, ptr %5, i64 12
+  %166 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float %.sink.i, ptr %166, align 4
   br i1 %165, label %167, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread.sink.split
 
 167:                                              ; preds = %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit
-  %168 = getelementptr inbounds i8, ptr %5, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %169 = load i32, ptr %168, align 4
   %170 = icmp sgt i32 %169, 1
   br i1 %170, label %186, label %171
@@ -1797,14 +1797,14 @@ common.resume:                                    ; preds = %84, %369, %185
 
 _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread.sink.split: ; preds = %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit, %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit.thread, %186
   %.sink = phi i32 [ %187, %186 ], [ 1, %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit.thread ], [ 1, %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit ]
-  %188 = getelementptr inbounds i8, ptr %5, i64 28
+  %188 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %.sink, ptr %188, align 4
   br label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread
 
 _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; preds = %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread.sink.split, %56, %41, %59, %66, %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
-  %189 = getelementptr inbounds i8, ptr %4, i64 76
-  %190 = getelementptr inbounds i8, ptr %4, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  %190 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %191 = load float, ptr %189, align 4
   %192 = load float, ptr %190, align 8
   %193 = fcmp olt float %191, %192
@@ -1816,7 +1816,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; pred
   br i1 %196, label %199, label %244
 
 199:                                              ; preds = %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread
-  %200 = getelementptr inbounds i8, ptr %5, i64 28
+  %200 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %201 = load i32, ptr %200, align 4
   %202 = icmp sgt i32 %201, 1
   %203 = select i1 %202, ptr @.str.38, ptr @.str.39
@@ -1848,7 +1848,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit.thread: ; pred
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc133
-  %210 = getelementptr inbounds i8, ptr %1, i64 40
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %211 = load i32, ptr %210, align 8
   %212 = load float, ptr %37, align 4
   invoke fastcc void @_ZL15formatListSetupRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiff(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %211, i32 noundef %211, float noundef %212, float noundef %194)
@@ -1881,10 +1881,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body136
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit138: ; preds = %.noexc135
-  %219 = getelementptr inbounds i8, ptr %5, i64 24
+  %219 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %220 = load i32, ptr %219, align 4
   %221 = load i32, ptr %210, align 8
-  %222 = getelementptr inbounds i8, ptr %5, i64 12
+  %222 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %223 = load float, ptr %222, align 4
   invoke fastcc void @_ZL15formatListSetupRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiff(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef %220, i32 noundef %221, float noundef %223, float noundef %194)
           to label %224 unwind label %239
@@ -1985,7 +1985,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit138: ;
   br label %.body141
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit143: ; preds = %.noexc140
-  %251 = getelementptr inbounds i8, ptr %1, i64 40
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %252 = load i32, ptr %251, align 8
   %253 = load float, ptr %37, align 4
   invoke fastcc void @_ZL15formatListSetupRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiff(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %23, i32 noundef %252, i32 noundef %252, float noundef %253, float noundef %194)
@@ -2039,7 +2039,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit143: ;
   br i1 %267, label %268, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144.thread
 
 268:                                              ; preds = %265
-  %269 = getelementptr inbounds i8, ptr %1, i64 4
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %270 = load i32, ptr %269, align 4
   switch i32 %270, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144.thread [
     i32 0, label %271
@@ -2051,30 +2051,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit143: ;
   ]
 
 271:                                              ; preds = %268, %268, %268, %268
-  %272 = getelementptr inbounds i8, ptr %1, i64 192
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %273 = load i32, ptr %272, align 8
   %274 = icmp ne i32 %273, 0
-  %275 = getelementptr inbounds i8, ptr %1, i64 324
+  %275 = getelementptr inbounds nuw i8, ptr %1, i64 324
   %276 = load float, ptr %275, align 4
   %277 = fcmp ogt float %276, 0.000000e+00
   %or.cond169 = select i1 %274, i1 %277, i1 false
   br i1 %or.cond169, label %278, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144.thread
 
 _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144: ; preds = %268, %268
-  %.old166 = getelementptr inbounds i8, ptr %1, i64 324
+  %.old166 = getelementptr inbounds nuw i8, ptr %1, i64 324
   %.old167 = load float, ptr %.old166, align 4
   %.old168 = fcmp ogt float %.old167, 0.000000e+00
   br i1 %.old168, label %278, label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144.thread
 
 278:                                              ; preds = %271, %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144
-  %279 = getelementptr inbounds i8, ptr %1, i64 328
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %280 = load float, ptr %279, align 8
   %281 = invoke fastcc noundef float @_ZL20getPressureTolerancef(float noundef %280)
           to label %282 unwind label %226
 
 282:                                              ; preds = %278
   store i64 4294967297, ptr %25, align 8
-  %283 = getelementptr inbounds i8, ptr %1, i64 40
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %284 = load i32, ptr %283, align 8
   %285 = add nsw i32 %284, -1
   %286 = invoke noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, float noundef %281, i32 noundef %284, i32 noundef %285, float noundef -1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %25)
@@ -2100,7 +2100,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144: ; preds = 
 
 297:                                              ; preds = %295, %290
   %.086 = phi float [ %296, %295 ], [ -1.000000e+00, %290 ]
-  %298 = getelementptr inbounds i8, ptr %5, i64 24
+  %298 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %299 = load i32, ptr %298, align 4
   %not. = xor i1 %52, true
   %.neg = sext i1 %not. to i32
@@ -2110,7 +2110,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144: ; preds = 
 
 302:                                              ; preds = %297, %287
   %.087 = phi float [ %286, %287 ], [ %301, %297 ]
-  %303 = getelementptr inbounds i8, ptr %1, i64 324
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 324
   %304 = load float, ptr %303, align 4
   %305 = fpext float %304 to double
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %26, ptr noundef nonnull @.str.43, double noundef %305)
@@ -2177,7 +2177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit149: ;
   br label %.body152
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit154: ; preds = %.noexc151
-  %322 = getelementptr inbounds i8, ptr %5, i64 24
+  %322 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %323 = load i32, ptr %322, align 4
   %324 = load i32, ptr %283, align 8
   invoke fastcc void @_ZL15formatListSetupRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiff(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef %323, i32 noundef %324, float noundef %.087, float noundef %194)
@@ -2309,7 +2309,7 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144.thread.sink
   br label %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144.thread
 
 _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144.thread: ; preds = %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144.thread.sink.split, %268, %265, %271, %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144
-  %357 = getelementptr inbounds i8, ptr %0, i64 32
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %358 = load ptr, ptr %357, align 8
   %359 = icmp eq ptr %358, null
   br i1 %359, label %368, label %360
@@ -2317,14 +2317,14 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144.thread: ; p
 360:                                              ; preds = %_ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144.thread
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %36) #23
-  %361 = getelementptr inbounds i8, ptr %36, i64 32
+  %361 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i8 1, ptr %361, align 8
   %362 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %_ZN3gmx14LogEntryWriter10appendTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %366
 
 _ZN3gmx14LogEntryWriter10appendTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %360
   %363 = load ptr, ptr %358, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 16
   %365 = load ptr, ptr %364, align 8
   invoke void %365(ptr noundef nonnull align 8 dereferenceable(8) %358, ptr noundef nonnull align 8 dereferenceable(40) %36)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit unwind label %366
@@ -2634,17 +2634,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %33 = udiv i32 %.020.i, 100
   %34 = or disjoint i32 %32, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits.const, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits.const, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i32 %.01819.i to i64
-  %39 = getelementptr inbounds i8, ptr %27, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 %38
   store i8 %37, ptr %39, align 1
   %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits.const, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits.const, i64 0, i64 %40
   %42 = load i8, ptr %41, align 2
   %43 = add i32 %.01819.i, -1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %27, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 %44
   store i8 %42, ptr %45, align 1
   %46 = add i32 %.01819.i, -2
   %47 = icmp ugt i32 %.020.i, 9999
@@ -2659,12 +2659,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %50 = shl nuw nsw i32 %.0.lcssa.i, 1
   %51 = or disjoint i32 %50, 1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits.const, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits.const, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %27, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %54, ptr %55, align 1
   %56 = zext nneg i32 %50 to i64
-  %57 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits.const, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits.const, i64 0, i64 %56
   %58 = load i8, ptr %57, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -2723,16 +2723,16 @@ define void @_Z23printNbnxmPressureErrorRKN3gmx8MDLoggerERK10t_inputrecRK10gmx_m
   %11 = getelementptr inbounds [4 x i32], ptr @_ZL23IClusterSizePerListType, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %6, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %14 = getelementptr inbounds [4 x i32], ptr @_ZL23JClusterSizePerListType, i64 0, i64 %10
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %13, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load float, ptr %18, align 4
   %20 = call noundef float @_Z25verletBufferPressureErrorRK10gmx_mtop_tfRK10t_inputrecibfRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %17, i1 noundef zeroext false, float noundef %19, ptr noundef nonnull align 4 dereferenceable(8) %6)
-  %21 = getelementptr inbounds i8, ptr %4, i64 17
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %22 = load i8, ptr %21, align 1
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %36
@@ -2743,9 +2743,9 @@ define void @_Z23printNbnxmPressureErrorRKN3gmx8MDLoggerERK10t_inputrecRK10gmx_m
   %27 = getelementptr inbounds [4 x i8], ptr @_ZL20sc_isGpuPairListType, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
-  %30 = getelementptr inbounds i8, ptr %4, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %4, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %33 = load float, ptr %32, align 4
   %34 = call noundef float @_Z25verletBufferPressureErrorRK10gmx_mtop_tfRK10t_inputrecibfRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, i32 noundef %31, i1 noundef zeroext %29, float noundef %33, ptr noundef nonnull align 4 dereferenceable(8) %6)
   %35 = fadd float %20, %34
@@ -2753,7 +2753,7 @@ define void @_Z23printNbnxmPressureErrorRKN3gmx8MDLoggerERK10t_inputrecRK10gmx_m
 
 36:                                               ; preds = %24, %5
   %.020 = phi float [ %35, %24 ], [ %20, %5 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %53, label %40
@@ -2761,7 +2761,7 @@ define void @_Z23printNbnxmPressureErrorRKN3gmx8MDLoggerERK10t_inputrecRK10gmx_m
 40:                                               ; preds = %36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #23
-  %41 = getelementptr inbounds i8, ptr %7, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 1, ptr %41, align 8
   %42 = fpext float %.020 to double
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.59, double noundef %42)
@@ -2773,7 +2773,7 @@ define void @_Z23printNbnxmPressureErrorRKN3gmx8MDLoggerERK10t_inputrecRK10gmx_m
 
 _ZN3gmx14LogEntryWriter10appendTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %43
   %45 = load ptr, ptr %38, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
   invoke void %47(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(40) %7)
           to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit unwind label %50

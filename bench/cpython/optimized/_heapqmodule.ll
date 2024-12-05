@@ -141,7 +141,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   br label %exit
 
 if.end.i:                                         ; preds = %if.end7
-  %ob_item.i = getelementptr inbounds i8, ptr %0, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %ob_item.i, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
@@ -302,7 +302,7 @@ if.then.i.i:                                      ; preds = %if.end7
   br label %exit
 
 if.end.i.i:                                       ; preds = %if.end7
-  %ob_item.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %ob_item.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %ob_item.i.i, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %4, align 8
@@ -454,7 +454,7 @@ if.then.i.i:                                      ; preds = %if.end7
   br label %exit
 
 if.end.i.i:                                       ; preds = %if.end7
-  %ob_item.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %ob_item.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %ob_item.i.i, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %4, align 8
@@ -510,7 +510,7 @@ entry:
   br i1 %cmp1.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds i8, ptr %heap, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %heap, i64 24
   %cmp234 = icmp sgt i64 %pos, %startpos
   br i1 %cmp234, label %while.body.preheader, label %return
 
@@ -636,7 +636,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds i8, ptr %heap, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %heap, i64 24
   %shr = ashr i64 %heap.val38, 1
   %cmp241 = icmp slt i64 %pos, %shr
   br i1 %cmp241, label %while.body.preheader, label %while.end
@@ -765,7 +765,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds i8, ptr %heap, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %heap, i64 24
   %2 = load ptr, ptr %ob_item, align 8
   %sub = add i64 %heap.val, -1
   %arrayidx = getelementptr ptr, ptr %2, i64 %sub
@@ -948,7 +948,7 @@ entry:
   br i1 %cmp1.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds i8, ptr %heap, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %heap, i64 24
   %shr = ashr i64 %heap.val38, 1
   %cmp243 = icmp slt i64 %pos, %shr
   br i1 %cmp243, label %while.body.preheader, label %while.end

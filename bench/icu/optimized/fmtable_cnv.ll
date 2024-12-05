@@ -12,15 +12,15 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN6icu_7511FormattableC2EPKc(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (48, 58)) %this, ptr noundef %stringToCopy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
-  %fBogus = getelementptr inbounds i8, ptr %this, i64 48
+  %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fBogus, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 56
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7511Formattable4initEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fType = getelementptr inbounds i8, ptr %this, i64 40
+  %fType = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 3, ptr %fType, align 8
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #3
   %new.isnull = icmp eq ptr %call, null
@@ -31,7 +31,7 @@ new.notnull:                                      ; preds = %invoke.cont3
           to label %new.cont unwind label %lpad4
 
 new.cont:                                         ; preds = %new.notnull, %invoke.cont3
-  %fValue6 = getelementptr inbounds i8, ptr %this, i64 8
+  %fValue6 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call, ptr %fValue6, align 8
   ret void
 

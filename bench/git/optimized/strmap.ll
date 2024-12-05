@@ -15,9 +15,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @cmp_strmap_entry(ptr nocapture readnone %hashmap_cmp_fn_data, ptr nocapture noundef readonly %entry1, ptr nocapture noundef readonly %entry2, ptr nocapture readnone %keydata) #0 {
 entry:
-  %key = getelementptr inbounds i8, ptr %entry1, i64 16
+  %key = getelementptr inbounds nuw i8, ptr %entry1, i64 16
   %0 = load ptr, ptr %key, align 8
-  %key2 = getelementptr inbounds i8, ptr %entry2, i64 16
+  %key2 = getelementptr inbounds nuw i8, ptr %entry2, i64 16
   %1 = load ptr, ptr %key2, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #9
   ret i32 %call
@@ -40,9 +40,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @strmap_init_with_options(ptr noundef %map, ptr noundef %pool, i32 noundef %strdup_strings) local_unnamed_addr #4 {
 entry:
   tail call void @hashmap_init(ptr noundef %map, ptr noundef nonnull @cmp_strmap_entry, ptr noundef null, i64 noundef 0) #10
-  %pool2 = getelementptr inbounds i8, ptr %map, i64 48
+  %pool2 = getelementptr inbounds nuw i8, ptr %map, i64 48
   store ptr %pool, ptr %pool2, align 8
-  %strdup_strings3 = getelementptr inbounds i8, ptr %map, i64 56
+  %strdup_strings3 = getelementptr inbounds nuw i8, ptr %map, i64 56
   %0 = trunc i32 %strdup_strings to i8
   %bf.load = load i8, ptr %strdup_strings3, align 8
   %bf.value = and i8 %0, 1
@@ -74,7 +74,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %land.lhs.true, label %if.end4
 
 land.lhs.true:                                    ; preds = %if.end
-  %pool = getelementptr inbounds i8, ptr %map, i64 48
+  %pool = getelementptr inbounds nuw i8, ptr %map, i64 48
   %0 = load ptr, ptr %pool, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.end4, label %for.end
@@ -86,7 +86,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   br i1 %tobool7.not7, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %pool11 = getelementptr inbounds i8, ptr %map, i64 48
+  %pool11 = getelementptr inbounds nuw i8, ptr %map, i64 48
   br i1 %tobool1.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
@@ -106,7 +106,7 @@ for.inc.us:                                       ; preds = %if.then13.us, %for.
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %e.08 = phi ptr [ %call15, %for.inc ], [ %call.i, %for.body.lr.ph ]
-  %value = getelementptr inbounds i8, ptr %e.08, i64 24
+  %value = getelementptr inbounds nuw i8, ptr %e.08, i64 24
   %2 = load ptr, ptr %value, align 8
   call void @free(ptr noundef %2) #10
   %3 = load ptr, ptr %pool11, align 8
@@ -144,10 +144,10 @@ entry:
   %entry1.i = alloca %struct.strmap_entry, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %entry1.i)
   %call.i = tail call i32 @strhash(ptr noundef %str) #10
-  %hash1.i.i = getelementptr inbounds i8, ptr %entry1.i, i64 8
+  %hash1.i.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 8
   store i32 %call.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %entry1.i, align 8
-  %key.i = getelementptr inbounds i8, ptr %entry1.i, i64 16
+  %key.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 16
   store ptr %str, ptr %key.i, align 8
   %call4.i = call ptr @hashmap_get(ptr noundef %map, ptr noundef nonnull %entry1.i, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry1.i)
@@ -155,7 +155,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %call4.i, i64 24
+  %value = getelementptr inbounds nuw i8, ptr %call4.i, i64 24
   %0 = load ptr, ptr %value, align 8
   store ptr %data, ptr %value, align 8
   br label %return
@@ -173,11 +173,11 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @create_entry(ptr nocapture noundef readonly %map, ptr noundef %str, ptr noundef %data) unnamed_addr #4 {
 entry:
-  %strdup_strings = getelementptr inbounds i8, ptr %map, i64 56
+  %strdup_strings = getelementptr inbounds nuw i8, ptr %map, i64 56
   %bf.load = load i8, ptr %strdup_strings, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
-  %pool17 = getelementptr inbounds i8, ptr %map, i64 48
+  %pool17 = getelementptr inbounds nuw i8, ptr %map, i64 48
   %0 = load ptr, ptr %pool17, align 8
   %tobool18.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else16, label %if.then
@@ -205,9 +205,9 @@ if.then.i24:                                      ; preds = %st_add.exit
 st_add.exit25:                                    ; preds = %st_add.exit
   %add.i23 = add nuw i64 %call, 33
   %call6 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i23) #10
-  %add.ptr = getelementptr inbounds i8, ptr %call6, i64 32
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call6, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr, ptr align 1 %str, i64 %call, i1 false)
-  %key = getelementptr inbounds i8, ptr %call6, i64 16
+  %key = getelementptr inbounds nuw i8, ptr %call6, i64 16
   store ptr %add.ptr, ptr %key, align 8
   br label %if.end25
 
@@ -231,9 +231,9 @@ if.then.i33:                                      ; preds = %st_add.exit30
 st_add.exit34:                                    ; preds = %st_add.exit30
   %add.i32 = add nuw i64 %call, 33
   %call12 = tail call ptr @mem_pool_alloc(ptr noundef nonnull %0, i64 noundef %add.i32) #10
-  %add.ptr13 = getelementptr inbounds i8, ptr %call12, i64 32
+  %add.ptr13 = getelementptr inbounds nuw i8, ptr %call12, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr13, ptr noundef nonnull align 1 dereferenceable(1) %str, i64 %add.i28, i1 false)
-  %key15 = getelementptr inbounds i8, ptr %call12, i64 16
+  %key15 = getelementptr inbounds nuw i8, ptr %call12, i64 16
   store ptr %add.ptr13, ptr %key15, align 8
   br label %if.end25
 
@@ -251,7 +251,7 @@ if.else21:                                        ; preds = %if.else16
 if.end25:                                         ; preds = %if.then19, %if.else21, %st_add.exit25, %st_add.exit34
   %entry1.0 = phi ptr [ %call12, %st_add.exit34 ], [ %call6, %st_add.exit25 ], [ %call23, %if.else21 ], [ %call20, %if.then19 ]
   %call26 = tail call i32 @strhash(ptr noundef %str) #10
-  %hash1.i = getelementptr inbounds i8, ptr %entry1.0, i64 8
+  %hash1.i = getelementptr inbounds nuw i8, ptr %entry1.0, i64 8
   store i32 %call26, ptr %hash1.i, align 8
   store ptr null, ptr %entry1.0, align 8
   %bf.load28 = load i8, ptr %strdup_strings, align 8
@@ -260,12 +260,12 @@ if.end25:                                         ; preds = %if.then19, %if.else
   br i1 %tobool31.not, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %if.end25
-  %key33 = getelementptr inbounds i8, ptr %entry1.0, i64 16
+  %key33 = getelementptr inbounds nuw i8, ptr %entry1.0, i64 16
   store ptr %str, ptr %key33, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %if.end25
-  %value = getelementptr inbounds i8, ptr %entry1.0, i64 24
+  %value = getelementptr inbounds nuw i8, ptr %entry1.0, i64 24
   store ptr %data, ptr %value, align 8
   ret ptr %entry1.0
 }
@@ -278,10 +278,10 @@ entry:
   %entry1.i = alloca %struct.strmap_entry, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %entry1.i)
   %call.i = tail call i32 @strhash(ptr noundef %str) #10
-  %hash1.i.i = getelementptr inbounds i8, ptr %entry1.i, i64 8
+  %hash1.i.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 8
   store i32 %call.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %entry1.i, align 8
-  %key.i = getelementptr inbounds i8, ptr %entry1.i, i64 16
+  %key.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 16
   store ptr %str, ptr %key.i, align 8
   %call4.i = call ptr @hashmap_get(ptr noundef %map, ptr noundef nonnull %entry1.i, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry1.i)
@@ -294,10 +294,10 @@ entry:
   %entry1.i = alloca %struct.strmap_entry, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %entry1.i)
   %call.i = tail call i32 @strhash(ptr noundef %str) #10
-  %hash1.i.i = getelementptr inbounds i8, ptr %entry1.i, i64 8
+  %hash1.i.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 8
   store i32 %call.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %entry1.i, align 8
-  %key.i = getelementptr inbounds i8, ptr %entry1.i, i64 16
+  %key.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 16
   store ptr %str, ptr %key.i, align 8
   %call4.i = call ptr @hashmap_get(ptr noundef %map, ptr noundef nonnull %entry1.i, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry1.i)
@@ -305,7 +305,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %call4.i, i64 24
+  %value = getelementptr inbounds nuw i8, ptr %call4.i, i64 24
   %0 = load ptr, ptr %value, align 8
   br label %cond.end
 
@@ -320,10 +320,10 @@ entry:
   %entry1.i = alloca %struct.strmap_entry, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %entry1.i)
   %call.i = tail call i32 @strhash(ptr noundef %str) #10
-  %hash1.i.i = getelementptr inbounds i8, ptr %entry1.i, i64 8
+  %hash1.i.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 8
   store i32 %call.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %entry1.i, align 8
-  %key.i = getelementptr inbounds i8, ptr %entry1.i, i64 16
+  %key.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 16
   store ptr %str, ptr %key.i, align 8
   %call4.i = call ptr @hashmap_get(ptr noundef %map, ptr noundef nonnull %entry1.i, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry1.i)
@@ -337,10 +337,10 @@ define dso_local void @strmap_remove(ptr noundef %map, ptr noundef %str, i32 nou
 entry:
   %entry1 = alloca %struct.strmap_entry, align 8
   %call = tail call i32 @strhash(ptr noundef %str) #10
-  %hash1.i = getelementptr inbounds i8, ptr %entry1, i64 8
+  %hash1.i = getelementptr inbounds nuw i8, ptr %entry1, i64 8
   store i32 %call, ptr %hash1.i, align 8
   store ptr null, ptr %entry1, align 8
-  %key = getelementptr inbounds i8, ptr %entry1, i64 16
+  %key = getelementptr inbounds nuw i8, ptr %entry1, i64 16
   store ptr %str, ptr %key, align 8
   %call4 = call ptr @hashmap_remove(ptr noundef %map, ptr noundef nonnull %entry1, ptr noundef null) #10
   %tobool.not = icmp eq ptr %call4, null
@@ -351,13 +351,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %value = getelementptr inbounds i8, ptr %call4, i64 24
+  %value = getelementptr inbounds nuw i8, ptr %call4, i64 24
   %0 = load ptr, ptr %value, align 8
   call void @free(ptr noundef %0) #10
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %if.end
-  %pool = getelementptr inbounds i8, ptr %map, i64 48
+  %pool = getelementptr inbounds nuw i8, ptr %map, i64 48
   %1 = load ptr, ptr %pool, align 8
   %tobool9.not = icmp eq ptr %1, null
   br i1 %tobool9.not, label %if.then10, label %if.end11
@@ -384,10 +384,10 @@ entry:
   %entry1.i = alloca %struct.strmap_entry, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %entry1.i)
   %call.i = tail call i32 @strhash(ptr noundef %str) #10
-  %hash1.i.i = getelementptr inbounds i8, ptr %entry1.i, i64 8
+  %hash1.i.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 8
   store i32 %call.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %entry1.i, align 8
-  %key.i = getelementptr inbounds i8, ptr %entry1.i, i64 16
+  %key.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 16
   store ptr %str, ptr %key.i, align 8
   %call4.i = call ptr @hashmap_get(ptr noundef %map, ptr noundef nonnull %entry1.i, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry1.i)
@@ -395,24 +395,24 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %call4.i, i64 24
+  %value = getelementptr inbounds nuw i8, ptr %call4.i, i64 24
   %0 = load i64, ptr %value, align 8
   %add = add nsw i64 %0, %amt
   store i64 %add, ptr %value, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %default_value = getelementptr inbounds i8, ptr %map, i64 64
+  %default_value = getelementptr inbounds nuw i8, ptr %map, i64 64
   %1 = load i32, ptr %default_value, align 8
   %conv = sext i32 %1 to i64
   %add3 = add nsw i64 %amt, %conv
   %2 = inttoptr i64 %add3 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %entry1.i.i.i)
   %call.i.i.i = call i32 @strhash(ptr noundef %str) #10
-  %hash1.i.i.i.i = getelementptr inbounds i8, ptr %entry1.i.i.i, i64 8
+  %hash1.i.i.i.i = getelementptr inbounds nuw i8, ptr %entry1.i.i.i, i64 8
   store i32 %call.i.i.i, ptr %hash1.i.i.i.i, align 8
   store ptr null, ptr %entry1.i.i.i, align 8
-  %key.i.i.i = getelementptr inbounds i8, ptr %entry1.i.i.i, i64 16
+  %key.i.i.i = getelementptr inbounds nuw i8, ptr %entry1.i.i.i, i64 16
   store ptr %str, ptr %key.i.i.i, align 8
   %call4.i.i.i = call ptr @hashmap_get(ptr noundef %map, ptr noundef nonnull %entry1.i.i.i, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry1.i.i.i)
@@ -420,7 +420,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else
-  %value.i.i = getelementptr inbounds i8, ptr %call4.i.i.i, i64 24
+  %value.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i, i64 24
   store ptr %2, ptr %value.i.i, align 8
   br label %if.end
 
@@ -439,10 +439,10 @@ entry:
   %entry1.i = alloca %struct.strmap_entry, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %entry1.i)
   %call.i = tail call i32 @strhash(ptr noundef %str) #10
-  %hash1.i.i = getelementptr inbounds i8, ptr %entry1.i, i64 8
+  %hash1.i.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 8
   store i32 %call.i, ptr %hash1.i.i, align 8
   store ptr null, ptr %entry1.i, align 8
-  %key.i = getelementptr inbounds i8, ptr %entry1.i, i64 16
+  %key.i = getelementptr inbounds nuw i8, ptr %entry1.i, i64 16
   store ptr %str, ptr %key.i, align 8
   %call4.i = call ptr @hashmap_get(ptr noundef %set, ptr noundef nonnull %entry1.i, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %entry1.i)

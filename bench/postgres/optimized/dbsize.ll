@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_database_size_oid(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call fastcc i64 @calculate_database_size(i32 noundef %4)
@@ -55,7 +55,7 @@ define dso_local i64 @pg_database_size_oid(ptr nocapture noundef %0) local_unnam
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %8, align 4
   br label %9
 
@@ -107,25 +107,25 @@ define internal fastcc i64 @calculate_database_size(i32 noundef %0) unnamed_addr
   br label %sub_0
 
 sub_0:                                            ; preds = %18, %21
-  %22 = getelementptr inbounds i8, ptr %19, i64 19
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 19
   %23 = load i8, ptr %22, align 1
   %.not25 = icmp eq i8 %23, 46
   br i1 %.not25, label %.tail, label %.outer
 
 .tail:                                            ; preds = %sub_0
-  %24 = getelementptr inbounds i8, ptr %19, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %32, label %sub_118
 
 sub_118:                                          ; preds = %.tail
-  %27 = getelementptr inbounds i8, ptr %19, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %28 = load i8, ptr %27, align 1
   %.not27 = icmp eq i8 %28, 46
   br i1 %.not27, label %.tail16, label %.outer
 
 .tail16:                                          ; preds = %sub_118
-  %29 = getelementptr inbounds i8, ptr %19, i64 21
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 21
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %32, label %.outer
@@ -136,7 +136,7 @@ sub_118:                                          ; preds = %.tail
   br i1 %.not14, label %.outer._crit_edge, label %18, !llvm.loop !5
 
 .outer:                                           ; preds = %sub_0, %sub_118, %.tail16
-  %34 = getelementptr inbounds i8, ptr %19, i64 19
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 19
   %35 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1061, ptr noundef nonnull @.str.11, ptr noundef nonnull %34, ptr noundef nonnull @.str.12, i32 noundef %0) #9
   %36 = call fastcc i64 @db_dir_size(ptr noundef %3)
   %37 = add i64 %36, %.0.ph23
@@ -152,7 +152,7 @@ sub_118:                                          ; preds = %.tail
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_database_size_name(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i32 @get_database_oid(ptr noundef %4, i1 noundef zeroext false) #9
@@ -161,7 +161,7 @@ define dso_local i64 @pg_database_size_name(ptr nocapture noundef %0) local_unna
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %9, align 4
   br label %10
 
@@ -173,7 +173,7 @@ declare i32 @get_database_oid(ptr noundef, i1 noundef zeroext) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, -9223372036854775808) i64 @pg_tablespace_size_oid(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call fastcc i64 @calculate_tablespace_size(i32 noundef %4)
@@ -181,7 +181,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @pg_tablespace_size_oid(
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %8, align 4
   br label %9
 
@@ -244,8 +244,8 @@ define internal fastcc i64 @calculate_tablespace_size(i32 noundef %0) unnamed_ad
   br i1 %.not243133, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
-  %25 = getelementptr inbounds i8, ptr %4, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -264,25 +264,25 @@ define internal fastcc i64 @calculate_tablespace_size(i32 noundef %0) unnamed_ad
   br label %sub_0
 
 sub_0:                                            ; preds = %27, %30
-  %31 = getelementptr inbounds i8, ptr %28, i64 19
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 19
   %32 = load i8, ptr %31, align 1
   %.not36 = icmp eq i8 %32, 46
   br i1 %.not36, label %.tail, label %.tail26.thread
 
 .tail:                                            ; preds = %sub_0
-  %33 = getelementptr inbounds i8, ptr %28, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %.backedge, label %sub_128
 
 sub_128:                                          ; preds = %.tail
-  %36 = getelementptr inbounds i8, ptr %28, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %37 = load i8, ptr %36, align 1
   %.not38 = icmp eq i8 %37, 46
   br i1 %.not38, label %.tail26, label %.tail26.thread
 
 .tail26:                                          ; preds = %sub_128
-  %38 = getelementptr inbounds i8, ptr %28, i64 21
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 21
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %.backedge, label %.tail26.thread
@@ -343,7 +343,7 @@ sub_128:                                          ; preds = %.tail
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, -9223372036854775808) i64 @pg_tablespace_size_name(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i32 @get_tablespace_oid(ptr noundef %4, i1 noundef zeroext false) #9
@@ -352,7 +352,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @pg_tablespace_size_name
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %9, align 4
   br label %10
 
@@ -365,7 +365,7 @@ declare i32 @get_tablespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_relation_size(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 48
@@ -377,12 +377,12 @@ define dso_local i64 @pg_relation_size(ptr nocapture noundef %0) local_unnamed_a
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %12, align 4
   br label %19
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %9, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = tail call ptr @text_to_cstring(ptr noundef %8) #9
   %17 = tail call i32 @forkname_to_number(ptr noundef %16) #9
@@ -403,13 +403,13 @@ declare ptr @try_relation_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc i64 @calculate_relation_size(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.stat, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %0, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @GetRelationPath(i32 noundef %7, i32 noundef %8, i32 noundef %10, i32 noundef %1, i32 noundef %2) #9
-  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   br label %13
 
 13:                                               ; preds = %33, %3
@@ -472,7 +472,7 @@ declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_table_size(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @try_relation_open(i32 noundef %4, i32 noundef 1) #9
@@ -480,7 +480,7 @@ define dso_local i64 @pg_table_size(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %8, align 4
   br label %11
 
@@ -498,7 +498,7 @@ define dso_local i64 @pg_table_size(ptr nocapture noundef %0) local_unnamed_addr
 define internal fastcc i64 @calculate_table_size(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca %struct.stat, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %5
 
 5:                                                ; preds = %1, %5
@@ -512,16 +512,16 @@ define internal fastcc i64 @calculate_table_size(ptr nocapture noundef nonnull r
   br i1 %exitcond.not, label %10, label %5, !llvm.loop !8
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 108
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 108
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %74, label %15
 
 15:                                               ; preds = %10
   %16 = tail call ptr @relation_open(i32 noundef range(i32 1, 0) %14, i32 noundef 1) #9
-  %17 = getelementptr inbounds i8, ptr %16, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 28
   br label %18
 
 18:                                               ; preds = %18, %15
@@ -540,9 +540,9 @@ define internal fastcc i64 @calculate_table_size(ptr nocapture noundef nonnull r
   br i1 %.not.i, label %calculate_toast_table_size.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
-  %27 = getelementptr inbounds i8, ptr %3, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %28 = load i32, ptr %25, align 4
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph, label %calculate_toast_table_size.exit
@@ -554,9 +554,9 @@ define internal fastcc i64 @calculate_table_size(ptr nocapture noundef nonnull r
   %31 = getelementptr %union.ListCell, ptr %30, i64 %indvars.iv.i15
   %32 = load i32, ptr %31, align 8
   %33 = call ptr @relation_open(i32 noundef %32, i32 noundef 1) #9
-  %34 = getelementptr inbounds i8, ptr %33, i64 28
-  %35 = getelementptr inbounds i8, ptr %33, i64 4
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   br label %37
 
 37:                                               ; preds = %calculate_relation_size.exit.i, %.lr.ph
@@ -649,7 +649,7 @@ calculate_toast_table_size.exit:                  ; preds = %69, %.lr.ph.i, %23
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_indexes_size(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @try_relation_open(i32 noundef %4, i32 noundef 1) #9
@@ -657,7 +657,7 @@ define dso_local i64 @pg_indexes_size(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %8, align 4
   br label %11
 
@@ -675,9 +675,9 @@ define dso_local i64 @pg_indexes_size(ptr nocapture noundef %0) local_unnamed_ad
 define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca %struct.stat, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %59
@@ -688,9 +688,9 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
-  %13 = getelementptr inbounds i8, ptr %3, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %14 = load i32, ptr %11, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph36, label %._crit_edge
@@ -702,9 +702,9 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   %17 = getelementptr %union.ListCell, ptr %16, i64 %indvars.iv34
   %18 = load i32, ptr %17, align 8
   %19 = call ptr @relation_open(i32 noundef %18, i32 noundef 1) #9
-  %20 = getelementptr inbounds i8, ptr %19, i64 28
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %23
 
 23:                                               ; preds = %.lr.ph36, %calculate_relation_size.exit
@@ -795,7 +795,7 @@ calculate_relation_size.exit:                     ; preds = %41
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_total_relation_size(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call ptr @try_relation_open(i32 noundef %4, i32 noundef 1) #9
@@ -803,7 +803,7 @@ define dso_local i64 @pg_total_relation_size(ptr nocapture noundef %0) local_unn
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %8, align 4
   br label %13
 
@@ -822,7 +822,7 @@ define dso_local i64 @pg_total_relation_size(ptr nocapture noundef %0) local_unn
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   br label %5
 
@@ -833,7 +833,7 @@ define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_un
   %.02327 = phi i64 [ %4, %1 ], [ %38, %22 ]
   %8 = phi ptr [ @.str.20, %1 ], [ %6, %22 ]
   %9 = tail call i64 @llvm.abs.i64(i64 %.02327, i1 false)
-  %10 = getelementptr inbounds i8, ptr %.0162228, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.0162228, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp slt i64 %9, %12
@@ -843,7 +843,7 @@ define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_un
   %.lcssa = phi ptr [ %8, %5 ], [ %6, %22 ]
   %.023.lcssa = phi i64 [ %.02327, %5 ], [ %38, %22 ]
   %.01622.lcssa = phi ptr [ %.0162228, %5 ], [ getelementptr inbounds nuw (i8, ptr @size_pretty_units, i64 80), %22 ]
-  %15 = getelementptr inbounds i8, ptr %.01622.lcssa, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %.01622.lcssa, i64 12
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %.loopexit
@@ -858,12 +858,12 @@ define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_un
 22:                                               ; preds = %5
   %23 = getelementptr i8, ptr %.0162228, i64 29
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %.0162228, i64 13
+  %25 = getelementptr inbounds nuw i8, ptr %.0162228, i64 13
   %26 = load i8, ptr %25, align 1
   %27 = getelementptr i8, ptr %.0162228, i64 28
   %28 = load i8, ptr %27, align 4
   %29 = and i8 %28, 1
-  %30 = getelementptr inbounds i8, ptr %.0162228, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %.0162228, i64 12
   %31 = load i8, ptr %30, align 4
   %32 = and i8 %31, 1
   %33 = add i8 %26, %29
@@ -894,7 +894,7 @@ declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_size_pretty_numeric(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #9
@@ -910,7 +910,7 @@ define dso_local i64 @pg_size_pretty_numeric(ptr nocapture noundef readonly %0) 
   %12 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_abs, i32 noundef 0, i64 noundef %11) #9
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #9
-  %15 = getelementptr inbounds i8, ptr %.0162431, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0162431, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = tail call ptr @int64_to_numeric(i64 noundef %17) #9
@@ -924,7 +924,7 @@ define dso_local i64 @pg_size_pretty_numeric(ptr nocapture noundef readonly %0) 
   %.lcssa30 = phi ptr [ %10, %6 ], [ %7, %39 ]
   %.01624.lcssa = phi ptr [ %.0162431, %6 ], [ %8, %39 ]
   %.lcssa = phi ptr [ %9, %6 ], [ %63, %39 ]
-  %23 = getelementptr inbounds i8, ptr %.01624.lcssa, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %.01624.lcssa, i64 12
   %24 = load i8, ptr %23, align 4
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %.loopexit
@@ -950,14 +950,14 @@ define dso_local i64 @pg_size_pretty_numeric(ptr nocapture noundef readonly %0) 
   %40 = getelementptr i8, ptr %.0162431, i64 29
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %.0162431, i64 13
+  %43 = getelementptr inbounds nuw i8, ptr %.0162431, i64 13
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
   %46 = getelementptr i8, ptr %.0162431, i64 28
   %47 = load i8, ptr %46, align 4
   %48 = and i8 %47, 1
   %49 = zext nneg i8 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %.0162431, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %.0162431, i64 12
   %51 = load i8, ptr %50, align 4
   %52 = and i8 %51, 1
   %53 = zext nneg i8 %52 to i64
@@ -994,7 +994,7 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #9
@@ -1144,7 +1144,7 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
   br i1 %75, label %76, label %85
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %6, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 1
   %80 = and i8 %78, -2
@@ -1224,7 +1224,7 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
 
 .thread93.thread:                                 ; preds = %107, %.preheader
   %.16596 = phi ptr [ @size_pretty_units, %.preheader ], [ %.064111, %107 ]
-  %120 = getelementptr inbounds i8, ptr %.16596, i64 13
+  %120 = getelementptr inbounds nuw i8, ptr %.16596, i64 13
   %121 = load i8, ptr %120, align 1
   %122 = zext nneg i8 %121 to i64
   %123 = shl nuw i64 1, %122
@@ -1282,7 +1282,7 @@ declare i64 @numeric_int8(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @pg_relation_filenode(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = and i64 %3, 4294967295
@@ -1291,18 +1291,18 @@ define dso_local range(i64 0, 4294967296) i64 @pg_relation_filenode(ptr nocaptur
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %8, align 4
   br label %30
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 22
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 22
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
   %15 = getelementptr i8, ptr %11, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 115
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 115
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %.thread [
     i8 114, label %18
@@ -1317,7 +1317,7 @@ define dso_local range(i64 0, 4294967296) i64 @pg_relation_filenode(ptr nocaptur
   br label %26
 
 18:                                               ; preds = %9, %9, %9, %9, %9
-  %19 = getelementptr inbounds i8, ptr %15, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %20 = load i32, ptr %19, align 4
   %.not23 = icmp eq i32 %20, 0
   br i1 %.not23, label %21, label %.thread27
@@ -1327,7 +1327,7 @@ define dso_local range(i64 0, 4294967296) i64 @pg_relation_filenode(ptr nocaptur
   br label %28
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %15, i64 113
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 113
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
   %25 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %24) #9
@@ -1336,7 +1336,7 @@ define dso_local range(i64 0, 4294967296) i64 @pg_relation_filenode(ptr nocaptur
   br i1 %.not24, label %26, label %28
 
 26:                                               ; preds = %.thread, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %27, align 4
   br label %30
 
@@ -1365,12 +1365,12 @@ define dso_local range(i64 0, 4294967296) i64 @pg_filenode_relation(ptr nocaptur
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %6, align 4
   br label %16
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   %11 = tail call i32 @RelidByRelfilenumber(i32 noundef %10, i32 noundef %4) #9
@@ -1378,7 +1378,7 @@ define dso_local range(i64 0, 4294967296) i64 @pg_filenode_relation(ptr nocaptur
   br i1 %.not11, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %13, align 4
   br label %16
 
@@ -1395,7 +1395,7 @@ declare i32 @RelidByRelfilenumber(i32 noundef, i32 noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_relation_filepath(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = and i64 %3, 4294967295
@@ -1404,18 +1404,18 @@ define dso_local i64 @pg_relation_filepath(ptr nocapture noundef %0) local_unnam
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %8, align 4
   br label %55
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 22
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 22
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
   %15 = getelementptr i8, ptr %11, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 115
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 115
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %.thread [
     i8 114, label %18
@@ -1426,7 +1426,7 @@ define dso_local i64 @pg_relation_filepath(ptr nocapture noundef %0) local_unnam
   ]
 
 18:                                               ; preds = %9, %9, %9, %9, %9
-  %19 = getelementptr inbounds i8, ptr %15, i64 92
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 92
   %20 = load i32, ptr %19, align 4
   %.not33 = icmp eq i32 %20, 0
   %21 = load i32, ptr @MyDatabaseTableSpace, align 4
@@ -1434,13 +1434,13 @@ define dso_local i64 @pg_relation_filepath(ptr nocapture noundef %0) local_unnam
   %22 = icmp eq i32 %.sroa.0.0, 1664
   %23 = load i32, ptr @MyDatabaseId, align 4
   %.sroa.5.0 = select i1 %22, i32 0, i32 %23
-  %24 = getelementptr inbounds i8, ptr %15, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %25 = load i32, ptr %24, align 4
   %.not34 = icmp eq i32 %25, 0
   br i1 %.not34, label %26, label %.thread40
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %15, i64 113
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 113
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
   %30 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %29) #9
@@ -1449,13 +1449,13 @@ define dso_local i64 @pg_relation_filepath(ptr nocapture noundef %0) local_unnam
 
 .thread:                                          ; preds = %9, %26
   tail call void @ReleaseSysCache(ptr noundef nonnull %6) #9
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %31, align 4
   br label %55
 
 .thread40:                                        ; preds = %18, %26
   %.sroa.9.045 = phi i32 [ %30, %26 ], [ %25, %18 ]
-  %32 = getelementptr inbounds i8, ptr %15, i64 114
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 114
   %33 = load i8, ptr %32, align 2
   switch i8 %33, label %46 [
     i8 117, label %51
@@ -1464,7 +1464,7 @@ define dso_local i64 @pg_relation_filepath(ptr nocapture noundef %0) local_unnam
   ]
 
 34:                                               ; preds = %.thread40
-  %35 = getelementptr inbounds i8, ptr %15, i64 68
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 68
   %36 = load i32, ptr %35, align 4
   %37 = tail call zeroext i1 @isTempOrTempToastNamespace(i32 noundef %36) #9
   br i1 %37, label %38, label %43
@@ -1535,7 +1535,7 @@ define internal fastcc i64 @db_dir_size(ptr noundef nonnull %0) unnamed_addr #0 
   br i1 %.not132022, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -1554,25 +1554,25 @@ define internal fastcc i64 @db_dir_size(ptr noundef nonnull %0) unnamed_addr #0 
   br label %sub_0
 
 sub_0:                                            ; preds = %8, %11
-  %12 = getelementptr inbounds i8, ptr %9, i64 19
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 19
   %13 = load i8, ptr %12, align 1
   %.not25 = icmp eq i8 %13, 46
   br i1 %.not25, label %.tail, label %.tail15.thread
 
 .tail:                                            ; preds = %sub_0
-  %14 = getelementptr inbounds i8, ptr %9, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %.backedge, label %sub_117
 
 sub_117:                                          ; preds = %.tail
-  %17 = getelementptr inbounds i8, ptr %9, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %18 = load i8, ptr %17, align 1
   %.not27 = icmp eq i8 %18, 46
   br i1 %.not27, label %.tail15, label %.tail15.thread
 
 .tail15:                                          ; preds = %sub_117
-  %19 = getelementptr inbounds i8, ptr %9, i64 21
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 21
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %.backedge, label %.tail15.thread

@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define internal void @interpid_dealloc(ptr noundef %v) #0 {
 entry:
-  %id1 = getelementptr inbounds i8, ptr %v, i64 16
+  %id1 = getelementptr inbounds nuw i8, ptr %v, i64 16
   %0 = load i64, ptr %id1, align 8
   %call = tail call ptr @_PyInterpreterState_LookUpID(i64 noundef %0) #2
   %cmp.not = icmp eq ptr %call, null
@@ -51,7 +51,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %1 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %1, align 8
-  %tp_free = getelementptr inbounds i8, ptr %v.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %v.val, i64 320
   %2 = load ptr, ptr %tp_free, align 8
   tail call void %2(ptr noundef nonnull %v) #2
   ret void
@@ -63,7 +63,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %call1 = tail call ptr @_PyType_Name(ptr noundef %self.val) #2
-  %id2 = getelementptr inbounds i8, ptr %self, i64 16
+  %id2 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load i64, ptr %id2, align 8
   %call3 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.1, ptr noundef %call1, i64 noundef %1) #2
   ret ptr %call3
@@ -72,7 +72,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @interpid_hash(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %id1 = getelementptr inbounds i8, ptr %self, i64 16
+  %id1 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %id1, align 8
   %call = tail call ptr @PyLong_FromLongLong(i64 noundef %0) #2
   %cmp = icmp eq ptr %call, null
@@ -103,7 +103,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal ptr @interpid_str(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %id1 = getelementptr inbounds i8, ptr %self, i64 16
+  %id1 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %id1, align 8
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.2, i64 noundef %0) #2
   ret ptr %call
@@ -141,9 +141,9 @@ PyObject_TypeCheck.exit30:                        ; preds = %if.end3
   br i1 %tobool3.i28.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end3, %PyObject_TypeCheck.exit30
-  %id7 = getelementptr inbounds i8, ptr %self, i64 16
+  %id7 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load i64, ptr %id7, align 8
-  %id8 = getelementptr inbounds i8, ptr %other, i64 16
+  %id8 = getelementptr inbounds nuw i8, ptr %other, i64 16
   %4 = load i64, ptr %id8, align 8
   %cmp9 = icmp eq i64 %3, %4
   br label %if.end42
@@ -171,7 +171,7 @@ if.end21:                                         ; preds = %if.then12
   br i1 %or.cond1, label %land.rhs, label %if.end42
 
 land.rhs:                                         ; preds = %if.end21
-  %id26 = getelementptr inbounds i8, ptr %self, i64 16
+  %id26 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %6 = load i64, ptr %id26, align 8
   %cmp27 = icmp eq i64 %6, %call14
   br label %if.end42
@@ -182,7 +182,7 @@ if.else29:                                        ; preds = %if.else
   br i1 %tobool31.not, label %return, label %if.then32
 
 if.then32:                                        ; preds = %if.else29
-  %id33 = getelementptr inbounds i8, ptr %self, i64 16
+  %id33 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %7 = load i64, ptr %id33, align 8
   %call34 = tail call ptr @PyLong_FromLongLong(i64 noundef %7) #2
   %cmp35 = icmp eq ptr %call34, null
@@ -263,7 +263,7 @@ if.then14.i:                                      ; preds = %if.end9.thread.i
 
 if.end16.i:                                       ; preds = %if.end9.thread.i, %if.end9.i
   %call1010.i = phi ptr [ %call108.i, %if.end9.thread.i ], [ %call10.i, %if.end9.i ]
-  %id17.i = getelementptr inbounds i8, ptr %call1010.i, i64 16
+  %id17.i = getelementptr inbounds nuw i8, ptr %call1010.i, i64 16
   store i64 %0, ptr %id17.i, align 8
   br label %return
 
@@ -294,7 +294,7 @@ if.then14.i:                                      ; preds = %if.end9.thread.i
   br label %newinterpid.exit
 
 if.end16.i:                                       ; preds = %if.end9.thread.i
-  %id17.i = getelementptr inbounds i8, ptr %call108.i, i64 16
+  %id17.i = getelementptr inbounds nuw i8, ptr %call108.i, i64 16
   store i64 %id, ptr %id17.i, align 8
   br label %newinterpid.exit
 
@@ -335,7 +335,7 @@ if.then14.i:                                      ; preds = %if.end9.thread.i
   br label %return
 
 if.end16.i:                                       ; preds = %if.end9.thread.i
-  %id17.i = getelementptr inbounds i8, ptr %call108.i, i64 16
+  %id17.i = getelementptr inbounds nuw i8, ptr %call108.i, i64 16
   store i64 %call1, ptr %id17.i, align 8
   br label %return
 
@@ -380,7 +380,7 @@ PyObject_TypeCheck.exit:                          ; preds = %entry
   br i1 %tobool3.i.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %id1 = getelementptr inbounds i8, ptr %arg, i64 16
+  %id1 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %1 = load i64, ptr %id1, align 8
   br label %if.end17
 
@@ -392,7 +392,7 @@ if.else:                                          ; preds = %PyObject_TypeCheck.
   br i1 %cmp.not.i, label %if.else13, label %_PyIndex_Check.exit
 
 _PyIndex_Check.exit:                              ; preds = %if.else
-  %nb_index.i = getelementptr inbounds i8, ptr %arg.val8.val, i64 264
+  %nb_index.i = getelementptr inbounds nuw i8, ptr %arg.val8.val, i64 264
   %3 = load ptr, ptr %nb_index.i, align 8
   %cmp2.i.not = icmp eq ptr %3, null
   br i1 %cmp2.i.not, label %if.else13, label %if.then4
@@ -418,7 +418,7 @@ if.then10:                                        ; preds = %land.lhs.true, %if.
 
 if.else13:                                        ; preds = %if.else, %_PyIndex_Check.exit
   %5 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds i8, ptr %arg.val8, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %arg.val8, i64 24
   %6 = load ptr, ptr %tp_name, align 8
   %call15 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.7, ptr noundef %6) #2
   br label %return
@@ -446,7 +446,7 @@ declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @interpid_int(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %id1 = getelementptr inbounds i8, ptr %self, i64 16
+  %id1 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %id1, align 8
   %call = tail call ptr @PyLong_FromLongLong(i64 noundef %0) #2
   ret ptr %call

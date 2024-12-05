@@ -26,7 +26,7 @@ define hidden void @OGLMaskBlit_MaskBlit(ptr nocapture noundef readnone %0, ptr 
 
 12:                                               ; preds = %7
   tail call void @OGLRenderQueue_CheckPreviousOp(i32 noundef 3553) #2
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %19
@@ -48,7 +48,7 @@ define hidden void @OGLMaskBlit_MaskBlit(ptr nocapture noundef readnone %0, ptr 
   %20 = phi i32 [ %.pre, %._crit_edge ], [ %14, %12 ]
   %21 = load ptr, ptr @j2d_glBindTexture, align 8
   tail call void %21(i32 noundef 3553, i32 noundef %20) #2
-  %22 = getelementptr inbounds i8, ptr %1, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %23 = load i32, ptr %22, align 4
   %.not41 = icmp eq i32 %23, 8448
   br i1 %.not41, label %26, label %24

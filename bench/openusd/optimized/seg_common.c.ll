@@ -28,7 +28,7 @@ define hidden void @av1_calculate_segdata(ptr nocapture noundef initializes((164
 .preheader:                                       ; preds = %1, %20
   %5 = phi i8 [ 0, %1 ], [ %18, %20 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %20 ]
-  %6 = getelementptr inbounds [8 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   br label %8
 
@@ -80,7 +80,7 @@ define hidden void @av1_enable_segfeature(ptr nocapture noundef %0, i32 noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i32 @av1_seg_feature_data_max(i8 noundef zeroext %0) local_unnamed_addr #4 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds [8 x i32], ptr @seg_feature_data_max, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i32], ptr @seg_feature_data_max, i64 0, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -88,7 +88,7 @@ define hidden i32 @av1_seg_feature_data_max(i8 noundef zeroext %0) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i32 @av1_is_segfeature_signed(i8 noundef zeroext %0) local_unnamed_addr #4 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds [8 x i32], ptr @seg_feature_data_signed, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i32], ptr @seg_feature_data_signed, i64 0, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }

@@ -67,8 +67,8 @@ define void @_ZN6opencc15SimpleConverterC2ERKNSt7__cxx1112basic_stringIcSt11char
 8:                                                ; preds = %7
   %9 = load ptr, ptr %4, align 8
   store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %12, null
@@ -79,7 +79,7 @@ _ZN12InternalDataC2ERKSt10shared_ptrIN6opencc9ConverterEE.exit.thread: ; preds =
   br label %_ZNSt10shared_ptrIN6opencc9ConverterEED2Ev.exit
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %.not.i.i.i.i.i, label %19, label %16
@@ -101,7 +101,7 @@ _ZN12InternalDataC2ERKSt10shared_ptrIN6opencc9ConverterEE.exit: ; preds = %16, %
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6opencc9ConverterEED2Ev.exit, label %21
 
 21:                                               ; preds = %_ZN12InternalDataC2ERKSt10shared_ptrIN6opencc9ConverterEE.exit
-  %22 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %23 = load atomic i64, ptr %22 acquire, align 8
   %24 = icmp eq i64 %23, 4294967297
   %25 = trunc i64 %23 to i32
@@ -109,10 +109,10 @@ _ZN12InternalDataC2ERKSt10shared_ptrIN6opencc9ConverterEE.exit: ; preds = %16, %
 
 26:                                               ; preds = %21
   store i32 0, ptr %22, align 8
-  %27 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   store i32 0, ptr %27, align 4
   %28 = load ptr, ptr %.pr, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -138,10 +138,10 @@ _ZN12InternalDataC2ERKSt10shared_ptrIN6opencc9ConverterEE.exit: ; preds = %16, %
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %.pr, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #15
-  %43 = getelementptr inbounds i8, ptr %.pr, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %.pr, i64 12
   %44 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %44, 0
   br i1 %.not.i.i.i.i.i.i, label %48, label %45
@@ -163,7 +163,7 @@ _ZN12InternalDataC2ERKSt10shared_ptrIN6opencc9ConverterEE.exit: ; preds = %16, %
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %50, %26
   %52 = load ptr, ptr %.pr, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #15
   br label %_ZNSt10shared_ptrIN6opencc9ConverterEED2Ev.exit
@@ -207,7 +207,7 @@ _ZNSt10shared_ptrIN6opencc9ConverterEED2Ev.exit:  ; preds = %_ZN12InternalDataC2
   %66 = call ptr @__cxa_begin_catch(ptr %.0) #15
   %67 = call ptr @__cxa_allocate_exception(i64 16) #15
   %68 = load ptr, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(40) %66) #15
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef %71)
@@ -294,13 +294,13 @@ define void @_ZN6opencc15SimpleConverterD2Ev(ptr nocapture noundef nonnull reado
   br i1 %3, label %41, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i, label %_ZN12InternalDataD2Ev.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %10 = icmp eq i64 %9, 4294967297
   %11 = trunc i64 %9 to i32
@@ -308,10 +308,10 @@ define void @_ZN6opencc15SimpleConverterD2Ev(ptr nocapture noundef nonnull reado
 
 12:                                               ; preds = %7
   store i32 0, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -337,10 +337,10 @@ define void @_ZN6opencc15SimpleConverterD2Ev(ptr nocapture noundef nonnull reado
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
-  %29 = getelementptr inbounds i8, ptr %6, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %30, 0
   br i1 %.not.i.i.i.i.i.i.i, label %34, label %31
@@ -362,7 +362,7 @@ define void @_ZN6opencc15SimpleConverterD2Ev(ptr nocapture noundef nonnull reado
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %36, %12
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   br label %_ZN12InternalDataD2Ev.exit
@@ -398,7 +398,7 @@ define void @_ZNK6opencc15SimpleConverter7ConvertERKNSt7__cxx1112basic_stringIcS
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #15
   %15 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(40) %14) #15
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %19)
@@ -571,7 +571,7 @@ define noundef i64 @_ZNK6opencc15SimpleConverter7ConvertEPKcPc(ptr nocapture nou
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #15
   %16 = tail call ptr @__cxa_allocate_exception(i64 16) #15
   %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(40) %15) #15
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %20)
@@ -724,7 +724,7 @@ define noundef ptr @_Z20opencc_open_internalPKc(ptr noundef %0) local_unnamed_ad
   %.010 = extractvalue { ptr, i32 } %.pn.pn, 0
   %20 = call ptr @__cxa_begin_catch(ptr %.010) #15
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(16) %20) #15
   %25 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZL6cErrorB5cxx11, ptr noundef %24)
@@ -795,7 +795,7 @@ define noundef i64 @opencc_convert_utf8_to_buffer(ptr nocapture noundef nonnull 
   %12 = extractvalue { ptr, i32 } %7, 0
   %13 = tail call ptr @__cxa_begin_catch(ptr %12) #15
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(16) %13) #15
   %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZL6cErrorB5cxx11, ptr noundef %17)
@@ -872,7 +872,7 @@ define noundef ptr @opencc_convert_utf8(ptr nocapture noundef nonnull readonly %
   %.012 = extractvalue { ptr, i32 } %.pn, 0
   %23 = call ptr @__cxa_begin_catch(ptr %.012) #15
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(16) %23) #15
   %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) @_ZL6cErrorB5cxx11, ptr noundef %27)

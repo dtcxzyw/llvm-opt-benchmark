@@ -35,26 +35,26 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   %16 = tail call i32 @GetNewOidWithIndex(ptr noundef %14, i32 noundef 2657, i16 noundef signext 1) #5
   %17 = zext i32 %16 to i64
   store i64 %17, ptr %6, align 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %20, ptr %21, align 8
   %22 = sext i16 %1 to i64
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %22, ptr %23, align 16
   %24 = tail call ptr @cstring_to_text(ptr noundef %15) #5
   %25 = ptrtoint ptr %24 to i64
-  %26 = getelementptr inbounds i8, ptr %6, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %14, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @heap_form_tuple(ptr noundef %28, ptr noundef nonnull %6, ptr noundef nonnull @StoreAttrDefault.nulls) #5
   call void @CatalogTupleInsert(ptr noundef %14, ptr noundef %29) #5
   store i32 2604, ptr %8, align 4
-  %30 = getelementptr inbounds i8, ptr %8, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %16, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %31, align 4
   call void @table_close(ptr noundef %14, i32 noundef 3) #5
   %32 = load i64, ptr %26, align 8
@@ -79,15 +79,15 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   unreachable
 
 43:                                               ; preds = %5
-  %44 = getelementptr inbounds i8, ptr %37, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 22
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 22
   %47 = load i8, ptr %46, align 2
   %48 = zext i8 %47 to i64
   %49 = getelementptr i8, ptr %45, i64 %48
-  %50 = getelementptr inbounds i8, ptr %49, i64 94
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 94
   %51 = load i8, ptr %50, align 2
-  %52 = getelementptr inbounds i8, ptr %49, i64 91
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 91
   %53 = load i8, ptr %52, align 1
   %54 = trunc i8 %53 to i1
   br i1 %54, label %118, label %55
@@ -98,13 +98,13 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %11, i8 0, i64 26, i1 false)
   store i64 0, ptr %12, align 8
   store i8 1, ptr %13, align 1
-  %56 = getelementptr inbounds i8, ptr %9, i64 104
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store i64 1, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %11, i64 13
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 13
   store i8 1, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %0, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 115
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 115
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 114
   %63 = icmp eq i8 %51, 0
@@ -116,7 +116,7 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   %66 = call ptr @expression_planner(ptr noundef %2) #5
   %67 = call ptr @CreateExecutorState() #5
   %68 = call ptr @ExecPrepareExpr(ptr noundef %66, ptr noundef %67) #5
-  %69 = getelementptr inbounds i8, ptr %67, i64 232
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 232
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %71, label %73
@@ -127,7 +127,7 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
 
 73:                                               ; preds = %65, %71
   %74 = phi ptr [ %72, %71 ], [ %70, %65 ]
-  %75 = getelementptr inbounds i8, ptr %68, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %76 = load ptr, ptr %75, align 8
   %77 = call i64 %76(ptr noundef %68, ptr noundef %74, ptr noundef nonnull %13) #5
   store i64 %77, ptr %12, align 8
@@ -137,20 +137,20 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   br i1 %79, label %98, label %80
 
 80:                                               ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %0, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = add nsw i64 %22, -1
   %85 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %83, i64 0, i64 %84
-  %86 = getelementptr inbounds i8, ptr %85, i64 68
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 68
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %85, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 72
   %89 = load i16, ptr %88, align 4
   %90 = sext i16 %89 to i32
-  %91 = getelementptr inbounds i8, ptr %85, i64 86
+  %91 = getelementptr inbounds nuw i8, ptr %85, i64 86
   %92 = load i8, ptr %91, align 2
   %93 = trunc i8 %92 to i1
-  %94 = getelementptr inbounds i8, ptr %85, i64 87
+  %94 = getelementptr inbounds nuw i8, ptr %85, i64 87
   %95 = load i8, ptr %94, align 1
   %96 = call ptr @construct_array(ptr noundef nonnull %12, i32 noundef 1, i32 noundef %87, i32 noundef %90, i1 noundef zeroext %93, i8 noundef signext %95) #5
   %97 = ptrtoint ptr %96 to i64
@@ -164,23 +164,23 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   %100 = and i8 %99, 1
   %101 = xor i8 %100, 1
   %102 = zext nneg i8 %101 to i64
-  %103 = getelementptr inbounds i8, ptr %9, i64 112
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store i64 %102, ptr %103, align 16
-  %104 = getelementptr inbounds i8, ptr %11, i64 14
+  %104 = getelementptr inbounds nuw i8, ptr %11, i64 14
   store i8 1, ptr %104, align 2
-  %105 = getelementptr inbounds i8, ptr %9, i64 200
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 200
   store i64 %storemerge, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %11, i64 25
+  %106 = getelementptr inbounds nuw i8, ptr %11, i64 25
   store i8 1, ptr %106, align 1
-  %107 = getelementptr inbounds i8, ptr %10, i64 25
+  %107 = getelementptr inbounds nuw i8, ptr %10, i64 25
   store i8 %100, ptr %107, align 1
   br label %108
 
 108:                                              ; preds = %98, %55
-  %109 = getelementptr inbounds i8, ptr %34, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %110 = load ptr, ptr %109, align 8
   %111 = call ptr @heap_modify_tuple(ptr noundef nonnull %37, ptr noundef %110, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #5
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   call void @CatalogTupleUpdate(ptr noundef %34, ptr noundef nonnull %112, ptr noundef %111) #5
   %113 = load i8, ptr %13, align 1
   %114 = trunc i8 %113 to i1
@@ -198,10 +198,10 @@ define dso_local i32 @StoreAttrDefault(ptr nocapture noundef readonly %0, i16 no
   call void @heap_freetuple(ptr noundef %.0) #5
   store i32 1259, ptr %7, align 4
   %119 = load i32, ptr %18, align 8
-  %120 = getelementptr inbounds i8, ptr %7, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %119, ptr %120, align 4
   %121 = sext i16 %1 to i32
-  %122 = getelementptr inbounds i8, ptr %7, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %121, ptr %122, align 4
   %.not61 = icmp eq i8 %51, 0
   %123 = select i1 %.not61, i32 97, i32 105
@@ -280,7 +280,7 @@ define dso_local void @RemoveAttrDefault(i32 noundef %0, i16 noundef signext %1,
   %8 = tail call ptr @table_open(i32 noundef 2604, i32 noundef 3) #5
   %9 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %9) #5
-  %10 = getelementptr inbounds i8, ptr %6, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %11 = sext i16 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %10, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 63, i64 noundef %11) #5
   %12 = call ptr @systable_beginscan(ptr noundef %8, i32 noundef 2656, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %6) #5
@@ -289,16 +289,16 @@ define dso_local void @RemoveAttrDefault(i32 noundef %0, i16 noundef signext %1,
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %7, i64 4
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = zext i1 %4 to i32
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
   %18 = phi ptr [ %13, %.lr.ph ], [ %26, %17 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 22
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 22
   %22 = load i8, ptr %21, align 2
   %23 = zext i8 %22 to i64
   %24 = getelementptr i8, ptr %20, i64 %23
@@ -358,18 +358,18 @@ define dso_local void @RemoveAttrDefaultById(i32 noundef %0) local_unnamed_addr 
   unreachable
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load i16, ptr %19, align 4
   %21 = call ptr @relation_open(i32 noundef %18, i32 noundef 8) #5
-  %22 = getelementptr inbounds i8, ptr %6, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @CatalogTupleDelete(ptr noundef %3, ptr noundef nonnull %22) #5
   call void @systable_endscan(ptr noundef %5) #5
   call void @table_close(ptr noundef %3, i32 noundef 3) #5
@@ -389,15 +389,15 @@ define dso_local void @RemoveAttrDefaultById(i32 noundef %0) local_unnamed_addr 
   unreachable
 
 31:                                               ; preds = %10
-  %32 = getelementptr inbounds i8, ptr %26, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 22
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 22
   %35 = load i8, ptr %34, align 2
   %36 = zext i8 %35 to i64
   %37 = getelementptr i8, ptr %33, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 91
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 91
   store i8 0, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %26, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 4
   call void @CatalogTupleUpdate(ptr noundef %23, ptr noundef nonnull %39, ptr noundef nonnull %26) #5
   call void @table_close(ptr noundef %23, i32 noundef 3) #5
   call void @relation_close(ptr noundef %21, i32 noundef 0) #5
@@ -416,7 +416,7 @@ define dso_local i32 @GetAttrDefaultOid(i32 noundef %0, i16 noundef signext %1) 
   %4 = tail call ptr @table_open(i32 noundef 2604, i32 noundef 1) #5
   %5 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #5
-  %6 = getelementptr inbounds i8, ptr %3, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %7 = sext i16 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 63, i64 noundef %7) #5
   %8 = call ptr @systable_beginscan(ptr noundef %4, i32 noundef 2656, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %3) #5
@@ -425,9 +425,9 @@ define dso_local i32 @GetAttrDefaultOid(i32 noundef %0, i16 noundef signext %1) 
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
@@ -457,15 +457,15 @@ define dso_local { i64, i32 } @GetAttrDefaultColumnAddress(i32 noundef %0) local
   br i1 %.not, label %19, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i16, ptr %16, align 4
   %18 = sext i16 %17 to i32
   br label %19

@@ -42,7 +42,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 define dso_local i64 @_ZNK3net9QuicClock14ApproximateNowEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   ret i64 %call
@@ -78,11 +78,11 @@ entry:
   %ref.tmp = alloca %"class.net::QuicWallTime", align 8
   %ref.tmp3 = alloca %"class.net::QuicWallTime", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 32
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 32
   %1 = load ptr, ptr %vfn5, align 8
   %call6 = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store i64 %call6, ptr %ref.tmp3, align 8

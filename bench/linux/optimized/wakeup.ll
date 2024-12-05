@@ -246,16 +246,16 @@ define dso_local noundef range(i32 -12, 1) i32 @acpi_register_wakeup_handler(i32
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %2, ptr %14, align 8
   tail call void @mutex_lock(ptr noundef nonnull @acpi_wakeup_handler_mutex) #4
   %15 = load ptr, ptr @acpi_wakeup_handler_head, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %10, ptr %16, align 8
   store ptr %15, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @acpi_wakeup_handler_head, ptr %17, align 8
   store volatile ptr %10, ptr @acpi_wakeup_handler_head, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_wakeup_handler_mutex) #4
@@ -275,22 +275,22 @@ define dso_local void @acpi_unregister_wakeup_handler(ptr noundef readnone %0, p
 
 .preheader:                                       ; preds = %2, %18
   %5 = phi ptr [ %19, %18 ], [ %3, %2 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %0
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %15, ptr %17, align 8
   store volatile ptr %16, ptr %15, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %5, align 8
@@ -322,9 +322,9 @@ define dso_local noundef zeroext i1 @acpi_check_wakeup_handlers() local_unnamed_
   br i1 %.not.not.not.not.not, label %4, label %10
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i1 %6(ptr noundef %8) #4
   br i1 %9, label %10, label %1, !llvm.loop !11

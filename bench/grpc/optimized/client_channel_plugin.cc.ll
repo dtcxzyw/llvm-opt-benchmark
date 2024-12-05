@@ -45,32 +45,32 @@ entry:
   %agg.tmp9 = alloca %"class.absl::lts_20230802::AnyInvocable.51", align 16
   tail call void @_ZN9grpc_core8internal32ClientChannelServiceConfigParser8RegisterEPNS_17CoreConfiguration7BuilderE(ptr noundef %builder)
   tail call void @_ZN9grpc_core8internal24RetryServiceConfigParser8RegisterEPNS_17CoreConfiguration7BuilderE(ptr noundef %builder)
-  %channel_init_.i = getelementptr inbounds i8, ptr %builder, i64 32
+  %channel_init_.i = getelementptr inbounds nuw i8, ptr %builder, i64 32
   %call1 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 0, ptr noundef nonnull @_ZN9grpc_core13ClientChannel25kFilterVtableWithPromisesE, ptr nonnull @.str, i32 43)
   store ptr @_ZN9grpc_core12_GLOBAL__N_141IsEverythingBelowClientChannelPromiseSafeERKNS_11ChannelArgsE, ptr %agg.tmp2, align 16
-  %invoker_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
+  %invoker_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EbRKPFbRKN9grpc_core11ChannelArgsEEJS6_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i, align 8
-  %manager_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
+  %manager_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i, align 16
   %call3 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration2IfEN4absl12lts_2023080212AnyInvocableIKFbRKNS_11ChannelArgsEEEE(ptr noundef nonnull align 8 dereferenceable(104) %call1, ptr noundef nonnull %agg.tmp2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %terminal_.i = getelementptr inbounds i8, ptr %call3, i64 80
+  %terminal_.i = getelementptr inbounds nuw i8, ptr %call3, i64 80
   store i8 1, ptr %terminal_.i, align 8
   %0 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
   call void %0(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp2) #8
   %call8 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit7Builder14RegisterFilterE23grpc_channel_stack_typePK19grpc_channel_filterNS_14SourceLocationE(ptr noundef nonnull align 16 dereferenceable(528) %channel_init_.i, i32 noundef 0, ptr noundef nonnull @_ZN9grpc_core13ClientChannel28kFilterVtableWithoutPromisesE, ptr nonnull @.str, i32 48)
   store ptr @_ZN9grpc_core12_GLOBAL__N_141IsEverythingBelowClientChannelPromiseSafeERKNS_11ChannelArgsE, ptr %agg.tmp9, align 16
-  %invoker_.i.i.i.i.i7 = getelementptr inbounds i8, ptr %agg.tmp9, i64 24
+  %invoker_.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %agg.tmp9, i64 24
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EbRKPFbRKN9grpc_core11ChannelArgsEEJS6_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE, ptr %invoker_.i.i.i.i.i7, align 8
-  %manager_.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %agg.tmp9, i64 16
+  %manager_.i.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %agg.tmp9, i64 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable19LocalManagerTrivialENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i8, align 16
   %call12 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration5IfNotEN4absl12lts_2023080212AnyInvocableIKFbRKNS_11ChannelArgsEEEE(ptr noundef nonnull align 8 dereferenceable(104) %call8, ptr noundef nonnull %agg.tmp9)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont
-  %terminal_.i9 = getelementptr inbounds i8, ptr %call12, i64 80
+  %terminal_.i9 = getelementptr inbounds nuw i8, ptr %call12, i64 80
   store i8 1, ptr %terminal_.i9, align 8
   %1 = load ptr, ptr %manager_.i.i.i.i.i.i8, align 16
   call void %1(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp9, ptr noundef nonnull align 16 dereferenceable(32) %agg.tmp9) #8

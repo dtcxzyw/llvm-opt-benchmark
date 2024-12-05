@@ -23,7 +23,7 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_RTC_CHANGE_arg, align 8
   store i64 %offset, ptr %param, align 8
-  %qom_path2 = getelementptr inbounds i8, ptr %param, i64 8
+  %qom_path2 = getelementptr inbounds nuw i8, ptr %param, i64 8
   store ptr %qom_path, ptr %qom_path2, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str) #3
   %call3 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -69,7 +69,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool9.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i14, label %land.lhs.true.i12
@@ -95,7 +95,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool12.not, label %qobject_unref_impl.exit24, label %lor.lhs.false.i16
 
 lor.lhs.false.i16:                                ; preds = %if.end
-  %refcnt.i17 = getelementptr inbounds i8, ptr %call, i64 8
+  %refcnt.i17 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i17, align 8
   %tobool1.not.i18 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i18, label %if.else.i23, label %land.lhs.true.i19
@@ -146,11 +146,11 @@ entry:
   %obj = alloca ptr, align 8
   %param = alloca %struct.q_obj_VFU_CLIENT_HANGUP_arg, align 8
   store ptr %vfu_id, ptr %param, align 8
-  %vfu_qom_path2 = getelementptr inbounds i8, ptr %param, i64 8
+  %vfu_qom_path2 = getelementptr inbounds nuw i8, ptr %param, i64 8
   store ptr %vfu_qom_path, ptr %vfu_qom_path2, align 8
-  %dev_id3 = getelementptr inbounds i8, ptr %param, i64 16
+  %dev_id3 = getelementptr inbounds nuw i8, ptr %param, i64 16
   store ptr %dev_id, ptr %dev_id3, align 8
-  %dev_qom_path4 = getelementptr inbounds i8, ptr %param, i64 24
+  %dev_qom_path4 = getelementptr inbounds nuw i8, ptr %param, i64 24
   store ptr %dev_qom_path, ptr %dev_qom_path4, align 8
   %call = tail call ptr @qmp_event_build_dict(ptr noundef nonnull @.str.2) #3
   %call5 = call ptr @qobject_output_visitor_new_qmp(ptr noundef nonnull %obj) #3
@@ -196,7 +196,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool11.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i14, label %land.lhs.true.i12
@@ -222,7 +222,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool14.not, label %qobject_unref_impl.exit24, label %lor.lhs.false.i16
 
 lor.lhs.false.i16:                                ; preds = %if.end
-  %refcnt.i17 = getelementptr inbounds i8, ptr %call, i64 8
+  %refcnt.i17 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i17, align 8
   %tobool1.not.i18 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i18, label %if.else.i23, label %land.lhs.true.i19

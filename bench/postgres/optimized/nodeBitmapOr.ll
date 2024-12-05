@@ -17,13 +17,13 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @ExecInitBitmapOr(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 216) #5
   store i32 385, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %list_length.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4
   br label %list_length.exit
 
@@ -32,23 +32,23 @@ list_length.exit:                                 ; preds = %3, %7
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 3
   %13 = tail call ptr @palloc0(i64 noundef %12) #5
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @ExecBitmapOr, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 200
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store ptr %13, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 208
   store i32 %10, ptr %18, align 8
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i32, ptr %20, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph33, label %._crit_edge
@@ -86,7 +86,7 @@ declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @MultiExecBitmapOr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -96,16 +96,16 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr nocapture noundef readonly %
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %13
 
@@ -127,14 +127,14 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr nocapture noundef readonly %
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 10
   %24 = load ptr, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %26 = load i8, ptr %25, align 8
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 256
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 256
   %31 = load ptr, ptr %30, align 8
   br label %32
 
@@ -145,7 +145,7 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr nocapture noundef readonly %
 
 35:                                               ; preds = %32, %18
   %.1 = phi ptr [ %34, %32 ], [ %.02938, %18 ]
-  %36 = getelementptr inbounds i8, ptr %15, i64 224
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 224
   store ptr %.1, ptr %36, align 8
   %37 = tail call ptr @MultiExecProcNode(ptr noundef nonnull %15) #5
   %.not35 = icmp eq ptr %37, %.1
@@ -235,9 +235,9 @@ declare void @InstrStopNode(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndBitmapOr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
@@ -270,14 +270,14 @@ declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanBitmapOr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 200
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %7
 
 7:                                                ; preds = %.lr.ph, %18
@@ -294,7 +294,7 @@ define dso_local void @ExecReScanBitmapOr(ptr nocapture noundef readonly %0) loc
   br label %13
 
 13:                                               ; preds = %12, %7
-  %14 = getelementptr inbounds i8, ptr %10, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18

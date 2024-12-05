@@ -54,9 +54,9 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #10
-  %old_value_ = getelementptr inbounds i8, ptr %this, i64 32
+  %old_value_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %old_value_) #10
-  %was_unset_ = getelementptr inbounds i8, ptr %this, i64 64
+  %was_unset_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i8 0, ptr %was_unset_, align 8
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #10
   %call3 = call ptr @getenv(ptr noundef %call) #10
@@ -135,13 +135,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN4absl13base_internal12ScopedSetEnvD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #10
-  %was_unset_ = getelementptr inbounds i8, ptr %this, i64 64
+  %was_unset_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %was_unset_, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then.i, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %old_value_ = getelementptr inbounds i8, ptr %this, i64 32
+  %old_value_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call2 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %old_value_) #10
   %cmp.i = icmp eq ptr %call2, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -155,7 +155,7 @@ if.else.i:                                        ; preds = %cond.end
   br label %_ZN4absl13base_internal12_GLOBAL__N_19SetEnvVarEPKcS3_.exit
 
 _ZN4absl13base_internal12_GLOBAL__N_19SetEnvVarEPKcS3_.exit: ; preds = %if.then.i, %if.else.i
-  %old_value_3 = getelementptr inbounds i8, ptr %this, i64 32
+  %old_value_3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %old_value_3) #10
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #10
   ret void

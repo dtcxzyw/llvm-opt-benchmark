@@ -123,11 +123,11 @@ ExUtilGetInt.exit:                                ; preds = %.lr.ph
 14:                                               ; preds = %.lr.ph
   %15 = trunc i64 %10 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %16 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %15, ptr %16, align 4
   %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01425, i32 noundef 44) #10
   %.not17 = icmp ne ptr %17, null
-  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %spec.select = select i1 %.not17, ptr %18, ptr null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = icmp samesign ult i64 %indvars.iv.next, %9
@@ -192,23 +192,23 @@ define hidden void @ExUtilDeleteCommandLineArguments(ptr noundef %0) local_unnam
   br i1 %.not, label %12, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %.not5 = icmp eq i32 %4, 0
   br i1 %.not5, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @WebPFree(ptr noundef %7) #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @WebPFree(ptr noundef %9) #8
   br label %10
 
 10:                                               ; preds = %5, %2
   store i32 0, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %11, i8 0, i64 28, i1 false)
   br label %12
 
@@ -229,9 +229,9 @@ define hidden range(i32 0, 2) i32 @ExUtilInitCommandLineArguments(i32 noundef %0
 
 8:                                                ; preds = %3
   store i32 %0, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %10, i8 0, i64 20, i1 false)
   %11 = icmp eq i32 %0, 1
   br i1 %11, label %12, label %40
@@ -258,11 +258,11 @@ ExUtilReadFileToWebPData.exit.thread:             ; preds = %15
   %18 = load ptr, ptr %4, align 8
   store ptr %18, ptr %10, align 8
   %19 = load i64, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %19, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 1, ptr %21, align 8
   %22 = call ptr @WebPMalloc(i64 noundef 131072) #8
   store ptr %22, ptr %9, align 8
@@ -306,7 +306,7 @@ ExUtilDeleteCommandLineArguments.exit:            ; preds = %24, %26
 35:                                               ; preds = %.lr.ph
   %36 = load ptr, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   store ptr %.035, ptr %37, align 8
   %38 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @__const.ExUtilInitCommandLineArguments.sep) #8
   %.not28 = icmp eq ptr %38, null
@@ -342,7 +342,7 @@ define hidden range(i32 0, 2) i32 @ExUtilReadFileToWebPData(ptr noundef %0, ptr 
   %9 = load ptr, ptr %3, align 8
   store ptr %9, ptr %1, align 8
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %10, ptr %11, align 8
   br label %12
 

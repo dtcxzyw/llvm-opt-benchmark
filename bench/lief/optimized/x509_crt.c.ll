@@ -121,26 +121,26 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
   br i1 %or.cond, label %197, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
   %.not55 = icmp eq i32 %16, 0
   br i1 %.not55, label %.critedge.thread, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %20, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
   %.02856 = phi ptr [ %20, %.preheader ], [ %0, %.preheader.preheader ]
-  %19 = getelementptr inbounds i8, ptr %.02856, i64 608
+  %19 = getelementptr inbounds nuw i8, ptr %.02856, i64 608
   %20 = load ptr, ptr %19, align 8
   %.not35 = icmp eq ptr %20, null
   br i1 %.not35, label %.critedge, label %.preheader, !llvm.loop !4
 
 .critedge:                                        ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %.02856, i64 608
+  %21 = getelementptr inbounds nuw i8, ptr %.02856, i64 608
   %22 = tail call noalias dereferenceable_or_null(616) ptr @calloc(i64 noundef 1, i64 noundef 616) #15
   store ptr %22, ptr %21, align 8
   %23 = icmp eq ptr %22, null
@@ -180,14 +180,14 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %1 to i64
   %36 = sub i64 %34, %35
-  %37 = getelementptr inbounds i8, ptr %.129, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.129, i64 16
   store i64 %36, ptr %37, align 8
   %.not143.i = icmp eq i32 %3, 0
   br i1 %.not143.i, label %46, label %38
 
 38:                                               ; preds = %30
   %39 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %36) #15
-  %40 = getelementptr inbounds i8, ptr %.129, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.129, i64 24
   store ptr %39, ptr %40, align 8
   %41 = icmp eq ptr %39, null
   br i1 %41, label %x509_crt_parse_der_core.exit.thread, label %42
@@ -202,7 +202,7 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
   br label %48
 
 46:                                               ; preds = %30
-  %47 = getelementptr inbounds i8, ptr %.129, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.129, i64 24
   store ptr %1, ptr %47, align 8
   store i32 0, ptr %.129, align 8
   br label %48
@@ -210,7 +210,7 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
 48:                                               ; preds = %46, %42
   %49 = phi ptr [ %44, %42 ], [ %31, %46 ]
   %.0.i = phi ptr [ %45, %42 ], [ %33, %46 ]
-  %50 = getelementptr inbounds i8, ptr %.129, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.129, i64 48
   store ptr %49, ptr %50, align 8
   %51 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %.0.i, ptr noundef nonnull %8, i32 noundef 48) #16
   %.not144.i = icmp eq i32 %51, 0
@@ -229,9 +229,9 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
   %59 = ptrtoint ptr %57 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
-  %62 = getelementptr inbounds i8, ptr %.129, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %.129, i64 40
   store i64 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %.129, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %.129, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %64 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %7, i32 noundef 160) #16
   switch i32 %64, label %66 [
@@ -279,13 +279,13 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   br i1 %.not145.i, label %77, label %x509_crt_parse_der_core.exit.thread.sink.split
 
 77:                                               ; preds = %x509_get_version.exit.i, %x509_get_version.exit.thread.i
-  %78 = getelementptr inbounds i8, ptr %.129, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %.129, i64 64
   %79 = call i32 @mbedtls_x509_get_serial(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %78) #16
   %.not146.i = icmp eq i32 %79, 0
   br i1 %.not146.i, label %80, label %x509_crt_parse_der_core.exit.thread.sink.split
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %.129, i64 88
+  %81 = getelementptr inbounds nuw i8, ptr %.129, i64 88
   %82 = call i32 @mbedtls_x509_get_alg(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %81, ptr noundef nonnull %10) #16
   %.not147.i = icmp eq i32 %82, 0
   br i1 %.not147.i, label %83, label %x509_crt_parse_der_core.exit.thread.sink.split
@@ -298,16 +298,16 @@ x509_get_version.exit.i:                          ; preds = %73, %66
 85:                                               ; preds = %83
   %86 = add nuw nsw i32 %84, 1
   store i32 %86, ptr %63, align 8
-  %87 = getelementptr inbounds i8, ptr %.129, i64 592
-  %88 = getelementptr inbounds i8, ptr %.129, i64 596
-  %89 = getelementptr inbounds i8, ptr %.129, i64 600
+  %87 = getelementptr inbounds nuw i8, ptr %.129, i64 592
+  %88 = getelementptr inbounds nuw i8, ptr %.129, i64 596
+  %89 = getelementptr inbounds nuw i8, ptr %.129, i64 600
   %90 = call i32 @mbedtls_x509_get_sig_alg(ptr noundef nonnull %81, ptr noundef nonnull %10, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %89) #16
   %.not148.i = icmp eq i32 %90, 0
   br i1 %.not148.i, label %91, label %x509_crt_parse_der_core.exit.thread.sink.split
 
 91:                                               ; preds = %85
   %92 = load ptr, ptr %9, align 8
-  %93 = getelementptr inbounds i8, ptr %.129, i64 128
+  %93 = getelementptr inbounds nuw i8, ptr %.129, i64 128
   store ptr %92, ptr %93, align 8
   %94 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %8, i32 noundef 48) #16
   %.not149.i = icmp eq i32 %94, 0
@@ -322,7 +322,7 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   %98 = load ptr, ptr %9, align 8
   %99 = load i64, ptr %8, align 8
   %100 = getelementptr inbounds i8, ptr %98, i64 %99
-  %101 = getelementptr inbounds i8, ptr %.129, i64 160
+  %101 = getelementptr inbounds nuw i8, ptr %.129, i64 160
   %102 = call i32 @mbedtls_x509_get_name(ptr noundef nonnull %9, ptr noundef %100, ptr noundef nonnull %101) #16
   %.not150.i = icmp eq i32 %102, 0
   br i1 %.not150.i, label %103, label %x509_crt_parse_der_core.exit.thread.sink.split
@@ -333,17 +333,17 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   %106 = ptrtoint ptr %104 to i64
   %107 = ptrtoint ptr %105 to i64
   %108 = sub i64 %106, %107
-  %109 = getelementptr inbounds i8, ptr %.129, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %.129, i64 120
   store i64 %108, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %.129, i64 288
-  %111 = getelementptr inbounds i8, ptr %.129, i64 312
+  %110 = getelementptr inbounds nuw i8, ptr %.129, i64 288
+  %111 = getelementptr inbounds nuw i8, ptr %.129, i64 312
   %112 = call fastcc i32 @x509_get_dates(ptr noundef %9, ptr noundef %57, ptr noundef %110, ptr noundef %111)
   %.not151.i = icmp eq i32 %112, 0
   br i1 %.not151.i, label %113, label %x509_crt_parse_der_core.exit.thread.sink.split
 
 113:                                              ; preds = %103
   %114 = load ptr, ptr %9, align 8
-  %115 = getelementptr inbounds i8, ptr %.129, i64 152
+  %115 = getelementptr inbounds nuw i8, ptr %.129, i64 152
   store ptr %114, ptr %115, align 8
   %116 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %8, i32 noundef 48) #16
   %.not152.i = icmp eq i32 %116, 0
@@ -362,7 +362,7 @@ x509_get_version.exit.i:                          ; preds = %73, %66
 121:                                              ; preds = %119
   %122 = load ptr, ptr %9, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 %120
-  %124 = getelementptr inbounds i8, ptr %.129, i64 224
+  %124 = getelementptr inbounds nuw i8, ptr %.129, i64 224
   %125 = call i32 @mbedtls_x509_get_name(ptr noundef nonnull %9, ptr noundef nonnull %123, ptr noundef nonnull %124) #16
   %.not154.i = icmp eq i32 %125, 0
   br i1 %.not154.i, label %126, label %x509_crt_parse_der_core.exit.thread.sink.split
@@ -373,11 +373,11 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   %129 = ptrtoint ptr %127 to i64
   %130 = ptrtoint ptr %128 to i64
   %131 = sub i64 %129, %130
-  %132 = getelementptr inbounds i8, ptr %.129, i64 144
+  %132 = getelementptr inbounds nuw i8, ptr %.129, i64 144
   store i64 %131, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %.129, i64 352
+  %133 = getelementptr inbounds nuw i8, ptr %.129, i64 352
   store ptr %127, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %.129, i64 360
+  %134 = getelementptr inbounds nuw i8, ptr %.129, i64 360
   %135 = call i32 @mbedtls_pk_parse_subpubkey(ptr noundef nonnull %9, ptr noundef %57, ptr noundef nonnull %134) #16
   %.not155.i = icmp eq i32 %135, 0
   br i1 %.not155.i, label %136, label %x509_crt_parse_der_core.exit.thread.sink.split
@@ -388,7 +388,7 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   %139 = ptrtoint ptr %137 to i64
   %140 = ptrtoint ptr %138 to i64
   %141 = sub i64 %139, %140
-  %142 = getelementptr inbounds i8, ptr %.129, i64 344
+  %142 = getelementptr inbounds nuw i8, ptr %.129, i64 344
   store i64 %141, ptr %142, align 8
   %143 = load i32, ptr %63, align 8
   %144 = and i32 %143, -2
@@ -396,7 +396,7 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   br i1 %switch.i, label %145, label %149
 
 145:                                              ; preds = %136
-  %146 = getelementptr inbounds i8, ptr %.129, i64 376
+  %146 = getelementptr inbounds nuw i8, ptr %.129, i64 376
   %147 = call fastcc i32 @x509_get_uid(ptr noundef %9, ptr noundef %57, ptr noundef %146, i32 noundef 1)
   %.not156.i = icmp eq i32 %147, 0
   br i1 %.not156.i, label %._crit_edge.i, label %148
@@ -416,7 +416,7 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   br i1 %switch172.i, label %152, label %.thread.i
 
 152:                                              ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %.129, i64 400
+  %153 = getelementptr inbounds nuw i8, ptr %.129, i64 400
   %154 = call fastcc i32 @x509_get_uid(ptr noundef %9, ptr noundef %57, ptr noundef %153, i32 noundef 2)
   %.not157.i = icmp eq i32 %154, 0
   br i1 %.not157.i, label %156, label %155
@@ -446,17 +446,17 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   br i1 %.not160.i, label %163, label %x509_crt_parse_der_core.exit.thread.sink.split
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds i8, ptr %.129, i64 96
+  %164 = getelementptr inbounds nuw i8, ptr %.129, i64 96
   %165 = load i64, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %12, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %167 = load i64, ptr %166, align 8
   %.not161.i = icmp eq i64 %165, %167
   br i1 %.not161.i, label %168, label %x509_crt_parse_der_core.exit.thread.sink.split
 
 168:                                              ; preds = %163
-  %169 = getelementptr inbounds i8, ptr %.129, i64 104
+  %169 = getelementptr inbounds nuw i8, ptr %.129, i64 104
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %12, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %172 = load ptr, ptr %171, align 8
   %bcmp.i = call i32 @bcmp(ptr %170, ptr %172, i64 %165)
   %.not162.i = icmp eq i32 %bcmp.i, 0
@@ -469,9 +469,9 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   br i1 %.not163.i, label %176, label %x509_crt_parse_der_core.exit.thread.sink.split
 
 176:                                              ; preds = %173
-  %177 = getelementptr inbounds i8, ptr %10, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %178 = load i64, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %11, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %180 = load i64, ptr %179, align 8
   %.not164.i = icmp eq i64 %178, %180
   br i1 %.not164.i, label %181, label %x509_crt_parse_der_core.exit.thread.sink.split
@@ -481,16 +481,16 @@ x509_get_version.exit.i:                          ; preds = %73, %66
   br i1 %.not165.i, label %187, label %182
 
 182:                                              ; preds = %181
-  %183 = getelementptr inbounds i8, ptr %10, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %11, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %186 = load ptr, ptr %185, align 8
   %bcmp166.i = call i32 @bcmp(ptr %184, ptr %186, i64 %178)
   %.not167.i = icmp eq i32 %bcmp166.i, 0
   br i1 %.not167.i, label %187, label %x509_crt_parse_der_core.exit.thread.sink.split
 
 187:                                              ; preds = %182, %181
-  %188 = getelementptr inbounds i8, ptr %.129, i64 568
+  %188 = getelementptr inbounds nuw i8, ptr %.129, i64 568
   %189 = call i32 @mbedtls_x509_get_sig(ptr noundef nonnull %9, ptr noundef %.0.i, ptr noundef nonnull %188) #16
   %.not168.i = icmp eq i32 %189, 0
   br i1 %.not168.i, label %190, label %x509_crt_parse_der_core.exit.thread.sink.split
@@ -538,7 +538,7 @@ x509_crt_parse_der_core.exit:                     ; preds = %52, %95, %117, %148
   br i1 %.not38, label %195, label %193
 
 193:                                              ; preds = %192
-  %194 = getelementptr inbounds i8, ptr %.1, i64 608
+  %194 = getelementptr inbounds nuw i8, ptr %.1, i64 608
   store ptr null, ptr %194, align 8
   br label %195
 
@@ -597,7 +597,7 @@ define hidden i32 @mbedtls_x509_crt_parse(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %.not83, label %.thread, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.lr.ph
 
 .critedge:                                        ; preds = %9, %8, %14
@@ -729,7 +729,7 @@ define hidden range(i32 -10624, -2147483648) i32 @mbedtls_x509_crt_parse_path(pt
 
 9:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %5, i8 0, i64 144, i1 false)
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %.outer
 
 .outer:                                           ; preds = %mbedtls_x509_crt_parse_file.exit, %9
@@ -742,7 +742,7 @@ define hidden range(i32 -10624, -2147483648) i32 @mbedtls_x509_crt_parse_path(pt
   br i1 %.not, label %34, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %12, i64 19
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 19
   %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 512, ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef nonnull %14) #16
   %16 = icmp ugt i32 %15, 511
   br i1 %16, label %34, label %17
@@ -828,10 +828,10 @@ define hidden range(i32 -2147483648, 2147474176) i32 @mbedtls_x509_parse_subject
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   %14 = and i32 %6, 223
@@ -855,7 +855,7 @@ define hidden range(i32 -2147483648, 2147474176) i32 @mbedtls_x509_parse_subject
   br i1 %.not44.i, label %21, label %x509_get_other_name.exit.thread
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.not37.i = icmp ult ptr %22, %13
   br i1 %.not37.i, label %23, label %x509_get_other_name.exit.thread.sink.split
 
@@ -876,13 +876,13 @@ define hidden range(i32 -2147483648, 2147474176) i32 @mbedtls_x509_parse_subject
   br i1 %.not40.i, label %29, label %x509_get_other_name.exit
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %5, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 6, ptr %30, align 8
   %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %31, ptr %32, align 8
   %33 = load i64, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %33, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %31, i64 %33
   %.not41.i = icmp ult ptr %35, %13
@@ -895,13 +895,13 @@ define hidden range(i32 -2147483648, 2147474176) i32 @mbedtls_x509_parse_subject
   br i1 %.not42.i, label %38, label %x509_get_other_name.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %5, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 4, ptr %39, align 8
   %40 = load ptr, ptr %4, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %40, ptr %41, align 8
   %42 = load i64, ptr %3, align 8
-  %43 = getelementptr inbounds i8, ptr %5, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %40, i64 %42
   store ptr %44, ptr %4, align 8
@@ -932,7 +932,7 @@ x509_get_other_name.exit:                         ; preds = %36, %27, %25, %23, 
   br i1 %.not, label %45, label %49
 
 45:                                               ; preds = %x509_get_other_name.exit.thread14, %x509_get_other_name.exit
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %46, ptr noundef nonnull align 8 dereferenceable(72) %5, i64 72, i1 false)
   br label %49
@@ -940,7 +940,7 @@ x509_get_other_name.exit:                         ; preds = %36, %27, %25, %23, 
 47:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1, i8 0, i64 80, i1 false)
   store i32 2, ptr %1, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   br label %49
 
@@ -970,7 +970,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
   br label %245
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %3, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.4, ptr noundef %2, i32 noundef %15) #16
   %17 = icmp slt i32 %16, 0
@@ -983,7 +983,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 20:                                               ; preds = %18
   %21 = sub nuw i64 %1, %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 %19
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %19
   %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %22, i64 noundef %21, ptr noundef nonnull @.str.5, ptr noundef %2) #16
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %245, label %25
@@ -995,8 +995,8 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 27:                                               ; preds = %25
   %28 = sub nuw i64 %21, %26
-  %29 = getelementptr inbounds i8, ptr %22, i64 %26
-  %30 = getelementptr inbounds i8, ptr %3, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %26
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %31 = tail call i32 @mbedtls_x509_serial_gets(ptr noundef %29, i64 noundef %28, ptr noundef nonnull %30) #16
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %245, label %33
@@ -1008,7 +1008,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 35:                                               ; preds = %33
   %36 = sub nuw i64 %28, %34
-  %37 = getelementptr inbounds i8, ptr %29, i64 %34
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 %34
   %38 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %37, i64 noundef %36, ptr noundef nonnull @.str.6, ptr noundef %2) #16
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %245, label %40
@@ -1021,8 +1021,8 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 42:                                               ; preds = %40
   %43 = sub nuw i64 %36, %41
   store i64 %43, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %37, i64 %41
-  %45 = getelementptr inbounds i8, ptr %3, i64 160
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %41
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %46 = tail call i32 @mbedtls_x509_dn_gets(ptr noundef %44, i64 noundef %43, ptr noundef nonnull %45) #16
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %245, label %48
@@ -1034,7 +1034,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 50:                                               ; preds = %48
   %51 = sub nuw i64 %43, %49
-  %52 = getelementptr inbounds i8, ptr %44, i64 %49
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 %49
   %53 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %52, i64 noundef %51, ptr noundef nonnull @.str.7, ptr noundef %2) #16
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %245, label %55
@@ -1046,9 +1046,9 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 57:                                               ; preds = %55
   %58 = sub nuw i64 %51, %56
-  %59 = getelementptr inbounds i8, ptr %52, i64 %56
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 %56
   store ptr %59, ptr %6, align 8
-  %60 = getelementptr inbounds i8, ptr %3, i64 224
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %61 = tail call i32 @mbedtls_x509_dn_gets(ptr noundef %59, i64 noundef %58, ptr noundef nonnull %60) #16
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %245, label %63
@@ -1060,18 +1060,18 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 65:                                               ; preds = %63
   %66 = sub nuw i64 %58, %64
-  %67 = getelementptr inbounds i8, ptr %59, i64 %64
-  %68 = getelementptr inbounds i8, ptr %3, i64 288
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 %64
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %3, i64 292
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 292
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %3, i64 296
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %3, i64 300
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 300
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %3, i64 304
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %77 = load i32, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %3, i64 308
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 308
   %79 = load i32, ptr %78, align 4
   %80 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %67, i64 noundef %66, ptr noundef nonnull @.str.8, ptr noundef %2, i32 noundef %69, i32 noundef %71, i32 noundef %73, i32 noundef %75, i32 noundef %77, i32 noundef %79) #16
   %81 = icmp slt i32 %80, 0
@@ -1084,18 +1084,18 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 84:                                               ; preds = %82
   %85 = sub nuw i64 %66, %83
-  %86 = getelementptr inbounds i8, ptr %67, i64 %83
-  %87 = getelementptr inbounds i8, ptr %3, i64 312
+  %86 = getelementptr inbounds nuw i8, ptr %67, i64 %83
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %88 = load i32, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %3, i64 316
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 316
   %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %3, i64 320
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %92 = load i32, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %3, i64 324
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 324
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %3, i64 328
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %96 = load i32, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %3, i64 332
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 332
   %98 = load i32, ptr %97, align 4
   %99 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %86, i64 noundef %85, ptr noundef nonnull @.str.9, ptr noundef %2, i32 noundef %88, i32 noundef %90, i32 noundef %92, i32 noundef %94, i32 noundef %96, i32 noundef %98) #16
   %100 = icmp slt i32 %99, 0
@@ -1108,7 +1108,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 103:                                              ; preds = %101
   %104 = sub nuw i64 %85, %102
-  %105 = getelementptr inbounds i8, ptr %86, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr %86, i64 %102
   %106 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %105, i64 noundef %104, ptr noundef nonnull @.str.10, ptr noundef %2) #16
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %245, label %108
@@ -1120,13 +1120,13 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 110:                                              ; preds = %108
   %111 = sub nuw i64 %104, %109
-  %112 = getelementptr inbounds i8, ptr %105, i64 %109
-  %113 = getelementptr inbounds i8, ptr %3, i64 88
-  %114 = getelementptr inbounds i8, ptr %3, i64 596
+  %112 = getelementptr inbounds nuw i8, ptr %105, i64 %109
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 596
   %115 = load i32, ptr %114, align 4
-  %116 = getelementptr inbounds i8, ptr %3, i64 592
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 592
   %117 = load i32, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %3, i64 600
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 600
   %119 = load ptr, ptr %118, align 8
   %120 = tail call i32 @mbedtls_x509_sig_alg_gets(ptr noundef %112, i64 noundef %111, ptr noundef nonnull %113, i32 noundef %115, i32 noundef %117, ptr noundef %119) #16
   %121 = icmp slt i32 %120, 0
@@ -1139,8 +1139,8 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 124:                                              ; preds = %122
   %125 = sub nuw i64 %111, %123
-  %126 = getelementptr inbounds i8, ptr %112, i64 %123
-  %127 = getelementptr inbounds i8, ptr %3, i64 360
+  %126 = getelementptr inbounds nuw i8, ptr %112, i64 %123
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %128 = tail call ptr @mbedtls_pk_get_name(ptr noundef nonnull %127) #16
   %129 = call i32 @mbedtls_x509_key_size_helper(ptr noundef nonnull %7, i64 noundef 18, ptr noundef %128) #16
   %.not227 = icmp eq i32 %129, 0
@@ -1160,15 +1160,15 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 137:                                              ; preds = %135
   %138 = sub nuw i64 %125, %136
-  %139 = getelementptr inbounds i8, ptr %126, i64 %136
-  %140 = getelementptr inbounds i8, ptr %3, i64 512
+  %139 = getelementptr inbounds nuw i8, ptr %126, i64 %136
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 512
   %141 = load i32, ptr %140, align 8
   %142 = and i32 %141, 256
   %.not229 = icmp eq i32 %142, 0
   br i1 %.not229, label %166, label %143
 
 143:                                              ; preds = %137
-  %144 = getelementptr inbounds i8, ptr %3, i64 516
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 516
   %145 = load i32, ptr %144, align 4
   %.not230 = icmp eq i32 %145, 0
   %146 = select i1 %.not230, ptr @.str.14, ptr @.str.13
@@ -1183,8 +1183,8 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 
 151:                                              ; preds = %149
   %152 = sub nuw i64 %138, %150
-  %153 = getelementptr inbounds i8, ptr %139, i64 %150
-  %154 = getelementptr inbounds i8, ptr %3, i64 520
+  %153 = getelementptr inbounds nuw i8, ptr %139, i64 %150
+  %154 = getelementptr inbounds nuw i8, ptr %3, i64 520
   %155 = load i32, ptr %154, align 8
   %156 = icmp sgt i32 %155, 0
   br i1 %156, label %157, label %166
@@ -1203,7 +1203,7 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 163:                                              ; preds = %161
   %164 = sub nuw i64 %152, %162
   store i64 %164, ptr %5, align 8
-  %165 = getelementptr inbounds i8, ptr %153, i64 %162
+  %165 = getelementptr inbounds nuw i8, ptr %153, i64 %162
   br label %166
 
 166:                                              ; preds = %151, %163, %137
@@ -1227,9 +1227,9 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 176:                                              ; preds = %174
   %177 = sub nuw i64 %167, %175
   store i64 %177, ptr %5, align 8
-  %178 = getelementptr inbounds i8, ptr %168, i64 %175
+  %178 = getelementptr inbounds nuw i8, ptr %168, i64 %175
   store ptr %178, ptr %6, align 8
-  %179 = getelementptr inbounds i8, ptr %3, i64 448
+  %179 = getelementptr inbounds nuw i8, ptr %3, i64 448
   %180 = call fastcc i32 @x509_info_subject_alt_name(ptr noundef %6, ptr noundef %5, ptr noundef %179, ptr noundef %2)
   %.not235 = icmp eq i32 %180, 0
   br i1 %.not235, label %._crit_edge, label %245
@@ -1261,9 +1261,9 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 189:                                              ; preds = %187
   %190 = sub nuw i64 %.pre260.pre263.pre267.pre271, %188
   store i64 %190, ptr %5, align 8
-  %191 = getelementptr inbounds i8, ptr %.pre258.pre261.pre265.pre269, i64 %188
+  %191 = getelementptr inbounds nuw i8, ptr %.pre258.pre261.pre265.pre269, i64 %188
   store ptr %191, ptr %6, align 8
-  %192 = getelementptr inbounds i8, ptr %3, i64 560
+  %192 = getelementptr inbounds nuw i8, ptr %3, i64 560
   %193 = load i8, ptr %192, align 8
   %194 = call fastcc i32 @x509_info_cert_type(ptr noundef %6, ptr noundef %5, i8 noundef zeroext %193)
   %.not238 = icmp eq i32 %194, 0
@@ -1296,9 +1296,9 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 203:                                              ; preds = %201
   %204 = sub nuw i64 %.pre260.pre263.pre267, %202
   store i64 %204, ptr %5, align 8
-  %205 = getelementptr inbounds i8, ptr %.pre258.pre261.pre265, i64 %202
+  %205 = getelementptr inbounds nuw i8, ptr %.pre258.pre261.pre265, i64 %202
   store ptr %205, ptr %6, align 8
-  %206 = getelementptr inbounds i8, ptr %3, i64 524
+  %206 = getelementptr inbounds nuw i8, ptr %3, i64 524
   %207 = load i32, ptr %206, align 4
   %208 = call fastcc i32 @x509_info_key_usage(ptr noundef %6, ptr noundef %5, i32 noundef %207)
   %.not241 = icmp eq i32 %208, 0
@@ -1331,9 +1331,9 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 217:                                              ; preds = %215
   %218 = sub nuw i64 %.pre260.pre263, %216
   store i64 %218, ptr %5, align 8
-  %219 = getelementptr inbounds i8, ptr %.pre258.pre261, i64 %216
+  %219 = getelementptr inbounds nuw i8, ptr %.pre258.pre261, i64 %216
   store ptr %219, ptr %6, align 8
-  %220 = getelementptr inbounds i8, ptr %3, i64 528
+  %220 = getelementptr inbounds nuw i8, ptr %3, i64 528
   %221 = call fastcc i32 @x509_info_ext_key_usage(ptr noundef %6, ptr noundef %5, ptr noundef %220)
   %.not244 = icmp eq i32 %221, 0
   br i1 %.not244, label %._crit_edge254, label %245
@@ -1365,9 +1365,9 @@ define hidden i32 @mbedtls_x509_crt_info(ptr noundef %0, i64 noundef %1, ptr nou
 230:                                              ; preds = %228
   %231 = sub nuw i64 %.pre260, %229
   store i64 %231, ptr %5, align 8
-  %232 = getelementptr inbounds i8, ptr %.pre258, i64 %229
+  %232 = getelementptr inbounds nuw i8, ptr %.pre258, i64 %229
   store ptr %232, ptr %6, align 8
-  %233 = getelementptr inbounds i8, ptr %3, i64 480
+  %233 = getelementptr inbounds nuw i8, ptr %3, i64 480
   %234 = call fastcc i32 @x509_info_cert_policies(ptr noundef %6, ptr noundef %5, ptr noundef %233)
   %.not247 = icmp eq i32 %234, 0
   br i1 %.not247, label %._crit_edge256, label %245
@@ -1417,13 +1417,13 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
   %5 = alloca %struct.mbedtls_x509_subject_alternative_name, align 8
   %6 = load i64, ptr %1, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
-  %12 = getelementptr inbounds i8, ptr %5, i64 48
-  %13 = getelementptr inbounds i8, ptr %5, i64 64
-  %14 = getelementptr inbounds i8, ptr %5, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 72
   br label %15
 
 15:                                               ; preds = %4, %.backedge
@@ -1455,14 +1455,14 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
 
 25:                                               ; preds = %21, %17
   %.pn = phi i64 [ %20, %17 ], [ %24, %21 ]
-  %.1 = getelementptr inbounds i8, ptr %.0123179, i64 %.pn
+  %.1 = getelementptr inbounds nuw i8, ptr %.0123179, i64 %.pn
   %.1125 = sub nuw i64 %.0124178, %.pn
   br label %.backedge
 
 .backedge:                                        ; preds = %84, %94, %69, %37, %25
   %.0124.be = phi i64 [ %.1125, %25 ], [ %95, %94 ], [ %88, %84 ], [ %73, %69 ], [ %34, %37 ]
   %.0123.be = phi ptr [ %.1, %25 ], [ %96, %94 ], [ %87, %84 ], [ %72, %69 ], [ %35, %37 ]
-  %.0122.be.in = getelementptr inbounds i8, ptr %.0122180, i64 24
+  %.0122.be.in = getelementptr inbounds nuw i8, ptr %.0122180, i64 24
   %.0122.be = load ptr, ptr %.0122.be.in, align 8
   %.not = icmp eq ptr %.0122.be, null
   br i1 %.not, label %97, label %15, !llvm.loop !8
@@ -1486,7 +1486,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
 
 33:                                               ; preds = %31
   %34 = sub nuw i64 %.0124178, %32
-  %35 = getelementptr inbounds i8, ptr %.0123179, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %.0123179, i64 %32
   %36 = load i64, ptr %11, align 8
   %.not159 = icmp eq i64 %36, 8
   br i1 %.not159, label %37, label %.critedge
@@ -1509,7 +1509,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
 
 43:                                               ; preds = %41
   %44 = sub nuw i64 %34, %42
-  %45 = getelementptr inbounds i8, ptr %35, i64 %42
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 %42
   %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %45, i64 noundef %44, ptr noundef nonnull @.str.32, ptr noundef %3) #16
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %.loopexit, label %48
@@ -1521,7 +1521,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
 
 50:                                               ; preds = %48
   %51 = sub nuw i64 %44, %49
-  %52 = getelementptr inbounds i8, ptr %45, i64 %49
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 %49
   %53 = call i32 @mbedtls_oid_get_numeric_string(ptr noundef %52, i64 noundef %51, ptr noundef nonnull %10) #16
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %.loopexit, label %55
@@ -1533,7 +1533,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
 
 57:                                               ; preds = %55
   %58 = sub nuw i64 %51, %56
-  %59 = getelementptr inbounds i8, ptr %52, i64 %56
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 %56
   %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %59, i64 noundef %58, ptr noundef nonnull @.str.33, ptr noundef %3) #16
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %.loopexit, label %62
@@ -1545,7 +1545,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
 
 64:                                               ; preds = %62
   %65 = sub nuw i64 %58, %63
-  %66 = getelementptr inbounds i8, ptr %59, i64 %63
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 %63
   %67 = load i64, ptr %13, align 8
   %.not164 = icmp ult i64 %67, %65
   br i1 %.not164, label %69, label %68
@@ -1574,7 +1574,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
 
 79:                                               ; preds = %77
   %80 = sub nuw i64 %.0124178, %78
-  %81 = getelementptr inbounds i8, ptr %.0123179, i64 %78
+  %81 = getelementptr inbounds nuw i8, ptr %.0123179, i64 %78
   %82 = load i64, ptr %8, align 8
   %.not157 = icmp ult i64 %82, %80
   br i1 %.not157, label %84, label %83
@@ -1603,7 +1603,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_subject_alt_name(ptr 
 
 94:                                               ; preds = %92
   %95 = sub nuw i64 %.0124178, %93
-  %96 = getelementptr inbounds i8, ptr %.0123179, i64 %93
+  %96 = getelementptr inbounds nuw i8, ptr %.0123179, i64 %93
   br label %.backedge
 
 97:                                               ; preds = %.backedge
@@ -1637,7 +1637,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
 
 12:                                               ; preds = %10
   %13 = sub nuw i64 %4, %11
-  %14 = getelementptr inbounds i8, ptr %5, i64 %11
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %11
   br label %15
 
 15:                                               ; preds = %12, %3
@@ -1660,7 +1660,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
 
 22:                                               ; preds = %20
   %23 = sub nuw i64 %.0101, %21
-  %24 = getelementptr inbounds i8, ptr %.094, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %.094, i64 %21
   br label %25
 
 25:                                               ; preds = %22, %15
@@ -1683,7 +1683,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
 
 32:                                               ; preds = %30
   %33 = sub nuw i64 %.1102, %31
-  %34 = getelementptr inbounds i8, ptr %.195, i64 %31
+  %34 = getelementptr inbounds nuw i8, ptr %.195, i64 %31
   br label %35
 
 35:                                               ; preds = %32, %25
@@ -1706,7 +1706,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
 
 42:                                               ; preds = %40
   %43 = sub nuw i64 %.2103, %41
-  %44 = getelementptr inbounds i8, ptr %.296, i64 %41
+  %44 = getelementptr inbounds nuw i8, ptr %.296, i64 %41
   br label %45
 
 45:                                               ; preds = %42, %35
@@ -1729,7 +1729,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
 
 52:                                               ; preds = %50
   %53 = sub nuw i64 %.3104, %51
-  %54 = getelementptr inbounds i8, ptr %.397, i64 %51
+  %54 = getelementptr inbounds nuw i8, ptr %.397, i64 %51
   br label %55
 
 55:                                               ; preds = %52, %45
@@ -1752,7 +1752,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
 
 62:                                               ; preds = %60
   %63 = sub nuw i64 %.4105, %61
-  %64 = getelementptr inbounds i8, ptr %.498, i64 %61
+  %64 = getelementptr inbounds nuw i8, ptr %.498, i64 %61
   br label %65
 
 65:                                               ; preds = %62, %55
@@ -1775,7 +1775,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
 
 72:                                               ; preds = %70
   %73 = sub nuw i64 %.5106, %71
-  %74 = getelementptr inbounds i8, ptr %.599, i64 %71
+  %74 = getelementptr inbounds nuw i8, ptr %.599, i64 %71
   br label %75
 
 75:                                               ; preds = %72, %65
@@ -1798,7 +1798,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_type(ptr nocaptu
 
 82:                                               ; preds = %80
   %83 = sub nuw i64 %.6107, %81
-  %84 = getelementptr inbounds i8, ptr %.6100, i64 %81
+  %84 = getelementptr inbounds nuw i8, ptr %.6100, i64 %81
   br label %85
 
 85:                                               ; preds = %82, %75
@@ -1833,7 +1833,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
 
 12:                                               ; preds = %10
   %13 = sub nuw i64 %4, %11
-  %14 = getelementptr inbounds i8, ptr %5, i64 %11
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %11
   br label %15
 
 15:                                               ; preds = %12, %3
@@ -1856,7 +1856,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
 
 22:                                               ; preds = %20
   %23 = sub nuw i64 %.0113, %21
-  %24 = getelementptr inbounds i8, ptr %.0105, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %.0105, i64 %21
   br label %25
 
 25:                                               ; preds = %22, %15
@@ -1879,7 +1879,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
 
 32:                                               ; preds = %30
   %33 = sub nuw i64 %.1114, %31
-  %34 = getelementptr inbounds i8, ptr %.1106, i64 %31
+  %34 = getelementptr inbounds nuw i8, ptr %.1106, i64 %31
   br label %35
 
 35:                                               ; preds = %32, %25
@@ -1902,7 +1902,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
 
 42:                                               ; preds = %40
   %43 = sub nuw i64 %.2115, %41
-  %44 = getelementptr inbounds i8, ptr %.2107, i64 %41
+  %44 = getelementptr inbounds nuw i8, ptr %.2107, i64 %41
   br label %45
 
 45:                                               ; preds = %42, %35
@@ -1925,7 +1925,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
 
 52:                                               ; preds = %50
   %53 = sub nuw i64 %.3116, %51
-  %54 = getelementptr inbounds i8, ptr %.3108, i64 %51
+  %54 = getelementptr inbounds nuw i8, ptr %.3108, i64 %51
   br label %55
 
 55:                                               ; preds = %52, %45
@@ -1948,7 +1948,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
 
 62:                                               ; preds = %60
   %63 = sub nuw i64 %.4117, %61
-  %64 = getelementptr inbounds i8, ptr %.4109, i64 %61
+  %64 = getelementptr inbounds nuw i8, ptr %.4109, i64 %61
   br label %65
 
 65:                                               ; preds = %62, %55
@@ -1971,7 +1971,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
 
 72:                                               ; preds = %70
   %73 = sub nuw i64 %.5118, %71
-  %74 = getelementptr inbounds i8, ptr %.5110, i64 %71
+  %74 = getelementptr inbounds nuw i8, ptr %.5110, i64 %71
   br label %75
 
 75:                                               ; preds = %72, %65
@@ -1994,7 +1994,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
 
 82:                                               ; preds = %80
   %83 = sub nuw i64 %.6119, %81
-  %84 = getelementptr inbounds i8, ptr %.6111, i64 %81
+  %84 = getelementptr inbounds nuw i8, ptr %.6111, i64 %81
   br label %85
 
 85:                                               ; preds = %82, %75
@@ -2017,7 +2017,7 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_key_usage(ptr nocaptu
 
 92:                                               ; preds = %90
   %93 = sub nuw i64 %.7120, %91
-  %94 = getelementptr inbounds i8, ptr %.7112, i64 %91
+  %94 = getelementptr inbounds nuw i8, ptr %.7112, i64 %91
   br label %95
 
 95:                                               ; preds = %92, %85
@@ -2069,8 +2069,8 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_ext_key_usage(ptr noc
 
 16:                                               ; preds = %14
   %17 = sub nuw i64 %.02230, %15
-  %18 = getelementptr inbounds i8, ptr %.02131, i64 %15
-  %19 = getelementptr inbounds i8, ptr %.02032, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.02131, i64 %15
+  %19 = getelementptr inbounds nuw i8, ptr %.02032, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %21, label %7, !llvm.loop !9
@@ -2122,8 +2122,8 @@ define internal fastcc range(i32 -10624, 1) i32 @x509_info_cert_policies(ptr noc
 
 16:                                               ; preds = %14
   %17 = sub nuw i64 %.02230, %15
-  %18 = getelementptr inbounds i8, ptr %.02131, i64 %15
-  %19 = getelementptr inbounds i8, ptr %.02032, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.02131, i64 %15
+  %19 = getelementptr inbounds nuw i8, ptr %.02032, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %21, label %7, !llvm.loop !10
@@ -2165,7 +2165,7 @@ define hidden i32 @mbedtls_x509_crt_verify_info(ptr nocapture noundef writeonly 
 
 15:                                               ; preds = %13
   %16 = sub nuw i64 %.052, %14
-  %17 = getelementptr inbounds i8, ptr %.03251, i64 %14
+  %17 = getelementptr inbounds nuw i8, ptr %.03251, i64 %14
   %18 = xor i32 %7, %.03549
   br label %19
 
@@ -2173,8 +2173,8 @@ define hidden i32 @mbedtls_x509_crt_verify_info(ptr nocapture noundef writeonly 
   %.136 = phi i32 [ %.03549, %5 ], [ %18, %15 ]
   %.133 = phi ptr [ %.03251, %5 ], [ %17, %15 ]
   %.1 = phi i64 [ %.052, %5 ], [ %16, %15 ]
-  %20 = getelementptr inbounds i8, ptr %.03450, i64 16
-  %21 = getelementptr inbounds i8, ptr %.03450, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.03450, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.03450, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %23, label %5, !llvm.loop !11
@@ -2210,7 +2210,7 @@ define hidden i32 @mbedtls_x509_crt_verify_info(ptr nocapture noundef writeonly 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_key_usage(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 512
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4
   %6 = icmp eq i32 %5, 0
@@ -2218,7 +2218,7 @@ define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_key_usage(ptr noc
 
 7:                                                ; preds = %2
   %8 = and i32 %1, -32770
-  %9 = getelementptr inbounds i8, ptr %0, i64 524
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, %8
   %.not = icmp eq i32 %11, %8
@@ -2239,25 +2239,25 @@ define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_key_usage(ptr noc
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_extended_key_usage(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #9 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 512
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2048
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 528
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 528
   br label %10
 
 10:                                               ; preds = %8, %.critedge
   %.01319 = phi ptr [ %9, %8 ], [ %23, %.critedge ]
-  %11 = getelementptr inbounds i8, ptr %.01319, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01319, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, %2
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.01319, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.01319, i64 16
   %16 = load ptr, ptr %15, align 8
   %bcmp = tail call i32 @bcmp(ptr %16, ptr %1, i64 %2)
   %17 = icmp eq i32 %bcmp, 0
@@ -2268,14 +2268,14 @@ define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_extended_key_usag
   br i1 %.not16, label %19, label %.critedge
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %.01319, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.01319, i64 16
   %21 = load ptr, ptr %20, align 8
   %bcmp17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.24, ptr noundef nonnull dereferenceable(4) %21, i64 4)
   %.not18 = icmp eq i32 %bcmp17, 0
   br i1 %.not18, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %18, %19
-  %22 = getelementptr inbounds i8, ptr %.01319, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.01319, i64 24
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %.loopexit, label %10, !llvm.loop !12
@@ -2287,14 +2287,14 @@ define hidden range(i32 -10240, 1) i32 @mbedtls_x509_crt_check_extended_key_usag
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @mbedtls_x509_crt_is_revoked(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 216
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %6
 
 6:                                                ; preds = %2, %17
   %.013 = phi ptr [ %3, %2 ], [ %19, %17 ]
-  %7 = getelementptr inbounds i8, ptr %.013, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.013, i64 32
   %8 = load i64, ptr %7, align 8
   %.not12 = icmp eq i64 %8, 0
   br i1 %.not12, label %.critedge, label %9
@@ -2306,14 +2306,14 @@ define hidden range(i32 0, 2) i32 @mbedtls_x509_crt_is_revoked(ptr nocapture nou
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %.013, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.013, i64 40
   %15 = load ptr, ptr %14, align 8
   %bcmp = tail call i32 @bcmp(ptr %13, ptr %15, i64 %8)
   %16 = icmp eq i32 %bcmp, 0
   br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %12, %9
-  %18 = getelementptr inbounds i8, ptr %.013, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %.013, i64 96
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.critedge, label %6, !llvm.loop !13
@@ -2343,16 +2343,16 @@ define internal fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, pt
 
 16:                                               ; preds = %16, %8
   %.06.i = phi i64 [ 0, %8 ], [ %19, %16 ]
-  %17 = getelementptr inbounds [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %15, i64 0, i64 %.06.i
+  %17 = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %15, i64 0, i64 %.06.i
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 -1, ptr %18, align 8
   %19 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %19, 10
   br i1 %exitcond.not.i, label %x509_crt_verify_chain_reset.exit, label %16, !llvm.loop !14
 
 x509_crt_verify_chain_reset.exit:                 ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %15, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 160
   store i32 0, ptr %20, align 8
   %21 = icmp eq ptr %3, null
   br i1 %21, label %x509_crt_verify_chain.exit.thread12, label %22
@@ -2363,14 +2363,14 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %16
 
 23:                                               ; preds = %22
   %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #17
-  %25 = getelementptr inbounds i8, ptr %0, i64 512
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 32
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %38, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 448
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %30
 
 30:                                               ; preds = %x509_crt_check_san.exit.thread.i, %28
@@ -2386,50 +2386,50 @@ x509_crt_check_san.exit.i:                        ; preds = %30
   br i1 %35, label %x509_crt_verify_name.exit, label %x509_crt_check_san.exit.thread.i
 
 x509_crt_check_san.exit.thread.i:                 ; preds = %x509_crt_check_san.exit.i, %30
-  %36 = getelementptr inbounds i8, ptr %.02030.i, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.02030.i, i64 24
   %37 = load ptr, ptr %36, align 8
   %cond.i = icmp eq ptr %37, null
   br i1 %cond.i, label %x509_crt_verify_name.exit, label %30, !llvm.loop !15
 
 38:                                               ; preds = %23
-  %39 = getelementptr inbounds i8, ptr %0, i64 224
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %40
 
 40:                                               ; preds = %.critedge.i, %38
   %.031.i = phi ptr [ %39, %38 ], [ %51, %.critedge.i ]
-  %41 = getelementptr inbounds i8, ptr %.031.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
   %42 = load i64, ptr %41, align 8
   %.not23.i = icmp eq i64 %42, 3
   br i1 %.not23.i, label %43, label %.critedge.i
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %.031.i, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.031.i, i64 16
   %45 = load ptr, ptr %44, align 8
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.76, ptr noundef nonnull dereferenceable(3) %45, i64 3)
   %.not24.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not24.i, label %46, label %.critedge.i
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.031.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.031.i, i64 24
   %48 = tail call fastcc i32 @x509_crt_check_cn(ptr noundef %47, ptr noundef nonnull readonly %4, i64 noundef %24)
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %x509_crt_verify_name.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %46, %43, %40
-  %50 = getelementptr inbounds i8, ptr %.031.i, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.031.i, i64 48
   %51 = load ptr, ptr %50, align 8
   %cond27.i = icmp eq ptr %51, null
   br i1 %cond27.i, label %x509_crt_verify_name.exit, label %40, !llvm.loop !16
 
 x509_crt_verify_name.exit:                        ; preds = %x509_crt_check_san.exit.i, %x509_crt_check_san.exit.thread.i, %46, %.critedge.i, %22
   %.1 = phi i32 [ 0, %22 ], [ 4, %.critedge.i ], [ 0, %46 ], [ 4, %x509_crt_check_san.exit.thread.i ], [ 0, %x509_crt_check_san.exit.i ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 360
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %53 = tail call i32 @mbedtls_pk_get_type(ptr noundef nonnull %52) #16
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %x509_profile_check_pk_alg.exit.thread, label %x509_profile_check_pk_alg.exit
 
 x509_profile_check_pk_alg.exit:                   ; preds = %x509_crt_verify_name.exit
-  %55 = getelementptr inbounds i8, ptr %3, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %53, -1
   %58 = shl nuw i32 1, %57
@@ -2451,7 +2451,7 @@ x509_profile_check_pk_alg.exit.thread:            ; preds = %x509_crt_verify_nam
 
 63:                                               ; preds = %61, %61
   %64 = tail call i64 @mbedtls_pk_get_bitlen(ptr noundef nonnull %52) #16
-  %65 = getelementptr inbounds i8, ptr %3, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = zext i32 %66 to i64
   %.not19.i = icmp ult i64 %64, %67
@@ -2464,11 +2464,11 @@ x509_profile_check_pk_alg.exit.thread:            ; preds = %x509_crt_verify_nam
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr %52, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 368
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %73 = load ptr, ptr %72, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   store ptr %71, ptr %14, align 8
-  %74 = getelementptr inbounds i8, ptr %14, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %73, ptr %74, align 8
   %75 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %14) #16
   %76 = load ptr, ptr %74, align 8
@@ -2478,7 +2478,7 @@ x509_profile_check_pk_alg.exit.thread:            ; preds = %x509_crt_verify_nam
   br i1 %78, label %x509_profile_check_key.exit.thread, label %x509_profile_check_key.exit
 
 x509_profile_check_key.exit:                      ; preds = %70
-  %79 = getelementptr inbounds i8, ptr %3, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %77, -1
   %82 = shl nuw i32 1, %81
@@ -2492,13 +2492,13 @@ x509_profile_check_key.exit.thread:               ; preds = %63, %68, %70, %x509
 
 85:                                               ; preds = %63, %x509_profile_check_key.exit.thread, %x509_profile_check_key.exit
   %.3 = phi i32 [ %.2, %x509_profile_check_key.exit ], [ %84, %x509_profile_check_key.exit.thread ], [ %.2, %63 ]
-  %86 = getelementptr inbounds i8, ptr %3, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not1213.i.i = icmp eq ptr %1, null
-  %87 = getelementptr inbounds i8, ptr %3, i64 12
-  %88 = getelementptr inbounds i8, ptr %12, i64 8
-  %89 = getelementptr inbounds i8, ptr %3, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.not9295.i.i = icmp eq ptr %2, null
-  %90 = getelementptr inbounds i8, ptr %10, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %91
 
 91:                                               ; preds = %x509_crt_verifycrl.exit.i, %85
@@ -2507,14 +2507,14 @@ x509_profile_check_key.exit.thread:               ; preds = %63, %68, %70, %x509
   %.041.i = phi i32 [ 0, %85 ], [ %.09.i, %x509_crt_verifycrl.exit.i ]
   %.0.i39 = phi i32 [ 0, %85 ], [ %.133.i, %x509_crt_verifycrl.exit.i ]
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %15, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %15, i64 0, i64 %93
   store ptr %.042.i, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 0, ptr %95, align 8
   %96 = load i32, ptr %20, align 8
   %97 = add i32 %96, 1
   store i32 %97, ptr %20, align 8
-  %98 = getelementptr inbounds i8, ptr %.042.i, i64 312
+  %98 = getelementptr inbounds nuw i8, ptr %.042.i, i64 312
   %99 = call i32 @mbedtls_x509_time_is_past(ptr noundef nonnull %98) #16
   %.not.i40 = icmp eq i32 %99, 0
   br i1 %.not.i40, label %103, label %100
@@ -2526,7 +2526,7 @@ x509_profile_check_key.exit.thread:               ; preds = %63, %68, %70, %x509
   br label %103
 
 103:                                              ; preds = %100, %91
-  %104 = getelementptr inbounds i8, ptr %.042.i, i64 288
+  %104 = getelementptr inbounds nuw i8, ptr %.042.i, i64 288
   %105 = call i32 @mbedtls_x509_time_is_future(ptr noundef nonnull %104) #16
   %.not44.i = icmp eq i32 %105, 0
   br i1 %.not44.i, label %109, label %106
@@ -2542,7 +2542,7 @@ x509_profile_check_key.exit.thread:               ; preds = %63, %68, %70, %x509
   br i1 %.not45.i, label %110, label %.loopexit25
 
 110:                                              ; preds = %109
-  %111 = getelementptr inbounds i8, ptr %.042.i, i64 592
+  %111 = getelementptr inbounds nuw i8, ptr %.042.i, i64 592
   %112 = load i32, ptr %111, align 8
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %x509_profile_check_md_alg.exit.thread.i, label %x509_profile_check_md_alg.exit.i
@@ -2562,7 +2562,7 @@ x509_profile_check_md_alg.exit.thread.i:          ; preds = %x509_profile_check_
   br label %120
 
 120:                                              ; preds = %x509_profile_check_md_alg.exit.thread.i, %x509_profile_check_md_alg.exit.i
-  %121 = getelementptr inbounds i8, ptr %.042.i, i64 596
+  %121 = getelementptr inbounds nuw i8, ptr %.042.i, i64 596
   %122 = load i32, ptr %121, align 4
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %x509_profile_check_pk_alg.exit.thread.i, label %x509_profile_check_pk_alg.exit.i
@@ -2587,51 +2587,51 @@ x509_profile_check_pk_alg.exit.thread.i:          ; preds = %x509_profile_check_
   br i1 %132, label %133, label %x509_crt_check_ee_locally_trusted.exit.thread.i
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds i8, ptr %.042.i, i64 160
-  %135 = getelementptr inbounds i8, ptr %.042.i, i64 224
+  %134 = getelementptr inbounds nuw i8, ptr %.042.i, i64 160
+  %135 = getelementptr inbounds nuw i8, ptr %.042.i, i64 224
   %136 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull readonly %134, ptr noundef nonnull readonly %135)
   %.not.i55.i = icmp eq i32 %136, 0
   br i1 %.not.i55.i, label %.preheader.i.i, label %x509_crt_check_ee_locally_trusted.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %133
-  %137 = getelementptr inbounds i8, ptr %.042.i, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %.042.i, i64 24
   br i1 %.not1213.i.i, label %x509_crt_check_ee_locally_trusted.exit.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %138 = getelementptr inbounds i8, ptr %.042.i, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %.042.i, i64 16
   %139 = load i64, ptr %138, align 8
   br label %140
 
 140:                                              ; preds = %149, %.lr.ph.i.i
   %.014.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %151, %149 ]
-  %141 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %142 = load i64, ptr %141, align 8
   %143 = icmp eq i64 %139, %142
   br i1 %143, label %144, label %149
 
 144:                                              ; preds = %140
   %145 = load ptr, ptr %137, align 8
-  %146 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %147 = load ptr, ptr %146, align 8
   %bcmp.i.i = call i32 @bcmp(ptr %145, ptr %147, i64 %139)
   %148 = icmp eq i32 %bcmp.i.i, 0
   br i1 %148, label %.loopexit25, label %149
 
 149:                                              ; preds = %144, %140
-  %150 = getelementptr inbounds i8, ptr %.014.i.i, i64 608
+  %150 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 608
   %151 = load ptr, ptr %150, align 8
   %.not12.i.i = icmp eq ptr %151, null
   br i1 %.not12.i.i, label %x509_crt_check_ee_locally_trusted.exit.thread.i, label %140, !llvm.loop !17
 
 x509_crt_check_ee_locally_trusted.exit.thread.i:  ; preds = %149, %.preheader.i.i, %133, %130
-  %152 = getelementptr inbounds i8, ptr %.042.i, i64 160
+  %152 = getelementptr inbounds nuw i8, ptr %.042.i, i64 160
   %153 = sub i32 %131, %.0.i39
-  %154 = getelementptr inbounds i8, ptr %.042.i, i64 48
-  %155 = getelementptr inbounds i8, ptr %.042.i, i64 40
-  %156 = getelementptr inbounds i8, ptr %.042.i, i64 600
-  %157 = getelementptr inbounds i8, ptr %.042.i, i64 584
-  %158 = getelementptr inbounds i8, ptr %.042.i, i64 576
-  %159 = getelementptr inbounds i8, ptr %.042.i, i64 608
+  %154 = getelementptr inbounds nuw i8, ptr %.042.i, i64 48
+  %155 = getelementptr inbounds nuw i8, ptr %.042.i, i64 40
+  %156 = getelementptr inbounds nuw i8, ptr %.042.i, i64 600
+  %157 = getelementptr inbounds nuw i8, ptr %.042.i, i64 584
+  %158 = getelementptr inbounds nuw i8, ptr %.042.i, i64 576
+  %159 = getelementptr inbounds nuw i8, ptr %.042.i, i64 608
   br label %160
 
 160:                                              ; preds = %284, %x509_crt_check_ee_locally_trusted.exit.thread.i
@@ -2645,7 +2645,7 @@ x509_crt_check_ee_locally_trusted.exit.thread.i:  ; preds = %149, %.preheader.i.
   %.07.i.i.i = phi i32 [ %.1.i.i.i, %x509_crt_check_parent.exit.thread.i.i.i ], [ 0, %160 ]
   %.0306.i.i.i = phi ptr [ %.131.i.i.i, %x509_crt_check_parent.exit.thread.i.i.i ], [ null, %160 ]
   %.0325.i.i.i = phi ptr [ %283, %x509_crt_check_parent.exit.thread.i.i.i ], [ %161, %160 ]
-  %162 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 224
+  %162 = getelementptr inbounds nuw i8, ptr %.0325.i.i.i, i64 224
   br label %.lr.ph.i18.i.i
 
 .lr.ph.i18.i.i:                                   ; preds = %226, %.lr.ph.i.i.i
@@ -2663,42 +2663,42 @@ x509_crt_check_ee_locally_trusted.exit.thread.i:  ; preds = %149, %.preheader.i.
   br i1 %.not.i.i.i, label %168, label %x509_crt_check_parent.exit.thread.i.i.i
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %.01828.i.i.i, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 8
   %170 = load i64, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %.029.i.i.i, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 8
   %172 = load i64, ptr %171, align 8
   %.not21.i.i.i = icmp eq i64 %170, %172
   br i1 %.not21.i.i.i, label %173, label %x509_crt_check_parent.exit.thread.i.i.i
 
 173:                                              ; preds = %168
-  %174 = getelementptr inbounds i8, ptr %.01828.i.i.i, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 16
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %.029.i.i.i, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 16
   %177 = load ptr, ptr %176, align 8
   %bcmp.i.i.i = call i32 @bcmp(ptr %175, ptr %177, i64 %170)
   %.not22.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not22.i.i.i, label %178, label %x509_crt_check_parent.exit.thread.i.i.i
 
 178:                                              ; preds = %173
-  %179 = getelementptr inbounds i8, ptr %.01828.i.i.i, i64 24
-  %180 = getelementptr inbounds i8, ptr %.029.i.i.i, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 24
   %181 = load i32, ptr %179, align 8
   %182 = load i32, ptr %180, align 8
   %183 = icmp eq i32 %181, %182
   br i1 %183, label %184, label %196
 
 184:                                              ; preds = %178
-  %185 = getelementptr inbounds i8, ptr %.01828.i.i.i, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 32
   %186 = load i64, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %.029.i.i.i, i64 32
+  %187 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 32
   %188 = load i64, ptr %187, align 8
   %189 = icmp eq i64 %186, %188
   br i1 %189, label %190, label %196
 
 190:                                              ; preds = %184
-  %191 = getelementptr inbounds i8, ptr %.01828.i.i.i, i64 40
+  %191 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 40
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %.029.i.i.i, i64 40
+  %193 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 40
   %194 = load ptr, ptr %193, align 8
   %bcmp.i.i.i.i = call i32 @bcmp(ptr %192, ptr %194, i64 %186)
   %195 = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -2717,17 +2717,17 @@ x509_crt_check_ee_locally_trusted.exit.thread.i:  ; preds = %149, %.preheader.i.
   ]
 
 198:                                              ; preds = %197, %197
-  %199 = getelementptr inbounds i8, ptr %.01828.i.i.i, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 32
   %200 = load i64, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %.029.i.i.i, i64 32
+  %201 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 32
   %202 = load i64, ptr %201, align 8
   %203 = icmp eq i64 %200, %202
   br i1 %203, label %204, label %x509_crt_check_parent.exit.thread.i.i.i
 
 204:                                              ; preds = %198
-  %205 = getelementptr inbounds i8, ptr %.01828.i.i.i, i64 40
+  %205 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 40
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %.029.i.i.i, i64 40
+  %207 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 40
   %208 = load ptr, ptr %207, align 8
   %.not.i.i.i.i.i = icmp eq i64 %200, 0
   br i1 %.not.i.i.i.i.i, label %x509_string_cmp.exit.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -2758,17 +2758,17 @@ x509_crt_check_ee_locally_trusted.exit.thread.i:  ; preds = %149, %.preheader.i.
   br i1 %exitcond.not.i.i.i.i.i, label %x509_string_cmp.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !18
 
 x509_string_cmp.exit.i.i.i:                       ; preds = %220, %204, %190
-  %222 = getelementptr inbounds i8, ptr %.01828.i.i.i, i64 56
+  %222 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 56
   %223 = load i8, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %.029.i.i.i, i64 56
+  %224 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 56
   %225 = load i8, ptr %224, align 8
   %.not24.i.i.i = icmp eq i8 %223, %225
   br i1 %.not24.i.i.i, label %226, label %x509_crt_check_parent.exit.thread.i.i.i
 
 226:                                              ; preds = %x509_string_cmp.exit.i.i.i
-  %227 = getelementptr inbounds i8, ptr %.01828.i.i.i, i64 48
+  %227 = getelementptr inbounds nuw i8, ptr %.01828.i.i.i, i64 48
   %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %.029.i.i.i, i64 48
+  %229 = getelementptr inbounds nuw i8, ptr %.029.i.i.i, i64 48
   %230 = load ptr, ptr %229, align 8
   %231 = icmp ne ptr %228, null
   %232 = icmp ne ptr %230, null
@@ -2779,33 +2779,33 @@ x509_name_cmp.exit.i.i:                           ; preds = %226
   br i1 %.not9.i.i.i.i, label %.thread.i.i.i.i, label %234
 
 234:                                              ; preds = %x509_name_cmp.exit.i.i
-  %235 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 56
+  %235 = getelementptr inbounds nuw i8, ptr %.0325.i.i.i, i64 56
   %236 = load i32, ptr %235, align 8
   %237 = icmp slt i32 %236, 3
   br i1 %237, label %x509_crt_check_parent.exit.i.i.i, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %234, %x509_name_cmp.exit.i.i
-  %238 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 516
+  %238 = getelementptr inbounds nuw i8, ptr %.0325.i.i.i, i64 516
   %239 = load i32, ptr %238, align 4
   %.not11.i.i.i.i = icmp eq i32 %239, 0
   br i1 %.not11.i.i.i.i, label %x509_crt_check_parent.exit.thread.i.i.i, label %240
 
 240:                                              ; preds = %.thread.i.i.i.i
-  %241 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 512
+  %241 = getelementptr inbounds nuw i8, ptr %.0325.i.i.i, i64 512
   %242 = load i32, ptr %241, align 8
   %243 = and i32 %242, 4
   %244 = icmp eq i32 %243, 0
   br i1 %244, label %x509_crt_check_parent.exit.i.i.i, label %245
 
 245:                                              ; preds = %240
-  %246 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 524
+  %246 = getelementptr inbounds nuw i8, ptr %.0325.i.i.i, i64 524
   %247 = load i32, ptr %246, align 4
   %248 = and i32 %247, 32773
   %or.cond.i.i.i.i = icmp eq i32 %248, 4
   br i1 %or.cond.i.i.i.i, label %x509_crt_check_parent.exit.i.i.i, label %x509_crt_check_parent.exit.thread.i.i.i
 
 x509_crt_check_parent.exit.i.i.i:                 ; preds = %245, %240, %234
-  %249 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 520
+  %249 = getelementptr inbounds nuw i8, ptr %.0325.i.i.i, i64 520
   %250 = load i32, ptr %249, align 8
   %251 = icmp sgt i32 %250, 0
   %252 = icmp ult i32 %250, %153
@@ -2825,7 +2825,7 @@ x509_crt_check_parent.exit.i.i.i:                 ; preds = %245, %240, %234
   br i1 %.not.i38.i.i.i, label %261, label %x509_crt_check_signature.exit.i.i.i
 
 261:                                              ; preds = %253
-  %262 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 360
+  %262 = getelementptr inbounds nuw i8, ptr %.0325.i.i.i, i64 360
   %263 = load i32, ptr %121, align 4
   %264 = call i32 @mbedtls_pk_can_do(ptr noundef nonnull %262, i32 noundef %263) #16
   %.not14.i.i.i.i = icmp eq i32 %264, 0
@@ -2849,13 +2849,13 @@ x509_crt_check_signature.exit.i.i.i:              ; preds = %265, %261, %253
   br i1 %or.cond.i.i.i, label %274, label %x509_crt_check_parent.exit.thread.i.i.i
 
 274:                                              ; preds = %x509_crt_check_signature.exit.i.i.i
-  %275 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 312
+  %275 = getelementptr inbounds nuw i8, ptr %.0325.i.i.i, i64 312
   %276 = call i32 @mbedtls_x509_time_is_past(ptr noundef nonnull %275) #16
   %.not35.i.i.i = icmp eq i32 %276, 0
   br i1 %.not35.i.i.i, label %277, label %280
 
 277:                                              ; preds = %274
-  %278 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 288
+  %278 = getelementptr inbounds nuw i8, ptr %.0325.i.i.i, i64 288
   %279 = call i32 @mbedtls_x509_time_is_future(ptr noundef nonnull %278) #16
   %.not36.i.i.i = icmp eq i32 %279, 0
   br i1 %.not36.i.i.i, label %x509_crt_find_parent_in.exit.i.thread22.i, label %280
@@ -2869,7 +2869,7 @@ x509_crt_check_signature.exit.i.i.i:              ; preds = %265, %261, %253
 x509_crt_check_parent.exit.thread.i.i.i:          ; preds = %x509_string_cmp.exit.i.i.i, %198, %197, %196, %173, %168, %165, %.lr.ph.i18.i.i, %217, %214, %280, %x509_crt_check_signature.exit.i.i.i, %x509_crt_check_parent.exit.i.i.i, %245, %.thread.i.i.i.i
   %.131.i.i.i = phi ptr [ %.0306.i.i.i, %x509_crt_check_signature.exit.i.i.i ], [ %spec.select.i.i.i, %280 ], [ %.0306.i.i.i, %.thread.i.i.i.i ], [ %.0306.i.i.i, %245 ], [ %.0306.i.i.i, %x509_crt_check_parent.exit.i.i.i ], [ %.0306.i.i.i, %214 ], [ %.0306.i.i.i, %217 ], [ %.0306.i.i.i, %.lr.ph.i18.i.i ], [ %.0306.i.i.i, %165 ], [ %.0306.i.i.i, %168 ], [ %.0306.i.i.i, %173 ], [ %.0306.i.i.i, %196 ], [ %.0306.i.i.i, %197 ], [ %.0306.i.i.i, %198 ], [ %.0306.i.i.i, %x509_string_cmp.exit.i.i.i ]
   %.1.i.i.i = phi i32 [ %.07.i.i.i, %x509_crt_check_signature.exit.i.i.i ], [ %spec.select37.i.i.i, %280 ], [ %.07.i.i.i, %.thread.i.i.i.i ], [ %.07.i.i.i, %245 ], [ %.07.i.i.i, %x509_crt_check_parent.exit.i.i.i ], [ %.07.i.i.i, %214 ], [ %.07.i.i.i, %217 ], [ %.07.i.i.i, %.lr.ph.i18.i.i ], [ %.07.i.i.i, %165 ], [ %.07.i.i.i, %168 ], [ %.07.i.i.i, %173 ], [ %.07.i.i.i, %196 ], [ %.07.i.i.i, %197 ], [ %.07.i.i.i, %198 ], [ %.07.i.i.i, %x509_string_cmp.exit.i.i.i ]
-  %282 = getelementptr inbounds i8, ptr %.0325.i.i.i, i64 608
+  %282 = getelementptr inbounds nuw i8, ptr %.0325.i.i.i, i64 608
   %283 = load ptr, ptr %282, align 8
   %cond.i.i.i = icmp eq ptr %283, null
   br i1 %cond.i.i.i, label %x509_crt_find_parent_in.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !20
@@ -2899,7 +2899,7 @@ x509_crt_find_parent_in.exit.i.thread22.i:        ; preds = %x509_crt_find_paren
   br i1 %.not48.i, label %.thread35.i, label %289
 
 289:                                              ; preds = %x509_crt_find_parent_in.exit.i.thread22.i
-  %290 = getelementptr inbounds i8, ptr %.042.i, i64 224
+  %290 = getelementptr inbounds nuw i8, ptr %.042.i, i64 224
   %291 = call fastcc i32 @x509_name_cmp(ptr noundef nonnull %152, ptr noundef nonnull %290)
   %292 = icmp eq i32 %291, 0
   %293 = zext i1 %292 to i32
@@ -2920,7 +2920,7 @@ x509_crt_find_parent_in.exit.i.thread22.i:        ; preds = %x509_crt_find_paren
   br label %298
 
 298:                                              ; preds = %295, %.thread35.i
-  %299 = getelementptr inbounds i8, ptr %storemerge3.i.i18.ph.i, i64 360
+  %299 = getelementptr inbounds nuw i8, ptr %storemerge3.i.i18.ph.i, i64 360
   %300 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %299) #16
   switch i32 %300, label %305 [
     i32 6, label %301
@@ -2941,7 +2941,7 @@ x509_crt_find_parent_in.exit.i.thread22.i:        ; preds = %x509_crt_find_paren
 
 307:                                              ; preds = %305
   %308 = load ptr, ptr %299, align 8
-  %309 = getelementptr inbounds i8, ptr %storemerge3.i.i18.ph.i, i64 368
+  %309 = getelementptr inbounds nuw i8, ptr %storemerge3.i.i18.ph.i, i64 368
   %310 = load ptr, ptr %309, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   store ptr %308, ptr %12, align 8
@@ -2972,12 +2972,12 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
   br i1 %.not9295.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %321
-  %322 = getelementptr inbounds i8, ptr %storemerge3.i.i18.ph.i, i64 224
-  %323 = getelementptr inbounds i8, ptr %storemerge3.i.i18.ph.i, i64 512
-  %324 = getelementptr inbounds i8, ptr %storemerge3.i.i18.ph.i, i64 524
-  %325 = getelementptr inbounds i8, ptr %storemerge3.i.i18.ph.i, i64 368
-  %326 = getelementptr inbounds i8, ptr %.042.i, i64 80
-  %327 = getelementptr inbounds i8, ptr %.042.i, i64 72
+  %322 = getelementptr inbounds nuw i8, ptr %storemerge3.i.i18.ph.i, i64 224
+  %323 = getelementptr inbounds nuw i8, ptr %storemerge3.i.i18.ph.i, i64 512
+  %324 = getelementptr inbounds nuw i8, ptr %storemerge3.i.i18.ph.i, i64 524
+  %325 = getelementptr inbounds nuw i8, ptr %storemerge3.i.i18.ph.i, i64 368
+  %326 = getelementptr inbounds nuw i8, ptr %.042.i, i64 80
+  %327 = getelementptr inbounds nuw i8, ptr %.042.i, i64 72
   br label %.lr.ph.i59.i
 
 .lr.ph.i59.i:                                     ; preds = %.outer.i.i, %.lr.ph.lr.ph.i.i
@@ -2987,13 +2987,13 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
 
 328:                                              ; preds = %x509_name_cmp.exit.thread.i, %.lr.ph.i59.i
   %.04193.i.i = phi ptr [ %.041.ph97.i.i, %.lr.ph.i59.i ], [ %406, %x509_name_cmp.exit.thread.i ]
-  %329 = getelementptr inbounds i8, ptr %.04193.i.i, i64 48
+  %329 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 48
   %330 = load i32, ptr %329, align 8
   %331 = icmp eq i32 %330, 0
   br i1 %331, label %x509_name_cmp.exit.thread.i, label %332
 
 332:                                              ; preds = %328
-  %333 = getelementptr inbounds i8, ptr %.04193.i.i, i64 104
+  %333 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 104
   br label %.lr.ph.i63.i
 
 .lr.ph.i63.i:                                     ; preds = %397, %332
@@ -3011,42 +3011,42 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
   br i1 %.not.i65.i, label %339, label %x509_name_cmp.exit.thread.i
 
 339:                                              ; preds = %336
-  %340 = getelementptr inbounds i8, ptr %.01828.i.i, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %.01828.i.i, i64 8
   %341 = load i64, ptr %340, align 8
-  %342 = getelementptr inbounds i8, ptr %.029.i.i, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 8
   %343 = load i64, ptr %342, align 8
   %.not21.i.i = icmp eq i64 %341, %343
   br i1 %.not21.i.i, label %344, label %x509_name_cmp.exit.thread.i
 
 344:                                              ; preds = %339
-  %345 = getelementptr inbounds i8, ptr %.01828.i.i, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %.01828.i.i, i64 16
   %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %.029.i.i, i64 16
+  %347 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 16
   %348 = load ptr, ptr %347, align 8
   %bcmp.i66.i = call i32 @bcmp(ptr %346, ptr %348, i64 %341)
   %.not22.i.i = icmp eq i32 %bcmp.i66.i, 0
   br i1 %.not22.i.i, label %349, label %x509_name_cmp.exit.thread.i
 
 349:                                              ; preds = %344
-  %350 = getelementptr inbounds i8, ptr %.01828.i.i, i64 24
-  %351 = getelementptr inbounds i8, ptr %.029.i.i, i64 24
+  %350 = getelementptr inbounds nuw i8, ptr %.01828.i.i, i64 24
+  %351 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 24
   %352 = load i32, ptr %350, align 8
   %353 = load i32, ptr %351, align 8
   %354 = icmp eq i32 %352, %353
   br i1 %354, label %355, label %367
 
 355:                                              ; preds = %349
-  %356 = getelementptr inbounds i8, ptr %.01828.i.i, i64 32
+  %356 = getelementptr inbounds nuw i8, ptr %.01828.i.i, i64 32
   %357 = load i64, ptr %356, align 8
-  %358 = getelementptr inbounds i8, ptr %.029.i.i, i64 32
+  %358 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 32
   %359 = load i64, ptr %358, align 8
   %360 = icmp eq i64 %357, %359
   br i1 %360, label %361, label %367
 
 361:                                              ; preds = %355
-  %362 = getelementptr inbounds i8, ptr %.01828.i.i, i64 40
+  %362 = getelementptr inbounds nuw i8, ptr %.01828.i.i, i64 40
   %363 = load ptr, ptr %362, align 8
-  %364 = getelementptr inbounds i8, ptr %.029.i.i, i64 40
+  %364 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 40
   %365 = load ptr, ptr %364, align 8
   %bcmp.i.i67.i = call i32 @bcmp(ptr %363, ptr %365, i64 %357)
   %366 = icmp eq i32 %bcmp.i.i67.i, 0
@@ -3065,17 +3065,17 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
   ]
 
 369:                                              ; preds = %368, %368
-  %370 = getelementptr inbounds i8, ptr %.01828.i.i, i64 32
+  %370 = getelementptr inbounds nuw i8, ptr %.01828.i.i, i64 32
   %371 = load i64, ptr %370, align 8
-  %372 = getelementptr inbounds i8, ptr %.029.i.i, i64 32
+  %372 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 32
   %373 = load i64, ptr %372, align 8
   %374 = icmp eq i64 %371, %373
   br i1 %374, label %375, label %x509_name_cmp.exit.thread.i
 
 375:                                              ; preds = %369
-  %376 = getelementptr inbounds i8, ptr %.01828.i.i, i64 40
+  %376 = getelementptr inbounds nuw i8, ptr %.01828.i.i, i64 40
   %377 = load ptr, ptr %376, align 8
-  %378 = getelementptr inbounds i8, ptr %.029.i.i, i64 40
+  %378 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 40
   %379 = load ptr, ptr %378, align 8
   %.not.i.i.i.i = icmp eq i64 %371, 0
   br i1 %.not.i.i.i.i, label %x509_string_cmp.exit.i.i, label %.lr.ph.i.i.i.i
@@ -3106,17 +3106,17 @@ x509_profile_check_key.exit.thread.i:             ; preds = %x509_profile_check_
   br i1 %exitcond.not.i.i.i.i, label %x509_string_cmp.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
 
 x509_string_cmp.exit.i.i:                         ; preds = %391, %375, %361
-  %393 = getelementptr inbounds i8, ptr %.01828.i.i, i64 56
+  %393 = getelementptr inbounds nuw i8, ptr %.01828.i.i, i64 56
   %394 = load i8, ptr %393, align 8
-  %395 = getelementptr inbounds i8, ptr %.029.i.i, i64 56
+  %395 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 56
   %396 = load i8, ptr %395, align 8
   %.not24.i.i = icmp eq i8 %394, %396
   br i1 %.not24.i.i, label %397, label %x509_name_cmp.exit.thread.i
 
 397:                                              ; preds = %x509_string_cmp.exit.i.i
-  %398 = getelementptr inbounds i8, ptr %.01828.i.i, i64 48
+  %398 = getelementptr inbounds nuw i8, ptr %.01828.i.i, i64 48
   %399 = load ptr, ptr %398, align 8
-  %400 = getelementptr inbounds i8, ptr %.029.i.i, i64 48
+  %400 = getelementptr inbounds nuw i8, ptr %.029.i.i, i64 48
   %401 = load ptr, ptr %400, align 8
   %402 = icmp ne ptr %399, null
   %403 = icmp ne ptr %401, null
@@ -3124,7 +3124,7 @@ x509_string_cmp.exit.i.i:                         ; preds = %391, %375, %361
   br i1 %404, label %.lr.ph.i63.i, label %x509_name_cmp.exit.i, !llvm.loop !19
 
 x509_name_cmp.exit.thread.i:                      ; preds = %x509_string_cmp.exit.i.i, %369, %368, %367, %344, %339, %336, %.lr.ph.i63.i, %388, %385, %328
-  %405 = getelementptr inbounds i8, ptr %.04193.i.i, i64 408
+  %405 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 408
   %406 = load ptr, ptr %405, align 8
   %.not.i60.i = icmp eq ptr %406, null
   br i1 %.not.i60.i, label %x509_crt_verifycrl.exit.i, label %328, !llvm.loop !21
@@ -3146,7 +3146,7 @@ mbedtls_x509_crt_check_key_usage.exit.i.i:        ; preds = %410
   br label %x509_crt_verifycrl.exit.i
 
 select.unfold.i.i:                                ; preds = %410, %x509_name_cmp.exit.i
-  %414 = getelementptr inbounds i8, ptr %.04193.i.i, i64 392
+  %414 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 392
   %415 = load i32, ptr %414, align 8
   %416 = icmp eq i32 %415, 0
   br i1 %416, label %x509_profile_check_md_alg.exit.thread.i.i, label %x509_profile_check_md_alg.exit.i.i
@@ -3168,7 +3168,7 @@ x509_profile_check_md_alg.exit.i.i:               ; preds = %select.unfold.i.i
 
 423:                                              ; preds = %x509_profile_check_md_alg.exit.i.i, %x509_profile_check_md_alg.exit.thread.i.i
   %424 = phi i32 [ %417, %x509_profile_check_md_alg.exit.thread.i.i ], [ %spec.select.i.i, %x509_profile_check_md_alg.exit.i.i ]
-  %425 = getelementptr inbounds i8, ptr %.04193.i.i, i64 396
+  %425 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 396
   %426 = load i32, ptr %425, align 4
   %427 = icmp eq i32 %426, 0
   br i1 %427, label %x509_profile_check_pk_alg.exit.thread.i.i, label %x509_profile_check_pk_alg.exit.i.i
@@ -3193,9 +3193,9 @@ x509_profile_check_pk_alg.exit.i.i:               ; preds = %423
   %436 = call ptr @mbedtls_md_info_from_type(i32 noundef %415) #16
   %437 = call zeroext i8 @mbedtls_md_get_size(ptr noundef %436) #16
   %438 = zext i8 %437 to i64
-  %439 = getelementptr inbounds i8, ptr %.04193.i.i, i64 40
+  %439 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 40
   %440 = load ptr, ptr %439, align 8
-  %441 = getelementptr inbounds i8, ptr %.04193.i.i, i64 32
+  %441 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 32
   %442 = load i64, ptr %441, align 8
   %443 = call i32 @mbedtls_md(ptr noundef %436, ptr noundef %440, i64 noundef %442, ptr noundef nonnull %11) #16
   %.not47.i.i = icmp eq i32 %443, 0
@@ -3259,12 +3259,12 @@ x509_profile_check_key.exit.i.i:                  ; preds = %461, %448
 468:                                              ; preds = %x509_profile_check_key.exit.i.i, %x509_profile_check_key.exit.thread.i.i
   %469 = phi i32 [ %466, %x509_profile_check_key.exit.thread.i.i ], [ %spec.select81.i.i, %x509_profile_check_key.exit.i.i ]
   %470 = load i32, ptr %425, align 4
-  %471 = getelementptr inbounds i8, ptr %.04193.i.i, i64 400
+  %471 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 400
   %472 = load ptr, ptr %471, align 8
   %473 = load i32, ptr %414, align 8
-  %474 = getelementptr inbounds i8, ptr %.04193.i.i, i64 384
+  %474 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 384
   %475 = load ptr, ptr %474, align 8
-  %476 = getelementptr inbounds i8, ptr %.04193.i.i, i64 376
+  %476 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 376
   %477 = load i64, ptr %476, align 8
   %478 = call i32 @mbedtls_pk_verify_ext(i32 noundef %470, ptr noundef %472, ptr noundef nonnull %299, i32 noundef %473, ptr noundef nonnull %11, i64 noundef %438, ptr noundef %475, i64 noundef %477) #16
   %.not49.i.i = icmp eq i32 %478, 0
@@ -3275,22 +3275,22 @@ x509_profile_check_key.exit.i.i:                  ; preds = %461, %448
   br label %x509_crt_verifycrl.exit.i
 
 481:                                              ; preds = %468
-  %482 = getelementptr inbounds i8, ptr %.04193.i.i, i64 192
+  %482 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 192
   %483 = call i32 @mbedtls_x509_time_is_past(ptr noundef nonnull %482) #16
   %.not50.i.i = icmp eq i32 %483, 0
   %484 = or i32 %469, 32
   %spec.select54.i.i = select i1 %.not50.i.i, i32 %469, i32 %484
-  %485 = getelementptr inbounds i8, ptr %.04193.i.i, i64 168
+  %485 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 168
   %486 = call i32 @mbedtls_x509_time_is_future(ptr noundef nonnull %485) #16
   %.not51.i.i = icmp eq i32 %486, 0
   %487 = or i32 %spec.select54.i.i, 1024
   %.6.i.i = select i1 %.not51.i.i, i32 %spec.select54.i.i, i32 %487
-  %488 = getelementptr inbounds i8, ptr %.04193.i.i, i64 216
+  %488 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 216
   br label %489
 
 489:                                              ; preds = %500, %481
   %.013.i.i.i = phi ptr [ %488, %481 ], [ %502, %500 ]
-  %490 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 32
+  %490 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
   %491 = load i64, ptr %490, align 8
   %.not12.i.i.i = icmp eq i64 %491, 0
   br i1 %.not12.i.i.i, label %.outer.i.i, label %492
@@ -3302,14 +3302,14 @@ x509_profile_check_key.exit.i.i:                  ; preds = %461, %448
 
 495:                                              ; preds = %492
   %496 = load ptr, ptr %326, align 8
-  %497 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 40
+  %497 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 40
   %498 = load ptr, ptr %497, align 8
   %bcmp.i.i62.i = call i32 @bcmp(ptr %496, ptr %498, i64 %491)
   %499 = icmp eq i32 %bcmp.i.i62.i, 0
   br i1 %499, label %mbedtls_x509_crt_is_revoked.exit.i.i, label %500
 
 500:                                              ; preds = %495, %492
-  %501 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 96
+  %501 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 96
   %502 = load ptr, ptr %501, align 8
   %.not.i64.i.i = icmp eq ptr %502, null
   br i1 %.not.i64.i.i, label %.outer.i.i, label %489, !llvm.loop !13
@@ -3319,7 +3319,7 @@ mbedtls_x509_crt_is_revoked.exit.i.i:             ; preds = %495
   br label %x509_crt_verifycrl.exit.i
 
 .outer.i.i:                                       ; preds = %500, %489
-  %504 = getelementptr inbounds i8, ptr %.04193.i.i, i64 408
+  %504 = getelementptr inbounds nuw i8, ptr %.04193.i.i, i64 408
   %505 = load ptr, ptr %504, align 8
   %.not92.i.i = icmp eq ptr %505, null
   br i1 %.not92.i.i, label %x509_crt_verifycrl.exit.i, label %.lr.ph.i59.i, !llvm.loop !21
@@ -3334,7 +3334,7 @@ x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_n
   br label %91
 
 .loopexit25:                                      ; preds = %109, %144, %x509_crt_find_parent.exit.i
-  %508 = getelementptr inbounds i8, ptr %15, i64 8
+  %508 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %509 = load i32, ptr %508, align 8
   %510 = or i32 %509, %.3
   store i32 %510, ptr %508, align 8
@@ -3364,7 +3364,7 @@ x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_n
   %indvars.iv23.i = phi i64 [ %516, %514 ], [ %513, %.lr.ph.split.us.i ]
   %515 = phi i32 [ %518, %514 ], [ %.promoted.i, %.lr.ph.split.us.i ]
   %516 = add nsw i64 %indvars.iv23.i, -1
-  %gep.i = getelementptr inbounds [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %508, i64 0, i64 %516
+  %gep.i = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %508, i64 0, i64 %516
   %517 = load i32, ptr %gep.i, align 8
   %518 = or i32 %517, %515
   %.not.us.wide.i = icmp eq i64 %516, 0
@@ -3375,8 +3375,8 @@ x509_crt_verifycrl.exit.i:                        ; preds = %.outer.i.i, %x509_n
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
   %519 = and i64 %indvars.iv.next.i, 4294967295
-  %520 = getelementptr inbounds [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %15, i64 0, i64 %519
-  %521 = getelementptr inbounds i8, ptr %520, i64 8
+  %520 = getelementptr inbounds nuw [10 x %struct.mbedtls_x509_crt_verify_chain_item], ptr %15, i64 0, i64 %519
+  %521 = getelementptr inbounds nuw i8, ptr %520, i64 8
   %522 = load i32, ptr %521, align 8
   store i32 %522, ptr %9, align 4
   %523 = load ptr, ptr %520, align 8
@@ -3445,19 +3445,19 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
 
 .preheader66:                                     ; preds = %1, %34
   %.051 = phi ptr [ %36, %34 ], [ %0, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.051, i64 360
+  %3 = getelementptr inbounds nuw i8, ptr %.051, i64 360
   tail call void @mbedtls_pk_free(ptr noundef nonnull %3) #16
-  %4 = getelementptr inbounds i8, ptr %.051, i64 600
+  %4 = getelementptr inbounds nuw i8, ptr %.051, i64 600
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #16
-  %6 = getelementptr inbounds i8, ptr %.051, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %.051, i64 208
   %7 = load ptr, ptr %6, align 8
   %.not67 = icmp eq ptr %7, null
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader66, %.lr.ph
   %.04968 = phi ptr [ %9, %.lr.ph ], [ %7, %.preheader66 ]
-  %8 = getelementptr inbounds i8, ptr %.04968, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %.04968, i64 48
   %9 = load ptr, ptr %8, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.04968, i64 noundef 64) #16
   tail call void @free(ptr noundef nonnull %.04968) #16
@@ -3465,14 +3465,14 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader66
-  %10 = getelementptr inbounds i8, ptr %.051, i64 272
+  %10 = getelementptr inbounds nuw i8, ptr %.051, i64 272
   %11 = load ptr, ptr %10, align 8
   %.not5769 = icmp eq ptr %11, null
   br i1 %.not5769, label %._crit_edge73, label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %._crit_edge, %.lr.ph72
   %.15070 = phi ptr [ %13, %.lr.ph72 ], [ %11, %._crit_edge ]
-  %12 = getelementptr inbounds i8, ptr %.15070, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %.15070, i64 48
   %13 = load ptr, ptr %12, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.15070, i64 noundef 64) #16
   tail call void @free(ptr noundef nonnull %.15070) #16
@@ -3480,14 +3480,14 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not57, label %._crit_edge73, label %.lr.ph72, !llvm.loop !24
 
 ._crit_edge73:                                    ; preds = %.lr.ph72, %._crit_edge
-  %14 = getelementptr inbounds i8, ptr %.051, i64 552
+  %14 = getelementptr inbounds nuw i8, ptr %.051, i64 552
   %15 = load ptr, ptr %14, align 8
   %.not5874 = icmp eq ptr %15, null
   br i1 %.not5874, label %._crit_edge78, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %._crit_edge73, %.lr.ph77
   %.075 = phi ptr [ %17, %.lr.ph77 ], [ %15, %._crit_edge73 ]
-  %16 = getelementptr inbounds i8, ptr %.075, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.075, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.075, i64 noundef 32) #16
   tail call void @free(ptr noundef nonnull %.075) #16
@@ -3495,14 +3495,14 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not58, label %._crit_edge78, label %.lr.ph77, !llvm.loop !25
 
 ._crit_edge78:                                    ; preds = %.lr.ph77, %._crit_edge73
-  %18 = getelementptr inbounds i8, ptr %.051, i64 472
+  %18 = getelementptr inbounds nuw i8, ptr %.051, i64 472
   %19 = load ptr, ptr %18, align 8
   %.not5979 = icmp eq ptr %19, null
   br i1 %.not5979, label %._crit_edge83, label %.lr.ph82
 
 .lr.ph82:                                         ; preds = %._crit_edge78, %.lr.ph82
   %.180 = phi ptr [ %21, %.lr.ph82 ], [ %19, %._crit_edge78 ]
-  %20 = getelementptr inbounds i8, ptr %.180, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.180, i64 24
   %21 = load ptr, ptr %20, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.180, i64 noundef 32) #16
   tail call void @free(ptr noundef nonnull %.180) #16
@@ -3510,14 +3510,14 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not59, label %._crit_edge83, label %.lr.ph82, !llvm.loop !26
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %._crit_edge78
-  %22 = getelementptr inbounds i8, ptr %.051, i64 504
+  %22 = getelementptr inbounds nuw i8, ptr %.051, i64 504
   %23 = load ptr, ptr %22, align 8
   %.not6084 = icmp eq ptr %23, null
   br i1 %.not6084, label %._crit_edge88, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %._crit_edge83, %.lr.ph87
   %.285 = phi ptr [ %25, %.lr.ph87 ], [ %23, %._crit_edge83 ]
-  %24 = getelementptr inbounds i8, ptr %.285, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.285, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.285, i64 noundef 32) #16
   tail call void @free(ptr noundef nonnull %.285) #16
@@ -3525,7 +3525,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not60, label %._crit_edge88, label %.lr.ph87, !llvm.loop !27
 
 ._crit_edge88:                                    ; preds = %.lr.ph87, %._crit_edge83
-  %26 = getelementptr inbounds i8, ptr %.051, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.051, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not61 = icmp eq ptr %27, null
   br i1 %.not61, label %34, label %28
@@ -3536,7 +3536,7 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not62, label %34, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %.051, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.051, i64 16
   %32 = load i64, ptr %31, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %27, i64 noundef %32) #16
   %33 = load ptr, ptr %26, align 8
@@ -3544,14 +3544,14 @@ define hidden void @mbedtls_x509_crt_free(ptr noundef %0) local_unnamed_addr #0 
   br label %34
 
 34:                                               ; preds = %30, %28, %._crit_edge88
-  %35 = getelementptr inbounds i8, ptr %.051, i64 608
+  %35 = getelementptr inbounds nuw i8, ptr %.051, i64 608
   %36 = load ptr, ptr %35, align 8
   %.not63 = icmp eq ptr %36, null
   br i1 %.not63, label %.preheader, label %.preheader66, !llvm.loop !28
 
 .preheader:                                       ; preds = %34, %40
   %.152 = phi ptr [ %38, %40 ], [ %0, %34 ]
-  %37 = getelementptr inbounds i8, ptr %.152, i64 608
+  %37 = getelementptr inbounds nuw i8, ptr %.152, i64 608
   %38 = load ptr, ptr %37, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %.152, i64 noundef 616) #16
   %.not64 = icmp eq ptr %.152, %0
@@ -3631,7 +3631,7 @@ define internal fastcc range(i32 -2147483648, 2147475072) i32 @x509_get_uid(ptr 
   %8 = load i8, ptr %5, align 1
   %9 = zext i8 %8 to i32
   store i32 %9, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = or disjoint i32 %3, 160
   %12 = tail call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %10, i32 noundef %11) #16
   switch i32 %12, label %13 [
@@ -3645,7 +3645,7 @@ define internal fastcc range(i32 -2147483648, 2147475072) i32 @x509_get_uid(ptr 
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %16, ptr %17, align 8
   %18 = load i64, ptr %10, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
@@ -3675,15 +3675,15 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef nonnull %0, ptr noundef
   br i1 %18, label %x509_get_ext_key_usage.exit.thread153, label %19
 
 19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %2, i64 424
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %21 = tail call i32 @mbedtls_x509_get_ext(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %20, i32 noundef 3) #16
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %x509_get_ext_key_usage.exit.thread153
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %2, i64 440
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 440
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 432
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 432
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 %26
   %28 = load ptr, ptr %0, align 8
@@ -3691,22 +3691,22 @@ define internal fastcc i32 @x509_get_crt_ext(ptr noundef nonnull %0, ptr noundef
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %14, i64 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.not122 = icmp eq ptr %3, null
-  %32 = getelementptr inbounds i8, ptr %2, i64 512
-  %33 = getelementptr inbounds i8, ptr %2, i64 480
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 512
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 480
   %34 = icmp ne ptr %3, null
-  %35 = getelementptr inbounds i8, ptr %2, i64 560
-  %36 = getelementptr inbounds i8, ptr %7, i64 16
-  %37 = getelementptr inbounds i8, ptr %2, i64 448
-  %38 = getelementptr inbounds i8, ptr %2, i64 472
-  %39 = getelementptr inbounds i8, ptr %2, i64 528
-  %40 = getelementptr inbounds i8, ptr %2, i64 544
-  %41 = getelementptr inbounds i8, ptr %2, i64 524
-  %42 = getelementptr inbounds i8, ptr %11, i64 16
-  %43 = getelementptr inbounds i8, ptr %2, i64 516
-  %44 = getelementptr inbounds i8, ptr %2, i64 520
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 560
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 448
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 472
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 528
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 544
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 524
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 516
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 520
   br label %45
 
 45:                                               ; preds = %.lr.ph, %.backedge
@@ -3922,7 +3922,7 @@ x509_get_key_usage.exit.thread148:                ; preds = %119
 124:                                              ; preds = %124, %122
   %.012.i = phi i64 [ 0, %122 ], [ %132, %124 ]
   %125 = phi i32 [ 0, %122 ], [ %131, %124 ]
-  %126 = getelementptr inbounds i8, ptr %123, i64 %.012.i
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 %.012.i
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i32
   %.0.tr.i = trunc nuw i64 %.012.i to i32
@@ -3987,7 +3987,7 @@ x509_get_ext_key_usage.exit:                      ; preds = %134
   %.04363.i = phi ptr [ %.1.i, %173 ], [ %37, %.preheader.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, i8 0, i64 80, i1 false)
   %150 = load i8, ptr %149, align 1
-  %151 = getelementptr inbounds i8, ptr %149, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 1
   store ptr %151, ptr %0, align 8
   %152 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef nonnull %70, ptr noundef nonnull %9) #16
   %.not52.i = icmp eq i32 %152, 0
@@ -4017,7 +4017,7 @@ x509_get_ext_key_usage.exit:                      ; preds = %134
 
 .lr.ph67.i:                                       ; preds = %160, %.lr.ph67.i
   %.04265.i = phi ptr [ %163, %.lr.ph67.i ], [ %161, %160 ]
-  %162 = getelementptr inbounds i8, ptr %.04265.i, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %.04265.i, i64 24
   %163 = load ptr, ptr %162, align 8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %.04265.i, i64 noundef 32) #16
   call void @free(ptr noundef nonnull %.04265.i) #16
@@ -4029,13 +4029,13 @@ x509_get_ext_key_usage.exit:                      ; preds = %134
   br label %x509_get_subject_alt_name.exit
 
 164:                                              ; preds = %158, %158
-  %165 = getelementptr inbounds i8, ptr %.04363.i, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %.04363.i, i64 16
   %166 = load ptr, ptr %165, align 8
   %.not54.i = icmp eq ptr %166, null
   br i1 %.not54.i, label %173, label %167
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %.04363.i, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %.04363.i, i64 24
   %169 = load ptr, ptr %168, align 8
   %.not55.i = icmp eq ptr %169, null
   br i1 %.not55.i, label %170, label %x509_get_subject_alt_name.exit.thread
@@ -4050,10 +4050,10 @@ x509_get_ext_key_usage.exit:                      ; preds = %134
   %.1.i = phi ptr [ %.04363.i, %164 ], [ %171, %170 ]
   store i32 %156, ptr %.1.i, align 8
   %174 = load ptr, ptr %0, align 8
-  %175 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   store ptr %174, ptr %175, align 8
   %176 = load i64, ptr %9, align 8
-  %177 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store i64 %176, ptr %177, align 8
   %178 = load ptr, ptr %0, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 %176
@@ -4063,7 +4063,7 @@ x509_get_ext_key_usage.exit:                      ; preds = %134
 
 ._crit_edge.i:                                    ; preds = %173, %.preheader.i
   %.043.lcssa.i = phi ptr [ %37, %.preheader.i ], [ %.1.i, %173 ]
-  %181 = getelementptr inbounds i8, ptr %.043.lcssa.i, i64 24
+  %181 = getelementptr inbounds nuw i8, ptr %.043.lcssa.i, i64 24
   store ptr null, ptr %181, align 8
   %182 = load ptr, ptr %0, align 8
   %.not51.i = icmp eq ptr %182, %52
@@ -4183,13 +4183,13 @@ x509_get_ns_cert_type.exit:                       ; preds = %183
 
 216:                                              ; preds = %.thread.i, %215
   %217 = phi i32 [ -8320, %.thread.i ], [ %.042.i, %215 ]
-  %218 = getelementptr inbounds i8, ptr %.043.i, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %.043.i, i64 16
   %219 = load ptr, ptr %218, align 8
   %.not58.i = icmp eq ptr %219, null
   br i1 %.not58.i, label %226, label %220
 
 220:                                              ; preds = %216
-  %221 = getelementptr inbounds i8, ptr %.043.i, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %.043.i, i64 24
   %222 = load ptr, ptr %221, align 8
   %.not59.i = icmp eq ptr %222, null
   br i1 %.not59.i, label %223, label %.thread174
@@ -4203,9 +4203,9 @@ x509_get_ns_cert_type.exit:                       ; preds = %183
 226:                                              ; preds = %223, %216
   %.144.i = phi ptr [ %.043.i, %216 ], [ %224, %223 ]
   store i32 6, ptr %.144.i, align 8
-  %227 = getelementptr inbounds i8, ptr %.144.i, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %.144.i, i64 16
   store ptr %214, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %.144.i, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %.144.i, i64 8
   store i64 %213, ptr %228, align 8
   %229 = load i64, ptr %6, align 8
   %230 = load ptr, ptr %0, align 8
@@ -4236,7 +4236,7 @@ x509_get_ns_cert_type.exit:                       ; preds = %183
   br i1 %.not61.i, label %.preheader.i135, label %.thread174, !llvm.loop !34
 
 243:                                              ; preds = %.preheader.i135
-  %244 = getelementptr inbounds i8, ptr %.043.i, i64 24
+  %244 = getelementptr inbounds nuw i8, ptr %.043.i, i64 24
   store ptr null, ptr %244, align 8
   %245 = load ptr, ptr %0, align 8
   %.not54.i136 = icmp eq ptr %245, %52
@@ -4321,13 +4321,13 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 -1, 1) i32 @x509_crt_check_cn(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #9 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, %2
   br i1 %6, label %7, label %x509_memcasecmp.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %x509_check_wildcard.exit, label %.lr.ph.i
@@ -4363,14 +4363,14 @@ x509_memcasecmp.exit:                             ; preds = %18, %15, %3
   br i1 %24, label %x509_check_wildcard.exit, label %25
 
 25:                                               ; preds = %x509_memcasecmp.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load i8, ptr %27, align 1
   %.not.i8 = icmp eq i8 %28, 42
   br i1 %.not.i8, label %29, label %x509_check_wildcard.exit
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %27, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %31 = load i8, ptr %30, align 1
   %.not21.i = icmp eq i8 %31, 46
   %32 = icmp ne i64 %23, 0
@@ -4456,42 +4456,42 @@ define internal fastcc range(i32 -1, 1) i32 @x509_name_cmp(ptr noundef readonly 
   br i1 %.not, label %11, label %x509_string_cmp.exit.thread
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %.01828, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01828, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.029, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %15 = load i64, ptr %14, align 8
   %.not21 = icmp eq i64 %13, %15
   br i1 %.not21, label %16, label %x509_string_cmp.exit.thread
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %.01828, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.01828, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %.029, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.029, i64 16
   %20 = load ptr, ptr %19, align 8
   %bcmp = tail call i32 @bcmp(ptr %18, ptr %20, i64 %13)
   %.not22 = icmp eq i32 %bcmp, 0
   br i1 %.not22, label %21, label %x509_string_cmp.exit.thread
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %.01828, i64 24
-  %23 = getelementptr inbounds i8, ptr %.029, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.01828, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.029, i64 24
   %24 = load i32, ptr %22, align 8
   %25 = load i32, ptr %23, align 8
   %26 = icmp eq i32 %24, %25
   br i1 %26, label %27, label %39
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %.01828, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.01828, i64 32
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.029, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.029, i64 32
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %29, %31
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %.01828, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %.01828, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.029, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.029, i64 40
   %37 = load ptr, ptr %36, align 8
   %bcmp.i = tail call i32 @bcmp(ptr %35, ptr %37, i64 %29)
   %38 = icmp eq i32 %bcmp.i, 0
@@ -4510,17 +4510,17 @@ define internal fastcc range(i32 -1, 1) i32 @x509_name_cmp(ptr noundef readonly 
   ]
 
 41:                                               ; preds = %40, %40
-  %42 = getelementptr inbounds i8, ptr %.01828, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.01828, i64 32
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %.029, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.029, i64 32
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %43, %45
   br i1 %46, label %47, label %x509_string_cmp.exit.thread
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %.01828, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %.01828, i64 40
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.029, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %.029, i64 40
   %51 = load ptr, ptr %50, align 8
   %.not.i.i = icmp eq i64 %43, 0
   br i1 %.not.i.i, label %x509_string_cmp.exit, label %.lr.ph.i.i
@@ -4551,17 +4551,17 @@ define internal fastcc range(i32 -1, 1) i32 @x509_name_cmp(ptr noundef readonly 
   br i1 %exitcond.not.i.i, label %x509_string_cmp.exit, label %.lr.ph.i.i, !llvm.loop !18
 
 x509_string_cmp.exit:                             ; preds = %63, %47, %33
-  %65 = getelementptr inbounds i8, ptr %.01828, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.01828, i64 56
   %66 = load i8, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %.029, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %.029, i64 56
   %68 = load i8, ptr %67, align 8
   %.not24 = icmp eq i8 %66, %68
   br i1 %.not24, label %69, label %x509_string_cmp.exit.thread
 
 69:                                               ; preds = %x509_string_cmp.exit
-  %70 = getelementptr inbounds i8, ptr %.01828, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %.01828, i64 48
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.029, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %.029, i64 48
   %73 = load ptr, ptr %72, align 8
   %74 = icmp ne ptr %71, null
   %75 = icmp ne ptr %73, null

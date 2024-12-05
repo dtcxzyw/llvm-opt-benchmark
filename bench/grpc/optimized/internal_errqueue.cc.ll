@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define noundef i32 @_ZN17grpc_event_engine12experimental16GetSocketTcpInfoEPNS0_8tcp_infoEi(ptr noundef initializes((0, 232)) %info, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %info, i8 0, i64 232, i1 false)
-  %length = getelementptr inbounds i8, ptr %info, i64 224
+  %length = getelementptr inbounds nuw i8, ptr %info, i64 224
   store i32 224, ptr %length, align 8
   %call = tail call i32 @getsockopt(i32 noundef %fd, i32 noundef 6, i32 noundef 11, ptr noundef %info, ptr noundef nonnull %length) #9
   ret i32 %call
@@ -95,7 +95,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %1
 
 if.end7:                                          ; preds = %entry
-  %release4 = getelementptr inbounds i8, ptr %buffer, i64 130
+  %release4 = getelementptr inbounds nuw i8, ptr %buffer, i64 130
   %call8 = call i64 @strtol(ptr nocapture noundef nonnull %release4, ptr noundef null, i32 noundef 10) #9
   %cmp9 = icmp sgt i64 %call8, 3
   br i1 %cmp9, label %return, label %if.else

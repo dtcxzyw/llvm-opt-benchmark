@@ -32,14 +32,14 @@ define hidden i32 @lexbor_mraw_init(ptr noundef writeonly %0, i64 noundef %1) lo
 
 10:                                               ; preds = %6
   %11 = tail call ptr @lexbor_bst_create() #7
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %12, align 8
   %13 = tail call i32 @lexbor_bst_init(ptr noundef %11, i64 noundef 512) #7
   %.not16 = icmp eq i32 %13, 0
   br i1 %.not16, label %14, label %16
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %15, align 8
   br label %16
 
@@ -64,10 +64,10 @@ define hidden void @lexbor_mraw_clean(ptr noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
   tail call void @lexbor_mem_clean(ptr noundef %3) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @lexbor_bst_clean(ptr noundef %5) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %6, align 8
   br label %7
 
@@ -88,7 +88,7 @@ define hidden ptr @lexbor_mraw_destroy(ptr noundef %0, i1 noundef zeroext %1) lo
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @lexbor_mem_destroy(ptr noundef %5, i1 noundef zeroext true) #7
   store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @lexbor_bst_destroy(ptr noundef %8, i1 noundef zeroext true) #7
   store ptr %9, ptr %7, align 8
@@ -113,21 +113,21 @@ declare ptr @lexbor_free(ptr noundef) local_unnamed_addr #1
 define hidden ptr @lexbor_mraw_alloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %.biased.i = add i64 %1, 7
   %3 = and i64 %.biased.i, -8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = tail call ptr @lexbor_bst_remove_close(ptr noundef nonnull %5, ptr noundef nonnull %9, i64 noundef %3, ptr noundef null) #7
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8
@@ -141,16 +141,16 @@ define hidden ptr @lexbor_mraw_alloc(ptr nocapture noundef %0, i64 noundef %1) l
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %16
-  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = icmp ugt i64 %23, %25
   br i1 %26, label %27, label %62
 
 27:                                               ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %17, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %29 = load i64, ptr %28, align 8
   %30 = icmp eq i64 %29, -1
   br i1 %30, label %lexbor_mraw_mem_alloc.exit.thread, label %31
@@ -178,11 +178,11 @@ define hidden ptr @lexbor_mraw_alloc(ptr nocapture noundef %0, i64 noundef %1) l
   %44 = getelementptr inbounds i8, ptr %43, i64 %22
   store i64 %42, ptr %44, align 1
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %20, align 8
   %48 = load i64, ptr %21, align 8
   %49 = getelementptr inbounds i8, ptr %47, i64 %48
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = tail call ptr @lexbor_bst_insert(ptr noundef %45, ptr noundef nonnull %46, i64 noundef %42, ptr noundef nonnull %50) #7
   %52 = load i64, ptr %24, align 8
   store i64 %52, ptr %21, align 8
@@ -190,20 +190,20 @@ define hidden ptr @lexbor_mraw_alloc(ptr nocapture noundef %0, i64 noundef %1) l
 
 53:                                               ; preds = %41, %37
   %54 = tail call ptr @lexbor_mem_chunk_make(ptr noundef nonnull %17, i64 noundef %16) #7
-  %55 = getelementptr inbounds i8, ptr %20, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %54, ptr %55, align 8
   %56 = icmp eq ptr %54, null
   br i1 %56, label %lexbor_mraw_mem_alloc.exit.thread, label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %54, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store ptr %20, ptr %58, align 8
   %59 = load ptr, ptr %55, align 8
   store ptr %59, ptr %17, align 8
   %60 = load i64, ptr %28, align 8
   %61 = add i64 %60, 1
   store i64 %61, ptr %28, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %59, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %.pre48.i = add i64 %.pre.i, %16
   br label %62
@@ -213,7 +213,7 @@ define hidden ptr @lexbor_mraw_alloc(ptr nocapture noundef %0, i64 noundef %1) l
   %63 = phi i64 [ %.pre.i, %57 ], [ %22, %19 ]
   %64 = phi ptr [ %59, %57 ], [ %20, %19 ]
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = getelementptr inbounds i8, ptr %65, i64 %63
   store i64 %.pre-phi.i, ptr %66, align 8
   br label %lexbor_mraw_mem_alloc.exit
@@ -224,12 +224,12 @@ lexbor_mraw_mem_alloc.exit:                       ; preds = %33, %62
   br i1 %68, label %lexbor_mraw_mem_alloc.exit.thread, label %69
 
 69:                                               ; preds = %lexbor_mraw_mem_alloc.exit
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, 1
   store i64 %72, ptr %70, align 8
   store i64 %3, ptr %.0.i, align 1
-  %73 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   br label %lexbor_mraw_mem_alloc.exit.thread
 
 lexbor_mraw_mem_alloc.exit.thread:                ; preds = %53, %27, %15, %lexbor_mraw_mem_alloc.exit, %69, %11
@@ -270,7 +270,7 @@ define hidden ptr @lexbor_mraw_realloc(ptr nocapture noundef %0, ptr noundef %1,
   %.0.copyload = load i64, ptr %7, align 1
   %.biased.i = add i64 %2, 7
   %8 = and i64 %.biased.i, -8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8
   %.not = icmp ult i64 %10, %.0.copyload
   br i1 %.not, label %47, label %11
@@ -284,7 +284,7 @@ define hidden ptr @lexbor_mraw_realloc(ptr nocapture noundef %0, ptr noundef %1,
 
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  %17 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %12, %8
   %20 = icmp ugt i64 %18, %19
@@ -318,7 +318,7 @@ define hidden ptr @lexbor_mraw_realloc(ptr nocapture noundef %0, ptr noundef %1,
 33:                                               ; preds = %28
   store i64 %8, ptr %31, align 1
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.not.i = icmp eq i64 %.0.copyload, 0
   br i1 %.not.i, label %37, label %36
 
@@ -331,7 +331,7 @@ define hidden ptr @lexbor_mraw_realloc(ptr nocapture noundef %0, ptr noundef %1,
   %39 = call ptr @lexbor_mem_chunk_destroy(ptr noundef %38, ptr noundef nonnull %6, i1 noundef zeroext false) #7
   %40 = load ptr, ptr %4, align 8
   store ptr %40, ptr %6, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %42 = load i64, ptr %41, align 8
   store i64 %42, ptr %17, align 8
   store i64 %29, ptr %9, align 8
@@ -361,13 +361,13 @@ lexbor_mraw_realloc_tail.exit:                    ; preds = %26
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, -1
   store i64 %54, ptr %52, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = tail call ptr @lexbor_bst_insert(ptr noundef %56, ptr noundef nonnull %57, i64 noundef %.0.copyload, ptr noundef nonnull %1) #7
   br label %84
 
@@ -382,10 +382,10 @@ lexbor_mraw_realloc_tail.exit:                    ; preds = %26
   %64 = add i64 %61, -8
   %65 = getelementptr inbounds i8, ptr %1, i64 %61
   store i64 %64, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
-  %69 = getelementptr inbounds i8, ptr %65, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %70 = tail call ptr @lexbor_bst_insert(ptr noundef %67, ptr noundef nonnull %68, i64 noundef %64, ptr noundef nonnull %69) #7
   br label %84
 
@@ -404,11 +404,11 @@ lexbor_mraw_realloc_tail.exit:                    ; preds = %26
 
 76:                                               ; preds = %75, %74
   %.val.i = load i64, ptr %7, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = tail call ptr @lexbor_bst_insert(ptr noundef %78, ptr noundef nonnull %79, i64 noundef %.val.i, ptr noundef nonnull %1) #7
-  %81 = getelementptr inbounds i8, ptr %0, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load i64, ptr %81, align 8
   %83 = add i64 %82, -1
   store i64 %83, ptr %81, align 8
@@ -425,11 +425,11 @@ declare ptr @lexbor_bst_insert(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 define hidden noalias noundef ptr @lexbor_mraw_free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 -8
   %.val = load i64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call ptr @lexbor_bst_insert(ptr noundef %5, ptr noundef nonnull %6, i64 noundef %.val, ptr noundef %1) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, -1
   store i64 %10, ptr %8, align 8

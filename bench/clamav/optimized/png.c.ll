@@ -56,11 +56,11 @@ define i32 @cli_parsepng(ptr noundef %0) local_unnamed_addr #0 {
   br label %151
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
-  %11 = getelementptr inbounds i8, ptr %9, i64 104
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %13
 
 13:                                               ; preds = %135, %7
@@ -97,9 +97,9 @@ fmap_readn.exit:                                  ; preds = %15
 
 25:                                               ; preds = %20
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, i64 noundef %22) #6
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 8192
   %.not149 = icmp eq i32 %30, 0
@@ -125,9 +125,9 @@ fmap_readn.exit156:                               ; preds = %33
 
 fmap_readn.exit156.thread:                        ; preds = %33, %31, %fmap_readn.exit156
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #6
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 8192
   %.not148 = icmp eq i32 %41, 0
@@ -148,9 +148,9 @@ fmap_readn.exit156.thread:                        ; preds = %33, %31, %fmap_read
 
 48:                                               ; preds = %44
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #6
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 8192
   %.not147 = icmp eq i32 %53, 0
@@ -180,7 +180,7 @@ fmap_readn.exit156.thread:                        ; preds = %33, %31, %fmap_read
   %60 = load i32, ptr %46, align 4
   %61 = call i32 @llvm.bswap.i32(i32 %60)
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %46, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = call i32 @llvm.bswap.i32(i32 %64)
   %66 = zext i32 %65 to i64
@@ -198,19 +198,19 @@ fmap_readn.exit156.thread:                        ; preds = %33, %31, %fmap_read
   br label %fmap_readn.exit.thread
 
 72:                                               ; preds = %59
-  %73 = getelementptr inbounds i8, ptr %46, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
-  %76 = getelementptr inbounds i8, ptr %46, i64 9
+  %76 = getelementptr inbounds nuw i8, ptr %46, i64 9
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
-  %79 = getelementptr inbounds i8, ptr %46, i64 10
+  %79 = getelementptr inbounds nuw i8, ptr %46, i64 10
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
-  %82 = getelementptr inbounds i8, ptr %46, i64 11
+  %82 = getelementptr inbounds nuw i8, ptr %46, i64 11
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
-  %85 = getelementptr inbounds i8, ptr %46, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %.not143 = icmp eq i8 %80, 0
@@ -380,9 +380,9 @@ fmap_readn.exit161:                               ; preds = %126
 
 fmap_readn.exit161.thread:                        ; preds = %126, %124, %fmap_readn.exit161
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32) #6
-  %130 = getelementptr inbounds i8, ptr %0, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load i32, ptr %132, align 4
   %134 = and i32 %133, 8192
   %.not146 = icmp eq i32 %134, 0

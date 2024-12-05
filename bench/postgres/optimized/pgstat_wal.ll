@@ -33,7 +33,7 @@ define dso_local void @pgstat_report_wal(i1 noundef zeroext %0) local_unnamed_ad
 define dso_local noundef zeroext i1 @pgstat_flush_wal(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = alloca %struct.WalUsage, align 8
   %3 = load ptr, ptr @pgStatLocal, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 17760
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 17760
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %5 = load i64, ptr @pgWalUsage, align 8
   %6 = load i64, ptr @prevWalUsage, align 8
@@ -60,46 +60,46 @@ pgstat_have_pending_wal.exit.thread:              ; preds = %1
 
 .loopexit.loopexit:                               ; preds = %14, %12
   %16 = load i64, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 17776
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 17776
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %16
   store i64 %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 17784
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 17784
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, %21
   store i64 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 17792
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 17792
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %26
   store i64 %29, ptr %27, align 8
   %30 = load i64, ptr @PendingWalStats, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 17800
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 17800
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %30
   store i64 %33, ptr %31, align 8
   %34 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 8), align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 17808
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 17808
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, %34
   store i64 %37, ptr %35, align 8
   %38 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 16), align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 17816
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 17816
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8
   %42 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 24), align 8
   %43 = sdiv i64 %42, 1000
-  %44 = getelementptr inbounds i8, ptr %3, i64 17824
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 17824
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, %43
   store i64 %46, ptr %44, align 8
   %47 = load i64, ptr getelementptr inbounds (i8, ptr @PendingWalStats, i64 32), align 8
   %48 = sdiv i64 %47, 1000
-  %49 = getelementptr inbounds i8, ptr %3, i64 17832
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 17832
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, %48
   store i64 %51, ptr %49, align 8
@@ -166,11 +166,11 @@ define dso_local void @pgstat_init_wal() local_unnamed_addr #5 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_wal_reset_all_cb(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @pgStatLocal, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 17760
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 17760
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 0) #6
-  %5 = getelementptr inbounds i8, ptr %2, i64 17776
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 17776
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 64, i1 false)
-  %6 = getelementptr inbounds i8, ptr %2, i64 17840
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 17840
   store i64 %0, ptr %6, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %3) #6
   ret void
@@ -179,9 +179,9 @@ define dso_local void @pgstat_wal_reset_all_cb(i64 noundef %0) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_wal_snapshot_cb() local_unnamed_addr #0 {
   %1 = load ptr, ptr @pgStatLocal, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 17760
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 17760
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #6
-  %4 = getelementptr inbounds i8, ptr %1, i64 17776
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 17776
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) getelementptr inbounds (i8, ptr @pgStatLocal, i64 17200), ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   tail call void @LWLockRelease(ptr noundef nonnull %2) #6
   ret void

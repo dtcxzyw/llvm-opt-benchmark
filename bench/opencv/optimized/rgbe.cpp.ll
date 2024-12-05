@@ -45,7 +45,7 @@ define hidden noundef i32 @_Z16RGBE_WriteHeaderP8_IO_FILEiiP16rgbe_header_info(p
   %8 = load i32, ptr %3, align 4
   %9 = and i32 %8, 1
   %.not19 = icmp eq i32 %9, 0
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %spec.select = select i1 %.not19, ptr @.str, ptr %10
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %spec.select) #14
   %12 = icmp slt i32 %11, 0
@@ -62,7 +62,7 @@ define hidden noundef i32 @_Z16RGBE_WriteHeaderP8_IO_FILEiiP16rgbe_header_info(p
   br i1 %.not20, label %24, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %3, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %19 = load float, ptr %18, align 4
   %20 = fpext float %19 to double
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, double noundef %20) #14
@@ -84,7 +84,7 @@ define hidden noundef i32 @_Z16RGBE_WriteHeaderP8_IO_FILEiiP16rgbe_header_info(p
   br i1 %.not21, label %.critedge, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %3, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %29 = load float, ptr %28, align 4
   %30 = fpext float %29 to double
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, double noundef %30) #14
@@ -352,11 +352,11 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
 
 8:                                                ; preds = %4
   store i32 0, ptr %3, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store float 1.000000e+00, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store float 1.000000e+00, ptr %11, align 4
   br label %12
 
@@ -372,7 +372,7 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
 16:                                               ; preds = %12
   %17 = load i8, ptr %5, align 16
   %18 = icmp eq i8 %17, 35
-  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 63
   %or.cond.not40 = select i1 %18, i1 %21, i1 false
@@ -383,13 +383,13 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
   %23 = load i32, ptr %3, align 4
   %24 = or i32 %23, 1
   store i32 %24, ptr %3, align 4
-  %25 = getelementptr inbounds i8, ptr %3, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %26
 
 26:                                               ; preds = %22, %34
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %34 ]
   %27 = add nuw nsw i64 %indvars.iv, 2
-  %28 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %.thread, label %31
@@ -401,7 +401,7 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
   br i1 %.not, label %34, label %.thread
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds [16 x i8], ptr %25, i64 0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 0, i64 %indvars.iv
   store i8 %29, ptr %35, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -410,7 +410,7 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
 .thread:                                          ; preds = %34, %31, %26
   %.033.lcssa = phi i64 [ %indvars.iv, %26 ], [ %indvars.iv, %31 ], [ 15, %34 ]
   %36 = and i64 %.033.lcssa, 4294967295
-  %37 = getelementptr inbounds [16 x i8], ptr %25, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 0, i64 %36
   store i8 0, ptr %37, align 1
   br label %.outer.preheader
 
@@ -418,8 +418,8 @@ define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info
   br i1 %7, label %.outer.preheader, label %.outer.us
 
 .outer.preheader:                                 ; preds = %.thread, %38
-  %39 = getelementptr inbounds i8, ptr %3, i64 24
-  %40 = getelementptr inbounds i8, ptr %3, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 20
   br label %.outer.outer
 
 .outer.us:                                        ; preds = %38, %.critedge.us
@@ -546,9 +546,9 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_Z16RGBE_WritePixelsP8_IO_FILEPfi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %4, i64 3
-  %6 = getelementptr inbounds i8, ptr %4, i64 2
-  %7 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %8
 
 8:                                                ; preds = %_ZL10float2rgbePhfff.exit, %3
@@ -559,9 +559,9 @@ define hidden noundef i32 @_Z16RGBE_WritePixelsP8_IO_FILEPfi(ptr nocapture nound
 
 10:                                               ; preds = %8
   %11 = add nsw i32 %.0, -1
-  %12 = getelementptr inbounds i8, ptr %.06, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.06, i64 8
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %.06, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.06, i64 4
   %15 = load float, ptr %14, align 4
   %16 = load float, ptr %.06, align 4
   %17 = fcmp ogt float %15, %13
@@ -599,7 +599,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %10, %21
   store i8 %.sink29.i, ptr %6, align 1
   store i8 %.sink28.i, ptr %7, align 1
   store i8 %.sink.i, ptr %4, align 1
-  %37 = getelementptr inbounds i8, ptr %.06, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %.06, i64 12
   %38 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %40, label %8, !llvm.loop !13
@@ -622,9 +622,9 @@ define hidden noundef i32 @_Z15RGBE_ReadPixelsP8_IO_FILEPfi(ptr nocapture nounde
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 3
-  %7 = getelementptr inbounds i8, ptr %4, i64 1
-  %8 = getelementptr inbounds i8, ptr %4, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 2
   br label %9
 
 9:                                                ; preds = %.lr.ph, %_ZL10rgbe2floatPfS_S_Ph.exit
@@ -640,8 +640,8 @@ define hidden noundef i32 @_Z15RGBE_ReadPixelsP8_IO_FILEPfi(ptr nocapture nounde
   unreachable
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %.068, i64 8
-  %16 = getelementptr inbounds i8, ptr %.068, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.068, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.068, i64 4
   %17 = load i8, ptr %6, align 1
   %.not.i = icmp eq i8 %17, 0
   br i1 %.not.i, label %_ZL10rgbe2floatPfS_S_Ph.exit, label %18
@@ -669,7 +669,7 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %14, %18
   store float %.sink10, ptr %.068, align 4
   store float %.sink9, ptr %16, align 4
   store float %.sink, ptr %15, align 4
-  %32 = getelementptr inbounds i8, ptr %.068, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %.068, i64 12
   %33 = icmp samesign ugt i32 %.in, 1
   br i1 %33, label %9, label %._crit_edge, !llvm.loop !14
 
@@ -693,9 +693,9 @@ define hidden noundef i32 @_Z20RGBE_WritePixels_RLEP8_IO_FILEPfii(ptr nocapture 
 10:                                               ; preds = %4
   %11 = mul nsw i32 %3, %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %12 = getelementptr inbounds i8, ptr %7, i64 3
-  %13 = getelementptr inbounds i8, ptr %7, i64 2
-  %14 = getelementptr inbounds i8, ptr %7, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %15
 
 15:                                               ; preds = %_ZL10float2rgbePhfff.exit.i, %10
@@ -706,9 +706,9 @@ define hidden noundef i32 @_Z20RGBE_WritePixels_RLEP8_IO_FILEPfii(ptr nocapture 
 
 17:                                               ; preds = %15
   %18 = add nsw i32 %.0.i, -1
-  %19 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %.06.i, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.06.i, i64 4
   %22 = load float, ptr %21, align 4
   %23 = load float, ptr %.06.i, align 4
   %24 = fcmp ogt float %22, %20
@@ -746,7 +746,7 @@ _ZL10float2rgbePhfff.exit.i:                      ; preds = %28, %17
   store i8 %.sink29.i.i, ptr %13, align 1
   store i8 %.sink28.i.i, ptr %14, align 1
   store i8 %.sink.i.i, ptr %7, align 1
-  %44 = getelementptr inbounds i8, ptr %.06.i, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %.06.i, i64 12
   %45 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %47, label %15, !llvm.loop !13
@@ -771,29 +771,29 @@ _Z16RGBE_WritePixelsP8_IO_FILEPfi.exit:           ; preds = %15
   br i1 %53, label %.lr.ph70, label %._crit_edge
 
 .lr.ph70:                                         ; preds = %.preheader64
-  %54 = getelementptr inbounds i8, ptr %8, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %55 = lshr i32 %2, 8
   %56 = trunc nuw i32 %55 to i8
-  %57 = getelementptr inbounds i8, ptr %8, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %58 = trunc i32 %2 to i8
-  %59 = getelementptr inbounds i8, ptr %8, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %60 = shl nuw nsw i32 %2, 1
   %61 = mul nuw nsw i32 %2, 3
-  %62 = getelementptr inbounds i8, ptr %5, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %63 = zext nneg i32 %2 to i64
   %64 = zext nneg i32 %60 to i64
   %65 = zext nneg i32 %61 to i64
-  %invariant.gep = getelementptr inbounds i8, ptr %51, i64 %63
-  %invariant.gep80 = getelementptr inbounds i8, ptr %51, i64 %64
-  %invariant.gep82 = getelementptr inbounds i8, ptr %51, i64 %65
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %51, i64 %63
+  %invariant.gep80 = getelementptr inbounds nuw i8, ptr %51, i64 %64
+  %invariant.gep82 = getelementptr inbounds nuw i8, ptr %51, i64 %65
   br label %105
 
 66:                                               ; preds = %48
   %67 = mul nsw i32 %3, %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %68 = getelementptr inbounds i8, ptr %6, i64 3
-  %69 = getelementptr inbounds i8, ptr %6, i64 2
-  %70 = getelementptr inbounds i8, ptr %6, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %71
 
 71:                                               ; preds = %_ZL10float2rgbePhfff.exit.i56, %66
@@ -804,9 +804,9 @@ _Z16RGBE_WritePixelsP8_IO_FILEPfi.exit:           ; preds = %15
 
 73:                                               ; preds = %71
   %74 = add nsw i32 %.0.i53, -1
-  %75 = getelementptr inbounds i8, ptr %.06.i52, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.06.i52, i64 8
   %76 = load float, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %.06.i52, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.06.i52, i64 4
   %78 = load float, ptr %77, align 4
   %79 = load float, ptr %.06.i52, align 4
   %80 = fcmp ogt float %78, %76
@@ -844,7 +844,7 @@ _ZL10float2rgbePhfff.exit.i56:                    ; preds = %84, %73
   store i8 %.sink29.i.i58, ptr %69, align 1
   store i8 %.sink28.i.i59, ptr %70, align 1
   store i8 %.sink.i.i60, ptr %6, align 1
-  %100 = getelementptr inbounds i8, ptr %.06.i52, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %.06.i52, i64 12
   %101 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %103, label %71, !llvm.loop !13
@@ -881,9 +881,9 @@ _Z16RGBE_WritePixelsP8_IO_FILEPfi.exit61:         ; preds = %71
 .lr.ph:                                           ; preds = %105, %_ZL10float2rgbePhfff.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL10float2rgbePhfff.exit ], [ 0, %105 ]
   %.14866 = phi ptr [ %136, %_ZL10float2rgbePhfff.exit ], [ %.04769, %105 ]
-  %110 = getelementptr inbounds i8, ptr %.14866, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.14866, i64 8
   %111 = load float, ptr %110, align 4
-  %112 = getelementptr inbounds i8, ptr %.14866, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %.14866, i64 4
   %113 = load float, ptr %112, align 4
   %114 = load float, ptr %.14866, align 4
   %115 = fcmp ogt float %113, %111
@@ -921,15 +921,15 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %119
   store i8 %.sink29.i, ptr %57, align 1
   store i8 %.sink28.i, ptr %54, align 1
   store i8 %.sink.i, ptr %8, align 1
-  %135 = getelementptr inbounds i8, ptr %51, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv
   store i8 %.sink.i, ptr %135, align 1
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   store i8 %.sink28.i, ptr %gep, align 1
-  %gep81 = getelementptr inbounds i8, ptr %invariant.gep80, i64 %indvars.iv
+  %gep81 = getelementptr inbounds nuw i8, ptr %invariant.gep80, i64 %indvars.iv
   store i8 %.sink29.i, ptr %gep81, align 1
-  %gep83 = getelementptr inbounds i8, ptr %invariant.gep82, i64 %indvars.iv
+  %gep83 = getelementptr inbounds nuw i8, ptr %invariant.gep82, i64 %indvars.iv
   store i8 %.sink30.i, ptr %gep83, align 1
-  %136 = getelementptr inbounds i8, ptr %.14866, i64 12
+  %136 = getelementptr inbounds nuw i8, ptr %.14866, i64 12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %63
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !16
@@ -937,7 +937,7 @@ _ZL10float2rgbePhfff.exit:                        ; preds = %.lr.ph, %119
 .preheader:                                       ; preds = %_ZL10float2rgbePhfff.exit, %_ZL19RGBE_WriteBytes_RLEP8_IO_FILEPhi.exit
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %_ZL19RGBE_WriteBytes_RLEP8_IO_FILEPhi.exit ], [ 0, %_ZL10float2rgbePhfff.exit ]
   %137 = mul nuw nsw i64 %indvars.iv74, %63
-  %138 = getelementptr inbounds i8, ptr %51, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %51, i64 %137
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   br label %.preheader.i
 
@@ -1112,12 +1112,12 @@ define hidden noundef i32 @_Z19RGBE_ReadPixels_RLEP8_IO_FILEPfii(ptr nocapture n
   br i1 %10, label %.lr.ph173, label %._crit_edge174
 
 .lr.ph173:                                        ; preds = %.preheader113
-  %11 = getelementptr inbounds i8, ptr %7, i64 1
-  %12 = getelementptr inbounds i8, ptr %7, i64 2
-  %13 = getelementptr inbounds i8, ptr %7, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %14 = shl nuw nsw i32 %2, 2
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %8, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %17 = shl nuw nsw i32 %2, 1
   %18 = mul nuw nsw i32 %2, 3
   %19 = zext nneg i32 %2 to i64
@@ -1132,9 +1132,9 @@ define hidden noundef i32 @_Z19RGBE_ReadPixels_RLEP8_IO_FILEPfii(ptr nocapture n
   br i1 %24, label %.lr.ph.i, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit
 
 .lr.ph.i:                                         ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %6, i64 3
-  %26 = getelementptr inbounds i8, ptr %6, i64 1
-  %27 = getelementptr inbounds i8, ptr %6, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %28
 
 28:                                               ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i, %.lr.ph.i
@@ -1150,8 +1150,8 @@ define hidden noundef i32 @_Z19RGBE_ReadPixels_RLEP8_IO_FILEPfii(ptr nocapture n
   unreachable
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %.068.i, i64 8
-  %35 = getelementptr inbounds i8, ptr %.068.i, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.068.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.068.i, i64 4
   %36 = load i8, ptr %25, align 1
   %.not.i.i = icmp eq i8 %36, 0
   br i1 %.not.i.i, label %_ZL10rgbe2floatPfS_S_Ph.exit.i, label %37
@@ -1179,18 +1179,18 @@ _ZL10rgbe2floatPfS_S_Ph.exit.i:                   ; preds = %37, %33
   store float %.sink10.i, ptr %.068.i, align 4
   store float %.sink9.i, ptr %35, align 4
   store float %.sink.i, ptr %34, align 4
-  %51 = getelementptr inbounds i8, ptr %.068.i, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.068.i, i64 12
   %52 = icmp samesign ugt i32 %.in.i, 1
   br i1 %52, label %28, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit, !llvm.loop !14
 
 _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit:            ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i, %22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %187
+  br label %181
 
 53:                                               ; preds = %.lr.ph173, %._crit_edge
   %.082172 = phi ptr [ null, %.lr.ph173 ], [ %.183233, %._crit_edge ]
-  %.084171 = phi i32 [ %3, %.lr.ph173 ], [ %185, %._crit_edge ]
-  %.085170 = phi ptr [ %1, %.lr.ph173 ], [ %184, %._crit_edge ]
+  %.084171 = phi i32 [ %3, %.lr.ph173 ], [ %179, %._crit_edge ]
+  %.085170 = phi ptr [ %1, %.lr.ph173 ], [ %178, %._crit_edge ]
   %54 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %55 = icmp eq i64 %54, 0
   br i1 %55, label %56, label %57
@@ -1215,8 +1215,8 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit:            ; preds = %_ZL10rgbe2floatPfS_
 
 64:                                               ; preds = %62, %57
   %.lcssa201 = phi i8 [ 2, %62 ], [ %60, %57 ]
-  %65 = getelementptr inbounds i8, ptr %.085170, i64 8
-  %66 = getelementptr inbounds i8, ptr %.085170, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.085170, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.085170, i64 4
   %67 = load i8, ptr %13, align 1
   %.not.i = icmp eq i8 %67, 0
   br i1 %.not.i, label %_ZL10rgbe2floatPfS_S_Ph.exit, label %68
@@ -1249,15 +1249,15 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %64, %68
   br i1 %81, label %.lr.ph.i99, label %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107
 
 .lr.ph.i99:                                       ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit
-  %82 = getelementptr inbounds i8, ptr %5, i64 3
-  %83 = getelementptr inbounds i8, ptr %5, i64 1
-  %84 = getelementptr inbounds i8, ptr %5, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %85
 
 85:                                               ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i103, %.lr.ph.i99
   %.in.i100.in = phi i32 [ %80, %.lr.ph.i99 ], [ %.in.i100, %_ZL10rgbe2floatPfS_S_Ph.exit.i103 ]
   %.085.pn = phi ptr [ %.085170, %.lr.ph.i99 ], [ %.068.i101, %_ZL10rgbe2floatPfS_S_Ph.exit.i103 ]
-  %.068.i101 = getelementptr inbounds i8, ptr %.085.pn, i64 12
+  %.068.i101 = getelementptr inbounds nuw i8, ptr %.085.pn, i64 12
   %.in.i100 = add nsw i32 %.in.i100.in, -1
   %86 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %87 = icmp eq i64 %86, 0
@@ -1268,8 +1268,8 @@ _ZL10rgbe2floatPfS_S_Ph.exit:                     ; preds = %64, %68
   unreachable
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %.085.pn, i64 20
-  %91 = getelementptr inbounds i8, ptr %.085.pn, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %.085.pn, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %.085.pn, i64 16
   %92 = load i8, ptr %82, align 1
   %.not.i.i102 = icmp eq i8 %92, 0
   br i1 %.not.i.i102, label %_ZL10rgbe2floatPfS_S_Ph.exit.i103, label %93
@@ -1302,7 +1302,7 @@ _ZL10rgbe2floatPfS_S_Ph.exit.i103:                ; preds = %93, %89
 
 _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit.i103, %_ZL10rgbe2floatPfS_S_Ph.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %187
+  br label %181
 
 108:                                              ; preds = %62
   %109 = zext nneg i8 %63 to i32
@@ -1338,14 +1338,20 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
 .loopexit110:                                     ; preds = %.loopexit, %.preheader112
   %.181.lcssa = phi ptr [ %.080164, %.preheader112 ], [ %.3, %.loopexit ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.lr.ph168, label %.preheader112, !llvm.loop !22
+  br i1 %exitcond.not, label %.lr.ph168.preheader, label %.preheader112, !llvm.loop !22
+
+.lr.ph168.preheader:                              ; preds = %.loopexit110
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %.183233, i64 %19
+  %invariant.gep271 = getelementptr inbounds nuw i8, ptr %.183233, i64 %20
+  %invariant.gep273 = getelementptr inbounds nuw i8, ptr %.183233, i64 %21
+  br label %.lr.ph168
 
 .preheader112:                                    ; preds = %.preheader112.preheader, %.loopexit110
   %indvars.iv = phi i64 [ 0, %.preheader112.preheader ], [ %indvars.iv.next, %.loopexit110 ]
   %.080164 = phi ptr [ %.183233, %.preheader112.preheader ], [ %.181.lcssa, %.loopexit110 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %121 = mul nuw nsw i64 %indvars.iv.next, %19
-  %122 = getelementptr inbounds i8, ptr %.183233, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %.183233, i64 %121
   %123 = icmp ult ptr %.080164, %122
   br i1 %123, label %.lr.ph162, label %.loopexit110
 
@@ -1391,7 +1397,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
   %.0160 = phi i32 [ %140, %.lr.ph ], [ %136, %.lr.ph.preheader ]
   %.2159 = phi ptr [ %141, %.lr.ph ], [ %.181161, %.lr.ph.preheader ]
   %140 = add nsw i32 %.0160, -1
-  %141 = getelementptr inbounds i8, ptr %.2159, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %.2159, i64 1
   store i8 %.pre, ptr %.2159, align 1
   %142 = icmp sgt i32 %.0160, 1
   br i1 %142, label %.lr.ph, label %.loopexit, !llvm.loop !23
@@ -1410,7 +1416,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
 
 148:                                              ; preds = %143
   %149 = load i8, ptr %16, align 1
-  %150 = getelementptr inbounds i8, ptr %.181161, i64 1
+  %150 = getelementptr inbounds nuw i8, ptr %.181161, i64 1
   store i8 %149, ptr %.181161, align 1
   %.not93 = icmp eq i8 %130, 1
   br i1 %.not93, label %.loopexit, label %151
@@ -1428,7 +1434,7 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
   unreachable
 
 157:                                              ; preds = %151
-  %158 = getelementptr inbounds i8, ptr %150, i64 %153
+  %158 = getelementptr inbounds nuw i8, ptr %150, i64 %153
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %148, %157
@@ -1436,65 +1442,62 @@ _Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107:         ; preds = %_ZL10rgbe2floatPfS_
   %159 = icmp ult ptr %.3, %122
   br i1 %159, label %125, label %.loopexit110, !llvm.loop !24
 
-.lr.ph168:                                        ; preds = %.loopexit110, %_ZL10rgbe2floatPfS_S_Ph.exit109
-  %indvars.iv223 = phi i64 [ %indvars.iv.next224, %_ZL10rgbe2floatPfS_S_Ph.exit109 ], [ 0, %.loopexit110 ]
-  %.186166 = phi ptr [ %184, %_ZL10rgbe2floatPfS_S_Ph.exit109 ], [ %.085170, %.loopexit110 ]
-  %160 = getelementptr inbounds i8, ptr %.183233, i64 %indvars.iv223
+.lr.ph168:                                        ; preds = %.lr.ph168.preheader, %_ZL10rgbe2floatPfS_S_Ph.exit109
+  %indvars.iv223 = phi i64 [ 0, %.lr.ph168.preheader ], [ %indvars.iv.next224, %_ZL10rgbe2floatPfS_S_Ph.exit109 ]
+  %.186166 = phi ptr [ %.085170, %.lr.ph168.preheader ], [ %178, %_ZL10rgbe2floatPfS_S_Ph.exit109 ]
+  %160 = getelementptr inbounds nuw i8, ptr %.183233, i64 %indvars.iv223
   %161 = load i8, ptr %160, align 1
   store i8 %161, ptr %7, align 1
-  %162 = add nuw nsw i64 %indvars.iv223, %19
-  %163 = getelementptr inbounds i8, ptr %.183233, i64 %162
-  %164 = load i8, ptr %163, align 1
-  store i8 %164, ptr %11, align 1
-  %165 = add nuw nsw i64 %indvars.iv223, %20
-  %166 = getelementptr inbounds i8, ptr %.183233, i64 %165
-  %167 = load i8, ptr %166, align 1
-  store i8 %167, ptr %12, align 1
-  %168 = add nuw nsw i64 %indvars.iv223, %21
-  %169 = getelementptr inbounds i8, ptr %.183233, i64 %168
-  %170 = load i8, ptr %169, align 1
-  store i8 %170, ptr %13, align 1
-  %171 = getelementptr inbounds i8, ptr %.186166, i64 8
-  %172 = getelementptr inbounds i8, ptr %.186166, i64 4
-  %.not.i108 = icmp eq i8 %170, 0
-  br i1 %.not.i108, label %_ZL10rgbe2floatPfS_S_Ph.exit109, label %173
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv223
+  %162 = load i8, ptr %gep, align 1
+  store i8 %162, ptr %11, align 1
+  %gep272 = getelementptr inbounds nuw i8, ptr %invariant.gep271, i64 %indvars.iv223
+  %163 = load i8, ptr %gep272, align 1
+  store i8 %163, ptr %12, align 1
+  %gep274 = getelementptr inbounds nuw i8, ptr %invariant.gep273, i64 %indvars.iv223
+  %164 = load i8, ptr %gep274, align 1
+  store i8 %164, ptr %13, align 1
+  %165 = getelementptr inbounds nuw i8, ptr %.186166, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %.186166, i64 4
+  %.not.i108 = icmp eq i8 %164, 0
+  br i1 %.not.i108, label %_ZL10rgbe2floatPfS_S_Ph.exit109, label %167
 
-173:                                              ; preds = %.lr.ph168
-  %174 = zext i8 %170 to i32
-  %175 = add nsw i32 %174, -136
-  %176 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %175) #14
-  %177 = fptrunc double %176 to float
-  %178 = uitofp i8 %161 to float
-  %179 = fmul float %178, %177
-  %180 = uitofp i8 %164 to float
-  %181 = fmul float %180, %177
-  %182 = uitofp i8 %167 to float
-  %183 = fmul float %182, %177
+167:                                              ; preds = %.lr.ph168
+  %168 = zext i8 %164 to i32
+  %169 = add nsw i32 %168, -136
+  %170 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %169) #14
+  %171 = fptrunc double %170 to float
+  %172 = uitofp i8 %161 to float
+  %173 = fmul float %172, %171
+  %174 = uitofp i8 %162 to float
+  %175 = fmul float %174, %171
+  %176 = uitofp i8 %163 to float
+  %177 = fmul float %176, %171
   br label %_ZL10rgbe2floatPfS_S_Ph.exit109
 
-_ZL10rgbe2floatPfS_S_Ph.exit109:                  ; preds = %.lr.ph168, %173
-  %.sink231 = phi float [ %183, %173 ], [ 0.000000e+00, %.lr.ph168 ]
-  %.sink230 = phi float [ %181, %173 ], [ 0.000000e+00, %.lr.ph168 ]
-  %.sink229 = phi float [ %179, %173 ], [ 0.000000e+00, %.lr.ph168 ]
+_ZL10rgbe2floatPfS_S_Ph.exit109:                  ; preds = %.lr.ph168, %167
+  %.sink231 = phi float [ %177, %167 ], [ 0.000000e+00, %.lr.ph168 ]
+  %.sink230 = phi float [ %175, %167 ], [ 0.000000e+00, %.lr.ph168 ]
+  %.sink229 = phi float [ %173, %167 ], [ 0.000000e+00, %.lr.ph168 ]
   store float %.sink231, ptr %.186166, align 4
-  store float %.sink230, ptr %172, align 4
-  store float %.sink229, ptr %171, align 4
-  %184 = getelementptr inbounds i8, ptr %.186166, i64 12
+  store float %.sink230, ptr %166, align 4
+  store float %.sink229, ptr %165, align 4
+  %178 = getelementptr inbounds nuw i8, ptr %.186166, i64 12
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next224, %19
   br i1 %exitcond226.not, label %._crit_edge, label %.lr.ph168, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZL10rgbe2floatPfS_S_Ph.exit109
-  %185 = add nsw i32 %.084171, -1
-  %186 = icmp sgt i32 %.084171, 1
-  br i1 %186, label %53, label %._crit_edge174, !llvm.loop !26
+  %179 = add nsw i32 %.084171, -1
+  %180 = icmp sgt i32 %.084171, 1
+  br i1 %180, label %53, label %._crit_edge174, !llvm.loop !26
 
 ._crit_edge174:                                   ; preds = %._crit_edge, %.preheader113
   %.082.lcssa = phi ptr [ null, %.preheader113 ], [ %.183233, %._crit_edge ]
   tail call void @free(ptr noundef %.082.lcssa) #14
-  br label %187
+  br label %181
 
-187:                                              ; preds = %._crit_edge174, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit
+181:                                              ; preds = %._crit_edge174, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit107, %_Z15RGBE_ReadPixelsP8_IO_FILEPfi.exit
   ret i32 0
 }
 

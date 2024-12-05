@@ -56,7 +56,7 @@ if.then9:                                         ; preds = %land.lhs.true
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %pass.i, ptr noundef nonnull align 8 dereferenceable(120) @__const.do_askpass.pass, i64 120, i1 false)
   %call.i = call ptr @strvec_push(ptr noundef nonnull %pass.i, ptr noundef nonnull %askpass.112) #11
   %call2.i = call ptr @strvec_push(ptr noundef nonnull %pass.i, ptr noundef %prompt) #11
-  %out.i = getelementptr inbounds i8, ptr %pass.i, i64 84
+  %out.i = getelementptr inbounds nuw i8, ptr %pass.i, i64 84
   store i32 -1, ptr %out.i, align 4
   %call3.i = call i32 @start_command(ptr noundef nonnull %pass.i) #11
   %tobool.not.i = icmp eq i32 %call3.i, 0

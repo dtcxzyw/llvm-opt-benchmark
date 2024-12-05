@@ -397,7 +397,7 @@ define internal i32 @dissect_papi(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %9, label %143
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.99) #2
   %12 = load ptr, ptr %10, align 8
@@ -618,7 +618,7 @@ define internal i32 @dissect_papi_license_manager(ptr noundef %0, ptr nocapture 
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #2
   %10 = load i32, ptr @hf_papi_licmgr_payload_len, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #2
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.256) #2
   %14 = load i32, ptr %5, align 4
@@ -627,7 +627,7 @@ define internal i32 @dissect_papi_license_manager(ptr noundef %0, ptr nocapture 
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %18
 
 18:                                               ; preds = %.lr.ph, %96

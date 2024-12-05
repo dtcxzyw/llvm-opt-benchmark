@@ -17,7 +17,7 @@ define hidden void @spl_add_class_name(ptr nocapture noundef readonly %0, ptr no
 
 6:                                                ; preds = %4
   %7 = icmp sgt i32 %2, 0
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, %3
   %.not19 = icmp eq i32 %10, 0
@@ -26,7 +26,7 @@ define hidden void @spl_add_class_name(ptr nocapture noundef readonly %0, ptr no
 
 12:                                               ; preds = %6, %4
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @zend_hash_find(ptr noundef %13, ptr noundef %15) #4
   %17 = icmp eq ptr %16, null
@@ -35,7 +35,7 @@ define hidden void @spl_add_class_name(ptr nocapture noundef readonly %0, ptr no
 18:                                               ; preds = %12
   %19 = load ptr, ptr %14, align 8
   store ptr %19, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 64
   %.not21 = icmp eq i32 %22, 0
@@ -51,7 +51,7 @@ define hidden void @spl_add_class_name(ptr nocapture noundef readonly %0, ptr no
 26:                                               ; preds = %18, %23
   %27 = phi ptr [ %.pre, %23 ], [ %19, %18 ]
   %.sink = phi i32 [ 262, %23 ], [ 6, %18 ]
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %28, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = call ptr @zend_hash_add(ptr noundef %29, ptr noundef %27, ptr noundef nonnull %5) #4
@@ -68,31 +68,31 @@ declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define hidden void @spl_add_interfaces(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 424
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 8
   %11 = icmp ne i32 %10, 0
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds i8, ptr %1, i64 432
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %.not.i = icmp eq i32 %2, 0
   %13 = icmp sgt i32 %2, 0
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %spl_add_class_name.exit.us
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %spl_add_class_name.exit.us ], [ 0, %.lr.ph ]
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv13
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv13
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @zend_hash_find(ptr noundef %18, ptr noundef %20) #4
   %22 = icmp eq ptr %21, null
@@ -101,7 +101,7 @@ define hidden void @spl_add_interfaces(ptr nocapture noundef readonly %0, ptr no
 23:                                               ; preds = %.lr.ph.split.us
   %24 = load ptr, ptr %19, align 8
   store ptr %24, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 64
   %.not21.i.us = icmp eq i32 %27, 0
@@ -133,10 +133,10 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
 .lr.ph.split:                                     ; preds = %.lr.ph, %spl_add_class_name.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %spl_add_class_name.exit ], [ 0, %.lr.ph ]
   %38 = load ptr, ptr %12, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %41 = getelementptr inbounds i8, ptr %40, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, %3
   %.not19.i = icmp eq i32 %43, 0
@@ -145,7 +145,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
 
 45:                                               ; preds = %.lr.ph.split
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %40, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = call ptr @zend_hash_find(ptr noundef %46, ptr noundef %48) #4
   %50 = icmp eq ptr %49, null
@@ -154,7 +154,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
 51:                                               ; preds = %45
   %52 = load ptr, ptr %47, align 8
   store ptr %52, ptr %5, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 64
   %.not21.i = icmp eq i32 %55, 0
@@ -193,31 +193,31 @@ declare void @llvm.assume(i1 noundef) #2
 ; Function Attrs: nounwind uwtable
 define hidden void @spl_add_traits(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 428
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 428
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 440
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %.not.i = icmp eq i32 %2, 0
   %9 = icmp sgt i32 %2, 0
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %spl_add_class_name.exit.us
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %spl_add_class_name.exit.us ], [ 0, %.lr.ph ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds %struct._zend_class_name, ptr %11, i64 %indvars.iv14
+  %12 = getelementptr inbounds nuw %struct._zend_class_name, ptr %11, i64 %indvars.iv14
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call ptr @zend_fetch_class_by_name(ptr noundef %13, ptr noundef %15, i32 noundef 6) #4
   %17 = icmp ne ptr %16, null
   call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @zend_hash_find(ptr noundef %18, ptr noundef %20) #4
   %22 = icmp eq ptr %21, null
@@ -226,7 +226,7 @@ define hidden void @spl_add_traits(ptr nocapture noundef readonly %0, ptr nocapt
 23:                                               ; preds = %.lr.ph.split.us
   %24 = load ptr, ptr %19, align 8
   store ptr %24, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 64
   %.not21.i.us = icmp eq i32 %27, 0
@@ -258,15 +258,15 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
 .lr.ph.split:                                     ; preds = %.lr.ph, %spl_add_class_name.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %spl_add_class_name.exit ], [ 0, %.lr.ph ]
   %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds %struct._zend_class_name, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw %struct._zend_class_name, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr @zend_fetch_class_by_name(ptr noundef %40, ptr noundef %42, i32 noundef 6) #4
   %44 = icmp ne ptr %43, null
   call void @llvm.assume(i1 %44)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %45 = getelementptr inbounds i8, ptr %43, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, %3
   %.not19.i = icmp eq i32 %47, 0
@@ -275,7 +275,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
 
 49:                                               ; preds = %.lr.ph.split
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %43, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = call ptr @zend_hash_find(ptr noundef %50, ptr noundef %52) #4
   %54 = icmp eq ptr %53, null
@@ -284,7 +284,7 @@ spl_add_class_name.exit.us:                       ; preds = %31, %.lr.ph.split.u
 55:                                               ; preds = %49
   %56 = load ptr, ptr %51, align 8
   store ptr %56, ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 64
   %.not21.i = icmp eq i32 %59, 0
@@ -330,7 +330,7 @@ define hidden void @spl_add_classes(ptr noundef readonly %0, ptr nocapture nound
 
 8:                                                ; preds = %5
   %9 = icmp sgt i32 %3, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, %4
   %.not19.i = icmp eq i32 %12, 0
@@ -339,7 +339,7 @@ define hidden void @spl_add_classes(ptr noundef readonly %0, ptr nocapture nound
 
 14:                                               ; preds = %8, %5
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @zend_hash_find(ptr noundef %15, ptr noundef %17) #4
   %19 = icmp eq ptr %18, null
@@ -348,7 +348,7 @@ define hidden void @spl_add_classes(ptr noundef readonly %0, ptr nocapture nound
 20:                                               ; preds = %14
   %21 = load ptr, ptr %16, align 8
   store ptr %21, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 64
   %.not21.i = icmp eq i32 %24, 0
@@ -364,7 +364,7 @@ define hidden void @spl_add_classes(ptr noundef readonly %0, ptr nocapture nound
 28:                                               ; preds = %25, %20
   %29 = phi ptr [ %.pre.i, %25 ], [ %21, %20 ]
   %.sink.i = phi i32 [ 262, %25 ], [ 6, %20 ]
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.sink.i, ptr %30, align 8
   %31 = load ptr, ptr %1, align 8
   %32 = call ptr @zend_hash_add(ptr noundef %31, ptr noundef %29, ptr noundef nonnull %6) #4
@@ -376,7 +376,7 @@ spl_add_class_name.exit:                          ; preds = %8, %14, %28
 
 33:                                               ; preds = %spl_add_class_name.exit
   call void @spl_add_interfaces(ptr noundef %1, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %4)
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not18 = icmp eq ptr %35, null
   br i1 %.not18, label %.loopexit, label %.lr.ph
@@ -384,7 +384,7 @@ spl_add_class_name.exit:                          ; preds = %8, %14, %28
 .lr.ph:                                           ; preds = %33, %.lr.ph
   %36 = phi ptr [ %38, %.lr.ph ], [ %35, %33 ]
   call void @spl_add_classes(ptr noundef nonnull %36, ptr noundef %1, i1 noundef zeroext true, i32 noundef %3, i32 noundef %4)
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -395,10 +395,10 @@ spl_add_class_name.exit:                          ; preds = %8, %14, %28
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @spl_gen_private_prop_name(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call ptr @zend_mangle_property_name(ptr noundef nonnull %6, i64 noundef %8, ptr noundef %1, i64 noundef %2, i1 noundef zeroext false) #4
   ret ptr %9

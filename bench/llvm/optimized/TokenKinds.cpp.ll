@@ -550,7 +550,7 @@ define dso_local noundef ptr @_ZN5clang3tok12getTokenNameENS0_9TokenKindE(i16 no
   %2 = icmp ult i16 %0, 457
   tail call void @llvm.assume(i1 %2)
   %3 = zext nneg i16 %0 to i64
-  %4 = getelementptr inbounds [458 x ptr], ptr @_ZL8TokNames, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [458 x ptr], ptr @_ZL8TokNames, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -563,7 +563,7 @@ define dso_local noundef ptr @_ZN5clang3tok21getPunctuatorSpellingENS0_9TokenKin
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [57 x ptr], ptr @switch.table._ZN5clang3tok21getPunctuatorSpellingENS0_9TokenKindE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [57 x ptr], ptr @switch.table._ZN5clang3tok21getPunctuatorSpellingENS0_9TokenKindE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -580,7 +580,7 @@ define dso_local noundef ptr @_ZN5clang3tok18getKeywordSpellingENS0_9TokenKindE(
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [334 x ptr], ptr @switch.table._ZN5clang3tok18getKeywordSpellingENS0_9TokenKindE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [334 x ptr], ptr @switch.table._ZN5clang3tok18getKeywordSpellingENS0_9TokenKindE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -596,7 +596,7 @@ define dso_local noundef ptr @_ZN5clang3tok20getPPKeywordSpellingENS0_13PPKeywor
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [27 x ptr], ptr @switch.table._ZN5clang3tok20getPPKeywordSpellingENS0_13PPKeywordKindE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [27 x ptr], ptr @switch.table._ZN5clang3tok20getPPKeywordSpellingENS0_13PPKeywordKindE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

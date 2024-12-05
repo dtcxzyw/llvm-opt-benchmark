@@ -376,17 +376,17 @@ define dso_local void @_ZN12V3LinkLValue10linkLValueEP10AstNetlist(ptr noundef %
   br label %common.resume
 
 20:                                               ; preds = %1, %17
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV17LinkLValueVisitor, i64 16), ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 33
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %3, i64 34
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 34
   store i8 3, ptr %24, align 2
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 288
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 288
   %27 = load ptr, ptr %26, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %_ZN17LinkLValueVisitorC2EP7AstNode7VAccess.exit unwind label %28
@@ -640,7 +640,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9VNVisitor, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN9VNDeleter9doDeletesEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %3 unwind label %6
 
@@ -713,17 +713,17 @@ common.resume:                                    ; preds = %26, %16
   br label %common.resume
 
 18:                                               ; preds = %1, %15
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV17LinkLValueVisitor, i64 16), ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 33
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 0, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %3, i64 34
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 34
   store i8 1, ptr %22, align 2
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 288
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 288
   %25 = load ptr, ptr %24, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %_ZN17LinkLValueVisitorC2EP7AstNode7VAccess.exit unwind label %26
@@ -770,7 +770,7 @@ declare noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1558
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1558
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -785,7 +785,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP7AstNode(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9VNVisitor, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN9VNDeleter9doDeletesEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %3 unwind label %6
 
@@ -934,10 +934,10 @@ declare void @_ZN14VNVisitorConst5visitEP7AstCast(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP14AstCastDynamic(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 3, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %8, label %7
@@ -948,7 +948,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP14AstCastDynam
 
 8:                                                ; preds = %7, %2
   store i8 1, ptr %3, align 2
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not.i4 = icmp eq ptr %10, null
   br i1 %.not.i4, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit6, label %11
@@ -980,10 +980,10 @@ declare void @_ZN14VNVisitorConst5visitEP7AstCell(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP15AstCellArrayRef(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 3, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -1183,9 +1183,9 @@ declare void @_ZN14VNVisitorConst5visitEP7AstFEof(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP9AstFError(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -1196,7 +1196,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP9AstFError(ptr
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
   store i8 1, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i4 = icmp eq ptr %9, null
   br i1 %.not.i4, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit6, label %10
@@ -1222,9 +1222,9 @@ declare void @_ZN14VNVisitorConst5visitEP8AstFGetC(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP8AstFGetS(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %8, label %7
@@ -1235,7 +1235,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP8AstFGetS(ptr 
 
 8:                                                ; preds = %7, %2
   store i8 1, ptr %3, align 2
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not.i4 = icmp eq ptr %10, null
   br i1 %.not.i4, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit6, label %11
@@ -1261,9 +1261,9 @@ declare void @_ZN14VNVisitorConst5visitEP11AstFOpenMcd(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP8AstFRead(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -1274,7 +1274,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP8AstFRead(ptr 
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
   store i8 1, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i4 = icmp eq ptr %9, null
   br i1 %.not.i4, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit6, label %10
@@ -1298,9 +1298,9 @@ declare void @_ZN14VNVisitorConst5visitEP10AstFRewind(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP9AstFScanF(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -1311,7 +1311,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP9AstFScanF(ptr
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
   store i8 1, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i4 = icmp eq ptr %9, null
   br i1 %.not.i4, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit6, label %10
@@ -1337,9 +1337,9 @@ declare void @_ZN14VNVisitorConst5visitEP8AstFTell(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstFUngetC(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -1350,7 +1350,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstFUngetC(p
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
   store i8 1, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i4 = icmp eq ptr %9, null
   br i1 %.not.i4, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit6, label %10
@@ -1378,10 +1378,10 @@ declare void @_ZN14VNVisitorConst5visitEP9AstFinish(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP12AstFireEvent(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 1, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -1523,11 +1523,11 @@ declare void @_ZN14VNVisitorConst5visitEP14AstMemberDType(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP12AstMemberSel(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   %.not = icmp eq i8 %4, 3
   %spec.select = select i1 %.not, i8 0, i8 %4
-  %5 = getelementptr inbounds i8, ptr %1, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store i8 %spec.select, ptr %5, align 8
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret void
@@ -1585,9 +1585,9 @@ declare void @_ZN14VNVisitorConst5visitEP17AstNodeArrayDType(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP13AstNodeAssign(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 1
   store i8 1, ptr %3, align 2
@@ -1595,7 +1595,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP13AstNodeAssig
   br i1 %.not.i, label %_ZN7AstNode9privateIsI14AstAssignAliasP13AstNodeAssignEEbPKS_.exit, label %_ZN7AstNode9privateIsI10AstAssignWP13AstNodeAssignEEbPKS_.exit
 
 _ZN7AstNode9privateIsI10AstAssignWP13AstNodeAssignEEbPKS_.exit: ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %8, align 8
   %9 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 398
   %10 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 392
@@ -1611,13 +1611,13 @@ _ZN7AstNode9privateIsI14AstAssignAliasP13AstNodeAssignEEbPKS_.exit: ; preds = %2
   br label %_ZN7AstNode11privateCastI10AstAssignWP13AstNodeAssignEEPT_PS_.exit.thread
 
 12:                                               ; preds = %_ZN7AstNode9privateIsI10AstAssignWP13AstNodeAssignEEbPKS_.exit
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load ptr, ptr %13, align 8
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %_ZN7AstNode11privateCastI10AstAssignWP13AstNodeAssignEEPT_PS_.exit.thread, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 33
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 1, ptr %16, align 1
   br label %_ZN7AstNode11privateCastI10AstAssignWP13AstNodeAssignEEPT_PS_.exit.thread
 
@@ -1629,7 +1629,7 @@ _ZN7AstNode9privateIsI14AstAssignAliasP13AstNodeAssignEEbPKS_.exit: ; preds = %2
   resume { ptr, i32 } %18
 
 _ZN7AstNode11privateCastI10AstAssignWP13AstNodeAssignEEPT_PS_.exit.thread: ; preds = %_ZN7AstNode9privateIsI10AstAssignWP13AstNodeAssignEEbPKS_.exit, %_ZN7AstNode9privateIsI14AstAssignAliasP13AstNodeAssignEEbPKS_.exit, %12, %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not.i14 = icmp eq ptr %20, null
   br i1 %.not.i14, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %21
@@ -1641,9 +1641,9 @@ _ZN7AstNode11privateCastI10AstAssignWP13AstNodeAssignEEPT_PS_.exit.thread: ; pre
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %_ZN7AstNode11privateCastI10AstAssignWP13AstNodeAssignEEPT_PS_.exit.thread, %21
   store i8 3, ptr %3, align 2
   store i8 0, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 33
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 0, ptr %22, align 1
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not.i15 = icmp eq ptr %24, null
   br i1 %.not.i15, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit17, label %25
@@ -1678,10 +1678,10 @@ declare void @_ZN14VNVisitorConst5visitEP12AstNodeDType(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP15AstNodeDistBiop(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 1, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -1692,7 +1692,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP15AstNodeDistB
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
   store i8 3, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i4 = icmp eq ptr %9, null
   br i1 %.not.i4, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit6, label %10
@@ -1714,10 +1714,10 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit6: ; preds = %_ZN9VNVisitor18ite
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP16AstNodeDistTriop(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 1, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -1728,7 +1728,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP16AstNodeDistT
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
   store i8 3, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i5 = icmp eq ptr %9, null
   br i1 %.not.i5, label %11, label %10
@@ -1738,7 +1738,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
           to label %11 unwind label %15
 
 11:                                               ; preds = %10, %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not.i8 = icmp eq ptr %13, null
   br i1 %.not.i8, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit10, label %14
@@ -1764,15 +1764,15 @@ declare void @_ZN14VNVisitorConst5visitEP12AstNodeFTask(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP15AstNodeFTaskRef(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.01523 = load ptr, ptr %8, align 8
   %9 = icmp ne ptr %.01523, null
   %10 = icmp ne ptr %7, null
@@ -1780,19 +1780,19 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP15AstNodeFTask
   br i1 %11, label %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit.lr.ph, label %.loopexit
 
 _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit.lr.ph: ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 34
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 34
   br label %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit
 
 _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit.lr.ph, %29
   %.01525 = phi ptr [ %.01523, %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit.lr.ph ], [ %.015, %29 ]
   %.024 = phi ptr [ %7, %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit.lr.ph ], [ %.1, %29 ]
-  %13 = getelementptr inbounds i8, ptr %.01525, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.01525, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %13, align 8
   %.not21 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 48
   br i1 %.not21, label %14, label %29
 
 14:                                               ; preds = %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit
-  %15 = getelementptr inbounds i8, ptr %.01525, i64 249
+  %15 = getelementptr inbounds nuw i8, ptr %.01525, i64 249
   %16 = load i8, ptr %15, align 1
   %.not22 = icmp eq i8 %16, 0
   br i1 %.not22, label %29, label %17
@@ -1805,7 +1805,7 @@ _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode11privat
 18:                                               ; preds = %17
   store i8 1, ptr %12, align 2
   %19 = load ptr, ptr %.024, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 288
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 288
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(152) %.024, ptr noundef nonnull align 8 dereferenceable(32) %0)
   store i8 3, ptr %12, align 2
@@ -1813,19 +1813,19 @@ _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit: ; preds = %_ZN7AstNode11privat
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %.024, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 288
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 288
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(152) %.024, ptr noundef nonnull align 8 dereferenceable(32) %0)
   br label %26
 
 26:                                               ; preds = %22, %18
-  %27 = getelementptr inbounds i8, ptr %.024, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %28 = load ptr, ptr %27, align 8
   br label %29
 
 29:                                               ; preds = %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit, %26, %14
   %.1 = phi ptr [ %28, %26 ], [ %.024, %14 ], [ %.024, %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit ]
-  %30 = getelementptr inbounds i8, ptr %.01525, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.01525, i64 8
   %.015 = load ptr, ptr %30, align 8
   %31 = icmp ne ptr %.015, null
   %32 = icmp ne ptr %.1, null
@@ -1848,9 +1848,9 @@ declare void @_ZN14VNVisitorConst5visitEP13AstNodeModule(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP13AstNodePreSel(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -1861,7 +1861,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP13AstNodePreSe
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
   store i8 3, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i5 = icmp eq ptr %9, null
   br i1 %.not.i5, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7, label %10
@@ -1871,7 +1871,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
           to label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7 unwind label %14
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7: ; preds = %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, %10
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not.i8 = icmp eq ptr %12, null
   br i1 %.not.i8, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit10, label %13
@@ -1901,9 +1901,9 @@ declare void @_ZN14VNVisitorConst5visitEP19AstNodeReadWriteMem(ptr noundef nonnu
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstNodeSel(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -1914,7 +1914,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstNodeSel(p
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
   store i8 3, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i4 = icmp eq ptr %9, null
   br i1 %.not.i4, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit6, label %10
@@ -1958,48 +1958,48 @@ declare void @_ZN14VNVisitorConst5visitEP12AstNodeUniop(ptr noundef nonnull alig
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP13AstNodeVarRef(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 34
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %6 = load i8, ptr %5, align 2
   %.not = icmp eq i8 %6, 3
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store i8 %6, ptr %8, align 8
   br label %9
 
 9:                                                ; preds = %7, %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %11 = load ptr, ptr %10, align 8
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %.critedge2, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.sroa.0.0.copyload.i = load i8, ptr %13, align 8
   %14 = add i8 %.sroa.0.0.copyload.i, -1
   %spec.select.i = icmp ult i8 %14, 2
   br i1 %spec.select.i, label %15, label %.critedge
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %11, i64 260
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 260
   %21 = load i64, ptr %20, align 4
   %22 = or i64 %21, 33554432
   store i64 %22, ptr %20, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 33
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %24 = load i8, ptr %23, align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr %10, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 260
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 260
   %29 = load i64, ptr %28, align 4
   %30 = or i64 %29, 67108864
   store i64 %30, ptr %28, align 4
@@ -2013,14 +2013,14 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP13AstNodeVarRe
 
 32:                                               ; preds = %.critedge
   %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 260
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 260
   %35 = load i64, ptr %34, align 4
   %36 = and i64 %35, 16384
   %.not20 = icmp eq i64 %36, 0
   br i1 %.not20, label %37, label %.critedge2
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %33, i64 249
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 249
   %39 = load i8, ptr %38, align 1
   %40 = and i8 %39, -5
   %spec.select.i.i = icmp eq i8 %40, 1
@@ -2032,7 +2032,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP13AstNodeVarRe
   %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %45 = load ptr, ptr %1, align 8, !noalias !7
-  %46 = getelementptr inbounds i8, ptr %45, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %47 = load ptr, ptr %46, align 8, !noalias !7
   call void %47(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(152) %1), !noalias !7
   invoke void @_ZN7AstNode11prettyNameQERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -2109,20 +2109,20 @@ declare void @_ZN14VNVisitorConst5visitEP10AstPattern(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP6AstPin(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 249
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 249
   %7 = load i8, ptr %6, align 1
   %.off.i.i = add i8 %7, -2
   %switch.i.i = icmp ult i8 %.off.i.i, 3
   br i1 %switch.i.i, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 34
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 1, ptr %9, align 2
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   store i8 3, ptr %9, align 2
@@ -2140,10 +2140,10 @@ declare void @_ZN14VNVisitorConst5visitEP7AstPort(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstPostAdd(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 3, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i, label %7
@@ -2153,7 +2153,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstPostAdd(p
           to label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i unwind label %14
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i: ; preds = %7, %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i5.i = icmp eq ptr %9, null
   br i1 %.not.i5.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7.i, label %10
@@ -2164,7 +2164,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i: ; preds = %7, %2
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7.i: ; preds = %10, %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i
   store i8 1, ptr %3, align 2
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not.i8.i = icmp eq ptr %12, null
   br i1 %.not.i8.i, label %_ZN17LinkLValueVisitor13prepost_visitEP12AstNodeTriop.exit, label %13
@@ -2186,10 +2186,10 @@ _ZN17LinkLValueVisitor13prepost_visitEP12AstNodeTriop.exit: ; preds = %_ZN9VNVis
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstPostSub(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 3, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i, label %7
@@ -2199,7 +2199,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstPostSub(p
           to label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i unwind label %14
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i: ; preds = %7, %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i5.i = icmp eq ptr %9, null
   br i1 %.not.i5.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7.i, label %10
@@ -2210,7 +2210,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i: ; preds = %7, %2
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7.i: ; preds = %10, %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i
   store i8 1, ptr %3, align 2
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not.i8.i = icmp eq ptr %12, null
   br i1 %.not.i8.i, label %_ZN17LinkLValueVisitor13prepost_visitEP12AstNodeTriop.exit, label %13
@@ -2244,10 +2244,10 @@ declare void @_ZN14VNVisitorConst5visitEP9AstPragma(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP9AstPreAdd(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 3, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i, label %7
@@ -2257,7 +2257,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP9AstPreAdd(ptr
           to label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i unwind label %14
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i: ; preds = %7, %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i5.i = icmp eq ptr %9, null
   br i1 %.not.i5.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7.i, label %10
@@ -2268,7 +2268,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i: ; preds = %7, %2
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7.i: ; preds = %10, %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i
   store i8 1, ptr %3, align 2
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not.i8.i = icmp eq ptr %12, null
   br i1 %.not.i8.i, label %_ZN17LinkLValueVisitor13prepost_visitEP12AstNodeTriop.exit, label %13
@@ -2290,10 +2290,10 @@ _ZN17LinkLValueVisitor13prepost_visitEP12AstNodeTriop.exit: ; preds = %_ZN9VNVis
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP9AstPreSub(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 3, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i, label %7
@@ -2303,7 +2303,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP9AstPreSub(ptr
           to label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i unwind label %14
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i: ; preds = %7, %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i5.i = icmp eq ptr %9, null
   br i1 %.not.i5.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7.i, label %10
@@ -2314,7 +2314,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i: ; preds = %7, %2
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7.i: ; preds = %10, %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit.i
   store i8 1, ptr %3, align 2
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not.i8.i = icmp eq ptr %12, null
   br i1 %.not.i8.i, label %_ZN17LinkLValueVisitor13prepost_visitEP12AstNodeTriop.exit, label %13
@@ -2354,9 +2354,9 @@ declare void @_ZN14VNVisitorConst5visitEP8AstRToIS(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP7AstRand(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %11, label %8
@@ -2372,7 +2372,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP7AstRand(ptr n
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %8, %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %14
@@ -2394,10 +2394,10 @@ declare void @_ZN14VNVisitorConst5visitEP8AstRange(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstReadMem(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 1, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -2408,7 +2408,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstReadMem(p
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
   store i8 3, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i6 = icmp eq ptr %9, null
   br i1 %.not.i6, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit8, label %10
@@ -2418,7 +2418,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
           to label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit8 unwind label %17
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit8: ; preds = %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, %10
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not.i9 = icmp eq ptr %12, null
   br i1 %.not.i9, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit11, label %13
@@ -2428,7 +2428,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit8: ; preds = %_ZN9VNVisitor18ite
           to label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit11 unwind label %17
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit11: ; preds = %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit8, %13
-  %14 = getelementptr inbounds i8, ptr %1, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %15 = load ptr, ptr %14, align 8
   %.not.i12 = icmp eq ptr %15, null
   br i1 %.not.i12, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit14, label %16
@@ -2460,14 +2460,14 @@ declare void @_ZN14VNVisitorConst5visitEP11AstRefDType(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstRelease(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 1
   store i8 1, ptr %3, align 2
   store i8 0, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %10
@@ -2505,10 +2505,10 @@ declare void @_ZN14VNVisitorConst5visitEP7AstRose(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstSFormat(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 1, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %8, label %7
@@ -2519,7 +2519,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP10AstSFormat(p
 
 8:                                                ; preds = %7, %2
   store i8 3, ptr %3, align 2
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not.i4 = icmp eq ptr %10, null
   br i1 %.not.i4, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit6, label %11
@@ -2543,10 +2543,10 @@ declare void @_ZN14VNVisitorConst5visitEP11AstSFormatF(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP9AstSScanF(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 1, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -2588,9 +2588,9 @@ declare void @_ZN14VNVisitorConst5visitEP12AstScopeName(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP6AstSel(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -2601,7 +2601,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP6AstSel(ptr no
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
   store i8 3, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i5 = icmp eq ptr %9, null
   br i1 %.not.i5, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7, label %10
@@ -2611,7 +2611,7 @@ _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
           to label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7 unwind label %14
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit7: ; preds = %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, %10
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not.i8 = icmp eq ptr %12, null
   br i1 %.not.i8, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit10, label %13
@@ -2723,10 +2723,10 @@ declare void @_ZN14VNVisitorConst5visitEP10AstTaskRef(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP15AstTestPlusArgs(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 3, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -2812,10 +2812,10 @@ declare void @_ZN14VNVisitorConst5visitEP8AstVFile(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP16AstValuePlusArgs(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 34
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %4 = load i8, ptr %3, align 2
   store i8 3, ptr %3, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit, label %7
@@ -2826,7 +2826,7 @@ define linkonce_odr dso_local void @_ZN17LinkLValueVisitor5visitEP16AstValuePlus
 
 _ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit: ; preds = %2, %7
   store i8 1, ptr %3, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not.i4 = icmp eq ptr %9, null
   br i1 %.not.i4, label %_ZN9VNVisitor18iterateAndNextNullEP7AstNode.exit6, label %10
@@ -2883,7 +2883,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9VNVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9VNVisitor, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN9VNDeleter9doDeletesEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %3 unwind label %6
 
@@ -2997,14 +2997,14 @@ declare void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK14AstCastDynamic5frompEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK14AstCastDynamic3topEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -3018,98 +3018,98 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI11AstNod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK7AstNode4op1pEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK7AstNode4op2pEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK15AstCellArrayRef4selpEv(ptr noundef nonnull align 8 dereferenceable(184) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK9AstFError5filepEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK9AstFError4strpEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK8AstFGetS4rhspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK8AstFGetS4lhspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK8AstFRead5filepEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK8AstFRead4mempEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK9AstFScanF5filepEv(ptr noundef nonnull align 8 dereferenceable(184) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK9AstFScanF6exprspEv(ptr noundef nonnull align 8 dereferenceable(184) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstFUngetC4rhspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstFUngetC4lhspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK12AstFireEvent8operandpEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -3120,7 +3120,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7AstNode9privateIsI10AstAss
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %3, align 8
   %4 = icmp eq i16 %.sroa.0.0.copyload.i.i, 398
   br label %5
@@ -3136,7 +3136,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7AstNode9privateIsI14AstAss
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %3, align 8
   %4 = icmp eq i16 %.sroa.0.0.copyload.i.i, 392
   br label %5
@@ -3152,7 +3152,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode11privateCastI10AstAssignW
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %3, align 8
   %4 = icmp eq i16 %.sroa.0.0.copyload.i.i, 398
   %spec.select = select i1 %4, ptr %0, ptr null
@@ -3165,21 +3165,21 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode11privateCastI10AstAssignW
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstAssignW13strengthSpecpEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK13AstNodeAssign4lhspEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK13AstNodeAssign4rhspEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -3193,7 +3193,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZeqRK6VNTypeNS_2enE(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local i16 @_ZNK7AstNode4typeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload = load i16, ptr %2, align 8
   ret i16 %.sroa.0.0.copyload
 }
@@ -3205,63 +3205,63 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI15AstStr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK7AstNode4op4pEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK15AstNodeDistBiop4lhspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK15AstNodeDistBiop4rhspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK16AstNodeDistTriop4lhspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK16AstNodeDistTriop4rhspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK16AstNodeDistTriop4thspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK7AstNode4op3pEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK15AstNodeFTaskRef5pinspEv(ptr noundef nonnull align 8 dereferenceable(280) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK12AstNodeFTask6stmtspEv(ptr noundef nonnull align 8 dereferenceable(240) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -3272,7 +3272,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode11privateCastI6AstVarPS_EE
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %3, align 8
   %4 = icmp eq i16 %.sroa.0.0.copyload.i.i, 48
   %spec.select = select i1 %4, ptr %0, ptr null
@@ -3285,7 +3285,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode11privateCastI6AstVarPS_EE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK6AstVar4isIOEv(ptr noundef nonnull align 8 dereferenceable(280) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 249
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 249
   %3 = load i8, ptr %2, align 1
   %4 = icmp ne i8 %3, 0
   ret i1 %4
@@ -3293,7 +3293,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6AstVar4isIOEv(ptr noundef
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK6AstVar10isWritableEv(ptr noundef nonnull align 8 dereferenceable(280) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 249
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 249
   %3 = load i8, ptr %2, align 1
   %.off.i = add i8 %3, -2
   %switch.i = icmp ult i8 %.off.i, 3
@@ -3302,7 +3302,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK6AstVar10isWritableEv(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK7AstNode5nextpEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -3324,42 +3324,42 @@ switch.edge:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK13AstNodePreSel5frompEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK13AstNodePreSel4rhspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK13AstNodePreSel4thspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstNodeSel5frompEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstNodeSel4bitpEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK6AstVar10isReadOnlyEv(ptr noundef nonnull align 8 dereferenceable(280) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 249
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 249
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, -5
   %spec.select.i = icmp eq i8 %4, 1
@@ -3489,77 +3489,77 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK12AstNodeTriop4lhspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK12AstNodeTriop4rhspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK12AstNodeTriop4thspEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK7AstRand5seedpEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstReadMem4mempEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstReadMem9filenamepEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstReadMem4lsbpEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstReadMem4msbpEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstRelease4lhspEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstSFormat4lhspEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK10AstSFormat4fmtpEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -3571,49 +3571,49 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI11AstSFo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK9AstSScanF6exprspEv(ptr noundef nonnull align 8 dereferenceable(184) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6AstSel5frompEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6AstSel4lsbpEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK6AstSel6widthpEv(ptr noundef nonnull align 8 dereferenceable(176) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK15AstTestPlusArgs7searchpEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK16AstValuePlusArgs7searchpEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK16AstValuePlusArgs4outpEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }

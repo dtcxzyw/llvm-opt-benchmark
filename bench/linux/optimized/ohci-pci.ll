@@ -102,7 +102,7 @@ define internal i32 @ohci_pci_reset(ptr noundef %0) #2 align 16 {
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call i32 %11(ptr noundef %0) #8
@@ -115,14 +115,14 @@ define internal i32 @ohci_pci_reset(ptr noundef %0) #2 align 16 {
 
 15:                                               ; preds = %.thread, %8
   %16 = phi i32 [ %14, %.thread ], [ %12, %8 ]
-  %17 = getelementptr inbounds i8, ptr %2, i64 220
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 220
   %18 = load i16, ptr %17, align 4
   %19 = and i16 %18, 1
   %20 = icmp eq i16 %19, 0
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 1640
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   %23 = load i32, ptr %22, align 8
   %24 = or i32 %23, 512
   store i32 %24, ptr %22, align 8
@@ -140,13 +140,13 @@ declare dso_local i32 @ohci_setup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ohci_quirk_amd756(ptr nocapture noundef initializes((1664, 1672)) %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1664
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   store i64 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 168
-  %6 = tail call i32 @device_wakeup_disable(ptr noundef %5) #8
-  tail call void @device_set_wakeup_capable(ptr noundef %5, i1 noundef zeroext false) #8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %6 = tail call i32 @device_wakeup_disable(ptr noundef nonnull %5) #8
+  tail call void @device_set_wakeup_capable(ptr noundef nonnull %5, i1 noundef zeroext false) #8
   ret i32 0
 }
 
@@ -169,19 +169,19 @@ define internal noundef i32 @ohci_quirk_ns(ptr nocapture noundef %0) #2 align 16
   br i1 %10, label %23, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %9, i64 62
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 62
   %13 = load i16, ptr %12, align 2
   %14 = icmp eq i16 %13, 14
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %9, i64 60
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 60
   %17 = load i16, ptr %16, align 4
   %18 = icmp eq i16 %17, 4107
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 1664
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %21 = load i64, ptr %20, align 8
   %22 = or i64 %21, 2
   store i64 %22, ptr %20, align 8
@@ -194,7 +194,7 @@ define internal noundef i32 @ohci_quirk_ns(ptr nocapture noundef %0) #2 align 16
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @ohci_quirk_zfmicro(ptr nocapture noundef %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1664
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %3 = load i64, ptr %2, align 8
   %4 = or i64 %3, 32
   store i64 %4, ptr %2, align 8
@@ -210,28 +210,28 @@ define internal noundef i32 @ohci_quirk_toshiba_scc(ptr nocapture noundef readon
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
 define internal noundef i32 @ohci_quirk_nec(ptr noundef initializes((1728, 1736)) %0) #6 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1664
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %3 = load i64, ptr %2, align 8
   %4 = or i64 %3, 64
   store i64 %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1728
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   store i64 68719476704, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1736
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   store volatile ptr %6, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1744
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   store volatile ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1752
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   store ptr @ohci_quirk_nec_worker, ptr %8, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @broken_suspend(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 168
-  %5 = tail call i32 @device_wakeup_disable(ptr noundef %4) #8
-  tail call void @device_set_wakeup_capable(ptr noundef %4, i1 noundef zeroext false) #8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
+  %5 = tail call i32 @device_wakeup_disable(ptr noundef nonnull %4) #8
+  tail call void @device_set_wakeup_capable(ptr noundef nonnull %4, i1 noundef zeroext false) #8
   ret i32 0
 }
 
@@ -241,7 +241,7 @@ define internal noundef i32 @ohci_quirk_amd700(ptr nocapture noundef %0) #2 alig
   br i1 %2, label %3, label %._crit_edge
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1664
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %5 = load i64, ptr %4, align 8
   %6 = or i64 %5, 512
   store i64 %6, ptr %4, align 8
@@ -249,11 +249,11 @@ define internal noundef i32 @ohci_quirk_amd700(ptr nocapture noundef %0) #2 alig
 
 ._crit_edge:                                      ; preds = %3, %1
   %7 = tail call zeroext i1 @usb_amd_prefetch_quirk() #8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1664
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %9 = load i64, ptr %8, align 8
   %10 = or i64 %9, 1024
   %11 = select i1 %7, i64 %10, i64 %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 1664
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %13 = or i64 %11, 2048
   store i64 %13, ptr %12, align 8
   ret i32 0
@@ -261,7 +261,7 @@ define internal noundef i32 @ohci_quirk_amd700(ptr nocapture noundef %0) #2 alig
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @ohci_quirk_qemu(ptr nocapture noundef %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1664
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %3 = load i64, ptr %2, align 8
   %4 = or i64 %3, 4096
   store i64 %4, ptr %2, align 8

@@ -13,11 +13,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @opal_list_item_construct(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 1, ptr %4, align 8
   ret void
 }
@@ -29,54 +29,54 @@ define internal void @opal_list_item_destruct(ptr nocapture readnone %0) #1 {
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @opal_list_construct(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile ptr %2, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store volatile i64 0, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @opal_list_destruct(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile ptr %2, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store volatile i64 0, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
 define void @opal_list_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load volatile i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %27, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load volatile ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.not.i = icmp eq ptr %1, %9
   br i1 %.not.i, label %opal_list_transfer.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = load volatile ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store volatile ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %15 = load volatile ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store volatile ptr %9, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load volatile ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store volatile ptr %8, ptr %19, align 8
   %20 = load volatile ptr, ptr %17, align 8
   %21 = load volatile ptr, ptr %11, align 8
@@ -88,7 +88,7 @@ define void @opal_list_join(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
 
 opal_list_transfer.exit:                          ; preds = %6, %10
   %23 = load volatile i64, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load volatile i64, ptr %24, align 8
   %26 = add i64 %25, %23
   store volatile i64 %26, ptr %24, align 8
@@ -112,7 +112,7 @@ define void @opal_list_splice(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %.not18, label %10, label %7
 
 7:                                                ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %.020, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %9 = load volatile ptr, ptr %8, align 8
   br label %10
 
@@ -126,17 +126,17 @@ define void @opal_list_splice(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %.not.i, label %opal_list_transfer.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %15 = load volatile ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store volatile ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = load volatile ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store volatile ptr %4, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load volatile ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store volatile ptr %3, ptr %22, align 8
   %23 = load volatile ptr, ptr %20, align 8
   %24 = load volatile ptr, ptr %14, align 8
@@ -147,11 +147,11 @@ define void @opal_list_splice(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %opal_list_transfer.exit
 
 opal_list_transfer.exit:                          ; preds = %12, %13
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load volatile i64, ptr %26, align 8
   %28 = add i64 %27, %6
   store volatile i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %30 = load volatile i64, ptr %29, align 8
   %31 = sub i64 %30, %6
   store volatile i64 %31, ptr %29, align 8
@@ -163,7 +163,7 @@ opal_list_transfer.exit:                          ; preds = %12, %13
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 1) i32 @opal_list_sort(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load volatile i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %41, label %6
@@ -185,7 +185,7 @@ define range(i32 -2, 1) i32 @opal_list_sort(ptr noundef %0, ptr nocapture nounde
   br label %._crit_edge26
 
 .lr.ph:                                           ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
@@ -194,11 +194,11 @@ define range(i32 -2, 1) i32 @opal_list_sort(ptr noundef %0, ptr nocapture nounde
   %16 = add i64 %15, -1
   store volatile i64 %16, ptr %3, align 8
   %17 = load volatile ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load volatile ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load volatile ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store volatile ptr %19, ptr %22, align 8
   %23 = load volatile ptr, ptr %20, align 8
   store volatile ptr %23, ptr %13, align 8
@@ -215,8 +215,8 @@ define range(i32 -2, 1) i32 @opal_list_sort(ptr noundef %0, ptr nocapture nounde
   br i1 %.not, label %._crit_edge26, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %30
 
 30:                                               ; preds = %.lr.ph25, %30
@@ -224,12 +224,12 @@ define range(i32 -2, 1) i32 @opal_list_sort(ptr noundef %0, ptr nocapture nounde
   %31 = getelementptr inbounds ptr, ptr %9, i64 %.01723
   %32 = load ptr, ptr %31, align 8
   %33 = load volatile ptr, ptr %29, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store volatile ptr %33, ptr %34, align 8
   %35 = load volatile ptr, ptr %29, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store volatile ptr %32, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store volatile ptr %28, ptr %37, align 8
   store volatile ptr %32, ptr %29, align 8
   %38 = load volatile i64, ptr %3, align 8

@@ -124,7 +124,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   br label %delete.end
@@ -136,7 +136,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 
 delete.notnull2:                                  ; preds = %delete.end
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 8
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 8
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(56) %2) #15
   br label %delete.end5
@@ -157,7 +157,7 @@ if.end:                                           ; preds = %entry
   tail call void @_ZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEv()
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18SourceAddressTokenE, i64 16), ptr %call, align 8
-  %_arena_ptr_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %_arena_ptr_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %_arena_ptr_.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont unwind label %lpad.i
@@ -168,23 +168,23 @@ lpad.i:                                           ; preds = %if.end
   br label %eh.resume
 
 invoke.cont:                                      ; preds = %if.end
-  %_cached_size_.i.i = getelementptr inbounds i8, ptr %call, i64 28
+  %_cached_size_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 28
   store i32 0, ptr %_cached_size_.i.i, align 4
-  %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %_unknown_fields_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %1, ptr %_unknown_fields_.i.i, align 8
-  %ip_.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %ip_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %1, ptr %ip_.i.i, align 8
-  %timestamp_.i.i = getelementptr inbounds i8, ptr %call, i64 40
-  %_has_bits_.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %timestamp_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
+  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 0, ptr %_has_bits_.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i.i, i8 0, i64 16, i1 false)
   store ptr %call, ptr @_ZN3net18SourceAddressToken17default_instance_E, align 8
   %call1 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19SourceAddressTokensE, i64 16), ptr %call1, align 8
-  %_arena_ptr_.i3 = getelementptr inbounds i8, ptr %call1, i64 16
+  %_arena_ptr_.i3 = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store ptr null, ptr %_arena_ptr_.i3, align 8
-  %tokens_.i = getelementptr inbounds i8, ptr %call1, i64 32
+  %tokens_.i = getelementptr inbounds nuw i8, ptr %call1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tokens_.i, i8 0, i64 24, i1 false)
   %call.i2.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont3 unwind label %lpad2.i
@@ -196,17 +196,17 @@ lpad2.i:                                          ; preds = %invoke.cont
   br label %eh.resume
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %_cached_size_.i.i4 = getelementptr inbounds i8, ptr %call1, i64 28
+  %_cached_size_.i.i4 = getelementptr inbounds nuw i8, ptr %call1, i64 28
   store i32 0, ptr %_cached_size_.i.i4, align 4
-  %_unknown_fields_.i.i5 = getelementptr inbounds i8, ptr %call1, i64 8
+  %_unknown_fields_.i.i5 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %3 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %3, ptr %_unknown_fields_.i.i5, align 8
-  %_has_bits_.i.i6 = getelementptr inbounds i8, ptr %call1, i64 24
+  %_has_bits_.i.i6 = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store i32 0, ptr %_has_bits_.i.i6, align 8
   store ptr %call1, ptr @_ZN3net19SourceAddressTokens17default_instance_E, align 8
   %4 = load ptr, ptr @_ZN3net18SourceAddressToken17default_instance_E, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN3net23CachedNetworkParameters16default_instanceEv()
-  %cached_network_parameters_.i = getelementptr inbounds i8, ptr %4, i64 48
+  %cached_network_parameters_.i = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %call.i, ptr %cached_network_parameters_.i, align 8
   tail call void @_ZN6google8protobuf8internal10OnShutdownEPFvvE(ptr noundef nonnull @_ZN3net54protobuf_ShutdownFile_source_5faddress_5ftoken_2eprotoEv)
   br label %return
@@ -238,7 +238,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define dso_local void @_ZN3net18SourceAddressToken21InitAsDefaultInstanceEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN3net23CachedNetworkParameters16default_instanceEv()
-  %cached_network_parameters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %cached_network_parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %call, ptr %cached_network_parameters_, align 8
   ret void
 }
@@ -255,21 +255,21 @@ declare void @_ZN6google8protobuf8internal10OnShutdownEPFvvE(ptr noundef) local_
 define dso_local void @_ZN3net18SourceAddressTokenC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 24)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18SourceAddressTokenE, i64 16), ptr %this, align 8
-  %_arena_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_arena_ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %_arena_ptr_, align 8
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_.i, align 4
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %0, ptr %_unknown_fields_.i, align 8
-  %ip_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %0, ptr %ip_.i, align 8
-  %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %timestamp_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i, i8 0, i64 16, i1 false)
   ret void
@@ -285,15 +285,15 @@ lpad:                                             ; preds = %entry
 define dso_local void @_ZN3net18SourceAddressToken10SharedCtorEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((8, 16), (24, 56)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_, align 4
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %0, ptr %_unknown_fields_, align 8
-  %ip_ = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %0, ptr %ip_, align 8
-  %timestamp_ = getelementptr inbounds i8, ptr %this, i64 40
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
+  %timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_, i8 0, i64 16, i1 false)
   ret void
@@ -308,21 +308,21 @@ declare noundef nonnull align 8 dereferenceable(72) ptr @_ZN3net23CachedNetworkP
 define dso_local void @_ZN3net18SourceAddressTokenC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(56) %from) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18SourceAddressTokenE, i64 16), ptr %this, align 8
-  %_arena_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_arena_ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %_arena_ptr_, align 8
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_.i, align 4
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %0, ptr %_unknown_fields_.i, align 8
-  %ip_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %0, ptr %ip_.i, align 8
-  %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %timestamp_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i, i8 0, i64 16, i1 false)
   invoke void @_ZN3net18SourceAddressToken9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %from)
@@ -349,7 +349,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %_has_bits_ = getelementptr inbounds i8, ptr %from, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %from, i64 24
   %0 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %0, 255
   %tobool.not = icmp eq i32 %and, 0
@@ -361,13 +361,13 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp.i.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.then2
-  %_has_bits_.i10 = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i10 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %_has_bits_.i10, align 8
   %or.i = or i32 %1, 1
   store i32 %or.i, ptr %_has_bits_.i10, align 8
-  %ip_ = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
-  %ip_5 = getelementptr inbounds i8, ptr %from, i64 32
+  %ip_5 = getelementptr inbounds nuw i8, ptr %from, i64 32
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %ip_5, align 8
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr17AssignWithDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_(ptr noundef nonnull align 8 dereferenceable(8) %ip_, ptr noundef nonnull %2, ptr %agg.tmp.sroa.0.0.copyload)
   %.pre = load i32, ptr %_has_bits_, align 8
@@ -380,13 +380,13 @@ if.end6:                                          ; preds = %if.then3, %if.then2
   br i1 %cmp.i13.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %timestamp_.i = getelementptr inbounds i8, ptr %from, i64 40
+  %timestamp_.i = getelementptr inbounds nuw i8, ptr %from, i64 40
   %4 = load i64, ptr %timestamp_.i, align 8
-  %_has_bits_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load i32, ptr %_has_bits_.i.i, align 8
   %or.i.i = or i32 %5, 2
   store i32 %or.i.i, ptr %_has_bits_.i.i, align 8
-  %timestamp_.i14 = getelementptr inbounds i8, ptr %this, i64 40
+  %timestamp_.i14 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 %4, ptr %timestamp_.i14, align 8
   %.pre24 = load i32, ptr %_has_bits_, align 8
   br label %if.end10
@@ -398,11 +398,11 @@ if.end10:                                         ; preds = %if.then8, %if.end6
   br i1 %cmp.i17.not, label %if.end16, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %_has_bits_.i.i18 = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i.i18 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i32, ptr %_has_bits_.i.i18, align 8
   %or.i.i19 = or i32 %7, 4
   store i32 %or.i.i19, ptr %_has_bits_.i.i18, align 8
-  %cached_network_parameters_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %cached_network_parameters_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %8 = load ptr, ptr %cached_network_parameters_.i, align 8
   %cmp.i20 = icmp eq ptr %8, null
   br i1 %cmp.i20, label %if.then.i, label %_ZN3net18SourceAddressToken33mutable_cached_network_parametersEv.exit
@@ -424,14 +424,14 @@ lpad.i:                                           ; preds = %if.then.i
 
 _ZN3net18SourceAddressToken33mutable_cached_network_parametersEv.exit: ; preds = %if.then12, %invoke.cont.i
   %10 = phi ptr [ %call.i, %invoke.cont.i ], [ %8, %if.then12 ]
-  %cached_network_parameters_.i21 = getelementptr inbounds i8, ptr %from, i64 48
+  %cached_network_parameters_.i21 = getelementptr inbounds nuw i8, ptr %from, i64 48
   %11 = load ptr, ptr %cached_network_parameters_.i21, align 8
   %cmp.not.i = icmp eq ptr %11, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK3net18SourceAddressToken25cached_network_parametersEv.exit
 
 cond.false.i:                                     ; preds = %_ZN3net18SourceAddressToken33mutable_cached_network_parametersEv.exit
   %12 = load ptr, ptr @_ZN3net18SourceAddressToken17default_instance_E, align 8
-  %cached_network_parameters_3.i = getelementptr inbounds i8, ptr %12, i64 48
+  %cached_network_parameters_3.i = getelementptr inbounds nuw i8, ptr %12, i64 48
   %13 = load ptr, ptr %cached_network_parameters_3.i, align 8
   br label %_ZNK3net18SourceAddressToken25cached_network_parametersEv.exit
 
@@ -441,13 +441,13 @@ _ZNK3net18SourceAddressToken25cached_network_parametersEv.exit: ; preds = %_ZN3n
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end10, %_ZNK3net18SourceAddressToken25cached_network_parametersEv.exit, %if.end
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %from, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %from, i64 8
   %14 = load ptr, ptr %_unknown_fields_.i, align 8
   %call18 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #15
   br i1 %call18, label %if.end23, label %if.then19
 
 if.then19:                                        ; preds = %if.end16
-  %_unknown_fields_.i22 = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i22 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %15 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %call2.i = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr14MutableNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i22, ptr noundef nonnull %15)
   %16 = load ptr, ptr %_unknown_fields_.i, align 8
@@ -467,13 +467,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 define dso_local void @_ZN3net18SourceAddressTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18SourceAddressTokenE, i64 16), ptr %this, align 8
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i, ptr noundef nonnull %0)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %entry
-  %ip_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %ip_.i, ptr noundef nonnull %1)
           to label %.noexc1 unwind label %terminate.lpad
@@ -484,14 +484,14 @@ entry:
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %.noexc1
-  %cached_network_parameters_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %cached_network_parameters_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %cached_network_parameters_.i, align 8
   %isnull.i = icmp eq ptr %3, null
   br i1 %isnull.i, label %invoke.cont, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(72) %3) #15
   br label %invoke.cont
@@ -511,10 +511,10 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18SourceAddressToken10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_, ptr noundef nonnull %0)
-  %ip_ = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %ip_, ptr noundef nonnull %1)
   %2 = load ptr, ptr @_ZN3net18SourceAddressToken17default_instance_E, align 8
@@ -522,14 +522,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cached_network_parameters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %cached_network_parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %cached_network_parameters_, align 8
   %isnull = icmp eq ptr %3, null
   br i1 %isnull, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(72) %3) #15
   br label %if.end
@@ -554,13 +554,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 define dso_local void @_ZN3net18SourceAddressTokenD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18SourceAddressTokenE, i64 16), ptr %this, align 8
-  %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i.i, ptr noundef nonnull %0)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %entry
-  %ip_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %ip_.i.i, ptr noundef nonnull %1)
           to label %.noexc1.i unwind label %terminate.lpad.i
@@ -571,14 +571,14 @@ entry:
   br i1 %cmp.not.i.i, label %_ZN3net18SourceAddressTokenD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %.noexc1.i
-  %cached_network_parameters_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %cached_network_parameters_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load ptr, ptr %cached_network_parameters_.i.i, align 8
   %isnull.i.i = icmp eq ptr %3, null
   br i1 %isnull.i.i, label %_ZN3net18SourceAddressTokenD2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.then.i.i
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(72) %3) #15
   br label %_ZN3net18SourceAddressTokenD2Ev.exit
@@ -601,7 +601,7 @@ declare void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZNK3net18SourceAddressToken13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((28, 32)) %this, i32 noundef %size) local_unnamed_addr #10 align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %size, ptr %_cached_size_, align 4
   ret void
 }
@@ -628,7 +628,7 @@ define dso_local noundef nonnull ptr @_ZNK3net18SourceAddressToken3NewEPN6google
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18SourceAddressTokenE, i64 16), ptr %call, align 8
-  %_arena_ptr_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %_arena_ptr_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %_arena_ptr_.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont unwind label %lpad.i
@@ -641,15 +641,15 @@ lpad.i:                                           ; preds = %entry
   resume { ptr, i32 } %0
 
 invoke.cont:                                      ; preds = %entry
-  %_cached_size_.i.i = getelementptr inbounds i8, ptr %call, i64 28
+  %_cached_size_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 28
   store i32 0, ptr %_cached_size_.i.i, align 4
-  %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %_unknown_fields_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %1, ptr %_unknown_fields_.i.i, align 8
-  %ip_.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %ip_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %1, ptr %ip_.i.i, align 8
-  %timestamp_.i.i = getelementptr inbounds i8, ptr %call, i64 40
-  %_has_bits_.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %timestamp_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
+  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 0, ptr %_has_bits_.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i.i, i8 0, i64 16, i1 false)
   %cmp.not = icmp eq ptr %arena, null
@@ -666,7 +666,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18SourceAddressToken5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %0, 7
   %tobool.not = icmp eq i32 %and, 0
@@ -678,7 +678,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %ip_ = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %2 = load ptr, ptr %ip_, align 8
   %cmp.i1 = icmp eq ptr %2, %1
@@ -691,14 +691,14 @@ if.else.i:                                        ; preds = %if.then2
 
 if.end:                                           ; preds = %if.else.i, %if.then2, %if.then
   %3 = phi i32 [ %.pre, %if.else.i ], [ %0, %if.then2 ], [ %0, %if.then ]
-  %timestamp_ = getelementptr inbounds i8, ptr %this, i64 40
+  %timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %timestamp_, align 8
   %and.i3 = and i32 %3, 4
   %cmp.i4.not = icmp eq i32 %and.i3, 0
   br i1 %cmp.i4.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %cached_network_parameters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %cached_network_parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %4 = load ptr, ptr %cached_network_parameters_, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end10, label %if.then6
@@ -709,7 +709,7 @@ if.then6:                                         ; preds = %if.then5
 
 if.end10:                                         ; preds = %if.end, %if.then6, %if.then5, %entry
   store i32 0, ptr %_has_bits_, align 8
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %6 = load ptr, ptr %_unknown_fields_, align 8
   %cmp.i5 = icmp eq ptr %6, %5
@@ -732,26 +732,26 @@ entry:
   %unknown_fields_stream = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net18SourceAddressTokenEEE, i64 16), ptr %call.i, align 8
-  %function_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %function_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @_ZN3netL41MutableUnknownFieldsForSourceAddressTokenB5cxx11EPNS_18SourceAddressTokenE, ptr %function_.i.i, align 8
-  %self_deleting_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %self_deleting_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i8 0, ptr %self_deleting_.i.i, align 8
-  %p1_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %p1_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %this, ptr %p1_.i.i, align 8
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamC1EPNS0_14ResultCallbackIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(25) %unknown_fields_string, ptr noundef nonnull %call.i)
   invoke void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(26) %unknown_fields_stream, ptr noundef nonnull %unknown_fields_string, i1 noundef zeroext false)
           to label %for.cond.preheader unwind label %lpad
 
 for.cond.preheader:                               ; preds = %entry
-  %buffer_end_.i = getelementptr inbounds i8, ptr %input, i64 8
-  %last_tag_50.i = getelementptr inbounds i8, ptr %input, i64 32
-  %_has_bits_.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %ip_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %timestamp_ = getelementptr inbounds i8, ptr %this, i64 40
-  %cached_network_parameters_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %input, i64 44
-  %total_bytes_read_.i = getelementptr inbounds i8, ptr %input, i64 24
-  %current_limit_.i = getelementptr inbounds i8, ptr %input, i64 40
+  %buffer_end_.i = getelementptr inbounds nuw i8, ptr %input, i64 8
+  %last_tag_50.i = getelementptr inbounds nuw i8, ptr %input, i64 32
+  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %ip_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %cached_network_parameters_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %buffer_size_after_limit_.i = getelementptr inbounds nuw i8, ptr %input, i64 44
+  %total_bytes_read_.i = getelementptr inbounds nuw i8, ptr %input, i64 24
+  %current_limit_.i = getelementptr inbounds nuw i8, ptr %input, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
@@ -768,7 +768,7 @@ if.then.i:                                        ; preds = %for.cond
 
 if.then8.i:                                       ; preds = %if.then.i
   store i32 %conv.i, ptr %last_tag_50.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store ptr %add.ptr.i, ptr %input, align 8
   %retval.sroa.0.0.insert.ext.i = zext nneg i8 %2 to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.0.insert.ext.i, 4294967296
@@ -851,7 +851,7 @@ land.lhs.true.i114:                               ; preds = %if.then.i109
   br i1 %cmp5.i116, label %if.then6.i117, label %for.cond.backedge
 
 if.then6.i117:                                    ; preds = %land.lhs.true.i114
-  %add.ptr.i37 = getelementptr inbounds i8, ptr %8, i64 1
+  %add.ptr.i37 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %add.ptr.i37, ptr %input, align 8
   br label %parse_timestamp
 
@@ -879,7 +879,7 @@ land.lhs.true.i:                                  ; preds = %parse_timestamp
 
 call.i120.noexc.thread:                           ; preds = %land.lhs.true.i
   %conv6.i = zext nneg i8 %13 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %add.ptr.i.i, ptr %input, align 8
   br label %if.end.i122
 
@@ -910,7 +910,7 @@ land.lhs.true.i80:                                ; preds = %if.end.i122
   br i1 %cmp5.i, label %if.then6.i, label %for.cond.backedge
 
 if.then6.i:                                       ; preds = %land.lhs.true.i80
-  %add.ptr.i43 = getelementptr inbounds i8, ptr %17, i64 1
+  %add.ptr.i43 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %add.ptr.i43, ptr %input, align 8
   br label %parse_cached_network_parameters
 
@@ -960,7 +960,7 @@ if.then.i.i:                                      ; preds = %invoke.cont39
   br i1 %cmp4.i.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i: ; preds = %if.then.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %24, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %add.ptr.i.i.i, ptr %input, align 8
   br label %if.end.i52
 
@@ -1020,7 +1020,7 @@ lor.lhs.false.i64:                                ; preds = %land.lhs.true.i61
 
 _ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %land.lhs.true.i61, %lor.lhs.false.i64
   store i32 0, ptr %last_tag_50.i, align 8
-  %legitimate_message_end_.i = getelementptr inbounds i8, ptr %input, i64 36
+  %legitimate_message_end_.i = getelementptr inbounds nuw i8, ptr %input, i64 36
   store i8 1, ptr %legitimate_message_end_.i, align 4
   br label %cleanup
 
@@ -1058,7 +1058,7 @@ ehcleanup:                                        ; preds = %lpad2.body, %lpad
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZN3netL41MutableUnknownFieldsForSourceAddressTokenB5cxx11EPNS_18SourceAddressTokenE(ptr noundef %ptr) #1 {
 entry:
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %ptr, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %ptr, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %call2.i = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr14MutableNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i, ptr noundef nonnull %0)
   ret ptr %call2.i
@@ -1081,14 +1081,14 @@ declare void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK3net18SourceAddressToken24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %output) unnamed_addr #1 align 2 {
 entry:
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
   %and.i = and i32 %0, 1
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ip_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %ip_.i, align 8
   tail call void @_ZN6google8protobuf8internal14WireFormatLite22WriteBytesMaybeAliasedEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_2io17CodedOutputStreamE(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %output)
   %.pre = load i32, ptr %_has_bits_.i, align 8
@@ -1101,7 +1101,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.i6.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %timestamp_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i64, ptr %timestamp_.i, align 8
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt64EilPNS0_2io17CodedOutputStreamE(i32 noundef 2, i64 noundef %3, ptr noundef %output)
   %.pre11 = load i32, ptr %_has_bits_.i, align 8
@@ -1114,13 +1114,13 @@ if.end6:                                          ; preds = %if.then4, %if.end
   br i1 %cmp.i9.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %cached_network_parameters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %cached_network_parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %5 = load ptr, ptr %cached_network_parameters_, align 8
   tail call void @_ZN6google8protobuf8internal14WireFormatLite12WriteMessageEiRKNS0_11MessageLiteEPNS0_2io17CodedOutputStreamE(i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %output)
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.end6
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %_unknown_fields_.i, align 8
   %call11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #15
   %7 = load ptr, ptr %_unknown_fields_.i, align 8
@@ -1147,14 +1147,14 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK3net18SourceAddressToken30RequiredFieldsByteSizeFallbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
   %and.i = and i32 %0, 1
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ip_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %ip_.i, align 8
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %conv.i = trunc i64 %call.i to i32
@@ -1182,7 +1182,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   br i1 %cmp.i5.not, label %if.end11, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %timestamp_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load i64, ptr %timestamp_.i, align 8
   %call.i6 = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %5)
   %add9 = add i32 %total_size.0, 1
@@ -1197,14 +1197,14 @@ if.end11:                                         ; preds = %if.then6, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK3net18SourceAddressToken8ByteSizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((28, 32)) %this) unnamed_addr #1 align 2 {
 entry:
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %0, 3
   %cmp = icmp eq i32 %and, 3
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %ip_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %ip_.i, align 8
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %conv.i = trunc i64 %call.i to i32
@@ -1220,7 +1220,7 @@ _ZN6google8protobuf8internal14WireFormatLite9BytesSizeERKNSt7__cxx1112basic_stri
   %retval.0.i.i = phi i32 [ %2, %if.else.i.i ], [ 3, %if.then ]
   %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %3 = trunc i64 %call3.i to i32
-  %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %timestamp_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %timestamp_.i, align 8
   %call.i7 = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %4)
   %add6 = add i32 %retval.0.i.i, %3
@@ -1233,7 +1233,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %ip_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %ip_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %ip_.i.i, align 8
   %call.i.i8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   %conv.i.i = trunc i64 %call.i.i8 to i32
@@ -1261,7 +1261,7 @@ if.end.i:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i5.not.i, label %if.end, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %timestamp_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %timestamp_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %9 = load i64, ptr %timestamp_.i.i, align 8
   %call.i6.i = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %9)
   %add9.i = add i32 %total_size.0.i, 1
@@ -1276,7 +1276,7 @@ if.end:                                           ; preds = %if.then6.i, %if.end
   br i1 %cmp.i.not, label %if.end15, label %if.then11
 
 if.then11:                                        ; preds = %if.end
-  %cached_network_parameters_ = getelementptr inbounds i8, ptr %this, i64 48
+  %cached_network_parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %11 = load ptr, ptr %cached_network_parameters_, align 8
   %call.i9 = tail call noundef i32 @_ZNK3net23CachedNetworkParameters8ByteSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %11)
   %cmp.i.i.i10 = icmp ult i32 %call.i9, 128
@@ -1295,12 +1295,12 @@ _ZN6google8protobuf8internal14WireFormatLite20MessageSizeNoVirtualIN3net23Cached
 
 if.end15:                                         ; preds = %_ZN6google8protobuf8internal14WireFormatLite20MessageSizeNoVirtualIN3net23CachedNetworkParametersEEEiRKT_.exit, %if.end
   %total_size.1 = phi i32 [ %add14, %_ZN6google8protobuf8internal14WireFormatLite20MessageSizeNoVirtualIN3net23CachedNetworkParametersEEEiRKT_.exit ], [ %total_size.0, %if.end ]
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %_unknown_fields_.i, align 8
   %call17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #15
   %13 = trunc i64 %call17 to i32
   %conv19 = add i32 %total_size.1, %13
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %conv19, ptr %_cached_size_, align 4
   ret i32 %conv19
 }
@@ -1365,7 +1365,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(56) %this)
   tail call void @_ZN3net18SourceAddressToken9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %from)
@@ -1378,7 +1378,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net18SourceAddressToken13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #11 align 2 {
 entry:
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %0, 3
   %cmp.not = icmp eq i32 %and, 3
@@ -1392,38 +1392,38 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ip_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %ip_2.i = getelementptr inbounds i8, ptr %other, i64 32
+  %ip_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %ip_2.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load ptr, ptr %ip_.i, align 8
   %1 = load ptr, ptr %ip_2.i, align 8
   store ptr %1, ptr %ip_.i, align 8
   store ptr %0, ptr %ip_2.i, align 8
-  %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %timestamp_3.i = getelementptr inbounds i8, ptr %other, i64 40
+  %timestamp_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %timestamp_3.i = getelementptr inbounds nuw i8, ptr %other, i64 40
   %2 = load i64, ptr %timestamp_.i, align 8
   %3 = load i64, ptr %timestamp_3.i, align 8
   store i64 %3, ptr %timestamp_.i, align 8
   store i64 %2, ptr %timestamp_3.i, align 8
-  %cached_network_parameters_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %cached_network_parameters_4.i = getelementptr inbounds i8, ptr %other, i64 48
+  %cached_network_parameters_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %cached_network_parameters_4.i = getelementptr inbounds nuw i8, ptr %other, i64 48
   %4 = load ptr, ptr %cached_network_parameters_.i, align 8
   %5 = load ptr, ptr %cached_network_parameters_4.i, align 8
   store ptr %5, ptr %cached_network_parameters_.i, align 8
   store ptr %4, ptr %cached_network_parameters_4.i, align 8
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_has_bits_5.i = getelementptr inbounds i8, ptr %other, i64 24
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_has_bits_5.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %6 = load i32, ptr %_has_bits_.i, align 8
   %7 = load i32, ptr %_has_bits_5.i, align 4
   store i32 %7, ptr %_has_bits_.i, align 8
   store i32 %6, ptr %_has_bits_5.i, align 4
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_unknown_fields_7.i = getelementptr inbounds i8, ptr %other, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_unknown_fields_7.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %8 = load ptr, ptr %_unknown_fields_.i, align 8
   %9 = load ptr, ptr %_unknown_fields_7.i, align 8
   store ptr %9, ptr %_unknown_fields_.i, align 8
   store ptr %8, ptr %_unknown_fields_7.i, align 8
-  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
-  %_cached_size_8.i = getelementptr inbounds i8, ptr %other, i64 28
+  %_cached_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %_cached_size_8.i = getelementptr inbounds nuw i8, ptr %other, i64 28
   %10 = load i32, ptr %_cached_size_.i, align 4
   %11 = load i32, ptr %_cached_size_8.i, align 4
   store i32 %11, ptr %_cached_size_.i, align 4
@@ -1437,38 +1437,38 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net18SourceAddressToken12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %other) local_unnamed_addr #12 align 2 {
 entry:
-  %ip_ = getelementptr inbounds i8, ptr %this, i64 32
-  %ip_2 = getelementptr inbounds i8, ptr %other, i64 32
+  %ip_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %ip_2 = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load ptr, ptr %ip_, align 8
   %1 = load ptr, ptr %ip_2, align 8
   store ptr %1, ptr %ip_, align 8
   store ptr %0, ptr %ip_2, align 8
-  %timestamp_ = getelementptr inbounds i8, ptr %this, i64 40
-  %timestamp_3 = getelementptr inbounds i8, ptr %other, i64 40
+  %timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %timestamp_3 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %2 = load i64, ptr %timestamp_, align 8
   %3 = load i64, ptr %timestamp_3, align 8
   store i64 %3, ptr %timestamp_, align 8
   store i64 %2, ptr %timestamp_3, align 8
-  %cached_network_parameters_ = getelementptr inbounds i8, ptr %this, i64 48
-  %cached_network_parameters_4 = getelementptr inbounds i8, ptr %other, i64 48
+  %cached_network_parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %cached_network_parameters_4 = getelementptr inbounds nuw i8, ptr %other, i64 48
   %4 = load ptr, ptr %cached_network_parameters_, align 8
   %5 = load ptr, ptr %cached_network_parameters_4, align 8
   store ptr %5, ptr %cached_network_parameters_, align 8
   store ptr %4, ptr %cached_network_parameters_4, align 8
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
-  %_has_bits_5 = getelementptr inbounds i8, ptr %other, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_has_bits_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %6 = load i32, ptr %_has_bits_, align 8
   %7 = load i32, ptr %_has_bits_5, align 4
   store i32 %7, ptr %_has_bits_, align 8
   store i32 %6, ptr %_has_bits_5, align 4
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_unknown_fields_7 = getelementptr inbounds i8, ptr %other, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_unknown_fields_7 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %8 = load ptr, ptr %_unknown_fields_, align 8
   %9 = load ptr, ptr %_unknown_fields_7, align 8
   store ptr %9, ptr %_unknown_fields_, align 8
   store ptr %8, ptr %_unknown_fields_7, align 8
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
-  %_cached_size_8 = getelementptr inbounds i8, ptr %other, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %_cached_size_8 = getelementptr inbounds nuw i8, ptr %other, i64 28
   %10 = load i32, ptr %_cached_size_, align 4
   %11 = load i32, ptr %_cached_size_8, align 4
   store i32 %11, ptr %_cached_size_, align 4
@@ -1523,20 +1523,20 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define dso_local void @_ZN3net19SourceAddressTokensC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 24), (32, 56)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19SourceAddressTokensE, i64 16), ptr %this, align 8
-  %_arena_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_arena_ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %_arena_ptr_, align 8
-  %tokens_ = getelementptr inbounds i8, ptr %this, i64 32
+  %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tokens_, i8 0, i64 24, i1 false)
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_.i, align 4
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %0, ptr %_unknown_fields_.i, align 8
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_.i, align 8
   ret void
 
@@ -1552,12 +1552,12 @@ lpad2:                                            ; preds = %invoke.cont
 define dso_local void @_ZN3net19SourceAddressTokens10SharedCtorEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((8, 16), (24, 32)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_, align 4
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %0, ptr %_unknown_fields_, align 8
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_, align 8
   ret void
 }
@@ -1565,7 +1565,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rep_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %rep_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %rep_.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %invoke.cont, label %for.cond.preheader.i
@@ -1579,8 +1579,8 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %2 = phi i32 [ %7, %_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE6DeleteEPS4_PNS0_5ArenaE.exit.i ], [ %1, %for.cond.preheader.i ]
   %3 = phi ptr [ %8, %_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE6DeleteEPS4_PNS0_5ArenaE.exit.i ], [ %0, %for.cond.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE6DeleteEPS4_PNS0_5ArenaE.exit.i ], [ 0, %for.cond.preheader.i ]
-  %elements.i = getelementptr inbounds i8, ptr %3, i64 8
-  %arrayidx.i = getelementptr inbounds [1 x ptr], ptr %elements.i, i64 0, i64 %indvars.iv.i
+  %elements.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %arrayidx.i = getelementptr inbounds nuw [1 x ptr], ptr %elements.i, i64 0, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = load ptr, ptr %this, align 8
   %cmp.i.i = icmp ne ptr %5, null
@@ -1590,7 +1590,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 delete.notnull.i.i:                               ; preds = %for.body.i
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(56) %4) #15
   %.pre.i = load ptr, ptr %rep_.i, align 8
@@ -1624,20 +1624,20 @@ invoke.cont:                                      ; preds = %delete.notnull.i, %
 define dso_local void @_ZN3net19SourceAddressTokensC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 24), (32, 56)) %this, ptr noundef nonnull align 8 dereferenceable(56) %from) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19SourceAddressTokensE, i64 16), ptr %this, align 8
-  %_arena_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_arena_ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %_arena_ptr_, align 8
-  %tokens_ = getelementptr inbounds i8, ptr %this, i64 32
+  %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tokens_, i8 0, i64 24, i1 false)
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_.i, align 4
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %0, ptr %_unknown_fields_.i, align 8
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_.i, align 8
   %cmp.i = icmp eq ptr %from, %this
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1647,12 +1647,12 @@ if.then.i:                                        ; preds = %invoke.cont3
           to label %if.end.i unwind label %lpad2
 
 if.end.i:                                         ; preds = %if.then.i, %invoke.cont3
-  %tokens_2.i = getelementptr inbounds i8, ptr %from, i64 32
+  %tokens_2.i = getelementptr inbounds nuw i8, ptr %from, i64 32
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN3net18SourceAddressTokenEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %tokens_, ptr noundef nonnull align 8 dereferenceable(24) %tokens_2.i)
           to label %.noexc3 unwind label %lpad2
 
 .noexc3:                                          ; preds = %if.end.i
-  %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %from, i64 8
+  %_unknown_fields_.i.i = getelementptr inbounds nuw i8, ptr %from, i64 8
   %1 = load ptr, ptr %_unknown_fields_.i.i, align 8
   %call3.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   br i1 %call3.i, label %invoke.cont4, label %if.then4.i
@@ -1689,16 +1689,16 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %tokens_ = getelementptr inbounds i8, ptr %this, i64 32
-  %tokens_2 = getelementptr inbounds i8, ptr %from, i64 32
+  %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %tokens_2 = getelementptr inbounds nuw i8, ptr %from, i64 32
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN3net18SourceAddressTokenEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %tokens_, ptr noundef nonnull align 8 dereferenceable(24) %tokens_2)
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %from, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %from, i64 8
   %0 = load ptr, ptr %_unknown_fields_.i, align 8
   %call3 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   br i1 %call3, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %_unknown_fields_.i4 = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i4 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %call2.i = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr14MutableNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i4, ptr noundef nonnull %1)
   %2 = load ptr, ptr %_unknown_fields_.i, align 8
@@ -1713,14 +1713,14 @@ if.end8:                                          ; preds = %if.then4, %if.end
 define dso_local void @_ZN3net19SourceAddressTokensD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19SourceAddressTokensE, i64 16), ptr %this, align 8
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i, ptr noundef nonnull %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %tokens_ = getelementptr inbounds i8, ptr %this, i64 32
-  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %rep_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %rep_.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEED2Ev.exit, label %for.cond.preheader.i.i
@@ -1734,8 +1734,8 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %3 = phi i32 [ %8, %_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ], [ %2, %for.cond.preheader.i.i ]
   %4 = phi ptr [ %9, %_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ], [ %1, %for.cond.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN3net18SourceAddressTokenEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ], [ 0, %for.cond.preheader.i.i ]
-  %elements.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %arrayidx.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i, i64 0, i64 %indvars.iv.i.i
+  %elements.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %arrayidx.i.i = getelementptr inbounds nuw [1 x ptr], ptr %elements.i.i, i64 0, i64 %indvars.iv.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %6 = load ptr, ptr %tokens_, align 8
   %cmp.i.i.i = icmp ne ptr %6, null
@@ -1745,7 +1745,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
 
 delete.notnull.i.i.i:                             ; preds = %for.body.i.i
   %vtable.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(56) %5) #15
   %.pre.i.i = load ptr, ptr %rep_.i.i, align 8
@@ -1786,7 +1786,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19SourceAddressTokens10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_, ptr noundef nonnull %0)
   ret void
@@ -1803,7 +1803,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZNK3net19SourceAddressTokens13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((28, 32)) %this, i32 noundef %size) local_unnamed_addr #10 align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %size, ptr %_cached_size_, align 4
   ret void
 }
@@ -1830,9 +1830,9 @@ define dso_local noundef nonnull ptr @_ZNK3net19SourceAddressTokens3NewEPN6googl
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net19SourceAddressTokensE, i64 16), ptr %call, align 8
-  %_arena_ptr_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %_arena_ptr_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %_arena_ptr_.i, align 8
-  %tokens_.i = getelementptr inbounds i8, ptr %call, i64 32
+  %tokens_.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tokens_.i, i8 0, i64 24, i1 false)
   %call.i2.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont unwind label %lpad2.i
@@ -1846,12 +1846,12 @@ lpad2.i:                                          ; preds = %entry
   resume { ptr, i32 } %0
 
 invoke.cont:                                      ; preds = %entry
-  %_cached_size_.i.i = getelementptr inbounds i8, ptr %call, i64 28
+  %_cached_size_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 28
   store i32 0, ptr %_cached_size_.i.i, align 4
-  %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %_unknown_fields_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %1, ptr %_unknown_fields_.i.i, align 8
-  %_has_bits_.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 0, ptr %_has_bits_.i.i, align 8
   %cmp.not = icmp eq ptr %arena, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1867,25 +1867,25 @@ if.end:                                           ; preds = %if.then, %invoke.co
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19SourceAddressTokens5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %current_size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %current_size_.i.i, align 8
   %cmp7.i.i = icmp sgt i32 %0, 0
   br i1 %cmp7.i.i, label %if.then.i.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEE5ClearEv.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %rep_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load ptr, ptr %rep_.i.i, align 8
-  %elements8.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %elements8.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count.i.i = zext nneg i32 %0 to i64
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %if.then.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %do.body.i.i ], [ 0, %if.then.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %elements8.i.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %elements8.i.i, i64 %indvars.iv.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 56
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 56
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(56) %2)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1896,9 +1896,9 @@ do.end.i.i:                                       ; preds = %do.body.i.i
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEE5ClearEv.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEE5ClearEv.exit: ; preds = %entry, %do.end.i.i
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_, align 8
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %5 = load ptr, ptr %_unknown_fields_, align 8
   %cmp.i = icmp eq ptr %5, %4
@@ -1919,27 +1919,27 @@ entry:
   %unknown_fields_stream = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net19SourceAddressTokensEEE, i64 16), ptr %call.i, align 8
-  %function_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %function_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @_ZN3netL42MutableUnknownFieldsForSourceAddressTokensB5cxx11EPNS_19SourceAddressTokensE, ptr %function_.i.i, align 8
-  %self_deleting_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %self_deleting_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i8 0, ptr %self_deleting_.i.i, align 8
-  %p1_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %p1_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %this, ptr %p1_.i.i, align 8
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamC1EPNS0_14ResultCallbackIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(25) %unknown_fields_string, ptr noundef nonnull %call.i)
   invoke void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(26) %unknown_fields_stream, ptr noundef nonnull %unknown_fields_string, i1 noundef zeroext false)
           to label %for.cond.preheader unwind label %lpad
 
 for.cond.preheader:                               ; preds = %entry
-  %buffer_end_.i = getelementptr inbounds i8, ptr %input, i64 8
-  %last_tag_50.i = getelementptr inbounds i8, ptr %input, i64 32
-  %recursion_budget_.i = getelementptr inbounds i8, ptr %input, i64 56
-  %tokens_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %total_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
-  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %input, i64 44
-  %total_bytes_read_.i = getelementptr inbounds i8, ptr %input, i64 24
-  %current_limit_.i = getelementptr inbounds i8, ptr %input, i64 40
+  %buffer_end_.i = getelementptr inbounds nuw i8, ptr %input, i64 8
+  %last_tag_50.i = getelementptr inbounds nuw i8, ptr %input, i64 32
+  %recursion_budget_.i = getelementptr inbounds nuw i8, ptr %input, i64 56
+  %tokens_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %rep_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %current_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %total_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 44
+  %buffer_size_after_limit_.i = getelementptr inbounds nuw i8, ptr %input, i64 44
+  %total_bytes_read_.i = getelementptr inbounds nuw i8, ptr %input, i64 24
+  %current_limit_.i = getelementptr inbounds nuw i8, ptr %input, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
@@ -1956,7 +1956,7 @@ if.then.i:                                        ; preds = %for.cond
 
 if.then8.i:                                       ; preds = %if.then.i
   store i32 %conv.i, ptr %last_tag_50.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store ptr %add.ptr.i, ptr %input, align 8
   %retval.sroa.0.0.insert.ext.i = zext nneg i8 %2 to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.0.insert.ext.i, 4294967296
@@ -2032,7 +2032,7 @@ land.lhs.true.i.i.i:                              ; preds = %parse_loop_tokens
   br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  %elements.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %elements.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %inc.i.i.i = add nsw i32 %7, 1
   store i32 %inc.i.i.i, ptr %current_size_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %7 to i64
@@ -2067,7 +2067,7 @@ if.end12.i.i.i:                                   ; preds = %.noexc, %lor.lhs.fa
 
 call.i.i.i.i.noexc:                               ; preds = %if.end12.i.i.i
   %15 = load ptr, ptr %rep_.i.i.i, align 8
-  %elements18.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %elements18.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load i32, ptr %current_size_.i.i.i, align 8
   %inc20.i.i.i = add nsw i32 %16, 1
   store i32 %inc20.i.i.i, ptr %current_size_.i.i.i, align 8
@@ -2107,7 +2107,7 @@ land.lhs.true.i58:                                ; preds = %if.then.i55
   br i1 %cmp5.i, label %if.then6.i, label %if.end25
 
 if.then6.i:                                       ; preds = %land.lhs.true.i58
-  %add.ptr.i34 = getelementptr inbounds i8, ptr %17, i64 1
+  %add.ptr.i34 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %add.ptr.i34, ptr %input, align 8
   br label %parse_loop_tokens
 
@@ -2134,7 +2134,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
 
 _ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %land.lhs.true.i, %lor.lhs.false.i
   store i32 0, ptr %last_tag_50.i, align 8
-  %legitimate_message_end_.i = getelementptr inbounds i8, ptr %input, i64 36
+  %legitimate_message_end_.i = getelementptr inbounds nuw i8, ptr %input, i64 36
   store i8 1, ptr %legitimate_message_end_.i, align 4
   br label %cleanup
 
@@ -2172,7 +2172,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZN3netL42MutableUnknownFieldsForSourceAddressTokensB5cxx11EPNS_19SourceAddressTokensE(ptr noundef %ptr) #1 {
 entry:
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %ptr, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %ptr, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %call2.i = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr14MutableNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i, ptr noundef nonnull %0)
   ret ptr %call2.i
@@ -2181,19 +2181,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK3net19SourceAddressTokens24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %output) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %current_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %cmp5.not = icmp eq i32 %0, 0
   br i1 %cmp5.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %rep_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.06 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %1 = load ptr, ptr %rep_.i.i.i, align 8
-  %elements.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %elements.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %idxprom.i.i.i = sext i32 %i.06 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %idxprom.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -2203,7 +2203,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %_unknown_fields_.i, align 8
   %call4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   %4 = load ptr, ptr %_unknown_fields_.i, align 8
@@ -2216,21 +2216,21 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK3net19SourceAddressTokens8ByteSizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %current_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %current_size_.i.i.i, align 8
   %cmp8 = icmp sgt i32 %0, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %rep_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6google8protobuf8internal14WireFormatLite20MessageSizeNoVirtualIN3net18SourceAddressTokenEEEiRKT_.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf8internal14WireFormatLite20MessageSizeNoVirtualIN3net18SourceAddressTokenEEEiRKT_.exit ]
   %total_size.09 = phi i32 [ %0, %for.body.lr.ph ], [ %add5, %_ZN6google8protobuf8internal14WireFormatLite20MessageSizeNoVirtualIN3net18SourceAddressTokenEEEiRKT_.exit ]
   %1 = load ptr, ptr %rep_.i.i.i, align 8
-  %elements.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %indvars.iv
+  %elements.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %arrayidx.i.i.i = getelementptr inbounds nuw [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx.i.i.i, align 8
   %call.i = tail call noundef i32 @_ZNK3net18SourceAddressToken8ByteSizeEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
   %cmp.i.i.i = icmp ult i32 %call.i, 128
@@ -2252,12 +2252,12 @@ _ZN6google8protobuf8internal14WireFormatLite20MessageSizeNoVirtualIN3net18Source
 
 for.end:                                          ; preds = %_ZN6google8protobuf8internal14WireFormatLite20MessageSizeNoVirtualIN3net18SourceAddressTokenEEEiRKT_.exit, %entry
   %total_size.0.lcssa = phi i32 [ %0, %entry ], [ %add5, %_ZN6google8protobuf8internal14WireFormatLite20MessageSizeNoVirtualIN3net18SourceAddressTokenEEEiRKT_.exit ]
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load ptr, ptr %_unknown_fields_.i, align 8
   %call7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   %6 = trunc i64 %call7 to i32
   %conv9 = add i32 %total_size.0.lcssa, %6
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %conv9, ptr %_cached_size_, align 4
   ret i32 %conv9
 }
@@ -2273,16 +2273,16 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %tokens_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %tokens_2.i = getelementptr inbounds i8, ptr %from, i64 32
+  %tokens_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %tokens_2.i = getelementptr inbounds nuw i8, ptr %from, i64 32
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN3net18SourceAddressTokenEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %tokens_.i, ptr noundef nonnull align 8 dereferenceable(24) %tokens_2.i)
-  %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %from, i64 8
+  %_unknown_fields_.i.i = getelementptr inbounds nuw i8, ptr %from, i64 8
   %0 = load ptr, ptr %_unknown_fields_.i.i, align 8
   %call3.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   br i1 %call3.i, label %_ZN3net19SourceAddressTokens9MergeFromERKS0_.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %_unknown_fields_.i4.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i4.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr14MutableNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i4.i, ptr noundef nonnull %1)
   %2 = load ptr, ptr %_unknown_fields_.i.i, align 8
@@ -2301,19 +2301,19 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(56) %this)
-  %tokens_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %tokens_2.i = getelementptr inbounds i8, ptr %from, i64 32
+  %tokens_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %tokens_2.i = getelementptr inbounds nuw i8, ptr %from, i64 32
   tail call void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN3net18SourceAddressTokenEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %tokens_.i, ptr noundef nonnull align 8 dereferenceable(24) %tokens_2.i)
-  %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %from, i64 8
+  %_unknown_fields_.i.i = getelementptr inbounds nuw i8, ptr %from, i64 8
   %1 = load ptr, ptr %_unknown_fields_.i.i, align 8
   %call3.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   br i1 %call3.i, label %return, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %_unknown_fields_.i4.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i4.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr14MutableNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i4.i, ptr noundef nonnull %2)
   %3 = load ptr, ptr %_unknown_fields_.i.i, align 8
@@ -2327,9 +2327,9 @@ return:                                           ; preds = %if.then4.i, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net19SourceAddressTokens13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %current_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %current_size_.i.i.i, align 8
-  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %rep_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = zext i32 %0 to i64
   br label %for.cond.i
 
@@ -2342,11 +2342,11 @@ for.cond.i:                                       ; preds = %for.body.i, %entry
 for.body.i:                                       ; preds = %for.cond.i
   %3 = add nsw i64 %indvars.iv.i, -1
   %4 = load ptr, ptr %rep_.i.i.i, align 8
-  %elements.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %arrayidx.i.i.i = getelementptr inbounds [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %3
+  %elements.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %arrayidx.i.i.i = getelementptr inbounds nuw [1 x ptr], ptr %elements.i.i.i, i64 0, i64 %3
   %5 = load ptr, ptr %arrayidx.i.i.i, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %6 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(56) %5)
   br i1 %call2.i, label %for.cond.i, label %_ZN6google8protobuf8internal17AllAreInitializedINS0_16RepeatedPtrFieldIN3net18SourceAddressTokenEEEEEbRKT_.exit, !llvm.loop !12
@@ -2362,38 +2362,38 @@ entry:
   br i1 %cmp, label %return, label %_ZN3net19SourceAddressTokens12InternalSwapEPS0_.exit
 
 _ZN3net19SourceAddressTokens12InternalSwapEPS0_.exit: ; preds = %entry
-  %rep_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %rep_2.i.i.i = getelementptr inbounds i8, ptr %other, i64 48
+  %rep_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %rep_2.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 48
   %0 = load ptr, ptr %rep_.i.i.i, align 8
   %1 = load ptr, ptr %rep_2.i.i.i, align 8
   store ptr %1, ptr %rep_.i.i.i, align 8
   store ptr %0, ptr %rep_2.i.i.i, align 8
-  %current_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %current_size_3.i.i.i = getelementptr inbounds i8, ptr %other, i64 40
+  %current_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %current_size_3.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 40
   %2 = load i32, ptr %current_size_.i.i.i, align 8
   %3 = load i32, ptr %current_size_3.i.i.i, align 4
   store i32 %3, ptr %current_size_.i.i.i, align 8
   store i32 %2, ptr %current_size_3.i.i.i, align 4
-  %total_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
-  %total_size_4.i.i.i = getelementptr inbounds i8, ptr %other, i64 44
+  %total_size_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 44
+  %total_size_4.i.i.i = getelementptr inbounds nuw i8, ptr %other, i64 44
   %4 = load i32, ptr %total_size_.i.i.i, align 4
   %5 = load i32, ptr %total_size_4.i.i.i, align 4
   store i32 %5, ptr %total_size_.i.i.i, align 4
   store i32 %4, ptr %total_size_4.i.i.i, align 4
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_has_bits_3.i = getelementptr inbounds i8, ptr %other, i64 24
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_has_bits_3.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %6 = load i32, ptr %_has_bits_.i, align 8
   %7 = load i32, ptr %_has_bits_3.i, align 4
   store i32 %7, ptr %_has_bits_.i, align 8
   store i32 %6, ptr %_has_bits_3.i, align 4
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_unknown_fields_5.i = getelementptr inbounds i8, ptr %other, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_unknown_fields_5.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %8 = load ptr, ptr %_unknown_fields_.i, align 8
   %9 = load ptr, ptr %_unknown_fields_5.i, align 8
   store ptr %9, ptr %_unknown_fields_.i, align 8
   store ptr %8, ptr %_unknown_fields_5.i, align 8
-  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
-  %_cached_size_6.i = getelementptr inbounds i8, ptr %other, i64 28
+  %_cached_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %_cached_size_6.i = getelementptr inbounds nuw i8, ptr %other, i64 28
   %10 = load i32, ptr %_cached_size_.i, align 4
   %11 = load i32, ptr %_cached_size_6.i, align 4
   store i32 %11, ptr %_cached_size_.i, align 4
@@ -2411,20 +2411,20 @@ entry:
   br i1 %cmp9.i, label %_ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEE15UnsafeArenaSwapEPS4_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %rep_.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %rep_2.i.i = getelementptr inbounds i8, ptr %other, i64 48
+  %rep_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %rep_2.i.i = getelementptr inbounds nuw i8, ptr %other, i64 48
   %0 = load ptr, ptr %rep_.i.i, align 8
   %1 = load ptr, ptr %rep_2.i.i, align 8
   store ptr %1, ptr %rep_.i.i, align 8
   store ptr %0, ptr %rep_2.i.i, align 8
-  %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %current_size_3.i.i = getelementptr inbounds i8, ptr %other, i64 40
+  %current_size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %current_size_3.i.i = getelementptr inbounds nuw i8, ptr %other, i64 40
   %2 = load i32, ptr %current_size_.i.i, align 8
   %3 = load i32, ptr %current_size_3.i.i, align 4
   store i32 %3, ptr %current_size_.i.i, align 8
   store i32 %2, ptr %current_size_3.i.i, align 4
-  %total_size_.i.i = getelementptr inbounds i8, ptr %this, i64 44
-  %total_size_4.i.i = getelementptr inbounds i8, ptr %other, i64 44
+  %total_size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 44
+  %total_size_4.i.i = getelementptr inbounds nuw i8, ptr %other, i64 44
   %4 = load i32, ptr %total_size_.i.i, align 4
   %5 = load i32, ptr %total_size_4.i.i, align 4
   store i32 %5, ptr %total_size_.i.i, align 4
@@ -2432,20 +2432,20 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEE15UnsafeArenaSwapEPS4_.exit
 
 _ZN6google8protobuf16RepeatedPtrFieldIN3net18SourceAddressTokenEE15UnsafeArenaSwapEPS4_.exit: ; preds = %entry, %if.end.i
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
-  %_has_bits_3 = getelementptr inbounds i8, ptr %other, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_has_bits_3 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %6 = load i32, ptr %_has_bits_, align 8
   %7 = load i32, ptr %_has_bits_3, align 4
   store i32 %7, ptr %_has_bits_, align 8
   store i32 %6, ptr %_has_bits_3, align 4
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_unknown_fields_5 = getelementptr inbounds i8, ptr %other, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_unknown_fields_5 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %8 = load ptr, ptr %_unknown_fields_, align 8
   %9 = load ptr, ptr %_unknown_fields_5, align 8
   store ptr %9, ptr %_unknown_fields_, align 8
   store ptr %8, ptr %_unknown_fields_5, align 8
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
-  %_cached_size_6 = getelementptr inbounds i8, ptr %other, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %_cached_size_6 = getelementptr inbounds nuw i8, ptr %other, i64 28
   %10 = load i32, ptr %_cached_size_, align 4
   %11 = load i32, ptr %_cached_size_6, align 4
   store i32 %11, ptr %_cached_size_, align 4
@@ -2494,7 +2494,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr dso_local noundef ptr @_ZNK3net18SourceAddressToken3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef null)
   ret ptr %call
@@ -2510,7 +2510,7 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf11MessageLite20GetMaybeArenaPointerEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   ret ptr %call
@@ -2523,7 +2523,7 @@ declare noundef ptr @_ZNK6google8protobuf11MessageLite31SerializeWithCachedSizes
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK3net18SourceAddressToken13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %_cached_size_, align 4
   ret i32 %0
 }
@@ -2532,7 +2532,7 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK3net19SourceAddressTokens3NewEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef null)
   ret ptr %call
@@ -2541,7 +2541,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK3net19SourceAddressTokens13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %_cached_size_, align 4
   ret i32 %0
 }
@@ -2583,7 +2583,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18SourceAddressTokenE, i64 16), ptr %call.i2, align 8
-  %_arena_ptr_.i = getelementptr inbounds i8, ptr %call.i2, i64 16
+  %_arena_ptr_.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 16
   store ptr null, ptr %_arena_ptr_.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %_ZN3net18SourceAddressTokenC2Ev.exit unwind label %lpad.i3
@@ -2596,15 +2596,15 @@ lpad.i3:                                          ; preds = %if.then.i
   br label %common.resume
 
 _ZN3net18SourceAddressTokenC2Ev.exit:             ; preds = %if.then.i
-  %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 28
+  %_cached_size_.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 28
   store i32 0, ptr %_cached_size_.i.i, align 4
-  %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 8
+  %_unknown_fields_.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 8
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %1, ptr %_unknown_fields_.i.i, align 8
-  %ip_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 32
+  %ip_.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 32
   store ptr %1, ptr %ip_.i.i, align 8
-  %timestamp_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 40
-  %_has_bits_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 24
+  %timestamp_.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 40
+  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %call.i2, i64 24
   store i32 0, ptr %_has_bits_.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i.i, i8 0, i64 16, i1 false)
   br label %_ZN6google8protobuf5Arena6CreateIN3net18SourceAddressTokenEEEPT_PS1_.exit
@@ -2616,7 +2616,7 @@ common.resume:                                    ; preds = %lpad.i6, %lpad.i3
 if.else.i:                                        ; preds = %entry
   %call.i = tail call noundef ptr @_ZN6google8protobuf5Arena15AllocateAlignedEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(136) %arena, ptr noundef nonnull @_ZTIN3net18SourceAddressTokenE, i64 noundef 56)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net18SourceAddressTokenE, i64 16), ptr %call.i, align 8
-  %_arena_ptr_.i4 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %_arena_ptr_.i4 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr null, ptr %_arena_ptr_.i4, align 8
   %call.i1.i5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %_ZN3net18SourceAddressTokenC2Ev.exit12 unwind label %lpad.i6
@@ -2628,15 +2628,15 @@ lpad.i6:                                          ; preds = %if.else.i
   br label %common.resume
 
 _ZN3net18SourceAddressTokenC2Ev.exit12:           ; preds = %if.else.i
-  %_cached_size_.i.i7 = getelementptr inbounds i8, ptr %call.i, i64 28
+  %_cached_size_.i.i7 = getelementptr inbounds nuw i8, ptr %call.i, i64 28
   store i32 0, ptr %_cached_size_.i.i7, align 4
-  %_unknown_fields_.i.i8 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %_unknown_fields_.i.i8 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %3 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %3, ptr %_unknown_fields_.i.i8, align 8
-  %ip_.i.i9 = getelementptr inbounds i8, ptr %call.i, i64 32
+  %ip_.i.i9 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %3, ptr %ip_.i.i9, align 8
-  %timestamp_.i.i10 = getelementptr inbounds i8, ptr %call.i, i64 40
-  %_has_bits_.i.i11 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %timestamp_.i.i10 = getelementptr inbounds nuw i8, ptr %call.i, i64 40
+  %_has_bits_.i.i11 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i32 0, ptr %_has_bits_.i.i11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i.i10, i8 0, i64 16, i1 false)
   tail call void @_ZN6google8protobuf5Arena11AddListNodeEPvPFvS2_E(ptr noundef nonnull align 8 dereferenceable(136) %arena, ptr noundef nonnull %call.i, ptr noundef nonnull @_ZN6google8protobuf8internal21arena_destruct_objectIN3net18SourceAddressTokenEEEvPv)
@@ -2764,7 +2764,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %object, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(56) %object) #15
   br label %delete.end
@@ -2789,19 +2789,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net18SourceAddressTokenEE3RunEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %self_deleting_ = getelementptr inbounds i8, ptr %this, i64 16
+  %self_deleting_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %self_deleting_, align 8
   %tobool = trunc i8 %0 to i1
-  %function_ = getelementptr inbounds i8, ptr %this, i64 8
+  %function_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %function_, align 8
-  %p1_ = getelementptr inbounds i8, ptr %this, i64 24
+  %p1_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %p1_, align 8
   %call = tail call noundef ptr %1(ptr noundef %2)
   br i1 %tobool, label %delete.notnull, label %if.end
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
   br label %if.end
@@ -2831,7 +2831,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %object, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(56) %object) #15
   br label %delete.end
@@ -2856,19 +2856,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net19SourceAddressTokensEE3RunEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %self_deleting_ = getelementptr inbounds i8, ptr %this, i64 16
+  %self_deleting_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %self_deleting_, align 8
   %tobool = trunc i8 %0 to i1
-  %function_ = getelementptr inbounds i8, ptr %this, i64 8
+  %function_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %function_, align 8
-  %p1_ = getelementptr inbounds i8, ptr %this, i64 24
+  %p1_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %p1_, align 8
   %call = tail call noundef ptr %1(ptr noundef %2)
   br i1 %tobool, label %delete.notnull, label %if.end
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(32) %this) #15
   br label %if.end
@@ -2884,20 +2884,20 @@ declare noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntir
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFieldIN3net18SourceAddressTokenEE11TypeHandlerEEEvRKS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_ = getelementptr inbounds i8, ptr %other, i64 8
+  %current_size_ = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i32, ptr %current_size_, align 8
   %cmp7 = icmp eq i32 %0, 0
   br i1 %cmp7, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rep_.i = getelementptr inbounds i8, ptr %other, i64 16
+  %rep_.i = getelementptr inbounds nuw i8, ptr %other, i64 16
   %1 = load ptr, ptr %rep_.i, align 8
-  %elements.i = getelementptr inbounds i8, ptr %1, i64 8
+  %elements.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %call.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0)
-  %rep_3.i = getelementptr inbounds i8, ptr %this, i64 16
+  %rep_3.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %rep_3.i, align 8
   %3 = load i32, ptr %2, align 8
-  %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
+  %current_size_4.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
   %sub.i = sub nsw i32 %3, %4
   %invariant.smin.i = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)
@@ -2910,9 +2910,9 @@ for.body.preheader.i:                             ; preds = %if.end
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %elements.i, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx4.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds nuw ptr, ptr %call.i, i64 %indvars.iv.i
   %7 = load ptr, ptr %arrayidx4.i, align 8
   tail call void @_ZN3net18SourceAddressToken9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %6)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

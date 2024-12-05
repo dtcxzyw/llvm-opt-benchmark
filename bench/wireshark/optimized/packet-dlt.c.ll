@@ -427,14 +427,14 @@ define internal i32 @dissect_dlt_storage_header(ptr noundef %0, ptr noundef init
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #7
   %11 = load i32, ptr @hf_dlt_storage_tstamp_us, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #7
-  %13 = getelementptr inbounds i8, ptr %1, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %14 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 8, i32 noundef 4) #7
   store i32 7, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 212
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 4, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 216
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 224
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %17, align 8
   %18 = load i32, ptr @hf_dlt_storage_ecu_name, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 8, i32 noundef 5, i32 noundef 0) #7
@@ -516,7 +516,7 @@ define internal fastcc i32 @dissect_dlt(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = alloca ptr, align 8
   %12 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %3) #7
   store ptr null, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.113) #7
   %15 = load ptr, ptr %13, align 8
@@ -581,7 +581,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
 
 57:                                               ; preds = %22
   %58 = load i32, ptr @hf_dlt_ecu_id, align 4
-  %59 = getelementptr inbounds i8, ptr %1, i64 408
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @proto_tree_add_item_ret_string(ptr noundef %31, i32 noundef %58, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0, ptr noundef %60, ptr noundef nonnull %11) #7
   %62 = add nuw nsw i32 %3, 8
@@ -973,13 +973,13 @@ dissect_dlt_non_verbose_payload_message.exit.i:   ; preds = %280, %278, %259, %.
 283:                                              ; preds = %133
   %284 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %134) #7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %285 = getelementptr inbounds i8, ptr %6, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.064.i, ptr %285, align 8
-  %286 = getelementptr inbounds i8, ptr %6, i64 12
+  %286 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %27, ptr %286, align 4
-  %287 = getelementptr inbounds i8, ptr %6, i64 16
+  %287 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 0, ptr %287, align 8
-  %288 = getelementptr inbounds i8, ptr %6, i64 17
+  %288 = getelementptr inbounds nuw i8, ptr %6, i64 17
   store i8 %.0146, ptr %288, align 1
   store ptr %125, ptr %6, align 8
   %289 = load ptr, ptr @heur_subdissector_list, align 8
@@ -1014,7 +1014,7 @@ expert_dlt_unsupported_non_verbose_msg_type.exit.i: ; preds = %297, %296
 
 .lr.ph.i:                                         ; preds = %300
   %.not.i.i.not = icmp eq i32 %.lobit, 0
-  %302 = getelementptr inbounds i8, ptr %1, i64 408
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %.not.i45.i104.i.i = icmp eq ptr %0, null
   br label %303
 
@@ -1059,7 +1059,7 @@ expert_dlt_parsing_error.exit.i.i:                ; preds = %308, %306
 
 switch.lookup:                                    ; preds = %316
   %320 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.dissect_dlt, i64 0, i64 %320
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.dissect_dlt, i64 0, i64 %320
   %switch.load = load i32, ptr %switch.gep, align 4
   %321 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %317) #7
   %322 = icmp slt i32 %321, %switch.load
@@ -1728,7 +1728,7 @@ define internal fastcc void @expert_dlt_buffer_too_short(ptr noundef %0, ptr nou
   br label %8
 
 8:                                                ; preds = %6, %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.156) #7
   ret void

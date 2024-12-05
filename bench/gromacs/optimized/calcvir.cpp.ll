@@ -70,9 +70,9 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 
 26:                                               ; preds = %.preheader.us.i, %26
   %indvars.iv63.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next64.i, %26 ]
-  %27 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv71.i, i64 %indvars.iv63.i
+  %27 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv71.i, i64 %indvars.iv63.i
   %28 = load float, ptr %27, align 4
-  %29 = getelementptr inbounds [3 x float], ptr %12, i64 %indvars.iv67.i, i64 %indvars.iv63.i
+  %29 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv67.i, i64 %indvars.iv63.i
   %30 = load float, ptr %29, align 4
   %31 = tail call float @llvm.fmuladd.f32(float %.pre47, float %28, float %30)
   store float %31, ptr %29, align 4
@@ -92,9 +92,9 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 
 33:                                               ; preds = %.preheader38.us.i, %33
   %indvars.iv55.i = phi i64 [ 0, %.preheader38.us.i ], [ %indvars.iv.next56.i, %33 ]
-  %34 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv71.i, i64 %indvars.iv55.i
+  %34 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv71.i, i64 %indvars.iv55.i
   %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds [3 x float], ptr %12, i64 %indvars.iv59.i, i64 %indvars.iv55.i
+  %36 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv59.i, i64 %indvars.iv55.i
   %37 = load float, ptr %36, align 4
   %38 = tail call float @llvm.fmuladd.f32(float %.pre46, float %35, float %37)
   store float %38, ptr %36, align 4
@@ -104,13 +104,13 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 
 .preheader.us.i:                                  ; preds = %.preheader.us.i.preheader, %25
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %25 ], [ 0, %.preheader.us.i.preheader ]
-  %39 = getelementptr inbounds [3 x float], ptr %5, i64 %indvars.iv67.i, i64 %indvars.iv67.i
+  %39 = getelementptr inbounds nuw [3 x float], ptr %5, i64 %indvars.iv67.i, i64 %indvars.iv67.i
   %.pre47 = load float, ptr %39, align 4
   br label %26
 
 .preheader38.us.i:                                ; preds = %32, %.preheader39.us.i
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %32 ], [ 0, %.preheader39.us.i ]
-  %40 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv71.i, i64 %indvars.iv59.i
+  %40 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv71.i, i64 %indvars.iv59.i
   %.pre46 = load float, ptr %40, align 4
   br label %33
 
@@ -120,15 +120,15 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 
 .preheader38.i:                                   ; preds = %48, %.preheader39.i
   %indvars.iv47.i = phi i64 [ 0, %.preheader39.i ], [ %indvars.iv.next48.i, %48 ]
-  %41 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv51.i, i64 %indvars.iv47.i
+  %41 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv51.i, i64 %indvars.iv47.i
   %.pre = load float, ptr %41, align 4
   br label %42
 
 42:                                               ; preds = %42, %.preheader38.i
   %indvars.iv.i = phi i64 [ 0, %.preheader38.i ], [ %indvars.iv.next.i, %42 ]
-  %43 = getelementptr inbounds [3 x float], ptr %2, i64 %indvars.iv51.i, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv51.i, i64 %indvars.iv.i
   %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds [3 x float], ptr %12, i64 %indvars.iv47.i, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv47.i, i64 %indvars.iv.i
   %46 = load float, ptr %45, align 4
   %47 = tail call float @llvm.fmuladd.f32(float %.pre, float %44, float %46)
   store float %47, ptr %45, align 4
@@ -155,14 +155,14 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 
 .lr.ph:                                           ; preds = %50
   %.promoted = load float, ptr %12, align 16
-  %53 = getelementptr inbounds i8, ptr %12, i64 4
-  %54 = getelementptr inbounds i8, ptr %12, i64 8
-  %55 = getelementptr inbounds i8, ptr %12, i64 12
-  %56 = getelementptr inbounds i8, ptr %12, i64 16
-  %57 = getelementptr inbounds i8, ptr %12, i64 20
-  %58 = getelementptr inbounds i8, ptr %12, i64 24
-  %59 = getelementptr inbounds i8, ptr %12, i64 28
-  %60 = getelementptr inbounds i8, ptr %12, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.promoted15 = load float, ptr %53, align 4
   %.promoted17 = load float, ptr %54, align 8
   %.promoted19 = load float, ptr %55, align 4
@@ -186,31 +186,31 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
   %69 = phi float [ %.promoted15, %.lr.ph ], [ %77, %61 ]
   %70 = phi float [ %.promoted, %.lr.ph ], [ %74, %61 ]
   %71 = mul nuw nsw i64 %indvars.iv, 3
-  %72 = getelementptr inbounds [384 x [3 x [3 x float]]], ptr %14, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [384 x [3 x [3 x float]]], ptr %14, i64 0, i64 %71
   %73 = load float, ptr %72, align 4
   %74 = fadd float %70, %73
-  %75 = getelementptr inbounds i8, ptr %72, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %76 = load float, ptr %75, align 4
   %77 = fadd float %69, %76
-  %78 = getelementptr inbounds i8, ptr %72, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %79 = load float, ptr %78, align 4
   %80 = fadd float %68, %79
-  %81 = getelementptr inbounds i8, ptr %72, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 12
   %82 = load float, ptr %81, align 4
   %83 = fadd float %67, %82
-  %84 = getelementptr inbounds i8, ptr %72, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %85 = load float, ptr %84, align 4
   %86 = fadd float %66, %85
-  %87 = getelementptr inbounds i8, ptr %72, i64 20
+  %87 = getelementptr inbounds nuw i8, ptr %72, i64 20
   %88 = load float, ptr %87, align 4
   %89 = fadd float %65, %88
-  %90 = getelementptr inbounds i8, ptr %72, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %91 = load float, ptr %90, align 4
   %92 = fadd float %64, %91
-  %93 = getelementptr inbounds i8, ptr %72, i64 28
+  %93 = getelementptr inbounds nuw i8, ptr %72, i64 28
   %94 = load float, ptr %93, align 4
   %95 = fadd float %63, %94
-  %96 = getelementptr inbounds i8, ptr %72, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %97 = load float, ptr %96, align 4
   %98 = fadd float %62, %97
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -234,12 +234,12 @@ _ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit.preheader: ; preds = %49, %.loopexit
 
 _ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit:      ; preds = %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit.preheader, %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit ], [ 0, %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit.preheader ]
-  %99 = getelementptr inbounds [3 x float], ptr %3, i64 %indvars.iv42
-  %100 = getelementptr inbounds [3 x [3 x float]], ptr %12, i64 0, i64 %indvars.iv42
+  %99 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv42
+  %100 = getelementptr inbounds nuw [3 x [3 x float]], ptr %12, i64 0, i64 %indvars.iv42
   %101 = load float, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %100, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %103 = load float, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %100, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %105 = load float, ptr %104, align 4
   %106 = fpext float %101 to double
   %107 = load float, ptr %99, align 4
@@ -248,14 +248,14 @@ _ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit:      ; preds = %_ZL14calc_x_times_f
   %110 = fptrunc double %109 to float
   store float %110, ptr %99, align 4
   %111 = fpext float %103 to double
-  %112 = getelementptr inbounds i8, ptr %99, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %113 = load float, ptr %112, align 4
   %114 = fpext float %113 to double
   %115 = call double @llvm.fmuladd.f64(double %111, double -5.000000e-01, double %114)
   %116 = fptrunc double %115 to float
   store float %116, ptr %112, align 4
   %117 = fpext float %105 to double
-  %118 = getelementptr inbounds i8, ptr %99, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %119 = load float, ptr %118, align 4
   %120 = fpext float %119 to double
   %121 = call double @llvm.fmuladd.f64(double %117, double -5.000000e-01, double %120)
@@ -355,9 +355,9 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
 51:                                               ; preds = %.preheader.us.i, %51
   %indvars.iv63.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next64.i, %51 ]
   %52 = load float, ptr %66, align 4
-  %53 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv71.i, i64 %indvars.iv63.i
+  %53 = getelementptr inbounds nuw [3 x float], ptr %38, i64 %indvars.iv71.i, i64 %indvars.iv63.i
   %54 = load float, ptr %53, align 4
-  %55 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv67.i, i64 %indvars.iv63.i
+  %55 = getelementptr inbounds nuw [3 x float], ptr %44, i64 %indvars.iv67.i, i64 %indvars.iv63.i
   %56 = load float, ptr %55, align 4
   %57 = call float @llvm.fmuladd.f32(float %52, float %54, float %56)
   store float %57, ptr %55, align 4
@@ -378,9 +378,9 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
 59:                                               ; preds = %.preheader38.us.i, %59
   %indvars.iv55.i = phi i64 [ 0, %.preheader38.us.i ], [ %indvars.iv.next56.i, %59 ]
   %60 = load float, ptr %67, align 4
-  %61 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv71.i, i64 %indvars.iv55.i
+  %61 = getelementptr inbounds nuw [3 x float], ptr %38, i64 %indvars.iv71.i, i64 %indvars.iv55.i
   %62 = load float, ptr %61, align 4
-  %63 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv59.i, i64 %indvars.iv55.i
+  %63 = getelementptr inbounds nuw [3 x float], ptr %44, i64 %indvars.iv59.i, i64 %indvars.iv55.i
   %64 = load float, ptr %63, align 4
   %65 = call float @llvm.fmuladd.f32(float %60, float %62, float %64)
   store float %65, ptr %63, align 4
@@ -390,12 +390,12 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
 
 .preheader.us.i:                                  ; preds = %.preheader.us.i.preheader, %50
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %50 ], [ 0, %.preheader.us.i.preheader ]
-  %66 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv67.i, i64 %indvars.iv67.i
+  %66 = getelementptr inbounds nuw [3 x float], ptr %40, i64 %indvars.iv67.i, i64 %indvars.iv67.i
   br label %51
 
 .preheader38.us.i:                                ; preds = %58, %.preheader39.us.i
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %58 ], [ 0, %.preheader39.us.i ]
-  %67 = getelementptr inbounds [3 x float], ptr %36, i64 %indvars.iv71.i, i64 %indvars.iv59.i
+  %67 = getelementptr inbounds nuw [3 x float], ptr %36, i64 %indvars.iv71.i, i64 %indvars.iv59.i
   br label %59
 
 .preheader39.i:                                   ; preds = %.preheader39.lr.ph.i, %77
@@ -404,15 +404,15 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
 
 .preheader38.i:                                   ; preds = %76, %.preheader39.i
   %indvars.iv47.i = phi i64 [ 0, %.preheader39.i ], [ %indvars.iv.next48.i, %76 ]
-  %68 = getelementptr inbounds [3 x float], ptr %36, i64 %indvars.iv51.i, i64 %indvars.iv47.i
+  %68 = getelementptr inbounds nuw [3 x float], ptr %36, i64 %indvars.iv51.i, i64 %indvars.iv47.i
   br label %69
 
 69:                                               ; preds = %69, %.preheader38.i
   %indvars.iv.i = phi i64 [ 0, %.preheader38.i ], [ %indvars.iv.next.i, %69 ]
   %70 = load float, ptr %68, align 4
-  %71 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv51.i, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [3 x float], ptr %38, i64 %indvars.iv51.i, i64 %indvars.iv.i
   %72 = load float, ptr %71, align 4
-  %73 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv47.i, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [3 x float], ptr %44, i64 %indvars.iv47.i, i64 %indvars.iv.i
   %74 = load float, ptr %73, align 4
   %75 = call float @llvm.fmuladd.f32(float %70, float %72, float %74)
   store float %75, ptr %73, align 4

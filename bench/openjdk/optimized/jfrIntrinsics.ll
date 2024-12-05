@@ -47,10 +47,10 @@ define hidden noundef ptr @_ZN19JfrIntrinsicSupport16write_checkpointEP10JavaThr
   br i1 %4, label %5, label %21
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1092
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %6, align 4
   %7 = tail call noundef ptr @_ZN18JfrJavaEventWriter12event_writerEP10JavaThread(ptr noundef %0) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 2
   br i1 %10, label %11, label %12
@@ -60,7 +60,7 @@ define hidden noundef ptr @_ZN19JfrIntrinsicSupport16write_checkpointEP10JavaThr
   br label %12
 
 12:                                               ; preds = %11, %5
-  %13 = getelementptr inbounds i8, ptr %0, i64 1096
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %14 = load volatile i64, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   %15 = and i64 %14, 1
@@ -72,7 +72,7 @@ define hidden noundef ptr @_ZN19JfrIntrinsicSupport16write_checkpointEP10JavaThr
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i: ; preds = %16, %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 1088
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %18 = load volatile i32, ptr %17, align 8
   %19 = and i32 %18, 12
   %.not.i.i.i = icmp eq i32 %19, 0
@@ -88,12 +88,12 @@ _ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMecha
 
 21:                                               ; preds = %1
   %22 = tail call noundef i64 @_ZN14JfrThreadLocal10vthread_idEPK6Thread(ptr noundef %0) #4
-  %23 = getelementptr inbounds i8, ptr %0, i64 1092
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 6, ptr %23, align 4
   %24 = load i16, ptr @_ZN15JfrTraceIdEpoch11_generationE, align 2
   tail call void @_ZN14JfrThreadLocal17set_vthread_epochEPK10JavaThreadmt(ptr noundef %0, i64 noundef %22, i16 noundef zeroext %24) #4
   %25 = tail call noundef ptr @_ZN18JfrJavaEventWriter12event_writerEP10JavaThread(ptr noundef %0) #4
-  %26 = getelementptr inbounds i8, ptr %0, i64 1224
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 2
   br i1 %28, label %29, label %30
@@ -103,7 +103,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMecha
   br label %30
 
 30:                                               ; preds = %29, %21
-  %31 = getelementptr inbounds i8, ptr %0, i64 1096
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %32 = load volatile i64, ptr %31, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   %33 = and i64 %32, 1
@@ -115,7 +115,7 @@ _ZN18ThreadInVMfromJavaD2Ev.exit:                 ; preds = %_ZN18SafepointMecha
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i11: ; preds = %34, %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 1088
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %36 = load volatile i32, ptr %35, align 8
   %37 = and i32 %36, 12
   %.not.i.i.i12 = icmp eq i32 %37, 0
@@ -144,9 +144,9 @@ declare void @_ZN14JfrThreadLocal17set_vthread_epochEPK10JavaThreadmt(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN19JfrIntrinsicSupport12return_leaseEP10JavaThread(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1092
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store volatile i32 4, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 584
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN18JfrJavaEventWriter5flushEP8_jobjectiiP10JavaThread(ptr noundef %4, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %0) #4
   %5 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -160,7 +160,7 @@ define hidden noundef ptr @_ZN19JfrIntrinsicSupport12return_leaseEP10JavaThread(
   br label %8
 
 8:                                                ; preds = %7, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 1096
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %10 = load volatile i64, ptr %9, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   %11 = and i64 %10, 1
@@ -172,7 +172,7 @@ define hidden noundef ptr @_ZN19JfrIntrinsicSupport12return_leaseEP10JavaThread(
   br label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i
 
 _ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i: ; preds = %12, %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 1088
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %14 = load volatile i32, ptr %13, align 8
   %15 = and i32 %14, 12
   %.not.i.i = icmp eq i32 %15, 0
@@ -194,7 +194,7 @@ define hidden void @_ZN19JfrIntrinsicSupport12load_barrierEPK5Klass(ptr noundef 
   %2 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %3 = trunc i8 %2 to i1
   %4 = select i1 %3, i8 10, i8 5
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 1
   %7 = or i8 %4, %6
   store i8 %7, ptr %5, align 1

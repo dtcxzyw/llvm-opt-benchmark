@@ -201,7 +201,7 @@ define void @Extra_FileNameCorrectPath(ptr noundef %0) local_unnamed_addr #9 {
   br label %4
 
 4:                                                ; preds = %.preheader, %3
-  %5 = getelementptr inbounds i8, ptr %.0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.preheader, %1
@@ -282,7 +282,7 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %2
   br label %16
 
 16:                                               ; preds = %15, %.preheader.i
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.preheader.i, !llvm.loop !6
 
 18:                                               ; preds = %10
@@ -340,7 +340,7 @@ define noalias noundef ptr @Extra_FileDesignName(ptr noundef %0) local_unnamed_a
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.028, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.028, i64 1
   br label %2, !llvm.loop !10
 
 6:                                                ; preds = %2, %2
@@ -384,8 +384,8 @@ define noalias noundef ptr @Extra_FileDesignName(ptr noundef %0) local_unnamed_a
   %.144 = phi ptr [ %21, %.lr.ph47 ], [ %.028.pn.lcssa, %._crit_edge ]
   %20 = load i8, ptr %.144, align 1
   store i8 %20, ptr %.045, align 1
-  %21 = getelementptr inbounds i8, ptr %.144, i64 1
-  %22 = getelementptr inbounds i8, ptr %.045, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.144, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   %23 = icmp ult ptr %21, %.028
   br i1 %23, label %.lr.ph47, label %._crit_edge48, !llvm.loop !12
 
@@ -692,7 +692,7 @@ define i32 @Extra_ReadBinary(ptr nocapture noundef readonly %0) local_unnamed_ad
 2:                                                ; preds = %10, %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %1 ]
   %.010 = phi i32 [ %.1, %10 ], [ 0, %1 ]
-  %3 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %10 [
     i8 0, label %11
@@ -726,7 +726,7 @@ define void @Extra_PrintBinary(ptr nocapture noundef %0, ptr nocapture noundef r
   %.0 = add nsw i32 %.0.in5, -1
   %5 = lshr i32 %.0, 5
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds i32, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %.0, 31
   %10 = lshr i32 %8, %9
@@ -752,7 +752,7 @@ define void @Extra_PrintBinary2(ptr nocapture noundef %0, ptr nocapture noundef 
   %.05 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
   %5 = lshr i32 %.05, 5
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds i32, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %.05, 31
   %10 = lshr i32 %8, %9
@@ -819,7 +819,7 @@ define range(i32 0, 2) i32 @Extra_ReadHex(ptr nocapture noundef %0, ptr nocaptur
   %27 = shl nuw i32 %.028, %26
   %28 = lshr i64 %indvars.iv, 3
   %29 = and i64 %28, 536870911
-  %30 = getelementptr inbounds i32, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = or i32 %31, %27
   store i32 %32, ptr %30, align 4
@@ -901,7 +901,7 @@ define noundef i32 @Extra_ReadHexadecimal(ptr nocapture noundef %0, ptr nocaptur
   %36 = shl nuw i32 %.028.i, %35
   %37 = lshr i64 %indvars.iv.i, 3
   %38 = and i64 %37, 536870911
-  %39 = getelementptr inbounds i32, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = or i32 %40, %36
   store i32 %41, ptr %39, align 4
@@ -928,7 +928,7 @@ define void @Extra_PrintHexadecimal(ptr nocapture noundef %0, ptr nocapture noun
   %.013 = add nsw i32 %.013.in, -1
   %7 = lshr i32 %.013, 3
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = shl i32 %.013, 2
   %12 = and i32 %11, 28
@@ -1004,7 +1004,7 @@ define void @Extra_PrintHexadecimalString(ptr nocapture noundef writeonly %0, pt
   %.0 = add nsw i32 %.0.in33, -1
   %17 = lshr i32 %.0, 3
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %1, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = shl i32 %.0, 2
   %22 = and i32 %21, 28
@@ -1015,7 +1015,7 @@ define void @Extra_PrintHexadecimalString(ptr nocapture noundef writeonly %0, pt
   %27 = add nuw nsw i8 %26, 87
   %28 = or disjoint i8 %26, 48
   %storemerge = select i1 %25, i8 %28, i8 %27
-  %.1 = getelementptr inbounds i8, ptr %.02432, i64 1
+  %.1 = getelementptr inbounds nuw i8, ptr %.02432, i64 1
   store i8 %storemerge, ptr %.02432, align 1
   %29 = icmp samesign ugt i32 %.0.in33, 1
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !18
@@ -1046,7 +1046,7 @@ define void @Extra_PrintHex(ptr nocapture noundef %0, ptr nocapture noundef read
   %.016 = add nsw i32 %.016.in, -1
   %12 = lshr i32 %.016, 3
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = shl nuw nsw i32 %.016, 2
   %17 = lshr i32 %15, %16
@@ -1087,7 +1087,7 @@ define void @Extra_PrintHex2(ptr nocapture noundef %0, ptr nocapture noundef rea
   %.015 = add nsw i32 %.015.in, -1
   %11 = lshr i32 %.015, 3
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = shl nuw nsw i32 %.015, 2
   %16 = lshr i32 %14, %15
@@ -1128,7 +1128,7 @@ define void @Extra_PrintHexReverse(ptr nocapture noundef %0, ptr nocapture nound
   %.015 = phi i32 [ %25, %24 ], [ 0, %3 ]
   %12 = lshr i32 %.015, 3
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %1, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = shl nsw i32 %.015, 2
   %17 = lshr i32 %15, %16
@@ -1230,7 +1230,7 @@ define void @Extra_StringClean(ptr nocapture noundef %0, ptr nocapture noundef r
   br i1 %.not1617, label %.thread, label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.01318, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01318, i64 1
   %10 = load i8, ptr %9, align 1
   %.not16 = icmp eq i8 %10, 0
   br i1 %.not16, label %.thread, label %.lr.ph, !llvm.loop !23
@@ -1242,13 +1242,13 @@ define void @Extra_StringClean(ptr nocapture noundef %0, ptr nocapture noundef r
   br i1 %12, label %13, label %8
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.021, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.021, i64 1
   store i8 %7, ptr %.021, align 1
   br label %.thread
 
 .thread:                                          ; preds = %8, %.preheader, %13
   %.1 = phi ptr [ %14, %13 ], [ %.021, %.preheader ], [ %.021, %8 ]
-  %15 = getelementptr inbounds i8, ptr %.01420, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.01420, i64 1
   %16 = load i8, ptr %15, align 1
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %._crit_edge, label %.preheaderthread-pre-split, !llvm.loop !24
@@ -1309,7 +1309,7 @@ define void @Extra_FileSort(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %22 = zext i1 %21 to i32
   %23 = add nuw nsw i32 %.04053, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.next
   %25 = load i8, ptr %24, align 1
   %.not = icmp eq i8 %25, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
@@ -1339,7 +1339,7 @@ define void @Extra_FileSort(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %40
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv58
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv58
   store i8 0, ptr %32, align 1
   %33 = sext i32 %.0 to i64
   %34 = getelementptr inbounds i8, ptr %12, i64 %33
@@ -1355,7 +1355,7 @@ define void @Extra_FileSort(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %indvars.iv.next59.pre-phi = phi i64 [ %.pre66, %._crit_edge65 ], [ %38, %31 ]
   %.2 = phi i32 [ %.141, %._crit_edge65 ], [ %35, %31 ]
   %.1 = phi i32 [ %.0, %._crit_edge65 ], [ %39, %31 ]
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 %indvars.iv.next59.pre-phi
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.next59.pre-phi
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %29, !llvm.loop !27
 
@@ -1372,7 +1372,7 @@ define void @Extra_FileSort(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %50
   %indvars.iv61 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next62, %50 ]
-  %45 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv61
+  %45 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv61
   %46 = load ptr, ptr %45, align 8
   %47 = load i8, ptr %46, align 1
   %.not50 = icmp eq i8 %47, 0

@@ -35,14 +35,14 @@ define range(i32 -1, 1) i32 @JDK_Canonicalize(ptr nocapture noundef readonly %0,
 
 16:                                               ; preds = %13
   %17 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 4096) #8
-  %18 = getelementptr inbounds i8, ptr %4, i64 4096
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4096
   store i8 0, ptr %18, align 16
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %20 = icmp sgt i64 %19, 0
   br i1 %20, label %.preheader.preheader, label %.critedge._crit_edge
 
 .preheader.preheader:                             ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %19
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.preheader
@@ -103,7 +103,7 @@ define range(i32 -1, 1) i32 @JDK_Canonicalize(ptr nocapture noundef readonly %0,
 43:                                               ; preds = %41
   %44 = add i64 %34, 4294967295
   %45 = and i64 %44, 4294967295
-  %46 = getelementptr inbounds i8, ptr %28, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %28, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 47
   %spec.select72 = select i1 %48, ptr %.2, ptr %22

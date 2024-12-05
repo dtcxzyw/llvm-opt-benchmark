@@ -93,7 +93,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = add nsw i32 %29, -1
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %7, i32 noundef %2, i32 noundef %0, i32 noundef %30)
@@ -115,7 +115,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
   %41 = icmp sgt i32 %0, 0
   %42 = add nsw i32 %2, -1
   %43 = icmp slt i32 %0, 1
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count.i.i = zext i32 %2 to i64
   %45 = shl nuw nsw i64 %wide.trip.count.i.i, 2
   %46 = sext i32 %4 to i64
@@ -197,7 +197,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
 
 ._crit_edge131.i:                                 ; preds = %._crit_edge131.loopexit.i, %._crit_edge124.i
   %.1.lcssa.i = phi i32 [ %.092135.i, %._crit_edge124.i ], [ %65, %._crit_edge131.loopexit.i ]
-  %66 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv157.i
+  %66 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv157.i
   %67 = load i32, ptr %66, align 4
   %68 = add nsw i32 %67, %59
   store i32 %68, ptr %66, align 4
@@ -212,7 +212,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
 
 .lr.ph141.i:                                      ; preds = %.loopexit.i, %80
   %indvars.iv161.i = phi i64 [ %indvars.iv.next162.i, %80 ], [ 0, %.loopexit.i ]
-  %69 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv161.i
+  %69 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv161.i
   %70 = load i32, ptr %69, align 4
   %.not108.i = icmp slt i32 %70, %7
   br i1 %.not108.i, label %.preheader.i, label %80
@@ -242,7 +242,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
 
 .lr.ph143.i:                                      ; preds = %.preheader118.i, %119
   %indvars.iv166.i = phi i64 [ %indvars.iv.next167.i, %119 ], [ 0, %.preheader118.i ]
-  %81 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv166.i
+  %81 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv166.i
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, -1
   br i1 %83, label %84, label %119
@@ -255,7 +255,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
 
 .lr.ph.i.i:                                       ; preds = %84, %94
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %94 ], [ 0, %84 ]
-  %87 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv.i.i
+  %87 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i.i
   %88 = load i32, ptr %87, align 4
   %.not45.i.i = icmp eq i32 %88, -1
   br i1 %.not45.i.i, label %94, label %89
@@ -276,7 +276,7 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
   %indvars.iv58.i.i = phi i64 [ %indvars.iv.next59.i.i, %114 ], [ 0, %84 ]
   %.053.i.i = phi double [ %.1.i.i, %114 ], [ -1.000000e+00, %84 ]
   %.13951.i.i = phi i32 [ %.2.i.i, %114 ], [ 0, %84 ]
-  %95 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv58.i.i
+  %95 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv58.i.i
   %96 = load i32, ptr %95, align 4
   %.not44.i.i = icmp eq i32 %96, -1
   br i1 %.not44.i.i, label %114, label %97
@@ -294,9 +294,9 @@ define hidden noalias ptr @tm_kpartition(i32 noundef %0, ptr nocapture noundef r
 
 104:                                              ; preds = %102
   %105 = load ptr, ptr %1, align 8
-  %106 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv166.i
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv166.i
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds double, ptr %107, i64 %indvars.iv58.i.i
+  %108 = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv58.i.i
   %109 = load double, ptr %108, align 8
   br label %110
 
@@ -354,23 +354,23 @@ allocate_vertex.exit.i:                           ; preds = %94, %89, %114
   br i1 %123, label %.lr.ph.i113.i, label %.loopexit.i.i
 
 .lr.ph.i113.i:                                    ; preds = %.lr.ph21.i.i
-  %124 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv26.i.i
+  %124 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv26.i.i
   %125 = load i32, ptr %124, align 4
   br label %126
 
 126:                                              ; preds = %136, %.lr.ph.i113.i
   %indvars.iv23.i.i = phi i64 [ %indvars.iv.i111.i, %.lr.ph.i113.i ], [ %indvars.iv.next24.i.i, %136 ]
   %.117.i.i = phi double [ %.01619.i.i, %.lr.ph.i113.i ], [ %.2.i115.i, %136 ]
-  %127 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv23.i.i
+  %127 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv23.i.i
   %128 = load i32, ptr %127, align 4
   %.not.i114.i = icmp eq i32 %125, %128
   br i1 %.not.i114.i, label %136, label %129
 
 129:                                              ; preds = %126
   %130 = load ptr, ptr %1, align 8
-  %131 = getelementptr inbounds ptr, ptr %130, i64 %indvars.iv26.i.i
+  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv26.i.i
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds double, ptr %132, i64 %indvars.iv23.i.i
+  %133 = getelementptr inbounds nuw double, ptr %132, i64 %indvars.iv23.i.i
   %134 = load double, ptr %133, align 8
   %135 = fadd double %.117.i.i, %134
   br label %136
@@ -414,7 +414,7 @@ define hidden noundef ptr @tm_kpartition_build_tree_from_topology(ptr noundef %0
   %10 = tail call i32 @tm_get_verbose_level() #13
   store i32 %10, ptr @verbose_level, align 4
   %11 = tail call i32 @tm_nb_processing_units(ptr noundef %0) #13
-  %12 = getelementptr inbounds i8, ptr %0, i64 84
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %13 = load i32, ptr %12, align 4
   %14 = mul i32 %13, %11
   %15 = load i32, ptr @verbose_level, align 4
@@ -483,7 +483,7 @@ define hidden noundef ptr @tm_kpartition_build_tree_from_topology(ptr noundef %0
 
 49:                                               ; preds = %41, %40
   store ptr %1, ptr %9, align 8
-  %50 = getelementptr inbounds i8, ptr %9, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %2, ptr %50, align 8
   %51 = sext i32 %14 to i64
   %52 = shl nsw i64 %51, 2
@@ -515,7 +515,7 @@ define hidden noundef ptr @tm_kpartition_build_tree_from_topology(ptr noundef %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %64 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
   %65 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %65, ptr %64, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -524,7 +524,7 @@ define hidden noundef ptr @tm_kpartition_build_tree_from_topology(ptr noundef %0
 
 ._crit_edge:                                      ; preds = %.lr.ph66.preheader, %.preheader
   %66 = call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #14
-  %67 = getelementptr inbounds i8, ptr %66, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   store i32 0, ptr %67, align 8
   call fastcc void @kpartition_build_level_topology(ptr noundef %66, ptr noundef nonnull %9, i32 noundef %14, i32 noundef 0, ptr noundef %0, ptr noundef %53, ptr noundef %3, i32 noundef %4)
   %68 = load i32, ptr @verbose_level, align 4
@@ -562,7 +562,7 @@ define internal fastcc void @kpartition_build_level_topology(ptr noundef %0, ptr
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @tm_get_verbose_level() #13
   store i32 %13, ptr @verbose_level, align 4
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, -1
   %17 = icmp eq i32 %3, %16
@@ -587,7 +587,7 @@ define internal fastcc void @kpartition_build_level_topology(ptr noundef %0, ptr
   br i1 %18, label %27, label %31
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %29, i32 noundef %2, i32 noundef %12)
   br label %31
@@ -650,13 +650,13 @@ print_tab.exit23.us.i:                            ; preds = %.lr.ph.i19.us.i, %.
 
 50:                                               ; preds = %60, %print_tab.exit23.us.i
   %indvars.iv.i = phi i64 [ 0, %print_tab.exit23.us.i ], [ %indvars.iv.next.i, %60 ]
-  %51 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, %.01625.us.i
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4
   %.not.us.i = icmp eq i32 %56, -1
   br i1 %.not.us.i, label %60, label %57
@@ -725,7 +725,7 @@ display_partition.exit:                           ; preds = %print_tab.exit23.lo
   %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18)
   tail call void @tm_print_1D_tab(ptr noundef %32, i32 noundef %2) #13
   %80 = load ptr, ptr %1, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load i32, ptr %81, align 8
   tail call void @tm_display_tab(ptr noundef %80, i32 noundef %82) #13
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %74, i32 noundef %2, i32 noundef %12)
@@ -744,7 +744,7 @@ display_partition.exit:                           ; preds = %print_tab.exit23.lo
   br i1 %93, label %.preheader80.lr.ph.i, label %split_com_mat.exit
 
 .preheader80.lr.ph.i:                             ; preds = %85
-  %94 = getelementptr inbounds i8, ptr %1, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count114.i = zext nneg i32 %12 to i64
   br label %.preheader80.i
 
@@ -761,7 +761,7 @@ display_partition.exit:                           ; preds = %print_tab.exit23.lo
 .lr.ph.i:                                         ; preds = %106, %.lr.ph.preheader.i
   %indvars.iv.i82 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i83, %106 ]
   %.083.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %106 ]
-  %97 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i82
+  %97 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i82
   %98 = load i32, ptr %97, align 4
   %99 = zext i32 %98 to i64
   %100 = icmp eq i64 %indvars.iv111.i, %99
@@ -821,7 +821,7 @@ display_partition.exit:                           ; preds = %print_tab.exit23.lo
 .lr.ph86.i:                                       ; preds = %.lr.ph86.i, %.lr.ph86.preheader.i
   %indvars.iv96.i = phi i64 [ 0, %.lr.ph86.preheader.i ], [ %indvars.iv.next97.i, %.lr.ph86.i ]
   %125 = tail call noalias ptr @malloc(i64 noundef %122) #14
-  %126 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv96.i
+  %126 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv96.i
   store ptr %125, ptr %126, align 8
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count99.i
@@ -829,15 +829,15 @@ display_partition.exit:                           ; preds = %print_tab.exit23.lo
 
 .lr.ph89.i:                                       ; preds = %.lr.ph86.i, %148
   %indvars.iv101.i = phi i64 [ %indvars.iv.next102.i, %148 ], [ 0, %.lr.ph86.i ]
-  %127 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv101.i
+  %127 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv101.i
   %128 = load i32, ptr %127, align 4
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv101.i
+  %130 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv101.i
   br label %131
 
 131:                                              ; preds = %131, %.lr.ph89.i
   %indvars.iv103.i = phi i64 [ %indvars.iv101.i, %.lr.ph89.i ], [ %indvars.iv.next104.i, %131 ]
-  %132 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv103.i
+  %132 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv103.i
   %133 = load i32, ptr %132, align 4
   %134 = load ptr, ptr %1, align 8
   %135 = getelementptr inbounds ptr, ptr %134, i64 %129
@@ -846,14 +846,14 @@ display_partition.exit:                           ; preds = %print_tab.exit23.lo
   %138 = getelementptr inbounds double, ptr %136, i64 %137
   %139 = load double, ptr %138, align 8
   %140 = load ptr, ptr %130, align 8
-  %141 = getelementptr inbounds double, ptr %140, i64 %indvars.iv103.i
+  %141 = getelementptr inbounds nuw double, ptr %140, i64 %indvars.iv103.i
   store double %139, ptr %141, align 8
   %142 = load ptr, ptr %130, align 8
-  %143 = getelementptr inbounds double, ptr %142, i64 %indvars.iv103.i
+  %143 = getelementptr inbounds nuw double, ptr %142, i64 %indvars.iv103.i
   %144 = load double, ptr %143, align 8
-  %145 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv103.i
+  %145 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv103.i
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds double, ptr %146, i64 %indvars.iv101.i
+  %147 = getelementptr inbounds nuw double, ptr %146, i64 %indvars.iv101.i
   store double %144, ptr %147, align 8
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
   %exitcond107.not.i = icmp eq i64 %indvars.iv.next104.i, %wide.trip.count99.i
@@ -866,10 +866,10 @@ display_partition.exit:                           ; preds = %print_tab.exit23.lo
 
 ._crit_edge90.i:                                  ; preds = %148, %120
   %149 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i32 %.0.lcssa.i, ptr %150, align 8
   store ptr %123, ptr %149, align 8
-  %151 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv111.i
+  %151 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv111.i
   store ptr %149, ptr %151, align 8
   %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
   %exitcond115.not.i = icmp eq i64 %indvars.iv.next112.i, %wide.trip.count114.i
@@ -920,14 +920,14 @@ split_com_mat.exit:                               ; preds = %._crit_edge90.i, %8
 165:                                              ; preds = %176, %.lr.ph.us.i
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next45.i, %176 ]
   %.02829.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %.1.us.i, %176 ]
-  %166 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv44.i
+  %166 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv44.i
   %167 = load i32, ptr %166, align 4
   %168 = zext i32 %167 to i64
   %169 = icmp eq i64 %indvars.iv49.i, %168
   br i1 %169, label %170, label %176
 
 170:                                              ; preds = %165
-  %171 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv44.i
+  %171 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv44.i
   %172 = load i32, ptr %171, align 4
   %173 = add nsw i32 %.02829.us.i, 1
   %174 = sext i32 %.02829.us.i to i64
@@ -942,7 +942,7 @@ split_com_mat.exit:                               ; preds = %._crit_edge90.i, %8
   br i1 %exitcond48.not.i, label %._crit_edge.us.i88, label %165, !llvm.loop !26
 
 ._crit_edge.us.i88:                               ; preds = %176
-  %177 = getelementptr inbounds ptr, ptr %152, i64 %indvars.iv49.i
+  %177 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv49.i
   store ptr %160, ptr %177, align 8
   %178 = load i32, ptr @verbose_level, align 4
   %179 = icmp sgt i32 %178, 5
@@ -957,7 +957,7 @@ split_com_mat.exit:                               ; preds = %._crit_edge90.i, %8
 .lr.ph33.split.split.us.i:                        ; preds = %.lr.ph33.split.i, %.lr.ph33.split.split.us.i
   %indvars.iv.i85 = phi i64 [ %indvars.iv.next.i86, %.lr.ph33.split.split.us.i ], [ 0, %.lr.ph33.split.i ]
   %182 = tail call noalias ptr @malloc(i64 noundef %91) #14
-  %183 = getelementptr inbounds ptr, ptr %152, i64 %indvars.iv.i85
+  %183 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv.i85
   store ptr %182, ptr %183, align 8
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count42.i
@@ -967,7 +967,7 @@ split_com_mat.exit:                               ; preds = %._crit_edge90.i, %8
   %184 = phi i32 [ %192, %191 ], [ %180, %.lr.ph33.split.i ]
   %indvars.iv39.i = phi i64 [ %indvars.iv.next40.i, %191 ], [ 0, %.lr.ph33.split.i ]
   %185 = tail call noalias ptr @malloc(i64 noundef %91) #14
-  %186 = getelementptr inbounds ptr, ptr %152, i64 %indvars.iv39.i
+  %186 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv39.i
   store ptr %185, ptr %186, align 8
   %187 = icmp sgt i32 %184, 5
   br i1 %187, label %188, label %191
@@ -1006,14 +1006,14 @@ split_constraints.exit.thread:                    ; preds = %split_vertices.exit
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %211 ], [ 0, %.lr.ph.i89 ]
   %.04448.us.i = phi i32 [ %203, %211 ], [ 0, %.lr.ph.i89 ]
   %indvars62.i = trunc i64 %indvars.iv60.i to i32
-  %199 = getelementptr inbounds %struct.constraint_t, ptr %194, i64 %indvars.iv60.i
+  %199 = getelementptr inbounds nuw %struct.constraint_t, ptr %194, i64 %indvars.iv60.i
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %200 = mul nsw i32 %196, %indvars62.i
   %201 = trunc i64 %indvars.iv.next61.i to i32
   %202 = mul i32 %196, %201
   %203 = tail call i32 @tm_fill_tab(ptr noundef %199, ptr noundef %6, i32 noundef %7, i32 noundef %.04448.us.i, i32 noundef %202, i32 noundef %200) #13
   %204 = sub nsw i32 %203, %.04448.us.i
-  %205 = getelementptr inbounds i8, ptr %199, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %199, i64 8
   store i32 %204, ptr %205, align 8
   %206 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %indvars62.i)
   %207 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25)
@@ -1025,7 +1025,7 @@ split_constraints.exit.thread:                    ; preds = %split_vertices.exit
   br i1 %210, label %.split.us.i, label %211
 
 211:                                              ; preds = %.lr.ph.split.us.i
-  %212 = getelementptr inbounds i8, ptr %199, i64 12
+  %212 = getelementptr inbounds nuw i8, ptr %199, i64 12
   store i32 %indvars62.i, ptr %212, align 4
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, %wide.trip.count63.i
   br i1 %exitcond64.not.i, label %split_constraints.exit, label %.lr.ph.split.us.i, !llvm.loop !29
@@ -1034,14 +1034,14 @@ split_constraints.exit.thread:                    ; preds = %split_vertices.exit
   %indvars.iv.i90 = phi i64 [ %indvars.iv.next.i91, %226 ], [ 0, %.lr.ph.i89 ]
   %.04448.i = phi i32 [ %217, %226 ], [ 0, %.lr.ph.i89 ]
   %indvars59.i = trunc i64 %indvars.iv.i90 to i32
-  %213 = getelementptr inbounds %struct.constraint_t, ptr %194, i64 %indvars.iv.i90
+  %213 = getelementptr inbounds nuw %struct.constraint_t, ptr %194, i64 %indvars.iv.i90
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
   %214 = mul nsw i32 %196, %indvars59.i
   %215 = trunc i64 %indvars.iv.next.i91 to i32
   %216 = mul i32 %196, %215
   %217 = tail call i32 @tm_fill_tab(ptr noundef %213, ptr noundef %6, i32 noundef %7, i32 noundef %.04448.i, i32 noundef %216, i32 noundef %214) #13
   %218 = sub nsw i32 %217, %.04448.i
-  %219 = getelementptr inbounds i8, ptr %213, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store i32 %218, ptr %219, align 8
   %220 = icmp sgt i32 %218, %89
   br i1 %220, label %.split.us.i, label %226
@@ -1062,7 +1062,7 @@ split_constraints.exit.thread:                    ; preds = %split_vertices.exit
   br label %split_constraints.exit
 
 226:                                              ; preds = %.lr.ph.split.i
-  %227 = getelementptr inbounds i8, ptr %213, i64 12
+  %227 = getelementptr inbounds nuw i8, ptr %213, i64 12
   store i32 %indvars59.i, ptr %227, align 4
   %exitcond.not.i92 = icmp eq i64 %indvars.iv.next.i91, %wide.trip.count63.i
   br i1 %exitcond.not.i92, label %split_constraints.exit, label %.lr.ph.split.i, !llvm.loop !29
@@ -1080,7 +1080,7 @@ split_constraints.exit:                           ; preds = %226, %211, %225
 .lr.ph:                                           ; preds = %split_constraints.exit, %.lr.ph
   %indvars.iv = phi i64 [ 0, %split_constraints.exit ], [ %indvars.iv.next, %.lr.ph ]
   %229 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #14
-  %230 = getelementptr inbounds ptr, ptr %228, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv
   store ptr %229, ptr %230, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1088,21 +1088,21 @@ split_constraints.exit:                           ; preds = %226, %211, %225
 
 .lr.ph16:                                         ; preds = %.lr.ph16.preheader, %.lr.ph16
   %indvars.iv31 = phi i64 [ 0, %.lr.ph16.preheader ], [ %indvars.iv.next32, %.lr.ph16 ]
-  %231 = getelementptr inbounds ptr, ptr %228, i64 %indvars.iv31
+  %231 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv31
   %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 48
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 48
   %234 = trunc nuw nsw i64 %indvars.iv31 to i32
   store i32 %234, ptr %233, align 8
-  %235 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv31
+  %235 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv31
   %236 = load ptr, ptr %235, align 8
-  %237 = getelementptr inbounds ptr, ptr %152, i64 %indvars.iv31
+  %237 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv31
   %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds %struct.constraint_t, ptr %.0.i, i64 %indvars.iv31
+  %239 = getelementptr inbounds nuw %struct.constraint_t, ptr %.0.i, i64 %indvars.iv31
   %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %239, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %242 = load i32, ptr %241, align 8
   tail call fastcc void @kpartition_build_level_topology(ptr noundef %232, ptr noundef %236, i32 noundef %89, i32 noundef %195, ptr noundef nonnull %4, ptr noundef %238, ptr noundef %240, i32 noundef %242)
-  %243 = getelementptr inbounds i8, ptr %232, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %232, i64 16
   store ptr %0, ptr %243, align 8
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
@@ -1111,7 +1111,7 @@ split_constraints.exit:                           ; preds = %226, %211, %225
 ._crit_edge:                                      ; preds = %.lr.ph16, %split_constraints.exit.thread
   %.0.i3740 = phi ptr [ %194, %split_constraints.exit.thread ], [ %.0.i, %.lr.ph16 ]
   %244 = phi ptr [ %197, %split_constraints.exit.thread ], [ %228, %.lr.ph16 ]
-  %245 = getelementptr inbounds i8, ptr %0, i64 48
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %246 = load i32, ptr %245, align 8
   tail call void @tm_set_node(ptr noundef %0, ptr noundef %244, i32 noundef %12, ptr noundef null, i32 noundef %246, double noundef 0.000000e+00, ptr noundef null, i32 noundef %3) #13
   tail call void @free(ptr noundef %32) #13
@@ -1127,9 +1127,9 @@ split_constraints.exit:                           ; preds = %226, %211, %225
 
 .preheader.i94:                                   ; preds = %._crit_edge.i95, %.preheader.preheader.i
   %indvars.iv26.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next27.i, %._crit_edge.i95 ]
-  %247 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv26.i
+  %247 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv26.i
   %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %250 = load i32, ptr %249, align 8
   %251 = icmp sgt i32 %250, 0
   br i1 %251, label %.lr.ph.i97, label %._crit_edge.i95
@@ -1137,7 +1137,7 @@ split_constraints.exit:                           ; preds = %226, %211, %225
 .lr.ph.i97:                                       ; preds = %.preheader.i94, %.lr.ph.i97
   %indvars.iv.i98 = phi i64 [ %indvars.iv.next.i99, %.lr.ph.i97 ], [ 0, %.preheader.i94 ]
   %252 = load ptr, ptr %248, align 8
-  %253 = getelementptr inbounds ptr, ptr %252, i64 %indvars.iv.i98
+  %253 = getelementptr inbounds nuw ptr, ptr %252, i64 %indvars.iv.i98
   %254 = load ptr, ptr %253, align 8
   tail call void @free(ptr noundef %254) #13
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i98, 1
@@ -1171,7 +1171,7 @@ free_tab_com_mat.exit:                            ; preds = %._crit_edge, %._cri
 
 .lr.ph.i105:                                      ; preds = %.lr.ph.i105, %.lr.ph.preheader.i103
   %indvars.iv.i106 = phi i64 [ 0, %.lr.ph.preheader.i103 ], [ %indvars.iv.next.i107, %.lr.ph.i105 ]
-  %259 = getelementptr inbounds ptr, ptr %152, i64 %indvars.iv.i106
+  %259 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv.i106
   %260 = load ptr, ptr %259, align 8
   tail call void @free(ptr noundef %260) #13
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i106, 1
@@ -1195,8 +1195,8 @@ free_tab_local_vertices.exit:                     ; preds = %free_tab_com_mat.ex
 
 .lr.ph.i114:                                      ; preds = %266, %.lr.ph.preheader.i112
   %indvars.iv.i115 = phi i64 [ 0, %.lr.ph.preheader.i112 ], [ %indvars.iv.next.i116, %266 ]
-  %261 = getelementptr inbounds %struct.constraint_t, ptr %.0.i3740, i64 %indvars.iv.i115
-  %262 = getelementptr inbounds i8, ptr %261, i64 8
+  %261 = getelementptr inbounds nuw %struct.constraint_t, ptr %.0.i3740, i64 %indvars.iv.i115
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load i32, ptr %262, align 8
   %.not9.i = icmp eq i32 %263, 0
   br i1 %.not9.i, label %266, label %264

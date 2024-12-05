@@ -530,34 +530,34 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #6
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #6
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #6
-  %182 = getelementptr inbounds i8, ptr %35, i64 16
-  %183 = getelementptr inbounds i8, ptr %35, i64 20
-  %184 = getelementptr inbounds i8, ptr %35, i64 8
-  %185 = getelementptr inbounds i8, ptr %36, i64 8
-  %186 = getelementptr inbounds i8, ptr %36, i64 16
-  %187 = getelementptr inbounds i8, ptr %33, i64 16
-  %188 = getelementptr inbounds i8, ptr %33, i64 20
-  %189 = getelementptr inbounds i8, ptr %33, i64 8
-  %190 = getelementptr inbounds i8, ptr %34, i64 8
-  %191 = getelementptr inbounds i8, ptr %34, i64 16
-  %192 = getelementptr inbounds i8, ptr %37, i64 16
-  %193 = getelementptr inbounds i8, ptr %37, i64 20
-  %194 = getelementptr inbounds i8, ptr %37, i64 8
-  %195 = getelementptr inbounds i8, ptr %38, i64 8
-  %196 = getelementptr inbounds i8, ptr %38, i64 16
-  %197 = getelementptr inbounds i8, ptr %39, i64 16
-  %198 = getelementptr inbounds i8, ptr %39, i64 20
-  %199 = getelementptr inbounds i8, ptr %39, i64 8
-  %200 = getelementptr inbounds i8, ptr %40, i64 8
-  %201 = getelementptr inbounds i8, ptr %40, i64 16
-  %202 = getelementptr inbounds i8, ptr %41, i64 16
-  %203 = getelementptr inbounds i8, ptr %41, i64 20
-  %204 = getelementptr inbounds i8, ptr %41, i64 8
-  %205 = getelementptr inbounds i8, ptr %42, i64 8
-  %206 = getelementptr inbounds i8, ptr %42, i64 16
-  %207 = getelementptr inbounds i8, ptr %45, i64 16
-  %208 = getelementptr inbounds i8, ptr %45, i64 20
-  %209 = getelementptr inbounds i8, ptr %45, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  %184 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %33, i64 20
+  %189 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %194 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %39, i64 20
+  %199 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %41, i64 20
+  %204 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %45, i64 20
+  %209 = getelementptr inbounds nuw i8, ptr %45, i64 8
   br label %210
 
 210:                                              ; preds = %275, %181

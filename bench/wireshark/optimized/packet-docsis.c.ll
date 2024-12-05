@@ -403,7 +403,7 @@ define internal i32 @dissect_docsis(ptr noundef %0, ptr noundef %1, ptr noundef 
   %31 = zext i16 %19 to i32
   %32 = add nuw nsw i32 %20, 2
   %33 = icmp samesign ult i32 %32, %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void @col_set_str(ptr noundef %35, i32 noundef 34, ptr noundef nonnull @.str.134) #3
   %36 = load ptr, ptr %34, align 8
@@ -427,7 +427,7 @@ define internal i32 @dissect_docsis(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .thread:                                          ; preds = %26, %26, %.thread280
   %.0268279 = phi i1 [ %29, %.thread280 ], [ false, %26 ], [ false, %26 ]
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @col_set_str(ptr noundef %41, i32 noundef 34, ptr noundef nonnull @.str.134) #3
   %42 = icmp eq i8 %10, 2
@@ -629,7 +629,7 @@ default.unreachable:                              ; preds = %30
   br label %201
 
 140:                                              ; preds = %116
-  %141 = getelementptr inbounds i8, ptr %1, i64 272
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %142 = load i32, ptr %141, align 8
   store i32 1, ptr %141, align 8
   call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %59, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef %5, ptr noundef %6)
@@ -819,7 +819,7 @@ define internal fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr nou
   br i1 %.not171.i, label %dissect_ehdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %1, i64 272
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 272
   br label %29
 
 29:                                               ; preds = %162, %.lr.ph.i
@@ -1087,7 +1087,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_encrypted_frame(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext range(i8 0, 4) %3, i8 noundef zeroext range(i8 0, 32) %4) unnamed_addr #0 {
   %6 = icmp eq i8 %3, 3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   br i1 %6, label %.thread, label %10
 
@@ -1122,13 +1122,13 @@ define internal fastcc void @dissect_encrypted_frame(ptr noundef %0, ptr nocaptu
   br i1 %.not.i, label %proto_item_set_generated.exit, label %24
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not5.i = icmp eq ptr %26, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, 2
   store i32 %30, ptr %28, align 4
@@ -1149,13 +1149,13 @@ proto_item_set_generated.exit:                    ; preds = %12, %24, %27
   br i1 %.not.i45, label %proto_item_set_generated.exit47, label %41
 
 41:                                               ; preds = %proto_item_set_generated.exit
-  %42 = getelementptr inbounds i8, ptr %40, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %43 = load ptr, ptr %42, align 8
   %.not5.i46 = icmp eq ptr %43, null
   br i1 %.not5.i46, label %proto_item_set_generated.exit47, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %46, 2
   store i32 %47, ptr %45, align 4

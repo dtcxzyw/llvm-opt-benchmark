@@ -28,7 +28,7 @@ define dso_local i32 @assoc_array_iterate(ptr noundef %0, ptr nocapture noundef 
 10:                                               ; preds = %.preheader12
   %11 = and i64 %7, -4
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load volatile ptr, ptr %13, align 8
   %.pre = ptrtoint ptr %14 to i64
   br label %15
@@ -37,7 +37,7 @@ define dso_local i32 @assoc_array_iterate(ptr noundef %0, ptr nocapture noundef 
   %.pre-phi = phi i64 [ %.pre, %10 ], [ %7, %.preheader12 ]
   %16 = and i64 %.pre-phi, -4
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %19
 
 19:                                               ; preds = %33, %15
@@ -84,7 +84,7 @@ define dso_local i32 @assoc_array_iterate(ptr noundef %0, ptr nocapture noundef 
 .loopexit10:                                      ; preds = %36, %.loopexit10.loopexit
   %46 = phi ptr [ %43, %.loopexit10.loopexit ], [ %17, %36 ]
   %47 = phi i64 [ %45, %.loopexit10.loopexit ], [ 0, %36 ]
-  %48 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   br label %52
 
 49:                                               ; preds = %52
@@ -112,7 +112,7 @@ define dso_local i32 @assoc_array_iterate(ptr noundef %0, ptr nocapture noundef 
   br i1 %61, label %.loopexit9, label %62
 
 62:                                               ; preds = %.preheader
-  %63 = getelementptr inbounds i8, ptr %59, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %64 = load i8, ptr %63, align 8
   %65 = zext i8 %64 to i32
   %66 = ptrtoint ptr %60 to i64
@@ -128,7 +128,7 @@ define dso_local i32 @assoc_array_iterate(ptr noundef %0, ptr nocapture noundef 
   br i1 %73, label %.loopexit9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load i32, ptr %74, align 8
   %.pre26 = ptrtoint ptr %72 to i64
   br label %39
@@ -143,8 +143,8 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @assoc_array_subtree_iterate(ptr noundef %0, ptr noundef readnone %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %3
@@ -157,7 +157,7 @@ define internal fastcc void @assoc_array_subtree_iterate(ptr noundef %0, ptr nou
 10:                                               ; preds = %.loopexit
   %11 = and i64 %7, -4
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load volatile ptr, ptr %13, align 8
   %.pre = ptrtoint ptr %14 to i64
   br label %15
@@ -166,7 +166,7 @@ define internal fastcc void @assoc_array_subtree_iterate(ptr noundef %0, ptr nou
   %.pre-phi = phi i64 [ %.pre, %10 ], [ %7, %.loopexit ]
   %16 = and i64 %.pre-phi, -4
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br label %19
 
 19:                                               ; preds = %assoc_array_delete_collapse_iterator.exit, %15
@@ -199,7 +199,7 @@ define internal fastcc void @assoc_array_subtree_iterate(ptr noundef %0, ptr nou
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = add nsw i32 %34, 1
   store i32 %40, ptr %5, align 8
   %41 = sext i32 %34 to i64
@@ -233,7 +233,7 @@ assoc_array_delete_collapse_iterator.exit:        ; preds = %37, %30, %19
 .loopexit2:                                       ; preds = %45, %.loopexit2.loopexit
   %55 = phi ptr [ %52, %.loopexit2.loopexit ], [ %17, %45 ]
   %56 = phi i64 [ %54, %.loopexit2.loopexit ], [ 0, %45 ]
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   br label %61
 
 58:                                               ; preds = %61
@@ -261,7 +261,7 @@ assoc_array_delete_collapse_iterator.exit:        ; preds = %37, %30, %19
   br i1 %70, label %85, label %71
 
 71:                                               ; preds = %.preheader
-  %72 = getelementptr inbounds i8, ptr %68, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %73 = load i8, ptr %72, align 8
   %74 = zext i8 %73 to i32
   %75 = ptrtoint ptr %69 to i64
@@ -277,7 +277,7 @@ assoc_array_delete_collapse_iterator.exit:        ; preds = %37, %30, %19
   br i1 %82, label %85, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %80, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %84 = load i32, ptr %83, align 8
   %.pre11 = ptrtoint ptr %81 to i64
   br label %48
@@ -300,8 +300,8 @@ define dso_local ptr @assoc_array_find(ptr noundef %0, ptr nocapture noundef rea
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %11
 
 11:                                               ; preds = %23, %7
@@ -365,7 +365,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @assoc_array_walk(ptr noundef
   %24 = and i32 %19, 63
   %25 = zext nneg i32 %24 to i64
   %26 = lshr i64 %16, %25
-  %27 = getelementptr inbounds i8, ptr %23, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %28 = and i64 %26, 15
   %29 = getelementptr [16 x ptr], ptr %27, i64 0, i64 %28
   %30 = load volatile ptr, ptr %29, align 8
@@ -378,9 +378,9 @@ define internal fastcc noundef range(i32 0, 3) i32 @assoc_array_walk(ptr noundef
   %35 = trunc i64 %26 to i32
   %36 = and i32 %35, 15
   store ptr %23, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %19, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %36, ptr %38, align 4
   br label %104
 
@@ -402,13 +402,13 @@ define internal fastcc noundef range(i32 0, 3) i32 @assoc_array_walk(ptr noundef
   %48 = and i64 %.pre-phi, -4
   %49 = inttoptr i64 %48 to ptr
   %50 = add i32 %46, 4
-  %51 = getelementptr inbounds i8, ptr %49, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = icmp sgt i32 %50, %52
   br i1 %53, label %56, label %54, !prof !9
 
 54:                                               ; preds = %.loopexit
-  %55 = getelementptr inbounds i8, ptr %49, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 24
   br label %57
 
 56:                                               ; preds = %.loopexit
@@ -464,15 +464,15 @@ define internal fastcc noundef range(i32 0, 3) i32 @assoc_array_walk(ptr noundef
   br i1 %90, label %97, label %91
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %3, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %49, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %3, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %46, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %3, i64 28
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %59, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %3, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %72, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %3, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %89, ptr %96, align 8
   br label %104
 
@@ -481,7 +481,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @assoc_array_walk(ptr noundef
   br i1 %98, label %57, label %99, !llvm.loop !17
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %49, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %101 = load volatile ptr, ptr %100, align 8
   %102 = xor i32 %88, %46
   %103 = icmp ult i32 %102, 64
@@ -512,7 +512,7 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
 
 4:                                                ; preds = %2
   %5 = icmp eq ptr %1, null
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br i1 %5, label %.split27.us, label %.split27
 
 .split27.us:                                      ; preds = %4, %.split16.us.split.us.us
@@ -536,13 +536,13 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, %7
   br i1 %23, label %24, label %.split31.us, !prof !18
 
 24:                                               ; preds = %20, %18
-  %25 = getelementptr inbounds i8, ptr %14, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, 2
@@ -564,7 +564,7 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
   br i1 %36, label %.thread8.us.preheader, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %14, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %39 = load i8, ptr %38, align 8
   %40 = zext i8 %39 to i32
   %41 = icmp eq i32 %7, %40
@@ -583,13 +583,13 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
   br i1 %45, label %.split.us.us.us, label %.loopexit.split.us.us.us
 
 .split.us.us.us:                                  ; preds = %.thread8.us
-  %46 = getelementptr inbounds i8, ptr %44, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %47 = sext i32 %42 to i64
   br label %78
 
 .loopexit.split.us.us.us:                         ; preds = %.thread9.us.us.us, %.thread8.us
   %48 = load ptr, ptr %44, align 8
-  %49 = getelementptr inbounds i8, ptr %44, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %50 = load i8, ptr %49, align 8
   tail call void @kfree(ptr noundef %44) #8
   %51 = icmp eq ptr %48, null
@@ -605,14 +605,14 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
 57:                                               ; preds = %52
   %58 = and i64 %54, -4
   %59 = inttoptr i64 %58 to ptr
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, %43
   br i1 %62, label %63, label %.split21.us, !prof !18
 
 63:                                               ; preds = %57
   %64 = load ptr, ptr %59, align 8
-  %65 = getelementptr inbounds i8, ptr %59, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %66 = load i32, ptr %65, align 8
   tail call void @kfree(ptr noundef %59) #8
   %67 = icmp eq ptr %64, null
@@ -682,7 +682,7 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
   br i1 %101, label %106, label %102
 
 102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %96, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %104 = load i32, ptr %103, align 8
   %105 = icmp eq i32 %104, %89
   br i1 %105, label %106, label %.split31.us, !prof !18
@@ -693,7 +693,7 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
   unreachable
 
 106:                                              ; preds = %102, %100
-  %107 = getelementptr inbounds i8, ptr %96, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %108 = load ptr, ptr %107, align 8
   %109 = ptrtoint ptr %108 to i64
   %110 = and i64 %109, 2
@@ -730,7 +730,7 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
   br label %.thread8
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %96, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %121 = load i8, ptr %120, align 8
   %122 = zext i8 %121 to i32
   %123 = icmp eq i32 %89, %122
@@ -749,7 +749,7 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
   br i1 %127, label %.split, label %.loopexit.split
 
 .split:                                           ; preds = %.thread8
-  %128 = getelementptr inbounds i8, ptr %126, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %129 = sext i32 %124 to i64
   br label %130
 
@@ -779,7 +779,7 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
 
 .loopexit.split:                                  ; preds = %.thread9, %.thread8
   %143 = load ptr, ptr %126, align 8
-  %144 = getelementptr inbounds i8, ptr %126, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %145 = load i8, ptr %144, align 8
   tail call void @kfree(ptr noundef %126) #8
   %146 = icmp eq ptr %143, null
@@ -795,7 +795,7 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
 152:                                              ; preds = %147
   %153 = and i64 %149, -4
   %154 = inttoptr i64 %153 to ptr
-  %155 = getelementptr inbounds i8, ptr %154, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %156 = load ptr, ptr %155, align 8
   %157 = icmp eq ptr %156, %125
   br i1 %157, label %158, label %.split21.us, !prof !18
@@ -807,7 +807,7 @@ define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr nou
 
 158:                                              ; preds = %152
   %159 = load ptr, ptr %154, align 8
-  %160 = getelementptr inbounds i8, ptr %154, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %161 = load i32, ptr %160, align 8
   tail call void @kfree(ptr noundef %154) #8
   %162 = icmp eq ptr %159, null
@@ -859,13 +859,13 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
 
 14:                                               ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !12
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %3, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 248
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 248
   store i64 1, ptr %18, align 8
   %19 = call fastcc i32 @assoc_array_walk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5), !range !13
   switch i32 %19, label %default.unreachable68 [
@@ -884,32 +884,32 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %25 = ptrtoint ptr %22 to i64
   %26 = or disjoint i64 %25, 1
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %12, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 16
-  %30 = getelementptr inbounds i8, ptr %12, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %12, i64 240
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 240
   store ptr %22, ptr %31, align 8
   %32 = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds i8, ptr %12, i64 256
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %12, i64 264
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 264
   store ptr %27, ptr %34, align 8
   br label %557
 
 35:                                               ; preds = %14
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %40 = load i32, ptr %39, align 4
   %41 = trunc i32 %40 to i8
-  %42 = getelementptr inbounds i8, ptr %12, i64 304
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 304
   %43 = getelementptr i8, ptr %12, i64 320
   store i8 %41, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %36, i64 16
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %46
 
 46:                                               ; preds = %65, %35
@@ -934,10 +934,10 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
 
 60:                                               ; preds = %57
   %61 = getelementptr [16 x ptr], ptr %44, i64 0, i64 %47
-  %62 = getelementptr inbounds i8, ptr %12, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %61, ptr %62, align 8
   %63 = load ptr, ptr %61, align 8
-  %64 = getelementptr inbounds i8, ptr %12, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %63, ptr %64, align 8
   br label %557
 
@@ -954,9 +954,9 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
 71:                                               ; preds = %69
   %72 = zext nneg i32 %66 to i64
   %73 = getelementptr [16 x ptr], ptr %44, i64 0, i64 %72
-  %74 = getelementptr inbounds i8, ptr %12, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %12, i64 240
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 240
   store ptr %36, ptr %75, align 8
   br label %557
 
@@ -970,7 +970,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %81 = ptrtoint ptr %78 to i64
   %82 = or disjoint i64 %81, 1
   %83 = inttoptr i64 %82 to ptr
-  %84 = getelementptr inbounds i8, ptr %12, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %83, ptr %84, align 8
   %85 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %86 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %85, i32 noundef 3520, i64 noundef 152) #9
@@ -983,7 +983,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %91 = inttoptr i64 %90 to ptr
   %92 = getelementptr i8, ptr %12, i64 72
   store ptr %91, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %94 = and i32 %38, 63
   %95 = zext nneg i32 %94 to i64
   br label %96
@@ -1047,29 +1047,29 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %1, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %295
 
 139:                                              ; preds = %134, %131, %116
-  %140 = getelementptr inbounds i8, ptr %12, i64 264
+  %140 = getelementptr inbounds nuw i8, ptr %12, i64 264
   store ptr %83, ptr %140, align 8
   %141 = load ptr, ptr %36, align 8
   store ptr %141, ptr %78, align 8
-  %142 = getelementptr inbounds i8, ptr %36, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %143 = load i8, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %78, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i8 %143, ptr %144, align 8
   store ptr %83, ptr %86, align 8
-  %145 = getelementptr inbounds i8, ptr %86, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i8 -1, ptr %145, align 8
   br label %146
 
 146:                                              ; preds = %388, %139
-  %147 = getelementptr inbounds i8, ptr %36, i64 144
+  %147 = getelementptr inbounds nuw i8, ptr %36, i64 144
   %148 = load i64, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %78, i64 144
+  %149 = getelementptr inbounds nuw i8, ptr %78, i64 144
   store i64 %148, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %86, i64 144
+  %150 = getelementptr inbounds nuw i8, ptr %86, i64 144
   store i64 0, ptr %150, align 8
   br label %151
 
@@ -1127,9 +1127,9 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   unreachable
 
 174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %86, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i8 %154, ptr %175, align 8
-  %176 = getelementptr inbounds i8, ptr %78, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %78, i64 16
   br label %177
 
 177:                                              ; preds = %177, %174
@@ -1160,7 +1160,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
 
 194:                                              ; preds = %188
   store ptr %91, ptr %190, align 8
-  %195 = getelementptr inbounds i8, ptr %86, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %86, i64 16
   br label %196
 
 196:                                              ; preds = %223, %194
@@ -1239,9 +1239,9 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %242 = phi ptr [ %240, %237 ], [ %241, %.loopexit.loopexit ]
   %243 = phi ptr [ %86, %237 ], [ %78, %.loopexit.loopexit ]
   %244 = phi i32 [ %238, %237 ], [ %225, %.loopexit.loopexit ]
-  %245 = getelementptr inbounds i8, ptr %12, i64 48
+  %245 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %242, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %12, i64 240
+  %246 = getelementptr inbounds nuw i8, ptr %12, i64 240
   store ptr %243, ptr %246, align 8
   %247 = icmp slt i32 %244, 2
   br i1 %247, label %248, label %249, !prof !9
@@ -1252,9 +1252,9 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   unreachable
 
 249:                                              ; preds = %.loopexit
-  %250 = getelementptr inbounds i8, ptr %12, i64 232
+  %250 = getelementptr inbounds nuw i8, ptr %12, i64 232
   store ptr %83, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %12, i64 104
+  %251 = getelementptr inbounds nuw i8, ptr %12, i64 104
   br label %252
 
 252:                                              ; preds = %268, %249
@@ -1304,11 +1304,11 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %279 = icmp eq i64 %278, 0
   %280 = and i64 %277, -4
   %281 = inttoptr i64 %280 to ptr
-  %282 = getelementptr inbounds i8, ptr %281, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 16
   br i1 %279, label %283, label %288
 
 283:                                              ; preds = %276
-  %284 = getelementptr inbounds i8, ptr %36, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %285 = load i8, ptr %284, align 8
   %286 = zext i8 %285 to i64
   %287 = getelementptr [16 x ptr], ptr %282, i64 0, i64 %286
@@ -1316,12 +1316,12 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
 
 288:                                              ; preds = %283, %276, %274
   %289 = phi ptr [ %287, %283 ], [ %275, %274 ], [ %282, %276 ]
-  %290 = getelementptr inbounds i8, ptr %12, i64 256
+  %290 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store ptr %289, ptr %290, align 8
   %291 = ptrtoint ptr %36 to i64
   %292 = or i64 %291, 1
   %293 = inttoptr i64 %292 to ptr
-  %294 = getelementptr inbounds i8, ptr %12, i64 88
+  %294 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %293, ptr %294, align 8
   br label %557
 
@@ -1390,25 +1390,25 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %333 = inttoptr i64 %332 to ptr
   %334 = getelementptr i8, ptr %12, i64 80
   store ptr %333, ptr %334, align 8
-  %335 = getelementptr inbounds i8, ptr %12, i64 264
+  %335 = getelementptr inbounds nuw i8, ptr %12, i64 264
   store ptr %333, ptr %335, align 8
   %336 = load ptr, ptr %36, align 8
   store ptr %336, ptr %328, align 8
-  %337 = getelementptr inbounds i8, ptr %36, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %338 = load i8, ptr %337, align 8
   %339 = zext i8 %338 to i32
-  %340 = getelementptr inbounds i8, ptr %328, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %328, i64 8
   store i32 %339, ptr %340, align 8
-  %341 = getelementptr inbounds i8, ptr %328, i64 16
+  %341 = getelementptr inbounds nuw i8, ptr %328, i64 16
   store ptr %83, ptr %341, align 8
   store ptr %333, ptr %78, align 8
-  %342 = getelementptr inbounds i8, ptr %78, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i8 0, ptr %342, align 8
   store ptr %83, ptr %86, align 8
-  %343 = getelementptr inbounds i8, ptr %86, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i8 -1, ptr %343, align 8
   %344 = and i32 %310, -4
-  %345 = getelementptr inbounds i8, ptr %328, i64 12
+  %345 = getelementptr inbounds nuw i8, ptr %328, i64 12
   store i32 %344, ptr %345, align 4
   %346 = icmp slt i32 %310, 4
   br i1 %346, label %351, label %347, !prof !9
@@ -1418,7 +1418,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   br i1 %348, label %.loopexit32, label %349
 
 349:                                              ; preds = %347
-  %350 = getelementptr inbounds i8, ptr %328, i64 24
+  %350 = getelementptr inbounds nuw i8, ptr %328, i64 24
   br label %352
 
 351:                                              ; preds = %330
@@ -1448,7 +1448,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %365 = zext nneg i32 %362 to i64
   %366 = shl nsw i64 -1, %365
   %367 = xor i64 %366, -1
-  %368 = getelementptr inbounds i8, ptr %328, i64 24
+  %368 = getelementptr inbounds nuw i8, ptr %328, i64 24
   %369 = add nsw i64 %325, -1
   %370 = getelementptr [0 x i64], ptr %368, i64 0, i64 %369
   %371 = load i64, ptr %370, align 8
@@ -1488,15 +1488,15 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   br label %146
 
 394:                                              ; preds = %14
-  %395 = getelementptr inbounds i8, ptr %5, i64 16
+  %395 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %396 = load ptr, ptr %395, align 8
-  %397 = getelementptr inbounds i8, ptr %5, i64 24
+  %397 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %398 = load i32, ptr %397, align 8
-  %399 = getelementptr inbounds i8, ptr %5, i64 28
+  %399 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %400 = load i32, ptr %399, align 4
-  %401 = getelementptr inbounds i8, ptr %5, i64 32
+  %401 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %402 = load i64, ptr %401, align 8
-  %403 = getelementptr inbounds i8, ptr %5, i64 40
+  %403 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %404 = load i64, ptr %403, align 8
   %405 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %404) #11, !srcloc !71
   %406 = trunc i64 %405 to i32
@@ -1520,8 +1520,8 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
 418:                                              ; preds = %414
   %419 = and i64 %415, -4
   %420 = inttoptr i64 %419 to ptr
-  %421 = getelementptr inbounds i8, ptr %420, i64 16
-  %422 = getelementptr inbounds i8, ptr %396, i64 8
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 16
+  %422 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %423 = load i32, ptr %422, align 8
   %424 = sext i32 %423 to i64
   %425 = getelementptr [16 x ptr], ptr %421, i64 0, i64 %424
@@ -1534,12 +1534,12 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
 
 427:                                              ; preds = %418, %412
   %428 = phi ptr [ %425, %418 ], [ %413, %412 ]
-  %429 = getelementptr inbounds i8, ptr %12, i64 256
+  %429 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store ptr %428, ptr %429, align 8
   %430 = ptrtoint ptr %396 to i64
   %431 = or i64 %430, 3
   %432 = inttoptr i64 %431 to ptr
-  %433 = getelementptr inbounds i8, ptr %12, i64 88
+  %433 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %432, ptr %433, align 8
   %434 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %435 = tail call noalias align 8 dereferenceable_or_null(152) ptr @kmalloc_trace(ptr noundef %434, i32 noundef 3520, i64 noundef 152) #9
@@ -1550,9 +1550,9 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %438 = ptrtoint ptr %435 to i64
   %439 = or disjoint i64 %438, 1
   %440 = inttoptr i64 %439 to ptr
-  %441 = getelementptr inbounds i8, ptr %12, i64 64
+  %441 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %440, ptr %441, align 8
-  %442 = getelementptr inbounds i8, ptr %12, i64 240
+  %442 = getelementptr inbounds nuw i8, ptr %12, i64 240
   store ptr %435, ptr %442, align 8
   %443 = add i32 %398, 4
   %444 = icmp sgt i32 %409, %443
@@ -1576,24 +1576,24 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %458 = inttoptr i64 %457 to ptr
   %459 = getelementptr i8, ptr %12, i64 72
   store ptr %458, ptr %459, align 8
-  %460 = getelementptr inbounds i8, ptr %12, i64 264
+  %460 = getelementptr inbounds nuw i8, ptr %12, i64 264
   store ptr %458, ptr %460, align 8
   %461 = load ptr, ptr %396, align 8
   store ptr %461, ptr %452, align 8
-  %462 = getelementptr inbounds i8, ptr %396, i64 8
+  %462 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %463 = load i32, ptr %462, align 8
-  %464 = getelementptr inbounds i8, ptr %452, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %452, i64 8
   store i32 %463, ptr %464, align 8
-  %465 = getelementptr inbounds i8, ptr %452, i64 16
+  %465 = getelementptr inbounds nuw i8, ptr %452, i64 16
   store ptr %440, ptr %465, align 8
-  %466 = getelementptr inbounds i8, ptr %452, i64 12
+  %466 = getelementptr inbounds nuw i8, ptr %452, i64 12
   store i32 %409, ptr %466, align 4
   store ptr %458, ptr %435, align 8
-  %467 = getelementptr inbounds i8, ptr %435, i64 8
+  %467 = getelementptr inbounds nuw i8, ptr %435, i64 8
   store i8 0, ptr %467, align 8
-  %468 = getelementptr inbounds i8, ptr %452, i64 24
-  %469 = getelementptr inbounds i8, ptr %396, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %468, ptr align 8 %469, i64 %450, i1 false)
+  %468 = getelementptr inbounds nuw i8, ptr %452, i64 24
+  %469 = getelementptr inbounds nuw i8, ptr %396, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %468, ptr nonnull align 8 %469, i64 %450, i1 false)
   %470 = and i64 %405, 60
   %471 = shl nsw i64 -1, %470
   %472 = xor i64 %471, -1
@@ -1605,34 +1605,34 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   br label %484
 
 477:                                              ; preds = %437
-  %478 = getelementptr inbounds i8, ptr %12, i64 264
+  %478 = getelementptr inbounds nuw i8, ptr %12, i64 264
   store ptr %440, ptr %478, align 8
   %479 = load ptr, ptr %396, align 8
   store ptr %479, ptr %435, align 8
-  %480 = getelementptr inbounds i8, ptr %396, i64 8
+  %480 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %481 = load i32, ptr %480, align 8
   %482 = trunc i32 %481 to i8
-  %483 = getelementptr inbounds i8, ptr %435, i64 8
+  %483 = getelementptr inbounds nuw i8, ptr %435, i64 8
   store i8 %482, ptr %483, align 8
   %.pre = and i64 %405, 60
   br label %484
 
 484:                                              ; preds = %477, %454
   %.pre-phi = phi i64 [ %.pre, %477 ], [ %470, %454 ]
-  %485 = getelementptr inbounds i8, ptr %396, i64 16
+  %485 = getelementptr inbounds nuw i8, ptr %396, i64 16
   %486 = load ptr, ptr %485, align 8
   %487 = ptrtoint ptr %486 to i64
   %488 = and i64 %487, -4
   %489 = inttoptr i64 %488 to ptr
-  %490 = getelementptr inbounds i8, ptr %489, i64 144
+  %490 = getelementptr inbounds nuw i8, ptr %489, i64 144
   %491 = load i64, ptr %490, align 8
-  %492 = getelementptr inbounds i8, ptr %435, i64 144
+  %492 = getelementptr inbounds nuw i8, ptr %435, i64 144
   store i64 %491, ptr %492, align 8
   %493 = lshr i64 %402, %.pre-phi
   %494 = trunc i64 %493 to i32
   %495 = and i32 %494, 15
   %496 = add i32 %409, 4
-  %497 = getelementptr inbounds i8, ptr %396, i64 12
+  %497 = getelementptr inbounds nuw i8, ptr %396, i64 12
   %498 = load i32, ptr %497, align 4
   %499 = icmp slt i32 %496, %498
   br i1 %499, label %500, label %524
@@ -1655,33 +1655,33 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %513 = getelementptr i8, ptr %12, i64 80
   store ptr %512, ptr %513, align 8
   store ptr %440, ptr %507, align 8
-  %514 = getelementptr inbounds i8, ptr %507, i64 8
+  %514 = getelementptr inbounds nuw i8, ptr %507, i64 8
   store i32 %495, ptr %514, align 8
   %515 = load ptr, ptr %485, align 8
-  %516 = getelementptr inbounds i8, ptr %507, i64 16
+  %516 = getelementptr inbounds nuw i8, ptr %507, i64 16
   store ptr %515, ptr %516, align 8
   %517 = load i32, ptr %497, align 4
-  %518 = getelementptr inbounds i8, ptr %507, i64 12
+  %518 = getelementptr inbounds nuw i8, ptr %507, i64 12
   store i32 %517, ptr %518, align 4
-  %519 = getelementptr inbounds i8, ptr %435, i64 16
+  %519 = getelementptr inbounds nuw i8, ptr %435, i64 16
   %520 = and i64 %493, 15
   %521 = getelementptr [16 x ptr], ptr %519, i64 0, i64 %520
   store ptr %512, ptr %521, align 8
-  %522 = getelementptr inbounds i8, ptr %507, i64 24
-  %523 = getelementptr inbounds i8, ptr %396, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %522, ptr align 8 %523, i64 %505, i1 false)
+  %522 = getelementptr inbounds nuw i8, ptr %507, i64 24
+  %523 = getelementptr inbounds nuw i8, ptr %396, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %522, ptr nonnull align 8 %523, i64 %505, i1 false)
   br label %532
 
 524:                                              ; preds = %484
-  %525 = getelementptr inbounds i8, ptr %435, i64 16
+  %525 = getelementptr inbounds nuw i8, ptr %435, i64 16
   %526 = and i64 %493, 15
   %527 = getelementptr [16 x ptr], ptr %525, i64 0, i64 %526
   store ptr %486, ptr %527, align 8
-  %528 = getelementptr inbounds i8, ptr %489, i64 8
-  %529 = getelementptr inbounds i8, ptr %12, i64 288
+  %528 = getelementptr inbounds nuw i8, ptr %489, i64 8
+  %529 = getelementptr inbounds nuw i8, ptr %12, i64 288
   store ptr %528, ptr %529, align 8
   %530 = trunc nuw nsw i32 %495 to i8
-  %531 = getelementptr inbounds i8, ptr %12, i64 296
+  %531 = getelementptr inbounds nuw i8, ptr %12, i64 296
   store i8 %530, ptr %531, align 8
   br label %532
 
@@ -1692,7 +1692,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   %535 = getelementptr i8, ptr %12, i64 280
   store ptr %533, ptr %535, align 8
   %536 = icmp eq i32 %495, 0
-  %537 = getelementptr inbounds i8, ptr %12, i64 48
+  %537 = getelementptr inbounds nuw i8, ptr %12, i64 48
   br i1 %536, label %538, label %540
 
 538:                                              ; preds = %532
@@ -1701,7 +1701,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   br label %557
 
 540:                                              ; preds = %532
-  %541 = getelementptr inbounds i8, ptr %435, i64 16
+  %541 = getelementptr inbounds nuw i8, ptr %435, i64 16
   store ptr %541, ptr %537, align 8
   br label %557
 
@@ -1709,7 +1709,7 @@ default.unreachable68:                            ; preds = %14
   unreachable
 
 542:                                              ; preds = %500, %445, %427, %320, %80, %76, %20
-  %543 = getelementptr inbounds i8, ptr %12, i64 64
+  %543 = getelementptr inbounds nuw i8, ptr %12, i64 64
   br label %544
 
 544:                                              ; preds = %553, %542
@@ -1743,7 +1743,7 @@ default.unreachable68:                            ; preds = %14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @assoc_array_cancel_edit(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %3
 
 3:                                                ; preds = %12, %1
@@ -1781,7 +1781,7 @@ define dso_local void @assoc_array_insert_set_object(ptr nocapture noundef write
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %6, align 8
   ret void
 }
@@ -1791,7 +1791,7 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   %4 = alloca %struct.assoc_array_delete_collapse_context, align 8
   %5 = alloca %struct.assoc_array_walk_result, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(328) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 328) #9
@@ -1800,11 +1800,11 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
 
 10:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false), !annotation !12
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 248
   store i64 -1, ptr %13, align 8
   %14 = call fastcc i32 @assoc_array_walk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5), !range !13
   %15 = icmp eq i32 %14, 1
@@ -1812,8 +1812,8 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %20
 
 20:                                               ; preds = %32, %16
@@ -1838,7 +1838,7 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   br i1 %34, label %.loopexit, label %20, !llvm.loop !77
 
 .loopexit:                                        ; preds = %32, %10
-  %35 = getelementptr inbounds i8, ptr %8, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 64
   br label %36
 
 36:                                               ; preds = %45, %.loopexit
@@ -1865,7 +1865,7 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   br label %167
 
 49:                                               ; preds = %29
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %53, label %54, !prof !9
@@ -1878,13 +1878,13 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
 54:                                               ; preds = %49
   %55 = getelementptr [16 x ptr], ptr %18, i64 0, i64 %21
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %8, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %8, i64 256
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 256
   store ptr %55, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 264
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 264
   store ptr null, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %8, i64 240
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 240
   store ptr %17, ptr %60, align 8
   %61 = icmp eq i64 %51, 1
   br i1 %61, label %62, label %67
@@ -1896,12 +1896,12 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   store ptr null, ptr %64, align 8
   store ptr null, ptr %60, align 8
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %8, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %65, ptr %66, align 8
   br label %167
 
 67:                                               ; preds = %54
-  %68 = getelementptr inbounds i8, ptr %17, i64 144
+  %68 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %69 = load i64, ptr %68, align 8
   %70 = icmp ult i64 %69, 18
   br i1 %70, label %71, label %167
@@ -1962,7 +1962,7 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %94, %93 ]
   %103 = and i64 %.pre-phi, -4
   %104 = inttoptr i64 %103 to ptr
-  %105 = getelementptr inbounds i8, ptr %104, i64 144
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 144
   %106 = load i64, ptr %105, align 8
   %107 = icmp ult i64 %106, 18
   br i1 %107, label %89, label %108
@@ -1983,17 +1983,17 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   %116 = ptrtoint ptr %113 to i64
   %117 = or disjoint i64 %116, 1
   %118 = inttoptr i64 %117 to ptr
-  %119 = getelementptr inbounds i8, ptr %8, i64 64
+  %119 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store ptr %118, ptr %119, align 8
   %120 = load ptr, ptr %90, align 8
   store ptr %120, ptr %113, align 8
-  %121 = getelementptr inbounds i8, ptr %90, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %122 = load i8, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %113, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i8 %122, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %90, i64 144
+  %124 = getelementptr inbounds nuw i8, ptr %90, i64 144
   %125 = load i64, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %113, i64 144
+  %126 = getelementptr inbounds nuw i8, ptr %113, i64 144
   store i64 %125, ptr %126, align 8
   store ptr %113, ptr %60, align 8
   store ptr %113, ptr %4, align 8
@@ -2001,9 +2001,9 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   %128 = ptrtoint ptr %127 to i64
   %129 = and i64 %128, -2
   %130 = inttoptr i64 %129 to ptr
-  %131 = getelementptr inbounds i8, ptr %4, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %130, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %4, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %132, align 8
   %133 = ptrtoint ptr %90 to i64
   %134 = or i64 %133, 1
@@ -2043,7 +2043,7 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   %153 = icmp eq i64 %152, 0
   %154 = and i64 %147, -4
   %155 = inttoptr i64 %154 to ptr
-  %156 = getelementptr inbounds i8, ptr %155, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   br i1 %153, label %157, label %161
 
 157:                                              ; preds = %151
@@ -2058,7 +2058,7 @@ define dso_local noundef ptr @assoc_array_delete(ptr noundef %0, ptr noundef %1,
   store ptr %162, ptr %163, align 8
   %164 = getelementptr i8, ptr %8, i64 280
   store ptr %118, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %8, i64 96
+  %165 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %135, ptr %165, align 8
   br label %167
 
@@ -2086,18 +2086,18 @@ define dso_local noundef ptr @assoc_array_clear(ptr noundef %0, ptr noundef %1) 
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %1, ptr %11, align 8
   %12 = getelementptr i8, ptr %7, i64 272
   store ptr %0, ptr %12, align 8
   %13 = getelementptr i8, ptr %7, i64 280
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %1, ptr %16, align 8
   br label %17
 
@@ -2109,34 +2109,34 @@ define dso_local noundef ptr @assoc_array_clear(ptr noundef %0, ptr noundef %1) 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @assoc_array_apply_edit(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !85
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
   br label %8
 
 8:                                                ; preds = %5, %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !86
-  %9 = getelementptr inbounds i8, ptr %0, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 296
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %14 = load i8, ptr %13, align 8
   store i8 %14, ptr %10, align 1
   br label %15
 
 15:                                               ; preds = %12, %8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !87
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
-  %17 = getelementptr inbounds i8, ptr %0, i64 232
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
   br label %18
 
 18:                                               ; preds = %25, %15
@@ -2158,7 +2158,7 @@ define dso_local void @assoc_array_apply_edit(ptr noundef %0) local_unnamed_addr
 
 28:                                               ; preds = %25
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !89
-  %29 = getelementptr inbounds i8, ptr %0, i64 256
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %30
 
 30:                                               ; preds = %39, %28
@@ -2170,7 +2170,7 @@ define dso_local void @assoc_array_apply_edit(ptr noundef %0) local_unnamed_addr
   br i1 %35, label %39, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %34, align 8
   br label %39
@@ -2179,27 +2179,27 @@ define dso_local void @assoc_array_apply_edit(ptr noundef %0) local_unnamed_addr
   br i1 %31, label %30, label %40, !llvm.loop !90
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %42, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 0, ptr %46, align 8
   br label %86
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %0, i64 240
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %86, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %0, i64 248
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %49, i64 144
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 144
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, %53
   store i64 %56, ptr %54, align 8
@@ -2240,7 +2240,7 @@ define dso_local void @assoc_array_apply_edit(ptr noundef %0) local_unnamed_addr
   %73 = and i64 %.pre-phi, -4
   %74 = inttoptr i64 %73 to ptr
   %75 = load i64, ptr %52, align 8
-  %76 = getelementptr inbounds i8, ptr %74, i64 144
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 144
   %77 = load i64, ptr %76, align 8
   %78 = add i64 %77, %75
   store i64 %78, ptr %76, align 8
@@ -2251,7 +2251,7 @@ define dso_local void @assoc_array_apply_edit(ptr noundef %0) local_unnamed_addr
 .loopexit:                                        ; preds = %72, %63, %51
   %81 = load i64, ptr %52, align 8
   %82 = load ptr, ptr %41, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %84, %81
   store i64 %85, ptr %83, align 8
@@ -2267,15 +2267,15 @@ declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @assoc_array_rcu_cleanup(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %3 to i64
   %11 = and i64 %10, -2
@@ -2284,7 +2284,7 @@ define internal void @assoc_array_rcu_cleanup(ptr noundef %0) #0 align 16 {
   br label %13
 
 13:                                               ; preds = %5, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
@@ -2297,7 +2297,7 @@ define internal void @assoc_array_rcu_cleanup(ptr noundef %0) #0 align 16 {
   br label %21
 
 21:                                               ; preds = %17, %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %36, label %25
@@ -2318,7 +2318,7 @@ define internal void @assoc_array_rcu_cleanup(ptr noundef %0) #0 align 16 {
   %32 = inttoptr i64 %31 to ptr
   store ptr null, ptr %32, align 8
   %33 = load ptr, ptr %22, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
   tail call fastcc void @assoc_array_destroy_subtree(ptr noundef %33, ptr noundef %35)
   br label %36
@@ -2346,16 +2346,16 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   br i1 %11, label %305, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 256
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 256
   store ptr %0, ptr %16, align 8
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr %17, ptr %18, align 8
   store ptr null, ptr %5, align 8
   br label %19
@@ -2372,7 +2372,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
 26:                                               ; preds = %19
   %27 = and i64 %23, -4
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, -1
   %32 = or i32 %31, 63
@@ -2390,16 +2390,16 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
 42:                                               ; preds = %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %40, ptr noundef align 8 %28, i64 %39, i1 false)
   store ptr %21, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %28, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %40, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 %44, ptr %45, align 8
   %46 = ptrtoint ptr %40 to i64
   %47 = or disjoint i64 %46, 3
   %48 = inttoptr i64 %47 to ptr
   store ptr %48, ptr %20, align 8
-  %49 = getelementptr inbounds i8, ptr %40, i64 16
-  %50 = getelementptr inbounds i8, ptr %28, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %51 = load ptr, ptr %50, align 8
   br label %52
 
@@ -2417,9 +2417,9 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %61 = and i64 %60, -4
   %62 = inttoptr i64 %61 to ptr
   store ptr %54, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i8, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %57, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i8 %64, ptr %65, align 8
   %66 = ptrtoint ptr %57 to i64
   %67 = or disjoint i64 %66, 1
@@ -2436,14 +2436,14 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   br i1 %74, label %75, label %.loopexit24
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %73, i64 16
-  %77 = getelementptr inbounds i8, ptr %72, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %78 = sext i32 %70 to i64
   br label %81
 
 .loopexit24:                                      ; preds = %96, %69
-  %79 = getelementptr inbounds i8, ptr %72, i64 144
-  %80 = getelementptr inbounds i8, ptr %72, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 144
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 16
   br label %100
 
 81:                                               ; preds = %96, %75
@@ -2537,7 +2537,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
 135:                                              ; preds = %132
   %136 = and i64 %129, -4
   %137 = inttoptr i64 %136 to ptr
-  %138 = getelementptr inbounds i8, ptr %137, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8
   %140 = icmp eq i64 %136, 0
   %.pre = ptrtoint ptr %139 to i64
@@ -2548,7 +2548,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %142 = phi i1 [ %140, %135 ], [ true, %132 ]
   %143 = and i64 %.pre-phi, -4
   %144 = inttoptr i64 %143 to ptr
-  %145 = getelementptr inbounds i8, ptr %144, i64 144
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 144
   %146 = load i64, ptr %145, align 8
   %147 = load i64, ptr %79, align 8
   %148 = add i64 %147, %146
@@ -2571,7 +2571,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   store ptr null, ptr %125, align 8
   %156 = trunc i64 %121 to i32
   %157 = tail call i32 @llvm.smin.i32(i32 %156, i32 %123)
-  %158 = getelementptr inbounds i8, ptr %144, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %144, i64 16
   br label %159
 
 159:                                              ; preds = %183, %155
@@ -2669,7 +2669,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %211 = and i64 %207, -4
   %212 = inttoptr i64 %211 to ptr
   %213 = load ptr, ptr %72, align 8
-  %214 = getelementptr inbounds i8, ptr %72, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %215 = load i8, ptr %214, align 8
   tail call void @kfree(ptr noundef %72) #8
   %216 = icmp eq ptr %213, null
@@ -2677,7 +2677,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
 
 217:                                              ; preds = %210
   store ptr null, ptr %212, align 8
-  %218 = getelementptr inbounds i8, ptr %212, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i32 0, ptr %218, align 8
   br label %.loopexit25
 
@@ -2693,9 +2693,9 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %226 = inttoptr i64 %225 to ptr
   %227 = load ptr, ptr %226, align 8
   store ptr %227, ptr %212, align 8
-  %228 = getelementptr inbounds i8, ptr %226, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %229 = load i32, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %212, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i32 %229, ptr %230, align 8
   tail call void @kfree(ptr noundef %226) #8
   %231 = icmp eq ptr %227, null
@@ -2706,7 +2706,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   br label %.thread
 
 232:                                              ; preds = %224
-  %233 = getelementptr inbounds i8, ptr %212, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store ptr null, ptr %212, align 8
   store i32 0, ptr %233, align 8
   br label %.loopexit25
@@ -2716,11 +2716,11 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %234 = phi i32 [ %229, %..thread_crit_edge ], [ %220, %219 ]
   %235 = phi ptr [ %227, %..thread_crit_edge ], [ %213, %219 ]
   store ptr %235, ptr %212, align 8
-  %236 = getelementptr inbounds i8, ptr %212, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i32 %234, ptr %236, align 8
   %237 = and i64 %.pre-phi115, -4
   %238 = inttoptr i64 %237 to ptr
-  %239 = getelementptr inbounds i8, ptr %238, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %240 = sext i32 %234 to i64
   %241 = getelementptr [16 x ptr], ptr %239, i64 0, i64 %240
   store ptr %202, ptr %241, align 8
@@ -2741,7 +2741,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %250 = and i64 %246, -4
   %251 = inttoptr i64 %250 to ptr
   %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds i8, ptr %251, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %254 = load i32, ptr %253, align 8
   %255 = icmp ult i64 %.pr, 17
   br i1 %255, label %256, label %._crit_edge
@@ -2753,7 +2753,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
 256:                                              ; preds = %249
   store ptr %252, ptr %72, align 8
   %257 = trunc i32 %254 to i8
-  %258 = getelementptr inbounds i8, ptr %72, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i8 %257, ptr %258, align 8
   tail call void @kfree(ptr noundef %251) #8
   %259 = icmp eq ptr %252, null
@@ -2766,7 +2766,7 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   %263 = ptrtoint ptr %72 to i64
   %264 = or i64 %263, 1
   %265 = inttoptr i64 %264 to ptr
-  %266 = getelementptr inbounds i8, ptr %262, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %262, i64 16
   %267 = sext i32 %254 to i64
   %268 = getelementptr [16 x ptr], ptr %266, i64 0, i64 %267
   store ptr %265, ptr %268, align 8
@@ -2802,13 +2802,13 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
   br i1 %288, label %.loopexit25.loopexit, label %..thread20_crit_edge
 
 ..thread20_crit_edge:                             ; preds = %284
-  %289 = getelementptr inbounds i8, ptr %286, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %286, i64 8
   %290 = load i32, ptr %289, align 8
   %.pre116 = ptrtoint ptr %287 to i64
   br label %.thread20
 
 291:                                              ; preds = %277
-  %292 = getelementptr inbounds i8, ptr %73, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %293 = load i8, ptr %292, align 8
   %294 = zext i8 %293 to i32
   %295 = icmp eq ptr %280, null
@@ -2833,10 +2833,10 @@ define dso_local range(i32 -12, 1) i32 @assoc_array_gc(ptr noundef %0, ptr nound
 
 .loopexit25:                                      ; preds = %.loopexit25.loopexit, %269, %232, %217
   %.0..0..0. = phi ptr [ %.0..0..0..0..pre, %.loopexit25.loopexit ], [ %272, %269 ], [ %202, %232 ], [ %202, %217 ]
-  %301 = getelementptr inbounds i8, ptr %10, i64 264
+  %301 = getelementptr inbounds nuw i8, ptr %10, i64 264
   store ptr %.0..0..0., ptr %301, align 8
   tail call void @assoc_array_apply_edit(ptr noundef nonnull %10)
-  %302 = getelementptr inbounds i8, ptr %0, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.pr, ptr %302, align 8
   br label %305
 

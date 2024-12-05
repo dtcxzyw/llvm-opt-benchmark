@@ -57,36 +57,36 @@ entry:
   %numtriangles = alloca i32, align 4
   %triangle = alloca [3 x %class.b3Vector3], align 16
   %vtable = load ptr, ptr %this, align 16
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 16 dereferenceable(32) %this)
-  %m_scaling.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_scaling.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %meshScaling.sroa.0.0.copyload = load float, ptr %m_scaling.i, align 16
-  %meshScaling.sroa.19.0.m_scaling.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 20
+  %meshScaling.sroa.19.0.m_scaling.i.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 20
   %meshScaling.sroa.19.0.copyload = load float, ptr %meshScaling.sroa.19.0.m_scaling.i.sroa_idx, align 4
-  %meshScaling.sroa.37.0.m_scaling.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
+  %meshScaling.sroa.37.0.m_scaling.i.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 24
   %meshScaling.sroa.37.0.copyload = load float, ptr %meshScaling.sroa.37.0.m_scaling.i.sroa_idx, align 8
   %cmp256 = icmp sgt i32 %call, 0
   br i1 %cmp256, label %for.body.lr.ph, label %for.end434
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx2.i175 = getelementptr inbounds i8, ptr %triangle, i64 4
-  %arrayidx3.i176 = getelementptr inbounds i8, ptr %triangle, i64 8
-  %arrayidx4.i177 = getelementptr inbounds i8, ptr %triangle, i64 12
-  %arrayidx383 = getelementptr inbounds i8, ptr %triangle, i64 16
-  %arrayidx2.i180 = getelementptr inbounds i8, ptr %triangle, i64 20
-  %arrayidx3.i181 = getelementptr inbounds i8, ptr %triangle, i64 24
-  %arrayidx4.i182 = getelementptr inbounds i8, ptr %triangle, i64 28
-  %arrayidx404 = getelementptr inbounds i8, ptr %triangle, i64 32
-  %arrayidx2.i185 = getelementptr inbounds i8, ptr %triangle, i64 36
-  %arrayidx3.i186 = getelementptr inbounds i8, ptr %triangle, i64 40
-  %arrayidx4.i187 = getelementptr inbounds i8, ptr %triangle, i64 44
+  %arrayidx2.i175 = getelementptr inbounds nuw i8, ptr %triangle, i64 4
+  %arrayidx3.i176 = getelementptr inbounds nuw i8, ptr %triangle, i64 8
+  %arrayidx4.i177 = getelementptr inbounds nuw i8, ptr %triangle, i64 12
+  %arrayidx383 = getelementptr inbounds nuw i8, ptr %triangle, i64 16
+  %arrayidx2.i180 = getelementptr inbounds nuw i8, ptr %triangle, i64 20
+  %arrayidx3.i181 = getelementptr inbounds nuw i8, ptr %triangle, i64 24
+  %arrayidx4.i182 = getelementptr inbounds nuw i8, ptr %triangle, i64 28
+  %arrayidx404 = getelementptr inbounds nuw i8, ptr %triangle, i64 32
+  %arrayidx2.i185 = getelementptr inbounds nuw i8, ptr %triangle, i64 36
+  %arrayidx3.i186 = getelementptr inbounds nuw i8, ptr %triangle, i64 40
+  %arrayidx4.i187 = getelementptr inbounds nuw i8, ptr %triangle, i64 44
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %sw.epilog429
   %part.0257 = phi i32 [ 0, %for.body.lr.ph ], [ %inc433, %sw.epilog429 ]
   %vtable3 = load ptr, ptr %this, align 16
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 32
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 32
   %1 = load ptr, ptr %vfn4, align 8
   call void %1(ptr noundef nonnull align 16 dereferenceable(32) %this, ptr noundef nonnull %vertexbase, ptr noundef nonnull align 4 dereferenceable(4) %numverts, ptr noundef nonnull align 4 dereferenceable(4) %type, ptr noundef nonnull align 4 dereferenceable(4) %stride, ptr noundef nonnull %indexbase, ptr noundef nonnull align 4 dereferenceable(4) %indexstride, ptr noundef nonnull align 4 dereferenceable(4) %numtriangles, ptr noundef nonnull align 4 dereferenceable(4) %gfxindextype, i32 noundef %part.0257)
   %2 = load i32, ptr %type, align 4
@@ -130,47 +130,47 @@ for.body8:                                        ; preds = %for.cond6.preheader
   %11 = load i32, ptr %stride, align 4
   %mul10 = mul i32 %11, %10
   %idx.ext11 = zext i32 %mul10 to i64
-  %add.ptr12 = getelementptr inbounds i8, ptr %9, i64 %idx.ext11
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %9, i64 %idx.ext11
   %12 = load float, ptr %add.ptr12, align 4
   %mul16 = fmul float %meshScaling.sroa.0.0.copyload, %12
-  %arrayidx18 = getelementptr inbounds i8, ptr %add.ptr12, i64 4
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %add.ptr12, i64 4
   %13 = load float, ptr %arrayidx18, align 4
   %mul20 = fmul float %meshScaling.sroa.19.0.copyload, %13
-  %arrayidx22 = getelementptr inbounds i8, ptr %add.ptr12, i64 8
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %add.ptr12, i64 8
   %14 = load float, ptr %arrayidx22, align 4
   %mul24 = fmul float %meshScaling.sroa.37.0.copyload, %14
   store float %mul16, ptr %triangle, align 16
   store float %mul20, ptr %arrayidx2.i175, align 4
   store float %mul24, ptr %arrayidx3.i176, align 8
   store float 0.000000e+00, ptr %arrayidx4.i177, align 4
-  %arrayidx25 = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %15 = load i32, ptr %arrayidx25, align 4
   %mul26 = mul i32 %15, %11
   %idx.ext27 = zext i32 %mul26 to i64
-  %add.ptr28 = getelementptr inbounds i8, ptr %9, i64 %idx.ext27
+  %add.ptr28 = getelementptr inbounds nuw i8, ptr %9, i64 %idx.ext27
   %16 = load float, ptr %add.ptr28, align 4
   %mul33 = fmul float %meshScaling.sroa.0.0.copyload, %16
-  %arrayidx35 = getelementptr inbounds i8, ptr %add.ptr28, i64 4
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %add.ptr28, i64 4
   %17 = load float, ptr %arrayidx35, align 4
   %mul37 = fmul float %meshScaling.sroa.19.0.copyload, %17
-  %arrayidx39 = getelementptr inbounds i8, ptr %add.ptr28, i64 8
+  %arrayidx39 = getelementptr inbounds nuw i8, ptr %add.ptr28, i64 8
   %18 = load float, ptr %arrayidx39, align 4
   %mul41 = fmul float %meshScaling.sroa.37.0.copyload, %18
   store float %mul33, ptr %arrayidx383, align 16
   store float %mul37, ptr %arrayidx2.i180, align 4
   store float %mul41, ptr %arrayidx3.i181, align 8
   store float 0.000000e+00, ptr %arrayidx4.i182, align 4
-  %arrayidx42 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %19 = load i32, ptr %arrayidx42, align 4
   %mul43 = mul i32 %19, %11
   %idx.ext44 = zext i32 %mul43 to i64
-  %add.ptr45 = getelementptr inbounds i8, ptr %9, i64 %idx.ext44
+  %add.ptr45 = getelementptr inbounds nuw i8, ptr %9, i64 %idx.ext44
   %20 = load float, ptr %add.ptr45, align 4
   %mul50 = fmul float %meshScaling.sroa.0.0.copyload, %20
-  %arrayidx52 = getelementptr inbounds i8, ptr %add.ptr45, i64 4
+  %arrayidx52 = getelementptr inbounds nuw i8, ptr %add.ptr45, i64 4
   %21 = load float, ptr %arrayidx52, align 4
   %mul54 = fmul float %meshScaling.sroa.19.0.copyload, %21
-  %arrayidx56 = getelementptr inbounds i8, ptr %add.ptr45, i64 8
+  %arrayidx56 = getelementptr inbounds nuw i8, ptr %add.ptr45, i64 8
   %22 = load float, ptr %arrayidx56, align 4
   %mul58 = fmul float %meshScaling.sroa.37.0.copyload, %22
   store float %mul50, ptr %arrayidx404, align 16
@@ -178,7 +178,7 @@ for.body8:                                        ; preds = %for.cond6.preheader
   store float %mul58, ptr %arrayidx3.i186, align 8
   store float 0.000000e+00, ptr %arrayidx4.i187, align 4
   %vtable59 = load ptr, ptr %callback, align 8
-  %vfn60 = getelementptr inbounds i8, ptr %vtable59, i64 16
+  %vfn60 = getelementptr inbounds nuw i8, ptr %vtable59, i64 16
   %23 = load ptr, ptr %vfn60, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %triangle, i32 noundef %part.0257, i32 noundef %gfxindex.0255)
   %inc = add nuw nsw i32 %gfxindex.0255, 1
@@ -202,17 +202,17 @@ for.body64:                                       ; preds = %for.cond62.preheade
   %add.ptr72 = getelementptr inbounds i8, ptr %27, i64 %idx.ext71
   %30 = load float, ptr %add.ptr72, align 4
   %mul77 = fmul float %meshScaling.sroa.0.0.copyload, %30
-  %arrayidx79 = getelementptr inbounds i8, ptr %add.ptr72, i64 4
+  %arrayidx79 = getelementptr inbounds nuw i8, ptr %add.ptr72, i64 4
   %31 = load float, ptr %arrayidx79, align 4
   %mul81 = fmul float %meshScaling.sroa.19.0.copyload, %31
-  %arrayidx83 = getelementptr inbounds i8, ptr %add.ptr72, i64 8
+  %arrayidx83 = getelementptr inbounds nuw i8, ptr %add.ptr72, i64 8
   %32 = load float, ptr %arrayidx83, align 4
   %mul85 = fmul float %meshScaling.sroa.37.0.copyload, %32
   store float %mul77, ptr %triangle, align 16
   store float %mul81, ptr %arrayidx2.i175, align 4
   store float %mul85, ptr %arrayidx3.i176, align 8
   store float 0.000000e+00, ptr %arrayidx4.i177, align 4
-  %arrayidx86 = getelementptr inbounds i8, ptr %add.ptr68, i64 2
+  %arrayidx86 = getelementptr inbounds nuw i8, ptr %add.ptr68, i64 2
   %33 = load i16, ptr %arrayidx86, align 2
   %conv87 = zext i16 %33 to i32
   %mul88 = mul nsw i32 %29, %conv87
@@ -220,17 +220,17 @@ for.body64:                                       ; preds = %for.cond62.preheade
   %add.ptr90 = getelementptr inbounds i8, ptr %27, i64 %idx.ext89
   %34 = load float, ptr %add.ptr90, align 4
   %mul95 = fmul float %meshScaling.sroa.0.0.copyload, %34
-  %arrayidx97 = getelementptr inbounds i8, ptr %add.ptr90, i64 4
+  %arrayidx97 = getelementptr inbounds nuw i8, ptr %add.ptr90, i64 4
   %35 = load float, ptr %arrayidx97, align 4
   %mul99 = fmul float %meshScaling.sroa.19.0.copyload, %35
-  %arrayidx101 = getelementptr inbounds i8, ptr %add.ptr90, i64 8
+  %arrayidx101 = getelementptr inbounds nuw i8, ptr %add.ptr90, i64 8
   %36 = load float, ptr %arrayidx101, align 4
   %mul103 = fmul float %meshScaling.sroa.37.0.copyload, %36
   store float %mul95, ptr %arrayidx383, align 16
   store float %mul99, ptr %arrayidx2.i180, align 4
   store float %mul103, ptr %arrayidx3.i181, align 8
   store float 0.000000e+00, ptr %arrayidx4.i182, align 4
-  %arrayidx104 = getelementptr inbounds i8, ptr %add.ptr68, i64 4
+  %arrayidx104 = getelementptr inbounds nuw i8, ptr %add.ptr68, i64 4
   %37 = load i16, ptr %arrayidx104, align 2
   %conv105 = zext i16 %37 to i32
   %mul106 = mul nsw i32 %29, %conv105
@@ -238,10 +238,10 @@ for.body64:                                       ; preds = %for.cond62.preheade
   %add.ptr108 = getelementptr inbounds i8, ptr %27, i64 %idx.ext107
   %38 = load float, ptr %add.ptr108, align 4
   %mul113 = fmul float %meshScaling.sroa.0.0.copyload, %38
-  %arrayidx115 = getelementptr inbounds i8, ptr %add.ptr108, i64 4
+  %arrayidx115 = getelementptr inbounds nuw i8, ptr %add.ptr108, i64 4
   %39 = load float, ptr %arrayidx115, align 4
   %mul117 = fmul float %meshScaling.sroa.19.0.copyload, %39
-  %arrayidx119 = getelementptr inbounds i8, ptr %add.ptr108, i64 8
+  %arrayidx119 = getelementptr inbounds nuw i8, ptr %add.ptr108, i64 8
   %40 = load float, ptr %arrayidx119, align 4
   %mul121 = fmul float %meshScaling.sroa.37.0.copyload, %40
   store float %mul113, ptr %arrayidx404, align 16
@@ -249,7 +249,7 @@ for.body64:                                       ; preds = %for.cond62.preheade
   store float %mul121, ptr %arrayidx3.i186, align 8
   store float 0.000000e+00, ptr %arrayidx4.i187, align 4
   %vtable123 = load ptr, ptr %callback, align 8
-  %vfn124 = getelementptr inbounds i8, ptr %vtable123, i64 16
+  %vfn124 = getelementptr inbounds nuw i8, ptr %vtable123, i64 16
   %41 = load ptr, ptr %vfn124, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %triangle, i32 noundef %part.0257, i32 noundef %gfxindex.1253)
   %inc126 = add nuw nsw i32 %gfxindex.1253, 1
@@ -273,17 +273,17 @@ for.body131:                                      ; preds = %for.cond129.prehead
   %add.ptr140 = getelementptr inbounds i8, ptr %45, i64 %idx.ext139
   %48 = load float, ptr %add.ptr140, align 4
   %mul145 = fmul float %meshScaling.sroa.0.0.copyload, %48
-  %arrayidx147 = getelementptr inbounds i8, ptr %add.ptr140, i64 4
+  %arrayidx147 = getelementptr inbounds nuw i8, ptr %add.ptr140, i64 4
   %49 = load float, ptr %arrayidx147, align 4
   %mul149 = fmul float %meshScaling.sroa.19.0.copyload, %49
-  %arrayidx151 = getelementptr inbounds i8, ptr %add.ptr140, i64 8
+  %arrayidx151 = getelementptr inbounds nuw i8, ptr %add.ptr140, i64 8
   %50 = load float, ptr %arrayidx151, align 4
   %mul153 = fmul float %meshScaling.sroa.37.0.copyload, %50
   store float %mul145, ptr %triangle, align 16
   store float %mul149, ptr %arrayidx2.i175, align 4
   store float %mul153, ptr %arrayidx3.i176, align 8
   store float 0.000000e+00, ptr %arrayidx4.i177, align 4
-  %arrayidx154 = getelementptr inbounds i8, ptr %add.ptr135, i64 1
+  %arrayidx154 = getelementptr inbounds nuw i8, ptr %add.ptr135, i64 1
   %51 = load i8, ptr %arrayidx154, align 1
   %conv155 = zext i8 %51 to i32
   %mul156 = mul nsw i32 %47, %conv155
@@ -291,17 +291,17 @@ for.body131:                                      ; preds = %for.cond129.prehead
   %add.ptr158 = getelementptr inbounds i8, ptr %45, i64 %idx.ext157
   %52 = load float, ptr %add.ptr158, align 4
   %mul163 = fmul float %meshScaling.sroa.0.0.copyload, %52
-  %arrayidx165 = getelementptr inbounds i8, ptr %add.ptr158, i64 4
+  %arrayidx165 = getelementptr inbounds nuw i8, ptr %add.ptr158, i64 4
   %53 = load float, ptr %arrayidx165, align 4
   %mul167 = fmul float %meshScaling.sroa.19.0.copyload, %53
-  %arrayidx169 = getelementptr inbounds i8, ptr %add.ptr158, i64 8
+  %arrayidx169 = getelementptr inbounds nuw i8, ptr %add.ptr158, i64 8
   %54 = load float, ptr %arrayidx169, align 4
   %mul171 = fmul float %meshScaling.sroa.37.0.copyload, %54
   store float %mul163, ptr %arrayidx383, align 16
   store float %mul167, ptr %arrayidx2.i180, align 4
   store float %mul171, ptr %arrayidx3.i181, align 8
   store float 0.000000e+00, ptr %arrayidx4.i182, align 4
-  %arrayidx172 = getelementptr inbounds i8, ptr %add.ptr135, i64 2
+  %arrayidx172 = getelementptr inbounds nuw i8, ptr %add.ptr135, i64 2
   %55 = load i8, ptr %arrayidx172, align 1
   %conv173 = zext i8 %55 to i32
   %mul174 = mul nsw i32 %47, %conv173
@@ -309,10 +309,10 @@ for.body131:                                      ; preds = %for.cond129.prehead
   %add.ptr176 = getelementptr inbounds i8, ptr %45, i64 %idx.ext175
   %56 = load float, ptr %add.ptr176, align 4
   %mul181 = fmul float %meshScaling.sroa.0.0.copyload, %56
-  %arrayidx183 = getelementptr inbounds i8, ptr %add.ptr176, i64 4
+  %arrayidx183 = getelementptr inbounds nuw i8, ptr %add.ptr176, i64 4
   %57 = load float, ptr %arrayidx183, align 4
   %mul185 = fmul float %meshScaling.sroa.19.0.copyload, %57
-  %arrayidx187 = getelementptr inbounds i8, ptr %add.ptr176, i64 8
+  %arrayidx187 = getelementptr inbounds nuw i8, ptr %add.ptr176, i64 8
   %58 = load float, ptr %arrayidx187, align 4
   %mul189 = fmul float %meshScaling.sroa.37.0.copyload, %58
   store float %mul181, ptr %arrayidx404, align 16
@@ -320,7 +320,7 @@ for.body131:                                      ; preds = %for.cond129.prehead
   store float %mul189, ptr %arrayidx3.i186, align 8
   store float 0.000000e+00, ptr %arrayidx4.i187, align 4
   %vtable191 = load ptr, ptr %callback, align 8
-  %vfn192 = getelementptr inbounds i8, ptr %vtable191, i64 16
+  %vfn192 = getelementptr inbounds nuw i8, ptr %vtable191, i64 16
   %59 = load ptr, ptr %vfn192, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %triangle, i32 noundef %part.0257, i32 noundef %gfxindex.2251)
   %inc194 = add nuw nsw i32 %gfxindex.2251, 1
@@ -363,15 +363,15 @@ for.body201:                                      ; preds = %for.cond199.prehead
   %69 = load i32, ptr %stride, align 4
   %mul207 = mul i32 %69, %68
   %idx.ext208 = zext i32 %mul207 to i64
-  %add.ptr209 = getelementptr inbounds i8, ptr %67, i64 %idx.ext208
+  %add.ptr209 = getelementptr inbounds nuw i8, ptr %67, i64 %idx.ext208
   %70 = load double, ptr %add.ptr209, align 8
   %conv213 = fptrunc double %70 to float
   %mul215 = fmul float %meshScaling.sroa.0.0.copyload, %conv213
-  %arrayidx217 = getelementptr inbounds i8, ptr %add.ptr209, i64 8
+  %arrayidx217 = getelementptr inbounds nuw i8, ptr %add.ptr209, i64 8
   %71 = load double, ptr %arrayidx217, align 8
   %conv218 = fptrunc double %71 to float
   %mul220 = fmul float %meshScaling.sroa.19.0.copyload, %conv218
-  %arrayidx222 = getelementptr inbounds i8, ptr %add.ptr209, i64 16
+  %arrayidx222 = getelementptr inbounds nuw i8, ptr %add.ptr209, i64 16
   %72 = load double, ptr %arrayidx222, align 8
   %conv223 = fptrunc double %72 to float
   %mul225 = fmul float %meshScaling.sroa.37.0.copyload, %conv223
@@ -379,19 +379,19 @@ for.body201:                                      ; preds = %for.cond199.prehead
   store float %mul220, ptr %arrayidx2.i175, align 4
   store float %mul225, ptr %arrayidx3.i176, align 8
   store float 0.000000e+00, ptr %arrayidx4.i177, align 4
-  %arrayidx226 = getelementptr inbounds i8, ptr %add.ptr205, i64 4
+  %arrayidx226 = getelementptr inbounds nuw i8, ptr %add.ptr205, i64 4
   %73 = load i32, ptr %arrayidx226, align 4
   %mul227 = mul i32 %73, %69
   %idx.ext228 = zext i32 %mul227 to i64
-  %add.ptr229 = getelementptr inbounds i8, ptr %67, i64 %idx.ext228
+  %add.ptr229 = getelementptr inbounds nuw i8, ptr %67, i64 %idx.ext228
   %74 = load double, ptr %add.ptr229, align 8
   %conv233 = fptrunc double %74 to float
   %mul235 = fmul float %meshScaling.sroa.0.0.copyload, %conv233
-  %arrayidx237 = getelementptr inbounds i8, ptr %add.ptr229, i64 8
+  %arrayidx237 = getelementptr inbounds nuw i8, ptr %add.ptr229, i64 8
   %75 = load double, ptr %arrayidx237, align 8
   %conv238 = fptrunc double %75 to float
   %mul240 = fmul float %meshScaling.sroa.19.0.copyload, %conv238
-  %arrayidx242 = getelementptr inbounds i8, ptr %add.ptr229, i64 16
+  %arrayidx242 = getelementptr inbounds nuw i8, ptr %add.ptr229, i64 16
   %76 = load double, ptr %arrayidx242, align 8
   %conv243 = fptrunc double %76 to float
   %mul245 = fmul float %meshScaling.sroa.37.0.copyload, %conv243
@@ -399,19 +399,19 @@ for.body201:                                      ; preds = %for.cond199.prehead
   store float %mul240, ptr %arrayidx2.i180, align 4
   store float %mul245, ptr %arrayidx3.i181, align 8
   store float 0.000000e+00, ptr %arrayidx4.i182, align 4
-  %arrayidx246 = getelementptr inbounds i8, ptr %add.ptr205, i64 8
+  %arrayidx246 = getelementptr inbounds nuw i8, ptr %add.ptr205, i64 8
   %77 = load i32, ptr %arrayidx246, align 4
   %mul247 = mul i32 %77, %69
   %idx.ext248 = zext i32 %mul247 to i64
-  %add.ptr249 = getelementptr inbounds i8, ptr %67, i64 %idx.ext248
+  %add.ptr249 = getelementptr inbounds nuw i8, ptr %67, i64 %idx.ext248
   %78 = load double, ptr %add.ptr249, align 8
   %conv253 = fptrunc double %78 to float
   %mul255 = fmul float %meshScaling.sroa.0.0.copyload, %conv253
-  %arrayidx257 = getelementptr inbounds i8, ptr %add.ptr249, i64 8
+  %arrayidx257 = getelementptr inbounds nuw i8, ptr %add.ptr249, i64 8
   %79 = load double, ptr %arrayidx257, align 8
   %conv258 = fptrunc double %79 to float
   %mul260 = fmul float %meshScaling.sroa.19.0.copyload, %conv258
-  %arrayidx262 = getelementptr inbounds i8, ptr %add.ptr249, i64 16
+  %arrayidx262 = getelementptr inbounds nuw i8, ptr %add.ptr249, i64 16
   %80 = load double, ptr %arrayidx262, align 8
   %conv263 = fptrunc double %80 to float
   %mul265 = fmul float %meshScaling.sroa.37.0.copyload, %conv263
@@ -420,7 +420,7 @@ for.body201:                                      ; preds = %for.cond199.prehead
   store float %mul265, ptr %arrayidx3.i186, align 8
   store float 0.000000e+00, ptr %arrayidx4.i187, align 4
   %vtable267 = load ptr, ptr %callback, align 8
-  %vfn268 = getelementptr inbounds i8, ptr %vtable267, i64 16
+  %vfn268 = getelementptr inbounds nuw i8, ptr %vtable267, i64 16
   %81 = load ptr, ptr %vfn268, align 8
   call void %81(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %triangle, i32 noundef %part.0257, i32 noundef %gfxindex.3249)
   %inc270 = add nuw nsw i32 %gfxindex.3249, 1
@@ -445,11 +445,11 @@ for.body275:                                      ; preds = %for.cond273.prehead
   %88 = load double, ptr %add.ptr284, align 8
   %conv288 = fptrunc double %88 to float
   %mul290 = fmul float %meshScaling.sroa.0.0.copyload, %conv288
-  %arrayidx292 = getelementptr inbounds i8, ptr %add.ptr284, i64 8
+  %arrayidx292 = getelementptr inbounds nuw i8, ptr %add.ptr284, i64 8
   %89 = load double, ptr %arrayidx292, align 8
   %conv293 = fptrunc double %89 to float
   %mul295 = fmul float %meshScaling.sroa.19.0.copyload, %conv293
-  %arrayidx297 = getelementptr inbounds i8, ptr %add.ptr284, i64 16
+  %arrayidx297 = getelementptr inbounds nuw i8, ptr %add.ptr284, i64 16
   %90 = load double, ptr %arrayidx297, align 8
   %conv298 = fptrunc double %90 to float
   %mul300 = fmul float %meshScaling.sroa.37.0.copyload, %conv298
@@ -457,7 +457,7 @@ for.body275:                                      ; preds = %for.cond273.prehead
   store float %mul295, ptr %arrayidx2.i175, align 4
   store float %mul300, ptr %arrayidx3.i176, align 8
   store float 0.000000e+00, ptr %arrayidx4.i177, align 4
-  %arrayidx301 = getelementptr inbounds i8, ptr %add.ptr279, i64 2
+  %arrayidx301 = getelementptr inbounds nuw i8, ptr %add.ptr279, i64 2
   %91 = load i16, ptr %arrayidx301, align 2
   %conv302 = zext i16 %91 to i32
   %mul303 = mul nsw i32 %87, %conv302
@@ -466,11 +466,11 @@ for.body275:                                      ; preds = %for.cond273.prehead
   %92 = load double, ptr %add.ptr305, align 8
   %conv309 = fptrunc double %92 to float
   %mul311 = fmul float %meshScaling.sroa.0.0.copyload, %conv309
-  %arrayidx313 = getelementptr inbounds i8, ptr %add.ptr305, i64 8
+  %arrayidx313 = getelementptr inbounds nuw i8, ptr %add.ptr305, i64 8
   %93 = load double, ptr %arrayidx313, align 8
   %conv314 = fptrunc double %93 to float
   %mul316 = fmul float %meshScaling.sroa.19.0.copyload, %conv314
-  %arrayidx318 = getelementptr inbounds i8, ptr %add.ptr305, i64 16
+  %arrayidx318 = getelementptr inbounds nuw i8, ptr %add.ptr305, i64 16
   %94 = load double, ptr %arrayidx318, align 8
   %conv319 = fptrunc double %94 to float
   %mul321 = fmul float %meshScaling.sroa.37.0.copyload, %conv319
@@ -478,7 +478,7 @@ for.body275:                                      ; preds = %for.cond273.prehead
   store float %mul316, ptr %arrayidx2.i180, align 4
   store float %mul321, ptr %arrayidx3.i181, align 8
   store float 0.000000e+00, ptr %arrayidx4.i182, align 4
-  %arrayidx322 = getelementptr inbounds i8, ptr %add.ptr279, i64 4
+  %arrayidx322 = getelementptr inbounds nuw i8, ptr %add.ptr279, i64 4
   %95 = load i16, ptr %arrayidx322, align 2
   %conv323 = zext i16 %95 to i32
   %mul324 = mul nsw i32 %87, %conv323
@@ -487,11 +487,11 @@ for.body275:                                      ; preds = %for.cond273.prehead
   %96 = load double, ptr %add.ptr326, align 8
   %conv330 = fptrunc double %96 to float
   %mul332 = fmul float %meshScaling.sroa.0.0.copyload, %conv330
-  %arrayidx334 = getelementptr inbounds i8, ptr %add.ptr326, i64 8
+  %arrayidx334 = getelementptr inbounds nuw i8, ptr %add.ptr326, i64 8
   %97 = load double, ptr %arrayidx334, align 8
   %conv335 = fptrunc double %97 to float
   %mul337 = fmul float %meshScaling.sroa.19.0.copyload, %conv335
-  %arrayidx339 = getelementptr inbounds i8, ptr %add.ptr326, i64 16
+  %arrayidx339 = getelementptr inbounds nuw i8, ptr %add.ptr326, i64 16
   %98 = load double, ptr %arrayidx339, align 8
   %conv340 = fptrunc double %98 to float
   %mul342 = fmul float %meshScaling.sroa.37.0.copyload, %conv340
@@ -500,7 +500,7 @@ for.body275:                                      ; preds = %for.cond273.prehead
   store float %mul342, ptr %arrayidx3.i186, align 8
   store float 0.000000e+00, ptr %arrayidx4.i187, align 4
   %vtable344 = load ptr, ptr %callback, align 8
-  %vfn345 = getelementptr inbounds i8, ptr %vtable344, i64 16
+  %vfn345 = getelementptr inbounds nuw i8, ptr %vtable344, i64 16
   %99 = load ptr, ptr %vfn345, align 8
   call void %99(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %triangle, i32 noundef %part.0257, i32 noundef %gfxindex.4247)
   %inc347 = add nuw nsw i32 %gfxindex.4247, 1
@@ -525,11 +525,11 @@ for.body352:                                      ; preds = %for.cond350.prehead
   %106 = load double, ptr %add.ptr361, align 8
   %conv365 = fptrunc double %106 to float
   %mul367 = fmul float %meshScaling.sroa.0.0.copyload, %conv365
-  %arrayidx369 = getelementptr inbounds i8, ptr %add.ptr361, i64 8
+  %arrayidx369 = getelementptr inbounds nuw i8, ptr %add.ptr361, i64 8
   %107 = load double, ptr %arrayidx369, align 8
   %conv370 = fptrunc double %107 to float
   %mul372 = fmul float %meshScaling.sroa.19.0.copyload, %conv370
-  %arrayidx374 = getelementptr inbounds i8, ptr %add.ptr361, i64 16
+  %arrayidx374 = getelementptr inbounds nuw i8, ptr %add.ptr361, i64 16
   %108 = load double, ptr %arrayidx374, align 8
   %conv375 = fptrunc double %108 to float
   %mul377 = fmul float %meshScaling.sroa.37.0.copyload, %conv375
@@ -537,7 +537,7 @@ for.body352:                                      ; preds = %for.cond350.prehead
   store float %mul372, ptr %arrayidx2.i175, align 4
   store float %mul377, ptr %arrayidx3.i176, align 8
   store float 0.000000e+00, ptr %arrayidx4.i177, align 4
-  %arrayidx378 = getelementptr inbounds i8, ptr %add.ptr356, i64 1
+  %arrayidx378 = getelementptr inbounds nuw i8, ptr %add.ptr356, i64 1
   %109 = load i8, ptr %arrayidx378, align 1
   %conv379 = zext i8 %109 to i32
   %mul380 = mul nsw i32 %105, %conv379
@@ -546,11 +546,11 @@ for.body352:                                      ; preds = %for.cond350.prehead
   %110 = load double, ptr %add.ptr382, align 8
   %conv386 = fptrunc double %110 to float
   %mul388 = fmul float %meshScaling.sroa.0.0.copyload, %conv386
-  %arrayidx390 = getelementptr inbounds i8, ptr %add.ptr382, i64 8
+  %arrayidx390 = getelementptr inbounds nuw i8, ptr %add.ptr382, i64 8
   %111 = load double, ptr %arrayidx390, align 8
   %conv391 = fptrunc double %111 to float
   %mul393 = fmul float %meshScaling.sroa.19.0.copyload, %conv391
-  %arrayidx395 = getelementptr inbounds i8, ptr %add.ptr382, i64 16
+  %arrayidx395 = getelementptr inbounds nuw i8, ptr %add.ptr382, i64 16
   %112 = load double, ptr %arrayidx395, align 8
   %conv396 = fptrunc double %112 to float
   %mul398 = fmul float %meshScaling.sroa.37.0.copyload, %conv396
@@ -558,7 +558,7 @@ for.body352:                                      ; preds = %for.cond350.prehead
   store float %mul393, ptr %arrayidx2.i180, align 4
   store float %mul398, ptr %arrayidx3.i181, align 8
   store float 0.000000e+00, ptr %arrayidx4.i182, align 4
-  %arrayidx399 = getelementptr inbounds i8, ptr %add.ptr356, i64 2
+  %arrayidx399 = getelementptr inbounds nuw i8, ptr %add.ptr356, i64 2
   %113 = load i8, ptr %arrayidx399, align 1
   %conv400 = zext i8 %113 to i32
   %mul401 = mul nsw i32 %105, %conv400
@@ -567,11 +567,11 @@ for.body352:                                      ; preds = %for.cond350.prehead
   %114 = load double, ptr %add.ptr403, align 8
   %conv407 = fptrunc double %114 to float
   %mul409 = fmul float %meshScaling.sroa.0.0.copyload, %conv407
-  %arrayidx411 = getelementptr inbounds i8, ptr %add.ptr403, i64 8
+  %arrayidx411 = getelementptr inbounds nuw i8, ptr %add.ptr403, i64 8
   %115 = load double, ptr %arrayidx411, align 8
   %conv412 = fptrunc double %115 to float
   %mul414 = fmul float %meshScaling.sroa.19.0.copyload, %conv412
-  %arrayidx416 = getelementptr inbounds i8, ptr %add.ptr403, i64 16
+  %arrayidx416 = getelementptr inbounds nuw i8, ptr %add.ptr403, i64 16
   %116 = load double, ptr %arrayidx416, align 8
   %conv417 = fptrunc double %116 to float
   %mul419 = fmul float %meshScaling.sroa.37.0.copyload, %conv417
@@ -580,7 +580,7 @@ for.body352:                                      ; preds = %for.cond350.prehead
   store float %mul419, ptr %arrayidx3.i186, align 8
   store float 0.000000e+00, ptr %arrayidx4.i187, align 4
   %vtable421 = load ptr, ptr %callback, align 8
-  %vfn422 = getelementptr inbounds i8, ptr %vtable421, i64 16
+  %vfn422 = getelementptr inbounds nuw i8, ptr %vtable421, i64 16
   %117 = load ptr, ptr %vfn422, align 8
   call void %117(ptr noundef nonnull align 8 dereferenceable(8) %callback, ptr noundef nonnull %triangle, i32 noundef %part.0257, i32 noundef %gfxindex.5245)
   %inc424 = add nuw nsw i32 %gfxindex.5245, 1
@@ -590,7 +590,7 @@ for.body352:                                      ; preds = %for.cond350.prehead
 
 sw.epilog429:                                     ; preds = %for.body352, %for.body275, %for.body201, %for.body131, %for.body64, %for.body8, %for.cond350.preheader, %for.cond273.preheader, %for.cond199.preheader, %for.cond129.preheader, %for.cond62.preheader, %for.cond6.preheader, %for.body, %sw.bb196, %sw.bb
   %vtable430 = load ptr, ptr %this, align 16
-  %vfn431 = getelementptr inbounds i8, ptr %vtable430, i64 48
+  %vfn431 = getelementptr inbounds nuw i8, ptr %vtable430, i64 48
   %119 = load ptr, ptr %vfn431, align 8
   call void %119(ptr noundef nonnull align 16 dereferenceable(32) %this, i32 noundef %part.0257)
   %inc433 = add nuw nsw i32 %part.0257, 1
@@ -609,38 +609,38 @@ define dso_local void @_ZN23b3StridingMeshInterface23calculateAabbBruteForceER9b
 entry:
   %aabbCallback = alloca %struct.AabbCalculationCallback, align 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN23b3StridingMeshInterface23calculateAabbBruteForceER9b3Vector3S1_E23AabbCalculationCallback, i64 16), ptr %aabbCallback, align 16
-  %m_aabbMin2.i = getelementptr inbounds i8, ptr %aabbCallback, i64 16
+  %m_aabbMin2.i = getelementptr inbounds nuw i8, ptr %aabbCallback, i64 16
   store float 0x43ABC16D60000000, ptr %m_aabbMin2.i, align 16
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %aabbCallback, i64 20
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %aabbCallback, i64 20
   store float 0x43ABC16D60000000, ptr %arrayidx2.i.i, align 4
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %aabbCallback, i64 24
+  %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %aabbCallback, i64 24
   store float 0x43ABC16D60000000, ptr %arrayidx3.i.i, align 8
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %aabbCallback, i64 28
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %aabbCallback, i64 28
   store float 0.000000e+00, ptr %arrayidx4.i.i, align 4
-  %m_aabbMax5.i = getelementptr inbounds i8, ptr %aabbCallback, i64 32
+  %m_aabbMax5.i = getelementptr inbounds nuw i8, ptr %aabbCallback, i64 32
   store float 0xC3ABC16D60000000, ptr %m_aabbMax5.i, align 16
-  %arrayidx2.i1.i = getelementptr inbounds i8, ptr %aabbCallback, i64 36
+  %arrayidx2.i1.i = getelementptr inbounds nuw i8, ptr %aabbCallback, i64 36
   store float 0xC3ABC16D60000000, ptr %arrayidx2.i1.i, align 4
-  %arrayidx3.i2.i = getelementptr inbounds i8, ptr %aabbCallback, i64 40
+  %arrayidx3.i2.i = getelementptr inbounds nuw i8, ptr %aabbCallback, i64 40
   store float 0xC3ABC16D60000000, ptr %arrayidx3.i2.i, align 8
-  %arrayidx4.i3.i = getelementptr inbounds i8, ptr %aabbCallback, i64 44
+  %arrayidx4.i3.i = getelementptr inbounds nuw i8, ptr %aabbCallback, i64 44
   store float 0.000000e+00, ptr %arrayidx4.i3.i, align 4
   store float 0xC3ABC16D60000000, ptr %aabbMin, align 16
-  %arrayidx2.i = getelementptr inbounds i8, ptr %aabbMin, i64 4
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %aabbMin, i64 4
   store float 0xC3ABC16D60000000, ptr %arrayidx2.i, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %aabbMin, i64 8
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %aabbMin, i64 8
   store float 0xC3ABC16D60000000, ptr %arrayidx3.i, align 8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %aabbMin, i64 12
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %aabbMin, i64 12
   store float 0.000000e+00, ptr %arrayidx4.i, align 4
   store float 0x43ABC16D60000000, ptr %aabbMax, align 16
-  %arrayidx2.i5 = getelementptr inbounds i8, ptr %aabbMax, i64 4
+  %arrayidx2.i5 = getelementptr inbounds nuw i8, ptr %aabbMax, i64 4
   store float 0x43ABC16D60000000, ptr %arrayidx2.i5, align 4
-  %arrayidx3.i6 = getelementptr inbounds i8, ptr %aabbMax, i64 8
+  %arrayidx3.i6 = getelementptr inbounds nuw i8, ptr %aabbMax, i64 8
   store float 0x43ABC16D60000000, ptr %arrayidx3.i6, align 8
-  %arrayidx4.i7 = getelementptr inbounds i8, ptr %aabbMax, i64 12
+  %arrayidx4.i7 = getelementptr inbounds nuw i8, ptr %aabbMax, i64 12
   store float 0.000000e+00, ptr %arrayidx4.i7, align 4
   %vtable = load ptr, ptr %this, align 16
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 16 dereferenceable(32) %this, ptr noundef nonnull %aabbCallback, ptr noundef nonnull align 16 dereferenceable(16) %aabbMin, ptr noundef nonnull align 16 dereferenceable(16) %aabbMax)
           to label %invoke.cont8 unwind label %lpad
@@ -704,7 +704,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZZN23b3StridingMeshInterface23calculateAabbBruteForceER9b3Vector3S1_EN23AabbCalculationCallback28internalProcessTriangleIndexEPS0_ii(ptr nocapture noundef nonnull align 16 dereferenceable(48) %this, ptr nocapture noundef readonly %triangle, i32 %partId, i32 %triangleIndex) unnamed_addr #6 align 2 {
 entry:
-  %m_aabbMin = getelementptr inbounds i8, ptr %this, i64 16
+  %m_aabbMin = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load float, ptr %triangle, align 4
   %1 = load float, ptr %m_aabbMin, align 16
   %cmp.i.i = fcmp olt float %0, %1
@@ -716,8 +716,8 @@ if.then.i.i:                                      ; preds = %entry
 
 _Z8b3SetMinIfEvRT_RKS0_.exit.i:                   ; preds = %if.then.i.i, %entry
   %2 = phi float [ %0, %if.then.i.i ], [ %1, %entry ]
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 20
-  %arrayidx4.i = getelementptr inbounds i8, ptr %triangle, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %triangle, i64 4
   %3 = load float, ptr %arrayidx4.i, align 4
   %4 = load float, ptr %arrayidx3.i, align 4
   %cmp.i4.i = fcmp olt float %3, %4
@@ -729,8 +729,8 @@ if.then.i5.i:                                     ; preds = %_Z8b3SetMinIfEvRT_R
 
 _Z8b3SetMinIfEvRT_RKS0_.exit6.i:                  ; preds = %if.then.i5.i, %_Z8b3SetMinIfEvRT_RKS0_.exit.i
   %5 = phi float [ %3, %if.then.i5.i ], [ %4, %_Z8b3SetMinIfEvRT_RKS0_.exit.i ]
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 24
-  %arrayidx6.i = getelementptr inbounds i8, ptr %triangle, i64 8
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %triangle, i64 8
   %6 = load float, ptr %arrayidx6.i, align 4
   %7 = load float, ptr %arrayidx5.i, align 8
   %cmp.i7.i = fcmp olt float %6, %7
@@ -742,8 +742,8 @@ if.then.i8.i:                                     ; preds = %_Z8b3SetMinIfEvRT_R
 
 _Z8b3SetMinIfEvRT_RKS0_.exit9.i:                  ; preds = %if.then.i8.i, %_Z8b3SetMinIfEvRT_RKS0_.exit6.i
   %8 = phi float [ %6, %if.then.i8.i ], [ %7, %_Z8b3SetMinIfEvRT_RKS0_.exit6.i ]
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 28
-  %arrayidx8.i = getelementptr inbounds i8, ptr %triangle, i64 12
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %triangle, i64 12
   %9 = load float, ptr %arrayidx8.i, align 4
   %10 = load float, ptr %arrayidx7.i, align 4
   %cmp.i10.i = fcmp olt float %9, %10
@@ -755,7 +755,7 @@ if.then.i11.i:                                    ; preds = %_Z8b3SetMinIfEvRT_R
 
 _ZN9b3Vector36setMinERKS_.exit:                   ; preds = %_Z8b3SetMinIfEvRT_RKS0_.exit9.i, %if.then.i11.i
   %11 = phi float [ %10, %_Z8b3SetMinIfEvRT_RKS0_.exit9.i ], [ %9, %if.then.i11.i ]
-  %m_aabbMax = getelementptr inbounds i8, ptr %this, i64 32
+  %m_aabbMax = getelementptr inbounds nuw i8, ptr %this, i64 32
   %12 = load float, ptr %m_aabbMax, align 16
   %13 = load float, ptr %triangle, align 4
   %cmp.i.i6 = fcmp olt float %12, %13
@@ -767,7 +767,7 @@ if.then.i.i19:                                    ; preds = %_ZN9b3Vector36setMi
 
 _Z8b3SetMaxIfEvRT_RKS0_.exit.i:                   ; preds = %if.then.i.i19, %_ZN9b3Vector36setMinERKS_.exit
   %14 = phi float [ %13, %if.then.i.i19 ], [ %12, %_ZN9b3Vector36setMinERKS_.exit ]
-  %arrayidx3.i7 = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx3.i7 = getelementptr inbounds nuw i8, ptr %this, i64 36
   %15 = load float, ptr %arrayidx3.i7, align 4
   %16 = load float, ptr %arrayidx4.i, align 4
   %cmp.i4.i9 = fcmp olt float %15, %16
@@ -779,7 +779,7 @@ if.then.i5.i18:                                   ; preds = %_Z8b3SetMaxIfEvRT_R
 
 _Z8b3SetMaxIfEvRT_RKS0_.exit6.i:                  ; preds = %if.then.i5.i18, %_Z8b3SetMaxIfEvRT_RKS0_.exit.i
   %17 = phi float [ %16, %if.then.i5.i18 ], [ %15, %_Z8b3SetMaxIfEvRT_RKS0_.exit.i ]
-  %arrayidx5.i10 = getelementptr inbounds i8, ptr %this, i64 40
+  %arrayidx5.i10 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %18 = load float, ptr %arrayidx5.i10, align 8
   %19 = load float, ptr %arrayidx6.i, align 4
   %cmp.i7.i12 = fcmp olt float %18, %19
@@ -791,7 +791,7 @@ if.then.i8.i17:                                   ; preds = %_Z8b3SetMaxIfEvRT_R
 
 _Z8b3SetMaxIfEvRT_RKS0_.exit9.i:                  ; preds = %if.then.i8.i17, %_Z8b3SetMaxIfEvRT_RKS0_.exit6.i
   %20 = phi float [ %19, %if.then.i8.i17 ], [ %18, %_Z8b3SetMaxIfEvRT_RKS0_.exit6.i ]
-  %arrayidx7.i13 = getelementptr inbounds i8, ptr %this, i64 44
+  %arrayidx7.i13 = getelementptr inbounds nuw i8, ptr %this, i64 44
   %21 = load float, ptr %arrayidx7.i13, align 4
   %22 = load float, ptr %arrayidx8.i, align 4
   %cmp.i10.i15 = fcmp olt float %21, %22
@@ -803,7 +803,7 @@ if.then.i11.i16:                                  ; preds = %_Z8b3SetMaxIfEvRT_R
 
 _ZN9b3Vector36setMaxERKS_.exit:                   ; preds = %_Z8b3SetMaxIfEvRT_RKS0_.exit9.i, %if.then.i11.i16
   %23 = phi float [ %21, %_Z8b3SetMaxIfEvRT_RKS0_.exit9.i ], [ %22, %if.then.i11.i16 ]
-  %arrayidx4 = getelementptr inbounds i8, ptr %triangle, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %triangle, i64 16
   %24 = load float, ptr %arrayidx4, align 4
   %cmp.i.i20 = fcmp olt float %24, %2
   br i1 %cmp.i.i20, label %if.then.i.i36, label %_Z8b3SetMinIfEvRT_RKS0_.exit.i21
@@ -814,7 +814,7 @@ if.then.i.i36:                                    ; preds = %_ZN9b3Vector36setMa
 
 _Z8b3SetMinIfEvRT_RKS0_.exit.i21:                 ; preds = %if.then.i.i36, %_ZN9b3Vector36setMaxERKS_.exit
   %25 = phi float [ %24, %if.then.i.i36 ], [ %2, %_ZN9b3Vector36setMaxERKS_.exit ]
-  %arrayidx4.i23 = getelementptr inbounds i8, ptr %triangle, i64 20
+  %arrayidx4.i23 = getelementptr inbounds nuw i8, ptr %triangle, i64 20
   %26 = load float, ptr %arrayidx4.i23, align 4
   %cmp.i4.i24 = fcmp olt float %26, %5
   br i1 %cmp.i4.i24, label %if.then.i5.i35, label %_Z8b3SetMinIfEvRT_RKS0_.exit6.i25
@@ -825,7 +825,7 @@ if.then.i5.i35:                                   ; preds = %_Z8b3SetMinIfEvRT_R
 
 _Z8b3SetMinIfEvRT_RKS0_.exit6.i25:                ; preds = %if.then.i5.i35, %_Z8b3SetMinIfEvRT_RKS0_.exit.i21
   %27 = phi float [ %26, %if.then.i5.i35 ], [ %5, %_Z8b3SetMinIfEvRT_RKS0_.exit.i21 ]
-  %arrayidx6.i27 = getelementptr inbounds i8, ptr %triangle, i64 24
+  %arrayidx6.i27 = getelementptr inbounds nuw i8, ptr %triangle, i64 24
   %28 = load float, ptr %arrayidx6.i27, align 4
   %cmp.i7.i28 = fcmp olt float %28, %8
   br i1 %cmp.i7.i28, label %if.then.i8.i34, label %_Z8b3SetMinIfEvRT_RKS0_.exit9.i29
@@ -836,7 +836,7 @@ if.then.i8.i34:                                   ; preds = %_Z8b3SetMinIfEvRT_R
 
 _Z8b3SetMinIfEvRT_RKS0_.exit9.i29:                ; preds = %if.then.i8.i34, %_Z8b3SetMinIfEvRT_RKS0_.exit6.i25
   %29 = phi float [ %28, %if.then.i8.i34 ], [ %8, %_Z8b3SetMinIfEvRT_RKS0_.exit6.i25 ]
-  %arrayidx8.i31 = getelementptr inbounds i8, ptr %triangle, i64 28
+  %arrayidx8.i31 = getelementptr inbounds nuw i8, ptr %triangle, i64 28
   %30 = load float, ptr %arrayidx8.i31, align 4
   %cmp.i10.i32 = fcmp olt float %30, %11
   br i1 %cmp.i10.i32, label %if.then.i11.i33, label %_ZN9b3Vector36setMinERKS_.exit37
@@ -887,7 +887,7 @@ if.then.i11.i51:                                  ; preds = %_Z8b3SetMaxIfEvRT_R
 
 _ZN9b3Vector36setMaxERKS_.exit55:                 ; preds = %_Z8b3SetMaxIfEvRT_RKS0_.exit9.i47, %if.then.i11.i51
   %39 = phi float [ %23, %_Z8b3SetMaxIfEvRT_RKS0_.exit9.i47 ], [ %38, %if.then.i11.i51 ]
-  %arrayidx8 = getelementptr inbounds i8, ptr %triangle, i64 32
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %triangle, i64 32
   %40 = load float, ptr %arrayidx8, align 4
   %cmp.i.i56 = fcmp olt float %40, %25
   br i1 %cmp.i.i56, label %if.then.i.i72, label %_Z8b3SetMinIfEvRT_RKS0_.exit.i57
@@ -897,7 +897,7 @@ if.then.i.i72:                                    ; preds = %_ZN9b3Vector36setMa
   br label %_Z8b3SetMinIfEvRT_RKS0_.exit.i57
 
 _Z8b3SetMinIfEvRT_RKS0_.exit.i57:                 ; preds = %if.then.i.i72, %_ZN9b3Vector36setMaxERKS_.exit55
-  %arrayidx4.i59 = getelementptr inbounds i8, ptr %triangle, i64 36
+  %arrayidx4.i59 = getelementptr inbounds nuw i8, ptr %triangle, i64 36
   %41 = load float, ptr %arrayidx4.i59, align 4
   %cmp.i4.i60 = fcmp olt float %41, %27
   br i1 %cmp.i4.i60, label %if.then.i5.i71, label %_Z8b3SetMinIfEvRT_RKS0_.exit6.i61
@@ -907,7 +907,7 @@ if.then.i5.i71:                                   ; preds = %_Z8b3SetMinIfEvRT_R
   br label %_Z8b3SetMinIfEvRT_RKS0_.exit6.i61
 
 _Z8b3SetMinIfEvRT_RKS0_.exit6.i61:                ; preds = %if.then.i5.i71, %_Z8b3SetMinIfEvRT_RKS0_.exit.i57
-  %arrayidx6.i63 = getelementptr inbounds i8, ptr %triangle, i64 40
+  %arrayidx6.i63 = getelementptr inbounds nuw i8, ptr %triangle, i64 40
   %42 = load float, ptr %arrayidx6.i63, align 4
   %cmp.i7.i64 = fcmp olt float %42, %29
   br i1 %cmp.i7.i64, label %if.then.i8.i70, label %_Z8b3SetMinIfEvRT_RKS0_.exit9.i65
@@ -917,7 +917,7 @@ if.then.i8.i70:                                   ; preds = %_Z8b3SetMinIfEvRT_R
   br label %_Z8b3SetMinIfEvRT_RKS0_.exit9.i65
 
 _Z8b3SetMinIfEvRT_RKS0_.exit9.i65:                ; preds = %if.then.i8.i70, %_Z8b3SetMinIfEvRT_RKS0_.exit6.i61
-  %arrayidx8.i67 = getelementptr inbounds i8, ptr %triangle, i64 44
+  %arrayidx8.i67 = getelementptr inbounds nuw i8, ptr %triangle, i64 44
   %43 = load float, ptr %arrayidx8.i67, align 4
   %cmp.i10.i68 = fcmp olt float %43, %31
   br i1 %cmp.i10.i68, label %if.then.i11.i69, label %_ZN9b3Vector36setMinERKS_.exit73

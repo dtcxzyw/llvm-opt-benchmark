@@ -30,9 +30,9 @@ $_ZTIN3net20StrikeRegisterClientE = comdat any
 define dso_local void @_ZN3net25LocalStrikeRegisterClientC2EjjjPKhNS_14StrikeRegister11StartupTypeE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, i32 noundef %max_entries, i32 noundef %current_time_external, i32 noundef %window_secs, ptr noundef %orbit, i32 noundef %startup) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
-  %m_ = getelementptr inbounds i8, ptr %this, i64 8
+  %m_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_)
-  %strike_register_ = getelementptr inbounds i8, ptr %this, i64 48
+  %strike_register_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   invoke void @_ZN3net14StrikeRegisterC1EjjjPKhNS0_11StartupTypeE(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_, i32 noundef %max_entries, i32 noundef %current_time_external, i32 noundef %window_secs, ptr noundef %orbit, i32 noundef %startup)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -55,9 +55,9 @@ define dso_local noundef zeroext i1 @_ZNK3net25LocalStrikeRegisterClient12IsKnow
 entry:
   %orbit = alloca %"class.base::BasicStringPiece", align 8
   store ptr %orbit.coerce0, ptr %orbit, align 8
-  %0 = getelementptr inbounds i8, ptr %orbit, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %orbit, i64 8
   store i64 %orbit.coerce1, ptr %0, align 8
-  %m_ = getelementptr inbounds i8, ptr %this, i64 8
+  %m_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %m_)
   %call = invoke noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %orbit)
           to label %invoke.cont unwind label %lpad
@@ -87,7 +87,7 @@ if.end:                                           ; preds = %invoke.cont
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %if.end
-  %strike_register_ = getelementptr inbounds i8, ptr %this, i64 48
+  %strike_register_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call5 = invoke noundef ptr @_ZNK3net14StrikeRegister5orbitEv(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_)
           to label %invoke.cont4 unwind label %lpad
 
@@ -124,7 +124,7 @@ entry:
   %nonce = alloca %"class.base::BasicStringPiece", align 8
   %now = alloca %"class.net::QuicWallTime", align 8
   store ptr %nonce.coerce0, ptr %nonce, align 8
-  %0 = getelementptr inbounds i8, ptr %nonce, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %nonce, i64 8
   store i64 %nonce.coerce1, ptr %0, align 8
   store i64 %now.coerce, ptr %now, align 8
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(16) %nonce)
@@ -132,9 +132,9 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_ = getelementptr inbounds i8, ptr %this, i64 8
+  %m_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %m_)
-  %strike_register_ = getelementptr inbounds i8, ptr %this, i64 48
+  %strike_register_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call2 = invoke noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %nonce)
           to label %invoke.cont unwind label %lpad
 
@@ -178,11 +178,11 @@ if.end:                                           ; preds = %invoke.cont5, %entr
   %nonce_error.0 = phi i32 [ 2, %entry ], [ %call6, %invoke.cont5 ]
   %cmp7 = icmp eq i32 %nonce_error.0, 0
   %vtable.i = load ptr, ptr %cb, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %6 = load ptr, ptr %vfn.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %cb, i1 noundef zeroext %cmp7, i32 noundef %nonce_error.0)
   %vtable2.i = load ptr, ptr %cb, align 8
-  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 8
+  %vfn3.i = getelementptr inbounds nuw i8, ptr %vtable2.i, i64 8
   %7 = load ptr, ptr %vfn3.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %cb) #8
   ret void
@@ -196,9 +196,9 @@ declare noundef i64 @_ZNK3net12QuicWallTime13ToUNIXSecondsEv(ptr noundef nonnull
 define linkonce_odr dso_local void @_ZN3net25LocalStrikeRegisterClientD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
-  %strike_register_ = getelementptr inbounds i8, ptr %this, i64 48
+  %strike_register_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_) #8
-  %m_ = getelementptr inbounds i8, ptr %this, i64 8
+  %m_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_) #8
   ret void
 }
@@ -207,9 +207,9 @@ entry:
 define linkonce_odr dso_local void @_ZN3net25LocalStrikeRegisterClientD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
-  %strike_register_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %strike_register_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_.i) #8
-  %m_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_.i) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #10
   ret void

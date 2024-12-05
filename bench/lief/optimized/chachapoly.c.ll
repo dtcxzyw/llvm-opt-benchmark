@@ -23,9 +23,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_chachapoly_init(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @mbedtls_chacha20_init(ptr noundef %0) #7
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @mbedtls_poly1305_init(ptr noundef nonnull %2) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   ret void
 }
@@ -41,9 +41,9 @@ define hidden void @mbedtls_chachapoly_free(ptr noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1
   tail call void @mbedtls_chacha20_free(ptr noundef nonnull %0) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @mbedtls_poly1305_free(ptr noundef nonnull %4) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %6
 
@@ -77,17 +77,17 @@ define hidden i32 @mbedtls_chachapoly_starts(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not15, label %8, label %16
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = call i32 @mbedtls_poly1305_starts(ptr noundef nonnull %9, ptr noundef nonnull %4) #7
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 216
-  %14 = getelementptr inbounds i8, ptr %0, i64 232
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store i32 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 236
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 %2, ptr %15, align 4
   br label %16
 
@@ -110,17 +110,17 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_chachapoly_update_aad(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 232
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 1
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %2
   store i64 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = tail call i32 @mbedtls_poly1305_update(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2) #7
   br label %12
 
@@ -134,7 +134,7 @@ declare i32 @mbedtls_poly1305_update(ptr noundef, ptr noundef, i64 noundef) loca
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_chachapoly_update(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [15 x i8], align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %7 = load i32, ptr %6, align 8
   %.off = add i32 %7, -1
   %switch = icmp ult i32 %.off, 2
@@ -147,7 +147,7 @@ define hidden i32 @mbedtls_chachapoly_update(ptr noundef %0, i64 noundef %1, ptr
 10:                                               ; preds = %8
   store i32 2, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5)
-  %11 = getelementptr inbounds i8, ptr %0, i64 216
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
   %14 = and i32 %13, 15
@@ -160,7 +160,7 @@ chachapoly_pad_aad.exit.thread:                   ; preds = %10
 
 chachapoly_pad_aad.exit:                          ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %5, i8 0, i64 15, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %17 = sub nuw nsw i32 16, %14
   %18 = zext nneg i32 %17 to i64
   %19 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %16, ptr noundef nonnull %5, i64 noundef %18) #7
@@ -169,11 +169,11 @@ chachapoly_pad_aad.exit:                          ; preds = %10
   br i1 %.not39, label %20, label %38
 
 20:                                               ; preds = %chachapoly_pad_aad.exit.thread, %chachapoly_pad_aad.exit, %8
-  %21 = getelementptr inbounds i8, ptr %0, i64 224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %1
   store i64 %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 236
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %32
@@ -184,13 +184,13 @@ chachapoly_pad_aad.exit:                          ; preds = %10
   br i1 %.not42, label %29, label %38
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %30, ptr noundef %3, i64 noundef %1) #7
   %.not43 = icmp eq i32 %31, 0
   br i1 %.not43, label %37, label %38
 
 32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %0, i64 136
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %34 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %33, ptr noundef %2, i64 noundef %1) #7
   %.not40 = icmp eq i32 %34, 0
   br i1 %.not40, label %35, label %38
@@ -213,7 +213,7 @@ define hidden i32 @mbedtls_chachapoly_finish(ptr noundef %0, ptr noundef %1) loc
   %3 = alloca [15 x i8], align 1
   %4 = alloca [15 x i8], align 1
   %5 = alloca [16 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %28 [
     i32 0, label %82
@@ -223,7 +223,7 @@ define hidden i32 @mbedtls_chachapoly_finish(ptr noundef %0, ptr noundef %1) loc
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4)
-  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   %12 = and i32 %11, 15
@@ -236,7 +236,7 @@ chachapoly_pad_aad.exit.thread:                   ; preds = %8
 
 chachapoly_pad_aad.exit:                          ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %4, i8 0, i64 15, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = sub nuw nsw i32 16, %12
   %16 = zext nneg i32 %15 to i64
   %17 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %14, ptr noundef nonnull %4, i64 noundef %16) #7
@@ -246,7 +246,7 @@ chachapoly_pad_aad.exit:                          ; preds = %8
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %3)
-  %19 = getelementptr inbounds i8, ptr %0, i64 224
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
   %22 = and i32 %21, 15
@@ -259,7 +259,7 @@ chachapoly_pad_ciphertext.exit.thread:            ; preds = %18
 
 chachapoly_pad_ciphertext.exit:                   ; preds = %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %3, i8 0, i64 15, i1 false)
-  %24 = getelementptr inbounds i8, ptr %0, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %25 = sub nuw nsw i32 16, %22
   %26 = zext nneg i32 %25 to i64
   %27 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %24, ptr noundef nonnull %3, i64 noundef %26) #7
@@ -269,72 +269,72 @@ chachapoly_pad_ciphertext.exit:                   ; preds = %18
 
 28:                                               ; preds = %chachapoly_pad_ciphertext.exit.thread, %chachapoly_pad_aad.exit.thread, %2, %chachapoly_pad_ciphertext.exit, %chachapoly_pad_aad.exit
   store i32 3, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %30 = load i64, ptr %29, align 8
   %31 = trunc i64 %30 to i8
   store i8 %31, ptr %5, align 16
   %32 = lshr i64 %30, 8
   %33 = trunc i64 %32 to i8
-  %34 = getelementptr inbounds i8, ptr %5, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %33, ptr %34, align 1
   %35 = lshr i64 %30, 16
   %36 = trunc i64 %35 to i8
-  %37 = getelementptr inbounds i8, ptr %5, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %36, ptr %37, align 2
   %38 = lshr i64 %30, 24
   %39 = trunc i64 %38 to i8
-  %40 = getelementptr inbounds i8, ptr %5, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %39, ptr %40, align 1
   %41 = lshr i64 %30, 32
   %42 = trunc i64 %41 to i8
-  %43 = getelementptr inbounds i8, ptr %5, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %42, ptr %43, align 4
   %44 = lshr i64 %30, 40
   %45 = trunc i64 %44 to i8
-  %46 = getelementptr inbounds i8, ptr %5, i64 5
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 %45, ptr %46, align 1
   %47 = lshr i64 %30, 48
   %48 = trunc i64 %47 to i8
-  %49 = getelementptr inbounds i8, ptr %5, i64 6
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i8 %48, ptr %49, align 2
   %50 = lshr i64 %30, 56
   %51 = trunc nuw i64 %50 to i8
-  %52 = getelementptr inbounds i8, ptr %5, i64 7
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 7
   store i8 %51, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %0, i64 224
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %54 = load i64, ptr %53, align 8
   %55 = trunc i64 %54 to i8
-  %56 = getelementptr inbounds i8, ptr %5, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %55, ptr %56, align 8
   %57 = lshr i64 %54, 8
   %58 = trunc i64 %57 to i8
-  %59 = getelementptr inbounds i8, ptr %5, i64 9
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 9
   store i8 %58, ptr %59, align 1
   %60 = lshr i64 %54, 16
   %61 = trunc i64 %60 to i8
-  %62 = getelementptr inbounds i8, ptr %5, i64 10
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i8 %61, ptr %62, align 2
   %63 = lshr i64 %54, 24
   %64 = trunc i64 %63 to i8
-  %65 = getelementptr inbounds i8, ptr %5, i64 11
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 11
   store i8 %64, ptr %65, align 1
   %66 = lshr i64 %54, 32
   %67 = trunc i64 %66 to i8
-  %68 = getelementptr inbounds i8, ptr %5, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %67, ptr %68, align 4
   %69 = lshr i64 %54, 40
   %70 = trunc i64 %69 to i8
-  %71 = getelementptr inbounds i8, ptr %5, i64 13
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 13
   store i8 %70, ptr %71, align 1
   %72 = lshr i64 %54, 48
   %73 = trunc i64 %72 to i8
-  %74 = getelementptr inbounds i8, ptr %5, i64 14
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 14
   store i8 %73, ptr %74, align 2
   %75 = lshr i64 %54, 56
   %76 = trunc nuw i64 %75 to i8
-  %77 = getelementptr inbounds i8, ptr %5, i64 15
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 15
   store i8 %76, ptr %77, align 1
-  %78 = getelementptr inbounds i8, ptr %0, i64 136
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %79 = call i32 @mbedtls_poly1305_update(ptr noundef nonnull %78, ptr noundef nonnull %5, i64 noundef 16) #7
   %.not37 = icmp eq i32 %79, 0
   br i1 %.not37, label %80, label %82
@@ -371,7 +371,7 @@ define internal fastcc i32 @chachapoly_crypt_and_tag(ptr noundef %0, i32 noundef
   br i1 %.not15.i, label %14, label %mbedtls_chachapoly_starts.exit.thread
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = call i32 @mbedtls_poly1305_starts(ptr noundef nonnull %15, ptr noundef nonnull %10) #7
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %mbedtls_chachapoly_starts.exit.thread
@@ -383,11 +383,11 @@ mbedtls_chachapoly_starts.exit.thread:            ; preds = %9, %12, %14
   br label %mbedtls_chachapoly_update_aad.exit.thread
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 216
-  %20 = getelementptr inbounds i8, ptr %0, i64 232
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   store i32 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 236
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 %1, ptr %21, align 4
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 64) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
@@ -427,9 +427,9 @@ define hidden i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef %0, i64 noundef %
 .preheader:                                       ; preds = %8, %.preheader
   %.022 = phi i32 [ %17, %.preheader ], [ 0, %8 ]
   %.01721 = phi i64 [ %18, %.preheader ], [ 0, %8 ]
-  %11 = getelementptr inbounds i8, ptr %5, i64 %.01721
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 %.01721
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 %.01721
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %.01721
   %14 = load i8, ptr %13, align 1
   %15 = xor i8 %14, %12
   %16 = zext i8 %15 to i32
@@ -466,9 +466,9 @@ define hidden range(i32 -1, 1) i32 @mbedtls_chachapoly_self_test(i32 noundef %0)
 
 6:                                                ; preds = %4, %.critedge
   call void @mbedtls_chacha20_init(ptr noundef nonnull %1) #7
-  %7 = getelementptr inbounds i8, ptr %1, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 136
   call void @mbedtls_poly1305_init(ptr noundef nonnull %7) #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 216
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %9 = call i32 @mbedtls_chacha20_setkey(ptr noundef nonnull %1, ptr noundef nonnull @test_key) #7
   %10 = icmp eq i32 %9, 0

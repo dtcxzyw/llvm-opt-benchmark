@@ -157,11 +157,11 @@ define hidden void @dissect_asciitpkt(ptr noundef %0, ptr noundef %1, ptr nounde
   store volatile i32 0, ptr %6, align 4
   %14 = load i32, ptr @tpkt_desegment, align 4
   %.not = icmp eq i32 %14, 0
-  %indvars.iv.i.sroa.gep113 = getelementptr inbounds i8, ptr %9, i64 1
+  %indvars.iv.i.sroa.gep113 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   call void @col_clear(ptr noundef %17, i32 noundef 25) #4
   br label %18
@@ -173,12 +173,12 @@ define hidden void @dissect_asciitpkt(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not84118, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 272
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.not88 = icmp eq ptr %2, null
-  %22 = getelementptr inbounds i8, ptr %13, i64 48
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
-  %24 = getelementptr inbounds i8, ptr %13, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 40
   br label %25
 
 25:                                               ; preds = %.lr.ph, %169
@@ -458,28 +458,28 @@ parseLengthText.exit:                             ; preds = %96
 
 143:                                              ; preds = %142
   %.0..0..0..0.9 = load volatile ptr, ptr %10, align 8
-  %144 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %145 = load volatile i64, ptr %144, align 8
   %146 = icmp eq i64 %145, 3
   br i1 %146, label %159, label %147
 
 147:                                              ; preds = %143
   %.0..0..0..0.10 = load volatile ptr, ptr %10, align 8
-  %148 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %149 = load volatile i64, ptr %148, align 8
   %150 = icmp eq i64 %149, 2
   br i1 %150, label %159, label %151
 
 151:                                              ; preds = %147
   %.0..0..0..0.11 = load volatile ptr, ptr %10, align 8
-  %152 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %153 = load volatile i64, ptr %152, align 8
   %154 = icmp eq i64 %153, 7
   br i1 %154, label %159, label %155
 
 155:                                              ; preds = %151
   %.0..0..0..0.12 = load volatile ptr, ptr %10, align 8
-  %156 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %157 = load volatile i64, ptr %156, align 8
   %158 = icmp eq i64 %157, 9
   br i1 %158, label %159, label %165
@@ -489,10 +489,10 @@ parseLengthText.exit:                             ; preds = %96
   %160 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %160, ptr %11, align 4
   %.0..0..0..0.13 = load volatile ptr, ptr %10, align 8
-  %161 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %162 = load volatile i64, ptr %161, align 8
   %.0..0..0..0.14 = load volatile ptr, ptr %10, align 8
-  %163 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 16
   %164 = load volatile ptr, ptr %163, align 8
   call void @show_exception(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %162, ptr noundef %164) #4
   br label %165
@@ -582,7 +582,7 @@ define void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   call void @col_clear(ptr noundef %16, i32 noundef 25) #4
   br label %17
@@ -594,13 +594,13 @@ define void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not105123, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %1, i64 328
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 272
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %.not109 = icmp eq ptr %2, null
-  %22 = getelementptr inbounds i8, ptr %13, i64 48
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
-  %24 = getelementptr inbounds i8, ptr %13, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 40
   br label %25
 
 25:                                               ; preds = %.lr.ph, %130
@@ -648,9 +648,9 @@ define void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 47:                                               ; preds = %43
   %.0..0..0..0.40 = load volatile i32, ptr %6, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 332
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.40, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 336
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %49, align 8
   br label %.loopexit
 
@@ -670,10 +670,10 @@ define void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 57:                                               ; preds = %54
   %.0..0..0..0.42 = load volatile i32, ptr %6, align 4
-  %58 = getelementptr inbounds i8, ptr %1, i64 332
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.42, ptr %58, align 4
   %59 = sub i32 %53, %42
-  %60 = getelementptr inbounds i8, ptr %1, i64 336
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %59, ptr %60, align 8
   br label %.loopexit
 
@@ -787,28 +787,28 @@ define void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 104:                                              ; preds = %103
   %.0..0..0..0.10 = load volatile ptr, ptr %10, align 8
-  %105 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %106 = load volatile i64, ptr %105, align 8
   %107 = icmp eq i64 %106, 3
   br i1 %107, label %120, label %108
 
 108:                                              ; preds = %104
   %.0..0..0..0.11 = load volatile ptr, ptr %10, align 8
-  %109 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %110 = load volatile i64, ptr %109, align 8
   %111 = icmp eq i64 %110, 2
   br i1 %111, label %120, label %112
 
 112:                                              ; preds = %108
   %.0..0..0..0.12 = load volatile ptr, ptr %10, align 8
-  %113 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %114 = load volatile i64, ptr %113, align 8
   %115 = icmp eq i64 %114, 7
   br i1 %115, label %120, label %116
 
 116:                                              ; preds = %112
   %.0..0..0..0.13 = load volatile ptr, ptr %10, align 8
-  %117 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %118 = load volatile i64, ptr %117, align 8
   %119 = icmp eq i64 %118, 9
   br i1 %119, label %120, label %126
@@ -818,10 +818,10 @@ define void @dissect_tpkt_encap(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %121 = or i32 %.0..0..0..0.6, 1
   store volatile i32 %121, ptr %11, align 4
   %.0..0..0..0.14 = load volatile ptr, ptr %10, align 8
-  %122 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %123 = load volatile i64, ptr %122, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %10, align 8
-  %124 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
   %125 = load volatile ptr, ptr %124, align 8
   call void @show_exception(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %123, ptr noundef %125) #4
   br label %126

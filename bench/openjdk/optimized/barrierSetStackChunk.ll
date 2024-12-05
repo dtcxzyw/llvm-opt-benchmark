@@ -65,9 +65,9 @@ $_ZTV24UncompressOopsOopClosure = comdat any
 define hidden void @_ZN20BarrierSetStackChunk14encode_gc_modeEP17stackChunkOopDescP11OopIterator(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.CompressOopsOopClosure, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22CompressOopsOopClosure, i64 16), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %7 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4, !noalias !6
   %8 = ptrtoint ptr %1 to i64
@@ -88,7 +88,7 @@ define hidden void @_ZN20BarrierSetStackChunk14encode_gc_modeEP17stackChunkOopDe
   %23 = add i64 %22, 63
   %24 = and i64 %23, -64
   store ptr %18, ptr %6, align 8, !alias.scope !6
-  %25 = getelementptr inbounds i8, ptr %4, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %24, ptr %25, align 8, !alias.scope !6
   %26 = load ptr, ptr %2, align 8
   %27 = load ptr, ptr %26, align 8
@@ -257,7 +257,7 @@ define linkonce_odr hidden void @_ZN22CompressOopsOopClosure6do_oopEPP7oopDesc(p
 
 17:                                               ; preds = %2, %5
   %.sink18 = phi i64 [ 2, %5 ], [ 3, %2 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
@@ -266,12 +266,12 @@ define linkonce_odr hidden void @_ZN22CompressOopsOopClosure6do_oopEPP7oopDesc(p
   %24 = add i64 %20, %22
   %25 = sub i64 %23, %24
   %26 = ashr exact i64 %25, %.sink18
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = and i64 %26, 63
   %29 = shl nuw i64 1, %28
   %30 = load ptr, ptr %27, align 8
   %31 = lshr i64 %26, 6
-  %32 = getelementptr inbounds i64, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = or i64 %29, %33
   store i64 %34, ptr %32, align 8
@@ -280,7 +280,7 @@ define linkonce_odr hidden void @_ZN22CompressOopsOopClosure6do_oopEPP7oopDesc(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN22CompressOopsOopClosure6do_oopEP9narrowOop(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
@@ -289,12 +289,12 @@ define linkonce_odr hidden void @_ZN22CompressOopsOopClosure6do_oopEP9narrowOop(
   %9 = add i64 %5, %7
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = and i64 %11, 63
   %14 = shl nuw i64 1, %13
   %15 = load ptr, ptr %12, align 8
   %16 = lshr i64 %11, 6
-  %17 = getelementptr inbounds i64, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = or i64 %14, %18
   store i64 %19, ptr %17, align 8

@@ -52,7 +52,7 @@ declare dso_local zeroext i1 @nlm4svc_encode_void(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_test(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11304
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc i32 @__nlm4svc_proc_test(ptr noundef %0, ptr noundef %3), !range !5
   ret i32 %4
@@ -66,7 +66,7 @@ declare dso_local zeroext i1 @nlm4svc_encode_testres(ptr noundef, ptr noundef) #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_lock(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11304
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr noundef %3), !range !5
   ret i32 %4
@@ -80,7 +80,7 @@ declare dso_local zeroext i1 @nlm4svc_encode_res(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_cancel(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11304
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc i32 @__nlm4svc_proc_cancel(ptr noundef %0, ptr noundef %3), !range !5
   ret i32 %4
@@ -91,7 +91,7 @@ declare dso_local zeroext i1 @nlm4svc_decode_cancargs(ptr noundef, ptr noundef) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unlock(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11304
   %3 = load ptr, ptr %2, align 8
   %4 = tail call fastcc i32 @__nlm4svc_proc_unlock(ptr noundef %0, ptr noundef %3), !range !5
   ret i32 %4
@@ -102,26 +102,26 @@ declare dso_local zeroext i1 @nlm4svc_decode_unlockargs(ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @nlm4svc_proc_granted(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11304
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 11296
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %5 = load ptr, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(36) %3, ptr noundef align 8 dereferenceable(36) %5, i64 36, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
-  %8 = tail call i32 @nlmclnt_grant(ptr noundef %6, ptr noundef %7) #7
-  %9 = getelementptr inbounds i8, ptr %3, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %8 = tail call i32 @nlmclnt_grant(ptr noundef nonnull %6, ptr noundef nonnull %7) #7
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %8, ptr %9, align 4
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_test_msg(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11296
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = tail call ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %5, i64 noundef %8) #7
@@ -135,8 +135,8 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_test_msg(ptr noundef 
   br i1 %13, label %nlm4svc_callback.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 480
-  %16 = tail call fastcc i32 @__nlm4svc_proc_test(ptr noundef %0, ptr noundef %15) #7, !callees !6
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 480
+  %16 = tail call fastcc i32 @__nlm4svc_proc_test(ptr noundef %0, ptr noundef nonnull %15) #7, !callees !6
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %19, label %18
 
@@ -145,7 +145,7 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_test_msg(ptr noundef 
   br label %nlm4svc_callback.exit
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %12, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %20, align 4
   %21 = tail call i32 @nlm_async_reply(ptr noundef nonnull %12, i32 noundef 11, ptr noundef nonnull @nlm4svc_callback_ops) #7
   %22 = icmp slt i32 %21, 0
@@ -159,11 +159,11 @@ nlm4svc_callback.exit:                            ; preds = %1, %11, %18, %19
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_lock_msg(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11296
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = tail call ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %5, i64 noundef %8) #7
@@ -177,8 +177,8 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_lock_msg(ptr noundef 
   br i1 %13, label %nlm4svc_callback.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 480
-  %16 = tail call fastcc i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr noundef %15) #7, !callees !6
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 480
+  %16 = tail call fastcc i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr noundef nonnull %15) #7, !callees !6
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %19, label %18
 
@@ -187,7 +187,7 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_lock_msg(ptr noundef 
   br label %nlm4svc_callback.exit
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %12, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %20, align 4
   %21 = tail call i32 @nlm_async_reply(ptr noundef nonnull %12, i32 noundef 12, ptr noundef nonnull @nlm4svc_callback_ops) #7
   %22 = icmp slt i32 %21, 0
@@ -201,11 +201,11 @@ nlm4svc_callback.exit:                            ; preds = %1, %11, %18, %19
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_cancel_msg(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11296
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = tail call ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %5, i64 noundef %8) #7
@@ -219,8 +219,8 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_cancel_msg(ptr nounde
   br i1 %13, label %nlm4svc_callback.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 480
-  %16 = tail call fastcc i32 @__nlm4svc_proc_cancel(ptr noundef %0, ptr noundef %15) #7, !callees !6
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 480
+  %16 = tail call fastcc i32 @__nlm4svc_proc_cancel(ptr noundef %0, ptr noundef nonnull %15) #7, !callees !6
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %19, label %18
 
@@ -229,7 +229,7 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_cancel_msg(ptr nounde
   br label %nlm4svc_callback.exit
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %12, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %20, align 4
   %21 = tail call i32 @nlm_async_reply(ptr noundef nonnull %12, i32 noundef 13, ptr noundef nonnull @nlm4svc_callback_ops) #7
   %22 = icmp slt i32 %21, 0
@@ -243,11 +243,11 @@ nlm4svc_callback.exit:                            ; preds = %1, %11, %18, %19
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unlock_msg(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11296
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = tail call ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %5, i64 noundef %8) #7
@@ -261,8 +261,8 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unlock_msg(ptr nounde
   br i1 %13, label %nlm4svc_callback.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 480
-  %16 = tail call fastcc i32 @__nlm4svc_proc_unlock(ptr noundef %0, ptr noundef %15) #7, !callees !6
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 480
+  %16 = tail call fastcc i32 @__nlm4svc_proc_unlock(ptr noundef %0, ptr noundef nonnull %15) #7, !callees !6
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %19, label %18
 
@@ -271,7 +271,7 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unlock_msg(ptr nounde
   br label %nlm4svc_callback.exit
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %12, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %20, align 4
   %21 = tail call i32 @nlm_async_reply(ptr noundef nonnull %12, i32 noundef 14, ptr noundef nonnull @nlm4svc_callback_ops) #7
   %22 = icmp slt i32 %21, 0
@@ -285,11 +285,11 @@ nlm4svc_callback.exit:                            ; preds = %1, %11, %18, %19
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 83886081) i32 @nlm4svc_proc_granted_msg(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11296
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
   %9 = tail call ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %5, i64 noundef %8) #7
@@ -303,15 +303,15 @@ define internal range(i32 0, 83886081) i32 @nlm4svc_proc_granted_msg(ptr noundef
   br i1 %13, label %25, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 480
   %16 = load ptr, ptr %2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(36) %15, ptr noundef align 8 dereferenceable(36) %16, i64 36, i1 false)
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  %18 = getelementptr inbounds i8, ptr %16, i64 40
-  %19 = tail call i32 @nlmclnt_grant(ptr noundef %17, ptr noundef %18) #7
-  %20 = getelementptr inbounds i8, ptr %12, i64 516
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, ptr noundef align 8 dereferenceable(36) %16, i64 36, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %19 = tail call i32 @nlmclnt_grant(ptr noundef nonnull %17, ptr noundef nonnull %18) #7
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 516
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %12, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %21, align 4
   %22 = tail call i32 @nlm_async_reply(ptr noundef nonnull %12, i32 noundef 15, ptr noundef nonnull @nlm4svc_callback_ops) #7
   %23 = icmp slt i32 %22, 0
@@ -330,9 +330,9 @@ define internal noundef i32 @nlm4svc_proc_granted_res(ptr nocapture noundef read
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 11296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %8 = load i32, ptr %7, align 4
   tail call void @nlmsvc_grant_reply(ptr noundef %6, i32 noundef %8) #7
   br label %9
@@ -347,9 +347,9 @@ declare dso_local zeroext i1 @nlm4svc_decode_res(ptr noundef, ptr noundef) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 83886081) i32 @nlm4svc_proc_sm_notify(ptr noundef %0) #2 align 16 {
   %2 = alloca [63 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 11296
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i16, ptr %5, align 2
   switch i16 %6, label %.thread [
     i16 2, label %7
@@ -357,14 +357,14 @@ define internal noundef range(i32 0, 83886081) i32 @nlm4svc_proc_sm_notify(ptr n
   ]
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 50
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 252
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 255
   %16 = icmp eq i32 %15, 127
@@ -372,15 +372,15 @@ define internal noundef range(i32 0, 83886081) i32 @nlm4svc_proc_sm_notify(ptr n
   br label %37
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 50
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 252
   %22 = icmp eq i16 %21, 0
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
-  %25 = tail call i32 @__ipv6_addr_type(ptr noundef %24) #7
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %24) #7
   %26 = and i32 %25, 4096
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %34, label %28
@@ -394,7 +394,7 @@ define internal noundef range(i32 0, 83886081) i32 @nlm4svc_proc_sm_notify(ptr n
   br label %37
 
 34:                                               ; preds = %23
-  %35 = tail call i32 @__ipv6_addr_type(ptr noundef %24) #7
+  %35 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %24) #7
   %36 = and i32 %35, 16
   br label %37
 
@@ -412,11 +412,11 @@ define internal noundef range(i32 0, 83886081) i32 @nlm4svc_proc_sm_notify(ptr n
   br label %50
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  %46 = getelementptr inbounds i8, ptr %44, i64 488
-  %47 = getelementptr inbounds i8, ptr %0, i64 11392
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 488
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 11392
   %48 = select i1 %45, ptr %47, ptr %46
   %49 = load ptr, ptr %48, align 8
   tail call void @nlm_host_rebooted(ptr noundef %49, ptr noundef %4) #7
@@ -439,31 +439,31 @@ define internal noundef i32 @nlm4svc_proc_unused(ptr nocapture readnone %0) #0 a
 define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_share(ptr noundef %0) #2 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 11296
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 11304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 11304
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(36) %7, ptr noundef align 8 dereferenceable(36) %5, i64 36, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %9, i64 488
-  %12 = getelementptr inbounds i8, ptr %0, i64 11392
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 488
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 11392
   %13 = select i1 %10, ptr %12, ptr %11
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 @locks_in_grace(ptr noundef %14) #7
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %5, i64 444
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 444
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %7, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 67108864, ptr %21, align 4
   br label %35
 
@@ -471,7 +471,7 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_share(ptr noundef %0)
   store ptr null, ptr %2, align 8, !annotation !7
   store ptr null, ptr %3, align 8, !annotation !7
   %23 = call fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %24 = getelementptr inbounds i8, ptr %7, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 %23, ptr %24, align 4
   %25 = icmp eq i32 %23, 0
   br i1 %25, label %29, label %26
@@ -486,8 +486,8 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_share(ptr noundef %0)
   %31 = load ptr, ptr %3, align 8
   %32 = call i32 @nlmsvc_share_file(ptr noundef %30, ptr noundef %31, ptr noundef %5) #7
   store i32 %32, ptr %24, align 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @nlmsvc_release_lockowner(ptr noundef %33) #7
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  call void @nlmsvc_release_lockowner(ptr noundef nonnull %33) #7
   call void @nlmsvc_release_host(ptr noundef %30) #7
   %34 = load ptr, ptr %3, align 8
   call void @nlm_release_file(ptr noundef %34) #7
@@ -510,25 +510,25 @@ declare dso_local zeroext i1 @nlm4svc_encode_shareres(ptr noundef, ptr noundef) 
 define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unshare(ptr noundef %0) #2 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 11296
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 11304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 11304
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(36) %7, ptr noundef align 8 dereferenceable(36) %5, i64 36, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %9, i64 488
-  %12 = getelementptr inbounds i8, ptr %0, i64 11392
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 488
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 11392
   %13 = select i1 %10, ptr %12, ptr %11
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 @locks_in_grace(ptr noundef %14) #7
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %7, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 67108864, ptr %17, align 4
   br label %31
 
@@ -536,7 +536,7 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unshare(ptr noundef %
   store ptr null, ptr %2, align 8, !annotation !7
   store ptr null, ptr %3, align 8, !annotation !7
   %19 = call fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  %20 = getelementptr inbounds i8, ptr %7, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 %19, ptr %20, align 4
   %21 = icmp eq i32 %19, 0
   br i1 %21, label %25, label %22
@@ -551,8 +551,8 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unshare(ptr noundef %
   %27 = load ptr, ptr %3, align 8
   %28 = call i32 @nlmsvc_unshare_file(ptr noundef %26, ptr noundef %27, ptr noundef %5) #7
   store i32 %28, ptr %20, align 4
-  %29 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @nlmsvc_release_lockowner(ptr noundef %29) #7
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  call void @nlmsvc_release_lockowner(ptr noundef nonnull %29) #7
   call void @nlmsvc_release_host(ptr noundef %26) #7
   %30 = load ptr, ptr %3, align 8
   call void @nlm_release_file(ptr noundef %30) #7
@@ -567,11 +567,11 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unshare(ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_nm_lock(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11296
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 452
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 452
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 11304
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 11304
   %6 = load ptr, ptr %5, align 8
   %7 = tail call fastcc i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr noundef %6), !range !5
   ret i32 %7
@@ -579,21 +579,21 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_nm_lock(ptr noundef %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @nlm4svc_proc_free_all(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11296
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr @nlmsvc_ops, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %9 = load i64, ptr %8, align 8
   %10 = icmp slt i64 %9, 0
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %19, label %15
@@ -606,7 +606,7 @@ define internal noundef i32 @nlm4svc_proc_free_all(ptr noundef %0) #2 align 16 {
 
 19:                                               ; preds = %15, %11
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = tail call ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %20, i64 noundef %23) #7
@@ -614,7 +614,7 @@ define internal noundef i32 @nlm4svc_proc_free_all(ptr noundef %0) #2 align 16 {
   br i1 %25, label %.thread.sink.split, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %3, i64 452
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 452
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %33, label %30
@@ -643,7 +643,7 @@ declare dso_local zeroext i1 @nlm4svc_decode_notify(ptr noundef, ptr noundef) #1
 define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_test(ptr noundef %0, ptr noundef initializes((0, 40)) %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 11296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   store ptr null, ptr %3, align 8, !annotation !7
@@ -651,7 +651,7 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_test(ptr nou
   store ptr null, ptr %4, align 8, !annotation !7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(36) %1, ptr noundef align 8 dereferenceable(36) %6, i64 36, i1 false)
   %7 = call fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %7, ptr %8, align 4
   %9 = icmp eq i32 %7, 0
   br i1 %9, label %13, label %10
@@ -662,13 +662,13 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_test(ptr nou
   br label %24
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
-  %15 = getelementptr inbounds i8, ptr %6, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
-  %20 = call i32 @nlmsvc_testlock(ptr noundef %0, ptr noundef %17, ptr noundef %18, ptr noundef %14, ptr noundef %19, ptr noundef %1) #7
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %20 = call i32 @nlmsvc_testlock(ptr noundef %0, ptr noundef %17, ptr noundef %18, ptr noundef nonnull %14, ptr noundef nonnull %19, ptr noundef %1) #7
   store i32 %20, ptr %8, align 4
   %21 = icmp eq i32 %20, 812974080
   %22 = select i1 %21, i32 1625948160, i32 0
@@ -696,19 +696,19 @@ define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr @nlmsvc_ops, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread4, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %11 = load i64, ptr %10, align 8
   %12 = icmp slt i64 %11, 0
   br i1 %12, label %.thread4, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %21, label %17
@@ -721,7 +721,7 @@ define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1
 
 21:                                               ; preds = %17, %13
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = tail call ptr @nlmsvc_lookup_host(ptr noundef %0, ptr noundef %22, i64 noundef %25) #7
@@ -729,7 +729,7 @@ define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1
   br i1 %27, label %70, label %28
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %1, i64 452
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 452
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %35, label %32
@@ -745,45 +745,45 @@ define internal fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %1
   br i1 %36, label %.thread4, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %1, i64 224
-  %39 = tail call i32 @lock_to_openmode(ptr noundef %38) #7
-  %40 = call i32 @nlm_lookup_file(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %6) #7
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %39 = tail call i32 @lock_to_openmode(ptr noundef nonnull %38) #7
+  %40 = call i32 @nlm_lookup_file(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %69
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %5, align 8
   store ptr %43, ptr %3, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 304
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 304
   store i32 1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 152
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 152
   %46 = sext i32 %39 to i64
   %47 = getelementptr [2 x ptr], ptr %45, i64 0, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 344
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 344
   store ptr %48, ptr %49, align 8
   %50 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !8
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds i8, ptr %51, i64 1324
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1324
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %1, i64 312
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store i32 %53, ptr %54, align 8
   %55 = load i64, ptr %10, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 352
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 352
   store i64 %55, ptr %56, align 8
   %57 = load i64, ptr %14, align 8
   %58 = icmp eq i64 %57, 0
   %59 = add i64 %55, -1
   %60 = add i64 %59, %57
   %61 = select i1 %58, i64 9223372036854775807, i64 %60
-  %62 = getelementptr inbounds i8, ptr %1, i64 360
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 360
   store i64 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 400
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 400
   store ptr @nlmsvc_lock_operations, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 200
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %65 = load i32, ptr %64, align 8
-  call void @nlmsvc_locks_init_private(ptr noundef %38, ptr noundef nonnull %26, i32 noundef %65) #7
-  %66 = getelementptr inbounds i8, ptr %1, i64 296
+  call void @nlmsvc_locks_init_private(ptr noundef nonnull %38, ptr noundef nonnull %26, i32 noundef %65) #7
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.thread, label %.thread4
@@ -840,7 +840,7 @@ declare dso_local void @nlmsvc_locks_init_private(ptr noundef, ptr noundef, i32 
 define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_lock(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 11296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   store ptr null, ptr %3, align 8, !annotation !7
@@ -848,7 +848,7 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_lock(ptr nou
   store ptr null, ptr %4, align 8, !annotation !7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(36) %1, ptr noundef align 8 dereferenceable(36) %6, i64 36, i1 false)
   %7 = call fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %7, ptr %8, align 4
   %9 = icmp eq i32 %7, 0
   br i1 %9, label %13, label %10
@@ -861,16 +861,16 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_lock(ptr nou
 13:                                               ; preds = %2
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 40
-  %17 = getelementptr inbounds i8, ptr %6, i64 440
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 440
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 444
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 444
   %20 = load i32, ptr %19, align 4
-  %21 = call i32 @nlmsvc_lock(ptr noundef %0, ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef %18, ptr noundef %6, i32 noundef %20) #7
+  %21 = call i32 @nlmsvc_lock(ptr noundef %0, ptr noundef %14, ptr noundef %15, ptr noundef nonnull %16, i32 noundef %18, ptr noundef %6, i32 noundef %20) #7
   store i32 %21, ptr %8, align 4
   %22 = icmp eq i32 %21, 812974080
   %23 = select i1 %22, i32 1625948160, i32 0
-  call void @nlmsvc_release_lockowner(ptr noundef %16) #7
+  call void @nlmsvc_release_lockowner(ptr noundef nonnull %16) #7
   call void @nlmsvc_release_host(ptr noundef %15) #7
   %24 = load ptr, ptr %4, align 8
   call void @nlm_release_file(ptr noundef %24) #7
@@ -893,23 +893,23 @@ declare dso_local void @nlmsvc_release_lockowner(ptr noundef) local_unnamed_addr
 define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_cancel(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 11296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(36) %1, ptr noundef align 8 dereferenceable(36) %6, i64 36, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  %10 = getelementptr inbounds i8, ptr %8, i64 488
-  %11 = getelementptr inbounds i8, ptr %0, i64 11392
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 11392
   %12 = select i1 %9, ptr %11, ptr %10
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @locks_in_grace(ptr noundef %13) #7
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 67108864, ptr %16, align 4
   br label %35
 
@@ -917,7 +917,7 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_cancel(ptr n
   store ptr null, ptr %3, align 8, !annotation !7
   store ptr null, ptr %4, align 8, !annotation !7
   %18 = call fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %19 = getelementptr inbounds i8, ptr %1, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %18, ptr %19, align 4
   %20 = icmp eq i32 %18, 0
   br i1 %20, label %24, label %21
@@ -930,14 +930,14 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_cancel(ptr n
 24:                                               ; preds = %17
   %25 = load ptr, ptr %7, align 8
   %26 = icmp eq ptr %25, null
-  %27 = getelementptr inbounds i8, ptr %25, i64 488
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 488
   %28 = select i1 %26, ptr %11, ptr %27
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 40
-  %32 = call i32 @nlmsvc_cancel_blocked(ptr noundef %29, ptr noundef %30, ptr noundef %31) #7
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %32 = call i32 @nlmsvc_cancel_blocked(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31) #7
   store i32 %32, ptr %19, align 4
-  call void @nlmsvc_release_lockowner(ptr noundef %31) #7
+  call void @nlmsvc_release_lockowner(ptr noundef nonnull %31) #7
   %33 = load ptr, ptr %3, align 8
   call void @nlmsvc_release_host(ptr noundef %33) #7
   %34 = load ptr, ptr %4, align 8
@@ -961,23 +961,23 @@ declare dso_local i32 @nlmsvc_cancel_blocked(ptr noundef, ptr noundef, ptr nound
 define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_unlock(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) unnamed_addr #2 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 11296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 11296
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(36) %1, ptr noundef align 8 dereferenceable(36) %6, i64 36, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
-  %10 = getelementptr inbounds i8, ptr %8, i64 488
-  %11 = getelementptr inbounds i8, ptr %0, i64 11392
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 11392
   %12 = select i1 %9, ptr %11, ptr %10
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @locks_in_grace(ptr noundef %13) #7
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 67108864, ptr %16, align 4
   br label %35
 
@@ -985,7 +985,7 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_unlock(ptr n
   store ptr null, ptr %3, align 8, !annotation !7
   store ptr null, ptr %4, align 8, !annotation !7
   %18 = call fastcc i32 @nlm4svc_retrieve_args(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %19 = getelementptr inbounds i8, ptr %1, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %18, ptr %19, align 4
   %20 = icmp eq i32 %18, 0
   br i1 %20, label %24, label %21
@@ -998,14 +998,14 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_unlock(ptr n
 24:                                               ; preds = %17
   %25 = load ptr, ptr %7, align 8
   %26 = icmp eq ptr %25, null
-  %27 = getelementptr inbounds i8, ptr %25, i64 488
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 488
   %28 = select i1 %26, ptr %11, ptr %27
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 40
-  %32 = call i32 @nlmsvc_unlock(ptr noundef %29, ptr noundef %30, ptr noundef %31) #7
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %32 = call i32 @nlmsvc_unlock(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31) #7
   store i32 %32, ptr %19, align 4
-  call void @nlmsvc_release_lockowner(ptr noundef %31) #7
+  call void @nlmsvc_release_lockowner(ptr noundef nonnull %31) #7
   %33 = load ptr, ptr %3, align 8
   call void @nlmsvc_release_host(ptr noundef %33) #7
   %34 = load ptr, ptr %4, align 8

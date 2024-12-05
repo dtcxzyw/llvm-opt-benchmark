@@ -14,7 +14,7 @@ define ptr @strrchr(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   %5 = sext i8 %4 to i32
   %6 = icmp eq i32 %1, %5
   %spec.select = select i1 %6, ptr %.04, ptr %.0
-  %7 = getelementptr inbounds i8, ptr %.04, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.04, i64 1
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %8, label %3, !llvm.loop !6
 

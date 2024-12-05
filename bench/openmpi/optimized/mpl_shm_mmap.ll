@@ -81,7 +81,7 @@ define internal fastcc range(i32 0, 12) i32 @MPL_shm_seg_create_attach_templ(ptr
   br i1 %24, label %17, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %17, %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
   br i1 %.not.i, label %27, label %29
@@ -94,7 +94,7 @@ define internal fastcc range(i32 0, 12) i32 @MPL_shm_seg_create_attach_templ(ptr
 
 29:                                               ; preds = %.critedge, %27
   %30 = phi ptr [ %26, %.critedge ], [ %28, %27 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, -257
   store i32 %33, ptr %31, align 8
@@ -108,7 +108,7 @@ define internal fastcc range(i32 0, 12) i32 @MPL_shm_seg_create_attach_templ(ptr
   br i1 %.not49, label %37, label %44
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 (ptr, i32, ...) @open(ptr noundef %39, i32 noundef 2) #9
   %41 = icmp eq i32 %40, -1
@@ -222,7 +222,7 @@ define range(i32 0, 10) i32 @MPL_shm_seg_open(ptr nocapture noundef %0, i64 noun
   br i1 %.not49.i, label %4, label %MPLI_shm_ghnd_alloc.exit.i.thread
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, i32, ...) @open(ptr noundef %6, i32 noundef 2) #9
   %8 = icmp eq i32 %7, -1
@@ -276,7 +276,7 @@ define range(i32 0, 11) i32 @MPL_shm_seg_attach(ptr nocapture noundef %0, i64 no
   br i1 %.not49.i, label %6, label %13
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 (ptr, i32, ...) @open(ptr noundef %8, i32 noundef 2) #9
   %10 = icmp eq i32 %9, -1
@@ -348,7 +348,7 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef range(i32 0, 10) i32 @MPL_shm_seg_remove(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @unlink(ptr noundef %3) #9
   %5 = icmp eq i32 %4, 0

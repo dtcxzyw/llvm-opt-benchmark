@@ -245,7 +245,7 @@ sw.default:                                       ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %idx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.test_store_get_params, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.test_store_get_params, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = load ptr, ptr @datadir, align 8
   %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %uri, i64 noundef 4096, ptr noundef nonnull @.str.38, ptr noundef %2, ptr noundef nonnull %switch.load) #3

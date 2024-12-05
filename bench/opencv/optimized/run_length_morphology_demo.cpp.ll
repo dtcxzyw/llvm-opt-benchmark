@@ -312,22 +312,22 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %103 unwind label %.loopexit.split-lp
 
 89:                                               ; preds = %74
-  %90 = getelementptr inbounds i8, ptr %18, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %18, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 0, ptr %91, align 4
   store i32 16842752, ptr %18, align 8
-  %92 = getelementptr inbounds i8, ptr %18, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %12, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %19, i64 8
-  %94 = getelementptr inbounds i8, ptr %19, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 0, ptr %94, align 8
   store i32 33619968, ptr %19, align 8
   store ptr @src, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %12, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %96 = load i32, ptr %95, align 8
   %97 = mul nsw i32 %96, %75
-  %98 = getelementptr inbounds i8, ptr %12, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %99 = load i32, ptr %98, align 4
   %100 = mul nsw i32 %99, %75
   %.sroa.273.0.insert.ext = zext i32 %100 to i64
@@ -753,31 +753,31 @@ _ZN5Timer5startEv.exit:                           ; preds = %2
   br i1 %38, label %39, label %55
 
 39:                                               ; preds = %_ZN5Timer5startEv.exit
-  %40 = getelementptr inbounds i8, ptr %12, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %12, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %41, align 4
   store i32 16842752, ptr %12, align 8
-  %42 = getelementptr inbounds i8, ptr %12, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @binaryImage, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %13, i64 8
-  %44 = getelementptr inbounds i8, ptr %13, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %44, align 8
   store i32 33619968, ptr %13, align 8
   store ptr @dst, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %14, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %14, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %46, align 4
   store i32 16842752, ptr %14, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %47, align 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %15, align 8, !alias.scope !7
-  %48 = getelementptr inbounds i8, ptr %15, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %48, align 8, !alias.scope !7
-  %49 = getelementptr inbounds i8, ptr %15, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %49, align 8, !alias.scope !7
-  %50 = getelementptr inbounds i8, ptr %15, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store double 0x7FEFFFFFFFFFFFFF, ptr %50, align 8, !alias.scope !7
   invoke void @_ZN2cv12morphologyExERKNS_11_InputArrayERKNS_12_OutputArrayEiS2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %69 unwind label %53
@@ -793,31 +793,31 @@ _ZN5Timer5startEv.exit:                           ; preds = %2
   br label %.body
 
 55:                                               ; preds = %_ZN5Timer5startEv.exit
-  %56 = getelementptr inbounds i8, ptr %16, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %16, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %57, align 4
   store i32 16842752, ptr %16, align 8
-  %58 = getelementptr inbounds i8, ptr %16, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @binaryImage, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %17, i64 8
-  %60 = getelementptr inbounds i8, ptr %17, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %60, align 8
   store i32 33619968, ptr %17, align 8
   store ptr @dst, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %18, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %18, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 0, ptr %62, align 4
   store i32 16842752, ptr %18, align 8
-  %63 = getelementptr inbounds i8, ptr %18, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %11, ptr %63, align 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %19, align 8, !alias.scope !12
-  %64 = getelementptr inbounds i8, ptr %19, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %64, align 8, !alias.scope !12
-  %65 = getelementptr inbounds i8, ptr %19, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %65, align 8, !alias.scope !12
-  %66 = getelementptr inbounds i8, ptr %19, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store double 0x7FEFFFFFFFFFFFFF, ptr %66, align 8, !alias.scope !12
   invoke void @_ZN2cv12morphologyExERKNS_11_InputArrayERKNS_12_OutputArrayEiS2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %69 unwind label %67
@@ -892,24 +892,24 @@ _ZN5Timer5startEv.exit42:                         ; preds = %89
   br i1 %38, label %91, label %104
 
 91:                                               ; preds = %_ZN5Timer5startEv.exit42
-  %92 = getelementptr inbounds i8, ptr %21, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %21, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i32 0, ptr %93, align 4
   store i32 16842752, ptr %21, align 8
-  %94 = getelementptr inbounds i8, ptr %21, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr @binaryRLE, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %22, i64 8
-  %96 = getelementptr inbounds i8, ptr %22, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 0, ptr %96, align 8
   store i32 33619968, ptr %22, align 8
   store ptr @dstRLE, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %23, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %23, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 0, ptr %98, align 4
   store i32 16842752, ptr %23, align 8
-  %99 = getelementptr inbounds i8, ptr %23, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %11, ptr %99, align 8
   invoke void @_ZN2cv8ximgproc2rl12morphologyExERKNS_11_InputArrayERKNS_12_OutputArrayEiS4_bNS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %23, i1 noundef zeroext true, i64 0)
           to label %115 unwind label %102
@@ -926,24 +926,24 @@ _ZN5Timer5startEv.exit42:                         ; preds = %89
   br label %.body
 
 104:                                              ; preds = %_ZN5Timer5startEv.exit42
-  %105 = getelementptr inbounds i8, ptr %24, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %24, i64 20
+  %106 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i32 0, ptr %106, align 4
   store i32 16842752, ptr %24, align 8
-  %107 = getelementptr inbounds i8, ptr %24, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr @binaryRLE, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %25, i64 8
-  %109 = getelementptr inbounds i8, ptr %25, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 0, ptr %109, align 8
   store i32 33619968, ptr %25, align 8
   store ptr @dstRLE, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %26, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %26, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i32 0, ptr %111, align 4
   store i32 16842752, ptr %26, align 8
-  %112 = getelementptr inbounds i8, ptr %26, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %11, ptr %112, align 8
   invoke void @_ZN2cv8ximgproc2rl12morphologyExERKNS_11_InputArrayERKNS_12_OutputArrayEiS4_bNS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(24) %26, i1 noundef zeroext true, i64 0)
           to label %115 unwind label %113
@@ -1043,20 +1043,20 @@ _ZN5Timer5startEv.exit42:                         ; preds = %89
           to label %.noexc unwind label %51
 
 .noexc:                                           ; preds = %148
-  %150 = getelementptr inbounds i8, ptr %4, i64 8
-  %151 = getelementptr inbounds i8, ptr %4, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %151, align 8
   store i32 50397184, ptr %4, align 8
   store ptr @rlePainted, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %5, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %5, i64 20
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %153, align 4
   store i32 16842752, ptr %5, align 8
-  %154 = getelementptr inbounds i8, ptr %5, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @dstRLE, ptr %154, align 8
   store double 2.550000e+02, ptr %6, align 8
-  %155 = getelementptr inbounds i8, ptr %6, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %155, i8 0, i64 24, i1 false)
   invoke void @_ZN2cv8ximgproc2rl5paintERKNS_17_InputOutputArrayERKNS_11_InputArrayERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %156 unwind label %51
@@ -1086,12 +1086,12 @@ _ZN5Timer5startEv.exit42:                         ; preds = %89
           to label %164 unwind label %169
 
 164:                                              ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %29, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 0, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %29, i64 20
+  %166 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i32 0, ptr %166, align 4
   store i32 16842752, ptr %29, align 8
-  %167 = getelementptr inbounds i8, ptr %29, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @rlePainted, ptr %167, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(24) %29)
           to label %168 unwind label %171
@@ -1173,31 +1173,31 @@ _ZN5Timer5startEv.exit:                           ; preds = %2
   br i1 %38, label %39, label %55
 
 39:                                               ; preds = %_ZN5Timer5startEv.exit
-  %40 = getelementptr inbounds i8, ptr %12, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %12, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %41, align 4
   store i32 16842752, ptr %12, align 8
-  %42 = getelementptr inbounds i8, ptr %12, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @binaryImage, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %13, i64 8
-  %44 = getelementptr inbounds i8, ptr %13, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %44, align 8
   store i32 33619968, ptr %13, align 8
   store ptr @dst, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %14, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %14, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %46, align 4
   store i32 16842752, ptr %14, align 8
-  %47 = getelementptr inbounds i8, ptr %14, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %47, align 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %15, align 8, !alias.scope !17
-  %48 = getelementptr inbounds i8, ptr %15, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %48, align 8, !alias.scope !17
-  %49 = getelementptr inbounds i8, ptr %15, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %49, align 8, !alias.scope !17
-  %50 = getelementptr inbounds i8, ptr %15, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store double 0x7FEFFFFFFFFFFFFF, ptr %50, align 8, !alias.scope !17
   invoke void @_ZN2cv5erodeERKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %69 unwind label %53
@@ -1213,31 +1213,31 @@ _ZN5Timer5startEv.exit:                           ; preds = %2
   br label %.body
 
 55:                                               ; preds = %_ZN5Timer5startEv.exit
-  %56 = getelementptr inbounds i8, ptr %16, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %16, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %57, align 4
   store i32 16842752, ptr %16, align 8
-  %58 = getelementptr inbounds i8, ptr %16, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @binaryImage, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %17, i64 8
-  %60 = getelementptr inbounds i8, ptr %17, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 0, ptr %60, align 8
   store i32 33619968, ptr %17, align 8
   store ptr @dst, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %18, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %18, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 0, ptr %62, align 4
   store i32 16842752, ptr %18, align 8
-  %63 = getelementptr inbounds i8, ptr %18, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %11, ptr %63, align 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %19, align 8, !alias.scope !22
-  %64 = getelementptr inbounds i8, ptr %19, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double 0x7FEFFFFFFFFFFFFF, ptr %64, align 8, !alias.scope !22
-  %65 = getelementptr inbounds i8, ptr %19, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %65, align 8, !alias.scope !22
-  %66 = getelementptr inbounds i8, ptr %19, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store double 0x7FEFFFFFFFFFFFFF, ptr %66, align 8, !alias.scope !22
   invoke void @_ZN2cv6dilateERKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %69 unwind label %67
@@ -1312,24 +1312,24 @@ _ZN5Timer5startEv.exit42:                         ; preds = %89
   br i1 %38, label %91, label %104
 
 91:                                               ; preds = %_ZN5Timer5startEv.exit42
-  %92 = getelementptr inbounds i8, ptr %21, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %21, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i32 0, ptr %93, align 4
   store i32 16842752, ptr %21, align 8
-  %94 = getelementptr inbounds i8, ptr %21, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr @binaryRLE, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %22, i64 8
-  %96 = getelementptr inbounds i8, ptr %22, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 0, ptr %96, align 8
   store i32 33619968, ptr %22, align 8
   store ptr @dstRLE, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %23, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %23, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 0, ptr %98, align 4
   store i32 16842752, ptr %23, align 8
-  %99 = getelementptr inbounds i8, ptr %23, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %11, ptr %99, align 8
   invoke void @_ZN2cv8ximgproc2rl5erodeERKNS_11_InputArrayERKNS_12_OutputArrayES4_bNS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23, i1 noundef zeroext true, i64 0)
           to label %115 unwind label %102
@@ -1346,24 +1346,24 @@ _ZN5Timer5startEv.exit42:                         ; preds = %89
   br label %.body
 
 104:                                              ; preds = %_ZN5Timer5startEv.exit42
-  %105 = getelementptr inbounds i8, ptr %24, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %24, i64 20
+  %106 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i32 0, ptr %106, align 4
   store i32 16842752, ptr %24, align 8
-  %107 = getelementptr inbounds i8, ptr %24, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr @binaryRLE, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %25, i64 8
-  %109 = getelementptr inbounds i8, ptr %25, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 0, ptr %109, align 8
   store i32 33619968, ptr %25, align 8
   store ptr @dstRLE, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %26, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %26, i64 20
+  %111 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i32 0, ptr %111, align 4
   store i32 16842752, ptr %26, align 8
-  %112 = getelementptr inbounds i8, ptr %26, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %11, ptr %112, align 8
   invoke void @_ZN2cv8ximgproc2rl6dilateERKNS_11_InputArrayERKNS_12_OutputArrayES4_NS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 0)
           to label %115 unwind label %113
@@ -1430,20 +1430,20 @@ _ZN5Timer5startEv.exit42:                         ; preds = %89
           to label %.noexc unwind label %51
 
 .noexc:                                           ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %4, i64 8
-  %134 = getelementptr inbounds i8, ptr %4, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %134, align 8
   store i32 50397184, ptr %4, align 8
   store ptr @rlePainted, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %5, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %5, i64 20
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %136, align 4
   store i32 16842752, ptr %5, align 8
-  %137 = getelementptr inbounds i8, ptr %5, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @dstRLE, ptr %137, align 8
   store double 2.550000e+02, ptr %6, align 8
-  %138 = getelementptr inbounds i8, ptr %6, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, i8 0, i64 24, i1 false)
   invoke void @_ZN2cv8ximgproc2rl5paintERKNS_17_InputOutputArrayERKNS_11_InputArrayERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %139 unwind label %51
@@ -1506,12 +1506,12 @@ _ZN5Timer5startEv.exit42:                         ; preds = %89
           to label %164 unwind label %169
 
 164:                                              ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %29, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 0, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %29, i64 20
+  %166 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i32 0, ptr %166, align 4
   store i32 16842752, ptr %29, align 8
-  %167 = getelementptr inbounds i8, ptr %29, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @rlePainted, ptr %167, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(24) %29)
           to label %168 unwind label %171
@@ -1553,30 +1553,30 @@ define internal void @_ZL17OnChangeThresholdiPv(i32 %0, ptr nocapture readnone %
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.cv::_InputArray", align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %11, align 4
   store i32 16842752, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @src, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %14, align 8
   store i32 33619968, ptr %4, align 8
   store ptr @binaryImage, ptr %13, align 8
   %15 = load i32, ptr @nThreshold, align 4
   %16 = sitofp i32 %15 to double
   %17 = call noundef double @_ZN2cv9thresholdERKNS_11_InputArrayERKNS_12_OutputArrayEddi(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, double noundef %16, double noundef 2.550000e+02, i32 noundef 0)
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %19, align 4
   store i32 16842752, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @src, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %22, align 8
   store i32 33619968, ptr %6, align 8
   store ptr @binaryRLE, ptr %21, align 8
@@ -1588,12 +1588,12 @@ define internal void @_ZL17OnChangeThresholdiPv(i32 %0, ptr nocapture readnone %
           to label %25 unwind label %30
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %9, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %27, align 4
   store i32 16842752, ptr %9, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @binaryImage, ptr %28, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %29 unwind label %32
@@ -1645,22 +1645,22 @@ define internal fastcc noundef zeroext i1 @_ZL18AreImagesIdenticalRN2cv3MatES1_(
   %4 = alloca %"class.cv::_OutputArray", align 8
   %5 = alloca %"class.cv::_InputArray", align 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %1) #10
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %7, align 4
   store i32 16842752, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @dst, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %10, align 4
   store i32 16842752, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @rlePainted, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %13, align 8
   store i32 33619968, ptr %4, align 8
   store ptr %1, ptr %12, align 8
@@ -1668,12 +1668,12 @@ define internal fastcc noundef zeroext i1 @_ZL18AreImagesIdenticalRN2cv3MatES1_(
           to label %14 unwind label %21
 
 14:                                               ; preds = %0
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %16, align 4
   store i32 16842752, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %17, align 8
   %18 = invoke noundef i32 @_ZN2cv12countNonZeroERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %19 unwind label %23

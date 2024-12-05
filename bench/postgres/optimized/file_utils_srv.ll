@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 5) i32 @get_dirent_type(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.stat, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 18
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %7 = load i8, ptr %6, align 2
   switch i8 %7, label %10 [
     i8 8, label %.thread
@@ -56,7 +56,7 @@ define dso_local range(i32 0, 5) i32 @get_dirent_type(ptr noundef %0, ptr nocapt
   br label %.thread
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %5, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = trunc i32 %23 to i16
   %trunc = and i16 %24, -4096
@@ -102,7 +102,7 @@ define dso_local i32 @compute_remaining_iovec(ptr noundef %0, ptr noundef readon
   %.019 = phi ptr [ %1, %4 ], [ %10, %8 ]
   %.018 = phi i32 [ %2, %4 ], [ %11, %8 ]
   %.0 = phi i64 [ %3, %4 ], [ %9, %8 ]
-  %6 = getelementptr inbounds i8, ptr %.019, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %7 = load i64, ptr %6, align 8
   %.not = icmp ugt i64 %7, %.0
   br i1 %.not, label %13, label %8
@@ -128,7 +128,7 @@ define dso_local i32 @compute_remaining_iovec(ptr noundef %0, ptr noundef readon
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr i8, ptr %18, i64 %.0
   store ptr %19, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = sub i64 %21, %.0
   store i64 %22, ptr %20, align 8
@@ -146,11 +146,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 define dso_local i64 @pg_pwritev_with_retry(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [32 x %struct.iovec], align 16
   %6 = icmp sgt i32 %2, 32
-  %.018.sroa.gep23 = getelementptr inbounds i8, ptr %5, i64 8
+  %.018.sroa.gep23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %6, label %7, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %4
-  %.018.sroa.gep = getelementptr inbounds i8, ptr %1, i64 8
+  %.018.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.preheader
 
 7:                                                ; preds = %4
@@ -191,7 +191,7 @@ pg_pwritev.exit:                                  ; preds = %10, %14
   %.019.i = phi ptr [ %.018, %17 ], [ %25, %23 ]
   %.018.i = phi i32 [ %.017, %17 ], [ %26, %23 ]
   %.0.i22 = phi i64 [ %.0.i, %17 ], [ %24, %23 ]
-  %21 = getelementptr inbounds i8, ptr %.019.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %22 = load i64, ptr %21, align 8
   %.not.i = icmp ugt i64 %22, %.0.i22
   br i1 %.not.i, label %28, label %23
@@ -239,8 +239,8 @@ define dso_local i64 @pg_pwrite_zeros(i32 noundef %0, i64 noundef %1, i64 nounde
   br i1 %.not38, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %3
-  %.018.sroa.gep23.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.018.sroa.gep.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.018.sroa.gep23.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.018.sroa.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %43
@@ -255,7 +255,7 @@ define dso_local i64 @pg_pwrite_zeros(i32 noundef %0, i64 noundef %1, i64 nounde
   %7 = getelementptr [32 x %struct.iovec], ptr %5, i64 0, i64 %indvars.iv
   store ptr @pg_pwrite_zeros.zbuffer, ptr %7, align 16
   %.1. = call i64 @llvm.umin.i64(i64 %.136, i64 8192)
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %.1., ptr %8, align 8
   %9 = sub i64 %.136, %.1.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -306,7 +306,7 @@ pg_pwritev_with_retry.exit.thread:                ; preds = %pg_pwritev.exit.i
   %.019.i.i = phi ptr [ %.018.i, %22 ], [ %30, %28 ]
   %.018.i.i = phi i32 [ %.017.i, %22 ], [ %31, %28 ]
   %.0.i22.i = phi i64 [ %.0.i.i, %22 ], [ %29, %28 ]
-  %26 = getelementptr inbounds i8, ptr %.019.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
   %27 = load i64, ptr %26, align 8
   %.not.i.i = icmp ugt i64 %27, %.0.i22.i
   br i1 %.not.i.i, label %33, label %28

@@ -201,22 +201,22 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_dedicated = getelementptr inbounds i8, ptr %obj, i64 4
+  %has_dedicated = getelementptr inbounds nuw i8, ptr %obj, i64 4
   %call1 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %has_dedicated) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %dedicated = getelementptr inbounds i8, ptr %obj, i64 5
+  %dedicated = getelementptr inbounds nuw i8, ptr %obj, i64 5
   %call3 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %dedicated, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_entitlement = getelementptr inbounds i8, ptr %obj, i64 6
+  %has_entitlement = getelementptr inbounds nuw i8, ptr %obj, i64 6
   %call7 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_entitlement) #5
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %entitlement = getelementptr inbounds i8, ptr %obj, i64 8
+  %entitlement = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call9 = call zeroext i1 @visit_type_CpuS390Entitlement(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %entitlement, ptr noundef %errp) #5
   br i1 %call9, label %if.end12, label %return
 
@@ -305,7 +305,7 @@ define dso_local zeroext i1 @visit_type_q_obj_CpuInfoFast_base_members(ptr nound
 entry:
   %value.i = alloca i32, align 4
   %has_props = alloca i8, align 1
-  %props = getelementptr inbounds i8, ptr %obj, i64 24
+  %props = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %0 = load ptr, ptr %props, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -314,12 +314,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %qom_path = getelementptr inbounds i8, ptr %obj, i64 8
+  %qom_path = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %qom_path, ptr noundef %errp) #5
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %thread_id = getelementptr inbounds i8, ptr %obj, i64 16
+  %thread_id = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call5 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %thread_id, ptr noundef %errp) #5
   br i1 %call5, label %if.end7, label %return
 
@@ -332,7 +332,7 @@ if.then9:                                         ; preds = %if.end7
   br i1 %call11, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then9, %if.end7
-  %target = getelementptr inbounds i8, ptr %obj, i64 32
+  %target = getelementptr inbounds nuw i8, ptr %obj, i64 32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %target, align 4
   store i32 %1, ptr %value.i, align 4
@@ -409,7 +409,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %target = getelementptr inbounds i8, ptr %obj, i64 32
+  %target = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %0 = load i32, ptr %target, align 8
   switch i32 %0, label %sw.default [
     i32 22, label %sw.bb
@@ -446,7 +446,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds i8, ptr %obj, i64 36
+  %u = getelementptr inbounds nuw i8, ptr %obj, i64 36
   %call1 = tail call zeroext i1 @visit_type_CpuInfoS390_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
@@ -490,7 +490,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %target.i = getelementptr inbounds i8, ptr %0, i64 32
+  %target.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %target.i, align 8
   switch i32 %1, label %sw.default.i [
     i32 22, label %visit_type_CpuInfoFast_members.exit
@@ -531,7 +531,7 @@ sw.default.i:                                     ; preds = %if.end.i
   unreachable
 
 visit_type_CpuInfoFast_members.exit:              ; preds = %if.end.i
-  %u.i = getelementptr inbounds i8, ptr %0, i64 36
+  %u.i = getelementptr inbounds nuw i8, ptr %0, i64 36
   %call1.i = tail call zeroext i1 @visit_type_CpuInfoS390_members(ptr noundef %v, ptr noundef nonnull %u.i, ptr noundef %errp)
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -574,7 +574,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_CpuInfoFast(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -623,17 +623,17 @@ entry:
   %has_alias = alloca i8, align 1
   %has_default_cpu_type = alloca i8, align 1
   %has_default_ram_id = alloca i8, align 1
-  %alias = getelementptr inbounds i8, ptr %obj, i64 8
+  %alias = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %0 = load ptr, ptr %alias, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_alias, align 1
-  %default_cpu_type = getelementptr inbounds i8, ptr %obj, i64 40
+  %default_cpu_type = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %1 = load ptr, ptr %default_cpu_type, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_default_cpu_type, align 1
-  %default_ram_id = getelementptr inbounds i8, ptr %obj, i64 48
+  %default_ram_id = getelementptr inbounds nuw i8, ptr %obj, i64 48
   %2 = load ptr, ptr %default_ram_id, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -650,32 +650,32 @@ if.then11:                                        ; preds = %if.end
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then11, %if.end
-  %has_is_default = getelementptr inbounds i8, ptr %obj, i64 16
+  %has_is_default = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_is_default) #5
   br i1 %call17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end16
-  %is_default = getelementptr inbounds i8, ptr %obj, i64 17
+  %is_default = getelementptr inbounds nuw i8, ptr %obj, i64 17
   %call19 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %is_default, ptr noundef %errp) #5
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then18, %if.end16
-  %cpu_max = getelementptr inbounds i8, ptr %obj, i64 24
+  %cpu_max = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call23 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %cpu_max, ptr noundef %errp) #5
   br i1 %call23, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.end22
-  %hotpluggable_cpus = getelementptr inbounds i8, ptr %obj, i64 32
+  %hotpluggable_cpus = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call26 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %hotpluggable_cpus, ptr noundef %errp) #5
   br i1 %call26, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.end25
-  %numa_mem_supported = getelementptr inbounds i8, ptr %obj, i64 33
+  %numa_mem_supported = getelementptr inbounds nuw i8, ptr %obj, i64 33
   %call29 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %numa_mem_supported, ptr noundef %errp) #5
   br i1 %call29, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.end28
-  %deprecated = getelementptr inbounds i8, ptr %obj, i64 34
+  %deprecated = getelementptr inbounds nuw i8, ptr %obj, i64 34
   %call32 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %deprecated, ptr noundef %errp) #5
   br i1 %call32, label %if.end34, label %return
 
@@ -696,7 +696,7 @@ if.then43:                                        ; preds = %if.end41
   br i1 %call45, label %if.end48, label %return
 
 if.end48:                                         ; preds = %if.then43, %if.end41
-  %acpi = getelementptr inbounds i8, ptr %obj, i64 56
+  %acpi = getelementptr inbounds nuw i8, ptr %obj, i64 56
   %call49 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.19, ptr noundef nonnull %acpi, ptr noundef %errp) #5
   br label %return
 
@@ -771,7 +771,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_MachineInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1079,7 +1079,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %present = getelementptr inbounds i8, ptr %obj, i64 1
+  %present = getelementptr inbounds nuw i8, ptr %obj, i64 1
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %present, ptr noundef %errp) #5
   br label %return
 
@@ -1116,7 +1116,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_KvmInfo_members.exit, label %out_obj.thread
 
 visit_type_KvmInfo_members.exit:                  ; preds = %if.end5
-  %present.i = getelementptr inbounds i8, ptr %0, i64 1
+  %present.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %call1.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.25, ptr noundef nonnull %present.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -1195,37 +1195,37 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds i8, ptr %obj, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_NumaNodeOptions_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u3 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.32, ptr noundef nonnull %u3, ptr noundef %errp) #5
   br i1 %call.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %sw.bb2
-  %dst.i = getelementptr inbounds i8, ptr %obj, i64 10
+  %dst.i = getelementptr inbounds nuw i8, ptr %obj, i64 10
   %call1.i = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %dst.i, ptr noundef %errp) #5
   br i1 %call1.i, label %if.end3.i, label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %val.i = getelementptr inbounds i8, ptr %obj, i64 12
+  %val.i = getelementptr inbounds nuw i8, ptr %obj, i64 12
   %call4.i = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %val.i, ptr noundef %errp) #5
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u6 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i17 = call noundef zeroext i1 @visit_type_CpuInstanceProperties_members(ptr noundef %v, ptr noundef nonnull %u6, ptr noundef %errp)
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u9 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call10 = call zeroext i1 @visit_type_NumaHmatLBOptions_members(ptr noundef %v, ptr noundef nonnull %u9, ptr noundef %errp)
   br label %return
 
 sw.bb11:                                          ; preds = %if.end
-  %u12 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u12 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call13 = call zeroext i1 @visit_type_NumaHmatCacheOptions_members(ptr noundef %v, ptr noundef nonnull %u12, ptr noundef %errp)
   br label %return
 
@@ -1242,7 +1242,7 @@ return:                                           ; preds = %if.end3.i, %if.end.
 define dso_local noundef zeroext i1 @visit_type_NumaNodeOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_memdev = alloca i8, align 1
-  %memdev = getelementptr inbounds i8, ptr %obj, i64 32
+  %memdev = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %0 = load ptr, ptr %memdev, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -1251,27 +1251,27 @@ entry:
   br i1 %call, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %entry
-  %nodeid = getelementptr inbounds i8, ptr %obj, i64 2
+  %nodeid = getelementptr inbounds nuw i8, ptr %obj, i64 2
   %call2 = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.27, ptr noundef nonnull %nodeid, ptr noundef %errp) #5
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.then, %entry
-  %has_cpus = getelementptr inbounds i8, ptr %obj, i64 4
+  %has_cpus = getelementptr inbounds nuw i8, ptr %obj, i64 4
   %call5 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %has_cpus) #5
   br i1 %call5, label %if.then6, label %if.end10
 
 if.then6:                                         ; preds = %if.end4
-  %cpus = getelementptr inbounds i8, ptr %obj, i64 8
+  %cpus = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call7 = tail call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %cpus, ptr noundef %errp) #5
   br i1 %call7, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.then6, %if.end4
-  %has_mem = getelementptr inbounds i8, ptr %obj, i64 16
+  %has_mem = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call11 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %has_mem) #5
   br i1 %call11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end10
-  %mem = getelementptr inbounds i8, ptr %obj, i64 24
+  %mem = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call13 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %mem, ptr noundef %errp) #5
   br i1 %call13, label %if.end16, label %return
 
@@ -1284,12 +1284,12 @@ if.then18:                                        ; preds = %if.end16
   br i1 %call20, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.then18, %if.end16
-  %has_initiator = getelementptr inbounds i8, ptr %obj, i64 40
+  %has_initiator = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %call24 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %has_initiator) #5
   br i1 %call24, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %if.end23
-  %initiator = getelementptr inbounds i8, ptr %obj, i64 42
+  %initiator = getelementptr inbounds nuw i8, ptr %obj, i64 42
   %call26 = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.31, ptr noundef nonnull %initiator, ptr noundef %errp) #5
   br i1 %call26, label %if.end29, label %return
 
@@ -1308,12 +1308,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %dst = getelementptr inbounds i8, ptr %obj, i64 2
+  %dst = getelementptr inbounds nuw i8, ptr %obj, i64 2
   %call1 = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %dst, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %val = getelementptr inbounds i8, ptr %obj, i64 4
+  %val = getelementptr inbounds nuw i8, ptr %obj, i64 4
   %call4 = tail call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %val, ptr noundef %errp) #5
   br label %return
 
@@ -1338,12 +1338,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %target = getelementptr inbounds i8, ptr %obj, i64 2
+  %target = getelementptr inbounds nuw i8, ptr %obj, i64 2
   %call1 = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.9, ptr noundef nonnull %target, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %hierarchy = getelementptr inbounds i8, ptr %obj, i64 4
+  %hierarchy = getelementptr inbounds nuw i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %hierarchy, align 4
   store i32 %0, ptr %value.i, align 4
@@ -1354,7 +1354,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %call.i, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %data_type = getelementptr inbounds i8, ptr %obj, i64 8
+  %data_type = getelementptr inbounds nuw i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i20)
   %2 = load i32, ptr %data_type, align 4
   store i32 %2, ptr %value.i20, align 4
@@ -1365,22 +1365,22 @@ if.end6:                                          ; preds = %if.end3
   br i1 %call.i21, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %has_latency = getelementptr inbounds i8, ptr %obj, i64 12
+  %has_latency = getelementptr inbounds nuw i8, ptr %obj, i64 12
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %has_latency) #5
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %latency = getelementptr inbounds i8, ptr %obj, i64 16
+  %latency = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call12 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %latency, ptr noundef %errp) #5
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_bandwidth = getelementptr inbounds i8, ptr %obj, i64 24
+  %has_bandwidth = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call16 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.47, ptr noundef nonnull %has_bandwidth) #5
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %bandwidth = getelementptr inbounds i8, ptr %obj, i64 32
+  %bandwidth = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call18 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.47, ptr noundef nonnull %bandwidth, ptr noundef %errp) #5
   br i1 %call18, label %if.end21, label %return
 
@@ -1401,17 +1401,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds i8, ptr %obj, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %size, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %level = getelementptr inbounds i8, ptr %obj, i64 16
+  %level = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.49, ptr noundef nonnull %level, ptr noundef %errp) #5
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %associativity = getelementptr inbounds i8, ptr %obj, i64 20
+  %associativity = getelementptr inbounds nuw i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %associativity, align 4
   store i32 %0, ptr %value.i, align 4
@@ -1422,7 +1422,7 @@ if.end6:                                          ; preds = %if.end3
   br i1 %call.i, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %policy = getelementptr inbounds i8, ptr %obj, i64 24
+  %policy = getelementptr inbounds nuw i8, ptr %obj, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i16)
   %2 = load i32, ptr %policy, align 4
   store i32 %2, ptr %value.i16, align 4
@@ -1433,7 +1433,7 @@ if.end9:                                          ; preds = %if.end6
   br i1 %call.i17, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end9
-  %line = getelementptr inbounds i8, ptr %obj, i64 28
+  %line = getelementptr inbounds nuw i8, ptr %obj, i64 28
   %call13 = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.52, ptr noundef nonnull %line, ptr noundef %errp) #5
   br label %return
 
@@ -1584,12 +1584,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %dst.i = getelementptr inbounds i8, ptr %0, i64 2
+  %dst.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %call1.i = tail call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.33, ptr noundef nonnull %dst.i, ptr noundef %errp) #5
   br i1 %call1.i, label %visit_type_NumaDistOptions_members.exit, label %out_obj.thread
 
 visit_type_NumaDistOptions_members.exit:          ; preds = %if.end.i
-  %val.i = getelementptr inbounds i8, ptr %0, i64 4
+  %val.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %call4.i = tail call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.34, ptr noundef nonnull %val.i, ptr noundef %errp) #5
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -1626,17 +1626,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_interleave_granularity = getelementptr inbounds i8, ptr %obj, i64 8
+  %has_interleave_granularity = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %has_interleave_granularity) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %interleave_granularity = getelementptr inbounds i8, ptr %obj, i64 16
+  %interleave_granularity = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %interleave_granularity, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %targets = getelementptr inbounds i8, ptr %obj, i64 24
+  %targets = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %targets, ptr noundef %errp) #5
   br label %return
 
@@ -1675,17 +1675,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %has_interleave_granularity.i = getelementptr inbounds i8, ptr %0, i64 8
+  %has_interleave_granularity.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %has_interleave_granularity.i) #5
   br i1 %call1.i, label %if.then2.i, label %visit_type_CXLFixedMemoryWindowOptions_members.exit
 
 if.then2.i:                                       ; preds = %if.end.i
-  %interleave_granularity.i = getelementptr inbounds i8, ptr %0, i64 16
+  %interleave_granularity.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call3.i = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.36, ptr noundef nonnull %interleave_granularity.i, ptr noundef %errp) #5
   br i1 %call3.i, label %visit_type_CXLFixedMemoryWindowOptions_members.exit, label %out_obj.thread
 
 visit_type_CXLFixedMemoryWindowOptions_members.exit: ; preds = %if.end.i, %if.then2.i
-  %targets.i = getelementptr inbounds i8, ptr %0, i64 24
+  %targets.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %call7.i = tail call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.37, ptr noundef nonnull %targets.i, ptr noundef %errp) #5
   br i1 %call7.i, label %out_obj, label %out_obj.thread
 
@@ -1728,7 +1728,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_CXLFixedMemoryWindowOptions(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1843,17 +1843,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_cpuid_input_ecx = getelementptr inbounds i8, ptr %obj, i64 8
+  %has_cpuid_input_ecx = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.40, ptr noundef nonnull %has_cpuid_input_ecx) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %cpuid_input_ecx = getelementptr inbounds i8, ptr %obj, i64 16
+  %cpuid_input_ecx = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.40, ptr noundef nonnull %cpuid_input_ecx, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %cpuid_register = getelementptr inbounds i8, ptr %obj, i64 24
+  %cpuid_register = getelementptr inbounds nuw i8, ptr %obj, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %cpuid_register, align 4
   store i32 %0, ptr %value.i, align 4
@@ -1864,7 +1864,7 @@ if.end6:                                          ; preds = %if.then2, %if.end
   br i1 %call.i, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %features = getelementptr inbounds i8, ptr %obj, i64 32
+  %features = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call10 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.42, ptr noundef nonnull %features, ptr noundef %errp) #5
   br label %return
 
@@ -1939,7 +1939,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_X86CPUFeatureWordInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -2041,77 +2041,77 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %node_id = getelementptr inbounds i8, ptr %obj, i64 8
+  %node_id = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.48, ptr noundef nonnull %node_id, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_drawer_id = getelementptr inbounds i8, ptr %obj, i64 16
+  %has_drawer_id = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %has_drawer_id) #5
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %drawer_id = getelementptr inbounds i8, ptr %obj, i64 24
+  %drawer_id = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call6 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %drawer_id, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_book_id = getelementptr inbounds i8, ptr %obj, i64 32
+  %has_book_id = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %has_book_id) #5
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %book_id = getelementptr inbounds i8, ptr %obj, i64 40
+  %book_id = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %call12 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %book_id, ptr noundef %errp) #5
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_socket_id = getelementptr inbounds i8, ptr %obj, i64 48
+  %has_socket_id = getelementptr inbounds nuw i8, ptr %obj, i64 48
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %has_socket_id) #5
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %socket_id = getelementptr inbounds i8, ptr %obj, i64 56
+  %socket_id = getelementptr inbounds nuw i8, ptr %obj, i64 56
   %call18 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %socket_id, ptr noundef %errp) #5
   br i1 %call18, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then17, %if.end15
-  %has_die_id = getelementptr inbounds i8, ptr %obj, i64 64
+  %has_die_id = getelementptr inbounds nuw i8, ptr %obj, i64 64
   %call22 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.64, ptr noundef nonnull %has_die_id) #5
   br i1 %call22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end21
-  %die_id = getelementptr inbounds i8, ptr %obj, i64 72
+  %die_id = getelementptr inbounds nuw i8, ptr %obj, i64 72
   %call24 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.64, ptr noundef nonnull %die_id, ptr noundef %errp) #5
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then23, %if.end21
-  %has_cluster_id = getelementptr inbounds i8, ptr %obj, i64 80
+  %has_cluster_id = getelementptr inbounds nuw i8, ptr %obj, i64 80
   %call28 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.65, ptr noundef nonnull %has_cluster_id) #5
   br i1 %call28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %if.end27
-  %cluster_id = getelementptr inbounds i8, ptr %obj, i64 88
+  %cluster_id = getelementptr inbounds nuw i8, ptr %obj, i64 88
   %call30 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.65, ptr noundef nonnull %cluster_id, ptr noundef %errp) #5
   br i1 %call30, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.then29, %if.end27
-  %has_core_id = getelementptr inbounds i8, ptr %obj, i64 96
+  %has_core_id = getelementptr inbounds nuw i8, ptr %obj, i64 96
   %call34 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.66, ptr noundef nonnull %has_core_id) #5
   br i1 %call34, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %if.end33
-  %core_id = getelementptr inbounds i8, ptr %obj, i64 104
+  %core_id = getelementptr inbounds nuw i8, ptr %obj, i64 104
   %call36 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.66, ptr noundef nonnull %core_id, ptr noundef %errp) #5
   br i1 %call36, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.then35, %if.end33
-  %has_thread_id = getelementptr inbounds i8, ptr %obj, i64 112
+  %has_thread_id = getelementptr inbounds nuw i8, ptr %obj, i64 112
   %call40 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_thread_id) #5
   br i1 %call40, label %if.then41, label %if.end45
 
 if.then41:                                        ; preds = %if.end39
-  %thread_id = getelementptr inbounds i8, ptr %obj, i64 120
+  %thread_id = getelementptr inbounds nuw i8, ptr %obj, i64 120
   %call42 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %thread_id, ptr noundef %errp) #5
   br i1 %call42, label %if.end45, label %return
 
@@ -2341,22 +2341,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds i8, ptr %obj, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %size, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %filename = getelementptr inbounds i8, ptr %obj, i64 16
+  %filename = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.53, ptr noundef nonnull %filename, ptr noundef %errp) #5
   br i1 %call4, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %has_cpu_index = getelementptr inbounds i8, ptr %obj, i64 24
+  %has_cpu_index = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_cpu_index) #5
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %cpu_index = getelementptr inbounds i8, ptr %obj, i64 32
+  %cpu_index = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call9 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %cpu_index, ptr noundef %errp) #5
   br i1 %call9, label %if.end12, label %return
 
@@ -2375,12 +2375,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds i8, ptr %obj, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %size, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %filename = getelementptr inbounds i8, ptr %obj, i64 16
+  %filename = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.53, ptr noundef nonnull %filename, ptr noundef %errp) #5
   br label %return
 
@@ -2405,47 +2405,47 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %size = getelementptr inbounds i8, ptr %obj, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %size, ptr noundef %errp) #5
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end5
-  %merge = getelementptr inbounds i8, ptr %obj, i64 16
+  %merge = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.55, ptr noundef nonnull %merge, ptr noundef %errp) #5
   br i1 %call9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %dump = getelementptr inbounds i8, ptr %obj, i64 17
+  %dump = getelementptr inbounds nuw i8, ptr %obj, i64 17
   %call12 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.56, ptr noundef nonnull %dump, ptr noundef %errp) #5
   br i1 %call12, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end11
-  %prealloc = getelementptr inbounds i8, ptr %obj, i64 18
+  %prealloc = getelementptr inbounds nuw i8, ptr %obj, i64 18
   %call15 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %prealloc, ptr noundef %errp) #5
   br i1 %call15, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end14
-  %share = getelementptr inbounds i8, ptr %obj, i64 19
+  %share = getelementptr inbounds nuw i8, ptr %obj, i64 19
   %call18 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %share, ptr noundef %errp) #5
   br i1 %call18, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end17
-  %has_reserve = getelementptr inbounds i8, ptr %obj, i64 20
+  %has_reserve = getelementptr inbounds nuw i8, ptr %obj, i64 20
   %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %has_reserve) #5
   br i1 %call21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end20
-  %reserve = getelementptr inbounds i8, ptr %obj, i64 21
+  %reserve = getelementptr inbounds nuw i8, ptr %obj, i64 21
   %call23 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %reserve, ptr noundef %errp) #5
   br i1 %call23, label %if.end26, label %return
 
 if.end26:                                         ; preds = %if.then22, %if.end20
-  %host_nodes = getelementptr inbounds i8, ptr %obj, i64 24
+  %host_nodes = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call27 = call zeroext i1 @visit_type_uint16List(ptr noundef %v, ptr noundef nonnull @.str.60, ptr noundef nonnull %host_nodes, ptr noundef %errp) #5
   br i1 %call27, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end26
-  %policy = getelementptr inbounds i8, ptr %obj, i64 32
+  %policy = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call30 = call zeroext i1 @visit_type_HostMemPolicy(ptr noundef %v, ptr noundef nonnull @.str.51, ptr noundef nonnull %policy, ptr noundef %errp) #5
   br label %return
 
@@ -2522,7 +2522,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_Memdev(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -2563,7 +2563,7 @@ declare void @qapi_free_CpuInstanceProperties(ptr noundef) local_unnamed_addr #1
 define dso_local noundef zeroext i1 @visit_type_HotpluggableCPU_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_qom_path = alloca i8, align 1
-  %qom_path = getelementptr inbounds i8, ptr %obj, i64 24
+  %qom_path = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %0 = load ptr, ptr %qom_path, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -2572,12 +2572,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %vcpus_count = getelementptr inbounds i8, ptr %obj, i64 8
+  %vcpus_count = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.67, ptr noundef nonnull %vcpus_count, ptr noundef %errp) #5
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %props = getelementptr inbounds i8, ptr %obj, i64 16
+  %props = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call5 = tail call zeroext i1 @visit_type_CpuInstanceProperties(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %props, ptr noundef %errp)
   br i1 %call5, label %if.end7, label %return
 
@@ -2663,7 +2663,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_HotpluggableCPU(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -2779,7 +2779,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %available = getelementptr inbounds i8, ptr %obj, i64 8
+  %available = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.71, ptr noundef nonnull %available, ptr noundef %errp) #5
   br label %return
 
@@ -2816,7 +2816,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_HvBalloonInfo_members.exit, label %out_obj.thread
 
 visit_type_HvBalloonInfo_members.exit:            ; preds = %if.end5
-  %available.i = getelementptr inbounds i8, ptr %0, i64 8
+  %available.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.71, ptr noundef nonnull %available.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -2853,12 +2853,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_plugged_memory = getelementptr inbounds i8, ptr %obj, i64 8
+  %has_plugged_memory = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %has_plugged_memory) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %plugged_memory = getelementptr inbounds i8, ptr %obj, i64 16
+  %plugged_memory = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %plugged_memory, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
@@ -2898,12 +2898,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_plugged_memory.i = getelementptr inbounds i8, ptr %0, i64 8
+  %has_plugged_memory.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %has_plugged_memory.i) #5
   br i1 %call1.i, label %if.then2.i, label %out_obj
 
 if.then2.i:                                       ; preds = %if.end.i
-  %plugged_memory.i = getelementptr inbounds i8, ptr %0, i64 16
+  %plugged_memory.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call3.i = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %plugged_memory.i, ptr noundef %errp) #5
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
@@ -2949,37 +2949,37 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %addr = getelementptr inbounds i8, ptr %obj, i64 8
+  %addr = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %addr, ptr noundef %errp) #5
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end5
-  %size = getelementptr inbounds i8, ptr %obj, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %size, ptr noundef %errp) #5
   br i1 %call9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %slot = getelementptr inbounds i8, ptr %obj, i64 24
+  %slot = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call12 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.75, ptr noundef nonnull %slot, ptr noundef %errp) #5
   br i1 %call12, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end11
-  %node = getelementptr inbounds i8, ptr %obj, i64 32
+  %node = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call15 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef nonnull %node, ptr noundef %errp) #5
   br i1 %call15, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end14
-  %memdev = getelementptr inbounds i8, ptr %obj, i64 40
+  %memdev = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %call18 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %memdev, ptr noundef %errp) #5
   br i1 %call18, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end17
-  %hotplugged = getelementptr inbounds i8, ptr %obj, i64 48
+  %hotplugged = getelementptr inbounds nuw i8, ptr %obj, i64 48
   %call21 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.77, ptr noundef nonnull %hotplugged, ptr noundef %errp) #5
   br i1 %call21, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.end20
-  %hotpluggable = getelementptr inbounds i8, ptr %obj, i64 49
+  %hotpluggable = getelementptr inbounds nuw i8, ptr %obj, i64 49
   %call24 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.78, ptr noundef nonnull %hotpluggable, ptr noundef %errp) #5
   br label %return
 
@@ -3057,17 +3057,17 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %memaddr = getelementptr inbounds i8, ptr %obj, i64 8
+  %memaddr = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %memaddr, ptr noundef %errp) #5
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end5
-  %size = getelementptr inbounds i8, ptr %obj, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %size, ptr noundef %errp) #5
   br i1 %call9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %memdev = getelementptr inbounds i8, ptr %obj, i64 24
+  %memdev = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call12 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %memdev, ptr noundef %errp) #5
   br label %return
 
@@ -3114,12 +3114,12 @@ if.then.i:                                        ; preds = %if.end5
   br i1 %call3.i, label %if.end5.i, label %visit_type_VirtioPMEMDeviceInfo_members.exit.thread
 
 if.end5.i:                                        ; preds = %if.then.i, %if.end5
-  %memaddr.i = getelementptr inbounds i8, ptr %0, i64 8
+  %memaddr.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call6.i = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %memaddr.i, ptr noundef %errp) #5
   br i1 %call6.i, label %if.end8.i, label %visit_type_VirtioPMEMDeviceInfo_members.exit.thread
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %size.i = getelementptr inbounds i8, ptr %0, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call9.i = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %size.i, ptr noundef %errp) #5
   br i1 %call9.i, label %visit_type_VirtioPMEMDeviceInfo_members.exit, label %visit_type_VirtioPMEMDeviceInfo_members.exit.thread
 
@@ -3128,7 +3128,7 @@ visit_type_VirtioPMEMDeviceInfo_members.exit.thread: ; preds = %if.then.i, %if.e
   br label %out_obj.thread
 
 visit_type_VirtioPMEMDeviceInfo_members.exit:     ; preds = %if.end8.i
-  %memdev.i = getelementptr inbounds i8, ptr %0, i64 24
+  %memdev.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %call12.i = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %memdev.i, ptr noundef %errp) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_id.i)
   br i1 %call12.i, label %out_obj, label %out_obj.thread
@@ -3175,37 +3175,37 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %memaddr = getelementptr inbounds i8, ptr %obj, i64 8
+  %memaddr = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %memaddr, ptr noundef %errp) #5
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end5
-  %requested_size = getelementptr inbounds i8, ptr %obj, i64 16
+  %requested_size = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.80, ptr noundef nonnull %requested_size, ptr noundef %errp) #5
   br i1 %call9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %size = getelementptr inbounds i8, ptr %obj, i64 24
+  %size = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call12 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %size, ptr noundef %errp) #5
   br i1 %call12, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end11
-  %max_size = getelementptr inbounds i8, ptr %obj, i64 32
+  %max_size = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call15 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %max_size, ptr noundef %errp) #5
   br i1 %call15, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end14
-  %block_size = getelementptr inbounds i8, ptr %obj, i64 40
+  %block_size = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %call18 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %block_size, ptr noundef %errp) #5
   br i1 %call18, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end17
-  %node = getelementptr inbounds i8, ptr %obj, i64 48
+  %node = getelementptr inbounds nuw i8, ptr %obj, i64 48
   %call21 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef nonnull %node, ptr noundef %errp) #5
   br i1 %call21, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.end20
-  %memdev = getelementptr inbounds i8, ptr %obj, i64 56
+  %memdev = getelementptr inbounds nuw i8, ptr %obj, i64 56
   %call24 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %memdev, ptr noundef %errp) #5
   br label %return
 
@@ -3283,22 +3283,22 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %memaddr = getelementptr inbounds i8, ptr %obj, i64 8
+  %memaddr = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %memaddr, ptr noundef %errp) #5
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end5
-  %size = getelementptr inbounds i8, ptr %obj, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %size, ptr noundef %errp) #5
   br i1 %call9, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %node = getelementptr inbounds i8, ptr %obj, i64 24
+  %node = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call12 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef nonnull %node, ptr noundef %errp) #5
   br i1 %call12, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end11
-  %memdev = getelementptr inbounds i8, ptr %obj, i64 32
+  %memdev = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call15 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %memdev, ptr noundef %errp) #5
   br label %return
 
@@ -3369,7 +3369,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_id, align 1
-  %memdev = getelementptr inbounds i8, ptr %obj, i64 32
+  %memdev = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %1 = load ptr, ptr %memdev, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -3382,17 +3382,17 @@ if.then:                                          ; preds = %entry
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then, %entry
-  %has_memaddr = getelementptr inbounds i8, ptr %obj, i64 8
+  %has_memaddr = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %has_memaddr) #5
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %memaddr = getelementptr inbounds i8, ptr %obj, i64 16
+  %memaddr = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call12 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.79, ptr noundef nonnull %memaddr, ptr noundef %errp) #5
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %max_size = getelementptr inbounds i8, ptr %obj, i64 24
+  %max_size = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call16 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %max_size, ptr noundef %errp) #5
   br i1 %call16, label %if.end18, label %return
 
@@ -3815,32 +3815,32 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds i8, ptr %obj, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i = call noundef zeroext i1 @visit_type_PCDIMMDeviceInfo(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u3 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i20 = call noundef zeroext i1 @visit_type_PCDIMMDeviceInfo(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u6 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i21 = call noundef zeroext i1 @visit_type_VirtioPMEMDeviceInfo(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %u6, ptr noundef %errp)
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u9 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i22 = call noundef zeroext i1 @visit_type_VirtioMEMDeviceInfo(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %u9, ptr noundef %errp)
   br label %return
 
 sw.bb11:                                          ; preds = %if.end
-  %u12 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u12 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i23 = call noundef zeroext i1 @visit_type_SgxEPCDeviceInfo(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %u12, ptr noundef %errp)
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
-  %u15 = getelementptr inbounds i8, ptr %obj, i64 8
+  %u15 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call.i24 = call noundef zeroext i1 @visit_type_HvBalloonDeviceInfo(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %u15, ptr noundef %errp)
   br label %return
 
@@ -3913,7 +3913,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %node = getelementptr inbounds i8, ptr %obj, i64 8
+  %node = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef nonnull %node, ptr noundef %errp) #5
   br label %return
 
@@ -3950,7 +3950,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_SgxEPC_members.exit, label %out_obj.thread
 
 visit_type_SgxEPC_members.exit:                   ; preds = %if.end5
-  %node.i = getelementptr inbounds i8, ptr %0, i64 8
+  %node.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.76, ptr noundef nonnull %node.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -3993,7 +3993,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_SgxEPC(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -4101,7 +4101,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_MemoryDeviceInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -4152,12 +4152,12 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %size = getelementptr inbounds i8, ptr %obj, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %size, ptr noundef %errp) #5
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end5
-  %qom_path = getelementptr inbounds i8, ptr %obj, i64 16
+  %qom_path = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %qom_path, ptr noundef %errp) #5
   br label %return
 
@@ -4173,7 +4173,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %msg = getelementptr inbounds i8, ptr %obj, i64 8
+  %msg = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %msg, ptr noundef %errp) #5
   br label %return
 
@@ -4192,12 +4192,12 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_order, align 1
-  %once = getelementptr inbounds i8, ptr %obj, i64 8
+  %once = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %1 = load ptr, ptr %once, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_once, align 1
-  %splash = getelementptr inbounds i8, ptr %obj, i64 24
+  %splash = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %2 = load ptr, ptr %splash, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
@@ -4218,12 +4218,12 @@ if.then15:                                        ; preds = %if.end13
   br i1 %call17, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.then15, %if.end13
-  %has_menu = getelementptr inbounds i8, ptr %obj, i64 16
+  %has_menu = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call21 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %has_menu) #5
   br i1 %call21, label %if.then22, label %if.end26
 
 if.then22:                                        ; preds = %if.end20
-  %menu = getelementptr inbounds i8, ptr %obj, i64 17
+  %menu = getelementptr inbounds nuw i8, ptr %obj, i64 17
   %call23 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %menu, ptr noundef %errp) #5
   br i1 %call23, label %if.end26, label %return
 
@@ -4236,32 +4236,32 @@ if.then28:                                        ; preds = %if.end26
   br i1 %call30, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.then28, %if.end26
-  %has_splash_time = getelementptr inbounds i8, ptr %obj, i64 32
+  %has_splash_time = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call34 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.91, ptr noundef nonnull %has_splash_time) #5
   br i1 %call34, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %if.end33
-  %splash_time = getelementptr inbounds i8, ptr %obj, i64 40
+  %splash_time = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %call36 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.91, ptr noundef nonnull %splash_time, ptr noundef %errp) #5
   br i1 %call36, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.then35, %if.end33
-  %has_reboot_timeout = getelementptr inbounds i8, ptr %obj, i64 48
+  %has_reboot_timeout = getelementptr inbounds nuw i8, ptr %obj, i64 48
   %call40 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.92, ptr noundef nonnull %has_reboot_timeout) #5
   br i1 %call40, label %if.then41, label %if.end45
 
 if.then41:                                        ; preds = %if.end39
-  %reboot_timeout = getelementptr inbounds i8, ptr %obj, i64 56
+  %reboot_timeout = getelementptr inbounds nuw i8, ptr %obj, i64 56
   %call42 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.92, ptr noundef nonnull %reboot_timeout, ptr noundef %errp) #5
   br i1 %call42, label %if.end45, label %return
 
 if.end45:                                         ; preds = %if.then41, %if.end39
-  %has_strict = getelementptr inbounds i8, ptr %obj, i64 64
+  %has_strict = getelementptr inbounds nuw i8, ptr %obj, i64 64
   %call46 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.93, ptr noundef nonnull %has_strict) #5
   br i1 %call46, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %if.end45
-  %strict = getelementptr inbounds i8, ptr %obj, i64 65
+  %strict = getelementptr inbounds nuw i8, ptr %obj, i64 65
   %call48 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.93, ptr noundef nonnull %strict, ptr noundef %errp) #5
   br i1 %call48, label %if.end51, label %return
 
@@ -4333,87 +4333,87 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %cpus = getelementptr inbounds i8, ptr %obj, i64 8
+  %cpus = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.28, ptr noundef nonnull %cpus, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_drawers = getelementptr inbounds i8, ptr %obj, i64 16
+  %has_drawers = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.94, ptr noundef nonnull %has_drawers) #5
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %drawers = getelementptr inbounds i8, ptr %obj, i64 24
+  %drawers = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call6 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.94, ptr noundef nonnull %drawers, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_books = getelementptr inbounds i8, ptr %obj, i64 32
+  %has_books = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.95, ptr noundef nonnull %has_books) #5
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %books = getelementptr inbounds i8, ptr %obj, i64 40
+  %books = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %call12 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.95, ptr noundef nonnull %books, ptr noundef %errp) #5
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_sockets = getelementptr inbounds i8, ptr %obj, i64 48
+  %has_sockets = getelementptr inbounds nuw i8, ptr %obj, i64 48
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.96, ptr noundef nonnull %has_sockets) #5
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %sockets = getelementptr inbounds i8, ptr %obj, i64 56
+  %sockets = getelementptr inbounds nuw i8, ptr %obj, i64 56
   %call18 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.96, ptr noundef nonnull %sockets, ptr noundef %errp) #5
   br i1 %call18, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then17, %if.end15
-  %has_dies = getelementptr inbounds i8, ptr %obj, i64 64
+  %has_dies = getelementptr inbounds nuw i8, ptr %obj, i64 64
   %call22 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.97, ptr noundef nonnull %has_dies) #5
   br i1 %call22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end21
-  %dies = getelementptr inbounds i8, ptr %obj, i64 72
+  %dies = getelementptr inbounds nuw i8, ptr %obj, i64 72
   %call24 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.97, ptr noundef nonnull %dies, ptr noundef %errp) #5
   br i1 %call24, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.then23, %if.end21
-  %has_clusters = getelementptr inbounds i8, ptr %obj, i64 80
+  %has_clusters = getelementptr inbounds nuw i8, ptr %obj, i64 80
   %call28 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.98, ptr noundef nonnull %has_clusters) #5
   br i1 %call28, label %if.then29, label %if.end33
 
 if.then29:                                        ; preds = %if.end27
-  %clusters = getelementptr inbounds i8, ptr %obj, i64 88
+  %clusters = getelementptr inbounds nuw i8, ptr %obj, i64 88
   %call30 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.98, ptr noundef nonnull %clusters, ptr noundef %errp) #5
   br i1 %call30, label %if.end33, label %return
 
 if.end33:                                         ; preds = %if.then29, %if.end27
-  %has_cores = getelementptr inbounds i8, ptr %obj, i64 96
+  %has_cores = getelementptr inbounds nuw i8, ptr %obj, i64 96
   %call34 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.99, ptr noundef nonnull %has_cores) #5
   br i1 %call34, label %if.then35, label %if.end39
 
 if.then35:                                        ; preds = %if.end33
-  %cores = getelementptr inbounds i8, ptr %obj, i64 104
+  %cores = getelementptr inbounds nuw i8, ptr %obj, i64 104
   %call36 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.99, ptr noundef nonnull %cores, ptr noundef %errp) #5
   br i1 %call36, label %if.end39, label %return
 
 if.end39:                                         ; preds = %if.then35, %if.end33
-  %has_threads = getelementptr inbounds i8, ptr %obj, i64 112
+  %has_threads = getelementptr inbounds nuw i8, ptr %obj, i64 112
   %call40 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.100, ptr noundef nonnull %has_threads) #5
   br i1 %call40, label %if.then41, label %if.end45
 
 if.then41:                                        ; preds = %if.end39
-  %threads = getelementptr inbounds i8, ptr %obj, i64 120
+  %threads = getelementptr inbounds nuw i8, ptr %obj, i64 120
   %call42 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.100, ptr noundef nonnull %threads, ptr noundef %errp) #5
   br i1 %call42, label %if.end45, label %return
 
 if.end45:                                         ; preds = %if.then41, %if.end39
-  %has_maxcpus = getelementptr inbounds i8, ptr %obj, i64 128
+  %has_maxcpus = getelementptr inbounds nuw i8, ptr %obj, i64 128
   %call46 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.101, ptr noundef nonnull %has_maxcpus) #5
   br i1 %call46, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %if.end45
-  %maxcpus = getelementptr inbounds i8, ptr %obj, i64 136
+  %maxcpus = getelementptr inbounds nuw i8, ptr %obj, i64 136
   %call48 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.101, ptr noundef nonnull %maxcpus, ptr noundef %errp) #5
   br i1 %call48, label %if.end51, label %return
 
@@ -4497,27 +4497,27 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %size = getelementptr inbounds i8, ptr %obj, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.35, ptr noundef nonnull %size, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %has_max_size = getelementptr inbounds i8, ptr %obj, i64 16
+  %has_max_size = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %has_max_size) #5
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %max_size = getelementptr inbounds i8, ptr %obj, i64 24
+  %max_size = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call6 = tail call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.81, ptr noundef nonnull %max_size, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_slots = getelementptr inbounds i8, ptr %obj, i64 32
+  %has_slots = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.102, ptr noundef nonnull %has_slots) #5
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %slots = getelementptr inbounds i8, ptr %obj, i64 40
+  %slots = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %call12 = tail call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.102, ptr noundef nonnull %slots, ptr noundef %errp) #5
   br i1 %call12, label %if.end15, label %return
 

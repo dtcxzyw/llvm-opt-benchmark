@@ -411,7 +411,7 @@ define internal i32 @dissect_juniper_atm1(ptr noundef %0, ptr noundef %1, ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_juniper_pppoe(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.222) #2
   %8 = load ptr, ptr %6, align 8
@@ -429,13 +429,13 @@ define internal i32 @dissect_juniper_pppoe(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %18, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 2
   store i32 %22, ptr %20, align 4
@@ -465,7 +465,7 @@ dissect_juniper_payload_proto.exit:               ; preds = %proto_item_set_gene
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_juniper_mlppp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.224) #2
   %8 = load ptr, ptr %6, align 8
@@ -598,13 +598,13 @@ ppp_heuristic_guess.exit71:                       ; preds = %juniper_svc_cookie_
   br i1 %.not.i, label %proto_item_set_generated.exit, label %49
 
 49:                                               ; preds = %ppp_heuristic_guess.exit71
-  %50 = getelementptr inbounds i8, ptr %48, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %51 = load ptr, ptr %50, align 8
   %.not5.i = icmp eq ptr %51, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %51, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 28
   %54 = load i32, ptr %53, align 4
   %55 = or i32 %54, 2
   store i32 %55, ptr %53, align 4
@@ -624,7 +624,7 @@ proto_item_set_generated.exit:                    ; preds = %ppp_heuristic_guess
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_juniper_mlfr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.225) #2
   %8 = load ptr, ptr %6, align 8
@@ -782,13 +782,13 @@ juniper_svc_cookie_proto.exit.thread:             ; preds = %13, %juniper_svc_co
   br i1 %.not.i, label %proto_item_set_generated.exit, label %75
 
 75:                                               ; preds = %.thread127
-  %76 = getelementptr inbounds i8, ptr %74, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %77 = load ptr, ptr %76, align 8
   %.not5.i = icmp eq ptr %77, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %77, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 28
   %80 = load i32, ptr %79, align 4
   %81 = or i32 %80, 2
   store i32 %81, ptr %79, align 4
@@ -807,7 +807,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread127, %75, %7
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_juniper_ether(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.227) #2
   %8 = load ptr, ptr %6, align 8
@@ -825,13 +825,13 @@ define internal i32 @dissect_juniper_ether(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %18, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 2
   store i32 %22, ptr %20, align 4
@@ -861,7 +861,7 @@ dissect_juniper_payload_proto.exit:               ; preds = %proto_item_set_gene
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_juniper_ppp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.228) #2
   %8 = load ptr, ptr %6, align 8
@@ -880,13 +880,13 @@ define internal i32 @dissect_juniper_ppp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not5.i.i = icmp eq ptr %19, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = or i32 %22, 2
   store i32 %23, ptr %21, align 4
@@ -916,7 +916,7 @@ dissect_juniper_payload_proto.exit:               ; preds = %proto_item_set_gene
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_juniper_frelay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.229) #2
   %8 = load ptr, ptr %6, align 8
@@ -934,13 +934,13 @@ define internal i32 @dissect_juniper_frelay(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %18, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 2
   store i32 %22, ptr %20, align 4
@@ -970,7 +970,7 @@ dissect_juniper_payload_proto.exit:               ; preds = %proto_item_set_gene
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_juniper_chdlc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.230) #2
   %8 = load ptr, ptr %6, align 8
@@ -988,13 +988,13 @@ define internal i32 @dissect_juniper_chdlc(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %18, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 2
   store i32 %22, ptr %20, align 4
@@ -1024,7 +1024,7 @@ dissect_juniper_payload_proto.exit:               ; preds = %proto_item_set_gene
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_juniper_ggsn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.231) #2
   %8 = load ptr, ptr %6, align 8
@@ -1056,7 +1056,7 @@ define internal i32 @dissect_juniper_ggsn(ptr noundef %0, ptr noundef %1, ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_juniper_vp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.232) #2
   %8 = load ptr, ptr %6, align 8
@@ -1075,13 +1075,13 @@ define internal i32 @dissect_juniper_vp(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %16, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not5.i.i = icmp eq ptr %19, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = or i32 %22, 2
   store i32 %23, ptr %21, align 4
@@ -1111,7 +1111,7 @@ dissect_juniper_payload_proto.exit:               ; preds = %proto_item_set_gene
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_juniper_svcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.233) #2
   %8 = load ptr, ptr %6, align 8
@@ -1142,13 +1142,13 @@ define internal i32 @dissect_juniper_svcs(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %22, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not5.i.i = icmp eq ptr %25, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = or i32 %28, 2
   store i32 %29, ptr %27, align 4
@@ -1177,7 +1177,7 @@ dissect_juniper_payload_proto.exit:               ; preds = %proto_item_set_gene
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_juniper_vn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.235) #2
   %7 = load ptr, ptr %5, align 8
@@ -1242,13 +1242,13 @@ define internal i32 @dissect_juniper_vn(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %37, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %40 = load ptr, ptr %39, align 8
   %.not5.i.i = icmp eq ptr %40, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %40, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = or i32 %43, 2
   store i32 %44, ptr %42, align 4
@@ -1282,7 +1282,7 @@ define internal i32 @dissect_juniper_st(ptr noundef %0, ptr noundef %1, ptr noun
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.236) #2
   %12 = load ptr, ptr %10, align 8
@@ -1355,7 +1355,7 @@ define internal i32 @dissect_juniper_st(ptr noundef %0, ptr noundef %1, ptr noun
 
 switch.lookup:                                    ; preds = %46
   %62 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [43 x i32], ptr @switch.table.dissect_juniper_st, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds nuw [43 x i32], ptr @switch.table.dissect_juniper_st, i64 0, i64 %62
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ip_heuristic_guess.exit
 
@@ -1381,7 +1381,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_juniper_atm(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 1, 3) %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_clear(ptr noundef %7, i32 noundef 25) #2
   %switch = icmp eq i16 %3, 1
@@ -1429,13 +1429,13 @@ define internal fastcc void @dissect_juniper_atm(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %32, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not5.i.i = icmp eq ptr %35, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %35, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %38 = load i32, ptr %37, align 4
   %39 = or i32 %38, 2
   store i32 %39, ptr %37, align 4
@@ -1469,13 +1469,13 @@ proto_item_set_generated.exit.i:                  ; preds = %36, %33, %30
   br i1 %.not.i.i124, label %proto_item_set_generated.exit.i126, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %50, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %53 = load ptr, ptr %52, align 8
   %.not5.i.i125 = icmp eq ptr %53, null
   br i1 %.not5.i.i125, label %proto_item_set_generated.exit.i126, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %53, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = or i32 %56, 2
   store i32 %57, ptr %55, align 4
@@ -1500,13 +1500,13 @@ proto_item_set_generated.exit.i126:               ; preds = %54, %51, %48
   br i1 %.not.i.i129, label %proto_item_set_generated.exit.i131, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %65, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %68 = load ptr, ptr %67, align 8
   %.not5.i.i130 = icmp eq ptr %68, null
   br i1 %.not5.i.i130, label %proto_item_set_generated.exit.i131, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %68, i64 28
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 28
   %71 = load i32, ptr %70, align 4
   %72 = or i32 %71, 2
   store i32 %72, ptr %70, align 4
@@ -1543,13 +1543,13 @@ proto_item_set_generated.exit.i131:               ; preds = %69, %66, %63
   br i1 %.not.i.i134, label %proto_item_set_generated.exit.i136, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %86, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %89 = load ptr, ptr %88, align 8
   %.not5.i.i135 = icmp eq ptr %89, null
   br i1 %.not5.i.i135, label %proto_item_set_generated.exit.i136, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %89, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 28
   %92 = load i32, ptr %91, align 4
   %93 = or i32 %92, 2
   store i32 %93, ptr %91, align 4
@@ -1597,13 +1597,13 @@ ppp_heuristic_guess.exit:                         ; preds = %99, %99, %99, %99, 
   br i1 %.not.i.i139, label %proto_item_set_generated.exit.i141, label %106
 
 106:                                              ; preds = %101
-  %107 = getelementptr inbounds i8, ptr %105, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %108 = load ptr, ptr %107, align 8
   %.not5.i.i140 = icmp eq ptr %108, null
   br i1 %.not5.i.i140, label %proto_item_set_generated.exit.i141, label %109
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %108, i64 28
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 28
   %111 = load i32, ptr %110, align 4
   %112 = or i32 %111, 2
   store i32 %112, ptr %110, align 4
@@ -1901,13 +1901,13 @@ define internal fastcc void @dissect_juniper_payload_proto(ptr noundef %0, ptr n
   br i1 %.not.i, label %proto_item_set_generated.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 2
   store i32 %15, ptr %13, align 4

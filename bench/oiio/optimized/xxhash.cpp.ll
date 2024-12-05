@@ -42,25 +42,25 @@ do.body.i60:                                      ; preds = %do.body.i60, %if.th
   %add5.i63 = add i32 %mul.i62, %v1.i11.0
   %or.i66 = tail call i32 @llvm.fshl.i32(i32 %add5.i63, i32 %add5.i63, i32 13)
   %mul6.i67 = mul i32 %or.i66, -1640531535
-  %add.ptr7.i68 = getelementptr inbounds i8, ptr %p.i7.0, i64 4
+  %add.ptr7.i68 = getelementptr inbounds nuw i8, ptr %p.i7.0, i64 4
   %1 = load i32, ptr %add.ptr7.i68, align 4
   %mul9.i70 = mul i32 %1, -2048144777
   %add10.i71 = add i32 %mul9.i70, %v2.i12.0
   %or13.i74 = tail call i32 @llvm.fshl.i32(i32 %add10.i71, i32 %add10.i71, i32 13)
   %mul14.i75 = mul i32 %or13.i74, -1640531535
-  %add.ptr15.i76 = getelementptr inbounds i8, ptr %p.i7.0, i64 8
+  %add.ptr15.i76 = getelementptr inbounds nuw i8, ptr %p.i7.0, i64 8
   %2 = load i32, ptr %add.ptr15.i76, align 4
   %mul17.i78 = mul i32 %2, -2048144777
   %add18.i79 = add i32 %mul17.i78, %v3.i13.0
   %or21.i82 = tail call i32 @llvm.fshl.i32(i32 %add18.i79, i32 %add18.i79, i32 13)
   %mul22.i83 = mul i32 %or21.i82, -1640531535
-  %add.ptr23.i84 = getelementptr inbounds i8, ptr %p.i7.0, i64 12
+  %add.ptr23.i84 = getelementptr inbounds nuw i8, ptr %p.i7.0, i64 12
   %3 = load i32, ptr %add.ptr23.i84, align 4
   %mul25.i86 = mul i32 %3, -2048144777
   %add26.i87 = add i32 %mul25.i86, %v4.i14.0
   %or29.i90 = tail call i32 @llvm.fshl.i32(i32 %add26.i87, i32 %add26.i87, i32 13)
   %mul30.i91 = mul i32 %or29.i90, -1640531535
-  %add.ptr31.i92 = getelementptr inbounds i8, ptr %p.i7.0, i64 16
+  %add.ptr31.i92 = getelementptr inbounds nuw i8, ptr %p.i7.0, i64 16
   %cmp32.i93.not = icmp ugt ptr %add.ptr31.i92, %add.ptr1.i55
   br i1 %cmp32.i93.not, label %do.end.i94, label %do.body.i60, !llvm.loop !4
 
@@ -91,7 +91,7 @@ if.end.i19:                                       ; preds = %if.else.i17, %do.en
   %p.i7.1 = phi ptr [ %add.ptr31.i92, %do.end.i94 ], [ %input, %if.else.i17 ]
   %conv.i20 = trunc i64 %len to i32
   %add49.i21 = add i32 %h32.i9.0, %conv.i20
-  %add.ptr50.i23176 = getelementptr inbounds i8, ptr %p.i7.1, i64 4
+  %add.ptr50.i23176 = getelementptr inbounds nuw i8, ptr %p.i7.1, i64 4
   %cmp51.i24.not177 = icmp ugt ptr %add.ptr50.i23176, %add.ptr.i15
   br i1 %cmp51.i24.not177, label %while.cond60.i26.preheader, label %cond.true.i195
 
@@ -110,7 +110,7 @@ cond.true.i195:                                   ; preds = %if.end.i19, %cond.t
   %add54.i48 = add i32 %mul53.i47, %h32.i9.1178
   %or57.i51 = tail call i32 @llvm.fshl.i32(i32 %add54.i48, i32 %add54.i48, i32 17)
   %mul58.i52 = mul i32 %or57.i51, 668265263
-  %add.ptr50.i23 = getelementptr inbounds i8, ptr %add.ptr50.i23180, i64 4
+  %add.ptr50.i23 = getelementptr inbounds nuw i8, ptr %add.ptr50.i23180, i64 4
   %cmp51.i24.not = icmp ugt ptr %add.ptr50.i23, %add.ptr.i15
   br i1 %cmp51.i24.not, label %while.cond60.i26.preheader, label %cond.true.i195, !llvm.loop !6
 
@@ -123,7 +123,7 @@ while.body62.i36:                                 ; preds = %while.cond60.i26.pr
   %add65.i39 = add i32 %mul64.i38, %h32.i9.2183
   %or68.i42 = tail call i32 @llvm.fshl.i32(i32 %add65.i39, i32 %add65.i39, i32 11)
   %mul69.i43 = mul i32 %or68.i42, -1640531535
-  %incdec.ptr.i44 = getelementptr inbounds i8, ptr %p.i7.3184, i64 1
+  %incdec.ptr.i44 = getelementptr inbounds nuw i8, ptr %p.i7.3184, i64 1
   %cmp61.i27 = icmp ult ptr %incdec.ptr.i44, %add.ptr.i15
   br i1 %cmp61.i27, label %while.body62.i36, label %return, !llvm.loop !7
 
@@ -163,25 +163,25 @@ do.body.i79:                                      ; preds = %do.body.i79, %if.th
   %0 = load i64, ptr %p.i7.0, align 8
   %mul.i81 = mul i64 %0, -4417276706812531889
   %add5.i82 = add i64 %mul.i81, %v1.i11.0
-  %add.ptr6.i83 = getelementptr inbounds i8, ptr %p.i7.0, i64 8
+  %add.ptr6.i83 = getelementptr inbounds nuw i8, ptr %p.i7.0, i64 8
   %or.i86 = tail call i64 @llvm.fshl.i64(i64 %add5.i82, i64 %add5.i82, i64 31)
   %mul7.i87 = mul i64 %or.i86, -7046029288634856825
   %1 = load i64, ptr %add.ptr6.i83, align 8
   %mul9.i89 = mul i64 %1, -4417276706812531889
   %add10.i90 = add i64 %mul9.i89, %v2.i12.0
-  %add.ptr11.i91 = getelementptr inbounds i8, ptr %p.i7.0, i64 16
+  %add.ptr11.i91 = getelementptr inbounds nuw i8, ptr %p.i7.0, i64 16
   %or14.i94 = tail call i64 @llvm.fshl.i64(i64 %add10.i90, i64 %add10.i90, i64 31)
   %mul15.i95 = mul i64 %or14.i94, -7046029288634856825
   %2 = load i64, ptr %add.ptr11.i91, align 8
   %mul17.i97 = mul i64 %2, -4417276706812531889
   %add18.i98 = add i64 %mul17.i97, %v3.i13.0
-  %add.ptr19.i99 = getelementptr inbounds i8, ptr %p.i7.0, i64 24
+  %add.ptr19.i99 = getelementptr inbounds nuw i8, ptr %p.i7.0, i64 24
   %or22.i102 = tail call i64 @llvm.fshl.i64(i64 %add18.i98, i64 %add18.i98, i64 31)
   %mul23.i103 = mul i64 %or22.i102, -7046029288634856825
   %3 = load i64, ptr %add.ptr19.i99, align 8
   %mul25.i105 = mul i64 %3, -4417276706812531889
   %add26.i106 = add i64 %mul25.i105, %v4.i14.0
-  %add.ptr27.i107 = getelementptr inbounds i8, ptr %p.i7.0, i64 32
+  %add.ptr27.i107 = getelementptr inbounds nuw i8, ptr %p.i7.0, i64 32
   %or30.i110 = tail call i64 @llvm.fshl.i64(i64 %add26.i106, i64 %add26.i106, i64 31)
   %mul31.i111 = mul i64 %or30.i110, -7046029288634856825
   %cmp32.i112.not = icmp ugt ptr %add.ptr27.i107, %add.ptr1.i74
@@ -245,7 +245,7 @@ if.end.i20:                                       ; preds = %if.else.i18, %do.en
   %h64.i9.0 = phi i64 [ %add78.i160, %do.end.i113 ], [ %add79.i19, %if.else.i18 ]
   %p.i7.1 = phi ptr [ %add.ptr27.i107, %do.end.i113 ], [ %input, %if.else.i18 ]
   %add80.i21 = add i64 %h64.i9.0, %len
-  %add.ptr81.i23266 = getelementptr inbounds i8, ptr %p.i7.1, i64 8
+  %add.ptr81.i23266 = getelementptr inbounds nuw i8, ptr %p.i7.1, i64 8
   %cmp82.i24.not267 = icmp ugt ptr %add.ptr81.i23266, %add.ptr.i16
   br i1 %cmp82.i24.not267, label %while.end.i25, label %cond.true.i285
 
@@ -263,14 +263,14 @@ cond.true.i285:                                   ; preds = %if.end.i20, %cond.t
   %or92.i69 = tail call i64 @llvm.fshl.i64(i64 %xor89.i66, i64 %xor89.i66, i64 27)
   %mul93.i70 = mul i64 %or92.i69, -7046029288634856825
   %add94.i71 = add i64 %mul93.i70, -8796714831421723037
-  %add.ptr81.i23 = getelementptr inbounds i8, ptr %add.ptr81.i23270, i64 8
+  %add.ptr81.i23 = getelementptr inbounds nuw i8, ptr %add.ptr81.i23270, i64 8
   %cmp82.i24.not = icmp ugt ptr %add.ptr81.i23, %add.ptr.i16
   br i1 %cmp82.i24.not, label %while.end.i25, label %cond.true.i285, !llvm.loop !9
 
 while.end.i25:                                    ; preds = %cond.true.i285, %if.end.i20
   %h64.i9.1.lcssa = phi i64 [ %add80.i21, %if.end.i20 ], [ %add94.i71, %cond.true.i285 ]
   %p.i7.2.lcssa = phi ptr [ %p.i7.1, %if.end.i20 ], [ %add.ptr81.i23270, %cond.true.i285 ]
-  %add.ptr96.i26 = getelementptr inbounds i8, ptr %p.i7.2.lcssa, i64 4
+  %add.ptr96.i26 = getelementptr inbounds nuw i8, ptr %p.i7.2.lcssa, i64 4
   %cmp97.i27.not = icmp ugt ptr %add.ptr96.i26, %add.ptr.i16
   br i1 %cmp97.i27.not, label %if.end108.i28, label %cond.true.i
 
@@ -299,7 +299,7 @@ while.body111.i39:                                ; preds = %if.end108.i28, %whi
   %xor114.i42 = xor i64 %mul113.i41, %h64.i9.3273
   %or117.i45 = tail call i64 @llvm.fshl.i64(i64 %xor114.i42, i64 %xor114.i42, i64 11)
   %mul118.i46 = mul i64 %or117.i45, -7046029288634856825
-  %incdec.ptr.i47 = getelementptr inbounds i8, ptr %p.i7.4274, i64 1
+  %incdec.ptr.i47 = getelementptr inbounds nuw i8, ptr %p.i7.4274, i64 1
   %cmp110.i30 = icmp ult ptr %incdec.ptr.i47, %add.ptr.i16
   br i1 %cmp110.i30, label %while.body111.i39, label %return, !llvm.loop !10
 

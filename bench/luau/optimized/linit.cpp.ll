@@ -29,8 +29,8 @@ define dso_local void @_Z13luaL_openlibsP9lua_State(ptr noundef %0) local_unname
   %4 = load ptr, ptr %.08, align 8
   tail call void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef %0, ptr noundef %4)
   tail call void @_Z8lua_callP9lua_Stateii(ptr noundef %0, i32 noundef 1, i32 noundef 0)
-  %5 = getelementptr inbounds i8, ptr %.08, i64 16
-  %6 = getelementptr inbounds i8, ptr %.08, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.08, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.08, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %2, !llvm.loop !5

@@ -20,18 +20,18 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = getelementptr i32, ptr %data, i64 %1
   %arrayidx = getelementptr i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx, align 4
-  %arrayidx6 = getelementptr inbounds [4 x i32], ptr %prev_err0_scalar, i64 0, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw [4 x i32], ptr %prev_err0_scalar, i64 0, i64 %indvars.iv
   store i32 %3, ptr %arrayidx6, align 4
   %arrayidx16 = getelementptr i8, ptr %2, i64 -8
   %4 = load i32, ptr %arrayidx16, align 4
   %sub = sub nsw i32 %3, %4
-  %arrayidx18 = getelementptr inbounds [4 x i32], ptr %prev_err1_scalar, i64 0, i64 %indvars.iv
+  %arrayidx18 = getelementptr inbounds nuw [4 x i32], ptr %prev_err1_scalar, i64 0, i64 %indvars.iv
   store i32 %sub, ptr %arrayidx18, align 4
   %arrayidx30 = getelementptr i8, ptr %2, i64 -12
   %5 = load i32, ptr %arrayidx30, align 4
   %sub31.neg = sub i32 %5, %4
   %sub32 = add i32 %sub31.neg, %sub
-  %arrayidx34 = getelementptr inbounds [4 x i32], ptr %prev_err2_scalar, i64 0, i64 %indvars.iv
+  %arrayidx34 = getelementptr inbounds nuw [4 x i32], ptr %prev_err2_scalar, i64 0, i64 %indvars.iv
   store i32 %sub32, ptr %arrayidx34, align 4
   %mul47 = shl nsw i32 %5, 1
   %arrayidx53 = getelementptr i8, ptr %2, i64 -16
@@ -39,7 +39,7 @@ for.body:                                         ; preds = %entry, %for.body
   %7 = add i32 %4, %6
   %add54.neg = sub i32 %mul47, %7
   %sub55 = add i32 %add54.neg, %sub32
-  %arrayidx57 = getelementptr inbounds [4 x i32], ptr %prev_err3_scalar, i64 0, i64 %indvars.iv
+  %arrayidx57 = getelementptr inbounds nuw [4 x i32], ptr %prev_err3_scalar, i64 0, i64 %indvars.iv
   store i32 %sub55, ptr %arrayidx57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -61,9 +61,9 @@ for.body68.lr.ph:                                 ; preds = %for.end
   %13 = zext nneg i32 %mul78 to i64
   %14 = zext nneg i32 %mul84 to i64
   %wide.trip.count = zext nneg i32 %div to i64
-  %invariant.gep = getelementptr inbounds i32, ptr %data, i64 %12
-  %invariant.gep291 = getelementptr inbounds i32, ptr %data, i64 %13
-  %invariant.gep293 = getelementptr inbounds i32, ptr %data, i64 %14
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %data, i64 %12
+  %invariant.gep291 = getelementptr inbounds nuw i32, ptr %data, i64 %13
+  %invariant.gep293 = getelementptr inbounds nuw i32, ptr %data, i64 %14
   br label %for.body68
 
 for.body68:                                       ; preds = %for.body68.lr.ph, %for.body68
@@ -77,16 +77,16 @@ for.body68:                                       ; preds = %for.body68.lr.ph, %
   %21 = phi <4 x i32> [ zeroinitializer, %for.body68.lr.ph ], [ %add.i434, %for.body68 ]
   %22 = phi <4 x i32> [ zeroinitializer, %for.body68.lr.ph ], [ %add.i437, %for.body68 ]
   %23 = phi <4 x i32> [ zeroinitializer, %for.body68.lr.ph ], [ %add.i440, %for.body68 ]
-  %arrayidx70 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv281
+  %arrayidx70 = getelementptr inbounds nuw i32, ptr %data, i64 %indvars.iv281
   %24 = load i32, ptr %arrayidx70, align 4
   %data_scalar.sroa.0.0.vec.insert = insertelement <4 x i32> poison, i32 %24, i64 0
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv281
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv281
   %25 = load i32, ptr %gep, align 4
   %data_scalar.sroa.0.4.vec.insert = insertelement <4 x i32> %data_scalar.sroa.0.0.vec.insert, i32 %25, i64 1
-  %gep292 = getelementptr inbounds i32, ptr %invariant.gep291, i64 %indvars.iv281
+  %gep292 = getelementptr inbounds nuw i32, ptr %invariant.gep291, i64 %indvars.iv281
   %26 = load i32, ptr %gep292, align 4
   %data_scalar.sroa.0.8.vec.insert = insertelement <4 x i32> %data_scalar.sroa.0.4.vec.insert, i32 %26, i64 2
-  %gep294 = getelementptr inbounds i32, ptr %invariant.gep293, i64 %indvars.iv281
+  %gep294 = getelementptr inbounds nuw i32, ptr %invariant.gep293, i64 %indvars.iv281
   %27 = load i32, ptr %gep294, align 4
   %data_scalar.sroa.0.12.vec.insert = insertelement <4 x i32> %data_scalar.sroa.0.8.vec.insert, i32 %27, i64 3
   %sub.i426 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %data_scalar.sroa.0.12.vec.insert, i1 false)
@@ -190,7 +190,7 @@ for.body193:                                      ; preds = %for.body193.prehead
   %total_error_2.1266 = phi i32 [ %add141, %for.body193.preheader ], [ %add214, %for.body193 ]
   %total_error_3.1265 = phi i32 [ %add149, %for.body193.preheader ], [ %add222, %for.body193 ]
   %total_error_4.1264 = phi i32 [ %add157, %for.body193.preheader ], [ %add230, %for.body193 ]
-  %arrayidx195 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv288
+  %arrayidx195 = getelementptr inbounds nuw i32, ptr %data, i64 %indvars.iv288
   %51 = load i32, ptr %arrayidx195, align 4
   %cond = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
   %add198 = add i32 %cond, %total_error_0.1272
@@ -273,7 +273,7 @@ cond.true318:                                     ; preds = %cond.end312
 
 cond.end326:                                      ; preds = %cond.end312, %cond.true318
   %cond327 = phi float [ %54, %cond.true318 ], [ 0.000000e+00, %cond.end312 ]
-  %arrayidx329 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 4
+  %arrayidx329 = getelementptr inbounds nuw i8, ptr %residual_bits_per_sample, i64 4
   store float %cond327, ptr %arrayidx329, align 4
   %cmp330.not = icmp eq i32 %total_error_2.0, 0
   br i1 %cmp330.not, label %cond.end340, label %cond.true332
@@ -290,7 +290,7 @@ cond.true332:                                     ; preds = %cond.end326
 
 cond.end340:                                      ; preds = %cond.end326, %cond.true332
   %cond341 = phi float [ %55, %cond.true332 ], [ 0.000000e+00, %cond.end326 ]
-  %arrayidx343 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
+  %arrayidx343 = getelementptr inbounds nuw i8, ptr %residual_bits_per_sample, i64 8
   store float %cond341, ptr %arrayidx343, align 4
   %cmp344.not = icmp eq i32 %total_error_3.0, 0
   br i1 %cmp344.not, label %cond.end354, label %cond.true346
@@ -307,7 +307,7 @@ cond.true346:                                     ; preds = %cond.end340
 
 cond.end354:                                      ; preds = %cond.end340, %cond.true346
   %cond355 = phi float [ %56, %cond.true346 ], [ 0.000000e+00, %cond.end340 ]
-  %arrayidx357 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
+  %arrayidx357 = getelementptr inbounds nuw i8, ptr %residual_bits_per_sample, i64 12
   store float %cond355, ptr %arrayidx357, align 4
   %cmp358.not = icmp eq i32 %total_error_4.0, 0
   br i1 %cmp358.not, label %cond.end368, label %cond.true360
@@ -324,7 +324,7 @@ cond.true360:                                     ; preds = %cond.end354
 
 cond.end368:                                      ; preds = %cond.end354, %cond.true360
   %cond369 = phi float [ %57, %cond.true360 ], [ 0.000000e+00, %cond.end354 ]
-  %arrayidx371 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 16
+  %arrayidx371 = getelementptr inbounds nuw i8, ptr %residual_bits_per_sample, i64 16
   store float %cond369, ptr %arrayidx371, align 4
   ret i32 %order.0246
 }

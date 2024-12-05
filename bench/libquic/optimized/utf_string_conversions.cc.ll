@@ -164,7 +164,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %_M_string_length.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKwEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call1, ptr noundef %add.ptr)
           to label %invoke.cont unwind label %lpad.i
@@ -333,7 +333,7 @@ entry:
   %utf8 = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr %utf8.coerce0, ptr %utf8, align 8
-  %0 = getelementptr inbounds i8, ptr %utf8, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %utf8, i64 8
   store i64 %utf8.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZN4base13IsStringASCIIERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(16) %utf8)
   br i1 %call, label %if.then, label %if.end
@@ -350,7 +350,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %_M_string_length.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call1, ptr noundef %call2)
           to label %invoke.cont unwind label %lpad.i
@@ -726,7 +726,7 @@ entry:
   %utf8 = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp = alloca %"class.std::allocator.6", align 1
   store ptr %utf8.coerce0, ptr %utf8, align 8
-  %0 = getelementptr inbounds i8, ptr %utf8, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %utf8, i64 8
   store i64 %utf8.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZN4base13IsStringASCIIERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(16) %utf8)
   br i1 %call, label %if.then, label %if.end
@@ -736,7 +736,7 @@ if.then:                                          ; preds = %entry
   %call2 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %utf8)
   %call.i2 = call noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
   call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  %_M_string_length.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call1, ptr noundef %call2)
   br label %return
@@ -873,7 +873,7 @@ entry:
   %utf16 = alloca %"class.base::BasicStringPiece.10", align 8
   %ref.tmp = alloca %"class.std::allocator.1", align 1
   store ptr %utf16.coerce0, ptr %utf16, align 8
-  %0 = getelementptr inbounds i8, ptr %utf16, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %utf16, i64 8
   store i64 %utf16.coerce1, ptr %0, align 8
   %call = call noundef zeroext i1 @_ZN4base13IsStringASCIIERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEE(ptr noundef nonnull align 8 dereferenceable(16) %utf16)
   br i1 %call, label %if.then, label %if.end
@@ -890,7 +890,7 @@ call.i.noexc:                                     ; preds = %if.then
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %_M_string_length.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKtEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call1, ptr noundef %call2)
           to label %invoke.cont unwind label %lpad.i
@@ -956,13 +956,13 @@ entry:
   %ascii = alloca %"class.base::BasicStringPiece", align 8
   %ref.tmp = alloca %"class.std::allocator.6", align 1
   store ptr %ascii.coerce0, ptr %ascii, align 8
-  %0 = getelementptr inbounds i8, ptr %ascii, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ascii, i64 8
   store i64 %ascii.coerce1, ptr %0, align 8
   %call = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %ascii)
   %call1 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %ascii)
   %call.i1 = call noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
   call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  %_M_string_length.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call, ptr noundef %call1)
   ret void
@@ -974,7 +974,7 @@ entry:
   %utf16 = alloca %"class.base::BasicStringPiece.10", align 8
   %ref.tmp = alloca %"class.std::allocator.1", align 1
   store ptr %utf16.coerce0, ptr %utf16, align 8
-  %0 = getelementptr inbounds i8, ptr %utf16, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %utf16, i64 8
   store i64 %utf16.coerce1, ptr %0, align 8
   %call = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %utf16)
   %call1 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %utf16)
@@ -987,7 +987,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %_M_string_length.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKtEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call, ptr noundef %call1)
           to label %invoke.cont unwind label %lpad.i
@@ -1033,7 +1033,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %_M_string_length.i = getelementptr inbounds i8, ptr %__s, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %__s, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKwEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %__k1, ptr noundef %__k2)
           to label %invoke.cont unwind label %lpad.i
@@ -1149,8 +1149,8 @@ for.body.i:                                       ; preds = %invoke.cont, %for.b
   %3 = load i32, ptr %__k1.addr.05.i, align 4
   %conv.i = trunc i32 %3 to i8
   store i8 %conv.i, ptr %__p.addr.06.i, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__k1.addr.05.i, i64 4
-  %incdec.ptr1.i = getelementptr inbounds i8, ptr %__p.addr.06.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__k1.addr.05.i, i64 4
+  %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %__p.addr.06.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__end
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsIPKwEEvPcT_S9_.exit, label %for.body.i, !llvm.loop !12
 
@@ -1237,7 +1237,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %_M_string_length.i = getelementptr inbounds i8, ptr %__s, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %__s, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %__k1, ptr noundef %__k2)
           to label %invoke.cont unwind label %lpad.i
@@ -1354,8 +1354,8 @@ for.body.i:                                       ; preds = %invoke.cont, %for.b
   %3 = load i8, ptr %__k1.addr.05.i, align 1
   %conv.i = sext i8 %3 to i32
   store i32 %conv.i, ptr %__p.addr.06.i, align 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__k1.addr.05.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds i8, ptr %__p.addr.06.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__k1.addr.05.i, i64 1
+  %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %__p.addr.06.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__end
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE13_S_copy_charsIPKcEEvPwT_S9_.exit, label %for.body.i, !llvm.loop !13
 
@@ -1428,7 +1428,7 @@ entry:
   call void @_ZNKSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13get_allocatorEv(ptr nonnull sret(%"class.std::allocator.6") align 1 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %this) #7
   %call.i2 = call noundef ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__s)
   call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_Alloc_hiderC1EPtRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  %_M_string_length.i = getelementptr inbounds i8, ptr %__s, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %__s, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   call void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %__k1, ptr noundef %__k2)
   %call4 = call ptr @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #7
@@ -1517,8 +1517,8 @@ for.body.i:                                       ; preds = %invoke.cont, %for.b
   %3 = load i8, ptr %__k1.addr.05.i, align 1
   %conv.i = sext i8 %3 to i16
   store i16 %conv.i, ptr %__p.addr.06.i, align 2
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__k1.addr.05.i, i64 1
-  %incdec.ptr1.i = getelementptr inbounds i8, ptr %__p.addr.06.i, i64 2
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__k1.addr.05.i, i64 1
+  %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %__p.addr.06.i, i64 2
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__end
   br i1 %cmp.not.i, label %invoke.cont5, label %for.body.i, !llvm.loop !14
 
@@ -1584,7 +1584,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %_M_string_length.i = getelementptr inbounds i8, ptr %__s, i64 8
+  %_M_string_length.i = getelementptr inbounds nuw i8, ptr %__s, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKtEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %__k1, ptr noundef %__k2)
           to label %invoke.cont unwind label %lpad.i
@@ -1682,8 +1682,8 @@ for.body.i:                                       ; preds = %invoke.cont, %for.b
   %3 = load i16, ptr %__k1.addr.05.i, align 2
   %conv.i = trunc i16 %3 to i8
   store i8 %conv.i, ptr %__p.addr.06.i, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__k1.addr.05.i, i64 2
-  %incdec.ptr1.i = getelementptr inbounds i8, ptr %__p.addr.06.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__k1.addr.05.i, i64 2
+  %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %__p.addr.06.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__end
   br i1 %cmp.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsIPKtEEvPcT_S9_.exit, label %for.body.i, !llvm.loop !15
 

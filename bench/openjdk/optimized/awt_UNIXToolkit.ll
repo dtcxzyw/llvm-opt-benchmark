@@ -37,7 +37,7 @@ declare i32 @gtk_load(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define zeroext i8 @Java_sun_awt_UNIXToolkit_unload_1gtk(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @gtk, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (...) %5() #6
   %7 = trunc i32 %6 to i8
@@ -52,15 +52,15 @@ define hidden zeroext range(i8 0, 2) i8 @init_method(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 248
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef %1) #6
   %12 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef %11) #6
   store ptr %12, ptr @this_class, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 264
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 264
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
   store ptr %16, ptr @icon_upcall_method, align 8
@@ -82,11 +82,11 @@ define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1gtk_1icon(ptr noundef %0, ptr 
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1344
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1344
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1312
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1312
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
   %14 = icmp sgt i32 %9, -2
@@ -110,15 +110,15 @@ define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1gtk_1icon(ptr noundef %0, ptr 
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 168
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 168
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 248
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 248
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %1) #6
   %30 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef %29) #6
   store ptr %30, ptr @this_class, align 8
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 264
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 264
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef %30, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
   store ptr %34, ptr @icon_upcall_method, align 8
@@ -131,11 +131,11 @@ define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1gtk_1icon(ptr noundef %0, ptr 
 
 init_method.exit:                                 ; preds = %23, %20
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1768
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1768
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %13, ptr noundef nonnull %18) #6
   %40 = load ptr, ptr @gtk, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 240
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 240
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr @icon_upcall_method, align 8
   %44 = tail call zeroext i8 %42(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef null, ptr noundef %43, ptr noundef %1) #6
@@ -162,11 +162,11 @@ define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1stock_1icon(ptr noundef %0, pt
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1344
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1344
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %3) #6
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1312
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1312
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %3) #6
   %18 = icmp sgt i32 %13, -2
@@ -185,7 +185,7 @@ define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1stock_1icon(ptr noundef %0, pt
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1768
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1768
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %17, ptr noundef nonnull %22) #6
   %.not = icmp eq ptr %6, null
@@ -193,11 +193,11 @@ define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1stock_1icon(ptr noundef %0, pt
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1344
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1344
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 %31(ptr noundef nonnull %0, ptr noundef nonnull %6) #6
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1312
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1312
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 %35(ptr noundef nonnull %0, ptr noundef nonnull %6) #6
   %37 = icmp sgt i32 %32, -2
@@ -217,7 +217,7 @@ define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1stock_1icon(ptr noundef %0, pt
 
 43:                                               ; preds = %38
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1768
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1768
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef %36, ptr noundef nonnull %41) #6
   br label %47
@@ -234,15 +234,15 @@ define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1stock_1icon(ptr noundef %0, pt
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 168
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 168
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 248
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 248
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr %55(ptr noundef nonnull %0, ptr noundef %1) #6
   %57 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef %56) #6
   store ptr %57, ptr @this_class, align 8
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 264
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 264
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr %60(ptr noundef nonnull %0, ptr noundef %57, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #6
   store ptr %61, ptr @icon_upcall_method, align 8
@@ -252,7 +252,7 @@ define zeroext i8 @Java_sun_awt_UNIXToolkit_load_1stock_1icon(ptr noundef %0, pt
 init_method.exit:                                 ; preds = %.init_method.exit_crit_edge, %50
   %63 = phi ptr [ %.pre, %.init_method.exit_crit_edge ], [ %61, %50 ]
   %64 = load ptr, ptr @gtk, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 232
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 232
   %66 = load ptr, ptr %65, align 8
   %67 = tail call zeroext i8 %66(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull %22, i32 noundef %4, i32 noundef %5, ptr noundef %.051, ptr noundef %63, ptr noundef %1) #6
   br label %init_method.exit.thread
@@ -271,7 +271,7 @@ init_method.exit.thread:                          ; preds = %50, %init_method.ex
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_awt_UNIXToolkit_nativeSync(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1824
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i8 %5(ptr noundef nonnull %0) #6
   %.not = icmp eq i8 %6, 0
@@ -279,20 +279,20 @@ define void @Java_sun_awt_UNIXToolkit_nativeSync(ptr noundef %0, ptr nocapture n
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull %0) #6
   br label %11
 
 11:                                               ; preds = %7, %2
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1128
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1128
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @tkClass, align 8
   %16 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16) #6
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1824
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #6
   %.not24 = icmp eq i8 %20, 0
@@ -300,7 +300,7 @@ define void @Java_sun_awt_UNIXToolkit_nativeSync(ptr noundef %0, ptr nocapture n
 
 21:                                               ; preds = %11
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 136
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0) #6
   br label %25
@@ -310,7 +310,7 @@ define void @Java_sun_awt_UNIXToolkit_nativeSync(ptr noundef %0, ptr nocapture n
   %27 = tail call i32 @XSync(ptr noundef %26, i32 noundef 0) #6
   tail call void (...) @awt_output_flush() #6
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0) #6
   %.not25 = icmp eq ptr %31, null
@@ -318,20 +318,20 @@ define void @Java_sun_awt_UNIXToolkit_nativeSync(ptr noundef %0, ptr nocapture n
 
 32:                                               ; preds = %25
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 136
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 136
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull %0) #6
   br label %36
 
 36:                                               ; preds = %32, %25
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1128
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1128
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr @tkClass, align 8
   %41 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %39(ptr noundef nonnull %0, ptr noundef %40, ptr noundef %41) #6
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 1824
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1824
   %44 = load ptr, ptr %43, align 8
   %45 = tail call zeroext i8 %44(ptr noundef nonnull %0) #6
   %.not26 = icmp eq i8 %45, 0
@@ -339,7 +339,7 @@ define void @Java_sun_awt_UNIXToolkit_nativeSync(ptr noundef %0, ptr nocapture n
 
 46:                                               ; preds = %36
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 136
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 136
   %49 = load ptr, ptr %48, align 8
   tail call void %49(ptr noundef nonnull %0) #6
   br label %50
@@ -349,7 +349,7 @@ define void @Java_sun_awt_UNIXToolkit_nativeSync(ptr noundef %0, ptr nocapture n
 
 51:                                               ; preds = %50
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 104
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 104
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 %54(ptr noundef nonnull %0, ptr noundef nonnull %31) #6
   br label %56
@@ -397,7 +397,7 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @Java_sun_awt_UNIXToolkit_gtkCheckVersionImpl(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @gtk, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(i32 noundef %2, i32 noundef %3, i32 noundef %4) #6
   %10 = icmp eq ptr %9, null

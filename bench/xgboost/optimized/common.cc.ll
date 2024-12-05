@@ -52,14 +52,14 @@ define noundef nonnull align 8 dereferenceable(5000) ptr @_ZN7xgboost6common12Gl
   %8 = mul nuw nsw i64 %7, 1812433253
   %9 = add nuw i64 %8, %.011.i.i.i.i.i
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds [624 x i64], ptr @_ZZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEvE4inst, i64 0, i64 %.011.i.i.i.i.i
+  %11 = getelementptr inbounds nuw [624 x i64], ptr @_ZZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEvE4inst, i64 0, i64 %.011.i.i.i.i.i
   store i64 %10, ptr %11, align 8
   %12 = add nuw nsw i64 %.011.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %12, 624
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN7xgboost6common22RandomThreadLocalEntryC2Ev.exit.i, label %4, !llvm.loop !5
 
 _ZN7xgboost6common22RandomThreadLocalEntryC2Ev.exit.i: ; preds = %4
-  store i64 624, ptr getelementptr inbounds (i8, ptr @_ZZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEvE4inst, i64 4992), align 8
+  store i64 624, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEvE4inst, i64 4992), align 8
   store i8 1, ptr @_ZGVZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEvE4inst, align 8
   br label %_ZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEv.exit
 

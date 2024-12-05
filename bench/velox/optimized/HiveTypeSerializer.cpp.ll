@@ -87,7 +87,7 @@ entry:
   %ref.tmp48 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp57 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp58 = alloca %"class.std::__cxx11::basic_string", align 8
-  %kind_.i = getelementptr inbounds i8, ptr %type, i64 16
+  %kind_.i = getelementptr inbounds nuw i8, ptr %type, i64 16
   %0 = load i8, ptr %kind_.i, align 8
   switch i8 %0, label %sw.default [
     i8 0, label %sw.bb
@@ -599,7 +599,7 @@ entry:
 for.cond:                                         ; preds = %invoke.cont13, %entry
   %i.0 = phi i64 [ 0, %entry ], [ %inc, %invoke.cont13 ]
   %vtable = load ptr, ptr %t, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %t)
           to label %invoke.cont unwind label %lpad
@@ -625,7 +625,7 @@ lpad:                                             ; preds = %invoke.cont8, %if.e
 if.end:                                           ; preds = %if.then, %for.body
   %conv5 = trunc nuw i64 %i.0 to i32
   %vtable6 = load ptr, ptr %t, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 24
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 24
   %2 = load ptr, ptr %vfn7, align 8
   %call9 = invoke noundef nonnull align 8 dereferenceable(16) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %t, i32 noundef %conv5)
           to label %invoke.cont8 unwind label %lpad
@@ -667,14 +667,14 @@ define void @_ZNK8facebook5velox4type6fbhive18HiveTypeSerializer13visitChildrenB
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #9
-  %names_.i = getelementptr inbounds i8, ptr %t, i64 24
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 32
+  %names_.i = getelementptr inbounds nuw i8, ptr %t, i64 24
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %t, i64 32
   br label %for.cond
 
 for.cond:                                         ; preds = %invoke.cont20, %entry
   %i.0 = phi i64 [ 0, %entry ], [ %inc, %invoke.cont20 ]
   %vtable = load ptr, ptr %t, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(120) %t)
           to label %invoke.cont unwind label %lpad.loopexit
@@ -721,7 +721,7 @@ if.then.i.i.i:                                    ; preds = %if.end
   unreachable
 
 invoke.cont6:                                     ; preds = %if.end
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %2, i64 %i.0
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2, i64 %i.0
   %call9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i)
           to label %invoke.cont8 unwind label %lpad.loopexit
 
@@ -731,7 +731,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %vtable13 = load ptr, ptr %t, align 8
-  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 24
+  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 24
   %3 = load ptr, ptr %vfn14, align 8
   %call16 = invoke noundef nonnull align 8 dereferenceable(16) ptr %3(ptr noundef nonnull align 8 dereferenceable(120) %t, i32 noundef %conv5)
           to label %invoke.cont15 unwind label %lpad.loopexit

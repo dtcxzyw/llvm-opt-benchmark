@@ -36,17 +36,17 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   br i1 %8, label %9, label %108
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %0, align 8, !tbaa !3
-  %12 = getelementptr inbounds i8, ptr %11, i64 268
-  %13 = getelementptr inbounds i8, ptr %11, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 268
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 320
   %14 = load i8, ptr %12, align 4, !tbaa !16
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %11, i64 269
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 269
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %18, %15
-  %20 = getelementptr inbounds i8, ptr %11, i64 270
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 270
   %21 = load i8, ptr %20, align 2, !tbaa !16
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %19, %22
@@ -56,46 +56,46 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   %27 = or i32 %26, %25
   %28 = or disjoint i32 %27, %24
   store i32 %28, ptr %10, align 8, !tbaa !16
-  %29 = getelementptr inbounds i8, ptr %0, i64 60
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %30 = load i32, ptr %12, align 4, !tbaa !16
   store i32 %30, ptr %29, align 4, !tbaa !16
   %31 = lshr i32 %27, 24
   %32 = lshr i32 %30, 24
   %33 = add nuw nsw i32 %31, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %33, ptr %34, align 8, !tbaa !17
-  %35 = getelementptr inbounds i8, ptr %11, i64 328
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 328
   %36 = load i32, ptr %35, align 8, !tbaa !18
-  %37 = getelementptr inbounds i8, ptr %0, i64 68
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %36, ptr %37, align 4, !tbaa !20
-  %38 = getelementptr inbounds i8, ptr %0, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %13, ptr %38, align 8, !tbaa !21
-  %39 = getelementptr inbounds i8, ptr %0, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %3, ptr %39, align 8, !tbaa !22
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %5, ptr %40, align 8, !tbaa !23
-  %41 = getelementptr inbounds i8, ptr %3, i64 32
-  %42 = getelementptr inbounds i8, ptr %0, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %41, ptr %42, align 8, !tbaa !24
   %43 = zext i8 %14 to i64
-  %44 = getelementptr inbounds i32, ptr %41, i64 %43
-  %45 = getelementptr inbounds i8, ptr %0, i64 104
+  %44 = getelementptr inbounds nuw i32, ptr %41, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %44, ptr %45, align 8, !tbaa !24
   %46 = and i32 %19, 255
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %41, i64 %47
-  %49 = getelementptr inbounds i8, ptr %0, i64 112
+  %48 = getelementptr inbounds nuw i32, ptr %41, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %48, ptr %49, align 8, !tbaa !24
   %50 = zext nneg i32 %31 to i64
-  %51 = getelementptr inbounds i32, ptr %41, i64 %50
-  %52 = getelementptr inbounds i8, ptr %0, i64 120
+  %51 = getelementptr inbounds nuw i32, ptr %41, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %51, ptr %52, align 8, !tbaa !24
   %53 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newPhysToWorkMapEv(ptr noundef nonnull align 8 dereferenceable(944) %11) #11
   %54 = load ptr, ptr %0, align 8, !tbaa !3
   %55 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newWorkToPhysMapEv(ptr noundef nonnull align 8 dereferenceable(944) %54) #11
   %56 = load ptr, ptr %0, align 8, !tbaa !3
   %57 = tail call noundef ptr @_ZN6asmjit9_abi_1_1010BaseRAPass16newWorkToPhysMapEv(ptr noundef nonnull align 8 dereferenceable(944) %56) #11
-  %58 = getelementptr inbounds i8, ptr %0, i64 232
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %57, ptr %58, align 8, !tbaa !25
   %59 = icmp eq ptr %53, null
   %60 = icmp eq ptr %55, null
@@ -105,17 +105,17 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   br i1 %63, label %108, label %64
 
 64:                                               ; preds = %9
-  %65 = getelementptr inbounds i8, ptr %0, i64 128
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %66 = load ptr, ptr %0, align 8, !tbaa !3
-  %67 = getelementptr inbounds i8, ptr %66, i64 268
-  %68 = getelementptr inbounds i8, ptr %66, i64 320
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 268
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 320
   %69 = load i8, ptr %67, align 4, !tbaa !16
   %70 = zext i8 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %66, i64 269
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 269
   %72 = load i8, ptr %71, align 1, !tbaa !16
   %73 = zext i8 %72 to i32
   %74 = add nuw nsw i32 %73, %70
-  %75 = getelementptr inbounds i8, ptr %66, i64 270
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 270
   %76 = load i8, ptr %75, align 2, !tbaa !16
   %77 = zext i8 %76 to i32
   %78 = add nuw nsw i32 %74, %77
@@ -125,39 +125,39 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   %82 = or i32 %81, %80
   %83 = or disjoint i32 %82, %79
   store i32 %83, ptr %65, align 8, !tbaa !16
-  %84 = getelementptr inbounds i8, ptr %0, i64 132
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %85 = load i32, ptr %67, align 4, !tbaa !16
   store i32 %85, ptr %84, align 4, !tbaa !16
   %86 = lshr i32 %82, 24
   %87 = lshr i32 %85, 24
   %88 = add nuw nsw i32 %86, %87
-  %89 = getelementptr inbounds i8, ptr %0, i64 136
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %88, ptr %89, align 8, !tbaa !17
-  %90 = getelementptr inbounds i8, ptr %66, i64 328
+  %90 = getelementptr inbounds nuw i8, ptr %66, i64 328
   %91 = load i32, ptr %90, align 8, !tbaa !18
-  %92 = getelementptr inbounds i8, ptr %0, i64 140
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %91, ptr %92, align 4, !tbaa !20
-  %93 = getelementptr inbounds i8, ptr %0, i64 144
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %68, ptr %93, align 8, !tbaa !21
-  %94 = getelementptr inbounds i8, ptr %0, i64 160
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %53, ptr %94, align 8, !tbaa !22
-  %95 = getelementptr inbounds i8, ptr %0, i64 152
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %55, ptr %95, align 8, !tbaa !23
-  %96 = getelementptr inbounds i8, ptr %53, i64 32
-  %97 = getelementptr inbounds i8, ptr %0, i64 168
+  %96 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %96, ptr %97, align 8, !tbaa !24
   %98 = zext i8 %69 to i64
-  %99 = getelementptr inbounds i32, ptr %96, i64 %98
-  %100 = getelementptr inbounds i8, ptr %0, i64 176
+  %99 = getelementptr inbounds nuw i32, ptr %96, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %99, ptr %100, align 8, !tbaa !24
   %101 = and i32 %74, 255
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds i32, ptr %96, i64 %102
-  %104 = getelementptr inbounds i8, ptr %0, i64 184
+  %103 = getelementptr inbounds nuw i32, ptr %96, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %103, ptr %104, align 8, !tbaa !24
   %105 = zext nneg i32 %86 to i64
-  %106 = getelementptr inbounds i32, ptr %96, i64 %105
-  %107 = getelementptr inbounds i8, ptr %0, i64 192
+  %106 = getelementptr inbounds nuw i32, ptr %96, i64 %105
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %106, ptr %107, align 8, !tbaa !24
   br label %108
 
@@ -181,21 +181,21 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator21makeInitialAssignmentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
-  %3 = getelementptr inbounds i8, ptr %2, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !26
-  %5 = getelementptr inbounds i8, ptr %2, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = load ptr, ptr %6, align 8, !tbaa !24
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
-  %9 = getelementptr inbounds i8, ptr %4, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %10 = load i8, ptr %9, align 4, !tbaa !55
   %11 = icmp eq i8 %10, 0
-  %12 = getelementptr inbounds i8, ptr %4, i64 584
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 584
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = zext i8 %10 to i64
   br i1 %11, label %.loopexit, label %.preheader
 
@@ -219,29 +219,29 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   %30 = phi i64 [ 0, %.split.us.us ], [ %124, %120 ]
   %31 = phi i32 [ %26, %.split.us.us ], [ %123, %120 ]
   %32 = load ptr, ptr %12, align 8, !tbaa !65
-  %33 = getelementptr inbounds %"struct.asmjit::_abi_1_10::FuncNode::ArgPack", ptr %32, i64 %25
-  %34 = getelementptr inbounds [4 x %"struct.asmjit::_abi_1_10::RegOnly"], ptr %33, i64 0, i64 %30
+  %33 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncNode::ArgPack", ptr %32, i64 %25
+  %34 = getelementptr inbounds nuw [4 x %"struct.asmjit::_abi_1_10::RegOnly"], ptr %33, i64 0, i64 %30
   %35 = load i32, ptr %34, align 4, !tbaa !71
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %120, label %37
 
 37:                                               ; preds = %27
   %38 = load ptr, ptr %13, align 8, !tbaa !72
-  %39 = getelementptr inbounds i8, ptr %34, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !73
   %41 = add i32 %40, -256
-  %42 = getelementptr inbounds i8, ptr %38, i64 464
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 464
   %43 = load i32, ptr %42, align 8, !tbaa !18
   %44 = icmp ult i32 %41, %43
   br i1 %44, label %45, label %120
 
 45:                                               ; preds = %37
-  %46 = getelementptr inbounds i8, ptr %38, i64 456
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 456
   %47 = zext i32 %41 to i64
   %48 = load ptr, ptr %46, align 8, !tbaa !54
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8, !tbaa !24
-  %51 = getelementptr inbounds i8, ptr %50, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = load ptr, ptr %51, align 8, !tbaa !75
   %53 = icmp eq ptr %52, null
   br i1 %53, label %120, label %54
@@ -252,7 +252,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   %57 = zext i32 %55 to i64
   %58 = lshr i64 %57, 6
   %59 = and i64 %57, 63
-  %60 = getelementptr inbounds i64, ptr %56, i64 %58
+  %60 = getelementptr inbounds nuw i64, ptr %56, i64 %58
   %61 = load i64, ptr %60, align 8, !tbaa !89
   %62 = shl nuw i64 1, %59
   %63 = and i64 %62, %61
@@ -260,9 +260,9 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   br i1 %64, label %120, label %65
 
 65:                                               ; preds = %54
-  %66 = getelementptr inbounds i8, ptr %52, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %67 = load ptr, ptr %14, align 8, !tbaa !23
-  %68 = getelementptr inbounds [1 x i8], ptr %67, i64 0, i64 %57
+  %68 = getelementptr inbounds nuw [1 x i8], ptr %67, i64 0, i64 %57
   %69 = load i8, ptr %68, align 1, !tbaa !16
   %70 = icmp eq i8 %69, -1
   br i1 %70, label %71, label %120
@@ -272,17 +272,17 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   %73 = lshr i32 %72, 8
   %74 = and i32 %73, 15
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %52, i64 74
+  %76 = getelementptr inbounds nuw i8, ptr %52, i64 74
   %77 = load i8, ptr %76, align 2, !tbaa !90
   %78 = icmp eq i8 %77, -1
   br i1 %78, label %120, label %79
 
 79:                                               ; preds = %71
   %80 = load ptr, ptr %16, align 8, !tbaa !22
-  %81 = getelementptr inbounds [4 x i32], ptr %80, i64 0, i64 %75
+  %81 = getelementptr inbounds nuw [4 x i32], ptr %80, i64 0, i64 %75
   %82 = load i32, ptr %81, align 4, !tbaa !91
   %83 = xor i32 %82, -1
-  %84 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %75
+  %84 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %75
   %85 = load i32, ptr %84, align 4, !tbaa !91
   %86 = and i32 %85, %83
   %87 = zext i8 %77 to i32
@@ -293,30 +293,30 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
 
 91:                                               ; preds = %79
   store i8 %77, ptr %68, align 1, !tbaa !16
-  %92 = getelementptr inbounds [4 x ptr], ptr %17, i64 0, i64 %75
+  %92 = getelementptr inbounds nuw [4 x ptr], ptr %17, i64 0, i64 %75
   %93 = load ptr, ptr %92, align 8, !tbaa !24
   %94 = zext i8 %77 to i64
-  %95 = getelementptr inbounds i32, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw i32, ptr %93, i64 %94
   store i32 %55, ptr %95, align 4, !tbaa !91
   %96 = load ptr, ptr %16, align 8, !tbaa !22
-  %97 = getelementptr inbounds [4 x i32], ptr %96, i64 0, i64 %75
+  %97 = getelementptr inbounds nuw [4 x i32], ptr %96, i64 0, i64 %75
   %98 = load i32, ptr %97, align 4, !tbaa !91
   %99 = or i32 %98, %88
   store i32 %99, ptr %97, align 4, !tbaa !91
-  %100 = getelementptr inbounds i8, ptr %96, i64 16
-  %101 = getelementptr inbounds [4 x i32], ptr %100, i64 0, i64 %75
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %101 = getelementptr inbounds nuw [4 x i32], ptr %100, i64 0, i64 %75
   %102 = load i32, ptr %101, align 4, !tbaa !91
   %103 = or i32 %102, %88
   store i32 %103, ptr %101, align 4, !tbaa !91
   %104 = load ptr, ptr %0, align 8, !tbaa !3
   %105 = load i32, ptr %66, align 4, !tbaa !71
-  %106 = getelementptr inbounds i8, ptr %52, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !92
-  %108 = getelementptr inbounds i8, ptr %107, i64 13
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 13
   %109 = load i8, ptr %108, align 1, !tbaa !93
-  %110 = getelementptr inbounds i8, ptr %104, i64 556
-  %111 = getelementptr inbounds [16 x %"struct.asmjit::_abi_1_10::FuncValuePack"], ptr %110, i64 0, i64 %25
-  %112 = getelementptr inbounds [4 x %"struct.asmjit::_abi_1_10::FuncValue"], ptr %111, i64 0, i64 %30
+  %110 = getelementptr inbounds nuw i8, ptr %104, i64 556
+  %111 = getelementptr inbounds nuw [16 x %"struct.asmjit::_abi_1_10::FuncValuePack"], ptr %110, i64 0, i64 %25
+  %112 = getelementptr inbounds nuw [4 x %"struct.asmjit::_abi_1_10::FuncValue"], ptr %111, i64 0, i64 %30
   %113 = shl i32 %105, 21
   %114 = and i32 %113, 520093696
   %115 = shl nuw nsw i32 %87, 16
@@ -351,29 +351,29 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   %133 = phi ptr [ %129, %.split ], [ %254, %252 ]
   %134 = phi i64 [ 0, %.split ], [ %255, %252 ]
   %135 = load ptr, ptr %12, align 8, !tbaa !65
-  %136 = getelementptr inbounds %"struct.asmjit::_abi_1_10::FuncNode::ArgPack", ptr %135, i64 %130
-  %137 = getelementptr inbounds [4 x %"struct.asmjit::_abi_1_10::RegOnly"], ptr %136, i64 0, i64 %134
+  %136 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncNode::ArgPack", ptr %135, i64 %130
+  %137 = getelementptr inbounds nuw [4 x %"struct.asmjit::_abi_1_10::RegOnly"], ptr %136, i64 0, i64 %134
   %138 = load i32, ptr %137, align 4, !tbaa !71
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %252, label %140
 
 140:                                              ; preds = %131
   %141 = load ptr, ptr %13, align 8, !tbaa !72
-  %142 = getelementptr inbounds i8, ptr %137, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %143 = load i32, ptr %142, align 4, !tbaa !73
   %144 = add i32 %143, -256
-  %145 = getelementptr inbounds i8, ptr %141, i64 464
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 464
   %146 = load i32, ptr %145, align 8, !tbaa !18
   %147 = icmp ult i32 %144, %146
   br i1 %147, label %148, label %252
 
 148:                                              ; preds = %140
-  %149 = getelementptr inbounds i8, ptr %141, i64 456
+  %149 = getelementptr inbounds nuw i8, ptr %141, i64 456
   %150 = zext i32 %144 to i64
   %151 = load ptr, ptr %149, align 8, !tbaa !54
-  %152 = getelementptr inbounds ptr, ptr %151, i64 %150
+  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %150
   %153 = load ptr, ptr %152, align 8, !tbaa !24
-  %154 = getelementptr inbounds i8, ptr %153, i64 40
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 40
   %155 = load ptr, ptr %154, align 8, !tbaa !75
   %156 = icmp eq ptr %155, null
   br i1 %156, label %252, label %157
@@ -384,7 +384,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   %160 = zext i32 %158 to i64
   %161 = lshr i64 %160, 6
   %162 = and i64 %160, 63
-  %163 = getelementptr inbounds i64, ptr %159, i64 %161
+  %163 = getelementptr inbounds nuw i64, ptr %159, i64 %161
   %164 = load i64, ptr %163, align 8, !tbaa !89
   %165 = shl nuw i64 1, %162
   %166 = and i64 %165, %164
@@ -392,9 +392,9 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   br i1 %167, label %252, label %168
 
 168:                                              ; preds = %157
-  %169 = getelementptr inbounds i8, ptr %155, i64 32
+  %169 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %170 = load ptr, ptr %14, align 8, !tbaa !23
-  %171 = getelementptr inbounds [1 x i8], ptr %170, i64 0, i64 %160
+  %171 = getelementptr inbounds nuw [1 x i8], ptr %170, i64 0, i64 %160
   %172 = load i8, ptr %171, align 1, !tbaa !16
   %173 = icmp eq i8 %172, -1
   br i1 %173, label %174, label %252
@@ -404,10 +404,10 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   %176 = lshr i32 %175, 8
   %177 = and i32 %176, 15
   %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds [4 x i32], ptr %15, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw [4 x i32], ptr %15, i64 0, i64 %178
   %180 = load i32, ptr %179, align 4, !tbaa !91
   %181 = load ptr, ptr %16, align 8, !tbaa !22
-  %182 = getelementptr inbounds [4 x i32], ptr %181, i64 0, i64 %178
+  %182 = getelementptr inbounds nuw [4 x i32], ptr %181, i64 0, i64 %178
   %183 = load i32, ptr %182, align 4, !tbaa !91
   %184 = xor i32 %183, -1
   %185 = and i32 %180, %184
@@ -418,31 +418,31 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   %188 = tail call noundef i32 @llvm.cttz.i32(i32 %185, i1 true), !range !99
   %189 = trunc nuw nsw i32 %188 to i8
   store i8 %189, ptr %171, align 1, !tbaa !16
-  %190 = getelementptr inbounds [4 x ptr], ptr %17, i64 0, i64 %178
+  %190 = getelementptr inbounds nuw [4 x ptr], ptr %17, i64 0, i64 %178
   %191 = load ptr, ptr %190, align 8, !tbaa !24
   %192 = zext nneg i32 %188 to i64
-  %193 = getelementptr inbounds i32, ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw i32, ptr %191, i64 %192
   store i32 %158, ptr %193, align 4, !tbaa !91
   %194 = shl nuw i32 1, %188
   %195 = load ptr, ptr %16, align 8, !tbaa !22
-  %196 = getelementptr inbounds [4 x i32], ptr %195, i64 0, i64 %178
+  %196 = getelementptr inbounds nuw [4 x i32], ptr %195, i64 0, i64 %178
   %197 = load i32, ptr %196, align 4, !tbaa !91
   %198 = or i32 %197, %194
   store i32 %198, ptr %196, align 4, !tbaa !91
-  %199 = getelementptr inbounds i8, ptr %195, i64 16
-  %200 = getelementptr inbounds [4 x i32], ptr %199, i64 0, i64 %178
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 16
+  %200 = getelementptr inbounds nuw [4 x i32], ptr %199, i64 0, i64 %178
   %201 = load i32, ptr %200, align 4, !tbaa !91
   %202 = or i32 %201, %194
   store i32 %202, ptr %200, align 4, !tbaa !91
   %203 = load ptr, ptr %0, align 8, !tbaa !3
   %204 = load i32, ptr %169, align 4, !tbaa !71
-  %205 = getelementptr inbounds i8, ptr %155, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %206 = load ptr, ptr %205, align 8, !tbaa !92
-  %207 = getelementptr inbounds i8, ptr %206, i64 13
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 13
   %208 = load i8, ptr %207, align 1, !tbaa !93
-  %209 = getelementptr inbounds i8, ptr %203, i64 556
-  %210 = getelementptr inbounds [16 x %"struct.asmjit::_abi_1_10::FuncValuePack"], ptr %209, i64 0, i64 %130
-  %211 = getelementptr inbounds [4 x %"struct.asmjit::_abi_1_10::FuncValue"], ptr %210, i64 0, i64 %134
+  %209 = getelementptr inbounds nuw i8, ptr %203, i64 556
+  %210 = getelementptr inbounds nuw [16 x %"struct.asmjit::_abi_1_10::FuncValuePack"], ptr %209, i64 0, i64 %130
+  %211 = getelementptr inbounds nuw [4 x %"struct.asmjit::_abi_1_10::FuncValue"], ptr %210, i64 0, i64 %134
   %212 = shl i32 %204, 21
   %213 = and i32 %212, 520093696
   %214 = shl nuw nsw i32 %188, 16
@@ -454,30 +454,30 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
   br label %252
 
 219:                                              ; preds = %174
-  %220 = getelementptr inbounds i8, ptr %155, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %221 = load ptr, ptr %220, align 8, !tbaa !100
   %222 = icmp eq ptr %221, null
   br i1 %222, label %226, label %223
 
 223:                                              ; preds = %219
-  %224 = getelementptr inbounds i8, ptr %155, i64 36
+  %224 = getelementptr inbounds nuw i8, ptr %155, i64 36
   %225 = load i32, ptr %224, align 4, !tbaa !101
   br label %244
 
 226:                                              ; preds = %219
-  %227 = getelementptr inbounds i8, ptr %133, i64 504
-  %228 = getelementptr inbounds i8, ptr %133, i64 476
+  %227 = getelementptr inbounds nuw i8, ptr %133, i64 504
+  %228 = getelementptr inbounds nuw i8, ptr %133, i64 476
   %229 = load i32, ptr %228, align 4, !tbaa !102
-  %230 = getelementptr inbounds i8, ptr %155, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %231 = load ptr, ptr %230, align 8, !tbaa !92
-  %232 = getelementptr inbounds i8, ptr %231, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %233 = load i32, ptr %232, align 8, !tbaa !103
-  %234 = getelementptr inbounds i8, ptr %231, i64 12
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 12
   %235 = load i8, ptr %234, align 4, !tbaa !104
   %236 = zext i8 %235 to i32
   %237 = tail call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %227, i32 noundef %229, i32 noundef %233, i32 noundef %236, i32 noundef 1) #11
   store ptr %237, ptr %220, align 8, !tbaa !100
-  %238 = getelementptr inbounds i8, ptr %155, i64 36
+  %238 = getelementptr inbounds nuw i8, ptr %155, i64 36
   %239 = load i32, ptr %238, align 4, !tbaa !101
   %240 = or i32 %239, 16
   store i32 %240, ptr %238, align 4, !tbaa !101
@@ -491,10 +491,10 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
 244:                                              ; preds = %242, %223
   %245 = phi ptr [ %132, %223 ], [ %243, %242 ]
   %246 = phi i32 [ %225, %223 ], [ %240, %242 ]
-  %247 = getelementptr inbounds i8, ptr %155, i64 36
+  %247 = getelementptr inbounds nuw i8, ptr %155, i64 36
   %248 = or i32 %246, 64
   store i32 %248, ptr %247, align 4, !tbaa !101
-  %249 = getelementptr inbounds i8, ptr %245, i64 816
+  %249 = getelementptr inbounds nuw i8, ptr %245, i64 816
   %250 = load i32, ptr %249, align 8, !tbaa !106
   %251 = add i32 %250, 1
   store i32 %251, ptr %249, align 8, !tbaa !106
@@ -526,18 +526,18 @@ define hidden noundef range(i32 0, 2) i32 @_ZN6asmjit9_abi_1_1016RALocalAllocato
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator17replaceAssignmentEPKNS0_12RAAssignment13PhysToWorkMapE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !22
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 2
   %10 = add nuw nsw i64 %9, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %5, ptr noundef nonnull align 4 dereferenceable(1) %1, i64 %10, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load ptr, ptr %11, align 8, !tbaa !23
-  %13 = getelementptr inbounds i8, ptr %0, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %14 = load i32, ptr %13, align 4, !tbaa !20
   %15 = zext i32 %14 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %12, i8 -1, i64 %15, i1 false)
@@ -554,15 +554,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator17replaceAssign
   %23 = add i32 %21, -1
   %24 = and i32 %23, %21
   %25 = load ptr, ptr %4, align 8, !tbaa !22
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = add nuw nsw i32 %22, %17
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [1 x i32], ptr %26, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [1 x i32], ptr %26, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !91
   %31 = trunc nuw nsw i32 %22 to i8
   %32 = load ptr, ptr %11, align 8, !tbaa !23
   %33 = zext i32 %30 to i64
-  %34 = getelementptr inbounds [1 x i8], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [1 x i8], ptr %32, i64 0, i64 %33
   store i8 %31, ptr %34, align 1, !tbaa !16
   %35 = icmp eq i32 %24, 0
   br i1 %35, label %36, label %.preheader6, !llvm.loop !108
@@ -573,10 +573,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator17replaceAssign
 
 38:                                               ; preds = %36, %2
   %39 = phi ptr [ %37, %36 ], [ %18, %2 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 57
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %41 = load i8, ptr %40, align 1, !tbaa !16
   %42 = zext i8 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %39, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !91
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %63, label %.preheader5
@@ -587,15 +587,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator17replaceAssign
   %48 = add i32 %46, -1
   %49 = and i32 %48, %46
   %50 = load ptr, ptr %4, align 8, !tbaa !22
-  %51 = getelementptr inbounds i8, ptr %50, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = add nuw nsw i32 %47, %42
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds [1 x i32], ptr %51, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [1 x i32], ptr %51, i64 0, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !91
   %56 = trunc nuw nsw i32 %47 to i8
   %57 = load ptr, ptr %11, align 8, !tbaa !23
   %58 = zext i32 %55 to i64
-  %59 = getelementptr inbounds [1 x i8], ptr %57, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [1 x i8], ptr %57, i64 0, i64 %58
   store i8 %56, ptr %59, align 1, !tbaa !16
   %60 = icmp eq i32 %49, 0
   br i1 %60, label %61, label %.preheader5, !llvm.loop !108
@@ -606,10 +606,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator17replaceAssign
 
 63:                                               ; preds = %61, %38
   %64 = phi ptr [ %62, %61 ], [ %39, %38 ]
-  %65 = getelementptr inbounds i8, ptr %0, i64 58
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 58
   %66 = load i8, ptr %65, align 2, !tbaa !16
   %67 = zext i8 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %64, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %69 = load i32, ptr %68, align 4, !tbaa !91
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %88, label %.preheader4
@@ -620,15 +620,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator17replaceAssign
   %73 = add i32 %71, -1
   %74 = and i32 %73, %71
   %75 = load ptr, ptr %4, align 8, !tbaa !22
-  %76 = getelementptr inbounds i8, ptr %75, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %77 = add nuw nsw i32 %72, %67
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds [1 x i32], ptr %76, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [1 x i32], ptr %76, i64 0, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !91
   %81 = trunc nuw nsw i32 %72 to i8
   %82 = load ptr, ptr %11, align 8, !tbaa !23
   %83 = zext i32 %80 to i64
-  %84 = getelementptr inbounds [1 x i8], ptr %82, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [1 x i8], ptr %82, i64 0, i64 %83
   store i8 %81, ptr %84, align 1, !tbaa !16
   %85 = icmp eq i32 %74, 0
   br i1 %85, label %86, label %.preheader4, !llvm.loop !108
@@ -639,10 +639,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator17replaceAssign
 
 88:                                               ; preds = %86, %63
   %89 = phi ptr [ %87, %86 ], [ %64, %63 ]
-  %90 = getelementptr inbounds i8, ptr %0, i64 59
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 59
   %91 = load i8, ptr %90, align 1, !tbaa !16
   %92 = zext i8 %91 to i32
-  %93 = getelementptr inbounds i8, ptr %89, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %94 = load i32, ptr %93, align 4, !tbaa !91
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %.loopexit, label %.preheader
@@ -653,15 +653,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator17replaceAssign
   %98 = add i32 %96, -1
   %99 = and i32 %98, %96
   %100 = load ptr, ptr %4, align 8, !tbaa !22
-  %101 = getelementptr inbounds i8, ptr %100, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %102 = add nuw nsw i32 %97, %92
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds [1 x i32], ptr %101, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [1 x i32], ptr %101, i64 0, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !91
   %106 = trunc nuw nsw i32 %97 to i8
   %107 = load ptr, ptr %11, align 8, !tbaa !23
   %108 = zext i32 %105 to i64
-  %109 = getelementptr inbounds [1 x i8], ptr %107, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [1 x i8], ptr %107, i64 0, i64 %108
   store i8 %106, ptr %109, align 1, !tbaa !16
   %110 = icmp eq i32 %99, 0
   br i1 %110, label %.loopexit, label %.preheader, !llvm.loop !108
@@ -675,15 +675,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %6 = alloca %"class.asmjit::_abi_1_10::RAAssignment", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #11
   %7 = load ptr, ptr %0, align 8, !tbaa !3
-  %8 = getelementptr inbounds i8, ptr %7, i64 268
-  %9 = getelementptr inbounds i8, ptr %7, i64 320
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 268
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 320
   %10 = load i8, ptr %8, align 4, !tbaa !16
   %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %7, i64 269
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 269
   %13 = load i8, ptr %12, align 1, !tbaa !16
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %14, %11
-  %16 = getelementptr inbounds i8, ptr %7, i64 270
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 270
   %17 = load i8, ptr %16, align 2, !tbaa !16
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %15, %18
@@ -693,41 +693,41 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %23 = or i32 %22, %21
   %24 = or disjoint i32 %23, %20
   store i32 %24, ptr %6, align 8, !tbaa !16
-  %25 = getelementptr inbounds i8, ptr %6, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %26 = load i32, ptr %8, align 4, !tbaa !16
   store i32 %26, ptr %25, align 4, !tbaa !16
   %27 = lshr i32 %23, 24
   %28 = lshr i32 %26, 24
   %29 = add nuw nsw i32 %27, %28
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %29, ptr %30, align 8, !tbaa !17
-  %31 = getelementptr inbounds i8, ptr %7, i64 328
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 328
   %32 = load i32, ptr %31, align 8, !tbaa !18
-  %33 = getelementptr inbounds i8, ptr %6, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %32, ptr %33, align 4, !tbaa !20
-  %34 = getelementptr inbounds i8, ptr %6, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %9, ptr %34, align 8, !tbaa !21
-  %35 = getelementptr inbounds i8, ptr %0, i64 232
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %36 = load ptr, ptr %35, align 8, !tbaa !25
-  %37 = getelementptr inbounds i8, ptr %6, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %1, ptr %37, align 8, !tbaa !22
-  %38 = getelementptr inbounds i8, ptr %6, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %36, ptr %38, align 8, !tbaa !23
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
-  %40 = getelementptr inbounds i8, ptr %6, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %39, ptr %40, align 8, !tbaa !24
   %41 = zext i8 %10 to i64
-  %42 = getelementptr inbounds i32, ptr %39, i64 %41
-  %43 = getelementptr inbounds i8, ptr %6, i64 48
+  %42 = getelementptr inbounds nuw i32, ptr %39, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %42, ptr %43, align 8, !tbaa !24
   %44 = and i32 %15, 255
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %39, i64 %45
-  %47 = getelementptr inbounds i8, ptr %6, i64 56
+  %46 = getelementptr inbounds nuw i32, ptr %39, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %46, ptr %47, align 8, !tbaa !24
   %48 = zext nneg i32 %27 to i64
-  %49 = getelementptr inbounds i32, ptr %39, i64 %48
-  %50 = getelementptr inbounds i8, ptr %6, i64 64
+  %49 = getelementptr inbounds nuw i32, ptr %39, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr %49, ptr %50, align 8, !tbaa !24
   %51 = zext i32 %32 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %36, i8 -1, i64 %51, i1 false)
@@ -741,17 +741,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %56 = add i32 %54, -1
   %57 = and i32 %56, %54
   %58 = zext nneg i32 %55 to i64
-  %59 = getelementptr inbounds [1 x i32], ptr %39, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [1 x i32], ptr %39, i64 0, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !91
   %61 = trunc nuw nsw i32 %55 to i8
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds [1 x i8], ptr %36, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [1 x i8], ptr %36, i64 0, i64 %62
   store i8 %61, ptr %63, align 1, !tbaa !16
   %64 = icmp eq i32 %57, 0
   br i1 %64, label %.loopexit45, label %.preheader44, !llvm.loop !108
 
 .loopexit45:                                      ; preds = %.preheader44, %5
-  %65 = getelementptr inbounds i8, ptr %1, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !91
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.loopexit43, label %.preheader42
@@ -763,17 +763,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %71 = and i32 %70, %68
   %72 = add nuw nsw i32 %69, %11
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds [1 x i32], ptr %39, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [1 x i32], ptr %39, i64 0, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !91
   %76 = trunc nuw nsw i32 %69 to i8
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds [1 x i8], ptr %36, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [1 x i8], ptr %36, i64 0, i64 %77
   store i8 %76, ptr %78, align 1, !tbaa !16
   %79 = icmp eq i32 %71, 0
   br i1 %79, label %.loopexit43, label %.preheader42, !llvm.loop !108
 
 .loopexit43:                                      ; preds = %.preheader42, %.loopexit45
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = load i32, ptr %80, align 4, !tbaa !91
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %.loopexit41, label %.preheader40
@@ -785,17 +785,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %86 = and i32 %85, %83
   %87 = add nuw nsw i32 %84, %44
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds [1 x i32], ptr %39, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [1 x i32], ptr %39, i64 0, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !91
   %91 = trunc nuw nsw i32 %84 to i8
   %92 = zext i32 %90 to i64
-  %93 = getelementptr inbounds [1 x i8], ptr %36, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [1 x i8], ptr %36, i64 0, i64 %92
   store i8 %91, ptr %93, align 1, !tbaa !16
   %94 = icmp eq i32 %86, 0
   br i1 %94, label %.loopexit41, label %.preheader40, !llvm.loop !108
 
 .loopexit41:                                      ; preds = %.preheader40, %.loopexit43
-  %95 = getelementptr inbounds i8, ptr %1, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %96 = load i32, ptr %95, align 4, !tbaa !91
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %.loopexit39, label %.preheader38
@@ -807,11 +807,11 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %101 = and i32 %100, %98
   %102 = add nuw nsw i32 %99, %27
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds [1 x i32], ptr %39, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [1 x i32], ptr %39, i64 0, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !91
   %106 = trunc nuw nsw i32 %99 to i8
   %107 = zext i32 %105 to i64
-  %108 = getelementptr inbounds [1 x i8], ptr %36, i64 0, i64 %107
+  %108 = getelementptr inbounds nuw [1 x i8], ptr %36, i64 0, i64 %107
   store i8 %106, ptr %108, align 1, !tbaa !16
   %109 = icmp eq i32 %101, 0
   br i1 %109, label %.loopexit39, label %.preheader38, !llvm.loop !108
@@ -820,23 +820,23 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   br i1 %4, label %.loopexit, label %110
 
 110:                                              ; preds = %.loopexit39
-  %111 = getelementptr inbounds i8, ptr %0, i64 88
-  %112 = getelementptr inbounds i8, ptr %0, i64 96
-  %113 = getelementptr inbounds i8, ptr %0, i64 80
-  %114 = getelementptr inbounds i8, ptr %0, i64 16
-  %115 = getelementptr inbounds i8, ptr %1, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %116
 
 116:                                              ; preds = %.loopexit33, %110
   %117 = phi i64 [ 0, %110 ], [ %497, %.loopexit33 ]
   %118 = load ptr, ptr %111, align 8, !tbaa !22
-  %119 = getelementptr inbounds [4 x i32], ptr %118, i64 0, i64 %117
+  %119 = getelementptr inbounds nuw [4 x i32], ptr %118, i64 0, i64 %117
   %120 = load i32, ptr %119, align 4, !tbaa !91
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %.loopexit36, label %122
 
 122:                                              ; preds = %116
-  %123 = getelementptr inbounds [4 x ptr], ptr %112, i64 0, i64 %117
+  %123 = getelementptr inbounds nuw [4 x ptr], ptr %112, i64 0, i64 %117
   %124 = load ptr, ptr %123, align 8, !tbaa !24
   br label %125
 
@@ -848,13 +848,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %130 = add i32 %128, -1
   %131 = and i32 %130, %128
   %132 = zext nneg i32 %129 to i64
-  %133 = getelementptr inbounds i32, ptr %127, i64 %132
+  %133 = getelementptr inbounds nuw i32, ptr %127, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !91
   %135 = load ptr, ptr %2, align 8, !tbaa !88
   %136 = zext i32 %134 to i64
   %137 = lshr i64 %136, 6
   %138 = and i64 %136, 63
-  %139 = getelementptr inbounds i64, ptr %135, i64 %137
+  %139 = getelementptr inbounds nuw i64, ptr %135, i64 %137
   %140 = load i64, ptr %139, align 8, !tbaa !89
   %141 = shl nuw i64 1, %138
   %142 = and i64 %141, %140
@@ -863,24 +863,24 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 
 144:                                              ; preds = %125
   %145 = load ptr, ptr %113, align 8, !tbaa !23
-  %146 = getelementptr inbounds [1 x i8], ptr %145, i64 0, i64 %136
+  %146 = getelementptr inbounds nuw [1 x i8], ptr %145, i64 0, i64 %136
   store i8 -1, ptr %146, align 1, !tbaa !16
   %147 = load ptr, ptr %123, align 8, !tbaa !24
-  %148 = getelementptr inbounds i32, ptr %147, i64 %132
+  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %132
   store i32 -1, ptr %148, align 4, !tbaa !91
   %149 = shl nuw i32 1, %129
   %150 = xor i32 %149, -1
   br label %176, !llvm.loop !109
 
 151:                                              ; preds = %125
-  %152 = getelementptr inbounds [1 x i8], ptr %36, i64 0, i64 %136
+  %152 = getelementptr inbounds nuw [1 x i8], ptr %36, i64 0, i64 %136
   %153 = load i8, ptr %152, align 1, !tbaa !16
   %154 = icmp eq i8 %153, -1
   br i1 %154, label %155, label %187
 
 155:                                              ; preds = %151
-  %156 = getelementptr inbounds i8, ptr %126, i64 16
-  %157 = getelementptr inbounds [4 x i32], ptr %156, i64 0, i64 %117
+  %156 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  %157 = getelementptr inbounds nuw [4 x i32], ptr %156, i64 0, i64 %117
   %158 = load i32, ptr %157, align 4, !tbaa !91
   %159 = shl nuw i32 1, %129
   %160 = and i32 %158, %159
@@ -893,7 +893,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   store i32 %164, ptr %157, align 4, !tbaa !91
   %165 = load ptr, ptr %0, align 8, !tbaa !3
   %166 = load ptr, ptr %165, align 8, !tbaa !110
-  %167 = getelementptr inbounds i8, ptr %166, i64 96
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 96
   %168 = load ptr, ptr %167, align 8
   %169 = tail call noundef i32 %168(ptr noundef nonnull align 8 dereferenceable(944) %165, i32 noundef %134, i32 noundef %129) #11
   %170 = icmp eq i32 %169, 0
@@ -901,10 +901,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 
 171:                                              ; preds = %163, %155
   %172 = load ptr, ptr %113, align 8, !tbaa !23
-  %173 = getelementptr inbounds [1 x i8], ptr %172, i64 0, i64 %136
+  %173 = getelementptr inbounds nuw [1 x i8], ptr %172, i64 0, i64 %136
   store i8 -1, ptr %173, align 1, !tbaa !16
   %174 = load ptr, ptr %123, align 8, !tbaa !24
-  %175 = getelementptr inbounds i32, ptr %174, i64 %132
+  %175 = getelementptr inbounds nuw i32, ptr %174, i64 %132
   store i32 -1, ptr %175, align 4, !tbaa !91
   br label %176
 
@@ -912,12 +912,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %177 = phi i32 [ %150, %144 ], [ %162, %171 ]
   %178 = phi ptr [ %147, %144 ], [ %174, %171 ]
   %179 = load ptr, ptr %111, align 8, !tbaa !22
-  %180 = getelementptr inbounds [4 x i32], ptr %179, i64 0, i64 %117
+  %180 = getelementptr inbounds nuw [4 x i32], ptr %179, i64 0, i64 %117
   %181 = load i32, ptr %180, align 4, !tbaa !91
   %182 = and i32 %181, %177
   store i32 %182, ptr %180, align 4, !tbaa !91
-  %183 = getelementptr inbounds i8, ptr %179, i64 16
-  %184 = getelementptr inbounds [4 x i32], ptr %183, i64 0, i64 %117
+  %183 = getelementptr inbounds nuw i8, ptr %179, i64 16
+  %184 = getelementptr inbounds nuw [4 x i32], ptr %183, i64 0, i64 %117
   %185 = load i32, ptr %184, align 4, !tbaa !91
   %186 = and i32 %185, %177
   store i32 %186, ptr %184, align 4, !tbaa !91
@@ -930,15 +930,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   br i1 %190, label %.loopexit36, label %125
 
 .loopexit36:                                      ; preds = %187, %116
-  %191 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %117
+  %191 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %117
   %192 = load i32, ptr %191, align 4, !tbaa !91
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %.loopexit33, label %194
 
 194:                                              ; preds = %.loopexit36
-  %195 = getelementptr inbounds [4 x ptr], ptr %112, i64 0, i64 %117
-  %196 = getelementptr inbounds [4 x ptr], ptr %40, i64 0, i64 %117
-  %197 = getelementptr inbounds [4 x i32], ptr %115, i64 0, i64 %117
+  %195 = getelementptr inbounds nuw [4 x ptr], ptr %112, i64 0, i64 %117
+  %196 = getelementptr inbounds nuw [4 x ptr], ptr %40, i64 0, i64 %117
+  %197 = getelementptr inbounds nuw [4 x i32], ptr %115, i64 0, i64 %117
   br label %202
 
 198:                                              ; preds = %450
@@ -972,9 +972,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %218 = shl nuw i32 1, %215
   %219 = load ptr, ptr %195, align 8, !tbaa !24
   %220 = zext nneg i32 %215 to i64
-  %221 = getelementptr inbounds i32, ptr %219, i64 %220
+  %221 = getelementptr inbounds nuw i32, ptr %219, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !91
-  %223 = getelementptr inbounds i32, ptr %209, i64 %220
+  %223 = getelementptr inbounds nuw i32, ptr %209, i64 %220
   %224 = load i32, ptr %223, align 4, !tbaa !91
   %225 = icmp eq i32 %222, -1
   br i1 %225, label %226, label %228
@@ -994,7 +994,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 232:                                              ; preds = %230
   %233 = load ptr, ptr %113, align 8, !tbaa !23
   %234 = zext i32 %224 to i64
-  %235 = getelementptr inbounds [1 x i8], ptr %233, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw [1 x i8], ptr %233, i64 0, i64 %234
   %236 = load i8, ptr %235, align 1, !tbaa !16
   %237 = zext i8 %236 to i32
   %238 = icmp eq i8 %236, -1
@@ -1002,8 +1002,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 
 239:                                              ; preds = %232
   %240 = load ptr, ptr %114, align 8, !tbaa !114
-  %241 = getelementptr inbounds i8, ptr %240, i64 16
-  %242 = getelementptr inbounds [4 x i8], ptr %241, i64 0, i64 %117
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 0, i64 %117
   %243 = load i8, ptr %242, align 1, !tbaa !115
   %244 = and i8 %243, 1
   %245 = icmp eq i8 %244, 0
@@ -1011,22 +1011,22 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 
 246:                                              ; preds = %239
   %247 = zext i32 %222 to i64
-  %248 = getelementptr inbounds [1 x i8], ptr %233, i64 0, i64 %247
+  %248 = getelementptr inbounds nuw [1 x i8], ptr %233, i64 0, i64 %247
   store i8 %236, ptr %248, align 1, !tbaa !16
   %249 = trunc nuw nsw i32 %215 to i8
   %250 = load ptr, ptr %113, align 8, !tbaa !23
-  %251 = getelementptr inbounds [1 x i8], ptr %250, i64 0, i64 %234
+  %251 = getelementptr inbounds nuw [1 x i8], ptr %250, i64 0, i64 %234
   store i8 %249, ptr %251, align 1, !tbaa !16
   %252 = load ptr, ptr %195, align 8, !tbaa !24
-  %253 = getelementptr inbounds i32, ptr %252, i64 %220
+  %253 = getelementptr inbounds nuw i32, ptr %252, i64 %220
   store i32 %224, ptr %253, align 4, !tbaa !91
   %254 = zext i8 %236 to i64
-  %255 = getelementptr inbounds i32, ptr %252, i64 %254
+  %255 = getelementptr inbounds nuw i32, ptr %252, i64 %254
   store i32 %222, ptr %255, align 4, !tbaa !91
   %256 = shl nuw i32 1, %237
   %257 = load ptr, ptr %111, align 8, !tbaa !22
-  %258 = getelementptr inbounds i8, ptr %257, i64 16
-  %259 = getelementptr inbounds [4 x i32], ptr %258, i64 0, i64 %117
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
+  %259 = getelementptr inbounds nuw [4 x i32], ptr %258, i64 0, i64 %117
   %260 = load i32, ptr %259, align 4, !tbaa !91
   %261 = and i32 %260, %218
   %262 = icmp ne i32 %261, 0
@@ -1039,7 +1039,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   store i32 %268, ptr %259, align 4, !tbaa !91
   %269 = load ptr, ptr %0, align 8, !tbaa !3
   %270 = load ptr, ptr %269, align 8, !tbaa !110
-  %271 = getelementptr inbounds i8, ptr %270, i64 80
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 80
   %272 = load ptr, ptr %271, align 8
   %273 = tail call noundef i32 %272(ptr noundef nonnull align 8 dereferenceable(944) %269, i32 noundef %222, i32 noundef %215, i32 noundef %224, i32 noundef %237) #11
   %274 = icmp eq i32 %273, 0
@@ -1047,8 +1047,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 
 275:                                              ; preds = %239
   %276 = load ptr, ptr %111, align 8, !tbaa !22
-  %277 = getelementptr inbounds i8, ptr %276, i64 16
-  %278 = getelementptr inbounds [4 x i32], ptr %277, i64 0, i64 %117
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 16
+  %278 = getelementptr inbounds nuw [4 x i32], ptr %277, i64 0, i64 %117
   %279 = load i32, ptr %278, align 4, !tbaa !91
   %280 = and i32 %279, %218
   %281 = icmp eq i32 %280, 0
@@ -1056,19 +1056,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 
 282:                                              ; preds = %275
   %283 = zext i32 %222 to i64
-  %284 = getelementptr inbounds [1 x i8], ptr %233, i64 0, i64 %283
+  %284 = getelementptr inbounds nuw [1 x i8], ptr %233, i64 0, i64 %283
   store i8 -1, ptr %284, align 1, !tbaa !16
   %285 = load ptr, ptr %195, align 8, !tbaa !24
-  %286 = getelementptr inbounds i32, ptr %285, i64 %220
+  %286 = getelementptr inbounds nuw i32, ptr %285, i64 %220
   store i32 -1, ptr %286, align 4, !tbaa !91
   %287 = xor i32 %218, -1
   %288 = load ptr, ptr %111, align 8, !tbaa !22
-  %289 = getelementptr inbounds [4 x i32], ptr %288, i64 0, i64 %117
+  %289 = getelementptr inbounds nuw [4 x i32], ptr %288, i64 0, i64 %117
   %290 = load i32, ptr %289, align 4, !tbaa !91
   %291 = and i32 %290, %287
   store i32 %291, ptr %289, align 4, !tbaa !91
-  %292 = getelementptr inbounds i8, ptr %288, i64 16
-  %293 = getelementptr inbounds [4 x i32], ptr %292, i64 0, i64 %117
+  %292 = getelementptr inbounds nuw i8, ptr %288, i64 16
+  %293 = getelementptr inbounds nuw [4 x i32], ptr %292, i64 0, i64 %117
   %294 = load i32, ptr %293, align 4, !tbaa !91
   %295 = and i32 %294, %287
   store i32 %295, ptr %293, align 4, !tbaa !91
@@ -1076,10 +1076,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 
 296:                                              ; preds = %275
   %297 = load ptr, ptr %0, align 8, !tbaa !3
-  %298 = getelementptr inbounds i8, ptr %297, i64 280
-  %299 = getelementptr inbounds [4 x i32], ptr %298, i64 0, i64 %117
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 280
+  %299 = getelementptr inbounds nuw [4 x i32], ptr %298, i64 0, i64 %117
   %300 = load i32, ptr %299, align 4, !tbaa !91
-  %301 = getelementptr inbounds [4 x i32], ptr %276, i64 0, i64 %117
+  %301 = getelementptr inbounds nuw [4 x i32], ptr %276, i64 0, i64 %117
   %302 = load i32, ptr %301, align 4, !tbaa !91
   %303 = xor i32 %302, -1
   %304 = and i32 %300, %303
@@ -1102,23 +1102,23 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 315:                                              ; preds = %311
   %316 = trunc nuw nsw i32 %313 to i8
   %317 = zext i32 %222 to i64
-  %318 = getelementptr inbounds [1 x i8], ptr %233, i64 0, i64 %317
+  %318 = getelementptr inbounds nuw [1 x i8], ptr %233, i64 0, i64 %317
   store i8 %316, ptr %318, align 1, !tbaa !16
   %319 = load ptr, ptr %195, align 8, !tbaa !24
-  %320 = getelementptr inbounds i32, ptr %319, i64 %220
+  %320 = getelementptr inbounds nuw i32, ptr %319, i64 %220
   store i32 -1, ptr %320, align 4, !tbaa !91
   %321 = zext nneg i32 %313 to i64
-  %322 = getelementptr inbounds i32, ptr %319, i64 %321
+  %322 = getelementptr inbounds nuw i32, ptr %319, i64 %321
   store i32 %222, ptr %322, align 4, !tbaa !91
   %323 = shl nuw i32 1, %313
   %324 = load ptr, ptr %111, align 8, !tbaa !22
-  %325 = getelementptr inbounds i8, ptr %324, i64 16
-  %326 = getelementptr inbounds [4 x i32], ptr %325, i64 0, i64 %117
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 16
+  %326 = getelementptr inbounds nuw [4 x i32], ptr %325, i64 0, i64 %117
   %327 = load i32, ptr %326, align 4, !tbaa !91
   %328 = and i32 %327, %218
   %329 = icmp eq i32 %328, 0
   %330 = or i32 %323, %218
-  %331 = getelementptr inbounds [4 x i32], ptr %324, i64 0, i64 %117
+  %331 = getelementptr inbounds nuw [4 x i32], ptr %324, i64 0, i64 %117
   %332 = load i32, ptr %331, align 4, !tbaa !91
   %333 = xor i32 %332, %330
   store i32 %333, ptr %331, align 4, !tbaa !91
@@ -1127,7 +1127,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   store i32 %335, ptr %326, align 4, !tbaa !91
   %336 = load ptr, ptr %0, align 8, !tbaa !3
   %337 = load ptr, ptr %336, align 8, !tbaa !110
-  %338 = getelementptr inbounds i8, ptr %337, i64 72
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 72
   %339 = load ptr, ptr %338, align 8
   %340 = tail call noundef i32 %339(ptr noundef nonnull align 8 dereferenceable(944) %336, i32 noundef %222, i32 noundef %313, i32 noundef %215) #11
   %341 = icmp eq i32 %340, 0
@@ -1140,8 +1140,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 344:                                              ; preds = %311, %342
   %345 = phi i32 [ %323, %342 ], [ %218, %311 ]
   %346 = phi ptr [ %343, %342 ], [ %297, %311 ]
-  %347 = getelementptr inbounds i8, ptr %346, i64 300
-  %348 = getelementptr inbounds [4 x i32], ptr %347, i64 0, i64 %117
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 300
+  %348 = getelementptr inbounds nuw [4 x i32], ptr %347, i64 0, i64 %117
   %349 = load i32, ptr %348, align 4, !tbaa !91
   %350 = or i32 %349, %345
   store i32 %350, ptr %348, align 4, !tbaa !91
@@ -1152,7 +1152,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %353 = and i32 %279, %352
   store i32 %353, ptr %278, align 4, !tbaa !91
   %354 = load ptr, ptr %297, align 8, !tbaa !110
-  %355 = getelementptr inbounds i8, ptr %354, i64 96
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 96
   %356 = load ptr, ptr %355, align 8
   %357 = tail call noundef i32 %356(ptr noundef nonnull align 8 dereferenceable(944) %297, i32 noundef %222, i32 noundef %215) #11
   %358 = icmp eq i32 %357, 0
@@ -1161,18 +1161,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 359:                                              ; preds = %351
   %360 = load ptr, ptr %113, align 8, !tbaa !23
   %361 = zext i32 %222 to i64
-  %362 = getelementptr inbounds [1 x i8], ptr %360, i64 0, i64 %361
+  %362 = getelementptr inbounds nuw [1 x i8], ptr %360, i64 0, i64 %361
   store i8 -1, ptr %362, align 1, !tbaa !16
   %363 = load ptr, ptr %195, align 8, !tbaa !24
-  %364 = getelementptr inbounds i32, ptr %363, i64 %220
+  %364 = getelementptr inbounds nuw i32, ptr %363, i64 %220
   store i32 -1, ptr %364, align 4, !tbaa !91
   %365 = load ptr, ptr %111, align 8, !tbaa !22
-  %366 = getelementptr inbounds [4 x i32], ptr %365, i64 0, i64 %117
+  %366 = getelementptr inbounds nuw [4 x i32], ptr %365, i64 0, i64 %117
   %367 = load i32, ptr %366, align 4, !tbaa !91
   %368 = and i32 %367, %352
   store i32 %368, ptr %366, align 4, !tbaa !91
-  %369 = getelementptr inbounds i8, ptr %365, i64 16
-  %370 = getelementptr inbounds [4 x i32], ptr %369, i64 0, i64 %117
+  %369 = getelementptr inbounds nuw i8, ptr %365, i64 16
+  %370 = getelementptr inbounds nuw [4 x i32], ptr %369, i64 0, i64 %117
   %371 = load i32, ptr %370, align 4, !tbaa !91
   %372 = and i32 %371, %352
   store i32 %372, ptr %370, align 4, !tbaa !91
@@ -1182,7 +1182,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %374 = phi i64 [ %227, %226 ], [ %234, %282 ], [ %234, %344 ], [ %234, %359 ]
   %375 = phi i32 [ %211, %226 ], [ -1, %282 ], [ -1, %344 ], [ -1, %359 ]
   %376 = load ptr, ptr %113, align 8, !tbaa !23
-  %377 = getelementptr inbounds [1 x i8], ptr %376, i64 0, i64 %374
+  %377 = getelementptr inbounds nuw [1 x i8], ptr %376, i64 0, i64 %374
   %378 = load i8, ptr %377, align 1, !tbaa !16
   %379 = zext i8 %378 to i32
   %380 = icmp eq i8 %378, -1
@@ -1192,7 +1192,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %382 = load ptr, ptr %2, align 8, !tbaa !88
   %383 = lshr i64 %374, 6
   %384 = and i64 %374, 63
-  %385 = getelementptr inbounds i64, ptr %382, i64 %383
+  %385 = getelementptr inbounds nuw i64, ptr %382, i64 %383
   %386 = load i64, ptr %385, align 8, !tbaa !89
   %387 = shl nuw i64 1, %384
   %388 = and i64 %386, %387
@@ -1212,19 +1212,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   store i8 %397, ptr %377, align 1, !tbaa !16
   %398 = load ptr, ptr %195, align 8, !tbaa !24
   %399 = zext i8 %378 to i64
-  %400 = getelementptr inbounds i32, ptr %398, i64 %399
+  %400 = getelementptr inbounds nuw i32, ptr %398, i64 %399
   store i32 -1, ptr %400, align 4, !tbaa !91
-  %401 = getelementptr inbounds i32, ptr %398, i64 %220
+  %401 = getelementptr inbounds nuw i32, ptr %398, i64 %220
   store i32 %224, ptr %401, align 4, !tbaa !91
   %402 = shl nuw i32 1, %379
   %403 = load ptr, ptr %111, align 8, !tbaa !22
-  %404 = getelementptr inbounds i8, ptr %403, i64 16
-  %405 = getelementptr inbounds [4 x i32], ptr %404, i64 0, i64 %117
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 16
+  %405 = getelementptr inbounds nuw [4 x i32], ptr %404, i64 0, i64 %117
   %406 = load i32, ptr %405, align 4, !tbaa !91
   %407 = and i32 %406, %402
   %408 = icmp eq i32 %407, 0
   %409 = or i32 %402, %218
-  %410 = getelementptr inbounds [4 x i32], ptr %403, i64 0, i64 %117
+  %410 = getelementptr inbounds nuw [4 x i32], ptr %403, i64 0, i64 %117
   %411 = load i32, ptr %410, align 4, !tbaa !91
   %412 = xor i32 %411, %409
   store i32 %412, ptr %410, align 4, !tbaa !91
@@ -1233,7 +1233,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   store i32 %414, ptr %405, align 4, !tbaa !91
   %415 = load ptr, ptr %0, align 8, !tbaa !3
   %416 = load ptr, ptr %415, align 8, !tbaa !110
-  %417 = getelementptr inbounds i8, ptr %416, i64 72
+  %417 = getelementptr inbounds nuw i8, ptr %416, i64 72
   %418 = load ptr, ptr %417, align 8
   %419 = tail call noundef i32 %418(ptr noundef nonnull align 8 dereferenceable(944) %415, i32 noundef %224, i32 noundef %215, i32 noundef %379) #11
   %420 = icmp eq i32 %419, 0
@@ -1242,8 +1242,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 421:                                              ; preds = %396, %394, %246, %228
   %422 = load i32, ptr %197, align 4, !tbaa !91
   %423 = load ptr, ptr %111, align 8, !tbaa !22
-  %424 = getelementptr inbounds i8, ptr %423, i64 16
-  %425 = getelementptr inbounds [4 x i32], ptr %424, i64 0, i64 %117
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 16
+  %425 = getelementptr inbounds nuw [4 x i32], ptr %424, i64 0, i64 %117
   %426 = load i32, ptr %425, align 4, !tbaa !91
   %427 = xor i32 %426, %422
   %428 = and i32 %427, %218
@@ -1262,7 +1262,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   store i32 %436, ptr %425, align 4, !tbaa !91
   %437 = load ptr, ptr %0, align 8, !tbaa !3
   %438 = load ptr, ptr %437, align 8, !tbaa !110
-  %439 = getelementptr inbounds i8, ptr %438, i64 96
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 96
   %440 = load ptr, ptr %439, align 8
   %441 = tail call noundef i32 %440(ptr noundef nonnull align 8 dereferenceable(944) %437, i32 noundef %224, i32 noundef %215) #11
   %442 = icmp eq i32 %441, 0
@@ -1293,7 +1293,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
   %457 = add i32 %455, -1
   %458 = and i32 %457, %455
   %459 = load ptr, ptr %111, align 8, !tbaa !22
-  %460 = getelementptr inbounds [4 x i32], ptr %459, i64 0, i64 %117
+  %460 = getelementptr inbounds nuw [4 x i32], ptr %459, i64 0, i64 %117
   %461 = load i32, ptr %460, align 4, !tbaa !91
   %462 = shl nuw i32 1, %456
   %463 = and i32 %461, %462
@@ -1302,24 +1302,24 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 
 465:                                              ; preds = %.preheader
   %466 = zext nneg i32 %456 to i64
-  %467 = getelementptr inbounds i32, ptr %209, i64 %466
+  %467 = getelementptr inbounds nuw i32, ptr %209, i64 %466
   %468 = load i32, ptr %467, align 4, !tbaa !91
   %469 = trunc nuw nsw i32 %456 to i8
   %470 = load ptr, ptr %113, align 8, !tbaa !23
   %471 = zext i32 %468 to i64
-  %472 = getelementptr inbounds [1 x i8], ptr %470, i64 0, i64 %471
+  %472 = getelementptr inbounds nuw [1 x i8], ptr %470, i64 0, i64 %471
   store i8 %469, ptr %472, align 1, !tbaa !16
   %473 = load ptr, ptr %195, align 8, !tbaa !24
-  %474 = getelementptr inbounds i32, ptr %473, i64 %466
+  %474 = getelementptr inbounds nuw i32, ptr %473, i64 %466
   store i32 %468, ptr %474, align 4, !tbaa !91
   %475 = load ptr, ptr %111, align 8, !tbaa !22
-  %476 = getelementptr inbounds [4 x i32], ptr %475, i64 0, i64 %117
+  %476 = getelementptr inbounds nuw [4 x i32], ptr %475, i64 0, i64 %117
   %477 = load i32, ptr %476, align 4, !tbaa !91
   %478 = or i32 %477, %462
   store i32 %478, ptr %476, align 4, !tbaa !91
   %479 = load ptr, ptr %0, align 8, !tbaa !3
   %480 = load ptr, ptr %479, align 8, !tbaa !110
-  %481 = getelementptr inbounds i8, ptr %480, i64 88
+  %481 = getelementptr inbounds nuw i8, ptr %480, i64 88
   %482 = load ptr, ptr %481, align 8
   %483 = tail call noundef i32 %482(ptr noundef nonnull align 8 dereferenceable(944) %479, i32 noundef %468, i32 noundef %456) #11
   %484 = icmp eq i32 %483, 0
@@ -1333,8 +1333,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssig
 
 489:                                              ; preds = %485
   %490 = load ptr, ptr %111, align 8, !tbaa !22
-  %491 = getelementptr inbounds i8, ptr %490, i64 16
-  %492 = getelementptr inbounds [4 x i32], ptr %491, i64 0, i64 %117
+  %491 = getelementptr inbounds nuw i8, ptr %490, i64 16
+  %492 = getelementptr inbounds nuw [4 x i32], ptr %491, i64 0, i64 %117
   %493 = load i32, ptr %492, align 4, !tbaa !91
   %494 = or i32 %493, %462
   store i32 %494, ptr %492, align 4, !tbaa !91
@@ -1375,9 +1375,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator29spillScratchG
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %5, align 8, !tbaa !22
   %9 = load i32, ptr %8, align 4, !tbaa !91
   br label %10
@@ -1397,9 +1397,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator29spillScratchG
 20:                                               ; preds = %10
   %21 = load ptr, ptr %6, align 8, !tbaa !24
   %22 = zext nneg i32 %14 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !91
-  %25 = getelementptr inbounds i8, ptr %12, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %26 = load i32, ptr %25, align 4, !tbaa !91
   %27 = and i32 %26, %17
   %28 = icmp eq i32 %27, 0
@@ -1411,7 +1411,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator29spillScratchG
   store i32 %31, ptr %25, align 4, !tbaa !91
   %32 = load ptr, ptr %0, align 8, !tbaa !3
   %33 = load ptr, ptr %32, align 8, !tbaa !110
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(944) %32, i32 noundef %24, i32 noundef %14) #11
   %37 = icmp eq i32 %36, 0
@@ -1420,16 +1420,16 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator29spillScratchG
 38:                                               ; preds = %30, %20
   %39 = load ptr, ptr %7, align 8, !tbaa !23
   %40 = zext i32 %24 to i64
-  %41 = getelementptr inbounds [1 x i8], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [1 x i8], ptr %39, i64 0, i64 %40
   store i8 -1, ptr %41, align 1, !tbaa !16
   %42 = load ptr, ptr %6, align 8, !tbaa !24
-  %43 = getelementptr inbounds i32, ptr %42, i64 %22
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %22
   store i32 -1, ptr %43, align 4, !tbaa !91
   %44 = load ptr, ptr %5, align 8, !tbaa !22
   %45 = load i32, ptr %44, align 4, !tbaa !91
   %46 = and i32 %45, %29
   store i32 %46, ptr %44, align 4, !tbaa !91
-  %47 = getelementptr inbounds i8, ptr %44, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %48 = load i32, ptr %47, align 4, !tbaa !91
   %49 = and i32 %48, %29
   store i32 %49, ptr %47, align 4, !tbaa !91
@@ -1452,39 +1452,39 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %4 = alloca [32 x ptr], align 16
   %5 = alloca [4 x ptr], align 16
   %6 = alloca [4 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !72
   %11 = load ptr, ptr %1, align 8, !tbaa !16
-  %12 = getelementptr inbounds i8, ptr %10, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 384
   store ptr %11, ptr %12, align 8, !tbaa !122
-  %13 = getelementptr inbounds i8, ptr %0, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %13, align 8, !tbaa !143
-  %14 = getelementptr inbounds i8, ptr %0, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %8, ptr %14, align 8, !tbaa !144
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !145
-  %17 = getelementptr inbounds i8, ptr %0, i64 224
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 %16, ptr %17, align 8, !tbaa !149
-  %18 = getelementptr inbounds i8, ptr %8, i64 24
-  %19 = getelementptr inbounds i8, ptr %0, i64 228
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %20 = load i32, ptr %18, align 8, !tbaa !16
   store i32 %20, ptr %19, align 4, !tbaa !16
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = getelementptr inbounds i8, ptr %1, i64 64
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
-  %29 = getelementptr inbounds i8, ptr %1, i64 168
-  %30 = getelementptr inbounds i8, ptr %1, i64 141
-  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 141
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %32
 
 32:                                               ; preds = %1348, %2
@@ -1496,18 +1496,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %38 = lshr i32 %37, %36
   %39 = and i32 %38, 255
   %40 = load ptr, ptr %14, align 8, !tbaa !144
-  %41 = getelementptr inbounds i8, ptr %40, i64 76
-  %42 = getelementptr inbounds i8, ptr %40, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 76
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %43 = load i32, ptr %42, align 4, !tbaa !16
   %44 = lshr i32 %43, %36
   %45 = and i32 %44, 255
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds %"struct.asmjit::_abi_1_10::RATiedReg", ptr %41, i64 %46
-  %48 = getelementptr inbounds i8, ptr %40, i64 44
-  %49 = getelementptr inbounds [4 x i32], ptr %48, i64 0, i64 %33
+  %47 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RATiedReg", ptr %41, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 44
+  %49 = getelementptr inbounds nuw [4 x i32], ptr %48, i64 0, i64 %33
   %50 = load i32, ptr %49, align 4, !tbaa !91
-  %51 = getelementptr inbounds i8, ptr %40, i64 60
-  %52 = getelementptr inbounds [4 x i32], ptr %51, i64 0, i64 %33
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 60
+  %52 = getelementptr inbounds nuw [4 x i32], ptr %51, i64 0, i64 %33
   %53 = load i32, ptr %52, align 4, !tbaa !91
   %54 = icmp eq i32 %39, 0
   br i1 %54, label %.loopexit83, label %55
@@ -1524,8 +1524,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %62 = phi i32 [ 0, %55 ], [ %92, %168 ]
   %63 = phi i32 [ 0, %55 ], [ %100, %168 ]
   %64 = phi i32 [ 0, %55 ], [ %84, %168 ]
-  %65 = getelementptr inbounds %"struct.asmjit::_abi_1_10::RATiedReg", ptr %47, i64 %58
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %65 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RATiedReg", ptr %47, i64 %58
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 4, !tbaa !150
   %68 = and i32 %67, 7168
   %69 = icmp eq i32 %68, 0
@@ -1545,7 +1545,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 79:                                               ; preds = %70
   %80 = or i32 %76, %64
   %81 = zext nneg i32 %75 to i64
-  %82 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %81
   store ptr %65, ptr %82, align 8, !tbaa !24
   br label %83
 
@@ -1558,7 +1558,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 87:                                               ; preds = %83
   %88 = add i32 %62, 1
   %89 = zext i32 %62 to i64
-  %90 = getelementptr inbounds [32 x ptr], ptr %3, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw [32 x ptr], ptr %3, i64 0, i64 %89
   store ptr %65, ptr %90, align 8, !tbaa !24
   br label %91
 
@@ -1571,7 +1571,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 95:                                               ; preds = %91
   %96 = add i32 %63, 1
   %97 = zext i32 %63 to i64
-  %98 = getelementptr inbounds [32 x ptr], ptr %4, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [32 x ptr], ptr %4, i64 0, i64 %97
   store ptr %65, ptr %98, align 8, !tbaa !24
   br label %99
 
@@ -1596,10 +1596,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %110 = load i32, ptr %65, align 4, !tbaa !151
   %111 = load ptr, ptr %21, align 8, !tbaa !23
   %112 = zext i32 %110 to i64
-  %113 = getelementptr inbounds [1 x i8], ptr %111, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [1 x i8], ptr %111, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !16
   %115 = zext i8 %114 to i32
-  %116 = getelementptr inbounds i8, ptr %65, i64 14
+  %116 = getelementptr inbounds nuw i8, ptr %65, i64 14
   %117 = load i8, ptr %116, align 2, !tbaa !16
   %118 = icmp eq i8 %117, -1
   br i1 %118, label %143, label %119
@@ -1620,8 +1620,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 127:                                              ; preds = %123
   %128 = shl nuw i32 1, %115
   %129 = load ptr, ptr %22, align 8, !tbaa !22
-  %130 = getelementptr inbounds i8, ptr %129, i64 16
-  %131 = getelementptr inbounds [4 x i32], ptr %130, i64 0, i64 %33
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  %131 = getelementptr inbounds nuw [4 x i32], ptr %130, i64 0, i64 %33
   %132 = load i32, ptr %131, align 4, !tbaa !91
   %133 = or i32 %132, %128
   store i32 %133, ptr %131, align 4, !tbaa !91
@@ -1634,7 +1634,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 137:                                              ; preds = %119
   %138 = load ptr, ptr %22, align 8, !tbaa !22
-  %139 = getelementptr inbounds [4 x i32], ptr %138, i64 0, i64 %33
+  %139 = getelementptr inbounds nuw [4 x i32], ptr %138, i64 0, i64 %33
   %140 = load i32, ptr %139, align 4, !tbaa !91
   %141 = and i32 %140, %121
   %142 = or i32 %141, %60
@@ -1645,7 +1645,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %144, label %168, label %145
 
 145:                                              ; preds = %143
-  %146 = getelementptr inbounds i8, ptr %65, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %147 = load i32, ptr %146, align 4, !tbaa !153
   %148 = shl nuw i32 1, %115
   %149 = xor i32 %59, -1
@@ -1664,8 +1664,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 157:                                              ; preds = %153
   %158 = load ptr, ptr %22, align 8, !tbaa !22
-  %159 = getelementptr inbounds i8, ptr %158, i64 16
-  %160 = getelementptr inbounds [4 x i32], ptr %159, i64 0, i64 %33
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
+  %160 = getelementptr inbounds nuw [4 x i32], ptr %159, i64 0, i64 %33
   %161 = load i32, ptr %160, align 4, !tbaa !91
   %162 = or i32 %161, %148
   store i32 %162, ptr %160, align 4, !tbaa !91
@@ -1702,14 +1702,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %181 = xor i32 %84, -1
   %182 = tail call noundef i32 @llvm.cttz.i32(i32 %181, i1 true), !range !99
   %183 = load ptr, ptr %5, align 16, !tbaa !24
-  %184 = getelementptr inbounds i8, ptr %183, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load i32, ptr %184, align 4, !tbaa !155
   %186 = and i32 %185, 1024
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %320, label %188
 
 188:                                              ; preds = %180
-  %189 = getelementptr inbounds [4 x i32], ptr %23, i64 0, i64 %33
+  %189 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %33
   %190 = load i32, ptr %189, align 4, !tbaa !91
   %191 = or i32 %190, %170
   %192 = xor i32 %171, -1
@@ -1727,28 +1727,28 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 .preheader93:                                     ; preds = %195, %.preheader93
   %200 = phi i64 [ %209, %.preheader93 ], [ 0, %195 ]
-  %201 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !24
   %203 = load i32, ptr %202, align 4, !tbaa !151
   %204 = zext i32 %203 to i64
-  %205 = getelementptr inbounds [1 x i8], ptr %196, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw [1 x i8], ptr %196, i64 0, i64 %204
   %206 = load i8, ptr %205, align 1, !tbaa !16
   %207 = zext i8 %206 to i32
-  %208 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %200
+  %208 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %200
   store i32 %207, ptr %208, align 4, !tbaa !91
   %209 = add nuw nsw i64 %200, 1
   %210 = icmp eq i64 %209, %198
   br i1 %210, label %.loopexit94, label %.preheader93, !llvm.loop !156
 
 .loopexit94:                                      ; preds = %.preheader93, %195, %188
-  %211 = getelementptr inbounds i8, ptr %183, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %212 = load i32, ptr %211, align 4, !tbaa !153
   %213 = icmp eq i32 %212, 0
   br i1 %213, label %272, label %214
 
 214:                                              ; preds = %.loopexit94
   %215 = load ptr, ptr %0, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 320
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 320
   %217 = zext nneg i32 %182 to i64
   br label %218
 
@@ -1782,20 +1782,20 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %238, label %.loopexit73, label %239
 
 239:                                              ; preds = %231
-  %240 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %232
+  %240 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %232
   %241 = load ptr, ptr %240, align 8, !tbaa !24
   %242 = load i32, ptr %241, align 4, !tbaa !151
   %243 = zext i32 %242 to i64
   %244 = load ptr, ptr %216, align 8, !tbaa !54
-  %245 = getelementptr inbounds ptr, ptr %244, i64 %243
+  %245 = getelementptr inbounds nuw ptr, ptr %244, i64 %243
   %246 = load ptr, ptr %245, align 8, !tbaa !24
-  %247 = getelementptr inbounds i8, ptr %246, i64 74
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 74
   %248 = load i8, ptr %247, align 2, !tbaa !90
   %249 = zext i8 %248 to i64
   %250 = icmp eq i64 %234, %249
   %251 = zext i1 %250 to i32
   %252 = add i32 %233, %251
-  %253 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %232
+  %253 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %232
   %254 = load i32, ptr %253, align 4, !tbaa !91
   %255 = zext i32 %254 to i64
   %256 = icmp eq i64 %234, %255
@@ -1836,23 +1836,23 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %276 = phi i32 [ %312, %311 ], [ %169, %271 ]
   %277 = trunc i64 %273 to i32
   %278 = add i32 %266, %277
-  %279 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %273
+  %279 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %273
   %280 = load ptr, ptr %279, align 8, !tbaa !24
   %281 = shl nuw i32 1, %278
   %282 = load i32, ptr %280, align 4, !tbaa !151
   %283 = load ptr, ptr %21, align 8, !tbaa !23
   %284 = zext i32 %282 to i64
-  %285 = getelementptr inbounds [1 x i8], ptr %283, i64 0, i64 %284
+  %285 = getelementptr inbounds nuw [1 x i8], ptr %283, i64 0, i64 %284
   %286 = load i8, ptr %285, align 1, !tbaa !16
   %287 = zext i8 %286 to i32
   %288 = trunc i32 %278 to i8
-  %289 = getelementptr inbounds i8, ptr %280, i64 14
+  %289 = getelementptr inbounds nuw i8, ptr %280, i64 14
   store i8 %288, ptr %289, align 2, !tbaa !16
   %290 = icmp eq i32 %278, %287
   br i1 %290, label %291, label %305
 
 291:                                              ; preds = %.preheader91
-  %292 = getelementptr inbounds i8, ptr %280, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %293 = load i32, ptr %292, align 4, !tbaa !150
   %294 = or i32 %293, 256
   store i32 %294, ptr %292, align 4, !tbaa !150
@@ -1862,8 +1862,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 297:                                              ; preds = %291
   %298 = load ptr, ptr %22, align 8, !tbaa !22
-  %299 = getelementptr inbounds i8, ptr %298, i64 16
-  %300 = getelementptr inbounds [4 x i32], ptr %299, i64 0, i64 %33
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 16
+  %300 = getelementptr inbounds nuw [4 x i32], ptr %299, i64 0, i64 %33
   %301 = load i32, ptr %300, align 4, !tbaa !91
   %302 = or i32 %301, %281
   store i32 %302, ptr %300, align 4, !tbaa !91
@@ -1875,7 +1875,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 305:                                              ; preds = %.preheader91
   %306 = load ptr, ptr %22, align 8, !tbaa !22
-  %307 = getelementptr inbounds [4 x i32], ptr %306, i64 0, i64 %33
+  %307 = getelementptr inbounds nuw [4 x i32], ptr %306, i64 0, i64 %33
   %308 = load i32, ptr %307, align 4, !tbaa !91
   %309 = and i32 %308, %281
   %310 = or i32 %309, %275
@@ -1906,11 +1906,11 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 326:                                              ; preds = %320
   %327 = load ptr, ptr %22, align 8, !tbaa !22
-  %328 = getelementptr inbounds [4 x i32], ptr %327, i64 0, i64 %33
+  %328 = getelementptr inbounds nuw [4 x i32], ptr %327, i64 0, i64 %33
   %329 = load i32, ptr %328, align 4, !tbaa !91
   %330 = xor i32 %323, -1
   %331 = and i32 %329, %330
-  %332 = getelementptr inbounds [4 x ptr], ptr %25, i64 0, i64 %33
+  %332 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %33
   br label %333
 
 333:                                              ; preds = %537, %326
@@ -1920,8 +1920,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %337 = phi i32 [ %323, %326 ], [ %540, %537 ]
   %338 = phi i32 [ %322, %326 ], [ %539, %537 ]
   %339 = phi i32 [ %331, %326 ], [ %538, %537 ]
-  %340 = getelementptr inbounds %"struct.asmjit::_abi_1_10::RATiedReg", ptr %47, i64 %334
-  %341 = getelementptr inbounds i8, ptr %340, i64 8
+  %340 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RATiedReg", ptr %47, i64 %334
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %342 = load i32, ptr %341, align 4, !tbaa !150
   %343 = and i32 %342, 256
   %344 = icmp eq i32 %343, 0
@@ -1931,7 +1931,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %346 = load i32, ptr %340, align 4, !tbaa !151
   %347 = load ptr, ptr %21, align 8, !tbaa !23
   %348 = zext i32 %346 to i64
-  %349 = getelementptr inbounds [1 x i8], ptr %347, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw [1 x i8], ptr %347, i64 0, i64 %348
   %350 = load i8, ptr %349, align 1, !tbaa !16
   %351 = zext i8 %350 to i32
   %352 = and i8 %335, 1
@@ -1946,7 +1946,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %358, label %359, label %412
 
 359:                                              ; preds = %354
-  %360 = getelementptr inbounds i8, ptr %340, i64 24
+  %360 = getelementptr inbounds nuw i8, ptr %340, i64 24
   %361 = load i32, ptr %360, align 4, !tbaa !161
   %362 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %361), !range !99
   %363 = icmp eq i32 %362, 1
@@ -1954,16 +1954,16 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 364:                                              ; preds = %359
   %365 = load ptr, ptr %0, align 8, !tbaa !3
-  %366 = getelementptr inbounds i8, ptr %365, i64 320
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 320
   %367 = load ptr, ptr %366, align 8, !tbaa !54
-  %368 = getelementptr inbounds ptr, ptr %367, i64 %348
+  %368 = getelementptr inbounds nuw ptr, ptr %367, i64 %348
   %369 = load ptr, ptr %368, align 8, !tbaa !24
-  %370 = getelementptr inbounds i8, ptr %340, i64 13
+  %370 = getelementptr inbounds nuw i8, ptr %340, i64 13
   %371 = load i8, ptr %370, align 1, !tbaa !16
   %372 = zext i8 %371 to i32
-  %373 = getelementptr inbounds i8, ptr %369, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %369, i64 8
   %374 = load ptr, ptr %373, align 8, !tbaa !92
-  %375 = getelementptr inbounds i8, ptr %374, i64 8
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %376 = load i32, ptr %375, align 8, !tbaa !103
   %377 = icmp ult i32 %376, %372
   br i1 %377, label %412, label %378
@@ -1972,38 +1972,38 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %379 = tail call noundef i32 @llvm.cttz.i32(i32 %361, i1 true), !range !99
   %380 = lshr i32 %379, 2
   %381 = zext nneg i32 %380 to i64
-  %382 = getelementptr inbounds %"class.asmjit::_abi_1_10::Operand", ptr %24, i64 %381
-  %383 = getelementptr inbounds i8, ptr %369, i64 24
+  %382 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::Operand", ptr %24, i64 %381
+  %383 = getelementptr inbounds nuw i8, ptr %369, i64 24
   %384 = load ptr, ptr %383, align 8, !tbaa !100, !noalias !162
   %385 = icmp eq ptr %384, null
   br i1 %385, label %386, label %397
 
 386:                                              ; preds = %378
-  %387 = getelementptr inbounds i8, ptr %365, i64 504
-  %388 = getelementptr inbounds i8, ptr %365, i64 476
+  %387 = getelementptr inbounds nuw i8, ptr %365, i64 504
+  %388 = getelementptr inbounds nuw i8, ptr %365, i64 476
   %389 = load i32, ptr %388, align 4, !tbaa !102, !noalias !162
-  %390 = getelementptr inbounds i8, ptr %374, i64 12
+  %390 = getelementptr inbounds nuw i8, ptr %374, i64 12
   %391 = load i8, ptr %390, align 4, !tbaa !104, !noalias !162
   %392 = zext i8 %391 to i32
   %393 = tail call noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %387, i32 noundef %389, i32 noundef %376, i32 noundef %392, i32 noundef 1) #11, !noalias !162
   store ptr %393, ptr %383, align 8, !tbaa !100, !noalias !162
-  %394 = getelementptr inbounds i8, ptr %369, i64 36
+  %394 = getelementptr inbounds nuw i8, ptr %369, i64 36
   %395 = load i32, ptr %394, align 4, !tbaa !101, !noalias !162
   %396 = or i32 %395, 16
   store i32 %396, ptr %394, align 4, !tbaa !101, !noalias !162
   br label %397
 
 397:                                              ; preds = %386, %378
-  %398 = getelementptr inbounds i8, ptr %365, i64 472
+  %398 = getelementptr inbounds nuw i8, ptr %365, i64 472
   %399 = load i32, ptr %398, align 4, !tbaa !71, !noalias !162
   %400 = and i32 %399, 248
-  %401 = getelementptr inbounds i8, ptr %369, i64 4
+  %401 = getelementptr inbounds nuw i8, ptr %369, i64 4
   %402 = load i32, ptr %401, align 4, !tbaa !165, !noalias !162
-  %403 = getelementptr inbounds i8, ptr %382, i64 4
+  %403 = getelementptr inbounds nuw i8, ptr %382, i64 4
   store i32 %402, ptr %403, align 4
-  %404 = getelementptr inbounds i8, ptr %382, i64 8
+  %404 = getelementptr inbounds nuw i8, ptr %382, i64 8
   store i32 0, ptr %404, align 4
-  %405 = getelementptr inbounds i8, ptr %382, i64 12
+  %405 = getelementptr inbounds nuw i8, ptr %382, i64 12
   store i32 0, ptr %405, align 4
   %406 = shl nuw i32 %372, 24
   %407 = or disjoint i32 %400, %406
@@ -2017,23 +2017,23 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br label %537
 
 412:                                              ; preds = %364, %359, %354, %345
-  %413 = getelementptr inbounds i8, ptr %340, i64 14
+  %413 = getelementptr inbounds nuw i8, ptr %340, i64 14
   %414 = load i8, ptr %413, align 2, !tbaa !16
   %415 = icmp eq i8 %414, -1
   br i1 %415, label %416, label %537
 
 416:                                              ; preds = %412
-  %417 = getelementptr inbounds i8, ptr %340, i64 16
+  %417 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %418 = load i32, ptr %417, align 4, !tbaa !153
   %419 = or i32 %337, %336
   %420 = xor i32 %419, -1
   %421 = and i32 %418, %420
   %422 = load ptr, ptr %0, align 8, !tbaa !3
-  %423 = getelementptr inbounds i8, ptr %422, i64 320
+  %423 = getelementptr inbounds nuw i8, ptr %422, i64 320
   %424 = load ptr, ptr %423, align 8, !tbaa !54
-  %425 = getelementptr inbounds ptr, ptr %424, i64 %348
+  %425 = getelementptr inbounds nuw ptr, ptr %424, i64 %348
   %426 = load ptr, ptr %425, align 8, !tbaa !24
-  %427 = getelementptr inbounds i8, ptr %426, i64 74
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 74
   %428 = load i8, ptr %427, align 2, !tbaa !90
   %429 = icmp eq i8 %428, -1
   br i1 %429, label %435, label %430
@@ -2046,7 +2046,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %434, label %435, label %443
 
 435:                                              ; preds = %430, %416
-  %436 = getelementptr inbounds i8, ptr %426, i64 56
+  %436 = getelementptr inbounds nuw i8, ptr %426, i64 56
   %437 = load i32, ptr %436, align 8, !tbaa !166
   %438 = and i32 %437, %421
   %439 = icmp eq i32 %438, 0
@@ -2081,23 +2081,23 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 460:                                              ; preds = %458
   %461 = load ptr, ptr %21, align 8, !tbaa !23
-  %462 = getelementptr inbounds [1 x i8], ptr %461, i64 0, i64 %348
+  %462 = getelementptr inbounds nuw [1 x i8], ptr %461, i64 0, i64 %348
   store i8 %449, ptr %462, align 1, !tbaa !16
   %463 = load ptr, ptr %332, align 8, !tbaa !24
   %464 = zext i8 %350 to i64
-  %465 = getelementptr inbounds i32, ptr %463, i64 %464
+  %465 = getelementptr inbounds nuw i32, ptr %463, i64 %464
   store i32 -1, ptr %465, align 4, !tbaa !91
   %466 = zext nneg i32 %445 to i64
-  %467 = getelementptr inbounds i32, ptr %463, i64 %466
+  %467 = getelementptr inbounds nuw i32, ptr %463, i64 %466
   store i32 %346, ptr %467, align 4, !tbaa !91
   %468 = load ptr, ptr %22, align 8, !tbaa !22
-  %469 = getelementptr inbounds i8, ptr %468, i64 16
-  %470 = getelementptr inbounds [4 x i32], ptr %469, i64 0, i64 %33
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 16
+  %470 = getelementptr inbounds nuw [4 x i32], ptr %469, i64 0, i64 %33
   %471 = load i32, ptr %470, align 4, !tbaa !91
   %472 = and i32 %471, %452
   %473 = icmp eq i32 %472, 0
   %474 = or i32 %444, %452
-  %475 = getelementptr inbounds [4 x i32], ptr %468, i64 0, i64 %33
+  %475 = getelementptr inbounds nuw [4 x i32], ptr %468, i64 0, i64 %33
   %476 = load i32, ptr %475, align 4, !tbaa !91
   %477 = xor i32 %476, %474
   store i32 %477, ptr %475, align 4, !tbaa !91
@@ -2106,7 +2106,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   store i32 %479, ptr %470, align 4, !tbaa !91
   %480 = load ptr, ptr %0, align 8, !tbaa !3
   %481 = load ptr, ptr %480, align 8, !tbaa !110
-  %482 = getelementptr inbounds i8, ptr %481, i64 72
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 72
   %483 = load ptr, ptr %482, align 8
   %484 = tail call noundef i32 %483(ptr noundef nonnull align 8 dereferenceable(944) %480, i32 noundef %346, i32 noundef %445, i32 noundef %351) #11
   %485 = icmp eq i32 %484, 0
@@ -2126,8 +2126,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 493:                                              ; preds = %488
   %494 = load ptr, ptr %22, align 8, !tbaa !22
-  %495 = getelementptr inbounds i8, ptr %494, i64 16
-  %496 = getelementptr inbounds [4 x i32], ptr %495, i64 0, i64 %33
+  %495 = getelementptr inbounds nuw i8, ptr %494, i64 16
+  %496 = getelementptr inbounds nuw [4 x i32], ptr %495, i64 0, i64 %33
   %497 = load i32, ptr %496, align 4, !tbaa !91
   %498 = or i32 %497, %444
   store i32 %498, ptr %496, align 4, !tbaa !91
@@ -2143,20 +2143,20 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 503:                                              ; preds = %501
   %504 = load ptr, ptr %21, align 8, !tbaa !23
-  %505 = getelementptr inbounds [1 x i8], ptr %504, i64 0, i64 %348
+  %505 = getelementptr inbounds nuw [1 x i8], ptr %504, i64 0, i64 %348
   store i8 %449, ptr %505, align 1, !tbaa !16
   %506 = load ptr, ptr %332, align 8, !tbaa !24
   %507 = zext nneg i32 %445 to i64
-  %508 = getelementptr inbounds i32, ptr %506, i64 %507
+  %508 = getelementptr inbounds nuw i32, ptr %506, i64 %507
   store i32 %346, ptr %508, align 4, !tbaa !91
   %509 = load ptr, ptr %22, align 8, !tbaa !22
-  %510 = getelementptr inbounds [4 x i32], ptr %509, i64 0, i64 %33
+  %510 = getelementptr inbounds nuw [4 x i32], ptr %509, i64 0, i64 %33
   %511 = load i32, ptr %510, align 4, !tbaa !91
   %512 = or i32 %511, %444
   store i32 %512, ptr %510, align 4, !tbaa !91
   %513 = load ptr, ptr %0, align 8, !tbaa !3
   %514 = load ptr, ptr %513, align 8, !tbaa !110
-  %515 = getelementptr inbounds i8, ptr %514, i64 88
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 88
   %516 = load ptr, ptr %515, align 8
   %517 = tail call noundef i32 %516(ptr noundef nonnull align 8 dereferenceable(944) %513, i32 noundef %346, i32 noundef %445) #11
   %518 = icmp eq i32 %517, 0
@@ -2172,8 +2172,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 524:                                              ; preds = %519
   %525 = load ptr, ptr %22, align 8, !tbaa !22
-  %526 = getelementptr inbounds i8, ptr %525, i64 16
-  %527 = getelementptr inbounds [4 x i32], ptr %526, i64 0, i64 %33
+  %526 = getelementptr inbounds nuw i8, ptr %525, i64 16
+  %527 = getelementptr inbounds nuw [4 x i32], ptr %526, i64 0, i64 %33
   %528 = load i32, ptr %527, align 4, !tbaa !91
   %529 = or i32 %528, %444
   store i32 %529, ptr %527, align 4, !tbaa !91
@@ -2209,17 +2209,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %549, label %.loopexit87, label %550
 
 550:                                              ; preds = %.loopexit90
-  %551 = getelementptr inbounds [4 x i32], ptr %23, i64 0, i64 %33
+  %551 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %33
   %552 = load i32, ptr %551, align 4, !tbaa !91
   %553 = load ptr, ptr %22, align 8, !tbaa !22
-  %554 = getelementptr inbounds [4 x i32], ptr %553, i64 0, i64 %33
+  %554 = getelementptr inbounds nuw [4 x i32], ptr %553, i64 0, i64 %33
   %555 = load i32, ptr %554, align 4, !tbaa !91
   %556 = or i32 %53, %555
   %557 = or i32 %556, %546
   %558 = or i32 %557, %547
   %559 = xor i32 %558, -1
   %560 = and i32 %552, %559
-  %561 = getelementptr inbounds [4 x ptr], ptr %25, i64 0, i64 %33
+  %561 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %33
   br label %562
 
 562:                                              ; preds = %653, %550
@@ -2229,7 +2229,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %566 = add i32 %563, -1
   %567 = and i32 %566, %563
   %568 = load ptr, ptr %22, align 8, !tbaa !22
-  %569 = getelementptr inbounds [4 x i32], ptr %568, i64 0, i64 %33
+  %569 = getelementptr inbounds nuw [4 x i32], ptr %568, i64 0, i64 %33
   %570 = load i32, ptr %569, align 4, !tbaa !91
   %571 = shl nuw i32 1, %565
   %572 = and i32 %570, %571
@@ -2239,19 +2239,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 574:                                              ; preds = %562
   %575 = load ptr, ptr %561, align 8, !tbaa !24
   %576 = zext nneg i32 %565 to i64
-  %577 = getelementptr inbounds i32, ptr %575, i64 %576
+  %577 = getelementptr inbounds nuw i32, ptr %575, i64 %576
   %578 = load i32, ptr %577, align 4, !tbaa !91
   %579 = icmp eq i32 %564, 0
   br i1 %579, label %622, label %580
 
 580:                                              ; preds = %574
   %581 = load ptr, ptr %0, align 8, !tbaa !3
-  %582 = getelementptr inbounds i8, ptr %581, i64 320
+  %582 = getelementptr inbounds nuw i8, ptr %581, i64 320
   %583 = zext i32 %578 to i64
   %584 = load ptr, ptr %582, align 8, !tbaa !54
-  %585 = getelementptr inbounds ptr, ptr %584, i64 %583
+  %585 = getelementptr inbounds nuw ptr, ptr %584, i64 %583
   %586 = load ptr, ptr %585, align 8, !tbaa !24
-  %587 = getelementptr inbounds i8, ptr %586, i64 74
+  %587 = getelementptr inbounds nuw i8, ptr %586, i64 74
   %588 = load i8, ptr %587, align 2, !tbaa !90
   %589 = icmp eq i8 %588, -1
   %590 = zext i8 %588 to i32
@@ -2267,22 +2267,22 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 597:                                              ; preds = %595
   %598 = load ptr, ptr %21, align 8, !tbaa !23
-  %599 = getelementptr inbounds [1 x i8], ptr %598, i64 0, i64 %583
+  %599 = getelementptr inbounds nuw [1 x i8], ptr %598, i64 0, i64 %583
   store i8 %588, ptr %599, align 1, !tbaa !16
   %600 = load ptr, ptr %561, align 8, !tbaa !24
-  %601 = getelementptr inbounds i32, ptr %600, i64 %576
+  %601 = getelementptr inbounds nuw i32, ptr %600, i64 %576
   store i32 -1, ptr %601, align 4, !tbaa !91
   %602 = zext i8 %588 to i64
-  %603 = getelementptr inbounds i32, ptr %600, i64 %602
+  %603 = getelementptr inbounds nuw i32, ptr %600, i64 %602
   store i32 %578, ptr %603, align 4, !tbaa !91
   %604 = load ptr, ptr %22, align 8, !tbaa !22
-  %605 = getelementptr inbounds i8, ptr %604, i64 16
-  %606 = getelementptr inbounds [4 x i32], ptr %605, i64 0, i64 %33
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 16
+  %606 = getelementptr inbounds nuw [4 x i32], ptr %605, i64 0, i64 %33
   %607 = load i32, ptr %606, align 4, !tbaa !91
   %608 = and i32 %607, %571
   %609 = icmp eq i32 %608, 0
   %610 = or i32 %591, %571
-  %611 = getelementptr inbounds [4 x i32], ptr %604, i64 0, i64 %33
+  %611 = getelementptr inbounds nuw [4 x i32], ptr %604, i64 0, i64 %33
   %612 = load i32, ptr %611, align 4, !tbaa !91
   %613 = xor i32 %612, %610
   store i32 %613, ptr %611, align 4, !tbaa !91
@@ -2291,15 +2291,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   store i32 %615, ptr %606, align 4, !tbaa !91
   %616 = load ptr, ptr %0, align 8, !tbaa !3
   %617 = load ptr, ptr %616, align 8, !tbaa !110
-  %618 = getelementptr inbounds i8, ptr %617, i64 72
+  %618 = getelementptr inbounds nuw i8, ptr %617, i64 72
   %619 = load ptr, ptr %618, align 8
   %620 = tail call noundef i32 %619(ptr noundef nonnull align 8 dereferenceable(944) %616, i32 noundef %578, i32 noundef %590, i32 noundef %565) #11
   %621 = icmp eq i32 %620, 0
   br i1 %621, label %651, label %.loopexit72
 
 622:                                              ; preds = %580, %574
-  %623 = getelementptr inbounds i8, ptr %568, i64 16
-  %624 = getelementptr inbounds [4 x i32], ptr %623, i64 0, i64 %33
+  %623 = getelementptr inbounds nuw i8, ptr %568, i64 16
+  %624 = getelementptr inbounds nuw [4 x i32], ptr %623, i64 0, i64 %33
   %625 = load i32, ptr %624, align 4, !tbaa !91
   %626 = and i32 %625, %571
   %627 = icmp eq i32 %626, 0
@@ -2311,7 +2311,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   store i32 %630, ptr %624, align 4, !tbaa !91
   %631 = load ptr, ptr %0, align 8, !tbaa !3
   %632 = load ptr, ptr %631, align 8, !tbaa !110
-  %633 = getelementptr inbounds i8, ptr %632, i64 96
+  %633 = getelementptr inbounds nuw i8, ptr %632, i64 96
   %634 = load ptr, ptr %633, align 8
   %635 = tail call noundef i32 %634(ptr noundef nonnull align 8 dereferenceable(944) %631, i32 noundef %578, i32 noundef %565) #11
   %636 = icmp eq i32 %635, 0
@@ -2320,18 +2320,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 637:                                              ; preds = %629, %622
   %638 = load ptr, ptr %21, align 8, !tbaa !23
   %639 = zext i32 %578 to i64
-  %640 = getelementptr inbounds [1 x i8], ptr %638, i64 0, i64 %639
+  %640 = getelementptr inbounds nuw [1 x i8], ptr %638, i64 0, i64 %639
   store i8 -1, ptr %640, align 1, !tbaa !16
   %641 = load ptr, ptr %561, align 8, !tbaa !24
-  %642 = getelementptr inbounds i32, ptr %641, i64 %576
+  %642 = getelementptr inbounds nuw i32, ptr %641, i64 %576
   store i32 -1, ptr %642, align 4, !tbaa !91
   %643 = load ptr, ptr %22, align 8, !tbaa !22
-  %644 = getelementptr inbounds [4 x i32], ptr %643, i64 0, i64 %33
+  %644 = getelementptr inbounds nuw [4 x i32], ptr %643, i64 0, i64 %33
   %645 = load i32, ptr %644, align 4, !tbaa !91
   %646 = and i32 %645, %628
   store i32 %646, ptr %644, align 4, !tbaa !91
-  %647 = getelementptr inbounds i8, ptr %643, i64 16
-  %648 = getelementptr inbounds [4 x i32], ptr %647, i64 0, i64 %33
+  %647 = getelementptr inbounds nuw i8, ptr %643, i64 16
+  %648 = getelementptr inbounds nuw [4 x i32], ptr %647, i64 0, i64 %33
   %649 = load i32, ptr %648, align 4, !tbaa !91
   %650 = and i32 %649, %628
   store i32 %650, ptr %648, align 4, !tbaa !91
@@ -2351,7 +2351,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %656, label %.loopexit84, label %657
 
 657:                                              ; preds = %.loopexit87
-  %658 = getelementptr inbounds [4 x ptr], ptr %25, i64 0, i64 %33
+  %658 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %33
   br label %659
 
 659:                                              ; preds = %871, %657
@@ -2363,8 +2363,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 663:                                              ; preds = %.loopexit, %659
   %664 = phi i64 [ 0, %659 ], [ %869, %.loopexit ]
   %665 = phi i32 [ %661, %659 ], [ %868, %.loopexit ]
-  %666 = getelementptr inbounds %"struct.asmjit::_abi_1_10::RATiedReg", ptr %47, i64 %664
-  %667 = getelementptr inbounds i8, ptr %666, i64 8
+  %666 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RATiedReg", ptr %47, i64 %664
+  %667 = getelementptr inbounds nuw i8, ptr %666, i64 8
   %668 = load i32, ptr %667, align 4, !tbaa !155
   %669 = and i32 %668, 256
   %670 = icmp eq i32 %669, 0
@@ -2374,29 +2374,29 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %672 = load i32, ptr %666, align 4, !tbaa !151
   %673 = load ptr, ptr %21, align 8, !tbaa !23
   %674 = zext i32 %672 to i64
-  %675 = getelementptr inbounds [1 x i8], ptr %673, i64 0, i64 %674
+  %675 = getelementptr inbounds nuw [1 x i8], ptr %673, i64 0, i64 %674
   %676 = load i8, ptr %675, align 1, !tbaa !16
   %677 = zext i8 %676 to i32
-  %678 = getelementptr inbounds i8, ptr %666, i64 14
+  %678 = getelementptr inbounds nuw i8, ptr %666, i64 14
   %679 = load i8, ptr %678, align 2, !tbaa !16
   %680 = zext i8 %679 to i32
   %681 = load ptr, ptr %658, align 8, !tbaa !24
   %682 = zext i8 %679 to i64
-  %683 = getelementptr inbounds i32, ptr %681, i64 %682
+  %683 = getelementptr inbounds nuw i32, ptr %681, i64 %682
   %684 = load i32, ptr %683, align 4, !tbaa !91
   %685 = icmp eq i32 %684, -1
   br i1 %685, label %800, label %686
 
 686:                                              ; preds = %671
   %687 = load ptr, ptr %0, align 8, !tbaa !3
-  %688 = getelementptr inbounds i8, ptr %687, i64 320
+  %688 = getelementptr inbounds nuw i8, ptr %687, i64 320
   %689 = zext i32 %684 to i64
   %690 = load ptr, ptr %688, align 8, !tbaa !54
-  %691 = getelementptr inbounds ptr, ptr %690, i64 %689
+  %691 = getelementptr inbounds nuw ptr, ptr %690, i64 %689
   %692 = load ptr, ptr %691, align 8, !tbaa !24
   %693 = load ptr, ptr %26, align 8, !tbaa !114
-  %694 = getelementptr inbounds i8, ptr %693, i64 16
-  %695 = getelementptr inbounds [4 x i8], ptr %694, i64 0, i64 %33
+  %694 = getelementptr inbounds nuw i8, ptr %693, i64 16
+  %695 = getelementptr inbounds nuw [4 x i8], ptr %694, i64 0, i64 %33
   %696 = load i8, ptr %695, align 1, !tbaa !115
   %697 = and i8 %696, 1
   %698 = icmp ne i8 %697, 0
@@ -2407,19 +2407,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 701:                                              ; preds = %686
   store i8 %679, ptr %675, align 1, !tbaa !16
   %702 = load ptr, ptr %21, align 8, !tbaa !23
-  %703 = getelementptr inbounds [1 x i8], ptr %702, i64 0, i64 %689
+  %703 = getelementptr inbounds nuw [1 x i8], ptr %702, i64 0, i64 %689
   store i8 %676, ptr %703, align 1, !tbaa !16
   %704 = load ptr, ptr %658, align 8, !tbaa !24
   %705 = zext i8 %676 to i64
-  %706 = getelementptr inbounds i32, ptr %704, i64 %705
+  %706 = getelementptr inbounds nuw i32, ptr %704, i64 %705
   store i32 %684, ptr %706, align 4, !tbaa !91
-  %707 = getelementptr inbounds i32, ptr %704, i64 %682
+  %707 = getelementptr inbounds nuw i32, ptr %704, i64 %682
   store i32 %672, ptr %707, align 4, !tbaa !91
   %708 = shl nuw i32 1, %677
   %709 = shl nuw i32 1, %680
   %710 = load ptr, ptr %22, align 8, !tbaa !22
-  %711 = getelementptr inbounds i8, ptr %710, i64 16
-  %712 = getelementptr inbounds [4 x i32], ptr %711, i64 0, i64 %33
+  %711 = getelementptr inbounds nuw i8, ptr %710, i64 16
+  %712 = getelementptr inbounds nuw [4 x i32], ptr %711, i64 0, i64 %33
   %713 = load i32, ptr %712, align 4, !tbaa !91
   %714 = and i32 %713, %708
   %715 = icmp ne i32 %714, 0
@@ -2432,7 +2432,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   store i32 %721, ptr %712, align 4, !tbaa !91
   %722 = load ptr, ptr %0, align 8, !tbaa !3
   %723 = load ptr, ptr %722, align 8, !tbaa !110
-  %724 = getelementptr inbounds i8, ptr %723, i64 80
+  %724 = getelementptr inbounds nuw i8, ptr %723, i64 80
   %725 = load ptr, ptr %724, align 8
   %726 = tail call noundef i32 %725(ptr noundef nonnull align 8 dereferenceable(944) %722, i32 noundef %672, i32 noundef %677, i32 noundef %684, i32 noundef %680) #11
   %727 = icmp eq i32 %726, 0
@@ -2448,8 +2448,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 733:                                              ; preds = %728
   %734 = load ptr, ptr %22, align 8, !tbaa !22
-  %735 = getelementptr inbounds i8, ptr %734, i64 16
-  %736 = getelementptr inbounds [4 x i32], ptr %735, i64 0, i64 %33
+  %735 = getelementptr inbounds nuw i8, ptr %734, i64 16
+  %736 = getelementptr inbounds nuw [4 x i32], ptr %735, i64 0, i64 %33
   %737 = load i32, ptr %736, align 4, !tbaa !91
   %738 = or i32 %737, %709
   store i32 %738, ptr %736, align 4, !tbaa !91
@@ -2467,19 +2467,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 745:                                              ; preds = %742, %739
   %746 = phi i64 [ 0, %739 ], [ %743, %742 ]
-  %747 = getelementptr inbounds %"struct.asmjit::_abi_1_10::RATiedReg", ptr %47, i64 %746
+  %747 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RATiedReg", ptr %47, i64 %746
   %748 = load i32, ptr %747, align 4, !tbaa !151
   %749 = icmp eq i32 %748, %741
   br i1 %749, label %750, label %742
 
 750:                                              ; preds = %745
-  %751 = getelementptr inbounds i8, ptr %747, i64 14
+  %751 = getelementptr inbounds nuw i8, ptr %747, i64 14
   %752 = load i8, ptr %751, align 2, !tbaa !16
   %753 = icmp eq i8 %752, %676
   br i1 %753, label %754, label %.loopexit
 
 754:                                              ; preds = %750
-  %755 = getelementptr inbounds i8, ptr %747, i64 8
+  %755 = getelementptr inbounds nuw i8, ptr %747, i64 8
   %756 = load i32, ptr %755, align 4, !tbaa !150
   %757 = or i32 %756, 256
   store i32 %757, ptr %755, align 4, !tbaa !150
@@ -2489,8 +2489,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 760:                                              ; preds = %754
   %761 = load ptr, ptr %22, align 8, !tbaa !22
-  %762 = getelementptr inbounds i8, ptr %761, i64 16
-  %763 = getelementptr inbounds [4 x i32], ptr %762, i64 0, i64 %33
+  %762 = getelementptr inbounds nuw i8, ptr %761, i64 16
+  %763 = getelementptr inbounds nuw [4 x i32], ptr %762, i64 0, i64 %33
   %764 = load i32, ptr %763, align 4, !tbaa !91
   %765 = or i32 %764, %708
   store i32 %765, ptr %763, align 4, !tbaa !91
@@ -2505,8 +2505,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 769:                                              ; preds = %768
   %770 = load ptr, ptr %22, align 8, !tbaa !22
-  %771 = getelementptr inbounds i8, ptr %770, i64 16
-  %772 = getelementptr inbounds [4 x i32], ptr %771, i64 0, i64 %33
+  %771 = getelementptr inbounds nuw i8, ptr %770, i64 16
+  %772 = getelementptr inbounds nuw [4 x i32], ptr %771, i64 0, i64 %33
   %773 = load i32, ptr %772, align 4, !tbaa !91
   %774 = shl nuw i32 1, %680
   %775 = and i32 %773, %774
@@ -2518,7 +2518,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %779 = and i32 %773, %777
   store i32 %779, ptr %772, align 4, !tbaa !91
   %780 = load ptr, ptr %687, align 8, !tbaa !110
-  %781 = getelementptr inbounds i8, ptr %780, i64 96
+  %781 = getelementptr inbounds nuw i8, ptr %780, i64 96
   %782 = load ptr, ptr %781, align 8
   %783 = tail call noundef i32 %782(ptr noundef nonnull align 8 dereferenceable(944) %687, i32 noundef %684, i32 noundef %680) #11
   %784 = icmp eq i32 %783, 0
@@ -2530,18 +2530,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 787:                                              ; preds = %785, %769
   %788 = phi ptr [ %786, %785 ], [ %673, %769 ]
-  %789 = getelementptr inbounds [1 x i8], ptr %788, i64 0, i64 %689
+  %789 = getelementptr inbounds nuw [1 x i8], ptr %788, i64 0, i64 %689
   store i8 -1, ptr %789, align 1, !tbaa !16
   %790 = load ptr, ptr %658, align 8, !tbaa !24
-  %791 = getelementptr inbounds i32, ptr %790, i64 %682
+  %791 = getelementptr inbounds nuw i32, ptr %790, i64 %682
   store i32 -1, ptr %791, align 4, !tbaa !91
   %792 = load ptr, ptr %22, align 8, !tbaa !22
-  %793 = getelementptr inbounds [4 x i32], ptr %792, i64 0, i64 %33
+  %793 = getelementptr inbounds nuw [4 x i32], ptr %792, i64 0, i64 %33
   %794 = load i32, ptr %793, align 4, !tbaa !91
   %795 = and i32 %794, %777
   store i32 %795, ptr %793, align 4, !tbaa !91
-  %796 = getelementptr inbounds i8, ptr %792, i64 16
-  %797 = getelementptr inbounds [4 x i32], ptr %796, i64 0, i64 %33
+  %796 = getelementptr inbounds nuw i8, ptr %792, i64 16
+  %797 = getelementptr inbounds nuw [4 x i32], ptr %796, i64 0, i64 %33
   %798 = load i32, ptr %797, align 4, !tbaa !91
   %799 = and i32 %798, %777
   store i32 %799, ptr %797, align 4, !tbaa !91
@@ -2557,24 +2557,24 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 804:                                              ; preds = %802
   %805 = load ptr, ptr %21, align 8, !tbaa !23
-  %806 = getelementptr inbounds [1 x i8], ptr %805, i64 0, i64 %674
+  %806 = getelementptr inbounds nuw [1 x i8], ptr %805, i64 0, i64 %674
   store i8 %679, ptr %806, align 1, !tbaa !16
   %807 = load ptr, ptr %658, align 8, !tbaa !24
   %808 = zext i8 %676 to i64
-  %809 = getelementptr inbounds i32, ptr %807, i64 %808
+  %809 = getelementptr inbounds nuw i32, ptr %807, i64 %808
   store i32 -1, ptr %809, align 4, !tbaa !91
-  %810 = getelementptr inbounds i32, ptr %807, i64 %682
+  %810 = getelementptr inbounds nuw i32, ptr %807, i64 %682
   store i32 %672, ptr %810, align 4, !tbaa !91
   %811 = shl nuw i32 1, %677
   %812 = shl nuw i32 1, %680
   %813 = load ptr, ptr %22, align 8, !tbaa !22
-  %814 = getelementptr inbounds i8, ptr %813, i64 16
-  %815 = getelementptr inbounds [4 x i32], ptr %814, i64 0, i64 %33
+  %814 = getelementptr inbounds nuw i8, ptr %813, i64 16
+  %815 = getelementptr inbounds nuw [4 x i32], ptr %814, i64 0, i64 %33
   %816 = load i32, ptr %815, align 4, !tbaa !91
   %817 = and i32 %816, %811
   %818 = icmp eq i32 %817, 0
   %819 = or i32 %812, %811
-  %820 = getelementptr inbounds [4 x i32], ptr %813, i64 0, i64 %33
+  %820 = getelementptr inbounds nuw [4 x i32], ptr %813, i64 0, i64 %33
   %821 = load i32, ptr %820, align 4, !tbaa !91
   %822 = xor i32 %821, %819
   store i32 %822, ptr %820, align 4, !tbaa !91
@@ -2583,7 +2583,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   store i32 %824, ptr %815, align 4, !tbaa !91
   %825 = load ptr, ptr %0, align 8, !tbaa !3
   %826 = load ptr, ptr %825, align 8, !tbaa !110
-  %827 = getelementptr inbounds i8, ptr %826, i64 72
+  %827 = getelementptr inbounds nuw i8, ptr %826, i64 72
   %828 = load ptr, ptr %827, align 8
   %829 = tail call noundef i32 %828(ptr noundef nonnull align 8 dereferenceable(944) %825, i32 noundef %672, i32 noundef %680, i32 noundef %677) #11
   %830 = icmp eq i32 %829, 0
@@ -2603,20 +2603,20 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 838:                                              ; preds = %800
   %839 = load ptr, ptr %21, align 8, !tbaa !23
-  %840 = getelementptr inbounds [1 x i8], ptr %839, i64 0, i64 %674
+  %840 = getelementptr inbounds nuw [1 x i8], ptr %839, i64 0, i64 %674
   store i8 %679, ptr %840, align 1, !tbaa !16
   %841 = load ptr, ptr %658, align 8, !tbaa !24
-  %842 = getelementptr inbounds i32, ptr %841, i64 %682
+  %842 = getelementptr inbounds nuw i32, ptr %841, i64 %682
   store i32 %672, ptr %842, align 4, !tbaa !91
   %843 = shl nuw i32 1, %680
   %844 = load ptr, ptr %22, align 8, !tbaa !22
-  %845 = getelementptr inbounds [4 x i32], ptr %844, i64 0, i64 %33
+  %845 = getelementptr inbounds nuw [4 x i32], ptr %844, i64 0, i64 %33
   %846 = load i32, ptr %845, align 4, !tbaa !91
   %847 = or i32 %846, %843
   store i32 %847, ptr %845, align 4, !tbaa !91
   %848 = load ptr, ptr %0, align 8, !tbaa !3
   %849 = load ptr, ptr %848, align 8, !tbaa !110
-  %850 = getelementptr inbounds i8, ptr %849, i64 88
+  %850 = getelementptr inbounds nuw i8, ptr %849, i64 88
   %851 = load ptr, ptr %850, align 8
   %852 = tail call noundef i32 %851(ptr noundef nonnull align 8 dereferenceable(944) %848, i32 noundef %672, i32 noundef %680) #11
   %853 = icmp eq i32 %852, 0
@@ -2633,8 +2633,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 859:                                              ; preds = %854, %836
   %860 = phi i32 [ %837, %836 ], [ %843, %854 ]
   %861 = load ptr, ptr %22, align 8, !tbaa !22
-  %862 = getelementptr inbounds i8, ptr %861, i64 16
-  %863 = getelementptr inbounds [4 x i32], ptr %862, i64 0, i64 %33
+  %862 = getelementptr inbounds nuw i8, ptr %861, i64 16
+  %863 = getelementptr inbounds nuw [4 x i32], ptr %862, i64 0, i64 %33
   %864 = load i32, ptr %863, align 4, !tbaa !91
   %865 = or i32 %864, %860
   store i32 %865, ptr %863, align 4, !tbaa !91
@@ -2661,7 +2661,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %875, label %.loopexit83, label %876
 
 876:                                              ; preds = %.loopexit84
-  %877 = getelementptr inbounds [4 x ptr], ptr %25, i64 0, i64 %33
+  %877 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %33
   %878 = zext i32 %92 to i64
   br label %879
 
@@ -2669,12 +2669,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %880 = phi i64 [ 0, %876 ], [ %915, %907 ]
   %881 = phi i32 [ %53, %876 ], [ %908, %907 ]
   %882 = phi i32 [ %92, %876 ], [ %914, %907 ]
-  %883 = getelementptr inbounds [32 x ptr], ptr %3, i64 0, i64 %880
+  %883 = getelementptr inbounds nuw [32 x ptr], ptr %3, i64 0, i64 %880
   %884 = load ptr, ptr %883, align 8, !tbaa !24
   %885 = load i32, ptr %884, align 4, !tbaa !151
   %886 = load ptr, ptr %21, align 8, !tbaa !23
   %887 = zext i32 %885 to i64
-  %888 = getelementptr inbounds [1 x i8], ptr %886, i64 0, i64 %887
+  %888 = getelementptr inbounds nuw [1 x i8], ptr %886, i64 0, i64 %887
   %889 = load i8, ptr %888, align 1, !tbaa !16
   %890 = icmp eq i8 %889, -1
   br i1 %890, label %907, label %891
@@ -2684,17 +2684,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   store i8 -1, ptr %888, align 1, !tbaa !16
   %893 = load ptr, ptr %877, align 8, !tbaa !24
   %894 = zext i8 %889 to i64
-  %895 = getelementptr inbounds i32, ptr %893, i64 %894
+  %895 = getelementptr inbounds nuw i32, ptr %893, i64 %894
   store i32 -1, ptr %895, align 4, !tbaa !91
   %896 = shl nuw i32 1, %892
   %897 = xor i32 %896, -1
   %898 = load ptr, ptr %22, align 8, !tbaa !22
-  %899 = getelementptr inbounds [4 x i32], ptr %898, i64 0, i64 %33
+  %899 = getelementptr inbounds nuw [4 x i32], ptr %898, i64 0, i64 %33
   %900 = load i32, ptr %899, align 4, !tbaa !91
   %901 = and i32 %900, %897
   store i32 %901, ptr %899, align 4, !tbaa !91
-  %902 = getelementptr inbounds i8, ptr %898, i64 16
-  %903 = getelementptr inbounds [4 x i32], ptr %902, i64 0, i64 %33
+  %902 = getelementptr inbounds nuw i8, ptr %898, i64 16
+  %903 = getelementptr inbounds nuw [4 x i32], ptr %902, i64 0, i64 %33
   %904 = load i32, ptr %903, align 4, !tbaa !91
   %905 = and i32 %904, %897
   store i32 %905, ptr %903, align 4, !tbaa !91
@@ -2703,7 +2703,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 907:                                              ; preds = %891, %879
   %908 = phi i32 [ %906, %891 ], [ %881, %879 ]
-  %909 = getelementptr inbounds i8, ptr %884, i64 8
+  %909 = getelementptr inbounds nuw i8, ptr %884, i64 8
   %910 = load i32, ptr %909, align 4, !tbaa !155
   %911 = lshr i32 %910, 3
   %912 = and i32 %911, 1
@@ -2732,7 +2732,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %928, label %.loopexit82, label %929
 
 929:                                              ; preds = %.loopexit83
-  %930 = getelementptr inbounds [4 x ptr], ptr %25, i64 0, i64 %33
+  %930 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %33
   %931 = load ptr, ptr %930, align 8, !tbaa !24
   br label %932
 
@@ -2743,15 +2743,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %936 = add i32 %934, -1
   %937 = and i32 %936, %934
   %938 = zext nneg i32 %935 to i64
-  %939 = getelementptr inbounds i32, ptr %933, i64 %938
+  %939 = getelementptr inbounds nuw i32, ptr %933, i64 %938
   %940 = load i32, ptr %939, align 4, !tbaa !91
   %941 = icmp eq i32 %940, -1
   br i1 %941, label %973, label %942
 
 942:                                              ; preds = %932
   %943 = load ptr, ptr %22, align 8, !tbaa !22
-  %944 = getelementptr inbounds i8, ptr %943, i64 16
-  %945 = getelementptr inbounds [4 x i32], ptr %944, i64 0, i64 %33
+  %944 = getelementptr inbounds nuw i8, ptr %943, i64 16
+  %945 = getelementptr inbounds nuw [4 x i32], ptr %944, i64 0, i64 %33
   %946 = load i32, ptr %945, align 4, !tbaa !91
   %947 = shl nuw i32 1, %935
   %948 = and i32 %946, %947
@@ -2764,7 +2764,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   store i32 %952, ptr %945, align 4, !tbaa !91
   %953 = load ptr, ptr %0, align 8, !tbaa !3
   %954 = load ptr, ptr %953, align 8, !tbaa !110
-  %955 = getelementptr inbounds i8, ptr %954, i64 96
+  %955 = getelementptr inbounds nuw i8, ptr %954, i64 96
   %956 = load ptr, ptr %955, align 8
   %957 = tail call noundef i32 %956(ptr noundef nonnull align 8 dereferenceable(944) %953, i32 noundef %940, i32 noundef %935) #11
   %958 = icmp eq i32 %957, 0
@@ -2773,18 +2773,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 959:                                              ; preds = %951, %942
   %960 = load ptr, ptr %21, align 8, !tbaa !23
   %961 = zext i32 %940 to i64
-  %962 = getelementptr inbounds [1 x i8], ptr %960, i64 0, i64 %961
+  %962 = getelementptr inbounds nuw [1 x i8], ptr %960, i64 0, i64 %961
   store i8 -1, ptr %962, align 1, !tbaa !16
   %963 = load ptr, ptr %930, align 8, !tbaa !24
-  %964 = getelementptr inbounds i32, ptr %963, i64 %938
+  %964 = getelementptr inbounds nuw i32, ptr %963, i64 %938
   store i32 -1, ptr %964, align 4, !tbaa !91
   %965 = load ptr, ptr %22, align 8, !tbaa !22
-  %966 = getelementptr inbounds [4 x i32], ptr %965, i64 0, i64 %33
+  %966 = getelementptr inbounds nuw [4 x i32], ptr %965, i64 0, i64 %33
   %967 = load i32, ptr %966, align 4, !tbaa !91
   %968 = and i32 %967, %950
   store i32 %968, ptr %966, align 4, !tbaa !91
-  %969 = getelementptr inbounds i8, ptr %965, i64 16
-  %970 = getelementptr inbounds [4 x i32], ptr %969, i64 0, i64 %33
+  %969 = getelementptr inbounds nuw i8, ptr %965, i64 16
+  %970 = getelementptr inbounds nuw [4 x i32], ptr %969, i64 0, i64 %33
   %971 = load i32, ptr %970, align 4, !tbaa !91
   %972 = and i32 %971, %950
   store i32 %972, ptr %970, align 4, !tbaa !91
@@ -2805,13 +2805,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 979:                                              ; preds = %.loopexit71, %977
   %980 = phi i64 [ 0, %977 ], [ %1003, %.loopexit71 ]
-  %981 = getelementptr inbounds [32 x ptr], ptr %4, i64 0, i64 %980
+  %981 = getelementptr inbounds nuw [32 x ptr], ptr %4, i64 0, i64 %980
   %982 = load ptr, ptr %981, align 8, !tbaa !24
   %983 = load i32, ptr %982, align 4, !tbaa !151
-  %984 = getelementptr inbounds i8, ptr %982, i64 14
+  %984 = getelementptr inbounds nuw i8, ptr %982, i64 14
   %985 = load i8, ptr %984, align 2, !tbaa !16
   %986 = zext i8 %985 to i32
-  %987 = getelementptr inbounds i8, ptr %982, i64 16
+  %987 = getelementptr inbounds nuw i8, ptr %982, i64 16
   %988 = load i32, ptr %987, align 4, !tbaa !153
   %989 = icmp eq i32 %988, 0
   br i1 %989, label %.loopexit71, label %.preheader
@@ -2827,7 +2827,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 995:                                              ; preds = %.preheader
   %996 = load ptr, ptr %0, align 8, !tbaa !3
   %997 = load ptr, ptr %996, align 8, !tbaa !110
-  %998 = getelementptr inbounds i8, ptr %997, i64 72
+  %998 = getelementptr inbounds nuw i8, ptr %997, i64 72
   %999 = load ptr, ptr %998, align 8
   %1000 = tail call noundef i32 %999(ptr noundef nonnull align 8 dereferenceable(944) %996, i32 noundef %983, i32 noundef %991, i32 noundef %986) #11
   br label %1001
@@ -2851,7 +2851,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 1009:                                             ; preds = %.loopexit80
   %1010 = load i32, ptr %29, align 4, !tbaa !91
   %1011 = load ptr, ptr %22, align 8, !tbaa !22
-  %1012 = getelementptr inbounds i8, ptr %1011, i64 4
+  %1012 = getelementptr inbounds nuw i8, ptr %1011, i64 4
   %1013 = load i32, ptr %1012, align 4, !tbaa !91
   %1014 = and i32 %1013, %1010
   %1015 = icmp eq i32 %1014, 0
@@ -2871,23 +2871,23 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1025 = add i32 %1023, -1
   %1026 = and i32 %1025, %1023
   %1027 = zext nneg i32 %1024 to i64
-  %1028 = getelementptr inbounds i32, ptr %1022, i64 %1027
+  %1028 = getelementptr inbounds nuw i32, ptr %1022, i64 %1027
   %1029 = load i32, ptr %1028, align 4, !tbaa !91
   %1030 = load ptr, ptr %0, align 8, !tbaa !3
-  %1031 = getelementptr inbounds i8, ptr %1030, i64 320
+  %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 320
   %1032 = zext i32 %1029 to i64
   %1033 = load ptr, ptr %1031, align 8, !tbaa !54
-  %1034 = getelementptr inbounds ptr, ptr %1033, i64 %1032
+  %1034 = getelementptr inbounds nuw ptr, ptr %1033, i64 %1032
   %1035 = load ptr, ptr %1034, align 8, !tbaa !24
-  %1036 = getelementptr inbounds i8, ptr %1035, i64 8
+  %1036 = getelementptr inbounds nuw i8, ptr %1035, i64 8
   %1037 = load ptr, ptr %1036, align 8, !tbaa !92
-  %1038 = getelementptr inbounds i8, ptr %1037, i64 8
+  %1038 = getelementptr inbounds nuw i8, ptr %1037, i64 8
   %1039 = load i32, ptr %1038, align 8, !tbaa !103
   %1040 = icmp ugt i32 %1039, %1018
   br i1 %1040, label %1041, label %1067
 
 1041:                                             ; preds = %1020
-  %1042 = getelementptr inbounds i8, ptr %1021, i64 20
+  %1042 = getelementptr inbounds nuw i8, ptr %1021, i64 20
   %1043 = load i32, ptr %1042, align 4, !tbaa !91
   %1044 = shl nuw i32 1, %1024
   %1045 = and i32 %1043, %1044
@@ -2899,7 +2899,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1049 = and i32 %1043, %1047
   store i32 %1049, ptr %1042, align 4, !tbaa !91
   %1050 = load ptr, ptr %1030, align 8, !tbaa !110
-  %1051 = getelementptr inbounds i8, ptr %1050, i64 96
+  %1051 = getelementptr inbounds nuw i8, ptr %1050, i64 96
   %1052 = load ptr, ptr %1051, align 8
   %1053 = tail call noundef i32 %1052(ptr noundef nonnull align 8 dereferenceable(944) %1030, i32 noundef %1029, i32 noundef %1024) #11
   %1054 = icmp eq i32 %1053, 0
@@ -2907,17 +2907,17 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 1055:                                             ; preds = %1048, %1041
   %1056 = load ptr, ptr %21, align 8, !tbaa !23
-  %1057 = getelementptr inbounds [1 x i8], ptr %1056, i64 0, i64 %1032
+  %1057 = getelementptr inbounds nuw [1 x i8], ptr %1056, i64 0, i64 %1032
   store i8 -1, ptr %1057, align 1, !tbaa !16
   %1058 = load ptr, ptr %31, align 8, !tbaa !24
-  %1059 = getelementptr inbounds i32, ptr %1058, i64 %1027
+  %1059 = getelementptr inbounds nuw i32, ptr %1058, i64 %1027
   store i32 -1, ptr %1059, align 4, !tbaa !91
   %1060 = load ptr, ptr %22, align 8, !tbaa !22
-  %1061 = getelementptr inbounds i8, ptr %1060, i64 4
+  %1061 = getelementptr inbounds nuw i8, ptr %1060, i64 4
   %1062 = load i32, ptr %1061, align 4, !tbaa !91
   %1063 = and i32 %1062, %1047
   store i32 %1063, ptr %1061, align 4, !tbaa !91
-  %1064 = getelementptr inbounds i8, ptr %1060, i64 20
+  %1064 = getelementptr inbounds nuw i8, ptr %1060, i64 20
   %1065 = load i32, ptr %1064, align 4, !tbaa !91
   %1066 = and i32 %1065, %1047
   store i32 %1066, ptr %1064, align 4, !tbaa !91
@@ -2934,30 +2934,30 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 1071:                                             ; preds = %.loopexit79
   %1072 = load ptr, ptr %22, align 8, !tbaa !22
-  %1073 = getelementptr inbounds [4 x i32], ptr %1072, i64 0, i64 %33
+  %1073 = getelementptr inbounds nuw [4 x i32], ptr %1072, i64 0, i64 %33
   %1074 = load i32, ptr %1073, align 4, !tbaa !91
   %1075 = icmp eq i32 %924, 0
   br i1 %1075, label %.loopexit77, label %1076
 
 1076:                                             ; preds = %1071
   %1077 = load ptr, ptr %5, align 16, !tbaa !24
-  %1078 = getelementptr inbounds i8, ptr %1077, i64 8
+  %1078 = getelementptr inbounds nuw i8, ptr %1077, i64 8
   %1079 = load i32, ptr %1078, align 4, !tbaa !155
   %1080 = and i32 %1079, 2048
   %1081 = icmp eq i32 %1080, 0
   br i1 %1081, label %.loopexit77, label %1082
 
 1082:                                             ; preds = %1076
-  %1083 = getelementptr inbounds [4 x i32], ptr %23, i64 0, i64 %33
+  %1083 = getelementptr inbounds nuw [4 x i32], ptr %23, i64 0, i64 %33
   %1084 = load i32, ptr %1083, align 4, !tbaa !91
-  %1085 = getelementptr inbounds i8, ptr %1077, i64 20
+  %1085 = getelementptr inbounds nuw i8, ptr %1077, i64 20
   %1086 = load i32, ptr %1085, align 4, !tbaa !177
   %1087 = icmp eq i32 %1086, 0
   br i1 %1087, label %.loopexit72, label %1088
 
 1088:                                             ; preds = %1082
   %1089 = load ptr, ptr %0, align 8
-  %1090 = getelementptr inbounds i8, ptr %1089, i64 320
+  %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 320
   %1091 = zext nneg i32 %924 to i64
   br label %1092
 
@@ -2988,14 +2988,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %1111, label %1128, label %1112
 
 1112:                                             ; preds = %1104
-  %1113 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %1105
+  %1113 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %1105
   %1114 = load ptr, ptr %1113, align 8, !tbaa !24
   %1115 = load i32, ptr %1114, align 4, !tbaa !151
   %1116 = zext i32 %1115 to i64
   %1117 = load ptr, ptr %1090, align 8, !tbaa !54
-  %1118 = getelementptr inbounds ptr, ptr %1117, i64 %1116
+  %1118 = getelementptr inbounds nuw ptr, ptr %1117, i64 %1116
   %1119 = load ptr, ptr %1118, align 8, !tbaa !24
-  %1120 = getelementptr inbounds i8, ptr %1119, i64 74
+  %1120 = getelementptr inbounds nuw i8, ptr %1119, i64 74
   %1121 = load i8, ptr %1120, align 2, !tbaa !90
   %1122 = zext i8 %1121 to i64
   %1123 = icmp eq i64 %1107, %1122
@@ -3026,10 +3026,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1139 = phi i64 [ %1146, %.preheader197 ], [ 0, %1137 ]
   %1140 = trunc i64 %1139 to i32
   %1141 = add i32 %1135, %1140
-  %1142 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %1139
+  %1142 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %1139
   %1143 = load ptr, ptr %1142, align 8, !tbaa !24
   %1144 = trunc i32 %1141 to i8
-  %1145 = getelementptr inbounds i8, ptr %1143, i64 15
+  %1145 = getelementptr inbounds nuw i8, ptr %1143, i64 15
   store i8 %1144, ptr %1145, align 1, !tbaa !16
   %1146 = add nuw nsw i64 %1139, 1
   %1147 = icmp eq i64 %1146, %1091
@@ -3039,16 +3039,16 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %919, label %.loopexit76, label %1148
 
 1148:                                             ; preds = %.loopexit77
-  %1149 = getelementptr inbounds [4 x ptr], ptr %25, i64 0, i64 %33
+  %1149 = getelementptr inbounds nuw [4 x ptr], ptr %25, i64 0, i64 %33
   br label %1150
 
 1150:                                             ; preds = %1341, %1148
   %1151 = phi i64 [ 0, %1148 ], [ %1344, %1341 ]
   %1152 = phi i32 [ 0, %1148 ], [ %1343, %1341 ]
   %1153 = phi i32 [ %1074, %1148 ], [ %1342, %1341 ]
-  %1154 = getelementptr inbounds [32 x ptr], ptr %3, i64 0, i64 %1151
+  %1154 = getelementptr inbounds nuw [32 x ptr], ptr %3, i64 0, i64 %1151
   %1155 = load ptr, ptr %1154, align 8, !tbaa !24
-  %1156 = getelementptr inbounds i8, ptr %1155, i64 8
+  %1156 = getelementptr inbounds nuw i8, ptr %1155, i64 8
   %1157 = load i32, ptr %1156, align 4, !tbaa !155
   %1158 = and i32 %1157, 8
   %1159 = icmp eq i32 %1158, 0
@@ -3058,7 +3058,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1161 = load i32, ptr %1155, align 4, !tbaa !151
   %1162 = load ptr, ptr %21, align 8, !tbaa !23
   %1163 = zext i32 %1161 to i64
-  %1164 = getelementptr inbounds [1 x i8], ptr %1162, i64 0, i64 %1163
+  %1164 = getelementptr inbounds nuw [1 x i8], ptr %1162, i64 0, i64 %1163
   %1165 = load i8, ptr %1164, align 1, !tbaa !16
   %1166 = icmp eq i8 %1165, -1
   br i1 %1166, label %1182, label %1167
@@ -3068,31 +3068,31 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   store i8 -1, ptr %1164, align 1, !tbaa !16
   %1169 = load ptr, ptr %1149, align 8, !tbaa !24
   %1170 = zext i8 %1165 to i64
-  %1171 = getelementptr inbounds i32, ptr %1169, i64 %1170
+  %1171 = getelementptr inbounds nuw i32, ptr %1169, i64 %1170
   store i32 -1, ptr %1171, align 4, !tbaa !91
   %1172 = shl nuw i32 1, %1168
   %1173 = xor i32 %1172, -1
   %1174 = load ptr, ptr %22, align 8, !tbaa !22
-  %1175 = getelementptr inbounds [4 x i32], ptr %1174, i64 0, i64 %33
+  %1175 = getelementptr inbounds nuw [4 x i32], ptr %1174, i64 0, i64 %33
   %1176 = load i32, ptr %1175, align 4, !tbaa !91
   %1177 = and i32 %1176, %1173
   store i32 %1177, ptr %1175, align 4, !tbaa !91
-  %1178 = getelementptr inbounds i8, ptr %1174, i64 16
-  %1179 = getelementptr inbounds [4 x i32], ptr %1178, i64 0, i64 %33
+  %1178 = getelementptr inbounds nuw i8, ptr %1174, i64 16
+  %1179 = getelementptr inbounds nuw [4 x i32], ptr %1178, i64 0, i64 %33
   %1180 = load i32, ptr %1179, align 4, !tbaa !91
   %1181 = and i32 %1180, %1173
   store i32 %1181, ptr %1179, align 4, !tbaa !91
   br label %1182
 
 1182:                                             ; preds = %1167, %1160
-  %1183 = getelementptr inbounds i8, ptr %1155, i64 15
+  %1183 = getelementptr inbounds nuw i8, ptr %1155, i64 15
   %1184 = load i8, ptr %1183, align 1, !tbaa !16
   %1185 = zext i8 %1184 to i32
   %1186 = icmp eq i8 %1184, -1
   br i1 %1186, label %1187, label %1310
 
 1187:                                             ; preds = %1182
-  %1188 = getelementptr inbounds i8, ptr %1155, i64 20
+  %1188 = getelementptr inbounds nuw i8, ptr %1155, i64 20
   %1189 = load i32, ptr %1188, align 4, !tbaa !177
   %1190 = xor i32 %1152, -1
   %1191 = and i32 %1189, %1190
@@ -3108,31 +3108,31 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1199 = and i32 %1198, %1196
   %1200 = load ptr, ptr %1149, align 8, !tbaa !24
   %1201 = zext nneg i32 %1197 to i64
-  %1202 = getelementptr inbounds i32, ptr %1200, i64 %1201
+  %1202 = getelementptr inbounds nuw i32, ptr %1200, i64 %1201
   %1203 = load i32, ptr %1202, align 4, !tbaa !91
   %1204 = icmp eq i32 %1199, 0
   %1205 = load ptr, ptr %22, align 8, !tbaa !22
   br i1 %1204, label %1206, label %1210
 
 1206:                                             ; preds = %1195
-  %1207 = getelementptr inbounds i8, ptr %1205, i64 16
-  %1208 = getelementptr inbounds [4 x i32], ptr %1207, i64 0, i64 %33
+  %1207 = getelementptr inbounds nuw i8, ptr %1205, i64 16
+  %1208 = getelementptr inbounds nuw [4 x i32], ptr %1207, i64 0, i64 %33
   %1209 = load i32, ptr %1208, align 4, !tbaa !91
   br label %.loopexit70
 
 1210:                                             ; preds = %1195
   %1211 = load ptr, ptr %0, align 8, !tbaa !3
-  %1212 = getelementptr inbounds i8, ptr %1211, i64 320
+  %1212 = getelementptr inbounds nuw i8, ptr %1211, i64 320
   %1213 = zext i32 %1203 to i64
   %1214 = load ptr, ptr %1212, align 8, !tbaa !54
-  %1215 = getelementptr inbounds ptr, ptr %1214, i64 %1213
+  %1215 = getelementptr inbounds nuw ptr, ptr %1214, i64 %1213
   %1216 = load ptr, ptr %1215, align 8, !tbaa !24
-  %1217 = getelementptr inbounds i8, ptr %1216, i64 100
+  %1217 = getelementptr inbounds nuw i8, ptr %1216, i64 100
   %1218 = load float, ptr %1217, align 4, !tbaa !183
   %1219 = fmul contract float %1218, 0x4130000000000000
   %1220 = fptosi float %1219 to i32
-  %1221 = getelementptr inbounds i8, ptr %1205, i64 16
-  %1222 = getelementptr inbounds [4 x i32], ptr %1221, i64 0, i64 %33
+  %1221 = getelementptr inbounds nuw i8, ptr %1205, i64 16
+  %1222 = getelementptr inbounds nuw [4 x i32], ptr %1221, i64 0, i64 %33
   %1223 = load i32, ptr %1222, align 4, !tbaa !91
   %1224 = shl nuw i32 1, %1197
   %1225 = and i32 %1223, %1224
@@ -3150,12 +3150,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1235 = add i32 %1230, -1
   %1236 = and i32 %1235, %1230
   %1237 = zext nneg i32 %1234 to i64
-  %1238 = getelementptr inbounds i32, ptr %1200, i64 %1237
+  %1238 = getelementptr inbounds nuw i32, ptr %1200, i64 %1237
   %1239 = load i32, ptr %1238, align 4, !tbaa !91
   %1240 = zext i32 %1239 to i64
-  %1241 = getelementptr inbounds ptr, ptr %1214, i64 %1240
+  %1241 = getelementptr inbounds nuw ptr, ptr %1214, i64 %1240
   %1242 = load ptr, ptr %1241, align 8, !tbaa !24
-  %1243 = getelementptr inbounds i8, ptr %1242, i64 100
+  %1243 = getelementptr inbounds nuw i8, ptr %1242, i64 100
   %1244 = load float, ptr %1243, align 4, !tbaa !183
   %1245 = fmul contract float %1244, 0x4130000000000000
   %1246 = fptosi float %1245 to i32
@@ -3182,13 +3182,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %1262, label %1274, label %1264
 
 1264:                                             ; preds = %.loopexit70
-  %1265 = getelementptr inbounds i8, ptr %1205, i64 16
-  %1266 = getelementptr inbounds [4 x i32], ptr %1265, i64 0, i64 %33
+  %1265 = getelementptr inbounds nuw i8, ptr %1205, i64 16
+  %1266 = getelementptr inbounds nuw [4 x i32], ptr %1265, i64 0, i64 %33
   %1267 = and i32 %1257, %1263
   store i32 %1267, ptr %1266, align 4, !tbaa !91
   %1268 = load ptr, ptr %0, align 8, !tbaa !3
   %1269 = load ptr, ptr %1268, align 8, !tbaa !110
-  %1270 = getelementptr inbounds i8, ptr %1269, i64 96
+  %1270 = getelementptr inbounds nuw i8, ptr %1269, i64 96
   %1271 = load ptr, ptr %1270, align 8
   %1272 = tail call noundef i32 %1271(ptr noundef nonnull align 8 dereferenceable(944) %1268, i32 noundef %1258, i32 noundef %1259) #11
   %1273 = icmp eq i32 %1272, 0
@@ -3197,19 +3197,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 1274:                                             ; preds = %1264, %.loopexit70
   %1275 = load ptr, ptr %21, align 8, !tbaa !23
   %1276 = zext i32 %1258 to i64
-  %1277 = getelementptr inbounds [1 x i8], ptr %1275, i64 0, i64 %1276
+  %1277 = getelementptr inbounds nuw [1 x i8], ptr %1275, i64 0, i64 %1276
   store i8 -1, ptr %1277, align 1, !tbaa !16
   %1278 = load ptr, ptr %1149, align 8, !tbaa !24
   %1279 = zext nneg i32 %1259 to i64
-  %1280 = getelementptr inbounds i32, ptr %1278, i64 %1279
+  %1280 = getelementptr inbounds nuw i32, ptr %1278, i64 %1279
   store i32 -1, ptr %1280, align 4, !tbaa !91
   %1281 = load ptr, ptr %22, align 8, !tbaa !22
-  %1282 = getelementptr inbounds [4 x i32], ptr %1281, i64 0, i64 %33
+  %1282 = getelementptr inbounds nuw [4 x i32], ptr %1281, i64 0, i64 %33
   %1283 = load i32, ptr %1282, align 4, !tbaa !91
   %1284 = and i32 %1283, %1263
   store i32 %1284, ptr %1282, align 4, !tbaa !91
-  %1285 = getelementptr inbounds i8, ptr %1281, i64 16
-  %1286 = getelementptr inbounds [4 x i32], ptr %1285, i64 0, i64 %33
+  %1285 = getelementptr inbounds nuw i8, ptr %1281, i64 16
+  %1286 = getelementptr inbounds nuw [4 x i32], ptr %1285, i64 0, i64 %33
   %1287 = load i32, ptr %1286, align 4, !tbaa !91
   %1288 = and i32 %1287, %1263
   store i32 %1288, ptr %1286, align 4, !tbaa !91
@@ -3217,11 +3217,11 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 1289:                                             ; preds = %1187
   %1290 = load ptr, ptr %0, align 8, !tbaa !3
-  %1291 = getelementptr inbounds i8, ptr %1290, i64 320
+  %1291 = getelementptr inbounds nuw i8, ptr %1290, i64 320
   %1292 = load ptr, ptr %1291, align 8, !tbaa !54
-  %1293 = getelementptr inbounds ptr, ptr %1292, i64 %1163
+  %1293 = getelementptr inbounds nuw ptr, ptr %1292, i64 %1163
   %1294 = load ptr, ptr %1293, align 8, !tbaa !24
-  %1295 = getelementptr inbounds i8, ptr %1294, i64 74
+  %1295 = getelementptr inbounds nuw i8, ptr %1294, i64 74
   %1296 = load i8, ptr %1295, align 2, !tbaa !90
   %1297 = icmp eq i8 %1296, -1
   br i1 %1297, label %1303, label %1298
@@ -3234,7 +3234,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %1302, label %1303, label %1310
 
 1303:                                             ; preds = %1298, %1289
-  %1304 = getelementptr inbounds i8, ptr %1294, i64 56
+  %1304 = getelementptr inbounds nuw i8, ptr %1294, i64 56
   %1305 = load i32, ptr %1304, align 8, !tbaa !166
   %1306 = and i32 %1305, %1193
   %1307 = icmp eq i32 %1306, 0
@@ -3256,20 +3256,20 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 1318:                                             ; preds = %1310
   %1319 = load ptr, ptr %21, align 8, !tbaa !23
-  %1320 = getelementptr inbounds [1 x i8], ptr %1319, i64 0, i64 %1163
+  %1320 = getelementptr inbounds nuw [1 x i8], ptr %1319, i64 0, i64 %1163
   store i8 %1315, ptr %1320, align 1, !tbaa !16
   %1321 = load ptr, ptr %1149, align 8, !tbaa !24
   %1322 = zext nneg i32 %1311 to i64
-  %1323 = getelementptr inbounds i32, ptr %1321, i64 %1322
+  %1323 = getelementptr inbounds nuw i32, ptr %1321, i64 %1322
   store i32 %1161, ptr %1323, align 4, !tbaa !91
   %1324 = shl nuw i32 1, %1311
   %1325 = load ptr, ptr %22, align 8, !tbaa !22
-  %1326 = getelementptr inbounds [4 x i32], ptr %1325, i64 0, i64 %33
+  %1326 = getelementptr inbounds nuw [4 x i32], ptr %1325, i64 0, i64 %33
   %1327 = load i32, ptr %1326, align 4, !tbaa !91
   %1328 = or i32 %1327, %1324
   store i32 %1328, ptr %1326, align 4, !tbaa !91
-  %1329 = getelementptr inbounds i8, ptr %1325, i64 16
-  %1330 = getelementptr inbounds [4 x i32], ptr %1329, i64 0, i64 %33
+  %1329 = getelementptr inbounds nuw i8, ptr %1325, i64 16
+  %1330 = getelementptr inbounds nuw [4 x i32], ptr %1329, i64 0, i64 %33
   %1331 = load i32, ptr %1330, align 4, !tbaa !91
   %1332 = or i32 %1331, %1324
   store i32 %1332, ptr %1330, align 4, !tbaa !91
@@ -3301,7 +3301,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 
 1348:                                             ; preds = %.loopexit76, %.loopexit79
   %1349 = phi i32 [ %1347, %.loopexit76 ], [ %927, %.loopexit79 ]
-  %1350 = getelementptr inbounds [4 x i32], ptr %28, i64 0, i64 %33
+  %1350 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %33
   %1351 = load i32, ptr %1350, align 4, !tbaa !91
   %1352 = or i32 %1351, %1349
   store i32 %1352, ptr %1350, align 4, !tbaa !91
@@ -3323,12 +3323,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 0, 255) i32 @_ZNK6asmjit9_abi_1_1016RALocalAllocator18decideOnAssignmentENS0_8RegGroupEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %6, i64 320
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 320
   %8 = zext i32 %2 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !54
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !24
-  %12 = getelementptr inbounds i8, ptr %11, i64 74
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 74
   %13 = load i8, ptr %12, align 2, !tbaa !90
   %14 = icmp eq i8 %13, -1
   br i1 %14, label %20, label %15
@@ -3341,7 +3341,7 @@ define hidden noundef range(i32 0, 255) i32 @_ZNK6asmjit9_abi_1_1016RALocalAlloc
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %15, %5
-  %21 = getelementptr inbounds i8, ptr %11, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %22 = load i32, ptr %21, align 8, !tbaa !166
   %23 = and i32 %22, %4
   %24 = icmp eq i32 %23, 0
@@ -3357,12 +3357,12 @@ define hidden noundef range(i32 0, 255) i32 @_ZNK6asmjit9_abi_1_1016RALocalAlloc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 0, 256) i32 @_ZNK6asmjit9_abi_1_1016RALocalAllocator20decideOnReassignmentENS0_8RegGroupEjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 align 2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %6, i64 320
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 320
   %8 = zext i32 %2 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !54
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !24
-  %12 = getelementptr inbounds i8, ptr %11, i64 74
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 74
   %13 = load i8, ptr %12, align 2, !tbaa !90
   %14 = icmp eq i8 %13, -1
   %15 = zext i8 %13 to i32
@@ -3379,31 +3379,31 @@ define hidden noundef range(i32 0, 32) i32 @_ZNK6asmjit9_abi_1_1016RALocalAlloca
   %6 = tail call noundef i32 @llvm.cttz.i32(i32 %3, i1 true), !range !99
   %7 = add i32 %3, -1
   %8 = and i32 %7, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = zext i8 %1 to i64
-  %11 = getelementptr inbounds [4 x ptr], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x ptr], ptr %9, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = zext nneg i32 %6 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !91
   %16 = icmp eq i32 %8, 0
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %5
   %18 = load ptr, ptr %0, align 8, !tbaa !3
-  %19 = getelementptr inbounds i8, ptr %18, i64 320
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 320
   %20 = zext i32 %15 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !54
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !24
-  %24 = getelementptr inbounds i8, ptr %23, i64 100
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 100
   %25 = load float, ptr %24, align 4, !tbaa !183
   %26 = fmul contract float %25, 0x4130000000000000
   %27 = fptosi float %26 to i32
-  %28 = getelementptr inbounds i8, ptr %0, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %29 = load ptr, ptr %28, align 8, !tbaa !22
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
-  %31 = getelementptr inbounds [4 x i32], ptr %30, i64 0, i64 %10
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = getelementptr inbounds nuw [4 x i32], ptr %30, i64 0, i64 %10
   %32 = load i32, ptr %31, align 4, !tbaa !91
   %33 = shl nuw i32 1, %6
   %34 = and i32 %32, %33
@@ -3421,12 +3421,12 @@ define hidden noundef range(i32 0, 32) i32 @_ZNK6asmjit9_abi_1_1016RALocalAlloca
   %44 = add i32 %39, -1
   %45 = and i32 %44, %39
   %46 = zext nneg i32 %43 to i64
-  %47 = getelementptr inbounds i32, ptr %12, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %12, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !91
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %21, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %21, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !24
-  %52 = getelementptr inbounds i8, ptr %51, i64 100
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 100
   %53 = load float, ptr %52, align 4, !tbaa !183
   %54 = fmul contract float %53, 0x4130000000000000
   %55 = fptosi float %54 to i32
@@ -3451,26 +3451,26 @@ define hidden noundef range(i32 0, 32) i32 @_ZNK6asmjit9_abi_1_1016RALocalAlloca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator20spillAfterAllocationEPNS0_8InstNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !121
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !145
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 76
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = zext i32 %6 to i64
   br label %15
 
 15:                                               ; preds = %79, %8
   %16 = phi i64 [ 0, %8 ], [ %80, %79 ]
-  %17 = getelementptr inbounds %"struct.asmjit::_abi_1_10::RATiedReg", ptr %9, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %17 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RATiedReg", ptr %9, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !155
   %20 = and i32 %19, 131072
   %21 = icmp eq i32 %20, 0
@@ -3479,36 +3479,36 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator20spillAfterAll
 22:                                               ; preds = %15
   %23 = load i32, ptr %17, align 4, !tbaa !151
   %24 = load ptr, ptr %0, align 8, !tbaa !3
-  %25 = getelementptr inbounds i8, ptr %24, i64 320
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 320
   %26 = zext i32 %23 to i64
   %27 = load ptr, ptr %25, align 8, !tbaa !54
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !24
-  %30 = getelementptr inbounds i8, ptr %29, i64 74
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 74
   %31 = load i8, ptr %30, align 2, !tbaa !90
   %32 = icmp eq i8 %31, -1
   br i1 %32, label %33, label %79
 
 33:                                               ; preds = %22
   %34 = load ptr, ptr %10, align 8, !tbaa !23
-  %35 = getelementptr inbounds [1 x i8], ptr %34, i64 0, i64 %26
+  %35 = getelementptr inbounds nuw [1 x i8], ptr %34, i64 0, i64 %26
   %36 = load i8, ptr %35, align 1, !tbaa !16
   %37 = zext i8 %36 to i32
   %38 = icmp eq i8 %36, -1
   br i1 %38, label %79, label %39
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %29, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %41 = load i32, ptr %40, align 4, !tbaa !71
   %42 = lshr i32 %41, 8
   %43 = and i32 %42, 15
   %44 = zext nneg i32 %43 to i64
   %45 = load ptr, ptr %11, align 8, !tbaa !72
-  %46 = getelementptr inbounds i8, ptr %45, i64 384
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 384
   store ptr %1, ptr %46, align 8, !tbaa !122
   %47 = load ptr, ptr %12, align 8, !tbaa !22
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = getelementptr inbounds [4 x i32], ptr %48, i64 0, i64 %44
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = getelementptr inbounds nuw [4 x i32], ptr %48, i64 0, i64 %44
   %50 = load i32, ptr %49, align 4, !tbaa !91
   %51 = shl nuw i32 1, %37
   %52 = and i32 %50, %51
@@ -3520,7 +3520,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator20spillAfterAll
   %56 = and i32 %50, %54
   store i32 %56, ptr %49, align 4, !tbaa !91
   %57 = load ptr, ptr %24, align 8, !tbaa !110
-  %58 = getelementptr inbounds i8, ptr %57, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noundef i32 %59(ptr noundef nonnull align 8 dereferenceable(944) %24, i32 noundef %23, i32 noundef %37) #11
   %61 = icmp eq i32 %60, 0
@@ -3532,20 +3532,20 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator20spillAfterAll
 
 64:                                               ; preds = %62, %39
   %65 = phi ptr [ %63, %62 ], [ %34, %39 ]
-  %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %26
+  %66 = getelementptr inbounds nuw [1 x i8], ptr %65, i64 0, i64 %26
   store i8 -1, ptr %66, align 1, !tbaa !16
-  %67 = getelementptr inbounds [4 x ptr], ptr %13, i64 0, i64 %44
+  %67 = getelementptr inbounds nuw [4 x ptr], ptr %13, i64 0, i64 %44
   %68 = load ptr, ptr %67, align 8, !tbaa !24
   %69 = zext i8 %36 to i64
-  %70 = getelementptr inbounds i32, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr %68, i64 %69
   store i32 -1, ptr %70, align 4, !tbaa !91
   %71 = load ptr, ptr %12, align 8, !tbaa !22
-  %72 = getelementptr inbounds [4 x i32], ptr %71, i64 0, i64 %44
+  %72 = getelementptr inbounds nuw [4 x i32], ptr %71, i64 0, i64 %44
   %73 = load i32, ptr %72, align 4, !tbaa !91
   %74 = and i32 %73, %54
   store i32 %74, ptr %72, align 4, !tbaa !91
-  %75 = getelementptr inbounds i8, ptr %71, i64 16
-  %76 = getelementptr inbounds [4 x i32], ptr %75, i64 0, i64 %44
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %76 = getelementptr inbounds nuw [4 x i32], ptr %75, i64 0, i64 %44
   %77 = load i32, ptr %76, align 4, !tbaa !91
   %78 = and i32 %77, %54
   store i32 %78, ptr %76, align 4, !tbaa !91
@@ -3565,19 +3565,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator20spillAfterAll
 define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEPNS0_8InstNodeEPNS0_7RABlockES5_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.asmjit::_abi_1_10::Label", align 4
   %6 = alloca %"class.asmjit::_abi_1_10::Label", align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !72
   %9 = load ptr, ptr %1, align 8, !tbaa !16
-  %10 = getelementptr inbounds i8, ptr %8, i64 384
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 384
   store ptr %9, ptr %10, align 8, !tbaa !122
-  %11 = getelementptr inbounds i8, ptr %2, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %12 = load ptr, ptr %11, align 8, !tbaa !187
   %13 = icmp eq ptr %12, null
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %2, i64 120
-  %16 = getelementptr inbounds i8, ptr %2, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %17 = load i32, ptr %16, align 4, !tbaa !191
   %18 = and i32 %17, 8
   %19 = icmp ne i32 %18, 0
@@ -3591,18 +3591,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   br i1 %24, label %25, label %.loopexit
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %2, i64 188
-  %27 = getelementptr inbounds i8, ptr %2, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 188
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %28 = load i32, ptr %27, align 8, !tbaa !192
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %2, align 8, !tbaa !193
-  %32 = getelementptr inbounds i8, ptr %31, i64 232
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 232
   %33 = zext i32 %28 to i64
   %34 = load ptr, ptr %32, align 8, !tbaa !54
-  %35 = getelementptr inbounds %"class.asmjit::_abi_1_10::RASharedAssignment", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RASharedAssignment", ptr %34, i64 %33
   br label %36
 
 36:                                               ; preds = %30, %25
@@ -3612,9 +3612,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   br i1 %39, label %.loopexit11, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 88
-  %42 = getelementptr inbounds i8, ptr %0, i64 96
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load ptr, ptr %41, align 8, !tbaa !22
   %45 = load i32, ptr %44, align 4, !tbaa !91
   br label %46
@@ -3634,9 +3634,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
 56:                                               ; preds = %46
   %57 = load ptr, ptr %42, align 8, !tbaa !24
   %58 = zext nneg i32 %50 to i64
-  %59 = getelementptr inbounds i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !91
-  %61 = getelementptr inbounds i8, ptr %48, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %62 = load i32, ptr %61, align 4, !tbaa !91
   %63 = and i32 %62, %53
   %64 = icmp eq i32 %63, 0
@@ -3648,7 +3648,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   store i32 %67, ptr %61, align 4, !tbaa !91
   %68 = load ptr, ptr %0, align 8, !tbaa !3
   %69 = load ptr, ptr %68, align 8, !tbaa !110
-  %70 = getelementptr inbounds i8, ptr %69, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 96
   %71 = load ptr, ptr %70, align 8
   %72 = tail call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(944) %68, i32 noundef %60, i32 noundef %50) #11
   %73 = icmp eq i32 %72, 0
@@ -3657,16 +3657,16 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
 74:                                               ; preds = %66, %56
   %75 = load ptr, ptr %43, align 8, !tbaa !23
   %76 = zext i32 %60 to i64
-  %77 = getelementptr inbounds [1 x i8], ptr %75, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [1 x i8], ptr %75, i64 0, i64 %76
   store i8 -1, ptr %77, align 1, !tbaa !16
   %78 = load ptr, ptr %42, align 8, !tbaa !24
-  %79 = getelementptr inbounds i32, ptr %78, i64 %58
+  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %58
   store i32 -1, ptr %79, align 4, !tbaa !91
   %80 = load ptr, ptr %41, align 8, !tbaa !22
   %81 = load i32, ptr %80, align 4, !tbaa !91
   %82 = and i32 %81, %65
   store i32 %82, ptr %80, align 4, !tbaa !91
-  %83 = getelementptr inbounds i8, ptr %80, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %84 = load i32, ptr %83, align 4, !tbaa !91
   %85 = and i32 %84, %65
   store i32 %85, ptr %83, align 4, !tbaa !91
@@ -3685,32 +3685,32 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   br i1 %91, label %172, label %93
 
 93:                                               ; preds = %.loopexit11
-  %94 = getelementptr inbounds i8, ptr %92, i64 168
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 168
   %95 = load ptr, ptr %94, align 8, !tbaa !194
   %96 = load ptr, ptr %95, align 8, !tbaa !16
   %97 = load ptr, ptr %7, align 8, !tbaa !72
   %98 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder9setCursorEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %97, ptr noundef %96) #11
-  %99 = getelementptr inbounds i8, ptr %0, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %100 = load ptr, ptr %99, align 8, !tbaa !22
-  %101 = getelementptr inbounds i8, ptr %0, i64 80
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %102 = load ptr, ptr %101, align 8, !tbaa !23
-  %103 = getelementptr inbounds i8, ptr %0, i64 160
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %104 = load ptr, ptr %103, align 8, !tbaa !22
-  %105 = getelementptr inbounds i8, ptr %0, i64 136
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %106 = load i32, ptr %105, align 8, !tbaa !17
   %107 = zext i32 %106 to i64
   %108 = shl nuw nsw i64 %107, 2
   %109 = add nuw nsw i64 %108, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %104, ptr noundef nonnull align 4 dereferenceable(1) %100, i64 %109, i1 false)
-  %110 = getelementptr inbounds i8, ptr %0, i64 152
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %111 = load ptr, ptr %110, align 8, !tbaa !23
-  %112 = getelementptr inbounds i8, ptr %0, i64 140
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %113 = load i32, ptr %112, align 4, !tbaa !20
   %114 = zext i32 %113 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %111, ptr align 1 %102, i64 %114, i1 false)
   %115 = load ptr, ptr %11, align 8, !tbaa !187
-  %116 = getelementptr inbounds i8, ptr %2, i64 120
-  %117 = getelementptr inbounds i8, ptr %2, i64 12
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %118 = load i32, ptr %117, align 4, !tbaa !191
   %119 = and i32 %118, 8
   %120 = icmp ne i32 %119, 0
@@ -3720,19 +3720,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
 
 123:                                              ; preds = %93
   %124 = load ptr, ptr %7, align 8, !tbaa !72
-  %125 = getelementptr inbounds i8, ptr %124, i64 384
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 384
   %126 = load ptr, ptr %125, align 8, !tbaa !122
   %127 = icmp eq ptr %126, %96
   br i1 %127, label %163, label %128
 
 128:                                              ; preds = %123
-  %129 = getelementptr inbounds i8, ptr %1, i64 18
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %130 = load i8, ptr %129, align 2, !tbaa !16
   %131 = zext i8 %130 to i64
   %132 = add nuw nsw i64 %131, 4294967295
-  %133 = getelementptr inbounds i8, ptr %1, i64 64
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %134 = and i64 %132, 4294967295
-  %135 = getelementptr inbounds [4 x %"struct.asmjit::_abi_1_10::Operand_"], ptr %133, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw [4 x %"struct.asmjit::_abi_1_10::Operand_"], ptr %133, i64 0, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !71
   %137 = and i32 %136, 7
   %138 = icmp eq i32 %137, 4
@@ -3741,7 +3741,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
 139:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   %140 = load ptr, ptr %124, align 8, !tbaa !110
-  %141 = getelementptr inbounds i8, ptr %140, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
   %142 = load ptr, ptr %141, align 8
   invoke void %142(ptr dead_on_unwind nonnull writable sret(%"class.asmjit::_abi_1_10::Label") align 4 %5, ptr noundef nonnull align 8 dereferenceable(410) %124)
           to label %143 unwind label %180
@@ -3750,13 +3750,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %135, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %135, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
-  %144 = getelementptr inbounds i8, ptr %1, i64 52
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %145 = load i32, ptr %144, align 4, !tbaa !195
   %146 = and i32 %145, -17
   store i32 %146, ptr %144, align 4, !tbaa !195
   %147 = load ptr, ptr %0, align 8, !tbaa !3
   %148 = load ptr, ptr %147, align 8, !tbaa !110
-  %149 = getelementptr inbounds i8, ptr %148, i64 104
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 104
   %150 = load ptr, ptr %149, align 8
   %151 = call noundef i32 %150(ptr noundef nonnull align 8 dereferenceable(944) %147, ptr noundef nonnull align 4 dereferenceable(16) %6) #11
   %152 = icmp eq i32 %151, 0
@@ -3764,10 +3764,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
 
 153:                                              ; preds = %143
   %154 = load ptr, ptr %7, align 8, !tbaa !72
-  %155 = getelementptr inbounds i8, ptr %154, i64 384
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 384
   store ptr %96, ptr %155, align 8, !tbaa !122
   %156 = load ptr, ptr %154, align 8, !tbaa !110
-  %157 = getelementptr inbounds i8, ptr %156, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 48
   %158 = load ptr, ptr %157, align 8
   %159 = invoke noundef i32 %158(ptr noundef nonnull align 8 dereferenceable(410) %154, ptr noundef nonnull align 4 dereferenceable(16) %5)
           to label %160 unwind label %180
@@ -3785,14 +3785,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
 
 163:                                              ; preds = %160, %123
   %164 = phi ptr [ %124, %123 ], [ %161, %160 ]
-  %165 = getelementptr inbounds i8, ptr %164, i64 384
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 384
   store ptr %98, ptr %165, align 8, !tbaa !122
   %166 = load <4 x ptr>, ptr %110, align 8, !tbaa !24
   %167 = load <4 x ptr>, ptr %101, align 8, !tbaa !24
   store <4 x ptr> %166, ptr %101, align 8, !tbaa !24
   store <4 x ptr> %167, ptr %110, align 8, !tbaa !24
-  %168 = getelementptr inbounds i8, ptr %0, i64 112
-  %169 = getelementptr inbounds i8, ptr %0, i64 184
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %170 = load <2 x ptr>, ptr %169, align 8, !tbaa !24
   %171 = load <2 x ptr>, ptr %168, align 8, !tbaa !24
   store <2 x ptr> %170, ptr %168, align 8, !tbaa !24
@@ -3800,9 +3800,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator11allocBranchEP
   br label %178
 
 172:                                              ; preds = %.loopexit11
-  %173 = getelementptr inbounds i8, ptr %0, i64 200
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %174 = load ptr, ptr %173, align 8, !tbaa !196
-  %175 = getelementptr inbounds i8, ptr %0, i64 56
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %176 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass23setBlockEntryAssignmentEPNS0_7RABlockEPKS2_RKNS0_12RAAssignmentE(ptr noundef nonnull align 8 dereferenceable(944) %92, ptr noundef nonnull %2, ptr noundef %174, ptr noundef nonnull align 8 dereferenceable(72) %175) #11
   %177 = icmp eq i32 %176, 0
   br i1 %177, label %178, label %.loopexit
@@ -3830,58 +3830,58 @@ declare noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass23setBlockEntryAssignmentEP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTableEPNS0_8InstNodeERKNS0_10ZoneVectorIPNS0_7RABlockEEES6_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !18
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !72
   %11 = load ptr, ptr %1, align 8, !tbaa !16
-  %12 = getelementptr inbounds i8, ptr %10, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 384
   store ptr %11, ptr %12, align 8, !tbaa !122
   %13 = load ptr, ptr %2, align 8, !tbaa !54
   %14 = load ptr, ptr %13, align 8, !tbaa !24
-  %15 = getelementptr inbounds i8, ptr %14, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %16 = load i32, ptr %15, align 8, !tbaa !192
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %8
   %19 = load ptr, ptr %0, align 8, !tbaa !3
-  %20 = getelementptr inbounds i8, ptr %19, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 232
   %21 = zext i32 %16 to i64
   %22 = load ptr, ptr %20, align 8, !tbaa !54
-  %23 = getelementptr inbounds %"class.asmjit::_abi_1_10::RASharedAssignment", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RASharedAssignment", ptr %22, i64 %21
   %24 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0_8InstNodeE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %1) #11
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %.loopexit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %23, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !197
   %29 = icmp eq ptr %28, null
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %23, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %32 = tail call noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator18switchToAssignmentEPNS0_12RAAssignment13PhysToWorkMapERKNS0_13ZoneBitVectorEbb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(16) %31, i1 noundef zeroext true, i1 noundef zeroext false) #11
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.loopexit
 
 34:                                               ; preds = %30, %26
-  %35 = getelementptr inbounds i8, ptr %14, i64 188
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 188
   %36 = load i32, ptr %15, align 8, !tbaa !192
   %37 = icmp eq i32 %36, -1
   br i1 %37, label %44, label %38
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %14, align 8, !tbaa !193
-  %40 = getelementptr inbounds i8, ptr %39, i64 232
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 232
   %41 = zext i32 %36 to i64
   %42 = load ptr, ptr %40, align 8, !tbaa !54
-  %43 = getelementptr inbounds %"class.asmjit::_abi_1_10::RASharedAssignment", ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::RASharedAssignment", ptr %42, i64 %41
   br label %44
 
 44:                                               ; preds = %38, %34
@@ -3891,9 +3891,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTabl
   br i1 %47, label %.loopexit9, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %0, i64 88
-  %50 = getelementptr inbounds i8, ptr %0, i64 96
-  %51 = getelementptr inbounds i8, ptr %0, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load ptr, ptr %49, align 8, !tbaa !22
   %53 = load i32, ptr %52, align 4, !tbaa !91
   br label %54
@@ -3913,9 +3913,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTabl
 64:                                               ; preds = %54
   %65 = load ptr, ptr %50, align 8, !tbaa !24
   %66 = zext nneg i32 %58 to i64
-  %67 = getelementptr inbounds i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !91
-  %69 = getelementptr inbounds i8, ptr %56, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %70 = load i32, ptr %69, align 4, !tbaa !91
   %71 = and i32 %70, %61
   %72 = icmp eq i32 %71, 0
@@ -3927,7 +3927,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTabl
   store i32 %75, ptr %69, align 4, !tbaa !91
   %76 = load ptr, ptr %0, align 8, !tbaa !3
   %77 = load ptr, ptr %76, align 8, !tbaa !110
-  %78 = getelementptr inbounds i8, ptr %77, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 96
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef i32 %79(ptr noundef nonnull align 8 dereferenceable(944) %76, i32 noundef %68, i32 noundef %58) #11
   %81 = icmp eq i32 %80, 0
@@ -3936,16 +3936,16 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTabl
 82:                                               ; preds = %74, %64
   %83 = load ptr, ptr %51, align 8, !tbaa !23
   %84 = zext i32 %68 to i64
-  %85 = getelementptr inbounds [1 x i8], ptr %83, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [1 x i8], ptr %83, i64 0, i64 %84
   store i8 -1, ptr %85, align 1, !tbaa !16
   %86 = load ptr, ptr %50, align 8, !tbaa !24
-  %87 = getelementptr inbounds i32, ptr %86, i64 %66
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %66
   store i32 -1, ptr %87, align 4, !tbaa !91
   %88 = load ptr, ptr %49, align 8, !tbaa !22
   %89 = load i32, ptr %88, align 4, !tbaa !91
   %90 = and i32 %89, %73
   store i32 %90, ptr %88, align 4, !tbaa !91
-  %91 = getelementptr inbounds i8, ptr %88, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %92 = load i32, ptr %91, align 4, !tbaa !91
   %93 = and i32 %92, %73
   store i32 %93, ptr %91, align 4, !tbaa !91
@@ -3964,9 +3964,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator14allocJumpTabl
 
 100:                                              ; preds = %.loopexit9
   %101 = load ptr, ptr %0, align 8, !tbaa !3
-  %102 = getelementptr inbounds i8, ptr %0, i64 200
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %103 = load ptr, ptr %102, align 8, !tbaa !196
-  %104 = getelementptr inbounds i8, ptr %0, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %105 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass23setBlockEntryAssignmentEPNS0_7RABlockEPKS2_RKNS0_12RAAssignmentE(ptr noundef nonnull align 8 dereferenceable(944) %101, ptr noundef nonnull %14, ptr noundef %103, ptr noundef nonnull align 8 dereferenceable(72) %104) #11
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %.loopexit

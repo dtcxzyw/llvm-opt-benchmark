@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Dch_NodeIsConstCex(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 3
@@ -20,9 +20,9 @@ define range(i32 0, 2) i32 @Dch_NodeIsConstCex(ptr nocapture readnone %0, ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Dch_NodesAreEqualCex(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = xor i64 %7, %5
   %9 = and i64 %8, 8
@@ -38,7 +38,7 @@ define range(i32 0, 2) i32 @Dch_NodesAreEqualCex(ptr nocapture readnone %0, ptr 
 define i32 @Dch_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.val, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %.val, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -51,7 +51,7 @@ define i32 @Dch_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %13 = sext i32 %.val24 to i64
   %14 = getelementptr inbounds ptr, ptr %.val, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 8
   %.not = icmp eq i64 %18, 0
@@ -75,11 +75,11 @@ define i32 @Dch_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.028 = phi i32 [ 0, %.lr.ph.preheader ], [ %27, %.lr.ph ]
-  %20 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = xor i32 %21, -1
   %23 = and i64 %indvars.iv, 127
-  %24 = getelementptr inbounds [128 x i32], ptr @Dch_NodeHash.s_FPrimes, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [128 x i32], ptr @Dch_NodeHash.s_FPrimes, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = mul i32 %25, %22
   %27 = xor i32 %26, %.028
@@ -90,10 +90,10 @@ define i32 @Dch_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture nounde
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %indvars.iv36 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next37, %.lr.ph31 ]
   %.230 = phi i32 [ 0, %.lr.ph31.preheader ], [ %34, %.lr.ph31 ]
-  %28 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv36
+  %28 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv36
   %29 = load i32, ptr %28, align 4
   %30 = and i64 %indvars.iv36, 127
-  %31 = getelementptr inbounds [128 x i32], ptr @Dch_NodeHash.s_FPrimes, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [128 x i32], ptr @Dch_NodeHash.s_FPrimes, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = mul i32 %32, %29
   %34 = xor i32 %33, %.230
@@ -110,7 +110,7 @@ define i32 @Dch_NodeHash(ptr nocapture noundef readonly %0, ptr nocapture nounde
 define range(i32 0, 2) i32 @Dch_NodeIsConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val19 = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.val19, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.val19, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %.val19, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -123,7 +123,7 @@ define range(i32 0, 2) i32 @Dch_NodeIsConst(ptr nocapture noundef readonly %0, p
   %13 = sext i32 %.val21 to i64
   %14 = getelementptr inbounds ptr, ptr %.val19, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 8
   %.not = icmp eq i64 %18, 0
@@ -151,7 +151,7 @@ define range(i32 0, 2) i32 @Dch_NodeIsConst(ptr nocapture noundef readonly %0, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %.not18 = icmp eq i32 %22, -1
   br i1 %.not18, label %20, label %.loopexit
@@ -163,7 +163,7 @@ define range(i32 0, 2) i32 @Dch_NodeIsConst(ptr nocapture noundef readonly %0, p
 
 .lr.ph29:                                         ; preds = %.lr.ph29.preheader, %23
   %indvars.iv36 = phi i64 [ 0, %.lr.ph29.preheader ], [ %indvars.iv.next37, %23 ]
-  %24 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv36
+  %24 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv36
   %25 = load i32, ptr %24, align 4
   %.not17 = icmp eq i32 %25, 0
   br i1 %.not17, label %23, label %.loopexit
@@ -177,7 +177,7 @@ define range(i32 0, 2) i32 @Dch_NodeIsConst(ptr nocapture noundef readonly %0, p
 define range(i32 0, 2) i32 @Dch_NodesAreEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val26 = load ptr, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %.val26, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.val26, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %.val26, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -195,9 +195,9 @@ define range(i32 0, 2) i32 @Dch_NodesAreEqual(ptr nocapture noundef readonly %0,
   %18 = sext i32 %.val28 to i64
   %19 = getelementptr inbounds ptr, ptr %.val26, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = xor i64 %24, %22
   %26 = and i64 %25, 8
@@ -226,9 +226,9 @@ define range(i32 0, 2) i32 @Dch_NodesAreEqual(ptr nocapture noundef readonly %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = xor i32 %32, %30
   %.not25 = icmp eq i32 %33, -1
@@ -241,9 +241,9 @@ define range(i32 0, 2) i32 @Dch_NodesAreEqual(ptr nocapture noundef readonly %0,
 
 .lr.ph38:                                         ; preds = %.lr.ph38.preheader, %34
   %indvars.iv45 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next46, %34 ]
-  %35 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv45
+  %35 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv45
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv45
+  %37 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv45
   %38 = load i32, ptr %37, align 4
   %.not24 = icmp eq i32 %36, %38
   br i1 %.not24, label %34, label %.loopexit
@@ -257,7 +257,7 @@ define range(i32 0, 2) i32 @Dch_NodesAreEqual(ptr nocapture noundef readonly %0,
 define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val87 = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.val87, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.val87, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %.val87, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -276,7 +276,7 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
   %17 = ashr exact i64 %sext, 30
   %18 = and i64 %17, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %16, i8 -1, i64 %18, i1 false)
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 4
   %.val99118 = load i32, ptr %21, align 4
@@ -296,7 +296,7 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
   %24 = phi ptr [ %20, %.lr.ph.us.preheader ], [ %37, %._crit_edge.us ]
   %25 = getelementptr i8, ptr %24, i64 8
   %.val85.us = load ptr, ptr %25, align 8
-  %26 = getelementptr inbounds ptr, ptr %.val85.us, i64 %indvars.iv140
+  %26 = getelementptr inbounds nuw ptr, ptr %.val85.us, i64 %indvars.iv140
   %27 = load ptr, ptr %26, align 8
   %.val94.us = load ptr, ptr %3, align 8
   %28 = getelementptr i8, ptr %27, i64 36
@@ -309,7 +309,7 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
 32:                                               ; preds = %.lr.ph.us, %32
   %indvars.iv137 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next138, %32 ]
   %33 = tail call i32 @Aig_ManRandom(i32 noundef 0) #7
-  %34 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv137
+  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv137
   store i32 %33, ptr %34, align 4
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count
@@ -328,7 +328,7 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
   br i1 %40, label %.lr.ph.us, label %.critedge.preheader, !llvm.loop !12
 
 .critedge.preheader:                              ; preds = %.lr.ph121.split, %._crit_edge.us, %2
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr i8, ptr %42, i64 4
   %.val100129 = load i32, ptr %43, align 4
@@ -348,7 +348,7 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
   %46 = phi ptr [ %56, %.lr.ph121.split ], [ %20, %.lr.ph121 ]
   %47 = getelementptr i8, ptr %46, i64 8
   %.val85 = load ptr, ptr %47, align 8
-  %48 = getelementptr inbounds ptr, ptr %.val85, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw ptr, ptr %.val85, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8
   %.val94 = load ptr, ptr %3, align 8
   %50 = getelementptr i8, ptr %49, i64 36
@@ -372,7 +372,7 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
   %61 = phi ptr [ %42, %.lr.ph131 ], [ %122, %.critedge ]
   %62 = getelementptr i8, ptr %61, i64 8
   %.val = load ptr, ptr %62, align 8
-  %63 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv163
+  %63 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv163
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.critedge, label %66
@@ -430,13 +430,13 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
 
 .lr.ph:                                           ; preds = %.preheader115, %.lr.ph
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.lr.ph ], [ 0, %.preheader115 ]
-  %95 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv143
+  %95 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv143
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv143
+  %97 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv143
   %98 = load i32, ptr %97, align 4
   %.demorgan = or i32 %98, %96
   %99 = xor i32 %.demorgan, -1
-  %100 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv143
+  %100 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv143
   store i32 %99, ptr %100, align 4
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
@@ -444,13 +444,13 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
 
 .lr.ph124:                                        ; preds = %.preheader113, %.lr.ph124
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.lr.ph124 ], [ 0, %.preheader113 ]
-  %101 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv148
+  %101 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv148
   %102 = load i32, ptr %101, align 4
   %103 = xor i32 %102, -1
-  %104 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv148
+  %104 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv148
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, %103
-  %107 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv148
+  %107 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv148
   store i32 %106, ptr %107, align 4
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
@@ -467,13 +467,13 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
 
 .lr.ph126:                                        ; preds = %.preheader111, %.lr.ph126
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.lr.ph126 ], [ 0, %.preheader111 ]
-  %109 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv153
+  %109 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv153
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv153
+  %111 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv153
   %112 = load i32, ptr %111, align 4
   %113 = xor i32 %112, -1
   %114 = and i32 %110, %113
-  %115 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv153
+  %115 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv153
   store i32 %114, ptr %115, align 4
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
@@ -481,12 +481,12 @@ define void @Dch_PerformRandomSimulation(ptr nocapture noundef readonly %0, ptr 
 
 .lr.ph128:                                        ; preds = %.preheader, %.lr.ph128
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.lr.ph128 ], [ 0, %.preheader ]
-  %116 = getelementptr inbounds i32, ptr %79, i64 %indvars.iv158
+  %116 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv158
   %117 = load i32, ptr %116, align 4
-  %118 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv158
+  %118 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv158
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %119, %117
-  %121 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv158
+  %121 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv158
   store i32 %120, ptr %121, align 4
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
@@ -532,7 +532,7 @@ define noundef ptr @Dch_CreateCandEquivClasses(ptr noundef %0, i32 noundef %1, i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %14 = mul nsw i64 %indvars.iv.i, %6
   %15 = getelementptr inbounds i32, ptr %12, i64 %14
-  %16 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   store ptr %15, ptr %16, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -540,10 +540,10 @@ define noundef ptr @Dch_CreateCandEquivClasses(ptr noundef %0, i32 noundef %1, i
 
 Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
   %17 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %.val.val, ptr %18, align 4
   store i32 %.val.val, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %11, ptr %19, align 8
   tail call void @Dch_PerformRandomSimulation(ptr noundef %0, ptr noundef nonnull %17)
   %20 = tail call ptr @Dch_ClassesStart(ptr noundef %0) #7

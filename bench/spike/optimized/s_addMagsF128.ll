@@ -93,9 +93,9 @@ define { i64, i64 } @softfloat_addMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   %51 = sub nsw i64 0, %.096
   call void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind nonnull writable sret(%struct.uint128_extra) align 8 %6, i64 noundef %.sroa.762.0, i64 noundef %1, i64 noundef 0, i64 noundef %51) #3
   %.sroa.06.0.copyload = load i64, ptr %6, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.6.sroa.0.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.6.sroa.6.0.copyload = load i64, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx.sroa_idx, align 8
   br label %65
 
@@ -131,9 +131,9 @@ define { i64, i64 } @softfloat_addMagsF128(i64 noundef %0, i64 noundef %1, i64 n
   %.sroa.7.1 = phi i64 [ %61, %60 ], [ %13, %62 ]
   call void @softfloat_shiftRightJam128Extra(ptr dead_on_unwind nonnull writable sret(%struct.uint128_extra) align 8 %7, i64 noundef %.sroa.7.1, i64 noundef %3, i64 noundef 0, i64 noundef %.197) #3
   %.sroa.06.0.copyload9 = load i64, ptr %7, align 8
-  %.sroa.6.0..sroa_idx11 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.6.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.6.sroa.0.0.copyload25 = load i64, ptr %.sroa.6.0..sroa_idx11, align 8
-  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx11.sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx11.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.6.sroa.6.0.copyload29 = load i64, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx11.sroa_idx, align 8
   br label %65
 

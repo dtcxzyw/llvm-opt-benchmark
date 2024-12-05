@@ -1428,7 +1428,7 @@ define internal i32 @get_xti_message_len(ptr nocapture readnone %0, ptr noundef 
 define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [8 x i32], align 16
   %6 = alloca [21 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.667) #5
   %9 = load ptr, ptr %7, align 8
@@ -1606,15 +1606,15 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   %82 = add i32 %.0485628, -1
   %83 = sext i32 %.0475633 to i64
   %84 = getelementptr [1949 x %struct.ETI_Field], ptr @dissect_xti_message.fields, i64 0, i64 %83
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i16, ptr %85, align 4
   %87 = zext i16 %86 to i32
-  %88 = getelementptr inbounds i8, ptr %84, i64 6
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 6
   %89 = load i16, ptr %88, align 2
   %90 = zext i16 %89 to i64
   %91 = getelementptr [32 x i32], ptr @ett_xti, i64 0, i64 %90
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %84, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %84, i64 2
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i64
   %96 = getelementptr [507 x i8], ptr @dissect_xti_message.struct_names, i64 0, i64 %95
@@ -1627,7 +1627,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 101:                                              ; preds = %74, %74
-  %102 = getelementptr inbounds i8, ptr %75, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i64
   %105 = icmp ult i8 %103, 8
@@ -1649,12 +1649,12 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 .thread:                                          ; preds = %107, %109
   %112 = phi i32 [ %111, %109 ], [ 1, %107 ]
-  %113 = getelementptr inbounds i8, ptr %75, i64 6
+  %113 = getelementptr inbounds nuw i8, ptr %75, i64 6
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %114 to i64
   %116 = getelementptr [32 x i32], ptr @ett_xti, i64 0, i64 %115
   %117 = load i32, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %75, i64 2
+  %118 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %119 = load i16, ptr %118, align 2
   %120 = zext i16 %119 to i64
   %121 = getelementptr [507 x i8], ptr @dissect_xti_message.struct_names, i64 0, i64 %120
@@ -1667,7 +1667,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   unreachable
 
 125:                                              ; preds = %.thread
-  %126 = getelementptr inbounds i8, ptr %75, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %127 = load i16, ptr %126, align 4
   %128 = zext i16 %127 to i32
   %129 = add i32 %112, -1
@@ -1678,7 +1678,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 132:                                              ; preds = %74
-  %133 = getelementptr inbounds i8, ptr %75, i64 2
+  %133 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %134 = load i16, ptr %133, align 2
   %135 = zext i16 %134 to i32
   %136 = add i32 %.0481630, %135
@@ -1686,12 +1686,12 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 138:                                              ; preds = %74
-  %139 = getelementptr inbounds i8, ptr %75, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %140 = load i16, ptr %139, align 4
   %141 = zext i16 %140 to i64
   %142 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %141
   %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %75, i64 2
+  %144 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %145 = load i16, ptr %144, align 2
   %146 = zext i16 %145 to i32
   %147 = call ptr @proto_tree_add_item(ptr noundef %.0487627, i32 noundef %143, ptr noundef %0, i32 noundef %.0481630, i32 noundef %146, i32 noundef 0) #5
@@ -1703,12 +1703,12 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 151:                                              ; preds = %74
   %152 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0481630) #5
   %.not550 = icmp eq i8 %152, 0
-  %153 = getelementptr inbounds i8, ptr %75, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %154 = load i16, ptr %153, align 4
   %155 = zext i16 %154 to i64
   %156 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %155
   %157 = load i32, ptr %156, align 4
-  %158 = getelementptr inbounds i8, ptr %75, i64 2
+  %158 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %159 = load i16, ptr %158, align 2
   %160 = zext i16 %159 to i32
   br i1 %.not550, label %163, label %161
@@ -1735,7 +1735,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 173:                                              ; preds = %74
-  %174 = getelementptr inbounds i8, ptr %75, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %175 = load i8, ptr %174, align 1
   %176 = zext i8 %175 to i64
   %177 = icmp ult i8 %175, 8
@@ -1746,7 +1746,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   unreachable
 
 179:                                              ; preds = %173
-  %180 = getelementptr inbounds i8, ptr %75, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %181 = load i16, ptr %180, align 4
   %182 = zext i16 %181 to i64
   %183 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %182
@@ -1761,7 +1761,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 192:                                              ; preds = %74
-  %193 = getelementptr inbounds i8, ptr %75, i64 1
+  %193 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %194 = load i8, ptr %193, align 1
   %195 = icmp ult i8 %194, 8
   br i1 %195, label %198, label %196
@@ -1772,7 +1772,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   unreachable
 
 198:                                              ; preds = %192
-  %199 = getelementptr inbounds i8, ptr %75, i64 2
+  %199 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %200 = load i16, ptr %199, align 2
   %201 = icmp ult i16 %200, 3
   br i1 %201, label %204, label %202
@@ -1792,7 +1792,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   %206 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0481630) #5
   %207 = zext i8 %206 to i32
   %208 = icmp eq i8 %206, -1
-  %209 = getelementptr inbounds i8, ptr %75, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %210 = load i16, ptr %209, align 4
   %211 = zext i16 %210 to i64
   %212 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %211
@@ -1808,7 +1808,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 218:                                              ; preds = %205
   %219 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0487627, i32 noundef %213, ptr noundef %0, i32 noundef %.0481630, i32 noundef 1, i32 noundef %207, ptr noundef nonnull @.str.1099, i32 noundef %207) #5
-  %220 = getelementptr inbounds i8, ptr %75, i64 6
+  %220 = getelementptr inbounds nuw i8, ptr %75, i64 6
   %221 = load i16, ptr %220, align 2
   %222 = zext i16 %221 to i32
   %223 = icmp samesign ugt i32 %207, %222
@@ -1829,7 +1829,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   %230 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0481630) #5
   %231 = zext i16 %230 to i32
   %232 = icmp eq i16 %230, -1
-  %233 = getelementptr inbounds i8, ptr %75, i64 4
+  %233 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %234 = load i16, ptr %233, align 4
   %235 = zext i16 %234 to i64
   %236 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %235
@@ -1845,7 +1845,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 242:                                              ; preds = %229
   %243 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0487627, i32 noundef %237, ptr noundef %0, i32 noundef %.0481630, i32 noundef 2, i32 noundef %231, ptr noundef nonnull @.str.1099, i32 noundef %231) #5
-  %244 = getelementptr inbounds i8, ptr %75, i64 6
+  %244 = getelementptr inbounds nuw i8, ptr %75, i64 6
   %245 = load i16, ptr %244, align 2
   %246 = icmp ugt i16 %230, %245
   br i1 %246, label %247, label %252
@@ -1872,7 +1872,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 260:                                              ; preds = %74
-  %261 = getelementptr inbounds i8, ptr %75, i64 2
+  %261 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %262 = load i16, ptr %261, align 2
   switch i16 %262, label %357 [
     i16 1, label %263
@@ -1887,7 +1887,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %265, label %266, label %277
 
 266:                                              ; preds = %263
-  %267 = getelementptr inbounds i8, ptr %75, i64 4
+  %267 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %268 = load i16, ptr %267, align 4
   %269 = zext i16 %268 to i64
   %270 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %269
@@ -1904,7 +1904,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 277:                                              ; preds = %263
   %278 = zext i8 %264 to i32
-  %279 = getelementptr inbounds i8, ptr %75, i64 4
+  %279 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %280 = load i16, ptr %279, align 4
   %281 = zext i16 %280 to i64
   %282 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %281
@@ -1925,7 +1925,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %292, label %293, label %304
 
 293:                                              ; preds = %290
-  %294 = getelementptr inbounds i8, ptr %75, i64 4
+  %294 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %295 = load i16, ptr %294, align 4
   %296 = zext i16 %295 to i64
   %297 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %296
@@ -1942,7 +1942,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 304:                                              ; preds = %290
   %305 = zext i16 %291 to i32
-  %306 = getelementptr inbounds i8, ptr %75, i64 4
+  %306 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %307 = load i16, ptr %306, align 4
   %308 = zext i16 %307 to i64
   %309 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %308
@@ -1960,7 +1960,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 317:                                              ; preds = %260
   %318 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0481630) #5
   %319 = icmp eq i32 %318, -1
-  %320 = getelementptr inbounds i8, ptr %75, i64 4
+  %320 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %321 = load i16, ptr %320, align 4
   %322 = zext i16 %321 to i64
   %323 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %322
@@ -1991,7 +1991,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 337:                                              ; preds = %260
   %338 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %.0481630) #5
   %339 = icmp eq i64 %338, -1
-  %340 = getelementptr inbounds i8, ptr %75, i64 4
+  %340 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %341 = load i16, ptr %340, align 4
   %342 = zext i16 %341 to i64
   %343 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %342
@@ -2027,7 +2027,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 362:                                              ; preds = %74
-  %363 = getelementptr inbounds i8, ptr %75, i64 2
+  %363 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %364 = load i16, ptr %363, align 2
   switch i16 %364, label %459 [
     i16 1, label %365
@@ -2042,7 +2042,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %367, label %368, label %379
 
 368:                                              ; preds = %365
-  %369 = getelementptr inbounds i8, ptr %75, i64 4
+  %369 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %370 = load i16, ptr %369, align 4
   %371 = zext i16 %370 to i64
   %372 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %371
@@ -2059,7 +2059,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 379:                                              ; preds = %365
   %380 = sext i8 %366 to i32
-  %381 = getelementptr inbounds i8, ptr %75, i64 4
+  %381 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %382 = load i16, ptr %381, align 4
   %383 = zext i16 %382 to i64
   %384 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %383
@@ -2080,7 +2080,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %394, label %395, label %406
 
 395:                                              ; preds = %392
-  %396 = getelementptr inbounds i8, ptr %75, i64 4
+  %396 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %397 = load i16, ptr %396, align 4
   %398 = zext i16 %397 to i64
   %399 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %398
@@ -2097,7 +2097,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 406:                                              ; preds = %392
   %407 = sext i16 %393 to i32
-  %408 = getelementptr inbounds i8, ptr %75, i64 4
+  %408 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %409 = load i16, ptr %408, align 4
   %410 = zext i16 %409 to i64
   %411 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %410
@@ -2115,7 +2115,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 419:                                              ; preds = %362
   %420 = call i32 @tvb_get_letohil(ptr noundef %0, i32 noundef %.0481630) #5
   %421 = icmp eq i32 %420, -2147483648
-  %422 = getelementptr inbounds i8, ptr %75, i64 4
+  %422 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %423 = load i16, ptr %422, align 4
   %424 = zext i16 %423 to i64
   %425 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %424
@@ -2146,7 +2146,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 439:                                              ; preds = %362
   %440 = call i64 @tvb_get_letohi64(ptr noundef %0, i32 noundef %.0481630) #5
   %441 = icmp eq i64 %440, -9223372036854775808
-  %442 = getelementptr inbounds i8, ptr %75, i64 4
+  %442 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %443 = load i16, ptr %442, align 4
   %444 = zext i16 %443 to i64
   %445 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %444
@@ -2182,12 +2182,12 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 464:                                              ; preds = %74, %74
-  %465 = getelementptr inbounds i8, ptr %75, i64 4
+  %465 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %466 = load i16, ptr %465, align 4
   %467 = zext i16 %466 to i64
   %468 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %467
   %469 = load i32, ptr %468, align 4
-  %470 = getelementptr inbounds i8, ptr %75, i64 2
+  %470 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %471 = load i16, ptr %470, align 2
   %472 = zext i16 %471 to i32
   %473 = call ptr @proto_tree_add_item(ptr noundef %.0487627, i32 noundef %469, ptr noundef %0, i32 noundef %.0481630, i32 noundef %472, i32 noundef -2147483648) #5
@@ -2197,7 +2197,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 477:                                              ; preds = %74
-  %478 = getelementptr inbounds i8, ptr %75, i64 2
+  %478 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %479 = load i16, ptr %478, align 2
   %480 = icmp eq i16 %479, 8
   br i1 %480, label %483, label %481
@@ -2208,7 +2208,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   unreachable
 
 483:                                              ; preds = %477
-  %484 = getelementptr inbounds i8, ptr %75, i64 1
+  %484 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %485 = load i8, ptr %484, align 1
   %.not540 = icmp eq i8 %485, 0
   br i1 %.not540, label %486, label %487
@@ -2232,7 +2232,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %493, label %494, label %505
 
 494:                                              ; preds = %491
-  %495 = getelementptr inbounds i8, ptr %75, i64 4
+  %495 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %496 = load i16, ptr %495, align 4
   %497 = zext i16 %496 to i64
   %498 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %497
@@ -2263,7 +2263,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
 
 512:                                              ; preds = %505
   %513 = sub nsw i32 %508, %506
-  %514 = getelementptr inbounds i8, ptr %75, i64 4
+  %514 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %515 = load i16, ptr %514, align 4
   %516 = zext i16 %515 to i64
   %517 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %516
@@ -2280,7 +2280,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 526:                                              ; preds = %74
-  %527 = getelementptr inbounds i8, ptr %75, i64 2
+  %527 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %528 = load i16, ptr %527, align 2
   %529 = icmp eq i16 %528, 8
   br i1 %529, label %532, label %530
@@ -2291,7 +2291,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   unreachable
 
 532:                                              ; preds = %526
-  %533 = getelementptr inbounds i8, ptr %75, i64 4
+  %533 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %534 = load i16, ptr %533, align 4
   %535 = zext i16 %534 to i64
   %536 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %535
@@ -2303,7 +2303,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   br label %559
 
 542:                                              ; preds = %74
-  %543 = getelementptr inbounds i8, ptr %75, i64 2
+  %543 = getelementptr inbounds nuw i8, ptr %75, i64 2
   %544 = load i16, ptr %543, align 2
   %545 = icmp eq i16 %544, 1
   br i1 %545, label %548, label %546
@@ -2314,7 +2314,7 @@ define internal i32 @dissect_xti_message(ptr noundef %0, ptr noundef %1, ptr nou
   unreachable
 
 548:                                              ; preds = %542
-  %549 = getelementptr inbounds i8, ptr %75, i64 4
+  %549 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %550 = load i16, ptr %549, align 4
   %551 = zext i16 %550 to i64
   %552 = getelementptr [324 x i32], ptr @hf_xti, i64 0, i64 %551

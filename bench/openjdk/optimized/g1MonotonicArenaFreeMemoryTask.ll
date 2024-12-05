@@ -58,7 +58,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZNK30G1MonotonicArenaFreeMemoryTask14get_state_nameENS_5StateE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -77,36 +77,36 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask22calculate
   %3 = alloca %class.G1MonotonicArenaMemoryStats, align 8
   %4 = alloca %class.G1MonotonicArenaMemoryStats, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   %7 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1304
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1304
   call void @_ZNK24G1MonotonicArenaFreePool12memory_sizesEv(ptr dead_on_unwind nonnull writable sret(%class.G1MonotonicArenaMemoryStats) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %8) #14
   %9 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 16, i8 noundef zeroext 5) #14
   %10 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 4, i32 noundef 8, i8 noundef zeroext 5) #14
   store i32 0, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %9, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %15
 
 15:                                               ; preds = %2, %32
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %32 ]
-  %16 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds [4 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i64], ptr %3, i64 0, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
   %20 = load double, ptr @G1RemSetFreeMemoryKeepExcessRatio, align 8
   %21 = uitofp i64 %19 to double
   %22 = fmul double %20, %21
   %23 = fptoui double %22 to i64
   %24 = call noundef i64 @llvm.umin.i64(i64 %17, i64 %23)
-  %25 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %25 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %32, label %26
 
@@ -114,7 +114,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask22calculate
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = call noundef ptr @_ZN22G1CardSetConfiguration24mem_object_type_name_strEj(i32 noundef %27) #14
   %29 = load i64, ptr %16, align 8
-  %30 = getelementptr inbounds [4 x i64], ptr %14, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i64], ptr %14, i64 0, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef %28, i64 noundef %29, i64 noundef %31, i64 noundef %19, i64 noundef %24)
   br label %32
@@ -123,9 +123,9 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask22calculate
   %33 = load ptr, ptr %13, align 8
   %34 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #14
   store ptr null, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 %24, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   store ptr %34, ptr %5, align 8
   %37 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIPN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessorE18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE6appendERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -155,13 +155,13 @@ declare noundef ptr @_ZN22G1CardSetConfiguration24mem_object_type_name_strEj(i32
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessorE18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE6appendERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #2 comdat align 2 {
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
   br label %38
 
@@ -182,7 +182,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN24G1Mo
   br i1 %17, label %.lr.ph.i.i, label %.preheader15.i.i
 
 .lr.ph.i.i:                                       ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %23
 
 .preheader15.loopexit.i.i:                        ; preds = %23
@@ -201,9 +201,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN24G1Mo
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -213,14 +213,14 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN24G1Mo
   br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !8
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIPN24G1MonotonicArenaFreePool23G1ReturnMemoryProcessorE18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE4growEi.exit, label %37
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4
@@ -253,7 +253,7 @@ declare void @_ZN24G1MonotonicArenaFreePool24update_unlink_processorsEP18Growabl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -263,11 +263,11 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
   %7 = phi i32 [ %19, %18 ], [ %5, %2 ]
   %8 = phi ptr [ %20, %18 ], [ %4, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %2 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %18, label %16
@@ -298,7 +298,7 @@ declare noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcess
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_osEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -308,11 +308,11 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
   %7 = phi i32 [ %19, %18 ], [ %5, %2 ]
   %8 = phi ptr [ %20, %18 ], [ %4, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %2 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %18, label %16
@@ -343,7 +343,7 @@ declare noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryProcess
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -353,9 +353,9 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_r
   %6 = phi i32 [ %15, %14 ], [ %4, %1 ]
   %7 = phi ptr [ %16, %14 ], [ %3, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %1 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13
@@ -377,13 +377,13 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_r
 ._crit_edge:                                      ; preds = %14, %1
   %.lcssa = phi ptr [ %3, %1 ], [ %16, %14 ]
   store i32 0, ptr %.lcssa, align 4
-  %19 = getelementptr inbounds i8, ptr %.lcssa, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %25, label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %._crit_edge
-  %22 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %23 = load ptr, ptr %22, align 8
   store i32 0, ptr %19, align 4
   %.not.i.i.i = icmp eq ptr %23, null
@@ -413,7 +413,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   %7 = load double, ptr @G1RemSetFreeMemoryStepDurationMillis, align 8
   %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double %3)
   %9 = fptosi double %8 to i64
-  %10 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not25 = icmp eq ptr %10, null
   br i1 %.not25, label %14, label %11
 
@@ -424,8 +424,8 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   br label %14
 
 14:                                               ; preds = %1, %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %17
 
 17:                                               ; preds = %101, %14
@@ -451,11 +451,11 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   %25 = phi i32 [ %37, %36 ], [ %23, %21 ]
   %26 = phi ptr [ %38, %36 ], [ %22, %21 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %36 ], [ 0, %21 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %36, label %34
@@ -487,11 +487,11 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   %45 = phi i32 [ %57, %56 ], [ %43, %41 ]
   %46 = phi ptr [ %58, %56 ], [ %42, %41 ]
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i17, %56 ], [ 0, %41 ]
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv.i13
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i13
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %56, label %54
@@ -523,9 +523,9 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   %65 = phi i32 [ %74, %73 ], [ %63, %61 ]
   %66 = phi ptr [ %75, %73 ], [ %62, %61 ]
   %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i22, %73 ], [ 0, %61 ]
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv.i20
+  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.i20
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %73, label %72
@@ -547,13 +547,13 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
 ._crit_edge.i:                                    ; preds = %73, %61
   %.lcssa.i18 = phi ptr [ %62, %61 ], [ %75, %73 ]
   store i32 0, ptr %.lcssa.i18, align 4
-  %78 = getelementptr inbounds i8, ptr %.lcssa.i18, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.lcssa.i18, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit, label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %._crit_edge.i
-  %81 = getelementptr inbounds i8, ptr %.lcssa.i18, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.lcssa.i18, i64 8
   %82 = load ptr, ptr %81, align 8
   store i32 0, ptr %78, align 4
   %.not.i.i.i.i = icmp eq ptr %82, null
@@ -573,13 +573,13 @@ _ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit: ; preds = %._c
   br label %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread
 
 84:                                               ; preds = %17
-  %85 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
+  %85 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
   %.not28 = icmp eq ptr %85, null
   br i1 %.not28, label %90, label %86
 
 86:                                               ; preds = %84
   %87 = zext i32 %18 to i64
-  %88 = getelementptr inbounds [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %87
   %89 = load ptr, ptr %88, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef %89)
   br label %90
@@ -593,17 +593,17 @@ _ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit: ; preds = %._c
 _ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread: ; preds = %56, %36, %41, %21, %_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit, %19
   %.not = phi i1 [ true, %_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit ], [ false, %19 ], [ false, %21 ], [ false, %41 ], [ false, %36 ], [ false, %56 ]
   %.0 = phi i32 [ 0, %_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit ], [ 2, %19 ], [ 3, %21 ], [ 4, %41 ], [ 3, %36 ], [ 4, %56 ]
-  %92 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %92 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %92, null
   br i1 %.not.i, label %_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit, label %93
 
 93:                                               ; preds = %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread
   %94 = load i32, ptr %15, align 8
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = zext nneg i32 %.0 to i64
-  %99 = getelementptr inbounds [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %98
   %100 = load ptr, ptr %99, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef %97, ptr noundef %100)
   br label %_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit
@@ -618,7 +618,7 @@ _ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit: ; preds = %_ZN30G
   br i1 %.not26, label %17, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit, %101
-  %103 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %103 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not27 = icmp eq ptr %103, null
   br i1 %.not27, label %111, label %104
 
@@ -663,31 +663,31 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [5 x ptr], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef %9, ptr noundef %12)
   br label %13
 
 13:                                               ; preds = %2, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK30G1MonotonicArenaFreeMemoryTask9is_activeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp ne i32 %3, 0
   ret i1 %4
@@ -704,11 +704,11 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZNK30G1MonotonicArenaFreeMe
 define hidden void @_ZN30G1MonotonicArenaFreeMemoryTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   tail call void @_ZN13G1ServiceTaskC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) #14
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV30G1MonotonicArenaFreeMemoryTask, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN27G1MonotonicArenaMemoryStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %5, align 8
   ret void
 }
@@ -739,25 +739,25 @@ declare void @_ZN13G1ServiceTask8scheduleEl(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask16notify_new_statsEP27G1MonotonicArenaMemoryStatsS1_(ptr noundef nonnull align 8 dereferenceable(120) initializes((48, 112)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.G1MonotonicArenaMemoryStats, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %8
 
 8:                                                ; preds = %8, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv.i
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds [4 x i64], ptr %5, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %indvars.iv.i
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %10
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds [4 x i64], ptr %6, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i64], ptr %6, i64 0, i64 %indvars.iv.i
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds [4 x i64], ptr %7, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4 x i64], ptr %7, i64 0, i64 %indvars.iv.i
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8
@@ -767,13 +767,13 @@ define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask16notify_new_statsEP27G1M
 
 _ZN27G1MonotonicArenaMemoryStats3addES_.exit:     ; preds = %8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i32, ptr %19, align 8
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %27
 
 21:                                               ; preds = %_ZN27G1MonotonicArenaMemoryStats3addES_.exit
-  %22 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit, label %23
 
@@ -784,7 +784,7 @@ _ZN27G1MonotonicArenaMemoryStats3addES_.exit:     ; preds = %8
 _ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit: ; preds = %21, %23
   store i32 1, ptr %19, align 8
   %24 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %26 = load ptr, ptr %25, align 8
   tail call void @_ZN15G1ServiceThread13schedule_taskEP13G1ServiceTaskl(ptr noundef nonnull align 8 dereferenceable(1064) %26, ptr noundef nonnull %0, i64 noundef 0) #14
   br label %27

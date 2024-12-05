@@ -32,7 +32,7 @@ define void @Abc_NtkAutoDebug(ptr noundef %0, ptr nocapture noundef readonly %1)
 9:                                                ; preds = %2
   %10 = load i64, ptr %6, align 8
   %.neg51 = mul i64 %10, -1000000
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load i64, ptr %11, align 8
   %.neg50 = sdiv i64 %12, -1000
   %.neg52 = add i64 %.neg50, %.neg51
@@ -48,8 +48,8 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br i1 %.not, label %17, label %.preheader
 
 .preheader:                                       ; preds = %Abc_Clock.exit
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %18
 
 17:                                               ; preds = %Abc_Clock.exit
@@ -76,7 +76,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 Abc_Clock.exit41:                                 ; preds = %18, %21
   %.0.i40.neg = phi i64 [ %.neg49, %21 ], [ 1, %18 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %24 = getelementptr inbounds i8, ptr %.0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 4
   %.val41.i = load i32, ptr %26, align 4
@@ -93,7 +93,7 @@ Abc_Clock.exit41:                                 ; preds = %18, %21
   %.043.i = phi i32 [ 0, %.lr.ph44.i ], [ %.3.i, %.critedge2.i ]
   %31 = getelementptr i8, ptr %30, i64 8
   %.val27.val.i = load ptr, ptr %31, align 8
-  %32 = getelementptr inbounds ptr, ptr %.val27.val.i, i64 %indvars.iv47.i
+  %32 = getelementptr inbounds nuw ptr, ptr %.val27.val.i, i64 %indvars.iv47.i
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.critedge2.i, label %.preheader.i
@@ -133,7 +133,7 @@ Abc_Clock.exit41:                                 ; preds = %18, %21
   %46 = getelementptr i8, ptr %.val29.val.i, i64 8
   %.val29.val.val.i = load ptr, ptr %46, align 8
   %.val30.i = load ptr, ptr %37, align 8
-  %47 = getelementptr inbounds i32, ptr %.val30.i, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw i32, ptr %.val30.i, i64 %indvars.iv.i
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds ptr, ptr %.val29.val.val.i, i64 %49
@@ -186,7 +186,7 @@ Abc_NtkCountFaninsTotal.exit:                     ; preds = %.critedge2.i, %Abc_
   %67 = srem i32 %66, %62
   %68 = sdiv i32 %67, 2
   %69 = call ptr @Abc_NtkDup(ptr noundef %.0) #10
-  %70 = getelementptr inbounds i8, ptr %69, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 4
   %.val49.i.i = load i32, ptr %72, align 4
@@ -203,7 +203,7 @@ Abc_NtkCountFaninsTotal.exit:                     ; preds = %.critedge2.i, %Abc_
   %.051.i.i = phi i32 [ 0, %.lr.ph52.i.i ], [ %.3.i.i, %.critedge2.i.i ]
   %77 = getelementptr i8, ptr %76, i64 8
   %.val33.val.i.i = load ptr, ptr %77, align 8
-  %78 = getelementptr inbounds ptr, ptr %.val33.val.i.i, i64 %indvars.iv57.i.i
+  %78 = getelementptr inbounds nuw ptr, ptr %.val33.val.i.i, i64 %indvars.iv57.i.i
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %.critedge2.i.i, label %.preheader.i.i
@@ -228,7 +228,7 @@ Abc_NtkCountFaninsTotal.exit:                     ; preds = %.critedge2.i, %Abc_
   %.val35.val.i.i = load ptr, ptr %86, align 8
   %87 = getelementptr i8, ptr %.val35.val.i.i, i64 8
   %.val35.val.val.i.i = load ptr, ptr %87, align 8
-  %88 = getelementptr inbounds i32, ptr %.val36.i.i, i64 %indvars.iv.i.i
+  %88 = getelementptr inbounds nuw i32, ptr %.val36.i.i, i64 %indvars.iv.i.i
   %89 = load i32, ptr %88, align 4
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds ptr, ptr %.val35.val.val.i.i, i64 %90
@@ -381,7 +381,7 @@ Abc_Clock.exit45:                                 ; preds = %.loopexit, %134
 149:                                              ; preds = %145
   %150 = load i64, ptr %3, align 8
   %151 = mul nsw i64 %150, 1000000
-  %152 = getelementptr inbounds i8, ptr %3, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %153 = load i64, ptr %152, align 8
   %154 = sdiv i64 %153, 1000
   %155 = add nsw i64 %154, %151
@@ -454,7 +454,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Abc_NtkFindGivenFanin(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
   %.val49 = load i32, ptr %7, align 4
@@ -471,7 +471,7 @@ define range(i32 0, 2) i32 @Abc_NtkFindGivenFanin(ptr nocapture noundef readonly
   %.051 = phi i32 [ 0, %.lr.ph52 ], [ %.3, %.critedge2 ]
   %12 = getelementptr i8, ptr %11, i64 8
   %.val33.val = load ptr, ptr %12, align 8
-  %13 = getelementptr inbounds ptr, ptr %.val33.val, i64 %indvars.iv57
+  %13 = getelementptr inbounds nuw ptr, ptr %.val33.val, i64 %indvars.iv57
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.critedge2, label %.preheader
@@ -496,7 +496,7 @@ define range(i32 0, 2) i32 @Abc_NtkFindGivenFanin(ptr nocapture noundef readonly
   %.val35.val = load ptr, ptr %21, align 8
   %22 = getelementptr i8, ptr %.val35.val, i64 8
   %.val35.val.val = load ptr, ptr %22, align 8
-  %23 = getelementptr inbounds i32, ptr %.val36, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %.val36, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %.val35.val.val, i64 %25

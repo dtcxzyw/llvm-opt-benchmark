@@ -69,15 +69,15 @@ declare dso_local i32 @xt_register_matches(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @addrtype_mt_v0(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 180
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i64
   %14 = getelementptr i8, ptr %10, i64 %13
@@ -86,14 +86,14 @@ define internal zeroext i1 @addrtype_mt_v0(ptr nocapture noundef readonly %0, pt
   br i1 %16, label %31, label %17
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %14, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = zext i16 %15 to i32
   %21 = tail call i32 @inet_dev_addr_type(ptr noundef %6, ptr noundef null, i32 noundef %19) #7
   %22 = shl nuw i32 1, %21
   %23 = and i32 %22, %20
   %24 = icmp ne i32 %23, 0
-  %25 = getelementptr inbounds i8, ptr %8, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 1
   %28 = icmp ne i32 %27, 0
@@ -103,18 +103,18 @@ define internal zeroext i1 @addrtype_mt_v0(ptr nocapture noundef readonly %0, pt
 
 31:                                               ; preds = %17, %2
   %32 = phi i8 [ %30, %17 ], [ 1, %2 ]
-  %33 = getelementptr inbounds i8, ptr %8, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %34 = load i16, ptr %33, align 2
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %47, label %36
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %14, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %38 = load i32, ptr %37, align 4
   %39 = zext i16 %34 to i32
   %40 = tail call i32 @inet_dev_addr_type(ptr noundef %6, ptr noundef null, i32 noundef %38) #7
   %41 = lshr i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %8, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %43 = load i32, ptr %42, align 4
   %44 = xor i32 %41, %43
   %45 = trunc i32 %44 to i8
@@ -129,13 +129,13 @@ define internal zeroext i1 @addrtype_mt_v0(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @addrtype_mt_v1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 4
   %12 = icmp eq i32 %11, 0
@@ -148,18 +148,18 @@ define internal zeroext i1 @addrtype_mt_v1(ptr nocapture noundef readonly %0, pt
 
 16:                                               ; preds = %13, %2
   %17 = phi i64 [ 8, %2 ], [ 16, %13 ]
-  %18 = getelementptr inbounds i8, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %20
 
 20:                                               ; preds = %16, %13
   %21 = phi ptr [ null, %13 ], [ %19, %16 ]
-  %22 = getelementptr inbounds i8, ptr %4, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 10
-  %25 = getelementptr inbounds i8, ptr %0, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 180
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %28 = load i16, ptr %27, align 4
   %29 = zext i16 %28 to i64
   %30 = getelementptr i8, ptr %26, i64 %29
@@ -171,8 +171,8 @@ define internal zeroext i1 @addrtype_mt_v1(ptr nocapture noundef readonly %0, pt
   br i1 %32, label %.critedge, label %34
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
-  %36 = tail call fastcc zeroext i1 @match_type6(ptr noundef %6, ptr noundef %21, ptr noundef %35, i16 noundef zeroext %31)
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %36 = tail call fastcc zeroext i1 @match_type6(ptr noundef %6, ptr noundef %21, ptr noundef nonnull %35, i16 noundef zeroext %31)
   %37 = load i32, ptr %9, align 4
   %38 = and i32 %37, 1
   %39 = icmp eq i32 %38, 0
@@ -180,14 +180,14 @@ define internal zeroext i1 @addrtype_mt_v1(ptr nocapture noundef readonly %0, pt
   br i1 %40, label %80, label %.critedge
 
 .critedge:                                        ; preds = %33, %34
-  %41 = getelementptr inbounds i8, ptr %8, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %42 = load i16, ptr %41, align 2
   %43 = icmp eq i16 %42, 0
   br i1 %43, label %80, label %44
 
 44:                                               ; preds = %.critedge
-  %45 = getelementptr inbounds i8, ptr %30, i64 24
-  %46 = tail call fastcc zeroext i1 @match_type6(ptr noundef %6, ptr noundef %21, ptr noundef %45, i16 noundef zeroext %42)
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %46 = tail call fastcc zeroext i1 @match_type6(ptr noundef %6, ptr noundef %21, ptr noundef nonnull %45, i16 noundef zeroext %42)
   %47 = load i32, ptr %9, align 4
   %48 = and i32 %47, 2
   br label %75
@@ -196,7 +196,7 @@ define internal zeroext i1 @addrtype_mt_v1(ptr nocapture noundef readonly %0, pt
   br i1 %32, label %.critedge8, label %50
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %30, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = zext i16 %31 to i32
   %54 = tail call i32 @inet_dev_addr_type(ptr noundef %6, ptr noundef %21, i32 noundef %52) #7
@@ -210,13 +210,13 @@ define internal zeroext i1 @addrtype_mt_v1(ptr nocapture noundef readonly %0, pt
   br i1 %61, label %80, label %.critedge8
 
 .critedge8:                                       ; preds = %49, %50
-  %62 = getelementptr inbounds i8, ptr %8, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %63 = load i16, ptr %62, align 2
   %64 = icmp eq i16 %63, 0
   br i1 %64, label %80, label %65
 
 65:                                               ; preds = %.critedge8
-  %66 = getelementptr inbounds i8, ptr %30, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %67 = load i32, ptr %66, align 4
   %68 = zext i16 %63 to i32
   %69 = tail call i32 @inet_dev_addr_type(ptr noundef %6, ptr noundef %21, i32 noundef %67) #7
@@ -241,9 +241,9 @@ define internal zeroext i1 @addrtype_mt_v1(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @addrtype_mt_checkentry_v1(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 4
   %7 = icmp eq i32 %6, 0
@@ -254,7 +254,7 @@ define internal noundef range(i32 -22, 1) i32 @addrtype_mt_checkentry_v1(ptr noc
 10:                                               ; preds = %1
   %11 = and i32 %5, 8
   %12 = icmp eq i32 %11, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 3
   %16 = icmp eq i32 %15, 0
@@ -268,14 +268,14 @@ define internal noundef range(i32 -22, 1) i32 @addrtype_mt_checkentry_v1(ptr noc
   br i1 %21, label %22, label %39
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %24 = load i8, ptr %23, align 4
   %25 = icmp eq i8 %24, 10
   br i1 %25, label %26, label %45
 
 26:                                               ; preds = %22
   %27 = load i16, ptr %3, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %29 = load i16, ptr %28, align 2
   %30 = or i16 %29, %27
   %31 = zext i16 %30 to i32
@@ -355,13 +355,13 @@ define internal fastcc zeroext i1 @match_type6(ptr noundef %0, ptr noundef %1, p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   store ptr null, ptr %6, align 8, !annotation !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false)
-  %30 = getelementptr inbounds i8, ptr %5, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %30, ptr noundef align 4 dereferenceable(16) %2, i64 16, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef align 4 dereferenceable(16) %2, i64 16, i1 false)
   %31 = icmp eq ptr %1, null
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %1, i64 216
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %34 = load i32, ptr %33, align 8
   store i32 %34, ptr %5, align 8
   %35 = and i16 %3, 4
@@ -382,7 +382,7 @@ define internal fastcc zeroext i1 @match_type6(ptr noundef %0, ptr noundef %1, p
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 216
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 216
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 512
   %50 = icmp eq i32 %49, 0
@@ -400,7 +400,7 @@ define internal fastcc zeroext i1 @match_type6(ptr noundef %0, ptr noundef %1, p
   br label %.thread2
 
 59:                                               ; preds = %45
-  %60 = getelementptr inbounds i8, ptr %46, i64 164
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 164
   %61 = load i32, ptr %60, align 4
   %62 = icmp slt i32 %61, 127
   %63 = and i32 %48, 2097154
@@ -409,7 +409,7 @@ define internal fastcc zeroext i1 @match_type6(ptr noundef %0, ptr noundef %1, p
   br i1 %65, label %66, label %.thread2
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %46, i64 148
+  %67 = getelementptr inbounds nuw i8, ptr %46, i64 148
   %68 = load i64, ptr %67, align 8
   %69 = load i64, ptr %2, align 8
   %70 = getelementptr i8, ptr %46, i64 156

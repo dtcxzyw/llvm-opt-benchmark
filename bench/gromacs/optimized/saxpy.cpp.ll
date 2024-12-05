@@ -73,30 +73,30 @@ define void @saxpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %36 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %37 = load float, ptr %36, align 4
-  %38 = getelementptr inbounds float, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   %39 = load float, ptr %38, align 4
   %40 = tail call float @llvm.fmuladd.f32(float %8, float %37, float %39)
   store float %40, ptr %38, align 4
   %41 = or disjoint i64 %indvars.iv, 1
-  %42 = getelementptr inbounds float, ptr %2, i64 %41
+  %42 = getelementptr inbounds nuw float, ptr %2, i64 %41
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds float, ptr %4, i64 %41
+  %44 = getelementptr inbounds nuw float, ptr %4, i64 %41
   %45 = load float, ptr %44, align 4
   %46 = tail call float @llvm.fmuladd.f32(float %8, float %43, float %45)
   store float %46, ptr %44, align 4
   %47 = or disjoint i64 %indvars.iv, 2
-  %48 = getelementptr inbounds float, ptr %2, i64 %47
+  %48 = getelementptr inbounds nuw float, ptr %2, i64 %47
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds float, ptr %4, i64 %47
+  %50 = getelementptr inbounds nuw float, ptr %4, i64 %47
   %51 = load float, ptr %50, align 4
   %52 = tail call float @llvm.fmuladd.f32(float %8, float %49, float %51)
   store float %52, ptr %50, align 4
   %53 = or disjoint i64 %indvars.iv, 3
-  %54 = getelementptr inbounds float, ptr %2, i64 %53
+  %54 = getelementptr inbounds nuw float, ptr %2, i64 %53
   %55 = load float, ptr %54, align 4
-  %56 = getelementptr inbounds float, ptr %4, i64 %53
+  %56 = getelementptr inbounds nuw float, ptr %4, i64 %53
   %57 = load float, ptr %56, align 4
   %58 = tail call float @llvm.fmuladd.f32(float %8, float %55, float %57)
   store float %58, ptr %56, align 4
@@ -106,9 +106,9 @@ define void @saxpy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %.lr.ph67
   %indvars.iv74 = phi i64 [ %35, %.lr.ph67.preheader ], [ %indvars.iv.next75, %.lr.ph67 ]
-  %60 = getelementptr inbounds float, ptr %2, i64 %indvars.iv74
+  %60 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv74
   %61 = load float, ptr %60, align 4
-  %62 = getelementptr inbounds float, ptr %4, i64 %indvars.iv74
+  %62 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv74
   %63 = load float, ptr %62, align 4
   %64 = tail call float @llvm.fmuladd.f32(float %8, float %61, float %63)
   store float %64, ptr %62, align 4

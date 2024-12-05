@@ -61,7 +61,7 @@ define dso_local void @_INTERNAL_trim_to_complete_utf8_characters(ptr noundef re
   br i1 %15, label %16, label %36
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.023, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %.023, i64 3
   br label %.loopexit
 
 18:                                               ; preds = %.lr.ph
@@ -75,7 +75,7 @@ define dso_local void @_INTERNAL_trim_to_complete_utf8_characters(ptr noundef re
   br i1 %23, label %24, label %36
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %.023, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.023, i64 2
   br label %.loopexit
 
 26:                                               ; preds = %18
@@ -89,7 +89,7 @@ define dso_local void @_INTERNAL_trim_to_complete_utf8_characters(ptr noundef re
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.023, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.023, i64 1
   br label %.loopexit
 
 34:                                               ; preds = %26
@@ -134,7 +134,7 @@ define dso_local range(i32 0, 5) i32 @XmlUtf8Encode(i32 noundef %0, ptr nocaptur
   %14 = trunc i32 %0 to i8
   %15 = and i8 %14, 63
   %16 = or disjoint i8 %15, -128
-  %17 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %16, ptr %17, align 1
   br label %53
 
@@ -151,12 +151,12 @@ define dso_local range(i32 0, 5) i32 @XmlUtf8Encode(i32 noundef %0, ptr nocaptur
   %25 = trunc i32 %24 to i8
   %26 = and i8 %25, 63
   %27 = or disjoint i8 %26, -128
-  %28 = getelementptr inbounds i8, ptr %1, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %27, ptr %28, align 1
   %29 = trunc i32 %0 to i8
   %30 = and i8 %29, 63
   %31 = or disjoint i8 %30, -128
-  %32 = getelementptr inbounds i8, ptr %1, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %31, ptr %32, align 1
   br label %53
 
@@ -173,18 +173,18 @@ define dso_local range(i32 0, 5) i32 @XmlUtf8Encode(i32 noundef %0, ptr nocaptur
   %40 = trunc i32 %39 to i8
   %41 = and i8 %40, 63
   %42 = or disjoint i8 %41, -128
-  %43 = getelementptr inbounds i8, ptr %1, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %42, ptr %43, align 1
   %44 = lshr i32 %0, 6
   %45 = trunc i32 %44 to i8
   %46 = and i8 %45, 63
   %47 = or disjoint i8 %46, -128
-  %48 = getelementptr inbounds i8, ptr %1, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %47, ptr %48, align 1
   %49 = trunc i32 %0 to i8
   %50 = and i8 %49, 63
   %51 = or disjoint i8 %50, -128
-  %52 = getelementptr inbounds i8, ptr %1, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %51, ptr %52, align 1
   br label %53
 
@@ -220,7 +220,7 @@ define dso_local range(i32 0, 3) i32 @XmlUtf16Encode(i32 noundef %0, ptr nocaptu
   %15 = trunc i32 %0 to i16
   %16 = and i16 %15, 1023
   %17 = or disjoint i16 %16, -9216
-  %18 = getelementptr inbounds i8, ptr %1, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 %17, ptr %18, align 2
   br label %19
 
@@ -240,15 +240,15 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly initi
   br label %8
 
 .preheader:                                       ; preds = %15
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
-  %6 = getelementptr inbounds i8, ptr %0, i64 472
-  %7 = getelementptr inbounds i8, ptr %0, i64 984
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %.not105 = icmp eq ptr %2, null
   br label %16
 
 8:                                                ; preds = %4, %15
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %15 ]
-  %9 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %11 [
     i8 28, label %15
@@ -256,7 +256,7 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly initi
   ]
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %.not108 = icmp eq i64 %indvars.iv, %14
@@ -269,19 +269,19 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly initi
 
 16:                                               ; preds = %.preheader, %116
   %indvars.iv116 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next117, %116 ]
-  %17 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv116
+  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv116
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
+  %21 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
   store i8 1, ptr %21, align 1
-  %22 = getelementptr inbounds [256 x i16], ptr %6, i64 0, i64 %indvars.iv116
+  %22 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %indvars.iv116
   store i16 -1, ptr %22, align 2
-  %23 = getelementptr inbounds [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv116
+  %23 = getelementptr inbounds nuw [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv116
   store i8 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 0, ptr %24, align 1
   br label %116
 
@@ -297,11 +297,11 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly initi
 29:                                               ; preds = %27
   %30 = trunc i32 %18 to i8
   %31 = sub nsw i8 3, %30
-  %32 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
+  %32 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
   store i8 %31, ptr %32, align 1
-  %33 = getelementptr inbounds [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv116
+  %33 = getelementptr inbounds nuw [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv116
   store i8 0, ptr %33, align 4
-  %34 = getelementptr inbounds [256 x i16], ptr %6, i64 0, i64 %indvars.iv116
+  %34 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %indvars.iv116
   store i16 0, ptr %34, align 2
   br label %116
 
@@ -311,7 +311,7 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly initi
 
 37:                                               ; preds = %35
   %38 = zext nneg i32 %18 to i64
-  %39 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   switch i8 %40, label %41 [
     i8 28, label %42
@@ -323,17 +323,17 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly initi
   br i1 %.not104, label %42, label %.loopexit
 
 42:                                               ; preds = %37, %37, %41
-  %43 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
+  %43 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
   store i8 %40, ptr %43, align 1
-  %44 = getelementptr inbounds [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv116
+  %44 = getelementptr inbounds nuw [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv116
   store i8 1, ptr %44, align 4
   %45 = trunc nuw nsw i32 %18 to i8
-  %46 = getelementptr inbounds i8, ptr %44, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store i8 %45, ptr %46, align 1
   %47 = icmp eq i32 %18, 0
   %48 = trunc nuw i32 %18 to i16
   %49 = select i1 %47, i16 -1, i16 %48
-  %50 = getelementptr inbounds [256 x i16], ptr %6, i64 0, i64 %indvars.iv116
+  %50 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %indvars.iv116
   store i16 %49, ptr %50, align 2
   br label %116
 
@@ -354,7 +354,7 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly initi
 
 53:                                               ; preds = %51
   %54 = zext nneg i32 %18 to i64
-  %55 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %60, label %checkCharRefNumber.exit
@@ -365,13 +365,13 @@ define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly initi
   br i1 %or.cond.i, label %60, label %checkCharRefNumber.exit
 
 60:                                               ; preds = %51, %51, %51, %51, %51, %51, %51, %51, %53, %58
-  %61 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
+  %61 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
   store i8 0, ptr %61, align 1
-  %62 = getelementptr inbounds [256 x i16], ptr %6, i64 0, i64 %indvars.iv116
+  %62 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %indvars.iv116
   store i16 -1, ptr %62, align 2
-  %63 = getelementptr inbounds [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv116
+  %63 = getelementptr inbounds nuw [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv116
   store i8 1, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %63, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store i8 0, ptr %64, align 1
   br label %116
 
@@ -381,7 +381,7 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
 
 66:                                               ; preds = %checkCharRefNumber.exit
   %67 = zext nneg i32 %52 to i64
-  %68 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 3
@@ -389,7 +389,7 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
   %73 = and i32 %72, 7
   %74 = or disjoint i32 %71, %73
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %18, 31
   %79 = shl nuw i32 1, %78
@@ -398,22 +398,22 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
   br i1 %.not100, label %83, label %81
 
 81:                                               ; preds = %66
-  %82 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
+  %82 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
   store i8 22, ptr %82, align 1
   br label %96
 
 83:                                               ; preds = %66
-  %84 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %67
+  %84 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %67
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i32
   %87 = shl nuw nsw i32 %86, 3
   %88 = or disjoint i32 %87, %73
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %89
+  %90 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = and i32 %91, %79
   %.not101 = icmp eq i32 %92, 0
-  %93 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
+  %93 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv116
   br i1 %.not101, label %95, label %94
 
 94:                                               ; preds = %83
@@ -425,8 +425,8 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
   br label %96
 
 96:                                               ; preds = %94, %95, %81
-  %97 = getelementptr inbounds [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv116
-  %98 = getelementptr inbounds i8, ptr %97, i64 1
+  %97 = getelementptr inbounds nuw [256 x [4 x i8]], ptr %7, i64 0, i64 %indvars.iv116
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
   %99 = icmp samesign ult i32 %18, 2048
   br i1 %99, label %100, label %104
 
@@ -444,7 +444,7 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
   %109 = trunc i32 %18 to i8
   %110 = and i8 %109, 63
   %111 = or disjoint i8 %110, -128
-  %112 = getelementptr inbounds i8, ptr %97, i64 3
+  %112 = getelementptr inbounds nuw i8, ptr %97, i64 3
   store i8 %111, ptr %112, align 1
   br label %XmlUtf8Encode.exit
 
@@ -456,11 +456,11 @@ XmlUtf8Encode.exit:                               ; preds = %100, %104
   %.sink.in = and i8 %.sink.in.in, 63
   %.sink = or disjoint i8 %.sink.in, -128
   store i8 %.sink120, ptr %98, align 1
-  %113 = getelementptr inbounds i8, ptr %97, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %97, i64 2
   store i8 %.sink, ptr %113, align 1
   store i8 %.0.i109, ptr %97, align 4
   %114 = trunc nuw i32 %18 to i16
-  %115 = getelementptr inbounds [256 x i16], ptr %6, i64 0, i64 %indvars.iv116
+  %115 = getelementptr inbounds nuw [256 x i16], ptr %6, i64 0, i64 %indvars.iv116
   store i16 %114, ptr %115, align 2
   br label %116
 
@@ -470,37 +470,37 @@ XmlUtf8Encode.exit:                               ; preds = %100, %104
   br i1 %exitcond119.not, label %117, label %16, !llvm.loop !8
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds i8, ptr %0, i64 464
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store ptr %3, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 456
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr %2, ptr %119, align 8
   br i1 %.not105, label %130, label %120
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %0, i64 384
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr @unknown_isName, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 392
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr @unknown_isName, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 400
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr @unknown_isName, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 408
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr @unknown_isNmstrt, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 416
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr @unknown_isNmstrt, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 424
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr @unknown_isNmstrt, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 432
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr @unknown_isInvalid, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 440
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store ptr @unknown_isInvalid, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 448
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr @unknown_isInvalid, ptr %129, align 8
   br label %130
 
 130:                                              ; preds = %120, %117
-  %131 = getelementptr inbounds i8, ptr %0, i64 104
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @unknown_toUtf8, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 112
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @unknown_toUtf16, ptr %132, align 8
   br label %.loopexit
 
@@ -514,9 +514,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, -2147483647) i32 @unknown_isName(ptr nocapture noundef readonly %0, ptr noundef %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 456
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 464
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %4(ptr noundef %6, ptr noundef %1) #13
   %.not = icmp ult i32 %7, 65536
@@ -525,7 +525,7 @@ define internal range(i32 0, -2147483647) i32 @unknown_isName(ptr nocapture noun
 8:                                                ; preds = %2
   %9 = lshr i32 %7, 8
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 3
@@ -533,7 +533,7 @@ define internal range(i32 0, -2147483647) i32 @unknown_isName(ptr nocapture noun
   %16 = and i32 %15, 7
   %17 = or disjoint i32 %14, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %7, 31
   %22 = shl nuw i32 1, %21
@@ -547,9 +547,9 @@ define internal range(i32 0, -2147483647) i32 @unknown_isName(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, -2147483647) i32 @unknown_isNmstrt(ptr nocapture noundef readonly %0, ptr noundef %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 456
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 464
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %4(ptr noundef %6, ptr noundef %1) #13
   %.not = icmp ult i32 %7, 65536
@@ -558,7 +558,7 @@ define internal range(i32 0, -2147483647) i32 @unknown_isNmstrt(ptr nocapture no
 8:                                                ; preds = %2
   %9 = lshr i32 %7, 8
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 3
@@ -566,7 +566,7 @@ define internal range(i32 0, -2147483647) i32 @unknown_isNmstrt(ptr nocapture no
   %16 = and i32 %15, 7
   %17 = or disjoint i32 %14, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %7, 31
   %22 = shl nuw i32 1, %21
@@ -580,9 +580,9 @@ define internal range(i32 0, -2147483647) i32 @unknown_isNmstrt(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @unknown_isInvalid(ptr nocapture noundef readonly %0, ptr noundef %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 456
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 464
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %4(ptr noundef %6, ptr noundef %1) #13
   %.not = icmp ult i32 %7, 65536
@@ -606,7 +606,7 @@ define internal range(i32 0, 2) i32 @unknown_isInvalid(ptr nocapture noundef rea
 
 10:                                               ; preds = %8
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @latin1_encoding, i64 128), i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %checkCharRefNumber.exit, label %17
@@ -632,22 +632,22 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr nocapture noundef readon
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 984
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %10 = ptrtoint ptr %4 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 456
-  %12 = getelementptr inbounds i8, ptr %0, i64 464
-  %13 = getelementptr inbounds i8, ptr %6, i64 1
-  %14 = getelementptr inbounds i8, ptr %6, i64 2
-  %15 = getelementptr inbounds i8, ptr %6, i64 3
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %17
 
 17:                                               ; preds = %.lr.ph, %96
   %18 = phi ptr [ %7, %.lr.ph ], [ %101, %96 ]
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds [256 x [4 x i8]], ptr %9, i64 0, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %21 = getelementptr inbounds nuw [256 x [4 x i8]], ptr %9, i64 0, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %23 = load i8, ptr %21, align 1
   %24 = sext i8 %23 to i32
   %25 = icmp eq i8 %23, 0
@@ -742,7 +742,7 @@ XmlUtf8Encode.exit:                               ; preds = %26, %33, %37, %46, 
   %80 = load ptr, ptr %1, align 8
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i64
-  %83 = getelementptr inbounds [256 x i8], ptr %16, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [256 x i8], ptr %16, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i64
   %86 = getelementptr i8, ptr %80, i64 %85
@@ -758,7 +758,7 @@ XmlUtf8Encode.exit:                               ; preds = %26, %33, %37, %46, 
   br i1 %93, label %._crit_edge, label %94
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds i8, ptr %18, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %18, i64 1
   br label %96
 
 96:                                               ; preds = %94, %79
@@ -788,10 +788,10 @@ define internal range(i32 0, 3) i32 @unknown_toUtf16(ptr nocapture noundef reado
   br i1 %7, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 472
-  %9 = getelementptr inbounds i8, ptr %0, i64 456
-  %10 = getelementptr inbounds i8, ptr %0, i64 464
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %12
 
 12:                                               ; preds = %.lr.ph, %37
@@ -803,7 +803,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf16(ptr nocapture noundef reado
 16:                                               ; preds = %12
   %17 = load i8, ptr %13, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [256 x i16], ptr %8, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [256 x i16], ptr %8, i64 0, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = icmp eq i16 %20, 0
   br i1 %21, label %22, label %35
@@ -816,7 +816,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf16(ptr nocapture noundef reado
   %27 = load ptr, ptr %1, align 8
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
   %33 = getelementptr i8, ptr %27, i64 %32
@@ -824,7 +824,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf16(ptr nocapture noundef reado
   br label %37
 
 35:                                               ; preds = %16
-  %36 = getelementptr inbounds i8, ptr %13, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 1
   br label %37
 
 37:                                               ; preds = %35, %22
@@ -832,7 +832,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf16(ptr nocapture noundef reado
   %.0 = phi i16 [ %20, %35 ], [ %26, %22 ]
   store ptr %storemerge, ptr %1, align 8
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 2
   store ptr %39, ptr %3, align 8
   store i16 %.0, ptr %38, align 2
   %40 = load ptr, ptr %1, align 8
@@ -868,7 +868,7 @@ define dso_local range(i32 0, 2) i32 @XmlInitEncoding(ptr noundef %0, ptr nounde
 
 .preheader.i:                                     ; preds = %3, %15
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %3 ]
-  %5 = getelementptr inbounds [6 x ptr], ptr @getEncodingIndex.encodingNames, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [6 x ptr], ptr @getEncodingIndex.encodingNames, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -889,8 +889,8 @@ define dso_local range(i32 0, 2) i32 @XmlInitEncoding(ptr noundef %0, ptr nounde
   br i1 %.not.i.i, label %12, label %15
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %.017.i.i, i64 1
-  %14 = getelementptr inbounds i8, ptr %.018.i.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 1
   %.not23.i.i = icmp eq i8 %spec.select.i.i, 0
   br i1 %.not23.i.i, label %getEncodingIndex.exit, label %7
 
@@ -905,14 +905,14 @@ getEncodingIndex.exit:                            ; preds = %12
 
 getEncodingIndex.exit.thread13:                   ; preds = %getEncodingIndex.exit, %3
   %.06.i15 = phi i8 [ %16, %getEncodingIndex.exit ], [ 6, %3 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 125
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 125
   store i8 %.06.i15, ptr %17, align 1
   store ptr @initScanProlog, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @initScanContent, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @initUpdatePosition, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %1, ptr %20, align 8
   store ptr %0, ptr %1, align 8
   br label %getEncodingIndex.exit.thread
@@ -943,14 +943,14 @@ define internal void @initUpdatePosition(ptr nocapture readnone %0, ptr noundef 
   br i1 %8, label %.lr.ph.i, label %normal_updatePosition.exit
 
 .lr.ph.i:                                         ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %10
 
 10:                                               ; preds = %50, %.lr.ph.i
   %.023.i = phi ptr [ %1, %.lr.ph.i ], [ %.1.i, %50 ]
   %11 = load i8, ptr %.023.i, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @utf8_encoding, i64 128), i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @utf8_encoding, i64 128), i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %46 [
     i8 5, label %15
@@ -961,21 +961,21 @@ define internal void @initUpdatePosition(ptr nocapture readnone %0, ptr noundef 
   ]
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %.023.i, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.023.i, i64 2
   %17 = load i64, ptr %9, align 8
   %18 = add i64 %17, 1
   store i64 %18, ptr %9, align 8
   br label %50
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %.023.i, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %.023.i, i64 3
   %21 = load i64, ptr %9, align 8
   %22 = add i64 %21, 1
   store i64 %22, ptr %9, align 8
   br label %50
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds i8, ptr %.023.i, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.023.i, i64 4
   %25 = load i64, ptr %9, align 8
   %26 = add i64 %25, 1
   store i64 %26, ptr %9, align 8
@@ -986,14 +986,14 @@ define internal void @initUpdatePosition(ptr nocapture readnone %0, ptr noundef 
   %28 = load i64, ptr %3, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %.023.i, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
   br label %50
 
 31:                                               ; preds = %10
   %32 = load i64, ptr %3, align 8
   %33 = add i64 %32, 1
   store i64 %33, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %.023.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
   %35 = ptrtoint ptr %34 to i64
   %36 = sub i64 %5, %35
   %37 = icmp sgt i64 %36, 0
@@ -1002,10 +1002,10 @@ define internal void @initUpdatePosition(ptr nocapture readnone %0, ptr noundef 
 38:                                               ; preds = %31
   %39 = load i8, ptr %34, align 1
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @utf8_encoding, i64 128), i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds nuw (i8, ptr @utf8_encoding, i64 128), i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 10
-  %44 = getelementptr inbounds i8, ptr %.023.i, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.023.i, i64 2
   %spec.select.i = select i1 %43, ptr %44, ptr %34
   br label %45
 
@@ -1015,7 +1015,7 @@ define internal void @initUpdatePosition(ptr nocapture readnone %0, ptr noundef 
   br label %50
 
 46:                                               ; preds = %10
-  %47 = getelementptr inbounds i8, ptr %.023.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
   %48 = load i64, ptr %9, align 8
   %49 = add i64 %48, 1
   store i64 %49, ptr %9, align 8
@@ -1054,7 +1054,7 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
   store ptr null, ptr %21, align 8
   store ptr null, ptr %22, align 8
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %25 = load i32, ptr %24, align 8
   %26 = mul nsw i32 %25, 5
   %27 = sext i32 %26 to i64
@@ -1076,7 +1076,7 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
   br label %.sink.split12.i
 
 39:                                               ; preds = %10
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %23, align 8
   %43 = tail call i32 %41(ptr noundef nonnull %1, ptr noundef nonnull %35, ptr noundef %42, ptr noundef nonnull @KW_version) #13
@@ -1146,9 +1146,9 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store ptr %65, ptr %17, align 8
   store ptr %18, ptr %19, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %18, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %69 = call i32 %67(ptr noundef nonnull %1, ptr noundef nonnull %17, ptr noundef %32, ptr noundef nonnull %19, ptr noundef nonnull %68) #13
   %70 = load ptr, ptr %19, align 8
   %71 = icmp ne ptr %70, %18
@@ -1188,7 +1188,7 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %15, i8 0, i64 128, i1 false)
   store ptr %15, ptr %16, align 8
   %84 = load ptr, ptr %66, align 8
-  %85 = getelementptr inbounds i8, ptr %15, i64 127
+  %85 = getelementptr inbounds nuw i8, ptr %15, i64 127
   %86 = call i32 %84(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef %83, ptr noundef nonnull %16, ptr noundef nonnull %85) #13
   %87 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %87, %83
@@ -1216,8 +1216,8 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
   br i1 %.not.i.i.i, label %95, label %.preheader.i.i.i.preheader
 
 95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %.017.i.i.i, i64 1
-  %97 = getelementptr inbounds i8, ptr %.018.i.i.i, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.017.i.i.i, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 1
   %.not23.i.i.i = icmp eq i8 %spec.select.i.i.i, 0
   br i1 %.not23.i.i.i, label %streqci.exit.i.i, label %90
 
@@ -1231,7 +1231,7 @@ streqci.exit.i.i:                                 ; preds = %95
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %110
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %110 ], [ 0, %.preheader.i.i.i.preheader ]
-  %100 = getelementptr inbounds [6 x ptr], ptr @getEncodingIndex.encodingNames, i64 0, i64 %indvars.iv.i.i.i
+  %100 = getelementptr inbounds nuw [6 x ptr], ptr @getEncodingIndex.encodingNames, i64 0, i64 %indvars.iv.i.i.i
   %101 = load ptr, ptr %100, align 8
   br label %102
 
@@ -1252,8 +1252,8 @@ streqci.exit.i.i:                                 ; preds = %95
   br i1 %.not.i.i.i.i, label %107, label %110
 
 107:                                              ; preds = %102
-  %108 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 1
-  %109 = getelementptr inbounds i8, ptr %.018.i.i.i.i, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %.018.i.i.i.i, i64 1
   %.not23.i.i.i.i = icmp eq i8 %spec.select.i.i.i.i, 0
   br i1 %.not23.i.i.i.i, label %getEncodingIndex.exit.i.i, label %102
 
@@ -1341,8 +1341,8 @@ findEncoding.exit.i:                              ; preds = %110, %getEncodingIn
   br label %145
 
 145:                                              ; preds = %.sink.split.i, %144, %136
-  %146 = getelementptr inbounds i8, ptr %1, i64 104
-  %147 = getelementptr inbounds i8, ptr %12, i64 1
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %147 = getelementptr inbounds nuw i8, ptr %12, i64 1
   br label %148
 
 148:                                              ; preds = %isSpace.exit.i, %145
@@ -1400,10 +1400,10 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %6, label %normal_scanPoundName.exit
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i8, ptr %1, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %252 [
     i8 12, label %12
@@ -1432,17 +1432,17 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = tail call fastcc i32 @normal_scanLit(i32 noundef 12, ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanPoundName.exit
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %17 = tail call fastcc i32 @normal_scanLit(i32 noundef 13, ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanPoundName.exit
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %1, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %20 = ptrtoint ptr %2 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = sub i64 %20, %21
@@ -1452,7 +1452,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
 24:                                               ; preds = %18
   %25 = load i8, ptr %19, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
   switch i8 %28, label %36 [
     i8 16, label %29
@@ -1466,12 +1466,12 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %1, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %31 = tail call fastcc i32 @normal_scanDecl(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanPoundName.exit
 
 32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %1, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %34 = tail call fastcc i32 @normal_scanPi(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanPoundName.exit
 
@@ -1484,7 +1484,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 37:                                               ; preds = %6
-  %38 = getelementptr inbounds i8, ptr %1, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %39 = icmp eq ptr %38, %2
   br i1 %39, label %40, label %41
 
@@ -1494,7 +1494,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
 
 41:                                               ; preds = %37, %6, %6
   %42 = ptrtoint ptr %2 to i64
-  %43 = getelementptr inbounds i8, ptr %1, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %42, %44
   %46 = icmp sgt i64 %45, 0
@@ -1510,7 +1510,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0205242 = phi ptr [ %48, %56 ], [ %1, %.lr.ph244.preheader ]
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
   switch i8 %52, label %55 [
     i8 21, label %56
@@ -1519,7 +1519,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 53:                                               ; preds = %.lr.ph244
-  %54 = getelementptr inbounds i8, ptr %.0205242, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %.0205242, i64 2
   %.not226 = icmp eq ptr %54, %2
   br i1 %.not226, label %55, label %56
 
@@ -1528,7 +1528,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 56:                                               ; preds = %53, %.lr.ph244, %.lr.ph244
-  %57 = getelementptr inbounds i8, ptr %48, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 1
   %58 = ptrtoint ptr %57 to i64
   %59 = sub i64 %42, %58
   %60 = icmp sgt i64 %59, 0
@@ -1540,22 +1540,22 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 61:                                               ; preds = %6
-  %62 = getelementptr inbounds i8, ptr %1, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %63 = tail call fastcc i32 @normal_scanPercent(ptr noundef nonnull %0, ptr noundef nonnull %62, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanPoundName.exit
 
 64:                                               ; preds = %6
-  %65 = getelementptr inbounds i8, ptr %1, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %65, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
 66:                                               ; preds = %6
-  %67 = getelementptr inbounds i8, ptr %1, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %67, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
 68:                                               ; preds = %6
-  %69 = getelementptr inbounds i8, ptr %1, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %70 = ptrtoint ptr %2 to i64
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
@@ -1572,13 +1572,13 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not225, label %normal_scanPoundName.exit, label %78
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %1, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %80 = load i8, ptr %79, align 1
   %81 = icmp eq i8 %80, 62
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %1, i64 3
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store ptr %83, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
@@ -1587,12 +1587,12 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 85:                                               ; preds = %6
-  %86 = getelementptr inbounds i8, ptr %1, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %86, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
 87:                                               ; preds = %6
-  %88 = getelementptr inbounds i8, ptr %1, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %89 = ptrtoint ptr %2 to i64
   %90 = ptrtoint ptr %88 to i64
   %91 = sub i64 %89, %90
@@ -1602,7 +1602,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
 93:                                               ; preds = %87
   %94 = load i8, ptr %88, align 1
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %95
   %97 = load i8, ptr %96, align 1
   switch i8 %97, label %105 [
     i8 33, label %98
@@ -1618,17 +1618,17 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %1, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %99, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
 100:                                              ; preds = %93
-  %101 = getelementptr inbounds i8, ptr %1, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %101, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
 102:                                              ; preds = %93
-  %103 = getelementptr inbounds i8, ptr %1, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %103, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
@@ -1641,17 +1641,17 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 106:                                              ; preds = %6
-  %107 = getelementptr inbounds i8, ptr %1, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %107, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
 108:                                              ; preds = %6
-  %109 = getelementptr inbounds i8, ptr %1, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %109, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
 110:                                              ; preds = %6
-  %111 = getelementptr inbounds i8, ptr %1, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %112 = ptrtoint ptr %2 to i64
   %113 = ptrtoint ptr %111 to i64
   %114 = sub i64 %112, %113
@@ -1661,7 +1661,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
 116:                                              ; preds = %110
   %117 = load i8, ptr %111, align 1
   %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %118
   %120 = load i8, ptr %119, align 1
   switch i8 %120, label %.loopexit.sink.split.i [
     i8 7, label %141
@@ -1676,14 +1676,14 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %122, label %normal_scanPoundName.exit, label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %0, i64 432
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %125 = load ptr, ptr %124, align 8
   %126 = tail call i32 %125(ptr noundef nonnull %0, ptr noundef nonnull %111) #13
   %.not92.i = icmp eq i32 %126, 0
   br i1 %.not92.i, label %127, label %.loopexit.sink.split.i
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %0, i64 408
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %129 = load ptr, ptr %128, align 8
   %130 = tail call i32 %129(ptr noundef nonnull %0, ptr noundef nonnull %111) #13
   %.not93.i = icmp eq i32 %130, 0
@@ -1694,14 +1694,14 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %132, label %normal_scanPoundName.exit, label %133
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %0, i64 440
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %135 = load ptr, ptr %134, align 8
   %136 = tail call i32 %135(ptr noundef nonnull %0, ptr noundef nonnull %111) #13
   %.not90.i = icmp eq i32 %136, 0
   br i1 %.not90.i, label %137, label %.loopexit.sink.split.i
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %0, i64 416
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %139 = load ptr, ptr %138, align 8
   %140 = tail call i32 %139(ptr noundef nonnull %0, ptr noundef nonnull %111) #13
   %.not91.i = icmp eq i32 %140, 0
@@ -1712,14 +1712,14 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %142, label %normal_scanPoundName.exit, label %143
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %0, i64 448
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %145 = load ptr, ptr %144, align 8
   %146 = tail call i32 %145(ptr noundef nonnull %0, ptr noundef nonnull %111) #13
   %.not.i = icmp eq i32 %146, 0
   br i1 %.not.i, label %147, label %.loopexit.sink.split.i
 
 147:                                              ; preds = %143
-  %148 = getelementptr inbounds i8, ptr %0, i64 424
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %149 = load ptr, ptr %148, align 8
   %150 = tail call i32 %149(ptr noundef nonnull %0, ptr noundef nonnull %111) #13
   %.not89.i = icmp eq i32 %150, 0
@@ -1727,19 +1727,19 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
 
 151:                                              ; preds = %147, %137, %127, %116, %116
   %.sink.i = phi i64 [ 1, %116 ], [ 1, %116 ], [ 2, %127 ], [ 3, %137 ], [ 4, %147 ]
-  %152 = getelementptr inbounds i8, ptr %111, i64 %.sink.i
+  %152 = getelementptr inbounds nuw i8, ptr %111, i64 %.sink.i
   %153 = ptrtoint ptr %152 to i64
   %154 = sub i64 %112, %153
   %155 = icmp sgt i64 %154, 0
   br i1 %155, label %.lr.ph.i, label %normal_scanPoundName.exit
 
 .lr.ph.i:                                         ; preds = %151
-  %156 = getelementptr inbounds i8, ptr %0, i64 448
-  %157 = getelementptr inbounds i8, ptr %0, i64 400
-  %158 = getelementptr inbounds i8, ptr %0, i64 440
-  %159 = getelementptr inbounds i8, ptr %0, i64 392
-  %160 = getelementptr inbounds i8, ptr %0, i64 432
-  %161 = getelementptr inbounds i8, ptr %0, i64 384
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %162
 
 162:                                              ; preds = %192, %.lr.ph.i
@@ -1747,7 +1747,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   %.1106.i = phi ptr [ %152, %.lr.ph.i ], [ %193, %192 ]
   %164 = load i8, ptr %.1106.i, align 1
   %165 = zext i8 %164 to i64
-  %166 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %165
+  %166 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %165
   %167 = load i8, ptr %166, align 1
   switch i8 %167, label %.loopexit.sink.split.i.loopexit [
     i8 36, label %.loopexit.sink.split.i
@@ -1817,7 +1817,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
 
 192:                                              ; preds = %189, %181, %173, %162, %162, %162, %162, %162
   %.sink125.i = phi i64 [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 1, %162 ], [ 2, %173 ], [ 3, %181 ], [ 4, %189 ]
-  %193 = getelementptr inbounds i8, ptr %.1106.i, i64 %.sink125.i
+  %193 = getelementptr inbounds nuw i8, ptr %.1106.i, i64 %.sink125.i
   %194 = ptrtoint ptr %193 to i64
   %195 = sub i64 %112, %194
   %196 = icmp sgt i64 %195, 0
@@ -1839,7 +1839,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %200, label %normal_scanPoundName.exit, label %201
 
 201:                                              ; preds = %197
-  %202 = getelementptr inbounds i8, ptr %0, i64 432
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %203 = load ptr, ptr %202, align 8
   %204 = tail call i32 %203(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not216 = icmp eq i32 %204, 0
@@ -1850,14 +1850,14 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 206:                                              ; preds = %201
-  %207 = getelementptr inbounds i8, ptr %0, i64 408
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %208 = load ptr, ptr %207, align 8
   %209 = tail call i32 %208(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not217 = icmp eq i32 %209, 0
   br i1 %.not217, label %210, label %253
 
 210:                                              ; preds = %206
-  %211 = getelementptr inbounds i8, ptr %0, i64 384
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %212 = load ptr, ptr %211, align 8
   %213 = tail call i32 %212(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not218 = icmp eq i32 %213, 0
@@ -1874,7 +1874,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %218, label %normal_scanPoundName.exit, label %219
 
 219:                                              ; preds = %215
-  %220 = getelementptr inbounds i8, ptr %0, i64 440
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %221 = load ptr, ptr %220, align 8
   %222 = tail call i32 %221(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not213 = icmp eq i32 %222, 0
@@ -1885,14 +1885,14 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 224:                                              ; preds = %219
-  %225 = getelementptr inbounds i8, ptr %0, i64 416
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %226 = load ptr, ptr %225, align 8
   %227 = tail call i32 %226(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not214 = icmp eq i32 %227, 0
   br i1 %.not214, label %228, label %253
 
 228:                                              ; preds = %224
-  %229 = getelementptr inbounds i8, ptr %0, i64 392
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %230 = load ptr, ptr %229, align 8
   %231 = tail call i32 %230(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not215 = icmp eq i32 %231, 0
@@ -1909,7 +1909,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %236, label %normal_scanPoundName.exit, label %237
 
 237:                                              ; preds = %233
-  %238 = getelementptr inbounds i8, ptr %0, i64 448
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %239 = load ptr, ptr %238, align 8
   %240 = tail call i32 %239(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not210 = icmp eq i32 %240, 0
@@ -1920,14 +1920,14 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 242:                                              ; preds = %237
-  %243 = getelementptr inbounds i8, ptr %0, i64 424
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %244 = load ptr, ptr %243, align 8
   %245 = tail call i32 %244(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not211 = icmp eq i32 %245, 0
   br i1 %.not211, label %246, label %253
 
 246:                                              ; preds = %242
-  %247 = getelementptr inbounds i8, ptr %0, i64 400
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %248 = load ptr, ptr %247, align 8
   %249 = tail call i32 %248(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not212 = icmp eq i32 %249, 0
@@ -1948,7 +1948,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   %.sink = phi i64 [ 1, %251 ], [ 2, %206 ], [ 2, %210 ], [ 3, %224 ], [ 3, %228 ], [ 4, %242 ], [ 4, %246 ], [ 1, %6 ], [ 1, %6 ]
   %254 = phi i1 [ true, %251 ], [ false, %206 ], [ true, %210 ], [ false, %224 ], [ true, %228 ], [ false, %242 ], [ true, %246 ], [ false, %6 ], [ false, %6 ]
   %.0 = phi i32 [ 19, %251 ], [ 18, %206 ], [ 19, %210 ], [ 18, %224 ], [ 19, %228 ], [ 18, %242 ], [ 19, %246 ], [ 18, %6 ], [ 18, %6 ]
-  %255 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %256 = ptrtoint ptr %2 to i64
   %257 = ptrtoint ptr %255 to i64
   %258 = sub i64 %256, %257
@@ -1956,12 +1956,12 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %259, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %253
-  %260 = getelementptr inbounds i8, ptr %0, i64 448
-  %261 = getelementptr inbounds i8, ptr %0, i64 400
-  %262 = getelementptr inbounds i8, ptr %0, i64 440
-  %263 = getelementptr inbounds i8, ptr %0, i64 392
-  %264 = getelementptr inbounds i8, ptr %0, i64 432
-  %265 = getelementptr inbounds i8, ptr %0, i64 384
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %266
 
 266:                                              ; preds = %.lr.ph, %314
@@ -1969,7 +1969,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   %.2241 = phi ptr [ %255, %.lr.ph ], [ %315, %314 ]
   %268 = load i8, ptr %.2241, align 1
   %269 = zext i8 %268 to i64
-  %270 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %269
+  %270 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %269
   %271 = load i8, ptr %270, align 1
   switch i8 %271, label %313 [
     i8 29, label %272
@@ -2071,7 +2071,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 303:                                              ; preds = %301
-  %304 = getelementptr inbounds i8, ptr %.2241, i64 1
+  %304 = getelementptr inbounds nuw i8, ptr %.2241, i64 1
   store ptr %304, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
@@ -2083,7 +2083,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 307:                                              ; preds = %305
-  %308 = getelementptr inbounds i8, ptr %.2241, i64 1
+  %308 = getelementptr inbounds nuw i8, ptr %.2241, i64 1
   store ptr %308, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
@@ -2095,7 +2095,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %normal_scanPoundName.exit
 
 311:                                              ; preds = %309
-  %312 = getelementptr inbounds i8, ptr %.2241, i64 1
+  %312 = getelementptr inbounds nuw i8, ptr %.2241, i64 1
   store ptr %312, ptr %3, align 8
   br label %normal_scanPoundName.exit
 
@@ -2105,7 +2105,7 @@ define internal i32 @normal_prologTok(ptr noundef %0, ptr noundef %1, ptr nounde
 
 314:                                              ; preds = %296, %287, %278, %266, %266, %266, %266, %266
   %.sink278 = phi i64 [ 1, %266 ], [ 1, %266 ], [ 1, %266 ], [ 1, %266 ], [ 1, %266 ], [ 2, %278 ], [ 3, %287 ], [ 4, %296 ]
-  %315 = getelementptr inbounds i8, ptr %.2241, i64 %.sink278
+  %315 = getelementptr inbounds nuw i8, ptr %.2241, i64 %.sink278
   %316 = ptrtoint ptr %315 to i64
   %317 = sub i64 %256, %316
   %318 = icmp sgt i64 %317, 0
@@ -2126,10 +2126,10 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %5, label %normal_scanLt.exit
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i8, ptr %1, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %369 [
     i8 2, label %11
@@ -2146,7 +2146,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   ]
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = ptrtoint ptr %2 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -2156,7 +2156,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 17:                                               ; preds = %11
   %18 = load i8, ptr %12, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   switch i8 %21, label %186 [
     i8 29, label %22
@@ -2179,14 +2179,14 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %24, label %normal_scanLt.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 432
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %27(ptr noundef nonnull %0, ptr noundef nonnull %12) #13
   %.not172.i = icmp eq i32 %28, 0
   br i1 %.not172.i, label %29, label %33
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 %31(ptr noundef nonnull %0, ptr noundef nonnull %12) #13
   %.not173.i = icmp eq i32 %32, 0
@@ -2201,14 +2201,14 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %35, label %normal_scanLt.exit, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 440
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 %38(ptr noundef nonnull %0, ptr noundef nonnull %12) #13
   %.not170.i = icmp eq i32 %39, 0
   br i1 %.not170.i, label %40, label %44
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 416
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 %42(ptr noundef nonnull %0, ptr noundef nonnull %12) #13
   %.not171.i = icmp eq i32 %43, 0
@@ -2223,14 +2223,14 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %46, label %normal_scanLt.exit, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %0, i64 448
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 %49(ptr noundef nonnull %0, ptr noundef nonnull %12) #13
   %.not.i = icmp eq i32 %50, 0
   br i1 %.not.i, label %51, label %55
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %0, i64 424
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 %53(ptr noundef nonnull %0, ptr noundef nonnull %12) #13
   %.not169.i = icmp eq i32 %54, 0
@@ -2241,7 +2241,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 56:                                               ; preds = %17
-  %57 = getelementptr inbounds i8, ptr %1, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %58 = ptrtoint ptr %57 to i64
   %59 = sub i64 %13, %58
   %60 = icmp sgt i64 %59, 0
@@ -2250,7 +2250,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 61:                                               ; preds = %56
   %62 = load i8, ptr %57, align 1
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   switch i8 %65, label %80 [
     i8 27, label %66
@@ -2258,12 +2258,12 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   ]
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %1, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %68 = tail call fastcc i32 @normal_scanComment(ptr noundef nonnull %0, ptr noundef nonnull %67, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanLt.exit
 
 69:                                               ; preds = %61
-  %70 = getelementptr inbounds i8, ptr %1, i64 3
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %71 = ptrtoint ptr %70 to i64
   %72 = sub i64 %13, %71
   %73 = icmp sgt i64 %72, 5
@@ -2277,14 +2277,14 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %indvars.iv.next.i.i, %78 ]
   %.0122.i.i = phi ptr [ %70, %.preheader.preheader.i.i ], [ %79, %78 ]
   %74 = load i8, ptr %.0122.i.i, align 1
-  %75 = getelementptr inbounds [6 x i8], ptr @big2_scanCdataSection.CDATA_LSQB, i64 0, i64 %indvars.iv.i.i
+  %75 = getelementptr inbounds nuw [6 x i8], ptr @big2_scanCdataSection.CDATA_LSQB, i64 0, i64 %indvars.iv.i.i
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %74, %76
   br i1 %77, label %78, label %.sink.split.i.i
 
 78:                                               ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %79 = getelementptr inbounds i8, ptr %.0122.i.i, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.0122.i.i, i64 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
   br i1 %exitcond.not.i.i, label %.sink.split.i.i, label %.preheader.i.i, !llvm.loop !15
 
@@ -2299,12 +2299,12 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 81:                                               ; preds = %17
-  %82 = getelementptr inbounds i8, ptr %1, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %83 = tail call fastcc i32 @normal_scanPi(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanLt.exit
 
 84:                                               ; preds = %17
-  %85 = getelementptr inbounds i8, ptr %1, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %86 = ptrtoint ptr %85 to i64
   %87 = sub i64 %13, %86
   %88 = icmp sgt i64 %87, 0
@@ -2313,7 +2313,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 89:                                               ; preds = %84
   %90 = load i8, ptr %85, align 1
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %91
   %93 = load i8, ptr %92, align 1
   switch i8 %93, label %.loopexit.sink.split.i.i [
     i8 7, label %114
@@ -2328,14 +2328,14 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %95, label %normal_scanLt.exit, label %96
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %0, i64 432
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %98 = load ptr, ptr %97, align 8
   %99 = tail call i32 %98(ptr noundef nonnull %0, ptr noundef nonnull %85) #13
   %.not102.i.i = icmp eq i32 %99, 0
   br i1 %.not102.i.i, label %100, label %.loopexit.sink.split.i.i
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %0, i64 408
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %102 = load ptr, ptr %101, align 8
   %103 = tail call i32 %102(ptr noundef nonnull %0, ptr noundef nonnull %85) #13
   %.not103.i.i = icmp eq i32 %103, 0
@@ -2346,14 +2346,14 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %105, label %normal_scanLt.exit, label %106
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %0, i64 440
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %108 = load ptr, ptr %107, align 8
   %109 = tail call i32 %108(ptr noundef nonnull %0, ptr noundef nonnull %85) #13
   %.not100.i.i = icmp eq i32 %109, 0
   br i1 %.not100.i.i, label %110, label %.loopexit.sink.split.i.i
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %0, i64 416
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %112 = load ptr, ptr %111, align 8
   %113 = tail call i32 %112(ptr noundef nonnull %0, ptr noundef nonnull %85) #13
   %.not101.i.i = icmp eq i32 %113, 0
@@ -2364,14 +2364,14 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %115, label %normal_scanLt.exit, label %116
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %0, i64 448
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %118 = load ptr, ptr %117, align 8
   %119 = tail call i32 %118(ptr noundef nonnull %0, ptr noundef nonnull %85) #13
   %.not.i.i = icmp eq i32 %119, 0
   br i1 %.not.i.i, label %120, label %.loopexit.sink.split.i.i
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %0, i64 424
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %122 = load ptr, ptr %121, align 8
   %123 = tail call i32 %122(ptr noundef nonnull %0, ptr noundef nonnull %85) #13
   %.not99.i.i = icmp eq i32 %123, 0
@@ -2379,19 +2379,19 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 
 124:                                              ; preds = %120, %110, %100, %89, %89
   %.sink.i.i = phi i64 [ 1, %89 ], [ 1, %89 ], [ 2, %100 ], [ 3, %110 ], [ 4, %120 ]
-  %125 = getelementptr inbounds i8, ptr %85, i64 %.sink.i.i
+  %125 = getelementptr inbounds nuw i8, ptr %85, i64 %.sink.i.i
   %126 = ptrtoint ptr %125 to i64
   %127 = sub i64 %13, %126
   %128 = icmp sgt i64 %127, 0
   br i1 %128, label %.lr.ph.i.i, label %normal_scanLt.exit
 
 .lr.ph.i.i:                                       ; preds = %124
-  %129 = getelementptr inbounds i8, ptr %0, i64 448
-  %130 = getelementptr inbounds i8, ptr %0, i64 400
-  %131 = getelementptr inbounds i8, ptr %0, i64 440
-  %132 = getelementptr inbounds i8, ptr %0, i64 392
-  %133 = getelementptr inbounds i8, ptr %0, i64 432
-  %134 = getelementptr inbounds i8, ptr %0, i64 384
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %135
 
 135:                                              ; preds = %181, %.lr.ph.i.i
@@ -2399,7 +2399,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %.1122.i.i = phi ptr [ %125, %.lr.ph.i.i ], [ %182, %181 ]
   %137 = load i8, ptr %.1122.i.i, align 1
   %138 = zext i8 %137 to i64
-  %139 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %138
   %140 = load i8, ptr %139, align 1
   switch i8 %140, label %.loopexit.sink.split.i.i [
     i8 11, label %179
@@ -2465,7 +2465,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not105.i.i, label %.loopexit.sink.split.i.i, label %181
 
 165:                                              ; preds = %135, %135, %135
-  %.3129.i.i = getelementptr inbounds i8, ptr %.1122.i.i, i64 1
+  %.3129.i.i = getelementptr inbounds nuw i8, ptr %.1122.i.i, i64 1
   %166 = ptrtoint ptr %.3129.i.i to i64
   %167 = sub i64 %13, %166
   %168 = icmp sgt i64 %167, 0
@@ -2476,7 +2476,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %.1.pn130.i.i = phi ptr [ %.3131.i.i, %175 ], [ %.1122.i.i, %165 ]
   %169 = load i8, ptr %.3131.i.i, align 1
   %170 = zext i8 %169 to i64
-  %171 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %170
   %172 = load i8, ptr %171, align 1
   switch i8 %172, label %.loopexit.sink.split.i.i [
     i8 21, label %175
@@ -2486,23 +2486,23 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   ]
 
 173:                                              ; preds = %.lr.ph132.i.i
-  %174 = getelementptr inbounds i8, ptr %.1.pn130.i.i, i64 2
+  %174 = getelementptr inbounds nuw i8, ptr %.1.pn130.i.i, i64 2
   br label %.loopexit.sink.split.i.i
 
 175:                                              ; preds = %.lr.ph132.i.i, %.lr.ph132.i.i, %.lr.ph132.i.i
-  %.3.i.i = getelementptr inbounds i8, ptr %.3131.i.i, i64 1
+  %.3.i.i = getelementptr inbounds nuw i8, ptr %.3131.i.i, i64 1
   %176 = ptrtoint ptr %.3.i.i to i64
   %177 = sub i64 %13, %176
   %178 = icmp sgt i64 %177, 0
   br i1 %178, label %.lr.ph132.i.i, label %normal_scanLt.exit, !llvm.loop !16
 
 179:                                              ; preds = %135
-  %180 = getelementptr inbounds i8, ptr %.1122.i.i, i64 1
+  %180 = getelementptr inbounds nuw i8, ptr %.1122.i.i, i64 1
   br label %.loopexit.sink.split.i.i
 
 181:                                              ; preds = %162, %154, %146, %135, %135, %135, %135, %135
   %.sink157.i.i = phi i64 [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 1, %135 ], [ 2, %146 ], [ 3, %154 ], [ 4, %162 ]
-  %182 = getelementptr inbounds i8, ptr %.1122.i.i, i64 %.sink157.i.i
+  %182 = getelementptr inbounds nuw i8, ptr %.1122.i.i, i64 %.sink157.i.i
   %183 = ptrtoint ptr %182 to i64
   %184 = sub i64 %13, %183
   %185 = icmp sgt i64 %184, 0
@@ -2520,19 +2520,19 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 
 187:                                              ; preds = %51, %40, %29, %17, %17
   %.sink.i = phi i64 [ 1, %17 ], [ 1, %17 ], [ 2, %29 ], [ 3, %40 ], [ 4, %51 ]
-  %188 = getelementptr inbounds i8, ptr %12, i64 %.sink.i
+  %188 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink.i
   %189 = ptrtoint ptr %188 to i64
   %190 = sub i64 %13, %189
   %191 = icmp sgt i64 %190, 0
   br i1 %191, label %.lr.ph.i, label %normal_scanLt.exit
 
 .lr.ph.i:                                         ; preds = %187
-  %192 = getelementptr inbounds i8, ptr %0, i64 448
-  %193 = getelementptr inbounds i8, ptr %0, i64 400
-  %194 = getelementptr inbounds i8, ptr %0, i64 440
-  %195 = getelementptr inbounds i8, ptr %0, i64 392
-  %196 = getelementptr inbounds i8, ptr %0, i64 432
-  %197 = getelementptr inbounds i8, ptr %0, i64 384
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %198
 
 198:                                              ; preds = %291, %.lr.ph.i
@@ -2540,7 +2540,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %.1233.i = phi ptr [ %188, %.lr.ph.i ], [ %292, %291 ]
   %200 = load i8, ptr %.1233.i, align 1
   %201 = zext i8 %200 to i64
-  %202 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %201
   %203 = load i8, ptr %202, align 1
   switch i8 %203, label %290 [
     i8 29, label %204
@@ -2624,7 +2624,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 232:                                              ; preds = %198, %198, %198
-  %.3240.i = getelementptr inbounds i8, ptr %.1233.i, i64 1
+  %.3240.i = getelementptr inbounds nuw i8, ptr %.1233.i, i64 1
   %233 = ptrtoint ptr %.3240.i to i64
   %234 = sub i64 %13, %233
   %235 = icmp sgt i64 %234, 0
@@ -2636,7 +2636,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %.1.pn241.i = phi ptr [ %.3242.i, %272 ], [ %.1233.i, %232 ]
   %237 = load i8, ptr %.3242.i, align 1
   %238 = zext i8 %237 to i64
-  %239 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %238
   %240 = load i8, ptr %239, align 1
   switch i8 %240, label %276 [
     i8 29, label %241
@@ -2667,7 +2667,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not178.i, label %247, label %251
 
 247:                                              ; preds = %244
-  %248 = getelementptr inbounds i8, ptr %0, i64 408
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %249 = load ptr, ptr %248, align 8
   %250 = tail call i32 %249(ptr noundef nonnull %0, ptr noundef nonnull %.3242.i) #13
   %.not179.i = icmp eq i32 %250, 0
@@ -2688,7 +2688,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not176.i, label %257, label %261
 
 257:                                              ; preds = %254
-  %258 = getelementptr inbounds i8, ptr %0, i64 416
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %259 = load ptr, ptr %258, align 8
   %260 = tail call i32 %259(ptr noundef nonnull %0, ptr noundef nonnull %.3242.i) #13
   %.not177.i = icmp eq i32 %260, 0
@@ -2709,7 +2709,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not174.i, label %267, label %271
 
 267:                                              ; preds = %264
-  %268 = getelementptr inbounds i8, ptr %0, i64 424
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %269 = load ptr, ptr %268, align 8
   %270 = tail call i32 %269(ptr noundef nonnull %0, ptr noundef nonnull %.3242.i) #13
   %.not175.i = icmp eq i32 %270, 0
@@ -2720,7 +2720,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 272:                                              ; preds = %.lr.ph243.i, %.lr.ph243.i, %.lr.ph243.i
-  %.3.i = getelementptr inbounds i8, ptr %.3242.i, i64 1
+  %.3.i = getelementptr inbounds nuw i8, ptr %.3242.i, i64 1
   %273 = ptrtoint ptr %.3.i to i64
   %274 = sub i64 %13, %273
   %275 = icmp sgt i64 %274, 0
@@ -2732,19 +2732,19 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 
 .loopexit:                                        ; preds = %.lr.ph243.i, %.lr.ph243.i, %267, %257, %247
   %.sink = phi i64 [ 3, %247 ], [ 4, %257 ], [ 5, %267 ], [ 2, %.lr.ph243.i ], [ 2, %.lr.ph243.i ]
-  %277 = getelementptr inbounds i8, ptr %.1.pn241.i, i64 %.sink
+  %277 = getelementptr inbounds nuw i8, ptr %.1.pn241.i, i64 %.sink
   %278 = tail call fastcc i32 @normal_scanAtts(ptr noundef nonnull %0, ptr noundef nonnull %277, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanLt.exit
 
 .loopexit.i:                                      ; preds = %198, %.lr.ph243.i
   %.5.i = phi ptr [ %.3242.i, %.lr.ph243.i ], [ %.1233.i, %198 ]
-  %279 = getelementptr inbounds i8, ptr %.5.i, i64 1
+  %279 = getelementptr inbounds nuw i8, ptr %.5.i, i64 1
   store ptr %279, ptr %3, align 8
   br label %normal_scanLt.exit
 
 .loopexit186.i:                                   ; preds = %198, %.lr.ph243.i
   %.6.i = phi ptr [ %.3242.i, %.lr.ph243.i ], [ %.1233.i, %198 ]
-  %280 = getelementptr inbounds i8, ptr %.6.i, i64 1
+  %280 = getelementptr inbounds nuw i8, ptr %.6.i, i64 1
   %281 = ptrtoint ptr %280 to i64
   %282 = sub i64 %13, %281
   %283 = icmp sgt i64 %282, 0
@@ -2760,7 +2760,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 288:                                              ; preds = %284
-  %289 = getelementptr inbounds i8, ptr %.6.i, i64 2
+  %289 = getelementptr inbounds nuw i8, ptr %.6.i, i64 2
   store ptr %289, ptr %3, align 8
   br label %normal_scanLt.exit
 
@@ -2770,19 +2770,19 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 
 291:                                              ; preds = %228, %219, %210, %198, %198, %198, %198, %198
   %.sink336.i = phi i64 [ 1, %198 ], [ 1, %198 ], [ 1, %198 ], [ 1, %198 ], [ 1, %198 ], [ 2, %210 ], [ 3, %219 ], [ 4, %228 ]
-  %292 = getelementptr inbounds i8, ptr %.1233.i, i64 %.sink336.i
+  %292 = getelementptr inbounds nuw i8, ptr %.1233.i, i64 %.sink336.i
   %293 = ptrtoint ptr %292 to i64
   %294 = sub i64 %13, %293
   %295 = icmp sgt i64 %294, 0
   br i1 %295, label %198, label %normal_scanLt.exit, !llvm.loop !19
 
 296:                                              ; preds = %5
-  %297 = getelementptr inbounds i8, ptr %1, i64 1
+  %297 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %298 = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %297, ptr noundef nonnull %2, ptr noundef %3)
   br label %normal_scanLt.exit
 
 299:                                              ; preds = %5
-  %300 = getelementptr inbounds i8, ptr %1, i64 1
+  %300 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %301 = ptrtoint ptr %2 to i64
   %302 = ptrtoint ptr %300 to i64
   %303 = sub i64 %301, %302
@@ -2792,21 +2792,21 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
 305:                                              ; preds = %299
   %306 = load i8, ptr %300, align 1
   %307 = zext i8 %306 to i64
-  %308 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %307
+  %308 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %307
   %309 = load i8, ptr %308, align 1
   %310 = icmp eq i8 %309, 10
-  %311 = getelementptr inbounds i8, ptr %1, i64 2
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %spec.select = select i1 %310, ptr %311, ptr %300
   store ptr %spec.select, ptr %3, align 8
   br label %normal_scanLt.exit
 
 312:                                              ; preds = %5
-  %313 = getelementptr inbounds i8, ptr %1, i64 1
+  %313 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %313, ptr %3, align 8
   br label %normal_scanLt.exit
 
 314:                                              ; preds = %5
-  %315 = getelementptr inbounds i8, ptr %1, i64 1
+  %315 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %316 = ptrtoint ptr %2 to i64
   %317 = ptrtoint ptr %315 to i64
   %318 = sub i64 %316, %317
@@ -2819,7 +2819,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %322, label %323, label %371
 
 323:                                              ; preds = %320
-  %324 = getelementptr inbounds i8, ptr %1, i64 2
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %325 = ptrtoint ptr %324 to i64
   %326 = sub i64 %316, %325
   %327 = icmp sgt i64 %326, 0
@@ -2842,7 +2842,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %336, label %normal_scanLt.exit, label %337
 
 337:                                              ; preds = %332
-  %338 = getelementptr inbounds i8, ptr %0, i64 432
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %339 = load ptr, ptr %338, align 8
   %340 = tail call i32 %339(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not109 = icmp eq i32 %340, 0
@@ -2853,7 +2853,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 342:                                              ; preds = %337
-  %343 = getelementptr inbounds i8, ptr %1, i64 2
+  %343 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %371
 
 344:                                              ; preds = %5
@@ -2864,7 +2864,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %348, label %normal_scanLt.exit, label %349
 
 349:                                              ; preds = %344
-  %350 = getelementptr inbounds i8, ptr %0, i64 440
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %351 = load ptr, ptr %350, align 8
   %352 = tail call i32 %351(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not108 = icmp eq i32 %352, 0
@@ -2875,7 +2875,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 354:                                              ; preds = %349
-  %355 = getelementptr inbounds i8, ptr %1, i64 3
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 3
   br label %371
 
 356:                                              ; preds = %5
@@ -2886,7 +2886,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %360, label %normal_scanLt.exit, label %361
 
 361:                                              ; preds = %356
-  %362 = getelementptr inbounds i8, ptr %0, i64 448
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %363 = load ptr, ptr %362, align 8
   %364 = tail call i32 %363(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not107 = icmp eq i32 %364, 0
@@ -2897,7 +2897,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 366:                                              ; preds = %361
-  %367 = getelementptr inbounds i8, ptr %1, i64 4
+  %367 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %371
 
 368:                                              ; preds = %5, %5, %5
@@ -2905,7 +2905,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 369:                                              ; preds = %5
-  %370 = getelementptr inbounds i8, ptr %1, i64 1
+  %370 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.pre = ptrtoint ptr %2 to i64
   br label %371
 
@@ -2918,9 +2918,9 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %374, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %371
-  %375 = getelementptr inbounds i8, ptr %0, i64 448
-  %376 = getelementptr inbounds i8, ptr %0, i64 440
-  %377 = getelementptr inbounds i8, ptr %0, i64 432
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %376 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 432
   br label %378
 
 378:                                              ; preds = %.lr.ph, %424
@@ -2928,7 +2928,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   %.2167 = phi ptr [ %.1, %.lr.ph ], [ %.3, %424 ]
   %380 = load i8, ptr %.2167, align 1
   %381 = zext i8 %380 to i64
-  %382 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %381
+  %382 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %381
   %383 = load i8, ptr %382, align 1
   switch i8 %383, label %422 [
     i8 5, label %384
@@ -2959,7 +2959,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 390:                                              ; preds = %386
-  %391 = getelementptr inbounds i8, ptr %.2167, i64 2
+  %391 = getelementptr inbounds nuw i8, ptr %.2167, i64 2
   br label %424
 
 392:                                              ; preds = %378
@@ -2977,7 +2977,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 398:                                              ; preds = %394
-  %399 = getelementptr inbounds i8, ptr %.2167, i64 3
+  %399 = getelementptr inbounds nuw i8, ptr %.2167, i64 3
   br label %424
 
 400:                                              ; preds = %378
@@ -2995,7 +2995,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 406:                                              ; preds = %402
-  %407 = getelementptr inbounds i8, ptr %.2167, i64 4
+  %407 = getelementptr inbounds nuw i8, ptr %.2167, i64 4
   br label %424
 
 408:                                              ; preds = %378
@@ -3003,7 +3003,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not110, label %421, label %409
 
 409:                                              ; preds = %408
-  %410 = getelementptr inbounds i8, ptr %.2167, i64 1
+  %410 = getelementptr inbounds nuw i8, ptr %.2167, i64 1
   %411 = load i8, ptr %410, align 1
   %412 = icmp eq i8 %411, 93
   br i1 %412, label %413, label %424
@@ -3013,13 +3013,13 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %414, label %415, label %421
 
 415:                                              ; preds = %413
-  %416 = getelementptr inbounds i8, ptr %.2167, i64 2
+  %416 = getelementptr inbounds nuw i8, ptr %.2167, i64 2
   %417 = load i8, ptr %416, align 1
   %418 = icmp eq i8 %417, 62
   br i1 %418, label %419, label %424
 
 419:                                              ; preds = %415
-  %420 = getelementptr inbounds i8, ptr %.2167, i64 2
+  %420 = getelementptr inbounds nuw i8, ptr %.2167, i64 2
   store ptr %420, ptr %3, align 8
   br label %normal_scanLt.exit
 
@@ -3028,7 +3028,7 @@ define internal i32 @normal_contentTok(ptr noundef %0, ptr noundef %1, ptr nound
   br label %normal_scanLt.exit
 
 422:                                              ; preds = %378
-  %423 = getelementptr inbounds i8, ptr %.2167, i64 1
+  %423 = getelementptr inbounds nuw i8, ptr %.2167, i64 1
   br label %424
 
 424:                                              ; preds = %415, %409, %422, %406, %398, %390
@@ -3054,10 +3054,10 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   br i1 %.not, label %5, label %113
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i8, ptr %1, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %78 [
     i8 4, label %11
@@ -3072,7 +3072,7 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   ]
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = ptrtoint ptr %2 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -3085,7 +3085,7 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   br i1 %19, label %20, label %80
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %13, %22
   %24 = icmp sgt i64 %23, 0
@@ -3097,11 +3097,11 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   br i1 %27, label %28, label %80
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %1, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 3
   br label %.sink.split
 
 30:                                               ; preds = %5
-  %31 = getelementptr inbounds i8, ptr %1, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %32 = ptrtoint ptr %2 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
@@ -3111,15 +3111,15 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
 36:                                               ; preds = %30
   %37 = load i8, ptr %31, align 1
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 10
-  %42 = getelementptr inbounds i8, ptr %1, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %spec.select = select i1 %41, ptr %42, ptr %31
   br label %.sink.split
 
 43:                                               ; preds = %5
-  %44 = getelementptr inbounds i8, ptr %1, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %.sink.split
 
 45:                                               ; preds = %5
@@ -3130,14 +3130,14 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   br i1 %49, label %113, label %50
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %0, i64 432
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 %52(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not91 = icmp eq i32 %53, 0
   br i1 %.not91, label %54, label %.sink.split
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %1, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %80
 
 56:                                               ; preds = %5
@@ -3148,14 +3148,14 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   br i1 %60, label %113, label %61
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %0, i64 440
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 %63(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not90 = icmp eq i32 %64, 0
   br i1 %.not90, label %65, label %.sink.split
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %1, i64 3
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 3
   br label %80
 
 67:                                               ; preds = %5
@@ -3166,18 +3166,18 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   br i1 %71, label %113, label %72
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %0, i64 448
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i32 %74(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not89 = icmp eq i32 %75, 0
   br i1 %.not89, label %76, label %.sink.split
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %1, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %80
 
 78:                                               ; preds = %5
-  %79 = getelementptr inbounds i8, ptr %1, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %.pre = ptrtoint ptr %2 to i64
   br label %80
 
@@ -3190,9 +3190,9 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   br i1 %83, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %0, i64 448
-  %85 = getelementptr inbounds i8, ptr %0, i64 440
-  %86 = getelementptr inbounds i8, ptr %0, i64 432
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 432
   br label %87
 
 87:                                               ; preds = %.lr.ph, %108
@@ -3200,7 +3200,7 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
   %.299 = phi ptr [ %.085, %.lr.ph ], [ %109, %108 ]
   %89 = load i8, ptr %.299, align 1
   %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1
   switch i8 %92, label %108 [
     i8 5, label %93
@@ -3246,7 +3246,7 @@ define internal range(i32 -4, 41) i32 @normal_cdataSectionTok(ptr noundef %0, pt
 
 108:                                              ; preds = %87, %105, %100, %95
   %.sink = phi i64 [ 2, %95 ], [ 3, %100 ], [ 4, %105 ], [ 1, %87 ]
-  %109 = getelementptr inbounds i8, ptr %.299, i64 %.sink
+  %109 = getelementptr inbounds nuw i8, ptr %.299, i64 %.sink
   %110 = ptrtoint ptr %109 to i64
   %111 = sub i64 %.pre-phi, %110
   %112 = icmp sgt i64 %111, 0
@@ -3276,14 +3276,14 @@ define internal range(i32 -4, 40) i32 @normal_attributeValueTok(ptr noundef %0, 
   br i1 %9, label %.lr.ph, label %56
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph, %51
   %.04961 = phi ptr [ %1, %.lr.ph ], [ %52, %51 ]
   %12 = load i8, ptr %.04961, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %50 [
     i8 5, label %51
@@ -3307,7 +3307,7 @@ define internal range(i32 -4, 40) i32 @normal_attributeValueTok(ptr noundef %0, 
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %2, ptr noundef %3)
   br label %56
 
@@ -3324,7 +3324,7 @@ define internal range(i32 -4, 40) i32 @normal_attributeValueTok(ptr noundef %0, 
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %28, ptr %3, align 8
   br label %56
 
@@ -3337,7 +3337,7 @@ define internal range(i32 -4, 40) i32 @normal_attributeValueTok(ptr noundef %0, 
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %6, %34
   %36 = icmp sgt i64 %35, 0
@@ -3346,10 +3346,10 @@ define internal range(i32 -4, 40) i32 @normal_attributeValueTok(ptr noundef %0, 
 37:                                               ; preds = %32
   %38 = load i8, ptr %33, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 10
-  %43 = getelementptr inbounds i8, ptr %1, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %spec.select = select i1 %42, ptr %43, ptr %33
   store ptr %spec.select, ptr %3, align 8
   br label %56
@@ -3363,7 +3363,7 @@ define internal range(i32 -4, 40) i32 @normal_attributeValueTok(ptr noundef %0, 
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %1, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %48, ptr %3, align 8
   br label %56
 
@@ -3376,7 +3376,7 @@ define internal range(i32 -4, 40) i32 @normal_attributeValueTok(ptr noundef %0, 
 
 51:                                               ; preds = %11, %50, %17, %16
   %.sink = phi i64 [ 1, %50 ], [ 4, %17 ], [ 3, %16 ], [ 2, %11 ]
-  %52 = getelementptr inbounds i8, ptr %.04961, i64 %.sink
+  %52 = getelementptr inbounds nuw i8, ptr %.04961, i64 %.sink
   %53 = ptrtoint ptr %52 to i64
   %54 = sub i64 %6, %53
   %55 = icmp sgt i64 %54, 0
@@ -3404,14 +3404,14 @@ define internal range(i32 -4, 29) i32 @normal_entityValueTok(ptr noundef %0, ptr
   br i1 %9, label %.lr.ph, label %58
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph, %53
   %.05161 = phi ptr [ %1, %.lr.ph ], [ %54, %53 ]
   %12 = load i8, ptr %.05161, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %52 [
     i8 5, label %53
@@ -3434,7 +3434,7 @@ define internal range(i32 -4, 29) i32 @normal_entityValueTok(ptr noundef %0, ptr
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = tail call fastcc i32 @normal_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %2, ptr noundef %3)
   br label %58
 
@@ -3447,7 +3447,7 @@ define internal range(i32 -4, 29) i32 @normal_entityValueTok(ptr noundef %0, ptr
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %28 = tail call fastcc i32 @normal_scanPercent(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %2, ptr noundef %3)
   %29 = icmp eq i32 %28, 22
   %30 = select i1 %29, i32 0, i32 %28
@@ -3462,7 +3462,7 @@ define internal range(i32 -4, 29) i32 @normal_entityValueTok(ptr noundef %0, ptr
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %1, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %35, ptr %3, align 8
   br label %58
 
@@ -3475,7 +3475,7 @@ define internal range(i32 -4, 29) i32 @normal_entityValueTok(ptr noundef %0, ptr
   br i1 %38, label %39, label %51
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %1, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %6, %41
   %43 = icmp sgt i64 %42, 0
@@ -3484,10 +3484,10 @@ define internal range(i32 -4, 29) i32 @normal_entityValueTok(ptr noundef %0, ptr
 44:                                               ; preds = %39
   %45 = load i8, ptr %40, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 10
-  %50 = getelementptr inbounds i8, ptr %1, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %spec.select = select i1 %49, ptr %50, ptr %40
   store ptr %spec.select, ptr %3, align 8
   br label %58
@@ -3501,7 +3501,7 @@ define internal range(i32 -4, 29) i32 @normal_entityValueTok(ptr noundef %0, ptr
 
 53:                                               ; preds = %11, %52, %17, %16
   %.sink = phi i64 [ 1, %52 ], [ 4, %17 ], [ 3, %16 ], [ 2, %11 ]
-  %54 = getelementptr inbounds i8, ptr %.05161, i64 %.sink
+  %54 = getelementptr inbounds nuw i8, ptr %.05161, i64 %.sink
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %6, %55
   %57 = icmp sgt i64 %56, 0
@@ -3541,8 +3541,8 @@ define internal range(i32 0, 2) i32 @normal_nameMatchesAscii(ptr nocapture readn
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.01014, i64 1
-  %17 = getelementptr inbounds i8, ptr %.015, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.01014, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !24
@@ -3560,14 +3560,14 @@ define internal range(i32 0, 2) i32 @normal_nameMatchesAscii(ptr nocapture readn
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal noundef i32 @normal_nameLength(ptr nocapture noundef readonly %0, ptr noundef %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %4
 
 4:                                                ; preds = %17, %2
   %.0 = phi ptr [ %1, %2 ], [ %18, %17 ]
   %5 = load i8, ptr %.0, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %12 [
     i8 5, label %17
@@ -3599,20 +3599,20 @@ define internal noundef i32 @normal_nameLength(ptr nocapture noundef readonly %0
 
 17:                                               ; preds = %4, %11, %10, %9
   %.sink = phi i64 [ 1, %11 ], [ 4, %10 ], [ 3, %9 ], [ 2, %4 ]
-  %18 = getelementptr inbounds i8, ptr %.0, i64 %.sink
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink
   br label %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal noundef ptr @normal_skipS(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %4
 
 4:                                                ; preds = %9, %2
   %.0 = phi ptr [ %1, %2 ], [ %10, %9 ]
   %5 = load i8, ptr %.0, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %11 [
     i8 10, label %9
@@ -3621,7 +3621,7 @@ define internal noundef ptr @normal_skipS(ptr nocapture noundef readonly %0, ptr
   ]
 
 9:                                                ; preds = %4, %4, %4
-  %10 = getelementptr inbounds i8, ptr %.0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %4
 
 11:                                               ; preds = %4
@@ -3630,7 +3630,7 @@ define internal noundef ptr @normal_skipS(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %6
 
 6:                                                ; preds = %.backedge, %4
@@ -3638,10 +3638,10 @@ define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr nound
   %.094 = phi i32 [ 1, %4 ], [ %.094.be, %.backedge ]
   %.092 = phi i32 [ 0, %4 ], [ %.092.be, %.backedge ]
   %.0 = phi i32 [ 0, %4 ], [ %.0.be, %.backedge ]
-  %.096 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %.096 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %7 = load i8, ptr %.096, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %.backedge [
     i8 5, label %11
@@ -3672,13 +3672,13 @@ define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr nound
   %16 = sext i32 %.092 to i64
   %17 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %16
   store ptr %.096, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i8 1, ptr %18, align 8
   br label %19
 
 19:                                               ; preds = %13, %15, %11
   %.195 = phi i32 [ %.094, %11 ], [ 1, %15 ], [ 1, %13 ]
-  %20 = getelementptr inbounds i8, ptr %.pn, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   br label %.backedge
 
 21:                                               ; preds = %6
@@ -3693,13 +3693,13 @@ define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr nound
   %26 = sext i32 %.092 to i64
   %27 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %26
   store ptr %.096, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i8 1, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %23, %25, %21
   %.2 = phi i32 [ %.094, %21 ], [ 1, %25 ], [ 1, %23 ]
-  %30 = getelementptr inbounds i8, ptr %.pn, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   br label %.backedge
 
 31:                                               ; preds = %6
@@ -3714,13 +3714,13 @@ define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr nound
   %36 = sext i32 %.092 to i64
   %37 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %36
   store ptr %.096, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i8 1, ptr %38, align 8
   br label %39
 
 39:                                               ; preds = %33, %35, %31
   %.3 = phi i32 [ %.094, %31 ], [ 1, %35 ], [ 1, %33 ]
-  %40 = getelementptr inbounds i8, ptr %.pn, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   br label %.backedge
 
 41:                                               ; preds = %6, %6, %6
@@ -3735,7 +3735,7 @@ define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr nound
   %46 = sext i32 %.092 to i64
   %47 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %46
   store ptr %.096, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i8 1, ptr %48, align 8
   br label %.backedge
 
@@ -3748,7 +3748,7 @@ define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr nound
   br i1 %51, label %52, label %.backedge
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %.pn, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   %54 = sext i32 %.092 to i64
   %55 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %54, i32 1
   store ptr %53, ptr %55, align 8
@@ -3781,7 +3781,7 @@ define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr nound
   br i1 %67, label %68, label %.backedge
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %.pn, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   %70 = sext i32 %.092 to i64
   %71 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %70, i32 1
   store ptr %69, ptr %71, align 8
@@ -3828,13 +3828,13 @@ define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr nound
 89:                                               ; preds = %87
   %90 = sext i32 %.092 to i64
   %91 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %90
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load i8, ptr %92, align 8
   %.not98 = icmp eq i8 %93, 0
   br i1 %.not98, label %.backedge, label %94
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds i8, ptr %91, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = icmp ne ptr %.096, %96
   %.not99 = icmp eq i8 %7, 32
@@ -3842,14 +3842,14 @@ define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr nound
   br i1 %or.cond, label %98, label %108
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %.pn, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 32
   br i1 %101, label %108, label %102
 
 102:                                              ; preds = %98
   %103 = zext i8 %100 to i64
-  %104 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %103
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
   %107 = icmp eq i32 %.0, %106
@@ -3898,7 +3898,7 @@ define internal i32 @normal_getAtts(ptr nocapture noundef readonly %0, ptr nound
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 -2147483648, 1114112) i32 @normal_charRefNumber(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %.lr.ph [
     i8 120, label %5
@@ -3906,7 +3906,7 @@ define internal range(i32 -2147483648, 1114112) i32 @normal_charRefNumber(ptr no
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 3
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 3
   br label %7
 
 7:                                                ; preds = %.thread, %5
@@ -3965,7 +3965,7 @@ define internal range(i32 -2147483648, 1114112) i32 @normal_charRefNumber(ptr no
 
 .thread:                                          ; preds = %7, %22
   %.12731 = phi i32 [ %.127, %22 ], [ %.026, %7 ]
-  %24 = getelementptr inbounds i8, ptr %.025, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.025, i64 1
   br label %7, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %2, %31
@@ -3980,7 +3980,7 @@ define internal range(i32 -2147483648, 1114112) i32 @normal_charRefNumber(ptr no
   br i1 %30, label %checkCharRefNumber.exit, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %.138, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.138, i64 1
   %.pr = load i8, ptr %32, align 1
   %.not = icmp eq i8 %.pr, 59
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
@@ -4035,7 +4035,7 @@ define internal range(i32 0, 63) i32 @normal_predefinedEntityName(ptr nocapture 
   ]
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 116
   br i1 %10, label %11, label %50
@@ -4054,13 +4054,13 @@ define internal range(i32 0, 63) i32 @normal_predefinedEntityName(ptr nocapture 
   br i1 %15, label %16, label %50
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 109
   br i1 %19, label %20, label %50
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 112
   br i1 %23, label %51, label %50
@@ -4073,37 +4073,37 @@ define internal range(i32 0, 63) i32 @normal_predefinedEntityName(ptr nocapture 
   ]
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 117
   br i1 %29, label %30, label %50
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %1, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 111
   br i1 %33, label %34, label %50
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %1, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 116
   br i1 %37, label %51, label %50
 
 38:                                               ; preds = %24
-  %39 = getelementptr inbounds i8, ptr %1, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 112
   br i1 %41, label %42, label %50
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %1, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 111
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %1, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 115
   br i1 %49, label %51, label %50
@@ -4125,15 +4125,15 @@ define internal void @normal_updatePosition(ptr nocapture noundef readonly %0, p
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %51
   %.023 = phi ptr [ %1, %.lr.ph ], [ %.1, %51 ]
   %12 = load i8, ptr %.023, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %47 [
     i8 5, label %16
@@ -4144,21 +4144,21 @@ define internal void @normal_updatePosition(ptr nocapture noundef readonly %0, p
   ]
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %.023, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.023, i64 2
   %18 = load i64, ptr %10, align 8
   %19 = add i64 %18, 1
   store i64 %19, ptr %10, align 8
   br label %51
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %.023, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %.023, i64 3
   %22 = load i64, ptr %10, align 8
   %23 = add i64 %22, 1
   store i64 %23, ptr %10, align 8
   br label %51
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds i8, ptr %.023, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.023, i64 4
   %26 = load i64, ptr %10, align 8
   %27 = add i64 %26, 1
   store i64 %27, ptr %10, align 8
@@ -4169,14 +4169,14 @@ define internal void @normal_updatePosition(ptr nocapture noundef readonly %0, p
   %29 = load i64, ptr %3, align 8
   %30 = add i64 %29, 1
   store i64 %30, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %.023, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023, i64 1
   br label %51
 
 32:                                               ; preds = %11
   %33 = load i64, ptr %3, align 8
   %34 = add i64 %33, 1
   store i64 %34, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %.023, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.023, i64 1
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %5, %36
   %38 = icmp sgt i64 %37, 0
@@ -4185,10 +4185,10 @@ define internal void @normal_updatePosition(ptr nocapture noundef readonly %0, p
 39:                                               ; preds = %32
   %40 = load i8, ptr %35, align 1
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 10
-  %45 = getelementptr inbounds i8, ptr %.023, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.023, i64 2
   %spec.select = select i1 %44, ptr %45, ptr %35
   br label %46
 
@@ -4198,7 +4198,7 @@ define internal void @normal_updatePosition(ptr nocapture noundef readonly %0, p
   br label %51
 
 47:                                               ; preds = %11
-  %48 = getelementptr inbounds i8, ptr %.023, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.023, i64 1
   %49 = load i64, ptr %10, align 8
   %50 = add i64 %49, 1
   store i64 %50, ptr %10, align 8
@@ -4219,21 +4219,21 @@ define internal void @normal_updatePosition(ptr nocapture noundef readonly %0, p
 define internal range(i32 0, 2) i32 @normal_isPublicId(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #3 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -1
   %6 = ptrtoint ptr %5 to i64
-  %.01417 = getelementptr inbounds i8, ptr %1, i64 1
+  %.01417 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = ptrtoint ptr %.01417 to i64
   %8 = sub i64 %6, %7
   %9 = icmp sgt i64 %8, 0
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph, %20
   %.01418 = phi ptr [ %.01417, %.lr.ph ], [ %.014, %20 ]
   %12 = load i8, ptr %.01418, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %19 [
     i8 25, label %20
@@ -4274,7 +4274,7 @@ define internal range(i32 0, 2) i32 @normal_isPublicId(ptr nocapture noundef rea
   ]
 
 20:                                               ; preds = %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %11, %16, %18, %19, %19
-  %.014 = getelementptr inbounds i8, ptr %.01418, i64 1
+  %.014 = getelementptr inbounds nuw i8, ptr %.01418, i64 1
   %21 = ptrtoint ptr %.014 to i64
   %22 = sub i64 %6, %21
   %23 = icmp sgt i64 %22, 0
@@ -4315,16 +4315,16 @@ define internal range(i32 0, 3) i32 @latin1_toUtf8(ptr nocapture readnone %0, pt
 17:                                               ; preds = %13
   %18 = lshr i8 %11, 6
   %19 = or disjoint i8 %18, -64
-  %20 = getelementptr inbounds i8, ptr %12, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %20, ptr %3, align 8
   store i8 %19, ptr %12, align 1
   %21 = and i8 %11, -65
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %23, ptr %3, align 8
   store i8 %21, ptr %22, align 1
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %25, ptr %1, align 8
   br label %33
 
@@ -4333,11 +4333,11 @@ define internal range(i32 0, 3) i32 @latin1_toUtf8(ptr nocapture readnone %0, pt
   br i1 %27, label %._crit_edge, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %10, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %29, ptr %1, align 8
   %30 = load i8, ptr %10, align 1
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %32, ptr %3, align 8
   store i8 %30, ptr %31, align 1
   %.pre = load ptr, ptr %1, align 8
@@ -4366,12 +4366,12 @@ define internal range(i32 0, 3) i32 @latin1_toUtf16(ptr nocapture readnone %0, p
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %12, ptr %1, align 8
   %13 = load i8, ptr %8, align 1
   %14 = zext i8 %13 to i16
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   store ptr %16, ptr %3, align 8
   store i16 %14, ptr %15, align 2
   %17 = load ptr, ptr %1, align 8
@@ -4399,10 +4399,10 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 128
-  %11 = getelementptr inbounds i8, ptr %1, i64 448
-  %12 = getelementptr inbounds i8, ptr %1, i64 440
-  %13 = getelementptr inbounds i8, ptr %1, i64 432
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 432
   br label %14
 
 14:                                               ; preds = %.lr.ph, %60
@@ -4410,7 +4410,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
   %.04162 = phi ptr [ %2, %.lr.ph ], [ %.1, %60 ]
   %16 = load i8, ptr %.04162, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %58 [
     i8 5, label %20
@@ -4438,7 +4438,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
   br label %.loopexit
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %.04162, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.04162, i64 2
   br label %60
 
 28:                                               ; preds = %14
@@ -4456,7 +4456,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
   br label %.loopexit
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %.04162, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %.04162, i64 3
   br label %60
 
 36:                                               ; preds = %14
@@ -4474,7 +4474,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
   br label %.loopexit
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %.04162, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.04162, i64 4
   br label %60
 
 44:                                               ; preds = %14, %14, %14
@@ -4483,7 +4483,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
 
 45:                                               ; preds = %14, %14
   %46 = zext nneg i8 %19 to i32
-  %47 = getelementptr inbounds i8, ptr %.04162, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.04162, i64 1
   %.not = icmp eq i32 %0, %46
   br i1 %.not, label %48, label %60
 
@@ -4497,7 +4497,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
   store ptr %47, ptr %4, align 8
   %53 = load i8, ptr %47, align 1
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %54
   %56 = load i8, ptr %55, align 1
   switch i8 %56, label %57 [
     i8 21, label %.loopexit
@@ -4512,7 +4512,7 @@ define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(
   br label %.loopexit
 
 58:                                               ; preds = %14
-  %59 = getelementptr inbounds i8, ptr %.04162, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.04162, i64 1
   br label %60
 
 60:                                               ; preds = %45, %58, %42, %34, %26
@@ -4536,10 +4536,10 @@ define internal fastcc range(i32 -2, 34) i32 @normal_scanDecl(ptr noundef %0, pt
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load i8, ptr %1, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %24 [
     i8 27, label %15
@@ -4549,17 +4549,17 @@ define internal fastcc range(i32 -2, 34) i32 @normal_scanDecl(ptr noundef %0, pt
   ]
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %17 = tail call fastcc i32 @normal_scanComment(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef %2, ptr noundef %3)
   br label %.loopexit
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %1, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %19, ptr %3, align 8
   br label %.loopexit
 
 20:                                               ; preds = %9, %9
-  %.02841 = getelementptr inbounds i8, ptr %1, i64 1
+  %.02841 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %21 = ptrtoint ptr %.02841 to i64
   %22 = sub i64 %5, %21
   %23 = icmp sgt i64 %22, 0
@@ -4575,7 +4575,7 @@ define internal fastcc range(i32 -2, 34) i32 @normal_scanDecl(ptr noundef %0, pt
   %.pn42 = phi ptr [ %.02843, %38 ], [ %1, %20 ]
   %26 = load i8, ptr %.02843, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   switch i8 %29, label %42 [
     i8 30, label %30
@@ -4591,10 +4591,10 @@ define internal fastcc range(i32 -2, 34) i32 @normal_scanDecl(ptr noundef %0, pt
   br i1 %.not, label %.loopexit, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %.pn42, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.pn42, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
   switch i8 %36, label %.loopexit30 [
     i8 21, label %37
@@ -4612,7 +4612,7 @@ define internal fastcc range(i32 -2, 34) i32 @normal_scanDecl(ptr noundef %0, pt
   br label %.loopexit
 
 38:                                               ; preds = %.lr.ph, %.lr.ph
-  %.028 = getelementptr inbounds i8, ptr %.02843, i64 1
+  %.028 = getelementptr inbounds nuw i8, ptr %.02843, i64 1
   %39 = ptrtoint ptr %.028 to i64
   %40 = sub i64 %5, %39
   %41 = icmp sgt i64 %40, 0
@@ -4637,10 +4637,10 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load i8, ptr %1, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %50 [
     i8 29, label %16
@@ -4660,14 +4660,14 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 432
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not146 = icmp eq i32 %22, 0
   br i1 %.not146, label %23, label %27
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not147 = icmp eq i32 %26, 0
@@ -4682,14 +4682,14 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 440
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 %32(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not144 = icmp eq i32 %33, 0
   br i1 %.not144, label %34, label %38
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 416
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 %36(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not145 = icmp eq i32 %37, 0
@@ -4704,14 +4704,14 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %0, i64 448
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %45, label %49
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 424
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 %47(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not143 = icmp eq i32 %48, 0
@@ -4727,19 +4727,19 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
 
 51:                                               ; preds = %45, %34, %23, %10, %10
   %.sink = phi i64 [ 1, %10 ], [ 1, %10 ], [ 2, %23 ], [ 3, %34 ], [ 4, %45 ]
-  %52 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %53 = ptrtoint ptr %52 to i64
   %54 = sub i64 %6, %53
   %55 = icmp sgt i64 %54, 0
   br i1 %55, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %0, i64 448
-  %57 = getelementptr inbounds i8, ptr %0, i64 400
-  %58 = getelementptr inbounds i8, ptr %0, i64 440
-  %59 = getelementptr inbounds i8, ptr %0, i64 392
-  %60 = getelementptr inbounds i8, ptr %0, i64 432
-  %61 = getelementptr inbounds i8, ptr %0, i64 384
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %62
 
 62:                                               ; preds = %.lr.ph, %177
@@ -4748,7 +4748,7 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
   %.1183 = phi ptr [ %52, %.lr.ph ], [ %178, %177 ]
   %65 = load i8, ptr %.1183, align 1
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
   switch i8 %68, label %.loopexit163 [
     i8 29, label %69
@@ -4848,7 +4848,7 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
 
 102:                                              ; preds = %101, %99
   %.0.i = phi i32 [ 1, %101 ], [ 0, %99 ]
-  %103 = getelementptr inbounds i8, ptr %1, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %104 = load i8, ptr %103, align 1
   switch i8 %104, label %111 [
     i8 109, label %106
@@ -4860,7 +4860,7 @@ define internal fastcc i32 @normal_scanPi(ptr noundef %0, ptr noundef %1, ptr no
 
 106:                                              ; preds = %105, %102
   %.1.i = phi i32 [ 1, %105 ], [ %.0.i, %102 ]
-  %107 = getelementptr inbounds i8, ptr %1, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %108 = load i8, ptr %107, align 1
   switch i8 %108, label %111 [
     i8 108, label %109
@@ -4881,7 +4881,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
 
 111:                                              ; preds = %110, %97, %99, %102, %106
   %112 = phi i32 [ 12, %110 ], [ 11, %97 ], [ 11, %99 ], [ 11, %102 ], [ 11, %106 ]
-  %113 = getelementptr inbounds i8, ptr %.1183, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %.1183, i64 1
   %114 = ptrtoint ptr %113 to i64
   %115 = sub i64 %6, %114
   %116 = icmp sgt i64 %115, 0
@@ -4892,7 +4892,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   %.4190 = phi ptr [ %.5, %159 ], [ %113, %111 ]
   %118 = load i8, ptr %.4190, align 1
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %119
   %121 = load i8, ptr %120, align 1
   switch i8 %121, label %157 [
     i8 5, label %122
@@ -4919,7 +4919,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   br label %.loopexit
 
 128:                                              ; preds = %124
-  %129 = getelementptr inbounds i8, ptr %.4190, i64 2
+  %129 = getelementptr inbounds nuw i8, ptr %.4190, i64 2
   br label %159
 
 130:                                              ; preds = %.lr.ph191
@@ -4937,7 +4937,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   br label %.loopexit
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %.4190, i64 3
+  %137 = getelementptr inbounds nuw i8, ptr %.4190, i64 3
   br label %159
 
 138:                                              ; preds = %.lr.ph191
@@ -4955,7 +4955,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   br label %.loopexit
 
 144:                                              ; preds = %140
-  %145 = getelementptr inbounds i8, ptr %.4190, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.4190, i64 4
   br label %159
 
 146:                                              ; preds = %.lr.ph191, %.lr.ph191, %.lr.ph191
@@ -4963,7 +4963,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   br label %.loopexit
 
 147:                                              ; preds = %.lr.ph191
-  %148 = getelementptr inbounds i8, ptr %.4190, i64 1
+  %148 = getelementptr inbounds nuw i8, ptr %.4190, i64 1
   %149 = ptrtoint ptr %148 to i64
   %150 = sub i64 %6, %149
   %151 = icmp sgt i64 %150, 0
@@ -4975,12 +4975,12 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   br i1 %154, label %155, label %159
 
 155:                                              ; preds = %152
-  %156 = getelementptr inbounds i8, ptr %.4190, i64 2
+  %156 = getelementptr inbounds nuw i8, ptr %.4190, i64 2
   store ptr %156, ptr %3, align 8
   br label %.loopexit
 
 157:                                              ; preds = %.lr.ph191
-  %158 = getelementptr inbounds i8, ptr %.4190, i64 1
+  %158 = getelementptr inbounds nuw i8, ptr %.4190, i64 1
   br label %159
 
 159:                                              ; preds = %152, %157, %144, %136, %128
@@ -5000,7 +5000,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   br label %.loopexit
 
 166:                                              ; preds = %163
-  %167 = getelementptr inbounds i8, ptr %.1183, i64 1
+  %167 = getelementptr inbounds nuw i8, ptr %.1183, i64 1
   %168 = ptrtoint ptr %167 to i64
   %169 = sub i64 %6, %168
   %170 = icmp sgt i64 %169, 0
@@ -5012,7 +5012,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   br i1 %173, label %174, label %.loopexit163
 
 174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %.1183, i64 2
+  %175 = getelementptr inbounds nuw i8, ptr %.1183, i64 2
   store ptr %175, ptr %3, align 8
   %176 = load i32, ptr %5, align 4
   br label %.loopexit
@@ -5024,7 +5024,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
 
 177:                                              ; preds = %93, %84, %75, %62, %62, %62, %62, %62
   %.sink243 = phi i64 [ 1, %62 ], [ 1, %62 ], [ 1, %62 ], [ 1, %62 ], [ 1, %62 ], [ 2, %75 ], [ 3, %84 ], [ 4, %93 ]
-  %178 = getelementptr inbounds i8, ptr %.1183, i64 %.sink243
+  %178 = getelementptr inbounds nuw i8, ptr %.1183, i64 %.sink243
   %179 = ptrtoint ptr %178 to i64
   %180 = sub i64 %6, %179
   %181 = icmp sgt i64 %180, 0
@@ -5044,10 +5044,10 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load i8, ptr %1, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %45 [
     i8 30, label %.loopexit.sink.split
@@ -5066,14 +5066,14 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 432
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not94 = icmp eq i32 %20, 0
   br i1 %.not94, label %21, label %.loopexit.sink.split
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not95 = icmp eq i32 %24, 0
@@ -5084,14 +5084,14 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 440
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not92 = icmp eq i32 %30, 0
   br i1 %.not92, label %31, label %.loopexit.sink.split
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 416
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %33(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not93 = icmp eq i32 %34, 0
@@ -5102,14 +5102,14 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 448
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %41, label %.loopexit.sink.split
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 424
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not91 = icmp eq i32 %44, 0
@@ -5120,19 +5120,19 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
 
 46:                                               ; preds = %41, %31, %21, %9, %9
   %.sink = phi i64 [ 1, %9 ], [ 1, %9 ], [ 2, %21 ], [ 3, %31 ], [ 4, %41 ]
-  %47 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %48 = ptrtoint ptr %47 to i64
   %49 = sub i64 %5, %48
   %50 = icmp sgt i64 %49, 0
   br i1 %50, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 448
-  %52 = getelementptr inbounds i8, ptr %0, i64 400
-  %53 = getelementptr inbounds i8, ptr %0, i64 440
-  %54 = getelementptr inbounds i8, ptr %0, i64 392
-  %55 = getelementptr inbounds i8, ptr %0, i64 432
-  %56 = getelementptr inbounds i8, ptr %0, i64 384
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %57
 
 57:                                               ; preds = %.lr.ph, %89
@@ -5140,7 +5140,7 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   %.1108 = phi ptr [ %47, %.lr.ph ], [ %90, %89 ]
   %59 = load i8, ptr %.1108, align 1
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   switch i8 %62, label %.loopexit.sink.split [
     i8 18, label %87
@@ -5203,12 +5203,12 @@ define internal fastcc range(i32 -2, 29) i32 @normal_scanPercent(ptr noundef %0,
   br i1 %.not97, label %.loopexit.sink.split, label %89
 
 87:                                               ; preds = %57
-  %88 = getelementptr inbounds i8, ptr %.1108, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.1108, i64 1
   br label %.loopexit.sink.split
 
 89:                                               ; preds = %84, %76, %68, %57, %57, %57, %57, %57
   %.sink127 = phi i64 [ 1, %57 ], [ 1, %57 ], [ 1, %57 ], [ 1, %57 ], [ 1, %57 ], [ 2, %68 ], [ 3, %76 ], [ 4, %84 ]
-  %90 = getelementptr inbounds i8, ptr %.1108, i64 %.sink127
+  %90 = getelementptr inbounds nuw i8, ptr %.1108, i64 %.sink127
   %91 = ptrtoint ptr %90 to i64
   %92 = sub i64 %5, %91
   %93 = icmp sgt i64 %92, 0
@@ -5239,17 +5239,17 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
   br i1 %11, label %12, label %.loopexit.sink.split
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %5, %14
   %16 = icmp sgt i64 %15, 0
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 128
-  %18 = getelementptr inbounds i8, ptr %0, i64 448
-  %19 = getelementptr inbounds i8, ptr %0, i64 440
-  %20 = getelementptr inbounds i8, ptr %0, i64 432
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 432
   br label %21
 
 21:                                               ; preds = %.lr.ph, %67
@@ -5257,7 +5257,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
   %.04958 = phi ptr [ %13, %.lr.ph ], [ %.1, %67 ]
   %23 = load i8, ptr %.04958, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds [256 x i8], ptr %17, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [256 x i8], ptr %17, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   switch i8 %26, label %65 [
     i8 5, label %27
@@ -5280,7 +5280,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
   br i1 %.not52, label %32, label %.loopexit.sink.split
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.04958, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.04958, i64 2
   br label %67
 
 34:                                               ; preds = %21
@@ -5294,7 +5294,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
   br i1 %.not51, label %39, label %.loopexit.sink.split
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %.04958, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %.04958, i64 3
   br label %67
 
 41:                                               ; preds = %21
@@ -5308,11 +5308,11 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
   br i1 %.not, label %46, label %.loopexit.sink.split
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.04958, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.04958, i64 4
   br label %67
 
 48:                                               ; preds = %21
-  %49 = getelementptr inbounds i8, ptr %.04958, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.04958, i64 1
   %50 = ptrtoint ptr %49 to i64
   %51 = sub i64 %5, %50
   %52 = icmp sgt i64 %51, 0
@@ -5324,7 +5324,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
   br i1 %55, label %56, label %67
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %.04958, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %.04958, i64 2
   %58 = ptrtoint ptr %57 to i64
   %59 = sub i64 %5, %58
   %60 = icmp sgt i64 %59, 0
@@ -5333,13 +5333,13 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
 61:                                               ; preds = %56
   %62 = load i8, ptr %57, align 1
   %63 = icmp eq i8 %62, 62
-  %64 = getelementptr inbounds i8, ptr %.04958, i64 3
+  %64 = getelementptr inbounds nuw i8, ptr %.04958, i64 3
   %spec.select = select i1 %63, ptr %64, ptr %57
   %spec.select77 = select i1 %63, i32 13, i32 0
   br label %.loopexit.sink.split
 
 65:                                               ; preds = %21
-  %66 = getelementptr inbounds i8, ptr %.04958, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.04958, i64 1
   br label %67
 
 67:                                               ; preds = %53, %65, %46, %39, %32
@@ -5381,7 +5381,7 @@ define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget(ptr noundef %0,
 
 10:                                               ; preds = %7, %9
   %.0 = phi i32 [ 1, %9 ], [ 0, %7 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1
   switch i8 %12, label %19 [
     i8 109, label %14
@@ -5393,7 +5393,7 @@ define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget(ptr noundef %0,
 
 14:                                               ; preds = %10, %13
   %.1 = phi i32 [ 1, %13 ], [ %.0, %10 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %19 [
     i8 108, label %17
@@ -5425,10 +5425,10 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br i1 %8, label %9, label %normal_scanCharRef.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load i8, ptr %1, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %normal_scanCharRef.exit.sink.split [
     i8 19, label %45
@@ -5444,14 +5444,14 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br i1 %16, label %normal_scanCharRef.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 432
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not96 = icmp eq i32 %20, 0
   br i1 %.not96, label %21, label %normal_scanCharRef.exit.sink.split
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not97 = icmp eq i32 %24, 0
@@ -5462,14 +5462,14 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br i1 %26, label %normal_scanCharRef.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 440
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not94 = icmp eq i32 %30, 0
   br i1 %.not94, label %31, label %normal_scanCharRef.exit.sink.split
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 416
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %33(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not95 = icmp eq i32 %34, 0
@@ -5480,21 +5480,21 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br i1 %36, label %normal_scanCharRef.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 448
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %41, label %normal_scanCharRef.exit.sink.split
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 424
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
   %.not93 = icmp eq i32 %44, 0
   br i1 %.not93, label %normal_scanCharRef.exit.sink.split, label %91
 
 45:                                               ; preds = %9
-  %46 = getelementptr inbounds i8, ptr %1, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %47 = ptrtoint ptr %46 to i64
   %48 = sub i64 %5, %47
   %49 = icmp sgt i64 %48, 0
@@ -5506,7 +5506,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br i1 %52, label %53, label %77
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %1, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %5, %55
   %57 = icmp sgt i64 %56, 0
@@ -5515,14 +5515,14 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
 58:                                               ; preds = %53
   %59 = load i8, ptr %54, align 1
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = and i8 %62, -2
   %switch.i.i = icmp eq i8 %63, 24
   br i1 %switch.i.i, label %.preheader.i.i, label %normal_scanCharRef.exit.sink.split
 
 .preheader.i.i:                                   ; preds = %58
-  %.01621.i.i = getelementptr inbounds i8, ptr %1, i64 3
+  %.01621.i.i = getelementptr inbounds nuw i8, ptr %1, i64 3
   %64 = ptrtoint ptr %.01621.i.i to i64
   %65 = sub i64 %5, %64
   %66 = icmp sgt i64 %65, 0
@@ -5533,7 +5533,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   %.pn22.i.i = phi ptr [ %.01623.i.i, %73 ], [ %54, %.preheader.i.i ]
   %67 = load i8, ptr %.01623.i.i, align 1
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %68
   %70 = load i8, ptr %69, align 1
   switch i8 %70, label %normal_scanCharRef.exit.sink.split [
     i8 25, label %73
@@ -5542,11 +5542,11 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   ]
 
 71:                                               ; preds = %.lr.ph.i.i
-  %72 = getelementptr inbounds i8, ptr %.pn22.i.i, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.pn22.i.i, i64 2
   br label %normal_scanCharRef.exit.sink.split
 
 73:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i.i
-  %.016.i.i = getelementptr inbounds i8, ptr %.01623.i.i, i64 1
+  %.016.i.i = getelementptr inbounds nuw i8, ptr %.01623.i.i, i64 1
   %74 = ptrtoint ptr %.016.i.i to i64
   %75 = sub i64 %5, %74
   %76 = icmp sgt i64 %75, 0
@@ -5554,14 +5554,14 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
 
 77:                                               ; preds = %50
   %78 = zext i8 %51 to i64
-  %79 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %78
   %80 = load i8, ptr %79, align 1
   %cond.i = icmp eq i8 %80, 25
   br i1 %cond.i, label %.preheader.i, label %normal_scanCharRef.exit.sink.split
 
 .preheader.i:                                     ; preds = %77, %84
   %.pn.i = phi ptr [ %.021.i, %84 ], [ %46, %77 ]
-  %.021.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %.021.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %81 = ptrtoint ptr %.021.i to i64
   %82 = sub i64 %5, %81
   %83 = icmp sgt i64 %82, 0
@@ -5570,7 +5570,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
 84:                                               ; preds = %.preheader.i
   %85 = load i8, ptr %.021.i, align 1
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %86
   %88 = load i8, ptr %87, align 1
   switch i8 %88, label %normal_scanCharRef.exit.sink.split [
     i8 25, label %.preheader.i
@@ -5578,24 +5578,24 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   ], !llvm.loop !36
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %.pn.i, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2
   br label %normal_scanCharRef.exit.sink.split
 
 91:                                               ; preds = %41, %31, %21, %9, %9
   %.sink = phi i64 [ 1, %9 ], [ 1, %9 ], [ 2, %21 ], [ 3, %31 ], [ 4, %41 ]
-  %92 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %93 = ptrtoint ptr %92 to i64
   %94 = sub i64 %5, %93
   %95 = icmp sgt i64 %94, 0
   br i1 %95, label %.lr.ph, label %normal_scanCharRef.exit
 
 .lr.ph:                                           ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %0, i64 448
-  %97 = getelementptr inbounds i8, ptr %0, i64 400
-  %98 = getelementptr inbounds i8, ptr %0, i64 440
-  %99 = getelementptr inbounds i8, ptr %0, i64 392
-  %100 = getelementptr inbounds i8, ptr %0, i64 432
-  %101 = getelementptr inbounds i8, ptr %0, i64 384
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %102
 
 102:                                              ; preds = %.lr.ph, %134
@@ -5603,7 +5603,7 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   %.1121 = phi ptr [ %92, %.lr.ph ], [ %135, %134 ]
   %104 = load i8, ptr %.1121, align 1
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %105
   %107 = load i8, ptr %106, align 1
   switch i8 %107, label %normal_scanCharRef.exit.sink.split [
     i8 18, label %132
@@ -5666,12 +5666,12 @@ define internal fastcc range(i32 -2, 11) i32 @normal_scanRef(ptr noundef %0, ptr
   br i1 %.not99, label %normal_scanCharRef.exit.sink.split, label %134
 
 132:                                              ; preds = %102
-  %133 = getelementptr inbounds i8, ptr %.1121, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %.1121, i64 1
   br label %normal_scanCharRef.exit.sink.split
 
 134:                                              ; preds = %129, %121, %113, %102, %102, %102, %102, %102
   %.sink162 = phi i64 [ 1, %102 ], [ 1, %102 ], [ 1, %102 ], [ 1, %102 ], [ 1, %102 ], [ 2, %113 ], [ 3, %121 ], [ 4, %129 ]
-  %135 = getelementptr inbounds i8, ptr %.1121, i64 %.sink162
+  %135 = getelementptr inbounds nuw i8, ptr %.1121, i64 %.sink162
   %136 = ptrtoint ptr %135 to i64
   %137 = sub i64 %5, %136
   %138 = icmp sgt i64 %137, 0
@@ -5699,16 +5699,16 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %9, label %.lr.ph267, label %.loopexit111
 
 .lr.ph267:                                        ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
-  %11 = getelementptr inbounds i8, ptr %0, i64 448
-  %12 = getelementptr inbounds i8, ptr %0, i64 440
-  %13 = getelementptr inbounds i8, ptr %0, i64 432
-  %14 = getelementptr inbounds i8, ptr %0, i64 424
-  %15 = getelementptr inbounds i8, ptr %0, i64 416
-  %16 = getelementptr inbounds i8, ptr %0, i64 408
-  %17 = getelementptr inbounds i8, ptr %0, i64 400
-  %18 = getelementptr inbounds i8, ptr %0, i64 392
-  %19 = getelementptr inbounds i8, ptr %0, i64 384
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %20
 
 20:                                               ; preds = %.lr.ph267, %213
@@ -5716,7 +5716,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %.promoted = phi ptr [ %1, %.lr.ph267 ], [ %.sink, %213 ]
   %22 = load i8, ptr %.promoted, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %.loopexit111.sink.split [
     i8 14, label %73
@@ -5734,7 +5734,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   ]
 
 26:                                               ; preds = %20, %20, %20, %20, %20
-  %27 = getelementptr inbounds i8, ptr %.promoted, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1
   br label %213
 
 28:                                               ; preds = %20
@@ -5754,7 +5754,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %.not108, label %.loopexit111.sink.split, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %.promoted, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.promoted, i64 2
   br label %213
 
 38:                                               ; preds = %20
@@ -5774,7 +5774,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %.not106, label %.loopexit111.sink.split, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.promoted, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %.promoted, i64 3
   br label %213
 
 48:                                               ; preds = %20
@@ -5794,11 +5794,11 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %.not104, label %.loopexit111.sink.split, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %.promoted, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %.promoted, i64 4
   br label %213
 
 58:                                               ; preds = %20, %20, %20
-  %59 = getelementptr inbounds i8, ptr %.promoted, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1
   %60 = ptrtoint ptr %59 to i64
   %61 = sub i64 %6, %60
   %62 = icmp sgt i64 %61, 0
@@ -5808,7 +5808,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %63 = phi ptr [ %69, %68 ], [ %59, %58 ]
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %65
   %67 = load i8, ptr %66, align 1
   switch i8 %67, label %.loopexit111.sink.split [
     i8 14, label %.loopexit114
@@ -5818,7 +5818,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   ]
 
 68:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
-  %69 = getelementptr inbounds i8, ptr %63, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 1
   %70 = ptrtoint ptr %69 to i64
   %71 = sub i64 %6, %70
   %72 = icmp sgt i64 %71, 0
@@ -5830,7 +5830,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 
 73:                                               ; preds = %20, %.loopexit114
   %.promoted235 = phi ptr [ %63, %.loopexit114 ], [ %.promoted, %20 ]
-  %74 = getelementptr inbounds i8, ptr %.promoted235, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.promoted235, i64 1
   %75 = ptrtoint ptr %74 to i64
   %76 = sub i64 %6, %75
   %77 = icmp sgt i64 %76, 0
@@ -5839,7 +5839,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 .lr.ph239.preheader:                              ; preds = %73
   %78 = load i8, ptr %74, align 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = and i8 %81, -2
   %or.cond578 = icmp eq i8 %82, 12
@@ -5848,7 +5848,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 .lr.ph239:                                        ; preds = %90
   %83 = load i8, ptr %91, align 1
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %84
   %86 = load i8, ptr %85, align 1
   %87 = and i8 %86, -2
   %or.cond = icmp eq i8 %87, 12
@@ -5864,7 +5864,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   ]
 
 90:                                               ; preds = %.lr.ph579, %.lr.ph579, %.lr.ph579
-  %91 = getelementptr inbounds i8, ptr %89, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 1
   %92 = ptrtoint ptr %91 to i64
   %93 = sub i64 %6, %92
   %94 = icmp sgt i64 %93, 0
@@ -5873,7 +5873,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 .lr.ph239._crit_edge:                             ; preds = %.lr.ph239, %.lr.ph239.preheader
   %.lcssa537 = phi ptr [ %.promoted235, %.lr.ph239.preheader ], [ %89, %.lr.ph239 ]
   %.lcssa534 = phi i8 [ %81, %.lr.ph239.preheader ], [ %86, %.lr.ph239 ]
-  %95 = getelementptr inbounds i8, ptr %.lcssa537, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %.lcssa537, i64 2
   store ptr %95, ptr %5, align 8
   %96 = ptrtoint ptr %95 to i64
   %97 = sub i64 %6, %96
@@ -5885,7 +5885,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %100 = phi ptr [ %139, %138 ], [ %95, %.lr.ph239._crit_edge ]
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %102
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, %.lcssa534
   br i1 %105, label %143, label %106
@@ -5913,7 +5913,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %.not96, label %112, label %.loopexit111.sink.split
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %100, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %100, i64 2
   store ptr %113, ptr %5, align 8
   br label %138
 
@@ -5928,7 +5928,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %.not95, label %119, label %.loopexit111.sink.split
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %100, i64 3
+  %120 = getelementptr inbounds nuw i8, ptr %100, i64 3
   store ptr %120, ptr %5, align 8
   br label %138
 
@@ -5943,12 +5943,12 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %.not, label %126, label %.loopexit111.sink.split
 
 126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %100, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %100, i64 4
   store ptr %127, ptr %5, align 8
   br label %138
 
 128:                                              ; preds = %106
-  %129 = getelementptr inbounds i8, ptr %100, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %100, i64 1
   %130 = call fastcc i32 @normal_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %129, ptr noundef %2, ptr noundef nonnull %5)
   %131 = icmp slt i32 %130, 1
   br i1 %131, label %132, label %._crit_edge
@@ -5966,7 +5966,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br label %.loopexit111.sink.split
 
 136:                                              ; preds = %106
-  %137 = getelementptr inbounds i8, ptr %100, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %100, i64 1
   store ptr %137, ptr %5, align 8
   br label %138
 
@@ -5978,7 +5978,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %142, label %.lr.ph243, label %.loopexit111
 
 143:                                              ; preds = %.lr.ph243
-  %144 = getelementptr inbounds i8, ptr %100, i64 1
+  %144 = getelementptr inbounds nuw i8, ptr %100, i64 1
   store ptr %144, ptr %5, align 8
   %145 = ptrtoint ptr %144 to i64
   %146 = sub i64 %6, %145
@@ -5988,7 +5988,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 148:                                              ; preds = %143
   %149 = load i8, ptr %144, align 1
   %150 = zext i8 %149 to i64
-  %151 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %150
   %152 = load i8, ptr %151, align 1
   switch i8 %152, label %.loopexit111.sink.split [
     i8 21, label %153
@@ -5999,7 +5999,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   ]
 
 153:                                              ; preds = %148, %148, %148
-  %154 = getelementptr inbounds i8, ptr %100, i64 2
+  %154 = getelementptr inbounds nuw i8, ptr %100, i64 2
   %155 = ptrtoint ptr %154 to i64
   %156 = sub i64 %6, %155
   %157 = icmp sgt i64 %156, 0
@@ -6011,7 +6011,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   %160 = phi ptr [ %159, %197 ], [ %144, %153 ]
   %161 = load i8, ptr %159, align 1
   %162 = zext i8 %161 to i64
-  %163 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %162
   %164 = load i8, ptr %163, align 1
   switch i8 %164, label %.loopexit111.sink.split [
     i8 17, label %.loopexit117
@@ -6027,7 +6027,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   ]
 
 165:                                              ; preds = %.lr.ph263, %.lr.ph263
-  %166 = getelementptr inbounds i8, ptr %160, i64 2
+  %166 = getelementptr inbounds nuw i8, ptr %160, i64 2
   br label %213
 
 167:                                              ; preds = %.lr.ph263
@@ -6047,7 +6047,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %.not102, label %.loopexit111.sink.split, label %175
 
 175:                                              ; preds = %172
-  %176 = getelementptr inbounds i8, ptr %160, i64 3
+  %176 = getelementptr inbounds nuw i8, ptr %160, i64 3
   br label %213
 
 177:                                              ; preds = %.lr.ph263
@@ -6067,7 +6067,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %.not100, label %.loopexit111.sink.split, label %185
 
 185:                                              ; preds = %182
-  %186 = getelementptr inbounds i8, ptr %160, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %160, i64 4
   br label %213
 
 187:                                              ; preds = %.lr.ph263
@@ -6087,11 +6087,11 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
   br i1 %.not98, label %.loopexit111.sink.split, label %195
 
 195:                                              ; preds = %192
-  %196 = getelementptr inbounds i8, ptr %160, i64 5
+  %196 = getelementptr inbounds nuw i8, ptr %160, i64 5
   br label %213
 
 197:                                              ; preds = %.lr.ph263, %.lr.ph263, %.lr.ph263
-  %198 = getelementptr inbounds i8, ptr %159, i64 1
+  %198 = getelementptr inbounds nuw i8, ptr %159, i64 1
   %199 = ptrtoint ptr %198 to i64
   %200 = sub i64 %6, %199
   %201 = icmp sgt i64 %200, 0
@@ -6099,12 +6099,12 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 
 .loopexit118:                                     ; preds = %148, %.lr.ph263
   %202 = phi ptr [ %159, %.lr.ph263 ], [ %144, %148 ]
-  %203 = getelementptr inbounds i8, ptr %202, i64 1
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 1
   br label %.loopexit111.sink.split
 
 .loopexit117:                                     ; preds = %148, %.lr.ph263
   %204 = phi ptr [ %159, %.lr.ph263 ], [ %144, %148 ]
-  %205 = getelementptr inbounds i8, ptr %204, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 1
   store ptr %205, ptr %5, align 8
   %206 = ptrtoint ptr %205 to i64
   %207 = sub i64 %6, %206
@@ -6114,7 +6114,7 @@ define internal fastcc range(i32 -2, 4) i32 @normal_scanAtts(ptr noundef %0, ptr
 209:                                              ; preds = %.loopexit117
   %210 = load i8, ptr %205, align 1
   %211 = icmp eq i8 %210, 62
-  %212 = getelementptr inbounds i8, ptr %204, i64 2
+  %212 = getelementptr inbounds nuw i8, ptr %204, i64 2
   %spec.select = select i1 %211, ptr %212, ptr %205
   %spec.select519 = select i1 %211, i32 3, i32 0
   br label %.loopexit111.sink.split
@@ -6176,7 +6176,7 @@ define internal range(i32 0, 3) i32 @utf8_toUtf8(ptr nocapture readnone %0, ptr 
   br i1 %26, label %27, label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %.023.i, i64 3
+  %28 = getelementptr inbounds nuw i8, ptr %.023.i, i64 3
   br label %_INTERNAL_trim_to_complete_utf8_characters.exit
 
 29:                                               ; preds = %.lr.ph.i
@@ -6190,7 +6190,7 @@ define internal range(i32 0, 3) i32 @utf8_toUtf8(ptr nocapture readnone %0, ptr 
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %.023.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i, i64 2
   br label %_INTERNAL_trim_to_complete_utf8_characters.exit
 
 37:                                               ; preds = %29
@@ -6204,7 +6204,7 @@ define internal range(i32 0, 3) i32 @utf8_toUtf8(ptr nocapture readnone %0, ptr 
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %.023.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
   br label %_INTERNAL_trim_to_complete_utf8_characters.exit
 
 45:                                               ; preds = %37
@@ -6244,7 +6244,7 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr nocapture noundef readonly
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = ptrtoint ptr %4 to i64
   %13 = ptrtoint ptr %2 to i64
   br label %14
@@ -6254,7 +6254,7 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr nocapture noundef readonly
   %.04554 = phi ptr [ %6, %.lr.ph ], [ %.146, %96 ]
   %15 = load i8, ptr %.04455, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %92 [
     i8 5, label %19
@@ -6272,14 +6272,14 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr nocapture noundef readonly
   %24 = and i8 %15, 31
   %25 = zext nneg i8 %24 to i16
   %26 = shl nuw nsw i16 %25, 6
-  %27 = getelementptr inbounds i8, ptr %.04455, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.04455, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, 63
   %30 = zext nneg i8 %29 to i16
   %31 = or disjoint i16 %26, %30
-  %32 = getelementptr inbounds i8, ptr %.04554, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.04554, i64 2
   store i16 %31, ptr %.04554, align 2
-  %33 = getelementptr inbounds i8, ptr %.04455, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.04455, i64 2
   br label %96
 
 34:                                               ; preds = %14
@@ -6291,20 +6291,20 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr nocapture noundef readonly
 38:                                               ; preds = %34
   %39 = zext i8 %15 to i16
   %40 = shl i16 %39, 12
-  %41 = getelementptr inbounds i8, ptr %.04455, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.04455, i64 1
   %42 = load i8, ptr %41, align 1
   %43 = and i8 %42, 63
   %44 = zext nneg i8 %43 to i16
   %45 = shl nuw nsw i16 %44, 6
   %46 = or disjoint i16 %45, %40
-  %47 = getelementptr inbounds i8, ptr %.04455, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %.04455, i64 2
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, 63
   %50 = zext nneg i8 %49 to i16
   %51 = or disjoint i16 %46, %50
-  %52 = getelementptr inbounds i8, ptr %.04554, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.04554, i64 2
   store i16 %51, ptr %.04554, align 2
-  %53 = getelementptr inbounds i8, ptr %.04455, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %.04455, i64 3
   br label %96
 
 54:                                               ; preds = %14
@@ -6323,17 +6323,17 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr nocapture noundef readonly
   %63 = and i8 %15, 7
   %64 = zext nneg i8 %63 to i64
   %65 = shl nuw nsw i64 %64, 18
-  %66 = getelementptr inbounds i8, ptr %.04455, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.04455, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = and i8 %67, 63
   %69 = zext nneg i8 %68 to i64
   %70 = shl nuw nsw i64 %69, 12
-  %71 = getelementptr inbounds i8, ptr %.04455, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %.04455, i64 2
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, 63
   %74 = zext nneg i8 %73 to i64
   %75 = shl nuw nsw i64 %74, 6
-  %76 = getelementptr inbounds i8, ptr %.04455, i64 3
+  %76 = getelementptr inbounds nuw i8, ptr %.04455, i64 3
   %77 = load i8, ptr %76, align 1
   %78 = and i8 %77, 63
   %79 = zext nneg i8 %78 to i64
@@ -6347,16 +6347,16 @@ define internal range(i32 0, 3) i32 @utf8_toUtf16(ptr nocapture noundef readonly
   %86 = or disjoint i64 %75, %79
   %87 = trunc nuw nsw i64 %86 to i16
   %88 = or i16 %87, -9216
-  %89 = getelementptr inbounds i8, ptr %.04554, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.04554, i64 2
   store i16 %88, ptr %89, align 2
-  %90 = getelementptr inbounds i8, ptr %.04554, i64 4
-  %91 = getelementptr inbounds i8, ptr %.04455, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.04554, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.04455, i64 4
   br label %96
 
 92:                                               ; preds = %14
-  %93 = getelementptr inbounds i8, ptr %.04455, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.04455, i64 1
   %94 = sext i8 %15 to i16
-  %95 = getelementptr inbounds i8, ptr %.04554, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %.04554, i64 2
   store i16 %94, ptr %.04554, align 2
   br label %96
 
@@ -6391,21 +6391,21 @@ define internal range(i32 0, -2147483647) i32 @utf8_isName2(ptr nocapture readno
   %5 = lshr i32 %4, 2
   %6 = and i32 %5, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 3
   %12 = shl nuw nsw i32 %4, 1
   %13 = and i32 %12, 6
   %14 = or disjoint i32 %11, %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = lshr i32 %17, 5
   %19 = and i32 %18, 1
   %20 = or disjoint i32 %19, %14
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %17, 31
   %25 = shl nuw i32 1, %24
@@ -6418,28 +6418,28 @@ define internal range(i32 0, -2147483647) i32 @utf8_isName3(ptr nocapture readno
   %3 = load i8, ptr %1, align 1
   %4 = shl i8 %3, 4
   %5 = zext i8 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = lshr i32 %8, 2
   %10 = and i32 %9, 15
   %11 = or disjoint i32 %10, %5
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 3
   %17 = shl nuw nsw i32 %8, 1
   %18 = and i32 %17, 6
   %19 = or disjoint i32 %16, %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = lshr i32 %22, 5
   %24 = and i32 %23, 1
   %25 = or disjoint i32 %24, %19
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %22, 31
   %30 = shl nuw i32 1, %29
@@ -6459,21 +6459,21 @@ define internal range(i32 0, -2147483647) i32 @utf8_isNmstrt2(ptr nocapture read
   %5 = lshr i32 %4, 2
   %6 = and i32 %5, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 3
   %12 = shl nuw nsw i32 %4, 1
   %13 = and i32 %12, 6
   %14 = or disjoint i32 %11, %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = lshr i32 %17, 5
   %19 = and i32 %18, 1
   %20 = or disjoint i32 %19, %14
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %17, 31
   %25 = shl nuw i32 1, %24
@@ -6486,28 +6486,28 @@ define internal range(i32 0, -2147483647) i32 @utf8_isNmstrt3(ptr nocapture read
   %3 = load i8, ptr %1, align 1
   %4 = shl i8 %3, 4
   %5 = zext i8 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = lshr i32 %8, 2
   %10 = and i32 %9, 15
   %11 = or disjoint i32 %10, %5
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 3
   %17 = shl nuw nsw i32 %8, 1
   %18 = and i32 %17, 6
   %19 = or disjoint i32 %16, %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = lshr i32 %22, 5
   %24 = and i32 %23, 1
   %25 = or disjoint i32 %24, %19
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %22, 31
   %30 = shl nuw i32 1, %29
@@ -6522,7 +6522,7 @@ define internal range(i32 0, 2) i32 @utf8_isInvalid2(ptr nocapture readnone %0, 
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %12, label %9
@@ -6539,7 +6539,7 @@ define internal range(i32 0, 2) i32 @utf8_isInvalid2(ptr nocapture readnone %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @utf8_isInvalid3(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i8, ptr %3, align 1
   %5 = icmp sgt i8 %4, -1
   br i1 %5, label %30, label %6
@@ -6550,7 +6550,7 @@ define internal range(i32 0, 2) i32 @utf8_isInvalid3(ptr nocapture readnone %0, 
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, -65
   br i1 %12, label %13, label %.thread13
@@ -6569,7 +6569,7 @@ define internal range(i32 0, 2) i32 @utf8_isInvalid3(ptr nocapture readnone %0, 
 
 18:                                               ; preds = %15
   %19 = icmp eq i8 %7, -32
-  %20 = getelementptr inbounds i8, ptr %1, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %21 = load i8, ptr %20, align 1
   br i1 %19, label %22, label %.thread
 
@@ -6602,13 +6602,13 @@ define internal range(i32 0, 2) i32 @utf8_isInvalid3(ptr nocapture readnone %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @utf8_isInvalid4(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 3
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %4 = load i8, ptr %3, align 1
   %or.cond = icmp sgt i8 %4, -65
   br i1 %or.cond, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i8, ptr %6, align 1
   %or.cond12 = icmp sgt i8 %7, -65
   br i1 %or.cond12, label %21, label %8
@@ -6616,7 +6616,7 @@ define internal range(i32 0, 2) i32 @utf8_isInvalid4(ptr nocapture readnone %0, 
 8:                                                ; preds = %5
   %9 = load i8, ptr %1, align 1
   %10 = icmp eq i8 %9, -16
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1
   br i1 %10, label %13, label %15
 
@@ -6669,7 +6669,7 @@ define internal i32 @little2_prologTok(ptr nocapture noundef readonly %0, ptr no
 
 15:                                               ; preds = %13, %5
   %.0180 = phi ptr [ %14, %13 ], [ %2, %5 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %unicode_byte_type.exit.thread279 [
     i8 0, label %unicode_byte_type.exit
@@ -6690,10 +6690,10 @@ define internal i32 @little2_prologTok(ptr nocapture noundef readonly %0, ptr no
   br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread279
 
 unicode_byte_type.exit:                           ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = load i8, ptr %1, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds [256 x i8], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   switch i8 %24, label %unicode_byte_type.exit.thread [
     i8 12, label %25
@@ -6723,17 +6723,17 @@ unicode_byte_type.exit:                           ; preds = %15
   ]
 
 25:                                               ; preds = %unicode_byte_type.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %27 = tail call fastcc i32 @little2_scanLit(i32 noundef 12, ptr noundef nonnull %0, ptr noundef nonnull %26, ptr noundef %.0180, ptr noundef %3)
   br label %239
 
 28:                                               ; preds = %unicode_byte_type.exit
-  %29 = getelementptr inbounds i8, ptr %1, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %30 = tail call fastcc i32 @little2_scanLit(i32 noundef 13, ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %.0180, ptr noundef %3)
   br label %239
 
 31:                                               ; preds = %unicode_byte_type.exit
-  %32 = getelementptr inbounds i8, ptr %1, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %33 = ptrtoint ptr %.0180 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
@@ -6741,7 +6741,7 @@ unicode_byte_type.exit:                           ; preds = %15
   br i1 %36, label %37, label %239
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %1, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %39 = load i8, ptr %38, align 1
   switch i8 %39, label %unicode_byte_type.exit198.thread283 [
     i8 0, label %unicode_byte_type.exit198
@@ -6758,10 +6758,10 @@ unicode_byte_type.exit:                           ; preds = %15
   br i1 %switch.i196, label %unicode_byte_type.exit198.thread, label %unicode_byte_type.exit198.thread283
 
 unicode_byte_type.exit198:                        ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = load i8, ptr %32, align 1
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds [256 x i8], ptr %42, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [256 x i8], ptr %42, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
   switch i8 %46, label %unicode_byte_type.exit198.thread [
     i8 16, label %47
@@ -6775,12 +6775,12 @@ unicode_byte_type.exit198:                        ; preds = %37
   ]
 
 47:                                               ; preds = %unicode_byte_type.exit198
-  %48 = getelementptr inbounds i8, ptr %1, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %49 = tail call fastcc i32 @little2_scanDecl(ptr noundef nonnull %0, ptr noundef nonnull %48, ptr noundef %.0180, ptr noundef %3)
   br label %239
 
 50:                                               ; preds = %unicode_byte_type.exit198
-  %51 = getelementptr inbounds i8, ptr %1, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %52 = tail call fastcc i32 @little2_scanPi(ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef %.0180, ptr noundef %3)
   br label %239
 
@@ -6793,7 +6793,7 @@ unicode_byte_type.exit198.thread:                 ; preds = %37, %37, %37, %37, 
   br label %239
 
 53:                                               ; preds = %unicode_byte_type.exit
-  %54 = getelementptr inbounds i8, ptr %1, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %55 = icmp eq ptr %54, %.0180
   br i1 %55, label %56, label %57
 
@@ -6803,20 +6803,20 @@ unicode_byte_type.exit198.thread:                 ; preds = %37, %37, %37, %37, 
 
 57:                                               ; preds = %53, %unicode_byte_type.exit, %unicode_byte_type.exit
   %58 = ptrtoint ptr %.0180 to i64
-  %59 = getelementptr inbounds i8, ptr %1, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %60 = ptrtoint ptr %59 to i64
   %61 = sub i64 %58, %60
   %62 = icmp sgt i64 %61, 1
   br i1 %62, label %.lr.ph242, label %._crit_edge243
 
 .lr.ph242:                                        ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %0, i64 128
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %64
 
 64:                                               ; preds = %.lr.ph242, %74
   %65 = phi ptr [ %59, %.lr.ph242 ], [ %75, %74 ]
   %.0181240 = phi ptr [ %1, %.lr.ph242 ], [ %65, %74 ]
-  %66 = getelementptr inbounds i8, ptr %.0181240, i64 3
+  %66 = getelementptr inbounds nuw i8, ptr %.0181240, i64 3
   %67 = load i8, ptr %66, align 1
   %cond = icmp eq i8 %67, 0
   br i1 %cond, label %unicode_byte_type.exit201, label %unicode_byte_type.exit201.thread
@@ -6824,7 +6824,7 @@ unicode_byte_type.exit198.thread:                 ; preds = %37, %37, %37, %37, 
 unicode_byte_type.exit201:                        ; preds = %64
   %68 = load i8, ptr %65, align 1
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds [256 x i8], ptr %63, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [256 x i8], ptr %63, i64 0, i64 %69
   %71 = load i8, ptr %70, align 1
   switch i8 %71, label %unicode_byte_type.exit201.thread [
     i8 21, label %74
@@ -6833,7 +6833,7 @@ unicode_byte_type.exit201:                        ; preds = %64
   ]
 
 72:                                               ; preds = %unicode_byte_type.exit201
-  %73 = getelementptr inbounds i8, ptr %.0181240, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %.0181240, i64 4
   %.not194 = icmp eq ptr %73, %.0180
   br i1 %.not194, label %unicode_byte_type.exit201.thread, label %74
 
@@ -6842,7 +6842,7 @@ unicode_byte_type.exit201.thread:                 ; preds = %64, %72, %unicode_b
   br label %239
 
 74:                                               ; preds = %72, %unicode_byte_type.exit201, %unicode_byte_type.exit201
-  %75 = getelementptr inbounds i8, ptr %65, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %65, i64 2
   %76 = ptrtoint ptr %75 to i64
   %77 = sub i64 %58, %76
   %78 = icmp sgt i64 %77, 1
@@ -6854,22 +6854,22 @@ unicode_byte_type.exit201.thread:                 ; preds = %64, %72, %unicode_b
   br label %239
 
 79:                                               ; preds = %unicode_byte_type.exit
-  %80 = getelementptr inbounds i8, ptr %1, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %81 = tail call fastcc i32 @little2_scanPercent(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef %.0180, ptr noundef %3)
   br label %239
 
 82:                                               ; preds = %unicode_byte_type.exit
-  %83 = getelementptr inbounds i8, ptr %1, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %83, ptr %3, align 8
   br label %239
 
 84:                                               ; preds = %unicode_byte_type.exit
-  %85 = getelementptr inbounds i8, ptr %1, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %85, ptr %3, align 8
   br label %239
 
 86:                                               ; preds = %unicode_byte_type.exit
-  %87 = getelementptr inbounds i8, ptr %1, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %88 = ptrtoint ptr %.0180 to i64
   %89 = ptrtoint ptr %87 to i64
   %90 = sub i64 %88, %89
@@ -6877,7 +6877,7 @@ unicode_byte_type.exit201.thread:                 ; preds = %64, %72, %unicode_b
   br i1 %91, label %92, label %239
 
 92:                                               ; preds = %86
-  %93 = getelementptr inbounds i8, ptr %1, i64 3
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %94 = load i8, ptr %93, align 1
   %95 = icmp eq i8 %94, 0
   br i1 %95, label %96, label %111
@@ -6892,19 +6892,19 @@ unicode_byte_type.exit201.thread:                 ; preds = %64, %72, %unicode_b
   br i1 %100, label %101, label %239
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %1, i64 5
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %103 = load i8, ptr %102, align 1
   %104 = icmp eq i8 %103, 0
   br i1 %104, label %105, label %111
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %1, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %107 = load i8, ptr %106, align 1
   %108 = icmp eq i8 %107, 62
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %1, i64 6
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store ptr %110, ptr %3, align 8
   br label %239
 
@@ -6913,12 +6913,12 @@ unicode_byte_type.exit201.thread:                 ; preds = %64, %72, %unicode_b
   br label %239
 
 112:                                              ; preds = %unicode_byte_type.exit
-  %113 = getelementptr inbounds i8, ptr %1, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %113, ptr %3, align 8
   br label %239
 
 114:                                              ; preds = %unicode_byte_type.exit
-  %115 = getelementptr inbounds i8, ptr %1, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %116 = ptrtoint ptr %.0180 to i64
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
@@ -6926,16 +6926,16 @@ unicode_byte_type.exit201.thread:                 ; preds = %64, %72, %unicode_b
   br i1 %119, label %120, label %239
 
 120:                                              ; preds = %114
-  %121 = getelementptr inbounds i8, ptr %1, i64 3
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %122 = load i8, ptr %121, align 1
   %cond325 = icmp eq i8 %122, 0
   br i1 %cond325, label %unicode_byte_type.exit204, label %unicode_byte_type.exit204.thread
 
 unicode_byte_type.exit204:                        ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %0, i64 128
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %124 = load i8, ptr %115, align 1
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds [256 x i8], ptr %123, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw [256 x i8], ptr %123, i64 0, i64 %125
   %127 = load i8, ptr %126, align 1
   switch i8 %127, label %unicode_byte_type.exit204.thread [
     i8 33, label %128
@@ -6951,17 +6951,17 @@ unicode_byte_type.exit204:                        ; preds = %120
   ]
 
 128:                                              ; preds = %unicode_byte_type.exit204
-  %129 = getelementptr inbounds i8, ptr %1, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %129, ptr %3, align 8
   br label %239
 
 130:                                              ; preds = %unicode_byte_type.exit204
-  %131 = getelementptr inbounds i8, ptr %1, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %131, ptr %3, align 8
   br label %239
 
 132:                                              ; preds = %unicode_byte_type.exit204
-  %133 = getelementptr inbounds i8, ptr %1, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %133, ptr %3, align 8
   br label %239
 
@@ -6974,17 +6974,17 @@ unicode_byte_type.exit204.thread:                 ; preds = %120, %unicode_byte_
   br label %239
 
 135:                                              ; preds = %unicode_byte_type.exit
-  %136 = getelementptr inbounds i8, ptr %1, i64 2
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %136, ptr %3, align 8
   br label %239
 
 137:                                              ; preds = %unicode_byte_type.exit
-  %138 = getelementptr inbounds i8, ptr %1, i64 2
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %138, ptr %3, align 8
   br label %239
 
 139:                                              ; preds = %unicode_byte_type.exit
-  %140 = getelementptr inbounds i8, ptr %1, i64 2
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %141 = tail call fastcc i32 @little2_scanPoundName(ptr noundef nonnull %0, ptr noundef nonnull %140, ptr noundef %.0180, ptr noundef %3)
   br label %239
 
@@ -7023,7 +7023,7 @@ unicode_byte_type.exit.thread277:                 ; preds = %15, %15, %15, %15, 
 
 unicode_byte_type.exit.thread279:                 ; preds = %15, %18, %unicode_byte_type.exit
   %157 = zext i8 %17 to i64
-  %158 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %157
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
   %161 = shl nuw nsw i32 %160, 3
@@ -7032,7 +7032,7 @@ unicode_byte_type.exit.thread279:                 ; preds = %15, %18, %unicode_b
   %164 = lshr i32 %163, 5
   %165 = or disjoint i32 %164, %161
   %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %166
   %168 = load i32, ptr %167, align 4
   %169 = and i32 %163, 31
   %170 = shl nuw i32 1, %169
@@ -7041,13 +7041,13 @@ unicode_byte_type.exit.thread279:                 ; preds = %15, %18, %unicode_b
   br i1 %.not188, label %172, label %182
 
 172:                                              ; preds = %unicode_byte_type.exit.thread279
-  %173 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %157
+  %173 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %157
   %174 = load i8, ptr %173, align 1
   %175 = zext i8 %174 to i32
   %176 = shl nuw nsw i32 %175, 3
   %177 = or disjoint i32 %176, %164
   %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %178
+  %179 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %178
   %180 = load i32, ptr %179, align 4
   %181 = and i32 %180, %170
   %.not189 = icmp eq i32 %181, 0
@@ -7061,21 +7061,21 @@ unicode_byte_type.exit.thread:                    ; preds = %15, %15, %15, %15, 
   %183 = phi i1 [ true, %156 ], [ false, %unicode_byte_type.exit ], [ false, %unicode_byte_type.exit ], [ false, %unicode_byte_type.exit.thread279 ], [ true, %172 ]
   %.0 = phi i32 [ 19, %156 ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit.thread279 ], [ 19, %172 ]
   %184 = ptrtoint ptr %.0180 to i64
-  %.2237 = getelementptr inbounds i8, ptr %1, i64 2
+  %.2237 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %185 = ptrtoint ptr %.2237 to i64
   %186 = sub i64 %184, %185
   %187 = icmp sgt i64 %186, 1
   br i1 %187, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %182
-  %188 = getelementptr inbounds i8, ptr %0, i64 128
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %189
 
 189:                                              ; preds = %.lr.ph, %215
   %190 = phi i64 [ %186, %.lr.ph ], [ %217, %215 ]
   %.2239 = phi ptr [ %.2237, %.lr.ph ], [ %.2, %215 ]
   %.pn238 = phi ptr [ %1, %.lr.ph ], [ %.2239, %215 ]
-  %191 = getelementptr inbounds i8, ptr %.pn238, i64 3
+  %191 = getelementptr inbounds nuw i8, ptr %.pn238, i64 3
   %192 = load i8, ptr %191, align 1
   switch i8 %192, label %unicode_byte_type.exit207.thread288 [
     i8 0, label %unicode_byte_type.exit207
@@ -7098,7 +7098,7 @@ unicode_byte_type.exit.thread:                    ; preds = %15, %15, %15, %15, 
 unicode_byte_type.exit207:                        ; preds = %189
   %195 = load i8, ptr %.2239, align 1
   %196 = zext i8 %195 to i64
-  %197 = getelementptr inbounds [256 x i8], ptr %188, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw [256 x i8], ptr %188, i64 0, i64 %196
   %198 = load i8, ptr %197, align 1
   switch i8 %198, label %unicode_byte_type.exit207.thread [
     i8 29, label %unicode_byte_type.exit207.thread288
@@ -7126,7 +7126,7 @@ unicode_byte_type.exit207:                        ; preds = %189
 
 unicode_byte_type.exit207.thread288:              ; preds = %189, %193, %unicode_byte_type.exit207
   %199 = zext i8 %192 to i64
-  %200 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %199
   %201 = load i8, ptr %200, align 1
   %202 = zext i8 %201 to i32
   %203 = shl nuw nsw i32 %202, 3
@@ -7135,7 +7135,7 @@ unicode_byte_type.exit207.thread288:              ; preds = %189, %193, %unicode
   %206 = lshr i32 %205, 5
   %207 = or disjoint i32 %206, %203
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %208
+  %209 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %208
   %210 = load i32, ptr %209, align 4
   %211 = and i32 %205, 31
   %212 = shl nuw i32 1, %211
@@ -7148,7 +7148,7 @@ unicode_byte_type.exit207.thread288:              ; preds = %189, %193, %unicode
   br label %239
 
 215:                                              ; preds = %unicode_byte_type.exit207.thread288, %unicode_byte_type.exit207, %unicode_byte_type.exit207, %unicode_byte_type.exit207, %unicode_byte_type.exit207, %unicode_byte_type.exit207
-  %.2 = getelementptr inbounds i8, ptr %.2239, i64 2
+  %.2 = getelementptr inbounds nuw i8, ptr %.2239, i64 2
   %216 = ptrtoint ptr %.2 to i64
   %217 = sub i64 %184, %216
   %218 = icmp sgt i64 %217, 1
@@ -7186,7 +7186,7 @@ unicode_byte_type.exit207.thread291:              ; preds = %189, %189, %189, %1
   br label %239
 
 228:                                              ; preds = %226
-  %229 = getelementptr inbounds i8, ptr %.pn238, i64 4
+  %229 = getelementptr inbounds nuw i8, ptr %.pn238, i64 4
   store ptr %229, ptr %3, align 8
   br label %239
 
@@ -7198,7 +7198,7 @@ unicode_byte_type.exit207.thread291:              ; preds = %189, %189, %189, %1
   br label %239
 
 232:                                              ; preds = %230
-  %233 = getelementptr inbounds i8, ptr %.pn238, i64 4
+  %233 = getelementptr inbounds nuw i8, ptr %.pn238, i64 4
   store ptr %233, ptr %3, align 8
   br label %239
 
@@ -7210,7 +7210,7 @@ unicode_byte_type.exit207.thread291:              ; preds = %189, %189, %189, %1
   br label %239
 
 236:                                              ; preds = %234
-  %237 = getelementptr inbounds i8, ptr %.pn238, i64 4
+  %237 = getelementptr inbounds nuw i8, ptr %.pn238, i64 4
   store ptr %237, ptr %3, align 8
   br label %239
 
@@ -7251,7 +7251,7 @@ define internal i32 @little2_contentTok(ptr nocapture noundef readonly %0, ptr n
 
 15:                                               ; preds = %13, %5
   %.099 = phi ptr [ %14, %13 ], [ %2, %5 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %unicode_byte_type.exit.thread291 [
     i8 0, label %unicode_byte_type.exit
@@ -7272,10 +7272,10 @@ define internal i32 @little2_contentTok(ptr nocapture noundef readonly %0, ptr n
   br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread291
 
 unicode_byte_type.exit:                           ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = load i8, ptr %1, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds [256 x i8], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   switch i8 %24, label %unicode_byte_type.exit.thread291 [
     i8 2, label %25
@@ -7292,7 +7292,7 @@ unicode_byte_type.exit:                           ; preds = %15
   ]
 
 25:                                               ; preds = %unicode_byte_type.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %27 = ptrtoint ptr %.099 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
@@ -7300,7 +7300,7 @@ unicode_byte_type.exit:                           ; preds = %15
   br i1 %30, label %31, label %little2_scanLt.exit
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %1, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %33 = load i8, ptr %32, align 1
   switch i8 %33, label %.unicode_byte_type.exit.thread297.i_crit_edge [
     i8 0, label %unicode_byte_type.exit.i
@@ -7325,10 +7325,10 @@ unicode_byte_type.exit:                           ; preds = %15
   br i1 %switch.i.i, label %unicode_byte_type.exit.thread.i, label %unicode_byte_type.exit.thread297.i
 
 unicode_byte_type.exit.i:                         ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = load i8, ptr %26, align 1
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [256 x i8], ptr %36, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   switch i8 %40, label %unicode_byte_type.exit.thread.i [
     i8 29, label %unicode_byte_type.exit.thread297.i
@@ -7345,7 +7345,7 @@ unicode_byte_type.exit.i:                         ; preds = %31
 unicode_byte_type.exit.thread297.i:               ; preds = %.unicode_byte_type.exit.thread297.i_crit_edge, %unicode_byte_type.exit.i, %34
   %41 = phi i8 [ %.pre, %.unicode_byte_type.exit.thread297.i_crit_edge ], [ %37, %unicode_byte_type.exit.i ], [ %35, %34 ]
   %42 = zext i8 %33 to i64
-  %43 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 3
@@ -7353,7 +7353,7 @@ unicode_byte_type.exit.thread297.i:               ; preds = %.unicode_byte_type.
   %48 = lshr i32 %47, 5
   %49 = or disjoint i32 %48, %46
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %47, 31
   %54 = shl nuw i32 1, %53
@@ -7366,14 +7366,14 @@ unicode_byte_type.exit.thread297.i:               ; preds = %.unicode_byte_type.
   br label %little2_scanLt.exit
 
 57:                                               ; preds = %unicode_byte_type.exit.thread297.i, %unicode_byte_type.exit.i, %unicode_byte_type.exit.i
-  %.0124217.i = getelementptr inbounds i8, ptr %1, i64 4
+  %.0124217.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   %58 = ptrtoint ptr %.0124217.i to i64
   %59 = sub i64 %27, %58
   %60 = icmp sgt i64 %59, 1
   br i1 %60, label %.lr.ph.i, label %little2_scanLt.exit
 
 .lr.ph.i:                                         ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %0, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %188
 
 62:                                               ; preds = %unicode_byte_type.exit.i
@@ -7397,14 +7397,14 @@ unicode_byte_type.exit.thread300.i:               ; preds = %unicode_byte_type.e
   br label %little2_scanLt.exit
 
 68:                                               ; preds = %unicode_byte_type.exit.i
-  %69 = getelementptr inbounds i8, ptr %1, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %70 = ptrtoint ptr %69 to i64
   %71 = sub i64 %27, %70
   %72 = icmp sgt i64 %71, 1
   br i1 %72, label %73, label %little2_scanLt.exit
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds i8, ptr %1, i64 5
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %75 = load i8, ptr %74, align 1
   %cond.i = icmp eq i8 %75, 0
   br i1 %cond.i, label %unicode_byte_type.exit135.i, label %unicode_byte_type.exit135.thread.i
@@ -7412,7 +7412,7 @@ unicode_byte_type.exit.thread300.i:               ; preds = %unicode_byte_type.e
 unicode_byte_type.exit135.i:                      ; preds = %73
   %76 = load i8, ptr %69, align 1
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [256 x i8], ptr %36, i64 0, i64 %77
   %79 = load i8, ptr %78, align 1
   switch i8 %79, label %unicode_byte_type.exit135.thread.i [
     i8 27, label %80
@@ -7420,12 +7420,12 @@ unicode_byte_type.exit135.i:                      ; preds = %73
   ]
 
 80:                                               ; preds = %unicode_byte_type.exit135.i
-  %81 = getelementptr inbounds i8, ptr %1, i64 6
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %82 = tail call fastcc i32 @little2_scanComment(ptr noundef nonnull readonly %0, ptr noundef nonnull %81, ptr noundef %.099, ptr noundef %3)
   br label %little2_scanLt.exit
 
 83:                                               ; preds = %unicode_byte_type.exit135.i
-  %84 = getelementptr inbounds i8, ptr %1, i64 6
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %85 = ptrtoint ptr %84 to i64
   %86 = sub i64 %27, %85
   %87 = icmp sgt i64 %86, 11
@@ -7438,21 +7438,21 @@ unicode_byte_type.exit135.i:                      ; preds = %73
 .preheader.i.i:                                   ; preds = %96, %.preheader.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %indvars.iv.next.i.i, %96 ]
   %.0132.i.i = phi ptr [ %84, %.preheader.preheader.i.i ], [ %97, %96 ]
-  %88 = getelementptr inbounds i8, ptr %.0132.i.i, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.0132.i.i, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 0
   br i1 %90, label %91, label %.sink.split.i.i
 
 91:                                               ; preds = %.preheader.i.i
   %92 = load i8, ptr %.0132.i.i, align 1
-  %93 = getelementptr inbounds [6 x i8], ptr @big2_scanCdataSection.CDATA_LSQB, i64 0, i64 %indvars.iv.i.i
+  %93 = getelementptr inbounds nuw [6 x i8], ptr @big2_scanCdataSection.CDATA_LSQB, i64 0, i64 %indvars.iv.i.i
   %94 = load i8, ptr %93, align 1
   %95 = icmp eq i8 %92, %94
   br i1 %95, label %96, label %.sink.split.i.i
 
 96:                                               ; preds = %91
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %97 = getelementptr inbounds i8, ptr %.0132.i.i, i64 2
+  %97 = getelementptr inbounds nuw i8, ptr %.0132.i.i, i64 2
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
   br i1 %exitcond.not.i.i, label %.sink.split.i.i, label %.preheader.i.i, !llvm.loop !41
 
@@ -7467,19 +7467,19 @@ unicode_byte_type.exit135.thread.i:               ; preds = %unicode_byte_type.e
   br label %little2_scanLt.exit
 
 98:                                               ; preds = %unicode_byte_type.exit.i
-  %99 = getelementptr inbounds i8, ptr %1, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %100 = tail call fastcc i32 @little2_scanPi(ptr noundef nonnull readonly %0, ptr noundef nonnull %99, ptr noundef %.099, ptr noundef %3)
   br label %little2_scanLt.exit
 
 101:                                              ; preds = %unicode_byte_type.exit.i
-  %102 = getelementptr inbounds i8, ptr %1, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %103 = ptrtoint ptr %102 to i64
   %104 = sub i64 %27, %103
   %105 = icmp sgt i64 %104, 1
   br i1 %105, label %106, label %little2_scanLt.exit
 
 106:                                              ; preds = %101
-  %107 = getelementptr inbounds i8, ptr %1, i64 5
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %108 = load i8, ptr %107, align 1
   switch i8 %108, label %.unicode_byte_type.exit.thread135.i_crit_edge.i [
     i8 0, label %unicode_byte_type.exit.i.i
@@ -7506,7 +7506,7 @@ unicode_byte_type.exit135.thread.i:               ; preds = %unicode_byte_type.e
 unicode_byte_type.exit.i.i:                       ; preds = %106
   %111 = load i8, ptr %102, align 1
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [256 x i8], ptr %36, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
   switch i8 %114, label %.loopexit.sink.split.i.i [
     i8 29, label %unicode_byte_type.exit.thread135.i.i
@@ -7519,7 +7519,7 @@ unicode_byte_type.exit.i.i:                       ; preds = %106
 unicode_byte_type.exit.thread135.i.i:             ; preds = %unicode_byte_type.exit.i.i, %109, %.unicode_byte_type.exit.thread135.i_crit_edge.i
   %115 = phi i8 [ %.pre.i, %.unicode_byte_type.exit.thread135.i_crit_edge.i ], [ %111, %unicode_byte_type.exit.i.i ], [ %110, %109 ]
   %116 = zext i8 %108 to i64
-  %117 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   %120 = shl nuw nsw i32 %119, 3
@@ -7527,7 +7527,7 @@ unicode_byte_type.exit.thread135.i.i:             ; preds = %unicode_byte_type.e
   %122 = lshr i32 %121, 5
   %123 = or disjoint i32 %120, %122
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = and i32 %121, 31
   %128 = shl nuw i32 1, %127
@@ -7536,7 +7536,7 @@ unicode_byte_type.exit.thread135.i.i:             ; preds = %unicode_byte_type.e
   br i1 %.not.i.i, label %.loopexit.sink.split.i.i, label %130
 
 130:                                              ; preds = %unicode_byte_type.exit.thread135.i.i, %unicode_byte_type.exit.i.i, %unicode_byte_type.exit.i.i
-  %.069105.i.i = getelementptr inbounds i8, ptr %1, i64 6
+  %.069105.i.i = getelementptr inbounds nuw i8, ptr %1, i64 6
   %131 = ptrtoint ptr %.069105.i.i to i64
   %132 = sub i64 %27, %131
   %133 = icmp sgt i64 %132, 1
@@ -7554,7 +7554,7 @@ unicode_byte_type.exit.thread138.i.i:             ; preds = %unicode_byte_type.e
   %137 = phi i64 [ %163, %161 ], [ %132, %130 ]
   %.069107.i.i = phi ptr [ %.069.i.i, %161 ], [ %.069105.i.i, %130 ]
   %.pn106.i.i = phi ptr [ %.069107.i.i, %161 ], [ %102, %130 ]
-  %138 = getelementptr inbounds i8, ptr %.pn106.i.i, i64 3
+  %138 = getelementptr inbounds nuw i8, ptr %.pn106.i.i, i64 3
   %139 = load i8, ptr %138, align 1
   switch i8 %139, label %.unicode_byte_type.exit77.thread141.i_crit_edge.i [
     i8 0, label %unicode_byte_type.exit77.i.i
@@ -7581,7 +7581,7 @@ unicode_byte_type.exit.thread138.i.i:             ; preds = %unicode_byte_type.e
 unicode_byte_type.exit77.i.i:                     ; preds = %.lr.ph.i.i
   %142 = load i8, ptr %.069107.i.i, align 1
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 %143
+  %144 = getelementptr inbounds nuw [256 x i8], ptr %36, i64 0, i64 %143
   %145 = load i8, ptr %144, align 1
   switch i8 %145, label %.loopexit.sink.split.i.i [
     i8 29, label %unicode_byte_type.exit77.thread141.i.i
@@ -7601,7 +7601,7 @@ unicode_byte_type.exit77.i.i:                     ; preds = %.lr.ph.i.i
 unicode_byte_type.exit77.thread141.i.i:           ; preds = %unicode_byte_type.exit77.i.i, %140, %.unicode_byte_type.exit77.thread141.i_crit_edge.i
   %146 = phi i8 [ %.pre295.i, %.unicode_byte_type.exit77.thread141.i_crit_edge.i ], [ %142, %unicode_byte_type.exit77.i.i ], [ %141, %140 ]
   %147 = zext i8 %139 to i64
-  %148 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %147
   %149 = load i8, ptr %148, align 1
   %150 = zext i8 %149 to i32
   %151 = shl nuw nsw i32 %150, 3
@@ -7609,7 +7609,7 @@ unicode_byte_type.exit77.thread141.i.i:           ; preds = %unicode_byte_type.e
   %153 = lshr i32 %152, 5
   %154 = or disjoint i32 %151, %153
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %155
   %157 = load i32, ptr %156, align 4
   %158 = and i32 %152, 31
   %159 = shl nuw i32 1, %158
@@ -7618,7 +7618,7 @@ unicode_byte_type.exit77.thread141.i.i:           ; preds = %unicode_byte_type.e
   br i1 %.not74.i.i, label %.loopexit.sink.split.i.i, label %161
 
 161:                                              ; preds = %unicode_byte_type.exit77.thread141.i.i, %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i
-  %.069.i.i = getelementptr inbounds i8, ptr %.069107.i.i, i64 2
+  %.069.i.i = getelementptr inbounds nuw i8, ptr %.069107.i.i, i64 2
   %162 = ptrtoint ptr %.069.i.i to i64
   %163 = sub i64 %27, %162
   %164 = icmp sgt i64 %163, 1
@@ -7633,7 +7633,7 @@ unicode_byte_type.exit77.thread144.i.i:           ; preds = %unicode_byte_type.e
   br i1 %167, label %little2_scanLt.exit, label %.loopexit.sink.split.i.i
 
 168:                                              ; preds = %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i
-  %169 = getelementptr inbounds i8, ptr %.pn106.i.i, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %.pn106.i.i, i64 4
   %170 = ptrtoint ptr %169 to i64
   %171 = sub i64 %27, %170
   %172 = icmp sgt i64 %171, 1
@@ -7641,7 +7641,7 @@ unicode_byte_type.exit77.thread144.i.i:           ; preds = %unicode_byte_type.e
 
 .lr.ph109.i.i:                                    ; preds = %168, %181
   %.1108.i.i = phi ptr [ %182, %181 ], [ %169, %168 ]
-  %173 = getelementptr inbounds i8, ptr %.1108.i.i, i64 1
+  %173 = getelementptr inbounds nuw i8, ptr %.1108.i.i, i64 1
   %174 = load i8, ptr %173, align 1
   %cond.i.i = icmp eq i8 %174, 0
   br i1 %cond.i.i, label %unicode_byte_type.exit80.i.i, label %.loopexit.sink.split.i.i
@@ -7649,7 +7649,7 @@ unicode_byte_type.exit77.thread144.i.i:           ; preds = %unicode_byte_type.e
 unicode_byte_type.exit80.i.i:                     ; preds = %.lr.ph109.i.i
   %175 = load i8, ptr %.1108.i.i, align 1
   %176 = zext i8 %175 to i64
-  %177 = getelementptr inbounds [256 x i8], ptr %36, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw [256 x i8], ptr %36, i64 0, i64 %176
   %178 = load i8, ptr %177, align 1
   switch i8 %178, label %.loopexit.sink.split.i.i [
     i8 21, label %181
@@ -7659,18 +7659,18 @@ unicode_byte_type.exit80.i.i:                     ; preds = %.lr.ph109.i.i
   ]
 
 179:                                              ; preds = %unicode_byte_type.exit80.i.i
-  %180 = getelementptr inbounds i8, ptr %.1108.i.i, i64 2
+  %180 = getelementptr inbounds nuw i8, ptr %.1108.i.i, i64 2
   br label %.loopexit.sink.split.i.i
 
 181:                                              ; preds = %unicode_byte_type.exit80.i.i, %unicode_byte_type.exit80.i.i, %unicode_byte_type.exit80.i.i
-  %182 = getelementptr inbounds i8, ptr %.1108.i.i, i64 2
+  %182 = getelementptr inbounds nuw i8, ptr %.1108.i.i, i64 2
   %183 = ptrtoint ptr %182 to i64
   %184 = sub i64 %27, %183
   %185 = icmp sgt i64 %184, 1
   br i1 %185, label %.lr.ph109.i.i, label %little2_scanLt.exit, !llvm.loop !43
 
 186:                                              ; preds = %unicode_byte_type.exit77.i.i
-  %187 = getelementptr inbounds i8, ptr %.pn106.i.i, i64 4
+  %187 = getelementptr inbounds nuw i8, ptr %.pn106.i.i, i64 4
   br label %.loopexit.sink.split.i.i
 
 .loopexit.sink.split.i.i:                         ; preds = %unicode_byte_type.exit77.thread141.i.i, %unicode_byte_type.exit77.i.i, %140, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %unicode_byte_type.exit80.i.i, %.lr.ph109.i.i, %186, %179, %unicode_byte_type.exit77.thread144.i.i, %165, %unicode_byte_type.exit.thread138.i.i, %134, %unicode_byte_type.exit.thread135.i.i, %unicode_byte_type.exit.i.i, %109, %106, %106, %106, %106
@@ -7687,7 +7687,7 @@ unicode_byte_type.exit.thread.i:                  ; preds = %unicode_byte_type.e
   %189 = phi i64 [ %59, %.lr.ph.i ], [ %216, %214 ]
   %.0124219.i = phi ptr [ %.0124217.i, %.lr.ph.i ], [ %.0124.i, %214 ]
   %.pn218.i = phi ptr [ %26, %.lr.ph.i ], [ %.0124219.i, %214 ]
-  %190 = getelementptr inbounds i8, ptr %.pn218.i, i64 3
+  %190 = getelementptr inbounds nuw i8, ptr %.pn218.i, i64 3
   %191 = load i8, ptr %190, align 1
   switch i8 %191, label %.unicode_byte_type.exit139.thread304.i_crit_edge [
     i8 0, label %unicode_byte_type.exit139.i
@@ -7714,7 +7714,7 @@ unicode_byte_type.exit.thread.i:                  ; preds = %unicode_byte_type.e
 unicode_byte_type.exit139.i:                      ; preds = %188
   %194 = load i8, ptr %.0124219.i, align 1
   %195 = zext i8 %194 to i64
-  %196 = getelementptr inbounds [256 x i8], ptr %61, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %195
   %197 = load i8, ptr %196, align 1
   switch i8 %197, label %unicode_byte_type.exit139.thread.i [
     i8 29, label %unicode_byte_type.exit139.thread304.i
@@ -7736,7 +7736,7 @@ unicode_byte_type.exit139.i:                      ; preds = %188
 unicode_byte_type.exit139.thread304.i:            ; preds = %.unicode_byte_type.exit139.thread304.i_crit_edge, %unicode_byte_type.exit139.i, %192
   %198 = phi i8 [ %.pre287, %.unicode_byte_type.exit139.thread304.i_crit_edge ], [ %194, %unicode_byte_type.exit139.i ], [ %193, %192 ]
   %199 = zext i8 %191 to i64
-  %200 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %199
   %201 = load i8, ptr %200, align 1
   %202 = zext i8 %201 to i32
   %203 = shl nuw nsw i32 %202, 3
@@ -7744,7 +7744,7 @@ unicode_byte_type.exit139.thread304.i:            ; preds = %.unicode_byte_type.
   %205 = lshr i32 %204, 5
   %206 = or disjoint i32 %205, %203
   %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %207
   %209 = load i32, ptr %208, align 4
   %210 = and i32 %204, 31
   %211 = shl nuw i32 1, %210
@@ -7757,7 +7757,7 @@ unicode_byte_type.exit139.thread304.i:            ; preds = %.unicode_byte_type.
   br label %little2_scanLt.exit
 
 214:                                              ; preds = %unicode_byte_type.exit139.thread304.i, %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i
-  %.0124.i = getelementptr inbounds i8, ptr %.0124219.i, i64 2
+  %.0124.i = getelementptr inbounds nuw i8, ptr %.0124219.i, i64 2
   %215 = ptrtoint ptr %.0124.i to i64
   %216 = sub i64 %27, %215
   %217 = icmp sgt i64 %216, 1
@@ -7784,7 +7784,7 @@ unicode_byte_type.exit139.thread307.i:            ; preds = %unicode_byte_type.e
   br label %little2_scanLt.exit
 
 224:                                              ; preds = %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i
-  %225 = getelementptr inbounds i8, ptr %.pn218.i, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %.pn218.i, i64 4
   %226 = ptrtoint ptr %225 to i64
   %227 = sub i64 %27, %226
   %228 = icmp sgt i64 %227, 1
@@ -7793,7 +7793,7 @@ unicode_byte_type.exit139.thread307.i:            ; preds = %unicode_byte_type.e
 .lr.ph221.i:                                      ; preds = %224, %263
   %229 = phi i64 [ %266, %263 ], [ %227, %224 ]
   %.1220.i = phi ptr [ %264, %263 ], [ %225, %224 ]
-  %230 = getelementptr inbounds i8, ptr %.1220.i, i64 1
+  %230 = getelementptr inbounds nuw i8, ptr %.1220.i, i64 1
   %231 = load i8, ptr %230, align 1
   switch i8 %231, label %.lr.ph221.i.unicode_byte_type.exit142.thread310.i.loopexit_crit_edge [
     i8 0, label %unicode_byte_type.exit142.i
@@ -7821,7 +7821,7 @@ unicode_byte_type.exit139.thread307.i:            ; preds = %unicode_byte_type.e
 unicode_byte_type.exit142.i:                      ; preds = %.lr.ph221.i
   %235 = load i8, ptr %.1220.i, align 1
   %236 = zext i8 %235 to i64
-  %237 = getelementptr inbounds [256 x i8], ptr %61, i64 0, i64 %236
+  %237 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %236
   %238 = load i8, ptr %237, align 1
   switch i8 %238, label %unicode_byte_type.exit142.thread.i [
     i8 29, label %unicode_byte_type.exit142.thread310.i
@@ -7840,7 +7840,7 @@ unicode_byte_type.exit142.i:                      ; preds = %.lr.ph221.i
 unicode_byte_type.exit142.thread310.i:            ; preds = %unicode_byte_type.exit142.i, %.lr.ph221.i.unicode_byte_type.exit142.thread310.i.loopexit_crit_edge, %233
   %239 = phi i8 [ %234, %233 ], [ %.pre286.pre, %.lr.ph221.i.unicode_byte_type.exit142.thread310.i.loopexit_crit_edge ], [ %235, %unicode_byte_type.exit142.i ]
   %240 = phi i64 [ 255, %233 ], [ %232, %.lr.ph221.i.unicode_byte_type.exit142.thread310.i.loopexit_crit_edge ], [ 0, %unicode_byte_type.exit142.i ]
-  %241 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %240
+  %241 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %240
   %242 = load i8, ptr %241, align 1
   %243 = zext i8 %242 to i32
   %244 = shl nuw nsw i32 %243, 3
@@ -7848,7 +7848,7 @@ unicode_byte_type.exit142.thread310.i:            ; preds = %unicode_byte_type.e
   %246 = lshr i32 %245, 5
   %247 = or disjoint i32 %246, %244
   %248 = zext nneg i32 %247 to i64
-  %249 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %248
   %250 = load i32, ptr %249, align 4
   %251 = and i32 %245, 31
   %252 = shl nuw i32 1, %251
@@ -7861,7 +7861,7 @@ unicode_byte_type.exit142.thread310.i:            ; preds = %unicode_byte_type.e
   br label %little2_scanLt.exit
 
 .loopexit.i:                                      ; preds = %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.thread310.i
-  %255 = getelementptr inbounds i8, ptr %.1220.i, i64 2
+  %255 = getelementptr inbounds nuw i8, ptr %.1220.i, i64 2
   %256 = tail call fastcc i32 @little2_scanAtts(ptr noundef readonly %0, ptr noundef nonnull %255, ptr noundef %.099, ptr noundef %3)
   br label %little2_scanLt.exit
 
@@ -7886,7 +7886,7 @@ unicode_byte_type.exit142.thread313.i:            ; preds = %unicode_byte_type.e
   br label %little2_scanLt.exit
 
 263:                                              ; preds = %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.i
-  %264 = getelementptr inbounds i8, ptr %.1220.i, i64 2
+  %264 = getelementptr inbounds nuw i8, ptr %.1220.i, i64 2
   %265 = ptrtoint ptr %264 to i64
   %266 = sub i64 %27, %265
   %267 = icmp sgt i64 %266, 1
@@ -7898,20 +7898,20 @@ unicode_byte_type.exit142.thread.i:               ; preds = %unicode_byte_type.e
 
 .loopexit143.i:                                   ; preds = %unicode_byte_type.exit139.i, %unicode_byte_type.exit142.i
   %.2.i = phi ptr [ %.1220.i, %unicode_byte_type.exit142.i ], [ %.0124219.i, %unicode_byte_type.exit139.i ]
-  %268 = getelementptr inbounds i8, ptr %.2.i, i64 2
+  %268 = getelementptr inbounds nuw i8, ptr %.2.i, i64 2
   store ptr %268, ptr %3, align 8
   br label %little2_scanLt.exit
 
 .loopexit144.i:                                   ; preds = %unicode_byte_type.exit139.i, %unicode_byte_type.exit142.i
   %.3.i = phi ptr [ %.1220.i, %unicode_byte_type.exit142.i ], [ %.0124219.i, %unicode_byte_type.exit139.i ]
-  %269 = getelementptr inbounds i8, ptr %.3.i, i64 2
+  %269 = getelementptr inbounds nuw i8, ptr %.3.i, i64 2
   %270 = ptrtoint ptr %269 to i64
   %271 = sub i64 %27, %270
   %272 = icmp sgt i64 %271, 1
   br i1 %272, label %273, label %little2_scanLt.exit
 
 273:                                              ; preds = %.loopexit144.i
-  %274 = getelementptr inbounds i8, ptr %.3.i, i64 3
+  %274 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   %275 = load i8, ptr %274, align 1
   %276 = icmp eq i8 %275, 0
   br i1 %276, label %277, label %280
@@ -7926,7 +7926,7 @@ unicode_byte_type.exit142.thread.i:               ; preds = %unicode_byte_type.e
   br label %little2_scanLt.exit
 
 281:                                              ; preds = %277
-  %282 = getelementptr inbounds i8, ptr %.3.i, i64 4
+  %282 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store ptr %282, ptr %3, align 8
   br label %little2_scanLt.exit
 
@@ -7935,12 +7935,12 @@ unicode_byte_type.exit139.thread.i:               ; preds = %unicode_byte_type.e
   br label %little2_scanLt.exit
 
 283:                                              ; preds = %unicode_byte_type.exit
-  %284 = getelementptr inbounds i8, ptr %1, i64 2
+  %284 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %285 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %284, ptr noundef %.099, ptr noundef %3)
   br label %little2_scanLt.exit
 
 286:                                              ; preds = %unicode_byte_type.exit
-  %287 = getelementptr inbounds i8, ptr %1, i64 2
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %288 = ptrtoint ptr %.099 to i64
   %289 = ptrtoint ptr %287 to i64
   %290 = sub i64 %288, %289
@@ -7948,20 +7948,20 @@ unicode_byte_type.exit139.thread.i:               ; preds = %unicode_byte_type.e
   br i1 %291, label %292, label %little2_scanLt.exit
 
 292:                                              ; preds = %286
-  %293 = getelementptr inbounds i8, ptr %1, i64 3
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %294 = load i8, ptr %293, align 1
   %cond = icmp eq i8 %294, 0
   br i1 %cond, label %unicode_byte_type.exit110, label %unicode_byte_type.exit110.thread
 
 unicode_byte_type.exit110:                        ; preds = %292
-  %295 = getelementptr inbounds i8, ptr %0, i64 128
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %296 = load i8, ptr %287, align 1
   %297 = zext i8 %296 to i64
-  %298 = getelementptr inbounds [256 x i8], ptr %295, i64 0, i64 %297
+  %298 = getelementptr inbounds nuw [256 x i8], ptr %295, i64 0, i64 %297
   %299 = load i8, ptr %298, align 1
   %.fr = freeze i8 %299
   %300 = icmp eq i8 %.fr, 10
-  %301 = getelementptr inbounds i8, ptr %1, i64 4
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %spec.select = select i1 %300, ptr %301, ptr %287
   br label %unicode_byte_type.exit110.thread
 
@@ -7971,12 +7971,12 @@ unicode_byte_type.exit110.thread:                 ; preds = %unicode_byte_type.e
   br label %little2_scanLt.exit
 
 303:                                              ; preds = %unicode_byte_type.exit
-  %304 = getelementptr inbounds i8, ptr %1, i64 2
+  %304 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %304, ptr %3, align 8
   br label %little2_scanLt.exit
 
 305:                                              ; preds = %unicode_byte_type.exit
-  %306 = getelementptr inbounds i8, ptr %1, i64 2
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %307 = ptrtoint ptr %.099 to i64
   %308 = ptrtoint ptr %306 to i64
   %309 = sub i64 %307, %308
@@ -7984,7 +7984,7 @@ unicode_byte_type.exit110.thread:                 ; preds = %unicode_byte_type.e
   br i1 %310, label %311, label %little2_scanLt.exit
 
 311:                                              ; preds = %305
-  %312 = getelementptr inbounds i8, ptr %1, i64 3
+  %312 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %313 = load i8, ptr %312, align 1
   %314 = icmp eq i8 %313, 0
   br i1 %314, label %315, label %349
@@ -7995,14 +7995,14 @@ unicode_byte_type.exit110.thread:                 ; preds = %unicode_byte_type.e
   br i1 %317, label %318, label %349
 
 318:                                              ; preds = %315
-  %319 = getelementptr inbounds i8, ptr %1, i64 4
+  %319 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %320 = ptrtoint ptr %319 to i64
   %321 = sub i64 %307, %320
   %322 = icmp sgt i64 %321, 1
   br i1 %322, label %323, label %little2_scanLt.exit
 
 323:                                              ; preds = %318
-  %324 = getelementptr inbounds i8, ptr %1, i64 5
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %325 = load i8, ptr %324, align 1
   %326 = icmp eq i8 %325, 0
   br i1 %326, label %327, label %349
@@ -8023,7 +8023,7 @@ unicode_byte_type.exit110.thread:                 ; preds = %unicode_byte_type.e
   br i1 %334, label %little2_scanLt.exit, label %335
 
 335:                                              ; preds = %331
-  %336 = getelementptr inbounds i8, ptr %1, i64 2
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %349
 
 337:                                              ; preds = %unicode_byte_type.exit
@@ -8033,7 +8033,7 @@ unicode_byte_type.exit110.thread:                 ; preds = %unicode_byte_type.e
   br i1 %340, label %little2_scanLt.exit, label %341
 
 341:                                              ; preds = %337
-  %342 = getelementptr inbounds i8, ptr %1, i64 3
+  %342 = getelementptr inbounds nuw i8, ptr %1, i64 3
   br label %349
 
 unicode_byte_type.exit.thread294:                 ; preds = %15, %15, %15, %15, %unicode_byte_type.exit
@@ -8043,7 +8043,7 @@ unicode_byte_type.exit.thread294:                 ; preds = %15, %15, %15, %15, 
   br i1 %345, label %little2_scanLt.exit, label %346
 
 346:                                              ; preds = %unicode_byte_type.exit.thread294
-  %347 = getelementptr inbounds i8, ptr %1, i64 4
+  %347 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %349
 
 unicode_byte_type.exit.thread:                    ; preds = %15, %15, %15, %15, %18, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
@@ -8051,7 +8051,7 @@ unicode_byte_type.exit.thread:                    ; preds = %15, %15, %15, %15, 
   br label %little2_scanLt.exit
 
 unicode_byte_type.exit.thread291:                 ; preds = %15, %18, %unicode_byte_type.exit
-  %348 = getelementptr inbounds i8, ptr %1, i64 2
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.pre289 = ptrtoint ptr %.099 to i64
   br label %349
 
@@ -8064,13 +8064,13 @@ unicode_byte_type.exit.thread291:                 ; preds = %15, %18, %unicode_b
   br i1 %352, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %349
-  %353 = getelementptr inbounds i8, ptr %0, i64 128
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %354
 
 354:                                              ; preds = %.lr.ph, %398
   %355 = phi i64 [ %351, %.lr.ph ], [ %400, %398 ]
   %.2200 = phi ptr [ %.1, %.lr.ph ], [ %.3, %398 ]
-  %356 = getelementptr inbounds i8, ptr %.2200, i64 1
+  %356 = getelementptr inbounds nuw i8, ptr %.2200, i64 1
   %357 = load i8, ptr %356, align 1
   switch i8 %357, label %unicode_byte_type.exit113.thread297 [
     i8 0, label %unicode_byte_type.exit113
@@ -8093,7 +8093,7 @@ unicode_byte_type.exit.thread291:                 ; preds = %15, %18, %unicode_b
 unicode_byte_type.exit113:                        ; preds = %354
   %360 = load i8, ptr %.2200, align 1
   %361 = zext i8 %360 to i64
-  %362 = getelementptr inbounds [256 x i8], ptr %353, i64 0, i64 %361
+  %362 = getelementptr inbounds nuw [256 x i8], ptr %353, i64 0, i64 %361
   %363 = load i8, ptr %362, align 1
   switch i8 %363, label %unicode_byte_type.exit113.thread297 [
     i8 5, label %364
@@ -8110,7 +8110,7 @@ unicode_byte_type.exit113:                        ; preds = %354
   ]
 
 364:                                              ; preds = %unicode_byte_type.exit113
-  %365 = getelementptr inbounds i8, ptr %.2200, i64 2
+  %365 = getelementptr inbounds nuw i8, ptr %.2200, i64 2
   br label %398
 
 366:                                              ; preds = %unicode_byte_type.exit113
@@ -8122,7 +8122,7 @@ unicode_byte_type.exit113:                        ; preds = %354
   br label %little2_scanLt.exit
 
 369:                                              ; preds = %366
-  %370 = getelementptr inbounds i8, ptr %.2200, i64 3
+  %370 = getelementptr inbounds nuw i8, ptr %.2200, i64 3
   br label %398
 
 unicode_byte_type.exit113.thread300:              ; preds = %354, %354, %354, %354, %unicode_byte_type.exit113
@@ -8134,7 +8134,7 @@ unicode_byte_type.exit113.thread300:              ; preds = %354, %354, %354, %3
   br label %little2_scanLt.exit
 
 373:                                              ; preds = %unicode_byte_type.exit113.thread300
-  %374 = getelementptr inbounds i8, ptr %.2200, i64 4
+  %374 = getelementptr inbounds nuw i8, ptr %.2200, i64 4
   br label %398
 
 375:                                              ; preds = %unicode_byte_type.exit113
@@ -8142,8 +8142,8 @@ unicode_byte_type.exit113.thread300:              ; preds = %354, %354, %354, %3
   br i1 %376, label %377, label %unicode_byte_type.exit113.thread
 
 377:                                              ; preds = %375
-  %378 = getelementptr inbounds i8, ptr %.2200, i64 2
-  %379 = getelementptr inbounds i8, ptr %.2200, i64 3
+  %378 = getelementptr inbounds nuw i8, ptr %.2200, i64 2
+  %379 = getelementptr inbounds nuw i8, ptr %.2200, i64 3
   %380 = load i8, ptr %379, align 1
   %381 = icmp eq i8 %380, 0
   br i1 %381, label %382, label %398
@@ -8158,19 +8158,19 @@ unicode_byte_type.exit113.thread300:              ; preds = %354, %354, %354, %3
   br i1 %386, label %387, label %unicode_byte_type.exit113.thread
 
 387:                                              ; preds = %385
-  %388 = getelementptr inbounds i8, ptr %.2200, i64 5
+  %388 = getelementptr inbounds nuw i8, ptr %.2200, i64 5
   %389 = load i8, ptr %388, align 1
   %390 = icmp eq i8 %389, 0
   br i1 %390, label %391, label %398
 
 391:                                              ; preds = %387
-  %392 = getelementptr inbounds i8, ptr %.2200, i64 4
+  %392 = getelementptr inbounds nuw i8, ptr %.2200, i64 4
   %393 = load i8, ptr %392, align 1
   %394 = icmp eq i8 %393, 62
   br i1 %394, label %395, label %398
 
 395:                                              ; preds = %391
-  %396 = getelementptr inbounds i8, ptr %.2200, i64 4
+  %396 = getelementptr inbounds nuw i8, ptr %.2200, i64 4
   store ptr %396, ptr %3, align 8
   br label %little2_scanLt.exit
 
@@ -8179,7 +8179,7 @@ unicode_byte_type.exit113.thread:                 ; preds = %354, %354, %354, %3
   br label %little2_scanLt.exit
 
 unicode_byte_type.exit113.thread297:              ; preds = %354, %358, %unicode_byte_type.exit113
-  %397 = getelementptr inbounds i8, ptr %.2200, i64 2
+  %397 = getelementptr inbounds nuw i8, ptr %.2200, i64 2
   br label %398
 
 398:                                              ; preds = %387, %391, %377, %382, %unicode_byte_type.exit113.thread297, %373, %369, %364
@@ -8223,7 +8223,7 @@ define internal range(i32 -4, 41) i32 @little2_cdataSectionTok(ptr nocapture nou
 
 15:                                               ; preds = %13, %5
   %.079 = phi ptr [ %14, %13 ], [ %2, %5 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %unicode_byte_type.exit.thread102 [
     i8 0, label %unicode_byte_type.exit
@@ -8244,10 +8244,10 @@ define internal range(i32 -4, 41) i32 @little2_cdataSectionTok(ptr nocapture nou
   br i1 %switch.i, label %.sink.split, label %unicode_byte_type.exit.thread102
 
 unicode_byte_type.exit:                           ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = load i8, ptr %1, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds [256 x i8], ptr %20, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   switch i8 %24, label %unicode_byte_type.exit.thread102 [
     i8 4, label %25
@@ -8262,7 +8262,7 @@ unicode_byte_type.exit:                           ; preds = %15
   ]
 
 25:                                               ; preds = %unicode_byte_type.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %27 = ptrtoint ptr %.079 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
@@ -8270,7 +8270,7 @@ unicode_byte_type.exit:                           ; preds = %15
   br i1 %30, label %31, label %110
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %1, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %35, label %88
@@ -8281,14 +8281,14 @@ unicode_byte_type.exit:                           ; preds = %15
   br i1 %37, label %38, label %88
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %1, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %40 = ptrtoint ptr %39 to i64
   %41 = sub i64 %27, %40
   %42 = icmp sgt i64 %41, 1
   br i1 %42, label %43, label %110
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %1, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 0
   br i1 %46, label %47, label %88
@@ -8299,11 +8299,11 @@ unicode_byte_type.exit:                           ; preds = %15
   br i1 %49, label %50, label %88
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %1, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 6
   br label %.sink.split
 
 52:                                               ; preds = %unicode_byte_type.exit
-  %53 = getelementptr inbounds i8, ptr %1, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %54 = ptrtoint ptr %.079 to i64
   %55 = ptrtoint ptr %53 to i64
   %56 = sub i64 %54, %55
@@ -8311,25 +8311,25 @@ unicode_byte_type.exit:                           ; preds = %15
   br i1 %57, label %58, label %110
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %1, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %60 = load i8, ptr %59, align 1
   %cond = icmp eq i8 %60, 0
   br i1 %cond, label %unicode_byte_type.exit89, label %.sink.split
 
 unicode_byte_type.exit89:                         ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %0, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %62 = load i8, ptr %53, align 1
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds [256 x i8], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   %.fr = freeze i8 %65
   %66 = icmp eq i8 %.fr, 10
-  %67 = getelementptr inbounds i8, ptr %1, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %spec.select = select i1 %66, ptr %67, ptr %53
   br label %.sink.split
 
 68:                                               ; preds = %unicode_byte_type.exit
-  %69 = getelementptr inbounds i8, ptr %1, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %.sink.split
 
 70:                                               ; preds = %unicode_byte_type.exit
@@ -8339,7 +8339,7 @@ unicode_byte_type.exit89:                         ; preds = %58
   br i1 %73, label %110, label %74
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %1, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %88
 
 76:                                               ; preds = %unicode_byte_type.exit
@@ -8349,7 +8349,7 @@ unicode_byte_type.exit89:                         ; preds = %58
   br i1 %79, label %110, label %80
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %1, i64 3
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 3
   br label %88
 
 unicode_byte_type.exit.thread105:                 ; preds = %15, %15, %15, %15, %unicode_byte_type.exit
@@ -8359,11 +8359,11 @@ unicode_byte_type.exit.thread105:                 ; preds = %15, %15, %15, %15, 
   br i1 %84, label %110, label %85
 
 85:                                               ; preds = %unicode_byte_type.exit.thread105
-  %86 = getelementptr inbounds i8, ptr %1, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %88
 
 unicode_byte_type.exit.thread102:                 ; preds = %15, %18, %unicode_byte_type.exit
-  %87 = getelementptr inbounds i8, ptr %1, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.pre = ptrtoint ptr %.079 to i64
   br label %88
 
@@ -8376,13 +8376,13 @@ unicode_byte_type.exit.thread102:                 ; preds = %15, %18, %unicode_b
   br i1 %91, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %0, i64 128
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %93
 
 93:                                               ; preds = %.lr.ph, %unicode_byte_type.exit92.thread108
   %94 = phi i64 [ %90, %.lr.ph ], [ %108, %unicode_byte_type.exit92.thread108 ]
   %.297 = phi ptr [ %.080, %.lr.ph ], [ %106, %unicode_byte_type.exit92.thread108 ]
-  %95 = getelementptr inbounds i8, ptr %.297, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.297, i64 1
   %96 = load i8, ptr %95, align 1
   switch i8 %96, label %unicode_byte_type.exit92.thread108 [
     i8 0, label %unicode_byte_type.exit92
@@ -8405,7 +8405,7 @@ unicode_byte_type.exit.thread102:                 ; preds = %15, %18, %unicode_b
 unicode_byte_type.exit92:                         ; preds = %93
   %99 = load i8, ptr %.297, align 1
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds [256 x i8], ptr %92, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [256 x i8], ptr %92, i64 0, i64 %100
   %102 = load i8, ptr %101, align 1
   switch i8 %102, label %unicode_byte_type.exit92.thread108 [
     i8 4, label %.sink.split
@@ -8428,7 +8428,7 @@ unicode_byte_type.exit92.thread111:               ; preds = %93, %93, %93, %93, 
 
 unicode_byte_type.exit92.thread108:               ; preds = %unicode_byte_type.exit92, %97, %93, %unicode_byte_type.exit92.thread111, %103
   %.sink = phi i64 [ 3, %103 ], [ 4, %unicode_byte_type.exit92.thread111 ], [ 2, %93 ], [ 2, %97 ], [ 2, %unicode_byte_type.exit92 ]
-  %106 = getelementptr inbounds i8, ptr %.297, i64 %.sink
+  %106 = getelementptr inbounds nuw i8, ptr %.297, i64 %.sink
   %107 = ptrtoint ptr %106 to i64
   %108 = sub i64 %.pre-phi, %107
   %109 = icmp sgt i64 %108, 1
@@ -8458,12 +8458,12 @@ define internal range(i32 -4, 40) i32 @little2_attributeValueTok(ptr nocapture n
   br i1 %9, label %.lr.ph, label %58
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph, %unicode_byte_type.exit.thread
   %.05567 = phi ptr [ %1, %.lr.ph ], [ %54, %unicode_byte_type.exit.thread ]
-  %12 = getelementptr inbounds i8, ptr %.05567, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.05567, i64 1
   %13 = load i8, ptr %12, align 1
   switch i8 %13, label %unicode_byte_type.exit.thread [
     i8 0, label %unicode_byte_type.exit
@@ -8476,7 +8476,7 @@ define internal range(i32 -4, 40) i32 @little2_attributeValueTok(ptr nocapture n
 unicode_byte_type.exit:                           ; preds = %11
   %14 = load i8, ptr %.05567, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 21, label %49
@@ -8499,7 +8499,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %23 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %2, ptr noundef %3)
   br label %58
 
@@ -8516,7 +8516,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %29, ptr %3, align 8
   br label %58
 
@@ -8529,14 +8529,14 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %32, label %33, label %48
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %35 = ptrtoint ptr %34 to i64
   %36 = sub i64 %6, %35
   %37 = icmp sgt i64 %36, 1
   br i1 %37, label %38, label %58
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %1, i64 3
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %40 = load i8, ptr %39, align 1
   %cond = icmp eq i8 %40, 0
   br i1 %cond, label %unicode_byte_type.exit60, label %unicode_byte_type.exit60.thread
@@ -8544,11 +8544,11 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
 unicode_byte_type.exit60:                         ; preds = %38
   %41 = load i8, ptr %34, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   %.fr = freeze i8 %44
   %45 = icmp eq i8 %.fr, 10
-  %46 = getelementptr inbounds i8, ptr %1, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %spec.select = select i1 %45, ptr %46, ptr %34
   br label %unicode_byte_type.exit60.thread
 
@@ -8566,7 +8566,7 @@ unicode_byte_type.exit60.thread:                  ; preds = %unicode_byte_type.e
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %1, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %52, ptr %3, align 8
   br label %58
 
@@ -8576,7 +8576,7 @@ unicode_byte_type.exit60.thread:                  ; preds = %unicode_byte_type.e
 
 unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread75, %18
   %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread75 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
-  %54 = getelementptr inbounds i8, ptr %.05567, i64 %.sink
+  %54 = getelementptr inbounds nuw i8, ptr %.05567, i64 %.sink
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %6, %55
   %57 = icmp sgt i64 %56, 1
@@ -8604,12 +8604,12 @@ define internal range(i32 -4, 29) i32 @little2_entityValueTok(ptr nocapture noun
   br i1 %9, label %.lr.ph, label %60
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph, %unicode_byte_type.exit.thread
   %.05768 = phi ptr [ %1, %.lr.ph ], [ %56, %unicode_byte_type.exit.thread ]
-  %12 = getelementptr inbounds i8, ptr %.05768, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.05768, i64 1
   %13 = load i8, ptr %12, align 1
   switch i8 %13, label %unicode_byte_type.exit.thread [
     i8 0, label %unicode_byte_type.exit
@@ -8622,7 +8622,7 @@ define internal range(i32 -4, 29) i32 @little2_entityValueTok(ptr nocapture noun
 unicode_byte_type.exit:                           ; preds = %11
   %14 = load i8, ptr %.05768, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 9, label %38
@@ -8644,7 +8644,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %23 = tail call fastcc i32 @little2_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %2, ptr noundef %3)
   br label %60
 
@@ -8657,7 +8657,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %29 = tail call fastcc i32 @little2_scanPercent(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %2, ptr noundef %3)
   %30 = icmp eq i32 %29, 22
   %31 = select i1 %30, i32 0, i32 %29
@@ -8672,7 +8672,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %1, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %36, ptr %3, align 8
   br label %60
 
@@ -8685,14 +8685,14 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %39, label %40, label %55
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %1, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %6, %42
   %44 = icmp sgt i64 %43, 1
   br i1 %44, label %45, label %60
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %1, i64 3
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %47 = load i8, ptr %46, align 1
   %cond = icmp eq i8 %47, 0
   br i1 %cond, label %unicode_byte_type.exit62, label %unicode_byte_type.exit62.thread
@@ -8700,11 +8700,11 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
 unicode_byte_type.exit62:                         ; preds = %45
   %48 = load i8, ptr %41, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
   %.fr = freeze i8 %51
   %52 = icmp eq i8 %.fr, 10
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %spec.select = select i1 %52, ptr %53, ptr %41
   br label %unicode_byte_type.exit62.thread
 
@@ -8719,7 +8719,7 @@ unicode_byte_type.exit62.thread:                  ; preds = %unicode_byte_type.e
 
 unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread75, %18
   %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread75 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
-  %56 = getelementptr inbounds i8, ptr %.05768, i64 %.sink
+  %56 = getelementptr inbounds nuw i8, ptr %.05768, i64 %.sink
   %57 = ptrtoint ptr %56 to i64
   %58 = sub i64 %6, %57
   %59 = icmp sgt i64 %58, 1
@@ -8754,7 +8754,7 @@ define internal range(i32 0, 2) i32 @little2_nameMatchesAscii(ptr nocapture read
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %.01115, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01115, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %.loopexit
@@ -8765,8 +8765,8 @@ define internal range(i32 0, 2) i32 @little2_nameMatchesAscii(ptr nocapture read
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %.01115, i64 2
-  %21 = getelementptr inbounds i8, ptr %.016, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01115, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %22 = load i8, ptr %21, align 1
   %.not = icmp eq i8 %22, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !50
@@ -8784,12 +8784,12 @@ define internal range(i32 0, 2) i32 @little2_nameMatchesAscii(ptr nocapture read
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @little2_nameLength(ptr nocapture noundef readonly %0, ptr noundef %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %4
 
 4:                                                ; preds = %unicode_byte_type.exit.thread16, %2
   %.0 = phi ptr [ %1, %2 ], [ %18, %unicode_byte_type.exit.thread16 ]
-  %5 = getelementptr inbounds i8, ptr %.0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %unicode_byte_type.exit.thread16 [
     i8 0, label %unicode_byte_type.exit
@@ -8812,7 +8812,7 @@ define internal i32 @little2_nameLength(ptr nocapture noundef readonly %0, ptr n
 unicode_byte_type.exit:                           ; preds = %4
   %9 = load i8, ptr %.0, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   switch i8 %12, label %unicode_byte_type.exit.thread [
     i8 5, label %unicode_byte_type.exit.thread16
@@ -8841,14 +8841,14 @@ unicode_byte_type.exit.thread:                    ; preds = %4, %4, %4, %4, %7, 
 
 unicode_byte_type.exit.thread16:                  ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %7, %4, %unicode_byte_type.exit, %unicode_byte_type.exit.thread14, %13
   %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread14 ], [ 3, %13 ], [ 2, %unicode_byte_type.exit ], [ 2, %4 ], [ 2, %7 ], [ 2, %unicode_byte_type.exit ], [ 2, %unicode_byte_type.exit ], [ 2, %unicode_byte_type.exit ], [ 2, %unicode_byte_type.exit ], [ 2, %unicode_byte_type.exit ], [ 2, %unicode_byte_type.exit ]
-  %18 = getelementptr inbounds i8, ptr %.0, i64 %.sink
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink
   br label %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal ptr @little2_skipS(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
-  %4 = getelementptr inbounds i8, ptr %1, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1
   %cond10 = icmp eq i8 %5, 0
   br i1 %cond10, label %unicode_byte_type.exit, label %unicode_byte_type.exit.thread
@@ -8857,7 +8857,7 @@ unicode_byte_type.exit:                           ; preds = %2, %10
   %.011 = phi ptr [ %11, %10 ], [ %1, %2 ]
   %6 = load i8, ptr %.011, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %unicode_byte_type.exit.thread [
     i8 10, label %10
@@ -8866,8 +8866,8 @@ unicode_byte_type.exit:                           ; preds = %2, %10
   ]
 
 10:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %11 = getelementptr inbounds i8, ptr %.011, i64 2
-  %12 = getelementptr inbounds i8, ptr %.011, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %.011, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.011, i64 3
   %13 = load i8, ptr %12, align 1
   %cond = icmp eq i8 %13, 0
   br i1 %cond, label %unicode_byte_type.exit, label %unicode_byte_type.exit.thread
@@ -8879,7 +8879,7 @@ unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.e
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @little2_getAtts(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %unicode_byte_type.exit.thread
 
 unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit.thread.backedge, %4
@@ -8887,8 +8887,8 @@ unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.e
   %.0102 = phi i32 [ 1, %4 ], [ %.0102.be, %unicode_byte_type.exit.thread.backedge ]
   %.0100 = phi i32 [ 0, %4 ], [ %.0100.be, %unicode_byte_type.exit.thread.backedge ]
   %.0 = phi i32 [ 0, %4 ], [ %.0.be, %unicode_byte_type.exit.thread.backedge ]
-  %.0104 = getelementptr inbounds i8, ptr %.pn, i64 2
-  %6 = getelementptr inbounds i8, ptr %.pn, i64 3
+  %.0104 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   %7 = load i8, ptr %6, align 1
   switch i8 %7, label %unicode_byte_type.exit.thread121 [
     i8 0, label %unicode_byte_type.exit
@@ -8920,7 +8920,7 @@ unicode_byte_type.exit.thread.backedge:           ; preds = %unicode_byte_type.e
 unicode_byte_type.exit:                           ; preds = %unicode_byte_type.exit.thread
   %11 = load i8, ptr %.0104, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %unicode_byte_type.exit.thread.backedge [
     i8 5, label %15
@@ -8951,7 +8951,7 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   %20 = sext i32 %.0100 to i64
   %21 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %20
   store ptr %.0104, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i8 1, ptr %22, align 8
   br label %unicode_byte_type.exit.thread.backedge
 
@@ -8967,7 +8967,7 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   %28 = sext i32 %.0100 to i64
   %29 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %28
   store ptr %.0104, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store i8 1, ptr %30, align 8
   br label %unicode_byte_type.exit.thread.backedge
 
@@ -8983,13 +8983,13 @@ unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.e
   %35 = sext i32 %.0100 to i64
   %36 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %35
   store ptr %.0104, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i8 1, ptr %37, align 8
   br label %38
 
 38:                                               ; preds = %32, %34, %unicode_byte_type.exit.thread119
   %.3 = phi i32 [ %.0102, %unicode_byte_type.exit.thread119 ], [ 1, %34 ], [ 1, %32 ]
-  %39 = getelementptr inbounds i8, ptr %.pn, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   br label %unicode_byte_type.exit.thread.backedge
 
 unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.exit.thread, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
@@ -9004,7 +9004,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   %43 = sext i32 %.0100 to i64
   %44 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %43
   store ptr %.0104, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i8 1, ptr %45, align 8
   br label %unicode_byte_type.exit.thread.backedge
 
@@ -9017,7 +9017,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   br i1 %48, label %49, label %unicode_byte_type.exit.thread.backedge
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %.pn, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %51 = sext i32 %.0100 to i64
   %52 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %51, i32 1
   store ptr %50, ptr %52, align 8
@@ -9050,7 +9050,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   br i1 %64, label %65, label %unicode_byte_type.exit.thread.backedge
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %.pn, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %67 = sext i32 %.0100 to i64
   %68 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %67, i32 1
   store ptr %66, ptr %68, align 8
@@ -9097,13 +9097,13 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 86:                                               ; preds = %84
   %87 = sext i32 %.0100 to i64
   %88 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %87
-  %89 = getelementptr inbounds i8, ptr %88, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load i8, ptr %89, align 8
   %.not106 = icmp eq i8 %90, 0
   br i1 %.not106, label %unicode_byte_type.exit.thread.backedge, label %91
 
 91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %88, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %.0104, %93
   br i1 %94, label %.critedge, label %95
@@ -9114,8 +9114,8 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   br i1 %97, label %98, label %.critedge
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %.pn, i64 4
-  %100 = getelementptr inbounds i8, ptr %.pn, i64 5
+  %99 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.pn, i64 5
   %101 = load i8, ptr %100, align 1
   switch i8 %101, label %113 [
     i8 0, label %102
@@ -9137,7 +9137,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 
 105:                                              ; preds = %102
   %106 = zext i8 %103 to i64
-  %107 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %106
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
   br label %unicode_byte_type.exit115
@@ -9194,8 +9194,8 @@ unicode_byte_type.exit115:                        ; preds = %98, %98, %98, %98, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 -2147483648, 1114112) i32 @little2_charRefNumber(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 5
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %.preheader
@@ -9209,13 +9209,13 @@ define internal range(i32 -2147483648, 1114112) i32 @little2_charRefNumber(ptr n
   br i1 %9, label %10, label %.preheader
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 6
   br label %12
 
 12:                                               ; preds = %.thread, %10
   %.031 = phi i32 [ 0, %10 ], [ %.13238, %.thread ]
   %.030 = phi ptr [ %11, %10 ], [ %33, %.thread ]
-  %13 = getelementptr inbounds i8, ptr %.030, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.030, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %.thread
@@ -9277,13 +9277,13 @@ define internal range(i32 -2147483648, 1114112) i32 @little2_charRefNumber(ptr n
 
 .thread:                                          ; preds = %12, %.critedge, %31
   %.13238 = phi i32 [ %.132, %31 ], [ %.031, %.critedge ], [ %.031, %12 ]
-  %33 = getelementptr inbounds i8, ptr %.030, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.030, i64 2
   br label %12, !llvm.loop !51
 
 34:                                               ; preds = %.preheader, %.critedge35
   %.3 = phi i32 [ %45, %.critedge35 ], [ 0, %.preheader ]
   %.1 = phi ptr [ %47, %.critedge35 ], [ %3, %.preheader ]
-  %35 = getelementptr inbounds i8, ptr %.1, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %38, label %.critedge35
@@ -9303,7 +9303,7 @@ define internal range(i32 -2147483648, 1114112) i32 @little2_charRefNumber(ptr n
   %44 = mul nsw i32 %.3, 10
   %45 = add nsw i32 %43, %44
   %46 = icmp sgt i32 %45, 1114111
-  %47 = getelementptr inbounds i8, ptr %.1, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   br i1 %46, label %checkCharRefNumber.exit, label %34, !llvm.loop !52
 
 .loopexit:                                        ; preds = %38, %16
@@ -9355,19 +9355,19 @@ define internal range(i32 0, 63) i32 @little2_predefinedEntityName(ptr nocapture
   ]
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 3
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %.thread42
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 116
   br i1 %15, label %16, label %.thread42
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %20, label %.thread39
@@ -9382,7 +9382,7 @@ define internal range(i32 0, 63) i32 @little2_predefinedEntityName(ptr nocapture
   br label %.thread39
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %1, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %.thread42
@@ -9393,31 +9393,31 @@ define internal range(i32 0, 63) i32 @little2_predefinedEntityName(ptr nocapture
   br i1 %28, label %29, label %.thread42
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %33, label %.thread42
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %1, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 109
   br i1 %36, label %37, label %.thread42
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %1, i64 5
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %.thread42
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %1, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 112
   br i1 %44, label %.thread39, label %.thread42
 
 45:                                               ; preds = %3
-  %46 = getelementptr inbounds i8, ptr %1, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %.thread42
@@ -9430,73 +9430,73 @@ define internal range(i32 0, 63) i32 @little2_predefinedEntityName(ptr nocapture
   ]
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %1, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %55, label %.thread42
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %1, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 117
   br i1 %58, label %59, label %.thread42
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %1, i64 5
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 0
   br i1 %62, label %63, label %.thread42
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %1, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %65 = load i8, ptr %64, align 1
   %66 = icmp eq i8 %65, 111
   br i1 %66, label %67, label %.thread42
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %1, i64 7
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %69 = load i8, ptr %68, align 1
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %71, label %.thread42
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %1, i64 6
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %73 = load i8, ptr %72, align 1
   %74 = icmp eq i8 %73, 116
   br i1 %74, label %.thread39, label %.thread42
 
 75:                                               ; preds = %49
-  %76 = getelementptr inbounds i8, ptr %1, i64 3
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %77 = load i8, ptr %76, align 1
   %78 = icmp eq i8 %77, 0
   br i1 %78, label %79, label %.thread42
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %1, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 112
   br i1 %82, label %83, label %.thread42
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %1, i64 5
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %85 = load i8, ptr %84, align 1
   %86 = icmp eq i8 %85, 0
   br i1 %86, label %87, label %.thread42
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %1, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 111
   br i1 %90, label %91, label %.thread42
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %1, i64 7
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %93 = load i8, ptr %92, align 1
   %94 = icmp eq i8 %93, 0
   br i1 %94, label %95, label %.thread42
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %1, i64 6
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %97 = load i8, ptr %96, align 1
   %98 = icmp eq i8 %97, 115
   br i1 %98, label %.thread39, label %.thread42
@@ -9518,13 +9518,13 @@ define internal void @little2_updatePosition(ptr nocapture noundef readonly %0, 
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %52
   %.033 = phi ptr [ %1, %.lr.ph ], [ %.1, %52 ]
-  %12 = getelementptr inbounds i8, ptr %.033, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.033, i64 1
   %13 = load i8, ptr %12, align 1
   switch i8 %13, label %unicode_byte_type.exit.thread [
     i8 0, label %unicode_byte_type.exit
@@ -9537,7 +9537,7 @@ define internal void @little2_updatePosition(ptr nocapture noundef readonly %0, 
 unicode_byte_type.exit:                           ; preds = %11
   %14 = load i8, ptr %.033, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 5, label %18
@@ -9548,21 +9548,21 @@ unicode_byte_type.exit:                           ; preds = %11
   ]
 
 18:                                               ; preds = %unicode_byte_type.exit
-  %19 = getelementptr inbounds i8, ptr %.033, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.033, i64 2
   %20 = load i64, ptr %10, align 8
   %21 = add i64 %20, 1
   store i64 %21, ptr %10, align 8
   br label %52
 
 22:                                               ; preds = %unicode_byte_type.exit
-  %23 = getelementptr inbounds i8, ptr %.033, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %.033, i64 3
   %24 = load i64, ptr %10, align 8
   %25 = add i64 %24, 1
   store i64 %25, ptr %10, align 8
   br label %52
 
 unicode_byte_type.exit.thread36:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
-  %26 = getelementptr inbounds i8, ptr %.033, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.033, i64 4
   %27 = load i64, ptr %10, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %10, align 8
@@ -9573,21 +9573,21 @@ unicode_byte_type.exit.thread36:                  ; preds = %11, %11, %11, %11, 
   %30 = load i64, ptr %3, align 8
   %31 = add i64 %30, 1
   store i64 %31, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %.033, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.033, i64 2
   br label %52
 
 33:                                               ; preds = %unicode_byte_type.exit
   %34 = load i64, ptr %3, align 8
   %35 = add i64 %34, 1
   store i64 %35, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %.033, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.033, i64 2
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %5, %37
   %39 = icmp sgt i64 %38, 1
   br i1 %39, label %40, label %unicode_byte_type.exit31.thread
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %.033, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.033, i64 3
   %42 = load i8, ptr %41, align 1
   %cond = icmp eq i8 %42, 0
   br i1 %cond, label %unicode_byte_type.exit31, label %unicode_byte_type.exit31.thread
@@ -9595,11 +9595,11 @@ unicode_byte_type.exit.thread36:                  ; preds = %11, %11, %11, %11, 
 unicode_byte_type.exit31:                         ; preds = %40
   %43 = load i8, ptr %36, align 1
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
   %.fr = freeze i8 %46
   %47 = icmp eq i8 %.fr, 10
-  %48 = getelementptr inbounds i8, ptr %.033, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.033, i64 4
   %spec.select = select i1 %47, ptr %48, ptr %36
   br label %unicode_byte_type.exit31.thread
 
@@ -9609,7 +9609,7 @@ unicode_byte_type.exit31.thread:                  ; preds = %unicode_byte_type.e
   br label %52
 
 unicode_byte_type.exit.thread:                    ; preds = %11, %unicode_byte_type.exit
-  %49 = getelementptr inbounds i8, ptr %.033, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %.033, i64 2
   %50 = load i64, ptr %10, align 8
   %51 = add i64 %50, 1
   store i64 %51, ptr %10, align 8
@@ -9630,20 +9630,20 @@ unicode_byte_type.exit.thread:                    ; preds = %11, %unicode_byte_t
 define internal range(i32 0, 2) i32 @little2_isPublicId(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #3 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -2
   %6 = ptrtoint ptr %5 to i64
-  %.02024 = getelementptr inbounds i8, ptr %1, i64 2
+  %.02024 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = ptrtoint ptr %.02024 to i64
   %8 = sub i64 %6, %7
   %9 = icmp sgt i64 %8, 1
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph, %25
   %.02026 = phi ptr [ %.02024, %.lr.ph ], [ %.020, %25 ]
   %.pn25 = phi ptr [ %1, %.lr.ph ], [ %.02026, %25 ]
-  %12 = getelementptr inbounds i8, ptr %.pn25, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %.pn25, i64 3
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %unicode_byte_type.exit, label %.loopexit.sink.split
@@ -9651,7 +9651,7 @@ define internal range(i32 0, 2) i32 @little2_isPublicId(ptr nocapture noundef re
 unicode_byte_type.exit:                           ; preds = %11
   %15 = load i8, ptr %.02026, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %.critedge..critedge.thread_crit_edge [
     i8 25, label %25
@@ -9698,7 +9698,7 @@ unicode_byte_type.exit:                           ; preds = %11
   ]
 
 25:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %19, %22, %.critedge.thread, %.critedge.thread
-  %.020 = getelementptr inbounds i8, ptr %.02026, i64 2
+  %.020 = getelementptr inbounds nuw i8, ptr %.02026, i64 2
   %26 = ptrtoint ptr %.020 to i64
   %27 = sub i64 %6, %26
   %28 = icmp sgt i64 %27, 1
@@ -9732,7 +9732,7 @@ define internal range(i32 0, 3) i32 @little2_toUtf8(ptr nocapture readnone %0, p
 15:                                               ; preds = %.lr.ph, %107
   %.06472 = phi ptr [ %6, %.lr.ph ], [ %108, %107 ]
   %16 = load i8, ptr %.06472, align 1
-  %17 = getelementptr inbounds i8, ptr %.06472, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.06472, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   switch i8 %18, label %40 [
@@ -9760,7 +9760,7 @@ define internal range(i32 0, 3) i32 @little2_toUtf8(ptr nocapture readnone %0, p
   br i1 %24, label %._crit_edge, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %26, ptr %3, align 8
   store i8 %16, ptr %23, align 1
   br label %107
@@ -9775,13 +9775,13 @@ define internal range(i32 0, 3) i32 @little2_toUtf8(ptr nocapture readnone %0, p
 32:                                               ; preds = %27
   %33 = tail call i8 @llvm.fshl.i8(i8 %18, i8 %16, i8 2)
   %34 = or i8 %33, -64
-  %35 = getelementptr inbounds i8, ptr %28, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %35, ptr %3, align 8
   store i8 %34, ptr %28, align 1
   %36 = and i8 %16, 63
   %37 = or disjoint i8 %36, -128
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %39, ptr %3, align 8
   store i8 %37, ptr %38, align 1
   br label %107
@@ -9796,7 +9796,7 @@ define internal range(i32 0, 3) i32 @little2_toUtf8(ptr nocapture readnone %0, p
 45:                                               ; preds = %40
   %46 = lshr i8 %18, 4
   %47 = or disjoint i8 %46, -32
-  %48 = getelementptr inbounds i8, ptr %41, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %48, ptr %3, align 8
   store i8 %47, ptr %41, align 1
   %49 = shl i8 %18, 2
@@ -9805,13 +9805,13 @@ define internal range(i32 0, 3) i32 @little2_toUtf8(ptr nocapture readnone %0, p
   %52 = or disjoint i8 %51, %50
   %53 = or disjoint i8 %52, -128
   %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store ptr %55, ptr %3, align 8
   store i8 %53, ptr %54, align 1
   %56 = and i8 %16, 63
   %57 = or disjoint i8 %56, -128
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %59, ptr %3, align 8
   store i8 %57, ptr %58, align 1
   br label %107
@@ -9839,7 +9839,7 @@ define internal range(i32 0, 3) i32 @little2_toUtf8(ptr nocapture readnone %0, p
   %76 = trunc nuw nsw i32 %75 to i8
   %77 = lshr i8 %76, 2
   %78 = or i8 %77, -16
-  %79 = getelementptr inbounds i8, ptr %61, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store ptr %79, ptr %3, align 8
   store i8 %78, ptr %61, align 1
   %80 = lshr i32 %72, 2
@@ -9850,14 +9850,14 @@ define internal range(i32 0, 3) i32 @little2_toUtf8(ptr nocapture readnone %0, p
   %85 = trunc nuw nsw i32 %84 to i8
   %86 = or disjoint i8 %85, -128
   %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store ptr %88, ptr %3, align 8
   store i8 %86, ptr %87, align 1
-  %89 = getelementptr inbounds i8, ptr %.06472, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.06472, i64 2
   %90 = load i8, ptr %89, align 1
   %91 = shl i8 %16, 4
   %92 = and i8 %91, 48
-  %93 = getelementptr inbounds i8, ptr %.06472, i64 3
+  %93 = getelementptr inbounds nuw i8, ptr %.06472, i64 3
   %94 = load i8, ptr %93, align 1
   %95 = shl i8 %94, 2
   %96 = and i8 %95, 12
@@ -9866,20 +9866,20 @@ define internal range(i32 0, 3) i32 @little2_toUtf8(ptr nocapture readnone %0, p
   %99 = or disjoint i8 %98, %96
   %100 = or disjoint i8 %99, -128
   %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
   store ptr %102, ptr %3, align 8
   store i8 %100, ptr %101, align 1
   %103 = and i8 %90, 63
   %104 = or disjoint i8 %103, -128
   %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
   store ptr %106, ptr %3, align 8
   store i8 %104, ptr %105, align 1
   br label %107
 
 107:                                              ; preds = %25, %32, %45, %69
   %.1 = phi ptr [ %.06472, %45 ], [ %89, %69 ], [ %.06472, %32 ], [ %.06472, %25 ]
-  %108 = getelementptr inbounds i8, ptr %.1, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %109 = icmp ult ptr %108, %11
   br i1 %109, label %15, label %._crit_edge, !llvm.loop !55
 
@@ -9929,11 +9929,11 @@ define internal range(i32 0, 3) i32 @little2_toUtf16(ptr nocapture readnone %0, 
 
 27:                                               ; preds = %.lr.ph
   %28 = load i16, ptr %24, align 1
-  %29 = getelementptr inbounds i8, ptr %25, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 2
   store ptr %29, ptr %3, align 8
   store i16 %28, ptr %25, align 2
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store ptr %31, ptr %1, align 8
   %32 = icmp ult ptr %31, %.023
   br i1 %32, label %.lr.ph, label %.thread, !llvm.loop !56
@@ -9959,13 +9959,13 @@ define internal fastcc range(i32 -27, 28) i32 @little2_scanLit(i32 noundef range
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph, %45
   %12 = phi i64 [ %8, %.lr.ph ], [ %47, %45 ]
   %.03249 = phi ptr [ %2, %.lr.ph ], [ %.1, %45 ]
-  %13 = getelementptr inbounds i8, ptr %.03249, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.03249, i64 1
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %unicode_byte_type.exit.thread39 [
     i8 0, label %unicode_byte_type.exit
@@ -9988,7 +9988,7 @@ define internal fastcc range(i32 -27, 28) i32 @little2_scanLit(i32 noundef range
 unicode_byte_type.exit:                           ; preds = %11
   %17 = load i8, ptr %.03249, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %unicode_byte_type.exit.thread39 [
     i8 5, label %21
@@ -10002,7 +10002,7 @@ unicode_byte_type.exit:                           ; preds = %11
   ]
 
 21:                                               ; preds = %unicode_byte_type.exit
-  %22 = getelementptr inbounds i8, ptr %.03249, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.03249, i64 2
   br label %45
 
 23:                                               ; preds = %unicode_byte_type.exit
@@ -10010,7 +10010,7 @@ unicode_byte_type.exit:                           ; preds = %11
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.03249, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %.03249, i64 3
   br label %45
 
 unicode_byte_type.exit.thread42:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
@@ -10018,7 +10018,7 @@ unicode_byte_type.exit.thread42:                  ; preds = %11, %11, %11, %11, 
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %unicode_byte_type.exit.thread42
-  %29 = getelementptr inbounds i8, ptr %.03249, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.03249, i64 4
   br label %45
 
 unicode_byte_type.exit.thread:                    ; preds = %11, %11, %11, %11, %15, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
@@ -10027,7 +10027,7 @@ unicode_byte_type.exit.thread:                    ; preds = %11, %11, %11, %11, 
 
 30:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
   %31 = zext nneg i8 %20 to i32
-  %32 = getelementptr inbounds i8, ptr %.03249, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.03249, i64 2
   %.not = icmp eq i32 %0, %31
   br i1 %.not, label %33, label %45
 
@@ -10039,7 +10039,7 @@ unicode_byte_type.exit.thread:                    ; preds = %11, %11, %11, %11, 
 
 37:                                               ; preds = %33
   store ptr %32, ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %.03249, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %.03249, i64 3
   %39 = load i8, ptr %38, align 1
   %cond = icmp eq i8 %39, 0
   br i1 %cond, label %unicode_byte_type.exit37, label %unicode_byte_type.exit37.thread
@@ -10047,7 +10047,7 @@ unicode_byte_type.exit.thread:                    ; preds = %11, %11, %11, %11, 
 unicode_byte_type.exit37:                         ; preds = %37
   %40 = load i8, ptr %32, align 1
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %41
   %43 = load i8, ptr %42, align 1
   switch i8 %43, label %unicode_byte_type.exit37.thread [
     i8 21, label %.loopexit
@@ -10062,7 +10062,7 @@ unicode_byte_type.exit37.thread:                  ; preds = %37, %unicode_byte_t
   br label %.loopexit
 
 unicode_byte_type.exit.thread39:                  ; preds = %11, %15, %unicode_byte_type.exit
-  %44 = getelementptr inbounds i8, ptr %.03249, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.03249, i64 2
   br label %45
 
 45:                                               ; preds = %30, %unicode_byte_type.exit.thread39, %28, %25, %21
@@ -10086,16 +10086,16 @@ define internal fastcc range(i32 -2, 34) i32 @little2_scanDecl(ptr nocapture nou
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1
   %cond = icmp eq i8 %11, 0
   br i1 %cond, label %unicode_byte_type.exit, label %unicode_byte_type.exit.thread
 
 unicode_byte_type.exit:                           ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load i8, ptr %1, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds [256 x i8], ptr %12, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [256 x i8], ptr %12, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %unicode_byte_type.exit.thread [
     i8 27, label %17
@@ -10105,24 +10105,24 @@ unicode_byte_type.exit:                           ; preds = %9
   ]
 
 17:                                               ; preds = %unicode_byte_type.exit
-  %18 = getelementptr inbounds i8, ptr %1, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = tail call fastcc i32 @little2_scanComment(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef %2, ptr noundef %3)
   br label %.loopexit
 
 20:                                               ; preds = %unicode_byte_type.exit
-  %21 = getelementptr inbounds i8, ptr %1, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %21, ptr %3, align 8
   br label %.loopexit
 
 22:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
-  %.03758 = getelementptr inbounds i8, ptr %1, i64 2
+  %.03758 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %23 = ptrtoint ptr %.03758 to i64
   %24 = sub i64 %5, %23
   %25 = icmp sgt i64 %24, 1
   br i1 %25, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %27
 
 unicode_byte_type.exit.thread:                    ; preds = %9, %unicode_byte_type.exit
@@ -10133,7 +10133,7 @@ unicode_byte_type.exit.thread:                    ; preds = %9, %unicode_byte_ty
   %28 = phi i64 [ %24, %.lr.ph ], [ %48, %46 ]
   %.03760 = phi ptr [ %.03758, %.lr.ph ], [ %.037, %46 ]
   %.pn59 = phi ptr [ %1, %.lr.ph ], [ %.03760, %46 ]
-  %29 = getelementptr inbounds i8, ptr %.pn59, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %.pn59, i64 3
   %30 = load i8, ptr %29, align 1
   %cond88 = icmp eq i8 %30, 0
   br i1 %cond88, label %unicode_byte_type.exit43, label %unicode_byte_type.exit43.thread
@@ -10141,7 +10141,7 @@ unicode_byte_type.exit.thread:                    ; preds = %9, %unicode_byte_ty
 unicode_byte_type.exit43:                         ; preds = %27
   %31 = load i8, ptr %.03760, align 1
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr %26, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i8], ptr %26, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   switch i8 %34, label %unicode_byte_type.exit43.thread [
     i8 30, label %35
@@ -10157,16 +10157,16 @@ unicode_byte_type.exit43:                         ; preds = %27
   br i1 %36, label %37, label %.loopexit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.pn59, i64 5
+  %38 = getelementptr inbounds nuw i8, ptr %.pn59, i64 5
   %39 = load i8, ptr %38, align 1
   %cond89 = icmp eq i8 %39, 0
   br i1 %cond89, label %unicode_byte_type.exit46, label %.loopexit47
 
 unicode_byte_type.exit46:                         ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %.pn59, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.pn59, i64 4
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds [256 x i8], ptr %26, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [256 x i8], ptr %26, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   switch i8 %44, label %.loopexit47 [
     i8 21, label %45
@@ -10184,7 +10184,7 @@ unicode_byte_type.exit46:                         ; preds = %37
   br label %.loopexit
 
 46:                                               ; preds = %unicode_byte_type.exit43, %unicode_byte_type.exit43
-  %.037 = getelementptr inbounds i8, ptr %.03760, i64 2
+  %.037 = getelementptr inbounds nuw i8, ptr %.03760, i64 2
   %47 = ptrtoint ptr %.037 to i64
   %48 = sub i64 %5, %47
   %49 = icmp sgt i64 %48, 1
@@ -10209,7 +10209,7 @@ define internal fastcc i32 @little2_scanPi(ptr nocapture noundef readonly %0, pt
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp ne i8 %12, 0
   br i1 %13, label %14, label %unicode_byte_type.exit
@@ -10233,10 +10233,10 @@ define internal fastcc i32 @little2_scanPi(ptr nocapture noundef readonly %0, pt
   br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread195
 
 unicode_byte_type.exit:                           ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = load i8, ptr %1, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds [256 x i8], ptr %17, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x i8], ptr %17, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   switch i8 %21, label %unicode_byte_type.exit.thread [
     i8 29, label %unicode_byte_type.exit.thread195
@@ -10249,7 +10249,7 @@ unicode_byte_type.exit:                           ; preds = %10
 
 unicode_byte_type.exit.thread195:                 ; preds = %15, %14, %unicode_byte_type.exit
   %22 = zext i8 %12 to i64
-  %23 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 3
@@ -10258,7 +10258,7 @@ unicode_byte_type.exit.thread195:                 ; preds = %15, %14, %unicode_b
   %29 = lshr i32 %28, 5
   %30 = or disjoint i32 %29, %26
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %28, 31
   %35 = shl nuw i32 1, %34
@@ -10271,14 +10271,14 @@ unicode_byte_type.exit.thread195:                 ; preds = %15, %14, %unicode_b
   br label %.loopexit
 
 38:                                               ; preds = %unicode_byte_type.exit.thread195, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %.099151 = getelementptr inbounds i8, ptr %1, i64 2
+  %.099151 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %39 = ptrtoint ptr %.099151 to i64
   %40 = sub i64 %6, %39
   %41 = icmp sgt i64 %40, 1
   br i1 %41, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %49
 
 43:                                               ; preds = %unicode_byte_type.exit
@@ -10310,7 +10310,7 @@ unicode_byte_type.exit.thread:                    ; preds = %14, %14, %14, %14, 
   %51 = phi i64 [ %39, %.lr.ph ], [ %77, %76 ]
   %.099153 = phi ptr [ %.099151, %.lr.ph ], [ %.099, %76 ]
   %.pn152 = phi ptr [ %1, %.lr.ph ], [ %.099153, %76 ]
-  %52 = getelementptr inbounds i8, ptr %.pn152, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %.pn152, i64 3
   %53 = load i8, ptr %52, align 1
   switch i8 %53, label %unicode_byte_type.exit110.thread201 [
     i8 0, label %unicode_byte_type.exit110
@@ -10333,7 +10333,7 @@ unicode_byte_type.exit.thread:                    ; preds = %14, %14, %14, %14, 
 unicode_byte_type.exit110:                        ; preds = %49
   %56 = load i8, ptr %.099153, align 1
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds [256 x i8], ptr %42, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [256 x i8], ptr %42, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1
   switch i8 %59, label %.loopexit119 [
     i8 29, label %unicode_byte_type.exit110.thread201
@@ -10353,7 +10353,7 @@ unicode_byte_type.exit110:                        ; preds = %49
 
 unicode_byte_type.exit110.thread201:              ; preds = %49, %54, %unicode_byte_type.exit110
   %60 = zext i8 %53 to i64
-  %61 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 3
@@ -10362,7 +10362,7 @@ unicode_byte_type.exit110.thread201:              ; preds = %49, %54, %unicode_b
   %67 = lshr i32 %66, 5
   %68 = or disjoint i32 %67, %64
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = and i32 %66, 31
   %73 = shl nuw i32 1, %72
@@ -10375,7 +10375,7 @@ unicode_byte_type.exit110.thread201:              ; preds = %49, %54, %unicode_b
   br label %.loopexit
 
 76:                                               ; preds = %unicode_byte_type.exit110.thread201, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110
-  %.099 = getelementptr inbounds i8, ptr %.099153, i64 2
+  %.099 = getelementptr inbounds nuw i8, ptr %.099153, i64 2
   %77 = ptrtoint ptr %.099 to i64
   %78 = sub i64 %6, %77
   %79 = icmp sgt i64 %78, 1
@@ -10420,7 +10420,7 @@ unicode_byte_type.exit110.thread204:              ; preds = %49, %49, %49, %49, 
 
 91:                                               ; preds = %90, %88
   %.0.i111 = phi i32 [ 1, %90 ], [ 0, %88 ]
-  %92 = getelementptr inbounds i8, ptr %1, i64 3
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %93 = load i8, ptr %92, align 1
   %94 = icmp eq i8 %93, 0
   br i1 %94, label %95, label %107
@@ -10437,13 +10437,13 @@ unicode_byte_type.exit110.thread204:              ; preds = %49, %49, %49, %49, 
 
 98:                                               ; preds = %97, %95
   %.1.i = phi i32 [ 1, %97 ], [ %.0.i111, %95 ]
-  %99 = getelementptr inbounds i8, ptr %1, i64 5
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 0
   br i1 %101, label %102, label %107
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %1, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %104 = load i8, ptr %103, align 1
   switch i8 %104, label %107 [
     i8 108, label %105
@@ -10464,7 +10464,7 @@ little2_checkPiTarget.exit:                       ; preds = %102, %105
 
 107:                                              ; preds = %86, %106, %88, %95, %102, %91, %98
   %108 = phi i32 [ 11, %86 ], [ 12, %106 ], [ 11, %88 ], [ 11, %95 ], [ 11, %102 ], [ 11, %91 ], [ 11, %98 ]
-  %109 = getelementptr inbounds i8, ptr %.pn152, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.pn152, i64 4
   %110 = ptrtoint ptr %109 to i64
   %111 = sub i64 %6, %110
   %112 = icmp sgt i64 %111, 1
@@ -10473,7 +10473,7 @@ little2_checkPiTarget.exit:                       ; preds = %102, %105
 .lr.ph155:                                        ; preds = %107, %146
   %113 = phi i64 [ %148, %146 ], [ %111, %107 ]
   %.2154 = phi ptr [ %.3, %146 ], [ %109, %107 ]
-  %114 = getelementptr inbounds i8, ptr %.2154, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %.2154, i64 1
   %115 = load i8, ptr %114, align 1
   switch i8 %115, label %unicode_byte_type.exit114.thread207 [
     i8 0, label %unicode_byte_type.exit114
@@ -10496,7 +10496,7 @@ little2_checkPiTarget.exit:                       ; preds = %102, %105
 unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   %118 = load i8, ptr %.2154, align 1
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds [256 x i8], ptr %42, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [256 x i8], ptr %42, i64 0, i64 %119
   %121 = load i8, ptr %120, align 1
   switch i8 %121, label %unicode_byte_type.exit114.thread207 [
     i8 5, label %122
@@ -10509,7 +10509,7 @@ unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   ]
 
 122:                                              ; preds = %unicode_byte_type.exit114
-  %123 = getelementptr inbounds i8, ptr %.2154, i64 2
+  %123 = getelementptr inbounds nuw i8, ptr %.2154, i64 2
   br label %146
 
 124:                                              ; preds = %unicode_byte_type.exit114
@@ -10517,7 +10517,7 @@ unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   br i1 %125, label %.loopexit, label %126
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds i8, ptr %.2154, i64 3
+  %127 = getelementptr inbounds nuw i8, ptr %.2154, i64 3
   br label %146
 
 unicode_byte_type.exit114.thread210:              ; preds = %.lr.ph155, %.lr.ph155, %.lr.ph155, %.lr.ph155, %unicode_byte_type.exit114
@@ -10525,7 +10525,7 @@ unicode_byte_type.exit114.thread210:              ; preds = %.lr.ph155, %.lr.ph1
   br i1 %128, label %.loopexit, label %129
 
 129:                                              ; preds = %unicode_byte_type.exit114.thread210
-  %130 = getelementptr inbounds i8, ptr %.2154, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
   br label %146
 
 unicode_byte_type.exit114.thread:                 ; preds = %.lr.ph155, %.lr.ph155, %.lr.ph155, %.lr.ph155, %116, %unicode_byte_type.exit114, %unicode_byte_type.exit114, %unicode_byte_type.exit114
@@ -10533,14 +10533,14 @@ unicode_byte_type.exit114.thread:                 ; preds = %.lr.ph155, %.lr.ph1
   br label %.loopexit
 
 131:                                              ; preds = %unicode_byte_type.exit114
-  %132 = getelementptr inbounds i8, ptr %.2154, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %.2154, i64 2
   %133 = ptrtoint ptr %132 to i64
   %134 = sub i64 %6, %133
   %135 = icmp sgt i64 %134, 1
   br i1 %135, label %136, label %.loopexit
 
 136:                                              ; preds = %131
-  %137 = getelementptr inbounds i8, ptr %.2154, i64 3
+  %137 = getelementptr inbounds nuw i8, ptr %.2154, i64 3
   %138 = load i8, ptr %137, align 1
   %139 = icmp eq i8 %138, 0
   br i1 %139, label %140, label %146
@@ -10551,12 +10551,12 @@ unicode_byte_type.exit114.thread:                 ; preds = %.lr.ph155, %.lr.ph1
   br i1 %142, label %143, label %146
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %.2154, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
   store ptr %144, ptr %3, align 8
   br label %.loopexit
 
 unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %116, %unicode_byte_type.exit114
-  %145 = getelementptr inbounds i8, ptr %.2154, i64 2
+  %145 = getelementptr inbounds nuw i8, ptr %.2154, i64 2
   br label %146
 
 146:                                              ; preds = %136, %140, %unicode_byte_type.exit114.thread207, %129, %126, %122
@@ -10576,14 +10576,14 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %116, %u
   br label %.loopexit
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds i8, ptr %.pn152, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %.pn152, i64 4
   %155 = ptrtoint ptr %154 to i64
   %156 = sub i64 %6, %155
   %157 = icmp sgt i64 %156, 1
   br i1 %157, label %158, label %.loopexit
 
 158:                                              ; preds = %153
-  %159 = getelementptr inbounds i8, ptr %.pn152, i64 5
+  %159 = getelementptr inbounds nuw i8, ptr %.pn152, i64 5
   %160 = load i8, ptr %159, align 1
   %161 = icmp eq i8 %160, 0
   br i1 %161, label %162, label %.loopexit119
@@ -10594,7 +10594,7 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %116, %u
   br i1 %164, label %165, label %.loopexit119
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %.pn152, i64 6
+  %166 = getelementptr inbounds nuw i8, ptr %.pn152, i64 6
   store ptr %166, ptr %3, align 8
   %167 = load i32, ptr %5, align 4
   br label %.loopexit
@@ -10618,7 +10618,7 @@ define internal fastcc range(i32 -2, 29) i32 @little2_scanPercent(ptr nocapture 
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %unicode_byte_type.exit.thread106 [
     i8 0, label %unicode_byte_type.exit
@@ -10639,10 +10639,10 @@ define internal fastcc range(i32 -2, 29) i32 @little2_scanPercent(ptr nocapture 
   br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread106
 
 unicode_byte_type.exit:                           ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load i8, ptr %1, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread106
@@ -10658,7 +10658,7 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread106:                 ; preds = %9, %12, %unicode_byte_type.exit
   %19 = zext i8 %11 to i64
-  %20 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 3
@@ -10667,7 +10667,7 @@ unicode_byte_type.exit.thread106:                 ; preds = %9, %12, %unicode_by
   %26 = lshr i32 %25, 5
   %27 = or disjoint i32 %26, %23
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %25, 31
   %32 = shl nuw i32 1, %31
@@ -10676,14 +10676,14 @@ unicode_byte_type.exit.thread106:                 ; preds = %9, %12, %unicode_by
   br i1 %.not, label %.loopexit.sink.split, label %34
 
 34:                                               ; preds = %unicode_byte_type.exit.thread106, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %.05884 = getelementptr inbounds i8, ptr %1, i64 2
+  %.05884 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %35 = ptrtoint ptr %.05884 to i64
   %36 = sub i64 %5, %35
   %37 = icmp sgt i64 %36, 1
   br i1 %37, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %43
 
 39:                                               ; preds = %unicode_byte_type.exit
@@ -10701,7 +10701,7 @@ unicode_byte_type.exit.thread109:                 ; preds = %9, %9, %9, %9, %uni
   %44 = phi i64 [ %36, %.lr.ph ], [ %70, %68 ]
   %.05886 = phi ptr [ %.05884, %.lr.ph ], [ %.058, %68 ]
   %.pn85 = phi ptr [ %1, %.lr.ph ], [ %.05886, %68 ]
-  %45 = getelementptr inbounds i8, ptr %.pn85, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %.pn85, i64 3
   %46 = load i8, ptr %45, align 1
   switch i8 %46, label %unicode_byte_type.exit65.thread112 [
     i8 0, label %unicode_byte_type.exit65
@@ -10724,7 +10724,7 @@ unicode_byte_type.exit.thread109:                 ; preds = %9, %9, %9, %9, %uni
 unicode_byte_type.exit65:                         ; preds = %43
   %49 = load i8, ptr %.05886, align 1
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds [256 x i8], ptr %38, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [256 x i8], ptr %38, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
   switch i8 %52, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit65.thread112
@@ -10740,7 +10740,7 @@ unicode_byte_type.exit65:                         ; preds = %43
 
 unicode_byte_type.exit65.thread112:               ; preds = %43, %47, %unicode_byte_type.exit65
   %53 = zext i8 %46 to i64
-  %54 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = shl nuw nsw i32 %56, 3
@@ -10749,7 +10749,7 @@ unicode_byte_type.exit65.thread112:               ; preds = %43, %47, %unicode_b
   %60 = lshr i32 %59, 5
   %61 = or disjoint i32 %60, %57
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %59, 31
   %66 = shl nuw i32 1, %65
@@ -10758,7 +10758,7 @@ unicode_byte_type.exit65.thread112:               ; preds = %43, %47, %unicode_b
   br i1 %.not62, label %.loopexit.sink.split, label %68
 
 68:                                               ; preds = %unicode_byte_type.exit65.thread112, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65
-  %.058 = getelementptr inbounds i8, ptr %.05886, i64 2
+  %.058 = getelementptr inbounds nuw i8, ptr %.05886, i64 2
   %69 = ptrtoint ptr %.058 to i64
   %70 = sub i64 %5, %69
   %71 = icmp sgt i64 %70, 1
@@ -10773,7 +10773,7 @@ unicode_byte_type.exit65.thread115:               ; preds = %43, %43, %43, %43, 
   br i1 %74, label %.loopexit, label %.loopexit.sink.split
 
 75:                                               ; preds = %unicode_byte_type.exit65
-  %76 = getelementptr inbounds i8, ptr %.pn85, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.pn85, i64 4
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %unicode_byte_type.exit65, %47, %43, %43, %43, %43, %unicode_byte_type.exit65.thread112, %unicode_byte_type.exit65.thread115, %72, %unicode_byte_type.exit, %12, %9, %9, %9, %9, %unicode_byte_type.exit.thread109, %39, %unicode_byte_type.exit.thread106, %42, %75
@@ -10796,7 +10796,7 @@ define internal fastcc range(i32 -20, 21) i32 @little2_scanPoundName(ptr nocaptu
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %unicode_byte_type.exit.thread92 [
     i8 0, label %unicode_byte_type.exit
@@ -10817,10 +10817,10 @@ define internal fastcc range(i32 -20, 21) i32 @little2_scanPoundName(ptr nocaptu
   br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread92
 
 unicode_byte_type.exit:                           ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load i8, ptr %1, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread92
@@ -10832,7 +10832,7 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread92:                  ; preds = %9, %12, %unicode_byte_type.exit
   %19 = zext i8 %11 to i64
-  %20 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 3
@@ -10841,7 +10841,7 @@ unicode_byte_type.exit.thread92:                  ; preds = %9, %12, %unicode_by
   %26 = lshr i32 %25, 5
   %27 = or disjoint i32 %26, %23
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %25, 31
   %32 = shl nuw i32 1, %31
@@ -10850,14 +10850,14 @@ unicode_byte_type.exit.thread92:                  ; preds = %9, %12, %unicode_by
   br i1 %.not, label %.loopexit.sink.split, label %34
 
 34:                                               ; preds = %unicode_byte_type.exit.thread92, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %.05676 = getelementptr inbounds i8, ptr %1, i64 2
+  %.05676 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %35 = ptrtoint ptr %.05676 to i64
   %36 = sub i64 %5, %35
   %37 = icmp sgt i64 %36, 1
   br i1 %37, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %42
 
 39:                                               ; preds = %unicode_byte_type.exit
@@ -10872,7 +10872,7 @@ unicode_byte_type.exit.thread95:                  ; preds = %unicode_byte_type.e
   %43 = phi i64 [ %36, %.lr.ph ], [ %69, %67 ]
   %.05678 = phi ptr [ %.05676, %.lr.ph ], [ %.056, %67 ]
   %.pn77 = phi ptr [ %1, %.lr.ph ], [ %.05678, %67 ]
-  %44 = getelementptr inbounds i8, ptr %.pn77, i64 3
+  %44 = getelementptr inbounds nuw i8, ptr %.pn77, i64 3
   %45 = load i8, ptr %44, align 1
   switch i8 %45, label %unicode_byte_type.exit63.thread98 [
     i8 0, label %unicode_byte_type.exit63
@@ -10895,7 +10895,7 @@ unicode_byte_type.exit.thread95:                  ; preds = %unicode_byte_type.e
 unicode_byte_type.exit63:                         ; preds = %42
   %48 = load i8, ptr %.05678, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds [256 x i8], ptr %38, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [256 x i8], ptr %38, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
   switch i8 %51, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit63.thread98
@@ -10917,7 +10917,7 @@ unicode_byte_type.exit63:                         ; preds = %42
 
 unicode_byte_type.exit63.thread98:                ; preds = %42, %46, %unicode_byte_type.exit63
   %52 = zext i8 %45 to i64
-  %53 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 3
@@ -10926,7 +10926,7 @@ unicode_byte_type.exit63.thread98:                ; preds = %42, %46, %unicode_b
   %59 = lshr i32 %58, 5
   %60 = or disjoint i32 %59, %56
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %58, 31
   %65 = shl nuw i32 1, %64
@@ -10935,7 +10935,7 @@ unicode_byte_type.exit63.thread98:                ; preds = %42, %46, %unicode_b
   br i1 %.not60, label %.loopexit.sink.split, label %67
 
 67:                                               ; preds = %unicode_byte_type.exit63.thread98, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
-  %.056 = getelementptr inbounds i8, ptr %.05678, i64 2
+  %.056 = getelementptr inbounds nuw i8, ptr %.05678, i64 2
   %68 = ptrtoint ptr %.056 to i64
   %69 = sub i64 %5, %68
   %70 = icmp sgt i64 %69, 1
@@ -10972,7 +10972,7 @@ define internal fastcc range(i32 -2, 14) i32 @little2_scanComment(ptr nocapture 
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %.loopexit.sink.split
@@ -10983,20 +10983,20 @@ define internal fastcc range(i32 -2, 14) i32 @little2_scanComment(ptr nocapture 
   br i1 %15, label %16, label %.loopexit.sink.split
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %1, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %18 = ptrtoint ptr %17 to i64
   %19 = sub i64 %5, %18
   %20 = icmp sgt i64 %19, 1
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %22
 
 22:                                               ; preds = %.lr.ph, %67
   %23 = phi i64 [ %19, %.lr.ph ], [ %69, %67 ]
   %.04044 = phi ptr [ %17, %.lr.ph ], [ %.1, %67 ]
-  %24 = getelementptr inbounds i8, ptr %.04044, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.04044, i64 1
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %unicode_byte_type.exit.thread54 [
     i8 0, label %unicode_byte_type.exit
@@ -11019,7 +11019,7 @@ define internal fastcc range(i32 -2, 14) i32 @little2_scanComment(ptr nocapture 
 unicode_byte_type.exit:                           ; preds = %22
   %28 = load i8, ptr %.04044, align 1
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds [256 x i8], ptr %21, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [256 x i8], ptr %21, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   switch i8 %31, label %unicode_byte_type.exit.thread54 [
     i8 5, label %32
@@ -11032,7 +11032,7 @@ unicode_byte_type.exit:                           ; preds = %22
   ]
 
 32:                                               ; preds = %unicode_byte_type.exit
-  %33 = getelementptr inbounds i8, ptr %.04044, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.04044, i64 2
   br label %67
 
 34:                                               ; preds = %unicode_byte_type.exit
@@ -11040,7 +11040,7 @@ unicode_byte_type.exit:                           ; preds = %22
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.04044, i64 3
+  %37 = getelementptr inbounds nuw i8, ptr %.04044, i64 3
   br label %67
 
 unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, %unicode_byte_type.exit
@@ -11048,18 +11048,18 @@ unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, 
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %unicode_byte_type.exit.thread57
-  %40 = getelementptr inbounds i8, ptr %.04044, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.04044, i64 4
   br label %67
 
 41:                                               ; preds = %unicode_byte_type.exit
-  %42 = getelementptr inbounds i8, ptr %.04044, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.04044, i64 2
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %5, %43
   %45 = icmp sgt i64 %44, 1
   br i1 %45, label %46, label %.loopexit
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %.04044, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %.04044, i64 3
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %50, label %67
@@ -11070,14 +11070,14 @@ unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, 
   br i1 %52, label %53, label %67
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %.04044, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.04044, i64 4
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %5, %55
   %57 = icmp sgt i64 %56, 1
   br i1 %57, label %58, label %.loopexit
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %.04044, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.04044, i64 5
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %62, label %.loopexit.sink.split
@@ -11085,13 +11085,13 @@ unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, 
 62:                                               ; preds = %58
   %63 = load i8, ptr %54, align 1
   %64 = icmp eq i8 %63, 62
-  %65 = getelementptr inbounds i8, ptr %.04044, i64 6
+  %65 = getelementptr inbounds nuw i8, ptr %.04044, i64 6
   %spec.select = select i1 %64, ptr %65, ptr %54
   %spec.select61 = select i1 %64, i32 13, i32 0
   br label %.loopexit.sink.split
 
 unicode_byte_type.exit.thread54:                  ; preds = %22, %26, %unicode_byte_type.exit
-  %66 = getelementptr inbounds i8, ptr %.04044, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %.04044, i64 2
   br label %67
 
 67:                                               ; preds = %46, %50, %unicode_byte_type.exit.thread54, %39, %36, %32
@@ -11122,7 +11122,7 @@ define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %0
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %.thread
@@ -11139,13 +11139,13 @@ define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %0
 
 14:                                               ; preds = %11, %13
   %.0 = phi i32 [ 1, %13 ], [ 0, %11 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %.thread [
     i8 109, label %22
@@ -11157,13 +11157,13 @@ define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %0
 
 22:                                               ; preds = %18, %21
   %.1 = phi i32 [ 1, %21 ], [ %.0, %18 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i8, ptr %27, align 1
   switch i8 %28, label %.thread [
     i8 108, label %29
@@ -11195,7 +11195,7 @@ define internal fastcc range(i32 -2, 11) i32 @little2_scanRef(ptr nocapture noun
   br i1 %8, label %9, label %little2_scanCharRef.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %unicode_byte_type.exit.thread131 [
     i8 0, label %unicode_byte_type.exit
@@ -11216,10 +11216,10 @@ define internal fastcc range(i32 -2, 11) i32 @little2_scanRef(ptr nocapture noun
   br i1 %switch.i, label %little2_scanCharRef.exit.sink.split, label %unicode_byte_type.exit.thread131
 
 unicode_byte_type.exit:                           ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load i8, ptr %1, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %little2_scanCharRef.exit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread131
@@ -11232,7 +11232,7 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread131:                 ; preds = %9, %12, %unicode_byte_type.exit
   %19 = zext i8 %11 to i64
-  %20 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 3
@@ -11241,7 +11241,7 @@ unicode_byte_type.exit.thread131:                 ; preds = %9, %12, %unicode_by
   %26 = lshr i32 %25, 5
   %27 = or disjoint i32 %26, %23
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %25, 31
   %32 = shl nuw i32 1, %31
@@ -11250,14 +11250,14 @@ unicode_byte_type.exit.thread131:                 ; preds = %9, %12, %unicode_by
   br i1 %.not, label %little2_scanCharRef.exit.sink.split, label %34
 
 34:                                               ; preds = %unicode_byte_type.exit.thread131, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %.06098 = getelementptr inbounds i8, ptr %1, i64 2
+  %.06098 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %35 = ptrtoint ptr %.06098 to i64
   %36 = sub i64 %5, %35
   %37 = icmp sgt i64 %36, 1
   br i1 %37, label %.lr.ph, label %little2_scanCharRef.exit
 
 .lr.ph:                                           ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %99
 
 39:                                               ; preds = %unicode_byte_type.exit
@@ -11269,14 +11269,14 @@ unicode_byte_type.exit.thread134:                 ; preds = %9, %9, %9, %9, %uni
   br i1 %41, label %little2_scanCharRef.exit, label %little2_scanCharRef.exit.sink.split
 
 42:                                               ; preds = %unicode_byte_type.exit
-  %43 = getelementptr inbounds i8, ptr %1, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %5, %44
   %46 = icmp sgt i64 %45, 1
   br i1 %46, label %47, label %little2_scanCharRef.exit
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %1, i64 3
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %49 = load i8, ptr %48, align 1
   %cond35.i = icmp eq i8 %49, 0
   br i1 %cond35.i, label %50, label %little2_scanCharRef.exit.sink.split
@@ -11287,30 +11287,30 @@ unicode_byte_type.exit.thread134:                 ; preds = %9, %9, %9, %9, %uni
   br i1 %52, label %53, label %unicode_byte_type.exit.i
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %1, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %5, %55
   %57 = icmp sgt i64 %56, 1
   br i1 %57, label %58, label %little2_scanCharRef.exit
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %1, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %60 = load i8, ptr %59, align 1
   %cond.i.i = icmp eq i8 %60, 0
   br i1 %cond.i.i, label %unicode_byte_type.exit.i.i, label %little2_scanCharRef.exit.sink.split
 
 unicode_byte_type.exit.i.i:                       ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %0, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %62 = load i8, ptr %54, align 1
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds [256 x i8], ptr %61, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = and i8 %65, -2
   %67 = icmp eq i8 %66, 24
   br i1 %67, label %.preheader.i.i, label %little2_scanCharRef.exit.sink.split
 
 .preheader.i.i:                                   ; preds = %unicode_byte_type.exit.i.i
-  %.02231.i.i = getelementptr inbounds i8, ptr %1, i64 6
+  %.02231.i.i = getelementptr inbounds nuw i8, ptr %1, i64 6
   %68 = ptrtoint ptr %.02231.i.i to i64
   %69 = sub i64 %5, %68
   %70 = icmp sgt i64 %69, 1
@@ -11319,7 +11319,7 @@ unicode_byte_type.exit.i.i:                       ; preds = %58
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %79
   %.02233.i.i = phi ptr [ %.022.i.i, %79 ], [ %.02231.i.i, %.preheader.i.i ]
   %.pn32.i.i = phi ptr [ %.02233.i.i, %79 ], [ %54, %.preheader.i.i ]
-  %71 = getelementptr inbounds i8, ptr %.pn32.i.i, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %.pn32.i.i, i64 3
   %72 = load i8, ptr %71, align 1
   %cond47.i.i = icmp eq i8 %72, 0
   br i1 %cond47.i.i, label %unicode_byte_type.exit26.i.i, label %little2_scanCharRef.exit.sink.split
@@ -11327,7 +11327,7 @@ unicode_byte_type.exit.i.i:                       ; preds = %58
 unicode_byte_type.exit26.i.i:                     ; preds = %.lr.ph.i.i
   %73 = load i8, ptr %.02233.i.i, align 1
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds [256 x i8], ptr %61, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %74
   %76 = load i8, ptr %75, align 1
   switch i8 %76, label %little2_scanCharRef.exit.sink.split [
     i8 25, label %79
@@ -11336,34 +11336,34 @@ unicode_byte_type.exit26.i.i:                     ; preds = %.lr.ph.i.i
   ]
 
 77:                                               ; preds = %unicode_byte_type.exit26.i.i
-  %78 = getelementptr inbounds i8, ptr %.pn32.i.i, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.pn32.i.i, i64 4
   br label %little2_scanCharRef.exit.sink.split
 
 79:                                               ; preds = %unicode_byte_type.exit26.i.i, %unicode_byte_type.exit26.i.i
-  %.022.i.i = getelementptr inbounds i8, ptr %.02233.i.i, i64 2
+  %.022.i.i = getelementptr inbounds nuw i8, ptr %.02233.i.i, i64 2
   %80 = ptrtoint ptr %.022.i.i to i64
   %81 = sub i64 %5, %80
   %82 = icmp sgt i64 %81, 1
   br i1 %82, label %.lr.ph.i.i, label %little2_scanCharRef.exit, !llvm.loop !64
 
 unicode_byte_type.exit.i:                         ; preds = %50
-  %83 = getelementptr inbounds i8, ptr %0, i64 128
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %84 = zext i8 %51 to i64
-  %85 = getelementptr inbounds [256 x i8], ptr %83, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [256 x i8], ptr %83, i64 0, i64 %84
   %86 = load i8, ptr %85, align 1
   %cond.i = icmp eq i8 %86, 25
   br i1 %cond.i, label %.preheader.i, label %little2_scanCharRef.exit.sink.split
 
 .preheader.i:                                     ; preds = %unicode_byte_type.exit.i, %unicode_byte_type.exit32.i
   %.pn.i = phi ptr [ %.028.i, %unicode_byte_type.exit32.i ], [ %43, %unicode_byte_type.exit.i ]
-  %.028.i = getelementptr inbounds i8, ptr %.pn.i, i64 2
+  %.028.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2
   %87 = ptrtoint ptr %.028.i to i64
   %88 = sub i64 %5, %87
   %89 = icmp sgt i64 %88, 1
   br i1 %89, label %90, label %little2_scanCharRef.exit
 
 90:                                               ; preds = %.preheader.i
-  %91 = getelementptr inbounds i8, ptr %.pn.i, i64 3
+  %91 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 3
   %92 = load i8, ptr %91, align 1
   %cond67.i = icmp eq i8 %92, 0
   br i1 %cond67.i, label %unicode_byte_type.exit32.i, label %little2_scanCharRef.exit.sink.split
@@ -11371,7 +11371,7 @@ unicode_byte_type.exit.i:                         ; preds = %50
 unicode_byte_type.exit32.i:                       ; preds = %90
   %93 = load i8, ptr %.028.i, align 1
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds [256 x i8], ptr %83, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [256 x i8], ptr %83, i64 0, i64 %94
   %96 = load i8, ptr %95, align 1
   switch i8 %96, label %little2_scanCharRef.exit.sink.split [
     i8 25, label %.preheader.i
@@ -11379,14 +11379,14 @@ unicode_byte_type.exit32.i:                       ; preds = %90
   ], !llvm.loop !65
 
 97:                                               ; preds = %unicode_byte_type.exit32.i
-  %98 = getelementptr inbounds i8, ptr %.pn.i, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 4
   br label %little2_scanCharRef.exit.sink.split
 
 99:                                               ; preds = %.lr.ph, %124
   %100 = phi i64 [ %36, %.lr.ph ], [ %126, %124 ]
   %.060100 = phi ptr [ %.06098, %.lr.ph ], [ %.060, %124 ]
   %.pn99 = phi ptr [ %1, %.lr.ph ], [ %.060100, %124 ]
-  %101 = getelementptr inbounds i8, ptr %.pn99, i64 3
+  %101 = getelementptr inbounds nuw i8, ptr %.pn99, i64 3
   %102 = load i8, ptr %101, align 1
   switch i8 %102, label %unicode_byte_type.exit68.thread137 [
     i8 0, label %unicode_byte_type.exit68
@@ -11409,7 +11409,7 @@ unicode_byte_type.exit32.i:                       ; preds = %90
 unicode_byte_type.exit68:                         ; preds = %99
   %105 = load i8, ptr %.060100, align 1
   %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds [256 x i8], ptr %38, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [256 x i8], ptr %38, i64 0, i64 %106
   %108 = load i8, ptr %107, align 1
   switch i8 %108, label %little2_scanCharRef.exit.sink.split [
     i8 29, label %unicode_byte_type.exit68.thread137
@@ -11425,7 +11425,7 @@ unicode_byte_type.exit68:                         ; preds = %99
 
 unicode_byte_type.exit68.thread137:               ; preds = %99, %103, %unicode_byte_type.exit68
   %109 = zext i8 %102 to i64
-  %110 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
   %113 = shl nuw nsw i32 %112, 3
@@ -11434,7 +11434,7 @@ unicode_byte_type.exit68.thread137:               ; preds = %99, %103, %unicode_
   %116 = lshr i32 %115, 5
   %117 = or disjoint i32 %116, %113
   %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = and i32 %115, 31
   %122 = shl nuw i32 1, %121
@@ -11443,7 +11443,7 @@ unicode_byte_type.exit68.thread137:               ; preds = %99, %103, %unicode_
   br i1 %.not64, label %little2_scanCharRef.exit.sink.split, label %124
 
 124:                                              ; preds = %unicode_byte_type.exit68.thread137, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68
-  %.060 = getelementptr inbounds i8, ptr %.060100, i64 2
+  %.060 = getelementptr inbounds nuw i8, ptr %.060100, i64 2
   %125 = ptrtoint ptr %.060 to i64
   %126 = sub i64 %5, %125
   %127 = icmp sgt i64 %126, 1
@@ -11458,7 +11458,7 @@ unicode_byte_type.exit68.thread140:               ; preds = %99, %99, %99, %99, 
   br i1 %130, label %little2_scanCharRef.exit, label %little2_scanCharRef.exit.sink.split
 
 131:                                              ; preds = %unicode_byte_type.exit68
-  %132 = getelementptr inbounds i8, ptr %.pn99, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %.pn99, i64 4
   br label %little2_scanCharRef.exit.sink.split
 
 little2_scanCharRef.exit.sink.split:              ; preds = %90, %unicode_byte_type.exit32.i, %.lr.ph.i.i, %unicode_byte_type.exit26.i.i, %unicode_byte_type.exit68, %103, %99, %99, %99, %99, %unicode_byte_type.exit68.thread137, %unicode_byte_type.exit68.thread140, %128, %unicode_byte_type.exit, %12, %9, %9, %9, %9, %47, %58, %unicode_byte_type.exit.i.i, %77, %unicode_byte_type.exit.i, %97, %unicode_byte_type.exit.thread134, %39, %unicode_byte_type.exit.thread131, %131
@@ -11483,13 +11483,13 @@ define internal fastcc range(i32 -2, 4) i32 @little2_scanAtts(ptr nocapture noun
   br i1 %9, label %.lr.ph259, label %.loopexit90
 
 .lr.ph259:                                        ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph259, %.loopexit87
   %12 = phi i64 [ %8, %.lr.ph259 ], [ %193, %.loopexit87 ]
   %.promoted = phi ptr [ %1, %.lr.ph259 ], [ %storemerge, %.loopexit87 ]
-  %13 = getelementptr inbounds i8, ptr %.promoted, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %unicode_byte_type.exit.thread412 [
     i8 0, label %unicode_byte_type.exit
@@ -11512,7 +11512,7 @@ define internal fastcc range(i32 -2, 4) i32 @little2_scanAtts(ptr nocapture noun
 unicode_byte_type.exit:                           ; preds = %11
   %17 = load i8, ptr %.promoted, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %.loopexit90.sink.split [
     i8 29, label %unicode_byte_type.exit.thread412
@@ -11531,7 +11531,7 @@ unicode_byte_type.exit:                           ; preds = %11
 
 unicode_byte_type.exit.thread412:                 ; preds = %11, %15, %unicode_byte_type.exit
   %21 = zext i8 %14 to i64
-  %22 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 3
@@ -11540,7 +11540,7 @@ unicode_byte_type.exit.thread412:                 ; preds = %11, %15, %unicode_b
   %28 = lshr i32 %27, 5
   %29 = or disjoint i32 %28, %25
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %27, 31
   %34 = shl nuw i32 1, %33
@@ -11557,7 +11557,7 @@ unicode_byte_type.exit.thread415:                 ; preds = %11, %11, %11, %11, 
   br i1 %38, label %.loopexit90, label %.loopexit90.sink.split
 
 39:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %40 = getelementptr inbounds i8, ptr %.promoted, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %.promoted, i64 2
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %6, %41
   %43 = icmp sgt i64 %42, 1
@@ -11566,7 +11566,7 @@ unicode_byte_type.exit.thread415:                 ; preds = %11, %11, %11, %11, 
 .lr.ph:                                           ; preds = %39, %52
   %44 = phi ptr [ %53, %52 ], [ %40, %39 ]
   %45 = phi ptr [ %44, %52 ], [ %.promoted, %39 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 3
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 3
   %47 = load i8, ptr %46, align 1
   %cond = icmp eq i8 %47, 0
   br i1 %cond, label %unicode_byte_type.exit68, label %.loopexit90.sink.split
@@ -11574,7 +11574,7 @@ unicode_byte_type.exit.thread415:                 ; preds = %11, %11, %11, %11, 
 unicode_byte_type.exit68:                         ; preds = %.lr.ph
   %48 = load i8, ptr %44, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
   switch i8 %51, label %.loopexit90.sink.split [
     i8 14, label %.loopexit93
@@ -11584,7 +11584,7 @@ unicode_byte_type.exit68:                         ; preds = %.lr.ph
   ]
 
 52:                                               ; preds = %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68
-  %53 = getelementptr inbounds i8, ptr %44, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %54 = ptrtoint ptr %53 to i64
   %55 = sub i64 %6, %54
   %56 = icmp sgt i64 %55, 1
@@ -11596,7 +11596,7 @@ unicode_byte_type.exit68:                         ; preds = %.lr.ph
 
 57:                                               ; preds = %unicode_byte_type.exit, %.loopexit93
   %.promoted228 = phi ptr [ %44, %.loopexit93 ], [ %.promoted, %unicode_byte_type.exit ]
-  %58 = getelementptr inbounds i8, ptr %.promoted228, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %.promoted228, i64 2
   %59 = ptrtoint ptr %58 to i64
   %60 = sub i64 %6, %59
   %61 = icmp sgt i64 %60, 1
@@ -11605,7 +11605,7 @@ unicode_byte_type.exit68:                         ; preds = %.lr.ph
 .lr.ph232:                                        ; preds = %57, %72
   %62 = phi ptr [ %73, %72 ], [ %58, %57 ]
   %63 = phi ptr [ %62, %72 ], [ %.promoted228, %57 ]
-  %64 = getelementptr inbounds i8, ptr %63, i64 3
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 3
   %65 = load i8, ptr %64, align 1
   %cond86 = icmp eq i8 %65, 0
   br i1 %cond86, label %unicode_byte_type.exit71, label %.loopexit90.sink.split
@@ -11613,7 +11613,7 @@ unicode_byte_type.exit68:                         ; preds = %.lr.ph
 unicode_byte_type.exit71:                         ; preds = %.lr.ph232
   %66 = load i8, ptr %62, align 1
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = and i32 %70, 254
@@ -11628,14 +11628,14 @@ unicode_byte_type.exit71.thread:                  ; preds = %unicode_byte_type.e
   ]
 
 72:                                               ; preds = %unicode_byte_type.exit71.thread, %unicode_byte_type.exit71.thread, %unicode_byte_type.exit71.thread
-  %73 = getelementptr inbounds i8, ptr %62, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %74 = ptrtoint ptr %73 to i64
   %75 = sub i64 %6, %74
   %76 = icmp sgt i64 %75, 1
   br i1 %76, label %.lr.ph232, label %.loopexit90
 
 77:                                               ; preds = %unicode_byte_type.exit71
-  %78 = getelementptr inbounds i8, ptr %63, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store ptr %78, ptr %5, align 8
   %79 = ptrtoint ptr %78 to i64
   %80 = sub i64 %6, %79
@@ -11645,7 +11645,7 @@ unicode_byte_type.exit71.thread:                  ; preds = %unicode_byte_type.e
 .lr.ph236:                                        ; preds = %77, %119
   %82 = phi i64 [ %122, %119 ], [ %80, %77 ]
   %83 = phi ptr [ %120, %119 ], [ %78, %77 ]
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   %85 = load i8, ptr %84, align 1
   switch i8 %85, label %95 [
     i8 0, label %86
@@ -11663,7 +11663,7 @@ unicode_byte_type.exit71.thread:                  ; preds = %unicode_byte_type.e
 86:                                               ; preds = %.lr.ph236
   %87 = load i8, ptr %83, align 1
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   br label %unicode_byte_type.exit74
@@ -11698,7 +11698,7 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph236, %.lr.ph2
   ]
 
 99:                                               ; preds = %98
-  %100 = getelementptr inbounds i8, ptr %83, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %83, i64 2
   store ptr %100, ptr %5, align 8
   br label %119
 
@@ -11707,7 +11707,7 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph236, %.lr.ph2
   br i1 %102, label %.loopexit90, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %83, i64 3
+  %104 = getelementptr inbounds nuw i8, ptr %83, i64 3
   store ptr %104, ptr %5, align 8
   br label %119
 
@@ -11716,12 +11716,12 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph236, %.lr.ph2
   br i1 %106, label %.loopexit90, label %107
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %83, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store ptr %108, ptr %5, align 8
   br label %119
 
 109:                                              ; preds = %98
-  %110 = getelementptr inbounds i8, ptr %83, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %83, i64 2
   %111 = call fastcc i32 @little2_scanRef(ptr noundef %0, ptr noundef nonnull %110, ptr noundef %2, ptr noundef nonnull %5)
   %112 = icmp slt i32 %111, 1
   br i1 %112, label %113, label %._crit_edge
@@ -11739,7 +11739,7 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph236, %.lr.ph2
   br label %.loopexit90.sink.split
 
 117:                                              ; preds = %98
-  %118 = getelementptr inbounds i8, ptr %83, i64 2
+  %118 = getelementptr inbounds nuw i8, ptr %83, i64 2
   store ptr %118, ptr %5, align 8
   br label %119
 
@@ -11751,7 +11751,7 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph236, %.lr.ph2
   br i1 %123, label %.lr.ph236, label %.loopexit90
 
 124:                                              ; preds = %unicode_byte_type.exit74
-  %125 = getelementptr inbounds i8, ptr %83, i64 2
+  %125 = getelementptr inbounds nuw i8, ptr %83, i64 2
   store ptr %125, ptr %5, align 8
   %126 = ptrtoint ptr %125 to i64
   %127 = sub i64 %6, %126
@@ -11759,7 +11759,7 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph236, %.lr.ph2
   br i1 %128, label %129, label %.loopexit90
 
 129:                                              ; preds = %124
-  %130 = getelementptr inbounds i8, ptr %83, i64 3
+  %130 = getelementptr inbounds nuw i8, ptr %83, i64 3
   %131 = load i8, ptr %130, align 1
   %cond551 = icmp eq i8 %131, 0
   br i1 %cond551, label %unicode_byte_type.exit77, label %.loopexit90.sink.split
@@ -11767,7 +11767,7 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph236, %.lr.ph2
 unicode_byte_type.exit77:                         ; preds = %129
   %132 = load i8, ptr %125, align 1
   %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %133
   %135 = load i8, ptr %134, align 1
   switch i8 %135, label %.loopexit90.sink.split [
     i8 21, label %136
@@ -11778,7 +11778,7 @@ unicode_byte_type.exit77:                         ; preds = %129
   ]
 
 136:                                              ; preds = %unicode_byte_type.exit77, %unicode_byte_type.exit77, %unicode_byte_type.exit77
-  %137 = getelementptr inbounds i8, ptr %83, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %138 = ptrtoint ptr %137 to i64
   %139 = sub i64 %6, %138
   %140 = icmp sgt i64 %139, 1
@@ -11788,7 +11788,7 @@ unicode_byte_type.exit77:                         ; preds = %129
   %141 = phi i64 [ %175, %172 ], [ %139, %136 ]
   %142 = phi ptr [ %173, %172 ], [ %137, %136 ]
   %143 = phi ptr [ %142, %172 ], [ %125, %136 ]
-  %144 = getelementptr inbounds i8, ptr %143, i64 3
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 3
   %145 = load i8, ptr %144, align 1
   switch i8 %145, label %unicode_byte_type.exit80.thread419 [
     i8 0, label %unicode_byte_type.exit80
@@ -11811,7 +11811,7 @@ unicode_byte_type.exit77:                         ; preds = %129
 unicode_byte_type.exit80:                         ; preds = %.lr.ph254
   %148 = load i8, ptr %142, align 1
   %149 = zext i8 %148 to i64
-  %150 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %149
   %151 = load i8, ptr %150, align 1
   switch i8 %151, label %.loopexit90.sink.split [
     i8 29, label %unicode_byte_type.exit80.thread419
@@ -11827,11 +11827,11 @@ unicode_byte_type.exit80:                         ; preds = %.lr.ph254
   ]
 
 unicode_byte_type.exit80.thread419:               ; preds = %.lr.ph254, %unicode_byte_type.exit80, %146
-  %152 = getelementptr inbounds i8, ptr %143, i64 3
+  %152 = getelementptr inbounds nuw i8, ptr %143, i64 3
   store ptr %142, ptr %5, align 8
   %153 = load i8, ptr %152, align 1
   %154 = zext i8 %153 to i64
-  %155 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %154
+  %155 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %154
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i32
   %158 = shl nuw nsw i32 %157, 3
@@ -11840,7 +11840,7 @@ unicode_byte_type.exit80.thread419:               ; preds = %.lr.ph254, %unicode
   %161 = lshr i32 %160, 5
   %162 = or disjoint i32 %161, %158
   %163 = zext nneg i32 %162 to i64
-  %164 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %163
   %165 = load i32, ptr %164, align 4
   %166 = and i32 %160, 31
   %167 = shl nuw i32 1, %166
@@ -11857,7 +11857,7 @@ unicode_byte_type.exit80.thread422:               ; preds = %.lr.ph254, %.lr.ph2
   br i1 %171, label %.loopexit90, label %.loopexit90.sink.split
 
 172:                                              ; preds = %unicode_byte_type.exit80, %unicode_byte_type.exit80, %unicode_byte_type.exit80
-  %173 = getelementptr inbounds i8, ptr %142, i64 2
+  %173 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %174 = ptrtoint ptr %173 to i64
   %175 = sub i64 %6, %174
   %176 = icmp sgt i64 %175, 1
@@ -11865,12 +11865,12 @@ unicode_byte_type.exit80.thread422:               ; preds = %.lr.ph254, %.lr.ph2
 
 .loopexit96:                                      ; preds = %unicode_byte_type.exit77, %unicode_byte_type.exit80
   %177 = phi ptr [ %142, %unicode_byte_type.exit80 ], [ %125, %unicode_byte_type.exit77 ]
-  %178 = getelementptr inbounds i8, ptr %177, i64 2
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 2
   br label %.loopexit90.sink.split
 
 .loopexit95:                                      ; preds = %unicode_byte_type.exit77, %unicode_byte_type.exit80
   %179 = phi ptr [ %142, %unicode_byte_type.exit80 ], [ %125, %unicode_byte_type.exit77 ]
-  %180 = getelementptr inbounds i8, ptr %179, i64 2
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 2
   store ptr %180, ptr %5, align 8
   %181 = ptrtoint ptr %180 to i64
   %182 = sub i64 %6, %181
@@ -11878,7 +11878,7 @@ unicode_byte_type.exit80.thread422:               ; preds = %.lr.ph254, %.lr.ph2
   br i1 %183, label %184, label %.loopexit90
 
 184:                                              ; preds = %.loopexit95
-  %185 = getelementptr inbounds i8, ptr %179, i64 3
+  %185 = getelementptr inbounds nuw i8, ptr %179, i64 3
   %186 = load i8, ptr %185, align 1
   %187 = icmp eq i8 %186, 0
   br i1 %187, label %188, label %.loopexit90.sink.split
@@ -11886,14 +11886,14 @@ unicode_byte_type.exit80.thread422:               ; preds = %.lr.ph254, %.lr.ph2
 188:                                              ; preds = %184
   %189 = load i8, ptr %180, align 1
   %190 = icmp eq i8 %189, 62
-  %191 = getelementptr inbounds i8, ptr %179, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %179, i64 4
   %spec.select = select i1 %190, ptr %191, ptr %180
   %spec.select552 = select i1 %190, i32 3, i32 0
   br label %.loopexit90.sink.split
 
 .loopexit87:                                      ; preds = %unicode_byte_type.exit80, %unicode_byte_type.exit80, %unicode_byte_type.exit80.thread419, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit.thread412
   %.pn = phi ptr [ %142, %unicode_byte_type.exit80.thread419 ], [ %.promoted, %unicode_byte_type.exit ], [ %.promoted, %unicode_byte_type.exit ], [ %.promoted, %unicode_byte_type.exit ], [ %.promoted, %unicode_byte_type.exit ], [ %.promoted, %unicode_byte_type.exit ], [ %.promoted, %unicode_byte_type.exit.thread412 ], [ %142, %unicode_byte_type.exit80 ], [ %142, %unicode_byte_type.exit80 ]
-  %storemerge = getelementptr inbounds i8, ptr %.pn, i64 2
+  %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   store ptr %storemerge, ptr %5, align 8
   %192 = ptrtoint ptr %storemerge to i64
   %193 = sub i64 %6, %192
@@ -11917,9 +11917,9 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not, label %6, label %91
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %10 = icmp eq ptr %9, %3
   br i1 %10, label %11, label %19
 
@@ -11928,7 +11928,7 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not107.not, label %91, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 125
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %14 = load i8, ptr %13, align 1
   %.off = add i8 %14, -3
   %switch = icmp ult i8 %.off, 3
@@ -11963,7 +11963,7 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   ]
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 125
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
   %29 = icmp ne i32 %1, 0
@@ -11971,13 +11971,13 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   br i1 %or.cond3, label %81, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %2, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store ptr %31, ptr %4, align 8
   store ptr @big2_encoding, ptr %8, align 8
   br label %91
 
 32:                                               ; preds = %19
-  %33 = getelementptr inbounds i8, ptr %0, i64 125
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 4
   br i1 %35, label %39, label %36
@@ -11995,13 +11995,13 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
 40:                                               ; preds = %39, %36
   store ptr @little2_encoding, ptr %8, align 8
   %41 = zext nneg i32 %1 to i64
-  %42 = getelementptr inbounds [3 x ptr], ptr @little2_encoding, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [3 x ptr], ptr @little2_encoding, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef nonnull @little2_encoding, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #13
   br label %91
 
 45:                                               ; preds = %19
-  %46 = getelementptr inbounds i8, ptr %0, i64 125
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
   %49 = icmp ne i32 %1, 0
@@ -12009,7 +12009,7 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   br i1 %or.cond8, label %81, label %50
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %2, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store ptr %51, ptr %4, align 8
   store ptr @little2_encoding, ptr %8, align 8
   br label %91
@@ -12019,7 +12019,7 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not105, label %56, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %0, i64 125
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %55 = load i8, ptr %54, align 1
   switch i8 %55, label %56 [
     i8 5, label %81
@@ -12029,7 +12029,7 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   ]
 
 56:                                               ; preds = %53, %52
-  %57 = getelementptr inbounds i8, ptr %2, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %58 = icmp eq ptr %57, %3
   br i1 %58, label %91, label %59
 
@@ -12039,7 +12039,7 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   br i1 %61, label %62, label %81
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %2, i64 3
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store ptr %63, ptr %4, align 8
   store ptr @utf8_encoding, ptr %8, align 8
   br label %91
@@ -12053,7 +12053,7 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not106, label %71, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %0, i64 125
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %69 = load i8, ptr %68, align 1
   %70 = icmp eq i8 %69, 5
   br i1 %70, label %81, label %71
@@ -12061,7 +12061,7 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
 71:                                               ; preds = %67, %66
   store ptr @big2_encoding, ptr %8, align 8
   %72 = zext nneg i32 %1 to i64
-  %73 = getelementptr inbounds [3 x ptr], ptr @big2_encoding, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [3 x ptr], ptr @big2_encoding, i64 0, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i32 %74(ptr noundef nonnull @big2_encoding, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #13
   br label %91
@@ -12078,14 +12078,14 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   br label %91
 
 81:                                               ; preds = %53, %53, %53, %53, %25, %36, %39, %45, %59, %67, %76, %15, %17
-  %82 = getelementptr inbounds i8, ptr %0, i64 125
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 125
   %83 = load i8, ptr %82, align 1
   %84 = sext i8 %83 to i64
   %85 = getelementptr inbounds ptr, ptr @encodings, i64 %84
   %86 = load ptr, ptr %85, align 8
   store ptr %86, ptr %8, align 8
   %87 = zext nneg i32 %1 to i64
-  %88 = getelementptr inbounds [3 x ptr], ptr %86, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [3 x ptr], ptr %86, i64 0, i64 %87
   %89 = load ptr, ptr %88, align 8
   %90 = tail call i32 %89(ptr noundef %86, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #13
   br label %91
@@ -12108,11 +12108,11 @@ define internal range(i32 0, 3) i32 @ascii_toUtf8(ptr nocapture readnone %0, ptr
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %12, ptr %1, align 8
   %13 = load i8, ptr %8, align 1
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %3, align 8
   store i8 %13, ptr %14, align 1
   %16 = load ptr, ptr %1, align 8
@@ -12170,17 +12170,17 @@ define internal i32 @big2_prologTok(ptr nocapture noundef readonly %0, ptr nound
   ]
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %1, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %19 = load i8, ptr %18, align 1
   %switch.i = icmp ugt i8 %19, -3
   br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread279
 
 unicode_byte_type.exit:                           ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr %20, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %unicode_byte_type.exit.thread [
     i8 12, label %26
@@ -12210,17 +12210,17 @@ unicode_byte_type.exit:                           ; preds = %15
   ]
 
 26:                                               ; preds = %unicode_byte_type.exit
-  %27 = getelementptr inbounds i8, ptr %1, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %28 = tail call fastcc i32 @big2_scanLit(i32 noundef 12, ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef %.0180, ptr noundef %3)
   br label %244
 
 29:                                               ; preds = %unicode_byte_type.exit
-  %30 = getelementptr inbounds i8, ptr %1, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %31 = tail call fastcc i32 @big2_scanLit(i32 noundef 13, ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %.0180, ptr noundef %3)
   br label %244
 
 32:                                               ; preds = %unicode_byte_type.exit
-  %33 = getelementptr inbounds i8, ptr %1, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %34 = ptrtoint ptr %.0180 to i64
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
@@ -12239,17 +12239,17 @@ unicode_byte_type.exit:                           ; preds = %15
   ]
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %1, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %42 = load i8, ptr %41, align 1
   %switch.i196 = icmp ugt i8 %42, -3
   br i1 %switch.i196, label %unicode_byte_type.exit198.thread, label %unicode_byte_type.exit198.thread283
 
 unicode_byte_type.exit198:                        ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %0, i64 128
-  %44 = getelementptr inbounds i8, ptr %1, i64 3
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds [256 x i8], ptr %43, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [256 x i8], ptr %43, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
   switch i8 %48, label %unicode_byte_type.exit198.thread [
     i8 16, label %49
@@ -12263,12 +12263,12 @@ unicode_byte_type.exit198:                        ; preds = %38
   ]
 
 49:                                               ; preds = %unicode_byte_type.exit198
-  %50 = getelementptr inbounds i8, ptr %1, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %51 = tail call fastcc i32 @big2_scanDecl(ptr noundef nonnull %0, ptr noundef nonnull %50, ptr noundef %.0180, ptr noundef %3)
   br label %244
 
 52:                                               ; preds = %unicode_byte_type.exit198
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %54 = tail call fastcc i32 @big2_scanPi(ptr noundef nonnull %0, ptr noundef nonnull %53, ptr noundef %.0180, ptr noundef %3)
   br label %244
 
@@ -12281,7 +12281,7 @@ unicode_byte_type.exit198.thread:                 ; preds = %38, %38, %38, %38, 
   br label %244
 
 55:                                               ; preds = %unicode_byte_type.exit
-  %56 = getelementptr inbounds i8, ptr %1, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %57 = icmp eq ptr %56, %.0180
   br i1 %57, label %58, label %59
 
@@ -12291,14 +12291,14 @@ unicode_byte_type.exit198.thread:                 ; preds = %38, %38, %38, %38, 
 
 59:                                               ; preds = %55, %unicode_byte_type.exit, %unicode_byte_type.exit
   %60 = ptrtoint ptr %.0180 to i64
-  %61 = getelementptr inbounds i8, ptr %1, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %62 = ptrtoint ptr %61 to i64
   %63 = sub i64 %60, %62
   %64 = icmp sgt i64 %63, 1
   br i1 %64, label %.lr.ph242, label %._crit_edge243
 
 .lr.ph242:                                        ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %0, i64 128
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %66
 
 66:                                               ; preds = %.lr.ph242, %76
@@ -12309,10 +12309,10 @@ unicode_byte_type.exit198.thread:                 ; preds = %38, %38, %38, %38, 
   br i1 %cond, label %unicode_byte_type.exit201, label %unicode_byte_type.exit201.thread
 
 unicode_byte_type.exit201:                        ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %.0181240, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %.0181240, i64 3
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds [256 x i8], ptr %65, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [256 x i8], ptr %65, i64 0, i64 %71
   %73 = load i8, ptr %72, align 1
   switch i8 %73, label %unicode_byte_type.exit201.thread [
     i8 21, label %76
@@ -12321,7 +12321,7 @@ unicode_byte_type.exit201:                        ; preds = %66
   ]
 
 74:                                               ; preds = %unicode_byte_type.exit201
-  %75 = getelementptr inbounds i8, ptr %.0181240, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.0181240, i64 4
   %.not194 = icmp eq ptr %75, %.0180
   br i1 %.not194, label %unicode_byte_type.exit201.thread, label %76
 
@@ -12330,7 +12330,7 @@ unicode_byte_type.exit201.thread:                 ; preds = %66, %74, %unicode_b
   br label %244
 
 76:                                               ; preds = %74, %unicode_byte_type.exit201, %unicode_byte_type.exit201
-  %77 = getelementptr inbounds i8, ptr %67, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %67, i64 2
   %78 = ptrtoint ptr %77 to i64
   %79 = sub i64 %60, %78
   %80 = icmp sgt i64 %79, 1
@@ -12342,22 +12342,22 @@ unicode_byte_type.exit201.thread:                 ; preds = %66, %74, %unicode_b
   br label %244
 
 81:                                               ; preds = %unicode_byte_type.exit
-  %82 = getelementptr inbounds i8, ptr %1, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %83 = tail call fastcc i32 @big2_scanPercent(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef %.0180, ptr noundef %3)
   br label %244
 
 84:                                               ; preds = %unicode_byte_type.exit
-  %85 = getelementptr inbounds i8, ptr %1, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %85, ptr %3, align 8
   br label %244
 
 86:                                               ; preds = %unicode_byte_type.exit
-  %87 = getelementptr inbounds i8, ptr %1, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %87, ptr %3, align 8
   br label %244
 
 88:                                               ; preds = %unicode_byte_type.exit
-  %89 = getelementptr inbounds i8, ptr %1, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %90 = ptrtoint ptr %.0180 to i64
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %90, %91
@@ -12370,7 +12370,7 @@ unicode_byte_type.exit201.thread:                 ; preds = %66, %74, %unicode_b
   br i1 %96, label %97, label %113
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %1, i64 3
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, 93
   br i1 %100, label %101, label %113
@@ -12380,19 +12380,19 @@ unicode_byte_type.exit201.thread:                 ; preds = %66, %74, %unicode_b
   br i1 %102, label %103, label %244
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %1, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 0
   br i1 %106, label %107, label %113
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %1, i64 5
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %109 = load i8, ptr %108, align 1
   %110 = icmp eq i8 %109, 62
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %1, i64 6
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store ptr %112, ptr %3, align 8
   br label %244
 
@@ -12401,12 +12401,12 @@ unicode_byte_type.exit201.thread:                 ; preds = %66, %74, %unicode_b
   br label %244
 
 114:                                              ; preds = %unicode_byte_type.exit
-  %115 = getelementptr inbounds i8, ptr %1, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %115, ptr %3, align 8
   br label %244
 
 116:                                              ; preds = %unicode_byte_type.exit
-  %117 = getelementptr inbounds i8, ptr %1, i64 2
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %118 = ptrtoint ptr %.0180 to i64
   %119 = ptrtoint ptr %117 to i64
   %120 = sub i64 %118, %119
@@ -12419,11 +12419,11 @@ unicode_byte_type.exit201.thread:                 ; preds = %66, %74, %unicode_b
   br i1 %cond325, label %unicode_byte_type.exit204, label %unicode_byte_type.exit204.thread
 
 unicode_byte_type.exit204:                        ; preds = %122
-  %124 = getelementptr inbounds i8, ptr %0, i64 128
-  %125 = getelementptr inbounds i8, ptr %1, i64 3
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds [256 x i8], ptr %124, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [256 x i8], ptr %124, i64 0, i64 %127
   %129 = load i8, ptr %128, align 1
   switch i8 %129, label %unicode_byte_type.exit204.thread [
     i8 33, label %130
@@ -12439,17 +12439,17 @@ unicode_byte_type.exit204:                        ; preds = %122
   ]
 
 130:                                              ; preds = %unicode_byte_type.exit204
-  %131 = getelementptr inbounds i8, ptr %1, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %131, ptr %3, align 8
   br label %244
 
 132:                                              ; preds = %unicode_byte_type.exit204
-  %133 = getelementptr inbounds i8, ptr %1, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %133, ptr %3, align 8
   br label %244
 
 134:                                              ; preds = %unicode_byte_type.exit204
-  %135 = getelementptr inbounds i8, ptr %1, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %135, ptr %3, align 8
   br label %244
 
@@ -12462,17 +12462,17 @@ unicode_byte_type.exit204.thread:                 ; preds = %122, %unicode_byte_
   br label %244
 
 137:                                              ; preds = %unicode_byte_type.exit
-  %138 = getelementptr inbounds i8, ptr %1, i64 2
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %138, ptr %3, align 8
   br label %244
 
 139:                                              ; preds = %unicode_byte_type.exit
-  %140 = getelementptr inbounds i8, ptr %1, i64 2
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %140, ptr %3, align 8
   br label %244
 
 141:                                              ; preds = %unicode_byte_type.exit
-  %142 = getelementptr inbounds i8, ptr %1, i64 2
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %143 = tail call fastcc i32 @big2_scanPoundName(ptr noundef nonnull %0, ptr noundef nonnull %142, ptr noundef %.0180, ptr noundef %3)
   br label %244
 
@@ -12511,17 +12511,17 @@ unicode_byte_type.exit.thread277:                 ; preds = %15, %15, %15, %15, 
 
 unicode_byte_type.exit.thread279:                 ; preds = %15, %17, %unicode_byte_type.exit
   %159 = zext i8 %16 to i64
-  %160 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = zext i8 %161 to i32
   %163 = shl nuw nsw i32 %162, 3
-  %164 = getelementptr inbounds i8, ptr %1, i64 1
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %165 = load i8, ptr %164, align 1
   %166 = zext i8 %165 to i32
   %167 = lshr i32 %166, 5
   %168 = or disjoint i32 %167, %163
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %169
   %171 = load i32, ptr %170, align 4
   %172 = and i32 %166, 31
   %173 = shl nuw i32 1, %172
@@ -12530,13 +12530,13 @@ unicode_byte_type.exit.thread279:                 ; preds = %15, %17, %unicode_b
   br i1 %.not188, label %175, label %185
 
 175:                                              ; preds = %unicode_byte_type.exit.thread279
-  %176 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %159
+  %176 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %159
   %177 = load i8, ptr %176, align 1
   %178 = zext i8 %177 to i32
   %179 = shl nuw nsw i32 %178, 3
   %180 = or disjoint i32 %179, %167
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %181
   %183 = load i32, ptr %182, align 4
   %184 = and i32 %183, %173
   %.not189 = icmp eq i32 %184, 0
@@ -12550,14 +12550,14 @@ unicode_byte_type.exit.thread:                    ; preds = %15, %15, %15, %15, 
   %186 = phi i1 [ true, %158 ], [ false, %unicode_byte_type.exit ], [ false, %unicode_byte_type.exit ], [ false, %unicode_byte_type.exit.thread279 ], [ true, %175 ]
   %.0 = phi i32 [ 19, %158 ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit ], [ 18, %unicode_byte_type.exit.thread279 ], [ 19, %175 ]
   %187 = ptrtoint ptr %.0180 to i64
-  %.2237 = getelementptr inbounds i8, ptr %1, i64 2
+  %.2237 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %188 = ptrtoint ptr %.2237 to i64
   %189 = sub i64 %187, %188
   %190 = icmp sgt i64 %189, 1
   br i1 %190, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %185
-  %191 = getelementptr inbounds i8, ptr %0, i64 128
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %192
 
 192:                                              ; preds = %.lr.ph, %220
@@ -12579,16 +12579,16 @@ unicode_byte_type.exit.thread:                    ; preds = %15, %15, %15, %15, 
   ]
 
 195:                                              ; preds = %192
-  %196 = getelementptr inbounds i8, ptr %.pn238, i64 3
+  %196 = getelementptr inbounds nuw i8, ptr %.pn238, i64 3
   %197 = load i8, ptr %196, align 1
   %switch.i205 = icmp ugt i8 %197, -3
   br i1 %switch.i205, label %unicode_byte_type.exit207.thread, label %unicode_byte_type.exit207.thread288
 
 unicode_byte_type.exit207:                        ; preds = %192
-  %198 = getelementptr inbounds i8, ptr %.pn238, i64 3
+  %198 = getelementptr inbounds nuw i8, ptr %.pn238, i64 3
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i64
-  %201 = getelementptr inbounds [256 x i8], ptr %191, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw [256 x i8], ptr %191, i64 0, i64 %200
   %202 = load i8, ptr %201, align 1
   switch i8 %202, label %unicode_byte_type.exit207.thread [
     i8 29, label %unicode_byte_type.exit207.thread288
@@ -12616,17 +12616,17 @@ unicode_byte_type.exit207:                        ; preds = %192
 
 unicode_byte_type.exit207.thread288:              ; preds = %192, %195, %unicode_byte_type.exit207
   %203 = zext i8 %194 to i64
-  %204 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %203
   %205 = load i8, ptr %204, align 1
   %206 = zext i8 %205 to i32
   %207 = shl nuw nsw i32 %206, 3
-  %208 = getelementptr inbounds i8, ptr %.pn238, i64 3
+  %208 = getelementptr inbounds nuw i8, ptr %.pn238, i64 3
   %209 = load i8, ptr %208, align 1
   %210 = zext i8 %209 to i32
   %211 = lshr i32 %210, 5
   %212 = or disjoint i32 %211, %207
   %213 = zext nneg i32 %212 to i64
-  %214 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %213
   %215 = load i32, ptr %214, align 4
   %216 = and i32 %210, 31
   %217 = shl nuw i32 1, %216
@@ -12639,7 +12639,7 @@ unicode_byte_type.exit207.thread288:              ; preds = %192, %195, %unicode
   br label %244
 
 220:                                              ; preds = %unicode_byte_type.exit207.thread288, %unicode_byte_type.exit207, %unicode_byte_type.exit207, %unicode_byte_type.exit207, %unicode_byte_type.exit207, %unicode_byte_type.exit207
-  %.2 = getelementptr inbounds i8, ptr %.2239, i64 2
+  %.2 = getelementptr inbounds nuw i8, ptr %.2239, i64 2
   %221 = ptrtoint ptr %.2 to i64
   %222 = sub i64 %187, %221
   %223 = icmp sgt i64 %222, 1
@@ -12677,7 +12677,7 @@ unicode_byte_type.exit207.thread291:              ; preds = %192, %192, %192, %1
   br label %244
 
 233:                                              ; preds = %231
-  %234 = getelementptr inbounds i8, ptr %.pn238, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %.pn238, i64 4
   store ptr %234, ptr %3, align 8
   br label %244
 
@@ -12689,7 +12689,7 @@ unicode_byte_type.exit207.thread291:              ; preds = %192, %192, %192, %1
   br label %244
 
 237:                                              ; preds = %235
-  %238 = getelementptr inbounds i8, ptr %.pn238, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %.pn238, i64 4
   store ptr %238, ptr %3, align 8
   br label %244
 
@@ -12701,7 +12701,7 @@ unicode_byte_type.exit207.thread291:              ; preds = %192, %192, %192, %1
   br label %244
 
 241:                                              ; preds = %239
-  %242 = getelementptr inbounds i8, ptr %.pn238, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %.pn238, i64 4
   store ptr %242, ptr %3, align 8
   br label %244
 
@@ -12757,17 +12757,17 @@ define internal i32 @big2_contentTok(ptr nocapture noundef readonly %0, ptr noun
   ]
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %1, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %19 = load i8, ptr %18, align 1
   %switch.i = icmp ugt i8 %19, -3
   br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread293
 
 unicode_byte_type.exit:                           ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr %20, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %unicode_byte_type.exit.thread293 [
     i8 2, label %26
@@ -12784,7 +12784,7 @@ unicode_byte_type.exit:                           ; preds = %15
   ]
 
 26:                                               ; preds = %unicode_byte_type.exit
-  %27 = getelementptr inbounds i8, ptr %1, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %28 = ptrtoint ptr %.099 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
@@ -12807,22 +12807,22 @@ unicode_byte_type.exit:                           ; preds = %15
   ]
 
 .unicode_byte_type.exit.thread298.i_crit_edge:    ; preds = %32
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 3
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 3
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %unicode_byte_type.exit.thread298.i
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %1, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %36 = load i8, ptr %35, align 1
   %switch.i.i = icmp ugt i8 %36, -3
   br i1 %switch.i.i, label %unicode_byte_type.exit.thread.i, label %unicode_byte_type.exit.thread298.i
 
 unicode_byte_type.exit.i:                         ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 128
-  %38 = getelementptr inbounds i8, ptr %1, i64 3
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds [256 x i8], ptr %37, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   switch i8 %42, label %unicode_byte_type.exit.thread.i [
     i8 29, label %unicode_byte_type.exit.thread298.i
@@ -12839,7 +12839,7 @@ unicode_byte_type.exit.i:                         ; preds = %32
 unicode_byte_type.exit.thread298.i:               ; preds = %.unicode_byte_type.exit.thread298.i_crit_edge, %unicode_byte_type.exit.i, %34
   %43 = phi i8 [ %.pre, %.unicode_byte_type.exit.thread298.i_crit_edge ], [ %39, %unicode_byte_type.exit.i ], [ %36, %34 ]
   %44 = zext i8 %33 to i64
-  %45 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = shl nuw nsw i32 %47, 3
@@ -12847,7 +12847,7 @@ unicode_byte_type.exit.thread298.i:               ; preds = %.unicode_byte_type.
   %50 = lshr i32 %49, 5
   %51 = or disjoint i32 %50, %48
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %49, 31
   %56 = shl nuw i32 1, %55
@@ -12860,14 +12860,14 @@ unicode_byte_type.exit.thread298.i:               ; preds = %.unicode_byte_type.
   br label %big2_scanLt.exit
 
 59:                                               ; preds = %unicode_byte_type.exit.thread298.i, %unicode_byte_type.exit.i, %unicode_byte_type.exit.i
-  %.0124217.i = getelementptr inbounds i8, ptr %1, i64 4
+  %.0124217.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   %60 = ptrtoint ptr %.0124217.i to i64
   %61 = sub i64 %28, %60
   %62 = icmp sgt i64 %61, 1
   br i1 %62, label %.lr.ph.i, label %big2_scanLt.exit
 
 .lr.ph.i:                                         ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %0, i64 128
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %192
 
 64:                                               ; preds = %unicode_byte_type.exit.i
@@ -12891,7 +12891,7 @@ unicode_byte_type.exit.thread301.i:               ; preds = %unicode_byte_type.e
   br label %big2_scanLt.exit
 
 70:                                               ; preds = %unicode_byte_type.exit.i
-  %71 = getelementptr inbounds i8, ptr %1, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %72 = ptrtoint ptr %71 to i64
   %73 = sub i64 %28, %72
   %74 = icmp sgt i64 %73, 1
@@ -12903,10 +12903,10 @@ unicode_byte_type.exit.thread301.i:               ; preds = %unicode_byte_type.e
   br i1 %cond.i, label %unicode_byte_type.exit135.i, label %unicode_byte_type.exit135.thread.i
 
 unicode_byte_type.exit135.i:                      ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %1, i64 5
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds [256 x i8], ptr %37, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 0, i64 %79
   %81 = load i8, ptr %80, align 1
   switch i8 %81, label %unicode_byte_type.exit135.thread.i [
     i8 27, label %82
@@ -12914,12 +12914,12 @@ unicode_byte_type.exit135.i:                      ; preds = %75
   ]
 
 82:                                               ; preds = %unicode_byte_type.exit135.i
-  %83 = getelementptr inbounds i8, ptr %1, i64 6
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %84 = tail call fastcc i32 @big2_scanComment(ptr noundef nonnull readonly %0, ptr noundef nonnull %83, ptr noundef %.099, ptr noundef %3)
   br label %big2_scanLt.exit
 
 85:                                               ; preds = %unicode_byte_type.exit135.i
-  %86 = getelementptr inbounds i8, ptr %1, i64 6
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %87 = ptrtoint ptr %86 to i64
   %88 = sub i64 %28, %87
   %89 = icmp sgt i64 %88, 11
@@ -12937,16 +12937,16 @@ unicode_byte_type.exit135.i:                      ; preds = %75
   br i1 %91, label %92, label %.sink.split.i.i
 
 92:                                               ; preds = %.preheader.i.i
-  %93 = getelementptr inbounds i8, ptr %.0132.i.i, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.0132.i.i, i64 1
   %94 = load i8, ptr %93, align 1
-  %95 = getelementptr inbounds [6 x i8], ptr @big2_scanCdataSection.CDATA_LSQB, i64 0, i64 %indvars.iv.i.i
+  %95 = getelementptr inbounds nuw [6 x i8], ptr @big2_scanCdataSection.CDATA_LSQB, i64 0, i64 %indvars.iv.i.i
   %96 = load i8, ptr %95, align 1
   %97 = icmp eq i8 %94, %96
   br i1 %97, label %98, label %.sink.split.i.i
 
 98:                                               ; preds = %92
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %99 = getelementptr inbounds i8, ptr %.0132.i.i, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.0132.i.i, i64 2
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
   br i1 %exitcond.not.i.i, label %.sink.split.i.i, label %.preheader.i.i, !llvm.loop !70
 
@@ -12961,12 +12961,12 @@ unicode_byte_type.exit135.thread.i:               ; preds = %unicode_byte_type.e
   br label %big2_scanLt.exit
 
 100:                                              ; preds = %unicode_byte_type.exit.i
-  %101 = getelementptr inbounds i8, ptr %1, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %102 = tail call fastcc i32 @big2_scanPi(ptr noundef nonnull readonly %0, ptr noundef nonnull %101, ptr noundef %.099, ptr noundef %3)
   br label %big2_scanLt.exit
 
 103:                                              ; preds = %unicode_byte_type.exit.i
-  %104 = getelementptr inbounds i8, ptr %1, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %105 = ptrtoint ptr %104 to i64
   %106 = sub i64 %28, %105
   %107 = icmp sgt i64 %106, 1
@@ -12988,21 +12988,21 @@ unicode_byte_type.exit135.thread.i:               ; preds = %unicode_byte_type.e
   ]
 
 .unicode_byte_type.exit.thread135.i_crit_edge.i:  ; preds = %108
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 5
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 5
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
   br label %unicode_byte_type.exit.thread135.i.i
 
 110:                                              ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %1, i64 5
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %112 = load i8, ptr %111, align 1
   %switch.i.i.i = icmp ugt i8 %112, -3
   br i1 %switch.i.i.i, label %.loopexit.sink.split.i.i, label %unicode_byte_type.exit.thread135.i.i
 
 unicode_byte_type.exit.i.i:                       ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %1, i64 5
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds [256 x i8], ptr %37, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 0, i64 %115
   %117 = load i8, ptr %116, align 1
   switch i8 %117, label %.loopexit.sink.split.i.i [
     i8 29, label %unicode_byte_type.exit.thread135.i.i
@@ -13015,7 +13015,7 @@ unicode_byte_type.exit.i.i:                       ; preds = %108
 unicode_byte_type.exit.thread135.i.i:             ; preds = %unicode_byte_type.exit.i.i, %110, %.unicode_byte_type.exit.thread135.i_crit_edge.i
   %118 = phi i8 [ %.pre.i, %.unicode_byte_type.exit.thread135.i_crit_edge.i ], [ %114, %unicode_byte_type.exit.i.i ], [ %112, %110 ]
   %119 = zext i8 %109 to i64
-  %120 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %119
+  %120 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = zext i8 %121 to i32
   %123 = shl nuw nsw i32 %122, 3
@@ -13023,7 +13023,7 @@ unicode_byte_type.exit.thread135.i.i:             ; preds = %unicode_byte_type.e
   %125 = lshr i32 %124, 5
   %126 = or disjoint i32 %123, %125
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %127
+  %128 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %127
   %129 = load i32, ptr %128, align 4
   %130 = and i32 %124, 31
   %131 = shl nuw i32 1, %130
@@ -13032,7 +13032,7 @@ unicode_byte_type.exit.thread135.i.i:             ; preds = %unicode_byte_type.e
   br i1 %.not.i.i, label %.loopexit.sink.split.i.i, label %133
 
 133:                                              ; preds = %unicode_byte_type.exit.thread135.i.i, %unicode_byte_type.exit.i.i, %unicode_byte_type.exit.i.i
-  %.069105.i.i = getelementptr inbounds i8, ptr %1, i64 6
+  %.069105.i.i = getelementptr inbounds nuw i8, ptr %1, i64 6
   %134 = ptrtoint ptr %.069105.i.i to i64
   %135 = sub i64 %28, %134
   %136 = icmp sgt i64 %135, 1
@@ -13065,21 +13065,21 @@ unicode_byte_type.exit.thread138.i.i:             ; preds = %unicode_byte_type.e
   ]
 
 .unicode_byte_type.exit77.thread141.i_crit_edge.i: ; preds = %.lr.ph.i.i
-  %.phi.trans.insert295.i = getelementptr inbounds i8, ptr %.pn106.i.i, i64 3
+  %.phi.trans.insert295.i = getelementptr inbounds nuw i8, ptr %.pn106.i.i, i64 3
   %.pre296.i = load i8, ptr %.phi.trans.insert295.i, align 1
   br label %unicode_byte_type.exit77.thread141.i.i
 
 142:                                              ; preds = %.lr.ph.i.i
-  %143 = getelementptr inbounds i8, ptr %.pn106.i.i, i64 3
+  %143 = getelementptr inbounds nuw i8, ptr %.pn106.i.i, i64 3
   %144 = load i8, ptr %143, align 1
   %switch.i75.i.i = icmp ugt i8 %144, -3
   br i1 %switch.i75.i.i, label %.loopexit.sink.split.i.i, label %unicode_byte_type.exit77.thread141.i.i
 
 unicode_byte_type.exit77.i.i:                     ; preds = %.lr.ph.i.i
-  %145 = getelementptr inbounds i8, ptr %.pn106.i.i, i64 3
+  %145 = getelementptr inbounds nuw i8, ptr %.pn106.i.i, i64 3
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i64
-  %148 = getelementptr inbounds [256 x i8], ptr %37, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 0, i64 %147
   %149 = load i8, ptr %148, align 1
   switch i8 %149, label %.loopexit.sink.split.i.i [
     i8 29, label %unicode_byte_type.exit77.thread141.i.i
@@ -13099,7 +13099,7 @@ unicode_byte_type.exit77.i.i:                     ; preds = %.lr.ph.i.i
 unicode_byte_type.exit77.thread141.i.i:           ; preds = %unicode_byte_type.exit77.i.i, %142, %.unicode_byte_type.exit77.thread141.i_crit_edge.i
   %150 = phi i8 [ %.pre296.i, %.unicode_byte_type.exit77.thread141.i_crit_edge.i ], [ %146, %unicode_byte_type.exit77.i.i ], [ %144, %142 ]
   %151 = zext i8 %141 to i64
-  %152 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %151
+  %152 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %151
   %153 = load i8, ptr %152, align 1
   %154 = zext i8 %153 to i32
   %155 = shl nuw nsw i32 %154, 3
@@ -13107,7 +13107,7 @@ unicode_byte_type.exit77.thread141.i.i:           ; preds = %unicode_byte_type.e
   %157 = lshr i32 %156, 5
   %158 = or disjoint i32 %155, %157
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = and i32 %156, 31
   %163 = shl nuw i32 1, %162
@@ -13116,7 +13116,7 @@ unicode_byte_type.exit77.thread141.i.i:           ; preds = %unicode_byte_type.e
   br i1 %.not74.i.i, label %.loopexit.sink.split.i.i, label %165
 
 165:                                              ; preds = %unicode_byte_type.exit77.thread141.i.i, %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i
-  %.069.i.i = getelementptr inbounds i8, ptr %.069107.i.i, i64 2
+  %.069.i.i = getelementptr inbounds nuw i8, ptr %.069107.i.i, i64 2
   %166 = ptrtoint ptr %.069.i.i to i64
   %167 = sub i64 %28, %166
   %168 = icmp sgt i64 %167, 1
@@ -13131,7 +13131,7 @@ unicode_byte_type.exit77.thread144.i.i:           ; preds = %unicode_byte_type.e
   br i1 %171, label %big2_scanLt.exit, label %.loopexit.sink.split.i.i
 
 172:                                              ; preds = %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i, %unicode_byte_type.exit77.i.i
-  %173 = getelementptr inbounds i8, ptr %.pn106.i.i, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %.pn106.i.i, i64 4
   %174 = ptrtoint ptr %173 to i64
   %175 = sub i64 %28, %174
   %176 = icmp sgt i64 %175, 1
@@ -13144,10 +13144,10 @@ unicode_byte_type.exit77.thread144.i.i:           ; preds = %unicode_byte_type.e
   br i1 %cond.i.i, label %unicode_byte_type.exit80.i.i, label %.loopexit.sink.split.i.i
 
 unicode_byte_type.exit80.i.i:                     ; preds = %.lr.ph109.i.i
-  %178 = getelementptr inbounds i8, ptr %.1108.i.i, i64 1
+  %178 = getelementptr inbounds nuw i8, ptr %.1108.i.i, i64 1
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds [256 x i8], ptr %37, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 0, i64 %180
   %182 = load i8, ptr %181, align 1
   switch i8 %182, label %.loopexit.sink.split.i.i [
     i8 21, label %185
@@ -13157,18 +13157,18 @@ unicode_byte_type.exit80.i.i:                     ; preds = %.lr.ph109.i.i
   ]
 
 183:                                              ; preds = %unicode_byte_type.exit80.i.i
-  %184 = getelementptr inbounds i8, ptr %.1108.i.i, i64 2
+  %184 = getelementptr inbounds nuw i8, ptr %.1108.i.i, i64 2
   br label %.loopexit.sink.split.i.i
 
 185:                                              ; preds = %unicode_byte_type.exit80.i.i, %unicode_byte_type.exit80.i.i, %unicode_byte_type.exit80.i.i
-  %186 = getelementptr inbounds i8, ptr %.1108.i.i, i64 2
+  %186 = getelementptr inbounds nuw i8, ptr %.1108.i.i, i64 2
   %187 = ptrtoint ptr %186 to i64
   %188 = sub i64 %28, %187
   %189 = icmp sgt i64 %188, 1
   br i1 %189, label %.lr.ph109.i.i, label %big2_scanLt.exit, !llvm.loop !72
 
 190:                                              ; preds = %unicode_byte_type.exit77.i.i
-  %191 = getelementptr inbounds i8, ptr %.pn106.i.i, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %.pn106.i.i, i64 4
   br label %.loopexit.sink.split.i.i
 
 .loopexit.sink.split.i.i:                         ; preds = %unicode_byte_type.exit77.thread141.i.i, %unicode_byte_type.exit77.i.i, %142, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %unicode_byte_type.exit80.i.i, %.lr.ph109.i.i, %190, %183, %unicode_byte_type.exit77.thread144.i.i, %169, %unicode_byte_type.exit.thread138.i.i, %137, %unicode_byte_type.exit.thread135.i.i, %unicode_byte_type.exit.i.i, %110, %108, %108, %108, %108
@@ -13200,21 +13200,21 @@ unicode_byte_type.exit.thread.i:                  ; preds = %unicode_byte_type.e
   ]
 
 .unicode_byte_type.exit139.thread305.i_crit_edge: ; preds = %192
-  %.phi.trans.insert288 = getelementptr inbounds i8, ptr %.pn218.i, i64 3
+  %.phi.trans.insert288 = getelementptr inbounds nuw i8, ptr %.pn218.i, i64 3
   %.pre289 = load i8, ptr %.phi.trans.insert288, align 1
   br label %unicode_byte_type.exit139.thread305.i
 
 195:                                              ; preds = %192
-  %196 = getelementptr inbounds i8, ptr %.pn218.i, i64 3
+  %196 = getelementptr inbounds nuw i8, ptr %.pn218.i, i64 3
   %197 = load i8, ptr %196, align 1
   %switch.i137.i = icmp ugt i8 %197, -3
   br i1 %switch.i137.i, label %unicode_byte_type.exit139.thread.i, label %unicode_byte_type.exit139.thread305.i
 
 unicode_byte_type.exit139.i:                      ; preds = %192
-  %198 = getelementptr inbounds i8, ptr %.pn218.i, i64 3
+  %198 = getelementptr inbounds nuw i8, ptr %.pn218.i, i64 3
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i64
-  %201 = getelementptr inbounds [256 x i8], ptr %63, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw [256 x i8], ptr %63, i64 0, i64 %200
   %202 = load i8, ptr %201, align 1
   switch i8 %202, label %unicode_byte_type.exit139.thread.i [
     i8 29, label %unicode_byte_type.exit139.thread305.i
@@ -13236,7 +13236,7 @@ unicode_byte_type.exit139.i:                      ; preds = %192
 unicode_byte_type.exit139.thread305.i:            ; preds = %.unicode_byte_type.exit139.thread305.i_crit_edge, %unicode_byte_type.exit139.i, %195
   %203 = phi i8 [ %.pre289, %.unicode_byte_type.exit139.thread305.i_crit_edge ], [ %199, %unicode_byte_type.exit139.i ], [ %197, %195 ]
   %204 = zext i8 %194 to i64
-  %205 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %204
+  %205 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %204
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i32
   %208 = shl nuw nsw i32 %207, 3
@@ -13244,7 +13244,7 @@ unicode_byte_type.exit139.thread305.i:            ; preds = %.unicode_byte_type.
   %210 = lshr i32 %209, 5
   %211 = or disjoint i32 %210, %208
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %212
   %214 = load i32, ptr %213, align 4
   %215 = and i32 %209, 31
   %216 = shl nuw i32 1, %215
@@ -13257,7 +13257,7 @@ unicode_byte_type.exit139.thread305.i:            ; preds = %.unicode_byte_type.
   br label %big2_scanLt.exit
 
 219:                                              ; preds = %unicode_byte_type.exit139.thread305.i, %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i
-  %.0124.i = getelementptr inbounds i8, ptr %.0124219.i, i64 2
+  %.0124.i = getelementptr inbounds nuw i8, ptr %.0124219.i, i64 2
   %220 = ptrtoint ptr %.0124.i to i64
   %221 = sub i64 %28, %220
   %222 = icmp sgt i64 %221, 1
@@ -13284,7 +13284,7 @@ unicode_byte_type.exit139.thread308.i:            ; preds = %unicode_byte_type.e
   br label %big2_scanLt.exit
 
 229:                                              ; preds = %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i, %unicode_byte_type.exit139.i
-  %230 = getelementptr inbounds i8, ptr %.pn218.i, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %.pn218.i, i64 4
   %231 = ptrtoint ptr %230 to i64
   %232 = sub i64 %28, %231
   %233 = icmp sgt i64 %232, 1
@@ -13308,22 +13308,22 @@ unicode_byte_type.exit139.thread308.i:            ; preds = %unicode_byte_type.e
   ]
 
 .lr.ph221.i.unicode_byte_type.exit142.thread311.i.loopexit_crit_edge: ; preds = %.lr.ph221.i
-  %.phi.trans.insert286.phi.trans.insert = getelementptr inbounds i8, ptr %.1220.i, i64 1
+  %.phi.trans.insert286.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1220.i, i64 1
   %.pre287.pre = load i8, ptr %.phi.trans.insert286.phi.trans.insert, align 1
   %236 = zext i8 %235 to i64
   br label %unicode_byte_type.exit142.thread311.i
 
 237:                                              ; preds = %.lr.ph221.i
-  %238 = getelementptr inbounds i8, ptr %.1220.i, i64 1
+  %238 = getelementptr inbounds nuw i8, ptr %.1220.i, i64 1
   %239 = load i8, ptr %238, align 1
   %switch.i140.i = icmp ugt i8 %239, -3
   br i1 %switch.i140.i, label %unicode_byte_type.exit142.thread.i, label %unicode_byte_type.exit142.thread311.i
 
 unicode_byte_type.exit142.i:                      ; preds = %.lr.ph221.i
-  %240 = getelementptr inbounds i8, ptr %.1220.i, i64 1
+  %240 = getelementptr inbounds nuw i8, ptr %.1220.i, i64 1
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i64
-  %243 = getelementptr inbounds [256 x i8], ptr %63, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw [256 x i8], ptr %63, i64 0, i64 %242
   %244 = load i8, ptr %243, align 1
   switch i8 %244, label %unicode_byte_type.exit142.thread.i [
     i8 29, label %unicode_byte_type.exit142.thread311.i
@@ -13342,7 +13342,7 @@ unicode_byte_type.exit142.i:                      ; preds = %.lr.ph221.i
 unicode_byte_type.exit142.thread311.i:            ; preds = %unicode_byte_type.exit142.i, %.lr.ph221.i.unicode_byte_type.exit142.thread311.i.loopexit_crit_edge, %237
   %245 = phi i8 [ %239, %237 ], [ %.pre287.pre, %.lr.ph221.i.unicode_byte_type.exit142.thread311.i.loopexit_crit_edge ], [ %241, %unicode_byte_type.exit142.i ]
   %246 = phi i64 [ 255, %237 ], [ %236, %.lr.ph221.i.unicode_byte_type.exit142.thread311.i.loopexit_crit_edge ], [ 0, %unicode_byte_type.exit142.i ]
-  %247 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %246
   %248 = load i8, ptr %247, align 1
   %249 = zext i8 %248 to i32
   %250 = shl nuw nsw i32 %249, 3
@@ -13350,7 +13350,7 @@ unicode_byte_type.exit142.thread311.i:            ; preds = %unicode_byte_type.e
   %252 = lshr i32 %251, 5
   %253 = or disjoint i32 %252, %250
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %254
+  %255 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %254
   %256 = load i32, ptr %255, align 4
   %257 = and i32 %251, 31
   %258 = shl nuw i32 1, %257
@@ -13363,7 +13363,7 @@ unicode_byte_type.exit142.thread311.i:            ; preds = %unicode_byte_type.e
   br label %big2_scanLt.exit
 
 .loopexit.i:                                      ; preds = %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.thread311.i
-  %261 = getelementptr inbounds i8, ptr %.1220.i, i64 2
+  %261 = getelementptr inbounds nuw i8, ptr %.1220.i, i64 2
   %262 = tail call fastcc i32 @big2_scanAtts(ptr noundef readonly %0, ptr noundef nonnull %261, ptr noundef %.099, ptr noundef %3)
   br label %big2_scanLt.exit
 
@@ -13388,7 +13388,7 @@ unicode_byte_type.exit142.thread314.i:            ; preds = %unicode_byte_type.e
   br label %big2_scanLt.exit
 
 269:                                              ; preds = %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.i, %unicode_byte_type.exit142.i
-  %270 = getelementptr inbounds i8, ptr %.1220.i, i64 2
+  %270 = getelementptr inbounds nuw i8, ptr %.1220.i, i64 2
   %271 = ptrtoint ptr %270 to i64
   %272 = sub i64 %28, %271
   %273 = icmp sgt i64 %272, 1
@@ -13400,13 +13400,13 @@ unicode_byte_type.exit142.thread.i:               ; preds = %unicode_byte_type.e
 
 .loopexit143.i:                                   ; preds = %unicode_byte_type.exit139.i, %unicode_byte_type.exit142.i
   %.2.i = phi ptr [ %.1220.i, %unicode_byte_type.exit142.i ], [ %.0124219.i, %unicode_byte_type.exit139.i ]
-  %274 = getelementptr inbounds i8, ptr %.2.i, i64 2
+  %274 = getelementptr inbounds nuw i8, ptr %.2.i, i64 2
   store ptr %274, ptr %3, align 8
   br label %big2_scanLt.exit
 
 .loopexit144.i:                                   ; preds = %unicode_byte_type.exit139.i, %unicode_byte_type.exit142.i
   %.3.i = phi ptr [ %.1220.i, %unicode_byte_type.exit142.i ], [ %.0124219.i, %unicode_byte_type.exit139.i ]
-  %275 = getelementptr inbounds i8, ptr %.3.i, i64 2
+  %275 = getelementptr inbounds nuw i8, ptr %.3.i, i64 2
   %276 = ptrtoint ptr %275 to i64
   %277 = sub i64 %28, %276
   %278 = icmp sgt i64 %277, 1
@@ -13418,7 +13418,7 @@ unicode_byte_type.exit142.thread.i:               ; preds = %unicode_byte_type.e
   br i1 %281, label %282, label %286
 
 282:                                              ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %.3.i, i64 3
+  %283 = getelementptr inbounds nuw i8, ptr %.3.i, i64 3
   %284 = load i8, ptr %283, align 1
   %285 = icmp eq i8 %284, 62
   br i1 %285, label %287, label %286
@@ -13428,7 +13428,7 @@ unicode_byte_type.exit142.thread.i:               ; preds = %unicode_byte_type.e
   br label %big2_scanLt.exit
 
 287:                                              ; preds = %282
-  %288 = getelementptr inbounds i8, ptr %.3.i, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
   store ptr %288, ptr %3, align 8
   br label %big2_scanLt.exit
 
@@ -13437,12 +13437,12 @@ unicode_byte_type.exit139.thread.i:               ; preds = %unicode_byte_type.e
   br label %big2_scanLt.exit
 
 289:                                              ; preds = %unicode_byte_type.exit
-  %290 = getelementptr inbounds i8, ptr %1, i64 2
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %291 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %290, ptr noundef %.099, ptr noundef %3)
   br label %big2_scanLt.exit
 
 292:                                              ; preds = %unicode_byte_type.exit
-  %293 = getelementptr inbounds i8, ptr %1, i64 2
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %294 = ptrtoint ptr %.099 to i64
   %295 = ptrtoint ptr %293 to i64
   %296 = sub i64 %294, %295
@@ -13455,15 +13455,15 @@ unicode_byte_type.exit139.thread.i:               ; preds = %unicode_byte_type.e
   br i1 %cond, label %unicode_byte_type.exit110, label %unicode_byte_type.exit110.thread
 
 unicode_byte_type.exit110:                        ; preds = %298
-  %300 = getelementptr inbounds i8, ptr %0, i64 128
-  %301 = getelementptr inbounds i8, ptr %1, i64 3
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %302 = load i8, ptr %301, align 1
   %303 = zext i8 %302 to i64
-  %304 = getelementptr inbounds [256 x i8], ptr %300, i64 0, i64 %303
+  %304 = getelementptr inbounds nuw [256 x i8], ptr %300, i64 0, i64 %303
   %305 = load i8, ptr %304, align 1
   %.fr = freeze i8 %305
   %306 = icmp eq i8 %.fr, 10
-  %307 = getelementptr inbounds i8, ptr %1, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %spec.select = select i1 %306, ptr %307, ptr %293
   br label %unicode_byte_type.exit110.thread
 
@@ -13473,12 +13473,12 @@ unicode_byte_type.exit110.thread:                 ; preds = %unicode_byte_type.e
   br label %big2_scanLt.exit
 
 309:                                              ; preds = %unicode_byte_type.exit
-  %310 = getelementptr inbounds i8, ptr %1, i64 2
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %310, ptr %3, align 8
   br label %big2_scanLt.exit
 
 311:                                              ; preds = %unicode_byte_type.exit
-  %312 = getelementptr inbounds i8, ptr %1, i64 2
+  %312 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %313 = ptrtoint ptr %.099 to i64
   %314 = ptrtoint ptr %312 to i64
   %315 = sub i64 %313, %314
@@ -13491,13 +13491,13 @@ unicode_byte_type.exit110.thread:                 ; preds = %unicode_byte_type.e
   br i1 %319, label %320, label %355
 
 320:                                              ; preds = %317
-  %321 = getelementptr inbounds i8, ptr %1, i64 3
+  %321 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %322 = load i8, ptr %321, align 1
   %323 = icmp eq i8 %322, 93
   br i1 %323, label %324, label %355
 
 324:                                              ; preds = %320
-  %325 = getelementptr inbounds i8, ptr %1, i64 4
+  %325 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %326 = ptrtoint ptr %325 to i64
   %327 = sub i64 %313, %326
   %328 = icmp sgt i64 %327, 1
@@ -13509,7 +13509,7 @@ unicode_byte_type.exit110.thread:                 ; preds = %unicode_byte_type.e
   br i1 %331, label %332, label %355
 
 332:                                              ; preds = %329
-  %333 = getelementptr inbounds i8, ptr %1, i64 5
+  %333 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %334 = load i8, ptr %333, align 1
   %335 = icmp eq i8 %334, 62
   br i1 %335, label %336, label %355
@@ -13525,7 +13525,7 @@ unicode_byte_type.exit110.thread:                 ; preds = %unicode_byte_type.e
   br i1 %340, label %big2_scanLt.exit, label %341
 
 341:                                              ; preds = %337
-  %342 = getelementptr inbounds i8, ptr %1, i64 2
+  %342 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %355
 
 343:                                              ; preds = %unicode_byte_type.exit
@@ -13535,7 +13535,7 @@ unicode_byte_type.exit110.thread:                 ; preds = %unicode_byte_type.e
   br i1 %346, label %big2_scanLt.exit, label %347
 
 347:                                              ; preds = %343
-  %348 = getelementptr inbounds i8, ptr %1, i64 3
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 3
   br label %355
 
 unicode_byte_type.exit.thread296:                 ; preds = %15, %15, %15, %15, %unicode_byte_type.exit
@@ -13545,7 +13545,7 @@ unicode_byte_type.exit.thread296:                 ; preds = %15, %15, %15, %15, 
   br i1 %351, label %big2_scanLt.exit, label %352
 
 352:                                              ; preds = %unicode_byte_type.exit.thread296
-  %353 = getelementptr inbounds i8, ptr %1, i64 4
+  %353 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %355
 
 unicode_byte_type.exit.thread:                    ; preds = %15, %15, %15, %15, %17, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
@@ -13553,7 +13553,7 @@ unicode_byte_type.exit.thread:                    ; preds = %15, %15, %15, %15, 
   br label %big2_scanLt.exit
 
 unicode_byte_type.exit.thread293:                 ; preds = %15, %17, %unicode_byte_type.exit
-  %354 = getelementptr inbounds i8, ptr %1, i64 2
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.pre291 = ptrtoint ptr %.099 to i64
   br label %355
 
@@ -13566,7 +13566,7 @@ unicode_byte_type.exit.thread293:                 ; preds = %15, %17, %unicode_b
   br i1 %358, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %355
-  %359 = getelementptr inbounds i8, ptr %0, i64 128
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %360
 
 360:                                              ; preds = %.lr.ph, %405
@@ -13587,16 +13587,16 @@ unicode_byte_type.exit.thread293:                 ; preds = %15, %17, %unicode_b
   ]
 
 363:                                              ; preds = %360
-  %364 = getelementptr inbounds i8, ptr %.2201, i64 1
+  %364 = getelementptr inbounds nuw i8, ptr %.2201, i64 1
   %365 = load i8, ptr %364, align 1
   %switch.i111 = icmp ugt i8 %365, -3
   br i1 %switch.i111, label %unicode_byte_type.exit113.thread, label %unicode_byte_type.exit113.thread299
 
 unicode_byte_type.exit113:                        ; preds = %360
-  %366 = getelementptr inbounds i8, ptr %.2201, i64 1
+  %366 = getelementptr inbounds nuw i8, ptr %.2201, i64 1
   %367 = load i8, ptr %366, align 1
   %368 = zext i8 %367 to i64
-  %369 = getelementptr inbounds [256 x i8], ptr %359, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw [256 x i8], ptr %359, i64 0, i64 %368
   %370 = load i8, ptr %369, align 1
   switch i8 %370, label %unicode_byte_type.exit113.thread299 [
     i8 5, label %371
@@ -13613,7 +13613,7 @@ unicode_byte_type.exit113:                        ; preds = %360
   ]
 
 371:                                              ; preds = %unicode_byte_type.exit113
-  %372 = getelementptr inbounds i8, ptr %.2201, i64 2
+  %372 = getelementptr inbounds nuw i8, ptr %.2201, i64 2
   br label %405
 
 373:                                              ; preds = %unicode_byte_type.exit113
@@ -13625,7 +13625,7 @@ unicode_byte_type.exit113:                        ; preds = %360
   br label %big2_scanLt.exit
 
 376:                                              ; preds = %373
-  %377 = getelementptr inbounds i8, ptr %.2201, i64 3
+  %377 = getelementptr inbounds nuw i8, ptr %.2201, i64 3
   br label %405
 
 unicode_byte_type.exit113.thread302:              ; preds = %360, %360, %360, %360, %unicode_byte_type.exit113
@@ -13637,7 +13637,7 @@ unicode_byte_type.exit113.thread302:              ; preds = %360, %360, %360, %3
   br label %big2_scanLt.exit
 
 380:                                              ; preds = %unicode_byte_type.exit113.thread302
-  %381 = getelementptr inbounds i8, ptr %.2201, i64 4
+  %381 = getelementptr inbounds nuw i8, ptr %.2201, i64 4
   br label %405
 
 382:                                              ; preds = %unicode_byte_type.exit113
@@ -13645,13 +13645,13 @@ unicode_byte_type.exit113.thread302:              ; preds = %360, %360, %360, %3
   br i1 %383, label %384, label %unicode_byte_type.exit113.thread
 
 384:                                              ; preds = %382
-  %385 = getelementptr inbounds i8, ptr %.2201, i64 2
+  %385 = getelementptr inbounds nuw i8, ptr %.2201, i64 2
   %386 = load i8, ptr %385, align 1
   %387 = icmp eq i8 %386, 0
   br i1 %387, label %388, label %405
 
 388:                                              ; preds = %384
-  %389 = getelementptr inbounds i8, ptr %.2201, i64 3
+  %389 = getelementptr inbounds nuw i8, ptr %.2201, i64 3
   %390 = load i8, ptr %389, align 1
   %391 = icmp eq i8 %390, 93
   br i1 %391, label %392, label %405
@@ -13661,19 +13661,19 @@ unicode_byte_type.exit113.thread302:              ; preds = %360, %360, %360, %3
   br i1 %393, label %394, label %unicode_byte_type.exit113.thread
 
 394:                                              ; preds = %392
-  %395 = getelementptr inbounds i8, ptr %.2201, i64 4
+  %395 = getelementptr inbounds nuw i8, ptr %.2201, i64 4
   %396 = load i8, ptr %395, align 1
   %397 = icmp eq i8 %396, 0
   br i1 %397, label %398, label %405
 
 398:                                              ; preds = %394
-  %399 = getelementptr inbounds i8, ptr %.2201, i64 5
+  %399 = getelementptr inbounds nuw i8, ptr %.2201, i64 5
   %400 = load i8, ptr %399, align 1
   %401 = icmp eq i8 %400, 62
   br i1 %401, label %402, label %405
 
 402:                                              ; preds = %398
-  %403 = getelementptr inbounds i8, ptr %.2201, i64 4
+  %403 = getelementptr inbounds nuw i8, ptr %.2201, i64 4
   store ptr %403, ptr %3, align 8
   br label %big2_scanLt.exit
 
@@ -13682,7 +13682,7 @@ unicode_byte_type.exit113.thread:                 ; preds = %360, %360, %360, %3
   br label %big2_scanLt.exit
 
 unicode_byte_type.exit113.thread299:              ; preds = %360, %363, %unicode_byte_type.exit113
-  %404 = getelementptr inbounds i8, ptr %.2201, i64 2
+  %404 = getelementptr inbounds nuw i8, ptr %.2201, i64 2
   br label %405
 
 405:                                              ; preds = %394, %398, %384, %388, %unicode_byte_type.exit113.thread299, %380, %376, %371
@@ -13741,17 +13741,17 @@ define internal range(i32 -4, 41) i32 @big2_cdataSectionTok(ptr nocapture nounde
   ]
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %1, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %19 = load i8, ptr %18, align 1
   %switch.i = icmp ugt i8 %19, -3
   br i1 %switch.i, label %.sink.split, label %unicode_byte_type.exit.thread102
 
 unicode_byte_type.exit:                           ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr %20, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %unicode_byte_type.exit.thread102 [
     i8 4, label %26
@@ -13766,7 +13766,7 @@ unicode_byte_type.exit:                           ; preds = %15
   ]
 
 26:                                               ; preds = %unicode_byte_type.exit
-  %27 = getelementptr inbounds i8, ptr %1, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %28 = ptrtoint ptr %.079 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %28, %29
@@ -13779,13 +13779,13 @@ unicode_byte_type.exit:                           ; preds = %15
   br i1 %34, label %35, label %89
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %1, i64 3
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 93
   br i1 %38, label %39, label %89
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %1, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %28, %41
   %43 = icmp sgt i64 %42, 1
@@ -13797,17 +13797,17 @@ unicode_byte_type.exit:                           ; preds = %15
   br i1 %46, label %47, label %89
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %1, i64 5
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 62
   br i1 %50, label %51, label %89
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %1, i64 6
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 6
   br label %.sink.split
 
 53:                                               ; preds = %unicode_byte_type.exit
-  %54 = getelementptr inbounds i8, ptr %1, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %55 = ptrtoint ptr %.079 to i64
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
@@ -13820,20 +13820,20 @@ unicode_byte_type.exit:                           ; preds = %15
   br i1 %cond, label %unicode_byte_type.exit89, label %.sink.split
 
 unicode_byte_type.exit89:                         ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 128
-  %62 = getelementptr inbounds i8, ptr %1, i64 3
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds [256 x i8], ptr %61, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 0, i64 %64
   %66 = load i8, ptr %65, align 1
   %.fr = freeze i8 %66
   %67 = icmp eq i8 %.fr, 10
-  %68 = getelementptr inbounds i8, ptr %1, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %spec.select = select i1 %67, ptr %68, ptr %54
   br label %.sink.split
 
 69:                                               ; preds = %unicode_byte_type.exit
-  %70 = getelementptr inbounds i8, ptr %1, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %.sink.split
 
 71:                                               ; preds = %unicode_byte_type.exit
@@ -13843,7 +13843,7 @@ unicode_byte_type.exit89:                         ; preds = %59
   br i1 %74, label %112, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %1, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 2
   br label %89
 
 77:                                               ; preds = %unicode_byte_type.exit
@@ -13853,7 +13853,7 @@ unicode_byte_type.exit89:                         ; preds = %59
   br i1 %80, label %112, label %81
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %1, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 3
   br label %89
 
 unicode_byte_type.exit.thread105:                 ; preds = %15, %15, %15, %15, %unicode_byte_type.exit
@@ -13863,11 +13863,11 @@ unicode_byte_type.exit.thread105:                 ; preds = %15, %15, %15, %15, 
   br i1 %85, label %112, label %86
 
 86:                                               ; preds = %unicode_byte_type.exit.thread105
-  %87 = getelementptr inbounds i8, ptr %1, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %89
 
 unicode_byte_type.exit.thread102:                 ; preds = %15, %17, %unicode_byte_type.exit
-  %88 = getelementptr inbounds i8, ptr %1, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %.pre = ptrtoint ptr %.079 to i64
   br label %89
 
@@ -13880,7 +13880,7 @@ unicode_byte_type.exit.thread102:                 ; preds = %15, %17, %unicode_b
   br i1 %92, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %0, i64 128
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %94
 
 94:                                               ; preds = %.lr.ph, %unicode_byte_type.exit92.thread108
@@ -13901,16 +13901,16 @@ unicode_byte_type.exit.thread102:                 ; preds = %15, %17, %unicode_b
   ]
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %.297, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %.297, i64 1
   %99 = load i8, ptr %98, align 1
   %switch.i90 = icmp ugt i8 %99, -3
   br i1 %switch.i90, label %.sink.split, label %unicode_byte_type.exit92.thread108
 
 unicode_byte_type.exit92:                         ; preds = %94
-  %100 = getelementptr inbounds i8, ptr %.297, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.297, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds [256 x i8], ptr %93, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [256 x i8], ptr %93, i64 0, i64 %102
   %104 = load i8, ptr %103, align 1
   switch i8 %104, label %unicode_byte_type.exit92.thread108 [
     i8 4, label %.sink.split
@@ -13933,7 +13933,7 @@ unicode_byte_type.exit92.thread111:               ; preds = %94, %94, %94, %94, 
 
 unicode_byte_type.exit92.thread108:               ; preds = %unicode_byte_type.exit92, %97, %94, %unicode_byte_type.exit92.thread111, %105
   %.sink = phi i64 [ 3, %105 ], [ 4, %unicode_byte_type.exit92.thread111 ], [ 2, %94 ], [ 2, %97 ], [ 2, %unicode_byte_type.exit92 ]
-  %108 = getelementptr inbounds i8, ptr %.297, i64 %.sink
+  %108 = getelementptr inbounds nuw i8, ptr %.297, i64 %.sink
   %109 = ptrtoint ptr %108 to i64
   %110 = sub i64 %.pre-phi, %109
   %111 = icmp sgt i64 %110, 1
@@ -13963,7 +13963,7 @@ define internal range(i32 -4, 40) i32 @big2_attributeValueTok(ptr nocapture noun
   br i1 %9, label %.lr.ph, label %58
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph, %unicode_byte_type.exit.thread
@@ -13978,10 +13978,10 @@ define internal range(i32 -4, 40) i32 @big2_attributeValueTok(ptr nocapture noun
   ]
 
 unicode_byte_type.exit:                           ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %.05567, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.05567, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 21, label %49
@@ -14004,7 +14004,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %23 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %2, ptr noundef %3)
   br label %58
 
@@ -14021,7 +14021,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %29, ptr %3, align 8
   br label %58
 
@@ -14034,7 +14034,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %32, label %33, label %48
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %1, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %35 = ptrtoint ptr %34 to i64
   %36 = sub i64 %6, %35
   %37 = icmp sgt i64 %36, 1
@@ -14046,14 +14046,14 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %cond, label %unicode_byte_type.exit60, label %unicode_byte_type.exit60.thread
 
 unicode_byte_type.exit60:                         ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %1, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   %.fr = freeze i8 %44
   %45 = icmp eq i8 %.fr, 10
-  %46 = getelementptr inbounds i8, ptr %1, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %spec.select = select i1 %45, ptr %46, ptr %34
   br label %unicode_byte_type.exit60.thread
 
@@ -14071,7 +14071,7 @@ unicode_byte_type.exit60.thread:                  ; preds = %unicode_byte_type.e
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %1, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %52, ptr %3, align 8
   br label %58
 
@@ -14081,7 +14081,7 @@ unicode_byte_type.exit60.thread:                  ; preds = %unicode_byte_type.e
 
 unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread75, %18
   %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread75 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
-  %54 = getelementptr inbounds i8, ptr %.05567, i64 %.sink
+  %54 = getelementptr inbounds nuw i8, ptr %.05567, i64 %.sink
   %55 = ptrtoint ptr %54 to i64
   %56 = sub i64 %6, %55
   %57 = icmp sgt i64 %56, 1
@@ -14109,7 +14109,7 @@ define internal range(i32 -4, 29) i32 @big2_entityValueTok(ptr nocapture noundef
   br i1 %9, label %.lr.ph, label %60
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph, %unicode_byte_type.exit.thread
@@ -14124,10 +14124,10 @@ define internal range(i32 -4, 29) i32 @big2_entityValueTok(ptr nocapture noundef
   ]
 
 unicode_byte_type.exit:                           ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %.05768, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.05768, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 9, label %38
@@ -14149,7 +14149,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %23 = tail call fastcc i32 @big2_scanRef(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %2, ptr noundef %3)
   br label %60
 
@@ -14162,7 +14162,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %29 = tail call fastcc i32 @big2_scanPercent(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %2, ptr noundef %3)
   %30 = icmp eq i32 %29, 22
   %31 = select i1 %30, i32 0, i32 %29
@@ -14177,7 +14177,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %1, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %36, ptr %3, align 8
   br label %60
 
@@ -14190,7 +14190,7 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %39, label %40, label %55
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %1, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %6, %42
   %44 = icmp sgt i64 %43, 1
@@ -14202,14 +14202,14 @@ unicode_byte_type.exit.thread75:                  ; preds = %11, %11, %11, %11, 
   br i1 %cond, label %unicode_byte_type.exit62, label %unicode_byte_type.exit62.thread
 
 unicode_byte_type.exit62:                         ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %1, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
   %.fr = freeze i8 %51
   %52 = icmp eq i8 %.fr, 10
-  %53 = getelementptr inbounds i8, ptr %1, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %spec.select = select i1 %52, ptr %53, ptr %41
   br label %unicode_byte_type.exit62.thread
 
@@ -14224,7 +14224,7 @@ unicode_byte_type.exit62.thread:                  ; preds = %unicode_byte_type.e
 
 unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit, %11, %unicode_byte_type.exit.thread75, %18
   %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread75 ], [ 3, %18 ], [ 2, %11 ], [ 2, %unicode_byte_type.exit ]
-  %56 = getelementptr inbounds i8, ptr %.05768, i64 %.sink
+  %56 = getelementptr inbounds nuw i8, ptr %.05768, i64 %.sink
   %57 = ptrtoint ptr %56 to i64
   %58 = sub i64 %6, %57
   %59 = icmp sgt i64 %58, 1
@@ -14264,14 +14264,14 @@ define internal range(i32 0, 2) i32 @big2_nameMatchesAscii(ptr nocapture readnon
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.01115, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.01115, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, %8
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %.01115, i64 2
-  %21 = getelementptr inbounds i8, ptr %.016, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01115, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %22 = load i8, ptr %21, align 1
   %.not = icmp eq i8 %22, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !79
@@ -14289,7 +14289,7 @@ define internal range(i32 0, 2) i32 @big2_nameMatchesAscii(ptr nocapture readnon
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal noundef i32 @big2_nameLength(ptr nocapture noundef readonly %0, ptr noundef %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %4
 
 4:                                                ; preds = %unicode_byte_type.exit.thread16, %2
@@ -14309,16 +14309,16 @@ define internal noundef i32 @big2_nameLength(ptr nocapture noundef readonly %0, 
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %.0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %8 = load i8, ptr %7, align 1
   %switch.i = icmp ugt i8 %8, -3
   br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread16
 
 unicode_byte_type.exit:                           ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %.0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   switch i8 %13, label %unicode_byte_type.exit.thread [
     i8 5, label %unicode_byte_type.exit.thread16
@@ -14347,23 +14347,23 @@ unicode_byte_type.exit.thread:                    ; preds = %4, %4, %4, %4, %6, 
 
 unicode_byte_type.exit.thread16:                  ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %6, %4, %unicode_byte_type.exit, %unicode_byte_type.exit.thread14, %14
   %.sink = phi i64 [ 4, %unicode_byte_type.exit.thread14 ], [ 3, %14 ], [ 2, %unicode_byte_type.exit ], [ 2, %4 ], [ 2, %6 ], [ 2, %unicode_byte_type.exit ], [ 2, %unicode_byte_type.exit ], [ 2, %unicode_byte_type.exit ], [ 2, %unicode_byte_type.exit ], [ 2, %unicode_byte_type.exit ], [ 2, %unicode_byte_type.exit ]
-  %19 = getelementptr inbounds i8, ptr %.0, i64 %.sink
+  %19 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink
   br label %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal noundef ptr @big2_skipS(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i8, ptr %1, align 1
   %cond10 = icmp eq i8 %4, 0
   br i1 %cond10, label %unicode_byte_type.exit, label %unicode_byte_type.exit.thread
 
 unicode_byte_type.exit:                           ; preds = %2, %10
   %.011 = phi ptr [ %11, %10 ], [ %1, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.011, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr %3, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %unicode_byte_type.exit.thread [
     i8 10, label %10
@@ -14372,7 +14372,7 @@ unicode_byte_type.exit:                           ; preds = %2, %10
   ]
 
 10:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %11 = getelementptr inbounds i8, ptr %.011, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.011, i64 2
   %12 = load i8, ptr %11, align 1
   %cond = icmp eq i8 %12, 0
   br i1 %cond, label %unicode_byte_type.exit, label %unicode_byte_type.exit.thread
@@ -14384,7 +14384,7 @@ unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.e
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i32 @big2_getAtts(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %unicode_byte_type.exit.thread
 
 unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.exit.thread.backedge, %4
@@ -14392,7 +14392,7 @@ unicode_byte_type.exit.thread:                    ; preds = %unicode_byte_type.e
   %.0102 = phi i32 [ 1, %4 ], [ %.0102.be, %unicode_byte_type.exit.thread.backedge ]
   %.0100 = phi i32 [ 0, %4 ], [ %.0100.be, %unicode_byte_type.exit.thread.backedge ]
   %.0 = phi i32 [ 0, %4 ], [ %.0.be, %unicode_byte_type.exit.thread.backedge ]
-  %.0104 = getelementptr inbounds i8, ptr %.pn, i64 2
+  %.0104 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   %6 = load i8, ptr %.0104, align 1
   switch i8 %6, label %unicode_byte_type.exit.thread121 [
     i8 0, label %unicode_byte_type.exit
@@ -14415,7 +14415,7 @@ unicode_byte_type.exit.thread.backedge:           ; preds = %unicode_byte_type.e
   br label %unicode_byte_type.exit.thread
 
 7:                                                ; preds = %unicode_byte_type.exit.thread
-  %8 = getelementptr inbounds i8, ptr %.pn, i64 3
+  %8 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   %9 = load i8, ptr %8, align 1
   %switch.i = icmp ult i8 %9, -2
   %10 = icmp eq i32 %.0102, 0
@@ -14423,10 +14423,10 @@ unicode_byte_type.exit.thread.backedge:           ; preds = %unicode_byte_type.e
   br i1 %or.cond, label %43, label %unicode_byte_type.exit.thread.backedge
 
 unicode_byte_type.exit:                           ; preds = %unicode_byte_type.exit.thread
-  %11 = getelementptr inbounds i8, ptr %.pn, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %unicode_byte_type.exit.thread.backedge [
     i8 5, label %16
@@ -14457,7 +14457,7 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   %21 = sext i32 %.0100 to i64
   %22 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %21
   store ptr %.0104, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i8 1, ptr %23, align 8
   br label %unicode_byte_type.exit.thread.backedge
 
@@ -14473,13 +14473,13 @@ unicode_byte_type.exit:                           ; preds = %unicode_byte_type.e
   %29 = sext i32 %.0100 to i64
   %30 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %29
   store ptr %.0104, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i8 1, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %26, %28, %24
   %.2 = phi i32 [ %.0102, %24 ], [ 1, %28 ], [ 1, %26 ]
-  %33 = getelementptr inbounds i8, ptr %.pn, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   br label %unicode_byte_type.exit.thread.backedge
 
 unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit.thread, %unicode_byte_type.exit
@@ -14494,13 +14494,13 @@ unicode_byte_type.exit.thread119:                 ; preds = %unicode_byte_type.e
   %38 = sext i32 %.0100 to i64
   %39 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %38
   store ptr %.0104, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i8 1, ptr %40, align 8
   br label %41
 
 41:                                               ; preds = %35, %37, %unicode_byte_type.exit.thread119
   %.3 = phi i32 [ %.0102, %unicode_byte_type.exit.thread119 ], [ 1, %37 ], [ 1, %35 ]
-  %42 = getelementptr inbounds i8, ptr %.pn, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   br label %unicode_byte_type.exit.thread.backedge
 
 unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.exit.thread, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
@@ -14515,7 +14515,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   %46 = sext i32 %.0100 to i64
   %47 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %46
   store ptr %.0104, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i8 1, ptr %48, align 8
   br label %unicode_byte_type.exit.thread.backedge
 
@@ -14528,7 +14528,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   br i1 %51, label %52, label %unicode_byte_type.exit.thread.backedge
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %.pn, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %54 = sext i32 %.0100 to i64
   %55 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %54, i32 1
   store ptr %53, ptr %55, align 8
@@ -14561,7 +14561,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   br i1 %67, label %68, label %unicode_byte_type.exit.thread.backedge
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %.pn, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %70 = sext i32 %.0100 to i64
   %71 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %70, i32 1
   store ptr %69, ptr %71, align 8
@@ -14608,25 +14608,25 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
 89:                                               ; preds = %87
   %90 = sext i32 %.0100 to i64
   %91 = getelementptr inbounds %struct.ATTRIBUTE, ptr %3, i64 %90
-  %92 = getelementptr inbounds i8, ptr %91, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %93 = load i8, ptr %92, align 8
   %.not106 = icmp eq i8 %93, 0
   br i1 %.not106, label %unicode_byte_type.exit.thread.backedge, label %94
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds i8, ptr %91, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %.0104, %96
   br i1 %97, label %.critedge, label %98
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %.pn, i64 3
+  %99 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 32
   br i1 %101, label %102, label %.critedge
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %.pn, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %104 = load i8, ptr %103, align 1
   switch i8 %104, label %118 [
     i8 0, label %105
@@ -14642,14 +14642,14 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   ]
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %.pn, i64 5
+  %106 = getelementptr inbounds nuw i8, ptr %.pn, i64 5
   %107 = load i8, ptr %106, align 1
   %108 = icmp eq i8 %107, 32
   br i1 %108, label %.critedge, label %109
 
 109:                                              ; preds = %105
   %110 = zext i8 %107 to i64
-  %111 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %110
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
   br label %unicode_byte_type.exit115
@@ -14658,7 +14658,7 @@ unicode_byte_type.exit.thread121:                 ; preds = %unicode_byte_type.e
   br label %unicode_byte_type.exit115
 
 115:                                              ; preds = %102
-  %116 = getelementptr inbounds i8, ptr %.pn, i64 5
+  %116 = getelementptr inbounds nuw i8, ptr %.pn, i64 5
   %117 = load i8, ptr %116, align 1
   %switch.i113 = icmp ugt i8 %117, -3
   br i1 %switch.i113, label %unicode_byte_type.exit115, label %118
@@ -14707,7 +14707,7 @@ unicode_byte_type.exit115:                        ; preds = %102, %102, %102, %1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 -2147483648, 1114112) i32 @big2_charRefNumber(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %.preheader
@@ -14716,13 +14716,13 @@ define internal range(i32 -2147483648, 1114112) i32 @big2_charRefNumber(ptr noca
   br label %34
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 5
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 120
   br i1 %9, label %10, label %.preheader
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 6
   br label %12
 
 12:                                               ; preds = %.thread, %10
@@ -14733,7 +14733,7 @@ define internal range(i32 -2147483648, 1114112) i32 @big2_charRefNumber(ptr noca
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.030, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.030, i64 1
   %17 = load i8, ptr %16, align 1
   %.not39 = icmp eq i8 %17, 59
   br i1 %.not39, label %.loopexit, label %.critedge
@@ -14790,7 +14790,7 @@ define internal range(i32 -2147483648, 1114112) i32 @big2_charRefNumber(ptr noca
 
 .thread:                                          ; preds = %12, %.critedge, %31
   %.13238 = phi i32 [ %.132, %31 ], [ %.031, %.critedge ], [ %.031, %12 ]
-  %33 = getelementptr inbounds i8, ptr %.030, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.030, i64 2
   br label %12, !llvm.loop !80
 
 34:                                               ; preds = %.preheader, %.critedge35
@@ -14801,7 +14801,7 @@ define internal range(i32 -2147483648, 1114112) i32 @big2_charRefNumber(ptr noca
   br i1 %36, label %37, label %.critedge35
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %.1, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %39 = load i8, ptr %38, align 1
   %.not = icmp eq i8 %39, 59
   br i1 %.not, label %.loopexit, label %40
@@ -14816,7 +14816,7 @@ define internal range(i32 -2147483648, 1114112) i32 @big2_charRefNumber(ptr noca
   %44 = mul nsw i32 %.3, 10
   %45 = add nsw i32 %43, %44
   %46 = icmp sgt i32 %45, 1114111
-  %47 = getelementptr inbounds i8, ptr %.1, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   br i1 %46, label %checkCharRefNumber.exit, label %34, !llvm.loop !81
 
 .loopexit:                                        ; preds = %37, %15
@@ -14868,13 +14868,13 @@ define internal range(i32 0, 63) i32 @big2_predefinedEntityName(ptr nocapture re
   ]
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %.thread42
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 116
   br i1 %15, label %16, label %.thread42
@@ -14885,7 +14885,7 @@ define internal range(i32 0, 63) i32 @big2_predefinedEntityName(ptr nocapture re
   br i1 %18, label %19, label %.thread39
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %21 = load i8, ptr %20, align 1
   %.fr = freeze i8 %21
   %switch.selectcmp = icmp eq i8 %.fr, 103
@@ -14900,31 +14900,31 @@ define internal range(i32 0, 63) i32 @big2_predefinedEntityName(ptr nocapture re
   br i1 %24, label %25, label %.thread42
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %1, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 97
   br i1 %28, label %29, label %.thread42
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %1, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %33, label %.thread42
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %1, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 109
   br i1 %36, label %37, label %.thread42
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %1, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %.thread42
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %1, i64 5
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 112
   br i1 %44, label %.thread39, label %.thread42
@@ -14935,7 +14935,7 @@ define internal range(i32 0, 63) i32 @big2_predefinedEntityName(ptr nocapture re
   br i1 %47, label %48, label %.thread42
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %1, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %50 = load i8, ptr %49, align 1
   switch i8 %50, label %.thread42 [
     i8 113, label %51
@@ -14943,73 +14943,73 @@ define internal range(i32 0, 63) i32 @big2_predefinedEntityName(ptr nocapture re
   ]
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %1, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %55, label %.thread42
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %1, i64 3
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 117
   br i1 %58, label %59, label %.thread42
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %1, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 0
   br i1 %62, label %63, label %.thread42
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %1, i64 5
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %65 = load i8, ptr %64, align 1
   %66 = icmp eq i8 %65, 111
   br i1 %66, label %67, label %.thread42
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %1, i64 6
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %69 = load i8, ptr %68, align 1
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %71, label %.thread42
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %1, i64 7
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %73 = load i8, ptr %72, align 1
   %74 = icmp eq i8 %73, 116
   br i1 %74, label %.thread39, label %.thread42
 
 75:                                               ; preds = %48
-  %76 = getelementptr inbounds i8, ptr %1, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %77 = load i8, ptr %76, align 1
   %78 = icmp eq i8 %77, 0
   br i1 %78, label %79, label %.thread42
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %1, i64 3
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 112
   br i1 %82, label %83, label %.thread42
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %1, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %85 = load i8, ptr %84, align 1
   %86 = icmp eq i8 %85, 0
   br i1 %86, label %87, label %.thread42
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %1, i64 5
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 111
   br i1 %90, label %91, label %.thread42
 
 91:                                               ; preds = %87
-  %92 = getelementptr inbounds i8, ptr %1, i64 6
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %93 = load i8, ptr %92, align 1
   %94 = icmp eq i8 %93, 0
   br i1 %94, label %95, label %.thread42
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %1, i64 7
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %97 = load i8, ptr %96, align 1
   %98 = icmp eq i8 %97, 115
   br i1 %98, label %.thread39, label %.thread42
@@ -15031,8 +15031,8 @@ define internal void @big2_updatePosition(ptr nocapture noundef readonly %0, ptr
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %52
@@ -15047,10 +15047,10 @@ define internal void @big2_updatePosition(ptr nocapture noundef readonly %0, ptr
   ]
 
 unicode_byte_type.exit:                           ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %.033, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.033, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %unicode_byte_type.exit.thread [
     i8 5, label %18
@@ -15061,21 +15061,21 @@ unicode_byte_type.exit:                           ; preds = %11
   ]
 
 18:                                               ; preds = %unicode_byte_type.exit
-  %19 = getelementptr inbounds i8, ptr %.033, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.033, i64 2
   %20 = load i64, ptr %10, align 8
   %21 = add i64 %20, 1
   store i64 %21, ptr %10, align 8
   br label %52
 
 22:                                               ; preds = %unicode_byte_type.exit
-  %23 = getelementptr inbounds i8, ptr %.033, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %.033, i64 3
   %24 = load i64, ptr %10, align 8
   %25 = add i64 %24, 1
   store i64 %25, ptr %10, align 8
   br label %52
 
 unicode_byte_type.exit.thread36:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
-  %26 = getelementptr inbounds i8, ptr %.033, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.033, i64 4
   %27 = load i64, ptr %10, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %10, align 8
@@ -15086,14 +15086,14 @@ unicode_byte_type.exit.thread36:                  ; preds = %11, %11, %11, %11, 
   %30 = load i64, ptr %3, align 8
   %31 = add i64 %30, 1
   store i64 %31, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %.033, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.033, i64 2
   br label %52
 
 33:                                               ; preds = %unicode_byte_type.exit
   %34 = load i64, ptr %3, align 8
   %35 = add i64 %34, 1
   store i64 %35, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %.033, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.033, i64 2
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %5, %37
   %39 = icmp sgt i64 %38, 1
@@ -15105,14 +15105,14 @@ unicode_byte_type.exit.thread36:                  ; preds = %11, %11, %11, %11, 
   br i1 %cond, label %unicode_byte_type.exit31, label %unicode_byte_type.exit31.thread
 
 unicode_byte_type.exit31:                         ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %.033, i64 3
+  %42 = getelementptr inbounds nuw i8, ptr %.033, i64 3
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds [256 x i8], ptr %9, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [256 x i8], ptr %9, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
   %.fr = freeze i8 %46
   %47 = icmp eq i8 %.fr, 10
-  %48 = getelementptr inbounds i8, ptr %.033, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.033, i64 4
   %spec.select = select i1 %47, ptr %48, ptr %36
   br label %unicode_byte_type.exit31.thread
 
@@ -15122,7 +15122,7 @@ unicode_byte_type.exit31.thread:                  ; preds = %unicode_byte_type.e
   br label %52
 
 unicode_byte_type.exit.thread:                    ; preds = %11, %unicode_byte_type.exit
-  %49 = getelementptr inbounds i8, ptr %.033, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %.033, i64 2
   %50 = load i64, ptr %10, align 8
   %51 = add i64 %50, 1
   store i64 %51, ptr %10, align 8
@@ -15143,14 +15143,14 @@ unicode_byte_type.exit.thread:                    ; preds = %11, %unicode_byte_t
 define internal range(i32 0, 2) i32 @big2_isPublicId(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #3 {
   %5 = getelementptr inbounds i8, ptr %2, i64 -2
   %6 = ptrtoint ptr %5 to i64
-  %.02024 = getelementptr inbounds i8, ptr %1, i64 2
+  %.02024 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = ptrtoint ptr %.02024 to i64
   %8 = sub i64 %6, %7
   %9 = icmp sgt i64 %8, 1
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph, %28
@@ -15161,10 +15161,10 @@ define internal range(i32 0, 2) i32 @big2_isPublicId(ptr nocapture noundef reado
   br i1 %13, label %unicode_byte_type.exit, label %.loopexit.sink.split
 
 unicode_byte_type.exit:                           ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %.pn25, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %.pn25, i64 3
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %.critedge..critedge.thread_crit_edge [
     i8 25, label %28
@@ -15191,19 +15191,19 @@ unicode_byte_type.exit:                           ; preds = %11
   ]
 
 19:                                               ; preds = %unicode_byte_type.exit
-  %20 = getelementptr inbounds i8, ptr %.pn25, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %.pn25, i64 3
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 9
   br i1 %22, label %.loopexit.sink.split, label %28
 
 23:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
-  %24 = getelementptr inbounds i8, ptr %.pn25, i64 3
+  %24 = getelementptr inbounds nuw i8, ptr %.pn25, i64 3
   %25 = load i8, ptr %24, align 1
   %26 = icmp sgt i8 %25, -1
   br i1 %26, label %28, label %.critedge.thread
 
 .critedge..critedge.thread_crit_edge:             ; preds = %unicode_byte_type.exit
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pn25, i64 3
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pn25, i64 3
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %.critedge.thread
 
@@ -15215,7 +15215,7 @@ unicode_byte_type.exit:                           ; preds = %11
   ]
 
 28:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %19, %23, %.critedge.thread, %.critedge.thread
-  %.020 = getelementptr inbounds i8, ptr %.02026, i64 2
+  %.020 = getelementptr inbounds nuw i8, ptr %.02026, i64 2
   %29 = ptrtoint ptr %.020 to i64
   %30 = sub i64 %6, %29
   %31 = icmp sgt i64 %30, 1
@@ -15248,7 +15248,7 @@ define internal range(i32 0, 3) i32 @big2_toUtf8(ptr nocapture readnone %0, ptr 
 
 15:                                               ; preds = %.lr.ph, %107
   %.06472 = phi ptr [ %6, %.lr.ph ], [ %108, %107 ]
-  %16 = getelementptr inbounds i8, ptr %.06472, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.06472, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = load i8, ptr %.06472, align 1
   %19 = zext i8 %18 to i32
@@ -15277,7 +15277,7 @@ define internal range(i32 0, 3) i32 @big2_toUtf8(ptr nocapture readnone %0, ptr 
   br i1 %24, label %._crit_edge, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %26, ptr %3, align 8
   store i8 %17, ptr %23, align 1
   br label %107
@@ -15292,13 +15292,13 @@ define internal range(i32 0, 3) i32 @big2_toUtf8(ptr nocapture readnone %0, ptr 
 32:                                               ; preds = %27
   %33 = tail call i8 @llvm.fshl.i8(i8 %18, i8 %17, i8 2)
   %34 = or i8 %33, -64
-  %35 = getelementptr inbounds i8, ptr %28, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %35, ptr %3, align 8
   store i8 %34, ptr %28, align 1
   %36 = and i8 %17, 63
   %37 = or disjoint i8 %36, -128
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %39, ptr %3, align 8
   store i8 %37, ptr %38, align 1
   br label %107
@@ -15313,7 +15313,7 @@ define internal range(i32 0, 3) i32 @big2_toUtf8(ptr nocapture readnone %0, ptr 
 45:                                               ; preds = %40
   %46 = lshr i8 %18, 4
   %47 = or disjoint i8 %46, -32
-  %48 = getelementptr inbounds i8, ptr %41, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %48, ptr %3, align 8
   store i8 %47, ptr %41, align 1
   %49 = shl i8 %18, 2
@@ -15322,13 +15322,13 @@ define internal range(i32 0, 3) i32 @big2_toUtf8(ptr nocapture readnone %0, ptr 
   %52 = or disjoint i8 %51, %50
   %53 = or disjoint i8 %52, -128
   %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store ptr %55, ptr %3, align 8
   store i8 %53, ptr %54, align 1
   %56 = and i8 %17, 63
   %57 = or disjoint i8 %56, -128
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %59, ptr %3, align 8
   store i8 %57, ptr %58, align 1
   br label %107
@@ -15356,7 +15356,7 @@ define internal range(i32 0, 3) i32 @big2_toUtf8(ptr nocapture readnone %0, ptr 
   %76 = trunc nuw nsw i32 %75 to i8
   %77 = lshr i8 %76, 2
   %78 = or i8 %77, -16
-  %79 = getelementptr inbounds i8, ptr %61, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store ptr %79, ptr %3, align 8
   store i8 %78, ptr %61, align 1
   %80 = lshr i32 %72, 2
@@ -15367,11 +15367,11 @@ define internal range(i32 0, 3) i32 @big2_toUtf8(ptr nocapture readnone %0, ptr 
   %85 = trunc nuw nsw i32 %84 to i8
   %86 = or disjoint i8 %85, -128
   %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store ptr %88, ptr %3, align 8
   store i8 %86, ptr %87, align 1
-  %89 = getelementptr inbounds i8, ptr %.06472, i64 2
-  %90 = getelementptr inbounds i8, ptr %.06472, i64 3
+  %89 = getelementptr inbounds nuw i8, ptr %.06472, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.06472, i64 3
   %91 = load i8, ptr %90, align 1
   %92 = shl i8 %17, 4
   %93 = and i8 %92, 48
@@ -15383,20 +15383,20 @@ define internal range(i32 0, 3) i32 @big2_toUtf8(ptr nocapture readnone %0, ptr 
   %99 = or disjoint i8 %98, %96
   %100 = or disjoint i8 %99, -128
   %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
   store ptr %102, ptr %3, align 8
   store i8 %100, ptr %101, align 1
   %103 = and i8 %91, 63
   %104 = or disjoint i8 %103, -128
   %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
   store ptr %106, ptr %3, align 8
   store i8 %104, ptr %105, align 1
   br label %107
 
 107:                                              ; preds = %25, %32, %45, %69
   %.1 = phi ptr [ %.06472, %45 ], [ %89, %69 ], [ %.06472, %32 ], [ %.06472, %25 ]
-  %108 = getelementptr inbounds i8, ptr %.1, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %109 = icmp ult ptr %108, %11
   br i1 %109, label %15, label %._crit_edge, !llvm.loop !84
 
@@ -15447,15 +15447,15 @@ define internal range(i32 0, 3) i32 @big2_toUtf16(ptr nocapture readnone %0, ptr
   %28 = load i8, ptr %24, align 1
   %29 = zext i8 %28 to i16
   %30 = shl nuw i16 %29, 8
-  %31 = getelementptr inbounds i8, ptr %24, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i16
   %34 = or disjoint i16 %30, %33
-  %35 = getelementptr inbounds i8, ptr %25, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 2
   store ptr %35, ptr %3, align 8
   store i16 %34, ptr %25, align 2
   %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 2
   store ptr %37, ptr %1, align 8
   %38 = icmp ult ptr %37, %.023
   br i1 %38, label %.lr.ph, label %.thread, !llvm.loop !85
@@ -15481,7 +15481,7 @@ define internal fastcc range(i32 -27, 28) i32 @big2_scanLit(i32 noundef range(i3
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph, %46
@@ -15502,16 +15502,16 @@ define internal fastcc range(i32 -27, 28) i32 @big2_scanLit(i32 noundef range(i3
   ]
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.03249, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.03249, i64 1
   %16 = load i8, ptr %15, align 1
   %switch.i = icmp ugt i8 %16, -3
   br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread39
 
 unicode_byte_type.exit:                           ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %.03249, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.03249, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   switch i8 %21, label %unicode_byte_type.exit.thread39 [
     i8 5, label %22
@@ -15525,7 +15525,7 @@ unicode_byte_type.exit:                           ; preds = %11
   ]
 
 22:                                               ; preds = %unicode_byte_type.exit
-  %23 = getelementptr inbounds i8, ptr %.03249, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.03249, i64 2
   br label %46
 
 24:                                               ; preds = %unicode_byte_type.exit
@@ -15533,7 +15533,7 @@ unicode_byte_type.exit:                           ; preds = %11
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.03249, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %.03249, i64 3
   br label %46
 
 unicode_byte_type.exit.thread42:                  ; preds = %11, %11, %11, %11, %unicode_byte_type.exit
@@ -15541,7 +15541,7 @@ unicode_byte_type.exit.thread42:                  ; preds = %11, %11, %11, %11, 
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %unicode_byte_type.exit.thread42
-  %30 = getelementptr inbounds i8, ptr %.03249, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.03249, i64 4
   br label %46
 
 unicode_byte_type.exit.thread:                    ; preds = %11, %11, %11, %11, %14, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
@@ -15550,7 +15550,7 @@ unicode_byte_type.exit.thread:                    ; preds = %11, %11, %11, %11, 
 
 31:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
   %32 = zext nneg i8 %21 to i32
-  %33 = getelementptr inbounds i8, ptr %.03249, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.03249, i64 2
   %.not = icmp eq i32 %0, %32
   br i1 %.not, label %34, label %46
 
@@ -15567,10 +15567,10 @@ unicode_byte_type.exit.thread:                    ; preds = %11, %11, %11, %11, 
   br i1 %cond, label %unicode_byte_type.exit37, label %unicode_byte_type.exit37.thread
 
 unicode_byte_type.exit37:                         ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %.03249, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %.03249, i64 3
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   switch i8 %44, label %unicode_byte_type.exit37.thread [
     i8 21, label %.loopexit
@@ -15585,7 +15585,7 @@ unicode_byte_type.exit37.thread:                  ; preds = %38, %unicode_byte_t
   br label %.loopexit
 
 unicode_byte_type.exit.thread39:                  ; preds = %11, %14, %unicode_byte_type.exit
-  %45 = getelementptr inbounds i8, ptr %.03249, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.03249, i64 2
   br label %46
 
 46:                                               ; preds = %31, %unicode_byte_type.exit.thread39, %29, %26, %22
@@ -15614,11 +15614,11 @@ define internal fastcc range(i32 -2, 34) i32 @big2_scanDecl(ptr nocapture nounde
   br i1 %cond, label %unicode_byte_type.exit, label %unicode_byte_type.exit.thread
 
 unicode_byte_type.exit:                           ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds [256 x i8], ptr %11, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %unicode_byte_type.exit.thread [
     i8 27, label %17
@@ -15628,24 +15628,24 @@ unicode_byte_type.exit:                           ; preds = %9
   ]
 
 17:                                               ; preds = %unicode_byte_type.exit
-  %18 = getelementptr inbounds i8, ptr %1, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = tail call fastcc i32 @big2_scanComment(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef %2, ptr noundef %3)
   br label %.loopexit
 
 20:                                               ; preds = %unicode_byte_type.exit
-  %21 = getelementptr inbounds i8, ptr %1, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store ptr %21, ptr %3, align 8
   br label %.loopexit
 
 22:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit
-  %.03758 = getelementptr inbounds i8, ptr %1, i64 2
+  %.03758 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %23 = ptrtoint ptr %.03758 to i64
   %24 = sub i64 %5, %23
   %25 = icmp sgt i64 %24, 1
   br i1 %25, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %27
 
 unicode_byte_type.exit.thread:                    ; preds = %9, %unicode_byte_type.exit
@@ -15661,10 +15661,10 @@ unicode_byte_type.exit.thread:                    ; preds = %9, %unicode_byte_ty
   br i1 %cond88, label %unicode_byte_type.exit43, label %unicode_byte_type.exit43.thread
 
 unicode_byte_type.exit43:                         ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.pn59, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %.pn59, i64 3
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr %26, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i8], ptr %26, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   switch i8 %34, label %unicode_byte_type.exit43.thread [
     i8 30, label %35
@@ -15680,16 +15680,16 @@ unicode_byte_type.exit43:                         ; preds = %27
   br i1 %36, label %37, label %.loopexit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.pn59, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.pn59, i64 4
   %39 = load i8, ptr %38, align 1
   %cond89 = icmp eq i8 %39, 0
   br i1 %cond89, label %unicode_byte_type.exit46, label %.loopexit47
 
 unicode_byte_type.exit46:                         ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %.pn59, i64 5
+  %40 = getelementptr inbounds nuw i8, ptr %.pn59, i64 5
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds [256 x i8], ptr %26, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [256 x i8], ptr %26, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   switch i8 %44, label %.loopexit47 [
     i8 21, label %45
@@ -15707,7 +15707,7 @@ unicode_byte_type.exit46:                         ; preds = %37
   br label %.loopexit
 
 46:                                               ; preds = %unicode_byte_type.exit43, %unicode_byte_type.exit43
-  %.037 = getelementptr inbounds i8, ptr %.03760, i64 2
+  %.037 = getelementptr inbounds nuw i8, ptr %.03760, i64 2
   %47 = ptrtoint ptr %.037 to i64
   %48 = sub i64 %5, %47
   %49 = icmp sgt i64 %48, 1
@@ -15750,17 +15750,17 @@ define internal fastcc i32 @big2_scanPi(ptr nocapture noundef readonly %0, ptr n
   ]
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1
   %switch.i = icmp ugt i8 %16, -3
   br i1 %switch.i, label %unicode_byte_type.exit.thread, label %unicode_byte_type.exit.thread195
 
 unicode_byte_type.exit:                           ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 128
-  %18 = getelementptr inbounds i8, ptr %1, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds [256 x i8], ptr %17, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [256 x i8], ptr %17, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
   switch i8 %22, label %unicode_byte_type.exit.thread [
     i8 29, label %unicode_byte_type.exit.thread195
@@ -15773,17 +15773,17 @@ unicode_byte_type.exit:                           ; preds = %10
 
 unicode_byte_type.exit.thread195:                 ; preds = %14, %13, %unicode_byte_type.exit
   %23 = zext i8 %11 to i64
-  %24 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = lshr i32 %30, 5
   %32 = or disjoint i32 %31, %27
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %30, 31
   %37 = shl nuw i32 1, %36
@@ -15796,14 +15796,14 @@ unicode_byte_type.exit.thread195:                 ; preds = %14, %13, %unicode_b
   br label %.loopexit
 
 40:                                               ; preds = %unicode_byte_type.exit.thread195, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %.099151 = getelementptr inbounds i8, ptr %1, i64 2
+  %.099151 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %41 = ptrtoint ptr %.099151 to i64
   %42 = sub i64 %6, %41
   %43 = icmp sgt i64 %42, 1
   br i1 %43, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %51
 
 45:                                               ; preds = %unicode_byte_type.exit
@@ -15850,16 +15850,16 @@ unicode_byte_type.exit.thread:                    ; preds = %13, %13, %13, %13, 
   ]
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %.pn152, i64 3
+  %56 = getelementptr inbounds nuw i8, ptr %.pn152, i64 3
   %57 = load i8, ptr %56, align 1
   %switch.i108 = icmp ugt i8 %57, -3
   br i1 %switch.i108, label %.loopexit119, label %unicode_byte_type.exit110.thread201
 
 unicode_byte_type.exit110:                        ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %.pn152, i64 3
+  %58 = getelementptr inbounds nuw i8, ptr %.pn152, i64 3
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds [256 x i8], ptr %44, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [256 x i8], ptr %44, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   switch i8 %62, label %.loopexit119 [
     i8 29, label %unicode_byte_type.exit110.thread201
@@ -15879,17 +15879,17 @@ unicode_byte_type.exit110:                        ; preds = %51
 
 unicode_byte_type.exit110.thread201:              ; preds = %51, %55, %unicode_byte_type.exit110
   %63 = zext i8 %54 to i64
-  %64 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = shl nuw nsw i32 %66, 3
-  %68 = getelementptr inbounds i8, ptr %.pn152, i64 3
+  %68 = getelementptr inbounds nuw i8, ptr %.pn152, i64 3
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = lshr i32 %70, 5
   %72 = or disjoint i32 %71, %67
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = and i32 %70, 31
   %77 = shl nuw i32 1, %76
@@ -15902,7 +15902,7 @@ unicode_byte_type.exit110.thread201:              ; preds = %51, %55, %unicode_b
   br label %.loopexit
 
 80:                                               ; preds = %unicode_byte_type.exit110.thread201, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110, %unicode_byte_type.exit110
-  %.099 = getelementptr inbounds i8, ptr %.099153, i64 2
+  %.099 = getelementptr inbounds nuw i8, ptr %.099153, i64 2
   %81 = ptrtoint ptr %.099 to i64
   %82 = sub i64 %6, %81
   %83 = icmp sgt i64 %82, 1
@@ -15936,7 +15936,7 @@ unicode_byte_type.exit110.thread204:              ; preds = %51, %51, %51, %51, 
   br i1 %brmerge, label %112, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %1, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %94 = load i8, ptr %93, align 1
   switch i8 %94, label %112 [
     i8 120, label %96
@@ -15953,7 +15953,7 @@ unicode_byte_type.exit110.thread204:              ; preds = %51, %51, %51, %51, 
   br i1 %98, label %99, label %112
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %1, i64 3
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %101 = load i8, ptr %100, align 1
   switch i8 %101, label %112 [
     i8 109, label %103
@@ -15965,13 +15965,13 @@ unicode_byte_type.exit110.thread204:              ; preds = %51, %51, %51, %51, 
 
 103:                                              ; preds = %102, %99
   %.1.i = phi i32 [ 1, %102 ], [ %.0.i111, %99 ]
-  %104 = getelementptr inbounds i8, ptr %1, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 0
   br i1 %106, label %107, label %112
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %1, i64 5
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %109 = load i8, ptr %108, align 1
   switch i8 %109, label %112 [
     i8 108, label %110
@@ -15992,7 +15992,7 @@ big2_checkPiTarget.exit:                          ; preds = %107, %110
 
 112:                                              ; preds = %90, %111, %92, %99, %107, %96, %103
   %113 = phi i32 [ 11, %90 ], [ 12, %111 ], [ 11, %92 ], [ 11, %99 ], [ 11, %107 ], [ 11, %96 ], [ 11, %103 ]
-  %114 = getelementptr inbounds i8, ptr %.pn152, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %.pn152, i64 4
   %115 = ptrtoint ptr %114 to i64
   %116 = sub i64 %6, %115
   %117 = icmp sgt i64 %116, 1
@@ -16016,16 +16016,16 @@ big2_checkPiTarget.exit:                          ; preds = %107, %110
   ]
 
 120:                                              ; preds = %.lr.ph155
-  %121 = getelementptr inbounds i8, ptr %.2154, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %.2154, i64 1
   %122 = load i8, ptr %121, align 1
   %switch.i112 = icmp ugt i8 %122, -3
   br i1 %switch.i112, label %unicode_byte_type.exit114.thread, label %unicode_byte_type.exit114.thread207
 
 unicode_byte_type.exit114:                        ; preds = %.lr.ph155
-  %123 = getelementptr inbounds i8, ptr %.2154, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %.2154, i64 1
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds [256 x i8], ptr %44, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw [256 x i8], ptr %44, i64 0, i64 %125
   %127 = load i8, ptr %126, align 1
   switch i8 %127, label %unicode_byte_type.exit114.thread207 [
     i8 5, label %128
@@ -16038,7 +16038,7 @@ unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   ]
 
 128:                                              ; preds = %unicode_byte_type.exit114
-  %129 = getelementptr inbounds i8, ptr %.2154, i64 2
+  %129 = getelementptr inbounds nuw i8, ptr %.2154, i64 2
   br label %152
 
 130:                                              ; preds = %unicode_byte_type.exit114
@@ -16046,7 +16046,7 @@ unicode_byte_type.exit114:                        ; preds = %.lr.ph155
   br i1 %131, label %.loopexit, label %132
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %.2154, i64 3
+  %133 = getelementptr inbounds nuw i8, ptr %.2154, i64 3
   br label %152
 
 unicode_byte_type.exit114.thread210:              ; preds = %.lr.ph155, %.lr.ph155, %.lr.ph155, %.lr.ph155, %unicode_byte_type.exit114
@@ -16054,7 +16054,7 @@ unicode_byte_type.exit114.thread210:              ; preds = %.lr.ph155, %.lr.ph1
   br i1 %134, label %.loopexit, label %135
 
 135:                                              ; preds = %unicode_byte_type.exit114.thread210
-  %136 = getelementptr inbounds i8, ptr %.2154, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
   br label %152
 
 unicode_byte_type.exit114.thread:                 ; preds = %.lr.ph155, %.lr.ph155, %.lr.ph155, %.lr.ph155, %120, %unicode_byte_type.exit114, %unicode_byte_type.exit114, %unicode_byte_type.exit114
@@ -16062,7 +16062,7 @@ unicode_byte_type.exit114.thread:                 ; preds = %.lr.ph155, %.lr.ph1
   br label %.loopexit
 
 137:                                              ; preds = %unicode_byte_type.exit114
-  %138 = getelementptr inbounds i8, ptr %.2154, i64 2
+  %138 = getelementptr inbounds nuw i8, ptr %.2154, i64 2
   %139 = ptrtoint ptr %138 to i64
   %140 = sub i64 %6, %139
   %141 = icmp sgt i64 %140, 1
@@ -16074,18 +16074,18 @@ unicode_byte_type.exit114.thread:                 ; preds = %.lr.ph155, %.lr.ph1
   br i1 %144, label %145, label %152
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %.2154, i64 3
+  %146 = getelementptr inbounds nuw i8, ptr %.2154, i64 3
   %147 = load i8, ptr %146, align 1
   %148 = icmp eq i8 %147, 62
   br i1 %148, label %149, label %152
 
 149:                                              ; preds = %145
-  %150 = getelementptr inbounds i8, ptr %.2154, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %.2154, i64 4
   store ptr %150, ptr %3, align 8
   br label %.loopexit
 
 unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %120, %unicode_byte_type.exit114
-  %151 = getelementptr inbounds i8, ptr %.2154, i64 2
+  %151 = getelementptr inbounds nuw i8, ptr %.2154, i64 2
   br label %152
 
 152:                                              ; preds = %142, %145, %unicode_byte_type.exit114.thread207, %135, %132, %128
@@ -16105,7 +16105,7 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %120, %u
   br label %.loopexit
 
 159:                                              ; preds = %156
-  %160 = getelementptr inbounds i8, ptr %.pn152, i64 4
+  %160 = getelementptr inbounds nuw i8, ptr %.pn152, i64 4
   %161 = ptrtoint ptr %160 to i64
   %162 = sub i64 %6, %161
   %163 = icmp sgt i64 %162, 1
@@ -16117,13 +16117,13 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %120, %u
   br i1 %166, label %167, label %.loopexit119
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %.pn152, i64 5
+  %168 = getelementptr inbounds nuw i8, ptr %.pn152, i64 5
   %169 = load i8, ptr %168, align 1
   %170 = icmp eq i8 %169, 62
   br i1 %170, label %171, label %.loopexit119
 
 171:                                              ; preds = %167
-  %172 = getelementptr inbounds i8, ptr %.pn152, i64 6
+  %172 = getelementptr inbounds nuw i8, ptr %.pn152, i64 6
   store ptr %172, ptr %3, align 8
   %173 = load i32, ptr %5, align 4
   br label %.loopexit
@@ -16162,17 +16162,17 @@ define internal fastcc range(i32 -2, 29) i32 @big2_scanPercent(ptr nocapture nou
   ]
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %switch.i = icmp ugt i8 %13, -3
   br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread106
 
 unicode_byte_type.exit:                           ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread106
@@ -16188,17 +16188,17 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread106:                 ; preds = %9, %11, %unicode_byte_type.exit
   %20 = zext i8 %10 to i64
-  %21 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %23, 3
-  %25 = getelementptr inbounds i8, ptr %1, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = lshr i32 %27, 5
   %29 = or disjoint i32 %28, %24
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %27, 31
   %34 = shl nuw i32 1, %33
@@ -16207,14 +16207,14 @@ unicode_byte_type.exit.thread106:                 ; preds = %9, %11, %unicode_by
   br i1 %.not, label %.loopexit.sink.split, label %36
 
 36:                                               ; preds = %unicode_byte_type.exit.thread106, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %.05884 = getelementptr inbounds i8, ptr %1, i64 2
+  %.05884 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %37 = ptrtoint ptr %.05884 to i64
   %38 = sub i64 %5, %37
   %39 = icmp sgt i64 %38, 1
   br i1 %39, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %45
 
 41:                                               ; preds = %unicode_byte_type.exit
@@ -16247,16 +16247,16 @@ unicode_byte_type.exit.thread109:                 ; preds = %9, %9, %9, %9, %uni
   ]
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %.pn85, i64 3
+  %49 = getelementptr inbounds nuw i8, ptr %.pn85, i64 3
   %50 = load i8, ptr %49, align 1
   %switch.i63 = icmp ugt i8 %50, -3
   br i1 %switch.i63, label %.loopexit.sink.split, label %unicode_byte_type.exit65.thread112
 
 unicode_byte_type.exit65:                         ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %.pn85, i64 3
+  %51 = getelementptr inbounds nuw i8, ptr %.pn85, i64 3
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds [256 x i8], ptr %40, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [256 x i8], ptr %40, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   switch i8 %55, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit65.thread112
@@ -16272,17 +16272,17 @@ unicode_byte_type.exit65:                         ; preds = %45
 
 unicode_byte_type.exit65.thread112:               ; preds = %45, %48, %unicode_byte_type.exit65
   %56 = zext i8 %47 to i64
-  %57 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = shl nuw nsw i32 %59, 3
-  %61 = getelementptr inbounds i8, ptr %.pn85, i64 3
+  %61 = getelementptr inbounds nuw i8, ptr %.pn85, i64 3
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = lshr i32 %63, 5
   %65 = or disjoint i32 %64, %60
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %63, 31
   %70 = shl nuw i32 1, %69
@@ -16291,7 +16291,7 @@ unicode_byte_type.exit65.thread112:               ; preds = %45, %48, %unicode_b
   br i1 %.not62, label %.loopexit.sink.split, label %72
 
 72:                                               ; preds = %unicode_byte_type.exit65.thread112, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65, %unicode_byte_type.exit65
-  %.058 = getelementptr inbounds i8, ptr %.05886, i64 2
+  %.058 = getelementptr inbounds nuw i8, ptr %.05886, i64 2
   %73 = ptrtoint ptr %.058 to i64
   %74 = sub i64 %5, %73
   %75 = icmp sgt i64 %74, 1
@@ -16306,7 +16306,7 @@ unicode_byte_type.exit65.thread115:               ; preds = %45, %45, %45, %45, 
   br i1 %78, label %.loopexit, label %.loopexit.sink.split
 
 79:                                               ; preds = %unicode_byte_type.exit65
-  %80 = getelementptr inbounds i8, ptr %.pn85, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.pn85, i64 4
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %unicode_byte_type.exit65, %48, %45, %45, %45, %45, %unicode_byte_type.exit65.thread112, %unicode_byte_type.exit65.thread115, %76, %unicode_byte_type.exit, %11, %9, %9, %9, %9, %unicode_byte_type.exit.thread109, %41, %unicode_byte_type.exit.thread106, %44, %79
@@ -16344,17 +16344,17 @@ define internal fastcc range(i32 -20, 21) i32 @big2_scanPoundName(ptr nocapture 
   ]
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %switch.i = icmp ugt i8 %13, -3
   br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread92
 
 unicode_byte_type.exit:                           ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread92
@@ -16366,17 +16366,17 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread92:                  ; preds = %9, %11, %unicode_byte_type.exit
   %20 = zext i8 %10 to i64
-  %21 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %23, 3
-  %25 = getelementptr inbounds i8, ptr %1, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = lshr i32 %27, 5
   %29 = or disjoint i32 %28, %24
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %27, 31
   %34 = shl nuw i32 1, %33
@@ -16385,14 +16385,14 @@ unicode_byte_type.exit.thread92:                  ; preds = %9, %11, %unicode_by
   br i1 %.not, label %.loopexit.sink.split, label %36
 
 36:                                               ; preds = %unicode_byte_type.exit.thread92, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %.05676 = getelementptr inbounds i8, ptr %1, i64 2
+  %.05676 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %37 = ptrtoint ptr %.05676 to i64
   %38 = sub i64 %5, %37
   %39 = icmp sgt i64 %38, 1
   br i1 %39, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %44
 
 41:                                               ; preds = %unicode_byte_type.exit
@@ -16422,16 +16422,16 @@ unicode_byte_type.exit.thread95:                  ; preds = %unicode_byte_type.e
   ]
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %.pn77, i64 3
+  %48 = getelementptr inbounds nuw i8, ptr %.pn77, i64 3
   %49 = load i8, ptr %48, align 1
   %switch.i61 = icmp ugt i8 %49, -3
   br i1 %switch.i61, label %.loopexit.sink.split, label %unicode_byte_type.exit63.thread98
 
 unicode_byte_type.exit63:                         ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %.pn77, i64 3
+  %50 = getelementptr inbounds nuw i8, ptr %.pn77, i64 3
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds [256 x i8], ptr %40, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [256 x i8], ptr %40, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
   switch i8 %54, label %.loopexit.sink.split [
     i8 29, label %unicode_byte_type.exit63.thread98
@@ -16453,17 +16453,17 @@ unicode_byte_type.exit63:                         ; preds = %44
 
 unicode_byte_type.exit63.thread98:                ; preds = %44, %47, %unicode_byte_type.exit63
   %55 = zext i8 %46 to i64
-  %56 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 3
-  %60 = getelementptr inbounds i8, ptr %.pn77, i64 3
+  %60 = getelementptr inbounds nuw i8, ptr %.pn77, i64 3
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = lshr i32 %62, 5
   %64 = or disjoint i32 %63, %59
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = and i32 %62, 31
   %69 = shl nuw i32 1, %68
@@ -16472,7 +16472,7 @@ unicode_byte_type.exit63.thread98:                ; preds = %44, %47, %unicode_b
   br i1 %.not60, label %.loopexit.sink.split, label %71
 
 71:                                               ; preds = %unicode_byte_type.exit63.thread98, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63, %unicode_byte_type.exit63
-  %.056 = getelementptr inbounds i8, ptr %.05678, i64 2
+  %.056 = getelementptr inbounds nuw i8, ptr %.05678, i64 2
   %72 = ptrtoint ptr %.056 to i64
   %73 = sub i64 %5, %72
   %74 = icmp sgt i64 %73, 1
@@ -16514,20 +16514,20 @@ define internal fastcc range(i32 -2, 14) i32 @big2_scanComment(ptr nocapture nou
   br i1 %11, label %12, label %.loopexit.sink.split
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 45
   br i1 %15, label %16, label %.loopexit.sink.split
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %18 = ptrtoint ptr %17 to i64
   %19 = sub i64 %5, %18
   %20 = icmp sgt i64 %19, 1
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %22
 
 22:                                               ; preds = %.lr.ph, %68
@@ -16548,16 +16548,16 @@ define internal fastcc range(i32 -2, 14) i32 @big2_scanComment(ptr nocapture nou
   ]
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %.04044, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.04044, i64 1
   %27 = load i8, ptr %26, align 1
   %switch.i = icmp ugt i8 %27, -3
   br i1 %switch.i, label %.loopexit.sink.split, label %unicode_byte_type.exit.thread54
 
 unicode_byte_type.exit:                           ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %.04044, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.04044, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds [256 x i8], ptr %21, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [256 x i8], ptr %21, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   switch i8 %32, label %unicode_byte_type.exit.thread54 [
     i8 5, label %33
@@ -16570,7 +16570,7 @@ unicode_byte_type.exit:                           ; preds = %22
   ]
 
 33:                                               ; preds = %unicode_byte_type.exit
-  %34 = getelementptr inbounds i8, ptr %.04044, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %.04044, i64 2
   br label %68
 
 35:                                               ; preds = %unicode_byte_type.exit
@@ -16578,7 +16578,7 @@ unicode_byte_type.exit:                           ; preds = %22
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.04044, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %.04044, i64 3
   br label %68
 
 unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, %unicode_byte_type.exit
@@ -16586,11 +16586,11 @@ unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, 
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %unicode_byte_type.exit.thread57
-  %41 = getelementptr inbounds i8, ptr %.04044, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.04044, i64 4
   br label %68
 
 42:                                               ; preds = %unicode_byte_type.exit
-  %43 = getelementptr inbounds i8, ptr %.04044, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %.04044, i64 2
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %5, %44
   %46 = icmp sgt i64 %45, 1
@@ -16602,13 +16602,13 @@ unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, 
   br i1 %49, label %50, label %68
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %.04044, i64 3
+  %51 = getelementptr inbounds nuw i8, ptr %.04044, i64 3
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 45
   br i1 %53, label %54, label %68
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %.04044, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.04044, i64 4
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %5, %56
   %58 = icmp sgt i64 %57, 1
@@ -16620,16 +16620,16 @@ unicode_byte_type.exit.thread57:                  ; preds = %22, %22, %22, %22, 
   br i1 %61, label %62, label %.loopexit.sink.split
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %.04044, i64 5
+  %63 = getelementptr inbounds nuw i8, ptr %.04044, i64 5
   %64 = load i8, ptr %63, align 1
   %65 = icmp eq i8 %64, 62
-  %66 = getelementptr inbounds i8, ptr %.04044, i64 6
+  %66 = getelementptr inbounds nuw i8, ptr %.04044, i64 6
   %spec.select = select i1 %65, ptr %66, ptr %55
   %spec.select61 = select i1 %65, i32 13, i32 0
   br label %.loopexit.sink.split
 
 unicode_byte_type.exit.thread54:                  ; preds = %22, %25, %unicode_byte_type.exit
-  %67 = getelementptr inbounds i8, ptr %.04044, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %.04044, i64 2
   br label %68
 
 68:                                               ; preds = %47, %50, %unicode_byte_type.exit.thread54, %40, %37, %33
@@ -16665,7 +16665,7 @@ define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %0, p
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1
   switch i8 %12, label %.thread [
     i8 120, label %14
@@ -16677,13 +16677,13 @@ define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %0, p
 
 14:                                               ; preds = %10, %13
   %.0 = phi i32 [ 1, %13 ], [ 0, %10 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %.thread [
     i8 109, label %22
@@ -16695,13 +16695,13 @@ define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %0, p
 
 22:                                               ; preds = %18, %21
   %.1 = phi i32 [ 1, %21 ], [ %.0, %18 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 5
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %28 = load i8, ptr %27, align 1
   switch i8 %28, label %.thread [
     i8 108, label %29
@@ -16748,17 +16748,17 @@ define internal fastcc range(i32 -2, 11) i32 @big2_scanRef(ptr nocapture noundef
   ]
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %switch.i = icmp ugt i8 %13, -3
   br i1 %switch.i, label %big2_scanCharRef.exit.sink.split, label %unicode_byte_type.exit.thread131
 
 unicode_byte_type.exit:                           ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [256 x i8], ptr %14, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %big2_scanCharRef.exit.sink.split [
     i8 29, label %unicode_byte_type.exit.thread131
@@ -16771,17 +16771,17 @@ unicode_byte_type.exit:                           ; preds = %9
 
 unicode_byte_type.exit.thread131:                 ; preds = %9, %11, %unicode_byte_type.exit
   %20 = zext i8 %10 to i64
-  %21 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %23, 3
-  %25 = getelementptr inbounds i8, ptr %1, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = lshr i32 %27, 5
   %29 = or disjoint i32 %28, %24
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %27, 31
   %34 = shl nuw i32 1, %33
@@ -16790,14 +16790,14 @@ unicode_byte_type.exit.thread131:                 ; preds = %9, %11, %unicode_by
   br i1 %.not, label %big2_scanCharRef.exit.sink.split, label %36
 
 36:                                               ; preds = %unicode_byte_type.exit.thread131, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %.06098 = getelementptr inbounds i8, ptr %1, i64 2
+  %.06098 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %37 = ptrtoint ptr %.06098 to i64
   %38 = sub i64 %5, %37
   %39 = icmp sgt i64 %38, 1
   br i1 %39, label %.lr.ph, label %big2_scanCharRef.exit
 
 .lr.ph:                                           ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %101
 
 41:                                               ; preds = %unicode_byte_type.exit
@@ -16809,7 +16809,7 @@ unicode_byte_type.exit.thread134:                 ; preds = %9, %9, %9, %9, %uni
   br i1 %43, label %big2_scanCharRef.exit, label %big2_scanCharRef.exit.sink.split
 
 44:                                               ; preds = %unicode_byte_type.exit
-  %45 = getelementptr inbounds i8, ptr %1, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %46 = ptrtoint ptr %45 to i64
   %47 = sub i64 %5, %46
   %48 = icmp sgt i64 %47, 1
@@ -16821,13 +16821,13 @@ unicode_byte_type.exit.thread134:                 ; preds = %9, %9, %9, %9, %uni
   br i1 %cond35.i, label %51, label %big2_scanCharRef.exit.sink.split
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %1, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 120
   br i1 %54, label %55, label %unicode_byte_type.exit.i
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %1, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %57 = ptrtoint ptr %56 to i64
   %58 = sub i64 %5, %57
   %59 = icmp sgt i64 %58, 1
@@ -16839,18 +16839,18 @@ unicode_byte_type.exit.thread134:                 ; preds = %9, %9, %9, %9, %uni
   br i1 %cond.i.i, label %unicode_byte_type.exit.i.i, label %big2_scanCharRef.exit.sink.split
 
 unicode_byte_type.exit.i.i:                       ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 128
-  %63 = getelementptr inbounds i8, ptr %1, i64 5
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds [256 x i8], ptr %62, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [256 x i8], ptr %62, i64 0, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = and i8 %67, -2
   %69 = icmp eq i8 %68, 24
   br i1 %69, label %.preheader.i.i, label %big2_scanCharRef.exit.sink.split
 
 .preheader.i.i:                                   ; preds = %unicode_byte_type.exit.i.i
-  %.02231.i.i = getelementptr inbounds i8, ptr %1, i64 6
+  %.02231.i.i = getelementptr inbounds nuw i8, ptr %1, i64 6
   %70 = ptrtoint ptr %.02231.i.i to i64
   %71 = sub i64 %5, %70
   %72 = icmp sgt i64 %71, 1
@@ -16864,10 +16864,10 @@ unicode_byte_type.exit.i.i:                       ; preds = %60
   br i1 %cond47.i.i, label %unicode_byte_type.exit26.i.i, label %big2_scanCharRef.exit.sink.split
 
 unicode_byte_type.exit26.i.i:                     ; preds = %.lr.ph.i.i
-  %74 = getelementptr inbounds i8, ptr %.pn32.i.i, i64 3
+  %74 = getelementptr inbounds nuw i8, ptr %.pn32.i.i, i64 3
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds [256 x i8], ptr %62, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [256 x i8], ptr %62, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1
   switch i8 %78, label %big2_scanCharRef.exit.sink.split [
     i8 25, label %81
@@ -16876,27 +16876,27 @@ unicode_byte_type.exit26.i.i:                     ; preds = %.lr.ph.i.i
   ]
 
 79:                                               ; preds = %unicode_byte_type.exit26.i.i
-  %80 = getelementptr inbounds i8, ptr %.pn32.i.i, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.pn32.i.i, i64 4
   br label %big2_scanCharRef.exit.sink.split
 
 81:                                               ; preds = %unicode_byte_type.exit26.i.i, %unicode_byte_type.exit26.i.i
-  %.022.i.i = getelementptr inbounds i8, ptr %.02233.i.i, i64 2
+  %.022.i.i = getelementptr inbounds nuw i8, ptr %.02233.i.i, i64 2
   %82 = ptrtoint ptr %.022.i.i to i64
   %83 = sub i64 %5, %82
   %84 = icmp sgt i64 %83, 1
   br i1 %84, label %.lr.ph.i.i, label %big2_scanCharRef.exit, !llvm.loop !93
 
 unicode_byte_type.exit.i:                         ; preds = %51
-  %85 = getelementptr inbounds i8, ptr %0, i64 128
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %86 = zext i8 %53 to i64
-  %87 = getelementptr inbounds [256 x i8], ptr %85, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [256 x i8], ptr %85, i64 0, i64 %86
   %88 = load i8, ptr %87, align 1
   %cond.i = icmp eq i8 %88, 25
   br i1 %cond.i, label %.preheader.i, label %big2_scanCharRef.exit.sink.split
 
 .preheader.i:                                     ; preds = %unicode_byte_type.exit.i, %unicode_byte_type.exit32.i
   %.pn.i = phi ptr [ %.028.i, %unicode_byte_type.exit32.i ], [ %45, %unicode_byte_type.exit.i ]
-  %.028.i = getelementptr inbounds i8, ptr %.pn.i, i64 2
+  %.028.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2
   %89 = ptrtoint ptr %.028.i to i64
   %90 = sub i64 %5, %89
   %91 = icmp sgt i64 %90, 1
@@ -16908,10 +16908,10 @@ unicode_byte_type.exit.i:                         ; preds = %51
   br i1 %cond67.i, label %unicode_byte_type.exit32.i, label %big2_scanCharRef.exit.sink.split
 
 unicode_byte_type.exit32.i:                       ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %.pn.i, i64 3
+  %94 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 3
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i64
-  %97 = getelementptr inbounds [256 x i8], ptr %85, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw [256 x i8], ptr %85, i64 0, i64 %96
   %98 = load i8, ptr %97, align 1
   switch i8 %98, label %big2_scanCharRef.exit.sink.split [
     i8 25, label %.preheader.i
@@ -16919,7 +16919,7 @@ unicode_byte_type.exit32.i:                       ; preds = %92
   ], !llvm.loop !94
 
 99:                                               ; preds = %unicode_byte_type.exit32.i
-  %100 = getelementptr inbounds i8, ptr %.pn.i, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 4
   br label %big2_scanCharRef.exit.sink.split
 
 101:                                              ; preds = %.lr.ph, %128
@@ -16941,16 +16941,16 @@ unicode_byte_type.exit32.i:                       ; preds = %92
   ]
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %.pn99, i64 3
+  %105 = getelementptr inbounds nuw i8, ptr %.pn99, i64 3
   %106 = load i8, ptr %105, align 1
   %switch.i66 = icmp ugt i8 %106, -3
   br i1 %switch.i66, label %big2_scanCharRef.exit.sink.split, label %unicode_byte_type.exit68.thread137
 
 unicode_byte_type.exit68:                         ; preds = %101
-  %107 = getelementptr inbounds i8, ptr %.pn99, i64 3
+  %107 = getelementptr inbounds nuw i8, ptr %.pn99, i64 3
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i64
-  %110 = getelementptr inbounds [256 x i8], ptr %40, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [256 x i8], ptr %40, i64 0, i64 %109
   %111 = load i8, ptr %110, align 1
   switch i8 %111, label %big2_scanCharRef.exit.sink.split [
     i8 29, label %unicode_byte_type.exit68.thread137
@@ -16966,17 +16966,17 @@ unicode_byte_type.exit68:                         ; preds = %101
 
 unicode_byte_type.exit68.thread137:               ; preds = %101, %104, %unicode_byte_type.exit68
   %112 = zext i8 %103 to i64
-  %113 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
   %116 = shl nuw nsw i32 %115, 3
-  %117 = getelementptr inbounds i8, ptr %.pn99, i64 3
+  %117 = getelementptr inbounds nuw i8, ptr %.pn99, i64 3
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   %120 = lshr i32 %119, 5
   %121 = or disjoint i32 %120, %116
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %122
   %124 = load i32, ptr %123, align 4
   %125 = and i32 %119, 31
   %126 = shl nuw i32 1, %125
@@ -16985,7 +16985,7 @@ unicode_byte_type.exit68.thread137:               ; preds = %101, %104, %unicode
   br i1 %.not64, label %big2_scanCharRef.exit.sink.split, label %128
 
 128:                                              ; preds = %unicode_byte_type.exit68.thread137, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68
-  %.060 = getelementptr inbounds i8, ptr %.060100, i64 2
+  %.060 = getelementptr inbounds nuw i8, ptr %.060100, i64 2
   %129 = ptrtoint ptr %.060 to i64
   %130 = sub i64 %5, %129
   %131 = icmp sgt i64 %130, 1
@@ -17000,7 +17000,7 @@ unicode_byte_type.exit68.thread140:               ; preds = %101, %101, %101, %1
   br i1 %134, label %big2_scanCharRef.exit, label %big2_scanCharRef.exit.sink.split
 
 135:                                              ; preds = %unicode_byte_type.exit68
-  %136 = getelementptr inbounds i8, ptr %.pn99, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %.pn99, i64 4
   br label %big2_scanCharRef.exit.sink.split
 
 big2_scanCharRef.exit.sink.split:                 ; preds = %92, %unicode_byte_type.exit32.i, %.lr.ph.i.i, %unicode_byte_type.exit26.i.i, %unicode_byte_type.exit68, %104, %101, %101, %101, %101, %unicode_byte_type.exit68.thread137, %unicode_byte_type.exit68.thread140, %132, %unicode_byte_type.exit, %11, %9, %9, %9, %9, %49, %60, %unicode_byte_type.exit.i.i, %79, %unicode_byte_type.exit.i, %99, %unicode_byte_type.exit.thread134, %41, %unicode_byte_type.exit.thread131, %135
@@ -17025,7 +17025,7 @@ define internal fastcc range(i32 -2, 4) i32 @big2_scanAtts(ptr nocapture noundef
   br i1 %9, label %.lr.ph267, label %.loopexit90
 
 .lr.ph267:                                        ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %11
 
 11:                                               ; preds = %.lr.ph267, %.loopexit87
@@ -17046,16 +17046,16 @@ define internal fastcc range(i32 -2, 4) i32 @big2_scanAtts(ptr nocapture noundef
   ]
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.promoted, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1
   %16 = load i8, ptr %15, align 1
   %switch.i = icmp ugt i8 %16, -3
   br i1 %switch.i, label %.loopexit90.sink.split, label %unicode_byte_type.exit.thread429
 
 unicode_byte_type.exit:                           ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %.promoted, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   switch i8 %21, label %.loopexit90.sink.split [
     i8 29, label %unicode_byte_type.exit.thread429
@@ -17074,17 +17074,17 @@ unicode_byte_type.exit:                           ; preds = %11
 
 unicode_byte_type.exit.thread429:                 ; preds = %11, %14, %unicode_byte_type.exit
   %22 = zext i8 %13 to i64
-  %23 = getelementptr inbounds [256 x i8], ptr @namePages, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [256 x i8], ptr @namePages, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 3
-  %27 = getelementptr inbounds i8, ptr %.promoted, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.promoted, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = lshr i32 %29, 5
   %31 = or disjoint i32 %30, %26
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %29, 31
   %36 = shl nuw i32 1, %35
@@ -17101,7 +17101,7 @@ unicode_byte_type.exit.thread432:                 ; preds = %11, %11, %11, %11, 
   br i1 %40, label %.loopexit90, label %.loopexit90.sink.split
 
 41:                                               ; preds = %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit
-  %42 = getelementptr inbounds i8, ptr %.promoted, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.promoted, i64 2
   %43 = ptrtoint ptr %42 to i64
   %44 = sub i64 %6, %43
   %45 = icmp sgt i64 %44, 1
@@ -17115,10 +17115,10 @@ unicode_byte_type.exit.thread432:                 ; preds = %11, %11, %11, %11, 
   br i1 %cond, label %unicode_byte_type.exit68, label %.loopexit90.sink.split
 
 unicode_byte_type.exit68:                         ; preds = %.lr.ph
-  %49 = getelementptr inbounds i8, ptr %47, i64 3
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 3
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
-  %52 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1
   switch i8 %53, label %.loopexit90.sink.split [
     i8 14, label %.loopexit93
@@ -17128,7 +17128,7 @@ unicode_byte_type.exit68:                         ; preds = %.lr.ph
   ]
 
 54:                                               ; preds = %unicode_byte_type.exit68, %unicode_byte_type.exit68, %unicode_byte_type.exit68
-  %55 = getelementptr inbounds i8, ptr %46, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %56 = ptrtoint ptr %55 to i64
   %57 = sub i64 %6, %56
   %58 = icmp sgt i64 %57, 1
@@ -17140,7 +17140,7 @@ unicode_byte_type.exit68:                         ; preds = %.lr.ph
 
 59:                                               ; preds = %unicode_byte_type.exit, %.loopexit93
   %.promoted236 = phi ptr [ %46, %.loopexit93 ], [ %.promoted, %unicode_byte_type.exit ]
-  %60 = getelementptr inbounds i8, ptr %.promoted236, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.promoted236, i64 2
   %61 = ptrtoint ptr %60 to i64
   %62 = sub i64 %6, %61
   %63 = icmp sgt i64 %62, 1
@@ -17154,10 +17154,10 @@ unicode_byte_type.exit68:                         ; preds = %.lr.ph
   br i1 %cond86, label %unicode_byte_type.exit71, label %.loopexit90.sink.split
 
 unicode_byte_type.exit71:                         ; preds = %.lr.ph240
-  %67 = getelementptr inbounds i8, ptr %65, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 3
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %69
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
   %73 = and i32 %72, 254
@@ -17172,14 +17172,14 @@ unicode_byte_type.exit71.thread:                  ; preds = %unicode_byte_type.e
   ]
 
 74:                                               ; preds = %unicode_byte_type.exit71.thread, %unicode_byte_type.exit71.thread, %unicode_byte_type.exit71.thread
-  %75 = getelementptr inbounds i8, ptr %64, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 2
   %76 = ptrtoint ptr %75 to i64
   %77 = sub i64 %6, %76
   %78 = icmp sgt i64 %77, 1
   br i1 %78, label %.lr.ph240, label %.loopexit90
 
 79:                                               ; preds = %unicode_byte_type.exit71
-  %80 = getelementptr inbounds i8, ptr %65, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store ptr %80, ptr %5, align 8
   %81 = ptrtoint ptr %80 to i64
   %82 = sub i64 %6, %81
@@ -17204,10 +17204,10 @@ unicode_byte_type.exit71.thread:                  ; preds = %unicode_byte_type.e
   ]
 
 87:                                               ; preds = %.lr.ph244
-  %88 = getelementptr inbounds i8, ptr %85, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
   br label %unicode_byte_type.exit74
@@ -17216,7 +17216,7 @@ unicode_byte_type.exit71.thread:                  ; preds = %unicode_byte_type.e
   br label %unicode_byte_type.exit74
 
 95:                                               ; preds = %.lr.ph244
-  %96 = getelementptr inbounds i8, ptr %85, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %97 = load i8, ptr %96, align 1
   %switch.i72 = icmp ugt i8 %97, -3
   br i1 %switch.i72, label %unicode_byte_type.exit74, label %98
@@ -17243,7 +17243,7 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph244, %.lr.ph2
   ]
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %85, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %85, i64 2
   store ptr %103, ptr %5, align 8
   br label %122
 
@@ -17252,7 +17252,7 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph244, %.lr.ph2
   br i1 %105, label %.loopexit90, label %106
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %85, i64 3
+  %107 = getelementptr inbounds nuw i8, ptr %85, i64 3
   store ptr %107, ptr %5, align 8
   br label %122
 
@@ -17261,12 +17261,12 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph244, %.lr.ph2
   br i1 %109, label %.loopexit90, label %110
 
 110:                                              ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %85, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store ptr %111, ptr %5, align 8
   br label %122
 
 112:                                              ; preds = %101
-  %113 = getelementptr inbounds i8, ptr %85, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %85, i64 2
   %114 = call fastcc i32 @big2_scanRef(ptr noundef %0, ptr noundef nonnull %113, ptr noundef %2, ptr noundef nonnull %5)
   %115 = icmp slt i32 %114, 1
   br i1 %115, label %116, label %._crit_edge
@@ -17284,7 +17284,7 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph244, %.lr.ph2
   br label %.loopexit90.sink.split
 
 120:                                              ; preds = %101
-  %121 = getelementptr inbounds i8, ptr %85, i64 2
+  %121 = getelementptr inbounds nuw i8, ptr %85, i64 2
   store ptr %121, ptr %5, align 8
   br label %122
 
@@ -17296,7 +17296,7 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph244, %.lr.ph2
   br i1 %126, label %.lr.ph244, label %.loopexit90
 
 127:                                              ; preds = %unicode_byte_type.exit74
-  %128 = getelementptr inbounds i8, ptr %85, i64 2
+  %128 = getelementptr inbounds nuw i8, ptr %85, i64 2
   store ptr %128, ptr %5, align 8
   %129 = ptrtoint ptr %128 to i64
   %130 = sub i64 %6, %129
@@ -17309,10 +17309,10 @@ unicode_byte_type.exit74:                         ; preds = %.lr.ph244, %.lr.ph2
   br i1 %cond576, label %unicode_byte_type.exit77, label %.loopexit90.sink.split
 
 unicode_byte_type.exit77:                         ; preds = %132
-  %134 = getelementptr inbounds i8, ptr %85, i64 3
+  %134 = getelementptr inbounds nuw i8, ptr %85, i64 3
   %135 = load i8, ptr %134, align 1
   %136 = zext i8 %135 to i64
-  %137 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %136
   %138 = load i8, ptr %137, align 1
   switch i8 %138, label %.loopexit90.sink.split [
     i8 21, label %139
@@ -17323,7 +17323,7 @@ unicode_byte_type.exit77:                         ; preds = %132
   ]
 
 139:                                              ; preds = %unicode_byte_type.exit77, %unicode_byte_type.exit77, %unicode_byte_type.exit77
-  %140 = getelementptr inbounds i8, ptr %85, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %141 = ptrtoint ptr %140 to i64
   %142 = sub i64 %6, %141
   %143 = icmp sgt i64 %142, 1
@@ -17348,16 +17348,16 @@ unicode_byte_type.exit77:                         ; preds = %132
   ]
 
 148:                                              ; preds = %.lr.ph262
-  %149 = getelementptr inbounds i8, ptr %146, i64 3
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 3
   %150 = load i8, ptr %149, align 1
   %switch.i78 = icmp ugt i8 %150, -3
   br i1 %switch.i78, label %.loopexit90.sink.split, label %unicode_byte_type.exit80.thread436
 
 unicode_byte_type.exit80:                         ; preds = %.lr.ph262
-  %151 = getelementptr inbounds i8, ptr %146, i64 3
+  %151 = getelementptr inbounds nuw i8, ptr %146, i64 3
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds [256 x i8], ptr %10, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [256 x i8], ptr %10, i64 0, i64 %153
   %155 = load i8, ptr %154, align 1
   switch i8 %155, label %.loopexit90.sink.split [
     i8 29, label %unicode_byte_type.exit80.thread436
@@ -17375,17 +17375,17 @@ unicode_byte_type.exit80:                         ; preds = %.lr.ph262
 unicode_byte_type.exit80.thread436:               ; preds = %.lr.ph262, %unicode_byte_type.exit80, %148
   store ptr %145, ptr %5, align 8
   %156 = zext i8 %147 to i64
-  %157 = getelementptr inbounds [256 x i8], ptr @nmstrtPages, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw [256 x i8], ptr @nmstrtPages, i64 0, i64 %156
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i32
   %160 = shl nuw nsw i32 %159, 3
-  %161 = getelementptr inbounds i8, ptr %146, i64 3
+  %161 = getelementptr inbounds nuw i8, ptr %146, i64 3
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
   %164 = lshr i32 %163, 5
   %165 = or disjoint i32 %164, %160
   %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds [320 x i32], ptr @namingBitmap, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw [320 x i32], ptr @namingBitmap, i64 0, i64 %166
   %168 = load i32, ptr %167, align 4
   %169 = and i32 %163, 31
   %170 = shl nuw i32 1, %169
@@ -17402,7 +17402,7 @@ unicode_byte_type.exit80.thread439:               ; preds = %.lr.ph262, %.lr.ph2
   br i1 %174, label %.loopexit90, label %.loopexit90.sink.split
 
 175:                                              ; preds = %unicode_byte_type.exit80, %unicode_byte_type.exit80, %unicode_byte_type.exit80
-  %176 = getelementptr inbounds i8, ptr %145, i64 2
+  %176 = getelementptr inbounds nuw i8, ptr %145, i64 2
   %177 = ptrtoint ptr %176 to i64
   %178 = sub i64 %6, %177
   %179 = icmp sgt i64 %178, 1
@@ -17410,12 +17410,12 @@ unicode_byte_type.exit80.thread439:               ; preds = %.lr.ph262, %.lr.ph2
 
 .loopexit96:                                      ; preds = %unicode_byte_type.exit77, %unicode_byte_type.exit80
   %180 = phi ptr [ %145, %unicode_byte_type.exit80 ], [ %128, %unicode_byte_type.exit77 ]
-  %181 = getelementptr inbounds i8, ptr %180, i64 2
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 2
   br label %.loopexit90.sink.split
 
 .loopexit95:                                      ; preds = %unicode_byte_type.exit77, %unicode_byte_type.exit80
   %182 = phi ptr [ %145, %unicode_byte_type.exit80 ], [ %128, %unicode_byte_type.exit77 ]
-  %183 = getelementptr inbounds i8, ptr %182, i64 2
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 2
   store ptr %183, ptr %5, align 8
   %184 = ptrtoint ptr %183 to i64
   %185 = sub i64 %6, %184
@@ -17428,17 +17428,17 @@ unicode_byte_type.exit80.thread439:               ; preds = %.lr.ph262, %.lr.ph2
   br i1 %189, label %190, label %.loopexit90.sink.split
 
 190:                                              ; preds = %187
-  %191 = getelementptr inbounds i8, ptr %182, i64 3
+  %191 = getelementptr inbounds nuw i8, ptr %182, i64 3
   %192 = load i8, ptr %191, align 1
   %193 = icmp eq i8 %192, 62
-  %194 = getelementptr inbounds i8, ptr %182, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %spec.select = select i1 %193, ptr %194, ptr %183
   %spec.select577 = select i1 %193, i32 3, i32 0
   br label %.loopexit90.sink.split
 
 .loopexit87:                                      ; preds = %unicode_byte_type.exit80, %unicode_byte_type.exit80, %unicode_byte_type.exit80.thread436, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit, %unicode_byte_type.exit.thread429
   %.pn = phi ptr [ %145, %unicode_byte_type.exit80.thread436 ], [ %.promoted, %unicode_byte_type.exit ], [ %.promoted, %unicode_byte_type.exit ], [ %.promoted, %unicode_byte_type.exit ], [ %.promoted, %unicode_byte_type.exit ], [ %.promoted, %unicode_byte_type.exit ], [ %.promoted, %unicode_byte_type.exit.thread429 ], [ %145, %unicode_byte_type.exit80 ], [ %145, %unicode_byte_type.exit80 ]
-  %storemerge = getelementptr inbounds i8, ptr %.pn, i64 2
+  %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   store ptr %storemerge, ptr %5, align 8
   %195 = ptrtoint ptr %storemerge to i64
   %196 = sub i64 %6, %195
@@ -17492,9 +17492,9 @@ define internal fastcc range(i32 0, 2) i32 @parsePseudoAttribute(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
   store ptr %1, ptr %26, align 8
   store ptr %27, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %27, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %35 = call i32 %33(ptr noundef %0, ptr noundef nonnull %26, ptr noundef %2, ptr noundef nonnull %28, ptr noundef nonnull %34) #13
   %36 = load ptr, ptr %28, align 8
   %37 = icmp eq ptr %36, %27
@@ -17512,8 +17512,8 @@ define internal fastcc range(i32 0, 2) i32 @parsePseudoAttribute(ptr noundef %0,
   ]
 
 isSpace.exit:                                     ; preds = %31, %31, %31, %31
-  %40 = getelementptr inbounds i8, ptr %0, i64 120
-  %41 = getelementptr inbounds i8, ptr %24, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %isSpace.exit113
 
 42:                                               ; preds = %31
@@ -17560,7 +17560,7 @@ isSpace.exit113.backedge:                         ; preds = %isSpace.exit113, %i
 
 55:                                               ; preds = %52
   store ptr %45, ptr %3, align 8
-  %56 = getelementptr inbounds i8, ptr %21, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %21, i64 1
   br label %57
 
 57:                                               ; preds = %77, %55
@@ -17599,7 +17599,7 @@ isSpace.exit113.backedge:                         ; preds = %isSpace.exit113, %i
 
 isSpace.exit116:                                  ; preds = %57, %57, %57, %57
   store ptr %.1, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %18, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 1
   br label %isSpace.exit119
 
 isSpace.exit119:                                  ; preds = %isSpace.exit119.backedge, %isSpace.exit116
@@ -17663,7 +17663,7 @@ select.unfold.preheader:                          ; preds = %.loopexit
   store ptr %86, ptr %14, align 8
   store ptr %15, ptr %16, align 8
   %87 = load ptr, ptr %32, align 8
-  %88 = getelementptr inbounds i8, ptr %15, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %89 = call i32 %87(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef %2, ptr noundef nonnull %16, ptr noundef nonnull %88) #13
   %90 = load ptr, ptr %16, align 8
   %91 = icmp eq ptr %90, %15
@@ -17672,7 +17672,7 @@ select.unfold.preheader:                          ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
-  %94 = getelementptr inbounds i8, ptr %12, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %spec.select = select i1 %91, i32 -1, i32 %93
   br label %select.unfold
 
@@ -17718,7 +17718,7 @@ isSpace.exit122:                                  ; preds = %select.unfold, %sel
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds i8, ptr %.4, i64 %107
   store ptr %108, ptr %5, align 8
-  %109 = getelementptr inbounds i8, ptr %9, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %9, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)

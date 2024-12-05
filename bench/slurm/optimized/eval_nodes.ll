@@ -49,9 +49,9 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 216
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 216
   %20 = load ptr, ptr %19, align 8
   %.b3637 = load i1, ptr @eval_nodes.set, align 1
   br i1 %.b3637, label %24, label %21
@@ -65,16 +65,16 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
   br label %24
 
 24:                                               ; preds = %21, %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @bit_set_count(ptr noundef %26) #7
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load i32, ptr %28, align 8
   %30 = icmp ult i32 %27, %29
   br i1 %30, label %1919, label %31
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %20, i64 360
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 360
   %33 = load ptr, ptr %32, align 8
   %.not38 = icmp eq ptr %33, null
   br i1 %.not38, label %37, label %34
@@ -86,13 +86,13 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
   br i1 %.not39, label %1919, label %37
 
 37:                                               ; preds = %34, %31
-  %38 = getelementptr inbounds i8, ptr %0, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load ptr, ptr %42, align 8
   %.not40 = icmp eq ptr %43, null
   br i1 %.not40, label %46, label %44
@@ -104,7 +104,7 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
 
 46:                                               ; preds = %44, %41, %37
   %47 = load ptr, ptr %17, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 112
   %49 = load i64, ptr %48, align 8
   %50 = and i64 %49, 256
   %.not42 = icmp eq i64 %50, 0
@@ -112,23 +112,23 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
 
 51:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %47, i64 216
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 216
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 360
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 360
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %25, align 8
   %59 = tail call ptr @bit_copy(ptr noundef %58) #7
   store ptr %59, ptr %16, align 8
   %60 = load i32, ptr %28, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 92
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %55, i64 268
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 268
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %55, i64 296
+  %66 = getelementptr inbounds nuw i8, ptr %55, i64 296
   %67 = load i32, ptr %66, align 8
   switch i32 %67, label %68 [
     i32 -2, label %71
@@ -136,14 +136,14 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
   ]
 
 68:                                               ; preds = %51
-  %69 = getelementptr inbounds i8, ptr %0, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %70 = load i32, ptr %69, align 8
   %..i = tail call i32 @llvm.umin.i32(i32 %70, i32 %67)
   store i32 %..i, ptr %69, align 8
   br label %71
 
 71:                                               ; preds = %68, %51, %51
-  %72 = getelementptr inbounds i8, ptr %47, i64 296
+  %72 = getelementptr inbounds nuw i8, ptr %47, i64 296
   %73 = load ptr, ptr %72, align 8
   %74 = tail call zeroext i1 @gres_sched_init(ptr noundef %73) #7
   br i1 %74, label %75, label %77
@@ -159,19 +159,19 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
 79:                                               ; preds = %77, %75
   %.0156.i = phi i32 [ %76, %75 ], [ %78, %77 ]
   %80 = load i32, ptr %64, align 4
-  %81 = getelementptr inbounds i8, ptr %55, i64 232
+  %81 = getelementptr inbounds nuw i8, ptr %55, i64 232
   %82 = load i32, ptr %81, align 8
   %.not.i.i = icmp eq i32 %82, -2
   %spec.select.i.i = select i1 %.not.i.i, i32 %80, i32 %82
   %.0.i.i = zext i32 %spec.select.i.i to i64
-  %83 = getelementptr inbounds i8, ptr %55, i64 276
+  %83 = getelementptr inbounds nuw i8, ptr %55, i64 276
   %84 = load i32, ptr %83, align 4
   %.not20.i.i = icmp eq i32 %84, 0
   %85 = mul nsw i32 %84, %.0156.i
   %86 = sext i32 %85 to i64
   %.0..i.i = tail call i64 @llvm.smax.i64(i64 %.0.i.i, i64 %86)
   %.1.i.i = select i1 %.not20.i.i, i64 %.0.i.i, i64 %.0..i.i
-  %87 = getelementptr inbounds i8, ptr %55, i64 280
+  %87 = getelementptr inbounds nuw i8, ptr %55, i64 280
   %88 = load i32, ptr %87, align 8
   %.not21.i.i = icmp eq i32 %88, 0
   %89 = sext i32 %88 to i64
@@ -203,8 +203,8 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
   br i1 %.not198261.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader243.i
-  %101 = getelementptr inbounds i8, ptr %0, i64 56
-  %102 = getelementptr inbounds i8, ptr %0, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %sext.i = shl i64 %91, 32
   %103 = ashr exact i64 %sext.i, 32
   %104 = add i32 %.0146.i, 1
@@ -246,7 +246,7 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
   br i1 %119, label %120, label %.thread238.i
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %112, i64 256
+  %121 = getelementptr inbounds nuw i8, ptr %112, i64 256
   %122 = load ptr, ptr %121, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_spread, ptr noundef %47, ptr noundef %122) #7
   br label %.thread238.i
@@ -275,12 +275,12 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
   %134 = trunc nsw i64 %indvars.iv.i to i32
   tail call void @eval_nodes_select_cores(ptr noundef nonnull %0, i32 noundef %134, i32 noundef %.0163264.i)
   %135 = load ptr, ptr %17, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 216
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 216
   %137 = load ptr, ptr %136, align 8
   %138 = load ptr, ptr %52, align 8
   %139 = getelementptr inbounds ptr, ptr %138, i64 %indvars.iv.i
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %137, i64 464
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 464
   %142 = load i8, ptr %141, align 8
   %143 = icmp eq i8 %142, 1
   br i1 %143, label %eval_nodes_cpus_to_use.exit.i, label %144
@@ -300,7 +300,7 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
   %153 = load ptr, ptr @node_record_table_ptr, align 8
   %154 = getelementptr inbounds ptr, ptr %153, i64 %indvars.iv.i
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 74
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 74
   %157 = load i16, ptr %156, align 2
   %158 = zext i16 %157 to i32
   %159 = mul nsw i32 %149, %158
@@ -320,13 +320,13 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
   br label %180
 
 166:                                              ; preds = %160
-  %167 = getelementptr inbounds i8, ptr %137, i64 304
+  %167 = getelementptr inbounds nuw i8, ptr %137, i64 304
   %168 = load i32, ptr %167, align 8
   %169 = sext i32 %168 to i64
   %..i.i = tail call i64 @llvm.smax.i64(i64 %162, i64 %169)
   %170 = trunc i64 %..i.i to i16
   store i16 %170, ptr %63, align 8
-  %171 = getelementptr inbounds i8, ptr %140, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %172 = load i32, ptr %171, align 8
   %.not43.i.i = icmp eq i32 %172, 0
   %173 = trunc i64 %..i.i to i32
@@ -338,7 +338,7 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
   br label %179
 
 176:                                              ; preds = %166
-  %177 = getelementptr inbounds i8, ptr %137, i64 276
+  %177 = getelementptr inbounds nuw i8, ptr %137, i64 276
   %178 = load i32, ptr %177, align 4
   %.45.i.i = tail call i32 @llvm.smax.i32(i32 %174, i32 %178)
   br label %179
@@ -352,10 +352,10 @@ define range(i32 2037, 2036) i32 @eval_nodes(ptr noundef %0) local_unnamed_addr 
 
 180:                                              ; preds = %179, %._crit_edge.i.i
   %181 = phi i16 [ %.pre.i.i, %._crit_edge.i.i ], [ %storemerge.i.i, %179 ]
-  %182 = getelementptr inbounds i8, ptr %140, i64 2
+  %182 = getelementptr inbounds nuw i8, ptr %140, i64 2
   %183 = load i16, ptr %182, align 2
   %184 = add i16 %183, %181
-  %185 = getelementptr inbounds i8, ptr %140, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %140, i64 4
   store i16 %184, ptr %185, align 4
   br label %eval_nodes_cpus_to_use.exit.i
 
@@ -365,7 +365,7 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
 186:                                              ; preds = %eval_nodes_cpus_to_use.exit.i
   %187 = load ptr, ptr %72, align 8
   %188 = load ptr, ptr %113, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 32
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %190 = load ptr, ptr %189, align 8
   tail call void @gres_sched_add(ptr noundef %187, ptr noundef %190, ptr noundef nonnull %63) #7
   br label %191
@@ -381,7 +381,7 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
   br i1 %196, label %197, label %.thread238.i
 
 197:                                              ; preds = %194
-  %198 = getelementptr inbounds i8, ptr %112, i64 256
+  %198 = getelementptr inbounds nuw i8, ptr %112, i64 256
   %199 = load ptr, ptr %198, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_spread, ptr noundef %47, ptr noundef %199) #7
   br label %.thread238.i
@@ -423,7 +423,7 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
 
 213:                                              ; preds = %._crit_edge.i
   %214 = load ptr, ptr %72, align 8
-  %215 = getelementptr inbounds i8, ptr %47, i64 392
+  %215 = getelementptr inbounds nuw i8, ptr %47, i64 392
   %216 = load i32, ptr %215, align 8
   %217 = tail call zeroext i1 @gres_sched_test(ptr noundef %214, i32 noundef %216) #7
   br i1 %217, label %218, label %220
@@ -434,7 +434,7 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
   br label %.thread238.i
 
 220:                                              ; preds = %213, %._crit_edge.i
-  %221 = getelementptr inbounds i8, ptr %0, i64 56
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %222 = load i32, ptr %221, align 8
   %223 = icmp eq i32 %222, 0
   br i1 %223, label %.thread238.i, label %225
@@ -467,7 +467,7 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
   %.3159236.i = phi i32 [ %.0156.i, %.thread.i ], [ %.1157.lcssa.i, %225 ]
   %.2165235.i = phi i32 [ %60, %.thread.i ], [ %.0163.lcssa.i, %225 ]
   %.2179233.i = phi i64 [ %.2.i.i, %.thread.i ], [ %.0177.lcssa.i, %225 ]
-  %234 = getelementptr inbounds i8, ptr %0, i64 56
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %235 = load i32, ptr %234, align 8
   %236 = icmp eq i32 %235, 0
   %237 = tail call fastcc ptr @_build_node_weight_list(ptr noundef %59)
@@ -476,8 +476,8 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
 
 .lr.ph314.i:                                      ; preds = %233
   %.not201273.i = icmp slt i32 %.0146.i, %92
-  %239 = getelementptr inbounds i8, ptr %0, i64 24
-  %240 = getelementptr inbounds i8, ptr %47, i64 392
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %47, i64 392
   %.not201273.fr.i = freeze i1 %.not201273.i
   br i1 %.not201273.fr.i, label %.preheader.us.i, label %.lr.ph314.split.preheader.i
 
@@ -535,12 +535,12 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
   %257 = trunc nsw i64 %indvars.iv337.i to i32
   tail call void @eval_nodes_select_cores(ptr noundef nonnull %0, i32 noundef %257, i32 noundef %.4167276.i)
   %258 = load ptr, ptr %17, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 216
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 216
   %260 = load ptr, ptr %259, align 8
   %261 = load ptr, ptr %52, align 8
   %262 = getelementptr inbounds ptr, ptr %261, i64 %indvars.iv337.i
   %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %260, i64 464
+  %264 = getelementptr inbounds nuw i8, ptr %260, i64 464
   %265 = load i8, ptr %264, align 8
   %266 = icmp eq i8 %265, 1
   br i1 %266, label %eval_nodes_cpus_to_use.exit225.i, label %267
@@ -560,7 +560,7 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
   %276 = load ptr, ptr @node_record_table_ptr, align 8
   %277 = getelementptr inbounds ptr, ptr %276, i64 %indvars.iv337.i
   %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 74
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 74
   %280 = load i16, ptr %279, align 2
   %281 = zext i16 %280 to i32
   %282 = mul nsw i32 %272, %281
@@ -580,13 +580,13 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
   br label %303
 
 289:                                              ; preds = %283
-  %290 = getelementptr inbounds i8, ptr %260, i64 304
+  %290 = getelementptr inbounds nuw i8, ptr %260, i64 304
   %291 = load i32, ptr %290, align 8
   %292 = sext i32 %291 to i64
   %..i219.i = tail call i64 @llvm.smax.i64(i64 %285, i64 %292)
   %293 = trunc i64 %..i219.i to i16
   store i16 %293, ptr %63, align 8
-  %294 = getelementptr inbounds i8, ptr %263, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %263, i64 16
   %295 = load i32, ptr %294, align 8
   %.not43.i220.i = icmp eq i32 %295, 0
   %296 = trunc i64 %..i219.i to i32
@@ -598,7 +598,7 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
   br label %302
 
 299:                                              ; preds = %289
-  %300 = getelementptr inbounds i8, ptr %260, i64 276
+  %300 = getelementptr inbounds nuw i8, ptr %260, i64 276
   %301 = load i32, ptr %300, align 4
   %.45.i224.i = tail call i32 @llvm.smax.i32(i32 %297, i32 %301)
   br label %302
@@ -612,10 +612,10 @@ eval_nodes_cpus_to_use.exit.i:                    ; preds = %180, %133
 
 303:                                              ; preds = %302, %._crit_edge.i217.i
   %304 = phi i16 [ %.pre.i218.i, %._crit_edge.i217.i ], [ %storemerge.i223.i, %302 ]
-  %305 = getelementptr inbounds i8, ptr %263, i64 2
+  %305 = getelementptr inbounds nuw i8, ptr %263, i64 2
   %306 = load i16, ptr %305, align 2
   %307 = add i16 %306, %304
-  %308 = getelementptr inbounds i8, ptr %263, i64 4
+  %308 = getelementptr inbounds nuw i8, ptr %263, i64 4
   store i16 %307, ptr %308, align 4
   br label %eval_nodes_cpus_to_use.exit225.i
 
@@ -625,7 +625,7 @@ eval_nodes_cpus_to_use.exit225.i:                 ; preds = %303, %256
 309:                                              ; preds = %eval_nodes_cpus_to_use.exit225.i
   %310 = load ptr, ptr %72, align 8
   %311 = load ptr, ptr %246, align 8
-  %312 = getelementptr inbounds i8, ptr %311, i64 32
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 32
   %313 = load ptr, ptr %312, align 8
   tail call void @gres_sched_add(ptr noundef %310, ptr noundef %313, ptr noundef nonnull %63) #7
   br label %314
@@ -693,7 +693,7 @@ eval_nodes_cpus_to_use.exit225.i:                 ; preds = %303, %256
 
 340:                                              ; preds = %.critedge.thread.i
   %341 = load ptr, ptr %72, align 8
-  %342 = getelementptr inbounds i8, ptr %47, i64 392
+  %342 = getelementptr inbounds nuw i8, ptr %47, i64 392
   %343 = load i32, ptr %342, align 8
   %344 = tail call zeroext i1 @gres_sched_test(ptr noundef %341, i32 noundef %343) #7
   br i1 %344, label %347, label %345
@@ -726,36 +726,36 @@ _eval_nodes_spread.exit:                          ; preds = %.thread238.i, %349
   br label %1919
 
 350:                                              ; preds = %46
-  %351 = getelementptr inbounds i8, ptr %0, i64 88
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %352 = load i8, ptr %351, align 8
   %353 = trunc i8 %352 to i1
   br i1 %353, label %354, label %664
 
 354:                                              ; preds = %350
-  %355 = getelementptr inbounds i8, ptr %20, i64 64
+  %355 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %356 = load i16, ptr %355, align 8
   %.not43 = icmp eq i16 %356, 0
   br i1 %.not43, label %357, label %664
 
 357:                                              ; preds = %354
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  %358 = getelementptr inbounds i8, ptr %47, i64 216
+  %358 = getelementptr inbounds nuw i8, ptr %47, i64 216
   %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds i8, ptr %359, i64 360
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 360
   %361 = load ptr, ptr %360, align 8
   %362 = load ptr, ptr %25, align 8
   %363 = tail call ptr @bit_copy(ptr noundef %362) #7
   store ptr %363, ptr %15, align 8
-  %364 = getelementptr inbounds i8, ptr %0, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %365 = load ptr, ptr %364, align 8
   %366 = load i32, ptr %28, align 8
-  %367 = getelementptr inbounds i8, ptr %0, i64 92
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %368 = load i32, ptr %367, align 4
-  %369 = getelementptr inbounds i8, ptr %0, i64 8
+  %369 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %369, align 8
-  %370 = getelementptr inbounds i8, ptr %359, i64 268
+  %370 = getelementptr inbounds nuw i8, ptr %359, i64 268
   %371 = load i32, ptr %370, align 4
-  %372 = getelementptr inbounds i8, ptr %359, i64 296
+  %372 = getelementptr inbounds nuw i8, ptr %359, i64 296
   %373 = load i32, ptr %372, align 8
   switch i32 %373, label %374 [
     i32 -2, label %377
@@ -763,14 +763,14 @@ _eval_nodes_spread.exit:                          ; preds = %.thread238.i, %349
   ]
 
 374:                                              ; preds = %357
-  %375 = getelementptr inbounds i8, ptr %0, i64 56
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %376 = load i32, ptr %375, align 8
   %..i87 = tail call i32 @llvm.umin.i32(i32 %376, i32 %373)
   store i32 %..i87, ptr %375, align 8
   br label %377
 
 377:                                              ; preds = %374, %357, %357
-  %378 = getelementptr inbounds i8, ptr %47, i64 296
+  %378 = getelementptr inbounds nuw i8, ptr %47, i64 296
   %379 = load ptr, ptr %378, align 8
   %380 = tail call zeroext i1 @gres_sched_init(ptr noundef %379) #7
   br i1 %380, label %381, label %383
@@ -786,19 +786,19 @@ _eval_nodes_spread.exit:                          ; preds = %.thread238.i, %349
 385:                                              ; preds = %383, %381
   %.0165.i = phi i32 [ %382, %381 ], [ %384, %383 ]
   %386 = load i32, ptr %370, align 4
-  %387 = getelementptr inbounds i8, ptr %359, i64 232
+  %387 = getelementptr inbounds nuw i8, ptr %359, i64 232
   %388 = load i32, ptr %387, align 8
   %.not.i.i50 = icmp eq i32 %388, -2
   %spec.select.i.i51 = select i1 %.not.i.i50, i32 %386, i32 %388
   %.0.i.i52 = zext i32 %spec.select.i.i51 to i64
-  %389 = getelementptr inbounds i8, ptr %359, i64 276
+  %389 = getelementptr inbounds nuw i8, ptr %359, i64 276
   %390 = load i32, ptr %389, align 4
   %.not20.i.i53 = icmp eq i32 %390, 0
   %391 = mul nsw i32 %390, %.0165.i
   %392 = sext i32 %391 to i64
   %.0..i.i54 = tail call i64 @llvm.smax.i64(i64 %.0.i.i52, i64 %392)
   %.1.i.i55 = select i1 %.not20.i.i53, i64 %.0.i.i52, i64 %.0..i.i54
-  %393 = getelementptr inbounds i8, ptr %359, i64 280
+  %393 = getelementptr inbounds nuw i8, ptr %359, i64 280
   %394 = load i32, ptr %393, align 8
   %.not21.i.i56 = icmp eq i32 %394, 0
   %395 = sext i32 %394 to i64
@@ -830,8 +830,8 @@ _eval_nodes_spread.exit:                          ; preds = %.thread238.i, %349
   br i1 %.not211278.i, label %._crit_edge.i69, label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %.preheader260.i
-  %407 = getelementptr inbounds i8, ptr %0, i64 56
-  %408 = getelementptr inbounds i8, ptr %0, i64 24
+  %407 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %408 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %sext.i61 = shl i64 %397, 32
   %409 = ashr exact i64 %sext.i61, 32
   %410 = add i32 %.0152.i, 1
@@ -873,7 +873,7 @@ _eval_nodes_spread.exit:                          ; preds = %.thread238.i, %349
   br i1 %425, label %426, label %.thread253.i
 
 426:                                              ; preds = %423
-  %427 = getelementptr inbounds i8, ptr %418, i64 256
+  %427 = getelementptr inbounds nuw i8, ptr %418, i64 256
   %428 = load ptr, ptr %427, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_busy, ptr noundef %47, ptr noundef %428) #7
   br label %.thread253.i
@@ -902,12 +902,12 @@ _eval_nodes_spread.exit:                          ; preds = %.thread238.i, %349
   %440 = trunc nsw i64 %indvars.iv.i62 to i32
   tail call void @eval_nodes_select_cores(ptr noundef nonnull %0, i32 noundef %440, i32 noundef %.0173281.i)
   %441 = load ptr, ptr %17, align 8
-  %442 = getelementptr inbounds i8, ptr %441, i64 216
+  %442 = getelementptr inbounds nuw i8, ptr %441, i64 216
   %443 = load ptr, ptr %442, align 8
   %444 = load ptr, ptr %364, align 8
   %445 = getelementptr inbounds ptr, ptr %444, i64 %indvars.iv.i62
   %446 = load ptr, ptr %445, align 8
-  %447 = getelementptr inbounds i8, ptr %443, i64 464
+  %447 = getelementptr inbounds nuw i8, ptr %443, i64 464
   %448 = load i8, ptr %447, align 8
   %449 = icmp eq i8 %448, 1
   br i1 %449, label %eval_nodes_cpus_to_use.exit.i65, label %450
@@ -927,7 +927,7 @@ _eval_nodes_spread.exit:                          ; preds = %.thread238.i, %349
   %459 = load ptr, ptr @node_record_table_ptr, align 8
   %460 = getelementptr inbounds ptr, ptr %459, i64 %indvars.iv.i62
   %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds i8, ptr %461, i64 74
+  %462 = getelementptr inbounds nuw i8, ptr %461, i64 74
   %463 = load i16, ptr %462, align 2
   %464 = zext i16 %463 to i32
   %465 = mul nsw i32 %455, %464
@@ -947,13 +947,13 @@ _eval_nodes_spread.exit:                          ; preds = %.thread238.i, %349
   br label %486
 
 472:                                              ; preds = %466
-  %473 = getelementptr inbounds i8, ptr %443, i64 304
+  %473 = getelementptr inbounds nuw i8, ptr %443, i64 304
   %474 = load i32, ptr %473, align 8
   %475 = sext i32 %474 to i64
   %..i.i80 = tail call i64 @llvm.smax.i64(i64 %468, i64 %475)
   %476 = trunc i64 %..i.i80 to i16
   store i16 %476, ptr %369, align 8
-  %477 = getelementptr inbounds i8, ptr %446, i64 16
+  %477 = getelementptr inbounds nuw i8, ptr %446, i64 16
   %478 = load i32, ptr %477, align 8
   %.not43.i.i81 = icmp eq i32 %478, 0
   %479 = trunc i64 %..i.i80 to i32
@@ -965,7 +965,7 @@ _eval_nodes_spread.exit:                          ; preds = %.thread238.i, %349
   br label %485
 
 482:                                              ; preds = %472
-  %483 = getelementptr inbounds i8, ptr %443, i64 276
+  %483 = getelementptr inbounds nuw i8, ptr %443, i64 276
   %484 = load i32, ptr %483, align 4
   %.45.i.i85 = tail call i32 @llvm.smax.i32(i32 %480, i32 %484)
   br label %485
@@ -979,10 +979,10 @@ _eval_nodes_spread.exit:                          ; preds = %.thread238.i, %349
 
 486:                                              ; preds = %485, %._crit_edge.i.i63
   %487 = phi i16 [ %.pre.i.i64, %._crit_edge.i.i63 ], [ %storemerge.i.i84, %485 ]
-  %488 = getelementptr inbounds i8, ptr %446, i64 2
+  %488 = getelementptr inbounds nuw i8, ptr %446, i64 2
   %489 = load i16, ptr %488, align 2
   %490 = add i16 %489, %487
-  %491 = getelementptr inbounds i8, ptr %446, i64 4
+  %491 = getelementptr inbounds nuw i8, ptr %446, i64 4
   store i16 %490, ptr %491, align 4
   br label %eval_nodes_cpus_to_use.exit.i65
 
@@ -992,7 +992,7 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
 492:                                              ; preds = %eval_nodes_cpus_to_use.exit.i65
   %493 = load ptr, ptr %378, align 8
   %494 = load ptr, ptr %419, align 8
-  %495 = getelementptr inbounds i8, ptr %494, i64 32
+  %495 = getelementptr inbounds nuw i8, ptr %494, i64 32
   %496 = load ptr, ptr %495, align 8
   tail call void @gres_sched_add(ptr noundef %493, ptr noundef %496, ptr noundef nonnull %369) #7
   br label %497
@@ -1008,7 +1008,7 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
   br i1 %502, label %503, label %.thread253.i
 
 503:                                              ; preds = %500
-  %504 = getelementptr inbounds i8, ptr %418, i64 256
+  %504 = getelementptr inbounds nuw i8, ptr %418, i64 256
   %505 = load ptr, ptr %504, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_busy, ptr noundef %47, ptr noundef %505) #7
   br label %.thread253.i
@@ -1050,7 +1050,7 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
 
 519:                                              ; preds = %._crit_edge.i69
   %520 = load ptr, ptr %378, align 8
-  %521 = getelementptr inbounds i8, ptr %47, i64 392
+  %521 = getelementptr inbounds nuw i8, ptr %47, i64 392
   %522 = load i32, ptr %521, align 8
   %523 = tail call zeroext i1 @gres_sched_test(ptr noundef %520, i32 noundef %522) #7
   br i1 %523, label %524, label %526
@@ -1061,7 +1061,7 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
   br label %.thread253.i
 
 526:                                              ; preds = %519, %._crit_edge.i69
-  %527 = getelementptr inbounds i8, ptr %0, i64 56
+  %527 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %528 = load i32, ptr %527, align 8
   %529 = icmp eq i32 %528, 0
   br i1 %529, label %.thread253.i, label %531
@@ -1094,7 +1094,7 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
   %.3168251.i = phi i32 [ %.0165.i, %.thread.i86 ], [ %.1166.lcssa.i, %531 ]
   %.2175250.i = phi i32 [ %366, %.thread.i86 ], [ %.0173.lcssa.i, %531 ]
   %.2191248.i = phi i64 [ %.2.i.i58, %.thread.i86 ], [ %.0189.lcssa.i, %531 ]
-  %540 = getelementptr inbounds i8, ptr %0, i64 56
+  %540 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %541 = load i32, ptr %540, align 8
   %542 = icmp eq i32 %541, 0
   %543 = tail call fastcc ptr @_build_node_weight_list(ptr noundef %363)
@@ -1103,8 +1103,8 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
 
 .lr.ph345.i:                                      ; preds = %539
   %.not214290.i = icmp slt i32 %.0152.i, %398
-  %545 = getelementptr inbounds i8, ptr %0, i64 24
-  %546 = getelementptr inbounds i8, ptr %47, i64 392
+  %545 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %546 = getelementptr inbounds nuw i8, ptr %47, i64 392
   %.not214290.fr.i = freeze i1 %.not214290.i
   br i1 %.not214290.fr.i, label %.lr.ph345.split.us.split.i, label %.lr.ph345.split.preheader.i
 
@@ -1193,12 +1193,12 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
   %570 = trunc nsw i64 %indvars.iv373.i to i32
   tail call void @eval_nodes_select_cores(ptr noundef nonnull %0, i32 noundef %570, i32 noundef %.5178293.i)
   %571 = load ptr, ptr %17, align 8
-  %572 = getelementptr inbounds i8, ptr %571, i64 216
+  %572 = getelementptr inbounds nuw i8, ptr %571, i64 216
   %573 = load ptr, ptr %572, align 8
   %574 = load ptr, ptr %364, align 8
   %575 = getelementptr inbounds ptr, ptr %574, i64 %indvars.iv373.i
   %576 = load ptr, ptr %575, align 8
-  %577 = getelementptr inbounds i8, ptr %573, i64 464
+  %577 = getelementptr inbounds nuw i8, ptr %573, i64 464
   %578 = load i8, ptr %577, align 8
   %579 = icmp eq i8 %578, 1
   br i1 %579, label %eval_nodes_cpus_to_use.exit240.i, label %580
@@ -1218,7 +1218,7 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
   %589 = load ptr, ptr @node_record_table_ptr, align 8
   %590 = getelementptr inbounds ptr, ptr %589, i64 %indvars.iv373.i
   %591 = load ptr, ptr %590, align 8
-  %592 = getelementptr inbounds i8, ptr %591, i64 74
+  %592 = getelementptr inbounds nuw i8, ptr %591, i64 74
   %593 = load i16, ptr %592, align 2
   %594 = zext i16 %593 to i32
   %595 = mul nsw i32 %585, %594
@@ -1238,13 +1238,13 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
   br label %616
 
 602:                                              ; preds = %596
-  %603 = getelementptr inbounds i8, ptr %573, i64 304
+  %603 = getelementptr inbounds nuw i8, ptr %573, i64 304
   %604 = load i32, ptr %603, align 8
   %605 = sext i32 %604 to i64
   %..i234.i = tail call i64 @llvm.smax.i64(i64 %598, i64 %605)
   %606 = trunc i64 %..i234.i to i16
   store i16 %606, ptr %369, align 8
-  %607 = getelementptr inbounds i8, ptr %576, i64 16
+  %607 = getelementptr inbounds nuw i8, ptr %576, i64 16
   %608 = load i32, ptr %607, align 8
   %.not43.i235.i = icmp eq i32 %608, 0
   %609 = trunc i64 %..i234.i to i32
@@ -1256,7 +1256,7 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
   br label %615
 
 612:                                              ; preds = %602
-  %613 = getelementptr inbounds i8, ptr %573, i64 276
+  %613 = getelementptr inbounds nuw i8, ptr %573, i64 276
   %614 = load i32, ptr %613, align 4
   %.45.i239.i = tail call i32 @llvm.smax.i32(i32 %610, i32 %614)
   br label %615
@@ -1270,10 +1270,10 @@ eval_nodes_cpus_to_use.exit.i65:                  ; preds = %486, %439
 
 616:                                              ; preds = %615, %._crit_edge.i232.i
   %617 = phi i16 [ %.pre.i233.i, %._crit_edge.i232.i ], [ %storemerge.i238.i, %615 ]
-  %618 = getelementptr inbounds i8, ptr %576, i64 2
+  %618 = getelementptr inbounds nuw i8, ptr %576, i64 2
   %619 = load i16, ptr %618, align 2
   %620 = add i16 %619, %617
-  %621 = getelementptr inbounds i8, ptr %576, i64 4
+  %621 = getelementptr inbounds nuw i8, ptr %576, i64 4
   store i16 %620, ptr %621, align 4
   br label %eval_nodes_cpus_to_use.exit240.i
 
@@ -1283,7 +1283,7 @@ eval_nodes_cpus_to_use.exit240.i:                 ; preds = %616, %569
 622:                                              ; preds = %eval_nodes_cpus_to_use.exit240.i
   %623 = load ptr, ptr %378, align 8
   %624 = load ptr, ptr %554, align 8
-  %625 = getelementptr inbounds i8, ptr %624, i64 32
+  %625 = getelementptr inbounds nuw i8, ptr %624, i64 32
   %626 = load ptr, ptr %625, align 8
   tail call void @gres_sched_add(ptr noundef %623, ptr noundef %626, ptr noundef nonnull %369) #7
   br label %627
@@ -1362,7 +1362,7 @@ eval_nodes_cpus_to_use.exit240.i:                 ; preds = %616, %569
 
 654:                                              ; preds = %651
   %655 = load ptr, ptr %378, align 8
-  %656 = getelementptr inbounds i8, ptr %47, i64 392
+  %656 = getelementptr inbounds nuw i8, ptr %47, i64 392
   %657 = load i32, ptr %656, align 8
   %658 = tail call zeroext i1 @gres_sched_test(ptr noundef %655, i32 noundef %657) #7
   br i1 %658, label %661, label %659
@@ -1395,20 +1395,20 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
   br label %1919
 
 664:                                              ; preds = %354, %350
-  %665 = getelementptr inbounds i8, ptr %0, i64 24
+  %665 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %666 = load i16, ptr %665, align 8
   %667 = and i16 %666, 16384
   %.not44 = icmp eq i16 %667, 0
   br i1 %.not44, label %668, label %675
 
 668:                                              ; preds = %664
-  %669 = getelementptr inbounds i8, ptr %47, i64 664
+  %669 = getelementptr inbounds nuw i8, ptr %47, i64 664
   %670 = load ptr, ptr %669, align 8
   %.not45 = icmp eq ptr %670, null
   br i1 %.not45, label %1009, label %671
 
 671:                                              ; preds = %668
-  %672 = getelementptr inbounds i8, ptr %670, i64 168
+  %672 = getelementptr inbounds nuw i8, ptr %670, i64 168
   %673 = load i16, ptr %672, align 8
   %674 = and i16 %673, 32
   %.not46 = icmp eq i16 %674, 0
@@ -1416,23 +1416,23 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
 
 675:                                              ; preds = %671, %664
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %676 = getelementptr inbounds i8, ptr %47, i64 216
+  %676 = getelementptr inbounds nuw i8, ptr %47, i64 216
   %677 = load ptr, ptr %676, align 8
-  %678 = getelementptr inbounds i8, ptr %677, i64 360
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 360
   %679 = load ptr, ptr %678, align 8
   %680 = load ptr, ptr %25, align 8
   %681 = tail call ptr @bit_copy(ptr noundef %680) #7
   store ptr %681, ptr %14, align 8
-  %682 = getelementptr inbounds i8, ptr %0, i64 16
+  %682 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %683 = load ptr, ptr %682, align 8
   %684 = load i32, ptr %28, align 8
-  %685 = getelementptr inbounds i8, ptr %0, i64 92
+  %685 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %686 = load i32, ptr %685, align 4
-  %687 = getelementptr inbounds i8, ptr %0, i64 8
+  %687 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %687, align 8
-  %688 = getelementptr inbounds i8, ptr %677, i64 268
+  %688 = getelementptr inbounds nuw i8, ptr %677, i64 268
   %689 = load i32, ptr %688, align 4
-  %690 = getelementptr inbounds i8, ptr %677, i64 296
+  %690 = getelementptr inbounds nuw i8, ptr %677, i64 296
   %691 = load i32, ptr %690, align 8
   switch i32 %691, label %692 [
     i32 -2, label %695
@@ -1440,14 +1440,14 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
   ]
 
 692:                                              ; preds = %675
-  %693 = getelementptr inbounds i8, ptr %0, i64 56
+  %693 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %694 = load i32, ptr %693, align 8
   %..i128 = tail call i32 @llvm.umin.i32(i32 %694, i32 %691)
   store i32 %..i128, ptr %693, align 8
   br label %695
 
 695:                                              ; preds = %692, %675, %675
-  %696 = getelementptr inbounds i8, ptr %47, i64 296
+  %696 = getelementptr inbounds nuw i8, ptr %47, i64 296
   %697 = load ptr, ptr %696, align 8
   %698 = tail call zeroext i1 @gres_sched_init(ptr noundef %697) #7
   br i1 %698, label %699, label %701
@@ -1463,19 +1463,19 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
 703:                                              ; preds = %701, %699
   %.0178.i = phi i32 [ %700, %699 ], [ %702, %701 ]
   %704 = load i32, ptr %688, align 4
-  %705 = getelementptr inbounds i8, ptr %677, i64 232
+  %705 = getelementptr inbounds nuw i8, ptr %677, i64 232
   %706 = load i32, ptr %705, align 8
   %.not.i.i88 = icmp eq i32 %706, -2
   %spec.select.i.i89 = select i1 %.not.i.i88, i32 %704, i32 %706
   %.0.i.i90 = zext i32 %spec.select.i.i89 to i64
-  %707 = getelementptr inbounds i8, ptr %677, i64 276
+  %707 = getelementptr inbounds nuw i8, ptr %677, i64 276
   %708 = load i32, ptr %707, align 4
   %.not20.i.i91 = icmp eq i32 %708, 0
   %709 = mul nsw i32 %708, %.0178.i
   %710 = sext i32 %709 to i64
   %.0..i.i92 = tail call i64 @llvm.smax.i64(i64 %.0.i.i90, i64 %710)
   %.1.i.i93 = select i1 %.not20.i.i91, i64 %.0.i.i90, i64 %.0..i.i92
-  %711 = getelementptr inbounds i8, ptr %677, i64 280
+  %711 = getelementptr inbounds nuw i8, ptr %677, i64 280
   %712 = load i32, ptr %711, align 8
   %.not21.i.i94 = icmp eq i32 %712, 0
   %713 = sext i32 %712 to i64
@@ -1507,7 +1507,7 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
   br i1 %.not218279.i, label %._crit_edge.i110, label %.lr.ph.i98
 
 .lr.ph.i98:                                       ; preds = %.preheader261.i
-  %725 = getelementptr inbounds i8, ptr %0, i64 56
+  %725 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %sext.i99 = shl i64 %715, 32
   %726 = ashr exact i64 %sext.i99, 32
   %727 = add i32 %.0171.i, 1
@@ -1549,7 +1549,7 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
   br i1 %742, label %743, label %.thread256.i
 
 743:                                              ; preds = %740
-  %744 = getelementptr inbounds i8, ptr %735, i64 256
+  %744 = getelementptr inbounds nuw i8, ptr %735, i64 256
   %745 = load ptr, ptr %744, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_lln, ptr noundef %47, ptr noundef %745) #7
   br label %.thread256.i
@@ -1578,12 +1578,12 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
   %757 = trunc nsw i64 %indvars.iv.i100 to i32
   tail call void @eval_nodes_select_cores(ptr noundef nonnull %0, i32 noundef %757, i32 noundef %.0185282.i)
   %758 = load ptr, ptr %17, align 8
-  %759 = getelementptr inbounds i8, ptr %758, i64 216
+  %759 = getelementptr inbounds nuw i8, ptr %758, i64 216
   %760 = load ptr, ptr %759, align 8
   %761 = load ptr, ptr %682, align 8
   %762 = getelementptr inbounds ptr, ptr %761, i64 %indvars.iv.i100
   %763 = load ptr, ptr %762, align 8
-  %764 = getelementptr inbounds i8, ptr %760, i64 464
+  %764 = getelementptr inbounds nuw i8, ptr %760, i64 464
   %765 = load i8, ptr %764, align 8
   %766 = icmp eq i8 %765, 1
   br i1 %766, label %eval_nodes_cpus_to_use.exit.i106, label %767
@@ -1603,7 +1603,7 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
   %776 = load ptr, ptr @node_record_table_ptr, align 8
   %777 = getelementptr inbounds ptr, ptr %776, i64 %indvars.iv.i100
   %778 = load ptr, ptr %777, align 8
-  %779 = getelementptr inbounds i8, ptr %778, i64 74
+  %779 = getelementptr inbounds nuw i8, ptr %778, i64 74
   %780 = load i16, ptr %779, align 2
   %781 = zext i16 %780 to i32
   %782 = mul nsw i32 %772, %781
@@ -1623,13 +1623,13 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
   br label %803
 
 789:                                              ; preds = %783
-  %790 = getelementptr inbounds i8, ptr %760, i64 304
+  %790 = getelementptr inbounds nuw i8, ptr %760, i64 304
   %791 = load i32, ptr %790, align 8
   %792 = sext i32 %791 to i64
   %..i.i121 = tail call i64 @llvm.smax.i64(i64 %785, i64 %792)
   %793 = trunc i64 %..i.i121 to i16
   store i16 %793, ptr %687, align 8
-  %794 = getelementptr inbounds i8, ptr %763, i64 16
+  %794 = getelementptr inbounds nuw i8, ptr %763, i64 16
   %795 = load i32, ptr %794, align 8
   %.not43.i.i122 = icmp eq i32 %795, 0
   %796 = trunc i64 %..i.i121 to i32
@@ -1641,7 +1641,7 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
   br label %802
 
 799:                                              ; preds = %789
-  %800 = getelementptr inbounds i8, ptr %760, i64 276
+  %800 = getelementptr inbounds nuw i8, ptr %760, i64 276
   %801 = load i32, ptr %800, align 4
   %.45.i.i126 = tail call i32 @llvm.smax.i32(i32 %797, i32 %801)
   br label %802
@@ -1655,10 +1655,10 @@ _eval_nodes_busy.exit:                            ; preds = %.thread253.i, %663
 
 803:                                              ; preds = %802, %._crit_edge.i.i104
   %804 = phi i16 [ %.pre.i.i105, %._crit_edge.i.i104 ], [ %storemerge.i.i125, %802 ]
-  %805 = getelementptr inbounds i8, ptr %763, i64 2
+  %805 = getelementptr inbounds nuw i8, ptr %763, i64 2
   %806 = load i16, ptr %805, align 2
   %807 = add i16 %806, %804
-  %808 = getelementptr inbounds i8, ptr %763, i64 4
+  %808 = getelementptr inbounds nuw i8, ptr %763, i64 4
   store i16 %807, ptr %808, align 4
   br label %eval_nodes_cpus_to_use.exit.i106
 
@@ -1668,7 +1668,7 @@ eval_nodes_cpus_to_use.exit.i106:                 ; preds = %803, %756
 809:                                              ; preds = %eval_nodes_cpus_to_use.exit.i106
   %810 = load ptr, ptr %696, align 8
   %811 = load ptr, ptr %736, align 8
-  %812 = getelementptr inbounds i8, ptr %811, i64 32
+  %812 = getelementptr inbounds nuw i8, ptr %811, i64 32
   %813 = load ptr, ptr %812, align 8
   tail call void @gres_sched_add(ptr noundef %810, ptr noundef %813, ptr noundef nonnull %687) #7
   br label %814
@@ -1684,7 +1684,7 @@ eval_nodes_cpus_to_use.exit.i106:                 ; preds = %803, %756
   br i1 %819, label %820, label %.thread256.i
 
 820:                                              ; preds = %817
-  %821 = getelementptr inbounds i8, ptr %735, i64 256
+  %821 = getelementptr inbounds nuw i8, ptr %735, i64 256
   %822 = load ptr, ptr %821, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_lln, ptr noundef %47, ptr noundef %822) #7
   br label %.thread256.i
@@ -1726,7 +1726,7 @@ eval_nodes_cpus_to_use.exit.i106:                 ; preds = %803, %756
 
 836:                                              ; preds = %._crit_edge.i110
   %837 = load ptr, ptr %696, align 8
-  %838 = getelementptr inbounds i8, ptr %47, i64 392
+  %838 = getelementptr inbounds nuw i8, ptr %47, i64 392
   %839 = load i32, ptr %838, align 8
   %840 = tail call zeroext i1 @gres_sched_test(ptr noundef %837, i32 noundef %839) #7
   br i1 %840, label %841, label %843
@@ -1737,7 +1737,7 @@ eval_nodes_cpus_to_use.exit.i106:                 ; preds = %803, %756
   br label %.thread256.i
 
 843:                                              ; preds = %836, %._crit_edge.i110
-  %844 = getelementptr inbounds i8, ptr %0, i64 56
+  %844 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %845 = load i32, ptr %844, align 8
   %846 = icmp eq i32 %845, 0
   br i1 %846, label %.thread256.i, label %848
@@ -1770,7 +1770,7 @@ eval_nodes_cpus_to_use.exit.i106:                 ; preds = %803, %756
   %.3181254.i = phi i32 [ %.0178.i, %.thread.i127 ], [ %.1179.lcssa.i, %848 ]
   %.2187253.i = phi i32 [ %684, %.thread.i127 ], [ %.0185.lcssa.i, %848 ]
   %.2202251.i = phi i64 [ %.2.i.i96, %.thread.i127 ], [ %.0200.lcssa.i, %848 ]
-  %857 = getelementptr inbounds i8, ptr %0, i64 56
+  %857 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %858 = load i32, ptr %857, align 8
   %859 = icmp eq i32 %858, 0
   %860 = tail call fastcc ptr @_build_node_weight_list(ptr noundef %681)
@@ -1779,7 +1779,7 @@ eval_nodes_cpus_to_use.exit.i106:                 ; preds = %803, %756
 
 .lr.ph317.i:                                      ; preds = %856
   %.not221291.i = icmp slt i32 %.0171.i, %716
-  %862 = getelementptr inbounds i8, ptr %47, i64 392
+  %862 = getelementptr inbounds nuw i8, ptr %47, i64 392
   %.not221291.fr.i = freeze i1 %.not221291.i
   br i1 %.not221291.fr.i, label %.lr.ph317.split.us.i, label %.lr.ph317.split.preheader.i
 
@@ -1847,12 +1847,12 @@ eval_nodes_cpus_to_use.exit.i106:                 ; preds = %803, %756
   %879 = trunc nsw i64 %indvars.iv350.i to i32
   tail call void @eval_nodes_select_cores(ptr noundef nonnull %0, i32 noundef %879, i32 noundef %.4189.i)
   %880 = load ptr, ptr %17, align 8
-  %881 = getelementptr inbounds i8, ptr %880, i64 216
+  %881 = getelementptr inbounds nuw i8, ptr %880, i64 216
   %882 = load ptr, ptr %881, align 8
   %883 = load ptr, ptr %682, align 8
   %884 = getelementptr inbounds ptr, ptr %883, i64 %indvars.iv350.i
   %885 = load ptr, ptr %884, align 8
-  %886 = getelementptr inbounds i8, ptr %882, i64 464
+  %886 = getelementptr inbounds nuw i8, ptr %882, i64 464
   %887 = load i8, ptr %886, align 8
   %888 = icmp eq i8 %887, 1
   br i1 %888, label %eval_nodes_cpus_to_use.exit243.i, label %889
@@ -1870,7 +1870,7 @@ eval_nodes_cpus_to_use.exit.i106:                 ; preds = %803, %756
   %896 = load ptr, ptr @node_record_table_ptr, align 8
   %897 = getelementptr inbounds ptr, ptr %896, i64 %indvars.iv350.i
   %898 = load ptr, ptr %897, align 8
-  %899 = getelementptr inbounds i8, ptr %898, i64 74
+  %899 = getelementptr inbounds nuw i8, ptr %898, i64 74
   %900 = load i16, ptr %899, align 2
   %901 = zext i16 %900 to i32
   %902 = mul nsw i32 %892, %901
@@ -1890,13 +1890,13 @@ eval_nodes_cpus_to_use.exit.i106:                 ; preds = %803, %756
   br label %923
 
 909:                                              ; preds = %903
-  %910 = getelementptr inbounds i8, ptr %882, i64 304
+  %910 = getelementptr inbounds nuw i8, ptr %882, i64 304
   %911 = load i32, ptr %910, align 8
   %912 = sext i32 %911 to i64
   %..i237.i = tail call i64 @llvm.smax.i64(i64 %905, i64 %912)
   %913 = trunc i64 %..i237.i to i16
   store i16 %913, ptr %687, align 8
-  %914 = getelementptr inbounds i8, ptr %885, i64 16
+  %914 = getelementptr inbounds nuw i8, ptr %885, i64 16
   %915 = load i32, ptr %914, align 8
   %.not43.i238.i = icmp eq i32 %915, 0
   %916 = trunc i64 %..i237.i to i32
@@ -1908,7 +1908,7 @@ eval_nodes_cpus_to_use.exit.i106:                 ; preds = %803, %756
   br label %922
 
 919:                                              ; preds = %909
-  %920 = getelementptr inbounds i8, ptr %882, i64 276
+  %920 = getelementptr inbounds nuw i8, ptr %882, i64 276
   %921 = load i32, ptr %920, align 4
   %.45.i242.i = tail call i32 @llvm.smax.i32(i32 %917, i32 %921)
   br label %922
@@ -1922,10 +1922,10 @@ eval_nodes_cpus_to_use.exit.i106:                 ; preds = %803, %756
 
 923:                                              ; preds = %922, %._crit_edge.i235.i
   %924 = phi i16 [ %.pre.i236.i, %._crit_edge.i235.i ], [ %storemerge.i241.i, %922 ]
-  %925 = getelementptr inbounds i8, ptr %885, i64 2
+  %925 = getelementptr inbounds nuw i8, ptr %885, i64 2
   %926 = load i16, ptr %925, align 2
   %927 = add i16 %926, %924
-  %928 = getelementptr inbounds i8, ptr %885, i64 4
+  %928 = getelementptr inbounds nuw i8, ptr %885, i64 4
   store i16 %927, ptr %928, align 4
   br label %eval_nodes_cpus_to_use.exit243.i
 
@@ -1941,7 +1941,7 @@ eval_nodes_cpus_to_use.exit243.i:                 ; preds = %923, %878
 ._crit_edge354.i:                                 ; preds = %931
   %.phi.trans.insert.i = getelementptr inbounds ptr, ptr %683, i64 %indvars.iv350.i
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert355.i = getelementptr inbounds i8, ptr %.pre.i, i64 24
+  %.phi.trans.insert355.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 24
   %.pre356.i = load i16, ptr %.phi.trans.insert355.i, align 8
   %.pre358.i = zext i16 %.pre356.i to i32
   br label %959
@@ -1950,24 +1950,24 @@ eval_nodes_cpus_to_use.exit243.i:                 ; preds = %923, %878
   %934 = sext i32 %.0165293.i to i64
   %935 = getelementptr inbounds ptr, ptr %683, i64 %934
   %936 = load ptr, ptr %935, align 8
-  %937 = getelementptr inbounds i8, ptr %936, i64 24
+  %937 = getelementptr inbounds nuw i8, ptr %936, i64 24
   %938 = load i16, ptr %937, align 8
   %939 = zext i16 %938 to i32
   %940 = load ptr, ptr @node_record_table_ptr, align 8
   %941 = getelementptr inbounds ptr, ptr %940, i64 %indvars.iv350.i
   %942 = load ptr, ptr %941, align 8
-  %943 = getelementptr inbounds i8, ptr %942, i64 104
+  %943 = getelementptr inbounds nuw i8, ptr %942, i64 104
   %944 = load i16, ptr %943, align 8
   %945 = zext i16 %944 to i32
   %946 = mul nuw nsw i32 %945, %939
   %947 = getelementptr inbounds ptr, ptr %683, i64 %indvars.iv350.i
   %948 = load ptr, ptr %947, align 8
-  %949 = getelementptr inbounds i8, ptr %948, i64 24
+  %949 = getelementptr inbounds nuw i8, ptr %948, i64 24
   %950 = load i16, ptr %949, align 8
   %951 = zext i16 %950 to i32
   %952 = getelementptr inbounds ptr, ptr %940, i64 %934
   %953 = load ptr, ptr %952, align 8
-  %954 = getelementptr inbounds i8, ptr %953, i64 104
+  %954 = getelementptr inbounds nuw i8, ptr %953, i64 104
   %955 = load i16, ptr %954, align 8
   %956 = zext i16 %955 to i32
   %957 = mul nuw nsw i32 %956, %951
@@ -2008,7 +2008,7 @@ eval_nodes_cpus_to_use.exit243.i:                 ; preds = %923, %878
   %967 = sext i32 %.1166.i to i64
   %968 = getelementptr inbounds ptr, ptr %683, i64 %967
   %969 = load ptr, ptr %968, align 8
-  %970 = getelementptr inbounds i8, ptr %969, i64 32
+  %970 = getelementptr inbounds nuw i8, ptr %969, i64 32
   %971 = load ptr, ptr %970, align 8
   tail call void @gres_sched_add(ptr noundef %966, ptr noundef %971, ptr noundef nonnull %687) #7
   %.pre357.i = load i16, ptr %687, align 8
@@ -2019,7 +2019,7 @@ eval_nodes_cpus_to_use.exit243.i:                 ; preds = %923, %878
   %973 = phi i16 [ %.1.i, %._crit_edge359.i ], [ %.pre357.i, %965 ]
   %974 = getelementptr inbounds ptr, ptr %683, i64 %.pre-phi361.i
   %975 = load ptr, ptr %974, align 8
-  %976 = getelementptr inbounds i8, ptr %975, i64 24
+  %976 = getelementptr inbounds nuw i8, ptr %975, i64 24
   %977 = load i16, ptr %976, align 8
   %978 = zext i16 %977 to i32
   %979 = zext i16 %973 to i32
@@ -2064,7 +2064,7 @@ eval_nodes_cpus_to_use.exit243.i:                 ; preds = %923, %878
 
 999:                                              ; preds = %.critedge.thread.i120
   %1000 = load ptr, ptr %696, align 8
-  %1001 = getelementptr inbounds i8, ptr %47, i64 392
+  %1001 = getelementptr inbounds nuw i8, ptr %47, i64 392
   %1002 = load i32, ptr %1001, align 8
   %1003 = tail call zeroext i1 @gres_sched_test(ptr noundef %1000, i32 noundef %1002) #7
   br i1 %1003, label %1006, label %1004
@@ -2101,13 +2101,13 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   br i1 %.b47, label %1010, label %1020
 
 1010:                                             ; preds = %1009
-  %1011 = getelementptr inbounds i8, ptr %20, i64 268
+  %1011 = getelementptr inbounds nuw i8, ptr %20, i64 268
   %1012 = load i32, ptr %1011, align 4
   %1013 = icmp eq i32 %1012, 1
   br i1 %1013, label %1014, label %1020
 
 1014:                                             ; preds = %1010
-  %1015 = getelementptr inbounds i8, ptr %0, i64 92
+  %1015 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %1016 = load i32, ptr %1015, align 4
   %1017 = icmp eq i32 %1016, 1
   br i1 %1017, label %1018, label %1020
@@ -2117,7 +2117,7 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   br label %1919
 
 1020:                                             ; preds = %1014, %1010, %1009
-  %1021 = getelementptr inbounds i8, ptr %0, i64 32
+  %1021 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1022 = load ptr, ptr %1021, align 8
   %.not48 = icmp eq ptr %1022, null
   br i1 %.not48, label %1025, label %1023
@@ -2145,16 +2145,16 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %1027 = getelementptr inbounds i8, ptr %0, i64 16
+  %1027 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1028 = load ptr, ptr %1027, align 8
-  %1029 = getelementptr inbounds i8, ptr %1026, i64 216
+  %1029 = getelementptr inbounds nuw i8, ptr %1026, i64 216
   %1030 = load ptr, ptr %1029, align 8
-  %1031 = getelementptr inbounds i8, ptr %1030, i64 360
+  %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 360
   %1032 = load ptr, ptr %1031, align 8
   %1033 = load i32, ptr %28, align 8
-  %1034 = getelementptr inbounds i8, ptr %0, i64 92
+  %1034 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %1035 = load i32, ptr %1034, align 4
-  %1036 = getelementptr inbounds i8, ptr %0, i64 8
+  %1036 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %1036, align 8
   %1037 = tail call ptr @slurm_xcalloc(i64 noundef 50, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 326, ptr noundef nonnull @__func__._eval_nodes_consec) #7
   store ptr %1037, ptr %3, align 8
@@ -2174,9 +2174,9 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   %1044 = sext i32 %1043 to i64
   %1045 = tail call ptr @slurm_xcalloc(i64 noundef %1044, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 338, ptr noundef nonnull @__func__._eval_nodes_consec) #7
   store ptr %1045, ptr %10, align 8
-  %1046 = getelementptr inbounds i8, ptr %1030, i64 268
+  %1046 = getelementptr inbounds nuw i8, ptr %1030, i64 268
   %1047 = load i32, ptr %1046, align 4
-  %1048 = getelementptr inbounds i8, ptr %1026, i64 296
+  %1048 = getelementptr inbounds nuw i8, ptr %1026, i64 296
   %1049 = load ptr, ptr %1048, align 8
   %1050 = tail call zeroext i1 @gres_sched_init(ptr noundef %1049) #7
   br i1 %1050, label %1051, label %1054
@@ -2194,19 +2194,19 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
 1056:                                             ; preds = %1054, %1051
   %.0359.i = phi i32 [ %1052, %1051 ], [ %1055, %1054 ]
   %1057 = load i32, ptr %1046, align 4
-  %1058 = getelementptr inbounds i8, ptr %1030, i64 232
+  %1058 = getelementptr inbounds nuw i8, ptr %1030, i64 232
   %1059 = load i32, ptr %1058, align 8
   %.not.i.i129 = icmp eq i32 %1059, -2
   %spec.select.i.i130 = select i1 %.not.i.i129, i32 %1057, i32 %1059
   %.0.i.i131 = zext i32 %spec.select.i.i130 to i64
-  %1060 = getelementptr inbounds i8, ptr %1030, i64 276
+  %1060 = getelementptr inbounds nuw i8, ptr %1030, i64 276
   %1061 = load i32, ptr %1060, align 4
   %.not20.i.i132 = icmp eq i32 %1061, 0
   %1062 = mul nsw i32 %1061, %.0359.i
   %1063 = sext i32 %1062 to i64
   %.0..i.i133 = tail call i64 @llvm.smax.i64(i64 %.0.i.i131, i64 %1063)
   %.1.i.i134 = select i1 %.not20.i.i132, i64 %.0.i.i131, i64 %.0..i.i133
-  %1064 = getelementptr inbounds i8, ptr %1030, i64 280
+  %1064 = getelementptr inbounds nuw i8, ptr %1030, i64 280
   %1065 = load i32, ptr %1064, align 8
   %.not21.i.i135 = icmp eq i32 %1065, 0
   %1066 = sext i32 %1065 to i64
@@ -2217,7 +2217,7 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
 
 1067:                                             ; preds = %1056
   %1068 = load ptr, ptr %1029, align 8
-  %1069 = getelementptr inbounds i8, ptr %1068, i64 24
+  %1069 = getelementptr inbounds nuw i8, ptr %1068, i64 24
   %1070 = load ptr, ptr %1069, align 8
   store i32 0, ptr %2, align 4
   %1071 = call ptr @next_node_bitmap(ptr noundef nonnull %1032, ptr noundef nonnull %2) #7
@@ -2225,10 +2225,10 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   br i1 %.not449615.i, label %.critedge.i140, label %.lr.ph.i138
 
 .lr.ph.i138:                                      ; preds = %1067
-  %1072 = getelementptr inbounds i8, ptr %0, i64 56
+  %1072 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not495.i = icmp eq ptr %1070, null
-  %1073 = getelementptr inbounds i8, ptr %1030, i64 96
-  %1074 = getelementptr inbounds i8, ptr %1030, i64 304
+  %1073 = getelementptr inbounds nuw i8, ptr %1030, i64 96
+  %1074 = getelementptr inbounds nuw i8, ptr %1030, i64 304
   br label %1075
 
 1075:                                             ; preds = %1185, %.lr.ph.i138
@@ -2282,7 +2282,7 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   br i1 %1099, label %1100, label %.critedge3.thread.i
 
 1100:                                             ; preds = %1097
-  %1101 = getelementptr inbounds i8, ptr %1076, i64 256
+  %1101 = getelementptr inbounds nuw i8, ptr %1076, i64 256
   %1102 = load ptr, ptr %1101, align 8
   %1103 = load i16, ptr %1036, align 8
   %1104 = zext i16 %1103 to i32
@@ -2307,13 +2307,13 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
 1116:                                             ; preds = %1078
   %1117 = load i32, ptr %2, align 4
   %1118 = load ptr, ptr %17, align 8
-  %1119 = getelementptr inbounds i8, ptr %1118, i64 216
+  %1119 = getelementptr inbounds nuw i8, ptr %1118, i64 216
   %1120 = load ptr, ptr %1119, align 8
   %1121 = load ptr, ptr %1027, align 8
   %1122 = sext i32 %1117 to i64
   %1123 = getelementptr inbounds ptr, ptr %1121, i64 %1122
   %1124 = load ptr, ptr %1123, align 8
-  %1125 = getelementptr inbounds i8, ptr %1120, i64 464
+  %1125 = getelementptr inbounds nuw i8, ptr %1120, i64 464
   %1126 = load i8, ptr %1125, align 8
   %1127 = icmp eq i8 %1126, 1
   br i1 %1127, label %eval_nodes_cpus_to_use.exit.i139, label %1128
@@ -2333,7 +2333,7 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   %1137 = load ptr, ptr @node_record_table_ptr, align 8
   %1138 = getelementptr inbounds ptr, ptr %1137, i64 %1122
   %1139 = load ptr, ptr %1138, align 8
-  %1140 = getelementptr inbounds i8, ptr %1139, i64 74
+  %1140 = getelementptr inbounds nuw i8, ptr %1139, i64 74
   %1141 = load i16, ptr %1140, align 2
   %1142 = zext i16 %1141 to i32
   %1143 = mul nsw i32 %1133, %1142
@@ -2353,13 +2353,13 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   br label %eval_nodes_cpus_to_use.exit.sink.split.i
 
 1150:                                             ; preds = %1144
-  %1151 = getelementptr inbounds i8, ptr %1120, i64 304
+  %1151 = getelementptr inbounds nuw i8, ptr %1120, i64 304
   %1152 = load i32, ptr %1151, align 8
   %1153 = sext i32 %1152 to i64
   %..i.i157 = call i64 @llvm.smax.i64(i64 %1146, i64 %1153)
   %1154 = trunc i64 %..i.i157 to i16
   store i16 %1154, ptr %1036, align 8
-  %1155 = getelementptr inbounds i8, ptr %1124, i64 16
+  %1155 = getelementptr inbounds nuw i8, ptr %1124, i64 16
   %1156 = load i32, ptr %1155, align 8
   %.not43.i.i158 = icmp eq i32 %1156, 0
   %1157 = trunc i64 %..i.i157 to i32
@@ -2371,7 +2371,7 @@ _eval_nodes_lln.exit:                             ; preds = %.thread256.i, %1008
   br label %1163
 
 1160:                                             ; preds = %1150
-  %1161 = getelementptr inbounds i8, ptr %1120, i64 276
+  %1161 = getelementptr inbounds nuw i8, ptr %1120, i64 276
   %1162 = load i32, ptr %1161, align 4
   %.45.i.i162 = call i32 @llvm.smax.i32(i32 %1158, i32 %1162)
   br label %1163
@@ -2387,10 +2387,10 @@ eval_nodes_cpus_to_use.exit.sink.split.i:         ; preds = %1163, %._crit_edge.
   %.sink883.i = phi ptr [ %1114, %1105 ], [ %1124, %1163 ], [ %1124, %._crit_edge.i.i155 ]
   %.sink882.i = phi i16 [ %1115, %1105 ], [ %storemerge.i.i161, %1163 ], [ %.pre.i.i156, %._crit_edge.i.i155 ]
   %.1347.ph.i = phi i32 [ %1081, %1105 ], [ %.0346621.i, %1163 ], [ %.0346621.i, %._crit_edge.i.i155 ]
-  %1164 = getelementptr inbounds i8, ptr %.sink883.i, i64 2
+  %1164 = getelementptr inbounds nuw i8, ptr %.sink883.i, i64 2
   %1165 = load i16, ptr %1164, align 2
   %1166 = add i16 %1165, %.sink882.i
-  %1167 = getelementptr inbounds i8, ptr %.sink883.i, i64 4
+  %1167 = getelementptr inbounds nuw i8, ptr %.sink883.i, i64 4
   store i16 %1166, ptr %1167, align 4
   br label %eval_nodes_cpus_to_use.exit.i139
 
@@ -2404,7 +2404,7 @@ eval_nodes_cpus_to_use.exit.i139:                 ; preds = %eval_nodes_cpus_to_
   %1171 = sext i32 %1170 to i64
   %1172 = getelementptr inbounds ptr, ptr %1028, i64 %1171
   %1173 = load ptr, ptr %1172, align 8
-  %1174 = getelementptr inbounds i8, ptr %1173, i64 32
+  %1174 = getelementptr inbounds nuw i8, ptr %1173, i64 32
   %1175 = load ptr, ptr %1174, align 8
   call void @gres_sched_add(ptr noundef %1169, ptr noundef %1175, ptr noundef nonnull %1036) #7
   br label %1176
@@ -2420,7 +2420,7 @@ eval_nodes_cpus_to_use.exit.i139:                 ; preds = %eval_nodes_cpus_to_
   br i1 %1181, label %1182, label %.critedge3.thread.i
 
 1182:                                             ; preds = %1179
-  %1183 = getelementptr inbounds i8, ptr %1076, i64 256
+  %1183 = getelementptr inbounds nuw i8, ptr %1076, i64 256
   %1184 = load ptr, ptr %1183, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_consec, ptr noundef %1026, ptr noundef %1184) #7
   br label %.critedge3.thread.i
@@ -2460,7 +2460,7 @@ eval_nodes_cpus_to_use.exit.i139:                 ; preds = %eval_nodes_cpus_to_
 
 1203:                                             ; preds = %.critedge.i140
   %1204 = load ptr, ptr %1048, align 8
-  %1205 = getelementptr inbounds i8, ptr %1026, i64 392
+  %1205 = getelementptr inbounds nuw i8, ptr %1026, i64 392
   %1206 = load i32, ptr %1205, align 8
   %1207 = call zeroext i1 @gres_sched_test(ptr noundef %1204, i32 noundef %1206) #7
   br i1 %1207, label %1208, label %1210
@@ -2471,7 +2471,7 @@ eval_nodes_cpus_to_use.exit.i139:                 ; preds = %eval_nodes_cpus_to_
   br label %.critedge3.thread.i
 
 1210:                                             ; preds = %1203, %.critedge.i140
-  %1211 = getelementptr inbounds i8, ptr %0, i64 56
+  %1211 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1212 = load i32, ptr %1211, align 8
   %1213 = icmp eq i32 %1212, 0
   br i1 %1213, label %.critedge3.thread.i, label %1214
@@ -2488,7 +2488,7 @@ eval_nodes_cpus_to_use.exit.i139:                 ; preds = %eval_nodes_cpus_to_
   br i1 %.not452632.i, label %._crit_edge.i142, label %.lr.ph635.i
 
 .lr.ph635.i:                                      ; preds = %1214
-  %1216 = getelementptr inbounds i8, ptr %1030, i64 64
+  %1216 = getelementptr inbounds nuw i8, ptr %1030, i64 64
   br label %1217
 
 1217:                                             ; preds = %1352, %.lr.ph635.i
@@ -2588,7 +2588,7 @@ eval_nodes_cpus_to_use.exit.i139:                 ; preds = %eval_nodes_cpus_to_
   br i1 %.not493.i, label %1286, label %1268
 
 1268:                                             ; preds = %1263
-  %1269 = getelementptr inbounds i8, ptr %.0344.i, i64 424
+  %1269 = getelementptr inbounds nuw i8, ptr %.0344.i, i64 424
   %1270 = load i64, ptr %1269, align 8
   %.not494.i = icmp eq i64 %1270, %1267
   br i1 %.not494.i, label %1286, label %1271
@@ -2675,13 +2675,13 @@ eval_nodes_cpus_to_use.exit.i139:                 ; preds = %eval_nodes_cpus_to_
   %1322 = sext i32 %1321 to i64
   %1323 = getelementptr inbounds ptr, ptr %1028, i64 %1322
   %1324 = load ptr, ptr %1323, align 8
-  %1325 = getelementptr inbounds i8, ptr %1324, i64 32
+  %1325 = getelementptr inbounds nuw i8, ptr %1324, i64 32
   %1326 = load ptr, ptr %1325, align 8
   call void @gres_sched_consec(ptr noundef %1319, ptr noundef %1320, ptr noundef %1326) #7
   br label %1327
 
 1327:                                             ; preds = %1317, %1303
-  %1328 = getelementptr inbounds i8, ptr %.0344.i, i64 424
+  %1328 = getelementptr inbounds nuw i8, ptr %.0344.i, i64 424
   %1329 = load i64, ptr %1328, align 8
   %1330 = load ptr, ptr %9, align 8
   %1331 = getelementptr inbounds i64, ptr %1330, i64 %.pre-phi848.i
@@ -2881,9 +2881,9 @@ eval_nodes_cpus_to_use.exit.i139:                 ; preds = %eval_nodes_cpus_to_
   br i1 %.not457.i, label %.critedge3.i, label %.lr.ph772.i
 
 .lr.ph772.i:                                      ; preds = %.preheader587.i
-  %1436 = getelementptr inbounds i8, ptr %0, i64 56
-  %1437 = getelementptr inbounds i8, ptr %1030, i64 64
-  %1438 = getelementptr inbounds i8, ptr %1026, i64 392
+  %1436 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %1437 = getelementptr inbounds nuw i8, ptr %1030, i64 64
+  %1438 = getelementptr inbounds nuw i8, ptr %1026, i64 392
   %1439 = sext i32 %.3.i143 to i64
   %1440 = call i32 @llvm.usub.sat.i32(i32 %1035, i32 %1033)
   %1441 = load i32, ptr %1436, align 8
@@ -3162,12 +3162,12 @@ thread-pre-split.i.us:                            ; preds = %1494, %.thread568.i
 1554:                                             ; preds = %1548
   store i16 %1552, ptr %1036, align 8
   %1555 = load ptr, ptr %17, align 8
-  %1556 = getelementptr inbounds i8, ptr %1555, i64 216
+  %1556 = getelementptr inbounds nuw i8, ptr %1555, i64 216
   %1557 = load ptr, ptr %1556, align 8
   %1558 = load ptr, ptr %1027, align 8
   %1559 = getelementptr inbounds ptr, ptr %1558, i64 %1550
   %1560 = load ptr, ptr %1559, align 8
-  %1561 = getelementptr inbounds i8, ptr %1557, i64 464
+  %1561 = getelementptr inbounds nuw i8, ptr %1557, i64 464
   %1562 = load i8, ptr %1561, align 8
   %1563 = icmp eq i8 %1562, 1
   br i1 %1563, label %eval_nodes_cpus_to_use.exit523.i.us, label %1564
@@ -3187,7 +3187,7 @@ thread-pre-split.i.us:                            ; preds = %1494, %.thread568.i
   %1573 = load ptr, ptr @node_record_table_ptr, align 8
   %1574 = getelementptr inbounds ptr, ptr %1573, i64 %1550
   %1575 = load ptr, ptr %1574, align 8
-  %1576 = getelementptr inbounds i8, ptr %1575, i64 74
+  %1576 = getelementptr inbounds nuw i8, ptr %1575, i64 74
   %1577 = load i16, ptr %1576, align 2
   %1578 = zext i16 %1577 to i32
   %1579 = mul nsw i32 %1569, %1578
@@ -3207,13 +3207,13 @@ thread-pre-split.i.us:                            ; preds = %1494, %.thread568.i
   br label %1600
 
 1586:                                             ; preds = %1580
-  %1587 = getelementptr inbounds i8, ptr %1557, i64 304
+  %1587 = getelementptr inbounds nuw i8, ptr %1557, i64 304
   %1588 = load i32, ptr %1587, align 8
   %1589 = sext i32 %1588 to i64
   %..i517.i.us = call i64 @llvm.smax.i64(i64 %1582, i64 %1589)
   %1590 = trunc i64 %..i517.i.us to i16
   store i16 %1590, ptr %1036, align 8
-  %1591 = getelementptr inbounds i8, ptr %1560, i64 16
+  %1591 = getelementptr inbounds nuw i8, ptr %1560, i64 16
   %1592 = load i32, ptr %1591, align 8
   %.not43.i518.i.us = icmp eq i32 %1592, 0
   %1593 = trunc i64 %..i517.i.us to i32
@@ -3225,7 +3225,7 @@ thread-pre-split.i.us:                            ; preds = %1494, %.thread568.i
   br label %1599
 
 1596:                                             ; preds = %1586
-  %1597 = getelementptr inbounds i8, ptr %1557, i64 276
+  %1597 = getelementptr inbounds nuw i8, ptr %1557, i64 276
   %1598 = load i32, ptr %1597, align 4
   %.45.i522.i.us = call i32 @llvm.smax.i32(i32 %1594, i32 %1598)
   br label %1599
@@ -3239,10 +3239,10 @@ thread-pre-split.i.us:                            ; preds = %1494, %.thread568.i
 
 1600:                                             ; preds = %1599, %._crit_edge.i515.i.us
   %1601 = phi i16 [ %.pre.i516.i.us, %._crit_edge.i515.i.us ], [ %storemerge.i521.i.us, %1599 ]
-  %1602 = getelementptr inbounds i8, ptr %1560, i64 2
+  %1602 = getelementptr inbounds nuw i8, ptr %1560, i64 2
   %1603 = load i16, ptr %1602, align 2
   %1604 = add i16 %1603, %1601
-  %1605 = getelementptr inbounds i8, ptr %1560, i64 4
+  %1605 = getelementptr inbounds nuw i8, ptr %1560, i64 4
   store i16 %1604, ptr %1605, align 4
   %.pre807.pre.i.us = load i32, ptr %2, align 4
   br label %eval_nodes_cpus_to_use.exit523.i.us
@@ -3256,7 +3256,7 @@ eval_nodes_cpus_to_use.exit523.i.us:              ; preds = %1600, %1554
   %1608 = sext i32 %.pre807.i.us to i64
   %1609 = getelementptr inbounds ptr, ptr %1028, i64 %1608
   %1610 = load ptr, ptr %1609, align 8
-  %1611 = getelementptr inbounds i8, ptr %1610, i64 32
+  %1611 = getelementptr inbounds nuw i8, ptr %1610, i64 32
   %1612 = load ptr, ptr %1611, align 8
   call void @gres_sched_add(ptr noundef %1607, ptr noundef %1612, ptr noundef nonnull %1036) #7
   %.pre806.i.us = load i32, ptr %2, align 4
@@ -3356,12 +3356,12 @@ eval_nodes_cpus_to_use.exit523.i.us:              ; preds = %1600, %1554
 1657:                                             ; preds = %1651
   store i16 %1655, ptr %1036, align 8
   %1658 = load ptr, ptr %17, align 8
-  %1659 = getelementptr inbounds i8, ptr %1658, i64 216
+  %1659 = getelementptr inbounds nuw i8, ptr %1658, i64 216
   %1660 = load ptr, ptr %1659, align 8
   %1661 = load ptr, ptr %1027, align 8
   %1662 = getelementptr inbounds ptr, ptr %1661, i64 %1653
   %1663 = load ptr, ptr %1662, align 8
-  %1664 = getelementptr inbounds i8, ptr %1660, i64 464
+  %1664 = getelementptr inbounds nuw i8, ptr %1660, i64 464
   %1665 = load i8, ptr %1664, align 8
   %1666 = icmp eq i8 %1665, 1
   br i1 %1666, label %eval_nodes_cpus_to_use.exit534.i.us, label %1667
@@ -3381,7 +3381,7 @@ eval_nodes_cpus_to_use.exit523.i.us:              ; preds = %1600, %1554
   %1676 = load ptr, ptr @node_record_table_ptr, align 8
   %1677 = getelementptr inbounds ptr, ptr %1676, i64 %1653
   %1678 = load ptr, ptr %1677, align 8
-  %1679 = getelementptr inbounds i8, ptr %1678, i64 74
+  %1679 = getelementptr inbounds nuw i8, ptr %1678, i64 74
   %1680 = load i16, ptr %1679, align 2
   %1681 = zext i16 %1680 to i32
   %1682 = mul nsw i32 %1672, %1681
@@ -3401,13 +3401,13 @@ eval_nodes_cpus_to_use.exit523.i.us:              ; preds = %1600, %1554
   br label %1703
 
 1689:                                             ; preds = %1683
-  %1690 = getelementptr inbounds i8, ptr %1660, i64 304
+  %1690 = getelementptr inbounds nuw i8, ptr %1660, i64 304
   %1691 = load i32, ptr %1690, align 8
   %1692 = sext i32 %1691 to i64
   %..i528.i.us = call i64 @llvm.smax.i64(i64 %1685, i64 %1692)
   %1693 = trunc i64 %..i528.i.us to i16
   store i16 %1693, ptr %1036, align 8
-  %1694 = getelementptr inbounds i8, ptr %1663, i64 16
+  %1694 = getelementptr inbounds nuw i8, ptr %1663, i64 16
   %1695 = load i32, ptr %1694, align 8
   %.not43.i529.i.us = icmp eq i32 %1695, 0
   %1696 = trunc i64 %..i528.i.us to i32
@@ -3419,7 +3419,7 @@ eval_nodes_cpus_to_use.exit523.i.us:              ; preds = %1600, %1554
   br label %1702
 
 1699:                                             ; preds = %1689
-  %1700 = getelementptr inbounds i8, ptr %1660, i64 276
+  %1700 = getelementptr inbounds nuw i8, ptr %1660, i64 276
   %1701 = load i32, ptr %1700, align 4
   %.45.i533.i.us = call i32 @llvm.smax.i32(i32 %1697, i32 %1701)
   br label %1702
@@ -3433,10 +3433,10 @@ eval_nodes_cpus_to_use.exit523.i.us:              ; preds = %1600, %1554
 
 1703:                                             ; preds = %1702, %._crit_edge.i526.i.us
   %1704 = phi i16 [ %.pre.i527.i.us, %._crit_edge.i526.i.us ], [ %storemerge.i532.i.us, %1702 ]
-  %1705 = getelementptr inbounds i8, ptr %1663, i64 2
+  %1705 = getelementptr inbounds nuw i8, ptr %1663, i64 2
   %1706 = load i16, ptr %1705, align 2
   %1707 = add i16 %1706, %1704
-  %1708 = getelementptr inbounds i8, ptr %1663, i64 4
+  %1708 = getelementptr inbounds nuw i8, ptr %1663, i64 4
   store i16 %1707, ptr %1708, align 4
   %.pre813.pre.i.us = load i32, ptr %2, align 4
   br label %eval_nodes_cpus_to_use.exit534.i.us
@@ -3450,7 +3450,7 @@ eval_nodes_cpus_to_use.exit534.i.us:              ; preds = %1703, %1657
   %1711 = sext i32 %.pre813.i.us to i64
   %1712 = getelementptr inbounds ptr, ptr %1028, i64 %1711
   %1713 = load ptr, ptr %1712, align 8
-  %1714 = getelementptr inbounds i8, ptr %1713, i64 32
+  %1714 = getelementptr inbounds nuw i8, ptr %1713, i64 32
   %1715 = load ptr, ptr %1714, align 8
   call void @gres_sched_add(ptr noundef %1710, ptr noundef %1715, ptr noundef nonnull %1036) #7
   %.pre812.i.us = load i32, ptr %2, align 4
@@ -3535,7 +3535,7 @@ eval_nodes_cpus_to_use.exit534.i.us:              ; preds = %1703, %1657
 
 1757:                                             ; preds = %1756
   %1758 = load ptr, ptr %1048, align 8
-  %1759 = getelementptr inbounds i8, ptr %1749, i64 32
+  %1759 = getelementptr inbounds nuw i8, ptr %1749, i64 32
   %1760 = load ptr, ptr %1759, align 8
   %1761 = call zeroext i1 @gres_sched_sufficient(ptr noundef %1758, ptr noundef %1760) #7
   %.pre816.pre.i.us = load i32, ptr %2, align 4
@@ -3666,12 +3666,12 @@ eval_nodes_cpus_to_use.exit534.i.us:              ; preds = %1703, %1657
 
 1806:                                             ; preds = %1801
   %1807 = load ptr, ptr %17, align 8
-  %1808 = getelementptr inbounds i8, ptr %1807, i64 216
+  %1808 = getelementptr inbounds nuw i8, ptr %1807, i64 216
   %1809 = load ptr, ptr %1808, align 8
   %1810 = load ptr, ptr %1027, align 8
   %1811 = getelementptr inbounds ptr, ptr %1810, i64 %1793
   %1812 = load ptr, ptr %1811, align 8
-  %1813 = getelementptr inbounds i8, ptr %1809, i64 464
+  %1813 = getelementptr inbounds nuw i8, ptr %1809, i64 464
   %1814 = load i8, ptr %1813, align 8
   %1815 = icmp eq i8 %1814, 1
   br i1 %1815, label %eval_nodes_cpus_to_use.exit545.i.us, label %1816
@@ -3691,7 +3691,7 @@ eval_nodes_cpus_to_use.exit534.i.us:              ; preds = %1703, %1657
   %1825 = load ptr, ptr @node_record_table_ptr, align 8
   %1826 = getelementptr inbounds ptr, ptr %1825, i64 %1793
   %1827 = load ptr, ptr %1826, align 8
-  %1828 = getelementptr inbounds i8, ptr %1827, i64 74
+  %1828 = getelementptr inbounds nuw i8, ptr %1827, i64 74
   %1829 = load i16, ptr %1828, align 2
   %1830 = zext i16 %1829 to i32
   %1831 = mul nsw i32 %1821, %1830
@@ -3711,13 +3711,13 @@ eval_nodes_cpus_to_use.exit534.i.us:              ; preds = %1703, %1657
   br label %1852
 
 1838:                                             ; preds = %1832
-  %1839 = getelementptr inbounds i8, ptr %1809, i64 304
+  %1839 = getelementptr inbounds nuw i8, ptr %1809, i64 304
   %1840 = load i32, ptr %1839, align 8
   %1841 = sext i32 %1840 to i64
   %..i539.i.us = call i64 @llvm.smax.i64(i64 %1834, i64 %1841)
   %1842 = trunc i64 %..i539.i.us to i16
   store i16 %1842, ptr %1036, align 8
-  %1843 = getelementptr inbounds i8, ptr %1812, i64 16
+  %1843 = getelementptr inbounds nuw i8, ptr %1812, i64 16
   %1844 = load i32, ptr %1843, align 8
   %.not43.i540.i.us = icmp eq i32 %1844, 0
   %1845 = trunc i64 %..i539.i.us to i32
@@ -3729,7 +3729,7 @@ eval_nodes_cpus_to_use.exit534.i.us:              ; preds = %1703, %1657
   br label %1851
 
 1848:                                             ; preds = %1838
-  %1849 = getelementptr inbounds i8, ptr %1809, i64 276
+  %1849 = getelementptr inbounds nuw i8, ptr %1809, i64 276
   %1850 = load i32, ptr %1849, align 4
   %.45.i544.i.us = call i32 @llvm.smax.i32(i32 %1846, i32 %1850)
   br label %1851
@@ -3743,10 +3743,10 @@ eval_nodes_cpus_to_use.exit534.i.us:              ; preds = %1703, %1657
 
 1852:                                             ; preds = %1851, %._crit_edge.i537.i.us
   %1853 = phi i16 [ %.pre.i538.i.us, %._crit_edge.i537.i.us ], [ %storemerge.i543.i.us, %1851 ]
-  %1854 = getelementptr inbounds i8, ptr %1812, i64 2
+  %1854 = getelementptr inbounds nuw i8, ptr %1812, i64 2
   %1855 = load i16, ptr %1854, align 2
   %1856 = add i16 %1855, %1853
-  %1857 = getelementptr inbounds i8, ptr %1812, i64 4
+  %1857 = getelementptr inbounds nuw i8, ptr %1812, i64 4
   store i16 %1856, ptr %1857, align 4
   %.pre827.pre.i.us = load i32, ptr %2, align 4
   br label %eval_nodes_cpus_to_use.exit545.i.us
@@ -3760,7 +3760,7 @@ eval_nodes_cpus_to_use.exit545.i.us:              ; preds = %1852, %1806
   %1860 = sext i32 %.pre827.i.us to i64
   %1861 = getelementptr inbounds ptr, ptr %1028, i64 %1860
   %1862 = load ptr, ptr %1861, align 8
-  %1863 = getelementptr inbounds i8, ptr %1862, i64 32
+  %1863 = getelementptr inbounds nuw i8, ptr %1862, i64 32
   %1864 = load ptr, ptr %1863, align 8
   call void @gres_sched_add(ptr noundef %1859, ptr noundef %1864, ptr noundef nonnull %1036) #7
   %.pre826.i.us = load i32, ptr %2, align 4
@@ -3844,7 +3844,7 @@ eval_nodes_cpus_to_use.exit545.i.us:              ; preds = %1852, %1806
 
 1899:                                             ; preds = %.critedge3.i
   %1900 = load ptr, ptr %1048, align 8
-  %1901 = getelementptr inbounds i8, ptr %1026, i64 392
+  %1901 = getelementptr inbounds nuw i8, ptr %1026, i64 392
   %1902 = load i32, ptr %1901, align 8
   %1903 = call zeroext i1 @gres_sched_test(ptr noundef %1900, i32 noundef %1902) #7
   br i1 %1903, label %1904, label %.critedge3.thread.i
@@ -3933,27 +3933,27 @@ declare i32 @bit_super_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef initializes((8, 10)) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 360
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 360
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @bit_copy(ptr noundef %10) #7
   store ptr %11, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 92
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 268
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 268
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %6, i64 296
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %23 [
     i32 -2, label %26
@@ -3961,14 +3961,14 @@ define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef init
   ]
 
 23:                                               ; preds = %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load i32, ptr %24, align 8
   %. = tail call i32 @llvm.umin.i32(i32 %25, i32 %22)
   store i32 %., ptr %24, align 8
   br label %26
 
 26:                                               ; preds = %1, %1, %23
-  %27 = getelementptr inbounds i8, ptr %4, i64 296
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @gres_sched_init(ptr noundef %28) #7
   br i1 %29, label %30, label %32
@@ -3984,19 +3984,19 @@ define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef init
 34:                                               ; preds = %32, %30
   %.0159 = phi i32 [ %31, %30 ], [ %33, %32 ]
   %35 = load i32, ptr %19, align 4
-  %36 = getelementptr inbounds i8, ptr %6, i64 232
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %37 = load i32, ptr %36, align 8
   %.not.i = icmp eq i32 %37, -2
   %spec.select.i = select i1 %.not.i, i32 %35, i32 %37
   %.0.i = zext i32 %spec.select.i to i64
-  %38 = getelementptr inbounds i8, ptr %6, i64 276
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 276
   %39 = load i32, ptr %38, align 4
   %.not20.i = icmp eq i32 %39, 0
   %40 = mul nsw i32 %39, %.0159
   %41 = sext i32 %40 to i64
   %.0..i = tail call i64 @llvm.smax.i64(i64 %.0.i, i64 %41)
   %.1.i = select i1 %.not20.i, i64 %.0.i, i64 %.0..i
-  %42 = getelementptr inbounds i8, ptr %6, i64 280
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %43 = load i32, ptr %42, align 8
   %.not21.i = icmp eq i32 %43, 0
   %44 = sext i32 %43 to i64
@@ -4028,8 +4028,8 @@ define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef init
   br i1 %.not201265, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader247
-  %56 = getelementptr inbounds i8, ptr %0, i64 56
-  %57 = getelementptr inbounds i8, ptr %0, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %sext = shl i64 %46, 32
   %58 = ashr exact i64 %sext, 32
   %59 = add i32 %.0149, 1
@@ -4071,7 +4071,7 @@ define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef init
   br i1 %74, label %75, label %.thread242
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %67, i64 256
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 256
   %77 = load ptr, ptr %76, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_serial, ptr noundef %4, ptr noundef %77) #7
   br label %.thread242
@@ -4100,12 +4100,12 @@ define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef init
   %89 = trunc nsw i64 %indvars.iv to i32
   tail call void @eval_nodes_select_cores(ptr noundef nonnull %0, i32 noundef %89, i32 noundef %.0166268)
   %90 = load ptr, ptr %3, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 216
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 216
   %92 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr %12, align 8
   %94 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %92, i64 464
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 464
   %97 = load i8, ptr %96, align 8
   %98 = icmp eq i8 %97, 1
   br i1 %98, label %eval_nodes_cpus_to_use.exit, label %99
@@ -4125,7 +4125,7 @@ define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef init
   %108 = load ptr, ptr @node_record_table_ptr, align 8
   %109 = getelementptr inbounds ptr, ptr %108, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 74
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 74
   %112 = load i16, ptr %111, align 2
   %113 = zext i16 %112 to i32
   %114 = mul nsw i32 %104, %113
@@ -4145,13 +4145,13 @@ define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef init
   br label %135
 
 121:                                              ; preds = %115
-  %122 = getelementptr inbounds i8, ptr %92, i64 304
+  %122 = getelementptr inbounds nuw i8, ptr %92, i64 304
   %123 = load i32, ptr %122, align 8
   %124 = sext i32 %123 to i64
   %..i = tail call i64 @llvm.smax.i64(i64 %117, i64 %124)
   %125 = trunc i64 %..i to i16
   store i16 %125, ptr %18, align 8
-  %126 = getelementptr inbounds i8, ptr %95, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %127 = load i32, ptr %126, align 8
   %.not43.i = icmp eq i32 %127, 0
   %128 = trunc i64 %..i to i32
@@ -4163,7 +4163,7 @@ define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef init
   br label %134
 
 131:                                              ; preds = %121
-  %132 = getelementptr inbounds i8, ptr %92, i64 276
+  %132 = getelementptr inbounds nuw i8, ptr %92, i64 276
   %133 = load i32, ptr %132, align 4
   %.45.i = tail call i32 @llvm.smax.i32(i32 %129, i32 %133)
   br label %134
@@ -4177,10 +4177,10 @@ define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef init
 
 135:                                              ; preds = %134, %._crit_edge.i
   %136 = phi i16 [ %.pre.i, %._crit_edge.i ], [ %storemerge.i, %134 ]
-  %137 = getelementptr inbounds i8, ptr %95, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %95, i64 2
   %138 = load i16, ptr %137, align 2
   %139 = add i16 %138, %136
-  %140 = getelementptr inbounds i8, ptr %95, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i16 %139, ptr %140, align 4
   br label %eval_nodes_cpus_to_use.exit
 
@@ -4190,7 +4190,7 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
 141:                                              ; preds = %eval_nodes_cpus_to_use.exit
   %142 = load ptr, ptr %27, align 8
   %143 = load ptr, ptr %68, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 32
   %145 = load ptr, ptr %144, align 8
   tail call void @gres_sched_add(ptr noundef %142, ptr noundef %145, ptr noundef nonnull %18) #7
   br label %146
@@ -4206,7 +4206,7 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
   br i1 %151, label %152, label %.thread242
 
 152:                                              ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %67, i64 256
+  %153 = getelementptr inbounds nuw i8, ptr %67, i64 256
   %154 = load ptr, ptr %153, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_serial, ptr noundef %4, ptr noundef %154) #7
   br label %.thread242
@@ -4248,7 +4248,7 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
 
 168:                                              ; preds = %._crit_edge
   %169 = load ptr, ptr %27, align 8
-  %170 = getelementptr inbounds i8, ptr %4, i64 392
+  %170 = getelementptr inbounds nuw i8, ptr %4, i64 392
   %171 = load i32, ptr %170, align 8
   %172 = tail call zeroext i1 @gres_sched_test(ptr noundef %169, i32 noundef %171) #7
   br i1 %172, label %173, label %175
@@ -4259,7 +4259,7 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
   br label %.thread242
 
 175:                                              ; preds = %168, %._crit_edge
-  %176 = getelementptr inbounds i8, ptr %0, i64 56
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %177 = load i32, ptr %176, align 8
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %.thread242, label %180
@@ -4292,7 +4292,7 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
   %.3162240 = phi i32 [ %.0159, %.thread ], [ %.1160.lcssa, %180 ]
   %.2168239 = phi i32 [ %15, %.thread ], [ %.0166.lcssa, %180 ]
   %.2182237 = phi i64 [ %.2.i, %.thread ], [ %.0180.lcssa, %180 ]
-  %189 = getelementptr inbounds i8, ptr %0, i64 56
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %190 = load i32, ptr %189, align 8
   %191 = icmp eq i32 %190, 0
   %192 = tail call fastcc ptr @_build_node_weight_list(ptr noundef %11)
@@ -4301,8 +4301,8 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
 
 .lr.ph325:                                        ; preds = %188
   %.not204277 = icmp slt i32 %.0149, %47
-  %194 = getelementptr inbounds i8, ptr %0, i64 24
-  %195 = getelementptr inbounds i8, ptr %4, i64 392
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 392
   %.not204277.fr = freeze i1 %.not204277
   br i1 %.not204277.fr, label %.preheader.us, label %.lr.ph325.split.preheader
 
@@ -4364,12 +4364,12 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
   %214 = trunc nsw i64 %indvars.iv348 to i32
   tail call void @eval_nodes_select_cores(ptr noundef nonnull %0, i32 noundef %214, i32 noundef %.4170280)
   %215 = load ptr, ptr %3, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 216
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 216
   %217 = load ptr, ptr %216, align 8
   %218 = load ptr, ptr %12, align 8
   %219 = getelementptr inbounds ptr, ptr %218, i64 %indvars.iv348
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %217, i64 464
+  %221 = getelementptr inbounds nuw i8, ptr %217, i64 464
   %222 = load i8, ptr %221, align 8
   %223 = icmp eq i8 %222, 1
   br i1 %223, label %eval_nodes_cpus_to_use.exit229, label %224
@@ -4389,7 +4389,7 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
   %233 = load ptr, ptr @node_record_table_ptr, align 8
   %234 = getelementptr inbounds ptr, ptr %233, i64 %indvars.iv348
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 74
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 74
   %237 = load i16, ptr %236, align 2
   %238 = zext i16 %237 to i32
   %239 = mul nsw i32 %229, %238
@@ -4409,13 +4409,13 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
   br label %260
 
 246:                                              ; preds = %240
-  %247 = getelementptr inbounds i8, ptr %217, i64 304
+  %247 = getelementptr inbounds nuw i8, ptr %217, i64 304
   %248 = load i32, ptr %247, align 8
   %249 = sext i32 %248 to i64
   %..i223 = tail call i64 @llvm.smax.i64(i64 %242, i64 %249)
   %250 = trunc i64 %..i223 to i16
   store i16 %250, ptr %18, align 8
-  %251 = getelementptr inbounds i8, ptr %220, i64 16
+  %251 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %252 = load i32, ptr %251, align 8
   %.not43.i224 = icmp eq i32 %252, 0
   %253 = trunc i64 %..i223 to i32
@@ -4427,7 +4427,7 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
   br label %259
 
 256:                                              ; preds = %246
-  %257 = getelementptr inbounds i8, ptr %217, i64 276
+  %257 = getelementptr inbounds nuw i8, ptr %217, i64 276
   %258 = load i32, ptr %257, align 4
   %.45.i228 = tail call i32 @llvm.smax.i32(i32 %254, i32 %258)
   br label %259
@@ -4441,10 +4441,10 @@ eval_nodes_cpus_to_use.exit:                      ; preds = %88, %135
 
 260:                                              ; preds = %259, %._crit_edge.i221
   %261 = phi i16 [ %.pre.i222, %._crit_edge.i221 ], [ %storemerge.i227, %259 ]
-  %262 = getelementptr inbounds i8, ptr %220, i64 2
+  %262 = getelementptr inbounds nuw i8, ptr %220, i64 2
   %263 = load i16, ptr %262, align 2
   %264 = add i16 %263, %261
-  %265 = getelementptr inbounds i8, ptr %220, i64 4
+  %265 = getelementptr inbounds nuw i8, ptr %220, i64 4
   store i16 %264, ptr %265, align 4
   br label %eval_nodes_cpus_to_use.exit229
 
@@ -4470,7 +4470,7 @@ eval_nodes_cpus_to_use.exit229:                   ; preds = %213, %260
 278:                                              ; preds = %268
   %279 = load ptr, ptr %27, align 8
   %280 = load ptr, ptr %203, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 32
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 32
   %282 = load ptr, ptr %281, align 8
   tail call void @gres_sched_add(ptr noundef %279, ptr noundef %282, ptr noundef nonnull %18) #7
   br label %283
@@ -4525,7 +4525,7 @@ eval_nodes_cpus_to_use.exit229:                   ; preds = %213, %260
 
 297:                                              ; preds = %.critedge.thread
   %298 = load ptr, ptr %27, align 8
-  %299 = getelementptr inbounds i8, ptr %4, i64 392
+  %299 = getelementptr inbounds nuw i8, ptr %4, i64 392
   %300 = load i32, ptr %299, align 8
   %301 = tail call zeroext i1 @gres_sched_test(ptr noundef %298, i32 noundef %300) #7
   br i1 %301, label %304, label %302
@@ -4559,16 +4559,16 @@ eval_nodes_cpus_to_use.exit229:                   ; preds = %213, %260
 
 ; Function Attrs: nounwind uwtable
 define void @eval_nodes_cpus_to_use(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 464
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 464
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 1
   br i1 %16, label %61, label %17
@@ -4579,7 +4579,7 @@ define void @eval_nodes_cpus_to_use(ptr nocapture noundef %0, i32 noundef %1, i6
   %20 = tail call zeroext i16 @job_mgr_determine_cpus_per_core(ptr noundef nonnull %8, i32 noundef %1) #7
   %21 = zext i16 %20 to i32
   %22 = mul nsw i32 %19, %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 2
   %.not = icmp eq i16 %25, 0
@@ -4589,7 +4589,7 @@ define void @eval_nodes_cpus_to_use(ptr nocapture noundef %0, i32 noundef %1, i6
   %27 = load ptr, ptr @node_record_table_ptr, align 8
   %28 = getelementptr inbounds ptr, ptr %27, i64 %11
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 74
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 74
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = mul nsw i32 %22, %32
@@ -4599,7 +4599,7 @@ define void @eval_nodes_cpus_to_use(ptr nocapture noundef %0, i32 noundef %1, i6
   %.0 = phi i32 [ %33, %26 ], [ %22, %17 ]
   %35 = zext nneg i32 %.0 to i64
   %36 = sub nsw i64 %2, %35
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i16, ptr %37, align 8
   %39 = zext i16 %38 to i64
   %40 = icmp slt i64 %36, %39
@@ -4610,13 +4610,13 @@ define void @eval_nodes_cpus_to_use(ptr nocapture noundef %0, i32 noundef %1, i6
   br label %55
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %8, i64 304
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 304
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
   %. = tail call i64 @llvm.smax.i64(i64 %36, i64 %44)
   %45 = trunc i64 %. to i16
   store i16 %45, ptr %37, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %47 = load i32, ptr %46, align 8
   %.not43 = icmp eq i32 %47, 0
   %48 = trunc i64 %. to i32
@@ -4628,7 +4628,7 @@ define void @eval_nodes_cpus_to_use(ptr nocapture noundef %0, i32 noundef %1, i6
   br label %54
 
 51:                                               ; preds = %41
-  %52 = getelementptr inbounds i8, ptr %8, i64 276
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 276
   %53 = load i32, ptr %52, align 4
   %.45 = tail call i32 @llvm.smax.i32(i32 %49, i32 %53)
   br label %54
@@ -4642,10 +4642,10 @@ define void @eval_nodes_cpus_to_use(ptr nocapture noundef %0, i32 noundef %1, i6
 
 55:                                               ; preds = %._crit_edge, %54
   %56 = phi i16 [ %.pre, %._crit_edge ], [ %storemerge, %54 ]
-  %57 = getelementptr inbounds i8, ptr %13, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %58 = load i16, ptr %57, align 2
   %59 = add i16 %58, %56
-  %60 = getelementptr inbounds i8, ptr %13, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i16 %59, ptr %60, align 4
   br label %61
 
@@ -4661,30 +4661,30 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i16, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 26
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %14 = load i8, ptr %13, align 2
   %15 = trunc i8 %14 to i1
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
   store i32 0, ptr %6, align 4
-  %23 = getelementptr inbounds i8, ptr %20, i64 216
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 216
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @node_record_table_ptr, align 8
   %26 = sext i32 %1 to i64
   %27 = getelementptr inbounds ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @llvm.smin.i32(i32 %2, i32 1)
-  %30 = getelementptr inbounds i8, ptr %22, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %31 = load i16, ptr %30, align 4
   %.not = icmp eq i16 %31, 0
   br i1 %.not, label %34, label %32
@@ -4695,7 +4695,7 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
   br label %100
 
 34:                                               ; preds = %3
-  %35 = getelementptr inbounds i8, ptr %22, i64 18
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 18
   %36 = load i16, ptr %35, align 2
   %.not104 = icmp eq i16 %36, 0
   br i1 %.not104, label %43, label %37
@@ -4703,14 +4703,14 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
 37:                                               ; preds = %34
   %38 = zext i16 %36 to i32
   store i32 %38, ptr %4, align 4
-  %39 = getelementptr inbounds i8, ptr %28, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %40 = load i16, ptr %39, align 8
   %41 = zext i16 %40 to i32
   %42 = mul nuw nsw i32 %41, %38
   br label %100
 
 43:                                               ; preds = %34
-  %44 = getelementptr inbounds i8, ptr %22, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %45 = load i16, ptr %44, align 4
   %.not105 = icmp eq i16 %45, 0
   br i1 %.not105, label %52, label %46
@@ -4718,14 +4718,14 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
 46:                                               ; preds = %43
   %47 = zext i16 %45 to i32
   store i32 %47, ptr %4, align 4
-  %48 = getelementptr inbounds i8, ptr %28, i64 498
+  %48 = getelementptr inbounds nuw i8, ptr %28, i64 498
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i32
   %51 = mul nuw nsw i32 %50, %47
   br label %100
 
 52:                                               ; preds = %43
-  %53 = getelementptr inbounds i8, ptr %22, i64 22
+  %53 = getelementptr inbounds nuw i8, ptr %22, i64 22
   %54 = load i16, ptr %53, align 2
   %.not106 = icmp eq i16 %54, 0
   br i1 %.not106, label %65, label %55
@@ -4733,10 +4733,10 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
 55:                                               ; preds = %52
   %56 = zext i16 %54 to i32
   store i32 %56, ptr %4, align 4
-  %57 = getelementptr inbounds i8, ptr %28, i64 496
+  %57 = getelementptr inbounds nuw i8, ptr %28, i64 496
   %58 = load i16, ptr %57, align 8
   %59 = zext i16 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %28, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %61 = load i16, ptr %60, align 8
   %62 = zext i16 %61 to i32
   %63 = sub nsw i32 %59, %62
@@ -4748,7 +4748,7 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
   br i1 %.not107, label %.critedge115, label %66
 
 66:                                               ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %24, i64 294
+  %67 = getelementptr inbounds nuw i8, ptr %24, i64 294
   %68 = load i16, ptr %67, align 2
   switch i16 %68, label %69 [
     i16 0, label %84
@@ -4756,7 +4756,7 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
   ]
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %24, i64 284
+  %70 = getelementptr inbounds nuw i8, ptr %24, i64 284
   %71 = load i32, ptr %70, align 4
   switch i32 %71, label %72 [
     i32 -2, label %80
@@ -4764,13 +4764,13 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
   ]
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %24, i64 240
+  %73 = getelementptr inbounds nuw i8, ptr %24, i64 240
   %74 = load i32, ptr %73, align 8
   %75 = icmp eq i32 %71, %74
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %24, i64 296
+  %77 = getelementptr inbounds nuw i8, ptr %24, i64 296
   %78 = load i32, ptr %77, align 8
   %79 = udiv i32 %78, %71
   store i32 %79, ptr %4, align 4
@@ -4779,15 +4779,15 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
 80:                                               ; preds = %69, %69, %72
   %81 = zext i16 %68 to i32
   store i32 %81, ptr %4, align 4
-  %82 = getelementptr inbounds i8, ptr %24, i64 296
+  %82 = getelementptr inbounds nuw i8, ptr %24, i64 296
   %83 = load i32, ptr %82, align 8
   br label %.thread.sink.split
 
 84:                                               ; preds = %66, %66
-  %85 = getelementptr inbounds i8, ptr %24, i64 240
+  %85 = getelementptr inbounds nuw i8, ptr %24, i64 240
   %86 = load i32, ptr %85, align 8
   %87 = icmp eq i32 %86, 1
-  %88 = getelementptr inbounds i8, ptr %24, i64 296
+  %88 = getelementptr inbounds nuw i8, ptr %24, i64 296
   %89 = load i32, ptr %88, align 8
   br i1 %87, label %90, label %.critedge
 
@@ -4810,7 +4810,7 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
   br i1 %93, label %99, label %94
 
 94:                                               ; preds = %.critedge
-  %95 = getelementptr inbounds i8, ptr %24, i64 284
+  %95 = getelementptr inbounds nuw i8, ptr %24, i64 284
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %89, %96
   %98 = icmp eq i32 %89, %86
@@ -4841,7 +4841,7 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
 .thread:                                          ; preds = %.thread.sink.split, %100
   %102 = phi i32 [ %.sink, %100 ], [ %.sink122, %.thread.sink.split ]
   %103 = phi i32 [ %101, %100 ], [ %.ph121, %.thread.sink.split ]
-  %104 = getelementptr inbounds i8, ptr %24, i64 301
+  %104 = getelementptr inbounds nuw i8, ptr %24, i64 301
   %105 = load i8, ptr %104, align 1
   %.not112 = icmp eq i8 %105, 0
   br i1 %.not112, label %106, label %.thread._crit_edge
@@ -4859,7 +4859,7 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
   %110 = getelementptr inbounds ptr, ptr %10, i64 %26
   %111 = load ptr, ptr %110, align 8
   %112 = load i16, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %22, i64 10
+  %113 = getelementptr inbounds nuw i8, ptr %22, i64 10
   %114 = load i16, ptr %113, align 2
   %115 = udiv i16 %112, %114
   %116 = zext i16 %115 to i32
@@ -4884,25 +4884,25 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
   %125 = phi i1 [ %109, %119 ], [ %109, %118 ], [ %109, %121 ], [ true, %.thread._crit_edge ]
   %126 = getelementptr inbounds ptr, ptr %10, i64 %26
   store i16 %124, ptr %8, align 2
-  %127 = getelementptr inbounds i8, ptr %20, i64 296
+  %127 = getelementptr inbounds nuw i8, ptr %20, i64 296
   %128 = load ptr, ptr %127, align 8
   %.not113 = icmp eq ptr %128, null
   br i1 %.not113, label %144, label %129
 
 129:                                              ; preds = %122
   %130 = load ptr, ptr %126, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %130, i64 28
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 28
   %134 = load i16, ptr %133, align 4
-  %135 = getelementptr inbounds i8, ptr %28, i64 74
+  %135 = getelementptr inbounds nuw i8, ptr %28, i64 74
   %136 = load i16, ptr %135, align 2
-  %137 = getelementptr inbounds i8, ptr %28, i64 512
+  %137 = getelementptr inbounds nuw i8, ptr %28, i64 512
   %138 = load i16, ptr %137, align 8
   %139 = getelementptr inbounds ptr, ptr %7, i64 %26
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %27, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 256
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 256
   %143 = load ptr, ptr %142, align 8
   call void @gres_filter_sock_core(ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef %132, i16 noundef zeroext %134, i16 noundef zeroext %136, i16 noundef zeroext %138, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %29, i1 noundef zeroext %15, i1 noundef zeroext %18, ptr noundef %140, ptr noundef %143, i16 noundef zeroext %12) #7
   %.pre120 = load i32, ptr %5, align 4
@@ -4920,7 +4920,7 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
   br i1 %.not114, label %166, label %150
 
 150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %22, i64 22
+  %151 = getelementptr inbounds nuw i8, ptr %22, i64 22
   %152 = load i16, ptr %151, align 2
   %153 = icmp eq i16 %152, -1
   br i1 %153, label %156, label %154
@@ -4934,7 +4934,7 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
   br i1 %125, label %157, label %166
 
 157:                                              ; preds = %154, %156
-  %158 = getelementptr inbounds i8, ptr %24, i64 276
+  %158 = getelementptr inbounds nuw i8, ptr %24, i64 276
   %159 = load i32, ptr %158, align 4
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %161, label %166
@@ -4958,11 +4958,11 @@ define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 no
   %170 = load i32, ptr %6, align 4
   %171 = mul i32 %170, %169
   %172 = load ptr, ptr %126, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store i32 %171, ptr %173, align 8
   %174 = load i32, ptr %5, align 4
   %175 = load ptr, ptr %126, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 20
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 20
   store i32 %174, ptr %176, align 4
   ret void
 }
@@ -4971,21 +4971,21 @@ declare void @gres_filter_sock_core(ptr noundef, ptr noundef, ptr noundef, i16 n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i64 0, 4294967296) i64 @eval_nodes_get_rem_max_cpus(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 268
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, -2
   %spec.select = select i1 %.not, i32 %4, i32 %6
   %.0 = zext i32 %spec.select to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 276
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %8 = load i32, ptr %7, align 4
   %.not20 = icmp eq i32 %8, 0
   %9 = mul nsw i32 %8, %1
   %10 = sext i32 %9 to i64
   %.0. = tail call i64 @llvm.smax.i64(i64 %.0, i64 %10)
   %.1 = select i1 %.not20, i64 %.0, i64 %.0.
-  %11 = getelementptr inbounds i8, ptr %0, i64 280
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %12 = load i32, ptr %11, align 8
   %.not21 = icmp eq i32 %12, 0
   %13 = sext i32 %12 to i64
@@ -4996,9 +4996,9 @@ define range(i64 0, 4294967296) i64 @eval_nodes_get_rem_max_cpus(ptr nocapture n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @eval_nodes_topo_weight_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %4, %6
   %. = zext i1 %7 to i32
@@ -5049,7 +5049,7 @@ define noundef i32 @eval_nodes_topo_weight_log(ptr nocapture noundef readonly %0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.1, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.eval_nodes_topo_weight_log, ptr noundef %5, i64 noundef %10) #7
   br label %11
@@ -5069,9 +5069,9 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 define range(i32 -1, 2) i32 @eval_nodes_topo_weight_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i64, ptr %7, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %6, i64 %8)
   ret i32 %.0
@@ -5130,9 +5130,9 @@ define internal fastcc ptr @_build_node_weight_list(ptr noundef %0) unnamed_addr
   %10 = sext i32 %9 to i64
   %11 = call ptr @bit_alloc(i64 noundef %10) #7
   store ptr %11, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 424
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 424
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %13, ptr %14, align 8
   call void @list_append(ptr noundef %3, ptr noundef nonnull %8) #7
   br label %15
@@ -5191,9 +5191,9 @@ declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @_node_weight_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 424
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %4, %6
   %. = zext i1 %7 to i32
@@ -5212,9 +5212,9 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal range(i32 -1, 2) i32 @_node_weight_sort(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %6, i64 %8)
   ret i32 %.0

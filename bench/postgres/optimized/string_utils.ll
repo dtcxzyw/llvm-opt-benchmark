@@ -239,7 +239,7 @@ define dso_local void @appendStringLiteral(ptr noundef %0, ptr noundef %1, i32 n
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr i8, ptr %10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 1
@@ -360,7 +360,7 @@ define dso_local void @appendStringLiteral(ptr noundef %0, ptr noundef %1, i32 n
   %.us-phi65 = phi ptr [ %.354.us, %.lr.ph.us ], [ %.354, %.lr.ph ]
   %.us-phi66 = phi i32 [ %.04055.us, %.lr.ph.us ], [ %.04055, %.lr.ph ]
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr i8, ptr %45, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -2
@@ -421,7 +421,7 @@ define dso_local void @appendStringLiteralConn(ptr noundef %0, ptr noundef %1, p
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %.not21 = icmp eq i64 %11, 0
   br i1 %.not21, label %18, label %12
@@ -454,7 +454,7 @@ define dso_local void @appendStringLiteralConn(ptr noundef %0, ptr noundef %1, p
 24:                                               ; preds = %20
   tail call void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext 39) #11
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr i8, ptr %25, i64 %27
   %29 = tail call i64 @PQescapeStringConn(ptr noundef %2, ptr noundef %28, ptr noundef %1, i64 noundef %4, ptr noundef null) #11
@@ -531,7 +531,7 @@ define dso_local void @appendByteaLiteral(ptr noundef %0, ptr nocapture noundef 
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr i8, ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 1
@@ -939,7 +939,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define dso_local void @appendPGArray(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -1
@@ -1125,7 +1125,7 @@ define dso_local noundef zeroext i1 @processSQLNamePattern(ptr noundef %0, ptr n
   %24 = select i1 %22, ptr %12, ptr null
   call void @patternToSQLRegex(i32 noundef %21, ptr noundef %23, ptr noundef %24, ptr noundef nonnull %13, ptr noundef nonnull %2, i1 noundef zeroext %4, i1 noundef zeroext true, ptr noundef nonnull %spec.select)
   %25 = icmp ne ptr %6, null
-  %26 = getelementptr inbounds i8, ptr %13, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = icmp ugt i64 %27, 2
   %or.cond = select i1 %25, i1 %28, i1 false
@@ -1190,7 +1190,7 @@ define dso_local noundef zeroext i1 @processSQLNamePattern(ptr noundef %0, ptr n
 51:                                               ; preds = %29, %50, %44, %20
   %.066.shrunk = phi i1 [ true, %44 ], [ true, %50 ], [ %3, %29 ], [ %3, %20 ]
   %.1 = phi i1 [ true, %44 ], [ true, %50 ], [ false, %29 ], [ false, %20 ]
-  %52 = getelementptr inbounds i8, ptr %12, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = icmp ugt i64 %53, 2
   %or.cond5 = select i1 %22, i1 %54, i1 false
@@ -1250,7 +1250,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   %.not117 = icmp eq ptr %2, null
   %spec.select.idx = select i1 %.not117, i64 0, i64 24
   %.0111.v = select i1 %11, i64 48, i64 %spec.select.idx
-  %.0111 = getelementptr inbounds i8, ptr %9, i64 %.0111.v
+  %.0111 = getelementptr inbounds nuw i8, ptr %9, i64 %.0111.v
   br i1 %6, label %12, label %13
 
 12:                                               ; preds = %8

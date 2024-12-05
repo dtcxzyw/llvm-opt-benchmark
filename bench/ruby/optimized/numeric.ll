@@ -287,7 +287,7 @@ RB_SYMBOL_P.exit.thread31.thread:                 ; preds = %RB_SYMBOL_P.exit
   %35 = load i64, ptr %34, align 8, !noalias !7
   %36 = and i64 %35, 8192
   %.not.i.i = icmp eq i64 %36, 0
-  %37 = getelementptr inbounds i8, ptr %34, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %38
 
 38:                                               ; preds = %33
@@ -296,7 +296,7 @@ RB_SYMBOL_P.exit.thread31.thread:                 ; preds = %RB_SYMBOL_P.exit
 
 RSTRING_PTR.exit:                                 ; preds = %33, %38
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %38 ], [ %37, %33 ]
-  %39 = getelementptr inbounds i8, ptr %34, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %40 = load i64, ptr %39, align 8
   switch i64 %40, label %50 [
     i64 2, label %41
@@ -596,7 +596,7 @@ define internal fastcc void @do_coerce(ptr noundef %0, ptr nocapture noundef %1,
   br i1 %.not.i, label %rb_array_len.exit, label %rb_array_len.exit.thread
 
 rb_array_len.exit:                                ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load i64, ptr %26, align 8
   %.not33 = icmp eq i64 %27, 2
   br i1 %.not33, label %31, label %.critedge
@@ -612,11 +612,11 @@ rb_array_len.exit.thread:                         ; preds = %24
   unreachable
 
 .thread:                                          ; preds = %rb_array_len.exit.thread
-  %30 = getelementptr inbounds i8, ptr %20, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   br label %RARRAY_AREF.exit
 
 31:                                               ; preds = %rb_array_len.exit
-  %32 = getelementptr inbounds i8, ptr %20, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %33 = load ptr, ptr %32, align 8
   br label %RARRAY_AREF.exit
 
@@ -630,11 +630,11 @@ RARRAY_AREF.exit:                                 ; preds = %.thread, %31
   br i1 %.not.i.i35, label %39, label %37
 
 37:                                               ; preds = %RARRAY_AREF.exit
-  %38 = getelementptr inbounds i8, ptr %20, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 16
   br label %RARRAY_AREF.exit37
 
 39:                                               ; preds = %RARRAY_AREF.exit
-  %40 = getelementptr inbounds i8, ptr %20, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %41 = load ptr, ptr %40, align 8
   br label %RARRAY_AREF.exit37
 
@@ -682,7 +682,7 @@ define dso_local i64 @rb_num_coerce_cmp(i64 noundef %0, i64 noundef %1, i64 noun
   br i1 %.not.i.i, label %rb_array_len.exit.i, label %rb_array_len.exit.thread.i
 
 rb_array_len.exit.i:                              ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %13, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %20 = load i64, ptr %19, align 8
   %.not33.i = icmp eq i64 %20, 2
   br i1 %.not33.i, label %24, label %.critedge.i
@@ -698,11 +698,11 @@ rb_array_len.exit.thread.i:                       ; preds = %17
   unreachable
 
 .thread.i:                                        ; preds = %rb_array_len.exit.thread.i
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %RARRAY_AREF.exit.i
 
 24:                                               ; preds = %rb_array_len.exit.i
-  %25 = getelementptr inbounds i8, ptr %13, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %26 = load ptr, ptr %25, align 8
   br label %RARRAY_AREF.exit.i
 
@@ -716,11 +716,11 @@ RARRAY_AREF.exit.i:                               ; preds = %24, %.thread.i
   br i1 %.not.i.i35.i, label %32, label %30
 
 30:                                               ; preds = %RARRAY_AREF.exit.i
-  %31 = getelementptr inbounds i8, ptr %13, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %35
 
 32:                                               ; preds = %RARRAY_AREF.exit.i
-  %33 = getelementptr inbounds i8, ptr %13, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %34 = load ptr, ptr %33, align 8
   br label %35
 
@@ -767,7 +767,7 @@ define dso_local range(i64 5, 4) i64 @rb_num_coerce_relop(i64 noundef %0, i64 no
   br i1 %.not.i.i, label %rb_array_len.exit.i, label %rb_array_len.exit.thread.i
 
 rb_array_len.exit.i:                              ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %13, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %20 = load i64, ptr %19, align 8
   %.not33.i = icmp eq i64 %20, 2
   br i1 %.not33.i, label %24, label %.critedge.i
@@ -783,11 +783,11 @@ rb_array_len.exit.thread.i:                       ; preds = %17
   unreachable
 
 .thread.i:                                        ; preds = %rb_array_len.exit.thread.i
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %RARRAY_AREF.exit.i
 
 24:                                               ; preds = %rb_array_len.exit.i
-  %25 = getelementptr inbounds i8, ptr %13, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %26 = load ptr, ptr %25, align 8
   br label %RARRAY_AREF.exit.i
 
@@ -801,11 +801,11 @@ RARRAY_AREF.exit.i:                               ; preds = %24, %.thread.i
   br i1 %.not.i.i35.i, label %32, label %30
 
 30:                                               ; preds = %RARRAY_AREF.exit.i
-  %31 = getelementptr inbounds i8, ptr %13, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %36
 
 32:                                               ; preds = %RARRAY_AREF.exit.i
-  %33 = getelementptr inbounds i8, ptr %13, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %34 = load ptr, ptr %33, align 8
   br label %36
 
@@ -860,7 +860,7 @@ define dso_local noundef i64 @rb_float_new_in_heap(double noundef %0) local_unna
   %4 = load i64, ptr @rb_cFloat, align 8
   %5 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %3, i64 noundef %4, i64 noundef 4, i64 noundef 24) #23
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store double %0, ptr %7, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %5) #23
   ret i64 %5
@@ -891,7 +891,7 @@ define hidden i64 @rb_float_uminus(i64 noundef %0) local_unnamed_addr #2 {
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %0 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load double, ptr %13, align 8
   br label %rb_float_value_inline.exit
 
@@ -926,7 +926,7 @@ rb_float_value_inline.exit:                       ; preds = %4, %5, %11
   %31 = load i64, ptr @rb_cFloat, align 8
   %32 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %30, i64 noundef %31, i64 noundef 4, i64 noundef 24) #23
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store double %15, ptr %34, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %32) #23
   br label %rb_float_new_inline.exit
@@ -966,7 +966,7 @@ define internal fastcc i64 @rb_float_new_inline(double noundef %0) unnamed_addr 
   %17 = load i64, ptr @rb_cFloat, align 8
   %18 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %16, i64 noundef %17, i64 noundef 4, i64 noundef 24) #23
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store double %0, ptr %20, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %18) #23
   br label %21
@@ -1004,7 +1004,7 @@ define hidden i64 @rb_float_plus(i64 noundef %0, i64 noundef %1) #2 {
 
 16:                                               ; preds = %6
   %17 = inttoptr i64 %0 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load double, ptr %18, align 8
   br label %rb_float_value_inline.exit
 
@@ -1041,7 +1041,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
   %38 = load i64, ptr @rb_cFloat, align 8
   %39 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %37, i64 noundef %38, i64 noundef 4, i64 noundef 24) #23
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store double %22, ptr %41, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %39) #23
   br label %rb_float_new_inline.exit
@@ -1082,7 +1082,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
 
 61:                                               ; preds = %51
   %62 = inttoptr i64 %0 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load double, ptr %63, align 8
   br label %rb_float_value_inline.exit34
 
@@ -1118,7 +1118,7 @@ rb_float_value_inline.exit34:                     ; preds = %54, %55, %61
   %82 = load i64, ptr @rb_cFloat, align 8
   %83 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %81, i64 noundef %82, i64 noundef 4, i64 noundef 24) #23
   %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store double %66, ptr %85, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %83) #23
   br label %rb_float_new_inline.exit
@@ -1148,7 +1148,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %47, %.critedge
 
 96:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
   %97 = inttoptr i64 %0 to ptr
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load double, ptr %98, align 8
   br label %rb_float_value_inline.exit43
 
@@ -1171,7 +1171,7 @@ rb_float_value_inline.exit43:                     ; preds = %89, %90, %96
 
 107:                                              ; preds = %rb_float_value_inline.exit43
   %108 = inttoptr i64 %1 to ptr
-  %109 = getelementptr inbounds i8, ptr %108, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load double, ptr %109, align 8
   br label %rb_float_value_inline.exit47
 
@@ -1206,7 +1206,7 @@ rb_float_value_inline.exit47:                     ; preds = %100, %101, %107
   %127 = load i64, ptr @rb_cFloat, align 8
   %128 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %126, i64 noundef %127, i64 noundef 4, i64 noundef 24) #23
   %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds i8, ptr %129, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store double %111, ptr %130, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %128) #23
   br label %rb_float_new_inline.exit
@@ -1259,7 +1259,7 @@ define hidden i64 @rb_float_minus(i64 noundef %0, i64 noundef %1) #2 {
 
 16:                                               ; preds = %6
   %17 = inttoptr i64 %0 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load double, ptr %18, align 8
   br label %rb_float_value_inline.exit
 
@@ -1296,7 +1296,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
   %38 = load i64, ptr @rb_cFloat, align 8
   %39 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %37, i64 noundef %38, i64 noundef 4, i64 noundef 24) #23
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store double %22, ptr %41, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %39) #23
   br label %rb_float_new_inline.exit
@@ -1337,7 +1337,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
 
 61:                                               ; preds = %51
   %62 = inttoptr i64 %0 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load double, ptr %63, align 8
   br label %rb_float_value_inline.exit34
 
@@ -1373,7 +1373,7 @@ rb_float_value_inline.exit34:                     ; preds = %54, %55, %61
   %82 = load i64, ptr @rb_cFloat, align 8
   %83 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %81, i64 noundef %82, i64 noundef 4, i64 noundef 24) #23
   %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store double %66, ptr %85, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %83) #23
   br label %rb_float_new_inline.exit
@@ -1403,7 +1403,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %47, %.critedge
 
 96:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
   %97 = inttoptr i64 %0 to ptr
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load double, ptr %98, align 8
   br label %rb_float_value_inline.exit43
 
@@ -1426,7 +1426,7 @@ rb_float_value_inline.exit43:                     ; preds = %89, %90, %96
 
 107:                                              ; preds = %rb_float_value_inline.exit43
   %108 = inttoptr i64 %1 to ptr
-  %109 = getelementptr inbounds i8, ptr %108, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load double, ptr %109, align 8
   br label %rb_float_value_inline.exit47
 
@@ -1461,7 +1461,7 @@ rb_float_value_inline.exit47:                     ; preds = %100, %101, %107
   %127 = load i64, ptr @rb_cFloat, align 8
   %128 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %126, i64 noundef %127, i64 noundef 4, i64 noundef 24) #23
   %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds i8, ptr %129, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store double %111, ptr %130, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %128) #23
   br label %rb_float_new_inline.exit
@@ -1512,7 +1512,7 @@ define hidden i64 @rb_float_mul(i64 noundef %0, i64 noundef %1) #2 {
 
 16:                                               ; preds = %6
   %17 = inttoptr i64 %0 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load double, ptr %18, align 8
   br label %rb_float_value_inline.exit
 
@@ -1549,7 +1549,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
   %38 = load i64, ptr @rb_cFloat, align 8
   %39 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %37, i64 noundef %38, i64 noundef 4, i64 noundef 24) #23
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store double %22, ptr %41, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %39) #23
   br label %rb_float_new_inline.exit
@@ -1590,7 +1590,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
 
 61:                                               ; preds = %51
   %62 = inttoptr i64 %0 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load double, ptr %63, align 8
   br label %rb_float_value_inline.exit34
 
@@ -1626,7 +1626,7 @@ rb_float_value_inline.exit34:                     ; preds = %54, %55, %61
   %82 = load i64, ptr @rb_cFloat, align 8
   %83 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %81, i64 noundef %82, i64 noundef 4, i64 noundef 24) #23
   %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store double %66, ptr %85, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %83) #23
   br label %rb_float_new_inline.exit
@@ -1656,7 +1656,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %47, %.critedge
 
 96:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
   %97 = inttoptr i64 %0 to ptr
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load double, ptr %98, align 8
   br label %rb_float_value_inline.exit43
 
@@ -1679,7 +1679,7 @@ rb_float_value_inline.exit43:                     ; preds = %89, %90, %96
 
 107:                                              ; preds = %rb_float_value_inline.exit43
   %108 = inttoptr i64 %1 to ptr
-  %109 = getelementptr inbounds i8, ptr %108, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load double, ptr %109, align 8
   br label %rb_float_value_inline.exit47
 
@@ -1714,7 +1714,7 @@ rb_float_value_inline.exit47:                     ; preds = %100, %101, %107
   %127 = load i64, ptr @rb_cFloat, align 8
   %128 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %126, i64 noundef %127, i64 noundef 4, i64 noundef 24) #23
   %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds i8, ptr %129, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store double %111, ptr %130, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %128) #23
   br label %rb_float_new_inline.exit
@@ -1758,7 +1758,7 @@ define hidden i64 @rb_flo_div_flo(i64 noundef %0, i64 noundef %1) local_unnamed_
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %0 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value_inline.exit
 
@@ -1783,7 +1783,7 @@ rb_float_value_inline.exit:                       ; preds = %5, %6, %12
 
 25:                                               ; preds = %rb_float_value_inline.exit
   %26 = inttoptr i64 %1 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load double, ptr %27, align 8
   br label %rb_float_value_inline.exit7
 
@@ -1837,7 +1837,7 @@ double_div_double.exit:                           ; preds = %30, %rb_float_value
   %52 = load i64, ptr @rb_cFloat, align 8
   %53 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %51, i64 noundef %52, i64 noundef 4, i64 noundef 24) #23
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store double %.0.i8, ptr %55, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %53) #23
   br label %rb_float_new_inline.exit
@@ -1870,7 +1870,7 @@ define hidden i64 @rb_float_div(i64 noundef %0, i64 noundef %1) #2 {
 
 14:                                               ; preds = %2
   %15 = inttoptr i64 %0 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load double, ptr %16, align 8
   br label %rb_float_value_inline.exit
 
@@ -1924,7 +1924,7 @@ rb_float_value_inline.exit:                       ; preds = %7, %8, %14
   br label %rb_float_value_inline.exit36
 
 41:                                               ; preds = %27
-  %42 = getelementptr inbounds i8, ptr %28, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %43 = load double, ptr %42, align 8
   br label %rb_float_value_inline.exit36
 
@@ -1991,7 +1991,7 @@ double_div_double.exit:                           ; preds = %48, %rb_float_value
   %70 = load i64, ptr @rb_cFloat, align 8
   %71 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %69, i64 noundef %70, i64 noundef 4, i64 noundef 24) #23
   %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store double %.0.i37, ptr %73, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %71) #23
   br label %rb_float_new_inline.exit
@@ -2085,7 +2085,7 @@ define hidden i64 @rb_float_pow(i64 noundef %0, i64 noundef %1) #2 {
 
 16:                                               ; preds = %6
   %17 = inttoptr i64 %0 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load double, ptr %18, align 8
   br label %rb_float_value_inline.exit
 
@@ -2120,7 +2120,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
   %36 = load i64, ptr @rb_cFloat, align 8
   %37 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %35, i64 noundef %36, i64 noundef 4, i64 noundef 24) #23
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store double %20, ptr %39, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %37) #23
   br label %rb_float_new_inline.exit
@@ -2150,7 +2150,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
 
 52:                                               ; preds = %42
   %53 = inttoptr i64 %0 to ptr
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load double, ptr %54, align 8
   br label %rb_float_value_inline.exit53
 
@@ -2196,7 +2196,7 @@ rb_float_value_inline.exit53:                     ; preds = %45, %46, %52
 
 77:                                               ; preds = %67
   %78 = inttoptr i64 %0 to ptr
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load double, ptr %79, align 8
   br label %rb_float_value_inline.exit57
 
@@ -2230,7 +2230,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %63, %.critedge
 
 92:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
   %93 = inttoptr i64 %0 to ptr
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load double, ptr %94, align 8
   br label %rb_float_value_inline.exit62
 
@@ -2253,7 +2253,7 @@ rb_float_value_inline.exit62:                     ; preds = %85, %86, %92
 
 103:                                              ; preds = %rb_float_value_inline.exit62
   %104 = inttoptr i64 %1 to ptr
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load double, ptr %105, align 8
   br label %rb_float_value_inline.exit66
 
@@ -2316,7 +2316,7 @@ RB_FLOAT_TYPE_P.exit.thread72:                    ; preds = %63, %.critedge
   %134 = load i64, ptr @rb_cFloat, align 8
   %135 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %133, i64 noundef %134, i64 noundef 4, i64 noundef 24) #23
   %136 = inttoptr i64 %135 to ptr
-  %137 = getelementptr inbounds i8, ptr %136, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store double %118, ptr %137, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %135) #23
   br label %rb_float_new_inline.exit
@@ -2393,7 +2393,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %18
   br label %rb_float_value_inline.exit
 
 33:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %34 = getelementptr inbounds i8, ptr %22, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %35 = load double, ptr %34, align 8
   br label %rb_float_value_inline.exit
 
@@ -2419,7 +2419,7 @@ rb_float_value_inline.exit:                       ; preds = %26, %27, %33
 
 45:                                               ; preds = %rb_float_value_inline.exit
   %46 = inttoptr i64 %0 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load double, ptr %47, align 8
   br label %rb_float_value_inline.exit15
 
@@ -2439,7 +2439,7 @@ RB_FLOAT_TYPE_P.exit.thread22:                    ; preds = %18, %RB_FLOAT_TYPE_
 52:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 140, ptr %3, align 16
-  %53 = getelementptr inbounds i8, ptr %3, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %53, align 8
   %54 = ptrtoint ptr %3 to i64
   %55 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef %0, i64 noundef %1, i64 noundef %54) #23
@@ -2541,7 +2541,7 @@ define internal i64 @flo_cmp(i64 noundef %0, i64 noundef %1) #2 {
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %0 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value_inline.exit
 
@@ -2613,7 +2613,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %33
   br label %rb_float_value_inline.exit31
 
 48:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %49 = getelementptr inbounds i8, ptr %37, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %50 = load double, ptr %49, align 8
   br label %rb_float_value_inline.exit31
 
@@ -2709,7 +2709,7 @@ define hidden i64 @rb_float_gt(i64 noundef %0, i64 noundef %1) #2 {
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %0 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value_inline.exit
 
@@ -2776,7 +2776,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %32
   br label %rb_float_value_inline.exit17
 
 47:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %48 = getelementptr inbounds i8, ptr %36, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %49 = load double, ptr %48, align 8
   br label %rb_float_value_inline.exit17
 
@@ -2837,7 +2837,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %2, %RB_FLOAT_TYPE_P
 
 23:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread
   %24 = inttoptr i64 %0 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load double, ptr %25, align 8
   br label %rb_float_value_inline.exit
 
@@ -2860,7 +2860,7 @@ rb_float_value_inline.exit:                       ; preds = %16, %17, %23
 
 34:                                               ; preds = %rb_float_value_inline.exit
   %35 = inttoptr i64 %1 to ptr
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load double, ptr %36, align 8
   br label %rb_float_value_inline.exit9
 
@@ -2896,7 +2896,7 @@ define hidden i64 @rb_float_abs(i64 noundef %0) local_unnamed_addr #2 {
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %0 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load double, ptr %13, align 8
   br label %rb_float_value_inline.exit
 
@@ -2929,7 +2929,7 @@ rb_float_value_inline.exit:                       ; preds = %4, %5, %11
   %29 = load i64, ptr @rb_cFloat, align 8
   %30 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %28, i64 noundef %29, i64 noundef 4, i64 noundef 24) #23
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store double %15, ptr %32, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %30) #23
   br label %rb_float_new_inline.exit
@@ -2963,7 +2963,7 @@ define hidden range(i64 -1, 5) i64 @rb_flo_is_infinite_p(i64 noundef %0) #10 {
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %0 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load double, ptr %13, align 8
   br label %rb_float_value_inline.exit
 
@@ -2998,7 +2998,7 @@ define hidden range(i64 0, 21) i64 @rb_flo_is_finite_p(i64 noundef %0) #10 {
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %0 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load double, ptr %13, align 8
   br label %rb_float_value_inline.exit
 
@@ -3032,7 +3032,7 @@ define hidden i64 @rb_float_floor(i64 noundef %0, i32 noundef %1) local_unnamed_
 
 13:                                               ; preds = %2
   %14 = inttoptr i64 %0 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load double, ptr %15, align 8
   br label %rb_float_value_inline.exit
 
@@ -3075,7 +3075,7 @@ rb_float_value_inline.exit.thread:                ; preds = %6, %rb_float_value_
   %35 = load i64, ptr @rb_cFloat, align 8
   %36 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %34, i64 noundef %35, i64 noundef 4, i64 noundef 24) #23
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store double %.0.i42, ptr %38, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %36) #23
   br label %rb_float_new_inline.exit
@@ -3166,7 +3166,7 @@ float_round_underflow.exit:                       ; preds = %55, %57
   %82 = load i64, ptr @rb_cFloat, align 8
   %83 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %81, i64 noundef %82, i64 noundef 4, i64 noundef 24) #23
   %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store double %.0, ptr %85, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %83) #23
   br label %rb_float_new_inline.exit
@@ -3375,7 +3375,7 @@ define hidden i64 @rb_float_ceil(i64 noundef %0, i32 noundef %1) local_unnamed_a
 
 13:                                               ; preds = %2
   %14 = inttoptr i64 %0 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load double, ptr %15, align 8
   br label %rb_float_value_inline.exit
 
@@ -3418,7 +3418,7 @@ rb_float_value_inline.exit.thread:                ; preds = %6, %rb_float_value_
   %35 = load i64, ptr @rb_cFloat, align 8
   %36 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %34, i64 noundef %35, i64 noundef 4, i64 noundef 24) #23
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store double %.0.i35, ptr %38, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %36) #23
   br label %rb_float_new_inline.exit
@@ -3505,7 +3505,7 @@ float_round_underflow.exit:                       ; preds = %55, %57
   %79 = load i64, ptr @rb_cFloat, align 8
   %80 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %78, i64 noundef %79, i64 noundef 4, i64 noundef 24) #23
   %81 = inttoptr i64 %80 to ptr
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store double %63, ptr %82, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %80) #23
   br label %rb_float_new_inline.exit
@@ -4163,7 +4163,7 @@ define hidden i64 @rb_int_modulo(i64 noundef %0, i64 noundef %1) #2 {
 .critedge:                                        ; preds = %7, %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 3537, ptr %3, align 16
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %0, ptr %19, align 8
   %20 = ptrtoint ptr %3 to i64
   %21 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef %1, i64 noundef %0, i64 noundef %20) #23
@@ -4597,7 +4597,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %RB_FLOAT_TYPE_P.exi
   %118 = load i64, ptr @rb_cFloat, align 8
   %119 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %117, i64 noundef %118, i64 noundef 4, i64 noundef 24) #23
   %120 = inttoptr i64 %119 to ptr
-  %121 = getelementptr inbounds i8, ptr %120, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store double %.0.us, ptr %121, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %119) #23
   br label %rb_float_new_inline.exit50.us
@@ -4646,7 +4646,7 @@ rb_float_new_inline.exit50.us:                    ; preds = %116, %112, %110
   %145 = load i64, ptr @rb_cFloat, align 8
   %146 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %144, i64 noundef %145, i64 noundef 4, i64 noundef 24) #23
   %147 = inttoptr i64 %146 to ptr
-  %148 = getelementptr inbounds i8, ptr %147, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store double %40, ptr %148, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %146) #23
   br label %rb_float_new_inline.exit
@@ -4685,7 +4685,7 @@ ruby_float_step_size.exit.thread:                 ; preds = %47
   %165 = load i64, ptr @rb_cFloat, align 8
   %166 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %164, i64 noundef %165, i64 noundef 4, i64 noundef 24) #23
   %167 = inttoptr i64 %166 to ptr
-  %168 = getelementptr inbounds i8, ptr %167, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store double %40, ptr %168, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %166) #23
   br label %rb_float_new_inline.exit46
@@ -4731,7 +4731,7 @@ rb_float_new_inline.exit46:                       ; preds = %156, %160, %162
   %188 = load i64, ptr @rb_cFloat, align 8
   %189 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %187, i64 noundef %188, i64 noundef 4, i64 noundef 24) #23
   %190 = inttoptr i64 %189 to ptr
-  %191 = getelementptr inbounds i8, ptr %190, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   store double %.0, ptr %191, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %189) #23
   br label %rb_float_new_inline.exit50
@@ -4771,7 +4771,7 @@ define hidden i64 @ruby_num_interval_step_size(i64 noundef %0, i64 noundef %1, i
   %13 = load i64, ptr @rb_cFloat, align 8
   %14 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %12, i64 noundef %13, i64 noundef 4, i64 noundef 24) #23
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store double 0x7FF0000000000000, ptr %16, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %14) #23
   br label %rb_ulong2num_inline.exit
@@ -5009,7 +5009,7 @@ ruby_float_step_size.exit.thread:                 ; preds = %RB_FLOAT_TYPE_P.exi
   %144 = load i64, ptr @rb_cFloat, align 8
   %145 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %143, i64 noundef %144, i64 noundef 4, i64 noundef 24) #23
   %146 = inttoptr i64 %145 to ptr
-  %147 = getelementptr inbounds i8, ptr %146, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store double %.052.i70, ptr %147, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %145) #23
   br label %rb_ulong2num_inline.exit
@@ -5042,7 +5042,7 @@ RB_FLOAT_TYPE_P.exit55.thread66:                  ; preds = %60, %RB_FLOAT_TYPE_
   %161 = load i64, ptr @rb_cFloat, align 8
   %162 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %160, i64 noundef %161, i64 noundef 4, i64 noundef 24) #23
   %163 = inttoptr i64 %162 to ptr
-  %164 = getelementptr inbounds i8, ptr %163, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store double 0x7FF0000000000000, ptr %164, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %162) #23
   br label %rb_ulong2num_inline.exit
@@ -5141,7 +5141,7 @@ rb_float_value_inline.exit:                       ; preds = %19
   br i1 %or.cond, label %32, label %rb_float_value_inline.exit40
 
 rb_float_value_inline.exit.thread46:              ; preds = %RB_FLOAT_TYPE_P.exit
-  %27 = getelementptr inbounds i8, ptr %15, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %28 = load double, ptr %27, align 8
   %29 = fcmp uge double %28, 0x43E0000000000000
   %30 = fcmp ult double %28, 0xC3E0000000000000
@@ -5201,7 +5201,7 @@ define internal fastcc noundef nonnull ptr @out_of_range_float(ptr noundef nonnu
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %1 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value_inline.exit
 
@@ -5291,7 +5291,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %13
   br label %rb_float_value_inline.exit
 
 29:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %30 = getelementptr inbounds i8, ptr %18, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %31 = load double, ptr %30, align 8
   br label %rb_float_value_inline.exit
 
@@ -5731,7 +5731,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %12
   br label %rb_float_value_inline.exit
 
 28:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %29 = getelementptr inbounds i8, ptr %17, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %30 = load double, ptr %29, align 8
   br label %rb_float_value_inline.exit
 
@@ -5855,7 +5855,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %12
   br label %rb_float_value_inline.exit
 
 28:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %29 = getelementptr inbounds i8, ptr %17, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %30 = load double, ptr %29, align 8
   br label %rb_float_value_inline.exit
 
@@ -6001,7 +6001,7 @@ define hidden i64 @rb_int_succ(i64 noundef %0) #2 {
 .critedge:                                        ; preds = %13, %18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i64 43, ptr %2, align 16
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %0, ptr %25, align 8
   %26 = ptrtoint ptr %2 to i64
   %27 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef 3, i64 noundef %0, i64 noundef %26) #23
@@ -6043,7 +6043,7 @@ define dso_local i64 @rb_enc_uint_chr(i32 noundef %0, ptr noundef %1) local_unna
   %13 = load i64, ptr %12, align 8, !noalias !16
   %14 = and i64 %13, 8192
   %.not.i.i = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %16
 
 16:                                               ; preds = %9
@@ -6052,7 +6052,7 @@ define dso_local i64 @rb_enc_uint_chr(i32 noundef %0, ptr noundef %1) local_unna
 
 RSTRING_PTR.exit:                                 ; preds = %9, %16
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %16 ], [ %15, %9 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(i32 noundef %0, ptr noundef %.sroa.2.0.i, ptr noundef %1) #23
   %20 = load i64, ptr %12, align 8, !noalias !19
@@ -6066,7 +6066,7 @@ RSTRING_PTR.exit:                                 ; preds = %9, %16
 
 RSTRING_END.exit:                                 ; preds = %RSTRING_PTR.exit, %22
   %.sroa.3.0.i = phi ptr [ %.sroa.2.0.copyload.i19, %22 ], [ %15, %RSTRING_PTR.exit ]
-  %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.1.0.in.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.1.0.i = load i64, ptr %.sroa.1.0.in.i, align 8
   %23 = getelementptr i8, ptr %.sroa.3.0.i, i64 %.sroa.1.0.i
   %24 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %.sroa.3.0.i, ptr noundef %23, ptr noundef nonnull %1) #23
@@ -6126,7 +6126,7 @@ declare i64 @rb_big_uminus(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @rb_fix2str(i64 noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca [65 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 65
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 65
   %5 = ashr i64 %0, 1
   %6 = add i32 %1, -37
   %or.cond = icmp ult i32 %6, -35
@@ -6202,7 +6202,7 @@ define hidden i64 @rb_fix_to_s(i64 noundef %0) local_unnamed_addr #2 {
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %2)
-  %8 = getelementptr inbounds i8, ptr %2, i64 65
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 65
   %9 = icmp ult i64 %0, 2
   br i1 %9, label %10, label %12
 
@@ -6312,7 +6312,7 @@ define hidden i64 @rb_int2str(i64 noundef %0, i32 noundef %1) local_unnamed_addr
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %3)
-  %6 = getelementptr inbounds i8, ptr %3, i64 65
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 65
   %7 = ashr i64 %0, 1
   %8 = add i32 %1, -37
   %or.cond.i = icmp ult i32 %8, -35
@@ -6468,7 +6468,7 @@ define internal fastcc i64 @fix_plus(i64 noundef %0, i64 noundef %1) unnamed_add
   br label %rb_float_value_inline.exit
 
 34:                                               ; preds = %20
-  %35 = getelementptr inbounds i8, ptr %21, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %36 = load double, ptr %35, align 8
   br label %rb_float_value_inline.exit
 
@@ -6505,7 +6505,7 @@ rb_float_value_inline.exit:                       ; preds = %27, %28, %34
   %54 = load i64, ptr @rb_cFloat, align 8
   %55 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %53, i64 noundef %54, i64 noundef 4, i64 noundef 24) #23
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store double %38, ptr %57, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %55) #23
   br label %rb_fix_plus_fix.exit
@@ -6594,7 +6594,7 @@ define internal fastcc i64 @fix_minus(i64 noundef %0, i64 noundef %1) unnamed_ad
   br label %rb_float_value_inline.exit
 
 36:                                               ; preds = %20
-  %37 = getelementptr inbounds i8, ptr %21, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %38 = load double, ptr %37, align 8
   br label %rb_float_value_inline.exit
 
@@ -6631,7 +6631,7 @@ rb_float_value_inline.exit:                       ; preds = %29, %30, %36
   %56 = load i64, ptr @rb_cFloat, align 8
   %57 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %55, i64 noundef %56, i64 noundef 4, i64 noundef 24) #23
   %58 = inttoptr i64 %57 to ptr
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store double %40, ptr %59, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %57) #23
   br label %rb_fix_minus_fix.exit
@@ -6742,7 +6742,7 @@ define hidden i64 @rb_int_mul(i64 noundef %0, i64 noundef %1) #2 {
   br label %rb_float_value_inline.exit.i
 
 44:                                               ; preds = %28
-  %45 = getelementptr inbounds i8, ptr %29, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %46 = load double, ptr %45, align 8
   br label %rb_float_value_inline.exit.i
 
@@ -6779,7 +6779,7 @@ rb_float_value_inline.exit.i:                     ; preds = %44, %38, %37
   %64 = load i64, ptr @rb_cFloat, align 8
   %65 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %63, i64 noundef %64, i64 noundef 4, i64 noundef 24) #23
   %66 = inttoptr i64 %65 to ptr
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store double %48, ptr %67, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %65) #23
   br label %fix_mul.exit
@@ -6967,7 +6967,7 @@ rb_integer_type_p.exit.thread42:                  ; preds = %16, %16, %6, %18, %
 67:                                               ; preds = %49
   %68 = ashr i64 %.036, 1
   %69 = sitofp i64 %68 to double
-  %70 = getelementptr inbounds i8, ptr %50, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %71 = load double, ptr %70, align 8
   br label %rb_float_value_inline.exit.i
 
@@ -7073,7 +7073,7 @@ define hidden i64 @rb_int_idiv(i64 noundef %0, i64 noundef %1) #2 {
 21:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 47, ptr %3, align 16
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %0, ptr %22, align 8
   %23 = ptrtoint ptr %3 to i64
   %24 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef %1, i64 noundef %0, i64 noundef %23) #23
@@ -7150,7 +7150,7 @@ rb_integer_type_p.exit.thread:                    ; preds = %2, %rb_integer_type
   %29 = load i64, ptr @rb_cFloat, align 8
   %30 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %28, i64 noundef %29, i64 noundef 4, i64 noundef 24) #23
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store double %13, ptr %32, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %30) #23
   br label %rb_float_new_inline.exit
@@ -7211,7 +7211,7 @@ define internal i64 @num_div(i64 noundef %0, i64 noundef %1) #2 {
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 47, ptr %3, align 16
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %0, ptr %7, align 8
   %8 = ptrtoint ptr %3 to i64
   %9 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef %1, i64 noundef %0, i64 noundef %8) #23
@@ -7320,7 +7320,7 @@ define internal fastcc i64 @fix_mod(i64 noundef %0, i64 noundef %1) unnamed_addr
   br label %rb_float_value_inline.exit
 
 47:                                               ; preds = %31
-  %48 = getelementptr inbounds i8, ptr %32, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %49 = load double, ptr %48, align 8
   br label %rb_float_value_inline.exit
 
@@ -7382,7 +7382,7 @@ ruby_float_mod.exit:                              ; preds = %rb_float_value_inli
   %76 = load i64, ptr @rb_cFloat, align 8
   %77 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %75, i64 noundef %76, i64 noundef 4, i64 noundef 24) #23
   %78 = inttoptr i64 %77 to ptr
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store double %.0.i34, ptr %79, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %77) #23
   br label %rb_fix_mod_fix.exit
@@ -7412,7 +7412,7 @@ define internal i64 @num_modulo(i64 noundef %0, i64 noundef %1) #2 {
   %3 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 3537, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %0, ptr %4, align 8
   %5 = ptrtoint ptr %3 to i64
   %6 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef %1, i64 noundef %0, i64 noundef %5) #23
@@ -7534,7 +7534,7 @@ rb_fix_divmod_fix.exit.i:                         ; preds = %31, %18
   br label %rb_float_value_inline.exit.i
 
 58:                                               ; preds = %42
-  %59 = getelementptr inbounds i8, ptr %43, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %60 = load double, ptr %59, align 8
   br label %rb_float_value_inline.exit.i
 
@@ -7620,7 +7620,7 @@ dbl2ival.exit.i:                                  ; preds = %82, %78
   %99 = load i64, ptr @rb_cFloat, align 8
   %100 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %98, i64 noundef %99, i64 noundef 4, i64 noundef 24) #23
   %101 = inttoptr i64 %100 to ptr
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store double %.0.i, ptr %102, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %100) #23
   br label %rb_float_new_inline.exit.i
@@ -7817,7 +7817,7 @@ int_even_p.exit:                                  ; preds = %40
   br label %rb_float_value_inline.exit
 
 61:                                               ; preds = %36
-  %62 = getelementptr inbounds i8, ptr %37, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %63 = load double, ptr %62, align 8
   br label %rb_float_value_inline.exit
 
@@ -7999,7 +7999,7 @@ RB_FLOAT_TYPE_P.exit.thread.i:                    ; preds = %.critedge.i, %14
 num_equal.exit.i:                                 ; preds = %.critedge.i, %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 140, ptr %3, align 16
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %22, align 8
   %23 = ptrtoint ptr %3 to i64
   %24 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef %0, i64 noundef %1, i64 noundef %23) #23
@@ -8332,9 +8332,9 @@ declare i64 @rb_big_comp(i64 noundef) local_unnamed_addr #3
 define dso_local range(i64 37, 36) i64 @rb_num_coerce_bit(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [3 x i64], align 16
   store i64 %2, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %1, ptr %6, align 16
   call fastcc void @do_coerce(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1)
   %7 = load i64, ptr %6, align 16
@@ -8447,9 +8447,9 @@ define hidden i64 @rb_int_and(i64 noundef %0, i64 noundef %1) #2 {
 .critedge.i:                                      ; preds = %14, %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store i64 38, ptr %3, align 16
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %22, align 16
   call fastcc void @do_coerce(ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 1)
   %23 = load i64, ptr %22, align 16
@@ -8891,7 +8891,7 @@ define hidden void @Init_Numeric() local_unnamed_addr #2 {
 
 45:                                               ; preds = %0
   %46 = inttoptr i64 %40 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   br label %rb_class_of.exit
 
 48:                                               ; preds = %0
@@ -9055,7 +9055,7 @@ rb_class_of.exit:                                 ; preds = %45, %48, %49, %50, 
 
 121:                                              ; preds = %113
   %122 = inttoptr i64 %116 to ptr
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   br label %rb_class_of.exit7
 
 124:                                              ; preds = %113
@@ -9105,7 +9105,7 @@ rb_class_of.exit7:                                ; preds = %121, %124, %125, %1
   %141 = load ptr, ptr %140, align 8
   %142 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %141, i64 noundef %139, i64 noundef 4, i64 noundef 24) #23
   %143 = inttoptr i64 %142 to ptr
-  %144 = getelementptr inbounds i8, ptr %143, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store double 0x10000000000000, ptr %144, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %142) #23
   tail call void @rb_define_const(i64 noundef %139, ptr noundef nonnull @.str.108, i64 noundef %142) #23
@@ -9113,7 +9113,7 @@ rb_class_of.exit7:                                ; preds = %121, %124, %125, %1
   %146 = load ptr, ptr %140, align 8
   %147 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %146, i64 noundef %145, i64 noundef 4, i64 noundef 24) #23
   %148 = inttoptr i64 %147 to ptr
-  %149 = getelementptr inbounds i8, ptr %148, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %149, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %147) #23
   tail call void @rb_define_const(i64 noundef %145, ptr noundef nonnull @.str.109, i64 noundef %147) #23
@@ -9123,7 +9123,7 @@ rb_class_of.exit7:                                ; preds = %121, %124, %125, %1
   %152 = load ptr, ptr %140, align 8
   %153 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %152, i64 noundef %151, i64 noundef 4, i64 noundef 24) #23
   %154 = inttoptr i64 %153 to ptr
-  %155 = getelementptr inbounds i8, ptr %154, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store double 0x7FF0000000000000, ptr %155, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %153) #23
   tail call void @rb_define_const(i64 noundef %151, ptr noundef nonnull @.str.111, i64 noundef %153) #23
@@ -9131,7 +9131,7 @@ rb_class_of.exit7:                                ; preds = %121, %124, %125, %1
   %157 = load ptr, ptr %140, align 8
   %158 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %157, i64 noundef %156, i64 noundef 4, i64 noundef 24) #23
   %159 = inttoptr i64 %158 to ptr
-  %160 = getelementptr inbounds i8, ptr %159, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   store double 0x7FF8000000000000, ptr %160, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %158) #23
   tail call void @rb_define_const(i64 noundef %156, ptr noundef nonnull @.str.112, i64 noundef %158) #23
@@ -9232,7 +9232,7 @@ define internal i64 @num_coerce(i64 noundef %0, i64 noundef %1) #2 {
 
 7:                                                ; preds = %2
   %8 = inttoptr i64 %0 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %rb_class_of.exit
 
 10:                                               ; preds = %2
@@ -9270,7 +9270,7 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
 
 22:                                               ; preds = %rb_class_of.exit
   %23 = inttoptr i64 %1 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   br label %rb_class_of.exit13
 
 25:                                               ; preds = %rb_class_of.exit
@@ -9343,7 +9343,7 @@ define internal i64 @num_uminus(i64 noundef %0) #2 {
   %6 = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i64 45, ptr %2, align 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %5, ptr %7, align 8
   %8 = ptrtoint ptr %2 to i64
   %9 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef %6, i64 noundef %5, i64 noundef %8) #23
@@ -9396,7 +9396,7 @@ switch.hole_check:                                ; preds = %12
   br i1 %switch.lobit, label %switch.lookup, label %15
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table.num_eql.2, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.num_eql.2, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -9438,7 +9438,7 @@ switch.hole_check31:                              ; preds = %29
   br i1 %switch.lobit35, label %switch.lookup32, label %32
 
 switch.lookup32:                                  ; preds = %switch.hole_check31
-  %switch.gep36 = getelementptr inbounds [10 x i32], ptr @switch.table.num_eql.2, i64 0, i64 %30
+  %switch.gep36 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.num_eql.2, i64 0, i64 %30
   %switch.load37 = load i32, ptr %switch.gep36, align 4
   br label %rb_type.exit29
 
@@ -9492,7 +9492,7 @@ define internal i64 @num_divmod(i64 noundef %0, i64 noundef %1) #2 {
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i64 47, ptr %4, align 16
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %0, ptr %8, align 8
   %9 = ptrtoint ptr %4 to i64
   %10 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef %1, i64 noundef %0, i64 noundef %9) #23
@@ -9512,7 +9512,7 @@ num_div.exit:                                     ; preds = %.lr.ph.i.i, %7
   %12 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %10, i64 noundef %.lcssa.i.i, i32 noundef 0) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 3537, ptr %3, align 16
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %0, ptr %13, align 8
   %14 = ptrtoint ptr %3 to i64
   %15 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef %1, i64 noundef %0, i64 noundef %14) #23
@@ -9546,7 +9546,7 @@ define internal i64 @num_remainder(i64 noundef %0, i64 noundef %1) #2 {
   %11 = phi i64 [ %.pr, %8 ], [ %1, %2 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 37, ptr %3, align 16
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %10, ptr %12, align 8
   %13 = ptrtoint ptr %3 to i64
   %14 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef %11, i64 noundef %10, i64 noundef %13) #23
@@ -9610,7 +9610,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %29
   br label %rb_float_value_inline.exit
 
 45:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %46 = getelementptr inbounds i8, ptr %34, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %47 = load double, ptr %46, align 8
   br label %rb_float_value_inline.exit
 
@@ -9872,7 +9872,7 @@ thread-pre-split:                                 ; preds = %9
   %40 = call i64 @rb_id2sym(i64 noundef %39) #23
   %41 = load i64, ptr %4, align 8
   store i64 %41, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %43 = load i64, ptr %5, align 8
   store i64 %43, ptr %42, align 8
   %44 = call i64 @rb_enumeratorize_with_size_kw(i64 noundef %2, i64 noundef %40, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull @num_step_size, i32 noundef 0) #23
@@ -9919,7 +9919,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %53
   br label %rb_float_value_inline.exit
 
 69:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %70 = getelementptr inbounds i8, ptr %58, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %71 = load double, ptr %70, align 8
   br label %rb_float_value_inline.exit
 
@@ -10218,7 +10218,7 @@ rb_ulong_isqrt.exit:                              ; preds = %.lr.ph.i, %12, %31
   br i1 %.not.i16, label %44, label %47
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %41, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %46 = load i64, ptr %45, align 8
   br label %BIGNUM_LEN.exit
 
@@ -10238,11 +10238,11 @@ BIGNUM_LEN.exit:                                  ; preds = %44, %47
   br i1 %.not.i16, label %53, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %41, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 16
   br label %BIGNUM_DIGITS.exit
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %41, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %55 = load ptr, ptr %54, align 8
   br label %BIGNUM_DIGITS.exit
 
@@ -10492,7 +10492,7 @@ define internal i64 @rb_int_pred(i64 noundef %0) #2 {
 .critedge:                                        ; preds = %12, %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store i64 45, ptr %2, align 16
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %0, ptr %24, align 8
   %25 = ptrtoint ptr %2 to i64
   %26 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef 3, i64 noundef %0, i64 noundef %25) #23
@@ -10603,7 +10603,7 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
   %44 = load i64, ptr %43, align 8, !noalias !32
   %45 = and i64 %44, 8192
   %.not.i.i.i = icmp eq i64 %45, 0
-  %46 = getelementptr inbounds i8, ptr %43, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %47
 
 47:                                               ; preds = %40
@@ -10612,7 +10612,7 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
 
 RSTRING_PTR.exit.i:                               ; preds = %47, %40
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %47 ], [ %46, %40 ]
-  %48 = getelementptr inbounds i8, ptr %.0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 %49(i32 noundef %13, ptr noundef %.sroa.2.0.i.i, ptr noundef nonnull %.0) #23
   %51 = load i64, ptr %43, align 8, !noalias !35
@@ -10626,7 +10626,7 @@ RSTRING_PTR.exit.i:                               ; preds = %47, %40
 
 RSTRING_END.exit.i:                               ; preds = %53, %RSTRING_PTR.exit.i
   %.sroa.3.0.i.i = phi ptr [ %.sroa.2.0.copyload.i19.i, %53 ], [ %46, %RSTRING_PTR.exit.i ]
-  %.sroa.1.0.in.i.i = getelementptr inbounds i8, ptr %43, i64 16
+  %.sroa.1.0.in.i.i = getelementptr inbounds nuw i8, ptr %43, i64 16
   %.sroa.1.0.i.i = load i64, ptr %.sroa.1.0.in.i.i, align 8
   %54 = getelementptr i8, ptr %.sroa.3.0.i.i, i64 %.sroa.1.0.i.i
   %55 = tail call i32 @rb_enc_precise_mbclen(ptr noundef %.sroa.3.0.i.i, ptr noundef %54, ptr noundef nonnull %.0) #23
@@ -10710,7 +10710,7 @@ define internal i64 @int_to_f(i64 noundef %0) #2 {
   %36 = load i64, ptr @rb_cFloat, align 8
   %37 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %35, i64 noundef %36, i64 noundef 4, i64 noundef 24) #23
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store double %.0, ptr %39, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %37) #23
   br label %rb_float_new_inline.exit
@@ -11202,9 +11202,9 @@ define internal i64 @int_or(i64 noundef %0, i64 noundef %1) #2 {
 .critedge.i:                                      ; preds = %14, %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store i64 124, ptr %3, align 16
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %22, align 16
   call fastcc void @do_coerce(ptr noundef nonnull %21, ptr noundef nonnull %22, i32 noundef 1)
   %23 = load i64, ptr %22, align 16
@@ -11283,9 +11283,9 @@ define internal i64 @int_xor(i64 noundef %0, i64 noundef %1) #2 {
 .critedge.i:                                      ; preds = %15, %10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store i64 94, ptr %3, align 16
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %1, ptr %23, align 16
   call fastcc void @do_coerce(ptr noundef nonnull %22, ptr noundef nonnull %23, i32 noundef 1)
   %24 = load i64, ptr %23, align 16
@@ -11977,7 +11977,7 @@ define internal i64 @flo_to_s(i64 noundef %0) #2 {
 
 15:                                               ; preds = %1
   %16 = inttoptr i64 %0 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load double, ptr %17, align 8
   br label %rb_float_value_inline.exit
 
@@ -12064,7 +12064,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %37, %45
 61:                                               ; preds = %59
   %62 = call i64 @rb_str_cat(i64 noundef %38, ptr noundef nonnull %2, i64 noundef %44) #23
   %63 = inttoptr i64 %38 to ptr
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i64, ptr %64, align 8
   %66 = load i32, ptr %5, align 4
   %67 = sext i32 %66 to i64
@@ -12075,7 +12075,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %37, %45
   %71 = load i64, ptr %63, align 8, !noalias !39
   %72 = and i64 %71, 8192
   %.not.i.i49 = icmp eq i64 %72, 0
-  %73 = getelementptr inbounds i8, ptr %63, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 24
   br i1 %.not.i.i49, label %RSTRING_PTR.exit, label %74
 
 74:                                               ; preds = %61
@@ -12111,7 +12111,7 @@ RSTRING_PTR.exit:                                 ; preds = %61, %74
 88:                                               ; preds = %86
   %89 = call i64 @rb_str_cat(i64 noundef %38, ptr noundef nonnull @.str.169, i64 noundef 2) #23
   %90 = inttoptr i64 %38 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load i64, ptr %91, align 8
   %93 = load i32, ptr %5, align 4
   %94 = sext i32 %93 to i64
@@ -12121,7 +12121,7 @@ RSTRING_PTR.exit:                                 ; preds = %61, %74
   %98 = load i64, ptr %90, align 8, !noalias !42
   %99 = and i64 %98, 8192
   %.not.i.i50 = icmp eq i64 %99, 0
-  %100 = getelementptr inbounds i8, ptr %90, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %90, i64 24
   br i1 %.not.i.i50, label %RSTRING_PTR.exit53, label %101
 
 101:                                              ; preds = %88
@@ -12147,11 +12147,11 @@ RSTRING_PTR.exit53:                               ; preds = %88, %101
 
 111:                                              ; preds = %86, %59
   %112 = icmp sgt i32 %43, 1
-  %113 = getelementptr inbounds i8, ptr %2, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br i1 %112, label %114, label %118
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %2, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %116 = add nsw i32 %spec.store.select, -1
   %117 = zext nneg i32 %116 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %113, ptr nonnull align 1 %115, i64 %117, i1 false)
@@ -12164,7 +12164,7 @@ RSTRING_PTR.exit53:                               ; preds = %88, %101
 
 120:                                              ; preds = %118, %114
   %.045 = phi i32 [ %spec.store.select, %114 ], [ %119, %118 ]
-  %121 = getelementptr inbounds i8, ptr %2, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 46, ptr %121, align 1
   %122 = add nsw i32 %.045, 1
   %123 = sext i32 %122 to i64
@@ -12191,7 +12191,7 @@ define internal i64 @flo_quo(i64 noundef %0, i64 noundef %1) #2 {
   %3 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store i64 47, ptr %3, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %0, ptr %4, align 8
   %5 = ptrtoint ptr %3 to i64
   %6 = call i64 @rb_exec_recursive_paired(ptr noundef nonnull @num_funcall_op_1, i64 noundef %1, i64 noundef %0, i64 noundef %5) #23
@@ -12251,7 +12251,7 @@ define internal i64 @flo_mod(i64 noundef %0, i64 noundef %1) #2 {
   br label %rb_float_value_inline.exit
 
 28:                                               ; preds = %14
-  %29 = getelementptr inbounds i8, ptr %15, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %30 = load double, ptr %29, align 8
   br label %rb_float_value_inline.exit
 
@@ -12289,7 +12289,7 @@ rb_float_value_inline.exit:                       ; preds = %28, %22, %21, %18, 
 
 43:                                               ; preds = %rb_float_value_inline.exit
   %44 = inttoptr i64 %0 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load double, ptr %45, align 8
   br label %rb_float_value_inline.exit34
 
@@ -12370,7 +12370,7 @@ ruby_float_mod.exit:                              ; preds = %rb_float_value_inli
   %84 = load i64, ptr @rb_cFloat, align 8
   %85 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %83, i64 noundef %84, i64 noundef 4, i64 noundef 24) #23
   %86 = inttoptr i64 %85 to ptr
-  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store double %.0.i35, ptr %87, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %85) #23
   br label %rb_float_new_inline.exit
@@ -12434,7 +12434,7 @@ define internal i64 @flo_divmod(i64 noundef %0, i64 noundef %1) #2 {
   br label %rb_float_value_inline.exit
 
 30:                                               ; preds = %16
-  %31 = getelementptr inbounds i8, ptr %17, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %32 = load double, ptr %31, align 8
   br label %rb_float_value_inline.exit
 
@@ -12472,7 +12472,7 @@ rb_float_value_inline.exit:                       ; preds = %30, %24, %23, %20, 
 
 45:                                               ; preds = %rb_float_value_inline.exit
   %46 = inttoptr i64 %0 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load double, ptr %47, align 8
   br label %rb_float_value_inline.exit36
 
@@ -12580,7 +12580,7 @@ dbl2ival.exit:                                    ; preds = %73, %77
   %94 = load i64, ptr @rb_cFloat, align 8
   %95 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %93, i64 noundef %94, i64 noundef 4, i64 noundef 24) #23
   %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store double %.1, ptr %97, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %95) #23
   br label %rb_float_new_inline.exit
@@ -12619,7 +12619,7 @@ define internal i64 @flo_ge(i64 noundef %0, i64 noundef %1) #2 {
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %0 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value_inline.exit
 
@@ -12675,7 +12675,7 @@ rb_float_value_inline.exit:                       ; preds = %5, %6, %12
   br label %rb_float_value_inline.exit55
 
 39:                                               ; preds = %22
-  %40 = getelementptr inbounds i8, ptr %23, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %41 = load double, ptr %40, align 8
   br label %rb_float_value_inline.exit55
 
@@ -12715,7 +12715,7 @@ define internal i64 @flo_lt(i64 noundef %0, i64 noundef %1) #2 {
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %0 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value_inline.exit
 
@@ -12782,7 +12782,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %32
   br label %rb_float_value_inline.exit17
 
 47:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %48 = getelementptr inbounds i8, ptr %36, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %49 = load double, ptr %48, align 8
   br label %rb_float_value_inline.exit17
 
@@ -12822,7 +12822,7 @@ define internal i64 @flo_le(i64 noundef %0, i64 noundef %1) #2 {
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %0 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value_inline.exit
 
@@ -12889,7 +12889,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %31
   br label %rb_float_value_inline.exit17
 
 46:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %47 = getelementptr inbounds i8, ptr %35, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %48 = load double, ptr %47, align 8
   br label %rb_float_value_inline.exit17
 
@@ -12929,7 +12929,7 @@ define internal range(i64 1, 0) i64 @flo_hash(i64 noundef %0) #2 {
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %0 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load double, ptr %13, align 8
   br label %rb_float_value_inline.exit
 
@@ -12966,7 +12966,7 @@ define internal i64 @flo_to_i(i64 noundef %0) #2 {
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %0 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load double, ptr %13, align 8
   br label %rb_float_value_inline.exit
 
@@ -13162,7 +13162,7 @@ rb_num2int_inline.exit:                           ; preds = %12, %16
 
 33:                                               ; preds = %21
   %34 = inttoptr i64 %2 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load double, ptr %35, align 8
   br label %rb_float_value_inline.exit
 
@@ -13205,7 +13205,7 @@ rb_float_value_inline.exit.thread:                ; preds = %26, %rb_float_value
   %55 = load i64, ptr @rb_cFloat, align 8
   %56 = call i64 @rb_wb_protected_newobj_of(ptr noundef %54, i64 noundef %55, i64 noundef 4, i64 noundef 24) #23
   %57 = inttoptr i64 %56 to ptr
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store double %.0.i4464, ptr %58, align 8
   call void @rb_obj_freeze_inline(i64 noundef %56) #23
   br label %rb_float_new_inline.exit
@@ -13232,7 +13232,7 @@ rb_float_value_inline.exit.thread:                ; preds = %26, %rb_float_value
 
 69:                                               ; preds = %61
   %70 = inttoptr i64 %2 to ptr
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load double, ptr %71, align 8
   br label %rb_float_value_inline.exit.i
 
@@ -13512,7 +13512,7 @@ define internal i64 @flo_truncate(i32 noundef %0, ptr nocapture noundef readonly
 
 12:                                               ; preds = %3
   %13 = inttoptr i64 %2 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   br label %rb_float_value_inline.exit
 
@@ -13643,7 +13643,7 @@ define internal range(i64 0, 21) i64 @flo_is_nan_p(i64 noundef %0) #10 {
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %0 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load double, ptr %13, align 8
   br label %rb_float_value_inline.exit
 
@@ -13686,7 +13686,7 @@ define internal i64 @flo_next_float(i64 noundef %0) #2 {
   %19 = load i64, ptr @rb_cFloat, align 8
   %20 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %18, i64 noundef %19, i64 noundef 4, i64 noundef 24) #23
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store double %3, ptr %22, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %20) #23
   br label %flo_nextafter.exit
@@ -13728,7 +13728,7 @@ define internal i64 @flo_prev_float(i64 noundef %0) #2 {
   %19 = load i64, ptr @rb_cFloat, align 8
   %20 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %18, i64 noundef %19, i64 noundef 4, i64 noundef 24) #23
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store double %3, ptr %22, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %20) #23
   br label %flo_nextafter.exit
@@ -13759,7 +13759,7 @@ define dso_local double @rb_float_value(i64 noundef %0) local_unnamed_addr #10 {
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %0 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load double, ptr %13, align 8
   br label %rb_float_value_inline.exit
 
@@ -13798,7 +13798,7 @@ define dso_local i64 @rb_float_new(double noundef %0) local_unnamed_addr #2 {
   %17 = load i64, ptr @rb_cFloat, align 8
   %18 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %16, i64 noundef %17, i64 noundef 4, i64 noundef 24) #23
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store double %0, ptr %20, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %18) #23
   br label %rb_float_new_inline.exit
@@ -14083,7 +14083,7 @@ define internal i64 @builtin_inline_class_328(ptr nocapture readnone %0, i64 nou
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %1 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value_inline.exit.i
 
@@ -14116,7 +14116,7 @@ rb_float_value_inline.exit.i:                     ; preds = %12, %6, %5
   %30 = load i64, ptr @rb_cFloat, align 8
   %31 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %29, i64 noundef %30, i64 noundef 4, i64 noundef 24) #23
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store double %16, ptr %33, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %31) #23
   br label %rb_float_abs.exit
@@ -14147,7 +14147,7 @@ define internal i64 @builtin_inline_class_333(ptr nocapture readnone %0, i64 nou
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %1 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value_inline.exit.i
 
@@ -14180,7 +14180,7 @@ rb_float_value_inline.exit.i:                     ; preds = %12, %6, %5
   %30 = load i64, ptr @rb_cFloat, align 8
   %31 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %29, i64 noundef %30, i64 noundef 4, i64 noundef 24) #23
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store double %16, ptr %33, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %31) #23
   br label %rb_float_abs.exit
@@ -14211,7 +14211,7 @@ define internal i64 @builtin_inline_class_343(ptr nocapture readnone %0, i64 nou
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %1 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value_inline.exit.i
 
@@ -14246,7 +14246,7 @@ rb_float_value_inline.exit.i:                     ; preds = %12, %6, %5
   %32 = load i64, ptr @rb_cFloat, align 8
   %33 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %31, i64 noundef %32, i64 noundef 4, i64 noundef 24) #23
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store double %16, ptr %35, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %33) #23
   br label %rb_float_uminus.exit
@@ -14277,7 +14277,7 @@ define internal range(i64 0, 21) i64 @builtin_inline_class_352(ptr nocapture rea
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %1 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %FLOAT_ZERO_P.exit
 
@@ -14309,7 +14309,7 @@ define internal range(i64 0, 21) i64 @builtin_inline_class_361(ptr nocapture rea
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %1 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value.exit
 
@@ -14341,7 +14341,7 @@ define internal range(i64 0, 21) i64 @builtin_inline_class_370(ptr nocapture rea
 
 12:                                               ; preds = %2
   %13 = inttoptr i64 %1 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8
   br label %rb_float_value.exit
 
@@ -14579,7 +14579,7 @@ RB_FLOAT_TYPE_P.exit.thread.thread:               ; preds = %35
   %64 = load i64, ptr @rb_cFloat, align 8
   %65 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %63, i64 noundef %64, i64 noundef 4, i64 noundef 24) #23
   %66 = inttoptr i64 %65 to ptr
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store double %48, ptr %67, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %65) #23
   br label %rb_float_new_inline.exit
@@ -14604,7 +14604,7 @@ rb_float_new_inline.exit:                         ; preds = %55, %59, %61
 
 76:                                               ; preds = %RB_FLOAT_TYPE_P.exit.thread.thread
   %77 = inttoptr i64 %1 to ptr
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load double, ptr %78, align 8
   br label %rb_float_value_inline.exit
 
@@ -14638,7 +14638,7 @@ rb_float_value_inline.exit.thread:                ; preds = %69, %rb_float_value
 
 92:                                               ; preds = %81
   %93 = inttoptr i64 %82 to ptr
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load double, ptr %94, align 8
   br label %rb_float_value_inline.exit.i
 
@@ -14744,7 +14744,7 @@ RB_FLOAT_TYPE_P.exit:                             ; preds = %9
   br label %rb_float_value_inline.exit
 
 25:                                               ; preds = %RB_FLOAT_TYPE_P.exit
-  %26 = getelementptr inbounds i8, ptr %14, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %27 = load double, ptr %26, align 8
   br label %rb_float_value_inline.exit
 
@@ -14782,7 +14782,7 @@ rb_float_value_inline.exit:                       ; preds = %18, %19, %25
   %46 = load i64, ptr @rb_cFloat, align 8
   %47 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %45, i64 noundef %46, i64 noundef 4, i64 noundef 24) #23
   %48 = inttoptr i64 %47 to ptr
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store double %30, ptr %49, align 8
   tail call void @rb_obj_freeze_inline(i64 noundef %47) #23
   br label %rb_float_new_inline.exit
@@ -14960,7 +14960,7 @@ define internal fastcc i32 @num_step_extract_args(i32 noundef %0, ptr noundef %1
   %13 = load i64, ptr @id_to, align 8
   store i64 %13, ptr %7, align 16
   %14 = load i64, ptr @id_by, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %14, ptr %15, align 8
   %16 = call i32 @rb_get_kwargs(i64 noundef %10, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %8) #23
   %17 = load i64, ptr %8, align 16
@@ -14981,7 +14981,7 @@ define internal fastcc i32 @num_step_extract_args(i32 noundef %0, ptr noundef %1
   br label %24
 
 24:                                               ; preds = %23, %12
-  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 36
   br i1 %27, label %33, label %28
@@ -15022,7 +15022,7 @@ define internal i64 @num_step_size(i64 noundef %0, i64 noundef %1, i64 %2) #2 {
   br i1 %.not.i.i, label %rb_array_len.exit.i, label %rb_array_len.exit.i.thread
 
 rb_array_len.exit.i:                              ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 2147483648
   %.not.i1.i = icmp ult i64 %12, 4294967296
@@ -15032,7 +15032,7 @@ rb_array_len.exit.i.thread:                       ; preds = %6
   %13 = trunc i64 %8 to i32
   %14 = lshr i32 %13, 15
   %15 = and i32 %14, 127
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %rb_array_const_ptr.exit
 
 17:                                               ; preds = %rb_array_len.exit.i
@@ -15041,7 +15041,7 @@ rb_array_len.exit.i.thread:                       ; preds = %6
 
 18:                                               ; preds = %rb_array_len.exit.i
   %19 = trunc i64 %11 to i32
-  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %21 = load ptr, ptr %20, align 8
   br label %rb_array_const_ptr.exit
 
@@ -15181,7 +15181,7 @@ num_step_negative_p.exit.i:                       ; preds = %53, %45, %30
   %61 = load i64, ptr @rb_cFloat, align 8
   %62 = call i64 @rb_wb_protected_newobj_of(ptr noundef %60, i64 noundef %61, i64 noundef 4, i64 noundef 24) #23
   %63 = inttoptr i64 %62 to ptr
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %..i = select i1 %.not14.i, double 0x7FF0000000000000, double 0xFFF0000000000000
   store double %..i, ptr %64, align 8
   call void @rb_obj_freeze_inline(i64 noundef %62) #23
@@ -15211,11 +15211,11 @@ define internal i64 @int_upto_size(i64 noundef %0, i64 noundef %1, i64 %2) #2 {
   br i1 %.not.i.i, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %RARRAY_AREF.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = load ptr, ptr %10, align 8
   br label %RARRAY_AREF.exit
 
@@ -15235,11 +15235,11 @@ define internal i64 @int_downto_size(i64 noundef %0, i64 noundef %1, i64 %2) #2 
   br i1 %.not.i.i, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %RARRAY_AREF.exit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = load ptr, ptr %10, align 8
   br label %RARRAY_AREF.exit
 
@@ -15908,11 +15908,11 @@ int_lt.exit:                                      ; preds = %105
   br i1 %.not.i.i, label %118, label %116
 
 116:                                              ; preds = %.critedge
-  %117 = getelementptr inbounds i8, ptr %113, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 16
   br label %RARRAY_AREF.exit
 
 118:                                              ; preds = %.critedge
-  %119 = getelementptr inbounds i8, ptr %113, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %120 = load ptr, ptr %119, align 8
   br label %RARRAY_AREF.exit
 
@@ -15927,11 +15927,11 @@ RARRAY_AREF.exit:                                 ; preds = %116, %118
   br i1 %.not.i.i114, label %128, label %126
 
 126:                                              ; preds = %RARRAY_AREF.exit
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   br label %RARRAY_AREF.exit116
 
 128:                                              ; preds = %RARRAY_AREF.exit
-  %129 = getelementptr inbounds i8, ptr %113, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %130 = load ptr, ptr %129, align 8
   br label %RARRAY_AREF.exit116
 
@@ -15961,10 +15961,10 @@ int_lt.exit.thread137:                            ; preds = %98, %int_lt.exit
 ._crit_edge:                                      ; preds = %.lr.ph, %int_lt.exit.thread137
   %142 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %0) #23
   %143 = inttoptr i64 %135 to ptr
-  %144 = getelementptr inbounds i8, ptr %143, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %145 = inttoptr i64 %142 to ptr
-  %146 = getelementptr inbounds i8, ptr %145, i64 16
-  %147 = getelementptr inbounds i8, ptr %145, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 32
   br label %148
 
 .loopexit:                                        ; preds = %RARRAY_AREF.exit130._crit_edge, %rb_array_len.exit121
@@ -16035,11 +16035,11 @@ RARRAY_AREF.exit124:                              ; preds = %.lr.ph152, %169
   br i1 %.not.i.i125, label %179, label %177
 
 177:                                              ; preds = %RARRAY_AREF.exit124
-  %178 = getelementptr inbounds i8, ptr %174, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 16
   br label %RARRAY_AREF.exit130
 
 179:                                              ; preds = %RARRAY_AREF.exit124
-  %180 = getelementptr inbounds i8, ptr %174, i64 32
+  %180 = getelementptr inbounds nuw i8, ptr %174, i64 32
   %181 = load ptr, ptr %180, align 8
   br label %RARRAY_AREF.exit130
 

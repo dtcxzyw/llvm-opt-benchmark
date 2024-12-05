@@ -41,19 +41,19 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   %30 = phi ptr [ %55, %29 ], [ %27, %.preheader11.us ]
   %31 = phi i64 [ %56, %29 ], [ %23, %.preheader11.us ]
   %32 = load float, ptr %30, align 4, !tbaa !3
-  %33 = getelementptr inbounds i8, ptr %30, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %34 = load float, ptr %33, align 4, !tbaa !3
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = load float, ptr %35, align 4, !tbaa !3
-  %37 = getelementptr inbounds i8, ptr %30, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %38 = load float, ptr %37, align 4, !tbaa !3
-  %39 = getelementptr inbounds i8, ptr %30, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %40 = load float, ptr %39, align 4, !tbaa !3
-  %41 = getelementptr inbounds i8, ptr %30, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %42 = load float, ptr %41, align 4, !tbaa !3
-  %43 = getelementptr inbounds i8, ptr %30, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %44 = load float, ptr %43, align 4, !tbaa !3
-  %45 = getelementptr inbounds i8, ptr %30, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %46 = load float, ptr %45, align 4, !tbaa !3
   %47 = fmul float %3, %32
   %48 = fmul float %3, %34
@@ -71,7 +71,7 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   store float %52, ptr %41, align 4, !tbaa !3
   store float %53, ptr %43, align 4, !tbaa !3
   store float %54, ptr %45, align 4, !tbaa !3
-  %55 = getelementptr inbounds i8, ptr %30, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %56 = add nsw i64 %31, -1
   %57 = icmp samesign ugt i64 %31, 1
   br i1 %57, label %29, label %.loopexit12.us, !llvm.loop !7
@@ -82,7 +82,7 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   %60 = load float, ptr %58, align 4, !tbaa !3
   %61 = fmul float %3, %60
   store float %61, ptr %58, align 4, !tbaa !3
-  %62 = getelementptr inbounds i8, ptr %58, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %63 = add nsw i64 %59, -1
   %64 = icmp sgt i64 %59, 1
   br i1 %64, label %.preheader.us, label %.loopexit10.us, !llvm.loop !10
@@ -174,7 +174,7 @@ define noundef i32 @sgemm_beta(i64 noundef %0, i64 noundef %1, i64 noundef %2, f
   %118 = load float, ptr %116, align 4, !tbaa !3
   %119 = fmul float %3, %118
   store float %119, ptr %116, align 4, !tbaa !3
-  %120 = getelementptr inbounds i8, ptr %116, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %121 = add nsw i64 %117, -1
   %122 = icmp sgt i64 %117, 1
   br i1 %122, label %115, label %.loopexit10, !llvm.loop !10

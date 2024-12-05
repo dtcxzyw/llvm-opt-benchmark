@@ -16,7 +16,7 @@ define noundef i32 @lv_tlsf_check(ptr noundef readonly %0) local_unnamed_addr #0
   %6 = trunc nuw nsw i64 %indvars.iv128 to i32
   %7 = shl nuw nsw i32 1, %6
   %8 = and i32 %3, %7
-  %9 = getelementptr inbounds [9 x i32], ptr %4, i64 0, i64 %indvars.iv128
+  %9 = getelementptr inbounds nuw [9 x i32], ptr %4, i64 0, i64 %indvars.iv128
   %10 = load i32, ptr %9, align 4, !tbaa !11
   %.fr = freeze i32 %10
   %.not = icmp eq i32 %8, 0
@@ -31,7 +31,7 @@ define noundef i32 @lv_tlsf_check(ptr noundef readonly %0) local_unnamed_addr #0
   br i1 %cond.us, label %14, label %.preheader98
 
 14:                                               ; preds = %.preheader108.split.us
-  %15 = getelementptr inbounds [9 x [32 x ptr]], ptr %5, i64 0, i64 %indvars.iv128, i64 %indvars.iv124
+  %15 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %5, i64 0, i64 %indvars.iv128, i64 %indvars.iv124
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = icmp eq ptr %16, %0
   br i1 %17, label %18, label %.preheader.preheader
@@ -47,7 +47,7 @@ define noundef i32 @lv_tlsf_check(ptr noundef readonly %0) local_unnamed_addr #0
 
 .preheader108.split.split.us.preheader:           ; preds = %.preheader108.split, %22
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %22 ], [ 0, %.preheader108.split ]
-  %19 = getelementptr inbounds [9 x [32 x ptr]], ptr %5, i64 0, i64 %indvars.iv128, i64 %indvars.iv120
+  %19 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %5, i64 0, i64 %indvars.iv128, i64 %indvars.iv120
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %22, label %.preheader.preheader
@@ -62,7 +62,7 @@ define noundef i32 @lv_tlsf_check(ptr noundef readonly %0) local_unnamed_addr #0
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = shl nuw i32 1, %23
   %25 = and i32 %.fr, %24
-  %26 = getelementptr inbounds [9 x [32 x ptr]], ptr %5, i64 0, i64 %indvars.iv128, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %5, i64 0, i64 %indvars.iv128, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !12
   %.not62 = icmp eq i32 %25, 0
   %28 = icmp eq ptr %27, %0
@@ -576,7 +576,7 @@ define noundef ptr @lv_tlsf_create(ptr noundef %0) local_unnamed_addr #7 {
 
 10:                                               ; preds = %10, %9
   %indvars.iv.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds [9 x [32 x ptr]], ptr %8, i64 0, i64 %indvars.iv18.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %8, i64 0, i64 %indvars.iv18.i, i64 %indvars.iv.i
   store ptr %0, ptr %11, align 8, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -615,7 +615,7 @@ define noundef ptr @lv_tlsf_create_with_pool(ptr noundef %0, i64 noundef %1) loc
 
 11:                                               ; preds = %11, %10
   %indvars.iv.i.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i.i, %11 ]
-  %12 = getelementptr inbounds [9 x [32 x ptr]], ptr %9, i64 0, i64 %indvars.iv18.i.i, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %9, i64 0, i64 %indvars.iv18.i.i, i64 %indvars.iv.i.i
   store ptr %0, ptr %12, align 8, !tbaa !12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
@@ -779,7 +779,7 @@ mapping_search.exit.thread:                       ; preds = %3
   %.09.i.i23 = phi i32 [ 0, %mapping_search.exit.thread ], [ %18, %mapping_search.exit ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %23 = zext nneg i32 %.09.i.i23 to i64
-  %24 = getelementptr inbounds [9 x i32], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [9 x i32], ptr %22, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = shl nsw i32 -1, %.0.i.i24
   %27 = and i32 %25, %26
@@ -797,7 +797,7 @@ mapping_search.exit.thread:                       ; preds = %3
 33:                                               ; preds = %28
   %34 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %32, i1 true)
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [9 x i32], ptr %22, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [9 x i32], ptr %22, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !11
   %.not31.i = icmp eq i32 %37, 0
   br i1 %.not31.i, label %.preheader.i, label %search_suitable_block.exit
@@ -812,7 +812,7 @@ search_suitable_block.exit:                       ; preds = %21, %33
   %38 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %.12439.i, i1 true)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds [9 x [32 x ptr]], ptr %39, i64 0, i64 %.pre-phi.i, i64 %40
+  %41 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %39, i64 0, i64 %.pre-phi.i, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !12
   %.not9 = icmp eq ptr %42, null
   br i1 %.not9, label %remove_free_block.exit, label %43
@@ -851,7 +851,7 @@ search_suitable_block.exit:                       ; preds = %21, %33
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %50, ptr %54, align 8, !tbaa !16
   %55 = zext nneg i32 %.120 to i64
-  %56 = getelementptr inbounds [9 x [32 x ptr]], ptr %39, i64 0, i64 %55, i64 %40
+  %56 = getelementptr inbounds nuw [9 x [32 x ptr]], ptr %39, i64 0, i64 %55, i64 %40
   %57 = load ptr, ptr %56, align 8, !tbaa !12
   %58 = icmp eq ptr %57, %42
   br i1 %58, label %59, label %remove_free_block.exit
@@ -864,7 +864,7 @@ search_suitable_block.exit:                       ; preds = %21, %33
 61:                                               ; preds = %59
   %62 = shl nuw i32 1, %38
   %63 = xor i32 %62, -1
-  %64 = getelementptr inbounds [9 x i32], ptr %22, i64 0, i64 %55
+  %64 = getelementptr inbounds nuw [9 x i32], ptr %22, i64 0, i64 %55
   %65 = load i32, ptr %64, align 4, !tbaa !11
   %66 = and i32 %65, %63
   store i32 %66, ptr %64, align 4, !tbaa !11

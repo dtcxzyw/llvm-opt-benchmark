@@ -18,7 +18,7 @@ define i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %0, i32 noundef %1, 
 
 14:                                               ; preds = %11
   %15 = zext i32 %4 to i64
-  %16 = getelementptr inbounds i8, ptr %9, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   %17 = sext i32 %6 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %5, i64 %17, i1 false)
   br label %18
@@ -95,7 +95,7 @@ define i32 @fdt_nop_property(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.05.i = phi ptr [ %12, %.lr.ph.i ], [ %5, %7 ]
   store i32 67108864, ptr %.05.i, align 4
-  %12 = getelementptr inbounds i8, ptr %.05.i, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %13 = icmp ult ptr %12, %10
   br i1 %13, label %.lr.ph.i, label %fdt_nop_region_.exit, !llvm.loop !4
 
@@ -164,7 +164,7 @@ fdt_node_end_offset_.exit:                        ; preds = %.lr.ph.i
 .lr.ph.i9:                                        ; preds = %11, %.lr.ph.i9
   %.05.i = phi ptr [ %17, %.lr.ph.i9 ], [ %12, %11 ]
   store i32 67108864, ptr %.05.i, align 4
-  %17 = getelementptr inbounds i8, ptr %.05.i, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.05.i, i64 4
   %18 = icmp ult ptr %17, %15
   br i1 %18, label %.lr.ph.i9, label %fdt_nop_region_.exit, !llvm.loop !4
 

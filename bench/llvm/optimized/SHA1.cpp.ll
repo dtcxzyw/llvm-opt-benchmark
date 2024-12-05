@@ -17,13 +17,13 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @_ZN4llvm4SHA14initEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(92) initializes((64, 89)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 1732584193, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 -271733879, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 -1732584194, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 76
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 271733878, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 -1009589776, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %7, align 4
@@ -36,13 +36,13 @@ define dso_local void @_ZN4llvm4SHA14initEv(ptr nocapture noundef nonnull writeo
 define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull align 4 dereferenceable(92) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i32, ptr %10, align 4
   %12 = xor i32 %9, %7
   %13 = and i32 %12, %5
@@ -57,7 +57,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %22 = xor i32 %7, %21
   %23 = and i32 %22, %3
   %24 = xor i32 %23, %7
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = tail call noundef i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 5)
   %28 = add i32 %9, 1518500249
@@ -68,7 +68,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %33 = xor i32 %21, %32
   %34 = and i32 %20, %33
   %35 = xor i32 %34, %21
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i32, ptr %36, align 4
   %38 = tail call noundef i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 5)
   %39 = add i32 %7, 1518500249
@@ -79,7 +79,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %44 = xor i32 %43, %32
   %45 = and i32 %31, %44
   %46 = xor i32 %45, %32
-  %47 = getelementptr inbounds i8, ptr %0, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = tail call noundef i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 5)
   %50 = add i32 %21, 1518500249
@@ -90,7 +90,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %55 = xor i32 %54, %43
   %56 = and i32 %42, %55
   %57 = xor i32 %56, %43
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load i32, ptr %58, align 4
   %60 = tail call noundef i32 @llvm.fshl.i32(i32 %53, i32 %53, i32 5)
   %61 = add i32 %32, 1518500249
@@ -101,7 +101,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %66 = xor i32 %65, %54
   %67 = and i32 %53, %66
   %68 = xor i32 %67, %54
-  %69 = getelementptr inbounds i8, ptr %0, i64 20
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %70 = load i32, ptr %69, align 4
   %71 = tail call noundef i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 5)
   %72 = add i32 %43, 1518500249
@@ -112,7 +112,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %77 = xor i32 %76, %65
   %78 = and i32 %64, %77
   %79 = xor i32 %78, %65
-  %80 = getelementptr inbounds i8, ptr %0, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load i32, ptr %80, align 4
   %82 = tail call noundef i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 5)
   %83 = add i32 %81, 1518500249
@@ -123,7 +123,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %88 = xor i32 %87, %76
   %89 = and i32 %75, %88
   %90 = xor i32 %89, %76
-  %91 = getelementptr inbounds i8, ptr %0, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %92 = load i32, ptr %91, align 4
   %93 = tail call noundef i32 @llvm.fshl.i32(i32 %86, i32 %86, i32 5)
   %94 = add i32 %92, 1518500249
@@ -134,7 +134,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %99 = xor i32 %98, %87
   %100 = and i32 %86, %99
   %101 = xor i32 %100, %87
-  %102 = getelementptr inbounds i8, ptr %0, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %103 = load i32, ptr %102, align 4
   %104 = tail call noundef i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 5)
   %105 = add i32 %103, 1518500249
@@ -145,7 +145,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %110 = xor i32 %109, %98
   %111 = and i32 %97, %110
   %112 = xor i32 %111, %98
-  %113 = getelementptr inbounds i8, ptr %0, i64 36
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %114 = load i32, ptr %113, align 4
   %115 = tail call noundef i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 5)
   %116 = add i32 %114, 1518500249
@@ -156,7 +156,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %121 = xor i32 %120, %109
   %122 = and i32 %108, %121
   %123 = xor i32 %122, %109
-  %124 = getelementptr inbounds i8, ptr %0, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %125 = load i32, ptr %124, align 4
   %126 = tail call noundef i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 5)
   %127 = add i32 %125, 1518500249
@@ -167,7 +167,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %132 = xor i32 %131, %120
   %133 = and i32 %119, %132
   %134 = xor i32 %133, %120
-  %135 = getelementptr inbounds i8, ptr %0, i64 44
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %136 = load i32, ptr %135, align 4
   %137 = tail call noundef i32 @llvm.fshl.i32(i32 %130, i32 %130, i32 5)
   %138 = add i32 %136, 1518500249
@@ -178,7 +178,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %143 = xor i32 %142, %131
   %144 = and i32 %130, %143
   %145 = xor i32 %144, %131
-  %146 = getelementptr inbounds i8, ptr %0, i64 48
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %147 = load i32, ptr %146, align 4
   %148 = tail call noundef i32 @llvm.fshl.i32(i32 %141, i32 %141, i32 5)
   %149 = add i32 %147, 1518500249
@@ -189,7 +189,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %154 = xor i32 %153, %142
   %155 = and i32 %141, %154
   %156 = xor i32 %155, %142
-  %157 = getelementptr inbounds i8, ptr %0, i64 52
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %158 = load i32, ptr %157, align 4
   %159 = tail call noundef i32 @llvm.fshl.i32(i32 %152, i32 %152, i32 5)
   %160 = add i32 %158, 1518500249
@@ -200,7 +200,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %165 = xor i32 %164, %153
   %166 = and i32 %152, %165
   %167 = xor i32 %166, %153
-  %168 = getelementptr inbounds i8, ptr %0, i64 56
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %169 = load i32, ptr %168, align 4
   %170 = tail call noundef i32 @llvm.fshl.i32(i32 %163, i32 %163, i32 5)
   %171 = add i32 %169, 1518500249
@@ -211,7 +211,7 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr nocapture noundef nonnull a
   %176 = xor i32 %175, %164
   %177 = and i32 %163, %176
   %178 = xor i32 %177, %164
-  %179 = getelementptr inbounds i8, ptr %0, i64 60
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %180 = load i32, ptr %179, align 4
   %181 = tail call noundef i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 5)
   %182 = add i32 %180, 1518500249
@@ -1066,7 +1066,7 @@ define dso_local void @_ZN4llvm4SHA112addUncountedEh(ptr nocapture noundef nonnu
   %4 = load i8, ptr %3, align 4
   %5 = xor i8 %4, 3
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [64 x i8], ptr %0, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %6
   store i8 %1, ptr %7, align 1
   %8 = load i8, ptr %3, align 4
   %9 = add i8 %8, 1
@@ -1093,7 +1093,7 @@ define dso_local void @_ZN4llvm4SHA19writebyteEh(ptr nocapture noundef nonnull a
   %7 = load i8, ptr %6, align 4
   %8 = xor i8 %7, 3
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [64 x i8], ptr %0, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %9
   store i8 %1, ptr %10, align 1
   %11 = load i8, ptr %6, align 4
   %12 = add i8 %11, 1
@@ -1136,7 +1136,7 @@ define dso_local void @_ZN4llvm4SHA16updateENS_8ArrayRefIhEE(ptr nocapture nound
   %15 = load i8, ptr %14, align 1
   %16 = xor i8 %13, 3
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [64 x i8], ptr %0, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %17
   store i8 %15, ptr %18, align 1
   %19 = load i8, ptr %8, align 4
   %20 = add i8 %19, 1
@@ -1174,11 +1174,11 @@ _ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %.lr.ph, %22
 29:                                               ; preds = %.preheader, %29
   %.01839 = phi i64 [ 0, %.preheader ], [ %34, %29 ]
   %30 = shl nuw nsw i64 %.01839, 2
-  %31 = getelementptr inbounds i8, ptr %.sroa.0.140, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.140, i64 %30
   call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %31, align 1
   %32 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i.i.i)
-  %33 = getelementptr inbounds [16 x i32], ptr %0, i64 0, i64 %.01839
+  %33 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.01839
   store i32 %32, ptr %33, align 4
   %34 = add nuw nsw i64 %.01839, 1
   %exitcond51.not = icmp eq i64 %34, 16
@@ -1187,14 +1187,14 @@ _ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %.lr.ph, %22
 35:                                               ; preds = %29
   tail call void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 dereferenceable(92) %0)
   %36 = add i64 %.sroa.9.141, -64
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.140, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.140, i64 64
   %38 = icmp ugt i64 %36, 63
   br i1 %38, label %.preheader, label %._crit_edge42, !llvm.loop !7
 
 ._crit_edge42:                                    ; preds = %35, %27
   %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %27 ], [ %37, %35 ]
   %.sroa.9.1.lcssa = phi i64 [ %.sroa.9.0, %27 ], [ %36, %35 ]
-  %39 = getelementptr inbounds i8, ptr %.sroa.0.1.lcssa, i64 %.sroa.9.1.lcssa
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.lcssa, i64 %.sroa.9.1.lcssa
   %.not2144 = icmp eq i64 %.sroa.9.1.lcssa, 0
   br i1 %.not2144, label %._crit_edge48, label %.lr.ph47.preheader
 
@@ -1208,7 +1208,7 @@ _ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %.lr.ph, %22
   %41 = load i8, ptr %.01945, align 1
   %42 = xor i8 %40, 3
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds [64 x i8], ptr %0, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %43
   store i8 %41, ptr %44, align 1
   %45 = load i8, ptr %8, align 4
   %46 = add i8 %45, 1
@@ -1223,7 +1223,7 @@ _ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %.lr.ph, %22
 
 _ZN4llvm4SHA112addUncountedEh.exit24:             ; preds = %.lr.ph47, %48
   %49 = phi i8 [ %46, %.lr.ph47 ], [ 0, %48 ]
-  %50 = getelementptr inbounds i8, ptr %.01945, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.01945, i64 1
   %.not21 = icmp eq ptr %50, %39
   br i1 %.not21, label %._crit_edge48, label %.lr.ph47
 
@@ -1246,7 +1246,7 @@ define dso_local void @_ZN4llvm4SHA13padEv(ptr nocapture noundef nonnull align 4
   %3 = load i8, ptr %2, align 4
   %4 = xor i8 %3, 3
   %5 = zext i8 %4 to i64
-  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %5
   store i8 -128, ptr %6, align 1
   %7 = load i8, ptr %2, align 4
   %8 = add i8 %7, 1
@@ -1269,7 +1269,7 @@ _ZN4llvm4SHA112addUncountedEh.exit.thread:        ; preds = %1
   %9 = phi i8 [ %17, %_ZN4llvm4SHA112addUncountedEh.exit1 ], [ %.ph, %.lr.ph.preheader ]
   %10 = xor i8 %9, 3
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds [64 x i8], ptr %0, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %11
   store i8 0, ptr %12, align 1
   %13 = load i8, ptr %2, align 4
   %14 = add i8 %13, 1
@@ -1288,20 +1288,20 @@ _ZN4llvm4SHA112addUncountedEh.exit1:              ; preds = %.lr.ph, %16
   br i1 %.not, label %_ZN4llvm4SHA112addUncountedEh.exit2, label %.lr.ph, !llvm.loop !8
 
 _ZN4llvm4SHA112addUncountedEh.exit2:              ; preds = %_ZN4llvm4SHA112addUncountedEh.exit1, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 59
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 59
   store i8 0, ptr %18, align 1
   store i8 57, ptr %2, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 58
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 58
   store i8 0, ptr %19, align 2
   store i8 58, ptr %2, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 57
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 0, ptr %20, align 1
   store i8 59, ptr %2, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %22 = load i32, ptr %21, align 4
   %23 = lshr i32 %22, 29
   %24 = trunc nuw nsw i32 %23 to i8
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %24, ptr %25, align 4
   %26 = load i8, ptr %2, align 4
   %27 = add i8 %26, 1
@@ -1321,7 +1321,7 @@ _ZN4llvm4SHA112addUncountedEh.exit5:              ; preds = %_ZN4llvm4SHA112addU
   %33 = trunc i32 %32 to i8
   %34 = xor i8 %30, 3
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds [64 x i8], ptr %0, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %35
   store i8 %33, ptr %36, align 1
   %37 = load i8, ptr %2, align 4
   %38 = add i8 %37, 1
@@ -1341,7 +1341,7 @@ _ZN4llvm4SHA112addUncountedEh.exit6:              ; preds = %_ZN4llvm4SHA112addU
   %44 = trunc i32 %43 to i8
   %45 = xor i8 %41, 3
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds [64 x i8], ptr %0, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %46
   store i8 %44, ptr %47, align 1
   %48 = load i8, ptr %2, align 4
   %49 = add i8 %48, 1
@@ -1361,7 +1361,7 @@ _ZN4llvm4SHA112addUncountedEh.exit7:              ; preds = %_ZN4llvm4SHA112addU
   %55 = trunc i32 %54 to i8
   %56 = xor i8 %52, 3
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds [64 x i8], ptr %0, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %57
   store i8 %55, ptr %58, align 1
   %59 = load i8, ptr %2, align 4
   %60 = add i8 %59, 1
@@ -1381,7 +1381,7 @@ _ZN4llvm4SHA112addUncountedEh.exit8:              ; preds = %_ZN4llvm4SHA112addU
   %65 = shl i8 %.tr, 3
   %66 = xor i8 %63, 3
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds [64 x i8], ptr %0, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %67
   store i8 %65, ptr %68, align 1
   %69 = load i8, ptr %2, align 4
   %70 = add i8 %69, 1
@@ -1406,10 +1406,10 @@ define dso_local void @_ZN4llvm4SHA15finalERSt5arrayIjLm5EE(ptr nocapture nounde
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %7 = tail call noundef i32 @llvm.bswap.i32(i32 %6)
-  %8 = getelementptr inbounds [5 x i32], ptr %1, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [5 x i32], ptr %1, i64 0, i64 %indvars.iv
   store i32 %7, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -1428,10 +1428,10 @@ define dso_local void @_ZN4llvm4SHA15finalEv(ptr dead_on_unwind noalias nocaptur
 
 5:                                                ; preds = %5, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4
   %8 = tail call noundef i32 @llvm.bswap.i32(i32 %7)
-  %9 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i
   store i32 %8, ptr %9, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
@@ -1454,10 +1454,10 @@ define dso_local void @_ZN4llvm4SHA16resultEv(ptr dead_on_unwind noalias nocaptu
 
 6:                                                ; preds = %6, %2
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %6 ]
-  %7 = getelementptr inbounds [5 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv.i.i
   %8 = load i32, ptr %7, align 4, !noalias !10
   %9 = tail call noundef i32 @llvm.bswap.i32(i32 %8)
-  %10 = getelementptr inbounds [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [5 x i32], ptr %3, i64 0, i64 %indvars.iv.i.i
   store i32 %9, ptr %10, align 4, !noalias !10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5
@@ -1476,13 +1476,13 @@ define dso_local void @_ZN4llvm4SHA14hashENS_8ArrayRefIhEE(ptr dead_on_unwind no
   %5 = alloca %"class.llvm::SHA1", align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 1732584193, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 68
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 -271733879, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 -1732584194, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 76
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 271733878, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 -1009589776, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 84
   store i32 0, ptr %11, align 4
@@ -1495,10 +1495,10 @@ define dso_local void @_ZN4llvm4SHA14hashENS_8ArrayRefIhEE(ptr dead_on_unwind no
 
 13:                                               ; preds = %13, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds [5 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
   %15 = load i32, ptr %14, align 4, !noalias !13
   %16 = tail call noundef i32 @llvm.bswap.i32(i32 %15)
-  %17 = getelementptr inbounds [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %indvars.iv.i.i
   store i32 %16, ptr %17, align 4, !noalias !13
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 5

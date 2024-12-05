@@ -42,7 +42,7 @@ if.end3.i.i:                                      ; preds = %if.then.i
 
 unclean.exit:                                     ; preds = %if.then.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.1, %if.then.i ]
-  %buf.i = getelementptr inbounds i8, ptr %sb.i, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 16
   %2 = load ptr, ptr %buf.i, align 8
   %call3.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i, ptr noundef %2) #7
   call void @strbuf_release(ptr noundef nonnull %sb.i) #7
@@ -51,16 +51,16 @@ unclean.exit:                                     ; preds = %if.then.i, %if.end3
 
 if.end:                                           ; preds = %land.lhs.true.i, %entry
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
-  %oid = getelementptr inbounds i8, ptr %merge_base, i64 4
-  %oid2 = getelementptr inbounds i8, ptr %merge, i64 4
-  %algo.i = getelementptr inbounds i8, ptr %merge_base, i64 36
+  %oid = getelementptr inbounds nuw i8, ptr %merge_base, i64 4
+  %oid2 = getelementptr inbounds nuw i8, ptr %merge, i64 4
+  %algo.i = getelementptr inbounds nuw i8, ptr %merge_base, i64 36
   %3 = load i32, ptr %algo.i, align 4
   %tobool.not.i7 = icmp eq i32 %3, 0
   br i1 %tobool.not.i7, label %if.then.i9, label %if.else.i
 
 if.then.i9:                                       ; preds = %if.end
   %4 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %4, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %4, i64 256
   %5 = load ptr, ptr %hash_algo.i, align 8
   br label %oideq.exit
 
@@ -143,7 +143,7 @@ if.end3.i.i:                                      ; preds = %if.then.i
 
 unclean.exit:                                     ; preds = %if.then.i, %if.end3.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.1, %if.then.i ]
-  %buf.i = getelementptr inbounds i8, ptr %sb.i, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 16
   %3 = load ptr, ptr %buf.i, align 8
   %call3.i = call i32 (ptr, ...) @error(ptr noundef %retval.0.i.i, ptr noundef %3) #7
   call void @strbuf_release(ptr noundef nonnull %sb.i) #7

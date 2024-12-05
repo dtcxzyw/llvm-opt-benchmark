@@ -1579,7 +1579,7 @@ define internal fastcc i32 @dissect_gryphon_message(ptr noundef %0, ptr noundef 
   br i1 %.not, label %20, label %28
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @col_set_str(ptr noundef %22, i32 noundef 34, ptr noundef nonnull @.str.535) #4
   %23 = load ptr, ptr %21, align 8
@@ -1622,7 +1622,7 @@ define internal fastcc i32 @dissect_gryphon_message(ptr noundef %0, ptr noundef 
   br i1 %.not, label %50, label %.critedge
 
 50:                                               ; preds = %28
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = call ptr @val_to_str_const(i32 noundef %47, ptr noundef nonnull @frame_type, ptr noundef nonnull @.str.989) #4
   call void @col_set_str(ptr noundef %52, i32 noundef 25, ptr noundef %53) #4
@@ -1670,13 +1670,13 @@ define internal fastcc i32 @dissect_gryphon_message(ptr noundef %0, ptr noundef 
   br i1 %.not.i106, label %proto_item_set_hidden.exit, label %74
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %73, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %76 = load ptr, ptr %75, align 8
   %.not5.i107 = icmp eq ptr %76, null
   br i1 %.not5.i107, label %proto_item_set_hidden.exit, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %76, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 28
   %79 = load i32, ptr %78, align 4
   %80 = or i32 %79, 1
   store i32 %80, ptr %78, align 4
@@ -1724,12 +1724,12 @@ get_conversation_data.exit:                       ; preds = %91, %96
   %103 = call noalias ptr @wmem_alloc0(ptr noundef %102, i64 noundef 40) #4
   %104 = load i32, ptr %15, align 4
   store i32 %104, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %1, i64 20
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %103, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 12
   store i32 %106, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %103, i64 24
-  %109 = getelementptr inbounds i8, ptr %1, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %109, i64 16, i1 false)
   %110 = load ptr, ptr %.0.i105, align 8
   call void @wmem_list_prepend(ptr noundef %110, ptr noundef nonnull %103) #4
@@ -1746,9 +1746,9 @@ get_conversation_data.exit:                       ; preds = %91, %96
   %117 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %115, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef %116) #4
   %118 = load i32, ptr @hf_gryphon_cmd_context, align 4
   %119 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %66, i32 noundef %118, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %16) #4
-  %120 = getelementptr inbounds i8, ptr %1, i64 80
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 50
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 50
   %123 = load i16, ptr %122, align 2
   %124 = and i16 %123, 8
   %.not258.i = icmp eq i16 %124, 0
@@ -1756,14 +1756,14 @@ get_conversation_data.exit:                       ; preds = %91, %96
 
 125:                                              ; preds = %114
   %126 = load i32, ptr %16, align 4
-  %127 = getelementptr inbounds i8, ptr %.0253.i, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %.0253.i, i64 4
   store i32 %126, ptr %127, align 4
   br label %128
 
 128:                                              ; preds = %125, %114
   %129 = load i32, ptr @hf_gryphon_reserved, align 4
   %130 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %129, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #4
-  %131 = getelementptr inbounds i8, ptr %.0253.i, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %.0253.i, i64 16
   %132 = load i32, ptr %131, align 8
   %.not259.i = icmp eq i32 %132, 0
   br i1 %.not259.i, label %proto_item_set_generated.exit, label %133
@@ -1775,13 +1775,13 @@ get_conversation_data.exit:                       ; preds = %91, %96
   br i1 %.not.i104, label %proto_item_set_generated.exit, label %136
 
 136:                                              ; preds = %133
-  %137 = getelementptr inbounds i8, ptr %135, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %138 = load ptr, ptr %137, align 8
   %.not5.i = icmp eq ptr %138, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %139
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %138, i64 28
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 28
   %141 = load i32, ptr %140, align 4
   %142 = or i32 %141, 2
   store i32 %142, ptr %140, align 4
@@ -2172,14 +2172,14 @@ proto_item_set_generated.exit:                    ; preds = %139, %136, %133, %1
 302:                                              ; preds = %145
   %303 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #4
   %304 = load ptr, ptr %120, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 50
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 50
   %306 = load i16, ptr %305, align 2
   %307 = and i16 %306, 8
   %.not260.i = icmp eq i16 %307, 0
   br i1 %.not260.i, label %308, label %310
 
 308:                                              ; preds = %302
-  %309 = getelementptr inbounds i8, ptr %.0253.i, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %.0253.i, i64 8
   store i32 %303, ptr %309, align 8
   br label %310
 
@@ -2243,20 +2243,20 @@ get_conversation_data.exit115:                    ; preds = %328, %333
   br i1 %.not230.i121, label %.loopexit, label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %get_conversation_data.exit115
-  %343 = getelementptr inbounds i8, ptr %1, i64 20
+  %343 = getelementptr inbounds nuw i8, ptr %1, i64 20
   br label %344
 
 344:                                              ; preds = %.lr.ph123, %368
   %.0221.i122 = phi ptr [ %342, %.lr.ph123 ], [ %369, %368 ]
   %345 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0221.i122) #4
   %346 = load i32, ptr %343, align 4
-  %347 = getelementptr inbounds i8, ptr %345, i64 12
+  %347 = getelementptr inbounds nuw i8, ptr %345, i64 12
   %348 = load i32, ptr %347, align 4
   %349 = icmp ugt i32 %346, %348
   br i1 %349, label %350, label %368
 
 350:                                              ; preds = %344
-  %351 = getelementptr inbounds i8, ptr %345, i64 16
+  %351 = getelementptr inbounds nuw i8, ptr %345, i64 16
   %352 = load i32, ptr %351, align 8
   %353 = icmp eq i32 %352, 0
   br i1 %353, label %354, label %368
@@ -2267,19 +2267,19 @@ get_conversation_data.exit115:                    ; preds = %328, %333
   br i1 %356, label %357, label %368
 
 357:                                              ; preds = %354
-  %358 = getelementptr inbounds i8, ptr %345, i64 16
-  %359 = getelementptr inbounds i8, ptr %340, i64 12
+  %358 = getelementptr inbounds nuw i8, ptr %345, i64 16
+  %359 = getelementptr inbounds nuw i8, ptr %340, i64 12
   store i32 %348, ptr %359, align 4
-  %360 = getelementptr inbounds i8, ptr %345, i64 4
+  %360 = getelementptr inbounds nuw i8, ptr %345, i64 4
   %361 = load i32, ptr %360, align 4
-  %362 = getelementptr inbounds i8, ptr %340, i64 4
+  %362 = getelementptr inbounds nuw i8, ptr %340, i64 4
   store i32 %361, ptr %362, align 4
-  %363 = getelementptr inbounds i8, ptr %345, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %364 = load i32, ptr %363, align 8
-  %365 = getelementptr inbounds i8, ptr %340, i64 8
+  %365 = getelementptr inbounds nuw i8, ptr %340, i64 8
   store i32 %364, ptr %365, align 8
-  %366 = getelementptr inbounds i8, ptr %340, i64 24
-  %367 = getelementptr inbounds i8, ptr %345, i64 24
+  %366 = getelementptr inbounds nuw i8, ptr %340, i64 24
+  %367 = getelementptr inbounds nuw i8, ptr %345, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %366, ptr noundef nonnull align 8 dereferenceable(16) %367, i64 16, i1 false)
   store i32 %346, ptr %358, align 8
   br label %.loopexit
@@ -2300,7 +2300,7 @@ get_conversation_data.exit115:                    ; preds = %328, %333
   %.0223.i = phi ptr [ %327, %316 ], [ %340, %.loopexit ]
   %374 = load i32, ptr @hf_gryphon_command, align 4
   %375 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %374, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef %.0222.i) #4
-  %376 = getelementptr inbounds i8, ptr %.0223.i, i64 8
+  %376 = getelementptr inbounds nuw i8, ptr %.0223.i, i64 8
   %377 = load i32, ptr %376, align 8
   %.not231.i = icmp eq i32 %377, 0
   br i1 %.not231.i, label %381, label %378
@@ -2321,7 +2321,7 @@ get_conversation_data.exit115:                    ; preds = %328, %333
   %387 = load i32, ptr @hf_gryphon_status, align 4
   %388 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %387, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #4
   %389 = add i32 %318, -8
-  %390 = getelementptr inbounds i8, ptr %.0223.i, i64 12
+  %390 = getelementptr inbounds nuw i8, ptr %.0223.i, i64 12
   %391 = load i32, ptr %390, align 4
   %.not232.i = icmp eq i32 %391, 0
   br i1 %.not232.i, label %proto_item_set_generated.exit110, label %392
@@ -2333,23 +2333,23 @@ get_conversation_data.exit115:                    ; preds = %328, %333
   br i1 %.not.i111, label %proto_item_set_generated.exit113, label %395
 
 395:                                              ; preds = %392
-  %396 = getelementptr inbounds i8, ptr %394, i64 32
+  %396 = getelementptr inbounds nuw i8, ptr %394, i64 32
   %397 = load ptr, ptr %396, align 8
   %.not5.i112 = icmp eq ptr %397, null
   br i1 %.not5.i112, label %proto_item_set_generated.exit113, label %398
 
 398:                                              ; preds = %395
-  %399 = getelementptr inbounds i8, ptr %397, i64 28
+  %399 = getelementptr inbounds nuw i8, ptr %397, i64 28
   %400 = load i32, ptr %399, align 4
   %401 = or i32 %400, 2
   store i32 %401, ptr %399, align 4
   br label %proto_item_set_generated.exit113
 
 proto_item_set_generated.exit113:                 ; preds = %392, %395, %398
-  %402 = getelementptr inbounds i8, ptr %1, i64 80
+  %402 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %403 = load ptr, ptr %402, align 8
-  %404 = getelementptr inbounds i8, ptr %403, i64 56
-  %405 = getelementptr inbounds i8, ptr %.0223.i, i64 24
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 56
+  %405 = getelementptr inbounds nuw i8, ptr %.0223.i, i64 24
   call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %404, ptr noundef nonnull %405) #4
   %406 = load i32, ptr @hf_gryphon_response_time, align 4
   %407 = call ptr @proto_tree_add_time(ptr noundef %66, i32 noundef %406, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %14) #4
@@ -2357,13 +2357,13 @@ proto_item_set_generated.exit113:                 ; preds = %392, %395, %398
   br i1 %.not.i108, label %proto_item_set_generated.exit110, label %408
 
 408:                                              ; preds = %proto_item_set_generated.exit113
-  %409 = getelementptr inbounds i8, ptr %407, i64 32
+  %409 = getelementptr inbounds nuw i8, ptr %407, i64 32
   %410 = load ptr, ptr %409, align 8
   %.not5.i109 = icmp eq ptr %410, null
   br i1 %.not5.i109, label %proto_item_set_generated.exit110, label %411
 
 411:                                              ; preds = %408
-  %412 = getelementptr inbounds i8, ptr %410, i64 28
+  %412 = getelementptr inbounds nuw i8, ptr %410, i64 28
   %413 = load i32, ptr %412, align 4
   %414 = or i32 %413, 2
   store i32 %414, ptr %412, align 4
@@ -2657,7 +2657,7 @@ decode_response.exit:                             ; preds = %proto_item_set_gene
   %533 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #4
   %534 = urem i32 %533, 100000
   %535 = mul nuw nsw i32 %534, 1000
-  %536 = getelementptr inbounds i8, ptr %13, i64 8
+  %536 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %535, ptr %536, align 8
   %537 = load i32, ptr @hf_gryphon_event_time, align 4
   %538 = call ptr @proto_tree_add_time(ptr noundef %66, i32 noundef %537, ptr noundef %0, i32 noundef 12, i32 noundef 4, ptr noundef nonnull %13) #4
@@ -2807,7 +2807,7 @@ define internal fastcc i32 @decode_data(ptr noundef %0, i32 noundef %1, ptr noun
   %43 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %39) #4
   %44 = urem i32 %43, 100000
   %45 = mul nuw nsw i32 %44, 1000
-  %46 = getelementptr inbounds i8, ptr %4, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %45, ptr %46, align 8
   %47 = load i32, ptr @hf_gryphon_data_time, align 4
   %48 = call ptr @proto_tree_add_time(ptr noundef %19, i32 noundef %47, ptr noundef %0, i32 noundef %39, i32 noundef 4, ptr noundef nonnull %4) #4
@@ -2938,7 +2938,7 @@ define internal fastcc range(i32 20, 25) i32 @resp_time(ptr noundef %0, i32 noun
   %7 = urem i64 %5, 100000
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = mul nuw nsw i32 %8, 1000
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %9, ptr %10, align 8
   %11 = load i32, ptr @hf_gryphon_resp_time, align 4
   %12 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %1, i32 noundef 8, ptr noundef nonnull %4) #4
@@ -3221,7 +3221,7 @@ define internal fastcc i32 @cmd_ldf_emulate_nodes(ptr noundef %0, ptr nocapture 
 
 .lr.ph:                                           ; preds = %3
   %8 = zext i8 %5 to i32
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
@@ -3582,7 +3582,7 @@ define internal fastcc i32 @cmd_start(ptr noundef %0, ptr nocapture noundef read
   br i1 %9, label %10, label %29
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @tvb_get_stringz_enc(ptr noundef %12, ptr noundef %0, i32 noundef 44, ptr noundef nonnull %4, i32 noundef 0) #4
   %14 = load i32, ptr %4, align 4
@@ -4752,7 +4752,7 @@ define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noun
   br label %.loopexit
 
 59:                                               ; preds = %5
-  %60 = getelementptr inbounds i8, ptr %1, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr @tvb_get_stringz_enc(ptr noundef %61, ptr noundef %0, i32 noundef 16, ptr noundef nonnull %6, i32 noundef 0) #4
   %63 = load i8, ptr %62, align 1
@@ -5268,7 +5268,7 @@ define internal fastcc void @resp_blm_data(ptr noundef %0, ptr noundef %1) unnam
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #4
   %8 = urem i32 %7, 100000
   %9 = mul nuw nsw i32 %8, 1000
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %9, ptr %10, align 8
   %11 = load i32, ptr @hf_gryphon_blm_data_time, align 4
   %12 = call ptr @proto_tree_add_time(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 16, i32 noundef 4, ptr noundef nonnull %3) #4

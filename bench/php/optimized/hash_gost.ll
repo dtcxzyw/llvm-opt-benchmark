@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @PHP_GOSTInit(ptr nocapture noundef writeonly initializes((0, 120)) %0, ptr nocapture readnone %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 112, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @tables_test, ptr %3, align 8
   ret void
 }
@@ -27,7 +27,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @PHP_GOSTInitCrypto(ptr nocapture noundef writeonly initializes((0, 120)) %0, ptr nocapture readnone %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 112, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @tables_crypto, ptr %3, align 8
   ret void
 }
@@ -36,7 +36,7 @@ define void @PHP_GOSTInitCrypto(ptr nocapture noundef writeonly initializes((0, 
 define void @PHP_GOSTUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 {
   %4 = alloca [8 x i32], align 16
   %5 = alloca [8 x i32], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = xor i32 %7, -1
   %9 = zext i32 %8 to i64
@@ -45,7 +45,7 @@ define void @PHP_GOSTUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, i
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -62,157 +62,156 @@ define void @PHP_GOSTUpdate(ptr noundef %0, ptr nocapture noundef readonly %1, i
 21:                                               ; preds = %18, %12
   %storemerge = phi i32 [ %20, %18 ], [ %17, %12 ]
   store i32 %storemerge, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load i8, ptr %22, align 8
   %24 = zext i8 %23 to i64
   %25 = add i64 %2, %24
   %26 = icmp ult i64 %25, 32
-  br i1 %26, label %27, label %33
+  br i1 %26, label %27, label %32
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 73
-  %29 = getelementptr inbounds [32 x i8], ptr %28, i64 0, i64 %24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 0, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %1, i64 %2, i1 false)
   %30 = trunc i64 %2 to i8
-  %31 = load i8, ptr %22, align 8
-  %32 = add i8 %31, %30
-  br label %113
+  %31 = add i8 %23, %30
+  br label %112
 
-33:                                               ; preds = %21
-  %34 = and i64 %25, 31
+32:                                               ; preds = %21
+  %33 = and i64 %25, 31
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %71, label %35
+  br i1 %.not, label %70, label %34
 
-35:                                               ; preds = %33
-  %36 = sub nsw i64 32, %24
-  %37 = getelementptr inbounds i8, ptr %0, i64 73
-  %38 = getelementptr inbounds [32 x i8], ptr %37, i64 0, i64 %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %1, i64 %36, i1 false)
+34:                                               ; preds = %32
+  %35 = sub nsw i64 32, %24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 0, i64 %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 1 %1, i64 %35, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  br label %39
+  br label %38
 
-39:                                               ; preds = %39, %35
-  %indvars.iv30.i = phi i64 [ 0, %35 ], [ %indvars.iv.next31.i, %39 ]
-  %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %39 ]
-  %.029.i = phi i32 [ 0, %35 ], [ %70, %39 ]
-  %40 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv.i
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i32
-  %43 = or disjoint i64 %indvars.iv.i, 1
-  %44 = getelementptr inbounds i8, ptr %37, i64 %43
-  %45 = load i8, ptr %44, align 1
-  %46 = zext i8 %45 to i32
-  %47 = shl nuw nsw i32 %46, 8
-  %48 = or disjoint i32 %47, %42
-  %49 = or disjoint i64 %indvars.iv.i, 2
-  %50 = getelementptr inbounds i8, ptr %37, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = shl nuw nsw i32 %52, 16
-  %54 = or disjoint i32 %48, %53
-  %55 = or disjoint i64 %indvars.iv.i, 3
-  %56 = getelementptr inbounds i8, ptr %37, i64 %55
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = shl nuw i32 %58, 24
-  %60 = or disjoint i32 %54, %59
-  %61 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %indvars.iv30.i
-  store i32 %60, ptr %61, align 4
-  %62 = or disjoint i64 %indvars.iv30.i, 8
-  %63 = getelementptr inbounds [16 x i32], ptr %0, i64 0, i64 %62
-  %64 = load i32, ptr %63, align 4
-  %65 = add i32 %64, %.029.i
-  %66 = add i32 %65, %60
-  store i32 %66, ptr %63, align 4
-  %67 = icmp ult i32 %66, %60
-  %68 = icmp eq i32 %65, 0
-  %69 = select i1 %68, i32 %.029.i, i32 0
-  %70 = select i1 %67, i32 1, i32 %69
+38:                                               ; preds = %38, %34
+  %indvars.iv30.i = phi i64 [ 0, %34 ], [ %indvars.iv.next31.i, %38 ]
+  %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %38 ]
+  %.029.i = phi i32 [ 0, %34 ], [ %69, %38 ]
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i32
+  %42 = or disjoint i64 %indvars.iv.i, 1
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 %42
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %46 = shl nuw nsw i32 %45, 8
+  %47 = or disjoint i32 %46, %41
+  %48 = or disjoint i64 %indvars.iv.i, 2
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 %48
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i32
+  %52 = shl nuw nsw i32 %51, 16
+  %53 = or disjoint i32 %47, %52
+  %54 = or disjoint i64 %indvars.iv.i, 3
+  %55 = getelementptr inbounds nuw i8, ptr %36, i64 %54
+  %56 = load i8, ptr %55, align 1
+  %57 = zext i8 %56 to i32
+  %58 = shl nuw i32 %57, 24
+  %59 = or disjoint i32 %53, %58
+  %60 = getelementptr inbounds nuw [8 x i32], ptr %5, i64 0, i64 %indvars.iv30.i
+  store i32 %59, ptr %60, align 4
+  %61 = or disjoint i64 %indvars.iv30.i, 8
+  %62 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %61
+  %63 = load i32, ptr %62, align 4
+  %64 = add i32 %63, %.029.i
+  %65 = add i32 %64, %59
+  store i32 %65, ptr %62, align 4
+  %66 = icmp ult i32 %65, %59
+  %67 = icmp eq i32 %64, 0
+  %68 = select i1 %67, i32 %.029.i, i32 0
+  %69 = select i1 %66, i32 1, i32 %68
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next31.i, 8
-  br i1 %exitcond.not.i, label %GostTransform.exit, label %39
+  br i1 %exitcond.not.i, label %GostTransform.exit, label %38
 
-GostTransform.exit:                               ; preds = %39
+GostTransform.exit:                               ; preds = %38
   call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  br label %71
+  br label %70
 
-71:                                               ; preds = %GostTransform.exit, %33
-  %.0 = phi i64 [ %36, %GostTransform.exit ], [ 0, %33 ]
-  %72 = add nsw i64 %.0, 32
-  %.not4756 = icmp ugt i64 %72, %2
+70:                                               ; preds = %GostTransform.exit, %32
+  %.0 = phi i64 [ %35, %GostTransform.exit ], [ 0, %32 ]
+  %71 = add nsw i64 %.0, 32
+  %.not4756 = icmp ugt i64 %71, %2
   br i1 %.not4756, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %71, %GostTransform.exit55
-  %73 = phi i64 [ %107, %GostTransform.exit55 ], [ %72, %71 ]
-  %.157 = phi i64 [ %73, %GostTransform.exit55 ], [ %.0, %71 ]
-  %74 = getelementptr inbounds i8, ptr %1, i64 %.157
+.lr.ph:                                           ; preds = %70, %GostTransform.exit55
+  %72 = phi i64 [ %106, %GostTransform.exit55 ], [ %71, %70 ]
+  %.157 = phi i64 [ %72, %GostTransform.exit55 ], [ %.0, %70 ]
+  %73 = getelementptr inbounds i8, ptr %1, i64 %.157
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  br label %75
+  br label %74
 
-75:                                               ; preds = %75, %.lr.ph
-  %indvars.iv30.i49 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next31.i52, %75 ]
-  %indvars.iv.i50 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i53, %75 ]
-  %.029.i51 = phi i32 [ 0, %.lr.ph ], [ %106, %75 ]
-  %76 = getelementptr inbounds i8, ptr %74, i64 %indvars.iv.i50
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = or disjoint i64 %indvars.iv.i50, 1
-  %80 = getelementptr inbounds i8, ptr %74, i64 %79
-  %81 = load i8, ptr %80, align 1
-  %82 = zext i8 %81 to i32
-  %83 = shl nuw nsw i32 %82, 8
-  %84 = or disjoint i32 %83, %78
-  %85 = or disjoint i64 %indvars.iv.i50, 2
-  %86 = getelementptr inbounds i8, ptr %74, i64 %85
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i32
-  %89 = shl nuw nsw i32 %88, 16
-  %90 = or disjoint i32 %84, %89
-  %91 = or disjoint i64 %indvars.iv.i50, 3
-  %92 = getelementptr inbounds i8, ptr %74, i64 %91
-  %93 = load i8, ptr %92, align 1
-  %94 = zext i8 %93 to i32
-  %95 = shl nuw i32 %94, 24
-  %96 = or disjoint i32 %90, %95
-  %97 = getelementptr inbounds [8 x i32], ptr %4, i64 0, i64 %indvars.iv30.i49
-  store i32 %96, ptr %97, align 4
-  %98 = or disjoint i64 %indvars.iv30.i49, 8
-  %99 = getelementptr inbounds [16 x i32], ptr %0, i64 0, i64 %98
-  %100 = load i32, ptr %99, align 4
-  %101 = add i32 %100, %.029.i51
-  %102 = add i32 %101, %96
-  store i32 %102, ptr %99, align 4
-  %103 = icmp ult i32 %102, %96
-  %104 = icmp eq i32 %101, 0
-  %105 = select i1 %104, i32 %.029.i51, i32 0
-  %106 = select i1 %103, i32 1, i32 %105
+74:                                               ; preds = %74, %.lr.ph
+  %indvars.iv30.i49 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next31.i52, %74 ]
+  %indvars.iv.i50 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i53, %74 ]
+  %.029.i51 = phi i32 [ 0, %.lr.ph ], [ %105, %74 ]
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %indvars.iv.i50
+  %76 = load i8, ptr %75, align 1
+  %77 = zext i8 %76 to i32
+  %78 = or disjoint i64 %indvars.iv.i50, 1
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 %78
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = shl nuw nsw i32 %81, 8
+  %83 = or disjoint i32 %82, %77
+  %84 = or disjoint i64 %indvars.iv.i50, 2
+  %85 = getelementptr inbounds nuw i8, ptr %73, i64 %84
+  %86 = load i8, ptr %85, align 1
+  %87 = zext i8 %86 to i32
+  %88 = shl nuw nsw i32 %87, 16
+  %89 = or disjoint i32 %83, %88
+  %90 = or disjoint i64 %indvars.iv.i50, 3
+  %91 = getelementptr inbounds nuw i8, ptr %73, i64 %90
+  %92 = load i8, ptr %91, align 1
+  %93 = zext i8 %92 to i32
+  %94 = shl nuw i32 %93, 24
+  %95 = or disjoint i32 %89, %94
+  %96 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 0, i64 %indvars.iv30.i49
+  store i32 %95, ptr %96, align 4
+  %97 = or disjoint i64 %indvars.iv30.i49, 8
+  %98 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %97
+  %99 = load i32, ptr %98, align 4
+  %100 = add i32 %99, %.029.i51
+  %101 = add i32 %100, %95
+  store i32 %101, ptr %98, align 4
+  %102 = icmp ult i32 %101, %95
+  %103 = icmp eq i32 %100, 0
+  %104 = select i1 %103, i32 %.029.i51, i32 0
+  %105 = select i1 %102, i32 1, i32 %104
   %indvars.iv.next31.i52 = add nuw nsw i64 %indvars.iv30.i49, 1
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i50, 4
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next31.i52, 8
-  br i1 %exitcond.not.i54, label %GostTransform.exit55, label %75
+  br i1 %exitcond.not.i54, label %GostTransform.exit55, label %74
 
-GostTransform.exit55:                             ; preds = %75
+GostTransform.exit55:                             ; preds = %74
   call fastcc void @Gost(ptr noundef nonnull %0, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %107 = add i64 %73, 32
-  %.not47 = icmp ugt i64 %107, %2
+  %106 = add i64 %72, 32
+  %.not47 = icmp ugt i64 %106, %2
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %GostTransform.exit55, %71
-  %.1.lcssa = phi i64 [ %.0, %71 ], [ %73, %GostTransform.exit55 ]
-  %108 = getelementptr inbounds i8, ptr %0, i64 73
-  %109 = getelementptr inbounds i8, ptr %1, i64 %.1.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr align 1 %109, i64 %34, i1 false)
-  %110 = getelementptr inbounds [32 x i8], ptr %108, i64 0, i64 %34
-  %111 = sub nuw nsw i64 32, %34
-  tail call void @explicit_bzero(ptr noundef nonnull %110, i64 noundef %111) #8
-  %112 = trunc nuw nsw i64 %34 to i8
-  br label %113
+._crit_edge:                                      ; preds = %GostTransform.exit55, %70
+  %.1.lcssa = phi i64 [ %.0, %70 ], [ %72, %GostTransform.exit55 ]
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %108 = getelementptr inbounds i8, ptr %1, i64 %.1.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr align 1 %108, i64 %33, i1 false)
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %107, i64 0, i64 %33
+  %110 = sub nuw nsw i64 32, %33
+  tail call void @explicit_bzero(ptr noundef nonnull %109, i64 noundef %110) #8
+  %111 = trunc nuw nsw i64 %33 to i8
+  br label %112
 
-113:                                              ; preds = %._crit_edge, %27
-  %storemerge48 = phi i8 [ %112, %._crit_edge ], [ %32, %27 ]
+112:                                              ; preds = %._crit_edge, %27
+  %storemerge48 = phi i8 [ %111, %._crit_edge ], [ %31, %27 ]
   store i8 %storemerge48, ptr %22, align 8
   ret void
 }
@@ -228,13 +227,13 @@ define void @PHP_GOSTFinal(ptr nocapture noundef writeonly %0, ptr noundef %1) #
   %3 = alloca [8 x i32], align 16
   %4 = alloca [8 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i8, ptr %5, align 8
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %41, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 73
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 73
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   br label %9
 
@@ -242,31 +241,31 @@ define void @PHP_GOSTFinal(ptr nocapture noundef writeonly %0, ptr noundef %1) #
   %indvars.iv30.i = phi i64 [ 0, %7 ], [ %indvars.iv.next31.i, %9 ]
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %9 ]
   %.029.i = phi i32 [ 0, %7 ], [ %40, %9 ]
-  %10 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = or disjoint i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i8, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 8
   %18 = or disjoint i32 %17, %12
   %19 = or disjoint i64 %indvars.iv.i, 2
-  %20 = getelementptr inbounds i8, ptr %8, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 16
   %24 = or disjoint i32 %18, %23
   %25 = or disjoint i64 %indvars.iv.i, 3
-  %26 = getelementptr inbounds i8, ptr %8, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = shl nuw i32 %28, 24
   %30 = or disjoint i32 %24, %29
-  %31 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %indvars.iv30.i
+  %31 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %indvars.iv30.i
   store i32 %30, ptr %31, align 4
   %32 = or disjoint i64 %indvars.iv30.i, 8
-  %33 = getelementptr inbounds [16 x i32], ptr %1, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i32], ptr %1, i64 0, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, %.029.i
   %36 = add i32 %35, %30
@@ -286,11 +285,11 @@ GostTransform.exit:                               ; preds = %9
   br label %41
 
 41:                                               ; preds = %GostTransform.exit, %2
-  %42 = getelementptr inbounds i8, ptr %1, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %43 = load i64, ptr %42, align 8
   store i64 %43, ptr %4, align 16
   call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef %4)
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 32, i1 false)
   call fastcc void @Gost(ptr noundef nonnull %1, ptr noundef %4)
   br label %45
@@ -298,28 +297,28 @@ GostTransform.exit:                               ; preds = %9
 45:                                               ; preds = %41, %45
   %indvars.iv29 = phi i64 [ 0, %41 ], [ %indvars.iv.next30, %45 ]
   %indvars.iv = phi i64 [ 0, %41 ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds [16 x i32], ptr %1, i64 0, i64 %indvars.iv29
+  %46 = getelementptr inbounds nuw [16 x i32], ptr %1, i64 0, i64 %indvars.iv29
   %47 = load i32, ptr %46, align 4
   %48 = trunc i32 %47 to i8
-  %49 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i8 %48, ptr %49, align 1
   %50 = load i32, ptr %46, align 4
   %51 = lshr i32 %50, 8
   %52 = trunc i32 %51 to i8
   %53 = or disjoint i64 %indvars.iv, 1
-  %54 = getelementptr inbounds i8, ptr %0, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %53
   store i8 %52, ptr %54, align 1
   %55 = load i32, ptr %46, align 4
   %56 = lshr i32 %55, 16
   %57 = trunc i32 %56 to i8
   %58 = or disjoint i64 %indvars.iv, 2
-  %59 = getelementptr inbounds i8, ptr %0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %58
   store i8 %57, ptr %59, align 1
   %60 = load i32, ptr %46, align 4
   %61 = lshr i32 %60, 24
   %62 = trunc nuw i32 %61 to i8
   %63 = or disjoint i64 %indvars.iv, 3
-  %64 = getelementptr inbounds i8, ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %63
   store i8 %62, ptr %64, align 1
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
@@ -335,40 +334,40 @@ GostTransform.exit:                               ; preds = %9
 define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #5 {
   %3 = alloca [8 x i32], align 16
   %.sroa.0181.0.copyload = load i32, ptr %0, align 8
-  %.sroa.10187.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.10187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.10187.0.copyload = load i32, ptr %.sroa.10187.0..sroa_idx, align 4
-  %.sroa.20194.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.20194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.20194.0.copyload = load i32, ptr %.sroa.20194.0..sroa_idx, align 8
-  %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
+  %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.sroa.29.0.copyload = load i32, ptr %.sroa.29.0..sroa_idx, align 4
-  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.38.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.38.0.copyload = load i32, ptr %.sroa.38.0..sroa_idx, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.46.0.copyload = load i32, ptr %.sroa.46.0..sroa_idx, align 4
-  %.sroa.54.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.54.0.copyload = load i32, ptr %.sroa.54.0..sroa_idx, align 8
-  %.sroa.63.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
+  %.sroa.63.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.sroa.63.0.copyload = load i32, ptr %.sroa.63.0..sroa_idx, align 4
   %.sroa.050.0.copyload = load i32, ptr %1, align 4
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.23.0.copyload = load i32, ptr %.sroa.23.0..sroa_idx, align 4
-  %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.43.0.copyload = load i32, ptr %.sroa.43.0..sroa_idx, align 4
-  %.sroa.61.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.61.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.sroa.61.0.copyload = load i32, ptr %.sroa.61.0..sroa_idx, align 4
-  %.sroa.79.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.79.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.79.0.copyload = load i32, ptr %.sroa.79.0..sroa_idx, align 4
-  %.sroa.96.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.96.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
   %.sroa.96.0.copyload = load i32, ptr %.sroa.96.0..sroa_idx, align 4
-  %.sroa.113.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.113.0.copyload = load i32, ptr %.sroa.113.0..sroa_idx, align 4
-  %.sroa.133.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 28
+  %.sroa.133.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 28
   %.sroa.133.0.copyload = load i32, ptr %.sroa.133.0..sroa_idx, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1024
-  %7 = getelementptr inbounds i8, ptr %5, i64 2048
-  %8 = getelementptr inbounds i8, ptr %5, i64 3072
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1024
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 2048
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 3072
   br label %9
 
 9:                                                ; preds = %2, %850
@@ -473,29 +472,29 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %91 = or disjoint i32 %88, %90
   %92 = and i32 %17, -16777216
   %93 = or disjoint i32 %91, %92
-  %94 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %95 = load i32, ptr %94, align 4
   %96 = or disjoint i64 %indvars.iv, 1
-  %97 = getelementptr inbounds i32, ptr %0, i64 %96
+  %97 = getelementptr inbounds nuw i32, ptr %0, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = add i32 %95, %26
   %100 = and i32 %99, 255
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = lshr i32 %99, 8
   %105 = and i32 %104, 255
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %106
   %108 = load i32, ptr %107, align 4
   %109 = lshr i32 %99, 16
   %110 = and i32 %109, 255
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = lshr i32 %99, 24
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %115
   %117 = load i32, ptr %116, align 4
   %118 = xor i32 %103, %98
   %119 = xor i32 %118, %108
@@ -504,21 +503,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %122 = add i32 %121, %36
   %123 = and i32 %122, 255
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = lshr i32 %122, 8
   %128 = and i32 %127, 255
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %129
   %131 = load i32, ptr %130, align 4
   %132 = lshr i32 %122, 16
   %133 = and i32 %132, 255
   %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = lshr i32 %122, 24
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %138
+  %139 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %138
   %140 = load i32, ptr %139, align 4
   %141 = xor i32 %126, %131
   %142 = xor i32 %141, %136
@@ -527,21 +526,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %145 = add i32 %144, %46
   %146 = and i32 %145, 255
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %147
   %149 = load i32, ptr %148, align 4
   %150 = lshr i32 %145, 8
   %151 = and i32 %150, 255
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %152
+  %153 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = lshr i32 %145, 16
   %156 = and i32 %155, 255
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %157
   %159 = load i32, ptr %158, align 4
   %160 = lshr i32 %145, 24
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %161
   %163 = load i32, ptr %162, align 4
   %164 = xor i32 %149, %154
   %165 = xor i32 %164, %159
@@ -550,21 +549,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %168 = add i32 %167, %55
   %169 = and i32 %168, 255
   %170 = zext nneg i32 %169 to i64
-  %171 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %170
   %172 = load i32, ptr %171, align 4
   %173 = lshr i32 %168, 8
   %174 = and i32 %173, 255
   %175 = zext nneg i32 %174 to i64
-  %176 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %175
   %177 = load i32, ptr %176, align 4
   %178 = lshr i32 %168, 16
   %179 = and i32 %178, 255
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %180
   %182 = load i32, ptr %181, align 4
   %183 = lshr i32 %168, 24
   %184 = zext nneg i32 %183 to i64
-  %185 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %184
+  %185 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %184
   %186 = load i32, ptr %185, align 4
   %187 = xor i32 %172, %177
   %188 = xor i32 %187, %182
@@ -573,21 +572,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %191 = add i32 %190, %64
   %192 = and i32 %191, 255
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %193
+  %194 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %193
   %195 = load i32, ptr %194, align 4
   %196 = lshr i32 %191, 8
   %197 = and i32 %196, 255
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %198
+  %199 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %198
   %200 = load i32, ptr %199, align 4
   %201 = lshr i32 %191, 16
   %202 = and i32 %201, 255
   %203 = zext nneg i32 %202 to i64
-  %204 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %203
   %205 = load i32, ptr %204, align 4
   %206 = lshr i32 %191, 24
   %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %207
   %209 = load i32, ptr %208, align 4
   %210 = xor i32 %195, %200
   %211 = xor i32 %210, %205
@@ -596,21 +595,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %214 = add i32 %213, %74
   %215 = and i32 %214, 255
   %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %216
   %218 = load i32, ptr %217, align 4
   %219 = lshr i32 %214, 8
   %220 = and i32 %219, 255
   %221 = zext nneg i32 %220 to i64
-  %222 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %221
   %223 = load i32, ptr %222, align 4
   %224 = lshr i32 %214, 16
   %225 = and i32 %224, 255
   %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %226
+  %227 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %226
   %228 = load i32, ptr %227, align 4
   %229 = lshr i32 %214, 24
   %230 = zext nneg i32 %229 to i64
-  %231 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %230
+  %231 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %230
   %232 = load i32, ptr %231, align 4
   %233 = xor i32 %218, %223
   %234 = xor i32 %233, %228
@@ -619,21 +618,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %237 = add i32 %236, %84
   %238 = and i32 %237, 255
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %239
   %241 = load i32, ptr %240, align 4
   %242 = lshr i32 %237, 8
   %243 = and i32 %242, 255
   %244 = zext nneg i32 %243 to i64
-  %245 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %244
+  %245 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %244
   %246 = load i32, ptr %245, align 4
   %247 = lshr i32 %237, 16
   %248 = and i32 %247, 255
   %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %249
+  %250 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %249
   %251 = load i32, ptr %250, align 4
   %252 = lshr i32 %237, 24
   %253 = zext nneg i32 %252 to i64
-  %254 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %253
   %255 = load i32, ptr %254, align 4
   %256 = xor i32 %241, %246
   %257 = xor i32 %256, %251
@@ -642,21 +641,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %260 = add i32 %259, %93
   %261 = and i32 %260, 255
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %262
   %264 = load i32, ptr %263, align 4
   %265 = lshr i32 %260, 8
   %266 = and i32 %265, 255
   %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %267
+  %268 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %267
   %269 = load i32, ptr %268, align 4
   %270 = lshr i32 %260, 16
   %271 = and i32 %270, 255
   %272 = zext nneg i32 %271 to i64
-  %273 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %272
+  %273 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %272
   %274 = load i32, ptr %273, align 4
   %275 = lshr i32 %260, 24
   %276 = zext nneg i32 %275 to i64
-  %277 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %276
   %278 = load i32, ptr %277, align 4
   %279 = xor i32 %264, %269
   %280 = xor i32 %279, %274
@@ -665,21 +664,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %283 = add i32 %282, %26
   %284 = and i32 %283, 255
   %285 = zext nneg i32 %284 to i64
-  %286 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %285
+  %286 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %285
   %287 = load i32, ptr %286, align 4
   %288 = lshr i32 %283, 8
   %289 = and i32 %288, 255
   %290 = zext nneg i32 %289 to i64
-  %291 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %290
+  %291 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %290
   %292 = load i32, ptr %291, align 4
   %293 = lshr i32 %283, 16
   %294 = and i32 %293, 255
   %295 = zext nneg i32 %294 to i64
-  %296 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %295
+  %296 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %295
   %297 = load i32, ptr %296, align 4
   %298 = lshr i32 %283, 24
   %299 = zext nneg i32 %298 to i64
-  %300 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %299
   %301 = load i32, ptr %300, align 4
   %302 = xor i32 %287, %292
   %303 = xor i32 %302, %297
@@ -688,21 +687,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %306 = add i32 %305, %36
   %307 = and i32 %306, 255
   %308 = zext nneg i32 %307 to i64
-  %309 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %308
   %310 = load i32, ptr %309, align 4
   %311 = lshr i32 %306, 8
   %312 = and i32 %311, 255
   %313 = zext nneg i32 %312 to i64
-  %314 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %313
+  %314 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %313
   %315 = load i32, ptr %314, align 4
   %316 = lshr i32 %306, 16
   %317 = and i32 %316, 255
   %318 = zext nneg i32 %317 to i64
-  %319 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %318
+  %319 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %318
   %320 = load i32, ptr %319, align 4
   %321 = lshr i32 %306, 24
   %322 = zext nneg i32 %321 to i64
-  %323 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %322
+  %323 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %322
   %324 = load i32, ptr %323, align 4
   %325 = xor i32 %310, %315
   %326 = xor i32 %325, %320
@@ -711,21 +710,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %329 = add i32 %328, %46
   %330 = and i32 %329, 255
   %331 = zext nneg i32 %330 to i64
-  %332 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %331
+  %332 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %331
   %333 = load i32, ptr %332, align 4
   %334 = lshr i32 %329, 8
   %335 = and i32 %334, 255
   %336 = zext nneg i32 %335 to i64
-  %337 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %336
+  %337 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %336
   %338 = load i32, ptr %337, align 4
   %339 = lshr i32 %329, 16
   %340 = and i32 %339, 255
   %341 = zext nneg i32 %340 to i64
-  %342 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %341
+  %342 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %341
   %343 = load i32, ptr %342, align 4
   %344 = lshr i32 %329, 24
   %345 = zext nneg i32 %344 to i64
-  %346 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %345
   %347 = load i32, ptr %346, align 4
   %348 = xor i32 %333, %338
   %349 = xor i32 %348, %343
@@ -734,21 +733,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %352 = add i32 %351, %55
   %353 = and i32 %352, 255
   %354 = zext nneg i32 %353 to i64
-  %355 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %354
+  %355 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %354
   %356 = load i32, ptr %355, align 4
   %357 = lshr i32 %352, 8
   %358 = and i32 %357, 255
   %359 = zext nneg i32 %358 to i64
-  %360 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %359
+  %360 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %359
   %361 = load i32, ptr %360, align 4
   %362 = lshr i32 %352, 16
   %363 = and i32 %362, 255
   %364 = zext nneg i32 %363 to i64
-  %365 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %364
+  %365 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %364
   %366 = load i32, ptr %365, align 4
   %367 = lshr i32 %352, 24
   %368 = zext nneg i32 %367 to i64
-  %369 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %368
   %370 = load i32, ptr %369, align 4
   %371 = xor i32 %356, %361
   %372 = xor i32 %371, %366
@@ -757,21 +756,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %375 = add i32 %374, %64
   %376 = and i32 %375, 255
   %377 = zext nneg i32 %376 to i64
-  %378 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %377
+  %378 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %377
   %379 = load i32, ptr %378, align 4
   %380 = lshr i32 %375, 8
   %381 = and i32 %380, 255
   %382 = zext nneg i32 %381 to i64
-  %383 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %382
   %384 = load i32, ptr %383, align 4
   %385 = lshr i32 %375, 16
   %386 = and i32 %385, 255
   %387 = zext nneg i32 %386 to i64
-  %388 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %387
+  %388 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %387
   %389 = load i32, ptr %388, align 4
   %390 = lshr i32 %375, 24
   %391 = zext nneg i32 %390 to i64
-  %392 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %391
   %393 = load i32, ptr %392, align 4
   %394 = xor i32 %379, %384
   %395 = xor i32 %394, %389
@@ -780,21 +779,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %398 = add i32 %397, %74
   %399 = and i32 %398, 255
   %400 = zext nneg i32 %399 to i64
-  %401 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %400
+  %401 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %400
   %402 = load i32, ptr %401, align 4
   %403 = lshr i32 %398, 8
   %404 = and i32 %403, 255
   %405 = zext nneg i32 %404 to i64
-  %406 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %405
+  %406 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %405
   %407 = load i32, ptr %406, align 4
   %408 = lshr i32 %398, 16
   %409 = and i32 %408, 255
   %410 = zext nneg i32 %409 to i64
-  %411 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %410
+  %411 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %410
   %412 = load i32, ptr %411, align 4
   %413 = lshr i32 %398, 24
   %414 = zext nneg i32 %413 to i64
-  %415 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %414
+  %415 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %414
   %416 = load i32, ptr %415, align 4
   %417 = xor i32 %402, %407
   %418 = xor i32 %417, %412
@@ -803,21 +802,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %421 = add i32 %420, %84
   %422 = and i32 %421, 255
   %423 = zext nneg i32 %422 to i64
-  %424 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %423
+  %424 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %423
   %425 = load i32, ptr %424, align 4
   %426 = lshr i32 %421, 8
   %427 = and i32 %426, 255
   %428 = zext nneg i32 %427 to i64
-  %429 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %428
+  %429 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %428
   %430 = load i32, ptr %429, align 4
   %431 = lshr i32 %421, 16
   %432 = and i32 %431, 255
   %433 = zext nneg i32 %432 to i64
-  %434 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %433
+  %434 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %433
   %435 = load i32, ptr %434, align 4
   %436 = lshr i32 %421, 24
   %437 = zext nneg i32 %436 to i64
-  %438 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %437
+  %438 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %437
   %439 = load i32, ptr %438, align 4
   %440 = xor i32 %425, %430
   %441 = xor i32 %440, %435
@@ -826,21 +825,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %444 = add i32 %443, %93
   %445 = and i32 %444, 255
   %446 = zext nneg i32 %445 to i64
-  %447 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %446
+  %447 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %446
   %448 = load i32, ptr %447, align 4
   %449 = lshr i32 %444, 8
   %450 = and i32 %449, 255
   %451 = zext nneg i32 %450 to i64
-  %452 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %451
+  %452 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %451
   %453 = load i32, ptr %452, align 4
   %454 = lshr i32 %444, 16
   %455 = and i32 %454, 255
   %456 = zext nneg i32 %455 to i64
-  %457 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %456
+  %457 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %456
   %458 = load i32, ptr %457, align 4
   %459 = lshr i32 %444, 24
   %460 = zext nneg i32 %459 to i64
-  %461 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %460
+  %461 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %460
   %462 = load i32, ptr %461, align 4
   %463 = xor i32 %448, %453
   %464 = xor i32 %463, %458
@@ -849,21 +848,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %467 = add i32 %466, %26
   %468 = and i32 %467, 255
   %469 = zext nneg i32 %468 to i64
-  %470 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %469
+  %470 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %469
   %471 = load i32, ptr %470, align 4
   %472 = lshr i32 %467, 8
   %473 = and i32 %472, 255
   %474 = zext nneg i32 %473 to i64
-  %475 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %474
+  %475 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %474
   %476 = load i32, ptr %475, align 4
   %477 = lshr i32 %467, 16
   %478 = and i32 %477, 255
   %479 = zext nneg i32 %478 to i64
-  %480 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %479
+  %480 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %479
   %481 = load i32, ptr %480, align 4
   %482 = lshr i32 %467, 24
   %483 = zext nneg i32 %482 to i64
-  %484 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %483
+  %484 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %483
   %485 = load i32, ptr %484, align 4
   %486 = xor i32 %471, %476
   %487 = xor i32 %486, %481
@@ -872,21 +871,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %490 = add i32 %489, %36
   %491 = and i32 %490, 255
   %492 = zext nneg i32 %491 to i64
-  %493 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %492
+  %493 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %492
   %494 = load i32, ptr %493, align 4
   %495 = lshr i32 %490, 8
   %496 = and i32 %495, 255
   %497 = zext nneg i32 %496 to i64
-  %498 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %497
+  %498 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %497
   %499 = load i32, ptr %498, align 4
   %500 = lshr i32 %490, 16
   %501 = and i32 %500, 255
   %502 = zext nneg i32 %501 to i64
-  %503 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %502
+  %503 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %502
   %504 = load i32, ptr %503, align 4
   %505 = lshr i32 %490, 24
   %506 = zext nneg i32 %505 to i64
-  %507 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %506
+  %507 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %506
   %508 = load i32, ptr %507, align 4
   %509 = xor i32 %494, %499
   %510 = xor i32 %509, %504
@@ -895,21 +894,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %513 = add i32 %512, %46
   %514 = and i32 %513, 255
   %515 = zext nneg i32 %514 to i64
-  %516 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %515
+  %516 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %515
   %517 = load i32, ptr %516, align 4
   %518 = lshr i32 %513, 8
   %519 = and i32 %518, 255
   %520 = zext nneg i32 %519 to i64
-  %521 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %520
+  %521 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %520
   %522 = load i32, ptr %521, align 4
   %523 = lshr i32 %513, 16
   %524 = and i32 %523, 255
   %525 = zext nneg i32 %524 to i64
-  %526 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %525
+  %526 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %525
   %527 = load i32, ptr %526, align 4
   %528 = lshr i32 %513, 24
   %529 = zext nneg i32 %528 to i64
-  %530 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %529
+  %530 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %529
   %531 = load i32, ptr %530, align 4
   %532 = xor i32 %517, %522
   %533 = xor i32 %532, %527
@@ -918,21 +917,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %536 = add i32 %535, %55
   %537 = and i32 %536, 255
   %538 = zext nneg i32 %537 to i64
-  %539 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %538
+  %539 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %538
   %540 = load i32, ptr %539, align 4
   %541 = lshr i32 %536, 8
   %542 = and i32 %541, 255
   %543 = zext nneg i32 %542 to i64
-  %544 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %543
+  %544 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %543
   %545 = load i32, ptr %544, align 4
   %546 = lshr i32 %536, 16
   %547 = and i32 %546, 255
   %548 = zext nneg i32 %547 to i64
-  %549 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %548
+  %549 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %548
   %550 = load i32, ptr %549, align 4
   %551 = lshr i32 %536, 24
   %552 = zext nneg i32 %551 to i64
-  %553 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %552
+  %553 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %552
   %554 = load i32, ptr %553, align 4
   %555 = xor i32 %540, %545
   %556 = xor i32 %555, %550
@@ -941,21 +940,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %559 = add i32 %558, %64
   %560 = and i32 %559, 255
   %561 = zext nneg i32 %560 to i64
-  %562 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %561
+  %562 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %561
   %563 = load i32, ptr %562, align 4
   %564 = lshr i32 %559, 8
   %565 = and i32 %564, 255
   %566 = zext nneg i32 %565 to i64
-  %567 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %566
+  %567 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %566
   %568 = load i32, ptr %567, align 4
   %569 = lshr i32 %559, 16
   %570 = and i32 %569, 255
   %571 = zext nneg i32 %570 to i64
-  %572 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %571
+  %572 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %571
   %573 = load i32, ptr %572, align 4
   %574 = lshr i32 %559, 24
   %575 = zext nneg i32 %574 to i64
-  %576 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %575
+  %576 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %575
   %577 = load i32, ptr %576, align 4
   %578 = xor i32 %563, %568
   %579 = xor i32 %578, %573
@@ -964,21 +963,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %582 = add i32 %581, %74
   %583 = and i32 %582, 255
   %584 = zext nneg i32 %583 to i64
-  %585 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %584
+  %585 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %584
   %586 = load i32, ptr %585, align 4
   %587 = lshr i32 %582, 8
   %588 = and i32 %587, 255
   %589 = zext nneg i32 %588 to i64
-  %590 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %589
+  %590 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %589
   %591 = load i32, ptr %590, align 4
   %592 = lshr i32 %582, 16
   %593 = and i32 %592, 255
   %594 = zext nneg i32 %593 to i64
-  %595 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %594
+  %595 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %594
   %596 = load i32, ptr %595, align 4
   %597 = lshr i32 %582, 24
   %598 = zext nneg i32 %597 to i64
-  %599 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %598
+  %599 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %598
   %600 = load i32, ptr %599, align 4
   %601 = xor i32 %586, %591
   %602 = xor i32 %601, %596
@@ -987,21 +986,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %605 = add i32 %604, %84
   %606 = and i32 %605, 255
   %607 = zext nneg i32 %606 to i64
-  %608 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %607
+  %608 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %607
   %609 = load i32, ptr %608, align 4
   %610 = lshr i32 %605, 8
   %611 = and i32 %610, 255
   %612 = zext nneg i32 %611 to i64
-  %613 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %612
+  %613 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %612
   %614 = load i32, ptr %613, align 4
   %615 = lshr i32 %605, 16
   %616 = and i32 %615, 255
   %617 = zext nneg i32 %616 to i64
-  %618 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %617
+  %618 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %617
   %619 = load i32, ptr %618, align 4
   %620 = lshr i32 %605, 24
   %621 = zext nneg i32 %620 to i64
-  %622 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %621
+  %622 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %621
   %623 = load i32, ptr %622, align 4
   %624 = xor i32 %609, %614
   %625 = xor i32 %624, %619
@@ -1010,21 +1009,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %628 = add i32 %627, %93
   %629 = and i32 %628, 255
   %630 = zext nneg i32 %629 to i64
-  %631 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %630
+  %631 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %630
   %632 = load i32, ptr %631, align 4
   %633 = lshr i32 %628, 8
   %634 = and i32 %633, 255
   %635 = zext nneg i32 %634 to i64
-  %636 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %635
+  %636 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %635
   %637 = load i32, ptr %636, align 4
   %638 = lshr i32 %628, 16
   %639 = and i32 %638, 255
   %640 = zext nneg i32 %639 to i64
-  %641 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %640
+  %641 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %640
   %642 = load i32, ptr %641, align 4
   %643 = lshr i32 %628, 24
   %644 = zext nneg i32 %643 to i64
-  %645 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %644
+  %645 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %644
   %646 = load i32, ptr %645, align 4
   %647 = xor i32 %632, %637
   %648 = xor i32 %647, %642
@@ -1033,21 +1032,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %651 = add i32 %650, %93
   %652 = and i32 %651, 255
   %653 = zext nneg i32 %652 to i64
-  %654 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %653
+  %654 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %653
   %655 = load i32, ptr %654, align 4
   %656 = lshr i32 %651, 8
   %657 = and i32 %656, 255
   %658 = zext nneg i32 %657 to i64
-  %659 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %658
+  %659 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %658
   %660 = load i32, ptr %659, align 4
   %661 = lshr i32 %651, 16
   %662 = and i32 %661, 255
   %663 = zext nneg i32 %662 to i64
-  %664 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %663
+  %664 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %663
   %665 = load i32, ptr %664, align 4
   %666 = lshr i32 %651, 24
   %667 = zext nneg i32 %666 to i64
-  %668 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %667
+  %668 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %667
   %669 = load i32, ptr %668, align 4
   %670 = xor i32 %655, %660
   %671 = xor i32 %670, %665
@@ -1056,21 +1055,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %674 = add i32 %673, %84
   %675 = and i32 %674, 255
   %676 = zext nneg i32 %675 to i64
-  %677 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %676
+  %677 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %676
   %678 = load i32, ptr %677, align 4
   %679 = lshr i32 %674, 8
   %680 = and i32 %679, 255
   %681 = zext nneg i32 %680 to i64
-  %682 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %681
+  %682 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %681
   %683 = load i32, ptr %682, align 4
   %684 = lshr i32 %674, 16
   %685 = and i32 %684, 255
   %686 = zext nneg i32 %685 to i64
-  %687 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %686
+  %687 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %686
   %688 = load i32, ptr %687, align 4
   %689 = lshr i32 %674, 24
   %690 = zext nneg i32 %689 to i64
-  %691 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %690
+  %691 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %690
   %692 = load i32, ptr %691, align 4
   %693 = xor i32 %678, %683
   %694 = xor i32 %693, %688
@@ -1079,21 +1078,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %697 = add i32 %696, %74
   %698 = and i32 %697, 255
   %699 = zext nneg i32 %698 to i64
-  %700 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %699
+  %700 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %699
   %701 = load i32, ptr %700, align 4
   %702 = lshr i32 %697, 8
   %703 = and i32 %702, 255
   %704 = zext nneg i32 %703 to i64
-  %705 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %704
+  %705 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %704
   %706 = load i32, ptr %705, align 4
   %707 = lshr i32 %697, 16
   %708 = and i32 %707, 255
   %709 = zext nneg i32 %708 to i64
-  %710 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %709
+  %710 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %709
   %711 = load i32, ptr %710, align 4
   %712 = lshr i32 %697, 24
   %713 = zext nneg i32 %712 to i64
-  %714 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %713
+  %714 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %713
   %715 = load i32, ptr %714, align 4
   %716 = xor i32 %701, %706
   %717 = xor i32 %716, %711
@@ -1102,21 +1101,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %720 = add i32 %719, %64
   %721 = and i32 %720, 255
   %722 = zext nneg i32 %721 to i64
-  %723 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %722
+  %723 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %722
   %724 = load i32, ptr %723, align 4
   %725 = lshr i32 %720, 8
   %726 = and i32 %725, 255
   %727 = zext nneg i32 %726 to i64
-  %728 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %727
+  %728 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %727
   %729 = load i32, ptr %728, align 4
   %730 = lshr i32 %720, 16
   %731 = and i32 %730, 255
   %732 = zext nneg i32 %731 to i64
-  %733 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %732
+  %733 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %732
   %734 = load i32, ptr %733, align 4
   %735 = lshr i32 %720, 24
   %736 = zext nneg i32 %735 to i64
-  %737 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %736
+  %737 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %736
   %738 = load i32, ptr %737, align 4
   %739 = xor i32 %724, %729
   %740 = xor i32 %739, %734
@@ -1125,21 +1124,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %743 = add i32 %742, %55
   %744 = and i32 %743, 255
   %745 = zext nneg i32 %744 to i64
-  %746 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %745
+  %746 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %745
   %747 = load i32, ptr %746, align 4
   %748 = lshr i32 %743, 8
   %749 = and i32 %748, 255
   %750 = zext nneg i32 %749 to i64
-  %751 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %750
+  %751 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %750
   %752 = load i32, ptr %751, align 4
   %753 = lshr i32 %743, 16
   %754 = and i32 %753, 255
   %755 = zext nneg i32 %754 to i64
-  %756 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %755
+  %756 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %755
   %757 = load i32, ptr %756, align 4
   %758 = lshr i32 %743, 24
   %759 = zext nneg i32 %758 to i64
-  %760 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %759
+  %760 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %759
   %761 = load i32, ptr %760, align 4
   %762 = xor i32 %747, %752
   %763 = xor i32 %762, %757
@@ -1148,21 +1147,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %766 = add i32 %765, %46
   %767 = and i32 %766, 255
   %768 = zext nneg i32 %767 to i64
-  %769 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %768
+  %769 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %768
   %770 = load i32, ptr %769, align 4
   %771 = lshr i32 %766, 8
   %772 = and i32 %771, 255
   %773 = zext nneg i32 %772 to i64
-  %774 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %773
+  %774 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %773
   %775 = load i32, ptr %774, align 4
   %776 = lshr i32 %766, 16
   %777 = and i32 %776, 255
   %778 = zext nneg i32 %777 to i64
-  %779 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %778
+  %779 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %778
   %780 = load i32, ptr %779, align 4
   %781 = lshr i32 %766, 24
   %782 = zext nneg i32 %781 to i64
-  %783 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %782
+  %783 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %782
   %784 = load i32, ptr %783, align 4
   %785 = xor i32 %770, %775
   %786 = xor i32 %785, %780
@@ -1171,21 +1170,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %789 = add i32 %788, %36
   %790 = and i32 %789, 255
   %791 = zext nneg i32 %790 to i64
-  %792 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %791
+  %792 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %791
   %793 = load i32, ptr %792, align 4
   %794 = lshr i32 %789, 8
   %795 = and i32 %794, 255
   %796 = zext nneg i32 %795 to i64
-  %797 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %796
+  %797 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %796
   %798 = load i32, ptr %797, align 4
   %799 = lshr i32 %789, 16
   %800 = and i32 %799, 255
   %801 = zext nneg i32 %800 to i64
-  %802 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %801
+  %802 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %801
   %803 = load i32, ptr %802, align 4
   %804 = lshr i32 %789, 24
   %805 = zext nneg i32 %804 to i64
-  %806 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %805
+  %806 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %805
   %807 = load i32, ptr %806, align 4
   %808 = xor i32 %793, %798
   %809 = xor i32 %808, %803
@@ -1194,29 +1193,29 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %812 = add i32 %811, %26
   %813 = and i32 %812, 255
   %814 = zext nneg i32 %813 to i64
-  %815 = getelementptr inbounds [256 x i32], ptr %5, i64 0, i64 %814
+  %815 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %814
   %816 = load i32, ptr %815, align 4
   %817 = lshr i32 %812, 8
   %818 = and i32 %817, 255
   %819 = zext nneg i32 %818 to i64
-  %820 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %819
+  %820 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %819
   %821 = load i32, ptr %820, align 4
   %822 = lshr i32 %812, 16
   %823 = and i32 %822, 255
   %824 = zext nneg i32 %823 to i64
-  %825 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %824
+  %825 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %824
   %826 = load i32, ptr %825, align 4
   %827 = lshr i32 %812, 24
   %828 = zext nneg i32 %827 to i64
-  %829 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %828
+  %829 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %828
   %830 = load i32, ptr %829, align 4
   %831 = xor i32 %816, %821
   %832 = xor i32 %831, %826
   %833 = xor i32 %832, %830
   %834 = xor i32 %833, %788
-  %835 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %835 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %indvars.iv
   store i32 %811, ptr %835, align 8
-  %836 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %96
+  %836 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %96
   store i32 %834, ptr %836, align 4
   %.not = icmp eq i64 %indvars.iv, 6
   br i1 %.not, label %.thread, label %837
@@ -1256,21 +1255,21 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   br i1 %855, label %9, label %.thread
 
 .thread:                                          ; preds = %9, %850
-  %856 = getelementptr inbounds i8, ptr %3, i64 24
+  %856 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %857 = load i32, ptr %856, align 8
   %858 = xor i32 %857, %.sroa.050.0.copyload
-  %859 = getelementptr inbounds i8, ptr %3, i64 28
+  %859 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %860 = load i32, ptr %859, align 4
   %861 = xor i32 %860, %.sroa.23.0.copyload
   %862 = load i32, ptr %3, align 16
   %863 = shl i32 %862, 16
   %864 = lshr i32 %862, 16
   %865 = and i32 %862, 65535
-  %866 = getelementptr inbounds i8, ptr %3, i64 4
+  %866 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %867 = load i32, ptr %866, align 4
   %868 = and i32 %867, 65535
   %869 = lshr i32 %867, 16
-  %870 = getelementptr inbounds i8, ptr %3, i64 8
+  %870 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %871 = load i32, ptr %870, align 8
   %872 = shl i32 %871, 16
   %873 = or disjoint i32 %869, %863
@@ -1288,7 +1287,7 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %885 = xor i32 %878, %884
   %886 = shl i32 %867, 16
   %887 = lshr i32 %871, 16
-  %888 = getelementptr inbounds i8, ptr %3, i64 12
+  %888 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %889 = load i32, ptr %888, align 4
   %890 = shl i32 %889, 16
   %891 = xor i32 %.sroa.61.0.copyload, %865
@@ -1317,7 +1316,7 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %914 = xor i32 %913, %887
   %915 = xor i32 %914, %890
   %916 = lshr i32 %889, 16
-  %917 = getelementptr inbounds i8, ptr %3, i64 16
+  %917 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %918 = load i32, ptr %917, align 16
   %919 = shl i32 %918, 16
   %920 = xor i32 %880, %915
@@ -1328,7 +1327,7 @@ define internal fastcc void @Gost(ptr nocapture noundef %0, ptr nocapture nounde
   %925 = xor i32 %924, %916
   %926 = xor i32 %925, %914
   %927 = lshr i32 %918, 16
-  %928 = getelementptr inbounds i8, ptr %3, i64 20
+  %928 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %929 = load i32, ptr %928, align 4
   %930 = shl i32 %929, 16
   %931 = xor i32 %881, %.sroa.96.0.copyload
@@ -1561,7 +1560,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_gost_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i64 %1, 2
   br i1 %6, label %7, label %.thread
@@ -1572,7 +1571,7 @@ define internal i32 @php_gost_unserialize(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %12 = load i8, ptr %11, align 8
   %13 = icmp ult i8 %12, 32
   %spec.select = select i1 %13, i32 0, i32 -2000

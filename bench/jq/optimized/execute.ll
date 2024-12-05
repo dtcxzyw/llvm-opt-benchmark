@@ -40,13 +40,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @stack_push(ptr nocapture noundef %0, i64 %1, ptr %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, -24
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8
   %12 = icmp slt i32 %9, %11
   %.val.pre.i = load ptr, ptr %4, align 8
@@ -87,7 +87,7 @@ stack_push_block.exit:                            ; preds = %3, %13
   %.val = load ptr, ptr %4, align 8
   %33 = getelementptr inbounds i8, ptr %.val, i64 %30
   store i64 %1, ptr %33, align 8
-  %.sroa.2.0..0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.2.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %2, ptr %.sroa.2.0..0..sroa_idx, align 8
   ret void
 }
@@ -97,14 +97,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @stack_pop(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %.val = load ptr, ptr %2, align 8
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %.val, i64 %5
   %.sroa.08.0.copyload = load i64, ptr %6, align 8
-  %.sroa.4.0..0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.4.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..0..sroa_idx, align 8
   %7 = getelementptr i8, ptr %0, i64 68
   %.val9 = load i32, ptr %7, align 4
@@ -150,14 +150,14 @@ declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @stack_popn(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %.val = load ptr, ptr %2, align 8
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %.val, i64 %5
   %.sroa.09.0.copyload = load i64, ptr %6, align 8
-  %.sroa.210.0..0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.210.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.210.0.copyload = load ptr, ptr %.sroa.210.0..0..sroa_idx, align 8
   %7 = getelementptr i8, ptr %0, i64 68
   %.val11 = load i32, ptr %7, align 4
@@ -205,9 +205,9 @@ declare { i64, ptr } @jv_null() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @stack_get_pos(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 76
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %.sroa.2.0.insert.ext = zext i32 %5 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
@@ -218,13 +218,13 @@ define i64 @stack_get_pos(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define void @stack_save(ptr nocapture noundef %0, ptr noundef %1, i64 %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, -48
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8
   %12 = icmp slt i32 %9, %11
   %.val.pre.i = load ptr, ptr %4, align 8
@@ -264,16 +264,16 @@ stack_push_block.exit:                            ; preds = %3, %13
   store i32 %9, ptr %5, align 8
   %.val = load ptr, ptr %4, align 8
   %33 = getelementptr inbounds i8, ptr %.val, i64 %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %33, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 %37, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @jv_get_kind(i64 %40, ptr %42) #12
   %44 = icmp eq i32 %43, 6
@@ -293,24 +293,24 @@ stack_push_block.exit:                            ; preds = %3, %13
   %.sroa.223.0.extract.shift = lshr i64 %2, 32
   %.sroa.223.0.extract.trunc = trunc nuw i64 %.sroa.223.0.extract.shift to i32
   %.sroa.022.0.extract.trunc = trunc i64 %2 to i32
-  %54 = getelementptr inbounds i8, ptr %33, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %33, i64 16
-  %56 = getelementptr inbounds i8, ptr %0, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 112
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %59 = load ptr, ptr %58, align 8
   %60 = tail call { i64, ptr } @jv_copy(i64 %57, ptr %59) #12
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
   store i64 %61, ptr %55, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %62, ptr %.sroa.2.0..sroa_idx, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 120
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %33, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 %64, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %33, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store ptr %1, ptr %66, align 8
   store i32 %.sroa.022.0.extract.trunc, ptr %34, align 4
   store i32 %.sroa.223.0.extract.trunc, ptr %36, align 8
@@ -323,7 +323,7 @@ declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @_jq_path_append(ptr nocapture noundef %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr nocapture noundef readonly byval(%struct.jv) align 8 %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %._crit_edge
@@ -333,9 +333,9 @@ define { i64, ptr } @_jq_path_append(ptr nocapture noundef %0, i64 %1, ptr %2, i
   br label %19
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @jv_get_kind(i64 %11, ptr %13) #12
   %.not31 = icmp eq i32 %14, 6
@@ -343,7 +343,7 @@ define { i64, ptr } @_jq_path_append(ptr nocapture noundef %0, i64 %1, ptr %2, i
   br i1 %.not31, label %15, label %19
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @jv_get_kind(i64 %.sroa.027.0.copyload.pre37, ptr %17) #12
   %.not36 = icmp eq i32 %18, 0
@@ -353,16 +353,16 @@ define { i64, ptr } @_jq_path_append(ptr nocapture noundef %0, i64 %1, ptr %2, i
   %.sroa.027.0.copyload = phi i64 [ %.sroa.027.0.copyload.pre, %._crit_edge ], [ %.sroa.027.0.copyload.pre37, %15 ], [ %.sroa.027.0.copyload.pre37, %9 ]
   tail call void @jv_free(i64 %1, ptr %2) #12
   tail call void @jv_free(i64 %3, ptr %4) #12
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %20 = insertvalue { i64, ptr } poison, i64 %.sroa.027.0.copyload, 0
   %21 = insertvalue { i64, ptr } %20, ptr %.sroa.4.0.copyload, 1
   br label %47
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load ptr, ptr %25, align 8
   %27 = tail call { i64, ptr } @jv_copy(i64 %24, ptr %26) #12
   %28 = extractvalue { i64, ptr } %27, 0
@@ -424,8 +424,8 @@ declare { i64, ptr } @jv_array_append(i64, ptr, i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define ptr @stack_restore(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr i8, ptr %0, i64 68
   %5 = load i32, ptr %3, align 8
   %.val3849 = load i32, ptr %4, align 4
@@ -433,8 +433,8 @@ define ptr @stack_restore(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 76
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %8
 
 8:                                                ; preds = %.lr.ph, %55
@@ -447,7 +447,7 @@ stack_pop.exit:                                   ; preds = %8
   %.val.i = load ptr, ptr %2, align 8
   %10 = sext i32 %.val3857 to i64
   %11 = getelementptr inbounds i8, ptr %.val.i, i64 %10
-  %.sroa.4.0..0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.4.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..0..sroa_idx.i, align 8
   %.sroa.08.0.copyload.i = load i64, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 -4
@@ -469,7 +469,7 @@ stack_pop.exit:                                   ; preds = %8
   %18 = sext i32 %.val3857 to i64
   %19 = getelementptr inbounds i8, ptr %.val12.i, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph.i, label %.loopexit.thread.i
@@ -485,15 +485,15 @@ stack_pop.exit:                                   ; preds = %8
   %.val.pre.i.i = load ptr, ptr %2, align 8
   %26 = sext i32 %.08.i.i.i to i64
   %27 = getelementptr inbounds i8, ptr %.val.pre.i.i, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = add nsw i32 %31, %.016.i
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds [0 x %union.frame_entry], ptr %28, i64 0, i64 %33
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load ptr, ptr %36, align 8
   tail call void @jv_free(i64 %35, ptr %37) #12
   %38 = add nuw nsw i32 %.016.i, 1
@@ -554,20 +554,20 @@ frame_pop.exit:                                   ; preds = %.loopexit.i, %43
   %.val = load ptr, ptr %2, align 8
   %59 = sext i32 %.lcssa46 to i64
   %60 = getelementptr inbounds i8, ptr %.val, i64 %59
-  %61 = getelementptr inbounds i8, ptr %60, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %60, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 76
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %63, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %60, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %60, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 @jv_get_kind(i64 %71, ptr %73) #12
   %75 = icmp eq i32 %74, 6
@@ -588,16 +588,16 @@ frame_pop.exit:                                   ; preds = %.loopexit.i, %43
   br label %83
 
 83:                                               ; preds = %82, %76
-  %84 = getelementptr inbounds i8, ptr %0, i64 104
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 112
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %87 = load ptr, ptr %86, align 8
   tail call void @jv_free(i64 %85, ptr %87) #12
-  %88 = getelementptr inbounds i8, ptr %60, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %60, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false)
-  %89 = getelementptr inbounds i8, ptr %60, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %0, i64 120
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %90, ptr %91, align 8
   %92 = load i32, ptr %3, align 8
   %.val.i43 = load ptr, ptr %2, align 8
@@ -627,9 +627,9 @@ declare { i64, ptr } @jv_array_slice(i64, ptr, i32 noundef, i32 noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define void @jq_report_error(ptr nocapture noundef readonly %0, i64 %1, ptr %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void %5(ptr noundef %7, i64 %1, ptr %2) #12
   ret void
@@ -645,14 +645,14 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %7 = alloca [30 x i8], align 16
   %8 = alloca [15 x i8], align 1
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @jv_nomem_handler(ptr noundef %9, ptr noundef %11) #12
   %12 = tail call ptr @stack_restore(ptr noundef nonnull %0)
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load i32, ptr %13, align 8
   store i32 0, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load i32, ptr %15, align 8
   %.not7641844 = icmp eq i32 %16, 0
   br i1 %.not7641844, label %.lr.ph1848, label %._crit_edge1849
@@ -660,30 +660,30 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph1848:                                       ; preds = %1
   %.not = icmp eq i32 %14, 0
   %17 = zext i1 %.not to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 124
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %19 = getelementptr i8, ptr %0, i64 56
   %20 = getelementptr i8, ptr %0, i64 72
-  %21 = getelementptr inbounds i8, ptr %0, i64 76
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = getelementptr i8, ptr %0, i64 68
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
-  %28 = getelementptr inbounds i8, ptr %2, i64 48
-  %29 = getelementptr inbounds i8, ptr %2, i64 64
-  %30 = getelementptr inbounds i8, ptr %2, i64 24
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
-  %33 = getelementptr inbounds i8, ptr %0, i64 96
-  %34 = getelementptr inbounds i8, ptr %0, i64 104
-  %35 = getelementptr inbounds i8, ptr %0, i64 112
-  %36 = getelementptr inbounds i8, ptr %0, i64 132
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 132
   br label %42
 
 ._crit_edge1849:                                  ; preds = %2747, %1
-  %37 = getelementptr inbounds i8, ptr %0, i64 124
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %38 = load i32, ptr %37, align 4
   %.not801 = icmp eq i32 %38, 0
   br i1 %.not801, label %40, label %39
@@ -718,13 +718,13 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not766, label %51, label %98
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %50, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, -1
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %.01846, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.01846, i64 2
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i32
   br label %59
@@ -760,7 +760,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %70 = sext i32 %.2746 to i64
   %71 = getelementptr inbounds i8, ptr %.val802, i64 %70
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = call { i64, ptr } @jv_copy(i64 %72, ptr %74) #12
   %76 = extractvalue { i64, ptr } %75, 0
@@ -793,7 +793,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %87 = sext i32 %85 to i64
   %88 = getelementptr inbounds i8, ptr %.val, i64 %87
   %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %88, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = load ptr, ptr %90, align 8
   %92 = call { i64, ptr } @jv_copy(i64 %89, ptr %91) #12
   %93 = extractvalue { i64, ptr } %92, 0
@@ -829,7 +829,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
 107:                                              ; preds = %101, %100
   %.0743 = phi i16 [ %102, %101 ], [ %43, %100 ]
   %.0739 = phi i1 [ %106, %101 ], [ true, %100 ]
-  %108 = getelementptr inbounds i8, ptr %.01846, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %.01846, i64 2
   switch i16 %.0743, label %2747 [
     i16 72, label %2219
     i16 42, label %109
@@ -885,9 +885,9 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %110 = sext i32 %.val808 to i64
   %111 = getelementptr inbounds i8, ptr %.val807, i64 %110
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load i64, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %112, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %116 = load ptr, ptr %115, align 8
   %117 = call { i64, ptr } @jv_copy(i64 %114, ptr %116) #12
   %118 = extractvalue { i64, ptr } %117, 0
@@ -913,14 +913,14 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %131 = sext i32 %.val810 to i64
   %132 = getelementptr inbounds i8, ptr %.val809, i64 %131
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %133, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %137 = load ptr, ptr %136, align 8
   %138 = call { i64, ptr } @jv_copy(i64 %135, ptr %137) #12
   %139 = extractvalue { i64, ptr } %138, 0
   %140 = extractvalue { i64, ptr } %138, 1
-  %141 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %142 = load i16, ptr %108, align 2
   %143 = zext i16 %142 to i32
   %144 = call { i64, ptr } @jv_array_get(i64 %139, ptr %140, i32 noundef %143) #12
@@ -931,7 +931,7 @@ define { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %.val.i, i64 %148
   %.sroa.08.0.copyload.i = load i64, ptr %149, align 8
-  %.sroa.4.0..0..sroa_idx.i = getelementptr inbounds i8, ptr %149, i64 8
+  %.sroa.4.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %149, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..0..sroa_idx.i, align 8
   %.val9.i = load i32, ptr %24, align 4
   %.not.i = icmp eq i32 %147, %.val9.i
@@ -1014,7 +1014,7 @@ stack_push.exit:                                  ; preds = %stack_pop.exit, %17
   %.val.i825 = load ptr, ptr %19, align 8
   %192 = getelementptr inbounds i8, ptr %.val.i825, i64 %189
   store i64 %145, ptr %192, align 8
-  %.sroa.2.0..0..sroa_idx.i = getelementptr inbounds i8, ptr %192, i64 8
+  %.sroa.2.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %192, i64 8
   store ptr %146, ptr %.sroa.2.0..0..sroa_idx.i, align 8
   br label %2747
 
@@ -1078,7 +1078,7 @@ stack_push.exit832:                               ; preds = %193, %214
   %.val.i828 = load ptr, ptr %19, align 8
   %234 = getelementptr inbounds i8, ptr %.val.i828, i64 %231
   store i64 %207, ptr %234, align 8
-  %.sroa.2.0..0..sroa_idx.i829 = getelementptr inbounds i8, ptr %234, i64 8
+  %.sroa.2.0..0..sroa_idx.i829 = getelementptr inbounds nuw i8, ptr %234, i64 8
   store ptr %208, ptr %.sroa.2.0..0..sroa_idx.i829, align 8
   br label %2747
 
@@ -1088,7 +1088,7 @@ stack_push.exit832:                               ; preds = %193, %214
   %237 = sext i32 %236 to i64
   %238 = getelementptr inbounds i8, ptr %.val.i833, i64 %237
   %.sroa.08.0.copyload.i834 = load i64, ptr %238, align 8
-  %.sroa.4.0..0..sroa_idx.i835 = getelementptr inbounds i8, ptr %238, i64 8
+  %.sroa.4.0..0..sroa_idx.i835 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %.sroa.4.0.copyload.i836 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i835, align 8
   %.val9.i837 = load i32, ptr %24, align 4
   %.not.i838 = icmp eq i32 %236, %.val9.i837
@@ -1173,7 +1173,7 @@ stack_push.exit853:                               ; preds = %stack_pop.exit846, 
   %.val.i849 = load ptr, ptr %19, align 8
   %284 = getelementptr inbounds i8, ptr %.val.i849, i64 %281
   store i64 %257, ptr %284, align 8
-  %.sroa.2.0..0..sroa_idx.i850 = getelementptr inbounds i8, ptr %284, i64 8
+  %.sroa.2.0..0..sroa_idx.i850 = getelementptr inbounds nuw i8, ptr %284, i64 8
   store ptr %258, ptr %.sroa.2.0..0..sroa_idx.i850, align 8
   %285 = load i32, ptr %21, align 4
   %286 = load i32, ptr %24, align 4
@@ -1218,7 +1218,7 @@ stack_push.exit860:                               ; preds = %stack_push.exit853,
   %.val.i856 = load ptr, ptr %19, align 8
   %310 = getelementptr inbounds i8, ptr %.val.i856, i64 %307
   store i64 %254, ptr %310, align 8
-  %.sroa.2.0..0..sroa_idx.i857 = getelementptr inbounds i8, ptr %310, i64 8
+  %.sroa.2.0..0..sroa_idx.i857 = getelementptr inbounds nuw i8, ptr %310, i64 8
   store ptr %255, ptr %.sroa.2.0..0..sroa_idx.i857, align 8
   br label %2747
 
@@ -1228,7 +1228,7 @@ stack_push.exit860:                               ; preds = %stack_push.exit853,
   %313 = sext i32 %312 to i64
   %314 = getelementptr inbounds i8, ptr %.val.i861, i64 %313
   %.sroa.09.0.copyload.i = load i64, ptr %314, align 8
-  %.sroa.210.0..0..sroa_idx.i = getelementptr inbounds i8, ptr %314, i64 8
+  %.sroa.210.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %314, i64 8
   %.sroa.210.0.copyload.i = load ptr, ptr %.sroa.210.0..0..sroa_idx.i, align 8
   %.val11.i = load i32, ptr %24, align 4
   %.not.i862 = icmp eq i32 %312, %.val11.i
@@ -1311,7 +1311,7 @@ stack_push.exit872:                               ; preds = %stack_popn.exit, %3
   %.val.i868 = load ptr, ptr %19, align 8
   %358 = getelementptr inbounds i8, ptr %.val.i868, i64 %355
   store i64 %331, ptr %358, align 8
-  %.sroa.2.0..0..sroa_idx.i869 = getelementptr inbounds i8, ptr %358, i64 8
+  %.sroa.2.0..0..sroa_idx.i869 = getelementptr inbounds nuw i8, ptr %358, i64 8
   store ptr %332, ptr %.sroa.2.0..0..sroa_idx.i869, align 8
   %359 = load i32, ptr %21, align 4
   %360 = load i32, ptr %24, align 4
@@ -1356,7 +1356,7 @@ stack_push.exit879:                               ; preds = %stack_push.exit872,
   %.val.i875 = load ptr, ptr %19, align 8
   %384 = getelementptr inbounds i8, ptr %.val.i875, i64 %381
   store i64 %.sroa.09.0.copyload.i, ptr %384, align 8
-  %.sroa.2.0..0..sroa_idx.i876 = getelementptr inbounds i8, ptr %384, i64 8
+  %.sroa.2.0..0..sroa_idx.i876 = getelementptr inbounds nuw i8, ptr %384, i64 8
   store ptr %.sroa.210.0.copyload.i, ptr %.sroa.2.0..0..sroa_idx.i876, align 8
   br label %2747
 
@@ -1366,7 +1366,7 @@ stack_push.exit879:                               ; preds = %stack_push.exit872,
   %387 = sext i32 %386 to i64
   %388 = getelementptr inbounds i8, ptr %.val.i880, i64 %387
   %.sroa.08.0.copyload.i881 = load i64, ptr %388, align 8
-  %.sroa.4.0..0..sroa_idx.i882 = getelementptr inbounds i8, ptr %388, i64 8
+  %.sroa.4.0..0..sroa_idx.i882 = getelementptr inbounds nuw i8, ptr %388, i64 8
   %.sroa.4.0.copyload.i883 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i882, align 8
   %.val9.i884 = load i32, ptr %24, align 4
   %.not.i885 = icmp eq i32 %386, %.val9.i884
@@ -1411,7 +1411,7 @@ stack_pop.exit893:                                ; preds = %393, %399
   %406 = sext i32 %403 to i64
   %407 = getelementptr inbounds i8, ptr %.val.i894, i64 %406
   %.sroa.08.0.copyload.i895 = load i64, ptr %407, align 8
-  %.sroa.4.0..0..sroa_idx.i896 = getelementptr inbounds i8, ptr %407, i64 8
+  %.sroa.4.0..0..sroa_idx.i896 = getelementptr inbounds nuw i8, ptr %407, i64 8
   %.sroa.4.0.copyload.i897 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i896, align 8
   %.not.i899 = icmp eq i32 %403, %.val9.i898
   br i1 %.not.i899, label %.thread.i906, label %412
@@ -1495,7 +1495,7 @@ stack_push.exit914:                               ; preds = %stack_pop.exit907, 
   %.val.i910 = load ptr, ptr %19, align 8
   %453 = getelementptr inbounds i8, ptr %.val.i910, i64 %450
   store i64 %426, ptr %453, align 8
-  %.sroa.2.0..0..sroa_idx.i911 = getelementptr inbounds i8, ptr %453, i64 8
+  %.sroa.2.0..0..sroa_idx.i911 = getelementptr inbounds nuw i8, ptr %453, i64 8
   store ptr %427, ptr %.sroa.2.0..0..sroa_idx.i911, align 8
   %454 = load i32, ptr %21, align 4
   %455 = load i32, ptr %24, align 4
@@ -1540,7 +1540,7 @@ stack_push.exit921:                               ; preds = %stack_push.exit914,
   %.val.i917 = load ptr, ptr %19, align 8
   %479 = getelementptr inbounds i8, ptr %.val.i917, i64 %476
   store i64 %404, ptr %479, align 8
-  %.sroa.2.0..0..sroa_idx.i918 = getelementptr inbounds i8, ptr %479, i64 8
+  %.sroa.2.0..0..sroa_idx.i918 = getelementptr inbounds nuw i8, ptr %479, i64 8
   store ptr %405, ptr %.sroa.2.0..0..sroa_idx.i918, align 8
   %480 = load i32, ptr %21, align 4
   %481 = load i32, ptr %24, align 4
@@ -1585,7 +1585,7 @@ stack_push.exit928:                               ; preds = %stack_push.exit921,
   %.val.i924 = load ptr, ptr %19, align 8
   %505 = getelementptr inbounds i8, ptr %.val.i924, i64 %502
   store i64 %423, ptr %505, align 8
-  %.sroa.2.0..0..sroa_idx.i925 = getelementptr inbounds i8, ptr %505, i64 8
+  %.sroa.2.0..0..sroa_idx.i925 = getelementptr inbounds nuw i8, ptr %505, i64 8
   store ptr %424, ptr %.sroa.2.0..0..sroa_idx.i925, align 8
   br label %2747
 
@@ -1595,7 +1595,7 @@ stack_push.exit928:                               ; preds = %stack_push.exit921,
   %508 = sext i32 %507 to i64
   %509 = getelementptr inbounds i8, ptr %.val.i929, i64 %508
   %.sroa.08.0.copyload.i930 = load i64, ptr %509, align 8
-  %.sroa.4.0..0..sroa_idx.i931 = getelementptr inbounds i8, ptr %509, i64 8
+  %.sroa.4.0..0..sroa_idx.i931 = getelementptr inbounds nuw i8, ptr %509, i64 8
   %.sroa.4.0.copyload.i932 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i931, align 8
   %.val9.i933 = load i32, ptr %24, align 4
   %.not.i934 = icmp eq i32 %507, %.val9.i933
@@ -1680,7 +1680,7 @@ stack_push.exit949:                               ; preds = %stack_pop.exit942, 
   %.val.i945 = load ptr, ptr %19, align 8
   %555 = getelementptr inbounds i8, ptr %.val.i945, i64 %552
   store i64 %528, ptr %555, align 8
-  %.sroa.2.0..0..sroa_idx.i946 = getelementptr inbounds i8, ptr %555, i64 8
+  %.sroa.2.0..0..sroa_idx.i946 = getelementptr inbounds nuw i8, ptr %555, i64 8
   store ptr %529, ptr %.sroa.2.0..0..sroa_idx.i946, align 8
   %556 = load i32, ptr %21, align 4
   %557 = load i32, ptr %24, align 4
@@ -1725,7 +1725,7 @@ stack_push.exit956:                               ; preds = %stack_push.exit949,
   %.val.i952 = load ptr, ptr %19, align 8
   %581 = getelementptr inbounds i8, ptr %.val.i952, i64 %578
   store i64 %525, ptr %581, align 8
-  %.sroa.2.0..0..sroa_idx.i953 = getelementptr inbounds i8, ptr %581, i64 8
+  %.sroa.2.0..0..sroa_idx.i953 = getelementptr inbounds nuw i8, ptr %581, i64 8
   store ptr %526, ptr %.sroa.2.0..0..sroa_idx.i953, align 8
   %582 = load i32, ptr %31, align 8
   %583 = add nsw i32 %582, 1
@@ -1741,7 +1741,7 @@ stack_push.exit956:                               ; preds = %stack_push.exit949,
   %588 = sext i32 %587 to i64
   %589 = getelementptr inbounds i8, ptr %.val.i957, i64 %588
   %.sroa.08.0.copyload.i958 = load i64, ptr %589, align 8
-  %.sroa.4.0..0..sroa_idx.i959 = getelementptr inbounds i8, ptr %589, i64 8
+  %.sroa.4.0..0..sroa_idx.i959 = getelementptr inbounds nuw i8, ptr %589, i64 8
   %.sroa.4.0.copyload.i960 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i959, align 8
   %.val9.i961 = load i32, ptr %24, align 4
   %.not.i962 = icmp eq i32 %587, %.val9.i961
@@ -1786,7 +1786,7 @@ stack_pop.exit970:                                ; preds = %594, %600
   %607 = sext i32 %604 to i64
   %608 = getelementptr inbounds i8, ptr %.val.i971, i64 %607
   %.sroa.08.0.copyload.i972 = load i64, ptr %608, align 8
-  %.sroa.4.0..0..sroa_idx.i973 = getelementptr inbounds i8, ptr %608, i64 8
+  %.sroa.4.0..0..sroa_idx.i973 = getelementptr inbounds nuw i8, ptr %608, i64 8
   %.sroa.4.0.copyload.i974 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i973, align 8
   %.not.i976 = icmp eq i32 %604, %.val9.i975
   br i1 %.not.i976, label %.thread.i983, label %613
@@ -1865,7 +1865,7 @@ stack_push.exit991:                               ; preds = %stack_pop.exit984, 
   %.val.i987 = load ptr, ptr %19, align 8
   %649 = getelementptr inbounds i8, ptr %.val.i987, i64 %646
   store i64 %605, ptr %649, align 8
-  %.sroa.2.0..0..sroa_idx.i988 = getelementptr inbounds i8, ptr %649, i64 8
+  %.sroa.2.0..0..sroa_idx.i988 = getelementptr inbounds nuw i8, ptr %649, i64 8
   store ptr %606, ptr %.sroa.2.0..0..sroa_idx.i988, align 8
   %650 = load i32, ptr %21, align 4
   %651 = load i32, ptr %24, align 4
@@ -1910,7 +1910,7 @@ stack_push.exit998:                               ; preds = %stack_push.exit991,
   %.val.i994 = load ptr, ptr %19, align 8
   %675 = getelementptr inbounds i8, ptr %.val.i994, i64 %672
   store i64 %625, ptr %675, align 8
-  %.sroa.2.0..0..sroa_idx.i995 = getelementptr inbounds i8, ptr %675, i64 8
+  %.sroa.2.0..0..sroa_idx.i995 = getelementptr inbounds nuw i8, ptr %675, i64 8
   store ptr %626, ptr %.sroa.2.0..0..sroa_idx.i995, align 8
   br label %2747
 
@@ -1920,14 +1920,14 @@ stack_push.exit998:                               ; preds = %stack_push.exit991,
   %677 = sext i32 %.val812 to i64
   %678 = getelementptr inbounds i8, ptr %.val811, i64 %677
   %679 = load ptr, ptr %678, align 8
-  %680 = getelementptr inbounds i8, ptr %679, i64 24
+  %680 = getelementptr inbounds nuw i8, ptr %679, i64 24
   %681 = load i64, ptr %680, align 8
-  %682 = getelementptr inbounds i8, ptr %679, i64 32
+  %682 = getelementptr inbounds nuw i8, ptr %679, i64 32
   %683 = load ptr, ptr %682, align 8
   %684 = call { i64, ptr } @jv_copy(i64 %681, ptr %683) #12
   %685 = extractvalue { i64, ptr } %684, 0
   %686 = extractvalue { i64, ptr } %684, 1
-  %687 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %687 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %688 = load i16, ptr %108, align 2
   %689 = zext i16 %688 to i32
   %690 = call { i64, ptr } @jv_array_get(i64 %685, ptr %686, i32 noundef %689) #12
@@ -1938,7 +1938,7 @@ stack_push.exit998:                               ; preds = %stack_push.exit991,
   %694 = sext i32 %693 to i64
   %695 = getelementptr inbounds i8, ptr %.val.i999, i64 %694
   %.sroa.08.0.copyload.i1000 = load i64, ptr %695, align 8
-  %.sroa.4.0..0..sroa_idx.i1001 = getelementptr inbounds i8, ptr %695, i64 8
+  %.sroa.4.0..0..sroa_idx.i1001 = getelementptr inbounds nuw i8, ptr %695, i64 8
   %.sroa.4.0.copyload.i1002 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1001, align 8
   %.val9.i1003 = load i32, ptr %24, align 4
   %.not.i1004 = icmp eq i32 %693, %.val9.i1003
@@ -2018,7 +2018,7 @@ stack_push.exit1019:                              ; preds = %stack_pop.exit1012,
   %.val.i1015 = load ptr, ptr %19, align 8
   %736 = getelementptr inbounds i8, ptr %.val.i1015, i64 %733
   store i64 %691, ptr %736, align 8
-  %.sroa.2.0..0..sroa_idx.i1016 = getelementptr inbounds i8, ptr %736, i64 8
+  %.sroa.2.0..0..sroa_idx.i1016 = getelementptr inbounds nuw i8, ptr %736, i64 8
   store ptr %692, ptr %.sroa.2.0..0..sroa_idx.i1016, align 8
   %737 = load i32, ptr %21, align 4
   %738 = load i32, ptr %24, align 4
@@ -2063,7 +2063,7 @@ stack_push.exit1026:                              ; preds = %stack_push.exit1019
   %.val.i1022 = load ptr, ptr %19, align 8
   %762 = getelementptr inbounds i8, ptr %.val.i1022, i64 %759
   store i64 %712, ptr %762, align 8
-  %.sroa.2.0..0..sroa_idx.i1023 = getelementptr inbounds i8, ptr %762, i64 8
+  %.sroa.2.0..0..sroa_idx.i1023 = getelementptr inbounds nuw i8, ptr %762, i64 8
   store ptr %713, ptr %.sroa.2.0..0..sroa_idx.i1023, align 8
   br label %2747
 
@@ -2073,7 +2073,7 @@ stack_push.exit1026:                              ; preds = %stack_push.exit1019
   %765 = sext i32 %764 to i64
   %766 = getelementptr inbounds i8, ptr %.val.i1027, i64 %765
   %.sroa.08.0.copyload.i1028 = load i64, ptr %766, align 8
-  %.sroa.4.0..0..sroa_idx.i1029 = getelementptr inbounds i8, ptr %766, i64 8
+  %.sroa.4.0..0..sroa_idx.i1029 = getelementptr inbounds nuw i8, ptr %766, i64 8
   %.sroa.4.0.copyload.i1030 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1029, align 8
   %.val9.i1031 = load i32, ptr %24, align 4
   %.not.i1032 = icmp eq i32 %764, %.val9.i1031
@@ -2121,7 +2121,7 @@ stack_pop.exit1040:                               ; preds = %771, %777
   %786 = sext i32 %785 to i64
   %787 = getelementptr inbounds i8, ptr %.val.i1041, i64 %786
   %.sroa.08.0.copyload.i1042 = load i64, ptr %787, align 8
-  %.sroa.4.0..0..sroa_idx.i1043 = getelementptr inbounds i8, ptr %787, i64 8
+  %.sroa.4.0..0..sroa_idx.i1043 = getelementptr inbounds nuw i8, ptr %787, i64 8
   %.sroa.4.0.copyload.i1044 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1043, align 8
   %.val9.i1045 = load i32, ptr %24, align 4
   %.not.i1046 = icmp eq i32 %785, %.val9.i1045
@@ -2162,9 +2162,9 @@ stack_pop.exit1054:                               ; preds = %792, %798
   store i32 %802, ptr %21, align 4
   %803 = extractvalue { i64, ptr } %.fca.1.insert.merged.i1051, 0
   %804 = extractvalue { i64, ptr } %.fca.1.insert.merged.i1051, 1
-  %805 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %805 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %806 = load i16, ptr %108, align 2
-  %807 = getelementptr inbounds i8, ptr %.01846, i64 6
+  %807 = getelementptr inbounds nuw i8, ptr %.01846, i64 6
   %808 = load i16, ptr %805, align 2
   %809 = zext i16 %808 to i32
   %810 = zext i16 %806 to i32
@@ -2190,15 +2190,15 @@ frame_local_var.exit:                             ; preds = %811, %stack_pop.exi
   %.0.lcssa.i.i = phi i32 [ %.08.i.i, %stack_pop.exit1054 ], [ %.0.i.i, %811 ]
   %814 = sext i32 %.0.lcssa.i.i to i64
   %815 = getelementptr inbounds i8, ptr %.val.pre.i, i64 %814
-  %816 = getelementptr inbounds i8, ptr %815, i64 24
+  %816 = getelementptr inbounds nuw i8, ptr %815, i64 24
   %817 = load ptr, ptr %815, align 8
-  %818 = getelementptr inbounds i8, ptr %817, i64 16
+  %818 = getelementptr inbounds nuw i8, ptr %817, i64 16
   %819 = load i32, ptr %818, align 8
   %820 = add nsw i32 %819, %809
   %821 = sext i32 %820 to i64
   %822 = getelementptr inbounds [0 x %union.frame_entry], ptr %816, i64 0, i64 %821
   %823 = load i64, ptr %822, align 8
-  %824 = getelementptr inbounds i8, ptr %822, i64 8
+  %824 = getelementptr inbounds nuw i8, ptr %822, i64 8
   %825 = load ptr, ptr %824, align 8
   %826 = call { i64, ptr } @jv_array_append(i64 %823, ptr %825, i64 %803, ptr %804) #12
   %827 = extractvalue { i64, ptr } %826, 0
@@ -2213,7 +2213,7 @@ frame_local_var.exit:                             ; preds = %811, %stack_pop.exi
   %831 = sext i32 %830 to i64
   %832 = getelementptr inbounds i8, ptr %.val.i1055, i64 %831
   %.sroa.08.0.copyload.i1056 = load i64, ptr %832, align 8
-  %.sroa.4.0..0..sroa_idx.i1057 = getelementptr inbounds i8, ptr %832, i64 8
+  %.sroa.4.0..0..sroa_idx.i1057 = getelementptr inbounds nuw i8, ptr %832, i64 8
   %.sroa.4.0.copyload.i1058 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1057, align 8
   %.val9.i1059 = load i32, ptr %24, align 4
   %.not.i1060 = icmp eq i32 %830, %.val9.i1059
@@ -2258,7 +2258,7 @@ stack_pop.exit1068:                               ; preds = %837, %843
   %850 = sext i32 %847 to i64
   %851 = getelementptr inbounds i8, ptr %.val.i1069, i64 %850
   %.sroa.08.0.copyload.i1070 = load i64, ptr %851, align 8
-  %.sroa.4.0..0..sroa_idx.i1071 = getelementptr inbounds i8, ptr %851, i64 8
+  %.sroa.4.0..0..sroa_idx.i1071 = getelementptr inbounds nuw i8, ptr %851, i64 8
   %.sroa.4.0.copyload.i1072 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1071, align 8
   %.not.i1074 = icmp eq i32 %847, %.val9.i1073
   br i1 %.not.i1074, label %.thread.i1081, label %856
@@ -2302,7 +2302,7 @@ stack_pop.exit1082:                               ; preds = %856, %862
   %869 = sext i32 %866 to i64
   %870 = getelementptr inbounds i8, ptr %.val.i1083, i64 %869
   %.sroa.08.0.copyload.i1084 = load i64, ptr %870, align 8
-  %.sroa.4.0..0..sroa_idx.i1085 = getelementptr inbounds i8, ptr %870, i64 8
+  %.sroa.4.0..0..sroa_idx.i1085 = getelementptr inbounds nuw i8, ptr %870, i64 8
   %.sroa.4.0.copyload.i1086 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1085, align 8
   %.not.i1088 = icmp eq i32 %866, %.val9.i1087
   br i1 %.not.i1088, label %.thread.i1095, label %875
@@ -2346,7 +2346,7 @@ stack_pop.exit1096:                               ; preds = %875, %881
   %888 = sext i32 %885 to i64
   %889 = getelementptr inbounds i8, ptr %.val.i1097, i64 %888
   %.sroa.08.0.copyload.i1098 = load i64, ptr %889, align 8
-  %.sroa.4.0..0..sroa_idx.i1099 = getelementptr inbounds i8, ptr %889, i64 8
+  %.sroa.4.0..0..sroa_idx.i1099 = getelementptr inbounds nuw i8, ptr %889, i64 8
   %.sroa.4.0.copyload.i1100 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1099, align 8
   %.not.i1102 = icmp eq i32 %885, %.val9.i1101
   br i1 %.not.i1102, label %.thread.i1109, label %894
@@ -2435,7 +2435,7 @@ stack_push.exit1117:                              ; preds = %909, %918
   %.val.i1113 = load ptr, ptr %19, align 8
   %938 = getelementptr inbounds i8, ptr %.val.i1113, i64 %935
   store i64 %911, ptr %938, align 8
-  %.sroa.2.0..0..sroa_idx.i1114 = getelementptr inbounds i8, ptr %938, i64 8
+  %.sroa.2.0..0..sroa_idx.i1114 = getelementptr inbounds nuw i8, ptr %938, i64 8
   store ptr %912, ptr %.sroa.2.0..0..sroa_idx.i1114, align 8
   %939 = load i32, ptr %21, align 4
   %940 = load i32, ptr %24, align 4
@@ -2480,7 +2480,7 @@ stack_push.exit1124:                              ; preds = %stack_push.exit1117
   %.val.i1120 = load ptr, ptr %19, align 8
   %964 = getelementptr inbounds i8, ptr %.val.i1120, i64 %961
   store i64 %848, ptr %964, align 8
-  %.sroa.2.0..0..sroa_idx.i1121 = getelementptr inbounds i8, ptr %964, i64 8
+  %.sroa.2.0..0..sroa_idx.i1121 = getelementptr inbounds nuw i8, ptr %964, i64 8
   store ptr %849, ptr %.sroa.2.0..0..sroa_idx.i1121, align 8
   br label %2747
 
@@ -2509,9 +2509,9 @@ stack_push.exit1124:                              ; preds = %stack_push.exit1117
   br label %2219
 
 980:                                              ; preds = %107, %107
-  %981 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %981 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %982 = load i16, ptr %108, align 2
-  %983 = getelementptr inbounds i8, ptr %.01846, i64 6
+  %983 = getelementptr inbounds nuw i8, ptr %.01846, i64 6
   %984 = load i16, ptr %981, align 2
   %985 = zext i16 %984 to i32
   %986 = zext i16 %982 to i32
@@ -2538,9 +2538,9 @@ frame_local_var.exit1136:                         ; preds = %987, %980
   %.0.lcssa.i.i1135 = phi i32 [ %.08.i.i1125, %980 ], [ %.0.i.i1133, %987 ]
   %990 = sext i32 %.0.lcssa.i.i1135 to i64
   %991 = getelementptr inbounds i8, ptr %.val.pre.i1127, i64 %990
-  %992 = getelementptr inbounds i8, ptr %991, i64 24
+  %992 = getelementptr inbounds nuw i8, ptr %991, i64 24
   %993 = load ptr, ptr %991, align 8
-  %994 = getelementptr inbounds i8, ptr %993, i64 16
+  %994 = getelementptr inbounds nuw i8, ptr %993, i64 16
   %995 = load i32, ptr %994, align 8
   %996 = add nsw i32 %995, %985
   %997 = sext i32 %996 to i64
@@ -2549,7 +2549,7 @@ frame_local_var.exit1136:                         ; preds = %987, %980
   %1000 = sext i32 %999 to i64
   %1001 = getelementptr inbounds i8, ptr %.val.pre.i1127, i64 %1000
   %.sroa.08.0.copyload.i1138 = load i64, ptr %1001, align 8
-  %.sroa.4.0..0..sroa_idx.i1139 = getelementptr inbounds i8, ptr %1001, i64 8
+  %.sroa.4.0..0..sroa_idx.i1139 = getelementptr inbounds nuw i8, ptr %1001, i64 8
   %.sroa.4.0.copyload.i1140 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1139, align 8
   %.val9.i1141 = load i32, ptr %24, align 4
   %.not.i1142 = icmp eq i32 %999, %.val9.i1141
@@ -2596,7 +2596,7 @@ stack_pop.exit1150:                               ; preds = %1006, %1012
 
 1020:                                             ; preds = %stack_pop.exit1150
   %1021 = load i64, ptr %998, align 8
-  %1022 = getelementptr inbounds i8, ptr %998, i64 8
+  %1022 = getelementptr inbounds nuw i8, ptr %998, i64 8
   %1023 = load ptr, ptr %1022, align 8
   %1024 = call i32 @jv_get_kind(i64 %1021, ptr %1023) #12
   %.not797 = icmp eq i32 %1024, 4
@@ -2692,7 +2692,7 @@ stack_push.exit1157:                              ; preds = %1043, %1055
   %.val.i1153 = load ptr, ptr %19, align 8
   %1075 = getelementptr inbounds i8, ptr %.val.i1153, i64 %1072
   store i64 %1017, ptr %1075, align 8
-  %.sroa.2.0..0..sroa_idx.i1154 = getelementptr inbounds i8, ptr %1075, i64 8
+  %.sroa.2.0..0..sroa_idx.i1154 = getelementptr inbounds nuw i8, ptr %1075, i64 8
   store ptr %1018, ptr %.sroa.2.0..0..sroa_idx.i1154, align 8
   call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01846, i64 %.sroa.0.0.insert.insert.i)
   %1076 = load i32, ptr %21, align 4
@@ -2738,14 +2738,14 @@ stack_push.exit1164:                              ; preds = %stack_push.exit1157
   %.val.i1160 = load ptr, ptr %19, align 8
   %1101 = getelementptr inbounds i8, ptr %.val.i1160, i64 %1098
   store i64 %.sroa.0344.0.copyload, ptr %1101, align 8
-  %.sroa.2.0..0..sroa_idx.i1161 = getelementptr inbounds i8, ptr %1101, i64 8
+  %.sroa.2.0..0..sroa_idx.i1161 = getelementptr inbounds nuw i8, ptr %1101, i64 8
   store ptr %.sroa.2345.0.copyload, ptr %.sroa.2.0..0..sroa_idx.i1161, align 8
   br label %2747
 
 1102:                                             ; preds = %107
-  %1103 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %1103 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %1104 = load i16, ptr %108, align 2
-  %1105 = getelementptr inbounds i8, ptr %.01846, i64 6
+  %1105 = getelementptr inbounds nuw i8, ptr %.01846, i64 6
   %1106 = load i16, ptr %1103, align 2
   %1107 = zext i16 %1106 to i32
   %1108 = zext i16 %1104 to i32
@@ -2772,9 +2772,9 @@ frame_local_var.exit1176:                         ; preds = %1109, %1102
   %.0.lcssa.i.i1175 = phi i32 [ %.08.i.i1165, %1102 ], [ %.0.i.i1173, %1109 ]
   %1112 = sext i32 %.0.lcssa.i.i1175 to i64
   %1113 = getelementptr inbounds i8, ptr %.val.pre.i1167, i64 %1112
-  %1114 = getelementptr inbounds i8, ptr %1113, i64 24
+  %1114 = getelementptr inbounds nuw i8, ptr %1113, i64 24
   %1115 = load ptr, ptr %1113, align 8
-  %1116 = getelementptr inbounds i8, ptr %1115, i64 16
+  %1116 = getelementptr inbounds nuw i8, ptr %1115, i64 16
   %1117 = load i32, ptr %1116, align 8
   %1118 = add nsw i32 %1117, %1107
   %1119 = sext i32 %1118 to i64
@@ -2786,7 +2786,7 @@ frame_local_var.exit1176:                         ; preds = %1109, %1102
 1122:                                             ; preds = %frame_local_var.exit1176
   %1123 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %1107)
   %1124 = load i64, ptr %1120, align 8
-  %1125 = getelementptr inbounds i8, ptr %1120, i64 8
+  %1125 = getelementptr inbounds nuw i8, ptr %1120, i64 8
   %1126 = load ptr, ptr %1125, align 8
   %1127 = call { i64, ptr } @jv_copy(i64 %1124, ptr %1126) #12
   %1128 = extractvalue { i64, ptr } %1127, 0
@@ -2802,7 +2802,7 @@ frame_local_var.exit1176:                         ; preds = %1109, %1102
   %1132 = sext i32 %1131 to i64
   %1133 = getelementptr inbounds i8, ptr %.val.i1177, i64 %1132
   %.sroa.08.0.copyload.i1178 = load i64, ptr %1133, align 8
-  %.sroa.4.0..0..sroa_idx.i1179 = getelementptr inbounds i8, ptr %1133, i64 8
+  %.sroa.4.0..0..sroa_idx.i1179 = getelementptr inbounds nuw i8, ptr %1133, i64 8
   %.sroa.4.0.copyload.i1180 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1179, align 8
   %.val9.i1181 = load i32, ptr %24, align 4
   %.not.i1182 = icmp eq i32 %1131, %.val9.i1181
@@ -2843,7 +2843,7 @@ stack_pop.exit1190:                               ; preds = %1138, %1144
   %1150 = extractvalue { i64, ptr } %.fca.1.insert.merged.i1187, 1
   call void @jv_free(i64 %1149, ptr %1150) #12
   %1151 = load i64, ptr %1120, align 8
-  %1152 = getelementptr inbounds i8, ptr %1120, i64 8
+  %1152 = getelementptr inbounds nuw i8, ptr %1120, i64 8
   %1153 = load ptr, ptr %1152, align 8
   %1154 = call { i64, ptr } @jv_copy(i64 %1151, ptr %1153) #12
   %1155 = extractvalue { i64, ptr } %1154, 0
@@ -2891,14 +2891,14 @@ stack_push.exit1197:                              ; preds = %stack_pop.exit1190,
   %.val.i1193 = load ptr, ptr %19, align 8
   %1182 = getelementptr inbounds i8, ptr %.val.i1193, i64 %1179
   store i64 %1155, ptr %1182, align 8
-  %.sroa.2.0..0..sroa_idx.i1194 = getelementptr inbounds i8, ptr %1182, i64 8
+  %.sroa.2.0..0..sroa_idx.i1194 = getelementptr inbounds nuw i8, ptr %1182, i64 8
   store ptr %1156, ptr %.sroa.2.0..0..sroa_idx.i1194, align 8
   br label %2747
 
 1183:                                             ; preds = %107
-  %1184 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %1184 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %1185 = load i16, ptr %108, align 2
-  %1186 = getelementptr inbounds i8, ptr %.01846, i64 6
+  %1186 = getelementptr inbounds nuw i8, ptr %.01846, i64 6
   %1187 = load i16, ptr %1184, align 2
   %1188 = zext i16 %1187 to i32
   %1189 = zext i16 %1185 to i32
@@ -2925,9 +2925,9 @@ frame_local_var.exit1209:                         ; preds = %1190, %1183
   %.0.lcssa.i.i1208 = phi i32 [ %.08.i.i1198, %1183 ], [ %.0.i.i1206, %1190 ]
   %1193 = sext i32 %.0.lcssa.i.i1208 to i64
   %1194 = getelementptr inbounds i8, ptr %.val.pre.i1200, i64 %1193
-  %1195 = getelementptr inbounds i8, ptr %1194, i64 24
+  %1195 = getelementptr inbounds nuw i8, ptr %1194, i64 24
   %1196 = load ptr, ptr %1194, align 8
-  %1197 = getelementptr inbounds i8, ptr %1196, i64 16
+  %1197 = getelementptr inbounds nuw i8, ptr %1196, i64 16
   %1198 = load i32, ptr %1197, align 8
   %1199 = add nsw i32 %1198, %1188
   %1200 = sext i32 %1199 to i64
@@ -2939,7 +2939,7 @@ frame_local_var.exit1209:                         ; preds = %1190, %1183
 1203:                                             ; preds = %frame_local_var.exit1209
   %1204 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %1188)
   %1205 = load i64, ptr %1201, align 8
-  %1206 = getelementptr inbounds i8, ptr %1201, i64 8
+  %1206 = getelementptr inbounds nuw i8, ptr %1201, i64 8
   %1207 = load ptr, ptr %1206, align 8
   %1208 = call { i64, ptr } @jv_copy(i64 %1205, ptr %1207) #12
   %1209 = extractvalue { i64, ptr } %1208, 0
@@ -2955,7 +2955,7 @@ frame_local_var.exit1209:                         ; preds = %1190, %1183
   %1213 = sext i32 %1212 to i64
   %1214 = getelementptr inbounds i8, ptr %.val.i1210, i64 %1213
   %.sroa.09.0.copyload.i1211 = load i64, ptr %1214, align 8
-  %.sroa.210.0..0..sroa_idx.i1212 = getelementptr inbounds i8, ptr %1214, i64 8
+  %.sroa.210.0..0..sroa_idx.i1212 = getelementptr inbounds nuw i8, ptr %1214, i64 8
   %.sroa.210.0.copyload.i1213 = load ptr, ptr %.sroa.210.0..0..sroa_idx.i1212, align 8
   %.val11.i1214 = load i32, ptr %24, align 4
   %.not.i1215 = icmp eq i32 %1212, %.val11.i1214
@@ -2994,7 +2994,7 @@ stack_popn.exit1223:                              ; preds = %1217, %1225
   store i32 %1229, ptr %21, align 4
   call void @jv_free(i64 %.sroa.09.0.copyload.i1211, ptr %.sroa.210.0.copyload.i1213) #12
   %1230 = load i64, ptr %1201, align 8
-  %1231 = getelementptr inbounds i8, ptr %1201, i64 8
+  %1231 = getelementptr inbounds nuw i8, ptr %1201, i64 8
   %1232 = load ptr, ptr %1231, align 8
   %1233 = load i32, ptr %21, align 4
   %1234 = load i32, ptr %24, align 4
@@ -3039,7 +3039,7 @@ stack_push.exit1230:                              ; preds = %stack_popn.exit1223
   %.val.i1226 = load ptr, ptr %19, align 8
   %1258 = getelementptr inbounds i8, ptr %.val.i1226, i64 %1255
   store i64 %1230, ptr %1258, align 8
-  %.sroa.2.0..0..sroa_idx.i1227 = getelementptr inbounds i8, ptr %1258, i64 8
+  %.sroa.2.0..0..sroa_idx.i1227 = getelementptr inbounds nuw i8, ptr %1258, i64 8
   store ptr %1232, ptr %.sroa.2.0..0..sroa_idx.i1227, align 8
   %.08.i.i1231 = load i32, ptr %20, align 8
   %.val.pre.i1233 = load ptr, ptr %19, align 8
@@ -3063,9 +3063,9 @@ frame_local_var.exit1242:                         ; preds = %1259, %stack_push.e
   %.0.lcssa.i.i1241 = phi i32 [ %.08.i.i1231, %stack_push.exit1230 ], [ %.0.i.i1239, %1259 ]
   %1262 = sext i32 %.0.lcssa.i.i1241 to i64
   %1263 = getelementptr inbounds i8, ptr %.val.pre.i1233, i64 %1262
-  %1264 = getelementptr inbounds i8, ptr %1263, i64 24
+  %1264 = getelementptr inbounds nuw i8, ptr %1263, i64 24
   %1265 = load ptr, ptr %1263, align 8
-  %1266 = getelementptr inbounds i8, ptr %1265, i64 16
+  %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 16
   %1267 = load i32, ptr %1266, align 8
   %1268 = add nsw i32 %1267, %1188
   %1269 = sext i32 %1268 to i64
@@ -3074,7 +3074,7 @@ frame_local_var.exit1242:                         ; preds = %1259, %stack_push.e
   %1272 = extractvalue { i64, ptr } %1271, 0
   %1273 = extractvalue { i64, ptr } %1271, 1
   store i64 %1272, ptr %1270, align 8
-  %.sroa.2317.0..sroa_idx = getelementptr inbounds i8, ptr %1270, i64 8
+  %.sroa.2317.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1270, i64 8
   store ptr %1273, ptr %.sroa.2317.0..sroa_idx, align 8
   br label %2747
 
@@ -3089,9 +3089,9 @@ frame_local_var.exit1242:                         ; preds = %1259, %stack_push.e
   br label %1277
 
 1277:                                             ; preds = %1274, %107
-  %1278 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %1278 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %1279 = load i16, ptr %108, align 2
-  %1280 = getelementptr inbounds i8, ptr %.01846, i64 6
+  %1280 = getelementptr inbounds nuw i8, ptr %.01846, i64 6
   %1281 = load i16, ptr %1278, align 2
   %1282 = zext i16 %1281 to i32
   %1283 = zext i16 %1279 to i32
@@ -3118,9 +3118,9 @@ frame_local_var.exit1258:                         ; preds = %1284, %1277
   %.0.lcssa.i.i1257 = phi i32 [ %.08.i.i1247, %1277 ], [ %.0.i.i1255, %1284 ]
   %1287 = sext i32 %.0.lcssa.i.i1257 to i64
   %1288 = getelementptr inbounds i8, ptr %.val.pre.i1249, i64 %1287
-  %1289 = getelementptr inbounds i8, ptr %1288, i64 24
+  %1289 = getelementptr inbounds nuw i8, ptr %1288, i64 24
   %1290 = load ptr, ptr %1288, align 8
-  %1291 = getelementptr inbounds i8, ptr %1290, i64 16
+  %1291 = getelementptr inbounds nuw i8, ptr %1290, i64 16
   %1292 = load i32, ptr %1291, align 8
   %1293 = add nsw i32 %1292, %1282
   %1294 = sext i32 %1293 to i64
@@ -3129,7 +3129,7 @@ frame_local_var.exit1258:                         ; preds = %1284, %1277
   %1297 = sext i32 %1296 to i64
   %1298 = getelementptr inbounds i8, ptr %.val.pre.i1249, i64 %1297
   %.sroa.08.0.copyload.i1260 = load i64, ptr %1298, align 8
-  %.sroa.4.0..0..sroa_idx.i1261 = getelementptr inbounds i8, ptr %1298, i64 8
+  %.sroa.4.0..0..sroa_idx.i1261 = getelementptr inbounds nuw i8, ptr %1298, i64 8
   %.sroa.4.0.copyload.i1262 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1261, align 8
   %.val9.i1263 = load i32, ptr %24, align 4
   %.not.i1264 = icmp eq i32 %1296, %.val9.i1263
@@ -3184,7 +3184,7 @@ stack_pop.exit1272:                               ; preds = %1303, %1309
 
 1324:                                             ; preds = %1317, %stack_pop.exit1272
   %1325 = load i64, ptr %1295, align 8
-  %1326 = getelementptr inbounds i8, ptr %1295, i64 8
+  %1326 = getelementptr inbounds nuw i8, ptr %1295, i64 8
   %1327 = load ptr, ptr %1326, align 8
   call void @jv_free(i64 %1325, ptr %1327) #12
   store i64 %1314, ptr %1295, align 8
@@ -3192,7 +3192,7 @@ stack_pop.exit1272:                               ; preds = %1303, %1309
   br label %2747
 
 1328:                                             ; preds = %107
-  %1329 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %1329 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %1330 = load i16, ptr %108, align 2
   %1331 = load i16, ptr %1329, align 2
   %1332 = zext i16 %1331 to i32
@@ -3220,15 +3220,15 @@ frame_local_var.exit1284:                         ; preds = %1334, %1328
   %.0.lcssa.i.i1283 = phi i32 [ %.08.i.i1273, %1328 ], [ %.0.i.i1281, %1334 ]
   %1337 = sext i32 %.0.lcssa.i.i1283 to i64
   %1338 = getelementptr inbounds i8, ptr %.val.pre.i1275, i64 %1337
-  %1339 = getelementptr inbounds i8, ptr %1338, i64 24
+  %1339 = getelementptr inbounds nuw i8, ptr %1338, i64 24
   %1340 = load ptr, ptr %1338, align 8
-  %1341 = getelementptr inbounds i8, ptr %1340, i64 16
+  %1341 = getelementptr inbounds nuw i8, ptr %1340, i64 16
   %1342 = load i32, ptr %1341, align 8
   %1343 = add nsw i32 %1342, %1332
   %1344 = sext i32 %1343 to i64
   %1345 = getelementptr inbounds [0 x %union.frame_entry], ptr %1339, i64 0, i64 %1344
   %1346 = load i64, ptr %1345, align 8
-  %1347 = getelementptr inbounds i8, ptr %1345, i64 8
+  %1347 = getelementptr inbounds nuw i8, ptr %1345, i64 8
   %1348 = load ptr, ptr %1347, align 8
   call void @jv_free(i64 %1346, ptr %1348) #12
   %1349 = call { i64, ptr } @jv_null() #12
@@ -3244,22 +3244,22 @@ frame_local_var.exit1284:                         ; preds = %1334, %1328
   %1353 = sext i32 %.val814 to i64
   %1354 = getelementptr inbounds i8, ptr %.val813, i64 %1353
   %1355 = load ptr, ptr %1354, align 8
-  %1356 = getelementptr inbounds i8, ptr %1355, i64 24
+  %1356 = getelementptr inbounds nuw i8, ptr %1355, i64 24
   %1357 = load i64, ptr %1356, align 8
-  %1358 = getelementptr inbounds i8, ptr %1355, i64 32
+  %1358 = getelementptr inbounds nuw i8, ptr %1355, i64 32
   %1359 = load ptr, ptr %1358, align 8
   %1360 = call { i64, ptr } @jv_copy(i64 %1357, ptr %1359) #12
   %1361 = extractvalue { i64, ptr } %1360, 0
   %1362 = extractvalue { i64, ptr } %1360, 1
-  %1363 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %1363 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %1364 = load i16, ptr %108, align 2
   %1365 = zext i16 %1364 to i32
   %1366 = call { i64, ptr } @jv_array_get(i64 %1361, ptr %1362, i32 noundef %1365) #12
   %1367 = extractvalue { i64, ptr } %1366, 0
   %1368 = extractvalue { i64, ptr } %1366, 1
-  %1369 = getelementptr inbounds i8, ptr %.01846, i64 6
+  %1369 = getelementptr inbounds nuw i8, ptr %.01846, i64 6
   %1370 = load i16, ptr %1363, align 2
-  %1371 = getelementptr inbounds i8, ptr %.01846, i64 8
+  %1371 = getelementptr inbounds nuw i8, ptr %.01846, i64 8
   %1372 = load i16, ptr %1369, align 2
   %1373 = zext i16 %1372 to i32
   %1374 = zext i16 %1370 to i32
@@ -3286,9 +3286,9 @@ frame_local_var.exit1296:                         ; preds = %1375, %1352
   %.0.lcssa.i.i1295 = phi i32 [ %.08.i.i1285, %1352 ], [ %.0.i.i1293, %1375 ]
   %1378 = sext i32 %.0.lcssa.i.i1295 to i64
   %1379 = getelementptr inbounds i8, ptr %.val.pre.i1287, i64 %1378
-  %1380 = getelementptr inbounds i8, ptr %1379, i64 24
+  %1380 = getelementptr inbounds nuw i8, ptr %1379, i64 24
   %1381 = load ptr, ptr %1379, align 8
-  %1382 = getelementptr inbounds i8, ptr %1381, i64 16
+  %1382 = getelementptr inbounds nuw i8, ptr %1381, i64 16
   %1383 = load i32, ptr %1382, align 8
   %1384 = add nsw i32 %1383, %1373
   %1385 = sext i32 %1384 to i64
@@ -3309,7 +3309,7 @@ frame_local_var.exit1296:                         ; preds = %1375, %1352
 
 1395:                                             ; preds = %1388, %frame_local_var.exit1296
   %1396 = load i64, ptr %1386, align 8
-  %1397 = getelementptr inbounds i8, ptr %1386, i64 8
+  %1397 = getelementptr inbounds nuw i8, ptr %1386, i64 8
   %1398 = load ptr, ptr %1397, align 8
   call void @jv_free(i64 %1396, ptr %1398) #12
   store i64 %1367, ptr %1386, align 8
@@ -3322,7 +3322,7 @@ frame_local_var.exit1296:                         ; preds = %1375, %1352
   %1401 = sext i32 %1400 to i64
   %1402 = getelementptr inbounds i8, ptr %.val.i1297, i64 %1401
   %.sroa.08.0.copyload.i1298 = load i64, ptr %1402, align 8
-  %.sroa.4.0..0..sroa_idx.i1299 = getelementptr inbounds i8, ptr %1402, i64 8
+  %.sroa.4.0..0..sroa_idx.i1299 = getelementptr inbounds nuw i8, ptr %1402, i64 8
   %.sroa.4.0.copyload.i1300 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1299, align 8
   %.val9.i1301 = load i32, ptr %24, align 4
   %.not.i1302 = icmp eq i32 %1400, %.val9.i1301
@@ -3404,7 +3404,7 @@ stack_push.exit1317:                              ; preds = %stack_pop.exit1310,
   %.val.i1313 = load ptr, ptr %19, align 8
   %1445 = getelementptr inbounds i8, ptr %.val.i1313, i64 %1442
   store i64 %1421, ptr %1445, align 8
-  %.sroa.2.0..0..sroa_idx.i1314 = getelementptr inbounds i8, ptr %1445, i64 8
+  %.sroa.2.0..0..sroa_idx.i1314 = getelementptr inbounds nuw i8, ptr %1445, i64 8
   store ptr %1422, ptr %.sroa.2.0..0..sroa_idx.i1314, align 8
   %1446 = load i32, ptr %21, align 4
   %1447 = load i32, ptr %20, align 8
@@ -3461,7 +3461,7 @@ stack_push.exit1328:                              ; preds = %stack_push.exit1317
   %.val.i1324 = load ptr, ptr %19, align 8
   %1478 = getelementptr inbounds i8, ptr %.val.i1324, i64 %1475
   store i64 %1451, ptr %1478, align 8
-  %.sroa.2.0..0..sroa_idx.i1325 = getelementptr inbounds i8, ptr %1478, i64 8
+  %.sroa.2.0..0..sroa_idx.i1325 = getelementptr inbounds nuw i8, ptr %1478, i64 8
   store ptr %1452, ptr %.sroa.2.0..0..sroa_idx.i1325, align 8
   %1479 = load i64, ptr %34, align 8
   %1480 = load ptr, ptr %35, align 8
@@ -3508,7 +3508,7 @@ stack_push.exit1335:                              ; preds = %stack_push.exit1328
   %.val.i1331 = load ptr, ptr %19, align 8
   %1506 = getelementptr inbounds i8, ptr %.val.i1331, i64 %1503
   store i64 %1479, ptr %1506, align 8
-  %.sroa.2.0..0..sroa_idx.i1332 = getelementptr inbounds i8, ptr %1506, i64 8
+  %.sroa.2.0..0..sroa_idx.i1332 = getelementptr inbounds nuw i8, ptr %1506, i64 8
   store ptr %1480, ptr %.sroa.2.0..0..sroa_idx.i1332, align 8
   %1507 = call { i64, ptr } @jv_copy(i64 %1419, ptr %1420) #12
   %1508 = extractvalue { i64, ptr } %1507, 0
@@ -3556,7 +3556,7 @@ stack_push.exit1342:                              ; preds = %stack_push.exit1335
   %.val.i1338 = load ptr, ptr %19, align 8
   %1535 = getelementptr inbounds i8, ptr %.val.i1338, i64 %1532
   store i64 %1508, ptr %1535, align 8
-  %.sroa.2.0..0..sroa_idx.i1339 = getelementptr inbounds i8, ptr %1535, i64 8
+  %.sroa.2.0..0..sroa_idx.i1339 = getelementptr inbounds nuw i8, ptr %1535, i64 8
   store ptr %1509, ptr %.sroa.2.0..0..sroa_idx.i1339, align 8
   %1536 = call { i64, ptr } @jv_array() #12
   %1537 = extractvalue { i64, ptr } %1536, 0
@@ -3574,7 +3574,7 @@ stack_push.exit1342:                              ; preds = %stack_push.exit1335
   %1541 = sext i32 %1540 to i64
   %1542 = getelementptr inbounds i8, ptr %.val.i1343, i64 %1541
   %.sroa.08.0.copyload.i1344 = load i64, ptr %1542, align 8
-  %.sroa.4.0..0..sroa_idx.i1345 = getelementptr inbounds i8, ptr %1542, i64 8
+  %.sroa.4.0..0..sroa_idx.i1345 = getelementptr inbounds nuw i8, ptr %1542, i64 8
   %.sroa.4.0.copyload.i1346 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1345, align 8
   %.val9.i1347 = load i32, ptr %24, align 4
   %.not.i1348 = icmp eq i32 %1540, %.val9.i1347
@@ -3663,7 +3663,7 @@ path_intact.exit:                                 ; preds = %1565
   %1588 = sext i32 %1587 to i64
   %1589 = getelementptr inbounds i8, ptr %.val.i1357, i64 %1588
   %.sroa.08.0.copyload.i1358 = load i64, ptr %1589, align 8
-  %.sroa.4.0..0..sroa_idx.i1359 = getelementptr inbounds i8, ptr %1589, i64 8
+  %.sroa.4.0..0..sroa_idx.i1359 = getelementptr inbounds nuw i8, ptr %1589, i64 8
   %.sroa.4.0.copyload.i1360 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1359, align 8
   %.val9.i1361 = load i32, ptr %24, align 4
   %.not.i1362 = icmp eq i32 %1587, %.val9.i1361
@@ -3708,7 +3708,7 @@ stack_pop.exit1370:                               ; preds = %1594, %1600
   %1607 = sext i32 %1604 to i64
   %1608 = getelementptr inbounds i8, ptr %.val.i1371, i64 %1607
   %.sroa.08.0.copyload.i1372 = load i64, ptr %1608, align 8
-  %.sroa.4.0..0..sroa_idx.i1373 = getelementptr inbounds i8, ptr %1608, i64 8
+  %.sroa.4.0..0..sroa_idx.i1373 = getelementptr inbounds nuw i8, ptr %1608, i64 8
   %.sroa.4.0.copyload.i1374 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1373, align 8
   %.not.i1376 = icmp eq i32 %1604, %.val9.i1375
   br i1 %.not.i1376, label %.thread.i1383, label %1613
@@ -3755,7 +3755,7 @@ stack_pop.exit1384:                               ; preds = %1613, %1619
   %1629 = sext i32 %1628 to i64
   %1630 = getelementptr inbounds i8, ptr %.val.i1385, i64 %1629
   %.sroa.08.0.copyload.i1386 = load i64, ptr %1630, align 8
-  %.sroa.4.0..0..sroa_idx.i1387 = getelementptr inbounds i8, ptr %1630, i64 8
+  %.sroa.4.0..0..sroa_idx.i1387 = getelementptr inbounds nuw i8, ptr %1630, i64 8
   %.sroa.4.0.copyload.i1388 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1387, align 8
   %.val9.i1389 = load i32, ptr %24, align 4
   %.not.i1390 = icmp eq i32 %1628, %.val9.i1389
@@ -3847,7 +3847,7 @@ stack_push.exit1409:                              ; preds = %stack_pop.exit1398,
   %.val.i1405 = load ptr, ptr %19, align 8
   %1677 = getelementptr inbounds i8, ptr %.val.i1405, i64 %1674
   store i64 %1650, ptr %1677, align 8
-  %.sroa.2.0..0..sroa_idx.i1406 = getelementptr inbounds i8, ptr %1677, i64 8
+  %.sroa.2.0..0..sroa_idx.i1406 = getelementptr inbounds nuw i8, ptr %1677, i64 8
   store ptr %1651, ptr %.sroa.2.0..0..sroa_idx.i1406, align 8
   call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01846, i64 %.sroa.0.0.insert.insert.i1402)
   %1678 = load i32, ptr %21, align 4
@@ -3893,7 +3893,7 @@ stack_push.exit1416:                              ; preds = %stack_push.exit1409
   %.val.i1412 = load ptr, ptr %19, align 8
   %1703 = getelementptr inbounds i8, ptr %.val.i1412, i64 %1700
   store i64 %.sroa.0255.0.copyload, ptr %1703, align 8
-  %.sroa.2.0..0..sroa_idx.i1413 = getelementptr inbounds i8, ptr %1703, i64 8
+  %.sroa.2.0..0..sroa_idx.i1413 = getelementptr inbounds nuw i8, ptr %1703, i64 8
   store ptr %.sroa.3257.0.copyload, ptr %.sroa.2.0..0..sroa_idx.i1413, align 8
   store i32 %1627, ptr %31, align 8
   %1704 = load i64, ptr %34, align 8
@@ -3912,7 +3912,7 @@ stack_push.exit1416:                              ; preds = %stack_push.exit1409
   %1710 = sext i32 %1709 to i64
   %1711 = getelementptr inbounds i8, ptr %.val.i1417, i64 %1710
   %.sroa.08.0.copyload.i1418 = load i64, ptr %1711, align 8
-  %.sroa.4.0..0..sroa_idx.i1419 = getelementptr inbounds i8, ptr %1711, i64 8
+  %.sroa.4.0..0..sroa_idx.i1419 = getelementptr inbounds nuw i8, ptr %1711, i64 8
   %.sroa.4.0.copyload.i1420 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1419, align 8
   %.val9.i1421 = load i32, ptr %24, align 4
   %.not.i1422 = icmp eq i32 %1709, %.val9.i1421
@@ -3961,7 +3961,7 @@ stack_pop.exit1430:                               ; preds = %1716, %1722
   %1731 = sext i32 %1730 to i64
   %1732 = getelementptr inbounds i8, ptr %.val.i1431, i64 %1731
   %.sroa.08.0.copyload.i1432 = load i64, ptr %1732, align 8
-  %.sroa.4.0..0..sroa_idx.i1433 = getelementptr inbounds i8, ptr %1732, i64 8
+  %.sroa.4.0..0..sroa_idx.i1433 = getelementptr inbounds nuw i8, ptr %1732, i64 8
   %.sroa.4.0.copyload.i1434 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1433, align 8
   %.val9.i1435 = load i32, ptr %24, align 4
   %.not.i1436 = icmp eq i32 %1730, %.val9.i1435
@@ -4006,7 +4006,7 @@ stack_pop.exit1444:                               ; preds = %1737, %1743
   %1750 = sext i32 %1747 to i64
   %1751 = getelementptr inbounds i8, ptr %.val.i1445, i64 %1750
   %.sroa.08.0.copyload.i1446 = load i64, ptr %1751, align 8
-  %.sroa.4.0..0..sroa_idx.i1447 = getelementptr inbounds i8, ptr %1751, i64 8
+  %.sroa.4.0..0..sroa_idx.i1447 = getelementptr inbounds nuw i8, ptr %1751, i64 8
   %.sroa.4.0.copyload.i1448 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1447, align 8
   %.not.i1450 = icmp eq i32 %1747, %.val9.i1449
   br i1 %.not.i1450, label %.thread.i1457, label %1756
@@ -4147,7 +4147,7 @@ stack_push.exit1467:                              ; preds = %1804, %1813
   %.val.i1463 = load ptr, ptr %19, align 8
   %1833 = getelementptr inbounds i8, ptr %.val.i1463, i64 %1830
   store i64 %1801, ptr %1833, align 8
-  %.sroa.2.0..0..sroa_idx.i1464 = getelementptr inbounds i8, ptr %1833, i64 8
+  %.sroa.2.0..0..sroa_idx.i1464 = getelementptr inbounds nuw i8, ptr %1833, i64 8
   store ptr %1802, ptr %.sroa.2.0..0..sroa_idx.i1464, align 8
   br label %2747
 
@@ -4169,21 +4169,21 @@ stack_push.exit1467:                              ; preds = %1804, %1813
   br label %2219
 
 1840:                                             ; preds = %107
-  %1841 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %1841 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %1842 = load i16, ptr %108, align 2
   %1843 = zext i16 %1842 to i64
-  %1844 = getelementptr inbounds i16, ptr %1841, i64 %1843
+  %1844 = getelementptr inbounds nuw i16, ptr %1841, i64 %1843
   br label %2747
 
 1845:                                             ; preds = %107
-  %1846 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %1846 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %1847 = load i16, ptr %108, align 2
   %1848 = load i32, ptr %21, align 4
   %.val.i1468 = load ptr, ptr %19, align 8
   %1849 = sext i32 %1848 to i64
   %1850 = getelementptr inbounds i8, ptr %.val.i1468, i64 %1849
   %.sroa.08.0.copyload.i1469 = load i64, ptr %1850, align 8
-  %.sroa.4.0..0..sroa_idx.i1470 = getelementptr inbounds i8, ptr %1850, i64 8
+  %.sroa.4.0..0..sroa_idx.i1470 = getelementptr inbounds nuw i8, ptr %1850, i64 8
   %.sroa.4.0.copyload.i1471 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1470, align 8
   %.val9.i1472 = load i32, ptr %24, align 4
   %.not.i1473 = icmp eq i32 %1848, %.val9.i1472
@@ -4227,7 +4227,7 @@ stack_pop.exit1481:                               ; preds = %1855, %1861
   %or.cond = icmp ult i32 %1869, 2
   %1870 = zext i16 %1847 to i64
   %.2.idx = select i1 %or.cond, i64 %1870, i64 0
-  %.2 = getelementptr inbounds i16, ptr %1846, i64 %.2.idx
+  %.2 = getelementptr inbounds nuw i16, ptr %1846, i64 %.2.idx
   %1871 = load i32, ptr %21, align 4
   %1872 = load i32, ptr %24, align 4
   %1873 = add nsw i32 %1872, -24
@@ -4271,7 +4271,7 @@ stack_push.exit1488:                              ; preds = %stack_pop.exit1481,
   %.val.i1484 = load ptr, ptr %19, align 8
   %1896 = getelementptr inbounds i8, ptr %.val.i1484, i64 %1893
   store i64 %1866, ptr %1896, align 8
-  %.sroa.2.0..0..sroa_idx.i1485 = getelementptr inbounds i8, ptr %1896, i64 8
+  %.sroa.2.0..0..sroa_idx.i1485 = getelementptr inbounds nuw i8, ptr %1896, i64 8
   store ptr %1867, ptr %.sroa.2.0..0..sroa_idx.i1485, align 8
   br label %2747
 
@@ -4281,7 +4281,7 @@ stack_push.exit1488:                              ; preds = %stack_pop.exit1481,
   %1899 = sext i32 %1898 to i64
   %1900 = getelementptr inbounds i8, ptr %.val.i1489, i64 %1899
   %.sroa.08.0.copyload.i1490 = load i64, ptr %1900, align 8
-  %.sroa.4.0..0..sroa_idx.i1491 = getelementptr inbounds i8, ptr %1900, i64 8
+  %.sroa.4.0..0..sroa_idx.i1491 = getelementptr inbounds nuw i8, ptr %1900, i64 8
   %.sroa.4.0.copyload.i1492 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1491, align 8
   %.val9.i1493 = load i32, ptr %24, align 4
   %.not.i1494 = icmp eq i32 %1898, %.val9.i1493
@@ -4407,7 +4407,7 @@ stack_push.exit1511:                              ; preds = %1944, %1950
   %.val.i1507 = load ptr, ptr %19, align 8
   %1970 = getelementptr inbounds i8, ptr %.val.i1507, i64 %1967
   store i64 %1916, ptr %1970, align 8
-  %.sroa.2.0..0..sroa_idx.i1508 = getelementptr inbounds i8, ptr %1970, i64 8
+  %.sroa.2.0..0..sroa_idx.i1508 = getelementptr inbounds nuw i8, ptr %1970, i64 8
   store ptr %1917, ptr %.sroa.2.0..0..sroa_idx.i1508, align 8
   %1971 = call { i64, ptr } @jv_number(double noundef -1.000000e+00) #12
   %1972 = extractvalue { i64, ptr } %1971, 0
@@ -4455,7 +4455,7 @@ stack_push.exit1518:                              ; preds = %stack_push.exit1511
   %.val.i1514 = load ptr, ptr %19, align 8
   %1999 = getelementptr inbounds i8, ptr %.val.i1514, i64 %1996
   store i64 %1972, ptr %1999, align 8
-  %.sroa.2.0..0..sroa_idx.i1515 = getelementptr inbounds i8, ptr %1999, i64 8
+  %.sroa.2.0..0..sroa_idx.i1515 = getelementptr inbounds nuw i8, ptr %1999, i64 8
   store ptr %1973, ptr %.sroa.2.0..0..sroa_idx.i1515, align 8
   br label %2000
 
@@ -4465,7 +4465,7 @@ stack_push.exit1518:                              ; preds = %stack_push.exit1511
   %2002 = sext i32 %2001 to i64
   %2003 = getelementptr inbounds i8, ptr %.val.i1519, i64 %2002
   %.sroa.08.0.copyload.i1520 = load i64, ptr %2003, align 8
-  %.sroa.4.0..0..sroa_idx.i1521 = getelementptr inbounds i8, ptr %2003, i64 8
+  %.sroa.4.0..0..sroa_idx.i1521 = getelementptr inbounds nuw i8, ptr %2003, i64 8
   %.sroa.4.0.copyload.i1522 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1521, align 8
   %.val9.i1523 = load i32, ptr %24, align 4
   %.not.i1524 = icmp eq i32 %2001, %.val9.i1523
@@ -4511,7 +4511,7 @@ stack_pop.exit1532:                               ; preds = %2008, %2014
   %2024 = sext i32 %2023 to i64
   %2025 = getelementptr inbounds i8, ptr %.val.i1533, i64 %2024
   %.sroa.08.0.copyload.i1534 = load i64, ptr %2025, align 8
-  %.sroa.4.0..0..sroa_idx.i1535 = getelementptr inbounds i8, ptr %2025, i64 8
+  %.sroa.4.0..0..sroa_idx.i1535 = getelementptr inbounds nuw i8, ptr %2025, i64 8
   %.sroa.4.0.copyload.i1536 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1535, align 8
   %.val9.i1537 = load i32, ptr %24, align 4
   %.not.i1538 = icmp eq i32 %2023, %.val9.i1537
@@ -4700,7 +4700,7 @@ stack_push.exit1553:                              ; preds = %2103, %2112
   %.val.i1549 = load ptr, ptr %19, align 8
   %2132 = getelementptr inbounds i8, ptr %.val.i1549, i64 %2129
   store i64 %2092, ptr %2132, align 8
-  %.sroa.2.0..0..sroa_idx.i1550 = getelementptr inbounds i8, ptr %2132, i64 8
+  %.sroa.2.0..0..sroa_idx.i1550 = getelementptr inbounds nuw i8, ptr %2132, i64 8
   store ptr %2093, ptr %.sroa.2.0..0..sroa_idx.i1550, align 8
   br label %2747
 
@@ -4758,7 +4758,7 @@ stack_push.exit1564:                              ; preds = %.thread1814, %2139
   %.val.i1560 = load ptr, ptr %19, align 8
   %2159 = getelementptr inbounds i8, ptr %.val.i1560, i64 %2156
   store i64 %2041, ptr %2159, align 8
-  %.sroa.2.0..0..sroa_idx.i1561 = getelementptr inbounds i8, ptr %2159, i64 8
+  %.sroa.2.0..0..sroa_idx.i1561 = getelementptr inbounds nuw i8, ptr %2159, i64 8
   store ptr %2042, ptr %.sroa.2.0..0..sroa_idx.i1561, align 8
   %2160 = sitofp i32 %.175218131821 to double
   %2161 = call { i64, ptr } @jv_number(double noundef %2160) #12
@@ -4807,7 +4807,7 @@ stack_push.exit1571:                              ; preds = %stack_push.exit1564
   %.val.i1567 = load ptr, ptr %19, align 8
   %2189 = getelementptr inbounds i8, ptr %.val.i1567, i64 %2186
   store i64 %2162, ptr %2189, align 8
-  %.sroa.2.0..0..sroa_idx.i1568 = getelementptr inbounds i8, ptr %2189, i64 8
+  %.sroa.2.0..0..sroa_idx.i1568 = getelementptr inbounds nuw i8, ptr %2189, i64 8
   store ptr %2163, ptr %.sroa.2.0..0..sroa_idx.i1568, align 8
   call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01846, i64 %.sroa.0.0.insert.insert.i1557)
   %2190 = call { i64, ptr } @jv_copy(i64 %.sroa.0138.318041825, ptr %.sroa.7.318061824) #12
@@ -4857,7 +4857,7 @@ stack_push.exit1578:                              ; preds = %stack_push.exit1571
   %.val.i1574 = load ptr, ptr %19, align 8
   %2218 = getelementptr inbounds i8, ptr %.val.i1574, i64 %2215
   store i64 %.sroa.0138.318041825, ptr %2218, align 8
-  %.sroa.2.0..0..sroa_idx.i1575 = getelementptr inbounds i8, ptr %2218, i64 8
+  %.sroa.2.0..0..sroa_idx.i1575 = getelementptr inbounds nuw i8, ptr %2218, i64 8
   store ptr %.sroa.7.318061824, ptr %.sroa.2.0..0..sroa_idx.i1575, align 8
   br label %2747
 
@@ -4897,7 +4897,7 @@ stack_push.exit1578:                              ; preds = %stack_push.exit1571
   %.sroa.0.0.insert.ext.i1581 = zext i32 %2234 to i64
   %.sroa.0.0.insert.insert.i1582 = or disjoint i64 %.sroa.2.0.insert.shift.i1580, %.sroa.0.0.insert.ext.i1581
   call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01846, i64 %.sroa.0.0.insert.insert.i1582)
-  %2236 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %2236 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   br label %2747
 
 2237:                                             ; preds = %107
@@ -4919,7 +4919,7 @@ stack_push.exit1578:                              ; preds = %stack_push.exit1571
   %2243 = sext i32 %2242 to i64
   %2244 = getelementptr inbounds i8, ptr %.val.i1587, i64 %2243
   %.sroa.08.0.copyload.i1588 = load i64, ptr %2244, align 8
-  %.sroa.4.0..0..sroa_idx.i1589 = getelementptr inbounds i8, ptr %2244, i64 8
+  %.sroa.4.0..0..sroa_idx.i1589 = getelementptr inbounds nuw i8, ptr %2244, i64 8
   %.sroa.4.0.copyload.i1590 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1589, align 8
   %.val9.i1591 = load i32, ptr %24, align 4
   %.not.i1592 = icmp eq i32 %2242, %.val9.i1591
@@ -4992,14 +4992,14 @@ stack_pop.exit1600:                               ; preds = %2249, %2255
 
 2280:                                             ; preds = %2272, %2262
   call void @jv_free(i64 %2269, ptr %2270) #12
-  %2281 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %2281 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %2282 = load i16, ptr %108, align 2
   %2283 = load i32, ptr %21, align 4
   %.val.i1601 = load ptr, ptr %19, align 8
   %2284 = sext i32 %2283 to i64
   %2285 = getelementptr inbounds i8, ptr %.val.i1601, i64 %2284
   %.sroa.08.0.copyload.i1602 = load i64, ptr %2285, align 8
-  %.sroa.4.0..0..sroa_idx.i1603 = getelementptr inbounds i8, ptr %2285, i64 8
+  %.sroa.4.0..0..sroa_idx.i1603 = getelementptr inbounds nuw i8, ptr %2285, i64 8
   %.sroa.4.0.copyload.i1604 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1603, align 8
   %.val9.i1605 = load i32, ptr %24, align 4
   %.not.i1606 = icmp eq i32 %2283, %.val9.i1605
@@ -5087,7 +5087,7 @@ stack_push.exit1621:                              ; preds = %stack_pop.exit1614,
   %.val.i1617 = load ptr, ptr %19, align 8
   %2333 = getelementptr inbounds i8, ptr %.val.i1617, i64 %2330
   store i64 %2306, ptr %2333, align 8
-  %.sroa.2.0..0..sroa_idx.i1618 = getelementptr inbounds i8, ptr %2333, i64 8
+  %.sroa.2.0..0..sroa_idx.i1618 = getelementptr inbounds nuw i8, ptr %2333, i64 8
   store ptr %2307, ptr %.sroa.2.0..0..sroa_idx.i1618, align 8
   %2334 = call { i64, ptr } @jv_null() #12
   %2335 = extractvalue { i64, ptr } %2334, 0
@@ -5095,7 +5095,7 @@ stack_push.exit1621:                              ; preds = %stack_pop.exit1614,
   store i64 %2335, ptr %22, align 8
   store ptr %2336, ptr %23, align 8
   %2337 = zext i16 %2282 to i64
-  %2338 = getelementptr inbounds i16, ptr %2281, i64 %2337
+  %2338 = getelementptr inbounds nuw i16, ptr %2281, i64 %2337
   br label %2747
 
 2339:                                             ; preds = %107
@@ -5125,7 +5125,7 @@ stack_push.exit1621:                              ; preds = %stack_pop.exit1614,
   %.sroa.0.0.insert.ext.i1624 = zext i32 %2352 to i64
   %.sroa.0.0.insert.insert.i1625 = or disjoint i64 %.sroa.2.0.insert.shift.i1623, %.sroa.0.0.insert.ext.i1624
   call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01846, i64 %.sroa.0.0.insert.insert.i1625)
-  %2354 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %2354 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   br label %2747
 
 2355:                                             ; preds = %107
@@ -5141,7 +5141,7 @@ stack_push.exit1621:                              ; preds = %stack_pop.exit1614,
   %2361 = sext i32 %2360 to i64
   %2362 = getelementptr inbounds i8, ptr %.val.i1626, i64 %2361
   %.sroa.08.0.copyload.i1627 = load i64, ptr %2362, align 8
-  %.sroa.4.0..0..sroa_idx.i1628 = getelementptr inbounds i8, ptr %2362, i64 8
+  %.sroa.4.0..0..sroa_idx.i1628 = getelementptr inbounds nuw i8, ptr %2362, i64 8
   %.sroa.4.0.copyload.i1629 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1628, align 8
   %.val9.i1630 = load i32, ptr %24, align 4
   %.not.i1631 = icmp eq i32 %2360, %.val9.i1630
@@ -5192,31 +5192,31 @@ stack_pop.exit1639:                               ; preds = %2367, %2373
   %2385 = extractvalue { i64, ptr } %2383, 1
   store i64 %2384, ptr %22, align 8
   store ptr %2385, ptr %23, align 8
-  %2386 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %2386 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %2387 = load i16, ptr %108, align 2
   %2388 = zext i16 %2387 to i64
-  %2389 = getelementptr inbounds i16, ptr %2386, i64 %2388
+  %2389 = getelementptr inbounds nuw i16, ptr %2386, i64 %2388
   br label %2747
 
 2390:                                             ; preds = %107
   br i1 %.0739, label %2391, label %2219
 
 2391:                                             ; preds = %2390
-  %2392 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %2392 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %2393 = load i16, ptr %108, align 2
   %2394 = zext i16 %2393 to i64
-  %2395 = getelementptr inbounds i16, ptr %2392, i64 %2394
+  %2395 = getelementptr inbounds nuw i16, ptr %2392, i64 %2394
   br label %2747
 
 2396:                                             ; preds = %107
-  %2397 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %2397 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %2398 = load i16, ptr %108, align 2
   %2399 = load i32, ptr %21, align 4
   %.val.i1640 = load ptr, ptr %19, align 8
   %2400 = sext i32 %2399 to i64
   %2401 = getelementptr inbounds i8, ptr %.val.i1640, i64 %2400
   %.sroa.08.0.copyload.i1641 = load i64, ptr %2401, align 8
-  %.sroa.4.0..0..sroa_idx.i1642 = getelementptr inbounds i8, ptr %2401, i64 8
+  %.sroa.4.0..0..sroa_idx.i1642 = getelementptr inbounds nuw i8, ptr %2401, i64 8
   %.sroa.4.0.copyload.i1643 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1642, align 8
   %.val9.i1644 = load i32, ptr %24, align 4
   %.not.i1645 = icmp eq i32 %2399, %.val9.i1644
@@ -5272,11 +5272,11 @@ stack_pop.exit1653:                               ; preds = %2406, %2412
   %.val.i1654 = phi ptr [ %.val.i16541870, %.lr.ph1842.preheader ], [ %.val.i16541868, %stack_pop.exit1667 ]
   %2420 = phi i32 [ %2416, %.lr.ph1842.preheader ], [ %2438, %stack_pop.exit1667 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph1842.preheader ], [ %indvars.iv.next, %stack_pop.exit1667 ]
-  %2421 = getelementptr inbounds %struct.jv, ptr %2, i64 %indvars.iv
+  %2421 = getelementptr inbounds nuw %struct.jv, ptr %2, i64 %indvars.iv
   %2422 = sext i32 %2420 to i64
   %2423 = getelementptr inbounds i8, ptr %.val.i1654, i64 %2422
   %.sroa.08.0.copyload.i1655 = load i64, ptr %2423, align 8
-  %.sroa.4.0..0..sroa_idx.i1656 = getelementptr inbounds i8, ptr %2423, i64 8
+  %.sroa.4.0..0..sroa_idx.i1656 = getelementptr inbounds nuw i8, ptr %2423, i64 8
   %.sroa.4.0.copyload.i1657 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1656, align 8
   %.not.i1659 = icmp eq i32 %2420, %.val9.i1658
   br i1 %.not.i1659, label %.thread.i1666, label %2428
@@ -5318,7 +5318,7 @@ stack_pop.exit1667:                               ; preds = %2428, %2434
   %2439 = extractvalue { i64, ptr } %.fca.1.insert.merged.i1664, 0
   %2440 = extractvalue { i64, ptr } %.fca.1.insert.merged.i1664, 1
   store i64 %2439, ptr %2421, align 16
-  %.sroa.243.0..sroa_idx = getelementptr inbounds i8, ptr %2421, i64 8
+  %.sroa.243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2421, i64 8
   store ptr %2440, ptr %.sroa.243.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond1854.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5330,14 +5330,14 @@ stack_pop.exit1667:                               ; preds = %2428, %2434
   %2441 = sext i32 %.val816 to i64
   %2442 = getelementptr inbounds i8, ptr %.val815, i64 %2441
   %2443 = load ptr, ptr %2442, align 8
-  %2444 = getelementptr inbounds i8, ptr %2443, i64 40
+  %2444 = getelementptr inbounds nuw i8, ptr %2443, i64 40
   %2445 = load ptr, ptr %2444, align 8
   %2446 = load ptr, ptr %2445, align 8
-  %2447 = getelementptr inbounds i8, ptr %.01846, i64 6
+  %2447 = getelementptr inbounds nuw i8, ptr %.01846, i64 6
   %2448 = load i16, ptr %2397, align 2
   %2449 = zext i16 %2448 to i64
-  %2450 = getelementptr inbounds %struct.cfunction, ptr %2446, i64 %2449
-  %2451 = getelementptr inbounds i8, ptr %2450, i64 16
+  %2450 = getelementptr inbounds nuw %struct.cfunction, ptr %2446, i64 %2449
+  %2451 = getelementptr inbounds nuw i8, ptr %2450, i64 16
   %2452 = load i32, ptr %2451, align 8
   switch i32 %2452, label %2486 [
     i32 1, label %2453
@@ -5449,7 +5449,7 @@ stack_push.exit1674:                              ; preds = %2493, %2499
   %.val.i1670 = load ptr, ptr %19, align 8
   %2519 = getelementptr inbounds i8, ptr %.val.i1670, i64 %2516
   store i64 %.sroa.064.0, ptr %2519, align 8
-  %.sroa.2.0..0..sroa_idx.i1671 = getelementptr inbounds i8, ptr %2519, i64 8
+  %.sroa.2.0..0..sroa_idx.i1671 = getelementptr inbounds nuw i8, ptr %2519, i64 8
   store ptr %.sroa.11.0, ptr %.sroa.2.0..0..sroa_idx.i1671, align 8
   br label %2747
 
@@ -5475,7 +5475,7 @@ stack_push.exit1674:                              ; preds = %2493, %2499
   %2530 = sext i32 %2529 to i64
   %2531 = getelementptr inbounds i8, ptr %.val.i1675, i64 %2530
   %.sroa.08.0.copyload.i1676 = load i64, ptr %2531, align 8
-  %.sroa.4.0..0..sroa_idx.i1677 = getelementptr inbounds i8, ptr %2531, i64 8
+  %.sroa.4.0..0..sroa_idx.i1677 = getelementptr inbounds nuw i8, ptr %2531, i64 8
   %.sroa.4.0.copyload.i1678 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1677, align 8
   %.val9.i1679 = load i32, ptr %24, align 4
   %.not.i1680 = icmp eq i32 %2529, %.val9.i1679
@@ -5517,13 +5517,13 @@ stack_pop.exit1688:                               ; preds = %2536, %2542
   store i32 %2546, ptr %21, align 4
   %2547 = extractvalue { i64, ptr } %.fca.1.insert.merged.i1685, 0
   %2548 = extractvalue { i64, ptr } %.fca.1.insert.merged.i1685, 1
-  %2549 = getelementptr inbounds i8, ptr %.01846, i64 4
+  %2549 = getelementptr inbounds nuw i8, ptr %.01846, i64 4
   %2550 = load i16, ptr %108, align 2
-  %2551 = getelementptr inbounds i8, ptr %.01846, i64 8
+  %2551 = getelementptr inbounds nuw i8, ptr %.01846, i64 8
   %2552 = zext i16 %2550 to i32
   %2553 = shl nuw nsw i32 %2552, 1
   %2554 = zext nneg i32 %2553 to i64
-  %2555 = getelementptr inbounds i16, ptr %2551, i64 %2554
+  %2555 = getelementptr inbounds nuw i16, ptr %2551, i64 %2554
   %.val823 = load i16, ptr %2549, align 2
   %2556 = getelementptr i8, ptr %.01846, i64 6
   %.val824 = load i16, ptr %2556, align 2
@@ -5558,17 +5558,17 @@ frame_get_level.exit.i:                           ; preds = %2558, %stack_pop.ex
 2565:                                             ; preds = %frame_get_level.exit.i
   %2566 = and i32 %2563, 61439
   %2567 = load ptr, ptr %2562, align 8
-  %2568 = getelementptr inbounds i8, ptr %2567, i64 48
+  %2568 = getelementptr inbounds nuw i8, ptr %2567, i64 48
   %2569 = load ptr, ptr %2568, align 8
   %2570 = zext nneg i32 %2566 to i64
-  %2571 = getelementptr inbounds ptr, ptr %2569, i64 %2570
+  %2571 = getelementptr inbounds nuw ptr, ptr %2569, i64 %2570
   br label %make_closure.exit
 
 2572:                                             ; preds = %frame_get_level.exit.i
-  %2573 = getelementptr inbounds i8, ptr %2562, i64 24
+  %2573 = getelementptr inbounds nuw i8, ptr %2562, i64 24
   %2574 = zext i16 %.val824 to i64
-  %2575 = getelementptr inbounds [0 x %union.frame_entry], ptr %2573, i64 0, i64 %2574
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2575, i64 8
+  %2575 = getelementptr inbounds nuw [0 x %union.frame_entry], ptr %2573, i64 0, i64 %2574
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2575, i64 8
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8
   br label %make_closure.exit
 
@@ -5582,16 +5582,16 @@ make_closure.exit:                                ; preds = %2565, %2572
 2577:                                             ; preds = %make_closure.exit
   %2578 = sext i32 %.08.i.i1689 to i64
   %2579 = getelementptr inbounds i8, ptr %.val.pre.i1691, i64 %2578
-  %2580 = getelementptr inbounds i8, ptr %2579, i64 16
+  %2580 = getelementptr inbounds nuw i8, ptr %2579, i64 16
   %2581 = load ptr, ptr %2580, align 8
-  %2582 = getelementptr inbounds i8, ptr %2579, i64 12
+  %2582 = getelementptr inbounds nuw i8, ptr %2579, i64 12
   %2583 = load i32, ptr %2582, align 4
   %.not.i1704 = icmp eq i32 %.08.i.i1689, %.val.i1703
   br i1 %.not.i1704, label %2584, label %.loopexit.i
 
 2584:                                             ; preds = %2577
   %2585 = load ptr, ptr %2579, align 8
-  %2586 = getelementptr inbounds i8, ptr %2585, i64 12
+  %2586 = getelementptr inbounds nuw i8, ptr %2585, i64 12
   %2587 = load i32, ptr %2586, align 4
   %2588 = icmp sgt i32 %2587, 0
   br i1 %2588, label %.lr.ph.i, label %.loopexit.thread.i
@@ -5607,15 +5607,15 @@ make_closure.exit:                                ; preds = %2565, %2572
   %.val.pre.i.i1706 = load ptr, ptr %19, align 8
   %2591 = sext i32 %.08.i.i.i to i64
   %2592 = getelementptr inbounds i8, ptr %.val.pre.i.i1706, i64 %2591
-  %2593 = getelementptr inbounds i8, ptr %2592, i64 24
+  %2593 = getelementptr inbounds nuw i8, ptr %2592, i64 24
   %2594 = load ptr, ptr %2592, align 8
-  %2595 = getelementptr inbounds i8, ptr %2594, i64 16
+  %2595 = getelementptr inbounds nuw i8, ptr %2594, i64 16
   %2596 = load i32, ptr %2595, align 8
   %2597 = add nsw i32 %2596, %.016.i
   %2598 = sext i32 %2597 to i64
   %2599 = getelementptr inbounds [0 x %union.frame_entry], ptr %2593, i64 0, i64 %2598
   %2600 = load i64, ptr %2599, align 8
-  %2601 = getelementptr inbounds i8, ptr %2599, i64 8
+  %2601 = getelementptr inbounds nuw i8, ptr %2599, i64 8
   %2602 = load ptr, ptr %2601, align 8
   call void @jv_free(i64 %2600, ptr %2602) #12
   %2603 = add nuw nsw i32 %.016.i, 1
@@ -5671,9 +5671,9 @@ frame_pop.exit:                                   ; preds = %.loopexit.i, %2610
   %.0748 = phi ptr [ %2581, %frame_pop.exit ], [ %2555, %make_closure.exit ]
   %.0747 = phi i32 [ %2583, %frame_pop.exit ], [ %2546, %make_closure.exit ]
   %2623 = call fastcc ptr @frame_push(ptr noundef nonnull %0, ptr %.sroa.0.0.i, i32 %.sroa.3.0.i, ptr noundef nonnull %2551, i32 noundef %2552)
-  %2624 = getelementptr inbounds i8, ptr %2623, i64 12
+  %2624 = getelementptr inbounds nuw i8, ptr %2623, i64 12
   store i32 %.0747, ptr %2624, align 4
-  %2625 = getelementptr inbounds i8, ptr %2623, i64 16
+  %2625 = getelementptr inbounds nuw i8, ptr %2623, i64 16
   store ptr %.0748, ptr %2625, align 8
   %2626 = load ptr, ptr %2623, align 8
   %2627 = load ptr, ptr %2626, align 8
@@ -5720,7 +5720,7 @@ stack_push.exit1715:                              ; preds = %2622, %2633
   %.val.i1711 = load ptr, ptr %19, align 8
   %2653 = getelementptr inbounds i8, ptr %.val.i1711, i64 %2650
   store i64 %2547, ptr %2653, align 8
-  %.sroa.2.0..0..sroa_idx.i1712 = getelementptr inbounds i8, ptr %2653, i64 8
+  %.sroa.2.0..0..sroa_idx.i1712 = getelementptr inbounds nuw i8, ptr %2653, i64 8
   store ptr %2548, ptr %.sroa.2.0..0..sroa_idx.i1712, align 8
   br label %2747
 
@@ -5730,7 +5730,7 @@ stack_push.exit1715:                              ; preds = %2622, %2633
   %2656 = sext i32 %2655 to i64
   %2657 = getelementptr inbounds i8, ptr %.val.i1716, i64 %2656
   %.sroa.08.0.copyload.i1717 = load i64, ptr %2657, align 8
-  %.sroa.4.0..0..sroa_idx.i1718 = getelementptr inbounds i8, ptr %2657, i64 8
+  %.sroa.4.0..0..sroa_idx.i1718 = getelementptr inbounds nuw i8, ptr %2657, i64 8
   %.sroa.4.0.copyload.i1719 = load ptr, ptr %.sroa.4.0..0..sroa_idx.i1718, align 8
   %.val9.i1720 = load i32, ptr %24, align 4
   %.not.i1721 = icmp eq i32 %2655, %.val9.i1720
@@ -5773,7 +5773,7 @@ stack_pop.exit1729:                               ; preds = %2662, %2668
   %.val822 = load i32, ptr %20, align 8
   %2673 = sext i32 %.val822 to i64
   %2674 = getelementptr inbounds i8, ptr %.val821, i64 %2673
-  %2675 = getelementptr inbounds i8, ptr %2674, i64 16
+  %2675 = getelementptr inbounds nuw i8, ptr %2674, i64 16
   %2676 = load ptr, ptr %2675, align 8
   %.not774 = icmp eq ptr %2676, null
   br i1 %.not774, label %2743, label %2677
@@ -5786,7 +5786,7 @@ stack_pop.exit1729:                               ; preds = %2662, %2668
 
 2680:                                             ; preds = %2677
   %2681 = load ptr, ptr %2674, align 8
-  %2682 = getelementptr inbounds i8, ptr %2681, i64 12
+  %2682 = getelementptr inbounds nuw i8, ptr %2681, i64 12
   %2683 = load i32, ptr %2682, align 4
   %2684 = icmp sgt i32 %2683, 0
   br i1 %2684, label %.lr.ph.i1740, label %.loopexit.thread.i1739
@@ -5802,15 +5802,15 @@ stack_pop.exit1729:                               ; preds = %2662, %2668
   %.val.pre.i.i1743 = load ptr, ptr %19, align 8
   %2687 = sext i32 %.08.i.i.i1742 to i64
   %2688 = getelementptr inbounds i8, ptr %.val.pre.i.i1743, i64 %2687
-  %2689 = getelementptr inbounds i8, ptr %2688, i64 24
+  %2689 = getelementptr inbounds nuw i8, ptr %2688, i64 24
   %2690 = load ptr, ptr %2688, align 8
-  %2691 = getelementptr inbounds i8, ptr %2690, i64 16
+  %2691 = getelementptr inbounds nuw i8, ptr %2690, i64 16
   %2692 = load i32, ptr %2691, align 8
   %2693 = add nsw i32 %2692, %.016.i1741
   %2694 = sext i32 %2693 to i64
   %2695 = getelementptr inbounds [0 x %union.frame_entry], ptr %2689, i64 0, i64 %2694
   %2696 = load i64, ptr %2695, align 8
-  %2697 = getelementptr inbounds i8, ptr %2695, i64 8
+  %2697 = getelementptr inbounds nuw i8, ptr %2695, i64 8
   %2698 = load ptr, ptr %2697, align 8
   call void @jv_free(i64 %2696, ptr %2698) #12
   %2699 = add nuw nsw i32 %.016.i1741, 1
@@ -5902,7 +5902,7 @@ stack_push.exit1757:                              ; preds = %frame_pop.exit1750,
   %.val.i1753 = load ptr, ptr %19, align 8
   %2742 = getelementptr inbounds i8, ptr %.val.i1753, i64 %2739
   store i64 %2679, ptr %2742, align 8
-  %.sroa.2.0..0..sroa_idx.i1754 = getelementptr inbounds i8, ptr %2742, i64 8
+  %.sroa.2.0..0..sroa_idx.i1754 = getelementptr inbounds nuw i8, ptr %2742, i64 8
   store ptr %2678, ptr %.sroa.2.0..0..sroa_idx.i1754, align 8
   br label %2747
 
@@ -5971,15 +5971,15 @@ declare { i64, ptr } @jv_get(i64, ptr, i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @path_append(ptr nocapture noundef %0, i64 %1, ptr %2, i64 %3, ptr %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %36
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @jv_get_kind(i64 %11, ptr %13) #12
   %15 = icmp eq i32 %14, 6
@@ -6003,9 +6003,9 @@ define internal fastcc void @path_append(ptr nocapture noundef %0, i64 %1, ptr %
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
   %31 = tail call i32 @jv_array_length(i64 %29, ptr %30) #12
-  %32 = getelementptr inbounds i8, ptr %0, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load ptr, ptr %34, align 8
   tail call void @jv_free(i64 %33, ptr %35) #12
   store i64 %3, ptr %32, align 8
@@ -6037,8 +6037,8 @@ declare i32 @jv_invalid_has_msg(i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @frame_push(ptr nocapture noundef %0, ptr %1, i32 %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr i8, ptr %1, i64 12
   %.val28 = load i32, ptr %9, align 4
@@ -6049,10 +6049,10 @@ define internal fastcc noundef ptr @frame_push(ptr nocapture noundef %0, ptr %1,
   %13 = add i32 %12, 31
   %14 = and i32 %13, -8
   %15 = add i32 %14, 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %17 = load i32, ptr %16, align 4
   %18 = sub nsw i32 %17, %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load i32, ptr %19, align 8
   %21 = icmp slt i32 %18, %20
   %.val.pre.i = load ptr, ptr %6, align 8
@@ -6094,9 +6094,9 @@ stack_push_block.exit:                            ; preds = %5, %22
   %.val = load ptr, ptr %6, align 8
   %44 = getelementptr inbounds i8, ptr %.val, i64 %41
   store ptr %1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %2, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %44, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader, label %.lr.ph.preheader
 
@@ -6113,8 +6113,8 @@ stack_push_block.exit:                            ; preds = %5, %22
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %make_closure.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %make_closure.exit ]
   %.035 = phi ptr [ %46, %.lr.ph.preheader ], [ %70, %make_closure.exit ]
-  %.idx = shl nsw i64 %indvars.iv, 2
-  %49 = getelementptr inbounds i8, ptr %3, i64 %.idx
+  %.idx = shl nuw nsw i64 %indvars.iv, 2
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %.val30 = load i16, ptr %49, align 2
   %50 = getelementptr i8, ptr %49, i64 2
   %.val31 = load i16, ptr %50, align 2
@@ -6150,17 +6150,17 @@ frame_get_level.exit.i:                           ; preds = %52, %.lr.ph
 59:                                               ; preds = %frame_get_level.exit.i
   %60 = and i32 %57, 61439
   %61 = load ptr, ptr %56, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load ptr, ptr %62, align 8
   %64 = zext nneg i32 %60 to i64
-  %65 = getelementptr inbounds ptr, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %64
   br label %make_closure.exit
 
 66:                                               ; preds = %frame_get_level.exit.i
-  %67 = getelementptr inbounds i8, ptr %56, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %68 = zext i16 %.val31 to i64
-  %69 = getelementptr inbounds [0 x %union.frame_entry], ptr %67, i64 0, i64 %68
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 8
+  %69 = getelementptr inbounds nuw [0 x %union.frame_entry], ptr %67, i64 0, i64 %68
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8
   br label %make_closure.exit
 
@@ -6169,9 +6169,9 @@ make_closure.exit:                                ; preds = %59, %66
   %.sroa.3.0.i = phi i32 [ %.0.lcssa.i.i, %59 ], [ %.sroa.3.0.copyload.i, %66 ]
   %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8
   store ptr %.sroa.0.0.i, ptr %.035, align 8
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %.035, i64 8
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.035, i64 8
   store i32 %.sroa.3.0.i, ptr %.sroa.23.0..sroa_idx, align 8
-  %70 = getelementptr inbounds i8, ptr %.035, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.035, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !11
@@ -6183,9 +6183,9 @@ make_closure.exit:                                ; preds = %59, %66
   %72 = extractvalue { i64, ptr } %71, 0
   %73 = extractvalue { i64, ptr } %71, 1
   store i64 %72, ptr %.137, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.137, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.137, i64 8
   store ptr %73, ptr %.sroa.2.0..sroa_idx, align 8
-  %74 = getelementptr inbounds i8, ptr %.137, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.137, i64 16
   %75 = add nuw nsw i32 %.02736, 1
   %76 = load i32, ptr %9, align 4
   %77 = icmp slt i32 %75, %76
@@ -6320,66 +6320,66 @@ define ptr @jq_init() local_unnamed_addr #0 {
   br i1 %2, label %38, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 132
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 132
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 8, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 68
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = tail call { i64, ptr } @jv_null() #12
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
   store i64 %11, ptr %9, align 8
-  %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %12, ptr %.sroa.210.0..sroa_idx, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %15 = tail call { i64, ptr } @jv_invalid() #12
   %16 = extractvalue { i64, ptr } %15, 0
   %17 = extractvalue { i64, ptr } %15, 1
   store i64 %16, ptr %14, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 152
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr %17, ptr %.sroa.28.0..sroa_idx, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %19 = tail call { i64, ptr } @jv_invalid() #12
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
   store i64 %20, ptr %18, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 168
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %21, ptr %.sroa.26.0..sroa_idx, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 192
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, i8 0, i64 48, i1 false)
   store ptr @default_err_cb, ptr %23, align 8
   %24 = load ptr, ptr @stderr, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 176
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %27 = tail call { i64, ptr } @jv_object() #12
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   store i64 %28, ptr %26, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 184
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 184
   store ptr %29, ptr %.sroa.24.0..sroa_idx, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %31 = tail call { i64, ptr } @jv_null() #12
   %32 = extractvalue { i64, ptr } %31, 0
   %33 = extractvalue { i64, ptr } %31, 1
   store i64 %32, ptr %30, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 96
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %33, ptr %.sroa.22.0..sroa_idx, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %35 = tail call { i64, ptr } @jv_null() #12
   %36 = extractvalue { i64, ptr } %35, 0
   %37 = extractvalue { i64, ptr } %35, 1
   store i64 %36, ptr %34, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 112
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr %37, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   br label %38
@@ -6407,19 +6407,19 @@ define void @jq_set_error_cb(ptr nocapture noundef writeonly initializes((24, 40
   %5 = load ptr, ptr @stderr, align 8
   %spec.select = select i1 %4, ptr @default_err_cb, ptr %1
   %spec.select8 = select i1 %4, ptr %5, ptr %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %spec.select, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %spec.select8, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @jq_get_error_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %2, align 8
   ret void
@@ -6429,7 +6429,7 @@ define void @jq_get_error_cb(ptr nocapture noundef readonly %0, ptr nocapture no
 define void @jq_set_nomem_handler(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @jv_nomem_handler(ptr noundef %1, ptr noundef %2) #12
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   ret void
 }
@@ -6437,24 +6437,24 @@ define void @jq_set_nomem_handler(ptr nocapture noundef writeonly initializes((0
 ; Function Attrs: nounwind uwtable
 define void @jq_start(ptr nocapture noundef %0, i64 %1, ptr %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @jv_nomem_handler(ptr noundef %5, ptr noundef %7) #12
   tail call fastcc void @jq_reset(ptr noundef nonnull %0)
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call fastcc ptr @frame_push(ptr noundef nonnull %0, ptr %9, i32 -1, ptr noundef null, i32 noundef 0)
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 76
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, -24
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load i32, ptr %19, align 8
   %21 = icmp slt i32 %18, %20
   %.val.pre.i.i = load ptr, ptr %13, align 8
@@ -6495,12 +6495,12 @@ stack_push.exit:                                  ; preds = %4, %22
   %.val.i = load ptr, ptr %13, align 8
   %42 = getelementptr inbounds i8, ptr %.val.i, i64 %39
   store i64 %1, ptr %42, align 8
-  %.sroa.2.0..0..sroa_idx.i = getelementptr inbounds i8, ptr %42, i64 8
+  %.sroa.2.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %2, ptr %.sroa.2.0..0..sroa_idx.i, align 8
   %43 = load ptr, ptr %8, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %14, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %47 = load i32, ptr %46, align 8
   %.sroa.2.0.insert.ext.i = zext i32 %47 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
@@ -6508,9 +6508,9 @@ stack_push.exit:                                  ; preds = %4, %22
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   tail call void @stack_save(ptr noundef nonnull %0, ptr noundef %44, i64 %.sroa.0.0.insert.insert.i)
   %48 = and i32 %3, 3
-  %49 = getelementptr inbounds i8, ptr %0, i64 124
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 128
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 1, ptr %50, align 8
   ret void
 }
@@ -6525,13 +6525,13 @@ define internal fastcc void @jq_reset(ptr nocapture noundef %0) unnamed_addr #0 
   br i1 %.not, label %4, label %2, !llvm.loop !13
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %stack_reset.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = sub i32 8, %9
   %11 = sext i32 %10 to i64
@@ -6542,13 +6542,13 @@ define internal fastcc void @jq_reset(ptr nocapture noundef %0) unnamed_addr #0 
 
 stack_reset.exit:                                 ; preds = %4, %7
   store ptr null, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
   tail call void @jv_free(i64 %17, ptr %19) #12
   %20 = tail call { i64, ptr } @jv_null() #12
@@ -6556,21 +6556,21 @@ stack_reset.exit:                                 ; preds = %4, %7
   %22 = extractvalue { i64, ptr } %20, 1
   store i64 %21, ptr %16, align 8
   store ptr %22, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %27 = load ptr, ptr %26, align 8
   tail call void @jv_free(i64 %25, ptr %27) #12
-  %28 = getelementptr inbounds i8, ptr %0, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %31 = load ptr, ptr %30, align 8
   tail call void @jv_free(i64 %29, ptr %31) #12
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @jv_get_kind(i64 %33, ptr %35) #12
   %.not17 = icmp eq i32 %36, 0
@@ -6588,9 +6588,9 @@ stack_reset.exit:                                 ; preds = %4, %7
   %43 = extractvalue { i64, ptr } %41, 1
   store i64 %42, ptr %32, align 8
   store ptr %43, ptr %34, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 104
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %47 = load ptr, ptr %46, align 8
   tail call void @jv_free(i64 %45, ptr %47) #12
   %48 = tail call { i64, ptr } @jv_null() #12
@@ -6598,7 +6598,7 @@ stack_reset.exit:                                 ; preds = %4, %7
   %50 = extractvalue { i64, ptr } %48, 1
   store i64 %49, ptr %44, align 8
   store ptr %50, ptr %46, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %51, align 8
   ret void
 }
@@ -6612,13 +6612,13 @@ define void @jq_teardown(ptr nocapture noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   store ptr null, ptr %0, align 8
   tail call fastcc void @jq_reset(ptr noundef nonnull %2)
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @bytecode_free(ptr noundef %6) #12
   store ptr null, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 176
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %10 = load ptr, ptr %9, align 8
   tail call void @jv_free(i64 %8, ptr %10) #12
   tail call void @jv_mem_free(ptr noundef nonnull %2) #12
@@ -6636,14 +6636,14 @@ declare void @jv_mem_free(ptr noundef) local_unnamed_addr #2
 define range(i32 0, 2) i32 @jq_compile_args(ptr noundef %0, ptr noundef %1, i64 %2, ptr %3) local_unnamed_addr #0 {
   %5 = alloca %struct.block, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @jv_nomem_handler(ptr noundef %6, ptr noundef %8) #12
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %10 = trunc i64 %9 to i32
   %11 = tail call ptr @locfile_init(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef %1, i32 noundef %10) #12
   tail call fastcc void @jq_reset(ptr noundef nonnull %0)
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %14
@@ -6727,7 +6727,7 @@ define range(i32 0, 2) i32 @jq_compile_args(ptr noundef %0, ptr noundef %1, i64 
   %.sroa.035.0.i = phi i64 [ %.sroa.035.1.lcssa.i, %.loopexit.i ], [ %2, %21 ]
   %.sroa.5.0.i = phi ptr [ %.sroa.5.1.lcssa.i, %.loopexit.i ], [ %3, %21 ]
   %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @block_compile(ptr %58, ptr %60, ptr noundef nonnull %12, ptr noundef %11, i64 %.sroa.035.0.i, ptr %.sroa.5.0.i) #12
   %.not33 = icmp eq i32 %61, 0
@@ -6740,9 +6740,9 @@ define range(i32 0, 2) i32 @jq_compile_args(ptr noundef %0, ptr noundef %1, i64 
   %64 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.19, i32 noundef %.037, ptr noundef nonnull %63) #12
   %65 = extractvalue { i64, ptr } %64, 0
   %66 = extractvalue { i64, ptr } %64, 1
-  %67 = getelementptr inbounds i8, ptr %0, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load ptr, ptr %69, align 8
   call void %68(ptr noundef %70, i64 %65, ptr %66) #12
   br label %71
@@ -6778,23 +6778,23 @@ declare i32 @block_compile(ptr, ptr, ptr noundef, ptr noundef, i64, ptr) local_u
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @optimize(ptr noundef readonly returned %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call fastcc ptr @optimize(ptr noundef %9)
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   store ptr %9, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %2, align 8
@@ -6803,7 +6803,7 @@ define internal fastcc noundef ptr @optimize(ptr noundef readonly returned %0) u
   br i1 %15, label %6, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %6, %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph.preheader.i, label %optimize_code.exit
@@ -6819,10 +6819,10 @@ define internal fastcc noundef ptr @optimize(ptr noundef readonly returned %0) u
   br i1 %cond.i, label %21, label %36
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %.011.i, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.011.i, i64 2
   %23 = load i16, ptr %22, align 2
   %24 = add i16 %23, 1
-  %.0714.i.i = getelementptr inbounds i8, ptr %.011.i, i64 4
+  %.0714.i.i = getelementptr inbounds nuw i8, ptr %.011.i, i64 4
   %.not15.i.i = icmp eq i16 %24, 0
   br i1 %.not15.i.i, label %tailrecurse.i.i.i.preheader, label %.lr.ph.i.i
 
@@ -6832,7 +6832,7 @@ tailrecurse.i.i.i.preheader:                      ; preds = %25, %21
 
 25:                                               ; preds = %.lr.ph.i.i
   %26 = add i16 %.016.i.i, -1
-  %.07.i.i = getelementptr inbounds i8, ptr %.0717.i.i, i64 4
+  %.07.i.i = getelementptr inbounds nuw i8, ptr %.0717.i.i, i64 4
   %.not.i.i = icmp eq i16 %26, 0
   br i1 %.not.i.i, label %tailrecurse.i.i.i.preheader, label %.lr.ph.i.i, !llvm.loop !16
 
@@ -6852,11 +6852,11 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.i.i.i.p
   ]
 
 30:                                               ; preds = %tailrecurse.i.i.i
-  %31 = getelementptr inbounds i8, ptr %.tr.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.tr.i.i.i, i64 2
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i64
-  %34 = getelementptr inbounds i16, ptr %31, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 2
+  %34 = getelementptr inbounds nuw i16, ptr %31, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
   br label %tailrecurse.i.i.i
 
 tail_call_analyze.exit.i.loopexit:                ; preds = %tailrecurse.i.i.i
@@ -6898,9 +6898,9 @@ define { i64, ptr } @jq_get_jq_origin(ptr nocapture noundef readonly %0) local_u
   %2 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.22) #12
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = load ptr, ptr %7, align 8
   %9 = tail call { i64, ptr } @jv_copy(i64 %6, ptr %8) #12
   %10 = extractvalue { i64, ptr } %9, 0
@@ -6911,9 +6911,9 @@ define { i64, ptr } @jq_get_jq_origin(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @jq_get_attr(ptr nocapture noundef readonly %0, i64 %1, ptr %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load ptr, ptr %6, align 8
   %8 = tail call { i64, ptr } @jv_copy(i64 %5, ptr %7) #12
   %9 = extractvalue { i64, ptr } %8, 0
@@ -6927,9 +6927,9 @@ define { i64, ptr } @jq_get_prog_origin(ptr nocapture noundef readonly %0) local
   %2 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.23) #12
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = load ptr, ptr %7, align 8
   %9 = tail call { i64, ptr } @jv_copy(i64 %6, ptr %8) #12
   %10 = extractvalue { i64, ptr } %9, 0
@@ -6943,9 +6943,9 @@ define { i64, ptr } @jq_get_lib_dirs(ptr nocapture noundef readonly %0) local_un
   %2 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.24) #12
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = load ptr, ptr %7, align 8
   %9 = tail call { i64, ptr } @jv_copy(i64 %6, ptr %8) #12
   %10 = extractvalue { i64, ptr } %9, 0
@@ -6968,9 +6968,9 @@ define { i64, ptr } @jq_get_lib_dirs(ptr nocapture noundef readonly %0) local_un
 
 ; Function Attrs: nounwind uwtable
 define void @jq_set_attrs(ptr nocapture noundef %0, i64 %1, ptr %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load ptr, ptr %6, align 8
   tail call void @jv_free(i64 %5, ptr %7) #12
   store i64 %1, ptr %4, align 8
@@ -6980,9 +6980,9 @@ define void @jq_set_attrs(ptr nocapture noundef %0, i64 %1, ptr %2) local_unname
 
 ; Function Attrs: nounwind uwtable
 define void @jq_set_attr(ptr nocapture noundef %0, i64 %1, ptr %2, i64 %3, ptr %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 184
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %9 = load ptr, ptr %8, align 8
   %10 = tail call { i64, ptr } @jv_object_set(i64 %7, ptr %9, i64 %1, ptr %2, i64 %3, ptr %4) #12
   %11 = extractvalue { i64, ptr } %10, 0
@@ -6996,7 +6996,7 @@ declare { i64, ptr } @jv_object_get(i64, ptr, i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @jq_dump_disassembly(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @dump_disassembly(i32 noundef %1, ptr noundef %4) #12
   ret void
@@ -7006,19 +7006,19 @@ declare void @dump_disassembly(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @jq_set_input_cb(ptr nocapture noundef writeonly initializes((192, 208)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %2, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @jq_get_input_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %2, align 8
   ret void
@@ -7026,19 +7026,19 @@ define void @jq_get_input_cb(ptr nocapture noundef readonly %0, ptr nocapture no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @jq_set_debug_cb(ptr nocapture noundef writeonly initializes((208, 224)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %2, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @jq_get_debug_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 208
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %2, align 8
   ret void
@@ -7046,19 +7046,19 @@ define void @jq_get_debug_cb(ptr nocapture noundef readonly %0, ptr nocapture no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @jq_set_stderr_cb(ptr nocapture noundef writeonly initializes((224, 240)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %2, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @jq_get_stderr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 232
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %2, align 8
   ret void
@@ -7066,31 +7066,31 @@ define void @jq_get_stderr_cb(ptr nocapture noundef readonly %0, ptr nocapture n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @jq_halt(ptr nocapture noundef writeonly initializes((136, 140), (144, 176)) %0, i64 %1, ptr %2, i64 %3, ptr %4) local_unnamed_addr #8 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %1, ptr %7, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 152
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %2, ptr %.sroa.24.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %3, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 168
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %4, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @jq_halted(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @jq_get_exit_code(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 144
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %5) #12
   ret { i64, ptr } %6
@@ -7098,9 +7098,9 @@ define { i64, ptr } @jq_get_exit_code(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @jq_get_error_message(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %5) #12
   ret { i64, ptr } %6

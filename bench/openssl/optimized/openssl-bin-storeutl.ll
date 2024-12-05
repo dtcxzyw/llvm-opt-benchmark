@@ -200,7 +200,7 @@ if.then:                                          ; preds = %sw.bb12
 
 for.body:                                         ; preds = %sw.bb12, %for.inc
   %i.0352 = phi i64 [ %inc, %for.inc ], [ 0, %sw.bb12 ]
-  %arrayidx = getelementptr inbounds [3 x %struct.anon], ptr @storeutl_main.map, i64 0, i64 %i.0352
+  %arrayidx = getelementptr inbounds nuw [3 x %struct.anon], ptr @storeutl_main.map, i64 0, i64 %i.0352
   %2 = load i32, ptr %arrayidx, align 8
   %cmp16 = icmp eq i32 %call2, %2
   br i1 %cmp16, label %for.end, label %for.inc
@@ -211,7 +211,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %cond.false, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
-  %gep = getelementptr inbounds [3 x %struct.anon], ptr getelementptr inbounds (i8, ptr @storeutl_main.map, i64 4), i64 0, i64 %i.0352
+  %gep = getelementptr inbounds nuw [3 x %struct.anon], ptr getelementptr inbounds (i8, ptr @storeutl_main.map, i64 4), i64 0, i64 %i.0352
   %3 = load i32, ptr %gep, align 4
   %cmp20.not = icmp eq i32 %3, 0
   br i1 %cmp20.not, label %cond.false, label %while.cond.backedge
@@ -466,7 +466,7 @@ if.end153:                                        ; preds = %if.end148
   %27 = load ptr, ptr %passin, align 8
   store ptr %27, ptr %pw_cb_data, align 8
   %28 = load ptr, ptr %call114, align 8
-  %prompt_info = getelementptr inbounds i8, ptr %pw_cb_data, i64 8
+  %prompt_info = getelementptr inbounds nuw i8, ptr %pw_cb_data, i64 8
   store ptr %28, ptr %prompt_info, align 8
   %call155 = call ptr @bio_open_default(ptr noundef %outfile.0, i8 noundef signext 119, i32 noundef 32769) #4
   %cmp156 = icmp eq ptr %call155, null

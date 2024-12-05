@@ -52,9 +52,9 @@ Kit_TruthCopy.exit.preheader:
   %12 = mul nsw i64 %11, 12
   %13 = add nsw i64 %12, 232
   %14 = tail call noalias noundef ptr @malloc(i64 noundef %13) #12
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %15, i8 0, i64 216, i1 false)
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = and i32 %.val, 127
   store ptr %1, ptr %14, align 8
   %18 = shl i32 %.val, 7
@@ -67,11 +67,11 @@ Kit_TruthCopy.exit.preheader:
   %25 = or disjoint i32 %24, %19
   %26 = or disjoint i32 %25, %17
   store i32 %26, ptr %16, align 8
-  %27 = getelementptr inbounds i8, ptr %14, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 144
   store i32 %5, ptr %27, align 8
   %28 = and i32 %.val, 31
   %29 = tail call i32 @Kit_TruthSupport(ptr noundef %2, i32 noundef %28) #13
-  %30 = getelementptr inbounds i8, ptr %14, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %29, ptr %30, align 4
   %31 = and i32 %.val, 31
   %32 = icmp samesign ult i32 %31, 6
@@ -89,22 +89,22 @@ Kit_TruthCopy.exit.preheader:
 .lr.ph:                                           ; preds = %Kit_TruthCopy.exit.preheader
   %38 = getelementptr i8, ptr %1, i64 8
   %.val35 = load ptr, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %14, i64 212
-  %40 = getelementptr inbounds i8, ptr %14, i64 148
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 212
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 148
   %wide.trip.count = zext nneg i32 %.val34 to i64
   br label %Kit_TruthCopy.exit
 
 Kit_TruthCopy.exit:                               ; preds = %.lr.ph, %Kit_TruthCopy.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Kit_TruthCopy.exit ]
-  %41 = getelementptr inbounds ptr, ptr %.val35, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw ptr, ptr %.val35, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = trunc i64 %indvars.iv to i8
-  %44 = getelementptr inbounds [16 x i8], ptr %39, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 0, i64 %indvars.iv
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %42, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 20
   %46 = load i32, ptr %45, align 4
   %47 = lshr i32 %46, 12
-  %48 = getelementptr inbounds [16 x i32], ptr %40, i64 0, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [16 x i32], ptr %40, i64 0, i64 %indvars.iv
   store i32 %47, ptr %48, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -116,7 +116,7 @@ Kit_TruthCopy.exit:                               ; preds = %.lr.ph, %Kit_TruthC
   br i1 %50, label %51, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %.critedge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -125,7 +125,7 @@ Kit_TruthCopy.exit:                               ; preds = %.lr.ph, %Kit_TruthC
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not9.i.i = icmp eq ptr %55, null
   br i1 %.not9.i.i, label %58, label %56
@@ -146,7 +146,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %58, %56
 
 61:                                               ; preds = %51
   %62 = shl nuw nsw i32 %.val34, 1
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not9.i10.i = icmp eq ptr %64, null
   %65 = zext nneg i32 %62 to i64
@@ -183,7 +183,7 @@ declare i32 @Kit_TruthSupport(ptr noundef, i32 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Lpk_FunDup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
 Kit_TruthCopy.exit:
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 7
   %5 = and i32 %4, 31
@@ -192,23 +192,23 @@ Kit_TruthCopy.exit:
   %8 = shl nuw nsw i64 12, %7
   %9 = add nuw nsw i64 %8, 232
   %10 = tail call noalias noundef ptr @malloc(i64 noundef %9) #12
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %11, i8 0, i64 216, i1 false)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr i8, ptr %12, i64 4
   %.val = load i32, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = and i32 %.val, 127
   store ptr %12, ptr %10, align 8
   %16 = and i32 %3, 1073741696
   %17 = or disjoint i32 %15, %16
   store i32 %17, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 144
   store i32 %19, ptr %20, align 8
   %21 = tail call i32 @Kit_TruthSupport(ptr noundef %1, i32 noundef %5) #13
-  %22 = getelementptr inbounds i8, ptr %10, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %21, ptr %22, align 4
   %23 = load i32, ptr %2, align 8
   %24 = lshr i32 %23, 7
@@ -221,21 +221,21 @@ Kit_TruthCopy.exit:
   %scevgep = getelementptr i8, ptr %10, i64 228
   %30 = shl nuw nsw i64 %29, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, ptr noundef nonnull align 4 dereferenceable(1) %1, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %10, i64 212
-  %32 = getelementptr inbounds i8, ptr %0, i64 212
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 212
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 212
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false)
-  %33 = getelementptr inbounds i8, ptr %10, i64 148
-  %34 = getelementptr inbounds i8, ptr %0, i64 148
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 148
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 148
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %33, ptr noundef nonnull align 4 dereferenceable(64) %34, i64 64, i1 false)
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %35, align 8
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %40, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Kit_TruthCopy.exit
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %35, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -244,7 +244,7 @@ Kit_TruthCopy.exit:
   br i1 %41, label %42, label %50
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %35, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not9.i.i = icmp eq ptr %44, null
   br i1 %.not9.i.i, label %47, label %45
@@ -265,7 +265,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %47, %45
 
 50:                                               ; preds = %40
   %51 = shl nuw nsw i32 %37, 1
-  %52 = getelementptr inbounds i8, ptr %35, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not9.i10.i = icmp eq ptr %53, null
   %54 = zext nneg i32 %51 to i64
@@ -302,9 +302,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = lshr i32 %5, 7
   %7 = and i32 %6, 31
@@ -335,14 +335,14 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   %29 = and i32 %28, 31
   %30 = lshr i32 %28, 16
   %31 = add nuw nsw i32 %29, %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 228
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %33 = tail call i32 @llvm.usub.sat.i32(i32 %7, i32 5)
   %34 = shl nuw nsw i32 1, %33
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %32, i64 %35
   tail call void @Kit_TruthShrink(ptr noundef nonnull %36, ptr noundef nonnull %32, i32 noundef %31, i32 noundef %7, i32 noundef %3, i32 noundef 1) #13
-  %37 = getelementptr inbounds i8, ptr %0, i64 212
-  %38 = getelementptr inbounds i8, ptr %0, i64 148
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 148
   br label %39
 
 39:                                               ; preds = %11, %53
@@ -356,12 +356,12 @@ define range(i32 0, 2) i32 @Lpk_FunSuppMinimize(ptr noundef %0) local_unnamed_ad
   br i1 %.not, label %53, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds [16 x i8], ptr %37, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 0, i64 %indvars.iv
   %46 = load i8, ptr %45, align 1
   %47 = sext i32 %.02629 to i64
   %48 = getelementptr inbounds [16 x i8], ptr %37, i64 0, i64 %47
   store i8 %46, ptr %48, align 1
-  %49 = getelementptr inbounds [16 x i32], ptr %38, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [16 x i32], ptr %38, i64 0, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds [16 x i32], ptr %38, i64 0, i64 %47
   store i32 %50, ptr %51, align 4
@@ -396,23 +396,23 @@ declare void @Kit_TruthShrink(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define void @Lpk_FunComputeCofSupps(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 228
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 7
   %6 = and i32 %5, 31
   %7 = tail call i32 @llvm.usub.sat.i32(i32 %6, i32 5)
   %8 = shl nuw nsw i32 1, %7
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %2, i64 %9
+  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %9
   %11 = shl nuw nsw i32 2, %7
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %2, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %12
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
@@ -429,14 +429,14 @@ define void @Lpk_FunComputeCofSupps(ptr noundef %0) local_unnamed_addr #5 {
   %23 = and i32 %22, 31
   %24 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %10, i32 noundef %23) #13
   %25 = shl nuw nsw i64 %indvars.iv, 1
-  %26 = getelementptr inbounds [32 x i32], ptr %14, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %25
   store i32 %24, ptr %26, align 4
   %27 = load i32, ptr %3, align 8
   %28 = lshr i32 %27, 7
   %29 = and i32 %28, 31
   %30 = tail call i32 @Kit_TruthSupport(ptr noundef nonnull %13, i32 noundef %29) #13
   %31 = or disjoint i64 %25, 1
-  %32 = getelementptr inbounds [32 x i32], ptr %14, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i32], ptr %14, i64 0, i64 %31
   store i32 %30, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %3, align 8
@@ -471,7 +471,7 @@ define range(i32 1, -2147483648) i32 @Lpk_SuppDelay(i32 noundef %0, ptr nocaptur
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = tail call noundef i32 @llvm.smax.i32(i32 %.078, i32 %9)
   br label %11

@@ -68,9 +68,9 @@ define dso_local void @WalWriterMain() local_unnamed_addr #0 {
   %21 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #4
   call void @SetWalWriterSleeping(i1 noundef zeroext false) #4
   %22 = load ptr, ptr @MyProc, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %24 = load ptr, ptr @ProcGlobal, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
   store ptr %23, ptr %25, align 8
   br label %26
 

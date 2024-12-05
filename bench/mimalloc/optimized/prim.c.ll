@@ -45,12 +45,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i64 %call, ptr %config, align 8
-  %alloc_granularity = getelementptr inbounds i8, ptr %config, i64 16
+  %alloc_granularity = getelementptr inbounds nuw i8, ptr %config, i64 16
   store i64 %call, ptr %alloc_granularity, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %large_page_size = getelementptr inbounds i8, ptr %config, i64 8
+  %large_page_size = getelementptr inbounds nuw i8, ptr %config, i64 8
   store i64 2097152, ptr %large_page_size, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i)
   %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.3, i32 noundef 0, i32 noundef 0) #8
@@ -74,11 +74,11 @@ if.then4.i:                                       ; preds = %if.then.i
 unix_detect_overcommit.exit:                      ; preds = %if.end, %if.then.i, %if.then4.i
   %os_overcommit.0.i = phi i8 [ %3, %if.then4.i ], [ 1, %if.then.i ], [ 1, %if.end ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf.i)
-  %has_overcommit = getelementptr inbounds i8, ptr %config, i64 24
+  %has_overcommit = getelementptr inbounds nuw i8, ptr %config, i64 24
   store i8 %os_overcommit.0.i, ptr %has_overcommit, align 8
-  %must_free_whole = getelementptr inbounds i8, ptr %config, i64 25
+  %must_free_whole = getelementptr inbounds nuw i8, ptr %config, i64 25
   store i8 0, ptr %must_free_whole, align 1
-  %has_virtual_reserve = getelementptr inbounds i8, ptr %config, i64 26
+  %has_virtual_reserve = getelementptr inbounds nuw i8, ptr %config, i64 26
   store i8 1, ptr %has_virtual_reserve, align 2
   ret void
 }
@@ -439,7 +439,7 @@ entry:
   %call = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t) #8
   %0 = load i64, ptr %t, align 8
   %mul = mul nsw i64 %0, 1000
-  %tv_nsec = getelementptr inbounds i8, ptr %t, i64 8
+  %tv_nsec = getelementptr inbounds nuw i8, ptr %t, i64 8
   %1 = load i64, ptr %tv_nsec, align 8
   %div = sdiv i64 %1, 1000000
   %add = add nsw i64 %div, %mul
@@ -455,30 +455,30 @@ entry:
   %rusage = alloca %struct.rusage, align 8
   %call = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %rusage) #8
   %rusage.val = load i64, ptr %rusage, align 8
-  %0 = getelementptr inbounds i8, ptr %rusage, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %rusage, i64 8
   %rusage.val4 = load i64, ptr %0, align 8
   %mul.i = mul nsw i64 %rusage.val, 1000
   %div.i = sdiv i64 %rusage.val4, 1000
   %add.i = add nsw i64 %div.i, %mul.i
-  %utime = getelementptr inbounds i8, ptr %pinfo, i64 8
+  %utime = getelementptr inbounds nuw i8, ptr %pinfo, i64 8
   store i64 %add.i, ptr %utime, align 8
-  %ru_stime = getelementptr inbounds i8, ptr %rusage, i64 16
+  %ru_stime = getelementptr inbounds nuw i8, ptr %rusage, i64 16
   %ru_stime.val = load i64, ptr %ru_stime, align 8
-  %1 = getelementptr inbounds i8, ptr %rusage, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %rusage, i64 24
   %ru_stime.val5 = load i64, ptr %1, align 8
   %mul.i6 = mul nsw i64 %ru_stime.val, 1000
   %div.i7 = sdiv i64 %ru_stime.val5, 1000
   %add.i8 = add nsw i64 %div.i7, %mul.i6
-  %stime = getelementptr inbounds i8, ptr %pinfo, i64 16
+  %stime = getelementptr inbounds nuw i8, ptr %pinfo, i64 16
   store i64 %add.i8, ptr %stime, align 8
-  %2 = getelementptr inbounds i8, ptr %rusage, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %rusage, i64 72
   %3 = load i64, ptr %2, align 8
-  %page_faults = getelementptr inbounds i8, ptr %pinfo, i64 56
+  %page_faults = getelementptr inbounds nuw i8, ptr %pinfo, i64 56
   store i64 %3, ptr %page_faults, align 8
-  %4 = getelementptr inbounds i8, ptr %rusage, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %rusage, i64 32
   %5 = load i64, ptr %4, align 8
   %mul = shl nsw i64 %5, 10
-  %peak_rss = getelementptr inbounds i8, ptr %pinfo, i64 32
+  %peak_rss = getelementptr inbounds nuw i8, ptr %pinfo, i64 32
   store i64 %mul, ptr %peak_rss, align 8
   ret void
 }
@@ -515,7 +515,7 @@ if.end3:                                          ; preds = %if.end
 
 land.rhs:                                         ; preds = %if.end3, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end3 ]
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %cmp9.not = icmp eq ptr %1, null
   br i1 %cmp9.not, label %return, label %for.body
@@ -533,7 +533,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then17:                                        ; preds = %land.lhs.true
   %arrayidx14.le = getelementptr inbounds i8, ptr %1, i64 %call
-  %add.ptr18 = getelementptr inbounds i8, ptr %arrayidx14.le, i64 1
+  %add.ptr18 = getelementptr inbounds nuw i8, ptr %arrayidx14.le, i64 1
   tail call void @_mi_strlcpy(ptr noundef %result, ptr noundef nonnull %add.ptr18, i64 noundef %result_size) #8
   br label %return
 

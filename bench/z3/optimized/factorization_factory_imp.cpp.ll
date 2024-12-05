@@ -41,35 +41,35 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN3nla25factorization_factory_impC2ERKNS_5monicERKNS_4coreE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef nonnull align 8 dereferenceable(34) %rm, ptr noundef nonnull align 8 dereferenceable(4720) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
-  %m_rvars.i = getelementptr inbounds i8, ptr %rm, i64 16
+  %m_rvars.i = getelementptr inbounds nuw i8, ptr %rm, i64 16
   %0 = load i32, ptr %rm, align 8
-  %m_monics.i = getelementptr inbounds i8, ptr %s, i64 4528
-  %m_var2index.i = getelementptr inbounds i8, ptr %s, i64 4536
+  %m_monics.i = getelementptr inbounds nuw i8, ptr %s, i64 4528
+  %m_var2index.i = getelementptr inbounds nuw i8, ptr %s, i64 4536
   %1 = load ptr, ptr %m_var2index.i, align 8
   %idxprom.i.i = zext i32 %0 to i64
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %1, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i.i, align 4
   %3 = load ptr, ptr %m_monics.i, align 8
   %idxprom.i1.i = zext i32 %2 to i64
-  %arrayidx.i2.i = getelementptr inbounds %"class.nla::monic", ptr %3, i64 %idxprom.i1.i
-  %m_vars.i = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx.i2.i = getelementptr inbounds nuw %"class.nla::monic", ptr %3, i64 %idxprom.i1.i
+  %m_vars.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %m_rvars.i, ptr %m_vars.i, align 8
-  %m_monic.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_monic.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %arrayidx.i2.i, ptr %m_monic.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nla25factorization_factory_impE, i64 16), ptr %this, align 8
-  %m_core = getelementptr inbounds i8, ptr %this, i64 24
+  %m_core = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %s, ptr %m_core, align 8
   %4 = load i32, ptr %rm, align 8
   %5 = load ptr, ptr %m_var2index.i, align 8
   %idxprom.i.i9 = zext i32 %4 to i64
-  %arrayidx.i.i10 = getelementptr inbounds i32, ptr %5, i64 %idxprom.i.i9
+  %arrayidx.i.i10 = getelementptr inbounds nuw i32, ptr %5, i64 %idxprom.i.i9
   %6 = load i32, ptr %arrayidx.i.i10, align 4
   %7 = load ptr, ptr %m_monics.i, align 8
   %idxprom.i1.i11 = zext i32 %6 to i64
-  %arrayidx.i2.i12 = getelementptr inbounds %"class.nla::monic", ptr %7, i64 %idxprom.i1.i11
-  %m_mon = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx.i2.i12 = getelementptr inbounds nuw %"class.nla::monic", ptr %7, i64 %idxprom.i1.i11
+  %m_mon = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %arrayidx.i2.i12, ptr %m_mon, align 8
-  %m_rm = getelementptr inbounds i8, ptr %this, i64 40
+  %m_rm = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %rm, ptr %m_rm, align 8
   ret void
 }
@@ -79,7 +79,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK3nla25factorization_factory_imp28find_canonical_monic_of_varsERK7svectorIjjERj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %vars, ptr noundef nonnull align 4 dereferenceable(4) %i) unnamed_addr #4 align 2 {
 entry:
-  %m_core = getelementptr inbounds i8, ptr %this, i64 24
+  %m_core = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_core, align 8
   %call = tail call noundef zeroext i1 @_ZNK3nla4core28find_canonical_monic_of_varsERK7svectorIjjERj(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(8) %vars, ptr noundef nonnull align 4 dereferenceable(4) %i)
   ret i1 %call
@@ -90,7 +90,7 @@ declare noundef zeroext i1 @_ZNK3nla4core28find_canonical_monic_of_varsERK7svect
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK3nla25factorization_factory_imp13canonize_signERKNS_5monicE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(34) %m) unnamed_addr #4 align 2 {
 entry:
-  %m_core = getelementptr inbounds i8, ptr %this, i64 24
+  %m_core = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_core, align 8
   %call = tail call noundef zeroext i1 @_ZNK3nla4core13canonize_signERKNS_5monicE(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(34) %m)
   ret i1 %call
@@ -101,7 +101,7 @@ declare noundef zeroext i1 @_ZNK3nla4core13canonize_signERKNS_5monicE(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK3nla25factorization_factory_imp13canonize_signERKNS_13factorizationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) unnamed_addr #4 align 2 {
 entry:
-  %m_core = getelementptr inbounds i8, ptr %this, i64 24
+  %m_core = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_core, align 8
   %call = tail call noundef zeroext i1 @_ZNK3nla4core13canonize_signERKNS_13factorizationE(ptr noundef nonnull align 8 dereferenceable(4720) %0, ptr noundef nonnull align 8 dereferenceable(16) %f)
   ret i1 %call

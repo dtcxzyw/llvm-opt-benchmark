@@ -760,14 +760,14 @@ define hidden ptr @get_addr_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 
 8:                                                ; preds = %5
   store i16 4, ptr %4, align 2
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @tvb_address_to_str(ptr noundef %10, ptr noundef %0, i32 noundef 2, i32 noundef %2) #3
   br label %55
 
 12:                                               ; preds = %5
   store i16 16, ptr %4, align 2
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @tvb_address_to_str(ptr noundef %14, ptr noundef %0, i32 noundef 3, i32 noundef %2) #3
   br label %55
@@ -802,7 +802,7 @@ get_lcaf_data.exit:                               ; preds = %16, %19
   %30 = add i32 %2, 12
   %31 = call ptr @get_addr_str(ptr noundef %0, ptr noundef %1, i32 noundef %30, i16 noundef zeroext %29, ptr noundef nonnull %6)
   call void @decrement_dissection_depth(ptr noundef %1) #3
-  %32 = getelementptr inbounds i8, ptr %1, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %33, ptr noundef nonnull @.str.2, i32 noundef %27, ptr noundef %31) #3
   br label %55
@@ -816,14 +816,14 @@ get_lcaf_data.exit:                               ; preds = %16, %19
   %40 = add i32 %2, 12
   %41 = call ptr @get_addr_str(ptr noundef %0, ptr noundef %1, i32 noundef %40, i16 noundef zeroext %39, ptr noundef nonnull %6)
   call void @decrement_dissection_depth(ptr noundef %1) #3
-  %42 = getelementptr inbounds i8, ptr %1, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %43, ptr noundef nonnull @.str.3, ptr noundef %41, i32 noundef %37) #3
   br label %55
 
 45:                                               ; preds = %5, %5
   store i16 6, ptr %4, align 2
-  %46 = getelementptr inbounds i8, ptr %1, i64 408
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @tvb_address_to_str(ptr noundef %47, ptr noundef %0, i32 noundef 1, i32 noundef %2) #3
   br label %55
@@ -832,7 +832,7 @@ get_lcaf_data.exit:                               ; preds = %16, %19
   %50 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %2) #3
   %51 = trunc i32 %50 to i16
   store i16 %51, ptr %4, align 2
-  %52 = getelementptr inbounds i8, ptr %1, i64 408
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @tvb_get_stringz_enc(ptr noundef %53, ptr noundef %0, i32 noundef %2, ptr noundef null, i32 noundef 0) #3
   br label %55
@@ -959,7 +959,7 @@ define hidden i32 @dissect_lcaf(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not179, label %dissect_lcaf_afi_list.exit, label %.lr.ph175
 
 .lr.ph175:                                        ; preds = %62
-  %63 = getelementptr inbounds i8, ptr %1, i64 408
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %64
 
 64:                                               ; preds = %.lr.ph175, %113
@@ -2129,7 +2129,7 @@ define hidden i32 @dissect_lisp_mapping(ptr noundef %0, ptr noundef %1, ptr noun
   br label %39
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = zext i8 %12 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.7, ptr noundef nonnull %20, i32 noundef %38) #3
@@ -2379,7 +2379,7 @@ define hidden i32 @dissect_lisp_map_register(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_append_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.19) #3
   br label %22
@@ -2485,7 +2485,7 @@ define internal i32 @dissect_lisp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %5 = alloca i16, align 2
   %6 = alloca ptr, align 8
   %7 = alloca i16, align 2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_clear(ptr noundef %9, i32 noundef 25) #3
   %10 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 0, i32 noundef 4) #3
@@ -2671,7 +2671,7 @@ define internal i32 @dissect_lisp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.0228.i = phi i32 [ 20, %101 ], [ %100, %91 ], [ 30, %88 ], [ 18, %85 ], [ 14, %82 ]
   %narrow.i = add nuw nsw i8 %71, 1
   %110 = zext nneg i8 %narrow.i to i32
-  %111 = getelementptr inbounds i8, ptr %1, i64 408
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %114
 
 .preheader.i:                                     ; preds = %129

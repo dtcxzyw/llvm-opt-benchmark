@@ -1590,7 +1590,7 @@ define internal fastcc void @dissect_q931_cause_ie_with_info(ptr noundef %0, i32
   br i1 %.not140, label %50, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %7, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 %47, ptr %49, align 8
   %.pre = load i8, ptr %5, align 1
   br label %50
@@ -2087,22 +2087,22 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 define internal fastcc void @dissect_q931_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @wmem_alloc(ptr noundef %8, i64 noundef 32) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %reset_q931_packet_info.exit, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i8 -1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 -1, ptr %13, align 4
   br label %reset_q931_packet_info.exit
 
 reset_q931_packet_info.exit:                      ; preds = %4, %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.363) #5
   %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
@@ -2237,7 +2237,7 @@ dissect_q931_protocol_discriminator.exit:         ; preds = %46, %44, %38, %32, 
   br label %82
 
 82:                                               ; preds = %79, %70
-  %83 = getelementptr inbounds i8, ptr %9, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %84 = call i64 @llvm.umin.i64(i64 %68, i64 4)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %83, ptr nonnull align 16 %5, i64 %84, i1 false)
   %85 = add nuw nsw i32 %56, 2
@@ -2247,7 +2247,7 @@ dissect_q931_protocol_discriminator.exit:         ; preds = %46, %44, %38, %32, 
   %.0164185 = phi i32 [ %.0164.ph, %82 ], [ 0, %54 ]
   %.0162 = phi i32 [ %85, %82 ], [ 2, %54 ]
   %87 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0162) #5
-  %88 = getelementptr inbounds i8, ptr %9, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i8 %87, ptr %88, align 8
   %89 = load ptr, ptr %14, align 8
   %90 = icmp eq i8 %16, 3
@@ -2361,9 +2361,9 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %126, %128
   br i1 %.not174, label %.thread188, label %152
 
 152:                                              ; preds = %150
-  %153 = getelementptr inbounds i8, ptr %1, i64 20
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %154 = load i32, ptr %153, align 4
-  %155 = getelementptr inbounds i8, ptr %151, i64 40
+  %155 = getelementptr inbounds nuw i8, ptr %151, i64 40
   %156 = load i32, ptr %155, align 8
   %157 = icmp eq i32 %154, %156
   br i1 %157, label %158, label %168
@@ -2374,7 +2374,7 @@ dissect_q931_segmented_message_ie.exit:           ; preds = %126, %128
   br i1 %.not175, label %166, label %160
 
 160:                                              ; preds = %158
-  %161 = getelementptr inbounds i8, ptr %151, i64 56
+  %161 = getelementptr inbounds nuw i8, ptr %151, i64 56
   %162 = load ptr, ptr %161, align 8
   %163 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %162) #5
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %163, ptr noundef nonnull @.str.790) #5
@@ -2443,11 +2443,11 @@ define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, pt
   %10 = alloca i8, align 1
   %11 = alloca %struct.e164_info_t, align 8
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @.str.797, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %14, align 8
   %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %5) #5
   %16 = icmp sgt i32 %15, 0
@@ -2456,8 +2456,8 @@ define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, pt
 .lr.ph.lr.ph.lr.ph:                               ; preds = %8
   %.not363 = icmp eq i32 %4, 0
   %.not393 = icmp eq ptr %3, null
-  %17 = getelementptr inbounds i8, ptr %1, i64 328
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %.outer
@@ -3535,7 +3535,7 @@ define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readon
   %13 = and i32 %12, 15
   %14 = lshr i32 %12, 4
   %15 = and i32 %14, 7
-  %16 = getelementptr inbounds i8, ptr %6, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %15, ptr %16, align 4
   %17 = load i32, ptr @hf_q931_numbering_plan, align 4
   %18 = tail call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %17, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef %12) #5
@@ -3588,7 +3588,7 @@ define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readon
 49:                                               ; preds = %.thread
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %5, ptr noundef %1, i32 noundef %.1, i32 noundef %.184, i32 noundef 0) #5
   %51 = tail call ptr @proto_tree_get_parent(ptr noundef %4) #5
-  %52 = getelementptr inbounds i8, ptr %0, i64 408
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr @tvb_format_text(ptr noundef %53, ptr noundef %1, i32 noundef %.1, i32 noundef %.184) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %51, ptr noundef nonnull @.str.855, ptr noundef %54) #5
@@ -3601,9 +3601,9 @@ define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readon
 58:                                               ; preds = %49
   %59 = load ptr, ptr %52, align 8
   %60 = tail call ptr @tvb_get_string_enc(ptr noundef %59, ptr noundef %1, i32 noundef %.1, i32 noundef %.184, i32 noundef 0) #5
-  %61 = getelementptr inbounds i8, ptr %6, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %.184, ptr %62, align 8
   tail call void @dissect_e164_number(ptr noundef %1, ptr noundef %4, i32 noundef %.1, i32 noundef %.184, ptr noundef nonnull byval(%struct.e164_info_t) align 8 %6) #5
   %.pre = load i32, ptr %6, align 8
@@ -3632,7 +3632,7 @@ define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readon
 73:                                               ; preds = %70
   %74 = load ptr, ptr %52, align 8
   %75 = tail call ptr @tvb_get_string_enc(ptr noundef %74, ptr noundef %1, i32 noundef %.1, i32 noundef %.184, i32 noundef 0) #5
-  %76 = getelementptr inbounds i8, ptr %7, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %75, ptr %76, align 8
   br label %77
 

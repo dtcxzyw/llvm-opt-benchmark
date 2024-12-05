@@ -133,7 +133,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit14
-  %propagations = getelementptr inbounds i8, ptr %this, i64 8
+  %propagations = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call6, ptr %propagations, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(32) %statPrefix)
@@ -150,7 +150,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit17
-  %lemmas = getelementptr inbounds i8, ptr %this, i64 16
+  %lemmas = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call12, ptr %lemmas, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(32) %statPrefix)
@@ -167,7 +167,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit20
-  %preferPhase = getelementptr inbounds i8, ptr %this, i64 24
+  %preferPhase = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %call18, ptr %preferPhase, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(32) %statPrefix)
@@ -184,7 +184,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit23
-  %trustedConflicts = getelementptr inbounds i8, ptr %this, i64 32
+  %trustedConflicts = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %call24, ptr %trustedConflicts, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(32) %statPrefix)
@@ -201,7 +201,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit26
-  %trustedLemmas = getelementptr inbounds i8, ptr %this, i64 40
+  %trustedLemmas = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %call30, ptr %trustedLemmas, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #13
   ret void
@@ -249,21 +249,21 @@ define hidden void @_ZN4cvc58internal6theory13OutputChannelC2ERNS0_18StatisticsR
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i64 16), ptr %this, align 8
-  %d_engine = getelementptr inbounds i8, ptr %this, i64 8
+  %d_engine = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %engine, ptr %d_engine, align 8
-  %d_name = getelementptr inbounds i8, ptr %this, i64 16
+  %d_name = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal6theory8toStringB5cxx11ENS1_8TheoryIdE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %d_name, i32 noundef %theory)
   invoke void @_ZN4cvc58internal6theory14getStatsPrefixB5cxx11ENS1_8TheoryIdE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 noundef %theory)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %d_statistics = getelementptr inbounds i8, ptr %this, i64 48
+  %d_statistics = getelementptr inbounds nuw i8, ptr %this, i64 48
   invoke void @_ZN4cvc58internal6theory13OutputChannel10StatisticsC2ERNS0_18StatisticsRegistryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %d_statistics, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  %d_theory = getelementptr inbounds i8, ptr %this, i64 96
+  %d_theory = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 %theory, ptr %d_theory, align 8
   ret void
 
@@ -293,9 +293,9 @@ define hidden void @_ZN4cvc58internal6theory13OutputChannelC2ERNS0_18StatisticsR
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i64 16), ptr %this, align 8
-  %d_engine = getelementptr inbounds i8, ptr %this, i64 8
+  %d_engine = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %engine, ptr %d_engine, align 8
-  %d_name = getelementptr inbounds i8, ptr %this, i64 16
+  %d_name = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_name, ptr noundef nonnull align 8 dereferenceable(32) %name)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name)
           to label %.noexc unwind label %lpad
@@ -311,13 +311,13 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %d_statistics = getelementptr inbounds i8, ptr %this, i64 48
+  %d_statistics = getelementptr inbounds nuw i8, ptr %this, i64 48
   invoke void @_ZN4cvc58internal6theory13OutputChannel10StatisticsC2ERNS0_18StatisticsRegistryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %d_statistics, ptr noundef nonnull align 8 dereferenceable(72) %sr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  %d_theory = getelementptr inbounds i8, ptr %this, i64 96
+  %d_theory = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = trunc i64 %id to i32
   %conv = add i32 %1, 15
   store i32 %conv, ptr %d_theory, align 8
@@ -346,12 +346,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 define hidden void @_ZN4cvc58internal6theory13OutputChannel9safePointENS0_8ResourceE(ptr noundef nonnull align 8 dereferenceable(100) %this, i32 noundef %r) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(100) %this, i32 noundef %r)
-  %d_engine = getelementptr inbounds i8, ptr %this, i64 8
+  %d_engine = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %d_engine, align 8
-  %d_interrupted = getelementptr inbounds i8, ptr %1, i64 1272
+  %d_interrupted = getelementptr inbounds nuw i8, ptr %1, i64 1272
   %2 = load i8, ptr %d_interrupted, align 8
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -395,7 +395,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11InterruptedD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   ret void
@@ -442,13 +442,13 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %if.then.i
 
 invoke.cont:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %2 = load ptr, ptr %vfn, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr noundef nonnull %agg.tmp, i32 noundef %id, i32 noundef %p)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %d_proven.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %d_proven.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   %3 = load ptr, ptr %d_proven.i, align 8
   %bf.load.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %bf.load.i.i.i, 1152920405095219200
@@ -527,7 +527,7 @@ declare void @_ZN4cvc58internal9TrustNode12mkTrustLemmaENS0_12NodeTemplateILb1EE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal9TrustNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_proven = getelementptr inbounds i8, ptr %this, i64 8
+  %d_proven = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_proven, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -595,16 +595,16 @@ terminate.lpad:                                   ; preds = %if.then13.i
 define hidden noundef zeroext i1 @_ZN4cvc58internal6theory13OutputChannel9propagateENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr nocapture noundef readonly %literal) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.96", align 8
-  %propagations = getelementptr inbounds i8, ptr %this, i64 56
+  %propagations = getelementptr inbounds nuw i8, ptr %this, i64 56
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %propagations)
-  %d_engine = getelementptr inbounds i8, ptr %this, i64 8
+  %d_engine = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_engine, align 8
-  %d_outputChannelUsed = getelementptr inbounds i8, ptr %0, i64 953
+  %d_outputChannelUsed = getelementptr inbounds nuw i8, ptr %0, i64 953
   store i8 1, ptr %d_outputChannelUsed, align 1
   %1 = load ptr, ptr %d_engine, align 8
   %2 = load ptr, ptr %literal, align 8
   store ptr %2, ptr %agg.tmp, align 8
-  %d_theory11 = getelementptr inbounds i8, ptr %this, i64 96
+  %d_theory11 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %3 = load i32, ptr %d_theory11, align 8
   %call12 = call noundef zeroext i1 @_ZN4cvc58internal12TheoryEngine9propagateENS0_12NodeTemplateILb0EEENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(1448) %1, ptr noundef nonnull %agg.tmp, i32 noundef %3)
   ret i1 %call12
@@ -620,11 +620,11 @@ cond.end:
   %tConf = alloca %"class.cvc5::internal::TrustNode", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp11 = alloca %"class.cvc5::internal::TrustNode", align 8
-  %d_statistics = getelementptr inbounds i8, ptr %this, i64 48
+  %d_statistics = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %d_statistics)
-  %d_engine = getelementptr inbounds i8, ptr %this, i64 8
+  %d_engine = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_engine, align 8
-  %d_outputChannelUsed = getelementptr inbounds i8, ptr %0, i64 953
+  %d_outputChannelUsed = getelementptr inbounds nuw i8, ptr %0, i64 953
   store i8 1, ptr %d_outputChannelUsed, align 1
   %1 = load ptr, ptr %conflictNode, align 8
   store ptr %1, ptr %agg.tmp, align 8
@@ -688,8 +688,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont, %if.th
   %7 = load ptr, ptr %d_engine, align 8
   %8 = load i32, ptr %tConf, align 8
   store i32 %8, ptr %agg.tmp11, align 8
-  %d_proven.i = getelementptr inbounds i8, ptr %agg.tmp11, i64 8
-  %d_proven3.i = getelementptr inbounds i8, ptr %tConf, i64 8
+  %d_proven.i = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 8
+  %d_proven3.i = getelementptr inbounds nuw i8, ptr %tConf, i64 8
   %9 = load ptr, ptr %d_proven3.i, align 8
   store ptr %9, ptr %d_proven.i, align 8
   %bf.load.i.i.i = load i64, ptr %9, align 8
@@ -718,11 +718,11 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %d_gen.i = getelementptr inbounds i8, ptr %agg.tmp11, i64 16
-  %d_gen4.i = getelementptr inbounds i8, ptr %tConf, i64 16
+  %d_gen.i = getelementptr inbounds nuw i8, ptr %agg.tmp11, i64 16
+  %d_gen4.i = getelementptr inbounds nuw i8, ptr %tConf, i64 16
   %11 = load ptr, ptr %d_gen4.i, align 8
   store ptr %11, ptr %d_gen.i, align 8
-  %d_theory14 = getelementptr inbounds i8, ptr %this, i64 96
+  %d_theory14 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %12 = load i32, ptr %d_theory14, align 8
   invoke void @_ZN4cvc58internal12TheoryEngine8conflictENS0_9TrustNodeENS0_6theory11InferenceIdENS3_8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(1448) %7, ptr noundef nonnull %agg.tmp11, i32 noundef %id, i32 noundef %12)
           to label %invoke.cont16 unwind label %lpad15
@@ -819,11 +819,11 @@ declare void @_ZN4cvc58internal12TheoryEngine8conflictENS0_9TrustNodeENS0_6theor
 define hidden void @_ZN4cvc58internal6theory13OutputChannel11preferPhaseENS0_12NodeTemplateILb0EEEb(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr nocapture noundef readonly %n, i1 noundef zeroext %phase) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.96", align 8
-  %preferPhase = getelementptr inbounds i8, ptr %this, i64 72
+  %preferPhase = getelementptr inbounds nuw i8, ptr %this, i64 72
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %preferPhase)
-  %d_engine = getelementptr inbounds i8, ptr %this, i64 8
+  %d_engine = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_engine, align 8
-  %d_propEngine.i = getelementptr inbounds i8, ptr %0, i64 16
+  %d_propEngine.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %d_propEngine.i, align 8
   %2 = load ptr, ptr %n, align 8
   store ptr %2, ptr %agg.tmp, align 8
@@ -836,9 +836,9 @@ declare void @_ZN4cvc58internal4prop10PropEngine11preferPhaseENS0_12NodeTemplate
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory13OutputChannel15setModelUnsoundENS1_12IncompleteIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, i32 noundef %id) unnamed_addr #3 align 2 {
 cond.end:
-  %d_engine = getelementptr inbounds i8, ptr %this, i64 8
+  %d_engine = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_engine, align 8
-  %d_theory = getelementptr inbounds i8, ptr %this, i64 96
+  %d_theory = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = load i32, ptr %d_theory, align 8
   tail call void @_ZN4cvc58internal12TheoryEngine15setModelUnsoundENS0_6theory8TheoryIdENS2_12IncompleteIdE(ptr noundef nonnull align 8 dereferenceable(1448) %0, i32 noundef %1, i32 noundef %id)
   ret void
@@ -849,9 +849,9 @@ declare void @_ZN4cvc58internal12TheoryEngine15setModelUnsoundENS0_6theory8Theor
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory13OutputChannel20setRefutationUnsoundENS1_12IncompleteIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, i32 noundef %id) unnamed_addr #3 align 2 {
 cond.end:
-  %d_engine = getelementptr inbounds i8, ptr %this, i64 8
+  %d_engine = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_engine, align 8
-  %d_theory = getelementptr inbounds i8, ptr %this, i64 96
+  %d_theory = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = load i32, ptr %d_theory, align 8
   tail call void @_ZN4cvc58internal12TheoryEngine20setRefutationUnsoundENS0_6theory8TheoryIdENS2_12IncompleteIdE(ptr noundef nonnull align 8 dereferenceable(1448) %0, i32 noundef %1, i32 noundef %id)
   ret void
@@ -862,7 +862,7 @@ declare void @_ZN4cvc58internal12TheoryEngine20setRefutationUnsoundENS0_6theory8
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory13OutputChannel13spendResourceENS0_8ResourceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this, i32 noundef %r) unnamed_addr #3 align 2 {
 entry:
-  %d_engine = getelementptr inbounds i8, ptr %this, i64 8
+  %d_engine = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_engine, align 8
   tail call void @_ZN4cvc58internal12TheoryEngine13spendResourceENS0_8ResourceE(ptr noundef nonnull align 8 dereferenceable(1448) %0, i32 noundef %r)
   ret void
@@ -879,22 +879,22 @@ cond.true:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.true
-  %trustedConflicts = getelementptr inbounds i8, ptr %this, i64 80
+  %trustedConflicts = getelementptr inbounds nuw i8, ptr %this, i64 80
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %trustedConflicts)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.true
-  %d_statistics17 = getelementptr inbounds i8, ptr %this, i64 48
+  %d_statistics17 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %d_statistics17)
-  %d_engine = getelementptr inbounds i8, ptr %this, i64 8
+  %d_engine = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_engine, align 8
-  %d_outputChannelUsed = getelementptr inbounds i8, ptr %0, i64 953
+  %d_outputChannelUsed = getelementptr inbounds nuw i8, ptr %0, i64 953
   store i8 1, ptr %d_outputChannelUsed, align 1
   %1 = load ptr, ptr %d_engine, align 8
   %2 = load i32, ptr %pconf, align 8
   store i32 %2, ptr %agg.tmp, align 8
-  %d_proven.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %d_proven3.i = getelementptr inbounds i8, ptr %pconf, i64 8
+  %d_proven.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  %d_proven3.i = getelementptr inbounds nuw i8, ptr %pconf, i64 8
   %3 = load ptr, ptr %d_proven3.i, align 8
   store ptr %3, ptr %d_proven.i, align 8
   %bf.load.i.i.i = load i64, ptr %3, align 8
@@ -923,11 +923,11 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %_ZN4cvc58internal9TrustNodeC2ERKS1_.exit
 
 _ZN4cvc58internal9TrustNodeC2ERKS1_.exit:         ; preds = %if.then.i.i.i, %if.else.i.i.i, %if.then13.i.i.i
-  %d_gen.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %d_gen4.i = getelementptr inbounds i8, ptr %pconf, i64 16
+  %d_gen.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  %d_gen4.i = getelementptr inbounds nuw i8, ptr %pconf, i64 16
   %5 = load ptr, ptr %d_gen4.i, align 8
   store ptr %5, ptr %d_gen.i, align 8
-  %d_theory20 = getelementptr inbounds i8, ptr %this, i64 96
+  %d_theory20 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %6 = load i32, ptr %d_theory20, align 8
   invoke void @_ZN4cvc58internal12TheoryEngine8conflictENS0_9TrustNodeENS0_6theory11InferenceIdENS3_8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(1448) %1, ptr noundef nonnull %agg.tmp, i32 noundef %id, i32 noundef %6)
           to label %invoke.cont22 unwind label %lpad21
@@ -984,16 +984,16 @@ cond.end:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %trustedLemmas = getelementptr inbounds i8, ptr %this, i64 88
+  %trustedLemmas = getelementptr inbounds nuw i8, ptr %this, i64 88
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %trustedLemmas)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.end
-  %lemmas = getelementptr inbounds i8, ptr %this, i64 64
+  %lemmas = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %lemmas)
-  %d_engine = getelementptr inbounds i8, ptr %this, i64 8
+  %d_engine = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_engine, align 8
-  %d_outputChannelUsed = getelementptr inbounds i8, ptr %0, i64 953
+  %d_outputChannelUsed = getelementptr inbounds nuw i8, ptr %0, i64 953
   store i8 1, ptr %d_outputChannelUsed, align 1
   %call13 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory24isLemmaPropertySendAtomsENS1_13LemmaPropertyE(i32 noundef %p)
   br i1 %call13, label %if.then14, label %if.end20
@@ -1003,7 +1003,7 @@ if.then14:                                        ; preds = %if.end
   call void @_ZNK4cvc58internal9TrustNode7getNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(24) %plem)
   %2 = load ptr, ptr %ref.tmp16, align 8
   store ptr %2, ptr %agg.tmp, align 8
-  %d_theory17 = getelementptr inbounds i8, ptr %this, i64 96
+  %d_theory17 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %3 = load i32, ptr %d_theory17, align 8
   invoke void @_ZN4cvc58internal12TheoryEngine16ensureLemmaAtomsENS0_12NodeTemplateILb0EEENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(1448) %1, ptr noundef nonnull %agg.tmp, i32 noundef %3)
           to label %invoke.cont19 unwind label %lpad18
@@ -1045,8 +1045,8 @@ if.end20:                                         ; preds = %if.then13.i.i, %if.
   %9 = load ptr, ptr %d_engine, align 8
   %10 = load i32, ptr %plem, align 8
   store i32 %10, ptr %agg.tmp22, align 8
-  %d_proven.i = getelementptr inbounds i8, ptr %agg.tmp22, i64 8
-  %d_proven3.i = getelementptr inbounds i8, ptr %plem, i64 8
+  %d_proven.i = getelementptr inbounds nuw i8, ptr %agg.tmp22, i64 8
+  %d_proven3.i = getelementptr inbounds nuw i8, ptr %plem, i64 8
   %11 = load ptr, ptr %d_proven3.i, align 8
   store ptr %11, ptr %d_proven.i, align 8
   %bf.load.i.i.i = load i64, ptr %11, align 8
@@ -1075,11 +1075,11 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %_ZN4cvc58internal9TrustNodeC2ERKS1_.exit
 
 _ZN4cvc58internal9TrustNodeC2ERKS1_.exit:         ; preds = %if.then.i.i.i, %if.else.i.i.i, %if.then13.i.i.i
-  %d_gen.i = getelementptr inbounds i8, ptr %agg.tmp22, i64 16
-  %d_gen4.i = getelementptr inbounds i8, ptr %plem, i64 16
+  %d_gen.i = getelementptr inbounds nuw i8, ptr %agg.tmp22, i64 16
+  %d_gen4.i = getelementptr inbounds nuw i8, ptr %plem, i64 16
   %13 = load ptr, ptr %d_gen4.i, align 8
   store ptr %13, ptr %d_gen.i, align 8
-  %d_theory23 = getelementptr inbounds i8, ptr %this, i64 96
+  %d_theory23 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %14 = load i32, ptr %d_theory23, align 8
   invoke void @_ZN4cvc58internal12TheoryEngine5lemmaENS0_9TrustNodeENS0_6theory11InferenceIdENS3_13LemmaPropertyENS3_8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(1448) %9, ptr noundef nonnull %agg.tmp22, i32 noundef %id, i32 noundef %p, i32 noundef %14)
           to label %invoke.cont25 unwind label %lpad24
@@ -1134,7 +1134,7 @@ declare void @_ZN4cvc58internal12TheoryEngine5lemmaENS0_9TrustNodeENS0_6theory11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal6theory13OutputChannel5getIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %d_theory = getelementptr inbounds i8, ptr %this, i64 96
+  %d_theory = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i32, ptr %d_theory, align 8
   ret i32 %0
 }
@@ -1143,7 +1143,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc58internal6theory13OutputChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i64 16), ptr %this, align 8
-  %d_name = getelementptr inbounds i8, ptr %this, i64 16
+  %d_name = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #13
   ret void
 }
@@ -1152,7 +1152,7 @@ entry:
 define linkonce_odr hidden void @_ZN4cvc58internal6theory13OutputChannelD0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory13OutputChannelE, i64 16), ptr %this, align 8
-  %d_name.i = getelementptr inbounds i8, ptr %this, i64 16
+  %d_name.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
@@ -1182,9 +1182,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d_kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #13
@@ -1237,7 +1237,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9ExceptionC2Ev(ptr noundef non
 entry:
   %ref.tmp = alloca %"class.std::allocator.2", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg)
           to label %call.i.noexc unwind label %lpad
@@ -1276,7 +1276,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11InterruptedD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #13
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -1286,7 +1286,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #13
   ret ptr %call
 }

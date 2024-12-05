@@ -21,7 +21,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_set_format(ptr noun
   br i1 %5, label %43, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 2072
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   %9 = and i32 %1, 16711680
@@ -111,14 +111,14 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_set_format(ptr noun
   br label %43
 
 28:                                               ; preds = %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
-  %29 = getelementptr inbounds i8, ptr %0, i64 664
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store ptr %29, ptr %7, align 8
   br label %30
 
 30:                                               ; preds = %28, %35
   %.02233 = phi i32 [ 0, %28 ], [ %36, %35 ]
   %storemerge32 = phi ptr [ %29, %28 ], [ %37, %35 ]
-  %31 = getelementptr inbounds i8, ptr %storemerge32, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %storemerge32, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not28 = icmp eq ptr %32, null
   br i1 %.not28, label %split.thread, label %33
@@ -130,13 +130,13 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_set_format(ptr noun
 
 35:                                               ; preds = %33
   %36 = add nuw nsw i32 %.02233, 1
-  %37 = getelementptr inbounds i8, ptr %storemerge32, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %storemerge32, i64 88
   store ptr %37, ptr %7, align 8
   %exitcond.not = icmp eq i32 %36, 16
   br i1 %exitcond.not, label %split, label %30, !llvm.loop !5
 
 split:                                            ; preds = %35
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %storemerge32, i64 96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %storemerge32, i64 96
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not30 = icmp eq ptr %.pre, null
   br i1 %.not30, label %split.thread, label %split.thread35

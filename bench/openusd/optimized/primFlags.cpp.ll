@@ -121,11 +121,11 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13T
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__24Usd_PrimFlagsDisjunctionntEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimFlagsConjunction") align 8 initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %1) local_unnamed_addr #2 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %.sroa.2.0..sroa_idx1.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.2.0..sroa_idx1.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload2.i = load i8, ptr %.sroa.2.0..sroa_idx1.i, align 8, !noalias !4
   %3 = and i8 %.sroa.2.0.copyload2.i, 1
   %4 = xor i8 %3, 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %4, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
@@ -133,11 +133,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__24Usd_PrimFlagsDisjunctionntE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__24Usd_PrimFlagsConjunctionntEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimFlagsDisjunction") align 8 initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %1) local_unnamed_addr #2 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %.sroa.2.0..sroa_idx1.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.2.0..sroa_idx1.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload2.i = load i8, ptr %.sroa.2.0..sroa_idx1.i, align 8, !noalias !7
   %3 = and i8 %.sroa.2.0.copyload2.i, 1
   %4 = xor i8 %3, 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %4, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }

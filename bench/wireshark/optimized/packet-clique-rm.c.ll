@@ -144,7 +144,7 @@ define internal range(i32 0, 2) i32 @dissect_clique_rm(ptr noundef %0, ptr nocap
 
 11:                                               ; preds = %9
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #2
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.40) #2
   %15 = load ptr, ptr %13, align 8

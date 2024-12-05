@@ -617,7 +617,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @onigenc_unicode_mbc_case_fold(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %6, ptr noundef %3) #10
   %10 = load ptr, ptr %0, align 8
@@ -638,7 +638,7 @@ define i32 @onigenc_unicode_mbc_case_fold(ptr nocapture noundef readonly %0, i32
   br i1 %.not, label %45, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %19, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 6
   %22 = load i16, ptr %21, align 2
   switch i16 %22, label %.loopexit [
     i16 1, label %23
@@ -647,7 +647,7 @@ define i32 @onigenc_unicode_mbc_case_fold(ptr nocapture noundef readonly %0, i32
   ]
 
 23:                                               ; preds = %20
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %19, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.pre = load i16, ptr %.phi.trans.insert, align 4
   %.phi.trans.insert63 = sext i16 %.pre to i64
   %.phi.trans.insert64 = getelementptr inbounds i32, ptr @OnigUnicodeFolds1, i64 %.phi.trans.insert63
@@ -657,7 +657,7 @@ define i32 @onigenc_unicode_mbc_case_fold(ptr nocapture noundef readonly %0, i32
   br i1 %or.cond67, label %._crit_edge, label %45
 
 ._crit_edge:                                      ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(i32 noundef %.pre65, ptr noundef %4) #10
   br label %.loopexit
@@ -667,18 +667,18 @@ define i32 @onigenc_unicode_mbc_case_fold(ptr nocapture noundef readonly %0, i32
 
 .lr.ph:                                           ; preds = %20, %28
   %OnigUnicodeFolds2.sink = phi ptr [ @OnigUnicodeFolds3, %28 ], [ @OnigUnicodeFolds2, %20 ]
-  %29 = getelementptr inbounds i8, ptr %19, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %30 = load i16, ptr %29, align 4
   %31 = sext i16 %30 to i64
   %32 = getelementptr inbounds i32, ptr %OnigUnicodeFolds2.sink, i64 %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.04656 = phi i32 [ 0, %.lr.ph ], [ %41, %34 ]
   %.04854 = phi ptr [ %4, %.lr.ph ], [ %40, %34 ]
-  %35 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   %37 = load ptr, ptr %33, align 8
   %38 = tail call i32 %37(i32 noundef %36, ptr noundef %.04854) #10
@@ -699,9 +699,9 @@ define i32 @onigenc_unicode_mbc_case_fold(ptr nocapture noundef readonly %0, i32
   %.04559 = phi ptr [ %47, %.lr.ph60 ], [ %6, %45 ]
   %.158 = phi i32 [ %50, %.lr.ph60 ], [ 0, %45 ]
   %.14957 = phi ptr [ %49, %.lr.ph60 ], [ %4, %45 ]
-  %47 = getelementptr inbounds i8, ptr %.04559, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.04559, i64 1
   %48 = load i8, ptr %.04559, align 1
-  %49 = getelementptr inbounds i8, ptr %.14957, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.14957, i64 1
   store i8 %48, ptr %.14957, align 1
   %50 = add nuw nsw i32 %.158, 1
   %exitcond.not = icmp eq i32 %50, %11
@@ -751,13 +751,13 @@ define i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr nocapture no
   br i1 %21, label %.lr.ph44.i, label %._crit_edge45.i
 
 .lr.ph44.i:                                       ; preds = %.lr.ph48.i
-  %22 = getelementptr inbounds i8, ptr %16, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %wide.trip.count58.i = zext nneg i32 %20 to i64
   br label %23
 
 23:                                               ; preds = %._crit_edge.i, %.lr.ph44.i
   %indvars.iv55.i = phi i64 [ 0, %.lr.ph44.i ], [ %indvars.iv.next56.i, %._crit_edge.i ]
-  %24 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv55.i
+  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv55.i
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %6, align 4
   %26 = call i32 %1(i32 noundef %25, ptr noundef nonnull %16, i32 noundef 2, ptr noundef %2) #10
@@ -775,7 +775,7 @@ define i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr nocapture no
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %27
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %.preheader.i ]
-  %28 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %7, align 4
   %30 = load i32, ptr %6, align 4
@@ -830,13 +830,13 @@ apply_case_fold2.exit.thread:                     ; preds = %23, %32, %.lr.ph.i
   br i1 %46, label %.lr.ph44.i36, label %._crit_edge45.i34
 
 .lr.ph44.i36:                                     ; preds = %.lr.ph48.i32
-  %47 = getelementptr inbounds i8, ptr %41, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %wide.trip.count58.i37 = zext nneg i32 %45 to i64
   br label %48
 
 48:                                               ; preds = %._crit_edge.i48, %.lr.ph44.i36
   %indvars.iv55.i38 = phi i64 [ 0, %.lr.ph44.i36 ], [ %indvars.iv.next56.i49, %._crit_edge.i48 ]
-  %49 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv55.i38
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv55.i38
   %50 = load i32, ptr %49, align 4
   store i32 %50, ptr %4, align 4
   %51 = call i32 %1(i32 noundef %50, ptr noundef nonnull %41, i32 noundef 2, ptr noundef %2) #10
@@ -854,7 +854,7 @@ apply_case_fold2.exit.thread:                     ; preds = %23, %32, %.lr.ph.i
 
 .lr.ph.i42:                                       ; preds = %.preheader.i40, %52
   %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i46, %52 ], [ 0, %.preheader.i40 ]
-  %53 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv.i43
+  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i43
   %54 = load i32, ptr %53, align 4
   store i32 %54, ptr %5, align 4
   %55 = load i32, ptr %4, align 4
@@ -939,13 +939,13 @@ define internal fastcc i32 @apply_case_fold1(i32 noundef %0, i32 noundef range(i
   br i1 %23, label %.lr.ph64.split.us.split, label %.loopexit51, !llvm.loop !10
 
 .lr.ph59.us:                                      ; preds = %.lr.ph64.split.us.split
-  %24 = getelementptr inbounds i8, ptr %13, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %wide.trip.count91 = zext nneg i32 %18 to i64
   br label %25
 
 25:                                               ; preds = %.loopexit.us.us, %.lr.ph59.us
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.loopexit.us.us ], [ 0, %.lr.ph59.us ]
-  %26 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv88
+  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv88
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %7, align 4
   %28 = load i32, ptr %6, align 4
@@ -970,7 +970,7 @@ define internal fastcc i32 @apply_case_fold1(i32 noundef %0, i32 noundef range(i
 
 .lr.ph.us.us:                                     ; preds = %.preheader.us.us, %40
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %40 ], [ 0, %.preheader.us.us ]
-  %33 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv84
+  %33 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv84
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %8, align 4
   %35 = load i32, ptr %7, align 4
@@ -1007,13 +1007,13 @@ define internal fastcc i32 @apply_case_fold1(i32 noundef %0, i32 noundef range(i
   br i1 %50, label %.lr.ph59, label %._crit_edge.split
 
 .lr.ph59:                                         ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %42, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %wide.trip.count82 = zext nneg i32 %49 to i64
   br label %52
 
 52:                                               ; preds = %.lr.ph59, %.loopexit
   %indvars.iv79 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next80, %.loopexit ]
-  %53 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv79
+  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv79
   %54 = load i32, ptr %53, align 4
   store i32 %54, ptr %7, align 4
   %55 = icmp ult i32 %54, 128
@@ -1037,7 +1037,7 @@ define internal fastcc i32 @apply_case_fold1(i32 noundef %0, i32 noundef range(i
 
 .lr.ph:                                           ; preds = %.preheader, %71
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.preheader ]
-  %62 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   store i32 %63, ptr %8, align 4
   %64 = icmp ult i32 %63, 128
@@ -1099,13 +1099,13 @@ define internal fastcc i32 @apply_case_fold3(ptr nocapture noundef readonly %0, 
   br i1 %12, label %.lr.ph44, label %._crit_edge45
 
 .lr.ph44:                                         ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %wide.trip.count56 = zext nneg i32 %11 to i64
   br label %14
 
 14:                                               ; preds = %.lr.ph44, %._crit_edge
   %indvars.iv53 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next54, %._crit_edge ]
-  %15 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv53
+  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv53
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %3, align 4
   %17 = call i32 %0(i32 noundef %16, ptr noundef nonnull %7, i32 noundef 3, ptr noundef %1) #10
@@ -1123,7 +1123,7 @@ define internal fastcc i32 @apply_case_fold3(ptr nocapture noundef readonly %0, 
 
 .lr.ph:                                           ; preds = %.preheader, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %4, align 4
   %21 = load i32, ptr %3, align 4
@@ -1164,17 +1164,17 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %7 = alloca [3 x [4 x i32]], align 16
   %8 = alloca [3 x i32], align 4
   %9 = alloca [3 x i32], align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %2, ptr noundef %3) #10
   %13 = and i32 %1, 1
   %14 = icmp eq i32 %13, 0
   %15 = icmp ult i32 %12, 128
   %or.cond5 = select i1 %14, i1 true, i1 %15
-  %indvar602.sroa.gep716 = getelementptr inbounds i8, ptr %7, i64 16
-  %indvar564.sroa.gep717 = getelementptr inbounds i8, ptr %7, i64 16
-  %indvar602.sroa.gep720 = getelementptr inbounds i8, ptr %6, i64 4
-  %indvar564.sroa.gep723 = getelementptr inbounds i8, ptr %6, i64 4
+  %indvar602.sroa.gep716 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %indvar564.sroa.gep717 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %indvar602.sroa.gep720 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %indvar564.sroa.gep723 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br i1 %or.cond5, label %16, label %.loopexit
 
 16:                                               ; preds = %5
@@ -1188,13 +1188,13 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   br i1 %.not, label %31, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %21, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 6
   %24 = load i16, ptr %23, align 2
   %25 = icmp eq i16 %24, 1
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %21, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %28 = load i16, ptr %27, align 4
   %29 = sext i16 %28 to i64
   %30 = getelementptr inbounds i32, ptr @OnigUnicodeFolds1, i64 %29
@@ -1213,7 +1213,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 35:                                               ; preds = %31
   %36 = load ptr, ptr %10, align 8
   %37 = tail call i32 %36(ptr noundef %20, ptr noundef nonnull %3) #10
-  %38 = getelementptr inbounds i8, ptr %9, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %37, ptr %38, align 4
   %39 = load ptr, ptr %0, align 8
   %40 = tail call i32 %39(ptr noundef %20) #10
@@ -1223,13 +1223,13 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   br i1 %.not357, label %53, label %43
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %42, i64 6
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 6
   %45 = load i16, ptr %44, align 2
   %46 = icmp eq i16 %45, 1
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %42, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %49 = load i16, ptr %48, align 4
   %50 = sext i16 %49 to i64
   %51 = getelementptr inbounds i32, ptr @OnigUnicodeFolds1, i64 %50
@@ -1238,7 +1238,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 
 53:                                               ; preds = %35, %43, %47
   %.sink = phi i32 [ %52, %47 ], [ %37, %43 ], [ %37, %35 ]
-  %54 = getelementptr inbounds i8, ptr %8, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.sink, ptr %54, align 4
   %55 = sext i32 %40 to i64
   %56 = getelementptr inbounds i8, ptr %20, i64 %55
@@ -1248,7 +1248,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 58:                                               ; preds = %53
   %59 = load ptr, ptr %10, align 8
   %60 = tail call i32 %59(ptr noundef %56, ptr noundef nonnull %3) #10
-  %61 = getelementptr inbounds i8, ptr %9, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %0, align 8
   %63 = tail call i32 %62(ptr noundef %56) #10
@@ -1258,13 +1258,13 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   br i1 %.not358, label %76, label %66
 
 66:                                               ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %65, i64 6
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 6
   %68 = load i16, ptr %67, align 2
   %69 = icmp eq i16 %68, 1
   br i1 %69, label %70, label %76
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %65, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %72 = load i16, ptr %71, align 4
   %73 = sext i16 %72 to i64
   %74 = getelementptr inbounds i32, ptr @OnigUnicodeFolds1, i64 %73
@@ -1273,7 +1273,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 
 76:                                               ; preds = %58, %66, %70
   %.sink696 = phi i32 [ %75, %70 ], [ %60, %66 ], [ %60, %58 ]
-  %77 = getelementptr inbounds i8, ptr %8, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %.sink696, ptr %77, align 4
   %78 = call i32 @onigenc_unicode_fold3_key(ptr noundef nonnull %8) #10
   %79 = icmp sgt i32 %78, -1
@@ -1282,31 +1282,31 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 80:                                               ; preds = %76
   %81 = add nuw nsw i32 %78, 3
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds [72 x i32], ptr @OnigUnicodeFolds3, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [72 x i32], ptr @OnigUnicodeFolds3, i64 0, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = icmp sgt i32 %84, 0
   %86 = zext nneg i32 %78 to i64
   br i1 %85, label %.lr.ph468, label %.preheader365
 
 .lr.ph468:                                        ; preds = %80
-  %gep464 = getelementptr inbounds i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds3, i64 16), i64 %86
+  %gep464 = getelementptr inbounds nuw i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds3, i64 16), i64 %86
   %wide.trip.count633 = zext nneg i32 %84 to i64
   br label %88
 
 .preheader365:                                    ; preds = %88, %80
   %.0310.lcssa = phi i32 [ 0, %80 ], [ %84, %88 ]
-  %87 = getelementptr inbounds i32, ptr @OnigUnicodeFolds3, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr @OnigUnicodeFolds3, i64 %86
   br label %144
 
 88:                                               ; preds = %.lr.ph468, %88
   %indvars.iv628 = phi i64 [ 0, %.lr.ph468 ], [ %indvars.iv.next629, %88 ]
-  %89 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %indvars.iv628
+  %89 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %4, i64 %indvars.iv628
   store i32 %64, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %89, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i32 1, ptr %90, align 4
-  %91 = getelementptr inbounds i32, ptr %gep464, i64 %indvars.iv628
+  %91 = getelementptr inbounds nuw i32, ptr %gep464, i64 %indvars.iv628
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %89, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 %92, ptr %93, align 4
   %indvars.iv.next629 = add nuw nsw i64 %indvars.iv628, 1
   %exitcond634.not = icmp eq i64 %indvars.iv.next629, %wide.trip.count633
@@ -1318,13 +1318,13 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   br i1 %95, label %.preheader363.lr.ph, label %.loopexit
 
 .preheader363.lr.ph:                              ; preds = %.preheader364
-  %96 = getelementptr inbounds i8, ptr %6, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = icmp sgt i32 %97, 0
-  %99 = getelementptr inbounds i8, ptr %6, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %7, i64 16
-  %102 = getelementptr inbounds i8, ptr %7, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %103 = icmp sgt i32 %100, 0
   %or.cond698 = select i1 %98, i1 %103, i1 false
   br i1 %or.cond698, label %.preheader363.us.us.preheader, label %.loopexit
@@ -1341,7 +1341,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 .preheader363.us.us:                              ; preds = %.preheader363.us.us.preheader, %._crit_edge485.split.us.us.us
   %indvars.iv676 = phi i64 [ 0, %.preheader363.us.us.preheader ], [ %indvars.iv.next677, %._crit_edge485.split.us.us.us ]
   %.1500.us.us = phi i32 [ %.0310.lcssa, %.preheader363.us.us.preheader ], [ %.us-phi498.us.us, %._crit_edge485.split.us.us.us ]
-  %104 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %indvars.iv676
+  %104 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv676
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %105, %12
   br i1 %106, label %.preheader.us.us.us.us, label %.preheader.us.us506.us
@@ -1349,7 +1349,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 .preheader.us.us506.us:                           ; preds = %.preheader363.us.us, %._crit_edge479.split.us489.us.us
   %indvars.iv652 = phi i64 [ %indvars.iv.next653, %._crit_edge479.split.us489.us.us ], [ 0, %.preheader363.us.us ]
   %.2484.us.us507.us = phi i32 [ %118, %._crit_edge479.split.us489.us.us ], [ %.1500.us.us, %.preheader363.us.us ]
-  %107 = getelementptr inbounds [4 x i32], ptr %101, i64 0, i64 %indvars.iv652
+  %107 = getelementptr inbounds nuw [4 x i32], ptr %101, i64 0, i64 %indvars.iv652
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %.2484.us.us507.us to i64
   br label %110
@@ -1359,15 +1359,15 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %indvars.iv643 = phi i64 [ %indvars.iv.next644, %110 ], [ %109, %.preheader.us.us506.us ]
   %111 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %indvars.iv643
   store i32 %64, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store i32 3, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %111, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i32 %105, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %111, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 12
   store i32 %108, ptr %114, align 4
-  %115 = getelementptr inbounds [4 x i32], ptr %102, i64 0, i64 %indvars.iv645
+  %115 = getelementptr inbounds nuw [4 x i32], ptr %102, i64 0, i64 %indvars.iv645
   %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds i8, ptr %111, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store i32 %116, ptr %117, align 4
   %indvars.iv.next644 = add nsw i64 %indvars.iv643, 1
   %indvars.iv.next646 = add nuw nsw i64 %indvars.iv645, 1
@@ -1389,7 +1389,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 .preheader.us.us.us.us:                           ; preds = %.preheader363.us.us, %._crit_edge479.split.us.us.us.us.us
   %indvars.iv671 = phi i64 [ %indvars.iv.next672, %._crit_edge479.split.us.us.us.us.us ], [ 0, %.preheader363.us.us ]
   %.2484.us.us.us.us = phi i32 [ %.us-phi482.us.us.us.us, %._crit_edge479.split.us.us.us.us.us ], [ %.1500.us.us, %.preheader363.us.us ]
-  %119 = getelementptr inbounds [4 x i32], ptr %101, i64 0, i64 %indvars.iv671
+  %119 = getelementptr inbounds nuw [4 x i32], ptr %101, i64 0, i64 %indvars.iv671
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, %37
   br i1 %121, label %.lr.ph478.split.us.split.us.us.us.us.us, label %.lr.ph478.split.us.split.us496.us.us.us
@@ -1399,15 +1399,15 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %indvars.iv657 = phi i64 [ %130, %.lr.ph478.split.us.split.us496.us.us.us ], [ %indvars.iv.next658, %122 ]
   %123 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %indvars.iv657
   store i32 %64, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   store i32 3, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %123, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i32 %12, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %123, i64 12
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 12
   store i32 %120, ptr %126, align 4
-  %127 = getelementptr inbounds [4 x i32], ptr %102, i64 0, i64 %indvars.iv659
+  %127 = getelementptr inbounds nuw [4 x i32], ptr %102, i64 0, i64 %indvars.iv659
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds i8, ptr %123, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i32 %128, ptr %129, align 4
   %indvars.iv.next658 = add nsw i64 %indvars.iv657, 1
   %indvars.iv.next660 = add nuw nsw i64 %indvars.iv659, 1
@@ -1431,7 +1431,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 .lr.ph478.split.us.split.us.us.us.us.us:          ; preds = %.preheader.us.us.us.us, %143
   %indvars.iv666 = phi i64 [ %indvars.iv.next667, %143 ], [ 0, %.preheader.us.us.us.us ]
   %.3477.us.us.us.us.us.us = phi i32 [ %.4.us.us.us.us.us.us, %143 ], [ %.2484.us.us.us.us, %.preheader.us.us.us.us ]
-  %132 = getelementptr inbounds [4 x i32], ptr %102, i64 0, i64 %indvars.iv666
+  %132 = getelementptr inbounds nuw [4 x i32], ptr %102, i64 0, i64 %indvars.iv666
   %133 = load i32, ptr %132, align 4
   %134 = icmp eq i32 %133, %60
   br i1 %134, label %143, label %135
@@ -1440,13 +1440,13 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %136 = sext i32 %.3477.us.us.us.us.us.us to i64
   %137 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %136
   store i32 %64, ptr %137, align 4
-  %138 = getelementptr inbounds i8, ptr %137, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   store i32 3, ptr %138, align 4
-  %139 = getelementptr inbounds i8, ptr %137, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i32 %12, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %137, i64 12
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 12
   store i32 %37, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %137, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store i32 %133, ptr %141, align 4
   %142 = add nsw i32 %.3477.us.us.us.us.us.us, 1
   br label %143
@@ -1462,11 +1462,11 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %145 = shl nuw nsw i64 %indvar635, 4
   %146 = or disjoint i64 %145, 4
   %scevgep637 = getelementptr i8, ptr %7, i64 %146
-  %147 = getelementptr inbounds i32, ptr %87, i64 %indvar635
+  %147 = getelementptr inbounds nuw i32, ptr %87, i64 %indvar635
   %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds [3 x [4 x i32]], ptr %7, i64 0, i64 %indvar635
+  %149 = getelementptr inbounds nuw [3 x [4 x i32]], ptr %7, i64 0, i64 %indvar635
   store i32 %148, ptr %149, align 16
-  %150 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %indvar635
+  %150 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvar635
   store i32 1, ptr %150, align 4
   %151 = call i32 @onigenc_unicode_fold1_key(ptr noundef nonnull %149) #10
   %152 = icmp sgt i32 %151, -1
@@ -1475,14 +1475,14 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 153:                                              ; preds = %144
   %154 = add nuw nsw i32 %151, 1
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds [4218 x i32], ptr @OnigUnicodeFolds1, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [4218 x i32], ptr @OnigUnicodeFolds1, i64 0, i64 %155
   %157 = load i32, ptr %156, align 4
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %.lr.ph473, label %._crit_edge474
 
 .lr.ph473:                                        ; preds = %153
   %159 = zext nneg i32 %151 to i64
-  %gep470 = getelementptr inbounds i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %159
+  %gep470 = getelementptr inbounds nuw i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %159
   %160 = zext nneg i32 %157 to i64
   %161 = shl nuw nsw i64 %160, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep637, ptr nonnull align 4 %gep470, i64 %161, i1 false)
@@ -1506,31 +1506,31 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 167:                                              ; preds = %164
   %168 = add nuw nsw i32 %165, 2
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds [265 x i32], ptr @OnigUnicodeFolds2, i64 0, i64 %169
+  %170 = getelementptr inbounds nuw [265 x i32], ptr @OnigUnicodeFolds2, i64 0, i64 %169
   %171 = load i32, ptr %170, align 4
   %172 = icmp sgt i32 %171, 0
   %173 = zext nneg i32 %165 to i64
   br i1 %172, label %.lr.ph441, label %.preheader369
 
 .lr.ph441:                                        ; preds = %167
-  %gep437 = getelementptr inbounds i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds2, i64 12), i64 %173
+  %gep437 = getelementptr inbounds nuw i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds2, i64 12), i64 %173
   %wide.trip.count600 = zext nneg i32 %171 to i64
   br label %175
 
 .preheader369:                                    ; preds = %175, %167
   %.5.lcssa = phi i32 [ 0, %167 ], [ %171, %175 ]
-  %174 = getelementptr inbounds i32, ptr @OnigUnicodeFolds2, i64 %173
+  %174 = getelementptr inbounds nuw i32, ptr @OnigUnicodeFolds2, i64 %173
   br label %209
 
 175:                                              ; preds = %.lr.ph441, %175
   %indvars.iv595 = phi i64 [ 0, %.lr.ph441 ], [ %indvars.iv.next596, %175 ]
-  %176 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %indvars.iv595
+  %176 = getelementptr inbounds nuw %struct.OnigCaseFoldCodeItem, ptr %4, i64 %indvars.iv595
   store i32 %41, ptr %176, align 4
-  %177 = getelementptr inbounds i8, ptr %176, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
   store i32 1, ptr %177, align 4
-  %178 = getelementptr inbounds i32, ptr %gep437, i64 %indvars.iv595
+  %178 = getelementptr inbounds nuw i32, ptr %gep437, i64 %indvars.iv595
   %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds i8, ptr %176, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store i32 %179, ptr %180, align 4
   %indvars.iv.next596 = add nuw nsw i64 %indvars.iv595, 1
   %exitcond601.not = icmp eq i64 %indvars.iv.next596, %wide.trip.count600
@@ -1542,10 +1542,10 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   br i1 %182, label %.preheader366.lr.ph, label %.loopexit
 
 .preheader366.lr.ph:                              ; preds = %.preheader367
-  %183 = getelementptr inbounds i8, ptr %6, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %184 = load i32, ptr %183, align 4
   %185 = icmp sgt i32 %184, 0
-  %186 = getelementptr inbounds i8, ptr %7, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %185, label %.preheader366.us.preheader, label %.loopexit
 
 .preheader366.us.preheader:                       ; preds = %.preheader366.lr.ph
@@ -1557,7 +1557,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 .preheader366.us:                                 ; preds = %.preheader366.us.preheader, %._crit_edge452.us
   %indvars.iv623 = phi i64 [ 0, %.preheader366.us.preheader ], [ %indvars.iv.next624, %._crit_edge452.us ]
   %.6456.us = phi i32 [ %.5.lcssa, %.preheader366.us.preheader ], [ %.us-phi454.us, %._crit_edge452.us ]
-  %187 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %indvars.iv623
+  %187 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv623
   %188 = load i32, ptr %187, align 4
   %189 = icmp eq i32 %188, %12
   br i1 %189, label %.lr.ph451.split.us.us, label %.lr.ph451.split.us462.preheader
@@ -1571,13 +1571,13 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %indvars.iv609 = phi i64 [ %190, %.lr.ph451.split.us462.preheader ], [ %indvars.iv.next610, %.lr.ph451.split.us462 ]
   %191 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %indvars.iv609
   store i32 %41, ptr %191, align 4
-  %192 = getelementptr inbounds i8, ptr %191, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
   store i32 2, ptr %192, align 4
-  %193 = getelementptr inbounds i8, ptr %191, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i32 %188, ptr %193, align 4
-  %194 = getelementptr inbounds [4 x i32], ptr %186, i64 0, i64 %indvars.iv611
+  %194 = getelementptr inbounds nuw [4 x i32], ptr %186, i64 0, i64 %indvars.iv611
   %195 = load i32, ptr %194, align 4
-  %196 = getelementptr inbounds i8, ptr %191, i64 12
+  %196 = getelementptr inbounds nuw i8, ptr %191, i64 12
   store i32 %195, ptr %196, align 4
   %indvars.iv.next610 = add nsw i64 %indvars.iv609, 1
   %indvars.iv.next612 = add nuw nsw i64 %indvars.iv611, 1
@@ -1597,7 +1597,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 .lr.ph451.split.us.us:                            ; preds = %.preheader366.us, %208
   %indvars.iv618 = phi i64 [ %indvars.iv.next619, %208 ], [ 0, %.preheader366.us ]
   %.7450.us.us = phi i32 [ %.8.us.us, %208 ], [ %.6456.us, %.preheader366.us ]
-  %198 = getelementptr inbounds [4 x i32], ptr %186, i64 0, i64 %indvars.iv618
+  %198 = getelementptr inbounds nuw [4 x i32], ptr %186, i64 0, i64 %indvars.iv618
   %199 = load i32, ptr %198, align 4
   %200 = icmp eq i32 %199, %37
   br i1 %200, label %208, label %201
@@ -1606,11 +1606,11 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %202 = sext i32 %.7450.us.us to i64
   %203 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %202
   store i32 %41, ptr %203, align 4
-  %204 = getelementptr inbounds i8, ptr %203, i64 4
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 4
   store i32 2, ptr %204, align 4
-  %205 = getelementptr inbounds i8, ptr %203, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 8
   store i32 %12, ptr %205, align 4
-  %206 = getelementptr inbounds i8, ptr %203, i64 12
+  %206 = getelementptr inbounds nuw i8, ptr %203, i64 12
   store i32 %199, ptr %206, align 4
   %207 = add nsw i32 %.7450.us.us, 1
   br label %208
@@ -1629,7 +1629,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %211 = shl nuw nsw i64 %indvar602, 4
   %212 = or disjoint i64 %211, 4
   %scevgep604 = getelementptr i8, ptr %7, i64 %212
-  %213 = getelementptr inbounds i32, ptr %174, i64 %indvar602
+  %213 = getelementptr inbounds nuw i32, ptr %174, i64 %indvar602
   %214 = load i32, ptr %213, align 4
   store i32 %214, ptr %indvar602.sroa.phi, align 16
   store i32 1, ptr %indvar602.sroa.phi718, align 4
@@ -1640,14 +1640,14 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 217:                                              ; preds = %209
   %218 = add nuw nsw i32 %215, 1
   %219 = zext nneg i32 %218 to i64
-  %220 = getelementptr inbounds [4218 x i32], ptr @OnigUnicodeFolds1, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw [4218 x i32], ptr @OnigUnicodeFolds1, i64 0, i64 %219
   %221 = load i32, ptr %220, align 4
   %222 = icmp sgt i32 %221, 0
   br i1 %222, label %.lr.ph446, label %._crit_edge447
 
 .lr.ph446:                                        ; preds = %217
   %223 = zext nneg i32 %215 to i64
-  %gep443 = getelementptr inbounds i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %223
+  %gep443 = getelementptr inbounds nuw i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %223
   %224 = zext nneg i32 %221 to i64
   %225 = shl nuw nsw i64 %224, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep604, ptr nonnull align 4 %gep443, i64 %225, i1 false)
@@ -1665,7 +1665,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   br i1 %.not, label %396, label %229
 
 229:                                              ; preds = %228
-  %230 = getelementptr inbounds i8, ptr %21, i64 6
+  %230 = getelementptr inbounds nuw i8, ptr %21, i64 6
   %231 = load i16, ptr %230, align 2
   %232 = icmp eq i16 %231, 1
   br i1 %232, label %233, label %268
@@ -1674,7 +1674,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   br i1 %14, label %241, label %234
 
 234:                                              ; preds = %233
-  %235 = getelementptr inbounds i8, ptr %21, i64 4
+  %235 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %236 = load i16, ptr %235, align 4
   %237 = sext i16 %236 to i64
   %238 = getelementptr inbounds i32, ptr @OnigUnicodeFolds1, i64 %237
@@ -1684,14 +1684,14 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 
 241:                                              ; preds = %234, %233
   store i32 %18, ptr %4, align 4
-  %242 = getelementptr inbounds i8, ptr %4, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %242, align 4
-  %243 = getelementptr inbounds i8, ptr %21, i64 4
+  %243 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %244 = load i16, ptr %243, align 4
   %245 = sext i16 %244 to i64
   %246 = getelementptr inbounds i32, ptr @OnigUnicodeFolds1, i64 %245
   %247 = load i32, ptr %246, align 4
-  %248 = getelementptr inbounds i8, ptr %4, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %247, ptr %248, align 4
   %.pre = load i16, ptr %243, align 4
   %.pre682 = sext i16 %.pre to i64
@@ -1700,7 +1700,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 249:                                              ; preds = %241, %234
   %.pre-phi = phi i64 [ %.pre682, %241 ], [ %237, %234 ]
   %.9 = phi i32 [ 1, %241 ], [ 0, %234 ]
-  %250 = getelementptr inbounds i8, ptr %21, i64 4
+  %250 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %251 = add nsw i64 %.pre-phi, 1
   %252 = getelementptr inbounds [4218 x i32], ptr @OnigUnicodeFolds1, i64 0, i64 %251
   %253 = load i32, ptr %252, align 4
@@ -1717,7 +1717,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %256 = load i16, ptr %250, align 4
   %257 = sext i16 %256 to i64
   %gep425 = getelementptr i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %257
-  %258 = getelementptr inbounds i32, ptr %gep425, i64 %indvars.iv585
+  %258 = getelementptr inbounds nuw i32, ptr %gep425, i64 %indvars.iv585
   %259 = load i32, ptr %258, align 4
   %.not360 = icmp ne i32 %259, %12
   %260 = icmp ult i32 %259, 128
@@ -1729,9 +1729,9 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %262 = sext i32 %.10427 to i64
   %263 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %262
   store i32 %18, ptr %263, align 4
-  %264 = getelementptr inbounds i8, ptr %263, i64 4
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 4
   store i32 1, ptr %264, align 4
-  %265 = getelementptr inbounds i8, ptr %263, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store i32 %259, ptr %265, align 4
   %266 = add nsw i32 %.10427, 1
   br label %267
@@ -1748,7 +1748,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 
 269:                                              ; preds = %268
   %270 = icmp eq i16 %231, 2
-  %271 = getelementptr inbounds i8, ptr %21, i64 4
+  %271 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %272 = load i16, ptr %271, align 4
   %273 = sext i16 %272 to i64
   br i1 %270, label %274, label %331
@@ -1774,7 +1774,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %280 = load i16, ptr %271, align 4
   %281 = sext i16 %280 to i64
   %gep404 = getelementptr i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds2, i64 12), i64 %281
-  %282 = getelementptr inbounds i32, ptr %gep404, i64 %indvars.iv559
+  %282 = getelementptr inbounds nuw i32, ptr %gep404, i64 %indvars.iv559
   %283 = load i32, ptr %282, align 4
   %284 = icmp eq i32 %283, %12
   br i1 %284, label %291, label %285
@@ -1783,9 +1783,9 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %286 = sext i32 %.12406 to i64
   %287 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %286
   store i32 %18, ptr %287, align 4
-  %288 = getelementptr inbounds i8, ptr %287, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 4
   store i32 1, ptr %288, align 4
-  %289 = getelementptr inbounds i8, ptr %287, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %287, i64 8
   store i32 %283, ptr %289, align 4
   %290 = add nsw i32 %.12406, 1
   br label %291
@@ -1802,10 +1802,10 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   br i1 %293, label %.preheader372.lr.ph, label %.loopexit
 
 .preheader372.lr.ph:                              ; preds = %.preheader373
-  %294 = getelementptr inbounds i8, ptr %6, i64 4
+  %294 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %295 = load i32, ptr %294, align 4
   %296 = icmp sgt i32 %295, 0
-  %297 = getelementptr inbounds i8, ptr %7, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br i1 %296, label %.preheader372.us.preheader, label %.loopexit
 
 .preheader372.us.preheader:                       ; preds = %.preheader372.lr.ph
@@ -1816,7 +1816,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 .preheader372.us:                                 ; preds = %.preheader372.us.preheader, %._crit_edge419.us
   %indvars.iv580 = phi i64 [ 0, %.preheader372.us.preheader ], [ %indvars.iv.next581, %._crit_edge419.us ]
   %.14422.us = phi i32 [ %.12.lcssa, %.preheader372.us.preheader ], [ %308, %._crit_edge419.us ]
-  %298 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %indvars.iv580
+  %298 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv580
   %299 = load i32, ptr %298, align 4
   %300 = sext i32 %.14422.us to i64
   br label %301
@@ -1826,13 +1826,13 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %indvars.iv571 = phi i64 [ %300, %.preheader372.us ], [ %indvars.iv.next572, %301 ]
   %302 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %indvars.iv571
   store i32 %18, ptr %302, align 4
-  %303 = getelementptr inbounds i8, ptr %302, i64 4
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 4
   store i32 2, ptr %303, align 4
-  %304 = getelementptr inbounds i8, ptr %302, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i32 %299, ptr %304, align 4
-  %305 = getelementptr inbounds [4 x i32], ptr %297, i64 0, i64 %indvars.iv573
+  %305 = getelementptr inbounds nuw [4 x i32], ptr %297, i64 0, i64 %indvars.iv573
   %306 = load i32, ptr %305, align 4
-  %307 = getelementptr inbounds i8, ptr %302, i64 12
+  %307 = getelementptr inbounds nuw i8, ptr %302, i64 12
   store i32 %306, ptr %307, align 4
   %indvars.iv.next572 = add nsw i64 %indvars.iv571, 1
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
@@ -1856,7 +1856,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %313 = load i16, ptr %271, align 4
   %314 = sext i16 %313 to i64
   %315 = getelementptr inbounds i32, ptr @OnigUnicodeFolds2, i64 %314
-  %316 = getelementptr inbounds i32, ptr %315, i64 %indvar564
+  %316 = getelementptr inbounds nuw i32, ptr %315, i64 %indvar564
   %317 = load i32, ptr %316, align 4
   store i32 %317, ptr %indvar564.sroa.phi, align 16
   store i32 1, ptr %indvar564.sroa.phi721, align 4
@@ -1867,14 +1867,14 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 320:                                              ; preds = %309
   %321 = add nuw nsw i32 %318, 1
   %322 = zext nneg i32 %321 to i64
-  %323 = getelementptr inbounds [4218 x i32], ptr @OnigUnicodeFolds1, i64 0, i64 %322
+  %323 = getelementptr inbounds nuw [4218 x i32], ptr @OnigUnicodeFolds1, i64 0, i64 %322
   %324 = load i32, ptr %323, align 4
   %325 = icmp sgt i32 %324, 0
   br i1 %325, label %.lr.ph413, label %._crit_edge414
 
 .lr.ph413:                                        ; preds = %320
   %326 = zext nneg i32 %318 to i64
-  %gep410 = getelementptr inbounds i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %326
+  %gep410 = getelementptr inbounds nuw i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %326
   %327 = zext nneg i32 %324 to i64
   %328 = shl nuw nsw i64 %327, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep566, ptr nonnull align 4 %gep410, i64 %328, i1 false)
@@ -1909,7 +1909,7 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %337 = load i16, ptr %271, align 4
   %338 = sext i16 %337 to i64
   %gep = getelementptr i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds3, i64 16), i64 %338
-  %339 = getelementptr inbounds i32, ptr %gep, i64 %indvars.iv
+  %339 = getelementptr inbounds nuw i32, ptr %gep, i64 %indvars.iv
   %340 = load i32, ptr %339, align 4
   %341 = icmp eq i32 %340, %12
   br i1 %341, label %348, label %342
@@ -1918,9 +1918,9 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %343 = sext i32 %.16382 to i64
   %344 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %343
   store i32 %18, ptr %344, align 4
-  %345 = getelementptr inbounds i8, ptr %344, i64 4
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 4
   store i32 1, ptr %345, align 4
-  %346 = getelementptr inbounds i8, ptr %344, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store i32 %340, ptr %346, align 4
   %347 = add nsw i32 %.16382, 1
   br label %348
@@ -1937,13 +1937,13 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   br i1 %350, label %.preheader377.lr.ph, label %.loopexit
 
 .preheader377.lr.ph:                              ; preds = %.preheader378
-  %351 = getelementptr inbounds i8, ptr %6, i64 4
+  %351 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %352 = load i32, ptr %351, align 4
   %353 = icmp sgt i32 %352, 0
-  %354 = getelementptr inbounds i8, ptr %6, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %355 = load i32, ptr %354, align 4
-  %356 = getelementptr inbounds i8, ptr %7, i64 16
-  %357 = getelementptr inbounds i8, ptr %7, i64 32
+  %356 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %357 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %358 = icmp sgt i32 %355, 0
   %or.cond699 = select i1 %353, i1 %358, i1 false
   br i1 %or.cond699, label %.preheader377.us.us.preheader, label %.loopexit
@@ -1957,14 +1957,14 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 .preheader377.us.us:                              ; preds = %.preheader377.us.us.preheader, %._crit_edge394.split.us.us.us
   %indvars.iv554 = phi i64 [ 0, %.preheader377.us.us.preheader ], [ %indvars.iv.next555, %._crit_edge394.split.us.us.us ]
   %.18397.us.us = phi i32 [ %.16.lcssa, %.preheader377.us.us.preheader ], [ %372, %._crit_edge394.split.us.us.us ]
-  %359 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %indvars.iv554
+  %359 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv554
   %360 = load i32, ptr %359, align 4
   br label %.preheader376.us.us.us
 
 .preheader376.us.us.us:                           ; preds = %._crit_edge390.us.us.us, %.preheader377.us.us
   %indvars.iv549 = phi i64 [ %indvars.iv.next550, %._crit_edge390.us.us.us ], [ 0, %.preheader377.us.us ]
   %.19393.us.us.us = phi i32 [ %372, %._crit_edge390.us.us.us ], [ %.18397.us.us, %.preheader377.us.us ]
-  %361 = getelementptr inbounds [4 x i32], ptr %356, i64 0, i64 %indvars.iv549
+  %361 = getelementptr inbounds nuw [4 x i32], ptr %356, i64 0, i64 %indvars.iv549
   %362 = load i32, ptr %361, align 4
   %363 = sext i32 %.19393.us.us.us to i64
   br label %364
@@ -1974,15 +1974,15 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %indvars.iv540 = phi i64 [ %indvars.iv.next541, %364 ], [ %363, %.preheader376.us.us.us ]
   %365 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %indvars.iv540
   store i32 %18, ptr %365, align 4
-  %366 = getelementptr inbounds i8, ptr %365, i64 4
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 4
   store i32 3, ptr %366, align 4
-  %367 = getelementptr inbounds i8, ptr %365, i64 8
+  %367 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store i32 %360, ptr %367, align 4
-  %368 = getelementptr inbounds i8, ptr %365, i64 12
+  %368 = getelementptr inbounds nuw i8, ptr %365, i64 12
   store i32 %362, ptr %368, align 4
-  %369 = getelementptr inbounds [4 x i32], ptr %357, i64 0, i64 %indvars.iv542
+  %369 = getelementptr inbounds nuw [4 x i32], ptr %357, i64 0, i64 %indvars.iv542
   %370 = load i32, ptr %369, align 4
-  %371 = getelementptr inbounds i8, ptr %365, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %365, i64 16
   store i32 %370, ptr %371, align 4
   %indvars.iv.next541 = add nsw i64 %indvars.iv540, 1
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
@@ -2008,11 +2008,11 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %376 = load i16, ptr %271, align 4
   %377 = sext i16 %376 to i64
   %378 = getelementptr inbounds i32, ptr @OnigUnicodeFolds3, i64 %377
-  %379 = getelementptr inbounds i32, ptr %378, i64 %indvar
+  %379 = getelementptr inbounds nuw i32, ptr %378, i64 %indvar
   %380 = load i32, ptr %379, align 4
-  %381 = getelementptr inbounds [3 x [4 x i32]], ptr %7, i64 0, i64 %indvar
+  %381 = getelementptr inbounds nuw [3 x [4 x i32]], ptr %7, i64 0, i64 %indvar
   store i32 %380, ptr %381, align 16
-  %382 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %indvar
+  %382 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvar
   store i32 1, ptr %382, align 4
   %383 = call i32 @onigenc_unicode_fold1_key(ptr noundef nonnull %381) #10
   %384 = icmp sgt i32 %383, -1
@@ -2021,14 +2021,14 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 385:                                              ; preds = %373
   %386 = add nuw nsw i32 %383, 1
   %387 = zext nneg i32 %386 to i64
-  %388 = getelementptr inbounds [4218 x i32], ptr @OnigUnicodeFolds1, i64 0, i64 %387
+  %388 = getelementptr inbounds nuw [4218 x i32], ptr @OnigUnicodeFolds1, i64 0, i64 %387
   %389 = load i32, ptr %388, align 4
   %390 = icmp sgt i32 %389, 0
   br i1 %390, label %.lr.ph385, label %._crit_edge
 
 .lr.ph385:                                        ; preds = %385
   %391 = zext nneg i32 %383 to i64
-  %gep383 = getelementptr inbounds i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %391
+  %gep383 = getelementptr inbounds nuw i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %391
   %392 = zext nneg i32 %389 to i64
   %393 = shl nuw nsw i64 %392, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr nonnull align 4 %gep383, i64 %393, i1 false)
@@ -2052,21 +2052,21 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
 399:                                              ; preds = %396
   %400 = add nuw nsw i32 %397, 1
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds [4218 x i32], ptr @OnigUnicodeFolds1, i64 0, i64 %401
+  %402 = getelementptr inbounds nuw [4218 x i32], ptr @OnigUnicodeFolds1, i64 0, i64 %401
   %403 = load i32, ptr %402, align 4
   %404 = icmp sgt i32 %403, 0
   br i1 %404, label %.lr.ph435, label %.loopexit
 
 .lr.ph435:                                        ; preds = %399
   %405 = zext nneg i32 %397 to i64
-  %gep431 = getelementptr inbounds i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %405
+  %gep431 = getelementptr inbounds nuw i32, ptr getelementptr inbounds (i8, ptr @OnigUnicodeFolds1, i64 8), i64 %405
   %wide.trip.count593 = zext nneg i32 %403 to i64
   br label %406
 
 406:                                              ; preds = %.lr.ph435, %416
   %indvars.iv590 = phi i64 [ 0, %.lr.ph435 ], [ %indvars.iv.next591, %416 ]
   %.22433 = phi i32 [ 0, %.lr.ph435 ], [ %.23, %416 ]
-  %407 = getelementptr inbounds i32, ptr %gep431, i64 %indvars.iv590
+  %407 = getelementptr inbounds nuw i32, ptr %gep431, i64 %indvars.iv590
   %408 = load i32, ptr %407, align 4
   %409 = icmp ult i32 %408, 128
   %or.cond3 = select i1 %14, i1 true, i1 %409
@@ -2076,9 +2076,9 @@ define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef rea
   %411 = sext i32 %.22433 to i64
   %412 = getelementptr inbounds %struct.OnigCaseFoldCodeItem, ptr %4, i64 %411
   store i32 %18, ptr %412, align 4
-  %413 = getelementptr inbounds i8, ptr %412, i64 4
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 4
   store i32 1, ptr %413, align 4
-  %414 = getelementptr inbounds i8, ptr %412, i64 8
+  %414 = getelementptr inbounds nuw i8, ptr %412, i64 8
   store i32 %408, ptr %414, align 4
   %415 = add nsw i32 %.22433, 1
   br label %416
@@ -2120,7 +2120,7 @@ define range(i32 0, 2) i32 @onigenc_wb_is_break_position(ptr noundef %0, ptr nou
 
 15:                                               ; preds = %12, %10
   %.0249 = phi ptr [ %13, %12 ], [ %2, %10 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %.0249, ptr noundef %4) #10
   %19 = load ptr, ptr %16, align 8
@@ -2133,7 +2133,7 @@ define range(i32 0, 2) i32 @onigenc_wb_is_break_position(ptr noundef %0, ptr nou
   %22 = add i32 %.01315.i, %.016.i
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %24, i32 1
+  %25 = getelementptr inbounds nuw [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %24, i32 1
   %26 = load i32, ptr %25, align 4
   %27 = icmp ugt i32 %18, %26
   %28 = add nuw i32 %23, 1
@@ -2148,13 +2148,13 @@ define range(i32 0, 2) i32 @onigenc_wb_is_break_position(ptr noundef %0, ptr nou
 
 32:                                               ; preds = %30
   %33 = zext nneg i32 %.1.i to i64
-  %34 = getelementptr inbounds [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   %.not.i = icmp ult i32 %18, %35
   br i1 %.not.i, label %wb_get_type.exit, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i32, ptr %37, align 4
   br label %wb_get_type.exit
 
@@ -2168,7 +2168,7 @@ wb_get_type.exit:                                 ; preds = %30, %32, %36
   %41 = add i32 %.01315.i280, %.016.i279
   %42 = lshr i32 %41, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %43, i32 1
+  %44 = getelementptr inbounds nuw [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %43, i32 1
   %45 = load i32, ptr %44, align 4
   %46 = icmp ugt i32 %20, %45
   %47 = add nuw i32 %42, 1
@@ -2183,13 +2183,13 @@ wb_get_type.exit:                                 ; preds = %30, %32, %36
 
 51:                                               ; preds = %49
   %52 = zext nneg i32 %.1.i282 to i64
-  %53 = getelementptr inbounds [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %52
   %54 = load i32, ptr %53, align 4
   %.not.i283 = icmp ult i32 %20, %54
   br i1 %.not.i283, label %wb_get_type.exit284, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load i32, ptr %56, align 4
   br label %wb_get_type.exit284
 
@@ -2536,7 +2536,7 @@ define internal fastcc i32 @wb_get_type(i32 noundef %0) unnamed_addr #2 {
   %3 = add i32 %.016, %.01315
   %4 = lshr i32 %3, 1
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %5, i32 1
+  %6 = getelementptr inbounds nuw [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %5, i32 1
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %0, %7
   %9 = add nuw i32 %4, 1
@@ -2551,13 +2551,13 @@ define internal fastcc i32 @wb_get_type(i32 noundef %0) unnamed_addr #2 {
 
 13:                                               ; preds = %11
   %14 = zext nneg i32 %.1 to i64
-  %15 = getelementptr inbounds [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %.not = icmp ult i32 %0, %16
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load i32, ptr %18, align 4
   br label %20
 
@@ -2575,7 +2575,7 @@ define i32 @onigenc_unicode_is_code_ctype(i32 noundef %0, i32 noundef %1) local_
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds [256 x i16], ptr @EncUNICODE_ISO_8859_1_CtypeTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i16], ptr @EncUNICODE_ISO_8859_1_CtypeTable, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %1
@@ -2601,7 +2601,7 @@ define i32 @onigenc_unicode_is_code_ctype(i32 noundef %0, i32 noundef %1) local_
 
 23:                                               ; preds = %12
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr inbounds [606 x ptr], ptr @CodeRanges, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [606 x ptr], ptr @CodeRanges, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @onig_is_in_code_range(ptr noundef %26, i32 noundef %0) #10
   br label %28
@@ -2621,7 +2621,7 @@ define internal fastcc range(i32 0, 2) i32 @wb_get_next_main_code(ptr nocapture 
   br i1 %.not23, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %11
 
 11:                                               ; preds = %.lr.ph, %.backedge
@@ -2636,7 +2636,7 @@ define internal fastcc range(i32 0, 2) i32 @wb_get_next_main_code(ptr nocapture 
   %16 = add i32 %.01315.i, %.016.i
   %17 = lshr i32 %16, 1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %18, i32 1
+  %19 = getelementptr inbounds nuw [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %18, i32 1
   %20 = load i32, ptr %19, align 4
   %21 = icmp ugt i32 %14, %20
   %22 = add nuw i32 %17, 1
@@ -2651,13 +2651,13 @@ define internal fastcc range(i32 0, 2) i32 @wb_get_next_main_code(ptr nocapture 
 
 26:                                               ; preds = %24
   %27 = zext nneg i32 %.1.i to i64
-  %28 = getelementptr inbounds [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [1053 x %struct.WB_RANGE_TYPE], ptr @WB_RANGES, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %.not.i = icmp ult i32 %14, %29
   br i1 %.not.i, label %wb_get_type.exit.thread, label %wb_get_type.exit
 
 wb_get_type.exit:                                 ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i32, ptr %30, align 4
   switch i32 %31, label %wb_get_type.exit.thread [
     i32 18, label %.backedge
@@ -2702,12 +2702,12 @@ define range(i32 0, 2) i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr n
 
 13:                                               ; preds = %10, %8
   %.041 = phi ptr [ %11, %10 ], [ %2, %8 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %.041, ptr noundef %4) #10
   %17 = load ptr, ptr %14, align 8
   %18 = tail call i32 %17(ptr noundef %1, ptr noundef %4) #10
-  %19 = getelementptr inbounds i8, ptr %0, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 2
   %.not = icmp eq i32 %21, 0
@@ -2726,7 +2726,7 @@ define range(i32 0, 2) i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr n
   %27 = add i32 %.01315.i.i, %.016.i.i
   %28 = lshr i32 %27, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %29, i32 1
+  %30 = getelementptr inbounds nuw [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %29, i32 1
   %31 = load i32, ptr %30, align 4
   %32 = icmp ugt i32 %16, %31
   %33 = add nuw i32 %28, 1
@@ -2741,13 +2741,13 @@ define range(i32 0, 2) i32 @onigenc_egcb_is_break_position(ptr noundef %0, ptr n
 
 37:                                               ; preds = %35
   %38 = zext nneg i32 %.1.i.i to i64
-  %39 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %.not.i.i = icmp ult i32 %16, %40
   br i1 %.not.i.i, label %egcb_get_type.exit.i, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load i32, ptr %42, align 4
   br label %egcb_get_type.exit.i
 
@@ -2761,7 +2761,7 @@ egcb_get_type.exit.i:                             ; preds = %41, %37, %35
   %46 = add i32 %.01315.i57.i, %.016.i56.i
   %47 = lshr i32 %46, 1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %48, i32 1
+  %49 = getelementptr inbounds nuw [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %48, i32 1
   %50 = load i32, ptr %49, align 4
   %51 = icmp ugt i32 %18, %50
   %52 = add nuw i32 %47, 1
@@ -2776,13 +2776,13 @@ egcb_get_type.exit.i:                             ; preds = %41, %37, %35
 
 56:                                               ; preds = %54
   %57 = zext nneg i32 %.1.i59.i to i64
-  %58 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %57
   %59 = load i32, ptr %58, align 4
   %.not.i60.i = icmp ult i32 %18, %59
   br i1 %.not.i60.i, label %egcb_get_type.exit61.i, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %62 = load i32, ptr %61, align 4
   br label %egcb_get_type.exit61.i
 
@@ -2888,7 +2888,7 @@ unicode_egcb_is_break_2code.exit.thread65:        ; preds = %egcb_get_type.exit6
   %97 = add i32 %.01315.i, %.016.i
   %98 = lshr i32 %97, 1
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %99, i32 1
+  %100 = getelementptr inbounds nuw [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %99, i32 1
   %101 = load i32, ptr %100, align 4
   %102 = icmp ugt i32 %95, %101
   %103 = add nuw i32 %98, 1
@@ -2903,13 +2903,13 @@ unicode_egcb_is_break_2code.exit.thread65:        ; preds = %egcb_get_type.exit6
 
 107:                                              ; preds = %105
   %108 = zext nneg i32 %.1.i to i64
-  %109 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %108
   %110 = load i32, ptr %109, align 4
   %.not.i56 = icmp ult i32 %95, %110
   br i1 %.not.i56, label %egcb_get_type.exit.thread, label %egcb_get_type.exit
 
 egcb_get_type.exit:                               ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %109, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %112 = load i32, ptr %111, align 4
   %.not53 = icmp eq i32 %112, 4
   br i1 %.not53, label %.critedge, label %egcb_get_type.exit.thread, !llvm.loop !39
@@ -2927,7 +2927,7 @@ egcb_get_type.exit:                               ; preds = %107
   %117 = add i32 %.01315.i58, %.016.i57
   %118 = lshr i32 %117, 1
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %119, i32 1
+  %120 = getelementptr inbounds nuw [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %119, i32 1
   %121 = load i32, ptr %120, align 4
   %122 = icmp ugt i32 %115, %121
   %123 = add nuw i32 %118, 1
@@ -2942,13 +2942,13 @@ egcb_get_type.exit:                               ; preds = %107
 
 127:                                              ; preds = %125
   %128 = zext nneg i32 %.1.i60 to i64
-  %129 = getelementptr inbounds [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw [1371 x %struct.EGCB_RANGE_TYPE], ptr @EGCB_RANGES, i64 0, i64 %128
   %130 = load i32, ptr %129, align 4
   %.not.i61 = icmp ult i32 %115, %130
   br i1 %.not.i61, label %egcb_get_type.exit62.thread, label %egcb_get_type.exit62
 
 egcb_get_type.exit62:                             ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %129, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %132 = load i32, ptr %131, align 4
   %.not50 = icmp eq i32 %132, 6
   br i1 %.not50, label %unicode_egcb_is_break_2code.exit, label %egcb_get_type.exit62.thread
@@ -3004,7 +3004,7 @@ define range(i32 -2147483648, 1) i32 @onig_unicode_define_user_property(ptr noca
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
   %.03844 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %23 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1
   %or.cond = icmp slt i8 %16, 32
   br i1 %or.cond, label %17, label %18
@@ -3066,7 +3066,7 @@ define range(i32 -2147483648, 1) i32 @onig_unicode_define_user_property(ptr noca
   %36 = getelementptr inbounds %struct.UserDefinedPropertyValue, ptr @UserDefinedPropertyRanges, i64 %35
   %37 = add nsw i32 %34, 606
   store i32 %37, ptr %36, align 16
-  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %1, ptr %38, align 8
   %39 = ptrtoint ptr %36 to i64
   %40 = tail call i32 @onig_st_insert_strend(ptr noundef nonnull %33, ptr noundef nonnull %12, ptr noundef nonnull %25, i64 noundef %39) #10
@@ -3117,7 +3117,7 @@ define range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, pt
 
 11:                                               ; preds = %2
   %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr inbounds [606 x ptr], ptr @CodeRanges, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [606 x ptr], ptr @CodeRanges, i64 0, i64 %12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %11
@@ -3150,7 +3150,7 @@ define range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %
 
 12:                                               ; preds = %3
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds [606 x ptr], ptr @CodeRanges, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [606 x ptr], ptr @CodeRanges, i64 0, i64 %13
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %12, %9
@@ -3172,7 +3172,7 @@ define i32 @onigenc_unicode_property_name_to_ctype(ptr nocapture noundef readonl
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %8
 
 8:                                                ; preds = %.lr.ph, %19
@@ -3253,10 +3253,10 @@ define i32 @onigenc_unicode_property_name_to_ctype(ptr nocapture noundef readonl
   ]
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %4, i64 15
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 15
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds [258 x i16], ptr @hash.asso_values, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [258 x i16], ptr @hash.asso_values, i64 0, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i32
   %43 = add nuw nsw i32 %.024.lcssa, %42
@@ -3264,10 +3264,10 @@ define i32 @onigenc_unicode_property_name_to_ctype(ptr nocapture noundef readonl
 
 44:                                               ; preds = %36, %35, %35, %35, %35
   %.0.i.i = phi i32 [ %43, %36 ], [ %.024.lcssa, %35 ], [ %.024.lcssa, %35 ], [ %.024.lcssa, %35 ], [ %.024.lcssa, %35 ]
-  %45 = getelementptr inbounds i8, ptr %4, i64 11
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 11
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds [258 x i16], ptr @hash.asso_values, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [258 x i16], ptr @hash.asso_values, i64 0, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i32
   %51 = add nuw nsw i32 %.0.i.i, %50
@@ -3275,10 +3275,10 @@ define i32 @onigenc_unicode_property_name_to_ctype(ptr nocapture noundef readonl
 
 52:                                               ; preds = %44, %35, %35, %35, %35, %35, %35
   %.1.i.i = phi i32 [ %51, %44 ], [ %.024.lcssa, %35 ], [ %.024.lcssa, %35 ], [ %.024.lcssa, %35 ], [ %.024.lcssa, %35 ], [ %.024.lcssa, %35 ], [ %.024.lcssa, %35 ]
-  %53 = getelementptr inbounds i8, ptr %4, i64 5
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds [258 x i16], ptr @hash.asso_values, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [258 x i16], ptr @hash.asso_values, i64 0, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i32
   %59 = add nuw nsw i32 %.1.i.i, %58
@@ -3286,10 +3286,10 @@ define i32 @onigenc_unicode_property_name_to_ctype(ptr nocapture noundef readonl
 
 60:                                               ; preds = %52, %35
   %.2.i.i = phi i32 [ %59, %52 ], [ %.024.lcssa, %35 ]
-  %61 = getelementptr inbounds i8, ptr %4, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %62 = load i8, ptr %61, align 4
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds [258 x i16], ptr @hash.asso_values, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [258 x i16], ptr @hash.asso_values, i64 0, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i32
   %67 = add nuw nsw i32 %.2.i.i, %66
@@ -3297,10 +3297,10 @@ define i32 @onigenc_unicode_property_name_to_ctype(ptr nocapture noundef readonl
 
 68:                                               ; preds = %60, %35, %35
   %.3.i.i = phi i32 [ %67, %60 ], [ %.024.lcssa, %35 ], [ %.024.lcssa, %35 ]
-  %69 = getelementptr inbounds i8, ptr %4, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %70 = load i8, ptr %69, align 2
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds [258 x i16], ptr @hash.asso_values, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [258 x i16], ptr @hash.asso_values, i64 0, i64 %71
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = add nuw nsw i32 %.3.i.i, %74
@@ -3308,10 +3308,10 @@ define i32 @onigenc_unicode_property_name_to_ctype(ptr nocapture noundef readonl
 
 76:                                               ; preds = %68, %35
   %.4.i.i = phi i32 [ %75, %68 ], [ %.024.lcssa, %35 ]
-  %77 = getelementptr inbounds i8, ptr %4, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds [258 x i16], ptr @hash.asso_values, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [258 x i16], ptr @hash.asso_values, i64 0, i64 %79
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %83 = add nuw nsw i32 %.4.i.i, %82
@@ -3322,14 +3322,14 @@ hash.exit.i:                                      ; preds = %76, %35
   %84 = load i8, ptr %4, align 16
   %85 = zext i8 %84 to i64
   %86 = add nuw nsw i64 %85, 2
-  %87 = getelementptr inbounds [258 x i16], ptr @hash.asso_values, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [258 x i16], ptr @hash.asso_values, i64 0, i64 %86
   %88 = load i16, ptr %87, align 2
   %89 = zext i16 %88 to i32
   %90 = add nuw nsw i32 %.5.i.i, %89
   %91 = getelementptr i8, ptr %26, i64 -1
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds [258 x i16], ptr @hash.asso_values, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [258 x i16], ptr @hash.asso_values, i64 0, i64 %93
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %95 to i32
   %97 = add nuw nsw i32 %90, %96
@@ -3338,14 +3338,14 @@ hash.exit.i:                                      ; preds = %76, %35
 
 99:                                               ; preds = %hash.exit.i
   %100 = zext nneg i32 %97 to i64
-  %101 = getelementptr inbounds [6177 x %struct.PoolPropertyNameCtype], ptr @unicode_lookup_property_name.wordlist, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [6177 x %struct.PoolPropertyNameCtype], ptr @unicode_lookup_property_name.wordlist, i64 0, i64 %100
   %102 = load i16, ptr %101, align 4
   %103 = icmp sgt i16 %102, -1
   br i1 %103, label %104, label %unicode_lookup_property_name.exit.thread
 
 104:                                              ; preds = %99
   %105 = zext nneg i16 %102 to i64
-  %106 = getelementptr inbounds i8, ptr @unicode_prop_name_pool_contents, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr @unicode_prop_name_pool_contents, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = xor i8 %107, %84
   %109 = and i8 %108, -33
@@ -3358,11 +3358,11 @@ hash.exit.i:                                      ; preds = %76, %35
   %.01115.i.i = phi ptr [ %121, %120 ], [ %106, %104 ]
   %111 = load i8, ptr %.0917.i.i, align 1
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds [256 x i8], ptr @gperf_downcase, i64 0, i64 %112
+  %113 = getelementptr inbounds nuw [256 x i8], ptr @gperf_downcase, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = load i8, ptr %.01115.i.i, align 1
   %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds [256 x i8], ptr @gperf_downcase, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [256 x i8], ptr @gperf_downcase, i64 0, i64 %116
   %118 = load i8, ptr %117, align 1
   %.not13.i.i = icmp ne i8 %111, 0
   %119 = icmp eq i8 %114, %118
@@ -3370,8 +3370,8 @@ hash.exit.i:                                      ; preds = %76, %35
   br i1 %or.cond.i.i, label %120, label %gperf_case_strncmp.exit.i
 
 120:                                              ; preds = %.preheader.i
-  %121 = getelementptr inbounds i8, ptr %.01115.i.i, i64 1
-  %122 = getelementptr inbounds i8, ptr %.0917.i.i, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %.01115.i.i, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %.0917.i.i, i64 1
   %123 = add nsw i64 %.01016.i.i, -1
   %.not.i.i = icmp eq i64 %123, 0
   br i1 %.not.i.i, label %gperf_case_strncmp.exit.thread.i, label %.preheader.i, !llvm.loop !43
@@ -3380,13 +3380,13 @@ gperf_case_strncmp.exit.i:                        ; preds = %.preheader.i
   br i1 %119, label %gperf_case_strncmp.exit.thread.i, label %unicode_lookup_property_name.exit.thread
 
 gperf_case_strncmp.exit.thread.i:                 ; preds = %120, %gperf_case_strncmp.exit.i
-  %124 = getelementptr inbounds i8, ptr %106, i64 %25
+  %124 = getelementptr inbounds nuw i8, ptr %106, i64 %25
   %125 = load i8, ptr %124, align 1
   %126 = icmp eq i8 %125, 0
   br i1 %126, label %unicode_lookup_property_name.exit, label %unicode_lookup_property_name.exit.thread
 
 unicode_lookup_property_name.exit:                ; preds = %gperf_case_strncmp.exit.thread.i
-  %127 = getelementptr inbounds i8, ptr %101, i64 2
+  %127 = getelementptr inbounds nuw i8, ptr %101, i64 2
   %128 = load i16, ptr %127, align 2
   %129 = sext i16 %128 to i32
   br label %unicode_lookup_property_name.exit.thread

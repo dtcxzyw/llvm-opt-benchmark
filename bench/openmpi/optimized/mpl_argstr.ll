@@ -27,7 +27,7 @@ define range(i32 0, 7) i32 @MPL_str_get_string_arg(ptr noundef readonly %0, ptr 
   ]
 
 8:                                                ; preds = %.preheader.i
-  %9 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.preheader.i, !llvm.loop !4
 
 first_token.exit:                                 ; preds = %.preheader.i, %next_token.exit61
@@ -47,11 +47,11 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   ]
 
 13:                                               ; preds = %.preheader.i.i
-  %14 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %.preheader.i.i, !llvm.loop !4
 
 15:                                               ; preds = %.preheader.i.i
-  %16 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %next_token.exit, label %.preheader37.i
@@ -59,7 +59,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
 .preheader37.i:                                   ; preds = %15, %25
   %19 = phi i8 [ %26, %25 ], [ %17, %15 ]
   %.0.i18 = phi ptr [ %.1.i, %25 ], [ %16, %15 ]
-  %20 = getelementptr inbounds i8, ptr %.0.i18, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 1
   switch i8 %19, label %25 [
     i8 34, label %.preheader.i31.i.preheader
     i8 92, label %21
@@ -68,7 +68,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
 21:                                               ; preds = %.preheader37.i
   %22 = load i8, ptr %20, align 1
   %23 = icmp eq i8 %22, 34
-  %24 = getelementptr inbounds i8, ptr %.0.i18, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 2
   %spec.select.i = select i1 %23, ptr %24, ptr %20
   br label %25
 
@@ -79,7 +79,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   br i1 %27, label %next_token.exit, label %.preheader37.i, !llvm.loop !6
 
 28:                                               ; preds = %.preheader.i.i
-  %29 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %.preheader.i31.i.preheader
 
 .preheader.i31.i.preheader:                       ; preds = %.preheader37.i, %.preheader.i19, %.preheader.i19, %.preheader.i19, %28
@@ -96,7 +96,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   ]
 
 31:                                               ; preds = %.preheader.i19
-  %32 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %.pr.i = load i8, ptr %32, align 1
   br label %.preheader.i19, !llvm.loop !7
 
@@ -109,7 +109,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   ]
 
 34:                                               ; preds = %.preheader.i31.i
-  %35 = getelementptr inbounds i8, ptr %.0.i32.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 1
   br label %.preheader.i31.i, !llvm.loop !4
 
 next_token.exit.loopexit:                         ; preds = %.preheader.i31.i
@@ -136,11 +136,11 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %25
   ]
 
 41:                                               ; preds = %.preheader.i.i20
-  %42 = getelementptr inbounds i8, ptr %.0.i.i21, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i21, i64 1
   br label %.preheader.i.i20, !llvm.loop !4
 
 43:                                               ; preds = %.preheader.i.i20
-  %44 = getelementptr inbounds i8, ptr %.0.i.i21, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i21, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 0
   br i1 %46, label %token_copy.exit, label %.preheader37.i29
@@ -148,7 +148,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %25
 .preheader37.i29:                                 ; preds = %43, %53
   %47 = phi i8 [ %54, %53 ], [ %45, %43 ]
   %.0.i30 = phi ptr [ %.1.i32, %53 ], [ %44, %43 ]
-  %48 = getelementptr inbounds i8, ptr %.0.i30, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 1
   switch i8 %47, label %53 [
     i8 34, label %.preheader.i31.i26.preheader
     i8 92, label %49
@@ -157,7 +157,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %25
 49:                                               ; preds = %.preheader37.i29
   %50 = load i8, ptr %48, align 1
   %51 = icmp eq i8 %50, 34
-  %52 = getelementptr inbounds i8, ptr %.0.i30, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 2
   %spec.select.i31 = select i1 %51, ptr %52, ptr %48
   br label %53
 
@@ -168,7 +168,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %25
   br i1 %55, label %token_copy.exit, label %.preheader37.i29, !llvm.loop !6
 
 56:                                               ; preds = %.preheader.i.i20
-  %57 = getelementptr inbounds i8, ptr %.0.i.i21, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i21, i64 1
   br label %.preheader.i31.i26.preheader
 
 .preheader.i31.i26.preheader:                     ; preds = %.preheader37.i29, %.preheader.i33, %.preheader.i33, %.preheader.i33, %56
@@ -185,7 +185,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %25
   ]
 
 59:                                               ; preds = %.preheader.i33
-  %60 = getelementptr inbounds i8, ptr %.3.i34, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.3.i34, i64 1
   %.pr.i35 = load i8, ptr %60, align 1
   br label %.preheader.i33, !llvm.loop !7
 
@@ -198,7 +198,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %25
   ]
 
 62:                                               ; preds = %.preheader.i31.i26
-  %63 = getelementptr inbounds i8, ptr %.0.i32.i27, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i32.i27, i64 1
   br label %.preheader.i31.i26, !llvm.loop !4
 
 next_token.exit36:                                ; preds = %.preheader.i31.i26
@@ -224,7 +224,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   ]
 
 69:                                               ; preds = %.preheader.i.i37
-  %70 = getelementptr inbounds i8, ptr %.0.i.i38, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i38, i64 1
   %.pr = load i8, ptr %70, align 1
   br label %.preheader.i.i37, !llvm.loop !4
 
@@ -239,7 +239,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
 
 72:                                               ; preds = %.preheader.i.i37
   store i8 35, ptr %2, align 1
-  %73 = getelementptr inbounds i8, ptr %2, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %73, align 1
   br label %token_copy.exit
 
@@ -247,7 +247,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   %.pn.i = phi ptr [ %.2.i42, %81 ], [ %.0.i.i38, %.preheader.i.i37 ]
   %.045.i = phi ptr [ %82, %81 ], [ %2, %.preheader.i.i37 ]
   %.0.i40 = phi i32 [ %83, %81 ], [ %3, %.preheader.i.i37 ]
-  %.047.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %.047.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %74 = load i8, ptr %.047.i, align 1
   switch i8 %74, label %81 [
     i8 92, label %75
@@ -255,7 +255,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   ]
 
 75:                                               ; preds = %.preheader62.i
-  %76 = getelementptr inbounds i8, ptr %.pn.i, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2
   %77 = load i8, ptr %76, align 1
   %78 = icmp eq i8 %77, 34
   %79 = select i1 %78, i8 34, i8 92
@@ -270,7 +270,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   %storemerge.i = phi i8 [ %79, %75 ], [ %74, %.preheader62.i ]
   %.2.i42 = phi ptr [ %spec.select.i41, %75 ], [ %.047.i, %.preheader62.i ]
   store i8 %storemerge.i, ptr %.045.i, align 1
-  %82 = getelementptr inbounds i8, ptr %.045.i, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.045.i, i64 1
   %83 = add nsw i32 %.0.i40, -1
   %.not60.i = icmp eq i32 %83, 0
   br i1 %.not60.i, label %84, label %.preheader62.i, !llvm.loop !8
@@ -291,8 +291,8 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
 
 88:                                               ; preds = %.lr.ph.i
   store i8 %85, ptr %.14668.i, align 1
-  %89 = getelementptr inbounds i8, ptr %.14668.i, i64 1
-  %90 = getelementptr inbounds i8, ptr %.367.i, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %.14668.i, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.367.i, i64 1
   %91 = add nsw i32 %.169.i, -1
   %92 = load i8, ptr %90, align 1
   %.off.i = add i8 %92, -35
@@ -326,11 +326,11 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   ]
 
 97:                                               ; preds = %.preheader.i.i45
-  %98 = getelementptr inbounds i8, ptr %.0.i.i46, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i46, i64 1
   br label %.preheader.i.i45, !llvm.loop !4
 
 99:                                               ; preds = %.preheader.i.i45
-  %100 = getelementptr inbounds i8, ptr %.0.i.i46, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i.i46, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = icmp eq i8 %101, 0
   br i1 %102, label %token_copy.exit, label %.preheader37.i54
@@ -338,7 +338,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
 .preheader37.i54:                                 ; preds = %99, %109
   %103 = phi i8 [ %110, %109 ], [ %101, %99 ]
   %.0.i55 = phi ptr [ %.1.i57, %109 ], [ %100, %99 ]
-  %104 = getelementptr inbounds i8, ptr %.0.i55, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 1
   switch i8 %103, label %109 [
     i8 34, label %.preheader.i31.i51.preheader
     i8 92, label %105
@@ -347,7 +347,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
 105:                                              ; preds = %.preheader37.i54
   %106 = load i8, ptr %104, align 1
   %107 = icmp eq i8 %106, 34
-  %108 = getelementptr inbounds i8, ptr %.0.i55, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %.0.i55, i64 2
   %spec.select.i56 = select i1 %107, ptr %108, ptr %104
   br label %109
 
@@ -358,7 +358,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   br i1 %111, label %token_copy.exit, label %.preheader37.i54, !llvm.loop !6
 
 112:                                              ; preds = %.preheader.i.i45
-  %113 = getelementptr inbounds i8, ptr %.0.i.i46, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %.0.i.i46, i64 1
   br label %.preheader.i31.i51.preheader
 
 .preheader.i31.i51.preheader:                     ; preds = %.preheader37.i54, %.preheader.i58, %.preheader.i58, %.preheader.i58, %112
@@ -375,7 +375,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   ]
 
 115:                                              ; preds = %.preheader.i58
-  %116 = getelementptr inbounds i8, ptr %.3.i59, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %.3.i59, i64 1
   %.pr.i60 = load i8, ptr %116, align 1
   br label %.preheader.i58, !llvm.loop !7
 
@@ -388,7 +388,7 @@ next_token.exit36:                                ; preds = %.preheader.i31.i26
   ]
 
 118:                                              ; preds = %.preheader.i31.i51
-  %119 = getelementptr inbounds i8, ptr %.0.i32.i52, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %.0.i32.i52, i64 1
   br label %.preheader.i31.i51, !llvm.loop !4
 
 next_token.exit61:                                ; preds = %.preheader.i31.i51, %next_token.exit
@@ -428,13 +428,13 @@ define internal fastcc range(i32 -1, 2) i32 @compare_token(ptr noundef readonly 
 .preheader72:                                     ; preds = %5, %.thread88
   %.pn = phi ptr [ %.390, %.thread88 ], [ %0, %5 ]
   %.0 = phi ptr [ %25, %.thread88 ], [ %1, %5 ]
-  %.042 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %.042 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %12 = load i8, ptr %.042, align 1
   %13 = icmp eq i8 %12, 92
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %.preheader72
-  %15 = getelementptr inbounds i8, ptr %.pn, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 34
   %18 = select i1 %17, i8 34, i8 92
@@ -456,7 +456,7 @@ define internal fastcc range(i32 -1, 2) i32 @compare_token(ptr noundef readonly 
 
 .thread88:                                        ; preds = %14, %23
   %.390 = phi ptr [ %.042, %23 ], [ %spec.select, %14 ]
-  %25 = getelementptr inbounds i8, ptr %.0, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %.preheader72
 
 .loopexit:                                        ; preds = %20, %14
@@ -480,7 +480,7 @@ define internal fastcc range(i32 -1, 2) i32 @compare_token(ptr noundef readonly 
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %1, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = icmp ne i8 %38, 0
   %.60 = zext i1 %39 to i32
@@ -494,8 +494,8 @@ define internal fastcc range(i32 -1, 2) i32 @compare_token(ptr noundef readonly 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.178 = phi ptr [ %43, %.lr.ph ], [ %1, %.preheader ]
   %.477 = phi ptr [ %42, %.lr.ph ], [ %0, %.preheader ]
-  %42 = getelementptr inbounds i8, ptr %.477, i64 1
-  %43 = getelementptr inbounds i8, ptr %.178, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.477, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.178, i64 1
   %.pr68 = load i8, ptr %42, align 1
   %44 = load i8, ptr %43, align 1
   %45 = icmp ne i8 %.pr68, %44
@@ -552,7 +552,7 @@ define range(i32 0, 7) i32 @MPL_str_get_binary_arg(ptr noundef readonly %0, ptr 
   ]
 
 11:                                               ; preds = %.preheader.i
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.preheader.i, !llvm.loop !4
 
 first_token.exit:                                 ; preds = %.preheader.i, %next_token.exit58
@@ -572,11 +572,11 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   ]
 
 16:                                               ; preds = %.preheader.i.i
-  %17 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %.preheader.i.i, !llvm.loop !4
 
 18:                                               ; preds = %.preheader.i.i
-  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %next_token.exit, label %.preheader37.i
@@ -584,7 +584,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
 .preheader37.i:                                   ; preds = %18, %28
   %22 = phi i8 [ %29, %28 ], [ %20, %18 ]
   %.0.i19 = phi ptr [ %.1.i, %28 ], [ %19, %18 ]
-  %23 = getelementptr inbounds i8, ptr %.0.i19, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 1
   switch i8 %22, label %28 [
     i8 34, label %.preheader.i31.i.preheader
     i8 92, label %24
@@ -593,7 +593,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
 24:                                               ; preds = %.preheader37.i
   %25 = load i8, ptr %23, align 1
   %26 = icmp eq i8 %25, 34
-  %27 = getelementptr inbounds i8, ptr %.0.i19, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 2
   %spec.select.i = select i1 %26, ptr %27, ptr %23
   br label %28
 
@@ -604,7 +604,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   br i1 %30, label %next_token.exit, label %.preheader37.i, !llvm.loop !6
 
 31:                                               ; preds = %.preheader.i.i
-  %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %.preheader.i31.i.preheader
 
 .preheader.i31.i.preheader:                       ; preds = %.preheader37.i, %.preheader.i20, %.preheader.i20, %.preheader.i20, %31
@@ -621,7 +621,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   ]
 
 34:                                               ; preds = %.preheader.i20
-  %35 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %.pr.i = load i8, ptr %35, align 1
   br label %.preheader.i20, !llvm.loop !7
 
@@ -634,7 +634,7 @@ first_token.exit:                                 ; preds = %.preheader.i, %next
   ]
 
 37:                                               ; preds = %.preheader.i31.i
-  %38 = getelementptr inbounds i8, ptr %.0.i32.i, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 1
   br label %.preheader.i31.i, !llvm.loop !4
 
 next_token.exit.loopexit:                         ; preds = %.preheader.i31.i
@@ -661,11 +661,11 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %28
   ]
 
 44:                                               ; preds = %.preheader.i.i21
-  %45 = getelementptr inbounds i8, ptr %.0.i.i22, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 1
   br label %.preheader.i.i21, !llvm.loop !4
 
 46:                                               ; preds = %.preheader.i.i21
-  %47 = getelementptr inbounds i8, ptr %.0.i.i22, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %first_token.exit.thread, label %.preheader37.i30
@@ -673,7 +673,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %28
 .preheader37.i30:                                 ; preds = %46, %56
   %50 = phi i8 [ %57, %56 ], [ %48, %46 ]
   %.0.i31 = phi ptr [ %.1.i33, %56 ], [ %47, %46 ]
-  %51 = getelementptr inbounds i8, ptr %.0.i31, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 1
   switch i8 %50, label %56 [
     i8 34, label %.preheader.i31.i27.preheader
     i8 92, label %52
@@ -682,7 +682,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %28
 52:                                               ; preds = %.preheader37.i30
   %53 = load i8, ptr %51, align 1
   %54 = icmp eq i8 %53, 34
-  %55 = getelementptr inbounds i8, ptr %.0.i31, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 2
   %spec.select.i32 = select i1 %54, ptr %55, ptr %51
   br label %56
 
@@ -693,7 +693,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %28
   br i1 %58, label %first_token.exit.thread, label %.preheader37.i30, !llvm.loop !6
 
 59:                                               ; preds = %.preheader.i.i21
-  %60 = getelementptr inbounds i8, ptr %.0.i.i22, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i22, i64 1
   br label %.preheader.i31.i27.preheader
 
 .preheader.i31.i27.preheader:                     ; preds = %.preheader37.i30, %.preheader.i34, %.preheader.i34, %.preheader.i34, %59
@@ -710,7 +710,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %28
   ]
 
 62:                                               ; preds = %.preheader.i34
-  %63 = getelementptr inbounds i8, ptr %.3.i35, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.3.i35, i64 1
   %.pr.i36 = load i8, ptr %63, align 1
   br label %.preheader.i34, !llvm.loop !7
 
@@ -723,7 +723,7 @@ next_token.exit:                                  ; preds = %.preheader.i.i, %28
   ]
 
 65:                                               ; preds = %.preheader.i31.i27
-  %66 = getelementptr inbounds i8, ptr %.0.i32.i28, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i32.i28, i64 1
   br label %.preheader.i31.i27, !llvm.loop !4
 
 next_token.exit37:                                ; preds = %.preheader.i31.i27
@@ -737,10 +737,10 @@ next_token.exit37:                                ; preds = %.preheader.i31.i27
 69:                                               ; preds = %next_token.exit37
   %70 = icmp eq i8 %64, 34
   %spec.select.idx.i = zext i1 %70 to i64
-  %spec.select.i38 = getelementptr inbounds i8, ptr %.0.i32.i28, i64 %spec.select.idx.i
-  %71 = getelementptr inbounds i8, ptr %6, i64 2
+  %spec.select.i38 = getelementptr inbounds nuw i8, ptr %.0.i32.i28, i64 %spec.select.idx.i
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 0, ptr %71, align 1
-  %72 = getelementptr inbounds i8, ptr %6, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %73
 
 73:                                               ; preds = %83, %69
@@ -762,7 +762,7 @@ next_token.exit37:                                ; preds = %.preheader.i31.i27
 
 78:                                               ; preds = %75
   store i8 %74, ptr %6, align 1
-  %79 = getelementptr inbounds i8, ptr %.1.i39, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.1.i39, i64 1
   %80 = load i8, ptr %79, align 1
   store i8 %80, ptr %72, align 1
   %81 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull %7) #8
@@ -770,11 +770,11 @@ next_token.exit37:                                ; preds = %.preheader.i31.i27
   br i1 %82, label %decode_buffer.exit, label %83
 
 83:                                               ; preds = %78
-  %84 = getelementptr inbounds i8, ptr %.1.i39, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.1.i39, i64 2
   %85 = load i32, ptr %7, align 4
   %86 = trunc i32 %85 to i8
   store i8 %86, ptr %.033.i, align 1
-  %87 = getelementptr inbounds i8, ptr %.033.i, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.033.i, i64 1
   %88 = add nuw nsw i32 %.0.i40, 1
   %89 = add nsw i32 %.032.i, -1
   br label %73, !llvm.loop !12
@@ -812,11 +812,11 @@ decode_buffer.exit:                               ; preds = %78, %next_token.exi
   ]
 
 95:                                               ; preds = %.preheader.i.i42
-  %96 = getelementptr inbounds i8, ptr %.0.i.i43, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i43, i64 1
   br label %.preheader.i.i42, !llvm.loop !4
 
 97:                                               ; preds = %.preheader.i.i42
-  %98 = getelementptr inbounds i8, ptr %.0.i.i43, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i43, i64 1
   %99 = load i8, ptr %98, align 1
   %100 = icmp eq i8 %99, 0
   br i1 %100, label %first_token.exit.thread, label %.preheader37.i51
@@ -824,7 +824,7 @@ decode_buffer.exit:                               ; preds = %78, %next_token.exi
 .preheader37.i51:                                 ; preds = %97, %107
   %101 = phi i8 [ %108, %107 ], [ %99, %97 ]
   %.0.i52 = phi ptr [ %.1.i54, %107 ], [ %98, %97 ]
-  %102 = getelementptr inbounds i8, ptr %.0.i52, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 1
   switch i8 %101, label %107 [
     i8 34, label %.preheader.i31.i48.preheader
     i8 92, label %103
@@ -833,7 +833,7 @@ decode_buffer.exit:                               ; preds = %78, %next_token.exi
 103:                                              ; preds = %.preheader37.i51
   %104 = load i8, ptr %102, align 1
   %105 = icmp eq i8 %104, 34
-  %106 = getelementptr inbounds i8, ptr %.0.i52, i64 2
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 2
   %spec.select.i53 = select i1 %105, ptr %106, ptr %102
   br label %107
 
@@ -844,7 +844,7 @@ decode_buffer.exit:                               ; preds = %78, %next_token.exi
   br i1 %109, label %first_token.exit.thread, label %.preheader37.i51, !llvm.loop !6
 
 110:                                              ; preds = %.preheader.i.i42
-  %111 = getelementptr inbounds i8, ptr %.0.i.i43, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i.i43, i64 1
   br label %.preheader.i31.i48.preheader
 
 .preheader.i31.i48.preheader:                     ; preds = %.preheader37.i51, %.preheader.i55, %.preheader.i55, %.preheader.i55, %110
@@ -861,7 +861,7 @@ decode_buffer.exit:                               ; preds = %78, %next_token.exi
   ]
 
 113:                                              ; preds = %.preheader.i55
-  %114 = getelementptr inbounds i8, ptr %.3.i56, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %.3.i56, i64 1
   %.pr.i57 = load i8, ptr %114, align 1
   br label %.preheader.i55, !llvm.loop !7
 
@@ -874,7 +874,7 @@ decode_buffer.exit:                               ; preds = %78, %next_token.exi
   ]
 
 116:                                              ; preds = %.preheader.i31.i48
-  %117 = getelementptr inbounds i8, ptr %.0.i32.i49, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %.0.i32.i49, i64 1
   br label %.preheader.i31.i48, !llvm.loop !4
 
 next_token.exit58:                                ; preds = %.preheader.i31.i48, %next_token.exit
@@ -940,7 +940,7 @@ define range(i32 -1, 1) i32 @MPL_str_add_string(ptr nocapture noundef %0, ptr no
   %.02947.i = phi ptr [ %23, %20 ], [ %2, %13 ]
   %.030.in46.i = phi i32 [ %.131.i, %20 ], [ %5, %13 ]
   %.pn45.i = phi ptr [ %.133.i, %20 ], [ %4, %13 ]
-  %.03249.i = getelementptr inbounds i8, ptr %.pn45.i, i64 1
+  %.03249.i = getelementptr inbounds nuw i8, ptr %.pn45.i, i64 1
   %14 = load i8, ptr %.02947.i, align 1
   switch i8 %14, label %20 [
     i8 0, label %24
@@ -955,7 +955,7 @@ define range(i32 -1, 1) i32 @MPL_str_add_string(ptr nocapture noundef %0, ptr no
   br i1 %18, label %quoted_printf.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %.pn45.i, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.pn45.i, i64 2
   %.pre.i = load i8, ptr %.02947.i, align 1
   br label %20
 
@@ -966,7 +966,7 @@ define range(i32 -1, 1) i32 @MPL_str_add_string(ptr nocapture noundef %0, ptr no
   %.1.i = phi i32 [ %17, %._crit_edge.i ], [ %.048.i, %.lr.ph.i ]
   store i8 %21, ptr %.133.i, align 1
   %22 = add nsw i32 %.1.i, 1
-  %23 = getelementptr inbounds i8, ptr %.02947.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02947.i, i64 1
   %.030.i = add nsw i32 %.131.i, -1
   %.not.i = icmp eq i32 %.030.i, 0
   br i1 %.not.i, label %quoted_printf.exit, label %.lr.ph.i, !llvm.loop !14
@@ -978,7 +978,7 @@ define range(i32 -1, 1) i32 @MPL_str_add_string(ptr nocapture noundef %0, ptr no
   br i1 %26, label %quoted_printf.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %.pn45.i, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %.pn45.i, i64 2
   store i8 0, ptr %28, align 1
   br label %quoted_printf.exit
 
@@ -1082,7 +1082,7 @@ define range(i32 -2, 1) i32 @MPL_str_get_string(ptr noundef %0, ptr noundef writ
   ]
 
 11:                                               ; preds = %.preheader.i
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.preheader.i, !llvm.loop !4
 
 first_token.exit:                                 ; preds = %.preheader.i
@@ -1108,7 +1108,7 @@ first_token.exit:                                 ; preds = %.preheader.i
   ]
 
 18:                                               ; preds = %.preheader.i.i
-  %19 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %.pre = load i8, ptr %19, align 1
   br label %.preheader.i.i, !llvm.loop !4
 
@@ -1123,7 +1123,7 @@ first_token.exit:                                 ; preds = %.preheader.i
 
 21:                                               ; preds = %.preheader.i.i
   store i8 35, ptr %1, align 1
-  %22 = getelementptr inbounds i8, ptr %1, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 0, ptr %22, align 1
   br label %.preheader.i.i19.preheader
 
@@ -1131,7 +1131,7 @@ first_token.exit:                                 ; preds = %.preheader.i
   %.pn.i = phi ptr [ %.2.i, %30 ], [ %.0.i.i, %.preheader.i.i ]
   %.045.i = phi ptr [ %31, %30 ], [ %1, %.preheader.i.i ]
   %.0.i17 = phi i32 [ %32, %30 ], [ %2, %.preheader.i.i ]
-  %.047.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %.047.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %23 = load i8, ptr %.047.i, align 1
   switch i8 %23, label %30 [
     i8 92, label %24
@@ -1139,7 +1139,7 @@ first_token.exit:                                 ; preds = %.preheader.i
   ]
 
 24:                                               ; preds = %.preheader62.i
-  %25 = getelementptr inbounds i8, ptr %.pn.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 34
   %28 = select i1 %27, i8 34, i8 92
@@ -1154,7 +1154,7 @@ first_token.exit:                                 ; preds = %.preheader.i
   %storemerge.i = phi i8 [ %28, %24 ], [ %23, %.preheader62.i ]
   %.2.i = phi ptr [ %spec.select.i, %24 ], [ %.047.i, %.preheader62.i ]
   store i8 %storemerge.i, ptr %.045.i, align 1
-  %31 = getelementptr inbounds i8, ptr %.045.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.045.i, i64 1
   %32 = add nsw i32 %.0.i17, -1
   %.not60.i = icmp eq i32 %32, 0
   br i1 %.not60.i, label %33, label %.preheader62.i, !llvm.loop !8
@@ -1175,8 +1175,8 @@ first_token.exit:                                 ; preds = %.preheader.i
 
 37:                                               ; preds = %.lr.ph.i
   store i8 %34, ptr %.14668.i, align 1
-  %38 = getelementptr inbounds i8, ptr %.14668.i, i64 1
-  %39 = getelementptr inbounds i8, ptr %.367.i, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.14668.i, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.367.i, i64 1
   %40 = add nsw i32 %.169.i, -1
   %41 = load i8, ptr %39, align 1
   %.off.i = add i8 %41, -35
@@ -1213,11 +1213,11 @@ first_token.exit:                                 ; preds = %.preheader.i
   ]
 
 46:                                               ; preds = %.preheader.i.i19
-  %47 = getelementptr inbounds i8, ptr %.0.i.i20, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 1
   br label %.preheader.i.i19, !llvm.loop !4
 
 48:                                               ; preds = %.preheader.i.i19
-  %49 = getelementptr inbounds i8, ptr %.0.i.i20, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %next_token.exit, label %.preheader37.i
@@ -1225,7 +1225,7 @@ first_token.exit:                                 ; preds = %.preheader.i
 .preheader37.i:                                   ; preds = %48, %58
   %52 = phi i8 [ %59, %58 ], [ %50, %48 ]
   %.0.i24 = phi ptr [ %.1.i, %58 ], [ %49, %48 ]
-  %53 = getelementptr inbounds i8, ptr %.0.i24, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 1
   switch i8 %52, label %58 [
     i8 34, label %.preheader.i31.i.preheader
     i8 92, label %54
@@ -1234,7 +1234,7 @@ first_token.exit:                                 ; preds = %.preheader.i
 54:                                               ; preds = %.preheader37.i
   %55 = load i8, ptr %53, align 1
   %56 = icmp eq i8 %55, 34
-  %57 = getelementptr inbounds i8, ptr %.0.i24, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 2
   %spec.select.i25 = select i1 %56, ptr %57, ptr %53
   br label %58
 
@@ -1245,7 +1245,7 @@ first_token.exit:                                 ; preds = %.preheader.i
   br i1 %60, label %next_token.exit, label %.preheader37.i, !llvm.loop !6
 
 61:                                               ; preds = %.preheader.i.i19
-  %62 = getelementptr inbounds i8, ptr %.0.i.i20, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i.i20, i64 1
   br label %.preheader.i31.i.preheader
 
 .preheader.i31.i.preheader:                       ; preds = %.preheader37.i, %.preheader.i26, %.preheader.i26, %.preheader.i26, %61
@@ -1262,7 +1262,7 @@ first_token.exit:                                 ; preds = %.preheader.i
   ]
 
 64:                                               ; preds = %.preheader.i26
-  %65 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   %.pr.i = load i8, ptr %65, align 1
   br label %.preheader.i26, !llvm.loop !7
 
@@ -1275,7 +1275,7 @@ first_token.exit:                                 ; preds = %.preheader.i
   ]
 
 67:                                               ; preds = %.preheader.i31.i
-  %68 = getelementptr inbounds i8, ptr %.0.i32.i, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 1
   br label %.preheader.i31.i, !llvm.loop !4
 
 next_token.exit.loopexit:                         ; preds = %.preheader.i31.i
@@ -1329,7 +1329,7 @@ define range(i32 0, 6) i32 @MPL_str_add_string_arg(ptr nocapture noundef %0, ptr
   %.02947.i = phi ptr [ %25, %22 ], [ %2, %14 ]
   %.030.in46.i = phi i32 [ %.131.i, %22 ], [ %7, %14 ]
   %.pn45.i = phi ptr [ %.133.i, %22 ], [ %15, %14 ]
-  %.03249.i = getelementptr inbounds i8, ptr %.pn45.i, i64 1
+  %.03249.i = getelementptr inbounds nuw i8, ptr %.pn45.i, i64 1
   %16 = load i8, ptr %.02947.i, align 1
   switch i8 %16, label %22 [
     i8 0, label %26
@@ -1344,7 +1344,7 @@ define range(i32 0, 6) i32 @MPL_str_add_string_arg(ptr nocapture noundef %0, ptr
   br i1 %20, label %quoted_printf.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.pn45.i, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.pn45.i, i64 2
   %.pre.i = load i8, ptr %.02947.i, align 1
   br label %22
 
@@ -1355,7 +1355,7 @@ define range(i32 0, 6) i32 @MPL_str_add_string_arg(ptr nocapture noundef %0, ptr
   %.1.i = phi i32 [ %19, %._crit_edge.i ], [ %.048.i, %.lr.ph.i ]
   store i8 %23, ptr %.133.i, align 1
   %24 = add nsw i32 %.1.i, 1
-  %25 = getelementptr inbounds i8, ptr %.02947.i, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.02947.i, i64 1
   %.030.i = add nsw i32 %.131.i, -1
   %.not.i = icmp eq i32 %.030.i, 0
   br i1 %.not.i, label %quoted_printf.exit, label %.lr.ph.i, !llvm.loop !14
@@ -1367,7 +1367,7 @@ define range(i32 0, 6) i32 @MPL_str_add_string_arg(ptr nocapture noundef %0, ptr
   br i1 %28, label %quoted_printf.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.pn45.i, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %.pn45.i, i64 2
   store i8 0, ptr %30, align 1
   br label %quoted_printf.exit
 
@@ -1396,7 +1396,7 @@ quoted_printf.exit:                               ; preds = %22, %17, %29, %26, 
   store ptr %42, ptr %0, align 8
   store i8 35, ptr %42, align 1
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store ptr %44, ptr %0, align 8
   %45 = load i32, ptr %1, align 4
   %46 = add nsw i32 %45, -1
@@ -1434,7 +1434,7 @@ quoted_printf.exit:                               ; preds = %22, %17, %29, %26, 
   %.02947.i66 = phi ptr [ %63, %60 ], [ %3, %52 ]
   %.030.in46.i67 = phi i32 [ %.131.i73, %60 ], [ %46, %52 ]
   %.pn45.i68 = phi ptr [ %.133.i72, %60 ], [ %53, %52 ]
-  %.03249.i69 = getelementptr inbounds i8, ptr %.pn45.i68, i64 1
+  %.03249.i69 = getelementptr inbounds nuw i8, ptr %.pn45.i68, i64 1
   %54 = load i8, ptr %.02947.i66, align 1
   switch i8 %54, label %60 [
     i8 0, label %64
@@ -1449,7 +1449,7 @@ quoted_printf.exit:                               ; preds = %22, %17, %29, %26, 
   br i1 %58, label %quoted_printf.exit78, label %._crit_edge.i70
 
 ._crit_edge.i70:                                  ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.pn45.i68, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.pn45.i68, i64 2
   %.pre.i71 = load i8, ptr %.02947.i66, align 1
   br label %60
 
@@ -1460,7 +1460,7 @@ quoted_printf.exit:                               ; preds = %22, %17, %29, %26, 
   %.1.i74 = phi i32 [ %57, %._crit_edge.i70 ], [ %.048.i65, %.lr.ph.i63 ]
   store i8 %61, ptr %.133.i72, align 1
   %62 = add nsw i32 %.1.i74, 1
-  %63 = getelementptr inbounds i8, ptr %.02947.i66, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.02947.i66, i64 1
   %.030.i75 = add nsw i32 %.131.i73, -1
   %.not.i76 = icmp eq i32 %.030.i75, 0
   br i1 %.not.i76, label %quoted_printf.exit78, label %.lr.ph.i63, !llvm.loop !14
@@ -1472,7 +1472,7 @@ quoted_printf.exit:                               ; preds = %22, %17, %29, %26, 
   br i1 %66, label %quoted_printf.exit78, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %.pn45.i68, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %.pn45.i68, i64 2
   store i8 0, ptr %68, align 1
   br label %quoted_printf.exit78
 
@@ -1508,7 +1508,7 @@ quoted_printf.exit78:                             ; preds = %60, %55, %67, %64, 
 85:                                               ; preds = %quoted_printf.exit78
   store i8 36, ptr %83, align 1
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
   store ptr %87, ptr %0, align 8
   store i8 0, ptr %87, align 1
   %88 = load i32, ptr %1, align 4
@@ -1567,7 +1567,7 @@ define range(i32 0, 7) i32 @MPL_str_add_binary_arg(ptr nocapture noundef %0, ptr
   %.02947.i = phi ptr [ %26, %23 ], [ %2, %15 ]
   %.030.in46.i = phi i32 [ %.131.i, %23 ], [ %8, %15 ]
   %.pn45.i = phi ptr [ %.133.i, %23 ], [ %16, %15 ]
-  %.03249.i = getelementptr inbounds i8, ptr %.pn45.i, i64 1
+  %.03249.i = getelementptr inbounds nuw i8, ptr %.pn45.i, i64 1
   %17 = load i8, ptr %.02947.i, align 1
   switch i8 %17, label %23 [
     i8 0, label %27
@@ -1582,7 +1582,7 @@ define range(i32 0, 7) i32 @MPL_str_add_binary_arg(ptr nocapture noundef %0, ptr
   br i1 %21, label %quoted_printf.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %.pn45.i, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.pn45.i, i64 2
   %.pre.i = load i8, ptr %.02947.i, align 1
   br label %23
 
@@ -1593,7 +1593,7 @@ define range(i32 0, 7) i32 @MPL_str_add_binary_arg(ptr nocapture noundef %0, ptr
   %.1.i = phi i32 [ %20, %._crit_edge.i ], [ %.048.i, %.lr.ph.i ]
   store i8 %24, ptr %.133.i, align 1
   %25 = add nsw i32 %.1.i, 1
-  %26 = getelementptr inbounds i8, ptr %.02947.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.02947.i, i64 1
   %.030.i = add nsw i32 %.131.i, -1
   %.not.i = icmp eq i32 %.030.i, 0
   br i1 %.not.i, label %quoted_printf.exit, label %.lr.ph.i, !llvm.loop !14
@@ -1605,7 +1605,7 @@ define range(i32 0, 7) i32 @MPL_str_add_binary_arg(ptr nocapture noundef %0, ptr
   br i1 %29, label %quoted_printf.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.pn45.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.pn45.i, i64 2
   store i8 0, ptr %31, align 1
   br label %quoted_printf.exit
 
@@ -1634,7 +1634,7 @@ quoted_printf.exit:                               ; preds = %23, %18, %30, %27, 
   store ptr %43, ptr %0, align 8
   store i8 35, ptr %43, align 1
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %45, ptr %0, align 8
   %46 = load i32, ptr %1, align 4
   %47 = add nsw i32 %46, -1
@@ -1653,9 +1653,9 @@ quoted_printf.exit:                               ; preds = %23, %18, %30, %27, 
 
 52:                                               ; preds = %50
   store i8 34, ptr %48, align 1
-  %53 = getelementptr inbounds i8, ptr %48, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 1
   store i8 34, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %48, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store i8 0, ptr %54, align 1
   br label %encode_buffer.exit
 
@@ -1674,9 +1674,9 @@ quoted_printf.exit:                               ; preds = %23, %18, %30, %27, 
 
 60:                                               ; preds = %.lr.ph.i49
   %61 = zext nneg i32 %58 to i64
-  %62 = getelementptr inbounds i8, ptr %.02738.i, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %.02738.i, i64 %61
   %63 = sub nsw i32 %.03035.i, %58
-  %64 = getelementptr inbounds i8, ptr %.02936.i, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.02936.i, i64 1
   %65 = add nuw nsw i32 %.039.i, 1
   %66 = add nsw i32 %.02837.i, -1
   %67 = icmp ne i32 %66, 0
@@ -1713,7 +1713,7 @@ encode_buffer.exit:                               ; preds = %52, %._crit_edge.lo
 80:                                               ; preds = %encode_buffer.exit
   store i8 36, ptr %78, align 1
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
   store ptr %82, ptr %0, align 8
   store i8 0, ptr %82, align 1
   %83 = load i32, ptr %1, align 4

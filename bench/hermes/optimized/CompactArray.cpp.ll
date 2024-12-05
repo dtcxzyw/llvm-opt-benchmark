@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN6hermes12CompactArray7scaleUpEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
-  %scale_ = getelementptr inbounds i8, ptr %this, i64 4
+  %scale_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %scale_, align 4
   %.fr = freeze i32 %1
   %add = add nsw i32 %.fr, 1
@@ -20,13 +20,13 @@ entry:
   br i1 %cmp23.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
 
 entry.for.end_crit_edge:                          ; preds = %entry
-  %raw_.i16.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
+  %raw_.i16.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 8
   %.pre = load ptr, ptr %raw_.i16.phi.trans.insert, align 8
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %3 = load i32, ptr %scale_, align 4
-  %raw_.i5 = getelementptr inbounds i8, ptr %this, i64 8
+  %raw_.i5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %raw_.i5, align 8
   %switch = icmp ult i32 %3, 3
   tail call void @llvm.assume(i1 %switch)
@@ -45,9 +45,9 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.body.us.us
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %for.body.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.i.i.us.us = getelementptr inbounds i8, ptr %4, i64 %indvars.iv135
+  %arrayidx.i.i.us.us = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv135
   %5 = load i8, ptr %arrayidx.i.i.us.us, align 1
-  %arrayidx.i.i13.us.us = getelementptr inbounds i8, ptr %call.i, i64 %indvars.iv135
+  %arrayidx.i.i13.us.us = getelementptr inbounds nuw i8, ptr %call.i, i64 %indvars.iv135
   store i8 %5, ptr %arrayidx.i.i13.us.us, align 1
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count143
@@ -55,14 +55,14 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
 
 for.body.us.us60:                                 ; preds = %for.body.lr.ph.split.us, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69 ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.i4.i.us.us = getelementptr inbounds i16, ptr %4, i64 %indvars.iv130
+  %arrayidx.i4.i.us.us = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv130
   %6 = load i16, ptr %arrayidx.i4.i.us.us, align 2
   %cmp.i.i.us.us65 = icmp ult i16 %6, 256
   br i1 %cmp.i.i.us.us65, label %if.end.i.i.us.us66, label %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69
 
 if.end.i.i.us.us66:                               ; preds = %for.body.us.us60
   %conv1.i.i.us.us67 = trunc nuw i16 %6 to i8
-  %arrayidx.i.i13.us.us68 = getelementptr inbounds i8, ptr %call.i, i64 %indvars.iv130
+  %arrayidx.i.i13.us.us68 = getelementptr inbounds nuw i8, ptr %call.i, i64 %indvars.iv130
   store i8 %conv1.i.i.us.us67, ptr %arrayidx.i.i13.us.us68, align 1
   br label %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69
 
@@ -73,14 +73,14 @@ _ZN6hermes12CompactArray6trySetEjj.exit.us.us69:  ; preds = %if.end.i.i.us.us66,
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %_ZN6hermes12CompactArray6trySetEjj.exit.us
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %_ZN6hermes12CompactArray6trySetEjj.exit.us ], [ 0, %for.body.lr.ph.split.us ]
-  %arrayidx.i7.i.us = getelementptr inbounds i32, ptr %4, i64 %indvars.iv140
+  %arrayidx.i7.i.us = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv140
   %7 = load i32, ptr %arrayidx.i7.i.us, align 4
   %cmp.i.i.us = icmp ult i32 %7, 256
   br i1 %cmp.i.i.us, label %if.end.i.i.us, label %_ZN6hermes12CompactArray6trySetEjj.exit.us
 
 if.end.i.i.us:                                    ; preds = %for.body.us
   %conv1.i.i.us = trunc nuw i32 %7 to i8
-  %arrayidx.i.i13.us = getelementptr inbounds i8, ptr %call.i, i64 %indvars.iv140
+  %arrayidx.i.i13.us = getelementptr inbounds nuw i8, ptr %call.i, i64 %indvars.iv140
   store i8 %conv1.i.i.us, ptr %arrayidx.i.i13.us, align 1
   br label %_ZN6hermes12CompactArray6trySetEjj.exit.us
 
@@ -97,10 +97,10 @@ for.body.lr.ph.split.us25:                        ; preds = %for.body.lr.ph
 
 for.body.us26.us:                                 ; preds = %for.body.lr.ph.split.us25, %for.body.us26.us
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %for.body.us26.us ], [ 0, %for.body.lr.ph.split.us25 ]
-  %arrayidx.i.i.us35.us = getelementptr inbounds i8, ptr %4, i64 %indvars.iv120
+  %arrayidx.i.i.us35.us = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv120
   %8 = load i8, ptr %arrayidx.i.i.us35.us, align 1
   %conv1.i7.i.us.us = zext i8 %8 to i16
-  %arrayidx.i9.i.us.us = getelementptr inbounds i16, ptr %call.i, i64 %indvars.iv120
+  %arrayidx.i9.i.us.us = getelementptr inbounds nuw i16, ptr %call.i, i64 %indvars.iv120
   store i16 %conv1.i7.i.us.us, ptr %arrayidx.i9.i.us.us, align 2
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count143
@@ -108,9 +108,9 @@ for.body.us26.us:                                 ; preds = %for.body.lr.ph.spli
 
 for.body.us26.us73:                               ; preds = %for.body.lr.ph.split.us25, %for.body.us26.us73
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %for.body.us26.us73 ], [ 0, %for.body.lr.ph.split.us25 ]
-  %arrayidx.i4.i.us32.us = getelementptr inbounds i16, ptr %4, i64 %indvars.iv115
+  %arrayidx.i4.i.us32.us = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv115
   %9 = load i16, ptr %arrayidx.i4.i.us32.us, align 2
-  %arrayidx.i9.i.us.us81 = getelementptr inbounds i16, ptr %call.i, i64 %indvars.iv115
+  %arrayidx.i9.i.us.us81 = getelementptr inbounds nuw i16, ptr %call.i, i64 %indvars.iv115
   store i16 %9, ptr %arrayidx.i9.i.us.us81, align 2
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count143
@@ -118,14 +118,14 @@ for.body.us26.us73:                               ; preds = %for.body.lr.ph.spli
 
 for.body.us26:                                    ; preds = %for.body.lr.ph.split.us25, %_ZN6hermes12CompactArray6trySetEjj.exit.us39
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %_ZN6hermes12CompactArray6trySetEjj.exit.us39 ], [ 0, %for.body.lr.ph.split.us25 ]
-  %arrayidx.i7.i.us30 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv125
+  %arrayidx.i7.i.us30 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv125
   %10 = load i32, ptr %arrayidx.i7.i.us30, align 4
   %cmp.i5.i.us = icmp ult i32 %10, 65536
   br i1 %cmp.i5.i.us, label %if.end.i6.i.us, label %_ZN6hermes12CompactArray6trySetEjj.exit.us39
 
 if.end.i6.i.us:                                   ; preds = %for.body.us26
   %conv1.i7.i.us = trunc nuw i32 %10 to i16
-  %arrayidx.i9.i.us = getelementptr inbounds i16, ptr %call.i, i64 %indvars.iv125
+  %arrayidx.i9.i.us = getelementptr inbounds nuw i16, ptr %call.i, i64 %indvars.iv125
   store i16 %conv1.i7.i.us, ptr %arrayidx.i9.i.us, align 2
   br label %_ZN6hermes12CompactArray6trySetEjj.exit.us39
 
@@ -142,10 +142,10 @@ for.body.lr.ph.split.us42:                        ; preds = %for.body.lr.ph
 
 for.body.us43.us:                                 ; preds = %for.body.lr.ph.split.us42, %for.body.us43.us
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %for.body.us43.us ], [ 0, %for.body.lr.ph.split.us42 ]
-  %arrayidx.i.i.us52.us = getelementptr inbounds i8, ptr %4, i64 %indvars.iv105
+  %arrayidx.i.i.us52.us = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv105
   %11 = load i8, ptr %arrayidx.i.i.us52.us, align 1
   %conv.i.i.us53.us = zext i8 %11 to i32
-  %arrayidx.i11.i.us.us = getelementptr inbounds i32, ptr %call.i, i64 %indvars.iv105
+  %arrayidx.i11.i.us.us = getelementptr inbounds nuw i32, ptr %call.i, i64 %indvars.iv105
   store i32 %conv.i.i.us53.us, ptr %arrayidx.i11.i.us.us, align 4
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count143
@@ -153,10 +153,10 @@ for.body.us43.us:                                 ; preds = %for.body.lr.ph.spli
 
 for.body.us43.us86:                               ; preds = %for.body.lr.ph.split.us42, %for.body.us43.us86
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.us43.us86 ], [ 0, %for.body.lr.ph.split.us42 ]
-  %arrayidx.i4.i.us49.us = getelementptr inbounds i16, ptr %4, i64 %indvars.iv
+  %arrayidx.i4.i.us49.us = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
   %12 = load i16, ptr %arrayidx.i4.i.us49.us, align 2
   %conv.i5.i.us50.us = zext i16 %12 to i32
-  %arrayidx.i11.i.us.us91 = getelementptr inbounds i32, ptr %call.i, i64 %indvars.iv
+  %arrayidx.i11.i.us.us91 = getelementptr inbounds nuw i32, ptr %call.i, i64 %indvars.iv
   store i32 %conv.i5.i.us50.us, ptr %arrayidx.i11.i.us.us91, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count143
@@ -164,9 +164,9 @@ for.body.us43.us86:                               ; preds = %for.body.lr.ph.spli
 
 for.body.us43:                                    ; preds = %for.body.lr.ph.split.us42, %for.body.us43
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %for.body.us43 ], [ 0, %for.body.lr.ph.split.us42 ]
-  %arrayidx.i7.i.us47 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv110
+  %arrayidx.i7.i.us47 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv110
   %13 = load i32, ptr %arrayidx.i7.i.us47, align 4
-  %arrayidx.i11.i.us = getelementptr inbounds i32, ptr %call.i, i64 %indvars.iv110
+  %arrayidx.i11.i.us = getelementptr inbounds nuw i32, ptr %call.i, i64 %indvars.iv110
   store i32 %13, ptr %arrayidx.i11.i.us, align 4
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count143
@@ -179,7 +179,7 @@ for.end:                                          ; preds = %for.body.us43.us86,
   %14 = phi ptr [ %.pre, %entry.for.end_crit_edge ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us ], [ %4, %for.body.us.us ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us.us69 ], [ %4, %_ZN6hermes12CompactArray6trySetEjj.exit.us39 ], [ %4, %for.body.us26.us ], [ %4, %for.body.us26.us73 ], [ %4, %for.body.us43 ], [ %4, %for.body.us43.us ], [ %4, %for.body.us43.us86 ]
   store i32 %0, ptr %this, align 8
   store i32 %add, ptr %scale_, align 4
-  %raw_.i16 = getelementptr inbounds i8, ptr %this, i64 8
+  %raw_.i16 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i, ptr %raw_.i16, align 8
   tail call void @free(ptr noundef %14) #4
   ret void

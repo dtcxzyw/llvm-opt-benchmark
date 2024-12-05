@@ -58,7 +58,7 @@ define hidden void @_ZN5osgeo4proj10SQLite3VFSD2Ev(ptr nocapture noundef nonnull
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #19
   tail call void @_ZdlPv(ptr noundef nonnull %6) #20
   br label %10
@@ -96,7 +96,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK5osgeo4proj10SQLite3VFS4nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   ret ptr %4
 }
@@ -133,10 +133,10 @@ define hidden void @_ZN5osgeo4proj10SQLite3VFS6createEbbb(ptr dead_on_unwind noa
   %18 = tail call ptr @sqlite3_vfs_find(ptr noundef null)
   %19 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %19, i8 0, i64 208, i1 false)
-  %20 = getelementptr inbounds i8, ptr %19, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
-  %21 = getelementptr inbounds i8, ptr %19, i64 200
-  %22 = getelementptr inbounds i8, ptr %19, i64 201
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 200
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 201
   store i8 %8, ptr %21, align 8
   store i8 %9, ptr %22, align 1
   %23 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
@@ -158,76 +158,76 @@ define hidden void @_ZN5osgeo4proj10SQLite3VFS6createEbbb(ptr dead_on_unwind noa
   %29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   store i32 1, ptr %19, align 8
-  %30 = getelementptr inbounds i8, ptr %18, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, 8
-  %33 = getelementptr inbounds i8, ptr %19, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %18, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %19, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %35, ptr %36, align 8
   %37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #19
-  %38 = getelementptr inbounds i8, ptr %19, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %19, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %18, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %19, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr @_ZN5osgeo4projL13VFSCustomOpenEP11sqlite3_vfsPKcP12sqlite3_fileiPi, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %18, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %19, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %42, ptr %43, align 8
   br i1 %3, label %47, label %44
 
 44:                                               ; preds = %28
-  %45 = getelementptr inbounds i8, ptr %18, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %46 = load ptr, ptr %45, align 8
   br label %47
 
 47:                                               ; preds = %28, %44
   %48 = phi ptr [ %46, %44 ], [ @_ZN5osgeo4projL15VFSCustomAccessEP11sqlite3_vfsPKciPi, %28 ]
-  %49 = getelementptr inbounds i8, ptr %19, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %18, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %19, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %18, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %19, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %19, i64 72
   store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %18, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %19, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %19, i64 80
   store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %18, i64 88
+  %59 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %19, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %19, i64 88
   store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %18, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %19, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %19, i64 96
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %18, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %19, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %19, i64 104
   store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %18, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %19, i64 112
+  %70 = getelementptr inbounds nuw i8, ptr %19, i64 112
   store ptr %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %18, i64 120
+  %71 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %19, i64 120
+  %73 = getelementptr inbounds nuw i8, ptr %19, i64 120
   store ptr %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %18, i64 128
+  %74 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %19, i64 128
+  %76 = getelementptr inbounds nuw i8, ptr %19, i64 128
   store ptr %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %18, i64 136
+  %77 = getelementptr inbounds nuw i8, ptr %18, i64 136
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %19, i64 136
+  %79 = getelementptr inbounds nuw i8, ptr %19, i64 136
   store ptr %78, ptr %79, align 8
   %80 = invoke i32 @sqlite3_vfs_register(ptr noundef nonnull %19, i32 noundef 0)
           to label %81 unwind label %87
@@ -264,7 +264,7 @@ define hidden void @_ZN5osgeo4proj10SQLite3VFS6createEbbb(ptr dead_on_unwind noa
   br i1 %91, label %94, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %90, i64 168
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 168
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %93) #19
   call void @_ZdlPv(ptr noundef nonnull %90) #20
   br label %94
@@ -287,7 +287,7 @@ define hidden void @_ZN5osgeo4proj10SQLite3VFS6createEbbb(ptr dead_on_unwind noa
   br i1 %100, label %_ZNKSt14default_deleteIN5osgeo4proj10SQLite3VFSEEclEPS2_.exit.i, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %99, i64 168
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 168
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #19
   call void @_ZdlPv(ptr noundef nonnull %99) #20
   br label %_ZNKSt14default_deleteIN5osgeo4proj10SQLite3VFSEEclEPS2_.exit.i
@@ -363,9 +363,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZN5osgeo4projL13VFSCustomOpenEP11sqlite3_vfsPKcP12sqlite3_fileiPi(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #7 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef %7, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
   %11 = icmp eq i32 %10, 0
@@ -373,7 +373,7 @@ define internal noundef i32 @_ZN5osgeo4projL13VFSCustomOpenEP11sqlite3_vfsPKcP12
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias dereferenceable_or_null(152) ptr @malloc(i64 noundef 152) #23
   %.not = icmp eq ptr %16, null
@@ -385,34 +385,34 @@ define internal noundef i32 @_ZN5osgeo4projL13VFSCustomOpenEP11sqlite3_vfsPKcP12
 
 19:                                               ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %16, ptr noundef nonnull align 8 dereferenceable(152) %13, i64 152, i1 false)
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @_ZN5osgeo4projL8VFSCloseEP12sqlite3_file, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 200
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %16, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr @_ZN5osgeo4projL21VSFNoOpLockUnlockSyncEP12sqlite3_filei, ptr %25, align 8
   br label %26
 
 26:                                               ; preds = %24, %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 201
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %16, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store ptr @_ZN5osgeo4projL21VSFNoOpLockUnlockSyncEP12sqlite3_filei, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %16, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store ptr @_ZN5osgeo4projL21VSFNoOpLockUnlockSyncEP12sqlite3_filei, ptr %32, align 8
   br label %33
 
 33:                                               ; preds = %30, %26
   store ptr %16, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %2, i64 %36
@@ -426,7 +426,7 @@ define internal noundef i32 @_ZN5osgeo4projL13VFSCustomOpenEP11sqlite3_vfsPKcP12
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZN5osgeo4projL15VFSCustomAccessEP11sqlite3_vfsPKciPi(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #7 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.2) #24
   %.not = icmp eq ptr %7, null
@@ -442,7 +442,7 @@ define internal noundef i32 @_ZN5osgeo4projL15VFSCustomAccessEP11sqlite3_vfsPKci
   br label %15
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %6, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 %13(ptr noundef %6, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   br label %15
@@ -478,7 +478,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN5osgeo4proj10SQLite3VFSESt14
   br i1 %9, label %_ZNKSt14default_deleteIN5osgeo4proj10SQLite3VFSEEclEPS2_.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 168
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
   tail call void @_ZdlPv(ptr noundef nonnull %8) #20
   br label %_ZNKSt14default_deleteIN5osgeo4proj10SQLite3VFSEEclEPS2_.exit
@@ -502,9 +502,9 @@ _ZNKSt14default_deleteIN5osgeo4proj10SQLite3VFSEEclEPS2_.exit: ; preds = %3, %7,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5osgeo4proj15SQLiteStatementC2EP12sqlite3_stmt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4
   ret void
 }
@@ -536,7 +536,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZN5osgeo4projL8VFSCloseEP12sqlite3_file(ptr noundef %0) #7 {
   %2 = tail call ptr @sqlite3_vfs_find(ptr noundef null)
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5

@@ -54,15 +54,15 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   %3 = alloca i8, align 1
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   %5 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %4, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = tail call ptr @MemoryContextStrdup(ptr noundef %5, ptr noundef nonnull %8) #6
   tail call void @MemoryContextSetIdentifier(ptr noundef %5, ptr noundef %9) #6
   %10 = tail call ptr @MemoryContextAllocZero(ptr noundef %5, i64 noundef 16) #6
   store ptr %5, ptr %10, align 8
   %11 = tail call ptr @table_open(i32 noundef 3256, i32 noundef 1) #6
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %14) #6
@@ -72,29 +72,29 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %11, i64 64
-  %18 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %19
 
 19:                                               ; preds = %.lr.ph, %80
   %20 = phi ptr [ %16, %.lr.ph ], [ %85, %80 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 22
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 22
   %24 = load i8, ptr %23, align 2
   %25 = zext i8 %24 to i64
   %26 = getelementptr i8, ptr %22, i64 %25
   %27 = call ptr @MemoryContextAllocZero(ptr noundef %5, i64 noundef 56) #6
-  %28 = getelementptr inbounds i8, ptr %26, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %29 = load i8, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i8 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 73
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 73
   %32 = load i8, ptr %31, align 1
-  %33 = getelementptr inbounds i8, ptr %27, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %34 = and i8 %32, 1
   store i8 %34, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %26, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %36 = call ptr @MemoryContextStrdup(ptr noundef %5, ptr noundef nonnull %35) #6
   store ptr %36, ptr %27, align 8
   %37 = load ptr, ptr %17, align 8
@@ -114,7 +114,7 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %45 = inttoptr i64 %38 to ptr
   %46 = call ptr @pg_detoast_datum_copy(ptr noundef %45) #6
-  %47 = getelementptr inbounds i8, ptr %27, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %46, ptr %47, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
   %48 = load ptr, ptr %17, align 8
@@ -128,14 +128,14 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   %54 = call ptr @text_to_cstring(ptr noundef %53) #6
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %55 = call ptr @stringToNode(ptr noundef %54) #6
-  %56 = getelementptr inbounds i8, ptr %27, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %55, ptr %56, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
   call void @pfree(ptr noundef %54) #6
   br label %59
 
 57:                                               ; preds = %44
-  %58 = getelementptr inbounds i8, ptr %27, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr null, ptr %58, align 8
   br label %59
 
@@ -151,25 +151,25 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   %66 = call ptr @text_to_cstring(ptr noundef %65) #6
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %67 = call ptr @stringToNode(ptr noundef %66) #6
-  %68 = getelementptr inbounds i8, ptr %27, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %67, ptr %68, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
   call void @pfree(ptr noundef %66) #6
   br label %71
 
 69:                                               ; preds = %59
-  %70 = getelementptr inbounds i8, ptr %27, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr null, ptr %70, align 8
   br label %71
 
 71:                                               ; preds = %69, %64
-  %72 = getelementptr inbounds i8, ptr %27, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %73 = load ptr, ptr %72, align 8
   %74 = call zeroext i1 @checkExprHasSubLink(ptr noundef %73) #6
   br i1 %74, label %80, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %27, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = call zeroext i1 @checkExprHasSubLink(ptr noundef %77) #6
   %79 = zext i1 %78 to i8
@@ -177,7 +177,7 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
 
 80:                                               ; preds = %75, %71
   %81 = phi i8 [ 1, %71 ], [ %79, %75 ]
-  %82 = getelementptr inbounds i8, ptr %27, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %27, i64 48
   store i8 %81, ptr %82, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %83 = load ptr, ptr %18, align 8
@@ -193,7 +193,7 @@ define dso_local void @RelationBuildRowSecurity(ptr nocapture noundef %0) local_
   call void @table_close(ptr noundef %11, i32 noundef 1) #6
   %86 = load ptr, ptr @CacheMemoryContext, align 8
   call void @MemoryContextSetParent(ptr noundef %5, ptr noundef %86) #6
-  %87 = getelementptr inbounds i8, ptr %0, i64 112
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %10, ptr %87, align 8
   ret void
 }
@@ -216,9 +216,9 @@ declare ptr @systable_getnext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef range(i32 4, 9) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 18
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
@@ -232,33 +232,33 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 14:                                               ; preds = %4
   store i8 0, ptr %3, align 1
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i16, ptr %16, align 4
   %18 = and i16 %17, 1
   %.not.i = icmp eq i16 %18, 0
   br i1 %.not.i, label %19, label %59
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %21 = add nsw i32 %1, -1
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %20, i64 0, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 76
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, -1
   br i1 %26, label %27, label %57
 
 27:                                               ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %15, i64 22
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 22
   %29 = load i8, ptr %28, align 2
   %30 = zext i8 %29 to i64
   %31 = getelementptr i8, ptr %15, i64 %30
   %32 = zext nneg i32 %25 to i64
   %33 = getelementptr i8, ptr %31, i64 %32
-  %34 = getelementptr inbounds i8, ptr %23, i64 86
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 86
   %35 = load i8, ptr %34, align 2
   %36 = trunc i8 %35 to i1
-  %37 = getelementptr inbounds i8, ptr %23, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %38 = load i16, ptr %37, align 4
   br i1 %36, label %39, label %55
 
@@ -307,7 +307,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 
 59:                                               ; preds = %14
   %60 = add nsw i32 %1, -1
-  %61 = getelementptr inbounds i8, ptr %15, i64 23
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 23
   %.val.i = load i8, ptr %61, align 1
   %62 = zext i8 %.val.i to i32
   %63 = shl nuw nsw i32 1, %60
@@ -374,18 +374,18 @@ define dso_local void @RemovePolicyById(i32 noundef %0) local_unnamed_addr #0 {
   unreachable
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 68
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 68
   %18 = load i32, ptr %17, align 4
   %19 = call ptr @table_open(i32 noundef %18, i32 noundef 8) #6
-  %20 = getelementptr inbounds i8, ptr %19, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 115
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 115
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %24 [
     i8 114, label %30
@@ -397,7 +397,7 @@ define dso_local void @RemovePolicyById(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.assume(i1 %25)
   %26 = call i32 @errcode(i32 noundef 151027844) #6
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %28) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 377, ptr noundef nonnull @__func__.RemovePolicyById) #6
   unreachable
@@ -416,13 +416,13 @@ define dso_local void @RemovePolicyById(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.assume(i1 %36)
   %37 = call i32 @errcode(i32 noundef 16797828) #6
   %38 = load ptr, ptr %20, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %39) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 383, ptr noundef nonnull @__func__.RemovePolicyById) #6
   unreachable
 
 41:                                               ; preds = %33, %30
-  %42 = getelementptr inbounds i8, ptr %6, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @CatalogTupleDelete(ptr noundef %3, ptr noundef nonnull %42) #6
   call void @systable_endscan(ptr noundef %5) #6
   call void @CacheInvalidateRelcache(ptr noundef nonnull %19) #6
@@ -466,20 +466,20 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
   unreachable
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 22
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 22
   %22 = load i8, ptr %21, align 2
   %23 = zext i8 %22 to i64
   %24 = getelementptr i8, ptr %20, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 68
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 68
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %11, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = call fastcc i64 @heap_getattr(ptr noundef %14, i32 noundef 6, ptr noundef %28, ptr noundef %5)
   %30 = inttoptr i64 %29 to ptr
   %31 = call ptr @pg_detoast_datum_copy(ptr noundef %30) #6
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i32, ptr %32, align 4
   %.not58 = icmp eq i32 %33, 0
   br i1 %.not58, label %36, label %34
@@ -489,7 +489,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
   br label %43
 
 36:                                               ; preds = %18
-  %37 = getelementptr inbounds i8, ptr %31, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %38 to i64
   %40 = shl nsw i64 %39, 3
@@ -544,22 +544,22 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
   store i64 0, ptr %7, align 8
   %62 = call ptr @construct_array_builtin(ptr noundef %50, i32 noundef %.153, i32 noundef 26) #6
   %63 = ptrtoint ptr %62 to i64
-  %64 = getelementptr inbounds i8, ptr %6, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %63, ptr %64, align 8
   %65 = load ptr, ptr %27, align 8
   %66 = call ptr @heap_modify_tuple(ptr noundef nonnull %14, ptr noundef %65, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   call void @CatalogTupleUpdate(ptr noundef %11, ptr noundef nonnull %67, ptr noundef %66) #6
   call void @deleteSharedDependencyRecordsFor(i32 noundef 3256, i32 noundef %2, i32 noundef 0) #6
   store i32 3256, ptr %10, align 4
-  %68 = getelementptr inbounds i8, ptr %10, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %2, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %10, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %69, align 4
   store i32 1260, ptr %9, align 4
-  %70 = getelementptr inbounds i8, ptr %9, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %9, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %wide.trip.count70 = zext nneg i32 %.153 to i64
   br label %72
 
@@ -646,7 +646,7 @@ define dso_local { i64, i32 } @CreatePolicy(ptr noundef %0) local_unnamed_addr #
   %6 = alloca [8 x i8], align 8
   %7 = alloca %struct.ObjectAddress, align 4
   store i32 0, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %13
@@ -692,7 +692,7 @@ define dso_local { i64, i32 } @CreatePolicy(ptr noundef %0) local_unnamed_addr #
 
 31:                                               ; preds = %16, %25
   %.0.i.ph78 = phi i64 [ 100, %25 ], [ 114, %16 ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %parse_policy_command.exit.thread, label %34
@@ -706,7 +706,7 @@ define dso_local { i64, i32 } @CreatePolicy(ptr noundef %0) local_unnamed_addr #
   unreachable
 
 parse_policy_command.exit:                        ; preds = %19
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = load ptr, ptr %38, align 8
   %.not69 = icmp eq ptr %39, null
   br i1 %.not69, label %parse_policy_command.exit.thread, label %40
@@ -721,17 +721,17 @@ parse_policy_command.exit:                        ; preds = %19
 
 parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %parse_policy_command.exit
   %.0.i76 = phi i64 [ 97, %parse_policy_command.exit ], [ %.0.i.ph78, %31 ], [ 119, %22 ], [ 42, %13 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = call fastcc ptr @policy_role_list_to_array(ptr noundef %45, ptr noundef %3)
   %47 = load i32, ptr %3, align 4
   %48 = tail call ptr @construct_array_builtin(ptr noundef %46, i32 noundef %47, i32 noundef 26) #6
   %49 = tail call ptr @make_parsestate(ptr noundef null) #6
   %50 = tail call ptr @make_parsestate(ptr noundef null) #6
-  %51 = getelementptr inbounds i8, ptr %5, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %51, i8 0, i64 48, i1 false)
   store i64 0, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %53, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackForPolicy, ptr noundef nonnull %0) #6
   %55 = tail call ptr @relation_open(i32 noundef %54, i32 noundef 0) #6
@@ -739,10 +739,10 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
   tail call void @addNSItemToQuery(ptr noundef %49, ptr noundef %56, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true) #6
   %57 = tail call ptr @addRangeTableEntryForRelation(ptr noundef %50, ptr noundef %55, i32 noundef 1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #6
   tail call void @addNSItemToQuery(ptr noundef %50, ptr noundef %57, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true) #6
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr @transformWhereClause(ptr noundef %49, ptr noundef %59, i32 noundef 37, ptr noundef nonnull @.str.8) #6
-  %61 = getelementptr inbounds i8, ptr %0, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr @transformWhereClause(ptr noundef %50, ptr noundef %62, i32 noundef 37, ptr noundef nonnull @.str.8) #6
   tail call void @assign_expr_collations(ptr noundef %49, ptr noundef %60) #6
@@ -750,8 +750,8 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
   %64 = tail call ptr @table_open(i32 noundef 3256, i32 noundef 3) #6
   %65 = zext i32 %54 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %65) #6
-  %66 = getelementptr inbounds i8, ptr %4, i64 72
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = ptrtoint ptr %68 to i64
   call void @ScanKeyInit(ptr noundef nonnull %66, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %69) #6
@@ -765,9 +765,9 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
   call void @llvm.assume(i1 %73)
   %74 = call i32 @errcode(i32 noundef 290948) #6
   %75 = load ptr, ptr %67, align 8
-  %76 = getelementptr inbounds i8, ptr %55, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %75, ptr noundef nonnull %78) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 690, ptr noundef nonnull @__func__.CreatePolicy) #6
   unreachable
@@ -776,23 +776,23 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
   %81 = call i32 @GetNewOidWithIndex(ptr noundef %64, i32 noundef 3257, i16 noundef signext 1) #6
   %82 = zext i32 %81 to i64
   store i64 %82, ptr %5, align 16
-  %83 = getelementptr inbounds i8, ptr %5, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %65, ptr %83, align 16
   %84 = load ptr, ptr %67, align 8
   %85 = ptrtoint ptr %84 to i64
   %86 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %85) #6
-  %87 = getelementptr inbounds i8, ptr %5, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %5, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %.0.i76, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load i8, ptr %89, align 8
   %91 = and i8 %90, 1
   %92 = zext nneg i8 %91 to i64
-  %93 = getelementptr inbounds i8, ptr %5, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %92, ptr %93, align 16
   %94 = ptrtoint ptr %48 to i64
-  %95 = getelementptr inbounds i8, ptr %5, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %94, ptr %95, align 8
   %.not71 = icmp eq ptr %60, null
   br i1 %.not71, label %101, label %96
@@ -801,12 +801,12 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
   %97 = call ptr @nodeToString(ptr noundef nonnull %60) #6
   %98 = call ptr @cstring_to_text(ptr noundef %97) #6
   %99 = ptrtoint ptr %98 to i64
-  %100 = getelementptr inbounds i8, ptr %5, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %99, ptr %100, align 16
   br label %103
 
 101:                                              ; preds = %80
-  %102 = getelementptr inbounds i8, ptr %6, i64 6
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i8 1, ptr %102, align 2
   br label %103
 
@@ -818,35 +818,35 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
   %105 = call ptr @nodeToString(ptr noundef nonnull %63) #6
   %106 = call ptr @cstring_to_text(ptr noundef %105) #6
   %107 = ptrtoint ptr %106 to i64
-  %108 = getelementptr inbounds i8, ptr %5, i64 56
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %107, ptr %108, align 8
   br label %111
 
 109:                                              ; preds = %103
-  %110 = getelementptr inbounds i8, ptr %6, i64 7
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 7
   store i8 1, ptr %110, align 1
   br label %111
 
 111:                                              ; preds = %109, %104
-  %112 = getelementptr inbounds i8, ptr %64, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %113 = load ptr, ptr %112, align 8
   %114 = call ptr @heap_form_tuple(ptr noundef %113, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   call void @CatalogTupleInsert(ptr noundef %64, ptr noundef %114) #6
   store i32 1259, ptr %7, align 4
-  %115 = getelementptr inbounds i8, ptr %7, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %54, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %7, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %116, align 4
   store i32 3256, ptr %2, align 8
-  %117 = getelementptr inbounds i8, ptr %2, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %81, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %2, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %118, align 8
   call void @recordDependencyOn(ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef 97) #6
-  %119 = getelementptr inbounds i8, ptr %49, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %120 = load ptr, ptr %119, align 8
   call void @recordDependencyOnExpr(ptr noundef nonnull %2, ptr noundef %60, ptr noundef %120, i32 noundef 110) #6
-  %121 = getelementptr inbounds i8, ptr %50, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %122 = load ptr, ptr %121, align 8
   call void @recordDependencyOnExpr(ptr noundef nonnull %2, ptr noundef %63, ptr noundef %122, i32 noundef 110) #6
   store i32 1260, ptr %7, align 4
@@ -922,7 +922,7 @@ define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly %0, p
   br i1 %.not29, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
 13:                                               ; preds = %.lr.ph, %29
@@ -930,7 +930,7 @@ define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly %0, p
   %14 = load ptr, ptr %12, align 8
   %15 = getelementptr %union.ListCell, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 4
   br i1 %19, label %20, label %29
@@ -988,13 +988,13 @@ define internal void @RangeVarCallbackForPolicy(ptr nocapture noundef readonly %
   br i1 %.not, label %43, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 115
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 115
   %15 = load i8, ptr %14, align 1
   %16 = tail call i32 @GetUserId() #6
   %17 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %1, i32 noundef %16) #6
@@ -1003,7 +1003,7 @@ define internal void @RangeVarCallbackForPolicy(ptr nocapture noundef readonly %
 18:                                               ; preds = %7
   %19 = tail call signext i8 @get_rel_relkind(i32 noundef %1) #6
   %20 = tail call i32 @get_relkind_objtype(i8 noundef signext %19) #6
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @aclcheck_error(i32 noundef 2, i32 noundef %20, ptr noundef %22) #6
   br label %23
@@ -1021,7 +1021,7 @@ define internal void @RangeVarCallbackForPolicy(ptr nocapture noundef readonly %
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %29)
   %30 = tail call i32 @errcode(i32 noundef 16797828) #6
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %32) #6
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 90, ptr noundef nonnull @__func__.RangeVarCallbackForPolicy) #6
@@ -1036,7 +1036,7 @@ define internal void @RangeVarCallbackForPolicy(ptr nocapture noundef readonly %
   %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %37)
   %38 = tail call i32 @errcode(i32 noundef 151027844) #6
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %40) #6
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 96, ptr noundef nonnull @__func__.RangeVarCallbackForPolicy) #6
@@ -1098,7 +1098,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
   store i32 0, ptr %3, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %19, label %15
@@ -1112,11 +1112,11 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
 19:                                               ; preds = %15, %1
   %.0105 = phi ptr [ %18, %15 ], [ null, %1 ]
   %.0 = phi ptr [ %16, %15 ], [ null, %1 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %21, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackForPolicy, ptr noundef nonnull %0) #6
   %23 = tail call ptr @relation_open(i32 noundef %22, i32 noundef 0) #6
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not119 = icmp eq ptr %25, null
   br i1 %.not119, label %33, label %26
@@ -1128,7 +1128,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %29 = load ptr, ptr %24, align 8
   %30 = tail call ptr @transformWhereClause(ptr noundef %27, ptr noundef %29, i32 noundef 37, ptr noundef nonnull @.str.8) #6
   tail call void @assign_expr_collations(ptr noundef %27, ptr noundef %30) #6
-  %31 = getelementptr inbounds i8, ptr %27, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %32 = load ptr, ptr %31, align 8
   tail call void @free_parsestate(ptr noundef %27) #6
   br label %33
@@ -1136,7 +1136,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
 33:                                               ; preds = %26, %19
   %.0110 = phi ptr [ %30, %26 ], [ null, %19 ]
   %.0106 = phi ptr [ %32, %26 ], [ null, %19 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
   %.not120 = icmp eq ptr %35, null
   br i1 %.not120, label %43, label %36
@@ -1148,7 +1148,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %39 = load ptr, ptr %34, align 8
   %40 = tail call ptr @transformWhereClause(ptr noundef %37, ptr noundef %39, i32 noundef 37, ptr noundef nonnull @.str.8) #6
   tail call void @assign_expr_collations(ptr noundef %37, ptr noundef %40) #6
-  %41 = getelementptr inbounds i8, ptr %37, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %42 = load ptr, ptr %41, align 8
   tail call void @free_parsestate(ptr noundef %37) #6
   br label %43
@@ -1162,8 +1162,8 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %44 = tail call ptr @table_open(i32 noundef 3256, i32 noundef 3) #6
   %45 = zext i32 %22 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %45) #6
-  %46 = getelementptr inbounds i8, ptr %4, i64 72
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
   call void @ScanKeyInit(ptr noundef nonnull %46, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %49) #6
@@ -1177,15 +1177,15 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.assume(i1 %53)
   %54 = call i32 @errcode(i32 noundef 67137668) #6
   %55 = load ptr, ptr %47, align 8
-  %56 = getelementptr inbounds i8, ptr %23, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %55, ptr noundef nonnull %58) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 892, ptr noundef nonnull @__func__.AlterPolicy) #6
   unreachable
 
 60:                                               ; preds = %43
-  %61 = getelementptr inbounds i8, ptr %44, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %62 = load ptr, ptr %61, align 8
   %63 = call fastcc i64 @heap_getattr(ptr noundef %51, i32 noundef 4, ptr noundef %62, ptr noundef %9)
   %64 = trunc i64 %63 to i8
@@ -1222,9 +1222,9 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   unreachable
 
 77:                                               ; preds = %65, %60, %71
-  %78 = getelementptr inbounds i8, ptr %51, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 22
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 22
   %81 = load i8, ptr %80, align 2
   %82 = zext i8 %81 to i64
   %83 = getelementptr i8, ptr %79, i64 %82
@@ -1233,10 +1233,10 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not124, label %89, label %85
 
 85:                                               ; preds = %77
-  %86 = getelementptr inbounds i8, ptr %7, i64 5
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 5
   store i8 1, ptr %86, align 1
   %87 = ptrtoint ptr %.0105 to i64
-  %88 = getelementptr inbounds i8, ptr %5, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %87, ptr %88, align 8
   br label %.loopexit
 
@@ -1245,7 +1245,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %91 = call fastcc i64 @heap_getattr(ptr noundef %51, i32 noundef 6, ptr noundef %90, ptr noundef %10)
   %92 = inttoptr i64 %91 to ptr
   %93 = call ptr @pg_detoast_datum_copy(ptr noundef %92) #6
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load i32, ptr %94, align 4
   %.not125 = icmp eq i32 %95, 0
   br i1 %.not125, label %98, label %96
@@ -1255,7 +1255,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   br label %105
 
 98:                                               ; preds = %89
-  %99 = getelementptr inbounds i8, ptr %93, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = sext i32 %100 to i64
   %102 = shl nsw i64 %101, 3
@@ -1296,12 +1296,12 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not126, label %124, label %118
 
 118:                                              ; preds = %.loopexit
-  %119 = getelementptr inbounds i8, ptr %7, i64 6
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i8 1, ptr %119, align 2
   %120 = call ptr @nodeToString(ptr noundef nonnull %.0110) #6
   %121 = call ptr @cstring_to_text(ptr noundef %120) #6
   %122 = ptrtoint ptr %121 to i64
-  %123 = getelementptr inbounds i8, ptr %5, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %122, ptr %123, align 16
   br label %137
 
@@ -1318,7 +1318,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %132 = call ptr @text_to_cstring(ptr noundef %131) #6
   %133 = call ptr @stringToNode(ptr noundef %132) #6
   %134 = call ptr @addRangeTableEntryForRelation(ptr noundef %130, ptr noundef %23, i32 noundef 1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #6
-  %135 = getelementptr inbounds i8, ptr %130, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %136 = load ptr, ptr %135, align 8
   call void @free_parsestate(ptr noundef %130) #6
   br label %137
@@ -1330,12 +1330,12 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not127, label %144, label %138
 
 138:                                              ; preds = %137
-  %139 = getelementptr inbounds i8, ptr %7, i64 7
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 7
   store i8 1, ptr %139, align 1
   %140 = call ptr @nodeToString(ptr noundef nonnull %.0112) #6
   %141 = call ptr @cstring_to_text(ptr noundef %140) #6
   %142 = ptrtoint ptr %141 to i64
-  %143 = getelementptr inbounds i8, ptr %5, i64 56
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %142, ptr %143, align 8
   br label %157
 
@@ -1352,7 +1352,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %152 = call ptr @text_to_cstring(ptr noundef %151) #6
   %153 = call ptr @stringToNode(ptr noundef %152) #6
   %154 = call ptr @addRangeTableEntryForRelation(ptr noundef %150, ptr noundef %23, i32 noundef 1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #6
-  %155 = getelementptr inbounds i8, ptr %150, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %156 = load ptr, ptr %155, align 8
   call void @free_parsestate(ptr noundef %150) #6
   br label %157
@@ -1362,18 +1362,18 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %.1109 = phi ptr [ %.0108, %138 ], [ %.0108, %144 ], [ %156, %149 ]
   %158 = load ptr, ptr %61, align 8
   %159 = call ptr @heap_modify_tuple(ptr noundef nonnull %51, ptr noundef %158, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
-  %160 = getelementptr inbounds i8, ptr %159, i64 4
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   call void @CatalogTupleUpdate(ptr noundef %44, ptr noundef nonnull %160, ptr noundef %159) #6
   %161 = call i64 @deleteDependencyRecordsFor(i32 noundef 3256, i32 noundef %84, i1 noundef zeroext false) #6
   store i32 1259, ptr %8, align 4
-  %162 = getelementptr inbounds i8, ptr %8, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %22, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %8, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %163, align 4
   store i32 3256, ptr %2, align 8
-  %164 = getelementptr inbounds i8, ptr %2, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %84, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %2, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %165, align 8
   call void @recordDependencyOn(ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef 97) #6
   call void @recordDependencyOnExpr(ptr noundef nonnull %2, ptr noundef %.1111, ptr noundef %.1107, i32 noundef 110) #6
@@ -1434,15 +1434,15 @@ declare i64 @deleteDependencyRecordsFor(i32 noundef, i32 noundef, i1 noundef zer
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i32 } @rename_policy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [2 x %struct.ScanKeyData], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %4, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackForPolicy, ptr noundef %0) #6
   %6 = tail call ptr @relation_open(i32 noundef %5, i32 noundef 0) #6
   %7 = tail call ptr @table_open(i32 noundef 3256, i32 noundef 3) #6
   %8 = zext i32 %5 to i64
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #6
-  %9 = getelementptr inbounds i8, ptr %2, i64 72
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %12) #6
@@ -1456,9 +1456,9 @@ define dso_local { i64, i32 } @rename_policy(ptr noundef %0) local_unnamed_addr 
   call void @llvm.assume(i1 %16)
   %17 = call i32 @errcode(i32 noundef 290948) #6
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %18, ptr noundef nonnull %21) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1142, ptr noundef nonnull @__func__.rename_policy) #6
   unreachable
@@ -1466,7 +1466,7 @@ define dso_local { i64, i32 } @rename_policy(ptr noundef %0) local_unnamed_addr 
 23:                                               ; preds = %1
   call void @systable_endscan(ptr noundef %13) #6
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #6
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %26) #6
@@ -1480,32 +1480,32 @@ define dso_local { i64, i32 } @rename_policy(ptr noundef %0) local_unnamed_addr 
   call void @llvm.assume(i1 %30)
   %31 = call i32 @errcode(i32 noundef 67137668) #6
   %32 = load ptr, ptr %24, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %32, ptr noundef nonnull %35) #6
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1170, ptr noundef nonnull @__func__.rename_policy) #6
   unreachable
 
 37:                                               ; preds = %23
-  %38 = getelementptr inbounds i8, ptr %28, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 22
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 22
   %41 = load i8, ptr %40, align 2
   %42 = zext i8 %41 to i64
   %43 = getelementptr i8, ptr %39, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = call ptr @heap_copytuple(ptr noundef nonnull %28) #6
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 22
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 22
   %49 = load i8, ptr %48, align 2
   %50 = zext i8 %49 to i64
   %51 = getelementptr i8, ptr %47, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load ptr, ptr %10, align 8
   call void @namestrcpy(ptr noundef nonnull %52, ptr noundef %53) #6
-  %54 = getelementptr inbounds i8, ptr %45, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 4
   call void @CatalogTupleUpdate(ptr noundef %7, ptr noundef nonnull %54, ptr noundef %45) #6
   %55 = load ptr, ptr @object_access_hook, align 8
   %.not34 = icmp eq ptr %55, null
@@ -1538,7 +1538,7 @@ define dso_local i32 @get_relation_policy_oid(i32 noundef %0, ptr noundef %1, i1
   %5 = tail call ptr @table_open(i32 noundef 3256, i32 noundef 1) #6
   %6 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #6
-  %7 = getelementptr inbounds i8, ptr %4, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %8 = ptrtoint ptr %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 62, i64 noundef %8) #6
   %9 = call ptr @systable_beginscan(ptr noundef %5, i32 noundef 3258, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %4) #6
@@ -1559,9 +1559,9 @@ define dso_local i32 @get_relation_policy_oid(i32 noundef %0, ptr noundef %1, i1
   unreachable
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %10, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 22
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 22
   %21 = load i8, ptr %20, align 2
   %22 = zext i8 %21 to i64
   %23 = getelementptr i8, ptr %19, i64 %22
@@ -1581,7 +1581,7 @@ declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @relation_has_policies(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   %3 = tail call ptr @table_open(i32 noundef 3256, i32 noundef 1) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #6

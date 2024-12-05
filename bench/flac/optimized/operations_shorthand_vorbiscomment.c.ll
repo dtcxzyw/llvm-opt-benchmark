@@ -117,7 +117,7 @@ if.end25:                                         ; preds = %do.body, %while.end
 sw.bb:                                            ; preds = %if.end25
   %tobool27.not = icmp eq i32 %prefix_with_filename, 0
   %cond = select i1 %tobool27.not, ptr null, ptr %filename
-  %data = getelementptr inbounds i8, ptr %block.0, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %block.0, i64 16
   %4 = load ptr, ptr @stdout, align 8
   tail call void @write_vc_field(ptr noundef %cond, ptr noundef nonnull %data, i32 noundef %raw, ptr noundef %4) #10
   br label %sw.epilog
@@ -125,18 +125,18 @@ sw.bb:                                            ; preds = %if.end25
 sw.bb28:                                          ; preds = %if.end25
   %tobool29.not = icmp eq i32 %prefix_with_filename, 0
   %cond33 = select i1 %tobool29.not, ptr null, ptr %filename
-  %argument = getelementptr inbounds i8, ptr %operation, i64 8
+  %argument = getelementptr inbounds nuw i8, ptr %operation, i64 8
   %5 = load ptr, ptr %argument, align 8
-  %comments = getelementptr inbounds i8, ptr %block.0, i64 40
+  %comments = getelementptr inbounds nuw i8, ptr %block.0, i64 40
   %6 = load ptr, ptr %comments, align 8
-  %num_comments = getelementptr inbounds i8, ptr %block.0, i64 32
+  %num_comments = getelementptr inbounds nuw i8, ptr %block.0, i64 32
   %7 = load i32, ptr %num_comments, align 8
   %8 = load ptr, ptr @stdout, align 8
   tail call void @write_vc_fields(ptr noundef %cond33, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %raw, ptr noundef %8) #10
   br label %sw.epilog
 
 sw.bb36:                                          ; preds = %if.end25
-  %comments.i = getelementptr inbounds i8, ptr %block.0, i64 40
+  %comments.i = getelementptr inbounds nuw i8, ptr %block.0, i64 40
   %9 = load ptr, ptr %comments.i, align 8
   %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %sw.epilog, label %if.then.i
@@ -156,13 +156,13 @@ if.end.i:                                         ; preds = %if.then.i
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.end25
-  %argument39 = getelementptr inbounds i8, ptr %operation, i64 8
+  %argument39 = getelementptr inbounds nuw i8, ptr %operation, i64 8
   %11 = load ptr, ptr %argument39, align 8
   call void @llvm.lifetime.start.p0(i64 1600, ptr nonnull %field_names.i)
   %call.i51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #12
   store ptr %11, ptr %field_names.i, align 16
   %idx.ext.i = and i64 %call.i51, 4294967295
-  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 %idx.ext.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i55, %sw.bb38
@@ -175,8 +175,8 @@ for.body.i:                                       ; preds = %if.end.i55, %sw.bb3
   br i1 %or.cond.i, label %if.end.i55, label %for.end.i
 
 if.end.i55:                                       ; preds = %for.body.i
-  %add.ptr8.i = getelementptr inbounds i8, ptr %call3.i, i64 1
-  %arrayidx10.i = getelementptr inbounds [200 x ptr], ptr %field_names.i, i64 0, i64 %indvars.iv.i
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 1
+  %arrayidx10.i = getelementptr inbounds nuw [200 x ptr], ptr %field_names.i, i64 0, i64 %indvars.iv.i
   store ptr %add.ptr8.i, ptr %arrayidx10.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
@@ -189,17 +189,17 @@ for.end.i:                                        ; preds = %for.body.i
 
 for.cond16.preheader.i:                           ; preds = %if.end.i55, %for.end.i
   %num_field_names.0.lcssa34.i = phi i32 [ %13, %for.end.i ], [ 200, %if.end.i55 ]
-  %num_comments.i = getelementptr inbounds i8, ptr %block.0, i64 32
+  %num_comments.i = getelementptr inbounds nuw i8, ptr %block.0, i64 32
   %14 = load i32, ptr %num_comments.i, align 8
   %cmp1724.not.i = icmp eq i32 %14, 0
   br i1 %cmp1724.not.i, label %remove_vc_all_except.exit, label %for.cond20.preheader.lr.ph.i
 
 for.cond20.preheader.lr.ph.i:                     ; preds = %for.cond16.preheader.i
   %sub24.i = add nsw i32 %num_field_names.0.lcssa34.i, -1
-  %comments.i52 = getelementptr inbounds i8, ptr %block.0, i64 40
+  %comments.i52 = getelementptr inbounds nuw i8, ptr %block.0, i64 40
   %15 = zext i32 %sub24.i to i64
   %wide.trip.count.i = zext nneg i32 %num_field_names.0.lcssa34.i to i64
-  %arrayidx28.i = getelementptr inbounds [200 x ptr], ptr %field_names.i, i64 0, i64 %15
+  %arrayidx28.i = getelementptr inbounds nuw [200 x ptr], ptr %field_names.i, i64 0, i64 %15
   br label %for.cond20.preheader.i
 
 if.then13.i:                                      ; preds = %for.end.i
@@ -228,7 +228,7 @@ cond.true.i:                                      ; preds = %for.body23.i
   br label %cond.end.i
 
 cond.false.i:                                     ; preds = %for.body23.i
-  %arrayidx32.i = getelementptr inbounds [200 x ptr], ptr %field_names.i, i64 0, i64 %indvars.iv28.i
+  %arrayidx32.i = getelementptr inbounds nuw [200 x ptr], ptr %field_names.i, i64 0, i64 %indvars.iv28.i
   %18 = load ptr, ptr %arrayidx32.i, align 8
   %call33.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 61) #12
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call33.i to i64
@@ -241,9 +241,9 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   %cond.in.i = phi i64 [ %call29.i, %cond.true.i ], [ %sub.ptr.sub.i, %cond.false.i ]
   %cond.i = trunc i64 %cond.in.i to i32
   %20 = load ptr, ptr %comments.i52, align 8
-  %arrayidx39.i = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %20, i64 %idxprom38.i
+  %arrayidx39.i = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %20, i64 %idxprom38.i
   %21 = load i32, ptr %arrayidx39.i, align 8
-  %22 = getelementptr inbounds i8, ptr %arrayidx39.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %arrayidx39.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %call42.i = tail call i32 @FLAC__metadata_object_vorbiscomment_entry_matches(i32 %21, ptr %23, ptr noundef %19, i32 noundef %cond.i) #10
   %tobool.not.i53 = icmp eq i32 %call42.i, 0
@@ -270,7 +270,7 @@ remove_vc_all_except.exit:                        ; preds = %if.end52.i, %for.co
   br label %sw.epilog
 
 sw.bb42:                                          ; preds = %if.end25
-  %argument43 = getelementptr inbounds i8, ptr %operation, i64 8
+  %argument43 = getelementptr inbounds nuw i8, ptr %operation, i64 8
   %25 = load ptr, ptr %argument43, align 8
   %call.i56 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noundef %block.0, ptr noundef %25) #10
   %cmp.i = icmp slt i32 %call.i56, 0
@@ -290,7 +290,7 @@ if.then3.i:                                       ; preds = %if.else.i57
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %if.end25
-  %argument47 = getelementptr inbounds i8, ptr %operation, i64 8
+  %argument47 = getelementptr inbounds nuw i8, ptr %operation, i64 8
   %27 = load ptr, ptr %argument47, align 8
   %call.i60 = tail call i32 @FLAC__metadata_object_vorbiscomment_remove_entry_matching(ptr noundef %block.0, ptr noundef %27) #10
   %cmp.i61 = icmp slt i32 %call.i60, 0
@@ -310,12 +310,12 @@ if.then3.i64:                                     ; preds = %if.else.i62
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %if.end25
-  %argument51 = getelementptr inbounds i8, ptr %operation, i64 8
+  %argument51 = getelementptr inbounds nuw i8, ptr %operation, i64 8
   %call52 = tail call fastcc i32 @set_vc_field(ptr noundef %filename, ptr noundef %block.0, ptr noundef nonnull %argument51, ptr noundef %needs_write, i32 noundef %raw)
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end25
-  %argument54 = getelementptr inbounds i8, ptr %operation, i64 8
+  %argument54 = getelementptr inbounds nuw i8, ptr %operation, i64 8
   call void @llvm.lifetime.start.p0(i64 65536, ptr nonnull %line.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %violation.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %field.i)
@@ -336,7 +336,7 @@ if.then.i75:                                      ; preds = %lor.lhs.false.i, %s
   br label %import_vc_from.exit
 
 if.end.tail.i:                                    ; preds = %lor.lhs.false.i
-  %31 = getelementptr inbounds i8, ptr %29, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %if.then7.i, label %if.else.i69
@@ -355,9 +355,9 @@ if.end10.i:                                       ; preds = %if.else.i69, %if.th
   br i1 %cmp11.i70, label %if.then12.i, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.end10.i
-  %field_name.i = getelementptr inbounds i8, ptr %field.i, i64 8
-  %field_value.i = getelementptr inbounds i8, ptr %field.i, i64 24
-  %field_value_length.i = getelementptr inbounds i8, ptr %field.i, i64 16
+  %field_name.i = getelementptr inbounds nuw i8, ptr %field.i, i64 8
+  %field_value.i = getelementptr inbounds nuw i8, ptr %field.i, i64 24
+  %field_value_length.i = getelementptr inbounds nuw i8, ptr %field.i, i64 16
   br label %land.lhs.true.i
 
 if.then12.i:                                      ; preds = %if.end10.i
@@ -464,7 +464,7 @@ import_vc_from.exit:                              ; preds = %if.then.i75, %if.th
   br label %sw.epilog
 
 sw.bb56:                                          ; preds = %if.end25
-  %argument57 = getelementptr inbounds i8, ptr %operation, i64 8
+  %argument57 = getelementptr inbounds nuw i8, ptr %operation, i64 8
   %47 = load ptr, ptr %argument57, align 8
   %cmp.i77 = icmp eq ptr %47, null
   br i1 %cmp.i77, label %if.then.i94, label %lor.lhs.false.i78
@@ -482,7 +482,7 @@ if.then.i94:                                      ; preds = %lor.lhs.false.i78, 
   br label %sw.epilog
 
 if.end.tail.i80:                                  ; preds = %lor.lhs.false.i78
-  %49 = getelementptr inbounds i8, ptr %47, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %if.then7.i93, label %if.else.i81
@@ -510,9 +510,9 @@ if.then12.i89:                                    ; preds = %if.end10.i83
   br label %sw.epilog
 
 if.end17.i:                                       ; preds = %if.end10.i83
-  %comments.i86 = getelementptr inbounds i8, ptr %block.0, i64 40
+  %comments.i86 = getelementptr inbounds nuw i8, ptr %block.0, i64 40
   %56 = load ptr, ptr %comments.i86, align 8
-  %num_comments.i87 = getelementptr inbounds i8, ptr %block.0, i64 32
+  %num_comments.i87 = getelementptr inbounds nuw i8, ptr %block.0, i64 32
   %57 = load i32, ptr %num_comments.i87, align 8
   tail call void @write_vc_fields(ptr noundef null, ptr noundef null, ptr noundef %56, i32 noundef %57, i32 noundef %raw, ptr noundef nonnull %f.0.i84) #10
   %58 = load ptr, ptr @stdout, align 8
@@ -560,13 +560,13 @@ define internal fastcc range(i32 0, 2) i32 @set_vc_field(ptr noundef %filename, 
 entry:
   %entry1 = alloca %struct.FLAC__StreamMetadata_VorbisComment_Entry, align 8
   %converted = alloca ptr, align 8
-  %field_value_from_file = getelementptr inbounds i8, ptr %field, i64 32
+  %field_value_from_file = getelementptr inbounds nuw i8, ptr %field, i64 32
   %0 = load i32, ptr %field_value_from_file, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else62, label %if.then
 
 if.then:                                          ; preds = %entry
-  %field_value = getelementptr inbounds i8, ptr %field, i64 24
+  %field_value = getelementptr inbounds nuw i8, ptr %field, i64 24
   %1 = load ptr, ptr %field_value, align 8
   %call = tail call i64 @grabbag__file_get_filesize(ptr noundef %1) #10
   %cmp = icmp slt i64 %call, 0
@@ -575,7 +575,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %2 = load ptr, ptr @stderr, align 8
   %3 = load ptr, ptr %field_value, align 8
-  %field_name = getelementptr inbounds i8, ptr %field, i64 8
+  %field_name = getelementptr inbounds nuw i8, ptr %field, i64 8
   %4 = load ptr, ptr %field_name, align 8
   %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef %filename, ptr noundef %3, ptr noundef %4) #11
   br label %return
@@ -587,7 +587,7 @@ if.end:                                           ; preds = %if.then
 if.then6:                                         ; preds = %if.end
   %5 = load ptr, ptr @stderr, align 8
   %6 = load ptr, ptr %field_value, align 8
-  %field_name8 = getelementptr inbounds i8, ptr %field, i64 8
+  %field_name8 = getelementptr inbounds nuw i8, ptr %field, i64 8
   %7 = load ptr, ptr %field_name8, align 8
   %call9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.6, ptr noundef %filename, ptr noundef %6, ptr noundef %7) #11
   br label %return
@@ -603,7 +603,7 @@ if.then13:                                        ; preds = %if.end10
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %if.end10
-  %arrayidx = getelementptr inbounds i8, ptr %call11, i64 %call
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call11, i64 %call
   store i8 0, ptr %arrayidx, align 1
   %8 = load ptr, ptr %field_value, align 8
   %call16 = tail call noalias ptr @fopen64(ptr noundef %8, ptr noundef nonnull @.str.8)
@@ -618,7 +618,7 @@ lor.lhs.false:                                    ; preds = %if.end14
 if.then20:                                        ; preds = %lor.lhs.false
   %9 = load ptr, ptr @stderr, align 8
   %10 = load ptr, ptr %field_value, align 8
-  %field_name22 = getelementptr inbounds i8, ptr %field, i64 8
+  %field_name22 = getelementptr inbounds nuw i8, ptr %field, i64 8
   %11 = load ptr, ptr %field_name22, align 8
   %call23 = tail call ptr @__errno_location() #13
   %12 = load i32, ptr %call23, align 4
@@ -638,7 +638,7 @@ if.then34:                                        ; preds = %if.end30
   tail call void @free(ptr noundef nonnull %call11) #10
   %13 = load ptr, ptr @stderr, align 8
   %14 = load ptr, ptr %field_value, align 8
-  %field_name36 = getelementptr inbounds i8, ptr %field, i64 8
+  %field_name36 = getelementptr inbounds nuw i8, ptr %field, i64 8
   %15 = load ptr, ptr %field_name36, align 8
   %call37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.10, ptr noundef %filename, ptr noundef %14, ptr noundef %15) #11
   br label %return
@@ -669,7 +669,7 @@ if.else44:                                        ; preds = %if.else
 
 if.end48:                                         ; preds = %if.then43, %if.then40
   %18 = phi ptr [ %.pre, %if.then43 ], [ %call11, %if.then40 ]
-  %field_name49 = getelementptr inbounds i8, ptr %field, i64 8
+  %field_name49 = getelementptr inbounds nuw i8, ptr %field, i64 8
   %19 = load ptr, ptr %field_name49, align 8
   %call50 = call i32 @FLAC__metadata_object_vorbiscomment_entry_from_name_value_pair(ptr noundef nonnull %entry1, ptr noundef %19, ptr noundef %18) #10
   %tobool51.not = icmp eq i32 %call50, 0
@@ -686,7 +686,7 @@ if.then52:                                        ; preds = %if.end48
 
 if.end56:                                         ; preds = %if.end48
   %24 = load i32, ptr %entry1, align 8
-  %25 = getelementptr inbounds i8, ptr %entry1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %entry1, i64 8
   %26 = load ptr, ptr %25, align 8
   %call57 = call i32 @FLAC__metadata_object_vorbiscomment_append_comment(ptr noundef %block, i32 %24, ptr %26, i32 noundef 0) #10
   %tobool58.not = icmp eq i32 %call57, 0
@@ -739,7 +739,7 @@ if.then88:                                        ; preds = %if.then86
 
 if.end89:                                         ; preds = %if.then88, %if.then86
   %33 = load ptr, ptr @stderr, align 8
-  %field_name90 = getelementptr inbounds i8, ptr %field, i64 8
+  %field_name90 = getelementptr inbounds nuw i8, ptr %field, i64 8
   %34 = load ptr, ptr %field_name90, align 8
   %call91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.14, ptr noundef %filename, ptr noundef %34) #11
   br label %return
@@ -774,7 +774,7 @@ if.then102:                                       ; preds = %if.end100
 return.critedge:                                  ; preds = %if.end14
   %38 = load ptr, ptr @stderr, align 8
   %39 = load ptr, ptr %field_value, align 8
-  %field_name22.c = getelementptr inbounds i8, ptr %field, i64 8
+  %field_name22.c = getelementptr inbounds nuw i8, ptr %field, i64 8
   %40 = load ptr, ptr %field_name22.c, align 8
   %call23.c = tail call ptr @__errno_location() #13
   %41 = load i32, ptr %call23.c, align 4

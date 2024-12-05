@@ -15,8 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator.10" = type { i8 }
-%"class.boost::shared_ptr.15" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::detail::shared_count" = type { ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -406,13 +404,12 @@ entry:
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i, label %cond.true.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %entry
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.div.i.i, 576460752303423487
+  %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i.i, 9223372036854775792
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEE8allocateERS5_m.exit.i.i.i.i, !prof !9
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
@@ -428,7 +425,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt16allocator_tr
   store ptr %cond.i.i.i.i, ptr %this, align 8, !tbaa !8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !3
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.boost::shared_ptr.15", ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !10
   %2 = load ptr, ptr %integrators, align 8, !tbaa !11
@@ -469,7 +466,7 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EEC2ERKS6_.exit:
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib10IntegratorEEESaIS4_EEC2ERKS6_.exit
   store ptr %call5.i.i.i.i2.i.i15, ptr %integrationLevelEntries_, align 8, !tbaa !18
-  %add.ptr.i.i.i12 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i15, i64 480
+  %add.ptr.i.i.i12 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i15, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %call5.i.i.i.i2.i.i15, i8 0, i64 480, i1 false)
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -832,7 +829,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !36
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -845,7 +842,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !36
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -883,7 +880,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
@@ -921,7 +918,7 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
@@ -1035,7 +1032,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !36
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %.noexc.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
@@ -1048,7 +1045,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %.noexc.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8, !tbaa !36
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZSt8_DestroyIN5boost10shared_ptrIN8QuantLib10IntegratorEEEEvPT_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
@@ -1184,15 +1181,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi14EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -1332,15 +1329,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi13EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -1476,15 +1473,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi12EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -1620,15 +1617,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi11EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -1764,15 +1761,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi10EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -1908,15 +1905,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi9EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -2052,15 +2049,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi8EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -2196,15 +2193,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi7EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -2340,15 +2337,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi6EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -2484,15 +2481,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi5EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -2628,15 +2625,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi4EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -2772,15 +2769,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi3EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -2916,15 +2913,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi2EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -3060,15 +3057,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi1EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -3203,15 +3200,15 @@ _ZNK5boost10shared_ptrIN8QuantLib10IntegratorEEdeEv.exit: ; preds = %entry, %con
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #19
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %3, align 8
   %call.i.i2.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   store ptr %this, ptr %call.i.i2.i, align 16, !tbaa !11
-  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 8
+  %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 8
   store ptr %f, ptr %ref.tmp3.sroa.5.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
-  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 16
+  %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 16
   store ptr %a, ptr %ref.tmp3.sroa.6.0.call.i.i2.i.sroa_idx, align 16, !tbaa !11
-  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i2.i, i64 24
+  %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i.i2.i, i64 24
   store ptr %b, ptr %ref.tmp3.sroa.7.0.call.i.i2.i.sroa_idx, align 8, !tbaa !11
   store ptr %call.i.i2.i, ptr %ref.tmp, align 8, !tbaa !11
   store ptr @_ZNSt17_Function_handlerIFddEZNK8QuantLib16MultidimIntegral9integrateILi0EEEdRKSt8functionIFdRKSt6vectorIdSaIdEEEES9_S9_EUlT_E_E9_M_invokeERKSt9_Any_dataOd, ptr %_M_invoker.i, align 8, !tbaa !45
@@ -3348,7 +3345,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
@@ -3386,7 +3383,7 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
@@ -3503,7 +3500,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
@@ -3541,7 +3538,7 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
@@ -3658,7 +3655,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
@@ -3696,7 +3693,7 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
@@ -3813,7 +3810,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
@@ -3851,7 +3848,7 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
@@ -3968,7 +3965,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
@@ -4006,7 +4003,7 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
@@ -4125,7 +4122,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #19
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %ref.tmp.i, align 8, !tbaa !11
@@ -4163,7 +4160,7 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #19
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 24
-  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
   store i64 0, ptr %8, align 8
   store i64 %2, ptr %ref.tmp.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
@@ -4199,7 +4196,7 @@ _ZNSt8functionIFdRKS_IFdRKSt6vectorIdSaIdEEEES4_S4_EEaSIZNK8QuantLib16MultidimIn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i) #19
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 16
   %_M_invoker.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 24
-  %14 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i, i64 8
   store i64 0, ptr %14, align 8
   store i64 %2, ptr %ref.tmp.i.i.i, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)

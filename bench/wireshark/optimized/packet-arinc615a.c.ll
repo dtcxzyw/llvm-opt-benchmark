@@ -202,14 +202,14 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_find(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.82) #3
   %8 = load i32, ptr @proto_find, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %10 = load i32, ptr @ett_find, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #3
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @ptvcursor_new(ptr noundef %13, ptr noundef %11, ptr noundef %0, i32 noundef 0) #3
   %15 = load i32, ptr @hf_find_opcode, align 4
@@ -304,7 +304,7 @@ define internal range(i32 0, 2) i32 @dissect_a615a_heur(ptr noundef %0, ptr noca
 
 32:                                               ; preds = %.preheader
   %33 = trunc nuw nsw i64 %indvars.iv to i32
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void @col_set_str(ptr noundef %35, i32 noundef 34, ptr noundef nonnull @.str.59) #3
   %36 = load ptr, ptr %34, align 8
@@ -322,20 +322,20 @@ define internal range(i32 0, 2) i32 @dissect_a615a_heur(ptr noundef %0, ptr noca
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %46
 
 46:                                               ; preds = %32
-  %47 = getelementptr inbounds i8, ptr %45, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %48 = load ptr, ptr %47, align 8
   %.not5.i.i = icmp eq ptr %48, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %48, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 28
   %51 = load i32, ptr %50, align 4
   %52 = or i32 %51, 2
   store i32 %52, ptr %50, align 4
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
-  %53 = getelementptr inbounds i8, ptr %1, i64 408
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @ptvcursor_new(ptr noundef %54, ptr noundef %40, ptr noundef %0, i32 noundef 0) #3
   %56 = load i32, ptr @hf_a615a_file_length, align 4
@@ -548,13 +548,13 @@ sub_0.i.i:                                        ; preds = %152
   br i1 %.not20.i.i, label %sub_1.i.i, label %.tail.thread.i.i
 
 sub_1.i.i:                                        ; preds = %sub_0.i.i
-  %167 = getelementptr inbounds i8, ptr %165, i64 1
+  %167 = getelementptr inbounds nuw i8, ptr %165, i64 1
   %168 = load i8, ptr %167, align 1
   %.not21.i.i = icmp eq i8 %168, 49
   br i1 %.not21.i.i, label %.tail.i.i, label %.tail.thread.i.i
 
 .tail.i.i:                                        ; preds = %sub_1.i.i
-  %169 = getelementptr inbounds i8, ptr %165, i64 2
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 2
   %170 = load i8, ptr %169, align 1
   %171 = icmp eq i8 %170, 0
   br i1 %171, label %174, label %.tail.thread.i.i
@@ -654,13 +654,13 @@ sub_0.i51.i:                                      ; preds = %208
   br i1 %.not27.i.i, label %sub_1.i55.i, label %.tail.thread.i52.i
 
 sub_1.i55.i:                                      ; preds = %sub_0.i51.i
-  %223 = getelementptr inbounds i8, ptr %221, i64 1
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 1
   %224 = load i8, ptr %223, align 1
   %.not28.i.i = icmp eq i8 %224, 49
   br i1 %.not28.i.i, label %.tail.i56.i, label %.tail.thread.i52.i
 
 .tail.i56.i:                                      ; preds = %sub_1.i55.i
-  %225 = getelementptr inbounds i8, ptr %221, i64 2
+  %225 = getelementptr inbounds nuw i8, ptr %221, i64 2
   %226 = load i8, ptr %225, align 1
   %227 = icmp eq i8 %226, 0
   br i1 %227, label %230, label %.tail.thread.i52.i

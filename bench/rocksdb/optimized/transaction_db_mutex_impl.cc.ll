@@ -73,10 +73,10 @@ define void @_ZN7rocksdb29TransactionDBMutexFactoryImpl13AllocateMutexEv(ptr noa
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22TransactionDBMutexImplE, i64 16), ptr %call, align 8
-  %mutex_.i = getelementptr inbounds i8, ptr %call, i64 8
+  %mutex_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i, i8 0, i64 40, i1 false)
   store ptr %call, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #11
           to label %_ZNSt10shared_ptrIN7rocksdb18TransactionDBMutexEEC2INS0_22TransactionDBMutexImplEvEEPT_.exit unwind label %lpad.i.i.i.i
@@ -87,7 +87,7 @@ lpad.i.i.i.i:                                     ; preds = %entry
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #12
   %vtable.i.i.i.i = load ptr, ptr %call, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(48) %call) #12
   invoke void @__cxa_rethrow() #13
@@ -113,12 +113,12 @@ unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
   unreachable
 
 _ZNSt10shared_ptrIN7rocksdb18TransactionDBMutexEEC2INS0_22TransactionDBMutexImplEvEEPT_.exit: ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb22TransactionDBMutexImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
-  %_M_ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i, align 8
   ret void
@@ -137,10 +137,10 @@ define void @_ZN7rocksdb29TransactionDBMutexFactoryImpl15AllocateCondVarEv(ptr n
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24TransactionDBCondVarImplE, i64 16), ptr %call, align 8
-  %cv_.i = getelementptr inbounds i8, ptr %call, i64 8
+  %cv_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   tail call void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv_.i) #12
   store ptr %call, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8
   %call.i.i.i.i = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #11
           to label %_ZNSt10shared_ptrIN7rocksdb20TransactionDBCondVarEEC2INS0_24TransactionDBCondVarImplEvEEPT_.exit unwind label %lpad.i.i.i.i
@@ -151,7 +151,7 @@ lpad.i.i.i.i:                                     ; preds = %entry
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #12
   %vtable.i.i.i.i = load ptr, ptr %call, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(56) %call) #12
   invoke void @__cxa_rethrow() #13
@@ -177,12 +177,12 @@ unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
   unreachable
 
 _ZNSt10shared_ptrIN7rocksdb20TransactionDBCondVarEEC2INS0_24TransactionDBCondVarImplEvEEPT_.exit: ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb24TransactionDBCondVarImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
-  %_M_ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
+  %_M_ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i, align 8
   ret void
@@ -191,7 +191,7 @@ _ZNSt10shared_ptrIN7rocksdb20TransactionDBCondVarEEC2INS0_24TransactionDBCondVar
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb22TransactionDBMutexImpl4LockEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call1.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #12
   %tobool.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i, label %_ZNSt5mutex4lockEv.exit, label %if.then.i
@@ -201,7 +201,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNSt5mutex4lockEv.exit:                          ; preds = %entry
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !4
   ret void
@@ -211,7 +211,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %entry
 define void @_ZN7rocksdb22TransactionDBMutexImpl10TryLockForEl(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %timeout_time) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %timeout_time, 0
-  %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -230,16 +230,16 @@ if.then.i:                                        ; preds = %if.else
 
 if.then3:                                         ; preds = %if.then
   store i8 9, ptr %agg.result, align 8, !alias.scope !7
-  %subcode_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
+  %subcode_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 1
   store i8 1, ptr %subcode_.i.i, align 1, !alias.scope !7
-  %sev_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %sev_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 2
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !7
   store i32 0, ptr %sev_.i.i, align 2, !alias.scope !7
   br label %return
 
 if.end4:                                          ; preds = %if.else, %if.then
-  %state_.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i3, align 8, !alias.scope !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !10
   br label %return
@@ -253,16 +253,16 @@ define void @_ZN7rocksdb24TransactionDBCondVarImpl4WaitESt10shared_ptrINS_18Tran
 entry:
   %lock = alloca %"class.std::unique_lock", align 8
   %0 = load ptr, ptr %mutex, align 8
-  %mutex_ = getelementptr inbounds i8, ptr %0, i64 8
+  %mutex_ = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %mutex_, ptr %lock, align 8
-  %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
+  %_M_owns.i = getelementptr inbounds nuw i8, ptr %lock, i64 8
   store i8 1, ptr %_M_owns.i, align 8
-  %cv_ = getelementptr inbounds i8, ptr %this, i64 8
+  %cv_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %cv_, ptr noundef nonnull align 8 dereferenceable(9) %lock)
           to label %_ZNSt11unique_lockISt5mutexED2Ev.exit unwind label %lpad
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
-  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false), !alias.scope !13
   ret void
@@ -294,16 +294,16 @@ define void @_ZN7rocksdb24TransactionDBCondVarImpl7WaitForESt10shared_ptrINS_18T
 entry:
   %__ts.i.i.i = alloca %struct.timespec, align 8
   %lock = alloca %"class.std::unique_lock", align 8
-  %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %state_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 6, i1 false)
   %0 = load ptr, ptr %mutex, align 8
-  %mutex_ = getelementptr inbounds i8, ptr %0, i64 8
+  %mutex_ = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %mutex_, ptr %lock, align 8
-  %_M_owns.i = getelementptr inbounds i8, ptr %lock, i64 8
+  %_M_owns.i = getelementptr inbounds nuw i8, ptr %lock, i64 8
   store i8 1, ptr %_M_owns.i, align 8
   %cmp = icmp slt i64 %timeout_time, 0
-  %cv_ = getelementptr inbounds i8, ptr %this, i64 8
+  %cv_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -339,7 +339,7 @@ if.else:                                          ; preds = %entry
   %mul.i.i.i.neg.i.i.i.i.i = mul nsw i64 %div.i.i.i.i.i.i, -1000000000
   %sub.i.i.i.i.i = add i64 %mul.i.i.i.neg.i.i.i.i.i, %add.i.i.i
   store i64 %div.i.i.i.i.i.i, ptr %__ts.i.i.i, align 8
-  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i, i64 8
+  %tv_nsec.i.i.i = getelementptr inbounds nuw i8, ptr %__ts.i.i.i, i64 8
   store i64 %sub.i.i.i.i.i, ptr %tv_nsec.i.i.i, align 8
   %call2.i.i.i.i3 = invoke i32 @pthread_cond_clockwait(ptr noundef nonnull align 8 dereferenceable(48) %cv_, ptr noundef nonnull align 8 dereferenceable(40) %mutex_, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %__ts.i.i.i)
           to label %invoke.cont4 unwind label %lpad
@@ -352,9 +352,9 @@ invoke.cont4:                                     ; preds = %if.else
 
 _ZN7rocksdb6StatusD2Ev.exit8:                     ; preds = %invoke.cont4
   store i8 9, ptr %agg.result, align 8
-  %subcode_5.i = getelementptr inbounds i8, ptr %agg.result, i64 1
+  %subcode_5.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 1
   store i8 1, ptr %subcode_5.i, align 1
-  %sev_7.i = getelementptr inbounds i8, ptr %agg.result, i64 2
+  %sev_7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 2
   store ptr null, ptr %state_.i, align 8
   store i32 0, ptr %sev_7.i, align 2
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit16
@@ -379,7 +379,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb22TransactionDBMutexImpl6UnLockEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
+  %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call1.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #12
   ret void
 }
@@ -388,7 +388,7 @@ entry:
 define linkonce_odr void @_ZN7rocksdb24TransactionDBCondVarImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24TransactionDBCondVarImplE, i64 16), ptr %this, align 8
-  %cv_ = getelementptr inbounds i8, ptr %this, i64 8
+  %cv_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv_) #12
   ret void
 }
@@ -397,7 +397,7 @@ entry:
 define linkonce_odr void @_ZN7rocksdb24TransactionDBCondVarImplD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24TransactionDBCondVarImplE, i64 16), ptr %this, align 8
-  %cv_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %cv_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv_.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
   ret void
@@ -406,7 +406,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb24TransactionDBCondVarImpl6NotifyEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %cv_ = getelementptr inbounds i8, ptr %this, i64 8
+  %cv_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %cv_) #12
   ret void
 }
@@ -414,7 +414,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb24TransactionDBCondVarImpl9NotifyAllEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %cv_ = getelementptr inbounds i8, ptr %this, i64 8
+  %cv_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %cv_) #12
   ret void
 }
@@ -491,14 +491,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN7rocksdb22TransactionDBMutexImplELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_ptr = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_ptr, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(48) %0) #12
   br label %delete.end
@@ -536,14 +536,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN7rocksdb24TransactionDBCondVarImplELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_ptr = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_ptr, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   br label %delete.end

@@ -97,7 +97,7 @@ cond.end4:                                        ; preds = %entry
 
 while.body.lr.ph:                                 ; preds = %cond.end4.thread, %cond.end4
   %cond520 = phi ptr [ %call, %cond.end4.thread ], [ %small, %cond.end4 ]
-  %errp1.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i, i64 8
+  %errp1.i = getelementptr inbounds nuw i8, ptr %_auto_errp_prop.i, i64 8
   %tobool.i = icmp eq ptr %errp, null
   %cmp.i = icmp eq ptr %errp, @error_fatal
   %or.cond.i = or i1 %tobool.i, %cmp.i
@@ -145,9 +145,9 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @nbd_tls_handshake(ptr noundef %task, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
-  %error = getelementptr inbounds i8, ptr %opaque, i64 16
+  %error = getelementptr inbounds nuw i8, ptr %opaque, i64 16
   %call = tail call zeroext i1 @qio_task_propagate_error(ptr noundef %task, ptr noundef nonnull %error) #8
-  %complete = getelementptr inbounds i8, ptr %opaque, i64 8
+  %complete = getelementptr inbounds nuw i8, ptr %opaque, i64 8
   store i8 1, ptr %complete, align 8
   %0 = load ptr, ptr %opaque, align 8
   tail call void @g_main_loop_quit(ptr noundef %0) #8
@@ -167,7 +167,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.nbd_opt_lookup, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [11 x ptr], ptr @switch.table.nbd_opt_lookup, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -251,7 +251,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i16 %info to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.nbd_info_lookup, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.nbd_info_lookup, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -268,7 +268,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i16 %cmd to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.nbd_cmd_lookup, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.nbd_cmd_lookup, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -405,7 +405,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %err) #8
   br label %trace_nbd_unknown_error.exit
@@ -434,7 +434,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.nbd_mode_lookup, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.nbd_mode_lookup, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 

@@ -231,7 +231,7 @@ define internal i32 @dissect_sv(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %8 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %9 = load i32, ptr @ett_sv, align 4
   %10 = call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #3
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.84) #3
   %13 = load ptr, ptr %11, align 8
@@ -384,7 +384,7 @@ define internal noundef i32 @dissect_sv_UtcTime(i1 zeroext %0, ptr noundef %1, i
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %11, ptr noundef nonnull @ei_sv_mal_utctime, ptr noundef %1, i32 noundef %2, i32 noundef %8, ptr noundef nonnull @.str.102) #3
   %13 = icmp sgt i32 %5, 0
@@ -405,11 +405,11 @@ define internal noundef i32 @dissect_sv_UtcTime(i1 zeroext %0, ptr noundef %1, i
   %24 = trunc nuw nsw i64 %23 to i32
   %25 = zext i32 %17 to i64
   store i64 %25, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %24, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @abs_time_to_str_ex(ptr noundef %30, ptr noundef nonnull %7, i32 noundef 19, i32 noundef 1) #3
   %32 = icmp sgt i32 %5, 0
@@ -449,7 +449,7 @@ define internal i32 @dissect_sv_Data(i1 noundef zeroext %0, ptr noundef %1, i32 
   br i1 %.not, label %49, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
@@ -501,7 +501,7 @@ define internal i32 @dissect_sv_Data(i1 noundef zeroext %0, ptr noundef %1, i32 
 36:                                               ; preds = %.lr.ph.split.us.i
   %37 = getelementptr [20 x %struct._sv_phs_meas], ptr getelementptr inbounds (i8, ptr @sv_data, i64 4), i64 0, i64 %indvars.iv.i
   store i32 %27, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %29, ptr %38, align 4
   %39 = load i8, ptr getelementptr inbounds (i8, ptr @sv_data, i64 3), align 1
   %40 = add i8 %39, 1
@@ -556,7 +556,7 @@ define internal noundef i32 @dissect_sv_GmidData(i1 zeroext %0, ptr noundef %1, 
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %10, ptr noundef nonnull @ei_sv_mal_gmidentity, ptr noundef %1, i32 noundef %2, i32 noundef %7, ptr noundef nonnull @.str.105) #3
   %12 = icmp sgt i32 %5, 0

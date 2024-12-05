@@ -62,7 +62,7 @@ declare void @llvm.trap() #2
 define void @_ZN6icu_7523UCharsDictionaryMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523UCharsDictionaryMatcherE, i64 16), ptr %this, align 8
-  %file = getelementptr inbounds i8, ptr %this, i64 16
+  %file = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %file, align 8
   invoke void @udata_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -115,14 +115,14 @@ entry:
 define noundef i32 @_ZNK6icu_7523UCharsDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly %lengths, ptr noundef writeonly %cpLengths, ptr noundef writeonly %values, ptr noundef writeonly %prefix) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %uct = alloca %"class.icu_75::UCharsTrie", align 8
-  %characters = getelementptr inbounds i8, ptr %this, i64 8
+  %characters = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %characters, align 8
   store ptr null, ptr %uct, align 8
-  %uchars_.i = getelementptr inbounds i8, ptr %uct, i64 8
+  %uchars_.i = getelementptr inbounds nuw i8, ptr %uct, i64 8
   store ptr %0, ptr %uchars_.i, align 8
-  %pos_.i = getelementptr inbounds i8, ptr %uct, i64 16
+  %pos_.i = getelementptr inbounds nuw i8, ptr %uct, i64 16
   store ptr %0, ptr %pos_.i, align 8
-  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %uct, i64 24
+  %remainingMatchLength_.i = getelementptr inbounds nuw i8, ptr %uct, i64 24
   store i32 -1, ptr %remainingMatchLength_.i, align 8
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #12, !srcloc !4
   %call = invoke i64 @utext_getNativeIndex_75(ptr noundef %text)
@@ -393,7 +393,7 @@ if.then:                                          ; preds = %invoke.cont11
 
 if.then16:                                        ; preds = %if.then
   %5 = load ptr, ptr %pos_.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 2
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 2
   %6 = load i16, ptr %5, align 2
   %conv.i = zext i16 %6 to i32
   %tobool.not.i = icmp sgt i16 %6, -1
@@ -420,7 +420,7 @@ if.else3.i.i:                                     ; preds = %if.else.i.i
   %8 = load i16, ptr %incdec.ptr.i, align 2
   %conv4.i.i = zext i16 %8 to i32
   %shl5.i.i = shl nuw i32 %conv4.i.i, 16
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %5, i64 4
+  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %9 = load i16, ptr %arrayidx6.i.i, align 2
   %conv7.i.i = zext i16 %9 to i32
   %or8.i.i = or disjoint i32 %shl5.i.i, %conv7.i.i
@@ -452,7 +452,7 @@ if.else4.i.i:                                     ; preds = %if.else.i6.i
   %11 = load i16, ptr %incdec.ptr.i, align 2
   %conv5.i.i = zext i16 %11 to i32
   %shl6.i.i = shl nuw i32 %conv5.i.i, 16
-  %arrayidx7.i.i = getelementptr inbounds i8, ptr %5, i64 4
+  %arrayidx7.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
   %12 = load i16, ptr %arrayidx7.i.i, align 2
   %conv8.i.i = zext i16 %12 to i32
   %or9.i.i = or disjoint i32 %shl6.i.i, %conv8.i.i
@@ -543,7 +543,7 @@ declare void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereference
 define void @_ZN6icu_7522BytesDictionaryMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522BytesDictionaryMatcherE, i64 16), ptr %this, align 8
-  %file = getelementptr inbounds i8, ptr %this, i64 24
+  %file = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %file, align 8
   invoke void @udata_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
@@ -570,7 +570,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7522BytesDictionaryMatcher9transformEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %c) local_unnamed_addr #9 align 2 {
 entry:
-  %transformConstant = getelementptr inbounds i8, ptr %this, i64 16
+  %transformConstant = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %transformConstant, align 8
   %and = and i32 %0, 2130706432
   %cmp = icmp eq i32 %and, 16777216
@@ -607,14 +607,14 @@ entry:
 define noundef i32 @_ZNK6icu_7522BytesDictionaryMatcher7matchesEP5UTextiiPiS3_S3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %text, i32 noundef %maxLength, i32 noundef %limit, ptr noundef writeonly %lengths, ptr noundef writeonly %cpLengths, ptr noundef writeonly %values, ptr noundef writeonly %prefix) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bt = alloca %"class.icu_75::BytesTrie", align 8
-  %characters = getelementptr inbounds i8, ptr %this, i64 8
+  %characters = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %characters, align 8
   store ptr null, ptr %bt, align 8
-  %bytes_.i = getelementptr inbounds i8, ptr %bt, i64 8
+  %bytes_.i = getelementptr inbounds nuw i8, ptr %bt, i64 8
   store ptr %0, ptr %bytes_.i, align 8
-  %pos_.i = getelementptr inbounds i8, ptr %bt, i64 16
+  %pos_.i = getelementptr inbounds nuw i8, ptr %bt, i64 16
   store ptr %0, ptr %pos_.i, align 8
-  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %bt, i64 24
+  %remainingMatchLength_.i = getelementptr inbounds nuw i8, ptr %bt, i64 24
   store i32 -1, ptr %remainingMatchLength_.i, align 8
   %call = invoke i64 @utext_getNativeIndex_75(ptr noundef %text)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
@@ -625,7 +625,7 @@ invoke.cont:                                      ; preds = %entry
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %invoke.cont
-  %transformConstant.i24 = getelementptr inbounds i8, ptr %this, i64 16
+  %transformConstant.i24 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp17.not = icmp eq ptr %values, null
   %cmp21.not = icmp eq ptr %lengths, null
   %cmp26.not = icmp eq ptr %cpLengths, null
@@ -719,7 +719,7 @@ if.then16:                                        ; preds = %if.then
 
 if.then18:                                        ; preds = %if.then16
   %5 = load ptr, ptr %pos_.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = lshr i8 %6, 1
   %shr.i = zext nneg i8 %7 to i32
@@ -821,29 +821,29 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %dataFormat = getelementptr inbounds i8, ptr %inData, i64 12
+  %dataFormat = getelementptr inbounds nuw i8, ptr %inData, i64 12
   %1 = load i8, ptr %dataFormat, align 2
   %cmp2 = icmp eq i8 %1, 68
-  %arrayidx4 = getelementptr inbounds i8, ptr %inData, i64 13
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %inData, i64 13
   %2 = load i8, ptr %arrayidx4, align 1
   %cmp6 = icmp eq i8 %2, 105
   %or.cond = select i1 %cmp2, i1 %cmp6, i1 false
   br i1 %or.cond, label %land.lhs.true7, label %if.then21
 
 land.lhs.true7:                                   ; preds = %if.end
-  %arrayidx9 = getelementptr inbounds i8, ptr %inData, i64 14
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %inData, i64 14
   %3 = load i8, ptr %arrayidx9, align 2
   %cmp11 = icmp eq i8 %3, 99
   br i1 %cmp11, label %land.lhs.true12, label %if.then21
 
 land.lhs.true12:                                  ; preds = %land.lhs.true7
-  %arrayidx14 = getelementptr inbounds i8, ptr %inData, i64 15
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %inData, i64 15
   %4 = load i8, ptr %arrayidx14, align 1
   %cmp16 = icmp eq i8 %4, 116
   br i1 %cmp16, label %land.lhs.true17, label %if.then21
 
 land.lhs.true17:                                  ; preds = %land.lhs.true12
-  %formatVersion = getelementptr inbounds i8, ptr %inData, i64 16
+  %formatVersion = getelementptr inbounds nuw i8, ptr %inData, i64 16
   %5 = load i8, ptr %formatVersion, align 2
   %cmp20 = icmp eq i8 %5, 1
   br i1 %cmp20, label %if.end37, label %if.then21
@@ -852,13 +852,13 @@ if.then21:                                        ; preds = %if.end, %land.lhs.t
   %6 = phi i8 [ 105, %land.lhs.true17 ], [ 105, %land.lhs.true12 ], [ 105, %land.lhs.true7 ], [ %2, %if.end ]
   %conv24 = zext i8 %1 to i32
   %conv27 = zext i8 %6 to i32
-  %arrayidx29 = getelementptr inbounds i8, ptr %inData, i64 14
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %inData, i64 14
   %7 = load i8, ptr %arrayidx29, align 2
   %conv30 = zext i8 %7 to i32
-  %arrayidx32 = getelementptr inbounds i8, ptr %inData, i64 15
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %inData, i64 15
   %8 = load i8, ptr %arrayidx32, align 1
   %conv33 = zext i8 %8 to i32
-  %formatVersion34 = getelementptr inbounds i8, ptr %inData, i64 16
+  %formatVersion34 = getelementptr inbounds nuw i8, ptr %inData, i64 16
   %9 = load i8, ptr %formatVersion34, align 2
   %conv36 = zext i8 %9 to i32
   tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %ds, ptr noundef nonnull @.str, i32 noundef %conv24, i32 noundef %conv27, i32 noundef %conv30, i32 noundef %conv33, i32 noundef %conv36)
@@ -890,17 +890,17 @@ if.end47:                                         ; preds = %if.then43, %if.end3
 
 for.body:                                         ; preds = %if.end47, %for.body
   %indvars.iv = phi i64 [ 0, %if.end47 ], [ %indvars.iv.next, %for.body ]
-  %arrayidx49 = getelementptr inbounds i32, ptr %add.ptr38, i64 %indvars.iv
+  %arrayidx49 = getelementptr inbounds nuw i32, ptr %add.ptr38, i64 %indvars.iv
   %10 = load i32, ptr %arrayidx49, align 4
   %call50 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %10)
-  %arrayidx52 = getelementptr inbounds [8 x i32], ptr %indexes, i64 0, i64 %indvars.iv
+  %arrayidx52 = getelementptr inbounds nuw [8 x i32], ptr %indexes, i64 0, i64 %indvars.iv
   store i32 %call50, ptr %arrayidx52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body
-  %arrayidx53 = getelementptr inbounds i8, ptr %indexes, i64 12
+  %arrayidx53 = getelementptr inbounds nuw i8, ptr %indexes, i64 12
   %11 = load i32, ptr %arrayidx53, align 4
   %cmp54 = icmp sgt i32 %length.addr.0, -1
   br i1 %cmp54, label %if.then55, label %if.end81
@@ -924,10 +924,10 @@ do.body:                                          ; preds = %if.end58
   br label %if.end62
 
 if.end62:                                         ; preds = %do.body, %if.end58
-  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
+  %swapArray32 = getelementptr inbounds nuw i8, ptr %ds, i64 56
   %12 = load ptr, ptr %swapArray32, align 8
   %call63 = tail call noundef i32 %12(ptr noundef %ds, ptr noundef nonnull %add.ptr38, i32 noundef 32, ptr noundef %cond, ptr noundef nonnull %pErrorCode)
-  %arrayidx64 = getelementptr inbounds i8, ptr %indexes, i64 16
+  %arrayidx64 = getelementptr inbounds nuw i8, ptr %indexes, i64 16
   %13 = load i32, ptr %arrayidx64, align 16
   %and = and i32 %13, 7
   switch i32 %and, label %if.else76 [
@@ -936,13 +936,13 @@ if.end62:                                         ; preds = %do.body, %if.end58
   ]
 
 if.then67:                                        ; preds = %if.end62
-  %arrayidx65 = getelementptr inbounds i8, ptr %indexes, i64 4
+  %arrayidx65 = getelementptr inbounds nuw i8, ptr %indexes, i64 4
   %14 = load i32, ptr %arrayidx65, align 4
-  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
+  %swapArray16 = getelementptr inbounds nuw i8, ptr %ds, i64 48
   %15 = load ptr, ptr %swapArray16, align 8
-  %add.ptr69 = getelementptr inbounds i8, ptr %add.ptr38, i64 32
+  %add.ptr69 = getelementptr inbounds nuw i8, ptr %add.ptr38, i64 32
   %sub70 = add nsw i32 %14, -32
-  %add.ptr72 = getelementptr inbounds i8, ptr %cond, i64 32
+  %add.ptr72 = getelementptr inbounds nuw i8, ptr %cond, i64 32
   %call73 = tail call noundef i32 %15(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr69, i32 noundef %sub70, ptr noundef nonnull %add.ptr72, ptr noundef nonnull %pErrorCode)
   br label %if.end81
 

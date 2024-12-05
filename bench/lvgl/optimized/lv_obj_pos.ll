@@ -3493,23 +3493,23 @@ define void @lv_obj_get_transformed_area(ptr noundef %0, ptr nocapture noundef %
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !32
   store i32 %8, ptr %6, align 4, !tbaa !27
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %5, ptr %9, align 8, !tbaa !18
-  %10 = getelementptr inbounds i8, ptr %4, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !34
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %10, align 4, !tbaa !27
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 4, !tbaa !33
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %14, align 16, !tbaa !18
-  %18 = getelementptr inbounds i8, ptr %4, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %8, ptr %18, align 4, !tbaa !27
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %17, ptr %19, align 8, !tbaa !18
-  %20 = getelementptr inbounds i8, ptr %4, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %13, ptr %20, align 4, !tbaa !27
   call void @lv_obj_transform_point_array(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 4, i32 noundef %2)
   %21 = load i32, ptr %4, align 16, !tbaa !18
@@ -3664,23 +3664,23 @@ define noundef zeroext i1 @lv_obj_area_is_visible(ptr noundef %0, ptr noundef %1
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !32
   store i32 %37, ptr %35, align 4, !tbaa !27
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %34, ptr %38, align 8, !tbaa !18
-  %39 = getelementptr inbounds i8, ptr %4, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %41 = load i32, ptr %40, align 4, !tbaa !34
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %39, align 4, !tbaa !27
-  %43 = getelementptr inbounds i8, ptr %4, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load i32, ptr %44, align 4, !tbaa !33
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %43, align 16, !tbaa !18
-  %47 = getelementptr inbounds i8, ptr %4, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %37, ptr %47, align 4, !tbaa !27
-  %48 = getelementptr inbounds i8, ptr %4, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %46, ptr %48, align 8, !tbaa !18
-  %49 = getelementptr inbounds i8, ptr %4, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %42, ptr %49, align 4, !tbaa !27
   br label %.lr.ph.split.us.split.i
 
@@ -3732,14 +3732,14 @@ lv_obj_transform_point_array.exit:                ; preds = %tailrecurse.us.i
 .lr.ph:                                           ; preds = %lv_obj_transform_point_array.exit
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %76 = getelementptr inbounds i8, ptr %3, i64 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %79 = getelementptr inbounds i8, ptr %3, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %81 = getelementptr inbounds i8, ptr %3, i64 20
-  %82 = getelementptr inbounds i8, ptr %3, i64 24
-  %83 = getelementptr inbounds i8, ptr %3, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 28
   br label %84
 
 84:                                               ; preds = %.lr.ph, %121

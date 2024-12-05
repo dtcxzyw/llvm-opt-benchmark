@@ -15,8 +15,8 @@ define i32 @nx_umount2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 5:                                                ; preds = %2
   store ptr %0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %6, i8 0, i64 41, i1 false)
   %8 = call i32 @inode_find(ptr noundef nonnull %4) #4
   %9 = icmp slt i32 %8, 0
@@ -24,16 +24,16 @@ define i32 @nx_umount2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 26
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 26
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 15
   %15 = icmp eq i16 %14, 3
   br i1 %15, label %16, label %51
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %20 = load ptr, ptr %19, align 8
   %.not34 = icmp eq ptr %20, null
   br i1 %.not34, label %51, label %21
@@ -45,9 +45,9 @@ define i32 @nx_umount2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 144
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 %27(ptr noundef %29, ptr noundef nonnull %3, i32 noundef %1) #4
   %31 = icmp slt i32 %30, 0
@@ -63,13 +63,13 @@ define i32 @nx_umount2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i16 %35, ptr %12, align 2
   store ptr null, ptr %28, align 8
   store ptr null, ptr %17, align 8
-  %36 = getelementptr inbounds i8, ptr %11, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not36 = icmp eq ptr %37, null
   br i1 %.not36, label %42, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %11, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %40 = load i16, ptr %39, align 8
   %41 = add i16 %40, -1
   store i16 %41, ptr %39, align 8

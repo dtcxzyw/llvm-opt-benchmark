@@ -13,9 +13,9 @@ define hidden i32 @WebPEstimateBestFilter(ptr nocapture noundef readonly %0, i32
 
 .lr.ph68:                                         ; preds = %4
   %8 = icmp sgt i32 %1, 3
-  %9 = getelementptr inbounds i8, ptr %5, i64 64
-  %10 = getelementptr inbounds i8, ptr %5, i64 128
-  %11 = getelementptr inbounds i8, ptr %5, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 192
   br i1 %8, label %.lr.ph.us.preheader, label %.preheader.preheader
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph68
@@ -37,7 +37,7 @@ define hidden i32 @WebPEstimateBestFilter(ptr nocapture noundef readonly %0, i32
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ 2, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
   %.06064.us = phi i32 [ %20, %.lr.ph.us ], [ %62, %21 ]
-  %22 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 %24, %.06064.us
@@ -67,16 +67,16 @@ define hidden i32 @WebPEstimateBestFilter(ptr nocapture noundef readonly %0, i32
   %49 = tail call i32 @llvm.abs.i32(i32 %48, i1 true)
   %50 = lshr i32 %49, 4
   %51 = zext nneg i32 %27 to i64
-  %52 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %51
   store i32 1, ptr %52, align 4
   %53 = zext nneg i32 %33 to i64
-  %54 = getelementptr inbounds [16 x i32], ptr %9, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i32], ptr %9, i64 0, i64 %53
   store i32 1, ptr %54, align 4
   %55 = zext nneg i32 %40 to i64
-  %56 = getelementptr inbounds [16 x i32], ptr %10, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i32], ptr %10, i64 0, i64 %55
   store i32 1, ptr %56, align 4
   %57 = zext nneg i32 %50 to i64
-  %58 = getelementptr inbounds [16 x i32], ptr %11, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i32], ptr %11, i64 0, i64 %57
   store i32 1, ptr %58, align 4
   %59 = mul nuw nsw i32 %.06064.us, 3
   %60 = add nuw nsw i32 %59, 2
@@ -103,7 +103,7 @@ define hidden i32 @WebPEstimateBestFilter(ptr nocapture noundef readonly %0, i32
 65:                                               ; preds = %.preheader, %65
   %indvars.iv79 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next80, %65 ]
   %.070 = phi i32 [ 0, %.preheader ], [ %spec.select, %65 ]
-  %66 = getelementptr inbounds [4 x [16 x i32]], ptr %5, i64 0, i64 %indvars.iv82, i64 %indvars.iv79
+  %66 = getelementptr inbounds nuw [4 x [16 x i32]], ptr %5, i64 0, i64 %indvars.iv82, i64 %indvars.iv79
   %67 = load i32, ptr %66, align 4
   %68 = icmp sgt i32 %67, 0
   %69 = trunc nuw nsw i64 %indvars.iv79 to i32

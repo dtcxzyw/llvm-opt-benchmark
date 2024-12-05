@@ -98,7 +98,7 @@ define noundef i32 @acct_gather_energy_p_update_node_energy() local_unnamed_addr
 
 7:                                                ; preds = %6, %0
   %8 = phi ptr [ %.pre, %6 ], [ %1, %0 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, -2
   br i1 %11, label %13, label %12
@@ -195,7 +195,7 @@ define void @acct_gather_energy_p_conf_set(i32 %0, ptr nocapture readnone %1) lo
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %29 to i64
-  %38 = getelementptr inbounds [256 x i32], ptr @pkg2cpu, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [256 x i32], ptr @pkg2cpu, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %41, label %.backedge.i
@@ -234,7 +234,7 @@ _hardware.exit:                                   ; preds = %._crit_edge.i, %47,
 
 .lr.ph:                                           ; preds = %_hardware.exit, %_open_msr.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_open_msr.exit ], [ 0, %_hardware.exit ]
-  %54 = getelementptr inbounds [256 x i32], ptr @pkg2cpu, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [256 x i32], ptr @pkg2cpu, i64 0, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %4)
   %56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %55) #10
@@ -264,7 +264,7 @@ _hardware.exit:                                   ; preds = %._crit_edge.i, %47,
 
 _open_msr.exit:                                   ; preds = %.lr.ph, %62, %64, %66
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4)
-  %68 = getelementptr inbounds [256 x i32], ptr @pkg_fd, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [256 x i32], ptr @pkg_fd, i64 0, i64 %indvars.iv
   store i32 %57, ptr %68, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr @nb_pkg, align 4
@@ -308,7 +308,7 @@ _read_msr.exit:                                   ; preds = %78, %80, %83
 
 86:                                               ; preds = %_read_msr.exit
   %87 = load ptr, ptr @local_energy, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store i32 -2, ptr %88, align 8
   br label %89
 
@@ -344,11 +344,11 @@ define internal fastcc void @_get_joules_task(ptr nocapture noundef %0) unnamed_
 
 11:                                               ; preds = %9
   call void @slurm_init_update_node_msg(ptr noundef nonnull %6) #10
-  %12 = getelementptr inbounds i8, ptr %6, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr @hostname, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr @.str.10, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 512, ptr %14, align 8
   store i1 true, ptr @_send_drain_request.drain_request_sent, align 1
   %15 = call i32 @slurm_get_log_level() #10
@@ -474,7 +474,7 @@ _read_msr.exit51:                                 ; preds = %51, %53, %56
 .lr.ph:                                           ; preds = %66, %_get_dram_energy.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_get_dram_energy.exit ], [ 0, %66 ]
   %.04054 = phi i64 [ %121, %_get_dram_energy.exit ], [ 0, %66 ]
-  %69 = getelementptr inbounds [256 x i32], ptr @pkg_fd, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [256 x i32], ptr @pkg_fd, i64 0, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
@@ -504,14 +504,14 @@ _read_msr.exit.i:                                 ; preds = %80, %77, %75
   %81 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %82 = and i64 %81, 4294967295
-  %83 = getelementptr inbounds [256 x %union.anon], ptr @package_energy, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [256 x %union.anon], ptr @package_energy, i64 0, i64 %indvars.iv
   %84 = load i32, ptr %83, align 8
   %85 = zext i32 %84 to i64
   %86 = icmp samesign ult i64 %82, %85
   br i1 %86, label %87, label %_get_package_energy.exit
 
 87:                                               ; preds = %_read_msr.exit.i
-  %88 = getelementptr inbounds i8, ptr %83, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = add i32 %89, 1
   store i32 %90, ptr %88, align 4
@@ -561,14 +561,14 @@ _read_msr.exit.i53:                               ; preds = %107, %104, %101, %1
   %108 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %109 = and i64 %108, 4294967295
-  %110 = getelementptr inbounds [256 x %union.anon], ptr @dram_energy, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [256 x %union.anon], ptr @dram_energy, i64 0, i64 %indvars.iv
   %111 = load i32, ptr %110, align 8
   %112 = zext i32 %111 to i64
   %113 = icmp samesign ult i64 %109, %112
   br i1 %113, label %114, label %_get_dram_energy.exit
 
 114:                                              ; preds = %_read_msr.exit.i53
-  %115 = getelementptr inbounds i8, ptr %110, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = add i32 %116, 1
   store i32 %117, ptr %115, align 4
@@ -605,26 +605,26 @@ _get_dram_energy.exit:                            ; preds = %_read_msr.exit.i53,
   br label %133
 
 133:                                              ; preds = %._crit_edge, %129, %132
-  %134 = getelementptr inbounds i8, ptr %0, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %135 = load i64, ptr %134, align 8
   %.not46 = icmp eq i64 %135, 0
   br i1 %.not46, label %164, label %136
 
 136:                                              ; preds = %133
   %137 = fptoui double %126 to i64
-  %138 = getelementptr inbounds i8, ptr %0, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %139 = load i64, ptr %138, align 8
   %140 = sub i64 %137, %139
   store i64 %140, ptr %134, align 8
   %141 = fptoui double %126 to i32
-  %142 = getelementptr inbounds i8, ptr %0, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %143 = load i64, ptr %142, align 8
   %144 = trunc i64 %143 to i32
   %145 = sub i32 %141, %144
-  %146 = getelementptr inbounds i8, ptr %0, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %145, ptr %146, align 8
   %147 = tail call i64 @time(ptr noundef null) #10
-  %148 = getelementptr inbounds i8, ptr %0, i64 40
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %149 = load i64, ptr %148, align 8
   %.not47 = icmp eq i64 %147, %149
   %.pre = load i32, ptr %146, align 8
@@ -652,7 +652,7 @@ _get_dram_energy.exit:                            ; preds = %_read_msr.exit.i53,
 164:                                              ; preds = %133
   store i64 1, ptr %134, align 8
   %165 = fptoui double %126 to i64
-  %166 = getelementptr inbounds i8, ptr %0, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %165, ptr %166, align 8
   %.pre57 = load i32, ptr @_get_joules_task.readings, align 4
   %.pre58 = add i32 %.pre57, 1
@@ -664,10 +664,10 @@ _get_dram_energy.exit:                            ; preds = %_read_msr.exit.i53,
   %storemerge = phi i32 [ 0, %164 ], [ %163, %156 ]
   store i32 %storemerge, ptr %0, align 8
   store i32 %.pre-phi, ptr @_get_joules_task.readings, align 4
-  %168 = getelementptr inbounds i8, ptr %0, i64 32
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.pre-phi59, ptr %168, align 8
   %169 = tail call i64 @time(ptr noundef null) #10
-  %170 = getelementptr inbounds i8, ptr %0, i64 40
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %169, ptr %170, align 8
   %171 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %172 = and i64 %171, 262144
@@ -682,7 +682,7 @@ _get_dram_energy.exit:                            ; preds = %_read_msr.exit.i53,
 176:                                              ; preds = %173
   %177 = load i64, ptr %170, align 8
   %178 = load i64, ptr %134, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %180 = load i32, ptr %179, align 8
   %181 = load i32, ptr %0, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.9, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_joules_task, i64 noundef %177, i64 noundef %178, i32 noundef %180, i32 noundef %181) #10
@@ -737,13 +737,13 @@ define range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef %0, ptr n
 
 10:                                               ; preds = %9, %9
   %11 = load ptr, ptr @local_energy, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -2
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 -2, ptr %16, align 8
   br label %27
 
@@ -758,7 +758,7 @@ define range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef %0, ptr n
 
 20:                                               ; preds = %9
   %21 = load ptr, ptr @local_energy, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %1, align 8
   br label %27
@@ -829,7 +829,7 @@ _running_profile.exit.i:                          ; preds = %9, %5
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @local_energy, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._send_profile, ptr noundef nonnull @__func__._send_profile, i32 noundef %22) #10
   br label %23
@@ -872,7 +872,7 @@ thread-pre-split.i:                               ; preds = %33, %30
 
 40:                                               ; preds = %35, %23
   %41 = load ptr, ptr @local_energy, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   store i64 %44, ptr %3, align 8
@@ -888,7 +888,7 @@ thread-pre-split.i:                               ; preds = %33, %30
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %.pre4.i, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.pre4.i, i64 24
   %52 = load i32, ptr %51, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.18, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._send_profile, i32 noundef %52) #10
   %.pre.i = load ptr, ptr @local_energy, align 8
@@ -897,7 +897,7 @@ thread-pre-split.i:                               ; preds = %33, %30
 53:                                               ; preds = %50, %47, %40
   %54 = phi ptr [ %41, %40 ], [ %.pre4.i, %47 ], [ %.pre.i, %50 ]
   %55 = load i32, ptr @dataset_id, align 4
-  %56 = getelementptr inbounds i8, ptr %54, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %57 = load i64, ptr %56, align 8
   %58 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %55, ptr noundef nonnull %3, i64 noundef %57) #10
   br label %_send_profile.exit

@@ -15,10 +15,10 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %swm = getelementptr inbounds i8, ptr %txfc, i64 8
+  %swm = getelementptr inbounds nuw i8, ptr %txfc, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %swm, i8 0, i64 16, i1 false)
   store ptr %conn_txfc, ptr %txfc, align 8
-  %has_become_blocked = getelementptr inbounds i8, ptr %txfc, i64 24
+  %has_become_blocked = getelementptr inbounds nuw i8, ptr %txfc, i64 24
   store i8 0, ptr %has_become_blocked, align 8
   br label %return
 
@@ -37,7 +37,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @ossl_quic_txfc_bump_cwm(ptr nocapture noundef %txfc, i64 noundef %cwm) local_unnamed_addr #0 {
 entry:
-  %cwm1 = getelementptr inbounds i8, ptr %txfc, i64 16
+  %cwm1 = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm1, align 8
   %cmp.not = icmp ugt i64 %cwm, %0
   br i1 %cmp.not, label %if.end, label %return
@@ -54,9 +54,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_txfc_get_credit_local(ptr nocapture noundef readonly %txfc, i64 noundef %consumed) local_unnamed_addr #1 {
 entry:
-  %cwm = getelementptr inbounds i8, ptr %txfc, i64 16
+  %cwm = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm, align 8
-  %swm = getelementptr inbounds i8, ptr %txfc, i64 8
+  %swm = getelementptr inbounds nuw i8, ptr %txfc, i64 8
   %1 = load i64, ptr %swm, align 8
   %2 = add i64 %consumed, %1
   %sub = sub i64 %0, %2
@@ -66,9 +66,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @ossl_quic_txfc_get_credit(ptr nocapture noundef readonly %txfc, i64 noundef %consumed) local_unnamed_addr #2 {
 entry:
-  %cwm.i = getelementptr inbounds i8, ptr %txfc, i64 16
+  %cwm.i = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm.i, align 8
-  %swm.i = getelementptr inbounds i8, ptr %txfc, i64 8
+  %swm.i = getelementptr inbounds nuw i8, ptr %txfc, i64 8
   %1 = load i64, ptr %swm.i, align 8
   %sub.i = sub i64 %0, %1
   %2 = load ptr, ptr %txfc, align 8
@@ -76,9 +76,9 @@ entry:
   br i1 %cmp.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cwm.i5 = getelementptr inbounds i8, ptr %2, i64 16
+  %cwm.i5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load i64, ptr %cwm.i5, align 8
-  %swm.i6 = getelementptr inbounds i8, ptr %2, i64 8
+  %swm.i6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %swm.i6, align 8
   %5 = add i64 %consumed, %4
   %sub.i7 = sub i64 %3, %5
@@ -93,9 +93,9 @@ if.end5:                                          ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @ossl_quic_txfc_consume_credit_local(ptr nocapture noundef %txfc, i64 noundef %num_bytes) local_unnamed_addr #0 {
 entry:
-  %cwm.i = getelementptr inbounds i8, ptr %txfc, i64 16
+  %cwm.i = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm.i, align 8
-  %swm.i = getelementptr inbounds i8, ptr %txfc, i64 8
+  %swm.i = getelementptr inbounds nuw i8, ptr %txfc, i64 8
   %1 = load i64, ptr %swm.i, align 8
   %sub.i = sub i64 %0, %1
   %spec.select8 = tail call i64 @llvm.umin.i64(i64 %num_bytes, i64 %sub.i)
@@ -105,7 +105,7 @@ entry:
   br i1 %or.cond, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %entry
-  %has_become_blocked = getelementptr inbounds i8, ptr %txfc, i64 24
+  %has_become_blocked = getelementptr inbounds nuw i8, ptr %txfc, i64 24
   store i8 1, ptr %has_become_blocked, align 8
   br label %if.end4
 
@@ -120,9 +120,9 @@ if.end4:                                          ; preds = %if.then3, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @ossl_quic_txfc_consume_credit(ptr nocapture noundef %txfc, i64 noundef %num_bytes) local_unnamed_addr #3 {
 entry:
-  %cwm.i.i = getelementptr inbounds i8, ptr %txfc, i64 16
+  %cwm.i.i = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm.i.i, align 8
-  %swm.i.i = getelementptr inbounds i8, ptr %txfc, i64 8
+  %swm.i.i = getelementptr inbounds nuw i8, ptr %txfc, i64 8
   %1 = load i64, ptr %swm.i.i, align 8
   %sub.i.i = sub i64 %0, %1
   %spec.select8.i = tail call i64 @llvm.umin.i64(i64 %num_bytes, i64 %sub.i.i)
@@ -132,7 +132,7 @@ entry:
   br i1 %or.cond.i, label %if.then3.i, label %ossl_quic_txfc_consume_credit_local.exit
 
 if.then3.i:                                       ; preds = %entry
-  %has_become_blocked.i = getelementptr inbounds i8, ptr %txfc, i64 24
+  %has_become_blocked.i = getelementptr inbounds nuw i8, ptr %txfc, i64 24
   store i8 1, ptr %has_become_blocked.i, align 8
   br label %ossl_quic_txfc_consume_credit_local.exit
 
@@ -146,9 +146,9 @@ ossl_quic_txfc_consume_credit_local.exit:         ; preds = %entry, %if.then3.i
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %ossl_quic_txfc_consume_credit_local.exit
-  %cwm.i.i4 = getelementptr inbounds i8, ptr %2, i64 16
+  %cwm.i.i4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load i64, ptr %cwm.i.i4, align 8
-  %swm.i.i5 = getelementptr inbounds i8, ptr %2, i64 8
+  %swm.i.i5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %swm.i.i5, align 8
   %sub.i.i6 = sub i64 %3, %4
   %spec.select8.i7 = tail call i64 @llvm.umin.i64(i64 %num_bytes, i64 %sub.i.i6)
@@ -158,7 +158,7 @@ if.then:                                          ; preds = %ossl_quic_txfc_cons
   br i1 %or.cond.i10, label %if.then3.i14, label %ossl_quic_txfc_consume_credit_local.exit16
 
 if.then3.i14:                                     ; preds = %if.then
-  %has_become_blocked.i15 = getelementptr inbounds i8, ptr %2, i64 24
+  %has_become_blocked.i15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 1, ptr %has_become_blocked.i15, align 8
   br label %ossl_quic_txfc_consume_credit_local.exit16
 
@@ -179,7 +179,7 @@ return:                                           ; preds = %ossl_quic_txfc_cons
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 -128, 128) i32 @ossl_quic_txfc_has_become_blocked(ptr nocapture noundef %txfc, i32 noundef %clear) local_unnamed_addr #0 {
 entry:
-  %has_become_blocked = getelementptr inbounds i8, ptr %txfc, i64 24
+  %has_become_blocked = getelementptr inbounds nuw i8, ptr %txfc, i64 24
   %0 = load i8, ptr %has_become_blocked, align 8
   %tobool.not = icmp eq i32 %clear, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -196,7 +196,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_txfc_get_cwm(ptr nocapture noundef readonly %txfc) local_unnamed_addr #1 {
 entry:
-  %cwm = getelementptr inbounds i8, ptr %txfc, i64 16
+  %cwm = getelementptr inbounds nuw i8, ptr %txfc, i64 16
   %0 = load i64, ptr %cwm, align 8
   ret i64 %0
 }
@@ -204,7 +204,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_txfc_get_swm(ptr nocapture noundef readonly %txfc) local_unnamed_addr #1 {
 entry:
-  %swm = getelementptr inbounds i8, ptr %txfc, i64 8
+  %swm = getelementptr inbounds nuw i8, ptr %txfc, i64 8
   %0 = load i64, ptr %swm, align 8
   ret i64 %0
 }
@@ -216,36 +216,36 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %parent = getelementptr inbounds i8, ptr %conn_rxfc, i64 80
+  %parent = getelementptr inbounds nuw i8, ptr %conn_rxfc, i64 80
   %0 = load ptr, ptr %parent, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %swm = getelementptr inbounds i8, ptr %rxfc, i64 8
+  %swm = getelementptr inbounds nuw i8, ptr %rxfc, i64 8
   store i64 0, ptr %swm, align 8
   store i64 %initial_window_size, ptr %rxfc, align 8
-  %rwm = getelementptr inbounds i8, ptr %rxfc, i64 16
-  %cur_window_size = getelementptr inbounds i8, ptr %rxfc, i64 40
+  %rwm = getelementptr inbounds nuw i8, ptr %rxfc, i64 16
+  %cur_window_size = getelementptr inbounds nuw i8, ptr %rxfc, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rwm, i8 0, i64 24, i1 false)
   store i64 %initial_window_size, ptr %cur_window_size, align 8
-  %max_window_size2 = getelementptr inbounds i8, ptr %rxfc, i64 48
+  %max_window_size2 = getelementptr inbounds nuw i8, ptr %rxfc, i64 48
   store i64 %max_window_size, ptr %max_window_size2, align 8
-  %parent3 = getelementptr inbounds i8, ptr %rxfc, i64 80
+  %parent3 = getelementptr inbounds nuw i8, ptr %rxfc, i64 80
   store ptr %conn_rxfc, ptr %parent3, align 8
-  %error_code = getelementptr inbounds i8, ptr %rxfc, i64 88
+  %error_code = getelementptr inbounds nuw i8, ptr %rxfc, i64 88
   store i8 0, ptr %error_code, align 8
-  %has_cwm_changed = getelementptr inbounds i8, ptr %rxfc, i64 89
+  %has_cwm_changed = getelementptr inbounds nuw i8, ptr %rxfc, i64 89
   store i8 0, ptr %has_cwm_changed, align 1
-  %epoch_start = getelementptr inbounds i8, ptr %rxfc, i64 56
+  %epoch_start = getelementptr inbounds nuw i8, ptr %rxfc, i64 56
   store i64 0, ptr %epoch_start, align 8
-  %now4 = getelementptr inbounds i8, ptr %rxfc, i64 64
+  %now4 = getelementptr inbounds nuw i8, ptr %rxfc, i64 64
   store ptr %now, ptr %now4, align 8
-  %now_arg5 = getelementptr inbounds i8, ptr %rxfc, i64 72
+  %now_arg5 = getelementptr inbounds nuw i8, ptr %rxfc, i64 72
   store ptr %now_arg, ptr %now_arg5, align 8
-  %is_fin = getelementptr inbounds i8, ptr %rxfc, i64 90
+  %is_fin = getelementptr inbounds nuw i8, ptr %rxfc, i64 90
   store i8 0, ptr %is_fin, align 2
-  %standalone = getelementptr inbounds i8, ptr %rxfc, i64 91
+  %standalone = getelementptr inbounds nuw i8, ptr %rxfc, i64 91
   store i8 0, ptr %standalone, align 1
   br label %return
 
@@ -257,30 +257,30 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef range(i32 0, 2) i32 @ossl_quic_rxfc_init_standalone(ptr nocapture noundef writeonly initializes((0, 92)) %rxfc, i64 noundef %initial_window_size, ptr noundef %now, ptr noundef %now_arg) local_unnamed_addr #4 {
 return:
-  %swm.i = getelementptr inbounds i8, ptr %rxfc, i64 8
+  %swm.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 8
   store i64 0, ptr %swm.i, align 8
   store i64 %initial_window_size, ptr %rxfc, align 8
-  %rwm.i = getelementptr inbounds i8, ptr %rxfc, i64 16
-  %cur_window_size.i = getelementptr inbounds i8, ptr %rxfc, i64 40
+  %rwm.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 16
+  %cur_window_size.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rwm.i, i8 0, i64 24, i1 false)
   store i64 %initial_window_size, ptr %cur_window_size.i, align 8
-  %max_window_size2.i = getelementptr inbounds i8, ptr %rxfc, i64 48
+  %max_window_size2.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 48
   store i64 %initial_window_size, ptr %max_window_size2.i, align 8
-  %parent3.i = getelementptr inbounds i8, ptr %rxfc, i64 80
+  %parent3.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 80
   store ptr null, ptr %parent3.i, align 8
-  %error_code.i = getelementptr inbounds i8, ptr %rxfc, i64 88
+  %error_code.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 88
   store i8 0, ptr %error_code.i, align 8
-  %has_cwm_changed.i = getelementptr inbounds i8, ptr %rxfc, i64 89
+  %has_cwm_changed.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 89
   store i8 0, ptr %has_cwm_changed.i, align 1
-  %epoch_start.i = getelementptr inbounds i8, ptr %rxfc, i64 56
+  %epoch_start.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 56
   store i64 0, ptr %epoch_start.i, align 8
-  %now4.i = getelementptr inbounds i8, ptr %rxfc, i64 64
+  %now4.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 64
   store ptr %now, ptr %now4.i, align 8
-  %now_arg5.i = getelementptr inbounds i8, ptr %rxfc, i64 72
+  %now_arg5.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 72
   store ptr %now_arg, ptr %now_arg5.i, align 8
-  %is_fin.i = getelementptr inbounds i8, ptr %rxfc, i64 90
+  %is_fin.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 90
   store i8 0, ptr %is_fin.i, align 2
-  %standalone.i = getelementptr inbounds i8, ptr %rxfc, i64 91
+  %standalone.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 91
   store i8 1, ptr %standalone.i, align 1
   ret i32 1
 }
@@ -288,7 +288,7 @@ return:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ossl_quic_rxfc_get_parent(ptr nocapture noundef readonly %rxfc) local_unnamed_addr #1 {
 entry:
-  %parent = getelementptr inbounds i8, ptr %rxfc, i64 80
+  %parent = getelementptr inbounds nuw i8, ptr %rxfc, i64 80
   %0 = load ptr, ptr %parent, align 8
   ret ptr %0
 }
@@ -296,7 +296,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_quic_rxfc_set_max_window_size(ptr nocapture noundef writeonly initializes((48, 56)) %rxfc, i64 noundef %max_window_size) local_unnamed_addr #4 {
 entry:
-  %max_window_size1 = getelementptr inbounds i8, ptr %rxfc, i64 48
+  %max_window_size1 = getelementptr inbounds nuw i8, ptr %rxfc, i64 48
   store i64 %max_window_size, ptr %max_window_size1, align 8
   ret void
 }
@@ -304,26 +304,26 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr nocapture noundef %rxfc, i64 noundef %end, i32 noundef %is_fin) local_unnamed_addr #3 {
 entry:
-  %standalone = getelementptr inbounds i8, ptr %rxfc, i64 91
+  %standalone = getelementptr inbounds nuw i8, ptr %rxfc, i64 91
   %0 = load i8, ptr %standalone, align 1
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %parent = getelementptr inbounds i8, ptr %rxfc, i64 80
+  %parent = getelementptr inbounds nuw i8, ptr %rxfc, i64 80
   %1 = load ptr, ptr %parent, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %is_fin1 = getelementptr inbounds i8, ptr %rxfc, i64 90
+  %is_fin1 = getelementptr inbounds nuw i8, ptr %rxfc, i64 90
   %2 = load i8, ptr %is_fin1, align 2
   %tobool2.not = icmp eq i8 %2, 0
   %tobool13.not = icmp eq i32 %is_fin, 0
   br i1 %tobool2.not, label %if.end12, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %if.end
-  %hwm8.phi.trans.insert = getelementptr inbounds i8, ptr %rxfc, i64 32
+  %hwm8.phi.trans.insert = getelementptr inbounds nuw i8, ptr %rxfc, i64 32
   %.pre = load i64, ptr %hwm8.phi.trans.insert, align 8
   br i1 %tobool13.not, label %lor.lhs.false, label %land.lhs.true5
 
@@ -336,7 +336,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true3
   br i1 %cmp9, label %if.then11, label %if.end16
 
 if.then11:                                        ; preds = %lor.lhs.false, %land.lhs.true5
-  %error_code = getelementptr inbounds i8, ptr %rxfc, i64 88
+  %error_code = getelementptr inbounds nuw i8, ptr %rxfc, i64 88
   store i8 6, ptr %error_code, align 8
   br label %return
 
@@ -349,7 +349,7 @@ if.then14:                                        ; preds = %land.lhs.true5, %if
 
 if.end16:                                         ; preds = %lor.lhs.false, %if.then14, %if.end12
   %tobool1335 = phi i1 [ true, %if.then14 ], [ false, %if.end12 ], [ false, %lor.lhs.false ]
-  %hwm17 = getelementptr inbounds i8, ptr %rxfc, i64 32
+  %hwm17 = getelementptr inbounds nuw i8, ptr %rxfc, i64 32
   %3 = load i64, ptr %hwm17, align 8
   %cmp18 = icmp ugt i64 %end, %3
   br i1 %cmp18, label %if.then20, label %if.else
@@ -358,14 +358,14 @@ if.then20:                                        ; preds = %if.end16
   %sub = sub nuw i64 %end, %3
   store i64 %end, ptr %hwm17, align 8
   %4 = load i64, ptr %rxfc, align 8
-  %swm.i = getelementptr inbounds i8, ptr %rxfc, i64 8
+  %swm.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 8
   %5 = load i64, ptr %swm.i, align 8
   %sub.i = sub i64 %4, %5
   %cmp.i = icmp ugt i64 %sub, %sub.i
   br i1 %cmp.i, label %if.then.i, label %on_rx_controlled_bytes.exit
 
 if.then.i:                                        ; preds = %if.then20
-  %error_code.i = getelementptr inbounds i8, ptr %rxfc, i64 88
+  %error_code.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 88
   store i8 3, ptr %error_code.i, align 8
   br label %on_rx_controlled_bytes.exit
 
@@ -373,21 +373,21 @@ on_rx_controlled_bytes.exit:                      ; preds = %if.then20, %if.then
   %num_bytes.addr.0.i = phi i64 [ %sub.i, %if.then.i ], [ %sub, %if.then20 ]
   %add.i = add i64 %num_bytes.addr.0.i, %5
   store i64 %add.i, ptr %swm.i, align 8
-  %parent23 = getelementptr inbounds i8, ptr %rxfc, i64 80
+  %parent23 = getelementptr inbounds nuw i8, ptr %rxfc, i64 80
   %6 = load ptr, ptr %parent23, align 8
   %cmp24.not = icmp eq ptr %6, null
   br i1 %cmp24.not, label %return, label %if.then26
 
 if.then26:                                        ; preds = %on_rx_controlled_bytes.exit
   %7 = load i64, ptr %6, align 8
-  %swm.i24 = getelementptr inbounds i8, ptr %6, i64 8
+  %swm.i24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %swm.i24, align 8
   %sub.i25 = sub i64 %7, %8
   %cmp.i26 = icmp ugt i64 %sub, %sub.i25
   br i1 %cmp.i26, label %if.then.i30, label %on_rx_controlled_bytes.exit32
 
 if.then.i30:                                      ; preds = %if.then26
-  %error_code.i31 = getelementptr inbounds i8, ptr %6, i64 88
+  %error_code.i31 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i8 3, ptr %error_code.i31, align 8
   br label %on_rx_controlled_bytes.exit32
 
@@ -403,7 +403,7 @@ if.else:                                          ; preds = %if.end16
   br i1 %or.cond, label %if.then35, label %return
 
 if.then35:                                        ; preds = %if.else
-  %error_code36 = getelementptr inbounds i8, ptr %rxfc, i64 88
+  %error_code36 = getelementptr inbounds nuw i8, ptr %rxfc, i64 88
   store i8 6, ptr %error_code36, align 8
   br label %return
 
@@ -415,13 +415,13 @@ return:                                           ; preds = %on_rx_controlled_by
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_quic_rxfc_on_retire(ptr nocapture noundef %rxfc, i64 noundef %num_bytes, i64 %rtt.coerce) local_unnamed_addr #5 {
 entry:
-  %parent = getelementptr inbounds i8, ptr %rxfc, i64 80
+  %parent = getelementptr inbounds nuw i8, ptr %rxfc, i64 80
   %0 = load ptr, ptr %parent, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %standalone = getelementptr inbounds i8, ptr %rxfc, i64 91
+  %standalone = getelementptr inbounds nuw i8, ptr %rxfc, i64 91
   %1 = load i8, ptr %standalone, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -431,24 +431,24 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %rwm = getelementptr inbounds i8, ptr %rxfc, i64 16
+  %rwm = getelementptr inbounds nuw i8, ptr %rxfc, i64 16
   %2 = load i64, ptr %rwm, align 8
   %add = add i64 %2, %num_bytes
-  %swm = getelementptr inbounds i8, ptr %rxfc, i64 8
+  %swm = getelementptr inbounds nuw i8, ptr %rxfc, i64 8
   %3 = load i64, ptr %swm, align 8
   %cmp4 = icmp ugt i64 %add, %3
   br i1 %cmp4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end3
   tail call fastcc void @rxfc_on_retire(ptr noundef nonnull %rxfc, i64 noundef %num_bytes, i64 noundef 0, i64 %rtt.coerce)
-  %standalone8 = getelementptr inbounds i8, ptr %rxfc, i64 91
+  %standalone8 = getelementptr inbounds nuw i8, ptr %rxfc, i64 91
   %4 = load i8, ptr %standalone8, align 1
   %tobool9.not = icmp eq i8 %4, 0
   br i1 %tobool9.not, label %if.then10, label %return
 
 if.then10:                                        ; preds = %if.end6
   %5 = load ptr, ptr %parent, align 8
-  %cur_window_size = getelementptr inbounds i8, ptr %rxfc, i64 40
+  %cur_window_size = getelementptr inbounds nuw i8, ptr %rxfc, i64 40
   %6 = load i64, ptr %cur_window_size, align 8
   tail call fastcc void @rxfc_on_retire(ptr noundef %5, i64 noundef %num_bytes, i64 noundef %6, i64 %rtt.coerce)
   br label %return
@@ -461,36 +461,36 @@ return:                                           ; preds = %if.end6, %if.then10
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @rxfc_on_retire(ptr nocapture noundef %rxfc, i64 noundef range(i64 1, 0) %num_bytes, i64 noundef %min_window_size, i64 %rtt.coerce) unnamed_addr #5 {
 entry:
-  %epoch_start = getelementptr inbounds i8, ptr %rxfc, i64 56
+  %epoch_start = getelementptr inbounds nuw i8, ptr %rxfc, i64 56
   %0 = load i64, ptr %epoch_start, align 8
   %cmp.i.not = icmp eq i64 %0, 0
   br i1 %cmp.i.not, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %rwm.phi.trans.insert = getelementptr inbounds i8, ptr %rxfc, i64 16
+  %rwm.phi.trans.insert = getelementptr inbounds nuw i8, ptr %rxfc, i64 16
   %.pre = load i64, ptr %rwm.phi.trans.insert, align 8
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %now.i = getelementptr inbounds i8, ptr %rxfc, i64 64
+  %now.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 64
   %1 = load ptr, ptr %now.i, align 8
-  %now_arg.i = getelementptr inbounds i8, ptr %rxfc, i64 72
+  %now_arg.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 72
   %2 = load ptr, ptr %now_arg.i, align 8
   %call.i = tail call i64 %1(ptr noundef %2) #9
   store i64 %call.i, ptr %epoch_start, align 8
-  %rwm.i = getelementptr inbounds i8, ptr %rxfc, i64 16
+  %rwm.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 16
   %3 = load i64, ptr %rwm.i, align 8
-  %esrwm.i = getelementptr inbounds i8, ptr %rxfc, i64 24
+  %esrwm.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 24
   store i64 %3, ptr %esrwm.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
   %4 = phi i64 [ %.pre, %entry.if.end_crit_edge ], [ %3, %if.then ]
-  %rwm = getelementptr inbounds i8, ptr %rxfc, i64 16
+  %rwm = getelementptr inbounds nuw i8, ptr %rxfc, i64 16
   %add = add i64 %4, %num_bytes
   store i64 %add, ptr %rwm, align 8
   %5 = load i64, ptr %rxfc, align 8
-  %cur_window_size.i.i = getelementptr inbounds i8, ptr %rxfc, i64 40
+  %cur_window_size.i.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 40
   %6 = load i64, ptr %cur_window_size.i.i, align 8
   %7 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 3)
   %8 = extractvalue { i64, i1 } %7, 1
@@ -513,7 +513,7 @@ if.then.i36.i.i.i:                                ; preds = %if.end
 rxfc_cwm_bump_desired.exit.i:                     ; preds = %if.then.i36.i.i.i, %if.then3.i.i.i
   %threshold.0.i.i = phi i64 [ %div20.i.i.i, %if.then3.i.i.i ], [ %13, %if.then.i36.i.i.i ]
   %sub.i.i = sub i64 %5, %add
-  %is_fin.i.i = getelementptr inbounds i8, ptr %rxfc, i64 90
+  %is_fin.i.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 90
   %14 = load i8, ptr %is_fin.i.i, align 2
   %tobool2.not.i.i = icmp ne i8 %14, 0
   %cmp.i.i = icmp ugt i64 %sub.i.i, %threshold.0.i.i
@@ -521,16 +521,16 @@ rxfc_cwm_bump_desired.exit.i:                     ; preds = %if.then.i36.i.i.i, 
   br i1 %.not.i, label %rxfc_update_cwm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %rxfc_cwm_bump_desired.exit.i
-  %esrwm.i.i.i = getelementptr inbounds i8, ptr %rxfc, i64 24
+  %esrwm.i.i.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 24
   %15 = load i64, ptr %esrwm.i.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %add, %15
   br i1 %cmp.i.i.i, label %rxfc_should_bump_window_size.exit.thread.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i
   %sub.i.i.i = sub i64 %add, %15
-  %now1.i.i.i = getelementptr inbounds i8, ptr %rxfc, i64 64
+  %now1.i.i.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 64
   %16 = load ptr, ptr %now1.i.i.i, align 8
-  %now_arg.i.i.i = getelementptr inbounds i8, ptr %rxfc, i64 72
+  %now_arg.i.i.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 72
   %17 = load ptr, ptr %now_arg.i.i.i, align 8
   %call.i.i.i = tail call i64 %16(ptr noundef %17) #9
   %18 = load i64, ptr %epoch_start, align 8
@@ -587,13 +587,13 @@ rxfc_should_bump_window_size.exit.thread.i.i:     ; preds = %rxfc_should_bump_wi
 rxfc_adjust_window_size.exit.i:                   ; preds = %rxfc_should_bump_window_size.exit.thread.i.i, %rxfc_should_bump_window_size.exit.i.i
   %36 = phi i64 [ %6, %rxfc_should_bump_window_size.exit.thread.i.i ], [ %mul.i.i, %rxfc_should_bump_window_size.exit.i.i ]
   %new_window_size.1.i.i = tail call i64 @llvm.umax.i64(i64 %36, i64 %min_window_size)
-  %max_window_size.i.i = getelementptr inbounds i8, ptr %rxfc, i64 48
+  %max_window_size.i.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 48
   %37 = load i64, ptr %max_window_size.i.i, align 8
   %new_window_size.2.i.i = tail call i64 @llvm.umin.i64(i64 %new_window_size.1.i.i, i64 %37)
   store i64 %new_window_size.2.i.i, ptr %cur_window_size.i.i, align 8
-  %now.i.i.i = getelementptr inbounds i8, ptr %rxfc, i64 64
+  %now.i.i.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 64
   %38 = load ptr, ptr %now.i.i.i, align 8
-  %now_arg.i11.i.i = getelementptr inbounds i8, ptr %rxfc, i64 72
+  %now_arg.i11.i.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 72
   %39 = load ptr, ptr %now_arg.i11.i.i, align 8
   %call.i12.i.i = tail call i64 %38(ptr noundef %39) #9
   store i64 %call.i12.i.i, ptr %epoch_start, align 8
@@ -607,7 +607,7 @@ rxfc_adjust_window_size.exit.i:                   ; preds = %rxfc_should_bump_wi
 
 if.then2.i:                                       ; preds = %rxfc_adjust_window_size.exit.i
   store i64 %add.i, ptr %rxfc, align 8
-  %has_cwm_changed.i = getelementptr inbounds i8, ptr %rxfc, i64 89
+  %has_cwm_changed.i = getelementptr inbounds nuw i8, ptr %rxfc, i64 89
   store i8 1, ptr %has_cwm_changed.i, align 1
   br label %rxfc_update_cwm.exit
 
@@ -625,7 +625,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_rxfc_get_swm(ptr nocapture noundef readonly %rxfc) local_unnamed_addr #1 {
 entry:
-  %swm = getelementptr inbounds i8, ptr %rxfc, i64 8
+  %swm = getelementptr inbounds nuw i8, ptr %rxfc, i64 8
   %0 = load i64, ptr %swm, align 8
   ret i64 %0
 }
@@ -633,7 +633,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_rxfc_get_rwm(ptr nocapture noundef readonly %rxfc) local_unnamed_addr #1 {
 entry:
-  %rwm = getelementptr inbounds i8, ptr %rxfc, i64 16
+  %rwm = getelementptr inbounds nuw i8, ptr %rxfc, i64 16
   %0 = load i64, ptr %rwm, align 8
   ret i64 %0
 }
@@ -641,7 +641,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 256) i32 @ossl_quic_rxfc_has_cwm_changed(ptr nocapture noundef %rxfc, i32 noundef %clear) local_unnamed_addr #0 {
 entry:
-  %has_cwm_changed = getelementptr inbounds i8, ptr %rxfc, i64 89
+  %has_cwm_changed = getelementptr inbounds nuw i8, ptr %rxfc, i64 89
   %0 = load i8, ptr %has_cwm_changed, align 1
   %tobool.not = icmp eq i32 %clear, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -658,7 +658,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 256) i32 @ossl_quic_rxfc_get_error(ptr nocapture noundef %rxfc, i32 noundef %clear) local_unnamed_addr #0 {
 entry:
-  %error_code = getelementptr inbounds i8, ptr %rxfc, i64 88
+  %error_code = getelementptr inbounds nuw i8, ptr %rxfc, i64 88
   %0 = load i8, ptr %error_code, align 8
   %tobool.not = icmp eq i32 %clear, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -675,7 +675,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @ossl_quic_rxfc_get_final_size(ptr nocapture noundef readonly %rxfc, ptr noundef writeonly %final_size) local_unnamed_addr #0 {
 entry:
-  %is_fin = getelementptr inbounds i8, ptr %rxfc, i64 90
+  %is_fin = getelementptr inbounds nuw i8, ptr %rxfc, i64 90
   %0 = load i8, ptr %is_fin, align 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -685,7 +685,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %hwm = getelementptr inbounds i8, ptr %rxfc, i64 32
+  %hwm = getelementptr inbounds nuw i8, ptr %rxfc, i64 32
   %1 = load i64, ptr %hwm, align 8
   store i64 %1, ptr %final_size, align 8
   br label %return

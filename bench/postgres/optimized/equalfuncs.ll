@@ -333,17 +333,17 @@ define dso_local zeroext i1 @equal(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %_equalGroupingFunc.exit
 
 27:                                               ; preds = %9
-  %28 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @equal(ptr noundef %29, ptr noundef %31)
   br i1 %32, label %33, label %_equalGroupingFunc.exit
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %.tr1096, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 32
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.tr5971097, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 32
   %37 = load i32, ptr %36, align 8
   %.not.i = icmp eq i32 %35, %37
   br label %_equalGroupingFunc.exit
@@ -381,17 +381,17 @@ define dso_local zeroext i1 @equal(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %_equalGroupingFunc.exit
 
 54:                                               ; preds = %9
-  %55 = getelementptr inbounds i8, ptr %.tr1096, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 4
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.tr5971097, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 4
   %58 = load i32, ptr %57, align 4
   %.not.i553 = icmp eq i32 %56, %58
   br i1 %.not.i553, label %tailrecurse.backedge, label %_equalGroupingFunc.exit
 
 tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325, %306, %299, %9, %9, %9, %54
-  %.tr597.be.in = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %.tr597.be.in = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %.tr597.be = load ptr, ptr %.tr597.be.in, align 8
-  %.tr.be.in = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %.tr.be = load ptr, ptr %.tr.be.in, align 8
   %59 = icmp eq ptr %.tr.be, %.tr597.be
   br i1 %59, label %_equalGroupingFunc.exit, label %.lr.ph
@@ -425,33 +425,33 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 74:                                               ; preds = %9
-  %75 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = tail call zeroext i1 @equal(ptr noundef %76, ptr noundef %78)
   br i1 %79, label %80, label %_equalGroupingFunc.exit
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %.tr1096, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 16
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.tr5971097, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 16
   %84 = load i32, ptr %83, align 8
   %.not.i556 = icmp eq i32 %82, %84
   br label %_equalGroupingFunc.exit
 
 85:                                               ; preds = %9
-  %86 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = tail call zeroext i1 @equal(ptr noundef %87, ptr noundef %89)
   br i1 %90, label %91, label %_equalGroupingFunc.exit
 
 91:                                               ; preds = %85
-  %92 = getelementptr inbounds i8, ptr %.tr1096, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 16
   %93 = load i32, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %.tr5971097, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 16
   %95 = load i32, ptr %94, align 8
   %.not.i558 = icmp eq i32 %93, %95
   br label %_equalGroupingFunc.exit
@@ -465,25 +465,25 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 100:                                              ; preds = %9
-  %101 = getelementptr inbounds i8, ptr %.tr1096, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 4
   %102 = load i32, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %.tr5971097, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 4
   %104 = load i32, ptr %103, align 4
   %.not.i559 = icmp eq i32 %102, %104
   br i1 %.not.i559, label %105, label %_equalGroupingFunc.exit
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %107 = load i32, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %109 = load i32, ptr %108, align 4
   %.not7.i = icmp eq i32 %107, %109
   br i1 %.not7.i, label %110, label %_equalGroupingFunc.exit
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds i8, ptr %.tr1096, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 12
   %112 = load i32, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %.tr5971097, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 12
   %114 = load i32, ptr %113, align 4
   %.not8.i = icmp eq i32 %112, %114
   br label %_equalGroupingFunc.exit
@@ -509,25 +509,25 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 125:                                              ; preds = %9
-  %126 = getelementptr inbounds i8, ptr %.tr1096, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 4
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %.tr5971097, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 4
   %129 = load i32, ptr %128, align 4
   %.not.i561 = icmp eq i32 %127, %129
   br i1 %.not.i561, label %130, label %_equalGroupingFunc.exit
 
 130:                                              ; preds = %125
-  %131 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %134 = load i32, ptr %133, align 4
   %.not7.i563 = icmp eq i32 %132, %134
   br i1 %.not7.i563, label %135, label %_equalGroupingFunc.exit
 
 135:                                              ; preds = %130
-  %136 = getelementptr inbounds i8, ptr %.tr1096, i64 12
+  %136 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 12
   %137 = load i32, ptr %136, align 4
-  %138 = getelementptr inbounds i8, ptr %.tr5971097, i64 12
+  %138 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 12
   %139 = load i32, ptr %138, align 4
   %.not8.i564 = icmp eq i32 %137, %139
   br label %_equalGroupingFunc.exit
@@ -537,17 +537,17 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 142:                                              ; preds = %9
-  %143 = getelementptr inbounds i8, ptr %.tr1096, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 4
   %144 = load i32, ptr %143, align 4
-  %145 = getelementptr inbounds i8, ptr %.tr5971097, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 4
   %146 = load i32, ptr %145, align 4
   %.not.i565 = icmp eq i32 %144, %146
   br i1 %.not.i565, label %147, label %_equalGroupingFunc.exit
 
 147:                                              ; preds = %142
-  %148 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %149 = load i32, ptr %148, align 4
-  %150 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %151 = load i32, ptr %150, align 4
   %.not5.i = icmp eq i32 %149, %151
   br label %_equalGroupingFunc.exit
@@ -573,17 +573,17 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 162:                                              ; preds = %9
-  %163 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %166 = load ptr, ptr %165, align 8
   %167 = tail call zeroext i1 @equal(ptr noundef %164, ptr noundef %166)
   br i1 %167, label %168, label %_equalGroupingFunc.exit
 
 168:                                              ; preds = %162
-  %169 = getelementptr inbounds i8, ptr %.tr1096, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 16
   %170 = load i32, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %.tr5971097, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 16
   %172 = load i32, ptr %171, align 8
   %.not.i568 = icmp eq i32 %170, %172
   br label %_equalGroupingFunc.exit
@@ -597,49 +597,49 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 177:                                              ; preds = %9
-  %178 = getelementptr inbounds i8, ptr %.tr1096, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 4
   %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds i8, ptr %.tr5971097, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 4
   %181 = load i32, ptr %180, align 4
   %.not.i569 = icmp eq i32 %179, %181
   br i1 %.not.i569, label %182, label %_equalGroupingFunc.exit
 
 182:                                              ; preds = %177
-  %183 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %184 = load i32, ptr %183, align 4
-  %185 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %186 = load i32, ptr %185, align 4
   %.not7.i571 = icmp eq i32 %184, %186
   br i1 %.not7.i571, label %187, label %_equalGroupingFunc.exit
 
 187:                                              ; preds = %182
-  %188 = getelementptr inbounds i8, ptr %.tr1096, i64 12
+  %188 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 12
   %189 = load i32, ptr %188, align 4
-  %190 = getelementptr inbounds i8, ptr %.tr5971097, i64 12
+  %190 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 12
   %191 = load i32, ptr %190, align 4
   %.not8.i572 = icmp eq i32 %189, %191
   br label %_equalGroupingFunc.exit
 
 192:                                              ; preds = %9
-  %193 = getelementptr inbounds i8, ptr %.tr1096, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 4
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds i8, ptr %.tr5971097, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 4
   %196 = load i32, ptr %195, align 4
   %.not.i573 = icmp eq i32 %194, %196
   br i1 %.not.i573, label %197, label %_equalGroupingFunc.exit
 
 197:                                              ; preds = %192
-  %198 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %199 = load i32, ptr %198, align 4
-  %200 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %201 = load i32, ptr %200, align 4
   %.not7.i575 = icmp eq i32 %199, %201
   br i1 %.not7.i575, label %202, label %_equalGroupingFunc.exit
 
 202:                                              ; preds = %197
-  %203 = getelementptr inbounds i8, ptr %.tr1096, i64 12
+  %203 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 12
   %204 = load i32, ptr %203, align 4
-  %205 = getelementptr inbounds i8, ptr %.tr5971097, i64 12
+  %205 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 12
   %206 = load i32, ptr %205, align 4
   %.not8.i576 = icmp eq i32 %204, %206
   br label %_equalGroupingFunc.exit
@@ -649,17 +649,17 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 209:                                              ; preds = %9
-  %210 = getelementptr inbounds i8, ptr %.tr1096, i64 4
+  %210 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 4
   %211 = load i32, ptr %210, align 4
-  %212 = getelementptr inbounds i8, ptr %.tr5971097, i64 4
+  %212 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 4
   %213 = load i32, ptr %212, align 4
   %.not.i577 = icmp eq i32 %211, %213
   br i1 %.not.i577, label %214, label %_equalGroupingFunc.exit
 
 214:                                              ; preds = %209
-  %215 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %216 = load i32, ptr %215, align 4
-  %217 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %218 = load i32, ptr %217, align 4
   %.not5.i579 = icmp eq i32 %216, %218
   br label %_equalGroupingFunc.exit
@@ -713,9 +713,9 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 241:                                              ; preds = %9
-  %242 = getelementptr inbounds i8, ptr %.tr1096, i64 24
+  %242 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 24
   %243 = load i8, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %.tr5971097, i64 24
+  %244 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 24
   %245 = load i8, ptr %244, align 8
   %246 = xor i8 %245, %243
   %247 = and i8 %246, 1
@@ -727,8 +727,8 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br i1 %249, label %254, label %250
 
 250:                                              ; preds = %248
-  %251 = getelementptr inbounds i8, ptr %.tr1096, i64 8
-  %252 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %253 = tail call zeroext i1 @equal(ptr noundef nonnull %251, ptr noundef nonnull %252)
   br i1 %253, label %254, label %_equalGroupingFunc.exit
 
@@ -824,9 +824,9 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 299:                                              ; preds = %9
-  %300 = getelementptr inbounds i8, ptr %.tr1096, i64 4
+  %300 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 4
   %301 = load i32, ptr %300, align 4
-  %302 = getelementptr inbounds i8, ptr %.tr5971097, i64 4
+  %302 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 4
   %303 = load i32, ptr %302, align 4
   %.not.i584 = icmp eq i32 %301, %303
   br i1 %.not.i584, label %tailrecurse.backedge, label %_equalGroupingFunc.exit
@@ -836,9 +836,9 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 306:                                              ; preds = %9
-  %307 = getelementptr inbounds i8, ptr %.tr1096, i64 4
+  %307 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 4
   %308 = load i32, ptr %307, align 4
-  %309 = getelementptr inbounds i8, ptr %.tr5971097, i64 4
+  %309 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 4
   %310 = load i32, ptr %309, align 4
   %.not.i586 = icmp eq i32 %308, %310
   br i1 %.not.i586, label %tailrecurse.backedge, label %_equalGroupingFunc.exit
@@ -872,9 +872,9 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 325:                                              ; preds = %9
-  %326 = getelementptr inbounds i8, ptr %.tr1096, i64 4
+  %326 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 4
   %327 = load i32, ptr %326, align 4
-  %328 = getelementptr inbounds i8, ptr %.tr5971097, i64 4
+  %328 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 4
   %329 = load i32, ptr %328, align 4
   %.not.i588 = icmp eq i32 %327, %329
   br i1 %.not.i588, label %tailrecurse.backedge, label %_equalGroupingFunc.exit
@@ -888,17 +888,17 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 334:                                              ; preds = %9
-  %335 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %336 = load ptr, ptr %335, align 8
-  %337 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %338 = load ptr, ptr %337, align 8
   %339 = tail call zeroext i1 @equal(ptr noundef %336, ptr noundef %338)
   br i1 %339, label %340, label %_equalGroupingFunc.exit
 
 340:                                              ; preds = %334
-  %341 = getelementptr inbounds i8, ptr %.tr1096, i64 16
+  %341 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 16
   %342 = load i8, ptr %341, align 8
-  %343 = getelementptr inbounds i8, ptr %.tr5971097, i64 16
+  %343 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 16
   %344 = load i8, ptr %343, align 8
   %345 = xor i8 %344, %342
   %346 = and i8 %345, 1
@@ -978,17 +978,17 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 383:                                              ; preds = %9
-  %384 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %385 = load ptr, ptr %384, align 8
-  %386 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %386 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %387 = load ptr, ptr %386, align 8
   %388 = tail call zeroext i1 @equal(ptr noundef %385, ptr noundef %387)
   br i1 %388, label %389, label %_equalGroupingFunc.exit
 
 389:                                              ; preds = %383
-  %390 = getelementptr inbounds i8, ptr %.tr1096, i64 20
+  %390 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 20
   %391 = load i32, ptr %390, align 4
-  %392 = getelementptr inbounds i8, ptr %.tr5971097, i64 20
+  %392 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 20
   %393 = load i32, ptr %392, align 4
   %.not.i591 = icmp eq i32 %391, %393
   br label %_equalGroupingFunc.exit
@@ -1188,17 +1188,17 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 491:                                              ; preds = %9
-  %492 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %492 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %493 = load ptr, ptr %492, align 8
-  %494 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %494 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %495 = load ptr, ptr %494, align 8
   %496 = tail call zeroext i1 @equal(ptr noundef %493, ptr noundef %495)
   br i1 %496, label %497, label %_equalGroupingFunc.exit
 
 497:                                              ; preds = %491
-  %498 = getelementptr inbounds i8, ptr %.tr1096, i64 16
+  %498 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 16
   %499 = load i8, ptr %498, align 8
-  %500 = getelementptr inbounds i8, ptr %.tr5971097, i64 16
+  %500 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 16
   %501 = load i8, ptr %500, align 8
   %502 = xor i8 %501, %499
   %503 = and i8 %502, 1
@@ -1432,17 +1432,17 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 616:                                              ; preds = %9
-  %617 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %617 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %618 = load ptr, ptr %617, align 8
-  %619 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %619 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %620 = load ptr, ptr %619, align 8
   %621 = tail call zeroext i1 @equal(ptr noundef %618, ptr noundef %620)
   br i1 %621, label %622, label %_equalGroupingFunc.exit
 
 622:                                              ; preds = %616
-  %623 = getelementptr inbounds i8, ptr %.tr1096, i64 16
+  %623 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 16
   %624 = load i8, ptr %623, align 8
-  %625 = getelementptr inbounds i8, ptr %.tr5971097, i64 16
+  %625 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 16
   %626 = load i8, ptr %625, align 8
   %627 = xor i8 %626, %624
   %628 = and i8 %627, 1
@@ -1478,17 +1478,17 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %325
   br label %_equalGroupingFunc.exit
 
 643:                                              ; preds = %9
-  %644 = getelementptr inbounds i8, ptr %.tr1096, i64 8
+  %644 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 8
   %645 = load ptr, ptr %644, align 8
-  %646 = getelementptr inbounds i8, ptr %.tr5971097, i64 8
+  %646 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 8
   %647 = load ptr, ptr %646, align 8
   %648 = tail call zeroext i1 @equal(ptr noundef %645, ptr noundef %647)
   br i1 %648, label %649, label %_equalGroupingFunc.exit
 
 649:                                              ; preds = %643
-  %650 = getelementptr inbounds i8, ptr %.tr1096, i64 16
+  %650 = getelementptr inbounds nuw i8, ptr %.tr1096, i64 16
   %651 = load i32, ptr %650, align 8
-  %652 = getelementptr inbounds i8, ptr %.tr5971097, i64 16
+  %652 = getelementptr inbounds nuw i8, ptr %.tr5971097, i64 16
   %653 = load i32, ptr %652, align 8
   %.not.i594 = icmp eq i32 %651, %653
   br label %_equalGroupingFunc.exit
@@ -1626,10 +1626,10 @@ declare void @check_stack_depth() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlias(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -1647,9 +1647,9 @@ define internal fastcc zeroext i1 @_equalAlias(ptr nocapture noundef nonnull rea
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br label %.thread
@@ -1661,10 +1661,10 @@ define internal fastcc zeroext i1 @_equalAlias(ptr nocapture noundef nonnull rea
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRangeVar(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -1682,10 +1682,10 @@ define internal fastcc zeroext i1 @_equalRangeVar(ptr nocapture noundef nonnull 
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not32 = icmp eq ptr %13, null
-  %.phi.trans.insert39 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre40 = load ptr, ptr %.phi.trans.insert39, align 8
   br i1 %.not32, label %18, label %14
 
@@ -1703,10 +1703,10 @@ define internal fastcc zeroext i1 @_equalRangeVar(ptr nocapture noundef nonnull 
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not34 = icmp eq ptr %22, null
-  %.phi.trans.insert42 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre43 = load ptr, ptr %.phi.trans.insert42, align 8
   br i1 %.not34, label %27, label %23
 
@@ -1724,9 +1724,9 @@ define internal fastcc zeroext i1 @_equalRangeVar(ptr nocapture noundef nonnull 
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %27, %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i8, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load i8, ptr %32, align 8
   %34 = xor i8 %33, %31
   %35 = and i8 %34, 1
@@ -1734,17 +1734,17 @@ define internal fastcc zeroext i1 @_equalRangeVar(ptr nocapture noundef nonnull 
   br i1 %.not36, label %36, label %.thread
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %0, i64 33
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds i8, ptr %1, i64 33
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %40 = load i8, ptr %39, align 1
   %.not37 = icmp eq i8 %38, %40
   br i1 %.not37, label %41, label %.thread
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i1 @equal(ptr noundef %43, ptr noundef %45)
   br label %.thread
@@ -1756,97 +1756,97 @@ define internal fastcc zeroext i1 @_equalRangeVar(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalTableFunc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %73
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %73
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %73
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %73
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %73
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @equal(ptr noundef %34, ptr noundef %36)
   br i1 %37, label %38, label %73
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %42 = load ptr, ptr %41, align 8
   %43 = tail call zeroext i1 @equal(ptr noundef %40, ptr noundef %42)
   br i1 %43, label %44, label %73
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %48 = load ptr, ptr %47, align 8
   %49 = tail call zeroext i1 @equal(ptr noundef %46, ptr noundef %48)
   br i1 %49, label %50, label %73
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %54 = load ptr, ptr %53, align 8
   %55 = tail call zeroext i1 @equal(ptr noundef %52, ptr noundef %54)
   br i1 %55, label %56, label %73
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %0, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %60 = load ptr, ptr %59, align 8
   %61 = tail call zeroext i1 @equal(ptr noundef %58, ptr noundef %60)
   br i1 %61, label %62, label %73
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %0, i64 88
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 88
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %66 = load ptr, ptr %65, align 8
   %67 = tail call zeroext i1 @bms_equal(ptr noundef %64, ptr noundef %66) #9
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %0, i64 96
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %70 = load i32, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %72 = load i32, ptr %71, align 8
   %.not = icmp eq i32 %70, %72
   br label %73
@@ -1858,26 +1858,26 @@ define internal fastcc zeroext i1 @_equalTableFunc(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalIntoClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %21, label %17
 
@@ -1895,26 +1895,26 @@ define internal fastcc zeroext i1 @_equalIntoClause(ptr nocapture noundef nonnul
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %21, %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i1 @equal(ptr noundef %25, ptr noundef %27)
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %33 = load i32, ptr %32, align 8
   %.not30 = icmp eq i32 %31, %33
   br i1 %.not30, label %34, label %.thread
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8
   %.not31 = icmp eq ptr %36, null
-  %.phi.trans.insert35 = getelementptr inbounds i8, ptr %1, i64 48
+  %.phi.trans.insert35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.pre36 = load ptr, ptr %.phi.trans.insert35, align 8
   br i1 %.not31, label %41, label %37
 
@@ -1932,17 +1932,17 @@ define internal fastcc zeroext i1 @_equalIntoClause(ptr nocapture noundef nonnul
   br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %41, %38
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8
   %48 = tail call zeroext i1 @equal(ptr noundef %45, ptr noundef %47)
   br i1 %48, label %49, label %.thread
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %51 = load i8, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %53 = load i8, ptr %52, align 8
   %54 = xor i8 %53, %51
   %55 = and i8 %54, 1
@@ -1956,57 +1956,57 @@ define internal fastcc zeroext i1 @_equalIntoClause(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalVar(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %38
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i16, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i16, ptr %10, align 8
   %.not15 = icmp eq i16 %9, %11
   br i1 %.not15, label %12, label %38
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not16 = icmp eq i32 %14, %16
   br i1 %.not16, label %17, label %38
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %.not17 = icmp eq i32 %19, %21
   br i1 %.not17, label %22, label %38
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %26 = load i32, ptr %25, align 4
   %.not18 = icmp eq i32 %24, %26
   br i1 %.not18, label %27, label %38
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @bms_equal(ptr noundef %29, ptr noundef %31) #9
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load i32, ptr %36, align 8
   %.not19 = icmp eq i32 %35, %37
   br label %38
@@ -2018,41 +2018,41 @@ define internal fastcc zeroext i1 @_equalVar(ptr nocapture noundef nonnull reado
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalConst(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %44
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not19 = icmp eq i32 %9, %11
   br i1 %.not19, label %12, label %44
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not20 = icmp eq i32 %14, %16
   br i1 %.not20, label %17, label %44
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %.not21 = icmp eq i32 %19, %21
   br i1 %.not21, label %22, label %44
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i8, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i8, ptr %25, align 8
   %27 = xor i8 %26, %24
   %28 = and i8 %27, 1
@@ -2061,9 +2061,9 @@ define internal fastcc zeroext i1 @_equalConst(ptr nocapture noundef nonnull rea
 
 29:                                               ; preds = %22
   %30 = trunc i8 %24 to i1
-  %31 = getelementptr inbounds i8, ptr %0, i64 33
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %32 = load i8, ptr %31, align 1
-  %33 = getelementptr inbounds i8, ptr %1, i64 33
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %34 = load i8, ptr %33, align 1
   %35 = xor i8 %34, %32
   %36 = and i8 %35, 1
@@ -2074,9 +2074,9 @@ define internal fastcc zeroext i1 @_equalConst(ptr nocapture noundef nonnull rea
 
 37:                                               ; preds = %29
   %38 = trunc i8 %32 to i1
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = tail call zeroext i1 @datumIsEqual(i64 noundef %40, i64 noundef %42, i1 noundef zeroext %38, i32 noundef %19) #9
   br label %44
@@ -2088,41 +2088,41 @@ define internal fastcc zeroext i1 @_equalConst(ptr nocapture noundef nonnull rea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc zeroext i1 @_equalParam(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %27
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 4
   %.not11 = icmp eq i32 %9, %11
   br i1 %.not11, label %12, label %27
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not12 = icmp eq i32 %14, %16
   br i1 %.not12, label %17, label %27
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 4
   %.not13 = icmp eq i32 %19, %21
   br i1 %.not13, label %22, label %27
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %26 = load i32, ptr %25, align 4
   %.not14 = icmp eq i32 %24, %26
   br label %27
@@ -2134,89 +2134,89 @@ define internal fastcc zeroext i1 @_equalParam(ptr nocapture noundef nonnull rea
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAggref(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %97
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not35 = icmp eq i32 %9, %11
   br i1 %.not35, label %12, label %97
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not36 = icmp eq i32 %14, %16
   br i1 %.not36, label %17, label %97
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %.not37 = icmp eq i32 %19, %21
   br i1 %.not37, label %22, label %97
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br i1 %27, label %28, label %97
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = tail call zeroext i1 @equal(ptr noundef %30, ptr noundef %32)
   br i1 %33, label %34, label %97
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @equal(ptr noundef %36, ptr noundef %38)
   br i1 %39, label %40, label %97
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = tail call zeroext i1 @equal(ptr noundef %42, ptr noundef %44)
   br i1 %45, label %46, label %97
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %0, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = tail call zeroext i1 @equal(ptr noundef %48, ptr noundef %50)
   br i1 %51, label %52, label %97
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %56 = load ptr, ptr %55, align 8
   %57 = tail call zeroext i1 @equal(ptr noundef %54, ptr noundef %56)
   br i1 %57, label %58, label %97
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %0, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %60 = load i8, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %62 = load i8, ptr %61, align 8
   %63 = xor i8 %62, %60
   %64 = and i8 %63, 1
@@ -2224,9 +2224,9 @@ define internal fastcc zeroext i1 @_equalAggref(ptr nocapture noundef nonnull re
   br i1 %.not38, label %65, label %97
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds i8, ptr %0, i64 73
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %67 = load i8, ptr %66, align 1
-  %68 = getelementptr inbounds i8, ptr %1, i64 73
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %69 = load i8, ptr %68, align 1
   %70 = xor i8 %69, %67
   %71 = and i8 %70, 1
@@ -2234,41 +2234,41 @@ define internal fastcc zeroext i1 @_equalAggref(ptr nocapture noundef nonnull re
   br i1 %.not39, label %72, label %97
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds i8, ptr %0, i64 74
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %74 = load i8, ptr %73, align 2
-  %75 = getelementptr inbounds i8, ptr %1, i64 74
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %76 = load i8, ptr %75, align 2
   %.not40 = icmp eq i8 %74, %76
   br i1 %.not40, label %77, label %97
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %0, i64 76
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %1, i64 76
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %81 = load i32, ptr %80, align 4
   %.not41 = icmp eq i32 %79, %81
   br i1 %.not41, label %82, label %97
 
 82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %0, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %84 = load i32, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %1, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %86 = load i32, ptr %85, align 8
   %.not42 = icmp eq i32 %84, %86
   br i1 %.not42, label %87, label %97
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %0, i64 84
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %1, i64 84
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %91 = load i32, ptr %90, align 4
   %.not43 = icmp eq i32 %89, %91
   br i1 %.not43, label %92, label %97
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds i8, ptr %0, i64 88
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %94 = load i32, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %1, i64 88
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %96 = load i32, ptr %95, align 8
   %.not44 = icmp eq i32 %94, %96
   br label %97
@@ -2280,65 +2280,65 @@ define internal fastcc zeroext i1 @_equalAggref(ptr nocapture noundef nonnull re
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalWindowFunc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %53
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not19 = icmp eq i32 %9, %11
   br i1 %.not19, label %12, label %53
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not20 = icmp eq i32 %14, %16
   br i1 %.not20, label %17, label %53
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %.not21 = icmp eq i32 %19, %21
   br i1 %.not21, label %22, label %53
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br i1 %27, label %28, label %53
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = tail call zeroext i1 @equal(ptr noundef %30, ptr noundef %32)
   br i1 %33, label %34, label %53
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = load i32, ptr %37, align 8
   %.not22 = icmp eq i32 %36, %38
   br i1 %.not22, label %39, label %53
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %41 = load i8, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %43 = load i8, ptr %42, align 4
   %44 = xor i8 %43, %41
   %45 = and i8 %44, 1
@@ -2346,9 +2346,9 @@ define internal fastcc zeroext i1 @_equalWindowFunc(ptr nocapture noundef nonnul
   br i1 %.not23, label %46, label %53
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %0, i64 45
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %1, i64 45
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 45
   %50 = load i8, ptr %49, align 1
   %51 = xor i8 %50, %48
   %52 = and i8 %51, 1
@@ -2362,73 +2362,73 @@ define internal fastcc zeroext i1 @_equalWindowFunc(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalSubscriptingRef(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %51
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not19 = icmp eq i32 %9, %11
   br i1 %.not19, label %12, label %51
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not20 = icmp eq i32 %14, %16
   br i1 %.not20, label %17, label %51
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %.not21 = icmp eq i32 %19, %21
   br i1 %.not21, label %22, label %51
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %26 = load i32, ptr %25, align 4
   %.not22 = icmp eq i32 %24, %26
   br i1 %.not22, label %27, label %51
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @equal(ptr noundef %29, ptr noundef %31)
   br i1 %32, label %33, label %51
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i1 @equal(ptr noundef %35, ptr noundef %37)
   br i1 %38, label %39, label %51
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i1 @equal(ptr noundef %41, ptr noundef %43)
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = tail call zeroext i1 @equal(ptr noundef %47, ptr noundef %49)
   br label %51
@@ -2440,25 +2440,25 @@ define internal fastcc zeroext i1 @_equalSubscriptingRef(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalFuncExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %42
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not15 = icmp eq i32 %9, %11
   br i1 %.not15, label %12, label %42
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i8, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i8, ptr %15, align 4
   %17 = xor i8 %16, %14
   %18 = and i8 %17, 1
@@ -2466,9 +2466,9 @@ define internal fastcc zeroext i1 @_equalFuncExpr(ptr nocapture noundef nonnull 
   br i1 %.not16, label %19, label %42
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 13
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %1, i64 13
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %23 = load i8, ptr %22, align 1
   %24 = xor i8 %23, %21
   %25 = and i8 %24, 1
@@ -2476,25 +2476,25 @@ define internal fastcc zeroext i1 @_equalFuncExpr(ptr nocapture noundef nonnull 
   br i1 %.not17, label %26, label %42
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %30 = load i32, ptr %29, align 4
   %.not18 = icmp eq i32 %28, %30
   br i1 %.not18, label %31, label %42
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i32, ptr %34, align 8
   %.not19 = icmp eq i32 %33, %35
   br i1 %.not19, label %36, label %42
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = tail call zeroext i1 @equal(ptr noundef %38, ptr noundef %40)
   br label %42
@@ -2506,18 +2506,18 @@ define internal fastcc zeroext i1 @_equalFuncExpr(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalNamedArgExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -2535,9 +2535,9 @@ define internal fastcc zeroext i1 @_equalNamedArgExpr(ptr nocapture noundef nonn
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 8
   %.not14 = icmp eq i32 %19, %21
   br label %.thread
@@ -2549,17 +2549,17 @@ define internal fastcc zeroext i1 @_equalNamedArgExpr(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalOpExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %40
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not19 = icmp eq i32 %9, %11
   %.not20 = icmp eq i32 %9, 0
@@ -2569,17 +2569,17 @@ define internal fastcc zeroext i1 @_equalOpExpr(ptr nocapture noundef nonnull re
   br i1 %or.cond26, label %12, label %40
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not22 = icmp eq i32 %14, %16
   br i1 %.not22, label %17, label %40
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i8, ptr %20, align 8
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -2587,25 +2587,25 @@ define internal fastcc zeroext i1 @_equalOpExpr(ptr nocapture noundef nonnull re
   br i1 %.not23, label %24, label %40
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load i32, ptr %27, align 4
   %.not24 = icmp eq i32 %26, %28
   br i1 %.not24, label %29, label %40
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i32, ptr %32, align 8
   %.not25 = icmp eq i32 %31, %33
   br i1 %.not25, label %34, label %40
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @equal(ptr noundef %36, ptr noundef %38)
   br label %40
@@ -2617,17 +2617,17 @@ define internal fastcc zeroext i1 @_equalOpExpr(ptr nocapture noundef nonnull re
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalDistinctExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %40
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not19 = icmp eq i32 %9, %11
   %.not20 = icmp eq i32 %9, 0
@@ -2637,17 +2637,17 @@ define internal fastcc zeroext i1 @_equalDistinctExpr(ptr nocapture noundef nonn
   br i1 %or.cond26, label %12, label %40
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not22 = icmp eq i32 %14, %16
   br i1 %.not22, label %17, label %40
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i8, ptr %20, align 8
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -2655,25 +2655,25 @@ define internal fastcc zeroext i1 @_equalDistinctExpr(ptr nocapture noundef nonn
   br i1 %.not23, label %24, label %40
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load i32, ptr %27, align 4
   %.not24 = icmp eq i32 %26, %28
   br i1 %.not24, label %29, label %40
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i32, ptr %32, align 8
   %.not25 = icmp eq i32 %31, %33
   br i1 %.not25, label %34, label %40
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @equal(ptr noundef %36, ptr noundef %38)
   br label %40
@@ -2685,17 +2685,17 @@ define internal fastcc zeroext i1 @_equalDistinctExpr(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalNullIfExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %40
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not19 = icmp eq i32 %9, %11
   %.not20 = icmp eq i32 %9, 0
@@ -2705,17 +2705,17 @@ define internal fastcc zeroext i1 @_equalNullIfExpr(ptr nocapture noundef nonnul
   br i1 %or.cond26, label %12, label %40
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not22 = icmp eq i32 %14, %16
   br i1 %.not22, label %17, label %40
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i8, ptr %20, align 8
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -2723,25 +2723,25 @@ define internal fastcc zeroext i1 @_equalNullIfExpr(ptr nocapture noundef nonnul
   br i1 %.not23, label %24, label %40
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load i32, ptr %27, align 4
   %.not24 = icmp eq i32 %26, %28
   br i1 %.not24, label %29, label %40
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i32, ptr %32, align 8
   %.not25 = icmp eq i32 %31, %33
   br i1 %.not25, label %34, label %40
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @equal(ptr noundef %36, ptr noundef %38)
   br label %40
@@ -2753,17 +2753,17 @@ define internal fastcc zeroext i1 @_equalNullIfExpr(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalScalarArrayOpExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %40
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not27 = icmp eq i32 %9, %11
   %.not28 = icmp eq i32 %9, 0
@@ -2773,9 +2773,9 @@ define internal fastcc zeroext i1 @_equalScalarArrayOpExpr(ptr nocapture noundef
   br i1 %or.cond38, label %12, label %40
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not30 = icmp eq i32 %14, %16
   %.not31 = icmp eq i32 %14, 0
@@ -2785,9 +2785,9 @@ define internal fastcc zeroext i1 @_equalScalarArrayOpExpr(ptr nocapture noundef
   br i1 %or.cond40, label %17, label %40
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %.not33 = icmp eq i32 %19, %21
   %.not34 = icmp eq i32 %19, 0
@@ -2797,9 +2797,9 @@ define internal fastcc zeroext i1 @_equalScalarArrayOpExpr(ptr nocapture noundef
   br i1 %or.cond42, label %22, label %40
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i8, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %26 = load i8, ptr %25, align 4
   %27 = xor i8 %26, %24
   %28 = and i8 %27, 1
@@ -2807,17 +2807,17 @@ define internal fastcc zeroext i1 @_equalScalarArrayOpExpr(ptr nocapture noundef
   br i1 %.not36, label %29, label %40
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i32, ptr %32, align 8
   %.not37 = icmp eq i32 %31, %33
   br i1 %.not37, label %34, label %40
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @equal(ptr noundef %36, ptr noundef %38)
   br label %40
@@ -2829,41 +2829,41 @@ define internal fastcc zeroext i1 @_equalScalarArrayOpExpr(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalSubLink(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %30
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not11 = icmp eq i32 %9, %11
   br i1 %.not11, label %12, label %30
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i1 @equal(ptr noundef %14, ptr noundef %16)
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @equal(ptr noundef %20, ptr noundef %22)
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @equal(ptr noundef %26, ptr noundef %28)
   br label %30
@@ -2875,42 +2875,42 @@ define internal fastcc zeroext i1 @_equalSubLink(ptr nocapture noundef nonnull r
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalSubPlan(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i32, ptr %22, align 8
   %.not39 = icmp eq i32 %21, %23
   br i1 %.not39, label %24, label %.thread
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not40 = icmp eq ptr %26, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not40, label %31, label %27
 
@@ -2928,33 +2928,33 @@ define internal fastcc zeroext i1 @_equalSubPlan(ptr nocapture noundef nonnull r
   br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %31, %28
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load i32, ptr %36, align 8
   %.not42 = icmp eq i32 %35, %37
   br i1 %.not42, label %38, label %.thread
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 44
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %42 = load i32, ptr %41, align 4
   %.not43 = icmp eq i32 %40, %42
   br i1 %.not43, label %43, label %.thread
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %47 = load i32, ptr %46, align 8
   %.not44 = icmp eq i32 %45, %47
   br i1 %.not44, label %48, label %.thread
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %50 = load i8, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %1, i64 52
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %52 = load i8, ptr %51, align 4
   %53 = xor i8 %52, %50
   %54 = and i8 %53, 1
@@ -2962,9 +2962,9 @@ define internal fastcc zeroext i1 @_equalSubPlan(ptr nocapture noundef nonnull r
   br i1 %.not45, label %55, label %.thread
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %0, i64 53
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %1, i64 53
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 53
   %59 = load i8, ptr %58, align 1
   %60 = xor i8 %59, %57
   %61 = and i8 %60, 1
@@ -2972,9 +2972,9 @@ define internal fastcc zeroext i1 @_equalSubPlan(ptr nocapture noundef nonnull r
   br i1 %.not46, label %62, label %.thread
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %0, i64 54
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %64 = load i8, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %1, i64 54
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 54
   %66 = load i8, ptr %65, align 2
   %67 = xor i8 %66, %64
   %68 = and i8 %67, 1
@@ -2982,41 +2982,41 @@ define internal fastcc zeroext i1 @_equalSubPlan(ptr nocapture noundef nonnull r
   br i1 %.not47, label %69, label %.thread
 
 69:                                               ; preds = %62
-  %70 = getelementptr inbounds i8, ptr %0, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %73 = load ptr, ptr %72, align 8
   %74 = tail call zeroext i1 @equal(ptr noundef %71, ptr noundef %73)
   br i1 %74, label %75, label %.thread
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %0, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %79 = load ptr, ptr %78, align 8
   %80 = tail call zeroext i1 @equal(ptr noundef %77, ptr noundef %79)
   br i1 %80, label %81, label %.thread
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %0, i64 72
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %85 = load ptr, ptr %84, align 8
   %86 = tail call zeroext i1 @equal(ptr noundef %83, ptr noundef %85)
   br i1 %86, label %87, label %.thread
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %0, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %89 = load double, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %91 = load double, ptr %90, align 8
   %92 = fcmp une double %89, %91
   br i1 %92, label %.thread, label %93
 
 93:                                               ; preds = %87
-  %94 = getelementptr inbounds i8, ptr %0, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %95 = load double, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %97 = load double, ptr %96, align 8
   %98 = fcmp oeq double %95, %97
   br label %.thread
@@ -3028,41 +3028,41 @@ define internal fastcc zeroext i1 @_equalSubPlan(ptr nocapture noundef nonnull r
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalFieldSelect(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %28
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i16, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i16, ptr %11, align 8
   %.not = icmp eq i16 %10, %12
   br i1 %.not, label %13, label %28
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   %.not11 = icmp eq i32 %15, %17
   br i1 %.not11, label %18, label %28
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i32, ptr %21, align 8
   %.not12 = icmp eq i32 %20, %22
   br i1 %.not12, label %23, label %28
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %27 = load i32, ptr %26, align 4
   %.not13 = icmp eq i32 %25, %27
   br label %28
@@ -3074,33 +3074,33 @@ define internal fastcc zeroext i1 @_equalFieldSelect(ptr nocapture noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalFieldStore(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %25
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %22, %24
   br label %25
@@ -3112,33 +3112,33 @@ define internal fastcc zeroext i1 @_equalFieldStore(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRelabelType(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %23
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %23
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   %.not9 = icmp eq i32 %15, %17
   br i1 %.not9, label %18, label %23
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i32, ptr %21, align 8
   %.not10 = icmp eq i32 %20, %22
   br label %23
@@ -3150,25 +3150,25 @@ define internal fastcc zeroext i1 @_equalRelabelType(ptr nocapture noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCoerceViaIO(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   %.not7 = icmp eq i32 %15, %17
   br label %18
@@ -3180,41 +3180,41 @@ define internal fastcc zeroext i1 @_equalCoerceViaIO(ptr nocapture noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalArrayCoerceExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %29
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %29
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %16, %18
   br i1 %.not, label %19, label %29
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %23 = load i32, ptr %22, align 4
   %.not11 = icmp eq i32 %21, %23
   br i1 %.not11, label %24, label %29
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load i32, ptr %27, align 8
   %.not12 = icmp eq i32 %26, %28
   br label %29
@@ -3226,41 +3226,41 @@ define internal fastcc zeroext i1 @_equalArrayCoerceExpr(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCaseExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %30
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not11 = icmp eq i32 %9, %11
   br i1 %.not11, label %12, label %30
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i1 @equal(ptr noundef %14, ptr noundef %16)
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @equal(ptr noundef %20, ptr noundef %22)
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @equal(ptr noundef %26, ptr noundef %28)
   br label %30
@@ -3272,17 +3272,17 @@ define internal fastcc zeroext i1 @_equalCaseExpr(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCaseWhen(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -3294,41 +3294,41 @@ define internal fastcc zeroext i1 @_equalCaseWhen(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalArrayExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %30
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not11 = icmp eq i32 %9, %11
   br i1 %.not11, label %12, label %30
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not12 = icmp eq i32 %14, %16
   br i1 %.not12, label %17, label %30
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i8, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i8, ptr %26, align 8
   %28 = xor i8 %27, %25
   %29 = and i8 %28, 1
@@ -3342,25 +3342,25 @@ define internal fastcc zeroext i1 @_equalArrayExpr(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRowExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %19
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br label %19
@@ -3372,49 +3372,49 @@ define internal fastcc zeroext i1 @_equalRowExpr(ptr nocapture noundef nonnull r
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRowCompareExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %37
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %37
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %37
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br i1 %24, label %25, label %37
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @equal(ptr noundef %27, ptr noundef %29)
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 @equal(ptr noundef %33, ptr noundef %35)
   br label %37
@@ -3426,25 +3426,25 @@ define internal fastcc zeroext i1 @_equalRowCompareExpr(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCoalesceExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %18
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not7 = icmp eq i32 %9, %11
   br i1 %.not7, label %12, label %18
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i1 @equal(ptr noundef %14, ptr noundef %16)
   br label %18
@@ -3456,41 +3456,41 @@ define internal fastcc zeroext i1 @_equalCoalesceExpr(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalMinMaxExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %28
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not11 = icmp eq i32 %9, %11
   br i1 %.not11, label %12, label %28
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not12 = icmp eq i32 %14, %16
   br i1 %.not12, label %17, label %28
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %.not13 = icmp eq i32 %19, %21
   br i1 %.not13, label %22, label %28
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br label %28
@@ -3502,18 +3502,18 @@ define internal fastcc zeroext i1 @_equalMinMaxExpr(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalXmlExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not25 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not25, label %14, label %10
 
@@ -3531,41 +3531,41 @@ define internal fastcc zeroext i1 @_equalXmlExpr(ptr nocapture noundef nonnull r
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @equal(ptr noundef %18, ptr noundef %20)
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = tail call zeroext i1 @equal(ptr noundef %30, ptr noundef %32)
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = load i32, ptr %37, align 8
   %.not27 = icmp eq i32 %36, %38
   br i1 %.not27, label %39, label %.thread
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 44
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %41 = load i8, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %43 = load i8, ptr %42, align 4
   %44 = xor i8 %43, %41
   %45 = and i8 %44, 1
@@ -3573,17 +3573,17 @@ define internal fastcc zeroext i1 @_equalXmlExpr(ptr nocapture noundef nonnull r
   br i1 %.not28, label %46, label %.thread
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %50 = load i32, ptr %49, align 8
   %.not29 = icmp eq i32 %48, %50
   br i1 %.not29, label %51, label %.thread
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %0, i64 52
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %1, i64 52
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %55 = load i32, ptr %54, align 4
   %.not30 = icmp eq i32 %53, %55
   br label %.thread
@@ -3595,25 +3595,25 @@ define internal fastcc zeroext i1 @_equalXmlExpr(ptr nocapture noundef nonnull r
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonReturning(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   %.not7 = icmp eq i32 %15, %17
   br label %18
@@ -3625,25 +3625,25 @@ define internal fastcc zeroext i1 @_equalJsonReturning(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonValueExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br label %20
@@ -3655,49 +3655,49 @@ define internal fastcc zeroext i1 @_equalJsonValueExpr(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonConstructorExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %45
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %45
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %45
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br i1 %24, label %25, label %45
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @equal(ptr noundef %27, ptr noundef %29)
   br i1 %30, label %31, label %45
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i8, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = load i8, ptr %34, align 8
   %36 = xor i8 %35, %33
   %37 = and i8 %36, 1
@@ -3705,9 +3705,9 @@ define internal fastcc zeroext i1 @_equalJsonConstructorExpr(ptr nocapture nound
   br i1 %.not15, label %38, label %45
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %0, i64 41
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %1, i64 41
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %42 = load i8, ptr %41, align 1
   %43 = xor i8 %42, %40
   %44 = and i8 %43, 1
@@ -3721,33 +3721,33 @@ define internal fastcc zeroext i1 @_equalJsonConstructorExpr(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonIsPredicate(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %26
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %16, %18
   br i1 %.not, label %19, label %26
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i8, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %23 = load i8, ptr %22, align 4
   %24 = xor i8 %23, %21
   %25 = and i8 %24, 1
@@ -3761,25 +3761,25 @@ define internal fastcc zeroext i1 @_equalJsonIsPredicate(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalNullTest(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %20
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i8, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i8, ptr %16, align 4
   %18 = xor i8 %17, %15
   %19 = and i8 %18, 1
@@ -3793,9 +3793,9 @@ define internal fastcc zeroext i1 @_equalNullTest(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalMergeAction(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -3803,41 +3803,41 @@ define internal fastcc zeroext i1 @_equalMergeAction(ptr nocapture noundef nonnu
   br i1 %.not, label %9, label %37
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %.not13 = icmp eq i32 %11, %13
   br i1 %.not13, label %14, label %37
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %18 = load i32, ptr %17, align 4
   %.not14 = icmp eq i32 %16, %18
   br i1 %.not14, label %19, label %37
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br i1 %24, label %25, label %37
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @equal(ptr noundef %27, ptr noundef %29)
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 @equal(ptr noundef %33, ptr noundef %35)
   br label %37
@@ -3849,33 +3849,33 @@ define internal fastcc zeroext i1 @_equalMergeAction(ptr nocapture noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCoerceToDomain(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %23
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %23
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   %.not9 = icmp eq i32 %15, %17
   br i1 %.not9, label %18, label %23
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i32, ptr %21, align 8
   %.not10 = icmp eq i32 %20, %22
   br label %23
@@ -3887,18 +3887,18 @@ define internal fastcc zeroext i1 @_equalCoerceToDomain(ptr nocapture noundef no
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc zeroext i1 @_equalCurrentOfExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not13 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not13, label %14, label %10
 
@@ -3916,9 +3916,9 @@ define internal fastcc zeroext i1 @_equalCurrentOfExpr(ptr nocapture noundef non
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i32, ptr %19, align 8
   %.not15 = icmp eq i32 %18, %20
   br label %.thread
@@ -3930,25 +3930,25 @@ define internal fastcc zeroext i1 @_equalCurrentOfExpr(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalInferenceElem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   %.not7 = icmp eq i32 %15, %17
   br label %18
@@ -3960,26 +3960,26 @@ define internal fastcc zeroext i1 @_equalInferenceElem(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalTargetEntry(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i16, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i16, ptr %11, align 8
   %.not = icmp eq i16 %10, %12
   br i1 %.not, label %13, label %.thread
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not21 = icmp eq ptr %15, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not21, label %20, label %16
 
@@ -3997,33 +3997,33 @@ define internal fastcc zeroext i1 @_equalTargetEntry(ptr nocapture noundef nonnu
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %20, %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i32, ptr %25, align 8
   %.not23 = icmp eq i32 %24, %26
   br i1 %.not23, label %27, label %.thread
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %31 = load i32, ptr %30, align 4
   %.not24 = icmp eq i32 %29, %31
   br i1 %.not24, label %32, label %.thread
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load i16, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load i16, ptr %35, align 8
   %.not25 = icmp eq i16 %34, %36
   br i1 %.not25, label %37, label %.thread
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 42
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %39 = load i8, ptr %38, align 2
-  %40 = getelementptr inbounds i8, ptr %1, i64 42
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %41 = load i8, ptr %40, align 2
   %42 = xor i8 %41, %39
   %43 = and i8 %42, 1
@@ -4037,17 +4037,17 @@ define internal fastcc zeroext i1 @_equalTargetEntry(ptr nocapture noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJoinExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %55
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = xor i8 %11, %9
   %13 = and i8 %12, 1
@@ -4055,57 +4055,57 @@ define internal fastcc zeroext i1 @_equalJoinExpr(ptr nocapture noundef nonnull 
   br i1 %.not19, label %14, label %55
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %55
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %55
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %55
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @equal(ptr noundef %34, ptr noundef %36)
   br i1 %37, label %38, label %55
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = tail call zeroext i1 @equal(ptr noundef %40, ptr noundef %42)
   br i1 %43, label %44, label %55
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %48 = load ptr, ptr %47, align 8
   %49 = tail call zeroext i1 @equal(ptr noundef %46, ptr noundef %48)
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %54 = load i32, ptr %53, align 8
   %.not20 = icmp eq i32 %52, %54
   br label %55
@@ -4117,17 +4117,17 @@ define internal fastcc zeroext i1 @_equalJoinExpr(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalFromExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -4139,65 +4139,65 @@ define internal fastcc zeroext i1 @_equalFromExpr(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalOnConflictExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %47
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %47
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %47
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i32, ptr %22, align 8
   %.not17 = icmp eq i32 %21, %23
   br i1 %.not17, label %24, label %47
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @equal(ptr noundef %26, ptr noundef %28)
   br i1 %29, label %30, label %47
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i1 @equal(ptr noundef %32, ptr noundef %34)
   br i1 %35, label %36, label %47
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %40 = load i32, ptr %39, align 8
   %.not18 = icmp eq i32 %38, %40
   br i1 %.not18, label %41, label %47
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i1 @equal(ptr noundef %43, ptr noundef %45)
   br label %47
@@ -4209,25 +4209,25 @@ define internal fastcc zeroext i1 @_equalOnConflictExpr(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %254
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not83 = icmp eq i32 %9, %11
   br i1 %.not83, label %12, label %254
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i8, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i8, ptr %15, align 8
   %17 = xor i8 %16, %14
   %18 = and i8 %17, 1
@@ -4235,25 +4235,25 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not84, label %19, label %254
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br i1 %24, label %25, label %254
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %29 = load i32, ptr %28, align 8
   %.not85 = icmp eq i32 %27, %29
   br i1 %.not85, label %30, label %254
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %32 = load i8, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %34 = load i8, ptr %33, align 4
   %35 = xor i8 %34, %32
   %36 = and i8 %35, 1
@@ -4261,9 +4261,9 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not86, label %37, label %254
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %0, i64 45
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %39 = load i8, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %1, i64 45
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 45
   %41 = load i8, ptr %40, align 1
   %42 = xor i8 %41, %39
   %43 = and i8 %42, 1
@@ -4271,9 +4271,9 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not87, label %44, label %254
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %0, i64 46
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 46
   %46 = load i8, ptr %45, align 2
-  %47 = getelementptr inbounds i8, ptr %1, i64 46
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 46
   %48 = load i8, ptr %47, align 2
   %49 = xor i8 %48, %46
   %50 = and i8 %49, 1
@@ -4281,9 +4281,9 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not88, label %51, label %254
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %0, i64 47
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 47
   %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %1, i64 47
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 47
   %55 = load i8, ptr %54, align 1
   %56 = xor i8 %55, %53
   %57 = and i8 %56, 1
@@ -4291,9 +4291,9 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not89, label %58, label %254
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %0, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %60 = load i8, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %62 = load i8, ptr %61, align 8
   %63 = xor i8 %62, %60
   %64 = and i8 %63, 1
@@ -4301,9 +4301,9 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not90, label %65, label %254
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds i8, ptr %0, i64 49
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %67 = load i8, ptr %66, align 1
-  %68 = getelementptr inbounds i8, ptr %1, i64 49
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %69 = load i8, ptr %68, align 1
   %70 = xor i8 %69, %67
   %71 = and i8 %70, 1
@@ -4311,9 +4311,9 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not91, label %72, label %254
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds i8, ptr %0, i64 50
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %74 = load i8, ptr %73, align 2
-  %75 = getelementptr inbounds i8, ptr %1, i64 50
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %76 = load i8, ptr %75, align 2
   %77 = xor i8 %76, %74
   %78 = and i8 %77, 1
@@ -4321,9 +4321,9 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not92, label %79, label %254
 
 79:                                               ; preds = %72
-  %80 = getelementptr inbounds i8, ptr %0, i64 51
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %81 = load i8, ptr %80, align 1
-  %82 = getelementptr inbounds i8, ptr %1, i64 51
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 51
   %83 = load i8, ptr %82, align 1
   %84 = xor i8 %83, %81
   %85 = and i8 %84, 1
@@ -4331,9 +4331,9 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not93, label %86, label %254
 
 86:                                               ; preds = %79
-  %87 = getelementptr inbounds i8, ptr %0, i64 52
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %88 = load i8, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %1, i64 52
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %90 = load i8, ptr %89, align 4
   %91 = xor i8 %90, %88
   %92 = and i8 %91, 1
@@ -4341,9 +4341,9 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not94, label %93, label %254
 
 93:                                               ; preds = %86
-  %94 = getelementptr inbounds i8, ptr %0, i64 53
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %95 = load i8, ptr %94, align 1
-  %96 = getelementptr inbounds i8, ptr %1, i64 53
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 53
   %97 = load i8, ptr %96, align 1
   %98 = xor i8 %97, %95
   %99 = and i8 %98, 1
@@ -4351,49 +4351,49 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not95, label %100, label %254
 
 100:                                              ; preds = %93
-  %101 = getelementptr inbounds i8, ptr %0, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %104 = load ptr, ptr %103, align 8
   %105 = tail call zeroext i1 @equal(ptr noundef %102, ptr noundef %104)
   br i1 %105, label %106, label %254
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %0, i64 64
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %1, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %110 = load ptr, ptr %109, align 8
   %111 = tail call zeroext i1 @equal(ptr noundef %108, ptr noundef %110)
   br i1 %111, label %112, label %254
 
 112:                                              ; preds = %106
-  %113 = getelementptr inbounds i8, ptr %0, i64 72
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %1, i64 72
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %116 = load ptr, ptr %115, align 8
   %117 = tail call zeroext i1 @equal(ptr noundef %114, ptr noundef %116)
   br i1 %117, label %118, label %254
 
 118:                                              ; preds = %112
-  %119 = getelementptr inbounds i8, ptr %0, i64 80
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %1, i64 80
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %122 = load ptr, ptr %121, align 8
   %123 = tail call zeroext i1 @equal(ptr noundef %120, ptr noundef %122)
   br i1 %123, label %124, label %254
 
 124:                                              ; preds = %118
-  %125 = getelementptr inbounds i8, ptr %0, i64 88
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %1, i64 88
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %128 = load ptr, ptr %127, align 8
   %129 = tail call zeroext i1 @equal(ptr noundef %126, ptr noundef %128)
   br i1 %129, label %130, label %254
 
 130:                                              ; preds = %124
-  %131 = getelementptr inbounds i8, ptr %0, i64 96
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %132 = load i8, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %1, i64 96
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %134 = load i8, ptr %133, align 8
   %135 = xor i8 %134, %132
   %136 = and i8 %135, 1
@@ -4401,57 +4401,57 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not96, label %137, label %254
 
 137:                                              ; preds = %130
-  %138 = getelementptr inbounds i8, ptr %0, i64 100
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %139 = load i32, ptr %138, align 4
-  %140 = getelementptr inbounds i8, ptr %1, i64 100
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %141 = load i32, ptr %140, align 4
   %.not97 = icmp eq i32 %139, %141
   br i1 %.not97, label %142, label %254
 
 142:                                              ; preds = %137
-  %143 = getelementptr inbounds i8, ptr %0, i64 104
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %1, i64 104
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %146 = load ptr, ptr %145, align 8
   %147 = tail call zeroext i1 @equal(ptr noundef %144, ptr noundef %146)
   br i1 %147, label %148, label %254
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds i8, ptr %0, i64 112
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %150 = load i32, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %1, i64 112
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %152 = load i32, ptr %151, align 8
   %.not98 = icmp eq i32 %150, %152
   br i1 %.not98, label %153, label %254
 
 153:                                              ; preds = %148
-  %154 = getelementptr inbounds i8, ptr %0, i64 120
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %1, i64 120
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %157 = load ptr, ptr %156, align 8
   %158 = tail call zeroext i1 @equal(ptr noundef %155, ptr noundef %157)
   br i1 %158, label %159, label %254
 
 159:                                              ; preds = %153
-  %160 = getelementptr inbounds i8, ptr %0, i64 128
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %1, i64 128
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %163 = load ptr, ptr %162, align 8
   %164 = tail call zeroext i1 @equal(ptr noundef %161, ptr noundef %163)
   br i1 %164, label %165, label %254
 
 165:                                              ; preds = %159
-  %166 = getelementptr inbounds i8, ptr %0, i64 136
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %1, i64 136
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %169 = load ptr, ptr %168, align 8
   %170 = tail call zeroext i1 @equal(ptr noundef %167, ptr noundef %169)
   br i1 %170, label %171, label %254
 
 171:                                              ; preds = %165
-  %172 = getelementptr inbounds i8, ptr %0, i64 144
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %173 = load i8, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %1, i64 144
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %175 = load i8, ptr %174, align 8
   %176 = xor i8 %175, %173
   %177 = and i8 %176, 1
@@ -4459,105 +4459,105 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
   br i1 %.not99, label %178, label %254
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds i8, ptr %0, i64 152
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %1, i64 152
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %182 = load ptr, ptr %181, align 8
   %183 = tail call zeroext i1 @equal(ptr noundef %180, ptr noundef %182)
   br i1 %183, label %184, label %254
 
 184:                                              ; preds = %178
-  %185 = getelementptr inbounds i8, ptr %0, i64 160
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %1, i64 160
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %188 = load ptr, ptr %187, align 8
   %189 = tail call zeroext i1 @equal(ptr noundef %186, ptr noundef %188)
   br i1 %189, label %190, label %254
 
 190:                                              ; preds = %184
-  %191 = getelementptr inbounds i8, ptr %0, i64 168
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %1, i64 168
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %194 = load ptr, ptr %193, align 8
   %195 = tail call zeroext i1 @equal(ptr noundef %192, ptr noundef %194)
   br i1 %195, label %196, label %254
 
 196:                                              ; preds = %190
-  %197 = getelementptr inbounds i8, ptr %0, i64 176
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %1, i64 176
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %200 = load ptr, ptr %199, align 8
   %201 = tail call zeroext i1 @equal(ptr noundef %198, ptr noundef %200)
   br i1 %201, label %202, label %254
 
 202:                                              ; preds = %196
-  %203 = getelementptr inbounds i8, ptr %0, i64 184
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %1, i64 184
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %206 = load ptr, ptr %205, align 8
   %207 = tail call zeroext i1 @equal(ptr noundef %204, ptr noundef %206)
   br i1 %207, label %208, label %254
 
 208:                                              ; preds = %202
-  %209 = getelementptr inbounds i8, ptr %0, i64 192
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %1, i64 192
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %212 = load ptr, ptr %211, align 8
   %213 = tail call zeroext i1 @equal(ptr noundef %210, ptr noundef %212)
   br i1 %213, label %214, label %254
 
 214:                                              ; preds = %208
-  %215 = getelementptr inbounds i8, ptr %0, i64 200
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %1, i64 200
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %218 = load ptr, ptr %217, align 8
   %219 = tail call zeroext i1 @equal(ptr noundef %216, ptr noundef %218)
   br i1 %219, label %220, label %254
 
 220:                                              ; preds = %214
-  %221 = getelementptr inbounds i8, ptr %0, i64 208
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %222 = load i32, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %1, i64 208
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %224 = load i32, ptr %223, align 8
   %.not100 = icmp eq i32 %222, %224
   br i1 %.not100, label %225, label %254
 
 225:                                              ; preds = %220
-  %226 = getelementptr inbounds i8, ptr %0, i64 216
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds i8, ptr %1, i64 216
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %229 = load ptr, ptr %228, align 8
   %230 = tail call zeroext i1 @equal(ptr noundef %227, ptr noundef %229)
   br i1 %230, label %231, label %254
 
 231:                                              ; preds = %225
-  %232 = getelementptr inbounds i8, ptr %0, i64 224
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %1, i64 224
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %235 = load ptr, ptr %234, align 8
   %236 = tail call zeroext i1 @equal(ptr noundef %233, ptr noundef %235)
   br i1 %236, label %237, label %254
 
 237:                                              ; preds = %231
-  %238 = getelementptr inbounds i8, ptr %0, i64 232
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds i8, ptr %1, i64 232
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %241 = load ptr, ptr %240, align 8
   %242 = tail call zeroext i1 @equal(ptr noundef %239, ptr noundef %241)
   br i1 %242, label %243, label %254
 
 243:                                              ; preds = %237
-  %244 = getelementptr inbounds i8, ptr %0, i64 240
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %1, i64 240
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %247 = load ptr, ptr %246, align 8
   %248 = tail call zeroext i1 @equal(ptr noundef %245, ptr noundef %247)
   br i1 %248, label %249, label %254
 
 249:                                              ; preds = %243
-  %250 = getelementptr inbounds i8, ptr %0, i64 252
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %251 = load i32, ptr %250, align 4
-  %252 = getelementptr inbounds i8, ptr %1, i64 252
+  %252 = getelementptr inbounds nuw i8, ptr %1, i64 252
   %253 = load i32, ptr %252, align 4
   %.not101 = icmp eq i32 %251, %253
   br label %254
@@ -4569,25 +4569,25 @@ define internal fastcc zeroext i1 @_equalQuery(ptr nocapture noundef nonnull rea
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalTypeName(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %44
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %44
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i8, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i8, ptr %16, align 4
   %18 = xor i8 %17, %15
   %19 = and i8 %18, 1
@@ -4595,9 +4595,9 @@ define internal fastcc zeroext i1 @_equalTypeName(ptr nocapture noundef nonnull 
   br i1 %.not15, label %20, label %44
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 21
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %22 = load i8, ptr %21, align 1
-  %23 = getelementptr inbounds i8, ptr %1, i64 21
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %24 = load i8, ptr %23, align 1
   %25 = xor i8 %24, %22
   %26 = and i8 %25, 1
@@ -4605,25 +4605,25 @@ define internal fastcc zeroext i1 @_equalTypeName(ptr nocapture noundef nonnull 
   br i1 %.not16, label %27, label %44
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @equal(ptr noundef %29, ptr noundef %31)
   br i1 %32, label %33, label %44
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %37 = load i32, ptr %36, align 8
   %.not17 = icmp eq i32 %35, %37
   br i1 %.not17, label %38, label %44
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call zeroext i1 @equal(ptr noundef %40, ptr noundef %42)
   br label %44
@@ -4635,33 +4635,33 @@ define internal fastcc zeroext i1 @_equalTypeName(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalA_Expr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %25
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br label %25
@@ -4673,17 +4673,17 @@ define internal fastcc zeroext i1 @_equalA_Expr(ptr nocapture noundef nonnull re
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalTypeCast(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -4695,17 +4695,17 @@ define internal fastcc zeroext i1 @_equalTypeCast(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCollateClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -4717,18 +4717,18 @@ define internal fastcc zeroext i1 @_equalCollateClause(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalRoleSpec(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not11 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not11, label %14, label %10
 
@@ -4755,49 +4755,49 @@ define internal fastcc noundef zeroext i1 @_equalRoleSpec(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalFuncCall(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %60
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %60
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %60
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %60
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %60
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = load i8, ptr %35, align 8
   %37 = xor i8 %36, %34
   %38 = and i8 %37, 1
@@ -4805,9 +4805,9 @@ define internal fastcc zeroext i1 @_equalFuncCall(ptr nocapture noundef nonnull 
   br i1 %.not, label %39, label %60
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 49
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %1, i64 49
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %43 = load i8, ptr %42, align 1
   %44 = xor i8 %43, %41
   %45 = and i8 %44, 1
@@ -4815,9 +4815,9 @@ define internal fastcc zeroext i1 @_equalFuncCall(ptr nocapture noundef nonnull 
   br i1 %.not19, label %46, label %60
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %0, i64 50
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %48 = load i8, ptr %47, align 2
-  %49 = getelementptr inbounds i8, ptr %1, i64 50
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %50 = load i8, ptr %49, align 2
   %51 = xor i8 %50, %48
   %52 = and i8 %51, 1
@@ -4825,9 +4825,9 @@ define internal fastcc zeroext i1 @_equalFuncCall(ptr nocapture noundef nonnull 
   br i1 %.not20, label %53, label %60
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %0, i64 51
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %55 = load i8, ptr %54, align 1
-  %56 = getelementptr inbounds i8, ptr %1, i64 51
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 51
   %57 = load i8, ptr %56, align 1
   %58 = xor i8 %57, %55
   %59 = and i8 %58, 1
@@ -4841,9 +4841,9 @@ define internal fastcc zeroext i1 @_equalFuncCall(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalA_Indices(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -4851,17 +4851,17 @@ define internal fastcc zeroext i1 @_equalA_Indices(ptr nocapture noundef nonnull
   br i1 %.not, label %9, label %21
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @equal(ptr noundef %11, ptr noundef %13)
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i1 @equal(ptr noundef %17, ptr noundef %19)
   br label %21
@@ -4873,17 +4873,17 @@ define internal fastcc zeroext i1 @_equalA_Indices(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalA_Indirection(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -4895,10 +4895,10 @@ define internal fastcc zeroext i1 @_equalA_Indirection(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalResTarget(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -4916,17 +4916,17 @@ define internal fastcc zeroext i1 @_equalResTarget(ptr nocapture noundef nonnull
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br label %.thread
@@ -4938,25 +4938,25 @@ define internal fastcc zeroext i1 @_equalResTarget(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalMultiAssignRef(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   %.not7 = icmp eq i32 %15, %17
   br label %18
@@ -4968,33 +4968,33 @@ define internal fastcc zeroext i1 @_equalMultiAssignRef(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalSortBy(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %24
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   %.not9 = icmp eq i32 %15, %17
   br i1 %.not9, label %18, label %24
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @equal(ptr noundef %20, ptr noundef %22)
   br label %24
@@ -5006,10 +5006,10 @@ define internal fastcc zeroext i1 @_equalSortBy(ptr nocapture noundef nonnull re
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalWindowDef(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -5027,10 +5027,10 @@ define internal fastcc zeroext i1 @_equalWindowDef(ptr nocapture noundef nonnull
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not28 = icmp eq ptr %13, null
-  %.phi.trans.insert32 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8
   br i1 %.not28, label %18, label %14
 
@@ -5048,41 +5048,41 @@ define internal fastcc zeroext i1 @_equalWindowDef(ptr nocapture noundef nonnull
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load i32, ptr %35, align 8
   %.not30 = icmp eq i32 %34, %36
   br i1 %.not30, label %37, label %.thread
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 @equal(ptr noundef %39, ptr noundef %41)
   br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8
   %48 = tail call zeroext i1 @equal(ptr noundef %45, ptr noundef %47)
   br label %.thread
@@ -5094,9 +5094,9 @@ define internal fastcc zeroext i1 @_equalWindowDef(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRangeSubselect(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -5104,17 +5104,17 @@ define internal fastcc zeroext i1 @_equalRangeSubselect(ptr nocapture noundef no
   br i1 %.not, label %9, label %21
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @equal(ptr noundef %11, ptr noundef %13)
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i1 @equal(ptr noundef %17, ptr noundef %19)
   br label %21
@@ -5126,9 +5126,9 @@ define internal fastcc zeroext i1 @_equalRangeSubselect(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRangeFunction(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -5136,9 +5136,9 @@ define internal fastcc zeroext i1 @_equalRangeFunction(ptr nocapture noundef non
   br i1 %.not, label %9, label %41
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 5
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %13 = load i8, ptr %12, align 1
   %14 = xor i8 %13, %11
   %15 = and i8 %14, 1
@@ -5146,9 +5146,9 @@ define internal fastcc zeroext i1 @_equalRangeFunction(ptr nocapture noundef non
   br i1 %.not13, label %16, label %41
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %18 = load i8, ptr %17, align 2
-  %19 = getelementptr inbounds i8, ptr %1, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %20 = load i8, ptr %19, align 2
   %21 = xor i8 %20, %18
   %22 = and i8 %21, 1
@@ -5156,25 +5156,25 @@ define internal fastcc zeroext i1 @_equalRangeFunction(ptr nocapture noundef non
   br i1 %.not14, label %23, label %41
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i1 @equal(ptr noundef %25, ptr noundef %27)
   br i1 %28, label %29, label %41
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = tail call zeroext i1 @equal(ptr noundef %31, ptr noundef %33)
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load ptr, ptr %38, align 8
   %40 = tail call zeroext i1 @equal(ptr noundef %37, ptr noundef %39)
   br label %41
@@ -5186,9 +5186,9 @@ define internal fastcc zeroext i1 @_equalRangeFunction(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRangeTableFunc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -5196,41 +5196,41 @@ define internal fastcc zeroext i1 @_equalRangeTableFunc(ptr nocapture noundef no
   br i1 %.not, label %9, label %39
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @equal(ptr noundef %11, ptr noundef %13)
   br i1 %14, label %15, label %39
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i1 @equal(ptr noundef %17, ptr noundef %19)
   br i1 %20, label %21, label %39
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i1 @equal(ptr noundef %23, ptr noundef %25)
   br i1 %26, label %27, label %39
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @equal(ptr noundef %29, ptr noundef %31)
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i1 @equal(ptr noundef %35, ptr noundef %37)
   br label %39
@@ -5242,10 +5242,10 @@ define internal fastcc zeroext i1 @_equalRangeTableFunc(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRangeTableFuncCol(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -5263,17 +5263,17 @@ define internal fastcc zeroext i1 @_equalRangeTableFuncCol(ptr nocapture noundef
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i8, ptr %20, align 8
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -5281,9 +5281,9 @@ define internal fastcc zeroext i1 @_equalRangeTableFuncCol(ptr nocapture noundef
   br i1 %.not20, label %24, label %.thread
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 25
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %1, i64 25
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %28 = load i8, ptr %27, align 1
   %29 = xor i8 %28, %26
   %30 = and i8 %29, 1
@@ -5291,17 +5291,17 @@ define internal fastcc zeroext i1 @_equalRangeTableFuncCol(ptr nocapture noundef
   br i1 %.not21, label %31, label %.thread
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 @equal(ptr noundef %33, ptr noundef %35)
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 @equal(ptr noundef %39, ptr noundef %41)
   br label %.thread
@@ -5313,33 +5313,33 @@ define internal fastcc zeroext i1 @_equalRangeTableFuncCol(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRangeTableSample(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %26
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br label %26
@@ -5351,10 +5351,10 @@ define internal fastcc zeroext i1 @_equalRangeTableSample(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalColumnDef(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -5372,18 +5372,18 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr nocapture noundef nonnull
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not56 = icmp eq ptr %19, null
-  %.phi.trans.insert69 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre70 = load ptr, ptr %.phi.trans.insert69, align 8
   br i1 %.not56, label %24, label %20
 
@@ -5401,17 +5401,17 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr nocapture noundef nonnull
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %24, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load i32, ptr %29, align 8
   %.not58 = icmp eq i32 %28, %30
   br i1 %.not58, label %31, label %.thread
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %33 = load i8, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %35 = load i8, ptr %34, align 4
   %36 = xor i8 %35, %33
   %37 = and i8 %36, 1
@@ -5419,9 +5419,9 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr nocapture noundef nonnull
   br i1 %.not59, label %38, label %.thread
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %0, i64 37
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %1, i64 37
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %42 = load i8, ptr %41, align 1
   %43 = xor i8 %42, %40
   %44 = and i8 %43, 1
@@ -5429,9 +5429,9 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr nocapture noundef nonnull
   br i1 %.not60, label %45, label %.thread
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %0, i64 38
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %47 = load i8, ptr %46, align 2
-  %48 = getelementptr inbounds i8, ptr %1, i64 38
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %49 = load i8, ptr %48, align 2
   %50 = xor i8 %49, %47
   %51 = and i8 %50, 1
@@ -5439,18 +5439,18 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr nocapture noundef nonnull
   br i1 %.not61, label %52, label %.thread
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %0, i64 39
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 39
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %1, i64 39
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 39
   %56 = load i8, ptr %55, align 1
   %.not62 = icmp eq i8 %54, %56
   br i1 %.not62, label %57, label %.thread
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %59 = load ptr, ptr %58, align 8
   %.not63 = icmp eq ptr %59, null
-  %.phi.trans.insert72 = getelementptr inbounds i8, ptr %1, i64 40
+  %.phi.trans.insert72 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre73 = load ptr, ptr %.phi.trans.insert72, align 8
   br i1 %.not63, label %64, label %60
 
@@ -5468,73 +5468,73 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr nocapture noundef nonnull
   br i1 %65, label %66, label %.thread
 
 66:                                               ; preds = %64, %61
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %70 = load ptr, ptr %69, align 8
   %71 = tail call zeroext i1 @equal(ptr noundef %68, ptr noundef %70)
   br i1 %71, label %72, label %.thread
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %0, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %76 = load ptr, ptr %75, align 8
   %77 = tail call zeroext i1 @equal(ptr noundef %74, ptr noundef %76)
   br i1 %77, label %78, label %.thread
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %0, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %80 = load i8, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %82 = load i8, ptr %81, align 8
   %.not65 = icmp eq i8 %80, %82
   br i1 %.not65, label %83, label %.thread
 
 83:                                               ; preds = %78
-  %84 = getelementptr inbounds i8, ptr %0, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 72
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %87 = load ptr, ptr %86, align 8
   %88 = tail call zeroext i1 @equal(ptr noundef %85, ptr noundef %87)
   br i1 %88, label %89, label %.thread
 
 89:                                               ; preds = %83
-  %90 = getelementptr inbounds i8, ptr %0, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %91 = load i8, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %1, i64 80
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %93 = load i8, ptr %92, align 8
   %.not66 = icmp eq i8 %91, %93
   br i1 %.not66, label %94, label %.thread
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds i8, ptr %0, i64 88
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %98 = load ptr, ptr %97, align 8
   %99 = tail call zeroext i1 @equal(ptr noundef %96, ptr noundef %98)
   br i1 %99, label %100, label %.thread
 
 100:                                              ; preds = %94
-  %101 = getelementptr inbounds i8, ptr %0, i64 96
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 96
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %104 = load i32, ptr %103, align 8
   %.not67 = icmp eq i32 %102, %104
   br i1 %.not67, label %105, label %.thread
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds i8, ptr %0, i64 104
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %1, i64 104
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %109 = load ptr, ptr %108, align 8
   %110 = tail call zeroext i1 @equal(ptr noundef %107, ptr noundef %109)
   br i1 %110, label %111, label %.thread
 
 111:                                              ; preds = %105
-  %112 = getelementptr inbounds i8, ptr %0, i64 112
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %1, i64 112
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %115 = load ptr, ptr %114, align 8
   %116 = tail call zeroext i1 @equal(ptr noundef %113, ptr noundef %115)
   br label %.thread
@@ -5546,25 +5546,25 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalTableLikeClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   %.not7 = icmp eq i32 %15, %17
   br label %18
@@ -5576,10 +5576,10 @@ define internal fastcc zeroext i1 @_equalTableLikeClause(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalIndexElem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -5597,18 +5597,18 @@ define internal fastcc zeroext i1 @_equalIndexElem(ptr nocapture noundef nonnull
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not30 = icmp eq ptr %19, null
-  %.phi.trans.insert35 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre36 = load ptr, ptr %.phi.trans.insert35, align 8
   br i1 %.not30, label %24, label %20
 
@@ -5626,41 +5626,41 @@ define internal fastcc zeroext i1 @_equalIndexElem(ptr nocapture noundef nonnull
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %24, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @equal(ptr noundef %34, ptr noundef %36)
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = tail call zeroext i1 @equal(ptr noundef %40, ptr noundef %42)
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %48 = load i32, ptr %47, align 8
   %.not32 = icmp eq i32 %46, %48
   br i1 %.not32, label %49, label %.thread
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 60
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 60
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %53 = load i32, ptr %52, align 4
   %.not33 = icmp eq i32 %51, %53
   br label %.thread
@@ -5672,10 +5672,10 @@ define internal fastcc zeroext i1 @_equalIndexElem(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalDefElem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -5693,10 +5693,10 @@ define internal fastcc zeroext i1 @_equalDefElem(ptr nocapture noundef nonnull r
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not22 = icmp eq ptr %13, null
-  %.phi.trans.insert26 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre27 = load ptr, ptr %.phi.trans.insert26, align 8
   br i1 %.not22, label %18, label %14
 
@@ -5714,17 +5714,17 @@ define internal fastcc zeroext i1 @_equalDefElem(ptr nocapture noundef nonnull r
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load i32, ptr %29, align 8
   %.not24 = icmp eq i32 %28, %30
   br label %.thread
@@ -5736,25 +5736,25 @@ define internal fastcc zeroext i1 @_equalDefElem(ptr nocapture noundef nonnull r
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalLockingClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   %.not7 = icmp eq i32 %15, %17
   br label %18
@@ -5766,33 +5766,33 @@ define internal fastcc zeroext i1 @_equalLockingClause(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalXmlSerialize(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %26
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i8, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i8, ptr %22, align 8
   %24 = xor i8 %23, %21
   %25 = and i8 %24, 1
@@ -5806,10 +5806,10 @@ define internal fastcc zeroext i1 @_equalXmlSerialize(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalPartitionElem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -5827,25 +5827,25 @@ define internal fastcc zeroext i1 @_equalPartitionElem(ptr nocapture noundef non
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i1 @equal(ptr noundef %25, ptr noundef %27)
   br label %.thread
@@ -5857,17 +5857,17 @@ define internal fastcc zeroext i1 @_equalPartitionElem(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalPartitionBoundSpec(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %.not = icmp eq i8 %4, %6
   br i1 %.not, label %7, label %42
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %11 = load i8, ptr %10, align 1
   %12 = xor i8 %11, %9
   %13 = and i8 %12, 1
@@ -5875,41 +5875,41 @@ define internal fastcc zeroext i1 @_equalPartitionBoundSpec(ptr nocapture nounde
   br i1 %.not15, label %14, label %42
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8
   %.not16 = icmp eq i32 %16, %18
   br i1 %.not16, label %19, label %42
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %22, align 4
   %.not17 = icmp eq i32 %21, %23
   br i1 %.not17, label %24, label %42
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @equal(ptr noundef %26, ptr noundef %28)
   br i1 %29, label %30, label %42
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i1 @equal(ptr noundef %32, ptr noundef %34)
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = tail call zeroext i1 @equal(ptr noundef %38, ptr noundef %40)
   br label %42
@@ -5921,25 +5921,25 @@ define internal fastcc zeroext i1 @_equalPartitionBoundSpec(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalPartitionCmd(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = xor i8 %18, %16
   %20 = and i8 %19, 1
@@ -5953,65 +5953,65 @@ define internal fastcc zeroext i1 @_equalPartitionCmd(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not77 = icmp eq i32 %9, %11
   br i1 %.not77, label %12, label %.thread
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i8, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i8, ptr %15, align 4
   %.not78 = icmp eq i8 %14, %16
   br i1 %.not78, label %17, label %.thread
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %.not79 = icmp eq i32 %19, %21
   br i1 %.not79, label %22, label %.thread
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not80 = icmp eq i32 %30, %32
   br i1 %.not80, label %33, label %.thread
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i1 @equal(ptr noundef %35, ptr noundef %37)
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load i8, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %43 = load i8, ptr %42, align 8
   %44 = xor i8 %43, %41
   %45 = and i8 %44, 1
@@ -6019,65 +6019,65 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef non
   br i1 %.not81, label %46, label %.thread
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %0, i64 52
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %50 = load i32, ptr %49, align 4
   %.not82 = icmp eq i32 %48, %50
   br i1 %.not82, label %51, label %.thread
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %55 = load i32, ptr %54, align 8
   %.not83 = icmp eq i32 %53, %55
   br i1 %.not83, label %56, label %.thread
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %0, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %60 = load ptr, ptr %59, align 8
   %61 = tail call zeroext i1 @equal(ptr noundef %58, ptr noundef %60)
   br i1 %61, label %62, label %.thread
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %0, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %66 = load ptr, ptr %65, align 8
   %67 = tail call zeroext i1 @equal(ptr noundef %64, ptr noundef %66)
   br i1 %67, label %68, label %.thread
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %0, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %72 = load ptr, ptr %71, align 8
   %73 = tail call zeroext i1 @equal(ptr noundef %70, ptr noundef %72)
   br i1 %73, label %74, label %.thread
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds i8, ptr %0, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %78 = load ptr, ptr %77, align 8
   %79 = tail call zeroext i1 @equal(ptr noundef %76, ptr noundef %78)
   br i1 %79, label %80, label %.thread
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %0, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 96
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %84 = load ptr, ptr %83, align 8
   %85 = tail call zeroext i1 @equal(ptr noundef %82, ptr noundef %84)
   br i1 %85, label %86, label %.thread
 
 86:                                               ; preds = %80
-  %87 = getelementptr inbounds i8, ptr %0, i64 104
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %88 = load i8, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 104
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %90 = load i8, ptr %89, align 8
   %91 = xor i8 %90, %88
   %92 = and i8 %91, 1
@@ -6085,26 +6085,26 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef non
   br i1 %.not84, label %93, label %.thread
 
 93:                                               ; preds = %86
-  %94 = getelementptr inbounds i8, ptr %0, i64 112
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 112
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %97 = load ptr, ptr %96, align 8
   %98 = tail call zeroext i1 @equal(ptr noundef %95, ptr noundef %97)
   br i1 %98, label %99, label %.thread
 
 99:                                               ; preds = %93
-  %100 = getelementptr inbounds i8, ptr %0, i64 120
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %1, i64 120
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %103 = load ptr, ptr %102, align 8
   %104 = tail call zeroext i1 @equal(ptr noundef %101, ptr noundef %103)
   br i1 %104, label %105, label %.thread
 
 105:                                              ; preds = %99
-  %106 = getelementptr inbounds i8, ptr %0, i64 128
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %107 = load ptr, ptr %106, align 8
   %.not85 = icmp eq ptr %107, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 128
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 128
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not85, label %112, label %108
 
@@ -6122,17 +6122,17 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef non
   br i1 %113, label %114, label %.thread
 
 114:                                              ; preds = %112, %109
-  %115 = getelementptr inbounds i8, ptr %0, i64 136
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %116 = load i32, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %1, i64 136
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %118 = load i32, ptr %117, align 8
   %.not87 = icmp eq i32 %116, %118
   br i1 %.not87, label %119, label %.thread
 
 119:                                              ; preds = %114
-  %120 = getelementptr inbounds i8, ptr %0, i64 140
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %121 = load i8, ptr %120, align 4
-  %122 = getelementptr inbounds i8, ptr %1, i64 140
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %123 = load i8, ptr %122, align 4
   %124 = xor i8 %123, %121
   %125 = and i8 %124, 1
@@ -6140,34 +6140,34 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef non
   br i1 %.not88, label %126, label %.thread
 
 126:                                              ; preds = %119
-  %127 = getelementptr inbounds i8, ptr %0, i64 144
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 144
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %130 = load ptr, ptr %129, align 8
   %131 = tail call zeroext i1 @equal(ptr noundef %128, ptr noundef %130)
   br i1 %131, label %132, label %.thread
 
 132:                                              ; preds = %126
-  %133 = getelementptr inbounds i8, ptr %0, i64 152
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 152
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %136 = load ptr, ptr %135, align 8
   %137 = tail call zeroext i1 @equal(ptr noundef %134, ptr noundef %136)
   br i1 %137, label %138, label %.thread
 
 138:                                              ; preds = %132
-  %139 = getelementptr inbounds i8, ptr %0, i64 160
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %1, i64 160
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %142 = load ptr, ptr %141, align 8
   %143 = tail call zeroext i1 @equal(ptr noundef %140, ptr noundef %142)
   br i1 %143, label %144, label %.thread
 
 144:                                              ; preds = %138
-  %145 = getelementptr inbounds i8, ptr %0, i64 168
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %146 = load ptr, ptr %145, align 8
   %.not89 = icmp eq ptr %146, null
-  %.phi.trans.insert95 = getelementptr inbounds i8, ptr %1, i64 168
+  %.phi.trans.insert95 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %.pre96 = load ptr, ptr %.phi.trans.insert95, align 8
   br i1 %.not89, label %151, label %147
 
@@ -6185,33 +6185,33 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef non
   br i1 %152, label %153, label %.thread
 
 153:                                              ; preds = %151, %148
-  %154 = getelementptr inbounds i8, ptr %0, i64 176
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %155 = load double, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %1, i64 176
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %157 = load double, ptr %156, align 8
   %158 = fcmp une double %155, %157
   br i1 %158, label %.thread, label %159
 
 159:                                              ; preds = %153
-  %160 = getelementptr inbounds i8, ptr %0, i64 184
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %1, i64 184
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %163 = load ptr, ptr %162, align 8
   %164 = tail call zeroext i1 @equal(ptr noundef %161, ptr noundef %163)
   br i1 %164, label %165, label %.thread
 
 165:                                              ; preds = %159
-  %166 = getelementptr inbounds i8, ptr %0, i64 192
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %1, i64 192
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %169 = load ptr, ptr %168, align 8
   %170 = tail call zeroext i1 @equal(ptr noundef %167, ptr noundef %169)
   br i1 %170, label %171, label %.thread
 
 171:                                              ; preds = %165
-  %172 = getelementptr inbounds i8, ptr %0, i64 200
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %173 = load i8, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %1, i64 200
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %175 = load i8, ptr %174, align 8
   %176 = xor i8 %175, %173
   %177 = and i8 %176, 1
@@ -6219,9 +6219,9 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef non
   br i1 %.not91, label %178, label %.thread
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds i8, ptr %0, i64 201
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %180 = load i8, ptr %179, align 1
-  %181 = getelementptr inbounds i8, ptr %1, i64 201
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 201
   %182 = load i8, ptr %181, align 1
   %183 = xor i8 %182, %180
   %184 = and i8 %183, 1
@@ -6229,9 +6229,9 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef non
   br i1 %.not92, label %185, label %.thread
 
 185:                                              ; preds = %178
-  %186 = getelementptr inbounds i8, ptr %0, i64 202
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 202
   %187 = load i8, ptr %186, align 2
-  %188 = getelementptr inbounds i8, ptr %1, i64 202
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 202
   %189 = load i8, ptr %188, align 2
   %190 = xor i8 %189, %187
   %191 = and i8 %190, 1
@@ -6239,9 +6239,9 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef non
   br i1 %.not93, label %192, label %.thread
 
 192:                                              ; preds = %185
-  %193 = getelementptr inbounds i8, ptr %0, i64 208
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %1, i64 208
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %196 = load ptr, ptr %195, align 8
   %197 = tail call zeroext i1 @equal(ptr noundef %194, ptr noundef %196)
   br label %.thread
@@ -6253,17 +6253,17 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRTEPermissionInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %42
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = xor i8 %11, %9
   %13 = and i8 %12, 1
@@ -6271,41 +6271,41 @@ define internal fastcc zeroext i1 @_equalRTEPermissionInfo(ptr nocapture noundef
   br i1 %.not15, label %14, label %42
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i64, ptr %17, align 8
   %.not16 = icmp eq i64 %16, %18
   br i1 %.not16, label %19, label %42
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i32, ptr %22, align 8
   %.not17 = icmp eq i32 %21, %23
   br i1 %.not17, label %24, label %42
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @bms_equal(ptr noundef %26, ptr noundef %28) #9
   br i1 %29, label %30, label %42
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i1 @bms_equal(ptr noundef %32, ptr noundef %34) #9
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = tail call zeroext i1 @bms_equal(ptr noundef %38, ptr noundef %40) #9
   br label %42
@@ -6317,57 +6317,57 @@ define internal fastcc zeroext i1 @_equalRTEPermissionInfo(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRangeTblFunction(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %43
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %43
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %43
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br i1 %24, label %25, label %43
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @equal(ptr noundef %27, ptr noundef %29)
   br i1 %30, label %31, label %43
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 @equal(ptr noundef %33, ptr noundef %35)
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 @bms_equal(ptr noundef %39, ptr noundef %41) #9
   br label %43
@@ -6379,25 +6379,25 @@ define internal fastcc zeroext i1 @_equalRangeTblFunction(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalTableSampleClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %19
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br label %19
@@ -6409,18 +6409,18 @@ define internal fastcc zeroext i1 @_equalTableSampleClause(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalWithCheckOption(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not23 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not23, label %14, label %10
 
@@ -6438,10 +6438,10 @@ define internal fastcc zeroext i1 @_equalWithCheckOption(ptr nocapture noundef n
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not25 = icmp eq ptr %18, null
-  %.phi.trans.insert29 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre30 = load ptr, ptr %.phi.trans.insert29, align 8
   br i1 %.not25, label %23, label %19
 
@@ -6459,17 +6459,17 @@ define internal fastcc zeroext i1 @_equalWithCheckOption(ptr nocapture noundef n
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %23, %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @equal(ptr noundef %27, ptr noundef %29)
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load i8, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load i8, ptr %34, align 8
   %36 = xor i8 %35, %33
   %37 = and i8 %36, 1
@@ -6483,33 +6483,33 @@ define internal fastcc zeroext i1 @_equalWithCheckOption(ptr nocapture noundef n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc zeroext i1 @_equalSortGroupClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %31
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 4
   %.not11 = icmp eq i32 %9, %11
   br i1 %.not11, label %12, label %31
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not12 = icmp eq i32 %14, %16
   br i1 %.not12, label %17, label %31
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i8, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i8, ptr %20, align 4
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -6517,9 +6517,9 @@ define internal fastcc zeroext i1 @_equalSortGroupClause(ptr nocapture noundef n
   br i1 %.not13, label %24, label %31
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 17
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %1, i64 17
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %28 = load i8, ptr %27, align 1
   %29 = xor i8 %28, %26
   %30 = and i8 %29, 1
@@ -6533,10 +6533,10 @@ define internal fastcc zeroext i1 @_equalSortGroupClause(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalWindowClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -6554,10 +6554,10 @@ define internal fastcc zeroext i1 @_equalWindowClause(ptr nocapture noundef nonn
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not44 = icmp eq ptr %13, null
-  %.phi.trans.insert55 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre56 = load ptr, ptr %.phi.trans.insert55, align 8
   br i1 %.not44, label %18, label %14
 
@@ -6575,81 +6575,81 @@ define internal fastcc zeroext i1 @_equalWindowClause(ptr nocapture noundef nonn
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load i32, ptr %35, align 8
   %.not46 = icmp eq i32 %34, %36
   br i1 %.not46, label %37, label %.thread
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 @equal(ptr noundef %39, ptr noundef %41)
   br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load ptr, ptr %46, align 8
   %48 = tail call zeroext i1 @equal(ptr noundef %45, ptr noundef %47)
   br i1 %48, label %49, label %.thread
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %53 = load ptr, ptr %52, align 8
   %54 = tail call zeroext i1 @equal(ptr noundef %51, ptr noundef %53)
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %0, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %59 = load i32, ptr %58, align 8
   %.not47 = icmp eq i32 %57, %59
   br i1 %.not47, label %60, label %.thread
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %0, i64 76
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %1, i64 76
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %64 = load i32, ptr %63, align 4
   %.not48 = icmp eq i32 %62, %64
   br i1 %.not48, label %65, label %.thread
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %0, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 80
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %69 = load i32, ptr %68, align 8
   %.not49 = icmp eq i32 %67, %69
   br i1 %.not49, label %70, label %.thread
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %0, i64 84
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %72 = load i8, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %1, i64 84
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %74 = load i8, ptr %73, align 4
   %75 = xor i8 %74, %72
   %76 = and i8 %75, 1
@@ -6657,9 +6657,9 @@ define internal fastcc zeroext i1 @_equalWindowClause(ptr nocapture noundef nonn
   br i1 %.not50, label %77, label %.thread
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %0, i64 85
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 85
   %79 = load i8, ptr %78, align 1
-  %80 = getelementptr inbounds i8, ptr %1, i64 85
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 85
   %81 = load i8, ptr %80, align 1
   %82 = xor i8 %81, %79
   %83 = and i8 %82, 1
@@ -6667,17 +6667,17 @@ define internal fastcc zeroext i1 @_equalWindowClause(ptr nocapture noundef nonn
   br i1 %.not51, label %84, label %.thread
 
 84:                                               ; preds = %77
-  %85 = getelementptr inbounds i8, ptr %0, i64 88
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %86 = load i32, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 88
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %88 = load i32, ptr %87, align 8
   %.not52 = icmp eq i32 %86, %88
   br i1 %.not52, label %89, label %.thread
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %0, i64 92
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %91 = load i8, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %1, i64 92
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %93 = load i8, ptr %92, align 4
   %94 = xor i8 %93, %91
   %95 = and i8 %94, 1
@@ -6691,33 +6691,33 @@ define internal fastcc zeroext i1 @_equalWindowClause(ptr nocapture noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc zeroext i1 @_equalRowMarkClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %24
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 4
   %.not9 = icmp eq i32 %9, %11
   br i1 %.not9, label %12, label %24
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not10 = icmp eq i32 %14, %16
   br i1 %.not10, label %17, label %24
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i8, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i8, ptr %20, align 4
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -6731,26 +6731,26 @@ define internal fastcc zeroext i1 @_equalRowMarkClause(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_equalInferClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %21, label %17
 
@@ -6777,33 +6777,33 @@ define internal fastcc noundef zeroext i1 @_equalInferClause(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalOnConflictClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %25
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br label %25
@@ -6815,17 +6815,17 @@ define internal fastcc zeroext i1 @_equalOnConflictClause(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_equalCTESearchClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i8, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = xor i8 %12, %10
   %14 = and i8 %13, 1
@@ -6833,10 +6833,10 @@ define internal fastcc noundef zeroext i1 @_equalCTESearchClause(ptr nocapture n
   br i1 %.not, label %15, label %.thread
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not13 = icmp eq ptr %17, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not13, label %22, label %18
 
@@ -6863,18 +6863,18 @@ define internal fastcc noundef zeroext i1 @_equalCTESearchClause(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCTECycleClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -6892,26 +6892,26 @@ define internal fastcc zeroext i1 @_equalCTECycleClause(ptr nocapture noundef no
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i1 @equal(ptr noundef %25, ptr noundef %27)
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
   %.not32 = icmp eq ptr %31, null
-  %.phi.trans.insert39 = getelementptr inbounds i8, ptr %1, i64 40
+  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre40 = load ptr, ptr %.phi.trans.insert39, align 8
   br i1 %.not32, label %36, label %32
 
@@ -6929,33 +6929,33 @@ define internal fastcc zeroext i1 @_equalCTECycleClause(ptr nocapture noundef no
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %36, %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 52
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 52
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %42 = load i32, ptr %41, align 4
   %.not34 = icmp eq i32 %40, %42
   br i1 %.not34, label %43, label %.thread
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %47 = load i32, ptr %46, align 8
   %.not35 = icmp eq i32 %45, %47
   br i1 %.not35, label %48, label %.thread
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 60
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %1, i64 60
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %52 = load i32, ptr %51, align 4
   %.not36 = icmp eq i32 %50, %52
   br i1 %.not36, label %53, label %.thread
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %57 = load i32, ptr %56, align 8
   %.not37 = icmp eq i32 %55, %57
   br label %.thread
@@ -6967,10 +6967,10 @@ define internal fastcc zeroext i1 @_equalCTECycleClause(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCommonTableExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -6988,49 +6988,49 @@ define internal fastcc zeroext i1 @_equalCommonTableExpr(ptr nocapture noundef n
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 8
   %.not32 = icmp eq i32 %19, %21
   br i1 %.not32, label %22, label %.thread
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = tail call zeroext i1 @equal(ptr noundef %30, ptr noundef %32)
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @equal(ptr noundef %36, ptr noundef %38)
   br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 60
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %42 = load i8, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %1, i64 60
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %44 = load i8, ptr %43, align 4
   %45 = xor i8 %44, %42
   %46 = and i8 %45, 1
@@ -7038,41 +7038,41 @@ define internal fastcc zeroext i1 @_equalCommonTableExpr(ptr nocapture noundef n
   br i1 %.not33, label %47, label %.thread
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %51 = load i32, ptr %50, align 8
   %.not34 = icmp eq i32 %49, %51
   br i1 %.not34, label %52, label %.thread
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %0, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = tail call zeroext i1 @equal(ptr noundef %54, ptr noundef %56)
   br i1 %57, label %58, label %.thread
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %0, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %62 = load ptr, ptr %61, align 8
   %63 = tail call zeroext i1 @equal(ptr noundef %60, ptr noundef %62)
   br i1 %63, label %64, label %.thread
 
 64:                                               ; preds = %58
-  %65 = getelementptr inbounds i8, ptr %0, i64 88
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 88
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %68 = load ptr, ptr %67, align 8
   %69 = tail call zeroext i1 @equal(ptr noundef %66, ptr noundef %68)
   br i1 %69, label %70, label %.thread
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %0, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %1, i64 96
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %74 = load ptr, ptr %73, align 8
   %75 = tail call zeroext i1 @equal(ptr noundef %72, ptr noundef %74)
   br label %.thread
@@ -7084,9 +7084,9 @@ define internal fastcc zeroext i1 @_equalCommonTableExpr(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalMergeWhenClause(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -7094,41 +7094,41 @@ define internal fastcc zeroext i1 @_equalMergeWhenClause(ptr nocapture noundef n
   br i1 %.not, label %9, label %37
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %.not13 = icmp eq i32 %11, %13
   br i1 %.not13, label %14, label %37
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %18 = load i32, ptr %17, align 4
   %.not14 = icmp eq i32 %16, %18
   br i1 %.not14, label %19, label %37
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br i1 %24, label %25, label %37
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @equal(ptr noundef %27, ptr noundef %29)
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 @equal(ptr noundef %33, ptr noundef %35)
   br label %37
@@ -7140,10 +7140,10 @@ define internal fastcc zeroext i1 @_equalMergeWhenClause(ptr nocapture noundef n
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc zeroext i1 @_equalTriggerTransition(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -7161,9 +7161,9 @@ define internal fastcc zeroext i1 @_equalTriggerTransition(ptr nocapture noundef
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = xor i8 %15, %13
   %17 = and i8 %16, 1
@@ -7171,9 +7171,9 @@ define internal fastcc zeroext i1 @_equalTriggerTransition(ptr nocapture noundef
   br i1 %.not14, label %18, label %.thread
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 17
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %20 = load i8, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %1, i64 17
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %22 = load i8, ptr %21, align 1
   %23 = xor i8 %22, %20
   %24 = and i8 %23, 1
@@ -7187,17 +7187,17 @@ define internal fastcc zeroext i1 @_equalTriggerTransition(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonOutput(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -7209,17 +7209,17 @@ define internal fastcc zeroext i1 @_equalJsonOutput(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonKeyValue(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -7231,25 +7231,25 @@ define internal fastcc zeroext i1 @_equalJsonKeyValue(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonParseExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = xor i8 %18, %16
   %20 = and i8 %19, 1
@@ -7263,17 +7263,17 @@ define internal fastcc zeroext i1 @_equalJsonParseExpr(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonScalarExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -7285,17 +7285,17 @@ define internal fastcc zeroext i1 @_equalJsonScalarExpr(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonSerializeExpr(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -7307,25 +7307,25 @@ define internal fastcc zeroext i1 @_equalJsonSerializeExpr(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonObjectConstructor(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %28
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = xor i8 %18, %16
   %20 = and i8 %19, 1
@@ -7333,9 +7333,9 @@ define internal fastcc zeroext i1 @_equalJsonObjectConstructor(ptr nocapture nou
   br i1 %.not, label %21, label %28
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 25
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %1, i64 25
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %25 = load i8, ptr %24, align 1
   %26 = xor i8 %25, %23
   %27 = and i8 %26, 1
@@ -7349,25 +7349,25 @@ define internal fastcc zeroext i1 @_equalJsonObjectConstructor(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonArrayConstructor(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = xor i8 %18, %16
   %20 = and i8 %19, 1
@@ -7381,33 +7381,33 @@ define internal fastcc zeroext i1 @_equalJsonArrayConstructor(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonArrayQueryConstructor(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %27
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %27
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i8, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i8, ptr %23, align 8
   %25 = xor i8 %24, %22
   %26 = and i8 %25, 1
@@ -7421,33 +7421,33 @@ define internal fastcc zeroext i1 @_equalJsonArrayQueryConstructor(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonAggConstructor(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %26
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br label %26
@@ -7459,25 +7459,25 @@ define internal fastcc zeroext i1 @_equalJsonAggConstructor(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonObjectAgg(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %28
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = xor i8 %18, %16
   %20 = and i8 %19, 1
@@ -7485,9 +7485,9 @@ define internal fastcc zeroext i1 @_equalJsonObjectAgg(ptr nocapture noundef non
   br i1 %.not, label %21, label %28
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 25
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %1, i64 25
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %25 = load i8, ptr %24, align 1
   %26 = xor i8 %25, %23
   %27 = and i8 %26, 1
@@ -7501,25 +7501,25 @@ define internal fastcc zeroext i1 @_equalJsonObjectAgg(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalJsonArrayAgg(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = xor i8 %18, %16
   %20 = and i8 %19, 1
@@ -7533,57 +7533,57 @@ define internal fastcc zeroext i1 @_equalJsonArrayAgg(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalInsertStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %43
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %43
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %43
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %43
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %43
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @equal(ptr noundef %34, ptr noundef %36)
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %42 = load i32, ptr %41, align 8
   %.not = icmp eq i32 %40, %42
   br label %43
@@ -7595,41 +7595,41 @@ define internal fastcc zeroext i1 @_equalInsertStmt(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalDeleteStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %32
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %32
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br label %32
@@ -7641,49 +7641,49 @@ define internal fastcc zeroext i1 @_equalDeleteStmt(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalUpdateStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %38
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %38
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %38
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %38
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @equal(ptr noundef %34, ptr noundef %36)
   br label %38
@@ -7695,41 +7695,41 @@ define internal fastcc zeroext i1 @_equalUpdateStmt(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalMergeStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %32
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %32
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br label %32
@@ -7741,57 +7741,57 @@ define internal fastcc zeroext i1 @_equalMergeStmt(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalSelectStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %122
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %122
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %122
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %122
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %122
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @equal(ptr noundef %34, ptr noundef %36)
   br i1 %37, label %38, label %122
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load i8, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %42 = load i8, ptr %41, align 8
   %43 = xor i8 %42, %40
   %44 = and i8 %43, 1
@@ -7799,89 +7799,89 @@ define internal fastcc zeroext i1 @_equalSelectStmt(ptr nocapture noundef nonnul
   br i1 %.not, label %45, label %122
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %0, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %49 = load ptr, ptr %48, align 8
   %50 = tail call zeroext i1 @equal(ptr noundef %47, ptr noundef %49)
   br i1 %50, label %51, label %122
 
 51:                                               ; preds = %45
-  %52 = getelementptr inbounds i8, ptr %0, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %55 = load ptr, ptr %54, align 8
   %56 = tail call zeroext i1 @equal(ptr noundef %53, ptr noundef %55)
   br i1 %56, label %57, label %122
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %0, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %61 = load ptr, ptr %60, align 8
   %62 = tail call zeroext i1 @equal(ptr noundef %59, ptr noundef %61)
   br i1 %62, label %63, label %122
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %0, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %67 = load ptr, ptr %66, align 8
   %68 = tail call zeroext i1 @equal(ptr noundef %65, ptr noundef %67)
   br i1 %68, label %69, label %122
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %0, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %73 = load ptr, ptr %72, align 8
   %74 = tail call zeroext i1 @equal(ptr noundef %71, ptr noundef %73)
   br i1 %74, label %75, label %122
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %0, i64 104
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 104
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %79 = load ptr, ptr %78, align 8
   %80 = tail call zeroext i1 @equal(ptr noundef %77, ptr noundef %79)
   br i1 %80, label %81, label %122
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %0, i64 112
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 112
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %85 = load i32, ptr %84, align 8
   %.not41 = icmp eq i32 %83, %85
   br i1 %.not41, label %86, label %122
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %0, i64 120
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 120
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %90 = load ptr, ptr %89, align 8
   %91 = tail call zeroext i1 @equal(ptr noundef %88, ptr noundef %90)
   br i1 %91, label %92, label %122
 
 92:                                               ; preds = %86
-  %93 = getelementptr inbounds i8, ptr %0, i64 128
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %1, i64 128
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %96 = load ptr, ptr %95, align 8
   %97 = tail call zeroext i1 @equal(ptr noundef %94, ptr noundef %96)
   br i1 %97, label %98, label %122
 
 98:                                               ; preds = %92
-  %99 = getelementptr inbounds i8, ptr %0, i64 136
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %1, i64 136
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %102 = load i32, ptr %101, align 8
   %.not42 = icmp eq i32 %100, %102
   br i1 %.not42, label %103, label %122
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds i8, ptr %0, i64 140
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %105 = load i8, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %1, i64 140
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %107 = load i8, ptr %106, align 4
   %108 = xor i8 %107, %105
   %109 = and i8 %108, 1
@@ -7889,17 +7889,17 @@ define internal fastcc zeroext i1 @_equalSelectStmt(ptr nocapture noundef nonnul
   br i1 %.not43, label %110, label %122
 
 110:                                              ; preds = %103
-  %111 = getelementptr inbounds i8, ptr %0, i64 144
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %1, i64 144
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %114 = load ptr, ptr %113, align 8
   %115 = tail call zeroext i1 @equal(ptr noundef %112, ptr noundef %114)
   br i1 %115, label %116, label %122
 
 116:                                              ; preds = %110
-  %117 = getelementptr inbounds i8, ptr %0, i64 152
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %1, i64 152
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %120 = load ptr, ptr %119, align 8
   %121 = tail call zeroext i1 @equal(ptr noundef %118, ptr noundef %120)
   br label %122
@@ -7911,17 +7911,17 @@ define internal fastcc zeroext i1 @_equalSelectStmt(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalSetOperationStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %50
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = xor i8 %11, %9
   %13 = and i8 %12, 1
@@ -7929,49 +7929,49 @@ define internal fastcc zeroext i1 @_equalSetOperationStmt(ptr nocapture noundef 
   br i1 %.not17, label %14, label %50
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %50
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %50
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %50
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @equal(ptr noundef %34, ptr noundef %36)
   br i1 %37, label %38, label %50
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = tail call zeroext i1 @equal(ptr noundef %40, ptr noundef %42)
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %48 = load ptr, ptr %47, align 8
   %49 = tail call zeroext i1 @equal(ptr noundef %46, ptr noundef %48)
   br label %50
@@ -7983,10 +7983,10 @@ define internal fastcc zeroext i1 @_equalSetOperationStmt(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalPLAssignStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -8004,25 +8004,25 @@ define internal fastcc zeroext i1 @_equalPLAssignStmt(ptr nocapture noundef nonn
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 8
   %.not16 = icmp eq i32 %19, %21
   br i1 %.not16, label %22, label %.thread
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br label %.thread
@@ -8034,10 +8034,10 @@ define internal fastcc zeroext i1 @_equalPLAssignStmt(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateSchemaStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -8055,25 +8055,25 @@ define internal fastcc zeroext i1 @_equalCreateSchemaStmt(ptr nocapture noundef 
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i8, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load i8, ptr %26, align 8
   %28 = xor i8 %27, %25
   %29 = and i8 %28, 1
@@ -8087,33 +8087,33 @@ define internal fastcc zeroext i1 @_equalCreateSchemaStmt(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterTableStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %26
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %16, %18
   br i1 %.not, label %19, label %26
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i8, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %23 = load i8, ptr %22, align 4
   %24 = xor i8 %23, %21
   %25 = and i8 %24, 1
@@ -8127,18 +8127,18 @@ define internal fastcc zeroext i1 @_equalAlterTableStmt(ptr nocapture noundef no
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalReplicaIdentityStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %.not = icmp eq i8 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not11 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not11, label %14, label %10
 
@@ -8165,18 +8165,18 @@ define internal fastcc noundef zeroext i1 @_equalReplicaIdentityStmt(ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterTableCmd(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not23 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not23, label %14, label %10
 
@@ -8194,41 +8194,41 @@ define internal fastcc zeroext i1 @_equalAlterTableCmd(ptr nocapture noundef non
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i16, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i16, ptr %19, align 8
   %.not25 = icmp eq i16 %18, %20
   br i1 %.not25, label %21, label %.thread
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i1 @equal(ptr noundef %23, ptr noundef %25)
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @equal(ptr noundef %29, ptr noundef %31)
   br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load i32, ptr %36, align 8
   %.not26 = icmp eq i32 %35, %37
   br i1 %.not26, label %38, label %.thread
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %40 = load i8, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 44
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %42 = load i8, ptr %41, align 4
   %43 = xor i8 %42, %40
   %44 = and i8 %43, 1
@@ -8236,9 +8236,9 @@ define internal fastcc zeroext i1 @_equalAlterTableCmd(ptr nocapture noundef non
   br i1 %.not27, label %45, label %.thread
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %0, i64 45
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %1, i64 45
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 45
   %49 = load i8, ptr %48, align 1
   %50 = xor i8 %49, %47
   %51 = and i8 %50, 1
@@ -8252,26 +8252,26 @@ define internal fastcc zeroext i1 @_equalAlterTableCmd(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterDomainStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %.not = icmp eq i8 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not19 = icmp eq ptr %15, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not19, label %20, label %16
 
@@ -8289,25 +8289,25 @@ define internal fastcc zeroext i1 @_equalAlterDomainStmt(ptr nocapture noundef n
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %20, %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not21 = icmp eq i32 %30, %32
   br i1 %.not21, label %33, label %.thread
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %0, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %35 = load i8, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %37 = load i8, ptr %36, align 4
   %38 = xor i8 %37, %35
   %39 = and i8 %38, 1
@@ -8321,9 +8321,9 @@ define internal fastcc zeroext i1 @_equalAlterDomainStmt(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalGrantStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -8331,49 +8331,49 @@ define internal fastcc zeroext i1 @_equalGrantStmt(ptr nocapture noundef nonnull
   br i1 %.not, label %9, label %55
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %.not19 = icmp eq i32 %11, %13
   br i1 %.not19, label %14, label %55
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %18 = load i32, ptr %17, align 4
   %.not20 = icmp eq i32 %16, %18
   br i1 %.not20, label %19, label %55
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br i1 %24, label %25, label %55
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @equal(ptr noundef %27, ptr noundef %29)
   br i1 %30, label %31, label %55
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 @equal(ptr noundef %33, ptr noundef %35)
   br i1 %36, label %37, label %55
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i8, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load i8, ptr %40, align 8
   %42 = xor i8 %41, %39
   %43 = and i8 %42, 1
@@ -8381,17 +8381,17 @@ define internal fastcc zeroext i1 @_equalGrantStmt(ptr nocapture noundef nonnull
   br i1 %.not21, label %44, label %55
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load ptr, ptr %47, align 8
   %49 = tail call zeroext i1 @equal(ptr noundef %46, ptr noundef %48)
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %54 = load i32, ptr %53, align 8
   %.not22 = icmp eq i32 %52, %54
   br label %55
@@ -8403,33 +8403,33 @@ define internal fastcc zeroext i1 @_equalGrantStmt(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalObjectWithArgs(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %27
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %27
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i8, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i8, ptr %23, align 8
   %25 = xor i8 %24, %22
   %26 = and i8 %25, 1
@@ -8443,10 +8443,10 @@ define internal fastcc zeroext i1 @_equalObjectWithArgs(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAccessPriv(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -8464,9 +8464,9 @@ define internal fastcc zeroext i1 @_equalAccessPriv(ptr nocapture noundef nonnul
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br label %.thread
@@ -8478,25 +8478,25 @@ define internal fastcc zeroext i1 @_equalAccessPriv(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalGrantRoleStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %38
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %38
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = xor i8 %18, %16
   %20 = and i8 %19, 1
@@ -8504,25 +8504,25 @@ define internal fastcc zeroext i1 @_equalGrantRoleStmt(ptr nocapture noundef non
   br i1 %.not, label %21, label %38
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i1 @equal(ptr noundef %23, ptr noundef %25)
   br i1 %26, label %27, label %38
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @equal(ptr noundef %29, ptr noundef %31)
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %37 = load i32, ptr %36, align 8
   %.not13 = icmp eq i32 %35, %37
   br label %38
@@ -8534,17 +8534,17 @@ define internal fastcc zeroext i1 @_equalGrantRoleStmt(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterDefaultPrivilegesStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -8556,33 +8556,33 @@ define internal fastcc zeroext i1 @_equalAlterDefaultPrivilegesStmt(ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCopyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i8, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i8, ptr %23, align 8
   %25 = xor i8 %24, %22
   %26 = and i8 %25, 1
@@ -8590,9 +8590,9 @@ define internal fastcc zeroext i1 @_equalCopyStmt(ptr nocapture noundef nonnull 
   br i1 %.not, label %27, label %.thread
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 33
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %29 = load i8, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %1, i64 33
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %31 = load i8, ptr %30, align 1
   %32 = xor i8 %31, %29
   %33 = and i8 %32, 1
@@ -8600,10 +8600,10 @@ define internal fastcc zeroext i1 @_equalCopyStmt(ptr nocapture noundef nonnull 
   br i1 %.not23, label %34, label %.thread
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
   %.not24 = icmp eq ptr %36, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not24, label %41, label %37
 
@@ -8621,17 +8621,17 @@ define internal fastcc zeroext i1 @_equalCopyStmt(ptr nocapture noundef nonnull 
   br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %41, %38
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = tail call zeroext i1 @equal(ptr noundef %45, ptr noundef %47)
   br i1 %48, label %49, label %.thread
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %53 = load ptr, ptr %52, align 8
   %54 = tail call zeroext i1 @equal(ptr noundef %51, ptr noundef %53)
   br label %.thread
@@ -8643,18 +8643,18 @@ define internal fastcc zeroext i1 @_equalCopyStmt(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalVariableSetStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not15 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not15, label %14, label %10
 
@@ -8672,17 +8672,17 @@ define internal fastcc zeroext i1 @_equalVariableSetStmt(ptr nocapture noundef n
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @equal(ptr noundef %18, ptr noundef %20)
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i8, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i8, ptr %25, align 8
   %27 = xor i8 %26, %24
   %28 = and i8 %27, 1
@@ -8697,7 +8697,7 @@ define internal fastcc zeroext i1 @_equalVariableSetStmt(ptr nocapture noundef n
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalVariableShowStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %6, label %2
 
@@ -8724,90 +8724,90 @@ define internal fastcc noundef zeroext i1 @_equalVariableShowStmt(ptr readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @equal(ptr noundef %34, ptr noundef %36)
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %42 = load ptr, ptr %41, align 8
   %43 = tail call zeroext i1 @equal(ptr noundef %40, ptr noundef %42)
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %48 = load ptr, ptr %47, align 8
   %49 = tail call zeroext i1 @equal(ptr noundef %46, ptr noundef %48)
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %54 = load ptr, ptr %53, align 8
   %55 = tail call zeroext i1 @equal(ptr noundef %52, ptr noundef %54)
   br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %0, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %60 = load i32, ptr %59, align 8
   %.not = icmp eq i32 %58, %60
   br i1 %.not, label %61, label %.thread
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %0, i64 88
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %63 = load ptr, ptr %62, align 8
   %.not39 = icmp eq ptr %63, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 88
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not39, label %68, label %64
 
@@ -8825,10 +8825,10 @@ define internal fastcc zeroext i1 @_equalCreateStmt(ptr nocapture noundef nonnul
   br i1 %69, label %70, label %.thread
 
 70:                                               ; preds = %68, %65
-  %71 = getelementptr inbounds i8, ptr %0, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %72 = load ptr, ptr %71, align 8
   %.not41 = icmp eq ptr %72, null
-  %.phi.trans.insert45 = getelementptr inbounds i8, ptr %1, i64 96
+  %.phi.trans.insert45 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.pre46 = load ptr, ptr %.phi.trans.insert45, align 8
   br i1 %.not41, label %77, label %73
 
@@ -8846,9 +8846,9 @@ define internal fastcc zeroext i1 @_equalCreateStmt(ptr nocapture noundef nonnul
   br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %77, %74
-  %80 = getelementptr inbounds i8, ptr %0, i64 104
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %81 = load i8, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 104
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %83 = load i8, ptr %82, align 8
   %84 = xor i8 %83, %81
   %85 = and i8 %84, 1
@@ -8862,18 +8862,18 @@ define internal fastcc zeroext i1 @_equalCreateStmt(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not93 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not93, label %14, label %10
 
@@ -8891,9 +8891,9 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i8, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i8, ptr %19, align 8
   %21 = xor i8 %20, %18
   %22 = and i8 %21, 1
@@ -8901,9 +8901,9 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %.not95, label %23, label %.thread
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 17
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %25 = load i8, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 17
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %27 = load i8, ptr %26, align 1
   %28 = xor i8 %27, %25
   %29 = and i8 %28, 1
@@ -8911,9 +8911,9 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %.not96, label %30, label %.thread
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 18
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %32 = load i8, ptr %31, align 2
-  %33 = getelementptr inbounds i8, ptr %1, i64 18
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %34 = load i8, ptr %33, align 2
   %35 = xor i8 %34, %32
   %36 = and i8 %35, 1
@@ -8921,9 +8921,9 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %.not97, label %37, label %.thread
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %0, i64 19
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %39 = load i8, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %1, i64 19
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %41 = load i8, ptr %40, align 1
   %42 = xor i8 %41, %39
   %43 = and i8 %42, 1
@@ -8931,9 +8931,9 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %.not98, label %44, label %.thread
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %0, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %46 = load i8, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %48 = load i8, ptr %47, align 4
   %49 = xor i8 %48, %46
   %50 = and i8 %49, 1
@@ -8941,18 +8941,18 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %.not99, label %51, label %.thread
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = tail call zeroext i1 @equal(ptr noundef %53, ptr noundef %55)
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = load ptr, ptr %58, align 8
   %.not100 = icmp eq ptr %59, null
-  %.phi.trans.insert118 = getelementptr inbounds i8, ptr %1, i64 32
+  %.phi.trans.insert118 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre119 = load ptr, ptr %.phi.trans.insert118, align 8
   br i1 %.not100, label %64, label %60
 
@@ -8970,25 +8970,25 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %65, label %66, label %.thread
 
 66:                                               ; preds = %64, %61
-  %67 = getelementptr inbounds i8, ptr %0, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %68 = load i8, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %70 = load i8, ptr %69, align 8
   %.not102 = icmp eq i8 %68, %70
   br i1 %.not102, label %71, label %.thread
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %0, i64 44
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %1, i64 44
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %75 = load i32, ptr %74, align 4
   %.not103 = icmp eq i32 %73, %75
   br i1 %.not103, label %76, label %.thread
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %0, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %78 = load i8, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %80 = load i8, ptr %79, align 8
   %81 = xor i8 %80, %78
   %82 = and i8 %81, 1
@@ -8996,17 +8996,17 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %.not104, label %83, label %.thread
 
 83:                                               ; preds = %76
-  %84 = getelementptr inbounds i8, ptr %0, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %87 = load ptr, ptr %86, align 8
   %88 = tail call zeroext i1 @equal(ptr noundef %85, ptr noundef %87)
   br i1 %88, label %89, label %.thread
 
 89:                                               ; preds = %83
-  %90 = getelementptr inbounds i8, ptr %0, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %91 = load i8, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %1, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %93 = load i8, ptr %92, align 8
   %94 = xor i8 %93, %91
   %95 = and i8 %94, 1
@@ -9014,34 +9014,34 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %.not105, label %96, label %.thread
 
 96:                                               ; preds = %89
-  %97 = getelementptr inbounds i8, ptr %0, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 72
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %100 = load ptr, ptr %99, align 8
   %101 = tail call zeroext i1 @equal(ptr noundef %98, ptr noundef %100)
   br i1 %101, label %102, label %.thread
 
 102:                                              ; preds = %96
-  %103 = getelementptr inbounds i8, ptr %0, i64 80
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %1, i64 80
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %106 = load ptr, ptr %105, align 8
   %107 = tail call zeroext i1 @equal(ptr noundef %104, ptr noundef %106)
   br i1 %107, label %108, label %.thread
 
 108:                                              ; preds = %102
-  %109 = getelementptr inbounds i8, ptr %0, i64 88
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 88
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %112 = load ptr, ptr %111, align 8
   %113 = tail call zeroext i1 @equal(ptr noundef %110, ptr noundef %112)
   br i1 %113, label %114, label %.thread
 
 114:                                              ; preds = %108
-  %115 = getelementptr inbounds i8, ptr %0, i64 96
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %116 = load ptr, ptr %115, align 8
   %.not106 = icmp eq ptr %116, null
-  %.phi.trans.insert121 = getelementptr inbounds i8, ptr %1, i64 96
+  %.phi.trans.insert121 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.pre122 = load ptr, ptr %.phi.trans.insert121, align 8
   br i1 %.not106, label %121, label %117
 
@@ -9059,10 +9059,10 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %122, label %123, label %.thread
 
 123:                                              ; preds = %121, %118
-  %124 = getelementptr inbounds i8, ptr %0, i64 104
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %125 = load ptr, ptr %124, align 8
   %.not108 = icmp eq ptr %125, null
-  %.phi.trans.insert124 = getelementptr inbounds i8, ptr %1, i64 104
+  %.phi.trans.insert124 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %.pre125 = load ptr, ptr %.phi.trans.insert124, align 8
   br i1 %.not108, label %130, label %126
 
@@ -9080,9 +9080,9 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %131, label %132, label %.thread
 
 132:                                              ; preds = %130, %127
-  %133 = getelementptr inbounds i8, ptr %0, i64 112
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %134 = load i8, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %1, i64 112
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %136 = load i8, ptr %135, align 8
   %137 = xor i8 %136, %134
   %138 = and i8 %137, 1
@@ -9090,10 +9090,10 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %.not110, label %139, label %.thread
 
 139:                                              ; preds = %132
-  %140 = getelementptr inbounds i8, ptr %0, i64 120
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %141 = load ptr, ptr %140, align 8
   %.not111 = icmp eq ptr %141, null
-  %.phi.trans.insert127 = getelementptr inbounds i8, ptr %1, i64 120
+  %.phi.trans.insert127 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.pre128 = load ptr, ptr %.phi.trans.insert127, align 8
   br i1 %.not111, label %146, label %142
 
@@ -9111,81 +9111,81 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
   br i1 %147, label %148, label %.thread
 
 148:                                              ; preds = %146, %143
-  %149 = getelementptr inbounds i8, ptr %0, i64 128
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %1, i64 128
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %152 = load ptr, ptr %151, align 8
   %153 = tail call zeroext i1 @equal(ptr noundef %150, ptr noundef %152)
   br i1 %153, label %154, label %.thread
 
 154:                                              ; preds = %148
-  %155 = getelementptr inbounds i8, ptr %0, i64 136
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %1, i64 136
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %158 = load ptr, ptr %157, align 8
   %159 = tail call zeroext i1 @equal(ptr noundef %156, ptr noundef %158)
   br i1 %159, label %160, label %.thread
 
 160:                                              ; preds = %154
-  %161 = getelementptr inbounds i8, ptr %0, i64 144
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %1, i64 144
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %164 = load ptr, ptr %163, align 8
   %165 = tail call zeroext i1 @equal(ptr noundef %162, ptr noundef %164)
   br i1 %165, label %166, label %.thread
 
 166:                                              ; preds = %160
-  %167 = getelementptr inbounds i8, ptr %0, i64 152
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %1, i64 152
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %170 = load ptr, ptr %169, align 8
   %171 = tail call zeroext i1 @equal(ptr noundef %168, ptr noundef %170)
   br i1 %171, label %172, label %.thread
 
 172:                                              ; preds = %166
-  %173 = getelementptr inbounds i8, ptr %0, i64 160
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %174 = load i8, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %1, i64 160
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %176 = load i8, ptr %175, align 8
   %.not113 = icmp eq i8 %174, %176
   br i1 %.not113, label %177, label %.thread
 
 177:                                              ; preds = %172
-  %178 = getelementptr inbounds i8, ptr %0, i64 161
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 161
   %179 = load i8, ptr %178, align 1
-  %180 = getelementptr inbounds i8, ptr %1, i64 161
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 161
   %181 = load i8, ptr %180, align 1
   %.not114 = icmp eq i8 %179, %181
   br i1 %.not114, label %182, label %.thread
 
 182:                                              ; preds = %177
-  %183 = getelementptr inbounds i8, ptr %0, i64 162
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 162
   %184 = load i8, ptr %183, align 2
-  %185 = getelementptr inbounds i8, ptr %1, i64 162
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 162
   %186 = load i8, ptr %185, align 2
   %.not115 = icmp eq i8 %184, %186
   br i1 %.not115, label %187, label %.thread
 
 187:                                              ; preds = %182
-  %188 = getelementptr inbounds i8, ptr %0, i64 168
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %1, i64 168
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %191 = load ptr, ptr %190, align 8
   %192 = tail call zeroext i1 @equal(ptr noundef %189, ptr noundef %191)
   br i1 %192, label %193, label %.thread
 
 193:                                              ; preds = %187
-  %194 = getelementptr inbounds i8, ptr %0, i64 176
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %1, i64 176
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %197 = load ptr, ptr %196, align 8
   %198 = tail call zeroext i1 @equal(ptr noundef %195, ptr noundef %197)
   br i1 %198, label %199, label %.thread
 
 199:                                              ; preds = %193
-  %200 = getelementptr inbounds i8, ptr %0, i64 184
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %201 = load i32, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %1, i64 184
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %203 = load i32, ptr %202, align 8
   %.not116 = icmp eq i32 %201, %203
   br label %.thread
@@ -9197,10 +9197,10 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateTableSpaceStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -9218,18 +9218,18 @@ define internal fastcc zeroext i1 @_equalCreateTableSpaceStmt(ptr nocapture noun
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not22 = icmp eq ptr %19, null
-  %.phi.trans.insert25 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre26 = load ptr, ptr %.phi.trans.insert25, align 8
   br i1 %.not22, label %24, label %20
 
@@ -9247,9 +9247,9 @@ define internal fastcc zeroext i1 @_equalCreateTableSpaceStmt(ptr nocapture noun
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %24, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br label %.thread
@@ -9261,10 +9261,10 @@ define internal fastcc zeroext i1 @_equalCreateTableSpaceStmt(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc zeroext i1 @_equalDropTableSpaceStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -9282,9 +9282,9 @@ define internal fastcc zeroext i1 @_equalDropTableSpaceStmt(ptr nocapture nounde
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = xor i8 %15, %13
   %17 = and i8 %16, 1
@@ -9298,10 +9298,10 @@ define internal fastcc zeroext i1 @_equalDropTableSpaceStmt(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterTableSpaceOptionsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -9319,17 +9319,17 @@ define internal fastcc zeroext i1 @_equalAlterTableSpaceOptionsStmt(ptr nocaptur
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i8, ptr %20, align 8
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -9343,10 +9343,10 @@ define internal fastcc zeroext i1 @_equalAlterTableSpaceOptionsStmt(ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterTableMoveAllStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -9364,26 +9364,26 @@ define internal fastcc zeroext i1 @_equalAlterTableMoveAllStmt(ptr nocapture nou
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
   %.not24 = icmp eq i32 %13, %15
   br i1 %.not24, label %16, label %.thread
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @equal(ptr noundef %18, ptr noundef %20)
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not25 = icmp eq ptr %24, null
-  %.phi.trans.insert29 = getelementptr inbounds i8, ptr %1, i64 32
+  %.phi.trans.insert29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre30 = load ptr, ptr %.phi.trans.insert29, align 8
   br i1 %.not25, label %29, label %25
 
@@ -9401,9 +9401,9 @@ define internal fastcc zeroext i1 @_equalAlterTableMoveAllStmt(ptr nocapture nou
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %29, %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i8, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = load i8, ptr %34, align 8
   %36 = xor i8 %35, %33
   %37 = and i8 %36, 1
@@ -9417,10 +9417,10 @@ define internal fastcc zeroext i1 @_equalAlterTableMoveAllStmt(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateExtensionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -9438,9 +9438,9 @@ define internal fastcc zeroext i1 @_equalCreateExtensionStmt(ptr nocapture nound
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = xor i8 %15, %13
   %17 = and i8 %16, 1
@@ -9448,9 +9448,9 @@ define internal fastcc zeroext i1 @_equalCreateExtensionStmt(ptr nocapture nound
   br i1 %.not14, label %18, label %.thread
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @equal(ptr noundef %20, ptr noundef %22)
   br label %.thread
@@ -9462,10 +9462,10 @@ define internal fastcc zeroext i1 @_equalCreateExtensionStmt(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterExtensionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -9483,9 +9483,9 @@ define internal fastcc zeroext i1 @_equalAlterExtensionStmt(ptr nocapture nounde
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br label %.thread
@@ -9497,10 +9497,10 @@ define internal fastcc zeroext i1 @_equalAlterExtensionStmt(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterExtensionContentsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -9518,25 +9518,25 @@ define internal fastcc zeroext i1 @_equalAlterExtensionContentsStmt(ptr nocaptur
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
   %.not16 = icmp eq i32 %13, %15
   br i1 %.not16, label %16, label %.thread
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load i32, ptr %19, align 4
   %.not17 = icmp eq i32 %18, %20
   br i1 %.not17, label %21, label %.thread
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i1 @equal(ptr noundef %23, ptr noundef %25)
   br label %.thread
@@ -9548,10 +9548,10 @@ define internal fastcc zeroext i1 @_equalAlterExtensionContentsStmt(ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateFdwStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -9569,17 +9569,17 @@ define internal fastcc zeroext i1 @_equalCreateFdwStmt(ptr nocapture noundef non
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br label %.thread
@@ -9591,10 +9591,10 @@ define internal fastcc zeroext i1 @_equalCreateFdwStmt(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterFdwStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -9612,17 +9612,17 @@ define internal fastcc zeroext i1 @_equalAlterFdwStmt(ptr nocapture noundef nonn
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br label %.thread
@@ -9634,10 +9634,10 @@ define internal fastcc zeroext i1 @_equalAlterFdwStmt(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -9655,10 +9655,10 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr nocapture n
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not38 = icmp eq ptr %13, null
-  %.phi.trans.insert46 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre47 = load ptr, ptr %.phi.trans.insert46, align 8
   br i1 %.not38, label %18, label %14
 
@@ -9676,10 +9676,10 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr nocapture n
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not40 = icmp eq ptr %22, null
-  %.phi.trans.insert49 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre50 = load ptr, ptr %.phi.trans.insert49, align 8
   br i1 %.not40, label %27, label %23
 
@@ -9697,10 +9697,10 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr nocapture n
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %27, %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not42 = icmp eq ptr %31, null
-  %.phi.trans.insert52 = getelementptr inbounds i8, ptr %1, i64 32
+  %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre53 = load ptr, ptr %.phi.trans.insert52, align 8
   br i1 %.not42, label %36, label %32
 
@@ -9718,9 +9718,9 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr nocapture n
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %36, %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load i8, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %42 = load i8, ptr %41, align 8
   %43 = xor i8 %42, %40
   %44 = and i8 %43, 1
@@ -9728,9 +9728,9 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr nocapture n
   br i1 %.not44, label %45, label %.thread
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = tail call zeroext i1 @equal(ptr noundef %47, ptr noundef %49)
   br label %.thread
@@ -9742,10 +9742,10 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterForeignServerStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -9763,10 +9763,10 @@ define internal fastcc zeroext i1 @_equalAlterForeignServerStmt(ptr nocapture no
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not22 = icmp eq ptr %13, null
-  %.phi.trans.insert26 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre27 = load ptr, ptr %.phi.trans.insert26, align 8
   br i1 %.not22, label %18, label %14
 
@@ -9784,17 +9784,17 @@ define internal fastcc zeroext i1 @_equalAlterForeignServerStmt(ptr nocapture no
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i8, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load i8, ptr %29, align 8
   %31 = xor i8 %30, %28
   %32 = and i8 %31, 1
@@ -9808,90 +9808,90 @@ define internal fastcc zeroext i1 @_equalAlterForeignServerStmt(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @equal(ptr noundef %34, ptr noundef %36)
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %42 = load ptr, ptr %41, align 8
   %43 = tail call zeroext i1 @equal(ptr noundef %40, ptr noundef %42)
   br i1 %43, label %44, label %.thread
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %48 = load ptr, ptr %47, align 8
   %49 = tail call zeroext i1 @equal(ptr noundef %46, ptr noundef %48)
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %0, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %54 = load ptr, ptr %53, align 8
   %55 = tail call zeroext i1 @equal(ptr noundef %52, ptr noundef %54)
   br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %0, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %1, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %60 = load i32, ptr %59, align 8
   %.not = icmp eq i32 %58, %60
   br i1 %.not, label %61, label %.thread
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %0, i64 88
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %63 = load ptr, ptr %62, align 8
   %.not49 = icmp eq ptr %63, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 88
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not49, label %68, label %64
 
@@ -9909,10 +9909,10 @@ define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr nocapture no
   br i1 %69, label %70, label %.thread
 
 70:                                               ; preds = %68, %65
-  %71 = getelementptr inbounds i8, ptr %0, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %72 = load ptr, ptr %71, align 8
   %.not51 = icmp eq ptr %72, null
-  %.phi.trans.insert57 = getelementptr inbounds i8, ptr %1, i64 96
+  %.phi.trans.insert57 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.pre58 = load ptr, ptr %.phi.trans.insert57, align 8
   br i1 %.not51, label %77, label %73
 
@@ -9930,9 +9930,9 @@ define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr nocapture no
   br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %77, %74
-  %80 = getelementptr inbounds i8, ptr %0, i64 104
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %81 = load i8, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 104
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %83 = load i8, ptr %82, align 8
   %84 = xor i8 %83, %81
   %85 = and i8 %84, 1
@@ -9940,10 +9940,10 @@ define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr nocapture no
   br i1 %.not53, label %86, label %.thread
 
 86:                                               ; preds = %79
-  %87 = getelementptr inbounds i8, ptr %0, i64 112
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %88 = load ptr, ptr %87, align 8
   %.not54 = icmp eq ptr %88, null
-  %.phi.trans.insert60 = getelementptr inbounds i8, ptr %1, i64 112
+  %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %.pre61 = load ptr, ptr %.phi.trans.insert60, align 8
   br i1 %.not54, label %93, label %89
 
@@ -9961,9 +9961,9 @@ define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr nocapture no
   br i1 %94, label %95, label %.thread
 
 95:                                               ; preds = %93, %90
-  %96 = getelementptr inbounds i8, ptr %0, i64 120
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 120
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %99 = load ptr, ptr %98, align 8
   %100 = tail call zeroext i1 @equal(ptr noundef %97, ptr noundef %99)
   br label %.thread
@@ -9975,18 +9975,18 @@ define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateUserMappingStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -10004,9 +10004,9 @@ define internal fastcc zeroext i1 @_equalCreateUserMappingStmt(ptr nocapture nou
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i8, ptr %20, align 8
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -10014,9 +10014,9 @@ define internal fastcc zeroext i1 @_equalCreateUserMappingStmt(ptr nocapture nou
   br i1 %.not16, label %24, label %.thread
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @equal(ptr noundef %26, ptr noundef %28)
   br label %.thread
@@ -10028,18 +10028,18 @@ define internal fastcc zeroext i1 @_equalCreateUserMappingStmt(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterUserMappingStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -10057,9 +10057,9 @@ define internal fastcc zeroext i1 @_equalAlterUserMappingStmt(ptr nocapture noun
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br label %.thread
@@ -10071,18 +10071,18 @@ define internal fastcc zeroext i1 @_equalAlterUserMappingStmt(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalDropUserMappingStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -10100,9 +10100,9 @@ define internal fastcc zeroext i1 @_equalDropUserMappingStmt(ptr nocapture nound
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i8, ptr %20, align 8
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -10116,10 +10116,10 @@ define internal fastcc zeroext i1 @_equalDropUserMappingStmt(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -10137,10 +10137,10 @@ define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr nocapture n
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not32 = icmp eq ptr %13, null
-  %.phi.trans.insert38 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre39 = load ptr, ptr %.phi.trans.insert38, align 8
   br i1 %.not32, label %18, label %14
 
@@ -10158,10 +10158,10 @@ define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr nocapture n
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not34 = icmp eq ptr %22, null
-  %.phi.trans.insert41 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre42 = load ptr, ptr %.phi.trans.insert41, align 8
   br i1 %.not34, label %27, label %23
 
@@ -10179,25 +10179,25 @@ define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr nocapture n
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %27, %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load i32, ptr %32, align 8
   %.not36 = icmp eq i32 %31, %33
   br i1 %.not36, label %34, label %.thread
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @equal(ptr noundef %36, ptr noundef %38)
   br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = tail call zeroext i1 @equal(ptr noundef %42, ptr noundef %44)
   br label %.thread
@@ -10209,10 +10209,10 @@ define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreatePolicyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -10230,18 +10230,18 @@ define internal fastcc zeroext i1 @_equalCreatePolicyStmt(ptr nocapture noundef 
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not28 = icmp eq ptr %19, null
-  %.phi.trans.insert32 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8
   br i1 %.not28, label %24, label %20
 
@@ -10259,9 +10259,9 @@ define internal fastcc zeroext i1 @_equalCreatePolicyStmt(ptr nocapture noundef 
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %24, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i8, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load i8, ptr %29, align 8
   %31 = xor i8 %30, %28
   %32 = and i8 %31, 1
@@ -10269,25 +10269,25 @@ define internal fastcc zeroext i1 @_equalCreatePolicyStmt(ptr nocapture noundef 
   br i1 %.not30, label %33, label %.thread
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = tail call zeroext i1 @equal(ptr noundef %35, ptr noundef %37)
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i1 @equal(ptr noundef %41, ptr noundef %43)
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = tail call zeroext i1 @equal(ptr noundef %47, ptr noundef %49)
   br label %.thread
@@ -10299,10 +10299,10 @@ define internal fastcc zeroext i1 @_equalCreatePolicyStmt(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterPolicyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -10320,33 +10320,33 @@ define internal fastcc zeroext i1 @_equalAlterPolicyStmt(ptr nocapture noundef n
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i1 @equal(ptr noundef %25, ptr noundef %27)
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = tail call zeroext i1 @equal(ptr noundef %31, ptr noundef %33)
   br label %.thread
@@ -10358,10 +10358,10 @@ define internal fastcc zeroext i1 @_equalAlterPolicyStmt(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateAmStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -10379,17 +10379,17 @@ define internal fastcc zeroext i1 @_equalCreateAmStmt(ptr nocapture noundef nonn
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i8, ptr %20, align 8
   %.not14 = icmp eq i8 %19, %21
   br label %.thread
@@ -10401,9 +10401,9 @@ define internal fastcc zeroext i1 @_equalCreateAmStmt(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -10411,9 +10411,9 @@ define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr nocapture noundef no
   br i1 %.not, label %9, label %.thread
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 5
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %13 = load i8, ptr %12, align 1
   %14 = xor i8 %13, %11
   %15 = and i8 %14, 1
@@ -10421,10 +10421,10 @@ define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr nocapture noundef no
   br i1 %.not37, label %16, label %.thread
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not38 = icmp eq ptr %18, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not38, label %23, label %19
 
@@ -10442,33 +10442,33 @@ define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr nocapture noundef no
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %23, %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @equal(ptr noundef %27, ptr noundef %29)
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 @equal(ptr noundef %33, ptr noundef %35)
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 @equal(ptr noundef %39, ptr noundef %41)
   br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i8, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %47 = load i8, ptr %46, align 8
   %48 = xor i8 %47, %45
   %49 = and i8 %48, 1
@@ -10476,49 +10476,49 @@ define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr nocapture noundef no
   br i1 %.not40, label %50, label %.thread
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %0, i64 42
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds i8, ptr %1, i64 42
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %54 = load i16, ptr %53, align 2
   %.not41 = icmp eq i16 %52, %54
   br i1 %.not41, label %55, label %.thread
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %0, i64 44
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %57 = load i16, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %1, i64 44
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %59 = load i16, ptr %58, align 4
   %.not42 = icmp eq i16 %57, %59
   br i1 %.not42, label %60, label %.thread
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %0, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %64 = load ptr, ptr %63, align 8
   %65 = tail call zeroext i1 @equal(ptr noundef %62, ptr noundef %64)
   br i1 %65, label %66, label %.thread
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds i8, ptr %0, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %70 = load ptr, ptr %69, align 8
   %71 = tail call zeroext i1 @equal(ptr noundef %68, ptr noundef %70)
   br i1 %71, label %72, label %.thread
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %0, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %76 = load ptr, ptr %75, align 8
   %77 = tail call zeroext i1 @equal(ptr noundef %74, ptr noundef %76)
   br i1 %77, label %78, label %.thread
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %0, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %80 = load i8, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %82 = load i8, ptr %81, align 8
   %83 = xor i8 %82, %80
   %84 = and i8 %83, 1
@@ -10526,9 +10526,9 @@ define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr nocapture noundef no
   br i1 %.not43, label %85, label %.thread
 
 85:                                               ; preds = %78
-  %86 = getelementptr inbounds i8, ptr %0, i64 73
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %87 = load i8, ptr %86, align 1
-  %88 = getelementptr inbounds i8, ptr %1, i64 73
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %89 = load i8, ptr %88, align 1
   %90 = xor i8 %89, %87
   %91 = and i8 %90, 1
@@ -10536,9 +10536,9 @@ define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr nocapture noundef no
   br i1 %.not44, label %92, label %.thread
 
 92:                                               ; preds = %85
-  %93 = getelementptr inbounds i8, ptr %0, i64 80
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %1, i64 80
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %96 = load ptr, ptr %95, align 8
   %97 = tail call zeroext i1 @equal(ptr noundef %94, ptr noundef %96)
   br label %.thread
@@ -10550,10 +10550,10 @@ define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateEventTrigStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -10571,10 +10571,10 @@ define internal fastcc zeroext i1 @_equalCreateEventTrigStmt(ptr nocapture nound
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not22 = icmp eq ptr %13, null
-  %.phi.trans.insert25 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre26 = load ptr, ptr %.phi.trans.insert25, align 8
   br i1 %.not22, label %18, label %14
 
@@ -10592,17 +10592,17 @@ define internal fastcc zeroext i1 @_equalCreateEventTrigStmt(ptr nocapture nound
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br label %.thread
@@ -10614,10 +10614,10 @@ define internal fastcc zeroext i1 @_equalCreateEventTrigStmt(ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc zeroext i1 @_equalAlterEventTrigStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -10635,9 +10635,9 @@ define internal fastcc zeroext i1 @_equalAlterEventTrigStmt(ptr nocapture nounde
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i8, ptr %14, align 8
   %.not12 = icmp eq i8 %13, %15
   br label %.thread
@@ -10649,9 +10649,9 @@ define internal fastcc zeroext i1 @_equalAlterEventTrigStmt(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreatePLangStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -10659,10 +10659,10 @@ define internal fastcc zeroext i1 @_equalCreatePLangStmt(ptr nocapture noundef n
   br i1 %.not, label %9, label %.thread
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not19 = icmp eq ptr %11, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not19, label %16, label %12
 
@@ -10680,33 +10680,33 @@ define internal fastcc zeroext i1 @_equalCreatePLangStmt(ptr nocapture noundef n
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %16, %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @equal(ptr noundef %20, ptr noundef %22)
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @equal(ptr noundef %26, ptr noundef %28)
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i1 @equal(ptr noundef %32, ptr noundef %34)
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load i8, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %40 = load i8, ptr %39, align 8
   %41 = xor i8 %40, %38
   %42 = and i8 %41, 1
@@ -10720,18 +10720,18 @@ define internal fastcc zeroext i1 @_equalCreatePLangStmt(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateRoleStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not13 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not13, label %14, label %10
 
@@ -10749,9 +10749,9 @@ define internal fastcc zeroext i1 @_equalCreateRoleStmt(ptr nocapture noundef no
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @equal(ptr noundef %18, ptr noundef %20)
   br label %.thread
@@ -10763,25 +10763,25 @@ define internal fastcc zeroext i1 @_equalCreateRoleStmt(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterRoleStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %16, %18
   br label %19
@@ -10793,18 +10793,18 @@ define internal fastcc zeroext i1 @_equalAlterRoleStmt(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterRoleSetStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -10822,9 +10822,9 @@ define internal fastcc zeroext i1 @_equalAlterRoleSetStmt(ptr nocapture noundef 
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br label %.thread
@@ -10836,33 +10836,33 @@ define internal fastcc zeroext i1 @_equalAlterRoleSetStmt(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateSeqStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %33
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %16, %18
   br i1 %.not, label %19, label %33
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i8, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %23 = load i8, ptr %22, align 4
   %24 = xor i8 %23, %21
   %25 = and i8 %24, 1
@@ -10870,9 +10870,9 @@ define internal fastcc zeroext i1 @_equalCreateSeqStmt(ptr nocapture noundef non
   br i1 %.not11, label %26, label %33
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 29
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %1, i64 29
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %30 = load i8, ptr %29, align 1
   %31 = xor i8 %30, %28
   %32 = and i8 %31, 1
@@ -10886,25 +10886,25 @@ define internal fastcc zeroext i1 @_equalCreateSeqStmt(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterSeqStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %28
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = xor i8 %18, %16
   %20 = and i8 %19, 1
@@ -10912,9 +10912,9 @@ define internal fastcc zeroext i1 @_equalAlterSeqStmt(ptr nocapture noundef nonn
   br i1 %.not, label %21, label %28
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 25
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %1, i64 25
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %25 = load i8, ptr %24, align 1
   %26 = xor i8 %25, %23
   %27 = and i8 %26, 1
@@ -10928,17 +10928,17 @@ define internal fastcc zeroext i1 @_equalAlterSeqStmt(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalDefineStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %46
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = xor i8 %11, %9
   %13 = and i8 %12, 1
@@ -10946,33 +10946,33 @@ define internal fastcc zeroext i1 @_equalDefineStmt(ptr nocapture noundef nonnul
   br i1 %.not15, label %14, label %46
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %46
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %46
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %46
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load i8, ptr %35, align 8
   %37 = xor i8 %36, %34
   %38 = and i8 %37, 1
@@ -10980,9 +10980,9 @@ define internal fastcc zeroext i1 @_equalDefineStmt(ptr nocapture noundef nonnul
   br i1 %.not16, label %39, label %46
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 41
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %1, i64 41
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %43 = load i8, ptr %42, align 1
   %44 = xor i8 %43, %41
   %45 = and i8 %44, 1
@@ -10996,33 +10996,33 @@ define internal fastcc zeroext i1 @_equalDefineStmt(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateDomainStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %26
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br label %26
@@ -11034,26 +11034,26 @@ define internal fastcc zeroext i1 @_equalCreateDomainStmt(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateOpClassStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %21, label %17
 
@@ -11071,25 +11071,25 @@ define internal fastcc zeroext i1 @_equalCreateOpClassStmt(ptr nocapture noundef
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %21, %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i1 @equal(ptr noundef %25, ptr noundef %27)
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %33 = load ptr, ptr %32, align 8
   %34 = tail call zeroext i1 @equal(ptr noundef %31, ptr noundef %33)
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load i8, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %39 = load i8, ptr %38, align 8
   %40 = xor i8 %39, %37
   %41 = and i8 %40, 1
@@ -11103,49 +11103,49 @@ define internal fastcc zeroext i1 @_equalCreateOpClassStmt(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateOpClassItem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %36
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %36
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i32, ptr %16, align 8
   %.not13 = icmp eq i32 %15, %17
   br i1 %.not13, label %18, label %36
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @equal(ptr noundef %20, ptr noundef %22)
   br i1 %23, label %24, label %36
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @equal(ptr noundef %26, ptr noundef %28)
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i1 @equal(ptr noundef %32, ptr noundef %34)
   br label %36
@@ -11157,18 +11157,18 @@ define internal fastcc zeroext i1 @_equalCreateOpClassItem(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_equalCreateOpFamilyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -11195,18 +11195,18 @@ define internal fastcc noundef zeroext i1 @_equalCreateOpFamilyStmt(ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterOpFamilyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -11224,9 +11224,9 @@ define internal fastcc zeroext i1 @_equalAlterOpFamilyStmt(ptr nocapture noundef
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i8, ptr %20, align 8
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -11234,9 +11234,9 @@ define internal fastcc zeroext i1 @_equalAlterOpFamilyStmt(ptr nocapture noundef
   br i1 %.not16, label %24, label %.thread
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @equal(ptr noundef %26, ptr noundef %28)
   br label %.thread
@@ -11248,33 +11248,33 @@ define internal fastcc zeroext i1 @_equalAlterOpFamilyStmt(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalDropStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %32
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %32
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   %.not11 = icmp eq i32 %15, %17
   br i1 %.not11, label %18, label %32
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i8, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i8, ptr %21, align 8
   %23 = xor i8 %22, %20
   %24 = and i8 %23, 1
@@ -11282,9 +11282,9 @@ define internal fastcc zeroext i1 @_equalDropStmt(ptr nocapture noundef nonnull 
   br i1 %.not12, label %25, label %32
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %27 = load i8, ptr %26, align 1
-  %28 = getelementptr inbounds i8, ptr %1, i64 25
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %29 = load i8, ptr %28, align 1
   %30 = xor i8 %29, %27
   %31 = and i8 %30, 1
@@ -11298,17 +11298,17 @@ define internal fastcc zeroext i1 @_equalDropStmt(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalTruncateStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i8, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = xor i8 %12, %10
   %14 = and i8 %13, 1
@@ -11316,9 +11316,9 @@ define internal fastcc zeroext i1 @_equalTruncateStmt(ptr nocapture noundef nonn
   br i1 %.not, label %15, label %20
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %19 = load i32, ptr %18, align 4
   %.not7 = icmp eq i32 %17, %19
   br label %20
@@ -11330,26 +11330,26 @@ define internal fastcc zeroext i1 @_equalTruncateStmt(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_equalCommentStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not13 = icmp eq ptr %15, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not13, label %20, label %16
 
@@ -11376,26 +11376,26 @@ define internal fastcc noundef zeroext i1 @_equalCommentStmt(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @_equalSecLabelStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not21 = icmp eq ptr %15, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not21, label %20, label %16
 
@@ -11413,10 +11413,10 @@ define internal fastcc noundef zeroext i1 @_equalSecLabelStmt(ptr nocapture noun
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %20, %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not23 = icmp eq ptr %24, null
-  %.phi.trans.insert26 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre27 = load ptr, ptr %.phi.trans.insert26, align 8
   br i1 %.not23, label %29, label %25
 
@@ -11443,10 +11443,10 @@ define internal fastcc noundef zeroext i1 @_equalSecLabelStmt(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalDeclareCursorStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -11464,17 +11464,17 @@ define internal fastcc zeroext i1 @_equalDeclareCursorStmt(ptr nocapture noundef
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8
   %.not14 = icmp eq i32 %13, %15
   br i1 %.not14, label %16, label %.thread
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @equal(ptr noundef %18, ptr noundef %20)
   br label %.thread
@@ -11487,7 +11487,7 @@ define internal fastcc zeroext i1 @_equalDeclareCursorStmt(ptr nocapture noundef
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %6, label %2
 
@@ -11514,26 +11514,26 @@ define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly %.
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc zeroext i1 @_equalFetchStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %.not15 = icmp eq i64 %9, %11
   br i1 %.not15, label %12, label %.thread
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not16 = icmp eq ptr %14, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not16, label %19, label %15
 
@@ -11551,9 +11551,9 @@ define internal fastcc zeroext i1 @_equalFetchStmt(ptr nocapture noundef nonnull
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %19, %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i8, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i8, ptr %24, align 8
   %26 = xor i8 %25, %23
   %27 = and i8 %26, 1
@@ -11567,10 +11567,10 @@ define internal fastcc zeroext i1 @_equalFetchStmt(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -11588,18 +11588,18 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not76 = icmp eq ptr %19, null
-  %.phi.trans.insert98 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert98 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre99 = load ptr, ptr %.phi.trans.insert98, align 8
   br i1 %.not76, label %24, label %20
 
@@ -11617,10 +11617,10 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %24, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not78 = icmp eq ptr %28, null
-  %.phi.trans.insert101 = getelementptr inbounds i8, ptr %1, i64 32
+  %.phi.trans.insert101 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre102 = load ptr, ptr %.phi.trans.insert101, align 8
   br i1 %.not78, label %33, label %29
 
@@ -11638,50 +11638,50 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %33, %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load ptr, ptr %38, align 8
   %40 = tail call zeroext i1 @equal(ptr noundef %37, ptr noundef %39)
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i1 @equal(ptr noundef %43, ptr noundef %45)
   br i1 %46, label %47, label %.thread
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %51 = load ptr, ptr %50, align 8
   %52 = tail call zeroext i1 @equal(ptr noundef %49, ptr noundef %51)
   br i1 %52, label %53, label %.thread
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %57 = load ptr, ptr %56, align 8
   %58 = tail call zeroext i1 @equal(ptr noundef %55, ptr noundef %57)
   br i1 %58, label %59, label %.thread
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %0, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %63 = load ptr, ptr %62, align 8
   %64 = tail call zeroext i1 @equal(ptr noundef %61, ptr noundef %63)
   br i1 %64, label %65, label %.thread
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %0, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %67 = load ptr, ptr %66, align 8
   %.not80 = icmp eq ptr %67, null
-  %.phi.trans.insert104 = getelementptr inbounds i8, ptr %1, i64 80
+  %.phi.trans.insert104 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.pre105 = load ptr, ptr %.phi.trans.insert104, align 8
   br i1 %.not80, label %72, label %68
 
@@ -11699,41 +11699,41 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %73, label %74, label %.thread
 
 74:                                               ; preds = %72, %69
-  %75 = getelementptr inbounds i8, ptr %0, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %78 = load i32, ptr %77, align 8
   %.not82 = icmp eq i32 %76, %78
   br i1 %.not82, label %79, label %.thread
 
 79:                                               ; preds = %74
-  %80 = getelementptr inbounds i8, ptr %0, i64 92
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %1, i64 92
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %83 = load i32, ptr %82, align 4
   %.not83 = icmp eq i32 %81, %83
   br i1 %.not83, label %84, label %.thread
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %0, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %86 = load i32, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 96
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %88 = load i32, ptr %87, align 8
   %.not84 = icmp eq i32 %86, %88
   br i1 %.not84, label %89, label %.thread
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %0, i64 100
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %1, i64 100
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %93 = load i32, ptr %92, align 4
   %.not85 = icmp eq i32 %91, %93
   br i1 %.not85, label %94, label %.thread
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds i8, ptr %0, i64 104
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %96 = load i8, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %98 = load i8, ptr %97, align 8
   %99 = xor i8 %98, %96
   %100 = and i8 %99, 1
@@ -11741,9 +11741,9 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %.not86, label %101, label %.thread
 
 101:                                              ; preds = %94
-  %102 = getelementptr inbounds i8, ptr %0, i64 105
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %103 = load i8, ptr %102, align 1
-  %104 = getelementptr inbounds i8, ptr %1, i64 105
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 105
   %105 = load i8, ptr %104, align 1
   %106 = xor i8 %105, %103
   %107 = and i8 %106, 1
@@ -11751,9 +11751,9 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %.not87, label %108, label %.thread
 
 108:                                              ; preds = %101
-  %109 = getelementptr inbounds i8, ptr %0, i64 106
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %110 = load i8, ptr %109, align 2
-  %111 = getelementptr inbounds i8, ptr %1, i64 106
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 106
   %112 = load i8, ptr %111, align 2
   %113 = xor i8 %112, %110
   %114 = and i8 %113, 1
@@ -11761,9 +11761,9 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %.not88, label %115, label %.thread
 
 115:                                              ; preds = %108
-  %116 = getelementptr inbounds i8, ptr %0, i64 107
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 107
   %117 = load i8, ptr %116, align 1
-  %118 = getelementptr inbounds i8, ptr %1, i64 107
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 107
   %119 = load i8, ptr %118, align 1
   %120 = xor i8 %119, %117
   %121 = and i8 %120, 1
@@ -11771,9 +11771,9 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %.not89, label %122, label %.thread
 
 122:                                              ; preds = %115
-  %123 = getelementptr inbounds i8, ptr %0, i64 108
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %124 = load i8, ptr %123, align 4
-  %125 = getelementptr inbounds i8, ptr %1, i64 108
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %126 = load i8, ptr %125, align 4
   %127 = xor i8 %126, %124
   %128 = and i8 %127, 1
@@ -11781,9 +11781,9 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %.not90, label %129, label %.thread
 
 129:                                              ; preds = %122
-  %130 = getelementptr inbounds i8, ptr %0, i64 109
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 109
   %131 = load i8, ptr %130, align 1
-  %132 = getelementptr inbounds i8, ptr %1, i64 109
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 109
   %133 = load i8, ptr %132, align 1
   %134 = xor i8 %133, %131
   %135 = and i8 %134, 1
@@ -11791,9 +11791,9 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %.not91, label %136, label %.thread
 
 136:                                              ; preds = %129
-  %137 = getelementptr inbounds i8, ptr %0, i64 110
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 110
   %138 = load i8, ptr %137, align 2
-  %139 = getelementptr inbounds i8, ptr %1, i64 110
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 110
   %140 = load i8, ptr %139, align 2
   %141 = xor i8 %140, %138
   %142 = and i8 %141, 1
@@ -11801,9 +11801,9 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %.not92, label %143, label %.thread
 
 143:                                              ; preds = %136
-  %144 = getelementptr inbounds i8, ptr %0, i64 111
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 111
   %145 = load i8, ptr %144, align 1
-  %146 = getelementptr inbounds i8, ptr %1, i64 111
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 111
   %147 = load i8, ptr %146, align 1
   %148 = xor i8 %147, %145
   %149 = and i8 %148, 1
@@ -11811,9 +11811,9 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %.not93, label %150, label %.thread
 
 150:                                              ; preds = %143
-  %151 = getelementptr inbounds i8, ptr %0, i64 112
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %152 = load i8, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %1, i64 112
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %154 = load i8, ptr %153, align 8
   %155 = xor i8 %154, %152
   %156 = and i8 %155, 1
@@ -11821,9 +11821,9 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %.not94, label %157, label %.thread
 
 157:                                              ; preds = %150
-  %158 = getelementptr inbounds i8, ptr %0, i64 113
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 113
   %159 = load i8, ptr %158, align 1
-  %160 = getelementptr inbounds i8, ptr %1, i64 113
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 113
   %161 = load i8, ptr %160, align 1
   %162 = xor i8 %161, %159
   %163 = and i8 %162, 1
@@ -11831,9 +11831,9 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
   br i1 %.not95, label %164, label %.thread
 
 164:                                              ; preds = %157
-  %165 = getelementptr inbounds i8, ptr %0, i64 114
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 114
   %166 = load i8, ptr %165, align 2
-  %167 = getelementptr inbounds i8, ptr %1, i64 114
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 114
   %168 = load i8, ptr %167, align 2
   %169 = xor i8 %168, %166
   %170 = and i8 %169, 1
@@ -11847,42 +11847,42 @@ define internal fastcc zeroext i1 @_equalIndexStmt(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateStatsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %33, label %29
 
@@ -11900,9 +11900,9 @@ define internal fastcc zeroext i1 @_equalCreateStatsStmt(ptr nocapture noundef n
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %33, %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load i8, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %39 = load i8, ptr %38, align 8
   %40 = xor i8 %39, %37
   %41 = and i8 %40, 1
@@ -11910,9 +11910,9 @@ define internal fastcc zeroext i1 @_equalCreateStatsStmt(ptr nocapture noundef n
   br i1 %.not22, label %42, label %.thread
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %0, i64 49
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %44 = load i8, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %1, i64 49
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %46 = load i8, ptr %45, align 1
   %47 = xor i8 %46, %44
   %48 = and i8 %47, 1
@@ -11926,10 +11926,10 @@ define internal fastcc zeroext i1 @_equalCreateStatsStmt(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalStatsElem(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -11947,9 +11947,9 @@ define internal fastcc zeroext i1 @_equalStatsElem(ptr nocapture noundef nonnull
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br label %.thread
@@ -11961,25 +11961,25 @@ define internal fastcc zeroext i1 @_equalStatsElem(ptr nocapture noundef nonnull
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterStatsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %20
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i8, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i8, ptr %16, align 4
   %18 = xor i8 %17, %15
   %19 = and i8 %18, 1
@@ -11993,9 +11993,9 @@ define internal fastcc zeroext i1 @_equalAlterStatsStmt(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateFunctionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -12003,9 +12003,9 @@ define internal fastcc zeroext i1 @_equalCreateFunctionStmt(ptr nocapture nounde
   br i1 %.not, label %9, label %46
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 5
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %13 = load i8, ptr %12, align 1
   %14 = xor i8 %13, %11
   %15 = and i8 %14, 1
@@ -12013,41 +12013,41 @@ define internal fastcc zeroext i1 @_equalCreateFunctionStmt(ptr nocapture nounde
   br i1 %.not15, label %16, label %46
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @equal(ptr noundef %18, ptr noundef %20)
   br i1 %21, label %22, label %46
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br i1 %27, label %28, label %46
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = tail call zeroext i1 @equal(ptr noundef %30, ptr noundef %32)
   br i1 %33, label %34, label %46
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @equal(ptr noundef %36, ptr noundef %38)
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = tail call zeroext i1 @equal(ptr noundef %42, ptr noundef %44)
   br label %46
@@ -12059,10 +12059,10 @@ define internal fastcc zeroext i1 @_equalCreateFunctionStmt(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalFunctionParameter(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -12080,25 +12080,25 @@ define internal fastcc zeroext i1 @_equalFunctionParameter(ptr nocapture noundef
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 8
   %.not16 = icmp eq i32 %19, %21
   br i1 %.not16, label %22, label %.thread
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br label %.thread
@@ -12110,25 +12110,25 @@ define internal fastcc zeroext i1 @_equalFunctionParameter(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterFunctionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %19
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br label %19
@@ -12140,25 +12140,25 @@ define internal fastcc zeroext i1 @_equalAlterFunctionStmt(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCallStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br label %20
@@ -12170,42 +12170,42 @@ define internal fastcc zeroext i1 @_equalCallStmt(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRenameStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not29 = icmp eq i32 %9, %11
   br i1 %.not29, label %12, label %.thread
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i1 @equal(ptr noundef %14, ptr noundef %16)
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @equal(ptr noundef %20, ptr noundef %22)
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not30 = icmp eq ptr %26, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not30, label %31, label %27
 
@@ -12223,10 +12223,10 @@ define internal fastcc zeroext i1 @_equalRenameStmt(ptr nocapture noundef nonnul
   br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %31, %28
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
   %.not32 = icmp eq ptr %35, null
-  %.phi.trans.insert37 = getelementptr inbounds i8, ptr %1, i64 40
+  %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre38 = load ptr, ptr %.phi.trans.insert37, align 8
   br i1 %.not32, label %40, label %36
 
@@ -12244,17 +12244,17 @@ define internal fastcc zeroext i1 @_equalRenameStmt(ptr nocapture noundef nonnul
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %40, %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %46 = load i32, ptr %45, align 8
   %.not34 = icmp eq i32 %44, %46
   br i1 %.not34, label %47, label %.thread
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %0, i64 52
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %49 = load i8, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %51 = load i8, ptr %50, align 4
   %52 = xor i8 %51, %49
   %53 = and i8 %52, 1
@@ -12268,41 +12268,41 @@ define internal fastcc zeroext i1 @_equalRenameStmt(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterObjectDependsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %32
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %32
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %32
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load i8, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load i8, ptr %28, align 8
   %30 = xor i8 %29, %27
   %31 = and i8 %30, 1
@@ -12316,34 +12316,34 @@ define internal fastcc zeroext i1 @_equalAlterObjectDependsStmt(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterObjectSchemaStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not17 = icmp eq ptr %21, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not17, label %26, label %22
 
@@ -12361,9 +12361,9 @@ define internal fastcc zeroext i1 @_equalAlterObjectSchemaStmt(ptr nocapture nou
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %26, %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i8, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i8, ptr %31, align 8
   %33 = xor i8 %32, %30
   %34 = and i8 %33, 1
@@ -12377,33 +12377,33 @@ define internal fastcc zeroext i1 @_equalAlterObjectSchemaStmt(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterOwnerStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %25
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br label %25
@@ -12415,17 +12415,17 @@ define internal fastcc zeroext i1 @_equalAlterOwnerStmt(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterOperatorStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -12437,17 +12437,17 @@ define internal fastcc zeroext i1 @_equalAlterOperatorStmt(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterTypeStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -12459,18 +12459,18 @@ define internal fastcc zeroext i1 @_equalAlterTypeStmt(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRuleStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -12488,25 +12488,25 @@ define internal fastcc zeroext i1 @_equalRuleStmt(ptr nocapture noundef nonnull 
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load i32, ptr %26, align 8
   %.not22 = icmp eq i32 %25, %27
   br i1 %.not22, label %28, label %.thread
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %30 = load i8, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %32 = load i8, ptr %31, align 4
   %33 = xor i8 %32, %30
   %34 = and i8 %33, 1
@@ -12514,17 +12514,17 @@ define internal fastcc zeroext i1 @_equalRuleStmt(ptr nocapture noundef nonnull 
   br i1 %.not23, label %35, label %.thread
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load ptr, ptr %38, align 8
   %40 = tail call zeroext i1 @equal(ptr noundef %37, ptr noundef %39)
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = load i8, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %45 = load i8, ptr %44, align 8
   %46 = xor i8 %45, %43
   %47 = and i8 %46, 1
@@ -12538,10 +12538,10 @@ define internal fastcc zeroext i1 @_equalRuleStmt(ptr nocapture noundef nonnull 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -12559,10 +12559,10 @@ define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr nocapture nounde
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not18 = icmp eq ptr %13, null
-  %.phi.trans.insert21 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre22 = load ptr, ptr %.phi.trans.insert21, align 8
   br i1 %.not18, label %18, label %14
 
@@ -12590,7 +12590,7 @@ define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr nocapture nounde
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %6, label %2
 
@@ -12618,7 +12618,7 @@ define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly %.8.val
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalUnlistenStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %6, label %2
 
@@ -12645,26 +12645,26 @@ define internal fastcc noundef zeroext i1 @_equalUnlistenStmt(ptr readonly %.8.v
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalTransactionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not23 = icmp eq ptr %15, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not23, label %20, label %16
 
@@ -12682,10 +12682,10 @@ define internal fastcc zeroext i1 @_equalTransactionStmt(ptr nocapture noundef n
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %20, %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not25 = icmp eq ptr %24, null
-  %.phi.trans.insert29 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre30 = load ptr, ptr %.phi.trans.insert29, align 8
   br i1 %.not25, label %29, label %25
 
@@ -12703,9 +12703,9 @@ define internal fastcc zeroext i1 @_equalTransactionStmt(ptr nocapture noundef n
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %29, %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load i8, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load i8, ptr %34, align 8
   %36 = xor i8 %35, %33
   %37 = and i8 %36, 1
@@ -12719,17 +12719,17 @@ define internal fastcc zeroext i1 @_equalTransactionStmt(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCompositeTypeStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -12741,17 +12741,17 @@ define internal fastcc zeroext i1 @_equalCompositeTypeStmt(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateEnumStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -12763,17 +12763,17 @@ define internal fastcc zeroext i1 @_equalCreateEnumStmt(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateRangeStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -12785,18 +12785,18 @@ define internal fastcc zeroext i1 @_equalCreateRangeStmt(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterEnumStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -12814,10 +12814,10 @@ define internal fastcc zeroext i1 @_equalAlterEnumStmt(ptr nocapture noundef non
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not32 = icmp eq ptr %19, null
-  %.phi.trans.insert39 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre40 = load ptr, ptr %.phi.trans.insert39, align 8
   br i1 %.not32, label %24, label %20
 
@@ -12835,10 +12835,10 @@ define internal fastcc zeroext i1 @_equalAlterEnumStmt(ptr nocapture noundef non
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %24, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not34 = icmp eq ptr %28, null
-  %.phi.trans.insert42 = getelementptr inbounds i8, ptr %1, i64 32
+  %.phi.trans.insert42 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre43 = load ptr, ptr %.phi.trans.insert42, align 8
   br i1 %.not34, label %33, label %29
 
@@ -12856,9 +12856,9 @@ define internal fastcc zeroext i1 @_equalAlterEnumStmt(ptr nocapture noundef non
   br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %33, %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i8, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load i8, ptr %38, align 8
   %40 = xor i8 %39, %37
   %41 = and i8 %40, 1
@@ -12866,9 +12866,9 @@ define internal fastcc zeroext i1 @_equalAlterEnumStmt(ptr nocapture noundef non
   br i1 %.not36, label %42, label %.thread
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %0, i64 41
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %44 = load i8, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %1, i64 41
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %46 = load i8, ptr %45, align 1
   %47 = xor i8 %46, %44
   %48 = and i8 %47, 1
@@ -12882,33 +12882,33 @@ define internal fastcc zeroext i1 @_equalAlterEnumStmt(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalViewStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %38
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %38
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %38
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i8, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i8, ptr %23, align 8
   %25 = xor i8 %24, %22
   %26 = and i8 %25, 1
@@ -12916,17 +12916,17 @@ define internal fastcc zeroext i1 @_equalViewStmt(ptr nocapture noundef nonnull 
   br i1 %.not, label %27, label %38
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = tail call zeroext i1 @equal(ptr noundef %29, ptr noundef %31)
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %37 = load i32, ptr %36, align 8
   %.not13 = icmp eq i32 %35, %37
   br label %38
@@ -12939,7 +12939,7 @@ define internal fastcc zeroext i1 @_equalViewStmt(ptr nocapture noundef nonnull 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalLoadStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %6, label %2
 
@@ -12966,10 +12966,10 @@ define internal fastcc noundef zeroext i1 @_equalLoadStmt(ptr readonly %.8.val, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreatedbStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -12987,9 +12987,9 @@ define internal fastcc zeroext i1 @_equalCreatedbStmt(ptr nocapture noundef nonn
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br label %.thread
@@ -13001,10 +13001,10 @@ define internal fastcc zeroext i1 @_equalCreatedbStmt(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterDatabaseStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -13022,9 +13022,9 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseStmt(ptr nocapture noundef
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br label %.thread
@@ -13037,7 +13037,7 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseStmt(ptr nocapture noundef
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %6, label %2
 
@@ -13064,10 +13064,10 @@ define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt(pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterDatabaseSetStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -13085,9 +13085,9 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseSetStmt(ptr nocapture noun
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br label %.thread
@@ -13099,10 +13099,10 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseSetStmt(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalDropdbStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -13120,9 +13120,9 @@ define internal fastcc zeroext i1 @_equalDropdbStmt(ptr nocapture noundef nonnul
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = xor i8 %15, %13
   %17 = and i8 %16, 1
@@ -13130,9 +13130,9 @@ define internal fastcc zeroext i1 @_equalDropdbStmt(ptr nocapture noundef nonnul
   br i1 %.not14, label %18, label %.thread
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i1 @equal(ptr noundef %20, ptr noundef %22)
   br label %.thread
@@ -13144,18 +13144,18 @@ define internal fastcc zeroext i1 @_equalDropdbStmt(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalClusterStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -13173,9 +13173,9 @@ define internal fastcc zeroext i1 @_equalClusterStmt(ptr nocapture noundef nonnu
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br label %.thread
@@ -13187,25 +13187,25 @@ define internal fastcc zeroext i1 @_equalClusterStmt(ptr nocapture noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalVacuumStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i8, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = xor i8 %18, %16
   %20 = and i8 %19, 1
@@ -13219,25 +13219,25 @@ define internal fastcc zeroext i1 @_equalVacuumStmt(ptr nocapture noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalVacuumRelation(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %19
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br label %19
@@ -13249,17 +13249,17 @@ define internal fastcc zeroext i1 @_equalVacuumRelation(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalExplainStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -13271,33 +13271,33 @@ define internal fastcc zeroext i1 @_equalExplainStmt(ptr nocapture noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateTableAsStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %33
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %16, %18
   br i1 %.not, label %19, label %33
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i8, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %23 = load i8, ptr %22, align 4
   %24 = xor i8 %23, %21
   %25 = and i8 %24, 1
@@ -13305,9 +13305,9 @@ define internal fastcc zeroext i1 @_equalCreateTableAsStmt(ptr nocapture noundef
   br i1 %.not11, label %26, label %33
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %0, i64 29
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %1, i64 29
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 29
   %30 = load i8, ptr %29, align 1
   %31 = xor i8 %30, %28
   %32 = and i8 %31, 1
@@ -13321,9 +13321,9 @@ define internal fastcc zeroext i1 @_equalCreateTableAsStmt(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRefreshMatViewStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -13331,9 +13331,9 @@ define internal fastcc zeroext i1 @_equalRefreshMatViewStmt(ptr nocapture nounde
   br i1 %.not, label %9, label %22
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 5
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %13 = load i8, ptr %12, align 1
   %14 = xor i8 %13, %11
   %15 = and i8 %14, 1
@@ -13341,9 +13341,9 @@ define internal fastcc zeroext i1 @_equalRefreshMatViewStmt(ptr nocapture nounde
   br i1 %.not7, label %16, label %22
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @equal(ptr noundef %18, ptr noundef %20)
   br label %22
@@ -13355,25 +13355,25 @@ define internal fastcc zeroext i1 @_equalRefreshMatViewStmt(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalLockStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %20
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i8, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i8, ptr %16, align 4
   %18 = xor i8 %17, %15
   %19 = and i8 %18, 1
@@ -13387,26 +13387,26 @@ define internal fastcc zeroext i1 @_equalLockStmt(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalReindexStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not15 = icmp eq ptr %15, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not15, label %20, label %16
 
@@ -13424,9 +13424,9 @@ define internal fastcc zeroext i1 @_equalReindexStmt(ptr nocapture noundef nonnu
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %20, %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br label %.thread
@@ -13438,18 +13438,18 @@ define internal fastcc zeroext i1 @_equalReindexStmt(ptr nocapture noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateConversionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %15, label %11
 
@@ -13467,10 +13467,10 @@ define internal fastcc zeroext i1 @_equalCreateConversionStmt(ptr nocapture noun
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %15, %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not24 = icmp eq ptr %19, null
-  %.phi.trans.insert28 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre29 = load ptr, ptr %.phi.trans.insert28, align 8
   br i1 %.not24, label %24, label %20
 
@@ -13488,17 +13488,17 @@ define internal fastcc zeroext i1 @_equalCreateConversionStmt(ptr nocapture noun
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %24, %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br i1 %31, label %32, label %.thread
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %36 = load i8, ptr %35, align 8
   %37 = xor i8 %36, %34
   %38 = and i8 %37, 1
@@ -13512,41 +13512,41 @@ define internal fastcc zeroext i1 @_equalCreateConversionStmt(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateCastStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %32
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %32
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br i1 %19, label %20, label %32
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %22, %24
   br i1 %.not, label %25, label %32
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %27 = load i8, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %29 = load i8, ptr %28, align 4
   %30 = xor i8 %29, %27
   %31 = and i8 %30, 1
@@ -13560,9 +13560,9 @@ define internal fastcc zeroext i1 @_equalCreateCastStmt(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateTransformStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i8, ptr %5, align 4
   %7 = xor i8 %6, %4
   %8 = and i8 %7, 1
@@ -13570,18 +13570,18 @@ define internal fastcc zeroext i1 @_equalCreateTransformStmt(ptr nocapture nound
   br i1 %.not, label %9, label %.thread
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @equal(ptr noundef %11, ptr noundef %13)
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not17 = icmp eq ptr %17, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not17, label %22, label %18
 
@@ -13599,17 +13599,17 @@ define internal fastcc zeroext i1 @_equalCreateTransformStmt(ptr nocapture nound
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %22, %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @equal(ptr noundef %26, ptr noundef %28)
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i1 @equal(ptr noundef %32, ptr noundef %34)
   br label %.thread
@@ -13621,10 +13621,10 @@ define internal fastcc zeroext i1 @_equalCreateTransformStmt(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalPrepareStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -13642,17 +13642,17 @@ define internal fastcc zeroext i1 @_equalPrepareStmt(ptr nocapture noundef nonnu
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br label %.thread
@@ -13664,10 +13664,10 @@ define internal fastcc zeroext i1 @_equalPrepareStmt(ptr nocapture noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalExecuteStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -13685,9 +13685,9 @@ define internal fastcc zeroext i1 @_equalExecuteStmt(ptr nocapture noundef nonnu
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br label %.thread
@@ -13699,10 +13699,10 @@ define internal fastcc zeroext i1 @_equalExecuteStmt(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc zeroext i1 @_equalDeallocateStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -13720,9 +13720,9 @@ define internal fastcc zeroext i1 @_equalDeallocateStmt(ptr nocapture noundef no
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = xor i8 %15, %13
   %17 = and i8 %16, 1
@@ -13736,17 +13736,17 @@ define internal fastcc zeroext i1 @_equalDeallocateStmt(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalReassignOwnedStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -13758,17 +13758,17 @@ define internal fastcc zeroext i1 @_equalReassignOwnedStmt(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterTSDictionaryStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -13780,41 +13780,41 @@ define internal fastcc zeroext i1 @_equalAlterTSDictionaryStmt(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterTSConfigurationStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %46
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %46
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef %17)
   br i1 %18, label %19, label %46
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @equal(ptr noundef %21, ptr noundef %23)
   br i1 %24, label %25, label %46
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load i8, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load i8, ptr %28, align 8
   %30 = xor i8 %29, %27
   %31 = and i8 %30, 1
@@ -13822,9 +13822,9 @@ define internal fastcc zeroext i1 @_equalAlterTSConfigurationStmt(ptr nocapture 
   br i1 %.not15, label %32, label %46
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %0, i64 33
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %34 = load i8, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %1, i64 33
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %36 = load i8, ptr %35, align 1
   %37 = xor i8 %36, %34
   %38 = and i8 %37, 1
@@ -13832,9 +13832,9 @@ define internal fastcc zeroext i1 @_equalAlterTSConfigurationStmt(ptr nocapture 
   br i1 %.not16, label %39, label %46
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %0, i64 34
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %41 = load i8, ptr %40, align 2
-  %42 = getelementptr inbounds i8, ptr %1, i64 34
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %43 = load i8, ptr %42, align 2
   %44 = xor i8 %43, %41
   %45 = and i8 %44, 1
@@ -13848,25 +13848,25 @@ define internal fastcc zeroext i1 @_equalAlterTSConfigurationStmt(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalPublicationTable(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @equal(ptr noundef %16, ptr noundef %18)
   br label %20
@@ -13878,18 +13878,18 @@ define internal fastcc zeroext i1 @_equalPublicationTable(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalPublicationObjSpec(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not13 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not13, label %14, label %10
 
@@ -13907,9 +13907,9 @@ define internal fastcc zeroext i1 @_equalPublicationObjSpec(ptr nocapture nounde
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @equal(ptr noundef %18, ptr noundef %20)
   br label %.thread
@@ -13921,10 +13921,10 @@ define internal fastcc zeroext i1 @_equalPublicationObjSpec(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreatePublicationStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -13942,25 +13942,25 @@ define internal fastcc zeroext i1 @_equalCreatePublicationStmt(ptr nocapture nou
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i8, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load i8, ptr %26, align 8
   %28 = xor i8 %27, %25
   %29 = and i8 %28, 1
@@ -13974,10 +13974,10 @@ define internal fastcc zeroext i1 @_equalCreatePublicationStmt(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterPublicationStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -13995,25 +13995,25 @@ define internal fastcc zeroext i1 @_equalAlterPublicationStmt(ptr nocapture noun
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @equal(ptr noundef %13, ptr noundef %15)
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @equal(ptr noundef %19, ptr noundef %21)
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i8, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load i8, ptr %26, align 8
   %28 = xor i8 %27, %25
   %29 = and i8 %28, 1
@@ -14021,9 +14021,9 @@ define internal fastcc zeroext i1 @_equalAlterPublicationStmt(ptr nocapture noun
   br i1 %.not18, label %30, label %.thread
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %34 = load i32, ptr %33, align 4
   %.not19 = icmp eq i32 %32, %34
   br label %.thread
@@ -14035,10 +14035,10 @@ define internal fastcc zeroext i1 @_equalAlterPublicationStmt(ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalCreateSubscriptionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -14056,10 +14056,10 @@ define internal fastcc zeroext i1 @_equalCreateSubscriptionStmt(ptr nocapture no
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not22 = icmp eq ptr %13, null
-  %.phi.trans.insert25 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre26 = load ptr, ptr %.phi.trans.insert25, align 8
   br i1 %.not22, label %18, label %14
 
@@ -14077,17 +14077,17 @@ define internal fastcc zeroext i1 @_equalCreateSubscriptionStmt(ptr nocapture no
   br i1 %19, label %20, label %.thread
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24)
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @equal(ptr noundef %28, ptr noundef %30)
   br label %.thread
@@ -14099,18 +14099,18 @@ define internal fastcc zeroext i1 @_equalCreateSubscriptionStmt(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAlterSubscriptionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not23 = icmp eq ptr %9, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not23, label %14, label %10
 
@@ -14128,10 +14128,10 @@ define internal fastcc zeroext i1 @_equalAlterSubscriptionStmt(ptr nocapture nou
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not25 = icmp eq ptr %18, null
-  %.phi.trans.insert28 = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre29 = load ptr, ptr %.phi.trans.insert28, align 8
   br i1 %.not25, label %23, label %19
 
@@ -14149,17 +14149,17 @@ define internal fastcc zeroext i1 @_equalAlterSubscriptionStmt(ptr nocapture nou
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %23, %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @equal(ptr noundef %27, ptr noundef %29)
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 @equal(ptr noundef %33, ptr noundef %35)
   br label %.thread
@@ -14171,10 +14171,10 @@ define internal fastcc zeroext i1 @_equalAlterSubscriptionStmt(ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc zeroext i1 @_equalDropSubscriptionStmt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -14192,9 +14192,9 @@ define internal fastcc zeroext i1 @_equalDropSubscriptionStmt(ptr nocapture noun
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i8, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = xor i8 %15, %13
   %17 = and i8 %16, 1
@@ -14202,9 +14202,9 @@ define internal fastcc zeroext i1 @_equalDropSubscriptionStmt(ptr nocapture noun
   br i1 %.not14, label %18, label %.thread
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load i32, ptr %21, align 4
   %.not15 = icmp eq i32 %20, %22
   br label %.thread
@@ -14216,33 +14216,33 @@ define internal fastcc zeroext i1 @_equalDropSubscriptionStmt(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc zeroext i1 @_equalPathKey(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %7, label %24
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8
   %.not9 = icmp eq i32 %9, %11
   br i1 %.not9, label %12, label %24
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %15, align 4
   %.not10 = icmp eq i32 %14, %16
   br i1 %.not10, label %17, label %24
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i8, ptr %20, align 8
   %22 = xor i8 %21, %19
   %23 = and i8 %22, 1
@@ -14256,17 +14256,17 @@ define internal fastcc zeroext i1 @_equalPathKey(ptr nocapture noundef nonnull r
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalPathKeyInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef %12)
   br label %14
@@ -14278,17 +14278,17 @@ define internal fastcc zeroext i1 @_equalPathKeyInfo(ptr nocapture noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalRestrictInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef %6)
   br i1 %7, label %8, label %57
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i8, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = xor i8 %12, %10
   %14 = and i8 %13, 1
@@ -14296,9 +14296,9 @@ define internal fastcc zeroext i1 @_equalRestrictInfo(ptr nocapture noundef nonn
   br i1 %.not, label %15, label %57
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 19
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 19
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %19 = load i8, ptr %18, align 1
   %20 = xor i8 %19, %17
   %21 = and i8 %20, 1
@@ -14306,9 +14306,9 @@ define internal fastcc zeroext i1 @_equalRestrictInfo(ptr nocapture noundef nonn
   br i1 %.not19, label %22, label %57
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i8, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %26 = load i8, ptr %25, align 4
   %27 = xor i8 %26, %24
   %28 = and i8 %27, 1
@@ -14316,41 +14316,41 @@ define internal fastcc zeroext i1 @_equalRestrictInfo(ptr nocapture noundef nonn
   br i1 %.not20, label %29, label %57
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %33 = load i32, ptr %32, align 4
   %.not21 = icmp eq i32 %31, %33
   br i1 %.not21, label %34, label %57
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @bms_equal(ptr noundef %36, ptr noundef %38) #9
   br i1 %39, label %40, label %57
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %44 = load ptr, ptr %43, align 8
   %45 = tail call zeroext i1 @bms_equal(ptr noundef %42, ptr noundef %44) #9
   br i1 %45, label %46, label %57
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %0, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %50 = load ptr, ptr %49, align 8
   %51 = tail call zeroext i1 @bms_equal(ptr noundef %48, ptr noundef %50) #9
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %0, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %56 = load i32, ptr %55, align 8
   %.not22 = icmp eq i32 %54, %56
   br label %57
@@ -14362,25 +14362,25 @@ define internal fastcc zeroext i1 @_equalRestrictInfo(ptr nocapture noundef nonn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalPlaceHolderVar(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @bms_equal(ptr noundef %4, ptr noundef %6) #9
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %13, label %18
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %17 = load i32, ptr %16, align 4
   %.not7 = icmp eq i32 %15, %17
   br label %18
@@ -14392,89 +14392,89 @@ define internal fastcc zeroext i1 @_equalPlaceHolderVar(ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @bms_equal(ptr noundef %4, ptr noundef %6) #9
   br i1 %7, label %8, label %93
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i1 @bms_equal(ptr noundef %10, ptr noundef %12) #9
   br i1 %13, label %14, label %93
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @bms_equal(ptr noundef %16, ptr noundef %18) #9
   br i1 %19, label %20, label %93
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @bms_equal(ptr noundef %22, ptr noundef %24) #9
   br i1 %25, label %26, label %93
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load i32, ptr %29, align 8
   %.not = icmp eq i32 %28, %30
   br i1 %.not, label %31, label %93
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %35 = load i32, ptr %34, align 4
   %.not31 = icmp eq i32 %33, %35
   br i1 %.not31, label %36, label %93
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = tail call zeroext i1 @bms_equal(ptr noundef %38, ptr noundef %40) #9
   br i1 %41, label %42, label %93
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = tail call zeroext i1 @bms_equal(ptr noundef %44, ptr noundef %46) #9
   br i1 %47, label %48, label %93
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %52 = load ptr, ptr %51, align 8
   %53 = tail call zeroext i1 @bms_equal(ptr noundef %50, ptr noundef %52) #9
   br i1 %53, label %54, label %93
 
 54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %0, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %58 = load ptr, ptr %57, align 8
   %59 = tail call zeroext i1 @bms_equal(ptr noundef %56, ptr noundef %58) #9
   br i1 %59, label %60, label %93
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %0, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %62 = load i8, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %64 = load i8, ptr %63, align 8
   %65 = xor i8 %64, %62
   %66 = and i8 %65, 1
@@ -14482,9 +14482,9 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr nocapture noundef n
   br i1 %.not32, label %67, label %93
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %0, i64 81
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %1, i64 81
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 81
   %71 = load i8, ptr %70, align 1
   %72 = xor i8 %71, %69
   %73 = and i8 %72, 1
@@ -14492,9 +14492,9 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr nocapture noundef n
   br i1 %.not33, label %74, label %93
 
 74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %0, i64 82
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %76 = load i8, ptr %75, align 2
-  %77 = getelementptr inbounds i8, ptr %1, i64 82
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 82
   %78 = load i8, ptr %77, align 2
   %79 = xor i8 %78, %76
   %80 = and i8 %79, 1
@@ -14502,17 +14502,17 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr nocapture noundef n
   br i1 %.not34, label %81, label %93
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %0, i64 88
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 88
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %85 = load ptr, ptr %84, align 8
   %86 = tail call zeroext i1 @equal(ptr noundef %83, ptr noundef %85)
   br i1 %86, label %87, label %93
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %0, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 96
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %91 = load ptr, ptr %90, align 8
   %92 = tail call zeroext i1 @equal(ptr noundef %89, ptr noundef %91)
   br label %93
@@ -14524,57 +14524,57 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalAppendRelInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %45
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %.not19 = icmp eq i32 %9, %11
   br i1 %.not19, label %12, label %45
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i32, ptr %15, align 4
   %.not20 = icmp eq i32 %14, %16
   br i1 %.not20, label %17, label %45
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   %.not21 = icmp eq i32 %19, %21
   br i1 %.not21, label %22, label %45
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @equal(ptr noundef %24, ptr noundef %26)
   br i1 %27, label %28, label %45
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not22 = icmp eq i32 %30, %32
   br i1 %.not22, label %33, label %45
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %30 to i64
   %39 = shl nsw i64 %38, 1
@@ -14583,9 +14583,9 @@ define internal fastcc zeroext i1 @_equalAppendRelInfo(ptr nocapture noundef non
   br i1 %.not23, label %40, label %45
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load i32, ptr %43, align 8
   %.not24 = icmp eq i32 %42, %44
   br label %45
@@ -14597,49 +14597,49 @@ define internal fastcc zeroext i1 @_equalAppendRelInfo(ptr nocapture noundef non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalPlaceHolderInfo(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %36
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef %11)
   br i1 %12, label %13, label %36
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @bms_equal(ptr noundef %15, ptr noundef %17) #9
   br i1 %18, label %19, label %36
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @bms_equal(ptr noundef %21, ptr noundef %23) #9
   br i1 %24, label %25, label %36
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = tail call zeroext i1 @bms_equal(ptr noundef %27, ptr noundef %29) #9
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = load i32, ptr %34, align 8
   %.not13 = icmp eq i32 %33, %35
   br label %36
@@ -14651,10 +14651,10 @@ define internal fastcc zeroext i1 @_equalPlaceHolderInfo(ptr nocapture noundef n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @_equalExtensibleNode(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %9, label %5
 
@@ -14673,7 +14673,7 @@ define internal fastcc zeroext i1 @_equalExtensibleNode(ptr noundef nonnull %0, 
 
 11:                                               ; preds = %6, %9
   %12 = tail call ptr @GetExtensibleNodeMethods(ptr noundef %4, i1 noundef zeroext false) #9
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 %14(ptr noundef nonnull %0, ptr noundef nonnull %1) #9
   br label %.thread
@@ -14686,7 +14686,7 @@ define internal fastcc zeroext i1 @_equalExtensibleNode(ptr noundef nonnull %0, 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %6, label %2
 
@@ -14714,7 +14714,7 @@ define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly %.8.val, ptr
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalString(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %6, label %2
 
@@ -14742,7 +14742,7 @@ define internal fastcc noundef zeroext i1 @_equalString(ptr readonly %.8.val, pt
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_equalBitString(ptr readonly %.8.val, ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 {
   %.not = icmp eq ptr %.8.val, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %6, label %2
 
@@ -14775,9 +14775,9 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr nocapture noundef nonn
   br i1 %.not, label %5, label %.thread
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %.not81 = icmp eq i32 %7, %9
   br i1 %.not81, label %10, label %.thread
@@ -14791,32 +14791,32 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr nocapture noundef nonn
   ]
 
 .preheader94:                                     ; preds = %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = sext i32 %7 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %76
 
 .preheader91:                                     ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = sext i32 %7 to i64
   %smax107 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
   %wide.trip.count108 = zext nneg i32 %smax107 to i64
   br label %60
 
 .preheader88:                                     ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = sext i32 %7 to i64
   %smax113 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
   %wide.trip.count114 = zext nneg i32 %smax113 to i64
   br label %44
 
 .preheader:                                       ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %22
 
 22:                                               ; preds = %40, %.preheader

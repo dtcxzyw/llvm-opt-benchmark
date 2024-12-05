@@ -326,7 +326,7 @@ define internal i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, pt
   %7 = alloca [8 x i8], align 8
   %8 = alloca i16, align 2
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef 512) #6
   store i64 0, ptr %6, align 8
@@ -419,7 +419,7 @@ define internal i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, pt
   %61 = zext i8 %60 to i32
   %62 = load i32, ptr @hf_rf4ce_nwk_cmd_id, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %62, ptr noundef %55, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #6
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @val_to_str_const(i32 noundef %61, ptr noundef nonnull @rf4ce_nwk_cmd_names, ptr noundef nonnull @.str.177) #6
   call void @col_set_str(ptr noundef %65, i32 noundef 25, ptr noundef %66) #6
@@ -496,9 +496,9 @@ define internal i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, pt
   %117 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %115, ptr noundef %55, i32 noundef %116, i32 noundef 1, i32 noundef -2147483648) #6
   %118 = call zeroext i8 @tvb_get_guint8(ptr noundef %55, i32 noundef %116) #6
   %119 = add i8 %118, 1
-  %120 = getelementptr inbounds i8, ptr %1, i64 120
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %1, i64 144
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %123 = load ptr, ptr %122, align 8
   call void @keypair_context_init(ptr noundef %121, ptr noundef %123, i8 noundef zeroext %119) #6
   %124 = add i32 %116, 1
@@ -526,10 +526,10 @@ define internal i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, pt
   %144 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %143, ptr noundef %55, i32 noundef 9, i32 noundef 7, i32 noundef 2) #6
   store i32 16, ptr %9, align 4
   call fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr noundef %55, ptr noundef %59, ptr noundef nonnull %9, i8 noundef zeroext 1)
-  %145 = getelementptr inbounds i8, ptr %1, i64 144
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %146 = load ptr, ptr %145, align 8
   call void @rf4ce_addr_table_add_addrs(ptr noundef %146, i16 noundef zeroext %130) #6
-  %147 = getelementptr inbounds i8, ptr %1, i64 120
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %148 = load ptr, ptr %147, align 8
   call void @rf4ce_addr_table_add_addrs(ptr noundef %148, i16 noundef zeroext %133) #6
   %.pre85 = load i32, ptr %9, align 4
@@ -655,9 +655,9 @@ declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr 
 define internal void @uat_security_records_type_set_cb(ptr nocapture noundef writeonly initializes((8, 9)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
@@ -672,7 +672,7 @@ define internal void @uat_security_records_type_set_cb(ptr nocapture noundef wri
   %12 = add i32 %.01621, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -696,13 +696,13 @@ define internal void @uat_security_records_type_set_cb(ptr nocapture noundef wri
 
 ; Function Attrs: nounwind uwtable
 define internal void @uat_security_records_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = zext i8 %9 to i32
   %11 = load i32, ptr %3, align 8
@@ -714,7 +714,7 @@ define internal void @uat_security_records_type_tostr_cb(ptr nocapture noundef r
   %13 = add i32 %.01519, 1
   %14 = zext i32 %13 to i64
   %15 = getelementptr %struct._value_string, ptr %3, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !6
@@ -747,7 +747,7 @@ define internal void @uat_security_records_type_tostr_cb(ptr nocapture noundef r
 define internal void @uat_security_records_label_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #6
   store ptr %7, ptr %8, align 8
@@ -756,7 +756,7 @@ define internal void @uat_security_records_label_set_cb(ptr nocapture noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal void @uat_security_records_label_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -787,14 +787,14 @@ define internal noundef ptr @uat_sec_record_copy_cb(ptr noundef returned writeon
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #6
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @g_strdup(ptr noundef %10) #6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
   ret ptr %0
 }
@@ -907,7 +907,7 @@ define internal noundef zeroext i1 @uat_sec_record_update_cb(ptr nocapture nound
 
 rf4ce_security_parse_sec_str.exit:                ; preds = %43, %23
   store ptr null, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i8, ptr %49, align 8
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %52, label %53
@@ -1027,7 +1027,7 @@ define internal void @uat_sec_record_free_cb(ptr nocapture noundef readonly %0) 
   br i1 %exitcond.not.i, label %rf4ce_security_parse_sec_str.exit, label %.split.i, !llvm.loop !7
 
 rf4ce_security_parse_sec_str.exit:                ; preds = %35, %15
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i8, ptr %41, align 8
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %44, label %45
@@ -1043,7 +1043,7 @@ rf4ce_security_parse_sec_str.exit:                ; preds = %35, %15
 rf4ce_security_parse_sec_str.exit.thread:         ; preds = %21, %26, %.split.us.i, %1, %44, %45
   %46 = load ptr, ptr %0, align 8
   call void @g_free(ptr noundef %46) #6
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   call void @g_free(ptr noundef %48) #6
   ret void
@@ -1279,7 +1279,7 @@ define internal range(i32 0, 2) i32 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr 
   br i1 %switch42, label %30, label %35
 
 30:                                               ; preds = %28, %27, %21, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void @col_set_str(ptr noundef %32, i32 noundef 34, ptr noundef nonnull @.str.187) #6
   %33 = load ptr, ptr %31, align 8

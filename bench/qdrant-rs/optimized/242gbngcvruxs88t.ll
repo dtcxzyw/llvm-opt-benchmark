@@ -26,11 +26,11 @@ define i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E() unnamed_addr #0 p
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %0
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !4
   invoke void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h233f5a575f944c14E"(ptr nonnull sret({ i8, [15 x i8] }) align 8 %1, ptr nonnull align 1 %9, i64 %11)
           to label %16 unwind label %14
@@ -48,7 +48,7 @@ define i64 @_ZN6common3cpu12get_num_cpus17hbf5bf3bb5687d1f7E() unnamed_addr #0 p
 16:                                               ; preds = %6
   %17 = load i8, ptr %1, align 8, !range !5, !noundef !4
   %18 = icmp ne i8 %17, 0
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8
   %.not6 = icmp eq i64 %20, 0
   %.not = select i1 %18, i1 true, i1 %.not6
@@ -171,9 +171,9 @@ define { ptr, i64 } @_ZN6common3cpu9CpuBudget3new17h4641c308df318575E(i64 %0) un
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %3 = call ptr @_ZN5alloc5alloc15exchange_malloc17hf3f6835a3d5df5f4E(i64 56, i64 8)
   store i64 1, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3, i64 40, i1 false)
   %4 = insertvalue { ptr, i64 } poison, ptr %3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %0, 1
@@ -182,7 +182,7 @@ define { ptr, i64 } @_ZN6common3cpu9CpuBudget3new17h4641c308df318575E(i64 %0) un
 
 ; Function Attrs: nonlazybind uwtable
 define i64 @_ZN6common3cpu9CpuBudget11min_permits17h2a531585b85145fdE(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = tail call i64 @_ZN4core3cmp6min_by17h49768ad95e5c85e8E(i64 %1, i64 %4)
   %6 = tail call i64 @"_ZN4core3num23_$LT$impl$u20$usize$GT$8div_ceil17h2257925fd653b0f6E"(i64 %5, i64 2, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.3)
@@ -194,13 +194,13 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17h6cf3e149f63a79e4E(ptr nocap
   %4 = alloca [0 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { ptr, [1 x i64] }, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = tail call i64 @_ZN4core3cmp6min_by17h49768ad95e5c85e8E(i64 %2, i64 %8)
   %10 = tail call i64 @"_ZN4core3num23_$LT$impl$u20$usize$GT$8div_ceil17h2257925fd653b0f6E"(i64 %9, i64 2, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.3)
   %11 = trunc i64 %10 to i32
   %12 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = tail call i64 @_ZN5tokio4sync9semaphore9Semaphore17available_permits17he81122ca3026bee0E(ptr nonnull align 8 %13)
   %15 = tail call i64 @_ZN4core3cmp6min_by17h49768ad95e5c85e8E(i64 %14, i64 %2)
   %16 = trunc i64 %15 to i32
@@ -214,16 +214,16 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17h6cf3e149f63a79e4E(ptr nocap
   call void @_ZN5tokio4sync9semaphore9Semaphore22try_acquire_many_owned17hbaec1253cf77d191E(ptr nonnull sret({ ptr, [1 x i64] }) align 8 %6, ptr %20, i32 %16)
   %21 = load ptr, ptr %6, align 8, !noundef !4
   %.not = icmp eq ptr %21, null
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %.not, label %26, label %23
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %22, align 8, !noundef !4
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %21, ptr %25, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %24, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.31.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %16, ptr %.sroa.31.0..sroa_idx, align 8
   br label %29
 
@@ -245,12 +245,12 @@ define void @_ZN6common3cpu9CpuBudget11try_acquire17h6cf3e149f63a79e4E(ptr nocap
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @_ZN6common3cpu9CpuBudget10has_budget17h5483fd68d07537caE(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = tail call i64 @_ZN4core3cmp6min_by17h49768ad95e5c85e8E(i64 %1, i64 %4)
   %6 = tail call i64 @"_ZN4core3num23_$LT$impl$u20$usize$GT$8div_ceil17h2257925fd653b0f6E"(i64 %5, i64 2, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.3)
   %7 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = tail call i64 @_ZN5tokio4sync9semaphore9Semaphore17available_permits17he81122ca3026bee0E(ptr nonnull align 8 %8)
   %10 = icmp uge i64 %9, %6
   ret i1 %10
@@ -259,7 +259,7 @@ define zeroext i1 @_ZN6common3cpu9CpuBudget10has_budget17h5483fd68d07537caE(ptr 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @_ZN6common3cpu9CpuBudget16has_budget_exact17h3683d15e44eb3109E(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = tail call i64 @_ZN5tokio4sync9semaphore9Semaphore17available_permits17he81122ca3026bee0E(ptr nonnull align 8 %4)
   %6 = icmp uge i64 %5, %1
   ret i1 %6
@@ -268,9 +268,9 @@ define zeroext i1 @_ZN6common3cpu9CpuBudget16has_budget_exact17h3683d15e44eb3109
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN6common3cpu9CpuBudget26notify_on_budget_available17h4d37d9ce951b5a76E(ptr nocapture writeonly sret({ ptr, i64, [144 x i8], i8, [7 x i8] }) align 8 initializes((0, 16), (160, 161)) %0, ptr align 8 %1, i64 %2) unnamed_addr #1 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i8 0, ptr %5, align 8
   ret void
 }
@@ -317,9 +317,9 @@ _ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E.exit: ; preds = %0, %4, %6, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.i, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %17 = call ptr @_ZN5alloc5alloc15exchange_malloc17hf3f6835a3d5df5f4E(i64 56, i64 8)
   store i64 1, ptr %17, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 1, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %17, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3.i, i64 40, i1 false)
   %18 = insertvalue { ptr, i64 } poison, ptr %17, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %16, 1
@@ -330,17 +330,17 @@ _ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E.exit: ; preds = %0, %4, %6, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN6common3cpu9CpuPermit3new17h3fed45f9dca002bdE(ptr nocapture writeonly sret({ { ptr, [1 x i64] }, i32, [1 x i32] }) align 8 initializes((0, 12), (16, 20)) %0, i32 %1, ptr %2, i32 %3) unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %5, align 8
   store ptr %2, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN6common3cpu9CpuPermit5dummy17ha0410902a5b29f39E(ptr nocapture writeonly sret({ { ptr, [1 x i64] }, i32, [1 x i32] }) align 8 initializes((0, 8), (16, 20)) %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   store ptr null, ptr %0, align 8
   ret void
@@ -350,10 +350,10 @@ define void @_ZN6common3cpu9CpuPermit5dummy17ha0410902a5b29f39E(ptr nocapture wr
 define void @_ZN6common3cpu9CpuPermit7release17h58f7d5b87aaa8edaE(ptr nocapture align 8 %0) unnamed_addr #0 {
   %2 = alloca { ptr, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   store ptr %3, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %5, ptr %6, align 8
   store ptr null, ptr %0, align 8
   call void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$tokio..sync..semaphore..OwnedSemaphorePermit$GT$$GT$17h2809d4fdc057142eE"(ptr nonnull align 8 %2)
@@ -375,24 +375,24 @@ define void @_ZN6common3cpu25linux_low_thread_priority17h3a5c33c46f5d3808E(ptr s
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3a042ce2749ebe66E"(ptr nonnull sret({ i32, [5 x i32] }) align 8 %4, ptr nonnull align 8 %3), !noalias !6
   %6 = load i32, ptr %4, align 8, !range !9, !noalias !6, !noundef !4
   %7 = icmp eq i32 %6, 5
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = load i8, ptr %8, align 4, !noalias !6
   br i1 %7, label %10, label %12
 
 10:                                               ; preds = %1
   store i8 %9, ptr %5, align 8, !noalias !6
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 1000000001, ptr %11, align 8, !noalias !6
   call void @_ZN15thread_priority4unix27set_current_thread_priority17h314f853b5a63c480E(ptr nonnull sret({ i32, [5 x i32] }) align 8 %2, ptr nonnull align 8 %5), !noalias !6
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf3fb010157cee8d6E"(ptr sret({ i32, [5 x i32] }) align 8 %0, ptr nonnull align 8 %2)
   br label %_ZN6common3cpu25set_linux_thread_priority17hae5d3d3d608103e1E.exit
 
 12:                                               ; preds = %1
-  %.sroa.311.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 5
+  %.sroa.311.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i32 %6, ptr %0, align 8, !alias.scope !6
-  %.sroa.213.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.213.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %9, ptr %.sroa.213.0..sroa_idx.i, align 4, !alias.scope !6
-  %.sroa.314.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 5
+  %.sroa.314.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %.sroa.314.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(19) %.sroa.311.0..sroa_idx.i, i64 19, i1 false)
   br label %_ZN6common3cpu25set_linux_thread_priority17hae5d3d3d608103e1E.exit
 
@@ -419,24 +419,24 @@ define void @_ZN6common3cpu26linux_high_thread_priority17h76c90b4c2bf18929E(ptr 
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h3a042ce2749ebe66E"(ptr nonnull sret({ i32, [5 x i32] }) align 8 %4, ptr nonnull align 8 %3), !noalias !10
   %6 = load i32, ptr %4, align 8, !range !9, !noalias !10, !noundef !4
   %7 = icmp eq i32 %6, 5
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = load i8, ptr %8, align 4, !noalias !10
   br i1 %7, label %10, label %12
 
 10:                                               ; preds = %1
   store i8 %9, ptr %5, align 8, !noalias !10
-  %11 = getelementptr inbounds i8, ptr %5, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 1000000001, ptr %11, align 8, !noalias !10
   call void @_ZN15thread_priority4unix27set_current_thread_priority17h314f853b5a63c480E(ptr nonnull sret({ i32, [5 x i32] }) align 8 %2, ptr nonnull align 8 %5), !noalias !10
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf3fb010157cee8d6E"(ptr sret({ i32, [5 x i32] }) align 8 %0, ptr nonnull align 8 %2)
   br label %_ZN6common3cpu25set_linux_thread_priority17hae5d3d3d608103e1E.exit
 
 12:                                               ; preds = %1
-  %.sroa.311.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 5
+  %.sroa.311.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i32 %6, ptr %0, align 8, !alias.scope !10
-  %.sroa.213.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.213.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %9, ptr %.sroa.213.0..sroa_idx.i, align 4, !alias.scope !10
-  %.sroa.314.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 5
+  %.sroa.314.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %.sroa.314.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(19) %.sroa.311.0..sroa_idx.i, i64 19, i1 false)
   br label %_ZN6common3cpu25set_linux_thread_priority17hae5d3d3d608103e1E.exit
 
@@ -463,16 +463,16 @@ define zeroext i1 @"_ZN71_$LT$common..cpu..ThreadPriorityError$u20$as$u20$core..
 10:                                               ; preds = %2
   store ptr %0, ptr %8, align 8
   store ptr %8, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3926bd7f0c49eda5E", ptr %11, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h5bbb60e36a2abd7bE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %7, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.9, i64 1, ptr nonnull align 8 %6, i64 1)
   br label %15
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %13, ptr %3, align 8
   store ptr %3, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hecbbcb173259e2f6E", ptr %14, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h5bbb60e36a2abd7bE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %5, ptr nonnull align 8 @anon.cc052e27bd61535bd7e25b5293e3cbed.11, i64 1, ptr nonnull align 8 %4, i64 1)
   br label %15
@@ -491,9 +491,9 @@ define hidden void @_ZN6common3cpu19ThreadPriorityError17SetThreadPriority17h727
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN6common3cpu19ThreadPriorityError9ParseNice17hedf8771cbcfdc0aaE(ptr nocapture writeonly sret({ i32, [5 x i32] }) align 8 initializes((0, 4), (8, 24)) %0, ptr align 1 %1, i64 %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
   store i32 4, ptr %0, align 8
   ret void

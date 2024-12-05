@@ -41,18 +41,18 @@ define hidden i8 @_ZN22cranelift_codegen_meta4cdsl8settings7Setting12default_byt
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8, !range !5, !noundef !4
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %14, label %19
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8, !noundef !4
   br label %19
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %16 = load i8, ptr %15, align 1, !noundef !4
   %17 = and i8 %16, 7
   %18 = shl nuw i8 1, %17
@@ -81,12 +81,12 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings6Preset6layout17h24
   %5 = alloca { ptr, ptr, {} }, align 8
   %6 = alloca { i64, { { i8, i8 } }, [6 x i8] }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 89
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 89
   %9 = load i8, ptr %8, align 1, !noundef !4
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 9
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store i8 0, ptr %12, align 1
   store i64 %10, ptr %6, align 8
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hfb9a6f00d743ff20E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %7, ptr nonnull align 8 %6)
@@ -112,12 +112,12 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings6Preset6layout17h24
   %16 = extractvalue { ptr, ptr } %13, 0
   %17 = extractvalue { ptr, ptr } %13, 1
   store ptr %16, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %23
 
 23:                                               ; preds = %52, %15
@@ -148,13 +148,13 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings6Preset6layout17h24
 
 37:                                               ; preds = %32
   store ptr @anon.1a7ccdd092acc2f28badb7d7120aa20f.1, ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @anon.1a7ccdd092acc2f28badb7d7120aa20f.2, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %41, align 8
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %4, ptr nonnull align 8 @anon.1a7ccdd092acc2f28badb7d7120aa20f.6) #14
           to label %.noexc unwind label %.loopexit.split-lp
@@ -170,11 +170,11 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings6Preset6layout17h24
   unreachable
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %34, i64 9
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 9
   %46 = load i8, ptr %45, align 1, !noundef !4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   %47 = load i64, ptr %21, align 8, !noundef !4
-  %48 = getelementptr inbounds i8, ptr %34, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %49 = load i8, ptr %48, align 8, !noundef !4
   %50 = zext i8 %49 to i64
   %.not16 = icmp ugt i64 %47, %50
@@ -188,11 +188,11 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings6Preset6layout17h24
   %53 = and i8 %46, 7
   %54 = shl nuw i8 1, %53
   %55 = load ptr, ptr %22, align 8, !nonnull !4
-  %56 = getelementptr inbounds { i8, i8 }, ptr %55, i64 %50
+  %56 = getelementptr inbounds nuw { i8, i8 }, ptr %55, i64 %50
   %57 = load i8, ptr %56, align 1, !noundef !4
   %58 = or i8 %57, %54
   store i8 %58, ptr %56, align 1
-  %59 = getelementptr inbounds i8, ptr %56, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %60 = load i8, ptr %59, align 1, !noundef !4
   %61 = or i8 %60, %54
   store i8 %61, ptr %59, align 1
@@ -210,17 +210,17 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings6Preset6layout17h24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings6Preset13setting_names17he6f8605736ca8ff1E(ptr nocapture writeonly sret({ { ptr, ptr, {} }, ptr }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !4
   %8 = getelementptr inbounds i64, ptr %5, i64 %7
   store ptr %5, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %11, align 8
   ret void
 }
@@ -234,10 +234,10 @@ define i8 @_ZN22cranelift_codegen_meta4cdsl8settings12SettingGroup9byte_size17h1
   %4 = getelementptr inbounds { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %.val, i64 %.val1
   %5 = tail call i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9187a197a07df215E"(ptr nonnull %.val, ptr nonnull %4, i64 0)
   %6 = trunc i64 %5 to i8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = trunc i64 %8 to i8
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8, !noundef !4
   %12 = add i8 %6, 7
   %13 = add i8 %12, %9
@@ -248,7 +248,7 @@ define i8 @_ZN22cranelift_codegen_meta4cdsl8settings12SettingGroup9byte_size17h1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN157_$LT$cranelift_codegen_meta..cdsl..settings..PredicateNode$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$GT$4from17he838188bb9eaf2beE"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 initializes((0, 16)) %0, i64 %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   store i64 0, ptr %0, align 8
   ret void
@@ -256,29 +256,29 @@ define void @"_ZN157_$LT$cranelift_codegen_meta..cdsl..settings..PredicateNode$u
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN224_$LT$cranelift_codegen_meta..cdsl..settings..PredicateNode$u20$as$u20$core..convert..From$LT$$LP$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$C$$RF$cranelift_codegen_meta..cdsl..settings..SettingGroup$RP$$GT$$GT$4from17h1919f8d11f3cd613E"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 %0, i64 %1, ptr nocapture readonly align 8 %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp ult i64 %1, %5
   br i1 %6, label %7, label %22, !prof !6
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %2, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !7, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %2, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }], ptr %9, i64 0, i64 %1, i32 1
   %15 = load ptr, ptr %14, align 8, !nonnull !4, !align !7, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !4
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %13, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %17, ptr %21, align 8
   store i64 1, ptr %0, align 8
   ret void
@@ -302,7 +302,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl8settings13Predicat
   %13 = alloca [2 x { ptr, ptr }], align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %15 = load i64, ptr %1, align 8, !range !8, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   switch i64 %15, label %default.unreachable21 [
     i64 0, label %17
     i64 1, label %22
@@ -314,21 +314,21 @@ default.unreachable21:                            ; preds = %3
 
 17:                                               ; preds = %3
   %18 = load i64, ptr %16, align 8, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !4
   %21 = icmp ult i64 %18, %20
   br i1 %21, label %31, label %39, !prof !6
 
 22:                                               ; preds = %3
   store ptr %16, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %23, ptr %11, align 8
   store ptr %12, ptr %9, align 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17ha9f60f45091aedd4E", ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %11, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17ha9f60f45091aedd4E", ptr %26, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %10, ptr nonnull align 8 @anon.1a7ccdd092acc2f28badb7d7120aa20f.14, i64 3, ptr nonnull align 8 %9, i64 2)
   call void @_ZN5alloc3fmt6format17h8d9274f217220247E(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nonnull align 8 %10)
@@ -337,22 +337,22 @@ default.unreachable21:                            ; preds = %3
 27:                                               ; preds = %3
   %28 = load ptr, ptr %16, align 8, !nonnull !4, !align !9, !noundef !4
   call fastcc void @_ZN22cranelift_codegen_meta4cdsl8settings13PredicateNode6render17h1c2185707e734cc7E(ptr noalias nonnull align 8 %5, ptr nonnull align 8 %28, ptr align 8 %2)
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !align !9, !noundef !4
   invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl8settings13PredicateNode6render17h1c2185707e734cc7E(ptr noalias nonnull align 8 %4, ptr nonnull align 8 %30, ptr align 8 %2)
           to label %44 unwind label %42
 
 31:                                               ; preds = %17
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
-  %34 = getelementptr inbounds i8, ptr %2, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %35 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }], ptr %33, i64 0, i64 %18, i32 1
   store ptr %34, ptr %13, align 8
-  %36 = getelementptr inbounds i8, ptr %13, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hb00593a18ac4215eE", ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %13, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %35, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %13, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hb00593a18ac4215eE", ptr %38, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %14, ptr nonnull align 8 @anon.1a7ccdd092acc2f28badb7d7120aa20f.14, i64 3, ptr nonnull align 8 %13, i64 2)
   call void @_ZN5alloc3fmt6format17h8d9274f217220247E(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nonnull align 8 %14)
@@ -377,11 +377,11 @@ default.unreachable21:                            ; preds = %3
 
 44:                                               ; preds = %27
   store ptr %5, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h22e89fe6e0e94365E", ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %4, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h22e89fe6e0e94365E", ptr %47, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %7, ptr nonnull align 8 @anon.1a7ccdd092acc2f28badb7d7120aa20f.17, i64 2, ptr nonnull align 8 %6, i64 2)
           to label %50 unwind label %48
@@ -443,22 +443,22 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings9Predicate6render17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder3new17h4fd1b494d6e9fc27E(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 } }) align 8 initializes((0, 88)) %0, ptr align 1 %1, i64 %2) unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %2, ptr %5, align 8
   store i64 0, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.33.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.25.0..sroa_idx, align 8
-  %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %.sroa.36.0..sroa_idx, align 8
   ret void
 }
@@ -467,7 +467,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
 define hidden noundef i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder8add_bool17h362ff60a00e7a47dE(ptr align 8 %0, ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4, ptr align 1 %5, i64 %6, i1 zeroext %7) unnamed_addr #2 {
   %9 = alloca { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %10 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %25
@@ -475,37 +475,37 @@ define hidden noundef i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGro
 14:                                               ; preds = %8
   %15 = zext i1 %7 to i8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
-  %16 = getelementptr inbounds i8, ptr %9, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i64 %4, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %5, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %6, ptr %21, align 8
   store i64 -9223372036854775808, ptr %9, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %15, ptr %.sroa.2.0..sroa_idx, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049ba3643e4057c9E"(ptr nonnull align 8 %0, ptr nonnull align 8 %9)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8, !noundef !4
   %24 = add i64 %23, -1
   ret i64 %24
 
 25:                                               ; preds = %8
   store ptr @anon.1a7ccdd092acc2f28badb7d7120aa20f.19, ptr %10, align 8
-  %26 = getelementptr inbounds i8, ptr %10, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %10, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %10, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @anon.1a7ccdd092acc2f28badb7d7120aa20f.2, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %29, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %10, ptr nonnull align 8 @anon.1a7ccdd092acc2f28badb7d7120aa20f.20) #14
   unreachable
@@ -516,17 +516,17 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
   %9 = alloca { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i64 %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %5, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %6, ptr %15, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049ba3643e4057c9E"(ptr align 8 %0, ptr nonnull align 8 %9)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
@@ -537,20 +537,20 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
 define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder7add_num17h87704957558fd37bE(ptr align 8 %0, ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4, ptr align 1 %5, i64 %6, i8 %7) unnamed_addr #2 {
   %9 = alloca { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i64 %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %5, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i64 %6, ptr %15, align 8
   store i64 -9223372036854775806, ptr %9, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 %7, ptr %.sroa.2.0..sroa_idx, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049ba3643e4057c9E"(ptr align 8 %0, ptr nonnull align 8 %9)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
@@ -560,10 +560,10 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuilder13add_predicate17h77b1b42724a7bc91E(ptr align 8 %0, ptr align 1 %1, i64 %2, ptr nocapture readonly align 8 %3) unnamed_addr #2 {
   %5 = alloca { { i64, [4 x i64] }, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %2, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5752699b8945fb1bE"(ptr nonnull align 8 %6, ptr nonnull align 8 %5)
@@ -577,9 +577,9 @@ define hidden noundef i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGro
   %9 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %12, align 8
   invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf4903aad32be0171E"(ptr nonnull sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %9, ptr align 8 %5)
           to label %13 unwind label %.thread26
@@ -591,8 +591,8 @@ define hidden noundef i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGro
 
 13:                                               ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %13
@@ -627,15 +627,15 @@ define hidden noundef i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGro
           to label %22 unwind label %.thread26
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %24 = getelementptr inbounds i8, ptr %7, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %2, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %3, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %4, ptr %27, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ad6a34f879a8696E"(ptr nonnull align 8 %23, ptr nonnull align 8 %7)
   %28 = load i64, ptr %14, align 8, !noundef !4
@@ -657,9 +657,9 @@ define hidden noundef i64 @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGro
 34:                                               ; preds = %31
   %35 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
   %36 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { ptr, i64 }, { ptr, i64 } }], ptr %35, i64 0, i64 %20
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds i8, ptr %36, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %40 = load i64, ptr %39, align 8, !noundef !4
   %41 = getelementptr inbounds i64, ptr %38, i64 %40
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hba7cc49ca275aa67E"(ptr nonnull align 8 %10, ptr nonnull %38, ptr nonnull %41)
@@ -704,32 +704,32 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
   %14 = alloca { { i64, ptr, {} }, i64 }, align 8
   %15 = alloca { ptr, ptr, {} }, align 8
   %16 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !align !7, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load i64, ptr %19, align 8, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %16, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store ptr %18, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 80
   store i64 %20, ptr %22, align 8
   store i64 0, ptr %16, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
-  %23 = getelementptr inbounds i8, ptr %16, i64 88
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store i8 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %16, i64 89
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 89
   store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %16, i64 24
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 40
-  %26 = getelementptr inbounds i8, ptr %16, i64 48
-  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 56
+  %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.33.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.25.0..sroa_idx, align 8
-  %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 64
+  %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 64
   store i64 0, ptr %.sroa.36.0..sroa_idx, align 8
   %27 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf59946925adf2bbcE"(ptr nonnull align 8 %1)
           to label %28 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -770,19 +770,19 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
   %29 = extractvalue { ptr, ptr } %27, 0
   %30 = extractvalue { ptr, ptr } %27, 1
   store ptr %29, ptr %15, align 8
-  %31 = getelementptr inbounds i8, ptr %15, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %30, ptr %31, align 8
-  %.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 9
-  %32 = getelementptr inbounds i8, ptr %13, i64 24
-  %33 = getelementptr inbounds i8, ptr %13, i64 32
-  %34 = getelementptr inbounds i8, ptr %13, i64 40
-  %35 = getelementptr inbounds i8, ptr %13, i64 48
-  %36 = getelementptr inbounds i8, ptr %13, i64 56
-  %37 = getelementptr inbounds i8, ptr %13, i64 64
-  %.sroa.313.0..sroa_idx14 = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.4.0..sroa_idx16 = getelementptr inbounds i8, ptr %13, i64 9
-  %38 = getelementptr inbounds i8, ptr %13, i64 72
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 9
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %.sroa.313.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.4.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %13, i64 9
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 72
   br label %.outer
 
 .outer:                                           ; preds = %141, %28
@@ -818,18 +818,18 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
   %51 = extractvalue { ptr, ptr } %44, 0
   %52 = extractvalue { ptr, ptr } %44, 1
   store ptr %51, ptr %11, align 8
-  %53 = getelementptr inbounds i8, ptr %11, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %10, i64 24
-  %55 = getelementptr inbounds i8, ptr %10, i64 32
-  %56 = getelementptr inbounds i8, ptr %10, i64 40
-  %57 = getelementptr inbounds i8, ptr %10, i64 48
-  %58 = getelementptr inbounds i8, ptr %10, i64 56
-  %59 = getelementptr inbounds i8, ptr %10, i64 64
-  %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
-  %.sroa.220.sroa.2.0..sroa.220.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %10, i64 9
-  %.sroa.220.sroa.3.0..sroa.220.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %10, i64 10
-  %60 = getelementptr inbounds i8, ptr %10, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.220.sroa.2.0..sroa.220.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 9
+  %.sroa.220.sroa.3.0..sroa.220.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 10
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 72
   br label %.backedge.outer
 
 .backedge.outer:                                  ; preds = %121, %50
@@ -863,13 +863,13 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
 
 72:                                               ; preds = %64
   store ptr @anon.1a7ccdd092acc2f28badb7d7120aa20f.23, ptr %9, align 8
-  %73 = getelementptr inbounds i8, ptr %9, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 1, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %9, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr null, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %9, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr @anon.1a7ccdd092acc2f28badb7d7120aa20f.2, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %9, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %76, align 8
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %9, ptr nonnull align 8 @anon.1a7ccdd092acc2f28badb7d7120aa20f.24) #14
           to label %101 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -884,11 +884,11 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
   %84 = lshr i8 %83, 3
   %85 = add i8 %84, %81
   store i8 %85, ptr %24, align 1
-  %86 = getelementptr inbounds i8, ptr %1, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %86, i64 24, i1 false)
-  %87 = getelementptr inbounds i8, ptr %8, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %88 = load ptr, ptr %87, align 8, !nonnull !4, !noundef !4
-  %89 = getelementptr inbounds i8, ptr %8, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %90 = load i64, ptr %89, align 8, !noundef !4
   invoke void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key17hbc12cc42a6bbafe4E"(ptr nonnull align 8 %88, i64 %90)
           to label %91 unwind label %98
@@ -906,13 +906,13 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
 
 92:                                               ; preds = %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %93 = getelementptr inbounds i8, ptr %7, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %12, ptr %93, align 8
   invoke void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17h028b5731a7db97b2E"(ptr nonnull align 8 %26, ptr nonnull align 8 %7)
           to label %94 unwind label %.thread
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %1, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false)
   invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha1ad6c68021360edE"(ptr nonnull sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %3, ptr nonnull align 8 %4)
           to label %96 unwind label %.thread
@@ -945,19 +945,19 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
   unreachable
 
 103:                                              ; preds = %67
-  %104 = getelementptr inbounds i8, ptr %61, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %105 = load i8, ptr %104, align 8, !range !5, !noundef !4
-  %106 = getelementptr inbounds i8, ptr %61, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %107 = load ptr, ptr %106, align 8, !nonnull !4, !align !7, !noundef !4
-  %108 = getelementptr inbounds i8, ptr %61, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %109 = load i64, ptr %108, align 8, !noundef !4
-  %110 = getelementptr inbounds i8, ptr %61, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %111 = load ptr, ptr %110, align 8, !nonnull !4, !align !7, !noundef !4
-  %112 = getelementptr inbounds i8, ptr %61, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %113 = load i64, ptr %112, align 8, !noundef !4
-  %114 = getelementptr inbounds i8, ptr %61, i64 56
+  %114 = getelementptr inbounds nuw i8, ptr %61, i64 56
   %115 = load ptr, ptr %114, align 8, !nonnull !4, !align !7, !noundef !4
-  %116 = getelementptr inbounds i8, ptr %61, i64 64
+  %116 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %117 = load i64, ptr %116, align 8, !noundef !4
   %118 = lshr i8 %.ph, 3
   %119 = add i8 %118, %.037.ph
@@ -986,7 +986,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
           to label %127 unwind label %.loopexit.split-lp.loopexit.loopexit.split-lp
 
 124:                                              ; preds = %45
-  %125 = getelementptr inbounds i8, ptr %40, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %126 = load i8, ptr %125, align 8, !noundef !4
   br label %128
 
@@ -999,17 +999,17 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
 128:                                              ; preds = %127, %124
   %.sroa.011.0 = phi i64 [ -9223372036854775806, %124 ], [ %.sroa.011.0.copyload, %127 ]
   %.sroa.313.0 = phi i8 [ %126, %124 ], [ %.sroa.313.0.copyload, %127 ]
-  %129 = getelementptr inbounds i8, ptr %40, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %130 = load ptr, ptr %129, align 8, !nonnull !4, !align !7, !noundef !4
-  %131 = getelementptr inbounds i8, ptr %40, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %132 = load i64, ptr %131, align 8, !noundef !4
-  %133 = getelementptr inbounds i8, ptr %40, i64 40
+  %133 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %134 = load ptr, ptr %133, align 8, !nonnull !4, !align !7, !noundef !4
-  %135 = getelementptr inbounds i8, ptr %40, i64 48
+  %135 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %136 = load i64, ptr %135, align 8, !noundef !4
-  %137 = getelementptr inbounds i8, ptr %40, i64 56
+  %137 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %138 = load ptr, ptr %137, align 8, !nonnull !4, !align !7, !noundef !4
-  %139 = getelementptr inbounds i8, ptr %40, i64 64
+  %139 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %140 = load i64, ptr %139, align 8, !noundef !4
   store ptr %130, ptr %32, align 8
   store i64 %132, ptr %33, align 8
@@ -1039,7 +1039,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
   br i1 %.0, label %149, label %148
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds i8, ptr %1, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..Preset$GT$$GT$17h9af55e70165b0811E"(ptr nonnull align 8 %147) #13
           to label %145 unwind label %99
 
@@ -1047,7 +1047,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
   resume { ptr, i32 } %.pn
 
 149:                                              ; preds = %145
-  %150 = getelementptr inbounds i8, ptr %1, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 48
   invoke void @"_ZN4core3ptr98drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..settings..ProtoPredicate$GT$$GT$17h26b2c9be6ec054faE"(ptr nonnull align 8 %150) #13
           to label %148 unwind label %99
 }
@@ -1062,37 +1062,37 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$cranelift_codegen_meta..cdsl..setti
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..settings..Setting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h565db3e9fc086b9dE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !7, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !7, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !4
   %11 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1353dd432280b8bcE"(ptr nonnull align 1 %4, i64 %6, ptr nonnull align 1 %8, i64 %10)
   br i1 %11, label %12, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !7, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !align !7, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %1, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %20 = load i64, ptr %19, align 8, !noundef !4
   %21 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1353dd432280b8bcE"(ptr nonnull align 1 %14, i64 %16, ptr nonnull align 1 %18, i64 %20)
   br i1 %21, label %22, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8, !nonnull !4, !align !7, !noundef !4
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load i64, ptr %25, align 8, !noundef !4
-  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !align !7, !noundef !4
-  %29 = getelementptr inbounds i8, ptr %1, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %30 = load i64, ptr %29, align 8, !noundef !4
   %31 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1353dd432280b8bcE"(ptr nonnull align 1 %24, i64 %26, ptr nonnull align 1 %28, i64 %30)
   br i1 %31, label %32, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
@@ -1120,9 +1120,9 @@ define hidden noundef zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..setti
   unreachable
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i8, ptr %45, align 8, !range !5, !noundef !4
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load i8, ptr %47, align 8, !range !5, !noundef !4
   %.not.i = icmp eq i8 %46, %48
   br i1 %.not.i, label %57, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
@@ -1132,33 +1132,33 @@ define hidden noundef zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..setti
   br i1 %50, label %68, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
 51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i8, ptr %52, align 8, !noundef !4
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load i8, ptr %54, align 8, !noundef !4
   %56 = icmp eq i8 %53, %55
   br i1 %56, label %68, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
 57:                                               ; preds = %44
-  %58 = getelementptr inbounds i8, ptr %0, i64 9
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %59 = load i8, ptr %58, align 1, !noundef !4
-  %60 = getelementptr inbounds i8, ptr %1, i64 9
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %61 = load i8, ptr %60, align 1, !noundef !4
   %62 = icmp eq i8 %59, %61
   br i1 %62, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit", label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
 "_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit": ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %0, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %64 = load i8, ptr %63, align 2, !noundef !4
-  %65 = getelementptr inbounds i8, ptr %1, i64 10
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %66 = load i8, ptr %65, align 2, !noundef !4
   %67 = icmp eq i8 %64, %66
   br i1 %67, label %68, label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
 
 68:                                               ; preds = %49, %51, %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit"
-  %69 = getelementptr inbounds i8, ptr %0, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %70 = load i8, ptr %69, align 8, !noundef !4
-  %71 = getelementptr inbounds i8, ptr %1, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %72 = load i8, ptr %71, align 8, !noundef !4
   %73 = icmp eq i8 %70, %72
   br label %"_ZN96_$LT$cranelift_codegen_meta..cdsl..settings..SpecificSetting$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5b5759de40bb1e40E.exit.thread"
@@ -1170,25 +1170,25 @@ define hidden noundef zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..setti
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN87_$LT$cranelift_codegen_meta..cdsl..settings..Preset$u20$as$u20$core..cmp..PartialEq$GT$2eq17h60515980bcd3f672E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !7, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !align !7, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !4
   %11 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1353dd432280b8bcE"(ptr nonnull align 1 %4, i64 %6, ptr nonnull align 1 %8, i64 %10)
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !align !7, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !align !7, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %1, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %20 = load i64, ptr %19, align 8, !noundef !4
   %21 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1353dd432280b8bcE"(ptr nonnull align 1 %14, i64 %16, ptr nonnull align 1 %18, i64 %20)
   br i1 %21, label %22, label %24

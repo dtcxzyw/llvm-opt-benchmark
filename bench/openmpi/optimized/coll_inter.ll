@@ -16,7 +16,7 @@ define noundef i32 @mca_coll_inter_init_query(i1 noundef zeroext %0, i1 noundef 
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @mca_coll_inter_comm_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -39,9 +39,9 @@ define noundef ptr @mca_coll_inter_comm_query(ptr nocapture noundef readonly %0,
   br i1 %.not.i, label %ompi_comm_remote_size.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp slt i32 %18, 1
   br label %ompi_comm_remote_size.exit
@@ -70,9 +70,9 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %14
 
 29:                                               ; preds = %28
   store ptr @mca_coll_inter_module_t_class, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store volatile i32 1, ptr %30, align 8
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_inter_module_t_class, i64 40), align 8
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_inter_module_t_class, i64 40), align 8
   %32 = load ptr, ptr %31, align 8
   %.not6.i.i = icmp eq ptr %32, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread29, label %.lr.ph.i.i
@@ -81,41 +81,41 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %14
   %33 = phi ptr [ %35, %.lr.ph.i.i ], [ %32, %29 ]
   %.07.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %31, %29 ]
   tail call void %33(ptr noundef nonnull %24) #7
-  %34 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread29, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_new.exit.thread29:                       ; preds = %.lr.ph.i.i, %29
-  %36 = getelementptr inbounds i8, ptr %24, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr @mca_coll_inter_module_enable, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %24, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr @mca_coll_inter_allgather_inter, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %24, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr @mca_coll_inter_allgatherv_inter, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %24, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr @mca_coll_inter_allreduce_inter, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %24, i64 48
-  %41 = getelementptr inbounds i8, ptr %24, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 0, i64 32, i1 false)
   store ptr @mca_coll_inter_bcast_inter, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %24, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 88
   store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %24, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 96
   store ptr @mca_coll_inter_gather_inter, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %24, i64 104
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 104
   store ptr @mca_coll_inter_gatherv_inter, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %24, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 112
   store ptr @mca_coll_inter_reduce_inter, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %24, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %24, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 136
   store ptr null, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %24, i64 144
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 144
   store ptr @mca_coll_inter_scatter_inter, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %24, i64 152
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 152
   store ptr @mca_coll_inter_scatterv_inter, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %24, i64 576
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 576
   store ptr @mca_coll_base_reduce_local, ptr %50, align 8
   br label %opal_obj_new.exit.thread
 
@@ -126,7 +126,7 @@ opal_obj_new.exit.thread:                         ; preds = %28, %ompi_comm_remo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @mca_coll_inter_module_enable(ptr nocapture noundef writeonly initializes((592, 600)) %0, ptr noundef %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 592
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr %1, ptr %3, align 8
   ret i32 0
 }

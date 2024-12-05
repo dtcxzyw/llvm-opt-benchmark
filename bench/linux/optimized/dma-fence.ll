@@ -312,7 +312,7 @@ define dso_local noundef i32 @__traceiter_dma_fence_emit(ptr nocapture readnone 
 .preheader:                                       ; preds = %2, %.preheader
   %5 = phi ptr [ %9, %.preheader ], [ %3, %2 ]
   %6 = load volatile ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %6(ptr noundef %8, ptr noundef %1) #14
   %9 = getelementptr i8, ptr %5, i64 24
@@ -347,7 +347,7 @@ define dso_local noundef i32 @__traceiter_dma_fence_init(ptr nocapture readnone 
 .preheader:                                       ; preds = %2, %.preheader
   %5 = phi ptr [ %9, %.preheader ], [ %3, %2 ]
   %6 = load volatile ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %6(ptr noundef %8, ptr noundef %1) #14
   %9 = getelementptr i8, ptr %5, i64 24
@@ -376,7 +376,7 @@ define dso_local noundef i32 @__traceiter_dma_fence_destroy(ptr nocapture readno
 .preheader:                                       ; preds = %2, %.preheader
   %5 = phi ptr [ %9, %.preheader ], [ %3, %2 ]
   %6 = load volatile ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %6(ptr noundef %8, ptr noundef %1) #14
   %9 = getelementptr i8, ptr %5, i64 24
@@ -405,7 +405,7 @@ define dso_local noundef i32 @__traceiter_dma_fence_enable_signal(ptr nocapture 
 .preheader:                                       ; preds = %2, %.preheader
   %5 = phi ptr [ %9, %.preheader ], [ %3, %2 ]
   %6 = load volatile ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %6(ptr noundef %8, ptr noundef %1) #14
   %9 = getelementptr i8, ptr %5, i64 24
@@ -434,7 +434,7 @@ define dso_local noundef i32 @__traceiter_dma_fence_signaled(ptr nocapture readn
 .preheader:                                       ; preds = %2, %.preheader
   %5 = phi ptr [ %9, %.preheader ], [ %3, %2 ]
   %6 = load volatile ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %6(ptr noundef %8, ptr noundef %1) #14
   %9 = getelementptr i8, ptr %5, i64 24
@@ -463,7 +463,7 @@ define dso_local noundef i32 @__traceiter_dma_fence_wait_start(ptr nocapture rea
 .preheader:                                       ; preds = %2, %.preheader
   %5 = phi ptr [ %9, %.preheader ], [ %3, %2 ]
   %6 = load volatile ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %6(ptr noundef %8, ptr noundef %1) #14
   %9 = getelementptr i8, ptr %5, i64 24
@@ -492,7 +492,7 @@ define dso_local noundef i32 @__traceiter_dma_fence_wait_end(ptr nocapture readn
 .preheader:                                       ; preds = %2, %.preheader
   %5 = phi ptr [ %9, %.preheader ], [ %3, %2 ]
   %6 = load volatile ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void %6(ptr noundef %8, ptr noundef %1) #14
   %9 = getelementptr i8, ptr %5, i64 24
@@ -513,7 +513,7 @@ define dso_local void @__probestub_dma_fence_wait_end(ptr nocapture readnone %0,
 define internal void @trace_event_raw_event_dma_fence(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 704
   %7 = icmp eq i64 %6, 0
@@ -530,9 +530,9 @@ define internal void @trace_event_raw_event_dma_fence(ptr noundef %0, ptr nounde
 
 13:                                               ; preds = %11, %8, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !17
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef %1) #14
   %19 = icmp eq ptr %18, null
@@ -540,7 +540,7 @@ define internal void @trace_event_raw_event_dma_fence(ptr noundef %0, ptr nounde
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef %1) #14
   br label %25
@@ -553,7 +553,7 @@ define internal void @trace_event_raw_event_dma_fence(ptr noundef %0, ptr nounde
   %30 = shl i32 %29, 16
   %31 = or disjoint i32 %30, 24
   %32 = load ptr, ptr %14, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef %1) #14
   %36 = icmp eq ptr %35, null
@@ -561,7 +561,7 @@ define internal void @trace_event_raw_event_dma_fence(ptr noundef %0, ptr nounde
 
 37:                                               ; preds = %25
   %38 = load ptr, ptr %14, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef %1) #14
   br label %42
@@ -582,13 +582,13 @@ define internal void @trace_event_raw_event_dma_fence(ptr noundef %0, ptr nounde
   %53 = shl i32 %46, 16
   %54 = add i32 %28, 25
   %55 = or i32 %53, %54
-  %56 = getelementptr inbounds i8, ptr %50, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 %31, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %50, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 %55, ptr %57, align 4
   %58 = getelementptr i8, ptr %50, i64 24
   %59 = load ptr, ptr %14, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr %61(ptr noundef %1) #14
   %63 = icmp eq ptr %62, null
@@ -596,7 +596,7 @@ define internal void @trace_event_raw_event_dma_fence(ptr noundef %0, ptr nounde
 
 64:                                               ; preds = %52
   %65 = load ptr, ptr %14, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = call ptr %67(ptr noundef %1) #14
   br label %69
@@ -609,7 +609,7 @@ define internal void @trace_event_raw_event_dma_fence(ptr noundef %0, ptr nounde
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr i8, ptr %50, i64 %74
   %76 = load ptr, ptr %14, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = call ptr %78(ptr noundef %1) #14
   %80 = icmp eq ptr %79, null
@@ -617,7 +617,7 @@ define internal void @trace_event_raw_event_dma_fence(ptr noundef %0, ptr nounde
 
 81:                                               ; preds = %69
   %82 = load ptr, ptr %14, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = call ptr %84(ptr noundef %1) #14
   br label %86
@@ -625,15 +625,15 @@ define internal void @trace_event_raw_event_dma_fence(ptr noundef %0, ptr nounde
 86:                                               ; preds = %81, %69
   %87 = phi ptr [ %85, %81 ], [ @.str.5, %69 ]
   %88 = call ptr @strcpy(ptr noundef %75, ptr noundef %87) #14
-  %89 = getelementptr inbounds i8, ptr %1, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %90 = load i64, ptr %89, align 8
   %91 = trunc i64 %90 to i32
-  %92 = getelementptr inbounds i8, ptr %50, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 %91, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %1, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %94 = load i64, ptr %93, align 8
   %95 = trunc i64 %94 to i32
-  %96 = getelementptr inbounds i8, ptr %50, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %50, i64 20
   store i32 %95, ptr %96, align 4
   call void @trace_event_buffer_commit(ptr noundef nonnull %3) #14
   br label %97
@@ -649,9 +649,9 @@ define internal void @perf_trace_dma_fence(ptr noundef %0, ptr noundef %1) #1 al
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef %1) #14
   %10 = icmp eq ptr %9, null
@@ -659,7 +659,7 @@ define internal void @perf_trace_dma_fence(ptr noundef %0, ptr noundef %1) #1 al
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef %1) #14
   br label %16
@@ -671,7 +671,7 @@ define internal void @perf_trace_dma_fence(ptr noundef %0, ptr noundef %1) #1 al
   %20 = shl i32 %19, 16
   %21 = add i32 %20, 65560
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef %1) #14
   %26 = icmp eq ptr %25, null
@@ -679,7 +679,7 @@ define internal void @perf_trace_dma_fence(ptr noundef %0, ptr noundef %1) #1 al
 
 27:                                               ; preds = %16
   %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef %1) #14
   br label %32
@@ -693,11 +693,11 @@ define internal void @perf_trace_dma_fence(ptr noundef %0, ptr noundef %1) #1 al
   %37 = add i32 %19, 25
   %38 = shl i32 %36, 16
   %39 = or i32 %38, %37
-  %40 = getelementptr inbounds i8, ptr %0, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr %41) #15, !srcloc !18
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %0, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %45 = load volatile ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %50
@@ -721,23 +721,23 @@ define internal void @perf_trace_dma_fence(ptr noundef %0, ptr noundef %1) #1 al
   %58 = load ptr, ptr %3, align 8
   %59 = call ptr @llvm.returnaddress(i32 0)
   %60 = ptrtoint ptr %59 to i64
-  %61 = getelementptr inbounds i8, ptr %58, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 128
   store i64 %60, ptr %61, align 8
   %62 = call ptr @llvm.frameaddress.p0(i32 0)
   %63 = ptrtoint ptr %62 to i64
-  %64 = getelementptr inbounds i8, ptr %58, i64 152
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 152
   store i64 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %58, i64 136
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 136
   store i64 16, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %58, i64 144
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 144
   store i64 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %55, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 %21, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %55, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 12
   store i32 %39, ptr %68, align 4
   %69 = getelementptr i8, ptr %55, i64 24
   %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = call ptr %72(ptr noundef %1) #14
   %74 = icmp eq ptr %73, null
@@ -745,7 +745,7 @@ define internal void @perf_trace_dma_fence(ptr noundef %0, ptr noundef %1) #1 al
 
 75:                                               ; preds = %57
   %76 = load ptr, ptr %5, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = call ptr %78(ptr noundef %1) #14
   br label %80
@@ -758,7 +758,7 @@ define internal void @perf_trace_dma_fence(ptr noundef %0, ptr noundef %1) #1 al
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr i8, ptr %55, i64 %85
   %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = call ptr %89(ptr noundef %1) #14
   %91 = icmp eq ptr %90, null
@@ -766,7 +766,7 @@ define internal void @perf_trace_dma_fence(ptr noundef %0, ptr noundef %1) #1 al
 
 92:                                               ; preds = %80
   %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
   %96 = call ptr %95(ptr noundef %1) #14
   br label %97
@@ -774,15 +774,15 @@ define internal void @perf_trace_dma_fence(ptr noundef %0, ptr noundef %1) #1 al
 97:                                               ; preds = %92, %80
   %98 = phi ptr [ %96, %92 ], [ @.str.5, %80 ]
   %99 = call ptr @strcpy(ptr noundef %86, ptr noundef %98) #14
-  %100 = getelementptr inbounds i8, ptr %1, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %101 = load i64, ptr %100, align 8
   %102 = trunc i64 %101 to i32
-  %103 = getelementptr inbounds i8, ptr %55, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i32 %102, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %1, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %105 = load i64, ptr %104, align 8
   %106 = trunc i64 %105 to i32
-  %107 = getelementptr inbounds i8, ptr %55, i64 20
+  %107 = getelementptr inbounds nuw i8, ptr %55, i64 20
   store i32 %106, ptr %107, align 4
   %108 = load i32, ptr %4, align 4
   %109 = load ptr, ptr %3, align 8
@@ -809,13 +809,13 @@ define dso_local noundef ptr @dma_fence_get_stub() #1 align 16 {
   br i1 %2, label %3, label %26
 
 3:                                                ; preds = %0
-  store volatile i32 1, ptr getelementptr inbounds (i8, ptr @dma_fence_stub, i64 56), align 8
-  store ptr @dma_fence_stub_ops, ptr getelementptr inbounds (i8, ptr @dma_fence_stub, i64 8), align 8
-  store volatile ptr getelementptr inbounds (i8, ptr @dma_fence_stub, i64 16), ptr getelementptr inbounds (i8, ptr @dma_fence_stub, i64 16), align 8
-  store volatile ptr getelementptr inbounds (i8, ptr @dma_fence_stub, i64 16), ptr getelementptr inbounds (i8, ptr @dma_fence_stub, i64 24), align 8
+  store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @dma_fence_stub, i64 56), align 8
+  store ptr @dma_fence_stub_ops, ptr getelementptr inbounds nuw (i8, ptr @dma_fence_stub, i64 8), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @dma_fence_stub, i64 16), ptr getelementptr inbounds nuw (i8, ptr @dma_fence_stub, i64 16), align 8
+  store volatile ptr getelementptr inbounds nuw (i8, ptr @dma_fence_stub, i64 16), ptr getelementptr inbounds nuw (i8, ptr @dma_fence_stub, i64 24), align 8
   store ptr @dma_fence_stub_lock, ptr @dma_fence_stub, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @dma_fence_stub, i64 60), align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @dma_fence_stub, i64 32), i8 0, i64 24, i1 false)
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @dma_fence_stub, i64 60), align 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @dma_fence_stub, i64 32), i8 0, i64 24, i1 false)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_dma_fence_init, i64 8), i32 2) #14
           to label %dma_fence_init.exit [label %4], !srcloc !19
 
@@ -836,7 +836,7 @@ define dso_local noundef ptr @dma_fence_get_stub() #1 align 16 {
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @__SCT__tp_func_dma_fence_init(ptr noundef %15, ptr noundef nonnull @dma_fence_stub) #14
   br label %17
@@ -897,13 +897,13 @@ define dso_local void @dma_fence_init(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %9, label %18, label %10, !prof !16
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %18, label %14, !prof !16
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19, !prof !16
@@ -914,22 +914,22 @@ define dso_local void @dma_fence_init(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store volatile i32 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile ptr %22, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr %22, ptr %23, align 8
   store ptr %2, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %3, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %4, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 60
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 0, ptr %27, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_dma_fence_init, i64 8), i32 2) #14
           to label %48 [label %28], !srcloc !19
@@ -951,7 +951,7 @@ define dso_local void @dma_fence_init(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @__SCT__tp_func_dma_fence_init(ptr noundef %39, ptr noundef %0) #14
   br label %41
@@ -989,20 +989,20 @@ define dso_local noundef ptr @dma_fence_allocate_private_stub(i64 noundef %0) #1
   br i1 %4, label %37, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store volatile i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @dma_fence_stub_ops, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store volatile ptr %8, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store volatile ptr %8, ptr %9, align 8
   store ptr @dma_fence_stub_lock, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
-  %12 = getelementptr inbounds i8, ptr %3, i64 60
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 0, ptr %12, align 4
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_dma_fence_init, i64 8), i32 2) #14
           to label %dma_fence_init.exit [label %13], !srcloc !19
 
@@ -1023,7 +1023,7 @@ define dso_local noundef ptr @dma_fence_allocate_private_stub(i64 noundef %0) #1
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @__SCT__tp_func_dma_fence_init(ptr noundef %24, ptr noundef nonnull %3) #14
   br label %26
@@ -1043,7 +1043,7 @@ define dso_local noundef ptr @dma_fence_allocate_private_stub(i64 noundef %0) #1
   br label %dma_fence_init.exit
 
 dma_fence_init.exit:                              ; preds = %5, %13, %26, %30
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %11, i32 4, ptr elementtype(i8) %11) #14, !srcloc !27
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %11, i32 4, ptr nonnull elementtype(i8) %11) #14, !srcloc !27
   %33 = load ptr, ptr %3, align 8
   %34 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %33) #14
   %35 = tail call i32 @dma_fence_signal_timestamp_locked(ptr noundef nonnull %3, i64 noundef %0), !range !28
@@ -1094,26 +1094,26 @@ define dso_local i64 @dma_fence_context_alloc(i32 noundef %0) #1 align 16 {
 define dso_local noundef range(i32 -22, 1) i32 @dma_fence_signal_timestamp_locked(ptr noundef %0, i64 noundef %1) #1 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %4, i64 0, ptr elementtype(i64) %4) #14, !srcloc !38
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 0, ptr nonnull elementtype(i64) %4) #14, !srcloc !38
   %6 = icmp ult i8 %5, 2
   tail call void @llvm.assume(i1 %6)
   %7 = icmp eq i8 %5, 0
   br i1 %7, label %8, label %.loopexit, !prof !15
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %13, ptr %14, align 8
   store ptr %3, ptr %13, align 8
   store i64 %1, ptr %9, align 8
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %4, i32 2, ptr elementtype(i8) %4) #14, !srcloc !27
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, i32 2, ptr nonnull elementtype(i8) %4) #14, !srcloc !27
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_dma_fence_signaled, i64 8), i32 2) #14
           to label %35 [label %15], !srcloc !19
 
@@ -1134,7 +1134,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dma_fence_signal_timestamp_locke
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @__SCT__tp_func_dma_fence_signaled(ptr noundef %26, ptr noundef %0) #14
   br label %28
@@ -1162,9 +1162,9 @@ define dso_local noundef range(i32 -22, 1) i32 @dma_fence_signal_timestamp_locke
   %38 = phi ptr [ %39, %.preheader ], [ %36, %35 ]
   %39 = load ptr, ptr %38, align 8
   store volatile ptr %38, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store volatile ptr %38, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef %0, ptr noundef %38) #14
   %43 = icmp eq ptr %39, %3
@@ -1242,7 +1242,7 @@ define dso_local i64 @dma_fence_wait_timeout(ptr noundef %0, i1 noundef zeroext 
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @__SCT__tp_func_dma_fence_wait_start(ptr noundef %23, ptr noundef %0) #14
   br label %25
@@ -1262,9 +1262,9 @@ define dso_local i64 @dma_fence_wait_timeout(ptr noundef %0, i1 noundef zeroext 
   br label %32
 
 32:                                               ; preds = %29, %25, %12, %6
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %40, label %38
@@ -1299,7 +1299,7 @@ define dso_local i64 @dma_fence_wait_timeout(ptr noundef %0, i1 noundef zeroext 
   br i1 %52, label %57, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 @__SCT__tp_func_dma_fence_wait_end(ptr noundef %55, ptr noundef %0) #14
   br label %57
@@ -1342,7 +1342,7 @@ define dso_local i64 @dma_fence_default_wait(ptr noundef %0, i1 noundef zeroext 
   %6 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #14
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load volatile i64, ptr %9, align 8
   %11 = and i64 %10, 1
   %12 = icmp eq i64 %11, 0
@@ -1372,21 +1372,21 @@ define dso_local i64 @dma_fence_default_wait(ptr noundef %0, i1 noundef zeroext 
   br i1 %5, label %.thread5, label %._crit_edge15
 
 ._crit_edge15:                                    ; preds = %25, %20
-  %26 = getelementptr inbounds i8, ptr %4, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @dma_fence_default_wait_cb, ptr %26, align 8
   %27 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !55
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds i8, ptr %4, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %4, ptr %32, align 8
   store ptr %31, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %30, ptr %33, align 8
   store volatile ptr %4, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %28, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %35 = load volatile i64, ptr %9, align 8
   %36 = and i64 %35, 1
   %37 = icmp eq i64 %36, 0
@@ -1459,7 +1459,7 @@ define dso_local i64 @dma_fence_default_wait(ptr noundef %0, i1 noundef zeroext 
 
 74:                                               ; preds = %._crit_edge
   %75 = load ptr, ptr %33, align 8
-  %76 = getelementptr inbounds i8, ptr %72, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %75, ptr %76, align 8
   store volatile ptr %72, ptr %75, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
@@ -1502,7 +1502,7 @@ define dso_local void @dma_fence_release(ptr noundef %0) #1 align 16 {
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @__SCT__tp_func_dma_fence_destroy(ptr noundef %14, ptr noundef %2) #14
   br label %16
@@ -1538,11 +1538,11 @@ define dso_local void @dma_fence_release(ptr noundef %0) #1 align 16 {
   tail call void asm sideeffect "542: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 542b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 542) #14, !srcloc !61
   %33 = getelementptr i8, ptr %0, i64 -48
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef %2) #14
   %38 = load ptr, ptr %33, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef %2) #14
   %42 = getelementptr i8, ptr %0, i64 -24
@@ -1567,7 +1567,7 @@ define dso_local void @dma_fence_release(ptr noundef %0) #1 align 16 {
 52:                                               ; preds = %32, %27, %23
   %53 = getelementptr i8, ptr %0, i64 -48
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %59, label %58
@@ -1597,8 +1597,8 @@ define dso_local void @dma_fence_free(ptr noundef %0) #1 align 16 {
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @kvfree_call_rcu(ptr noundef %4, ptr noundef nonnull %0) #14
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @kvfree_call_rcu(ptr noundef nonnull %4, ptr noundef nonnull %0) #14
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -1610,8 +1610,8 @@ declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc zeroext i1 @__dma_fence_enable_signaling(ptr noundef %0) unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
-  %3 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %2, i64 2, ptr elementtype(i64) %2) #14, !srcloc !38
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %3 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 2, ptr nonnull elementtype(i64) %2) #14, !srcloc !38
   %4 = icmp ult i8 %3, 2
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ne i8 %3, 0
@@ -1623,9 +1623,9 @@ define internal fastcc zeroext i1 @__dma_fence_enable_signaling(ptr noundef %0) 
   br i1 %9, label %46, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %46, label %17
@@ -1651,7 +1651,7 @@ define internal fastcc zeroext i1 @__dma_fence_enable_signaling(ptr noundef %0) 
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @__SCT__tp_func_dma_fence_enable_signal(ptr noundef %29, ptr noundef %0) #14
   br label %31
@@ -1672,7 +1672,7 @@ define internal fastcc zeroext i1 @__dma_fence_enable_signaling(ptr noundef %0) 
 
 38:                                               ; preds = %35, %31, %18, %17
   %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 %41(ptr noundef %0) #14
   br i1 %42, label %46, label %43
@@ -1701,7 +1701,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dma_fence_add_callback(ptr nound
   br label %31
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load volatile i64, ptr %9, align 8
   %11 = and i64 %10, 1
   %12 = icmp eq i64 %11, 0
@@ -1709,7 +1709,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dma_fence_add_callback(ptr nound
 
 13:                                               ; preds = %8
   store volatile ptr %1, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store volatile ptr %1, ptr %14, align 8
   br label %31
 
@@ -1720,20 +1720,20 @@ define dso_local noundef range(i32 -22, 1) i32 @dma_fence_add_callback(ptr nound
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
   store ptr %1, ptr %22, align 8
   store ptr %21, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %23, ptr %24, align 8
   br label %27
 
 25:                                               ; preds = %15
   store volatile ptr %1, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %27
 
 27:                                               ; preds = %25, %19
@@ -1753,16 +1753,16 @@ define dso_local noundef range(i32 -22, 1) i32 @dma_fence_add_callback(ptr nound
 define dso_local i32 @dma_fence_get_status(ptr noundef %0) #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %2) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 1
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %23, label %14
@@ -1777,7 +1777,7 @@ define dso_local i32 @dma_fence_get_status(ptr noundef %0) #1 align 16 {
   br label %19
 
 19:                                               ; preds = %16, %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @llvm.umax.i32(i32 %21, i32 1)
   br label %23
@@ -1798,9 +1798,9 @@ define dso_local noundef zeroext i1 @dma_fence_remove_callback(ptr nocapture nou
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %10, align 8
   store volatile ptr %5, ptr %9, align 8
   store volatile ptr %1, ptr %1, align 8
@@ -1815,7 +1815,7 @@ define dso_local noundef zeroext i1 @dma_fence_remove_callback(ptr nocapture nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @dma_fence_default_wait_cb(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @wake_up_state(ptr noundef %4, i32 noundef 3) #14
   ret void
@@ -1848,16 +1848,16 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly %0, i32 no
   %15 = phi i64 [ %42, %41 ], [ 0, %12 ]
   %16 = getelementptr ptr, ptr %0, i64 %15
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load volatile i64, ptr %18, align 8
   %20 = and i64 %19, 1
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %41, label %28
@@ -1906,7 +1906,7 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly %0, i32 no
   br label %54
 
 52:                                               ; preds = %78
-  %53 = getelementptr inbounds i8, ptr %50, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 24
   br label %.backedge
 
 54:                                               ; preds = %78, %48
@@ -1914,7 +1914,7 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly %0, i32 no
   %56 = getelementptr ptr, ptr %0, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr %struct.default_wait_cb, ptr %46, i64 %55
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store ptr %50, ptr %59, align 8
   %60 = icmp eq ptr %57, null
   br i1 %60, label %61, label %62, !prof !16
@@ -1926,7 +1926,7 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly %0, i32 no
   br label %.thread
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %57, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %64 = load volatile i64, ptr %63, align 8
   %65 = and i64 %64, 1
   %66 = icmp eq i64 %65, 0
@@ -1934,7 +1934,7 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly %0, i32 no
 
 67:                                               ; preds = %62
   store volatile ptr %58, ptr %58, align 8
-  %68 = getelementptr inbounds i8, ptr %58, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store volatile ptr %58, ptr %68, align 8
   br label %.thread
 
@@ -1949,7 +1949,7 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly %0, i32 no
 
 73:                                               ; preds = %69
   store volatile ptr %58, ptr %58, align 8
-  %74 = getelementptr inbounds i8, ptr %58, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store volatile ptr %58, ptr %74, align 8
   %75 = load ptr, ptr %57, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %75, i64 noundef %71) #14
@@ -1961,14 +1961,14 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly %0, i32 no
   br label %.thread21
 
 78:                                               ; preds = %69
-  %79 = getelementptr inbounds i8, ptr %58, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store ptr @dma_fence_default_wait_cb, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %57, i64 16
-  %81 = getelementptr inbounds i8, ptr %57, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %82 = load ptr, ptr %81, align 8
   store ptr %58, ptr %81, align 8
   store ptr %80, ptr %58, align 8
-  %83 = getelementptr inbounds i8, ptr %58, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr %82, ptr %83, align 8
   store volatile ptr %58, ptr %82, align 8
   %84 = load ptr, ptr %57, align 8
@@ -1982,16 +1982,16 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly %0, i32 no
   br i1 %2, label %88, label %90
 
 88:                                               ; preds = %.backedge
-  %89 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53, i32 1, ptr elementtype(i32) %53) #14, !srcloc !78
+  %89 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, i32 1, ptr nonnull elementtype(i32) %53) #14, !srcloc !78
   br label %92
 
 90:                                               ; preds = %.backedge
-  %91 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53, i32 2, ptr elementtype(i32) %53) #14, !srcloc !79
+  %91 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, i32 2, ptr nonnull elementtype(i32) %53) #14, !srcloc !79
   br label %92
 
 92:                                               ; preds = %90, %88
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load volatile i64, ptr %94, align 8
   %96 = and i64 %95, 1
   %97 = icmp eq i64 %96, 0
@@ -2001,7 +2001,7 @@ define dso_local i64 @dma_fence_wait_any_timeout(ptr noundef readonly %0, i32 no
   %99 = sext i32 %109 to i64
   %100 = getelementptr ptr, ptr %0, i64 %99
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 48
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %103 = load volatile i64, ptr %102, align 8
   %104 = and i64 %103, 1
   %105 = icmp eq i64 %104, 0
@@ -2085,9 +2085,9 @@ select.unfold:                                    ; preds = %.critedge
   br i1 %135, label %140, label %136
 
 136:                                              ; preds = %.preheader25
-  %137 = getelementptr inbounds i8, ptr %131, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %134, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %138, ptr %139, align 8
   store volatile ptr %134, ptr %138, align 8
   store volatile ptr %131, ptr %131, align 8
@@ -2115,22 +2115,22 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_fence_set_deadline(ptr noundef %0, i64 noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %29, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load volatile i64, ptr %9, align 8
   %11 = and i64 %10, 1
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %29
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %27, label %17
@@ -2141,7 +2141,7 @@ define dso_local void @dma_fence_set_deadline(ptr noundef %0, i64 noundef %1) #1
 
 ._crit_edge:                                      ; preds = %17
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   %.pre2 = load ptr, ptr %.phi.trans.insert, align 8
   br label %27
 
@@ -2169,18 +2169,18 @@ define dso_local void @dma_fence_set_deadline(ptr noundef %0, i64 noundef %1) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_fence_describe(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %0) #14
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef %0) #14
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load volatile i64, ptr %14, align 8
   %16 = and i64 %15, 1
   %17 = icmp eq i64 %16, 0
@@ -2188,7 +2188,7 @@ define dso_local void @dma_fence_describe(ptr noundef %0, ptr noundef %1) #1 ali
 
 18:                                               ; preds = %2
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %33, label %23
@@ -2236,30 +2236,30 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_dma_fence(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef %2) #14
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %25
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8344
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 65535
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr i8, ptr %5, i64 %13
-  %15 = getelementptr inbounds i8, ptr %5, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 65535
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr i8, ptr %5, i64 %18
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %5, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %23 = load i32, ptr %22, align 4
   tail call void (ptr, ptr, ...) @trace_event_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef %14, ptr noundef %19, i32 noundef %21, i32 noundef %23) #14
-  %24 = tail call i32 @trace_handle_return(ptr noundef %9) #14
+  %24 = tail call i32 @trace_handle_return(ptr noundef nonnull %9) #14
   br label %25
 
 25:                                               ; preds = %8, %3

@@ -16,19 +16,19 @@ define range(i32 -2147483648, 1) i32 @lib_flushall_unlocked(ptr noundef %0) loca
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %3
 
 3:                                                ; preds = %.preheader, %3
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds [3 x %struct.file_struct], ptr %2, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [3 x %struct.file_struct], ptr %2, i64 0, i64 %indvars.iv
   %5 = tail call i64 @lib_fflush_unlocked(ptr noundef nonnull %4) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %6, label %3, !llvm.loop !6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 640
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %.01219 = load ptr, ptr %7, align 8
   %.not1620 = icmp eq ptr %.01219, null
   br i1 %.not1620, label %.loopexit, label %.lr.ph
@@ -36,7 +36,7 @@ define range(i32 -2147483648, 1) i32 @lib_flushall_unlocked(ptr noundef %0) loca
 .lr.ph:                                           ; preds = %6, %15
   %.01222 = phi ptr [ %.012, %15 ], [ %.01219, %6 ]
   %.121 = phi i32 [ %.2, %15 ], [ 0, %6 ]
-  %8 = getelementptr inbounds i8, ptr %.01222, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %.01222, i64 192
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 2
   %.not17 = icmp eq i16 %10, 0
@@ -69,19 +69,19 @@ define range(i32 -2147483648, 1) i32 @lib_flushall(ptr noundef %0) local_unnamed
 
 2:                                                ; preds = %1
   %3 = tail call i32 @nxmutex_lock(ptr noundef nonnull %0) #2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %5
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds [3 x %struct.file_struct], ptr %4, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [3 x %struct.file_struct], ptr %4, i64 0, i64 %indvars.iv
   %7 = tail call i64 @lib_fflush(ptr noundef nonnull %6) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %8, label %5, !llvm.loop !9
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 640
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %.01421 = load ptr, ptr %9, align 8
   %.not1822 = icmp eq ptr %.01421, null
   br i1 %.not1822, label %._crit_edge, label %.lr.ph
@@ -89,7 +89,7 @@ define range(i32 -2147483648, 1) i32 @lib_flushall(ptr noundef %0) local_unnamed
 .lr.ph:                                           ; preds = %8, %17
   %.01424 = phi ptr [ %.014, %17 ], [ %.01421, %8 ]
   %.123 = phi i32 [ %.2, %17 ], [ 0, %8 ]
-  %10 = getelementptr inbounds i8, ptr %.01424, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %.01424, i64 192
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 2
   %.not19 = icmp eq i16 %12, 0

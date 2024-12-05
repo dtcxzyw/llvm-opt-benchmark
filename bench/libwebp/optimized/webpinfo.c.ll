@@ -191,20 +191,20 @@ sub_0:                                            ; preds = %sub_0.preheader, %4
   %.044124 = phi i32 [ 0, %sub_0.preheader ], [ %.145, %49 ]
   %.046123 = phi i32 [ 0, %sub_0.preheader ], [ %.147, %49 ]
   %.048122 = phi i32 [ 0, %sub_0.preheader ], [ %.149, %49 ]
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr %13, align 1
   %.not132 = icmp eq i8 %14, 45
   br i1 %.not132, label %sub_1, label %.tail.thread.thread
 
 sub_1:                                            ; preds = %sub_0
-  %15 = getelementptr inbounds i8, ptr %13, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %16 = load i8, ptr %15, align 1
   %.not133 = icmp eq i8 %16, 104
   br i1 %.not133, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %17 = getelementptr inbounds i8, ptr %13, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %29, label %.thread
@@ -225,13 +225,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not54155, label %29, label %sub_1100
 
 sub_1100:                                         ; preds = %.tail.thread, %.thread
-  %23 = getelementptr inbounds i8, ptr %13, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %24 = load i8, ptr %23, align 1
   %.not135 = icmp eq i8 %24, 72
   br i1 %.not135, label %.tail98, label %.tail98.thread
 
 .tail98:                                          ; preds = %sub_1100
-  %25 = getelementptr inbounds i8, ptr %13, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %29, label %.tail98.thread
@@ -304,39 +304,39 @@ sub_1100:                                         ; preds = %.tail.thread, %.thr
   br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %52 = getelementptr inbounds i8, ptr %8, i64 108
-  %53 = getelementptr inbounds i8, ptr %8, i64 112
-  %54 = getelementptr inbounds i8, ptr %8, i64 116
-  %55 = getelementptr inbounds i8, ptr %8, i64 124
-  %56 = getelementptr inbounds i8, ptr %8, i64 120
-  %57 = getelementptr inbounds i8, ptr %8, i64 16
-  %58 = getelementptr inbounds i8, ptr %8, i64 24
-  %59 = getelementptr inbounds i8, ptr %8, i64 20
-  %60 = getelementptr inbounds i8, ptr %8, i64 32
-  %61 = getelementptr inbounds i8, ptr %8, i64 40
-  %62 = getelementptr inbounds i8, ptr %8, i64 96
-  %63 = getelementptr inbounds i8, ptr %8, i64 36
-  %64 = getelementptr inbounds i8, ptr %8, i64 4
-  %65 = getelementptr inbounds i8, ptr %8, i64 100
-  %66 = getelementptr inbounds i8, ptr %8, i64 104
-  %67 = getelementptr inbounds i8, ptr %8, i64 76
-  %68 = getelementptr inbounds i8, ptr %8, i64 80
-  %69 = getelementptr inbounds i8, ptr %8, i64 88
-  %70 = getelementptr inbounds i8, ptr %8, i64 64
-  %71 = getelementptr inbounds i8, ptr %8, i64 8
-  %72 = getelementptr inbounds i8, ptr %8, i64 60
-  %73 = getelementptr inbounds i8, ptr %8, i64 28
-  %74 = getelementptr inbounds i8, ptr %8, i64 72
-  %75 = getelementptr inbounds i8, ptr %8, i64 68
-  %76 = getelementptr inbounds i8, ptr %4, i64 4
-  %77 = getelementptr inbounds i8, ptr %4, i64 8
-  %78 = getelementptr inbounds i8, ptr %4, i64 12
-  %79 = getelementptr inbounds i8, ptr %4, i64 16
-  %80 = getelementptr inbounds i8, ptr %8, i64 52
-  %81 = getelementptr inbounds i8, ptr %8, i64 12
-  %82 = getelementptr inbounds i8, ptr %8, i64 56
-  %83 = getelementptr inbounds i8, ptr %8, i64 44
-  %84 = getelementptr inbounds i8, ptr %8, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 108
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 116
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 124
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 100
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 76
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 60
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 68
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 52
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %85 = zext i32 %.050119 to i64
   br label %86
 
@@ -351,7 +351,7 @@ sub_1100:                                         ; preds = %.tail.thread, %.thr
   store i32 %.046113, ptr %53, align 8
   store i32 %.044110, ptr %54, align 4
   store i32 %.042107, ptr %55, align 4
-  %87 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv151
+  %87 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv151
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %92, label %90
@@ -406,7 +406,7 @@ ReadFileToWebPData.exit.thread:                   ; preds = %90
   br i1 %.not.i.i, label %109, label %111
 
 109:                                              ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %96, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %bcmp26.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %110, ptr noundef nonnull dereferenceable(4) @.str.19, i64 4)
   %.not27.i.i = icmp eq i32 %bcmp26.i.i, 0
   br i1 %.not27.i.i, label %116, label %111
@@ -425,7 +425,7 @@ ReadFileToWebPData.exit.thread:                   ; preds = %90
   %117 = getelementptr i8, ptr %96, i64 4
   %.val.i.i.i = load i16, ptr %117, align 1
   %118 = zext i16 %.val.i.i.i to i32
-  %119 = getelementptr inbounds i8, ptr %96, i64 6
+  %119 = getelementptr inbounds nuw i8, ptr %96, i64 6
   %.val3.i.i.i = load i16, ptr %119, align 1
   %120 = zext i16 %.val3.i.i.i to i32
   %121 = shl nuw i32 %120, 16
@@ -569,7 +569,7 @@ ParseRIFFHeader.exit.i:                           ; preds = %153, %150
 
 .preheader.i.i:                                   ; preds = %182, %194
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %194 ], [ 0, %182 ]
-  %191 = getelementptr inbounds [9 x i32], ptr @kWebPChunkTags, i64 0, i64 %indvars.iv.i.i
+  %191 = getelementptr inbounds nuw [9 x i32], ptr @kWebPChunkTags, i64 0, i64 %indvars.iv.i.i
   %192 = load i32, ptr %191, align 4
   %193 = icmp eq i32 %192, %.val.i.i.i.i
   br i1 %193, label %.split.loop.exit48.i.i, label %194
@@ -643,7 +643,7 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
 
 220:                                              ; preds = %218
   %221 = zext i32 %.sroa.22.165.i to i64
-  %222 = getelementptr inbounds [9 x i32], ptr @kWebPChunkTags, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw [9 x i32], ptr @kWebPChunkTags, i64 0, i64 %221
   %223 = load i32, ptr %222, align 4
   %sext.i.i = shl i32 %223, 24
   %224 = ashr exact i32 %sext.i.i, 24
@@ -710,7 +710,7 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
 254:                                              ; preds = %252
   %255 = icmp ne i32 %.sroa.22.165.i, 0
   %256 = zext i1 %255 to i64
-  %257 = getelementptr inbounds [3 x i32], ptr %80, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw [3 x i32], ptr %80, i64 0, i64 %256
   %258 = load i32, ptr %257, align 4
   %259 = add nsw i32 %258, 1
   store i32 %259, ptr %257, align 4
@@ -892,7 +892,7 @@ ParseChunk.exit.i:                                ; preds = %.split.loop.exit48.
 
 345:                                              ; preds = %342, %326, %318
   %346 = zext nneg i32 %.sroa.22.165.i to i64
-  %347 = getelementptr inbounds [9 x i32], ptr %57, i64 0, i64 %346
+  %347 = getelementptr inbounds nuw [9 x i32], ptr %57, i64 0, i64 %346
   %348 = load i32, ptr %347, align 4
   %349 = add nsw i32 %348, 1
   store i32 %349, ptr %347, align 4
@@ -975,20 +975,20 @@ ProcessImageChunk.exit.i.i:                       ; preds = %365, %363, %323, %3
   %382 = load i8, ptr %196, align 1
   %383 = zext i8 %382 to i32
   store i32 %383, ptr %75, align 4
-  %384 = getelementptr inbounds i8, ptr %196, i64 4
+  %384 = getelementptr inbounds nuw i8, ptr %196, i64 4
   %.val.i.i.i.i.i = load i16, ptr %384, align 1
   %385 = zext i16 %.val.i.i.i.i.i to i32
-  %386 = getelementptr inbounds i8, ptr %196, i64 6
+  %386 = getelementptr inbounds nuw i8, ptr %196, i64 6
   %387 = load i8, ptr %386, align 1
   %388 = zext i8 %387 to i32
   %389 = shl nuw nsw i32 %388, 16
   %390 = or disjoint i32 %389, %385
-  %391 = getelementptr inbounds i8, ptr %196, i64 7
+  %391 = getelementptr inbounds nuw i8, ptr %196, i64 7
   %392 = add nuw nsw i32 %390, 1
   store i32 %392, ptr %8, align 8
   %.val.i.i43.i.i.i = load i16, ptr %391, align 1
   %393 = zext i16 %.val.i.i43.i.i.i to i32
-  %394 = getelementptr inbounds i8, ptr %196, i64 9
+  %394 = getelementptr inbounds nuw i8, ptr %196, i64 9
   %395 = load i8, ptr %394, align 1
   %396 = zext i8 %395 to i32
   %397 = shl nuw nsw i32 %396, 16
@@ -1216,7 +1216,7 @@ ProcessImageChunk.exit.i.i:                       ; preds = %365, %363, %323, %3
   %506 = and i32 %505, 3
   %507 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.112, i32 noundef %502)
   %508 = zext nneg i32 %504 to i64
-  %509 = getelementptr inbounds [4 x ptr], ptr @kAlphaFilterMethods, i64 0, i64 %508
+  %509 = getelementptr inbounds nuw [4 x ptr], ptr @kAlphaFilterMethods, i64 0, i64 %508
   %510 = load ptr, ptr %509, align 8
   %511 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.113, ptr noundef %510, i32 noundef %504)
   %512 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %506)
@@ -1263,7 +1263,7 @@ ProcessImageChunk.exit.i.i:                       ; preds = %365, %363, %323, %3
 
 531:                                              ; preds = %529
   %532 = add nsw i64 %175, -9
-  %533 = getelementptr inbounds i8, ptr %196, i64 1
+  %533 = getelementptr inbounds nuw i8, ptr %196, i64 1
   store i64 0, ptr %3, align 8
   %534 = call fastcc i32 @ParseLosslessTransform(ptr noundef nonnull %8, ptr noundef nonnull readonly %533, i64 noundef %532, ptr noundef %3)
   %.not31.i.i.i.i = icmp eq i32 %534, 0
@@ -1316,7 +1316,7 @@ ParseAlphaHeader.exit.i.i.i:                      ; preds = %531, %529
 
 550:                                              ; preds = %544
   %.val.i.i.i63.i.i = load i32, ptr %196, align 1
-  %551 = getelementptr inbounds i8, ptr %196, i64 4
+  %551 = getelementptr inbounds nuw i8, ptr %196, i64 4
   store i32 %.val.i.i.i63.i.i, ptr %70, align 8
   %.val.i.i.i29.i = load i16, ptr %551, align 1
   %552 = zext i16 %.val.i.i.i29.i to i32
@@ -1390,44 +1390,44 @@ ParseAlphaHeader.exit.i.i.i:                      ; preds = %531, %529
 587:                                              ; preds = %583
   %.val.i.i.i68.i.i = load i16, ptr %196, align 1
   %588 = zext i16 %.val.i.i.i68.i.i to i32
-  %589 = getelementptr inbounds i8, ptr %196, i64 2
+  %589 = getelementptr inbounds nuw i8, ptr %196, i64 2
   %590 = load i8, ptr %589, align 1
   %591 = zext i8 %590 to i32
   %592 = shl nuw nsw i32 %591, 16
   %593 = or disjoint i32 %592, %588
-  %594 = getelementptr inbounds i8, ptr %196, i64 3
+  %594 = getelementptr inbounds nuw i8, ptr %196, i64 3
   %595 = shl nuw nsw i32 %593, 1
   %.val.i.i50.i.i.i = load i16, ptr %594, align 1
   %596 = zext i16 %.val.i.i50.i.i.i to i32
-  %597 = getelementptr inbounds i8, ptr %196, i64 5
+  %597 = getelementptr inbounds nuw i8, ptr %196, i64 5
   %598 = load i8, ptr %597, align 1
   %599 = zext i8 %598 to i32
   %600 = shl nuw nsw i32 %599, 16
   %601 = or disjoint i32 %600, %596
-  %602 = getelementptr inbounds i8, ptr %196, i64 6
+  %602 = getelementptr inbounds nuw i8, ptr %196, i64 6
   %603 = shl nuw nsw i32 %601, 1
   %.val.i.i51.i.i.i = load i16, ptr %602, align 1
   %604 = zext i16 %.val.i.i51.i.i.i to i32
-  %605 = getelementptr inbounds i8, ptr %196, i64 8
+  %605 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %606 = load i8, ptr %605, align 1
   %607 = zext i8 %606 to i32
   %608 = shl nuw nsw i32 %607, 16
   %609 = or disjoint i32 %608, %604
-  %610 = getelementptr inbounds i8, ptr %196, i64 9
+  %610 = getelementptr inbounds nuw i8, ptr %196, i64 9
   %611 = add nuw nsw i32 %609, 1
   %.val.i.i52.i.i.i = load i16, ptr %610, align 1
   %612 = zext i16 %.val.i.i52.i.i.i to i32
-  %613 = getelementptr inbounds i8, ptr %196, i64 11
+  %613 = getelementptr inbounds nuw i8, ptr %196, i64 11
   %614 = load i8, ptr %613, align 1
   %615 = zext i8 %614 to i32
   %616 = shl nuw nsw i32 %615, 16
   %617 = or disjoint i32 %616, %612
-  %618 = getelementptr inbounds i8, ptr %196, i64 12
+  %618 = getelementptr inbounds nuw i8, ptr %196, i64 12
   %619 = add nuw nsw i32 %617, 1
   %.val.i.i53.i.i.i = load i16, ptr %618, align 1
-  %620 = getelementptr inbounds i8, ptr %196, i64 14
+  %620 = getelementptr inbounds nuw i8, ptr %196, i64 14
   %621 = load i8, ptr %620, align 1
-  %622 = getelementptr inbounds i8, ptr %196, i64 15
+  %622 = getelementptr inbounds nuw i8, ptr %196, i64 15
   %623 = load i8, ptr %622, align 1
   %624 = load i32, ptr %63, align 4
   %625 = add nsw i32 %624, 1
@@ -1530,7 +1530,7 @@ ParseAlphaHeader.exit.i.i.i:                      ; preds = %531, %529
 
 671:                                              ; preds = %232, %232
   %672 = zext nneg i32 %.sroa.22.165.i to i64
-  %673 = getelementptr inbounds [9 x i32], ptr %57, i64 0, i64 %672
+  %673 = getelementptr inbounds nuw [9 x i32], ptr %57, i64 0, i64 %672
   %674 = load i32, ptr %673, align 4
   %675 = add nsw i32 %674, 1
   store i32 %675, ptr %673, align 4
@@ -1608,7 +1608,7 @@ ProcessChunk.exit.i:                              ; preds = %687, %684, %Process
 
 698:                                              ; preds = %708, %694
   %indvars.iv.i32.i = phi i64 [ 0, %694 ], [ %indvars.iv.next.i33.i, %708 ]
-  %699 = getelementptr inbounds [9 x i32], ptr %57, i64 0, i64 %indvars.iv.i32.i
+  %699 = getelementptr inbounds nuw [9 x i32], ptr %57, i64 0, i64 %indvars.iv.i32.i
   %700 = load i32, ptr %699, align 4
   %701 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.139, i32 noundef %700)
   %702 = icmp eq i64 %indvars.iv.i32.i, 5
@@ -1850,7 +1850,7 @@ define internal fastcc range(i32 0, 5) i32 @ParseLossyHeader(i64 %.8.val, ptr no
   %7 = alloca i32, align 4
   %8 = load i8, ptr %.16.val, align 1
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %.16.val, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.16.val, i64 1
   %11 = load i16, ptr %10, align 1
   %12 = zext i16 %11 to i32
   %13 = shl nuw nsw i32 %12, 8
@@ -1865,7 +1865,7 @@ define internal fastcc range(i32 0, 5) i32 @ParseLossyHeader(i64 %.8.val, ptr no
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load i32, ptr %21, align 8
   %.not182 = icmp eq i32 %22, 0
   br i1 %.not182, label %267, label %.sink.split
@@ -1876,7 +1876,7 @@ define internal fastcc range(i32 0, 5) i32 @ParseLossyHeader(i64 %.8.val, ptr no
   br i1 %.not136, label %25, label %28
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %27 = load i32, ptr %26, align 8
   %.not137 = icmp eq i32 %27, 0
   br i1 %.not137, label %267, label %.sink.split
@@ -1887,65 +1887,65 @@ define internal fastcc range(i32 0, 5) i32 @ParseLossyHeader(i64 %.8.val, ptr no
   br i1 %.not, label %31, label %69
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.16.val, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %.16.val, i64 3
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, -99
   br i1 %34, label %35, label %43
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %.16.val, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.16.val, i64 4
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 1
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.16.val, i64 5
+  %40 = getelementptr inbounds nuw i8, ptr %.16.val, i64 5
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 42
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %31, %35, %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %45 = load i32, ptr %44, align 8
   %.not139 = icmp eq i32 %45, 0
   br i1 %.not139, label %267, label %.sink.split
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %.16.val, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.16.val, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = shl nuw nsw i32 %49, 8
-  %51 = getelementptr inbounds i8, ptr %.16.val, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %.16.val, i64 6
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %.masked = and i32 %50, 16128
   %54 = or disjoint i32 %.masked, %53
   %55 = lshr i32 %49, 6
-  %56 = getelementptr inbounds i8, ptr %.16.val, i64 9
+  %56 = getelementptr inbounds nuw i8, ptr %.16.val, i64 9
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 8
-  %60 = getelementptr inbounds i8, ptr %.16.val, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.16.val, i64 8
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %.masked140 = and i32 %59, 16128
   %63 = or disjoint i32 %.masked140, %62
   %64 = lshr i32 %58, 6
   %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, i32 noundef %54, i32 noundef %55, i32 noundef %63, i32 noundef %64)
-  %66 = getelementptr inbounds i8, ptr %.16.val, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %.16.val, i64 10
   %67 = add i64 %.8.val, -18
   %68 = zext nneg i32 %18 to i64
   %.not141 = icmp ugt i64 %67, %68
   br i1 %.not141, label %GetBits.exit187, label %72
 
 69:                                               ; preds = %28
-  %70 = getelementptr inbounds i8, ptr %0, i64 112
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %71 = load i32, ptr %70, align 8
   %.not138 = icmp eq i32 %71, 0
   br i1 %.not138, label %267, label %.sink.split
 
 72:                                               ; preds = %46
-  %73 = getelementptr inbounds i8, ptr %0, i64 112
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %74 = load i32, ptr %73, align 8
   %.not181 = icmp eq i32 %74, 0
   br i1 %.not181, label %267, label %.sink.split
@@ -1970,7 +1970,7 @@ GetBits.exit187:                                  ; preds = %46
   br i1 %.not147, label %84, label %267
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %66, i64 %68
+  %85 = getelementptr inbounds nuw i8, ptr %66, i64 %68
   %.promoted68 = load i64, ptr %2, align 8
   %86 = add i64 %.promoted68, 2
   br label %87
@@ -1986,7 +1986,7 @@ GetBits.exit187:                                  ; preds = %46
 90:                                               ; preds = %87
   %91 = add i64 %88, 1
   %92 = add nsw i64 %.in.i188, -1
-  %93 = getelementptr inbounds i8, ptr %66, i64 %89
+  %93 = getelementptr inbounds nuw i8, ptr %66, i64 %89
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = trunc i64 %88 to i32
@@ -2001,7 +2001,7 @@ GetBits.exit187:                                  ; preds = %46
   br i1 %.not.i191, label %GetBits.exit192, label %87, !llvm.loop !11
 
 104:                                              ; preds = %87
-  %105 = getelementptr inbounds i8, ptr %0, i64 112
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %106 = load i32, ptr %105, align 8
   %.not149 = icmp eq i32 %106, 0
   br i1 %.not149, label %267, label %.sink.split
@@ -2016,7 +2016,7 @@ GetBits.exit192:                                  ; preds = %90
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %GetBits.exit192
-  %114 = getelementptr inbounds i8, ptr %0, i64 112
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %115 = load i32, ptr %114, align 8
   %.not180 = icmp eq i32 %115, 0
   br i1 %.not180, label %267, label %.sink.split
@@ -2037,7 +2037,7 @@ GetBits.exit192:                                  ; preds = %90
   %.012871 = phi ptr [ %136, %133 ], [ %85, %.lr.ph.preheader ]
   %121 = load i16, ptr %.012871, align 1
   %122 = zext i16 %121 to i32
-  %123 = getelementptr inbounds i8, ptr %.012871, i64 2
+  %123 = getelementptr inbounds nuw i8, ptr %.012871, i64 2
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i32
   %126 = shl nuw nsw i32 %125, 16
@@ -2047,7 +2047,7 @@ GetBits.exit192:                                  ; preds = %90
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %.lr.ph
-  %131 = getelementptr inbounds i8, ptr %0, i64 112
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %132 = load i32, ptr %131, align 8
   %.not179 = icmp eq i32 %132, 0
   br i1 %.not179, label %267, label %.sink.split
@@ -2055,7 +2055,7 @@ GetBits.exit192:                                  ; preds = %90
 133:                                              ; preds = %.lr.ph
   %134 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, i32 noundef %.012772, i32 noundef %127)
   %135 = sub nuw i64 %.012673, %128
-  %136 = getelementptr inbounds i8, ptr %.012871, i64 3
+  %136 = getelementptr inbounds nuw i8, ptr %.012871, i64 3
   %137 = add nuw nsw i32 %.012772, 1
   %exitcond.not = icmp eq i32 %137, %107
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -2080,7 +2080,7 @@ GetBits.exit192:                                  ; preds = %90
 142:                                              ; preds = %139
   %143 = add i64 %140, 1
   %144 = add nsw i64 %.in.i193, -1
-  %145 = getelementptr inbounds i8, ptr %66, i64 %141
+  %145 = getelementptr inbounds nuw i8, ptr %66, i64 %141
   %146 = load i8, ptr %145, align 1
   %147 = zext i8 %146 to i32
   %148 = trunc i64 %140 to i32
@@ -2100,14 +2100,14 @@ GetBits.exit197.preheader:                        ; preds = %142
   br i1 %.not13.i199, label %GetBits.exit202, label %168
 
 157:                                              ; preds = %139
-  %158 = getelementptr inbounds i8, ptr %0, i64 112
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %159 = load i32, ptr %158, align 8
   %.not151 = icmp eq i32 %159, 0
   br i1 %.not151, label %267, label %.sink.split
 
 GetBits.exit202:                                  ; preds = %GetBits.exit197.preheader
   %160 = add i64 %.promoted68, 10
-  %161 = getelementptr inbounds i8, ptr %66, i64 %156
+  %161 = getelementptr inbounds nuw i8, ptr %66, i64 %156
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
   %164 = trunc i64 %138 to i32
@@ -2119,7 +2119,7 @@ GetBits.exit202:                                  ; preds = %GetBits.exit197.pre
   br i1 %.not131, label %176, label %171
 
 168:                                              ; preds = %GetBits.exit197.preheader
-  %169 = getelementptr inbounds i8, ptr %0, i64 112
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %170 = load i32, ptr %169, align 8
   %.not153 = icmp eq i32 %170, 0
   br i1 %.not153, label %267, label %.sink.split
@@ -2134,7 +2134,7 @@ GetBits.exit202:                                  ; preds = %GetBits.exit197.pre
   br label %176
 
 173:                                              ; preds = %171
-  %174 = getelementptr inbounds i8, ptr %0, i64 112
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %175 = load i32, ptr %174, align 8
   %.not156 = icmp eq i32 %175, 0
   br i1 %.not156, label %267, label %.sink.split
@@ -2147,7 +2147,7 @@ GetBits.exit202:                                  ; preds = %GetBits.exit197.pre
 
 GetBits.exit207:                                  ; preds = %176
   %178 = add i64 %.promoted80, 1
-  %179 = getelementptr inbounds i8, ptr %66, i64 %177
+  %179 = getelementptr inbounds nuw i8, ptr %66, i64 %177
   %180 = load i8, ptr %179, align 1
   %181 = zext i8 %180 to i32
   %182 = trunc i64 %.promoted80 to i32
@@ -2159,7 +2159,7 @@ GetBits.exit207:                                  ; preds = %176
   br i1 %.not132, label %194, label %189
 
 186:                                              ; preds = %176
-  %187 = getelementptr inbounds i8, ptr %0, i64 112
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %188 = load i32, ptr %187, align 8
   %.not158 = icmp eq i32 %188, 0
   br i1 %.not158, label %267, label %.sink.split
@@ -2174,7 +2174,7 @@ GetBits.exit207:                                  ; preds = %176
   br label %194
 
 191:                                              ; preds = %189
-  %192 = getelementptr inbounds i8, ptr %0, i64 112
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %193 = load i32, ptr %192, align 8
   %.not161 = icmp eq i32 %193, 0
   br i1 %.not161, label %267, label %.sink.split
@@ -2187,7 +2187,7 @@ GetBits.exit207:                                  ; preds = %176
 
 GetBits.exit212:                                  ; preds = %194
   %196 = add i64 %.promoted83, 1
-  %197 = getelementptr inbounds i8, ptr %66, i64 %195
+  %197 = getelementptr inbounds nuw i8, ptr %66, i64 %195
   %198 = load i8, ptr %197, align 1
   %199 = zext i8 %198 to i32
   %200 = trunc i64 %.promoted83 to i32
@@ -2199,7 +2199,7 @@ GetBits.exit212:                                  ; preds = %194
   br i1 %.not133, label %212, label %207
 
 204:                                              ; preds = %194
-  %205 = getelementptr inbounds i8, ptr %0, i64 112
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %206 = load i32, ptr %205, align 8
   %.not163 = icmp eq i32 %206, 0
   br i1 %.not163, label %267, label %.sink.split
@@ -2214,7 +2214,7 @@ GetBits.exit212:                                  ; preds = %194
   br label %212
 
 209:                                              ; preds = %207
-  %210 = getelementptr inbounds i8, ptr %0, i64 112
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %211 = load i32, ptr %210, align 8
   %.not166 = icmp eq i32 %211, 0
   br i1 %.not166, label %267, label %.sink.split
@@ -2227,7 +2227,7 @@ GetBits.exit212:                                  ; preds = %194
 
 GetBits.exit217:                                  ; preds = %212
   %214 = add i64 %.promoted86, 1
-  %215 = getelementptr inbounds i8, ptr %66, i64 %213
+  %215 = getelementptr inbounds nuw i8, ptr %66, i64 %213
   %216 = load i8, ptr %215, align 1
   %217 = zext i8 %216 to i32
   %218 = trunc i64 %.promoted86 to i32
@@ -2239,7 +2239,7 @@ GetBits.exit217:                                  ; preds = %212
   br i1 %.not134, label %230, label %225
 
 222:                                              ; preds = %212
-  %223 = getelementptr inbounds i8, ptr %0, i64 112
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %224 = load i32, ptr %223, align 8
   %.not168 = icmp eq i32 %224, 0
   br i1 %.not168, label %267, label %.sink.split
@@ -2254,7 +2254,7 @@ GetBits.exit217:                                  ; preds = %212
   br label %230
 
 227:                                              ; preds = %225
-  %228 = getelementptr inbounds i8, ptr %0, i64 112
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %229 = load i32, ptr %228, align 8
   %.not171 = icmp eq i32 %229, 0
   br i1 %.not171, label %267, label %.sink.split
@@ -2267,7 +2267,7 @@ GetBits.exit217:                                  ; preds = %212
 
 GetBits.exit222:                                  ; preds = %230
   %232 = add i64 %.promoted89, 1
-  %233 = getelementptr inbounds i8, ptr %66, i64 %231
+  %233 = getelementptr inbounds nuw i8, ptr %66, i64 %231
   %234 = load i8, ptr %233, align 1
   %235 = zext i8 %234 to i32
   %236 = trunc i64 %.promoted89 to i32
@@ -2279,7 +2279,7 @@ GetBits.exit222:                                  ; preds = %230
   br i1 %.not135, label %248, label %243
 
 240:                                              ; preds = %230
-  %241 = getelementptr inbounds i8, ptr %0, i64 112
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %242 = load i32, ptr %241, align 8
   %.not173 = icmp eq i32 %242, 0
   br i1 %.not173, label %267, label %.sink.split
@@ -2295,7 +2295,7 @@ GetBits.exit222:                                  ; preds = %230
   br label %248
 
 245:                                              ; preds = %243
-  %246 = getelementptr inbounds i8, ptr %0, i64 112
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %247 = load i32, ptr %246, align 8
   %.not176 = icmp eq i32 %247, 0
   br i1 %.not176, label %267, label %.sink.split
@@ -2318,7 +2318,7 @@ GetBits.exit222:                                  ; preds = %230
   br i1 %.not177, label %267, label %262
 
 262:                                              ; preds = %248
-  %263 = getelementptr inbounds i8, ptr %0, i64 112
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %264 = load i32, ptr %263, align 8
   %.not178 = icmp eq i32 %264, 0
   br i1 %.not178, label %267, label %.sink.split
@@ -2344,7 +2344,7 @@ define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader(i64 %.8.val, ptr
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i32, ptr %6, align 8
   %.not42 = icmp eq i32 %7, 0
   br i1 %.not42, label %103, label %8
@@ -2360,7 +2360,7 @@ define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader(i64 %.8.val, ptr
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load i32, ptr %14, align 8
   %.not41 = icmp eq i32 %15, 0
   br i1 %.not41, label %103, label %16
@@ -2371,7 +2371,7 @@ define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader(i64 %.8.val, ptr
   br label %103
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %.16.val, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.16.val, i64 1
   %21 = add i64 %.8.val, -9
   br label %22
 
@@ -2385,7 +2385,7 @@ define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader(i64 %.8.val, ptr
 
 25:                                               ; preds = %22
   %26 = add i64 %23, 1
-  %27 = getelementptr inbounds i8, ptr %20, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 %24
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = trunc i64 %23 to i32
@@ -2399,7 +2399,7 @@ define internal fastcc range(i32 0, 5) i32 @ParseLosslessHeader(i64 %.8.val, ptr
   br i1 %exitcond.not, label %LLGetBits.exit, label %22, !llvm.loop !13
 
 37:                                               ; preds = %22
-  %38 = getelementptr inbounds i8, ptr %0, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %39 = load i32, ptr %38, align 8
   %.not33 = icmp eq i32 %39, 0
   br i1 %.not33, label %103, label %40
@@ -2419,7 +2419,7 @@ LLGetBits.exit:                                   ; preds = %25, %45
 
 45:                                               ; preds = %LLGetBits.exit
   %46 = add i64 %43, 1
-  %47 = getelementptr inbounds i8, ptr %20, i64 %44
+  %47 = getelementptr inbounds nuw i8, ptr %20, i64 %44
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = trunc i64 %43 to i32
@@ -2433,7 +2433,7 @@ LLGetBits.exit:                                   ; preds = %25, %45
   br i1 %exitcond51.not, label %LLGetBits.exit46, label %LLGetBits.exit, !llvm.loop !13
 
 57:                                               ; preds = %LLGetBits.exit
-  %58 = getelementptr inbounds i8, ptr %0, i64 112
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %59 = load i32, ptr %58, align 8
   %.not35 = icmp eq i32 %59, 0
   br i1 %.not35, label %103, label %60
@@ -2448,7 +2448,7 @@ LLGetBits.exit46:                                 ; preds = %45
   br i1 %.not.i48, label %69, label %63
 
 63:                                               ; preds = %LLGetBits.exit46
-  %64 = getelementptr inbounds i8, ptr %0, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %65 = load i32, ptr %64, align 8
   %.not37 = icmp eq i32 %65, 0
   br i1 %.not37, label %103, label %66
@@ -2459,7 +2459,7 @@ LLGetBits.exit46:                                 ; preds = %45
   br label %103
 
 69:                                               ; preds = %LLGetBits.exit46
-  %70 = getelementptr inbounds i8, ptr %.16.val, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.16.val, i64 4
   %71 = load i8, ptr %70, align 1
   %72 = lshr i8 %71, 4
   %73 = and i8 %72, 1
@@ -2476,7 +2476,7 @@ LLGetBits.exit46:                                 ; preds = %45
 
 78:                                               ; preds = %75
   %79 = add i64 %76, 1
-  %80 = getelementptr inbounds i8, ptr %20, i64 %77
+  %80 = getelementptr inbounds nuw i8, ptr %20, i64 %77
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = trunc i64 %76 to i32
@@ -2490,7 +2490,7 @@ LLGetBits.exit46:                                 ; preds = %45
   br i1 %exitcond52.not, label %LLGetBits.exit54, label %75, !llvm.loop !13
 
 90:                                               ; preds = %75
-  %91 = getelementptr inbounds i8, ptr %0, i64 112
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %92 = load i32, ptr %91, align 8
   %.not39 = icmp eq i32 %92, 0
   br i1 %.not39, label %103, label %93
@@ -2531,7 +2531,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseLossySegmentHeader(ptr nocaptur
   br i1 %.not13.i, label %GetBits.exit, label %20
 
 GetBits.exit:                                     ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = trunc i64 %.promoted to i32
@@ -2544,7 +2544,7 @@ GetBits.exit:                                     ; preds = %4
   br i1 %17, label %.preheader186, label %249
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load i32, ptr %21, align 8
   %.not51 = icmp eq i32 %22, 0
   br i1 %.not51, label %249, label %23
@@ -2563,7 +2563,7 @@ GetBits.exit:                                     ; preds = %4
   br i1 %.not13.i77, label %GetBits.exit80.preheader, label %38
 
 GetBits.exit80.preheader:                         ; preds = %.preheader186
-  %28 = getelementptr inbounds i8, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = trunc i64 %.promoted203 to i32
@@ -2578,7 +2578,7 @@ GetBits.exit80.preheader:                         ; preds = %.preheader186
   br i1 %.not13.i82, label %GetBits.exit85, label %55
 
 38:                                               ; preds = %.preheader186
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %40 = load i32, ptr %39, align 8
   %.not54 = icmp eq i32 %40, 0
   br i1 %.not54, label %249, label %41
@@ -2590,7 +2590,7 @@ GetBits.exit80.preheader:                         ; preds = %.preheader186
 
 GetBits.exit85:                                   ; preds = %GetBits.exit80.preheader
   %44 = zext i1 %35 to i32
-  %45 = getelementptr inbounds i8, ptr %1, i64 %37
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 %37
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = trunc i64 %26 to i32
@@ -2603,7 +2603,7 @@ GetBits.exit85:                                   ; preds = %GetBits.exit80.preh
   br i1 %52, label %61, label %199
 
 55:                                               ; preds = %GetBits.exit80.preheader
-  %56 = getelementptr inbounds i8, ptr %0, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %57 = load i32, ptr %56, align 8
   %.not56 = icmp eq i32 %57, 0
   br i1 %.not56, label %249, label %58
@@ -2624,7 +2624,7 @@ GetBits.exit85:                                   ; preds = %GetBits.exit80.preh
   br i1 %.not13.i87, label %GetBits.exit90, label %74
 
 GetBits.exit90:                                   ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %1, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = trunc i64 %.promoted205 to i32
@@ -2638,7 +2638,7 @@ GetBits.exit90:                                   ; preds = %61
   br label %.preheader184
 
 74:                                               ; preds = %61
-  %75 = getelementptr inbounds i8, ptr %0, i64 112
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %76 = load i32, ptr %75, align 8
   %.not59 = icmp eq i32 %76, 0
   br i1 %.not59, label %249, label %77
@@ -2658,7 +2658,7 @@ GetBits.exit90:                                   ; preds = %61
   br i1 %.not13.i92, label %GetBits.exit95, label %89
 
 GetBits.exit95:                                   ; preds = %.preheader184
-  %82 = getelementptr inbounds i8, ptr %1, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   %85 = trunc i64 %.promoted207209213 to i32
@@ -2669,7 +2669,7 @@ GetBits.exit95:                                   ; preds = %.preheader184
   br i1 %.not, label %GetSignedBits.exit, label %95
 
 89:                                               ; preds = %.preheader184
-  %90 = getelementptr inbounds i8, ptr %0, i64 112
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %91 = load i32, ptr %90, align 8
   %.not72 = icmp eq i32 %91, 0
   br i1 %.not72, label %249, label %92
@@ -2680,7 +2680,7 @@ GetBits.exit95:                                   ; preds = %.preheader184
   br label %249
 
 95:                                               ; preds = %GetBits.exit95
-  %96 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv
   store i32 0, ptr %96, align 4
   br label %97
 
@@ -2696,7 +2696,7 @@ GetBits.exit95:                                   ; preds = %.preheader184
 
 102:                                              ; preds = %97
   %103 = add nsw i64 %.in.i.i, -1
-  %104 = getelementptr inbounds i8, ptr %1, i64 %101
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 %101
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
   %107 = trunc i64 %99 to i32
@@ -2719,7 +2719,7 @@ GetBits.exit.preheader.i:                         ; preds = %102
   br i1 %.not13.i13.i, label %GetBits.exit16.i, label %.loopexit183
 
 GetBits.exit16.i:                                 ; preds = %GetBits.exit.preheader.i
-  %117 = getelementptr inbounds i8, ptr %1, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   %120 = trunc i64 %100 to i32
@@ -2735,7 +2735,7 @@ GetBits.exit16.i:                                 ; preds = %GetBits.exit.prehea
   br label %GetSignedBits.exit
 
 .loopexit183:                                     ; preds = %GetBits.exit.preheader.i, %97
-  %126 = getelementptr inbounds i8, ptr %0, i64 112
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %127 = load i32, ptr %126, align 8
   %.not75 = icmp eq i32 %127, 0
   br i1 %.not75, label %249, label %128
@@ -2761,7 +2761,7 @@ GetSignedBits.exit:                               ; preds = %124, %GetBits.exit1
   br i1 %.not13.i99, label %GetBits.exit102, label %140
 
 GetBits.exit102:                                  ; preds = %.preheader180
-  %133 = getelementptr inbounds i8, ptr %1, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 %132
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
   %136 = trunc i64 %.promoted216218222 to i32
@@ -2772,7 +2772,7 @@ GetBits.exit102:                                  ; preds = %.preheader180
   br i1 %.not264, label %GetSignedBits.exit112, label %146
 
 140:                                              ; preds = %.preheader180
-  %141 = getelementptr inbounds i8, ptr %0, i64 112
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %142 = load i32, ptr %141, align 8
   %.not67 = icmp eq i32 %142, 0
   br i1 %.not67, label %249, label %143
@@ -2783,7 +2783,7 @@ GetBits.exit102:                                  ; preds = %.preheader180
   br label %249
 
 146:                                              ; preds = %GetBits.exit102
-  %147 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %indvars.iv256
+  %147 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv256
   store i32 0, ptr %147, align 4
   br label %148
 
@@ -2799,7 +2799,7 @@ GetBits.exit102:                                  ; preds = %.preheader180
 
 153:                                              ; preds = %148
   %154 = add nsw i64 %.in.i.i103, -1
-  %155 = getelementptr inbounds i8, ptr %1, i64 %152
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 %152
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i32
   %158 = trunc i64 %150 to i32
@@ -2822,7 +2822,7 @@ GetBits.exit.preheader.i107:                      ; preds = %153
   br i1 %.not13.i13.i109, label %GetBits.exit16.i110, label %.loopexit
 
 GetBits.exit16.i110:                              ; preds = %GetBits.exit.preheader.i107
-  %168 = getelementptr inbounds i8, ptr %1, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 %167
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i32
   %171 = trunc i64 %151 to i32
@@ -2838,7 +2838,7 @@ GetBits.exit16.i110:                              ; preds = %GetBits.exit.prehea
   br label %GetSignedBits.exit112
 
 .loopexit:                                        ; preds = %GetBits.exit.preheader.i107, %148
-  %177 = getelementptr inbounds i8, ptr %0, i64 112
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %178 = load i32, ptr %177, align 8
   %.not70 = icmp eq i32 %178, 0
   br i1 %.not70, label %249, label %179
@@ -2856,19 +2856,19 @@ GetSignedBits.exit112:                            ; preds = %175, %GetBits.exit1
 
 182:                                              ; preds = %GetSignedBits.exit112
   %183 = load i32, ptr %5, align 16
-  %184 = getelementptr inbounds i8, ptr %5, i64 4
+  %184 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %185 = load i32, ptr %184, align 4
-  %186 = getelementptr inbounds i8, ptr %5, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %187 = load i32, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %5, i64 12
+  %188 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %189 = load i32, ptr %188, align 4
   %190 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, i32 noundef %183, i32 noundef %185, i32 noundef %187, i32 noundef %189)
   %191 = load i32, ptr %6, align 16
-  %192 = getelementptr inbounds i8, ptr %6, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %193 = load i32, ptr %192, align 4
-  %194 = getelementptr inbounds i8, ptr %6, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %195 = load i32, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %6, i64 12
+  %196 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %197 = load i32, ptr %196, align 4
   %198 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.75, i32 noundef %191, i32 noundef %193, i32 noundef %195, i32 noundef %197)
   br label %199
@@ -2891,7 +2891,7 @@ GetSignedBits.exit112:                            ; preds = %175, %GetBits.exit1
   br i1 %.not13.i114, label %GetBits.exit117, label %210
 
 GetBits.exit117:                                  ; preds = %.preheader
-  %203 = getelementptr inbounds i8, ptr %1, i64 %202
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 %202
   %204 = load i8, ptr %203, align 1
   %205 = zext i8 %204 to i32
   %206 = trunc i64 %.promoted225227233 to i32
@@ -2902,7 +2902,7 @@ GetBits.exit117:                                  ; preds = %.preheader
   br i1 %.not265, label %GetBits.exit122, label %216
 
 210:                                              ; preds = %.preheader
-  %211 = getelementptr inbounds i8, ptr %0, i64 112
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %212 = load i32, ptr %211, align 8
   %.not62 = icmp eq i32 %212, 0
   br i1 %.not62, label %249, label %213
@@ -2913,7 +2913,7 @@ GetBits.exit117:                                  ; preds = %.preheader
   br label %249
 
 216:                                              ; preds = %GetBits.exit117
-  %217 = getelementptr inbounds [3 x i32], ptr %7, i64 0, i64 %indvars.iv260
+  %217 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %indvars.iv260
   store i32 0, ptr %217, align 4
   br label %218
 
@@ -2929,7 +2929,7 @@ GetBits.exit117:                                  ; preds = %.preheader
 
 223:                                              ; preds = %218
   %224 = add nsw i64 %.in.i118, -1
-  %225 = getelementptr inbounds i8, ptr %1, i64 %222
+  %225 = getelementptr inbounds nuw i8, ptr %1, i64 %222
   %226 = load i8, ptr %225, align 1
   %227 = zext i8 %226 to i32
   %228 = trunc i64 %220 to i32
@@ -2945,7 +2945,7 @@ GetBits.exit117:                                  ; preds = %.preheader
   br i1 %.not.i121, label %GetBits.exit122, label %218, !llvm.loop !11
 
 236:                                              ; preds = %218
-  %237 = getelementptr inbounds i8, ptr %0, i64 112
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %238 = load i32, ptr %237, align 8
   %.not65 = icmp eq i32 %238, 0
   br i1 %.not65, label %249, label %239
@@ -2963,9 +2963,9 @@ GetBits.exit122:                                  ; preds = %223, %GetBits.exit1
 
 242:                                              ; preds = %GetBits.exit122
   %243 = load i32, ptr %7, align 4
-  %244 = getelementptr inbounds i8, ptr %7, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %245 = load i32, ptr %244, align 4
-  %246 = getelementptr inbounds i8, ptr %7, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %247 = load i32, ptr %246, align 4
   %248 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, i32 noundef %243, i32 noundef %245, i32 noundef %247)
   br label %249
@@ -2985,7 +2985,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseLossyFilterHeader(ptr nocapture
   br i1 %.not13.i, label %GetBits.exit.preheader, label %16
 
 GetBits.exit.preheader:                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = trunc i64 %.promoted to i32
@@ -2997,7 +2997,7 @@ GetBits.exit.preheader:                           ; preds = %4
   br label %GetBits.exit
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load i32, ptr %17, align 8
   %.not31 = icmp eq i32 %18, 0
   br i1 %.not31, label %.loopexit, label %.loopexit.sink.split
@@ -3014,7 +3014,7 @@ GetBits.exit:                                     ; preds = %GetBits.exit.prehea
 
 22:                                               ; preds = %GetBits.exit
   %23 = add nsw i64 %.in.i47, -1
-  %24 = getelementptr inbounds i8, ptr %1, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %21
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = trunc i64 %19 to i32
@@ -3029,7 +3029,7 @@ GetBits.exit:                                     ; preds = %GetBits.exit.prehea
   br i1 %.not.i50, label %GetBits.exit51, label %GetBits.exit, !llvm.loop !11
 
 35:                                               ; preds = %GetBits.exit
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %37 = load i32, ptr %36, align 8
   %.not33 = icmp eq i32 %37, 0
   br i1 %.not33, label %.loopexit, label %.loopexit.sink.split
@@ -3046,7 +3046,7 @@ GetBits.exit51:                                   ; preds = %22, %41
 
 41:                                               ; preds = %GetBits.exit51
   %42 = add nsw i64 %.in.i52, -1
-  %43 = getelementptr inbounds i8, ptr %1, i64 %40
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %40
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = trunc i64 %38 to i32
@@ -3068,13 +3068,13 @@ GetBits.exit56.preheader:                         ; preds = %41
   br i1 %.not13.i58, label %GetBits.exit61, label %72
 
 56:                                               ; preds = %GetBits.exit51
-  %57 = getelementptr inbounds i8, ptr %0, i64 112
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %58 = load i32, ptr %57, align 8
   %.not35 = icmp eq i32 %58, 0
   br i1 %.not35, label %.loopexit, label %.loopexit.sink.split
 
 GetBits.exit61:                                   ; preds = %GetBits.exit56.preheader
-  %59 = getelementptr inbounds i8, ptr %1, i64 %55
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %55
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = trunc i64 %39 to i32
@@ -3090,7 +3090,7 @@ GetBits.exit61:                                   ; preds = %GetBits.exit56.preh
   br i1 %66, label %.preheader124, label %.loopexit
 
 72:                                               ; preds = %GetBits.exit56.preheader
-  %73 = getelementptr inbounds i8, ptr %0, i64 112
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %74 = load i32, ptr %73, align 8
   %.not37 = icmp eq i32 %74, 0
   br i1 %.not37, label %.loopexit, label %.loopexit.sink.split
@@ -3104,7 +3104,7 @@ GetBits.exit61:                                   ; preds = %GetBits.exit56.preh
   br i1 %.not13.i63, label %GetBits.exit66, label %87
 
 GetBits.exit66:                                   ; preds = %.preheader124
-  %77 = getelementptr inbounds i8, ptr %1, i64 %76
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = trunc i64 %.promoted133 to i32
@@ -3117,7 +3117,7 @@ GetBits.exit66:                                   ; preds = %.preheader124
   br i1 %84, label %.preheader123, label %.loopexit
 
 87:                                               ; preds = %.preheader124
-  %88 = getelementptr inbounds i8, ptr %0, i64 112
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %89 = load i32, ptr %88, align 8
   %.not40 = icmp eq i32 %89, 0
   br i1 %.not40, label %.loopexit, label %.loopexit.sink.split
@@ -3136,7 +3136,7 @@ GetBits.exit66:                                   ; preds = %.preheader124
   br i1 %.not13.i68, label %GetBits.exit71, label %99
 
 GetBits.exit71:                                   ; preds = %.preheader122
-  %92 = getelementptr inbounds i8, ptr %1, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
   %95 = trunc i64 %.promoted135137143 to i32
@@ -3147,7 +3147,7 @@ GetBits.exit71:                                   ; preds = %.preheader122
   br i1 %.not, label %GetBits.exit76, label %.preheader
 
 99:                                               ; preds = %.preheader122
-  %100 = getelementptr inbounds i8, ptr %0, i64 112
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %101 = load i32, ptr %100, align 8
   %.not43 = icmp eq i32 %101, 0
   br i1 %.not43, label %.loopexit, label %.loopexit.sink.split
@@ -3167,7 +3167,7 @@ GetBits.exit71:                                   ; preds = %.preheader122
 
 107:                                              ; preds = %.preheader
   store i64 %103, ptr %3, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 112
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %109 = load i32, ptr %108, align 8
   %.not46 = icmp eq i32 %109, 0
   br i1 %.not46, label %.loopexit, label %.loopexit.sink.split
@@ -3208,7 +3208,7 @@ define internal fastcc range(i32 0, 2) i32 @GetSignedBits(ptr nocapture noundef 
 
 10:                                               ; preds = %6
   %11 = add nsw i64 %.in.i, -1
-  %12 = getelementptr inbounds i8, ptr %0, i64 %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %9
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = trunc i64 %7 to i32
@@ -3233,7 +3233,7 @@ GetBits.exit.preheader:                           ; preds = %10
   br i1 %.not13.i13, label %GetBits.exit16, label %GetBits.exit.thread
 
 GetBits.exit16:                                   ; preds = %GetBits.exit.preheader
-  %26 = getelementptr inbounds i8, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = trunc i64 %.promoted to i32
@@ -3264,7 +3264,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseLosslessTransform(ptr nocapture
   br i1 %.not.i, label %14, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8
   %.not16 = icmp eq i32 %10, 0
   br i1 %.not16, label %97, label %11
@@ -3275,7 +3275,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseLosslessTransform(ptr nocapture
   br label %97
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 %7
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = trunc i64 %5 to i32
@@ -3303,7 +3303,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseLosslessTransform(ptr nocapture
   br i1 %.not.i25, label %29, label %39
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %1, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %28
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = trunc i64 %25 to i32
@@ -3315,7 +3315,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseLosslessTransform(ptr nocapture
   br i1 %26, label %24, label %LLGetBits.exit27, !llvm.loop !13
 
 39:                                               ; preds = %24
-  %40 = getelementptr inbounds i8, ptr %0, i64 112
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %41 = load i32, ptr %40, align 8
   %.not20 = icmp eq i32 %41, 0
   br i1 %.not20, label %97, label %42
@@ -3327,7 +3327,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseLosslessTransform(ptr nocapture
 
 LLGetBits.exit27:                                 ; preds = %29
   %45 = zext nneg i32 %38 to i64
-  %46 = getelementptr inbounds [4 x ptr], ptr @kLosslessTransforms, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [4 x ptr], ptr @kLosslessTransforms, i64 0, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.90, ptr noundef %47, i32 noundef %38)
   switch i32 %38, label %97 [
@@ -3355,7 +3355,7 @@ LLGetBits.exit27:                                 ; preds = %29
   br i1 %.not.i29, label %54, label %65
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %1, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %53
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = trunc i64 %51 to i32
@@ -3369,7 +3369,7 @@ LLGetBits.exit27:                                 ; preds = %29
   br i1 %exitcond70.not, label %LLGetBits.exit31, label %50, !llvm.loop !13
 
 65:                                               ; preds = %50
-  %66 = getelementptr inbounds i8, ptr %0, i64 112
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %67 = load i32, ptr %66, align 8
   %.not24 = icmp eq i32 %67, 0
   br i1 %.not24, label %97, label %68
@@ -3396,7 +3396,7 @@ LLGetBits.exit31:                                 ; preds = %54
   br i1 %.not.i33, label %78, label %89
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %1, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 %77
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = trunc i64 %75 to i32
@@ -3410,7 +3410,7 @@ LLGetBits.exit31:                                 ; preds = %54
   br i1 %exitcond.not, label %LLGetBits.exit35, label %74, !llvm.loop !13
 
 89:                                               ; preds = %74
-  %90 = getelementptr inbounds i8, ptr %0, i64 112
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %91 = load i32, ptr %90, align 8
   %.not22 = icmp eq i32 %91, 0
   br i1 %.not22, label %97, label %92

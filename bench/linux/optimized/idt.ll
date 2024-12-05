@@ -46,14 +46,14 @@ define internal fastcc void @idt_setup_from_table(ptr nocapture noundef readonly
 3:                                                ; preds = %2, %3
   %4 = phi ptr [ %29, %3 ], [ %0, %2 ]
   %5 = phi i32 [ %30, %3 ], [ %1, %2 ]
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i16
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = trunc i32 %11 to i16
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i16, ptr %13, align 8
   %15 = lshr i64 %8, 16
   %16 = trunc i64 %15 to i16
@@ -63,15 +63,15 @@ define internal fastcc void @idt_setup_from_table(ptr nocapture noundef readonly
   %20 = sext i32 %19 to i64
   %21 = getelementptr %struct.gate_struct, ptr @idt_table, i64 %20
   store i16 %9, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %21, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
   store i16 %12, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %21, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i16 %14, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %21, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 6
   store i16 %16, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %21, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %18, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 0, ptr %26, align 4
   %27 = load i32, ptr %4, align 8
   %28 = zext i32 %27 to i64
@@ -188,15 +188,15 @@ define internal fastcc void @set_intr_gate(i32 noundef %0, ptr noundef %1) unnam
   %12 = zext nneg i32 %0 to i64
   %13 = getelementptr %struct.gate_struct, ptr @idt_table, i64 %12
   store i16 %7, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %13, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
   store i16 16, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i16 -29184, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 6
   store i16 %9, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %11, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %18, align 4
   ret void
 }

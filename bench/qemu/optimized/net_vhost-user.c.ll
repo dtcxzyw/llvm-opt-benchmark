@@ -62,7 +62,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vhost_net = getelementptr inbounds i8, ptr %nc, i64 440
+  %vhost_net = getelementptr inbounds nuw i8, ptr %nc, i64 440
   %2 = load ptr, ptr %vhost_net, align 8
   ret ptr %2
 }
@@ -83,7 +83,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %acked_features = getelementptr inbounds i8, ptr %nc, i64 456
+  %acked_features = getelementptr inbounds nuw i8, ptr %nc, i64 456
   %2 = load i64, ptr %acked_features, align 8
   ret i64 %2
 }
@@ -91,7 +91,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_user_save_acked_features(ptr nocapture noundef %nc) local_unnamed_addr #0 {
 entry:
-  %vhost_net = getelementptr inbounds i8, ptr %nc, i64 440
+  %vhost_net = getelementptr inbounds nuw i8, ptr %nc, i64 440
   %0 = load ptr, ptr %vhost_net, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end5, label %if.then
@@ -102,7 +102,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %acked_features = getelementptr inbounds i8, ptr %nc, i64 456
+  %acked_features = getelementptr inbounds nuw i8, ptr %nc, i64 456
   store i64 %call, ptr %acked_features, align 8
   br label %if.end5
 
@@ -116,7 +116,7 @@ declare i64 @vhost_net_get_acked_features(ptr noundef) local_unnamed_addr #2
 define dso_local range(i32 -1, 1) i32 @net_init_vhost_user(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %err.i = alloca ptr, align 8
-  %type = getelementptr inbounds i8, ptr %netdev, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 12
   br i1 %cmp, label %if.end, label %if.else
@@ -126,7 +126,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds i8, ptr %netdev, i64 16
+  %u = getelementptr inbounds nuw i8, ptr %netdev, i64 16
   %1 = load ptr, ptr %u, align 8
   %call.i = tail call ptr @qemu_chr_find(ptr noundef %1) #10
   %cmp.i = icmp eq ptr %call.i, null
@@ -156,13 +156,13 @@ if.then7.i:                                       ; preds = %if.end5.i
   br label %return
 
 if.end2:                                          ; preds = %if.end5.i
-  %has_queues = getelementptr inbounds i8, ptr %netdev, i64 26
+  %has_queues = getelementptr inbounds nuw i8, ptr %netdev, i64 26
   %5 = load i8, ptr %has_queues, align 2
   %tobool3 = trunc i8 %5 to i1
   br i1 %tobool3, label %cond.end, label %if.end10
 
 cond.end:                                         ; preds = %if.end2
-  %queues4 = getelementptr inbounds i8, ptr %netdev, i64 32
+  %queues4 = getelementptr inbounds nuw i8, ptr %netdev, i64 32
   %6 = load i64, ptr %queues4, align 8
   %7 = trunc i64 %6 to i32
   %8 = add i32 %7, -1025
@@ -186,13 +186,13 @@ if.else.i:                                        ; preds = %if.end10
 
 if.end3.i:                                        ; preds = %if.end10
   %call.i8 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #11
-  %label.i = getelementptr inbounds i8, ptr %call.i, i64 96
+  %label.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   br label %for.body.i
 
 do.body.preheader.i:                              ; preds = %if.end15.i
-  %chr26.i = getelementptr inbounds i8, ptr %nc0.1.i, i64 376
-  %name32.i = getelementptr inbounds i8, ptr %nc0.1.i, i64 56
-  %started.i = getelementptr inbounds i8, ptr %nc0.1.i, i64 464
+  %chr26.i = getelementptr inbounds nuw i8, ptr %nc0.1.i, i64 376
+  %name32.i = getelementptr inbounds nuw i8, ptr %nc0.1.i, i64 56
+  %started.i = getelementptr inbounds nuw i8, ptr %nc0.1.i, i64 464
   br label %do.body.i
 
 for.body.i:                                       ; preds = %if.end15.i, %if.end3.i
@@ -201,13 +201,13 @@ for.body.i:                                       ; preds = %if.end15.i, %if.end
   %call5.i = call ptr @qemu_new_net_client(ptr noundef nonnull @net_vhost_user_info, ptr noundef %peer, ptr noundef nonnull @.str.4, ptr noundef nonnull %name) #10
   %9 = load ptr, ptr %label.i, align 8
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef %call5.i, ptr noundef nonnull @.str.10, i32 noundef %i.03.i, ptr noundef %9) #10
-  %queue_index.i = getelementptr inbounds i8, ptr %call5.i, i64 336
+  %queue_index.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 336
   store i32 %i.03.i, ptr %queue_index.i, align 8
   %tobool6.not.i = icmp eq ptr %nc0.04.i, null
   br i1 %tobool6.not.i, label %if.then7.i10, label %if.end15.i
 
 if.then7.i10:                                     ; preds = %for.body.i
-  %chr9.i = getelementptr inbounds i8, ptr %call5.i, i64 376
+  %chr9.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 376
   %call10.i = call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr9.i, ptr noundef nonnull %call.i, ptr noundef nonnull %err.i) #10
   br i1 %call10.i, label %lor.lhs.false.i, label %err38.i
 
@@ -217,7 +217,7 @@ lor.lhs.false.i:                                  ; preds = %if.then7.i10
 
 if.end15.i:                                       ; preds = %lor.lhs.false.i, %for.body.i
   %nc0.1.i = phi ptr [ %nc0.04.i, %for.body.i ], [ %call5.i, %lor.lhs.false.i ]
-  %vhost_user.i = getelementptr inbounds i8, ptr %call5.i, i64 432
+  %vhost_user.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 432
   store ptr %call.i8, ptr %vhost_user.i, align 8
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %cond15
@@ -236,7 +236,7 @@ if.end30.i:                                       ; preds = %do.body.i
   br i1 %tobool33.i, label %do.end.i, label %do.body.i, !llvm.loop !7
 
 do.end.i:                                         ; preds = %if.end30.i
-  %vhost_net.i = getelementptr inbounds i8, ptr %nc0.1.i, i64 440
+  %vhost_net.i = getelementptr inbounds nuw i8, ptr %nc0.1.i, i64 440
   %12 = load ptr, ptr %vhost_net.i, align 8
   %tobool34.not.i = icmp eq ptr %12, null
   br i1 %tobool34.not.i, label %if.else36.i, label %net_vhost_user_init.exit
@@ -255,7 +255,7 @@ err38.i:                                          ; preds = %lor.lhs.false.i, %i
 if.end45.thread.i:                                ; preds = %err38.i
   call void @vhost_user_cleanup(ptr noundef nonnull %call.i8) #10
   call void @g_free(ptr noundef nonnull %call.i8) #10
-  %vhost_user43.i = getelementptr inbounds i8, ptr %nc0.2.i, i64 432
+  %vhost_user43.i = getelementptr inbounds nuw i8, ptr %nc0.2.i, i64 432
   store ptr null, ptr %vhost_user43.i, align 8
   br label %if.then47.i
 
@@ -314,9 +314,9 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ncs, align 16
-  %chr2 = getelementptr inbounds i8, ptr %0, i64 376
+  %chr2 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %call3 = call ptr @qemu_chr_fe_get_driver(ptr noundef nonnull %chr2) #10
-  %label = getelementptr inbounds i8, ptr %call3, i64 96
+  %label = getelementptr inbounds nuw i8, ptr %call3, i64 96
   %1 = load ptr, ptr %label, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -341,7 +341,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1, i32 noundef %event) #10
   br label %trace_vhost_user_event.exit
@@ -358,7 +358,7 @@ trace_vhost_user_event.exit:                      ; preds = %if.end, %land.lhs.t
   ]
 
 sw.bb:                                            ; preds = %trace_vhost_user_event.exit
-  %vhost_user = getelementptr inbounds i8, ptr %0, i64 432
+  %vhost_user = getelementptr inbounds nuw i8, ptr %0, i64 432
   %8 = load ptr, ptr %vhost_user, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %options.i)
   store i32 2, ptr %options.i, align 8
@@ -366,10 +366,10 @@ sw.bb:                                            ; preds = %trace_vhost_user_ev
   br i1 %cmp29.i, label %for.body.lr.ph.i, label %sw.epilog
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb
-  %net_backend.i = getelementptr inbounds i8, ptr %options.i, i64 8
-  %opaque.i = getelementptr inbounds i8, ptr %options.i, i64 24
-  %busyloop_timeout.i = getelementptr inbounds i8, ptr %options.i, i64 16
-  %nvqs.i = getelementptr inbounds i8, ptr %options.i, i64 20
+  %net_backend.i = getelementptr inbounds nuw i8, ptr %options.i, i64 8
+  %opaque.i = getelementptr inbounds nuw i8, ptr %options.i, i64 24
+  %busyloop_timeout.i = getelementptr inbounds nuw i8, ptr %options.i, i64 16
+  %nvqs.i = getelementptr inbounds nuw i8, ptr %options.i, i64 20
   %wide.trip.count.i = zext nneg i32 %call to i64
   br label %for.body.i
 
@@ -406,7 +406,7 @@ if.then10.i:                                      ; preds = %if.end8.i
   br i1 %cmp12.i, label %if.end25.thread.i, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then10.i, %if.end8.i
-  %vhost_net.i = getelementptr inbounds i8, ptr %9, i64 440
+  %vhost_net.i = getelementptr inbounds nuw i8, ptr %9, i64 440
   %12 = load ptr, ptr %vhost_net.i, align 8
   %tobool17.not.i = icmp eq ptr %12, null
   br i1 %tobool17.not.i, label %if.end21.i, label %if.then18.i
@@ -449,7 +449,7 @@ if.else.i.i15:                                    ; preds = %for.body.i.i
   unreachable
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %vhost_net.i.i = getelementptr inbounds i8, ptr %15, i64 440
+  %vhost_net.i.i = getelementptr inbounds nuw i8, ptr %15, i64 440
   %18 = load ptr, ptr %vhost_net.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then.i.i.i
@@ -460,7 +460,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
   br i1 %tobool3.not.i.i.i, label %vhost_user_save_acked_features.exit.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
-  %acked_features.i.i.i = getelementptr inbounds i8, ptr %15, i64 456
+  %acked_features.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 456
   store i64 %call.i.i.i, ptr %acked_features.i.i.i, align 8
   br label %vhost_user_save_acked_features.exit.i.i
 
@@ -480,7 +480,7 @@ if.then7:                                         ; preds = %for.inc.i.i, %if.en
   br label %if.end24
 
 sw.bb12:                                          ; preds = %trace_vhost_user_event.exit
-  %watch13 = getelementptr inbounds i8, ptr %0, i64 448
+  %watch13 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %20 = load i32, ptr %watch13, align 8
   %tobool.not = icmp eq i32 %20, 0
   br i1 %tobool.not, label %if.end24, label %if.then14
@@ -497,10 +497,10 @@ if.then14:                                        ; preds = %sw.bb12
 sw.epilog:                                        ; preds = %if.end21.i, %sw.bb
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %options.i)
   %call11 = call i32 @qemu_chr_fe_add_watch(ptr noundef nonnull %chr2, i32 noundef 16, ptr noundef nonnull @net_vhost_user_watch, ptr noundef %0) #10
-  %watch = getelementptr inbounds i8, ptr %0, i64 448
+  %watch = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i32 %call11, ptr %watch, align 8
   call void @qmp_set_link(ptr noundef %opaque, i1 noundef zeroext true, ptr noundef nonnull %err) #10
-  %started = getelementptr inbounds i8, ptr %0, i64 464
+  %started = getelementptr inbounds nuw i8, ptr %0, i64 464
   store i8 1, ptr %started, align 8
   %.pre = load ptr, ptr %err, align 8
   %tobool22.not = icmp eq ptr %.pre, null
@@ -530,7 +530,7 @@ entry:
 if.then:                                          ; preds = %entry
   %arrayidx = getelementptr i8, ptr %buf, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %mac_addr, ptr noundef nonnull align 1 dereferenceable(6) %arrayidx, i64 6, i1 false)
-  %vhost_net = getelementptr inbounds i8, ptr %nc, i64 440
+  %vhost_net = getelementptr inbounds nuw i8, ptr %nc, i64 440
   %0 = load ptr, ptr %vhost_net, align 8
   %call = call i32 @vhost_net_notify_migration_done(ptr noundef %0, ptr noundef nonnull %mac_addr) #10
   %cmp3 = icmp eq i32 %call, 0
@@ -553,7 +553,7 @@ if.end7:                                          ; preds = %if.then, %if.then4,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @net_vhost_user_cleanup(ptr noundef %nc) #0 {
 entry:
-  %vhost_net = getelementptr inbounds i8, ptr %nc, i64 440
+  %vhost_net = getelementptr inbounds nuw i8, ptr %nc, i64 440
   %0 = load ptr, ptr %vhost_net, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -566,13 +566,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %queue_index = getelementptr inbounds i8, ptr %nc, i64 336
+  %queue_index = getelementptr inbounds nuw i8, ptr %nc, i64 336
   %2 = load i32, ptr %queue_index, align 8
   %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %if.then5, label %if.end17
 
 if.then5:                                         ; preds = %if.end
-  %watch = getelementptr inbounds i8, ptr %nc, i64 448
+  %watch = getelementptr inbounds nuw i8, ptr %nc, i64 448
   %3 = load i32, ptr %watch, align 8
   %tobool6.not = icmp eq i32 %3, 0
   br i1 %tobool6.not, label %if.end10, label %if.then7
@@ -583,9 +583,9 @@ if.then7:                                         ; preds = %if.then5
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %if.then5
-  %chr = getelementptr inbounds i8, ptr %nc, i64 376
+  %chr = getelementptr inbounds nuw i8, ptr %nc, i64 376
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr, i1 noundef zeroext true) #10
-  %vhost_user = getelementptr inbounds i8, ptr %nc, i64 432
+  %vhost_user = getelementptr inbounds nuw i8, ptr %nc, i64 432
   %4 = load ptr, ptr %vhost_user, align 8
   %tobool11.not = icmp eq ptr %4, null
   br i1 %tobool11.not, label %if.end17, label %if.then12
@@ -687,7 +687,7 @@ declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @net_vhost_user_watch(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
 entry:
-  %chr = getelementptr inbounds i8, ptr %opaque, i64 376
+  %chr = getelementptr inbounds nuw i8, ptr %opaque, i64 376
   tail call void @qemu_chr_fe_disconnect(ptr noundef nonnull %chr) #10
   ret i32 1
 }
@@ -726,7 +726,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %1, %for.body.preheader ], [ %indvars.iv.next, %vhost_user_save_acked_features.exit ]
   %arrayidx3 = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx3, align 8
-  %vhost_net.i = getelementptr inbounds i8, ptr %2, i64 440
+  %vhost_net.i = getelementptr inbounds nuw i8, ptr %2, i64 440
   %3 = load ptr, ptr %vhost_net.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %vhost_user_save_acked_features.exit, label %if.then.i
@@ -737,7 +737,7 @@ if.then.i:                                        ; preds = %for.body
   br i1 %tobool3.not.i, label %vhost_user_save_acked_features.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %acked_features.i = getelementptr inbounds i8, ptr %2, i64 456
+  %acked_features.i = getelementptr inbounds nuw i8, ptr %2, i64 456
   store i64 %call.i, ptr %acked_features.i, align 8
   br label %vhost_user_save_acked_features.exit
 
@@ -748,7 +748,7 @@ vhost_user_save_acked_features.exit:              ; preds = %for.body, %if.then.
 
 for.end:                                          ; preds = %vhost_user_save_acked_features.exit, %if.end
   call void @qmp_set_link(ptr noundef %opaque, i1 noundef zeroext false, ptr noundef nonnull %err) #10
-  %chr = getelementptr inbounds i8, ptr %0, i64 376
+  %chr = getelementptr inbounds nuw i8, ptr %0, i64 376
   call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr, ptr noundef null, ptr noundef null, ptr noundef nonnull @net_vhost_user_event, ptr noundef null, ptr noundef %opaque, ptr noundef null, i1 noundef zeroext true) #10
   %4 = load ptr, ptr %err, align 8
   %tobool.not = icmp eq ptr %4, null

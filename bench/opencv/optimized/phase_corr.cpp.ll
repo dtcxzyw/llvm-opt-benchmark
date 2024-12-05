@@ -61,40 +61,40 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnone %
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #6
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #6
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #6
-  %27 = getelementptr inbounds i8, ptr %10, i64 16
-  %28 = getelementptr inbounds i8, ptr %10, i64 20
-  %29 = getelementptr inbounds i8, ptr %10, i64 8
-  %30 = getelementptr inbounds i8, ptr %11, i64 8
-  %31 = getelementptr inbounds i8, ptr %11, i64 16
-  %32 = getelementptr inbounds i8, ptr %13, i64 8
-  %33 = getelementptr inbounds i8, ptr %13, i64 16
-  %34 = getelementptr inbounds i8, ptr %5, i64 64
-  %35 = getelementptr inbounds i8, ptr %14, i64 8
-  %36 = getelementptr inbounds i8, ptr %14, i64 16
-  %37 = getelementptr inbounds i8, ptr %15, i64 8
-  %38 = getelementptr inbounds i8, ptr %15, i64 16
-  %39 = getelementptr inbounds i8, ptr %16, i64 16
-  %40 = getelementptr inbounds i8, ptr %16, i64 20
-  %41 = getelementptr inbounds i8, ptr %16, i64 8
-  %42 = getelementptr inbounds i8, ptr %17, i64 16
-  %43 = getelementptr inbounds i8, ptr %17, i64 20
-  %44 = getelementptr inbounds i8, ptr %17, i64 8
-  %45 = getelementptr inbounds i8, ptr %18, i64 16
-  %46 = getelementptr inbounds i8, ptr %18, i64 20
-  %47 = getelementptr inbounds i8, ptr %18, i64 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 12
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
-  %50 = getelementptr inbounds i8, ptr %19, i64 8
-  %51 = getelementptr inbounds i8, ptr %19, i64 16
-  %52 = getelementptr inbounds i8, ptr %20, i64 8
-  %53 = getelementptr inbounds i8, ptr %20, i64 16
-  %54 = getelementptr inbounds i8, ptr %21, i64 8
-  %55 = getelementptr inbounds i8, ptr %21, i64 16
-  %56 = getelementptr inbounds i8, ptr %22, i64 8
-  %57 = getelementptr inbounds i8, ptr %22, i64 16
-  %58 = getelementptr inbounds i8, ptr %25, i64 16
-  %59 = getelementptr inbounds i8, ptr %25, i64 20
-  %60 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %61
 
 61:                                               ; preds = %121, %2
@@ -133,7 +133,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnone %
   store i32 33619968, ptr %13, align 8
   store ptr %9, ptr %32, align 8
   %71 = load ptr, ptr %34, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = load i32, ptr %71, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %74 to i64

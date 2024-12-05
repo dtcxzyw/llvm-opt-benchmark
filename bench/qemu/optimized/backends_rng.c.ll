@@ -24,28 +24,28 @@ define dso_local void @rng_backend_request_entropy(ptr noundef %s, i64 noundef %
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND_GET_CLASS) #3
-  %request_entropy = getelementptr inbounds i8, ptr %call1.i, i64 96
+  %request_entropy = getelementptr inbounds nuw i8, ptr %call1.i, i64 96
   %0 = load ptr, ptr %request_entropy, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call1 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #4
-  %offset = getelementptr inbounds i8, ptr %call1, i64 24
+  %offset = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store i64 0, ptr %offset, align 8
-  %size2 = getelementptr inbounds i8, ptr %call1, i64 32
+  %size2 = getelementptr inbounds nuw i8, ptr %call1, i64 32
   store i64 %size, ptr %size2, align 8
   store ptr %receive_entropy, ptr %call1, align 8
-  %opaque4 = getelementptr inbounds i8, ptr %call1, i64 16
+  %opaque4 = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store ptr %opaque, ptr %opaque4, align 8
   %call6 = tail call noalias ptr @g_malloc(i64 noundef %size) #4
-  %data = getelementptr inbounds i8, ptr %call1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %call6, ptr %data, align 8
   %1 = load ptr, ptr %request_entropy, align 8
   tail call void %1(ptr noundef %s, ptr noundef nonnull %call1) #3
-  %next = getelementptr inbounds i8, ptr %call1, i64 40
+  %next = getelementptr inbounds nuw i8, ptr %call1, i64 40
   store ptr null, ptr %next, align 8
-  %sqh_last = getelementptr inbounds i8, ptr %s, i64 56
+  %sqh_last = getelementptr inbounds nuw i8, ptr %s, i64 56
   %2 = load ptr, ptr %sqh_last, align 8
   store ptr %call1, ptr %2, align 8
   store ptr %next, ptr %sqh_last, align 8
@@ -61,20 +61,20 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rng_backend_finalize_request(ptr noundef %s, ptr noundef %req) local_unnamed_addr #0 {
 entry:
-  %requests = getelementptr inbounds i8, ptr %s, i64 48
+  %requests = getelementptr inbounds nuw i8, ptr %s, i64 48
   %0 = load ptr, ptr %requests, align 8
   %cmp = icmp eq ptr %0, %req
   br i1 %cmp, label %do.body1, label %while.cond
 
 do.body1:                                         ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %0, i64 40
+  %next = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %next, align 8
   store ptr %1, ptr %requests, align 8
   %cmp6 = icmp eq ptr %1, null
   br i1 %cmp6, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %do.body1
-  %sqh_last = getelementptr inbounds i8, ptr %s, i64 56
+  %sqh_last = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %requests, ptr %sqh_last, align 8
   br label %if.end
 
@@ -84,31 +84,31 @@ if.end:                                           ; preds = %if.then7, %do.body1
 
 while.cond:                                       ; preds = %entry, %while.cond
   %curelm.0 = phi ptr [ %2, %while.cond ], [ %0, %entry ]
-  %next15 = getelementptr inbounds i8, ptr %curelm.0, i64 40
+  %next15 = getelementptr inbounds nuw i8, ptr %curelm.0, i64 40
   %2 = load ptr, ptr %next15, align 8
   %cmp17.not = icmp eq ptr %2, %req
   br i1 %cmp17.not, label %while.end, label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond
-  %next15.le = getelementptr inbounds i8, ptr %curelm.0, i64 40
-  %next22 = getelementptr inbounds i8, ptr %2, i64 40
+  %next15.le = getelementptr inbounds nuw i8, ptr %curelm.0, i64 40
+  %next22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load ptr, ptr %next22, align 8
   store ptr %3, ptr %next15.le, align 8
   %cmp26 = icmp eq ptr %3, null
   br i1 %cmp26, label %if.then27, label %if.end32
 
 if.then27:                                        ; preds = %while.end
-  %sqh_last31 = getelementptr inbounds i8, ptr %s, i64 56
+  %sqh_last31 = getelementptr inbounds nuw i8, ptr %s, i64 56
   store ptr %next15.le, ptr %sqh_last31, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then27, %while.end
-  %next33 = getelementptr inbounds i8, ptr %req, i64 40
+  %next33 = getelementptr inbounds nuw i8, ptr %req, i64 40
   store ptr null, ptr %next33, align 8
   br label %do.end36
 
 do.end36:                                         ; preds = %if.end, %if.end32
-  %data.i = getelementptr inbounds i8, ptr %req, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %req, i64 8
   %4 = load ptr, ptr %data.i, align 8
   tail call void @g_free(ptr noundef %4) #3
   tail call void @g_free(ptr noundef %req) #3
@@ -143,9 +143,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 define internal void @rng_backend_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND) #3
-  %requests = getelementptr inbounds i8, ptr %call.i, i64 48
+  %requests = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr null, ptr %requests, align 8
-  %sqh_last = getelementptr inbounds i8, ptr %call.i, i64 56
+  %sqh_last = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store ptr %requests, ptr %sqh_last, align 8
   ret void
 }
@@ -154,16 +154,16 @@ entry:
 define internal void @rng_backend_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND) #3
-  %requests.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %requests.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %requests.i, align 8
   %tobool.not6.i = icmp eq ptr %0, null
   br i1 %tobool.not6.i, label %rng_backend_free_requests.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry, %land.rhs.i
   %req.07.i = phi ptr [ %1, %land.rhs.i ], [ %0, %entry ]
-  %next1.i = getelementptr inbounds i8, ptr %req.07.i, i64 40
+  %next1.i = getelementptr inbounds nuw i8, ptr %req.07.i, i64 40
   %1 = load ptr, ptr %next1.i, align 8
-  %data.i.i = getelementptr inbounds i8, ptr %req.07.i, i64 8
+  %data.i.i = getelementptr inbounds nuw i8, ptr %req.07.i, i64 8
   %2 = load ptr, ptr %data.i.i, align 8
   tail call void @g_free(ptr noundef %2) #3
   tail call void @g_free(ptr noundef nonnull %req.07.i) #3
@@ -172,7 +172,7 @@ land.rhs.i:                                       ; preds = %entry, %land.rhs.i
 
 rng_backend_free_requests.exit:                   ; preds = %land.rhs.i, %entry
   store ptr null, ptr %requests.i, align 8
-  %sqh_last.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %sqh_last.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store ptr %requests.i, ptr %sqh_last.i, align 8
   ret void
 }
@@ -181,7 +181,7 @@ rng_backend_free_requests.exit:                   ; preds = %land.rhs.i, %entry
 define internal void @rng_backend_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #3
-  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
+  %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @rng_backend_complete, ptr %complete, align 8
   %call1 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @rng_backend_prop_get_opened, ptr noundef null) #3
   ret void
@@ -197,7 +197,7 @@ entry:
   %call.i5 = tail call ptr @object_get_class(ptr noundef %call.i) #3
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND_GET_CLASS) #3
   store ptr null, ptr %local_err, align 8
-  %opened = getelementptr inbounds i8, ptr %call1.i, i64 104
+  %opened = getelementptr inbounds nuw i8, ptr %call1.i, i64 104
   %0 = load ptr, ptr %opened, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end5, label %if.then
@@ -213,7 +213,7 @@ if.then4:                                         ; preds = %if.then
   br label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %opened6 = getelementptr inbounds i8, ptr %call.i, i64 40
+  %opened6 = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store i8 1, ptr %opened6, align 8
   br label %return
 
@@ -227,7 +227,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @rng_backend_prop_get_opened(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND) #3
-  %opened = getelementptr inbounds i8, ptr %call.i, i64 40
+  %opened = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %0 = load i8, ptr %opened, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool

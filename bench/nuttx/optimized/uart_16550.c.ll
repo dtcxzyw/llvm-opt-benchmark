@@ -28,7 +28,7 @@ define void @u16550_earlyserialinit() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @u16550_setup(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.val = load i16, ptr %3, align 4
   tail call void @uart_putreg(i16 noundef zeroext %.val, i32 noundef 2, i8 noundef zeroext 6) #3
@@ -36,9 +36,9 @@ define internal noundef i32 @u16550_setup(ptr nocapture noundef readonly %0) #0 
   tail call void @uart_putreg(i16 noundef zeroext %.val26, i32 noundef 2, i8 noundef zeroext -127) #3
   %.val32 = load i16, ptr %3, align 4
   %4 = tail call zeroext i8 @uart_getreg(i16 noundef zeroext %.val32, i32 noundef 1) #3
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 %4, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 15
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 15
   %7 = load i8, ptr %6, align 1
   %8 = icmp ult i8 %7, 8
   %switch.cast = zext i8 %7 to i64
@@ -46,12 +46,12 @@ define internal noundef i32 @u16550_setup(ptr nocapture noundef readonly %0) #0 
   %switch.downshift = lshr i64 144396675987997443, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   %.0 = select i1 %8, i8 %switch.masked, i8 3
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i8, ptr %9, align 4
   %11 = trunc i8 %10 to i1
   %12 = or disjoint i8 %.0, 4
   %spec.select = select i1 %11, i8 %12, i8 %.0
-  %13 = getelementptr inbounds i8, ptr %3, i64 14
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %14 = load i8, ptr %13, align 2
   switch i8 %14, label %19 [
     i8 1, label %15
@@ -162,9 +162,9 @@ up_irq_restore.exit:                              ; preds = %u16550_putc.exit12,
 
 ; Function Attrs: nounwind uwtable
 define internal void @u16550_shutdown(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, -16
   store i8 %6, ptr %4, align 4
@@ -175,9 +175,9 @@ define internal void @u16550_shutdown(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @u16550_attach(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 13
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = tail call i32 @irq_attach(i32 noundef %6, ptr noundef nonnull @u16550_interrupt, ptr noundef %0) #3
@@ -196,9 +196,9 @@ define internal i32 @u16550_attach(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @u16550_detach(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 13
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 13
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   tail call void @up_disable_irq(i32 noundef %6) #3
@@ -212,11 +212,11 @@ define internal void @u16550_detach(ptr nocapture noundef readonly %0) #0 {
 define internal range(i32 -25, 1) i32 @u16550_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 280
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 280
   %11 = load ptr, ptr %10, align 8
   switch i32 %1, label %up_irq_restore.exit [
     i32 271, label %12
@@ -268,7 +268,7 @@ up_irq_restore.exit:                              ; preds = %22, %17, %16, %12, 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 256) i32 @u16550_receive(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %.val = load i16, ptr %4, align 4
   %5 = tail call zeroext i8 @uart_getreg(i16 noundef zeroext %.val, i32 noundef 5) #3
@@ -282,9 +282,9 @@ define internal range(i32 0, 256) i32 @u16550_receive(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal void @u16550_rxint(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i8, ptr %5, align 4
   %7 = and i8 %6, -2
   %masksel = zext i1 %1 to i8
@@ -297,7 +297,7 @@ define internal void @u16550_rxint(ptr nocapture noundef readonly %0, i1 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @u16550_rxavailable(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.val = load i16, ptr %3, align 4
   %4 = tail call zeroext i8 @uart_getreg(i16 noundef zeroext %.val, i32 noundef 5) #3
@@ -308,7 +308,7 @@ define internal zeroext i1 @u16550_rxavailable(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define internal void @u16550_send(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %5 = trunc i32 %1 to i8
   %.val = load i16, ptr %4, align 4
@@ -319,14 +319,14 @@ define internal void @u16550_send(ptr nocapture noundef readonly %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal void @u16550_txint(ptr noundef %0, i1 noundef zeroext %1) #0 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #3, !srcloc !6
   %6 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !7
-  %7 = getelementptr inbounds i8, ptr %5, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %8 = load i8, ptr %7, align 4
   br i1 %1, label %9, label %11
 
@@ -360,7 +360,7 @@ up_irq_restore.exit:                              ; preds = %13, %15
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @u16550_txready(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.val = load i16, ptr %3, align 4
   %4 = tail call zeroext i8 @uart_getreg(i16 noundef zeroext %.val, i32 noundef 5) #3
@@ -371,7 +371,7 @@ define internal zeroext i1 @u16550_txready(ptr nocapture noundef readonly %0) #0
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @u16550_txempty(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.val = load i16, ptr %3, align 4
   %4 = tail call zeroext i8 @uart_getreg(i16 noundef zeroext %.val, i32 noundef 5) #3
@@ -386,7 +386,7 @@ declare i32 @irq_attach(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @u16550_interrupt(i32 %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8
   br label %6
 

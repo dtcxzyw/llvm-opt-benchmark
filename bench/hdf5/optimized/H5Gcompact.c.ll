@@ -100,7 +100,7 @@ define range(i32 -1, 1) i32 @H5G__compact_get_name_by_idx(ptr noundef %0, ptr no
   br label %37
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds %struct.H5O_link_t, ptr %25, i64 %4, i32 4
   %27 = load ptr, ptr %26, align 8
@@ -126,7 +126,7 @@ define range(i32 -1, 1) i32 @H5G__compact_get_name_by_idx(ptr noundef %0, ptr no
 
 37:                                               ; preds = %23, %34, %29, %19, %13
   %.0 = phi i32 [ -1, %13 ], [ -1, %19 ], [ 0, %34 ], [ 0, %29 ], [ 0, %23 ]
-  %38 = getelementptr inbounds i8, ptr %9, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not28 = icmp eq ptr %39, null
   br i1 %.not28, label %47, label %40
@@ -161,7 +161,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__compact_build_table(ptr nounde
 7:                                                ; preds = %4
   %8 = mul i64 %.24.val, 48
   %9 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %12, label %16
@@ -174,10 +174,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__compact_build_table(ptr nounde
 
 16:                                               ; preds = %7
   store ptr %3, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %17, align 8
   store i32 0, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @H5G__compact_build_table_cb, ptr %18, align 8
   %19 = call i32 @H5O_msg_iterate(ptr noundef %0, i32 noundef 6, ptr noundef nonnull %6, ptr noundef nonnull %5) #7
   %20 = icmp slt i32 %19, 0
@@ -201,7 +201,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__compact_build_table(ptr nounde
   br label %34
 
 32:                                               ; preds = %4
-  %33 = getelementptr inbounds i8, ptr %3, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %33, align 8
   br label %34
 
@@ -223,9 +223,9 @@ define range(i32 -1, 1) i32 @H5G__compact_remove(ptr noundef %0, ptr noundef %1,
   %4 = alloca %struct.H5G_iter_rm_t, align 8
   %5 = load ptr, ptr %0, align 8
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %7, align 8
   %8 = call i32 @H5O_msg_remove_op(ptr noundef nonnull %0, i32 noundef 6, i32 noundef -2, ptr noundef nonnull @H5G__compact_remove_common_cb, ptr noundef nonnull %4, i1 noundef zeroext true) #7
   %9 = icmp slt i32 %8, 0
@@ -246,9 +246,9 @@ declare i32 @H5O_msg_remove_op(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @H5G__compact_remove_common_cb(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %7) #8
   %9 = icmp eq i32 %8, 0
@@ -256,7 +256,7 @@ define internal range(i32 -1, 2) i32 @H5G__compact_remove_common_cb(ptr noundef 
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @H5G__link_name_replace(ptr noundef %11, ptr noundef %13, ptr noundef nonnull %0) #7
   %15 = icmp slt i32 %14, 0
@@ -304,13 +304,13 @@ define range(i32 -1, 1) i32 @H5G__compact_remove_by_idx(ptr noundef %0, ptr noca
 22:                                               ; preds = %16
   %23 = load ptr, ptr %0, align 8
   store ptr %23, ptr %8, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds %struct.H5O_link_t, ptr %26, i64 %5, i32 4
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %28, ptr %29, align 8
   %30 = call i32 @H5O_msg_remove_op(ptr noundef nonnull %0, i32 noundef 6, i32 noundef -2, ptr noundef nonnull @H5G__compact_remove_common_cb, ptr noundef nonnull %8, i1 noundef zeroext true) #7
   %31 = icmp slt i32 %30, 0
@@ -324,7 +324,7 @@ define range(i32 -1, 1) i32 @H5G__compact_remove_by_idx(ptr noundef %0, ptr noca
 
 36:                                               ; preds = %22, %32, %18, %12
   %.0 = phi i32 [ -1, %12 ], [ -1, %18 ], [ -1, %32 ], [ 0, %22 ]
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not14 = icmp eq ptr %38, null
   br i1 %.not14, label %46, label %39
@@ -374,7 +374,7 @@ define i32 @H5G__compact_iterate(ptr noundef %0, ptr nocapture noundef readonly 
 
 24:                                               ; preds = %17, %20, %13
   %.0 = phi i32 [ -1, %13 ], [ %18, %20 ], [ %18, %17 ]
-  %25 = getelementptr inbounds i8, ptr %9, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %34, label %27
@@ -402,12 +402,12 @@ define range(i32 -1, 1) i32 @H5G__compact_lookup(ptr noundef %0, ptr noundef %1,
   %5 = alloca %struct.H5G_iter_lkp_t, align 8
   %6 = alloca %struct.H5O_mesg_operator_t, align 8
   store ptr %1, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %8, align 8
   store i32 0, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @H5G__compact_lookup_cb, ptr %9, align 8
   %10 = call i32 @H5O_msg_iterate(ptr noundef %0, i32 noundef 6, ptr noundef nonnull %6, ptr noundef nonnull %5) #7
   %11 = icmp slt i32 %10, 0
@@ -426,7 +426,7 @@ define range(i32 -1, 1) i32 @H5G__compact_lookup(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @H5G__compact_lookup_cb(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #8
@@ -434,7 +434,7 @@ define internal range(i32 -1, 2) i32 @H5G__compact_lookup_cb(ptr noundef %0, i32
   br i1 %8, label %9, label %22
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %19, label %12
@@ -451,7 +451,7 @@ define internal range(i32 -1, 2) i32 @H5G__compact_lookup_cb(ptr noundef %0, i32
   br label %22
 
 19:                                               ; preds = %12, %9
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load ptr, ptr %20, align 8
   store i8 1, ptr %21, align 1
   br label %22
@@ -491,7 +491,7 @@ define range(i32 -1, 1) i32 @H5G__compact_lookup_by_idx(ptr noundef %0, ptr noca
   br label %31
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds %struct.H5O_link_t, ptr %23, i64 %4
   %25 = call ptr @H5O_msg_copy(i32 noundef 6, ptr noundef %24, ptr noundef %5) #7
@@ -506,7 +506,7 @@ define range(i32 -1, 1) i32 @H5G__compact_lookup_by_idx(ptr noundef %0, ptr noca
 
 31:                                               ; preds = %21, %27, %17, %11
   %.0 = phi i32 [ -1, %11 ], [ -1, %17 ], [ -1, %27 ], [ 0, %21 ]
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not12 = icmp eq ptr %33, null
   br i1 %.not12, label %41, label %34
@@ -535,9 +535,9 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5G__compact_build_table_cb(ptr noundef %0, i32 %1, ptr nocapture noundef %2) #0 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds %struct.H5O_link_t, ptr %6, i64 %8
   %10 = tail call ptr @H5O_msg_copy(i32 noundef 6, ptr noundef %0, ptr noundef %9) #7

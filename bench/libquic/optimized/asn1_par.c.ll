@@ -352,7 +352,7 @@ land.lhs.true210:                                 ; preds = %if.then204
   br i1 %cmp212, label %if.then214, label %if.end474.thread160
 
 if.then214:                                       ; preds = %land.lhs.true210
-  %data = getelementptr inbounds i8, ptr %call207, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call207, i64 8
   %32 = load ptr, ptr %data, align 8
   store ptr %32, ptr %opp, align 8
   %33 = load i32, ptr %call207, align 8
@@ -365,7 +365,7 @@ for.body.preheader:                               ; preds = %if.then214
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv266 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next267, %for.inc ]
-  %arrayidx = getelementptr inbounds i8, ptr %32, i64 %indvars.iv266
+  %arrayidx = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv266
   %34 = load i8, ptr %arrayidx, align 1
   %.fr = freeze i8 %34
   %cmp220 = icmp ugt i8 %.fr, 31
@@ -422,7 +422,7 @@ for.cond270:                                      ; preds = %for.body274
 for.body274:                                      ; preds = %for.cond270.preheader, %for.cond270
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %for.cond270 ], [ 0, %for.cond270.preheader ]
   %40 = load ptr, ptr %opp, align 8
-  %arrayidx276 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv269
+  %arrayidx276 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv269
   %41 = load i8, ptr %arrayidx276, align 1
   %conv277 = zext i8 %41 to i32
   %call278 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.44, i32 noundef %conv277) #4
@@ -459,7 +459,7 @@ if.then328:                                       ; preds = %if.then321
   br i1 %cmp330, label %end, label %if.end333
 
 if.end333:                                        ; preds = %if.then328
-  %type = getelementptr inbounds i8, ptr %call325, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %call325, i64 4
   %44 = load i32, ptr %type, align 4
   %cmp334 = icmp eq i32 %44, 258
   br i1 %cmp334, label %if.then336, label %if.end342
@@ -475,7 +475,7 @@ if.end342:                                        ; preds = %if.then336, %if.end
   br i1 %cmp345180, label %for.body347.lr.ph, label %for.end359
 
 for.body347.lr.ph:                                ; preds = %if.end342
-  %data348 = getelementptr inbounds i8, ptr %call325, i64 8
+  %data348 = getelementptr inbounds nuw i8, ptr %call325, i64 8
   br label %for.body347
 
 for.cond343:                                      ; preds = %for.body347
@@ -488,7 +488,7 @@ for.cond343:                                      ; preds = %for.body347
 for.body347:                                      ; preds = %for.body347.lr.ph, %for.cond343
   %indvars.iv263 = phi i64 [ 0, %for.body347.lr.ph ], [ %indvars.iv.next264, %for.cond343 ]
   %48 = load ptr, ptr %data348, align 8
-  %arrayidx350 = getelementptr inbounds i8, ptr %48, i64 %indvars.iv263
+  %arrayidx350 = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv263
   %49 = load i8, ptr %arrayidx350, align 1
   %conv351 = zext i8 %49 to i32
   %call352 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.44, i32 noundef %conv351) #4
@@ -528,7 +528,7 @@ if.then388:                                       ; preds = %if.then380
   br i1 %cmp390, label %end, label %if.end393
 
 if.end393:                                        ; preds = %if.then388
-  %type394 = getelementptr inbounds i8, ptr %call385, i64 4
+  %type394 = getelementptr inbounds nuw i8, ptr %call385, i64 4
   %51 = load i32, ptr %type394, align 4
   %cmp395 = icmp eq i32 %51, 266
   br i1 %cmp395, label %if.then397, label %if.end403
@@ -544,7 +544,7 @@ if.end403:                                        ; preds = %if.then397, %if.end
   br i1 %cmp406178, label %for.body408.lr.ph, label %for.end420
 
 for.body408.lr.ph:                                ; preds = %if.end403
-  %data409 = getelementptr inbounds i8, ptr %call385, i64 8
+  %data409 = getelementptr inbounds nuw i8, ptr %call385, i64 8
   br label %for.body408
 
 for.cond404:                                      ; preds = %for.body408
@@ -557,7 +557,7 @@ for.cond404:                                      ; preds = %for.body408
 for.body408:                                      ; preds = %for.body408.lr.ph, %for.cond404
   %indvars.iv = phi i64 [ 0, %for.body408.lr.ph ], [ %indvars.iv.next, %for.cond404 ]
   %55 = load ptr, ptr %data409, align 8
-  %arrayidx411 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv
+  %arrayidx411 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv
   %56 = load i8, ptr %arrayidx411, align 1
   %conv412 = zext i8 %56 to i32
   %call413 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.44, i32 noundef %conv412) #4
@@ -687,7 +687,7 @@ entry:
 
 if.end6:                                          ; preds = %entry
   %idxprom = zext nneg i32 %spec.select to i64
-  %arrayidx = getelementptr inbounds [31 x ptr], ptr @ASN1_tag2str.tag2str, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [31 x ptr], ptr @ASN1_tag2str.tag2str, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -759,7 +759,7 @@ if.else26:                                        ; preds = %if.else21
 
 if.end6.i:                                        ; preds = %if.else26
   %idxprom.i = zext nneg i32 %spec.select.i to i64
-  %arrayidx.i = getelementptr inbounds [31 x ptr], ptr @ASN1_tag2str.tag2str, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [31 x ptr], ptr @ASN1_tag2str.tag2str, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   br label %if.end31
 

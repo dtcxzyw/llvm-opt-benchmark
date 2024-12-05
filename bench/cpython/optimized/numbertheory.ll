@@ -85,15 +85,15 @@ if.end:                                           ; preds = %entry
   %0 = load i64, ptr %arrayidx.i, align 8
   %call1 = tail call i64 @_mpd_getkernel(i64 noundef %n, i32 noundef %sign, i32 noundef %modnum)
   store i32 %modnum, ptr %call, align 8
-  %modulus = getelementptr inbounds i8, ptr %call, i64 8
+  %modulus = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %0, ptr %modulus, align 8
-  %kernel3 = getelementptr inbounds i8, ptr %call, i64 16
+  %kernel3 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %call1, ptr %kernel3, align 8
   %cmp416.not = icmp ult i64 %n, 2
   br i1 %cmp416.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %wtable = getelementptr inbounds i8, ptr %call, i64 24
+  %wtable = getelementptr inbounds nuw i8, ptr %call, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body

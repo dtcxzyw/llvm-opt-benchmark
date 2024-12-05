@@ -2252,7 +2252,7 @@ declare void @reassembly_table_init(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 34, ptr noundef nonnull @.str.371) #6
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
@@ -2294,7 +2294,7 @@ define internal fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr n
   br label %25
 
 25:                                               ; preds = %20, %19, %18, %9
-  %26 = getelementptr inbounds i8, ptr %1, i64 272
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %27 = load i32, ptr %26, align 8
   %28 = load i32, ptr @proto_wassp, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
@@ -2384,7 +2384,7 @@ define internal fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr n
   unreachable
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %92, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %96 = load i32, ptr %95, align 8
   %97 = shl i32 %96, 8
   %98 = or disjoint i32 %97, %8
@@ -3932,7 +3932,7 @@ define internal fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %0, ptr noundef %1
   %14 = load i32, ptr @hf_wassp_sub_tree, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 0) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.964, ptr noundef %10) #6
-  %16 = getelementptr inbounds i8, ptr %10, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %18) #6
@@ -3942,9 +3942,9 @@ define internal fastcc i32 @dissect_wassp_sub_tlv(ptr noundef %0, ptr noundef %1
 
 .lr.ph15:                                         ; preds = %13
   %22 = and i32 %2, 65535
-  %23 = getelementptr inbounds i8, ptr %10, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %24 = icmp eq ptr %10, null
-  %25 = getelementptr inbounds i8, ptr %10, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %26 = icmp eq i32 %4, 55
   %27 = icmp eq i32 %5, 10
   %28 = icmp eq i32 %4, 15
@@ -4081,7 +4081,7 @@ wassp_match_strval.exit:                          ; preds = %56, %57
   %105 = load ptr, ptr %25, align 8
   %106 = zext i16 %.0231 to i64
   %107 = getelementptr %struct.TLV_PARSER_ENTRY, ptr %105, i64 %106
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load i16, ptr %108, align 8
   switch i16 %109, label %wassp_type_converter.exit [
     i16 7, label %193
@@ -4294,7 +4294,7 @@ decode_ipv4_list_struct.exit:                     ; preds = %.lr.ph.i249, %decod
   br label %.backedge
 
 193:                                              ; preds = %104
-  %194 = getelementptr inbounds i8, ptr %107, i64 18
+  %194 = getelementptr inbounds nuw i8, ptr %107, i64 18
   %195 = load i16, ptr %194, align 2
   %196 = icmp eq i16 %195, 3
   %or.cond21 = and i1 %27, %196

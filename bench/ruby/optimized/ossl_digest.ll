@@ -133,7 +133,7 @@ define i64 @ossl_digest_new(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %3 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %4, ptr %9, align 8
   %10 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %4, ptr noundef %0, ptr noundef null) #4
   %.not5 = icmp eq i32 %10, 0
@@ -178,7 +178,7 @@ define noundef i64 @ossl_digest_update(i64 noundef returned %0, i64 noundef %1) 
   %11 = load i64, ptr %10, align 8, !noalias !6
   %12 = and i64 %11, 8192
   %.not.i.i = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %14
 
 14:                                               ; preds = %8
@@ -187,7 +187,7 @@ define noundef i64 @ossl_digest_update(i64 noundef returned %0, i64 noundef %1) 
 
 RSTRING_PTR.exit:                                 ; preds = %8, %14
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %14 ], [ %13, %8 ]
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %5, ptr noundef %.sroa.2.0.i, i64 noundef %16) #4
   %.not3 = icmp eq i32 %17, 0
@@ -275,7 +275,7 @@ define internal noundef i64 @ossl_digest_initialize(i32 noundef %0, ptr noundef 
 16:                                               ; preds = %14
   %17 = call ptr @EVP_MD_CTX_new() #4
   %18 = inttoptr i64 %2 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr %17, ptr %19, align 8
   %.not13 = icmp eq ptr %17, null
   br i1 %.not13, label %20, label %22
@@ -320,7 +320,7 @@ define internal noundef i64 @ossl_digest_initialize(i32 noundef %0, ptr noundef 
   %37 = load i64, ptr %36, align 8, !noalias !9
   %38 = and i64 %37, 8192
   %.not.i.i.i = icmp eq i64 %38, 0
-  %39 = getelementptr inbounds i8, ptr %36, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %40
 
 40:                                               ; preds = %34
@@ -329,7 +329,7 @@ define internal noundef i64 @ossl_digest_initialize(i32 noundef %0, ptr noundef 
 
 RSTRING_PTR.exit.i:                               ; preds = %40, %34
   %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i.i, %40 ], [ %39, %34 ]
-  %41 = getelementptr inbounds i8, ptr %36, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %31, ptr noundef %.sroa.2.0.i.i, i64 noundef %42) #4
   %.not3.i = icmp eq i32 %43, 0
@@ -381,7 +381,7 @@ rb_check_frozen_inline.exit:                      ; preds = %7
 
 17:                                               ; preds = %15
   %18 = tail call ptr @EVP_MD_CTX_new() #4
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %18, ptr %19, align 8
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %20, label %22
@@ -485,7 +485,7 @@ define internal i64 @ossl_digest_finish(i32 noundef %0, ptr noundef %1, i64 noun
   %24 = load i64, ptr %23, align 8, !noalias !13
   %25 = and i64 %24, 8192
   %.not.i.i = icmp eq i64 %25, 0
-  %26 = getelementptr inbounds i8, ptr %23, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %27
 
 27:                                               ; preds = %21

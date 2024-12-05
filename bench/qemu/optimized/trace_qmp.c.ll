@@ -79,7 +79,7 @@ if.else:                                          ; preds = %while.body
   br i1 %tobool.not.i, label %if.else13, label %trace_event_get_state_dynamic.exit
 
 trace_event_get_state_dynamic.exit:               ; preds = %if.else
-  %dstate.i = getelementptr inbounds i8, ptr %call319, i64 24
+  %dstate.i = getelementptr inbounds nuw i8, ptr %call319, i64 24
   %3 = load ptr, ptr %dstate.i, align 8
   %4 = load i16, ptr %3, align 2
   %tobool4.i.not = icmp eq i16 %4, 0
@@ -90,10 +90,10 @@ if.else13:                                        ; preds = %if.else, %trace_eve
 
 do.body:                                          ; preds = %trace_event_get_state_dynamic.exit, %while.body, %if.else13
   %.sink = phi i32 [ 1, %if.else13 ], [ 0, %while.body ], [ 2, %trace_event_get_state_dynamic.exit ]
-  %state = getelementptr inbounds i8, ptr %call4, i64 8
+  %state = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store i32 %.sink, ptr %state, align 8
   %call17 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
-  %value18 = getelementptr inbounds i8, ptr %call17, i64 8
+  %value18 = getelementptr inbounds nuw i8, ptr %call17, i64 8
   store ptr %call4, ptr %value18, align 8
   store ptr %events.018, ptr %call17, align 8
   %call3 = call ptr @trace_event_iter_next(ptr noundef nonnull %iter) #9

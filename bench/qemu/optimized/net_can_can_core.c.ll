@@ -47,13 +47,13 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @can_bus_insert_client(ptr noundef %bus, ptr noundef initializes((8, 16), (24, 40)) %client) local_unnamed_addr #1 {
 entry:
-  %bus1 = getelementptr inbounds i8, ptr %client, i64 8
+  %bus1 = getelementptr inbounds nuw i8, ptr %client, i64 8
   store ptr %bus, ptr %bus1, align 8
-  %next = getelementptr inbounds i8, ptr %client, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %client, i64 24
   store ptr null, ptr %next, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %bus, i64 48
+  %tql_prev = getelementptr inbounds nuw i8, ptr %bus, i64 48
   %0 = load ptr, ptr %tql_prev, align 8
-  %tql_prev3 = getelementptr inbounds i8, ptr %client, i64 32
+  %tql_prev3 = getelementptr inbounds nuw i8, ptr %client, i64 32
   store ptr %0, ptr %tql_prev3, align 8
   store ptr %client, ptr %0, align 8
   store ptr %next, ptr %tql_prev, align 8
@@ -63,26 +63,26 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @can_bus_remove_client(ptr nocapture noundef %client) local_unnamed_addr #1 {
 entry:
-  %bus1 = getelementptr inbounds i8, ptr %client, i64 8
+  %bus1 = getelementptr inbounds nuw i8, ptr %client, i64 8
   %0 = load ptr, ptr %bus1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %do.body
 
 do.body:                                          ; preds = %entry
-  %next = getelementptr inbounds i8, ptr %client, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %client, i64 24
   %1 = load ptr, ptr %next, align 8
   %cmp2.not = icmp eq ptr %1, null
-  %tql_prev9 = getelementptr inbounds i8, ptr %client, i64 32
+  %tql_prev9 = getelementptr inbounds nuw i8, ptr %client, i64 32
   %2 = load ptr, ptr %tql_prev9, align 8
   br i1 %cmp2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %do.body
-  %tql_prev7 = getelementptr inbounds i8, ptr %1, i64 32
+  %tql_prev7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %2, ptr %tql_prev7, align 8
   br label %if.end11
 
 if.else:                                          ; preds = %do.body
-  %tql_prev10 = getelementptr inbounds i8, ptr %0, i64 48
+  %tql_prev10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %2, ptr %tql_prev10, align 8
   br label %if.end11
 
@@ -101,13 +101,13 @@ return:                                           ; preds = %entry, %if.end11
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i64 -1, 2) i64 @can_bus_client_send(ptr noundef readonly %client, ptr noundef %frames, i64 noundef %frames_cnt) local_unnamed_addr #2 {
 entry:
-  %bus1 = getelementptr inbounds i8, ptr %client, i64 8
+  %bus1 = getelementptr inbounds nuw i8, ptr %client, i64 8
   %0 = load ptr, ptr %bus1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %clients = getelementptr inbounds i8, ptr %0, i64 40
+  %clients = getelementptr inbounds nuw i8, ptr %0, i64 40
   %peer.09 = load ptr, ptr %clients, align 8
   %tobool.not10 = icmp eq ptr %peer.09, null
   br i1 %tobool.not10, label %return, label %for.body
@@ -124,7 +124,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 
 if.end5:                                          ; preds = %for.body
   %3 = load ptr, ptr %peer.012, align 8
-  %receive = getelementptr inbounds i8, ptr %3, i64 8
+  %receive = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %receive, align 8
   %call7 = tail call i64 %4(ptr noundef nonnull %peer.012, ptr noundef %frames, i64 noundef %frames_cnt) #7
   %cmp8 = icmp sgt i64 %call7, 0
@@ -133,7 +133,7 @@ if.end5:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %if.end5, %for.body
   %ret.1 = phi i32 [ %ret.011, %for.body ], [ %spec.select, %if.end5 ]
-  %next = getelementptr inbounds i8, ptr %peer.012, i64 24
+  %next = getelementptr inbounds nuw i8, ptr %peer.012, i64 24
   %peer.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %peer.0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
@@ -150,7 +150,7 @@ return:                                           ; preds = %if.end, %for.end.lo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @can_bus_filter_match(ptr nocapture noundef readonly %filter, i32 noundef %can_id) local_unnamed_addr #3 {
 entry:
-  %can_mask = getelementptr inbounds i8, ptr %filter, i64 4
+  %can_mask = getelementptr inbounds nuw i8, ptr %filter, i64 4
   %0 = load i32, ptr %can_mask, align 4
   %or = or i32 %0, %can_id
   %and = and i32 %or, 536870912
@@ -205,9 +205,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @can_bus_instance_init(ptr noundef initializes((40, 48)) %object) #5 {
 entry:
-  %clients = getelementptr inbounds i8, ptr %object, i64 40
+  %clients = getelementptr inbounds nuw i8, ptr %object, i64 40
   store ptr null, ptr %clients, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %object, i64 48
+  %tql_prev = getelementptr inbounds nuw i8, ptr %object, i64 48
   store ptr %clients, ptr %tql_prev, align 8
   ret void
 }
@@ -216,7 +216,7 @@ entry:
 define internal void @can_bus_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #2 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #7
-  %can_be_deleted = getelementptr inbounds i8, ptr %call.i, i64 120
+  %can_be_deleted = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr @can_bus_can_be_deleted, ptr %can_be_deleted, align 8
   ret void
 }

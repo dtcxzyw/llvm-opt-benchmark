@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Io_WriteSmv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val24.i = load i32, ptr %5, align 4
@@ -42,7 +42,7 @@ define range(i32 0, 2) i32 @Io_WriteSmv(ptr nocapture noundef readonly %0, ptr n
   br i1 %6, label %.lr.ph26.i, label %.loopexit
 
 .lr.ph26.i:                                       ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %.critedge2.i, %.lr.ph26.i
@@ -50,7 +50,7 @@ define range(i32 0, 2) i32 @Io_WriteSmv(ptr nocapture noundef readonly %0, ptr n
   %9 = phi ptr [ %4, %.lr.ph26.i ], [ %21, %.critedge2.i ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val19.val.i = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds ptr, ptr %.val19.val.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr %.val19.val.i, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.critedge2.i, label %14
@@ -72,7 +72,7 @@ define range(i32 0, 2) i32 @Io_WriteSmv(ptr nocapture noundef readonly %0, ptr n
   ]
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds i8, ptr %.01522.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 1
   br label %.lr.ph.i, !llvm.loop !4
 
 .critedge2.i:                                     ; preds = %.lr.ph.i, %14, %8
@@ -100,7 +100,7 @@ Io_WriteSmvCheckNames.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i
   br label %361
 
 32:                                               ; preds = %.loopexit
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr (...) @Extra_TimeStamp() #6
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.3, ptr noundef %34, ptr noundef %35) #6
@@ -119,7 +119,7 @@ Io_WriteSmvCheckNames.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i
   %.val92147.i = phi ptr [ %.val92.i, %cleanUNSAFE.exit.i ], [ %.val92144.i, %32 ]
   %42 = getelementptr i8, ptr %.val92147.i, i64 8
   %.val93.val.i = load ptr, ptr %42, align 8
-  %43 = getelementptr inbounds ptr, ptr %.val93.val.i, i64 %indvars.iv.i15
+  %43 = getelementptr inbounds nuw ptr, ptr %.val93.val.i, i64 %indvars.iv.i15
   %44 = load ptr, ptr %43, align 8
   %.val94.i = load ptr, ptr %44, align 8
   %45 = getelementptr i8, ptr %44, i64 48
@@ -150,7 +150,7 @@ Io_WriteSmvCheckNames.exit:                       ; preds = %.lr.ph.i, %.lr.ph.i
 56:                                               ; preds = %55, %53
   %57 = phi i8 [ %54, %55 ], [ 95, %53 ]
   store i8 %57, ptr %.0.i.i, align 1
-  %58 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %53, !llvm.loop !7
 
 cleanUNSAFE.exit.i:                               ; preds = %53
@@ -166,7 +166,7 @@ cleanUNSAFE.exit.i:                               ; preds = %53
 .critedge.i:                                      ; preds = %cleanUNSAFE.exit.i, %32
   %fputc78.i = tail call i32 @fputc(i32 10, ptr nonnull %27)
   %63 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 24, i64 1, ptr nonnull %27)
-  %64 = getelementptr inbounds i8, ptr %0, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr i8, ptr %65, i64 4
   %.val148.i = load i32, ptr %66, align 4
@@ -178,7 +178,7 @@ cleanUNSAFE.exit.i:                               ; preds = %53
   %indvars.iv164.i = phi i64 [ %indvars.iv.next165.i, %96 ], [ 0, %.critedge.i ]
   %69 = getelementptr i8, ptr %68, i64 8
   %.val108.val.i = load ptr, ptr %69, align 8
-  %70 = getelementptr inbounds ptr, ptr %.val108.val.i, i64 %indvars.iv164.i
+  %70 = getelementptr inbounds nuw ptr, ptr %.val108.val.i, i64 %indvars.iv164.i
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 20
   %.val110.i = load i32, ptr %72, align 4
@@ -227,7 +227,7 @@ cleanUNSAFE.exit.i:                               ; preds = %53
 92:                                               ; preds = %91, %89
   %93 = phi i8 [ %90, %91 ], [ 95, %89 ]
   store i8 %93, ptr %.0.i123.i, align 1
-  %94 = getelementptr inbounds i8, ptr %.0.i123.i, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i123.i, i64 1
   br label %89, !llvm.loop !7
 
 cleanUNSAFE.exit124.i:                            ; preds = %89
@@ -267,7 +267,7 @@ cleanUNSAFE.exit124.i:                            ; preds = %89
   %109 = phi ptr [ %105, %.lr.ph154.i ], [ %240, %Io_WriteSmvOneNode.exit.i ]
   %110 = getelementptr i8, ptr %109, i64 8
   %.val91.val.i = load ptr, ptr %110, align 8
-  %111 = getelementptr inbounds ptr, ptr %.val91.val.i, i64 %indvars.iv167.i
+  %111 = getelementptr inbounds nuw ptr, ptr %.val91.val.i, i64 %indvars.iv167.i
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
   br i1 %113, label %Io_WriteSmvOneNode.exit.i, label %114
@@ -331,7 +331,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %122, %118
 137:                                              ; preds = %136, %134
   %138 = phi i8 [ %135, %136 ], [ 95, %134 ]
   store i8 %138, ptr %.0.i.i.i, align 1
-  %139 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
   br label %134, !llvm.loop !7
 
 cleanUNSAFE.exit.i.i:                             ; preds = %134
@@ -371,7 +371,7 @@ cleanUNSAFE.exit.i.i:                             ; preds = %134
 154:                                              ; preds = %153, %.preheader143.i
   %155 = phi i8 [ %152, %153 ], [ 95, %.preheader143.i ]
   store i8 %155, ptr %.0.i36.i.i, align 1
-  %156 = getelementptr inbounds i8, ptr %.0.i36.i.i, i64 1
+  %156 = getelementptr inbounds nuw i8, ptr %.0.i36.i.i, i64 1
   br label %.preheader143.i, !llvm.loop !7
 
 cleanUNSAFE.exit37.i.i:                           ; preds = %.preheader143.i
@@ -405,7 +405,7 @@ cleanUNSAFE.exit37.i.i:                           ; preds = %.preheader143.i
 169:                                              ; preds = %168, %166
   %170 = phi i8 [ %167, %168 ], [ 95, %166 ]
   store i8 %170, ptr %.0.i38.i.i, align 1
-  %171 = getelementptr inbounds i8, ptr %.0.i38.i.i, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %.0.i38.i.i, i64 1
   br label %166, !llvm.loop !7
 
 cleanUNSAFE.exit39.i.i:                           ; preds = %166
@@ -426,7 +426,7 @@ cleanUNSAFE.exit39.i.i:                           ; preds = %166
 175:                                              ; preds = %174, %.preheader.i
   %176 = phi i8 [ %173, %174 ], [ 95, %.preheader.i ]
   store i8 %176, ptr %.0.i40.i.i, align 1
-  %177 = getelementptr inbounds i8, ptr %.0.i40.i.i, i64 1
+  %177 = getelementptr inbounds nuw i8, ptr %.0.i40.i.i, i64 1
   br label %.preheader.i, !llvm.loop !7
 
 cleanUNSAFE.exit41.i.i:                           ; preds = %.preheader.i
@@ -460,7 +460,7 @@ cleanUNSAFE.exit41.i.i:                           ; preds = %.preheader.i
 190:                                              ; preds = %189, %187
   %191 = phi i8 [ %188, %189 ], [ 95, %187 ]
   store i8 %191, ptr %.0.i42.i.i, align 1
-  %192 = getelementptr inbounds i8, ptr %.0.i42.i.i, i64 1
+  %192 = getelementptr inbounds nuw i8, ptr %.0.i42.i.i, i64 1
   br label %187, !llvm.loop !7
 
 cleanUNSAFE.exit43.i.i:                           ; preds = %187
@@ -497,7 +497,7 @@ cleanUNSAFE.exit43.i.i:                           ; preds = %187
 206:                                              ; preds = %205, %203
   %207 = phi i8 [ %204, %205 ], [ 95, %203 ]
   store i8 %207, ptr %.0.i44.i.i, align 1
-  %208 = getelementptr inbounds i8, ptr %.0.i44.i.i, i64 1
+  %208 = getelementptr inbounds nuw i8, ptr %.0.i44.i.i, i64 1
   br label %203, !llvm.loop !7
 
 cleanUNSAFE.exit45.i.i:                           ; preds = %203
@@ -531,7 +531,7 @@ cleanUNSAFE.exit45.i.i:                           ; preds = %203
 221:                                              ; preds = %220, %218
   %222 = phi i8 [ %219, %220 ], [ 95, %218 ]
   store i8 %222, ptr %.0.i46.i.i, align 1
-  %223 = getelementptr inbounds i8, ptr %.0.i46.i.i, i64 1
+  %223 = getelementptr inbounds nuw i8, ptr %.0.i46.i.i, i64 1
   br label %218, !llvm.loop !7
 
 cleanUNSAFE.exit47.i.i:                           ; preds = %218
@@ -565,7 +565,7 @@ cleanUNSAFE.exit47.i.i:                           ; preds = %218
 236:                                              ; preds = %235, %233
   %237 = phi i8 [ %234, %235 ], [ 95, %233 ]
   store i8 %237, ptr %.0.i48.i.i, align 1
-  %238 = getelementptr inbounds i8, ptr %.0.i48.i.i, i64 1
+  %238 = getelementptr inbounds nuw i8, ptr %.0.i48.i.i, i64 1
   br label %233, !llvm.loop !7
 
 cleanUNSAFE.exit49.i.i:                           ; preds = %233
@@ -596,7 +596,7 @@ Io_WriteSmvOneNode.exit.i:                        ; preds = %cleanUNSAFE.exit49.
   %indvars.iv170.i = phi i64 [ %indvars.iv.next171.i, %324 ], [ 0, %.critedge4.i ]
   %249 = getelementptr i8, ptr %248, i64 8
   %.val109.val.i = load ptr, ptr %249, align 8
-  %250 = getelementptr inbounds ptr, ptr %.val109.val.i, i64 %indvars.iv170.i
+  %250 = getelementptr inbounds nuw ptr, ptr %.val109.val.i, i64 %indvars.iv170.i
   %251 = load ptr, ptr %250, align 8
   %252 = getelementptr i8, ptr %251, i64 20
   %.val111.i = load i32, ptr %252, align 4
@@ -653,7 +653,7 @@ Io_WriteSmvOneNode.exit.i:                        ; preds = %cleanUNSAFE.exit49.
 276:                                              ; preds = %275, %273
   %277 = phi i8 [ %274, %275 ], [ 95, %273 ]
   store i8 %277, ptr %.0.i126.i, align 1
-  %278 = getelementptr inbounds i8, ptr %.0.i126.i, i64 1
+  %278 = getelementptr inbounds nuw i8, ptr %.0.i126.i, i64 1
   br label %273, !llvm.loop !7
 
 cleanUNSAFE.exit127.i:                            ; preds = %273
@@ -702,7 +702,7 @@ cleanUNSAFE.exit127.i:                            ; preds = %273
 299:                                              ; preds = %298, %296
   %300 = phi i8 [ %297, %298 ], [ 95, %296 ]
   store i8 %300, ptr %.0.i128.i, align 1
-  %301 = getelementptr inbounds i8, ptr %.0.i128.i, i64 1
+  %301 = getelementptr inbounds nuw i8, ptr %.0.i128.i, i64 1
   br label %296, !llvm.loop !7
 
 cleanUNSAFE.exit129.i:                            ; preds = %296
@@ -747,7 +747,7 @@ cleanUNSAFE.exit129.i:                            ; preds = %296
 320:                                              ; preds = %319, %317
   %321 = phi i8 [ %318, %319 ], [ 95, %317 ]
   store i8 %321, ptr %.0.i130.i, align 1
-  %322 = getelementptr inbounds i8, ptr %.0.i130.i, i64 1
+  %322 = getelementptr inbounds nuw i8, ptr %.0.i130.i, i64 1
   br label %317, !llvm.loop !7
 
 cleanUNSAFE.exit131.i:                            ; preds = %317
@@ -778,7 +778,7 @@ cleanUNSAFE.exit131.i:                            ; preds = %317
   %.val121161.i = phi ptr [ %.val121.i, %353 ], [ %.val121158.i, %.critedge6.i ]
   %332 = getelementptr i8, ptr %.val121161.i, i64 8
   %.val122.val.i = load ptr, ptr %332, align 8
-  %333 = getelementptr inbounds ptr, ptr %.val122.val.i, i64 %indvars.iv173.i
+  %333 = getelementptr inbounds nuw ptr, ptr %.val122.val.i, i64 %indvars.iv173.i
   %334 = load ptr, ptr %333, align 8
   %.val118.i = load ptr, ptr %334, align 8
   %335 = getelementptr i8, ptr %334, i64 32
@@ -809,7 +809,7 @@ cleanUNSAFE.exit131.i:                            ; preds = %317
 346:                                              ; preds = %345, %343
   %347 = phi i8 [ %344, %345 ], [ 95, %343 ]
   store i8 %347, ptr %.0.i132.i, align 1
-  %348 = getelementptr inbounds i8, ptr %.0.i132.i, i64 1
+  %348 = getelementptr inbounds nuw i8, ptr %.0.i132.i, i64 1
   br label %343, !llvm.loop !7
 
 cleanUNSAFE.exit133.i:                            ; preds = %343

@@ -449,11 +449,11 @@ define hidden void @proto_register_json_3gpp() local_unnamed_addr #0 {
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @g_strdup(ptr noundef %6) #5
   %8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #6
-  %9 = getelementptr inbounds i8, ptr %5, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %9, ptr %8, align 8
   %10 = getelementptr [13 x ptr], ptr @register_static_headers.json_decode_fn, i64 0, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %11, ptr %12, align 8
   %13 = load ptr, ptr @json_header_fields_hash, align 8
   %14 = tail call i32 @g_hash_table_insert(ptr noundef %13, ptr noundef %7, ptr noundef nonnull %8) #5
@@ -548,7 +548,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %17) #5
   %19 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0, i32 noundef %.0284) #5
   %20 = add nsw i32 %.0284, -1
-  %21 = getelementptr inbounds i8, ptr %2, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %.0284 to i64
   %24 = tail call ptr @tvb_memdup(ptr noundef %22, ptr noundef %0, i32 noundef %.0, i64 noundef %23) #5

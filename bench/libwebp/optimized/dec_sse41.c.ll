@@ -24,7 +24,7 @@ define internal void @HE16_SSE41(ptr nocapture noundef %0) #1 {
   %5 = bitcast <4 x i32> %4 to <16 x i8>
   %6 = shufflevector <16 x i8> %5, <16 x i8> poison, <16 x i32> <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
   store <16 x i8> %6, ptr %.048, align 1
-  %7 = getelementptr inbounds i8, ptr %.048, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.048, i64 32
   %8 = add nsw i32 %.04647, -1
   %9 = icmp ugt i32 %.04647, 1
   br i1 %9, label %2, label %10, !llvm.loop !4

@@ -19,10 +19,10 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 2) i32 @file_is_json(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [6 x i64], align 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 1040
   %10 = and i32 %8, 16779264
@@ -30,7 +30,7 @@ define hidden range(i32 -1, 2) i32 @file_is_json(ptr noundef %0, ptr nocapture n
   br i1 %.not, label %11, label %28
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false)
@@ -95,7 +95,7 @@ define internal fastcc range(i32 0, 3) i32 @json_parse(ptr nocapture noundef non
   ]
 
 json_isspace.exit.i:                              ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %14 = getelementptr inbounds i8, ptr %.07.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %exitcond.not.i = icmp eq ptr %14, %1
   br i1 %exitcond.not.i, label %json_skip_space.exit, label %.lr.ph.i
 
@@ -109,7 +109,7 @@ json_skip_space.exit:                             ; preds = %.lr.ph.i, %json_iss
   br i1 %18, label %.thread120, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %15, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %20, ptr %7, align 8
   %21 = load i8, ptr %15, align 1
   switch i8 %21, label %130 [
@@ -154,7 +154,7 @@ json_skip_space.exit:                             ; preds = %.lr.ph.i, %json_iss
   ]
 
 json_isspace.exit.i88:                            ; preds = %.lr.ph.i86, %.lr.ph.i86, %.lr.ph.i86, %.lr.ph.i86
-  %31 = getelementptr inbounds i8, ptr %.07.i87, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.07.i87, i64 1
   %exitcond.not.i89 = icmp eq ptr %31, %1
   br i1 %exitcond.not.i89, label %json_skip_space.exit90, label %.lr.ph.i86
 
@@ -185,18 +185,18 @@ json_skip_space.exit90:                           ; preds = %.lr.ph.i86, %json_i
   ]
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.pre.pre, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 1
   store ptr %42, ptr %6, align 8
   %43 = icmp ult ptr %42, %1
   br i1 %43, label %.lr.ph.preheader.i84, label %json_parse_array.exit
 
 44:                                               ; preds = %39, %33
   %45 = phi ptr [ %.pre.pre, %39 ], [ %.0.lcssa.i83, %33 ]
-  %46 = getelementptr inbounds i8, ptr %2, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %47 = load i64, ptr %46, align 8
   %48 = add i64 %47, 1
   store i64 %48, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 1
   br label %json_parse_array.exit
 
 json_parse_array.exit:                            ; preds = %39, %36, %json_skip_space.exit90, %41, %24, %44
@@ -235,7 +235,7 @@ json_parse_array.exit:                            ; preds = %39, %36, %json_skip
   ]
 
 json_isspace.exit.i104:                           ; preds = %.lr.ph.i102, %.lr.ph.i102, %.lr.ph.i102, %.lr.ph.i102
-  %59 = getelementptr inbounds i8, ptr %.07.i103, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.07.i103, i64 1
   %exitcond.not.i105 = icmp eq ptr %59, %1
   br i1 %exitcond.not.i105, label %json_skip_space.exit106, label %.lr.ph.i102
 
@@ -248,7 +248,7 @@ json_skip_space.exit106:                          ; preds = %.lr.ph.i102, %json_
 61:                                               ; preds = %json_skip_space.exit106
   %62 = load i8, ptr %.0.lcssa.i99, align 1
   %63 = icmp eq i8 %62, 125
-  %64 = getelementptr inbounds i8, ptr %.0.lcssa.i99, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i99, i64 1
   br i1 %63, label %json_parse_object.exit, label %65
 
 65:                                               ; preds = %61
@@ -284,7 +284,7 @@ json_skip_space.exit106:                          ; preds = %.lr.ph.i102, %json_
   ]
 
 json_isspace.exit.i96:                            ; preds = %.lr.ph.i94, %.lr.ph.i94, %.lr.ph.i94, %.lr.ph.i94
-  %74 = getelementptr inbounds i8, ptr %.07.i95, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.07.i95, i64 1
   %exitcond.not.i97 = icmp eq ptr %74, %1
   br i1 %exitcond.not.i97, label %json_skip_space.exit98, label %.lr.ph.i94
 
@@ -294,7 +294,7 @@ json_skip_space.exit98:                           ; preds = %.lr.ph.i94, %json_i
   br i1 %75, label %json_parse_object.exit, label %76
 
 76:                                               ; preds = %json_skip_space.exit98
-  %77 = getelementptr inbounds i8, ptr %.0.lcssa.i91, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i91, i64 1
   store ptr %77, ptr %5, align 8
   %78 = load i8, ptr %.0.lcssa.i91, align 1
   %.not21.i = icmp eq i8 %78, 58
@@ -309,7 +309,7 @@ json_skip_space.exit98:                           ; preds = %.lr.ph.i94, %json_i
   br i1 %or.cond191, label %json_parse_object.exit, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %storemerge.i49.pre.pre, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %storemerge.i49.pre.pre, i64 1
   store ptr %83, ptr %5, align 8
   %84 = load i8, ptr %storemerge.i49.pre.pre, align 1
   switch i8 %84, label %85 [
@@ -322,11 +322,11 @@ json_skip_space.exit98:                           ; preds = %.lr.ph.i94, %json_i
   br label %json_parse_object.exit
 
 json_parse_object.exit.loopexit.split.loop.exit172: ; preds = %76
-  %86 = getelementptr inbounds i8, ptr %.0.lcssa.i91, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i91, i64 1
   br label %json_parse_object.exit
 
 json_parse_object.exit.loopexit.split.loop.exit181: ; preds = %65
-  %87 = getelementptr inbounds i8, ptr %.0.lcssa.i99, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i99, i64 1
   br label %json_parse_object.exit
 
 json_parse_object.exit:                           ; preds = %82, %79, %json_skip_space.exit98, %67, %json_skip_space.exit106, %53, %61, %json_parse_object.exit.loopexit.split.loop.exit172, %json_parse_object.exit.loopexit.split.loop.exit181, %85
@@ -356,10 +356,10 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
   br i1 %.not.i52, label %json_parse_const.exit.thread, label %95
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %.0.i51, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 1
   %97 = load i8, ptr %.0.i51, align 1
   %98 = zext i8 %97 to i32
-  %99 = getelementptr inbounds i8, ptr %.014.i, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %.014.i, i64 1
   %100 = load i8, ptr %99, align 1
   %101 = sext i8 %100 to i32
   %.not17.i = icmp eq i32 %98, %101
@@ -385,10 +385,10 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
   br i1 %.not.i58, label %json_parse_const.exit.thread, label %109
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %.0.i56, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 1
   %111 = load i8, ptr %.0.i56, align 1
   %112 = zext i8 %111 to i32
-  %113 = getelementptr inbounds i8, ptr %.014.i54, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %.014.i54, i64 1
   %114 = load i8, ptr %113, align 1
   %115 = sext i8 %114 to i32
   %.not17.i59 = icmp eq i32 %112, %115
@@ -414,10 +414,10 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
   br i1 %.not.i66, label %json_parse_const.exit.thread, label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %.0.i64, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %.0.i64, i64 1
   %125 = load i8, ptr %.0.i64, align 1
   %126 = zext i8 %125 to i32
-  %127 = getelementptr inbounds i8, ptr %.014.i62, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %.014.i62, i64 1
   %128 = load i8, ptr %127, align 1
   %129 = sext i8 %128 to i32
   %.not17.i67 = icmp eq i32 %126, %129
@@ -429,7 +429,7 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
   %132 = load i8, ptr %15, align 1
   %133 = icmp eq i8 %132, 45
   %spec.select.idx.i = zext i1 %133 to i64
-  %spec.select.i69 = getelementptr inbounds i8, ptr %15, i64 %spec.select.idx.i
+  %spec.select.i69 = getelementptr inbounds nuw i8, ptr %15, i64 %spec.select.idx.i
   %134 = icmp ult ptr %spec.select.i69, %1
   br i1 %134, label %.lr.ph.preheader.i72, label %._crit_edge.i
 
@@ -450,7 +450,7 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i72, %.lr.ph.i74
   %.13857.i134 = phi ptr [ %141, %.lr.ph.i74 ], [ %spec.select.i69, %.lr.ph.preheader.i72 ]
-  %141 = getelementptr inbounds i8, ptr %.13857.i134, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %.13857.i134, i64 1
   %142 = icmp ult ptr %141, %1
   br i1 %142, label %.lr.ph.i74, label %._crit_edge.i
 
@@ -465,7 +465,7 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
   %145 = load i8, ptr %.138.lcssa.i, align 1
   %146 = icmp eq i8 %145, 46
   %spec.select50.idx.i = zext i1 %146 to i64
-  %spec.select50.i = getelementptr inbounds i8, ptr %.138.lcssa.i, i64 %spec.select50.idx.i
+  %spec.select50.i = getelementptr inbounds nuw i8, ptr %.138.lcssa.i, i64 %spec.select50.idx.i
   %147 = icmp ult ptr %spec.select50.i, %1
   br i1 %147, label %.lr.ph66.preheader.i, label %._crit_edge67.i
 
@@ -485,7 +485,7 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
 
 .lr.ph140:                                        ; preds = %.lr.ph66.preheader.i, %.lr.ph66.i
   %.463.i139 = phi ptr [ %153, %.lr.ph66.i ], [ %spec.select50.i, %.lr.ph66.preheader.i ]
-  %153 = getelementptr inbounds i8, ptr %.463.i139, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %.463.i139, i64 1
   %154 = icmp ult ptr %153, %1
   br i1 %154, label %.lr.ph66.i, label %._crit_edge67.i
 
@@ -505,7 +505,7 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
   ]
 
 159:                                              ; preds = %157, %157
-  %160 = getelementptr inbounds i8, ptr %.4.lcssa.i, i64 1
+  %160 = getelementptr inbounds nuw i8, ptr %.4.lcssa.i, i64 1
   %161 = icmp eq ptr %160, %1
   br i1 %161, label %json_parse_number.exit, label %162
 
@@ -517,7 +517,7 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
   ]
 
 164:                                              ; preds = %162, %162
-  %165 = getelementptr inbounds i8, ptr %.4.lcssa.i, i64 2
+  %165 = getelementptr inbounds nuw i8, ptr %.4.lcssa.i, i64 2
   br label %166
 
 166:                                              ; preds = %164, %162
@@ -542,8 +542,8 @@ json_parse_object.exit:                           ; preds = %82, %79, %json_skip
 
 .lr.ph147:                                        ; preds = %.lr.ph76.preheader.i, %.lr.ph76.i
   %.673.i146 = phi ptr [ %173, %.lr.ph76.i ], [ %.5.i, %.lr.ph76.preheader.i ]
-  %173 = getelementptr inbounds i8, ptr %.673.i146, i64 1
-  %exitcond.not.i71 = icmp eq ptr %173, %scevgep85.i
+  %173 = getelementptr inbounds nuw i8, ptr %.673.i146, i64 1
+  %exitcond.not.i71 = icmp eq ptr %173, %1
   br i1 %exitcond.not.i71, label %json_parse_number.exit, label %.lr.ph76.i
 
 json_parse_number.exit:                           ; preds = %.lr.ph147, %.lr.ph76.i, %.lr.ph76.preheader.i, %._crit_edge.i, %._crit_edge67.i, %157, %159, %166
@@ -560,7 +560,7 @@ json_parse_const.exit:                            ; preds = %json_parse_number.e
 
 json_parse_const.exit.thread:                     ; preds = %121, %119, %107, %105, %93, %91, %json_parse_const.exit
   %.0112 = phi i64 [ %.0, %json_parse_const.exit ], [ 1, %91 ], [ 1, %93 ], [ 1, %105 ], [ 1, %107 ], [ 1, %119 ], [ 1, %121 ]
-  %174 = getelementptr inbounds i64, ptr %2, i64 %.0112
+  %174 = getelementptr inbounds nuw i64, ptr %2, i64 %.0112
   %175 = load i64, ptr %174, align 8
   %176 = add i64 %175, 1
   store i64 %176, ptr %174, align 8
@@ -591,7 +591,7 @@ json_parse_const.exit.thread114:                  ; preds = %123, %109, %95, %js
   ]
 
 json_isspace.exit.i80:                            ; preds = %.lr.ph.i78, %.lr.ph.i78, %.lr.ph.i78, %.lr.ph.i78
-  %183 = getelementptr inbounds i8, ptr %.07.i79, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %.07.i79, i64 1
   %exitcond.not.i81 = icmp eq ptr %183, %1
   br i1 %exitcond.not.i81, label %.loopexit, label %.lr.ph.i78
 
@@ -613,13 +613,13 @@ json_isspace.exit.i80:                            ; preds = %.lr.ph.i78, %.lr.ph
   br i1 %186, label %187, label %195
 
 187:                                              ; preds = %185
-  %188 = getelementptr inbounds i8, ptr %2, i64 40
+  %188 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %189 = load i64, ptr %188, align 8
   %.not47 = icmp eq i64 %189, 0
   br i1 %.not47, label %190, label %.thread120
 
 190:                                              ; preds = %187
-  %191 = getelementptr inbounds i8, ptr %2, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %192 = load i64, ptr %191, align 8
   %193 = icmp ne i64 %192, 0
   %194 = zext i1 %193 to i32
@@ -637,13 +637,13 @@ json_isspace.exit.i80:                            ; preds = %.lr.ph.i78, %.lr.ph
   br i1 %.not44, label %.thread120, label %201
 
 201:                                              ; preds = %199
-  %202 = getelementptr inbounds i8, ptr %2, i64 40
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %203 = load i64, ptr %202, align 8
   %.not45 = icmp eq i64 %203, 0
   br i1 %.not45, label %204, label %.thread120
 
 204:                                              ; preds = %201
-  %205 = getelementptr inbounds i8, ptr %2, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %206 = load i64, ptr %205, align 8
   %.not46 = icmp eq i64 %206, 0
   %207 = select i1 %.not46, i32 0, i32 2
@@ -668,7 +668,7 @@ define internal fastcc range(i32 0, 2) i32 @json_parse_string(ptr nocapture noun
 
 6:                                                ; preds = %.lr.ph, %.backedge
   %.01730 = phi ptr [ %3, %.lr.ph ], [ %.017.be, %.backedge ]
-  %7 = getelementptr inbounds i8, ptr %.01730, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.01730, i64 1
   %8 = load i8, ptr %.01730, align 1
   switch i8 %8, label %.backedge [
     i8 0, label %json_isxdigit.exit
@@ -681,7 +681,7 @@ define internal fastcc range(i32 0, 2) i32 @json_parse_string(ptr nocapture noun
   br i1 %10, label %json_isxdigit.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %.01730, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01730, i64 2
   %13 = load i8, ptr %7, align 1
   switch i8 %13, label %json_isxdigit.exit [
     i8 117, label %15
@@ -713,7 +713,7 @@ define internal fastcc range(i32 0, 2) i32 @json_parse_string(ptr nocapture noun
 .preheader:                                       ; preds = %.preheader.preheader, %23
   %.029 = phi i64 [ %24, %23 ], [ 0, %.preheader.preheader ]
   %.128 = phi ptr [ %19, %23 ], [ %12, %.preheader.preheader ]
-  %19 = getelementptr inbounds i8, ptr %.128, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.128, i64 1
   %20 = load i8, ptr %.128, align 1
   %21 = add i8 %20, -58
   %switch.i.i = icmp ult i8 %21, -10

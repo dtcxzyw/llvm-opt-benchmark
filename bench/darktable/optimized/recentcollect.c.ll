@@ -115,7 +115,7 @@ define hidden void @_menuitem_preferences(ptr nocapture readnone %0, ptr noundef
   br i1 %24, label %25, label %83
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %1, i64 280
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.22) #10
   %29 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.23) #10
@@ -127,7 +127,7 @@ define hidden void @_menuitem_preferences(ptr nocapture readnone %0, ptr noundef
   br i1 %34, label %35, label %.loopexit3
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds i8, ptr %27, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   %38 = tail call ptr @g_list_nth(ptr noundef %37, i32 noundef %32) #10
   %39 = icmp eq ptr %38, null
@@ -136,7 +136,7 @@ define hidden void @_menuitem_preferences(ptr nocapture readnone %0, ptr noundef
 .preheader:                                       ; preds = %35, %.preheader
   %40 = phi ptr [ %49, %.preheader ], [ %38, %35 ]
   %41 = load ptr, ptr %40, align 8, !tbaa !29
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8, !tbaa !31
   %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.5, i32 noundef %43) #10
   call void @dt_conf_set_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.6) #10
@@ -146,7 +146,7 @@ define hidden void @_menuitem_preferences(ptr nocapture readnone %0, ptr noundef
   %47 = load ptr, ptr %41, align 8, !tbaa !33
   call void @gtk_widget_destroy(ptr noundef %47) #10
   call void @free(ptr noundef %41) #10
-  %48 = getelementptr inbounds i8, ptr %40, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !34
   %50 = load ptr, ptr %36, align 8, !tbaa !27
   %51 = call ptr @g_list_delete_link(ptr noundef %50, ptr noundef nonnull %40) #10
@@ -162,7 +162,7 @@ define hidden void @_menuitem_preferences(ptr nocapture readnone %0, ptr noundef
 
 56:                                               ; preds = %.loopexit3
   %57 = tail call i64 @gtk_widget_get_type() #11
-  %58 = getelementptr inbounds i8, ptr %27, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %27, i64 16
   br label %59
 
 59:                                               ; preds = %59, %56
@@ -273,9 +273,9 @@ declare i64 @gtk_box_get_type() local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define internal void @_button_pressed(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #1 {
   %3 = alloca [200 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !24
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = icmp eq ptr %7, null
   br i1 %8, label %34, label %9
@@ -287,7 +287,7 @@ define internal void @_button_pressed(ptr noundef readnone %0, ptr nocapture nou
 11:                                               ; preds = %11, %9
   %12 = phi i32 [ 0, %9 ], [ %22, %11 ]
   %13 = phi ptr [ %7, %9 ], [ %20, %11 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = load ptr, ptr %13, align 8, !tbaa !29
   %17 = load ptr, ptr %16, align 8, !tbaa !33
@@ -339,11 +339,11 @@ define internal void @_lib_recentcollection_updated(ptr nocapture readnone %0, i
   %10 = alloca i32, align 4
   %11 = alloca [200 x i8], align 16
   %12 = alloca [2048 x i8], align 16
-  %13 = getelementptr inbounds i8, ptr %5, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %11) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %11, i8 0, i64 200, i1 false)
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit10.preheader, label %.preheader
@@ -389,7 +389,7 @@ define internal void @_lib_recentcollection_updated(ptr nocapture readnone %0, i
   ]
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %33, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 1
   br label %32
 
 37:                                               ; preds = %32, %32
@@ -400,7 +400,7 @@ define internal void @_lib_recentcollection_updated(ptr nocapture readnone %0, i
 40:                                               ; preds = %37
   %41 = icmp eq i8 %34, 58
   %42 = zext i1 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %33, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 %42
   br label %44
 
 .loopexit9:                                       ; preds = %94, %37
@@ -444,7 +444,7 @@ define internal void @_lib_recentcollection_updated(ptr nocapture readnone %0, i
 
 63:                                               ; preds = %67, %60
   %64 = phi i64 [ %68, %67 ], [ 0, %60 ]
-  %65 = getelementptr inbounds [400 x i8], ptr %8, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [400 x i8], ptr %8, i64 0, i64 %64
   %66 = load i8, ptr %65, align 1, !tbaa !37
   switch i8 %66, label %67 [
     i8 36, label %69
@@ -456,7 +456,7 @@ define internal void @_lib_recentcollection_updated(ptr nocapture readnone %0, i
   br label %63
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds [400 x i8], ptr %8, i64 0, i64 %64
+  %70 = getelementptr inbounds nuw [400 x i8], ptr %8, i64 0, i64 %64
   store i8 0, ptr %70, align 1, !tbaa !37
   br label %.loopexit
 
@@ -498,13 +498,13 @@ define internal void @_lib_recentcollection_updated(ptr nocapture readnone %0, i
   ]
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %90, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 1
   br label %89
 
 94:                                               ; preds = %89, %89
   %95 = icmp eq i8 %91, 36
   %96 = zext i1 %95 to i64
-  %97 = getelementptr inbounds i8, ptr %90, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 %96
   %98 = add nuw nsw i32 %46, 1
   %99 = load i32, ptr %7, align 4, !tbaa !38
   %100 = icmp slt i32 %98, %99
@@ -521,7 +521,7 @@ define internal void @_lib_recentcollection_updated(ptr nocapture readnone %0, i
   %107 = tail call i64 @gtk_bin_get_type() #11
   %108 = call ptr @g_type_check_instance_cast(ptr noundef %106, i64 noundef %107) #10
   %109 = call ptr @gtk_bin_get_child(ptr noundef %108) #10
-  %110 = getelementptr inbounds i8, ptr %20, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %19, ptr %110, align 8, !tbaa !31
   %111 = icmp eq ptr %109, null
   br i1 %111, label %116, label %112
@@ -540,7 +540,7 @@ define internal void @_lib_recentcollection_updated(ptr nocapture readnone %0, i
   call void @gtk_widget_set_no_show_all(ptr noundef %117, i32 noundef 1) #10
   %118 = load ptr, ptr %20, align 8, !tbaa !33
   call void @gtk_widget_set_visible(ptr noundef %118, i32 noundef 0) #10
-  %119 = getelementptr inbounds i8, ptr %18, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %12) #10
   %121 = add nuw nsw i32 %19, 1
@@ -609,7 +609,7 @@ define internal void @_lib_recentcollection_updated(ptr nocapture readnone %0, i
   br label %161
 
 161:                                              ; preds = %158, %155, %148
-  %162 = getelementptr inbounds i8, ptr %125, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %163 = add nuw nsw i32 %123, 1
   br label %.loopexit10
 }
@@ -679,20 +679,20 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %3, align 8, !tbaa !27
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %2, ptr %4, align 8, !tbaa !24
   %5 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #10
   %6 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 416
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %6, ptr %7, align 8, !tbaa !40
   %8 = tail call i64 @gtk_container_get_type() #11
   %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %8) #10
   %10 = tail call ptr @dt_ui_resize_wrap(ptr noundef %5, i32 noundef 50, ptr noundef nonnull @.str.14) #10
   tail call void @gtk_container_add(ptr noundef %9, ptr noundef %10) #10
   store ptr %5, ptr %2, align 8, !tbaa !35
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %11, align 8, !tbaa !41
   %12 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.22) #10
   %13 = icmp sgt i32 %12, 0
@@ -753,9 +753,9 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !44
   tail call void @dt_control_signal_connect(ptr noundef %47, i32 noundef 7, ptr noundef nonnull @_lib_recentcollection_updated, ptr noundef %0) #10
   %48 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !36
-  %49 = getelementptr inbounds i8, ptr %48, i64 360
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 360
   store ptr %0, ptr %49, align 8, !tbaa !45
-  %50 = getelementptr inbounds i8, ptr %48, i64 368
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 368
   store ptr @_update_visibility, ptr %50, align 8, !tbaa !59
   %51 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.11) #10
   %52 = icmp eq i32 %51, 0
@@ -795,7 +795,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !6
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = tail call ptr @dt_ui_thumbtable(ptr noundef %3) #10
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !60
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.20, i32 noundef %6) #10
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !42
@@ -816,7 +816,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
 15:                                               ; preds = %14, %10, %1
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !44
   tail call void @dt_control_signal_disconnect(ptr noundef %16, ptr noundef nonnull @_lib_recentcollection_updated, ptr noundef %0) #10
-  %17 = getelementptr inbounds i8, ptr %0, i64 280
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   tail call void @free(ptr noundef %18) #10
   store ptr null, ptr %17, align 8, !tbaa !24

@@ -40,7 +40,7 @@ define void @slasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %6, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 1.000000e+00, ptr %34, align 4
   %35 = shl i32 %21, 1
   %36 = or disjoint i32 %35, 1
@@ -118,7 +118,7 @@ define void @slasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %.not196.not198, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %57
-  %81 = getelementptr inbounds float, ptr %24, i64 %63
+  %81 = getelementptr inbounds nuw float, ptr %24, i64 %63
   %wide.trip.count = zext nneg i32 %58 to i64
   br label %82
 
@@ -126,13 +126,13 @@ define void @slasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %82 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %83 = load float, ptr %gep, align 4
-  %84 = getelementptr inbounds float, ptr %25, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
   %85 = load float, ptr %84, align 4
   %86 = fmul float %83, %85
   %gep257 = getelementptr float, ptr %invariant.gep256, i64 %indvars.iv
   %87 = load float, ptr %gep257, align 4
   %88 = fmul float %86, %87
-  %89 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
   %90 = load float, ptr %89, align 4
   %91 = load float, ptr %81, align 4
   %92 = fsub float %90, %91
@@ -200,7 +200,7 @@ define void @slasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %115 = load float, ptr %gep263, align 4
   %116 = call noundef float @llvm.fabs.f32(float %115)
   %sqrt = call float @llvm.sqrt.f32(float %116)
-  %117 = getelementptr inbounds float, ptr %19, i64 %indvars.iv238
+  %117 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv238
   %118 = load float, ptr %117, align 4
   %119 = fcmp ogt float %118, 0.000000e+00
   %120 = fneg float %sqrt
@@ -270,16 +270,16 @@ define void @slasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph218:                                        ; preds = %.lr.ph218.preheader, %.lr.ph218
   %indvars.iv243 = phi i64 [ 1, %.lr.ph218.preheader ], [ %indvars.iv.next244, %.lr.ph218 ]
-  %150 = getelementptr inbounds float, ptr %19, i64 %indvars.iv243
+  %150 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv243
   %151 = load float, ptr %150, align 4
-  %152 = getelementptr inbounds float, ptr %24, i64 %indvars.iv243
+  %152 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv243
   %153 = load float, ptr %152, align 4
   %154 = fsub float %153, %130
   %155 = fsub float %154, %126
   %156 = fdiv float %151, %155
   %157 = fadd float %128, %153
   %158 = fdiv float %156, %157
-  %159 = getelementptr inbounds float, ptr %25, i64 %indvars.iv243
+  %159 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv243
   store float %158, ptr %159, align 4
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count246

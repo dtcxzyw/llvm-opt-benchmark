@@ -45,7 +45,7 @@ if.end5:                                          ; preds = %if.end
 
 if.end11:                                         ; preds = %if.end5
   %call12 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #10
-  %add.ptr = getelementptr inbounds i8, ptr %call12, i64 9
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call12, i64 9
   %0 = load i8, ptr %add.ptr, align 1
   switch i8 %0, label %return [
     i8 43, label %if.end18
@@ -53,31 +53,31 @@ if.end11:                                         ; preds = %if.end5
   ]
 
 if.end18:                                         ; preds = %if.end11, %if.end11
-  %arrayidx19 = getelementptr inbounds i8, ptr %call12, i64 12
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %call12, i64 12
   %1 = load i8, ptr %arrayidx19, align 1
   %cmp21.not = icmp eq i8 %1, 58
   br i1 %cmp21.not, label %lor.lhs.false22, label %return
 
 lor.lhs.false22:                                  ; preds = %if.end18
-  %arrayidx23 = getelementptr inbounds i8, ptr %call12, i64 15
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %call12, i64 15
   %2 = load i8, ptr %arrayidx23, align 1
   %cmp25.not = icmp eq i8 %2, 58
   br i1 %cmp25.not, label %if.end27, label %return
 
 if.end27:                                         ; preds = %lor.lhs.false22
-  %add.ptr28 = getelementptr inbounds i8, ptr %call12, i64 10
+  %add.ptr28 = getelementptr inbounds nuw i8, ptr %call12, i64 10
   %call29 = tail call fastcc noundef i32 @_ZN4absl13time_internal4cctz12_GLOBAL__N_18Parse02dEPKc(ptr noundef nonnull %add.ptr28)
   %cmp30 = icmp eq i32 %call29, -1
   br i1 %cmp30, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end27
-  %add.ptr33 = getelementptr inbounds i8, ptr %call12, i64 13
+  %add.ptr33 = getelementptr inbounds nuw i8, ptr %call12, i64 13
   %call34 = tail call fastcc noundef i32 @_ZN4absl13time_internal4cctz12_GLOBAL__N_18Parse02dEPKc(ptr noundef nonnull %add.ptr33)
   %cmp35 = icmp eq i32 %call34, -1
   br i1 %cmp35, label %return, label %if.end37
 
 if.end37:                                         ; preds = %if.end32
-  %add.ptr38 = getelementptr inbounds i8, ptr %call12, i64 16
+  %add.ptr38 = getelementptr inbounds nuw i8, ptr %call12, i64 16
   %call39 = tail call fastcc noundef i32 @_ZN4absl13time_internal4cctz12_GLOBAL__N_18Parse02dEPKc(ptr noundef nonnull %add.ptr38)
   %cmp40 = icmp eq i32 %call39, -1
   br i1 %cmp40, label %return, label %if.end42
@@ -129,7 +129,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %incdec.ptr = getelementptr inbounds i8, ptr %p, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p, i64 1
   %1 = load i8, ptr %incdec.ptr, align 1
   %conv2 = sext i8 %1 to i32
   %memchr4 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i32 %conv2, i64 11)
@@ -240,51 +240,51 @@ if.end23:                                         ; preds = %if.then17, %if.end1
   %div2460 = sdiv i16 %div24.lhs.trunc, 60
   %rem2561 = srem i16 %div24.lhs.trunc, 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %buf, ptr noundef nonnull align 1 dereferenceable(9) @_ZN4absl13time_internal4cctz12_GLOBAL__N_116kFixedZonePrefixE, i64 9, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %buf, i64 9
-  %incdec.ptr = getelementptr inbounds i8, ptr %buf, i64 10
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 9
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 10
   store i8 %cond, ptr %add.ptr.i.i.i.i.i.i.i, align 1
   %div.i.lhs.trunc = trunc i16 %div2460 to i8
   %div.i62 = sdiv i8 %div.i.lhs.trunc, 10
   %idxprom.i = sext i8 %div.i62 to i64
   %arrayidx.i = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i
   %6 = load i8, ptr %arrayidx.i, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %buf, i64 11
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 11
   store i8 %6, ptr %incdec.ptr, align 2
   %rem1.i63 = srem i8 %div.i.lhs.trunc, 10
   %idxprom2.i = sext i8 %rem1.i63 to i64
   %arrayidx3.i = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i
   %7 = load i8, ptr %arrayidx3.i, align 1
-  %incdec.ptr4.i = getelementptr inbounds i8, ptr %buf, i64 12
+  %incdec.ptr4.i = getelementptr inbounds nuw i8, ptr %buf, i64 12
   store i8 %7, ptr %incdec.ptr.i, align 1
-  %incdec.ptr28 = getelementptr inbounds i8, ptr %buf, i64 13
+  %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %buf, i64 13
   store i8 58, ptr %incdec.ptr4.i, align 4
   %div.i33.lhs.trunc = trunc nsw i16 %rem2561 to i8
   %div.i3364 = sdiv i8 %div.i33.lhs.trunc, 10
   %idxprom.i35 = sext i8 %div.i3364 to i64
   %arrayidx.i36 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i35
   %8 = load i8, ptr %arrayidx.i36, align 1
-  %incdec.ptr.i37 = getelementptr inbounds i8, ptr %buf, i64 14
+  %incdec.ptr.i37 = getelementptr inbounds nuw i8, ptr %buf, i64 14
   store i8 %8, ptr %incdec.ptr28, align 1
   %rem1.i3865 = srem i8 %div.i33.lhs.trunc, 10
   %idxprom2.i39 = sext i8 %rem1.i3865 to i64
   %arrayidx3.i40 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i39
   %9 = load i8, ptr %arrayidx3.i40, align 1
-  %incdec.ptr4.i41 = getelementptr inbounds i8, ptr %buf, i64 15
+  %incdec.ptr4.i41 = getelementptr inbounds nuw i8, ptr %buf, i64 15
   store i8 %9, ptr %incdec.ptr.i37, align 2
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %buf, i64 16
+  %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %buf, i64 16
   store i8 58, ptr %incdec.ptr4.i41, align 1
   %div.i42.lhs.trunc = trunc nsw i32 %offset_seconds.0 to i8
   %div.i4266 = sdiv i8 %div.i42.lhs.trunc, 10
   %idxprom.i44 = sext i8 %div.i4266 to i64
   %arrayidx.i45 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i44
   %10 = load i8, ptr %arrayidx.i45, align 1
-  %incdec.ptr.i46 = getelementptr inbounds i8, ptr %buf, i64 17
+  %incdec.ptr.i46 = getelementptr inbounds nuw i8, ptr %buf, i64 17
   store i8 %10, ptr %incdec.ptr30, align 16
   %rem1.i4767 = srem i8 %div.i42.lhs.trunc, 10
   %idxprom2.i48 = sext i8 %rem1.i4767 to i64
   %arrayidx3.i49 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i48
   %11 = load i8, ptr %arrayidx3.i49, align 1
-  %incdec.ptr4.i50 = getelementptr inbounds i8, ptr %buf, i64 18
+  %incdec.ptr4.i50 = getelementptr inbounds nuw i8, ptr %buf, i64 18
   store i8 %11, ptr %incdec.ptr.i46, align 1
   store i8 0, ptr %incdec.ptr4.i50, align 2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp34) #10

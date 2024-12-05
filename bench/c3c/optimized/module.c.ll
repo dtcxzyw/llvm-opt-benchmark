@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @module_find_symbol(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = tail call ptr @htable_get(ptr noundef nonnull %3, ptr noundef %1) #2
   ret ptr %4
 }
@@ -18,13 +18,13 @@ declare ptr @htable_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local ptr @module_create_object_file_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   tail call void @scratch_buffer_clear() #2
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   br label %5
 
 5:                                                ; preds = %.backedge, %1
   %.0 = phi ptr [ %4, %1 ], [ %.0.be, %.backedge ]
-  %6 = getelementptr inbounds i8, ptr %.0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %7 = load i8, ptr %.0, align 1
   switch i8 %7, label %.sink.split [
     i8 0, label %18
@@ -35,7 +35,7 @@ define dso_local ptr @module_create_object_file_name(ptr nocapture noundef reado
 8:                                                ; preds = %5
   %9 = load i8, ptr %6, align 1
   %10 = icmp eq i8 %9, 36
-  %11 = getelementptr inbounds i8, ptr %.0, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %spec.select = select i1 %10, ptr %11, ptr %6
   %12 = load i8, ptr %spec.select, align 1
   %.not11 = icmp eq i8 %12, 0
@@ -44,7 +44,7 @@ define dso_local ptr @module_create_object_file_name(ptr nocapture noundef reado
 13:                                               ; preds = %5
   %14 = load i8, ptr %6, align 1
   %15 = icmp eq i8 %14, 58
-  %16 = getelementptr inbounds i8, ptr %.0, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %spec.select12 = select i1 %15, ptr %16, ptr %6
   %17 = load i8, ptr %spec.select12, align 1
   %.not10 = icmp eq i8 %17, 0
@@ -87,7 +87,7 @@ define dso_local noundef ptr @path_create_from_string(ptr noundef %0, i32 nounde
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.067.i = phi i32 [ -2128831035, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
-  %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = sext i8 %7 to i32
   %9 = xor i32 %.067.i, %8
@@ -99,9 +99,9 @@ define dso_local noundef ptr @path_create_from_string(ptr noundef %0, i32 nounde
 fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   %.06.lcssa.i = phi i32 [ -2128831035, %3 ], [ %10, %.lr.ph.i ]
   %11 = call ptr @symtab_add(ptr noundef %0, i32 noundef %1, i32 noundef %.06.lcssa.i, ptr noundef nonnull %4) #2
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %1, ptr %13, align 8
   %14 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %14, 64

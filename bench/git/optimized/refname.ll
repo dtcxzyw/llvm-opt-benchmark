@@ -22,18 +22,18 @@ define dso_local range(i32 -2147483648, 1) i32 @validate_ref_record_addition(ptr
 entry:
   %mod = alloca %struct.modification, align 8
   store ptr %tab.coerce0, ptr %mod, align 8
-  %tab.sroa.2.0.tab1.sroa_idx = getelementptr inbounds i8, ptr %mod, i64 8
+  %tab.sroa.2.0.tab1.sroa_idx = getelementptr inbounds nuw i8, ptr %mod, i64 8
   store ptr %tab.coerce1, ptr %tab.sroa.2.0.tab1.sroa_idx, align 8
-  %add = getelementptr inbounds i8, ptr %mod, i64 16
+  %add = getelementptr inbounds nuw i8, ptr %mod, i64 16
   %mul = shl i64 %sz, 3
   %call = tail call ptr @reftable_calloc(i64 noundef %mul) #10
   store ptr %call, ptr %add, align 8
-  %add_len = getelementptr inbounds i8, ptr %mod, i64 24
+  %add_len = getelementptr inbounds nuw i8, ptr %mod, i64 24
   store i64 0, ptr %add_len, align 8
-  %del = getelementptr inbounds i8, ptr %mod, i64 32
+  %del = getelementptr inbounds nuw i8, ptr %mod, i64 32
   %call3 = tail call ptr @reftable_calloc(i64 noundef %mul) #10
   store ptr %call3, ptr %del, align 8
-  %del_len = getelementptr inbounds i8, ptr %mod, i64 40
+  %del_len = getelementptr inbounds nuw i8, ptr %mod, i64 40
   store i64 0, ptr %del_len, align 8
   %cmp9.not = icmp eq i64 %sz, 0
   br i1 %cmp9.not, label %for.end, label %for.body
@@ -42,7 +42,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %0 = phi i64 [ %3, %for.inc ], [ 0, %entry ]
   %1 = phi i64 [ %4, %for.inc ], [ 0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %struct.reftable_ref_record, ptr %recs, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.reftable_ref_record, ptr %recs, i64 %indvars.iv
   %call5 = tail call i32 @reftable_ref_record_is_deletion(ptr noundef %arrayidx) #10
   %tobool.not = icmp eq i32 %call5, 0
   %2 = load ptr, ptr %arrayidx, align 8
@@ -98,27 +98,27 @@ entry:
   %arg21.i = alloca %struct.find_arg, align 8
   %slashed = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slashed, ptr noundef nonnull align 8 dereferenceable(24) @__const.modification_validate.slashed, i64 24, i1 false)
-  %add_len = getelementptr inbounds i8, ptr %mod, i64 24
+  %add_len = getelementptr inbounds nuw i8, ptr %mod, i64 24
   %0 = load i64, ptr %add_len, align 8
   %cmp66.not = icmp eq i64 %0, 0
   br i1 %cmp66.not, label %done, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %add = getelementptr inbounds i8, ptr %mod, i64 16
-  %len2.i = getelementptr inbounds i8, ptr %slashed, i64 8
-  %buf.i = getelementptr inbounds i8, ptr %slashed, i64 16
-  %want.i = getelementptr inbounds i8, ptr %arg.i, i64 8
-  %del_len.i = getelementptr inbounds i8, ptr %mod, i64 40
-  %del.i = getelementptr inbounds i8, ptr %mod, i64 32
-  %want23.i = getelementptr inbounds i8, ptr %arg21.i, i64 8
-  %want.i42 = getelementptr inbounds i8, ptr %arg.i37, i64 8
-  %want14.i = getelementptr inbounds i8, ptr %arg12.i, i64 8
+  %add = getelementptr inbounds nuw i8, ptr %mod, i64 16
+  %len2.i = getelementptr inbounds nuw i8, ptr %slashed, i64 8
+  %buf.i = getelementptr inbounds nuw i8, ptr %slashed, i64 16
+  %want.i = getelementptr inbounds nuw i8, ptr %arg.i, i64 8
+  %del_len.i = getelementptr inbounds nuw i8, ptr %mod, i64 40
+  %del.i = getelementptr inbounds nuw i8, ptr %mod, i64 32
+  %want23.i = getelementptr inbounds nuw i8, ptr %arg21.i, i64 8
+  %want.i42 = getelementptr inbounds nuw i8, ptr %arg.i37, i64 8
+  %want14.i = getelementptr inbounds nuw i8, ptr %arg12.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %1 = load ptr, ptr %add, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load i8, ptr %2, align 1
   %tobool.not13.i = icmp eq i8 %3, 0
@@ -154,13 +154,13 @@ lor.lhs.false10.i:                                ; preds = %lor.lhs.false.i
   br i1 %brmerge.not.i, label %land.lhs.true20.i, label %if.end26.i
 
 land.lhs.true20.i:                                ; preds = %lor.lhs.false10.i
-  %arrayidx21.i = getelementptr inbounds i8, ptr %name.addr.014.i, i64 1
+  %arrayidx21.i = getelementptr inbounds nuw i8, ptr %name.addr.014.i, i64 1
   %5 = load i8, ptr %arrayidx21.i, align 1
   %cmp23.i = icmp eq i8 %5, 46
   br i1 %cmp23.i, label %done, label %if.end26.i
 
 if.end26.i:                                       ; preds = %land.lhs.true20.i, %lor.lhs.false10.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call15.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call15.i, i64 1
   %call.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 47) #11
   %6 = load i8, ptr %add.ptr.i, align 1
   %tobool.not.i = icmp eq i8 %6, 0
@@ -179,7 +179,7 @@ if.then4.i:                                       ; preds = %if.end
 
 strbuf_setlen.exit:                               ; preds = %if.end, %if.then4.i
   %8 = phi ptr [ %1, %if.end ], [ %.pre, %if.then4.i ]
-  %arrayidx4 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx4, align 8
   %call.i17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #11
   call void @strbuf_add(ptr noundef nonnull %slashed, ptr noundef %9, i64 noundef %call.i17) #10
@@ -284,7 +284,7 @@ if.then4.i27:                                     ; preds = %if.end13
 
 strbuf_setlen.exit30:                             ; preds = %if.end13, %if.then4.i27
   %23 = load ptr, ptr %add, align 8
-  %arrayidx16 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %24 = load ptr, ptr %arrayidx16, align 8
   %call.i31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #11
   call void @strbuf_add(ptr noundef nonnull %slashed, ptr noundef %24, i64 noundef %call.i31) #10
@@ -443,7 +443,7 @@ entry:
   %0 = load ptr, ptr %arg, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %k
   %1 = load ptr, ptr %arrayidx, align 8
-  %want = getelementptr inbounds i8, ptr %arg, i64 8
+  %want = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %2 = load ptr, ptr %want, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %2) #11
   %cmp = icmp sgt i32 %call, -1

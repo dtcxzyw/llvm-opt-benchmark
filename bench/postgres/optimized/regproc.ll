@@ -73,17 +73,17 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @regprocin(ptr nocapture noundef %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %5, align 1
   %.not.i = icmp eq i8 %8, 45
   br i1 %.not.i, label %.tail.i, label %12
 
 .tail.i:                                          ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %parseDashOrOid.exit.thread, label %.thread.i
@@ -130,7 +130,7 @@ parseDashOrOid.exit:                              ; preds = %14
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %31, align 4
   br label %parseDashOrOid.exit.thread
 
@@ -165,7 +165,7 @@ parseDashOrOid.exit:                              ; preds = %14
   br label %parseDashOrOid.exit.thread
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %33, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %49 = load i32, ptr %48, align 4
   %50 = zext i32 %49 to i64
   br label %parseDashOrOid.exit.thread
@@ -205,13 +205,13 @@ define dso_local ptr @stringToQualifiedNameList(ptr noundef %0, ptr noundef %1) 
   br i1 %13, label %17, label %.preheader
 
 .preheader:                                       ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %12, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %15 = load i32, ptr %14, align 4
   %.not23 = icmp sgt i32 %15, 0
   br i1 %.not23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   br label %22
 
 17:                                               ; preds = %11
@@ -265,7 +265,7 @@ declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 define dso_local i64 @to_regproc(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
@@ -275,7 +275,7 @@ define dso_local i64 @to_regproc(ptr nocapture noundef %0) local_unnamed_addr #0
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
   br label %14
 
@@ -299,7 +299,7 @@ declare zeroext i1 @DirectInputFunctionCallSafe(ptr noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regprocout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
@@ -316,13 +316,13 @@ define dso_local i64 @regprocout(ptr nocapture noundef readonly %0) local_unname
   br i1 %.not, label %41, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr @Mode, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %23
@@ -344,13 +344,13 @@ define dso_local i64 @regprocout(ptr nocapture noundef readonly %0) local_unname
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %26, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %4
   br i1 %33, label %38, label %34
 
 34:                                               ; preds = %30, %27, %23
-  %35 = getelementptr inbounds i8, ptr %17, i64 68
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %36 = load i32, ptr %35, align 4
   %37 = tail call ptr @get_namespace_name(i32 noundef %36) #9
   br label %38
@@ -416,17 +416,17 @@ define dso_local range(i64 0, 4294967296) i64 @regprocedurein(ptr nocapture noun
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca [100 x i32], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i8, ptr %8, align 1
   %.not.i = icmp eq i8 %11, 45
   br i1 %.not.i, label %.tail.i, label %15
 
 .tail.i:                                          ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %parseDashOrOid.exit.thread, label %.thread.i
@@ -472,7 +472,7 @@ parseDashOrOid.exit:                              ; preds = %17
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %33, align 4
   br label %parseDashOrOid.exit.thread
 
@@ -490,7 +490,7 @@ parseDashOrOid.exit:                              ; preds = %17
 
 40:                                               ; preds = %.lr.ph, %43
   %.01626 = phi ptr [ %37, %.lr.ph ], [ %44, %43 ]
-  %41 = getelementptr inbounds i8, ptr %.01626, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.01626, i64 40
   %bcmp = call i32 @bcmp(ptr nonnull %41, ptr nonnull %5, i64 %39)
   %42 = icmp eq i32 %bcmp, 0
   br i1 %42, label %49, label %43
@@ -511,7 +511,7 @@ parseDashOrOid.exit:                              ; preds = %17
   br label %parseDashOrOid.exit.thread
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %.01626, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %.01626, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
   br label %parseDashOrOid.exit.thread
@@ -777,7 +777,7 @@ split:                                            ; preds = %.thread96
 define dso_local i64 @to_regprocedure(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
@@ -787,7 +787,7 @@ define dso_local i64 @to_regprocedure(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
   br label %14
 
@@ -815,14 +815,14 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
   br i1 %.not, label %39, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 22
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 22
   %10 = load i8, ptr %9, align 2
   %11 = zext i8 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %15 = load i16, ptr %14, align 4
   %wide.trip.count36 = sext i16 %15 to i64
   call void @initStringInfo(ptr noundef nonnull %3) #9
@@ -835,7 +835,7 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %18, %6
-  %21 = getelementptr inbounds i8, ptr %12, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 68
   %22 = load i32, ptr %21, align 4
   %23 = call ptr @get_namespace_name(i32 noundef %22) #9
   br label %24
@@ -848,7 +848,7 @@ define dso_local ptr @format_procedure_extended(i32 noundef %0, i16 noundef zero
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %12, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 136
   br i1 %17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %31
@@ -946,18 +946,18 @@ define dso_local void @format_procedure_parts(i32 noundef %0, ptr nocapture noun
   unreachable
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %19 = load i16, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %17, i64 68
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %21 = load i32, ptr %20, align 4
   %22 = tail call ptr @get_namespace_name_or_temp(i32 noundef %21) #9
-  %23 = getelementptr inbounds i8, ptr %17, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %24 = tail call ptr @pstrdup(ptr noundef nonnull %23) #9
   %25 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %22, ptr %24) #9
   store ptr %25, ptr %1, align 8
@@ -967,7 +967,7 @@ define dso_local void @format_procedure_parts(i32 noundef %0, ptr nocapture noun
 
 .lr.ph:                                           ; preds = %11
   %wide.trip.count = zext nneg i16 %19 to i64
-  %27 = getelementptr inbounds i8, ptr %17, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 136
   br label %28
 
 28:                                               ; preds = %.lr.ph, %28
@@ -998,7 +998,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regprocedureout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
@@ -1033,10 +1033,10 @@ define dso_local i64 @regproceduresend(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @regoperin(ptr nocapture noundef %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %8 = load i8, ptr %5, align 1
@@ -1076,7 +1076,7 @@ define dso_local range(i64 0, 4294967296) i64 @regoperin(ptr nocapture noundef %
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %28, align 4
   br label %48
 
@@ -1111,7 +1111,7 @@ define dso_local range(i64 0, 4294967296) i64 @regoperin(ptr nocapture noundef %
   br label %48
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %30, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %46 = load i32, ptr %45, align 4
   %47 = zext i32 %46 to i64
   br label %48
@@ -1127,7 +1127,7 @@ declare ptr @OpernameGetCandidates(ptr noundef, i8 noundef signext, i1 noundef z
 define dso_local i64 @to_regoper(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
@@ -1137,7 +1137,7 @@ define dso_local i64 @to_regoper(ptr nocapture noundef %0) local_unnamed_addr #0
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
   br label %14
 
@@ -1152,7 +1152,7 @@ define dso_local i64 @to_regoper(ptr nocapture noundef %0) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regoperout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
@@ -1169,13 +1169,13 @@ define dso_local i64 @regoperout(ptr nocapture noundef readonly %0) local_unname
   br i1 %.not, label %48, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr @Mode, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %23
@@ -1197,7 +1197,7 @@ define dso_local i64 @regoperout(ptr nocapture noundef readonly %0) local_unname
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %26, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %4
   br i1 %33, label %34, label %36
@@ -1207,7 +1207,7 @@ define dso_local i64 @regoperout(ptr nocapture noundef readonly %0) local_unname
   br label %47
 
 36:                                               ; preds = %30, %27, %23
-  %37 = getelementptr inbounds i8, ptr %17, i64 68
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %38 = load i32, ptr %37, align 4
   %39 = tail call ptr @get_namespace_name(i32 noundef %38) #9
   %40 = tail call ptr @quote_identifier(ptr noundef %39) #9
@@ -1260,10 +1260,10 @@ define dso_local range(i64 0, 4294967296) i64 @regoperatorin(ptr nocapture nound
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca [100 x i32], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   %11 = load i8, ptr %8, align 1
@@ -1302,7 +1302,7 @@ define dso_local range(i64 0, 4294967296) i64 @regoperatorin(ptr nocapture nound
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %30, align 4
   br label %58
 
@@ -1338,7 +1338,7 @@ define dso_local range(i64 0, 4294967296) i64 @regoperatorin(ptr nocapture nound
 45:                                               ; preds = %31
   %46 = load ptr, ptr %3, align 8
   %47 = load i32, ptr %5, align 16
-  %48 = getelementptr inbounds i8, ptr %5, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = tail call i32 @OpernameGetOprid(ptr noundef %46, i32 noundef %47, i32 noundef %49) #9
   %.not19 = icmp eq i32 %50, 0
@@ -1371,7 +1371,7 @@ declare i32 @OpernameGetOprid(ptr noundef, i32 noundef, i32 noundef) local_unnam
 define dso_local i64 @to_regoperator(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
@@ -1381,7 +1381,7 @@ define dso_local i64 @to_regoperator(ptr nocapture noundef %0) local_unnamed_add
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
   br label %14
 
@@ -1403,13 +1403,13 @@ define dso_local ptr @format_operator_extended(i32 noundef %0, i16 noundef zeroe
   br i1 %.not, label %47, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 22
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 22
   %10 = load i8, ptr %9, align 2
   %11 = zext i8 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   call void @initStringInfo(ptr noundef nonnull %3) #9
   %14 = and i16 %1, 2
   %.not26 = icmp eq i16 %14, 0
@@ -1420,20 +1420,20 @@ define dso_local ptr @format_operator_extended(i32 noundef %0, i16 noundef zeroe
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %6, %15
-  %18 = getelementptr inbounds i8, ptr %12, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 68
   %19 = load i32, ptr %18, align 4
   %20 = call ptr @get_namespace_name(i32 noundef %19) #9
   %21 = call ptr @quote_identifier(ptr noundef %20) #9
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.19, ptr noundef %21) #9
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef nonnull %13) #9
-  %22 = getelementptr inbounds i8, ptr %12, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %23 = load i32, ptr %22, align 4
   %.not27 = icmp eq i32 %23, 0
   br i1 %.not27, label %33, label %26
 
 .thread:                                          ; preds = %15
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, ptr noundef nonnull %13) #9
-  %24 = getelementptr inbounds i8, ptr %12, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %25 = load i32, ptr %24, align 4
   %.not2729 = icmp eq i32 %25, 0
   br i1 %.not2729, label %33, label %.thread30
@@ -1460,7 +1460,7 @@ define dso_local ptr @format_operator_extended(i32 noundef %0, i16 noundef zeroe
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = getelementptr inbounds i8, ptr %12, i64 84
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 84
   %36 = load i32, ptr %35, align 4
   %.not28 = icmp eq i32 %36, 0
   br i1 %.not28, label %44, label %37
@@ -1537,21 +1537,21 @@ define dso_local void @format_operator_parts(i32 noundef %0, ptr nocapture nound
   unreachable
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %19 = load i32, ptr %18, align 4
   %20 = tail call ptr @get_namespace_name_or_temp(i32 noundef %19) #9
-  %21 = getelementptr inbounds i8, ptr %17, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %22 = tail call ptr @pstrdup(ptr noundef nonnull %21) #9
   %23 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %20, ptr %22) #9
   store ptr %23, ptr %1, align 8
   store ptr null, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %25 = load i32, ptr %24, align 4
   %.not21 = icmp eq i32 %25, 0
   br i1 %.not21, label %29, label %26
@@ -1564,7 +1564,7 @@ define dso_local void @format_operator_parts(i32 noundef %0, ptr nocapture nound
 
 29:                                               ; preds = %26, %11
   %30 = phi ptr [ %28, %26 ], [ null, %11 ]
-  %31 = getelementptr inbounds i8, ptr %17, i64 84
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 84
   %32 = load i32, ptr %31, align 4
   %.not22 = icmp eq i32 %32, 0
   br i1 %.not22, label %36, label %33
@@ -1585,7 +1585,7 @@ define dso_local void @format_operator_parts(i32 noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regoperatorout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
@@ -1620,17 +1620,17 @@ define dso_local i64 @regoperatorsend(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @regclassin(ptr nocapture noundef %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %5, align 1
   %.not.i = icmp eq i8 %8, 45
   br i1 %.not.i, label %.tail.i, label %12
 
 .tail.i:                                          ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %parseDashOrOid.exit.thread, label %.thread.i
@@ -1677,7 +1677,7 @@ parseDashOrOid.exit:                              ; preds = %14
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %31, align 4
   br label %parseDashOrOid.exit.thread
 
@@ -1717,7 +1717,7 @@ declare ptr @NameListToString(ptr noundef) local_unnamed_addr #2
 define dso_local i64 @to_regclass(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
@@ -1727,7 +1727,7 @@ define dso_local i64 @to_regclass(ptr nocapture noundef %0) local_unnamed_addr #
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
   br label %14
 
@@ -1742,7 +1742,7 @@ define dso_local i64 @to_regclass(ptr nocapture noundef %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regclassout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
@@ -1759,13 +1759,13 @@ define dso_local i64 @regclassout(ptr nocapture noundef readonly %0) local_unnam
   br i1 %.not, label %32, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr @Mode, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %23
@@ -1779,7 +1779,7 @@ define dso_local i64 @regclassout(ptr nocapture noundef readonly %0) local_unnam
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %17, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @get_namespace_name(i32 noundef %27) #9
   br label %29
@@ -1822,17 +1822,17 @@ define dso_local i64 @regclasssend(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @regcollationin(ptr nocapture noundef %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %5, align 1
   %.not.i = icmp eq i8 %8, 45
   br i1 %.not.i, label %.tail.i, label %12
 
 .tail.i:                                          ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %parseDashOrOid.exit.thread, label %.thread.i
@@ -1879,7 +1879,7 @@ parseDashOrOid.exit:                              ; preds = %14
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %31, align 4
   br label %parseDashOrOid.exit.thread
 
@@ -1917,7 +1917,7 @@ declare ptr @GetDatabaseEncodingName() local_unnamed_addr #2
 define dso_local i64 @to_regcollation(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
@@ -1927,7 +1927,7 @@ define dso_local i64 @to_regcollation(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
   br label %14
 
@@ -1942,7 +1942,7 @@ define dso_local i64 @to_regcollation(ptr nocapture noundef %0) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regcollationout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
@@ -1959,13 +1959,13 @@ define dso_local i64 @regcollationout(ptr nocapture noundef readonly %0) local_u
   br i1 %.not, label %32, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr @Mode, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %23
@@ -1979,7 +1979,7 @@ define dso_local i64 @regcollationout(ptr nocapture noundef readonly %0) local_u
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %17, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %27 = load i32, ptr %26, align 4
   %28 = tail call ptr @get_namespace_name(i32 noundef %27) #9
   br label %29
@@ -2024,17 +2024,17 @@ define dso_local range(i64 0, 4294967296) i64 @regtypein(ptr nocapture noundef r
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %7, align 1
   %.not.i = icmp eq i8 %10, 45
   br i1 %.not.i, label %.tail.i, label %14
 
 .tail.i:                                          ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %7, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %parseDashOrOid.exit.thread, label %.thread.i
@@ -2093,7 +2093,7 @@ declare zeroext i1 @parseTypeString(ptr noundef, ptr noundef, ptr noundef, ptr n
 define dso_local i64 @to_regtype(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
@@ -2103,7 +2103,7 @@ define dso_local i64 @to_regtype(ptr nocapture noundef %0) local_unnamed_addr #0
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
   br label %14
 
@@ -2118,7 +2118,7 @@ define dso_local i64 @to_regtype(ptr nocapture noundef %0) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regtypeout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
@@ -2140,13 +2140,13 @@ define dso_local i64 @regtypeout(ptr nocapture noundef readonly %0) local_unname
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 22
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 22
   %18 = load i8, ptr %17, align 2
   %19 = zext i8 %18 to i64
   %20 = getelementptr i8, ptr %16, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = tail call ptr @pstrdup(ptr noundef nonnull %21) #9
   br label %25
 
@@ -2185,17 +2185,17 @@ define dso_local i64 @regtypesend(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @regconfigin(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %5, align 1
   %.not.i = icmp eq i8 %8, 45
   br i1 %.not.i, label %.tail.i, label %12
 
 .tail.i:                                          ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %parseDashOrOid.exit.thread, label %.thread.i
@@ -2242,7 +2242,7 @@ parseDashOrOid.exit:                              ; preds = %14
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %31, align 4
   br label %parseDashOrOid.exit.thread
 
@@ -2275,7 +2275,7 @@ declare i32 @get_ts_config_oid(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regconfigout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
@@ -2292,18 +2292,18 @@ define dso_local i64 @regconfigout(ptr nocapture noundef readonly %0) local_unna
   br i1 %.not, label %26, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = tail call zeroext i1 @TSConfigIsVisible(i32 noundef %4) #9
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %17, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %22 = load i32, ptr %21, align 4
   %23 = tail call ptr @get_namespace_name(i32 noundef %22) #9
   br label %24
@@ -2342,17 +2342,17 @@ define dso_local i64 @regconfigsend(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @regdictionaryin(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %5, align 1
   %.not.i = icmp eq i8 %8, 45
   br i1 %.not.i, label %.tail.i, label %12
 
 .tail.i:                                          ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %parseDashOrOid.exit.thread, label %.thread.i
@@ -2399,7 +2399,7 @@ parseDashOrOid.exit:                              ; preds = %14
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %31, align 4
   br label %parseDashOrOid.exit.thread
 
@@ -2432,7 +2432,7 @@ declare i32 @get_ts_dict_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regdictionaryout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
@@ -2449,18 +2449,18 @@ define dso_local i64 @regdictionaryout(ptr nocapture noundef readonly %0) local_
   br i1 %.not, label %26, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 22
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %15 = load i8, ptr %14, align 2
   %16 = zext i8 %15 to i64
   %17 = getelementptr i8, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = tail call zeroext i1 @TSDictionaryIsVisible(i32 noundef %4) #9
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %17, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %22 = load i32, ptr %21, align 4
   %23 = tail call ptr @get_namespace_name(i32 noundef %22) #9
   br label %24
@@ -2499,17 +2499,17 @@ define dso_local i64 @regdictionarysend(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @regrolein(ptr nocapture noundef %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %5, align 1
   %.not.i = icmp eq i8 %8, 45
   br i1 %.not.i, label %.tail.i, label %12
 
 .tail.i:                                          ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %parseDashOrOid.exit.thread, label %.thread.i
@@ -2556,7 +2556,7 @@ parseDashOrOid.exit:                              ; preds = %14
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %31, align 4
   br label %parseDashOrOid.exit.thread
 
@@ -2580,7 +2580,7 @@ parseDashOrOid.exit:                              ; preds = %14
   %40 = getelementptr i8, ptr %28, i64 16
   %.val20 = load ptr, ptr %40, align 8
   %41 = load ptr, ptr %.val20, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 @get_role_oid(ptr noundef %43, i1 noundef zeroext true) #9
   %.not19 = icmp eq i32 %44, 0
@@ -2594,7 +2594,7 @@ parseDashOrOid.exit:                              ; preds = %14
   %48 = tail call i32 @errcode(i32 noundef 67137668) #9
   %.val21 = load ptr, ptr %40, align 8
   %49 = load ptr, ptr %.val21, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, ptr noundef %51) #9
   tail call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef 1552, ptr noundef nonnull @__func__.regrolein) #9
@@ -2615,7 +2615,7 @@ declare i32 @get_role_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 define dso_local i64 @to_regrole(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
@@ -2625,7 +2625,7 @@ define dso_local i64 @to_regrole(ptr nocapture noundef %0) local_unnamed_addr #0
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
   br label %14
 
@@ -2640,7 +2640,7 @@ define dso_local i64 @to_regrole(ptr nocapture noundef %0) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regroleout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
@@ -2688,17 +2688,17 @@ define dso_local i64 @regrolesend(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @regnamespacein(ptr nocapture noundef %0) #0 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %5, align 1
   %.not.i = icmp eq i8 %8, 45
   br i1 %.not.i, label %.tail.i, label %12
 
 .tail.i:                                          ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %parseDashOrOid.exit.thread, label %.thread.i
@@ -2745,7 +2745,7 @@ parseDashOrOid.exit:                              ; preds = %14
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %31, align 4
   br label %parseDashOrOid.exit.thread
 
@@ -2769,7 +2769,7 @@ parseDashOrOid.exit:                              ; preds = %14
   %40 = getelementptr i8, ptr %28, i64 16
   %.val21 = load ptr, ptr %40, align 8
   %41 = load ptr, ptr %.val21, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 @get_namespace_oid(ptr noundef %43, i1 noundef zeroext true) #9
   %.not19 = icmp eq i32 %44, 0
@@ -2783,7 +2783,7 @@ parseDashOrOid.exit:                              ; preds = %14
   %48 = tail call i32 @errcode(i32 noundef 1411) #9
   %.val20 = load ptr, ptr %40, align 8
   %49 = load ptr, ptr %.val20, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %51) #9
   tail call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef 1669, ptr noundef nonnull @__func__.regnamespacein) #9
@@ -2804,7 +2804,7 @@ declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 define dso_local i64 @to_regnamespace(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
@@ -2814,7 +2814,7 @@ define dso_local i64 @to_regnamespace(ptr nocapture noundef %0) local_unnamed_ad
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %11, align 4
   br label %14
 
@@ -2829,7 +2829,7 @@ define dso_local i64 @to_regnamespace(ptr nocapture noundef %0) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regnamespaceout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = icmp eq i32 %4, 0
@@ -2874,7 +2874,7 @@ define dso_local i64 @regnamespacesend(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @text_regclass(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #9

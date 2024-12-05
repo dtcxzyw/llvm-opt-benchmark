@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZL14compose_hebrewPK31hb_ot_shape_normalize_context_tjjPj(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %3, align 4
   %7 = icmp ne i32 %1, 0
@@ -21,9 +21,9 @@ define internal noundef zeroext i1 @_ZL14compose_hebrewPK31hb_ot_shape_normalize
   br i1 %or.cond.i, label %_ZN18hb_unicode_funcs_t7composeEjjPj.exit, label %_ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread
 
 _ZN18hb_unicode_funcs_t7composeEjjPj.exit:        ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(216) %6, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %12)
   %.not41 = icmp eq i32 %13, 0
@@ -31,7 +31,7 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit:        ; preds = %4
 
 _ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread: ; preds = %4, %_ZN18hb_unicode_funcs_t7composeEjjPj.exit
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 168
   %16 = load i16, ptr %15, align 8
   %17 = and i16 %16, 16
   %.not = icmp eq i16 %17, 0
@@ -94,7 +94,7 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread: ; preds = %4, %_ZN18hb_unicode
 
 33:                                               ; preds = %31
   %34 = zext nneg i32 %32 to i64
-  %35 = getelementptr inbounds [27 x i32], ptr @_ZZL14compose_hebrewPK31hb_ot_shape_normalize_context_tjjPjE12sDageshForms, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [27 x i32], ptr @_ZZL14compose_hebrewPK31hb_ot_shape_normalize_context_tjjPjE12sDageshForms, i64 0, i64 %34
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %3, align 4
   %37 = lshr i64 131817343, %34
@@ -170,7 +170,7 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread: ; preds = %4, %_ZN18hb_unicode
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20reorder_marks_hebrewPK18hb_ot_shape_plan_tP11hb_buffer_tjj(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca %struct.hb_glyph_info_t, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = add i32 %2, 2
   %9 = icmp ult i32 %8, %3
@@ -194,7 +194,7 @@ define internal void @_ZL20reorder_marks_hebrewPK18hb_ot_shape_plan_tP11hb_buffe
   %.not.i = icmp ne i32 %18, 0
   %19 = add i32 %11, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %20
   %22 = getelementptr i8, ptr %21, i64 16
   %.val29 = load i16, ptr %22, align 4
   %23 = and i16 %.val29, 31
@@ -212,7 +212,7 @@ define internal void @_ZL20reorder_marks_hebrewPK18hb_ot_shape_plan_tP11hb_buffe
   br i1 %or.cond28, label %29, label %40
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds %struct.hb_glyph_info_t, ptr %7, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %indvars.iv
   %31 = getelementptr i8, ptr %30, i64 16
   %.val30 = load i16, ptr %31, align 4
   %32 = and i16 %.val30, 31

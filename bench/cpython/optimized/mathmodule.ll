@@ -1086,7 +1086,7 @@ if.then1.i30:                                     ; preds = %if.end.i27
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i27, %if.then1.i30, %if.then, %entry
-  %str___floor__ = getelementptr inbounds i8, ptr %module.val, i64 8
+  %str___floor__ = getelementptr inbounds nuw i8, ptr %module.val, i64 8
   %4 = load ptr, ptr %str___floor__, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -1109,7 +1109,7 @@ if.then1.i21:                                     ; preds = %if.end.i18
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i18, %if.then1.i21, %if.then5, %do.body1
-  %str___trunc__ = getelementptr inbounds i8, ptr %module.val, i64 16
+  %str___trunc__ = getelementptr inbounds nuw i8, ptr %module.val, i64 16
   %7 = load ptr, ptr %str___trunc__, align 8
   %cmp11.not = icmp eq ptr %7, null
   br i1 %cmp11.not, label %do.end14, label %if.then12
@@ -1487,7 +1487,7 @@ if.then4:                                         ; preds = %if.else
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then4
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i.i, i64 56
   %7 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call3, i64 %7
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
@@ -1699,8 +1699,8 @@ if.end29.i:                                       ; preds = %if.end21.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end29.i, %if.then23.i
   %diffs.116.i = phi ptr [ %diffs_on_stack.i, %if.end29.i ], [ %call24.i, %if.then23.i ]
-  %ob_item.i = getelementptr inbounds i8, ptr %p.addr.0.i, i64 24
-  %ob_item54.i = getelementptr inbounds i8, ptr %q.addr.0.i, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %p.addr.0.i, i64 24
+  %ob_item54.i = getelementptr inbounds nuw i8, ptr %q.addr.0.i, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end80.i, %for.body.lr.ph.i
@@ -2430,7 +2430,7 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %2 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %2, align 8
-  %str___floor__ = getelementptr inbounds i8, ptr %module.val, i64 8
+  %str___floor__ = getelementptr inbounds nuw i8, ptr %module.val, i64 8
   %3 = load ptr, ptr %str___floor__, align 8
   %call3 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %number, ptr noundef %3) #16
   %cmp.not = icmp eq ptr %call3, null
@@ -2447,7 +2447,7 @@ if.then4:                                         ; preds = %if.else
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then4
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i.i, i64 56
   %7 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call3, i64 %7
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
@@ -5355,11 +5355,11 @@ if.then1.i403.i:                                  ; preds = %if.end.i400.i
 if.end8.i:                                        ; preds = %if.end4.i
   %8 = getelementptr i8, ptr %call.i, i64 8
   %call.val.i = load ptr, ptr %8, align 8
-  %tp_iternext.i = getelementptr inbounds i8, ptr %call.val.i, i64 224
+  %tp_iternext.i = getelementptr inbounds nuw i8, ptr %call.val.i, i64 224
   %9 = load ptr, ptr %tp_iternext.i, align 8
   %10 = getelementptr i8, ptr %call1.i, i64 8
   %call1.val.i = load ptr, ptr %10, align 8
-  %tp_iternext11.i = getelementptr inbounds i8, ptr %call1.val.i, i64 224
+  %tp_iternext11.i = getelementptr inbounds nuw i8, ptr %call1.val.i, i64 224
   %11 = load ptr, ptr %tp_iternext11.i, align 8
   br label %while.body.outer.outer.i
 
@@ -6089,7 +6089,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @PyFloat_Type, i64 96), align 8
-  %nb_int = getelementptr inbounds i8, ptr %1, i64 128
+  %nb_int = getelementptr inbounds nuw i8, ptr %1, i64 128
   %2 = load ptr, ptr %nb_int, align 8
   %call1 = tail call ptr %2(ptr noundef nonnull %x) #16
   br label %return
@@ -6108,7 +6108,7 @@ if.then5:                                         ; preds = %if.end
 if.end10:                                         ; preds = %if.then5, %if.end
   %3 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %3, align 8
-  %str___trunc__ = getelementptr inbounds i8, ptr %module.val, i64 16
+  %str___trunc__ = getelementptr inbounds nuw i8, ptr %module.val, i64 16
   %4 = load ptr, ptr %str___trunc__, align 8
   %call12 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %x, ptr noundef %4) #16
   %cmp13 = icmp eq ptr %call12, null
@@ -6122,7 +6122,7 @@ if.then14:                                        ; preds = %if.end10
 if.then17:                                        ; preds = %if.then14
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   %x.val11 = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds i8, ptr %x.val11, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %x.val11, i64 24
   %6 = load ptr, ptr %tp_name, align 8
   %call19 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.75, ptr noundef %6) #16
   br label %return
@@ -6138,7 +6138,7 @@ if.end21:                                         ; preds = %if.end10
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.end21
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i.i, i64 56
   %10 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call12, i64 %10
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
@@ -9288,14 +9288,14 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call3 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.85) #16
-  %str___floor__ = getelementptr inbounds i8, ptr %module.val, i64 8
+  %str___floor__ = getelementptr inbounds nuw i8, ptr %module.val, i64 8
   store ptr %call3, ptr %str___floor__, align 8
   %cmp5 = icmp eq ptr %call3, null
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %call8 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.86) #16
-  %str___trunc__ = getelementptr inbounds i8, ptr %module.val, i64 16
+  %str___trunc__ = getelementptr inbounds nuw i8, ptr %module.val, i64 16
   store ptr %call8, ptr %str___trunc__, align 8
   %cmp10 = icmp eq ptr %call8, null
   br i1 %cmp10, label %return, label %if.end12

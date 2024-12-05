@@ -37,9 +37,9 @@ define hidden void @_ZN8rawspeed11TableLookUpC2Eib(ptr noundef nonnull align 8 d
   %4 = alloca i16, align 2
   %5 = zext i1 %2 to i8
   store i32 %1, ptr %0, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %5, ptr %7, align 8, !tbaa !17
   %8 = icmp slt i32 %1, 1
   br i1 %8, label %9, label %13
@@ -123,7 +123,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = load ptr, ptr %2, align 8, !tbaa !20
   %7 = freeze ptr %6
@@ -150,7 +150,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   unreachable
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !20, !nonnull !22, !noundef !22
   %23 = shl nsw i32 %17, 17
   %24 = icmp sgt i32 %17, -1
@@ -165,7 +165,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   tail call void @llvm.assume(i1 %29)
   %30 = zext nneg i32 %27 to i64
   %31 = getelementptr i16, ptr %22, i64 %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load i8, ptr %32, align 8, !tbaa !17, !range !23, !noundef !22
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %256, label %35
@@ -201,7 +201,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %57 = trunc nuw i32 %56 to i16
   store i16 %57, ptr %31, align 2, !tbaa !18
   %58 = trunc nuw i32 %52 to i16
-  %59 = getelementptr inbounds i8, ptr %31, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 2
   store i16 %58, ptr %59, align 2, !tbaa !18
   %60 = icmp eq i64 %43, 1
   br i1 %60, label %.loopexit21, label %61
@@ -476,11 +476,11 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %247 = shl nuw nsw i64 %220, 1
   %248 = icmp ult i64 %220, 65536
   tail call void @llvm.assume(i1 %248)
-  %249 = getelementptr inbounds i16, ptr %31, i64 %247
+  %249 = getelementptr inbounds nuw i16, ptr %31, i64 %247
   store i16 %246, ptr %249, align 2, !tbaa !18
   %250 = trunc nuw i32 %240 to i16
   %251 = or disjoint i64 %247, 1
-  %252 = getelementptr inbounds i16, ptr %31, i64 %251
+  %252 = getelementptr inbounds nuw i16, ptr %31, i64 %251
   store i16 %250, ptr %252, align 2, !tbaa !18
   br label %253
 
@@ -586,7 +586,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %346 = insertelement <16 x i16> %345, i16 %330, i64 13
   %347 = insertelement <16 x i16> %346, i16 %331, i64 14
   %348 = insertelement <16 x i16> %347, i16 %332, i64 15
-  %349 = getelementptr inbounds i16, ptr %31, i64 %281
+  %349 = getelementptr inbounds nuw i16, ptr %31, i64 %281
   store <16 x i16> %348, ptr %349, align 2, !tbaa !18, !alias.scope !39, !noalias !41
   %350 = add nuw nsw i64 %281, 16
   %351 = add <16 x i64> %282, splat (i64 16)
@@ -599,56 +599,56 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %355 = select i1 %354, i64 %353, i64 %259
   %356 = getelementptr inbounds i16, ptr %7, i64 %355
   %357 = load i16, ptr %356, align 2, !tbaa !18
-  %358 = getelementptr inbounds i16, ptr %31, i64 %353
+  %358 = getelementptr inbounds nuw i16, ptr %31, i64 %353
   store i16 %357, ptr %358, align 2, !tbaa !18
   %359 = or disjoint i64 %353, 1
   %360 = icmp slt i64 %359, %260
   %361 = select i1 %360, i64 %359, i64 %259
   %362 = getelementptr inbounds i16, ptr %7, i64 %361
   %363 = load i16, ptr %362, align 2, !tbaa !18
-  %364 = getelementptr inbounds i16, ptr %31, i64 %359
+  %364 = getelementptr inbounds nuw i16, ptr %31, i64 %359
   store i16 %363, ptr %364, align 2, !tbaa !18
   %365 = or disjoint i64 %353, 2
   %366 = icmp slt i64 %365, %260
   %367 = select i1 %366, i64 %365, i64 %259
   %368 = getelementptr inbounds i16, ptr %7, i64 %367
   %369 = load i16, ptr %368, align 2, !tbaa !18
-  %370 = getelementptr inbounds i16, ptr %31, i64 %365
+  %370 = getelementptr inbounds nuw i16, ptr %31, i64 %365
   store i16 %369, ptr %370, align 2, !tbaa !18
   %371 = or disjoint i64 %353, 3
   %372 = icmp slt i64 %371, %260
   %373 = select i1 %372, i64 %371, i64 %259
   %374 = getelementptr inbounds i16, ptr %7, i64 %373
   %375 = load i16, ptr %374, align 2, !tbaa !18
-  %376 = getelementptr inbounds i16, ptr %31, i64 %371
+  %376 = getelementptr inbounds nuw i16, ptr %31, i64 %371
   store i16 %375, ptr %376, align 2, !tbaa !18
   %377 = or disjoint i64 %353, 4
   %378 = icmp slt i64 %377, %260
   %379 = select i1 %378, i64 %377, i64 %259
   %380 = getelementptr inbounds i16, ptr %7, i64 %379
   %381 = load i16, ptr %380, align 2, !tbaa !18
-  %382 = getelementptr inbounds i16, ptr %31, i64 %377
+  %382 = getelementptr inbounds nuw i16, ptr %31, i64 %377
   store i16 %381, ptr %382, align 2, !tbaa !18
   %383 = or disjoint i64 %353, 5
   %384 = icmp slt i64 %383, %260
   %385 = select i1 %384, i64 %383, i64 %259
   %386 = getelementptr inbounds i16, ptr %7, i64 %385
   %387 = load i16, ptr %386, align 2, !tbaa !18
-  %388 = getelementptr inbounds i16, ptr %31, i64 %383
+  %388 = getelementptr inbounds nuw i16, ptr %31, i64 %383
   store i16 %387, ptr %388, align 2, !tbaa !18
   %389 = or disjoint i64 %353, 6
   %390 = icmp slt i64 %389, %260
   %391 = select i1 %390, i64 %389, i64 %259
   %392 = getelementptr inbounds i16, ptr %7, i64 %391
   %393 = load i16, ptr %392, align 2, !tbaa !18
-  %394 = getelementptr inbounds i16, ptr %31, i64 %389
+  %394 = getelementptr inbounds nuw i16, ptr %31, i64 %389
   store i16 %393, ptr %394, align 2, !tbaa !18
   %395 = or disjoint i64 %353, 7
   %396 = icmp slt i64 %395, %260
   %397 = select i1 %396, i64 %395, i64 %259
   %398 = getelementptr inbounds i16, ptr %7, i64 %397
   %399 = load i16, ptr %398, align 2, !tbaa !18
-  %400 = getelementptr inbounds i16, ptr %31, i64 %395
+  %400 = getelementptr inbounds nuw i16, ptr %31, i64 %395
   store i16 %399, ptr %400, align 2, !tbaa !18
   %401 = add nuw nsw i64 %353, 8
   %402 = icmp eq i64 %401, 65536
@@ -943,11 +943,11 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %585 = icmp ult i32 %584, 131072
   tail call void @llvm.assume(i1 %585)
   %586 = zext nneg i32 %584 to i64
-  %587 = getelementptr inbounds i16, ptr %31, i64 %586
+  %587 = getelementptr inbounds nuw i16, ptr %31, i64 %586
   store i16 %583, ptr %587, align 2, !tbaa !18
   %588 = or disjoint i32 %584, 1
   %589 = zext nneg i32 %588 to i64
-  %590 = getelementptr inbounds i16, ptr %31, i64 %589
+  %590 = getelementptr inbounds nuw i16, ptr %31, i64 %589
   store i16 0, ptr %590, align 2, !tbaa !18
   %591 = add i32 %581, 1
   %592 = add nuw nsw i32 %582, 1
@@ -991,14 +991,14 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %619 = shl nuw nsw i64 %596, 1
   %620 = icmp ult i64 %596, 65536
   tail call void @llvm.assume(i1 %620)
-  %621 = getelementptr inbounds i16, ptr %31, i64 %619
+  %621 = getelementptr inbounds nuw i16, ptr %31, i64 %619
   store i16 %618, ptr %621, align 2, !tbaa !18
   %622 = trunc nuw i32 %612 to i16
   %623 = or disjoint i64 %619, 1
-  %624 = getelementptr inbounds i16, ptr %31, i64 %623
+  %624 = getelementptr inbounds nuw i16, ptr %31, i64 %623
   store i16 %622, ptr %624, align 2, !tbaa !18
   %625 = add nuw nsw i64 %596, 1
-  %626 = getelementptr inbounds i16, ptr %7, i64 %625
+  %626 = getelementptr inbounds nuw i16, ptr %7, i64 %625
   %627 = load i16, ptr %626, align 2, !tbaa !18
   %628 = zext i16 %627 to i32
   %629 = load i16, ptr %597, align 2, !tbaa !18
@@ -1027,11 +1027,11 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %647 = shl nuw nsw i64 %625, 1
   %648 = icmp ne i64 %596, 65535
   tail call void @llvm.assume(i1 %648)
-  %649 = getelementptr inbounds i16, ptr %31, i64 %647
+  %649 = getelementptr inbounds nuw i16, ptr %31, i64 %647
   store i16 %646, ptr %649, align 2, !tbaa !18
   %650 = trunc nuw i32 %640 to i16
   %651 = or disjoint i64 %647, 1
-  %652 = getelementptr inbounds i16, ptr %31, i64 %651
+  %652 = getelementptr inbounds nuw i16, ptr %31, i64 %651
   store i16 %650, ptr %652, align 2, !tbaa !18
   %653 = add nuw nsw i64 %596, 2
   %654 = icmp eq i64 %653, %43
@@ -1042,33 +1042,33 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %656 = load i16, ptr %404, align 2, !tbaa !18
   %657 = shl nsw i32 %655, 1
   %658 = zext nneg i32 %657 to i64
-  %659 = getelementptr inbounds i16, ptr %31, i64 %658
+  %659 = getelementptr inbounds nuw i16, ptr %31, i64 %658
   store i16 %656, ptr %659, align 2, !tbaa !18
   %660 = or disjoint i32 %657, 1
   %661 = zext nneg i32 %660 to i64
-  %662 = getelementptr inbounds i16, ptr %31, i64 %661
+  %662 = getelementptr inbounds nuw i16, ptr %31, i64 %661
   store i16 0, ptr %662, align 2, !tbaa !18
   %663 = load i16, ptr %404, align 2, !tbaa !18
   %664 = add nuw nsw i32 %657, 2
   %665 = icmp ne i32 %655, 65535
   tail call void @llvm.assume(i1 %665)
   %666 = zext nneg i32 %664 to i64
-  %667 = getelementptr inbounds i16, ptr %31, i64 %666
+  %667 = getelementptr inbounds nuw i16, ptr %31, i64 %666
   store i16 %663, ptr %667, align 2, !tbaa !18
   %668 = or disjoint i32 %664, 1
   %669 = zext nneg i32 %668 to i64
-  %670 = getelementptr inbounds i16, ptr %31, i64 %669
+  %670 = getelementptr inbounds nuw i16, ptr %31, i64 %669
   store i16 0, ptr %670, align 2, !tbaa !18
   %671 = load i16, ptr %404, align 2, !tbaa !18
   %672 = add nuw nsw i32 %657, 4
   %673 = icmp ult i32 %657, 131068
   tail call void @llvm.assume(i1 %673)
   %674 = zext nneg i32 %672 to i64
-  %675 = getelementptr inbounds i16, ptr %31, i64 %674
+  %675 = getelementptr inbounds nuw i16, ptr %31, i64 %674
   store i16 %671, ptr %675, align 2, !tbaa !18
   %676 = or disjoint i32 %672, 1
   %677 = zext nneg i32 %676 to i64
-  %678 = getelementptr inbounds i16, ptr %31, i64 %677
+  %678 = getelementptr inbounds nuw i16, ptr %31, i64 %677
   store i16 0, ptr %678, align 2, !tbaa !18
   %679 = add i32 %655, 3
   %680 = load i16, ptr %404, align 2, !tbaa !18
@@ -1076,11 +1076,11 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %682 = icmp ult i32 %681, 131072
   tail call void @llvm.assume(i1 %682)
   %683 = zext nneg i32 %681 to i64
-  %684 = getelementptr inbounds i16, ptr %31, i64 %683
+  %684 = getelementptr inbounds nuw i16, ptr %31, i64 %683
   store i16 %680, ptr %684, align 2, !tbaa !18
   %685 = or disjoint i32 %681, 1
   %686 = zext nneg i32 %685 to i64
-  %687 = getelementptr inbounds i16, ptr %31, i64 %686
+  %687 = getelementptr inbounds nuw i16, ptr %31, i64 %686
   store i16 0, ptr %687, align 2, !tbaa !18
   %688 = add i32 %655, 4
   %689 = icmp eq i32 %679, %405
@@ -1104,7 +1104,7 @@ define hidden { ptr, i32 } @_ZN8rawspeed11TableLookUp8getTableEi(ptr nocapture n
   unreachable
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !20, !nonnull !22, !noundef !22
   %9 = shl nsw i32 %3, 17
   %10 = icmp sgt i32 %3, -1
@@ -1118,7 +1118,7 @@ define hidden { ptr, i32 } @_ZN8rawspeed11TableLookUp8getTableEi(ptr nocapture n
   %15 = icmp samesign ule i32 %14, %9
   tail call void @llvm.assume(i1 %15)
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr inbounds i16, ptr %8, i64 %16
+  %17 = getelementptr inbounds nuw i16, ptr %8, i64 %16
   %18 = insertvalue { ptr, i32 } poison, ptr %17, 0
   %19 = insertvalue { ptr, i32 } %18, i32 131072, 1
   ret { ptr, i32 } %19
@@ -1130,9 +1130,9 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
   br i1 %5, label %.loopexit26, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !57
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !58
   %11 = ptrtoint ptr %8 to i64
   %12 = ptrtoint ptr %10 to i64
@@ -1242,7 +1242,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
 78:                                               ; preds = %.preheader32, %78
   %79 = phi ptr [ %80, %78 ], [ %.ph33, %.preheader32 ]
   store i16 %17, ptr %79, align 2, !tbaa !18
-  %80 = getelementptr inbounds i8, ptr %79, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 2
   %81 = icmp eq ptr %80, %36
   br i1 %81, label %.loopexit26, label %78, !llvm.loop !61
 
@@ -1326,7 +1326,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
 130:                                              ; preds = %.preheader37, %130
   %131 = phi ptr [ %132, %130 ], [ %.ph38, %.preheader37 ]
   store i16 %17, ptr %131, align 2, !tbaa !18
-  %132 = getelementptr inbounds i8, ptr %131, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 2
   %133 = icmp eq ptr %132, %86
   br i1 %133, label %.loopexit28, label %130, !llvm.loop !64
 
@@ -1417,7 +1417,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
 182:                                              ; preds = %.preheader34, %182
   %183 = phi ptr [ %184, %182 ], [ %.ph35, %.preheader34 ]
   store i16 %17, ptr %183, align 2, !tbaa !18
-  %184 = getelementptr inbounds i8, ptr %183, i64 2
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 2
   %185 = icmp eq ptr %184, %10
   br i1 %185, label %.loopexit26, label %182, !llvm.loop !67
 
@@ -1526,7 +1526,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
 252:                                              ; preds = %.preheader, %252
   %253 = phi ptr [ %254, %252 ], [ %.ph, %.preheader ]
   store i16 %210, ptr %253, align 2, !tbaa !18
-  %254 = getelementptr inbounds i8, ptr %253, i64 2
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 2
   %255 = icmp eq ptr %254, %209
   br i1 %255, label %.loopexit, label %252, !llvm.loop !70
 
@@ -1559,7 +1559,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
 266:                                              ; preds = %265, %262
   store ptr %207, ptr %0, align 8, !tbaa !20
   store ptr %263, ptr %9, align 8, !tbaa !21
-  %267 = getelementptr inbounds i16, ptr %207, i64 %199
+  %267 = getelementptr inbounds nuw i16, ptr %207, i64 %199
   store ptr %267, ptr %7, align 8, !tbaa !57
   br label %.loopexit26
 

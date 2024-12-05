@@ -26,7 +26,7 @@ module asm ".previous"
 define void @_ZN12AudioRoutingC2Eb23audio_routing_channel_t(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4
   ret void
 }
@@ -38,7 +38,7 @@ define noundef nonnull ptr @_ZN12AudioRouting26formatAudioRoutingToStringEv(ptr 
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %switch.tableidx = add i32 %6, -1
   %7 = icmp ult i32 %switch.tableidx, 4
@@ -46,7 +46,7 @@ define noundef nonnull ptr @_ZN12AudioRouting26formatAudioRoutingToStringEv(ptr 
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN12AudioRouting26formatAudioRoutingToStringEv, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12AudioRouting26formatAudioRoutingToStringEv, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 
@@ -70,7 +70,7 @@ define i64 @_ZN12AudioRouting14getNextChannelEb(ptr nocapture noundef nonnull re
   br label %18
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %14 [
     i32 2, label %11
@@ -113,7 +113,7 @@ define i64 @_ZN12AudioRouting14getNextChannelEb(ptr nocapture noundef nonnull re
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZN12AudioRouting7convertEb(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.AudioRouting, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i8, ptr %0, align 4
   %switch.selectcmp = icmp ne i32 %5, 0
@@ -135,7 +135,7 @@ define void @_ZN12AudioRouting17mergeAudioRoutingES_(ptr nocapture noundef nonnu
 4:                                                ; preds = %2
   %.sroa.32.0.extract.shift = lshr i64 %1, 32
   %.sroa.32.0.extract.trunc = trunc nuw i64 %.sroa.32.0.extract.shift to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.32.0.extract.trunc, ptr %5, align 4
   br label %6
 

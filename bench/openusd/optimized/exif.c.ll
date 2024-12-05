@@ -28,7 +28,7 @@ define hidden range(i32 0, 18) i32 @avifGetExifTiffHeaderOffset(ptr nocapture no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %storemerge12 = phi i64 [ %8, %7 ], [ 0, %.lr.ph.preheader ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %storemerge12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %storemerge12
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %9, ptr noundef nonnull dereferenceable(4) @__const.avifGetExifTiffHeaderOffset.tiffHeaderBE, i64 4)
   %.not = icmp eq i32 %bcmp, 0
   br i1 %.not, label %._crit_edge, label %10
@@ -70,7 +70,7 @@ define hidden range(i32 0, 18) i32 @avifGetExifOrientationOffset(ptr noundef %0,
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.preheader.i
   %17 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.preheader.i ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %18, ptr noundef nonnull dereferenceable(4) @__const.avifGetExifTiffHeaderOffset.tiffHeaderBE, i64 4)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %20, label %19

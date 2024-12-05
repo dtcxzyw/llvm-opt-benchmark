@@ -19,19 +19,19 @@ define range(i32 0, 35) i32 @getgrbuf_r(i32 noundef %0, ptr noundef %1, ptr noun
 16:                                               ; preds = %7
   %17 = sub nuw nsw i64 8, %12
   %18 = add i64 %8, 1
-  %19 = getelementptr inbounds i8, ptr %4, i64 %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %19, ptr %20, align 8
   %21 = sub nuw nsw i64 16, %12
-  %22 = getelementptr inbounds i8, ptr %4, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %21
   store ptr %22, ptr %3, align 8
   %23 = getelementptr i8, ptr %22, i64 %18
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %23, ptr %24, align 8
   %25 = tail call i64 @strlcpy(ptr noundef nonnull %22, ptr noundef nonnull dereferenceable(1) %1, i64 noundef %18) #3
   %26 = load ptr, ptr %24, align 8
   %27 = tail call i64 @strlcpy(ptr noundef %26, ptr noundef nonnull dereferenceable(1) %2, i64 noundef %10) #3
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %0, ptr %28, align 8
   %29 = load ptr, ptr %20, align 8
   store ptr null, ptr %29, align 8

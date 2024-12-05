@@ -21,9 +21,9 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN15EASemaphoreDataC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #0 align 2 {
 entry:
-  %mnCount = getelementptr inbounds i8, ptr %this, i64 32
+  %mnCount = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = atomicrmw xchg ptr %mnCount, i32 0 seq_cst, align 4
-  %mnMaxCount = getelementptr inbounds i8, ptr %this, i64 36
+  %mnMaxCount = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 2147483647, ptr %mnMaxCount, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   ret void
@@ -37,9 +37,9 @@ define dso_local void @_ZN2EA6Thread19SemaphoreParametersC2EibPKc(ptr nocapture 
 entry:
   %frombool = zext i1 %bIntraProcess to i8
   store i32 %initialCount, ptr %this, align 4
-  %mMaxCount = getelementptr inbounds i8, ptr %this, i64 4
+  %mMaxCount = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 2147483647, ptr %mMaxCount, align 4
-  %mbIntraProcess = getelementptr inbounds i8, ptr %this, i64 8
+  %mbIntraProcess = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 %frombool, ptr %mbIntraProcess, align 4
   ret void
 }
@@ -47,9 +47,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread9SemaphoreC2EPKNS0_19SemaphoreParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly %pSemaphoreParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mnCount.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnCount.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = atomicrmw xchg ptr %mnCount.i, i32 0 seq_cst, align 4
-  %mnMaxCount.i = getelementptr inbounds i8, ptr %this, i64 36
+  %mnMaxCount.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 2147483647, ptr %mnMaxCount.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %this, i8 0, i64 32, i1 false)
   %tobool.not = icmp eq ptr %pSemaphoreParameters, null
@@ -58,7 +58,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %1 = load i32, ptr %pSemaphoreParameters, align 4
   store atomic i32 %1, ptr %mnCount.i seq_cst, align 8
-  %mMaxCount.i = getelementptr inbounds i8, ptr %pSemaphoreParameters, i64 4
+  %mMaxCount.i = getelementptr inbounds nuw i8, ptr %pSemaphoreParameters, i64 4
   %2 = load i32, ptr %mMaxCount.i, align 4
   store i32 %2, ptr %mnMaxCount.i, align 4
   %3 = load atomic i32, ptr %mnCount.i seq_cst, align 8
@@ -70,9 +70,9 @@ if.then6.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6.i, %if.then.i
-  %mbIntraProcess.i = getelementptr inbounds i8, ptr %pSemaphoreParameters, i64 8
+  %mbIntraProcess.i = getelementptr inbounds nuw i8, ptr %pSemaphoreParameters, i64 8
   %4 = load i8, ptr %mbIntraProcess.i, align 4
-  %mbIntraProcess12.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mbIntraProcess12.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %frombool.i = and i8 %4, 1
   store i8 %frombool.i, ptr %mbIntraProcess12.i, align 8
   %cond.i = zext nneg i8 %frombool.i to i32
@@ -115,7 +115,7 @@ if.then6.i30:                                     ; preds = %if.then
   br label %if.end.i15
 
 if.end.i15:                                       ; preds = %if.then6.i30, %if.then
-  %mbIntraProcess12.i17 = getelementptr inbounds i8, ptr %this, i64 40
+  %mbIntraProcess12.i17 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 1, ptr %mbIntraProcess12.i17, align 8
   %9 = load atomic i32, ptr %mnCount.i seq_cst, align 8
   %call20.i20 = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef 1, i32 noundef %9) #13
@@ -153,11 +153,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load i32, ptr %pSemaphoreParameters, align 4
-  %mnCount = getelementptr inbounds i8, ptr %this, i64 32
+  %mnCount = getelementptr inbounds nuw i8, ptr %this, i64 32
   store atomic i32 %0, ptr %mnCount seq_cst, align 8
-  %mMaxCount = getelementptr inbounds i8, ptr %pSemaphoreParameters, i64 4
+  %mMaxCount = getelementptr inbounds nuw i8, ptr %pSemaphoreParameters, i64 4
   %1 = load i32, ptr %mMaxCount, align 4
-  %mnMaxCount = getelementptr inbounds i8, ptr %this, i64 36
+  %mnMaxCount = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 %1, ptr %mnMaxCount, align 4
   %2 = load atomic i32, ptr %mnCount seq_cst, align 8
   %cmp = icmp slt i32 %2, 0
@@ -168,9 +168,9 @@ if.then6:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then6, %if.then
-  %mbIntraProcess = getelementptr inbounds i8, ptr %pSemaphoreParameters, i64 8
+  %mbIntraProcess = getelementptr inbounds nuw i8, ptr %pSemaphoreParameters, i64 8
   %3 = load i8, ptr %mbIntraProcess, align 4
-  %mbIntraProcess12 = getelementptr inbounds i8, ptr %this, i64 40
+  %mbIntraProcess12 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %frombool = and i8 %3, 1
   store i8 %frombool, ptr %mbIntraProcess12, align 8
   %cond = zext nneg i8 %frombool to i32
@@ -206,9 +206,9 @@ return:                                           ; preds = %entry, %if.end, %la
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread9SemaphoreC2Ei(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %initialCount) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mnCount.i = getelementptr inbounds i8, ptr %this, i64 32
+  %mnCount.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = atomicrmw xchg ptr %mnCount.i, i32 0 seq_cst, align 4
-  %mnMaxCount.i = getelementptr inbounds i8, ptr %this, i64 36
+  %mnMaxCount.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 2147483647, ptr %mnMaxCount.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %this, i8 0, i64 32, i1 false)
   store atomic i32 %initialCount, ptr %mnCount.i seq_cst, align 8
@@ -222,7 +222,7 @@ if.then6.i:                                       ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6.i, %entry
-  %mbIntraProcess12.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mbIntraProcess12.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i8 1, ptr %mbIntraProcess12.i, align 8
   %2 = load atomic i32, ptr %mnCount.i seq_cst, align 8
   %call20.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef 1, i32 noundef %2) #13
@@ -311,7 +311,7 @@ declare i32 @sem_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA6Thread9Semaphore4WaitERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #9 align 2 {
 entry:
-  %tv_nsec.i = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %timeoutAbsolute, i64 8
   %0 = load i64, ptr %tv_nsec.i, align 8
   %cmp.i = icmp eq i64 %0, 2147483647
   %1 = load i64, ptr %timeoutAbsolute, align 8
@@ -365,7 +365,7 @@ if.then32:                                        ; preds = %land.rhs25
   br label %return
 
 if.end39:                                         ; preds = %while.cond20, %while.cond, %if.then8
-  %mnCount = getelementptr inbounds i8, ptr %this, i64 32
+  %mnCount = getelementptr inbounds nuw i8, ptr %this, i64 32
   %7 = atomicrmw sub ptr %mnCount, i32 1 seq_cst, align 4
   %8 = add i32 %7, -1
   br label %return
@@ -385,9 +385,9 @@ declare i32 @sem_timedwait(ptr noundef, ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN2EA6Thread9Semaphore4PostEi(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %count) local_unnamed_addr #3 align 2 {
 entry:
-  %mnCount = getelementptr inbounds i8, ptr %this, i64 32
+  %mnCount = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load atomic i32, ptr %mnCount seq_cst, align 8
-  %mnMaxCount = getelementptr inbounds i8, ptr %this, i64 36
+  %mnMaxCount = getelementptr inbounds nuw i8, ptr %this, i64 36
   %1 = load i32, ptr %mnMaxCount, align 4
   %sub = sub nsw i32 %1, %count
   %cmp = icmp slt i32 %sub, %0
@@ -424,7 +424,7 @@ declare i32 @sem_post(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @_ZNK2EA6Thread9Semaphore8GetCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %mnCount = getelementptr inbounds i8, ptr %this, i64 32
+  %mnCount = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load atomic i32, ptr %mnCount seq_cst, align 8
   ret i32 %0
 }
@@ -438,12 +438,12 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 48, ptr noundef null, i32 noundef 0)
-  %mnCount.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   %2 = atomicrmw xchg ptr %mnCount.i.i, i32 0 seq_cst, align 4
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %call, i64 36
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %call, i64 36
   store i32 2147483647, ptr %mnMaxCount.i.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call, i8 0, i64 32, i1 false)
   store atomic i32 0, ptr %mnCount.i.i seq_cst, align 4
@@ -457,7 +457,7 @@ if.then6.i30.i:                                   ; preds = %if.then
   br label %if.end.i15.i
 
 if.end.i15.i:                                     ; preds = %if.then6.i30.i, %if.then
-  %mbIntraProcess12.i17.i = getelementptr inbounds i8, ptr %call, i64 40
+  %mbIntraProcess12.i17.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i8 1, ptr %mbIntraProcess12.i17.i, align 8
   %4 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
   %call20.i20.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %call, i32 noundef 1, i32 noundef %4) #13
@@ -485,9 +485,9 @@ if.else.i28.i:                                    ; preds = %if.then25.i25.i
 
 if.else:                                          ; preds = %entry
   %call1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #16
-  %mnCount.i.i1 = getelementptr inbounds i8, ptr %call1, i64 32
+  %mnCount.i.i1 = getelementptr inbounds nuw i8, ptr %call1, i64 32
   %7 = atomicrmw xchg ptr %mnCount.i.i1, i32 0 seq_cst, align 4
-  %mnMaxCount.i.i2 = getelementptr inbounds i8, ptr %call1, i64 36
+  %mnMaxCount.i.i2 = getelementptr inbounds nuw i8, ptr %call1, i64 36
   store i32 2147483647, ptr %mnMaxCount.i.i2, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call1, i8 0, i64 32, i1 false)
   store atomic i32 0, ptr %mnCount.i.i1 seq_cst, align 4
@@ -501,7 +501,7 @@ if.then6.i30.i15:                                 ; preds = %if.else
   br label %if.end.i15.i4
 
 if.end.i15.i4:                                    ; preds = %if.then6.i30.i15, %if.else
-  %mbIntraProcess12.i17.i5 = getelementptr inbounds i8, ptr %call1, i64 40
+  %mbIntraProcess12.i17.i5 = getelementptr inbounds nuw i8, ptr %call1, i64 40
   store i8 1, ptr %mbIntraProcess12.i17.i5, align 8
   %9 = load atomic i32, ptr %mnCount.i.i1 seq_cst, align 4
   %call20.i20.i6 = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %call1, i32 noundef 1, i32 noundef %9) #13
@@ -570,7 +570,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 _ZN2EA6Thread9SemaphoreD2Ev.exit:                 ; preds = %for.cond.i, %land.lhs.true.i
   %4 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %pSemaphore, i64 noundef 0)
   br label %if.end
@@ -618,9 +618,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN2EA6Thread16SemaphoreFactory18ConstructSemaphoreEPv(ptr noundef returned %pMemory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mnCount.i.i = getelementptr inbounds i8, ptr %pMemory, i64 32
+  %mnCount.i.i = getelementptr inbounds nuw i8, ptr %pMemory, i64 32
   %0 = atomicrmw xchg ptr %mnCount.i.i, i32 0 seq_cst, align 4
-  %mnMaxCount.i.i = getelementptr inbounds i8, ptr %pMemory, i64 36
+  %mnMaxCount.i.i = getelementptr inbounds nuw i8, ptr %pMemory, i64 36
   store i32 2147483647, ptr %mnMaxCount.i.i, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i8 0, i64 32, i1 false)
   store atomic i32 0, ptr %mnCount.i.i seq_cst, align 4
@@ -634,7 +634,7 @@ if.then6.i30.i:                                   ; preds = %entry
   br label %if.end.i15.i
 
 if.end.i15.i:                                     ; preds = %if.then6.i30.i, %entry
-  %mbIntraProcess12.i17.i = getelementptr inbounds i8, ptr %pMemory, i64 40
+  %mbIntraProcess12.i17.i = getelementptr inbounds nuw i8, ptr %pMemory, i64 40
   store i8 1, ptr %mbIntraProcess12.i17.i, align 8
   %2 = load atomic i32, ptr %mnCount.i.i seq_cst, align 4
   %call20.i20.i = tail call i32 @sem_init(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i32 noundef 1, i32 noundef %2) #13

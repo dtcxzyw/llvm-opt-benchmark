@@ -36,13 +36,13 @@ strbuf_setlen.exit:
   %list_file_name = alloca %struct.strbuf, align 8
   %call = tail call ptr @reftable_calloc(i64 noundef 96) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %list_file_name, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_maybe_stale_table.table_path, i64 24, i1 false)
-  %hash_id = getelementptr inbounds i8, ptr %config, i64 16
+  %hash_id = getelementptr inbounds nuw i8, ptr %config, i64 16
   %0 = load i32, ptr %hash_id, align 8
   %cmp = icmp eq i32 %0, 0
   %spec.store.select = select i1 %cmp, i32 1936220465, i32 %0
   store i32 %spec.store.select, ptr %hash_id, align 8
   store ptr null, ptr %dest, align 8
-  %len2.i = getelementptr inbounds i8, ptr %list_file_name, i64 8
+  %len2.i = getelementptr inbounds nuw i8, ptr %list_file_name, i64 8
   store i64 0, ptr %len2.i, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %dir) #15
   call void @strbuf_add(ptr noundef nonnull %list_file_name, ptr noundef %dir, i64 noundef %call.i) #14
@@ -50,9 +50,9 @@ strbuf_setlen.exit:
   %call2 = call ptr @strbuf_detach(ptr noundef nonnull %list_file_name, ptr noundef null) #14
   store ptr %call2, ptr %call, align 8
   %call3 = call ptr @xstrdup(ptr noundef %dir) #14
-  %reftable_dir = getelementptr inbounds i8, ptr %call, i64 8
+  %reftable_dir = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call3, ptr %reftable_dir, align 8
-  %config4 = getelementptr inbounds i8, ptr %call, i64 20
+  %config4 = getelementptr inbounds nuw i8, ptr %call, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %config4, ptr noundef nonnull align 8 dereferenceable(28) %config, i64 28, i1 false)
   %call5 = call fastcc i32 @reftable_stack_reload_maybe_reuse(ptr noundef nonnull %call, i32 noundef 1)
   %cmp6 = icmp slt i32 %call5, 0
@@ -106,17 +106,17 @@ if.end:                                           ; preds = %entry
   br i1 %cmp330, label %return, label %if.end5.lr.ph
 
 if.end5.lr.ph:                                    ; preds = %if.end
-  %1 = getelementptr inbounds i8, ptr %now, i64 8
-  %2 = getelementptr inbounds i8, ptr %deadline, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %now, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %deadline, i64 8
   %deadline.val16 = load i64, ptr %2, align 8
-  %merged.i = getelementptr inbounds i8, ptr %st, i64 64
-  %readers.i.i = getelementptr inbounds i8, ptr %st, i64 48
+  %merged.i = getelementptr inbounds nuw i8, ptr %st, i64 64
+  %readers.i.i = getelementptr inbounds nuw i8, ptr %st, i64 48
   %tobool9.i = icmp ne i32 %reuse_open, 0
-  %len2.i.i.i = getelementptr inbounds i8, ptr %table_path.i, i64 8
-  %buf.i.i.i = getelementptr inbounds i8, ptr %table_path.i, i64 16
-  %reftable_dir.i.i = getelementptr inbounds i8, ptr %st, i64 8
-  %hash_id.i = getelementptr inbounds i8, ptr %st, i64 36
-  %readers_len.i = getelementptr inbounds i8, ptr %st, i64 56
+  %len2.i.i.i = getelementptr inbounds nuw i8, ptr %table_path.i, i64 8
+  %buf.i.i.i = getelementptr inbounds nuw i8, ptr %table_path.i, i64 16
+  %reftable_dir.i.i = getelementptr inbounds nuw i8, ptr %st, i64 8
+  %hash_id.i = getelementptr inbounds nuw i8, ptr %st, i64 36
+  %readers_len.i = getelementptr inbounds nuw i8, ptr %st, i64 56
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end5.lr.ph, %if.end29
@@ -154,7 +154,7 @@ if.end14:                                         ; preds = %if.end10
   br i1 %tobool.not.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %if.end14
-  %stack_len.i = getelementptr inbounds i8, ptr %6, i64 8
+  %stack_len.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i64, ptr %stack_len.i, align 8
   %8 = trunc i64 %7 to i32
   br label %cond.end.i
@@ -174,9 +174,9 @@ for.body.lr.ph.i.i:                               ; preds = %cond.end.i
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %9 = load ptr, ptr %readers.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %arrayidx.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %indvars.iv.i.i
+  %arrayidx3.i.i = getelementptr inbounds nuw ptr, ptr %call.i.i, i64 %indvars.iv.i.i
   store ptr %10, ptr %arrayidx3.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -205,12 +205,12 @@ while.body.i:                                     ; preds = %if.end34.i, %while.
   %13 = phi ptr [ %11, %while.body.lr.ph.i ], [ %21, %if.end34.i ]
   %names.addr.076.i = phi ptr [ %5, %while.body.lr.ph.i ], [ %incdec.ptr.i, %if.end34.i ]
   store ptr null, ptr %rd.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %names.addr.076.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %names.addr.076.i, i64 8
   br i1 %12, label %for.body.i, label %if.then23.i
 
 for.body.i:                                       ; preds = %while.body.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %while.body.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %call.i.i, i64 %indvars.iv.i
   %14 = load ptr, ptr %arrayidx.i, align 8
   %tobool11.not.i = icmp eq ptr %14, null
   br i1 %tobool11.not.i, label %for.inc.i, label %land.lhs.true.i
@@ -227,7 +227,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %exitcond.not.i, label %if.then23.i, label %for.body.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %land.lhs.true.i
-  %arrayidx.i.le = getelementptr inbounds ptr, ptr %call.i.i, i64 %indvars.iv.i
+  %arrayidx.i.le = getelementptr inbounds nuw ptr, ptr %call.i.i, i64 %indvars.iv.i
   store ptr %14, ptr %rd.i, align 8
   store ptr null, ptr %arrayidx.i.le, align 8
   %.pre.i = load ptr, ptr %rd.i, align 8
@@ -268,9 +268,9 @@ if.end28.if.end34_crit_edge.i:                    ; preds = %if.end28.i
 
 if.end34.i:                                       ; preds = %if.end28.if.end34_crit_edge.i, %for.end.i
   %19 = phi ptr [ %.pre99.i, %if.end28.if.end34_crit_edge.i ], [ %.pre.i, %for.end.i ]
-  %arrayidx36.i = getelementptr inbounds ptr, ptr %call4.i, i64 %indvars.iv86.i
+  %arrayidx36.i = getelementptr inbounds nuw ptr, ptr %call4.i, i64 %indvars.iv86.i
   store ptr %19, ptr %arrayidx36.i, align 8
-  %arrayidx38.i = getelementptr inbounds %struct.reftable_table, ptr %call7.i, i64 %indvars.iv86.i
+  %arrayidx38.i = getelementptr inbounds nuw %struct.reftable_table, ptr %call7.i, i64 %indvars.iv86.i
   %20 = load ptr, ptr %rd.i, align 8
   call void @reftable_table_from_reader(ptr noundef %arrayidx38.i, ptr noundef %20) #14
   %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
@@ -314,7 +314,7 @@ if.then53.i:                                      ; preds = %if.end51.i
 if.end55.i:                                       ; preds = %if.then53.i, %if.end51.i
   store ptr %call4.i, ptr %readers.i.i, align 8
   %27 = load ptr, ptr %new_merged.i, align 8
-  %suppress_deletions.i = getelementptr inbounds i8, ptr %27, i64 20
+  %suppress_deletions.i = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i32 1, ptr %suppress_deletions.i, align 4
   store ptr %27, ptr %merged.i, align 8
   br i1 %cmp6.i.i, label %for.body61.lr.ph.i, label %reftable_stack_reload_once.exit
@@ -325,7 +325,7 @@ for.body61.lr.ph.i:                               ; preds = %if.end55.i
 
 for.body61.i:                                     ; preds = %for.inc77.i, %for.body61.lr.ph.i
   %indvars.iv89.i = phi i64 [ 0, %for.body61.lr.ph.i ], [ %indvars.iv.next90.i, %for.inc77.i ]
-  %arrayidx63.i = getelementptr inbounds ptr, ptr %call.i.i, i64 %indvars.iv89.i
+  %arrayidx63.i = getelementptr inbounds nuw ptr, ptr %call.i.i, i64 %indvars.iv89.i
   %28 = load ptr, ptr %arrayidx63.i, align 8
   %tobool64.not.i = icmp eq ptr %28, null
   br i1 %tobool64.not.i, label %for.inc77.i, label %if.then65.i
@@ -378,7 +378,7 @@ for.body83.preheader.i:                           ; preds = %done.i
 
 for.body83.i:                                     ; preds = %for.body83.i, %for.body83.preheader.i
   %indvars.iv94.i = phi i64 [ 0, %for.body83.preheader.i ], [ %indvars.iv.next95.i, %for.body83.i ]
-  %arrayidx85.i = getelementptr inbounds ptr, ptr %call4.i, i64 %indvars.iv94.i
+  %arrayidx85.i = getelementptr inbounds nuw ptr, ptr %call4.i, i64 %indvars.iv94.i
   %35 = load ptr, ptr %arrayidx85.i, align 8
   call void @reader_close(ptr noundef %35) #14
   %36 = load ptr, ptr %arrayidx85.i, align 8
@@ -452,7 +452,7 @@ entry:
   %names = alloca ptr, align 8
   %filename = alloca %struct.strbuf, align 8
   store ptr null, ptr %names, align 8
-  %merged = getelementptr inbounds i8, ptr %st, i64 64
+  %merged = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load ptr, ptr %merged, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -475,28 +475,28 @@ do.body:                                          ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %do.body, %if.end
-  %readers = getelementptr inbounds i8, ptr %st, i64 48
+  %readers = getelementptr inbounds nuw i8, ptr %st, i64 48
   %3 = load ptr, ptr %readers, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %do.body29, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filename, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_maybe_stale_table.table_path, i64 24, i1 false)
-  %readers_len = getelementptr inbounds i8, ptr %st, i64 56
+  %readers_len = getelementptr inbounds nuw i8, ptr %st, i64 56
   %4 = load i64, ptr %readers_len, align 8
   %cmp724.not = icmp eq i64 %4, 0
   br i1 %cmp724.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then6
-  %len2.i = getelementptr inbounds i8, ptr %filename, i64 8
-  %buf.i = getelementptr inbounds i8, ptr %filename, i64 16
-  %reftable_dir.i = getelementptr inbounds i8, ptr %st, i64 8
+  %len2.i = getelementptr inbounds nuw i8, ptr %filename, i64 8
+  %buf.i = getelementptr inbounds nuw i8, ptr %filename, i64 16
+  %reftable_dir.i = getelementptr inbounds nuw i8, ptr %st, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %5 = load ptr, ptr %readers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   %call10 = call ptr @reader_name(ptr noundef %6) #14
   store i64 0, ptr %len2.i, align 8
@@ -519,7 +519,7 @@ land.lhs.true:                                    ; preds = %strbuf_setlen.exit
   br i1 %tobool.not3.i, label %if.then14, label %while.body.i
 
 while.cond.i:                                     ; preds = %while.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %names.addr.04.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %names.addr.04.i, i64 8
   %10 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %if.then14, label %while.body.i, !llvm.loop !11
@@ -552,7 +552,7 @@ stack_filename.exit:                              ; preds = %if.then14, %if.then
 
 if.end15:                                         ; preds = %while.body.i, %stack_filename.exit, %strbuf_setlen.exit
   %14 = load ptr, ptr %readers, align 8
-  %arrayidx18 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %arrayidx18 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %15 = load ptr, ptr %arrayidx18, align 8
   call void @reftable_reader_free(ptr noundef %15) #14
   %16 = load i64, ptr %len2.i, align 8
@@ -582,7 +582,7 @@ do.body29:                                        ; preds = %if.end4, %for.end
   %20 = load ptr, ptr %st, align 8
   call void @free(ptr noundef %20) #14
   store ptr null, ptr %st, align 8
-  %reftable_dir = getelementptr inbounds i8, ptr %st, i64 8
+  %reftable_dir = getelementptr inbounds nuw i8, ptr %st, i64 8
   %21 = load ptr, ptr %reftable_dir, align 8
   call void @free(ptr noundef %21) #14
   store ptr null, ptr %reftable_dir, align 8
@@ -629,7 +629,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp8.not.i, label %if.end11.i, label %fd_read_lines.exit
 
 if.end11.i:                                       ; preds = %if.end5.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %call6.i, i64 %call.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 %call.i
   store i8 0, ptr %arrayidx.i, align 1
   %conv12.i = trunc i64 %call.i to i32
   tail call void @parse_names(ptr noundef %call6.i, i32 noundef %conv12.i, ptr noundef %namesp) #14
@@ -658,7 +658,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @reftable_stack_merged_table(ptr nocapture noundef readonly %st) local_unnamed_addr #5 {
 entry:
-  %merged = getelementptr inbounds i8, ptr %st, i64 64
+  %merged = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load ptr, ptr %merged, align 8
   ret ptr %0
 }
@@ -673,9 +673,9 @@ declare ptr @reader_name(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @stack_filename(ptr noundef nonnull initializes((8, 16)) %dest, ptr nocapture noundef readonly %st, ptr noundef %name) unnamed_addr #0 {
 entry:
-  %len2.i = getelementptr inbounds i8, ptr %dest, i64 8
+  %len2.i = getelementptr inbounds nuw i8, ptr %dest, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds i8, ptr %dest, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %dest, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -685,7 +685,7 @@ if.then4.i:                                       ; preds = %entry
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
-  %reftable_dir = getelementptr inbounds i8, ptr %st, i64 8
+  %reftable_dir = getelementptr inbounds nuw i8, ptr %st, i64 8
   %1 = load ptr, ptr %reftable_dir, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   tail call void @strbuf_add(ptr noundef nonnull %dest, ptr noundef %1, i64 noundef %call.i) #14
@@ -722,14 +722,14 @@ stack_uptodate.exit.thread:                       ; preds = %entry
   br label %return
 
 for.cond.preheader.i:                             ; preds = %entry
-  %readers_len.i = getelementptr inbounds i8, ptr %st, i64 56
+  %readers_len.i = getelementptr inbounds nuw i8, ptr %st, i64 56
   %1 = load i64, ptr %readers_len.i, align 8
   %cmp110.not.i = icmp eq i64 %1, 0
   %.pre.i = load ptr, ptr %names.i, align 8
   br i1 %cmp110.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %readers.i = getelementptr inbounds i8, ptr %st, i64 48
+  %readers.i = getelementptr inbounds nuw i8, ptr %st, i64 48
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end4.i
@@ -739,14 +739,14 @@ for.cond.i:                                       ; preds = %if.end4.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %indvars.iv.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %stack_uptodate.exit.thread5, label %if.end4.i
 
 if.end4.i:                                        ; preds = %for.body.i
   %3 = load ptr, ptr %readers.i, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
+  %arrayidx6.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx6.i, align 8
   %5 = load ptr, ptr %4, align 8
   %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %2) #15
@@ -754,9 +754,9 @@ if.end4.i:                                        ; preds = %for.body.i
   br i1 %tobool10.not.i, label %for.cond.i, label %stack_uptodate.exit.thread5
 
 for.end.i:                                        ; preds = %for.cond.i, %for.cond.preheader.i
-  %merged.i = getelementptr inbounds i8, ptr %st, i64 64
+  %merged.i = getelementptr inbounds nuw i8, ptr %st, i64 64
   %6 = load ptr, ptr %merged.i, align 8
-  %stack_len.i = getelementptr inbounds i8, ptr %6, i64 8
+  %stack_len.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i64, ptr %stack_len.i, align 8
   %arrayidx13.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %7
   %8 = load ptr, ptr %arrayidx13.i, align 8
@@ -849,23 +849,23 @@ define internal fastcc void @reftable_addition_close(ptr noundef %add) unnamed_a
 entry:
   %nm = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %nm, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_maybe_stale_table.table_path, i64 24, i1 false)
-  %new_tables_len = getelementptr inbounds i8, ptr %add, i64 24
+  %new_tables_len = getelementptr inbounds nuw i8, ptr %add, i64 24
   %0 = load i32, ptr %new_tables_len, align 8
   %cmp13 = icmp sgt i32 %0, 0
   br i1 %cmp13, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %stack = getelementptr inbounds i8, ptr %add, i64 8
-  %new_tables = getelementptr inbounds i8, ptr %add, i64 16
-  %len2.i.i = getelementptr inbounds i8, ptr %nm, i64 8
-  %buf.i.i = getelementptr inbounds i8, ptr %nm, i64 16
+  %stack = getelementptr inbounds nuw i8, ptr %add, i64 8
+  %new_tables = getelementptr inbounds nuw i8, ptr %add, i64 16
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %nm, i64 8
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %nm, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %stack_filename.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %stack_filename.exit ]
   %1 = load ptr, ptr %stack, align 8
   %2 = load ptr, ptr %new_tables, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   store i64 0, ptr %len2.i.i, align 8
   %4 = load ptr, ptr %buf.i.i, align 8
@@ -877,7 +877,7 @@ if.then4.i.i:                                     ; preds = %for.body
   br label %stack_filename.exit
 
 stack_filename.exit:                              ; preds = %for.body, %if.then4.i.i
-  %reftable_dir.i = getelementptr inbounds i8, ptr %1, i64 8
+  %reftable_dir.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %reftable_dir.i, align 8
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #15
   call void @strbuf_add(ptr noundef nonnull %nm, ptr noundef %5, i64 noundef %call.i.i) #14
@@ -887,11 +887,11 @@ stack_filename.exit:                              ; preds = %for.body, %if.then4
   %6 = load ptr, ptr %buf.i.i, align 8
   %call = call i32 @unlink(ptr noundef %6) #14
   %7 = load ptr, ptr %new_tables, align 8
-  %arrayidx3 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx3, align 8
   call void @reftable_free(ptr noundef %8) #14
   %9 = load ptr, ptr %new_tables, align 8
-  %arrayidx6 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr null, ptr %arrayidx6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %new_tables_len, align 8
@@ -900,7 +900,7 @@ stack_filename.exit:                              ; preds = %for.body, %if.then4
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %stack_filename.exit, %entry
-  %new_tables7 = getelementptr inbounds i8, ptr %add, i64 16
+  %new_tables7 = getelementptr inbounds nuw i8, ptr %add, i64 16
   %12 = load ptr, ptr %new_tables7, align 8
   call void @reftable_free(ptr noundef %12) #14
   store ptr null, ptr %new_tables7, align 8
@@ -917,17 +917,17 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %table_list, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_maybe_stale_table.table_path, i64 24, i1 false)
   %0 = load ptr, ptr %add, align 8
   %call = tail call i32 @get_tempfile_fd(ptr noundef %0) #14
-  %new_tables_len = getelementptr inbounds i8, ptr %add, i64 24
+  %new_tables_len = getelementptr inbounds nuw i8, ptr %add, i64 24
   %1 = load i32, ptr %new_tables_len, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %done, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %stack = getelementptr inbounds i8, ptr %add, i64 8
+  %stack = getelementptr inbounds nuw i8, ptr %add, i64 8
   %2 = load ptr, ptr %stack, align 8
-  %merged31 = getelementptr inbounds i8, ptr %2, i64 64
+  %merged31 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %3 = load ptr, ptr %merged31, align 8
-  %stack_len32 = getelementptr inbounds i8, ptr %3, i64 8
+  %stack_len32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i64, ptr %stack_len32, align 8
   %cmp133.not = icmp eq i64 %4, 0
   br i1 %cmp133.not, label %for.cond4.preheader, label %for.body
@@ -942,15 +942,15 @@ for.cond4.preheader:                              ; preds = %for.cond4.preheader
   br i1 %cmp636, label %for.body8.lr.ph, label %for.end13
 
 for.body8.lr.ph:                                  ; preds = %for.cond4.preheader
-  %new_tables = getelementptr inbounds i8, ptr %add, i64 16
+  %new_tables = getelementptr inbounds nuw i8, ptr %add, i64 16
   br label %for.body8
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %6 = phi ptr [ %10, %for.body ], [ %2, %for.cond.preheader ]
-  %readers = getelementptr inbounds i8, ptr %6, i64 48
+  %readers = getelementptr inbounds nuw i8, ptr %6, i64 48
   %7 = load ptr, ptr %readers, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx, align 8
   %9 = load ptr, ptr %8, align 8
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
@@ -958,9 +958,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   call void @strbuf_add(ptr noundef nonnull %table_list, ptr noundef nonnull @.str.1, i64 noundef 1) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load ptr, ptr %stack, align 8
-  %merged = getelementptr inbounds i8, ptr %10, i64 64
+  %merged = getelementptr inbounds nuw i8, ptr %10, i64 64
   %11 = load ptr, ptr %merged, align 8
-  %stack_len = getelementptr inbounds i8, ptr %11, i64 8
+  %stack_len = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load i64, ptr %stack_len, align 8
   %cmp1 = icmp ugt i64 %12, %indvars.iv.next
   br i1 %cmp1, label %for.body, label %for.cond4.preheader.loopexit, !llvm.loop !15
@@ -968,7 +968,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.body8:                                        ; preds = %for.body8.lr.ph, %for.body8
   %indvars.iv41 = phi i64 [ 0, %for.body8.lr.ph ], [ %indvars.iv.next42, %for.body8 ]
   %13 = load ptr, ptr %new_tables, align 8
-  %arrayidx10 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv41
+  %arrayidx10 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv41
   %14 = load ptr, ptr %arrayidx10, align 8
   %call.i29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #15
   call void @strbuf_add(ptr noundef nonnull %table_list, ptr noundef %14, i64 noundef %call.i29) #14
@@ -980,9 +980,9 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   br i1 %cmp6, label %for.body8, label %for.end13, !llvm.loop !16
 
 for.end13:                                        ; preds = %for.body8, %for.cond4.preheader
-  %buf = getelementptr inbounds i8, ptr %table_list, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %table_list, i64 16
   %17 = load ptr, ptr %buf, align 8
-  %len = getelementptr inbounds i8, ptr %table_list, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %table_list, i64 8
   %18 = load i64, ptr %len, align 8
   %call14 = call i64 @write_in_full(i32 noundef %call, ptr noundef %17, i64 noundef %18) #14
   call void @strbuf_release(ptr noundef nonnull %table_list) #14
@@ -1003,13 +1003,13 @@ for.cond27.preheader:                             ; preds = %if.end19
   br i1 %cmp2938, label %for.body31.lr.ph, label %for.end37
 
 for.body31.lr.ph:                                 ; preds = %for.cond27.preheader
-  %new_tables32 = getelementptr inbounds i8, ptr %add, i64 16
+  %new_tables32 = getelementptr inbounds nuw i8, ptr %add, i64 16
   br label %for.body31
 
 for.body31:                                       ; preds = %for.body31.lr.ph, %for.body31
   %indvars.iv44 = phi i64 [ 0, %for.body31.lr.ph ], [ %indvars.iv.next45, %for.body31 ]
   %23 = load ptr, ptr %new_tables32, align 8
-  %arrayidx34 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv44
+  %arrayidx34 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv44
   %24 = load ptr, ptr %arrayidx34, align 8
   call void @reftable_free(ptr noundef %24) #14
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
@@ -1019,7 +1019,7 @@ for.body31:                                       ; preds = %for.body31.lr.ph, %
   br i1 %cmp29, label %for.body31, label %for.end37, !llvm.loop !17
 
 for.end37:                                        ; preds = %for.body31, %for.cond27.preheader
-  %new_tables38 = getelementptr inbounds i8, ptr %add, i64 16
+  %new_tables38 = getelementptr inbounds nuw i8, ptr %add, i64 16
   %27 = load ptr, ptr %new_tables38, align 8
   call void @reftable_free(ptr noundef %27) #14
   store ptr null, ptr %new_tables38, align 8
@@ -1031,7 +1031,7 @@ for.end37:                                        ; preds = %for.body31, %for.co
 
 if.end44:                                         ; preds = %for.end37
   %29 = load ptr, ptr %stack, align 8
-  %disable_auto_compact = getelementptr inbounds i8, ptr %29, i64 16
+  %disable_auto_compact = getelementptr inbounds nuw i8, ptr %29, i64 16
   %30 = load i32, ptr %disable_auto_compact, align 8
   %tobool46.not = icmp eq i32 %30, 0
   br i1 %tobool46.not, label %if.then47, label %done
@@ -1056,42 +1056,42 @@ declare i32 @rename_tempfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local i32 @reftable_stack_auto_compact(ptr noundef %st) local_unnamed_addr #0 {
 entry:
   %seg = alloca %struct.segment, align 8
-  %merged.i = getelementptr inbounds i8, ptr %st, i64 64
+  %merged.i = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load ptr, ptr %merged.i, align 8
-  %stack_len.i = getelementptr inbounds i8, ptr %0, i64 8
+  %stack_len.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %stack_len.i, align 8
   %mul.i = shl i64 %1, 3
   %call.i = tail call ptr @reftable_calloc(i64 noundef %mul.i) #14
-  %hash_id.i = getelementptr inbounds i8, ptr %st, i64 36
+  %hash_id.i = getelementptr inbounds nuw i8, ptr %st, i64 36
   %2 = load i32, ptr %hash_id.i, align 4
   %cmp.i = icmp eq i32 %2, 1936220465
   %cond.i = select i1 %cmp.i, i32 1, i32 2
   %call1.i = tail call i32 @header_size(i32 noundef %cond.i) #14
   %3 = load ptr, ptr %merged.i, align 8
-  %stack_len38.i = getelementptr inbounds i8, ptr %3, i64 8
+  %stack_len38.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i64, ptr %stack_len38.i, align 8
   %cmp49.not.i = icmp eq i64 %4, 0
   br i1 %cmp49.not.i, label %stack_table_sizes_for_compaction.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
   %sub.i = add nsw i32 %call1.i, -1
-  %readers.i = getelementptr inbounds i8, ptr %st, i64 48
+  %readers.i = getelementptr inbounds nuw i8, ptr %st, i64 48
   %conv6.i = sext i32 %sub.i to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %5 = load ptr, ptr %readers.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %size.i = getelementptr inbounds i8, ptr %6, i64 24
+  %size.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %7 = load i64, ptr %size.i, align 8
   %sub7.i = sub i64 %7, %conv6.i
-  %arrayidx9.i = getelementptr inbounds i64, ptr %call.i, i64 %indvars.iv.i
+  %arrayidx9.i = getelementptr inbounds nuw i64, ptr %call.i, i64 %indvars.iv.i
   store i64 %sub7.i, ptr %arrayidx9.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = load ptr, ptr %merged.i, align 8
-  %stack_len3.i = getelementptr inbounds i8, ptr %8, i64 8
+  %stack_len3.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i64, ptr %stack_len3.i, align 8
   %cmp4.i = icmp ugt i64 %9, %indvars.iv.next.i
   br i1 %cmp4.i, label %for.body.i, label %stack_table_sizes_for_compaction.exit.loopexit, !llvm.loop !18
@@ -1105,7 +1105,7 @@ stack_table_sizes_for_compaction.exit:            ; preds = %stack_table_sizes_f
   call void @suggest_compaction_segment(ptr nonnull sret(%struct.segment) align 8 %seg, ptr noundef %call.i, i32 noundef %conv)
   tail call void @reftable_free(ptr noundef %call.i) #14
   %seg.val = load i32, ptr %seg, align 8
-  %11 = getelementptr inbounds i8, ptr %seg, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %seg, i64 4
   %seg.val4 = load i32, ptr %11, align 4
   %cmp = icmp sgt i32 %seg.val4, %seg.val
   br i1 %cmp, label %if.then, label %return
@@ -1117,7 +1117,7 @@ if.then:                                          ; preds = %stack_table_sizes_f
   br i1 %cmp.i7, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.then
-  %failures.i = getelementptr inbounds i8, ptr %st, i64 92
+  %failures.i = getelementptr inbounds nuw i8, ptr %st, i64 92
   %12 = load i32, ptr %failures.i, align 4
   %inc.i = add nsw i32 %12, 1
   store i32 %inc.i, ptr %failures.i, align 4
@@ -1158,11 +1158,11 @@ entry:
   %names.i = alloca ptr, align 8
   %lock_file_name = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lock_file_name, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_maybe_stale_table.table_path, i64 24, i1 false)
-  %stack = getelementptr inbounds i8, ptr %add, i64 8
+  %stack = getelementptr inbounds nuw i8, ptr %add, i64 8
   store ptr %st, ptr %stack, align 8
   %0 = load ptr, ptr %st, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %lock_file_name, ptr noundef nonnull @.str.7, ptr noundef %0) #14
-  %buf = getelementptr inbounds i8, ptr %lock_file_name, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %lock_file_name, i64 16
   %1 = load ptr, ptr %buf, align 8
   %call.i = call ptr @create_tempfile_mode(ptr noundef %1, i32 noundef 438) #14
   store ptr %call.i, ptr %add, align 8
@@ -1177,13 +1177,13 @@ if.then:                                          ; preds = %entry
   br label %if.then25
 
 if.end4:                                          ; preds = %entry
-  %default_permissions = getelementptr inbounds i8, ptr %st, i64 40
+  %default_permissions = getelementptr inbounds nuw i8, ptr %st, i64 40
   %3 = load i32, ptr %default_permissions, align 4
   %tobool5.not = icmp eq i32 %3, 0
   br i1 %tobool5.not, label %if.end15, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %buf8 = getelementptr inbounds i8, ptr %call.i, i64 56
+  %buf8 = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %4 = load ptr, ptr %buf8, align 8
   %call11 = call i32 @chmod(ptr noundef %4, i32 noundef %3) #14
   %cmp12 = icmp slt i32 %call11, 0
@@ -1202,14 +1202,14 @@ stack_uptodate.exit.thread:                       ; preds = %if.end15
   br label %if.then25
 
 for.cond.preheader.i:                             ; preds = %if.end15
-  %readers_len.i = getelementptr inbounds i8, ptr %st, i64 56
+  %readers_len.i = getelementptr inbounds nuw i8, ptr %st, i64 56
   %6 = load i64, ptr %readers_len.i, align 8
   %cmp110.not.i = icmp eq i64 %6, 0
   %.pre.i = load ptr, ptr %names.i, align 8
   br i1 %cmp110.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %readers.i = getelementptr inbounds i8, ptr %st, i64 48
+  %readers.i = getelementptr inbounds nuw i8, ptr %st, i64 48
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end4.i
@@ -1219,14 +1219,14 @@ for.cond.i:                                       ; preds = %if.end4.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %indvars.iv.i
   %7 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.end19.thread, label %if.end4.i
 
 if.end4.i:                                        ; preds = %for.body.i
   %8 = load ptr, ptr %readers.i, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.i
+  %arrayidx6.i = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   %9 = load ptr, ptr %arrayidx6.i, align 8
   %10 = load ptr, ptr %9, align 8
   %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %7) #15
@@ -1234,9 +1234,9 @@ if.end4.i:                                        ; preds = %for.body.i
   br i1 %tobool10.not.i, label %for.cond.i, label %if.end19.thread
 
 for.end.i:                                        ; preds = %for.cond.i, %for.cond.preheader.i
-  %merged.i = getelementptr inbounds i8, ptr %st, i64 64
+  %merged.i = getelementptr inbounds nuw i8, ptr %st, i64 64
   %11 = load ptr, ptr %merged.i, align 8
-  %stack_len.i = getelementptr inbounds i8, ptr %11, i64 8
+  %stack_len.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load i64, ptr %stack_len.i, align 8
   %arrayidx13.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %12
   %13 = load ptr, ptr %arrayidx13.i, align 8
@@ -1256,20 +1256,20 @@ stack_uptodate.exit:                              ; preds = %for.end.i
 
 if.end22:                                         ; preds = %if.end19.thread, %stack_uptodate.exit
   %err.0.i2730 = phi i32 [ 1, %if.end19.thread ], [ %call.i14, %stack_uptodate.exit ]
-  %merged.i15 = getelementptr inbounds i8, ptr %st, i64 64
+  %merged.i15 = getelementptr inbounds nuw i8, ptr %st, i64 64
   %14 = load ptr, ptr %merged.i15, align 8
-  %stack_len.i16 = getelementptr inbounds i8, ptr %14, i64 8
+  %stack_len.i16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load i64, ptr %stack_len.i16, align 8
   %conv.i = trunc i64 %15 to i32
   %cmp.i17 = icmp sgt i32 %conv.i, 0
   br i1 %cmp.i17, label %if.then.i, label %done
 
 if.then.i:                                        ; preds = %if.end22
-  %readers.i19 = getelementptr inbounds i8, ptr %st, i64 48
+  %readers.i19 = getelementptr inbounds nuw i8, ptr %st, i64 48
   %16 = load ptr, ptr %readers.i19, align 8
   %sub.i = add i64 %15, 4294967295
   %idxprom.i = and i64 %sub.i, 4294967295
-  %arrayidx.i20 = getelementptr inbounds ptr, ptr %16, i64 %idxprom.i
+  %arrayidx.i20 = getelementptr inbounds nuw ptr, ptr %16, i64 %idxprom.i
   %17 = load ptr, ptr %arrayidx.i20, align 8
   %call.i21 = call i64 @reftable_reader_max_update_index(ptr noundef %17) #14
   %add.i = add i64 %call.i21, 1
@@ -1277,7 +1277,7 @@ if.then.i:                                        ; preds = %if.end22
 
 done:                                             ; preds = %if.then.i, %if.end22
   %retval.0.i18 = phi i64 [ %add.i, %if.then.i ], [ 1, %if.end22 ]
-  %next_update_index = getelementptr inbounds i8, ptr %add, i64 32
+  %next_update_index = getelementptr inbounds nuw i8, ptr %add, i64 32
   store i64 %retval.0.i18, ptr %next_update_index, align 8
   %tobool24.not = icmp eq i32 %err.0.i2730, 0
   br i1 %tobool24.not, label %if.end26, label %if.then25
@@ -1309,9 +1309,9 @@ strbuf_setlen.exit:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %temp_tab_file_name, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_maybe_stale_table.table_path, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tab_file_name, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_maybe_stale_table.table_path, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next_name, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_maybe_stale_table.table_path, i64 24, i1 false)
-  %len2.i = getelementptr inbounds i8, ptr %next_name, i64 8
-  %buf.i = getelementptr inbounds i8, ptr %next_name, i64 16
-  %next_update_index = getelementptr inbounds i8, ptr %add, i64 32
+  %len2.i = getelementptr inbounds nuw i8, ptr %next_name, i64 8
+  %buf.i = getelementptr inbounds nuw i8, ptr %next_name, i64 16
+  %next_update_index = getelementptr inbounds nuw i8, ptr %add, i64 32
   %0 = load i64, ptr %next_update_index, align 8
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %buf.i28)
   %call.i = tail call i32 @git_rand() #14
@@ -1329,12 +1329,12 @@ format_name.exit:                                 ; preds = %strbuf_setlen.exit,
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i28) #15
   call void @strbuf_add(ptr noundef nonnull %next_name, ptr noundef nonnull %buf.i28, i64 noundef %call.i.i) #14
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %buf.i28)
-  %stack = getelementptr inbounds i8, ptr %add, i64 8
+  %stack = getelementptr inbounds nuw i8, ptr %add, i64 8
   %2 = load ptr, ptr %stack, align 8
   %3 = load ptr, ptr %buf.i, align 8
-  %len2.i.i29 = getelementptr inbounds i8, ptr %temp_tab_file_name, i64 8
+  %len2.i.i29 = getelementptr inbounds nuw i8, ptr %temp_tab_file_name, i64 8
   store i64 0, ptr %len2.i.i29, align 8
-  %buf.i.i30 = getelementptr inbounds i8, ptr %temp_tab_file_name, i64 16
+  %buf.i.i30 = getelementptr inbounds nuw i8, ptr %temp_tab_file_name, i64 16
   %4 = load ptr, ptr %buf.i.i30, align 8
   %cmp3.not.i.i31 = icmp eq ptr %4, @strbuf_slopbuf
   br i1 %cmp3.not.i.i31, label %stack_filename.exit, label %if.then4.i.i32
@@ -1344,7 +1344,7 @@ if.then4.i.i32:                                   ; preds = %format_name.exit
   br label %stack_filename.exit
 
 stack_filename.exit:                              ; preds = %format_name.exit, %if.then4.i.i32
-  %reftable_dir.i = getelementptr inbounds i8, ptr %2, i64 8
+  %reftable_dir.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %reftable_dir.i, align 8
   %call.i.i33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #15
   call void @strbuf_add(ptr noundef nonnull %temp_tab_file_name, ptr noundef %5, i64 noundef %call.i.i33) #14
@@ -1360,7 +1360,7 @@ stack_filename.exit:                              ; preds = %format_name.exit, %
 
 if.end:                                           ; preds = %stack_filename.exit
   %7 = load ptr, ptr %stack, align 8
-  %default_permissions = getelementptr inbounds i8, ptr %7, i64 40
+  %default_permissions = getelementptr inbounds nuw i8, ptr %7, i64 40
   %8 = load i32, ptr %default_permissions, align 4
   %tobool.not = icmp eq i32 %8, 0
   br i1 %tobool.not, label %if.end13, label %if.then4
@@ -1377,7 +1377,7 @@ if.then4.if.end13_crit_edge:                      ; preds = %if.then4
 
 if.end13:                                         ; preds = %if.then4.if.end13_crit_edge, %if.end
   %10 = phi ptr [ %.pre, %if.then4.if.end13_crit_edge ], [ %7, %if.end ]
-  %config15 = getelementptr inbounds i8, ptr %10, i64 20
+  %config15 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %call16 = call ptr @reftable_new_writer(ptr noundef nonnull @reftable_fd_write, ptr noundef nonnull %tab_fd, ptr noundef nonnull %config15) #14
   %call17 = call i32 %write_table(ptr noundef %call16, ptr noundef %arg) #14
   %cmp18 = icmp slt i32 %call17, 0
@@ -1411,7 +1411,7 @@ if.end31:                                         ; preds = %if.end27
   store ptr null, ptr %rd.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tab.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it.i, i8 0, i64 16, i1 false)
-  %skip_name_check.i = getelementptr inbounds i8, ptr %12, i64 44
+  %skip_name_check.i = getelementptr inbounds nuw i8, ptr %12, i64 44
   %bf.load.i = load i8, ptr %skip_name_check.i, align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear.i, 0
@@ -1476,7 +1476,7 @@ if.end25.i:                                       ; preds = %if.then22.i, %if.en
   %refs.2.i = phi ptr [ %call24.i, %if.then22.i ], [ %refs.125.i, %if.end20.i ]
   %cap.1.i = phi i32 [ %add.i, %if.then22.i ], [ %cap.026.i, %if.end20.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds %struct.reftable_ref_record, ptr %refs.2.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.reftable_ref_record, ptr %refs.2.i, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(88) %ref.i, i64 88, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %ref.i, i8 0, i64 88, i1 false)
   %call14.i = call i32 @reftable_iterator_next_ref(ptr noundef nonnull %it.i, ptr noundef nonnull %ref.i) #14
@@ -1490,12 +1490,12 @@ while.end.loopexit.i:                             ; preds = %if.end25.i
 while.end.i:                                      ; preds = %while.end.loopexit.i, %while.body.preheader.i
   %refs.1.lcssa.i = phi ptr [ null, %while.body.preheader.i ], [ %refs.2.i, %while.end.loopexit.i ]
   %len.1.lcssa.i = phi i32 [ 0, %while.body.preheader.i ], [ %16, %while.end.loopexit.i ]
-  %merged.i.i = getelementptr inbounds i8, ptr %12, i64 64
+  %merged.i.i = getelementptr inbounds nuw i8, ptr %12, i64 64
   %17 = load ptr, ptr %merged.i.i, align 8
   call void @reftable_table_from_merged_table(ptr noundef nonnull %tab.i, ptr noundef %17) #14
   %conv27.i = zext nneg i32 %len.1.lcssa.i to i64
   %18 = load ptr, ptr %tab.i, align 8
-  %19 = getelementptr inbounds i8, ptr %tab.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %tab.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %call28.i = call i32 @validate_ref_record_addition(ptr %18, ptr %20, ptr noundef %refs.1.lcssa.i, i64 noundef %conv27.i) #14
   br label %done.i
@@ -1517,7 +1517,7 @@ for.body.preheader.i:                             ; preds = %done.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv36.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next37.i, %for.body.i ]
-  %arrayidx32.i = getelementptr inbounds %struct.reftable_ref_record, ptr %refs.0.i, i64 %indvars.iv36.i
+  %arrayidx32.i = getelementptr inbounds nuw %struct.reftable_ref_record, ptr %refs.0.i, i64 %indvars.iv36.i
   call void @reftable_ref_record_release(ptr noundef %arrayidx32.i) #14
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count.i
@@ -1539,14 +1539,14 @@ stack_check_addition.exit:                        ; preds = %for.body.i, %if.end
   br i1 %cmp35, label %done, label %if.end37
 
 if.end37:                                         ; preds = %stack_check_addition.exit.thread, %stack_check_addition.exit
-  %min_update_index = getelementptr inbounds i8, ptr %call16, i64 56
+  %min_update_index = getelementptr inbounds nuw i8, ptr %call16, i64 56
   %23 = load i64, ptr %min_update_index, align 8
   %24 = load i64, ptr %next_update_index, align 8
   %cmp39 = icmp ult i64 %23, %24
   br i1 %cmp39, label %done, label %if.end41
 
 if.end41:                                         ; preds = %if.end37
-  %max_update_index = getelementptr inbounds i8, ptr %call16, i64 64
+  %max_update_index = getelementptr inbounds nuw i8, ptr %call16, i64 64
   %25 = load i64, ptr %max_update_index, align 8
   call fastcc void @format_name(ptr noundef %next_name, i64 noundef %23, i64 noundef %25)
   call void @strbuf_add(ptr noundef nonnull %next_name, ptr noundef nonnull @.str.3, i64 noundef 4) #14
@@ -1554,16 +1554,16 @@ if.end41:                                         ; preds = %if.end37
   %27 = load ptr, ptr %buf.i, align 8
   call fastcc void @stack_filename(ptr noundef %tab_file_name, ptr noundef %26, ptr noundef %27)
   %28 = load ptr, ptr %buf.i.i30, align 8
-  %buf46 = getelementptr inbounds i8, ptr %tab_file_name, i64 16
+  %buf46 = getelementptr inbounds nuw i8, ptr %tab_file_name, i64 16
   %29 = load ptr, ptr %buf46, align 8
   %call47 = call i32 @rename(ptr noundef %28, ptr noundef %29) #14
   %cmp48 = icmp slt i32 %call47, 0
   br i1 %cmp48, label %done, label %if.end50
 
 if.end50:                                         ; preds = %if.end41
-  %new_tables = getelementptr inbounds i8, ptr %add, i64 16
+  %new_tables = getelementptr inbounds nuw i8, ptr %add, i64 16
   %30 = load ptr, ptr %new_tables, align 8
-  %new_tables_len = getelementptr inbounds i8, ptr %add, i64 24
+  %new_tables_len = getelementptr inbounds nuw i8, ptr %add, i64 24
   %31 = load i32, ptr %new_tables_len, align 8
   %add51 = add nsw i32 %31, 1
   %conv = sext i32 %add51 to i64
@@ -1619,9 +1619,9 @@ entry:
   %buf = alloca [100 x i8], align 16
   %call = tail call i32 @git_rand() #14
   %call1 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 100, ptr noundef nonnull @.str.8, i64 noundef %min, i64 noundef %max, i32 noundef %call) #14
-  %len2.i = getelementptr inbounds i8, ptr %dest, i64 8
+  %len2.i = getelementptr inbounds nuw i8, ptr %dest, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds i8, ptr %dest, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %dest, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -1663,20 +1663,20 @@ declare void @reftable_writer_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @reftable_stack_next_update_index(ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
 entry:
-  %merged = getelementptr inbounds i8, ptr %st, i64 64
+  %merged = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load ptr, ptr %merged, align 8
-  %stack_len = getelementptr inbounds i8, ptr %0, i64 8
+  %stack_len = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %stack_len, align 8
   %conv = trunc i64 %1 to i32
   %cmp = icmp sgt i32 %conv, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %readers = getelementptr inbounds i8, ptr %st, i64 48
+  %readers = getelementptr inbounds nuw i8, ptr %st, i64 48
   %2 = load ptr, ptr %readers, align 8
   %sub = add i64 %1, 4294967295
   %idxprom = and i64 %sub, 4294967295
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8
   %call = tail call i64 @reftable_reader_max_update_index(ptr noundef %3) #14
   %add = add i64 %call, 1
@@ -1692,9 +1692,9 @@ declare i64 @reftable_reader_max_update_index(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @reftable_stack_compact_all(ptr noundef %st, ptr noundef %config) local_unnamed_addr #0 {
 entry:
-  %merged = getelementptr inbounds i8, ptr %st, i64 64
+  %merged = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load ptr, ptr %merged, align 8
-  %stack_len = getelementptr inbounds i8, ptr %0, i64 8
+  %stack_len = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %stack_len, align 8
   %2 = trunc i64 %1 to i32
   %conv = add i32 %2, -1
@@ -1734,13 +1734,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %done, label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %lor.lhs.false
-  %attempts = getelementptr inbounds i8, ptr %st, i64 88
+  %attempts = getelementptr inbounds nuw i8, ptr %st, i64 88
   %0 = load i32, ptr %attempts, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %attempts, align 8
-  %len2.i = getelementptr inbounds i8, ptr %lock_file_name, i64 8
+  %len2.i = getelementptr inbounds nuw i8, ptr %lock_file_name, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds i8, ptr %lock_file_name, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %lock_file_name, i64 16
   %.pre = load ptr, ptr %st, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre) #15
   call void @strbuf_add(ptr noundef nonnull %lock_file_name, ptr noundef %.pre, i64 noundef %call.i) #14
@@ -1771,14 +1771,14 @@ stack_uptodate.exit.thread:                       ; preds = %if.end18
   br label %done
 
 for.cond.preheader.i:                             ; preds = %if.end18
-  %readers_len.i = getelementptr inbounds i8, ptr %st, i64 56
+  %readers_len.i = getelementptr inbounds nuw i8, ptr %st, i64 56
   %4 = load i64, ptr %readers_len.i, align 8
   %cmp110.not.i = icmp eq i64 %4, 0
   %.pre.i = load ptr, ptr %names.i, align 8
   br i1 %cmp110.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %readers.i = getelementptr inbounds i8, ptr %st, i64 48
+  %readers.i = getelementptr inbounds nuw i8, ptr %st, i64 48
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end4.i
@@ -1788,14 +1788,14 @@ for.cond.i:                                       ; preds = %if.end4.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %stack_uptodate.exit.thread91, label %if.end4.i
 
 if.end4.i:                                        ; preds = %for.body.i
   %6 = load ptr, ptr %readers.i, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.i
+  %arrayidx6.i = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
   %7 = load ptr, ptr %arrayidx6.i, align 8
   %8 = load ptr, ptr %7, align 8
   %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %5) #15
@@ -1803,9 +1803,9 @@ if.end4.i:                                        ; preds = %for.body.i
   br i1 %tobool10.not.i, label %for.cond.i, label %stack_uptodate.exit.thread91
 
 for.end.i:                                        ; preds = %for.cond.i, %for.cond.preheader.i
-  %merged.i = getelementptr inbounds i8, ptr %st, i64 64
+  %merged.i = getelementptr inbounds nuw i8, ptr %st, i64 64
   %9 = load ptr, ptr %merged.i, align 8
-  %stack_len.i = getelementptr inbounds i8, ptr %9, i64 8
+  %stack_len.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load i64, ptr %stack_len.i, align 8
   %arrayidx13.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %10
   %11 = load ptr, ptr %arrayidx13.i, align 8
@@ -1824,12 +1824,12 @@ stack_uptodate.exit:                              ; preds = %for.end.i
   br i1 %cmp21.not, label %for.body.lr.ph, label %done
 
 for.body.lr.ph:                                   ; preds = %stack_uptodate.exit
-  %readers = getelementptr inbounds i8, ptr %st, i64 48
-  %len2.i.i = getelementptr inbounds i8, ptr %subtab_file_name, i64 8
-  %buf.i.i = getelementptr inbounds i8, ptr %subtab_file_name, i64 16
-  %reftable_dir.i = getelementptr inbounds i8, ptr %st, i64 8
-  %len2.i77 = getelementptr inbounds i8, ptr %subtab_lock, i64 8
-  %buf.i78 = getelementptr inbounds i8, ptr %subtab_lock, i64 16
+  %readers = getelementptr inbounds nuw i8, ptr %st, i64 48
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %subtab_file_name, i64 8
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %subtab_file_name, i64 16
+  %reftable_dir.i = getelementptr inbounds nuw i8, ptr %st, i64 8
+  %len2.i77 = getelementptr inbounds nuw i8, ptr %subtab_lock, i64 8
+  %buf.i78 = getelementptr inbounds nuw i8, ptr %subtab_lock, i64 16
   %12 = sext i32 %first to i64
   %13 = add i32 %last, 1
   %14 = sub i32 %13, %first
@@ -1885,20 +1885,20 @@ if.end45:                                         ; preds = %strbuf_setlen.exit8
   %.73 = select i1 %cmp39, i32 1, i32 -2
   %22 = load ptr, ptr %buf.i78, align 8
   %idxprom47 = and i64 %indvars.iv, 4294967295
-  %arrayidx48 = getelementptr inbounds ptr, ptr %call5, i64 %idxprom47
+  %arrayidx48 = getelementptr inbounds nuw ptr, ptr %call5, i64 %idxprom47
   store ptr %22, ptr %arrayidx48, align 8
   %23 = load ptr, ptr %buf.i.i, align 8
-  %arrayidx51 = getelementptr inbounds ptr, ptr %call, i64 %idxprom47
+  %arrayidx51 = getelementptr inbounds nuw ptr, ptr %call, i64 %idxprom47
   store ptr %23, ptr %arrayidx51, align 8
   br label %done
 
 for.inc:                                          ; preds = %strbuf_setlen.exit81
   %call33 = call i32 @close(i32 noundef %call29) #14
   %24 = load ptr, ptr %buf.i78, align 8
-  %arrayidx4896 = getelementptr inbounds ptr, ptr %call5, i64 %indvars.iv
+  %arrayidx4896 = getelementptr inbounds nuw ptr, ptr %call5, i64 %indvars.iv
   store ptr %24, ptr %arrayidx4896, align 8
   %25 = load ptr, ptr %buf.i.i, align 8
-  %arrayidx5197 = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv
+  %arrayidx5197 = getelementptr inbounds nuw ptr, ptr %call, i64 %indvars.iv
   store ptr %25, ptr %arrayidx5197, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 1
@@ -1932,7 +1932,7 @@ if.then78:                                        ; preds = %if.end73
   br label %done
 
 if.end85:                                         ; preds = %if.end73
-  %default_permissions = getelementptr inbounds i8, ptr %st, i64 40
+  %default_permissions = getelementptr inbounds nuw i8, ptr %st, i64 40
   %29 = load i32, ptr %default_permissions, align 4
   %tobool86.not = icmp eq i32 %29, 0
   br i1 %tobool86.not, label %if.end96, label %if.then87
@@ -1944,29 +1944,29 @@ if.then87:                                        ; preds = %if.end85
   br i1 %cmp92, label %done, label %if.end96
 
 if.end96:                                         ; preds = %if.then87, %if.end85
-  %readers97 = getelementptr inbounds i8, ptr %st, i64 48
+  %readers97 = getelementptr inbounds nuw i8, ptr %st, i64 48
   %31 = load ptr, ptr %readers97, align 8
   %idxprom98 = sext i32 %first to i64
   %arrayidx99 = getelementptr inbounds ptr, ptr %31, i64 %idxprom98
   %32 = load ptr, ptr %arrayidx99, align 8
-  %min_update_index = getelementptr inbounds i8, ptr %32, i64 40
+  %min_update_index = getelementptr inbounds nuw i8, ptr %32, i64 40
   %33 = load i64, ptr %min_update_index, align 8
   %idxprom101 = sext i32 %last to i64
   %arrayidx102 = getelementptr inbounds ptr, ptr %31, i64 %idxprom101
   %34 = load ptr, ptr %arrayidx102, align 8
-  %max_update_index = getelementptr inbounds i8, ptr %34, i64 48
+  %max_update_index = getelementptr inbounds nuw i8, ptr %34, i64 48
   %35 = load i64, ptr %max_update_index, align 8
   call fastcc void @format_name(ptr noundef %new_table_name, i64 noundef %33, i64 noundef %35)
   call void @strbuf_add(ptr noundef nonnull %new_table_name, ptr noundef nonnull @.str.3, i64 noundef 4) #14
-  %buf103 = getelementptr inbounds i8, ptr %new_table_name, i64 16
+  %buf103 = getelementptr inbounds nuw i8, ptr %new_table_name, i64 16
   %36 = load ptr, ptr %buf103, align 8
   call fastcc void @stack_filename(ptr noundef %new_table_path, ptr noundef nonnull %st, ptr noundef %36)
   br i1 %cmp65, label %if.then105, label %if.end113
 
 if.then105:                                       ; preds = %if.end96
-  %buf106 = getelementptr inbounds i8, ptr %temp_tab_file_name, i64 16
+  %buf106 = getelementptr inbounds nuw i8, ptr %temp_tab_file_name, i64 16
   %37 = load ptr, ptr %buf106, align 8
-  %buf107 = getelementptr inbounds i8, ptr %new_table_path, i64 16
+  %buf107 = getelementptr inbounds nuw i8, ptr %new_table_path, i64 16
   %38 = load ptr, ptr %buf107, align 8
   %call108 = call i32 @rename(ptr noundef %37, ptr noundef %38) #14
   %cmp109 = icmp slt i32 %call108, 0
@@ -1983,7 +1983,7 @@ for.body117.preheader:                            ; preds = %if.end113
 for.body117:                                      ; preds = %for.body117.preheader, %for.body117
   %indvars.iv121 = phi i64 [ 0, %for.body117.preheader ], [ %indvars.iv.next122, %for.body117 ]
   %39 = load ptr, ptr %readers97, align 8
-  %arrayidx120 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv121
+  %arrayidx120 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv121
   %40 = load ptr, ptr %arrayidx120, align 8
   %41 = load ptr, ptr %40, align 8
   %call.i84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #15
@@ -2005,7 +2005,7 @@ if.end126:                                        ; preds = %if.then125, %for.en
   %i.2105 = add nsw i32 %last, 1
   %conv129106 = sext i32 %i.2105 to i64
   %42 = load ptr, ptr %merged.i, align 8
-  %stack_len107 = getelementptr inbounds i8, ptr %42, i64 8
+  %stack_len107 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %43 = load i64, ptr %stack_len107, align 8
   %cmp130108 = icmp ugt i64 %43, %conv129106
   br i1 %cmp130108, label %for.body132, label %for.end139
@@ -2021,15 +2021,15 @@ for.body132:                                      ; preds = %if.end126, %for.bod
   call void @strbuf_add(ptr noundef nonnull %ref_list_contents, ptr noundef nonnull @.str.1, i64 noundef 1) #14
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %47 = load ptr, ptr %merged.i, align 8
-  %stack_len = getelementptr inbounds i8, ptr %47, i64 8
+  %stack_len = getelementptr inbounds nuw i8, ptr %47, i64 8
   %48 = load i64, ptr %stack_len, align 8
   %cmp130 = icmp ugt i64 %48, %indvars.iv.next127
   br i1 %cmp130, label %for.body132, label %for.end139, !llvm.loop !22
 
 for.end139:                                       ; preds = %for.body132, %if.end126
-  %buf140 = getelementptr inbounds i8, ptr %ref_list_contents, i64 16
+  %buf140 = getelementptr inbounds nuw i8, ptr %ref_list_contents, i64 16
   %49 = load ptr, ptr %buf140, align 8
-  %len = getelementptr inbounds i8, ptr %ref_list_contents, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %ref_list_contents, i64 8
   %50 = load i64, ptr %len, align 8
   %call141 = call i64 @write_in_full(i32 noundef %call75, ptr noundef %49, i64 noundef %50) #14
   %51 = and i64 %call141, 2147483648
@@ -2037,7 +2037,7 @@ for.end139:                                       ; preds = %for.body132, %if.en
   br i1 %cmp143.not, label %if.end148, label %if.then145
 
 if.then145:                                       ; preds = %for.end139
-  %buf146 = getelementptr inbounds i8, ptr %new_table_path, i64 16
+  %buf146 = getelementptr inbounds nuw i8, ptr %new_table_path, i64 16
   %52 = load ptr, ptr %buf146, align 8
   %call147 = call i32 @unlink(ptr noundef %52) #14
   br label %done
@@ -2048,7 +2048,7 @@ if.end148:                                        ; preds = %for.end139
   br i1 %cmp150, label %if.then152, label %if.end155
 
 if.then152:                                       ; preds = %if.end148
-  %buf153 = getelementptr inbounds i8, ptr %new_table_path, i64 16
+  %buf153 = getelementptr inbounds nuw i8, ptr %new_table_path, i64 16
   %53 = load ptr, ptr %buf153, align 8
   %call154 = call i32 @unlink(ptr noundef %53) #14
   br label %done
@@ -2061,7 +2061,7 @@ if.end155:                                        ; preds = %if.end148
   br i1 %cmp159, label %if.then161, label %if.end164
 
 if.then161:                                       ; preds = %if.end155
-  %buf162 = getelementptr inbounds i8, ptr %new_table_path, i64 16
+  %buf162 = getelementptr inbounds nuw i8, ptr %new_table_path, i64 16
   %56 = load ptr, ptr %buf162, align 8
   %call163 = call i32 @unlink(ptr noundef %56) #14
   br label %done
@@ -2075,7 +2075,7 @@ if.end164:                                        ; preds = %if.end155
   br i1 %tobool168.not111, label %done, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end164
-  %buf169 = getelementptr inbounds i8, ptr %new_table_path, i64 16
+  %buf169 = getelementptr inbounds nuw i8, ptr %new_table_path, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end174
@@ -2091,7 +2091,7 @@ if.then172:                                       ; preds = %while.body
   br label %if.end174
 
 if.end174:                                        ; preds = %if.then172, %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %listp.0112, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %listp.0112, i64 8
   %60 = load ptr, ptr %incdec.ptr, align 8
   %tobool168.not = icmp eq ptr %60, null
   br i1 %tobool168.not, label %done, label %while.body, !llvm.loop !23
@@ -2109,7 +2109,7 @@ while.body177:                                    ; preds = %done, %while.body17
   %62 = phi ptr [ %63, %while.body177 ], [ %61, %done ]
   %listp.1114 = phi ptr [ %incdec.ptr179, %while.body177 ], [ %call5, %done ]
   %call178 = call i32 @unlink(ptr noundef nonnull %62) #14
-  %incdec.ptr179 = getelementptr inbounds i8, ptr %listp.1114, i64 8
+  %incdec.ptr179 = getelementptr inbounds nuw i8, ptr %listp.1114, i64 8
   %63 = load ptr, ptr %incdec.ptr179, align 8
   %tobool176.not = icmp eq ptr %63, null
   br i1 %tobool176.not, label %while.end180, label %while.body177, !llvm.loop !24
@@ -2127,7 +2127,7 @@ if.end185:                                        ; preds = %if.then183, %while.
   br i1 %tobool186.not, label %if.end190, label %if.then187
 
 if.then187:                                       ; preds = %if.end185
-  %buf188 = getelementptr inbounds i8, ptr %lock_file_name, i64 16
+  %buf188 = getelementptr inbounds nuw i8, ptr %lock_file_name, i64 16
   %64 = load ptr, ptr %buf188, align 8
   %call189 = call i32 @unlink(ptr noundef %64) #14
   br label %if.end190
@@ -2182,7 +2182,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %cur.sroa.6.031 = phi i32 [ 0, %for.body.preheader ], [ %retval.0.i, %if.end15 ]
   %next.030 = phi i32 [ 0, %for.body.preheader ], [ %next.1, %if.end15 ]
   %cur.sroa.0.029 = phi i32 [ 0, %for.body.preheader ], [ %cur.sroa.0.1, %if.end15 ]
-  %arrayidx = getelementptr inbounds i64, ptr %sizes, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i64, ptr %sizes, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %fastlog2.exit, label %for.body.preheader.i
@@ -2206,14 +2206,14 @@ if.then10:                                        ; preds = %fastlog2.exit
   %idxprom13 = sext i32 %next.030 to i64
   %arrayidx14 = getelementptr inbounds %struct.segment, ptr %call, i64 %idxprom13
   store i32 %cur.sroa.0.029, ptr %arrayidx14, align 8
-  %cur.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %arrayidx14, i64 4
+  %cur.sroa.4.0.arrayidx14.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 4
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %5, ptr %cur.sroa.4.0.arrayidx14.sroa_idx, align 4
-  %cur.sroa.6.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %arrayidx14, i64 8
+  %cur.sroa.6.0.arrayidx14.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 8
   store i32 %cur.sroa.6.031, ptr %cur.sroa.6.0.arrayidx14.sroa_idx, align 8
-  %cur.sroa.8.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %arrayidx14, i64 12
+  %cur.sroa.8.0.arrayidx14.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 12
   store i32 0, ptr %cur.sroa.8.0.arrayidx14.sroa_idx, align 4
-  %cur.sroa.811.0.arrayidx14.sroa_idx = getelementptr inbounds i8, ptr %arrayidx14, i64 16
+  %cur.sroa.811.0.arrayidx14.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 16
   store i64 %cur.sroa.811.032, ptr %cur.sroa.811.0.arrayidx14.sroa_idx, align 8
   %.pre = load i64, ptr %arrayidx, align 8
   br label %if.end15
@@ -2238,13 +2238,13 @@ for.end:                                          ; preds = %if.end15, %for.cond
   %idxprom23 = sext i32 %next.0.lcssa to i64
   %arrayidx24 = getelementptr inbounds %struct.segment, ptr %call, i64 %idxprom23
   store i32 %cur.sroa.0.0.lcssa, ptr %arrayidx24, align 8
-  %cur.sroa.4.0.arrayidx24.sroa_idx = getelementptr inbounds i8, ptr %arrayidx24, i64 4
+  %cur.sroa.4.0.arrayidx24.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 4
   store i32 %i.0.lcssa, ptr %cur.sroa.4.0.arrayidx24.sroa_idx, align 4
-  %cur.sroa.6.0.arrayidx24.sroa_idx = getelementptr inbounds i8, ptr %arrayidx24, i64 8
+  %cur.sroa.6.0.arrayidx24.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 8
   store i32 %cur.sroa.6.0.lcssa, ptr %cur.sroa.6.0.arrayidx24.sroa_idx, align 8
-  %cur.sroa.8.0.arrayidx24.sroa_idx = getelementptr inbounds i8, ptr %arrayidx24, i64 12
+  %cur.sroa.8.0.arrayidx24.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 12
   store i32 0, ptr %cur.sroa.8.0.arrayidx24.sroa_idx, align 4
-  %cur.sroa.811.0.arrayidx24.sroa_idx = getelementptr inbounds i8, ptr %arrayidx24, i64 16
+  %cur.sroa.811.0.arrayidx24.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 16
   store i64 %cur.sroa.811.0.lcssa, ptr %cur.sroa.811.0.arrayidx24.sroa_idx, align 8
   br label %return
 
@@ -2281,7 +2281,7 @@ for.body.i:                                       ; preds = %if.end15.i, %for.bo
   %cur.sroa.6.031.i = phi i32 [ 0, %for.body.preheader.i ], [ %retval.0.i.i, %if.end15.i ]
   %next.030.i = phi i32 [ 0, %for.body.preheader.i ], [ %next.1.i, %if.end15.i ]
   %cur.sroa.0.029.i = phi i32 [ 0, %for.body.preheader.i ], [ %cur.sroa.0.1.i, %if.end15.i ]
-  %arrayidx.i = getelementptr inbounds i64, ptr %sizes, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %sizes, i64 %indvars.iv.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %fastlog2.exit.i, label %for.body.preheader.i.i
@@ -2305,14 +2305,14 @@ if.then10.i:                                      ; preds = %fastlog2.exit.i
   %idxprom13.i = sext i32 %next.030.i to i64
   %arrayidx14.i = getelementptr inbounds %struct.segment, ptr %call.i, i64 %idxprom13.i
   store i32 %cur.sroa.0.029.i, ptr %arrayidx14.i, align 8
-  %cur.sroa.4.0.arrayidx14.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 4
+  %cur.sroa.4.0.arrayidx14.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx14.i, i64 4
   %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %5, ptr %cur.sroa.4.0.arrayidx14.sroa_idx.i, align 4
-  %cur.sroa.6.0.arrayidx14.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 8
+  %cur.sroa.6.0.arrayidx14.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx14.i, i64 8
   store i32 %cur.sroa.6.031.i, ptr %cur.sroa.6.0.arrayidx14.sroa_idx.i, align 8
-  %cur.sroa.8.0.arrayidx14.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 12
+  %cur.sroa.8.0.arrayidx14.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx14.i, i64 12
   store i32 0, ptr %cur.sroa.8.0.arrayidx14.sroa_idx.i, align 4
-  %cur.sroa.811.0.arrayidx14.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 16
+  %cur.sroa.811.0.arrayidx14.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx14.i, i64 16
   store i64 %cur.sroa.811.032.i, ptr %cur.sroa.811.0.arrayidx14.sroa_idx.i, align 8
   %.pre.i = load i64, ptr %arrayidx.i, align 8
   br label %if.end15.i
@@ -2336,13 +2336,13 @@ sizes_to_segments.exit:                           ; preds = %if.end15.i, %for.co
   %idxprom23.i = sext i32 %next.0.lcssa.i to i64
   %arrayidx24.i = getelementptr inbounds %struct.segment, ptr %call.i, i64 %idxprom23.i
   store i32 %cur.sroa.0.0.lcssa.i, ptr %arrayidx24.i, align 8
-  %cur.sroa.4.0.arrayidx24.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 4
+  %cur.sroa.4.0.arrayidx24.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx24.i, i64 4
   store i32 %i.0.lcssa.i, ptr %cur.sroa.4.0.arrayidx24.sroa_idx.i, align 4
-  %cur.sroa.6.0.arrayidx24.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 8
+  %cur.sroa.6.0.arrayidx24.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx24.i, i64 8
   store i32 %cur.sroa.6.0.lcssa.i, ptr %cur.sroa.6.0.arrayidx24.sroa_idx.i, align 8
-  %cur.sroa.8.0.arrayidx24.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 12
+  %cur.sroa.8.0.arrayidx24.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx24.i, i64 12
   store i32 0, ptr %cur.sroa.8.0.arrayidx24.sroa_idx.i, align 4
-  %cur.sroa.811.0.arrayidx24.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 16
+  %cur.sroa.811.0.arrayidx24.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx24.i, i64 16
   store i64 %cur.sroa.811.0.lcssa.i, ptr %cur.sroa.811.0.arrayidx24.sroa_idx.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) @__const.suggest_compaction_segment.min_seg, i64 24, i1 false)
   %cmp19 = icmp sgt i32 %next.0.lcssa.i, -1
@@ -2350,13 +2350,13 @@ sizes_to_segments.exit:                           ; preds = %if.end15.i, %for.co
 
 for.body.lr.ph:                                   ; preds = %sizes_to_segments.exit
   %inc22.i = add nuw nsw i32 %next.0.lcssa.i, 1
-  %log5 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %log5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %wide.trip.count = zext nneg i32 %inc22.i to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds %struct.segment, ptr %call.i, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.segment, ptr %call.i, i64 %indvars.iv
   %arrayidx.val = load i32, ptr %arrayidx, align 8
   %7 = getelementptr i8, ptr %arrayidx, i64 4
   %arrayidx.val12 = load i32, ptr %7, align 4
@@ -2365,7 +2365,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp2, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %log = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %log = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %8 = load i32, ptr %log, align 8
   %9 = load i32, ptr %log5, align 8
   %cmp6 = icmp slt i32 %8, %9
@@ -2386,7 +2386,7 @@ while.condthread-pre-split:                       ; preds = %for.inc
   br i1 %cmp1121, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.condthread-pre-split
-  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %bytes.promoted = load i64, ptr %bytes, align 8
   %10 = zext nneg i32 %.pr.pre to i64
   br label %while.body
@@ -2407,7 +2407,7 @@ for.body.preheader.i14:                           ; preds = %while.body
 
 fastlog2.exit:                                    ; preds = %while.body, %for.body.preheader.i14
   %retval.0.i = phi i32 [ %15, %for.body.preheader.i14 ], [ 0, %while.body ]
-  %arrayidx15 = getelementptr inbounds i64, ptr %sizes, i64 %indvars.iv.next24
+  %arrayidx15 = getelementptr inbounds nuw i64, ptr %sizes, i64 %indvars.iv.next24
   %16 = load i64, ptr %arrayidx15, align 8
   %cmp.i15 = icmp eq i64 %16, 0
   br i1 %cmp.i15, label %fastlog2.exit18, label %for.body.preheader.i16
@@ -2440,7 +2440,7 @@ while.end:                                        ; preds = %if.end19, %fastlog2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local nonnull ptr @reftable_stack_compaction_stats(ptr noundef readnone %st) local_unnamed_addr #9 {
 entry:
-  %stats = getelementptr inbounds i8, ptr %st, i64 72
+  %stats = getelementptr inbounds nuw i8, ptr %st, i64 72
   ret ptr %stats
 }
 
@@ -2449,7 +2449,7 @@ define dso_local i32 @reftable_stack_read_ref(ptr nocapture noundef readonly %st
 entry:
   %tab = alloca %struct.reftable_table, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tab, i8 0, i64 16, i1 false)
-  %merged.i = getelementptr inbounds i8, ptr %st, i64 64
+  %merged.i = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load ptr, ptr %merged.i, align 8
   call void @reftable_table_from_merged_table(ptr noundef nonnull %tab, ptr noundef %0) #14
   %call1 = call i32 @reftable_table_read_ref(ptr noundef nonnull %tab, ptr noundef %refname, ptr noundef %ref) #14
@@ -2465,7 +2465,7 @@ define dso_local i32 @reftable_stack_read_log(ptr nocapture noundef readonly %st
 entry:
   %it = alloca %struct.reftable_iterator, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %it, i8 0, i64 16, i1 false)
-  %merged.i = getelementptr inbounds i8, ptr %st, i64 64
+  %merged.i = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load ptr, ptr %merged.i, align 8
   %call1 = call i32 @reftable_merged_table_seek_log(ptr noundef %0, ptr noundef nonnull %it, ptr noundef %refname) #14
   %tobool.not = icmp eq i32 %call1, 0
@@ -2535,10 +2535,10 @@ if.end:                                           ; preds = %entry, %reftable_st
   br i1 %cmp2, label %done, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %merged.i.i = getelementptr inbounds i8, ptr %st, i64 64
+  %merged.i.i = getelementptr inbounds nuw i8, ptr %st, i64 64
   %0 = load ptr, ptr %merged.i.i, align 8
   %call1.i5 = tail call i64 @reftable_merged_table_max_update_index(ptr noundef %0) #14
-  %reftable_dir.i = getelementptr inbounds i8, ptr %st, i64 8
+  %reftable_dir.i = getelementptr inbounds nuw i8, ptr %st, i64 8
   %1 = load ptr, ptr %reftable_dir.i, align 8
   %call2.i = tail call ptr @opendir(ptr noundef %1)
   %tobool.not.i6 = icmp eq ptr %call2.i, null
@@ -2550,15 +2550,15 @@ while.cond.preheader.i:                           ; preds = %if.end4
   br i1 %tobool4.not16.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %readers_len.i = getelementptr inbounds i8, ptr %st, i64 56
-  %readers.i = getelementptr inbounds i8, ptr %st, i64 48
-  %len2.i.i.i.i = getelementptr inbounds i8, ptr %table_path.i.i, i64 8
-  %buf.i.i.i.i = getelementptr inbounds i8, ptr %table_path.i.i, i64 16
+  %readers_len.i = getelementptr inbounds nuw i8, ptr %st, i64 56
+  %readers.i = getelementptr inbounds nuw i8, ptr %st, i64 48
+  %len2.i.i.i.i = getelementptr inbounds nuw i8, ptr %table_path.i.i, i64 8
+  %buf.i.i.i.i = getelementptr inbounds nuw i8, ptr %table_path.i.i, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
   %call317.i = phi ptr [ %call315.i, %while.body.lr.ph.i ], [ %call3.i, %while.cond.backedge.i ]
-  %d_name.i = getelementptr inbounds i8, ptr %call317.i, i64 19
+  %d_name.i = getelementptr inbounds nuw i8, ptr %call317.i, i64 19
   %call.i.i = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %d_name.i, i32 noundef 46) #15
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %while.cond.backedge.i, label %land.rhs.i.i
@@ -2576,7 +2576,7 @@ land.rhs.i:                                       ; preds = %land.rhs.i.i, %for.
 
 for.body.i:                                       ; preds = %land.rhs.i
   %3 = load ptr, ptr %readers.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %call11.i = call ptr @reader_name(ptr noundef %4) #14
   %call14.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call11.i, ptr noundef nonnull dereferenceable(1) %d_name.i) #15
@@ -2660,7 +2660,7 @@ entry:
   %table = alloca %struct.reftable_table, align 8
   store ptr null, ptr %stack, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cfg, i8 0, i64 28, i1 false)
-  %hash_id1 = getelementptr inbounds i8, ptr %cfg, i64 16
+  %hash_id1 = getelementptr inbounds nuw i8, ptr %cfg, i64 16
   store i32 %hash_id, ptr %hash_id1, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %table, i8 0, i64 16, i1 false)
   %call = call i32 @reftable_new_stack(ptr noundef nonnull %stack, ptr noundef %stackdir, ptr noundef nonnull byval(%struct.reftable_write_options) align 8 %cfg)
@@ -2669,7 +2669,7 @@ entry:
   br i1 %cmp, label %done, label %done.thread
 
 done.thread:                                      ; preds = %entry
-  %merged.i = getelementptr inbounds i8, ptr %.pr, i64 64
+  %merged.i = getelementptr inbounds nuw i8, ptr %.pr, i64 64
   %0 = load ptr, ptr %merged.i, align 8
   call void @reftable_table_from_merged_table(ptr noundef nonnull %table, ptr noundef %0) #14
   %call3 = call i32 @reftable_table_print(ptr noundef nonnull %table) #14
@@ -2754,7 +2754,7 @@ format_name.exit:
   %tab_fd = alloca i32, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %next_name, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_maybe_stale_table.table_path, i64 24, i1 false)
   store i32 -1, ptr %tab_fd, align 4
-  %readers = getelementptr inbounds i8, ptr %st, i64 48
+  %readers = getelementptr inbounds nuw i8, ptr %st, i64 48
   %0 = load ptr, ptr %readers, align 8
   %idxprom = sext i32 %first to i64
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
@@ -2768,16 +2768,16 @@ format_name.exit:
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %buf.i)
   %call.i = tail call i32 @git_rand() #14
   %call1.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 100, ptr noundef nonnull @.str.8, i64 noundef %call, i64 noundef %call4, i32 noundef %call.i) #14
-  %len2.i.i = getelementptr inbounds i8, ptr %next_name, i64 8
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %next_name, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds i8, ptr %next_name, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %next_name, i64 16
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf.i) #15
   call void @strbuf_add(ptr noundef nonnull %next_name, ptr noundef nonnull %buf.i, i64 noundef %call.i.i) #14
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %buf.i)
   %4 = load ptr, ptr %buf.i.i, align 8
-  %len2.i.i17 = getelementptr inbounds i8, ptr %temp_tab, i64 8
+  %len2.i.i17 = getelementptr inbounds nuw i8, ptr %temp_tab, i64 8
   store i64 0, ptr %len2.i.i17, align 8
-  %buf.i.i18 = getelementptr inbounds i8, ptr %temp_tab, i64 16
+  %buf.i.i18 = getelementptr inbounds nuw i8, ptr %temp_tab, i64 16
   %5 = load ptr, ptr %buf.i.i18, align 8
   %cmp3.not.i.i19 = icmp eq ptr %5, @strbuf_slopbuf
   br i1 %cmp3.not.i.i19, label %stack_filename.exit, label %if.then4.i.i20
@@ -2787,7 +2787,7 @@ if.then4.i.i20:                                   ; preds = %format_name.exit
   br label %stack_filename.exit
 
 stack_filename.exit:                              ; preds = %format_name.exit, %if.then4.i.i20
-  %reftable_dir.i = getelementptr inbounds i8, ptr %st, i64 8
+  %reftable_dir.i = getelementptr inbounds nuw i8, ptr %st, i64 8
   %6 = load ptr, ptr %reftable_dir.i, align 8
   %call.i.i21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
   call void @strbuf_add(ptr noundef nonnull %temp_tab, ptr noundef %6, i64 noundef %call.i.i21) #14
@@ -2798,7 +2798,7 @@ stack_filename.exit:                              ; preds = %format_name.exit, %
   %7 = load ptr, ptr %buf.i.i18, align 8
   %call6 = call i32 @mkstemp64(ptr noundef %7) #14
   store i32 %call6, ptr %tab_fd, align 4
-  %config7 = getelementptr inbounds i8, ptr %st, i64 20
+  %config7 = getelementptr inbounds nuw i8, ptr %st, i64 20
   %call8 = call ptr @reftable_new_writer(ptr noundef nonnull @reftable_fd_write, ptr noundef nonnull %tab_fd, ptr noundef nonnull %config7) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mt.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it.i)
@@ -2817,7 +2817,7 @@ stack_filename.exit:                              ; preds = %format_name.exit, %
   br i1 %cmp.not51.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %stack_filename.exit
-  %stats.i = getelementptr inbounds i8, ptr %st, i64 72
+  %stats.i = getelementptr inbounds nuw i8, ptr %st, i64 72
   %wide.trip.count.i = zext i32 %add.i to i64
   br label %for.body.i
 
@@ -2828,9 +2828,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv180.i
   %9 = load ptr, ptr %arrayidx.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx5.i = getelementptr inbounds %struct.reftable_table, ptr %call.i23, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw %struct.reftable_table, ptr %call.i23, i64 %indvars.iv.i
   call void @reftable_table_from_reader(ptr noundef %arrayidx5.i, ptr noundef %9) #14
-  %size.i = getelementptr inbounds i8, ptr %9, i64 24
+  %size.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %10 = load i64, ptr %size.i, align 8
   %11 = load i64, ptr %stats.i, align 8
   %add6.i = add i64 %11, %10
@@ -2843,14 +2843,14 @@ for.end.i:                                        ; preds = %for.body.i, %stack_
   %12 = load ptr, ptr %readers, align 8
   %arrayidx10.i = getelementptr inbounds ptr, ptr %12, i64 %idxprom
   %13 = load ptr, ptr %arrayidx10.i, align 8
-  %min_update_index.i = getelementptr inbounds i8, ptr %13, i64 40
+  %min_update_index.i = getelementptr inbounds nuw i8, ptr %13, i64 40
   %14 = load i64, ptr %min_update_index.i, align 8
   %arrayidx13.i = getelementptr inbounds ptr, ptr %12, i64 %idxprom2
   %15 = load ptr, ptr %arrayidx13.i, align 8
-  %max_update_index.i = getelementptr inbounds i8, ptr %15, i64 48
+  %max_update_index.i = getelementptr inbounds nuw i8, ptr %15, i64 48
   %16 = load i64, ptr %max_update_index.i, align 8
   call void @reftable_writer_set_limits(ptr noundef %call8, i64 noundef %14, i64 noundef %16) #14
-  %hash_id.i = getelementptr inbounds i8, ptr %st, i64 36
+  %hash_id.i = getelementptr inbounds nuw i8, ptr %st, i64 36
   %17 = load i32, ptr %hash_id.i, align 4
   %call15.i = call i32 @reftable_new_merged_table(ptr noundef nonnull %mt.i, ptr noundef %call.i23, i32 noundef %add.i, i32 noundef %17) #14
   %cmp16.i = icmp slt i32 %call15.i, 0
@@ -2917,9 +2917,9 @@ while.body48.preheader.i:                         ; preds = %if.then26.i
 
 if.end53.lr.ph.lr.ph.i:                           ; preds = %while.body48.preheader.i
   %tobool65.not.i = icmp eq ptr %config, null
-  %min_update_index67.i = getelementptr inbounds i8, ptr %config, i64 8
-  %update_index.i = getelementptr inbounds i8, ptr %log.i, i64 8
-  %git_time81.i = getelementptr inbounds i8, ptr %log.i, i64 56
+  %min_update_index67.i = getelementptr inbounds nuw i8, ptr %config, i64 8
+  %update_index.i = getelementptr inbounds nuw i8, ptr %log.i, i64 8
+  %git_time81.i = getelementptr inbounds nuw i8, ptr %log.i, i64 56
   br i1 %tobool65.not.i, label %if.end53.lr.ph.lr.ph.split.us.i, label %if.end53.lr.ph.lr.ph.split.i
 
 if.end53.lr.ph.lr.ph.split.us.i:                  ; preds = %if.end53.lr.ph.lr.ph.i
@@ -3099,7 +3099,7 @@ if.then95.i:                                      ; preds = %done.i
 stack_write_compact.exit:                         ; preds = %done.i, %if.then95.i
   call void @reftable_ref_record_release(ptr noundef nonnull %ref.i) #14
   call void @reftable_log_record_release(ptr noundef nonnull %log.i) #14
-  %entries_written.i = getelementptr inbounds i8, ptr %st, i64 80
+  %entries_written.i = getelementptr inbounds nuw i8, ptr %st, i64 80
   %30 = load i64, ptr %entries_written.i, align 8
   %add98.i = add i64 %30, %entries.0.i
   store i64 %add98.i, ptr %entries_written.i, align 8

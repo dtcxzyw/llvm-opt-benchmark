@@ -59,7 +59,7 @@ define range(i32 0, 4) i32 @PMPI_Get_count(ptr nocapture noundef readonly %0, pt
   br label %32
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = udiv i64 %24, %.val28
   %26 = mul i64 %25, %.val28

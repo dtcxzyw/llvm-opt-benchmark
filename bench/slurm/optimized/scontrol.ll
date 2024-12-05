@@ -617,24 +617,24 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not61, label %128, label %151
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %5, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %129, align 8
   store i32 463606195, ptr %6, align 8
-  %130 = getelementptr inbounds i8, ptr %6, i64 4
-  %131 = getelementptr inbounds i8, ptr %6, i64 8
-  %132 = getelementptr inbounds i8, ptr %6, i64 16
-  %133 = getelementptr inbounds i8, ptr %6, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %130, align 4
   %134 = load ptr, ptr @data_parser, align 8
   store ptr %134, ptr %133, align 8
   %135 = load ptr, ptr @mime_type, align 8
   %136 = call ptr @data_parser_cli_meta(i32 noundef 2, ptr noundef nonnull %1, ptr noundef %135, ptr noundef %134) #17
   store ptr %136, ptr %5, align 8
-  %137 = getelementptr inbounds i8, ptr %5, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %138 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_error) #17
   store ptr %138, ptr %137, align 8
   store ptr %138, ptr %131, align 8
-  %139 = getelementptr inbounds i8, ptr %5, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %140 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #17
   store ptr %140, ptr %139, align 8
   store ptr %140, ptr %132, align 8
@@ -1010,7 +1010,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @scontrol_cancel_reboot(ptr noundef %48) #17
   br label %_create_it.exit
@@ -1055,7 +1055,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not423, label %78, label %63
 
 63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = load i32, ptr @federation_flag, align 4
   %.not424 = icmp eq i32 %66, 0
@@ -1123,7 +1123,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 93:                                               ; preds = %88
   %94 = add nsw i32 %0, -1
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count.i = zext nneg i32 %94 to i64
   br label %97
 
@@ -1134,7 +1134,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 97:                                               ; preds = %96, %93
   %indvars.iv.i = phi i64 [ 0, %93 ], [ %indvars.iv.next.i, %96 ]
-  %98 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv.i
   %99 = load ptr, ptr %98, align 8
   %100 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %99, i32 noundef 61) #22
   %.not.i = icmp eq ptr %100, null
@@ -1238,7 +1238,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 143:                                              ; preds = %139
-  %144 = getelementptr inbounds i8, ptr %1, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %145 = load ptr, ptr %144, align 8
   %146 = call i64 @strtol(ptr noundef %145, ptr noundef nonnull %3, i32 noundef 10) #17
   %147 = load ptr, ptr %3, align 8
@@ -1289,7 +1289,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %168, label %169, label %172
 
 169:                                              ; preds = %167
-  %170 = getelementptr inbounds i8, ptr %1, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %171 = load ptr, ptr %170, align 8
   tail call void @scontrol_getaddrs(ptr noundef %171) #17
   br label %_create_it.exit
@@ -1312,9 +1312,9 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %180, label %181, label %186
 
 181:                                              ; preds = %179
-  %182 = getelementptr inbounds i8, ptr %1, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %1, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %185 = load ptr, ptr %184, align 8
   tail call void @scontrol_gethost(ptr noundef %183, ptr noundef %185) #17
   br label %_create_it.exit
@@ -1358,7 +1358,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %204, label %205, label %210
 
 205:                                              ; preds = %203
-  %206 = getelementptr inbounds i8, ptr %1, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %207 = load ptr, ptr %206, align 8
   %208 = tail call i32 @atoi(ptr nocapture noundef %207) #22
   %209 = trunc i32 %208 to i8
@@ -1366,7 +1366,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %210
 
 210:                                              ; preds = %205, %203
-  %211 = getelementptr inbounds i8, ptr %1, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %212 = load ptr, ptr %211, align 8
   %213 = tail call ptr @create_mmap_buf(ptr noundef %212) #17
   %.not437 = icmp eq ptr %213, null
@@ -1380,9 +1380,9 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 218:                                              ; preds = %210
-  %219 = getelementptr inbounds i8, ptr %213, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %213, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %222 = load i32, ptr %221, align 8
   %223 = call i32 @hash_g_compute(ptr noundef %220, i32 noundef %222, ptr noundef null, i32 noundef 0, ptr noundef nonnull %4) #17
   call void @free_buf(ptr noundef nonnull %213) #17
@@ -1390,13 +1390,13 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %224, label %.lr.ph581, label %._crit_edge582
 
 .lr.ph581:                                        ; preds = %218
-  %225 = getelementptr inbounds i8, ptr %4, i64 1
+  %225 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %wide.trip.count627 = zext nneg i32 %223 to i64
   br label %226
 
 226:                                              ; preds = %.lr.ph581, %226
   %indvars.iv624 = phi i64 [ 0, %.lr.ph581 ], [ %indvars.iv.next625, %226 ]
-  %227 = getelementptr inbounds [32 x i8], ptr %225, i64 0, i64 %indvars.iv624
+  %227 = getelementptr inbounds nuw [32 x i8], ptr %225, i64 0, i64 %indvars.iv624
   %228 = load i8, ptr %227, align 1
   %229 = zext i8 %228 to i32
   %230 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, i32 noundef %229)
@@ -1441,7 +1441,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %246, label %247, label %252
 
 247:                                              ; preds = %245
-  %248 = getelementptr inbounds i8, ptr %1, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %249 = load ptr, ptr %248, align 8
   %250 = tail call i32 @atoi(ptr nocapture noundef %249) #22
   %251 = trunc i32 %250 to i8
@@ -1449,7 +1449,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %252
 
 252:                                              ; preds = %247, %245
-  %253 = getelementptr inbounds i8, ptr %1, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %254 = load ptr, ptr %253, align 8
   %255 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %254) #22
   %256 = trunc i64 %255 to i32
@@ -1458,13 +1458,13 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %258, label %.lr.ph577, label %._crit_edge578
 
 .lr.ph577:                                        ; preds = %252
-  %259 = getelementptr inbounds i8, ptr %5, i64 1
+  %259 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %wide.trip.count622 = zext nneg i32 %257 to i64
   br label %260
 
 260:                                              ; preds = %.lr.ph577, %260
   %indvars.iv619 = phi i64 [ 0, %.lr.ph577 ], [ %indvars.iv.next620, %260 ]
-  %261 = getelementptr inbounds [32 x i8], ptr %259, i64 0, i64 %indvars.iv619
+  %261 = getelementptr inbounds nuw [32 x i8], ptr %259, i64 0, i64 %indvars.iv619
   %262 = load i8, ptr %261, align 1
   %263 = zext i8 %262 to i32
   %264 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, i32 noundef %263)
@@ -1550,7 +1550,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 294:                                              ; preds = %289
-  %295 = getelementptr inbounds i8, ptr %1, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %296 = load ptr, ptr %295, align 8
   %297 = tail call i64 @atol(ptr nocapture noundef %296) #22
   %298 = trunc i64 %297 to i32
@@ -1687,7 +1687,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 .lr.ph567:                                        ; preds = %.lr.ph567.preheader, %351
   %indvars.iv607 = phi i64 [ 1, %.lr.ph567.preheader ], [ %indvars.iv.next608, %351 ]
-  %348 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv607
+  %348 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv607
   %349 = load ptr, ptr %348, align 8
   %350 = call i32 @parse_requeue_flags(ptr noundef %349, ptr noundef nonnull %6) #17
   %.not458 = icmp eq i32 %350, 0
@@ -1710,7 +1710,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 .lr.ph574:                                        ; preds = %.lr.ph574.preheader, %.lr.ph574
   %indvars.iv614 = phi i64 [ %353, %.lr.ph574.preheader ], [ %indvars.iv.next615, %.lr.ph574 ]
   %354 = load i32, ptr %6, align 4
-  %355 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv614
+  %355 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv614
   %356 = load ptr, ptr %355, align 8
   call void @scontrol_requeue(i32 noundef %354, ptr noundef %356) #17
   %indvars.iv.next615 = add nuw nsw i64 %indvars.iv614, 1
@@ -1745,7 +1745,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 .lr.ph557:                                        ; preds = %.lr.ph557.preheader, %369
   %indvars.iv596 = phi i64 [ 1, %.lr.ph557.preheader ], [ %indvars.iv.next597, %369 ]
-  %366 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv596
+  %366 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv596
   %367 = load ptr, ptr %366, align 8
   %368 = call i32 @parse_requeue_flags(ptr noundef %367, ptr noundef nonnull %7) #17
   %.not461 = icmp eq i32 %368, 0
@@ -1768,7 +1768,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 .lr.ph563:                                        ; preds = %.lr.ph563.preheader, %.lr.ph563
   %indvars.iv603 = phi i64 [ %371, %.lr.ph563.preheader ], [ %indvars.iv.next604, %.lr.ph563 ]
   %372 = load i32, ptr %7, align 4
-  %373 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv603
+  %373 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv603
   %374 = load ptr, ptr %373, align 8
   call void @scontrol_requeue_hold(i32 noundef %372, ptr noundef %374) #17
   %indvars.iv.next604 = add nuw nsw i64 %indvars.iv603, 1
@@ -1818,7 +1818,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 .lr.ph553:                                        ; preds = %.lr.ph553.preheader, %397
   %indvars.iv590 = phi i64 [ 1, %.lr.ph553.preheader ], [ %indvars.iv.next591, %397 ]
   %390 = load ptr, ptr %1, align 8
-  %391 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv590
+  %391 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv590
   %392 = load ptr, ptr %391, align 8
   %393 = tail call i32 @scontrol_hold(ptr noundef %390, ptr noundef %392) #17
   %.not467 = icmp eq i32 %393, 0
@@ -1876,7 +1876,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv587 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next588, %.lr.ph ]
   %411 = load ptr, ptr %1, align 8
-  %412 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv587
+  %412 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv587
   %413 = load ptr, ptr %412, align 8
   tail call void @scontrol_suspend(ptr noundef %411, ptr noundef %413) #17
   %indvars.iv.next588 = add nuw nsw i64 %indvars.iv587, 1
@@ -1919,7 +1919,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 430:                                              ; preds = %423
-  %431 = getelementptr inbounds i8, ptr %1, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %432 = load ptr, ptr %431, align 8
   tail call void @scontrol_top_job(ptr noundef %432) #17
   br label %_create_it.exit
@@ -1969,7 +1969,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 452:                                              ; preds = %445
-  %453 = getelementptr inbounds i8, ptr %1, i64 8
+  %453 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %454 = load ptr, ptr %453, align 8
   %455 = tail call i32 @scontrol_job_ready(ptr noundef %454) #17
   %.not478 = icmp eq i32 %455, 0
@@ -2029,7 +2029,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 478:                                              ; preds = %471
-  %479 = getelementptr inbounds i8, ptr %1, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %480 = load ptr, ptr %479, align 8
   %481 = call i64 @strtoul(ptr noundef %480, ptr noundef nonnull %8, i32 noundef 10) #17
   %482 = load ptr, ptr %8, align 8
@@ -2101,7 +2101,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %512, label %514, label %.preheader548
 
 .preheader548:                                    ; preds = %511
-  %513 = getelementptr inbounds i8, ptr %1, i64 8
+  %513 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %519
 
 514:                                              ; preds = %511
@@ -2117,7 +2117,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 519:                                              ; preds = %.preheader548, %525
   %indvars.iv = phi i64 [ 0, %.preheader548 ], [ %indvars.iv.next, %525 ]
-  %520 = getelementptr inbounds [3 x ptr], ptr @__const._process_command.levels, i64 0, i64 %indvars.iv
+  %520 = getelementptr inbounds nuw [3 x ptr], ptr @__const._process_command.levels, i64 0, i64 %indvars.iv
   %521 = load ptr, ptr %520, align 8
   %522 = load ptr, ptr %513, align 8
   %523 = tail call i32 @xstrcasecmp(ptr noundef %522, ptr noundef %521) #17
@@ -2203,7 +2203,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 558:                                              ; preds = %553
-  %559 = getelementptr inbounds i8, ptr %1, i64 8
+  %559 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %560 = load ptr, ptr %559, align 8
   %561 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %560) #22
   %spec.select = tail call i64 @llvm.umax.i64(i64 %561, i64 5)
@@ -2223,7 +2223,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 568:                                              ; preds = %563
   %569 = add nsw i32 %0, -2
-  %570 = getelementptr inbounds i8, ptr %1, i64 16
+  %570 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %571 = tail call i32 @scontrol_batch_script(i32 noundef %569, ptr noundef nonnull %570) #17
   br label %_create_it.exit
 
@@ -2246,7 +2246,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br label %_create_it.exit
 
 581:                                              ; preds = %576
-  %582 = getelementptr inbounds i8, ptr %1, i64 16
+  %582 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %583 = load ptr, ptr %582, align 8
   tail call fastcc void @_write_config(ptr noundef %583)
   br label %_create_it.exit
@@ -2265,7 +2265,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 590:                                              ; preds = %588
   %591 = tail call ptr @slurm_conf_lock() #17
-  %592 = getelementptr inbounds i8, ptr %591, i64 256
+  %592 = getelementptr inbounds nuw i8, ptr %591, i64 256
   %593 = load i32, ptr %592, align 8
   tail call void @slurm_conf_unlock() #17
   %594 = icmp samesign ugt i32 %0, 2
@@ -2282,7 +2282,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %599, label %600, label %608
 
 600:                                              ; preds = %598
-  %601 = getelementptr inbounds i8, ptr %1, i64 8
+  %601 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %602 = load ptr, ptr %601, align 8
   %603 = tail call i32 @atoi(ptr nocapture noundef %602) #22
   %604 = icmp sgt i32 %603, 0
@@ -2332,7 +2332,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %621, label %622, label %633
 
 622:                                              ; preds = %620
-  %623 = getelementptr inbounds i8, ptr %1, i64 8
+  %623 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %624 = load ptr, ptr %623, align 8
   %625 = tail call i32 @xstrcmp(ptr noundef %624, ptr noundef nonnull @.str.122) #17
   %.not508 = icmp eq i32 %625, 0
@@ -2394,7 +2394,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 650:                                              ; preds = %645
   %651 = add nsw i32 %0, -1
-  %652 = getelementptr inbounds i8, ptr %1, i64 8
+  %652 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_update_it(i32 noundef %651, ptr noundef nonnull %652)
   br label %_create_it.exit
 
@@ -2415,7 +2415,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 660:                                              ; preds = %655
   %661 = add nsw i32 %0, -1
-  %662 = getelementptr inbounds i8, ptr %1, i64 8
+  %662 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_delete_it(i32 noundef %661, ptr noundef nonnull %662)
   br label %_create_it.exit
 
@@ -2477,13 +2477,13 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %685, label %.thread543, label %686
 
 686:                                              ; preds = %684
-  %687 = getelementptr inbounds i8, ptr %1, i64 8
+  %687 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %688 = load ptr, ptr %687, align 8
   %.not519 = icmp eq i32 %0, 3
   br i1 %.not519, label %689, label %.thread543
 
 689:                                              ; preds = %686
-  %690 = getelementptr inbounds i8, ptr %1, i64 16
+  %690 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %691 = load ptr, ptr %690, align 8
   br label %.thread543
 
@@ -2505,7 +2505,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %699, label %703, label %700
 
 700:                                              ; preds = %698
-  %701 = getelementptr inbounds i8, ptr %1, i64 8
+  %701 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %702 = load ptr, ptr %701, align 8
   br label %703
 
@@ -2531,7 +2531,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 712:                                              ; preds = %707
   %713 = add nsw i32 %0, -1
-  %714 = getelementptr inbounds i8, ptr %1, i64 8
+  %714 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %715 = tail call i32 @scontrol_job_notify(i32 noundef %713, ptr noundef nonnull %714) #17
   %.not522 = icmp eq i32 %715, 0
   br i1 %.not522, label %_create_it.exit, label %716
@@ -2568,7 +2568,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 729:                                              ; preds = %724
   %730 = add nsw i32 %0, -1
-  %731 = getelementptr inbounds i8, ptr %1, i64 8
+  %731 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %732 = tail call i32 @scontrol_callerid(i32 noundef %730, ptr noundef nonnull %731) #17
   %.not524 = icmp eq i32 %732, 0
   br i1 %.not524, label %_create_it.exit, label %733
@@ -2630,7 +2630,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
   %.175 = phi i1 [ false, %.preheader.preheader ], [ %.2, %66 ]
   %.13974 = phi i32 [ -2, %.preheader.preheader ], [ %.3, %66 ]
   %.14372 = phi i32 [ 1, %.preheader.preheader ], [ %.244, %66 ]
-  %9 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @strcasecmp(ptr noundef %10, ptr noundef nonnull @.str.43) #22
   %.not51 = icmp eq i32 %11, 0
@@ -2652,7 +2652,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
   br i1 %.not53, label %22, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %21 = load i8, ptr %20, align 1
   %.not54 = icmp eq i8 %21, 0
   br i1 %.not54, label %22, label %28
@@ -2691,7 +2691,7 @@ define dso_local void @_process_reboot_command(ptr noundef %0, i32 noundef %1, p
   br i1 %.not57, label %39, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %35, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %38 = load i8, ptr %37, align 1
   %.not58 = icmp eq i8 %38, 0
   br i1 %.not58, label %39, label %45
@@ -2895,23 +2895,23 @@ define internal fastcc void @_print_ping(i32 noundef range(i32 1, -2147483648) %
   br i1 %.not, label %31, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %7, ptr %10, align 8
   store i32 463606195, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %11, align 4
   %15 = load ptr, ptr @data_parser, align 8
   store ptr %15, ptr %14, align 8
   %16 = tail call ptr @data_parser_cli_meta(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %15) #17
   store ptr %16, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = tail call ptr @list_create(ptr noundef nonnull @free_openapi_resp_error) #17
   store ptr %18, ptr %17, align 8
   store ptr %18, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = tail call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #17
   store ptr %20, ptr %19, align 8
   store ptr %20, ptr %13, align 8
@@ -2959,7 +2959,7 @@ define internal fastcc void @_print_ping(i32 noundef range(i32 1, -2147483648) %
   %33 = phi ptr [ %57, %.lr.ph ], [ %32, %.lr.ph.preheader ]
   %.0213544 = phi i1 [ %.1, %.lr.ph ], [ false, %.lr.ph.preheader ]
   %.03643 = phi ptr [ %56, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %34 = getelementptr inbounds i8, ptr %.03643, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.03643, i64 8
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %38
@@ -2970,7 +2970,7 @@ define internal fastcc void @_print_ping(i32 noundef range(i32 1, -2147483648) %
 
 38:                                               ; preds = %.lr.ph45, %37
   %.1 = phi i1 [ %.0213544, %37 ], [ true, %.lr.ph45 ]
-  %39 = getelementptr inbounds i8, ptr %.03643, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.03643, i64 24
   %40 = load i32, ptr %39, align 8
   switch i32 %40, label %46 [
     i32 0, label %41
@@ -3002,10 +3002,10 @@ define internal fastcc void @_print_ping(i32 noundef range(i32 1, -2147483648) %
   %50 = load ptr, ptr @stdout, align 8
   %51 = and i8 %48, 1
   %52 = zext nneg i8 %51 to i64
-  %53 = getelementptr inbounds [2 x ptr], ptr @_print_ping.state, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [2 x ptr], ptr @_print_ping.state, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.144, ptr noundef nonnull %3, ptr noundef %49, ptr noundef %54) #17
-  %56 = getelementptr inbounds i8, ptr %.03643, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.03643, i64 32
   %57 = load ptr, ptr %56, align 8
   %.not28 = icmp eq ptr %57, null
   br i1 %.not28, label %.critedge, label %.lr.ph45
@@ -3068,7 +3068,7 @@ define internal fastcc void @_fetch_token(i32 noundef range(i32 1, -2147483648) 
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   %.029 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %25 ]
   %.01827 = phi i32 [ 0, %.lr.ph.preheader ], [ %.119, %25 ]
-  %5 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @xstrncasecmp(ptr noundef nonnull @.str.147, ptr noundef %6, i64 noundef 9) #17
   %.not21 = icmp eq i32 %7, 0
@@ -3076,7 +3076,7 @@ define internal fastcc void @_fetch_token(i32 noundef range(i32 1, -2147483648) 
   br i1 %.not21, label %9, label %16
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %8, i64 9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %11 = tail call i32 @xstrcasecmp(ptr noundef nonnull @.str.148, ptr noundef nonnull %10) #17
   %.not22 = icmp eq i32 %11, 0
   br i1 %.not22, label %25, label %12
@@ -3097,7 +3097,7 @@ define internal fastcc void @_fetch_token(i32 noundef range(i32 1, -2147483648) 
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 9
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 9
   br label %25
 
 21:                                               ; preds = %16
@@ -3163,7 +3163,7 @@ define internal fastcc void @_setdebugflags(i32 noundef range(i32 1, -2147483648
   %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %17 ]
   %.03349 = phi i64 [ 0, %.preheader.preheader ], [ %.1, %17 ]
   %.03448 = phi i64 [ 0, %.preheader.preheader ], [ %.135, %17 ]
-  %11 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr %12, align 1
   %.not81 = icmp eq i8 %13, 43
@@ -3173,7 +3173,7 @@ define internal fastcc void @_setdebugflags(i32 noundef range(i32 1, -2147483648
   ]
 
 14:                                               ; preds = %.preheader, %.preheader
-  %15 = getelementptr inbounds i8, ptr %12, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %16 = call i32 @debug_str2flags(ptr noundef nonnull %15, ptr noundef nonnull %3) #17
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %21
@@ -3196,7 +3196,7 @@ define internal fastcc void @_setdebugflags(i32 noundef range(i32 1, -2147483648
 
 25:                                               ; preds = %21
   %26 = and i64 %indvars.iv, 4294967295
-  %27 = getelementptr inbounds ptr, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 @xstrncasecmp(ptr noundef %28, ptr noundef nonnull @.str.154, i64 noundef 5) #17
   %.not40 = icmp eq i32 %29, 0
@@ -3211,7 +3211,7 @@ define internal fastcc void @_setdebugflags(i32 noundef range(i32 1, -2147483648
 33:                                               ; preds = %30, %25
   %34 = load ptr, ptr %27, align 8
   %35 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %34, i32 noundef 61) #22
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %37 = call i32 @slurm_set_slurmd_debug_flags(ptr noundef nonnull %36, i64 noundef %.03448, i64 noundef %.03349) #17
   %.not42 = icmp eq i32 %37, 0
   br i1 %.not42, label %.thread69, label %38
@@ -3236,7 +3236,7 @@ define internal fastcc void @_setdebugflags(i32 noundef range(i32 1, -2147483648
 45:                                               ; preds = %43
   %46 = load ptr, ptr @stderr, align 8
   %47 = and i64 %indvars.iv, 4294967295
-  %48 = getelementptr inbounds ptr, ptr %1, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %1, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.157, ptr noundef %49) #21
   %.pre = load i32, ptr @quiet_flag, align 4
@@ -3302,7 +3302,7 @@ define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0,
   br i1 %12, label %14, label %.preheader
 
 .preheader:                                       ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %20
 
 14:                                               ; preds = %11
@@ -3319,7 +3319,7 @@ define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0,
 
 20:                                               ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
-  %21 = getelementptr inbounds [11 x ptr], ptr @__const._setdebug.levels, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [11 x ptr], ptr @__const._setdebug.levels, i64 0, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %13, align 8
   %24 = tail call i32 @xstrcasecmp(ptr noundef %23, ptr noundef %22) #17
@@ -3381,7 +3381,7 @@ define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0,
   br label %66
 
 46:                                               ; preds = %.loopexit
-  %47 = getelementptr inbounds i8, ptr %1, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @xstrncasecmp(ptr noundef %48, ptr noundef nonnull @.str.170, i64 noundef 6) #17
   %.not30 = icmp eq i32 %49, 0
@@ -3403,7 +3403,7 @@ define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0,
   %57 = load ptr, ptr %47, align 8
   %58 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %57, i32 noundef 61) #22
   %.not31 = icmp eq ptr %58, null
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %spec.select = select i1 %.not31, ptr null, ptr %59
   %60 = tail call i32 @slurm_set_slurmd_debug_level(ptr noundef %spec.select, i32 noundef %.1) #17
   %.not32 = icmp eq i32 %60, 0
@@ -3446,7 +3446,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br label %169
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @xstrncasecmp(ptr noundef %12, ptr noundef nonnull @.str.173, i64 noundef 2) #17
   %.not = icmp eq i32 %13, 0
@@ -3489,7 +3489,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %27 to i64
   %33 = sub i64 %31, %32
-  %34 = getelementptr inbounds i8, ptr %29, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 1
   br label %40
 
 35:                                               ; preds = %.thread
@@ -3497,7 +3497,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8
   br label %40
 
@@ -3537,7 +3537,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
 
 54:                                               ; preds = %52, %48
   %55 = add nsw i32 %0, -2
-  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @scontrol_print_bbstat(i32 noundef %55, ptr noundef nonnull %56) #17
   br label %169
 
@@ -3562,7 +3562,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 1, -2147483648) %0, 
 
 65:                                               ; preds = %63, %61
   %66 = add nsw i32 %0, -2
-  %67 = getelementptr inbounds i8, ptr %1, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @scontrol_print_assoc_mgr_info(i32 noundef %66, ptr noundef nonnull %67) #17
   br label %169
 
@@ -3968,7 +3968,7 @@ define internal fastcc void @_update_it(i32 noundef range(i32 1, 2147483647) %0,
 23:                                               ; preds = %12, %21, %19
   %.2 = phi i32 [ 1, %19 ], [ 2, %21 ], [ %.084159, %12 ]
   %.1 = phi i32 [ %20, %19 ], [ %22, %21 ], [ %16, %12 ]
-  %24 = getelementptr inbounds i8, ptr %7, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %25
 
 25:                                               ; preds = %23, %8
@@ -4186,7 +4186,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 1, 2147483647) %0,
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %10 to i64
   %15 = sub i64 %13, %14
-  %16 = getelementptr inbounds i8, ptr %11, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 1
   br label %26
 
 17:                                               ; preds = %9
@@ -4197,7 +4197,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 1, 2147483647) %0,
 19:                                               ; preds = %2
   %20 = load ptr, ptr %1, align 8
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #22
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %26
 
@@ -4219,7 +4219,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 1, 2147483647) %0,
 
 31:                                               ; preds = %26
   call void @slurm_init_update_node_msg(ptr noundef nonnull %3) #17
-  %32 = getelementptr inbounds i8, ptr %3, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %.026, ptr %32, align 8
   %33 = call i32 @slurm_delete_node(ptr noundef nonnull %3) #17
   %.not32 = icmp eq i32 %33, 0
@@ -4462,13 +4462,13 @@ define internal fastcc void @_print_daemons() unnamed_addr #7 {
   %7 = tail call ptr @slurm_conf_lock() #17
   %8 = call i32 @gethostname_short(ptr noundef nonnull %1, i64 noundef 64) #17
   %9 = call i32 @gethostname(ptr noundef nonnull %2, i64 noundef 64) #17
-  %10 = getelementptr inbounds i8, ptr %7, i64 256
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %11 = load i32, ptr %10, align 8
   %.not41 = icmp eq i32 %11, 0
   br i1 %.not41, label %.loopexit, label %.lr.ph38
 
 .lr.ph38:                                         ; preds = %0
-  %12 = getelementptr inbounds i8, ptr %7, i64 264
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
   %.not43.not = icmp eq ptr %14, null
@@ -4476,7 +4476,7 @@ define internal fastcc void @_print_daemons() unnamed_addr #7 {
 
 15:                                               ; preds = %._crit_edge
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv.next
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.loopexit, label %.lr.ph45, !llvm.loop !26

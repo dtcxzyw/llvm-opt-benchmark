@@ -9,10 +9,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @rhash_sha512_init(ptr nocapture noundef writeonly initializes((0, 204)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   store i32 64, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) @rhash_sha512_init.SHA512_H0, i64 64, i1 false)
   ret void
 }
@@ -25,17 +25,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @rhash_sha384_init(ptr nocapture noundef writeonly initializes((0, 204)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   store i32 48, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 16 dereferenceable(64) @rhash_sha384_init.SHA384_H0, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @rhash_sha512_update(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 127
   %7 = add i64 %5, %2
@@ -45,16 +45,16 @@ define dso_local void @rhash_sha512_update(ptr nocapture noundef %0, ptr noundef
 
 8:                                                ; preds = %3
   %9 = sub nuw nsw i64 128, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   %11 = icmp ult i64 %2, %9
   %12 = tail call i64 @llvm.umin.i64(i64 %2, i64 %9)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %1, i64 %12, i1 false)
   br i1 %11, label %29, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call fastcc void @rhash_sha512_process_block(ptr noundef nonnull %14, ptr noundef nonnull %0)
-  %15 = getelementptr inbounds i8, ptr %1, i64 %9
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %16 = sub nuw i64 %2, %9
   br label %17
 
@@ -66,7 +66,7 @@ define dso_local void @rhash_sha512_update(ptr nocapture noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %17
   %.03344 = ptrtoint ptr %.033 to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = and i64 %.03344, 7
   %21 = icmp eq i64 %20, 0
   br label %22
@@ -83,7 +83,7 @@ define dso_local void @rhash_sha512_update(ptr nocapture noundef %0, ptr noundef
 24:                                               ; preds = %22, %23
   %.0 = phi ptr [ %0, %23 ], [ %.141, %22 ]
   tail call fastcc void @rhash_sha512_process_block(ptr noundef nonnull %19, ptr noundef %.0)
-  %25 = getelementptr inbounds i8, ptr %.141, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %.141, i64 128
   %26 = add i64 %.13540, -128
   %27 = icmp ugt i64 %26, 127
   br i1 %27, label %22, label %._crit_edge, !llvm.loop !5
@@ -105,19 +105,19 @@ define dso_local void @rhash_sha512_update(ptr nocapture noundef %0, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i64, ptr %16, align 8
   %18 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 50)
   %19 = tail call i64 @llvm.fshl.i64(i64 %11, i64 %11, i64 46)
@@ -153,7 +153,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %49 = xor i64 %13, %11
   %50 = and i64 %32, %49
   %51 = xor i64 %50, %13
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = tail call i64 @llvm.bswap.i64(i64 %53)
   %55 = add i64 %15, 8158064640168781261
@@ -180,7 +180,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %76 = xor i64 %32, %11
   %77 = and i64 %59, %76
   %78 = xor i64 %77, %11
-  %79 = getelementptr inbounds i8, ptr %1, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %80 = load i64, ptr %79, align 8
   %81 = tail call i64 @llvm.bswap.i64(i64 %80)
   %82 = add i64 %13, -5349999486874862801
@@ -207,7 +207,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %103 = xor i64 %59, %32
   %104 = and i64 %86, %103
   %105 = xor i64 %104, %32
-  %106 = getelementptr inbounds i8, ptr %1, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %107 = load i64, ptr %106, align 8
   %108 = tail call i64 @llvm.bswap.i64(i64 %107)
   %109 = add i64 %11, -1606136188198331460
@@ -234,7 +234,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %130 = xor i64 %86, %59
   %131 = and i64 %113, %130
   %132 = xor i64 %131, %59
-  %133 = getelementptr inbounds i8, ptr %1, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %134 = load i64, ptr %133, align 8
   %135 = tail call i64 @llvm.bswap.i64(i64 %134)
   %136 = add i64 %32, 4131703408338449720
@@ -261,7 +261,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %157 = xor i64 %113, %86
   %158 = and i64 %140, %157
   %159 = xor i64 %158, %86
-  %160 = getelementptr inbounds i8, ptr %1, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %161 = load i64, ptr %160, align 8
   %162 = tail call i64 @llvm.bswap.i64(i64 %161)
   %163 = add i64 %162, 6480981068601479193
@@ -288,7 +288,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %184 = xor i64 %140, %113
   %185 = and i64 %167, %184
   %186 = xor i64 %185, %113
-  %187 = getelementptr inbounds i8, ptr %1, i64 48
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %188 = load i64, ptr %187, align 8
   %189 = tail call i64 @llvm.bswap.i64(i64 %188)
   %190 = add i64 %189, -7908458776815382629
@@ -315,7 +315,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %211 = xor i64 %167, %140
   %212 = and i64 %194, %211
   %213 = xor i64 %212, %140
-  %214 = getelementptr inbounds i8, ptr %1, i64 56
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %215 = load i64, ptr %214, align 8
   %216 = tail call i64 @llvm.bswap.i64(i64 %215)
   %217 = add i64 %216, -6116909921290321640
@@ -342,7 +342,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %238 = xor i64 %194, %167
   %239 = and i64 %221, %238
   %240 = xor i64 %239, %167
-  %241 = getelementptr inbounds i8, ptr %1, i64 64
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %242 = load i64, ptr %241, align 8
   %243 = tail call i64 @llvm.bswap.i64(i64 %242)
   %244 = add i64 %243, -2880145864133508542
@@ -369,7 +369,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %265 = xor i64 %221, %194
   %266 = and i64 %248, %265
   %267 = xor i64 %266, %194
-  %268 = getelementptr inbounds i8, ptr %1, i64 72
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %269 = load i64, ptr %268, align 8
   %270 = tail call i64 @llvm.bswap.i64(i64 %269)
   %271 = add i64 %270, 1334009975649890238
@@ -396,7 +396,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %292 = xor i64 %248, %221
   %293 = and i64 %275, %292
   %294 = xor i64 %293, %221
-  %295 = getelementptr inbounds i8, ptr %1, i64 80
+  %295 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %296 = load i64, ptr %295, align 8
   %297 = tail call i64 @llvm.bswap.i64(i64 %296)
   %298 = add i64 %297, 2608012711638119052
@@ -423,7 +423,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %319 = xor i64 %275, %248
   %320 = and i64 %302, %319
   %321 = xor i64 %320, %248
-  %322 = getelementptr inbounds i8, ptr %1, i64 88
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %323 = load i64, ptr %322, align 8
   %324 = tail call i64 @llvm.bswap.i64(i64 %323)
   %325 = add i64 %324, 6128411473006802146
@@ -450,7 +450,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %346 = xor i64 %302, %275
   %347 = and i64 %329, %346
   %348 = xor i64 %347, %275
-  %349 = getelementptr inbounds i8, ptr %1, i64 96
+  %349 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %350 = load i64, ptr %349, align 8
   %351 = tail call i64 @llvm.bswap.i64(i64 %350)
   %352 = add i64 %351, 8268148722764581231
@@ -477,7 +477,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %373 = xor i64 %329, %302
   %374 = and i64 %356, %373
   %375 = xor i64 %374, %302
-  %376 = getelementptr inbounds i8, ptr %1, i64 104
+  %376 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %377 = load i64, ptr %376, align 8
   %378 = tail call i64 @llvm.bswap.i64(i64 %377)
   %379 = add i64 %378, -9160688886553864527
@@ -504,7 +504,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %400 = xor i64 %356, %329
   %401 = and i64 %383, %400
   %402 = xor i64 %401, %329
-  %403 = getelementptr inbounds i8, ptr %1, i64 112
+  %403 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %404 = load i64, ptr %403, align 8
   %405 = tail call i64 @llvm.bswap.i64(i64 %404)
   %406 = add i64 %405, -7215885187991268811
@@ -531,7 +531,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %427 = xor i64 %383, %356
   %428 = and i64 %410, %427
   %429 = xor i64 %428, %356
-  %430 = getelementptr inbounds i8, ptr %1, i64 120
+  %430 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %431 = load i64, ptr %430, align 8
   %432 = tail call i64 @llvm.bswap.i64(i64 %431)
   %433 = add i64 %432, -4495734319001033068
@@ -625,7 +625,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %493 = xor i64 %.010371064, %.010381063
   %494 = and i64 %476, %493
   %495 = xor i64 %494, %.010381063
-  %496 = getelementptr inbounds i8, ptr %.010411044, i64 8
+  %496 = getelementptr inbounds nuw i8, ptr %.010411044, i64 8
   %497 = load i64, ptr %496, align 8
   %498 = tail call i64 @llvm.fshl.i64(i64 %.sroa.210.01060, i64 %.sroa.210.01060, i64 45)
   %499 = tail call i64 @llvm.fshl.i64(i64 %.sroa.210.01060, i64 %.sroa.210.01060, i64 3)
@@ -664,7 +664,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %532 = xor i64 %476, %.010371064
   %533 = and i64 %515, %532
   %534 = xor i64 %533, %.010371064
-  %535 = getelementptr inbounds i8, ptr %.010411044, i64 16
+  %535 = getelementptr inbounds nuw i8, ptr %.010411044, i64 16
   %536 = load i64, ptr %535, align 8
   %537 = tail call i64 @llvm.fshl.i64(i64 %471, i64 %471, i64 45)
   %538 = tail call i64 @llvm.fshl.i64(i64 %471, i64 %471, i64 3)
@@ -703,7 +703,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %571 = xor i64 %515, %476
   %572 = and i64 %554, %571
   %573 = xor i64 %572, %476
-  %574 = getelementptr inbounds i8, ptr %.010411044, i64 24
+  %574 = getelementptr inbounds nuw i8, ptr %.010411044, i64 24
   %575 = load i64, ptr %574, align 8
   %576 = tail call i64 @llvm.fshl.i64(i64 %510, i64 %510, i64 45)
   %577 = tail call i64 @llvm.fshl.i64(i64 %510, i64 %510, i64 3)
@@ -742,7 +742,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %610 = xor i64 %554, %515
   %611 = and i64 %593, %610
   %612 = xor i64 %611, %515
-  %613 = getelementptr inbounds i8, ptr %.010411044, i64 32
+  %613 = getelementptr inbounds nuw i8, ptr %.010411044, i64 32
   %614 = load i64, ptr %613, align 8
   %615 = tail call i64 @llvm.fshl.i64(i64 %549, i64 %549, i64 45)
   %616 = tail call i64 @llvm.fshl.i64(i64 %549, i64 %549, i64 3)
@@ -781,7 +781,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %649 = xor i64 %593, %554
   %650 = and i64 %632, %649
   %651 = xor i64 %650, %554
-  %652 = getelementptr inbounds i8, ptr %.010411044, i64 40
+  %652 = getelementptr inbounds nuw i8, ptr %.010411044, i64 40
   %653 = load i64, ptr %652, align 8
   %654 = tail call i64 @llvm.fshl.i64(i64 %588, i64 %588, i64 45)
   %655 = tail call i64 @llvm.fshl.i64(i64 %588, i64 %588, i64 3)
@@ -820,7 +820,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %688 = xor i64 %632, %593
   %689 = and i64 %671, %688
   %690 = xor i64 %689, %593
-  %691 = getelementptr inbounds i8, ptr %.010411044, i64 48
+  %691 = getelementptr inbounds nuw i8, ptr %.010411044, i64 48
   %692 = load i64, ptr %691, align 8
   %693 = tail call i64 @llvm.fshl.i64(i64 %627, i64 %627, i64 45)
   %694 = tail call i64 @llvm.fshl.i64(i64 %627, i64 %627, i64 3)
@@ -859,7 +859,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %727 = xor i64 %671, %632
   %728 = and i64 %710, %727
   %729 = xor i64 %728, %632
-  %730 = getelementptr inbounds i8, ptr %.010411044, i64 56
+  %730 = getelementptr inbounds nuw i8, ptr %.010411044, i64 56
   %731 = load i64, ptr %730, align 8
   %732 = tail call i64 @llvm.fshl.i64(i64 %666, i64 %666, i64 45)
   %733 = tail call i64 @llvm.fshl.i64(i64 %666, i64 %666, i64 3)
@@ -898,7 +898,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %766 = xor i64 %710, %671
   %767 = and i64 %749, %766
   %768 = xor i64 %767, %671
-  %769 = getelementptr inbounds i8, ptr %.010411044, i64 64
+  %769 = getelementptr inbounds nuw i8, ptr %.010411044, i64 64
   %770 = load i64, ptr %769, align 8
   %771 = tail call i64 @llvm.fshl.i64(i64 %705, i64 %705, i64 45)
   %772 = tail call i64 @llvm.fshl.i64(i64 %705, i64 %705, i64 3)
@@ -937,7 +937,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %805 = xor i64 %749, %710
   %806 = and i64 %788, %805
   %807 = xor i64 %806, %710
-  %808 = getelementptr inbounds i8, ptr %.010411044, i64 72
+  %808 = getelementptr inbounds nuw i8, ptr %.010411044, i64 72
   %809 = load i64, ptr %808, align 8
   %810 = tail call i64 @llvm.fshl.i64(i64 %744, i64 %744, i64 45)
   %811 = tail call i64 @llvm.fshl.i64(i64 %744, i64 %744, i64 3)
@@ -976,7 +976,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %844 = xor i64 %788, %749
   %845 = and i64 %827, %844
   %846 = xor i64 %845, %749
-  %847 = getelementptr inbounds i8, ptr %.010411044, i64 80
+  %847 = getelementptr inbounds nuw i8, ptr %.010411044, i64 80
   %848 = load i64, ptr %847, align 8
   %849 = tail call i64 @llvm.fshl.i64(i64 %783, i64 %783, i64 45)
   %850 = tail call i64 @llvm.fshl.i64(i64 %783, i64 %783, i64 3)
@@ -1015,7 +1015,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %883 = xor i64 %827, %788
   %884 = and i64 %866, %883
   %885 = xor i64 %884, %788
-  %886 = getelementptr inbounds i8, ptr %.010411044, i64 88
+  %886 = getelementptr inbounds nuw i8, ptr %.010411044, i64 88
   %887 = load i64, ptr %886, align 8
   %888 = tail call i64 @llvm.fshl.i64(i64 %822, i64 %822, i64 45)
   %889 = tail call i64 @llvm.fshl.i64(i64 %822, i64 %822, i64 3)
@@ -1054,7 +1054,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %922 = xor i64 %866, %827
   %923 = and i64 %905, %922
   %924 = xor i64 %923, %827
-  %925 = getelementptr inbounds i8, ptr %.010411044, i64 96
+  %925 = getelementptr inbounds nuw i8, ptr %.010411044, i64 96
   %926 = load i64, ptr %925, align 8
   %927 = tail call i64 @llvm.fshl.i64(i64 %861, i64 %861, i64 45)
   %928 = tail call i64 @llvm.fshl.i64(i64 %861, i64 %861, i64 3)
@@ -1093,7 +1093,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %961 = xor i64 %905, %866
   %962 = and i64 %944, %961
   %963 = xor i64 %962, %866
-  %964 = getelementptr inbounds i8, ptr %.010411044, i64 104
+  %964 = getelementptr inbounds nuw i8, ptr %.010411044, i64 104
   %965 = load i64, ptr %964, align 8
   %966 = tail call i64 @llvm.fshl.i64(i64 %900, i64 %900, i64 45)
   %967 = tail call i64 @llvm.fshl.i64(i64 %900, i64 %900, i64 3)
@@ -1132,7 +1132,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %1000 = xor i64 %944, %905
   %1001 = and i64 %983, %1000
   %1002 = xor i64 %1001, %905
-  %1003 = getelementptr inbounds i8, ptr %.010411044, i64 112
+  %1003 = getelementptr inbounds nuw i8, ptr %.010411044, i64 112
   %1004 = load i64, ptr %1003, align 8
   %1005 = tail call i64 @llvm.fshl.i64(i64 %939, i64 %939, i64 45)
   %1006 = tail call i64 @llvm.fshl.i64(i64 %939, i64 %939, i64 3)
@@ -1171,7 +1171,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %1039 = xor i64 %983, %944
   %1040 = and i64 %1022, %1039
   %1041 = xor i64 %1040, %944
-  %1042 = getelementptr inbounds i8, ptr %.010411044, i64 120
+  %1042 = getelementptr inbounds nuw i8, ptr %.010411044, i64 120
   %1043 = load i64, ptr %1042, align 8
   %1044 = tail call i64 @llvm.fshl.i64(i64 %978, i64 %978, i64 45)
   %1045 = tail call i64 @llvm.fshl.i64(i64 %978, i64 %978, i64 3)
@@ -1203,7 +1203,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
   %1071 = add i64 %1070, %1066
   %1072 = add i64 %1071, %1060
   %1073 = add nuw nsw i32 %.010421043, 16
-  %1074 = getelementptr inbounds i8, ptr %.010411044, i64 128
+  %1074 = getelementptr inbounds nuw i8, ptr %.010411044, i64 128
   %1075 = icmp samesign ult i32 %.010421043, 64
   br i1 %1075, label %449, label %1076, !llvm.loop !7
 
@@ -1229,7 +1229,7 @@ define internal fastcc void @rhash_sha512_process_block(ptr nocapture noundef %0
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @rhash_sha512_final(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 3
   %6 = and i64 %5, 15
@@ -1237,7 +1237,7 @@ define dso_local void @rhash_sha512_final(ptr noundef %0, ptr noundef %1) local_
   %8 = and i64 %7, 56
   %9 = shl nsw i64 -1, %8
   %10 = xor i64 %9, -1
-  %11 = getelementptr inbounds [16 x i64], ptr %0, i64 0, i64 %6
+  %11 = getelementptr inbounds nuw [16 x i64], ptr %0, i64 0, i64 %6
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, %10
   %14 = shl nuw i64 128, %8
@@ -1252,12 +1252,12 @@ define dso_local void @rhash_sha512_final(ptr noundef %0, ptr noundef %1) local_
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 0, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %20, %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call fastcc void @rhash_sha512_process_block(ptr noundef nonnull %23, ptr noundef nonnull %0)
   br label %._crit_edge
 
@@ -1270,15 +1270,15 @@ define dso_local void @rhash_sha512_final(ptr noundef %0, ptr noundef %1) local_
   %26 = load i64, ptr %3, align 8
   %27 = shl i64 %26, 3
   %28 = tail call i64 @llvm.bswap.i64(i64 %27)
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call fastcc void @rhash_sha512_process_block(ptr noundef nonnull %30, ptr noundef nonnull %0)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %35, label %31
 
 31:                                               ; preds = %._crit_edge
-  %32 = getelementptr inbounds i8, ptr %0, i64 200
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
   tail call void @rhash_swap_copy_str_to_u64(ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %30, i64 noundef %34) #9

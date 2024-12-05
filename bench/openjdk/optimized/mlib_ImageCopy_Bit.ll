@@ -69,7 +69,7 @@ define hidden void @mlib_ImageCopy_bit_na(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %13, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %57 = load i64, ptr %56, align 8
   br label %58
 
@@ -108,7 +108,7 @@ define hidden void @mlib_ImageCopy_bit_na(ptr noundef %0, ptr noundef %1, i32 no
   %84 = or i64 %83, %82
   store i64 %84, ptr %10, align 8
   %85 = sub nsw i32 64, %17
-  %86 = getelementptr inbounds i8, ptr %13, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %87
 
 87:                                               ; preds = %78, %41
@@ -126,7 +126,7 @@ define hidden void @mlib_ImageCopy_bit_na(ptr noundef %0, ptr noundef %1, i32 no
 91:                                               ; preds = %89, %87
   %.2 = phi i64 [ %90, %89 ], [ %.0106, %87 ]
   %92 = add nsw i32 %2, -64
-  %.1115 = getelementptr inbounds i8, ptr %10, i64 8
+  %.1115 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.not116 = icmp sgt i32 %.0108, %92
   br i1 %.not116, label %._crit_edge, label %.lr.ph
 
@@ -141,14 +141,14 @@ define hidden void @mlib_ImageCopy_bit_na(ptr noundef %0, ptr noundef %1, i32 no
   %.1104119 = phi ptr [ %.0103, %.lr.ph ], [ %97, %96 ]
   %.3118 = phi i64 [ %.2, %.lr.ph ], [ %98, %96 ]
   %.1109117 = phi i32 [ %.0108, %.lr.ph ], [ %102, %96 ]
-  %97 = getelementptr inbounds i8, ptr %.1104119, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.1104119, i64 8
   %98 = load i64, ptr %97, align 8
   %99 = shl i64 %.3118, %93
   %100 = lshr i64 %98, %95
   %101 = or i64 %100, %99
   store i64 %101, ptr %.1120, align 8
   %102 = add nsw i32 %.1109117, 64
-  %.1 = getelementptr inbounds i8, ptr %.1120, i64 8
+  %.1 = getelementptr inbounds nuw i8, ptr %.1120, i64 8
   %.not = icmp sgt i32 %102, %92
   br i1 %.not, label %._crit_edge, label %96, !llvm.loop !6
 
@@ -167,7 +167,7 @@ define hidden void @mlib_ImageCopy_bit_na(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %107, label %108, label %111
 
 108:                                              ; preds = %104
-  %109 = getelementptr inbounds i8, ptr %.1104.lcssa, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.1104.lcssa, i64 8
   %110 = load i64, ptr %109, align 8
   br label %111
 

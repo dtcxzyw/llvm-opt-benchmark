@@ -65,7 +65,7 @@ $_ZTV17LogStreamImplBase = comdat any
 define hidden void @_ZN14CompressedOops10initializeERK17ReservedHeapSpace(ptr noundef nonnull align 8 dereferenceable(49) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.LogStream, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 %5
   %7 = icmp ugt ptr %6, inttoptr (i64 4294967296 to ptr)
@@ -80,7 +80,7 @@ define hidden void @_ZN14CompressedOops10initializeERK17ReservedHeapSpace(ptr no
   %11 = ptrtoint ptr %6 to i64
   %12 = load i64, ptr @OopEncodingHeapMax, align 8
   %.not = icmp ult i64 %12, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = sub i64 0, %14
   %16 = getelementptr inbounds i8, ptr %3, i64 %15
@@ -91,30 +91,30 @@ define hidden void @_ZN14CompressedOops10initializeERK17ReservedHeapSpace(ptr no
   %19 = extractvalue { ptr, i64 } %17, 1
   store ptr %18, ptr @_ZN14CompressedOops19_heap_address_rangeE, align 8
   store i64 %19, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_27ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_27ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not13 = icmp eq ptr %20, null
   br i1 %.not13, label %_ZN12ResourceMarkD2Ev.exit, label %21
 
 21:                                               ; preds = %10
   %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 800
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 800
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load i64, ptr %32, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %2, i1 noundef zeroext false) #9
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 56
   call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %34) #9
-  %35 = getelementptr inbounds i8, ptr %2, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store i32 2, ptr %35, align 8
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 152
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_27ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   call void @_ZN14CompressedOops10print_modeEP12outputStream(ptr noundef nonnull %2)
@@ -187,7 +187,7 @@ declare { ptr, i64 } @_ZNK17ReservedHeapSpace6regionEv(ptr noundef nonnull align
 define hidden void @_ZN14CompressedOops10print_modeEP12outputStream(ptr noundef nonnull %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN14CompressedOops19_heap_address_rangeE, align 8
   %3 = ptrtoint ptr %2 to i64
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
   %5 = lshr i64 %4, 17
   %6 = and i64 %5, 17592186044415
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11, i64 noundef %3, i64 noundef %6) #9
@@ -268,7 +268,7 @@ define hidden noundef nonnull ptr @_ZN14CompressedOops14mode_to_stringENS_4ModeE
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN14CompressedOops14mode_to_stringENS_4ModeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN14CompressedOops14mode_to_stringENS_4ModeE, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -314,7 +314,7 @@ define hidden void @_ZN14CompressedOops28set_use_implicit_null_checksEb(i1 nound
 define hidden noundef zeroext i1 @_ZN14CompressedOops5is_inEPv(ptr noundef readnone %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN14CompressedOops19_heap_address_rangeE, align 8
   %.not.i = icmp uge ptr %0, %2
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
   %4 = getelementptr inbounds ptr, ptr %2, i64 %3
   %5 = icmp ult ptr %0, %4
   %6 = select i1 %.not.i, i1 %5, i1 false
@@ -325,7 +325,7 @@ define hidden noundef zeroext i1 @_ZN14CompressedOops5is_inEPv(ptr noundef readn
 define hidden noundef zeroext i1 @_ZN14CompressedOops5is_inE9MemRegion(ptr readnone %0, i64 %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN14CompressedOops19_heap_address_rangeE, align 8
   %.not.i = icmp ule ptr %3, %0
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
   %5 = getelementptr inbounds ptr, ptr %3, i64 %4
   %6 = getelementptr inbounds ptr, ptr %0, i64 %1
   %7 = icmp uge ptr %5, %6
@@ -454,7 +454,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #9
   ret void
 }

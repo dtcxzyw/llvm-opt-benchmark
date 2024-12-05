@@ -162,7 +162,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   ]
 
 8:                                                ; preds = %6, %6, %6, %6, %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.43) #4
   %11 = load ptr, ptr %9, align 8
@@ -205,7 +205,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   br label %194
 
 39:                                               ; preds = %8
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 512) #4
   %43 = load ptr, ptr %40, align 8
@@ -470,13 +470,13 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   br i1 %.not.i.i, label %dissect_enttec_dmx_data.exit, label %184
 
 184:                                              ; preds = %._crit_edge188.i
-  %185 = getelementptr inbounds i8, ptr %183, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 32
   %186 = load ptr, ptr %185, align 8
   %.not5.i.i = icmp eq ptr %186, null
   br i1 %.not5.i.i, label %dissect_enttec_dmx_data.exit, label %187
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %186, i64 28
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 28
   %189 = load i32, ptr %188, align 4
   %190 = or i32 %189, 1
   store i32 %190, ptr %188, align 4
@@ -508,7 +508,7 @@ define internal i32 @dissect_enttec_tcp(ptr noundef %0, ptr nocapture noundef re
   br i1 %.not17, label %8, label %20
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.43) #4
   %11 = load ptr, ptr %9, align 8

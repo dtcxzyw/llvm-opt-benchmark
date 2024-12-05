@@ -362,12 +362,12 @@ define dso_local void @XLogRecoveryShmemInit() local_unnamed_addr #1 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 0, i64 104, i1 false)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !5
   %6 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @InitSharedLatch(ptr noundef nonnull %8) #23
   %9 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 84
   call void @ConditionVariableInit(ptr noundef nonnull %10) #23
   br label %11
 
@@ -403,12 +403,12 @@ define dso_local void @InitWalRecovery(ptr nocapture noundef %0, ptr nocapture n
   %.sroa.14 = alloca [12 x i8], align 4
   %.sroa.23 = alloca [12 x i8], align 4
   %19 = alloca %struct.XLogReaderRoutine, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load i32, ptr %25, align 8
   %. = tail call i32 @llvm.umax.i32(i32 %23, i32 %26)
   store i32 %., ptr @recoveryTargetTLI, align 4
@@ -631,7 +631,7 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
 
 121:                                              ; preds = %validateRecoveryParameters.exit
   %122 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   tail call void @OwnLatch(ptr noundef nonnull %123) #23
   br label %124
 
@@ -639,9 +639,9 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   %125 = tail call ptr @palloc0(i64 noundef 12) #23
   %126 = load i32, ptr @wal_segment_size, align 4
   store ptr @XLogPageRead, ptr %19, align 8
-  %127 = getelementptr inbounds i8, ptr %19, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr null, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %19, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr @wal_segment_close, ptr %128, align 8
   %129 = call ptr @XLogReaderAllocate(i32 noundef %126, ptr noundef null, ptr noundef nonnull %19, ptr noundef %125) #23
   store ptr %129, ptr @xlogreader, align 8
@@ -659,7 +659,7 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
 
 135:                                              ; preds = %124
   %136 = load i64, ptr %0, align 8
-  %137 = getelementptr inbounds i8, ptr %129, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store i64 %136, ptr %137, align 8
   %138 = load i32, ptr @wal_decode_buffer_size, align 4
   %139 = sext i32 %138 to i64
@@ -911,40 +911,40 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
 
 260:                                              ; preds = %255
   %261 = load ptr, ptr @xlogreader, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 104
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 104
   %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 72
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 72
   %265 = load ptr, ptr %264, align 8
   %.sroa.014.0.copyload = load i64, ptr %265, align 1
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 8
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 8
   %.sroa.12.0.copyload = load i32, ptr %.sroa.12.0..sroa_idx, align 1
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 12
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.14, ptr noundef nonnull align 1 dereferenceable(12) %.sroa.14.0..sroa_idx, i64 12, i1 false)
-  %.sroa.1432.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 24
+  %.sroa.1432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 24
   %.sroa.1432.0.copyload = load i64, ptr %.sroa.1432.0..sroa_idx, align 1
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 32
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 32
   %.sroa.16.0.copyload = load i32, ptr %.sroa.16.0..sroa_idx, align 1
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 36
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 36
   %.sroa.17.0.copyload = load i32, ptr %.sroa.17.0..sroa_idx, align 1
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 40
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 40
   %.sroa.18.0.copyload = load i32, ptr %.sroa.18.0..sroa_idx, align 1
-  %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 44
+  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 44
   %.sroa.19.0.copyload = load i32, ptr %.sroa.19.0..sroa_idx, align 1
-  %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 48
+  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 48
   %.sroa.20.0.copyload = load i32, ptr %.sroa.20.0..sroa_idx, align 1
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 52
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 52
   %.sroa.21.0.copyload = load i32, ptr %.sroa.21.0..sroa_idx, align 1
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 56
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 56
   %.sroa.22.0.copyload = load i32, ptr %.sroa.22.0..sroa_idx, align 1
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 60
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.23, ptr noundef nonnull align 1 dereferenceable(12) %.sroa.23.0..sroa_idx, i64 12, i1 false)
-  %.sroa.2368.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 72
+  %.sroa.2368.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 72
   %.sroa.2368.0.copyload = load i32, ptr %.sroa.2368.0..sroa_idx, align 1
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 76
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 76
   %.sroa.24.0.copyload = load i32, ptr %.sroa.24.0..sroa_idx, align 1
-  %.sroa.25.0..sroa_idx = getelementptr inbounds i8, ptr %265, i64 80
+  %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %265, i64 80
   %.sroa.25.0.copyload = load i64, ptr %.sroa.25.0..sroa_idx, align 1
-  %266 = getelementptr inbounds i8, ptr %259, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %267 = load i8, ptr %266, align 8
   %268 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
   br i1 %268, label %269, label %275
@@ -998,7 +998,7 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   br i1 %.not41.i, label %.preheader.i, label %295
 
 .preheader.i:                                     ; preds = %292
-  %invariant.gep.i = getelementptr inbounds i8, ptr %5, i64 1
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   %294 = call i32 @fgetc(ptr noundef nonnull %293)
   %.not436571.i = icmp eq i32 %294, -1
   br i1 %.not436571.i, label %.outer._crit_edge.thread.thread.i, label %.lr.ph.i
@@ -1104,7 +1104,7 @@ read_tablespace_map.exit.thread:                  ; preds = %295
   %335 = zext nneg i32 %.032.i to i64
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %335
   %336 = call ptr @pstrdup(ptr noundef %gep.i) #23
-  %337 = getelementptr inbounds i8, ptr %322, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %322, i64 8
   store ptr %336, ptr %337, align 8
   %338 = call ptr @lappend(ptr noundef %.1176, ptr noundef nonnull %322) #23
   br label %.backedge.i
@@ -1188,8 +1188,8 @@ read_tablespace_map.exit:                         ; preds = %355
   br i1 %.not164, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %read_tablespace_map.exit
-  %361 = getelementptr inbounds i8, ptr %.4, i64 4
-  %362 = getelementptr inbounds i8, ptr %.4, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %.4, i64 4
+  %362 = getelementptr inbounds nuw i8, ptr %.4, i64 16
   %363 = load i32, ptr %361, align 4
   %364 = icmp sgt i32 %363, 0
   br i1 %364, label %.lr.ph206, label %.thread
@@ -1202,7 +1202,7 @@ read_tablespace_map.exit:                         ; preds = %355
   %368 = load i32, ptr %367, align 8
   %369 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, i32 noundef %368) #23
   call void @remove_tablespace_symlink(ptr noundef %369) #23
-  %370 = getelementptr inbounds i8, ptr %367, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %371 = load ptr, ptr %370, align 8
   %372 = call i32 @symlink(ptr noundef %371, ptr noundef %369) #23
   %373 = icmp slt i32 %372, 0
@@ -1266,19 +1266,19 @@ read_tablespace_map.exit:                         ; preds = %355
   br i1 %395, label %396, label %411
 
 396:                                              ; preds = %393
-  %397 = getelementptr inbounds i8, ptr %0, i64 136
+  %397 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %398 = load i64, ptr %397, align 8
   %.not157 = icmp eq i64 %398, 0
   br i1 %.not157, label %399, label %409
 
 399:                                              ; preds = %396
-  %400 = getelementptr inbounds i8, ptr %0, i64 168
+  %400 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %401 = load i8, ptr %400, align 8
   %402 = trunc i8 %401 to i1
   br i1 %402, label %409, label %403
 
 403:                                              ; preds = %399
-  %404 = getelementptr inbounds i8, ptr %0, i64 160
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %405 = load i64, ptr %404, align 8
   %.not158 = icmp eq i64 %405, 0
   br i1 %.not158, label %406, label %409
@@ -1299,7 +1299,7 @@ read_tablespace_map.exit:                         ; preds = %355
   br label %411
 
 411:                                              ; preds = %409, %410, %406, %393
-  %412 = getelementptr inbounds i8, ptr %0, i64 152
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %413 = load i64, ptr %412, align 8
   %414 = icmp eq i64 %413, 0
   br i1 %414, label %423, label %415
@@ -1318,7 +1318,7 @@ read_tablespace_map.exit:                         ; preds = %355
   br label %423
 
 423:                                              ; preds = %417, %415, %411
-  %424 = getelementptr inbounds i8, ptr %0, i64 32
+  %424 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %425 = load i64, ptr %424, align 8
   store i64 %425, ptr @CheckPointLoc, align 8
   %426 = load i32, ptr %25, align 8
@@ -1353,40 +1353,40 @@ read_tablespace_map.exit:                         ; preds = %355
 
 441:                                              ; preds = %432, %430
   %442 = load ptr, ptr @xlogreader, align 8
-  %443 = getelementptr inbounds i8, ptr %442, i64 104
+  %443 = getelementptr inbounds nuw i8, ptr %442, i64 104
   %444 = load ptr, ptr %443, align 8
-  %445 = getelementptr inbounds i8, ptr %444, i64 72
+  %445 = getelementptr inbounds nuw i8, ptr %444, i64 72
   %446 = load ptr, ptr %445, align 8
   %.sroa.014.0.copyload23 = load i64, ptr %446, align 1
-  %.sroa.12.0..sroa_idx25 = getelementptr inbounds i8, ptr %446, i64 8
+  %.sroa.12.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %446, i64 8
   %.sroa.12.0.copyload26 = load i32, ptr %.sroa.12.0..sroa_idx25, align 1
-  %.sroa.14.0..sroa_idx30 = getelementptr inbounds i8, ptr %446, i64 12
+  %.sroa.14.0..sroa_idx30 = getelementptr inbounds nuw i8, ptr %446, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.14, ptr noundef nonnull align 1 dereferenceable(12) %.sroa.14.0..sroa_idx30, i64 12, i1 false)
-  %.sroa.1432.0..sroa_idx33 = getelementptr inbounds i8, ptr %446, i64 24
+  %.sroa.1432.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %446, i64 24
   %.sroa.1432.0.copyload34 = load i64, ptr %.sroa.1432.0..sroa_idx33, align 1
-  %.sroa.16.0..sroa_idx38 = getelementptr inbounds i8, ptr %446, i64 32
+  %.sroa.16.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %446, i64 32
   %.sroa.16.0.copyload39 = load i32, ptr %.sroa.16.0..sroa_idx38, align 1
-  %.sroa.17.0..sroa_idx42 = getelementptr inbounds i8, ptr %446, i64 36
+  %.sroa.17.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %446, i64 36
   %.sroa.17.0.copyload43 = load i32, ptr %.sroa.17.0..sroa_idx42, align 1
-  %.sroa.18.0..sroa_idx46 = getelementptr inbounds i8, ptr %446, i64 40
+  %.sroa.18.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %446, i64 40
   %.sroa.18.0.copyload47 = load i32, ptr %.sroa.18.0..sroa_idx46, align 1
-  %.sroa.19.0..sroa_idx50 = getelementptr inbounds i8, ptr %446, i64 44
+  %.sroa.19.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %446, i64 44
   %.sroa.19.0.copyload51 = load i32, ptr %.sroa.19.0..sroa_idx50, align 1
-  %.sroa.20.0..sroa_idx54 = getelementptr inbounds i8, ptr %446, i64 48
+  %.sroa.20.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %446, i64 48
   %.sroa.20.0.copyload55 = load i32, ptr %.sroa.20.0..sroa_idx54, align 1
-  %.sroa.21.0..sroa_idx58 = getelementptr inbounds i8, ptr %446, i64 52
+  %.sroa.21.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %446, i64 52
   %.sroa.21.0.copyload59 = load i32, ptr %.sroa.21.0..sroa_idx58, align 1
-  %.sroa.22.0..sroa_idx62 = getelementptr inbounds i8, ptr %446, i64 56
+  %.sroa.22.0..sroa_idx62 = getelementptr inbounds nuw i8, ptr %446, i64 56
   %.sroa.22.0.copyload63 = load i32, ptr %.sroa.22.0..sroa_idx62, align 1
-  %.sroa.23.0..sroa_idx66 = getelementptr inbounds i8, ptr %446, i64 60
+  %.sroa.23.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %446, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.23, ptr noundef nonnull align 1 dereferenceable(12) %.sroa.23.0..sroa_idx66, i64 12, i1 false)
-  %.sroa.2368.0..sroa_idx69 = getelementptr inbounds i8, ptr %446, i64 72
+  %.sroa.2368.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %446, i64 72
   %.sroa.2368.0.copyload70 = load i32, ptr %.sroa.2368.0..sroa_idx69, align 1
-  %.sroa.24.0..sroa_idx73 = getelementptr inbounds i8, ptr %446, i64 76
+  %.sroa.24.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %446, i64 76
   %.sroa.24.0.copyload74 = load i32, ptr %.sroa.24.0..sroa_idx73, align 1
-  %.sroa.25.0..sroa_idx77 = getelementptr inbounds i8, ptr %446, i64 80
+  %.sroa.25.0..sroa_idx77 = getelementptr inbounds nuw i8, ptr %446, i64 80
   %.sroa.25.0.copyload78 = load i64, ptr %.sroa.25.0..sroa_idx77, align 1
-  %447 = getelementptr inbounds i8, ptr %429, i64 16
+  %447 = getelementptr inbounds nuw i8, ptr %429, i64 16
   %448 = load i8, ptr %447, align 8
   br label %449
 
@@ -1506,7 +1506,7 @@ read_tablespace_map.exit:                         ; preds = %355
   call void @llvm.assume(i1 %495)
   %496 = load i32, ptr @recoveryTargetTLI, align 4
   %497 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, i32 noundef %496) #23
-  %498 = getelementptr inbounds i8, ptr %0, i64 32
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %499 = load i64, ptr %498, align 8
   %500 = lshr i64 %499, 32
   %501 = trunc nuw i64 %500 to i32
@@ -1520,7 +1520,7 @@ read_tablespace_map.exit:                         ; preds = %355
   unreachable
 
 508:                                              ; preds = %486
-  %509 = getelementptr inbounds i8, ptr %0, i64 136
+  %509 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %510 = load i64, ptr %509, align 8
   %511 = icmp eq i64 %510, 0
   br i1 %511, label %526, label %512
@@ -1698,35 +1698,35 @@ read_tablespace_map.exit:                         ; preds = %355
   %storemerge170 = phi i32 [ 5, %579 ], [ 4, %591 ], [ 4, %589 ], [ 4, %585 ]
   store i32 %storemerge170, ptr %20, align 8
   %596 = load i64, ptr @CheckPointLoc, align 8
-  %597 = getelementptr inbounds i8, ptr %0, i64 32
+  %597 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %596, ptr %597, align 8
   store i64 %.sroa.014.0, ptr %24, align 8
   store i32 %.sroa.12.0, ptr %25, align 8
-  %.sroa.14.0..sroa_idx31 = getelementptr inbounds i8, ptr %0, i64 52
+  %.sroa.14.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %0, i64 52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.14.0..sroa_idx31, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.14, i64 12, i1 false)
-  %.sroa.1432.0..sroa_idx35 = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.1432.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.sroa.1432.0, ptr %.sroa.1432.0..sroa_idx35, align 8
-  %.sroa.16.0..sroa_idx40 = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.16.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %.sroa.16.0, ptr %.sroa.16.0..sroa_idx40, align 8
-  %.sroa.17.0..sroa_idx44 = getelementptr inbounds i8, ptr %0, i64 76
+  %.sroa.17.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx44, align 4
-  %.sroa.18.0..sroa_idx48 = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.18.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %.sroa.18.0, ptr %.sroa.18.0..sroa_idx48, align 8
-  %.sroa.19.0..sroa_idx52 = getelementptr inbounds i8, ptr %0, i64 84
+  %.sroa.19.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %.sroa.19.0, ptr %.sroa.19.0..sroa_idx52, align 4
-  %.sroa.20.0..sroa_idx56 = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.20.0..sroa_idx56 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %.sroa.20.0, ptr %.sroa.20.0..sroa_idx56, align 8
-  %.sroa.21.0..sroa_idx60 = getelementptr inbounds i8, ptr %0, i64 92
+  %.sroa.21.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %.sroa.21.0, ptr %.sroa.21.0..sroa_idx60, align 4
-  %.sroa.22.0..sroa_idx64 = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.22.0..sroa_idx64 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %.sroa.22.0, ptr %.sroa.22.0..sroa_idx64, align 8
-  %.sroa.23.0..sroa_idx67 = getelementptr inbounds i8, ptr %0, i64 100
+  %.sroa.23.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %0, i64 100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.23.0..sroa_idx67, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.23, i64 12, i1 false)
-  %.sroa.2368.0..sroa_idx71 = getelementptr inbounds i8, ptr %0, i64 112
+  %.sroa.2368.0..sroa_idx71 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %.sroa.2368.0, ptr %.sroa.2368.0..sroa_idx71, align 8
-  %.sroa.24.0..sroa_idx75 = getelementptr inbounds i8, ptr %0, i64 116
+  %.sroa.24.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %.sroa.24.0, ptr %.sroa.24.0..sroa_idx75, align 4
-  %.sroa.25.0..sroa_idx79 = getelementptr inbounds i8, ptr %0, i64 120
+  %.sroa.25.0..sroa_idx79 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %.sroa.25.0, ptr %.sroa.25.0..sroa_idx79, align 8
   %598 = load i8, ptr @InArchiveRecovery, align 1
   %599 = trunc i8 %598 to i1
@@ -1746,10 +1746,10 @@ read_tablespace_map.exit:                         ; preds = %355
   br i1 %.not.i172, label %605, label %618
 
 605:                                              ; preds = %604
-  %606 = getelementptr inbounds i8, ptr %0, i64 152
+  %606 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 %.sroa.014.0, ptr %606, align 8
   %607 = load i8, ptr @backupEndRequired, align 1
-  %608 = getelementptr inbounds i8, ptr %0, i64 168
+  %608 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %609 = and i8 %607, 1
   store i8 %609, ptr %608, align 8
   br i1 %.1178180, label %610, label %618
@@ -1770,20 +1770,20 @@ read_tablespace_map.exit:                         ; preds = %355
 
 615:                                              ; preds = %610, %610
   %616 = load i64, ptr %509, align 8
-  %617 = getelementptr inbounds i8, ptr %0, i64 160
+  %617 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %616, ptr %617, align 8
   br label %618
 
 618:                                              ; preds = %604, %615, %605, %577
   %619 = phi i8 [ %598, %604 ], [ %598, %615 ], [ %598, %605 ], [ %.pre227, %577 ]
-  %620 = getelementptr inbounds i8, ptr %0, i64 152
+  %620 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %621 = load i64, ptr %620, align 8
   store i64 %621, ptr @backupStartPoint, align 8
-  %622 = getelementptr inbounds i8, ptr %0, i64 168
+  %622 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %623 = load i8, ptr %622, align 8
   %624 = and i8 %623, 1
   store i8 %624, ptr @backupEndRequired, align 1
-  %625 = getelementptr inbounds i8, ptr %0, i64 160
+  %625 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %626 = load i64, ptr %625, align 8
   store i64 %626, ptr @backupEndPoint, align 8
   %627 = trunc i8 %619 to i1
@@ -1820,7 +1820,7 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %6 = alloca [1024 x i8], align 16
   %7 = alloca i64, align 8
   %8 = alloca [64 x i8], align 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr @wal_segment_size, align 4
@@ -1893,7 +1893,7 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %52, label %53, label %.thread103
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %0, i64 1313
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1313
   %55 = load i8, ptr %54, align 1
   %56 = trunc i8 %55 to i1
   br i1 %56, label %469, label %.critedge
@@ -1901,17 +1901,17 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
 .critedge:                                        ; preds = %39, %466, %53
   %57 = sext i32 %2 to i64
   %58 = add i64 %1, %57
-  %59 = getelementptr inbounds i8, ptr %10, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %60 = load i8, ptr %59, align 1
   %61 = trunc i8 %60 to i1
-  %62 = getelementptr inbounds i8, ptr %10, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %63 = load i8, ptr %62, align 4
   %64 = trunc i8 %63 to i1
-  %65 = getelementptr inbounds i8, ptr %10, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 1313
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1313
   %70 = load i8, ptr %69, align 1
   %71 = trunc i8 %70 to i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -2019,10 +2019,10 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
 119:                                              ; preds = %117, %110
   call void @KnownAssignedTransactionIdsIdleMaintenance() #23
   %120 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %122 = call i32 @WaitLatch(ptr noundef nonnull %121, i32 noundef 41, i64 noundef %115, i32 noundef 150994948) #23
   %123 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   call void @ResetLatch(ptr noundef nonnull %124) #23
   %125 = call i64 @GetCurrentTimestamp() #23
   call void @HandleStartupProcInterrupts() #23
@@ -2129,8 +2129,8 @@ thread-pre-split.i:                               ; preds = %140, %138
 
 .lr.ph.i.i:                                       ; preds = %164, %158
   %.043124.i.i = phi ptr [ %166, %164 ], [ %163, %158 ]
-  %167 = getelementptr inbounds i8, ptr %.043124.i.i, i64 4
-  %168 = getelementptr inbounds i8, ptr %.043124.i.i, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %.043124.i.i, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %.043124.i.i, i64 16
   %or.cond.i.i = icmp samesign ult i32 %162, 2
   %169 = and i32 %162, 1
   %or.cond3.i.i = icmp eq i32 %169, 0
@@ -2160,7 +2160,7 @@ thread-pre-split.i:                               ; preds = %140, %138
   br i1 %178, label %.thread.i.i, label %179
 
 179:                                              ; preds = %.lr.ph88.i.i
-  %180 = getelementptr inbounds i8, ptr %176, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %181 = load i64, ptr %180, align 8
   %.not52.us.us.i.i = icmp eq i64 %181, 0
   br i1 %.not52.us.us.i.i, label %187, label %182
@@ -2214,7 +2214,7 @@ thread-pre-split.i:                               ; preds = %140, %138
   br i1 %202, label %.thread.i.i, label %203
 
 203:                                              ; preds = %.lr.ph84.i.i
-  %204 = getelementptr inbounds i8, ptr %200, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %205 = load i64, ptr %204, align 8
   %.not52.us.i.i = icmp eq i64 %205, 0
   br i1 %.not52.us.i.i, label %211, label %206
@@ -2268,7 +2268,7 @@ thread-pre-split.i:                               ; preds = %140, %138
   br i1 %226, label %.thread.i.i, label %227
 
 227:                                              ; preds = %.lr.ph75.i.i
-  %228 = getelementptr inbounds i8, ptr %224, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %229 = load i64, ptr %228, align 8
   %.not52.us67.i.i = icmp eq i64 %229, 0
   br i1 %.not52.us67.i.i, label %235, label %230
@@ -2458,24 +2458,24 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split64.us.i.i, %2
   %313 = call i64 @GetCurrentTimestamp() #23
   store i64 %313, ptr @XLogReceiptTime, align 8
   %314 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 96
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 96
   %316 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %315, i8 1, ptr nonnull elementtype(i8) %315) #23, !srcloc !9
   %.not.i62.i = icmp eq i8 %316, 0
   br i1 %.not.i62.i, label %SetCurrentChunkStartTime.exit.i, label %317
 
 317:                                              ; preds = %312
   %318 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 96
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 96
   %320 = call i32 @s_lock(ptr noundef nonnull %319, ptr noundef nonnull @.str.6, i32 noundef 4614, ptr noundef nonnull @__func__.SetCurrentChunkStartTime) #23
   br label %SetCurrentChunkStartTime.exit.i
 
 SetCurrentChunkStartTime.exit.i:                  ; preds = %317, %312
   %321 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 72
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 72
   store i64 %313, ptr %322, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !10
   %323 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 96
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 96
   store i8 0, ptr %324, align 8
   br label %.critedge.i
 
@@ -2531,10 +2531,10 @@ SetCurrentChunkStartTime.exit.i:                  ; preds = %317, %312
   %343 = load ptr, ptr @xlogprefetcher, align 8
   call void @XLogPrefetcherComputeStats(ptr noundef %343) #23
   %344 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 4
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 4
   %346 = call i32 @WaitLatch(ptr noundef nonnull %345, i32 noundef 33, i64 noundef -1, i32 noundef 83886088) #23
   %347 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %348 = getelementptr inbounds i8, ptr %347, i64 4
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 4
   call void @ResetLatch(ptr noundef nonnull %348) #23
   br label %353
 
@@ -2549,7 +2549,7 @@ SetCurrentChunkStartTime.exit.i:                  ; preds = %317, %312
 353:                                              ; preds = %342, %339, %332, %299, %262
   %.1.i = phi i1 [ %.040.i, %332 ], [ %.040.i, %339 ], [ true, %342 ], [ %.040.i, %299 ], [ %.040.i, %262 ]
   %354 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %355 = getelementptr inbounds i8, ptr %354, i64 80
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 80
   %356 = load volatile i32, ptr %355, align 8
   %.not61.i = icmp eq i32 %356, 0
   br i1 %.not61.i, label %358, label %357
@@ -2707,7 +2707,7 @@ emode_for_corrupt_record.exit58:                  ; preds = %411, %417, %420
   %429 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %429, align 4
   %430 = load i32, ptr @curFileTLI, align 4
-  %431 = getelementptr inbounds i8, ptr %0, i64 1224
+  %431 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   store i32 %430, ptr %431, align 8
   %432 = load i8, ptr @StandbyMode, align 1
   %433 = trunc i8 %432 to i1
@@ -2718,14 +2718,14 @@ emode_for_corrupt_record.exit58:                  ; preds = %411, %417, %420
   br i1 %435, label %455, label %436
 
 436:                                              ; preds = %434
-  %437 = getelementptr inbounds i8, ptr %0, i64 1304
+  %437 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %438 = load ptr, ptr %437, align 8
   %439 = load i8, ptr %438, align 1
   %.not53 = icmp eq i8 %439, 0
   br i1 %.not53, label %454, label %440
 
 440:                                              ; preds = %436
-  %441 = getelementptr inbounds i8, ptr %0, i64 48
+  %441 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %442 = load i64, ptr %441, align 8
   %443 = load i32, ptr @readSource, align 4
   %444 = icmp eq i32 %443, 2
@@ -2762,7 +2762,7 @@ emode_for_corrupt_record.exit61:                  ; preds = %440, %446, %449
   br label %469
 
 457:                                              ; preds = %emode_for_corrupt_record.exit, %405, %emode_for_corrupt_record.exit58, %422, %454
-  %458 = getelementptr inbounds i8, ptr %0, i64 1313
+  %458 = getelementptr inbounds nuw i8, ptr %0, i64 1313
   %459 = load i8, ptr %458, align 1
   %460 = trunc i8 %459 to i1
   br i1 %460, label %469, label %461
@@ -2832,7 +2832,7 @@ define internal fastcc ptr @ReadCheckpointRecord(ptr noundef %0, i64 noundef %1,
   br i1 %12, label %.sink.split, label %28
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %9, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %15 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %18, label %16
@@ -2842,7 +2842,7 @@ define internal fastcc ptr @ReadCheckpointRecord(ptr noundef %0, i64 noundef %1,
   br i1 %17, label %.sink.split, label %28
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %9, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %20 = load i8, ptr %19, align 8
   %or.cond.not = icmp ult i8 %20, 32
   br i1 %or.cond.not, label %23, label %21
@@ -2885,27 +2885,27 @@ define internal fastcc ptr @ReadRecord(ptr noundef %0, i32 noundef range(i32 15,
   %6 = alloca [64 x i8], align 16
   %7 = zext i1 %2 to i8
   %8 = tail call ptr @XLogPrefetcherGetReader(ptr noundef %0) #23
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %7, ptr %11, align 4
   store i32 %1, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %8, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
-  %15 = getelementptr inbounds i8, ptr %10, i64 5
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %16 = zext i1 %14 to i8
   store i8 %16, ptr %15, align 1
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %3, ptr %17, align 4
   store i1 false, ptr @lastSourceFailed, align 1
-  %18 = getelementptr inbounds i8, ptr %8, i64 1248
-  %19 = getelementptr inbounds i8, ptr %8, i64 1240
-  %20 = getelementptr inbounds i8, ptr %8, i64 1224
-  %21 = getelementptr inbounds i8, ptr %8, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 1248
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1240
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 1224
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %22 = icmp eq i32 %1, 15
-  %23 = getelementptr inbounds i8, ptr %8, i64 56
-  %24 = getelementptr inbounds i8, ptr %8, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %4
@@ -3122,8 +3122,8 @@ define dso_local ptr @FinishWalRecovery() local_unnamed_addr #1 {
   %3 = load i8, ptr @InRecovery, align 1
   %4 = trunc i8 %3 to i1
   %5 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.028.in = select i1 %4, ptr %7, ptr @CheckPointTLI
   %.0.in = select i1 %4, ptr %6, ptr @CheckPointLoc
   %.0 = load i64, ptr %.0.in, align 8
@@ -3133,11 +3133,11 @@ define dso_local ptr @FinishWalRecovery() local_unnamed_addr #1 {
   %9 = load ptr, ptr @xlogprefetcher, align 8
   %10 = tail call fastcc ptr @ReadRecord(ptr noundef %9, i32 noundef 23, i1 noundef zeroext false, i32 noundef %.028)
   %11 = load ptr, ptr @xlogreader, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 1224
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 1224
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %15, ptr %16, align 8
   %17 = load i8, ptr @ArchiveRecoveryRequested, align 1
   %18 = trunc i8 %17 to i1
@@ -3163,7 +3163,7 @@ define dso_local ptr @FinishWalRecovery() local_unnamed_addr #1 {
   %27 = and i64 %13, -8192
   %28 = tail call ptr @palloc(i64 noundef %25) #23
   %29 = load ptr, ptr @xlogreader, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 168
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 168
   %31 = load ptr, ptr %30, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %31, i64 %25, i1 false)
   br label %32
@@ -3171,9 +3171,9 @@ define dso_local ptr @FinishWalRecovery() local_unnamed_addr #1 {
 32:                                               ; preds = %24, %26
   %.sink34 = phi i64 [ %27, %26 ], [ %13, %24 ]
   %.sink = phi ptr [ %28, %26 ], [ null, %24 ]
-  %33 = getelementptr inbounds i8, ptr %2, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %.sink34, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %.sink, ptr %34, align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %1)
   %35 = load i32, ptr @recoveryTarget, align 4
@@ -3225,25 +3225,25 @@ define dso_local ptr @FinishWalRecovery() local_unnamed_addr #1 {
 getRecoveryStopReason.exit:                       ; preds = %36, %40, %45, %52, %54, %56
   %58 = call ptr @pstrdup(ptr noundef nonnull %1) #23
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %1)
-  %59 = getelementptr inbounds i8, ptr %2, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %58, ptr %59, align 8
   store i64 %.0, ptr %2, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.028, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %13, ptr %61, align 8
   %62 = load i64, ptr @abortedRecPtr, align 8
-  %63 = getelementptr inbounds i8, ptr %2, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 %62, ptr %63, align 8
   %64 = load i64, ptr @missingContrecPtr, align 8
-  %65 = getelementptr inbounds i8, ptr %2, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 %64, ptr %65, align 8
   %.b32 = load i1, ptr @standby_signal_file_found, align 1
-  %66 = getelementptr inbounds i8, ptr %2, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %67 = zext i1 %.b32 to i8
   store i8 %67, ptr %66, align 8
   %.b3133 = load i1, ptr @recovery_signal_file_found, align 1
-  %68 = getelementptr inbounds i8, ptr %2, i64 73
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 73
   %69 = zext i1 %.b3133 to i8
   store i8 %69, ptr %68, align 1
   ret ptr %2
@@ -3293,7 +3293,7 @@ define dso_local void @ShutdownWalRecovery() local_unnamed_addr #1 {
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   call void @DisownLatch(ptr noundef nonnull %22) #23
   br label %23
 
@@ -3325,14 +3325,14 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %10 = alloca i64, align 8
   %11 = alloca i32, align 4
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i8 1, ptr nonnull elementtype(i8) %13) #23, !srcloc !9
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %0
   %16 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = tail call i32 @s_lock(ptr noundef nonnull %17, ptr noundef nonnull @.str.6, i32 noundef 1661, ptr noundef nonnull @__func__.PerformWalRecovery) #23
   br label %19
 
@@ -3344,18 +3344,18 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 0, ptr %25, align 8
   br label %34
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr @xlogreader, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load i64, ptr %28, align 8
   %30 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %33 = load i64, ptr %32, align 8
   br label %34
 
@@ -3363,20 +3363,20 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %.sink159 = phi ptr [ %30, %26 ], [ %24, %23 ]
   %.sink = phi i64 [ %33, %26 ], [ %20, %23 ]
   %CheckPointTLI.sink = phi ptr [ @CheckPointTLI, %26 ], [ @RedoStartTLI, %23 ]
-  %35 = getelementptr inbounds i8, ptr %.sink159, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.sink159, i64 32
   store i64 %.sink, ptr %35, align 8
   %36 = load i32, ptr %CheckPointTLI.sink, align 4
-  %37 = getelementptr inbounds i8, ptr %.sink159, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.sink159, i64 40
   store i32 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.sink159, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.sink159, i64 48
   store i64 %.sink, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %.sink159, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %.sink159, i64 56
   store i32 %36, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %.sink159, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.sink159, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %40, i8 0, i64 20, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !11
   %41 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   store i8 0, ptr %42, align 8
   %43 = tail call i64 @GetCurrentTimestamp() #23
   store i64 %43, ptr @XLogReceiptTime, align 8
@@ -3401,13 +3401,13 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   tail call void @XLogPrefetcherBeginRead(ptr noundef %51, i64 noundef %48) #23
   %54 = load ptr, ptr @xlogprefetcher, align 8
   %55 = tail call fastcc ptr @ReadRecord(ptr noundef %54, i32 noundef 23, i1 noundef zeroext false, i32 noundef %53)
-  %56 = getelementptr inbounds i8, ptr %55, i64 17
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 17
   %57 = load i8, ptr %56, align 1
   %.not13 = icmp eq i8 %57, 0
   br i1 %.not13, label %58, label %62
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %55, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %60 = load i8, ptr %59, align 8
   %61 = and i8 %60, -16
   %.not14 = icmp eq i8 %61, -32
@@ -3417,7 +3417,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
   tail call void @llvm.assume(i1 %63)
   %64 = load ptr, ptr @xlogreader, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load i64, ptr %65, align 8
   %67 = lshr i64 %66, 32
   %68 = trunc nuw i64 %67 to i32
@@ -3443,7 +3443,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
 
 75:                                               ; preds = %.thread
   %76 = load ptr, ptr @xlogreader, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
   %78 = load i64, ptr %77, align 8
   %79 = lshr i64 %78, 32
   %80 = trunc nuw i64 %79 to i32
@@ -3462,13 +3462,13 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   br label %87
 
 87:                                               ; preds = %86, %83
-  %88 = getelementptr inbounds i8, ptr %8, i64 64
-  %89 = getelementptr inbounds i8, ptr %7, i64 80
-  %90 = getelementptr inbounds i8, ptr %6, i64 8
-  %91 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %92 = getelementptr inbounds i8, ptr %2, i64 64
-  %93 = getelementptr inbounds i8, ptr %1, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %94
 
 94:                                               ; preds = %618, %87
@@ -3491,7 +3491,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %103 = load i32, ptr %11, align 4
   %104 = sdiv i32 %103, 10000
   %105 = load ptr, ptr @xlogreader, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %107 = load i64, ptr %106, align 8
   %108 = lshr i64 %107, 32
   %109 = trunc nuw i64 %108 to i32
@@ -3503,7 +3503,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
 112:                                              ; preds = %101, %99, %97, %94
   call void @HandleStartupProcInterrupts() #23
   %113 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 80
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 80
   %115 = load volatile i32, ptr %114, align 8
   %.not16 = icmp eq i32 %115, 0
   br i1 %.not16, label %117, label %116
@@ -3555,7 +3555,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   br i1 %133, label %.thread.i, label %134
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %118, i64 40
+  %135 = getelementptr inbounds nuw i8, ptr %118, i64 40
   %136 = load i64, ptr %135, align 8
   %137 = load i64, ptr @recoveryTargetLSN, align 8
   %.not.i = icmp ult i64 %136, %137
@@ -3580,15 +3580,15 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   br label %recoveryStopsBefore.exit.thread
 
 .thread.i:                                        ; preds = %134, %131, %123, %121
-  %146 = getelementptr inbounds i8, ptr %118, i64 104
+  %146 = getelementptr inbounds nuw i8, ptr %118, i64 104
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 57
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 57
   %149 = load i8, ptr %148, align 1
   %.not27.i = icmp eq i8 %149, 1
   br i1 %.not27.i, label %150, label %217
 
 150:                                              ; preds = %.thread.i
-  %151 = getelementptr inbounds i8, ptr %147, i64 56
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 56
   %152 = load i8, ptr %151, align 8
   %153 = lshr i8 %152, 4
   %154 = and i8 %153, 7
@@ -3600,24 +3600,24 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   ]
 
 155:                                              ; preds = %150
-  %156 = getelementptr inbounds i8, ptr %147, i64 44
+  %156 = getelementptr inbounds nuw i8, ptr %147, i64 44
   %157 = load i32, ptr %156, align 4
   br label %169
 
 158:                                              ; preds = %150
-  %159 = getelementptr inbounds i8, ptr %147, i64 72
+  %159 = getelementptr inbounds nuw i8, ptr %147, i64 72
   %160 = load ptr, ptr %159, align 8
   call void @ParseCommitRecord(i8 noundef zeroext %152, ptr noundef %160, ptr noundef nonnull %7) #23
   %161 = load i32, ptr %89, align 8
   br label %169
 
 162:                                              ; preds = %150
-  %163 = getelementptr inbounds i8, ptr %147, i64 44
+  %163 = getelementptr inbounds nuw i8, ptr %147, i64 44
   %164 = load i32, ptr %163, align 4
   br label %169
 
 165:                                              ; preds = %150
-  %166 = getelementptr inbounds i8, ptr %147, i64 72
+  %166 = getelementptr inbounds nuw i8, ptr %147, i64 72
   %167 = load ptr, ptr %166, align 8
   call void @ParseAbortRecord(i8 noundef zeroext %152, ptr noundef %167, ptr noundef nonnull %8) #23
   %168 = load i32, ptr %88, align 8
@@ -3643,10 +3643,10 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
 178:                                              ; preds = %175, %172, %169
   %.023.i = phi i1 [ false, %172 ], [ %177, %175 ], [ false, %169 ]
   %.val.i = load ptr, ptr %146, align 8
-  %179 = getelementptr inbounds i8, ptr %.val.i, i64 56
+  %179 = getelementptr inbounds nuw i8, ptr %.val.i, i64 56
   %180 = load i8, ptr %179, align 8
   %181 = and i8 %180, -16
-  %182 = getelementptr inbounds i8, ptr %.val.i, i64 57
+  %182 = getelementptr inbounds nuw i8, ptr %.val.i, i64 57
   %183 = load i8, ptr %182, align 1
   %184 = icmp eq i8 %183, 0
   %185 = icmp eq i8 %181, 112
@@ -3671,7 +3671,7 @@ getRecordTimestamp.exit.thread.i:                 ; preds = %188, %186
   br i1 %.023.i, label %203, label %217
 
 getRecordTimestamp.exit.i:                        ; preds = %188, %188, %188, %188, %178
-  %191 = getelementptr inbounds i8, ptr %.val.i, i64 72
+  %191 = getelementptr inbounds nuw i8, ptr %.val.i, i64 72
   %192 = load ptr, ptr %191, align 8
   %193 = load i64, ptr %192, align 8
   %194 = icmp eq i32 %170, 2
@@ -3750,15 +3750,15 @@ recoveryStopsBefore.exit.thread:                  ; preds = %130, %138, %140, %2
   br i1 %226, label %227, label %recoveryApplyDelay.exit.thread
 
 227:                                              ; preds = %224
-  %228 = getelementptr inbounds i8, ptr %218, i64 104
+  %228 = getelementptr inbounds nuw i8, ptr %218, i64 104
   %229 = load ptr, ptr %228, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 57
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 57
   %231 = load i8, ptr %230, align 1
   %.not.i22 = icmp eq i8 %231, 1
   br i1 %.not.i22, label %232, label %recoveryApplyDelay.exit.thread
 
 232:                                              ; preds = %227
-  %233 = getelementptr inbounds i8, ptr %229, i64 56
+  %233 = getelementptr inbounds nuw i8, ptr %229, i64 56
   %234 = load i8, ptr %233, align 8
   %235 = and i8 %234, 112
   switch i8 %235, label %recoveryApplyDelay.exit.thread [
@@ -3777,7 +3777,7 @@ recoveryStopsBefore.exit.thread:                  ; preds = %130, %138, %140, %2
   ]
 
 239:                                              ; preds = %236, %236, %236, %236
-  %240 = getelementptr inbounds i8, ptr %229, i64 72
+  %240 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %241 = load ptr, ptr %240, align 8
   %242 = load i64, ptr %241, align 8
   %243 = zext nneg i32 %219 to i64
@@ -3790,7 +3790,7 @@ recoveryStopsBefore.exit.thread:                  ; preds = %130, %138, %140, %2
 
 .preheader.i:                                     ; preds = %239
   %249 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 4
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 4
   call void @ResetLatch(ptr noundef nonnull %250) #23
   call void @HandleStartupProcInterrupts() #23
   %251 = call fastcc zeroext i1 @CheckForStandbyTrigger()
@@ -3817,10 +3817,10 @@ recoveryStopsBefore.exit.thread:                  ; preds = %130, %138, %140, %2
 
 263:                                              ; preds = %261, %259
   %264 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 4
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 4
   %266 = call i32 @WaitLatch(ptr noundef nonnull %265, i32 noundef 41, i64 noundef %257, i32 noundef 150994947) #23
   %267 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 4
   call void @ResetLatch(ptr noundef nonnull %268) #23
   call void @HandleStartupProcInterrupts() #23
   %269 = call fastcc zeroext i1 @CheckForStandbyTrigger()
@@ -3828,7 +3828,7 @@ recoveryStopsBefore.exit.thread:                  ; preds = %130, %138, %140, %2
 
 recoveryApplyDelay.exit:                          ; preds = %263, %.lr.ph.i, %.preheader.i
   %270 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 80
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 80
   %272 = load volatile i32, ptr %271, align 8
   %.not17 = icmp eq i32 %272, 0
   br i1 %.not17, label %recoveryApplyDelay.exit.thread, label %273
@@ -3845,16 +3845,16 @@ recoveryApplyDelay.exit.thread:                   ; preds = %236, %239, %232, %2
   %275 = load ptr, ptr @error_context_stack, align 8
   store ptr %275, ptr %6, align 8
   store ptr %6, ptr @error_context_stack, align 8
-  %276 = getelementptr inbounds i8, ptr %.1, i64 4
+  %276 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %277 = load i32, ptr %276, align 4
   call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %277) #23
-  %278 = getelementptr inbounds i8, ptr %.1, i64 17
+  %278 = getelementptr inbounds nuw i8, ptr %.1, i64 17
   %279 = load i8, ptr %278, align 1
   %280 = icmp eq i8 %279, 0
   br i1 %280, label %281, label %.thread.i23
 
 281:                                              ; preds = %recoveryApplyDelay.exit.thread
-  %282 = getelementptr inbounds i8, ptr %.1, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %283 = load i8, ptr %282, align 8
   %284 = and i8 %283, -16
   switch i8 %284, label %.thread.i23 [
@@ -3863,19 +3863,19 @@ recoveryApplyDelay.exit.thread:                   ; preds = %236, %239, %232, %2
   ]
 
 285:                                              ; preds = %281, %281
-  %.pn61.in.i = getelementptr inbounds i8, ptr %274, i64 104
+  %.pn61.in.i = getelementptr inbounds nuw i8, ptr %274, i64 104
   %.pn61.i = load ptr, ptr %.pn61.in.i, align 8
-  %.pn.in.i = getelementptr inbounds i8, ptr %.pn61.i, i64 72
+  %.pn.in.i = getelementptr inbounds nuw i8, ptr %.pn61.i, i64 72
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
-  %.039.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.039.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %.039.i = load i32, ptr %.039.in.i, align 1
   %.not.i25 = icmp eq i32 %.039.i, %.140
   br i1 %.not.i25, label %.thread.i23, label %286
 
 286:                                              ; preds = %285
-  %.040.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 12
+  %.040.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 12
   %.040.i = load i32, ptr %.040.in.i, align 1
-  %287 = getelementptr inbounds i8, ptr %274, i64 48
+  %287 = getelementptr inbounds nuw i8, ptr %274, i64 48
   %288 = load i64, ptr %287, align 8
   %.not.i.i = icmp eq i32 %.040.i, %.140
   br i1 %.not.i.i, label %292, label %289
@@ -3927,28 +3927,28 @@ recoveryApplyDelay.exit.thread:                   ; preds = %236, %239, %232, %2
   %.2 = phi i32 [ %.140, %285 ], [ %.140, %recoveryApplyDelay.exit.thread ], [ %.039.i, %300 ], [ %.140, %281 ]
   %.0.i24 = phi i1 [ false, %285 ], [ false, %recoveryApplyDelay.exit.thread ], [ true, %300 ], [ false, %281 ]
   %313 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 96
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 96
   %315 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %314, i8 1, ptr nonnull elementtype(i8) %314) #23, !srcloc !9
   %.not44.i = icmp eq i8 %315, 0
   br i1 %.not44.i, label %320, label %316
 
 316:                                              ; preds = %.thread.i23
   %317 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %318 = getelementptr inbounds i8, ptr %317, i64 96
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 96
   %319 = call i32 @s_lock(ptr noundef nonnull %318, ptr noundef nonnull @.str.6, i32 noundef 1969, ptr noundef nonnull @__func__.ApplyWalRecord) #23
   br label %320
 
 320:                                              ; preds = %316, %.thread.i23
-  %321 = getelementptr inbounds i8, ptr %274, i64 48
+  %321 = getelementptr inbounds nuw i8, ptr %274, i64 48
   %322 = load i64, ptr %321, align 8
   %323 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %324 = getelementptr inbounds i8, ptr %323, i64 48
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 48
   store i64 %322, ptr %324, align 8
-  %325 = getelementptr inbounds i8, ptr %323, i64 56
+  %325 = getelementptr inbounds nuw i8, ptr %323, i64 56
   store i32 %.2, ptr %325, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !12
   %326 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %327 = getelementptr inbounds i8, ptr %326, i64 96
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 96
   store i8 0, ptr %327, align 8
   %328 = load i32, ptr @standbyState, align 4
   %.not45.i = icmp eq i32 %328, 0
@@ -3969,9 +3969,9 @@ recoveryApplyDelay.exit.thread:                   ; preds = %236, %239, %232, %2
   br i1 %334, label %335, label %xlogrecovery_redo.exit.i
 
 335:                                              ; preds = %332
-  %336 = getelementptr inbounds i8, ptr %274, i64 104
+  %336 = getelementptr inbounds nuw i8, ptr %274, i64 104
   %337 = load ptr, ptr %336, align 8
-  %338 = getelementptr inbounds i8, ptr %337, i64 56
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 56
   %339 = load i8, ptr %338, align 8
   %340 = and i8 %339, -16
   %341 = load i64, ptr %321, align 8
@@ -3981,12 +3981,12 @@ recoveryApplyDelay.exit.thread:                   ; preds = %236, %239, %232, %2
   ]
 
 342:                                              ; preds = %335
-  %343 = getelementptr inbounds i8, ptr %337, i64 72
+  %343 = getelementptr inbounds nuw i8, ptr %337, i64 72
   %344 = load ptr, ptr %343, align 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %344, align 1
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %344, i64 8
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %344, i64 8
   %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 1
-  %345 = getelementptr inbounds i8, ptr %274, i64 72
+  %345 = getelementptr inbounds nuw i8, ptr %274, i64 72
   %346 = load i64, ptr %345, align 8
   %.not.i50.i = icmp eq i64 %.sroa.0.0.copyload.i.i, %346
   br i1 %.not.i50.i, label %357, label %347
@@ -4025,7 +4025,7 @@ recoveryApplyDelay.exit.thread:                   ; preds = %236, %239, %232, %2
   br label %xlogrecovery_redo.exit.i
 
 366:                                              ; preds = %335
-  %367 = getelementptr inbounds i8, ptr %337, i64 72
+  %367 = getelementptr inbounds nuw i8, ptr %337, i64 72
   %368 = load ptr, ptr %367, align 8
   %.0.copyload.i.i = load i64, ptr %368, align 1
   %369 = load i64, ptr @backupStartPoint, align 8
@@ -4073,10 +4073,10 @@ xlogrecovery_redo.exit.i:                         ; preds = %377, %376, %375, %3
   br label %GetRmgr.exit.i
 
 GetRmgr.exit.i:                                   ; preds = %390, %xlogrecovery_redo.exit.i
-  %.sroa.1.0..sroa_idx54.i = getelementptr inbounds i8, ptr %388, i64 8
+  %.sroa.1.0..sroa_idx54.i = getelementptr inbounds nuw i8, ptr %388, i64 8
   %.sroa.1.0.copyload55.i = load ptr, ptr %.sroa.1.0..sroa_idx54.i, align 8
   call void %.sroa.1.0.copyload55.i(ptr noundef nonnull %274) #23
-  %391 = getelementptr inbounds i8, ptr %.1, i64 16
+  %391 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %392 = load i8, ptr %391, align 8
   %393 = and i8 %392, 2
   %.not47.i = icmp eq i8 %393, 0
@@ -4086,9 +4086,9 @@ GetRmgr.exit.i:                                   ; preds = %390, %xlogrecovery_
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %395 = getelementptr inbounds i8, ptr %274, i64 104
+  %395 = getelementptr inbounds nuw i8, ptr %274, i64 104
   %396 = load ptr, ptr %395, align 8
-  %397 = getelementptr inbounds i8, ptr %396, i64 57
+  %397 = getelementptr inbounds nuw i8, ptr %396, i64 57
   %398 = load i8, ptr %397, align 1
   %399 = zext i8 %398 to i64
   %400 = getelementptr [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %399
@@ -4103,9 +4103,9 @@ GetRmgr.exit.i:                                   ; preds = %390, %xlogrecovery_
 
 GetRmgr.exit.i.i:                                 ; preds = %402, %394
   %403 = phi ptr [ %396, %394 ], [ %.pre.i.i, %402 ]
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %400, i64 48
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %400, i64 48
   %.sroa.1.0.copyload.i.i = load ptr, ptr %.sroa.1.0..sroa_idx.i.i, align 8
-  %404 = getelementptr inbounds i8, ptr %403, i64 84
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 84
   %405 = load i32, ptr %404, align 4
   %406 = icmp sgt i32 %405, -1
   br i1 %406, label %.lr.ph.i.i, label %verifyBackupPageConsistency.exit.i
@@ -4181,7 +4181,7 @@ BufferGetPage.exit.i.i:                           ; preds = %429, %423
   %444 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
   call void @llvm.assume(i1 %444)
   %445 = call i32 @errcode(i32 noundef 2600) #23
-  %446 = getelementptr inbounds i8, ptr %274, i64 1304
+  %446 = getelementptr inbounds nuw i8, ptr %274, i64 1304
   %447 = load ptr, ptr %446, align 8
   %448 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.122, ptr noundef %447) #23
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2539, ptr noundef nonnull @__func__.verifyBackupPageConsistency) #23
@@ -4210,7 +4210,7 @@ BufferGetPage.exit.i.i:                           ; preds = %429, %423
   %459 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
   call void @llvm.assume(i1 %459)
   %460 = load i32, ptr %3, align 8
-  %461 = getelementptr inbounds i8, ptr %3, i64 4
+  %461 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %462 = load i32, ptr %461, align 4
   %463 = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %464 = load i32, ptr %4, align 4
@@ -4222,7 +4222,7 @@ BufferGetPage.exit.i.i:                           ; preds = %429, %423
 467:                                              ; preds = %455, %BufferGetPage.exit.i.i, %417, %410, %407
   %468 = add i32 %.024.i.i, 1
   %469 = load ptr, ptr %395, align 8
-  %470 = getelementptr inbounds i8, ptr %469, i64 84
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 84
   %471 = load i32, ptr %470, align 4
   %.not.i52.i = icmp sgt i32 %468, %471
   br i1 %.not.i52.i, label %verifyBackupPageConsistency.exit.i, label %407, !llvm.loop !19
@@ -4237,31 +4237,31 @@ verifyBackupPageConsistency.exit.i:               ; preds = %467, %GetRmgr.exit.
   %473 = load ptr, ptr %6, align 8
   store ptr %473, ptr @error_context_stack, align 8
   %474 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %475 = getelementptr inbounds i8, ptr %474, i64 96
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 96
   %476 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %475, i8 1, ptr nonnull elementtype(i8) %475) #23, !srcloc !9
   %.not48.i = icmp eq i8 %476, 0
   br i1 %.not48.i, label %481, label %477
 
 477:                                              ; preds = %472
   %478 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %479 = getelementptr inbounds i8, ptr %478, i64 96
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 96
   %480 = call i32 @s_lock(ptr noundef nonnull %479, ptr noundef nonnull @.str.6, i32 noundef 2006, ptr noundef nonnull @__func__.ApplyWalRecord) #23
   br label %481
 
 481:                                              ; preds = %477, %472
-  %482 = getelementptr inbounds i8, ptr %274, i64 40
+  %482 = getelementptr inbounds nuw i8, ptr %274, i64 40
   %483 = load i64, ptr %482, align 8
   %484 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %485 = getelementptr inbounds i8, ptr %484, i64 24
+  %485 = getelementptr inbounds nuw i8, ptr %484, i64 24
   store i64 %483, ptr %485, align 8
   %486 = load i64, ptr %321, align 8
-  %487 = getelementptr inbounds i8, ptr %484, i64 32
+  %487 = getelementptr inbounds nuw i8, ptr %484, i64 32
   store i64 %486, ptr %487, align 8
-  %488 = getelementptr inbounds i8, ptr %484, i64 40
+  %488 = getelementptr inbounds nuw i8, ptr %484, i64 40
   store i32 %.2, ptr %488, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !20
   %489 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %490 = getelementptr inbounds i8, ptr %489, i64 96
+  %490 = getelementptr inbounds nuw i8, ptr %489, i64 96
   store i8 0, ptr %490, align 8
   %491 = load i8, ptr @EnableHotStandby, align 1
   %492 = trunc i8 %491 to i1
@@ -4303,12 +4303,12 @@ ApplyWalRecord.exit:                              ; preds = %498, %499
   br i1 %503, label %504, label %618
 
 504:                                              ; preds = %ApplyWalRecord.exit
-  %505 = getelementptr inbounds i8, ptr %501, i64 104
+  %505 = getelementptr inbounds nuw i8, ptr %501, i64 104
   %506 = load ptr, ptr %505, align 8
-  %507 = getelementptr inbounds i8, ptr %506, i64 56
+  %507 = getelementptr inbounds nuw i8, ptr %506, i64 56
   %508 = load i8, ptr %507, align 8
   %509 = and i8 %508, -16
-  %510 = getelementptr inbounds i8, ptr %506, i64 57
+  %510 = getelementptr inbounds nuw i8, ptr %506, i64 57
   %511 = load i8, ptr %510, align 1
   %512 = load i32, ptr @recoveryTarget, align 4
   %513 = icmp eq i32 %512, 3
@@ -4319,9 +4319,9 @@ ApplyWalRecord.exit:                              ; preds = %498, %499
   br i1 %or.cond5.i, label %516, label %530
 
 516:                                              ; preds = %504
-  %517 = getelementptr inbounds i8, ptr %506, i64 72
+  %517 = getelementptr inbounds nuw i8, ptr %506, i64 72
   %518 = load ptr, ptr %517, align 8
-  %519 = getelementptr inbounds i8, ptr %518, i64 8
+  %519 = getelementptr inbounds nuw i8, ptr %518, i64 8
   %520 = load ptr, ptr @recoveryTargetName, align 8
   %521 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %519, ptr noundef nonnull dereferenceable(1) %520) #26
   %522 = icmp eq i32 %521, 0
@@ -4354,7 +4354,7 @@ getRecordTimestamp.exit.i30:                      ; preds = %516
   br i1 %534, label %535, label %547
 
 535:                                              ; preds = %532
-  %536 = getelementptr inbounds i8, ptr %501, i64 40
+  %536 = getelementptr inbounds nuw i8, ptr %501, i64 40
   %537 = load i64, ptr %536, align 8
   %538 = load i64, ptr @recoveryTargetLSN, align 8
   %.not.i29 = icmp ult i64 %537, %538
@@ -4403,28 +4403,28 @@ getRecordTimestamp.exit.i30:                      ; preds = %516
   ]
 
 554:                                              ; preds = %551, %551, %551, %551
-  %555 = getelementptr inbounds i8, ptr %506, i64 72
+  %555 = getelementptr inbounds nuw i8, ptr %506, i64 72
   %556 = load ptr, ptr %555, align 8
   %557 = load i64, ptr %556, align 8
   %558 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %559 = getelementptr inbounds i8, ptr %558, i64 96
+  %559 = getelementptr inbounds nuw i8, ptr %558, i64 96
   %560 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %559, i8 1, ptr nonnull elementtype(i8) %559) #23, !srcloc !9
   %.not.i.i28 = icmp eq i8 %560, 0
   br i1 %.not.i.i28, label %SetLatestXTime.exit.i, label %561
 
 561:                                              ; preds = %554
   %562 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %563 = getelementptr inbounds i8, ptr %562, i64 96
+  %563 = getelementptr inbounds nuw i8, ptr %562, i64 96
   %564 = call i32 @s_lock(ptr noundef nonnull %563, ptr noundef nonnull @.str.6, i32 noundef 4585, ptr noundef nonnull @__func__.SetLatestXTime) #23
   br label %SetLatestXTime.exit.i
 
 SetLatestXTime.exit.i:                            ; preds = %561, %554
   %565 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %566 = getelementptr inbounds i8, ptr %565, i64 64
+  %566 = getelementptr inbounds nuw i8, ptr %565, i64 64
   store i64 %557, ptr %566, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !21
   %567 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %568 = getelementptr inbounds i8, ptr %567, i64 96
+  %568 = getelementptr inbounds nuw i8, ptr %567, i64 96
   store i8 0, ptr %568, align 8
   %.pre = load ptr, ptr %505, align 8
   br label %getRecordTimestamp.exit60.i
@@ -4438,25 +4438,25 @@ getRecordTimestamp.exit60.i:                      ; preds = %SetLatestXTime.exit
   ]
 
 570:                                              ; preds = %getRecordTimestamp.exit60.i
-  %571 = getelementptr inbounds i8, ptr %569, i64 72
+  %571 = getelementptr inbounds nuw i8, ptr %569, i64 72
   %572 = load ptr, ptr %571, align 8
-  %573 = getelementptr inbounds i8, ptr %569, i64 56
+  %573 = getelementptr inbounds nuw i8, ptr %569, i64 56
   %574 = load i8, ptr %573, align 8
   call void @ParseCommitRecord(i8 noundef zeroext %574, ptr noundef %572, ptr noundef nonnull %1) #23
   %575 = load i32, ptr %93, align 8
   br label %585
 
 576:                                              ; preds = %getRecordTimestamp.exit60.i
-  %577 = getelementptr inbounds i8, ptr %569, i64 72
+  %577 = getelementptr inbounds nuw i8, ptr %569, i64 72
   %578 = load ptr, ptr %577, align 8
-  %579 = getelementptr inbounds i8, ptr %569, i64 56
+  %579 = getelementptr inbounds nuw i8, ptr %569, i64 56
   %580 = load i8, ptr %579, align 8
   call void @ParseAbortRecord(i8 noundef zeroext %580, ptr noundef %578, ptr noundef nonnull %2) #23
   %581 = load i32, ptr %92, align 8
   br label %585
 
 582:                                              ; preds = %getRecordTimestamp.exit60.i
-  %583 = getelementptr inbounds i8, ptr %569, i64 44
+  %583 = getelementptr inbounds nuw i8, ptr %569, i64 44
   %584 = load i32, ptr %583, align 4
   br label %585
 
@@ -4576,20 +4576,20 @@ recoveryStopsAfter.exit.thread:                   ; preds = %617, %getRecordTime
 
 630:                                              ; preds = %627
   %631 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %632 = getelementptr inbounds i8, ptr %631, i64 96
+  %632 = getelementptr inbounds nuw i8, ptr %631, i64 96
   %633 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %632, i8 1, ptr nonnull elementtype(i8) %632) #23, !srcloc !9
   %.not.i31 = icmp eq i8 %633, 0
   br i1 %.not.i31, label %638, label %634
 
 634:                                              ; preds = %630
   %635 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %636 = getelementptr inbounds i8, ptr %635, i64 96
+  %636 = getelementptr inbounds nuw i8, ptr %635, i64 96
   %637 = call i32 @s_lock(ptr noundef nonnull %636, ptr noundef nonnull @.str.6, i32 noundef 3090, ptr noundef nonnull @__func__.SetRecoveryPause) #23
   br label %638
 
 638:                                              ; preds = %634, %630
   %639 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %640 = getelementptr inbounds i8, ptr %639, i64 80
+  %640 = getelementptr inbounds nuw i8, ptr %639, i64 80
   %641 = load i32, ptr %640, align 8
   %642 = icmp eq i32 %641, 0
   br i1 %642, label %643, label %SetRecoveryPause.exit
@@ -4601,7 +4601,7 @@ recoveryStopsAfter.exit.thread:                   ; preds = %617, %getRecordTime
 SetRecoveryPause.exit:                            ; preds = %638, %643
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !23
   %644 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %645 = getelementptr inbounds i8, ptr %644, i64 96
+  %645 = getelementptr inbounds nuw i8, ptr %644, i64 96
   store i8 0, ptr %645, align 8
   call fastcc void @recoveryPausesHere(i1 noundef zeroext true)
   br label %.loopexit
@@ -4614,7 +4614,7 @@ SetRecoveryPause.exit:                            ; preds = %638, %643
 
 647:                                              ; preds = %.loopexit
   %648 = load ptr, ptr @xlogreader, align 8
-  %649 = getelementptr inbounds i8, ptr %648, i64 40
+  %649 = getelementptr inbounds nuw i8, ptr %648, i64 40
   %650 = load i64, ptr %649, align 8
   %651 = lshr i64 %650, 32
   %652 = trunc nuw i64 %651 to i32
@@ -4626,24 +4626,24 @@ SetRecoveryPause.exit:                            ; preds = %638, %643
 
 656:                                              ; preds = %.loopexit, %647
   %657 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %658 = getelementptr inbounds i8, ptr %657, i64 96
+  %658 = getelementptr inbounds nuw i8, ptr %657, i64 96
   %659 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %658, i8 1, ptr nonnull elementtype(i8) %658) #23, !srcloc !9
   %.not.i33 = icmp eq i8 %659, 0
   br i1 %.not.i33, label %GetLatestXTime.exit, label %660
 
 660:                                              ; preds = %656
   %661 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %662 = getelementptr inbounds i8, ptr %661, i64 96
+  %662 = getelementptr inbounds nuw i8, ptr %661, i64 96
   %663 = call i32 @s_lock(ptr noundef nonnull %662, ptr noundef nonnull @.str.6, i32 noundef 4598, ptr noundef nonnull @__func__.GetLatestXTime) #23
   br label %GetLatestXTime.exit
 
 GetLatestXTime.exit:                              ; preds = %656, %660
   %664 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %665 = getelementptr inbounds i8, ptr %664, i64 64
+  %665 = getelementptr inbounds nuw i8, ptr %664, i64 64
   %666 = load i64, ptr %665, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !24
   %667 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %668 = getelementptr inbounds i8, ptr %667, i64 96
+  %668 = getelementptr inbounds nuw i8, ptr %667, i64 96
   store i8 0, ptr %668, align 8
   %.not19 = icmp eq i64 %666, 0
   br i1 %.not19, label %674, label %669
@@ -4708,10 +4708,10 @@ define internal fastcc void @CheckRecoveryConsistency() unnamed_addr #1 {
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = freeze i64 %7
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = load i64, ptr @backupEndPoint, align 8
   %12 = add i64 %11, -1
@@ -4770,7 +4770,7 @@ define internal fastcc void @CheckRecoveryConsistency() unnamed_addr #1 {
 
 .lr.ph.i:                                         ; preds = %35, %.backedge.i
   %38 = phi ptr [ %55, %.backedge.i ], [ %37, %35 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 19
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 19
   %40 = call i64 @strspn(ptr noundef nonnull %39, ptr noundef nonnull @.str.128) #26
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #26
   %.not7.i = icmp eq i64 %40, %41
@@ -4838,14 +4838,14 @@ CheckTablespaceDirectory.exit:                    ; preds = %.backedge.i, %35
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 96
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 96
   %77 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %76, i8 1, ptr nonnull elementtype(i8) %76) #23, !srcloc !9
   %.not12 = icmp eq i8 %77, 0
   br i1 %.not12, label %82, label %78
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 96
   %81 = call i32 @s_lock(ptr noundef nonnull %80, ptr noundef nonnull @.str.6, i32 noundef 2259, ptr noundef nonnull @__func__.CheckRecoveryConsistency) #23
   br label %82
 
@@ -4854,7 +4854,7 @@ CheckTablespaceDirectory.exit:                    ; preds = %.backedge.i, %35
   store i8 1, ptr %83, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !26
   %84 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 96
   store i8 0, ptr %85, align 8
   store i8 1, ptr @LocalHotStandbyActive, align 1
   call void @SendPostmasterSignal(i32 noundef 1) #23
@@ -4903,24 +4903,24 @@ define internal fastcc void @recoveryPausesHere(i1 noundef zeroext %0) unnamed_a
 
 11:                                               ; preds = %.preheader, %ConfirmRecoveryPaused.exit
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i8 1, ptr nonnull elementtype(i8) %13) #23, !srcloc !9
   %.not.i = icmp eq i8 %14, 0
   br i1 %.not.i, label %GetRecoveryPauseState.exit, label %15
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = tail call i32 @s_lock(ptr noundef nonnull %17, ptr noundef nonnull @.str.6, i32 noundef 3072, ptr noundef nonnull @__func__.GetRecoveryPauseState) #23
   br label %GetRecoveryPauseState.exit
 
 GetRecoveryPauseState.exit:                       ; preds = %11, %15
   %19 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = load i32, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !27
   %22 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
   store i8 0, ptr %23, align 8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %44, label %24
@@ -4932,20 +4932,20 @@ GetRecoveryPauseState.exit:                       ; preds = %11, %15
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %28, i8 1, ptr nonnull elementtype(i8) %28) #23, !srcloc !9
   %.not.i1 = icmp eq i8 %29, 0
   br i1 %.not.i1, label %34, label %30
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = tail call i32 @s_lock(ptr noundef nonnull %32, ptr noundef nonnull @.str.6, i32 noundef 3111, ptr noundef nonnull @__func__.ConfirmRecoveryPaused) #23
   br label %34
 
 34:                                               ; preds = %30, %26
   %35 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %39, label %ConfirmRecoveryPaused.exit
@@ -4957,9 +4957,9 @@ GetRecoveryPauseState.exit:                       ; preds = %11, %15
 ConfirmRecoveryPaused.exit:                       ; preds = %34, %39
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !28
   %40 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   store i8 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 84
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 84
   %43 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %42, i64 noundef 1000, i32 noundef 134217774) #23
   br label %11, !llvm.loop !29
 
@@ -4977,20 +4977,20 @@ declare void @proc_exit(i32 noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define dso_local void @SetRecoveryPause(i1 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !9
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.6, i32 noundef 3090, ptr noundef nonnull @__func__.SetRecoveryPause) #23
   br label %9
 
 9:                                                ; preds = %1, %5
   %10 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   br i1 %0, label %12, label %18
 
 12:                                               ; preds = %9
@@ -5005,7 +5005,7 @@ define dso_local void @SetRecoveryPause(i1 noundef zeroext %0) local_unnamed_add
 .thread:                                          ; preds = %15, %12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !23
   %16 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store i8 0, ptr %17, align 8
   br label %22
 
@@ -5013,9 +5013,9 @@ define dso_local void @SetRecoveryPause(i1 noundef zeroext %0) local_unnamed_add
   store i32 0, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !23
   %19 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
   store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 84
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 84
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %21) #23
   br label %22
 
@@ -5030,33 +5030,33 @@ declare ptr @pg_rusage_show(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @GetLatestXTime() local_unnamed_addr #1 {
   %1 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !9
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 4598, ptr noundef nonnull @__func__.GetLatestXTime) #23
   br label %8
 
 8:                                                ; preds = %0, %4
   %9 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i64, ptr %10, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !24
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i8 0, ptr %13, align 8
   ret i64 %11
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @xlog_outdesc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 57
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 57
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr [0 x %struct.RmgrData], ptr @RmgrTable, i64 0, i64 %7
@@ -5073,11 +5073,11 @@ define dso_local void @xlog_outdesc(ptr noundef %0, ptr noundef %1) local_unname
 GetRmgr.exit:                                     ; preds = %2, %10
   %11 = phi ptr [ %4, %2 ], [ %.pre, %10 ]
   %.sroa.0.0.copyload = phi ptr [ %9, %2 ], [ %.sroa.0.0.copyload.pre, %10 ]
-  %.sroa.211.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.211.0.copyload = load ptr, ptr %.sroa.211.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i8, ptr %12, align 8
   tail call void @appendStringInfoString(ptr noundef %0, ptr noundef %.sroa.0.0.copyload) #23
   tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 47) #23
@@ -5109,24 +5109,24 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GetRecoveryPauseState() local_unnamed_addr #1 {
   %1 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !9
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 3072, ptr noundef nonnull @__func__.GetRecoveryPauseState) #23
   br label %8
 
 8:                                                ; preds = %0, %4
   %9 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load i32, ptr %10, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !27
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i8 0, ptr %13, align 8
   ret i32 %11
 }
@@ -5170,26 +5170,26 @@ define dso_local zeroext i1 @PromoteIsTriggered() local_unnamed_addr #1 {
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #23, !srcloc !9
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = tail call i32 @s_lock(ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i32 noundef 4402, ptr noundef nonnull @__func__.PromoteIsTriggered) #23
   br label %11
 
 11:                                               ; preds = %3, %7
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 1
   store i8 %15, ptr @LocalPromoteIsTriggered, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !33
   %16 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store i8 0, ptr %17, align 8
   %18 = load i8, ptr @LocalPromoteIsTriggered, align 1
   %19 = trunc nuw i8 %18 to i1
@@ -5217,7 +5217,7 @@ define dso_local noundef zeroext i1 @CheckPromoteSignal() local_unnamed_addr #9 
 ; Function Attrs: nounwind uwtable
 define dso_local void @WakeupRecovery() local_unnamed_addr #1 {
   %1 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @SetLatch(ptr noundef nonnull %2) #23
   ret void
 }
@@ -5238,14 +5238,14 @@ define dso_local zeroext i1 @HotStandbyActive() local_unnamed_addr #1 {
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #23, !srcloc !9
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = tail call i32 @s_lock(ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i32 noundef 4512, ptr noundef nonnull @__func__.HotStandbyActive) #23
   br label %11
 
@@ -5256,7 +5256,7 @@ define dso_local zeroext i1 @HotStandbyActive() local_unnamed_addr #1 {
   store i8 %14, ptr @LocalHotStandbyActive, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !34
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i8 0, ptr %16, align 8
   %17 = load i8, ptr @LocalHotStandbyActive, align 1
   %18 = trunc nuw i8 %17 to i1
@@ -5270,26 +5270,26 @@ define dso_local zeroext i1 @HotStandbyActive() local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @GetXLogReplayRecPtr(ptr noundef writeonly %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !9
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.6, i32 noundef 4542, ptr noundef nonnull @__func__.GetXLogReplayRecPtr) #23
   br label %9
 
 9:                                                ; preds = %1, %5
   %10 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !35
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i8 0, ptr %16, align 8
   %.not3 = icmp eq ptr %0, null
   br i1 %.not3, label %18, label %17
@@ -5305,26 +5305,26 @@ define dso_local i64 @GetXLogReplayRecPtr(ptr noundef writeonly %0) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @GetCurrentReplayRecPtr(ptr noundef writeonly %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !9
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.6, i32 noundef 4565, ptr noundef nonnull @__func__.GetCurrentReplayRecPtr) #23
   br label %9
 
 9:                                                ; preds = %1, %5
   %10 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load i32, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !36
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i8 0, ptr %16, align 8
   %.not3 = icmp eq ptr %0, null
   br i1 %.not3, label %18, label %17
@@ -5340,24 +5340,24 @@ define dso_local i64 @GetCurrentReplayRecPtr(ptr noundef writeonly %0) local_unn
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @GetCurrentChunkReplayStartTime() local_unnamed_addr #1 {
   %1 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !9
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 4628, ptr noundef nonnull @__func__.GetCurrentChunkReplayStartTime) #23
   br label %8
 
 8:                                                ; preds = %0, %4
   %9 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load i64, ptr %10, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !37
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i8 0, ptr %13, align 8
   ret i64 %11
 }
@@ -5412,24 +5412,24 @@ define dso_local void @RecoveryRequiresIntParameter(ptr noundef %0, i32 noundef 
 20:                                               ; preds = %.preheader, %ConfirmRecoveryPaused.exit
   %.0 = phi i1 [ %.1, %ConfirmRecoveryPaused.exit ], [ false, %.preheader ]
   %21 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #23, !srcloc !9
   %.not.i = icmp eq i8 %23, 0
   br i1 %.not.i, label %GetRecoveryPauseState.exit, label %24
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = tail call i32 @s_lock(ptr noundef nonnull %26, ptr noundef nonnull @.str.6, i32 noundef 3072, ptr noundef nonnull @__func__.GetRecoveryPauseState) #23
   br label %GetRecoveryPauseState.exit
 
 GetRecoveryPauseState.exit:                       ; preds = %20, %24
   %28 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load i32, ptr %29, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !27
   %31 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   store i8 0, ptr %32, align 8
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %60, label %33
@@ -5457,20 +5457,20 @@ GetRecoveryPauseState.exit:                       ; preds = %20, %24
 42:                                               ; preds = %33, %35, %37
   %.1 = phi i1 [ %.0.mux, %33 ], [ true, %37 ], [ true, %35 ]
   %43 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %44, i8 1, ptr nonnull elementtype(i8) %44) #23, !srcloc !9
   %.not.i13 = icmp eq i8 %45, 0
   br i1 %.not.i13, label %50, label %46
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %49 = tail call i32 @s_lock(ptr noundef nonnull %48, ptr noundef nonnull @.str.6, i32 noundef 3111, ptr noundef nonnull @__func__.ConfirmRecoveryPaused) #23
   br label %50
 
 50:                                               ; preds = %46, %42
   %51 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 1
   br i1 %54, label %55, label %ConfirmRecoveryPaused.exit
@@ -5482,9 +5482,9 @@ GetRecoveryPauseState.exit:                       ; preds = %20, %24
 ConfirmRecoveryPaused.exit:                       ; preds = %50, %55
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !28
   %56 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 96
   store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 84
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 84
   %59 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %58, i64 noundef 1000, i32 noundef 134217774) #23
   br label %20, !llvm.loop !38
 
@@ -5537,24 +5537,24 @@ define internal fastcc noundef zeroext i1 @CheckForStandbyTrigger() unnamed_addr
   %14 = tail call i32 @unlink(ptr noundef nonnull @.str.1) #23
   tail call void @ResetPromoteSignaled() #23
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i8 1, ptr nonnull elementtype(i8) %16) #23, !srcloc !9
   %.not.i = icmp eq i8 %17, 0
   br i1 %.not.i, label %22, label %18
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %21 = tail call i32 @s_lock(ptr noundef nonnull %20, ptr noundef nonnull @.str.6, i32 noundef 4412, ptr noundef nonnull @__func__.SetPromoteIsTriggered) #23
   br label %22
 
 22:                                               ; preds = %18, %13
   %23 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 1, ptr %24, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !39
   %25 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store i8 0, ptr %26, align 8
   %27 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %26, i8 1, ptr nonnull elementtype(i8) %26) #23, !srcloc !9
   %.not.i.i = icmp eq i8 %27, 0
@@ -5562,19 +5562,19 @@ define internal fastcc noundef zeroext i1 @CheckForStandbyTrigger() unnamed_addr
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %31 = tail call i32 @s_lock(ptr noundef nonnull %30, ptr noundef nonnull @.str.6, i32 noundef 3090, ptr noundef nonnull @__func__.SetRecoveryPause) #23
   br label %SetPromoteIsTriggered.exit
 
 SetPromoteIsTriggered.exit:                       ; preds = %22, %28
   %32 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   store i32 0, ptr %33, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !23
   %34 = load ptr, ptr @XLogRecoveryCtl, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   store i8 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 84
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 84
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %36) #23
   store i8 1, ptr @LocalPromoteIsTriggered, align 1
   br label %37
@@ -6080,16 +6080,16 @@ define internal void @rm_redo_error_callback(ptr noundef %0) #1 {
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %9 = load i32, ptr %8, align 4
   %.not13.i = icmp slt i32 %9, 0
   br i1 %.not13.i, label %xlog_block_info.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %12
 
 12:                                               ; preds = %31, %.lr.ph.i
@@ -6132,7 +6132,7 @@ define internal void @rm_redo_error_callback(ptr noundef %0) #1 {
 31:                                               ; preds = %30, %23, %12
   %32 = add i32 %.014.i, 1
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 84
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 84
   %35 = load i32, ptr %34, align 4
   %.not.i = icmp sgt i32 %32, %35
   br i1 %.not.i, label %xlog_block_info.exit, label %12, !llvm.loop !40
@@ -6142,7 +6142,7 @@ xlog_block_info.exit:                             ; preds = %31, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %36 = call i32 @set_errcontext_domain(ptr noundef null) #23
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load i64, ptr %37, align 8
   %39 = lshr i64 %38, 32
   %40 = trunc nuw i64 %39 to i32
@@ -6245,14 +6245,14 @@ define internal fastcc noundef zeroext i1 @rescanLatestTimeLine(i32 noundef %0, 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = load i32, ptr @recoveryTargetTLI, align 4
   %12 = icmp sgt i32 %10, 0
   br i1 %12, label %.lr.ph38, label %._crit_edge
 
 .lr.ph38:                                         ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load ptr, ptr %13, align 8
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %16
@@ -6279,7 +6279,7 @@ define internal fastcc noundef zeroext i1 @rescanLatestTimeLine(i32 noundef %0, 
   br label %.sink.split
 
 .split:                                           ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %18, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = icmp ult i64 %25, %1
   br i1 %26, label %27, label %34

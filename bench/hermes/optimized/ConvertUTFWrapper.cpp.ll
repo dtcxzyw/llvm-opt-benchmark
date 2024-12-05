@@ -108,10 +108,10 @@ entry:
   %TargetStart = alloca ptr, align 8
   store i32 %Source, ptr %Source.addr, align 4
   store ptr %Source.addr, ptr %SourceStart, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %Source.addr, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %Source.addr, i64 4
   %0 = load ptr, ptr %ResultPtr, align 8
   store ptr %0, ptr %TargetStart, align 8
-  %add.ptr1 = getelementptr inbounds i8, ptr %0, i64 4
+  %add.ptr1 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %call = call noundef i32 @_ZN4llvh18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef nonnull %SourceStart, ptr noundef nonnull %add.ptr, ptr noundef nonnull %TargetStart, ptr noundef nonnull %add.ptr1, i32 noundef 0) #12
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -145,7 +145,7 @@ land.rhs9:                                        ; preds = %land.rhs
 
 land.end13.sink.split:                            ; preds = %land.rhs, %land.rhs9
   %.sink7 = phi i8 [ -1, %land.rhs9 ], [ -2, %land.rhs ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %S.coerce0, i64 1
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %S.coerce0, i64 1
   %1 = load i8, ptr %arrayidx.i, align 1
   %cmp5 = icmp eq i8 %1, %.sink7
   br label %land.end13
@@ -178,7 +178,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp, label %if.then6, label %if.end22
 
 if.then6:                                         ; preds = %if.end3
-  %_M_finish.i = getelementptr inbounds i8, ptr %ByteSwapped, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %ByteSwapped, i64 8
   call void @_ZNSt6vectorItSaItEE15_M_range_insertIPKtEEvN9__gnu_cxx17__normal_iteratorIPtS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %ByteSwapped, ptr null, ptr noundef nonnull %SrcBytes.coerce0, ptr noundef nonnull %add.ptr.i)
   %1 = load ptr, ptr %ByteSwapped, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
@@ -197,7 +197,7 @@ for.body.preheader:                               ; preds = %if.then6
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %5 = load ptr, ptr %ByteSwapped, align 8
-  %add.ptr.i15 = getelementptr inbounds i16, ptr %5, i64 %indvars.iv
+  %add.ptr.i15 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
   %6 = load i16, ptr %add.ptr.i15, align 2
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %6)
   store i16 %rev.i, ptr %add.ptr.i15, align 2
@@ -229,7 +229,7 @@ if.end22:                                         ; preds = %for.end, %if.end3
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end22
-  %incdec.ptr = getelementptr inbounds i8, ptr %10, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %10, i64 2
   store ptr %incdec.ptr, ptr %Src, align 8
   br label %if.end27
 
@@ -308,15 +308,15 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %Size.i.i = getelementptr inbounds i8, ptr %DstUTF16, i64 8
+  %Size.i.i = getelementptr inbounds nuw i8, ptr %DstUTF16, i64 8
   %0 = load i32, ptr %Size.i.i, align 8
-  %Capacity.i.i = getelementptr inbounds i8, ptr %DstUTF16, i64 12
+  %Capacity.i.i = getelementptr inbounds nuw i8, ptr %DstUTF16, i64 12
   %1 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i = icmp ult i32 %0, %1
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseItLb1EE9push_backERKt.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %DstUTF16, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %DstUTF16, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %DstUTF16, ptr noundef nonnull %add.ptr.i.i.i.i, i64 noundef 0, i64 noundef 2) #12
   %.pre.i = load i32, ptr %Size.i.i, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseItLb1EE9push_backERKt.exit
@@ -325,7 +325,7 @@ _ZN4llvh23SmallVectorTemplateBaseItLb1EE9push_backERKt.exit: ; preds = %if.then,
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %if.then ]
   %3 = load ptr, ptr %DstUTF16, align 8
   %conv.i3.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds i16, ptr %3, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %3, i64 %conv.i3.i
   store i16 0, ptr %add.ptr.i.i, align 1
   br label %return
 
@@ -333,7 +333,7 @@ if.end:                                           ; preds = %entry
   store ptr %SrcUTF8.coerce0, ptr %Src, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %SrcUTF8.coerce0, i64 %SrcUTF8.coerce1
   %add = add i64 %SrcUTF8.coerce1, 1
-  %Size.i.i11 = getelementptr inbounds i8, ptr %DstUTF16, i64 8
+  %Size.i.i11 = getelementptr inbounds nuw i8, ptr %DstUTF16, i64 8
   %4 = load i32, ptr %Size.i.i11, align 8
   %conv.i.i = zext i32 %4 to i64
   %cmp.i12 = icmp ult i64 %add, %conv.i.i
@@ -344,14 +344,14 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp5.i, label %if.then6.i, label %_ZN4llvh15SmallVectorImplItE6resizeEm.exit
 
 if.then6.i:                                       ; preds = %if.else.i
-  %Capacity.i.i13 = getelementptr inbounds i8, ptr %DstUTF16, i64 12
+  %Capacity.i.i13 = getelementptr inbounds nuw i8, ptr %DstUTF16, i64 12
   %5 = load i32, ptr %Capacity.i.i13, align 4
   %conv.i15.i = zext i32 %5 to i64
   %cmp8.i = icmp ugt i64 %add, %conv.i15.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end.i
 
 if.then9.i:                                       ; preds = %if.then6.i
-  %add.ptr.i.i.i.i15 = getelementptr inbounds i8, ptr %DstUTF16, i64 16
+  %add.ptr.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %DstUTF16, i64 16
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %DstUTF16, ptr noundef nonnull %add.ptr.i.i.i.i15, i64 noundef %add, i64 noundef 2) #12
   %.pre.i16 = load i32, ptr %Size.i.i11, align 8
   %.pre22.i = zext i32 %.pre.i16 to i64
@@ -380,7 +380,7 @@ _ZN4llvh15SmallVectorImplItE6resizeEm.exit:       ; preds = %if.else.i, %if.end1
   %conv.i.pre-phi = phi i64 [ %conv.i.i, %if.else.i ], [ %.pre, %if.end15.sink.split.i ]
   %9 = load ptr, ptr %DstUTF16, align 8
   store ptr %9, ptr %Dst, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %9, i64 %conv.i.pre-phi
+  %add.ptr = getelementptr inbounds nuw i16, ptr %9, i64 %conv.i.pre-phi
   %call6 = call noundef i32 @_ZN4llvh18ConvertUTF8toUTF16EPPKhS1_PPtS3_NS_15ConversionFlagsE(ptr noundef nonnull %Src, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %Dst, ptr noundef %add.ptr, i32 noundef 0) #12
   %cmp.not = icmp eq i32 %call6, 0
   br i1 %cmp.not, label %if.end8, label %if.then7
@@ -406,14 +406,14 @@ if.else.i21:                                      ; preds = %if.end8
   br i1 %cmp5.i22, label %if.then6.i23, label %_ZN4llvh15SmallVectorImplItE6resizeEm.exit38
 
 if.then6.i23:                                     ; preds = %if.else.i21
-  %Capacity.i.i24 = getelementptr inbounds i8, ptr %DstUTF16, i64 12
+  %Capacity.i.i24 = getelementptr inbounds nuw i8, ptr %DstUTF16, i64 12
   %13 = load i32, ptr %Capacity.i.i24, align 4
   %conv.i15.i25 = zext i32 %13 to i64
   %cmp8.i26 = icmp ugt i64 %sub.ptr.div, %conv.i15.i25
   br i1 %cmp8.i26, label %if.then9.i34, label %if.end.i27
 
 if.then9.i34:                                     ; preds = %if.then6.i23
-  %add.ptr.i.i.i.i35 = getelementptr inbounds i8, ptr %DstUTF16, i64 16
+  %add.ptr.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %DstUTF16, i64 16
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %DstUTF16, ptr noundef nonnull %add.ptr.i.i.i.i35, i64 noundef %sub.ptr.div, i64 noundef 2) #12
   %.pre.i36 = load i32, ptr %Size.i.i11, align 8
   %.pre22.i37 = zext i32 %.pre.i36 to i64
@@ -439,13 +439,13 @@ if.end15.sink.split.i32:                          ; preds = %for.body.preheader.
 
 _ZN4llvh15SmallVectorImplItE6resizeEm.exit38:     ; preds = %if.else.i21, %if.end15.sink.split.i32
   %17 = phi i32 [ %12, %if.else.i21 ], [ %conv.i18.i33, %if.end15.sink.split.i32 ]
-  %Capacity.i.i40 = getelementptr inbounds i8, ptr %DstUTF16, i64 12
+  %Capacity.i.i40 = getelementptr inbounds nuw i8, ptr %DstUTF16, i64 12
   %18 = load i32, ptr %Capacity.i.i40, align 4
   %cmp.not.i41 = icmp ult i32 %17, %18
   br i1 %cmp.not.i41, label %_ZN4llvh23SmallVectorTemplateBaseItLb1EE9push_backERKt.exit49, label %if.then.i42
 
 if.then.i42:                                      ; preds = %_ZN4llvh15SmallVectorImplItE6resizeEm.exit38
-  %add.ptr.i.i.i.i43 = getelementptr inbounds i8, ptr %DstUTF16, i64 16
+  %add.ptr.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %DstUTF16, i64 16
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %DstUTF16, ptr noundef nonnull %add.ptr.i.i.i.i43, i64 noundef 0, i64 noundef 2) #12
   %.pre.i44 = load i32, ptr %Size.i.i11, align 8
   br label %_ZN4llvh23SmallVectorTemplateBaseItLb1EE9push_backERKt.exit49
@@ -454,7 +454,7 @@ _ZN4llvh23SmallVectorTemplateBaseItLb1EE9push_backERKt.exit49: ; preds = %_ZN4ll
   %19 = phi i32 [ %.pre.i44, %if.then.i42 ], [ %17, %_ZN4llvh15SmallVectorImplItE6resizeEm.exit38 ]
   %20 = load ptr, ptr %DstUTF16, align 8
   %conv.i3.i46 = zext i32 %19 to i64
-  %add.ptr.i.i47 = getelementptr inbounds i16, ptr %20, i64 %conv.i3.i46
+  %add.ptr.i.i47 = getelementptr inbounds nuw i16, ptr %20, i64 %conv.i3.i46
   store i16 0, ptr %add.ptr.i.i47, align 1
   br label %return
 
@@ -588,9 +588,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 1
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -726,7 +726,7 @@ if.then.i76:                                      ; preds = %_ZSt34__uninitializ
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit75, %if.then.i76
   store ptr %cond.i55, ptr %this, align 8
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i74, ptr %_M_finish, align 8
-  %add.ptr76 = getelementptr inbounds i16, ptr %cond.i55, i64 %cond.i
+  %add.ptr76 = getelementptr inbounds nuw i16, ptr %cond.i55, i64 %cond.i
   store ptr %add.ptr76, ptr %_M_end_of_storage, align 8
   br label %if.end80
 

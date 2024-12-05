@@ -39,7 +39,7 @@ define internal noalias ptr @H5EA__test_crt_context(ptr noundef %0) #0 {
 
 8:                                                ; preds = %1
   store i32 42, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %9, align 8
   br label %10
 
@@ -63,14 +63,14 @@ define internal noundef i32 @H5EA__test_fill(ptr noundef %0, i64 noundef %1) #0 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5EA__test_encode(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %17, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %8(ptr noundef %1, i64 noundef %2, ptr noundef %10) #7
   %12 = icmp slt i32 %11, 0
@@ -98,7 +98,7 @@ define internal range(i32 -1, 1) i32 @H5EA__test_encode(ptr nocapture noundef wr
   %.02232 = phi i64 [ 0, %.lr.ph ], [ %22, %19 ]
   %.02431 = phi i64 [ %18, %.lr.ph ], [ %23, %19 ]
   %20 = trunc i64 %.02431 to i8
-  %21 = getelementptr inbounds i8, ptr %.033, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.033, i64 1
   store i8 %20, ptr %.033, align 1
   %22 = add nuw nsw i64 %.02232, 1
   %23 = lshr i64 %.02431, 8
@@ -106,8 +106,8 @@ define internal range(i32 -1, 1) i32 @H5EA__test_encode(ptr nocapture noundef wr
   br i1 %exitcond.not, label %24, label %19
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %.02736, i64 8
-  %26 = getelementptr inbounds i8, ptr %.02637, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.02736, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.02637, i64 8
   %27 = add i64 %.02835, -1
   %.not30 = icmp eq i64 %27, 0
   br i1 %.not30, label %.loopexit, label %.lr.ph
@@ -127,7 +127,7 @@ define internal noundef i32 @H5EA__test_decode(ptr nocapture noundef readonly %0
   %.01319 = phi ptr [ %16, %14 ], [ %1, %4 ]
   %.01418 = phi i64 [ %17, %14 ], [ %2, %4 ]
   store i64 0, ptr %.01319, align 8
-  %5 = getelementptr inbounds i8, ptr %.01220, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.01220, i64 8
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
@@ -145,8 +145,8 @@ define internal noundef i32 @H5EA__test_decode(ptr nocapture noundef readonly %0
   br i1 %exitcond.not, label %14, label %6
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %.115, i64 7
-  %16 = getelementptr inbounds i8, ptr %.01319, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.115, i64 7
+  %16 = getelementptr inbounds nuw i8, ptr %.01319, i64 8
   %17 = add i64 %.01418, -1
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -189,43 +189,43 @@ define internal noundef i32 @H5EA__test_dst_dbg_context(ptr noundef %0) #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5EA__get_cparam_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 14)) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %5 = load i8, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %5, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 257
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 257
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 9
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %9, ptr %10, align 1
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 258
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 258
   %13 = load i8, ptr %12, align 2
-  %14 = getelementptr inbounds i8, ptr %1, i64 10
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 %13, ptr %14, align 2
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 260
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 260
   %17 = load i8, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 %17, ptr %18, align 4
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 259
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 259
   %21 = load i8, ptr %20, align 1
-  %22 = getelementptr inbounds i8, ptr %1, i64 11
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 11
   store i8 %21, ptr %22, align 1
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 261
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 261
   %25 = load i8, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 13
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 13
   store i8 %25, ptr %26, align 1
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -1, 2) i32 @H5EA__cmp_cparam_test(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = icmp ult i8 %4, %6
   br i1 %7, label %50, label %8
@@ -235,9 +235,9 @@ define range(i32 -1, 2) i32 @H5EA__cmp_cparam_test(ptr nocapture noundef readonl
   br i1 %9, label %50, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 9
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %14 = load i8, ptr %13, align 1
   %15 = icmp ult i8 %12, %14
   br i1 %15, label %50, label %16
@@ -247,9 +247,9 @@ define range(i32 -1, 2) i32 @H5EA__cmp_cparam_test(ptr nocapture noundef readonl
   br i1 %17, label %50, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 10
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %20 = load i8, ptr %19, align 2
-  %21 = getelementptr inbounds i8, ptr %1, i64 10
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %22 = load i8, ptr %21, align 2
   %23 = icmp ult i8 %20, %22
   br i1 %23, label %50, label %24
@@ -259,9 +259,9 @@ define range(i32 -1, 2) i32 @H5EA__cmp_cparam_test(ptr nocapture noundef readonl
   br i1 %25, label %50, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %28 = load i8, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %30 = load i8, ptr %29, align 4
   %31 = icmp ult i8 %28, %30
   br i1 %31, label %50, label %32
@@ -271,9 +271,9 @@ define range(i32 -1, 2) i32 @H5EA__cmp_cparam_test(ptr nocapture noundef readonl
   br i1 %33, label %50, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 11
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %1, i64 11
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 11
   %38 = load i8, ptr %37, align 1
   %39 = icmp ult i8 %36, %38
   br i1 %39, label %50, label %40
@@ -283,9 +283,9 @@ define range(i32 -1, 2) i32 @H5EA__cmp_cparam_test(ptr nocapture noundef readonl
   br i1 %41, label %50, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 13
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %44 = load i8, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %1, i64 13
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %46 = load i8, ptr %45, align 1
   %47 = icmp ult i8 %44, %46
   br i1 %47, label %50, label %48

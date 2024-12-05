@@ -24,22 +24,22 @@ declare i32 @opal_util_keyval_parse(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal void @save_value(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #0 {
   %3 = load ptr, ptr @_param_list, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.01522 = load volatile ptr, ptr %4, align 8
   %.not.not23 = icmp eq ptr %.01522, %5
   br i1 %.not.not23, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %14
   %.01524 = phi ptr [ %.015, %14 ], [ %.01522, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.01524, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %.01524, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %7) #7
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.01524, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %.01524, i64 48
   %12 = load ptr, ptr %11, align 8
   %.not19 = icmp eq ptr %12, null
   br i1 %.not19, label %42, label %13
@@ -49,7 +49,7 @@ define internal void @save_value(ptr nocapture noundef readonly %0, ptr noundef 
   br label %42
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.01524, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.01524, i64 16
   %.015 = load volatile ptr, ptr %15, align 8
   %.not.not = icmp eq ptr %.015, %5
   br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !4
@@ -72,9 +72,9 @@ define internal void @save_value(ptr nocapture noundef readonly %0, ptr noundef 
 
 22:                                               ; preds = %21
   store ptr @mca_base_var_file_value_t_class, ptr %17, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store volatile i32 1, ptr %23, align 8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_var_file_value_t_class, i64 40), align 8
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_base_var_file_value_t_class, i64 40), align 8
   %25 = load ptr, ptr %24, align 8
   %.not6.i.i = icmp eq ptr %25, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread20, label %.lr.ph.i.i
@@ -83,28 +83,28 @@ define internal void @save_value(ptr nocapture noundef readonly %0, ptr noundef 
   %26 = phi ptr [ %28, %.lr.ph.i.i ], [ %25, %22 ]
   %.07.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %24, %22 ]
   tail call void %26(ptr noundef nonnull %17) #6
-  %27 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread20, label %.lr.ph.i.i, !llvm.loop !6
 
 opal_obj_new.exit.thread20:                       ; preds = %.lr.ph.i.i, %22
   %29 = tail call noalias ptr @strdup(ptr noundef %0) #6
-  %30 = getelementptr inbounds i8, ptr %17, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %29, ptr %30, align 8
   %31 = load ptr, ptr @_param_list, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
-  %33 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %34 = load volatile ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %17, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store volatile ptr %34, ptr %35, align 8
   %36 = load volatile ptr, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store volatile ptr %17, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %17, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store volatile ptr %32, ptr %38, align 8
   store volatile ptr %17, ptr %33, align 8
-  %39 = getelementptr inbounds i8, ptr %31, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %40 = load volatile i64, ptr %39, align 8
   %41 = add i64 %40, 1
   store volatile i64 %41, ptr %39, align 8
@@ -121,13 +121,13 @@ opal_obj_new.exit.thread20:                       ; preds = %.lr.ph.i.i, %22
 
 45:                                               ; preds = %42, %43
   %46 = phi ptr [ %44, %43 ], [ null, %42 ]
-  %47 = getelementptr inbounds i8, ptr %.1, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   store ptr %46, ptr %47, align 8
   %48 = load ptr, ptr @file_being_read, align 8
-  %49 = getelementptr inbounds i8, ptr %.1, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.1, i64 56
   store ptr %48, ptr %49, align 8
   %50 = load i32, ptr @opal_util_keyval_parse_lineno, align 4
-  %51 = getelementptr inbounds i8, ptr %.1, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %.1, i64 64
   store i32 %50, ptr %51, align 8
   br label %opal_obj_new.exit.thread
 

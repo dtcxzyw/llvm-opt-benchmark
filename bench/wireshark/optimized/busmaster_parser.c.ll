@@ -21,15 +21,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @BusmasterParserInit(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %0, align 8
   store i8 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 25
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %4, align 1
   %5 = getelementptr i8, ptr %0, i64 7944
-  %6 = getelementptr inbounds i8, ptr %0, i64 8024
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8024
   store ptr %5, ptr %6, align 8
   ret void
 }
@@ -41,15 +41,15 @@ define hidden ptr @BusmasterParserAlloc(ptr nocapture noundef readonly %0) local
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %5, ptr %2, align 8
   store i8 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 25
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 25
   store i8 0, ptr %6, align 1
   %7 = getelementptr i8, ptr %2, i64 7944
-  %8 = getelementptr inbounds i8, ptr %2, i64 8024
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8024
   store ptr %7, ptr %8, align 8
   br label %9
 
@@ -59,7 +59,7 @@ define hidden ptr @BusmasterParserAlloc(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @BusmasterParserFinalize(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted = load ptr, ptr %0, align 8
   %3 = icmp ugt ptr %.promoted, %2
   br i1 %3, label %.lr.ph, label %7
@@ -84,7 +84,7 @@ define hidden void @BusmasterParserFree(ptr noundef %0, ptr nocapture noundef re
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted.i = load ptr, ptr %0, align 8
   %6 = icmp ugt ptr %.promoted.i, %5
   br i1 %6, label %.lr.ph.i, label %BusmasterParserFinalize.exit
@@ -112,7 +112,7 @@ define hidden void @BusmasterParser(ptr noundef initializes((16, 24)) %0, i32 no
   %5 = alloca %union.YYMINORTYPE, align 8
   %.sroa.48.i = alloca %struct.msg_data_t, align 8
   %.sroa.4.i = alloca %struct.msg_data_t, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %6, align 8
   %7 = icmp eq i32 %1, 0
   %8 = load ptr, ptr %0, align 8
@@ -120,13 +120,13 @@ define hidden void @BusmasterParser(ptr noundef initializes((16, 24)) %0, i32 no
   %10 = trunc i32 %1 to i8
   %.mask = and i32 %1, 255
   %11 = zext nneg i32 %.mask to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 8024
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
-  %14 = getelementptr inbounds i8, ptr %5, i64 5
-  %15 = getelementptr inbounds i8, ptr %5, i64 6
-  %16 = getelementptr inbounds i8, ptr %5, i64 7
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8024
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 7
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %19
 
 19:                                               ; preds = %yy_reduce.exit, %4
@@ -182,7 +182,7 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   br i1 %.not33, label %55, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = icmp ugt ptr %43, %46
   br i1 %47, label %.lr.ph.i, label %yyStackOverflow.exit
 
@@ -197,10 +197,10 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   br label %yyStackOverflow.exit
 
 yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
-  %51 = getelementptr inbounds i8, ptr %.pre47, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.pre47, i64 16
   %52 = load ptr, ptr %51, align 8
   tail call void @g_free(ptr noundef %52) #11
-  %53 = getelementptr inbounds i8, ptr %.pre47, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %.pre47, i64 72
   store i32 -1, ptr %53, align 8
   %54 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str) #11
   store ptr %54, ptr %51, align 8
@@ -249,38 +249,38 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   ]
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %57, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 72
   store i32 1, ptr %59, align 8
   br label %yy_reduce.exit
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %57, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 72
   store i32 4, ptr %61, align 8
   br label %yy_reduce.exit
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %57, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 72
   store i32 2, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %57, i64 108
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 108
   %65 = getelementptr i8, ptr %56, i64 -632
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %64, ptr noundef nonnull align 8 dereferenceable(12) %65, i64 12, i1 false)
-  %66 = getelementptr inbounds i8, ptr %57, i64 120
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %67 = getelementptr i8, ptr %56, i64 -620
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(16) %67, i64 16, i1 false)
   %68 = getelementptr i8, ptr %56, i64 -1112
   %69 = load i64, ptr %68, align 8
   %70 = trunc i64 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %57, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %57, i64 96
   store i32 %70, ptr %71, align 8
   %72 = getelementptr i8, ptr %56, i64 -392
   %73 = load i64, ptr %72, align 8
   %74 = trunc i64 %73 to i32
-  %75 = getelementptr inbounds i8, ptr %57, i64 100
+  %75 = getelementptr inbounds nuw i8, ptr %57, i64 100
   store i32 %74, ptr %75, align 4
   %76 = getelementptr i8, ptr %56, i64 -152
   %77 = load i64, ptr %76, align 8
   %78 = trunc i64 %77 to i32
-  %79 = getelementptr inbounds i8, ptr %57, i64 104
+  %79 = getelementptr inbounds nuw i8, ptr %57, i64 104
   store i32 %78, ptr %79, align 8
   br label %yy_reduce.exit
 
@@ -289,17 +289,17 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   %82 = getelementptr i8, ptr %56, i64 -72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %81, ptr noundef nonnull align 8 dereferenceable(12) %82, i64 12, i1 false)
   %83 = getelementptr i8, ptr %56, i64 -140
-  %84 = getelementptr inbounds i8, ptr %56, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %56, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %83, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false)
   br label %yy_reduce.exit
 
 85:                                               ; preds = %55
-  %86 = getelementptr inbounds i8, ptr %57, i64 72
+  %86 = getelementptr inbounds nuw i8, ptr %57, i64 72
   store i32 3, ptr %86, align 8
   br label %yy_reduce.exit
 
 87:                                               ; preds = %55
-  %88 = getelementptr inbounds i8, ptr %57, i64 100
+  %88 = getelementptr inbounds nuw i8, ptr %57, i64 100
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %91, label %98
@@ -322,7 +322,7 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   br i1 %switch.i, label %102, label %106
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %56, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %56, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %103, i8 0, i64 68, i1 false)
   %104 = getelementptr i8, ptr %56, i64 -72
   %105 = load i32, ptr %104, align 8
@@ -333,35 +333,35 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   %107 = getelementptr i8, ptr %56, i64 -472
   %108 = getelementptr i8, ptr %56, i64 -232
   %109 = load i32, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %56, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %56, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %.sroa.48.i, ptr noundef nonnull align 8 dereferenceable(68) %110, i64 68, i1 false)
-  %111 = getelementptr inbounds i8, ptr %57, i64 136
+  %111 = getelementptr inbounds nuw i8, ptr %57, i64 136
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false)
-  %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 152
+  %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 152
   store i32 %100, ptr %.sroa.26.0..sroa_idx.i, align 8
-  %.sroa.37.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 156
+  %.sroa.37.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 156
   store i32 %109, ptr %.sroa.37.0..sroa_idx.i, align 4
-  %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 160
+  %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %.sroa.48.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(68) %.sroa.48.i, i64 68, i1 false)
-  %112 = getelementptr inbounds i8, ptr %57, i64 72
+  %112 = getelementptr inbounds nuw i8, ptr %57, i64 72
   store i32 5, ptr %112, align 8
   br label %yy_reduce.exit
 
 113:                                              ; preds = %55
   %114 = getelementptr i8, ptr %56, i64 -312
-  %115 = getelementptr inbounds i8, ptr %56, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %116 = load i32, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %57, i64 136
+  %117 = getelementptr inbounds nuw i8, ptr %57, i64 136
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false)
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 152
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 152
   store i32 %116, ptr %.sroa.22.0..sroa_idx.i, align 8
-  %.sroa.33.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 156
+  %.sroa.33.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 156
   store i32 0, ptr %.sroa.33.0..sroa_idx.i, align 4
-  %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 160
+  %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 160
   store i32 8, ptr %.sroa.44.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 164
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.sroa.5.0..sroa_idx.i, i8 0, i64 64, i1 false)
-  %118 = getelementptr inbounds i8, ptr %57, i64 72
+  %118 = getelementptr inbounds nuw i8, ptr %57, i64 72
   store i32 5, ptr %118, align 8
   br label %yy_reduce.exit
 
@@ -369,22 +369,22 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   %120 = getelementptr i8, ptr %56, i64 -792
   %121 = getelementptr i8, ptr %56, i64 -632
   %122 = load i32, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %56, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %56, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(68) %123, i64 68, i1 false)
-  %124 = getelementptr inbounds i8, ptr %57, i64 136
+  %124 = getelementptr inbounds nuw i8, ptr %57, i64 136
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 16, i1 false)
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 152
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 152
   store i32 1, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 156
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 156
   store i32 %122, ptr %.sroa.3.0..sroa_idx.i, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 160
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(68) %.sroa.4.i, i64 68, i1 false)
-  %125 = getelementptr inbounds i8, ptr %57, i64 72
+  %125 = getelementptr inbounds nuw i8, ptr %57, i64 72
   store i32 5, ptr %125, align 8
   br label %yy_reduce.exit
 
 126:                                              ; preds = %55
-  %127 = getelementptr inbounds i8, ptr %56, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %128 = load i64, ptr %127, align 8
   %129 = trunc i64 %128 to i32
   store i32 %129, ptr %5, align 8
@@ -412,7 +412,7 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   %144 = load i64, ptr %143, align 8
   %145 = trunc i64 %144 to i32
   store i32 %145, ptr %17, align 8
-  %146 = getelementptr inbounds i8, ptr %56, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %147 = load i64, ptr %146, align 8
   %148 = trunc i64 %147 to i32
   %149 = mul i32 %148, 1000
@@ -421,19 +421,19 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   br label %yy_reduce.exit
 
 150:                                              ; preds = %55
-  %151 = getelementptr inbounds i8, ptr %56, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %152 = load i64, ptr %151, align 8
   %153 = trunc i64 %152 to i32
   store i32 %153, ptr %5, align 8
-  %154 = getelementptr inbounds i8, ptr %56, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %155 = load i64, ptr %154, align 8
   %156 = trunc i64 %155 to i32
   store i32 %156, ptr %13, align 4
-  %157 = getelementptr inbounds i8, ptr %56, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %158 = load i64, ptr %157, align 8
   %159 = trunc i64 %158 to i32
   store i32 %159, ptr %17, align 8
-  %160 = getelementptr inbounds i8, ptr %56, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %161 = load i64, ptr %160, align 8
   %162 = trunc i64 %161 to i32
   %163 = mul i32 %162, 100
@@ -442,28 +442,28 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   br label %yy_reduce.exit
 
 164:                                              ; preds = %55
-  %165 = getelementptr inbounds i8, ptr %56, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %166 = load i64, ptr %165, align 8
   %167 = trunc i64 %166 to i32
   store i32 %167, ptr %165, align 8
   br label %yy_reduce.exit
 
 168:                                              ; preds = %55
-  %169 = getelementptr inbounds i8, ptr %56, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %170 = load i64, ptr %169, align 8
   %171 = trunc i64 %170 to i32
   store i32 %171, ptr %169, align 8
   br label %yy_reduce.exit
 
 172:                                              ; preds = %55, %55
-  %173 = getelementptr inbounds i8, ptr %56, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %174 = load i64, ptr %173, align 8
   %175 = trunc i64 %174 to i32
   store i32 %175, ptr %173, align 8
   br label %yy_reduce.exit
 
 176:                                              ; preds = %55
-  %177 = getelementptr inbounds i8, ptr %56, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %178 = load i64, ptr %177, align 8
   %179 = trunc i64 %178 to i8
   store i8 %179, ptr %177, align 8
@@ -476,7 +476,7 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
 
 182:                                              ; preds = %55
   store i32 1, ptr %5, align 8
-  %183 = getelementptr inbounds i8, ptr %56, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %184 = load i8, ptr %183, align 8
   store i8 %184, ptr %13, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %183, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
@@ -487,7 +487,7 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   %186 = getelementptr i8, ptr %56, i64 -72
   %187 = load i8, ptr %186, align 8
   store i8 %187, ptr %13, align 4
-  %188 = getelementptr inbounds i8, ptr %56, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %189 = load i8, ptr %188, align 8
   store i8 %189, ptr %14, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %186, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
@@ -501,7 +501,7 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   %193 = getelementptr i8, ptr %56, i64 -72
   %194 = load i8, ptr %193, align 8
   store i8 %194, ptr %14, align 1
-  %195 = getelementptr inbounds i8, ptr %56, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %196 = load i8, ptr %195, align 8
   store i8 %196, ptr %15, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %191, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
@@ -518,7 +518,7 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   %202 = getelementptr i8, ptr %56, i64 -72
   %203 = load i8, ptr %202, align 8
   store i8 %203, ptr %15, align 2
-  %204 = getelementptr inbounds i8, ptr %56, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %205 = load i8, ptr %204, align 8
   store i8 %205, ptr %16, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %198, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
@@ -526,7 +526,7 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
 
 206:                                              ; preds = %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55
   %207 = getelementptr i8, ptr %56, i64 -72
-  %208 = getelementptr inbounds i8, ptr %56, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %209 = load i32, ptr %207, align 4
   %210 = load i32, ptr %208, align 4
   %211 = add i32 %210, %209
@@ -535,7 +535,7 @@ yyStackOverflow.exit:                             ; preds = %45, %._crit_edge.i
   %213 = zext i32 %209 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull readonly align 4 %212, i64 %213, i1 false)
   %214 = getelementptr [64 x i8], ptr %13, i64 0, i64 %213
-  %215 = getelementptr inbounds i8, ptr %56, i64 12
+  %215 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %216 = zext i32 %210 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %214, ptr nonnull readonly align 4 %215, i64 %216, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %207, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
@@ -582,7 +582,7 @@ yy_reduce.exit:                                   ; preds = %55, %58, %60, %62, 
 241:                                              ; preds = %236
   store ptr %237, ptr %0, align 8
   %242 = load ptr, ptr %6, align 8
-  %243 = getelementptr inbounds i8, ptr %0, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %244 = icmp ugt ptr %237, %243
   br i1 %244, label %.lr.ph.i.i, label %yyStackOverflow.exit.i
 
@@ -597,10 +597,10 @@ yy_reduce.exit:                                   ; preds = %55, %58, %60, %62, 
   br label %yyStackOverflow.exit.i
 
 yyStackOverflow.exit.i:                           ; preds = %._crit_edge.i.i, %241
-  %248 = getelementptr inbounds i8, ptr %242, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %249 = load ptr, ptr %248, align 8
   tail call void @g_free(ptr noundef %249) #11
-  %250 = getelementptr inbounds i8, ptr %242, i64 72
+  %250 = getelementptr inbounds nuw i8, ptr %242, i64 72
   store i32 -1, ptr %250, align 8
   %251 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str) #11
   store ptr %251, ptr %248, align 8
@@ -619,7 +619,7 @@ yyStackOverflow.exit.i:                           ; preds = %._crit_edge.i.i, %2
   br label %yy_shift.exit
 
 yy_shift.exit:                                    ; preds = %yyStackOverflow.exit.i, %252
-  %257 = getelementptr inbounds i8, ptr %0, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %258 = load i32, ptr %257, align 8
   %259 = add i32 %258, -1
   store i32 %259, ptr %257, align 8
@@ -633,22 +633,22 @@ yy_shift.exit:                                    ; preds = %yyStackOverflow.exi
   %263 = load ptr, ptr %0, align 8
   %264 = getelementptr i8, ptr %263, i64 -80
   store ptr %264, ptr %0, align 8
-  %265 = getelementptr inbounds i8, ptr %0, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %265, align 8
   br label %288
 
 266:                                              ; preds = %260
-  %267 = getelementptr inbounds i8, ptr %0, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %268 = load i32, ptr %267, align 8
   %269 = icmp slt i32 %268, 1
   br i1 %269, label %270, label %276
 
 270:                                              ; preds = %266
   %271 = load ptr, ptr %6, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 16
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 16
   %273 = load ptr, ptr %272, align 8
   tail call void @g_free(ptr noundef %273) #11
-  %274 = getelementptr inbounds i8, ptr %271, i64 72
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 72
   store i32 -1, ptr %274, align 8
   %275 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1) #11
   store ptr %275, ptr %272, align 8
@@ -661,7 +661,7 @@ yy_shift.exit:                                    ; preds = %yyStackOverflow.exi
 
 277:                                              ; preds = %276
   %278 = load ptr, ptr %6, align 8
-  %279 = getelementptr inbounds i8, ptr %0, i64 24
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted.i34 = load ptr, ptr %0, align 8
   %280 = icmp ugt ptr %.promoted.i34, %279
   br i1 %280, label %.lr.ph.i35, label %yy_parse_failed.exit
@@ -677,10 +677,10 @@ yy_shift.exit:                                    ; preds = %yyStackOverflow.exi
   br label %yy_parse_failed.exit
 
 yy_parse_failed.exit:                             ; preds = %277, %._crit_edge.i36
-  %284 = getelementptr inbounds i8, ptr %278, i64 16
+  %284 = getelementptr inbounds nuw i8, ptr %278, i64 16
   %285 = load ptr, ptr %284, align 8
   tail call void @g_free(ptr noundef %285) #11
-  %286 = getelementptr inbounds i8, ptr %278, i64 72
+  %286 = getelementptr inbounds nuw i8, ptr %278, i64 72
   store i32 -1, ptr %286, align 8
   %287 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #11
   store ptr %287, ptr %284, align 8
@@ -703,13 +703,13 @@ define hidden noundef i32 @BusmasterParserFallback(i32 noundef %0) local_unnamed
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @run_busmaster_parser(ptr noundef initializes((16, 28), (32, 40), (72, 76)) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %8, align 8
   %9 = call i32 @busmaster_lex_init_extra(ptr noundef %0, ptr noundef nonnull %4) #11
   %.not = icmp eq i32 %9, 0
@@ -730,20 +730,20 @@ define hidden range(i32 0, 2) i32 @run_busmaster_parser(ptr noundef initializes(
   br i1 %.not.i, label %BusmasterParserAlloc.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 -1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %19, ptr %16, align 8
   store i8 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 25
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 25
   store i8 0, ptr %20, align 1
   %21 = getelementptr i8, ptr %16, i64 7944
-  %22 = getelementptr inbounds i8, ptr %16, i64 8024
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8024
   store ptr %21, ptr %22, align 8
   br label %BusmasterParserAlloc.exit
 
 BusmasterParserAlloc.exit:                        ; preds = %15, %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %24
 
 24:                                               ; preds = %30, %BusmasterParserAlloc.exit
@@ -770,7 +770,7 @@ BusmasterParserAlloc.exit:                        ; preds = %15, %17
   br i1 %.not.i, label %BusmasterParserFree.exit, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %16, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %.promoted.i.i = load ptr, ptr %16, align 8
   %37 = icmp ugt ptr %.promoted.i.i, %36
   br i1 %37, label %.lr.ph.i.i, label %BusmasterParserFinalize.exit.i

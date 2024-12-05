@@ -80,20 +80,20 @@ $_ZTV37JvmtiSampledObjectAllocEventCollector = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN12MemAllocator10Allocation19check_out_of_memoryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %30
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   %11 = select i1 %10, ptr @.str, ptr @.str.4
-  %12 = getelementptr inbounds i8, ptr %3, i64 1148
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1148
   %13 = load i8, ptr %12, align 4
   %14 = trunc i8 %13 to i1
   br i1 %14, label %28, label %15
@@ -156,7 +156,7 @@ define hidden void @_ZN12MemAllocator10Allocation13verify_beforeEv(ptr nocapture
 define hidden void @_ZN12MemAllocator10Allocation31notify_allocation_jvmti_samplerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.MemAllocator::Allocation::PreserveObj", align 8
   %3 = alloca %class.JvmtiSampledObjectAllocEventCollector, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr @_ZN11JvmtiExport28_should_post_vm_object_allocE, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit
@@ -173,23 +173,23 @@ _ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit: ; preds = %1, 
   br i1 %11, label %12, label %76
 
 12:                                               ; preds = %_ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 25
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = icmp ne i64 %17, 0
   %or.cond.not = select i1 %15, i1 true, i1 %18
   br i1 %or.cond.not, label %23, label %19
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i8, ptr %20, align 8
   %22 = trunc i8 %21 to i1
   br i1 %22, label %23, label %76
 
 23:                                               ; preds = %19, %12
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %4, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %25) #10
@@ -198,11 +198,11 @@ _ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit: ; preds = %1, 
   br i1 %28, label %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %25, i64 808
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 808
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %33 to i64
   %37 = ptrtoint ptr %35 to i64
@@ -211,7 +211,7 @@ _ZN11JvmtiExport31vm_object_alloc_event_collectorEP7oopDesc.exit: ; preds = %1, 
   br i1 %.not.i.i.i.i.i, label %41, label %39
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %40, ptr %34, align 8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 
@@ -226,16 +226,16 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i: ; preds = %41, %39
 
 _ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit: ; preds = %23, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
   %storemerge.i.i = phi ptr [ %.0.i.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i ], [ null, %23 ]
-  %43 = getelementptr inbounds i8, ptr %2, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %storemerge.i.i, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %26, ptr %44, align 8
   store ptr null, ptr %26, align 8
   call void @_ZN30JvmtiObjectAllocEventCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #10
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV37JvmtiSampledObjectAllocEventCollector, i64 16), ptr %3, align 8
   call void @_ZN37JvmtiSampledObjectAllocEventCollector5startEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #10
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i64, ptr %46, align 8
   %48 = shl i64 %47, 3
   %49 = load ptr, ptr %24, align 8
@@ -244,13 +244,13 @@ _ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit: ; pre
   br i1 %51, label %55, label %52
 
 52:                                               ; preds = %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit
-  %53 = getelementptr inbounds i8, ptr %49, i64 496
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 496
   %54 = load i64, ptr %53, align 8
   br label %55
 
 55:                                               ; preds = %52, %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit
   %.0 = phi i64 [ 0, %_ZN12MemAllocator10Allocation11PreserveObjC2EP10JavaThreadPP7oopDesc.exit ], [ %54, %52 ]
-  %56 = getelementptr inbounds i8, ptr %49, i64 560
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 560
   %57 = load ptr, ptr %43, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %_ZNK12MemAllocator10Allocation11PreserveObjclEv.exit, label %59
@@ -276,7 +276,7 @@ _ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit: ; preds = %_ZNK12MemAllocat
   %67 = load ptr, ptr %44, align 8
   store ptr %66, ptr %67, align 8
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #10
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load i8, ptr %68, align 8
   %70 = trunc i8 %69 to i1
   %71 = load i64, ptr %16, align 8
@@ -286,7 +286,7 @@ _ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit: ; preds = %_ZNK12MemAllocat
 
 72:                                               ; preds = %_ZN12MemAllocator10Allocation11PreserveObjD2Ev.exit
   %73 = load ptr, ptr %24, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 432
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 432
   %75 = icmp ne i64 %.0, 0
   call void @_ZN22ThreadLocalAllocBuffer14set_sample_endEb(ptr noundef nonnull align 8 dereferenceable(116) %74, i1 noundef zeroext %75) #10
   br label %76
@@ -321,42 +321,42 @@ define hidden void @_ZN12MemAllocator10Allocation37notify_allocation_low_memory_
 .lr.ph.i:                                         ; preds = %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i ]
   %8 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(201) %12) #10
   br i1 %16, label %17, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds i8, ptr %12, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %12, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %23 = load ptr, ptr %22, align 8
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.i, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i
 
 _ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.i: ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load i64, ptr %26, align 8
   %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i, label %28
 
 28:                                               ; preds = %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.i
   %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(201) %12) #10
   %33 = load ptr, ptr %22, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = icmp ugt i64 %32, %35
   br i1 %36, label %37, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i
@@ -376,14 +376,14 @@ _ZN17LowMemoryDetector37detect_low_memory_for_collected_poolsEv.exit: ; preds = 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12MemAllocator10Allocation29notify_allocation_jfr_samplerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = shl i64 %7, 3
-  %9 = getelementptr inbounds i8, ptr %0, i64 25
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %30
@@ -391,7 +391,7 @@ define hidden void @_ZN12MemAllocator10Allocation29notify_allocation_jfr_sampler
 12:                                               ; preds = %1
   %13 = load i8, ptr @UseCompressedClassPointers, align 1
   %14 = trunc i8 %13 to i1
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %14, label %16, label %26
 
 16:                                               ; preds = %12
@@ -412,13 +412,13 @@ define hidden void @_ZN12MemAllocator10Allocation29notify_allocation_jfr_sampler
 
 _ZNK7oopDesc5klassEv.exit:                        ; preds = %16, %26
   %.0.i = phi ptr [ %25, %16 ], [ %27, %26 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @_ZN11AllocTracer28send_allocation_outside_tlabEP5KlassPP12HeapWordImplmP10JavaThread(ptr noundef %.0.i, ptr noundef nonnull %4, i64 noundef %8, ptr noundef %29) #10
   br label %52
 
 30:                                               ; preds = %1
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i64, ptr %31, align 8
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %52, label %33
@@ -426,7 +426,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %16, %26
 33:                                               ; preds = %30
   %34 = load i8, ptr @UseCompressedClassPointers, align 1
   %35 = trunc i8 %34 to i1
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %35, label %37, label %47
 
 37:                                               ; preds = %33
@@ -448,7 +448,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %16, %26
 _ZNK7oopDesc5klassEv.exit5:                       ; preds = %37, %47
   %.0.i4 = phi ptr [ %46, %37 ], [ %48, %47 ]
   %49 = shl i64 %32, 3
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
   tail call void @_ZN11AllocTracer27send_allocation_in_new_tlabEP5KlassPP12HeapWordImplmmP10JavaThread(ptr noundef %.0.i4, ptr noundef nonnull %4, i64 noundef %49, i64 noundef %8, ptr noundef %51) #10
   br label %52
@@ -468,12 +468,12 @@ define hidden void @_ZN12MemAllocator10Allocation32notify_allocation_dtrace_samp
   br i1 %3, label %4, label %33
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr @UseCompressedClassPointers, align 1
   %9 = trunc i8 %8 to i1
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %9, label %11, label %21
 
 11:                                               ; preds = %4
@@ -495,19 +495,19 @@ define hidden void @_ZN12MemAllocator10Allocation32notify_allocation_dtrace_samp
 _ZNK7oopDesc5klassEv.exit:                        ; preds = %11, %21
   %.0.i = phi ptr [ %20, %11 ], [ %22, %21 ]
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i64, ptr %24, align 8
   %.not = icmp eq ptr %.0.i, null
   br i1 %.not, label %33, label %26
 
 26:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not3 = icmp eq ptr %28, null
   br i1 %.not3, label %33, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef i32 @_ZN13SharedRuntime19dtrace_object_allocEP10JavaThreadP7oopDescm(ptr noundef %31, ptr noundef nonnull %7, i64 noundef %25) #10
   br label %33
@@ -537,42 +537,42 @@ define hidden void @_ZN12MemAllocator10Allocation17notify_allocationEv(ptr nocap
 .lr.ph.i.i:                                       ; preds = %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i.i ]
   %8 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(201) %12) #10
   br i1 %16, label %17, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i.i
 
 17:                                               ; preds = %.lr.ph.i.i
-  %18 = getelementptr inbounds i8, ptr %12, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i.i, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %12, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %23 = load ptr, ptr %22, align 8
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.i.i, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i.i
 
 _ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.i.i: ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load i64, ptr %26, align 8
   %.not.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i.i, label %28
 
 28:                                               ; preds = %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.i.i
   %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(201) %12) #10
   %33 = load ptr, ptr %22, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = icmp ugt i64 %32, %35
   br i1 %36, label %37, label %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i.i
@@ -587,14 +587,14 @@ _ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i.i: ; preds = %37,
   br i1 %exitcond.not.i.i, label %_ZN12MemAllocator10Allocation37notify_allocation_low_memory_detectorEv.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 _ZN12MemAllocator10Allocation37notify_allocation_low_memory_detectorEv.exit: ; preds = %_ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit.thread.i.i, %1, %4
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i64, ptr %42, align 8
   %44 = shl i64 %43, 3
-  %45 = getelementptr inbounds i8, ptr %0, i64 25
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %46 = load i8, ptr %45, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %48, label %66
@@ -602,7 +602,7 @@ _ZN12MemAllocator10Allocation37notify_allocation_low_memory_detectorEv.exit: ; p
 48:                                               ; preds = %_ZN12MemAllocator10Allocation37notify_allocation_low_memory_detectorEv.exit
   %49 = load i8, ptr @UseCompressedClassPointers, align 1
   %50 = trunc i8 %49 to i1
-  %51 = getelementptr inbounds i8, ptr %40, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 8
   br i1 %50, label %52, label %62
 
 52:                                               ; preds = %48
@@ -623,13 +623,13 @@ _ZN12MemAllocator10Allocation37notify_allocation_low_memory_detectorEv.exit: ; p
 
 _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %62, %52
   %.0.i.i = phi ptr [ %61, %52 ], [ %63, %62 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8
   tail call void @_ZN11AllocTracer28send_allocation_outside_tlabEP5KlassPP12HeapWordImplmP10JavaThread(ptr noundef %.0.i.i, ptr noundef nonnull %40, i64 noundef %44, ptr noundef %65) #10
   br label %_ZN12MemAllocator10Allocation29notify_allocation_jfr_samplerEv.exit
 
 66:                                               ; preds = %_ZN12MemAllocator10Allocation37notify_allocation_low_memory_detectorEv.exit
-  %67 = getelementptr inbounds i8, ptr %0, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %68 = load i64, ptr %67, align 8
   %.not.i = icmp eq i64 %68, 0
   br i1 %.not.i, label %_ZN12MemAllocator10Allocation29notify_allocation_jfr_samplerEv.exit, label %69
@@ -637,7 +637,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %62, %52
 69:                                               ; preds = %66
   %70 = load i8, ptr @UseCompressedClassPointers, align 1
   %71 = trunc i8 %70 to i1
-  %72 = getelementptr inbounds i8, ptr %40, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %40, i64 8
   br i1 %71, label %73, label %83
 
 73:                                               ; preds = %69
@@ -659,7 +659,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %62, %52
 _ZNK7oopDesc5klassEv.exit5.i:                     ; preds = %83, %73
   %.0.i4.i = phi ptr [ %82, %73 ], [ %84, %83 ]
   %85 = shl i64 %68, 3
-  %86 = getelementptr inbounds i8, ptr %0, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %87 = load ptr, ptr %86, align 8
   tail call void @_ZN11AllocTracer27send_allocation_in_new_tlabEP5KlassPP12HeapWordImplmmP10JavaThread(ptr noundef %.0.i4.i, ptr noundef nonnull %40, i64 noundef %85, i64 noundef %44, ptr noundef %87) #10
   br label %_ZN12MemAllocator10Allocation29notify_allocation_jfr_samplerEv.exit
@@ -674,7 +674,7 @@ _ZN12MemAllocator10Allocation29notify_allocation_jfr_samplerEv.exit: ; preds = %
   %92 = load ptr, ptr %91, align 8
   %93 = load i8, ptr @UseCompressedClassPointers, align 1
   %94 = trunc i8 %93 to i1
-  %95 = getelementptr inbounds i8, ptr %92, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
   br i1 %94, label %96, label %106
 
 96:                                               ; preds = %90
@@ -696,19 +696,19 @@ _ZN12MemAllocator10Allocation29notify_allocation_jfr_samplerEv.exit: ; preds = %
 _ZNK7oopDesc5klassEv.exit.i1:                     ; preds = %106, %96
   %.0.i.i2 = phi ptr [ %105, %96 ], [ %107, %106 ]
   %108 = load ptr, ptr %0, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load i64, ptr %109, align 8
   %.not.i3 = icmp eq ptr %.0.i.i2, null
   br i1 %.not.i3, label %_ZN12MemAllocator10Allocation32notify_allocation_dtrace_samplerEv.exit, label %111
 
 111:                                              ; preds = %_ZNK7oopDesc5klassEv.exit.i1
-  %112 = getelementptr inbounds i8, ptr %.0.i.i2, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %.0.i.i2, i64 24
   %113 = load ptr, ptr %112, align 8
   %.not3.i = icmp eq ptr %113, null
   br i1 %.not3.i, label %_ZN12MemAllocator10Allocation32notify_allocation_dtrace_samplerEv.exit, label %114
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %0, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %116 = load ptr, ptr %115, align 8
   %117 = tail call noundef i32 @_ZN13SharedRuntime19dtrace_object_allocEP10JavaThreadP7oopDescm(ptr noundef %116, ptr noundef nonnull %92, i64 noundef %110) #10
   br label %_ZN12MemAllocator10Allocation32notify_allocation_dtrace_samplerEv.exit
@@ -720,14 +720,14 @@ _ZN12MemAllocator10Allocation32notify_allocation_dtrace_samplerEv.exit: ; preds 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK12MemAllocator25mem_allocate_outside_tlabERNS_10AllocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(41) initializes((25, 26)) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 25
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 25
   store i8 1, ptr %3, align 1
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef %6, ptr noundef nonnull %7) #10
   %12 = icmp eq ptr %11, null
@@ -736,9 +736,9 @@ define hidden noundef ptr @_ZNK12MemAllocator25mem_allocate_outside_tlabERNS_10A
 13:                                               ; preds = %2
   %14 = load i64, ptr %5, align 8
   %15 = shl i64 %14, 3
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 552
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 552
   %19 = load i64, ptr %18, align 8
   %20 = add nsw i64 %19, %15
   store i64 %20, ptr %18, align 8
@@ -750,13 +750,13 @@ define hidden noundef ptr @_ZNK12MemAllocator25mem_allocate_outside_tlabERNS_10A
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 440
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 440
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 456
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 456
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %7 to i64
@@ -777,20 +777,20 @@ _ZN22ThreadLocalAllocBuffer8allocateEm.exit:      ; preds = %1, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK12MemAllocator29mem_allocate_inside_tlab_slowERNS_10AllocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(41) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 432
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 432
   %6 = load i8, ptr @_ZN11JvmtiExport33_should_post_sampled_object_allocE, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %2
   tail call void @_ZN22ThreadLocalAllocBuffer23set_back_allocation_endEv(ptr noundef nonnull align 8 dereferenceable(116) %5) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 440
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 440
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 456
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 456
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %12 to i64
@@ -800,28 +800,28 @@ define hidden noundef ptr @_ZNK12MemAllocator29mem_allocate_inside_tlab_slowERNS
   br i1 %.not.i, label %_ZN22ThreadLocalAllocBuffer8allocateEm.exit.thread, label %_ZN22ThreadLocalAllocBuffer8allocateEm.exit
 
 _ZN22ThreadLocalAllocBuffer8allocateEm.exit.thread: ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 1, ptr %19, align 8
   br label %22
 
 _ZN22ThreadLocalAllocBuffer8allocateEm.exit:      ; preds = %8
   %20 = getelementptr inbounds ptr, ptr %12, i64 %10
   store ptr %20, ptr %11, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 1, ptr %21, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %22, label %81
 
 22:                                               ; preds = %_ZN22ThreadLocalAllocBuffer8allocateEm.exit.thread, %_ZN22ThreadLocalAllocBuffer8allocateEm.exit, %2
-  %23 = getelementptr inbounds i8, ptr %4, i64 456
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 456
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 440
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 440
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %24 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
   %30 = lshr i64 %29, 3
-  %31 = getelementptr inbounds i8, ptr %4, i64 480
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 480
   %32 = load i64, ptr %31, align 8
   %33 = icmp ugt i64 %30, %32
   br i1 %33, label %34, label %40
@@ -830,14 +830,14 @@ _ZN22ThreadLocalAllocBuffer8allocateEm.exit:      ; preds = %8
   %35 = tail call noundef i64 @_ZN22ThreadLocalAllocBuffer28refill_waste_limit_incrementEv() #10
   %36 = add i64 %35, %32
   store i64 %36, ptr %31, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 516
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 516
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 4
   br label %81
 
 40:                                               ; preds = %22
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = tail call noundef i64 @_ZN22ThreadLocalAllocBuffer12compute_sizeEm(ptr noundef nonnull align 8 dereferenceable(116) %5, i64 noundef %42)
   tail call void @_ZN22ThreadLocalAllocBuffer24retire_before_allocationEv(ptr noundef nonnull align 8 dereferenceable(116) %5) #10
@@ -867,7 +867,7 @@ _ZN22ThreadLocalAllocBuffer8allocateEm.exit:      ; preds = %8
   %65 = lshr i64 %64, 3
   %66 = tail call noundef i64 @llvm.umax.i64(i64 %62, i64 %65)
   %67 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %69 = load ptr, ptr %67, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = tail call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(104) %67, i64 noundef %66, i64 noundef %43, ptr noundef nonnull %68) #10
@@ -909,11 +909,11 @@ define linkonce_odr hidden noundef i64 @_ZN22ThreadLocalAllocBuffer12compute_siz
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %4 = tail call noundef ptr @_ZN22ThreadLocalAllocBuffer6threadEv(ptr noundef nonnull align 8 dereferenceable(116) %0) #10
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef %4) #10
   %9 = lshr i64 %8, 3
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = load i32, ptr @MinObjAlignment, align 4
   %13 = add nsw i32 %12, -1
@@ -940,7 +940,7 @@ define linkonce_odr hidden noundef i64 @_ZN22ThreadLocalAllocBuffer12compute_siz
   %34 = lshr i64 %33, 3
   %35 = tail call noundef i64 @llvm.umax.i64(i64 %31, i64 %34)
   %36 = icmp ult i64 %22, %35
-  %37 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %37 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not10 = icmp eq ptr %37, null
   br i1 %36, label %38, label %40
 
@@ -974,13 +974,13 @@ define hidden noundef ptr @_ZNK12MemAllocator12mem_allocateERNS_10AllocationE(pt
   br i1 %4, label %5, label %20
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 440
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 440
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 456
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 456
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %11 to i64
@@ -1001,14 +1001,14 @@ _ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread: ; preds = %5, %
   br i1 %.not10, label %20, label %_ZNK12MemAllocator25mem_allocate_outside_tlabERNS_10AllocationE.exit
 
 20:                                               ; preds = %2, %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread
-  %21 = getelementptr inbounds i8, ptr %1, i64 25
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 25
   store i8 1, ptr %21, align 1
   %22 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load ptr, ptr %22, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(104) %22, i64 noundef %24, ptr noundef nonnull %25) #10
   %30 = icmp eq ptr %29, null
@@ -1017,9 +1017,9 @@ _ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread: ; preds = %5, %
 31:                                               ; preds = %20
   %32 = load i64, ptr %23, align 8
   %33 = shl i64 %32, 3
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 552
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 552
   %37 = load i64, ptr %36, align 8
   %38 = add nsw i64 %37, %33
   store i64 %38, ptr %36, align 8
@@ -1036,30 +1036,30 @@ define hidden noundef ptr @_ZNK12MemAllocator8allocateEv(ptr noundef nonnull ali
   %3 = alloca %"class.MemAllocator::Allocation", align 8
   store ptr null, ptr %2, align 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 25
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 25
   store i8 0, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i8 0, ptr %11, align 8
   %12 = load i8, ptr @UseTLAB, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %27
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 440
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 440
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 456
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 456
   %20 = load ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %18 to i64
@@ -1082,10 +1082,10 @@ _ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread.i: ; preds = %_Z
 27:                                               ; preds = %_ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread.i, %1
   store i8 1, ptr %9, align 1
   %28 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(104) %28, i64 noundef %30, ptr noundef nonnull %8) #10
   %35 = icmp eq ptr %34, null
@@ -1095,7 +1095,7 @@ _ZNK12MemAllocator29mem_allocate_inside_tlab_fastEv.exit.thread.i: ; preds = %_Z
   %37 = load i64, ptr %29, align 8
   %38 = shl i64 %37, 3
   %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 552
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 552
   %41 = load i64, ptr %40, align 8
   %42 = add nsw i64 %41, %38
   store i64 %42, ptr %40, align 8
@@ -1130,12 +1130,12 @@ define hidden void @_ZNK12MemAllocator9mem_clearEPP12HeapWordImpl(ptr nocapture 
   br i1 %4, label %5, label %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %6, align 4
   br label %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit
 
 _ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit: ; preds = %2, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %.not6.i.i.i = icmp eq i64 %8, 2
   br i1 %.not6.i.i.i, label %_ZN4Copy21fill_to_aligned_wordsEPP12HeapWordImplmj.exit, label %.lr.ph.i.i.i.preheader
@@ -1154,9 +1154,9 @@ _ZN4Copy21fill_to_aligned_wordsEPP12HeapWordImplmj.exit: ; preds = %.lr.ph.i.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK12MemAllocator6finishEPP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef returned initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   store i64 1, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr @UseCompressedClassPointers, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %17
@@ -1190,12 +1190,12 @@ define hidden noundef ptr @_ZNK12ObjAllocator10initializeEPP12HeapWordImpl(ptr n
   br i1 %4, label %5, label %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %6, align 4
   br label %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i
 
 _ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i: ; preds = %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %.not6.i.i.i.i = icmp eq i64 %8, 2
   br i1 %.not6.i.i.i.i, label %_ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit, label %.lr.ph.i.i.i.preheader.i
@@ -1209,9 +1209,9 @@ _ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i: ; preds = %5, %2
 
 _ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit: ; preds = %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i, %.lr.ph.i.i.i.preheader.i
   store i64 1, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i8, ptr @UseCompressedClassPointers, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %26
@@ -1240,7 +1240,7 @@ _ZNK12MemAllocator6finishEPP12HeapWordImpl.exit:  ; preds = %17, %26
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZNK17ObjArrayAllocator10initializeEPP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %0, ptr noundef returned initializes((0, 8)) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   %.pre6 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -1251,12 +1251,12 @@ define hidden noundef ptr @_ZNK17ObjArrayAllocator10initializeEPP12HeapWordImpl(
   br i1 %7, label %8, label %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %9, align 4
   br label %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i
 
 _ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i: ; preds = %8, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %.not6.i.i.i.i = icmp eq i64 %11, 2
   br i1 %.not6.i.i.i.i, label %_ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit, label %.lr.ph.i.i.i.preheader.i
@@ -1271,16 +1271,16 @@ _ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i: ; preds = %8, %6
 
 _ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit: ; preds = %.lr.ph.i.i.i.preheader.i, %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i, %2
   %15 = phi i8 [ %.pre, %.lr.ph.i.i.i.preheader.i ], [ %.pre6, %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i ], [ %.pre6, %2 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = trunc i8 %15 to i1
   %19 = select i1 %18, i64 12, i64 16
-  %20 = getelementptr inbounds i8, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
   store i32 %17, ptr %20, align 4
   store i64 1, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i8, ptr @UseCompressedClassPointers, align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %35
@@ -1314,12 +1314,12 @@ define hidden noundef ptr @_ZNK14ClassAllocator10initializeEPP12HeapWordImpl(ptr
   br i1 %4, label %5, label %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %6, align 4
   br label %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i
 
 _ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i: ; preds = %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %.not6.i.i.i.i = icmp eq i64 %8, 2
   br i1 %.not6.i.i.i.i, label %_ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit, label %.lr.ph.i.i.i.preheader.i
@@ -1336,9 +1336,9 @@ _ZNK12MemAllocator9mem_clearEPP12HeapWordImpl.exit: ; preds = %_ZN7oopDesc13set_
   %12 = phi i64 [ 2, %_ZN7oopDesc13set_klass_gapEPP12HeapWordImpli.exit.i ], [ %.pre, %.lr.ph.i.i.i.preheader.i ]
   tail call void @_ZN15java_lang_Class12set_oop_sizeEPP12HeapWordImplm(ptr noundef %1, i64 noundef %12) #10
   store i64 1, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i8, ptr @UseCompressedClassPointers, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %27

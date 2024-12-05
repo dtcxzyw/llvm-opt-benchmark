@@ -29,7 +29,7 @@ $_ZTV16MetaspaceClosure = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -39,25 +39,25 @@ define hidden void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnul
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %9, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %2, %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = icmp slt i32 %13, 5
   br i1 %14, label %15, label %46
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   br i1 %19, label %20, label %_ZN16MetaspaceClosure7do_pushEPNS_3RefE.exit
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %24 [
     i32 0, label %29
@@ -69,7 +69,7 @@ define hidden void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnul
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   br label %29
@@ -88,7 +88,7 @@ define hidden void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnul
   %36 = load ptr, ptr %3, align 8
   store ptr %1, ptr %3, align 8
   %37 = load ptr, ptr %1, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   store ptr %36, ptr %3, align 8
@@ -102,15 +102,15 @@ define hidden void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnul
 
 _ZN16MetaspaceClosure7do_pushEPNS_3RefE.exit:     ; preds = %40, %15
   %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   br label %50
 
 46:                                               ; preds = %11
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %48, ptr %49, align 8
   store ptr %1, ptr %47, align 8
   br label %50
@@ -122,13 +122,13 @@ _ZN16MetaspaceClosure7do_pushEPNS_3RefE.exit:     ; preds = %40, %15
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16MetaspaceClosure7do_pushEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   br i1 %6, label %7, label %32
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %11 [
     i32 0, label %16
@@ -140,14 +140,14 @@ define hidden void @_ZN16MetaspaceClosure7do_pushEPNS_3RefE(ptr noundef nonnull 
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   br label %16
 
 16:                                               ; preds = %7, %11, %10
   %.0 = phi i1 [ %15, %11 ], [ true, %10 ], [ false, %7 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 8
@@ -157,11 +157,11 @@ define hidden void @_ZN16MetaspaceClosure7do_pushEPNS_3RefE(ptr noundef nonnull 
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   store ptr %1, ptr %24, align 8
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %0) #8
   store ptr %25, ptr %24, align 8
@@ -179,29 +179,29 @@ define hidden void @_ZN16MetaspaceClosure7do_pushEPNS_3RefE(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16MetaspaceClosure6finishEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not3 = icmp eq ptr %3, null
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN16MetaspaceClosure7do_pushEPNS_3RefE.exit
   %7 = phi ptr [ %3, %.lr.ph ], [ %40, %_ZN16MetaspaceClosure7do_pushEPNS_3RefE.exit ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %2, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   br i1 %13, label %14, label %_ZN16MetaspaceClosure7do_pushEPNS_3RefE.exit
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %18 [
     i32 0, label %23
@@ -213,7 +213,7 @@ define hidden void @_ZN16MetaspaceClosure6finishEv(ptr noundef nonnull align 8 d
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   br label %23
@@ -232,7 +232,7 @@ define hidden void @_ZN16MetaspaceClosure6finishEv(ptr noundef nonnull align 8 d
   %30 = load ptr, ptr %5, align 8
   store ptr %7, ptr %5, align 8
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   store ptr %30, ptr %5, align 8
@@ -246,7 +246,7 @@ define hidden void @_ZN16MetaspaceClosure6finishEv(ptr noundef nonnull align 8 d
 
 _ZN16MetaspaceClosure7do_pushEPNS_3RefE.exit:     ; preds = %6, %34
   %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   %40 = load ptr, ptr %2, align 8
@@ -266,7 +266,7 @@ define hidden void @_ZN16MetaspaceClosureD2Ev(ptr nocapture noundef nonnull writ
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN22UniqueMetaspaceClosure6do_refEPN16MetaspaceClosure3RefEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
@@ -277,10 +277,10 @@ define hidden noundef zeroext i1 @_ZN22UniqueMetaspaceClosure6do_refEPN16Metaspa
   %13 = xor i32 %12, %11
   %14 = load i32, ptr %5, align 8
   %15 = urem i32 %13, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not11.i.i = icmp eq ptr %20, null
   br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11lookup_nodeEjRKS1_.exit.thread.i, label %.lr.ph.i.i
@@ -292,19 +292,19 @@ define hidden noundef zeroext i1 @_ZN22UniqueMetaspaceClosure6do_refEPN16Metaspa
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds i8, ptr %.pr.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %9, %25
   br i1 %26, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE13put_if_absentERKS1_RKbPb.exit, label %27
 
 27:                                               ; preds = %23, %.lr.ph.i.i
-  %28 = getelementptr inbounds i8, ptr %.pr.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !8
 
 _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit: ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.pr.i, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 24
   br label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11lookup_nodeEjRKS1_.exit.thread.i
 
 _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11lookup_nodeEjRKS1_.exit.thread.i: ; preds = %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11lookup_nodeEjRKS1_.exit.thread.i.loopexit, %3
@@ -315,22 +315,22 @@ _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15al
 
 33:                                               ; preds = %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11lookup_nodeEjRKS1_.exit.thread.i
   store i32 %13, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %9, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 %4, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %31, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr null, ptr %36, align 8
   br label %37
 
 37:                                               ; preds = %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE11lookup_nodeEjRKS1_.exit.thread.i, %33
   store ptr %31, ptr %.0.lcssa.i12.i, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = load i32, ptr %38, align 8
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 8
   %41 = load i32, ptr %5, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %43 = load i32, ptr %42, align 4
   %.not.i = icmp ult i32 %41, %43
   br i1 %.not.i, label %44, label %_ZN27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE10maybe_growEib.exit.thread
@@ -351,7 +351,7 @@ _ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15al
 
 50:                                               ; preds = %49, %47
   %indvars.iv.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i, %49 ]
-  %51 = getelementptr inbounds [18 x i32], ptr @__const._ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE16calculate_resizeEb.large_table_sizes, i64 0, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw [18 x i32], ptr @__const._ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE16calculate_resizeEb.large_table_sizes, i64 0, i64 %indvars.iv.i.i
   %52 = load i32, ptr %51, align 4
   %.not.i.i4 = icmp slt i32 %52, %48
   br i1 %.not.i.i4, label %49, label %_ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE16calculate_resizeEb.exit.i
@@ -377,12 +377,12 @@ _ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EX
 
 .lr.ph.i.i5:                                      ; preds = %.lr.ph26.i.i, %.lr.ph.i.i5
   %.02123.i.i = phi ptr [ %62, %.lr.ph.i.i5 ], [ %60, %.lr.ph26.i.i ]
-  %61 = getelementptr inbounds i8, ptr %.02123.i.i, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.02123.i.i, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %.02123.i.i, align 8
   %64 = urem i32 %63, %53
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %57, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %57, i64 %65
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr %61, align 8
   store ptr %.02123.i.i, ptr %66, align 8
@@ -395,9 +395,9 @@ _ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EX
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.lr.ph26.i.i
   %68 = phi i32 [ %.pre.i.i, %._crit_edge.loopexit.i.i ], [ %59, %.lr.ph26.i.i ]
-  %69 = getelementptr inbounds i8, ptr %.024.i.i, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.024.i.i, i64 8
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds ptr, ptr %54, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %54, i64 %70
   %72 = icmp ult ptr %69, %71
   br i1 %72, label %.lr.ph26.i.i, label %.loopexit, !llvm.loop !11
 
@@ -405,7 +405,7 @@ _ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EX
   tail call void @_Z8FreeHeapPv(ptr noundef %54) #8
   store ptr %57, ptr %16, align 8
   store i32 %53, ptr %5, align 8
-  %73 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %73 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_51ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %73, null
   br i1 %.not, label %_ZN27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE10maybe_growEib.exit.thread, label %74
 
@@ -415,7 +415,7 @@ _ZNK27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EX
 
 _ZN27ResizeableResourceHashtableIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z14primitive_hashIS0_EjRKT_EEXadL_Z16primitive_equalsIS0_EbS7_S7_EEE10maybe_growEib.exit.thread: ; preds = %44, %37, %74, %.loopexit
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = tail call noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) #8
   br label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIPhbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES1_bLS3_2ELS4_13EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbS9_S9_EEE13put_if_absentERKS1_RKbPb.exit

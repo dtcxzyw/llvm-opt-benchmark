@@ -172,10 +172,10 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %call8 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc = getelementptr inbounds i8, ptr %arrayidx18, i64 8
+  %feature_desc = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 8
   %1 = load ptr, ptr %feature_desc, align 8
   %call11 = tail call noalias ptr @g_strdup(ptr noundef %1) #6
-  %value = getelementptr inbounds i8, ptr %call8, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %call8, i64 8
   store ptr %call11, ptr %value, align 8
   store ptr %list.015, ptr %call8, align 8
   %2 = trunc i32 %0 to i8
@@ -194,13 +194,13 @@ for.inc:                                          ; preds = %for.body, %if.end
 for.end:                                          ; preds = %for.inc
   store ptr %list.1, ptr %call, align 8
   %cmp16 = icmp ne i8 %bitmap.addr.1, 0
-  %has_unknown_statuses = getelementptr inbounds i8, ptr %call, i64 8
+  %has_unknown_statuses = getelementptr inbounds nuw i8, ptr %call, i64 8
   %frombool = zext i1 %cmp16 to i8
   store i8 %frombool, ptr %has_unknown_statuses, align 8
   br i1 %cmp16, label %if.then19, label %if.end20
 
 if.then19:                                        ; preds = %for.end
-  %unknown_statuses = getelementptr inbounds i8, ptr %call, i64 9
+  %unknown_statuses = getelementptr inbounds nuw i8, ptr %call, i64 9
   store i8 %bitmap.addr.1, ptr %unknown_statuses, align 1
   br label %if.end20
 
@@ -233,10 +233,10 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc = getelementptr inbounds i8, ptr %arrayidx18, i64 8
+  %feature_desc = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 8
   %1 = load ptr, ptr %feature_desc, align 8
   %call8 = tail call noalias ptr @g_strdup(ptr noundef %1) #6
-  %value = getelementptr inbounds i8, ptr %call5, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %call5, i64 8
   store ptr %call8, ptr %value, align 8
   store ptr %list.015, ptr %call5, align 8
   %xor = xor i64 %shl, %bitmap.addr.017
@@ -254,13 +254,13 @@ for.inc:                                          ; preds = %for.body, %if.end
 for.end:                                          ; preds = %for.inc
   store ptr %list.1, ptr %call, align 8
   %cmp9 = icmp ne i64 %bitmap.addr.1, 0
-  %has_unknown_protocols = getelementptr inbounds i8, ptr %call, i64 8
+  %has_unknown_protocols = getelementptr inbounds nuw i8, ptr %call, i64 8
   %frombool = zext i1 %cmp9 to i8
   store i8 %frombool, ptr %has_unknown_protocols, align 8
   br i1 %cmp9, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %for.end
-  %unknown_protocols = getelementptr inbounds i8, ptr %call, i64 16
+  %unknown_protocols = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 %bitmap.addr.1, ptr %unknown_protocols, align 8
   br label %if.end12
 
@@ -272,7 +272,7 @@ if.end12:                                         ; preds = %if.then11, %for.end
 define dso_local noalias noundef ptr @qmp_decode_features(i16 noundef zeroext %device_id, i64 noundef %bitmap) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #5
-  %has_dev_features = getelementptr inbounds i8, ptr %call, i64 8
+  %has_dev_features = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i8 1, ptr %has_dev_features, align 8
   br label %for.body
 
@@ -290,10 +290,10 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc = getelementptr inbounds i8, ptr %arrayidx188, i64 8
+  %feature_desc = getelementptr inbounds nuw i8, ptr %arrayidx188, i64 8
   %1 = load ptr, ptr %feature_desc, align 8
   %call8 = tail call noalias ptr @g_strdup(ptr noundef %1) #6
-  %value = getelementptr inbounds i8, ptr %call5, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %call5, i64 8
   store ptr %call8, ptr %value, align 8
   store ptr %list.0185, ptr %call5, align 8
   %xor = xor i64 %shl, %bitmap.addr.0187
@@ -369,10 +369,10 @@ for.body17:                                       ; preds = %for.end, %for.inc36
 
 if.end27:                                         ; preds = %for.body17
   %call28 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc31 = getelementptr inbounds i8, ptr %arrayidx13240, i64 8
+  %feature_desc31 = getelementptr inbounds nuw i8, ptr %arrayidx13240, i64 8
   %4 = load ptr, ptr %feature_desc31, align 8
   %call32 = tail call noalias ptr @g_strdup(ptr noundef %4) #6
-  %value33 = getelementptr inbounds i8, ptr %call28, i64 8
+  %value33 = getelementptr inbounds nuw i8, ptr %call28, i64 8
   store ptr %call32, ptr %value33, align 8
   store ptr %list9.0237, ptr %call28, align 8
   %xor35 = xor i64 %shl22, %bitmap.addr.2239
@@ -401,10 +401,10 @@ for.body49:                                       ; preds = %for.end, %for.inc68
 
 if.end59:                                         ; preds = %for.body49
   %call60 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc63 = getelementptr inbounds i8, ptr %arrayidx45236, i64 8
+  %feature_desc63 = getelementptr inbounds nuw i8, ptr %arrayidx45236, i64 8
   %7 = load ptr, ptr %feature_desc63, align 8
   %call64 = tail call noalias ptr @g_strdup(ptr noundef %7) #6
-  %value65 = getelementptr inbounds i8, ptr %call60, i64 8
+  %value65 = getelementptr inbounds nuw i8, ptr %call60, i64 8
   store ptr %call64, ptr %value65, align 8
   store ptr %list41.0233, ptr %call60, align 8
   %xor67 = xor i64 %shl54, %bitmap.addr.5235
@@ -433,10 +433,10 @@ for.body82:                                       ; preds = %for.end, %for.inc10
 
 if.end92:                                         ; preds = %for.body82
   %call93 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc96 = getelementptr inbounds i8, ptr %arrayidx78232, i64 8
+  %feature_desc96 = getelementptr inbounds nuw i8, ptr %arrayidx78232, i64 8
   %10 = load ptr, ptr %feature_desc96, align 8
   %call97 = tail call noalias ptr @g_strdup(ptr noundef %10) #6
-  %value98 = getelementptr inbounds i8, ptr %call93, i64 8
+  %value98 = getelementptr inbounds nuw i8, ptr %call93, i64 8
   store ptr %call97, ptr %value98, align 8
   store ptr %list74.0229, ptr %call93, align 8
   %xor100 = xor i64 %shl87, %bitmap.addr.7231
@@ -465,10 +465,10 @@ for.body115:                                      ; preds = %for.end, %for.inc13
 
 if.end125:                                        ; preds = %for.body115
   %call126 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc129 = getelementptr inbounds i8, ptr %arrayidx111228, i64 8
+  %feature_desc129 = getelementptr inbounds nuw i8, ptr %arrayidx111228, i64 8
   %13 = load ptr, ptr %feature_desc129, align 8
   %call130 = tail call noalias ptr @g_strdup(ptr noundef %13) #6
-  %value131 = getelementptr inbounds i8, ptr %call126, i64 8
+  %value131 = getelementptr inbounds nuw i8, ptr %call126, i64 8
   store ptr %call130, ptr %value131, align 8
   store ptr %list107.0225, ptr %call126, align 8
   %xor133 = xor i64 %shl120, %bitmap.addr.9227
@@ -497,10 +497,10 @@ for.body148:                                      ; preds = %for.end, %for.inc16
 
 if.end158:                                        ; preds = %for.body148
   %call159 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc162 = getelementptr inbounds i8, ptr %arrayidx144224, i64 8
+  %feature_desc162 = getelementptr inbounds nuw i8, ptr %arrayidx144224, i64 8
   %16 = load ptr, ptr %feature_desc162, align 8
   %call163 = tail call noalias ptr @g_strdup(ptr noundef %16) #6
-  %value164 = getelementptr inbounds i8, ptr %call159, i64 8
+  %value164 = getelementptr inbounds nuw i8, ptr %call159, i64 8
   store ptr %call163, ptr %value164, align 8
   store ptr %list140.0221, ptr %call159, align 8
   %xor166 = xor i64 %shl153, %bitmap.addr.11223
@@ -529,10 +529,10 @@ for.body181:                                      ; preds = %for.end, %for.inc20
 
 if.end191:                                        ; preds = %for.body181
   %call192 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc195 = getelementptr inbounds i8, ptr %arrayidx177220, i64 8
+  %feature_desc195 = getelementptr inbounds nuw i8, ptr %arrayidx177220, i64 8
   %19 = load ptr, ptr %feature_desc195, align 8
   %call196 = tail call noalias ptr @g_strdup(ptr noundef %19) #6
-  %value197 = getelementptr inbounds i8, ptr %call192, i64 8
+  %value197 = getelementptr inbounds nuw i8, ptr %call192, i64 8
   store ptr %call196, ptr %value197, align 8
   store ptr %list173.0217, ptr %call192, align 8
   %xor199 = xor i64 %shl186, %bitmap.addr.13219
@@ -561,10 +561,10 @@ for.body214:                                      ; preds = %for.end, %for.inc23
 
 if.end224:                                        ; preds = %for.body214
   %call225 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc228 = getelementptr inbounds i8, ptr %arrayidx210216, i64 8
+  %feature_desc228 = getelementptr inbounds nuw i8, ptr %arrayidx210216, i64 8
   %22 = load ptr, ptr %feature_desc228, align 8
   %call229 = tail call noalias ptr @g_strdup(ptr noundef %22) #6
-  %value230 = getelementptr inbounds i8, ptr %call225, i64 8
+  %value230 = getelementptr inbounds nuw i8, ptr %call225, i64 8
   store ptr %call229, ptr %value230, align 8
   store ptr %list206.0213, ptr %call225, align 8
   %xor232 = xor i64 %shl219, %bitmap.addr.15215
@@ -593,10 +593,10 @@ for.body247:                                      ; preds = %for.end, %for.inc26
 
 if.end257:                                        ; preds = %for.body247
   %call258 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc261 = getelementptr inbounds i8, ptr %arrayidx243212, i64 8
+  %feature_desc261 = getelementptr inbounds nuw i8, ptr %arrayidx243212, i64 8
   %25 = load ptr, ptr %feature_desc261, align 8
   %call262 = tail call noalias ptr @g_strdup(ptr noundef %25) #6
-  %value263 = getelementptr inbounds i8, ptr %call258, i64 8
+  %value263 = getelementptr inbounds nuw i8, ptr %call258, i64 8
   store ptr %call262, ptr %value263, align 8
   store ptr %list239.0209, ptr %call258, align 8
   %xor265 = xor i64 %shl252, %bitmap.addr.17211
@@ -625,10 +625,10 @@ for.body280:                                      ; preds = %for.end, %for.inc29
 
 if.end290:                                        ; preds = %for.body280
   %call291 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc294 = getelementptr inbounds i8, ptr %arrayidx276208, i64 8
+  %feature_desc294 = getelementptr inbounds nuw i8, ptr %arrayidx276208, i64 8
   %28 = load ptr, ptr %feature_desc294, align 8
   %call295 = tail call noalias ptr @g_strdup(ptr noundef %28) #6
-  %value296 = getelementptr inbounds i8, ptr %call291, i64 8
+  %value296 = getelementptr inbounds nuw i8, ptr %call291, i64 8
   store ptr %call295, ptr %value296, align 8
   store ptr %list272.0205, ptr %call291, align 8
   %xor298 = xor i64 %shl285, %bitmap.addr.19207
@@ -657,10 +657,10 @@ for.body313:                                      ; preds = %for.end, %for.inc33
 
 if.end323:                                        ; preds = %for.body313
   %call324 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc327 = getelementptr inbounds i8, ptr %arrayidx309204, i64 8
+  %feature_desc327 = getelementptr inbounds nuw i8, ptr %arrayidx309204, i64 8
   %31 = load ptr, ptr %feature_desc327, align 8
   %call328 = tail call noalias ptr @g_strdup(ptr noundef %31) #6
-  %value329 = getelementptr inbounds i8, ptr %call324, i64 8
+  %value329 = getelementptr inbounds nuw i8, ptr %call324, i64 8
   store ptr %call328, ptr %value329, align 8
   store ptr %list305.0201, ptr %call324, align 8
   %xor331 = xor i64 %shl318, %bitmap.addr.21203
@@ -678,7 +678,7 @@ for.inc332:                                       ; preds = %for.body313, %if.en
 if.end356:                                        ; preds = %for.body346.preheader
   %call357 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
   %call361 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.63) #6
-  %value362 = getelementptr inbounds i8, ptr %call357, i64 8
+  %value362 = getelementptr inbounds nuw i8, ptr %call357, i64 8
   store ptr %call361, ptr %value362, align 8
   store ptr null, ptr %call357, align 8
   %xor364 = and i64 %bitmap.addr.1, -67108865
@@ -698,10 +698,10 @@ for.body379:                                      ; preds = %for.end, %for.inc39
 
 if.end389:                                        ; preds = %for.body379
   %call390 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc393 = getelementptr inbounds i8, ptr %arrayidx375196, i64 8
+  %feature_desc393 = getelementptr inbounds nuw i8, ptr %arrayidx375196, i64 8
   %34 = load ptr, ptr %feature_desc393, align 8
   %call394 = tail call noalias ptr @g_strdup(ptr noundef %34) #6
-  %value395 = getelementptr inbounds i8, ptr %call390, i64 8
+  %value395 = getelementptr inbounds nuw i8, ptr %call390, i64 8
   store ptr %call394, ptr %value395, align 8
   store ptr %list371.0193, ptr %call390, align 8
   %xor397 = xor i64 %shl384, %bitmap.addr.25195
@@ -730,10 +730,10 @@ for.body412:                                      ; preds = %for.end, %for.inc43
 
 if.end422:                                        ; preds = %for.body412
   %call423 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc426 = getelementptr inbounds i8, ptr %arrayidx408192, i64 8
+  %feature_desc426 = getelementptr inbounds nuw i8, ptr %arrayidx408192, i64 8
   %37 = load ptr, ptr %feature_desc426, align 8
   %call427 = tail call noalias ptr @g_strdup(ptr noundef %37) #6
-  %value428 = getelementptr inbounds i8, ptr %call423, i64 8
+  %value428 = getelementptr inbounds nuw i8, ptr %call423, i64 8
   store ptr %call427, ptr %value428, align 8
   store ptr %list404.0190, ptr %call423, align 8
   %xor430 = xor i64 %shl417, %bitmap.addr.27191
@@ -755,20 +755,20 @@ do.body:                                          ; preds = %for.end
 sw.epilog.sink.split:                             ; preds = %for.inc431, %for.inc398, %for.inc332, %for.inc299, %for.inc266, %for.inc233, %for.inc200, %for.inc167, %for.inc134, %for.inc101, %for.inc68, %for.inc36, %if.end356, %for.body346.preheader
   %list404.1.lcssa.sink = phi ptr [ null, %for.body346.preheader ], [ %call357, %if.end356 ], [ %list9.1, %for.inc36 ], [ %list41.1, %for.inc68 ], [ %list74.1, %for.inc101 ], [ %list107.1, %for.inc134 ], [ %list140.1, %for.inc167 ], [ %list173.1, %for.inc200 ], [ %list206.1, %for.inc233 ], [ %list239.1, %for.inc266 ], [ %list272.1, %for.inc299 ], [ %list305.1, %for.inc332 ], [ %list371.1, %for.inc398 ], [ %list404.1, %for.inc431 ]
   %bitmap.addr.4.ph = phi i64 [ %bitmap.addr.1, %for.body346.preheader ], [ %xor364, %if.end356 ], [ %bitmap.addr.3, %for.inc36 ], [ %bitmap.addr.6, %for.inc68 ], [ %bitmap.addr.8, %for.inc101 ], [ %bitmap.addr.10, %for.inc134 ], [ %bitmap.addr.12, %for.inc167 ], [ %bitmap.addr.14, %for.inc200 ], [ %bitmap.addr.16, %for.inc233 ], [ %bitmap.addr.18, %for.inc266 ], [ %bitmap.addr.20, %for.inc299 ], [ %bitmap.addr.22, %for.inc332 ], [ %bitmap.addr.26, %for.inc398 ], [ %bitmap.addr.28, %for.inc431 ]
-  %dev_features435 = getelementptr inbounds i8, ptr %call, i64 16
+  %dev_features435 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %list404.1.lcssa.sink, ptr %dev_features435, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end, %for.end
   %bitmap.addr.4 = phi i64 [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.1, %for.end ], [ %bitmap.addr.4.ph, %sw.epilog.sink.split ]
   %cmp437 = icmp ne i64 %bitmap.addr.4, 0
-  %has_unknown_dev_features = getelementptr inbounds i8, ptr %call, i64 24
+  %has_unknown_dev_features = getelementptr inbounds nuw i8, ptr %call, i64 24
   %frombool = zext i1 %cmp437 to i8
   store i8 %frombool, ptr %has_unknown_dev_features, align 8
   br i1 %cmp437, label %if.then440, label %if.end441
 
 if.then440:                                       ; preds = %sw.epilog
-  %unknown_dev_features = getelementptr inbounds i8, ptr %call, i64 32
+  %unknown_dev_features = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i64 %bitmap.addr.4, ptr %unknown_dev_features, align 8
   br label %if.end441
 
@@ -813,7 +813,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
-  %realized = getelementptr inbounds i8, ptr %call.i, i64 56
+  %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %0 = load i8, ptr %realized, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -823,13 +823,13 @@ if.then:                                          ; preds = %land.lhs.true
   %call3 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #5
   %call4 = tail call ptr @object_get_canonical_path(ptr noundef nonnull %call) #6
   store ptr %call4, ptr %call3, align 8
-  %name = getelementptr inbounds i8, ptr %call.i9, i64 160
+  %name = getelementptr inbounds nuw i8, ptr %call.i9, i64 160
   %1 = load ptr, ptr %name, align 8
   %call5 = tail call noalias ptr @g_strdup(ptr noundef %1) #6
-  %name6 = getelementptr inbounds i8, ptr %call3, i64 8
+  %name6 = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store ptr %call5, ptr %name6, align 8
   %call7 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #8
-  %value = getelementptr inbounds i8, ptr %call7, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store ptr %call3, ptr %value, align 8
   %2 = load ptr, ptr %opaque, align 8
   store ptr %2, ptr %call7, align 8
@@ -852,7 +852,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
-  %realized = getelementptr inbounds i8, ptr %call.i, i64 56
+  %realized = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %0 = load i8, ptr %realized, align 8
   %tobool3 = trunc i8 %0 to i1
   br i1 %tobool3, label %if.end, label %return
@@ -880,7 +880,7 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
-  %realized.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
+  %realized.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
   %0 = load i8, ptr %realized.i, align 8
   %tobool3.i = trunc i8 %0 to i1
   br i1 %tobool3.i, label %qmp_find_virtio_device.exit, label %if.then
@@ -896,39 +896,39 @@ if.then:                                          ; preds = %entry, %lor.lhs.fal
 
 if.end:                                           ; preds = %qmp_find_virtio_device.exit
   %call1 = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #5
-  %name = getelementptr inbounds i8, ptr %call.i3.i, i64 160
+  %name = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 160
   %1 = load ptr, ptr %name, align 8
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %1) #6
   store ptr %call2, ptr %call1, align 8
-  %device_id = getelementptr inbounds i8, ptr %call.i3.i, i64 432
+  %device_id = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 432
   %2 = load i16, ptr %device_id, align 8
-  %device_id4 = getelementptr inbounds i8, ptr %call1, i64 8
+  %device_id4 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i16 %2, ptr %device_id4, align 8
-  %vhost_started = getelementptr inbounds i8, ptr %call.i3.i, i64 442
+  %vhost_started = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 442
   %3 = load i8, ptr %vhost_started, align 2
-  %vhost_started5 = getelementptr inbounds i8, ptr %call1, i64 10
+  %vhost_started5 = getelementptr inbounds nuw i8, ptr %call1, i64 10
   %frombool = and i8 %3, 1
   store i8 %frombool, ptr %vhost_started5, align 2
-  %guest_features = getelementptr inbounds i8, ptr %call.i3.i, i64 184
+  %guest_features = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 184
   %4 = load i64, ptr %guest_features, align 8
   %call7 = tail call ptr @qmp_decode_features(i16 noundef zeroext %2, i64 noundef %4)
-  %guest_features8 = getelementptr inbounds i8, ptr %call1, i64 24
+  %guest_features8 = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store ptr %call7, ptr %guest_features8, align 8
   %5 = load i16, ptr %device_id, align 8
-  %host_features = getelementptr inbounds i8, ptr %call.i3.i, i64 176
+  %host_features = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 176
   %6 = load i64, ptr %host_features, align 8
   %call10 = tail call ptr @qmp_decode_features(i16 noundef zeroext %5, i64 noundef %6)
-  %host_features11 = getelementptr inbounds i8, ptr %call1, i64 32
+  %host_features11 = getelementptr inbounds nuw i8, ptr %call1, i64 32
   store ptr %call10, ptr %host_features11, align 8
   %7 = load i16, ptr %device_id, align 8
-  %backend_features = getelementptr inbounds i8, ptr %call.i3.i, i64 192
+  %backend_features = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 192
   %8 = load i64, ptr %backend_features, align 8
   %call13 = tail call ptr @qmp_decode_features(i16 noundef zeroext %7, i64 noundef %8)
-  %backend_features14 = getelementptr inbounds i8, ptr %call1, i64 40
+  %backend_features14 = getelementptr inbounds nuw i8, ptr %call1, i64 40
   store ptr %call13, ptr %backend_features14, align 8
-  %device_endian = getelementptr inbounds i8, ptr %call.i3.i, i64 464
+  %device_endian = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 464
   %9 = load i8, ptr %device_endian, align 8
-  %device_endian21 = getelementptr inbounds i8, ptr %call1, i64 16
+  %device_endian21 = getelementptr inbounds nuw i8, ptr %call1, i64 16
   %switch.selectcmp = icmp eq i8 %9, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.5, ptr @.str.6
   %switch.selectcmp102 = icmp eq i8 %9, 1
@@ -937,9 +937,9 @@ if.end:                                           ; preds = %qmp_find_virtio_dev
   store ptr %call20, ptr %device_endian21, align 8
   %call22 = tail call i32 @virtio_get_num_queues(ptr noundef nonnull %call.i3.i) #6
   %conv23 = sext i32 %call22 to i64
-  %num_vqs = getelementptr inbounds i8, ptr %call1, i64 48
+  %num_vqs = getelementptr inbounds nuw i8, ptr %call1, i64 48
   store i64 %conv23, ptr %num_vqs, align 8
-  %status24 = getelementptr inbounds i8, ptr %call.i3.i, i64 168
+  %status24 = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 168
   %10 = load i8, ptr %status24, align 8
   %call.i77 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
   br label %for.body.i
@@ -957,10 +957,10 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end
 
 if.end.i78:                                       ; preds = %for.body.i
   %call8.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 8
+  %feature_desc.i = getelementptr inbounds nuw i8, ptr %arrayidx18.i, i64 8
   %12 = load ptr, ptr %feature_desc.i, align 8
   %call11.i = tail call noalias ptr @g_strdup(ptr noundef %12) #6
-  %value.i = getelementptr inbounds i8, ptr %call8.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %call8.i, i64 8
   store ptr %call11.i, ptr %value.i, align 8
   store ptr %list.015.i, ptr %call8.i, align 8
   %13 = trunc i32 %11 to i8
@@ -979,70 +979,70 @@ for.inc.i:                                        ; preds = %if.end.i78, %for.bo
 for.end.i:                                        ; preds = %for.inc.i
   store ptr %list.1.i, ptr %call.i77, align 8
   %cmp16.i = icmp ne i8 %bitmap.addr.1.i, 0
-  %has_unknown_statuses.i = getelementptr inbounds i8, ptr %call.i77, i64 8
+  %has_unknown_statuses.i = getelementptr inbounds nuw i8, ptr %call.i77, i64 8
   %frombool.i = zext i1 %cmp16.i to i8
   store i8 %frombool.i, ptr %has_unknown_statuses.i, align 8
   br i1 %cmp16.i, label %if.then19.i, label %qmp_decode_status.exit
 
 if.then19.i:                                      ; preds = %for.end.i
-  %unknown_statuses.i = getelementptr inbounds i8, ptr %call.i77, i64 9
+  %unknown_statuses.i = getelementptr inbounds nuw i8, ptr %call.i77, i64 9
   store i8 %bitmap.addr.1.i, ptr %unknown_statuses.i, align 1
   br label %qmp_decode_status.exit
 
 qmp_decode_status.exit:                           ; preds = %for.end.i, %if.then19.i
-  %status26 = getelementptr inbounds i8, ptr %call1, i64 56
+  %status26 = getelementptr inbounds nuw i8, ptr %call1, i64 56
   store ptr %call.i77, ptr %status26, align 8
-  %isr = getelementptr inbounds i8, ptr %call.i3.i, i64 169
+  %isr = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 169
   %15 = load i8, ptr %isr, align 1
-  %isr27 = getelementptr inbounds i8, ptr %call1, i64 64
+  %isr27 = getelementptr inbounds nuw i8, ptr %call1, i64 64
   store i8 %15, ptr %isr27, align 8
-  %queue_sel = getelementptr inbounds i8, ptr %call.i3.i, i64 170
+  %queue_sel = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 170
   %16 = load i16, ptr %queue_sel, align 2
-  %queue_sel28 = getelementptr inbounds i8, ptr %call1, i64 66
+  %queue_sel28 = getelementptr inbounds nuw i8, ptr %call1, i64 66
   store i16 %16, ptr %queue_sel28, align 2
-  %vm_running = getelementptr inbounds i8, ptr %call.i3.i, i64 434
+  %vm_running = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 434
   %17 = load i8, ptr %vm_running, align 2
-  %vm_running30 = getelementptr inbounds i8, ptr %call1, i64 68
+  %vm_running30 = getelementptr inbounds nuw i8, ptr %call1, i64 68
   %frombool31 = and i8 %17, 1
   store i8 %frombool31, ptr %vm_running30, align 4
-  %broken = getelementptr inbounds i8, ptr %call.i3.i, i64 435
+  %broken = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 435
   %18 = load i8, ptr %broken, align 1
-  %broken33 = getelementptr inbounds i8, ptr %call1, i64 69
+  %broken33 = getelementptr inbounds nuw i8, ptr %call1, i64 69
   %frombool34 = and i8 %18, 1
   store i8 %frombool34, ptr %broken33, align 1
-  %disabled = getelementptr inbounds i8, ptr %call.i3.i, i64 437
+  %disabled = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 437
   %19 = load i8, ptr %disabled, align 1
-  %disabled36 = getelementptr inbounds i8, ptr %call1, i64 70
+  %disabled36 = getelementptr inbounds nuw i8, ptr %call1, i64 70
   %frombool37 = and i8 %19, 1
   store i8 %frombool37, ptr %disabled36, align 2
-  %use_started = getelementptr inbounds i8, ptr %call.i3.i, i64 438
+  %use_started = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 438
   %20 = load i8, ptr %use_started, align 2
-  %use_started39 = getelementptr inbounds i8, ptr %call1, i64 71
+  %use_started39 = getelementptr inbounds nuw i8, ptr %call1, i64 71
   %frombool40 = and i8 %20, 1
   store i8 %frombool40, ptr %use_started39, align 1
-  %started = getelementptr inbounds i8, ptr %call.i3.i, i64 439
+  %started = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 439
   %21 = load i8, ptr %started, align 1
-  %started42 = getelementptr inbounds i8, ptr %call1, i64 72
+  %started42 = getelementptr inbounds nuw i8, ptr %call1, i64 72
   %frombool43 = and i8 %21, 1
   store i8 %frombool43, ptr %started42, align 8
-  %start_on_kick = getelementptr inbounds i8, ptr %call.i3.i, i64 440
+  %start_on_kick = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 440
   %22 = load i8, ptr %start_on_kick, align 8
-  %start_on_kick45 = getelementptr inbounds i8, ptr %call1, i64 73
+  %start_on_kick45 = getelementptr inbounds nuw i8, ptr %call1, i64 73
   %frombool46 = and i8 %22, 1
   store i8 %frombool46, ptr %start_on_kick45, align 1
-  %disable_legacy_check = getelementptr inbounds i8, ptr %call.i3.i, i64 441
+  %disable_legacy_check = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 441
   %23 = load i8, ptr %disable_legacy_check, align 1
-  %disable_legacy_check48 = getelementptr inbounds i8, ptr %call1, i64 74
+  %disable_legacy_check48 = getelementptr inbounds nuw i8, ptr %call1, i64 74
   %frombool49 = and i8 %23, 1
   store i8 %frombool49, ptr %disable_legacy_check48, align 2
-  %bus_name = getelementptr inbounds i8, ptr %call.i3.i, i64 456
+  %bus_name = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 456
   %24 = load ptr, ptr %bus_name, align 8
   %call50 = tail call noalias ptr @g_strdup(ptr noundef %24) #6
-  %bus_name51 = getelementptr inbounds i8, ptr %call1, i64 80
+  %bus_name51 = getelementptr inbounds nuw i8, ptr %call1, i64 80
   store ptr %call50, ptr %bus_name51, align 8
-  %use_guest_notifier_mask = getelementptr inbounds i8, ptr %call.i3.i, i64 465
+  %use_guest_notifier_mask = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 465
   %25 = load i8, ptr %use_guest_notifier_mask, align 1
-  %use_guest_notifier_mask53 = getelementptr inbounds i8, ptr %call1, i64 88
+  %use_guest_notifier_mask53 = getelementptr inbounds nuw i8, ptr %call1, i64 88
   %frombool54 = and i8 %25, 1
   store i8 %frombool54, ptr %use_guest_notifier_mask53, align 8
   %26 = load i8, ptr %vhost_started, align 2
@@ -1052,49 +1052,49 @@ qmp_decode_status.exit:                           ; preds = %for.end.i, %if.then
 if.then57:                                        ; preds = %qmp_decode_status.exit
   %call.i79 = tail call ptr @object_get_class(ptr noundef nonnull %call.i3.i) #6
   %call1.i80 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i79, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.124, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #6
-  %get_vhost = getelementptr inbounds i8, ptr %call1.i80, i64 352
+  %get_vhost = getelementptr inbounds nuw i8, ptr %call1.i80, i64 352
   %27 = load ptr, ptr %get_vhost, align 8
   %call59 = tail call ptr %27(ptr noundef nonnull %call.i3.i) #6
   %call60 = tail call noalias dereferenceable_or_null(96) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 96) #5
-  %vhost_dev = getelementptr inbounds i8, ptr %call1, i64 96
+  %vhost_dev = getelementptr inbounds nuw i8, ptr %call1, i64 96
   store ptr %call60, ptr %vhost_dev, align 8
-  %n_mem_sections = getelementptr inbounds i8, ptr %call59, i64 400
+  %n_mem_sections = getelementptr inbounds nuw i8, ptr %call59, i64 400
   %28 = load i32, ptr %n_mem_sections, align 8
   %conv61 = sext i32 %28 to i64
   store i64 %conv61, ptr %call60, align 8
-  %n_tmp_sections = getelementptr inbounds i8, ptr %call59, i64 416
+  %n_tmp_sections = getelementptr inbounds nuw i8, ptr %call59, i64 416
   %29 = load i32, ptr %n_tmp_sections, align 8
   %conv64 = sext i32 %29 to i64
-  %n_tmp_sections66 = getelementptr inbounds i8, ptr %call60, i64 8
+  %n_tmp_sections66 = getelementptr inbounds nuw i8, ptr %call60, i64 8
   store i64 %conv64, ptr %n_tmp_sections66, align 8
-  %nvqs = getelementptr inbounds i8, ptr %call59, i64 440
+  %nvqs = getelementptr inbounds nuw i8, ptr %call59, i64 440
   %30 = load i32, ptr %nvqs, align 8
-  %nvqs68 = getelementptr inbounds i8, ptr %call60, i64 16
+  %nvqs68 = getelementptr inbounds nuw i8, ptr %call60, i64 16
   store i32 %30, ptr %nvqs68, align 8
-  %vq_index = getelementptr inbounds i8, ptr %call59, i64 444
+  %vq_index = getelementptr inbounds nuw i8, ptr %call59, i64 444
   %31 = load i32, ptr %vq_index, align 4
   %conv69 = sext i32 %31 to i64
-  %vq_index71 = getelementptr inbounds i8, ptr %call60, i64 24
+  %vq_index71 = getelementptr inbounds nuw i8, ptr %call60, i64 24
   store i64 %conv69, ptr %vq_index71, align 8
   %32 = load i16, ptr %device_id, align 8
-  %features = getelementptr inbounds i8, ptr %call59, i64 456
+  %features = getelementptr inbounds nuw i8, ptr %call59, i64 456
   %33 = load i64, ptr %features, align 8
   %call73 = tail call ptr @qmp_decode_features(i16 noundef zeroext %32, i64 noundef %33)
-  %features75 = getelementptr inbounds i8, ptr %call60, i64 32
+  %features75 = getelementptr inbounds nuw i8, ptr %call60, i64 32
   store ptr %call73, ptr %features75, align 8
   %34 = load i16, ptr %device_id, align 8
-  %acked_features = getelementptr inbounds i8, ptr %call59, i64 464
+  %acked_features = getelementptr inbounds nuw i8, ptr %call59, i64 464
   %35 = load i64, ptr %acked_features, align 8
   %call77 = tail call ptr @qmp_decode_features(i16 noundef zeroext %34, i64 noundef %35)
-  %acked_features79 = getelementptr inbounds i8, ptr %call60, i64 40
+  %acked_features79 = getelementptr inbounds nuw i8, ptr %call60, i64 40
   store ptr %call77, ptr %acked_features79, align 8
   %36 = load i16, ptr %device_id, align 8
-  %backend_features81 = getelementptr inbounds i8, ptr %call59, i64 472
+  %backend_features81 = getelementptr inbounds nuw i8, ptr %call59, i64 472
   %37 = load i64, ptr %backend_features81, align 8
   %call82 = tail call ptr @qmp_decode_features(i16 noundef zeroext %36, i64 noundef %37)
-  %backend_features84 = getelementptr inbounds i8, ptr %call60, i64 48
+  %backend_features84 = getelementptr inbounds nuw i8, ptr %call60, i64 48
   store ptr %call82, ptr %backend_features84, align 8
-  %protocol_features = getelementptr inbounds i8, ptr %call59, i64 480
+  %protocol_features = getelementptr inbounds nuw i8, ptr %call59, i64 480
   %38 = load i64, ptr %protocol_features, align 8
   %call.i81 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #5
   br label %for.body.i82
@@ -1113,10 +1113,10 @@ for.body.i82:                                     ; preds = %for.inc.i92, %if.th
 
 if.end.i88:                                       ; preds = %for.body.i82
   %call5.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #5
-  %feature_desc.i89 = getelementptr inbounds i8, ptr %arrayidx18.i84, i64 8
+  %feature_desc.i89 = getelementptr inbounds nuw i8, ptr %arrayidx18.i84, i64 8
   %40 = load ptr, ptr %feature_desc.i89, align 8
   %call8.i90 = tail call noalias ptr @g_strdup(ptr noundef %40) #6
-  %value.i91 = getelementptr inbounds i8, ptr %call5.i, i64 8
+  %value.i91 = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
   store ptr %call8.i90, ptr %value.i91, align 8
   store ptr %list.015.i86, ptr %call5.i, align 8
   %xor.i = xor i64 %shl.i, %bitmap.addr.017.i85
@@ -1134,35 +1134,35 @@ for.inc.i92:                                      ; preds = %if.end.i88, %for.bo
 for.end.i98:                                      ; preds = %for.inc.i92
   store ptr %list.1.i93, ptr %call.i81, align 8
   %cmp9.i = icmp ne i64 %bitmap.addr.1.i94, 0
-  %has_unknown_protocols.i = getelementptr inbounds i8, ptr %call.i81, i64 8
+  %has_unknown_protocols.i = getelementptr inbounds nuw i8, ptr %call.i81, i64 8
   %frombool.i99 = zext i1 %cmp9.i to i8
   store i8 %frombool.i99, ptr %has_unknown_protocols.i, align 8
   br i1 %cmp9.i, label %if.then11.i, label %qmp_decode_protocols.exit
 
 if.then11.i:                                      ; preds = %for.end.i98
-  %unknown_protocols.i = getelementptr inbounds i8, ptr %call.i81, i64 16
+  %unknown_protocols.i = getelementptr inbounds nuw i8, ptr %call.i81, i64 16
   store i64 %bitmap.addr.1.i94, ptr %unknown_protocols.i, align 8
   br label %qmp_decode_protocols.exit
 
 qmp_decode_protocols.exit:                        ; preds = %for.end.i98, %if.then11.i
-  %protocol_features87 = getelementptr inbounds i8, ptr %call60, i64 56
+  %protocol_features87 = getelementptr inbounds nuw i8, ptr %call60, i64 56
   store ptr %call.i81, ptr %protocol_features87, align 8
-  %max_queues = getelementptr inbounds i8, ptr %call59, i64 488
+  %max_queues = getelementptr inbounds nuw i8, ptr %call59, i64 488
   %42 = load i64, ptr %max_queues, align 8
-  %max_queues89 = getelementptr inbounds i8, ptr %call60, i64 64
+  %max_queues89 = getelementptr inbounds nuw i8, ptr %call60, i64 64
   store i64 %42, ptr %max_queues89, align 8
-  %backend_cap = getelementptr inbounds i8, ptr %call59, i64 496
+  %backend_cap = getelementptr inbounds nuw i8, ptr %call59, i64 496
   %43 = load i64, ptr %backend_cap, align 8
-  %backend_cap91 = getelementptr inbounds i8, ptr %call60, i64 72
+  %backend_cap91 = getelementptr inbounds nuw i8, ptr %call60, i64 72
   store i64 %43, ptr %backend_cap91, align 8
-  %log_enabled = getelementptr inbounds i8, ptr %call59, i64 505
+  %log_enabled = getelementptr inbounds nuw i8, ptr %call59, i64 505
   %44 = load i8, ptr %log_enabled, align 1
-  %log_enabled94 = getelementptr inbounds i8, ptr %call60, i64 80
+  %log_enabled94 = getelementptr inbounds nuw i8, ptr %call60, i64 80
   %frombool95 = and i8 %44, 1
   store i8 %frombool95, ptr %log_enabled94, align 8
-  %log_size = getelementptr inbounds i8, ptr %call59, i64 512
+  %log_size = getelementptr inbounds nuw i8, ptr %call59, i64 512
   %45 = load i64, ptr %log_size, align 8
-  %log_size97 = getelementptr inbounds i8, ptr %call60, i64 88
+  %log_size97 = getelementptr inbounds nuw i8, ptr %call60, i64 88
   store i64 %45, ptr %log_size97, align 8
   br label %return
 
@@ -1183,7 +1183,7 @@ entry:
 
 lor.lhs.false.i:                                  ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
-  %realized.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
+  %realized.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 56
   %0 = load i8, ptr %realized.i, align 8
   %tobool3.i = trunc i8 %0 to i1
   br i1 %tobool3.i, label %qmp_find_virtio_device.exit, label %if.then
@@ -1198,7 +1198,7 @@ if.then:                                          ; preds = %entry, %lor.lhs.fal
   br label %return
 
 if.end:                                           ; preds = %qmp_find_virtio_device.exit
-  %vhost_started = getelementptr inbounds i8, ptr %call.i3.i, i64 442
+  %vhost_started = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 442
   %1 = load i8, ptr %vhost_started, align 2
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.end2, label %if.then1
@@ -1210,17 +1210,17 @@ if.then1:                                         ; preds = %if.end
 if.end2:                                          ; preds = %if.end
   %call.i49 = tail call ptr @object_get_class(ptr noundef nonnull %call.i3.i) #6
   %call1.i50 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i49, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.124, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #6
-  %get_vhost = getelementptr inbounds i8, ptr %call1.i50, i64 352
+  %get_vhost = getelementptr inbounds nuw i8, ptr %call1.i50, i64 352
   %2 = load ptr, ptr %get_vhost, align 8
   %call4 = tail call ptr %2(ptr noundef nonnull %call.i3.i) #6
   %conv = zext i16 %queue to i32
-  %vq_index = getelementptr inbounds i8, ptr %call4, i64 444
+  %vq_index = getelementptr inbounds nuw i8, ptr %call4, i64 444
   %3 = load i32, ptr %vq_index, align 4
   %cmp5 = icmp sgt i32 %3, %conv
   br i1 %cmp5, label %if.then11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end2
-  %nvqs = getelementptr inbounds i8, ptr %call4, i64 440
+  %nvqs = getelementptr inbounds nuw i8, ptr %call4, i64 440
   %4 = load i32, ptr %nvqs, align 8
   %add = add i32 %4, %3
   %cmp9.not = icmp ugt i32 %add, %conv
@@ -1232,66 +1232,66 @@ if.then11:                                        ; preds = %lor.lhs.false, %if.
 
 if.end13:                                         ; preds = %lor.lhs.false
   %call14 = tail call noalias dereferenceable_or_null(104) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 104) #5
-  %name = getelementptr inbounds i8, ptr %call.i3.i, i64 160
+  %name = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 160
   %5 = load ptr, ptr %name, align 8
   %call15 = tail call noalias ptr @g_strdup(ptr noundef %5) #6
   store ptr %call15, ptr %call14, align 8
-  %vqs = getelementptr inbounds i8, ptr %call4, i64 432
+  %vqs = getelementptr inbounds nuw i8, ptr %call4, i64 432
   %6 = load ptr, ptr %vqs, align 8
   %idxprom = zext i16 %queue to i64
   %arrayidx = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom
   %7 = load i32, ptr %arrayidx, align 8
   %conv17 = sext i32 %7 to i64
-  %kick18 = getelementptr inbounds i8, ptr %call14, i64 8
+  %kick18 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   store i64 %conv17, ptr %kick18, align 8
   %call22 = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom, i32 1
   %8 = load i32, ptr %call22, align 4
   %conv23 = sext i32 %8 to i64
-  %call24 = getelementptr inbounds i8, ptr %call14, i64 16
+  %call24 = getelementptr inbounds nuw i8, ptr %call14, i64 16
   store i64 %conv23, ptr %call24, align 8
   %desc = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom, i32 2
   %9 = load ptr, ptr %desc, align 8
   %10 = ptrtoint ptr %9 to i64
-  %desc28 = getelementptr inbounds i8, ptr %call14, i64 24
+  %desc28 = getelementptr inbounds nuw i8, ptr %call14, i64 24
   store i64 %10, ptr %desc28, align 8
   %avail = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom, i32 3
   %11 = load ptr, ptr %avail, align 8
   %12 = ptrtoint ptr %11 to i64
-  %avail32 = getelementptr inbounds i8, ptr %call14, i64 32
+  %avail32 = getelementptr inbounds nuw i8, ptr %call14, i64 32
   store i64 %12, ptr %avail32, align 8
   %used = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom, i32 4
   %13 = load ptr, ptr %used, align 8
   %14 = ptrtoint ptr %13 to i64
-  %used36 = getelementptr inbounds i8, ptr %call14, i64 40
+  %used36 = getelementptr inbounds nuw i8, ptr %call14, i64 40
   store i64 %14, ptr %used36, align 8
   %num = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom, i32 5
   %15 = load i32, ptr %num, align 8
   %conv40 = sext i32 %15 to i64
-  %num41 = getelementptr inbounds i8, ptr %call14, i64 48
+  %num41 = getelementptr inbounds nuw i8, ptr %call14, i64 48
   store i64 %conv40, ptr %num41, align 8
   %desc_phys = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom, i32 6
   %16 = load i64, ptr %desc_phys, align 8
-  %desc_phys45 = getelementptr inbounds i8, ptr %call14, i64 56
+  %desc_phys45 = getelementptr inbounds nuw i8, ptr %call14, i64 56
   store i64 %16, ptr %desc_phys45, align 8
   %desc_size = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom, i32 7
   %17 = load i32, ptr %desc_size, align 8
-  %desc_size49 = getelementptr inbounds i8, ptr %call14, i64 64
+  %desc_size49 = getelementptr inbounds nuw i8, ptr %call14, i64 64
   store i32 %17, ptr %desc_size49, align 8
   %avail_phys = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom, i32 8
   %18 = load i64, ptr %avail_phys, align 8
-  %avail_phys53 = getelementptr inbounds i8, ptr %call14, i64 72
+  %avail_phys53 = getelementptr inbounds nuw i8, ptr %call14, i64 72
   store i64 %18, ptr %avail_phys53, align 8
   %avail_size = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom, i32 9
   %19 = load i32, ptr %avail_size, align 8
-  %avail_size57 = getelementptr inbounds i8, ptr %call14, i64 80
+  %avail_size57 = getelementptr inbounds nuw i8, ptr %call14, i64 80
   store i32 %19, ptr %avail_size57, align 8
   %used_phys = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom, i32 10
   %20 = load i64, ptr %used_phys, align 8
-  %used_phys61 = getelementptr inbounds i8, ptr %call14, i64 88
+  %used_phys61 = getelementptr inbounds nuw i8, ptr %call14, i64 88
   store i64 %20, ptr %used_phys61, align 8
   %used_size = getelementptr %struct.vhost_virtqueue, ptr %6, i64 %idxprom, i32 11
   %21 = load i32, ptr %used_size, align 8
-  %used_size65 = getelementptr inbounds i8, ptr %call14, i64 96
+  %used_size65 = getelementptr inbounds nuw i8, ptr %call14, i64 96
   store i32 %21, ptr %used_size65, align 8
   br label %return
 

@@ -186,12 +186,12 @@ for.body:                                         ; preds = %if.end, %for.body
   %cmp8.not = icmp ne ptr %1, null
   %inc = zext i1 %cmp8.not to i32
   %spec.select = add nsw i32 %count.014, %inc
-  %crl = getelementptr inbounds i8, ptr %call7, i64 8
+  %crl = getelementptr inbounds nuw i8, ptr %call7, i64 8
   %2 = load ptr, ptr %crl, align 8
   %cmp11.not = icmp ne ptr %2, null
   %inc13 = zext i1 %cmp11.not to i32
   %count.2 = add nsw i32 %spec.select, %inc13
-  %x_pkey = getelementptr inbounds i8, ptr %call7, i64 16
+  %x_pkey = getelementptr inbounds nuw i8, ptr %call7, i64 16
   %3 = load ptr, ptr %x_pkey, align 8
   %cmp15.not = icmp ne ptr %3, null
   %inc17 = zext i1 %cmp15.not to i32
@@ -237,13 +237,13 @@ if.end5:                                          ; preds = %if.else, %entry
   br i1 %.not, label %sub_1, label %if.else9
 
 sub_1:                                            ; preds = %if.end5
-  %3 = getelementptr inbounds i8, ptr %1, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i8, ptr %3, align 1
   %.not13 = icmp eq i8 %4, 107
   br i1 %.not13, label %if.end5.tail, label %if.else9
 
 if.end5.tail:                                     ; preds = %sub_1
-  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %if.end15, label %if.else9

@@ -52,7 +52,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv = uitofp nneg i32 %5 to float
   %mul = fmul reassoc nsz arcp float %conv, 2.000000e+00
   %6 = fmul reassoc nsz arcp float %mul, %1
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %6, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -65,7 +65,7 @@ for.body6:                                        ; preds = %for.body6.lr.ph, %f
   %mul8 = fmul reassoc nsz arcp float %conv7, 2.000000e+00
   %8 = fmul reassoc nsz arcp float %mul8, %4
   %sub11 = fsub reassoc nsz arcp float 2.000000e+00, %8
-  %arrayidx13 = getelementptr inbounds float, ptr %window, i64 %indvars.iv39
+  %arrayidx13 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv39
   store float %sub11, ptr %arrayidx13, align 4
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
@@ -89,7 +89,7 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %conv23 = uitofp nneg i32 %11 to float
   %mul24 = fmul reassoc nsz arcp float %conv23, 2.000000e+00
   %12 = fmul reassoc nsz arcp float %mul24, %2
-  %arrayidx28 = getelementptr inbounds float, ptr %window, i64 %indvars.iv44
+  %arrayidx28 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv44
   store float %12, ptr %arrayidx28, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
@@ -102,7 +102,7 @@ for.body35:                                       ; preds = %for.body35.lr.ph, %
   %mul37 = fmul reassoc nsz arcp float %conv36, 2.000000e+00
   %14 = fmul reassoc nsz arcp float %mul37, %10
   %sub40 = fsub reassoc nsz arcp float 2.000000e+00, %14
-  %arrayidx42 = getelementptr inbounds float, ptr %window, i64 %indvars.iv49
+  %arrayidx42 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv49
   store float %sub40, ptr %arrayidx42, align 4
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
@@ -138,7 +138,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv7 = fptrunc double %mul to float
   %call = tail call reassoc nsz arcp float @cosf(float noundef %conv7) #6
   %5 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call, float 0xBFD851EB80000000, float %4)
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %5, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -185,7 +185,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv8 = fptrunc double %5 to float
   %call9 = tail call reassoc nsz arcp float @cosf(float noundef %conv8) #6
   %6 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call9, float 0x3FB47AE140000000, float %4)
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %6, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -229,7 +229,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv15 = fptrunc double %8 to float
   %call16 = tail call reassoc nsz arcp float @cosf(float noundef %conv15) #6
   %9 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call16, float 0xBF87EBAF20000000, float %7)
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %9, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -264,7 +264,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %4 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %neg, double %3, double 1.000000e+00)
   %mul = fmul reassoc nsz arcp double %4, %4
   %conv5 = fptrunc double %mul to float
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %conv5, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -317,7 +317,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv22 = fptrunc double %11 to float
   %call23 = tail call reassoc nsz arcp float @cosf(float noundef %conv22) #6
   %12 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call23, float 0x3F7C74D7E0000000, float %10)
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %12, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -369,7 +369,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   %mul11.i = fmul reassoc nsz arcp double %.reass, %3
   %call.i = tail call reassoc nsz arcp double @exp(double noundef %mul11.i) #6
   %conv12.i = fptrunc double %call.i to float
-  %arrayidx.i = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %conv12.i, ptr %arrayidx.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -385,7 +385,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul11 = fmul reassoc nsz arcp double %.reass17, %5
   %call = tail call reassoc nsz arcp double @exp(double noundef %mul11) #6
   %conv12 = fptrunc double %call to float
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv20
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv20
   store float %conv12, ptr %arrayidx, align 4
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next21, %wide.trip.count23
@@ -420,7 +420,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv2 = fptrunc double %2 to float
   %call = tail call reassoc nsz arcp float @cosf(float noundef %conv2) #6
   %3 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call, float 0xBFDD70A3E0000000, float 0x3FE147AE20000000)
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %3, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -452,7 +452,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv2 = fptrunc double %2 to float
   %call = tail call reassoc nsz arcp float @cosf(float noundef %conv2) #6
   %3 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %3, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -496,7 +496,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv15 = fptrunc double %8 to float
   %call16 = tail call reassoc nsz arcp float @cosf(float noundef %conv15) #6
   %9 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call16, float 0xBF50624DE0000000, float %7)
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %9, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -540,7 +540,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv15 = fptrunc double %8 to float
   %call16 = tail call reassoc nsz arcp float @cosf(float noundef %conv15) #6
   %9 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call16, float 0xBF85CB0040000000, float %7)
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %9, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -562,7 +562,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float 1.000000e+00, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -707,7 +707,7 @@ for.body.preheader.i:                             ; preds = %if.then
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds float, ptr %window, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv.i
   store float 1.000000e+00, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -737,7 +737,7 @@ for.body.i26:                                     ; preds = %for.body.i26, %for.
   %conv2.i = fptrunc double %3 to float
   %call.i = tail call reassoc nsz arcp float @cosf(float noundef %conv2.i) #6
   %4 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call.i, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx.i28 = getelementptr inbounds float, ptr %window, i64 %indvars.iv.i27
+  %arrayidx.i28 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv.i27
   store float %4, ptr %arrayidx.i28, align 4
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i27, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i25
@@ -763,7 +763,7 @@ for.body.preheader.i46:                           ; preds = %if.then11
 
 for.body.i48:                                     ; preds = %for.body.i48, %for.body.preheader.i46
   %indvars.iv.i49 = phi i64 [ 0, %for.body.preheader.i46 ], [ %indvars.iv.next.i51, %for.body.i48 ]
-  %arrayidx.i50 = getelementptr inbounds float, ptr %window, i64 %indvars.iv.i49
+  %arrayidx.i50 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv.i49
   store float 1.000000e+00, ptr %arrayidx.i50, align 4
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i47
@@ -792,7 +792,7 @@ for.body.i33:                                     ; preds = %for.cond.i.preheade
   %conv24.i = fptrunc double %9 to float
   %call.i34 = tail call reassoc nsz arcp float @cosf(float noundef %conv24.i) #6
   %10 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call.i34, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx.i35 = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx.i35 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %10, ptr %arrayidx.i35, align 4
   %11 = trunc i64 %indvars.iv to i32
   %12 = add i32 %sub.i32, %11
@@ -823,7 +823,7 @@ for.body.preheader.i37:                           ; preds = %if.else12
 
 for.body.i39:                                     ; preds = %for.body.i39, %for.body.preheader.i37
   %indvars.iv.i40 = phi i64 [ 0, %for.body.preheader.i37 ], [ %indvars.iv.next.i42, %for.body.i39 ]
-  %arrayidx.i41 = getelementptr inbounds float, ptr %window, i64 %indvars.iv.i40
+  %arrayidx.i41 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv.i40
   store float 1.000000e+00, ptr %arrayidx.i41, align 4
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i38
@@ -852,7 +852,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %conv24 = fptrunc double %19 to float
   %call = tail call reassoc nsz arcp float @cosf(float noundef %conv24) #6
   %20 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv65
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv65
   store float %20, ptr %arrayidx, align 4
   %21 = trunc i64 %indvars.iv65 to i32
   %22 = add i32 %sub, %21
@@ -932,7 +932,7 @@ for.body30.i:                                     ; preds = %for.body30.i.lr.ph,
   %conv35.i = fptrunc double %8 to float
   %call.i = tail call reassoc nsz arcp float @cosf(float noundef %conv35.i) #6
   %9 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call.i, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx38.i = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx38.i = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %9, ptr %arrayidx38.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc41.i = add nuw nsw i32 %i.0.i196, 1
@@ -953,7 +953,7 @@ for.body64.i.lr.ph:                               ; preds = %for.cond57.i.prehea
 
 for.body51.i:                                     ; preds = %for.body51.i.preheader, %for.body51.i
   %indvars.iv261 = phi i64 [ %7, %for.body51.i.preheader ], [ %indvars.iv.next262, %for.body51.i ]
-  %arrayidx53.i = getelementptr inbounds float, ptr %window, i64 %indvars.iv261
+  %arrayidx53.i = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv261
   store float 1.000000e+00, ptr %arrayidx53.i, align 4
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %13 = trunc nuw i64 %indvars.iv.next262 to i32
@@ -974,7 +974,7 @@ for.body64.i:                                     ; preds = %for.body64.i.lr.ph,
   %conv69.i = fptrunc double %15 to float
   %call70.i = tail call reassoc nsz arcp float @cosf(float noundef %conv69.i) #6
   %16 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call70.i, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx73.i = getelementptr inbounds float, ptr %window, i64 %indvars.iv264
+  %arrayidx73.i = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv264
   store float %16, ptr %arrayidx73.i, align 4
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %dec.i = add nsw i32 %i.1.i203, -1
@@ -1034,7 +1034,7 @@ for.body30.i107:                                  ; preds = %for.body30.i107.lr.
   %conv35.i112 = fptrunc double %27 to float
   %call.i113 = tail call reassoc nsz arcp float @cosf(float noundef %conv35.i112) #6
   %28 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call.i113, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx38.i115 = getelementptr inbounds float, ptr %window, i64 %indvars.iv275
+  %arrayidx38.i115 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv275
   store float %28, ptr %arrayidx38.i115, align 4
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %inc41.i117 = add nuw nsw i32 %i.0.i71212, 1
@@ -1055,7 +1055,7 @@ for.body64.i92.lr.ph:                             ; preds = %for.cond57.i80.preh
 
 for.body51.i103:                                  ; preds = %for.body51.i103.preheader, %for.body51.i103
   %indvars.iv280 = phi i64 [ %26, %for.body51.i103.preheader ], [ %indvars.iv.next281, %for.body51.i103 ]
-  %arrayidx53.i105 = getelementptr inbounds float, ptr %window, i64 %indvars.iv280
+  %arrayidx53.i105 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv280
   store float 1.000000e+00, ptr %arrayidx53.i105, align 4
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %32 = trunc nuw i64 %indvars.iv.next281 to i32
@@ -1076,7 +1076,7 @@ for.body64.i92:                                   ; preds = %for.body64.i92.lr.p
   %conv69.i97 = fptrunc double %34 to float
   %call70.i98 = tail call reassoc nsz arcp float @cosf(float noundef %conv69.i97) #6
   %35 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call70.i98, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx73.i100 = getelementptr inbounds float, ptr %window, i64 %indvars.iv283
+  %arrayidx73.i100 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv283
   store float %35, ptr %arrayidx73.i100, align 4
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
   %dec.i102 = add nsw i32 %i.1.i82219, -1
@@ -1138,7 +1138,7 @@ for.body30.i174:                                  ; preds = %for.body30.i174.lr.
   %conv35.i179 = fptrunc double %46 to float
   %call.i180 = tail call reassoc nsz arcp float @cosf(float noundef %conv35.i179) #6
   %47 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call.i180, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx38.i182 = getelementptr inbounds float, ptr %window, i64 %indvars.iv295
+  %arrayidx38.i182 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv295
   store float %47, ptr %arrayidx38.i182, align 4
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %inc41.i184 = add nuw nsw i32 %i.0.i138228, 1
@@ -1159,7 +1159,7 @@ for.body64.i159.lr.ph:                            ; preds = %for.cond57.i147.pre
 
 for.body51.i170:                                  ; preds = %for.body51.i170.preheader, %for.body51.i170
   %indvars.iv300 = phi i64 [ %45, %for.body51.i170.preheader ], [ %indvars.iv.next301, %for.body51.i170 ]
-  %arrayidx53.i172 = getelementptr inbounds float, ptr %window, i64 %indvars.iv300
+  %arrayidx53.i172 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv300
   store float 1.000000e+00, ptr %arrayidx53.i172, align 4
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
   %51 = trunc nuw i64 %indvars.iv.next301 to i32
@@ -1180,7 +1180,7 @@ for.body64.i159:                                  ; preds = %for.body64.i159.lr.
   %conv69.i164 = fptrunc double %53 to float
   %call70.i165 = tail call reassoc nsz arcp float @cosf(float noundef %conv69.i164) #6
   %54 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call70.i165, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx73.i167 = getelementptr inbounds float, ptr %window, i64 %indvars.iv303
+  %arrayidx73.i167 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv303
   store float %54, ptr %arrayidx73.i167, align 4
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %dec.i169 = add nsw i32 %i.1.i149235, -1
@@ -1237,7 +1237,7 @@ for.body30:                                       ; preds = %for.body30.lr.ph, %
   %conv35 = fptrunc double %65 to float
   %call = tail call reassoc nsz arcp float @cosf(float noundef %conv35) #6
   %66 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx38 = getelementptr inbounds float, ptr %window, i64 %indvars.iv315
+  %arrayidx38 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv315
   store float %66, ptr %arrayidx38, align 4
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %inc41 = add nuw nsw i32 %i.0244, 1
@@ -1258,7 +1258,7 @@ for.body64.lr.ph:                                 ; preds = %for.cond57.preheade
 
 for.body51:                                       ; preds = %for.body51.preheader, %for.body51
   %indvars.iv320 = phi i64 [ %64, %for.body51.preheader ], [ %indvars.iv.next321, %for.body51 ]
-  %arrayidx53 = getelementptr inbounds float, ptr %window, i64 %indvars.iv320
+  %arrayidx53 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv320
   store float 1.000000e+00, ptr %arrayidx53, align 4
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %70 = trunc nuw i64 %indvars.iv.next321 to i32
@@ -1279,7 +1279,7 @@ for.body64:                                       ; preds = %for.body64.lr.ph, %
   %conv69 = fptrunc double %72 to float
   %call70 = tail call reassoc nsz arcp float @cosf(float noundef %conv69) #6
   %73 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call70, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx73 = getelementptr inbounds float, ptr %window, i64 %indvars.iv323
+  %arrayidx73 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv323
   store float %73, ptr %arrayidx73, align 4
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %dec = add nsw i32 %i.1251, -1
@@ -1373,7 +1373,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv31 = fptrunc double %4 to float
   %call = tail call reassoc nsz arcp float @cosf(float noundef %conv31) #6
   %5 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %5, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc33 = add nuw nsw i32 %i.081, 1
@@ -1394,7 +1394,7 @@ for.body55.lr.ph:                                 ; preds = %for.cond48.preheade
 
 for.body42:                                       ; preds = %for.body42.preheader, %for.body42
   %indvars.iv103 = phi i64 [ %3, %for.body42.preheader ], [ %indvars.iv.next104, %for.body42 ]
-  %arrayidx44 = getelementptr inbounds float, ptr %window, i64 %indvars.iv103
+  %arrayidx44 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv103
   store float 1.000000e+00, ptr %arrayidx44, align 4
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
@@ -1427,7 +1427,7 @@ for.body55:                                       ; preds = %for.body55.lr.ph, %
   %conv60 = fptrunc double %17 to float
   %call61 = tail call reassoc nsz arcp float @cosf(float noundef %conv60) #6
   %18 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call61, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx64 = getelementptr inbounds float, ptr %window, i64 %indvars.iv108
+  %arrayidx64 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv108
   store float %18, ptr %arrayidx64, align 4
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %dec = add nsw i32 %i.187, -1
@@ -1481,7 +1481,7 @@ for.body88:                                       ; preds = %for.body88.lr.ph, %
   %conv93 = fptrunc double %31 to float
   %call94 = tail call reassoc nsz arcp float @cosf(float noundef %conv93) #6
   %32 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %call94, float -5.000000e-01, float 5.000000e-01)
-  %arrayidx97 = getelementptr inbounds float, ptr %window, i64 %indvars.iv114
+  %arrayidx97 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv114
   store float %32, ptr %arrayidx97, align 4
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %inc100 = add nuw i32 %i.294, 1
@@ -1502,7 +1502,7 @@ for.body119.lr.ph:                                ; preds = %for.cond116.prehead
 
 for.body110:                                      ; preds = %for.body110.preheader, %for.body110
   %indvars.iv118 = phi i64 [ %30, %for.body110.preheader ], [ %indvars.iv.next119, %for.body110 ]
-  %arrayidx112 = getelementptr inbounds float, ptr %window, i64 %indvars.iv118
+  %arrayidx112 = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv118
   store float 1.000000e+00, ptr %arrayidx112, align 4
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %35 = trunc nuw i64 %indvars.iv.next119 to i32
@@ -1553,7 +1553,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %neg = fneg reassoc nsz arcp double %3
   %4 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %neg, double %3, double 1.000000e+00)
   %conv5 = fptrunc double %4 to float
-  %arrayidx = getelementptr inbounds float, ptr %window, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw float, ptr %window, i64 %indvars.iv
   store float %conv5, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

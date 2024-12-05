@@ -1349,23 +1349,23 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
 12:                                               ; preds = %4
   %13 = tail call ptr @wmem_file_scope() #4
   %14 = tail call noalias ptr @wmem_alloc0(ptr noundef %13, i64 noundef 40) #4
-  %15 = getelementptr inbounds i8, ptr %1, i64 288
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %14, i64 30
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 30
   store i8 0, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %14, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %14, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %14, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %14, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i16 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %14, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %14, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 0, ptr %24, align 4
   %25 = load i32, ptr @proto_spice, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %9, i32 noundef %25, ptr noundef %14) #4
@@ -1384,7 +1384,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
 31:                                               ; preds = %27
   %32 = tail call ptr @wmem_file_scope() #4
   %33 = tail call noalias ptr @wmem_alloc(ptr noundef %32, i64 noundef 4) #4
-  %34 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr %33, align 4
   %36 = tail call ptr @wmem_file_scope() #4
@@ -1394,9 +1394,9 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 38:                                               ; preds = %31, %27
   %.0435 = phi ptr [ %30, %27 ], [ %33, %31 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %.0434, i64 30
+  %41 = getelementptr inbounds nuw i8, ptr %.0434, i64 30
   %42 = load i8, ptr %41, align 2
   %43 = zext i8 %42 to i32
   %44 = tail call ptr @val_to_str_const(i32 noundef %43, ptr noundef nonnull @channel_types_vs, ptr noundef nonnull @.str.679) #4
@@ -1435,10 +1435,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not551, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader502
-  %55 = getelementptr inbounds i8, ptr %.0434, i64 32
-  %56 = getelementptr inbounds i8, ptr %.0434, i64 36
-  %57 = getelementptr inbounds i8, ptr %.0434, i64 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 288
+  %55 = getelementptr inbounds nuw i8, ptr %.0434, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.0434, i64 36
+  %57 = getelementptr inbounds nuw i8, ptr %.0434, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 288
   br label %314
 
 .preheader500:                                    ; preds = %38
@@ -1452,7 +1452,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not553, label %.loopexit, label %.lr.ph542
 
 .lr.ph542:                                        ; preds = %.preheader498
-  %61 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   br label %252
 
 .preheader:                                       ; preds = %38
@@ -1461,7 +1461,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not555, label %.loopexit, label %.lr.ph549
 
 .lr.ph549:                                        ; preds = %.preheader
-  %63 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   br label %160
 
 64:                                               ; preds = %38
@@ -1470,10 +1470,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %1, i64 332
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %68, align 4
   %69 = sub nuw nsw i32 16, %65
-  %70 = getelementptr inbounds i8, ptr %1, i64 336
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %69, ptr %70, align 8
   br label %.loopexit
 
@@ -1484,10 +1484,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %1, i64 332
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %76, align 4
   %77 = sub nuw i32 %73, %65
-  %78 = getelementptr inbounds i8, ptr %1, i64 336
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %77, ptr %78, align 8
   br label %.loopexit
 
@@ -1499,7 +1499,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   %82 = zext i8 %81 to i32
   %83 = tail call ptr @val_to_str_const(i32 noundef %82, ptr noundef nonnull @channel_types_vs, ptr noundef nonnull @.str.679) #4
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %80, i32 noundef 34, ptr noundef nonnull @.str.678, ptr noundef %83) #4
-  %84 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   store i32 1, ptr %84, align 4
   br label %.loopexit
 
@@ -1509,10 +1509,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %87, label %88, label %92
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %1, i64 332
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %89, align 4
   %90 = sub nuw nsw i32 16, %86
-  %91 = getelementptr inbounds i8, ptr %1, i64 336
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %90, ptr %91, align 8
   br label %.loopexit
 
@@ -1523,43 +1523,43 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %1, i64 332
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %97, align 4
   %98 = sub nuw i32 %94, %86
-  %99 = getelementptr inbounds i8, ptr %1, i64 336
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %98, ptr %99, align 8
   br label %.loopexit
 
 100:                                              ; preds = %92
   tail call void @proto_item_set_len(ptr noundef %50, i32 noundef %94) #4
   tail call fastcc void @dissect_spice_link_server_pdu(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %52, ptr noundef nonnull %.0434)
-  %101 = getelementptr inbounds i8, ptr %.0434, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.0434, i64 16
   %102 = load i32, ptr %101, align 4
   %103 = and i32 %102, 1
   %.not496 = icmp eq i32 %103, 0
   br i1 %.not496, label %108, label %104
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %.0434, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %.0434, i64 12
   %106 = load i32, ptr %105, align 4
   %107 = and i32 %106, 1
   %.not497 = icmp eq i32 %107, 0
   br i1 %.not497, label %108, label %110
 
 108:                                              ; preds = %104, %100
-  %109 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   store i32 2, ptr %109, align 4
   br label %.loopexit
 
 110:                                              ; preds = %104
-  %111 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   store i32 4, ptr %111, align 4
   br label %.loopexit
 
 112:                                              ; preds = %38
-  %113 = getelementptr inbounds i8, ptr %.0434, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.0434, i64 8
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %1, i64 288
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %116 = load i32, ptr %115, align 8
   %.not495 = icmp eq i32 %114, %116
   br i1 %.not495, label %119, label %117
@@ -1574,10 +1574,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %121, label %122, label %126
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %1, i64 332
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %123, align 4
   %124 = sub nuw nsw i32 4, %120
-  %125 = getelementptr inbounds i8, ptr %1, i64 336
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %124, ptr %125, align 8
   br label %.loopexit
 
@@ -1586,7 +1586,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   %127 = load i32, ptr @hf_auth_select_client, align 4
   %128 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %127, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #4
   %129 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #4
-  %130 = getelementptr inbounds i8, ptr %.0434, i64 20
+  %130 = getelementptr inbounds nuw i8, ptr %.0434, i64 20
   store i32 %129, ptr %130, align 4
   switch i32 %129, label %135 [
     i32 1, label %131
@@ -1594,12 +1594,12 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 131:                                              ; preds = %126
-  %132 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   store i32 2, ptr %132, align 4
   br label %.loopexit
 
 133:                                              ; preds = %126
-  %134 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   store i32 5, ptr %134, align 4
   br label %.loopexit
 
@@ -1613,10 +1613,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %1, i64 332
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %141, align 4
   %142 = sub nuw nsw i32 4, %138
-  %143 = getelementptr inbounds i8, ptr %1, i64 336
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %142, ptr %143, align 8
   br label %.loopexit
 
@@ -1630,10 +1630,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %149, label %150, label %154
 
 150:                                              ; preds = %144
-  %151 = getelementptr inbounds i8, ptr %1, i64 332
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %151, align 4
   %152 = sub nuw i32 %148, %138
-  %153 = getelementptr inbounds i8, ptr %1, i64 336
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %152, ptr %153, align 8
   br label %.loopexit
 
@@ -1643,7 +1643,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   %156 = tail call ptr @proto_tree_add_uint(ptr noundef %52, i32 noundef %155, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %145) #4
   %157 = load i32, ptr @hf_spice_supported_authentication_mechanisms_list, align 4
   %158 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %157, ptr noundef %0, i32 noundef 4, i32 noundef %145, i32 noundef 0) #4
-  %159 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %159 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   store i32 6, ptr %159, align 4
   br label %.loopexit
 
@@ -1655,10 +1655,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %162, label %163, label %167
 
 163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %1, i64 332
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0436547, ptr %164, align 4
   %165 = sub nuw nsw i32 4, %161
-  %166 = getelementptr inbounds i8, ptr %1, i64 336
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %165, ptr %166, align 8
   br label %.loopexit
 
@@ -1681,10 +1681,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %176, label %177, label %181
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %1, i64 332
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0436547, ptr %178, align 4
   %179 = sub nuw i32 %175, %161
-  %180 = getelementptr inbounds i8, ptr %1, i64 336
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %179, ptr %180, align 8
   br label %.loopexit
 
@@ -1736,10 +1736,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %203, label %204, label %208
 
 204:                                              ; preds = %.lr.ph545
-  %205 = getelementptr inbounds i8, ptr %1, i64 332
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.3544, ptr %205, align 4
   %206 = sub nuw nsw i32 4, %202
-  %207 = getelementptr inbounds i8, ptr %1, i64 336
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %206, ptr %207, align 8
   br label %.loopexit
 
@@ -1761,10 +1761,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %217, label %218, label %222
 
 218:                                              ; preds = %216
-  %219 = getelementptr inbounds i8, ptr %1, i64 332
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.3544, ptr %219, align 4
   %220 = sub nuw i32 %210, %202
-  %221 = getelementptr inbounds i8, ptr %1, i64 336
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %220, ptr %221, align 8
   br label %.loopexit
 
@@ -1786,7 +1786,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.2441.lcssa = phi i32 [ 0, %200 ], [ %.3442, %227 ]
   %230 = load i32, ptr %.0435, align 4
   %231 = icmp eq i32 %230, 7
-  %232 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   br i1 %231, label %233, label %234
 
 233:                                              ; preds = %._crit_edge
@@ -1816,7 +1816,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %244, label %245, label %247
 
 245:                                              ; preds = %243
-  %246 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %246 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   store i32 9, ptr %246, align 4
   br label %.loopexit
 
@@ -1826,7 +1826,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit
 
 250:                                              ; preds = %237
-  %251 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   store i32 3, ptr %251, align 4
   br label %.loopexit
 
@@ -1837,10 +1837,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %254, label %255, label %259
 
 255:                                              ; preds = %252
-  %256 = getelementptr inbounds i8, ptr %1, i64 332
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.5541, ptr %256, align 4
   %257 = sub nuw nsw i32 4, %253
-  %258 = getelementptr inbounds i8, ptr %1, i64 336
+  %258 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %257, ptr %258, align 8
   br label %.loopexit
 
@@ -1865,10 +1865,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %269, label %270, label %274
 
 270:                                              ; preds = %267
-  %271 = getelementptr inbounds i8, ptr %1, i64 332
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.5541, ptr %271, align 4
   %272 = sub nuw i32 %268, %253
-  %273 = getelementptr inbounds i8, ptr %1, i64 336
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %272, ptr %273, align 8
   br label %.loopexit
 
@@ -1899,10 +1899,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %286, label %287, label %291
 
 287:                                              ; preds = %.lr.ph537
-  %288 = getelementptr inbounds i8, ptr %1, i64 332
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.7536, ptr %288, align 4
   %289 = sub nuw nsw i32 4, %285
-  %290 = getelementptr inbounds i8, ptr %1, i64 336
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %289, ptr %290, align 8
   br label %.loopexit
 
@@ -1920,10 +1920,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %298, label %299, label %303
 
 299:                                              ; preds = %296
-  %300 = getelementptr inbounds i8, ptr %1, i64 332
+  %300 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.7536, ptr %300, align 4
   %301 = sub nuw i32 %297, %285
-  %302 = getelementptr inbounds i8, ptr %1, i64 336
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %301, ptr %302, align 8
   br label %.loopexit
 
@@ -1959,10 +1959,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %320, label %321, label %331
 
 321:                                              ; preds = %319
-  %322 = getelementptr inbounds i8, ptr %1, i64 332
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.8535, ptr %322, align 4
   %323 = sub nuw nsw i32 6, %315
-  %324 = getelementptr inbounds i8, ptr %1, i64 336
+  %324 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %323, ptr %324, align 8
   br label %.loopexit
 
@@ -1971,10 +1971,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %326, label %327, label %331
 
 327:                                              ; preds = %325
-  %328 = getelementptr inbounds i8, ptr %1, i64 332
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.8535, ptr %328, align 4
   %329 = sub nuw nsw i32 18, %315
-  %330 = getelementptr inbounds i8, ptr %1, i64 336
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %329, ptr %330, align 8
   br label %.loopexit
 
@@ -1988,10 +1988,10 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %335, label %336, label %340
 
 336:                                              ; preds = %331
-  %337 = getelementptr inbounds i8, ptr %1, i64 332
+  %337 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.8535, ptr %337, align 4
   %338 = sub nuw i32 %334, %315
-  %339 = getelementptr inbounds i8, ptr %1, i64 336
+  %339 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %338, ptr %339, align 8
   br label %.loopexit
 
@@ -2373,9 +2373,9 @@ dissect_spice_data_client_pdu.exit:               ; preds = %378, %379, %383, %3
   br i1 %571, label %314, label %.loopexit, !llvm.loop !9
 
 572:                                              ; preds = %38
-  %573 = getelementptr inbounds i8, ptr %.0434, i64 8
+  %573 = getelementptr inbounds nuw i8, ptr %.0434, i64 8
   %574 = load i32, ptr %573, align 4
-  %575 = getelementptr inbounds i8, ptr %1, i64 288
+  %575 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %576 = load i32, ptr %575, align 8
   %.not491 = icmp eq i32 %574, %576
   br i1 %.not491, label %577, label %.loopexit
@@ -2386,10 +2386,10 @@ dissect_spice_data_client_pdu.exit:               ; preds = %378, %379, %383, %3
   br i1 %579, label %580, label %584
 
 580:                                              ; preds = %577
-  %581 = getelementptr inbounds i8, ptr %1, i64 332
+  %581 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %581, align 4
   %582 = sub nuw nsw i32 128, %578
-  %583 = getelementptr inbounds i8, ptr %1, i64 336
+  %583 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %582, ptr %583, align 8
   br label %.loopexit
 
@@ -2397,14 +2397,14 @@ dissect_spice_data_client_pdu.exit:               ; preds = %378, %379, %383, %3
   tail call void @proto_item_set_len(ptr noundef %50, i32 noundef 128) #4
   %585 = load i32, ptr @hf_ticket_client, align 4
   %586 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %585, ptr noundef %0, i32 noundef 0, i32 noundef 128, i32 noundef 0) #4
-  %587 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %587 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   store i32 3, ptr %587, align 4
   br label %.loopexit
 
 588:                                              ; preds = %38
-  %589 = getelementptr inbounds i8, ptr %.0434, i64 8
+  %589 = getelementptr inbounds nuw i8, ptr %.0434, i64 8
   %590 = load i32, ptr %589, align 4
-  %591 = getelementptr inbounds i8, ptr %1, i64 284
+  %591 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %592 = load i32, ptr %591, align 4
   %.not490 = icmp eq i32 %590, %592
   br i1 %.not490, label %593, label %.loopexit
@@ -2415,10 +2415,10 @@ dissect_spice_data_client_pdu.exit:               ; preds = %378, %379, %383, %3
   br i1 %595, label %596, label %600
 
 596:                                              ; preds = %593
-  %597 = getelementptr inbounds i8, ptr %1, i64 332
+  %597 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %597, align 4
   %598 = sub nuw nsw i32 4, %594
-  %599 = getelementptr inbounds i8, ptr %1, i64 336
+  %599 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %598, ptr %599, align 8
   br label %.loopexit
 
@@ -2426,10 +2426,10 @@ dissect_spice_data_client_pdu.exit:               ; preds = %378, %379, %383, %3
   tail call void @proto_item_set_len(ptr noundef %50, i32 noundef 4) #4
   %601 = load i32, ptr @hf_ticket_server, align 4
   %602 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %601, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #4
-  %603 = getelementptr inbounds i8, ptr %.0434, i64 20
+  %603 = getelementptr inbounds nuw i8, ptr %.0434, i64 20
   %604 = load i32, ptr %603, align 4
   %605 = icmp eq i32 %604, 2
-  %606 = getelementptr inbounds i8, ptr %.0434, i64 24
+  %606 = getelementptr inbounds nuw i8, ptr %.0434, i64 24
   br i1 %605, label %607, label %608
 
 607:                                              ; preds = %600
@@ -2552,7 +2552,7 @@ define internal fastcc void @dissect_spice_link_client_pdu(ptr noundef %0, ptr n
   br label %dissect_spice_link_common_header.exit
 
 dissect_spice_link_common_header.exit:            ; preds = %10, %5, %4
-  %19 = getelementptr inbounds i8, ptr %3, i64 30
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %20 = load i8, ptr %19, align 2
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %24
@@ -2584,8 +2584,8 @@ dissect_spice_link_common_header.exit:            ; preds = %10, %5, %4
   %40 = shl i32 %25, 2
   %41 = load i32, ptr @ett_link_caps, align 4
   %42 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 34, i32 noundef %40, i32 noundef %41, ptr noundef null, ptr noundef nonnull @.str.699, i32 noundef %40) #4
-  %43 = getelementptr inbounds i8, ptr %3, i64 12
-  %44 = getelementptr inbounds i8, ptr %3, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %.split.i
 
 .split.i:                                         ; preds = %49, %39
@@ -2683,8 +2683,8 @@ dissect_spice_link_common_header.exit:            ; preds = %5, %10
   %32 = shl i32 %29, 2
   %33 = load i32, ptr @ett_link_caps, align 4
   %34 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 194, i32 noundef %32, i32 noundef %33, ptr noundef null, ptr noundef nonnull @.str.701, i32 noundef %32) #4
-  %35 = getelementptr inbounds i8, ptr %3, i64 16
-  %36 = getelementptr inbounds i8, ptr %3, i64 36
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 36
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %43, %31
@@ -2757,13 +2757,13 @@ define internal fastcc i32 @dissect_spice_data_server_pdu(ptr noundef %0, ptr no
   %10 = alloca i32, align 4
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %38, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %3, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %15 = load i32, ptr %14, align 4
   %.not134 = icmp eq i32 %15, 0
   br i1 %.not134, label %38, label %16
@@ -2824,7 +2824,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   %52 = load ptr, ptr %8, align 8
   call void @proto_item_set_len(ptr noundef %52, i32 noundef %.pre-phi) #4
   %53 = add i32 %.0, %4
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = call fastcc ptr @get_message_type_string(i16 noundef zeroext %.0130, ptr noundef nonnull %3, i32 noundef 0)
   call void @col_append_sep_str(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.703, ptr noundef %56) #4
@@ -2895,7 +2895,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   br label %dissect_spice_common_server_messages.exit
 
 105:                                              ; preds = %51
-  %106 = getelementptr inbounds i8, ptr %3, i64 30
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %107 = load i8, ptr %106, align 2
   switch i8 %107, label %741 [
     i8 5, label %108
@@ -2936,7 +2936,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %16, %28
   %119 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %118, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef -2147483648) #4
   %120 = add i32 %53, 4
   %121 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %120) #4
-  %122 = getelementptr inbounds i8, ptr %3, i64 28
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i16 %121, ptr %122, align 4
   %123 = load i32, ptr @hf_audio_mode, align 4
   %124 = call ptr @proto_tree_add_item(ptr noundef %.0131, i32 noundef %123, ptr noundef %0, i32 noundef %120, i32 noundef 2, i32 noundef -2147483648) #4
@@ -3877,7 +3877,7 @@ define internal fastcc void @dissect_spice_link_capabilities(ptr noundef %0, ptr
   %8 = alloca [5 x ptr], align 16
   %9 = alloca [16 x ptr], align 16
   %10 = alloca [4 x ptr], align 16
-  %11 = getelementptr inbounds i8, ptr %5, i64 30
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 30
   br label %12
 
 12:                                               ; preds = %6, %30
@@ -4013,7 +4013,7 @@ define internal fastcc ptr @get_message_type_string(i16 noundef zeroext %0, ptr 
   br label %57
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 30
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 30
   %13 = load i8, ptr %12, align 2
   switch i8 %13, label %57 [
     i8 1, label %14

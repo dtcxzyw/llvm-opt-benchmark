@@ -17,9 +17,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @clock() #6
   %9 = load i8, ptr @Verbose, align 1
@@ -49,7 +49,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
 .lr.ph154:                                        ; preds = %.preheader, %162
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %162 ], [ 0, %.preheader ]
   %.1153 = phi i1 [ %.3, %162 ], [ false, %.preheader ]
-  %17 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv168
+  %17 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv168
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr i8, ptr %17, i64 4
   %20 = load i32, ptr %19, align 4
@@ -57,7 +57,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   br i1 %21, label %.lr.ph.i, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph154
-  %22 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv168
+  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv168
   %23 = sext i32 %18 to i64
   %24 = sext i32 %20 to i64
   br label %25
@@ -93,7 +93,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
 
 .lr.ph:                                           ; preds = %40, %.lr.ph154
   %.sroa.0135.4 = phi double [ %16, %.lr.ph154 ], [ %.sroa.0135.3, %40 ]
-  %42 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv168
+  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv168
   br label %43
 
 43:                                               ; preds = %.lr.ph, %121
@@ -104,7 +104,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   br i1 %44, label %121, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr i8, ptr %46, i64 4
   %49 = load i32, ptr %48, align 4
@@ -112,7 +112,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   br i1 %50, label %.lr.ph.i74, label %get_local_12_norm.exit82
 
 .lr.ph.i74:                                       ; preds = %45
-  %51 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %52 = sext i32 %47 to i64
   %53 = sext i32 %49 to i64
   br label %54
@@ -149,7 +149,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
 get_local_12_norm.exit82:                         ; preds = %69, %45
   %.sroa.0133.2 = phi double [ %16, %45 ], [ %.sroa.0133.1, %69 ]
   %71 = load i32, ptr %42, align 4
-  %72 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4
   store i32 %73, ptr %42, align 4
   store i32 %71, ptr %72, align 4
@@ -271,13 +271,13 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
   %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %._crit_edge.i101 ], [ 0, %.lr.ph71.i.preheader ]
   %storemerge67.i = phi double [ %155, %._crit_edge.i101 ], [ 0.000000e+00, %.lr.ph71.i.preheader ]
   %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
-  %129 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next77.i
+  %129 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next77.i
   %130 = load i32, ptr %129, align 4
   %131 = icmp slt i32 %127, %130
   br i1 %131, label %.lr.ph.i102, label %._crit_edge.i101
 
 .lr.ph.i102:                                      ; preds = %.lr.ph71.i
-  %132 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv76.i
+  %132 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv76.i
   %133 = sext i32 %127 to i64
   %134 = sext i32 %130 to i64
   br label %135
@@ -358,13 +358,13 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   %indvars.iv76.i112 = phi i64 [ %indvars.iv.next77.i115, %._crit_edge.i116 ], [ 0, %.lr.ph71.i111.preheader ]
   %storemerge67.i114 = phi double [ %193, %._crit_edge.i116 ], [ 0.000000e+00, %.lr.ph71.i111.preheader ]
   %indvars.iv.next77.i115 = add nuw nsw i64 %indvars.iv76.i112, 1
-  %167 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next77.i115
+  %167 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next77.i115
   %168 = load i32, ptr %167, align 4
   %169 = icmp slt i32 %165, %168
   br i1 %169, label %.lr.ph.i121, label %._crit_edge.i116
 
 .lr.ph.i121:                                      ; preds = %.lr.ph71.i111
-  %170 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv76.i112
+  %170 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv76.i112
   %171 = sext i32 %165 to i64
   %172 = sext i32 %168 to i64
   br label %173
@@ -463,9 +463,9 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
   store i32 -1, ptr %4, align 4
   %7 = tail call i64 @clock() #6
   %8 = tail call ptr @SparseMatrix_symmetrize(ptr noundef nonnull %1, i1 noundef zeroext true) #6
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @SparseMatrix_new(i32 noundef %6, i32 noundef %6, i32 noundef 1, i32 noundef 1, i32 noundef 1) #6
   %14 = icmp sgt i32 %6, 0
@@ -479,10 +479,10 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
   %indvars.iv70 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next71, %._crit_edge ]
   %.04961 = phi ptr [ %13, %.lr.ph64.preheader ], [ %35, %._crit_edge ]
   store double 0.000000e+00, ptr %5, align 8
-  %15 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv70
+  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv70
   %16 = load i32, ptr %15, align 4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %17 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.next71
+  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next71
   %18 = load i32, ptr %17, align 4
   %19 = icmp slt i32 %16, %18
   br i1 %19, label %.lr.ph.preheader, label %._crit_edge
@@ -529,7 +529,7 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
   %.049.lcssa = phi ptr [ %13, %3 ], [ %35, %._crit_edge ]
   %36 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %.049.lcssa) #6
   call void @SparseMatrix_delete(ptr noundef %.049.lcssa) #6
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = call ptr @power_method(ptr noundef %36, i32 noundef %38, i32 noundef %0) #6
   call void @vector_ordering(i32 noundef %6, ptr noundef %39, ptr noundef %2) #6

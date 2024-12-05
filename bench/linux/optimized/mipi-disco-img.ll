@@ -58,9 +58,9 @@ define dso_local void @acpi_mipi_check_crs_csi2(ptr noundef %0) local_unnamed_ad
   %2 = alloca %struct.csi2_resources_walk_data, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %4, align 8
   %5 = call i32 @acpi_walk_resources(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @parse_csi2_resource, ptr noundef nonnull %2) #10
   %6 = load volatile ptr, ptr %3, align 8
@@ -74,13 +74,13 @@ define dso_local void @acpi_mipi_check_crs_csi2(ptr noundef %0) local_unnamed_ad
   br i1 %11, label %20, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store volatile ptr %14, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store volatile ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i32 1, ptr %16, align 8
   %17 = call i32 @acpi_attach_data(ptr noundef %0, ptr noundef nonnull @acpi_mipi_data_tag, ptr noundef nonnull %10) #10
   %18 = icmp eq i32 %17, 0
@@ -98,9 +98,9 @@ define dso_local void @acpi_mipi_check_crs_csi2(ptr noundef %0) local_unnamed_ad
 .preheader:                                       ; preds = %20, %.preheader
   %23 = phi ptr [ %24, %.preheader ], [ %21, %20 ]
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %26, ptr %27, align 8
   store volatile ptr %24, ptr %26, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %23, align 8
@@ -111,15 +111,15 @@ define dso_local void @acpi_mipi_check_crs_csi2(ptr noundef %0) local_unnamed_ad
 
 29:                                               ; preds = %12
   %30 = load ptr, ptr @acpi_mipi_crs_csi2_list, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %10, ptr %31, align 8
   store ptr %30, ptr %10, align 8
-  %32 = getelementptr inbounds i8, ptr %10, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @acpi_mipi_crs_csi2_list, ptr %32, align 8
   store volatile ptr %10, ptr @acpi_mipi_crs_csi2_list, align 8
   %33 = load ptr, ptr %3, align 8
   store ptr %33, ptr %14, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %14, ptr %34, align 8
   %35 = load ptr, ptr %4, align 8
   store ptr %35, ptr %15, align 8
@@ -149,22 +149,22 @@ define internal noundef i32 @parse_csi2_resource(ptr nocapture noundef readonly 
   br i1 %5, label %6, label %37
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 4
   br i1 %10, label %11, label %37
 
 11:                                               ; preds = %6
   store ptr null, ptr %3, align 8, !annotation !8
-  %12 = getelementptr inbounds i8, ptr %0, i64 21
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %13 = load ptr, ptr %12, align 1
   %14 = call i32 @acpi_get_handle(ptr noundef null, ptr noundef %13, ptr noundef nonnull %3) #10
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %37
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 19
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %18 = load i16, ptr %17, align 1
   %19 = icmp eq i16 %18, 0
   br i1 %19, label %37, label %20
@@ -177,22 +177,22 @@ define internal noundef i32 @parse_csi2_resource(ptr nocapture noundef readonly 
   br i1 %24, label %37, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(31) %26, ptr noundef align 1 dereferenceable(31) %7, i64 31, i1 false)
-  %27 = getelementptr inbounds i8, ptr %23, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(31) %26, ptr noundef nonnull align 1 dereferenceable(31) %7, i64 31, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %28 = load ptr, ptr %12, align 1
-  %29 = call i64 @strscpy(ptr noundef %27, ptr noundef %28, i64 noundef %21) #10
-  %30 = getelementptr inbounds i8, ptr %23, i64 29
+  %29 = call i64 @strscpy(ptr noundef nonnull %27, ptr noundef %28, i64 noundef %21) #10
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 29
   store ptr %27, ptr %30, align 1
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %23, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %23, ptr %35, align 8
   store ptr %34, ptr %23, align 8
-  %36 = getelementptr inbounds i8, ptr %23, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %33, ptr %36, align 8
   store volatile ptr %23, ptr %33, align 8
   br label %37
@@ -212,7 +212,7 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   store ptr %3, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %4, align 8
   %5 = load ptr, ptr @acpi_mipi_crs_csi2_list, align 8
   %6 = icmp eq ptr %5, @acpi_mipi_crs_csi2_list
@@ -225,13 +225,13 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
 
 .preheader37:                                     ; preds = %0, %.loopexit36
   %9 = phi ptr [ %7, %.loopexit36 ], [ %5, %0 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %10
   br i1 %12, label %.loopexit36, label %13
 
 13:                                               ; preds = %.preheader37
-  %14 = getelementptr inbounds i8, ptr %9, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   br label %15
 
 15:                                               ; preds = %47, %13
@@ -239,7 +239,7 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   %17 = load i32, ptr %14, align 8
   %18 = add i32 %17, 1
   store i32 %18, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   store ptr null, ptr %2, align 8, !annotation !8
@@ -252,7 +252,7 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %15
-  %27 = getelementptr inbounds i8, ptr %23, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 8
@@ -266,13 +266,13 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   br i1 %34, label %47, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %33, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %31, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %33, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store volatile ptr %37, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %33, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store volatile ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %33, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 48
   store i32 1, ptr %39, align 8
   %40 = call i32 @acpi_attach_data(ptr noundef %31, ptr noundef nonnull @acpi_mipi_data_tag, ptr noundef nonnull %33) #10
   %41 = icmp eq i32 %40, 0
@@ -284,10 +284,10 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
 
 43:                                               ; preds = %35
   %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %33, ptr %45, align 8
   store ptr %44, ptr %33, align 8
-  %46 = getelementptr inbounds i8, ptr %33, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %3, ptr %46, align 8
   store volatile ptr %33, ptr %3, align 8
   br label %47
@@ -309,11 +309,11 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
 
 52:                                               ; preds = %.loopexit38
   %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr @acpi_mipi_crs_csi2_list, ptr %54, align 8
   store ptr %50, ptr @acpi_mipi_crs_csi2_list, align 8
   store ptr %.pre63, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %.pre63, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.pre63, i64 8
   store ptr %53, ptr %55, align 8
   %.pre = load ptr, ptr @acpi_mipi_crs_csi2_list, align 8
   br label %56
@@ -330,7 +330,7 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
 
 .preheader35:                                     ; preds = %56, %99
   %61 = phi ptr [ %100, %99 ], [ %57, %56 ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load i32, ptr %62, align 8
   %64 = zext i32 %63 to i64
   %65 = mul nuw nsw i64 %64, 616
@@ -341,17 +341,17 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
 
 69:                                               ; preds = %.preheader35
   %70 = getelementptr i8, ptr %67, i64 224
-  %71 = getelementptr inbounds i8, ptr %67, i64 208
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 208
   store ptr %70, ptr %71, align 8
   %72 = getelementptr %struct.acpi_device_software_node_port, ptr %70, i64 %64
-  %73 = getelementptr inbounds i8, ptr %67, i64 192
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 192
   store ptr %72, ptr %73, align 8
   %74 = getelementptr i8, ptr %72, i64 24
   %75 = shl nuw nsw i64 %64, 1
   %76 = getelementptr %struct.software_node, ptr %74, i64 %75
-  %77 = getelementptr inbounds i8, ptr %67, i64 200
+  %77 = getelementptr inbounds nuw i8, ptr %67, i64 200
   store ptr %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %67, i64 216
+  %78 = getelementptr inbounds nuw i8, ptr %67, i64 216
   store i32 %63, ptr %78, align 8
   br label %79
 
@@ -385,7 +385,7 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   br i1 %97, label %.loopexit34, label %.preheader33, !llvm.loop !12
 
 .loopexit34:                                      ; preds = %.preheader33, %89
-  %98 = getelementptr inbounds i8, ptr %61, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store ptr %67, ptr %98, align 8
   br label %99
 
@@ -396,28 +396,28 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
 
 .preheader32:                                     ; preds = %59, %.loopexit
   %102 = phi ptr [ %279, %.loopexit ], [ %.pr, %59 ]
-  %103 = getelementptr inbounds i8, ptr %102, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %102, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %104, null
   br i1 %107, label %.loopexit, label %108
 
 108:                                              ; preds = %.preheader32
-  %109 = getelementptr inbounds i8, ptr %102, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, %109
   br i1 %111, label %.loopexit, label %112
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %104, i64 216
-  %114 = getelementptr inbounds i8, ptr %104, i64 208
-  %115 = getelementptr inbounds i8, ptr %104, i64 192
+  %113 = getelementptr inbounds nuw i8, ptr %104, i64 216
+  %114 = getelementptr inbounds nuw i8, ptr %104, i64 208
+  %115 = getelementptr inbounds nuw i8, ptr %104, i64 192
   br label %116
 
 116:                                              ; preds = %276, %112
   %117 = phi ptr [ %110, %112 ], [ %277, %276 ]
-  %118 = getelementptr inbounds i8, ptr %117, i64 48
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 48
   %119 = load ptr, ptr %118, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #10
   store ptr null, ptr %1, align 8, !annotation !8
@@ -430,13 +430,13 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   br i1 %124, label %276, label %125
 
 125:                                              ; preds = %116
-  %126 = getelementptr inbounds i8, ptr %122, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %276, label %129
 
 129:                                              ; preds = %125
-  %130 = getelementptr inbounds i8, ptr %117, i64 46
+  %130 = getelementptr inbounds nuw i8, ptr %117, i64 46
   %131 = load i8, ptr %130, align 2
   switch i8 %131, label %133 [
     i8 0, label %135
@@ -453,7 +453,7 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
 
 135:                                              ; preds = %132, %129
   %136 = phi i32 [ 4, %132 ], [ 1, %129 ]
-  %137 = getelementptr inbounds i8, ptr %117, i64 45
+  %137 = getelementptr inbounds nuw i8, ptr %117, i64 45
   %138 = load i8, ptr %137, align 1
   %139 = zext i8 %138 to i32
   %140 = load i32, ptr %113, align 8
@@ -504,16 +504,16 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   br label %276
 
 160:                                              ; preds = %.thread28
-  %161 = getelementptr inbounds i8, ptr %117, i64 26
+  %161 = getelementptr inbounds nuw i8, ptr %117, i64 26
   %162 = load i8, ptr %161, align 2
   %163 = zext i8 %162 to i32
-  %164 = getelementptr inbounds i8, ptr %127, i64 216
+  %164 = getelementptr inbounds nuw i8, ptr %127, i64 216
   %165 = load i32, ptr %164, align 8
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %.thread30.thread, label %167
 
 167:                                              ; preds = %160
-  %168 = getelementptr inbounds i8, ptr %127, i64 208
+  %168 = getelementptr inbounds nuw i8, ptr %127, i64 208
   %169 = load ptr, ptr %168, align 8
   %170 = zext i32 %165 to i64
   br label %174
@@ -565,35 +565,35 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   %193 = add i32 %192, 2
   %194 = zext i32 %193 to i64
   %195 = getelementptr %struct.software_node, ptr %191, i64 %194
-  %196 = getelementptr inbounds i8, ptr %190, i64 148
+  %196 = getelementptr inbounds nuw i8, ptr %190, i64 148
   store i8 1, ptr %196, align 4
-  %197 = getelementptr inbounds i8, ptr %127, i64 208
+  %197 = getelementptr inbounds nuw i8, ptr %127, i64 208
   %198 = load ptr, ptr %197, align 8
   %199 = zext i32 %185 to i64
   %200 = getelementptr %struct.acpi_device_software_node_port, ptr %198, i64 %199
-  %201 = getelementptr inbounds i8, ptr %127, i64 192
+  %201 = getelementptr inbounds nuw i8, ptr %127, i64 192
   %202 = load ptr, ptr %201, align 8
   %203 = shl i32 %185, 1
   %204 = add i32 %203, 2
   %205 = zext i32 %204 to i64
   %206 = getelementptr %struct.software_node, ptr %202, i64 %205
-  %207 = getelementptr inbounds i8, ptr %190, i64 472
+  %207 = getelementptr inbounds nuw i8, ptr %190, i64 472
   store ptr %206, ptr %207, align 8
-  %208 = getelementptr inbounds i8, ptr %190, i64 480
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %208, i8 0, i64 72, i1 false)
-  %209 = getelementptr inbounds i8, ptr %200, i64 472
+  %208 = getelementptr inbounds nuw i8, ptr %190, i64 480
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %208, i8 0, i64 72, i1 false)
+  %209 = getelementptr inbounds nuw i8, ptr %200, i64 472
   store ptr %195, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %200, i64 480
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %210, i8 0, i64 72, i1 false)
-  %211 = getelementptr inbounds i8, ptr %190, i64 216
+  %210 = getelementptr inbounds nuw i8, ptr %200, i64 480
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %210, i8 0, i64 72, i1 false)
+  %211 = getelementptr inbounds nuw i8, ptr %190, i64 216
   store ptr @.str.6, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %190, i64 224
+  %212 = getelementptr inbounds nuw i8, ptr %190, i64 224
   store i64 80, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %190, i64 232
+  %213 = getelementptr inbounds nuw i8, ptr %190, i64 232
   store i8 0, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %190, i64 236
+  %214 = getelementptr inbounds nuw i8, ptr %190, i64 236
   store i32 5, ptr %214, align 4
-  %215 = getelementptr inbounds i8, ptr %190, i64 240
+  %215 = getelementptr inbounds nuw i8, ptr %190, i64 240
   store ptr %207, ptr %215, align 8
   %216 = getelementptr i8, ptr %190, i64 248
   store ptr @.str.7, ptr %216, align 8
@@ -621,17 +621,17 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   store i32 0, ptr %227, align 4
   %228 = load i8, ptr %137, align 1
   %229 = zext i8 %228 to i32
-  %230 = getelementptr inbounds i8, ptr %190, i64 152
+  %230 = getelementptr inbounds nuw i8, ptr %190, i64 152
   store ptr @.str.8, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %190, i64 160
+  %231 = getelementptr inbounds nuw i8, ptr %190, i64 160
   store i64 4, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %190, i64 168
+  %232 = getelementptr inbounds nuw i8, ptr %190, i64 168
   store i8 1, ptr %232, align 8
-  %233 = getelementptr inbounds i8, ptr %190, i64 172
+  %233 = getelementptr inbounds nuw i8, ptr %190, i64 172
   store i32 2, ptr %233, align 4
-  %234 = getelementptr inbounds i8, ptr %190, i64 176
+  %234 = getelementptr inbounds nuw i8, ptr %190, i64 176
   store i32 %229, ptr %234, align 8
-  %235 = getelementptr inbounds i8, ptr %190, i64 180
+  %235 = getelementptr inbounds nuw i8, ptr %190, i64 180
   store i32 0, ptr %235, align 4
   %236 = load i8, ptr %137, align 1
   %237 = zext i8 %236 to i32
@@ -646,15 +646,15 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   br label %243
 
 243:                                              ; preds = %240, %187
-  %244 = getelementptr inbounds i8, ptr %200, i64 216
+  %244 = getelementptr inbounds nuw i8, ptr %200, i64 216
   store ptr @.str.6, ptr %244, align 8
-  %245 = getelementptr inbounds i8, ptr %200, i64 224
+  %245 = getelementptr inbounds nuw i8, ptr %200, i64 224
   store i64 80, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %200, i64 232
+  %246 = getelementptr inbounds nuw i8, ptr %200, i64 232
   store i8 0, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %200, i64 236
+  %247 = getelementptr inbounds nuw i8, ptr %200, i64 236
   store i32 5, ptr %247, align 4
-  %248 = getelementptr inbounds i8, ptr %200, i64 240
+  %248 = getelementptr inbounds nuw i8, ptr %200, i64 240
   store ptr %209, ptr %248, align 8
   %249 = getelementptr i8, ptr %200, i64 248
   store ptr @.str.7, ptr %249, align 8
@@ -682,17 +682,17 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   store i32 0, ptr %260, align 4
   %261 = load i8, ptr %161, align 2
   %262 = zext i8 %261 to i32
-  %263 = getelementptr inbounds i8, ptr %200, i64 152
+  %263 = getelementptr inbounds nuw i8, ptr %200, i64 152
   store ptr @.str.8, ptr %263, align 8
-  %264 = getelementptr inbounds i8, ptr %200, i64 160
+  %264 = getelementptr inbounds nuw i8, ptr %200, i64 160
   store i64 4, ptr %264, align 8
-  %265 = getelementptr inbounds i8, ptr %200, i64 168
+  %265 = getelementptr inbounds nuw i8, ptr %200, i64 168
   store i8 1, ptr %265, align 8
-  %266 = getelementptr inbounds i8, ptr %200, i64 172
+  %266 = getelementptr inbounds nuw i8, ptr %200, i64 172
   store i32 2, ptr %266, align 4
-  %267 = getelementptr inbounds i8, ptr %200, i64 176
+  %267 = getelementptr inbounds nuw i8, ptr %200, i64 176
   store i32 %262, ptr %267, align 8
-  %268 = getelementptr inbounds i8, ptr %200, i64 180
+  %268 = getelementptr inbounds nuw i8, ptr %200, i64 180
   store i32 0, ptr %268, align 4
   %269 = load i8, ptr %161, align 2
   %270 = zext i8 %269 to i32
@@ -734,7 +734,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br i1 %8, label %.loopexit15, label %9
 
 9:                                                ; preds = %0
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %11
 
 11:                                               ; preds = %288, %9
@@ -743,9 +743,9 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   store i64 -1, ptr %4, align 8
   store ptr null, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
   store i32 0, ptr %5, align 4, !annotation !8
@@ -758,8 +758,8 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br i1 %21, label %288, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
-  %24 = call zeroext i1 @fwnode_property_present(ptr noundef %23, ptr noundef nonnull @.str.12) #10
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %24 = call zeroext i1 @fwnode_property_present(ptr noundef nonnull %23, ptr noundef nonnull @.str.12) #10
   br i1 %24, label %41, label %25
 
 25:                                               ; preds = %22
@@ -771,20 +771,20 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 26
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 26
   %31 = load i8, ptr %30, align 2
   %32 = zext i8 %31 to i32
   %33 = mul nuw nsw i32 %32, 45
   store ptr @.str.12, ptr %15, align 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 4, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %15, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 1, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %15, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 2, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %15, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 %33, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %15, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store i32 0, ptr %38, align 4
   call void @kfree(ptr noundef %29) #10
   br label %39
@@ -796,7 +796,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
 
 41:                                               ; preds = %39, %22
   %42 = phi i32 [ 0, %22 ], [ %40, %39 ]
-  %43 = call i32 @fwnode_property_read_u32_array(ptr noundef %23, ptr noundef nonnull @.str.13, ptr noundef nonnull %5, i64 noundef 1) #10
+  %43 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %23, ptr noundef nonnull @.str.13, ptr noundef nonnull %5, i64 noundef 1) #10
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %55
 
@@ -806,21 +806,21 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   %48 = add nuw nsw i32 %42, 1
   %49 = getelementptr [6 x %struct.property_entry], ptr %15, i64 0, i64 %46
   store ptr @.str.14, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 4, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i8 1, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 20
   store i32 2, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %49, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i32 %47, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %49, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 28
   store i32 0, ptr %54, align 4
   br label %55
 
 55:                                               ; preds = %45, %41
   %56 = phi i32 [ %42, %41 ], [ %48, %45 ]
-  %57 = call i32 @fwnode_property_read_u32_array(ptr noundef %23, ptr noundef nonnull @.str.15, ptr noundef nonnull %5, i64 noundef 1) #10
+  %57 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %23, ptr noundef nonnull @.str.15, ptr noundef nonnull %5, i64 noundef 1) #10
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %69
 
@@ -830,21 +830,21 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   %62 = add nuw nsw i32 %56, 1
   %63 = getelementptr [6 x %struct.property_entry], ptr %15, i64 0, i64 %60
   store ptr @.str.16, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 4, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %63, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i8 1, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 20
   store i32 2, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %63, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store i32 %61, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %63, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 28
   store i32 0, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %59, %55
   %70 = phi i32 [ %56, %55 ], [ %62, %59 ]
-  %71 = call i32 @fwnode_property_read_u32_array(ptr noundef %23, ptr noundef nonnull @.str.17, ptr noundef nonnull %5, i64 noundef 1) #10
+  %71 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %23, ptr noundef nonnull @.str.17, ptr noundef nonnull %5, i64 noundef 1) #10
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %83
 
@@ -854,21 +854,21 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   %76 = add nuw nsw i32 %70, 1
   %77 = getelementptr [6 x %struct.property_entry], ptr %15, i64 0, i64 %74
   store ptr @.str.18, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i64 4, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store i8 1, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %77, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 20
   store i32 2, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %77, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store i32 %75, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %77, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 28
   store i32 0, ptr %82, align 4
   br label %83
 
 83:                                               ; preds = %73, %69
   %84 = phi i32 [ %70, %69 ], [ %76, %73 ]
-  %85 = call i32 @fwnode_property_read_u32_array(ptr noundef %23, ptr noundef nonnull @.str.19, ptr noundef nonnull %5, i64 noundef 1) #10
+  %85 = call i32 @fwnode_property_read_u32_array(ptr noundef nonnull %23, ptr noundef nonnull @.str.19, ptr noundef nonnull %5, i64 noundef 1) #10
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %96
 
@@ -877,15 +877,15 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   %89 = load i32, ptr %5, align 4
   %90 = getelementptr [6 x %struct.property_entry], ptr %15, i64 0, i64 %88
   store ptr @.str.20, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i64 4, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %90, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i8 1, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %90, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 20
   store i32 2, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %90, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store i32 %89, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %90, i64 28
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 28
   store i32 0, ptr %95, align 4
   br label %96
 
@@ -899,29 +899,29 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br label %288
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %15, i64 192
+  %101 = getelementptr inbounds nuw i8, ptr %15, i64 192
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %10, align 8
   store ptr %103, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %102, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr null, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %102, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store ptr %15, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %15, i64 216
+  %106 = getelementptr inbounds nuw i8, ptr %15, i64 216
   %107 = load i32, ptr %106, align 8
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %.loopexit14, label %109
 
 109:                                              ; preds = %100
-  %110 = getelementptr inbounds i8, ptr %15, i64 208
-  %111 = getelementptr inbounds i8, ptr %20, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %15, i64 208
+  %111 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %112
 
 112:                                              ; preds = %274, %109
   %113 = phi i64 [ 0, %109 ], [ %275, %274 ]
   %114 = load ptr, ptr %110, align 8
   %115 = getelementptr %struct.acpi_device_software_node_port, ptr %114, i64 %113
-  %116 = getelementptr inbounds i8, ptr %115, i64 144
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 144
   %117 = load i32, ptr %116, align 8
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %3, i8 0, i64 17, i1 false), !annotation !8
@@ -934,7 +934,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br label %123
 
 120:                                              ; preds = %112
-  %121 = call ptr @fwnode_get_named_child_node(ptr noundef %23, ptr noundef nonnull %3) #10
+  %121 = call ptr @fwnode_get_named_child_node(ptr noundef nonnull %23, ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %3) #10
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %125
@@ -960,11 +960,11 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   %134 = or disjoint i32 %133, 1
   %135 = zext i32 %134 to i64
   %136 = getelementptr %struct.software_node, ptr %131, i64 %135
-  %137 = getelementptr inbounds i8, ptr %115, i64 152
+  %137 = getelementptr inbounds nuw i8, ptr %115, i64 152
   store ptr %115, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %136, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 8
   store ptr %131, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %136, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 16
   store ptr %137, ptr %139, align 8
   %140 = call i32 @fwnode_property_read_u8_array(ptr noundef nonnull %121, ptr noundef nonnull @.str.26, ptr noundef nonnull %1, i64 noundef 1) #10
   %141 = icmp eq i32 %140, 0
@@ -1009,7 +1009,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br i1 %162, label %163, label %183
 
 163:                                              ; preds = %158
-  %164 = getelementptr inbounds i8, ptr %115, i64 12
+  %164 = getelementptr inbounds nuw i8, ptr %115, i64 12
   br label %165
 
 165:                                              ; preds = %165, %163
@@ -1024,19 +1024,19 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br i1 %172, label %173, label %165, !llvm.loop !24
 
 173:                                              ; preds = %165
-  %174 = getelementptr inbounds i8, ptr %115, i64 216
+  %174 = getelementptr inbounds nuw i8, ptr %115, i64 216
   %175 = add nuw nsw i32 %152, 1
   %176 = zext nneg i32 %152 to i64
   %177 = getelementptr [8 x %struct.property_entry], ptr %174, i64 0, i64 %176
   %178 = shl nuw nsw i64 %160, 2
   store ptr @.str.30, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %177, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 8
   store i64 %178, ptr %179, align 8
-  %180 = getelementptr inbounds i8, ptr %177, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %177, i64 16
   store i8 0, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %177, i64 20
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 20
   store i32 2, ptr %181, align 4
-  %182 = getelementptr inbounds i8, ptr %177, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %177, i64 24
   store ptr %164, ptr %182, align 8
   br label %183
 
@@ -1086,7 +1086,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
 .loopexit:                                        ; preds = %.preheader, %199
   %206 = phi i64 [ %202, %199 ], [ %215, %.preheader ]
   store i64 %206, ptr %2, align 8
-  %207 = getelementptr inbounds i8, ptr %115, i64 44
+  %207 = getelementptr inbounds nuw i8, ptr %115, i64 44
   br label %218
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -1115,19 +1115,19 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br i1 %225, label %226, label %218, !llvm.loop !27
 
 226:                                              ; preds = %218
-  %227 = getelementptr inbounds i8, ptr %115, i64 216
+  %227 = getelementptr inbounds nuw i8, ptr %115, i64 216
   %228 = add nuw nsw i32 %185, 1
   %229 = zext nneg i32 %185 to i64
   %230 = getelementptr [8 x %struct.property_entry], ptr %227, i64 0, i64 %229
   %231 = shl nuw nsw i64 %192, 2
   store ptr @.str.34, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %230, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i64 %231, ptr %232, align 8
-  %233 = getelementptr inbounds i8, ptr %230, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %230, i64 16
   store i8 0, ptr %233, align 8
-  %234 = getelementptr inbounds i8, ptr %230, i64 20
+  %234 = getelementptr inbounds nuw i8, ptr %230, i64 20
   store i32 2, ptr %234, align 4
-  %235 = getelementptr inbounds i8, ptr %230, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %230, i64 24
   store ptr %207, ptr %235, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
   br label %236
@@ -1142,11 +1142,11 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   %243 = load ptr, ptr %110, align 8
   %244 = getelementptr %struct.acpi_device_software_node_port, ptr %243, i64 %113, i32 7
   store ptr @.str.35, ptr %241, align 8
-  %245 = getelementptr inbounds i8, ptr %241, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %241, i64 8
   store ptr %242, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %241, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %241, i64 16
   store ptr %244, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %115, i64 148
+  %247 = getelementptr inbounds nuw i8, ptr %115, i64 148
   %248 = load i8, ptr %247, align 4, !range !28, !noundef !29
   %249 = icmp eq i8 %248, 0
   br i1 %249, label %273, label %250
@@ -1167,9 +1167,9 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
 
 257:                                              ; preds = %256, %254
   %258 = phi i32 [ 8, %256 ], [ %252, %254 ]
-  %259 = getelementptr inbounds i8, ptr %115, i64 80
+  %259 = getelementptr inbounds nuw i8, ptr %115, i64 80
   %260 = zext nneg i32 %258 to i64
-  %261 = call i32 @fwnode_property_read_u64_array(ptr noundef nonnull %121, ptr noundef nonnull @.str.36, ptr noundef %259, i64 noundef %260) #10
+  %261 = call i32 @fwnode_property_read_u64_array(ptr noundef nonnull %121, ptr noundef nonnull @.str.36, ptr noundef nonnull %259, i64 noundef %260) #10
   %262 = icmp eq i32 %261, 0
   br i1 %262, label %264, label %263
 
@@ -1178,18 +1178,18 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br label %273
 
 264:                                              ; preds = %257
-  %265 = getelementptr inbounds i8, ptr %115, i64 216
+  %265 = getelementptr inbounds nuw i8, ptr %115, i64 216
   %266 = zext nneg i32 %237 to i64
   %267 = getelementptr [8 x %struct.property_entry], ptr %265, i64 0, i64 %266
   %268 = shl nuw nsw i64 %260, 3
   store ptr @.str.39, ptr %267, align 8
-  %269 = getelementptr inbounds i8, ptr %267, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store i64 %268, ptr %269, align 8
-  %270 = getelementptr inbounds i8, ptr %267, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %267, i64 16
   store i8 0, ptr %270, align 8
-  %271 = getelementptr inbounds i8, ptr %267, i64 20
+  %271 = getelementptr inbounds nuw i8, ptr %267, i64 20
   store i32 3, ptr %271, align 4
-  %272 = getelementptr inbounds i8, ptr %267, i64 24
+  %272 = getelementptr inbounds nuw i8, ptr %267, i64 24
   store ptr %259, ptr %272, align 8
   br label %273
 
@@ -1206,7 +1206,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br i1 %278, label %112, label %.loopexit14, !llvm.loop !30
 
 .loopexit14:                                      ; preds = %274, %100
-  %279 = getelementptr inbounds i8, ptr %15, i64 200
+  %279 = getelementptr inbounds nuw i8, ptr %15, i64 200
   %280 = load ptr, ptr %279, align 8
   %281 = call i32 @software_node_register_node_group(ptr noundef %280) #10
   %282 = icmp slt i32 %281, 0
@@ -1217,7 +1217,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
   br label %288
 
 284:                                              ; preds = %.loopexit14
-  %285 = getelementptr inbounds i8, ptr %20, i64 592
+  %285 = getelementptr inbounds nuw i8, ptr %20, i64 592
   store ptr %15, ptr %285, align 8
   %286 = load ptr, ptr %101, align 8
   %287 = call ptr @software_node_fwnode(ptr noundef %286) #10
@@ -1244,20 +1244,20 @@ define dso_local void @acpi_mipi_crs_csi2_cleanup() local_unnamed_addr #0 align 
 .preheader3:                                      ; preds = %0, %.loopexit
   %3 = phi ptr [ %4, %.loopexit ], [ %1, %0 ]
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8
   store volatile ptr %4, ptr %6, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %3, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @acpi_detach_data(ptr noundef %9, ptr noundef nonnull @acpi_mipi_data_tag) #10
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @kfree(ptr noundef %12) #10
-  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
   br i1 %15, label %.loopexit, label %.preheader
@@ -1265,9 +1265,9 @@ define dso_local void @acpi_mipi_crs_csi2_cleanup() local_unnamed_addr #0 align 
 .preheader:                                       ; preds = %.preheader3, %.preheader
   %16 = phi ptr [ %17, %.preheader ], [ %14, %.preheader3 ]
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %19, ptr %20, align 8
   store volatile ptr %17, ptr %19, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %16, align 8

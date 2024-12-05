@@ -17,7 +17,7 @@ define void @Java_java_net_Inet4Address_init(ptr noundef %0, ptr nocapture nound
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull @.str) #1
   %8 = icmp eq ptr %7, null
@@ -25,7 +25,7 @@ define void @Java_java_net_Inet4Address_init(ptr noundef %0, ptr nocapture nound
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %7) #1
   store ptr %13, ptr @ia4_class, align 8
@@ -34,7 +34,7 @@ define void @Java_java_net_Inet4Address_init(ptr noundef %0, ptr nocapture nound
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #1
   store ptr %19, ptr @ia4_ctrID, align 8

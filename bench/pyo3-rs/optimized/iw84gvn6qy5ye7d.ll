@@ -21,7 +21,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1177a855897abd31E"(p
   ret void
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr align 1 %2, i64 %3, ptr nonnull align 1 %6, ptr nonnull align 8 @anon.2127a38096728f3b3067d9752369ff97.0, ptr align 8 %4) #6
           to label %13 unwind label %11
@@ -63,7 +63,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb07d355efce55e95E"(p
   %6 = alloca [24 x i8], align 8
   %7 = load i64, ptr %1, align 8
   %8 = icmp eq i64 %7, 0
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %8, label %10, label %11
 
 10:                                               ; preds = %5
@@ -102,9 +102,9 @@ define { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17heef8fc5f1d95
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = insertvalue { i64, i64 } poison, i64 %10, 0
   %14 = insertvalue { i64, i64 } %13, i64 %12, 1
@@ -127,7 +127,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfc1200373b18d93cE"(p
   ret void
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   invoke void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr align 1 %2, i64 %3, ptr nonnull align 1 %6, ptr nonnull align 8 @anon.2127a38096728f3b3067d9752369ff97.4, ptr align 8 %4) #6
           to label %13 unwind label %11
@@ -255,13 +255,13 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h00e6fca9038a1118E"(
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i8, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 9
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %11, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %13, ptr %15, align 1
   store i64 -9223372036854775808, ptr %0, align 8
   tail call void @"_ZN4core3ptr291drop_in_place$LT$$LT$core..result..Result$LT$pyo3_build_config..impl_..PythonVersion$C$pyo3_build_config..errors..Error$GT$$u20$as$u20$pyo3_build_config..errors..Context$LT$pyo3_build_config..impl_..PythonVersion$GT$$GT$..context$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfa2860da025cfabcE"(ptr align 8 %2)
@@ -293,7 +293,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = and i8 %1, 1
   store i8 %8, ptr %7, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -312,7 +312,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h489a467448982248E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   tail call void @"_ZN4core3ptr248drop_in_place$LT$$LT$core..result..Result$LT$alloc..string..String$C$core..convert..Infallible$GT$$u20$as$u20$pyo3_build_config..errors..Context$LT$alloc..string..String$GT$$GT$..context$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd66c87979c5c7319E"(ptr align 8 %2)
@@ -330,7 +330,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha246876f5443c4d5E"(
 8:                                                ; preds = %3
   %.sroa.4.0.extract.shift = lshr i64 %1, 32
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.4.0.extract.trunc, ptr %9, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   tail call void @"_ZN4core3ptr218drop_in_place$LT$$LT$core..result..Result$LT$u32$C$core..num..error..ParseIntError$GT$$u20$as$u20$pyo3_build_config..errors..Context$LT$u32$GT$$GT$..context$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7d635404c762108dE"(ptr align 8 %2)
@@ -358,9 +358,9 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb2e39780ddb5ecc7E"(
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i8, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %11, ptr %12, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   tail call void @"_ZN4core3ptr305drop_in_place$LT$$LT$core..result..Result$LT$pyo3_build_config..impl_..PythonImplementation$C$pyo3_build_config..errors..Error$GT$$u20$as$u20$pyo3_build_config..errors..Context$LT$pyo3_build_config..impl_..PythonImplementation$GT$$GT$..context$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hcb070fdf862c2e23E"(ptr align 8 %2)

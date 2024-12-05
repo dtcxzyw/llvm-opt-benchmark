@@ -94,14 +94,14 @@ define dso_local void @pa_allocate_worker(i32 noundef %0) local_unnamed_addr #0 
 9:                                                ; preds = %1
   tail call void @maybe_reread_subscription() #10
   %10 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 84
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 84
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %pa_can_start.exit.thread
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr @MySubscription, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %pa_can_start.exit, label %pa_can_start.exit.thread
@@ -116,13 +116,13 @@ pa_can_start.exit:                                ; preds = %14
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph25.i, label %._crit_edge.i
 
 .lr.ph25.i:                                       ; preds = %.lr.ph.i
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %26 = load ptr, ptr %25, align 8
   %wide.trip.count.i = zext nneg i32 %23 to i64
   br label %28
@@ -136,7 +136,7 @@ pa_can_start.exit:                                ; preds = %14
   %indvars.iv.i = phi i64 [ 0, %.lr.ph25.i ], [ %indvars.iv.next.i, %27 ]
   %29 = getelementptr %union.ListCell, ptr %26, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 25
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 25
   %32 = load i8, ptr %31, align 1
   %33 = trunc i8 %32 to i1
   br i1 %33, label %27, label %pa_launch_parallel_worker.exit.thread32
@@ -147,7 +147,7 @@ pa_can_start.exit:                                ; preds = %14
   store ptr %34, ptr @CurrentMemoryContext, align 8
   %36 = tail call ptr @palloc0(i64 noundef 40) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = tail call i64 @add_size(i64 noundef 0, i64 noundef 96) #10
   %39 = tail call i64 @add_size(i64 noundef %38, i64 noundef 16777216) #10
   %40 = tail call i64 @add_size(i64 noundef %39, i64 noundef 16384) #10
@@ -172,13 +172,13 @@ pa_launch_parallel_worker.exit.thread:            ; preds = %._crit_edge.i
   %48 = call ptr @shm_toc_allocate(ptr noundef %47, i64 noundef 80) #10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !5
   store i8 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %48, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 20
   store volatile i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %48, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %48, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store i32 0, ptr %52, align 8
   call void @shm_toc_insert(ptr noundef %47, i64 noundef 1, ptr noundef nonnull %48) #10
   %53 = call ptr @shm_toc_allocate(ptr noundef %47, i64 noundef 16777216) #10
@@ -194,21 +194,21 @@ pa_launch_parallel_worker.exit.thread:            ; preds = %._crit_edge.i
   %59 = load ptr, ptr @MyProc, align 8
   call void @shm_mq_set_receiver(ptr noundef %58, ptr noundef %59) #10
   %60 = call ptr @shm_mq_attach(ptr noundef %58, ptr noundef nonnull %44, ptr noundef null) #10
-  %61 = getelementptr inbounds i8, ptr %36, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %36, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %44, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %36, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %48, ptr %63, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %64 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load i32, ptr %65, align 8
   %67 = load ptr, ptr @MySubscription, align 8
   %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %67, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %64, i64 36
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 36
   %72 = load i32, ptr %71, align 4
   %73 = call i32 @dsm_segment_handle(ptr noundef nonnull %44) #10
   %74 = call zeroext i1 @logicalrep_worker_launch(i32 noundef 3, i32 noundef %66, i32 noundef %68, ptr noundef %70, i32 noundef %72, i32 noundef 0, i32 noundef %73) #10
@@ -234,12 +234,12 @@ pa_launch_parallel_worker.exit.thread32:          ; preds = %28, %pa_launch_para
 
 78:                                               ; preds = %pa_launch_parallel_worker.exit.thread32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
-  %79 = getelementptr inbounds i8, ptr %5, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 4, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %5, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 16, ptr %80, align 8
   %81 = load ptr, ptr @ApplyContext, align 8
-  %82 = getelementptr inbounds i8, ptr %5, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %81, ptr %82, align 8
   %83 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 16, ptr noundef nonnull %5, i32 noundef 1064) #10
   store ptr %83, ptr @ParallelApplyTxnHash, align 8
@@ -260,7 +260,7 @@ pa_launch_parallel_worker.exit.thread32:          ; preds = %28, %pa_launch_para
   unreachable
 
 92:                                               ; preds = %84
-  %93 = getelementptr inbounds i8, ptr %.0.i2835, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %.0.i2835, i64 32
   %94 = load ptr, ptr %93, align 8
   %95 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %94, i8 1, ptr elementtype(i8) %94) #10, !srcloc !6
   %.not27 = icmp eq i8 %95, 0
@@ -273,20 +273,20 @@ pa_launch_parallel_worker.exit.thread32:          ; preds = %28, %pa_launch_para
 
 99:                                               ; preds = %92, %96
   %100 = load ptr, ptr %93, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i32 0, ptr %101, align 8
   %102 = load i32, ptr %3, align 4
   %103 = load ptr, ptr %93, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   store i32 %102, ptr %104, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   %105 = load ptr, ptr %93, align 8
   store i8 0, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %.0.i2835, i64 25
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i2835, i64 25
   store i8 1, ptr %106, align 1
-  %107 = getelementptr inbounds i8, ptr %.0.i2835, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %.0.i2835, i64 24
   store i8 0, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %86, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %.0.i2835, ptr %108, align 8
   br label %pa_can_start.exit.thread
 
@@ -337,7 +337,7 @@ define dso_local ptr @pa_find_worker(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -349,12 +349,12 @@ define dso_local ptr @pa_find_worker(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_detach_all_error_mq() local_unnamed_addr #0 {
   %1 = load ptr, ptr @ParallelApplyWorkerPool, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %2, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph17, label %._crit_edge
@@ -365,7 +365,7 @@ define dso_local void @pa_detach_all_error_mq() local_unnamed_addr #0 {
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %13, label %12
@@ -403,7 +403,7 @@ define dso_local void @ParallelApplyWorkerMain(i64 noundef %0) local_unnamed_add
   %10 = tail call ptr @pqsignal(i32 noundef 15, ptr noundef nonnull @die) #10
   tail call void @BackgroundWorkerUnblockSignals() #10
   %11 = load ptr, ptr @MyBgworkerEntry, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1336
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1336
   %.0.copyload = load i32, ptr %12, align 8
   %13 = tail call ptr @dsm_attach(i32 noundef %.0.copyload) #10
   %.not = icmp eq ptr %13, null
@@ -453,12 +453,12 @@ define dso_local void @ParallelApplyWorkerMain(i64 noundef %0) local_unnamed_add
 
 36:                                               ; preds = %25, %33
   %37 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 18
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 18
   %39 = load i16, ptr %38, align 2
   %40 = load ptr, ptr @MyParallelShared, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i16 %39, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i32 %7, ptr %42, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   %43 = load ptr, ptr @MyParallelShared, align 8
@@ -469,13 +469,13 @@ define dso_local void @ParallelApplyWorkerMain(i64 noundef %0) local_unnamed_add
   %46 = tail call ptr @shm_mq_attach(ptr noundef %44, ptr noundef nonnull %13, ptr noundef null) #10
   tail call void @pq_redirect_to_shm_mq(ptr noundef nonnull %13, ptr noundef %46) #10
   %47 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 80
   %49 = load i32, ptr %48, align 8
   tail call void @pq_set_parallel_leader(i32 noundef %49, i32 noundef -1) #10
   %50 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 120
   store i64 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %50, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   tail call void @InitializeLogRepWorker() #10
   store i8 0, ptr @InitializingApplyWorker, align 1
@@ -485,7 +485,7 @@ define dso_local void @ParallelApplyWorkerMain(i64 noundef %0) local_unnamed_add
   call void @ReplicationOriginNameForLogicalRep(i32 noundef %54, i32 noundef 0, ptr noundef nonnull %6, i64 noundef 64) #10
   %55 = call zeroext i16 @replorigin_by_name(ptr noundef nonnull %6, i1 noundef zeroext false) #10
   %56 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %58 = load i32, ptr %57, align 8
   call void @replorigin_session_setup(i16 noundef zeroext %55, i32 noundef %58) #10
   store i16 %55, ptr @replorigin_session_origin, align 2
@@ -500,14 +500,14 @@ define dso_local void @ParallelApplyWorkerMain(i64 noundef %0) local_unnamed_add
   %60 = load ptr, ptr @ApplyContext, align 8
   %61 = call ptr @AllocSetContextCreateInternal(ptr noundef %60, ptr noundef nonnull @.str.12, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #10
   store ptr %61, ptr @ApplyMessageContext, align 8
-  %62 = getelementptr inbounds i8, ptr %2, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @apply_error_callback, ptr %62, align 8
   %63 = load ptr, ptr @error_context_stack, align 8
   store ptr %63, ptr %2, align 8
   store ptr %2, ptr @error_context_stack, align 8
-  %64 = getelementptr inbounds i8, ptr %5, i64 8
-  %65 = getelementptr inbounds i8, ptr %5, i64 12
-  %66 = getelementptr inbounds i8, ptr %5, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %67
 
 67:                                               ; preds = %pa_process_spooled_messages_if_required.exit.thread.i, %36
@@ -530,7 +530,7 @@ define dso_local void @ParallelApplyWorkerMain(i64 noundef %0) local_unnamed_add
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr @MySubscription, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %77) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 720, ptr noundef nonnull @__func__.ProcessParallelApplyInterrupts) #10
@@ -609,7 +609,7 @@ ProcessParallelApplyInterrupts.exit.i:            ; preds = %82, %80
 
 pa_get_fileset_state.exit.i.i:                    ; preds = %104, %101
   %107 = load ptr, ptr @MyParallelShared, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %109 = load i32, ptr %108, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %110 = load ptr, ptr @MyParallelShared, align 8
@@ -621,17 +621,17 @@ pa_get_fileset_state.exit.i.i:                    ; preds = %104, %101
 
 111:                                              ; preds = %pa_get_fileset_state.exit.i.i
   %112 = load ptr, ptr @MyParallelShared, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %117 = load i32, ptr %116, align 8
   call void @LockApplyTransactionForSession(i32 noundef %117, i32 noundef %114, i16 noundef zeroext 0, i32 noundef 1) #10
   %118 = load ptr, ptr @MyParallelShared, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %120 = load i32, ptr %119, align 4
   %121 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 40
   %123 = load i32, ptr %122, align 8
   call void @UnlockApplyTransactionForSession(i32 noundef %123, i32 noundef %120, i16 noundef zeroext 0, i32 noundef 1) #10
   %124 = load ptr, ptr @MyParallelShared, align 8
@@ -646,7 +646,7 @@ pa_get_fileset_state.exit.i.i:                    ; preds = %104, %101
 
 pa_get_fileset_state.exit7.i.i:                   ; preds = %126, %111
   %129 = load ptr, ptr @MyParallelShared, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
   %131 = load i32, ptr %130, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %132 = load ptr, ptr @MyParallelShared, align 8
@@ -671,15 +671,15 @@ pa_get_fileset_state.exit7.i.i:                   ; preds = %126, %111
   br label %pa_set_fileset_state.exit.i.i
 
 pa_set_fileset_state.exit.i.i:                    ; preds = %137, %134
-  %139 = getelementptr inbounds i8, ptr %135, i64 32
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 32
   store i32 3, ptr %139, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   br label %.sink.split.i.i
 
 140:                                              ; preds = %133
   %141 = load ptr, ptr @MyParallelShared, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 36
-  %143 = getelementptr inbounds i8, ptr %141, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 36
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 4
   %144 = load i32, ptr %143, align 4
   call void @apply_spooled_messages(ptr noundef nonnull %142, i32 noundef %144, i64 noundef 0) #10
   %145 = load ptr, ptr @MyParallelShared, align 8
@@ -692,7 +692,7 @@ pa_set_fileset_state.exit.i.i:                    ; preds = %137, %134
   br label %pa_set_fileset_state.exit10.i.i
 
 pa_set_fileset_state.exit10.i.i:                  ; preds = %147, %140
-  %149 = getelementptr inbounds i8, ptr %145, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 32
   store i32 0, ptr %149, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   br label %.sink.split.i.i
@@ -765,7 +765,7 @@ declare void @before_shmem_exit(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @pa_shutdown(i32 %0, i64 noundef %1) #0 {
   %3 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @SendProcSignal(i32 noundef %5, i32 noundef 6, i32 noundef -1) #10
   %7 = inttoptr i64 %1 to ptr
@@ -842,8 +842,8 @@ define dso_local void @HandleParallelApplyMessages() local_unnamed_addr #0 {
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load i32, ptr %16, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph26, label %._crit_edge
@@ -853,7 +853,7 @@ define dso_local void @HandleParallelApplyMessages() local_unnamed_addr #0 {
   %20 = load ptr, ptr %17, align 8
   %21 = getelementptr %union.ListCell, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not15 = icmp eq ptr %24, null
   br i1 %.not15, label %55, label %25
@@ -883,7 +883,7 @@ define dso_local void @HandleParallelApplyMessages() local_unnamed_addr #0 {
 
 .split24:                                         ; preds = %27
   call void @pq_parse_errornotice(ptr noundef nonnull %4, ptr noundef nonnull %1) #10
-  %33 = getelementptr inbounds i8, ptr %1, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %37, label %35
@@ -914,7 +914,7 @@ define dso_local void @HandleParallelApplyMessages() local_unnamed_addr #0 {
 .split22:                                         ; preds = %27
   %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, i32 noundef %32, i32 noundef %49) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1055, ptr noundef nonnull @__func__.HandleParallelApplyMessage) #10
@@ -1043,30 +1043,30 @@ define dso_local void @pa_switch_to_partial_serialize(ptr nocapture noundef init
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %8) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1216, ptr noundef nonnull @__func__.pa_switch_to_partial_serialize) #10
   br label %10
 
 10:                                               ; preds = %2, %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   tail call void @stream_start_internal(i32 noundef %15, i1 noundef zeroext true) #10
   br i1 %1, label %23, label %16
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load i32, ptr %21, align 8
   tail call void @LockApplyTransactionForSession(i32 noundef %22, i32 noundef %19, i16 noundef zeroext 0, i32 noundef 8) #10
   br label %23
@@ -1082,7 +1082,7 @@ define dso_local void @pa_switch_to_partial_serialize(ptr nocapture noundef init
   br label %pa_set_fileset_state.exit
 
 pa_set_fileset_state.exit:                        ; preds = %23, %26
-  %28 = getelementptr inbounds i8, ptr %24, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i32 1, ptr %28, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   store i8 0, ptr %24, align 8
@@ -1094,7 +1094,7 @@ declare void @stream_start_internal(i32 noundef, i1 noundef zeroext) local_unnam
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_lock_stream(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
   tail call void @LockApplyTransactionForSession(i32 noundef %5, i32 noundef %0, i16 noundef zeroext 0, i32 noundef %1) #10
   ret void
@@ -1111,15 +1111,15 @@ define dso_local void @pa_set_fileset_state(ptr noundef %0, i32 noundef %1) loca
   br label %6
 
 6:                                                ; preds = %2, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %7, align 8
   %8 = icmp eq i32 %1, 2
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %10, ptr noundef nonnull align 4 dereferenceable(44) %13, i64 44, i1 false)
   br label %14
@@ -1141,7 +1141,7 @@ define dso_local void @pa_set_xact_state(ptr noundef %0, i32 noundef %1) local_u
   br label %6
 
 6:                                                ; preds = %2, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %7, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   store i8 0, ptr %0, align 8
@@ -1232,12 +1232,12 @@ define dso_local void @pa_reset_subtrans() local_unnamed_addr #6 {
 define dso_local void @pa_stream_abort(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr @replorigin_session_origin_lsn, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr @replorigin_session_origin_timestamp, align 8
   %10 = icmp eq i32 %5, %3
@@ -1254,12 +1254,12 @@ define dso_local void @pa_stream_abort(ptr nocapture noundef readonly %0) local_
   br label %pa_set_xact_state.exit
 
 pa_set_xact_state.exit:                           ; preds = %11, %14
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 2, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   store i8 0, ptr %12, align 8
   %17 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 8
   tail call void @UnlockApplyTransactionForSession(i32 noundef %19, i32 noundef %3, i16 noundef zeroext 1, i32 noundef 8) #10
   tail call void @AbortCurrentTransaction() #10
@@ -1294,7 +1294,7 @@ pa_set_xact_state.exit:                           ; preds = %11, %14
   br i1 %.not.i15, label %list_length.exit, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %32, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   br label %list_length.exit
@@ -1334,7 +1334,7 @@ list_length.exit:                                 ; preds = %31, %33
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_unlock_transaction(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
   tail call void @UnlockApplyTransactionForSession(i32 noundef %5, i32 noundef %0, i16 noundef zeroext 1, i32 noundef %1) #10
   ret void
@@ -1355,7 +1355,7 @@ declare void @LockApplyTransactionForSession(i32 noundef, i32 noundef, i16 nound
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_unlock_stream(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
   tail call void @UnlockApplyTransactionForSession(i32 noundef %5, i32 noundef %0, i16 noundef zeroext 0, i32 noundef %1) #10
   ret void
@@ -1366,7 +1366,7 @@ declare void @UnlockApplyTransactionForSession(i32 noundef, i32 noundef, i16 nou
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_lock_transaction(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
   tail call void @LockApplyTransactionForSession(i32 noundef %5, i32 noundef %0, i16 noundef zeroext 1, i32 noundef %1) #10
   ret void
@@ -1375,7 +1375,7 @@ define dso_local void @pa_lock_transaction(i32 noundef %0, i32 noundef %1) local
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_decr_and_wait_stream_block() local_unnamed_addr #0 {
   %1 = load ptr, ptr @MyParallelShared, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %17
@@ -1392,7 +1392,7 @@ define dso_local void @pa_decr_and_wait_stream_block() local_unnamed_addr #0 {
 
 pa_has_spooled_message_pending.exit:              ; preds = %5, %7
   %10 = load ptr, ptr @MyParallelShared, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %13 = load ptr, ptr @MyParallelShared, align 8
@@ -1414,17 +1414,17 @@ pa_has_spooled_message_pending.exit:              ; preds = %5, %7
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @MyParallelShared, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load i32, ptr %25, align 8
   tail call void @LockApplyTransactionForSession(i32 noundef %26, i32 noundef %23, i16 noundef zeroext 0, i32 noundef 1) #10
   %27 = load ptr, ptr @MyParallelShared, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load i32, ptr %31, align 8
   tail call void @UnlockApplyTransactionForSession(i32 noundef %32, i32 noundef %29, i16 noundef zeroext 0, i32 noundef 1) #10
   br label %33
@@ -1435,12 +1435,12 @@ pa_has_spooled_message_pending.exit:              ; preds = %5, %7
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pa_xact_finish(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i32, ptr %8, align 8
   tail call void @UnlockApplyTransactionForSession(i32 noundef %9, i32 noundef %6, i16 noundef zeroext 0, i32 noundef 8) #10
   br label %10
@@ -1456,7 +1456,7 @@ define dso_local void @pa_xact_finish(ptr noundef %0, i64 noundef %1) local_unna
   br label %pa_get_xact_state.exit.i.i
 
 pa_get_xact_state.exit.i.i:                       ; preds = %13, %10
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load i32, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   store i8 0, ptr %11, align 8
@@ -1481,17 +1481,17 @@ pa_get_xact_state.exit.i.i:                       ; preds = %13, %10
 
 pa_wait_for_xact_state.exit.i:                    ; preds = %pa_get_xact_state.exit.i.i
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i32, ptr %27, align 8
   tail call void @LockApplyTransactionForSession(i32 noundef %28, i32 noundef %25, i16 noundef zeroext 1, i32 noundef 1) #10
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load i32, ptr %33, align 8
   tail call void @UnlockApplyTransactionForSession(i32 noundef %34, i32 noundef %31, i16 noundef zeroext 1, i32 noundef 1) #10
   %35 = load ptr, ptr %3, align 8
@@ -1504,7 +1504,7 @@ pa_wait_for_xact_state.exit.i:                    ; preds = %pa_get_xact_state.e
   br label %pa_get_xact_state.exit.i
 
 pa_get_xact_state.exit.i:                         ; preds = %37, %pa_wait_for_xact_state.exit.i
-  %39 = getelementptr inbounds i8, ptr %35, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %40 = load i32, ptr %39, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   store i8 0, ptr %35, align 8
@@ -1525,7 +1525,7 @@ pa_wait_for_xact_finish.exit:                     ; preds = %pa_get_xact_state.e
 
 46:                                               ; preds = %pa_wait_for_xact_finish.exit
   %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load i64, ptr %48, align 8
   tail call void @store_flush_position(i64 noundef %1, i64 noundef %49) #10
   br label %50
@@ -1533,7 +1533,7 @@ pa_wait_for_xact_finish.exit:                     ; preds = %pa_get_xact_state.e
 50:                                               ; preds = %46, %pa_wait_for_xact_finish.exit
   %51 = load ptr, ptr @ParallelApplyTxnHash, align 8
   %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = tail call ptr @hash_search(ptr noundef %51, ptr noundef nonnull %53, i32 noundef 2, ptr noundef null) #10
   %.not.i5 = icmp eq ptr %54, null
   br i1 %.not.i5, label %55, label %58
@@ -1546,7 +1546,7 @@ pa_wait_for_xact_finish.exit:                     ; preds = %pa_get_xact_state.e
   unreachable
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load i8, ptr %59, align 8
   %61 = trunc i8 %60 to i1
   br i1 %61, label %71, label %62
@@ -1557,7 +1557,7 @@ pa_wait_for_xact_finish.exit:                     ; preds = %pa_get_xact_state.e
   br i1 %.not.i.i6, label %list_length.exit.i, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %63, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %66 = load i32, ptr %65, align 4
   br label %list_length.exit.i
 
@@ -1574,7 +1574,7 @@ list_length.exit.i:                               ; preds = %64, %62
   br label %pa_free_worker.exit
 
 72:                                               ; preds = %list_length.exit.i
-  %73 = getelementptr inbounds i8, ptr %0, i64 25
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %73, align 1
   store i8 0, ptr %59, align 8
   br label %pa_free_worker.exit
@@ -1608,7 +1608,7 @@ define internal fastcc void @pa_free_worker_info(ptr noundef %0) unnamed_addr #0
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %8, label %7
@@ -1618,24 +1618,24 @@ define internal fastcc void @pa_free_worker_info(ptr noundef %0) unnamed_addr #0
   br label %8
 
 8:                                                ; preds = %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   tail call void @stream_cleanup_files(i32 noundef %15, i32 noundef %19) #10
   br label %20
 
 20:                                               ; preds = %12, %8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %24, label %23

@@ -75,16 +75,16 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK7rocksdb11MaxOperator11FullMergeV2ERKNS_13MergeOperator19MergeOperationInputEPNS1_20MergeOperationOutputE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %merge_in, ptr nocapture noundef readonly %merge_out) unnamed_addr #0 align 2 {
 entry:
-  %existing_operand = getelementptr inbounds i8, ptr %merge_out, i64 8
+  %existing_operand = getelementptr inbounds nuw i8, ptr %merge_out, i64 8
   %0 = load ptr, ptr %existing_operand, align 8
-  %existing_value = getelementptr inbounds i8, ptr %merge_in, i64 8
+  %existing_value = getelementptr inbounds nuw i8, ptr %merge_in, i64 8
   %1 = load ptr, ptr %existing_value, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %1, align 8
-  %size_.i = getelementptr inbounds i8, ptr %1, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i64, ptr %size_.i, align 8
   br label %if.end8.sink.split
 
@@ -97,27 +97,27 @@ if.end8.sink.split:                               ; preds = %if.else, %if.then
   %.str.sink = phi ptr [ %2, %if.then ], [ @.str, %if.else ]
   %.sink = phi i64 [ %3, %if.then ], [ 0, %if.else ]
   store ptr %.str.sink, ptr %0, align 8
-  %ref.tmp7.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %ref.tmp7.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %ref.tmp7.sroa.2.0..sroa_idx, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end8.sink.split, %if.else
-  %operand_list = getelementptr inbounds i8, ptr %merge_in, i64 16
+  %operand_list = getelementptr inbounds nuw i8, ptr %merge_in, i64 16
   %5 = load ptr, ptr %operand_list, align 8
   %6 = load ptr, ptr %5, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not17 = icmp eq ptr %6, %7
   br i1 %cmp.i.not17, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end8
-  %size_.i12 = getelementptr inbounds i8, ptr %0, i64 8
+  %size_.i12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin1.sroa.0.018 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %8 = load i64, ptr %size_.i12, align 8
-  %size_2.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 8
+  %size_2.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.018, i64 8
   %9 = load i64, ptr %size_2.i, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %8, i64 %9)
   %10 = load ptr, ptr %0, align 8
@@ -134,7 +134,7 @@ if.then16:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then16
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.018, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %7
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -148,9 +148,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7rocksdb11MaxOperator12PartialMergeERKNS_5SliceES3_S3_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %left_operand, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %right_operand, ptr noundef %new_value, ptr nocapture readnone %1) unnamed_addr #2 align 2 {
 entry:
-  %size_.i = getelementptr inbounds i8, ptr %left_operand, i64 8
+  %size_.i = getelementptr inbounds nuw i8, ptr %left_operand, i64 8
   %2 = load i64, ptr %size_.i, align 8
-  %size_2.i = getelementptr inbounds i8, ptr %right_operand, i64 8
+  %size_2.i = getelementptr inbounds nuw i8, ptr %right_operand, i64 8
   %3 = load i64, ptr %size_2.i, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %2, i64 %3)
   %4 = load ptr, ptr %left_operand, align 8
@@ -179,17 +179,17 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7rocksdb11MaxOperator17PartialMergeMultiERKNS_5SliceERKSt5dequeIS1_SaIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6LoggerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %operand_list, ptr noundef %new_value, ptr nocapture readnone %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_start.i = getelementptr inbounds i8, ptr %operand_list, i64 16
+  %_M_start.i = getelementptr inbounds nuw i8, ptr %operand_list, i64 16
   %2 = load ptr, ptr %_M_start.i, align 8, !noalias !4
-  %_M_finish.i = getelementptr inbounds i8, ptr %operand_list, i64 48
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %operand_list, i64 48
   %3 = load ptr, ptr %_M_finish.i, align 8, !noalias !7
   %cmp.i.i.not19 = icmp eq ptr %2, %3
   br i1 %cmp.i.i.not19, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %_M_node5.i.i = getelementptr inbounds i8, ptr %operand_list, i64 40
+  %_M_node5.i.i = getelementptr inbounds nuw i8, ptr %operand_list, i64 40
   %4 = load ptr, ptr %_M_node5.i.i, align 8, !noalias !4
-  %_M_last4.i.i = getelementptr inbounds i8, ptr %operand_list, i64 32
+  %_M_last4.i.i = getelementptr inbounds nuw i8, ptr %operand_list, i64 32
   %5 = load ptr, ptr %_M_last4.i.i, align 8, !noalias !4
   br label %for.body
 
@@ -199,7 +199,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %__begin1.sroa.11.022 = phi ptr [ %__begin1.sroa.11.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %4, %for.body.preheader ]
   %__begin1.sroa.8.021 = phi ptr [ %__begin1.sroa.8.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %5, %for.body.preheader ]
   %__begin1.sroa.0.020 = phi ptr [ %__begin1.sroa.0.1, %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit ], [ %2, %for.body.preheader ]
-  %size_2.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.020, i64 8
+  %size_2.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.020, i64 8
   %6 = load i64, ptr %size_2.i, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %max.sroa.4.024, i64 %6)
   %7 = load ptr, ptr %__begin1.sroa.0.020, align 8
@@ -210,14 +210,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp = select i1 %cmp6.not.i, i1 %cmp17, i1 %cmp18
   %spec.select = select i1 %cmp, ptr %7, ptr %max.sroa.0.023
   %spec.select16 = select i1 %cmp, i64 %6, i64 %max.sroa.4.024
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.020, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.020, i64 16
   %cmp.i = icmp eq ptr %incdec.ptr.i, %__begin1.sroa.8.021
   br i1 %cmp.i, label %if.then.i, label %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit
 
 if.then.i:                                        ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.11.022, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.11.022, i64 8
   %8 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 512
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %8, i64 512
   br label %_ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit
 
 _ZNSt15_Deque_iteratorIN7rocksdb5SliceERKS1_PS2_EppEv.exit: ; preds = %for.body, %if.then.i
@@ -238,17 +238,17 @@ for.end:                                          ; preds = %_ZNSt15_Deque_itera
 define void @_ZN7rocksdb14MergeOperators17CreateMaxOperatorEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN7rocksdb11MaxOperatorEED2Ev.exit:
   %call5.i.i.i2.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15, !noalias !10
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !10
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !10
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb11MaxOperatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i2.i.i.i.i, align 8, !noalias !10
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i, i64 16
-  %0 = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i, i64 24
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %call5.i.i.i2.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !noalias !10
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb11MaxOperatorE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !10
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i2.i.i.i.i, ptr %_M_refcount.i.i, align 8
   ret void
 }
@@ -257,9 +257,9 @@ _ZNSt10shared_ptrIN7rocksdb11MaxOperatorEED2Ev.exit:
 define linkonce_odr void @_ZN7rocksdb11MaxOperatorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
-  %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %options_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %options_.i.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i
@@ -267,7 +267,7 @@ entry:
 for.body.i.i.i.i.i.i.i:                           ; preds = %entry, %for.body.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i.i.i.i.i) #16
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 48
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 48
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !13
 
@@ -292,9 +292,9 @@ _ZN7rocksdb13MergeOperatorD2Ev.exit:              ; preds = %invoke.cont.i.i.i.i
 define linkonce_odr void @_ZN7rocksdb11MaxOperatorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
-  %options_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %options_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %options_.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
@@ -302,7 +302,7 @@ entry:
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %entry, %for.body.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.04.i.i.i.i.i.i.i.i) #16
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 48
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 48
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !13
 
@@ -378,7 +378,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp3.not = icmp eq ptr %call2, null
@@ -386,7 +386,7 @@ if.else:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.else
   %vtable5 = load ptr, ptr %call2, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 56
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 56
   %1 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %call2, ptr noundef nonnull align 8 dereferenceable(32) %name)
   br label %return
@@ -419,7 +419,7 @@ define linkonce_odr void @_ZNK7rocksdb12Customizable5GetIdB5cxx11Ev(ptr noalias 
 entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %this)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
@@ -476,7 +476,7 @@ entry:
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %call2) #16
@@ -485,7 +485,7 @@ if.else:                                          ; preds = %entry
 
 if.else5:                                         ; preds = %if.else
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 144
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 144
   %1 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %cmp.not = icmp eq ptr %call8, null
@@ -694,7 +694,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb11MaxOperatorESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl.i) #16
@@ -711,7 +711,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb11MaxOperatorESaI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN7rocksdb11MaxOperatorESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #4 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_impl.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 

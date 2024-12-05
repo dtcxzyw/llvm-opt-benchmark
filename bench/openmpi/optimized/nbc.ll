@@ -82,21 +82,21 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define internal void @nbc_schedule_constructor(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile i32 4, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store volatile i32 0, ptr %3, align 4
   %4 = load volatile i32, ptr %2, align 8
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %5) #16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %6, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @nbc_schedule_destructor(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #17
   store ptr null, ptr %2, align 8
@@ -108,24 +108,24 @@ define range(i32 -2, 1) i32 @NBC_Sched_send(ptr noundef %0, i8 noundef signext %
   %8 = alloca %struct.NBC_Args_send, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i8 %1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 37
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 37
   store i8 0, ptr %14, align 1
   %15 = call fastcc i32 @nbc_schedule_round_append(ptr noundef %5, ptr noundef nonnull %8, i32 noundef 40, i1 noundef zeroext %6)
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %NBC_Sched_send_internal.exit
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load volatile i32, ptr %17, align 8
   br label %NBC_Sched_send_internal.exit
 
@@ -139,24 +139,24 @@ define range(i32 -2, 1) i32 @NBC_Sched_local_send(ptr noundef %0, i8 noundef sig
   %8 = alloca %struct.NBC_Args_send, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i8 %1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 37
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 37
   store i8 1, ptr %14, align 1
   %15 = call fastcc i32 @nbc_schedule_round_append(ptr noundef %5, ptr noundef nonnull %8, i32 noundef 40, i1 noundef zeroext %6)
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %NBC_Sched_send_internal.exit
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load volatile i32, ptr %17, align 8
   br label %NBC_Sched_send_internal.exit
 
@@ -170,24 +170,24 @@ define range(i32 -2, 1) i32 @NBC_Sched_recv(ptr noundef %0, i8 noundef signext %
   %8 = alloca %struct.NBC_Args_recv, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i32 %4, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i8 0, ptr %14, align 8
   %15 = call fastcc i32 @nbc_schedule_round_append(ptr noundef %5, ptr noundef nonnull %8, i32 noundef 48, i1 noundef zeroext %6)
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %NBC_Sched_recv_internal.exit
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load volatile i32, ptr %17, align 8
   br label %NBC_Sched_recv_internal.exit
 
@@ -201,24 +201,24 @@ define range(i32 -2, 1) i32 @NBC_Sched_local_recv(ptr noundef %0, i8 noundef sig
   %8 = alloca %struct.NBC_Args_recv, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i32 %4, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i8 1, ptr %14, align 8
   %15 = call fastcc i32 @nbc_schedule_round_append(ptr noundef %5, ptr noundef nonnull %8, i32 noundef 48, i1 noundef zeroext %6)
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %NBC_Sched_recv_internal.exit
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load volatile i32, ptr %17, align 8
   br label %NBC_Sched_recv_internal.exit
 
@@ -231,26 +231,26 @@ NBC_Sched_recv_internal.exit:                     ; preds = %7, %16
 define range(i32 -2, 1) i32 @NBC_Sched_op(ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i8 noundef signext %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) local_unnamed_addr #2 {
   %10 = alloca %struct.NBC_Args_op, align 8
   store i32 2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %10, i64 5
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 5
   store i8 %3, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %10, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 %4, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %6, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %5, ptr %17, align 8
   %18 = call fastcc i32 @nbc_schedule_round_append(ptr noundef %7, ptr noundef nonnull %10, i32 noundef 48, i1 noundef zeroext %8)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %22
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %21 = load volatile i32, ptr %20, align 8
   br label %22
 
@@ -260,14 +260,14 @@ define range(i32 -2, 1) i32 @NBC_Sched_op(ptr noundef %0, i8 noundef signext %1,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2, 1) i32 @nbc_schedule_round_append(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65) %2, i1 noundef zeroext %3) unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load volatile i32, ptr %5, align 8
   br i1 %3, label %7, label %17
 
 7:                                                ; preds = %4
   %narrow = add nuw nsw i32 %2, 5
   %8 = load volatile i32, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = add nsw i32 %narrow, %8
   %12 = sext i32 %11 to i64
@@ -285,7 +285,7 @@ define internal fastcc range(i32 -2, 1) i32 @nbc_schedule_round_append(ptr nound
 
 17:                                               ; preds = %4
   %18 = load volatile i32, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = add nsw i32 %18, %2
   %22 = sext i32 %21 to i64
@@ -311,7 +311,7 @@ define internal fastcc range(i32 -2, 1) i32 @nbc_schedule_round_append(ptr nound
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
   %32 = zext nneg i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %1, i64 %32, i1 false)
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %34 = load volatile i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %28, i64 %35
@@ -334,11 +334,11 @@ define internal fastcc range(i32 -2, 1) i32 @nbc_schedule_round_append(ptr nound
   %45 = sext i32 %6 to i64
   %46 = getelementptr inbounds i8, ptr %28, i64 %45
   %47 = zext nneg i32 %2 to i64
-  %48 = getelementptr inbounds i8, ptr %46, i64 %47
-  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %47
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
   store i32 0, ptr %49, align 1
   %50 = add nsw i32 %42, 1
-  %51 = getelementptr inbounds i8, ptr %0, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store volatile i32 %50, ptr %51, align 4
   %52 = load volatile i32, ptr %5, align 8
   %53 = add nsw i32 %52, 5
@@ -354,28 +354,28 @@ nbc_schedule_grow.exit:                           ; preds = %15, %25, %40, %41
 define range(i32 -2, 1) i32 @NBC_Sched_copy(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef signext %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9) local_unnamed_addr #2 {
   %11 = alloca %struct.NBC_Args_copy, align 8
   store i32 3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store i8 %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 57
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 57
   store i8 %5, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %11, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i64 %6, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %7, ptr %19, align 8
   %20 = call fastcc i32 @nbc_schedule_round_append(ptr noundef %8, ptr noundef nonnull %11, i32 noundef 64, i1 noundef zeroext %9)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %24
 
 21:                                               ; preds = %10
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = load volatile i32, ptr %22, align 8
   br label %24
 
@@ -387,24 +387,24 @@ define range(i32 -2, 1) i32 @NBC_Sched_copy(ptr noundef %0, i8 noundef signext %
 define range(i32 -2, 1) i32 @NBC_Sched_unpack(ptr noundef %0, i8 noundef signext %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef signext %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #2 {
   %9 = alloca %struct.NBC_Args_unpack, align 8
   store i32 4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i8 %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 41
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 41
   store i8 %5, ptr %15, align 1
   %16 = call fastcc i32 @nbc_schedule_round_append(ptr noundef %6, ptr noundef nonnull %9, i32 noundef 48, i1 noundef zeroext %7)
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %20
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = load volatile i32, ptr %18, align 8
   br label %20
 
@@ -414,10 +414,10 @@ define range(i32 -2, 1) i32 @NBC_Sched_unpack(ptr noundef %0, i8 noundef signext
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 1) i32 @NBC_Sched_barrier(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load volatile i32, ptr %2, align 8
   %4 = load volatile i32, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %4, 5
   %8 = sext i32 %7 to i64
@@ -434,10 +434,10 @@ define range(i32 -2, 1) i32 @NBC_Sched_barrier(ptr noundef %0) local_unnamed_add
   %13 = sext i32 %3 to i64
   %14 = getelementptr inbounds i8, ptr %9, i64 %13
   store i8 1, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i32 0, ptr %15, align 1
   %16 = add nsw i32 %3, 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store volatile i32 %16, ptr %17, align 4
   %18 = load volatile i32, ptr %2, align 8
   %19 = add nsw i32 %18, 5
@@ -451,10 +451,10 @@ nbc_schedule_round_append.exit:                   ; preds = %11, %12
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 1) i32 @NBC_Sched_commit(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load volatile i32, ptr %2, align 8
   %4 = load volatile i32, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = add nsw i32 %4, 1
   %8 = sext i32 %7 to i64
@@ -484,19 +484,19 @@ nbc_schedule_grow.exit:                           ; preds = %1
 ; Function Attrs: nounwind uwtable
 define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 272
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %.critedge, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %8 = load volatile i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %.critedge53
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.critedge53, label %13
@@ -508,7 +508,7 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not4757, label %.critedge53, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %17
 
 17:                                               ; preds = %.lr.ph, %40
@@ -519,7 +519,7 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, inttoptr (i64 1 to ptr)
   br i1 %26, label %32, label %27
@@ -539,7 +539,7 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
 
 32:                                               ; preds = %._crit_edge, %17
   %33 = phi ptr [ %.pre, %._crit_edge ], [ %23, %17 ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %35 = load i32, ptr %34, align 8
   switch i32 %35, label %36 [
     i32 0, label %40
@@ -551,7 +551,7 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
 36:                                               ; preds = %32
   call void (ptr, ...) @NBC_Error(ptr noundef nonnull @.str.7, ptr noundef nonnull %33, i32 noundef %35)
   %.pre60 = load ptr, ptr %2, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre60, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre60, i64 72
   %.pre61 = load i32, ptr %.phi.trans.insert, align 8
   br label %37
 
@@ -566,7 +566,7 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
   %42 = load volatile i32, ptr %7, align 8
   %43 = add nsw i32 %42, -1
   store volatile i32 %43, ptr %7, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 120
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 120
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 %45(ptr noundef nonnull %2) #17
   %47 = load volatile i32, ptr %7, align 8
@@ -574,7 +574,7 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not47, label %.critedge53, label %17, !llvm.loop !4
 
 .critedge53:                                      ; preds = %40, %13, %6, %10
-  %48 = getelementptr inbounds i8, ptr %0, i64 288
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %49 = load ptr, ptr %48, align 8
   %.not49 = icmp eq ptr %49, null
   br i1 %.not49, label %51, label %50
@@ -586,19 +586,19 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
 
 51:                                               ; preds = %50, %.critedge53
   store volatile i32 0, ptr %7, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %53 = load i32, ptr %52, align 8
   %.not50 = icmp eq i32 %53, 0
-  %54 = getelementptr inbounds i8, ptr %0, i64 304
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 304
   br i1 %.not50, label %63, label %55
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 264
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %58 = load i64, ptr %57, align 8
   call void (ptr, ...) @NBC_Error(ptr noundef nonnull @.str.8, i32 noundef %53, ptr noundef %56, i64 noundef %58)
   store i8 1, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 100
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %60 = load i8, ptr %59, align 4
   %61 = trunc i8 %60 to i1
   br i1 %61, label %.critedge, label %62
@@ -608,14 +608,14 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
   br label %.critedge
 
 63:                                               ; preds = %51
-  %64 = getelementptr inbounds i8, ptr %0, i64 264
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %65 = load ptr, ptr %54, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = load i64, ptr %64, align 8
   %69 = getelementptr inbounds i8, ptr %67, i64 %68
   %.0.copyload.i = load i32, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = icmp sgt i32 %.0.copyload.i, 0
   br i1 %71, label %.lr.ph.i, label %nbc_get_round_size.exit
 
@@ -633,7 +633,7 @@ define i32 @NBC_Progress(ptr noundef %0) local_unnamed_addr #2 {
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %75 = zext nneg i32 %.0.copyload11.i to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.NBC_Progress, i64 0, i64 %75
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.NBC_Progress, i64 0, i64 %75
   %switch.load = load i64, ptr %switch.gep, align 8
   %76 = add i64 %switch.load, %.01719.i
   %77 = add nuw nsw i32 %.020.i, 1
@@ -653,7 +653,7 @@ nbc_get_round_size.exit:                          ; preds = %63, %._crit_edge.lo
 
 82:                                               ; preds = %nbc_get_round_size.exit
   store i8 1, ptr %3, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 100
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %84 = load i8, ptr %83, align 4
   %85 = trunc i8 %84 to i1
   br i1 %85, label %.critedge, label %86
@@ -664,7 +664,7 @@ nbc_get_round_size.exit:                          ; preds = %63, %._crit_edge.lo
   br i1 %.not.i, label %111, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %90 = load i8, ptr @opal_uses_threads, align 1
   %91 = trunc i8 %90 to i1
   br i1 %91, label %92, label %95
@@ -689,7 +689,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %95, %92
 100:                                              ; preds = %opal_thread_add_fetch_32.exit.i
   %101 = load ptr, ptr %54, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr %104, align 8
   %.not6.i.i = icmp eq ptr %105, null
@@ -699,7 +699,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %95, %92
   %106 = phi ptr [ %108, %.lr.ph.i.i ], [ %105, %100 ]
   %.07.i.i = phi ptr [ %107, %.lr.ph.i.i ], [ %104, %100 ]
   call void %106(ptr noundef nonnull %101) #17
-  %107 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %108 = load ptr, ptr %107, align 8
   %.not.i.i = icmp eq ptr %108, null
   br i1 %.not.i.i, label %opal_obj_run_destructors.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !7
@@ -718,7 +718,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %opal_obj_run_destru
   br label %111
 
 111:                                              ; preds = %110, %86
-  %112 = getelementptr inbounds i8, ptr %0, i64 312
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %113 = load ptr, ptr %112, align 8
   %.not11.i = icmp eq ptr %113, null
   br i1 %.not11.i, label %.critedge, label %114
@@ -729,10 +729,10 @@ opal_obj_run_destructors.exit.i:                  ; preds = %opal_obj_run_destru
   br label %.critedge
 
 115:                                              ; preds = %nbc_get_round_size.exit
-  %116 = getelementptr inbounds i8, ptr %79, i64 1
+  %116 = getelementptr inbounds nuw i8, ptr %79, i64 1
   %117 = ptrtoint ptr %116 to i64
   %118 = load ptr, ptr %54, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = ptrtoint ptr %120 to i64
   %122 = sub nsw i64 %117, %121
@@ -769,13 +769,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @NBC_Free(ptr nocapture noundef %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %27, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr @opal_uses_threads, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %11
@@ -800,7 +800,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %8, %11
 16:                                               ; preds = %opal_thread_add_fetch_32.exit
   %17 = load ptr, ptr %2, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i = icmp eq ptr %21, null
@@ -810,7 +810,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %8, %11
   %22 = phi ptr [ %24, %.lr.ph.i ], [ %21, %16 ]
   %.07.i = phi ptr [ %23, %.lr.ph.i ], [ %20, %16 ]
   tail call void %22(ptr noundef nonnull %17) #17
-  %23 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
@@ -829,7 +829,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %27
 
 27:                                               ; preds = %26, %1
-  %28 = getelementptr inbounds i8, ptr %0, i64 312
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %29 = load ptr, ptr %28, align 8
   %.not11 = icmp eq ptr %29, null
   br i1 %.not11, label %31, label %30
@@ -849,11 +849,11 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 304
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 %11
   %.0.copyload115 = load i32, ptr %12, align 1
@@ -861,12 +861,12 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %12, i64 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 312
-  %16 = getelementptr inbounds i8, ptr %0, i64 276
-  %17 = getelementptr inbounds i8, ptr %0, i64 280
-  %18 = getelementptr inbounds i8, ptr %0, i64 288
-  %19 = getelementptr inbounds i8, ptr %0, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %20
 
 20:                                               ; preds = %.lr.ph, %NBC_Copy.exit.thread
@@ -882,19 +882,19 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   ]
 
 21:                                               ; preds = %20
-  %.sroa.167.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 8
+  %.sroa.167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 8
   %.sroa.167.0.copyload = load i64, ptr %.sroa.167.0..sroa_idx, align 1
-  %.sroa.470.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 16
+  %.sroa.470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 16
   %.sroa.470.0.copyload = load ptr, ptr %.sroa.470.0..sroa_idx, align 1
-  %.sroa.773.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 24
+  %.sroa.773.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 24
   %.sroa.773.0.copyload = load ptr, ptr %.sroa.773.0..sroa_idx, align 1
-  %.sroa.1076.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 32
+  %.sroa.1076.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 32
   %.sroa.1076.0.copyload = load i32, ptr %.sroa.1076.0..sroa_idx, align 1
-  %.sroa.1379.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 36
+  %.sroa.1379.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 36
   %.sroa.1379.0.copyload = load i8, ptr %.sroa.1379.0..sroa_idx, align 1
-  %.sroa.1480.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 37
+  %.sroa.1480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 37
   %.sroa.1480.0.copyload = load i8, ptr %.sroa.1480.0..sroa_idx, align 1
-  %22 = getelementptr inbounds i8, ptr %.0164213, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.0164213, i64 40
   %23 = load volatile i32, ptr %17, align 8
   %24 = add nsw i32 %23, 1
   store volatile i32 %24, ptr %17, align 8
@@ -926,7 +926,7 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %19, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 264
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 264
   br label %43
 
 43:                                               ; preds = %36, %40
@@ -949,19 +949,19 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   br label %.loopexit189
 
 55:                                               ; preds = %20
-  %.sroa.153.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 8
+  %.sroa.153.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 8
   %.sroa.153.0.copyload = load i64, ptr %.sroa.153.0..sroa_idx, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 16
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 24
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 24
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 1
-  %.sroa.1060.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 32
+  %.sroa.1060.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 32
   %.sroa.1060.0.copyload = load i8, ptr %.sroa.1060.0..sroa_idx, align 1
-  %.sroa.1162.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 36
+  %.sroa.1162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 36
   %.sroa.1162.0.copyload = load i32, ptr %.sroa.1162.0..sroa_idx, align 1
-  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 40
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 40
   %.sroa.14.0.copyload = load i8, ptr %.sroa.14.0..sroa_idx, align 1
-  %56 = getelementptr inbounds i8, ptr %.0164213, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.0164213, i64 48
   %57 = load volatile i32, ptr %17, align 8
   %58 = add nsw i32 %57, 1
   store volatile i32 %58, ptr %17, align 8
@@ -993,7 +993,7 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %19, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 264
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 264
   br label %77
 
 77:                                               ; preds = %70, %74
@@ -1016,21 +1016,21 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   br label %.loopexit189
 
 89:                                               ; preds = %20
-  %.sroa.140.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 4
+  %.sroa.140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 4
   %.sroa.140.0.copyload = load i8, ptr %.sroa.140.0..sroa_idx, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 5
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 5
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.342.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 8
+  %.sroa.342.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 8
   %.sroa.342.0.copyload = load ptr, ptr %.sroa.342.0..sroa_idx, align 1
-  %.sroa.645.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 16
+  %.sroa.645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 16
   %.sroa.645.0.copyload = load ptr, ptr %.sroa.645.0..sroa_idx, align 1
-  %.sroa.948.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 24
+  %.sroa.948.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 24
   %.sroa.948.0.copyload = load ptr, ptr %.sroa.948.0..sroa_idx, align 1
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 32
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 32
   %.sroa.10.0.copyload = load ptr, ptr %.sroa.10.0..sroa_idx, align 1
-  %.sroa.1250.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 40
+  %.sroa.1250.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 40
   %.sroa.1250.0.copyload = load i64, ptr %.sroa.1250.0..sroa_idx, align 1
-  %90 = getelementptr inbounds i8, ptr %.0164213, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %.0164213, i64 48
   %.not178 = icmp eq i8 %.sroa.140.0.copyload, 0
   br i1 %.not178, label %95, label %91
 
@@ -1057,23 +1057,23 @@ define internal fastcc i32 @NBC_Start_round(ptr noundef %0) unnamed_addr #2 {
   br label %NBC_Copy.exit.thread
 
 101:                                              ; preds = %20
-  %.sroa.125.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 8
+  %.sroa.125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 8
   %.sroa.125.0.copyload = load i64, ptr %.sroa.125.0..sroa_idx, align 1
-  %.sroa.327.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 16
+  %.sroa.327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 16
   %.sroa.327.0.copyload = load ptr, ptr %.sroa.327.0..sroa_idx, align 1
-  %.sroa.630.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 24
+  %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 24
   %.sroa.630.0.copyload = load ptr, ptr %.sroa.630.0..sroa_idx, align 1
-  %.sroa.933.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 32
+  %.sroa.933.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 32
   %.sroa.933.0.copyload = load ptr, ptr %.sroa.933.0..sroa_idx, align 1
-  %.sroa.1135.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 40
+  %.sroa.1135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 40
   %.sroa.1135.0.copyload = load ptr, ptr %.sroa.1135.0..sroa_idx, align 1
-  %.sroa.1337.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 48
+  %.sroa.1337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 48
   %.sroa.1337.0.copyload = load i64, ptr %.sroa.1337.0..sroa_idx, align 1
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 56
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 56
   %.sroa.15.0.copyload = load i8, ptr %.sroa.15.0..sroa_idx, align 1
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 57
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 57
   %.sroa.16.0.copyload = load i8, ptr %.sroa.16.0..sroa_idx, align 1
-  %102 = getelementptr inbounds i8, ptr %.0164213, i64 64
+  %102 = getelementptr inbounds nuw i8, ptr %.0164213, i64 64
   %103 = ptrtoint ptr %.sroa.630.0.copyload to i64
   %.not175 = icmp eq i8 %.sroa.15.0.copyload, 0
   br i1 %.not175, label %108, label %104
@@ -1107,19 +1107,19 @@ NBC_Copy.exit:                                    ; preds = %112
   br label %.loopexit189
 
 116:                                              ; preds = %20
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 8
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 8
   %.sroa.1.0.copyload = load i64, ptr %.sroa.1.0..sroa_idx, align 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 16
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 24
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 1
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 32
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 32
   %.sroa.9.0.copyload = load ptr, ptr %.sroa.9.0..sroa_idx, align 1
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 40
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 40
   %.sroa.11.0.copyload = load i8, ptr %.sroa.11.0..sroa_idx, align 1
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %.0164213, i64 41
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0164213, i64 41
   %.sroa.12.0.copyload = load i8, ptr %.sroa.12.0..sroa_idx, align 1
-  %117 = getelementptr inbounds i8, ptr %.0164213, i64 48
+  %117 = getelementptr inbounds nuw i8, ptr %.0164213, i64 48
   %118 = ptrtoint ptr %.sroa.6.0.copyload to i64
   %.not172 = icmp eq i8 %.sroa.11.0.copyload, 0
   br i1 %.not172, label %123, label %119
@@ -1206,9 +1206,9 @@ NBC_Copy.exit:                                    ; preds = %112
   br i1 %or.cond3.i, label %158, label %166
 
 158:                                              ; preds = %139
-  %159 = getelementptr inbounds i8, ptr %.sroa.9.0.copyload, i64 48
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload, i64 48
   %160 = load i64, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %.sroa.9.0.copyload, i64 56
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.9.0.copyload, i64 56
   %162 = load i64, ptr %161, align 8
   %163 = sub nsw i64 %162, %160
   %sext = shl i64 %.sroa.1.0.copyload, 32
@@ -1247,7 +1247,7 @@ NBC_Unpack.exit:                                  ; preds = %158, %166
 170:                                              ; preds = %20
   %171 = ptrtoint ptr %.0164213 to i64
   %172 = load ptr, ptr %6, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %174 = load ptr, ptr %173, align 8
   %175 = ptrtoint ptr %174 to i64
   %176 = sub i64 %171, %175
@@ -1286,13 +1286,13 @@ NBC_Copy.exit.thread:                             ; preds = %112, %NBC_Unpack.ex
 
 ; Function Attrs: nounwind uwtable
 define void @NBC_Return_handle(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %27, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr @opal_uses_threads, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %11
@@ -1317,7 +1317,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %11, %8
 16:                                               ; preds = %opal_thread_add_fetch_32.exit.i
   %17 = load ptr, ptr %2, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i.i = icmp eq ptr %21, null
@@ -1327,7 +1327,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %11, %8
   %22 = phi ptr [ %24, %.lr.ph.i.i ], [ %21, %16 ]
   %.07.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %20, %16 ]
   tail call void %22(ptr noundef nonnull %17) #17
-  %23 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %opal_obj_run_destructors.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !7
@@ -1346,7 +1346,7 @@ opal_obj_run_destructors.exit.i:                  ; preds = %opal_obj_run_destru
   br label %27
 
 27:                                               ; preds = %26, %1
-  %28 = getelementptr inbounds i8, ptr %0, i64 312
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %29 = load ptr, ptr %28, align 8
   %.not11.i = icmp eq ptr %29, null
   br i1 %.not11.i, label %NBC_Free.exit, label %30
@@ -1357,9 +1357,9 @@ opal_obj_run_destructors.exit.i:                  ; preds = %opal_obj_run_destru
   br label %NBC_Free.exit
 
 NBC_Free.exit:                                    ; preds = %27, %30
-  %31 = getelementptr inbounds i8, ptr %0, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store volatile i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %33 = load i32, ptr %32, align 8
   %.not = icmp eq i32 %33, -32766
   br i1 %.not, label %36, label %34
@@ -1376,7 +1376,7 @@ NBC_Free.exit:                                    ; preds = %27, %30
   br i1 %38, label %40, label %53
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.04.i.i.i = inttoptr i64 %39 to ptr
   store volatile ptr %.04.i.i.i, ptr %41, align 8
   fence release
@@ -1410,9 +1410,9 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
 
 53:                                               ; preds = %36
   %54 = inttoptr i64 %39 to ptr
-  %55 = getelementptr inbounds i8, ptr %0, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %56, align 8
   %57 = ptrtoint ptr %0 to i64
   store volatile i64 %57, ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 312), align 8
@@ -1451,9 +1451,9 @@ define i32 @NBC_Start(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %2, label %24, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store volatile i32 2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %5, align 8
   %6 = tail call fastcc i32 @NBC_Start_round(ptr noundef %0)
   %.not = icmp eq i32 %6, 0
@@ -1472,12 +1472,12 @@ define i32 @NBC_Start(ptr noundef %0) local_unnamed_addr #2 {
 12:                                               ; preds = %7, %10
   %13 = phi i8 [ %8, %7 ], [ %.pre, %10 ]
   %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 680), align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr %14, ptr %15, align 8
   %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 680), align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store volatile ptr %0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 656), ptr %18, align 8
   store volatile ptr %0, ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 680), align 8
   %19 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 696), align 8
@@ -1512,14 +1512,14 @@ define range(i32 -2, 1) i32 @NBC_Schedule_request(ptr noundef %0, ptr noundef %1
   %.sroa.4.i.i.i = alloca i64, align 8
   %14 = alloca ptr, align 8
   %15 = zext i1 %3 to i8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %71
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr %17, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %71
@@ -1537,7 +1537,7 @@ nbc_get_noop_request.exit:                        ; preds = %24
   br i1 %.not, label %26, label %270
 
 26:                                               ; preds = %nbc_get_noop_request.exit.thread, %nbc_get_noop_request.exit
-  %27 = getelementptr inbounds i8, ptr %1, i64 236
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %28 = load i8, ptr @opal_uses_threads, align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %.split.i.outer, label %opal_thread_compare_exchange_strong_32.exit.us.i
@@ -1591,7 +1591,7 @@ opal_thread_compare_exchange_strong_32.exit.us.i: ; preds = %26, %opal_thread_co
 
 ompi_coll_base_nbc_reserve_tags.exit:             ; preds = %37, %.split14.i
   %51 = phi i8 [ %50, %.split14.i ], [ %.pre.i, %37 ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = trunc i8 %51 to i1
   br i1 %53, label %54, label %57
 
@@ -1614,7 +1614,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %54, %57
 
 62:                                               ; preds = %opal_thread_add_fetch_32.exit
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %65, align 8
   %.not6.i = icmp eq ptr %66, null
@@ -1624,7 +1624,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %54, %57
   %67 = phi ptr [ %69, %.lr.ph.i ], [ %66, %62 ]
   %.07.i = phi ptr [ %68, %.lr.ph.i ], [ %65, %62 ]
   tail call void %67(ptr noundef nonnull %0) #17
-  %68 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
@@ -1651,7 +1651,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %62
   %75 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0.10.i.i.i, align 16
   fence acquire
   %.0..0..0..0..0..0..0..0..0..0.11.i.i.i = load volatile ptr, ptr %13, align 8
-  %76 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..0..0.11.i.i.i, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..0..0..0..0.11.i.i.i, i64 8
   %77 = load volatile i64, ptr %76, align 8
   store volatile i64 %77, ptr %.sroa.4.i.i.i, align 8
   %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i = load volatile i64, ptr %.sroa.4.i.i.i, align 8
@@ -1662,7 +1662,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %62
   %.sroa.4.0..sroa.4.8.7.i.i.i = phi i64 [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i.i, %opal_update_counted_pointer.exit.i.i.i ], [ %.sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i.i, %74 ]
   %.sroa.0.06.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i.i, %opal_update_counted_pointer.exit.i.i.i ], [ %75, %74 ]
   %79 = inttoptr i64 %.sroa.4.0..sroa.4.8.7.i.i.i to ptr
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load volatile ptr, ptr %80, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -1696,7 +1696,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   br i1 %87, label %.lr.ph.preheader.i.i, label %.lr.ph.i.i.i
 
 opal_lifo_pop_atomic.exit.i.i:                    ; preds = %.lr.ph.i.i.i
-  %88 = getelementptr inbounds i8, ptr %79, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %79, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
   fence release
@@ -1831,7 +1831,7 @@ opal_condition_signal.exit.i.i:                   ; preds = %136, %134, %131, %1
   %142 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0.10.i25.i.i, align 16
   fence acquire
   %.0..0..0..0..0..0..0..0..0..0.11.i26.i.i = load volatile ptr, ptr %11, align 8
-  %143 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..0..0.11.i26.i.i, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..0..0..0..0.11.i26.i.i, i64 8
   %144 = load volatile i64, ptr %143, align 8
   store volatile i64 %144, ptr %.sroa.4.i24.i.i, align 8
   %.sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.0..sroa.4.i24.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i27.i.i = load volatile i64, ptr %.sroa.4.i24.i.i, align 8
@@ -1842,7 +1842,7 @@ opal_condition_signal.exit.i.i:                   ; preds = %136, %134, %131, %1
   %.sroa.4.0..sroa.4.8.7.i29.i.i = phi i64 [ %.sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.0..sroa.4.i24.0..sroa.4.0..sroa.4.0..sroa.4.8..i44.i.i, %opal_update_counted_pointer.exit.i40.i.i ], [ %.sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.i.0..sroa.4.i24.i.0..sroa.4.i24.i.0..sroa.4.i24.0..sroa.4.i24.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i27.i.i, %141 ]
   %.sroa.0.06.i30.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i41.i.i, %opal_update_counted_pointer.exit.i40.i.i ], [ %142, %141 ]
   %146 = inttoptr i64 %.sroa.4.0..sroa.4.8.7.i29.i.i to ptr
-  %147 = getelementptr inbounds i8, ptr %146, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %148 = load volatile ptr, ptr %147, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i23.i.i)
@@ -1876,7 +1876,7 @@ opal_update_counted_pointer.exit.i40.i.i:         ; preds = %.lr.ph.i28.i.i
   br i1 %154, label %.loopexit.i.i, label %.lr.ph.i28.i.i
 
 .thread21.i.i:                                    ; preds = %.lr.ph.i28.i.i
-  %155 = getelementptr inbounds i8, ptr %146, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %146, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i23.i.i)
   fence release
@@ -1899,7 +1899,7 @@ opal_free_list_wait_mt.exit.i:                    ; preds = %opal_condition_sign
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %157 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 312), align 8
   %158 = inttoptr i64 %157 to ptr
-  %159 = getelementptr inbounds i8, ptr %158, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load volatile ptr, ptr %159, align 8
   %161 = ptrtoint ptr %160 to i64
   store volatile i64 %161, ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 312), align 8
@@ -1948,7 +1948,7 @@ opal_lifo_pop.exit.thread16.i.i:                  ; preds = %156
   %177 = load volatile i64, ptr %.0..0..0..0..0..0..0..0..0..0..0..0.10.i.i10.i.i, align 16
   fence acquire
   %.0..0..0..0..0..0..0..0..0..0..0..0.11.i.i11.i.i = load volatile ptr, ptr %8, align 8
-  %178 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0..0..0..0..0..0..0.11.i.i11.i.i, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %.0..0..0..0..0..0..0..0..0..0..0..0.11.i.i11.i.i, i64 8
   %179 = load volatile i64, ptr %178, align 8
   store volatile i64 %179, ptr %.sroa.4.i.i8.i.i, align 8
   %.sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i12.i.i = load volatile i64, ptr %.sroa.4.i.i8.i.i, align 8
@@ -1959,7 +1959,7 @@ opal_lifo_pop.exit.thread16.i.i:                  ; preds = %156
   %.sroa.4.0..sroa.4.8.7.i.i14.i.i = phi i64 [ %.sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8..i.i29.i.i, %opal_update_counted_pointer.exit.i.i25.i.i ], [ %.sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.i.0..sroa.4.i.i8.0..sroa.4.i.i8.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.8.5.i.i12.i.i, %176 ]
   %.sroa.0.06.i.i15.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i26.i.i, %opal_update_counted_pointer.exit.i.i25.i.i ], [ %177, %176 ]
   %181 = inttoptr i64 %.sroa.4.0..sroa.4.8.7.i.i14.i.i to ptr
-  %182 = getelementptr inbounds i8, ptr %181, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %183 = load volatile ptr, ptr %182, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i.i)
@@ -1993,7 +1993,7 @@ opal_update_counted_pointer.exit.i.i25.i.i:       ; preds = %.lr.ph.i.i13.i.i
   br i1 %189, label %opal_lifo_pop_atomic.exit.i30.i.i, label %.lr.ph.i.i13.i.i
 
 190:                                              ; preds = %.lr.ph.i.i13.i.i
-  %191 = getelementptr inbounds i8, ptr %181, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %181, i64 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i.i)
   fence release
@@ -2009,7 +2009,7 @@ opal_lifo_pop_atomic.exit.i30.i.i:                ; preds = %opal_update_counted
 192:                                              ; preds = %173
   %193 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 312), align 8
   %194 = inttoptr i64 %193 to ptr
-  %195 = getelementptr inbounds i8, ptr %194, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %196 = load volatile ptr, ptr %195, align 8
   %197 = ptrtoint ptr %196 to i64
   store volatile i64 %197, ptr getelementptr inbounds (i8, ptr @mca_coll_libnbc_component, i64 312), align 8
@@ -2017,7 +2017,7 @@ opal_lifo_pop_atomic.exit.i30.i.i:                ; preds = %opal_update_counted
   br i1 %198, label %200, label %.thread22.i.i
 
 .thread22.i.i:                                    ; preds = %192
-  %199 = getelementptr inbounds i8, ptr %194, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %194, i64 16
   store volatile ptr null, ptr %199, align 8
   br label %opal_free_list_wait_st.exit.sink.split.i
 
@@ -2029,7 +2029,7 @@ opal_lifo_pop_atomic.exit.i30.i.i:                ; preds = %opal_update_counted
 
 opal_free_list_wait_st.exit.sink.split.i:         ; preds = %.thread22.i.i, %opal_lifo_pop.exit.thread16.i.i
   %.sink50.i = phi ptr [ %158, %opal_lifo_pop.exit.thread16.i.i ], [ %194, %.thread22.i.i ]
-  %202 = getelementptr inbounds i8, ptr %.sink50.i, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %.sink50.i, i64 32
   store i32 1, ptr %202, align 8
   br label %opal_free_list_wait_st.exit.i
 
@@ -2041,31 +2041,31 @@ opal_free_list_wait_st.exit.i:                    ; preds = %200, %170, %opal_fr
 opal_free_list_wait.exit:                         ; preds = %opal_free_list_wait_mt.exit.i, %opal_free_list_wait_st.exit.i
   %.0.i54 = phi ptr [ %.lcssa6.i.i, %opal_free_list_wait_mt.exit.i ], [ %.lcssa4.i.i, %opal_free_list_wait_st.exit.i ]
   %203 = select i1 %3, ptr inttoptr (i64 1 to ptr), ptr null
-  %204 = getelementptr inbounds i8, ptr %.0.i54, i64 88
+  %204 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 88
   store ptr %203, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %.0.i54, i64 96
+  %205 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 96
   store volatile i32 1, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %.0.i54, i64 100
+  %206 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 100
   store i8 %15, ptr %206, align 4
-  %207 = getelementptr inbounds i8, ptr %.0.i54, i64 136
-  %208 = getelementptr inbounds i8, ptr %.0.i54, i64 152
+  %207 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 136
+  %208 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %207, i8 0, i64 16, i1 false)
   store ptr %1, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %.0.i54, i64 312
+  %209 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 312
   store ptr null, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %.0.i54, i64 280
+  %210 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 280
   store volatile i32 0, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %.0.i54, i64 288
+  %211 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 288
   store ptr null, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %.0.i54, i64 256
+  %212 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 256
   store ptr %1, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %.0.i54, i64 304
+  %213 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 304
   store ptr null, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %.0.i54, i64 264
+  %214 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 264
   store i64 0, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %.0.i54, i64 272
+  %215 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 272
   store i8 %15, ptr %215, align 8
-  %216 = getelementptr inbounds i8, ptr %1, i64 236
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %217 = load i8, ptr @opal_uses_threads, align 1
   %218 = trunc i8 %217 to i1
   br i1 %218, label %.split.i62.outer, label %opal_thread_compare_exchange_strong_32.exit.us.i55
@@ -2121,18 +2121,18 @@ opal_thread_compare_exchange_strong_32.exit.us.i55: ; preds = %opal_free_list_wa
 ompi_coll_base_nbc_reserve_tags.exit66:           ; preds = %225, %.split14.i58
   %237 = phi i8 [ %236, %.split14.i58 ], [ %.pre.i65, %225 ]
   %spec.store.select10.i61 = phi i32 [ %.us-phi15.i59, %.split14.i58 ], [ %spec.store.select.i63.le, %225 ]
-  %238 = getelementptr inbounds i8, ptr %.0.i54, i64 276
+  %238 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 276
   store i32 %spec.store.select10.i61, ptr %238, align 4
   %239 = trunc i8 %237 to i1
   br i1 %239, label %240, label %243
 
 240:                                              ; preds = %ompi_coll_base_nbc_reserve_tags.exit66
-  %241 = getelementptr inbounds i8, ptr %2, i64 608
+  %241 = getelementptr inbounds nuw i8, ptr %2, i64 608
   %242 = call i32 @pthread_mutex_lock(ptr noundef nonnull %241) #17
   br label %243
 
 243:                                              ; preds = %ompi_coll_base_nbc_reserve_tags.exit66, %240
-  %244 = getelementptr inbounds i8, ptr %2, i64 656
+  %244 = getelementptr inbounds nuw i8, ptr %2, i64 656
   %245 = load i8, ptr %244, align 8
   %246 = and i8 %245, 1
   %.not.not = icmp eq i8 %246, 0
@@ -2148,7 +2148,7 @@ ompi_coll_base_nbc_reserve_tags.exit66:           ; preds = %225, %.split14.i58
   br i1 %250, label %251, label %254
 
 251:                                              ; preds = %248
-  %252 = getelementptr inbounds i8, ptr %2, i64 608
+  %252 = getelementptr inbounds nuw i8, ptr %2, i64 608
   %253 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %252) #17
   br label %254
 
@@ -2183,7 +2183,7 @@ opal_thread_add_fetch_32.exit68:                  ; preds = %258, %261
 
 268:                                              ; preds = %opal_thread_add_fetch_32.exit68, %266, %254
   store ptr %1, ptr %212, align 8
-  %269 = getelementptr inbounds i8, ptr %.0.i54, i64 296
+  %269 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 296
   store ptr %2, ptr %269, align 8
   store ptr %5, ptr %209, align 8
   store ptr %0, ptr %213, align 8
@@ -2227,9 +2227,9 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %4, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %16 = load i64, ptr %15, align 8
   %17 = sub nsw i64 %16, %14
   br label %18
@@ -2251,7 +2251,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   br i1 %27, label %18, label %.loopexit, !llvm.loop !15
 
 28:                                               ; preds = %5
-  %29 = getelementptr inbounds i8, ptr %0, i64 84
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 1
   %.not = icmp eq i32 %31, 0
@@ -2270,16 +2270,16 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
 
 37:                                               ; preds = %32, %35
   %.pn44 = phi ptr [ %36, %35 ], [ %4, %32 ]
-  %.pn.in.in = getelementptr inbounds i8, ptr %.pn44, i64 200
+  %.pn.in.in = getelementptr inbounds nuw i8, ptr %.pn44, i64 200
   %.pn.in = load i32, ptr %.pn.in.in, align 8
   %.pn = sext i32 %.pn.in to i64
   %.038.in = getelementptr inbounds [52 x i32], ptr @ompi_op_ddt_map, i64 0, i64 %.pn
   %.038 = load i32, ptr %.038.in, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %39 = sext i32 %.038 to i64
   %40 = getelementptr inbounds [43 x ptr], ptr %38, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 440
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %43 = getelementptr inbounds [43 x ptr], ptr %42, i64 0, i64 %39
   %44 = load ptr, ptr %43, align 8
   call void %41(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %44) #17
@@ -2291,11 +2291,11 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   br i1 %.not41, label %52, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %4, i64 204
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 204
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %7, align 4
   store i32 %10, ptr %8, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #17
   br label %.loopexit
@@ -2303,16 +2303,16 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
 52:                                               ; preds = %45
   %53 = and i32 %30, 8
   %.not42 = icmp eq i32 %53, 0
-  %54 = getelementptr inbounds i8, ptr %0, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %55 = load ptr, ptr %54, align 8
   br i1 %.not42, label %63, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %0, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 112
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %62 = load ptr, ptr %61, align 8
   call void %55(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef %58, ptr noundef %60, ptr noundef %62) #17
   br label %.loopexit

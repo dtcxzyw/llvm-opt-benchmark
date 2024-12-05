@@ -74,13 +74,13 @@ define internal noundef zeroext i1 @_ZL24Test_TfDelegatedCountPtrv() #4 personal
 
 8:                                                ; preds = %6
   store ptr @.str.1, ptr %2, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @__func__._ZL12TestEqualityv, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 112, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL12TestEqualityv, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx.i, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 4, ptr %9, align 8
@@ -157,13 +157,13 @@ _ZL12TestEqualityv.exit:                          ; preds = %10, %13
 
 28:                                               ; preds = %26
   store ptr @.str.1, ptr %1, align 8
-  %.sroa.256.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.256.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @__func__._ZL8TestSwapv, ptr %.sroa.256.0..sroa_idx.i, align 8
-  %.sroa.357.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.357.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 259, ptr %.sroa.357.0..sroa_idx.i, align 8
-  %.sroa.458.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.458.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL8TestSwapv, ptr %.sroa.458.0..sroa_idx.i, align 8
-  %.sroa.559.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.559.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 0, ptr %.sroa.559.0..sroa_idx.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 4, ptr %29, align 8

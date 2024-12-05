@@ -10,25 +10,25 @@ define dso_local void @_ZN3url12ParseFileURLEPKciPNS_6ParsedE(ptr noundef %url, 
 entry:
   %ref.tmp.i.i = alloca %"struct.url::Component", align 8
   %ref.tmp16.i.i = alloca %"struct.url::Component", align 8
-  %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
+  %username.i = getelementptr inbounds nuw i8, ptr %parsed, i64 8
   store i32 0, ptr %username.i, align 4
-  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 12
+  %len.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 12
   store i32 -1, ptr %len.i.i, align 4
-  %password.i = getelementptr inbounds i8, ptr %parsed, i64 16
+  %password.i = getelementptr inbounds nuw i8, ptr %parsed, i64 16
   store i32 0, ptr %password.i, align 4
-  %len.i26.i = getelementptr inbounds i8, ptr %parsed, i64 20
+  %len.i26.i = getelementptr inbounds nuw i8, ptr %parsed, i64 20
   store i32 -1, ptr %len.i26.i, align 4
-  %port.i = getelementptr inbounds i8, ptr %parsed, i64 32
+  %port.i = getelementptr inbounds nuw i8, ptr %parsed, i64 32
   store i32 0, ptr %port.i, align 4
-  %len.i27.i = getelementptr inbounds i8, ptr %parsed, i64 36
+  %len.i27.i = getelementptr inbounds nuw i8, ptr %parsed, i64 36
   store i32 -1, ptr %len.i27.i, align 4
-  %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
+  %query.i = getelementptr inbounds nuw i8, ptr %parsed, i64 48
   store i32 0, ptr %query.i, align 4
-  %len.i28.i = getelementptr inbounds i8, ptr %parsed, i64 52
+  %len.i28.i = getelementptr inbounds nuw i8, ptr %parsed, i64 52
   store i32 -1, ptr %len.i28.i, align 4
-  %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
+  %ref.i = getelementptr inbounds nuw i8, ptr %parsed, i64 56
   store i32 0, ptr %ref.i, align 4
-  %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 60
+  %len.i29.i = getelementptr inbounds nuw i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i29.i, align 4
   %cmp10.i.i = icmp sgt i32 %url_len, 0
   br i1 %cmp10.i.i, label %land.rhs.i.preheader.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
@@ -45,7 +45,7 @@ while.body.i.lr.ph.i:                             ; preds = %land.rhs.i.preheade
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i97.i, 1
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %url, i64 %indvars.iv.next.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %url, i64 %indvars.iv.next.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i.i = icmp ult i8 %3, 33
   br i1 %cmp.i.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !5
@@ -144,7 +144,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %13 = load i32, ptr %parsed, align 8
   %add.i = add nsw i32 %13, %begin.080121.i
   store i32 %add.i, ptr %parsed, align 8
-  %len.i38.i = getelementptr inbounds i8, ptr %parsed, i64 4
+  %len.i38.i = getelementptr inbounds nuw i8, ptr %parsed, i64 4
   %14 = load i32, ptr %len.i38.i, align 4
   %add.i.i = add i32 %add.i, 1
   %add6.i = add i32 %add.i.i, %14
@@ -154,7 +154,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %_
   %spec_len.addr.1125.i = phi i32 [ %spec_len.addr.1126.i, %land.lhs.true.i ], [ %spec_len.addr.1.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
   %begin.080123.i = phi i32 [ %begin.080121.i, %land.lhs.true.i ], [ %begin.080.i, %_ZN3url23CountConsecutiveSlashesIcEEiPKT_ii.exit.i ]
   store i32 0, ptr %parsed, align 4
-  %len.i39.i = getelementptr inbounds i8, ptr %parsed, i64 4
+  %len.i39.i = getelementptr inbounds nuw i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i39.i, align 4
   br label %if.end.i
 
@@ -165,13 +165,13 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i, label %if.then8.i, label %if.end9.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   store i32 0, ptr %host.i, align 4
-  %len.i40.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  %len.i40.i = getelementptr inbounds nuw i8, ptr %parsed, i64 28
   store i32 -1, ptr %len.i40.i, align 4
-  %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path.i = getelementptr inbounds nuw i8, ptr %parsed, i64 40
   store i32 0, ptr %path.i, align 4
-  %len.i41.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  %len.i41.i = getelementptr inbounds nuw i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i41.i, align 4
   br label %_ZN3url12_GLOBAL__N_114DoParseFileURLIcEEvPKT_iPNS_6ParsedE.exit
 
@@ -250,7 +250,7 @@ if.then.i.i:                                      ; preds = %while.body.i.i.i, %
 
 if.then1.i.i:                                     ; preds = %if.then.i.i
   %sub.i.i = sub nsw i32 %spec_len.addr.1124.i, %add11.i
-  %host.i.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   %ref.tmp.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
   %ref.tmp.sroa.2.0.insert.shift.i.i = shl nuw i64 %ref.tmp.sroa.2.0.insert.ext.i.i, 32
   %ref.tmp.sroa.0.0.insert.ext.i.i = zext i32 %add11.i to i64
@@ -259,16 +259,16 @@ if.then1.i.i:                                     ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %host2.i.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host2.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   store i32 0, ptr %host2.i.i, align 4
-  %len.i23.i.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  %len.i23.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 28
   store i32 -1, ptr %len.i23.i.i, align 4
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then1.i.i
-  %path.i.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 40
   store i32 0, ptr %path.i.i, align 4
-  %len.i24.i.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  %len.i24.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i24.i.i, align 4
   br label %_ZN3url12_GLOBAL__N_110DoParseUNCIcEEvPKT_iiPNS_6ParsedE.exit.i
 
@@ -282,14 +282,14 @@ if.then7.i.i:                                     ; preds = %if.end3.i.i
   %retval.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i, 32
   %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %add11.i to i64
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
-  %host10.i.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host10.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %host10.i.i, align 8
   br label %if.end13.i.i
 
 if.else11.i.i:                                    ; preds = %if.end3.i.i
-  %host12.i.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host12.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   store i32 0, ptr %host12.i.i, align 4
-  %len.i25.i.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  %len.i25.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 28
   store i32 -1, ptr %len.i25.i.i, align 4
   br label %if.end13.i.i
 
@@ -304,14 +304,14 @@ if.then15.i.i:                                    ; preds = %if.end13.i.i
   %retval.sroa.0.0.insert.ext.i29.i.i = zext i32 %idx.0.lcssa.i.i.i to i64
   %retval.sroa.0.0.insert.insert.i30.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i28.i.i, %retval.sroa.0.0.insert.ext.i29.i.i
   store i64 %retval.sroa.0.0.insert.insert.i30.i.i, ptr %ref.tmp16.i.i, align 8
-  %path18.i.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path18.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 40
   call void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef nonnull %url, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp16.i.i, ptr noundef nonnull %path18.i.i, ptr noundef nonnull %query.i, ptr noundef nonnull %ref.i)
   br label %_ZN3url12_GLOBAL__N_110DoParseUNCIcEEvPKT_iiPNS_6ParsedE.exit.i
 
 if.else19.i.i:                                    ; preds = %if.end13.i.i
-  %path20.i.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path20.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 40
   store i32 0, ptr %path20.i.i, align 4
-  %len.i31.i.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  %len.i31.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i31.i.i, align 4
   br label %_ZN3url12_GLOBAL__N_110DoParseUNCIcEEvPKT_iiPNS_6ParsedE.exit.i
 
@@ -328,9 +328,9 @@ if.end14.i:                                       ; preds = %_ZN3url23CountConse
 if.end14.thread.i:                                ; preds = %if.end14.i, %if.end9.i
   %22 = phi i32 [ %after_scheme.0.i, %if.end9.i ], [ %spec.select.i, %if.end14.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  %host.i57.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host.i57.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   store i32 0, ptr %host.i57.i, align 4
-  %len.i.i.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 28
   store i32 -1, ptr %len.i.i.i, align 4
   %sub.i.i58.i = sub nsw i32 %spec_len.addr.1124.i, %22
   %retval.sroa.2.0.insert.ext.i.i59.i = zext i32 %sub.i.i58.i to i64
@@ -338,7 +338,7 @@ if.end14.thread.i:                                ; preds = %if.end14.i, %if.end
   %retval.sroa.0.0.insert.ext.i.i61.i = zext i32 %22 to i64
   %retval.sroa.0.0.insert.insert.i.i62.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i60.i, %retval.sroa.0.0.insert.ext.i.i61.i
   store i64 %retval.sroa.0.0.insert.insert.i.i62.i, ptr %ref.tmp.i.i, align 8
-  %path.i63.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path.i63.i = getelementptr inbounds nuw i8, ptr %parsed, i64 40
   call void @_ZN3url17ParsePathInternalEPKcRKNS_9ComponentEPS2_S5_S5_(ptr noundef %url, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull %path.i63.i, ptr noundef nonnull %query.i, ptr noundef nonnull %ref.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   br label %_ZN3url12_GLOBAL__N_114DoParseFileURLIcEEvPKT_iPNS_6ParsedE.exit
@@ -352,25 +352,25 @@ define dso_local void @_ZN3url12ParseFileURLEPKtiPNS_6ParsedE(ptr noundef %url, 
 entry:
   %ref.tmp.i.i = alloca %"struct.url::Component", align 8
   %ref.tmp16.i.i = alloca %"struct.url::Component", align 8
-  %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
+  %username.i = getelementptr inbounds nuw i8, ptr %parsed, i64 8
   store i32 0, ptr %username.i, align 4
-  %len.i.i = getelementptr inbounds i8, ptr %parsed, i64 12
+  %len.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 12
   store i32 -1, ptr %len.i.i, align 4
-  %password.i = getelementptr inbounds i8, ptr %parsed, i64 16
+  %password.i = getelementptr inbounds nuw i8, ptr %parsed, i64 16
   store i32 0, ptr %password.i, align 4
-  %len.i26.i = getelementptr inbounds i8, ptr %parsed, i64 20
+  %len.i26.i = getelementptr inbounds nuw i8, ptr %parsed, i64 20
   store i32 -1, ptr %len.i26.i, align 4
-  %port.i = getelementptr inbounds i8, ptr %parsed, i64 32
+  %port.i = getelementptr inbounds nuw i8, ptr %parsed, i64 32
   store i32 0, ptr %port.i, align 4
-  %len.i27.i = getelementptr inbounds i8, ptr %parsed, i64 36
+  %len.i27.i = getelementptr inbounds nuw i8, ptr %parsed, i64 36
   store i32 -1, ptr %len.i27.i, align 4
-  %query.i = getelementptr inbounds i8, ptr %parsed, i64 48
+  %query.i = getelementptr inbounds nuw i8, ptr %parsed, i64 48
   store i32 0, ptr %query.i, align 4
-  %len.i28.i = getelementptr inbounds i8, ptr %parsed, i64 52
+  %len.i28.i = getelementptr inbounds nuw i8, ptr %parsed, i64 52
   store i32 -1, ptr %len.i28.i, align 4
-  %ref.i = getelementptr inbounds i8, ptr %parsed, i64 56
+  %ref.i = getelementptr inbounds nuw i8, ptr %parsed, i64 56
   store i32 0, ptr %ref.i, align 4
-  %len.i29.i = getelementptr inbounds i8, ptr %parsed, i64 60
+  %len.i29.i = getelementptr inbounds nuw i8, ptr %parsed, i64 60
   store i32 -1, ptr %len.i29.i, align 4
   %cmp10.i.i = icmp sgt i32 %url_len, 0
   br i1 %cmp10.i.i, label %land.rhs.i.preheader.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
@@ -387,7 +387,7 @@ while.body.i.lr.ph.i:                             ; preds = %land.rhs.i.preheade
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i97.i, 1
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %url, i64 %indvars.iv.next.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i16, ptr %url, i64 %indvars.iv.next.i.i
   %3 = load i16, ptr %arrayidx.i.i, align 2
   %cmp.i.i.i = icmp ult i16 %3, 33
   br i1 %cmp.i.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !10
@@ -486,7 +486,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %13 = load i32, ptr %parsed, align 8
   %add.i = add nsw i32 %13, %begin.080121.i
   store i32 %add.i, ptr %parsed, align 8
-  %len.i38.i = getelementptr inbounds i8, ptr %parsed, i64 4
+  %len.i38.i = getelementptr inbounds nuw i8, ptr %parsed, i64 4
   %14 = load i32, ptr %len.i38.i, align 4
   %add.i.i = add i32 %add.i, 1
   %add6.i = add i32 %add.i.i, %14
@@ -496,7 +496,7 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %_
   %spec_len.addr.1125.i = phi i32 [ %spec_len.addr.1126.i, %land.lhs.true.i ], [ %spec_len.addr.1.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
   %begin.080123.i = phi i32 [ %begin.080121.i, %land.lhs.true.i ], [ %begin.080.i, %_ZN3url23CountConsecutiveSlashesItEEiPKT_ii.exit.i ]
   store i32 0, ptr %parsed, align 4
-  %len.i39.i = getelementptr inbounds i8, ptr %parsed, i64 4
+  %len.i39.i = getelementptr inbounds nuw i8, ptr %parsed, i64 4
   store i32 -1, ptr %len.i39.i, align 4
   br label %if.end.i
 
@@ -507,13 +507,13 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   br i1 %cmp.i, label %if.then8.i, label %if.end9.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  %host.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   store i32 0, ptr %host.i, align 4
-  %len.i40.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  %len.i40.i = getelementptr inbounds nuw i8, ptr %parsed, i64 28
   store i32 -1, ptr %len.i40.i, align 4
-  %path.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path.i = getelementptr inbounds nuw i8, ptr %parsed, i64 40
   store i32 0, ptr %path.i, align 4
-  %len.i41.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  %len.i41.i = getelementptr inbounds nuw i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i41.i, align 4
   br label %_ZN3url12_GLOBAL__N_114DoParseFileURLItEEvPKT_iPNS_6ParsedE.exit
 
@@ -592,7 +592,7 @@ if.then.i.i:                                      ; preds = %while.body.i.i.i, %
 
 if.then1.i.i:                                     ; preds = %if.then.i.i
   %sub.i.i = sub nsw i32 %spec_len.addr.1124.i, %add11.i
-  %host.i.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   %ref.tmp.sroa.2.0.insert.ext.i.i = zext i32 %sub.i.i to i64
   %ref.tmp.sroa.2.0.insert.shift.i.i = shl nuw i64 %ref.tmp.sroa.2.0.insert.ext.i.i, 32
   %ref.tmp.sroa.0.0.insert.ext.i.i = zext i32 %add11.i to i64
@@ -601,16 +601,16 @@ if.then1.i.i:                                     ; preds = %if.then.i.i
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %host2.i.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host2.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   store i32 0, ptr %host2.i.i, align 4
-  %len.i23.i.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  %len.i23.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 28
   store i32 -1, ptr %len.i23.i.i, align 4
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then1.i.i
-  %path.i.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 40
   store i32 0, ptr %path.i.i, align 4
-  %len.i24.i.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  %len.i24.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i24.i.i, align 4
   br label %_ZN3url12_GLOBAL__N_110DoParseUNCItEEvPKT_iiPNS_6ParsedE.exit.i
 
@@ -624,14 +624,14 @@ if.then7.i.i:                                     ; preds = %if.end3.i.i
   %retval.sroa.2.0.insert.shift.i.i.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i.i.i, 32
   %retval.sroa.0.0.insert.ext.i.i.i = zext i32 %add11.i to i64
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
-  %host10.i.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host10.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %host10.i.i, align 8
   br label %if.end13.i.i
 
 if.else11.i.i:                                    ; preds = %if.end3.i.i
-  %host12.i.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host12.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   store i32 0, ptr %host12.i.i, align 4
-  %len.i25.i.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  %len.i25.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 28
   store i32 -1, ptr %len.i25.i.i, align 4
   br label %if.end13.i.i
 
@@ -646,14 +646,14 @@ if.then15.i.i:                                    ; preds = %if.end13.i.i
   %retval.sroa.0.0.insert.ext.i29.i.i = zext i32 %idx.0.lcssa.i.i.i to i64
   %retval.sroa.0.0.insert.insert.i30.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i28.i.i, %retval.sroa.0.0.insert.ext.i29.i.i
   store i64 %retval.sroa.0.0.insert.insert.i30.i.i, ptr %ref.tmp16.i.i, align 8
-  %path18.i.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path18.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 40
   call void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef nonnull %url, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp16.i.i, ptr noundef nonnull %path18.i.i, ptr noundef nonnull %query.i, ptr noundef nonnull %ref.i)
   br label %_ZN3url12_GLOBAL__N_110DoParseUNCItEEvPKT_iiPNS_6ParsedE.exit.i
 
 if.else19.i.i:                                    ; preds = %if.end13.i.i
-  %path20.i.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path20.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 40
   store i32 0, ptr %path20.i.i, align 4
-  %len.i31.i.i = getelementptr inbounds i8, ptr %parsed, i64 44
+  %len.i31.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 44
   store i32 -1, ptr %len.i31.i.i, align 4
   br label %_ZN3url12_GLOBAL__N_110DoParseUNCItEEvPKT_iiPNS_6ParsedE.exit.i
 
@@ -670,9 +670,9 @@ if.end14.i:                                       ; preds = %_ZN3url23CountConse
 if.end14.thread.i:                                ; preds = %if.end14.i, %if.end9.i
   %22 = phi i32 [ %after_scheme.0.i, %if.end9.i ], [ %spec.select.i, %if.end14.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  %host.i57.i = getelementptr inbounds i8, ptr %parsed, i64 24
+  %host.i57.i = getelementptr inbounds nuw i8, ptr %parsed, i64 24
   store i32 0, ptr %host.i57.i, align 4
-  %len.i.i.i = getelementptr inbounds i8, ptr %parsed, i64 28
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %parsed, i64 28
   store i32 -1, ptr %len.i.i.i, align 4
   %sub.i.i58.i = sub nsw i32 %spec_len.addr.1124.i, %22
   %retval.sroa.2.0.insert.ext.i.i59.i = zext i32 %sub.i.i58.i to i64
@@ -680,7 +680,7 @@ if.end14.thread.i:                                ; preds = %if.end14.i, %if.end
   %retval.sroa.0.0.insert.ext.i.i61.i = zext i32 %22 to i64
   %retval.sroa.0.0.insert.insert.i.i62.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i60.i, %retval.sroa.0.0.insert.ext.i.i61.i
   store i64 %retval.sroa.0.0.insert.insert.i.i62.i, ptr %ref.tmp.i.i, align 8
-  %path.i63.i = getelementptr inbounds i8, ptr %parsed, i64 40
+  %path.i63.i = getelementptr inbounds nuw i8, ptr %parsed, i64 40
   call void @_ZN3url17ParsePathInternalEPKtRKNS_9ComponentEPS2_S5_S5_(ptr noundef %url, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull %path.i63.i, ptr noundef nonnull %query.i, ptr noundef nonnull %ref.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   br label %_ZN3url12_GLOBAL__N_114DoParseFileURLItEEvPKT_iPNS_6ParsedE.exit

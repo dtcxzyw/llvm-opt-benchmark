@@ -33,7 +33,7 @@ parse_integer.exit:                               ; preds = %lor.lhs.false
   br i1 %tobool3.not, label %if.then10, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %parse_integer.exit
-  %s = getelementptr inbounds i8, ptr %call, i64 8
+  %s = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call.i5 = call ptr @BN_new() #2
   store ptr %call.i5, ptr %s, align 8
   %cmp.i6 = icmp eq ptr %call.i5, null
@@ -105,7 +105,7 @@ marshal_integer.exit:                             ; preds = %lor.lhs.false
   br i1 %tobool2.not, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %marshal_integer.exit
-  %s = getelementptr inbounds i8, ptr %sig, i64 8
+  %s = getelementptr inbounds nuw i8, ptr %sig, i64 8
   %1 = load ptr, ptr %s, align 8
   %cmp.i3 = icmp eq ptr %1, null
   br i1 %cmp.i3, label %if.then.sink.split, label %marshal_integer.exit8
@@ -151,7 +151,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then16, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %pub_key = getelementptr inbounds i8, ptr %call, i64 32
+  %pub_key = getelementptr inbounds nuw i8, ptr %call, i64 32
   %call.i = call ptr @BN_new() #2
   store ptr %call.i, ptr %pub_key, align 8
   %cmp.i = icmp eq ptr %call.i, null
@@ -163,7 +163,7 @@ parse_integer.exit:                               ; preds = %lor.lhs.false
   br i1 %tobool3.not, label %if.then16, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %parse_integer.exit
-  %p = getelementptr inbounds i8, ptr %call, i64 8
+  %p = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call.i7 = call ptr @BN_new() #2
   store ptr %call.i7, ptr %p, align 8
   %cmp.i8 = icmp eq ptr %call.i7, null
@@ -175,7 +175,7 @@ parse_integer.exit12:                             ; preds = %lor.lhs.false4
   br i1 %tobool6.not, label %if.then16, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %parse_integer.exit12
-  %q = getelementptr inbounds i8, ptr %call, i64 16
+  %q = getelementptr inbounds nuw i8, ptr %call, i64 16
   %call.i13 = call ptr @BN_new() #2
   store ptr %call.i13, ptr %q, align 8
   %cmp.i14 = icmp eq ptr %call.i13, null
@@ -187,7 +187,7 @@ parse_integer.exit18:                             ; preds = %lor.lhs.false7
   br i1 %tobool9.not, label %if.then16, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %parse_integer.exit18
-  %g = getelementptr inbounds i8, ptr %call, i64 24
+  %g = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i19 = call ptr @BN_new() #2
   store ptr %call.i19, ptr %g, align 8
   %cmp.i20 = icmp eq ptr %call.i19, null
@@ -226,7 +226,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %pub_key = getelementptr inbounds i8, ptr %dsa, i64 32
+  %pub_key = getelementptr inbounds nuw i8, ptr %dsa, i64 32
   %0 = load ptr, ptr %pub_key, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.sink.split, label %marshal_integer.exit
@@ -237,7 +237,7 @@ marshal_integer.exit:                             ; preds = %lor.lhs.false
   br i1 %tobool2.not, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %marshal_integer.exit
-  %p = getelementptr inbounds i8, ptr %dsa, i64 8
+  %p = getelementptr inbounds nuw i8, ptr %dsa, i64 8
   %1 = load ptr, ptr %p, align 8
   %cmp.i5 = icmp eq ptr %1, null
   br i1 %cmp.i5, label %if.then.sink.split, label %marshal_integer.exit10
@@ -248,7 +248,7 @@ marshal_integer.exit10:                           ; preds = %lor.lhs.false3
   br i1 %tobool5.not, label %if.then, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %marshal_integer.exit10
-  %q = getelementptr inbounds i8, ptr %dsa, i64 16
+  %q = getelementptr inbounds nuw i8, ptr %dsa, i64 16
   %2 = load ptr, ptr %q, align 8
   %cmp.i11 = icmp eq ptr %2, null
   br i1 %cmp.i11, label %if.then.sink.split, label %marshal_integer.exit16
@@ -259,7 +259,7 @@ marshal_integer.exit16:                           ; preds = %lor.lhs.false6
   br i1 %tobool8.not, label %if.then, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %marshal_integer.exit16
-  %g = getelementptr inbounds i8, ptr %dsa, i64 24
+  %g = getelementptr inbounds nuw i8, ptr %dsa, i64 24
   %3 = load ptr, ptr %g, align 8
   %cmp.i17 = icmp eq ptr %3, null
   br i1 %cmp.i17, label %if.then.sink.split, label %marshal_integer.exit22
@@ -301,7 +301,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then13, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %p = getelementptr inbounds i8, ptr %call, i64 8
+  %p = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call.i = call ptr @BN_new() #2
   store ptr %call.i, ptr %p, align 8
   %cmp.i = icmp eq ptr %call.i, null
@@ -313,7 +313,7 @@ parse_integer.exit:                               ; preds = %lor.lhs.false
   br i1 %tobool3.not, label %if.then13, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %parse_integer.exit
-  %q = getelementptr inbounds i8, ptr %call, i64 16
+  %q = getelementptr inbounds nuw i8, ptr %call, i64 16
   %call.i6 = call ptr @BN_new() #2
   store ptr %call.i6, ptr %q, align 8
   %cmp.i7 = icmp eq ptr %call.i6, null
@@ -325,7 +325,7 @@ parse_integer.exit11:                             ; preds = %lor.lhs.false4
   br i1 %tobool6.not, label %if.then13, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %parse_integer.exit11
-  %g = getelementptr inbounds i8, ptr %call, i64 24
+  %g = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i12 = call ptr @BN_new() #2
   store ptr %call.i12, ptr %g, align 8
   %cmp.i13 = icmp eq ptr %call.i12, null
@@ -360,7 +360,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %p = getelementptr inbounds i8, ptr %dsa, i64 8
+  %p = getelementptr inbounds nuw i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %p, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.sink.split, label %marshal_integer.exit
@@ -371,7 +371,7 @@ marshal_integer.exit:                             ; preds = %lor.lhs.false
   br i1 %tobool2.not, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %marshal_integer.exit
-  %q = getelementptr inbounds i8, ptr %dsa, i64 16
+  %q = getelementptr inbounds nuw i8, ptr %dsa, i64 16
   %1 = load ptr, ptr %q, align 8
   %cmp.i4 = icmp eq ptr %1, null
   br i1 %cmp.i4, label %if.then.sink.split, label %marshal_integer.exit9
@@ -382,7 +382,7 @@ marshal_integer.exit9:                            ; preds = %lor.lhs.false3
   br i1 %tobool5.not, label %if.then, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %marshal_integer.exit9
-  %g = getelementptr inbounds i8, ptr %dsa, i64 24
+  %g = getelementptr inbounds nuw i8, ptr %dsa, i64 24
   %2 = load ptr, ptr %g, align 8
   %cmp.i10 = icmp eq ptr %2, null
   br i1 %cmp.i10, label %if.then.sink.split, label %marshal_integer.exit15
@@ -443,7 +443,7 @@ if.then7:                                         ; preds = %if.end5
   br label %err
 
 if.end8:                                          ; preds = %if.end5
-  %p = getelementptr inbounds i8, ptr %call, i64 8
+  %p = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call.i = call ptr @BN_new() #2
   store ptr %call.i, ptr %p, align 8
   %cmp.i = icmp eq ptr %call.i, null
@@ -455,7 +455,7 @@ parse_integer.exit:                               ; preds = %if.end8
   br i1 %tobool10.not, label %if.then26, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %parse_integer.exit
-  %q = getelementptr inbounds i8, ptr %call, i64 16
+  %q = getelementptr inbounds nuw i8, ptr %call, i64 16
   %call.i8 = call ptr @BN_new() #2
   store ptr %call.i8, ptr %q, align 8
   %cmp.i9 = icmp eq ptr %call.i8, null
@@ -467,7 +467,7 @@ parse_integer.exit13:                             ; preds = %lor.lhs.false11
   br i1 %tobool13.not, label %if.then26, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %parse_integer.exit13
-  %g = getelementptr inbounds i8, ptr %call, i64 24
+  %g = getelementptr inbounds nuw i8, ptr %call, i64 24
   %call.i14 = call ptr @BN_new() #2
   store ptr %call.i14, ptr %g, align 8
   %cmp.i15 = icmp eq ptr %call.i14, null
@@ -479,7 +479,7 @@ parse_integer.exit19:                             ; preds = %lor.lhs.false14
   br i1 %tobool16.not, label %if.then26, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %parse_integer.exit19
-  %pub_key = getelementptr inbounds i8, ptr %call, i64 32
+  %pub_key = getelementptr inbounds nuw i8, ptr %call, i64 32
   %call.i20 = call ptr @BN_new() #2
   store ptr %call.i20, ptr %pub_key, align 8
   %cmp.i21 = icmp eq ptr %call.i20, null
@@ -491,7 +491,7 @@ parse_integer.exit25:                             ; preds = %lor.lhs.false17
   br i1 %tobool19.not, label %if.then26, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %parse_integer.exit25
-  %priv_key = getelementptr inbounds i8, ptr %call, i64 40
+  %priv_key = getelementptr inbounds nuw i8, ptr %call, i64 40
   %call21 = call fastcc i32 @parse_integer(ptr noundef %child, ptr noundef %priv_key)
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.then26, label %lor.lhs.false23
@@ -530,7 +530,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %if.then, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %p = getelementptr inbounds i8, ptr %dsa, i64 8
+  %p = getelementptr inbounds nuw i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %p, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %if.then.sink.split, label %marshal_integer.exit
@@ -541,7 +541,7 @@ marshal_integer.exit:                             ; preds = %lor.lhs.false3
   br i1 %tobool5.not, label %if.then, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %marshal_integer.exit
-  %q = getelementptr inbounds i8, ptr %dsa, i64 16
+  %q = getelementptr inbounds nuw i8, ptr %dsa, i64 16
   %1 = load ptr, ptr %q, align 8
   %cmp.i6 = icmp eq ptr %1, null
   br i1 %cmp.i6, label %if.then.sink.split, label %marshal_integer.exit11
@@ -552,7 +552,7 @@ marshal_integer.exit11:                           ; preds = %lor.lhs.false6
   br i1 %tobool8.not, label %if.then, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %marshal_integer.exit11
-  %g = getelementptr inbounds i8, ptr %dsa, i64 24
+  %g = getelementptr inbounds nuw i8, ptr %dsa, i64 24
   %2 = load ptr, ptr %g, align 8
   %cmp.i12 = icmp eq ptr %2, null
   br i1 %cmp.i12, label %if.then.sink.split, label %marshal_integer.exit17
@@ -563,7 +563,7 @@ marshal_integer.exit17:                           ; preds = %lor.lhs.false9
   br i1 %tobool11.not, label %if.then, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %marshal_integer.exit17
-  %pub_key = getelementptr inbounds i8, ptr %dsa, i64 32
+  %pub_key = getelementptr inbounds nuw i8, ptr %dsa, i64 32
   %3 = load ptr, ptr %pub_key, align 8
   %cmp.i18 = icmp eq ptr %3, null
   br i1 %cmp.i18, label %if.then.sink.split, label %marshal_integer.exit23
@@ -574,7 +574,7 @@ marshal_integer.exit23:                           ; preds = %lor.lhs.false12
   br i1 %tobool14.not, label %if.then, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %marshal_integer.exit23
-  %priv_key = getelementptr inbounds i8, ptr %dsa, i64 40
+  %priv_key = getelementptr inbounds nuw i8, ptr %dsa, i64 40
   %4 = load ptr, ptr %priv_key, align 8
   %cmp.i24 = icmp eq ptr %4, null
   br i1 %cmp.i24, label %if.then.sink.split, label %marshal_integer.exit29

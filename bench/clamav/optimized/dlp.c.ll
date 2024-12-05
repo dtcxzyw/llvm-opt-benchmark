@@ -41,7 +41,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %0, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw i16, ptr %9, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 2048
   %.not = icmp eq i16 %14, 0
@@ -60,10 +60,10 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef
   %.063103 = phi i64 [ %.164, %31 ], [ 0, %.lr.ph.preheader ]
   %.069102 = phi i64 [ %32, %31 ], [ 0, %.lr.ph.preheader ]
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 %.069102
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %.069102
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr %17, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 2048
   %24 = icmp eq i16 %23, 0
@@ -81,7 +81,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef
   br i1 %.not81, label %.thread, label %31
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds [20 x i8], ptr %4, i64 0, i64 %.063103
+  %29 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %.063103
   store i8 %19, ptr %29, align 1
   %30 = add nuw nsw i64 %.063103, 1
   br label %31
@@ -100,7 +100,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %._crit_edge
-  %38 = getelementptr inbounds i8, ptr %4, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 0, ptr %38, align 2
   %39 = call i32 @atoi(ptr nocapture noundef nonnull %4) #10
   %40 = freeze i32 %39
@@ -114,14 +114,14 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %45
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %45 ], [ 0, %.lr.ph.i ]
   %42 = phi ptr [ %46, %45 ], [ @iin_map, %.lr.ph.i ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %.not16.us.i = icmp ugt i32 %40, %44
   br i1 %.not16.us.i, label %45, label %get_iin.exit
 
 45:                                               ; preds = %.lr.ph.split.us.i
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %46 = getelementptr inbounds [18 x %struct.iin_map_struct], ptr @iin_map, i64 0, i64 %indvars.iv.next28.i
+  %46 = getelementptr inbounds nuw [18 x %struct.iin_map_struct], ptr @iin_map, i64 0, i64 %indvars.iv.next28.i
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, -1
   %or.cond.not.us.i = icmp ult i32 %48, %40
@@ -130,20 +130,20 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %56
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %56 ], [ 0, %.lr.ph.i ]
   %49 = phi ptr [ %57, %56 ], [ @iin_map, %.lr.ph.i ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
   %.not16.i = icmp ugt i32 %40, %51
   br i1 %.not16.i, label %56, label %52
 
 52:                                               ; preds = %.lr.ph.split.i
-  %53 = getelementptr inbounds i8, ptr %49, i64 10
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 10
   %54 = load i8, ptr %53, align 2
   %55 = icmp eq i8 %54, 1
   br i1 %55, label %get_iin.exit, label %56
 
 56:                                               ; preds = %52, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %57 = getelementptr inbounds [18 x %struct.iin_map_struct], ptr @iin_map, i64 0, i64 %indvars.iv.next.i
+  %57 = getelementptr inbounds nuw [18 x %struct.iin_map_struct], ptr @iin_map, i64 0, i64 %indvars.iv.next.i
   %58 = load i32, ptr %57, align 8
   %59 = add i32 %58, -1
   %or.cond.not.i = icmp ult i32 %59, %40
@@ -151,14 +151,14 @@ define range(i32 0, 2) i32 @dlp_is_valid_cc(ptr noundef readonly %0, i64 noundef
 
 get_iin.exit:                                     ; preds = %52, %.lr.ph.split.us.i
   %.us-phi.i = phi ptr [ %42, %.lr.ph.split.us.i ], [ %49, %52 ]
-  %60 = getelementptr inbounds i8, ptr %.us-phi.i, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 16
   %61 = load ptr, ptr %60, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef %61) #11
   %62 = icmp samesign ult i64 %32, %spec.select
   br i1 %62, label %.lr.ph114, label %.critedge.thread
 
 .lr.ph114:                                        ; preds = %get_iin.exit
-  %63 = getelementptr inbounds i8, ptr %.us-phi.i, i64 9
+  %63 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 9
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i64
   br label %66
@@ -172,10 +172,10 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 %.170111
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.170111
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds i16, ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw i16, ptr %69, i64 %72
   %74 = load i16, ptr %73, align 2
   %75 = and i16 %74, 2048
   %76 = icmp eq i16 %75, 0
@@ -206,7 +206,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
   br i1 %exitcond.not, label %.critedge.thread, label %66
 
 .critedge:                                        ; preds = %77, %78, %66
-  %85 = getelementptr inbounds i8, ptr %.us-phi.i, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
   %86 = load i8, ptr %85, align 8
   %87 = zext i8 %86 to i64
   %88 = icmp ult i64 %.265112, %87
@@ -214,7 +214,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
 
 .critedge.thread:                                 ; preds = %83, %get_iin.exit
   %.265.lcssa = phi i64 [ 6, %get_iin.exit ], [ %.366, %83 ]
-  %89 = getelementptr inbounds i8, ptr %.us-phi.i, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
   %90 = load i8, ptr %89, align 8
   %91 = zext i8 %90 to i64
   %92 = icmp samesign ult i64 %.265.lcssa, %91
@@ -222,10 +222,10 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
 
 93:                                               ; preds = %.critedge
   %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 %.170111
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 %.170111
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds i16, ptr %94, i64 %97
+  %98 = getelementptr inbounds nuw i16, ptr %94, i64 %97
   %99 = load i16, ptr %98, align 2
   %100 = and i16 %99, 2048
   %.not83 = icmp eq i16 %100, 0
@@ -241,7 +241,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
   %.068119 = phi i64 [ %.068, %.lr.ph120 ], [ %.068116, %.thread91 ]
   %.071118 = phi i32 [ %110, %.lr.ph120 ], [ 0, %.thread91 ]
   %.072117 = phi i32 [ %109, %.lr.ph120 ], [ 0, %.thread91 ]
-  %102 = getelementptr inbounds [20 x i8], ptr %4, i64 0, i64 %.068119
+  %102 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %.068119
   %103 = load i8, ptr %102, align 1
   %104 = sext i8 %103 to i32
   %105 = add nsw i32 %104, -48
@@ -295,51 +295,51 @@ define i32 @dlp_get_cc_count(ptr noundef %0, i64 noundef %1, i32 noundef %2) loc
   %10 = ptrtoint ptr %0 to i64
   %.neg.i = add i64 %1, %10
   %11 = tail call i64 @llvm.umin.i64(i64 %1, i64 16)
-  %12 = add nsw i64 %11, -1
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %35, %.lr.ph.i
   %.033.i = phi i32 [ %.1.i, %35 ], [ 0, %.lr.ph.i ]
   %.02532.i = phi ptr [ %36, %35 ], [ %0, %.lr.ph.i ]
-  %13 = load ptr, ptr %9, align 8
-  %14 = load i8, ptr %.02532.i, align 1
-  %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds i16, ptr %13, i64 %15
-  %17 = load i16, ptr %16, align 2
-  %18 = and i16 %17, 2048
-  %.not.i = icmp eq i16 %18, 0
-  br i1 %.not.i, label %35, label %19
+  %12 = load ptr, ptr %9, align 8
+  %13 = load i8, ptr %.02532.i, align 1
+  %14 = zext i8 %13 to i64
+  %15 = getelementptr inbounds nuw i16, ptr %12, i64 %14
+  %16 = load i16, ptr %15, align 2
+  %17 = and i16 %16, 2048
+  %.not.i = icmp eq i16 %17, 0
+  br i1 %.not.i, label %35, label %18
 
-19:                                               ; preds = %.lr.ph.split.i
-  %20 = icmp eq ptr %.02532.i, %0
-  br i1 %20, label %28, label %21
+18:                                               ; preds = %.lr.ph.split.i
+  %19 = icmp eq ptr %.02532.i, %0
+  br i1 %19, label %27, label %20
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %.02532.i, i64 -1
-  %23 = load i8, ptr %22, align 1
-  %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds i16, ptr %13, i64 %24
-  %26 = load i16, ptr %25, align 2
-  %27 = and i16 %26, 2048
-  %.not29.i = icmp eq i16 %27, 0
-  br i1 %.not29.i, label %28, label %35
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %.02532.i, i64 -1
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i64
+  %24 = getelementptr inbounds nuw i16, ptr %12, i64 %23
+  %25 = load i16, ptr %24, align 2
+  %26 = and i16 %25, 2048
+  %.not29.i = icmp eq i16 %26, 0
+  br i1 %.not29.i, label %27, label %35
 
-28:                                               ; preds = %21, %19
-  %29 = ptrtoint ptr %.02532.i to i64
-  %30 = sub i64 %.neg.i, %29
-  %31 = tail call i32 @dlp_is_valid_cc(ptr noundef nonnull %.02532.i, i64 noundef %30, i32 noundef %2)
-  %.not30.i = icmp eq i32 %31, 0
-  br i1 %.not30.i, label %35, label %32
+27:                                               ; preds = %20, %18
+  %28 = ptrtoint ptr %.02532.i to i64
+  %29 = sub i64 %.neg.i, %28
+  %30 = tail call i32 @dlp_is_valid_cc(ptr noundef nonnull %.02532.i, i64 noundef %29, i32 noundef %2)
+  %.not30.i = icmp eq i32 %30, 0
+  br i1 %.not30.i, label %35, label %31
 
-32:                                               ; preds = %28
-  %33 = add nsw i32 %.033.i, 1
-  %34 = getelementptr inbounds i8, ptr %.02532.i, i64 %12
+31:                                               ; preds = %27
+  %32 = add nsw i32 %.033.i, 1
+  %33 = getelementptr i8, ptr %.02532.i, i64 %11
+  %34 = getelementptr i8, ptr %33, i64 -1
   br label %35
 
-35:                                               ; preds = %32, %28, %21, %.lr.ph.split.i
-  %.126.i = phi ptr [ %34, %32 ], [ %.02532.i, %28 ], [ %.02532.i, %21 ], [ %.02532.i, %.lr.ph.split.i ]
-  %.1.i = phi i32 [ %33, %32 ], [ %.033.i, %28 ], [ %.033.i, %21 ], [ %.033.i, %.lr.ph.split.i ]
-  %36 = getelementptr inbounds i8, ptr %.126.i, i64 1
+35:                                               ; preds = %31, %27, %20, %.lr.ph.split.i
+  %.126.i = phi ptr [ %34, %31 ], [ %.02532.i, %27 ], [ %.02532.i, %20 ], [ %.02532.i, %.lr.ph.split.i ]
+  %.1.i = phi i32 [ %32, %31 ], [ %.033.i, %27 ], [ %.033.i, %20 ], [ %.033.i, %.lr.ph.split.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %.126.i, i64 1
   %37 = icmp ult ptr %36, %7
   br i1 %37, label %.lr.ph.split.i, label %contains_cc.exit
 
@@ -371,7 +371,7 @@ define range(i32 0, 2) i32 @dlp_has_cc(ptr noundef %0, i64 noundef %1, i32 nound
   %11 = load ptr, ptr %9, align 8
   %12 = load i8, ptr %.02532.us.i, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds i16, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw i16, ptr %11, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 2048
   %.not.us.i = icmp eq i16 %16, 0
@@ -385,7 +385,7 @@ define range(i32 0, 2) i32 @dlp_has_cc(ptr noundef %0, i64 noundef %1, i32 nound
   %20 = getelementptr inbounds i8, ptr %.02532.us.i, i64 -1
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %11, i64 %22
+  %23 = getelementptr inbounds nuw i16, ptr %11, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 2048
   %.not29.us.i = icmp eq i16 %25, 0
@@ -399,7 +399,7 @@ define range(i32 0, 2) i32 @dlp_has_cc(ptr noundef %0, i64 noundef %1, i32 nound
   br i1 %.not30.us.i, label %30, label %contains_cc.exit
 
 30:                                               ; preds = %26, %19, %.lr.ph.split.us.i
-  %31 = getelementptr inbounds i8, ptr %.02532.us.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.02532.us.i, i64 1
   %32 = icmp ult ptr %31, %7
   br i1 %32, label %.lr.ph.split.us.i, label %contains_cc.exit
 
@@ -430,10 +430,10 @@ define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly %0, i64 nounde
 15:                                               ; preds = %13
   %16 = tail call ptr @__ctype_b_loc() #9
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 %11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw i16, ptr %17, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 2048
   %.not = icmp eq i16 %23, 0
@@ -442,7 +442,7 @@ define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly %0, i64 nounde
 24:                                               ; preds = %15, %13
   %25 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0, i64 noundef %11) #11
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %10, i64 11, i64 9
-  %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %7, i64 %.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i8 0, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 1
   switch i32 %2, label %39 [
     i32 0, label %26
@@ -450,10 +450,10 @@ define range(i32 0, 2) i32 @dlp_is_valid_ssn(ptr noundef readonly %0, i64 nounde
   ]
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %7, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %28 = load i8, ptr %27, align 1
   %29 = icmp ne i8 %28, 45
-  %30 = getelementptr inbounds i8, ptr %7, i64 6
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %31 = load i8, ptr %30, align 1
   %32 = icmp ne i8 %31, 45
   %or.cond = select i1 %29, i1 true, i1 %32
@@ -543,7 +543,7 @@ define i32 @dlp_get_stripped_ssn_count(ptr noundef %0, i64 noundef %1) local_unn
   %10 = load ptr, ptr %8, align 8
   %11 = load i8, ptr %.02432.i, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
   %.not.i = icmp eq i16 %15, 0
@@ -557,7 +557,7 @@ define i32 @dlp_get_stripped_ssn_count(ptr noundef %0, i64 noundef %1) local_unn
   %19 = getelementptr inbounds i8, ptr %.02432.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
   %.not28.i = icmp eq i16 %24, 0
@@ -572,13 +572,13 @@ define i32 @dlp_get_stripped_ssn_count(ptr noundef %0, i64 noundef %1) local_unn
 
 29:                                               ; preds = %25
   %30 = add nsw i32 %.033.i, 1
-  %31 = getelementptr inbounds i8, ptr %.02432.i, i64 9
+  %31 = getelementptr inbounds nuw i8, ptr %.02432.i, i64 9
   br label %32
 
 32:                                               ; preds = %29, %25, %18, %.lr.ph.split.i
   %.125.i = phi ptr [ %31, %29 ], [ %.02432.i, %25 ], [ %.02432.i, %18 ], [ %.02432.i, %.lr.ph.split.i ]
   %.1.i = phi i32 [ %30, %29 ], [ %.033.i, %25 ], [ %.033.i, %18 ], [ %.033.i, %.lr.ph.split.i ]
-  %33 = getelementptr inbounds i8, ptr %.125.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.125.i, i64 1
   %34 = icmp ult ptr %33, %6
   br i1 %34, label %.lr.ph.split.i, label %contains_ssn.exit
 
@@ -611,7 +611,7 @@ define i32 @dlp_get_normal_ssn_count(ptr noundef %0, i64 noundef %1) local_unnam
   %10 = load ptr, ptr %8, align 8
   %11 = load i8, ptr %.02432.i, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
   %.not.i = icmp eq i16 %15, 0
@@ -625,7 +625,7 @@ define i32 @dlp_get_normal_ssn_count(ptr noundef %0, i64 noundef %1) local_unnam
   %19 = getelementptr inbounds i8, ptr %.02432.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
   %.not28.i = icmp eq i16 %24, 0
@@ -640,13 +640,13 @@ define i32 @dlp_get_normal_ssn_count(ptr noundef %0, i64 noundef %1) local_unnam
 
 29:                                               ; preds = %25
   %30 = add nsw i32 %.033.i, 1
-  %31 = getelementptr inbounds i8, ptr %.02432.i, i64 11
+  %31 = getelementptr inbounds nuw i8, ptr %.02432.i, i64 11
   br label %32
 
 32:                                               ; preds = %29, %25, %18, %.lr.ph.split.i
   %.125.i = phi ptr [ %31, %29 ], [ %.02432.i, %25 ], [ %.02432.i, %18 ], [ %.02432.i, %.lr.ph.split.i ]
   %.1.i = phi i32 [ %30, %29 ], [ %.033.i, %25 ], [ %.033.i, %18 ], [ %.033.i, %.lr.ph.split.i ]
-  %33 = getelementptr inbounds i8, ptr %.125.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.125.i, i64 1
   %34 = icmp ult ptr %33, %6
   br i1 %34, label %.lr.ph.split.i, label %contains_ssn.exit
 
@@ -679,7 +679,7 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %10 = load ptr, ptr %8, align 8
   %11 = load i8, ptr %.02432.i.i, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
   %.not.i.i = icmp eq i16 %15, 0
@@ -693,7 +693,7 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %19 = getelementptr inbounds i8, ptr %.02432.i.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
   %.not28.i.i = icmp eq i16 %24, 0
@@ -708,13 +708,13 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 
 29:                                               ; preds = %25
   %30 = add nsw i32 %.033.i.i, 1
-  %31 = getelementptr inbounds i8, ptr %.02432.i.i, i64 9
+  %31 = getelementptr inbounds nuw i8, ptr %.02432.i.i, i64 9
   br label %32
 
 32:                                               ; preds = %29, %25, %18, %.lr.ph.split.i.i
   %.125.i.i = phi ptr [ %31, %29 ], [ %.02432.i.i, %25 ], [ %.02432.i.i, %18 ], [ %.02432.i.i, %.lr.ph.split.i.i ]
   %.1.i.i = phi i32 [ %30, %29 ], [ %.033.i.i, %25 ], [ %.033.i.i, %18 ], [ %.033.i.i, %.lr.ph.split.i.i ]
-  %33 = getelementptr inbounds i8, ptr %.125.i.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.125.i.i, i64 1
   %34 = icmp ult ptr %33, %6
   br i1 %34, label %.lr.ph.split.i.i, label %.lr.ph.split.i.i7
 
@@ -724,7 +724,7 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %35 = load ptr, ptr %8, align 8
   %36 = load i8, ptr %.02432.i.i9, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds i16, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw i16, ptr %35, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 2048
   %.not.i.i10 = icmp eq i16 %40, 0
@@ -738,7 +738,7 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %44 = getelementptr inbounds i8, ptr %.02432.i.i9, i64 -1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds i16, ptr %35, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr %35, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 2048
   %.not28.i.i11 = icmp eq i16 %49, 0
@@ -753,13 +753,13 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 
 54:                                               ; preds = %50
   %55 = add nsw i32 %.033.i.i8, 1
-  %56 = getelementptr inbounds i8, ptr %.02432.i.i9, i64 11
+  %56 = getelementptr inbounds nuw i8, ptr %.02432.i.i9, i64 11
   br label %57
 
 57:                                               ; preds = %54, %50, %43, %.lr.ph.split.i.i7
   %.125.i.i12 = phi ptr [ %56, %54 ], [ %.02432.i.i9, %50 ], [ %.02432.i.i9, %43 ], [ %.02432.i.i9, %.lr.ph.split.i.i7 ]
   %.1.i.i13 = phi i32 [ %55, %54 ], [ %.033.i.i8, %50 ], [ %.033.i.i8, %43 ], [ %.033.i.i8, %.lr.ph.split.i.i7 ]
-  %58 = getelementptr inbounds i8, ptr %.125.i.i12, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.125.i.i12, i64 1
   %59 = icmp ult ptr %58, %6
   br i1 %59, label %.lr.ph.split.i.i7, label %dlp_get_normal_ssn_count.exit
 
@@ -793,7 +793,7 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
   %10 = load ptr, ptr %8, align 8
   %11 = load i8, ptr %.02432.us.i, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
   %.not.us.i = icmp eq i16 %15, 0
@@ -807,7 +807,7 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
   %19 = getelementptr inbounds i8, ptr %.02432.us.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
   %.not28.us.i = icmp eq i16 %24, 0
@@ -821,7 +821,7 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
   br i1 %.not29.us.i, label %29, label %contains_ssn.exit
 
 29:                                               ; preds = %25, %18, %.lr.ph.split.us.i
-  %30 = getelementptr inbounds i8, ptr %.02432.us.i, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.02432.us.i, i64 1
   %31 = icmp ult ptr %30, %6
   br i1 %31, label %.lr.ph.split.us.i, label %contains_ssn.exit
 
@@ -834,7 +834,7 @@ contains_ssn.exit:                                ; preds = %29, %25
   %32 = load ptr, ptr %8, align 8
   %33 = load i8, ptr %.02432.us.i8, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds i16, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw i16, ptr %32, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 2048
   %.not.us.i9 = icmp eq i16 %37, 0
@@ -848,7 +848,7 @@ contains_ssn.exit:                                ; preds = %29, %25
   %41 = getelementptr inbounds i8, ptr %.02432.us.i8, i64 -1
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %32, i64 %43
+  %44 = getelementptr inbounds nuw i16, ptr %32, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 2048
   %.not28.us.i10 = icmp eq i16 %46, 0
@@ -862,7 +862,7 @@ contains_ssn.exit:                                ; preds = %29, %25
   br i1 %.not29.us.i11, label %51, label %contains_ssn.exit12
 
 51:                                               ; preds = %47, %40, %.lr.ph.split.us.i7
-  %52 = getelementptr inbounds i8, ptr %.02432.us.i8, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.02432.us.i8, i64 1
   %53 = icmp ult ptr %52, %6
   br i1 %53, label %.lr.ph.split.us.i7, label %contains_ssn.exit12
 
@@ -896,7 +896,7 @@ define range(i32 0, 2) i32 @dlp_has_stripped_ssn(ptr noundef %0, i64 noundef %1)
   %10 = load ptr, ptr %8, align 8
   %11 = load i8, ptr %.02432.us.i, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
   %.not.us.i = icmp eq i16 %15, 0
@@ -910,7 +910,7 @@ define range(i32 0, 2) i32 @dlp_has_stripped_ssn(ptr noundef %0, i64 noundef %1)
   %19 = getelementptr inbounds i8, ptr %.02432.us.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
   %.not28.us.i = icmp eq i16 %24, 0
@@ -924,7 +924,7 @@ define range(i32 0, 2) i32 @dlp_has_stripped_ssn(ptr noundef %0, i64 noundef %1)
   br i1 %.not29.us.i, label %29, label %contains_ssn.exit
 
 29:                                               ; preds = %25, %18, %.lr.ph.split.us.i
-  %30 = getelementptr inbounds i8, ptr %.02432.us.i, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.02432.us.i, i64 1
   %31 = icmp ult ptr %30, %6
   br i1 %31, label %.lr.ph.split.us.i, label %contains_ssn.exit
 
@@ -956,7 +956,7 @@ define range(i32 0, 2) i32 @dlp_has_normal_ssn(ptr noundef %0, i64 noundef %1) l
   %10 = load ptr, ptr %8, align 8
   %11 = load i8, ptr %.02432.us.i, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
   %.not.us.i = icmp eq i16 %15, 0
@@ -970,7 +970,7 @@ define range(i32 0, 2) i32 @dlp_has_normal_ssn(ptr noundef %0, i64 noundef %1) l
   %19 = getelementptr inbounds i8, ptr %.02432.us.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
   %.not28.us.i = icmp eq i16 %24, 0
@@ -984,7 +984,7 @@ define range(i32 0, 2) i32 @dlp_has_normal_ssn(ptr noundef %0, i64 noundef %1) l
   br i1 %.not29.us.i, label %29, label %contains_ssn.exit
 
 29:                                               ; preds = %25, %18, %.lr.ph.split.us.i
-  %30 = getelementptr inbounds i8, ptr %.02432.us.i, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.02432.us.i, i64 1
   %31 = icmp ult ptr %30, %6
   br i1 %31, label %.lr.ph.split.us.i, label %contains_ssn.exit
 
@@ -1049,7 +1049,7 @@ define range(i32 0, 2) i32 @cdn_ctn_is_valid(ptr noundef readonly %0, i64 nounde
   br i1 %or.cond, label %.loopexit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 45
   br i1 %.not, label %.preheader19, label %.loopexit
@@ -1066,7 +1066,7 @@ define range(i32 0, 2) i32 @cdn_ctn_is_valid(ptr noundef readonly %0, i64 nounde
 
 11:                                               ; preds = %.preheader19, %10
   %indvars.iv = phi i64 [ 0, %.preheader19 ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
   %14 = sext i8 %13 to i64
   %15 = getelementptr inbounds i16, ptr %9, i64 %14
@@ -1078,7 +1078,7 @@ define range(i32 0, 2) i32 @cdn_ctn_is_valid(ptr noundef readonly %0, i64 nounde
 .preheader:                                       ; preds = %10, %26
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %26 ], [ 6, %10 ]
   %.024 = phi i32 [ %30, %26 ], [ 0, %10 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv27
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv27
   %20 = load i8, ptr %19, align 1
   %21 = sext i8 %20 to i64
   %22 = getelementptr inbounds i16, ptr %9, i64 %21
@@ -1125,7 +1125,7 @@ define range(i32 0, 2) i32 @cdn_eft_is_valid(ptr noundef readonly %0, i64 nounde
 9:                                                ; preds = %.preheader20, %17
   %indvars.iv = phi i64 [ 1, %.preheader20 ], [ %indvars.iv.next, %17 ]
   %.01623 = phi i32 [ 0, %.preheader20 ], [ %21, %17 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = sext i8 %11 to i64
   %13 = getelementptr inbounds i16, ptr %8, i64 %12
@@ -1155,7 +1155,7 @@ define range(i32 0, 2) i32 @cdn_eft_is_valid(ptr noundef readonly %0, i64 nounde
 
 .preheader:                                       ; preds = %22, %24
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %24 ], [ 4, %22 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv28
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv28
   %26 = load i8, ptr %25, align 1
   %27 = sext i8 %26 to i64
   %28 = getelementptr inbounds i16, ptr %8, i64 %27
@@ -1184,7 +1184,7 @@ define range(i32 0, 2) i32 @us_micr_is_valid(ptr noundef readonly %0, i64 nounde
 
 8:                                                ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i64
   %12 = getelementptr inbounds i16, ptr %7, i64 %11
@@ -1194,7 +1194,7 @@ define range(i32 0, 2) i32 @us_micr_is_valid(ptr noundef readonly %0, i64 nounde
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds [9 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [9 x i8], ptr %3, i64 0, i64 %indvars.iv
   store i8 %10, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
@@ -1203,31 +1203,31 @@ define range(i32 0, 2) i32 @us_micr_is_valid(ptr noundef readonly %0, i64 nounde
 18:                                               ; preds = %16
   %19 = load i8, ptr %3, align 1
   %20 = zext i8 %19 to i16
-  %21 = getelementptr inbounds i8, ptr %3, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i16
   %24 = add nuw nsw i16 %23, %20
-  %25 = getelementptr inbounds i8, ptr %3, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i16
   %28 = add nuw nsw i16 %24, %27
   %29 = mul nuw nsw i16 %28, 7
-  %30 = getelementptr inbounds i8, ptr %3, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i16
-  %33 = getelementptr inbounds i8, ptr %3, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i16
   %36 = add nuw nsw i16 %35, %32
-  %37 = getelementptr inbounds i8, ptr %3, i64 7
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 7
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i16
   %40 = add nuw nsw i16 %36, %39
   %41 = mul nuw nsw i16 %40, 3
-  %42 = getelementptr inbounds i8, ptr %3, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i16
-  %45 = getelementptr inbounds i8, ptr %3, i64 5
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i16
   %48 = add nuw nsw i16 %47, %44
@@ -1237,7 +1237,7 @@ define range(i32 0, 2) i32 @us_micr_is_valid(ptr noundef readonly %0, i64 nounde
   %.lhs.trunc = add nsw i16 %51, %49
   %52 = srem i16 %.lhs.trunc, 10
   %.sext = sext i16 %52 to i32
-  %53 = getelementptr inbounds i8, ptr %3, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
   %56 = add nsw i32 %55, -48

@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @manifest_files_create(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @pg_malloc0(i64 noundef 40) #17
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %1, ptr %4, align 8
   %5 = uitofp i32 %0 to double
   %6 = fdiv double %5, 9.000000e-01
@@ -48,7 +48,7 @@ define dso_local ptr @manifest_files_create(i32 noundef %0, ptr noundef %1) loca
 
 manifest_files_compute_size.exit:                 ; preds = %2
   %19 = tail call ptr @pg_malloc0(i64 noundef %16) #17
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %19, ptr %20, align 8
   %21 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i)
   %22 = icmp samesign ult i64 %21, 2
@@ -69,14 +69,14 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   store i64 %.0.i.i.i, ptr %3, align 8
   %29 = trunc i64 %.0.i.i.i to i32
   %30 = add i32 %29, -1
-  %31 = getelementptr inbounds i8, ptr %3, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %30, ptr %31, align 4
   %32 = icmp eq i64 %.0.i.i.i, 4294967296
   %33 = uitofp i64 %.0.i.i.i to double
   %34 = fmul double %33, 9.000000e-01
   %35 = fptoui double %34 to i32
   %.sink.i = select i1 %32, i32 -85899346, i32 %35
-  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %.sink.i, ptr %36, align 8
   ret ptr %3
 }
@@ -85,7 +85,7 @@ declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @manifest_files_destroy(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef %3) #17
   tail call void @pfree(ptr noundef %0) #17
@@ -96,12 +96,12 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @manifest_files_reset(ptr nocapture noundef initializes((8, 12)) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
   %5 = mul i64 %4, 40
   tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %5, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
   ret void
 }
@@ -112,7 +112,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @manifest_files_grow(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @llvm.umax.i64(i64 %1, i64 2)
   %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
@@ -152,14 +152,14 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   store i64 %.0.i.i.i, ptr %0, align 8
   %24 = trunc i64 %.0.i.i.i to i32
   %25 = add i32 %24, -1
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %25, ptr %26, align 4
   %27 = icmp eq i64 %.0.i.i.i, 4294967296
   %28 = uitofp i64 %.0.i.i.i to double
   %29 = fmul double %28, 9.000000e-01
   %30 = fptoui double %29 to i32
   %.sink.i = select i1 %27, i32 -85899346, i32 %30
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink.i, ptr %31, align 8
   %.not67 = icmp eq i64 %3, 0
   br i1 %.not67, label %._crit_edge66, label %.lr.ph
@@ -254,9 +254,9 @@ define dso_local noundef ptr @manifest_files_insert(ptr nocapture noundef %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr i8, ptr %0, i64 12
   %.pre = load i32, ptr %5, align 8
   %.pre168 = load i32, ptr %6, align 8
@@ -298,7 +298,7 @@ define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noca
   %25 = load i32, ptr %5, align 8
   %26 = add i32 %25, 1
   store i32 %26, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   store ptr %1, ptr %27, align 8
   br label %.sink.split
 
@@ -306,7 +306,7 @@ define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noca
   %28 = phi ptr [ %86, %84 ], [ %22, %18 ]
   %.069108 = phi i32 [ %44, %84 ], [ %20, %18 ]
   %.074107 = phi i32 [ %75, %84 ], [ 0, %18 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %1) #19
   %32 = icmp eq i32 %31, 0
@@ -345,7 +345,7 @@ manifest_files_distance.exit:                     ; preds = %33, %38
 .preheader:                                       ; preds = %.preheader81, %61
   %.lcssa94 = phi i32 [ %63, %61 ], [ %44, %.preheader81 ]
   %.lcssa92 = phi ptr [ %65, %61 ], [ %46, %.preheader81 ]
-  %49 = getelementptr inbounds i8, ptr %28, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.not75132 = icmp eq i32 %.lcssa94, %.069108
   br i1 %.not75132, label %._crit_edge136, label %.lr.ph135
 
@@ -444,7 +444,7 @@ define dso_local noundef ptr @manifest_files_lookup(ptr nocapture noundef readon
   %5 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %4) #17
   %6 = getelementptr i8, ptr %0, i64 12
   %.val.i = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.01214.i = and i32 %.val.i, %5
   %9 = zext i32 %.01214.i to i64
@@ -465,7 +465,7 @@ define dso_local noundef ptr @manifest_files_lookup(ptr nocapture noundef readon
 .lr.ph.i:                                         ; preds = %2, %13
   %19 = phi ptr [ %16, %13 ], [ %10, %2 ]
   %.01215.i = phi i32 [ %.012.i, %13 ], [ %.01214.i, %2 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %1) #19
   %23 = icmp eq i32 %22, 0
@@ -480,7 +480,7 @@ manifest_files_lookup_hash_internal.exit:         ; preds = %13, %.lr.ph.i, %2
 define dso_local noundef ptr @manifest_files_lookup_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr i8, ptr %0, i64 12
   %.val.i = load i32, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.01214.i = and i32 %.val.i, %2
   %7 = zext i32 %.01214.i to i64
@@ -501,7 +501,7 @@ define dso_local noundef ptr @manifest_files_lookup_hash(ptr nocapture noundef r
 .lr.ph.i:                                         ; preds = %3, %11
   %17 = phi ptr [ %14, %11 ], [ %8, %3 ]
   %.01215.i = phi i32 [ %.012.i, %11 ], [ %.01214.i, %3 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %1) #19
   %21 = icmp eq i32 %20, 0
@@ -519,7 +519,7 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
   %5 = tail call i32 @hash_bytes(ptr noundef %1, i32 noundef %4) #17
   %6 = getelementptr i8, ptr %0, i64 12
   %.val37 = load i32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.03246 = and i32 %5, %.val37
   %9 = zext i32 %.03246 to i64
@@ -536,14 +536,14 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
   br i1 %14, label %15, label %44
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %1) #19
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %44
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, -1
   store i32 %23, ptr %21, align 8
@@ -611,14 +611,14 @@ define dso_local void @manifest_files_delete_item(ptr nocapture noundef %0, ptr 
   %5 = trunc i64 %4 to i32
   %6 = tail call i32 @hash_bytes(ptr noundef %.val26, i32 noundef %5) #17
   %7 = getelementptr i8, ptr %0, i64 12
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 40
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 8
@@ -670,7 +670,7 @@ define dso_local void @manifest_files_start_iterate(ptr nocapture noundef readon
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -691,33 +691,33 @@ define dso_local void @manifest_files_start_iterate(ptr nocapture noundef readon
 ._crit_edge:                                      ; preds = %10, %6, %2
   %.0 = phi i32 [ -1, %2 ], [ %.01113, %6 ], [ -1, %10 ]
   store i32 %.0, ptr %1, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 0, ptr %15, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @manifest_files_start_iterate_at(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9)) %1, i32 noundef %2) local_unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, %2
   store i32 %6, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 0, ptr %8, align 4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @manifest_files_iterate(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted = load i8, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %7
 
 7:                                                ; preds = %24, %2
@@ -766,7 +766,7 @@ define dso_local void @manifest_files_stat(ptr nocapture noundef readonly %0) lo
   br i1 %.not81, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr i8, ptr %0, i64 12
   br label %8
 
@@ -849,7 +849,7 @@ manifest_files_distance.exit:                     ; preds = %14, %20
   %.048.lcssa88 = phi i32 [ %.149, %.preheader ], [ 0, %1 ], [ %.149, %.lr.ph78 ]
   %.055.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.156, %.lr.ph78 ]
   %.053.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.154, %.lr.ph78 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i32, ptr %43, align 8
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %53, label %45
@@ -941,7 +941,7 @@ define dso_local noundef ptr @load_backup_manifest(ptr noundef %0) local_unnamed
   unreachable
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %3, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %19 = load i64, ptr %18, align 8
   %20 = sdiv i64 %19, 100
   %21 = call i64 @llvm.smax.i64(i64 %20, i64 256)
@@ -975,11 +975,11 @@ define dso_local noundef ptr @load_backup_manifest(ptr noundef %0) local_unnamed
   %35 = call ptr @pg_malloc0(i64 noundef 24) #17
   store ptr %24, ptr %35, align 8
   store ptr %35, ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @combinebackup_per_file_cb, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @combinebackup_per_wal_range_cb, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @report_manifest_error, ptr %38, align 8
   call void @json_parse_manifest(ptr noundef nonnull %4, ptr noundef %25, i64 noundef %19) #17
   call void @pfree(ptr noundef %25) #17
@@ -1028,13 +1028,13 @@ define internal void @combinebackup_per_file_cb(ptr nocapture noundef readonly %
   unreachable
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %13, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %4, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %13, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %5, ptr %21, align 8
   ret void
 }
@@ -1044,17 +1044,17 @@ define internal void @combinebackup_per_wal_range_cb(ptr nocapture noundef reado
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @palloc(i64 noundef 40) #17
   store i32 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
@@ -1065,7 +1065,7 @@ define internal void @combinebackup_per_wal_range_cb(ptr nocapture noundef reado
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %6, ptr %19, align 8
   br label %20
 

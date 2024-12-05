@@ -47,9 +47,9 @@ define range(i32 -9988, 1) i32 @SUNErrHandler_Create(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %3
   store ptr null, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %7, align 8
   store ptr %4, ptr %2, align 8
   br label %8
@@ -92,7 +92,7 @@ define noundef nonnull ptr @SUNGetErrMsg(i32 noundef %0) local_unnamed_addr #4 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [25 x ptr], ptr @switch.table.SUNGlobalFallbackErrHandler, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table.SUNGlobalFallbackErrHandler, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -117,13 +117,13 @@ define void @SUNLogErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 
 switch.lookup:                                    ; preds = %13
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [25 x ptr], ptr @switch.table.SUNGlobalFallbackErrHandler, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table.SUNGlobalFallbackErrHandler, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SUNGetErrMsg.exit
 
 SUNGetErrMsg.exit:                                ; preds = %13, %switch.lookup, %7
   %.0 = phi ptr [ %3, %7 ], [ %switch.load, %switch.lookup ], [ @.str.25, %13 ]
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, i32, ptr, ptr, ptr, ...) @SUNLogger_QueueMsg(ptr noundef %17, i32 noundef 1, ptr noundef %10, ptr noundef %1, ptr noundef nonnull %.0) #16
   tail call void @free(ptr noundef %10) #16
@@ -144,7 +144,7 @@ declare i32 @SUNLogger_QueueMsg(ptr noundef, i32 noundef, ptr noundef, ptr nound
 ; Function Attrs: cold noreturn nounwind uwtable
 define void @SUNAbortErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, i32 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6) local_unnamed_addr #8 {
   %8 = tail call fastcc ptr @sunCombineFileAndLine(i32 noundef %0, ptr noundef %2)
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 (ptr, i32, ptr, ptr, ptr, ...) @SUNLogger_QueueMsg(ptr noundef %10, i32 noundef 1, ptr noundef %8, ptr noundef %1, ptr noundef nonnull @.str.26) #16
   tail call void @free(ptr noundef %8) #16
@@ -184,7 +184,7 @@ define void @SUNGlobalFallbackErrHandler(i32 noundef %0, ptr noundef %1, ptr nou
 
 switch.lookup:                                    ; preds = %18
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [25 x ptr], ptr @switch.table.SUNGlobalFallbackErrHandler, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw [25 x ptr], ptr @switch.table.SUNGlobalFallbackErrHandler, i64 0, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SUNGetErrMsg.exit
 

@@ -531,7 +531,7 @@ define internal fastcc noundef i32 @inet_cidr_pton_ipv6(ptr nocapture noundef re
 
 6:                                                ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i8, ptr %0, align 1
   %9 = icmp eq i8 %8, 58
   br i1 %9, label %10, label %.outer.preheader

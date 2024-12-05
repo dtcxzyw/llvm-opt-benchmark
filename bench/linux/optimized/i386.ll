@@ -47,7 +47,7 @@ define dso_local i64 @pcibios_retrieve_fw_addr(ptr noundef readnone %0, i32 noun
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %0
   br i1 %13, label %14, label %6, !llvm.loop !5
@@ -57,7 +57,7 @@ define dso_local i64 @pcibios_retrieve_fw_addr(ptr noundef readnone %0, i32 noun
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %8, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %18 = sext i32 %1 to i64
   %19 = getelementptr [11 x i64], ptr %17, i64 0, i64 %18
   %20 = load i64, ptr %19, align 8
@@ -85,7 +85,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local i64 @pcibios_align_resource(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2, i64 %3) #3 align 16 {
   %5 = load i64, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 256
   %9 = icmp eq i64 %8, 0
@@ -98,9 +98,9 @@ define dso_local i64 @pcibios_align_resource(ptr nocapture noundef readonly %0, 
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 268
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 268
   %18 = load i16, ptr %17, align 4
   %19 = and i16 %18, 4
   %20 = icmp eq i16 %19, 0
@@ -158,8 +158,8 @@ define internal noundef i32 @pcibios_assign_resources() #4 section ".init.text" 
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcibios_resource_survey_bus(ptr noundef %0) local_unnamed_addr #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %2, ptr noundef nonnull @.str.1) #12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef nonnull %2, ptr noundef nonnull @.str.1) #12
   tail call fastcc void @pcibios_allocate_bus_resources(ptr noundef %0)
   tail call fastcc void @pcibios_allocate_resources(ptr noundef %0, i32 noundef 0)
   tail call fastcc void @pcibios_allocate_resources(ptr noundef %0, i32 noundef 1)
@@ -181,25 +181,25 @@ declare dso_local void @_dev_printk(ptr noundef, ptr noundef, ptr noundef, ...) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @pcibios_allocate_bus_resources(ptr noundef readonly %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit3, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 920
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 920
   br label %7
 
 7:                                                ; preds = %25, %5
   %8 = phi i64 [ 7, %5 ], [ %26, %25 ]
   %9 = getelementptr [11 x %struct.resource], ptr %6, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %25, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %25
@@ -226,7 +226,7 @@ define internal fastcc void @pcibios_allocate_bus_resources(ptr noundef readonly
   br i1 %27, label %.loopexit3, label %7, !llvm.loop !9
 
 .loopexit3:                                       ; preds = %25, %1
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %28
   br i1 %30, label %.loopexit, label %.preheader
@@ -246,7 +246,7 @@ define internal fastcc void @pcibios_allocate_bus_resources(ptr noundef readonly
 define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %5
   br i1 %7, label %.loopexit, label %8
@@ -260,14 +260,14 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #10
   store i16 0, ptr %3, align 2, !annotation !11
   %12 = call i32 @pci_read_config_word(ptr noundef %11, i32 noundef 4, ptr noundef nonnull %3) #10
-  %13 = getelementptr inbounds i8, ptr %11, i64 920
-  %14 = getelementptr inbounds i8, ptr %11, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 920
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 184
   br label %15
 
 15:                                               ; preds = %86, %10
   %16 = phi i64 [ 0, %10 ], [ %87, %86 ]
   %17 = getelementptr [11 x %struct.resource], ptr %13, i64 0, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %86
@@ -278,7 +278,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
   br i1 %23, label %86, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %17, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, 256
   %28 = icmp eq i64 %27, 0
@@ -315,7 +315,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %45
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %14, ptr noundef nonnull @.str.2, i32 noundef %42, ptr noundef %17) #12
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %14, ptr noundef nonnull @.str.2, i32 noundef %42, ptr noundef %17) #12
   br label %86
 
 50:                                               ; preds = %45
@@ -334,7 +334,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %57, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, %11
   br i1 %62, label %63, label %55, !llvm.loop !5
@@ -352,13 +352,13 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
 
 68:                                               ; preds = %.thread
   %69 = call ptr @pci_dev_get(ptr noundef %11) #10
-  %70 = getelementptr inbounds i8, ptr %66, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %66, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %72 = getelementptr [11 x i64], ptr %71, i64 0, i64 %16
   store i64 %51, ptr %72, align 8
   store volatile ptr %66, ptr %66, align 8
-  %73 = getelementptr inbounds i8, ptr %66, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store volatile ptr %66, ptr %73, align 8
   %74 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pcibios_fwaddrmap_lock) #10
   %75 = load ptr, ptr getelementptr inbounds (i8, ptr @pcibios_fwaddrmappings, i64 8), align 8
@@ -369,7 +369,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
   br label %79
 
 76:                                               ; preds = %63
-  %77 = getelementptr inbounds i8, ptr %57, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %78 = getelementptr [11 x i64], ptr %77, i64 0, i64 %16
   store i64 %51, ptr %78, align 8
   br label %79
@@ -381,7 +381,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
 
 81:                                               ; preds = %79, %.thread, %50
   %82 = load i64, ptr %17, align 8
-  %83 = getelementptr inbounds i8, ptr %17, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = sub i64 %84, %82
   store i64 %85, ptr %83, align 8
@@ -408,7 +408,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
   store i32 0, ptr %4, align 4, !annotation !11
   %96 = and i64 %92, -2
   store i64 %96, ptr %91, align 8
-  %97 = getelementptr inbounds i8, ptr %11, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %98 = load i8, ptr %97, align 8
   %99 = zext i8 %98 to i32
   %100 = call i32 @pci_read_config_dword(ptr noundef %11, i32 noundef %99, ptr noundef nonnull %4) #10
@@ -422,7 +422,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
 
 106:                                              ; preds = %95, %90, %89
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #10
-  %107 = getelementptr inbounds i8, ptr %11, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
   br i1 %109, label %111, label %110
@@ -442,7 +442,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @pcibios_allocate_rom_resources(ptr noundef readonly %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit, label %.preheader
@@ -481,7 +481,7 @@ define internal fastcc void @pcibios_allocate_rom_resources(ptr noundef readonly
   br label %25
 
 25:                                               ; preds = %20, %17, %13, %10, %.preheader
-  %26 = getelementptr inbounds i8, ptr %5, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %30, label %29
@@ -564,14 +564,14 @@ define internal fastcc void @pcibios_fw_addr_list_del() unnamed_addr #4 section 
 .preheader:                                       ; preds = %0, %.preheader
   %4 = phi ptr [ %5, %.preheader ], [ %2, %0 ]
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8
   store volatile ptr %5, ptr %7, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @pci_dev_put(ptr noundef %10) #10
   tail call void @kfree(ptr noundef %4) #10

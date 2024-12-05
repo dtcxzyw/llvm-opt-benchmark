@@ -105,7 +105,7 @@ define internal void @_ZN12_GLOBAL__N_122OcamlGCMetadataPrinter13beginAssemblyER
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 168
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef %9, i32 noundef 0) #15
   tail call fastcc void @_ZL14EmitCamlGlobalRKN4llvm6ModuleERNS_10AsmPrinterEPKc(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(785) %3, ptr noundef nonnull @.str.2)
@@ -114,7 +114,7 @@ define internal void @_ZN12_GLOBAL__N_122OcamlGCMetadataPrinter13beginAssemblyER
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(288) %13, ptr noundef %16, i32 noundef 0) #15
   tail call fastcc void @_ZL14EmitCamlGlobalRKN4llvm6ModuleERNS_10AsmPrinterEPKc(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(785) %3, ptr noundef nonnull @.str.3)
@@ -154,7 +154,7 @@ define internal void @_ZN12_GLOBAL__N_122OcamlGCMetadataPrinter14finishAssemblyE
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %31, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 168
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(288) %31, ptr noundef %34, i32 noundef 0) #15
   tail call fastcc void @_ZL14EmitCamlGlobalRKN4llvm6ModuleERNS_10AsmPrinterEPKc(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(785) %3, ptr noundef nonnull @.str.6)
@@ -163,13 +163,13 @@ define internal void @_ZN12_GLOBAL__N_122OcamlGCMetadataPrinter14finishAssemblyE
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %38, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 168
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 168
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(288) %38, ptr noundef %41, i32 noundef 0) #15
   tail call fastcc void @_ZL14EmitCamlGlobalRKN4llvm6ModuleERNS_10AsmPrinterEPKc(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(785) %3, ptr noundef nonnull @.str.7)
   %45 = load ptr, ptr %30, align 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 520
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 520
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(288) %45, i64 noundef 0, i32 noundef %29) #15
   %49 = load ptr, ptr %30, align 8
@@ -177,7 +177,7 @@ define internal void @_ZN12_GLOBAL__N_122OcamlGCMetadataPrinter14finishAssemblyE
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %49, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 168
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 168
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(288) %49, ptr noundef %52, i32 noundef 0) #15
   tail call fastcc void @_ZL14EmitCamlGlobalRKN4llvm6ModuleERNS_10AsmPrinterEPKc(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(785) %3, ptr noundef nonnull @.str.8)
@@ -234,7 +234,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %61, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread88
   %.1 = phi i32 [ %.0101, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %86, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread88 ], [ %.0101, %61 ]
-  %87 = getelementptr inbounds i8, ptr %.sroa.083.0100, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.083.0100, i64 8
   %.not = icmp eq ptr %87, %59
   br i1 %.not, label %._crit_edge, label %61
 
@@ -261,12 +261,12 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %95 = getelementptr inbounds nuw i8, ptr %19, i64 33
-  %96 = getelementptr inbounds i8, ptr %18, i64 32
-  %97 = getelementptr inbounds i8, ptr %18, i64 33
-  %.sroa.36.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
-  %98 = getelementptr inbounds i8, ptr %18, i64 16
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %18, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %18, i64 33
+  %.sroa.36.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 24
   br label %99
 
 99:                                               ; preds = %.lr.ph114, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit60.thread
@@ -394,12 +394,12 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %139, %146, %147
   store i8 %.sink130, ptr %96, align 8
   store i8 %.sink, ptr %97, align 1
   %150 = load ptr, ptr %140, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 120
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 120
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef nonnull align 8 dereferenceable(288) %140, ptr noundef nonnull align 8 dereferenceable(34) %18, i1 noundef zeroext true) #15
   %153 = load ptr, ptr %30, align 8
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 160
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 160
   %156 = load ptr, ptr %155, align 8
   call void %156(ptr noundef nonnull align 8 dereferenceable(288) %153) #15
   %157 = load ptr, ptr %.sroa.076.0111, align 8
@@ -492,18 +492,18 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %139, %146, %147
 
 201:                                              ; preds = %.lr.ph105
   call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(785) %3, i32 noundef %198) #15
-  %202 = getelementptr inbounds i8, ptr %.sroa.062.0103, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %.sroa.062.0103, i64 16
   %.not94 = icmp eq ptr %202, %196
   br i1 %.not94, label %._crit_edge106, label %.lr.ph105, !llvm.loop !20
 
 ._crit_edge106:                                   ; preds = %201, %188
   call void @_ZNK4llvm10AsmPrinter13emitAlignmentENS_5AlignEPKNS_12GlobalObjectEj(ptr noundef nonnull align 8 dereferenceable(785) %3, i8 %spec.select, ptr noundef null, i32 noundef 0) #15
-  %203 = getelementptr inbounds i8, ptr %.sroa.068.0108, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %.sroa.068.0108, i64 16
   %.not93 = icmp eq ptr %203, %161
   br i1 %.not93, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit60.thread, label %.lr.ph109, !llvm.loop !22
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit60.thread: ; preds = %._crit_edge106, %_ZN4llvmplERKNS_5TwineES2_.exit, %99, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit60
-  %204 = getelementptr inbounds i8, ptr %.sroa.076.0111, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %.sroa.076.0111, i64 8
   %.not91 = icmp eq ptr %204, %92
   br i1 %.not91, label %._crit_edge115, label %99
 
@@ -557,25 +557,25 @@ define internal fastcc void @_ZL14EmitCamlGlobalRKN4llvm6ModuleERNS_10AsmPrinter
   br i1 %22, label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 46
   br i1 %26, label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 2
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 46
   br i1 %30, label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit27, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 3
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 46
   br i1 %34, label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit29, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 4
   %37 = add nsw i64 %.052.i.i.i.i, -1
   %38 = icmp sgt i64 %.052.i.i.i.i, 1
   br i1 %38, label %20, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !23
@@ -600,7 +600,7 @@ define internal fastcc void @_ZL14EmitCamlGlobalRKN4llvm6ModuleERNS_10AsmPrinter
   br i1 %42, label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.lcssa.i.i.i.i, i64 1
   br label %._crit_edge._crit_edge.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %43
@@ -610,7 +610,7 @@ define internal fastcc void @_ZL14EmitCamlGlobalRKN4llvm6ModuleERNS_10AsmPrinter
   br i1 %46, label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit, label %47
 
 47:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i
-  %48 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i.i, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i.i, i64 1
   br label %._crit_edge._crit_edge57.i.i.i.i
 
 ._crit_edge._crit_edge57.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i, %47
@@ -621,15 +621,15 @@ define internal fastcc void @_ZL14EmitCamlGlobalRKN4llvm6ModuleERNS_10AsmPrinter
   br label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit
 
 _ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit: ; preds = %23
-  %51 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 1
   br label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit
 
 _ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit27: ; preds = %27
-  %52 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 2
   br label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit
 
 _ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit29: ; preds = %31
-  %53 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 3
   br label %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit
 
 _ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit: ; preds = %20, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit27, %_ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0_.exit.loopexit.split.loop.exit29, %._crit_edge.i.i.i.i, %40, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i
@@ -646,7 +646,7 @@ _ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0
   %63 = trunc i32 %62 to i8
   %64 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %10) #15
   store i8 %63, ptr %64, align 1
-  %65 = getelementptr inbounds i8, ptr %5, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull %65, i64 noundef 128) #15
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 4, ptr %66, align 8
@@ -670,12 +670,12 @@ _ZN4llvm4findIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEEDaOT_RKT0
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 296
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 296
   %81 = load ptr, ptr %80, align 8
   %82 = call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(288) %78, ptr noundef %76, i32 noundef 9) #15
   %83 = load ptr, ptr %77, align 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 200
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 200
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull align 8 dereferenceable(288) %83, ptr noundef %76, ptr null) #15
   %87 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(152) %5) #15
@@ -784,7 +784,7 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   %22 = load i8, ptr %21, align 1, !noalias !24
   %23 = icmp eq i8 %22, 1
   %.sroa.05.0.copyload.i = load ptr, ptr %1, align 8, !noalias !24
-  %.sroa.36.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.36.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.36.0.copyload.i = load i64, ptr %.sroa.36.0..sroa_idx.i, align 8, !noalias !24
   %.014.i = select i1 %23, i8 %5, i8 2
   %.sroa.05.0.i = select i1 %23, ptr %.sroa.05.0.copyload.i, ptr %1
@@ -793,17 +793,17 @@ define linkonce_odr hidden void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind n
   %25 = load i8, ptr %24, align 1, !noalias !24
   %26 = icmp eq i8 %25, 1
   %.sroa.04.0.copyload.i = load ptr, ptr %2, align 8, !noalias !24
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !24
   %.0.i = select i1 %26, i8 %9, i8 2
   %.sroa.04.0.i = select i1 %26, ptr %.sroa.04.0.copyload.i, ptr %2
   %.sroa.3.0.i = select i1 %26, i64 %.sroa.3.0.copyload.i, i64 undef
   store ptr %.sroa.05.0.i, ptr %0, align 8, !alias.scope !24
-  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.36.0.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !alias.scope !24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.04.0.i, ptr %27, align 8, !alias.scope !24
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.014.i, ptr %28, align 8, !alias.scope !24
@@ -825,9 +825,9 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 ; Function Attrs: nounwind uwtable
 define internal void @_GLOBAL__sub_I_OcamlGCPrinter.cpp() #11 section ".text.startup" {
   store ptr @.str, ptr @_ZL1Y, align 8
-  store i64 5, ptr getelementptr inbounds (i8, ptr @_ZL1Y, i64 8), align 8
+  store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZL1Y, i64 8), align 8
   store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL1Y, i64 16), align 8
-  store i64 31, ptr getelementptr inbounds (i8, ptr @_ZL1Y, i64 24), align 8
+  store i64 31, ptr getelementptr inbounds nuw (i8, ptr @_ZL1Y, i64 24), align 8
   store ptr @_ZN4llvm8RegistryINS_17GCMetadataPrinterEE3AddIN12_GLOBAL__N_122OcamlGCMetadataPrinterEE6CtorFnEv, ptr getelementptr inbounds nuw (i8, ptr @_ZL1Y, i64 32), align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL1Y, i64 40), align 8
   store ptr @_ZL1Y, ptr getelementptr inbounds nuw (i8, ptr @_ZL1Y, i64 48), align 8

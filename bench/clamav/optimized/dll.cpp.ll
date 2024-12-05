@@ -34,34 +34,34 @@ $_ZTI8RAR_EXIT = comdat any
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @RAROpenArchive(ptr nocapture noundef initializes((12, 16), (28, 36)) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.RAROpenArchiveDataEx, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %3, i8 0, i64 168, i1 false)
   %4 = load ptr, ptr %0, align 1
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 1
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 1
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %12, ptr %13, align 8
   %14 = call ptr @RAROpenArchiveEx(ptr noundef nonnull %2)
-  %15 = getelementptr inbounds i8, ptr %2, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %16, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %2, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %2, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %22, ptr %23, align 1
   ret ptr %14
 }
@@ -79,7 +79,7 @@ define noundef ptr @RAROpenArchiveEx(ptr nocapture noundef %0) local_unnamed_add
           to label %6 unwind label %31
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %7, align 1
   %8 = invoke noalias noundef nonnull dereferenceable(174824) ptr @_Znwm(i64 noundef 174824) #16
           to label %9 unwind label %31
@@ -89,12 +89,12 @@ define noundef ptr @RAROpenArchiveEx(ptr nocapture noundef %0) local_unnamed_add
           to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %9
-  %10 = getelementptr inbounds i8, ptr %8, i64 100904
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 100904
   invoke void @_ZN7ArchiveC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(57108) %10, ptr noundef nonnull align 8 dereferenceable(174824) %8)
           to label %11 unwind label %13
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %8, i64 158016
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 158016
   invoke void @_ZN10CmdExtractC1EP11CommandData(ptr noundef nonnull align 8 dereferenceable(16800) %12, ptr noundef nonnull align 8 dereferenceable(174824) %8)
           to label %_ZN7DataSetC2Ev.exit unwind label %15
 
@@ -119,20 +119,20 @@ define noundef ptr @RAROpenArchiveEx(ptr nocapture noundef %0) local_unnamed_add
   br label %.body
 
 _ZN7DataSetC2Ev.exit:                             ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %8, i64 83424
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 83424
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %8, i64 174816
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 174816
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 99928
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 99928
   invoke void @_ZN10StringList9AddStringEPKw(ptr noundef nonnull align 8 dereferenceable(184) %22, ptr noundef nonnull @.str)
           to label %23 unwind label %31
 
 23:                                               ; preds = %_ZN7DataSetC2Ev.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load i32, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %8, i64 57500
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 57500
   %27 = trunc i32 %25 to i8
   %28 = and i8 %27, 1
   store i8 %28, ptr %26, align 4
@@ -165,7 +165,7 @@ _ZN7DataSetC2Ev.exit:                             ; preds = %11
   br label %_ZN5ArrayIwED2Ev.exit129
 
 35:                                               ; preds = %30, %23
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 1
   %38 = invoke noundef ptr @_Z11GetWideNamePKcPKwPwm(ptr noundef nonnull %2, ptr noundef %37, ptr noundef nonnull %3, i64 noundef 2048)
           to label %39 unwind label %31
@@ -175,19 +175,19 @@ _ZN7DataSetC2Ev.exit:                             ; preds = %11
           to label %40 unwind label %31
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %8, i64 57404
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 57404
   store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %8, i64 67004
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 67004
   store i32 1, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load ptr, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %8, i64 83440
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 83440
   store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load i64, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %8, i64 83432
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 83432
   store i64 %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 57501
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 57501
   store i8 1, ptr %49, align 1
   %50 = invoke noundef zeroext i1 @_ZN7Archive4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(57108) %10, ptr noundef nonnull %3, i32 noundef 4)
           to label %51 unwind label %31
@@ -227,7 +227,7 @@ _ZN7DataSetC2Ev.exit:                             ; preds = %11
 
 switch.lookup:                                    ; preds = %60
   %62 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.RAROpenArchiveEx, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.RAROpenArchiveEx, i64 0, i64 %62
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL13RarErrorToDll8RAR_EXIT.exit
 
@@ -241,13 +241,13 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
   br label %_ZN5ArrayIwED2Ev.exit
 
 63:                                               ; preds = %55
-  %64 = getelementptr inbounds i8, ptr %0, i64 44
-  %65 = getelementptr inbounds i8, ptr %8, i64 149749
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 149749
   %66 = load i8, ptr %65, align 1
   %67 = and i8 %66, 1
   %spec.store.select = zext nneg i8 %67 to i32
   store i32 %spec.store.select, ptr %64, align 1
-  %68 = getelementptr inbounds i8, ptr %8, i64 149750
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 149750
   %69 = load i8, ptr %68, align 2
   %70 = trunc i8 %69 to i1
   br i1 %70, label %71, label %73
@@ -259,7 +259,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
 
 73:                                               ; preds = %71, %63
   %74 = phi i32 [ %72, %71 ], [ %spec.store.select, %63 ]
-  %75 = getelementptr inbounds i8, ptr %8, i64 149751
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 149751
   %76 = load i8, ptr %75, align 1
   %77 = trunc i8 %76 to i1
   br i1 %77, label %78, label %80
@@ -271,7 +271,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
 
 80:                                               ; preds = %78, %73
   %81 = phi i32 [ %79, %78 ], [ %74, %73 ]
-  %82 = getelementptr inbounds i8, ptr %8, i64 149748
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 149748
   %83 = load i8, ptr %82, align 4
   %84 = trunc i8 %83 to i1
   br i1 %84, label %85, label %87
@@ -283,7 +283,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
 
 87:                                               ; preds = %85, %80
   %88 = phi i32 [ %86, %85 ], [ %81, %80 ]
-  %89 = getelementptr inbounds i8, ptr %8, i64 149754
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 149754
   %90 = load i8, ptr %89, align 2
   %91 = trunc i8 %90 to i1
   br i1 %91, label %92, label %94
@@ -295,7 +295,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
 
 94:                                               ; preds = %92, %87
   %95 = phi i32 [ %93, %92 ], [ %88, %87 ]
-  %96 = getelementptr inbounds i8, ptr %8, i64 149752
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 149752
   %97 = load i8, ptr %96, align 8
   %98 = trunc i8 %97 to i1
   br i1 %98, label %99, label %101
@@ -307,7 +307,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
 
 101:                                              ; preds = %99, %94
   %102 = phi i32 [ %100, %99 ], [ %95, %94 ]
-  %103 = getelementptr inbounds i8, ptr %8, i64 149755
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 149755
   %104 = load i8, ptr %103, align 1
   %105 = trunc i8 %104 to i1
   br i1 %105, label %106, label %108
@@ -319,7 +319,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
 
 108:                                              ; preds = %106, %101
   %109 = phi i32 [ %107, %106 ], [ %102, %101 ]
-  %110 = getelementptr inbounds i8, ptr %8, i64 149756
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 149756
   %111 = load i8, ptr %110, align 4
   %112 = trunc i8 %111 to i1
   br i1 %112, label %113, label %115
@@ -331,7 +331,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
 
 115:                                              ; preds = %113, %108
   %116 = phi i32 [ %114, %113 ], [ %109, %108 ]
-  %117 = getelementptr inbounds i8, ptr %8, i64 149753
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 149753
   %118 = load i8, ptr %117, align 1
   %119 = trunc i8 %118 to i1
   br i1 %119, label %120, label %122
@@ -343,7 +343,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
 
 122:                                              ; preds = %115, %120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %123 = getelementptr inbounds i8, ptr %0, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %124 = load i32, ptr %123, align 1
   %.not114 = icmp eq i32 %124, 0
   br i1 %.not114, label %226, label %125
@@ -356,17 +356,17 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
   br i1 %126, label %128, label %226
 
 128:                                              ; preds = %127
-  %129 = getelementptr inbounds i8, ptr %0, i64 68
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %130 = load ptr, ptr %129, align 1
   %.not115 = icmp eq ptr %130, null
   br i1 %.not115, label %182, label %131
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %4, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %133 = load i64, ptr %132, align 8
   %134 = add i64 %133, 1
   store i64 %134, ptr %132, align 8
-  %135 = getelementptr inbounds i8, ptr %4, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %136 = load i64, ptr %135, align 8
   %137 = icmp ugt i64 %134, %136
   br i1 %137, label %138, label %._ZN5ArrayIwE3AddEm.exit_crit_edge.i
@@ -376,7 +376,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
   br label %154
 
 138:                                              ; preds = %131
-  %139 = getelementptr inbounds i8, ptr %4, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %140 = load i64, ptr %139, align 8
   %.not.i.i = icmp ne i64 %140, 0
   %141 = icmp ugt i64 %134, %140
@@ -432,12 +432,12 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
   %163 = zext i32 %162 to i64
   %164 = icmp ugt i64 %161, %163
   %165 = select i1 %164, i32 20, i32 1
-  %166 = getelementptr inbounds i8, ptr %0, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %165, ptr %166, align 1
   %167 = icmp ult i64 %161, %163
   %168 = trunc nuw i64 %161 to i32
   %169 = select i1 %167, i32 %168, i32 %162
-  %170 = getelementptr inbounds i8, ptr %0, i64 36
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %169, ptr %170, align 1
   %171 = load ptr, ptr %129, align 1
   %172 = add i32 %169, -1
@@ -448,7 +448,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
   %176 = load i32, ptr %170, align 1
   %177 = add i32 %176, -1
   %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds i32, ptr %175, i64 %178
+  %179 = getelementptr inbounds nuw i32, ptr %175, i64 %178
   store i32 0, ptr %179, align 4
   br label %_ZN5ArrayIcED2Ev.exit
 
@@ -460,13 +460,13 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
   br label %_ZN5ArrayIcED2Ev.exit126
 
 182:                                              ; preds = %128
-  %183 = getelementptr inbounds i8, ptr %0, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %184 = load ptr, ptr %183, align 1
   %.not116 = icmp eq ptr %184, null
   br i1 %.not116, label %_ZN5ArrayIcED2Ev.exit, label %185
 
 185:                                              ; preds = %182
-  %186 = getelementptr inbounds i8, ptr %4, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %187 = load i64, ptr %186, align 8
   %188 = shl i64 %187, 2
   %189 = or disjoint i64 %188, 1
@@ -475,7 +475,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
 
 190:                                              ; preds = %185
   %191 = load ptr, ptr %5, align 8
-  %192 = getelementptr inbounds i8, ptr %5, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %193 = load i64, ptr %192, align 8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %191, i8 0, i64 %193, i1 false)
   %194 = load ptr, ptr %4, align 8
@@ -493,12 +493,12 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
   %204 = zext i32 %203 to i64
   %205 = icmp ugt i64 %202, %204
   %206 = select i1 %205, i32 20, i32 1
-  %207 = getelementptr inbounds i8, ptr %0, i64 40
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %206, ptr %207, align 1
   %208 = icmp ult i64 %202, %204
   %209 = trunc nuw i64 %202 to i32
   %210 = select i1 %208, i32 %209, i32 %203
-  %211 = getelementptr inbounds i8, ptr %0, i64 36
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %210, ptr %211, align 1
   %212 = load ptr, ptr %183, align 1
   %213 = add i32 %210, -1
@@ -508,7 +508,7 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
   %216 = load i32, ptr %211, align 1
   %217 = add i32 %216, -1
   %218 = zext i32 %217 to i64
-  %219 = getelementptr inbounds i8, ptr %215, i64 %218
+  %219 = getelementptr inbounds nuw i8, ptr %215, i64 %218
   store i8 0, ptr %219, align 1
   %220 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %220, null
@@ -532,9 +532,9 @@ _ZL13RarErrorToDll8RAR_EXIT.exit:                 ; preds = %60, %switch.lookup,
   br label %_ZN5ArrayIcED2Ev.exit126
 
 226:                                              ; preds = %127, %122
-  %227 = getelementptr inbounds i8, ptr %0, i64 36
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %227, align 1
-  %228 = getelementptr inbounds i8, ptr %0, i64 40
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %228, align 1
   br label %_ZN5ArrayIcED2Ev.exit
 
@@ -578,12 +578,12 @@ _ZN5ArrayIwED2Ev.exit129:                         ; preds = %233, %_ZN5ArrayIcED
 
 .thread130:                                       ; preds = %236
   %239 = call fastcc noundef i32 @_ZL13RarErrorToDll8RAR_EXIT(i32 noundef %238)
-  %240 = getelementptr inbounds i8, ptr %0, i64 20
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %239, ptr %240, align 1
   br label %255
 
 241:                                              ; preds = %236
-  %242 = getelementptr inbounds i8, ptr %.1, i64 83424
+  %242 = getelementptr inbounds nuw i8, ptr %.1, i64 83424
   %243 = load i32, ptr %242, align 8
   %.not121 = icmp eq i32 %243, 0
   br i1 %.not121, label %252, label %.thread
@@ -595,7 +595,7 @@ _ZN5ArrayIwED2Ev.exit129:                         ; preds = %233, %_ZN5ArrayIcED
 
 247:                                              ; preds = %244
   %248 = call ptr @__cxa_begin_catch(ptr %.0101) #17
-  %249 = getelementptr inbounds i8, ptr %0, i64 20
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 11, ptr %249, align 1
   %.not119 = icmp eq ptr %.1, null
   br i1 %.not119, label %251, label %250
@@ -615,7 +615,7 @@ _ZN5ArrayIwED2Ev.exit129:                         ; preds = %233, %_ZN5ArrayIcED
 
 .thread:                                          ; preds = %241, %252
   %.sink = phi i32 [ %253, %252 ], [ %243, %241 ]
-  %254 = getelementptr inbounds i8, ptr %0, i64 20
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sink, ptr %254, align 1
   call void @_ZN7DataSetD2Ev(ptr noundef nonnull align 8 dereferenceable(174824) %.1) #17
   call void @_ZdlPv(ptr noundef nonnull %.1) #18
@@ -655,9 +655,9 @@ declare noundef zeroext i1 @_ZN7Archive4OpenEPKwj(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7DataSetD2Ev(ptr noundef nonnull align 8 dereferenceable(174824) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 158016
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 158016
   tail call void @_ZN10CmdExtractD1Ev(ptr noundef nonnull align 8 dereferenceable(16800) %2) #17
-  %3 = getelementptr inbounds i8, ptr %0, i64 100904
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100904
   tail call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %3) #17
   tail call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(100904) %0) #17
   ret void
@@ -672,7 +672,7 @@ define internal fastcc noundef range(i32 0, 25) i32 @_ZL13RarErrorToDll8RAR_EXIT
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [13 x i32], ptr @switch.table._ZL13RarErrorToDll8RAR_EXIT, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [13 x i32], ptr @switch.table._ZL13RarErrorToDll8RAR_EXIT, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -692,9 +692,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5ArrayIcEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %_ZN5ArrayIcE3AddEm.exit, label %5
 
@@ -734,12 +734,12 @@ define i32 @RARCloseArchive(ptr noundef %0) local_unnamed_addr #0 personality pt
   br i1 %2, label %.thread14, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 100904
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 100904
   %5 = invoke noundef zeroext i1 @_ZN4File5CloseEv(ptr noundef nonnull align 8 dereferenceable(8256) %4)
           to label %6 unwind label %8
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 158016
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 158016
   tail call void @_ZN10CmdExtractD1Ev(ptr noundef nonnull align 8 dereferenceable(16800) %7) #17
   tail call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %4) #17
   tail call void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(174824) %0) #17
@@ -758,7 +758,7 @@ define i32 @RARCloseArchive(ptr noundef %0) local_unnamed_addr #0 personality pt
 13:                                               ; preds = %8
   %14 = extractvalue { ptr, i32 } %9, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #17
-  %16 = getelementptr inbounds i8, ptr %0, i64 83424
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 83424
   %17 = load i32, ptr %16, align 8
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %18, label %21
@@ -789,79 +789,79 @@ define i32 @RARReadHeader(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14340) %3, i8 0, i64 14340, i1 false)
   %4 = call i32 @RARReadHeaderEx(ptr noundef %0, ptr noundef nonnull %3)
   call void @_Z8strncpyzPcPKcm(ptr noundef %1, ptr noundef nonnull %3, i64 noundef 260)
-  %5 = getelementptr inbounds i8, ptr %1, i64 260
-  %6 = getelementptr inbounds i8, ptr %3, i64 5120
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 260
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 5120
   call void @_Z8strncpyzPcPKcm(ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 260)
-  %7 = getelementptr inbounds i8, ptr %3, i64 10240
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 10240
   %8 = load i32, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 520
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 520
   store i32 %8, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 10244
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 10244
   %11 = load i32, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 524
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 524
   store i32 %11, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %3, i64 10252
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 10252
   %14 = load i32, ptr %13, align 1
-  %15 = getelementptr inbounds i8, ptr %1, i64 528
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 528
   store i32 %14, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %3, i64 10260
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 10260
   %17 = load i32, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 532
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 532
   store i32 %17, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %3, i64 10264
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 10264
   %20 = load i32, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %1, i64 536
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 536
   store i32 %20, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %3, i64 10268
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 10268
   %23 = load i32, ptr %22, align 1
-  %24 = getelementptr inbounds i8, ptr %1, i64 540
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 540
   store i32 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %3, i64 10272
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 10272
   %26 = load i32, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %1, i64 544
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 544
   store i32 %26, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %3, i64 10276
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 10276
   %29 = load i32, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %1, i64 548
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 548
   store i32 %29, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %3, i64 10280
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 10280
   %32 = load i32, ptr %31, align 1
-  %33 = getelementptr inbounds i8, ptr %1, i64 552
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 552
   store i32 %32, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 568
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 568
   store i32 0, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %1, i64 572
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 572
   store i32 0, ptr %35, align 1
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
 define i32 @RARReadHeaderEx(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 100904
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100904
   %4 = invoke noundef i64 @_ZN7Archive11SearchBlockE11HEADER_TYPE(ptr noundef nonnull align 8 dereferenceable(57108) %3, i32 noundef 2)
           to label %5 unwind label %27
 
 5:                                                ; preds = %2
   %6 = trunc i64 %4 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 174820
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 174820
   store i32 %6, ptr %7, align 4
   %8 = icmp slt i32 %6, 1
   br i1 %8, label %9, label %50
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 149749
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 149749
   %11 = load i8, ptr %10, align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %42
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 111980
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 111980
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 5
   br i1 %16, label %17, label %42
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 132092
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 132092
   %19 = load i8, ptr %18, align 4
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %42
@@ -874,7 +874,7 @@ define i32 @RARReadHeaderEx(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %22, label %24, label %204
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %0, i64 149728
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 149728
   %26 = load i64, ptr %25, align 8
   invoke void @_ZN7Archive4SeekEli(ptr noundef nonnull align 8 dereferenceable(57108) %3, i64 noundef %26, i32 noundef 0)
           to label %.invoke unwind label %27
@@ -890,7 +890,7 @@ define i32 @RARReadHeaderEx(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 32:                                               ; preds = %27
   %33 = extractvalue { ptr, i32 } %28, 0
   %34 = tail call ptr @__cxa_begin_catch(ptr %33) #17
-  %35 = getelementptr inbounds i8, ptr %0, i64 83424
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 83424
   %36 = load i32, ptr %35, align 8
   %.not109 = icmp eq i32 %36, 0
   br i1 %.not109, label %37, label %40
@@ -906,26 +906,26 @@ define i32 @RARReadHeaderEx(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %204
 
 42:                                               ; preds = %17, %13, %9
-  %43 = getelementptr inbounds i8, ptr %0, i64 149768
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 149768
   %44 = load i8, ptr %43, align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %204, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 149769
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 149769
   %48 = load i8, ptr %47, align 1
   %49 = trunc i8 %48 to i1
   %. = select i1 %49, i32 24, i32 10
   br label %204
 
 50:                                               ; preds = %5
-  %51 = getelementptr inbounds i8, ptr %0, i64 174816
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 174816
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %62
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 123232
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 123232
   %56 = load i8, ptr %55, align 8
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %62
@@ -943,8 +943,8 @@ RARProcessFile.exit:                              ; preds = %58
           to label %204 unwind label %27
 
 62:                                               ; preds = %54, %50
-  %63 = getelementptr inbounds i8, ptr %1, i64 1024
-  %64 = getelementptr inbounds i8, ptr %0, i64 100956
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 1024
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 100956
   invoke void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %63, ptr noundef nonnull %64, i64 noundef 1024)
           to label %65 unwind label %27
 
@@ -953,25 +953,25 @@ RARProcessFile.exit:                              ; preds = %58
           to label %67 unwind label %27
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %1, i64 6144
-  %69 = getelementptr inbounds i8, ptr %0, i64 114920
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 6144
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 114920
   invoke void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %68, ptr noundef nonnull %69, i64 noundef 1024)
           to label %70 unwind label %27
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %1, i64 5120
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 5120
   %72 = invoke noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef nonnull %68, ptr noundef nonnull %71, i64 noundef 1024)
           to label %73 unwind label %27
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %1, i64 10240
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 10240
   store i32 0, ptr %74, align 1
-  %75 = getelementptr inbounds i8, ptr %0, i64 123232
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 123232
   %76 = load i8, ptr %75, align 8
   %77 = and i8 %76, 1
   %spec.store.select = zext nneg i8 %77 to i32
   store i32 %spec.store.select, ptr %74, align 1
-  %78 = getelementptr inbounds i8, ptr %0, i64 123233
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 123233
   %79 = load i8, ptr %78, align 1
   %80 = trunc i8 %79 to i1
   br i1 %80, label %81, label %83
@@ -983,7 +983,7 @@ RARProcessFile.exit:                              ; preds = %58
 
 83:                                               ; preds = %81, %73
   %84 = phi i32 [ %82, %81 ], [ %spec.store.select, %73 ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 123235
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 123235
   %86 = load i8, ptr %85, align 1
   %87 = trunc i8 %86 to i1
   br i1 %87, label %88, label %90
@@ -995,7 +995,7 @@ RARProcessFile.exit:                              ; preds = %58
 
 90:                                               ; preds = %88, %83
   %91 = phi i32 [ %89, %88 ], [ %84, %83 ]
-  %92 = getelementptr inbounds i8, ptr %0, i64 123320
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 123320
   %93 = load i8, ptr %92, align 8
   %94 = trunc i8 %93 to i1
   br i1 %94, label %95, label %97
@@ -1007,7 +1007,7 @@ RARProcessFile.exit:                              ; preds = %58
 
 97:                                               ; preds = %95, %90
   %98 = phi i32 [ %96, %95 ], [ %91, %90 ]
-  %99 = getelementptr inbounds i8, ptr %0, i64 123321
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 123321
   %100 = load i8, ptr %99, align 1
   %101 = trunc i8 %100 to i1
   br i1 %101, label %102, label %104
@@ -1018,102 +1018,102 @@ RARProcessFile.exit:                              ; preds = %58
   br label %104
 
 104:                                              ; preds = %102, %97
-  %105 = getelementptr inbounds i8, ptr %0, i64 123168
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 123168
   %106 = load i64, ptr %105, align 8
   %107 = trunc i64 %106 to i32
-  %108 = getelementptr inbounds i8, ptr %1, i64 10244
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 10244
   store i32 %107, ptr %108, align 1
   %109 = load i64, ptr %105, align 8
   %110 = lshr i64 %109, 32
   %111 = trunc nuw i64 %110 to i32
-  %112 = getelementptr inbounds i8, ptr %1, i64 10248
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 10248
   store i32 %111, ptr %112, align 1
-  %113 = getelementptr inbounds i8, ptr %0, i64 123176
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 123176
   %114 = load i64, ptr %113, align 8
   %115 = trunc i64 %114 to i32
-  %116 = getelementptr inbounds i8, ptr %1, i64 10252
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 10252
   store i32 %115, ptr %116, align 1
   %117 = load i64, ptr %113, align 8
   %118 = lshr i64 %117, 32
   %119 = trunc nuw i64 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %1, i64 10256
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 10256
   store i32 %119, ptr %120, align 1
-  %121 = getelementptr inbounds i8, ptr %0, i64 123340
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 123340
   %122 = load i32, ptr %121, align 4
   %123 = icmp eq i32 %122, 0
   %124 = select i1 %123, i32 2, i32 3
-  %125 = getelementptr inbounds i8, ptr %1, i64 10260
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 10260
   store i32 %124, ptr %125, align 1
-  %126 = getelementptr inbounds i8, ptr %0, i64 114908
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 114908
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %1, i64 10272
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 10272
   store i32 %127, ptr %128, align 1
-  %129 = getelementptr inbounds i8, ptr %0, i64 123192
-  %130 = getelementptr inbounds i8, ptr %0, i64 123196
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 123192
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 123196
   %131 = load i32, ptr %130, align 4
-  %132 = getelementptr inbounds i8, ptr %1, i64 10264
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 10264
   store i32 %131, ptr %132, align 1
-  %133 = getelementptr inbounds i8, ptr %0, i64 123144
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 123144
   %134 = invoke noundef i32 @_ZN7RarTime6GetDosEv(ptr noundef nonnull align 8 dereferenceable(8) %133)
           to label %135 unwind label %27
 
 135:                                              ; preds = %104
-  %136 = getelementptr inbounds i8, ptr %1, i64 10268
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 10268
   store i32 %134, ptr %136, align 1
   %137 = invoke noundef i64 @_ZN7RarTime6GetWinEv(ptr noundef nonnull align 8 dereferenceable(8) %133)
           to label %138 unwind label %27
 
 138:                                              ; preds = %135
   %139 = trunc i64 %137 to i32
-  %140 = getelementptr inbounds i8, ptr %1, i64 10364
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 10364
   store i32 %139, ptr %140, align 1
   %141 = lshr i64 %137, 32
   %142 = trunc nuw i64 %141 to i32
-  %143 = getelementptr inbounds i8, ptr %1, i64 10368
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 10368
   store i32 %142, ptr %143, align 1
-  %144 = getelementptr inbounds i8, ptr %0, i64 123152
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 123152
   %145 = invoke noundef i64 @_ZN7RarTime6GetWinEv(ptr noundef nonnull align 8 dereferenceable(8) %144)
           to label %146 unwind label %27
 
 146:                                              ; preds = %138
   %147 = trunc i64 %145 to i32
-  %148 = getelementptr inbounds i8, ptr %1, i64 10372
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 10372
   store i32 %147, ptr %148, align 1
   %149 = lshr i64 %145, 32
   %150 = trunc nuw i64 %149 to i32
-  %151 = getelementptr inbounds i8, ptr %1, i64 10376
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 10376
   store i32 %150, ptr %151, align 1
-  %152 = getelementptr inbounds i8, ptr %0, i64 123160
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 123160
   %153 = invoke noundef i64 @_ZN7RarTime6GetWinEv(ptr noundef nonnull align 8 dereferenceable(8) %152)
           to label %154 unwind label %27
 
 154:                                              ; preds = %146
   %155 = trunc i64 %153 to i32
-  %156 = getelementptr inbounds i8, ptr %1, i64 10380
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 10380
   store i32 %155, ptr %156, align 1
   %157 = lshr i64 %153, 32
   %158 = trunc nuw i64 %157 to i32
-  %159 = getelementptr inbounds i8, ptr %1, i64 10384
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 10384
   store i32 %158, ptr %159, align 1
-  %160 = getelementptr inbounds i8, ptr %0, i64 114912
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 114912
   %161 = load i8, ptr %160, align 8
   %162 = zext i8 %161 to i32
   %163 = add nuw nsw i32 %162, 48
-  %164 = getelementptr inbounds i8, ptr %1, i64 10276
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 10276
   store i32 %163, ptr %164, align 1
-  %165 = getelementptr inbounds i8, ptr %0, i64 114916
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 114916
   %166 = load i32, ptr %165, align 4
-  %167 = getelementptr inbounds i8, ptr %1, i64 10280
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 10280
   store i32 %166, ptr %167, align 1
-  %168 = getelementptr inbounds i8, ptr %1, i64 10296
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 10296
   store i32 0, ptr %168, align 1
-  %169 = getelementptr inbounds i8, ptr %1, i64 10300
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 10300
   store i32 0, ptr %169, align 1
-  %170 = getelementptr inbounds i8, ptr %0, i64 123328
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 123328
   %171 = load i64, ptr %170, align 8
   %172 = lshr i64 %171, 10
   %173 = trunc i64 %172 to i32
-  %174 = getelementptr inbounds i8, ptr %1, i64 10304
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 10304
   store i32 %173, ptr %174, align 1
   %175 = load i32, ptr %129, align 8
   switch i32 %175, label %181 [
@@ -1123,56 +1123,56 @@ RARProcessFile.exit:                              ; preds = %58
   ]
 
 176:                                              ; preds = %154, %154
-  %177 = getelementptr inbounds i8, ptr %1, i64 10308
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 10308
   store i32 1, ptr %177, align 1
   br label %183
 
 178:                                              ; preds = %154
-  %179 = getelementptr inbounds i8, ptr %1, i64 10308
+  %179 = getelementptr inbounds nuw i8, ptr %1, i64 10308
   store i32 2, ptr %179, align 1
-  %180 = getelementptr inbounds i8, ptr %1, i64 10312
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 10312
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %180, ptr noundef nonnull align 4 dereferenceable(32) %130, i64 32, i1 false)
   br label %183
 
 181:                                              ; preds = %154
-  %182 = getelementptr inbounds i8, ptr %1, i64 10308
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 10308
   store i32 0, ptr %182, align 1
   br label %183
 
 183:                                              ; preds = %181, %178, %176
-  %184 = getelementptr inbounds i8, ptr %0, i64 123344
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 123344
   %185 = load i32, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %1, i64 10344
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 10344
   store i32 %185, ptr %186, align 1
   %187 = load i32, ptr %184, align 8
   %.not = icmp eq i32 %187, 0
   br i1 %.not, label %198, label %188
 
 188:                                              ; preds = %183
-  %189 = getelementptr inbounds i8, ptr %1, i64 10348
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 10348
   %190 = load ptr, ptr %189, align 1
   %.not107 = icmp eq ptr %190, null
   br i1 %.not107, label %198, label %191
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %1, i64 10356
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 10356
   %193 = load i32, ptr %192, align 1
   %194 = add i32 %193, -1
   %or.cond = icmp ult i32 %194, 99999
   br i1 %or.cond, label %195, label %198
 
 195:                                              ; preds = %191
-  %196 = getelementptr inbounds i8, ptr %0, i64 123348
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 123348
   %197 = zext nneg i32 %193 to i64
   invoke void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %190, ptr noundef nonnull %196, i64 noundef %197)
           to label %198 unwind label %27
 
 198:                                              ; preds = %195, %191, %188, %183
-  %199 = getelementptr inbounds i8, ptr %0, i64 131540
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 131540
   %200 = load i8, ptr %199, align 4
   %201 = and i8 %200, 1
   %202 = zext nneg i8 %201 to i32
-  %203 = getelementptr inbounds i8, ptr %1, i64 10360
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 10360
   store i32 %202, ptr %203, align 1
   br label %204
 
@@ -1207,9 +1207,9 @@ define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef initializes((83424,
   %7 = alloca [2048 x i8], align 16
   %8 = alloca [2048 x i8], align 16
   %9 = alloca i8, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 83424
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 83424
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 174816
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 174816
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %17, label %14
@@ -1221,20 +1221,20 @@ define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef initializes((83424,
   br i1 %or.cond, label %17, label %55
 
 17:                                               ; preds = %14, %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 100904
-  %19 = getelementptr inbounds i8, ptr %0, i64 149749
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 100904
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 149749
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %54
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 111980
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 111980
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 2
   br i1 %25, label %26, label %54
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 123233
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 123233
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %54
@@ -1247,7 +1247,7 @@ define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef initializes((83424,
   br i1 %31, label %33, label %104
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 149728
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 149728
   %35 = load i64, ptr %34, align 8
   invoke void @_ZN7Archive4SeekEli(ptr noundef nonnull align 8 dereferenceable(57108) %18, i64 noundef %35, i32 noundef 0)
           to label %104 unwind label %.loopexit.split-lp
@@ -1303,11 +1303,11 @@ define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef initializes((83424,
           to label %102 unwind label %.loopexit.split-lp
 
 55:                                               ; preds = %14
-  %56 = getelementptr inbounds i8, ptr %0, i64 83420
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 83420
   store i32 %1, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %0, i64 16416
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16416
   store i32 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 75228
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 75228
   store i32 0, ptr %58, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %63, label %59
@@ -1357,7 +1357,7 @@ define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef initializes((83424,
           to label %72 unwind label %.loopexit.split-lp
 
 72:                                               ; preds = %71, %70
-  %73 = getelementptr inbounds i8, ptr %0, i64 83476
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 83476
   %74 = icmp eq i32 %1, 2
   %.str.1..str.2 = select i1 %74, ptr @.str.1, ptr @.str.2
   invoke void @_Z8wcsncpyzPwPKwm(ptr noundef nonnull %73, ptr noundef nonnull %.str.1..str.2, i64 noundef 2064)
@@ -1365,21 +1365,21 @@ define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef initializes((83424,
 
 75:                                               ; preds = %72
   %76 = icmp ne i32 %1, 2
-  %77 = getelementptr inbounds i8, ptr %0, i64 58617
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 58617
   %78 = zext i1 %76 to i8
   store i8 %78, ptr %77, align 1
   store i8 0, ptr %9, align 1
-  %79 = getelementptr inbounds i8, ptr %0, i64 158016
-  %80 = getelementptr inbounds i8, ptr %0, i64 100904
-  %81 = getelementptr inbounds i8, ptr %0, i64 174820
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 158016
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 100904
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 174820
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
   %84 = invoke noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr noundef nonnull align 8 dereferenceable(16800) %79, ptr noundef nonnull align 8 dereferenceable(57108) %80, i64 noundef %83, ptr noundef nonnull align 1 dereferenceable(1) %9)
           to label %.preheader unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %75
-  %85 = getelementptr inbounds i8, ptr %0, i64 100912
-  %86 = getelementptr inbounds i8, ptr %0, i64 111980
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 100912
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 111980
   br label %87
 
 87:                                               ; preds = %.preheader, %99
@@ -1411,7 +1411,7 @@ define noundef i32 @_Z11ProcessFilePviPcS0_PwS1_(ptr noundef initializes((83424,
           to label %87 unwind label %.loopexit, !llvm.loop !4
 
 .critedge:                                        ; preds = %91, %87, %92
-  %100 = getelementptr inbounds i8, ptr %0, i64 149728
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 149728
   %101 = load i64, ptr %100, align 8
   invoke void @_ZN7Archive4SeekEli(ptr noundef nonnull align 8 dereferenceable(57108) %80, i64 noundef %101, i32 noundef 0)
           to label %102 unwind label %.loopexit.split-lp
@@ -1446,23 +1446,23 @@ define noundef i32 @RARProcessFileW(ptr noundef initializes((83424, 83428)) %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @RARSetChangeVolProc(ptr nocapture noundef writeonly initializes((83448, 83456)) %0, ptr noundef %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 83448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 83448
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @RARSetCallback(ptr nocapture noundef writeonly initializes((83432, 83448)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 83440
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 83440
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 83432
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 83432
   store i64 %2, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @RARSetProcessDataProc(ptr nocapture noundef writeonly initializes((83456, 83464)) %0, ptr noundef %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 83456
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 83456
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -1471,7 +1471,7 @@ define void @RARSetProcessDataProc(ptr nocapture noundef writeonly initializes((
 define void @RARSetPassword(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [512 x i32], align 16
   %4 = call noundef ptr @_Z11GetWideNamePKcPKwPwm(ptr noundef %1, ptr noundef null, ptr noundef nonnull %3, i64 noundef 512)
-  %5 = getelementptr inbounds i8, ptr %0, i64 100848
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100848
   call void @_ZN11SecPassword3SetEPKw(ptr noundef nonnull align 8 dereferenceable(25) %5, ptr noundef nonnull %3)
   call void @_Z9cleandataPvm(ptr noundef nonnull %3, i64 noundef 2048)
   ret void
@@ -1497,7 +1497,7 @@ declare void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 dereferenceable(100904) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 100880
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 100880
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %4
@@ -1507,9 +1507,9 @@ define linkonce_odr void @_ZN11CommandDataD2Ev(ptr noundef nonnull align 8 deref
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 100848
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 100848
   tail call void @_ZN11SecPasswordD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %5) #17
-  %6 = getelementptr inbounds i8, ptr %0, i64 100664
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 100664
   %7 = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_ZN10StringListD2Ev.exit, label %8
@@ -1519,7 +1519,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %4
   br label %_ZN10StringListD2Ev.exit
 
 _ZN10StringListD2Ev.exit:                         ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %8
-  %9 = getelementptr inbounds i8, ptr %0, i64 100480
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 100480
   %10 = load ptr, ptr %9, align 8
   %.not.i.i1 = icmp eq ptr %10, null
   br i1 %.not.i.i1, label %_ZN10StringListD2Ev.exit2, label %11
@@ -1529,7 +1529,7 @@ _ZN10StringListD2Ev.exit:                         ; preds = %_ZNSt6vectorIlSaIlE
   br label %_ZN10StringListD2Ev.exit2
 
 _ZN10StringListD2Ev.exit2:                        ; preds = %_ZN10StringListD2Ev.exit, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 100296
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 100296
   %13 = load ptr, ptr %12, align 8
   %.not.i.i3 = icmp eq ptr %13, null
   br i1 %.not.i.i3, label %_ZN10StringListD2Ev.exit4, label %14
@@ -1539,7 +1539,7 @@ _ZN10StringListD2Ev.exit2:                        ; preds = %_ZN10StringListD2Ev
   br label %_ZN10StringListD2Ev.exit4
 
 _ZN10StringListD2Ev.exit4:                        ; preds = %_ZN10StringListD2Ev.exit2, %14
-  %15 = getelementptr inbounds i8, ptr %0, i64 100112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 100112
   %16 = load ptr, ptr %15, align 8
   %.not.i.i5 = icmp eq ptr %16, null
   br i1 %.not.i.i5, label %_ZN10StringListD2Ev.exit6, label %17
@@ -1549,7 +1549,7 @@ _ZN10StringListD2Ev.exit4:                        ; preds = %_ZN10StringListD2Ev
   br label %_ZN10StringListD2Ev.exit6
 
 _ZN10StringListD2Ev.exit6:                        ; preds = %_ZN10StringListD2Ev.exit4, %17
-  %18 = getelementptr inbounds i8, ptr %0, i64 99928
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 99928
   %19 = load ptr, ptr %18, align 8
   %.not.i.i7 = icmp eq ptr %19, null
   br i1 %.not.i.i7, label %_ZN10StringListD2Ev.exit8, label %20

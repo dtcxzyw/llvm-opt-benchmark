@@ -2527,7 +2527,7 @@ define void @lv_display_set_theme(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %10, align 8, !tbaa !57
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !58
   %19 = tail call i32 @lv_obj_get_child_count(ptr noundef %18) #13
   %20 = icmp eq i32 %19, 0
@@ -2535,7 +2535,7 @@ define void @lv_display_set_theme(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %10, align 8, !tbaa !57
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !58
   %25 = tail call i32 @lv_obj_get_child_count(ptr noundef %24) #13
   %26 = icmp eq i32 %25, 0

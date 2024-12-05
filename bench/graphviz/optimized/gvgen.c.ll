@@ -171,7 +171,7 @@ setOne.exit.i:                                    ; preds = %27
   br i1 %47, label %48, label %setFold.exit.i
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %45, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store i1 true, ptr @opts.7, align 4
   br label %setFold.exit.i
 
@@ -213,7 +213,7 @@ readPos.exit.i.i:                                 ; preds = %57
   br label %.loopexit.i
 
 67:                                               ; preds = %readPos.exit.i.i
-  %68 = getelementptr inbounds i8, ptr %51, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %69 = call i64 @strtol(ptr noundef nonnull %68, ptr noundef nonnull %13, i32 noundef 10) #11
   %70 = load ptr, ptr %13, align 8
   %71 = icmp eq ptr %68, %70
@@ -586,7 +586,7 @@ readPos.exit.i103.i:                              ; preds = %225
   br label %setTwoTwoOpt.exit.thread.i
 
 235:                                              ; preds = %readPos.exit.i103.i
-  %236 = getelementptr inbounds i8, ptr %219, i64 1
+  %236 = getelementptr inbounds nuw i8, ptr %219, i64 1
   %237 = call i64 @strtol(ptr noundef nonnull %236, ptr noundef nonnull %6, i32 noundef 10) #11
   %238 = load ptr, ptr %6, align 8
   %239 = icmp eq ptr %236, %238
@@ -621,7 +621,7 @@ readPos.exit30.i.i:                               ; preds = %244
   br label %setTwoTwoOpt.exit.thread20.i
 
 252:                                              ; preds = %readPos.exit30.i.i
-  %253 = getelementptr inbounds i8, ptr %238, i64 1
+  %253 = getelementptr inbounds nuw i8, ptr %238, i64 1
   %254 = call i64 @strtol(ptr noundef nonnull %253, ptr noundef nonnull %6, i32 noundef 10) #11
   %255 = load ptr, ptr %6, align 8
   %256 = icmp eq ptr %253, %255
@@ -655,7 +655,7 @@ readPos.exit33.i.i:                               ; preds = %261
   br label %setTwoTwoOpt.exit.thread20.i
 
 269:                                              ; preds = %readPos.exit33.i.i
-  %270 = getelementptr inbounds i8, ptr %255, i64 1
+  %270 = getelementptr inbounds nuw i8, ptr %255, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %271 = call i64 @strtol(ptr noundef nonnull %270, ptr noundef nonnull %5, i32 noundef 10) #11
   %272 = load ptr, ptr %5, align 8
@@ -1156,7 +1156,7 @@ readPos.exit:                                     ; preds = %10
   br label %readPos.exit.thread
 
 20:                                               ; preds = %readPos.exit
-  %21 = getelementptr inbounds i8, ptr %4, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %22 = call i64 @strtol(ptr noundef nonnull %21, ptr noundef nonnull %2, i32 noundef 10) #11
   %23 = load ptr, ptr %2, align 8
   %24 = icmp eq ptr %21, %23
@@ -1228,7 +1228,7 @@ readPos.exit:                                     ; preds = %10
   br label %readPos.exit.thread
 
 18:                                               ; preds = %readPos.exit
-  %19 = getelementptr inbounds i8, ptr %4, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %20 = call i64 @strtol(ptr noundef nonnull %19, ptr noundef nonnull %2, i32 noundef 10) #11
   %21 = load ptr, ptr %2, align 8
   %22 = icmp eq ptr %19, %21

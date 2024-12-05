@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ecx_public_from_private(ptr noundef %key) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %key, i64 96
+  %type = getelementptr inbounds nuw i8, ptr %key, i64 96
   %0 = load i32, ptr %type, align 8
   switch i32 %0, label %return [
     i32 0, label %sw.bb
@@ -23,18 +23,18 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %pubkey = getelementptr inbounds i8, ptr %key, i64 17
-  %privkey = getelementptr inbounds i8, ptr %key, i64 80
+  %pubkey = getelementptr inbounds nuw i8, ptr %key, i64 17
+  %privkey = getelementptr inbounds nuw i8, ptr %key, i64 80
   %1 = load ptr, ptr %privkey, align 8
   tail call void @ossl_x25519_public_from_private(ptr noundef nonnull %pubkey, ptr noundef %1) #3
   br label %return
 
 sw.bb1:                                           ; preds = %entry
   %2 = load ptr, ptr %key, align 8
-  %pubkey2 = getelementptr inbounds i8, ptr %key, i64 17
-  %privkey4 = getelementptr inbounds i8, ptr %key, i64 80
+  %pubkey2 = getelementptr inbounds nuw i8, ptr %key, i64 17
+  %privkey4 = getelementptr inbounds nuw i8, ptr %key, i64 80
   %3 = load ptr, ptr %privkey4, align 8
-  %propq = getelementptr inbounds i8, ptr %key, i64 8
+  %propq = getelementptr inbounds nuw i8, ptr %key, i64 8
   %4 = load ptr, ptr %propq, align 8
   %call = tail call i32 @ossl_ed25519_public_from_private(ptr noundef %2, ptr noundef nonnull %pubkey2, ptr noundef %3, ptr noundef %4) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -47,18 +47,18 @@ if.then:                                          ; preds = %sw.bb1
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %pubkey6 = getelementptr inbounds i8, ptr %key, i64 17
-  %privkey8 = getelementptr inbounds i8, ptr %key, i64 80
+  %pubkey6 = getelementptr inbounds nuw i8, ptr %key, i64 17
+  %privkey8 = getelementptr inbounds nuw i8, ptr %key, i64 80
   %5 = load ptr, ptr %privkey8, align 8
   tail call void @ossl_x448_public_from_private(ptr noundef nonnull %pubkey6, ptr noundef %5) #3
   br label %return
 
 sw.bb9:                                           ; preds = %entry
   %6 = load ptr, ptr %key, align 8
-  %pubkey11 = getelementptr inbounds i8, ptr %key, i64 17
-  %privkey13 = getelementptr inbounds i8, ptr %key, i64 80
+  %pubkey11 = getelementptr inbounds nuw i8, ptr %key, i64 17
+  %privkey13 = getelementptr inbounds nuw i8, ptr %key, i64 80
   %7 = load ptr, ptr %privkey13, align 8
-  %propq14 = getelementptr inbounds i8, ptr %key, i64 8
+  %propq14 = getelementptr inbounds nuw i8, ptr %key, i64 8
   %8 = load ptr, ptr %propq14, align 8
   %call15 = tail call i32 @ossl_ed448_public_from_private(ptr noundef %6, ptr noundef nonnull %pubkey11, ptr noundef %7, ptr noundef %8) #3
   %tobool16.not = icmp eq i32 %call15, 0
@@ -120,8 +120,8 @@ if.end7:                                          ; preds = %if.end3
   br i1 %cmp5, label %if.end20, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %privkey = getelementptr inbounds i8, ptr %ecx, i64 80
-  %keylen = getelementptr inbounds i8, ptr %ecx, i64 88
+  %privkey = getelementptr inbounds nuw i8, ptr %ecx, i64 80
+  %keylen = getelementptr inbounds nuw i8, ptr %ecx, i64 88
   %0 = load i64, ptr %keylen, align 8
   %call10 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %param_priv_key.0, ptr noundef nonnull %privkey, i64 noundef %0, ptr noundef nonnull %privkeylen) #3
   %tobool11.not = icmp eq i32 %call10, 0
@@ -140,7 +140,7 @@ if.then16:                                        ; preds = %if.end13
   br label %return
 
 if.end20:                                         ; preds = %if.end13, %if.end7
-  %pubkey21 = getelementptr inbounds i8, ptr %ecx, i64 17
+  %pubkey21 = getelementptr inbounds nuw i8, ptr %ecx, i64 17
   store ptr %pubkey21, ptr %pubkey, align 8
   br i1 %cmp4, label %land.lhs.true35, label %land.lhs.true23
 
@@ -151,7 +151,7 @@ land.lhs.true23:                                  ; preds = %if.end20
 
 land.lhs.true29:                                  ; preds = %land.lhs.true23
   %4 = load i64, ptr %pubkeylen, align 8
-  %keylen30 = getelementptr inbounds i8, ptr %ecx, i64 88
+  %keylen30 = getelementptr inbounds nuw i8, ptr %ecx, i64 88
   %5 = load i64, ptr %keylen30, align 8
   %cmp31.not = icmp eq i64 %4, %5
   br i1 %cmp31.not, label %if.end39, label %return
@@ -162,7 +162,7 @@ land.lhs.true35:                                  ; preds = %if.end20
   br i1 %tobool37.not, label %return, label %if.end39
 
 if.end39:                                         ; preds = %land.lhs.true29, %land.lhs.true35
-  %haspubkey = getelementptr inbounds i8, ptr %ecx, i64 16
+  %haspubkey = getelementptr inbounds nuw i8, ptr %ecx, i64 16
   %bf.load = load i8, ptr %haspubkey, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %haspubkey, align 8
@@ -189,32 +189,32 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %key, align 8
   store ptr %0, ptr %call, align 8
-  %haspubkey = getelementptr inbounds i8, ptr %key, i64 16
+  %haspubkey = getelementptr inbounds nuw i8, ptr %key, i64 16
   %bf.load = load i8, ptr %haspubkey, align 8
   %bf.clear = and i8 %bf.load, 1
-  %haspubkey2 = getelementptr inbounds i8, ptr %call, i64 16
+  %haspubkey2 = getelementptr inbounds nuw i8, ptr %call, i64 16
   %bf.load3 = load i8, ptr %haspubkey2, align 8
   %bf.clear4 = and i8 %bf.load3, -2
   %bf.set = or disjoint i8 %bf.clear4, %bf.clear
   store i8 %bf.set, ptr %haspubkey2, align 8
-  %keylen = getelementptr inbounds i8, ptr %key, i64 88
+  %keylen = getelementptr inbounds nuw i8, ptr %key, i64 88
   %1 = load i64, ptr %keylen, align 8
-  %keylen5 = getelementptr inbounds i8, ptr %call, i64 88
+  %keylen5 = getelementptr inbounds nuw i8, ptr %call, i64 88
   store i64 %1, ptr %keylen5, align 8
-  %type = getelementptr inbounds i8, ptr %key, i64 96
+  %type = getelementptr inbounds nuw i8, ptr %key, i64 96
   %2 = load i32, ptr %type, align 8
-  %type6 = getelementptr inbounds i8, ptr %call, i64 96
+  %type6 = getelementptr inbounds nuw i8, ptr %call, i64 96
   store i32 %2, ptr %type6, align 8
-  %references = getelementptr inbounds i8, ptr %call, i64 100
+  %references = getelementptr inbounds nuw i8, ptr %call, i64 100
   store atomic i32 1, ptr %references seq_cst, align 4
-  %propq = getelementptr inbounds i8, ptr %key, i64 8
+  %propq = getelementptr inbounds nuw i8, ptr %key, i64 8
   %3 = load ptr, ptr %propq, align 8
   %cmp10.not = icmp eq ptr %3, null
   br i1 %cmp10.not, label %if.end19, label %if.then11
 
 if.then11:                                        ; preds = %if.end
   %call13 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 125) #3
-  %propq14 = getelementptr inbounds i8, ptr %call, i64 8
+  %propq14 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call13, ptr %propq14, align 8
   %cmp16 = icmp eq ptr %call13, null
   br i1 %cmp16, label %err, label %if.end19
@@ -225,8 +225,8 @@ if.end19:                                         ; preds = %if.then11, %if.end
   br i1 %cmp20.not, label %if.end24, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %pubkey = getelementptr inbounds i8, ptr %call, i64 17
-  %pubkey22 = getelementptr inbounds i8, ptr %key, i64 17
+  %pubkey = getelementptr inbounds nuw i8, ptr %call, i64 17
+  %pubkey22 = getelementptr inbounds nuw i8, ptr %key, i64 17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(57) %pubkey, ptr noundef nonnull align 1 dereferenceable(57) %pubkey22, i64 57, i1 false)
   br label %if.end24
 
@@ -236,7 +236,7 @@ if.end24:                                         ; preds = %if.then21, %if.end1
   br i1 %cmp26.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end24
-  %privkey = getelementptr inbounds i8, ptr %key, i64 80
+  %privkey = getelementptr inbounds nuw i8, ptr %key, i64 80
   %4 = load ptr, ptr %privkey, align 8
   %cmp27.not = icmp eq ptr %4, null
   br i1 %cmp27.not, label %return, label %if.then28
@@ -253,7 +253,7 @@ if.then31:                                        ; preds = %if.then28
   br label %err
 
 if.end32:                                         ; preds = %if.then28
-  %privkey33 = getelementptr inbounds i8, ptr %call, i64 80
+  %privkey33 = getelementptr inbounds nuw i8, ptr %call, i64 80
   %5 = load ptr, ptr %privkey33, align 8
   %6 = load ptr, ptr %privkey, align 8
   %7 = load i64, ptr %keylen5, align 8
@@ -378,7 +378,7 @@ if.end40:                                         ; preds = %cond.end35
   br i1 %cmp42, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %if.end40
-  %pubkey41 = getelementptr inbounds i8, ptr %call37, i64 17
+  %pubkey41 = getelementptr inbounds nuw i8, ptr %call37, i64 17
   %conv = sext i32 %plen to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %pubkey41, ptr align 1 %p, i64 %conv, i1 false)
   br label %return
@@ -410,7 +410,7 @@ if.then76:                                        ; preds = %if.end73
   %2 = load i8, ptr %call45, align 1
   %3 = and i8 %2, -8
   store i8 %3, ptr %call45, align 1
-  %arrayidx79 = getelementptr inbounds i8, ptr %call45, i64 31
+  %arrayidx79 = getelementptr inbounds nuw i8, ptr %call45, i64 31
   %4 = load i8, ptr %arrayidx79, align 1
   %5 = and i8 %4, 63
   %6 = or disjoint i8 %5, 64
@@ -424,7 +424,7 @@ if.then89:                                        ; preds = %if.else86
   %7 = load i8, ptr %call45, align 1
   %8 = and i8 %7, -4
   store i8 %8, ptr %call45, align 1
-  %arrayidx94 = getelementptr inbounds i8, ptr %call45, i64 55
+  %arrayidx94 = getelementptr inbounds nuw i8, ptr %call45, i64 55
   %9 = load i8, ptr %arrayidx94, align 1
   %10 = or i8 %9, -128
   store i8 %10, ptr %arrayidx94, align 1

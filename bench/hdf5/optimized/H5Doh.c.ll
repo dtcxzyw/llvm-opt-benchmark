@@ -89,7 +89,7 @@ define internal noalias ptr @H5O__dset_get_copy_file_udata() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @H5O__dset_free_copy_file_udata(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -99,7 +99,7 @@ define internal void @H5O__dset_free_copy_file_udata(ptr noundef %0) #0 {
   br label %6
 
 6:                                                ; preds = %4, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not10 = icmp eq ptr %8, null
   br i1 %.not10, label %11, label %9
@@ -223,11 +223,11 @@ define internal ptr @H5O__dset_open(ptr noundef %0, ptr nocapture noundef writeo
 ; Function Attrs: nounwind uwtable
 define internal ptr @H5O__dset_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = tail call ptr @H5D__create(ptr noundef %0, i64 noundef %4, ptr noundef %6, i64 noundef %8, i64 noundef %10) #3
   %12 = icmp eq ptr %11, null
@@ -253,7 +253,7 @@ define internal ptr @H5O__dset_create(ptr noundef %0, ptr nocapture noundef read
 
 24:                                               ; preds = %17
   %25 = tail call ptr @H5D_nameof(ptr noundef nonnull %11) #3
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %25, ptr %26, align 8
   %27 = icmp eq ptr %25, null
   br i1 %27, label %28, label %.thread
@@ -324,7 +324,7 @@ define internal range(i32 -1, 1) i32 @H5O__dset_bh_info(ptr noundef %0, ptr noun
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %4, i64 1912
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1912
   %14 = call zeroext i1 @H5D__chunk_is_space_alloc(ptr noundef nonnull %13) #3
   br i1 %14, label %15, label %._crit_edge
 
@@ -346,7 +346,7 @@ define internal range(i32 -1, 1) i32 @H5O__dset_bh_info(ptr noundef %0, ptr noun
 22:                                               ; preds = %._crit_edge, %9
   %23 = phi i32 [ %.pre, %._crit_edge ], [ %10, %9 ]
   %24 = icmp eq i32 %23, 3
-  %25 = getelementptr inbounds i8, ptr %4, i64 1920
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 1920
   %26 = load i64, ptr %25, align 8
   %27 = icmp ne i64 %26, -1
   %or.cond = select i1 %24, i1 %27, i1 false
@@ -366,7 +366,7 @@ define internal range(i32 -1, 1) i32 @H5O__dset_bh_info(ptr noundef %0, ptr noun
 
 36:                                               ; preds = %28
   %37 = load i64, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %37, ptr %38, align 8
   br label %39
 
@@ -386,7 +386,7 @@ define internal range(i32 -1, 1) i32 @H5O__dset_bh_info(ptr noundef %0, ptr noun
   br i1 %.not, label %70, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %4, i64 1912
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 1912
   %49 = call zeroext i1 @H5D__efl_is_space_alloc(ptr noundef nonnull %48) #3
   br i1 %49, label %50, label %70
 
@@ -405,7 +405,7 @@ define internal range(i32 -1, 1) i32 @H5O__dset_bh_info(ptr noundef %0, ptr noun
 
 58:                                               ; preds = %50
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %61 = call i32 @H5D__efl_bh_info(ptr noundef %59, ptr noundef nonnull %5, ptr noundef nonnull %60) #3
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %63, label %70

@@ -65,7 +65,7 @@ if.end30.us:                                      ; preds = %while.cond3.while.e
 
 while.body5.us:                                   ; preds = %while.cond3.preheader.us, %checkEscapes.us
   %indvars.iv60 = phi i64 [ 0, %while.cond3.preheader.us ], [ %indvars.iv.next61, %checkEscapes.us ]
-  %arrayidx7.us = getelementptr inbounds [5 x i8], ptr %escapeSequences, i64 %indvars.iv60
+  %arrayidx7.us = getelementptr inbounds nuw [5 x i8], ptr %escapeSequences, i64 %indvars.iv60
   %call.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx7.us) #10
   %conv8.us = trunc i64 %call.us to i32
   %cmp9.not.us = icmp slt i32 %sub.us, %conv8.us
@@ -93,7 +93,7 @@ scanInput.us:                                     ; preds = %while.end.us, %if.e
 
 while.body13.us:                                  ; preds = %while.body13.us.preheader, %while.cond11.us
   %indvars.iv54 = phi i64 [ 1, %while.body13.us.preheader ], [ %indvars.iv.next55, %while.cond11.us ]
-  %arrayidx15.us = getelementptr inbounds i8, ptr %arrayidx7.us, i64 %indvars.iv54
+  %arrayidx15.us = getelementptr inbounds nuw i8, ptr %arrayidx7.us, i64 %indvars.iv54
   %2 = load i8, ptr %arrayidx15.us, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv54
   %3 = load i8, ptr %gep, align 1
@@ -183,7 +183,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_2022JP5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %textIn, align 8
-  %fInputLen = getelementptr inbounds i8, ptr %textIn, i64 8
+  %fInputLen = getelementptr inbounds nuw i8, ptr %textIn, i64 8
   %1 = load i32, ptr %fInputLen, align 8
   %cmp36.i = icmp sgt i32 %1, 0
   br i1 %cmp36.i, label %while.body.us.i, label %_ZNK6icu_7517CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
@@ -209,7 +209,7 @@ if.end30.us.i:                                    ; preds = %while.cond3.while.e
 
 while.body5.us.i:                                 ; preds = %while.cond3.preheader.us.i, %checkEscapes.us.i
   %indvars.iv60.i = phi i64 [ 0, %while.cond3.preheader.us.i ], [ %indvars.iv.next61.i, %checkEscapes.us.i ]
-  %arrayidx7.us.i = getelementptr inbounds [5 x i8], ptr @_ZN6icu_75L22escapeSequences_2022JPE, i64 %indvars.iv60.i
+  %arrayidx7.us.i = getelementptr inbounds nuw [5 x i8], ptr @_ZN6icu_75L22escapeSequences_2022JPE, i64 %indvars.iv60.i
   %call.us.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arrayidx7.us.i) #10
   %conv8.us.i = trunc i64 %call.us.i to i32
   %cmp9.not.us.i = icmp slt i32 %sub.us.i, %conv8.us.i
@@ -237,7 +237,7 @@ scanInput.us.i:                                   ; preds = %while.end.us.i, %if
 
 while.body13.us.i:                                ; preds = %while.body13.us.preheader.i, %while.cond11.us.i
   %indvars.iv54.i = phi i64 [ 1, %while.body13.us.preheader.i ], [ %indvars.iv.next55.i, %while.cond11.us.i ]
-  %arrayidx15.us.i = getelementptr inbounds i8, ptr %arrayidx7.us.i, i64 %indvars.iv54.i
+  %arrayidx15.us.i = getelementptr inbounds nuw i8, ptr %arrayidx7.us.i, i64 %indvars.iv54.i
   %4 = load i8, ptr %arrayidx15.us.i, align 1
   %gep.i = getelementptr i8, ptr %arrayidx.us.i, i64 %indvars.iv54.i
   %5 = load i8, ptr %gep.i, align 1
@@ -318,7 +318,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_2022KR5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %textIn, align 8
-  %fInputLen = getelementptr inbounds i8, ptr %textIn, i64 8
+  %fInputLen = getelementptr inbounds nuw i8, ptr %textIn, i64 8
   %1 = load i32, ptr %fInputLen, align 8
   %cmp36.i = icmp sgt i32 %1, 0
   br i1 %cmp36.i, label %while.body.us.i, label %_ZNK6icu_7517CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
@@ -363,7 +363,7 @@ scanInput.us.i:                                   ; preds = %while.end.us.i, %if
 
 while.body13.us.i:                                ; preds = %while.cond3.preheader.us.i, %while.cond11.us.i
   %indvars.iv54.i = phi i64 [ %indvars.iv.next55.i, %while.cond11.us.i ], [ 1, %while.cond3.preheader.us.i ]
-  %arrayidx15.us.i = getelementptr inbounds i8, ptr @_ZN6icu_75L22escapeSequences_2022KRE, i64 %indvars.iv54.i
+  %arrayidx15.us.i = getelementptr inbounds nuw i8, ptr @_ZN6icu_75L22escapeSequences_2022KRE, i64 %indvars.iv54.i
   %4 = load i8, ptr %arrayidx15.us.i, align 1
   %gep.i = getelementptr i8, ptr %arrayidx.us.i, i64 %indvars.iv54.i
   %5 = load i8, ptr %gep.i, align 1
@@ -430,7 +430,7 @@ entry:
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7519CharsetRecog_2022CN5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %textIn, align 8
-  %fInputLen = getelementptr inbounds i8, ptr %textIn, i64 8
+  %fInputLen = getelementptr inbounds nuw i8, ptr %textIn, i64 8
   %1 = load i32, ptr %fInputLen, align 8
   %cmp36.i = icmp sgt i32 %1, 0
   br i1 %cmp36.i, label %while.body.us.i, label %_ZNK6icu_7517CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
@@ -456,7 +456,7 @@ if.end30.us.i:                                    ; preds = %while.cond3.while.e
 
 while.body5.us.i:                                 ; preds = %while.cond3.preheader.us.i, %checkEscapes.us.i
   %indvars.iv60.i = phi i64 [ 0, %while.cond3.preheader.us.i ], [ %indvars.iv.next61.i, %checkEscapes.us.i ]
-  %arrayidx7.us.i = getelementptr inbounds [5 x i8], ptr @_ZN6icu_75L22escapeSequences_2022CNE, i64 %indvars.iv60.i
+  %arrayidx7.us.i = getelementptr inbounds nuw [5 x i8], ptr @_ZN6icu_75L22escapeSequences_2022CNE, i64 %indvars.iv60.i
   %call.us.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %arrayidx7.us.i) #10
   %conv8.us.i = trunc i64 %call.us.i to i32
   %cmp9.not.us.i = icmp slt i32 %sub.us.i, %conv8.us.i
@@ -484,7 +484,7 @@ scanInput.us.i:                                   ; preds = %while.end.us.i, %if
 
 while.body13.us.i:                                ; preds = %while.body13.us.preheader.i, %while.cond11.us.i
   %indvars.iv54.i = phi i64 [ 1, %while.body13.us.preheader.i ], [ %indvars.iv.next55.i, %while.cond11.us.i ]
-  %arrayidx15.us.i = getelementptr inbounds i8, ptr %arrayidx7.us.i, i64 %indvars.iv54.i
+  %arrayidx15.us.i = getelementptr inbounds nuw i8, ptr %arrayidx7.us.i, i64 %indvars.iv54.i
   %4 = load i8, ptr %arrayidx15.us.i, align 1
   %gep.i = getelementptr i8, ptr %arrayidx.us.i, i64 %indvars.iv54.i
   %5 = load i8, ptr %gep.i, align 1

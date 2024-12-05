@@ -62,7 +62,7 @@ define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$R
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 4
   tail call void @_ZN4core4hash6Hasher9write_u3217h27546f1ece9eb5bdE(ptr align 8 %1, i32 %4)
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @"_ZN79_$LT$logos_codegen..generator..context..Context$u20$as$u20$core..hash..Hash$GT$4hash17h6210835567e1146aE"(ptr nonnull align 8 %5, ptr align 8 %1)
   ret void
 }
@@ -79,7 +79,7 @@ define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$R
 define void @"_ZN4core4hash5impls60_$LT$impl$u20$core..hash..Hash$u20$for$u20$$LP$T$C$B$RP$$GT$4hash17h94251289646c318cE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = load i32, ptr %0, align 8
   tail call void @_ZN4core4hash6Hasher9write_u3217h27546f1ece9eb5bdE(ptr align 8 %1, i32 %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN79_$LT$logos_codegen..generator..context..Context$u20$as$u20$core..hash..Hash$GT$4hash17h6210835567e1146aE"(ptr nonnull align 8 %4, ptr align 8 %1)
   ret void
 }
@@ -126,8 +126,8 @@ define zeroext i1 @"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = tail call zeroext i1 @"_ZN83_$LT$logos_codegen..generator..context..Context$u20$as$u20$core..cmp..PartialEq$GT$2eq17h734757b6d26141a1E"(ptr nonnull align 8 %5, ptr nonnull align 8 %6)
   br label %8
 
@@ -169,8 +169,8 @@ define zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10e
   br i1 %3, label %4, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h02f0d94e9c0c1a7bE.exit"
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = tail call zeroext i1 @"_ZN83_$LT$logos_codegen..generator..context..Context$u20$as$u20$core..cmp..PartialEq$GT$2eq17h734757b6d26141a1E"(ptr nonnull align 8 %5, ptr nonnull align 8 %6)
   br label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2eq17h02f0d94e9c0c1a7bE.exit"
 
@@ -185,9 +185,9 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h3af43f6ca7415fc5E"(ptr nonnull sret([24 x i8]) align 8 %4, i64 %2, i1 zeroext false)
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %6, label %10, label %13
 
 10:                                               ; preds = %3
@@ -195,9 +195,9 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %12 = shl i64 %2, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %11, ptr align 4 %1, i64 %12, i1 false)
   store i64 %8, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.4.0..sroa_idx, align 8
   ret void
 
@@ -212,7 +212,7 @@ define zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14
   %4 = alloca [16 x i8], align 8
   %5 = getelementptr inbounds i32, ptr %1, i64 %2
   store ptr %1, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %6, align 8
   %7 = call zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h8b507e26bd9dda0fE"(ptr nonnull align 8 %4, ptr align 4 %0)
   ret i1 %7
@@ -220,9 +220,9 @@ define zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From$LT$logos_codegen..graph..fork..Fork$GT$$u20$for$u20$logos_codegen..graph..Node$LT$T$GT$$GT$4from17h6b2e47f0bb8a5f0dE"(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 20)) %0, ptr align 4 %1, i32 %2) unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %5, align 8
   store i64 -9223372036854775806, ptr %0, align 8
   ret void
@@ -230,7 +230,7 @@ define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From$LT$logos_codegen..graph..rope..Rope$GT$$u20$for$u20$logos_codegen..graph..Node$LT$T$GT$$GT$4from17h04df9a23ad5e7325E"(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 48)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   store i64 -9223372036854775805, ptr %0, align 8
   ret void
@@ -252,18 +252,18 @@ default.unreachable:                              ; preds = %2
 
 6:                                                ; preds = %2
   tail call void @"_ZN4core5array69_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$4hash17h3f43a584251a2cb0E"(ptr nonnull align 1 @anon.e2611376bfac35d21c1642dcf963882e.3, ptr align 8 %1)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN13logos_codegen5graph5impls79_$LT$impl$u20$core..hash..Hash$u20$for$u20$logos_codegen..graph..fork..Fork$GT$4hash17h5c2c8936070aef36E"(ptr nonnull align 8 %7, ptr align 8 %1)
   br label %14
 
 8:                                                ; preds = %2
   tail call void @"_ZN4core5array69_$LT$impl$u20$core..hash..Hash$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$4hash17h3f43a584251a2cb0E"(ptr nonnull align 1 @anon.e2611376bfac35d21c1642dcf963882e.4, ptr align 8 %1)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h3bf1c7a9d20d9abaE"(ptr nonnull align 8 %9, ptr align 8 %1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   tail call void @_ZN4core4hash6Hasher9write_u3217h27546f1ece9eb5bdE(ptr align 8 %1, i32 %11)
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @"_ZN69_$LT$logos_codegen..graph..rope..Miss$u20$as$u20$core..hash..Hash$GT$4hash17h5950904be8559ca5E"(ptr nonnull align 4 %12, ptr align 8 %1)
   br label %14
 
@@ -375,22 +375,22 @@ tailrecurse:                                      ; preds = %116, %6
   %53 = tail call { i8, i8 } @"_ZN84_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h795e78011ae8d3edE"(i8 0)
   %54 = extractvalue { i8, i8 } %53, 0
   %55 = extractvalue { i8, i8 } %53, 1
-  %56 = getelementptr inbounds i8, ptr %.tr149, i64 8
-  %57 = getelementptr inbounds i8, ptr %.tr149, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.tr149, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = shl i64 %58, 2
   call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h9674684822d2a742E"(ptr nonnull sret([24 x i8]) align 8 %32, i8 %54, i8 %55, i64 %59)
-  %60 = getelementptr inbounds i8, ptr %32, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %61 = load i64, ptr %60, align 8
   store i64 %61, ptr %31, align 8
   store i64 %61, ptr %30, align 8
   store i32 %2, ptr %29, align 4
   store ptr %31, ptr %28, align 8
-  %62 = getelementptr inbounds i8, ptr %28, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %32, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %28, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %40, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %28, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %30, ptr %64, align 8
   %65 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h0172fb7c5c91f6ddE"(ptr nonnull align 8 %56, i64 1, ptr nonnull align 8 @anon.e2611376bfac35d21c1642dcf963882e.7)
           to label %120 unwind label %.loopexit.split-lp
@@ -399,7 +399,7 @@ tailrecurse:                                      ; preds = %116, %6
   %67 = zext i1 %.tr153 to i8
   store i32 %2, ptr %41, align 4
   store i8 %67, ptr %40, align 1
-  %68 = getelementptr inbounds i8, ptr %.tr149, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
   %69 = tail call { ptr, i32 } @_ZN13logos_codegen5graph4fork4Fork3new17h4732e8fb0936fbbeE()
   %70 = extractvalue { ptr, i32 } %69, 0
   %71 = extractvalue { ptr, i32 } %69, 1
@@ -407,7 +407,7 @@ tailrecurse:                                      ; preds = %116, %6
   %73 = extractvalue { ptr, i32 } %72, 0
   %74 = extractvalue { ptr, i32 } %72, 1
   store ptr %73, ptr %37, align 8
-  %75 = getelementptr inbounds i8, ptr %37, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %74, ptr %75, align 8
   %76 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h64590c7b8061951aE"(ptr nonnull align 8 %68)
           to label %162 unwind label %.loopexit.split-lp155
@@ -420,16 +420,16 @@ tailrecurse:                                      ; preds = %116, %6
   br i1 %79, label %189, label %192
 
 80:                                               ; preds = %tailrecurse
-  %81 = getelementptr inbounds i8, ptr %.tr149, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.tr149, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.tr149, i64 16
   %84 = load i64, ptr %83, align 8
   call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9b6e4593eece7180E"(ptr nonnull sret([24 x i8]) align 8 %35, ptr align 1 %82, i64 %84)
   call void @"_ZN107_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$GT$$GT$$GT$4from17h298309863cfa35f3E"(ptr nonnull sret([24 x i8]) align 8 %10, ptr nonnull align 8 %35)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %85 = getelementptr inbounds i8, ptr %33, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i32 %2, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %33, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i32 0, ptr %86, align 8
   call void @_ZN13logos_codegen5graph4rope4Rope4miss17h04fb030c2b5cc05bE(ptr nonnull sret([40 x i8]) align 8 %34, ptr nonnull align 8 %33, i32 %.tr151)
   %87 = icmp eq i32 %4, 0
@@ -449,7 +449,7 @@ tailrecurse:                                      ; preds = %116, %6
 
 92:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8)
-  %93 = getelementptr inbounds i8, ptr %0, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %94 = load i64, ptr %93, align 8
   %95 = tail call i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %94)
   store i64 -9223372036854775804, ptr %8, align 8
@@ -465,14 +465,14 @@ tailrecurse:                                      ; preds = %116, %6
 
 97:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7)
-  %98 = getelementptr inbounds i8, ptr %0, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %99 = load i64, ptr %98, align 8
   %100 = call i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %99)
   store i64 -9223372036854775804, ptr %7, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1988d81c682d63aE"(ptr align 8 %0, ptr nonnull align 8 %7)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7)
   store i32 %100, ptr %38, align 4
-  %101 = getelementptr inbounds i8, ptr %.tr149, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = call i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr nonnull align 4 %38)
   %104 = load i32, ptr %38, align 4
@@ -489,7 +489,7 @@ tailrecurse:                                      ; preds = %116, %6
   %110 = phi i32 [ %storemerge, %97 ], [ %.pre, %107 ]
   %.sroa.026.0 = phi i32 [ %106, %97 ], [ %2, %107 ]
   %.sroa.024.0 = phi i32 [ %105, %97 ], [ %108, %107 ]
-  %111 = getelementptr inbounds i8, ptr %.tr149, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = call fastcc i32 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$9parse_mir17h80420f17f1a48c33E"(ptr align 8 %0, ptr align 8 %112, i32 %.sroa.024.0, i32 %.sroa.026.0, i32 %110, i1 zeroext true)
   br label %"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos_codegen..graph..Graph$LT$Leaf$GT$$GT$14insert_or_push17h5fec1dcfe3198ea2E.exit"
@@ -500,7 +500,7 @@ tailrecurse:                                      ; preds = %116, %6
 
 116:                                              ; preds = %49, %114
   %.sroa.029.0 = phi i32 [ %115, %114 ], [ %2, %49 ]
-  %117 = getelementptr inbounds i8, ptr %.tr149, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
   %118 = load ptr, ptr %117, align 8
   br label %tailrecurse
 
@@ -524,7 +524,7 @@ tailrecurse:                                      ; preds = %116, %6
   %122 = extractvalue { ptr, i64 } %65, 1
   %123 = getelementptr inbounds { i64, [4 x i64] }, ptr %121, i64 %122
   store ptr %121, ptr %27, align 8
-  %124 = getelementptr inbounds i8, ptr %27, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %123, ptr %124, align 8
   br label %.backedge
 
@@ -576,9 +576,9 @@ tailrecurse:                                      ; preds = %116, %6
 
 146:                                              ; preds = %142
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %147 = getelementptr inbounds i8, ptr %25, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i32 %145, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %25, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i32 0, ptr %148, align 8
   invoke void @_ZN13logos_codegen5graph4rope4Rope4miss17h04fb030c2b5cc05bE(ptr nonnull sret([40 x i8]) align 8 %26, ptr nonnull align 8 %25, i32 %.tr151)
           to label %149 unwind label %.loopexit.split-lp
@@ -624,7 +624,7 @@ tailrecurse:                                      ; preds = %116, %6
   %163 = extractvalue { ptr, ptr } %76, 0
   %164 = extractvalue { ptr, ptr } %76, 1
   store ptr %163, ptr %36, align 8
-  %165 = getelementptr inbounds i8, ptr %36, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %164, ptr %165, align 8
   br label %166
 
@@ -683,7 +683,7 @@ tailrecurse:                                      ; preds = %116, %6
           to label %.thread123 unwind label %160
 
 189:                                              ; preds = %77
-  %190 = getelementptr inbounds i8, ptr %.tr149, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %.tr149, i64 8
   %191 = tail call zeroext i1 @_ZN13logos_codegen5graph5regex8is_ascii17h76b482f8b37957caE(ptr nonnull align 8 %190, i1 zeroext %.tr153)
   br i1 %191, label %192, label %204
 
@@ -695,31 +695,31 @@ tailrecurse:                                      ; preds = %116, %6
   %197 = extractvalue { ptr, i32 } %196, 0
   %198 = extractvalue { ptr, i32 } %196, 1
   store ptr %197, ptr %14, align 8
-  %199 = getelementptr inbounds i8, ptr %14, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %198, ptr %199, align 8
-  %200 = getelementptr inbounds i8, ptr %.tr149, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %.tr149, i64 16
   %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %.tr149, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %.tr149, i64 24
   %203 = load i64, ptr %202, align 8
   br i1 %79, label %248, label %250
 
 204:                                              ; preds = %189
-  %205 = getelementptr inbounds i8, ptr %.tr149, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %.tr149, i64 16
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %.tr149, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %.tr149, i64 24
   %208 = load i64, ptr %207, align 8
   %209 = getelementptr inbounds { i32, i32 }, ptr %206, i64 %208
   store i64 -9223372036854775808, ptr %23, align 8
-  %.sroa.076.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 24
+  %.sroa.076.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 -9223372036854775808, ptr %.sroa.076.sroa.3.0..sroa_idx, align 8
-  %.sroa.277.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 48
+  %.sroa.277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %206, ptr %.sroa.277.0..sroa_idx, align 8
-  %.sroa.378.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 56
+  %.sroa.378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 56
   store ptr %209, ptr %.sroa.378.0..sroa_idx, align 8
-  %210 = getelementptr inbounds i8, ptr %23, i64 64
+  %210 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr %41, ptr %210, align 8
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17he6b8e1ba1da0b81eE"(ptr nonnull sret([24 x i8]) align 8 %24, ptr nonnull align 8 %23)
-  %211 = getelementptr inbounds i8, ptr %24, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %212 = load i64, ptr %211, align 8
   %213 = icmp eq i64 %212, 1
   br i1 %213, label %214, label %215
@@ -754,7 +754,7 @@ tailrecurse:                                      ; preds = %116, %6
   %226 = extractvalue { ptr, i32 } %224, 0
   %227 = extractvalue { ptr, i32 } %224, 1
   store ptr %226, ptr %20, align 8
-  %228 = getelementptr inbounds i8, ptr %20, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %227, ptr %228, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   invoke void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0e22db1ae438c8e4E"(ptr nonnull sret([32 x i8]) align 8 %19, ptr nonnull align 8 %18)
@@ -929,21 +929,21 @@ define hidden void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3new17h3b815831b
   store i64 -9223372036854775804, ptr %3, align 8
   call void @_ZN5alloc5slice4hack8into_vec17h70689a2c5a4c5124E(ptr nonnull sret([24 x i8]) align 8 %2, ptr nonnull align 8 %3, i64 1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %4, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
-  %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 112
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %.sroa.35.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %.sroa.35.0..sroa_idx, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %5, align 8
-  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.27.0..sroa_idx, align 8
-  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.210.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
+  %.sroa.38.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.38.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.210.0..sroa_idx, align 8
-  %.sroa.311.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
+  %.sroa.311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %.sroa.311.0..sroa_idx, align 8
   ret void
 }
@@ -963,7 +963,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert1
   %15 = alloca [4 x i8], align 4
   store i32 %1, ptr %15, align 4
   store ptr %2, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %3, ptr %16, align 8
   %17 = invoke i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr nonnull align 4 %15)
           to label %18 unwind label %63
@@ -991,15 +991,15 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert1
 25:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %23, ptr noundef nonnull align 8 dereferenceable(88) %13, i64 88, i1 false)
   store i64 0, ptr %11, align 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load i64, ptr %29, align 8
   store i64 0, ptr %10, align 8
-  %31 = getelementptr inbounds i8, ptr %10, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %30, ptr %31, align 8
   br label %.backedge
 
@@ -1017,8 +1017,8 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7a3d104600a4a803E"(ptr nonnull sret([32 x i8]) align 8 %8, ptr nonnull align 8 %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  %38 = getelementptr inbounds i8, ptr %5, i64 4
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %42
 
 40:                                               ; preds = %33
@@ -1136,15 +1136,15 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert1
 23:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %21, ptr noundef nonnull align 8 dereferenceable(88) %13, i64 88, i1 false)
   store i64 0, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load i64, ptr %27, align 8
   store i64 0, ptr %9, align 8
-  %29 = getelementptr inbounds i8, ptr %9, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %28, ptr %29, align 8
   br label %.backedge
 
@@ -1162,8 +1162,8 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$6insert1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7a3d104600a4a803E"(ptr nonnull sret([32 x i8]) align 8 %7, ptr nonnull align 8 %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  %36 = getelementptr inbounds i8, ptr %4, i64 4
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %40
 
 38:                                               ; preds = %31
@@ -1260,7 +1260,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h0485bf70b
 14:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %16)
           to label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit" unwind label %18
@@ -1293,13 +1293,13 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h0485bf70b
   ret i32 %.sroa.0.0
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %26)
           to label %28 unwind label %72
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load i64, ptr %9, align 8
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h903a01110a0dd7cdE"(ptr nonnull sret([40 x i8]) align 8 %8, ptr nonnull align 8 %29, i64 %30)
           to label %31 unwind label %72
@@ -1315,7 +1315,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h0485bf70b
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread" unwind label %72
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %8, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
   %37 = invoke align 4 ptr @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$3get17hcec4bc6a1a6e2ea8E"(ptr nonnull align 8 %7)
           to label %44 unwind label %72
@@ -1347,7 +1347,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h0485bf70b
 
 44:                                               ; preds = %35
   %45 = load i32, ptr %37, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load i64, ptr %25, align 8
   %49 = invoke i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %45)
@@ -1396,14 +1396,14 @@ default.unreachable:                              ; preds = %"_ZN119_$LT$logos_c
   br i1 %62, label %67, label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %50, i64 8
-  %65 = getelementptr inbounds i8, ptr %11, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %66 = invoke zeroext i1 @"_ZN13logos_codegen5graph5impls5debug83_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$logos_codegen..graph..fork..Fork$GT$2eq17h3ef23c2a736a99a6E"(ptr nonnull align 8 %64, ptr nonnull align 8 %65)
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit" unwind label %72
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %50, i64 8
-  %69 = getelementptr inbounds i8, ptr %11, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %70 = invoke zeroext i1 @"_ZN73_$LT$logos_codegen..graph..rope..Rope$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd2b42144c97ed070E"(ptr nonnull align 8 %68, ptr nonnull align 8 %69)
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit" unwind label %72
 
@@ -1452,7 +1452,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h50eefb183
 15:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %11, ptr noundef nonnull align 8 dereferenceable(88) %12, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5)
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %17)
           to label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit" unwind label %19
@@ -1485,13 +1485,13 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h50eefb183
   ret i32 %.sroa.0.0
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %27)
           to label %29 unwind label %73
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load i64, ptr %10, align 8
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h903a01110a0dd7cdE"(ptr nonnull sret([40 x i8]) align 8 %9, ptr nonnull align 8 %30, i64 %31)
           to label %32 unwind label %73
@@ -1507,7 +1507,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h50eefb183
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread" unwind label %73
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %9, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 32, i1 false)
   %38 = invoke align 4 ptr @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$3get17hcec4bc6a1a6e2ea8E"(ptr nonnull align 8 %8)
           to label %45 unwind label %73
@@ -1539,7 +1539,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17h50eefb183
 
 45:                                               ; preds = %36
   %46 = load i32, ptr %38, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = load i64, ptr %26, align 8
   %50 = invoke i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %46)
@@ -1588,14 +1588,14 @@ default.unreachable:                              ; preds = %"_ZN119_$LT$logos_c
   br i1 %63, label %68, label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
 
 64:                                               ; preds = %58
-  %65 = getelementptr inbounds i8, ptr %51, i64 8
-  %66 = getelementptr inbounds i8, ptr %12, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %67 = invoke zeroext i1 @"_ZN13logos_codegen5graph5impls5debug83_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$logos_codegen..graph..fork..Fork$GT$2eq17h3ef23c2a736a99a6E"(ptr nonnull align 8 %65, ptr nonnull align 8 %66)
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit" unwind label %73
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %51, i64 8
-  %70 = getelementptr inbounds i8, ptr %12, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %71 = invoke zeroext i1 @"_ZN73_$LT$logos_codegen..graph..rope..Rope$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd2b42144c97ed070E"(ptr nonnull align 8 %69, ptr nonnull align 8 %70)
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit" unwind label %73
 
@@ -1644,7 +1644,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17heeac6b300
 14:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %11, i64 88, i1 false)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %16)
           to label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$14push_unchecked17hc69fe6fa620e1519E.exit" unwind label %18
@@ -1677,13 +1677,13 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17heeac6b300
   ret i32 %.sroa.0.0
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = invoke i32 @_ZN13logos_codegen5graph6NodeId3new17h1ea5a5ec269458a5E(i64 %26)
           to label %28 unwind label %72
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %30 = load i64, ptr %9, align 8
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h903a01110a0dd7cdE"(ptr nonnull sret([40 x i8]) align 8 %8, ptr nonnull align 8 %29, i64 %30)
           to label %31 unwind label %72
@@ -1699,7 +1699,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17heeac6b300
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread" unwind label %72
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %8, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
   %37 = invoke align 4 ptr @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$C$V$C$A$GT$3get17hcec4bc6a1a6e2ea8E"(ptr nonnull align 8 %7)
           to label %44 unwind label %72
@@ -1731,7 +1731,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$4push17heeac6b300
 
 44:                                               ; preds = %35
   %45 = load i32, ptr %37, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load i64, ptr %25, align 8
   %49 = invoke i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %45)
@@ -1780,14 +1780,14 @@ default.unreachable:                              ; preds = %"_ZN119_$LT$logos_c
   br i1 %62, label %67, label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit.thread"
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %50, i64 8
-  %65 = getelementptr inbounds i8, ptr %11, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %66 = invoke zeroext i1 @"_ZN13logos_codegen5graph5impls5debug83_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$logos_codegen..graph..fork..Fork$GT$2eq17h3ef23c2a736a99a6E"(ptr nonnull align 8 %64, ptr nonnull align 8 %65)
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit" unwind label %72
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %50, i64 8
-  %69 = getelementptr inbounds i8, ptr %11, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %70 = invoke zeroext i1 @"_ZN73_$LT$logos_codegen..graph..rope..Rope$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd2b42144c97ed070E"(ptr nonnull align 8 %68, ptr nonnull align 8 %69)
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$2eq17h0903b3dc3cc06010E.exit" unwind label %72
 
@@ -1837,9 +1837,9 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   %17 = extractvalue { i32, i32 } %16, 0
   %18 = extractvalue { i32, i32 } %16, 1
   store i32 %17, ptr %7, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = call align 4 ptr @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h79eadb7ea9401e9bE"(ptr nonnull align 8 %20, ptr nonnull align 4 %7)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit.thread", label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit"
@@ -1855,9 +1855,9 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   br i1 %.not, label %24, label %44
 
 24:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit.thread", %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit"
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = call i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %1)
   %30 = call align 8 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17ha1cbac71fe00d03aE"(i64 %29, ptr align 8 %26, i64 %28)
@@ -1901,13 +1901,13 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
 
 .thread:                                          ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit18.thread", %45
   store ptr @anon.e2611376bfac35d21c1642dcf963882e.21, ptr %13, align 8
-  %47 = getelementptr inbounds i8, ptr %13, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %13, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %13, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %13, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %50, align 8
   call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %13, ptr nonnull align 8 @anon.e2611376bfac35d21c1642dcf963882e.22) #12
   unreachable
@@ -1921,12 +1921,12 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6)
   store i32 %53, ptr %12, align 4
   %54 = call i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr nonnull align 4 %12)
-  %55 = getelementptr inbounds i8, ptr %0, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %56 = load i32, ptr %12, align 4
   store i32 %1, ptr %11, align 4
-  %57 = getelementptr inbounds i8, ptr %11, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %2, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %11, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %56, ptr %58, align 4
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd497757e7298072bE"(ptr nonnull align 8 %55, ptr nonnull align 4 %11)
   %59 = call { i32, i32 } @_ZN13logos_codegen5graph5Merge3new17ha8bd8de38fc08360E(i32 %1, i32 %2)
@@ -1952,12 +1952,12 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
   store i32 %72, ptr %10, align 4
   %73 = call i32 @_ZN13logos_codegen5graph10ReservedId3get17ha4d04382d0018ec6E(ptr nonnull align 4 %10)
-  %74 = getelementptr inbounds i8, ptr %0, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %75 = load i32, ptr %10, align 4
   store i32 %2, ptr %9, align 4
-  %76 = getelementptr inbounds i8, ptr %9, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %1, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %9, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %75, ptr %77, align 4
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd497757e7298072bE"(ptr nonnull align 8 %74, ptr nonnull align 4 %9)
   %78 = call { i32, i32 } @_ZN13logos_codegen5graph5Merge3new17ha8bd8de38fc08360E(i32 %1, i32 %2)
@@ -2023,7 +2023,7 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   unreachable
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %0, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha5017cb94ec14b75E"(ptr nonnull align 8 %118, i32 %1, i32 %2)
   br label %44
 
@@ -2049,9 +2049,9 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
   %18 = alloca [40 x i8], align 8
   %19 = alloca [4 x i8], align 4
   store i32 %3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = tail call i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %1)
   %25 = tail call align 8 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17ha1cbac71fe00d03aE"(i64 %24, ptr align 8 %21, i64 %23)
@@ -2094,20 +2094,20 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
   br i1 %.not13, label %.thread, label %54
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fdfebe92cf7b227E"(ptr nonnull sret([24 x i8]) align 8 %8, ptr nonnull align 8 %43)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 40
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 32
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 36
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 36
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %17, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 %45, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %17, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %47, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %17, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %17, i64 28
   store i32 %49, ptr %52, align 4
   call fastcc void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge_rope17h5c872b0d922fc64bE"(ptr noalias align 8 %18, ptr nonnull align 8 %0, ptr align 8 %17, i32 %2)
   br label %53
@@ -2127,20 +2127,20 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
   br label %71
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %.sroa.0.0.i26, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fdfebe92cf7b227E"(ptr nonnull sret([24 x i8]) align 8 %7, ptr nonnull align 8 %58)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %59 = getelementptr inbounds i8, ptr %.sroa.0.0.i26, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 40
   %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.sroa.0.0.i26, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 32
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %.sroa.0.0.i26, i64 36
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i26, i64 36
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %16, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 %60, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %16, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 %62, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %16, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %16, i64 28
   store i32 %64, ptr %67, align 4
   call fastcc void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge_rope17h5c872b0d922fc64bE"(ptr noalias align 8 %18, ptr nonnull align 8 %0, ptr align 8 %16, i32 %1)
   br label %53
@@ -2177,7 +2177,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
   %80 = extractvalue { ptr, i32 } %72, 0
   %81 = extractvalue { ptr, i32 } %72, 1
   store ptr %80, ptr %14, align 8
-  %82 = getelementptr inbounds i8, ptr %14, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %81, ptr %82, align 8
   %83 = invoke { ptr, i32 } @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$8fork_off17he70a55269beed5e0E"(ptr nonnull align 8 %0, i32 %2)
           to label %86 unwind label %.thread44
@@ -2222,13 +2222,13 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
           to label %.preheader unwind label %.thread44
 
 .preheader:                                       ; preds = %95
-  %96 = getelementptr inbounds i8, ptr %13, i64 8
-  %97 = getelementptr inbounds i8, ptr %13, i64 16
-  %98 = getelementptr inbounds i8, ptr %5, i64 8
-  %99 = getelementptr inbounds i8, ptr %9, i64 32
-  %100 = getelementptr inbounds i8, ptr %9, i64 24
-  %101 = getelementptr inbounds i8, ptr %9, i64 28
-  %102 = getelementptr inbounds i8, ptr %10, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  %102 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %103
 
 103:                                              ; preds = %.preheader, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit36"
@@ -2313,17 +2313,17 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
   unreachable
 
 130:                                              ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit31"
-  %131 = getelementptr inbounds i8, ptr %123, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %132 = invoke align 4 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h704df7b15f25d3e2E"(ptr nonnull align 8 %131)
           to label %135 unwind label %.loopexit
 
 133:                                              ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit31"
-  %134 = getelementptr inbounds i8, ptr %123, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %123, i64 8
   invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fdfebe92cf7b227E"(ptr nonnull sret([24 x i8]) align 8 %6, ptr nonnull align 8 %134)
           to label %141 unwind label %.loopexit
 
 135:                                              ; preds = %130
-  %136 = getelementptr inbounds i8, ptr %123, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %137 = load i32, ptr %136, align 8
   br label %138
 
@@ -2337,11 +2337,11 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
 
 141:                                              ; preds = %133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %142 = getelementptr inbounds i8, ptr %123, i64 40
+  %142 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %143 = load i32, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %123, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %145 = load i32, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %123, i64 36
+  %146 = getelementptr inbounds nuw i8, ptr %123, i64 36
   %147 = load i32, ptr %146, align 4
   store i32 %143, ptr %99, align 8
   store i32 %145, ptr %100, align 8
@@ -2448,9 +2448,9 @@ define internal fastcc void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge
   %21 = alloca [40 x i8], align 8
   %22 = alloca [4 x i8], align 4
   store i32 %3, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = invoke i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %3)
           to label %.noexc unwind label %112
@@ -2469,7 +2469,7 @@ define internal fastcc void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge
   br i1 %32, label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread", label %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit"
 
 "_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit.thread": ; preds = %30, %.noexc27, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit"
-  %33 = getelementptr inbounds i8, ptr %2, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %34 = invoke zeroext i1 @_ZN13logos_codegen5graph4rope4Miss7is_none17h5010679aa4648491E(ptr nonnull align 4 %33)
           to label %110 unwind label %112
 
@@ -2486,13 +2486,13 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
   unreachable
 
 37:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit"
-  %38 = getelementptr inbounds i8, ptr %28, i64 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %40 = invoke zeroext i1 @_ZN13logos_codegen5graph4rope4Miss7is_none17h5010679aa4648491E(ptr nonnull align 4 %39)
           to label %43 unwind label %112
 
 41:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit"
-  %42 = getelementptr inbounds i8, ptr %28, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %28, i64 8
   invoke void @_ZN13logos_codegen5graph4rope4Rope6prefix17h0716dd12a0758169E(ptr nonnull sret([32 x i8]) align 8 %15, ptr nonnull align 8 %2, ptr nonnull align 8 %42)
           to label %71 unwind label %112
 
@@ -2508,13 +2508,13 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
   %48 = extractvalue { ptr, i64 } %45, 1
   %49 = getelementptr inbounds { i8, i8 }, ptr %47, i64 %48
   store ptr %47, ptr %21, align 8
-  %50 = getelementptr inbounds i8, ptr %21, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %21, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i8 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %21, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %38, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %21, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %22, ptr %53, align 8
   %54 = invoke i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha7bfdda94a6cc40cE"(ptr nonnull align 8 %21, i64 0)
           to label %55 unwind label %112
@@ -2534,7 +2534,7 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %19, i64 40, i1 false)
   %60 = load i32, ptr %22, align 4
   call void @_ZN13logos_codegen5graph4rope4Rope8miss_any17h6a12dcbd2b6e25b6E(ptr nonnull sret([40 x i8]) align 8 %20, ptr nonnull align 8 %17, i32 %60)
-  %61 = getelementptr inbounds i8, ptr %20, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = load i32, ptr %22, align 4
   %64 = invoke i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1612bbee2E"(ptr nonnull align 8 %1, i32 %62, i32 %63)
@@ -2572,9 +2572,9 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
 
 75:                                               ; preds = %71
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  %.sroa.220.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.220.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
   %.sroa.220.0.copyload = load i32, ptr %.sroa.220.0..sroa_idx, align 8
-  %.sroa.321.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 28
+  %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 28
   %.sroa.321.0.copyload = load i32, ptr %.sroa.321.0..sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fdfebe92cf7b227E"(ptr nonnull sret([24 x i8]) align 8 %5, ptr nonnull align 8 %42)
@@ -2588,18 +2588,18 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
 
 78:                                               ; preds = %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %79 = getelementptr inbounds i8, ptr %28, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %80 = load i32, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %28, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %28, i64 36
+  %83 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %84 = load i32, ptr %83, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
-  %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
+  %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %82, ptr %.sroa.29.0..sroa_idx, align 8
-  %.sroa.310.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 28
+  %.sroa.310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i32 %84, ptr %.sroa.310.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 32
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i32 %80, ptr %.sroa.4.0..sroa_idx, align 8
   %85 = invoke { ptr, i64 } @"_ZN79_$LT$logos_codegen..graph..rope..Pattern$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3645e1679f2b1259E"(ptr nonnull align 8 %16)
           to label %88 unwind label %107
@@ -2642,9 +2642,9 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
 
 102:                                              ; preds = %98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %103 = getelementptr inbounds i8, ptr %9, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %99, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %9, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %104, align 8
   call void @_ZN13logos_codegen5graph4rope4Rope4miss17hb10b074ea6c3bc20E(ptr nonnull sret([40 x i8]) align 8 %10, ptr nonnull align 8 %9, i32 %.sroa.220.0.copyload, i32 %.sroa.321.0.copyload)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
@@ -2704,11 +2704,11 @@ define hidden zeroext i1 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge_ro
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %6, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = tail call i32 @_ZN13logos_codegen5graph4fork4Fork8contains17hcb608de847491c2bE(ptr align 8 %5, i8 %7, i8 %9)
   store i32 %10, ptr %4, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 4
   store i32 %13, ptr %3, align 4
@@ -2720,9 +2720,9 @@ define hidden zeroext i1 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$10merge_ro
 define hidden { ptr, i32 } @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$8fork_off17he70a55269beed5e0E"(ptr align 8 %0, i32 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %1)
   %10 = tail call align 8 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17ha1cbac71fe00d03aE"(i64 %9, ptr align 8 %6, i64 %8)
@@ -2754,29 +2754,29 @@ default.unreachable:                              ; preds = %"_ZN13logos_codegen
   unreachable
 
 21:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit"
-  %22 = getelementptr inbounds i8, ptr %10, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %23 = tail call align 4 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h704df7b15f25d3e2E"(ptr nonnull align 8 %22)
-  %24 = getelementptr inbounds i8, ptr %10, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = insertvalue { ptr, i32 } poison, ptr %23, 0
   %27 = insertvalue { ptr, i32 } %26, i32 %25, 1
   br label %40
 
 28:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit"
-  %29 = getelementptr inbounds i8, ptr %10, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1fdfebe92cf7b227E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr nonnull align 8 %29)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %30 = getelementptr inbounds i8, ptr %10, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %10, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %10, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %31, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %33, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %35, ptr %38, align 4
   %39 = call { ptr, i32 } @_ZN13logos_codegen5graph4rope4Rope9into_fork17h959f04f9ad79d04dE(ptr nonnull align 8 %4, ptr nonnull align 8 %0)
   br label %40
@@ -2793,7 +2793,7 @@ define hidden void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5shake17h3685bc9
   %5 = alloca [24 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [24 x i8], align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17ha8d181f2984d3b58E"(ptr nonnull sret([24 x i8]) align 8 %7, i1 zeroext false, i64 %9)
   %10 = invoke i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %1)
@@ -2805,7 +2805,7 @@ define hidden void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5shake17h3685bc9
 
 13:                                               ; preds = %11
   store i8 1, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i64, ptr %8, align 8
   %17 = invoke i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %1)
@@ -2832,9 +2832,9 @@ select.unfold.i:                                  ; preds = %20, %.noexc11
   unreachable
 
 "_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E.exit": ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %21, 9223372036854775806
   %28 = call i64 @llvm.umin.i64(i64 %27, i64 2)
@@ -2848,12 +2848,12 @@ default.unreachable:                              ; preds = %"_ZN119_$LT$logos_c
   unreachable
 
 29:                                               ; preds = %"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E.exit"
-  %30 = getelementptr inbounds i8, ptr %18, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 8
   invoke void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE(ptr nonnull align 8 %30, ptr nonnull align 8 %0, ptr align 1 %24, i64 %26)
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$5shake17hf5adeaeec972d5b7E.exit" unwind label %54
 
 31:                                               ; preds = %"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E.exit"
-  %32 = getelementptr inbounds i8, ptr %18, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   invoke void @_ZN13logos_codegen5graph4rope4Rope5shake17hd5d4df5245d57fe4E(ptr nonnull align 8 %32, ptr nonnull align 8 %0, ptr align 1 %24, i64 %26)
           to label %"_ZN13logos_codegen5graph16Node$LT$Leaf$GT$5shake17hf5adeaeec972d5b7E.exit" unwind label %54
 
@@ -2861,7 +2861,7 @@ default.unreachable:                              ; preds = %"_ZN119_$LT$logos_c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha6a854e32516399bE"(ptr nonnull sret([32 x i8]) align 8 %6, ptr nonnull align 8 %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   br label %.backedge
 
@@ -2940,9 +2940,9 @@ default.unreachable:                              ; preds = %"_ZN119_$LT$logos_c
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E"(ptr nocapture readonly align 8 %0, i32 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = tail call i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %1)
   %8 = tail call align 8 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17ha1cbac71fe00d03aE"(i64 %7, ptr align 8 %4, i64 %6)
@@ -2962,9 +2962,9 @@ define align 8 ptr @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c4
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN119_$LT$logos_codegen..graph..Graph$LT$Leaf$GT$$u20$as$u20$core..ops..index..Index$LT$logos_codegen..graph..NodeId$GT$$GT$5index17h226e651efac1df87E"(ptr nocapture readonly align 8 %0, i32 %1, ptr align 8 %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @_ZN13logos_codegen5graph6NodeId3get17hd81c57e5ba9b122fE(i32 %1)
   %9 = tail call align 8 ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17ha1cbac71fe00d03aE"(i64 %8, ptr align 8 %5, i64 %7)
@@ -2999,14 +2999,14 @@ default.unreachable:                              ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   br label %14
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 @_ZN13logos_codegen5graph4rope4Miss5first17h8bbbf9f71445b7e3E(i32 %10, i32 %12)
   br label %14
@@ -3031,12 +3031,12 @@ default.unreachable:                              ; preds = %4
   unreachable
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN13logos_codegen5graph4fork4Fork5shake17h5a6a26b142589daaE(ptr nonnull align 8 %9, ptr align 8 %1, ptr align 1 %2, i64 %3)
   br label %12
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN13logos_codegen5graph4rope4Rope5shake17hd5d4df5245d57fe4E(ptr nonnull align 8 %11, ptr align 8 %1, ptr align 1 %2, i64 %3)
   br label %12
 
@@ -3062,26 +3062,26 @@ default.unreachable:                              ; preds = %1
 
 7:                                                ; preds = %1
   store ptr @anon.e2611376bfac35d21c1642dcf963882e.28, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %11, align 8
   call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %3, ptr nonnull align 8 @anon.e2611376bfac35d21c1642dcf963882e.29) #12
   unreachable
 
 12:                                               ; preds = %1
   store ptr @anon.e2611376bfac35d21c1642dcf963882e.31, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %16, align 8
   call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr nonnull align 8 %2, ptr nonnull align 8 @anon.e2611376bfac35d21c1642dcf963882e.32) #12
   unreachable

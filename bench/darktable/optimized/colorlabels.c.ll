@@ -45,39 +45,39 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 -1, 6) i32 @_get_colorlabel(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = icmp eq ptr %6, %1
   br i1 %7, label %29, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %29, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %29, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %4, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %18 = load ptr, ptr %17, align 8, !tbaa !13
   %19 = icmp eq ptr %18, %1
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %4, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = icmp eq ptr %22, %1
   br i1 %23, label %29, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %4, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %26 = load ptr, ptr %25, align 8, !tbaa !13
   %27 = icmp eq ptr %26, %1
   %28 = select i1 %27, i32 5, i32 -1
@@ -126,12 +126,12 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #3 {
   %2 = tail call noalias dereferenceable_or_null(112) ptr @g_malloc0(i64 noundef 112) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %4, ptr %5, align 8, !tbaa !14
-  %6 = getelementptr inbounds i8, ptr %2, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %9
 
 7:                                                ; preds = %22
@@ -149,7 +149,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %11 = trunc i64 %10 to i32
   %12 = or i32 %11, 136
   %13 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_label, i32 noundef %12, ptr noundef null) #10
-  %14 = getelementptr inbounds [6 x ptr], ptr %6, i64 0, i64 %10
+  %14 = getelementptr inbounds nuw [6 x ptr], ptr %6, i64 0, i64 %10
   store ptr %13, ptr %14, align 8, !tbaa !13
   tail call void @dt_gui_add_class(ptr noundef %13, ptr noundef nonnull @.str.1) #10
   %15 = load ptr, ptr %14, align 8, !tbaa !13
@@ -179,7 +179,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %29 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef 80) #10
   %30 = tail call i64 @g_signal_connect_data(ptr noundef %29, ptr noundef nonnull @.str.5, ptr noundef nonnull @_lib_colorlabels_enter_notify_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #10
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !15
-  %32 = getelementptr inbounds i8, ptr %31, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 112
   %33 = tail call ptr @dt_action_define(ptr noundef nonnull %32, ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %13, ptr noundef nonnull @dt_action_def_color_label) #10
   %34 = add nuw nsw i64 %10, 1
   %35 = icmp eq i64 %34, 6
@@ -243,39 +243,39 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @_lib_colorlabels_button_clicked_callback(ptr noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = icmp eq ptr %7, %0
   br i1 %8, label %30, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = icmp eq ptr %11, %0
   br i1 %12, label %30, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %5, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = icmp eq ptr %15, %0
   br i1 %16, label %30, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %5, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %30, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %5, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %23 = load ptr, ptr %22, align 8, !tbaa !13
   %24 = icmp eq ptr %23, %0
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %5, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = icmp eq ptr %27, %0
   %29 = select i1 %28, i32 5, i32 -1
@@ -288,7 +288,7 @@ define internal void @_lib_colorlabels_button_clicked_callback(ptr noundef readn
   br i1 %33, label %34, label %86
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %1, i64 52
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %36 = load i32, ptr %35, align 4, !tbaa !28
   %37 = icmp eq i32 %36, 3
   %38 = icmp ne i32 %31, 5
@@ -296,24 +296,24 @@ define internal void @_lib_colorlabels_button_clicked_callback(ptr noundef readn
   br i1 %39, label %40, label %86
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %5, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i32 %31, ptr %41, align 8, !tbaa !29
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !31
   %43 = load ptr, ptr %42, align 8, !tbaa !32
   %44 = tail call ptr @dt_ui_main_window(ptr noundef %43) #10
-  %45 = getelementptr inbounds i8, ptr %1, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %46 = load double, ptr %45, align 8, !tbaa !36
   %47 = fptosi double %46 to i32
-  %48 = getelementptr inbounds i8, ptr %1, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %49 = load double, ptr %48, align 8, !tbaa !37
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !31
-  %51 = getelementptr inbounds i8, ptr %50, i64 1448
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1448
   %52 = load double, ptr %51, align 8, !tbaa !38
   %53 = fmul reassoc nsz arcp contract afn double %52, 5.000000e+01
   %54 = fsub reassoc nsz arcp contract afn double %49, %53
   %55 = fptosi double %54 to i32
   %56 = tail call ptr @gtk_window_new(i32 noundef 0) #10
-  %57 = getelementptr inbounds i8, ptr %5, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %56, ptr %57, align 8, !tbaa !39
   tail call void @gtk_widget_set_can_focus(ptr noundef %56, i32 noundef 1) #10
   %58 = load ptr, ptr %57, align 8, !tbaa !39
@@ -334,7 +334,7 @@ define internal void @_lib_colorlabels_button_clicked_callback(ptr noundef readn
   tail call void @gtk_window_move(ptr noundef %68, i32 noundef %47, i32 noundef %55) #10
   %69 = tail call ptr @gtk_entry_new() #10
   %70 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !31
-  %71 = getelementptr inbounds i8, ptr %70, i64 1448
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1448
   %72 = load double, ptr %71, align 8, !tbaa !38
   %73 = fmul reassoc nsz arcp contract afn double %72, 1.500000e+02
   %74 = fptosi double %73 to i32
@@ -372,33 +372,33 @@ define internal void @_lib_colorlabels_button_clicked_callback(ptr noundef readn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @_lib_colorlabels_enter_notify_callback(ptr noundef readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #8 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = icmp eq ptr %7, %0
   br i1 %8, label %26, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = icmp eq ptr %11, %0
   br i1 %12, label %26, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %5, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = icmp eq ptr %15, %0
   br i1 %16, label %26, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %5, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %26, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %5, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %23 = load ptr, ptr %22, align 8, !tbaa !13
   %24 = icmp eq ptr %23, %0
   %25 = select i1 %24, i32 5, i32 0
@@ -407,7 +407,7 @@ define internal noundef i32 @_lib_colorlabels_enter_notify_callback(ptr noundef 
 26:                                               ; preds = %21, %17, %13, %9, %3
   %27 = phi i32 [ 4, %17 ], [ 3, %13 ], [ 2, %9 ], [ 1, %3 ], [ %25, %21 ]
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 88), align 8, !tbaa !15
-  %29 = getelementptr inbounds i8, ptr %28, i64 588
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 588
   store i32 %27, ptr %29, align 4, !tbaa !41
   ret i32 0
 }
@@ -420,7 +420,7 @@ declare void @gtk_widget_set_name(ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @g_free(ptr noundef %3) #10
   store ptr null, ptr %2, align 8, !tbaa !6
@@ -477,9 +477,9 @@ declare i64 @gtk_container_get_type() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_lib_colorlabels_destroy(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !39
   tail call void @gtk_widget_destroy(ptr noundef %7) #10
   ret i32 0
@@ -488,9 +488,9 @@ define internal noundef i32 @_lib_colorlabels_destroy(ptr nocapture readnone %0,
 ; Function Attrs: nounwind uwtable
 define internal noundef range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #3 {
   %4 = alloca [128 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %1, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %8 = load i32, ptr %7, align 4, !tbaa !47
   switch i32 %8, label %41 [
     i32 65307, label %9
@@ -500,7 +500,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noun
   ]
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %6, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %11 = load ptr, ptr %10, align 8, !tbaa !39
   tail call void @gtk_widget_destroy(ptr noundef %11) #10
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !31
@@ -516,7 +516,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noun
   %18 = tail call i64 @gtk_entry_get_type() #12
   %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %18) #10
   %20 = tail call ptr @gtk_entry_get_text(ptr noundef %19) #10
-  %21 = getelementptr inbounds i8, ptr %6, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %22 = load i32, ptr %21, align 8, !tbaa !29
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [0 x ptr], ptr @dt_colorlabels_name, i64 0, i64 %23
@@ -525,14 +525,14 @@ define internal noundef range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noun
   call void @dt_conf_set_string(ptr noundef nonnull %4, ptr noundef %20) #10
   %27 = load i32, ptr %21, align 8, !tbaa !29
   %28 = call fastcc ptr @_get_tooltip_for(i32 noundef %27)
-  %29 = getelementptr inbounds i8, ptr %6, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %30 = load i32, ptr %21, align 8, !tbaa !29
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds [6 x ptr], ptr %29, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !13
   call void @gtk_widget_set_tooltip_markup(ptr noundef %33, ptr noundef %28) #10
   call void @g_free(ptr noundef %28) #10
-  %34 = getelementptr inbounds i8, ptr %6, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %35 = load ptr, ptr %34, align 8, !tbaa !39
   call void @gtk_widget_destroy(ptr noundef %35) #10
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !31

@@ -68,7 +68,7 @@ define internal range(i64 0, 21) i64 @bug_sharing_with_shared_p(i64 %0, i64 noun
 
 4:                                                ; preds = %2
   %5 = inttoptr i64 %1 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @bug_shared_string_p(i64 poison, i64 noundef %7)
   br label %9

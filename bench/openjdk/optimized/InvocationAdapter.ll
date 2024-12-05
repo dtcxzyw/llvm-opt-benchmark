@@ -382,7 +382,7 @@ define internal fastcc range(i32 -1, 1) i32 @parseArgumentTail(ptr noundef %0, p
   br i1 %5, label %30, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %4, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #16
   %23 = shl i64 %22, 32
   %sext26 = add i64 %23, 4294967296
@@ -458,7 +458,7 @@ define internal fastcc void @appendBootClassPath(ptr %.8.val, ptr noundef %0, pt
   ]
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %.pr.i = load i8, ptr %10, align 1
   br label %7, !llvm.loop !6
 
@@ -475,7 +475,7 @@ define internal fastcc void @appendBootClassPath(ptr %.8.val, ptr noundef %0, pt
   br label %._crit_edge.thread
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
   store ptr %.1.i, ptr %17, align 8
   %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1.i, i32 noundef 32) #16
   %19 = icmp eq ptr %18, null
@@ -483,7 +483,7 @@ define internal fastcc void @appendBootClassPath(ptr %.8.val, ptr noundef %0, pt
 
 20:                                               ; preds = %16
   store i8 0, ptr %18, align 1
-  %21 = getelementptr inbounds i8, ptr %18, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %22 = load i8, ptr %21, align 1
   %.not.i = icmp eq i8 %22, 0
   br i1 %.not.i, label %splitPathList.exit, label %.preheader.i, !llvm.loop !8
@@ -503,7 +503,7 @@ splitPathList.exit:                               ; preds = %16, %20, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %148 ]
   %.022 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %148 ]
   %.06021 = phi i32 [ 0, %.lr.ph.preheader ], [ %.161, %148 ]
-  %25 = getelementptr inbounds ptr, ptr %.123.i, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %.123.i, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = call noalias ptr @strdup(ptr noundef %26) #15
   %28 = icmp ne ptr %27, null
@@ -571,7 +571,7 @@ splitPathList.exit:                               ; preds = %16, %20, %7
 
 56:                                               ; preds = %54
   %57 = trunc nsw i32 %.03962.i to i8
-  %58 = getelementptr inbounds i8, ptr %.03863.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.03863.i, i64 1
   store i8 %57, ptr %.03863.i, align 1
   %59 = add nsw i32 %.04261.i, 1
   %.not52.i = icmp slt i32 %59, %39
@@ -649,7 +649,7 @@ decodeByte.exit.i:                                ; preds = %82, %80, %decodeNib
   %85 = shl i8 %.0.i.i.i, 4
   %86 = and i8 %.0.i6.i.i, 15
   %87 = or disjoint i8 %86, %85
-  %88 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   store i8 %87, ptr %.2.i, align 1
   %indvars.iv.next.i89 = add nsw i64 %indvars.iv.i88, 3
   %.not50.i = icmp slt i64 %indvars.iv.next.i89, %53
@@ -731,7 +731,7 @@ decodePath.exit.thread:                           ; preds = %41, %37, %98, %deco
 
 118:                                              ; preds = %114
   %119 = load ptr, ptr %.8.val, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 1184
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1184
   %121 = load ptr, ptr %120, align 8
   %122 = call i32 %121(ptr noundef nonnull %.8.val, ptr noundef %.268) #15
   br label %139
@@ -761,7 +761,7 @@ decodePath.exit.thread:                           ; preds = %41, %37, %98, %deco
   %.3 = phi ptr [ %.022, %123 ], [ %130, %129 ]
   %134 = call ptr @resolve(ptr noundef %.3, ptr noundef %.268) #15
   %135 = load ptr, ptr %.8.val, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 1184
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 1184
   %137 = load ptr, ptr %136, align 8
   %138 = call i32 %137(ptr noundef nonnull %.8.val, ptr noundef %134) #15
   call void @free(ptr noundef %134) #15
@@ -834,7 +834,7 @@ define i32 @Agent_OnAttach(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 %10(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 65538) #15
   %12 = icmp eq i32 %11, 0
@@ -894,7 +894,7 @@ define i32 @Agent_OnAttach(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %39 = getelementptr i8, ptr %38, i64 8
   %.val82 = load ptr, ptr %39, align 8
   %40 = load ptr, ptr %.val82, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1200
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1200
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 %42(ptr noundef nonnull %.val82, ptr noundef %17) #15
   switch i32 %43, label %47 [
@@ -1022,7 +1022,7 @@ appendClassPath.exit:                             ; preds = %37
   %93 = load ptr, ptr %4, align 8
   %94 = load ptr, ptr %5, align 8
   %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 72
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 72
   %97 = load ptr, ptr %96, align 8
   %98 = call zeroext i8 @startJavaAgent(ptr noundef %93, ptr noundef %94, ptr noundef nonnull %.05388, ptr noundef %95, ptr noundef %97) #15
   call void @JPLISAssertConditionWithMessage(i8 noundef zeroext %98, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.18, i32 noundef 444) #15
@@ -1086,7 +1086,7 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1752
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1752
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 %7(ptr noundef nonnull %0, ptr noundef nonnull %3) #15
   %9 = icmp slt i32 %8, 0
@@ -1094,7 +1094,7 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1352
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1352
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr %13(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #15
   %15 = icmp eq ptr %14, null
@@ -1152,7 +1152,7 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
 
 41:                                               ; preds = %.thread
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 %44(ptr noundef nonnull %0, ptr noundef nonnull %40) #15
   br label %.thread107
@@ -1186,7 +1186,7 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 72
   %61 = load ptr, ptr %60, align 8
   %62 = call zeroext i8 @startJavaAgent(ptr noundef %59, ptr noundef nonnull %0, ptr noundef nonnull %.186, ptr noundef nonnull @.str.31, ptr noundef %61) #15
   %.not77 = icmp ne i8 %62, 0
@@ -1209,7 +1209,7 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
 .sink.split:                                      ; preds = %63, %.thread107, %19, %16
   %.0.ph = phi i32 [ -1, %16 ], [ %.061, %63 ], [ -1, %.thread107 ], [ -1, %19 ]
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1360
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1360
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %14) #15
   br label %67
@@ -1232,14 +1232,14 @@ define hidden void @eventHandlerVMInit(ptr noundef %0, ptr noundef %1, ptr nocap
   br label %7
 
 7:                                                ; preds = %6, %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %9, i64 8
   %.val = load ptr, ptr %12, align 8
   %13 = load ptr, ptr %.val, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1200
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1200
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %.val, ptr noundef %11) #15
   switch i32 %16, label %20 [
@@ -1301,9 +1301,9 @@ define hidden void @eventHandlerClassFileLoadHook(ptr noundef %0, ptr noundef %1
 
 12:                                               ; preds = %10
   %13 = tail call ptr @preserveThrowable(ptr noundef %1) #15
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load i8, ptr %16, align 8
   tail call void @transformClassFile(ptr noundef %15, ptr noundef %1, ptr noundef %3, ptr noundef %4, ptr noundef %2, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i8 noundef zeroext %17) #15
   tail call void @restoreThrowable(ptr noundef %1, ptr noundef %13) #15

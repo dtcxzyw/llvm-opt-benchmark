@@ -108,7 +108,7 @@ for.body:                                         ; preds = %entry, %if.end
 
 if.end:                                           ; preds = %for.body
   %inc = add nuw nsw i64 %i.013, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %tmp.011, i64 40
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %tmp.011, i64 40
   %exitcond.not = icmp eq i64 %inc, 28
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
@@ -133,7 +133,7 @@ for.body7:                                        ; preds = %if.end4, %for.body7
   %call10 = tail call ptr @OBJ_nid2ln(i32 noundef %1) #3
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.11, i64 noundef %i.115, i32 noundef %1, ptr noundef %call10) #3
   %inc12 = add nuw nsw i64 %i.115, 1
-  %incdec.ptr13 = getelementptr inbounds i8, ptr %tmp.114, i64 40
+  %incdec.ptr13 = getelementptr inbounds nuw i8, ptr %tmp.114, i64 40
   %exitcond16.not = icmp eq i64 %inc12, 28
   br i1 %exitcond16.not, label %return, label %for.body7, !llvm.loop !7
 
@@ -158,10 +158,10 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp1, label %for.end, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %pem_str = getelementptr inbounds i8, ptr %0, i64 16
+  %pem_str = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %pem_str, align 8
   %cmp3 = icmp ne ptr %2, null
-  %pkey_flags = getelementptr inbounds i8, ptr %0, i64 8
+  %pkey_flags = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %pkey_flags, align 8
   %4 = trunc i64 %3 to i32
   %spec.select = and i32 %4, 1
@@ -180,7 +180,7 @@ if.then11:                                        ; preds = %if.end
 for.inc:                                          ; preds = %if.end, %if.then11
   %ok.1 = phi i32 [ %ok.021, %if.end ], [ 0, %if.then11 ]
   %inc = add nuw nsw i64 %i.020, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %tmp.018, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %tmp.018, i64 8
   %exitcond.not = icmp eq i64 %inc, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
@@ -207,7 +207,7 @@ for.body23:                                       ; preds = %if.end19, %for.body
   %call26 = tail call ptr @OBJ_nid2sn(i32 noundef %8) #3
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.13, i64 noundef %i.123, i32 noundef %8, ptr noundef %call26) #3
   %inc28 = add nuw nsw i64 %i.123, 1
-  %incdec.ptr29 = getelementptr inbounds i8, ptr %tmp.122, i64 8
+  %incdec.ptr29 = getelementptr inbounds nuw i8, ptr %tmp.122, i64 8
   %exitcond24.not = icmp eq i64 %inc28, 16
   br i1 %exitcond24.not, label %return, label %for.body23, !llvm.loop !9
 
@@ -273,7 +273,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %ok.06.i = phi i32 [ %spec.select.i, %for.body.i ], [ 1, %entry ]
   %univ.addr.05.i.idx = phi i64 [ %univ.addr.05.i.add, %for.body.i ], [ 0, %entry ]
-  %univ.addr.05.i.ptr = getelementptr inbounds i8, ptr %univ_ok, i64 %univ.addr.05.i.idx
+  %univ.addr.05.i.ptr = getelementptr inbounds nuw i8, ptr %univ_ok, i64 %univ.addr.05.i.idx
   %call.i = call i32 @ASN1_mbstring_copy(ptr noundef null, ptr noundef nonnull %univ.addr.05.i.ptr, i32 noundef 4, i32 noundef 4100, i64 noundef 8192) #3
   %call1.i = call i32 @test_int_eq(ptr noundef nonnull @.str.6, i32 noundef 167, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef %call.i, i32 noundef 12) #3
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -285,7 +285,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 for.body.i2:                                      ; preds = %for.body.i, %for.body.i2
   %ok.06.i3 = phi i32 [ %spec.select.i8, %for.body.i2 ], [ 1, %for.body.i ]
   %univ.addr.05.i4.idx = phi i64 [ %univ.addr.05.i4.add, %for.body.i2 ], [ 0, %for.body.i ]
-  %univ.addr.05.i4.ptr = getelementptr inbounds i8, ptr %univ_bad, i64 %univ.addr.05.i4.idx
+  %univ.addr.05.i4.ptr = getelementptr inbounds nuw i8, ptr %univ_bad, i64 %univ.addr.05.i4.idx
   %call.i5 = call i32 @ASN1_mbstring_copy(ptr noundef null, ptr noundef nonnull %univ.addr.05.i4.ptr, i32 noundef 4, i32 noundef 4100, i64 noundef 8192) #3
   %call1.i6 = call i32 @test_int_eq(ptr noundef nonnull @.str.6, i32 noundef 167, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef %call.i5, i32 noundef -1) #3
   %tobool.not.i7 = icmp eq i32 %call1.i6, 0

@@ -1770,7 +1770,7 @@ define internal i32 @dissect_unistim(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 8:                                                ; preds = %6, %6, %6, %6, %6, %4, %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.653) #4
   %11 = load ptr, ptr %9, align 8
@@ -1783,27 +1783,27 @@ define internal i32 @dissect_unistim(ptr noundef %0, ptr noundef %1, ptr noundef
   %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 5, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.1281) #4
   %18 = load i32, ptr @hf_unistim_seq_nu, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noalias ptr @wmem_alloc(ptr noundef %21, i64 noundef 120) #4
   store ptr %22, ptr @uinfo, align 8
   store i8 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 0, ptr %23, align 1
   %24 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #4
   %25 = load ptr, ptr @uinfo, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %24, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 72
-  %29 = getelementptr inbounds i8, ptr %25, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 -1, i64 24, i1 false)
   store ptr null, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 112
   store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %25, i64 16
-  %32 = getelementptr inbounds i8, ptr %25, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %31, i8 0, i64 28, i1 false)
   %33 = load i32, ptr @hf_unistim_packet_type, align 4
@@ -1893,7 +1893,7 @@ define internal fastcc void @dissect_payload(ptr noundef %0, ptr noundef %1, ptr
   %6 = alloca ptr, align 8
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 5) #4
   %8 = load ptr, ptr @uinfo, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %7, ptr %9, align 1
   %10 = load i32, ptr @hf_unistim_payload, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %10, ptr noundef %1, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
@@ -1908,12 +1908,12 @@ define internal fastcc void @dissect_payload(ptr noundef %0, ptr noundef %1, ptr
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr @uinfo, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
-  %17 = getelementptr inbounds i8, ptr %2, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 212
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %22 = load ptr, ptr %21, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store i32 %18, ptr %16, align 8
@@ -1923,23 +1923,23 @@ define internal fastcc void @dissect_payload(ptr noundef %0, ptr noundef %1, ptr
 24:                                               ; preds = %14
   %25 = sext i32 %20 to i64
   %26 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %22, i64 noundef %25) #4
-  %27 = getelementptr inbounds i8, ptr %15, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %15, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store ptr %26, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %15, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 52
   store i32 %20, ptr %29, align 4
   %.pre90 = load ptr, ptr @uinfo, align 8
   br label %copy_address.exit
 
 copy_address.exit:                                ; preds = %14, %24
   %30 = phi ptr [ %15, %14 ], [ %.pre90, %24 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
-  %32 = getelementptr inbounds i8, ptr %2, i64 232
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 236
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 236
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 240
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %37 = load ptr, ptr %36, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   store i32 %33, ptr %31, align 8
@@ -1949,31 +1949,31 @@ copy_address.exit:                                ; preds = %14, %24
 39:                                               ; preds = %copy_address.exit
   %40 = sext i32 %35 to i64
   %41 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %37, i64 noundef %40) #4
-  %42 = getelementptr inbounds i8, ptr %30, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %30, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %41, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %30, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i32 %35, ptr %44, align 4
   %.pre91 = load ptr, ptr @uinfo, align 8
   br label %copy_address.exit30
 
 copy_address.exit30:                              ; preds = %copy_address.exit, %39
   %45 = phi ptr [ %30, %copy_address.exit ], [ %.pre91, %39 ]
-  %46 = getelementptr inbounds i8, ptr %2, i64 288
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i32 %47, ptr %48, align 8
   br label %dissect_uftp_message.exit
 
 49:                                               ; preds = %3
   %50 = load ptr, ptr @uinfo, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 48
-  %52 = getelementptr inbounds i8, ptr %2, i64 232
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 236
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 236
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %2, i64 240
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %57 = load ptr, ptr %56, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   store i32 %53, ptr %51, align 8
@@ -1983,23 +1983,23 @@ copy_address.exit30:                              ; preds = %copy_address.exit, 
 59:                                               ; preds = %49
   %60 = sext i32 %55 to i64
   %61 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %57, i64 noundef %60) #4
-  %62 = getelementptr inbounds i8, ptr %50, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %50, i64 64
   store ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %50, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %50, i64 56
   store ptr %61, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %50, i64 52
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 52
   store i32 %55, ptr %64, align 4
   %.pre = load ptr, ptr @uinfo, align 8
   br label %copy_address.exit31
 
 copy_address.exit31:                              ; preds = %49, %59
   %65 = phi ptr [ %50, %49 ], [ %.pre, %59 ]
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
-  %67 = getelementptr inbounds i8, ptr %2, i64 208
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %68 = load i32, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %2, i64 212
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %2, i64 216
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %72 = load ptr, ptr %71, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, i8 0, i64 24, i1 false)
   store i32 %68, ptr %66, align 8
@@ -2009,24 +2009,24 @@ copy_address.exit31:                              ; preds = %49, %59
 74:                                               ; preds = %copy_address.exit31
   %75 = sext i32 %70 to i64
   %76 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %72, i64 noundef %75) #4
-  %77 = getelementptr inbounds i8, ptr %65, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %65, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store ptr %76, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %65, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %65, i64 20
   store i32 %70, ptr %79, align 4
   %.pre89 = load ptr, ptr @uinfo, align 8
   br label %copy_address.exit32
 
 copy_address.exit32:                              ; preds = %copy_address.exit31, %74
   %80 = phi ptr [ %65, %copy_address.exit31 ], [ %.pre89, %74 ]
-  %81 = getelementptr inbounds i8, ptr %2, i64 284
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 284
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %80, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 40
   store i32 %82, ptr %83, align 8
   %84 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 6) #4
   %85 = load ptr, ptr @uinfo, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 %84, ptr %86, align 8
   %87 = load i32, ptr @hf_terminal_id, align 4
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %87, ptr noundef %1, i32 noundef 6, i32 noundef 4, i32 noundef 0) #4
@@ -2066,11 +2066,11 @@ dissect_uftp_message.exit:                        ; preds = %.sink.split.i, %89,
   br i1 %105, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %dissect_uftp_message.exit
-  %106 = getelementptr inbounds i8, ptr %2, i64 408
-  %107 = getelementptr inbounds i8, ptr %5, i64 4
-  %108 = getelementptr inbounds i8, ptr %5, i64 8
-  %109 = getelementptr inbounds i8, ptr %5, i64 16
-  %110 = getelementptr inbounds i8, ptr %2, i64 20
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %2, i64 20
   br label %111
 
 111:                                              ; preds = %.lr.ph, %dissect_unistim_message.exit
@@ -2554,7 +2554,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
 
 417:                                              ; preds = %217
   %418 = load ptr, ptr @uinfo, align 8
-  %419 = getelementptr inbounds i8, ptr %418, i64 84
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 84
   store i32 1, ptr %419, align 4
   %420 = load i32, ptr @hf_audio_rx_stream_id, align 4
   %421 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %420, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
@@ -2621,7 +2621,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
 
 471:                                              ; preds = %217
   %472 = load ptr, ptr @uinfo, align 8
-  %473 = getelementptr inbounds i8, ptr %472, i64 84
+  %473 = getelementptr inbounds nuw i8, ptr %472, i64 84
   store i32 0, ptr %473, align 4
   %474 = load i32, ptr @hf_audio_rx_stream_id, align 4
   %475 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %474, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
@@ -2633,7 +2633,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
 
 480:                                              ; preds = %217
   %481 = load ptr, ptr @uinfo, align 8
-  %482 = getelementptr inbounds i8, ptr %481, i64 88
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 88
   store i32 1, ptr %482, align 8
   %483 = load i32, ptr @hf_basic_bit_field, align 4
   %484 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %483, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
@@ -3278,7 +3278,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %902 = load i32, ptr @hf_generic_string, align 4
   %903 = load ptr, ptr %106, align 8
   %904 = load ptr, ptr @uinfo, align 8
-  %905 = getelementptr inbounds i8, ptr %904, i64 96
+  %905 = getelementptr inbounds nuw i8, ptr %904, i64 96
   %906 = call ptr @proto_tree_add_item_ret_string(ptr noundef %113, i32 noundef %902, ptr noundef %1, i32 noundef %.8.i, i32 noundef %.8570.i, i32 noundef 0, ptr noundef %903, ptr noundef nonnull %905) #4
   %907 = add i32 %.8.i, %.8570.i
   br label %dissect_unistim_message.exit
@@ -3652,7 +3652,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
 
 1154:                                             ; preds = %1119
   %1155 = load ptr, ptr @uinfo, align 8
-  %1156 = getelementptr inbounds i8, ptr %1155, i64 92
+  %1156 = getelementptr inbounds nuw i8, ptr %1155, i64 92
   store i32 1, ptr %1156, align 4
   %1157 = load i32, ptr @hf_basic_switch_terminal_id, align 4
   %1158 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1157, ptr noundef %1, i32 noundef %1123, i32 noundef %1124, i32 noundef 0) #4
@@ -3915,37 +3915,37 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
 
 1324:                                             ; preds = %1318
   %1325 = load ptr, ptr @uinfo, align 8
-  %1326 = getelementptr inbounds i8, ptr %1325, i64 80
+  %1326 = getelementptr inbounds nuw i8, ptr %1325, i64 80
   store i32 1, ptr %1326, align 8
   br label %dissect_unistim_message.exit
 
 1327:                                             ; preds = %1318
   %1328 = load ptr, ptr @uinfo, align 8
-  %1329 = getelementptr inbounds i8, ptr %1328, i64 80
+  %1329 = getelementptr inbounds nuw i8, ptr %1328, i64 80
   store i32 0, ptr %1329, align 8
   br label %dissect_unistim_message.exit
 
 1330:                                             ; preds = %1318
   %1331 = load ptr, ptr @uinfo, align 8
-  %1332 = getelementptr inbounds i8, ptr %1331, i64 80
+  %1332 = getelementptr inbounds nuw i8, ptr %1331, i64 80
   store i32 1, ptr %1332, align 8
   br label %dissect_unistim_message.exit
 
 1333:                                             ; preds = %1318
   %1334 = load ptr, ptr @uinfo, align 8
-  %1335 = getelementptr inbounds i8, ptr %1334, i64 80
+  %1335 = getelementptr inbounds nuw i8, ptr %1334, i64 80
   store i32 0, ptr %1335, align 8
   br label %dissect_unistim_message.exit
 
 1336:                                             ; preds = %1318
   %1337 = load ptr, ptr @uinfo, align 8
-  %1338 = getelementptr inbounds i8, ptr %1337, i64 80
+  %1338 = getelementptr inbounds nuw i8, ptr %1337, i64 80
   store i32 1, ptr %1338, align 8
   br label %dissect_unistim_message.exit
 
 1339:                                             ; preds = %1318
   %1340 = load ptr, ptr @uinfo, align 8
-  %1341 = getelementptr inbounds i8, ptr %1340, i64 80
+  %1341 = getelementptr inbounds nuw i8, ptr %1340, i64 80
   store i32 0, ptr %1341, align 8
   br label %dissect_unistim_message.exit
 
@@ -4392,7 +4392,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
 1670:                                             ; preds = %1664
   %1671 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1668) #4
   %1672 = load ptr, ptr @uinfo, align 8
-  %1673 = getelementptr inbounds i8, ptr %1672, i64 76
+  %1673 = getelementptr inbounds nuw i8, ptr %1672, i64 76
   %1674 = lshr i8 %1671, 6
   %1675 = zext nneg i8 %1674 to i32
   store i32 %1675, ptr %1673, align 4
@@ -4400,7 +4400,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1677 = and i8 %1676, 63
   %1678 = zext nneg i8 %1677 to i32
   %1679 = load ptr, ptr @uinfo, align 8
-  %1680 = getelementptr inbounds i8, ptr %1679, i64 72
+  %1680 = getelementptr inbounds nuw i8, ptr %1679, i64 72
   store i32 %1678, ptr %1680, align 8
   %1681 = load i32, ptr @hf_basic_bit_field, align 4
   %1682 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1681, ptr noundef %1, i32 noundef %1668, i32 noundef 1, i32 noundef 0) #4
@@ -4419,13 +4419,13 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
 
 1692:                                             ; preds = %1664
   %1693 = load ptr, ptr @uinfo, align 8
-  %1694 = getelementptr inbounds i8, ptr %1693, i64 80
+  %1694 = getelementptr inbounds nuw i8, ptr %1693, i64 80
   store i32 0, ptr %1694, align 8
   br label %dissect_unistim_message.exit
 
 1695:                                             ; preds = %1664
   %1696 = load ptr, ptr @uinfo, align 8
-  %1697 = getelementptr inbounds i8, ptr %1696, i64 80
+  %1697 = getelementptr inbounds nuw i8, ptr %1696, i64 80
   store i32 1, ptr %1697, align 8
   br label %dissect_unistim_message.exit
 

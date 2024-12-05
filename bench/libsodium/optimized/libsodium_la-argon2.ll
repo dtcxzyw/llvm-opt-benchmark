@@ -20,9 +20,9 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %m_cost = getelementptr inbounds i8, ptr %context, i64 80
+  %m_cost = getelementptr inbounds nuw i8, ptr %context, i64 80
   %1 = load i32, ptr %m_cost, align 8
-  %lanes = getelementptr inbounds i8, ptr %context, i64 84
+  %lanes = getelementptr inbounds nuw i8, ptr %context, i64 84
   %2 = load i32, ptr %lanes, align 4
   %mul = shl i32 %2, 3
   %spec.select = tail call i32 @llvm.umax.i32(i32 %1, i32 %mul)
@@ -30,26 +30,26 @@ if.end4:                                          ; preds = %if.end
   %div = udiv i32 %spec.select, %mul11
   %mul14 = mul i32 %div, %mul11
   store ptr null, ptr %instance, align 8
-  %t_cost = getelementptr inbounds i8, ptr %context, i64 76
+  %t_cost = getelementptr inbounds nuw i8, ptr %context, i64 76
   %3 = load i32, ptr %t_cost, align 4
-  %passes = getelementptr inbounds i8, ptr %instance, i64 16
+  %passes = getelementptr inbounds nuw i8, ptr %instance, i64 16
   store i32 %3, ptr %passes, align 8
-  %current_pass = getelementptr inbounds i8, ptr %instance, i64 20
+  %current_pass = getelementptr inbounds nuw i8, ptr %instance, i64 20
   store i32 -1, ptr %current_pass, align 4
-  %memory_blocks15 = getelementptr inbounds i8, ptr %instance, i64 24
+  %memory_blocks15 = getelementptr inbounds nuw i8, ptr %instance, i64 24
   store i32 %mul14, ptr %memory_blocks15, align 8
-  %segment_length16 = getelementptr inbounds i8, ptr %instance, i64 28
+  %segment_length16 = getelementptr inbounds nuw i8, ptr %instance, i64 28
   store i32 %div, ptr %segment_length16, align 4
   %mul17 = shl i32 %div, 2
-  %lane_length = getelementptr inbounds i8, ptr %instance, i64 32
+  %lane_length = getelementptr inbounds nuw i8, ptr %instance, i64 32
   store i32 %mul17, ptr %lane_length, align 8
-  %lanes19 = getelementptr inbounds i8, ptr %instance, i64 36
+  %lanes19 = getelementptr inbounds nuw i8, ptr %instance, i64 36
   store i32 %2, ptr %lanes19, align 4
-  %threads = getelementptr inbounds i8, ptr %context, i64 88
+  %threads = getelementptr inbounds nuw i8, ptr %context, i64 88
   %4 = load i32, ptr %threads, align 8
-  %threads20 = getelementptr inbounds i8, ptr %instance, i64 40
+  %threads20 = getelementptr inbounds nuw i8, ptr %instance, i64 40
   store i32 %4, ptr %threads20, align 8
-  %type21 = getelementptr inbounds i8, ptr %instance, i64 44
+  %type21 = getelementptr inbounds nuw i8, ptr %instance, i64 44
   store i32 %type, ptr %type21, align 4
   %call22 = call i32 @_sodium_argon2_initialize(ptr noundef nonnull %instance, ptr noundef %context) #8
   %cmp23.not = icmp eq i32 %call22, 0
@@ -116,35 +116,35 @@ if.end9:                                          ; preds = %if.end6
 if.end11:                                         ; preds = %if.end9
   store ptr %call, ptr %context, align 8
   %conv = trunc nuw i64 %hashlen to i32
-  %outlen = getelementptr inbounds i8, ptr %context, i64 8
+  %outlen = getelementptr inbounds nuw i8, ptr %context, i64 8
   store i32 %conv, ptr %outlen, align 8
-  %pwd13 = getelementptr inbounds i8, ptr %context, i64 16
+  %pwd13 = getelementptr inbounds nuw i8, ptr %context, i64 16
   store ptr %pwd, ptr %pwd13, align 8
   %conv14 = trunc nuw i64 %pwdlen to i32
-  %pwdlen15 = getelementptr inbounds i8, ptr %context, i64 24
+  %pwdlen15 = getelementptr inbounds nuw i8, ptr %context, i64 24
   store i32 %conv14, ptr %pwdlen15, align 8
-  %salt16 = getelementptr inbounds i8, ptr %context, i64 32
+  %salt16 = getelementptr inbounds nuw i8, ptr %context, i64 32
   store ptr %salt, ptr %salt16, align 8
   %conv17 = trunc nuw i64 %saltlen to i32
-  %saltlen18 = getelementptr inbounds i8, ptr %context, i64 40
+  %saltlen18 = getelementptr inbounds nuw i8, ptr %context, i64 40
   store i32 %conv17, ptr %saltlen18, align 8
-  %secret = getelementptr inbounds i8, ptr %context, i64 48
+  %secret = getelementptr inbounds nuw i8, ptr %context, i64 48
   store ptr null, ptr %secret, align 8
-  %secretlen = getelementptr inbounds i8, ptr %context, i64 56
+  %secretlen = getelementptr inbounds nuw i8, ptr %context, i64 56
   store i32 0, ptr %secretlen, align 8
-  %ad = getelementptr inbounds i8, ptr %context, i64 64
+  %ad = getelementptr inbounds nuw i8, ptr %context, i64 64
   store ptr null, ptr %ad, align 8
-  %adlen = getelementptr inbounds i8, ptr %context, i64 72
+  %adlen = getelementptr inbounds nuw i8, ptr %context, i64 72
   store i32 0, ptr %adlen, align 8
-  %t_cost19 = getelementptr inbounds i8, ptr %context, i64 76
+  %t_cost19 = getelementptr inbounds nuw i8, ptr %context, i64 76
   store i32 %t_cost, ptr %t_cost19, align 4
-  %m_cost20 = getelementptr inbounds i8, ptr %context, i64 80
+  %m_cost20 = getelementptr inbounds nuw i8, ptr %context, i64 80
   store i32 %m_cost, ptr %m_cost20, align 8
-  %lanes = getelementptr inbounds i8, ptr %context, i64 84
+  %lanes = getelementptr inbounds nuw i8, ptr %context, i64 84
   store i32 %parallelism, ptr %lanes, align 4
-  %threads = getelementptr inbounds i8, ptr %context, i64 88
+  %threads = getelementptr inbounds nuw i8, ptr %context, i64 88
   store i32 %parallelism, ptr %threads, align 8
-  %flags = getelementptr inbounds i8, ptr %context, i64 92
+  %flags = getelementptr inbounds nuw i8, ptr %context, i64 92
   store i32 0, ptr %flags, align 4
   %call21 = call i32 @_sodium_argon2_ctx(ptr noundef nonnull %context, i32 noundef %type)
   %cmp22.not = icmp eq i32 %call21, 0
@@ -238,7 +238,7 @@ entry:
 define hidden i32 @_sodium_argon2_verify(ptr noundef %encoded, ptr noundef %pwd, i64 noundef %pwdlen, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.Argon2_Context, align 8
-  %0 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %encoded) #10
   %cmp = icmp ugt i64 %call, 4294967295
@@ -246,17 +246,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv = trunc nuw i64 %call to i32
-  %adlen = getelementptr inbounds i8, ptr %ctx, i64 72
+  %adlen = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   store i32 %conv, ptr %adlen, align 8
-  %saltlen = getelementptr inbounds i8, ptr %ctx, i64 40
+  %saltlen = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store i32 %conv, ptr %saltlen, align 8
-  %outlen = getelementptr inbounds i8, ptr %ctx, i64 8
+  %outlen = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i32 %conv, ptr %outlen, align 8
   %call7 = tail call noalias ptr @malloc(i64 noundef %call) #9
-  %ad = getelementptr inbounds i8, ptr %ctx, i64 64
+  %ad = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   store ptr %call7, ptr %ad, align 8
   %call10 = tail call noalias ptr @malloc(i64 noundef %call) #9
-  %salt = getelementptr inbounds i8, ptr %ctx, i64 32
+  %salt = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store ptr %call10, ptr %salt, align 8
   %call13 = tail call noalias ptr @malloc(i64 noundef %call) #9
   store ptr %call13, ptr %ctx, align 8
@@ -300,11 +300,11 @@ if.then38:                                        ; preds = %if.end34
   br label %return
 
 if.end42:                                         ; preds = %if.end34
-  %t_cost = getelementptr inbounds i8, ptr %ctx, i64 76
+  %t_cost = getelementptr inbounds nuw i8, ptr %ctx, i64 76
   %4 = load i32, ptr %t_cost, align 4
-  %m_cost = getelementptr inbounds i8, ptr %ctx, i64 80
+  %m_cost = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   %5 = load i32, ptr %m_cost, align 8
-  %threads = getelementptr inbounds i8, ptr %ctx, i64 88
+  %threads = getelementptr inbounds nuw i8, ptr %ctx, i64 88
   %6 = load i32, ptr %threads, align 8
   %7 = load ptr, ptr %salt, align 8
   %8 = load i32, ptr %saltlen, align 8

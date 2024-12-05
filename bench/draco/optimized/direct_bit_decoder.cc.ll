@@ -32,7 +32,7 @@ define void @_ZN5draco16DirectBitDecoderC2Ev(ptr nocapture noundef nonnull write
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5draco16DirectBitDecoderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i.i, label %_ZN5draco16DirectBitDecoder5ClearEv.exit, label %5
@@ -42,9 +42,9 @@ define void @_ZN5draco16DirectBitDecoderD2Ev(ptr nocapture noundef nonnull align
   br label %_ZN5draco16DirectBitDecoder5ClearEv.exit
 
 _ZN5draco16DirectBitDecoder5ClearEv.exit:         ; preds = %1, %5
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = ptrtoint ptr %2 to i64
   store i64 %8, ptr %7, align 8
   %.not.i.i.i1 = icmp eq ptr %2, null
@@ -61,7 +61,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN5draco16DirectBi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5draco16DirectBitDecoder5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %5
@@ -71,9 +71,9 @@ define void @_ZN5draco16DirectBitDecoder5ClearEv(ptr nocapture noundef nonnull a
   br label %_ZNSt6vectorIjSaIjEE5clearEv.exit
 
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %1, %5
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = ptrtoint ptr %2 to i64
   store i64 %8, ptr %7, align 8
   ret void
@@ -84,7 +84,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco16DirectBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %0, ptr nocapture noundef %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %5, %3
   br i1 %.not.i.i.i, label %_ZN5draco16DirectBitDecoder5ClearEv.exit, label %6
@@ -94,14 +94,14 @@ define noundef zeroext i1 @_ZN5draco16DirectBitDecoder13StartDecodingEPNS_13Deco
   br label %_ZN5draco16DirectBitDecoder5ClearEv.exit
 
 _ZN5draco16DirectBitDecoder5ClearEv.exit:         ; preds = %2, %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = ptrtoint ptr %3 to i64
   store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 4
   %.not12 = icmp slt i64 %11, %14
@@ -146,7 +146,7 @@ _ZN5draco16DirectBitDecoder5ClearEv.exit:         ; preds = %2, %6
   br i1 %38, label %39, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i32, ptr %29, i64 %27
+  %40 = getelementptr inbounds nuw i32, ptr %29, i64 %27
   %.not.i.i = icmp eq ptr %28, %40
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %41
 
@@ -192,14 +192,14 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -276,7 +276,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35: ; preds = %_ZNSt6vectorIj
   store ptr %31, ptr %0, align 8
   %40 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds i32, ptr %31, i64 %29
+  %41 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %41, ptr %11, align 8
   br label %42
 

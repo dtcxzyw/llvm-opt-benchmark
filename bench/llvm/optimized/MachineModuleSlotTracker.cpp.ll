@@ -26,8 +26,8 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTracker30processMachineFunctio
 
 .lr.ph56:                                         ; preds = %3, %._crit_edge51
   %.sroa.039.054 = phi ptr [ %.sroa.039.0, %._crit_edge51 ], [ %.sroa.039.052, %3 ]
-  %6 = getelementptr inbounds i8, ptr %.sroa.039.054, i64 56
-  %7 = getelementptr inbounds i8, ptr %.sroa.039.054, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.039.054, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.039.054, i64 48
   %.sroa.033.046 = load ptr, ptr %6, align 8
   %.not4347 = icmp eq ptr %.sroa.033.046, %7
   br i1 %.not4347, label %._crit_edge51, label %.lr.ph50
@@ -47,7 +47,7 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTracker30processMachineFunctio
 _ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61: ; preds = %11
   %14 = inttoptr i64 %9 to ptr
   store ptr %14, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %.sroa.033.048, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 56
   br label %.lr.ph.preheader
 
 16:                                               ; preds = %11
@@ -59,7 +59,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61: ; preds = %11
 
 _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %16
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %19, align 8
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds ptr, ptr %20, i64 %22
@@ -76,18 +76,18 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %16
   %25 = load ptr, ptr %.045, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %.sroa.0.0.copyload = load ptr, ptr %26, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 48
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 48
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 56
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 56
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 64
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 64
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.not22 = icmp eq ptr %.sroa.0.0.copyload, null
   br i1 %.not22, label %31, label %27
 
 27:                                               ; preds = %.lr.ph
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.0.0.copyload) #5
   br label %31
@@ -98,7 +98,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %16
 
 32:                                               ; preds = %31
   %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.2.0.copyload) #5
   br label %36
@@ -109,7 +109,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %16
 
 37:                                               ; preds = %36
   %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.3.0.copyload) #5
   br label %41
@@ -120,13 +120,13 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %16
 
 42:                                               ; preds = %41
   %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.sroa.4.0.copyload) #5
   br label %46
 
 46:                                               ; preds = %41, %42
-  %47 = getelementptr inbounds i8, ptr %.045, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   %.not = icmp eq ptr %47, %24
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -178,7 +178,7 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTracker20processMachineModuleE
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(8) %1) #5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -195,7 +195,7 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTracker20processMachineModuleE
 
 26:                                               ; preds = %25, %16
   %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(8) %1) #5
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -218,7 +218,7 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTracker22processMachineFunctio
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %1) #5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -235,7 +235,7 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTracker22processMachineFunctio
 
 18:                                               ; preds = %17, %8
   %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %1) #5
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -279,7 +279,7 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTrackerC2ERKNS_17MachineModule
   %15 = ptrtoint ptr %0 to i64
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %18, align 8
   store i64 %15, ptr %5, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_6ModuleEbEZNS0_24MachineModuleSlotTrackerC1ERKNS0_17MachineModuleInfoEPKNS0_15MachineFunctionEbE3$_0E9_M_invokeERKSt9_Any_dataOS2_OS5_Ob", ptr %17, align 8
@@ -296,7 +296,7 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTrackerC2ERKNS_17MachineModule
 _ZNSt8functionIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_6ModuleEbEED2Ev.exit: ; preds = %4, %20
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %24, align 8
   store i64 %15, ptr %6, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm26AbstractSlotTrackerStorageEPKNS0_8FunctionEbEZNS0_24MachineModuleSlotTrackerC1ERKNS0_17MachineModuleInfoEPKNS0_15MachineFunctionEbE3$_1E9_M_invokeERKSt9_Any_dataOS2_OS5_Ob", ptr %23, align 8
@@ -376,7 +376,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm26AbstractSlotTrackerSt
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %.val4, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i32 %20(ptr noundef nonnull align 8 dereferenceable(8) %.val4) #5
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 128
@@ -393,7 +393,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm26AbstractSlotTrackerSt
 
 27:                                               ; preds = %26, %17
   %28 = load ptr, ptr %.val4, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(8) %.val4) #5
   %32 = getelementptr inbounds nuw i8, ptr %.val, i64 132
@@ -444,7 +444,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm26AbstractSlotTrackerSt
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %.val4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(8) %.val4) #5
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 128
@@ -461,7 +461,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPN4llvm26AbstractSlotTrackerSt
 
 19:                                               ; preds = %18, %9
   %20 = load ptr, ptr %.val4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(8) %.val4) #5
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 132

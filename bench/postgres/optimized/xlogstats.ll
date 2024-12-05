@@ -10,9 +10,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @XLogRecGetLen(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 84
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 84
   %7 = load i32, ptr %6, align 4
   %.not15 = icmp slt i32 %7, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
@@ -21,7 +21,7 @@ define dso_local void @XLogRecGetLen(ptr nocapture noundef readonly %0, ptr noca
   %8 = phi ptr [ %25, %24 ], [ %5, %3 ]
   %9 = phi i32 [ %26, %24 ], [ 0, %3 ]
   %.016 = phi i32 [ %27, %24 ], [ 0, %3 ]
-  %10 = getelementptr inbounds i8, ptr %8, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %11 = sext i32 %.016 to i64
   %12 = getelementptr [0 x %struct.DecodedBkpBlock], ptr %10, i64 0, i64 %11
   %13 = load i8, ptr %12, align 8
@@ -29,13 +29,13 @@ define dso_local void @XLogRecGetLen(ptr nocapture noundef readonly %0, ptr noca
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %12, i64 29
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 29
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %12, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %21 = load i16, ptr %20, align 4
   %22 = zext i16 %21 to i32
   %23 = add i32 %9, %22
@@ -47,7 +47,7 @@ define dso_local void @XLogRecGetLen(ptr nocapture noundef readonly %0, ptr noca
   %25 = phi ptr [ %8, %15 ], [ %.pre, %19 ], [ %8, %.lr.ph ]
   %26 = phi i32 [ %9, %15 ], [ %23, %19 ], [ %9, %.lr.ph ]
   %27 = add i32 %.016, 1
-  %28 = getelementptr inbounds i8, ptr %25, i64 84
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 84
   %29 = load i32, ptr %28, align 4
   %.not = icmp sgt i32 %27, %29
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -55,7 +55,7 @@ define dso_local void @XLogRecGetLen(ptr nocapture noundef readonly %0, ptr noca
 ._crit_edge:                                      ; preds = %24, %3
   %30 = phi i32 [ 0, %3 ], [ %26, %24 ]
   %.lcssa = phi ptr [ %5, %3 ], [ %25, %24 ]
-  %31 = getelementptr inbounds i8, ptr %.lcssa, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 40
   %32 = load i32, ptr %31, align 8
   %33 = sub i32 %32, %30
   store i32 %33, ptr %1, align 4
@@ -67,17 +67,17 @@ define dso_local void @XLogRecStoreStats(ptr nocapture noundef %0, ptr nocapture
   %3 = load i64, ptr %0, align 8
   %4 = add i64 %3, 1
   store i64 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 57
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 57
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %6, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 84
   %10 = load i32, ptr %9, align 4
   %.not15.i = icmp slt i32 %10, 0
   br i1 %.not15.i, label %XLogRecGetLen.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %12 = add nuw i32 %10, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -93,13 +93,13 @@ define dso_local void @XLogRecStoreStats(ptr nocapture noundef %0, ptr nocapture
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds i8, ptr %14, i64 29
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 29
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %14, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %23 = load i16, ptr %22, align 4
   %24 = zext i16 %23 to i32
   %25 = add i32 %13, %24
@@ -119,42 +119,42 @@ XLogRecGetLen.exit.loopexit:                      ; preds = %26
 XLogRecGetLen.exit:                               ; preds = %XLogRecGetLen.exit.loopexit, %2
   %.2 = phi i64 [ 0, %2 ], [ %28, %XLogRecGetLen.exit.loopexit ]
   %29 = phi i32 [ 0, %2 ], [ %27, %XLogRecGetLen.exit.loopexit ]
-  %30 = getelementptr inbounds i8, ptr %6, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = sub i32 %31, %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = zext i8 %8 to i64
   %35 = getelementptr [256 x %struct.XLogRecStats], ptr %33, i64 0, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8
   %38 = zext i32 %32 to i64
-  %39 = getelementptr inbounds i8, ptr %35, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, %.2
   store i64 %44, ptr %42, align 8
   %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %47 = load i8, ptr %46, align 8
   %48 = lshr i8 %47, 4
   %49 = icmp eq i8 %8, 1
   %50 = and i8 %48, 7
   %spec.select = select i1 %49, i8 %50, i8 %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 6168
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 6168
   %52 = zext nneg i8 %spec.select to i64
   %53 = getelementptr [256 x [16 x %struct.XLogRecStats]], ptr %51, i64 0, i64 %34, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, 1
   store i64 %55, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, %38
   store i64 %58, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %53, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, %.2
   store i64 %61, ptr %59, align 8

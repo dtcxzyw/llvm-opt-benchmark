@@ -83,7 +83,7 @@ define dso_local i64 @helper_aes64esm(i64 noundef %rs1, i64 noundef %rs2) local_
 entry:
   %t = alloca %union.AESState, align 16
   store i64 %rs1, ptr %t, align 16
-  %arrayidx1 = getelementptr inbounds i8, ptr %t, i64 8
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %t, i64 8
   store i64 %rs2, ptr %arrayidx1, align 8
   %0 = load i32, ptr @cpuinfo, align 4
   %and.i = and i32 %0, 262144
@@ -108,7 +108,7 @@ define dso_local i64 @helper_aes64es(i64 noundef %rs1, i64 noundef %rs2) local_u
 entry:
   %t = alloca %union.AESState, align 16
   store i64 %rs1, ptr %t, align 16
-  %arrayidx1 = getelementptr inbounds i8, ptr %t, i64 8
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %t, i64 8
   store i64 %rs2, ptr %arrayidx1, align 8
   %0 = load i32, ptr @cpuinfo, align 4
   %and.i = and i32 %0, 262144
@@ -133,7 +133,7 @@ define dso_local i64 @helper_aes64ds(i64 noundef %rs1, i64 noundef %rs2) local_u
 entry:
   %t = alloca %union.AESState, align 16
   store i64 %rs1, ptr %t, align 16
-  %arrayidx1 = getelementptr inbounds i8, ptr %t, i64 8
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %t, i64 8
   store i64 %rs2, ptr %arrayidx1, align 8
   %0 = load i32, ptr @cpuinfo, align 4
   %and.i = and i32 %0, 262144
@@ -160,7 +160,7 @@ entry:
   %z = alloca %union.AESState, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %z, i8 0, i64 16, i1 false)
   store i64 %rs1, ptr %t, align 16
-  %arrayidx1 = getelementptr inbounds i8, ptr %t, i64 8
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %t, i64 8
   store i64 %rs2, ptr %arrayidx1, align 8
   %0 = load i32, ptr @cpuinfo, align 4
   %and.i = and i32 %0, 262144
@@ -214,18 +214,18 @@ if.then:                                          ; preds = %entry
   %arrayidx = getelementptr [10 x i8], ptr @helper_aes64ks1i.round_consts, i64 0, i64 %conv23
   %0 = load i8, ptr %arrayidx, align 1
   %conv4 = zext i8 %0 to i32
-  %arrayidx5 = getelementptr inbounds i8, ptr %rc, i64 4
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %rc, i64 4
   store i32 %conv4, ptr %arrayidx5, align 4
   store i32 %conv4, ptr %rc, align 16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %temp.0 = phi i32 [ %or.i, %if.then ], [ %conv1, %entry ]
-  %arrayidx7 = getelementptr inbounds i8, ptr %t, i64 12
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %t, i64 12
   store i32 %temp.0, ptr %arrayidx7, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %t, i64 8
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %t, i64 8
   store i32 %temp.0, ptr %arrayidx8, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %t, i64 4
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %t, i64 4
   store i32 %temp.0, ptr %arrayidx9, align 4
   store i32 %temp.0, ptr %t, align 16
   %1 = load i32, ptr @cpuinfo, align 4
@@ -251,7 +251,7 @@ define dso_local i64 @helper_aes64im(i64 noundef %rs1) local_unnamed_addr #1 {
 entry:
   %t = alloca %union.AESState, align 16
   store i64 %rs1, ptr %t, align 16
-  %arrayidx1 = getelementptr inbounds i8, ptr %t, i64 8
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %t, i64 8
   store i64 0, ptr %arrayidx1, align 8
   %0 = load i32, ptr @cpuinfo, align 4
   %and.i = and i32 %0, 262144

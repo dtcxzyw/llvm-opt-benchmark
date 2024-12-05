@@ -145,63 +145,63 @@ define void @_Z22write_sto_conf_indexedRKNSt10filesystem7__cxx114pathEPKcPK7t_at
 20:                                               ; preds = %9
   call void @_Z14clear_trxframeP10t_trxframeb(ptr noundef nonnull %10, i1 noundef zeroext true)
   %21 = load i32, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i8 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %10, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i8 1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %10, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %3, ptr %26, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %30, label %27
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %10, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i8 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %10, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store ptr %4, ptr %29, align 8
   br label %30
 
 30:                                               ; preds = %27, %20
-  %31 = getelementptr inbounds i8, ptr %10, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 112
   store i8 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %10, i64 116
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 116
   %33 = load float, ptr %6, align 4
   store float %33, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %6, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %35 = load float, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %10, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 120
   store float %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %38 = load float, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %10, i64 124
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 124
   store float %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %6, i64 12
-  %41 = getelementptr inbounds i8, ptr %10, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %42 = load float, ptr %40, align 4
   store float %42, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %10, i64 132
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 132
   store float %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %6, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %10, i64 136
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 136
   store float %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 24
-  %50 = getelementptr inbounds i8, ptr %10, i64 140
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 140
   %51 = load float, ptr %49, align 4
   store float %51, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %6, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %53 = load float, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %10, i64 144
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 144
   store float %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %56 = load float, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %10, i64 148
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 148
   store float %56, ptr %57, align 4
   %58 = call noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str)
   call void @_Z14write_g96_confP8_IO_FILEPKcPK10t_trxframeiPKi(ptr noundef %58, ptr noundef %1, ptr noundef nonnull %10, i32 noundef %7, ptr noundef %8)
@@ -331,7 +331,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #14
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -339,7 +339,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -416,7 +416,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -631,63 +631,63 @@ define void @_Z14write_sto_confRKNSt10filesystem7__cxx114pathEPKcPK7t_atomsPA3_K
 16:                                               ; preds = %7
   call void @_Z14clear_trxframeP10t_trxframeb(ptr noundef nonnull %8, i1 noundef zeroext true)
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 44
   store i8 1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %8, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store ptr %3, ptr %22, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %26, label %23
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %8, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store i8 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr %4, ptr %25, align 8
   br label %26
 
 26:                                               ; preds = %23, %16
-  %27 = getelementptr inbounds i8, ptr %8, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i8 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 116
   %29 = load float, ptr %6, align 4
   store float %29, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %6, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %31 = load float, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %8, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store float %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %34 = load float, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %8, i64 124
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 124
   store float %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %6, i64 12
-  %37 = getelementptr inbounds i8, ptr %8, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %38 = load float, ptr %36, align 4
   store float %38, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %40 = load float, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %8, i64 132
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 132
   store float %40, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %6, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %8, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store float %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 24
-  %46 = getelementptr inbounds i8, ptr %8, i64 140
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 140
   %47 = load float, ptr %45, align 4
   store float %47, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %6, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %8, i64 144
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 144
   store float %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %52 = load float, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %8, i64 148
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 148
   store float %52, ptr %53, align 4
   %54 = call noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str)
   call void @_Z14write_g96_confP8_IO_FILEPKcPK10t_trxframeiPKi(ptr noundef %54, ptr noundef %1, ptr noundef nonnull %8, i32 noundef -1, ptr noundef null)
@@ -828,13 +828,13 @@ define void @_ZN13ChainIdFiller4fillEP7t_atomsii(ptr nocapture noundef nonnull a
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i8, ptr %12, align 4
   switch i8 %13, label %17 [
     i8 90, label %14
@@ -865,8 +865,8 @@ define void @_ZN13ChainIdFiller4fillEP7t_atomsii(ptr nocapture noundef nonnull a
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 48
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = sext i32 %2 to i64
   %wide.trip.count = sext i32 %3 to i64
   br label %24
@@ -901,25 +901,25 @@ define void @_ZN13ChainIdFiller4fillEP7t_atomsii(ptr nocapture noundef nonnull a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK13ChainIdFiller13clearIfNeededEP7t_atoms(ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 66
   br i1 %5, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds %struct.t_resinfo, ptr %11, i64 %indvars.iv, i32 4
+  %12 = getelementptr inbounds nuw %struct.t_resinfo, ptr %11, i64 %indvars.iv, i32 4
   store i8 32, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %6, align 8
@@ -962,7 +962,7 @@ define void @_Z16readConfAndAtomsRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7t
           to label %31 unwind label %100
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %24, i64 688
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 688
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   %33 = load ptr, ptr %24, align 8
   %34 = load ptr, ptr %33, align 8
@@ -980,7 +980,7 @@ define void @_Z16readConfAndAtomsRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7t
           to label %38 unwind label %100
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %26, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %26, align 8
   %42 = ptrtoint ptr %40 to i64
@@ -991,8 +991,8 @@ define void @_Z16readConfAndAtomsRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7t
   br i1 %.not25.i, label %_ZL35makeChainIdentifiersAfterTprReadingP7t_atomsRKN3gmx17RangePartitioningE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %3, i64 48
-  %47 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %48
 
 48:                                               ; preds = %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i, %.lr.ph.i
@@ -1095,7 +1095,7 @@ _ZN13ChainIdFiller4fillEP7t_atomsii.exit.i:       ; preds = %_ZN13ChainIdFiller4
   br i1 %88, label %.preheader.i.i, label %_ZL35makeChainIdentifiersAfterTprReadingP7t_atomsRKN3gmx17RangePartitioningE.exit
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i
-  %89 = getelementptr inbounds i8, ptr %3, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %90 = load i32, ptr %89, align 8
   %91 = icmp sgt i32 %90, 0
   br i1 %91, label %.lr.ph.i14.i, label %_ZL35makeChainIdentifiersAfterTprReadingP7t_atomsRKN3gmx17RangePartitioningE.exit
@@ -1103,7 +1103,7 @@ _ZN13ChainIdFiller4fillEP7t_atomsii.exit.i:       ; preds = %_ZN13ChainIdFiller4
 .lr.ph.i14.i:                                     ; preds = %.preheader.i.i, %.lr.ph.i14.i
   %indvars.iv.i15.i = phi i64 [ %indvars.iv.next.i16.i, %.lr.ph.i14.i ], [ 0, %.preheader.i.i ]
   %92 = load ptr, ptr %46, align 8
-  %93 = getelementptr inbounds %struct.t_resinfo, ptr %92, i64 %indvars.iv.i15.i, i32 4
+  %93 = getelementptr inbounds nuw %struct.t_resinfo, ptr %92, i64 %indvars.iv.i15.i, i32 4
   store i8 32, ptr %93, align 4
   %indvars.iv.next.i16.i = add nuw nsw i64 %indvars.iv.i15.i, 1
   %94 = load i32, ptr %89, align 8
@@ -1117,7 +1117,7 @@ _ZL35makeChainIdentifiersAfterTprReadingP7t_atomsRKN3gmx17RangePartitioningE.exi
 
 _ZL35makeChainIdentifiersAfterTprReadingP7t_atomsRKN3gmx17RangePartitioningE.exit: ; preds = %_ZL35makeChainIdentifiersAfterTprReadingP7t_atomsRKN3gmx17RangePartitioningE.exit.loopexit, %.preheader.i.i, %._crit_edge.i, %38
   %97 = phi ptr [ %.pre39, %_ZL35makeChainIdentifiersAfterTprReadingP7t_atomsRKN3gmx17RangePartitioningE.exit.loopexit ], [ %79, %.preheader.i.i ], [ %79, %._crit_edge.i ], [ %41, %38 ]
-  %98 = getelementptr inbounds i8, ptr %24, i64 696
+  %98 = getelementptr inbounds nuw i8, ptr %24, i64 696
   store ptr null, ptr %98, align 8
   store i32 0, ptr %32, align 8
   %.not.i.i.i.i = icmp eq ptr %97, null
@@ -1167,7 +1167,7 @@ _ZN3gmx17RangePartitioningD2Ev.exit29:            ; preds = %105, %102, %100
           to label %108 unwind label %112
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %21, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %110 = load ptr, ptr %109, align 8
   %.not.i.i.i.i30 = icmp eq ptr %110, null
   br i1 %.not.i.i.i.i30, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i, label %111
@@ -1199,15 +1199,15 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %111, %108
 
 115:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i
   %116 = call noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.14)
-  %117 = getelementptr inbounds i8, ptr %19, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 -1, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %19, i64 48
+  %118 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr null, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %19, i64 72
+  %119 = getelementptr inbounds nuw i8, ptr %19, i64 72
   store ptr null, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %19, i64 88
+  %120 = getelementptr inbounds nuw i8, ptr %19, i64 88
   store ptr null, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %19, i64 104
+  %121 = getelementptr inbounds nuw i8, ptr %19, i64 104
   store ptr null, ptr %121, align 8
   %122 = call noundef i32 @_Z13read_g96_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPPcP10t_trxframeP8t_symtabS6_(ptr noundef %116, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef null, ptr noundef nonnull %19, ptr noundef null, ptr noundef nonnull %20)
   store i32 %122, ptr %27, align 4
@@ -1326,7 +1326,7 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit.i:  ; preds = %154
   br label %177
 
 162:                                              ; preds = %.thread
-  %163 = getelementptr inbounds i8, ptr %3, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, null
   br i1 %165, label %166, label %177
@@ -1393,53 +1393,53 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit.i:  ; preds = %154
 
 182:                                              ; preds = %179
   %183 = load i32, ptr %3, align 8
-  %184 = getelementptr inbounds i8, ptr %10, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %183, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %10, i64 48
+  %185 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %3, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %10, i64 72
+  %186 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %150, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %10, i64 88
+  %187 = getelementptr inbounds nuw i8, ptr %10, i64 88
   store ptr %151, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %10, i64 104
+  %188 = getelementptr inbounds nuw i8, ptr %10, i64 104
   store ptr null, ptr %188, align 8
   %189 = call noundef ptr @_Z13gmx_fio_fopenRKNSt10filesystem7__cxx114pathEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull @.str.14)
   %190 = call noundef i32 @_Z13read_g96_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPPcP10t_trxframeP8t_symtabS6_(ptr noundef %189, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %2, ptr noundef nonnull %10, ptr noundef %1, ptr noundef nonnull %11)
   %191 = call noundef i32 @_Z14gmx_fio_fcloseP8_IO_FILE(ptr noundef %189)
-  %192 = getelementptr inbounds i8, ptr %10, i64 116
+  %192 = getelementptr inbounds nuw i8, ptr %10, i64 116
   %193 = load float, ptr %192, align 4
   store float %193, ptr %7, align 4
-  %194 = getelementptr inbounds i8, ptr %10, i64 120
+  %194 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %195 = load float, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %7, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %195, ptr %196, align 4
-  %197 = getelementptr inbounds i8, ptr %10, i64 124
+  %197 = getelementptr inbounds nuw i8, ptr %10, i64 124
   %198 = load float, ptr %197, align 4
-  %199 = getelementptr inbounds i8, ptr %7, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %198, ptr %199, align 4
-  %200 = getelementptr inbounds i8, ptr %10, i64 128
-  %201 = getelementptr inbounds i8, ptr %7, i64 12
+  %200 = getelementptr inbounds nuw i8, ptr %10, i64 128
+  %201 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %202 = load float, ptr %200, align 8
   store float %202, ptr %201, align 4
-  %203 = getelementptr inbounds i8, ptr %10, i64 132
+  %203 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %204 = load float, ptr %203, align 4
-  %205 = getelementptr inbounds i8, ptr %7, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store float %204, ptr %205, align 4
-  %206 = getelementptr inbounds i8, ptr %10, i64 136
+  %206 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %207 = load float, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %7, i64 20
+  %208 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store float %207, ptr %208, align 4
-  %209 = getelementptr inbounds i8, ptr %10, i64 140
-  %210 = getelementptr inbounds i8, ptr %7, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %10, i64 140
+  %210 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %211 = load float, ptr %209, align 4
   store float %211, ptr %210, align 4
-  %212 = getelementptr inbounds i8, ptr %10, i64 144
+  %212 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %213 = load float, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %7, i64 28
+  %214 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store float %213, ptr %214, align 4
-  %215 = getelementptr inbounds i8, ptr %10, i64 148
+  %215 = getelementptr inbounds nuw i8, ptr %10, i64 148
   %216 = load float, ptr %215, align 4
-  %217 = getelementptr inbounds i8, ptr %7, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store float %216, ptr %217, align 4
   br label %_ZL13read_stx_confRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7t_atomsPA3_fSB_P7PbcTypeSB_.exit
 
@@ -1546,7 +1546,7 @@ define void @_Z19readConfAndTopologyRKNSt10filesystem7__cxx114pathEPbP10gmx_mtop
   br i1 %.not31, label %25, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
   %24 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 465, i64 noundef range(i64 -2147483648, 2147483648) %23, i64 noundef 12)
@@ -1558,7 +1558,7 @@ define void @_Z19readConfAndTopologyRKNSt10filesystem7__cxx114pathEPbP10gmx_mtop
   br i1 %.not32, label %31, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %8, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %28 to i64
   %30 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 469, i64 noundef range(i64 -2147483648, 2147483648) %29, i64 noundef 12)
@@ -1676,15 +1676,15 @@ define noundef zeroext i1 @_Z13read_tps_confRKNSt10filesystem7__cxx114pathEP10t_
   br i1 %15, label %16, label %_ZL26tpx_make_chain_identifiersP7t_atomsPK7t_block.exit
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %1, i64 2392
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 2392
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph.i, label %_ZL26tpx_make_chain_identifiersP7t_atomsPK7t_block.exit
 
 .lr.ph.i:                                         ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 2400
-  %21 = getelementptr inbounds i8, ptr %1, i64 2368
-  %22 = getelementptr inbounds i8, ptr %1, i64 2328
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2400
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2368
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 2328
   br label %23
 
 23:                                               ; preds = %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i, %.lr.ph.i
@@ -1694,11 +1694,11 @@ define noundef zeroext i1 @_Z13read_tps_confRKNSt10filesystem7__cxx114pathEP10t_
   %.sroa.4.014.i = phi i8 [ 65, %.lr.ph.i ], [ %.sroa.4.1.i, %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i ]
   %.sroa.10.013.i = phi i1 [ false, %.lr.ph.i ], [ %.sroa.10.1.i, %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i ]
   %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = add nuw nsw i32 %.016.i, 1
-  %29 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv.next.i
+  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.next.i
   %30 = load i32, ptr %29, align 4
   %31 = sub nsw i32 %30, %27
   %32 = icmp slt i32 %31, 15
@@ -1769,7 +1769,7 @@ _ZN13ChainIdFiller4fillEP7t_atomsii.exit.i:       ; preds = %_ZN13ChainIdFiller4
   br i1 %57, label %.preheader.i.i, label %_ZL26tpx_make_chain_identifiersP7t_atomsPK7t_block.exit
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i
-  %58 = getelementptr inbounds i8, ptr %1, i64 2360
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 2360
   %59 = load i32, ptr %58, align 8
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %.lr.ph.i8.i, label %_ZL26tpx_make_chain_identifiersP7t_atomsPK7t_block.exit
@@ -1777,7 +1777,7 @@ _ZN13ChainIdFiller4fillEP7t_atomsii.exit.i:       ; preds = %_ZN13ChainIdFiller4
 .lr.ph.i8.i:                                      ; preds = %.preheader.i.i, %.lr.ph.i8.i
   %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i10.i, %.lr.ph.i8.i ], [ 0, %.preheader.i.i ]
   %61 = load ptr, ptr %21, align 8
-  %62 = getelementptr inbounds %struct.t_resinfo, ptr %61, i64 %indvars.iv.i9.i, i32 4
+  %62 = getelementptr inbounds nuw %struct.t_resinfo, ptr %61, i64 %indvars.iv.i9.i, i32 4
   store i8 32, ptr %62, align 4
   %indvars.iv.next.i10.i = add nuw nsw i64 %indvars.iv.i9.i, 1
   %63 = load i32, ptr %58, align 8
@@ -1794,13 +1794,13 @@ _ZL26tpx_make_chain_identifiersP7t_atomsPK7t_block.exit: ; preds = %.lr.ph.i8.i,
   br i1 %6, label %68, label %82
 
 68:                                               ; preds = %_ZL26tpx_make_chain_identifiersP7t_atomsPK7t_block.exit
-  %69 = getelementptr inbounds i8, ptr %1, i64 2384
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 2384
   %70 = load i8, ptr %69, align 8
   %71 = trunc i8 %70 to i1
   br i1 %71, label %82, label %72
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %1, i64 2320
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 2320
   invoke void @_Z26atomsSetMassesBasedOnNamesP7t_atomsb(ptr noundef nonnull %73, i1 noundef zeroext true)
           to label %74 unwind label %66
 

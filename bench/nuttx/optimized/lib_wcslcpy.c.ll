@@ -17,14 +17,14 @@ define range(i64 -2305843009213693953, 2305843009213693951) i64 @wcslcpy(ptr noc
   %.116 = phi ptr [ %9, %8 ], [ %0, %.preheader.preheader ]
   %.114 = phi ptr [ %5, %8 ], [ %1, %.preheader.preheader ]
   %.1 = phi i64 [ %10, %8 ], [ %4, %.preheader.preheader ]
-  %5 = getelementptr inbounds i8, ptr %.114, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %.114, i64 4
   %6 = load i32, ptr %.114, align 4
   store i32 %6, ptr %.116, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %.116, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.116, i64 4
   %10 = add i64 %.1, -1
   %.not24 = icmp eq i64 %10, 0
   br i1 %.not24, label %.loopexit31, label %.preheader, !llvm.loop !6
@@ -43,7 +43,7 @@ define range(i64 -2305843009213693953, 2305843009213693951) i64 @wcslcpy(ptr noc
 
 12:                                               ; preds = %.preheader47, %12
   %.3 = phi ptr [ %13, %12 ], [ %.013.ph, %.preheader47 ]
-  %13 = getelementptr inbounds i8, ptr %.3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %14 = load i32, ptr %.3, align 4
   %.not25 = icmp eq i32 %14, 0
   br i1 %.not25, label %.loopexit, label %12, !llvm.loop !8

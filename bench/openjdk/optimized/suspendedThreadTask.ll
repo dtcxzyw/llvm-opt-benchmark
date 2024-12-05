@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19SuspendedThreadTask3runEv(ptr noundef nonnull align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN19SuspendedThreadTask16internal_do_taskEv(ptr noundef nonnull align 8 dereferenceable(17) %0) #2
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %2, align 8
   ret void
 }

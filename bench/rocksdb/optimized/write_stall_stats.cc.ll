@@ -294,7 +294,7 @@ switch.hole_check:                                ; preds = %init.end24
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %17 = zext nneg i32 %cause to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN7rocksdb29WriteStallCauseToHyphenStringB5cxx11ENS_15WriteStallCauseE, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN7rocksdb29WriteStallCauseToHyphenStringB5cxx11ENS_15WriteStallCauseE, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 

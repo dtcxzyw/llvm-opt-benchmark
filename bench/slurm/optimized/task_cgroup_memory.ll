@@ -59,7 +59,7 @@ define range(i32 -1, 1) i32 @task_cgroup_memory_init() local_unnamed_addr #0 {
   %9 = load float, ptr getelementptr inbounds (i8, ptr @slurm_cgroup_conf, i64 44), align 4
   store float %9, ptr @allowed_swap_space, align 4
   %10 = load ptr, ptr @conf, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4208
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4208
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr @totalram, align 8
   %13 = icmp eq i64 %12, 0
@@ -154,14 +154,14 @@ define i32 @task_cgroup_memory_create(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %19
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load i64, ptr %5, align 8
   %7 = tail call fastcc i32 @_memcg_initialize(i64 noundef %6, i1 noundef zeroext false)
   %.not5 = icmp eq i32 %7, 0
   br i1 %.not5, label %8, label %19
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = load i64, ptr %9, align 8
   %11 = tail call fastcc i32 @_memcg_initialize(i64 noundef %10, i1 noundef zeroext true)
   %.not6 = icmp eq i32 %11, 0
@@ -258,13 +258,13 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   %39 = load i8, ptr @constrain_ram_space, align 1
   %40 = trunc nuw i8 %39 to i1
   %spec.select = select i1 %40, i64 %.0.i410, i64 %.0.i31
-  %41 = getelementptr inbounds i8, ptr %3, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %spec.select, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %.022, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 -2, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 -2, ptr %44, align 8
   %45 = load i8, ptr @constrain_swap_space, align 1
   %46 = trunc nuw i8 %45 to i1
@@ -338,7 +338,7 @@ define range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef %0) local
   br i1 %5, label %40, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %12, label %9
@@ -360,12 +360,12 @@ define range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef %0) local
 
 .sink.split:                                      ; preds = %14, %9
   %.str.7.sink = phi ptr [ @.str.6, %9 ], [ @.str.7, %14 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.7.sink, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_check_oom, ptr noundef nonnull %17) #4
   br label %18
 
 18:                                               ; preds = %.sink.split, %12, %14, %9
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = load i64, ptr %19, align 8
   %.not12 = icmp eq i64 %20, 0
   br i1 %.not12, label %24, label %21
@@ -376,7 +376,7 @@ define range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef %0) local
   br i1 %23, label %.sink.split15, label %31
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = load i64, ptr %25, align 8
   %.not13 = icmp eq i64 %26, 0
   br i1 %.not13, label %31, label %27
@@ -388,12 +388,12 @@ define range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef %0) local
 
 .sink.split15:                                    ; preds = %27, %21
   %.str.7.sink16 = phi ptr [ @.str.6, %21 ], [ @.str.7, %27 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull %.str.7.sink16, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_cgroup_memory_check_oom, ptr noundef nonnull %30) #4
   br label %31
 
 31:                                               ; preds = %.sink.split15, %24, %27, %21
-  %32 = getelementptr inbounds i8, ptr %4, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %33 = load i64, ptr %32, align 8
   %.not14 = icmp eq i64 %33, 0
   br i1 %.not14, label %39, label %34
@@ -401,7 +401,7 @@ define range(i32 -1, 13) i32 @task_cgroup_memory_check_oom(ptr noundef %0) local
 34:                                               ; preds = %31
   %35 = icmp eq i64 %33, 1
   %36 = select i1 %35, ptr @.str.9, ptr @.str.10
-  %37 = getelementptr inbounds i8, ptr %0, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, i64 noundef %33, ptr noundef nonnull %36, ptr noundef nonnull %37) #4
   br label %39
 

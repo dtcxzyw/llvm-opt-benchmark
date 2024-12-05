@@ -61,7 +61,7 @@ define noalias noundef ptr @wscbor_error_new(ptr noundef %0, ptr noundef %1, ptr
   call void @wmem_strbuf_append_vprintf(ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %4) #8
   call void @llvm.va_end.p0(ptr nonnull %4)
   %8 = call ptr @wmem_strbuf_finalize(ptr noundef %7) #8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
   br label %10
 
@@ -108,18 +108,18 @@ define noalias ptr @wscbor_chunk_read(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %11, ptr %10, align 8
   store ptr %0, ptr %11, align 8
   %12 = tail call noalias ptr @wmem_list_new(ptr noundef nonnull %0) #8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %12, ptr %13, align 8
   %14 = tail call noalias ptr @wmem_list_new(ptr noundef nonnull %0) #8
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %14, ptr %15, align 8
   %16 = tail call noalias ptr @wmem_list_new(ptr noundef nonnull %0) #8
-  %17 = getelementptr inbounds i8, ptr %10, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %16, ptr %17, align 8
   %18 = load i32, ptr %2, align 4
-  %19 = getelementptr inbounds i8, ptr %10, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 12
   br label %21
 
 21:                                               ; preds = %52, %9
@@ -127,15 +127,15 @@ define noalias ptr @wscbor_chunk_read(ptr noundef %0, ptr noundef %1, ptr nounde
   %23 = load i32, ptr %2, align 4
   store i32 %23, ptr %22, align 8
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %1, i32 noundef %23) #8
-  %25 = getelementptr inbounds i8, ptr %22, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 4
   %28 = lshr i8 %24, 5
-  %29 = getelementptr inbounds i8, ptr %22, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i8 %28, ptr %29, align 8
   %30 = and i8 %24, 31
-  %31 = getelementptr inbounds i8, ptr %22, i64 17
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 17
   store i8 %30, ptr %31, align 1
   switch i8 %28, label %.unreachabledefault [
     i8 0, label %32
@@ -168,7 +168,7 @@ default.unreachable:                              ; preds = %84
   unreachable
 
 .sink.split.i:                                    ; preds = %35, %32
-  %38 = getelementptr inbounds i8, ptr %22, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @ei_cbor_invalid, ptr %38, align 8
   br label %wscbor_head_read.exit
 
@@ -180,7 +180,7 @@ wscbor_head_read.exit:                            ; preds = %32, %35, %.sink.spl
   %42 = load i32, ptr %20, align 4
   %43 = add i32 %42, %39
   store i32 %43, ptr %20, align 4
-  %44 = getelementptr inbounds i8, ptr %22, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not113 = icmp eq ptr %45, null
   br i1 %.not113, label %48, label %46
@@ -194,7 +194,7 @@ wscbor_head_read.exit:                            ; preds = %32, %35, %.sink.spl
 48:                                               ; preds = %46, %wscbor_head_read.exit
   %49 = load i8, ptr %29, align 8
   %50 = icmp eq i8 %49, 6
-  %51 = getelementptr inbounds i8, ptr %22, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br i1 %50, label %52, label %59
 
 52:                                               ; preds = %48
@@ -202,10 +202,10 @@ wscbor_head_read.exit:                            ; preds = %32, %35, %.sink.spl
   %54 = load i32, ptr %22, align 8
   store i32 %54, ptr %53, align 8
   %55 = load i32, ptr %25, align 4
-  %56 = getelementptr inbounds i8, ptr %53, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 %55, ptr %56, align 4
   %57 = load i64, ptr %51, align 8
-  %58 = getelementptr inbounds i8, ptr %53, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %57, ptr %58, align 8
   tail call void @wmem_list_append(ptr noundef %16, ptr noundef nonnull %53) #8
   tail call void @wmem_free(ptr noundef nonnull %0, ptr noundef nonnull %22) #8
@@ -213,16 +213,16 @@ wscbor_head_read.exit:                            ; preds = %32, %35, %.sink.spl
 
 59:                                               ; preds = %48
   %60 = zext i8 %49 to i32
-  %61 = getelementptr inbounds i8, ptr %10, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 %60, ptr %61, align 8
   %62 = load i8, ptr %31, align 1
-  %63 = getelementptr inbounds i8, ptr %10, i64 44
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i8 %62, ptr %63, align 4
   %64 = load i64, ptr %51, align 8
-  %65 = getelementptr inbounds i8, ptr %10, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i64 %64, ptr %65, align 8
   tail call void @wmem_free(ptr noundef nonnull %0, ptr noundef nonnull %22) #8
-  %66 = getelementptr inbounds i8, ptr %10, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %43, ptr %66, align 8
   %67 = and i32 %60, 254
   %switch = icmp eq i32 %67, 2
@@ -256,12 +256,12 @@ wscbor_get_length.exit:                           ; preds = %71, %74
   store i32 %78, ptr %66, align 8
   %79 = add i32 %43, %18
   %80 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %1, i32 noundef %79, i32 noundef %.0.i) #8
-  %81 = getelementptr inbounds i8, ptr %11, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %80, ptr %81, align 8
   br label %163
 
 82:                                               ; preds = %68
-  %83 = getelementptr inbounds i8, ptr %11, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %83, align 8
   br label %84
 
@@ -271,15 +271,15 @@ wscbor_get_length.exit:                           ; preds = %71, %74
   %87 = load i32, ptr %2, align 4
   store i32 %87, ptr %86, align 8
   %88 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %1, i32 noundef %87) #8
-  %89 = getelementptr inbounds i8, ptr %86, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = add i32 %90, 1
   store i32 %91, ptr %89, align 4
   %92 = lshr i8 %88, 5
-  %93 = getelementptr inbounds i8, ptr %86, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store i8 %92, ptr %93, align 8
   %94 = and i8 %88, 31
-  %95 = getelementptr inbounds i8, ptr %86, i64 17
+  %95 = getelementptr inbounds nuw i8, ptr %86, i64 17
   store i8 %94, ptr %95, align 1
   switch i8 %92, label %default.unreachable [
     i8 0, label %96
@@ -306,7 +306,7 @@ wscbor_get_length.exit:                           ; preds = %71, %74
   br i1 %or.cond.i120, label %.sink.split.i121, label %wscbor_head_read.exit123
 
 .sink.split.i121:                                 ; preds = %99, %96
-  %102 = getelementptr inbounds i8, ptr %86, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr @ei_cbor_invalid, ptr %102, align 8
   br label %wscbor_head_read.exit123
 
@@ -317,7 +317,7 @@ wscbor_head_read.exit123:                         ; preds = %96, %99, %.sink.spl
   store i32 %105, ptr %2, align 4
   %106 = add i32 %85, %103
   store i32 %106, ptr %66, align 8
-  %107 = getelementptr inbounds i8, ptr %86, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %108 = load ptr, ptr %107, align 8
   %.not115 = icmp eq ptr %108, null
   br i1 %.not115, label %111, label %109
@@ -352,7 +352,7 @@ wscbor_head_read.exit123:                         ; preds = %96, %99, %.sink.spl
   br label %150
 
 123:                                              ; preds = %.thread
-  %124 = getelementptr inbounds i8, ptr %86, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %125 = load i64, ptr %124, align 8
   %126 = icmp ugt i64 %125, 2147483647
   br i1 %126, label %wscbor_get_length.exit125.thread, label %wscbor_get_length.exit125
@@ -388,7 +388,7 @@ wscbor_get_length.exit125._crit_edge:             ; preds = %wscbor_get_length.e
   %138 = phi ptr [ %127, %wscbor_get_length.exit125.thread ], [ %.pre, %wscbor_get_length.exit125._crit_edge ]
   %139 = phi i32 [ %132, %wscbor_get_length.exit125.thread ], [ %136, %wscbor_get_length.exit125._crit_edge ]
   %.0.i124128 = phi i32 [ 2147483647, %wscbor_get_length.exit125.thread ], [ %133, %wscbor_get_length.exit125._crit_edge ]
-  %140 = getelementptr inbounds i8, ptr %138, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %141 = load ptr, ptr %140, align 8
   %.not118 = icmp eq ptr %141, null
   br i1 %.not118, label %142, label %144
@@ -415,13 +415,13 @@ wscbor_get_length.exit125._crit_edge:             ; preds = %wscbor_get_length.e
 152:                                              ; preds = %114
   tail call void @wmem_free(ptr noundef nonnull %0, ptr noundef nonnull %86) #8
   %153 = load ptr, ptr %10, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %153, align 8
   %157 = tail call noalias ptr @wmem_alloc0(ptr noundef %156, i64 noundef 16) #8
   store ptr @ei_cbor_indef_string, ptr %157, align 8
   tail call void @wmem_list_append(ptr noundef %155, ptr noundef nonnull %157) #8
-  %158 = getelementptr inbounds i8, ptr %153, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %159 = load ptr, ptr %158, align 8
   %.not119 = icmp eq ptr %159, null
   br i1 %.not119, label %161, label %160
@@ -468,19 +468,19 @@ define void @wscbor_chunk_free(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @wmem_list_foreach(ptr noundef %7, ptr noundef nonnull @wscbor_subitem_free, ptr noundef %5) #8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @wmem_destroy_list(ptr noundef %10) #8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @wmem_list_foreach(ptr noundef %12, ptr noundef nonnull @wscbor_subitem_free, ptr noundef %5) #8
   %13 = load ptr, ptr %11, align 8
   tail call void @wmem_destroy_list(ptr noundef %13) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   tail call void @wmem_list_foreach(ptr noundef %15, ptr noundef nonnull @wscbor_subitem_free, ptr noundef %5) #8
   %16 = load ptr, ptr %14, align 8
@@ -505,13 +505,13 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 define range(i64 0, 4294967296) i64 @wscbor_chunk_mark_errors(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.wscbor_expert_add_t, align 8
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8
   call void @wmem_list_foreach(ptr noundef %7, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %4) #8
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @wmem_list_foreach(ptr noundef %10, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %4) #8
   %11 = load ptr, ptr %6, align 8
@@ -522,11 +522,11 @@ define range(i64 0, 4294967296) i64 @wscbor_chunk_mark_errors(ptr noundef %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @wscbor_expert_add(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   br i1 %.not, label %11, label %9
@@ -547,7 +547,7 @@ declare i32 @wmem_list_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @wscbor_has_errors(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @wmem_list_count(ptr noundef %3) #8
   ret i32 %4
@@ -555,13 +555,13 @@ define i32 @wscbor_has_errors(ptr nocapture noundef readonly %0) local_unnamed_a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @wscbor_is_indefinite_break(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 7
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i8, ptr %6, align 4
   %8 = icmp eq i8 %7, 31
   %9 = zext i1 %8 to i32
@@ -583,7 +583,7 @@ define internal fastcc range(i32 0, 2) i32 @wscbor_skip_next_item_internal(ptr n
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call ptr @wscbor_chunk_read(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @wmem_list_count(ptr noundef %9) #8
   %.not = icmp eq i32 %10, 0
@@ -594,7 +594,7 @@ define internal fastcc range(i32 0, 2) i32 @wscbor_skip_next_item_internal(ptr n
   br label %.loopexit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %7, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %47 [
     i32 5, label %30
@@ -602,7 +602,7 @@ define internal fastcc range(i32 0, 2) i32 @wscbor_skip_next_item_internal(ptr n
   ]
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %17 = load i8, ptr %16, align 4
   %18 = icmp eq i8 %17, 31
   br i1 %18, label %19, label %24
@@ -622,7 +622,7 @@ define internal fastcc range(i32 0, 2) i32 @wscbor_skip_next_item_internal(ptr n
   br i1 %.not43, label %20, label %thread-pre-split, !llvm.loop !4
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %7, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %26 = load i64, ptr %25, align 8
   %.not58 = icmp eq i64 %26, 0
   br i1 %.not58, label %thread-pre-split, label %.lr.ph
@@ -639,7 +639,7 @@ define internal fastcc range(i32 0, 2) i32 @wscbor_skip_next_item_internal(ptr n
   br i1 %.not41, label %.loopexit, label %27
 
 30:                                               ; preds = %12
-  %31 = getelementptr inbounds i8, ptr %7, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %32 = load i8, ptr %31, align 4
   %33 = icmp eq i8 %32, 31
   br i1 %33, label %34, label %39
@@ -659,7 +659,7 @@ define internal fastcc range(i32 0, 2) i32 @wscbor_skip_next_item_internal(ptr n
   br i1 %.not47, label %35, label %thread-pre-split, !llvm.loop !7
 
 39:                                               ; preds = %30
-  %40 = getelementptr inbounds i8, ptr %7, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %41 = load i64, ptr %40, align 8
   %.not59 = icmp eq i64 %41, 0
   br i1 %.not59, label %thread-pre-split, label %.lr.ph57
@@ -690,7 +690,7 @@ thread-pre-split:                                 ; preds = %27, %22, %42, %37, 
   br i1 %49, label %50, label %wscbor_is_indefinite_break.exit
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %7, i64 44
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %52 = load i8, ptr %51, align 4
   %53 = icmp eq i8 %52, 31
   %54 = zext i1 %53 to i32
@@ -719,14 +719,14 @@ wscbor_is_indefinite_break.exit:                  ; preds = %47, %50
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @wscbor_skip_if_errors(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @wmem_list_count(ptr noundef %6) #8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %2, align 4
   %12 = tail call fastcc range(i32 0, 2) i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null)
@@ -771,13 +771,13 @@ define noundef nonnull ptr @wscbor_expert_items(ptr noundef writeonly %0) local_
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @wscbor_require_major_type(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, %1
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %9, align 8
@@ -792,13 +792,13 @@ define range(i32 0, 2) i32 @wscbor_require_major_type(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @wscbor_require_array(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 4
   br i1 %4, label %wscbor_require_major_type.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %8, align 8
@@ -813,13 +813,13 @@ wscbor_require_major_type.exit:                   ; preds = %1, %5
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @wscbor_require_array_size(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %wscbor_require_array.exit, label %wscbor_require_array.exit.thread
 
 wscbor_require_array.exit.thread:                 ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %9, align 8
@@ -828,7 +828,7 @@ wscbor_require_array.exit.thread:                 ; preds = %3
   br label %22
 
 wscbor_require_array.exit:                        ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %13, %1
   %15 = icmp ugt i64 %13, %2
@@ -836,7 +836,7 @@ wscbor_require_array.exit:                        ; preds = %3
   br i1 %or.cond, label %16, label %22
 
 16:                                               ; preds = %wscbor_require_array.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %0, align 8
   %20 = load ptr, ptr %19, align 8
@@ -851,13 +851,13 @@ wscbor_require_array.exit:                        ; preds = %3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @wscbor_require_map(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 5
   br i1 %4, label %wscbor_require_major_type.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %8, align 8
@@ -872,13 +872,13 @@ wscbor_require_major_type.exit:                   ; preds = %1, %5
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @wscbor_require_boolean(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 7
   br i1 %5, label %wscbor_require_major_type.exit, label %wscbor_require_major_type.exit.thread
 
 wscbor_require_major_type.exit.thread:            ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
   %9 = load ptr, ptr %8, align 8
@@ -887,7 +887,7 @@ wscbor_require_major_type.exit.thread:            ; preds = %2
   br label %26
 
 wscbor_require_major_type.exit:                   ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %12 = load i8, ptr %11, align 4
   %13 = and i8 %12, -2
   %switch = icmp eq i8 %13, 20
@@ -903,7 +903,7 @@ wscbor_require_major_type.exit:                   ; preds = %2
 
 19:                                               ; preds = %wscbor_require_major_type.exit
   %20 = zext i8 %12 to i32
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %1, align 8
   %24 = load ptr, ptr %23, align 8
@@ -918,13 +918,13 @@ wscbor_require_major_type.exit:                   ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @wscbor_require_uint64(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %wscbor_require_major_type.exit, label %wscbor_require_major_type.exit.thread
 
 wscbor_require_major_type.exit.thread:            ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
   %9 = load ptr, ptr %8, align 8
@@ -934,7 +934,7 @@ wscbor_require_major_type.exit.thread:            ; preds = %2
 
 wscbor_require_major_type.exit:                   ; preds = %2
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 8) #8
-  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %11, align 8
   br label %14
@@ -946,19 +946,19 @@ wscbor_require_major_type.exit:                   ; preds = %2
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @wscbor_require_int64(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %switch = icmp ult i32 %4, 2
   br i1 %switch, label %5, label %22
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = icmp slt i64 %7, 0
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %1, align 8
   %13 = load ptr, ptr %12, align 8
@@ -984,7 +984,7 @@ define noalias ptr @wscbor_require_int64(ptr noundef %0, ptr nocapture noundef r
   br label %28
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %1, align 8
   %26 = load ptr, ptr %25, align 8
@@ -999,13 +999,13 @@ define noalias ptr @wscbor_require_int64(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define ptr @wscbor_require_tstr(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %wscbor_require_major_type.exit, label %wscbor_require_major_type.exit.thread
 
 wscbor_require_major_type.exit.thread:            ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
   %9 = load ptr, ptr %8, align 8
@@ -1015,7 +1015,7 @@ wscbor_require_major_type.exit.thread:            ; preds = %2
 
 wscbor_require_major_type.exit:                   ; preds = %2
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @tvb_reported_length(ptr noundef %13) #8
   %15 = tail call ptr @tvb_get_string_enc(ptr noundef %0, ptr noundef %13, i32 noundef 0, i32 noundef %14, i32 noundef 2) #8
@@ -1032,13 +1032,13 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @wscbor_require_bstr(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %wscbor_require_major_type.exit, label %wscbor_require_major_type.exit.thread
 
 wscbor_require_major_type.exit.thread:            ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
   %9 = load ptr, ptr %8, align 8
@@ -1048,7 +1048,7 @@ wscbor_require_major_type.exit.thread:            ; preds = %2
 
 wscbor_require_major_type.exit:                   ; preds = %2
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -1061,7 +1061,7 @@ wscbor_require_major_type.exit:                   ; preds = %2
 define ptr @proto_tree_add_cbor_container(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.wscbor_expert_add_t, align 8
   %7 = tail call ptr @proto_registrar_get_nth(i32 noundef %1) #8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %26 [
     i32 3, label %10
@@ -1085,27 +1085,27 @@ define ptr @proto_tree_add_cbor_container(ptr noundef %0, i32 noundef %1, ptr no
   ]
 
 10:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = tail call ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %12, i32 noundef %14, i64 noundef %16) #8
   br label %30
 
 18:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %24 = load i64, ptr %23, align 8
   %25 = tail call ptr @proto_tree_add_int64(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %20, i32 noundef %22, i64 noundef %24) #8
   br label %30
 
 26:                                               ; preds = %5
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %28, i32 noundef -1, i32 noundef 0) #8
   br label %30
@@ -1114,13 +1114,13 @@ define ptr @proto_tree_add_cbor_container(ptr noundef %0, i32 noundef %1, ptr no
   %.0 = phi ptr [ %17, %10 ], [ %25, %18 ], [ %29, %26 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %2, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %33 = load ptr, ptr %32, align 8
   call void @wmem_list_foreach(ptr noundef %33, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %6) #8
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @wmem_list_foreach(ptr noundef %36, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %6) #8
   %37 = load ptr, ptr %32, align 8
@@ -1140,20 +1140,20 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define ptr @proto_tree_add_cbor_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.wscbor_expert_add_t, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %8, i32 noundef %10, i32 noundef 0) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %2, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load ptr, ptr %13, align 8
   call void @wmem_list_foreach(ptr noundef %14, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %6) #8
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   call void @wmem_list_foreach(ptr noundef %17, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %6) #8
   %18 = load ptr, ptr %13, align 8
@@ -1165,9 +1165,9 @@ define ptr @proto_tree_add_cbor_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nounwind uwtable
 define ptr @proto_tree_add_cbor_boolean(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.wscbor_expert_add_t, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %15, label %12
@@ -1182,13 +1182,13 @@ define ptr @proto_tree_add_cbor_boolean(ptr noundef %0, i32 noundef %1, ptr noun
   %17 = tail call ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %9, i32 noundef %11, i64 noundef %16) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %2, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = load ptr, ptr %19, align 8
   call void @wmem_list_foreach(ptr noundef %20, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %7) #8
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void @wmem_list_foreach(ptr noundef %23, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %7) #8
   %24 = load ptr, ptr %19, align 8
@@ -1202,9 +1202,9 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define ptr @proto_tree_add_cbor_uint64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.wscbor_expert_add_t, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %14, label %12
@@ -1218,13 +1218,13 @@ define ptr @proto_tree_add_cbor_uint64(ptr noundef %0, i32 noundef %1, ptr nound
   %16 = tail call ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %9, i32 noundef %11, i64 noundef %15) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %2, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @wmem_list_foreach(ptr noundef %19, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %7) #8
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   call void @wmem_list_foreach(ptr noundef %22, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %7) #8
   %23 = load ptr, ptr %18, align 8
@@ -1236,9 +1236,9 @@ define ptr @proto_tree_add_cbor_uint64(ptr noundef %0, i32 noundef %1, ptr nound
 ; Function Attrs: nounwind uwtable
 define ptr @proto_tree_add_cbor_int64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.wscbor_expert_add_t, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %14, label %12
@@ -1252,13 +1252,13 @@ define ptr @proto_tree_add_cbor_int64(ptr noundef %0, i32 noundef %1, ptr nounde
   %16 = tail call ptr @proto_tree_add_int64(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %9, i32 noundef %11, i64 noundef %15) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %2, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @wmem_list_foreach(ptr noundef %19, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %7) #8
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   call void @wmem_list_foreach(ptr noundef %22, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %7) #8
   %23 = load ptr, ptr %18, align 8
@@ -1271,7 +1271,7 @@ define ptr @proto_tree_add_cbor_int64(ptr noundef %0, i32 noundef %1, ptr nounde
 define ptr @proto_tree_add_cbor_bitmask(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr noundef readonly %7) local_unnamed_addr #0 {
   %9 = alloca %struct.wscbor_expert_add_t, align 8
   %10 = tail call ptr @proto_registrar_get_nth(i32 noundef %1) #8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %switch.tableidx = add i32 %12, -4
   %13 = icmp ult i32 %switch.tableidx, 8
@@ -1290,9 +1290,9 @@ switch.hole_check:                                ; preds = %8
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.proto_tree_add_cbor_bitmask, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i32], ptr @switch.table.proto_tree_add_cbor_bitmask, i64 0, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %switch.load to i64
   %21 = tail call noalias ptr @wmem_alloc0(ptr noundef %19, i64 noundef %20) #8
@@ -1331,13 +1331,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %35 = tail call ptr @proto_tree_add_bitmask_value(ptr noundef %0, ptr noundef %30, i32 noundef 0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %34) #8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store ptr %4, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %38 = load ptr, ptr %37, align 8
   call void @wmem_list_foreach(ptr noundef %38, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %9) #8
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   call void @wmem_list_foreach(ptr noundef %41, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %9) #8
   %42 = load ptr, ptr %37, align 8
@@ -1361,7 +1361,7 @@ declare ptr @proto_tree_add_bitmask_value(ptr noundef, ptr noundef, i32 noundef,
 define ptr @proto_tree_add_cbor_tstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.wscbor_expert_add_t, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %13, label %10
@@ -1372,7 +1372,7 @@ define ptr @proto_tree_add_cbor_tstr(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %17
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %15, i32 noundef 0, i32 noundef 0) #8
   br label %17
@@ -1381,13 +1381,13 @@ define ptr @proto_tree_add_cbor_tstr(ptr noundef %0, i32 noundef %1, ptr noundef
   %.0 = phi ptr [ %12, %10 ], [ %16, %13 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %2, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = load ptr, ptr %19, align 8
   call void @wmem_list_foreach(ptr noundef %20, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %6) #8
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void @wmem_list_foreach(ptr noundef %23, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %6) #8
   %24 = load ptr, ptr %19, align 8
@@ -1400,7 +1400,7 @@ define ptr @proto_tree_add_cbor_tstr(ptr noundef %0, i32 noundef %1, ptr noundef
 define ptr @proto_tree_add_cbor_bstr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.wscbor_expert_add_t, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %13, label %10
@@ -1411,7 +1411,7 @@ define ptr @proto_tree_add_cbor_bstr(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %17
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %15, i32 noundef 0, i32 noundef 0) #8
   br label %17
@@ -1420,13 +1420,13 @@ define ptr @proto_tree_add_cbor_bstr(ptr noundef %0, i32 noundef %1, ptr noundef
   %.0 = phi ptr [ %12, %10 ], [ %16, %13 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %2, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = load ptr, ptr %19, align 8
   call void @wmem_list_foreach(ptr noundef %20, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %6) #8
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void @wmem_list_foreach(ptr noundef %23, ptr noundef nonnull @wscbor_expert_add, ptr noundef nonnull %6) #8
   %24 = load ptr, ptr %19, align 8
@@ -1438,7 +1438,7 @@ define ptr @proto_tree_add_cbor_bstr(ptr noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nounwind uwtable
 define ptr @proto_tree_add_cbor_strlen(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
@@ -1450,9 +1450,9 @@ define ptr @proto_tree_add_cbor_strlen(ptr noundef %0, i32 noundef %1, ptr nocap
 
 12:                                               ; preds = %5, %9
   %13 = phi i64 [ %11, %9 ], [ 0, %5 ]
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = tail call ptr @proto_tree_add_uint64(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %15, i32 noundef %17, i64 noundef %13) #8
   ret ptr %18
@@ -1462,7 +1462,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 17
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %44 [
     i8 24, label %5
@@ -1473,12 +1473,12 @@ define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr 
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, %6
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %1, i32 noundef %9) #8
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %11, ptr %12, align 8
   %13 = load i32, ptr %7, align 4
   %14 = add i32 %13, 1
@@ -1487,12 +1487,12 @@ define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr 
 
 15:                                               ; preds = %2
   %16 = load i32, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, %16
   %20 = tail call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %1, i32 noundef %19, i32 noundef 0) #8
   %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %21, ptr %22, align 8
   %23 = load i32, ptr %17, align 4
   %24 = add i32 %23, 2
@@ -1501,12 +1501,12 @@ define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr 
 
 25:                                               ; preds = %2
   %26 = load i32, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %28, %26
   %30 = tail call i32 @tvb_get_guint32(ptr noundef nonnull %1, i32 noundef %29, i32 noundef 0) #8
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %31, ptr %32, align 8
   %33 = load i32, ptr %27, align 4
   %34 = add i32 %33, 4
@@ -1515,11 +1515,11 @@ define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr 
 
 35:                                               ; preds = %2
   %36 = load i32, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, %36
   %40 = tail call i64 @tvb_get_guint64(ptr noundef nonnull %1, i32 noundef %39, i32 noundef 0) #8
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %40, ptr %41, align 8
   %42 = load i32, ptr %37, align 4
   %43 = add i32 %42, 8
@@ -1532,7 +1532,7 @@ define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr 
 
 46:                                               ; preds = %44
   %47 = zext nneg i8 %4 to i64
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %47, ptr %48, align 8
   br label %49
 

@@ -98,14 +98,14 @@ define hidden void @"_ZN15wiggle_generate5funcs12_define_func28_$u7b$$u7b$closur
   %8 = alloca i64, align 8
   store i64 %2, ptr %8, align 8
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %9, align 8
   call void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %5, ptr nonnull align 8 @anon.b1e91a9c31174b728d7a348c152950f4.1, i64 1, ptr nonnull align 8 %4, i64 1)
   call void @_ZN5alloc3fmt6format17h7750bf553f062d8cE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %6, ptr nonnull align 8 %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = invoke i32 @_ZN11proc_macro24Span9call_site17h0fb38b1401486909E()
           to label %17 unwind label %15
@@ -146,14 +146,14 @@ define hidden void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi
   %12 = alloca { { i64, [3 x i64] }, {} }, align 8
   %13 = alloca { { i64, [3 x i64] }, {} }, align 8
   %14 = load ptr, ptr %1, align 8, !nonnull !4, !align !8, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !align !8, !noundef !4
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !align !9, !noundef !4
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8, !noundef !4
   call void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %13)
   invoke void @_ZN5quote9__private7push_or17hf3a4f2c8a793e515E(ptr nonnull align 8 %13)
@@ -421,12 +421,12 @@ define hidden void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi
 
 24:                                               ; preds = %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !nonnull !4, !align !8, !noundef !4
   %27 = icmp ne ptr %1, null
   call void @llvm.assume(i1 %27)
   store ptr %1, ptr %9, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN63_$LT$proc_macro2..TokenStream$u20$as$u20$core..fmt..Display$GT$3fmt17hae2a8f7dc76b97ccE", ptr %28, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %10, ptr nonnull align 8 @anon.b1e91a9c31174b728d7a348c152950f4.16, i64 1, ptr nonnull align 8 %9, i64 1)
           to label %33 unwind label %31
@@ -450,9 +450,9 @@ define hidden void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi
 
 34:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  %35 = getelementptr inbounds i8, ptr %12, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %36 = load ptr, ptr %35, align 8, !nonnull !4, !noundef !4
-  %37 = getelementptr inbounds i8, ptr %12, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %38 = load i64, ptr %37, align 8, !noundef !4
   invoke void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$4emit28_$u7b$$u7b$closure$u7d$$u7d$17h350157a90124a42aE"(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %13, ptr nonnull align 8 %26, ptr nonnull align 1 %36, i64 %38)
           to label %41 unwind label %39
@@ -478,7 +478,7 @@ define hidden void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi
   br label %42
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !nonnull !4, !align !8, !noundef !4
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %7)
           to label %48 unwind label %43
@@ -591,7 +591,7 @@ define hidden void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi
   %8 = alloca { { i64, [3 x i64] }, {} }, align 8
   %9 = alloca { { i64, [3 x i64] }, {} }, align 8
   %10 = alloca { { i64, [3 x i64] }, {} }, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN15wiggle_generate5names10func_param17h402bb80375310d9cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %10, ptr nonnull align 8 %11)
   %12 = invoke zeroext i1 @"_ZN84_$LT$witx..ast..InterfaceFuncParam$u20$as$u20$wiggle_generate..types..WiggleType$GT$13impls_display17h1cedf70b87ccb6d7E"(ptr align 8 %2)
           to label %16 unwind label %14
@@ -780,14 +780,14 @@ define hidden void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi
   %8 = alloca i64, align 8
   store i64 %2, ptr %8, align 8
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %9, align 8
   call void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %5, ptr nonnull align 8 @anon.b1e91a9c31174b728d7a348c152950f4.24, i64 1, ptr nonnull align 8 %4, i64 1)
   call void @_ZN5alloc3fmt6format17h7750bf553f062d8cE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %6, ptr nonnull align 8 %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = invoke i32 @_ZN11proc_macro24Span9call_site17h0fb38b1401486909E()
           to label %17 unwind label %15

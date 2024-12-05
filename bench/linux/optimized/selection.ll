@@ -124,7 +124,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %5 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   tail call void @poke_blanked_console() #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i16, ptr %7, align 2
   %9 = icmp eq i16 %8, 4
   br i1 %9, label %10, label %19
@@ -149,7 +149,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 19:                                               ; preds = %2
   %20 = load i16, ptr %0, align 2
   %21 = add i16 %20, -1
-  %22 = getelementptr inbounds i8, ptr %6, i64 420
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 420
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, 65535
   %25 = zext i16 %21 to i32
@@ -157,10 +157,10 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %27 = tail call i32 @llvm.umin.i32(i32 %26, i32 %25)
   %28 = trunc nuw i32 %27 to i16
   store i16 %28, ptr %0, align 2
-  %29 = getelementptr inbounds i8, ptr %0, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %30 = load i16, ptr %29, align 2
   %31 = add i16 %30, -1
-  %32 = getelementptr inbounds i8, ptr %6, i64 424
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 424
   %33 = load i32, ptr %32, align 8
   %34 = add i32 %33, 65535
   %35 = zext i16 %31 to i32
@@ -168,7 +168,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %37 = tail call i32 @llvm.umin.i32(i32 %36, i32 %35)
   %38 = trunc nuw i32 %37 to i16
   store i16 %38, ptr %29, align 2
-  %39 = getelementptr inbounds i8, ptr %0, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = load i16, ptr %39, align 2
   %41 = add i16 %40, -1
   %42 = load i32, ptr %22, align 4
@@ -178,7 +178,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
   %46 = tail call i32 @llvm.umin.i32(i32 %45, i32 %44)
   %47 = trunc nuw i32 %46 to i16
   store i16 %47, ptr %39, align 2
-  %48 = getelementptr inbounds i8, ptr %0, i64 6
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %49 = load i16, ptr %48, align 2
   %50 = add i16 %49, -1
   %51 = load i32, ptr %32, align 8
@@ -211,7 +211,7 @@ define dso_local noundef range(i32 -22, 1) i32 @set_selection_kernel(ptr nocaptu
 70:                                               ; preds = %59, %19
   %71 = load i16, ptr %29, align 2
   %72 = zext i16 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %6, i64 428
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 428
   %74 = load i32, ptr %73, align 4
   %75 = mul i32 %74, %72
   %76 = load i16, ptr %0, align 2
@@ -910,18 +910,18 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.wait_queue_entry, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 584
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #9
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !14
   %7 = inttoptr i64 %6 to ptr
   store i64 0, ptr %2, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @default_wake_function, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   tail call void @console_lock() #9
   tail call void @poke_blanked_console() #9
   tail call void @console_unlock() #9
@@ -931,8 +931,8 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
 
 12:                                               ; preds = %1
   tail call void @tty_buffer_lock_exclusive(ptr noundef %4) #9
-  %13 = getelementptr inbounds i8, ptr %4, i64 656
-  call void @add_wait_queue(ptr noundef %13, ptr noundef nonnull %2) #9
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 656
+  call void @add_wait_queue(ptr noundef nonnull %13, ptr noundef nonnull %2) #9
   call void @mutex_lock(ptr noundef nonnull @vc_sel) #9
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @vc_sel, i64 40), align 8
   %15 = icmp ne ptr %14, null
@@ -942,13 +942,13 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %7, i64 24
-  %21 = getelementptr inbounds i8, ptr %0, i64 416
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 416
   br label %22
 
 22:                                               ; preds = %37, %19
   %23 = phi i32 [ 0, %19 ], [ %38, %37 ]
-  %24 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 1, ptr elementtype(i32) %20) #9, !srcloc !15
+  %24 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %20, i32 1, ptr nonnull elementtype(i32) %20) #9, !srcloc !15
   %25 = load volatile i64, ptr %7, align 8
   %26 = and i64 %25, 131072
   %27 = icmp eq i64 %26, 0
@@ -997,8 +997,8 @@ define dso_local noundef range(i32 -5, 1) i32 @paste_selection(ptr noundef %0) #
 .critedge:                                        ; preds = %22, %37, %28, %12
   %54 = phi i32 [ 0, %12 ], [ -4, %22 ], [ -4, %28 ], [ 0, %37 ]
   call void @mutex_unlock(ptr noundef nonnull @vc_sel) #9
-  call void @remove_wait_queue(ptr noundef %13, ptr noundef nonnull %2) #9
-  %55 = getelementptr inbounds i8, ptr %7, i64 24
+  call void @remove_wait_queue(ptr noundef nonnull %13, ptr noundef nonnull %2) #9
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store volatile i32 0, ptr %55, align 8
   call void @tty_buffer_unlock_exclusive(ptr noundef %4) #9
   call void @tty_ldisc_deref(ptr noundef nonnull %10) #9

@@ -48,19 +48,19 @@ define hidden void @_ZN12ClassPrinter13print_classesEPKciP12outputStream(ptr nou
   %4 = alloca %"class.ClassPrinter::KlassPrintClosure", align 8
   call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(69) %4) #7
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN12ClassPrinter17KlassPrintClosureE, i64 16), ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
-  %7 = getelementptr inbounds i8, ptr %4, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i8 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 %1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 68
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store i8 0, ptr %11, align 4
   %12 = and i32 %1, 16
   %.not.not.i = icmp eq i32 %12, 0
@@ -98,15 +98,15 @@ define hidden void @_ZN12ClassPrinter13print_methodsEPKcS1_iP12outputStream(ptr 
   %5 = alloca %"class.ClassPrinter::KlassPrintClosure", align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 800
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 800
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #8
   %19 = icmp eq ptr %18, null
@@ -121,7 +121,7 @@ define hidden void @_ZN12ClassPrinter13print_methodsEPKcS1_iP12outputStream(ptr 
   %26 = tail call ptr @strncpy(ptr noundef %25, ptr noundef %1, i64 noundef %23) #7
   %27 = getelementptr inbounds i8, ptr %25, i64 %23
   store i8 0, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %18, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 1
   br label %29
 
 29:                                               ; preds = %4, %20
@@ -130,21 +130,21 @@ define hidden void @_ZN12ClassPrinter13print_methodsEPKcS1_iP12outputStream(ptr 
   %30 = or i32 %2, 1
   call void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceable(69) %5) #7
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN12ClassPrinter17KlassPrintClosureE, i64 16), ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %.0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %.017, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i8 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 52
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 %30, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %5, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %3, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 68
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i8 0, ptr %38, align 4
   %39 = and i32 %2, 16
   %.not.not.i = icmp eq i32 %39, 0
@@ -206,7 +206,7 @@ declare void @_ZN15LockedClassesDoC2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12ClassPrinter17KlassPrintClosure8do_klassEP5Klass(ptr noundef nonnull align 8 dereferenceable(69) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 5
   br i1 %5, label %6, label %7
@@ -221,15 +221,15 @@ define linkonce_odr hidden void @_ZN12ClassPrinter17KlassPrintClosure8do_klassEP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12ClassPrinter17KlassPrintClosure20print_instance_klassEP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(69) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 305
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 305
   %4 = load volatile i8, ptr %3, align 1
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %_ZN12ResourceMarkD2Ev.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 @_ZNK6Symbol13is_star_matchEPKc(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef %9) #7
   br i1 %10, label %11, label %_ZN12ResourceMarkD2Ev.exit
@@ -237,38 +237,38 @@ define linkonce_odr hidden void @_ZN12ClassPrinter17KlassPrintClosure20print_ins
 11:                                               ; preds = %5
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 800
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 800
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %11
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load ptr, ptr %28, align 8
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %29) #7
   br label %30
 
 30:                                               ; preds = %27, %11
   store i8 0, ptr %24, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i8, ptr %31, align 8
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %47
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load i32, ptr %37, align 8
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 8
@@ -276,7 +276,7 @@ define linkonce_odr hidden void @_ZN12ClassPrinter17KlassPrintClosure20print_ins
   %41 = load ptr, ptr %6, align 8
   %42 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %41) #7
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %36, ptr noundef nonnull @.str.9, i32 noundef %38, i64 noundef %40, ptr noundef %42) #7
-  %43 = getelementptr inbounds i8, ptr %1, i64 152
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %35, align 8
   tail call void @_ZNK15ClassLoaderData14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(160) %44, ptr noundef %45) #7
@@ -285,7 +285,7 @@ define linkonce_odr hidden void @_ZN12ClassPrinter17KlassPrintClosure20print_ins
   br label %47
 
 47:                                               ; preds = %34, %30
-  %48 = getelementptr inbounds i8, ptr %0, i64 52
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 1
   %.not20 = icmp eq i32 %50, 0
@@ -294,19 +294,19 @@ define linkonce_odr hidden void @_ZN12ClassPrinter17KlassPrintClosure20print_ins
 51:                                               ; preds = %47
   %52 = and i32 %49, 2
   %.not21 = icmp eq i32 %52, 0
-  %53 = getelementptr inbounds i8, ptr %1, i64 400
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %54, align 8
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %0, i64 32
-  %58 = getelementptr inbounds i8, ptr %0, i64 40
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
-  %60 = getelementptr inbounds i8, ptr %0, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %61 = ptrtoint ptr %1 to i64
-  %62 = getelementptr inbounds i8, ptr %1, i64 152
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %wide.trip.count = zext nneg i32 %55 to i64
   br label %63
 
@@ -314,23 +314,23 @@ define linkonce_odr hidden void @_ZN12ClassPrinter17KlassPrintClosure20print_ins
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12ClassPrinter17KlassPrintClosure12print_methodEP6Method.exit ]
   %.023 = phi i32 [ 0, %.lr.ph ], [ %.2, %_ZN12ClassPrinter17KlassPrintClosure12print_methodEP6Method.exit ]
   %64 = load ptr, ptr %53, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %57, align 8
-  %69 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = icmp eq ptr %68, null
   br i1 %70, label %_ZN12ClassPrinter17KlassPrintClosure5matchEPKcP6Symbol.exit.thread, label %_ZN12ClassPrinter17KlassPrintClosure5matchEPKcP6Symbol.exit
 
 _ZN12ClassPrinter17KlassPrintClosure5matchEPKcP6Symbol.exit: ; preds = %63
   %71 = load ptr, ptr %69, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 72
-  %75 = getelementptr inbounds i8, ptr %71, i64 36
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 36
   %76 = load i16, ptr %75, align 4
   %77 = zext i16 %76 to i64
-  %78 = getelementptr inbounds i64, ptr %74, i64 %77
+  %78 = getelementptr inbounds nuw i64, ptr %74, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = tail call noundef zeroext i1 @_ZNK6Symbol13is_star_matchEPKc(ptr noundef nonnull align 4 dereferenceable(8) %79, ptr noundef nonnull %68) #7
   br i1 %80, label %_ZN12ClassPrinter17KlassPrintClosure5matchEPKcP6Symbol.exit.thread, label %_ZN12ClassPrinter17KlassPrintClosure12print_methodEP6Method.exit
@@ -342,13 +342,13 @@ _ZN12ClassPrinter17KlassPrintClosure5matchEPKcP6Symbol.exit.thread: ; preds = %6
 
 _ZN12ClassPrinter17KlassPrintClosure5matchEPKcP6Symbol.exit16: ; preds = %_ZN12ClassPrinter17KlassPrintClosure5matchEPKcP6Symbol.exit.thread
   %83 = load ptr, ptr %69, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 72
-  %87 = getelementptr inbounds i8, ptr %83, i64 38
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 72
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 38
   %88 = load i16, ptr %87, align 2
   %89 = zext i16 %88 to i64
-  %90 = getelementptr inbounds i64, ptr %86, i64 %89
+  %90 = getelementptr inbounds nuw i64, ptr %86, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef zeroext i1 @_ZNK6Symbol13is_star_matchEPKc(ptr noundef nonnull align 4 dereferenceable(8) %91, ptr noundef nonnull %81) #7
   br i1 %92, label %_ZN12ClassPrinter17KlassPrintClosure5matchEPKcP6Symbol.exit16.thread, label %_ZN12ClassPrinter17KlassPrintClosure12print_methodEP6Method.exit
@@ -403,29 +403,29 @@ _ZN12ClassPrinter17KlassPrintClosure5matchEPKcP6Symbol.exit16.thread: ; preds = 
   %.not.i = icmp eq i32 %117, 0
   %118 = load ptr, ptr %59, align 8
   %119 = ptrtoint ptr %67 to i64
-  %120 = getelementptr inbounds i8, ptr %67, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %120, align 8
   %121 = and i32 %.sroa.0.0.copyload.i.i.i, 8
   %.not6.i = icmp eq i32 %121, 0
   %122 = select i1 %.not6.i, ptr @.str.12, ptr @.str.11
   %123 = load ptr, ptr %69, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %123, i64 36
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 36
   %127 = load i16, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %125, i64 72
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 72
   %129 = zext i16 %127 to i64
-  %130 = getelementptr inbounds i64, ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw i64, ptr %128, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %131) #7
   %133 = load ptr, ptr %69, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %133, i64 38
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 38
   %137 = load i16, ptr %136, align 2
-  %138 = getelementptr inbounds i8, ptr %135, i64 72
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 72
   %139 = zext i16 %137 to i64
-  %140 = getelementptr inbounds i64, ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw i64, ptr %138, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %141) #7
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %118, ptr noundef nonnull @.str.10, i64 noundef %119, ptr noundef nonnull %122, ptr noundef %132, ptr noundef %142) #7

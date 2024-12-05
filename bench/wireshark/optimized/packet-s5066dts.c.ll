@@ -514,7 +514,7 @@ define internal range(i32 15, 1) i32 @dissect_s5066dts_tcp(ptr noundef %0, ptr n
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @config_s5066dts_ports, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %14 = load i32, ptr %13, align 8
   %15 = tail call i32 @value_is_in_range(ptr noundef %12, i32 noundef %14) #4
   %.not12 = icmp eq i32 %15, 0
@@ -623,7 +623,7 @@ define internal i32 @dissect_s5066dts(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not146, label %8, label %248
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.176) #4
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #4

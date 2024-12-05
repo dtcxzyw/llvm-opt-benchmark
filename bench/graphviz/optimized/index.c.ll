@@ -13,7 +13,7 @@ define noalias noundef ptr @RTreeNewLeafList(ptr noundef %0) local_unnamed_addr 
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %4, align 8
   br label %5
 
@@ -35,7 +35,7 @@ define noundef ptr @RTreeLeafListAdd(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not.i, label %RTreeNewLeafList.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %6, align 8
   br label %RTreeNewLeafList.exit
 
@@ -79,7 +79,7 @@ define noalias noundef ptr @RTreeOpen() local_unnamed_addr #2 {
 
 2:                                                ; preds = %0
   %3 = tail call ptr @RTreeNewNode() #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
   store ptr %3, ptr %1, align 8
   br label %5
@@ -91,7 +91,7 @@ define noalias noundef ptr @RTreeOpen() local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define ptr @RTreeNewIndex() local_unnamed_addr #2 {
   %1 = tail call ptr @RTreeNewNode() #7
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %2, align 4
   ret ptr %1
 }
@@ -110,16 +110,16 @@ define noundef i32 @RTreeClose(ptr nocapture noundef %0) local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
-  %invariant.gep4 = getelementptr inbounds i8, ptr %0, i64 24
+  %invariant.gep4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %4, label %.preheader, label %.preheader1
 
 .preheader:                                       ; preds = %1, %10
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %10 ], [ 0, %1 ]
   %5 = mul nuw nsw i64 %indvars.iv10, 24
-  %gep5 = getelementptr inbounds i8, ptr %invariant.gep4, i64 %5
+  %gep5 = getelementptr inbounds nuw i8, ptr %invariant.gep4, i64 %5
   %6 = load ptr, ptr %gep5, align 8
   %.not22 = icmp eq ptr %6, null
   br i1 %.not22, label %10, label %7
@@ -140,7 +140,7 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
 .preheader1:                                      ; preds = %1, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %1 ]
   %11 = mul nuw nsw i64 %indvars.iv, 24
-  %gep = getelementptr inbounds i8, ptr %invariant.gep4, i64 %11
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep4, i64 %11
   %12 = load ptr, ptr %gep, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %15, label %13
@@ -161,17 +161,17 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @RTreeSearch(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %6, label %.preheader36, label %.preheader37
 
 .preheader36:                                     ; preds = %3, %18
   %.03042 = phi ptr [ %.1, %18 ], [ null, %3 ]
   %.03141 = phi i64 [ %19, %18 ], [ 0, %3 ]
-  %8 = getelementptr inbounds [64 x %struct.Branch], ptr %7, i64 0, i64 %.03141
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %8 = getelementptr inbounds nuw [64 x %struct.Branch], ptr %7, i64 0, i64 %.03141
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not33 = icmp eq ptr %10, null
   br i1 %.not33, label %18, label %11
@@ -205,8 +205,8 @@ define ptr @RTreeSearch(ptr nocapture noundef readnone %0, ptr noundef %1, ptr n
 .preheader37:                                     ; preds = %3, %29
   %.040 = phi i64 [ %30, %29 ], [ 0, %3 ]
   %.339 = phi ptr [ %.4, %29 ], [ null, %3 ]
-  %20 = getelementptr inbounds [64 x %struct.Branch], ptr %7, i64 0, i64 %.040
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %20 = getelementptr inbounds nuw [64 x %struct.Branch], ptr %7, i64 0, i64 %.040
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %29, label %23
@@ -221,7 +221,7 @@ define ptr @RTreeSearch(ptr nocapture noundef readnone %0, ptr noundef %1, ptr n
   br i1 %.not.i.i, label %RTreeLeafListAdd.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %20, ptr %28, align 8
   br label %RTreeLeafListAdd.exit
 
@@ -255,20 +255,20 @@ define range(i32 0, 2) i32 @RTreeInsert(ptr noundef %0, ptr noundef %1, ptr noun
 10:                                               ; preds = %5
   %11 = call ptr @RTreeNewNode() #7
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, 1
-  %16 = getelementptr inbounds i8, ptr %11, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %15, ptr %16, align 4
   %17 = load ptr, ptr %3, align 8
   %18 = call { i64, i64 } @NodeCover(ptr noundef %17) #7
   %19 = extractvalue { i64, i64 } %18, 0
   %20 = extractvalue { i64, i64 } %18, 1
   store i64 %19, ptr %7, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %20, ptr %.sroa.22.0..sroa_idx, align 8
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %21, ptr %22, align 8
   %23 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, ptr noundef null) #7
   %24 = load ptr, ptr %6, align 8
@@ -293,17 +293,17 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = alloca %struct.Branch, align 8
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, %5
   br i1 %11, label %12, label %35
 
 12:                                               ; preds = %6
   %13 = tail call i32 @PickBranch(ptr noundef %1, ptr noundef nonnull %3) #7
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = sext i32 %13 to i64
   %16 = getelementptr inbounds [64 x %struct.Branch], ptr %14, i64 0, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18, ptr noundef %8, i32 noundef %5)
   %.not = icmp eq i32 %19, 0
@@ -314,7 +314,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
   store i64 %22, ptr %16, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %23, ptr %.sroa.24.0..sroa_idx, align 8
   br label %40
 
@@ -324,16 +324,16 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = extractvalue { i64, i64 } %26, 0
   %28 = extractvalue { i64, i64 } %26, 1
   store i64 %27, ptr %16, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %28, ptr %.sroa.22.0..sroa_idx, align 8
   %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %29, ptr %30, align 8
   %31 = call { i64, i64 } @NodeCover(ptr noundef %29) #7
   %32 = extractvalue { i64, i64 } %31, 0
   %33 = extractvalue { i64, i64 } %31, 1
   store i64 %32, ptr %7, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %33, ptr %.sroa.2.0..sroa_idx, align 8
   %34 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   br label %40
@@ -344,7 +344,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
 
 37:                                               ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
-  %38 = getelementptr inbounds i8, ptr %7, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %38, align 8
   %39 = call i32 @AddBranch(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   br label %40

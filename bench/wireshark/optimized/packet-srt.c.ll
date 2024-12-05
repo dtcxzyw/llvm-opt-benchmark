@@ -440,7 +440,7 @@ define internal i32 @dissect_srt_udp(ptr noundef %0, ptr noundef %1, ptr noundef
   %11 = alloca [64 x i8], align 16
   %12 = alloca i32, align 4
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.168) #5
   %15 = load ptr, ptr %13, align 8
@@ -520,7 +520,7 @@ define internal i32 @dissect_srt_udp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %50
   %53 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.dissect_srt_udp, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.dissect_srt_udp, i64 0, i64 %53
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %54
 
@@ -600,7 +600,7 @@ dissect_srt_hs_ext_field.exit.i:                  ; preds = %79, %77, %68
   %100 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %99, ptr noundef %0, i32 noundef 40, i32 noundef 4, i32 noundef 0) #5
   %101 = load i32, ptr @hf_srt_handshake_cookie, align 4
   %102 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %101, ptr noundef %0, i32 noundef 44, i32 noundef 4, i32 noundef 0) #5
-  %103 = getelementptr inbounds i8, ptr %1, i64 408
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %104 = load ptr, ptr %103, align 8
   %105 = call ptr @tvb_memdup(ptr noundef %104, ptr noundef %0, i32 noundef 48, i64 noundef 16) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)

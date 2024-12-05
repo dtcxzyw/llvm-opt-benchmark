@@ -767,7 +767,7 @@ define internal i32 @dissect_uftp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %11, label %96
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.410) #4
   %14 = load ptr, ptr %12, align 8
@@ -1653,7 +1653,7 @@ define internal fastcc void @dissect_uftp_fileinfo(ptr noundef %0, ptr noundef %
 
 28:                                               ; preds = %20
   %29 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext i16 %29 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.423, i32 noundef %32) #4
@@ -1754,7 +1754,7 @@ define internal fastcc void @dissect_uftp_fileinfoack(ptr noundef %0, ptr nounde
 
 21:                                               ; preds = %19
   %22 = zext i16 %20 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.423, i32 noundef %22) #4
   br label %25
@@ -1836,7 +1836,7 @@ define internal fastcc void @dissect_uftp_fileseg(ptr noundef %0, ptr noundef %1
   %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
   %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
   %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = zext i16 %20 to i32
   %26 = zext i16 %21 to i32
@@ -1995,7 +1995,7 @@ define internal fastcc void @dissect_uftp_done(ptr noundef %0, ptr noundef %1, p
 
 22:                                               ; preds = %19
   %23 = zext i16 %20 to i32
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = zext i16 %21 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.425, i32 noundef %23, i32 noundef %26) #4
@@ -2074,7 +2074,7 @@ define internal fastcc void @dissect_uftp_status(ptr noundef %0, ptr noundef %1,
 19:                                               ; preds = %9
   %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
   %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #4
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = zext i16 %20 to i32
   %25 = zext i16 %21 to i32
@@ -2161,7 +2161,7 @@ define internal fastcc void @dissect_uftp_complete(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %19
   %22 = zext i16 %20 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.423, i32 noundef %22) #4
   br label %25

@@ -14,7 +14,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %5 = load i32, ptr %4, align 4, !noalias !19, !noundef !4
   %6 = load i32, ptr %1, align 4, !alias.scope !17, !noalias !16, !noundef !4
   %7 = icmp ugt i32 %5, %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4, !alias.scope !17, !noalias !16
   %switch.selectcmp.i.i = icmp ugt i32 %9, %5
   %.0.i.not.i = select i1 %7, i1 %switch.selectcmp.i.i, i1 false
@@ -29,7 +29,7 @@ define hidden noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5ch
   %4 = load i32, ptr %3, align 4, !noalias !25, !noundef !4
   %5 = load i32, ptr %1, align 4, !alias.scope !23, !noalias !20, !noundef !4
   %6 = icmp ugt i32 %4, %5
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !alias.scope !23, !noalias !20
   %switch.selectcmp.i = icmp ugt i32 %8, %4
   %.0.i.not = select i1 %6, i1 %switch.selectcmp.i, i1 false
@@ -43,7 +43,7 @@ define hidden noundef zeroext i1 @"_ZN10line_index9LineIndex12try_line_col28_$u7
   %3 = load i32, ptr %2, align 4, !noundef !4
   %4 = load i32, ptr %1, align 4, !noundef !4
   %5 = icmp ule i32 %3, %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %switch.selectcmp = icmp ule i32 %7, %3
   %.0 = select i1 %5, i1 true, i1 %switch.selectcmp

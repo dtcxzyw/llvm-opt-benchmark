@@ -157,8 +157,8 @@ tailrecurse:                                      ; preds = %tailrecurse.loopexi
   ret ptr %6
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %.08, i64 32
-  %9 = getelementptr inbounds i8, ptr %.08, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %.08, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.08, i64 40
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %tailrecurse.loopexit, label %2, !llvm.loop !4
@@ -174,13 +174,13 @@ define dso_local noundef i32 @_ZN5clang19CudaStringToVersionERKN4llvm5TwineE(ptr
 
 .lr.ph:                                           ; preds = %1, %7
   %.067 = phi ptr [ %8, %7 ], [ @_ZN5clangL18CudaNameVersionMapE, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.067, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.067, i64 40
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !6
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.067, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %.067, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %9) #8
   %11 = icmp eq i32 %10, 0
@@ -226,8 +226,8 @@ define dso_local noundef i32 @_ZN5clang13ToCudaVersionEN4llvm12VersionTupleE(i64
   br i1 %or.cond, label %22, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread
 
 _ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread:   ; preds = %4, %10, %14
-  %19 = getelementptr inbounds i8, ptr %.06, i64 32
-  %20 = getelementptr inbounds i8, ptr %.06, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %.06, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.06, i64 40
   %21 = load i32, ptr %20, align 8
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %4, !llvm.loop !7
@@ -249,45 +249,45 @@ define dso_local noundef ptr @_ZN5clang19OffloadArchToStringENS_11OffloadArchE(i
   br i1 %3, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 24
   %.val31.i.i.i = load i32, ptr %5, align 8
   %6 = icmp eq i32 %0, %.val31.i.i.i
   br i1 %6, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit", label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 48
   %.val33.i.i.i = load i32, ptr %8, align 8
   %9 = icmp eq i32 %0, %.val33.i.i.i
   br i1 %9, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18", label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 72
   %.val35.i.i.i = load i32, ptr %11, align 8
   %12 = icmp eq i32 %0, %.val35.i.i.i
   br i1 %12, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20", label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 96
   %15 = add nsw i64 %.018.i.i.i, -1
   %16 = icmp ugt i64 %.018.i.i.i, 1
   br i1 %16, label %2, label %17, !llvm.loop !8
 
 17:                                               ; preds = %13
   %switch.selectcmp.i.i.i = icmp eq i32 %0, 74
-  %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN5clangL10arch_namesE, i64 1752), ptr getelementptr inbounds (i8, ptr @_ZN5clangL10arch_namesE, i64 1776)
+  %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1752), ptr getelementptr inbounds (i8, ptr @_ZN5clangL10arch_namesE, i64 1776)
   %switch.selectcmp31.i.i.i = icmp eq i32 %0, 73
   br i1 %switch.selectcmp31.i.i.i, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.thread", label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit": ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 24
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18": ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 48
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20": ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 72
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit": ; preds = %2, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19OffloadArchToStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20", %17
@@ -318,45 +318,45 @@ define dso_local noundef ptr @_ZN5clang30OffloadArchToVirtualArchStringENS_11Off
   br i1 %3, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit", label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 24
   %.val31.i.i.i = load i32, ptr %5, align 8
   %6 = icmp eq i32 %0, %.val31.i.i.i
   br i1 %6, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit", label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 48
   %.val33.i.i.i = load i32, ptr %8, align 8
   %9 = icmp eq i32 %0, %.val33.i.i.i
   br i1 %9, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18", label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 72
   %.val35.i.i.i = load i32, ptr %11, align 8
   %12 = icmp eq i32 %0, %.val35.i.i.i
   br i1 %12, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20", label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 96
   %15 = add nsw i64 %.018.i.i.i, -1
   %16 = icmp ugt i64 %.018.i.i.i, 1
   br i1 %16, label %2, label %17, !llvm.loop !9
 
 17:                                               ; preds = %13
   %switch.selectcmp.i.i.i = icmp eq i32 %0, 74
-  %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN5clangL10arch_namesE, i64 1752), ptr getelementptr inbounds (i8, ptr @_ZN5clangL10arch_namesE, i64 1776)
+  %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1752), ptr getelementptr inbounds (i8, ptr @_ZN5clangL10arch_namesE, i64 1776)
   %switch.selectcmp31.i.i.i = icmp eq i32 %0, 73
   br i1 %switch.selectcmp31.i.i.i, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.thread", label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit": ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 24
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18": ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 48
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20": ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %.02917.i.i.i, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %.02917.i.i.i, i64 72
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit": ; preds = %2, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit18", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_30OffloadArchToVirtualArchStringENS0_11OffloadArchEE3$_0ET_S7_S7_T0_.exit.loopexit.split.loop.exit20", %17
@@ -383,7 +383,7 @@ define dso_local noundef i32 @_ZN5clang19StringToOffloadArchEN4llvm9StringRefE(p
 4:                                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.thread17.i.i.i", %2
   %.050.i.i.i = phi i64 [ 18, %2 ], [ %29, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.thread17.i.i.i" ]
   %.02949.i.i.i.idx = phi i64 [ 0, %2 ], [ %.02949.i.i.i.add14, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit64.thread17.i.i.i" ]
-  %.02949.i.i.i.ptr = getelementptr inbounds i8, ptr @_ZN5clangL10arch_namesE, i64 %.02949.i.i.i.idx
+  %.02949.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN5clangL10arch_namesE, i64 %.02949.i.i.i.idx
   %5 = getelementptr i8, ptr %.02949.i.i.i.ptr, i64 8
   %.029.val.i.i.i = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.029.val.i.i.i, null
@@ -520,12 +520,12 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i72.i.i.i:        ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit": ; preds = %21, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit58.i.i.i"
   %.02949.i.i.i.add12 = add nuw nsw i64 %.02949.i.i.i.idx, 48
-  %.028.i.i.i.ptr = getelementptr inbounds i8, ptr @_ZN5clangL10arch_namesE, i64 %.02949.i.i.i.add12
+  %.028.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN5clangL10arch_namesE, i64 %.02949.i.i.i.add12
   %33 = icmp eq i64 %.02949.i.i.i.add12, 1776
   br i1 %33, label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread7", label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread"
 
 "_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread": ; preds = %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit82.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit76.i.i.i", %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit"
-  %.028.i.i.i6 = phi ptr [ %.028.i.i.i.ptr, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit" ], [ getelementptr inbounds (i8, ptr @_ZN5clangL10arch_namesE, i64 1752), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit82.i.i.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1728), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit76.i.i.i" ], [ %.028.i.i.i.ptr37, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35" ]
+  %.028.i.i.i6 = phi ptr [ %.028.i.i.i.ptr, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1752), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit82.i.i.i" ], [ getelementptr inbounds nuw (i8, ptr @_ZN5clangL10arch_namesE, i64 1728), %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang19StringToOffloadArchEN4llvm9StringRefEE3$_0EclIPKNS2_12_GLOBAL__N_122OffloadArchToStringMapEEEbT_.exit76.i.i.i" ], [ %.028.i.i.i.ptr37, %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread35" ]
   %34 = load i32, ptr %.028.i.i.i6, align 8
   br label %"_ZSt7find_ifIPKN5clang12_GLOBAL__N_122OffloadArchToStringMapEZNS0_19StringToOffloadArchEN4llvm9StringRefEE3$_0ET_S8_S8_T0_.exit.thread7"
 
@@ -569,7 +569,7 @@ define dso_local noundef range(i32 0, 10001) i32 @_ZN5clang24MaxVersionForOffloa
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN5clang24MaxVersionForOffloadArchENS_11OffloadArchE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN5clang24MaxVersionForOffloadArchENS_11OffloadArchE, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %7
 
@@ -607,8 +607,8 @@ define dso_local noundef zeroext i1 @_ZN5clang18CudaFeatureEnabledEN4llvm12Versi
   br i1 %or.cond.i, label %_ZN5clang13ToCudaVersionEN4llvm12VersionTupleE.exit, label %_ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i
 
 _ZN4llvmeqERKNS_12VersionTupleES2_.exit.thread.i: ; preds = %15, %11, %5
-  %20 = getelementptr inbounds i8, ptr %.06.i, i64 32
-  %21 = getelementptr inbounds i8, ptr %.06.i, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.06.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.06.i, i64 40
   %22 = load i32, ptr %21, align 8
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_ZN5clang13ToCudaVersionEN4llvm12VersionTupleE.exit, label %5, !llvm.loop !7

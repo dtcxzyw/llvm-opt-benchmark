@@ -10,19 +10,19 @@ define i32 @pthread_rwlock_tryrdlock(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %17
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 92
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %tryrdlock.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %tryrdlock.exit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %tryrdlock.exit, label %14
@@ -53,10 +53,10 @@ define i32 @pthread_rwlock_clockrdlock(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not, label %.preheader, label %26
 
 .preheader:                                       ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 92
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.not18 = icmp eq ptr %2, null
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %.not18, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %12
@@ -85,7 +85,7 @@ define i32 @pthread_rwlock_clockrdlock(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %17, label %23, label %.split.us
 
 .split.us:                                        ; preds = %15, %9
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %tryrdlock.exit, label %21
@@ -123,10 +123,10 @@ define i32 @pthread_rwlock_timedrdlock(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %.not.i, label %.preheader.i, label %pthread_rwlock_clockrdlock.exit
 
 .preheader.i:                                     ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 92
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.not18.i = icmp eq ptr %1, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %.not18.i, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i, %11
@@ -155,7 +155,7 @@ define i32 @pthread_rwlock_timedrdlock(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %16, label %22, label %.split.us.i
 
 .split.us.i:                                      ; preds = %14, %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %tryrdlock.exit.i, label %20
@@ -187,9 +187,9 @@ define i32 @pthread_rwlock_rdlock(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i, label %.preheader.i.i, label %pthread_rwlock_timedrdlock.exit
 
 .preheader.i.i:                                   ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 92
-  %4 = getelementptr inbounds i8, ptr %0, i64 96
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %.preheader.split.us.i.i
 
 .preheader.split.us.i.i:                          ; preds = %10, %.preheader.i.i
@@ -208,7 +208,7 @@ define i32 @pthread_rwlock_rdlock(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not19.us.i.i, label %.preheader.split.us.i.i, label %tryrdlock.exit.i.i, !llvm.loop !6
 
 .split.us.i.i:                                    ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %tryrdlock.exit.i.i, label %15

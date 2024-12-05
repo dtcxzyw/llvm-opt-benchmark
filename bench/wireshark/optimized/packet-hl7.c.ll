@@ -1225,9 +1225,9 @@ define internal range(i32 0, 2) i32 @dissect_hl7_heur(ptr noundef %0, ptr nounde
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %1, i64 332
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 336
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %18, align 8
   br label %19
 
@@ -1282,16 +1282,16 @@ define internal i32 @dissect_hl7(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 6
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 9
-  %11 = getelementptr inbounds i8, ptr %5, i64 5
-  %12 = getelementptr inbounds i8, ptr %5, i64 1
-  %13 = getelementptr inbounds i8, ptr %5, i64 2
-  %14 = getelementptr inbounds i8, ptr %5, i64 3
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.not.i.i = icmp eq ptr %2, null
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %.lr.ph, %dissect_hl7_message.exit
@@ -1303,9 +1303,9 @@ define internal i32 @dissect_hl7(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %1, i64 332
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.03363, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 336
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %24, align 8
   br label %183
 
@@ -1393,13 +1393,13 @@ define internal i32 @dissect_hl7(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i.i.i, label %proto_item_set_hidden.exit.i.i, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %71, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not5.i.i.i = icmp eq ptr %74, null
   br i1 %.not5.i.i.i, label %proto_item_set_hidden.exit.i.i, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %74, i64 28
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 28
   %77 = load i32, ptr %76, align 4
   %78 = or i32 %77, 1
   store i32 %78, ptr %76, align 4
@@ -1426,13 +1426,13 @@ proto_item_set_hidden.exit.i.i:                   ; preds = %75, %72, %69, %67
   br i1 %.not.i71.i.i, label %.backedge.i.i, label %91
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %90, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %93 = load ptr, ptr %92, align 8
   %.not5.i72.i.i = icmp eq ptr %93, null
   br i1 %.not5.i72.i.i, label %.backedge.i.i, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %93, i64 28
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 28
   %96 = load i32, ptr %95, align 4
   %97 = or i32 %96, 1
   store i32 %97, ptr %95, align 4

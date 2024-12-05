@@ -38,7 +38,7 @@ define i32 @mpi_p_slurmstepd_prefork(ptr noundef %0, ptr noundef %1) local_unnam
   br label %6
 
 6:                                                ; preds = %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 433
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 433
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %17, label %10
@@ -75,7 +75,7 @@ declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef i32 @mpi_p_slurmstepd_task(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @task_socks, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = shl nsw i32 %5, 1
   %7 = or disjoint i32 %6, 1
@@ -85,10 +85,10 @@ define noundef i32 @mpi_p_slurmstepd_task(ptr nocapture noundef readonly %0, ptr
   %11 = tail call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef %10) #3
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 64), align 8
   %13 = tail call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %12) #3
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = tail call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, i32 noundef %15) #3
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 (ptr, ptr, ptr, ...) @slurm_env_array_overwrite_fmt(ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3, i32 noundef %18) #3
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @job_info, i64 40), align 8
@@ -103,7 +103,7 @@ define noundef i32 @mpi_p_slurmstepd_task(ptr nocapture noundef readonly %0, ptr
   %24 = load i32, ptr @tree_sock, align 4
   %25 = tail call i32 @close(i32 noundef %24) #3
   store i32 0, ptr @tree_sock, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i32, ptr %26, align 8
   %.not18 = icmp eq i32 %27, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -112,11 +112,11 @@ define noundef i32 @mpi_p_slurmstepd_task(ptr nocapture noundef readonly %0, ptr
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %23 ]
   %28 = load ptr, ptr @task_socks, align 8
   %29 = shl nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = tail call i32 @close(i32 noundef %31) #3
   %33 = load ptr, ptr @task_socks, align 8
-  %34 = getelementptr inbounds i32, ptr %33, i64 %29
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %29
   store i32 0, ptr %34, align 4
   %35 = load i32, ptr %4, align 4
   %36 = zext i32 %35 to i64
@@ -126,11 +126,11 @@ define noundef i32 @mpi_p_slurmstepd_task(ptr nocapture noundef readonly %0, ptr
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr @task_socks, align 8
   %39 = or disjoint i64 %29, 1
-  %40 = getelementptr inbounds i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = tail call i32 @close(i32 noundef %41) #3
   %43 = load ptr, ptr @task_socks, align 8
-  %44 = getelementptr inbounds i32, ptr %43, i64 %39
+  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %39
   store i32 0, ptr %44, align 4
   br label %45
 

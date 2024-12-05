@@ -19,7 +19,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cond = add nsw i32 %cond.v, %rem
   %conv = trunc i32 %cond to i16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds i16, ptr %buffer, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i16, ptr %buffer, i64 %indvars.iv
   store i16 %conv, ptr %arrayidx, align 2
   %div = udiv i32 %i.addr.0, %radix
   %tobool = icmp ule i32 %radix, %i.addr.0
@@ -40,7 +40,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %indvars.iv35 = phi i64 [ %indvars.iv33, %while.body.preheader ], [ %indvars.iv.next36, %while.body ]
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %arrayidx7 = getelementptr inbounds i16, ptr %buffer, i64 %indvars.iv35
+  %arrayidx7 = getelementptr inbounds nuw i16, ptr %buffer, i64 %indvars.iv35
   store i16 48, ptr %arrayidx7, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !6
@@ -52,7 +52,7 @@ while.end:                                        ; preds = %while.body, %while.
 
 if.then:                                          ; preds = %while.end
   %idxprom9 = zext nneg i32 %length.1.lcssa to i64
-  %arrayidx10 = getelementptr inbounds i16, ptr %buffer, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw i16, ptr %buffer, i64 %idxprom9
   store i16 0, ptr %arrayidx10, align 2
   br label %if.end
 
@@ -72,7 +72,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %5 = xor i64 %indvars.iv38, -1
   %arrayidx15 = getelementptr i16, ptr %4, i64 %5
   %6 = load i16, ptr %arrayidx15, align 2
-  %arrayidx17 = getelementptr inbounds i16, ptr %buffer, i64 %indvars.iv38
+  %arrayidx17 = getelementptr inbounds nuw i16, ptr %buffer, i64 %indvars.iv38
   %7 = load i16, ptr %arrayidx17, align 2
   store i16 %7, ptr %arrayidx15, align 2
   store i16 %6, ptr %arrayidx17, align 2

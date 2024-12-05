@@ -512,7 +512,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_name.i = getelementptr inbounds i8, ptr %p, i64 16
+  %m_name.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %m_name.i, align 8
   %0 = ptrtoint ptr %agg.tmp.sroa.0.0.copyload to i64
   %and.i = and i64 %0, 7
@@ -589,17 +589,17 @@ define hidden noundef ptr @_ZN7datalog17lazy_table_plugin8mk_emptyERKNS_15table_
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  %m_plugin = getelementptr inbounds i8, ptr %this, i64 32
+  %m_plugin = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_plugin, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %s)
-  %m_signature.i.i = getelementptr inbounds i8, ptr %call3, i64 16
+  %m_signature.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %call2, align 8
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr %this, ptr %m_plugin.i.i, align 8
-  %m_signature.i2.i = getelementptr inbounds i8, ptr %call2, i64 16
+  %m_signature.i2.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr null, ptr %m_signature.i2.i, align 8
   %2 = load ptr, ptr %m_signature.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
@@ -615,9 +615,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i: ; preds = %entry
   %add.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i)
   store i32 %4, ptr %call3.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i, i64 4
   store i32 %3, ptr %incdec.ptr.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i, ptr %m_signature.i2.i, align 8
   %5 = load ptr, ptr %m_signature.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -637,18 +637,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNK6vectorImLb0EjE
 
 _ZN7datalog15lazy_table_baseC2ERNS_17lazy_table_pluginEPNS_10table_baseE.exit: ; preds = %entry, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %9 = phi ptr [ null, %entry ], [ %incdec.ptr4.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i ], [ %incdec.ptr4.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i ], [ %incdec.ptr4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %m_functional_columns.i.i.i = getelementptr inbounds i8, ptr %call2, i64 24
-  %m_functional_columns2.i.i.i = getelementptr inbounds i8, ptr %call3, i64 24
+  %m_functional_columns.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 24
+  %m_functional_columns2.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 24
   %10 = load i32, ptr %m_functional_columns2.i.i.i, align 8
   store i32 %10, ptr %m_functional_columns.i.i.i, align 8
-  %m_ref.i.i = getelementptr inbounds i8, ptr %call2, i64 32
+  %m_ref.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 32
   store i32 0, ptr %m_ref.i.i, align 8
-  %m_table.i.i = getelementptr inbounds i8, ptr %call2, i64 40
+  %m_table.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog15lazy_table_baseE, i64 16), ptr %call2, align 8
   store ptr %call3, ptr %m_table.i.i, align 8
-  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %this, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
+  %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i
@@ -663,9 +663,9 @@ _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZN7datalog15lazy_t
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store i32 %12, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i, i64 4
   store i32 %11, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %13 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i3, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %13, 0
@@ -678,14 +678,14 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit
 
 _ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit: ; preds = %_ZN7datalog15lazy_table_baseC2ERNS_17lazy_table_pluginEPNS_10table_baseE.exit, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %m_functional_columns.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 %10, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %16 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %16, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog10lazy_tableE, i64 16), ptr %call, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %call, i64 40
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr %call2, ptr %m_ref.i, align 8
   store i32 1, ptr %m_ref.i.i, align 8
   ret ptr %call
@@ -761,10 +761,10 @@ dynamic_cast.end:                                 ; preds = %entry, %dynamic_cas
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog17lazy_table_plugin10mk_join_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(36) %t1, ptr noundef nonnull align 8 dereferenceable(36) %t2, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %t1, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t1, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
-  %m_plugin.i.i3 = getelementptr inbounds i8, ptr %t2, i64 8
+  %m_plugin.i.i3 = getelementptr inbounds nuw i8, ptr %t2, i64 8
   %1 = load ptr, ptr %m_plugin.i.i3, align 8
   %cmp.i4 = icmp eq ptr %1, %this
   %or.cond = select i1 %cmp.i, i1 %cmp.i4, i1 false
@@ -772,8 +772,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  %m_signature.i = getelementptr inbounds i8, ptr %t1, i64 16
-  %m_signature.i5 = getelementptr inbounds i8, ptr %t2, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %t1, i64 16
+  %m_signature.i5 = getelementptr inbounds nuw i8, ptr %t2, i64 16
   tail call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnC2ERKNS_15table_signatureES6_jPKjS8_(ptr noundef nonnull align 8 dereferenceable(40) %call3, ptr noundef nonnull align 8 dereferenceable(12) %m_signature.i, ptr noundef nonnull align 8 dereferenceable(12) %m_signature.i5, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin7join_fnE, i64 16), ptr %call3, align 8
   br label %return
@@ -786,10 +786,10 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef ptr @_ZN7datalog17lazy_table_plugin11mk_union_fnERKNS_10table_baseES3_PS2_(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %tgt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %src, ptr noundef readonly %delta) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %tgt, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %tgt, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
-  %m_plugin.i.i2 = getelementptr inbounds i8, ptr %src, i64 8
+  %m_plugin.i.i2 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load ptr, ptr %m_plugin.i.i2, align 8
   %cmp.i3 = icmp eq ptr %1, %this
   %or.cond = select i1 %cmp.i, i1 %cmp.i3, i1 false
@@ -800,7 +800,7 @@ land.lhs.true3:                                   ; preds = %entry
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true3
-  %m_plugin.i.i4 = getelementptr inbounds i8, ptr %delta, i64 8
+  %m_plugin.i.i4 = getelementptr inbounds nuw i8, ptr %delta, i64 8
   %2 = load ptr, ptr %m_plugin.i.i4, align 8
   %cmp.i5 = icmp eq ptr %2, %this
   br i1 %cmp.i5, label %if.then, label %return
@@ -818,20 +818,20 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog17lazy_table_plugin13mk_project_fnERKNS_10table_baseEjPKj(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, i32 noundef %col_cnt, ptr noundef %removed_cols) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
-  %m_signature.i = getelementptr inbounds i8, ptr %t, i64 16
-  %m_result_sig.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %t, i64 16
+  %m_result_sig.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr null, ptr %m_result_sig.i.i.i, align 8
-  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 16
+  %m_functional_columns.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store i32 0, ptr %m_functional_columns.i.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnE, i64 16), ptr %call2, align 8
-  %m_removed_cols.i.i = getelementptr inbounds i8, ptr %call2, i64 24
+  %m_removed_cols.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 24
   store ptr null, ptr %m_removed_cols.i.i, align 8
   %cmp3.not.i.i.i.i = icmp eq i32 %col_cnt, 0
   br i1 %cmp3.not.i.i.i.i, label %invoke.cont.i.i, label %for.body.preheader.i.i.i.i
@@ -847,7 +847,7 @@ for.bodythread-pre-split.i.i.i.i:                 ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i.i.i:                                 ; preds = %for.bodythread-pre-split.i.i.i.i, %for.body.preheader.i.i.i.i
   %1 = phi ptr [ %.pr.i.i.i.i, %for.bodythread-pre-split.i.i.i.i ], [ null, %for.body.preheader.i.i.i.i ]
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.bodythread-pre-split.i.i.i.i ], [ 0, %for.body.preheader.i.i.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds i32, ptr %removed_cols, i64 %indvars.iv.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i32, ptr %removed_cols, i64 %indvars.iv.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %lor.lhs.false.i.i.i.i.i
 
@@ -873,7 +873,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i.i:    ; preds = %.noexc.i.i, %lor.lh
   %4 = phi i32 [ %.pre1.i.i.i.i.i, %.noexc.i.i ], [ %2, %lor.lhs.false.i.i.i.i.i ]
   %5 = phi ptr [ %.pre.i.i.i.i.i, %.noexc.i.i ], [ %1, %lor.lhs.false.i.i.i.i.i ]
   %idx.ext.i.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idx.ext.i.i.i.i.i
   %6 = load i32, ptr %arrayidx.i.i.i.i, align 4
   store i32 %6, ptr %add.ptr.i.i.i.i.i, align 4
   %7 = load ptr, ptr %m_removed_cols.i.i, align 8
@@ -917,14 +917,14 @@ return:                                           ; preds = %entry, %_ZN7datalog
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog17lazy_table_plugin12mk_rename_fnERKNS_10table_baseEjPKj(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(36) %t, i32 noundef %col_cnt, ptr noundef %removed_cols) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
-  %m_signature.i = getelementptr inbounds i8, ptr %t, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %t, i64 16
   tail call void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnC2ERKNS_15table_signatureEjPKj(ptr noundef nonnull align 8 dereferenceable(32) %call2, ptr noundef nonnull align 8 dereferenceable(12) %m_signature.i, i32 noundef %col_cnt, ptr noundef %removed_cols)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin9rename_fnE, i64 16), ptr %call2, align 8
   br label %return
@@ -937,7 +937,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog17lazy_table_plugin22mk_filter_identical_fnERKNS_10table_baseEjPKj(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, i32 noundef %col_cnt, ptr nocapture noundef readonly %identical_cols) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.then, label %return
@@ -945,7 +945,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin19filter_identical_fnE, i64 16), ptr %call2, align 8
-  %m_cols.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %m_cols.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr null, ptr %m_cols.i, align 8
   %cmp3.not.i.i.i = icmp eq i32 %col_cnt, 0
   br i1 %cmp3.not.i.i.i, label %return, label %for.body.preheader.i.i.i
@@ -961,7 +961,7 @@ for.bodythread-pre-split.i.i.i:                   ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i.i:                                   ; preds = %for.bodythread-pre-split.i.i.i, %for.body.preheader.i.i.i
   %1 = phi ptr [ %.pr.i.i.i, %for.bodythread-pre-split.i.i.i ], [ null, %for.body.preheader.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.bodythread-pre-split.i.i.i ], [ 0, %for.body.preheader.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %identical_cols, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr %identical_cols, i64 %indvars.iv.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
 
@@ -984,7 +984,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i.i:      ; preds = %if.then.i.i.i.i, %l
   %4 = phi i32 [ %.pre1.i.i.i.i, %if.then.i.i.i.i ], [ %2, %lor.lhs.false.i.i.i.i ]
   %5 = phi ptr [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %1, %lor.lhs.false.i.i.i.i ]
   %idx.ext.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %5, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i32, ptr %5, i64 %idx.ext.i.i.i.i
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
   store i32 %6, ptr %add.ptr.i.i.i.i, align 4
   %7 = load ptr, ptr %m_cols.i, align 8
@@ -1005,23 +1005,23 @@ return:                                           ; preds = %_ZN6vectorIjLb0EjE9
 define hidden noalias noundef ptr @_ZN7datalog17lazy_table_plugin24mk_filter_interpreted_fnERKNS_10table_baseEP3app(ptr noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr noundef %condition) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cond = alloca %class.obj_ref, align 8
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %m_manager.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %m_manager.i, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(976) ptr @_ZN7datalog32get_ast_manager_from_rel_managerERKNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(200) %1)
   store ptr %condition, ptr %cond, align 8
-  %m_manager.i1 = getelementptr inbounds i8, ptr %cond, i64 8
+  %m_manager.i1 = getelementptr inbounds nuw i8, ptr %cond, i64 8
   store ptr %call.i, ptr %m_manager.i1, align 8
   %tobool.not.i.i = icmp eq ptr %condition, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %if.then
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %condition, i64 8
+  %m_ref_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %condition, i64 8
   %2 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %2, 1
   store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
@@ -1033,14 +1033,14 @@ _ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit:   ; preds = %if.then, %_ZN11ast_
 
 invoke.cont:                                      ; preds = %_ZN7obj_refI3app11ast_managerEC2EPS0_RS1_.exit
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin21filter_interpreted_fnE, i64 16), ptr %call3, align 8
-  %m_condition.i = getelementptr inbounds i8, ptr %call3, i64 8
+  %m_condition.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store ptr %condition, ptr %m_condition.i, align 8
-  %m_manager.i.i = getelementptr inbounds i8, ptr %call3, i64 16
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 16
   store ptr %call.i, ptr %m_manager.i.i, align 8
   br i1 %tobool.not.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %condition, i64 8
+  %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %condition, i64 8
   %3 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %3, 0
   br i1 %cmp.i.i.i, label %if.then2.i.i.i, label %return
@@ -1075,9 +1075,9 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_manager.i, align 8
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %m_ref_count.i.i.i, align 4
   %dec.i.i.i = add i32 %2, -1
   store i32 %dec.i.i.i, ptr %m_ref_count.i.i.i, align 4
@@ -1102,10 +1102,10 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN7datalog17lazy_table_plugin24mk_filter_by_negation_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %negated_obj, i32 noundef %joined_col_cnt, ptr noundef %t_cols, ptr noundef %negated_cols) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
-  %m_plugin.i.i1 = getelementptr inbounds i8, ptr %negated_obj, i64 8
+  %m_plugin.i.i1 = getelementptr inbounds nuw i8, ptr %negated_obj, i64 8
   %1 = load ptr, ptr %m_plugin.i.i1, align 8
   %cmp.i2 = icmp eq ptr %1, %this
   %or.cond = select i1 %cmp.i, i1 %cmp.i2, i1 false
@@ -1125,13 +1125,13 @@ return:                                           ; preds = %entry, %if.then
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_by_negation_fnC2EjPKjS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %cnt, ptr noundef %cols1, ptr noundef %cols2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin21filter_by_negation_fnE, i64 16), ptr %this, align 8
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %m_cols1, align 8
   %cmp3.not.i.i = icmp eq i32 %cnt, 0
   br i1 %cmp3.not.i.i, label %invoke.cont.thread, label %for.body.preheader.i.i
 
 invoke.cont.thread:                               ; preds = %entry
-  %m_cols229 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_cols229 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_cols229, align 8
   br label %invoke.cont3
 
@@ -1146,7 +1146,7 @@ for.bodythread-pre-split.i.i:                     ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i:                                     ; preds = %for.bodythread-pre-split.i.i, %for.body.preheader.i.i
   %0 = phi ptr [ %.pr.i.i, %for.bodythread-pre-split.i.i ], [ null, %for.body.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.bodythread-pre-split.i.i ], [ 0, %for.body.preheader.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %cols1, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %cols1, i64 %indvars.iv.i.i
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
@@ -1169,7 +1169,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %if.then.i.i.i, %lor
   %3 = phi i32 [ %.pre1.i.i.i, %if.then.i.i.i ], [ %1, %lor.lhs.false.i.i.i ]
   %4 = phi ptr [ %.pre.i.i.i, %if.then.i.i.i ], [ %0, %lor.lhs.false.i.i.i ]
   %idx.ext.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %4, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %idx.ext.i.i.i
   %5 = load i32, ptr %arrayidx.i.i, align 4
   store i32 %5, ptr %add.ptr.i.i.i, align 4
   %6 = load ptr, ptr %m_cols1, align 8
@@ -1182,7 +1182,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %if.then.i.i.i, %lor
   br i1 %exitcond.not.i.i, label %invoke.cont, label %for.bodythread-pre-split.i.i, !llvm.loop !4
 
 invoke.cont:                                      ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_cols2, align 8
   br label %for.body.i.i6
 
@@ -1193,7 +1193,7 @@ for.bodythread-pre-split.i.i21:                   ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i6:                                    ; preds = %for.bodythread-pre-split.i.i21, %invoke.cont
   %8 = phi ptr [ %.pr.i.i22, %for.bodythread-pre-split.i.i21 ], [ null, %invoke.cont ]
   %indvars.iv.i.i7 = phi i64 [ %indvars.iv.next.i.i19, %for.bodythread-pre-split.i.i21 ], [ 0, %invoke.cont ]
-  %arrayidx.i.i8 = getelementptr inbounds i32, ptr %cols2, i64 %indvars.iv.i.i7
+  %arrayidx.i.i8 = getelementptr inbounds nuw i32, ptr %cols2, i64 %indvars.iv.i.i7
   %cmp.i.i.i9 = icmp eq ptr %8, null
   br i1 %cmp.i.i.i9, label %if.then.i.i.i23, label %lor.lhs.false.i.i.i10
 
@@ -1219,7 +1219,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i14:      ; preds = %.noexc27, %lor.lhs.
   %11 = phi i32 [ %.pre1.i.i.i26, %.noexc27 ], [ %9, %lor.lhs.false.i.i.i10 ]
   %12 = phi ptr [ %.pre.i.i.i24, %.noexc27 ], [ %8, %lor.lhs.false.i.i.i10 ]
   %idx.ext.i.i.i15 = zext i32 %11 to i64
-  %add.ptr.i.i.i16 = getelementptr inbounds i32, ptr %12, i64 %idx.ext.i.i.i15
+  %add.ptr.i.i.i16 = getelementptr inbounds nuw i32, ptr %12, i64 %idx.ext.i.i.i15
   %13 = load i32, ptr %arrayidx.i.i8, align 4
   store i32 %13, ptr %add.ptr.i.i.i16, align 4
   %14 = load ptr, ptr %m_cols2, align 8
@@ -1244,7 +1244,7 @@ lpad2:                                            ; preds = %if.then.i.i.i23
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef ptr @_ZN7datalog17lazy_table_plugin18mk_filter_equal_fnERKNS_10table_baseERKmj(ptr noundef nonnull readnone align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %value, i32 noundef %col) unnamed_addr #3 align 2 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %t, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %cmp.i = icmp eq ptr %0, %this
   br i1 %cmp.i, label %if.then, label %return
@@ -1252,10 +1252,10 @@ entry:
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin15filter_equal_fnE, i64 16), ptr %call2, align 8
-  %m_value.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %m_value.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %1 = load i64, ptr %value, align 8
   store i64 %1, ptr %m_value.i, align 8
-  %m_col.i = getelementptr inbounds i8, ptr %call2, i64 16
+  %m_col.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store i32 %col, ptr %m_col.i, align 8
   br label %return
 
@@ -1276,17 +1276,17 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
   %call.i = call ptr @_ZN7datalog17lazy_table_plugin7mk_nameERNS_12table_pluginE(ptr noundef nonnull align 8 dereferenceable(32) %call)
-  %m_manager.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = load ptr, ptr %m_manager.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i32 -1, ptr %m_kind.i.i.i, align 8
-  %m_name.i.i.i = getelementptr inbounds i8, ptr %call1, i64 16
+  %m_name.i.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
   %1 = ptrtoint ptr %call.i to i64
   store i64 %1, ptr %m_name.i.i.i, align 8
-  %m_manager.i.i.i = getelementptr inbounds i8, ptr %call1, i64 24
+  %m_manager.i.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store ptr %0, ptr %m_manager.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_pluginE, i64 16), ptr %call1, align 8
-  %m_plugin.i = getelementptr inbounds i8, ptr %call1, i64 32
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %call1, i64 32
   store ptr %call, ptr %m_plugin.i, align 8
   br label %return
 
@@ -1303,9 +1303,9 @@ declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), p
 define hidden noundef ptr @_ZNK7datalog10lazy_table5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_t = alloca %"class.datalog::verbose_action", align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref.i, align 8
-  %m_table.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %_ZNK7datalog10lazy_table4evalEv.exit
@@ -1339,7 +1339,7 @@ invoke.cont:                                      ; preds = %_ZNK7datalog10lazy_
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load ptr, ptr %m_plugin.i.i, align 8
   %6 = call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %7 = icmp eq ptr %6, null
@@ -1354,17 +1354,17 @@ dynamic_cast.bad_cast.i:                          ; preds = %invoke.cont3
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %8 = load ptr, ptr %vfn, align 8
   %call8 = invoke noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(36) %4)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %m_signature.i.i = getelementptr inbounds i8, ptr %call8, i64 16
+  %m_signature.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %call4, align 8
-  %m_plugin.i.i1 = getelementptr inbounds i8, ptr %call4, i64 8
+  %m_plugin.i.i1 = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store ptr %6, ptr %m_plugin.i.i1, align 8
-  %m_signature.i2.i = getelementptr inbounds i8, ptr %call4, i64 16
+  %m_signature.i2.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
   store ptr null, ptr %m_signature.i2.i, align 8
   %9 = load ptr, ptr %m_signature.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -1383,9 +1383,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i: ; preds = %invoke.cont7
 
 call3.i.i.i.i.i.i.i.noexc:                        ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i
   store i32 %11, ptr %call3.i.i.i.i.i.i.i3, align 4
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i3, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i3, i64 4
   store i32 %10, ptr %incdec.ptr.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i3, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i3, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i, ptr %m_signature.i2.i, align 8
   %12 = load ptr, ptr %m_signature.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -1405,19 +1405,19 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNK6vectorImLb0EjE
 
 invoke.cont9:                                     ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i, %call3.i.i.i.i.i.i.i.noexc, %invoke.cont7
   %16 = phi ptr [ %incdec.ptr4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr4.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i ], [ %incdec.ptr4.i.i.i.i.i.i.i, %call3.i.i.i.i.i.i.i.noexc ], [ null, %invoke.cont7 ]
-  %m_functional_columns.i.i.i = getelementptr inbounds i8, ptr %call4, i64 24
-  %m_functional_columns2.i.i.i = getelementptr inbounds i8, ptr %call8, i64 24
+  %m_functional_columns.i.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 24
+  %m_functional_columns2.i.i.i = getelementptr inbounds nuw i8, ptr %call8, i64 24
   %17 = load i32, ptr %m_functional_columns2.i.i.i, align 8
   store i32 %17, ptr %m_functional_columns.i.i.i, align 8
-  %m_ref.i.i = getelementptr inbounds i8, ptr %call4, i64 32
+  %m_ref.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 32
   store i32 0, ptr %m_ref.i.i, align 8
-  %m_table.i.i2 = getelementptr inbounds i8, ptr %call4, i64 40
+  %m_table.i.i2 = getelementptr inbounds nuw i8, ptr %call4, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog15lazy_table_baseE, i64 16), ptr %call4, align 8
   store ptr %call8, ptr %m_table.i.i2, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %call2, align 8
-  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr %6, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call2, i64 16
+  %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %invoke.cont10, label %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
@@ -1435,9 +1435,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %invoke.cont9
 
 _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i
   store i32 %19, ptr %call3.i.i.i.i.i.i.i.i8, align 4
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i8, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i8, i64 4
   store i32 %18, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i8, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i8, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %20 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i6, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %20, 0
@@ -1450,14 +1450,14 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %invoke.cont9
-  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 24
+  %m_functional_columns.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 24
   store i32 %17, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call2, i64 32
-  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %23, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog10lazy_tableE, i64 16), ptr %call2, align 8
-  %m_ref.i7 = getelementptr inbounds i8, ptr %call2, i64 40
+  %m_ref.i7 = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store ptr %call4, ptr %m_ref.i7, align 8
   store i32 1, ptr %m_ref.i.i, align 8
   call void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %_t) #17
@@ -1473,9 +1473,9 @@ lpad:                                             ; preds = %_ZNK6vectorImLb0EjE
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK7datalog10lazy_table4evalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_ref = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -1511,9 +1511,9 @@ declare void @_ZN7datalog14verbose_actionD1Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK7datalog10lazy_table10complementEP9func_declPKm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %p, ptr noundef %func_columns) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref.i, align 8
-  %m_table.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %_ZNK7datalog10lazy_table4evalEv.exit
@@ -1539,12 +1539,12 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i: ; preds = %if.then.i.
 _ZNK7datalog10lazy_table4evalEv.exit:             ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i
   %4 = phi ptr [ %call2.i.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i ], [ %1, %entry ]
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %5 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef %p, ptr noundef %func_columns)
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %call4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %m_plugin.i.i, align 8
   %7 = tail call ptr @__dynamic_cast(ptr nonnull %6, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %8 = icmp eq ptr %7, null
@@ -1555,11 +1555,11 @@ dynamic_cast.bad_cast.i:                          ; preds = %_ZNK7datalog10lazy_
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %_ZNK7datalog10lazy_table4evalEv.exit
-  %m_signature.i.i = getelementptr inbounds i8, ptr %call2, i64 16
+  %m_signature.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %call4, align 8
-  %m_plugin.i.i1 = getelementptr inbounds i8, ptr %call4, i64 8
+  %m_plugin.i.i1 = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store ptr %7, ptr %m_plugin.i.i1, align 8
-  %m_signature.i2.i = getelementptr inbounds i8, ptr %call4, i64 16
+  %m_signature.i2.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
   store ptr null, ptr %m_signature.i2.i, align 8
   %9 = load ptr, ptr %m_signature.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -1575,9 +1575,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNK7datalog10lazy
   %add.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i)
   store i32 %11, ptr %call3.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i, i64 4
   store i32 %10, ptr %incdec.ptr.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i, ptr %m_signature.i2.i, align 8
   %12 = load ptr, ptr %m_signature.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -1597,18 +1597,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNK6vectorImLb0EjE
 
 _ZN7datalog15lazy_table_baseC2ERNS_17lazy_table_pluginEPNS_10table_baseE.exit: ; preds = %_ZNK7datalog10lazy_table11get_lpluginEv.exit, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %16 = phi ptr [ null, %_ZNK7datalog10lazy_table11get_lpluginEv.exit ], [ %incdec.ptr4.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i ], [ %incdec.ptr4.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i ], [ %incdec.ptr4.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %m_functional_columns.i.i.i = getelementptr inbounds i8, ptr %call4, i64 24
-  %m_functional_columns2.i.i.i = getelementptr inbounds i8, ptr %call2, i64 24
+  %m_functional_columns.i.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 24
+  %m_functional_columns2.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 24
   %17 = load i32, ptr %m_functional_columns2.i.i.i, align 8
   store i32 %17, ptr %m_functional_columns.i.i.i, align 8
-  %m_ref.i.i = getelementptr inbounds i8, ptr %call4, i64 32
+  %m_ref.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 32
   store i32 0, ptr %m_ref.i.i, align 8
-  %m_table.i.i2 = getelementptr inbounds i8, ptr %call4, i64 40
+  %m_table.i.i2 = getelementptr inbounds nuw i8, ptr %call4, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog15lazy_table_baseE, i64 16), ptr %call4, align 8
   store ptr %call2, ptr %m_table.i.i2, align 8
-  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call3, i64 8
+  %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store ptr %7, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call3, i64 16
+  %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit, label %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i
@@ -1623,9 +1623,9 @@ _ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i:   ; preds = %_ZN7datalog15lazy_t
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store i32 %19, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i, i64 4
   store i32 %18, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %20 = load i32, ptr %arrayidx.i.i.i.i.i.i.i.i.i5, align 4
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %20, 0
@@ -1638,14 +1638,14 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit
 
 _ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit: ; preds = %_ZN7datalog15lazy_table_baseC2ERNS_17lazy_table_pluginEPNS_10table_baseE.exit, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 24
+  %m_functional_columns.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 24
   store i32 %17, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call3, i64 32
-  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %23, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog10lazy_tableE, i64 16), ptr %call3, align 8
-  %m_ref.i6 = getelementptr inbounds i8, ptr %call3, i64 40
+  %m_ref.i6 = getelementptr inbounds nuw i8, ptr %call3, i64 40
   store ptr %call4, ptr %m_ref.i6, align 8
   store i32 1, ptr %m_ref.i.i, align 8
   ret ptr %call3
@@ -1654,9 +1654,9 @@ _ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit: ; preds = %_ZN7datalog15la
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK7datalog10lazy_table5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_ref = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -1682,7 +1682,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %5 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(36) %4)
   ret i1 %call3
@@ -1691,9 +1691,9 @@ _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK7datalog10lazy_table13contains_factERK7svectorImjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %f) unnamed_addr #3 align 2 {
 entry:
-  %m_ref = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -1719,7 +1719,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %5 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(8) %f)
   ret i1 %call3
@@ -1728,9 +1728,9 @@ _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7datalog10lazy_table11remove_factEPKm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef %fact) unnamed_addr #3 align 2 {
 entry:
-  %m_ref = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -1756,7 +1756,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 168
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef %fact)
   ret void
@@ -1765,9 +1765,9 @@ _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7datalog10lazy_table12remove_factsEjPK7svectorImjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %fact_cnt, ptr noundef %facts) unnamed_addr #3 align 2 {
 entry:
-  %m_ref = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -1793,7 +1793,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 176
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(36) %4, i32 noundef %fact_cnt, ptr noundef %facts)
   ret void
@@ -1802,9 +1802,9 @@ _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7datalog10lazy_table12remove_factsEjPKm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %fact_cnt, ptr noundef %facts) unnamed_addr #3 align 2 {
 entry:
-  %m_ref = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -1830,7 +1830,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 184
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(36) %4, i32 noundef %fact_cnt, ptr noundef %facts)
   ret void
@@ -1840,7 +1840,7 @@ _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog
 define hidden void @_ZN7datalog10lazy_table5resetEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
@@ -1851,18 +1851,18 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit3:    ; preds = %entry
-  %m_plugin = getelementptr inbounds i8, ptr %1, i64 32
+  %m_plugin = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load ptr, ptr %m_plugin, align 8
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %4 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(12) %m_signature.i)
-  %m_signature.i.i = getelementptr inbounds i8, ptr %call5, i64 16
+  %m_signature.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %call, align 8
-  %m_plugin.i.i4 = getelementptr inbounds i8, ptr %call, i64 8
+  %m_plugin.i.i4 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %1, ptr %m_plugin.i.i4, align 8
-  %m_signature.i2.i = getelementptr inbounds i8, ptr %call, i64 16
+  %m_signature.i2.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %m_signature.i2.i, align 8
   %5 = load ptr, ptr %m_signature.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -1878,9 +1878,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNK7datalog10lazy
   %add.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i)
   store i32 %7, ptr %call3.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i, i64 4
   store i32 %6, ptr %incdec.ptr.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i, ptr %m_signature.i2.i, align 8
   %8 = load ptr, ptr %m_signature.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -1899,22 +1899,22 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %_ZNK6vectorImLb0EjE
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK7datalog10lazy_table11get_lpluginEv.exit3, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
-  %m_functional_columns2.i.i.i = getelementptr inbounds i8, ptr %call5, i64 24
+  %m_functional_columns.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
+  %m_functional_columns2.i.i.i = getelementptr inbounds nuw i8, ptr %call5, i64 24
   %12 = load i32, ptr %m_functional_columns2.i.i.i, align 8
   store i32 %12, ptr %m_functional_columns.i.i.i, align 8
-  %m_ref.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  %m_table.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  %m_ref.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
+  %m_table.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog15lazy_table_baseE, i64 16), ptr %call, align 8
   store ptr %call5, ptr %m_table.i.i, align 8
-  %m_ref = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 1, ptr %m_ref.i.i, align 8
   %13 = load ptr, ptr %m_ref, align 8
   %tobool.not.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i, label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %13, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 32
   %14 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %14, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -1923,7 +1923,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %15 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(48) %13) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %13)
@@ -1937,9 +1937,9 @@ _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %if.end.i, %if.then.
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7datalog10lazy_table8add_factERK7svectorImjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %f) unnamed_addr #3 align 2 {
 entry:
-  %m_ref = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -1965,7 +1965,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(8) %f)
   ret void
@@ -1974,9 +1974,9 @@ _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK7datalog10lazy_table5beginEv(ptr noalias sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref.i, align 8
-  %m_table.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %_ZNK7datalog10lazy_table4evalEv.exit
@@ -2002,7 +2002,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i: ; preds = %if.then.i.
 _ZNK7datalog10lazy_table4evalEv.exit:             ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i
   %4 = phi ptr [ %call2.i.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i ], [ %1, %entry ]
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 200
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %4)
   ret void
@@ -2011,9 +2011,9 @@ _ZNK7datalog10lazy_table4evalEv.exit:             ; preds = %entry, %_ZN7datalog
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK7datalog10lazy_table3endEv(ptr noalias sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref.i, align 8
-  %m_table.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %_ZNK7datalog10lazy_table4evalEv.exit
@@ -2039,7 +2039,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i: ; preds = %if.then.i.
 _ZNK7datalog10lazy_table4evalEv.exit:             ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i
   %4 = phi ptr [ %call2.i.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i ], [ %1, %entry ]
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 208
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %4)
   ret void
@@ -2049,9 +2049,9 @@ _ZNK7datalog10lazy_table4evalEv.exit:             ; preds = %entry, %_ZN7datalog
 define hidden noundef ptr @_ZN7datalog15lazy_table_join5forceEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_t = alloca %"class.datalog::verbose_action", align 8
-  %m_t1 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_t1 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_t1, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -2076,9 +2076,9 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
-  %m_t2 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_t2 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %5 = load ptr, ptr %m_t2, align 8
-  %m_table.i4 = getelementptr inbounds i8, ptr %5, i64 40
+  %m_table.i4 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %6 = load ptr, ptr %m_table.i4, align 8
   %cmp.i.not.i5 = icmp eq ptr %6, null
   br i1 %cmp.i.not.i5, label %if.then.i6, label %_ZN7datalog14lazy_table_ref4evalEv.exit14
@@ -2104,11 +2104,11 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i13: ; preds = %if.then.i.
 _ZN7datalog14lazy_table_ref4evalEv.exit14:        ; preds = %_ZN7datalog14lazy_table_ref4evalEv.exit, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i13
   %9 = phi ptr [ %call2.i8, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i13 ], [ %6, %_ZN7datalog14lazy_table_ref4evalEv.exit ]
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t, ptr noundef nonnull @.str.3, i32 noundef 11)
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %10 = load ptr, ptr %m_plugin.i, align 8
-  %m_manager.i.i = getelementptr inbounds i8, ptr %10, i64 24
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %11 = load ptr, ptr %m_manager.i.i, align 8
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %12 = load ptr, ptr %m_cols1, align 8
   %cmp.i = icmp eq ptr %12, null
   br i1 %cmp.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %if.end.i
@@ -2120,20 +2120,20 @@ if.end.i:                                         ; preds = %_ZN7datalog14lazy_t
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZN7datalog14lazy_table_ref4evalEv.exit14, %if.end.i
   %retval.0.i = phi i32 [ %13, %if.end.i ], [ 0, %_ZN7datalog14lazy_table_ref4evalEv.exit14 ]
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %14 = load ptr, ptr %m_cols2, align 8
   %call14 = invoke noundef ptr @_ZN7datalog16relation_manager10mk_join_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(200) %11, ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(36) %9, i32 noundef %retval.0.i, ptr noundef %12, ptr noundef %14)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %vtable = load ptr, ptr %call14, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %15 = load ptr, ptr %vfn, align 8
   %call16 = invoke noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 8 dereferenceable(36) %9)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %m_table = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 40
   %16 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %16, null
   %cmp.not.i = icmp eq ptr %call16, %16
@@ -2174,10 +2174,10 @@ entry:
   %ref.tmp = alloca i64, align 8
   %_t62 = alloca %"class.datalog::verbose_action", align 8
   %_t83 = alloca %"class.datalog::verbose_action", align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_src, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(48) %0)
   switch i32 %call2, label %sw.epilog [
@@ -2197,9 +2197,9 @@ dynamic_cast.bad_cast:                            ; preds = %sw.bb
   unreachable
 
 dynamic_cast.end:                                 ; preds = %sw.bb
-  %m_t1.i = getelementptr inbounds i8, ptr %3, i64 64
+  %m_t1.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %m_t1.i, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %5, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %5, i64 40
   %6 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %6, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -2224,9 +2224,9 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %dynamic_cast.end, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %9 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %6, %dynamic_cast.end ]
-  %m_t2.i = getelementptr inbounds i8, ptr %3, i64 72
+  %m_t2.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   %10 = load ptr, ptr %m_t2.i, align 8
-  %m_table.i22 = getelementptr inbounds i8, ptr %10, i64 40
+  %m_table.i22 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %11 = load ptr, ptr %m_table.i22, align 8
   %cmp.i.not.i23 = icmp eq ptr %11, null
   br i1 %cmp.i.not.i23, label %if.then.i24, label %_ZN7datalog14lazy_table_ref4evalEv.exit32
@@ -2251,13 +2251,13 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i31: ; preds = %if.then.i.
 
 _ZN7datalog14lazy_table_ref4evalEv.exit32:        ; preds = %_ZN7datalog14lazy_table_ref4evalEv.exit, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i31
   %14 = phi ptr [ %call2.i26, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i31 ], [ %11, %_ZN7datalog14lazy_table_ref4evalEv.exit ]
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %15 = load ptr, ptr %m_plugin.i, align 8
-  %m_manager.i.i = getelementptr inbounds i8, ptr %15, i64 24
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   %16 = load ptr, ptr %m_manager.i.i, align 8
-  %m_cols1.i = getelementptr inbounds i8, ptr %3, i64 48
-  %m_cols2.i = getelementptr inbounds i8, ptr %3, i64 56
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols1.i = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %m_cols2.i = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 48
   %17 = load ptr, ptr %m_cols1.i, align 8
   %cmp.i.i = icmp eq ptr %17, null
   br i1 %cmp.i.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, label %if.end.i.i
@@ -2288,13 +2288,13 @@ _ZN7datalog16relation_manager18mk_join_project_fnERKNS_10table_baseES3_RK7svecto
 if.then:                                          ; preds = %_ZN7datalog16relation_manager18mk_join_project_fnERKNS_10table_baseES3_RK7svectorIjjES7_S7_.exit
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t, ptr noundef nonnull @.str.4, i32 noundef 11)
   %vtable13 = load ptr, ptr %call6.i, align 8
-  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 16
+  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 16
   %22 = load ptr, ptr %vfn14, align 8
   %call15 = invoke noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %call6.i, ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 8 dereferenceable(36) %14)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %m_table = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 40
   %23 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %23, null
   %cmp.not.i = icmp eq ptr %call15, %23
@@ -2329,11 +2329,11 @@ dynamic_cast.bad_cast23:                          ; preds = %sw.bb19
   unreachable
 
 dynamic_cast.end24:                               ; preds = %sw.bb19
-  %m_plugin.i36 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i36 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %29 = load ptr, ptr %m_plugin.i36, align 8
-  %m_manager.i.i37 = getelementptr inbounds i8, ptr %29, i64 24
+  %m_manager.i.i37 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %30 = load ptr, ptr %m_manager.i.i37, align 8
-  %m_table.i38 = getelementptr inbounds i8, ptr %27, i64 40
+  %m_table.i38 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %31 = load ptr, ptr %m_table.i38, align 8
   %cmp.i.not.i39 = icmp eq ptr %31, null
   br i1 %cmp.i.not.i39, label %if.then.i41, label %_ZN7datalog14lazy_table_ref4evalEv.exit49
@@ -2358,9 +2358,9 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i48: ; preds = %if.then.i.
 
 _ZN7datalog14lazy_table_ref4evalEv.exit49:        ; preds = %dynamic_cast.end24, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i48
   %34 = phi ptr [ %call2.i43, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i48 ], [ %31, %dynamic_cast.end24 ]
-  %m_condition.i = getelementptr inbounds i8, ptr %27, i64 48
+  %m_condition.i = getelementptr inbounds nuw i8, ptr %27, i64 48
   %35 = load ptr, ptr %m_condition.i, align 8
-  %m_cols28 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols28 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %36 = load ptr, ptr %m_cols28, align 8
   %cmp.i50 = icmp eq ptr %36, null
   br i1 %cmp.i50, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %if.end.i51
@@ -2406,13 +2406,13 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i62: ; preds = %if.then.i.
 invoke.cont37:                                    ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i62, %if.then34
   %41 = phi ptr [ %call2.i5763, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i62 ], [ %38, %if.then34 ]
   %vtable39 = load ptr, ptr %call32, align 8
-  %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 16
+  %vfn40 = getelementptr inbounds nuw i8, ptr %vtable39, i64 16
   %42 = load ptr, ptr %vfn40, align 8
   %call42 = invoke noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %call32, ptr noundef nonnull align 8 dereferenceable(36) %41)
           to label %invoke.cont41 unwind label %lpad36
 
 invoke.cont41:                                    ; preds = %invoke.cont37
-  %m_table43 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table43 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %43 = load ptr, ptr %m_table43, align 8
   %tobool.not.i66 = icmp eq ptr %43, null
   %cmp.not.i67 = icmp eq ptr %call42, %43
@@ -2447,7 +2447,7 @@ dynamic_cast.bad_cast52:                          ; preds = %sw.bb48
   unreachable
 
 dynamic_cast.end53:                               ; preds = %sw.bb48
-  %m_table.i77 = getelementptr inbounds i8, ptr %47, i64 40
+  %m_table.i77 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %m_table.i77, align 8
   %cmp.i.not.i78 = icmp eq ptr %49, null
   br i1 %cmp.i.not.i78, label %if.then.i80, label %_ZN7datalog14lazy_table_ref4evalEv.exit88
@@ -2472,14 +2472,14 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i87: ; preds = %if.then.i.
 
 _ZN7datalog14lazy_table_ref4evalEv.exit88:        ; preds = %dynamic_cast.end53, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i87
   %52 = phi ptr [ %call2.i82, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i87 ], [ %49, %dynamic_cast.end53 ]
-  %m_plugin.i89 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i89 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %53 = load ptr, ptr %m_plugin.i89, align 8
-  %m_manager.i.i90 = getelementptr inbounds i8, ptr %53, i64 24
+  %m_manager.i.i90 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %54 = load ptr, ptr %m_manager.i.i90, align 8
-  %m_value.i = getelementptr inbounds i8, ptr %47, i64 56
+  %m_value.i = getelementptr inbounds nuw i8, ptr %47, i64 56
   %55 = load i64, ptr %m_value.i, align 8
   store i64 %55, ptr %ref.tmp, align 8
-  %m_col.i = getelementptr inbounds i8, ptr %47, i64 48
+  %m_col.i = getelementptr inbounds nuw i8, ptr %47, i64 48
   %56 = load i32, ptr %m_col.i, align 8
   %call59 = call noundef ptr @_ZN7datalog16relation_manager30mk_select_equal_and_project_fnERKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(200) %54, ptr noundef nonnull align 8 dereferenceable(36) %52, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef %56)
   %tobool60.not = icmp eq ptr %call59, null
@@ -2488,13 +2488,13 @@ _ZN7datalog14lazy_table_ref4evalEv.exit88:        ; preds = %dynamic_cast.end53,
 if.then61:                                        ; preds = %_ZN7datalog14lazy_table_ref4evalEv.exit88
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t62, ptr noundef nonnull @.str.6, i32 noundef 11)
   %vtable63 = load ptr, ptr %call59, align 8
-  %vfn64 = getelementptr inbounds i8, ptr %vtable63, i64 16
+  %vfn64 = getelementptr inbounds nuw i8, ptr %vtable63, i64 16
   %57 = load ptr, ptr %vfn64, align 8
   %call67 = invoke noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(8) %call59, ptr noundef nonnull align 8 dereferenceable(36) %52)
           to label %invoke.cont66 unwind label %lpad65
 
 invoke.cont66:                                    ; preds = %if.then61
-  %m_table68 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table68 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %58 = load ptr, ptr %m_table68, align 8
   %tobool.not.i91 = icmp eq ptr %58, null
   %cmp.not.i92 = icmp eq ptr %call67, %58
@@ -2524,14 +2524,14 @@ sw.epilog.sink.split:                             ; preds = %if.end.i99, %if.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry, %_ZN7datalog14lazy_table_ref4evalEv.exit88, %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZN7datalog16relation_manager18mk_join_project_fnERKNS_10table_baseES3_RK7svectorIjjES7_S7_.exit
-  %m_table73 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table73 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %61 = load ptr, ptr %m_table73, align 8
   %cmp.i103.not = icmp eq ptr %61, null
   br i1 %cmp.i103.not, label %if.end78, label %return
 
 if.end78:                                         ; preds = %sw.epilog
   %62 = load ptr, ptr %m_src, align 8
-  %m_table.i104 = getelementptr inbounds i8, ptr %62, i64 40
+  %m_table.i104 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %63 = load ptr, ptr %m_table.i104, align 8
   %cmp.i.not.i105 = icmp eq ptr %63, null
   br i1 %cmp.i.not.i105, label %if.then.i107, label %_ZN7datalog14lazy_table_ref4evalEv.exit115
@@ -2557,11 +2557,11 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i114: ; preds = %if.then.i
 _ZN7datalog14lazy_table_ref4evalEv.exit115:       ; preds = %if.end78, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i114
   %66 = phi ptr [ %call2.i109, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i114 ], [ %63, %if.end78 ]
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t83, ptr noundef nonnull @.str.7, i32 noundef 11)
-  %m_plugin.i116 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i116 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %67 = load ptr, ptr %m_plugin.i116, align 8
-  %m_manager.i.i117 = getelementptr inbounds i8, ptr %67, i64 24
+  %m_manager.i.i117 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %68 = load ptr, ptr %m_manager.i.i117, align 8
-  %m_cols87 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols87 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %69 = load ptr, ptr %m_cols87, align 8
   %cmp.i118 = icmp eq ptr %69, null
   br i1 %cmp.i118, label %_ZNK6vectorIjLb0EjE4sizeEv.exit122, label %if.end.i119
@@ -2578,7 +2578,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit122:               ; preds = %_ZN7datalog14lazy_t
 
 invoke.cont93:                                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit122
   %vtable95 = load ptr, ptr %call94, align 8
-  %vfn96 = getelementptr inbounds i8, ptr %vtable95, i64 16
+  %vfn96 = getelementptr inbounds nuw i8, ptr %vtable95, i64 16
   %71 = load ptr, ptr %vfn96, align 8
   %call98 = invoke noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(8) %call94, ptr noundef nonnull align 8 dereferenceable(36) %66)
           to label %invoke.cont97 unwind label %lpad84
@@ -2633,9 +2633,9 @@ declare noundef ptr @_ZN7datalog16relation_manager13mk_project_fnERKNS_10table_b
 define hidden noundef ptr @_ZN7datalog17lazy_table_rename5forceEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_t = alloca %"class.datalog::verbose_action", align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_src, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -2661,11 +2661,11 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t, ptr noundef nonnull @.str.8, i32 noundef 11)
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load ptr, ptr %m_plugin.i, align 8
-  %m_manager.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %6 = load ptr, ptr %m_manager.i.i, align 8
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 48
   %7 = load ptr, ptr %m_cols, align 8
   %cmp.i = icmp eq ptr %7, null
   br i1 %cmp.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %if.end.i
@@ -2682,13 +2682,13 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZN7datalog14lazy_t
 
 invoke.cont9:                                     ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %vtable = load ptr, ptr %call10, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
   %call12 = invoke noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef nonnull align 8 dereferenceable(36) %4)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %m_table = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 40
   %10 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %10, null
   %cmp.not.i = icmp eq ptr %call12, %10
@@ -2725,9 +2725,9 @@ declare noundef ptr @_ZN7datalog16relation_manager12mk_rename_fnERKNS_10table_ba
 define hidden noundef ptr @_ZN7datalog27lazy_table_filter_identical5forceEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_t = alloca %"class.datalog::verbose_action", align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_src, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -2752,7 +2752,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
-  %m_table = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %5, null
   %cmp.not.i = icmp eq ptr %4, %5
@@ -2766,14 +2766,14 @@ if.then.i2:                                       ; preds = %_ZN7datalog14lazy_t
 _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit: ; preds = %_ZN7datalog14lazy_table_ref4evalEv.exit, %if.then.i2
   store ptr %4, ptr %m_table, align 8
   %6 = load ptr, ptr %m_src, align 8
-  %m_table.i3 = getelementptr inbounds i8, ptr %6, i64 40
+  %m_table.i3 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr null, ptr %m_table.i3, align 8
   %7 = load ptr, ptr %m_src, align 8
   %tobool.not.i.i4 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i4, label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %8 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %8, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -2782,7 +2782,7 @@ if.then.i.i5:                                     ; preds = %_ZN7datalog10scoped
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i5
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %7)
@@ -2791,12 +2791,12 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i5
 _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, %if.then.i.i5, %if.then.i.i.i
   store ptr null, ptr %m_src, align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t, ptr noundef nonnull @.str.9, i32 noundef 11)
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %10 = load ptr, ptr %m_plugin.i, align 8
-  %m_manager.i.i = getelementptr inbounds i8, ptr %10, i64 24
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %11 = load ptr, ptr %m_manager.i.i, align 8
   %12 = load ptr, ptr %m_table, align 8
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 48
   %13 = load ptr, ptr %m_cols, align 8
   %cmp.i = icmp eq ptr %13, null
   br i1 %cmp.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %if.end.i
@@ -2814,7 +2814,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZN3refIN7datalog14
 invoke.cont17:                                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %15 = load ptr, ptr %m_table, align 8
   %vtable = load ptr, ptr %call18, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %16 = load ptr, ptr %vfn, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %call18, ptr noundef nonnull align 8 dereferenceable(36) %15)
           to label %if.end.i7 unwind label %lpad
@@ -2844,9 +2844,9 @@ declare noundef ptr @_ZN7datalog16relation_manager22mk_filter_identical_fnERKNS_
 define hidden noundef ptr @_ZN7datalog23lazy_table_filter_equal5forceEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_t = alloca %"class.datalog::verbose_action", align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 64
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_src, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -2871,7 +2871,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
-  %m_table = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %5, null
   %cmp.not.i = icmp eq ptr %4, %5
@@ -2885,14 +2885,14 @@ if.then.i2:                                       ; preds = %_ZN7datalog14lazy_t
 _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit: ; preds = %_ZN7datalog14lazy_table_ref4evalEv.exit, %if.then.i2
   store ptr %4, ptr %m_table, align 8
   %6 = load ptr, ptr %m_src, align 8
-  %m_table.i3 = getelementptr inbounds i8, ptr %6, i64 40
+  %m_table.i3 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr null, ptr %m_table.i3, align 8
   %7 = load ptr, ptr %m_src, align 8
   %tobool.not.i.i4 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i4, label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %8 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %8, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -2901,7 +2901,7 @@ if.then.i.i5:                                     ; preds = %_ZN7datalog10scoped
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i5
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %7)
@@ -2910,13 +2910,13 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i5
 _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, %if.then.i.i5, %if.then.i.i.i
   store ptr null, ptr %m_src, align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t, ptr noundef nonnull @.str.10, i32 noundef 11)
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %10 = load ptr, ptr %m_plugin.i, align 8
-  %m_manager.i.i = getelementptr inbounds i8, ptr %10, i64 24
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %11 = load ptr, ptr %m_manager.i.i, align 8
   %12 = load ptr, ptr %m_table, align 8
-  %m_value = getelementptr inbounds i8, ptr %this, i64 56
-  %m_col = getelementptr inbounds i8, ptr %this, i64 48
+  %m_value = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %m_col = getelementptr inbounds nuw i8, ptr %this, i64 48
   %13 = load i32, ptr %m_col, align 8
   %call13 = invoke noundef ptr @_ZN7datalog16relation_manager18mk_filter_equal_fnERKNS_10table_baseERKmj(ptr noundef nonnull align 8 dereferenceable(200) %11, ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(8) %m_value, i32 noundef %13)
           to label %invoke.cont12 unwind label %lpad
@@ -2924,7 +2924,7 @@ _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %_ZN7datalog10scoped
 invoke.cont12:                                    ; preds = %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
   %14 = load ptr, ptr %m_table, align 8
   %vtable = load ptr, ptr %call13, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %15 = load ptr, ptr %vfn, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %call13, ptr noundef nonnull align 8 dereferenceable(36) %14)
           to label %if.end.i unwind label %lpad
@@ -2954,9 +2954,9 @@ declare noundef ptr @_ZN7datalog16relation_manager18mk_filter_equal_fnERKNS_10ta
 define hidden noundef ptr @_ZN7datalog29lazy_table_filter_interpreted5forceEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_t = alloca %"class.datalog::verbose_action", align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 64
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_src, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -2981,7 +2981,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
-  %m_table = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %5, null
   %cmp.not.i = icmp eq ptr %4, %5
@@ -2995,14 +2995,14 @@ if.then.i2:                                       ; preds = %_ZN7datalog14lazy_t
 _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit: ; preds = %_ZN7datalog14lazy_table_ref4evalEv.exit, %if.then.i2
   store ptr %4, ptr %m_table, align 8
   %6 = load ptr, ptr %m_src, align 8
-  %m_table.i3 = getelementptr inbounds i8, ptr %6, i64 40
+  %m_table.i3 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr null, ptr %m_table.i3, align 8
   %7 = load ptr, ptr %m_src, align 8
   %tobool.not.i.i4 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i4, label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit, label %if.then.i.i5
 
 if.then.i.i5:                                     ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %8 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %8, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -3011,7 +3011,7 @@ if.then.i.i5:                                     ; preds = %_ZN7datalog10scoped
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i5
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %7)
@@ -3020,12 +3020,12 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i5
 _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, %if.then.i.i5, %if.then.i.i.i
   store ptr null, ptr %m_src, align 8
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t, ptr noundef nonnull @.str.11, i32 noundef 11)
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %10 = load ptr, ptr %m_plugin.i, align 8
-  %m_manager.i.i = getelementptr inbounds i8, ptr %10, i64 24
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %11 = load ptr, ptr %m_manager.i.i, align 8
   %12 = load ptr, ptr %m_table, align 8
-  %m_condition = getelementptr inbounds i8, ptr %this, i64 48
+  %m_condition = getelementptr inbounds nuw i8, ptr %this, i64 48
   %13 = load ptr, ptr %m_condition, align 8
   %call15 = invoke noundef ptr @_ZN7datalog16relation_manager24mk_filter_interpreted_fnERKNS_10table_baseEP3app(ptr noundef nonnull align 8 dereferenceable(200) %11, ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef %13)
           to label %invoke.cont14 unwind label %lpad
@@ -3033,7 +3033,7 @@ _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %_ZN7datalog10scoped
 invoke.cont14:                                    ; preds = %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
   %14 = load ptr, ptr %m_table, align 8
   %vtable = load ptr, ptr %call15, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %15 = load ptr, ptr %vfn, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull align 8 dereferenceable(36) %14)
           to label %if.end.i unwind label %lpad
@@ -3064,9 +3064,9 @@ define hidden noundef ptr @_ZN7datalog29lazy_table_filter_by_negation5forceEv(pt
 entry:
   %_t = alloca %"class.datalog::verbose_action", align 8
   %_t44 = alloca %"class.datalog::verbose_action", align 8
-  %m_tgt = getelementptr inbounds i8, ptr %this, i64 48
+  %m_tgt = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_tgt, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %0, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %m_table.i, align 8
   %cmp.i.not.i = icmp eq ptr %1, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN7datalog14lazy_table_ref4evalEv.exit
@@ -3091,7 +3091,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i: ; preds = %if.then.i.i,
 
 _ZN7datalog14lazy_table_ref4evalEv.exit:          ; preds = %entry, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i
   %4 = phi ptr [ %call2.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i ], [ %1, %entry ]
-  %m_table = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %5, null
   %cmp.not.i = icmp eq ptr %4, %5
@@ -3105,14 +3105,14 @@ if.then.i11:                                      ; preds = %_ZN7datalog14lazy_t
 _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit: ; preds = %_ZN7datalog14lazy_table_ref4evalEv.exit, %if.then.i11
   store ptr %4, ptr %m_table, align 8
   %6 = load ptr, ptr %m_tgt, align 8
-  %m_table.i12 = getelementptr inbounds i8, ptr %6, i64 40
+  %m_table.i12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr null, ptr %m_table.i12, align 8
   %7 = load ptr, ptr %m_tgt, align 8
   %tobool.not.i.i13 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i13, label %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit, label %if.then.i.i14
 
 if.then.i.i14:                                    ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
   %8 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %8, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -3121,7 +3121,7 @@ if.then.i.i14:                                    ; preds = %_ZN7datalog10scoped
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i14
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(48) %7) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %7)
@@ -3129,10 +3129,10 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i14
 
 _ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit:  ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit, %if.then.i.i14, %if.then.i.i.i
   store ptr null, ptr %m_tgt, align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
   %10 = load ptr, ptr %m_src, align 8
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %11 = load ptr, ptr %vfn, align 8
   %call9 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(48) %10)
   %cond = icmp eq i32 %call9, 1
@@ -3149,9 +3149,9 @@ dynamic_cast.bad_cast:                            ; preds = %sw.bb
   unreachable
 
 dynamic_cast.end:                                 ; preds = %sw.bb
-  %m_t1.i = getelementptr inbounds i8, ptr %13, i64 64
+  %m_t1.i = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %m_t1.i, align 8
-  %m_table.i15 = getelementptr inbounds i8, ptr %15, i64 40
+  %m_table.i15 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %16 = load ptr, ptr %m_table.i15, align 8
   %cmp.i.not.i16 = icmp eq ptr %16, null
   br i1 %cmp.i.not.i16, label %if.then.i17, label %_ZN7datalog14lazy_table_ref4evalEv.exit25
@@ -3176,9 +3176,9 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i24: ; preds = %if.then.i.
 
 _ZN7datalog14lazy_table_ref4evalEv.exit25:        ; preds = %dynamic_cast.end, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i24
   %19 = phi ptr [ %call2.i19, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i24 ], [ %16, %dynamic_cast.end ]
-  %m_t2.i = getelementptr inbounds i8, ptr %13, i64 72
+  %m_t2.i = getelementptr inbounds nuw i8, ptr %13, i64 72
   %20 = load ptr, ptr %m_t2.i, align 8
-  %m_table.i26 = getelementptr inbounds i8, ptr %20, i64 40
+  %m_table.i26 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %21 = load ptr, ptr %m_table.i26, align 8
   %cmp.i.not.i27 = icmp eq ptr %21, null
   br i1 %cmp.i.not.i27, label %if.then.i28, label %_ZN7datalog14lazy_table_ref4evalEv.exit36
@@ -3204,15 +3204,15 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i35: ; preds = %if.then.i.
 _ZN7datalog14lazy_table_ref4evalEv.exit36:        ; preds = %_ZN7datalog14lazy_table_ref4evalEv.exit25, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i35
   %24 = phi ptr [ %call2.i30, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i35 ], [ %21, %_ZN7datalog14lazy_table_ref4evalEv.exit25 ]
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t, ptr noundef nonnull @.str.12, i32 noundef 11)
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %25 = load ptr, ptr %m_plugin.i, align 8
-  %m_manager.i.i = getelementptr inbounds i8, ptr %25, i64 24
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %25, i64 24
   %26 = load ptr, ptr %m_manager.i.i, align 8
   %27 = load ptr, ptr %m_table, align 8
-  %m_cols1.i = getelementptr inbounds i8, ptr %this, i64 64
-  %m_cols2.i = getelementptr inbounds i8, ptr %this, i64 72
-  %m_cols1.i37 = getelementptr inbounds i8, ptr %13, i64 48
-  %m_cols2.i38 = getelementptr inbounds i8, ptr %13, i64 56
+  %m_cols1.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %m_cols2.i = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %m_cols1.i37 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %m_cols2.i38 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %call29 = invoke noundef ptr @_ZN7datalog16relation_manager28mk_filter_by_negated_join_fnERKNS_10table_baseES3_S3_RK7svectorIjjES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(200) %26, ptr noundef nonnull align 8 dereferenceable(36) %27, ptr noundef nonnull align 8 dereferenceable(36) %19, ptr noundef nonnull align 8 dereferenceable(36) %24, ptr noundef nonnull align 8 dereferenceable(8) %m_cols1.i, ptr noundef nonnull align 8 dereferenceable(8) %m_cols2.i, ptr noundef nonnull align 8 dereferenceable(8) %m_cols1.i37, ptr noundef nonnull align 8 dereferenceable(8) %m_cols2.i38)
           to label %invoke.cont28 unwind label %lpad
 
@@ -3223,7 +3223,7 @@ invoke.cont28:                                    ; preds = %_ZN7datalog14lazy_t
 if.then:                                          ; preds = %invoke.cont28
   %28 = load ptr, ptr %m_table, align 8
   %vtable33 = load ptr, ptr %call29, align 8
-  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 16
+  %vfn34 = getelementptr inbounds nuw i8, ptr %vtable33, i64 16
   %29 = load ptr, ptr %vfn34, align 8
   invoke void %29(ptr noundef nonnull align 8 dereferenceable(8) %call29, ptr noundef nonnull align 8 dereferenceable(36) %28, ptr noundef nonnull align 8 dereferenceable(36) %19, ptr noundef nonnull align 8 dereferenceable(36) %24)
           to label %if.end.i unwind label %lpad
@@ -3246,7 +3246,7 @@ cleanup:                                          ; preds = %invoke.cont28
 
 sw.epilog:                                        ; preds = %cleanup, %_ZN3refIN7datalog14lazy_table_refEEaSEPS1_.exit
   %32 = load ptr, ptr %m_src, align 8
-  %m_table.i40 = getelementptr inbounds i8, ptr %32, i64 40
+  %m_table.i40 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %33 = load ptr, ptr %m_table.i40, align 8
   %cmp.i.not.i41 = icmp eq ptr %33, null
   br i1 %cmp.i.not.i41, label %if.then.i43, label %_ZN7datalog14lazy_table_ref4evalEv.exit51
@@ -3272,13 +3272,13 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i50: ; preds = %if.then.i.
 _ZN7datalog14lazy_table_ref4evalEv.exit51:        ; preds = %sw.epilog, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i50
   %36 = phi ptr [ %call2.i45, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i50 ], [ %33, %sw.epilog ]
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t44, ptr noundef nonnull @.str.13, i32 noundef 11)
-  %m_plugin.i52 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i52 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %37 = load ptr, ptr %m_plugin.i52, align 8
-  %m_manager.i.i53 = getelementptr inbounds i8, ptr %37, i64 24
+  %m_manager.i.i53 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %38 = load ptr, ptr %m_manager.i.i53, align 8
   %39 = load ptr, ptr %m_table, align 8
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 64
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %40 = load ptr, ptr %m_cols1, align 8
   %cmp.i.i = icmp eq ptr %40, null
   br i1 %cmp.i.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, label %if.end.i.i
@@ -3297,7 +3297,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %_ZN7da
 invoke.cont51:                                    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
   %43 = load ptr, ptr %m_table, align 8
   %vtable56 = load ptr, ptr %call4.i54, align 8
-  %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 16
+  %vfn57 = getelementptr inbounds nuw i8, ptr %vtable56, i64 16
   %44 = load ptr, ptr %vfn57, align 8
   invoke void %44(ptr noundef nonnull align 8 dereferenceable(8) %call4.i54, ptr noundef nonnull align 8 dereferenceable(36) %43, ptr noundef nonnull align 8 dereferenceable(36) %36)
           to label %if.end.i56 unwind label %lpad45
@@ -3345,7 +3345,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object10initializeEi(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %fid) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_kind = getelementptr inbounds i8, ptr %this, i64 8
+  %m_kind = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %fid, ptr %m_kind, align 8
   ret void
 }
@@ -3353,10 +3353,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN7datalog17lazy_table_plugin20can_handle_signatureERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(12) %s) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_plugin = getelementptr inbounds i8, ptr %this, i64 32
+  %m_plugin = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_plugin, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %s)
   ret i1 %call
@@ -3366,7 +3366,7 @@ entry:
 define linkonce_odr hidden noundef zeroext i1 @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object20can_handle_signatureERKNS_15table_signatureEi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s, i32 noundef %kind) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s)
   ret i1 %call
@@ -3376,7 +3376,7 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object8mk_emptyERKNS_15table_signatureEi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s, i32 noundef %kind) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s)
   ret ptr %call
@@ -3385,11 +3385,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object8mk_emptyERKNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %orig) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_signature.i = getelementptr inbounds i8, ptr %orig, i64 16
-  %m_kind.i = getelementptr inbounds i8, ptr %orig, i64 32
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %orig, i64 16
+  %m_kind.i = getelementptr inbounds nuw i8, ptr %orig, i64 32
   %0 = load i32, ptr %m_kind.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %m_signature.i, i32 noundef %0)
   ret ptr %call3
@@ -3399,15 +3399,15 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object7mk_fullEP9func_declRKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(12) %s) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s)
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 128
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 128
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef %p, ptr noundef null)
   %vtable5 = load ptr, ptr %call, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 16
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 16
   %2 = load ptr, ptr %vfn6, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(36) %call)
   ret ptr %call4
@@ -3416,7 +3416,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13plugin_object7mk_fullEP9func_declRKNS_15table_signatureEi(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(12) %s, i32 noundef %kind) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_kind.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_kind.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_kind.i, align 8
   %cmp = icmp eq i32 %kind, %0
   %cmp2 = icmp eq i32 %kind, -1
@@ -3425,21 +3425,21 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(12) %s)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %vfn5 = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %s, i32 noundef %kind)
   %vtable7 = load ptr, ptr %call6, align 8
-  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 128
+  %vfn8 = getelementptr inbounds nuw i8, ptr %vtable7, i64 128
   %3 = load ptr, ptr %vfn8, align 8
   %call9 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(36) %call6, ptr noundef %p, ptr noundef null)
   %vtable10 = load ptr, ptr %call6, align 8
-  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 16
+  %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 16
   %4 = load ptr, ptr %vfn11, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(36) %call6)
   br label %return
@@ -3507,13 +3507,13 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog10lazy_tableD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog10lazy_tableE, i64 16), ptr %this, align 8
-  %m_ref = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %1, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -3522,7 +3522,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -3537,7 +3537,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
-  %m_signature.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load ptr, ptr %m_signature.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog10table_baseD2Ev.exit, label %if.then.i.i.i.i.i.i.i
@@ -3562,13 +3562,13 @@ _ZN7datalog10table_baseD2Ev.exit:                 ; preds = %_ZN3refIN7datalog14
 define linkonce_odr hidden void @_ZN7datalog10lazy_tableD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog10lazy_tableE, i64 16), ptr %this, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_ref.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ref.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %m_ref.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %m_ref.i.i.i.i, align 8
   %dec.i.i.i.i = add i32 %1, -1
   store i32 %dec.i.i.i.i, ptr %m_ref.i.i.i.i, align 8
@@ -3577,7 +3577,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -3592,7 +3592,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit.i:   ; preds = %if.then.i.i.i.i, %if.then.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
-  %m_signature.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load ptr, ptr %m_signature.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN7datalog10lazy_tableD2Ev.exit, label %if.then.i.i.i.i.i.i.i.i
@@ -3628,7 +3628,7 @@ entry:
 define linkonce_odr hidden noundef zeroext i1 @_ZNK7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor10fast_emptyEv(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(36) %this)
   ret i1 %call
@@ -3638,7 +3638,7 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor12add_new_factERK7svectorImjE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(8) %f) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(8) %f)
   ret void
@@ -3653,8 +3653,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestor4swapERNS_10table_baseE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(36) %o) unnamed_addr #7 comdat align 2 {
 entry:
-  %m_kind = getelementptr inbounds i8, ptr %this, i64 32
-  %m_kind2 = getelementptr inbounds i8, ptr %o, i64 32
+  %m_kind = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %m_kind2 = getelementptr inbounds nuw i8, ptr %o, i64 32
   %0 = load i32, ptr %m_kind, align 8
   %1 = load i32, ptr %m_kind2, align 8
   store i32 %1, ptr %m_kind, align 8
@@ -3693,7 +3693,7 @@ define linkonce_odr hidden void @_ZN7datalog10table_base11remove_factERK7svector
 entry:
   %0 = load ptr, ptr %fact, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %0)
   ret void
@@ -3705,13 +3705,13 @@ declare void @_ZNK7datalog10table_base10to_formulaERKNS_18relation_signatureER7o
 define linkonce_odr hidden void @_ZN7datalog15lazy_table_joinD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog15lazy_table_joinE, i64 16), ptr %this, align 8
-  %m_t2 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_t2 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_t2, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %1, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -3720,7 +3720,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -3734,13 +3734,13 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
-  %m_t1 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_t1 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %5 = load ptr, ptr %m_t1, align 8
   %tobool.not.i.i1 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i1, label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit10, label %if.then.i.i2
 
 if.then.i.i2:                                     ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit
-  %m_ref.i.i.i3 = getelementptr inbounds i8, ptr %5, i64 32
+  %m_ref.i.i.i3 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %6 = load i32, ptr %m_ref.i.i.i3, align 8
   %dec.i.i.i4 = add i32 %6, -1
   store i32 %dec.i.i.i4, ptr %m_ref.i.i.i3, align 8
@@ -3749,7 +3749,7 @@ if.then.i.i2:                                     ; preds = %_ZN3refIN7datalog14
 
 if.then.i.i.i6:                                   ; preds = %if.then.i.i2
   %vtable.i.i.i.i7 = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i.i.i7, i64 8
+  %vfn.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i7, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i8, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %5)
@@ -3763,7 +3763,7 @@ terminate.lpad.i9:                                ; preds = %if.then.i.i.i6
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit10:   ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i2, %if.then.i.i.i6
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %10 = load ptr, ptr %m_cols2, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i11
@@ -3781,7 +3781,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i11
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit10, %if.then.i.i.i11
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %13 = load ptr, ptr %m_cols1, align 8
   %tobool.not.i.i.i12 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i12, label %_ZN7svectorIjjED2Ev.exit16, label %if.then.i.i.i13
@@ -3800,7 +3800,7 @@ terminate.lpad.i.i15:                             ; preds = %if.then.i.i.i13
 
 _ZN7svectorIjjED2Ev.exit16:                       ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i13
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %16 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i17 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i17, label %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, label %if.then.i.i18
@@ -3817,7 +3817,7 @@ terminate.lpad.i.i19:                             ; preds = %if.then.i.i18
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i18, %_ZN7svectorIjjED2Ev.exit16
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %19 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog14lazy_table_refD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -3856,13 +3856,13 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog18lazy_table_projectD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18lazy_table_projectE, i64 16), ptr %this, align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_src, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %1, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -3871,7 +3871,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -3885,7 +3885,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 48
   %5 = load ptr, ptr %m_cols, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i1
@@ -3904,7 +3904,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i1
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i.i1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i2 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i2, label %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, label %if.then.i.i3
@@ -3921,7 +3921,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i3
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i3, %_ZN7svectorIjjED2Ev.exit
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog14lazy_table_refD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -3960,13 +3960,13 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_renameD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_renameE, i64 16), ptr %this, align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_src, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %1, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -3975,7 +3975,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -3989,7 +3989,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 48
   %5 = load ptr, ptr %m_cols, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i1
@@ -4008,7 +4008,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i1
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i.i1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i2 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i2, label %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, label %if.then.i.i3
@@ -4025,7 +4025,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i3
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i3, %_ZN7svectorIjjED2Ev.exit
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog14lazy_table_refD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -4064,13 +4064,13 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog27lazy_table_filter_identicalD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog27lazy_table_filter_identicalE, i64 16), ptr %this, align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_src, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %1, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -4079,7 +4079,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -4093,7 +4093,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 48
   %5 = load ptr, ptr %m_cols, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i1
@@ -4112,7 +4112,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i1
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i.i1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i2 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i2, label %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, label %if.then.i.i3
@@ -4129,7 +4129,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i3
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i3, %_ZN7svectorIjjED2Ev.exit
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog14lazy_table_refD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -4168,13 +4168,13 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog23lazy_table_filter_equalD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog23lazy_table_filter_equalE, i64 16), ptr %this, align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 64
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_src, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %1, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -4183,7 +4183,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -4198,7 +4198,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i1 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i1, label %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, label %if.then.i.i2
@@ -4215,7 +4215,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i2
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i2, %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %8 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog14lazy_table_refD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -4254,13 +4254,13 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog29lazy_table_filter_interpretedD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog29lazy_table_filter_interpretedE, i64 16), ptr %this, align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 64
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_src, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %1, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -4269,7 +4269,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -4283,15 +4283,15 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
-  %m_condition = getelementptr inbounds i8, ptr %this, i64 48
+  %m_condition = getelementptr inbounds nuw i8, ptr %this, i64 48
   %5 = load ptr, ptr %m_condition, align 8
   %tobool.not.i.i1 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i1, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit
-  %m_manager.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load ptr, ptr %m_manager.i.i, align 8
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %m_ref_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %dec.i.i.i.i = add i32 %7, -1
   store i32 %dec.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
@@ -4311,7 +4311,7 @@ terminate.lpad.i4:                                ; preds = %if.then2.i.i.i
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i.i2, %if.then2.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %10 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i5 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i5, label %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, label %if.then.i.i6
@@ -4328,7 +4328,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i6
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i6, %_ZN7obj_refI3app11ast_managerED2Ev.exit
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog14lazy_table_refD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -4367,7 +4367,7 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog29lazy_table_filter_by_negationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog29lazy_table_filter_by_negationE, i64 16), ptr %this, align 8
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_cols2, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i
@@ -4385,7 +4385,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %3 = load ptr, ptr %m_cols1, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i1, label %_ZN7svectorIjjED2Ev.exit5, label %if.then.i.i.i2
@@ -4403,13 +4403,13 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
   %6 = load ptr, ptr %m_src, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN7svectorIjjED2Ev.exit5
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %7 = load i32, ptr %m_ref.i.i.i, align 8
   %dec.i.i.i = add i32 %7, -1
   store i32 %dec.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -4418,7 +4418,7 @@ if.then.i.i:                                      ; preds = %_ZN7svectorIjjED2Ev
 
 if.then.i.i.i6:                                   ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(48) %6) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %6)
@@ -4432,13 +4432,13 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i6
   unreachable
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit:     ; preds = %_ZN7svectorIjjED2Ev.exit5, %if.then.i.i, %if.then.i.i.i6
-  %m_tgt = getelementptr inbounds i8, ptr %this, i64 48
+  %m_tgt = getelementptr inbounds nuw i8, ptr %this, i64 48
   %11 = load ptr, ptr %m_tgt, align 8
   %tobool.not.i.i7 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i7, label %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit16, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit
-  %m_ref.i.i.i9 = getelementptr inbounds i8, ptr %11, i64 32
+  %m_ref.i.i.i9 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load i32, ptr %m_ref.i.i.i9, align 8
   %dec.i.i.i10 = add i32 %12, -1
   store i32 %dec.i.i.i10, ptr %m_ref.i.i.i9, align 8
@@ -4447,7 +4447,7 @@ if.then.i.i8:                                     ; preds = %_ZN3refIN7datalog14
 
 if.then.i.i.i12:                                  ; preds = %if.then.i.i8
   %vtable.i.i.i.i13 = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i.i.i13, i64 8
+  %vfn.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i13, i64 8
   %13 = load ptr, ptr %vfn.i.i.i.i14, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(48) %11) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %11)
@@ -4462,7 +4462,7 @@ terminate.lpad.i15:                               ; preds = %if.then.i.i.i12
 
 _ZN3refIN7datalog14lazy_table_refEED2Ev.exit16:   ; preds = %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit, %if.then.i.i8, %if.then.i.i.i12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %16 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i17 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i17, label %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, label %if.then.i.i18
@@ -4479,7 +4479,7 @@ terminate.lpad.i.i19:                             ; preds = %if.then.i.i18
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i18, %_ZN3refIN7datalog14lazy_table_refEED2Ev.exit16
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %19 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog14lazy_table_refD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -4524,7 +4524,7 @@ declare void @_ZN6symbolC2EPKc(ptr noundef nonnull align 8 dereferenceable(8), p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7datalog15lazy_table_base5forceEv(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_table = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_table, align 8
   ret ptr %0
 }
@@ -4533,7 +4533,7 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog15lazy_table_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_table.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i, label %if.then.i.i
@@ -4550,7 +4550,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i: ; preds = %if.then.i.i, %entry
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog14lazy_table_refD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -4575,7 +4575,7 @@ _ZN7datalog14lazy_table_refD2Ev.exit:             ; preds = %_ZN7datalog10scoped
 define linkonce_odr hidden void @_ZN7datalog15lazy_table_baseD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_table.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_table.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i.i, label %if.then.i.i.i
@@ -4592,7 +4592,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit.i.i: ; preds = %if.then.i.i.i, %entry
-  %m_signature.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_signature.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog15lazy_table_baseD2Ev.exit, label %if.then.i.i.i.i.i.i.i
@@ -4649,7 +4649,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr hidden void @_ZN7datalog14lazy_table_refD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_table = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_table, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit, label %if.then.i
@@ -4666,7 +4666,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN7datalog10scoped_relINS_10table_baseEED2Ev.exit: ; preds = %entry, %if.then.i
-  %m_signature = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %m_signature, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7datalog15table_signatureD2Ev.exit, label %if.then.i.i.i.i.i
@@ -4723,7 +4723,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
-  %m_signature = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_signature, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7datalog15table_signatureD2Ev.exit, label %if.then.i.i.i.i.i
@@ -4773,17 +4773,17 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnC2ERKNS_15table_signatureES6_jPKjS8_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(12) %o1_sig, ptr noundef nonnull align 8 dereferenceable(12) %o2_sig, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnE, i64 16), ptr %this, align 8
-  %m_result_sig = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %m_result_sig, align 8
-  %m_functional_columns.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_functional_columns.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %m_functional_columns.i, align 8
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %m_cols1, align 8
   %cmp3.not.i.i = icmp eq i32 %col_cnt, 0
   br i1 %cmp3.not.i.i, label %invoke.cont3.thread, label %for.body.preheader.i.i
 
 invoke.cont3.thread:                              ; preds = %invoke.cont
-  %m_cols234 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_cols234 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %m_cols234, align 8
   br label %invoke.cont5
 
@@ -4798,7 +4798,7 @@ for.bodythread-pre-split.i.i:                     ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i:                                     ; preds = %for.bodythread-pre-split.i.i, %for.body.preheader.i.i
   %0 = phi ptr [ %.pr.i.i, %for.bodythread-pre-split.i.i ], [ null, %for.body.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.bodythread-pre-split.i.i ], [ 0, %for.body.preheader.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %cols1, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %cols1, i64 %indvars.iv.i.i
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
@@ -4824,7 +4824,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   %3 = phi i32 [ %.pre1.i.i.i, %.noexc ], [ %1, %lor.lhs.false.i.i.i ]
   %4 = phi ptr [ %.pre.i.i.i, %.noexc ], [ %0, %lor.lhs.false.i.i.i ]
   %idx.ext.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %4, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %idx.ext.i.i.i
   %5 = load i32, ptr %arrayidx.i.i, align 4
   store i32 %5, ptr %add.ptr.i.i.i, align 4
   %6 = load ptr, ptr %m_cols1, align 8
@@ -4837,7 +4837,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   br i1 %exitcond.not.i.i, label %invoke.cont3, label %for.bodythread-pre-split.i.i, !llvm.loop !4
 
 invoke.cont3:                                     ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %m_cols2, align 8
   br label %for.body.i.i11
 
@@ -4848,7 +4848,7 @@ for.bodythread-pre-split.i.i26:                   ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i11:                                   ; preds = %for.bodythread-pre-split.i.i26, %invoke.cont3
   %8 = phi ptr [ %.pr.i.i27, %for.bodythread-pre-split.i.i26 ], [ null, %invoke.cont3 ]
   %indvars.iv.i.i12 = phi i64 [ %indvars.iv.next.i.i24, %for.bodythread-pre-split.i.i26 ], [ 0, %invoke.cont3 ]
-  %arrayidx.i.i13 = getelementptr inbounds i32, ptr %cols2, i64 %indvars.iv.i.i12
+  %arrayidx.i.i13 = getelementptr inbounds nuw i32, ptr %cols2, i64 %indvars.iv.i.i12
   %cmp.i.i.i14 = icmp eq ptr %8, null
   br i1 %cmp.i.i.i14, label %if.then.i.i.i28, label %lor.lhs.false.i.i.i15
 
@@ -4874,7 +4874,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i19:      ; preds = %.noexc32, %lor.lhs.
   %11 = phi i32 [ %.pre1.i.i.i31, %.noexc32 ], [ %9, %lor.lhs.false.i.i.i15 ]
   %12 = phi ptr [ %.pre.i.i.i29, %.noexc32 ], [ %8, %lor.lhs.false.i.i.i15 ]
   %idx.ext.i.i.i20 = zext i32 %11 to i64
-  %add.ptr.i.i.i21 = getelementptr inbounds i32, ptr %12, i64 %idx.ext.i.i.i20
+  %add.ptr.i.i.i21 = getelementptr inbounds nuw i32, ptr %12, i64 %idx.ext.i.i.i20
   %13 = load i32, ptr %arrayidx.i.i13, align 4
   store i32 %13, ptr %add.ptr.i.i.i21, align 4
   %14 = load ptr, ptr %m_cols2, align 8
@@ -4925,7 +4925,7 @@ ehcleanup9:                                       ; preds = %ehcleanup, %lpad2
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin7join_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnE, i64 16), ptr %this, align 8
-  %m_cols2.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_cols2.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_cols2.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN7svectorIjjED2Ev.exit.i, label %if.then.i.i.i.i
@@ -4943,7 +4943,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %entry
-  %m_cols1.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_cols1.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %m_cols1.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN7svectorIjjED2Ev.exit5.i, label %if.then.i.i.i2.i
@@ -4961,7 +4961,7 @@ terminate.lpad.i.i4.i:                            ; preds = %if.then.i.i.i2.i
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5.i:                      ; preds = %if.then.i.i.i2.i, %_ZN7svectorIjjED2Ev.exit.i
-  %m_result_sig.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %m_result_sig.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -4986,7 +4986,7 @@ _ZN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnD2Ev.exit:
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin7join_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnE, i64 16), ptr %this, align 8
-  %m_cols2.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_cols2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_cols2.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7svectorIjjED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -5004,7 +5004,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i.i:                     ; preds = %if.then.i.i.i.i.i, %entry
-  %m_cols1.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_cols1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %m_cols1.i.i, align 8
   %tobool.not.i.i.i1.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i1.i.i, label %_ZN7svectorIjjED2Ev.exit5.i.i, label %if.then.i.i.i2.i.i
@@ -5022,7 +5022,7 @@ terminate.lpad.i.i4.i.i:                          ; preds = %if.then.i.i.i2.i.i
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5.i.i:                    ; preds = %if.then.i.i.i2.i.i, %_ZN7svectorIjjED2Ev.exit.i.i
-  %m_result_sig.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %m_result_sig.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog17lazy_table_plugin7join_fnD2Ev.exit, label %if.then.i.i.i.i.i.i.i
@@ -5066,7 +5066,7 @@ dynamic_cast.bad_cast.i1:                         ; preds = %_ZN7datalog17lazy_t
 
 _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit2: ; preds = %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 80)
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %m_cols1, align 8
   %cmp.i = icmp eq ptr %4, null
   br i1 %cmp.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %if.end.i
@@ -5078,17 +5078,17 @@ if.end.i:                                         ; preds = %_ZN7datalog17lazy_t
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit2, %if.end.i
   %retval.0.i = phi i32 [ %5, %if.end.i ], [ 0, %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit2 ]
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load ptr, ptr %m_cols2, align 8
-  %m_result_sig.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN7datalog15lazy_table_joinC2EjPKjS2_RKNS_10lazy_tableES5_RKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(80) %call3, i32 noundef %retval.0.i, ptr noundef %4, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig.i)
   %call9 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %call3, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   %7 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_signature.i.i = getelementptr inbounds i8, ptr %call3, i64 16
-  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call9, i64 8
+  %m_signature.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 16
+  %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store ptr %7, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call9, i64 16
+  %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %8 = load ptr, ptr %m_signature.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -5104,9 +5104,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK6vectorIjLb0
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store i32 %10, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i, i64 4
   store i32 %9, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %11 = load ptr, ptr %m_signature.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
@@ -5125,18 +5125,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit
 
 _ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call9, i64 24
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 24
+  %m_functional_columns.i.i.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 24
   %15 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %15, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call9, i64 32
-  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call9, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %16, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog10lazy_tableE, i64 16), ptr %call9, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %call9, i64 40
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %call9, i64 40
   store ptr %call3, ptr %m_ref.i, align 8
-  %m_ref.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 32
+  %m_ref.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 32
   %17 = load i32, ptr %m_ref.i.i.i.i, align 8
   %inc.i.i.i.i = add i32 %17, 1
   store i32 %inc.i.i.i.i, ptr %m_ref.i.i.i.i, align 8
@@ -5172,7 +5172,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE18convenient_join_fnE, i64 16), ptr %this, align 8
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_cols2, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i
@@ -5190,7 +5190,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %m_cols1, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i1, label %_ZN7svectorIjjED2Ev.exit5, label %if.then.i.i.i2
@@ -5208,7 +5208,7 @@ terminate.lpad.i.i4:                              ; preds = %if.then.i.i.i2
   unreachable
 
 _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev.exit, %if.then.i.i.i2
-  %m_result_sig = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %m_result_sig, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7datalog15table_signatureD2Ev.exit, label %if.then.i.i.i.i.i
@@ -5248,9 +5248,9 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   store i32 2, ptr %call, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 0, ptr %incdec.ptr, align 4
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %call, i64 8
+  %incdec.ptr2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %incdec.ptr2, ptr %this, align 8
   br label %if.end28
 
@@ -5279,7 +5279,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
 
 invoke.cont:                                      ; preds = %if.then17
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %m_msg.i = getelementptr inbounds nuw i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #17
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #18
           to label %unreachable unwind label %ehcleanup
@@ -5301,7 +5301,7 @@ cleanup.action:                                   ; preds = %if.then17
 if.end:                                           ; preds = %lor.lhs.false
   %conv24 = zext i32 %add13 to i64
   %call25 = tail call noalias noundef ptr @_ZN6memory10reallocateEPvm(ptr noundef nonnull %arrayidx, i64 noundef %conv24)
-  %add.ptr26 = getelementptr inbounds i8, ptr %call25, i64 8
+  %add.ptr26 = getelementptr inbounds nuw i8, ptr %call25, i64 8
   store ptr %add.ptr26, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end28
@@ -5357,7 +5357,7 @@ invoke.cont4:                                     ; preds = %if.end
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %this, align 8
-  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %m_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #17
   ret void
 }
@@ -5480,7 +5480,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog15lazy_table_joinC2EjPKjS2_RKNS_10lazy_tableES5_RKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %col_cnt, ptr noundef %cols1, ptr noundef %cols2, ptr noundef nonnull align 8 dereferenceable(48) %t1, ptr noundef nonnull align 8 dereferenceable(48) %t2, ptr noundef nonnull align 8 dereferenceable(12) %sig) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %t1, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %t1, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
@@ -5492,9 +5492,9 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %1, ptr %m_plugin.i, align 8
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_signature.i, align 8
   %3 = load ptr, ptr %sig, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -5510,9 +5510,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i:  ; preds = %_ZNK7datalog10lazy_
   %add.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i)
   store i32 %5, ptr %call3.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 4
   store i32 %4, ptr %incdec.ptr.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i, ptr %m_signature.i, align 8
   %6 = load ptr, ptr %sig, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -5531,22 +5531,22 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit
 
 _ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit: ; preds = %_ZNK7datalog10lazy_table11get_lpluginEv.exit, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %m_functional_columns2.i.i = getelementptr inbounds i8, ptr %sig, i64 8
+  %m_functional_columns.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %m_functional_columns2.i.i = getelementptr inbounds nuw i8, ptr %sig, i64 8
   %10 = load i32, ptr %m_functional_columns2.i.i, align 8
   store i32 %10, ptr %m_functional_columns.i.i, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %m_ref.i, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %m_table.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog15lazy_table_joinE, i64 16), ptr %this, align 8
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %m_cols1, align 8
   %cmp3.not.i.i = icmp eq i32 %col_cnt, 0
   br i1 %cmp3.not.i.i, label %invoke.cont.thread, label %for.body.preheader.i.i
 
 invoke.cont.thread:                               ; preds = %_ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit
-  %m_cols240 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_cols240 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %m_cols240, align 8
   br label %invoke.cont5
 
@@ -5561,7 +5561,7 @@ for.bodythread-pre-split.i.i:                     ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i:                                     ; preds = %for.bodythread-pre-split.i.i, %for.body.preheader.i.i
   %11 = phi ptr [ %.pr.i.i, %for.bodythread-pre-split.i.i ], [ null, %for.body.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.bodythread-pre-split.i.i ], [ 0, %for.body.preheader.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %cols1, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %cols1, i64 %indvars.iv.i.i
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
@@ -5587,7 +5587,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   %14 = phi i32 [ %.pre1.i.i.i, %.noexc ], [ %12, %lor.lhs.false.i.i.i ]
   %15 = phi ptr [ %.pre.i.i.i, %.noexc ], [ %11, %lor.lhs.false.i.i.i ]
   %idx.ext.i.i.i = zext i32 %14 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %15, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %15, i64 %idx.ext.i.i.i
   %16 = load i32, ptr %arrayidx.i.i, align 4
   store i32 %16, ptr %add.ptr.i.i.i, align 4
   %17 = load ptr, ptr %m_cols1, align 8
@@ -5600,7 +5600,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   br i1 %exitcond.not.i.i, label %invoke.cont, label %for.bodythread-pre-split.i.i, !llvm.loop !4
 
 invoke.cont:                                      ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %m_cols2, align 8
   br label %for.body.i.i9
 
@@ -5611,7 +5611,7 @@ for.bodythread-pre-split.i.i24:                   ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i9:                                    ; preds = %for.bodythread-pre-split.i.i24, %invoke.cont
   %19 = phi ptr [ %.pr.i.i25, %for.bodythread-pre-split.i.i24 ], [ null, %invoke.cont ]
   %indvars.iv.i.i10 = phi i64 [ %indvars.iv.next.i.i22, %for.bodythread-pre-split.i.i24 ], [ 0, %invoke.cont ]
-  %arrayidx.i.i11 = getelementptr inbounds i32, ptr %cols2, i64 %indvars.iv.i.i10
+  %arrayidx.i.i11 = getelementptr inbounds nuw i32, ptr %cols2, i64 %indvars.iv.i.i10
   %cmp.i.i.i12 = icmp eq ptr %19, null
   br i1 %cmp.i.i.i12, label %if.then.i.i.i26, label %lor.lhs.false.i.i.i13
 
@@ -5637,7 +5637,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i17:      ; preds = %.noexc30, %lor.lhs.
   %22 = phi i32 [ %.pre1.i.i.i29, %.noexc30 ], [ %20, %lor.lhs.false.i.i.i13 ]
   %23 = phi ptr [ %.pre.i.i.i27, %.noexc30 ], [ %19, %lor.lhs.false.i.i.i13 ]
   %idx.ext.i.i.i18 = zext i32 %22 to i64
-  %add.ptr.i.i.i19 = getelementptr inbounds i32, ptr %23, i64 %idx.ext.i.i.i18
+  %add.ptr.i.i.i19 = getelementptr inbounds nuw i32, ptr %23, i64 %idx.ext.i.i.i18
   %24 = load i32, ptr %arrayidx.i.i11, align 4
   store i32 %24, ptr %add.ptr.i.i.i19, align 4
   %25 = load ptr, ptr %m_cols2, align 8
@@ -5650,30 +5650,30 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i17:      ; preds = %.noexc30, %lor.lhs.
   br i1 %exitcond.not.i.i23, label %invoke.cont5, label %for.bodythread-pre-split.i.i24, !llvm.loop !4
 
 invoke.cont5:                                     ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i17, %invoke.cont.thread
-  %m_t1 = getelementptr inbounds i8, ptr %this, i64 64
-  %m_ref.i32 = getelementptr inbounds i8, ptr %t1, i64 40
+  %m_t1 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %m_ref.i32 = getelementptr inbounds nuw i8, ptr %t1, i64 40
   %27 = load ptr, ptr %m_ref.i32, align 8
   store ptr %27, ptr %m_t1, align 8
   %tobool.not.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i, label %invoke.cont9, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont5
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %27, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %28 = load i32, ptr %m_ref.i.i.i, align 8
   %inc.i.i.i33 = add i32 %28, 1
   store i32 %inc.i.i.i33, ptr %m_ref.i.i.i, align 8
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %invoke.cont5, %if.then.i.i
-  %m_ref.i34 = getelementptr inbounds i8, ptr %t2, i64 40
+  %m_ref.i34 = getelementptr inbounds nuw i8, ptr %t2, i64 40
   %29 = load ptr, ptr %m_ref.i34, align 8
-  %m_t2 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_t2 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %29, ptr %m_t2, align 8
   %tobool.not.i.i35 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i35, label %invoke.cont11, label %if.then.i.i36
 
 if.then.i.i36:                                    ; preds = %invoke.cont9
-  %m_ref.i.i.i37 = getelementptr inbounds i8, ptr %29, i64 32
+  %m_ref.i.i.i37 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %30 = load i32, ptr %m_ref.i.i.i37, align 8
   %inc.i.i.i38 = add i32 %30, 1
   store i32 %inc.i.i.i38, ptr %m_ref.i.i.i37, align 8
@@ -5707,7 +5707,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %m_ref.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %m_ref.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %m_ref.i.i, align 8
   %dec.i.i = add i32 %1, -1
   store i32 %dec.i.i, ptr %m_ref.i.i, align 8
@@ -5716,7 +5716,7 @@ if.then.i:                                        ; preds = %entry
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %0) #17
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -5777,9 +5777,9 @@ dynamic_cast.notnull.i:                           ; preds = %_ZN7datalog17lazy_t
 
 _ZN7datalog17lazy_table_plugin3getEPNS_10table_baseE.exit: ; preds = %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit, %dynamic_cast.notnull.i
   %6 = phi ptr [ %5, %dynamic_cast.notnull.i ], [ null, %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit ]
-  %m_ref.i = getelementptr inbounds i8, ptr %2, i64 40
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load ptr, ptr %m_ref.i, align 8
-  %m_table.i.i = getelementptr inbounds i8, ptr %7, i64 40
+  %m_table.i.i = getelementptr inbounds nuw i8, ptr %7, i64 40
   %8 = load ptr, ptr %m_table.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.not.i.i, label %if.then.i.i, label %_ZNK7datalog10lazy_table4evalEv.exit
@@ -5804,9 +5804,9 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i: ; preds = %if.then.i.
 
 _ZNK7datalog10lazy_table4evalEv.exit:             ; preds = %_ZN7datalog17lazy_table_plugin3getEPNS_10table_baseE.exit, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i
   %11 = phi ptr [ %call2.i.i, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i ], [ %8, %_ZN7datalog17lazy_table_plugin3getEPNS_10table_baseE.exit ]
-  %m_ref.i8 = getelementptr inbounds i8, ptr %0, i64 40
+  %m_ref.i8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %m_ref.i8, align 8
-  %m_table.i.i9 = getelementptr inbounds i8, ptr %12, i64 40
+  %m_table.i.i9 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %13 = load ptr, ptr %m_table.i.i9, align 8
   %cmp.i.not.i.i10 = icmp eq ptr %13, null
   br i1 %cmp.i.not.i.i10, label %if.then.i.i11, label %_ZNK7datalog10lazy_table4evalEv.exit19
@@ -5835,9 +5835,9 @@ _ZNK7datalog10lazy_table4evalEv.exit19:           ; preds = %_ZNK7datalog10lazy_
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %_ZNK7datalog10lazy_table4evalEv.exit19
-  %m_ref.i20 = getelementptr inbounds i8, ptr %6, i64 40
+  %m_ref.i20 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %17 = load ptr, ptr %m_ref.i20, align 8
-  %m_table.i.i21 = getelementptr inbounds i8, ptr %17, i64 40
+  %m_table.i.i21 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %18 = load ptr, ptr %m_table.i.i21, align 8
   %cmp.i.not.i.i22 = icmp eq ptr %18, null
   br i1 %cmp.i.not.i.i22, label %if.then.i.i23, label %cond.end
@@ -5863,7 +5863,7 @@ _ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i30: ; preds = %if.then.
 cond.end:                                         ; preds = %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i30, %cond.true, %_ZNK7datalog10lazy_table4evalEv.exit19
   %cond = phi ptr [ null, %_ZNK7datalog10lazy_table4evalEv.exit19 ], [ %call2.i.i25, %_ZN7datalog10scoped_relINS_10table_baseEEaSEPS1_.exit.i.i30 ], [ %18, %cond.true ]
   call void @_ZN7datalog14verbose_actionC1EPKcj(ptr noundef nonnull align 8 dereferenceable(16) %_t, ptr noundef nonnull @.str.18, i32 noundef 11)
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %m_plugin.i.i, align 8
   %22 = call ptr @__dynamic_cast(ptr nonnull %21, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %23 = icmp eq ptr %22, null
@@ -5877,14 +5877,14 @@ dynamic_cast.bad_cast.i32:                        ; preds = %cond.end
   unreachable
 
 invoke.cont:                                      ; preds = %cond.end
-  %m_manager.i = getelementptr inbounds i8, ptr %22, i64 24
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %m_manager.i, align 8
   %call11 = invoke noundef ptr @_ZN7datalog16relation_manager11mk_union_fnERKNS_10table_baseES3_PS2_(ptr noundef nonnull align 8 dereferenceable(200) %24, ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef nonnull align 8 dereferenceable(36) %11, ptr noundef %cond)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont
   %vtable = load ptr, ptr %call11, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %25 = load ptr, ptr %vfn, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef nonnull align 8 dereferenceable(36) %11, ptr noundef %cond)
           to label %if.end.i unwind label %lpad
@@ -5913,7 +5913,7 @@ declare noundef ptr @_ZN7datalog16relation_manager11mk_union_fnERKNS_10table_bas
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin10project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnE, i64 16), ptr %this, align 8
-  %m_removed_cols.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_removed_cols.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_removed_cols.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN7svectorIjjED2Ev.exit.i, label %if.then.i.i.i.i
@@ -5932,7 +5932,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
 
 _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnE, i64 16), ptr %this, align 8
-  %m_result_sig.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_result_sig.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnD2Ev.exit, label %if.then.i.i.i.i.i.i.i
@@ -5957,7 +5957,7 @@ _ZN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnD2Ev.ex
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin10project_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnE, i64 16), ptr %this, align 8
-  %m_removed_cols.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_removed_cols.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_removed_cols.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7svectorIjjED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -5976,7 +5976,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
 
 _ZN7svectorIjjED2Ev.exit.i.i:                     ; preds = %if.then.i.i.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnE, i64 16), ptr %this, align 8
-  %m_result_sig.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_result_sig.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN7datalog17lazy_table_plugin10project_fnD2Ev.exit, label %if.then.i.i.i.i.i.i.i.i
@@ -6012,7 +6012,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
 _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit: ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
-  %m_removed_cols = getelementptr inbounds i8, ptr %this, i64 24
+  %m_removed_cols = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %m_removed_cols, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %if.end.i
@@ -6024,14 +6024,14 @@ if.end.i:                                         ; preds = %_ZN7datalog17lazy_t
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit, %if.end.i
   %retval.0.i = phi i32 [ %3, %if.end.i ], [ 0, %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit ]
-  %m_result_sig.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN7datalog18lazy_table_projectC2EjPKjRKNS_10lazy_tableERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(64) %call3, i32 noundef %retval.0.i, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig.i)
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %call3, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   %4 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_signature.i.i = getelementptr inbounds i8, ptr %call3, i64 16
-  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %m_signature.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 16
+  %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr %4, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call2, i64 16
+  %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %5 = load ptr, ptr %m_signature.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -6047,9 +6047,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK6vectorIjLb0
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store i32 %7, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i, i64 4
   store i32 %6, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %8 = load ptr, ptr %m_signature.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -6068,18 +6068,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit
 
 _ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 24
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 24
+  %m_functional_columns.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 24
   %12 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %12, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call2, i64 32
-  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %13, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog10lazy_tableE, i64 16), ptr %call2, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %call2, i64 40
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store ptr %call3, ptr %m_ref.i, align 8
-  %m_ref.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 32
+  %m_ref.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 32
   %14 = load i32, ptr %m_ref.i.i.i.i, align 8
   %inc.i.i.i.i = add i32 %14, 1
   store i32 %inc.i.i.i.i, ptr %m_ref.i.i.i.i, align 8
@@ -6092,7 +6092,7 @@ declare void @_ZN7datalog15table_signature12from_projectERKS0_jPKjRS0_(ptr nound
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE21convenient_project_fnE, i64 16), ptr %this, align 8
-  %m_removed_cols = getelementptr inbounds i8, ptr %this, i64 24
+  %m_removed_cols = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_removed_cols, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i
@@ -6111,7 +6111,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnE, i64 16), ptr %this, align 8
-  %m_result_sig.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_result_sig.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -6143,7 +6143,7 @@ entry:
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnE, i64 16), ptr %this, align 8
-  %m_result_sig = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_result_sig, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7datalog15table_signatureD2Ev.exit, label %if.then.i.i.i.i.i
@@ -6174,7 +6174,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog18lazy_table_projectC2EjPKjRKNS_10lazy_tableERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %col_cnt, ptr noundef %cols, ptr noundef nonnull align 8 dereferenceable(48) %src, ptr noundef nonnull align 8 dereferenceable(12) %sig) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
@@ -6186,9 +6186,9 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %1, ptr %m_plugin.i, align 8
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_signature.i, align 8
   %3 = load ptr, ptr %sig, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -6204,9 +6204,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i:  ; preds = %_ZNK7datalog10lazy_
   %add.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i)
   store i32 %5, ptr %call3.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 4
   store i32 %4, ptr %incdec.ptr.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i, ptr %m_signature.i, align 8
   %6 = load ptr, ptr %sig, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -6225,16 +6225,16 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit
 
 _ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit: ; preds = %_ZNK7datalog10lazy_table11get_lpluginEv.exit, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %m_functional_columns2.i.i = getelementptr inbounds i8, ptr %sig, i64 8
+  %m_functional_columns.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %m_functional_columns2.i.i = getelementptr inbounds nuw i8, ptr %sig, i64 8
   %10 = load i32, ptr %m_functional_columns2.i.i, align 8
   store i32 %10, ptr %m_functional_columns.i.i, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %m_ref.i, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %m_table.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18lazy_table_projectE, i64 16), ptr %this, align 8
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %m_cols, align 8
   %cmp3.not.i.i = icmp eq i32 %col_cnt, 0
   br i1 %cmp3.not.i.i, label %invoke.cont3, label %for.body.preheader.i.i
@@ -6250,7 +6250,7 @@ for.bodythread-pre-split.i.i:                     ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i:                                     ; preds = %for.bodythread-pre-split.i.i, %for.body.preheader.i.i
   %11 = phi ptr [ %.pr.i.i, %for.bodythread-pre-split.i.i ], [ null, %for.body.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.bodythread-pre-split.i.i ], [ 0, %for.body.preheader.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %cols, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %cols, i64 %indvars.iv.i.i
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
@@ -6276,7 +6276,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   %14 = phi i32 [ %.pre1.i.i.i, %.noexc ], [ %12, %lor.lhs.false.i.i.i ]
   %15 = phi ptr [ %.pre.i.i.i, %.noexc ], [ %11, %lor.lhs.false.i.i.i ]
   %idx.ext.i.i.i = zext i32 %14 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %15, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %15, i64 %idx.ext.i.i.i
   %16 = load i32, ptr %arrayidx.i.i, align 4
   store i32 %16, ptr %add.ptr.i.i.i, align 4
   %17 = load ptr, ptr %m_cols, align 8
@@ -6289,15 +6289,15 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   br i1 %exitcond.not.i.i, label %invoke.cont3, label %for.bodythread-pre-split.i.i, !llvm.loop !4
 
 invoke.cont3:                                     ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i, %_ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit
-  %m_ref.i3 = getelementptr inbounds i8, ptr %src, i64 40
+  %m_ref.i3 = getelementptr inbounds nuw i8, ptr %src, i64 40
   %19 = load ptr, ptr %m_ref.i3, align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %19, ptr %m_src, align 8
   %tobool.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i, label %invoke.cont5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont3
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %19, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
   %20 = load i32, ptr %m_ref.i.i.i, align 8
   %inc.i.i.i4 = add i32 %20, 1
   store i32 %inc.i.i.i4, ptr %m_ref.i.i.i, align 8
@@ -6316,12 +6316,12 @@ lpad:                                             ; preds = %if.then.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnC2ERKNS_15table_signatureEjPKj(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(12) %orig_sig, i32 noundef %cycle_len, ptr noundef %permutation_cycle) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_result_sig.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %m_result_sig.i, align 8
-  %m_functional_columns.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_functional_columns.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %m_functional_columns.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnE, i64 16), ptr %this, align 8
-  %m_cycle = getelementptr inbounds i8, ptr %this, i64 24
+  %m_cycle = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %m_cycle, align 8
   %cmp3.not.i.i = icmp eq i32 %cycle_len, 0
   br i1 %cmp3.not.i.i, label %invoke.cont, label %for.body.preheader.i.i
@@ -6337,7 +6337,7 @@ for.bodythread-pre-split.i.i:                     ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i:                                     ; preds = %for.bodythread-pre-split.i.i, %for.body.preheader.i.i
   %0 = phi ptr [ %.pr.i.i, %for.bodythread-pre-split.i.i ], [ null, %for.body.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.bodythread-pre-split.i.i ], [ 0, %for.body.preheader.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %permutation_cycle, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %permutation_cycle, i64 %indvars.iv.i.i
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
@@ -6363,7 +6363,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   %3 = phi i32 [ %.pre1.i.i.i, %.noexc ], [ %1, %lor.lhs.false.i.i.i ]
   %4 = phi ptr [ %.pre.i.i.i, %.noexc ], [ %0, %lor.lhs.false.i.i.i ]
   %idx.ext.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %4, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %idx.ext.i.i.i
   %5 = load i32, ptr %arrayidx.i.i, align 4
   store i32 %5, ptr %add.ptr.i.i.i, align 4
   %6 = load ptr, ptr %m_cycle, align 8
@@ -6407,9 +6407,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i: ; preds = %_ZN6vectorImLb0EjE
 
 call3.i.i.i.i.i.i.i.noexc:                        ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i
   store i32 %11, ptr %call3.i.i.i.i.i.i.i7, align 4
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i7, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i7, i64 4
   store i32 %10, ptr %incdec.ptr.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i7, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i7, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i, ptr %m_result_sig.i, align 8
   %12 = load ptr, ptr %orig_sig, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
@@ -6432,7 +6432,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %_ZN6vectorImLb0EjE7
   br label %_ZN7datalog15table_signatureaSERKS0_.exit.i.i
 
 _ZN7datalog15table_signatureaSERKS0_.exit.i.i:    ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i, %call3.i.i.i.i.i.i.i.noexc, %invoke.cont
-  %m_functional_columns.i.i.i = getelementptr inbounds i8, ptr %orig_sig, i64 8
+  %m_functional_columns.i.i.i = getelementptr inbounds nuw i8, ptr %orig_sig, i64 8
   %16 = load i32, ptr %m_functional_columns.i.i.i, align 8
   store i32 %16, ptr %m_functional_columns.i.i, align 8
   %cmp.i.i.i5 = icmp ult i32 %cycle_len, 2
@@ -6442,7 +6442,7 @@ if.end.i.i.i:                                     ; preds = %_ZN7datalog15table_
   %17 = load i32, ptr %permutation_cycle, align 4
   %18 = load ptr, ptr %m_result_sig.i, align 8
   %idxprom.i.i.i.i = zext i32 %17 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds i64, ptr %18, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i64, ptr %18, i64 %idxprom.i.i.i.i
   %19 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %wide.trip.count.i.i.i = zext i32 %cycle_len to i64
   %invariant.gep.i.i.i = getelementptr i8, ptr %permutation_cycle, i64 -4
@@ -6450,16 +6450,16 @@ if.end.i.i.i:                                     ; preds = %_ZN7datalog15table_
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if.end.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 1, %if.end.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body.i.i.i ]
-  %arrayidx2.i.i.i = getelementptr inbounds i32, ptr %permutation_cycle, i64 %indvars.iv.i.i.i
+  %arrayidx2.i.i.i = getelementptr inbounds nuw i32, ptr %permutation_cycle, i64 %indvars.iv.i.i.i
   %20 = load i32, ptr %arrayidx2.i.i.i, align 4
   %21 = load ptr, ptr %m_result_sig.i, align 8
   %idxprom.i12.i.i.i = zext i32 %20 to i64
-  %arrayidx.i13.i.i.i = getelementptr inbounds i64, ptr %21, i64 %idxprom.i12.i.i.i
+  %arrayidx.i13.i.i.i = getelementptr inbounds nuw i64, ptr %21, i64 %idxprom.i12.i.i.i
   %22 = load i64, ptr %arrayidx.i13.i.i.i, align 8
   %gep.i.i.i = getelementptr i32, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   %23 = load i32, ptr %gep.i.i.i, align 4
   %idxprom.i14.i.i.i = zext i32 %23 to i64
-  %arrayidx.i15.i.i.i = getelementptr inbounds i64, ptr %21, i64 %idxprom.i14.i.i.i
+  %arrayidx.i15.i.i.i = getelementptr inbounds nuw i64, ptr %21, i64 %idxprom.i14.i.i.i
   store i64 %22, ptr %arrayidx.i15.i.i.i, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -6468,11 +6468,11 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %sub7.i.i.i = add i32 %cycle_len, -1
   %idxprom8.i.i.i = zext i32 %sub7.i.i.i to i64
-  %arrayidx9.i.i.i = getelementptr inbounds i32, ptr %permutation_cycle, i64 %idxprom8.i.i.i
+  %arrayidx9.i.i.i = getelementptr inbounds nuw i32, ptr %permutation_cycle, i64 %idxprom8.i.i.i
   %24 = load i32, ptr %arrayidx9.i.i.i, align 4
   %25 = load ptr, ptr %m_result_sig.i, align 8
   %idxprom.i16.i.i.i = zext i32 %24 to i64
-  %arrayidx.i17.i.i.i = getelementptr inbounds i64, ptr %25, i64 %idxprom.i16.i.i.i
+  %arrayidx.i17.i.i.i = getelementptr inbounds nuw i64, ptr %25, i64 %idxprom.i16.i.i.i
   store i64 %19, ptr %arrayidx.i17.i.i.i, align 8
   %.pre.i = load i32, ptr %m_functional_columns.i.i.i, align 8
   br label %invoke.cont3
@@ -6503,7 +6503,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin9rename_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnE, i64 16), ptr %this, align 8
-  %m_cycle.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_cycle.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_cycle.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN7svectorIjjED2Ev.exit.i, label %if.then.i.i.i.i
@@ -6522,7 +6522,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
 
 _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnE, i64 16), ptr %this, align 8
-  %m_result_sig.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_result_sig.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnD2Ev.exit, label %if.then.i.i.i.i.i.i.i
@@ -6547,7 +6547,7 @@ _ZN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnD2Ev.exi
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin9rename_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnE, i64 16), ptr %this, align 8
-  %m_cycle.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_cycle.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_cycle.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7svectorIjjED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -6566,7 +6566,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i
 
 _ZN7svectorIjjED2Ev.exit.i.i:                     ; preds = %if.then.i.i.i.i.i, %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnE, i64 16), ptr %this, align 8
-  %m_result_sig.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_result_sig.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN7datalog17lazy_table_plugin9rename_fnD2Ev.exit, label %if.then.i.i.i.i.i.i.i.i
@@ -6602,7 +6602,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
 _ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit: ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
-  %m_cycle = getelementptr inbounds i8, ptr %this, i64 24
+  %m_cycle = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %m_cycle, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %_ZNK6vectorIjLb0EjE4sizeEv.exit, label %if.end.i
@@ -6614,14 +6614,14 @@ if.end.i:                                         ; preds = %_ZN7datalog17lazy_t
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit, %if.end.i
   %retval.0.i = phi i32 [ %3, %if.end.i ], [ 0, %_ZN7datalog17lazy_table_plugin3getERKNS_10table_baseE.exit ]
-  %m_result_sig.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN7datalog17lazy_table_renameC2EjPKjRKNS_10lazy_tableERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(64) %call3, i32 noundef %retval.0.i, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(12) %m_result_sig.i)
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %call3, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 8
   %4 = load ptr, ptr %m_plugin.i.i, align 8
-  %m_signature.i.i = getelementptr inbounds i8, ptr %call3, i64 16
-  %m_plugin.i.i.i = getelementptr inbounds i8, ptr %call2, i64 8
+  %m_signature.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 16
+  %m_plugin.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 8
   store ptr %4, ptr %m_plugin.i.i.i, align 8
-  %m_signature.i.i.i = getelementptr inbounds i8, ptr %call2, i64 16
+  %m_signature.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr null, ptr %m_signature.i.i.i, align 8
   %5 = load ptr, ptr %m_signature.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
@@ -6637,9 +6637,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNK6vectorIjLb0
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i.i.i)
   store i32 %7, ptr %call3.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i, i64 4
   store i32 %6, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i.i.i, ptr %m_signature.i.i.i, align 8
   %8 = load ptr, ptr %m_signature.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -6658,18 +6658,18 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit
 
 _ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 24
-  %m_functional_columns2.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 24
+  %m_functional_columns.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 24
+  %m_functional_columns2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 24
   %12 = load i32, ptr %m_functional_columns2.i.i.i.i, align 8
   store i32 %12, ptr %m_functional_columns.i.i.i.i, align 8
-  %m_kind.i.i.i = getelementptr inbounds i8, ptr %call2, i64 32
-  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 32
+  %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i32, ptr %m_kind.i.i.i.i, align 8
   store i32 %13, ptr %m_kind.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog10lazy_tableE, i64 16), ptr %call2, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %call2, i64 40
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store ptr %call3, ptr %m_ref.i, align 8
-  %m_ref.i.i.i.i = getelementptr inbounds i8, ptr %call3, i64 32
+  %m_ref.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 32
   %14 = load i32, ptr %m_ref.i.i.i.i, align 8
   %inc.i.i.i.i = add i32 %14, 1
   store i32 %inc.i.i.i.i, ptr %m_ref.i.i.i.i, align 8
@@ -6680,7 +6680,7 @@ _ZN7datalog10lazy_tableC2EPNS_14lazy_table_refE.exit: ; preds = %_ZNK6vectorIjLb
 define linkonce_odr hidden void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE20convenient_rename_fnE, i64 16), ptr %this, align 8
-  %m_cycle = getelementptr inbounds i8, ptr %this, i64 24
+  %m_cycle = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_cycle, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i
@@ -6699,7 +6699,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnE, i64 16), ptr %this, align 8
-  %m_result_sig.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_result_sig.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_result_sig.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN7datalog17tr_infrastructureINS_12table_traitsEE25convenient_transformer_fnD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -6730,7 +6730,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_renameC2EjPKjRKNS_10lazy_tableERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %col_cnt, ptr noundef %cols, ptr noundef nonnull align 8 dereferenceable(48) %src, ptr noundef nonnull align 8 dereferenceable(12) %sig) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
@@ -6742,9 +6742,9 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %1, ptr %m_plugin.i, align 8
-  %m_signature.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_signature.i, align 8
   %3 = load ptr, ptr %sig, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -6760,9 +6760,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i:  ; preds = %_ZNK7datalog10lazy_
   %add.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i)
   store i32 %5, ptr %call3.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 4
   store i32 %4, ptr %incdec.ptr.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i, ptr %m_signature.i, align 8
   %6 = load ptr, ptr %sig, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -6781,16 +6781,16 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit
 
 _ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit: ; preds = %_ZNK7datalog10lazy_table11get_lpluginEv.exit, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %m_functional_columns2.i.i = getelementptr inbounds i8, ptr %sig, i64 8
+  %m_functional_columns.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %m_functional_columns2.i.i = getelementptr inbounds nuw i8, ptr %sig, i64 8
   %10 = load i32, ptr %m_functional_columns2.i.i, align 8
   store i32 %10, ptr %m_functional_columns.i.i, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %m_ref.i, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %m_table.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_renameE, i64 16), ptr %this, align 8
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %m_cols, align 8
   %cmp3.not.i.i = icmp eq i32 %col_cnt, 0
   br i1 %cmp3.not.i.i, label %invoke.cont3, label %for.body.preheader.i.i
@@ -6806,7 +6806,7 @@ for.bodythread-pre-split.i.i:                     ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i:                                     ; preds = %for.bodythread-pre-split.i.i, %for.body.preheader.i.i
   %11 = phi ptr [ %.pr.i.i, %for.bodythread-pre-split.i.i ], [ null, %for.body.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.bodythread-pre-split.i.i ], [ 0, %for.body.preheader.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %cols, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %cols, i64 %indvars.iv.i.i
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
@@ -6832,7 +6832,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   %14 = phi i32 [ %.pre1.i.i.i, %.noexc ], [ %12, %lor.lhs.false.i.i.i ]
   %15 = phi ptr [ %.pre.i.i.i, %.noexc ], [ %11, %lor.lhs.false.i.i.i ]
   %idx.ext.i.i.i = zext i32 %14 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %15, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %15, i64 %idx.ext.i.i.i
   %16 = load i32, ptr %arrayidx.i.i, align 4
   store i32 %16, ptr %add.ptr.i.i.i, align 4
   %17 = load ptr, ptr %m_cols, align 8
@@ -6845,15 +6845,15 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   br i1 %exitcond.not.i.i, label %invoke.cont3, label %for.bodythread-pre-split.i.i, !llvm.loop !4
 
 invoke.cont3:                                     ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i, %_ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit
-  %m_ref.i3 = getelementptr inbounds i8, ptr %src, i64 40
+  %m_ref.i3 = getelementptr inbounds nuw i8, ptr %src, i64 40
   %19 = load ptr, ptr %m_ref.i3, align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %19, ptr %m_src, align 8
   %tobool.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i, label %invoke.cont5, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont3
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %19, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
   %20 = load i32, ptr %m_ref.i.i.i, align 8
   %inc.i.i.i4 = add i32 %20, 1
   store i32 %inc.i.i.i4, ptr %m_ref.i.i.i, align 8
@@ -6873,7 +6873,7 @@ lpad:                                             ; preds = %if.then.i.i.i
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin19filter_identical_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin19filter_identical_fnE, i64 16), ptr %this, align 8
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 8
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_cols, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i
@@ -6898,7 +6898,7 @@ _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin19filter_identical_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin19filter_identical_fnE, i64 16), ptr %this, align 8
-  %m_cols.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_cols.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_cols.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN7datalog17lazy_table_plugin19filter_identical_fnD2Ev.exit, label %if.then.i.i.i.i
@@ -6933,7 +6933,7 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
 
 _ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit: ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 8
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_cols, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %if.end.i.i, label %if.end.i
@@ -6946,8 +6946,8 @@ if.end.i:                                         ; preds = %_ZN7datalog17lazy_t
 if.end.i.i:                                       ; preds = %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit, %if.end.i
   %retval.0.i = phi i32 [ %3, %if.end.i ], [ 0, %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit ]
   tail call void @_ZN7datalog27lazy_table_filter_identicalC2EjPKjRKNS_10lazy_tableE(ptr noundef nonnull align 8 dereferenceable(64) %call2, i32 noundef %retval.0.i, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %0)
-  %m_ref.i = getelementptr inbounds i8, ptr %0, i64 40
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %call2, i64 32
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 32
   %4 = load i32, ptr %m_ref.i.i.i, align 8
   %inc.i.i.i = add i32 %4, 1
   store i32 %inc.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -6956,7 +6956,7 @@ if.end.i.i:                                       ; preds = %_ZN7datalog17lazy_t
   br i1 %tobool.not.i.i.i, label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %m_ref.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  %m_ref.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %6 = load i32, ptr %m_ref.i.i.i.i, align 8
   %dec.i.i.i.i = add i32 %6, -1
   store i32 %dec.i.i.i.i, ptr %m_ref.i.i.i.i, align 8
@@ -6965,7 +6965,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %5)
@@ -6993,7 +6993,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog27lazy_table_filter_identicalC2EjPKjRKNS_10lazy_tableE(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %col_cnt, ptr noundef %cols, ptr noundef nonnull align 8 dereferenceable(48) %src) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
@@ -7004,11 +7004,11 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
-  %m_signature.i = getelementptr inbounds i8, ptr %src, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %src, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %1, ptr %m_plugin.i, align 8
-  %m_signature.i4 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i4 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_signature.i4, align 8
   %3 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -7024,9 +7024,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i:  ; preds = %_ZNK7datalog10lazy_
   %add.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i)
   store i32 %5, ptr %call3.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 4
   store i32 %4, ptr %incdec.ptr.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i, ptr %m_signature.i4, align 8
   %6 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -7045,16 +7045,16 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit
 
 _ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit: ; preds = %_ZNK7datalog10lazy_table11get_lpluginEv.exit, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %m_functional_columns2.i.i = getelementptr inbounds i8, ptr %src, i64 24
+  %m_functional_columns.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %m_functional_columns2.i.i = getelementptr inbounds nuw i8, ptr %src, i64 24
   %10 = load i32, ptr %m_functional_columns2.i.i, align 8
   store i32 %10, ptr %m_functional_columns.i.i, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %m_ref.i, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %m_table.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog27lazy_table_filter_identicalE, i64 16), ptr %this, align 8
-  %m_cols = getelementptr inbounds i8, ptr %this, i64 48
+  %m_cols = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %m_cols, align 8
   %cmp3.not.i.i = icmp eq i32 %col_cnt, 0
   br i1 %cmp3.not.i.i, label %invoke.cont4, label %for.body.preheader.i.i
@@ -7070,7 +7070,7 @@ for.bodythread-pre-split.i.i:                     ; preds = %_ZN6vectorIjLb0EjE9
 for.body.i.i:                                     ; preds = %for.bodythread-pre-split.i.i, %for.body.preheader.i.i
   %11 = phi ptr [ %.pr.i.i, %for.bodythread-pre-split.i.i ], [ null, %for.body.preheader.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.bodythread-pre-split.i.i ], [ 0, %for.body.preheader.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %cols, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %cols, i64 %indvars.iv.i.i
   %cmp.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %lor.lhs.false.i.i.i
 
@@ -7096,7 +7096,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   %14 = phi i32 [ %.pre1.i.i.i, %.noexc ], [ %12, %lor.lhs.false.i.i.i ]
   %15 = phi ptr [ %.pre.i.i.i, %.noexc ], [ %11, %lor.lhs.false.i.i.i ]
   %idx.ext.i.i.i = zext i32 %14 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %15, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %15, i64 %idx.ext.i.i.i
   %16 = load i32, ptr %arrayidx.i.i, align 4
   store i32 %16, ptr %add.ptr.i.i.i, align 4
   %17 = load ptr, ptr %m_cols, align 8
@@ -7109,15 +7109,15 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   br i1 %exitcond.not.i.i, label %invoke.cont4, label %for.bodythread-pre-split.i.i, !llvm.loop !4
 
 invoke.cont4:                                     ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit.i.i, %_ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit
-  %m_ref.i5 = getelementptr inbounds i8, ptr %src, i64 40
+  %m_ref.i5 = getelementptr inbounds nuw i8, ptr %src, i64 40
   %19 = load ptr, ptr %m_ref.i5, align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %19, ptr %m_src, align 8
   %tobool.not.i.i = icmp eq ptr %19, null
   br i1 %tobool.not.i.i, label %invoke.cont6, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont4
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %19, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
   %20 = load i32, ptr %m_ref.i.i.i, align 8
   %inc.i.i.i6 = add i32 %20, 1
   store i32 %inc.i.i.i6, ptr %m_ref.i.i.i, align 8
@@ -7142,15 +7142,15 @@ declare void @exit(i32 noundef) local_unnamed_addr #15
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_interpreted_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin21filter_interpreted_fnE, i64 16), ptr %this, align 8
-  %m_condition = getelementptr inbounds i8, ptr %this, i64 8
+  %m_condition = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_condition, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_manager.i.i, align 8
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_ref_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %dec.i.i.i.i = add i32 %2, -1
   store i32 %dec.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
@@ -7176,15 +7176,15 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %entry, %if.then.i.i
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_interpreted_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin21filter_interpreted_fnE, i64 16), ptr %this, align 8
-  %m_condition.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_condition.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_condition.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7datalog17lazy_table_plugin21filter_interpreted_fnD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %m_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_manager.i.i.i, align 8
-  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_ref_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4
   %dec.i.i.i.i.i = add i32 %2, -1
   store i32 %dec.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i, align 4
@@ -7220,11 +7220,11 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
-  %m_condition = getelementptr inbounds i8, ptr %this, i64 8
+  %m_condition = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %m_condition, align 8
   tail call void @_ZN7datalog29lazy_table_filter_interpretedC2ERKNS_10lazy_tableEP3app(ptr noundef nonnull align 8 dereferenceable(72) %call2, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %2)
-  %m_ref.i = getelementptr inbounds i8, ptr %0, i64 40
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %call2, i64 32
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 32
   %3 = load i32, ptr %m_ref.i.i.i, align 8
   %inc.i.i.i = add i32 %3, 1
   store i32 %inc.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -7233,7 +7233,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %tobool.not.i.i.i, label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %m_ref.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
+  %m_ref.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %5 = load i32, ptr %m_ref.i.i.i.i, align 8
   %dec.i.i.i.i = add i32 %5, -1
   store i32 %dec.i.i.i.i, ptr %m_ref.i.i.i.i, align 8
@@ -7242,7 +7242,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(48) %4) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -7256,7 +7256,7 @@ _ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit: ; preds = %if.end.i.i, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog29lazy_table_filter_interpretedC2ERKNS_10lazy_tableEP3app(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(48) %src, ptr noundef %condition) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
@@ -7267,11 +7267,11 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
-  %m_signature.i = getelementptr inbounds i8, ptr %src, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %src, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %1, ptr %m_plugin.i, align 8
-  %m_signature.i5 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_signature.i5, align 8
   %3 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -7287,9 +7287,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i:  ; preds = %_ZNK7datalog10lazy_
   %add.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i)
   store i32 %5, ptr %call3.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 4
   store i32 %4, ptr %incdec.ptr.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i, ptr %m_signature.i5, align 8
   %6 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -7308,16 +7308,16 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNK6vectorImLb0EjE
   br label %_ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit
 
 _ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit: ; preds = %_ZNK7datalog10lazy_table11get_lpluginEv.exit, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %m_functional_columns.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %m_functional_columns2.i.i = getelementptr inbounds i8, ptr %src, i64 24
+  %m_functional_columns.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %m_functional_columns2.i.i = getelementptr inbounds nuw i8, ptr %src, i64 24
   %10 = load i32, ptr %m_functional_columns2.i.i, align 8
   store i32 %10, ptr %m_functional_columns.i.i, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %m_ref.i, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %m_table.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog29lazy_table_filter_interpretedE, i64 16), ptr %this, align 8
-  %m_condition = getelementptr inbounds i8, ptr %this, i64 48
+  %m_condition = getelementptr inbounds nuw i8, ptr %this, i64 48
   %11 = load ptr, ptr %m_plugin.i.i, align 8
   %12 = tail call ptr @__dynamic_cast(ptr nonnull %11, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %13 = icmp eq ptr %12, null
@@ -7331,35 +7331,35 @@ dynamic_cast.bad_cast.i7:                         ; preds = %_ZN7datalog14lazy_t
   unreachable
 
 invoke.cont:                                      ; preds = %_ZN7datalog14lazy_table_refC2ERNS_17lazy_table_pluginERKNS_15table_signatureE.exit
-  %m_manager.i = getelementptr inbounds i8, ptr %12, i64 24
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %m_manager.i, align 8
   %call.i9 = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZN7datalog32get_ast_manager_from_rel_managerERKNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(200) %14)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
   store ptr %condition, ptr %m_condition, align 8
-  %m_manager.i10 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_manager.i10 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %call.i9, ptr %m_manager.i10, align 8
   %tobool.not.i.i = icmp eq ptr %condition, null
   br i1 %tobool.not.i.i, label %invoke.cont8, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %invoke.cont4
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %condition, i64 8
+  %m_ref_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %condition, i64 8
   %15 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %15, 1
   store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %invoke.cont4, %_ZN11ast_manager7inc_refEP3ast.exit.i.i
-  %m_ref.i11 = getelementptr inbounds i8, ptr %src, i64 40
+  %m_ref.i11 = getelementptr inbounds nuw i8, ptr %src, i64 40
   %16 = load ptr, ptr %m_ref.i11, align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 64
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %16, ptr %m_src, align 8
   %tobool.not.i.i12 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i12, label %invoke.cont10, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont8
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %16, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   %17 = load i32, ptr %m_ref.i.i.i, align 8
   %inc.i.i.i = add i32 %17, 1
   store i32 %inc.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -7379,7 +7379,7 @@ lpad:                                             ; preds = %invoke.cont, %dynam
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_by_negation_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin21filter_by_negation_fnE, i64 16), ptr %this, align 8
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_cols2, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i
@@ -7397,7 +7397,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7svectorIjjED2Ev.exit:                         ; preds = %entry, %if.then.i.i.i
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_cols1, align 8
   %tobool.not.i.i.i1 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i1, label %_ZN7svectorIjjED2Ev.exit5, label %if.then.i.i.i2
@@ -7422,7 +7422,7 @@ _ZN7svectorIjjED2Ev.exit5:                        ; preds = %_ZN7svectorIjjED2Ev
 define linkonce_odr hidden void @_ZN7datalog17lazy_table_plugin21filter_by_negation_fnD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17lazy_table_plugin21filter_by_negation_fnE, i64 16), ptr %this, align 8
-  %m_cols2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_cols2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_cols2.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN7svectorIjjED2Ev.exit.i, label %if.then.i.i.i.i
@@ -7440,7 +7440,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN7svectorIjjED2Ev.exit.i:                       ; preds = %if.then.i.i.i.i, %entry
-  %m_cols1.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_cols1.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %m_cols1.i, align 8
   %tobool.not.i.i.i1.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i1.i, label %_ZN7datalog17lazy_table_plugin21filter_by_negation_fnD2Ev.exit, label %if.then.i.i.i2.i
@@ -7484,11 +7484,11 @@ dynamic_cast.bad_cast.i2:                         ; preds = %_ZN7datalog17lazy_t
 
 if.end.i.i:                                       ; preds = %_ZN7datalog17lazy_table_plugin3getERNS_10table_baseE.exit
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 80)
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 8
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN7datalog29lazy_table_filter_by_negationC2ERKNS_10lazy_tableES3_RK7svectorIjjES7_(ptr noundef nonnull align 8 dereferenceable(80) %call3, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(8) %m_cols1, ptr noundef nonnull align 8 dereferenceable(8) %m_cols2)
-  %m_ref.i = getelementptr inbounds i8, ptr %0, i64 40
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %call3, i64 32
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 32
   %4 = load i32, ptr %m_ref.i.i.i, align 8
   %inc.i.i.i = add i32 %4, 1
   store i32 %inc.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -7497,7 +7497,7 @@ if.end.i.i:                                       ; preds = %_ZN7datalog17lazy_t
   br i1 %tobool.not.i.i.i, label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %m_ref.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  %m_ref.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %6 = load i32, ptr %m_ref.i.i.i.i, align 8
   %dec.i.i.i.i = add i32 %6, -1
   store i32 %dec.i.i.i.i, ptr %m_ref.i.i.i.i, align 8
@@ -7506,7 +7506,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %5)
@@ -7520,7 +7520,7 @@ _ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit: ; preds = %if.end.i.i, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog29lazy_table_filter_by_negationC2ERKNS_10lazy_tableES3_RK7svectorIjjES7_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(48) %tgt, ptr noundef nonnull align 8 dereferenceable(48) %src, ptr noundef nonnull align 8 dereferenceable(8) %c1, ptr noundef nonnull align 8 dereferenceable(8) %c2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %tgt, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %tgt, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
@@ -7531,11 +7531,11 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
-  %m_signature.i = getelementptr inbounds i8, ptr %tgt, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %tgt, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %1, ptr %m_plugin.i, align 8
-  %m_signature.i6 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i6 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_signature.i6, align 8
   %3 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -7551,9 +7551,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i:  ; preds = %_ZNK7datalog10lazy_
   %add.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i)
   store i32 %5, ptr %call3.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 4
   store i32 %4, ptr %incdec.ptr.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i, ptr %m_signature.i6, align 8
   %6 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -7572,46 +7572,46 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNK6vectorImLb0EjE
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i, %_ZNK7datalog10lazy_table11get_lpluginEv.exit
-  %m_functional_columns.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %m_functional_columns2.i.i = getelementptr inbounds i8, ptr %tgt, i64 24
+  %m_functional_columns.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %m_functional_columns2.i.i = getelementptr inbounds nuw i8, ptr %tgt, i64 24
   %10 = load i32, ptr %m_functional_columns2.i.i, align 8
   store i32 %10, ptr %m_functional_columns.i.i, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %m_ref.i, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %m_table.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog29lazy_table_filter_by_negationE, i64 16), ptr %this, align 8
-  %m_tgt = getelementptr inbounds i8, ptr %this, i64 48
-  %m_ref.i7 = getelementptr inbounds i8, ptr %tgt, i64 40
+  %m_tgt = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %m_ref.i7 = getelementptr inbounds nuw i8, ptr %tgt, i64 40
   %11 = load ptr, ptr %m_ref.i7, align 8
   store ptr %11, ptr %m_tgt, align 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %invoke.cont6, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load i32, ptr %m_ref.i.i.i, align 8
   %inc.i.i.i = add i32 %12, 1
   store i32 %inc.i.i.i, ptr %m_ref.i.i.i, align 8
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %invoke.cont, %if.then.i.i
-  %m_src = getelementptr inbounds i8, ptr %this, i64 56
-  %m_ref.i8 = getelementptr inbounds i8, ptr %src, i64 40
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %m_ref.i8 = getelementptr inbounds nuw i8, ptr %src, i64 40
   %13 = load ptr, ptr %m_ref.i8, align 8
   store ptr %13, ptr %m_src, align 8
   %tobool.not.i.i9 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i9, label %invoke.cont8, label %if.then.i.i10
 
 if.then.i.i10:                                    ; preds = %invoke.cont6
-  %m_ref.i.i.i11 = getelementptr inbounds i8, ptr %13, i64 32
+  %m_ref.i.i.i11 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %14 = load i32, ptr %m_ref.i.i.i11, align 8
   %inc.i.i.i12 = add i32 %14, 1
   store i32 %inc.i.i.i12, ptr %m_ref.i.i.i11, align 8
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %if.then.i.i10, %invoke.cont6
-  %m_cols1 = getelementptr inbounds i8, ptr %this, i64 64
+  %m_cols1 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %m_cols1, align 8
   %15 = load ptr, ptr %c1, align 8
   %tobool.not.i.i14 = icmp eq ptr %15, null
@@ -7630,9 +7630,9 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i:        ; preds = %invoke.cont8
 
 call3.i.i.i.noexc:                                ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i
   store i32 %17, ptr %call3.i.i.i15, align 4
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 4
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i15, i64 4
   store i32 %16, ptr %incdec.ptr.i.i.i, align 4
-  %incdec.ptr4.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i15, i64 8
+  %incdec.ptr4.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i15, i64 8
   store ptr %incdec.ptr4.i.i.i, ptr %m_cols1, align 8
   %18 = load ptr, ptr %c1, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %18, null
@@ -7651,7 +7651,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNK6vectorIjLb0EjE
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i, %call3.i.i.i.noexc, %invoke.cont8
-  %m_cols2 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_cols2 = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr null, ptr %m_cols2, align 8
   %22 = load ptr, ptr %c2, align 8
   %tobool.not.i.i16 = icmp eq ptr %22, null
@@ -7670,9 +7670,9 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i17:      ; preds = %invoke.cont10
 
 call3.i.i.i.noexc30:                              ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i17
   store i32 %24, ptr %call3.i.i.i31, align 4
-  %incdec.ptr.i.i.i23 = getelementptr inbounds i8, ptr %call3.i.i.i31, i64 4
+  %incdec.ptr.i.i.i23 = getelementptr inbounds nuw i8, ptr %call3.i.i.i31, i64 4
   store i32 %23, ptr %incdec.ptr.i.i.i23, align 4
-  %incdec.ptr4.i.i.i24 = getelementptr inbounds i8, ptr %call3.i.i.i31, i64 8
+  %incdec.ptr4.i.i.i24 = getelementptr inbounds nuw i8, ptr %call3.i.i.i31, i64 8
   store ptr %incdec.ptr4.i.i.i24, ptr %m_cols2, align 8
   %25 = load ptr, ptr %c2, align 8
   %cmp.i.i.i.i.i25 = icmp eq ptr %25, null
@@ -7738,13 +7738,13 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 72)
-  %m_col = getelementptr inbounds i8, ptr %this, i64 16
+  %m_col = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %m_col, align 8
-  %m_value = getelementptr inbounds i8, ptr %this, i64 8
+  %m_value = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i64, ptr %m_value, align 8
   tail call void @_ZN7datalog23lazy_table_filter_equalC2EjmRKNS_10lazy_tableE(ptr noundef nonnull align 8 dereferenceable(72) %call2, i32 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %0)
-  %m_ref.i = getelementptr inbounds i8, ptr %0, i64 40
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %call2, i64 32
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %call2, i64 32
   %4 = load i32, ptr %m_ref.i.i.i, align 8
   %inc.i.i.i = add i32 %4, 1
   store i32 %inc.i.i.i, ptr %m_ref.i.i.i, align 8
@@ -7753,7 +7753,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %tobool.not.i.i.i, label %_ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %m_ref.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  %m_ref.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %6 = load i32, ptr %m_ref.i.i.i.i, align 8
   %dec.i.i.i.i = add i32 %6, -1
   store i32 %dec.i.i.i.i, ptr %m_ref.i.i.i.i, align 8
@@ -7762,7 +7762,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %5) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(48) %5)
@@ -7776,7 +7776,7 @@ _ZN7datalog10lazy_table3setEPNS_14lazy_table_refE.exit: ; preds = %if.end.i.i, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7datalog23lazy_table_filter_equalC2EjmRKNS_10lazy_tableE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %col, i64 noundef %value, ptr noundef nonnull align 8 dereferenceable(48) %src) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_plugin.i.i = getelementptr inbounds i8, ptr %src, i64 8
+  %m_plugin.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load ptr, ptr %m_plugin.i.i, align 8
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN7datalog12table_pluginE, ptr nonnull @_ZTIN7datalog17lazy_table_pluginE, i64 0) #17
   %2 = icmp eq ptr %1, null
@@ -7787,11 +7787,11 @@ dynamic_cast.bad_cast.i:                          ; preds = %entry
   unreachable
 
 _ZNK7datalog10lazy_table11get_lpluginEv.exit:     ; preds = %entry
-  %m_signature.i = getelementptr inbounds i8, ptr %src, i64 16
+  %m_signature.i = getelementptr inbounds nuw i8, ptr %src, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14lazy_table_refE, i64 16), ptr %this, align 8
-  %m_plugin.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_plugin.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %1, ptr %m_plugin.i, align 8
-  %m_signature.i3 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_signature.i3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %m_signature.i3, align 8
   %3 = load ptr, ptr %m_signature.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -7807,9 +7807,9 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i:  ; preds = %_ZNK7datalog10lazy_
   %add.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i, 8
   %call3.i.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i.i.i)
   store i32 %5, ptr %call3.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 4
   store i32 %4, ptr %incdec.ptr.i.i.i.i.i.i, align 4
-  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i.i.i, i64 8
+  %incdec.ptr4.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i.i, i64 8
   store ptr %incdec.ptr4.i.i.i.i.i.i, ptr %m_signature.i3, align 8
   %6 = load ptr, ptr %m_signature.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -7828,28 +7828,28 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNK6vectorImLb0EjE
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE3endEv.exit.i.i.i.i.i.i, %_ZNK6vectorImLb0EjE8capacityEv.exit.i.i.i.i.i.i, %_ZNK7datalog10lazy_table11get_lpluginEv.exit
-  %m_functional_columns.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %m_functional_columns2.i.i = getelementptr inbounds i8, ptr %src, i64 24
+  %m_functional_columns.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %m_functional_columns2.i.i = getelementptr inbounds nuw i8, ptr %src, i64 24
   %10 = load i32, ptr %m_functional_columns2.i.i, align 8
   store i32 %10, ptr %m_functional_columns.i.i, align 8
-  %m_ref.i = getelementptr inbounds i8, ptr %this, i64 32
+  %m_ref.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %m_ref.i, align 8
-  %m_table.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %m_table.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog23lazy_table_filter_equalE, i64 16), ptr %this, align 8
-  %m_col = getelementptr inbounds i8, ptr %this, i64 48
+  %m_col = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %col, ptr %m_col, align 8
-  %m_value = getelementptr inbounds i8, ptr %this, i64 56
+  %m_value = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i64 %value, ptr %m_value, align 8
-  %m_ref.i4 = getelementptr inbounds i8, ptr %src, i64 40
+  %m_ref.i4 = getelementptr inbounds nuw i8, ptr %src, i64 40
   %11 = load ptr, ptr %m_ref.i4, align 8
-  %m_src = getelementptr inbounds i8, ptr %this, i64 64
+  %m_src = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %11, ptr %m_src, align 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %invoke.cont4, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %m_ref.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
+  %m_ref.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 32
   %12 = load i32, ptr %m_ref.i.i.i, align 8
   %inc.i.i.i = add i32 %12, 1
   store i32 %inc.i.i.i, ptr %m_ref.i.i.i, align 8

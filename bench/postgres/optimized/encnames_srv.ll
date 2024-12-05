@@ -281,7 +281,7 @@ clean_encoding_name.exit:                         ; preds = %21
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %31, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %42 = load i32, ptr %41, align 8
   br label %.loopexit
 

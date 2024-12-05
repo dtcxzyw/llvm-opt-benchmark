@@ -117,7 +117,7 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   %8 = load i32, ptr @proto_encaps, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %10 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %9, ptr noundef nonnull @ei_cw_packet_size_too_small, ptr noundef nonnull @.str.38, i32 noundef %5, i32 noundef 4) #2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.39) #2
   %13 = load ptr, ptr %11, align 8
@@ -176,7 +176,7 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   %38 = icmp eq i32 %.092, 0
   %39 = or i32 %.1, 32
   %spec.select109 = select i1 %38, i32 %39, i32 %.1
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @col_set_str(ptr noundef %41, i32 noundef 34, ptr noundef nonnull @.str.39) #2
   %42 = load ptr, ptr %40, align 8

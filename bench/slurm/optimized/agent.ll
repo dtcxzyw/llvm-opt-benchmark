@@ -238,7 +238,7 @@ define internal noalias noundef ptr @_agent(ptr nocapture readnone %0) #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr @task_socks, align 8
   %.idx = shl nuw nsw i64 %indvars.iv, 3
-  %9 = getelementptr inbounds i8, ptr %8, i64 %.idx
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %10 = load i32, ptr %9, align 4
   %11 = inttoptr i64 %indvars.iv to ptr
   %12 = tail call ptr @slurm_eio_obj_create(i32 noundef %10, ptr noundef nonnull @task_ops, ptr noundef %11) #10
@@ -417,7 +417,7 @@ define internal noundef zeroext i1 @_tree_listen_readable(ptr nocapture noundef 
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %17
@@ -462,14 +462,14 @@ define internal noundef i32 @_tree_listen_read(ptr nocapture noundef readonly %0
   br label %10
 
 10:                                               ; preds = %9, %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %12 = load i32, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 %12, ptr %4, align 4
   store i16 1, ptr %11, align 4
   %13 = call i32 @poll(ptr noundef nonnull %4, i64 noundef 1, i32 noundef 10) #10
   %14 = icmp eq i32 %13, 1
-  %15 = getelementptr inbounds i8, ptr %4, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 1
   %18 = icmp ne i16 %17, 0
@@ -615,7 +615,7 @@ define internal noundef i32 @_tree_listen_read(ptr nocapture noundef readonly %0
   %.us-phi37.i = phi i64 [ %38, %.lr.ph61.preheader.i.preheader ], [ %38, %.lr.ph77.i.preheader ], [ %56, %.lr.ph61.preheader.i ], [ %47, %.lr.ph77.i ]
   %.us-phi38.i = phi i32 [ %39, %.lr.ph61.preheader.i.preheader ], [ %39, %.lr.ph77.i.preheader ], [ %57, %.lr.ph61.preheader.i ], [ %48, %.lr.ph77.i ]
   %68 = and i64 %.us-phi37.i, 2147483647
-  %69 = getelementptr inbounds i8, ptr %.020.ph81.i, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr %.020.ph81.i, i64 %68
   %70 = sub nsw i32 %.021.ph79.i, %.us-phi38.i
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %72, label %.outer._crit_edge.i
@@ -692,7 +692,7 @@ define internal noundef zeroext i1 @_task_readable(ptr nocapture noundef %0) #0 
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = load ptr, ptr @finalized, align 8
@@ -709,7 +709,7 @@ define internal noundef zeroext i1 @_task_readable(ptr nocapture noundef %0) #0 
   br i1 %16, label %.sink.split, label %28
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %28
@@ -744,7 +744,7 @@ define internal i32 @_task_read(ptr nocapture noundef readonly %0, ptr nocapture
   %3 = alloca [64 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = trunc i64 %8 to i32
@@ -803,7 +803,7 @@ define internal i32 @_task_read(ptr nocapture noundef readonly %0, ptr nocapture
 
 33:                                               ; preds = %.critedge.i.i
   %34 = and i64 %25, 63
-  %35 = getelementptr inbounds [64 x i8], ptr %3, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [64 x i8], ptr %3, i64 0, i64 %34
   store i8 0, ptr %35, align 1
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.29, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %.not.i.i = icmp eq i32 %36, 2

@@ -1325,7 +1325,7 @@ define internal i32 @dissect_llrp_packet(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %6, label %86, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.513) #3
   %10 = load ptr, ptr %8, align 8
@@ -1569,7 +1569,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @dissect_llrp_impinj_message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = zext i8 %5 to i32
   %9 = tail call ptr @val_to_str_ext(i32 noundef %8, ptr noundef nonnull @impinj_msg_subtype_ext, ptr noundef nonnull @.str.899) #3
@@ -3298,7 +3298,7 @@ dissect_llrp_impinj_parameter.exit:               ; preds = %1201, %890, %1203, 
 
 switch.lookup:                                    ; preds = %1211
   %1216 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [20 x i32], ptr @switch.table.dissect_llrp_parameters, i64 0, i64 %1216
+  %switch.gep = getelementptr inbounds nuw [20 x i32], ptr @switch.table.dissect_llrp_parameters, i64 0, i64 %1216
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %1217
 

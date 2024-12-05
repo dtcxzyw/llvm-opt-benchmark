@@ -470,9 +470,9 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix23register_filter_factoryIcEEvRK
   %5 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E3getEv()
   %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %5) #19
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %8 = getelementptr inbounds i8, ptr %5, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %10 = getelementptr inbounds i8, ptr %5, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %.not10.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
@@ -546,7 +546,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix14filter_factoryIcEEEC2ERKS5_.exit.i: 
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %31, align 8, !tbaa !21
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %31)
           to label %.noexc.i.i.i unwind label %47
@@ -559,7 +559,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix14filter_factoryIcEEEC2ERKS5_.exit.i: 
 
 43:                                               ; preds = %.noexc.i.i.i
   %44 = load ptr, ptr %31, align 8, !tbaa !21
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
   invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %31)
           to label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14filter_factoryIcEEEaSERKS5_.exit unwind label %47
@@ -618,11 +618,11 @@ _ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit: ; preds = %15, %0, %
 
 11:                                               ; preds = %9
   %12 = call i32 @pthread_rwlock_init(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, ptr noundef null) #19
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), align 8, !tbaa !30
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 72), align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 80), align 8, !tbaa !31
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 88), align 8, !tbaa !32
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 96), align 8, !tbaa !33
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), align 8, !tbaa !30
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 72), align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 80), align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 88), align 8, !tbaa !32
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 96), align 8, !tbaa !33
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost3log11v2_mt_posix3aux22default_filter_factoryIcEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 104), align 8, !tbaa !21
   %13 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost3log11v2_mt_posix9anonymous18filters_repositoryIcED2Ev, ptr nonnull @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance) #19
@@ -772,7 +772,7 @@ _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcEC2Ev.exit: ; preds = %3
   %51 = load ptr, ptr %50, align 8, !tbaa !63, !noalias !60
   %52 = getelementptr inbounds i8, ptr %51, i64 -8
   %53 = load ptr, ptr %52, align 8, !tbaa !14, !noalias !48
-  %54 = getelementptr inbounds i8, ptr %53, i64 512
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit.i: ; preds = %49, %45
@@ -881,7 +881,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 13:                                               ; preds = %10
   %14 = load i8, ptr %12, align 1, !tbaa !44
-  %15 = getelementptr inbounds i8, ptr %12, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 1
   switch i8 %14, label %.lr.ph.i.preheader [
     i8 41, label %16
     i8 38, label %35
@@ -1056,9 +1056,9 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix23register_filter_factoryIwEEvRK
   %5 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E3getEv()
   %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull align 8 dereferenceable(56) %5) #19
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %8 = getelementptr inbounds i8, ptr %5, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %10 = getelementptr inbounds i8, ptr %5, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %.not10.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
@@ -1132,7 +1132,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix14filter_factoryIwEEEC2ERKS5_.exit.i: 
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %31, align 8, !tbaa !21
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %31)
           to label %.noexc.i.i.i unwind label %47
@@ -1145,7 +1145,7 @@ _ZN5boost10shared_ptrINS_3log11v2_mt_posix14filter_factoryIwEEEC2ERKS5_.exit.i: 
 
 43:                                               ; preds = %.noexc.i.i.i
   %44 = load ptr, ptr %31, align 8, !tbaa !21
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
   invoke void %46(ptr noundef nonnull align 8 dereferenceable(16) %31)
           to label %_ZN5boost10shared_ptrINS_3log11v2_mt_posix14filter_factoryIwEEEaSERKS5_.exit unwind label %47
@@ -1204,11 +1204,11 @@ _ZN5boost3log11v2_mt_posix3aux17once_block_sentryD2Ev.exit: ; preds = %15, %0, %
 
 11:                                               ; preds = %9
   %12 = call i32 @pthread_rwlock_init(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, ptr noundef null) #19
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), align 8, !tbaa !30
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 72), align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 80), align 8, !tbaa !31
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 88), align 8, !tbaa !32
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 96), align 8, !tbaa !33
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), align 8, !tbaa !30
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 72), align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 80), align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 88), align 8, !tbaa !32
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 96), align 8, !tbaa !33
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost3log11v2_mt_posix3aux22default_filter_factoryIwEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 104), align 8, !tbaa !21
   %13 = call i32 @__cxa_atexit(ptr nonnull @_ZN5boost3log11v2_mt_posix9anonymous18filters_repositoryIwED2Ev, ptr nonnull @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, ptr nonnull @__dso_handle) #19
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance) #19
@@ -1360,7 +1360,7 @@ _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwEC2Ev.exit: ; preds = %3
   %53 = load ptr, ptr %52, align 8, !tbaa !63, !noalias !82
   %54 = getelementptr inbounds i8, ptr %53, i64 -8
   %55 = load ptr, ptr %54, align 8, !tbaa !14, !noalias !79
-  %56 = getelementptr inbounds i8, ptr %55, i64 512
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit.i
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit.i: ; preds = %51, %47
@@ -1471,7 +1471,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %12, align 4, !tbaa !76
-  %15 = getelementptr inbounds i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   switch i32 %14, label %.lr.ph.i.preheader [
     i32 41, label %16
     i32 38, label %39
@@ -1694,7 +1694,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIN5boost3log11v2_mt_posix6filterESaI
 28:                                               ; preds = %26
   %29 = load ptr, ptr %10, align 8, !tbaa !95
   %30 = load ptr, ptr %18, align 8, !tbaa !96
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = icmp ult ptr %29, %31
   br i1 %32, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIN5boost3log11v2_mt_posix6filterESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
@@ -1734,7 +1734,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIN5boost3log11v2_mt_posix6filterESaI
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.028 = getelementptr inbounds i8, ptr %5, i64 8
+  %.028 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !63
   %8 = icmp ult ptr %.028, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -1785,7 +1785,7 @@ _ZSt8_DestroyIN5boost3log11v2_mt_posix6filterEEvPT_.exit.i.i.i: ; preds = %16, %
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5boost3log11v2_mt_posix6filterES3_EvT_S5_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !99
 
 _ZSt8_DestroyIPN5boost3log11v2_mt_posix6filterES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN5boost3log11v2_mt_posix6filterEEvPT_.exit.i.i.i
-  %.0 = getelementptr inbounds i8, ptr %.029, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %20 = load ptr, ptr %6, align 8, !tbaa !63
   %21 = icmp ult ptr %.0, %20
   br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !100
@@ -1919,11 +1919,11 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux14lazy_singletonI
 
 5:                                                ; preds = %3
   %6 = tail call i32 @pthread_rwlock_init(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, ptr noundef null) #19
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), align 8, !tbaa !30
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 72), align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 80), align 8, !tbaa !31
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 88), align 8, !tbaa !32
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 96), align 8, !tbaa !33
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), align 8, !tbaa !30
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 72), align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 80), align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 88), align 8, !tbaa !32
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 96), align 8, !tbaa !33
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost3log11v2_mt_posix3aux22default_filter_factoryIcEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, i64 104), align 8, !tbaa !21
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost3log11v2_mt_posix9anonymous18filters_repositoryIcED2Ev, ptr nonnull @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E12get_instanceEvE8instance) #19
@@ -1948,7 +1948,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #5
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous18filters_repositoryIcED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   invoke void @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %4)
           to label %_ZNSt3mapIN5boost3log11v2_mt_posix14attribute_nameENS0_10shared_ptrINS2_14filter_factoryIcEEEENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISt4pairIKS3_S7_EEED2Ev.exit unwind label %5
@@ -2086,7 +2086,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attrib
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %8, align 8, !tbaa !21
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %.noexc.i.i.i.i.i.i.i unwind label %24
@@ -2099,7 +2099,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attrib
 
 20:                                               ; preds = %.noexc.i.i.i.i.i.i.i
   %21 = load ptr, ptr %8, align 8, !tbaa !21
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %24
@@ -2155,7 +2155,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribu
 
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
@@ -2170,7 +2170,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribu
 .thread:                                          ; preds = %18, %21
   %26 = phi i1 [ true, %18 ], [ %25, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %26, ptr noundef nonnull %8, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #19
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !33
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8, !tbaa !33
@@ -2197,7 +2197,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribu
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %34, align 8, !tbaa !21
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   invoke void %42(ptr noundef nonnull align 8 dereferenceable(16) %34)
           to label %.noexc.i.i.i.i.i.i.i.i unwind label %50
@@ -2210,7 +2210,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribu
 
 46:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i
   %47 = load ptr, ptr %34, align 8, !tbaa !21
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   invoke void %49(ptr noundef nonnull align 8 dereferenceable(16) %34)
           to label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i unwind label %50
@@ -2234,18 +2234,18 @@ _ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #6 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !33
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 4, !tbaa !11
@@ -2254,7 +2254,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
   br i1 %15, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit, label %16
 
 16:                                               ; preds = %9, %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i = load ptr, ptr %17, align 8, !tbaa !14
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -2279,7 +2279,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !31
   %25 = icmp eq ptr %.019.lcssa28.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit, label %26
@@ -2309,7 +2309,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
   br i1 %36, label %37, label %61
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !14
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit, label %41
@@ -2330,7 +2330,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
   br label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !14
   %.not23.i11 = icmp eq ptr %.02022.i10, null
   br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
@@ -2374,7 +2374,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
   br i1 %62, label %63, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !14
   %66 = icmp eq ptr %65, %1
   br i1 %66, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit, label %67
@@ -2395,7 +2395,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
   br label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !14
   %.not23.i31 = icmp eq ptr %.02022.i30, null
   br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
@@ -2416,7 +2416,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
   %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !31
   %83 = icmp eq ptr %.019.lcssa28.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit, label %84
@@ -2465,7 +2465,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attrib
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %6, align 8, !tbaa !21
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %.noexc.i.i.i.i.i.i.i unwind label %22
@@ -2478,7 +2478,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attrib
 
 18:                                               ; preds = %.noexc.i.i.i.i.i.i.i
   %19 = load ptr, ptr %6, align 8, !tbaa !21
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIcEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %22
@@ -2607,7 +2607,7 @@ _ZNSt11_Deque_baseIN5boost3log11v2_mt_posix6filterESaIS3_EE15_M_create_nodesEPPS
   %39 = load ptr, ptr %10, align 8, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %39, ptr %40, align 8, !tbaa !59
-  %41 = getelementptr inbounds i8, ptr %39, i64 512
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 512
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %41, ptr %42, align 8, !tbaa !89
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2617,7 +2617,7 @@ _ZNSt11_Deque_baseIN5boost3log11v2_mt_posix6filterESaIS3_EE15_M_create_nodesEPPS
   %46 = load ptr, ptr %44, align 8, !tbaa !14
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %46, ptr %47, align 8, !tbaa !59
-  %48 = getelementptr inbounds i8, ptr %46, i64 512
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 512
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %48, ptr %49, align 8, !tbaa !89
   store ptr %39, ptr %37, align 8, !tbaa !109
@@ -2655,7 +2655,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %.04091 = phi ptr [ %42, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ %6, %4 ]
   %7 = load i8, ptr %.04091, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
-  %8 = getelementptr inbounds i8, ptr %.04091, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.04091, i64 1
   store ptr %8, ptr %5, align 8, !tbaa !14
   switch i8 %7, label %.lr.ph.i.preheader [
     i8 37, label %9
@@ -2843,7 +2843,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %22 = load ptr, ptr %21, align 8, !tbaa !63, !noalias !111
   %23 = getelementptr inbounds i8, ptr %22, i64 -8
   %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = getelementptr inbounds i8, ptr %24, i64 504
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 504
   %26 = load ptr, ptr %25, align 8, !tbaa !57
   store ptr null, ptr %25, align 8, !tbaa !57
   tail call void @_ZdlPvm(ptr noundef %15, i64 noundef 512) #21
@@ -2852,10 +2852,10 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   store ptr %28, ptr %21, align 8, !tbaa !63
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   store ptr %29, ptr %14, align 8, !tbaa !59
-  %30 = getelementptr inbounds i8, ptr %29, i64 512
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 512
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %30, ptr %31, align 8, !tbaa !89
-  %32 = getelementptr inbounds i8, ptr %29, i64 504
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 504
   store ptr %32, ptr %8, align 8, !tbaa !110
   %33 = load ptr, ptr %32, align 8, !tbaa !57
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
@@ -2896,7 +2896,7 @@ _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3popEv.exit: ; 
   %50 = load ptr, ptr %49, align 8, !tbaa !63, !noalias !114
   %51 = getelementptr inbounds i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8, !tbaa !14
-  %53 = getelementptr inbounds i8, ptr %52, i64 512
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit18
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit18: ; preds = %45, %48
@@ -2969,8 +2969,8 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
 .noexc:                                           ; preds = %_ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_10basic_exprINS6_6tagns_3tag8terminalENS6_7argsns_4termINS0_8argumentILi1EEEEELl0EEEEEEEEKNS0_6detail10expression13function_evalIT_JDpT0_EE4typeESM_DpRKSN_.exit26, %74
   %78 = phi ptr [ null, %_ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_10basic_exprINS6_6tagns_3tag8terminalENS6_7argsns_4termINS0_8argumentILi1EEEEELl0EEEEEEEEKNS0_6detail10expression13function_evalIT_JDpT0_EE4typeESM_DpRKSN_.exit26 ], [ %77, %74 ]
   store ptr %78, ptr %2, align 8, !tbaa !57
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
-  %80 = getelementptr inbounds i8, ptr %4, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %81 = load i8, ptr %80, align 8
   store i8 %81, ptr %79, align 8
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2987,8 +2987,8 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
 _ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i: ; preds = %.noexc, %84
   %88 = phi ptr [ null, %.noexc ], [ %87, %84 ]
   store ptr %88, ptr %82, align 8, !tbaa !57, !noalias !117
-  %89 = getelementptr inbounds i8, ptr %2, i64 24
-  %90 = getelementptr inbounds i8, ptr %6, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %91 = load i8, ptr %90, align 8, !noalias !117
   store i8 %91, ptr %89, align 8, !noalias !117
   %.not.i.i.i.i.i.i = icmp eq ptr %78, null
@@ -3003,7 +3003,7 @@ _ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_gram
 _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i: ; preds = %92, %_ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i
   %storemerge.i.i.i.i.i.i = phi ptr [ null, %_ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i ], [ %95, %92 ]
   store ptr %storemerge.i.i.i.i.i.i, ptr %3, align 8, !tbaa !57
-  %96 = getelementptr inbounds i8, ptr %3, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %81, ptr %96, align 8
   %.not.i.i.i.i.i4.i = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i.i4.i, label %_ZNK5boost5proto6detail10make_expr_INS0_6tagns_3tag11logical_andENS_7phoenix14phoenix_domainERKNS6_5actorINS0_7exprns_10basic_exprINS6_6detail3tag13function_evalENS0_7argsns_5list2INSA_INS4_8terminalENSE_4termINS_3log11v2_mt_posix6filterEEELl0EEENS8_INSA_ISG_NSH_INS6_8argumentILi1EEEEELl0EEEEEEELl2EEEEESW_vvvvvvvvvEclESW_SW_.exit.thread, label %99
@@ -3011,7 +3011,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
 _ZNK5boost5proto6detail10make_expr_INS0_6tagns_3tag11logical_andENS_7phoenix14phoenix_domainERKNS6_5actorINS0_7exprns_10basic_exprINS6_6detail3tag13function_evalENS0_7argsns_5list2INSA_INS4_8terminalENSE_4termINS_3log11v2_mt_posix6filterEEELl0EEENS8_INSA_ISG_NSH_INS6_8argumentILi1EEEEELl0EEEEEEELl2EEEEESW_vvvvvvvvvEclESW_SW_.exit.thread: ; preds = %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %97, align 8, !tbaa !57
-  %98 = getelementptr inbounds i8, ptr %3, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %91, ptr %98, align 8
   br label %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEED2Ev.exit.i40
 
@@ -3082,7 +3082,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
 123:                                              ; preds = %99
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %102, ptr %124, align 8, !tbaa !57
-  %125 = getelementptr inbounds i8, ptr %3, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %91, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !56
@@ -3129,7 +3129,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
   %145 = load ptr, ptr %144, align 8, !tbaa !63, !noalias !120
   %146 = getelementptr inbounds i8, ptr %145, i64 -8
   %147 = load ptr, ptr %146, align 8, !tbaa !14
-  %148 = getelementptr inbounds i8, ptr %147, i64 512
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit41
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit41: ; preds = %139, %143
@@ -3484,7 +3484,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %22 = load ptr, ptr %21, align 8, !tbaa !63, !noalias !123
   %23 = getelementptr inbounds i8, ptr %22, i64 -8
   %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = getelementptr inbounds i8, ptr %24, i64 504
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 504
   %26 = load ptr, ptr %25, align 8, !tbaa !57
   store ptr null, ptr %25, align 8, !tbaa !57
   tail call void @_ZdlPvm(ptr noundef %15, i64 noundef 512) #21
@@ -3493,10 +3493,10 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   store ptr %28, ptr %21, align 8, !tbaa !63
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   store ptr %29, ptr %14, align 8, !tbaa !59
-  %30 = getelementptr inbounds i8, ptr %29, i64 512
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 512
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %30, ptr %31, align 8, !tbaa !89
-  %32 = getelementptr inbounds i8, ptr %29, i64 504
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 504
   store ptr %32, ptr %8, align 8, !tbaa !110
   %33 = load ptr, ptr %32, align 8, !tbaa !57
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
@@ -3537,7 +3537,7 @@ _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3popEv.exit: ; 
   %50 = load ptr, ptr %49, align 8, !tbaa !63, !noalias !126
   %51 = getelementptr inbounds i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8, !tbaa !14
-  %53 = getelementptr inbounds i8, ptr %52, i64 512
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit18
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit18: ; preds = %45, %48
@@ -3610,8 +3610,8 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
 .noexc:                                           ; preds = %_ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_10basic_exprINS6_6tagns_3tag8terminalENS6_7argsns_4termINS0_8argumentILi1EEEEELl0EEEEEEEEKNS0_6detail10expression13function_evalIT_JDpT0_EE4typeESM_DpRKSN_.exit26, %74
   %78 = phi ptr [ null, %_ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_10basic_exprINS6_6tagns_3tag8terminalENS6_7argsns_4termINS0_8argumentILi1EEEEELl0EEEEEEEEKNS0_6detail10expression13function_evalIT_JDpT0_EE4typeESM_DpRKSN_.exit26 ], [ %77, %74 ]
   store ptr %78, ptr %2, align 8, !tbaa !57
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
-  %80 = getelementptr inbounds i8, ptr %4, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %81 = load i8, ptr %80, align 8
   store i8 %81, ptr %79, align 8
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3628,8 +3628,8 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
 _ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i: ; preds = %.noexc, %84
   %88 = phi ptr [ null, %.noexc ], [ %87, %84 ]
   store ptr %88, ptr %82, align 8, !tbaa !57, !noalias !129
-  %89 = getelementptr inbounds i8, ptr %2, i64 24
-  %90 = getelementptr inbounds i8, ptr %6, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %91 = load i8, ptr %90, align 8, !noalias !129
   store i8 %91, ptr %89, align 8, !noalias !129
   %.not.i.i.i.i.i.i = icmp eq ptr %78, null
@@ -3644,7 +3644,7 @@ _ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_gram
 _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i: ; preds = %92, %_ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i
   %storemerge.i.i.i.i.i.i = phi ptr [ null, %_ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i ], [ %95, %92 ]
   store ptr %storemerge.i.i.i.i.i.i, ptr %3, align 8, !tbaa !57
-  %96 = getelementptr inbounds i8, ptr %3, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %81, ptr %96, align 8
   %.not.i.i.i.i.i4.i = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i.i4.i, label %_ZNK5boost5proto6detail10make_expr_INS0_6tagns_3tag10logical_orENS_7phoenix14phoenix_domainERKNS6_5actorINS0_7exprns_10basic_exprINS6_6detail3tag13function_evalENS0_7argsns_5list2INSA_INS4_8terminalENSE_4termINS_3log11v2_mt_posix6filterEEELl0EEENS8_INSA_ISG_NSH_INS6_8argumentILi1EEEEELl0EEEEEEELl2EEEEESW_vvvvvvvvvEclESW_SW_.exit.thread, label %99
@@ -3652,7 +3652,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
 _ZNK5boost5proto6detail10make_expr_INS0_6tagns_3tag10logical_orENS_7phoenix14phoenix_domainERKNS6_5actorINS0_7exprns_10basic_exprINS6_6detail3tag13function_evalENS0_7argsns_5list2INSA_INS4_8terminalENSE_4termINS_3log11v2_mt_posix6filterEEELl0EEENS8_INSA_ISG_NSH_INS6_8argumentILi1EEEEELl0EEEEEEELl2EEEEESW_vvvvvvvvvEclESW_SW_.exit.thread: ; preds = %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %97, align 8, !tbaa !57
-  %98 = getelementptr inbounds i8, ptr %3, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %91, ptr %98, align 8
   br label %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEED2Ev.exit.i40
 
@@ -3723,7 +3723,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
 123:                                              ; preds = %99
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %102, ptr %124, align 8, !tbaa !57
-  %125 = getelementptr inbounds i8, ptr %3, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %91, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !56
@@ -3770,7 +3770,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
   %145 = load ptr, ptr %144, align 8, !tbaa !63, !noalias !132
   %146 = getelementptr inbounds i8, ptr %145, i64 -8
   %147 = load ptr, ptr %146, align 8, !tbaa !14
-  %148 = getelementptr inbounds i8, ptr %147, i64 512
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit41
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit41: ; preds = %139, %143
@@ -4240,7 +4240,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store ptr %scevgep, ptr %4, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 25, ptr %16, align 8, !tbaa !136
-  %.repack45 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack45, align 8, !tbaa !136
   br label %72
 
@@ -4278,7 +4278,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store ptr %scevgep132, ptr %4, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 33, ptr %25, align 8, !tbaa !136
-  %.repack44 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack44, align 8, !tbaa !136
   br label %72
 
@@ -4312,7 +4312,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store ptr %scevgep, ptr %4, align 8, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 49, ptr %34, align 8, !tbaa !136
-  %.repack43 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack43, align 8, !tbaa !136
   br label %72
 
@@ -4346,7 +4346,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store ptr %scevgep, ptr %4, align 8, !tbaa !14
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 41, ptr %43, align 8, !tbaa !136
-  %.repack42 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack42, align 8, !tbaa !136
   br label %72
 
@@ -4377,7 +4377,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store ptr %scevgep132, ptr %4, align 8, !tbaa !14
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 65, ptr %52, align 8, !tbaa !136
-  %.repack41 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack41, align 8, !tbaa !136
   br label %72
 
@@ -4393,7 +4393,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
 54:                                               ; preds = %.loopexit
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 57, ptr %55, align 8, !tbaa !136
-  %.repack40 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack40, align 8, !tbaa !136
   br label %72
 
@@ -4538,9 +4538,9 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 7:                                                ; preds = %1
   %8 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIcEES6_E3getEv()
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !3
-  %11 = getelementptr inbounds i8, ptr %8, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %.not10.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not10.i.i.i.i, label %_ZNKSt3mapIN5boost3log11v2_mt_posix14attribute_nameENS0_10shared_ptrINS2_14filter_factoryIcEEEENS2_9anonymous18filters_repositoryIcE20attribute_name_orderESaISt4pairIKS3_S7_EEE4findERSD_.exit.thread.i, label %.lr.ph.i.i.i.i
 
@@ -4596,7 +4596,7 @@ _ZNK5boost3log11v2_mt_posix9anonymous18filters_repositoryIcE11get_factoryERKNS1_
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
-  %.elt10 = getelementptr inbounds i8, ptr %0, i64 56
+  %.elt10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.unpack11 = load i64, ptr %.elt10, align 8, !tbaa !136
   %32 = getelementptr inbounds i8, ptr %.0.i, i64 %.unpack11
   %33 = and i64 %.unpack, 1
@@ -4695,7 +4695,7 @@ _ZN5boost3log11v2_mt_posix6filterD2Ev.exit17:     ; preds = %61, %58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load ptr, ptr %.0.i, align 8, !tbaa !21
-  %75 = getelementptr inbounds i8, ptr %74, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
   %76 = load ptr, ptr %75, align 8
   call void %76(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::filter") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %73)
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -4803,7 +4803,7 @@ _ZN5boost15optional_detail13optional_baseINSt7__cxx1112basic_stringIcSt11char_tr
 116:                                              ; preds = %_ZNK5boost3log11v2_mt_posix9anonymous18filters_repositoryIcE11get_factoryERKNS1_14attribute_nameE.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   %117 = load ptr, ptr %.0.i, align 8, !tbaa !21
-  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
   call void %119(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::filter") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull align 4 dereferenceable(4) %0)
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -4908,7 +4908,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %15 = load ptr, ptr %14, align 8, !tbaa !63, !noalias !146
   %16 = getelementptr inbounds i8, ptr %15, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
-  %18 = getelementptr inbounds i8, ptr %17, i64 512
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit: ; preds = %9, %13
@@ -4954,7 +4954,7 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
   br i1 %.not.i.i.i.i.i11, label %.noexc.thread, label %35
 
 .noexc.thread:                                    ; preds = %_ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_10basic_exprINS6_6tagns_3tag8terminalENS6_7argsns_4termINS0_8argumentILi1EEEEELl0EEEEEEEEKNS0_6detail10expression13function_evalIT_JDpT0_EE4typeESM_DpRKSN_.exit
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i8, ptr %33, align 8
   br label %_ZN5boost5proto7exprns_ntIKNS_7phoenix5actorINS1_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INS5_INS0_6tagns_3tag8terminalENS9_4termINS_3log11v2_mt_posix6filterEEELl0EEENS4_INS5_ISD_NSE_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEEEKNS0_6detail12enable_unaryINS0_9domainns_13deduce_domainENST_13not_a_grammarENS0_12is_extensionIT_EENSC_11logical_notERKSZ_E4typeEOSZ_.exit
 
@@ -4965,7 +4965,7 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
           to label %.noexc unwind label %109
 
 .noexc:                                           ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i8, ptr %39, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN5boost5proto7exprns_ntIKNS_7phoenix5actorINS1_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INS5_INS0_6tagns_3tag8terminalENS9_4termINS_3log11v2_mt_posix6filterEEELl0EEENS4_INS5_ISD_NSE_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEEEKNS0_6detail12enable_unaryINS0_9domainns_13deduce_domainENST_13not_a_grammarENS0_12is_extensionIT_EENSC_11logical_notERKSZ_E4typeEOSZ_.exit, label %41
@@ -5017,7 +5017,7 @@ _ZN5boost5proto7exprns_ntIKNS_7phoenix5actorINS1_10basic_exprINS3_6detail3tag13f
   %63 = load ptr, ptr %62, align 8, !tbaa !63, !noalias !149
   %64 = getelementptr inbounds i8, ptr %63, i64 -8
   %65 = load ptr, ptr %64, align 8, !tbaa !14
-  %66 = getelementptr inbounds i8, ptr %65, i64 512
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit17
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit17: ; preds = %_ZN5boost5proto7exprns_ntIKNS_7phoenix5actorINS1_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INS5_INS0_6tagns_3tag8terminalENS9_4termINS_3log11v2_mt_posix6filterEEELl0EEENS4_INS5_ISD_NSE_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEEEKNS0_6detail12enable_unaryINS0_9domainns_13deduce_domainENST_13not_a_grammarENS0_12is_extensionIT_EENSC_11logical_notERKSZ_E4typeEOSZ_.exit, %61
@@ -5051,7 +5051,7 @@ _ZN5boost3log11v2_mt_posix6filterC2IRKNS_7phoenix5actorINS_5proto7exprns_10basic
   %storemerge.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %.noexc18 ], [ %75, %72 ]
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %storemerge.i.i.i.i.i.i.i.i.i.i.i, ptr %77, align 8, !tbaa !57
-  %78 = getelementptr inbounds i8, ptr %69, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store i8 %57, ptr %78, align 8
   %79 = load ptr, ptr %68, align 8, !tbaa !57
   store ptr %69, ptr %68, align 8, !tbaa !57
@@ -5401,18 +5401,18 @@ define linkonce_odr hidden void @_ZNSt5dequeIN5boost3log11v2_mt_posix6filterESaI
 _ZNSt5dequeIN5boost3log11v2_mt_posix6filterESaIS3_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
   %44 = phi ptr [ %6, %34 ], [ %.pre, %43 ]
   %45 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #22
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !14
   %47 = load ptr, ptr %3, align 8, !tbaa !110
   %48 = load ptr, ptr %1, align 8, !tbaa !57
   store ptr %48, ptr %47, align 8, !tbaa !57
   store ptr null, ptr %1, align 8, !tbaa !57
   %49 = load ptr, ptr %5, align 8, !tbaa !96
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %50, ptr %5, align 8, !tbaa !63
   %51 = load ptr, ptr %50, align 8, !tbaa !14
   store ptr %51, ptr %17, align 8, !tbaa !59
-  %52 = getelementptr inbounds i8, ptr %51, i64 512
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 512
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %52, ptr %53, align 8, !tbaa !89
   store ptr %51, ptr %3, align 8, !tbaa !110
@@ -5445,7 +5445,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIN5boost3log11v2_mt_posix6filterESaI
   %23 = select i1 %2, i64 %1, i64 0
   %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
   br i1 %25, label %27, label %31
 
@@ -5498,7 +5498,7 @@ _ZNSt11_Deque_baseIN5boost3log11v2_mt_posix6filterESaIS3_EE15_M_allocate_mapEm.e
   %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
   %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN5boost3log11v2_mt_posix6filterES5_ET0_T_S7_S6_.exit26, label %53
 
@@ -5522,7 +5522,7 @@ _ZSt4copyIPPN5boost3log11v2_mt_posix6filterES5_ET0_T_S7_S6_.exit: ; preds = %32,
   %58 = load ptr, ptr %.0, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %58, ptr %59, align 8, !tbaa !59
-  %60 = getelementptr inbounds i8, ptr %58, i64 512
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !89
   %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
@@ -5531,7 +5531,7 @@ _ZSt4copyIPPN5boost3log11v2_mt_posix6filterES5_ET0_T_S7_S6_.exit: ; preds = %32,
   %64 = load ptr, ptr %63, align 8, !tbaa !14
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %64, ptr %65, align 8, !tbaa !59
-  %66 = getelementptr inbounds i8, ptr %64, i64 512
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 512
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %66, ptr %67, align 8, !tbaa !89
   ret void
@@ -5744,8 +5744,8 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14light_fu
   %storemerge.i.i.i.i.i.i.i.i = phi ptr [ null, %1 ], [ %10, %7 ]
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %storemerge.i.i.i.i.i.i.i.i, ptr %12, align 8, !tbaa !57
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i8, ptr %14, align 8
   store i8 %15, ptr %13, align 8
   ret ptr %2
@@ -5814,8 +5814,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5b
 _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i.i.i.i.i: ; preds = %8, %2
   %storemerge.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %2 ], [ %11, %8 ]
   store ptr %storemerge.i.i.i.i.i.i.i.i.i.i, ptr %6, align 8, !tbaa !57
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i8, ptr %13, align 8
   store i8 %14, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5867,8 +5867,8 @@ _ZN5boost3log11v2_mt_posix6filterC2IRKNS_7phoenix5actorINS_5proto7exprns_10basic
   %storemerge.i.i.i.i.i5.i.i.i.i.i = phi ptr [ null, %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i.i.i.i.i ], [ %20, %17 ]
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %storemerge.i.i.i.i.i5.i.i.i.i.i, ptr %33, align 8, !tbaa !57
-  %34 = getelementptr inbounds i8, ptr %3, i64 48
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load i8, ptr %35, align 8
   store i8 %36, ptr %34, align 8
   %37 = load ptr, ptr %0, align 8, !tbaa !57
@@ -6036,8 +6036,8 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14light_fu
 _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i.i.i: ; preds = %8, %1
   %12 = phi ptr [ null, %1 ], [ %11, %8 ]
   store ptr %12, ptr %6, align 8, !tbaa !57
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i8, ptr %14, align 8
   store i8 %15, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6078,8 +6078,8 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
   %storemerge.i.i.i.i.i5.i.i.i = phi ptr [ null, %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i.i.i ], [ %21, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %storemerge.i.i.i.i.i5.i.i.i, ptr %32, align 8, !tbaa !57
-  %33 = getelementptr inbounds i8, ptr %2, i64 48
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load i8, ptr %34, align 8
   store i8 %35, ptr %33, align 8
   ret ptr %2
@@ -6172,8 +6172,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5b
 _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i.i.i.i.i: ; preds = %8, %2
   %storemerge.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %2 ], [ %11, %8 ]
   store ptr %storemerge.i.i.i.i.i.i.i.i.i.i, ptr %6, align 8, !tbaa !57
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i8, ptr %13, align 8
   store i8 %14, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6225,8 +6225,8 @@ _ZN5boost3log11v2_mt_posix6filterC2IRKNS_7phoenix5actorINS_5proto7exprns_10basic
   %storemerge.i.i.i.i.i5.i.i.i.i.i = phi ptr [ null, %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i.i.i.i.i ], [ %20, %17 ]
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %storemerge.i.i.i.i.i5.i.i.i.i.i, ptr %33, align 8, !tbaa !57
-  %34 = getelementptr inbounds i8, ptr %3, i64 48
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load i8, ptr %35, align 8
   store i8 %36, ptr %34, align 8
   %37 = load ptr, ptr %0, align 8, !tbaa !57
@@ -6394,8 +6394,8 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix3aux14light_fu
 _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i.i.i: ; preds = %8, %1
   %12 = phi ptr [ null, %1 ], [ %11, %8 ]
   store ptr %12, ptr %6, align 8, !tbaa !57
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i8, ptr %14, align 8
   store i8 %15, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6436,8 +6436,8 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
   %storemerge.i.i.i.i.i5.i.i.i = phi ptr [ null, %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i.i.i ], [ %21, %18 ]
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %storemerge.i.i.i.i.i5.i.i.i, ptr %32, align 8, !tbaa !57
-  %33 = getelementptr inbounds i8, ptr %2, i64 48
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load i8, ptr %34, align 8
   store i8 %35, ptr %33, align 8
   ret ptr %2
@@ -6550,11 +6550,11 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix3aux14lazy_singletonI
 
 5:                                                ; preds = %3
   %6 = tail call i32 @pthread_rwlock_init(ptr noundef nonnull align 8 dereferenceable(56) @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, ptr noundef null) #19
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), align 8, !tbaa !30
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 72), align 8, !tbaa !3
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 80), align 8, !tbaa !31
-  store ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 88), align 8, !tbaa !32
-  store i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 96), align 8, !tbaa !33
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), align 8, !tbaa !30
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 72), align 8, !tbaa !3
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 80), align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 64), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 88), align 8, !tbaa !32
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 96), align 8, !tbaa !33
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5boost3log11v2_mt_posix3aux22default_filter_factoryIwEE, i64 16), ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, i64 104), align 8, !tbaa !21
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost3log11v2_mt_posix9anonymous18filters_repositoryIwED2Ev, ptr nonnull @_ZZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance, ptr nonnull @__dso_handle) #19
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E12get_instanceEvE8instance) #19
@@ -6567,7 +6567,7 @@ _ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositor
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous18filters_repositoryIwED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   invoke void @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %4)
           to label %_ZNSt3mapIN5boost3log11v2_mt_posix14attribute_nameENS0_10shared_ptrINS2_14filter_factoryIwEEEENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISt4pairIKS3_S7_EEED2Ev.exit unwind label %5
@@ -6657,7 +6657,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attrib
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %8, align 8, !tbaa !21
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %.noexc.i.i.i.i.i.i.i unwind label %24
@@ -6670,7 +6670,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attrib
 
 20:                                               ; preds = %.noexc.i.i.i.i.i.i.i
   %21 = load ptr, ptr %8, align 8, !tbaa !21
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %24
@@ -6717,7 +6717,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribu
 
 18:                                               ; preds = %15
   %.not.i.i = icmp ne ptr %16, null
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = icmp eq ptr %17, %19
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %20
   br i1 %or.cond.i.i, label %.thread, label %21
@@ -6732,7 +6732,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribu
 .thread:                                          ; preds = %18, %21
   %26 = phi i1 [ true, %18 ], [ %25, %21 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %26, ptr noundef nonnull %8, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %19) #19
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8, !tbaa !33
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8, !tbaa !33
@@ -6759,7 +6759,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribu
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %34, align 8, !tbaa !21
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   invoke void %42(ptr noundef nonnull align 8 dereferenceable(16) %34)
           to label %.noexc.i.i.i.i.i.i.i.i unwind label %50
@@ -6772,7 +6772,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribu
 
 46:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i
   %47 = load ptr, ptr %34, align 8, !tbaa !21
-  %48 = getelementptr inbounds i8, ptr %47, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   invoke void %49(ptr noundef nonnull align 8 dereferenceable(16) %34)
           to label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i unwind label %50
@@ -6796,18 +6796,18 @@ _ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #6 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !33
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 4, !tbaa !11
@@ -6816,7 +6816,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
   br i1 %15, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit, label %16
 
 16:                                               ; preds = %9, %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i = load ptr, ptr %17, align 8, !tbaa !14
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -6841,7 +6841,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !31
   %25 = icmp eq ptr %.019.lcssa28.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit, label %26
@@ -6871,7 +6871,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
   br i1 %36, label %37, label %61
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !14
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit, label %41
@@ -6892,7 +6892,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
   br label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !14
   %.not23.i11 = icmp eq ptr %.02022.i10, null
   br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
@@ -6936,7 +6936,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
   br i1 %62, label %63, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !14
   %66 = icmp eq ptr %65, %1
   br i1 %66, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit, label %67
@@ -6957,7 +6957,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
   br label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !14
   %.not23.i31 = icmp eq ptr %.02022.i30, null
   br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
@@ -6978,7 +6978,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
   %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !31
   %83 = icmp eq ptr %.019.lcssa28.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE24_M_get_insert_unique_posERS5_.exit, label %84
@@ -7027,7 +7027,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attrib
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %6, align 8, !tbaa !21
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %.noexc.i.i.i.i.i.i.i unwind label %22
@@ -7040,7 +7040,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attrib
 
 18:                                               ; preds = %.noexc.i.i.i.i.i.i.i
   %19 = load ptr, ptr %6, align 8, !tbaa !21
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZNSt8_Rb_treeIN5boost3log11v2_mt_posix14attribute_nameESt4pairIKS3_NS0_10shared_ptrINS2_14filter_factoryIwEEEEESt10_Select1stISA_ENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %22
@@ -7075,7 +7075,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %.04091 = phi ptr [ %43, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ %6, %4 ]
   %7 = load i32, ptr %.04091, align 4, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
-  %8 = getelementptr inbounds i8, ptr %.04091, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.04091, i64 4
   store ptr %8, ptr %5, align 8, !tbaa !14
   switch i32 %7, label %.lr.ph.i.preheader [
     i32 37, label %9
@@ -7257,7 +7257,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %22 = load ptr, ptr %21, align 8, !tbaa !63, !noalias !165
   %23 = getelementptr inbounds i8, ptr %22, i64 -8
   %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = getelementptr inbounds i8, ptr %24, i64 504
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 504
   %26 = load ptr, ptr %25, align 8, !tbaa !57
   store ptr null, ptr %25, align 8, !tbaa !57
   tail call void @_ZdlPvm(ptr noundef %15, i64 noundef 512) #21
@@ -7266,10 +7266,10 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   store ptr %28, ptr %21, align 8, !tbaa !63
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   store ptr %29, ptr %14, align 8, !tbaa !59
-  %30 = getelementptr inbounds i8, ptr %29, i64 512
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 512
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %30, ptr %31, align 8, !tbaa !89
-  %32 = getelementptr inbounds i8, ptr %29, i64 504
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 504
   store ptr %32, ptr %8, align 8, !tbaa !110
   %33 = load ptr, ptr %32, align 8, !tbaa !57
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
@@ -7310,7 +7310,7 @@ _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3popEv.exit: ; 
   %50 = load ptr, ptr %49, align 8, !tbaa !63, !noalias !168
   %51 = getelementptr inbounds i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8, !tbaa !14
-  %53 = getelementptr inbounds i8, ptr %52, i64 512
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit18
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit18: ; preds = %45, %48
@@ -7383,8 +7383,8 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
 .noexc:                                           ; preds = %_ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_10basic_exprINS6_6tagns_3tag8terminalENS6_7argsns_4termINS0_8argumentILi1EEEEELl0EEEEEEEEKNS0_6detail10expression13function_evalIT_JDpT0_EE4typeESM_DpRKSN_.exit26, %74
   %78 = phi ptr [ null, %_ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_10basic_exprINS6_6tagns_3tag8terminalENS6_7argsns_4termINS0_8argumentILi1EEEEELl0EEEEEEEEKNS0_6detail10expression13function_evalIT_JDpT0_EE4typeESM_DpRKSN_.exit26 ], [ %77, %74 ]
   store ptr %78, ptr %2, align 8, !tbaa !57
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
-  %80 = getelementptr inbounds i8, ptr %4, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %81 = load i8, ptr %80, align 8
   store i8 %81, ptr %79, align 8
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7401,8 +7401,8 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
 _ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i: ; preds = %.noexc, %84
   %88 = phi ptr [ null, %.noexc ], [ %87, %84 ]
   store ptr %88, ptr %82, align 8, !tbaa !57, !noalias !171
-  %89 = getelementptr inbounds i8, ptr %2, i64 24
-  %90 = getelementptr inbounds i8, ptr %6, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %91 = load i8, ptr %90, align 8, !noalias !171
   store i8 %91, ptr %89, align 8, !noalias !171
   %.not.i.i.i.i.i.i = icmp eq ptr %78, null
@@ -7417,7 +7417,7 @@ _ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_gram
 _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i: ; preds = %92, %_ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i
   %storemerge.i.i.i.i.i.i = phi ptr [ null, %_ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i ], [ %95, %92 ]
   store ptr %storemerge.i.i.i.i.i.i, ptr %3, align 8, !tbaa !57
-  %96 = getelementptr inbounds i8, ptr %3, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %81, ptr %96, align 8
   %.not.i.i.i.i.i4.i = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i.i4.i, label %_ZNK5boost5proto6detail10make_expr_INS0_6tagns_3tag11logical_andENS_7phoenix14phoenix_domainERKNS6_5actorINS0_7exprns_10basic_exprINS6_6detail3tag13function_evalENS0_7argsns_5list2INSA_INS4_8terminalENSE_4termINS_3log11v2_mt_posix6filterEEELl0EEENS8_INSA_ISG_NSH_INS6_8argumentILi1EEEEELl0EEEEEEELl2EEEEESW_vvvvvvvvvEclESW_SW_.exit.thread, label %99
@@ -7425,7 +7425,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
 _ZNK5boost5proto6detail10make_expr_INS0_6tagns_3tag11logical_andENS_7phoenix14phoenix_domainERKNS6_5actorINS0_7exprns_10basic_exprINS6_6detail3tag13function_evalENS0_7argsns_5list2INSA_INS4_8terminalENSE_4termINS_3log11v2_mt_posix6filterEEELl0EEENS8_INSA_ISG_NSH_INS6_8argumentILi1EEEEELl0EEEEEEELl2EEEEESW_vvvvvvvvvEclESW_SW_.exit.thread: ; preds = %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %97, align 8, !tbaa !57
-  %98 = getelementptr inbounds i8, ptr %3, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %91, ptr %98, align 8
   br label %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEED2Ev.exit.i40
 
@@ -7496,7 +7496,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
 123:                                              ; preds = %99
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %102, ptr %124, align 8, !tbaa !57
-  %125 = getelementptr inbounds i8, ptr %3, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %91, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !56
@@ -7543,7 +7543,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
   %145 = load ptr, ptr %144, align 8, !tbaa !63, !noalias !174
   %146 = getelementptr inbounds i8, ptr %145, i64 -8
   %147 = load ptr, ptr %146, align 8, !tbaa !14
-  %148 = getelementptr inbounds i8, ptr %147, i64 512
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit41
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit41: ; preds = %139, %143
@@ -7898,7 +7898,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %22 = load ptr, ptr %21, align 8, !tbaa !63, !noalias !177
   %23 = getelementptr inbounds i8, ptr %22, i64 -8
   %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = getelementptr inbounds i8, ptr %24, i64 504
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 504
   %26 = load ptr, ptr %25, align 8, !tbaa !57
   store ptr null, ptr %25, align 8, !tbaa !57
   tail call void @_ZdlPvm(ptr noundef %15, i64 noundef 512) #21
@@ -7907,10 +7907,10 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   store ptr %28, ptr %21, align 8, !tbaa !63
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   store ptr %29, ptr %14, align 8, !tbaa !59
-  %30 = getelementptr inbounds i8, ptr %29, i64 512
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 512
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %30, ptr %31, align 8, !tbaa !89
-  %32 = getelementptr inbounds i8, ptr %29, i64 504
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 504
   store ptr %32, ptr %8, align 8, !tbaa !110
   %33 = load ptr, ptr %32, align 8, !tbaa !57
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
@@ -7951,7 +7951,7 @@ _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3popEv.exit: ; 
   %50 = load ptr, ptr %49, align 8, !tbaa !63, !noalias !180
   %51 = getelementptr inbounds i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8, !tbaa !14
-  %53 = getelementptr inbounds i8, ptr %52, i64 512
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit18
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit18: ; preds = %45, %48
@@ -8024,8 +8024,8 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
 .noexc:                                           ; preds = %_ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_10basic_exprINS6_6tagns_3tag8terminalENS6_7argsns_4termINS0_8argumentILi1EEEEELl0EEEEEEEEKNS0_6detail10expression13function_evalIT_JDpT0_EE4typeESM_DpRKSN_.exit26, %74
   %78 = phi ptr [ null, %_ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_10basic_exprINS6_6tagns_3tag8terminalENS6_7argsns_4termINS0_8argumentILi1EEEEELl0EEEEEEEEKNS0_6detail10expression13function_evalIT_JDpT0_EE4typeESM_DpRKSN_.exit26 ], [ %77, %74 ]
   store ptr %78, ptr %2, align 8, !tbaa !57
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
-  %80 = getelementptr inbounds i8, ptr %4, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %81 = load i8, ptr %80, align 8
   store i8 %81, ptr %79, align 8
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -8042,8 +8042,8 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
 _ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i: ; preds = %.noexc, %84
   %88 = phi ptr [ null, %.noexc ], [ %87, %84 ]
   store ptr %88, ptr %82, align 8, !tbaa !57, !noalias !183
-  %89 = getelementptr inbounds i8, ptr %2, i64 24
-  %90 = getelementptr inbounds i8, ptr %6, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %91 = load i8, ptr %90, align 8, !noalias !183
   store i8 %91, ptr %89, align 8, !noalias !183
   %.not.i.i.i.i.i.i = icmp eq ptr %78, null
@@ -8058,7 +8058,7 @@ _ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_gram
 _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i: ; preds = %92, %_ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i
   %storemerge.i.i.i.i.i.i = phi ptr [ null, %_ZNK5boost5proto9domainns_6domainINS_7phoenix17phoenix_generatorENS3_12meta_grammarENS1_20basic_default_domainEE7as_exprIKNS3_5actorINS0_7exprns_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INSB_INS0_6tagns_3tag8terminalENSF_4termINS_3log11v2_mt_posix6filterEEELl0EEENS9_INSB_ISJ_NSK_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEvNS0_8callableEEclERSY_.exit.i ], [ %95, %92 ]
   store ptr %storemerge.i.i.i.i.i.i, ptr %3, align 8, !tbaa !57
-  %96 = getelementptr inbounds i8, ptr %3, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %81, ptr %96, align 8
   %.not.i.i.i.i.i4.i = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i.i4.i, label %_ZNK5boost5proto6detail10make_expr_INS0_6tagns_3tag10logical_orENS_7phoenix14phoenix_domainERKNS6_5actorINS0_7exprns_10basic_exprINS6_6detail3tag13function_evalENS0_7argsns_5list2INSA_INS4_8terminalENSE_4termINS_3log11v2_mt_posix6filterEEELl0EEENS8_INSA_ISG_NSH_INS6_8argumentILi1EEEEELl0EEEEEEELl2EEEEESW_vvvvvvvvvEclESW_SW_.exit.thread, label %99
@@ -8066,7 +8066,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
 _ZNK5boost5proto6detail10make_expr_INS0_6tagns_3tag10logical_orENS_7phoenix14phoenix_domainERKNS6_5actorINS0_7exprns_10basic_exprINS6_6detail3tag13function_evalENS0_7argsns_5list2INSA_INS4_8terminalENSE_4termINS_3log11v2_mt_posix6filterEEELl0EEENS8_INSA_ISG_NSH_INS6_8argumentILi1EEEEELl0EEEEEEELl2EEEEESW_vvvvvvvvvEclESW_SW_.exit.thread: ; preds = %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEEC2ERKSQ_.exit.i
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %97, align 8, !tbaa !57
-  %98 = getelementptr inbounds i8, ptr %3, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %91, ptr %98, align 8
   br label %_ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_evalENS2_7argsns_5list2INS4_INS2_6tagns_3tag8terminalENS8_4termINS_3log11v2_mt_posix6filterEEELl0EEENS1_INS4_ISC_NSD_INS0_8argumentILi1EEEEELl0EEEEEEELl2EEEED2Ev.exit.i40
 
@@ -8137,7 +8137,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
 123:                                              ; preds = %99
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %102, ptr %124, align 8, !tbaa !57
-  %125 = getelementptr inbounds i8, ptr %3, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 %91, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !56
@@ -8184,7 +8184,7 @@ _ZN5boost7phoenix5actorINS_5proto7exprns_10basic_exprINS0_6detail3tag13function_
   %145 = load ptr, ptr %144, align 8, !tbaa !63, !noalias !186
   %146 = getelementptr inbounds i8, ptr %145, i64 -8
   %147 = load ptr, ptr %146, align 8, !tbaa !14
-  %148 = getelementptr inbounds i8, ptr %147, i64 512
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit41
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit41: ; preds = %139, %143
@@ -8735,7 +8735,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store ptr %scevgep, ptr %4, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 25, ptr %17, align 8, !tbaa !192
-  %.repack45 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack45, align 8, !tbaa !192
   br label %80
 
@@ -8771,7 +8771,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store ptr %scevgep130, ptr %4, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 33, ptr %27, align 8, !tbaa !192
-  %.repack44 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack44, align 8, !tbaa !192
   br label %80
 
@@ -8803,7 +8803,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store ptr %scevgep, ptr %4, align 8, !tbaa !14
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 49, ptr %37, align 8, !tbaa !192
-  %.repack43 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack43, align 8, !tbaa !192
   br label %80
 
@@ -8835,7 +8835,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store ptr %scevgep, ptr %4, align 8, !tbaa !14
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 41, ptr %47, align 8, !tbaa !192
-  %.repack42 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack42, align 8, !tbaa !192
   br label %80
 
@@ -8864,7 +8864,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store ptr %scevgep130, ptr %4, align 8, !tbaa !14
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 65, ptr %57, align 8, !tbaa !192
-  %.repack41 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack41, align 8, !tbaa !192
   br label %80
 
@@ -8880,7 +8880,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
 60:                                               ; preds = %.loopexit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 57, ptr %61, align 8, !tbaa !192
-  %.repack40 = getelementptr inbounds i8, ptr %0, i64 56
+  %.repack40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %.repack40, align 8, !tbaa !192
   br label %80
 
@@ -9031,9 +9031,9 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 7:                                                ; preds = %1
   %8 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN5boost3log11v2_mt_posix3aux14lazy_singletonINS1_9anonymous18filters_repositoryIwEES6_E3getEv()
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !3
-  %11 = getelementptr inbounds i8, ptr %8, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %.not10.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not10.i.i.i.i, label %_ZNKSt3mapIN5boost3log11v2_mt_posix14attribute_nameENS0_10shared_ptrINS2_14filter_factoryIwEEEENS2_9anonymous18filters_repositoryIwE20attribute_name_orderESaISt4pairIKS3_S7_EEE4findERSD_.exit.thread.i, label %.lr.ph.i.i.i.i
 
@@ -9089,7 +9089,7 @@ _ZNK5boost3log11v2_mt_posix9anonymous18filters_repositoryIwE11get_factoryERKNS1_
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
-  %.elt10 = getelementptr inbounds i8, ptr %0, i64 56
+  %.elt10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.unpack11 = load i64, ptr %.elt10, align 8, !tbaa !192
   %32 = getelementptr inbounds i8, ptr %.0.i, i64 %.unpack11
   %33 = and i64 %.unpack, 1
@@ -9188,7 +9188,7 @@ _ZN5boost3log11v2_mt_posix6filterD2Ev.exit17:     ; preds = %61, %58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load ptr, ptr %.0.i, align 8, !tbaa !21
-  %75 = getelementptr inbounds i8, ptr %74, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
   %76 = load ptr, ptr %75, align 8
   call void %76(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::filter") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef nonnull align 8 dereferenceable(32) %73)
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -9297,7 +9297,7 @@ _ZN5boost15optional_detail13optional_baseINSt7__cxx1112basic_stringIwSt11char_tr
 117:                                              ; preds = %_ZNK5boost3log11v2_mt_posix9anonymous18filters_repositoryIwE11get_factoryERKNS1_14attribute_nameE.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   %118 = load ptr, ptr %.0.i, align 8, !tbaa !21
-  %119 = getelementptr inbounds i8, ptr %118, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr dead_on_unwind nonnull writable sret(%"class.boost::log::v2_mt_posix::filter") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %.0.i, ptr noundef nonnull align 4 dereferenceable(4) %0)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -9402,7 +9402,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %15 = load ptr, ptr %14, align 8, !tbaa !63, !noalias !197
   %16 = getelementptr inbounds i8, ptr %15, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
-  %18 = getelementptr inbounds i8, ptr %17, i64 512
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit: ; preds = %9, %13
@@ -9448,7 +9448,7 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
   br i1 %.not.i.i.i.i.i11, label %.noexc.thread, label %35
 
 .noexc.thread:                                    ; preds = %_ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_10basic_exprINS6_6tagns_3tag8terminalENS6_7argsns_4termINS0_8argumentILi1EEEEELl0EEEEEEEEKNS0_6detail10expression13function_evalIT_JDpT0_EE4typeESM_DpRKSN_.exit
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i8, ptr %33, align 8
   br label %_ZN5boost5proto7exprns_ntIKNS_7phoenix5actorINS1_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INS5_INS0_6tagns_3tag8terminalENS9_4termINS_3log11v2_mt_posix6filterEEELl0EEENS4_INS5_ISD_NSE_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEEEKNS0_6detail12enable_unaryINS0_9domainns_13deduce_domainENST_13not_a_grammarENS0_12is_extensionIT_EENSC_11logical_notERKSZ_E4typeEOSZ_.exit
 
@@ -9459,7 +9459,7 @@ _ZN5boost7phoenix4bindINS_3log11v2_mt_posix6filterEJNS0_5actorINS_5proto7exprns_
           to label %.noexc unwind label %109
 
 .noexc:                                           ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i8, ptr %39, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN5boost5proto7exprns_ntIKNS_7phoenix5actorINS1_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INS5_INS0_6tagns_3tag8terminalENS9_4termINS_3log11v2_mt_posix6filterEEELl0EEENS4_INS5_ISD_NSE_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEEEKNS0_6detail12enable_unaryINS0_9domainns_13deduce_domainENST_13not_a_grammarENS0_12is_extensionIT_EENSC_11logical_notERKSZ_E4typeEOSZ_.exit, label %41
@@ -9511,7 +9511,7 @@ _ZN5boost5proto7exprns_ntIKNS_7phoenix5actorINS1_10basic_exprINS3_6detail3tag13f
   %63 = load ptr, ptr %62, align 8, !tbaa !63, !noalias !200
   %64 = getelementptr inbounds i8, ptr %63, i64 -8
   %65 = load ptr, ptr %64, align 8, !tbaa !14
-  %66 = getelementptr inbounds i8, ptr %65, i64 512
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 512
   br label %_ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit17
 
 _ZNSt5stackIN5boost3log11v2_mt_posix6filterESt5dequeIS3_SaIS3_EEE3topEv.exit17: ; preds = %_ZN5boost5proto7exprns_ntIKNS_7phoenix5actorINS1_10basic_exprINS3_6detail3tag13function_evalENS0_7argsns_5list2INS5_INS0_6tagns_3tag8terminalENS9_4termINS_3log11v2_mt_posix6filterEEELl0EEENS4_INS5_ISD_NSE_INS3_8argumentILi1EEEEELl0EEEEEEELl2EEEEEEEKNS0_6detail12enable_unaryINS0_9domainns_13deduce_domainENST_13not_a_grammarENS0_12is_extensionIT_EENSC_11logical_notERKSZ_E4typeEOSZ_.exit, %61
@@ -9545,7 +9545,7 @@ _ZN5boost3log11v2_mt_posix6filterC2IRKNS_7phoenix5actorINS_5proto7exprns_10basic
   %storemerge.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ null, %.noexc18 ], [ %75, %72 ]
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %storemerge.i.i.i.i.i.i.i.i.i.i.i, ptr %77, align 8, !tbaa !57
-  %78 = getelementptr inbounds i8, ptr %69, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store i8 %57, ptr %78, align 8
   %79 = load ptr, ptr %68, align 8, !tbaa !57
   store ptr %69, ptr %68, align 8, !tbaa !57

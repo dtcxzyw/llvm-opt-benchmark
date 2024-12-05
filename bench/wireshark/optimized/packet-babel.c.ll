@@ -185,7 +185,7 @@ define internal i32 @dissect_babel(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 9:                                                ; preds = %7
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #7
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.54) #7
   %13 = load ptr, ptr %11, align 8
@@ -275,31 +275,31 @@ define internal fastcc i32 @dissect_babel_body(ptr noundef %0, ptr noundef %1, p
   br i1 %.not336, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.not = icmp eq ptr %2, null
-  %24 = getelementptr inbounds i8, ptr %7, i64 1
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 12
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
-  %28 = getelementptr inbounds i8, ptr %6, i64 4
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
-  %30 = getelementptr inbounds i8, ptr %9, i64 1
-  %31 = getelementptr inbounds i8, ptr %9, i64 8
-  %32 = getelementptr inbounds i8, ptr %9, i64 12
-  %33 = getelementptr inbounds i8, ptr %8, i64 4
-  %34 = getelementptr inbounds i8, ptr %8, i64 8
-  %35 = getelementptr inbounds i8, ptr %10, i64 4
-  %36 = getelementptr inbounds i8, ptr %10, i64 8
-  %37 = getelementptr inbounds i8, ptr %12, i64 1
-  %38 = getelementptr inbounds i8, ptr %12, i64 8
-  %39 = getelementptr inbounds i8, ptr %12, i64 12
-  %40 = getelementptr inbounds i8, ptr %11, i64 4
-  %41 = getelementptr inbounds i8, ptr %11, i64 8
-  %42 = getelementptr inbounds i8, ptr %14, i64 1
-  %43 = getelementptr inbounds i8, ptr %14, i64 8
-  %44 = getelementptr inbounds i8, ptr %14, i64 12
-  %45 = getelementptr inbounds i8, ptr %13, i64 4
-  %46 = getelementptr inbounds i8, ptr %13, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
@@ -498,7 +498,7 @@ network_address.exit:                             ; preds = %121, %126, %129, %1
   %storemerge339 = select i1 %147, i32 2, i32 3
   %storemerge338 = select i1 %147, i32 4, i32 16
   %.sink.i.idx.sroa.sel.idx = select i1 %147, i64 12, i64 0
-  %.sink.i.idx.sroa.sel = getelementptr inbounds i8, ptr %17, i64 %.sink.i.idx.sroa.sel.idx
+  %.sink.i.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %17, i64 %.sink.i.idx.sroa.sel.idx
   store i32 %storemerge339, ptr %13, align 8
   store i32 %storemerge338, ptr %45, align 4
   store ptr %.sink.i.idx.sroa.sel, ptr %46, align 8
@@ -592,7 +592,7 @@ network_address.exit281:                          ; preds = %171, %172, %176
   %storemerge337 = select i1 %181, i32 2, i32 3
   %storemerge = select i1 %181, i32 4, i32 16
   %.sink.i284.idx.sroa.sel.idx = select i1 %181, i64 12, i64 0
-  %.sink.i284.idx.sroa.sel = getelementptr inbounds i8, ptr %18, i64 %.sink.i284.idx.sroa.sel.idx
+  %.sink.i284.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %18, i64 %.sink.i284.idx.sroa.sel.idx
   store i32 %storemerge337, ptr %11, align 8
   store i32 %storemerge, ptr %40, align 4
   store ptr %.sink.i284.idx.sroa.sel, ptr %41, align 8
@@ -660,7 +660,7 @@ format_address.exit286:                           ; preds = %network_address.exi
   %.sink3.i = select i1 %221, i32 2, i32 3
   %.sink.i288 = select i1 %221, i32 4, i32 16
   %.sink.i.idx.i.sroa.sel.idx.sroa.sel.idx = select i1 %221, i64 12, i64 0
-  %.sink.i.idx.i.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %19, i64 %.sink.i.idx.i.sroa.sel.idx.sroa.sel.idx
+  %.sink.i.idx.i.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %19, i64 %.sink.i.idx.i.sroa.sel.idx.sroa.sel.idx
   store i32 %.sink3.i, ptr %10, align 8
   store i32 %.sink.i288, ptr %35, align 4
   store ptr %.sink.i.idx.i.sroa.sel.idx.sroa.sel, ptr %36, align 8
@@ -775,7 +775,7 @@ network_prefix.exit.thread:                       ; preds = %240, %254, %252, %2
   %.sink3.i297 = select i1 %273, i32 2, i32 3
   %.sink.i298 = select i1 %273, i32 4, i32 16
   %.sink.i.idx.i299.sroa.sel.idx.sroa.sel.idx = select i1 %273, i64 12, i64 0
-  %.sink.i.idx.i299.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %20, i64 %.sink.i.idx.i299.sroa.sel.idx.sroa.sel.idx
+  %.sink.i.idx.i299.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %20, i64 %.sink.i.idx.i299.sroa.sel.idx.sroa.sel.idx
   store i32 %.sink3.i297, ptr %8, align 8
   store i32 %.sink.i298, ptr %33, align 4
   store ptr %.sink.i.idx.i299.sroa.sel.idx.sroa.sel, ptr %34, align 8
@@ -891,7 +891,7 @@ network_prefix.exit313:                           ; preds = %285, %296, %297, %2
   %.sink3.i316 = select i1 %327, i32 2, i32 3
   %.sink.i317 = select i1 %327, i32 4, i32 16
   %.sink.i.idx.i318.sroa.sel.idx.sroa.sel.idx = select i1 %327, i64 12, i64 0
-  %.sink.i.idx.i318.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %21, i64 %.sink.i.idx.i318.sroa.sel.idx.sroa.sel.idx
+  %.sink.i.idx.i318.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %21, i64 %.sink.i.idx.i318.sroa.sel.idx.sroa.sel.idx
   store i32 %.sink3.i316, ptr %6, align 8
   store i32 %.sink.i317, ptr %28, align 4
   store ptr %.sink.i.idx.i318.sroa.sel.idx.sroa.sel, ptr %29, align 8
@@ -1136,7 +1136,7 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
   br i1 %20, label %30, label %59
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %9, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %32 = zext nneg i32 %2 to i64
   %33 = getelementptr i8, ptr %31, i64 %32
   br label %.sink.split
@@ -1182,12 +1182,12 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
 
 53:                                               ; preds = %49
   store i8 -2, ptr %9, align 16
-  %54 = getelementptr inbounds i8, ptr %9, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 -128, ptr %54, align 1
   br i1 %50, label %55, label %59
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %9, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %30, %46, %55

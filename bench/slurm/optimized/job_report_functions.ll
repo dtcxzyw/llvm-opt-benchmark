@@ -61,11 +61,11 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 23:                                               ; preds = %21, %20
   %.0240 = phi ptr [ null, %20 ], [ %22, %21 ]
-  %24 = getelementptr inbounds i8, ptr %.0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = or i32 %25, 1
   store i32 %26, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %.0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   store i32 1, ptr %27, align 8
   %28 = tail call ptr @jobacct_storage_g_get_jobs_cond(ptr noundef %0, i32 noundef %13, ptr noundef %.0) #11
   br i1 %3, label %30, label %29
@@ -98,13 +98,13 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %36, %.backedge379
   %39 = phi ptr [ %56, %.backedge379 ], [ %38, %36 ]
   store ptr null, ptr %8, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 104
   %41 = load i32, ptr %40, align 8
   %.not282 = icmp eq i32 %41, 0
   br i1 %.not282, label %.backedge379, label %42
 
 42:                                               ; preds = %.lr.ph
-  %43 = getelementptr inbounds i8, ptr %39, i64 400
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 400
   %44 = load ptr, ptr %43, align 8
   %45 = call i64 @slurmdb_find_tres_count_in_string(ptr noundef %44, i32 noundef 1) #11
   %46 = icmp eq i64 %45, -1
@@ -160,13 +160,13 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 61:                                               ; preds = %60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %9, i8 0, i64 112, i1 false)
-  %62 = getelementptr inbounds i8, ptr %.0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %9, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %9, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %66, ptr %67, align 8
   %68 = load ptr, ptr %.0, align 8
   %.not287 = icmp eq ptr %68, null
@@ -195,12 +195,12 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   store ptr %74, ptr %.0, align 8
   call void @list_append(ptr noundef %74, ptr noundef nonnull @.str.4) #11
   %75 = load ptr, ptr %.0, align 8
-  %76 = getelementptr inbounds i8, ptr %9, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %75, ptr %76, align 8
   br label %84
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %9, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %.pr, ptr %78, align 8
   br label %84
 
@@ -228,11 +228,11 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 86:                                               ; preds = %.thread366, %84
   %.1244369 = phi ptr [ null, %.thread366 ], [ %85, %84 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
-  %87 = getelementptr inbounds i8, ptr %.0, i64 184
+  %87 = getelementptr inbounds nuw i8, ptr %.0, i64 184
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %10, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %.0, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %91 = load ptr, ptr %90, align 8
   store ptr %91, ptr %10, align 8
   %92 = call ptr @acct_storage_g_get_wckeys(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %10) #11
@@ -287,8 +287,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 .backedge378.us.us:                               ; preds = %.lr.ph388.split.us, %.backedge378.us.us
   %104 = phi ptr [ %107, %.backedge378.us.us ], [ %103, %.lr.ph388.split.us ]
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
-  %106 = getelementptr inbounds i8, ptr %104, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %.0234.us.us = load ptr, ptr %106, align 8
   %.0235.us.us = load ptr, ptr %105, align 8
   call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %.0235.us.us, ptr noundef %.0234.us.us, ptr noundef nonnull %104, i1 noundef zeroext %.not280, i1 noundef zeroext true)
@@ -298,8 +298,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 .backedge378.us:                                  ; preds = %.lr.ph388.split.us, %.backedge378.us
   %108 = phi ptr [ %111, %.backedge378.us ], [ %103, %.lr.ph388.split.us ]
-  %109 = getelementptr inbounds i8, ptr %108, i64 8
-  %110 = getelementptr inbounds i8, ptr %108, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %.0234.us = load ptr, ptr %109, align 8
   %.0235.us = load ptr, ptr %110, align 8
   call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %.0235.us, ptr noundef %.0234.us, ptr noundef nonnull %108, i1 noundef zeroext %.not280, i1 noundef zeroext false)
@@ -323,13 +323,13 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %.not293.us391, label %._crit_edge389, label %.preheader.us, !llvm.loop !9
 
 .lr.ph384.us:                                     ; preds = %.preheader.us
-  %115 = getelementptr inbounds i8, ptr %112, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
   br label %116
 
 116:                                              ; preds = %.backedge377.us.us, %.lr.ph384.us
   %117 = phi ptr [ %113, %.lr.ph384.us ], [ %127, %.backedge377.us.us ]
   %118 = load ptr, ptr %115, align 8
-  %119 = getelementptr inbounds i8, ptr %117, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 40
   %120 = load ptr, ptr %119, align 8
   %121 = call i32 @xstrcmp(ptr noundef %118, ptr noundef %120) #11
   %.not298.us.us = icmp eq i32 %121, 0
@@ -337,7 +337,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 122:                                              ; preds = %116
   %123 = load ptr, ptr %115, align 8
-  %124 = getelementptr inbounds i8, ptr %117, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %117, i64 32
   %125 = load ptr, ptr %124, align 8
   %126 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 200, ptr noundef nonnull @.str.6, ptr noundef %125, ptr noundef %123) #11
   call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %123, ptr noundef nonnull %11, ptr noundef nonnull %112, i1 noundef zeroext %.not280, i1 noundef zeroext true)
@@ -355,14 +355,14 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %.not296383, label %.backedge378, label %.lr.ph384
 
 .lr.ph384:                                        ; preds = %.preheader
-  %130 = getelementptr inbounds i8, ptr %128, i64 40
-  %131 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
   br label %132
 
 132:                                              ; preds = %.lr.ph384, %.backedge377
   %133 = phi ptr [ %129, %.lr.ph384 ], [ %144, %.backedge377 ]
   %134 = load ptr, ptr %130, align 8
-  %135 = getelementptr inbounds i8, ptr %133, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = load ptr, ptr %135, align 8
   %137 = call i32 @xstrcmp(ptr noundef %134, ptr noundef %136) #11
   %.not297 = icmp eq i32 %137, 0
@@ -371,7 +371,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 138:                                              ; preds = %132
   %139 = load ptr, ptr %130, align 8
   %140 = load ptr, ptr %131, align 8
-  %141 = getelementptr inbounds i8, ptr %133, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %142 = load ptr, ptr %141, align 8
   %143 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 200, ptr noundef nonnull @.str.6, ptr noundef %140, ptr noundef %142) #11
   call fastcc void @_check_create_grouping(ptr noundef %58, ptr noundef %34, ptr noundef %139, ptr noundef nonnull %11, ptr noundef nonnull %128, i1 noundef zeroext %.not280, i1 noundef zeroext false)
@@ -407,13 +407,13 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 .lr.ph408:                                        ; preds = %147, %.backedge376
   %150 = phi ptr [ %292, %.backedge376 ], [ %149, %147 ]
-  %151 = getelementptr inbounds i8, ptr %150, i64 104
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 104
   %152 = load i32, ptr %151, align 8
   %.not309 = icmp eq i32 %152, 0
   br i1 %.not309, label %.backedge376, label %153
 
 153:                                              ; preds = %.lr.ph408
-  %154 = getelementptr inbounds i8, ptr %150, i64 56
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 56
   %155 = load ptr, ptr %154, align 8
   %.not310 = icmp eq ptr %155, null
   %spec.select328 = select i1 %.not310, ptr @.str.7, ptr %155
@@ -423,7 +423,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %5, label %157, label %163
 
 157:                                              ; preds = %156
-  %158 = getelementptr inbounds i8, ptr %150, i64 456
+  %158 = getelementptr inbounds nuw i8, ptr %150, i64 456
   %159 = load ptr, ptr %158, align 8
   %.not311 = icmp eq ptr %159, null
   br i1 %.not311, label %163, label %160
@@ -447,13 +447,13 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %.not312, label %173, label %169
 
 169:                                              ; preds = %167
-  %170 = getelementptr inbounds i8, ptr %150, i64 456
+  %170 = getelementptr inbounds nuw i8, ptr %150, i64 456
   %171 = load ptr, ptr %170, align 8
   %172 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 200, ptr noundef nonnull @.str.6, ptr noundef %171, ptr noundef nonnull %168) #11
   br label %177
 
 173:                                              ; preds = %167, %166
-  %174 = getelementptr inbounds i8, ptr %150, i64 456
+  %174 = getelementptr inbounds nuw i8, ptr %150, i64 456
   %175 = load ptr, ptr %174, align 8
   %176 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 200, ptr noundef nonnull @.str.8, ptr noundef %175) #11
   br label %177
@@ -468,7 +468,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %.not313, label %.critedge330, label %180
 
 180:                                              ; preds = %178
-  %181 = getelementptr inbounds i8, ptr %179, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %182 = load ptr, ptr %181, align 8
   %183 = call i32 @xstrcmp(ptr noundef nonnull %spec.select328, ptr noundef %182) #11
   %.not314 = icmp eq i32 %183, 0
@@ -480,7 +480,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 184:                                              ; preds = %.critedge330
   %185 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 394, ptr noundef nonnull @__func__._process_grouped_report) #11
   %186 = call ptr @xstrdup(ptr noundef nonnull %spec.select328) #11
-  %187 = getelementptr inbounds i8, ptr %185, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 8
   store ptr %186, ptr %187, align 8
   %188 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_report_acct_grouping) #11
   store ptr %188, ptr %185, align 8
@@ -496,8 +496,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %.not315392, label %._crit_edge395, label %.lr.ph394
 
 .lr.ph394:                                        ; preds = %.loopexit
-  %192 = getelementptr inbounds i8, ptr %150, i64 208
-  %193 = getelementptr inbounds i8, ptr %150, i64 456
+  %192 = getelementptr inbounds nuw i8, ptr %150, i64 208
+  %193 = getelementptr inbounds nuw i8, ptr %150, i64 456
   br i1 %4, label %.lr.ph394.split.us, label %.lr.ph394.split
 
 .lr.ph394.split.us:                               ; preds = %.lr.ph394, %.backedge375.us
@@ -518,7 +518,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 199:                                              ; preds = %.lr.ph394.split
   %200 = load ptr, ptr %192, align 8
-  %201 = getelementptr inbounds i8, ptr %198, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %202 = load ptr, ptr %201, align 8
   %203 = call ptr @xstrstr(ptr noundef %200, ptr noundef %202) #11
   %.not316 = icmp eq ptr %203, null
@@ -535,7 +535,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 207:                                              ; preds = %205
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %206, i32 58)
   %.not318 = icmp eq ptr %strchr, null
-  %208 = getelementptr inbounds i8, ptr %strchr, i64 1
+  %208 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
   %spec.select331 = select i1 %.not318, ptr null, ptr %208
   br label %209
 
@@ -581,7 +581,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %222 = call ptr @xstrdup(ptr noundef nonnull %12) #11
   store ptr %222, ptr %221, align 8
   %223 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_report_job_grouping) #11
-  %224 = getelementptr inbounds i8, ptr %221, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %221, i64 16
   store ptr %223, ptr %224, align 8
   %225 = load ptr, ptr %.0249, align 8
   call void @list_append(ptr noundef %225, ptr noundef nonnull %221) #11
@@ -594,12 +594,12 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %.0230398 = phi i32 [ %239, %238 ], [ 0, %220 ]
   %228 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 452, ptr noundef nonnull @__func__._process_grouped_report) #11
   %229 = call ptr @list_create(ptr noundef null) #11
-  %230 = getelementptr inbounds i8, ptr %228, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %228, i64 8
   store ptr %229, ptr %230, align 8
   br i1 %.not280, label %235, label %231
 
 231:                                              ; preds = %.lr.ph400
-  %232 = getelementptr inbounds i8, ptr %228, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %228, i64 16
   store i32 %.0230398, ptr %232, align 8
   %233 = call i32 @atoi(ptr nocapture noundef nonnull %227) #13
   %234 = add i32 %233, -1
@@ -607,14 +607,14 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 235:                                              ; preds = %.lr.ph400
   %236 = call i32 @atoi(ptr nocapture noundef nonnull %227) #13
-  %237 = getelementptr inbounds i8, ptr %228, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %228, i64 16
   store i32 %236, ptr %237, align 8
   br label %238
 
 238:                                              ; preds = %235, %231
   %.sink = phi i32 [ %236, %235 ], [ %234, %231 ]
   %239 = phi i32 [ %236, %235 ], [ %233, %231 ]
-  %240 = getelementptr inbounds i8, ptr %228, i64 20
+  %240 = getelementptr inbounds nuw i8, ptr %228, i64 20
   store i32 %.sink, ptr %240, align 4
   %241 = load ptr, ptr %224, align 8
   call void @list_append(ptr noundef %241, ptr noundef nonnull %228) #11
@@ -630,11 +630,11 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 243:                                              ; preds = %._crit_edge401
   %244 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 466, ptr noundef nonnull @__func__._process_grouped_report) #11
   %245 = call ptr @list_create(ptr noundef null) #11
-  %246 = getelementptr inbounds i8, ptr %244, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store ptr %245, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %244, i64 16
+  %247 = getelementptr inbounds nuw i8, ptr %244, i64 16
   store i32 %239, ptr %247, align 8
-  %248 = getelementptr inbounds i8, ptr %244, i64 20
+  %248 = getelementptr inbounds nuw i8, ptr %244, i64 20
   store i32 -1, ptr %248, align 4
   %249 = load ptr, ptr %224, align 8
   call void @list_append(ptr noundef %249, ptr noundef %244) #11
@@ -646,7 +646,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 250:                                              ; preds = %.split.us, %._crit_edge401.thread
   %.0248 = phi ptr [ %.us-phi, %.split.us ], [ %221, %._crit_edge401.thread ]
-  %251 = getelementptr inbounds i8, ptr %.0248, i64 16
+  %251 = getelementptr inbounds nuw i8, ptr %.0248, i64 16
   %252 = load ptr, ptr %251, align 8
   %253 = call ptr @list_iterator_create(ptr noundef %252) #11
   %254 = call ptr @list_next(ptr noundef %253) #11
@@ -654,11 +654,11 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %.not324402, label %._crit_edge405, label %.lr.ph404
 
 .lr.ph404:                                        ; preds = %250
-  %255 = getelementptr inbounds i8, ptr %150, i64 400
-  %256 = getelementptr inbounds i8, ptr %.0248, i64 8
-  %257 = getelementptr inbounds i8, ptr %.0249, i64 16
-  %258 = getelementptr inbounds i8, ptr %.0248, i64 32
-  %259 = getelementptr inbounds i8, ptr %.0249, i64 24
+  %255 = getelementptr inbounds nuw i8, ptr %150, i64 400
+  %256 = getelementptr inbounds nuw i8, ptr %.0248, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %.0249, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %.0248, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %.0249, i64 24
   br label %260
 
 260:                                              ; preds = %.lr.ph404, %.backedge374
@@ -669,14 +669,14 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %264, label %.backedge374, label %265
 
 265:                                              ; preds = %260
-  %266 = getelementptr inbounds i8, ptr %261, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %267 = load i32, ptr %266, align 8
   %268 = zext i32 %267 to i64
   %269 = icmp ult i64 %263, %268
   br i1 %269, label %.backedge374, label %270
 
 270:                                              ; preds = %265
-  %271 = getelementptr inbounds i8, ptr %261, i64 20
+  %271 = getelementptr inbounds nuw i8, ptr %261, i64 20
   %272 = load i32, ptr %271, align 4
   %273 = zext i32 %272 to i64
   %274 = icmp ugt i64 %263, %273
@@ -688,7 +688,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %.not324, label %._crit_edge405, label %260, !llvm.loop !14
 
 276:                                              ; preds = %270
-  %277 = getelementptr inbounds i8, ptr %261, i64 8
+  %277 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %278 = load ptr, ptr %277, align 8
   call void @list_append(ptr noundef %278, ptr noundef nonnull %150) #11
   %279 = load i32, ptr %261, align 8
@@ -700,7 +700,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %283 = load i32, ptr %257, align 8
   %284 = add i32 %283, 1
   store i32 %284, ptr %257, align 8
-  %285 = getelementptr inbounds i8, ptr %261, i64 24
+  %285 = getelementptr inbounds nuw i8, ptr %261, i64 24
   %286 = load ptr, ptr %255, align 8
   %287 = load i32, ptr %151, align 8
   call void @slurmdb_transfer_tres_time(ptr noundef nonnull %285, ptr noundef %286, i32 noundef %287) #11
@@ -731,7 +731,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 .lr.ph416:                                        ; preds = %._crit_edge409, %.backedge373
   %294 = phi ptr [ %299, %.backedge373 ], [ %293, %._crit_edge409 ]
-  %295 = getelementptr inbounds i8, ptr %294, i64 16
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %296 = load i32, ptr %295, align 8
   %.not306 = icmp eq i32 %296, 0
   br i1 %.not306, label %297, label %300
@@ -754,7 +754,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 .lr.ph412:                                        ; preds = %300, %.backedge
   %304 = phi ptr [ %309, %.backedge ], [ %303, %300 ]
-  %305 = getelementptr inbounds i8, ptr %304, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %306 = load i32, ptr %305, align 8
   %.not308 = icmp eq i32 %306, 0
   br i1 %.not308, label %307, label %.backedge
@@ -852,11 +852,11 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
   %.0229.i = phi ptr [ %2, %10 ], [ %12, %11 ]
   %15 = load ptr, ptr %.0.i, align 8
   store ptr null, ptr %.0.i, align 8
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %17 = load i32, ptr %16, align 8
   %18 = or i32 %17, 1
   store i32 %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   store i32 1, ptr %19, align 8
   %20 = tail call ptr @jobacct_storage_g_get_jobs_cond(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %.0.i) #11
   store ptr %15, ptr %.0.i, align 8
@@ -883,7 +883,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 .lr.ph.i:                                         ; preds = %26, %.backedge36.i
   %29 = phi ptr [ %32, %.backedge36.i ], [ %28, %26 ]
   store ptr null, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %31 = load i32, ptr %30, align 8
   %.not5.i = icmp eq i32 %31, 0
   br i1 %.not5.i, label %.backedge36.i, label %33
@@ -894,7 +894,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
   br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds i8, ptr %29, i64 400
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 400
   %35 = load ptr, ptr %34, align 8
   %36 = call i64 @slurmdb_find_tres_count_in_string(ptr noundef %35, i32 noundef 1) #11
   %37 = icmp eq i64 %36, -1
@@ -936,13 +936,13 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 47:                                               ; preds = %._crit_edge.i, %23
   %48 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_report_cluster_grouping) #11
   %49 = call ptr @list_iterator_create(ptr noundef %48) #11
-  %50 = getelementptr inbounds i8, ptr %5, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %50, i8 0, i64 64, i1 false)
-  %51 = getelementptr inbounds i8, ptr %.0.i, i64 184
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i, i64 184
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %5, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %5, align 8
   %56 = call ptr @acct_storage_g_get_wckeys(ptr noundef %0, i32 noundef %7, ptr noundef nonnull %5) #11
@@ -966,9 +966,9 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 
 .lr.ph42.i:                                       ; preds = %61, %.lr.ph42.i
   %64 = phi ptr [ %69, %.lr.ph42.i ], [ %63, %61 ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %64, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %68 = load ptr, ptr %67, align 8
   call fastcc void @_check_create_grouping(ptr noundef %48, ptr noundef %24, ptr noundef %68, ptr noundef %66, ptr noundef nonnull %64, i1 noundef zeroext %.not3.i, i1 noundef zeroext true)
   %69 = call ptr @list_next(ptr noundef %62) #11
@@ -987,7 +987,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 
 .lr.ph50.i:                                       ; preds = %70, %.critedge27.backedge.i
   %73 = phi ptr [ %76, %.critedge27.backedge.i ], [ %72, %70 ]
-  %74 = getelementptr inbounds i8, ptr %73, i64 104
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 104
   %75 = load i32, ptr %74, align 8
   %.not19.i = icmp eq i32 %75, 0
   br i1 %.not19.i, label %.critedge27.backedge.i, label %77
@@ -1003,11 +1003,11 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
   br i1 %.not10.i, label %.critedge27._crit_edge.i, label %.lr.ph50.i, !llvm.loop !15
 
 77:                                               ; preds = %.lr.ph50.i
-  %78 = getelementptr inbounds i8, ptr %73, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %79 = load ptr, ptr %78, align 8
   %.not20.i = icmp eq ptr %79, null
   %spec.select.i = select i1 %.not20.i, ptr @.str.7, ptr %79
-  %80 = getelementptr inbounds i8, ptr %73, i64 456
+  %80 = getelementptr inbounds nuw i8, ptr %73, i64 456
   %81 = load ptr, ptr %80, align 8
   %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 200, ptr noundef nonnull @.str.8, ptr noundef %81) #11
   call void @list_iterator_reset(ptr noundef %49) #11
@@ -1019,7 +1019,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
   br i1 %.not21.i, label %.critedge27.backedge.i, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %84, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = call i32 @xstrcmp(ptr noundef nonnull %spec.select.i, ptr noundef %87) #11
   %.not22.i = icmp eq i32 %88, 0
@@ -1043,7 +1043,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 
 97:                                               ; preds = %94
   call void @list_iterator_destroy(ptr noundef %91) #11
-  %98 = getelementptr inbounds i8, ptr %93, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = call ptr @list_iterator_create(ptr noundef %99) #11
   %101 = call ptr @list_next(ptr noundef %100) #11
@@ -1051,11 +1051,11 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
   br i1 %.not2544.i, label %.critedge27.backedge.sink.split.i, label %.lr.ph46.i
 
 .lr.ph46.i:                                       ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %73, i64 400
-  %103 = getelementptr inbounds i8, ptr %93, i64 8
-  %104 = getelementptr inbounds i8, ptr %84, i64 16
-  %105 = getelementptr inbounds i8, ptr %93, i64 32
-  %106 = getelementptr inbounds i8, ptr %84, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %73, i64 400
+  %103 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %93, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %84, i64 24
   br label %107
 
 107:                                              ; preds = %.backedge35.i, %.lr.ph46.i
@@ -1066,14 +1066,14 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
   br i1 %111, label %.backedge35.i, label %112
 
 112:                                              ; preds = %107
-  %113 = getelementptr inbounds i8, ptr %108, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %114 = load i32, ptr %113, align 8
   %115 = zext i32 %114 to i64
   %116 = icmp ult i64 %110, %115
   br i1 %116, label %.backedge35.i, label %117
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %108, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %108, i64 20
   %119 = load i32, ptr %118, align 4
   %120 = zext i32 %119 to i64
   %121 = icmp ugt i64 %110, %120
@@ -1085,7 +1085,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
   br i1 %.not25.i, label %.critedge27.backedge.sink.split.i, label %107, !llvm.loop !14
 
 123:                                              ; preds = %117
-  %124 = getelementptr inbounds i8, ptr %108, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %125 = load ptr, ptr %124, align 8
   call void @list_append(ptr noundef %125, ptr noundef nonnull %73) #11
   %126 = load i32, ptr %108, align 8
@@ -1097,7 +1097,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
   %130 = load i32, ptr %104, align 8
   %131 = add i32 %130, 1
   store i32 %131, ptr %104, align 8
-  %132 = getelementptr inbounds i8, ptr %108, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %133 = load ptr, ptr %102, align 8
   %134 = load i32, ptr %74, align 8
   call void @slurmdb_transfer_tres_time(ptr noundef nonnull %132, ptr noundef %133, i32 noundef %134) #11
@@ -1119,7 +1119,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 
 .lr.ph57.i:                                       ; preds = %.critedge27._crit_edge.i, %.backedge34.i
   %140 = phi ptr [ %145, %.backedge34.i ], [ %139, %.critedge27._crit_edge.i ]
-  %141 = getelementptr inbounds i8, ptr %140, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = load i32, ptr %141, align 8
   %.not16.i = icmp eq i32 %142, 0
   br i1 %.not16.i, label %143, label %146
@@ -1142,7 +1142,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 
 .lr.ph53.i:                                       ; preds = %146, %.backedge.i
   %150 = phi ptr [ %153, %.backedge.i ], [ %149, %146 ]
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load i32, ptr %151, align 8
   %.not18.i = icmp eq i32 %152, 0
   br i1 %.not18.i, label %154, label %.backedge.i
@@ -1281,7 +1281,7 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @xstrcmp(ptr noundef %2, ptr noundef %13) #11
   %.not52 = icmp eq i32 %14, 0
@@ -1295,7 +1295,7 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   tail call void @list_iterator_destroy(ptr noundef %8) #11
   %17 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 82, ptr noundef nonnull @__func__._check_create_grouping) #11
   %18 = tail call ptr @xstrdup(ptr noundef %2) #11
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %18, ptr %19, align 8
   %20 = tail call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_report_acct_grouping) #11
   store ptr %20, ptr %17, align 8
@@ -1331,16 +1331,16 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   br i1 %6, label %38, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 160
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @xstrdup(ptr noundef %35) #11
-  %37 = getelementptr inbounds i8, ptr %31, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %36, ptr %37, align 8
   br label %38
 
 38:                                               ; preds = %33, %30
   %39 = tail call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_report_job_grouping) #11
-  %40 = getelementptr inbounds i8, ptr %31, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %39, ptr %40, align 8
   %41 = load ptr, ptr %.048, align 8
   tail call void @list_append(ptr noundef %41, ptr noundef nonnull %31) #11
@@ -1355,12 +1355,12 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   %43 = phi ptr [ %51, %.lr.ph.split.us ], [ %42, %.lr.ph ]
   %44 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 110, ptr noundef nonnull @__func__._check_create_grouping) #11
   %45 = tail call ptr @list_create(ptr noundef null) #11
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %46, align 8
   %47 = tail call i32 @atoi(ptr nocapture noundef nonnull %43) #13
-  %48 = getelementptr inbounds i8, ptr %44, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %44, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i32 %47, ptr %49, align 8
   %50 = load ptr, ptr %40, align 8
   tail call void @list_append(ptr noundef %50, ptr noundef nonnull %44) #11
@@ -1373,13 +1373,13 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   %.061 = phi i32 [ %57, %.lr.ph.split ], [ 0, %.lr.ph ]
   %53 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 110, ptr noundef nonnull @__func__._check_create_grouping) #11
   %54 = tail call ptr @list_create(ptr noundef null) #11
-  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i32 %.061, ptr %56, align 8
   %57 = tail call i32 @atoi(ptr nocapture noundef nonnull %52) #13
   %58 = add i32 %57, -1
-  %59 = getelementptr inbounds i8, ptr %53, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 20
   store i32 %58, ptr %59, align 4
   %60 = load ptr, ptr %40, align 8
   tail call void @list_append(ptr noundef %60, ptr noundef nonnull %53) #11
@@ -1396,11 +1396,11 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
 62:                                               ; preds = %._crit_edge
   %63 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 124, ptr noundef nonnull @__func__._check_create_grouping) #11
   %64 = tail call ptr @list_create(ptr noundef null) #11
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i32 %.0.lcssa, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %63, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 20
   store i32 -1, ptr %67, align 4
   %68 = load ptr, ptr %40, align 8
   tail call void @list_append(ptr noundef %68, ptr noundef %63) #11

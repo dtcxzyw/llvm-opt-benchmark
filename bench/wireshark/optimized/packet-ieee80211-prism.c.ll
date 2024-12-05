@@ -215,9 +215,9 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0306 = phi i32 [ 0, %15 ], [ 0, %15 ], [ -2147483648, %16 ], [ -2147483648, %16 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 72, i1 false)
   store i32 -1, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.1) #6
   %26 = load ptr, ptr %24, align 8
@@ -231,7 +231,7 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %33 = load i32, ptr @hf_ieee80211_prism_msglen, align 4
   %34 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %30, i32 noundef %33, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %.0306, ptr noundef nonnull %6) #6
   %35 = load i32, ptr @hf_ieee80211_prism_devname, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @proto_tree_add_item_ret_string(ptr noundef %30, i32 noundef %35, ptr noundef %0, i32 noundef 8, i32 noundef 16, i32 noundef 0, ptr noundef %37, ptr noundef nonnull %7) #6
   %39 = load ptr, ptr %24, align 8
@@ -240,20 +240,20 @@ define internal i32 @dissect_prism(ptr noundef %0, ptr noundef %1, ptr noundef %
   %42 = load i32, ptr %6, align 4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.71, ptr noundef %40, i32 noundef %41, i32 noundef %42) #6
   %43 = icmp ne ptr %2, null
-  %44 = getelementptr inbounds i8, ptr %8, i64 12
-  %45 = getelementptr inbounds i8, ptr %8, i64 14
-  %46 = getelementptr inbounds i8, ptr %8, i64 23
-  %47 = getelementptr inbounds i8, ptr %8, i64 24
-  %48 = getelementptr inbounds i8, ptr %8, i64 15
-  %49 = getelementptr inbounds i8, ptr %8, i64 19
-  %50 = getelementptr inbounds i8, ptr %8, i64 26
-  %51 = getelementptr inbounds i8, ptr %8, i64 16
-  %52 = getelementptr inbounds i8, ptr %8, i64 20
-  %53 = getelementptr inbounds i8, ptr %8, i64 28
-  %54 = getelementptr inbounds i8, ptr %8, i64 36
-  %55 = getelementptr inbounds i8, ptr %8, i64 40
-  %56 = getelementptr inbounds i8, ptr %8, i64 30
-  %57 = getelementptr inbounds i8, ptr %8, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 14
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 23
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 15
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 19
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 26
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 30
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 48
   br label %58
 
 58:                                               ; preds = %22, %389

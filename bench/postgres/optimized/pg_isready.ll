@@ -167,29 +167,29 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 35:                                               ; preds = %28
   store ptr @.str.2, ptr %3, align 16
   store ptr %.062.fr, ptr %4, align 16
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.3, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.078.fr, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @.str.11, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %4, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.076.ph, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %3, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @.str.1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.074.ph180, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr @.str.12, ptr %42, align 16
-  %43 = getelementptr inbounds i8, ptr %4, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %.072.ph186, ptr %43, align 16
-  %44 = getelementptr inbounds i8, ptr %3, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr @.str.13, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %8, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %3, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr null, ptr %46, align 16
-  %47 = getelementptr inbounds i8, ptr %4, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr null, ptr %47, align 16
   %.not91 = icmp eq ptr %.074.ph180, null
   br i1 %.not91, label %61, label %48
@@ -262,13 +262,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not95.us, label %78, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %.060119.us, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.060119.us, i64 24
   %77 = load ptr, ptr %76, align 8
   %.not96.us = icmp eq ptr %77, null
   br i1 %.not96.us, label %78, label %96
 
 78:                                               ; preds = %75, %74
-  %79 = getelementptr inbounds i8, ptr %.0120.us, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.0120.us, i64 24
   %80 = load ptr, ptr %79, align 8
   %.not98.us = icmp eq ptr %80, null
   %spec.select107.us = select i1 %.not98.us, ptr %.066118.us, ptr %80
@@ -279,13 +279,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not99.us, label %85, label %82
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds i8, ptr %.060119.us, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %.060119.us, i64 24
   %84 = load ptr, ptr %83, align 8
   %.not100.us = icmp eq ptr %84, null
   br i1 %.not100.us, label %85, label %96
 
 85:                                               ; preds = %82, %81
-  %86 = getelementptr inbounds i8, ptr %.0120.us, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %.0120.us, i64 24
   %87 = load ptr, ptr %86, align 8
   %.not101.us = icmp eq ptr %87, null
   %spec.select.us = select i1 %.not101.us, ptr %.068117.us, ptr %87
@@ -296,7 +296,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not102.us, label %92, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %.060119.us, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %.060119.us, i64 24
   %91 = load ptr, ptr %90, align 8
   %.not103.us = icmp ne ptr %91, null
   %brmerge = or i1 %.not103.us, %.not104
@@ -307,7 +307,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not104, label %96, label %93
 
 93:                                               ; preds = %89, %92
-  %94 = getelementptr inbounds i8, ptr %.0120.us, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %.0120.us, i64 24
   %95 = load ptr, ptr %94, align 8
   %.not105.us = icmp eq ptr %95, null
   %.str.18..us = select i1 %.not105.us, ptr @.str.18, ptr %95
@@ -354,7 +354,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not95.us130, label %113, label %110
 
 110:                                              ; preds = %109
-  %111 = getelementptr inbounds i8, ptr %.060119.us126, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %.060119.us126, i64 24
   %112 = load ptr, ptr %111, align 8
   %.not96.us131 = icmp eq ptr %112, null
   br i1 %.not96.us131, label %113, label %128
@@ -367,13 +367,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not99.us132, label %118, label %115
 
 115:                                              ; preds = %114
-  %116 = getelementptr inbounds i8, ptr %.060119.us126, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %.060119.us126, i64 24
   %117 = load ptr, ptr %116, align 8
   %.not100.us133 = icmp eq ptr %117, null
   br i1 %.not100.us133, label %118, label %128
 
 118:                                              ; preds = %115, %114
-  %119 = getelementptr inbounds i8, ptr %.0120.us125, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %.0120.us125, i64 24
   %120 = load ptr, ptr %119, align 8
   %.not101.us134 = icmp eq ptr %120, null
   %spec.select.us135 = select i1 %.not101.us134, ptr %.068117.us128, ptr %120
@@ -384,13 +384,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not102.us136, label %125, label %122
 
 122:                                              ; preds = %121
-  %123 = getelementptr inbounds i8, ptr %.060119.us126, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %.060119.us126, i64 24
   %124 = load ptr, ptr %123, align 8
   %.not103.us137 = icmp eq ptr %124, null
   br i1 %.not103.us137, label %125, label %128
 
 125:                                              ; preds = %122, %121
-  %126 = getelementptr inbounds i8, ptr %.0120.us125, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %.0120.us125, i64 24
   %127 = load ptr, ptr %126, align 8
   %.not105.us138 = icmp eq ptr %127, null
   %.str.18..us139 = select i1 %.not105.us138, ptr @.str.18, ptr %127
@@ -429,7 +429,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not102, label %140, label %137
 
 137:                                              ; preds = %136
-  %138 = getelementptr inbounds i8, ptr %.060119, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %.060119, i64 24
   %139 = load ptr, ptr %138, align 8
   %.not103 = icmp eq ptr %139, null
   br i1 %.not103, label %140, label %159
@@ -447,13 +447,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not99, label %148, label %145
 
 145:                                              ; preds = %144
-  %146 = getelementptr inbounds i8, ptr %.060119, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %.060119, i64 24
   %147 = load ptr, ptr %146, align 8
   %.not100 = icmp eq ptr %147, null
   br i1 %.not100, label %148, label %159
 
 148:                                              ; preds = %145, %144
-  %149 = getelementptr inbounds i8, ptr %.0120, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %.0120, i64 24
   %150 = load ptr, ptr %149, align 8
   %.not101 = icmp eq ptr %150, null
   %spec.select = select i1 %.not101, ptr %.068117, ptr %150
@@ -469,7 +469,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not95, label %158, label %155
 
 155:                                              ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %.060119, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %.060119, i64 24
   %157 = load ptr, ptr %156, align 8
   %.not96 = icmp eq ptr %157, null
   br i1 %.not96, label %158, label %159
@@ -505,7 +505,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 switch.lookup:                                    ; preds = %164
   %168 = zext nneg i32 %163 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.main, i64 0, i64 %168
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.main, i64 0, i64 %168
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 

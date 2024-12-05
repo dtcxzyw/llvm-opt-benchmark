@@ -221,7 +221,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %137 = getelementptr inbounds double, ptr %35, i64 %136
   %138 = load double, ptr %137, align 8, !tbaa !7
   %139 = fmul double %138, %138
-  %140 = getelementptr inbounds double, ptr %36, i64 %134
+  %140 = getelementptr inbounds nuw double, ptr %36, i64 %134
   %141 = load double, ptr %140, align 8, !tbaa !7
   %142 = getelementptr inbounds double, ptr %36, i64 %136
   %143 = load double, ptr %142, align 8, !tbaa !7
@@ -291,10 +291,10 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %180 = phi double [ %185, %178 ], [ 0.000000e+00, %.preheader54 ]
   %181 = phi double [ %191, %178 ], [ %172, %.preheader54 ]
   %182 = phi double [ %195, %178 ], [ %172, %.preheader54 ]
-  %183 = getelementptr inbounds double, ptr %31, i64 %179
+  %183 = getelementptr inbounds nuw double, ptr %31, i64 %179
   %184 = load double, ptr %183, align 8, !tbaa !7
   %185 = tail call double @sqrt(double noundef %184) #6
-  %186 = getelementptr inbounds double, ptr %36, i64 %179
+  %186 = getelementptr inbounds nuw double, ptr %36, i64 %179
   %187 = load double, ptr %186, align 8, !tbaa !7
   %188 = fadd double %180, %187
   %189 = fadd double %185, %188
@@ -372,22 +372,22 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %246 = getelementptr i8, ptr %240, i64 48
   store double %226, ptr %246, align 8, !tbaa !7
   store i32 -1, ptr %16, align 4, !tbaa !3
-  %247 = getelementptr inbounds i8, ptr %16, i64 4
+  %247 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 -1, ptr %247, align 4, !tbaa !3
   %248 = load i32, ptr %2, align 4, !tbaa !3
   %249 = add nsw i32 %248, 1
-  %250 = getelementptr inbounds i8, ptr %16, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %249, ptr %250, align 4, !tbaa !3
   %251 = load i32, ptr %2, align 4, !tbaa !3
   %252 = add nsw i32 %251, 1
-  %253 = getelementptr inbounds i8, ptr %16, i64 12
+  %253 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %252, ptr %253, align 4, !tbaa !3
   %254 = load i32, ptr %5, align 4, !tbaa !3
   %255 = add nsw i32 %254, -1
-  %256 = getelementptr inbounds i8, ptr %16, i64 16
+  %256 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %255, ptr %256, align 4, !tbaa !3
   %257 = load i32, ptr %6, align 4, !tbaa !3
-  %258 = getelementptr inbounds i8, ptr %16, i64 20
+  %258 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 %257, ptr %258, align 4, !tbaa !3
   %259 = load i32, ptr %2, align 4, !tbaa !3
   %260 = sext i32 %259 to i64
@@ -466,7 +466,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %314 = phi i32 [ 0, %305 ], [ %318, %533 ]
   %315 = trunc i64 %310 to i32
   %316 = add i32 %314, 1
-  %317 = getelementptr inbounds i32, ptr %32, i64 %310
+  %317 = getelementptr inbounds nuw i32, ptr %32, i64 %310
   %318 = load i32, ptr %317, align 4, !tbaa !3
   %319 = sub nsw i32 %318, %314
   store i32 %319, ptr %27, align 4, !tbaa !3
@@ -709,7 +709,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %510 = getelementptr inbounds i32, ptr %30, i64 %501
   %511 = load i32, ptr %510, align 4, !tbaa !3
   %512 = add nsw i32 %511, %457
-  %513 = getelementptr inbounds i32, ptr %30, i64 %494
+  %513 = getelementptr inbounds nuw i32, ptr %30, i64 %494
   %514 = load i32, ptr %513, align 4, !tbaa !3
   %515 = add i32 %488, %514
   %516 = icmp sgt i32 %515, %512
@@ -788,7 +788,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %562 = phi i32 [ %550, %557 ], [ %588, %585 ]
   %563 = phi i32 [ %548, %557 ], [ %587, %585 ]
   %564 = phi i32 [ 0, %557 ], [ %586, %585 ]
-  %565 = getelementptr inbounds double, ptr %34, i64 %561
+  %565 = getelementptr inbounds nuw double, ptr %34, i64 %561
   %566 = load double, ptr %565, align 8, !tbaa !7
   %567 = fcmp ole double %566, %301
   %568 = icmp sgt i32 %563, 0
@@ -814,7 +814,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %580 = sext i32 %579 to i64
   %581 = getelementptr inbounds double, ptr %34, i64 %580
   store double %566, ptr %581, align 8, !tbaa !7
-  %582 = getelementptr inbounds i32, ptr %33, i64 %561
+  %582 = getelementptr inbounds nuw i32, ptr %33, i64 %561
   %583 = load i32, ptr %582, align 4, !tbaa !3
   %584 = getelementptr inbounds i32, ptr %33, i64 %580
   store i32 %583, ptr %584, align 4, !tbaa !3
@@ -862,13 +862,13 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %609 = phi i64 [ 1, %605 ], [ %627, %624 ]
   %610 = phi i32 [ 0, %605 ], [ %626, %624 ]
   %611 = phi double [ %601, %605 ], [ %625, %624 ]
-  %612 = getelementptr inbounds i32, ptr %33, i64 %609
+  %612 = getelementptr inbounds nuw i32, ptr %33, i64 %609
   %613 = load i32, ptr %612, align 4, !tbaa !3
   %614 = icmp eq i32 %613, 0
   br i1 %614, label %624, label %615
 
 615:                                              ; preds = %608
-  %616 = getelementptr inbounds double, ptr %34, i64 %609
+  %616 = getelementptr inbounds nuw double, ptr %34, i64 %609
   %617 = load double, ptr %616, align 8, !tbaa !7
   %618 = fcmp olt double %617, %611
   %619 = icmp eq i32 %610, 0
@@ -917,13 +917,13 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %643 = phi i64 [ 1, %639 ], [ %661, %658 ]
   %644 = phi i32 [ 0, %639 ], [ %660, %658 ]
   %645 = phi double [ %635, %639 ], [ %659, %658 ]
-  %646 = getelementptr inbounds i32, ptr %33, i64 %643
+  %646 = getelementptr inbounds nuw i32, ptr %33, i64 %643
   %647 = load i32, ptr %646, align 4, !tbaa !3
   %648 = icmp eq i32 %647, 0
   br i1 %648, label %658, label %649
 
 649:                                              ; preds = %642
-  %650 = getelementptr inbounds double, ptr %34, i64 %643
+  %650 = getelementptr inbounds nuw double, ptr %34, i64 %643
   %651 = load double, ptr %650, align 8, !tbaa !7
   %652 = fcmp ogt double %651, %645
   %653 = icmp eq i32 %644, 0
@@ -966,14 +966,14 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 674:                                              ; preds = %687, %671
   %675 = phi i64 [ 1, %671 ], [ %689, %687 ]
   %676 = phi i32 [ 0, %671 ], [ %688, %687 ]
-  %677 = getelementptr inbounds i32, ptr %33, i64 %675
+  %677 = getelementptr inbounds nuw i32, ptr %33, i64 %675
   %678 = load i32, ptr %677, align 4, !tbaa !3
   %679 = icmp eq i32 %678, 0
   br i1 %679, label %687, label %680
 
 680:                                              ; preds = %674
   %681 = add nsw i32 %676, 1
-  %682 = getelementptr inbounds double, ptr %34, i64 %675
+  %682 = getelementptr inbounds nuw double, ptr %34, i64 %675
   %683 = load double, ptr %682, align 8, !tbaa !7
   %684 = sext i32 %681 to i64
   %685 = getelementptr inbounds double, ptr %34, i64 %684
@@ -1020,7 +1020,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 706:                                              ; preds = %.thread44, %704
   %707 = phi i64 [ 1, %704 ], [ %712, %.thread44 ]
   %708 = phi i64 [ 2, %704 ], [ %739, %.thread44 ]
-  %709 = getelementptr inbounds double, ptr %34, i64 %707
+  %709 = getelementptr inbounds nuw double, ptr %34, i64 %707
   %710 = load double, ptr %709, align 8, !tbaa !7
   %711 = load i32, ptr %10, align 4, !tbaa !3
   %712 = add nuw nsw i64 %707, 1
@@ -1037,7 +1037,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %719 = phi i64 [ %708, %715 ], [ %728, %718 ]
   %720 = phi double [ %710, %715 ], [ %727, %718 ]
   %721 = phi i32 [ 0, %715 ], [ %726, %718 ]
-  %722 = getelementptr inbounds double, ptr %34, i64 %719
+  %722 = getelementptr inbounds nuw double, ptr %34, i64 %719
   %723 = load double, ptr %722, align 8, !tbaa !7
   %724 = fcmp olt double %723, %720
   %725 = trunc i64 %719 to i32
@@ -1057,7 +1057,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %735 = load i32, ptr %734, align 4, !tbaa !3
   %736 = getelementptr inbounds double, ptr %34, i64 %733
   store double %710, ptr %736, align 8, !tbaa !7
-  %737 = getelementptr inbounds i32, ptr %33, i64 %707
+  %737 = getelementptr inbounds nuw i32, ptr %33, i64 %707
   %738 = load i32, ptr %737, align 4, !tbaa !3
   store i32 %738, ptr %734, align 4, !tbaa !3
   store double %727, ptr %709, align 8, !tbaa !7

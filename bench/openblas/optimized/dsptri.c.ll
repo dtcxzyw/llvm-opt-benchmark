@@ -95,7 +95,7 @@ define void @dsptri_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 52:                                               ; preds = %63, %50
   %53 = phi i64 [ 1, %50 ], [ %68, %63 ]
   %54 = phi i32 [ 1, %50 ], [ %67, %63 ]
-  %55 = getelementptr inbounds i32, ptr %8, i64 %53
+  %55 = getelementptr inbounds nuw i32, ptr %8, i64 %53
   %56 = load i32, ptr %55, align 4, !tbaa !3
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %58, label %63
@@ -134,7 +134,7 @@ define void @dsptri_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %76 = phi i32 [ %183, %182 ], [ 1, %71 ]
   %77 = add nsw i32 %76, %75
   %78 = zext nneg i32 %76 to i64
-  %79 = getelementptr inbounds i32, ptr %8, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %8, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !3
   %81 = icmp slt i32 %80, 1
   br i1 %81, label %95, label %82
@@ -320,7 +320,7 @@ define void @dsptri_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %198 = add i32 %197, %194
   %199 = add i32 %198, -2
   %200 = zext nneg i32 %195 to i64
-  %201 = getelementptr inbounds i32, ptr %8, i64 %200
+  %201 = getelementptr inbounds nuw i32, ptr %8, i64 %200
   %202 = load i32, ptr %201, align 4, !tbaa !3
   %203 = icmp slt i32 %202, 1
   br i1 %203, label %224, label %204

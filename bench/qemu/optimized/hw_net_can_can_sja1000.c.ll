@@ -46,25 +46,25 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @can_sja_hardware_reset(ptr nocapture noundef initializes((0, 3), (4, 7), (96, 103)) %s) local_unnamed_addr #0 {
 entry:
   store i8 1, ptr %s, align 8
-  %status_pel = getelementptr inbounds i8, ptr %s, i64 1
+  %status_pel = getelementptr inbounds nuw i8, ptr %s, i64 1
   store i8 60, ptr %status_pel, align 1
-  %interrupt_pel = getelementptr inbounds i8, ptr %s, i64 2
+  %interrupt_pel = getelementptr inbounds nuw i8, ptr %s, i64 2
   store i8 0, ptr %interrupt_pel, align 2
-  %clock = getelementptr inbounds i8, ptr %s, i64 6
+  %clock = getelementptr inbounds nuw i8, ptr %s, i64 6
   store i8 0, ptr %clock, align 2
-  %rxbuf_start = getelementptr inbounds i8, ptr %s, i64 5
+  %rxbuf_start = getelementptr inbounds nuw i8, ptr %s, i64 5
   store i8 0, ptr %rxbuf_start, align 1
-  %rxmsg_cnt = getelementptr inbounds i8, ptr %s, i64 4
+  %rxmsg_cnt = getelementptr inbounds nuw i8, ptr %s, i64 4
   store i8 0, ptr %rxmsg_cnt, align 4
-  %rx_cnt = getelementptr inbounds i8, ptr %s, i64 96
+  %rx_cnt = getelementptr inbounds nuw i8, ptr %s, i64 96
   store i32 0, ptr %rx_cnt, align 8
-  %control = getelementptr inbounds i8, ptr %s, i64 100
+  %control = getelementptr inbounds nuw i8, ptr %s, i64 100
   store i8 1, ptr %control, align 4
-  %status_bas = getelementptr inbounds i8, ptr %s, i64 101
+  %status_bas = getelementptr inbounds nuw i8, ptr %s, i64 101
   store i8 12, ptr %status_bas, align 1
-  %interrupt_bas = getelementptr inbounds i8, ptr %s, i64 102
+  %interrupt_bas = getelementptr inbounds nuw i8, ptr %s, i64 102
   store i8 0, ptr %interrupt_bas, align 2
-  %irq = getelementptr inbounds i8, ptr %s, i64 144
+  %irq = getelementptr inbounds nuw i8, ptr %s, i64 144
   %0 = load ptr, ptr %irq, align 8
   tail call void @qemu_set_irq(ptr noundef %0, i32 noundef 0) #8
   ret void
@@ -78,7 +78,7 @@ entry:
   br i1 %cmp, label %if.end339, label %if.end
 
 if.end:                                           ; preds = %entry
-  %clock = getelementptr inbounds i8, ptr %s, i64 6
+  %clock = getelementptr inbounds nuw i8, ptr %s, i64 6
   %0 = load i8, ptr %clock, align 2
   %tobool.not = icmp sgt i8 %0, -1
   %trunc = trunc nuw i64 %addr to i8
@@ -120,8 +120,8 @@ sw.bb:                                            ; preds = %if.then1
 if.then11:                                        ; preds = %sw.bb
   %and14 = and i32 %conv5, 8
   %tobool15.not = icmp eq i32 %and14, 0
-  %filter30 = getelementptr inbounds i8, ptr %s, i64 108
-  %code_mask32 = getelementptr inbounds i8, ptr %s, i64 7
+  %filter30 = getelementptr inbounds nuw i8, ptr %s, i64 108
+  %code_mask32 = getelementptr inbounds nuw i8, ptr %s, i64 7
   %add.ptr37 = getelementptr i8, ptr %s, i64 11
   br i1 %tobool15.not, label %if.else, label %if.then16
 
@@ -144,7 +144,7 @@ if.else:                                          ; preds = %if.then11
   %4 = load i8, ptr %add.ptr37, align 1
   %conv6.i = zext i8 %4 to i32
   %shl7.i = shl nuw nsw i32 %conv6.i, 21
-  %can_mask.i = getelementptr inbounds i8, ptr %s, i64 112
+  %can_mask.i = getelementptr inbounds nuw i8, ptr %s, i64 112
   %arrayidx8.i = getelementptr i8, ptr %s, i64 12
   %5 = load i8, ptr %arrayidx8.i, align 1
   %conv9.i = zext i8 %5 to i32
@@ -183,11 +183,11 @@ if.else:                                          ; preds = %if.then11
 
 if.end66:                                         ; preds = %if.else, %if.then16
   %.sink = phi i64 [ 4, %if.else ], [ 2, %if.then16 ]
-  %bus_client62 = getelementptr inbounds i8, ptr %s, i64 152
+  %bus_client62 = getelementptr inbounds nuw i8, ptr %s, i64 152
   %call65 = tail call i32 @can_bus_client_set_filters(ptr noundef nonnull %bus_client62, ptr noundef nonnull %filter30, i64 noundef %.sink) #8
-  %rxmsg_cnt = getelementptr inbounds i8, ptr %s, i64 4
+  %rxmsg_cnt = getelementptr inbounds nuw i8, ptr %s, i64 4
   store i8 0, ptr %rxmsg_cnt, align 4
-  %rx_cnt = getelementptr inbounds i8, ptr %s, i64 96
+  %rx_cnt = getelementptr inbounds nuw i8, ptr %s, i64 96
   store i32 0, ptr %rx_cnt, align 8
   br label %if.end339
 
@@ -197,27 +197,27 @@ sw.bb68:                                          ; preds = %if.then1
   br i1 %tobool70.not, label %if.end88, label %if.then71
 
 if.then71:                                        ; preds = %sw.bb68
-  %tx_buff = getelementptr inbounds i8, ptr %s, i64 15
+  %tx_buff = getelementptr inbounds nuw i8, ptr %s, i64 15
   call fastcc void @buff2frame_pel(ptr noundef nonnull %tx_buff, ptr noundef %frame)
-  %status_pel = getelementptr inbounds i8, ptr %s, i64 1
+  %status_pel = getelementptr inbounds nuw i8, ptr %s, i64 1
   %10 = load i8, ptr %status_pel, align 1
   %11 = and i8 %10, -13
   store i8 %11, ptr %status_pel, align 1
-  %bus_client76 = getelementptr inbounds i8, ptr %s, i64 152
+  %bus_client76 = getelementptr inbounds nuw i8, ptr %s, i64 152
   %call77 = call i64 @can_bus_client_send(ptr noundef nonnull %bus_client76, ptr noundef nonnull %frame, i64 noundef 1) #8
   %12 = load i8, ptr %status_pel, align 1
   %13 = and i8 %12, -45
   %14 = or disjoint i8 %13, 12
   store i8 %14, ptr %status_pel, align 1
-  %interrupt_pel = getelementptr inbounds i8, ptr %s, i64 2
+  %interrupt_pel = getelementptr inbounds nuw i8, ptr %s, i64 2
   %15 = load i8, ptr %interrupt_pel, align 2
   %16 = or i8 %15, 2
   store i8 %16, ptr %interrupt_pel, align 2
-  %interrupt_en.i = getelementptr inbounds i8, ptr %s, i64 3
+  %interrupt_en.i = getelementptr inbounds nuw i8, ptr %s, i64 3
   %17 = load i8, ptr %interrupt_en.i, align 1
   %and4.i = and i8 %17, %16
   %tobool.not.i = icmp ne i8 %and4.i, 0
-  %irq2.i = getelementptr inbounds i8, ptr %s, i64 144
+  %irq2.i = getelementptr inbounds nuw i8, ptr %s, i64 144
   %18 = load ptr, ptr %irq2.i, align 8
   %..i = zext i1 %tobool.not.i to i32
   call void @qemu_set_irq(ptr noundef %18, i32 noundef %..i) #8
@@ -229,14 +229,14 @@ if.end88:                                         ; preds = %if.then71, %sw.bb68
   br i1 %tobool90.not, label %if.end144, label %if.then91
 
 if.then91:                                        ; preds = %if.end88
-  %rxmsg_cnt92 = getelementptr inbounds i8, ptr %s, i64 4
+  %rxmsg_cnt92 = getelementptr inbounds nuw i8, ptr %s, i64 4
   %19 = load i8, ptr %rxmsg_cnt92, align 4
   %cmp94 = icmp eq i8 %19, 0
   br i1 %cmp94, label %if.end339, label %if.end97
 
 if.end97:                                         ; preds = %if.then91
-  %rx_buff = getelementptr inbounds i8, ptr %s, i64 28
-  %rxbuf_start = getelementptr inbounds i8, ptr %s, i64 5
+  %rx_buff = getelementptr inbounds nuw i8, ptr %s, i64 28
+  %rxbuf_start = getelementptr inbounds nuw i8, ptr %s, i64 5
   %20 = load i8, ptr %rxbuf_start, align 1
   %idxprom = zext i8 %20 to i64
   %arrayidx98 = getelementptr [64 x i8], ptr %rx_buff, i64 0, i64 %idxprom
@@ -252,7 +252,7 @@ if.end97:                                         ; preds = %if.then91
   %add122 = add i8 %count.1, %20
   %23 = and i8 %add122, 63
   store i8 %23, ptr %rxbuf_start, align 1
-  %rx_cnt128 = getelementptr inbounds i8, ptr %s, i64 96
+  %rx_cnt128 = getelementptr inbounds nuw i8, ptr %s, i64 96
   %24 = load i32, ptr %rx_cnt128, align 8
   %sub = sub i32 %24, %conv119
   store i32 %sub, ptr %rx_cnt128, align 8
@@ -262,19 +262,19 @@ if.end97:                                         ; preds = %if.then91
   br i1 %cmp132, label %if.then134, label %if.end144
 
 if.then134:                                       ; preds = %if.end97
-  %status_pel135 = getelementptr inbounds i8, ptr %s, i64 1
+  %status_pel135 = getelementptr inbounds nuw i8, ptr %s, i64 1
   %25 = load i8, ptr %status_pel135, align 1
   %26 = and i8 %25, -2
   store i8 %26, ptr %status_pel135, align 1
-  %interrupt_pel139 = getelementptr inbounds i8, ptr %s, i64 2
+  %interrupt_pel139 = getelementptr inbounds nuw i8, ptr %s, i64 2
   %27 = load i8, ptr %interrupt_pel139, align 2
   %28 = and i8 %27, -2
   store i8 %28, ptr %interrupt_pel139, align 2
-  %interrupt_en.i145 = getelementptr inbounds i8, ptr %s, i64 3
+  %interrupt_en.i145 = getelementptr inbounds nuw i8, ptr %s, i64 3
   %29 = load i8, ptr %interrupt_en.i145, align 1
   %and4.i147 = and i8 %29, %28
   %tobool.not.i148 = icmp ne i8 %and4.i147, 0
-  %irq2.i149 = getelementptr inbounds i8, ptr %s, i64 144
+  %irq2.i149 = getelementptr inbounds nuw i8, ptr %s, i64 144
   %30 = load ptr, ptr %irq2.i149, align 8
   %..i150 = zext i1 %tobool.not.i148 to i32
   call void @qemu_set_irq(ptr noundef %30, i32 noundef %..i150) #8
@@ -286,19 +286,19 @@ if.end144:                                        ; preds = %if.end97, %if.then1
   br i1 %tobool146.not, label %if.end339, label %if.then147
 
 if.then147:                                       ; preds = %if.end144
-  %status_pel148 = getelementptr inbounds i8, ptr %s, i64 1
+  %status_pel148 = getelementptr inbounds nuw i8, ptr %s, i64 1
   %31 = load i8, ptr %status_pel148, align 1
   %32 = and i8 %31, -3
   store i8 %32, ptr %status_pel148, align 1
-  %interrupt_pel152 = getelementptr inbounds i8, ptr %s, i64 2
+  %interrupt_pel152 = getelementptr inbounds nuw i8, ptr %s, i64 2
   %33 = load i8, ptr %interrupt_pel152, align 2
   %34 = and i8 %33, -9
   store i8 %34, ptr %interrupt_pel152, align 2
-  %interrupt_en.i151 = getelementptr inbounds i8, ptr %s, i64 3
+  %interrupt_en.i151 = getelementptr inbounds nuw i8, ptr %s, i64 3
   %35 = load i8, ptr %interrupt_en.i151, align 1
   %and4.i153 = and i8 %35, %34
   %tobool.not.i154 = icmp ne i8 %and4.i153, 0
-  %irq2.i155 = getelementptr inbounds i8, ptr %s, i64 144
+  %irq2.i155 = getelementptr inbounds nuw i8, ptr %s, i64 144
   %36 = load ptr, ptr %irq2.i155, align 8
   %..i156 = zext i1 %tobool.not.i154 to i32
   call void @qemu_set_irq(ptr noundef %36, i32 noundef %..i156) #8
@@ -306,12 +306,12 @@ if.then147:                                       ; preds = %if.end144
 
 sw.bb158:                                         ; preds = %if.then1
   %conv159 = trunc i64 %val to i8
-  %interrupt_en = getelementptr inbounds i8, ptr %s, i64 3
+  %interrupt_en = getelementptr inbounds nuw i8, ptr %s, i64 3
   store i8 %conv159, ptr %interrupt_en, align 1
   br label %if.end339
 
 sw.bb160:                                         ; preds = %if.then1
-  %status_pel161 = getelementptr inbounds i8, ptr %s, i64 1
+  %status_pel161 = getelementptr inbounds nuw i8, ptr %s, i64 1
   %37 = load i8, ptr %status_pel161, align 1
   %38 = or i8 %37, 32
   store i8 %38, ptr %status_pel161, align 1
@@ -329,7 +329,7 @@ if.then170:                                       ; preds = %sw.bb165
 
 if.then173:                                       ; preds = %if.then170
   %conv174 = trunc i64 %val to i8
-  %code_mask175 = getelementptr inbounds i8, ptr %s, i64 7
+  %code_mask175 = getelementptr inbounds nuw i8, ptr %s, i64 7
   %sub176 = add nsw i64 %addr, -16
   %arrayidx177 = getelementptr [8 x i8], ptr %code_mask175, i64 0, i64 %sub176
   store i8 %conv174, ptr %arrayidx177, align 1
@@ -337,7 +337,7 @@ if.then173:                                       ; preds = %if.then170
 
 if.else179:                                       ; preds = %sw.bb165
   %conv180 = trunc i64 %val to i8
-  %tx_buff181 = getelementptr inbounds i8, ptr %s, i64 15
+  %tx_buff181 = getelementptr inbounds nuw i8, ptr %s, i64 15
   %sub182 = add nsw i64 %addr, -16
   %arrayidx183 = getelementptr [13 x i8], ptr %tx_buff181, i64 0, i64 %sub182
   store i8 %conv180, ptr %arrayidx183, align 1
@@ -368,7 +368,7 @@ if.else188:                                       ; preds = %if.end
   ]
 
 sw.bb189:                                         ; preds = %if.else188
-  %control = getelementptr inbounds i8, ptr %s, i64 100
+  %control = getelementptr inbounds nuw i8, ptr %s, i64 100
   %41 = load i8, ptr %control, align 4
   %42 = and i8 %41, 1
   %tobool192.not = icmp ne i8 %42, 0
@@ -378,20 +378,20 @@ sw.bb189:                                         ; preds = %if.else188
   br i1 %or.cond129, label %if.then197, label %if.else214
 
 if.then197:                                       ; preds = %sw.bb189
-  %code = getelementptr inbounds i8, ptr %s, i64 103
+  %code = getelementptr inbounds nuw i8, ptr %s, i64 103
   %43 = load i8, ptr %code, align 1
   %conv198 = zext i8 %43 to i32
   %shl = shl nuw nsw i32 %conv198, 3
-  %filter200 = getelementptr inbounds i8, ptr %s, i64 108
+  %filter200 = getelementptr inbounds nuw i8, ptr %s, i64 108
   store i32 %shl, ptr %filter200, align 4
-  %mask = getelementptr inbounds i8, ptr %s, i64 104
+  %mask = getelementptr inbounds nuw i8, ptr %s, i64 104
   %44 = load i8, ptr %mask, align 8
   %conv202 = zext i8 %44 to i32
   %shl203 = shl nuw nsw i32 %conv202, 3
   %or205 = xor i32 %shl203, -2147481608
-  %can_mask = getelementptr inbounds i8, ptr %s, i64 112
+  %can_mask = getelementptr inbounds nuw i8, ptr %s, i64 112
   store i32 %or205, ptr %can_mask, align 4
-  %bus_client208 = getelementptr inbounds i8, ptr %s, i64 152
+  %bus_client208 = getelementptr inbounds nuw i8, ptr %s, i64 152
   %call211 = tail call i32 @can_bus_client_set_filters(ptr noundef nonnull %bus_client208, ptr noundef nonnull %filter200, i64 noundef 1) #8
   br label %if.end224.sink.split
 
@@ -405,19 +405,19 @@ if.then222:                                       ; preds = %if.else214
   %46 = and i8 %45, -50
   %47 = or disjoint i8 %46, 1
   store i8 %47, ptr %s, align 8
-  %status_pel.i = getelementptr inbounds i8, ptr %s, i64 1
+  %status_pel.i = getelementptr inbounds nuw i8, ptr %s, i64 1
   %48 = load i8, ptr %status_pel.i, align 1
   %49 = and i8 %48, -56
   %50 = or disjoint i8 %49, 52
   store i8 %50, ptr %status_pel.i, align 1
-  %rxbuf_start.i = getelementptr inbounds i8, ptr %s, i64 5
+  %rxbuf_start.i = getelementptr inbounds nuw i8, ptr %s, i64 5
   store i8 0, ptr %rxbuf_start.i, align 1
   br label %if.end224.sink.split
 
 if.end224.sink.split:                             ; preds = %if.then197, %if.then222
-  %rxmsg_cnt.i = getelementptr inbounds i8, ptr %s, i64 4
+  %rxmsg_cnt.i = getelementptr inbounds nuw i8, ptr %s, i64 4
   store i8 0, ptr %rxmsg_cnt.i, align 4
-  %rx_cnt.i = getelementptr inbounds i8, ptr %s, i64 96
+  %rx_cnt.i = getelementptr inbounds nuw i8, ptr %s, i64 96
   store i32 0, ptr %rx_cnt.i, align 8
   br label %if.end224
 
@@ -433,28 +433,28 @@ sw.bb228:                                         ; preds = %if.else188
   br i1 %tobool230.not, label %if.end250, label %if.then231
 
 if.then231:                                       ; preds = %sw.bb228
-  %tx_buff232 = getelementptr inbounds i8, ptr %s, i64 15
+  %tx_buff232 = getelementptr inbounds nuw i8, ptr %s, i64 15
   call fastcc void @buff2frame_bas(ptr noundef nonnull %tx_buff232, ptr noundef %frame)
-  %status_bas = getelementptr inbounds i8, ptr %s, i64 101
+  %status_bas = getelementptr inbounds nuw i8, ptr %s, i64 101
   %52 = load i8, ptr %status_bas, align 1
   %53 = and i8 %52, -13
   store i8 %53, ptr %status_bas, align 1
-  %bus_client237 = getelementptr inbounds i8, ptr %s, i64 152
+  %bus_client237 = getelementptr inbounds nuw i8, ptr %s, i64 152
   %call238 = call i64 @can_bus_client_send(ptr noundef nonnull %bus_client237, ptr noundef nonnull %frame, i64 noundef 1) #8
   %54 = load i8, ptr %status_bas, align 1
   %55 = and i8 %54, -45
   %56 = or disjoint i8 %55, 12
   store i8 %56, ptr %status_bas, align 1
-  %interrupt_bas = getelementptr inbounds i8, ptr %s, i64 102
+  %interrupt_bas = getelementptr inbounds nuw i8, ptr %s, i64 102
   %57 = load i8, ptr %interrupt_bas, align 2
   %58 = or i8 %57, 2
   store i8 %58, ptr %interrupt_bas, align 2
-  %control.i = getelementptr inbounds i8, ptr %s, i64 100
+  %control.i = getelementptr inbounds nuw i8, ptr %s, i64 100
   %59 = load i8, ptr %control.i, align 4
   %60 = lshr i8 %59, 1
   %and4.i157 = and i8 %60, %58
   %tobool.not.i158 = icmp ne i8 %and4.i157, 0
-  %irq2.i159 = getelementptr inbounds i8, ptr %s, i64 144
+  %irq2.i159 = getelementptr inbounds nuw i8, ptr %s, i64 144
   %61 = load ptr, ptr %irq2.i159, align 8
   %..i160 = zext i1 %tobool.not.i158 to i32
   call void @qemu_set_irq(ptr noundef %61, i32 noundef %..i160) #8
@@ -466,14 +466,14 @@ if.end250:                                        ; preds = %if.then231, %sw.bb2
   br i1 %tobool252.not, label %if.end299, label %if.then253
 
 if.then253:                                       ; preds = %if.end250
-  %rxmsg_cnt254 = getelementptr inbounds i8, ptr %s, i64 4
+  %rxmsg_cnt254 = getelementptr inbounds nuw i8, ptr %s, i64 4
   %62 = load i8, ptr %rxmsg_cnt254, align 4
   %cmp256 = icmp eq i8 %62, 0
   br i1 %cmp256, label %if.end339, label %if.end259
 
 if.end259:                                        ; preds = %if.then253
-  %rx_buff260 = getelementptr inbounds i8, ptr %s, i64 28
-  %rxbuf_start261 = getelementptr inbounds i8, ptr %s, i64 5
+  %rx_buff260 = getelementptr inbounds nuw i8, ptr %s, i64 28
+  %rxbuf_start261 = getelementptr inbounds nuw i8, ptr %s, i64 5
   %63 = load i8, ptr %rxbuf_start261, align 1
   %64 = add i8 %63, 1
   %65 = and i8 %64, 63
@@ -486,7 +486,7 @@ if.end259:                                        ; preds = %if.then253
   %add274 = add i8 %narrow, %63
   %68 = and i8 %add274, 63
   store i8 %68, ptr %rxbuf_start261, align 1
-  %rx_cnt281 = getelementptr inbounds i8, ptr %s, i64 96
+  %rx_cnt281 = getelementptr inbounds nuw i8, ptr %s, i64 96
   %69 = load i32, ptr %rx_cnt281, align 8
   %sub282 = sub i32 %69, %conv271
   store i32 %sub282, ptr %rx_cnt281, align 8
@@ -496,20 +496,20 @@ if.end259:                                        ; preds = %if.then253
   br i1 %cmp287, label %if.then289, label %if.end299
 
 if.then289:                                       ; preds = %if.end259
-  %status_bas290 = getelementptr inbounds i8, ptr %s, i64 101
+  %status_bas290 = getelementptr inbounds nuw i8, ptr %s, i64 101
   %70 = load i8, ptr %status_bas290, align 1
   %71 = and i8 %70, -2
   store i8 %71, ptr %status_bas290, align 1
-  %interrupt_bas294 = getelementptr inbounds i8, ptr %s, i64 102
+  %interrupt_bas294 = getelementptr inbounds nuw i8, ptr %s, i64 102
   %72 = load i8, ptr %interrupt_bas294, align 2
   %73 = and i8 %72, -2
   store i8 %73, ptr %interrupt_bas294, align 2
-  %control.i161 = getelementptr inbounds i8, ptr %s, i64 100
+  %control.i161 = getelementptr inbounds nuw i8, ptr %s, i64 100
   %74 = load i8, ptr %control.i161, align 4
   %75 = lshr i8 %74, 1
   %and4.i163 = and i8 %75, %73
   %tobool.not.i164 = icmp ne i8 %and4.i163, 0
-  %irq2.i165 = getelementptr inbounds i8, ptr %s, i64 144
+  %irq2.i165 = getelementptr inbounds nuw i8, ptr %s, i64 144
   %76 = load ptr, ptr %irq2.i165, align 8
   %..i166 = zext i1 %tobool.not.i164 to i32
   call void @qemu_set_irq(ptr noundef %76, i32 noundef %..i166) #8
@@ -521,20 +521,20 @@ if.end299:                                        ; preds = %if.end259, %if.then
   br i1 %tobool301.not, label %if.end339, label %if.then302
 
 if.then302:                                       ; preds = %if.end299
-  %status_bas303 = getelementptr inbounds i8, ptr %s, i64 101
+  %status_bas303 = getelementptr inbounds nuw i8, ptr %s, i64 101
   %77 = load i8, ptr %status_bas303, align 1
   %78 = and i8 %77, -3
   store i8 %78, ptr %status_bas303, align 1
-  %interrupt_bas307 = getelementptr inbounds i8, ptr %s, i64 102
+  %interrupt_bas307 = getelementptr inbounds nuw i8, ptr %s, i64 102
   %79 = load i8, ptr %interrupt_bas307, align 2
   %80 = and i8 %79, -9
   store i8 %80, ptr %interrupt_bas307, align 2
-  %control.i167 = getelementptr inbounds i8, ptr %s, i64 100
+  %control.i167 = getelementptr inbounds nuw i8, ptr %s, i64 100
   %81 = load i8, ptr %control.i167, align 4
   %82 = lshr i8 %81, 1
   %and4.i169 = and i8 %82, %80
   %tobool.not.i170 = icmp ne i8 %and4.i169, 0
-  %irq2.i171 = getelementptr inbounds i8, ptr %s, i64 144
+  %irq2.i171 = getelementptr inbounds nuw i8, ptr %s, i64 144
   %83 = load ptr, ptr %irq2.i171, align 8
   %..i172 = zext i1 %tobool.not.i170 to i32
   call void @qemu_set_irq(ptr noundef %83, i32 noundef %..i172) #8
@@ -542,25 +542,25 @@ if.then302:                                       ; preds = %if.end299
 
 sw.bb312:                                         ; preds = %if.else188
   %conv313 = trunc i64 %val to i8
-  %code314 = getelementptr inbounds i8, ptr %s, i64 103
+  %code314 = getelementptr inbounds nuw i8, ptr %s, i64 103
   store i8 %conv313, ptr %code314, align 1
   br label %if.end339
 
 sw.bb315:                                         ; preds = %if.else188
   %conv316 = trunc i64 %val to i8
-  %mask317 = getelementptr inbounds i8, ptr %s, i64 104
+  %mask317 = getelementptr inbounds nuw i8, ptr %s, i64 104
   store i8 %conv316, ptr %mask317, align 8
   br label %if.end339
 
 sw.bb318:                                         ; preds = %if.else188
-  %status_bas319 = getelementptr inbounds i8, ptr %s, i64 101
+  %status_bas319 = getelementptr inbounds nuw i8, ptr %s, i64 101
   %84 = load i8, ptr %status_bas319, align 1
   %85 = or i8 %84, 32
   store i8 %85, ptr %status_bas319, align 1
   br label %sw.bb323
 
 sw.bb323:                                         ; preds = %sw.bb318, %if.else188, %if.else188, %if.else188, %if.else188, %if.else188, %if.else188, %if.else188, %if.else188, %if.else188
-  %control324 = getelementptr inbounds i8, ptr %s, i64 100
+  %control324 = getelementptr inbounds nuw i8, ptr %s, i64 100
   %86 = load i8, ptr %control324, align 4
   %87 = and i8 %86, 1
   %cmp327 = icmp eq i8 %87, 0
@@ -568,7 +568,7 @@ sw.bb323:                                         ; preds = %sw.bb318, %if.else1
 
 if.then329:                                       ; preds = %sw.bb323
   %conv330 = trunc i64 %val to i8
-  %tx_buff331 = getelementptr inbounds i8, ptr %s, i64 15
+  %tx_buff331 = getelementptr inbounds nuw i8, ptr %s, i64 15
   %sub332 = add nsw i64 %addr, -10
   %arrayidx333 = getelementptr [13 x i8], ptr %tx_buff331, i64 0, i64 %sub332
   store i8 %conv330, ptr %arrayidx333, align 1
@@ -626,7 +626,7 @@ if.end:                                           ; preds = %if.then17, %if.then
   %7 = load i8, ptr %amr, align 1
   %conv21 = zext i8 %7 to i32
   %shl22 = shl nuw nsw i32 %conv21, 21
-  %can_mask = getelementptr inbounds i8, ptr %filter, i64 4
+  %can_mask = getelementptr inbounds nuw i8, ptr %filter, i64 4
   store i32 %shl22, ptr %can_mask, align 4
   %arrayidx23 = getelementptr i8, ptr %amr, i64 1
   %8 = load i8, ptr %arrayidx23, align 1
@@ -679,7 +679,7 @@ if.end65:                                         ; preds = %if.then62, %if.else
   %18 = load i8, ptr %amr, align 1
   %conv67 = zext i8 %18 to i32
   %shl68 = shl nuw nsw i32 %conv67, 3
-  %can_mask69 = getelementptr inbounds i8, ptr %filter, i64 4
+  %can_mask69 = getelementptr inbounds nuw i8, ptr %filter, i64 4
   store i32 %shl68, ptr %can_mask69, align 4
   %arrayidx70 = getelementptr i8, ptr %amr, i64 1
   %19 = load i8, ptr %arrayidx70, align 1
@@ -725,7 +725,7 @@ if.then:                                          ; preds = %entry
   %2 = load i8, ptr %amr, align 1
   %conv6 = zext i8 %2 to i32
   %shl7 = shl nuw nsw i32 %conv6, 21
-  %can_mask = getelementptr inbounds i8, ptr %filter, i64 4
+  %can_mask = getelementptr inbounds nuw i8, ptr %filter, i64 4
   store i32 %shl7, ptr %can_mask, align 4
   %arrayidx8 = getelementptr i8, ptr %amr, i64 1
   %3 = load i8, ptr %arrayidx8, align 1
@@ -758,7 +758,7 @@ if.end:                                           ; preds = %if.then28, %if.else
   %8 = load i8, ptr %amr, align 1
   %conv32 = zext i8 %8 to i32
   %shl33 = shl nuw nsw i32 %conv32, 3
-  %can_mask34 = getelementptr inbounds i8, ptr %filter, i64 4
+  %can_mask34 = getelementptr inbounds nuw i8, ptr %filter, i64 4
   store i32 %shl33, ptr %can_mask34, align 4
   %arrayidx35 = getelementptr i8, ptr %amr, i64 1
   %9 = load i8, ptr %arrayidx35, align 1
@@ -784,7 +784,7 @@ if.end52:                                         ; preds = %if.end, %if.then48,
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define internal fastcc void @buff2frame_pel(ptr nocapture noundef readonly %buff, ptr nocapture noundef nonnull writeonly initializes((0, 6)) %frame) unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %frame, i64 5
+  %flags = getelementptr inbounds nuw i8, ptr %frame, i64 5
   store i8 0, ptr %flags, align 1
   store i32 0, ptr %frame, align 8
   %0 = load i8, ptr %buff, align 1
@@ -794,7 +794,7 @@ entry:
   store i32 %spec.store.select, ptr %frame, align 8
   %3 = load i8, ptr %buff, align 1
   %4 = and i8 %3, 15
-  %can_dlc = getelementptr inbounds i8, ptr %frame, i64 4
+  %can_dlc = getelementptr inbounds nuw i8, ptr %frame, i64 4
   %storemerge = tail call i8 @llvm.umin.i8(i8 %4, i8 8)
   store i8 %storemerge, ptr %can_dlc, align 4
   %5 = load i8, ptr %buff, align 1
@@ -833,7 +833,7 @@ if.then16:                                        ; preds = %entry
   br i1 %cmp3943.not, label %if.end94.sink.split, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then16
-  %data = getelementptr inbounds i8, ptr %frame, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %wide.trip.count = zext nneg i8 %storemerge to i64
   br label %for.body
 
@@ -869,7 +869,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp7049.not, label %if.end94.sink.split, label %for.body72.lr.ph
 
 for.body72.lr.ph:                                 ; preds = %if.else
-  %data77 = getelementptr inbounds i8, ptr %frame, i64 8
+  %data77 = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %wide.trip.count62 = zext nneg i8 %storemerge to i64
   br label %for.body72
 
@@ -906,7 +906,7 @@ declare i64 @can_bus_client_send(ptr noundef, ptr noundef, i64 noundef) local_un
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define internal fastcc void @buff2frame_bas(ptr nocapture noundef readonly %buff, ptr nocapture noundef nonnull writeonly initializes((0, 6)) %frame) unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %frame, i64 5
+  %flags = getelementptr inbounds nuw i8, ptr %frame, i64 5
   store i8 0, ptr %flags, align 1
   %0 = load i8, ptr %buff, align 1
   %conv = zext i8 %0 to i32
@@ -924,7 +924,7 @@ entry:
   store i32 %spec.store.select, ptr %frame, align 8
   %5 = load i8, ptr %arrayidx1, align 1
   %6 = and i8 %5, 15
-  %can_dlc = getelementptr inbounds i8, ptr %frame, i64 4
+  %can_dlc = getelementptr inbounds nuw i8, ptr %frame, i64 4
   %storemerge = tail call i8 @llvm.umin.i8(i8 %6, i8 8)
   store i8 %storemerge, ptr %can_dlc, align 4
   %invariant.gep = getelementptr i8, ptr %buff, i64 2
@@ -932,7 +932,7 @@ entry:
   br i1 %cmp2119.not, label %for.body32.lr.ph, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %frame, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %wide.trip.count = zext nneg i8 %storemerge to i64
   br label %for.body
 
@@ -971,7 +971,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %clock = getelementptr inbounds i8, ptr %s, i64 6
+  %clock = getelementptr inbounds nuw i8, ptr %s, i64 6
   %0 = load i8, ptr %clock, align 2
   %tobool.not = icmp sgt i8 %0, -1
   %trunc = trunc nuw i64 %addr to i8
@@ -1016,29 +1016,29 @@ sw.bb:                                            ; preds = %if.then1
   br label %do.end75
 
 sw.bb4:                                           ; preds = %if.then1
-  %status_pel = getelementptr inbounds i8, ptr %s, i64 1
+  %status_pel = getelementptr inbounds nuw i8, ptr %s, i64 1
   %2 = load i8, ptr %status_pel, align 1
   br label %do.end75
 
 sw.bb6:                                           ; preds = %if.then1
-  %interrupt_pel = getelementptr inbounds i8, ptr %s, i64 2
+  %interrupt_pel = getelementptr inbounds nuw i8, ptr %s, i64 2
   %3 = load i8, ptr %interrupt_pel, align 2
-  %rxmsg_cnt = getelementptr inbounds i8, ptr %s, i64 4
+  %rxmsg_cnt = getelementptr inbounds nuw i8, ptr %s, i64 4
   %4 = load i8, ptr %rxmsg_cnt, align 4
   %tobool9.not = icmp ne i8 %4, 0
   %spec.store.select = zext i1 %tobool9.not to i8
   store i8 %spec.store.select, ptr %interrupt_pel, align 2
-  %interrupt_en.i = getelementptr inbounds i8, ptr %s, i64 3
+  %interrupt_en.i = getelementptr inbounds nuw i8, ptr %s, i64 3
   %5 = load i8, ptr %interrupt_en.i, align 1
   %and4.i = and i8 %5, %spec.store.select
-  %irq2.i = getelementptr inbounds i8, ptr %s, i64 144
+  %irq2.i = getelementptr inbounds nuw i8, ptr %s, i64 144
   %6 = load ptr, ptr %irq2.i, align 8
   %..i = zext nneg i8 %and4.i to i32
   tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %..i) #8
   br label %do.end75
 
 sw.bb15:                                          ; preds = %if.then1
-  %interrupt_en = getelementptr inbounds i8, ptr %s, i64 3
+  %interrupt_en = getelementptr inbounds nuw i8, ptr %s, i64 3
   %7 = load i8, ptr %interrupt_en, align 1
   br label %do.end75
 
@@ -1053,15 +1053,15 @@ if.then24:                                        ; preds = %sw.bb19
   br i1 %cmp25, label %if.then27, label %do.end75
 
 if.then27:                                        ; preds = %if.then24
-  %code_mask = getelementptr inbounds i8, ptr %s, i64 7
+  %code_mask = getelementptr inbounds nuw i8, ptr %s, i64 7
   %sub = add nsw i64 %addr, -16
   %arrayidx = getelementptr [8 x i8], ptr %code_mask, i64 0, i64 %sub
   %10 = load i8, ptr %arrayidx, align 1
   br label %do.end75
 
 if.else30:                                        ; preds = %sw.bb19
-  %rx_buff = getelementptr inbounds i8, ptr %s, i64 28
-  %rxbuf_start = getelementptr inbounds i8, ptr %s, i64 5
+  %rx_buff = getelementptr inbounds nuw i8, ptr %s, i64 28
+  %rxbuf_start = getelementptr inbounds nuw i8, ptr %s, i64 5
   %11 = load i8, ptr %rxbuf_start, align 1
   %conv31 = zext i8 %11 to i64
   %add = add nuw nsw i64 %addr, 48
@@ -1098,46 +1098,46 @@ if.else39:                                        ; preds = %if.end
   ]
 
 sw.bb40:                                          ; preds = %if.else39
-  %control = getelementptr inbounds i8, ptr %s, i64 100
+  %control = getelementptr inbounds nuw i8, ptr %s, i64 100
   %13 = load i8, ptr %control, align 4
   br label %do.end75
 
 sw.bb42:                                          ; preds = %if.else39
-  %status_bas = getelementptr inbounds i8, ptr %s, i64 101
+  %status_bas = getelementptr inbounds nuw i8, ptr %s, i64 101
   %14 = load i8, ptr %status_bas, align 1
   br label %do.end75
 
 sw.bb44:                                          ; preds = %if.else39
-  %interrupt_bas = getelementptr inbounds i8, ptr %s, i64 102
+  %interrupt_bas = getelementptr inbounds nuw i8, ptr %s, i64 102
   %15 = load i8, ptr %interrupt_bas, align 2
-  %rxmsg_cnt47 = getelementptr inbounds i8, ptr %s, i64 4
+  %rxmsg_cnt47 = getelementptr inbounds nuw i8, ptr %s, i64 4
   %16 = load i8, ptr %rxmsg_cnt47, align 4
   %tobool48.not = icmp ne i8 %16, 0
   %spec.store.select33 = zext i1 %tobool48.not to i8
   store i8 %spec.store.select33, ptr %interrupt_bas, align 2
-  %control.i = getelementptr inbounds i8, ptr %s, i64 100
+  %control.i = getelementptr inbounds nuw i8, ptr %s, i64 100
   %17 = load i8, ptr %control.i, align 4
   %18 = lshr i8 %17, 1
   %and4.i34 = and i8 %18, %spec.store.select33
-  %irq2.i36 = getelementptr inbounds i8, ptr %s, i64 144
+  %irq2.i36 = getelementptr inbounds nuw i8, ptr %s, i64 144
   %19 = load ptr, ptr %irq2.i36, align 8
   %..i37 = zext nneg i8 %and4.i34 to i32
   tail call void @qemu_set_irq(ptr noundef %19, i32 noundef %..i37) #8
   br label %do.end75
 
 sw.bb55:                                          ; preds = %if.else39
-  %code = getelementptr inbounds i8, ptr %s, i64 103
+  %code = getelementptr inbounds nuw i8, ptr %s, i64 103
   %20 = load i8, ptr %code, align 1
   br label %do.end75
 
 sw.bb57:                                          ; preds = %if.else39
-  %mask = getelementptr inbounds i8, ptr %s, i64 104
+  %mask = getelementptr inbounds nuw i8, ptr %s, i64 104
   %21 = load i8, ptr %mask, align 8
   br label %do.end75
 
 sw.bb59:                                          ; preds = %if.else39, %if.else39, %if.else39, %if.else39, %if.else39, %if.else39, %if.else39, %if.else39, %if.else39, %if.else39
-  %rx_buff60 = getelementptr inbounds i8, ptr %s, i64 28
-  %rxbuf_start61 = getelementptr inbounds i8, ptr %s, i64 5
+  %rx_buff60 = getelementptr inbounds nuw i8, ptr %s, i64 28
+  %rxbuf_start61 = getelementptr inbounds nuw i8, ptr %s, i64 5
   %22 = load i8, ptr %rxbuf_start61, align 1
   %conv62 = zext i8 %22 to i64
   %add63 = add nuw nsw i64 %addr, 44
@@ -1199,7 +1199,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %frames, i64 5
+  %flags = getelementptr inbounds nuw i8, ptr %frames, i64 5
   %0 = load i8, ptr %flags, align 1
   %1 = and i8 %0, 16
   %tobool.not = icmp eq i8 %1, 0
@@ -1256,7 +1256,7 @@ if.then7.i:                                       ; preds = %if.then4.i
   %17 = load i8, ptr %add.ptr111.i, align 1
   %conv21.i.i = zext i8 %17 to i32
   %shl22.i.i = shl nuw nsw i32 %conv21.i.i, 21
-  %can_mask.i.i = getelementptr inbounds i8, ptr %filter.i, i64 4
+  %can_mask.i.i = getelementptr inbounds nuw i8, ptr %filter.i, i64 4
   %arrayidx23.i.i = getelementptr i8, ptr %client, i64 -140
   %18 = load i8, ptr %arrayidx23.i.i, align 1
   %conv24.i.i = zext i8 %18 to i32
@@ -1295,7 +1295,7 @@ if.else.i:                                        ; preds = %if.then4.i
   %28 = load i8, ptr %add.ptr111.i, align 1
   %conv67.i.i = zext i8 %28 to i32
   %shl68.i.i = shl nuw nsw i32 %conv67.i.i, 3
-  %can_mask69.i.i = getelementptr inbounds i8, ptr %filter.i, i64 4
+  %can_mask69.i.i = getelementptr inbounds nuw i8, ptr %filter.i, i64 4
   %arrayidx70.i.i = getelementptr i8, ptr %client, i64 -140
   %29 = load i8, ptr %arrayidx70.i.i, align 1
   %conv71.i.i = zext i8 %29 to i32
@@ -1319,13 +1319,13 @@ if.end24.i:                                       ; preds = %if.else.i
   br i1 %tobool27.not.i, label %if.end29.i, label %can_sja_accept_filter.exit.thread
 
 if.end29.i:                                       ; preds = %if.end24.i
-  %can_dlc.i = getelementptr inbounds i8, ptr %frames, i64 4
+  %can_dlc.i = getelementptr inbounds nuw i8, ptr %frames, i64 4
   %32 = load i8, ptr %can_dlc.i, align 4
   %cmp.i = icmp eq i8 %32, 0
   br i1 %cmp.i, label %can_sja_accept_filter.exit.thread, label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.end29.i
-  %data.i = getelementptr inbounds i8, ptr %frames, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %frames, i64 8
   %33 = load i8, ptr %data.i, align 8
   %arrayidx36.i = getelementptr i8, ptr %client, i64 -139
   %34 = load i8, ptr %arrayidx36.i, align 1
@@ -1371,7 +1371,7 @@ if.then82.i:                                      ; preds = %if.else78.i
   %45 = load i8, ptr %add.ptr111.i, align 1
   %conv6.i54.i = zext i8 %45 to i32
   %shl7.i55.i = shl nuw nsw i32 %conv6.i54.i, 21
-  %can_mask.i56.i = getelementptr inbounds i8, ptr %filter.i, i64 4
+  %can_mask.i56.i = getelementptr inbounds nuw i8, ptr %filter.i, i64 4
   %arrayidx8.i.i = getelementptr i8, ptr %client, i64 -140
   %46 = load i8, ptr %arrayidx8.i.i, align 1
   %conv9.i.i = zext i8 %46 to i32
@@ -1424,7 +1424,7 @@ if.else105.i:                                     ; preds = %if.else78.i
   %57 = load i8, ptr %add.ptr111.i, align 1
   %conv32.i.i = zext i8 %57 to i32
   %shl33.i.i = shl nuw nsw i32 %conv32.i.i, 3
-  %can_mask34.i.i = getelementptr inbounds i8, ptr %filter.i, i64 4
+  %can_mask34.i.i = getelementptr inbounds nuw i8, ptr %filter.i, i64 4
   %arrayidx35.i.i = getelementptr i8, ptr %client, i64 -140
   %58 = load i8, ptr %arrayidx35.i.i, align 1
   %59 = lshr i8 %58, 5
@@ -1461,7 +1461,7 @@ if.then115.i:                                     ; preds = %if.else105.i
   %66 = and i8 %65, 15
   %or13642.i = or disjoint i8 %66, %shl129.i
   %67 = xor i8 %or13642.i, -1
-  %data142.i = getelementptr inbounds i8, ptr %frames, i64 8
+  %data142.i = getelementptr inbounds nuw i8, ptr %frames, i64 8
   %68 = load i8, ptr %data142.i, align 8
   %69 = xor i8 %68, %or41.i
   %70 = and i8 %69, %67
@@ -1517,7 +1517,7 @@ if.then11:                                        ; preds = %if.end93.i, %if.end
   br label %return
 
 if.end17:                                         ; preds = %if.end93.i, %if.end56.i, %can_sja_accept_filter.exit.thread, %can_sja_accept_filter.exit
-  %can_dlc.i56 = getelementptr inbounds i8, ptr %frames, i64 4
+  %can_dlc.i56 = getelementptr inbounds nuw i8, ptr %frames, i64 4
   %85 = load i8, ptr %can_dlc.i56, align 4
   %conv.i = zext i8 %85 to i32
   %86 = load i32, ptr %frames, align 8
@@ -1567,7 +1567,7 @@ if.then19.i:                                      ; preds = %if.end15.i
   br i1 %cmp391.not.i, label %if.end27, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then19.i
-  %data.i60 = getelementptr inbounds i8, ptr %frames, i64 8
+  %data.i60 = getelementptr inbounds nuw i8, ptr %frames, i64 8
   %wide.trip.count.i = zext nneg i8 %85 to i64
   br label %for.body.i
 
@@ -1593,7 +1593,7 @@ if.else.i62:                                      ; preds = %if.end15.i
   br i1 %cmp554.not.i, label %if.end27, label %for.body57.lr.ph.i
 
 for.body57.lr.ph.i:                               ; preds = %if.else.i62
-  %data58.i = getelementptr inbounds i8, ptr %frames, i64 8
+  %data58.i = getelementptr inbounds nuw i8, ptr %frames, i64 8
   %wide.trip.count10.i = zext nneg i8 %85 to i64
   br label %for.body57.i
 
@@ -1695,7 +1695,7 @@ if.else:                                          ; preds = %if.end2
   %118 = load i8, ptr %status_bas, align 1
   %119 = or i8 %118, 16
   store i8 %119, ptr %status_bas, align 1
-  %can_dlc.i70 = getelementptr inbounds i8, ptr %frames, i64 4
+  %can_dlc.i70 = getelementptr inbounds nuw i8, ptr %frames, i64 4
   %120 = load i8, ptr %can_dlc.i70, align 4
   %121 = load i32, ptr %frames, align 8
   %122 = and i32 %121, -1610612736
@@ -1721,7 +1721,7 @@ if.end6.i:                                        ; preds = %if.else
   br i1 %cmp281.not.i, label %if.end82, label %for.body.lr.ph.i75
 
 for.body.lr.ph.i75:                               ; preds = %if.end6.i
-  %data.i76 = getelementptr inbounds i8, ptr %frames, i64 8
+  %data.i76 = getelementptr inbounds nuw i8, ptr %frames, i64 8
   %wide.trip.count.i77 = zext nneg i8 %120 to i64
   br label %for.body.i78
 
@@ -1831,7 +1831,7 @@ return:                                           ; preds = %for.end, %for.end11
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -22, 1) i32 @can_sja_connect_to_bus(ptr noundef initializes((152, 160)) %s, ptr noundef %bus) local_unnamed_addr #0 {
 entry:
-  %bus_client = getelementptr inbounds i8, ptr %s, i64 152
+  %bus_client = getelementptr inbounds nuw i8, ptr %s, i64 152
   store ptr @can_sja_bus_client_info, ptr %bus_client, align 8
   %tobool.not = icmp eq ptr %bus, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1851,7 +1851,7 @@ declare i32 @can_bus_insert_client(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @can_sja_disconnect(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %bus_client = getelementptr inbounds i8, ptr %s, i64 152
+  %bus_client = getelementptr inbounds nuw i8, ptr %s, i64 152
   %call = tail call i32 @can_bus_remove_client(ptr noundef nonnull %bus_client) #8
   ret void
 }
@@ -1861,27 +1861,27 @@ declare i32 @can_bus_remove_client(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i32 @can_sja_init(ptr nocapture noundef initializes((0, 3), (4, 7), (96, 103), (144, 152)) %s, ptr noundef %irq) local_unnamed_addr #0 {
 entry:
-  %irq1 = getelementptr inbounds i8, ptr %s, i64 144
+  %irq1 = getelementptr inbounds nuw i8, ptr %s, i64 144
   store ptr %irq, ptr %irq1, align 8
   tail call void @qemu_set_irq(ptr noundef %irq, i32 noundef 0) #8
   store i8 1, ptr %s, align 8
-  %status_pel.i = getelementptr inbounds i8, ptr %s, i64 1
+  %status_pel.i = getelementptr inbounds nuw i8, ptr %s, i64 1
   store i8 60, ptr %status_pel.i, align 1
-  %interrupt_pel.i = getelementptr inbounds i8, ptr %s, i64 2
+  %interrupt_pel.i = getelementptr inbounds nuw i8, ptr %s, i64 2
   store i8 0, ptr %interrupt_pel.i, align 2
-  %clock.i = getelementptr inbounds i8, ptr %s, i64 6
+  %clock.i = getelementptr inbounds nuw i8, ptr %s, i64 6
   store i8 0, ptr %clock.i, align 2
-  %rxbuf_start.i = getelementptr inbounds i8, ptr %s, i64 5
+  %rxbuf_start.i = getelementptr inbounds nuw i8, ptr %s, i64 5
   store i8 0, ptr %rxbuf_start.i, align 1
-  %rxmsg_cnt.i = getelementptr inbounds i8, ptr %s, i64 4
+  %rxmsg_cnt.i = getelementptr inbounds nuw i8, ptr %s, i64 4
   store i8 0, ptr %rxmsg_cnt.i, align 4
-  %rx_cnt.i = getelementptr inbounds i8, ptr %s, i64 96
+  %rx_cnt.i = getelementptr inbounds nuw i8, ptr %s, i64 96
   store i32 0, ptr %rx_cnt.i, align 8
-  %control.i = getelementptr inbounds i8, ptr %s, i64 100
+  %control.i = getelementptr inbounds nuw i8, ptr %s, i64 100
   store i8 1, ptr %control.i, align 4
-  %status_bas.i = getelementptr inbounds i8, ptr %s, i64 101
+  %status_bas.i = getelementptr inbounds nuw i8, ptr %s, i64 101
   store i8 12, ptr %status_bas.i, align 1
-  %interrupt_bas.i = getelementptr inbounds i8, ptr %s, i64 102
+  %interrupt_bas.i = getelementptr inbounds nuw i8, ptr %s, i64 102
   store i8 0, ptr %interrupt_bas.i, align 2
   %0 = load ptr, ptr %irq1, align 8
   tail call void @qemu_set_irq(ptr noundef %0, i32 noundef 0) #8
@@ -1891,24 +1891,24 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @can_sja_post_load(ptr nocapture noundef readonly %opaque, i32 %version_id) #0 {
 entry:
-  %clock = getelementptr inbounds i8, ptr %opaque, i64 6
+  %clock = getelementptr inbounds nuw i8, ptr %opaque, i64 6
   %0 = load i8, ptr %clock, align 2
   %tobool.not = icmp sgt i8 %0, -1
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %interrupt_en.i = getelementptr inbounds i8, ptr %opaque, i64 3
+  %interrupt_en.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3
   %1 = load i8, ptr %interrupt_en.i, align 1
-  %interrupt_pel.i = getelementptr inbounds i8, ptr %opaque, i64 2
+  %interrupt_pel.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2
   %2 = load i8, ptr %interrupt_pel.i, align 2
   %and4.i = and i8 %2, %1
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %control.i = getelementptr inbounds i8, ptr %opaque, i64 100
+  %control.i = getelementptr inbounds nuw i8, ptr %opaque, i64 100
   %3 = load i8, ptr %control.i, align 4
   %4 = lshr i8 %3, 1
-  %interrupt_bas.i = getelementptr inbounds i8, ptr %opaque, i64 102
+  %interrupt_bas.i = getelementptr inbounds nuw i8, ptr %opaque, i64 102
   %5 = load i8, ptr %interrupt_bas.i, align 2
   %and4.i3 = and i8 %4, %5
   br label %if.end
@@ -1916,7 +1916,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %and4.i3.sink = phi i8 [ %and4.i3, %if.else ], [ %and4.i, %if.then ]
   %tobool.not.i4 = icmp ne i8 %and4.i3.sink, 0
-  %irq2.i5 = getelementptr inbounds i8, ptr %opaque, i64 144
+  %irq2.i5 = getelementptr inbounds nuw i8, ptr %opaque, i64 144
   %6 = load ptr, ptr %irq2.i5, align 8
   %..i6 = zext i1 %tobool.not.i4 to i32
   tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %..i6) #8

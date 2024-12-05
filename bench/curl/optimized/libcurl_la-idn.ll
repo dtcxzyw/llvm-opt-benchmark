@@ -15,7 +15,7 @@ entry:
 while.cond:                                       ; preds = %entry, %while.cond
   %ch.0 = phi ptr [ %incdec.ptr, %while.cond ], [ %hostname, %entry ]
   %0 = load i8, ptr %ch.0, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %ch.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %ch.0, i64 1
   %or.cond = icmp sgt i8 %0, 0
   br i1 %or.cond, label %while.cond, label %return.loopexit, !llvm.loop !4
 
@@ -110,7 +110,7 @@ if.end7:                                          ; preds = %idn_encode.exit, %i
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_free_idnconverted_hostname(ptr nocapture noundef %host) local_unnamed_addr #1 {
 entry:
-  %encalloc = getelementptr inbounds i8, ptr %host, i64 8
+  %encalloc = getelementptr inbounds nuw i8, ptr %host, i64 8
   %0 = load ptr, ptr %encalloc, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -128,9 +128,9 @@ if.end:                                           ; preds = %if.then, %entry
 define hidden range(i32 0, 5) i32 @Curl_idnconvert_hostname(ptr nocapture noundef initializes((24, 32)) %host) local_unnamed_addr #1 {
 entry:
   %decoded.i = alloca ptr, align 8
-  %name = getelementptr inbounds i8, ptr %host, i64 16
+  %name = getelementptr inbounds nuw i8, ptr %host, i64 16
   %0 = load ptr, ptr %name, align 8
-  %dispname = getelementptr inbounds i8, ptr %host, i64 24
+  %dispname = getelementptr inbounds nuw i8, ptr %host, i64 24
   store ptr %0, ptr %dispname, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %return, label %while.cond.i
@@ -142,7 +142,7 @@ while.cond.i:                                     ; preds = %entry, %while.body.
   br i1 %tobool1.not.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ch.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %ch.0.i, i64 1
   %tobool2.not.i = icmp sgt i8 %1, -1
   br i1 %tobool2.not.i, label %while.cond.i, label %if.then, !llvm.loop !4
 
@@ -180,7 +180,7 @@ if.then6:                                         ; preds = %if.then4
   br label %return
 
 if.end:                                           ; preds = %if.then4
-  %encalloc = getelementptr inbounds i8, ptr %host, i64 8
+  %encalloc = getelementptr inbounds nuw i8, ptr %host, i64 8
   store ptr %3, ptr %encalloc, align 8
   store ptr %3, ptr %name, align 8
   br label %return

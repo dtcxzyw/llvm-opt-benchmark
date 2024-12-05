@@ -25,21 +25,21 @@ define hidden noundef zeroext i1 @_ZN14JfrMemorySizer14adjust_optionsEP16JfrMemo
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 1
   %spec.select = zext nneg i8 %7 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 33
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   %11 = or disjoint i32 %spec.select, 2
   %.1 = select i1 %10, i32 %11, i32 %spec.select
-  %12 = getelementptr inbounds i8, ptr %0, i64 34
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %13 = load i8, ptr %12, align 2
   %14 = trunc i8 %13 to i1
   %15 = or disjoint i32 %.1, 4
   %.2 = select i1 %14, i32 %15, i32 %.1
-  %16 = getelementptr inbounds i8, ptr %0, i64 35
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   %19 = or i32 %.2, 8
@@ -92,7 +92,7 @@ _ZL18page_size_align_upRm.exit.i.i:               ; preds = %25, %23, %20
   %33 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %34 = udiv i64 %32, %33
   store i64 %34, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = udiv i64 %34, %36
   store i64 %37, ptr %3, align 8
@@ -113,7 +113,7 @@ _ZL18page_size_align_upRm.exit.i.i:               ; preds = %25, %23, %20
   br label %_ZL29memory_and_thread_buffer_sizeP16JfrMemoryOptions.exit
 
 _ZL29memory_and_thread_buffer_sizeP16JfrMemoryOptions.exit: ; preds = %_ZL18page_size_align_upRm.exit.i.i, %40, %42
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load i64, ptr %45, align 8
   %47 = load i64, ptr @_ZZL18page_size_align_upRmE9alignment, align 8
   %48 = add i64 %47, %46
@@ -139,12 +139,12 @@ _ZL29memory_and_thread_buffer_sizeP16JfrMemoryOptions.exit: ; preds = %_ZL18page
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %57, ptr %63, align 8
   br label %_ZL34memory_size_and_global_buffer_sizeP16JfrMemoryOptions.exit
 
 64:                                               ; preds = %1
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load atomic i8, ptr @_ZGVZL18page_size_align_upRmE9alignment acquire, align 8
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %68, label %_ZL18page_size_align_upRm.exit.i.i22, !prof !6
@@ -199,12 +199,12 @@ _ZL28memory_size_and_buffer_countP16JfrMemoryOptions.exit: ; preds = %83, %87
   %92 = mul i64 %.0.i.i, %78
   %93 = mul i64 %.012.i.i, %78
   store i64 %93, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %92, ptr %94, align 8
   br label %_ZL34memory_size_and_global_buffer_sizeP16JfrMemoryOptions.exit
 
 95:                                               ; preds = %1, %1
-  %96 = getelementptr inbounds i8, ptr %0, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %97 = load atomic i8, ptr @_ZGVZL18page_size_align_upRmE9alignment acquire, align 8
   %98 = icmp eq i8 %97, 0
   br i1 %98, label %99, label %_ZL18page_size_align_upRm.exit.i, !prof !6
@@ -228,9 +228,9 @@ _ZL18page_size_align_upRm.exit.i:                 ; preds = %101, %99, %95
   %107 = xor i64 %105, -1
   %108 = and i64 %106, %107
   store i64 %108, ptr %96, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %110 = tail call fastcc noundef i64 @_ZL21div_total_by_per_unitRmS_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %109)
-  %111 = getelementptr inbounds i8, ptr %0, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %110, ptr %111, align 8
   %112 = load i64, ptr %96, align 8
   %113 = load i64, ptr %109, align 8
@@ -244,9 +244,9 @@ _ZL18page_size_align_upRm.exit.i:                 ; preds = %101, %99, %95
   br label %_ZL34memory_size_and_global_buffer_sizeP16JfrMemoryOptions.exit
 
 117:                                              ; preds = %1, %1
-  %118 = getelementptr inbounds i8, ptr %0, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %119 = load i64, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %121 = load i64, ptr %120, align 8
   %122 = mul i64 %121, %119
   %123 = load i64, ptr %0, align 8
@@ -256,7 +256,7 @@ _ZL18page_size_align_upRm.exit.i:                 ; preds = %101, %99, %95
 124:                                              ; preds = %117
   %125 = tail call fastcc noundef i64 @_ZL21div_total_by_per_unitRmS_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %118)
   store i64 %125, ptr %120, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %127 = load atomic i8, ptr @_ZGVZL18page_size_align_upRmE9alignment acquire, align 8
   %128 = icmp eq i8 %127, 0
   br i1 %128, label %129, label %_ZL18page_size_align_upRm.exit.i25, !prof !6
@@ -291,7 +291,7 @@ _ZL18page_size_align_upRm.exit.i25:               ; preds = %131, %129, %124
   br label %_ZL34memory_size_and_global_buffer_sizeP16JfrMemoryOptions.exit
 
 143:                                              ; preds = %1, %1, %1, %1, %1
-  %144 = getelementptr inbounds i8, ptr %0, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %145 = load atomic i8, ptr @_ZGVZL18page_size_align_upRmE9alignment acquire, align 8
   %146 = icmp eq i8 %145, 0
   br i1 %146, label %147, label %_ZL18page_size_align_upRm.exit.i27, !prof !6
@@ -315,7 +315,7 @@ _ZL18page_size_align_upRm.exit.i27:               ; preds = %149, %147, %143
   %155 = xor i64 %153, -1
   %156 = and i64 %154, %155
   store i64 %156, ptr %144, align 8
-  %157 = getelementptr inbounds i8, ptr %0, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %158 = load i64, ptr %157, align 8
   %159 = icmp ugt i64 %156, %158
   br i1 %159, label %160, label %161
@@ -342,7 +342,7 @@ _ZL18page_size_align_upRm.exit.i27:               ; preds = %149, %147, %143
   br label %_ZL18global_buffer_sizeP16JfrMemoryOptions.exit
 
 _ZL18global_buffer_sizeP16JfrMemoryOptions.exit:  ; preds = %161, %164, %166
-  %169 = getelementptr inbounds i8, ptr %0, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %170 = load i64, ptr %157, align 8
   %171 = load i64, ptr @_ZZL18page_size_align_upRmE9alignment, align 8
   %172 = add i64 %171, %170
@@ -355,7 +355,7 @@ _ZL18global_buffer_sizeP16JfrMemoryOptions.exit:  ; preds = %161, %164, %166
   br label %_ZL34memory_size_and_global_buffer_sizeP16JfrMemoryOptions.exit
 
 177:                                              ; preds = %1, %1, %1
-  %178 = getelementptr inbounds i8, ptr %0, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %179 = load atomic i8, ptr @_ZGVZL18page_size_align_upRmE9alignment acquire, align 8
   %180 = icmp eq i8 %179, 0
   br i1 %180, label %181, label %_ZL18page_size_align_upRm.exit.i30, !prof !6
@@ -379,7 +379,7 @@ _ZL18page_size_align_upRm.exit.i30:               ; preds = %183, %181, %177
   %189 = xor i64 %187, -1
   %190 = and i64 %188, %189
   store i64 %190, ptr %178, align 8
-  %191 = getelementptr inbounds i8, ptr %0, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %192 = load atomic i8, ptr @_ZGVZL18page_size_align_upRmE9alignment acquire, align 8
   %193 = icmp eq i8 %192, 0
   br i1 %193, label %194, label %_ZL18page_size_align_upRm.exit.i.i31, !prof !6
@@ -434,7 +434,7 @@ _ZL18div_total_by_unitsRmS_.exit.i:               ; preds = %213, %209
   %218 = mul i64 %.0.i.i34, %204
   %219 = mul i64 %.012.i.i33, %204
   store i64 %219, ptr %0, align 8
-  %220 = getelementptr inbounds i8, ptr %0, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %218, ptr %220, align 8
   %221 = load i64, ptr %178, align 8
   %222 = icmp ugt i64 %221, %218
@@ -486,15 +486,15 @@ _ZL8multiplyRmS_.exit.i:                          ; preds = %233, %231, %228
   br label %_ZL34memory_size_and_global_buffer_sizeP16JfrMemoryOptions.exit
 
 _ZL34memory_size_and_global_buffer_sizeP16JfrMemoryOptions.exit: ; preds = %1, %243, %_ZL18div_total_by_unitsRmS_.exit.i, %141, %_ZL18page_size_align_upRm.exit.i25, %115, %_ZL18page_size_align_upRm.exit.i, %_ZL18global_buffer_sizeP16JfrMemoryOptions.exit, %_ZL28memory_size_and_buffer_countP16JfrMemoryOptions.exit, %_ZL29memory_and_thread_buffer_sizeP16JfrMemoryOptions.exit
-  %245 = getelementptr inbounds i8, ptr %0, i64 16
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %246 = load i64, ptr %245, align 8
   %247 = icmp ult i64 %246, 2
   br i1 %247, label %254, label %248
 
 248:                                              ; preds = %_ZL34memory_size_and_global_buffer_sizeP16JfrMemoryOptions.exit
-  %249 = getelementptr inbounds i8, ptr %0, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %250 = load i64, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %0, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %252 = load i64, ptr %251, align 8
   %253 = icmp uge i64 %250, %252
   br label %254

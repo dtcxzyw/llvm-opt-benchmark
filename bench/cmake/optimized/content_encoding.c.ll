@@ -51,7 +51,7 @@ define dso_local void @Curl_all_content_encodings(ptr noundef initializes((0, 1)
 
 12:                                               ; preds = %3, %7
   %.126 = phi i64 [ %.02533, %3 ], [ %11, %7 ]
-  %13 = getelementptr inbounds i8, ptr %.02334, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.02334, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %3, !llvm.loop !5
@@ -86,15 +86,15 @@ define dso_local void @Curl_all_content_encodings(ptr noundef initializes((0, 1)
   %26 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.036, ptr noundef nonnull dereferenceable(1) %25) #7
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.036) #8
   %28 = getelementptr inbounds i8, ptr %.036, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 44, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %28, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 2
   store i8 32, ptr %29, align 1
   br label %31
 
 31:                                               ; preds = %.preheader, %24
   %.1 = phi ptr [ %.036, %.preheader ], [ %30, %24 ]
-  %32 = getelementptr inbounds i8, ptr %.12435, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.12435, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not30 = icmp eq ptr %33, null
   br i1 %.not30, label %34, label %.preheader, !llvm.loop !7
@@ -121,9 +121,9 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   %4 = alloca ptr, align 8
   %.not.not = icmp eq i32 %2, 0
   %5 = select i1 %.not.not, i32 3, i32 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 2642
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %7 = load ptr, ptr @Curl_httpchunk_unencoder, align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @Curl_httpchunk_unencoder, i64 8), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Curl_httpchunk_unencoder, i64 8), align 8
   %.not44.i = icmp eq ptr %8, null
   br label %9
 
@@ -141,7 +141,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br label %13
 
 .critedge:                                        ; preds = %9, %9, %9
-  %12 = getelementptr inbounds i8, ptr %.143, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.143, i64 1
   br label %.backedge
 
 .backedge:                                        ; preds = %.critedge, %73
@@ -172,7 +172,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
 
 20:                                               ; preds = %15, %13, %13, %17
   %.1 = phi i64 [ %19, %17 ], [ %.041, %13 ], [ %.041, %13 ], [ %.041, %15 ]
-  %21 = getelementptr inbounds i8, ptr %.2, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %.pr = load i8, ptr %21, align 1
   br label %13, !llvm.loop !9
 
@@ -263,7 +263,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %.not38.i, label %find_unencode_writer.exit, label %55
 
 55:                                               ; preds = %51, %.loopexit47.i
-  %56 = getelementptr inbounds i8, ptr %48, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not39.i = icmp eq ptr %57, null
   br i1 %.not39.i, label %64, label %58
@@ -281,7 +281,7 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %.not41.i, label %find_unencode_writer.exit, label %64
 
 64:                                               ; preds = %60, %58, %55
-  %65 = getelementptr inbounds i8, ptr %.151.i, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.151.i, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not36.i = icmp eq ptr %66, null
   br i1 %.not36.i, label %find_unencode_writer.exit, label %.loopexit47.i, !llvm.loop !10
@@ -339,10 +339,10 @@ declare void @Curl_cwriter_def_close(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 62) i32 @deflate_do_init(ptr noundef %0, ptr noundef initializes((96, 112)) %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
-  %4 = getelementptr inbounds i8, ptr %1, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr @zalloc_cb, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr @zfree_cb, ptr %5, align 8
   %6 = tail call i32 @cm_zlib_inflateInit_(ptr noundef nonnull %3, ptr noundef nonnull @.str.5, i32 noundef 112) #7
   %.not = icmp eq i32 %6, 0
@@ -363,7 +363,7 @@ define internal range(i32 0, 62) i32 @deflate_do_init(ptr noundef %0, ptr nounde
   br label %process_zlib_error.exit
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 1, ptr %12, align 8
   br label %process_zlib_error.exit
 
@@ -379,18 +379,18 @@ define internal i32 @deflate_do_write(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %9, i32 noundef %2, ptr noundef %3, i64 noundef %4) #7
   br label %22
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %3, ptr %12, align 8
   %13 = trunc i64 %4 to i32
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 3
   br i1 %17, label %18, label %20
@@ -410,8 +410,8 @@ define internal i32 @deflate_do_write(ptr noundef %0, ptr noundef %1, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @deflate_do_close(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %7, label %10
@@ -478,10 +478,10 @@ declare i32 @Curl_cwriter_write(ptr noundef, ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 62) i32 @process_trailer(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = load i32, ptr %6, align 4
   %. = tail call i32 @llvm.umin.i32(i32 %5, i32 %7)
   %8 = sub i32 %7, %.
@@ -490,13 +490,13 @@ define internal fastcc range(i32 0, 62) i32 @process_trailer(ptr noundef %0, ptr
   store i32 %9, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   %11 = zext i32 %. to i64
-  %12 = getelementptr inbounds i8, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
   store ptr %12, ptr %3, align 8
   %.not.not = icmp ugt i32 %5, %7
   br i1 %.not.not, label %.split, label %21
 
 .split:                                           ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 4
   br i1 %15, label %16, label %18
@@ -520,7 +520,7 @@ process_zlib_error.exit.i:                        ; preds = %18
 
 21:                                               ; preds = %2
   %.not23.not = icmp ugt i32 %7, %5
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br i1 %.not23.not, label %35, label %.split19
 
 .split19:                                         ; preds = %21
@@ -575,11 +575,11 @@ exit_zlib.exit:                                   ; preds = %process_zlib_error.
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 2, 7) %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %13 [
     i32 1, label %17
@@ -613,11 +613,11 @@ define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not74, label %25, label %.preheader
 
 .preheader:                                       ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %1, i64 56
-  %21 = getelementptr inbounds i8, ptr %1, i64 64
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = getelementptr i8, ptr %1, i64 80
-  %24 = getelementptr inbounds i8, ptr %1, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 28
   br label %exit_zlib.exit97
 
 25:                                               ; preds = %17
@@ -873,10 +873,10 @@ declare i32 @cm_zlib_inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef initializes((96, 112)) %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
-  %4 = getelementptr inbounds i8, ptr %1, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr @zalloc_cb, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr @zfree_cb, ptr %5, align 8
   %6 = tail call ptr @cm_zlib_zlibVersion() #7
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(8) @.str.10) #8
@@ -903,7 +903,7 @@ define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef i
   br label %process_zlib_error.exit
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 6, ptr %16, align 8
   br label %process_zlib_error.exit
 
@@ -927,9 +927,9 @@ define internal range(i32 0, 62) i32 @gzip_do_init(ptr noundef %0, ptr noundef i
   br label %process_zlib_error.exit
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %1, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 8, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 1, ptr %25, align 8
   br label %process_zlib_error.exit
 
@@ -940,19 +940,19 @@ process_zlib_error.exit:                          ; preds = %22, %21, %14, %13, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = and i32 %2, 1
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %10, i32 noundef %2, ptr noundef %3, i64 noundef %4) #7
   br label %exit_zlib.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %184 [
     i32 6, label %15
@@ -964,7 +964,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
 15:                                               ; preds = %12
   store ptr %3, ptr %6, align 8
   %16 = trunc i64 %4 to i32
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %16, ptr %17, align 8
   %18 = tail call fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef 6)
   br label %exit_zlib.exit
@@ -979,15 +979,15 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not.i, label %23, label %76
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %3, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %25 = load i8, ptr %24, align 1
   %.not53.i = icmp eq i8 %25, -117
   br i1 %.not53.i, label %26, label %76
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %3, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %3, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %.not54.i = icmp eq i8 %28, 8
@@ -997,7 +997,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 32:                                               ; preds = %26
   %33 = add nsw i64 %4, -10
-  %34 = getelementptr inbounds i8, ptr %3, i64 10
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %35 = and i32 %31, 4
   %.not56.i = icmp eq i32 %35, 0
   br i1 %.not56.i, label %46, label %36
@@ -1015,7 +1015,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 43:                                               ; preds = %38
   %44 = sub nuw nsw i64 %33, %41
-  %45 = getelementptr inbounds i8, ptr %34, i64 %41
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 %41
   br label %46
 
 46:                                               ; preds = %43, %32
@@ -1035,7 +1035,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   %48 = load i8, ptr %.275.i, align 1
   %.not59.i = icmp eq i8 %48, 0
   %49 = add nsw i64 %.24874.i, -1
-  %50 = getelementptr inbounds i8, ptr %.275.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.275.i, i64 1
   br i1 %.not59.i, label %.critedge.i, label %51
 
 51:                                               ; preds = %.lr.ph.i
@@ -1061,7 +1061,7 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not63.i, label %.critedge2.i, label %54
 
 54:                                               ; preds = %.lr.ph79.i
-  %55 = getelementptr inbounds i8, ptr %.378.i, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.378.i, i64 1
   %.not62.i = icmp eq i64 %53, 0
   br i1 %.not62.i, label %.loopexit, label %.lr.ph79.i, !llvm.loop !13
 
@@ -1085,14 +1085,14 @@ define internal i32 @gzip_do_write(ptr noundef %0, ptr noundef %1, i32 noundef %
   %63 = getelementptr inbounds i8, ptr %3, i64 %62
   store ptr %63, ptr %6, align 8
   %64 = trunc i64 %.5.i to i32
-  %65 = getelementptr inbounds i8, ptr %1, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %64, ptr %65, align 8
   store i32 5, ptr %13, align 8
   br label %187
 
 .loopexit:                                        ; preds = %51, %54, %19, %36, %38, %57, %.preheader.i, %.preheader68.i
   %66 = trunc i64 %4 to i32
-  %67 = getelementptr inbounds i8, ptr %1, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %66, ptr %67, align 8
   %68 = load ptr, ptr @Curl_cmalloc, align 8
   %69 = and i64 %4, 4294967295
@@ -1151,7 +1151,7 @@ process_zlib_error.exit:                          ; preds = %78, %79
 
 89:                                               ; preds = %12
   %90 = trunc i64 %4 to i32
-  %91 = getelementptr inbounds i8, ptr %1, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %92 = load i32, ptr %91, align 8
   %93 = add i32 %92, %90
   store i32 %93, ptr %91, align 8
@@ -1187,7 +1187,7 @@ process_zlib_error.exit:                          ; preds = %78, %79
 106:                                              ; preds = %89
   %107 = load i32, ptr %91, align 8
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %96, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %96, i64 %108
   %110 = sub i64 0, %4
   %111 = getelementptr inbounds i8, ptr %109, i64 %110
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr align 1 %3, i64 %4, i1 false)
@@ -1203,15 +1203,15 @@ process_zlib_error.exit:                          ; preds = %78, %79
   br i1 %.not.i101, label %118, label %167
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %112, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %112, i64 1
   %120 = load i8, ptr %119, align 1
   %.not53.i103 = icmp eq i8 %120, -117
   br i1 %.not53.i103, label %121, label %167
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %112, i64 2
+  %122 = getelementptr inbounds nuw i8, ptr %112, i64 2
   %123 = load i8, ptr %122, align 1
-  %124 = getelementptr inbounds i8, ptr %112, i64 3
+  %124 = getelementptr inbounds nuw i8, ptr %112, i64 3
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
   %.not54.i104 = icmp eq i8 %123, 8
@@ -1221,7 +1221,7 @@ process_zlib_error.exit:                          ; preds = %78, %79
 
 127:                                              ; preds = %121
   %128 = add nsw i64 %114, -10
-  %129 = getelementptr inbounds i8, ptr %112, i64 10
+  %129 = getelementptr inbounds nuw i8, ptr %112, i64 10
   %130 = and i32 %126, 4
   %.not56.i107 = icmp eq i32 %130, 0
   br i1 %.not56.i107, label %141, label %131
@@ -1239,7 +1239,7 @@ process_zlib_error.exit:                          ; preds = %78, %79
 
 138:                                              ; preds = %133
   %139 = sub nuw nsw i64 %128, %136
-  %140 = getelementptr inbounds i8, ptr %129, i64 %136
+  %140 = getelementptr inbounds nuw i8, ptr %129, i64 %136
   br label %141
 
 141:                                              ; preds = %138, %127
@@ -1259,7 +1259,7 @@ process_zlib_error.exit:                          ; preds = %78, %79
   %143 = load i8, ptr %.275.i114, align 1
   %.not59.i116 = icmp eq i8 %143, 0
   %144 = add nsw i64 %.24874.i115, -1
-  %145 = getelementptr inbounds i8, ptr %.275.i114, i64 1
+  %145 = getelementptr inbounds nuw i8, ptr %.275.i114, i64 1
   br i1 %.not59.i116, label %.critedge.i118, label %146
 
 146:                                              ; preds = %.lr.ph.i113
@@ -1285,7 +1285,7 @@ process_zlib_error.exit:                          ; preds = %78, %79
   br i1 %.not63.i127, label %.critedge2.i129, label %149
 
 149:                                              ; preds = %.lr.ph79.i124
-  %150 = getelementptr inbounds i8, ptr %.378.i125, i64 1
+  %150 = getelementptr inbounds nuw i8, ptr %.378.i125, i64 1
   %.not62.i128 = icmp eq i64 %148, 0
   br i1 %.not62.i128, label %exit_zlib.exit, label %.lr.ph79.i124, !llvm.loop !13
 
@@ -1361,7 +1361,7 @@ process_zlib_error.exit135:                       ; preds = %169, %170
 180:                                              ; preds = %12
   store ptr %3, ptr %6, align 8
   %181 = trunc i64 %4 to i32
-  %182 = getelementptr inbounds i8, ptr %1, i64 40
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %181, ptr %182, align 8
   %183 = tail call fastcc i32 @process_trailer(ptr noundef %0, ptr noundef nonnull %1)
   br label %exit_zlib.exit
@@ -1369,7 +1369,7 @@ process_zlib_error.exit135:                       ; preds = %169, %170
 184:                                              ; preds = %12
   store ptr %3, ptr %6, align 8
   %185 = trunc i64 %4 to i32
-  %186 = getelementptr inbounds i8, ptr %1, i64 40
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %185, ptr %186, align 8
   br label %187
 
@@ -1389,8 +1389,8 @@ exit_zlib.exit:                                   ; preds = %146, %149, %.prehea
 
 ; Function Attrs: nounwind uwtable
 define internal void @gzip_do_close(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %7, label %10
@@ -1459,7 +1459,7 @@ define internal i32 @error_do_write(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %10, i32 noundef %2, ptr noundef %3, i64 noundef %4) #7
   br label %13

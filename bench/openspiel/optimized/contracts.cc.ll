@@ -75,27 +75,27 @@ define noundef zeroext i1 @_ZNK10open_spiel5tarok8Contract18NeedsTalonExchangeEv
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10open_spiel5tarok19InitializeContractsEv(ptr dead_on_unwind noalias writable sret(%"struct.std::array") align 4 %0) local_unnamed_addr #5 {
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %0, i32 noundef 0, i32 noundef 70, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true)
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %2, i32 noundef 1, i32 noundef 10, i32 noundef 3, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %3, i32 noundef 2, i32 noundef 20, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %4, i32 noundef 3, i32 noundef 30, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %5, i32 noundef 4, i32 noundef 40, i32 noundef 3, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %6, i32 noundef 5, i32 noundef 50, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %7, i32 noundef 6, i32 noundef 60, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %8, i32 noundef 7, i32 noundef 70, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %9, i32 noundef 8, i32 noundef 80, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %10, i32 noundef 9, i32 noundef 90, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
-  %11 = getelementptr inbounds i8, ptr %0, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %11, i32 noundef 10, i32 noundef 125, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
-  %12 = getelementptr inbounds i8, ptr %0, i64 176
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZN10open_spiel5tarok8ContractC1ENS0_12ContractNameEiibbb(ptr noundef nonnull align 4 dereferenceable(15) %12, i32 noundef 11, i32 noundef 500, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
   ret void
 }

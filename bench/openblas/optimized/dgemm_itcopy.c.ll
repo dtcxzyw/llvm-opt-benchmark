@@ -29,7 +29,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %19 = phi ptr [ %12, %10 ], [ %152, %144 ]
   %20 = sub nuw nsw i64 %0, %15
   %.idx = shl nsw i64 %20, 7
-  %21 = getelementptr inbounds i8, ptr %4, i64 %.idx
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   br i1 %13, label %.preheader49, label %.loopexit50
 
 .preheader49:                                     ; preds = %14, %.preheader49
@@ -40,37 +40,37 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %26 = phi ptr [ %43, %.preheader49 ], [ %19, %14 ]
   %27 = phi ptr [ %51, %.preheader49 ], [ %21, %14 ]
   %28 = load <8 x double>, ptr %23, align 1, !tbaa !3
-  %29 = getelementptr inbounds i8, ptr %23, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %30 = load <8 x double>, ptr %29, align 1, !tbaa !3
-  %31 = getelementptr inbounds i8, ptr %23, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 128
   %32 = load <8 x double>, ptr %24, align 1, !tbaa !3
-  %33 = getelementptr inbounds i8, ptr %24, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %34 = load <8 x double>, ptr %33, align 1, !tbaa !3
-  %35 = getelementptr inbounds i8, ptr %24, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %36 = load <8 x double>, ptr %25, align 1, !tbaa !3
-  %37 = getelementptr inbounds i8, ptr %25, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %38 = load <8 x double>, ptr %37, align 1, !tbaa !3
-  %39 = getelementptr inbounds i8, ptr %25, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %40 = load <8 x double>, ptr %26, align 1, !tbaa !3
-  %41 = getelementptr inbounds i8, ptr %26, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %42 = load <8 x double>, ptr %41, align 1, !tbaa !3
-  %43 = getelementptr inbounds i8, ptr %26, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 128
   store <8 x double> %28, ptr %27, align 1, !tbaa !3
-  %44 = getelementptr inbounds i8, ptr %27, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store <8 x double> %30, ptr %44, align 1, !tbaa !3
-  %45 = getelementptr inbounds i8, ptr %27, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 128
   store <8 x double> %32, ptr %45, align 1, !tbaa !3
-  %46 = getelementptr inbounds i8, ptr %27, i64 192
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 192
   store <8 x double> %34, ptr %46, align 1, !tbaa !3
-  %47 = getelementptr inbounds i8, ptr %27, i64 256
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 256
   store <8 x double> %36, ptr %47, align 1, !tbaa !3
-  %48 = getelementptr inbounds i8, ptr %27, i64 320
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 320
   store <8 x double> %38, ptr %48, align 1, !tbaa !3
-  %49 = getelementptr inbounds i8, ptr %27, i64 384
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 384
   store <8 x double> %40, ptr %49, align 1, !tbaa !3
-  %50 = getelementptr inbounds i8, ptr %27, i64 448
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 448
   store <8 x double> %42, ptr %50, align 1, !tbaa !3
-  %51 = getelementptr inbounds i8, ptr %27, i64 %.idx23
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx23
   %52 = add nsw i64 %22, -16
   %53 = icmp samesign ugt i64 %22, 31
   br i1 %53, label %.preheader49, label %.loopexit50, !llvm.loop !6
@@ -89,21 +89,21 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 62:                                               ; preds = %.loopexit50
   %63 = load <8 x double>, ptr %58, align 1, !tbaa !3
-  %64 = getelementptr inbounds i8, ptr %58, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %65 = load <8 x double>, ptr %57, align 1, !tbaa !3
-  %66 = getelementptr inbounds i8, ptr %57, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %67 = load <8 x double>, ptr %56, align 1, !tbaa !3
-  %68 = getelementptr inbounds i8, ptr %56, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %69 = load <8 x double>, ptr %55, align 1, !tbaa !3
-  %70 = getelementptr inbounds i8, ptr %55, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %55, i64 64
   store <8 x double> %63, ptr %60, align 1, !tbaa !3
-  %71 = getelementptr inbounds i8, ptr %60, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %60, i64 64
   store <8 x double> %65, ptr %71, align 1, !tbaa !3
-  %72 = getelementptr inbounds i8, ptr %60, i64 128
+  %72 = getelementptr inbounds nuw i8, ptr %60, i64 128
   store <8 x double> %67, ptr %72, align 1, !tbaa !3
-  %73 = getelementptr inbounds i8, ptr %60, i64 192
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 192
   store <8 x double> %69, ptr %73, align 1, !tbaa !3
-  %74 = getelementptr inbounds i8, ptr %60, i64 %.idx25
+  %74 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx25
   %75 = add nsw i64 %59, -8
   br label %76
 
@@ -121,21 +121,21 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 85:                                               ; preds = %76
   %86 = load <4 x double>, ptr %81, align 1, !tbaa !3
-  %87 = getelementptr inbounds i8, ptr %81, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %88 = load <4 x double>, ptr %80, align 1, !tbaa !3
-  %89 = getelementptr inbounds i8, ptr %80, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %90 = load <4 x double>, ptr %79, align 1, !tbaa !3
-  %91 = getelementptr inbounds i8, ptr %79, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %92 = load <4 x double>, ptr %78, align 1, !tbaa !3
-  %93 = getelementptr inbounds i8, ptr %78, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %78, i64 32
   store <4 x double> %86, ptr %83, align 1, !tbaa !3
-  %94 = getelementptr inbounds i8, ptr %83, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %83, i64 32
   store <4 x double> %88, ptr %94, align 1, !tbaa !3
-  %95 = getelementptr inbounds i8, ptr %83, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %83, i64 64
   store <4 x double> %90, ptr %95, align 1, !tbaa !3
-  %96 = getelementptr inbounds i8, ptr %83, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %83, i64 96
   store <4 x double> %92, ptr %96, align 1, !tbaa !3
-  %97 = getelementptr inbounds i8, ptr %83, i64 %.idx27
+  %97 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx27
   %98 = add nsw i64 %82, -4
   br label %99
 
@@ -153,21 +153,21 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 108:                                              ; preds = %99
   %109 = load <2 x double>, ptr %104, align 1, !tbaa !3
-  %110 = getelementptr inbounds i8, ptr %104, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %111 = load <2 x double>, ptr %103, align 1, !tbaa !3
-  %112 = getelementptr inbounds i8, ptr %103, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %113 = load <2 x double>, ptr %102, align 1, !tbaa !3
-  %114 = getelementptr inbounds i8, ptr %102, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %115 = load <2 x double>, ptr %101, align 1, !tbaa !3
-  %116 = getelementptr inbounds i8, ptr %101, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store <2 x double> %109, ptr %106, align 1, !tbaa !3
-  %117 = getelementptr inbounds i8, ptr %106, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store <2 x double> %111, ptr %117, align 1, !tbaa !3
-  %118 = getelementptr inbounds i8, ptr %106, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store <2 x double> %113, ptr %118, align 1, !tbaa !3
-  %119 = getelementptr inbounds i8, ptr %106, i64 48
+  %119 = getelementptr inbounds nuw i8, ptr %106, i64 48
   store <2 x double> %115, ptr %119, align 1, !tbaa !3
-  %120 = getelementptr inbounds i8, ptr %106, i64 %.idx29
+  %120 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx29
   %121 = add nsw i64 %105, -2
   br label %122
 
@@ -185,19 +185,19 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %131 = sub nsw i64 0, %20
   %132 = getelementptr inbounds double, ptr %123, i64 %131
   %133 = load double, ptr %127, align 8, !tbaa !9
-  %134 = getelementptr inbounds i8, ptr %127, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %135 = load double, ptr %126, align 8, !tbaa !9
-  %136 = getelementptr inbounds i8, ptr %126, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %137 = load double, ptr %125, align 8, !tbaa !9
-  %138 = getelementptr inbounds i8, ptr %125, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %139 = load double, ptr %124, align 8, !tbaa !9
-  %140 = getelementptr inbounds i8, ptr %124, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store double %133, ptr %132, align 8, !tbaa !9
-  %141 = getelementptr inbounds i8, ptr %132, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store double %135, ptr %141, align 8, !tbaa !9
-  %142 = getelementptr inbounds i8, ptr %132, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store double %137, ptr %142, align 8, !tbaa !9
-  %143 = getelementptr inbounds i8, ptr %132, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store double %139, ptr %143, align 8, !tbaa !9
   br label %144
 
@@ -254,19 +254,19 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %176 = phi ptr [ %185, %173 ], [ %170, %.preheader46.us ]
   %177 = phi ptr [ %189, %173 ], [ %172, %.preheader46.us ]
   %178 = load <8 x double>, ptr %175, align 1, !tbaa !3
-  %179 = getelementptr inbounds i8, ptr %175, i64 64
+  %179 = getelementptr inbounds nuw i8, ptr %175, i64 64
   %180 = load <8 x double>, ptr %179, align 1, !tbaa !3
-  %181 = getelementptr inbounds i8, ptr %175, i64 128
+  %181 = getelementptr inbounds nuw i8, ptr %175, i64 128
   %182 = load <8 x double>, ptr %176, align 1, !tbaa !3
-  %183 = getelementptr inbounds i8, ptr %176, i64 64
+  %183 = getelementptr inbounds nuw i8, ptr %176, i64 64
   %184 = load <8 x double>, ptr %183, align 1, !tbaa !3
-  %185 = getelementptr inbounds i8, ptr %176, i64 128
+  %185 = getelementptr inbounds nuw i8, ptr %176, i64 128
   store <8 x double> %178, ptr %177, align 1, !tbaa !3
-  %186 = getelementptr inbounds i8, ptr %177, i64 64
+  %186 = getelementptr inbounds nuw i8, ptr %177, i64 64
   store <8 x double> %180, ptr %186, align 1, !tbaa !3
-  %187 = getelementptr inbounds i8, ptr %177, i64 128
+  %187 = getelementptr inbounds nuw i8, ptr %177, i64 128
   store <8 x double> %182, ptr %187, align 1, !tbaa !3
-  %188 = getelementptr inbounds i8, ptr %177, i64 192
+  %188 = getelementptr inbounds nuw i8, ptr %177, i64 192
   store <8 x double> %184, ptr %188, align 1, !tbaa !3
   %189 = getelementptr inbounds i8, ptr %177, i64 %.idx31
   %190 = add nsw i64 %174, -16
@@ -275,11 +275,11 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 192:                                              ; preds = %.loopexit47.us
   %193 = load <8 x double>, ptr %181, align 1, !tbaa !3
-  %194 = getelementptr inbounds i8, ptr %175, i64 192
+  %194 = getelementptr inbounds nuw i8, ptr %175, i64 192
   %195 = load <8 x double>, ptr %185, align 1, !tbaa !3
-  %196 = getelementptr inbounds i8, ptr %176, i64 192
+  %196 = getelementptr inbounds nuw i8, ptr %176, i64 192
   store <8 x double> %193, ptr %250, align 1, !tbaa !3
-  %197 = getelementptr inbounds i8, ptr %250, i64 64
+  %197 = getelementptr inbounds nuw i8, ptr %250, i64 64
   store <8 x double> %195, ptr %197, align 1, !tbaa !3
   %198 = getelementptr inbounds i8, ptr %250, i64 %.idx33
   br label %199
@@ -296,11 +296,11 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 206:                                              ; preds = %199
   %207 = load <4 x double>, ptr %202, align 1, !tbaa !3
-  %208 = getelementptr inbounds i8, ptr %202, i64 32
+  %208 = getelementptr inbounds nuw i8, ptr %202, i64 32
   %209 = load <4 x double>, ptr %201, align 1, !tbaa !3
-  %210 = getelementptr inbounds i8, ptr %201, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %201, i64 32
   store <4 x double> %207, ptr %204, align 1, !tbaa !3
-  %211 = getelementptr inbounds i8, ptr %204, i64 32
+  %211 = getelementptr inbounds nuw i8, ptr %204, i64 32
   store <4 x double> %209, ptr %211, align 1, !tbaa !3
   %212 = getelementptr inbounds i8, ptr %204, i64 %.idx35
   %213 = add nsw i64 %203, -4
@@ -318,11 +318,11 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 221:                                              ; preds = %214
   %222 = load <2 x double>, ptr %217, align 1, !tbaa !3
-  %223 = getelementptr inbounds i8, ptr %217, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %224 = load <2 x double>, ptr %216, align 1, !tbaa !3
-  %225 = getelementptr inbounds i8, ptr %216, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store <2 x double> %222, ptr %219, align 1, !tbaa !3
-  %226 = getelementptr inbounds i8, ptr %219, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %219, i64 16
   store <2 x double> %224, ptr %226, align 1, !tbaa !3
   %227 = getelementptr inbounds i8, ptr %219, i64 %.idx37
   %228 = add nsw i64 %218, -2
@@ -340,11 +340,11 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %236 = sub i64 0, %171
   %237 = getelementptr inbounds double, ptr %230, i64 %236
   %238 = load double, ptr %232, align 8, !tbaa !9
-  %239 = getelementptr inbounds i8, ptr %232, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %240 = load double, ptr %231, align 8, !tbaa !9
-  %241 = getelementptr inbounds i8, ptr %231, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %231, i64 8
   store double %238, ptr %237, align 8, !tbaa !9
-  %242 = getelementptr inbounds i8, ptr %237, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store double %240, ptr %242, align 8, !tbaa !9
   br label %243
 
@@ -380,11 +380,11 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 260:                                              ; preds = %253
   %261 = load <8 x double>, ptr %255, align 1, !tbaa !3
-  %262 = getelementptr inbounds i8, ptr %255, i64 64
+  %262 = getelementptr inbounds nuw i8, ptr %255, i64 64
   %263 = load <8 x double>, ptr %256, align 1, !tbaa !3
-  %264 = getelementptr inbounds i8, ptr %256, i64 64
+  %264 = getelementptr inbounds nuw i8, ptr %256, i64 64
   store <8 x double> %261, ptr %259, align 1, !tbaa !3
-  %265 = getelementptr inbounds i8, ptr %259, i64 64
+  %265 = getelementptr inbounds nuw i8, ptr %259, i64 64
   store <8 x double> %263, ptr %265, align 1, !tbaa !3
   %266 = getelementptr inbounds i8, ptr %259, i64 %.idx33
   br label %267
@@ -401,11 +401,11 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 274:                                              ; preds = %267
   %275 = load <4 x double>, ptr %270, align 1, !tbaa !3
-  %276 = getelementptr inbounds i8, ptr %270, i64 32
+  %276 = getelementptr inbounds nuw i8, ptr %270, i64 32
   %277 = load <4 x double>, ptr %269, align 1, !tbaa !3
-  %278 = getelementptr inbounds i8, ptr %269, i64 32
+  %278 = getelementptr inbounds nuw i8, ptr %269, i64 32
   store <4 x double> %275, ptr %272, align 1, !tbaa !3
-  %279 = getelementptr inbounds i8, ptr %272, i64 32
+  %279 = getelementptr inbounds nuw i8, ptr %272, i64 32
   store <4 x double> %277, ptr %279, align 1, !tbaa !3
   %280 = getelementptr inbounds i8, ptr %272, i64 %.idx35
   %281 = add nsw i64 %271, -4
@@ -423,11 +423,11 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 289:                                              ; preds = %282
   %290 = load <2 x double>, ptr %285, align 1, !tbaa !3
-  %291 = getelementptr inbounds i8, ptr %285, i64 16
+  %291 = getelementptr inbounds nuw i8, ptr %285, i64 16
   %292 = load <2 x double>, ptr %284, align 1, !tbaa !3
-  %293 = getelementptr inbounds i8, ptr %284, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %284, i64 16
   store <2 x double> %290, ptr %287, align 1, !tbaa !3
-  %294 = getelementptr inbounds i8, ptr %287, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %287, i64 16
   store <2 x double> %292, ptr %294, align 1, !tbaa !3
   %295 = getelementptr inbounds i8, ptr %287, i64 %.idx37
   %296 = add nsw i64 %286, -2
@@ -445,11 +445,11 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %304 = sub i64 0, %257
   %305 = getelementptr inbounds double, ptr %298, i64 %304
   %306 = load double, ptr %300, align 8, !tbaa !9
-  %307 = getelementptr inbounds i8, ptr %300, i64 8
+  %307 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %308 = load double, ptr %299, align 8, !tbaa !9
-  %309 = getelementptr inbounds i8, ptr %299, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %299, i64 8
   store double %306, ptr %305, align 8, !tbaa !9
-  %310 = getelementptr inbounds i8, ptr %305, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store double %308, ptr %310, align 8, !tbaa !9
   br label %311
 
@@ -485,11 +485,11 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %328 = phi ptr [ %333, %326 ], [ %318, %.preheader ]
   %329 = phi ptr [ %335, %326 ], [ %323, %.preheader ]
   %330 = load <8 x double>, ptr %328, align 1, !tbaa !3
-  %331 = getelementptr inbounds i8, ptr %328, i64 64
+  %331 = getelementptr inbounds nuw i8, ptr %328, i64 64
   %332 = load <8 x double>, ptr %331, align 1, !tbaa !3
-  %333 = getelementptr inbounds i8, ptr %328, i64 128
+  %333 = getelementptr inbounds nuw i8, ptr %328, i64 128
   store <8 x double> %330, ptr %329, align 1, !tbaa !3
-  %334 = getelementptr inbounds i8, ptr %329, i64 64
+  %334 = getelementptr inbounds nuw i8, ptr %329, i64 64
   store <8 x double> %332, ptr %334, align 1, !tbaa !3
   %335 = getelementptr inbounds i8, ptr %329, i64 %.idx39
   %336 = add nsw i64 %327, -16
@@ -507,7 +507,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 343:                                              ; preds = %.loopexit
   %344 = load <8 x double>, ptr %339, align 1, !tbaa !3
-  %345 = getelementptr inbounds i8, ptr %339, i64 64
+  %345 = getelementptr inbounds nuw i8, ptr %339, i64 64
   store <8 x double> %344, ptr %341, align 1, !tbaa !3
   %.idx41 = shl nsw i64 %0, 6
   %346 = getelementptr inbounds i8, ptr %341, i64 %.idx41
@@ -525,7 +525,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 354:                                              ; preds = %348
   %355 = load <4 x double>, ptr %350, align 1, !tbaa !3
-  %356 = getelementptr inbounds i8, ptr %350, i64 32
+  %356 = getelementptr inbounds nuw i8, ptr %350, i64 32
   store <4 x double> %355, ptr %352, align 1, !tbaa !3
   %.idx43 = shl nsw i64 %0, 5
   %357 = getelementptr inbounds i8, ptr %352, i64 %.idx43
@@ -543,7 +543,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 365:                                              ; preds = %359
   %366 = load <2 x double>, ptr %361, align 1, !tbaa !3
-  %367 = getelementptr inbounds i8, ptr %361, i64 16
+  %367 = getelementptr inbounds nuw i8, ptr %361, i64 16
   store <2 x double> %366, ptr %363, align 1, !tbaa !3
   %.idx45 = shl nsw i64 %0, 4
   %368 = getelementptr inbounds i8, ptr %363, i64 %.idx45

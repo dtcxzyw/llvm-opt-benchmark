@@ -181,7 +181,7 @@ define dso_local void @tcp_set_ca_state(ptr noundef %0, i8 noundef zeroext %1) l
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @__SCT__tp_func_tcp_cong_state_set(ptr noundef %14, ptr noundef %0, i8 noundef zeroext %1) #16
   br label %16
@@ -201,9 +201,9 @@ define dso_local void @tcp_set_ca_state(ptr noundef %0, i8 noundef zeroext %1) l
   br label %23
 
 23:                                               ; preds = %20, %16, %3, %2
-  %24 = getelementptr inbounds i8, ptr %0, i64 1160
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 16
   %28 = icmp eq ptr %27, null
   br i1 %28, label %30, label %29
@@ -213,7 +213,7 @@ define dso_local void @tcp_set_ca_state(ptr noundef %0, i8 noundef zeroext %1) l
   br label %30
 
 30:                                               ; preds = %29, %23
-  %31 = getelementptr inbounds i8, ptr %0, i64 1208
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %32 = load i8, ptr %31, align 8
   %33 = and i8 %1, 31
   %34 = and i8 %32, -32
@@ -254,26 +254,26 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_validate_congestion_control(
   br i1 %3, label %16, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 64
   %7 = icmp eq ptr %6, null
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %12, %4, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
-  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %17) #17
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull %17) #17
   br label %19
 
 19:                                               ; preds = %16, %12, %8
@@ -291,31 +291,31 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_register_congestion_control(
   br i1 %3, label %16, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 64
   %7 = icmp eq ptr %6, null
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %1, %4, %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
-  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %17) #17
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull %17) #17
   br label %99
 
 19:                                               ; preds = %12, %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
-  %21 = tail call i64 @strlen(ptr noundef %20) #16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #16
   %22 = trunc i64 %21 to i32
   %23 = load i32, ptr %20, align 1
   %24 = getelementptr i8, ptr %0, i64 92
@@ -373,7 +373,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_register_congestion_control(
   %76 = tail call noundef i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 24)
   %77 = xor i32 %75, %69
   %78 = sub i32 %77, %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 128
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %78, ptr %79, align 64
   tail call void @_raw_spin_lock(ptr noundef nonnull @tcp_cong_list_lock) #16
   %80 = load i32, ptr %79, align 64
@@ -398,14 +398,14 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_register_congestion_control(
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %89, %19
-  %93 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %20) #17
+  %93 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %20) #17
   br label %97
 
 .loopexit:                                        ; preds = %.preheader, %89
-  %94 = getelementptr inbounds i8, ptr %0, i64 112
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %95 = load ptr, ptr getelementptr inbounds (i8, ptr @tcp_cong_list, i64 8), align 8
   store ptr @tcp_cong_list, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 120
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %95, ptr %96, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
   store volatile ptr %94, ptr %95, align 8
@@ -428,11 +428,11 @@ declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_unregister_congestion_control(ptr nocapture noundef %0) #3 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @tcp_cong_list_lock) #16
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %3, align 8
@@ -451,31 +451,31 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(pt
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 64
   %8 = icmp eq ptr %7, null
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %2, %5, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
-  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %18) #17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull %18) #17
   br label %114
 
 20:                                               ; preds = %13, %9
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
-  %22 = tail call i64 @strlen(ptr noundef %21) #16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #16
   %23 = trunc i64 %22 to i32
   %24 = load i32, ptr %21, align 1
   %25 = getelementptr i8, ptr %0, i64 92
@@ -533,10 +533,10 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(pt
   %77 = tail call noundef i32 @llvm.fshl.i32(i32 %76, i32 %76, i32 24)
   %78 = xor i32 %76, %70
   %79 = sub i32 %78, %77
-  %80 = getelementptr inbounds i8, ptr %0, i64 128
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %79, ptr %80, align 64
   tail call void @_raw_spin_lock(ptr noundef nonnull @tcp_cong_list_lock) #16
-  %81 = getelementptr inbounds i8, ptr %1, i64 128
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %82 = load i32, ptr %81, align 64
   br label %83
 
@@ -562,12 +562,12 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(pt
 
 97:                                               ; preds = %91
   %98 = getelementptr i8, ptr %85, i64 -24
-  %99 = tail call i32 @strcmp(ptr noundef %98, ptr noundef %21) #16
+  %99 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(1) %21) #16
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %102, label %.thread2
 
 .thread2:                                         ; preds = %83, %97, %91
-  %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %21) #17
+  %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull %21) #17
   br label %.thread4
 
 102:                                              ; preds = %97
@@ -583,10 +583,10 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(pt
   br label %114
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %0, i64 112
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %108 = load ptr, ptr getelementptr inbounds (i8, ptr @tcp_cong_list, i64 8), align 8
   store ptr @tcp_cong_list, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %108, ptr %109, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !19
   store volatile ptr %107, ptr %108, align 8
@@ -594,7 +594,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_update_congestion_control(pt
   %110 = getelementptr i8, ptr %85, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %85, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr %111, ptr %113, align 8
   store volatile ptr %112, ptr %111, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %110, align 8
@@ -616,9 +616,9 @@ define dso_local i32 @tcp_ca_get_key_by_name(ptr nocapture noundef readnone %0, 
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %9 = load i32, ptr %8, align 64
-  %10 = getelementptr inbounds i8, ptr %5, i64 132
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 132
   %11 = load i32, ptr %10, align 4
   %12 = trunc i32 %11 to i8
   %13 = lshr i8 %12, 1
@@ -708,7 +708,7 @@ define dso_local noundef ptr @tcp_ca_get_name_by_key(i32 noundef %0, ptr noundef
 
 14:                                               ; preds = %11
   %15 = getelementptr i8, ptr %5, i64 -24
-  %16 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %15, i64 noundef 16) #16
+  %16 = tail call ptr @strncpy(ptr noundef %1, ptr noundef nonnull dereferenceable(1) %15, i64 noundef 16) #16
   br label %.thread
 
 .thread:                                          ; preds = %3, %14, %11
@@ -722,12 +722,12 @@ declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_assign_congestion_control(ptr noundef initializes((1160, 1168), (1264, 1368)) %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @__rcu_read_lock() #16
-  %4 = getelementptr inbounds i8, ptr %3, i64 1240
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1240
   %5 = load volatile ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i1 @try_module_get(ptr noundef %7) #16
   br i1 %8, label %10, label %9, !prof !16
@@ -737,18 +737,18 @@ define dso_local void @tcp_assign_congestion_control(ptr noundef initializes((11
 
 10:                                               ; preds = %9, %1
   %11 = phi ptr [ @tcp_reno, %9 ], [ %5, %1 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 1160
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   store ptr %11, ptr %12, align 8
   tail call void @__rcu_read_unlock() #16
-  %13 = getelementptr inbounds i8, ptr %0, i64 1264
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
-  %14 = getelementptr inbounds i8, ptr %11, i64 132
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1264
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %13, i8 0, i64 104, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 132
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 2
   %17 = icmp eq i32 %16, 0
-  %18 = getelementptr inbounds i8, ptr %0, i64 780
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %19 = load i8, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 18
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 18
   br i1 %17, label %42, label %21
 
 21:                                               ; preds = %10
@@ -762,7 +762,7 @@ define dso_local void @tcp_assign_congestion_control(ptr noundef initializes((11
   br i1 %27, label %63, label %28
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %0, i64 744
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %63, label %32
@@ -774,7 +774,7 @@ define dso_local void @tcp_assign_congestion_control(ptr noundef initializes((11
   %36 = and i32 %35, -4161
   %37 = icmp eq i32 %36, 0
   %38 = select i1 %37, ptr null, ptr %30
-  %39 = getelementptr inbounds i8, ptr %38, i64 73
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 73
   %40 = load i8, ptr %39, align 1
   %41 = or i8 %40, 2
   store i8 %41, ptr %39, align 1
@@ -791,7 +791,7 @@ define dso_local void @tcp_assign_congestion_control(ptr noundef initializes((11
   br i1 %48, label %63, label %49
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %0, i64 744
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %63, label %53
@@ -803,7 +803,7 @@ define dso_local void @tcp_assign_congestion_control(ptr noundef initializes((11
   %57 = and i32 %56, -4161
   %58 = icmp eq i32 %57, 0
   %59 = select i1 %58, ptr null, ptr %51
-  %60 = getelementptr inbounds i8, ptr %59, i64 73
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 73
   %61 = load i8, ptr %60, align 1
   %62 = and i8 %61, -4
   store i8 %62, ptr %60, align 1
@@ -818,11 +818,11 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_init_congestion_control(ptr noundef initializes((2140, 2144)) %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2140
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2140
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 1160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -834,13 +834,13 @@ define dso_local void @tcp_init_congestion_control(ptr noundef initializes((2140
 
 9:                                                ; preds = %8, %1
   %10 = phi ptr [ %.pre, %8 ], [ %4, %1 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 132
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 132
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 2
   %14 = icmp eq i32 %13, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 780
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %16 = load i8, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 18
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 18
   br i1 %14, label %39, label %18
 
 18:                                               ; preds = %9
@@ -854,7 +854,7 @@ define dso_local void @tcp_init_congestion_control(ptr noundef initializes((2140
   br i1 %24, label %60, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %0, i64 744
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %60, label %29
@@ -866,7 +866,7 @@ define dso_local void @tcp_init_congestion_control(ptr noundef initializes((2140
   %33 = and i32 %32, -4161
   %34 = icmp eq i32 %33, 0
   %35 = select i1 %34, ptr null, ptr %27
-  %36 = getelementptr inbounds i8, ptr %35, i64 73
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 73
   %37 = load i8, ptr %36, align 1
   %38 = or i8 %37, 2
   store i8 %38, ptr %36, align 1
@@ -883,7 +883,7 @@ define dso_local void @tcp_init_congestion_control(ptr noundef initializes((2140
   br i1 %45, label %60, label %46
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %0, i64 744
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %60, label %50
@@ -895,14 +895,14 @@ define dso_local void @tcp_init_congestion_control(ptr noundef initializes((2140
   %54 = and i32 %53, -4161
   %55 = icmp eq i32 %54, 0
   %56 = select i1 %55, ptr null, ptr %48
-  %57 = getelementptr inbounds i8, ptr %56, i64 73
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 73
   %58 = load i8, ptr %57, align 1
   %59 = and i8 %58, -4
   store i8 %59, ptr %57, align 1
   br label %60
 
 60:                                               ; preds = %50, %46, %39, %29, %25, %18
-  %61 = getelementptr inbounds i8, ptr %0, i64 1208
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %62 = load i8, ptr %61, align 8
   %63 = or i8 %62, 32
   store i8 %63, ptr %61, align 8
@@ -911,9 +911,9 @@ define dso_local void @tcp_init_congestion_control(ptr noundef initializes((2140
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_cleanup_congestion_control(ptr noundef %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -925,7 +925,7 @@ define dso_local void @tcp_cleanup_congestion_control(ptr noundef %0) local_unna
 
 8:                                                ; preds = %7, %1
   %9 = phi ptr [ %.pre, %7 ], [ %3, %1 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %11 = load ptr, ptr %10, align 8
   tail call void @module_put(ptr noundef %11) #16
   ret void
@@ -939,7 +939,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_default_congestion_contr
   br i1 %4, label %27, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i1 @try_module_get(ptr noundef %7) #16
   br i1 %8, label %9, label %27
@@ -949,26 +949,26 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_default_congestion_contr
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %3, i64 132
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 132
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 1
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %27, label %16
 
 16:                                               ; preds = %11, %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 1240
-  %18 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %17, ptr nonnull %3, ptr elementtype(ptr) %17) #16, !srcloc !20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %18 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %17, ptr nonnull %3, ptr nonnull elementtype(ptr) %17) #16, !srcloc !20
   %19 = icmp eq ptr %18, null
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %18, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %22 = load ptr, ptr %21, align 8
   tail call void @module_put(ptr noundef %22) #16
   br label %23
 
 23:                                               ; preds = %20, %16
-  %24 = getelementptr inbounds i8, ptr %3, i64 132
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 132
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -1027,10 +1027,10 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_get_default_congestion_control(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 align 16 {
   tail call void @__rcu_read_lock() #16
-  %3 = getelementptr inbounds i8, ptr %0, i64 1240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %4 = load volatile ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 88
-  %6 = tail call ptr @strncpy(ptr noundef %1, ptr noundef %5, i64 noundef 16) #16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %6 = tail call ptr @strncpy(ptr noundef %1, ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16) #16
   tail call void @__rcu_read_unlock() #16
   ret void
 }
@@ -1207,7 +1207,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %6 = load i8, ptr %5, align 8
   %7 = icmp sgt i8 %6, -1
   br i1 %7, label %8, label %166
@@ -1238,13 +1238,13 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
 
 20:                                               ; preds = %18, %16
   %21 = phi ptr [ %19, %18 ], [ %17, %16 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 1160
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %21, %23
   br i1 %24, label %.thread5.sink.split, label %28
 
 .thread:                                          ; preds = %.preheader
-  %25 = getelementptr inbounds i8, ptr %0, i64 1160
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread5.sink.split, label %.thread5
@@ -1254,7 +1254,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   br i1 %29, label %.thread5, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %21, i64 132
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 132
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 1
   %34 = icmp ne i32 %33, 0
@@ -1262,14 +1262,14 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   br i1 %35, label %36, label %.thread5
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %21, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @try_module_get(ptr noundef %38) #16
   br i1 %39, label %40, label %.thread5
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %22, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 144
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 144
   %43 = load ptr, ptr %42, align 16
   %44 = icmp eq ptr %43, null
   br i1 %44, label %46, label %45
@@ -1281,21 +1281,21 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
 
 46:                                               ; preds = %45, %40
   %47 = phi ptr [ %.pre, %45 ], [ %41, %40 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 104
   %49 = load ptr, ptr %48, align 8
   tail call void @module_put(ptr noundef %49) #16
   store ptr %21, ptr %22, align 8
   %50 = load i8, ptr %5, align 8
   %51 = or i8 %50, 64
   store i8 %51, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 1264
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(104) %52, i8 0, i64 104, i1 false)
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1264
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %52, i8 0, i64 104, i1 false)
   %53 = load i32, ptr %31, align 4
   %54 = and i32 %53, 2
   %55 = icmp eq i32 %54, 0
-  %56 = getelementptr inbounds i8, ptr %0, i64 780
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %57 = load i8, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 18
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 18
   br i1 %55, label %80, label %59
 
 59:                                               ; preds = %46
@@ -1309,7 +1309,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   br i1 %65, label %101, label %66
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %0, i64 744
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %101, label %70
@@ -1321,7 +1321,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   %74 = and i32 %73, -4161
   %75 = icmp eq i32 %74, 0
   %76 = select i1 %75, ptr null, ptr %68
-  %77 = getelementptr inbounds i8, ptr %76, i64 73
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 73
   %78 = load i8, ptr %77, align 1
   %79 = or i8 %78, 2
   store i8 %79, ptr %77, align 1
@@ -1338,7 +1338,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   br i1 %86, label %101, label %87
 
 87:                                               ; preds = %80
-  %88 = getelementptr inbounds i8, ptr %0, i64 744
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
   br i1 %90, label %101, label %91
@@ -1350,7 +1350,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   %95 = and i32 %94, -4161
   %96 = icmp eq i32 %95, 0
   %97 = select i1 %96, ptr null, ptr %89
-  %98 = getelementptr inbounds i8, ptr %97, i64 73
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 73
   %99 = load i8, ptr %98, align 1
   %100 = and i8 %99, -4
   store i8 %100, ptr %98, align 1
@@ -1365,10 +1365,10 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   br i1 %106, label %107, label %.thread5
 
 107:                                              ; preds = %101
-  %108 = getelementptr inbounds i8, ptr %0, i64 2140
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 2140
   store i32 0, ptr %108, align 4
   %109 = load ptr, ptr %22, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 136
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 136
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   br i1 %112, label %114, label %113
@@ -1380,7 +1380,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
 
 114:                                              ; preds = %113, %107
   %115 = phi ptr [ %.pre.i, %113 ], [ %109, %107 ]
-  %116 = getelementptr inbounds i8, ptr %115, i64 132
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 132
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, 2
   %119 = icmp eq i32 %118, 0
@@ -1398,7 +1398,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   br i1 %127, label %.thread5.sink.split, label %128
 
 128:                                              ; preds = %121
-  %129 = getelementptr inbounds i8, ptr %0, i64 744
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %.thread5.sink.split, label %132
@@ -1410,7 +1410,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   %136 = and i32 %135, -4161
   %137 = icmp eq i32 %136, 0
   %138 = select i1 %137, ptr null, ptr %130
-  %139 = getelementptr inbounds i8, ptr %138, i64 73
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 73
   %140 = load i8, ptr %139, align 1
   %141 = or i8 %140, 2
   store i8 %141, ptr %139, align 1
@@ -1427,7 +1427,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   br i1 %148, label %.thread5.sink.split, label %149
 
 149:                                              ; preds = %142
-  %150 = getelementptr inbounds i8, ptr %0, i64 744
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %151 = load ptr, ptr %150, align 8
   %152 = icmp eq ptr %151, null
   br i1 %152, label %.thread5.sink.split, label %153
@@ -1439,7 +1439,7 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
   %157 = and i32 %156, -4161
   %158 = icmp eq i32 %157, 0
   %159 = select i1 %158, ptr null, ptr %151
-  %160 = getelementptr inbounds i8, ptr %159, i64 73
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 73
   %161 = load i8, ptr %160, align 1
   %162 = and i8 %161, -4
   store i8 %162, ptr %160, align 1
@@ -1464,13 +1464,13 @@ define dso_local noundef range(i32 -16, 1) i32 @tcp_set_congestion_control(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @tcp_slow_start(ptr nocapture noundef %0, i32 noundef %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1420
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1504
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %7 = load i32, ptr %6, align 32
   %8 = tail call i32 @llvm.umin.i32(i32 %5, i32 %7)
-  %9 = getelementptr inbounds i8, ptr %0, i64 1908
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1908
   %10 = load i32, ptr %9, align 4
   %11 = tail call i32 @llvm.umin.i32(i32 %8, i32 %10)
   %12 = icmp slt i32 %11, 1
@@ -1490,14 +1490,14 @@ define dso_local i32 @tcp_slow_start(ptr nocapture noundef %0, i32 noundef %1) #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_cong_avoid_ai(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1904
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %5 = load i32, ptr %4, align 16
   %6 = icmp ult i32 %5, %1
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %3
   store i32 0, ptr %4, align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 1420
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 1
   %11 = icmp ugt i32 %9, 2147483646
@@ -1523,7 +1523,7 @@ define dso_local void @tcp_cong_avoid_ai(ptr nocapture noundef %0, i32 noundef %
   br i1 %17, label %._crit_edge, label %18
 
 ._crit_edge:                                      ; preds = %14
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 1420
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %.pre2 = load i32, ptr %.phi.trans.insert, align 4
   br label %27
 
@@ -1531,7 +1531,7 @@ define dso_local void @tcp_cong_avoid_ai(ptr nocapture noundef %0, i32 noundef %
   %19 = udiv i32 %16, %1
   %20 = urem i32 %16, %1
   store i32 %20, ptr %4, align 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 1420
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, %19
   %24 = icmp slt i32 %23, 1
@@ -1549,7 +1549,7 @@ define dso_local void @tcp_cong_avoid_ai(ptr nocapture noundef %0, i32 noundef %
 
 27:                                               ; preds = %._crit_edge, %26
   %28 = phi i32 [ %.pre2, %._crit_edge ], [ %23, %26 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 1908
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1908
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @llvm.umin.i32(i32 %28, i32 %30)
   %32 = icmp slt i32 %31, 1
@@ -1562,20 +1562,20 @@ define dso_local void @tcp_cong_avoid_ai(ptr nocapture noundef %0, i32 noundef %
   br label %34
 
 34:                                               ; preds = %33, %27
-  %35 = getelementptr inbounds i8, ptr %0, i64 1420
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   store i32 %31, ptr %35, align 4
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_reno_cong_avoid(ptr nocapture noundef %0, i32 %1, i32 noundef %2) #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1439
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1439
   %5 = load i8, ptr %4, align 1
   %6 = and i8 %5, 32
   %7 = icmp eq i8 %6, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 1420
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 1504
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %11 = load i32, ptr %10, align 32
   br i1 %7, label %12, label %._crit_edge
 
@@ -1584,21 +1584,21 @@ define dso_local void @tcp_reno_cong_avoid(ptr nocapture noundef %0, i32 %1, i32
   br i1 %13, label %14, label %59
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 1748
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1748
   %16 = load i32, ptr %15, align 4
   %17 = shl i32 %16, 1
   %18 = icmp ult i32 %9, %17
   br i1 %18, label %._crit_edge, label %59
 
 ._crit_edge:                                      ; preds = %3, %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 1420
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %20 = icmp ult i32 %9, %11
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %._crit_edge
   %22 = add i32 %9, %2
   %23 = tail call i32 @llvm.umin.i32(i32 %22, i32 %11)
-  %24 = getelementptr inbounds i8, ptr %0, i64 1908
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1908
   %25 = load i32, ptr %24, align 4
   %26 = tail call i32 @llvm.umin.i32(i32 %23, i32 %25)
   %27 = icmp slt i32 %26, 1
@@ -1619,7 +1619,7 @@ tcp_slow_start.exit:                              ; preds = %21, %28
 31:                                               ; preds = %tcp_slow_start.exit, %._crit_edge
   %32 = phi i32 [ %26, %tcp_slow_start.exit ], [ %9, %._crit_edge ]
   %33 = phi i32 [ %29, %tcp_slow_start.exit ], [ %2, %._crit_edge ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 1904
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %35 = load i32, ptr %34, align 16
   %36 = icmp ult i32 %35, %32
   br i1 %36, label %42, label %37
@@ -1670,7 +1670,7 @@ tcp_slow_start.exit:                              ; preds = %21, %28
 
 ._crit_edge.i:                                    ; preds = %42, %52
   %53 = phi i32 [ %49, %52 ], [ %.pre2.i, %42 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 1908
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1908
   %55 = load i32, ptr %54, align 4
   %56 = tail call i32 @llvm.umin.i32(i32 %53, i32 %55)
   %57 = icmp slt i32 %56, 1
@@ -1692,7 +1692,7 @@ tcp_cong_avoid_ai.exit:                           ; preds = %._crit_edge.i, %58
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local range(i32 2, -2147483648) i32 @tcp_reno_ssthresh(ptr nocapture noundef readonly %0) #11 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1420
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %3 = load i32, ptr %2, align 4
   %4 = lshr i32 %3, 1
   %5 = tail call i32 @llvm.umax.i32(i32 %4, i32 2)
@@ -1701,9 +1701,9 @@ define dso_local range(i32 2, -2147483648) i32 @tcp_reno_ssthresh(ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local i32 @tcp_reno_undo_cwnd(ptr nocapture noundef readonly %0) #11 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1420
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 1920
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %5 = load i32, ptr %4, align 64
   %6 = tail call i32 @llvm.umax.i32(i32 %3, i32 %5)
   ret i32 %6

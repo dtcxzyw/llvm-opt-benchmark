@@ -389,7 +389,7 @@ modnn.exit:                                       ; preds = %.lr.ph.i, %27
   br i1 %.not, label %.loopexit, label %.preheader313
 
 .preheader313:                                    ; preds = %49
-  %50 = getelementptr inbounds i8, ptr %4, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(192) %50, i8 0, i64 192, i1 false)
   store i32 1, ptr %4, align 16
   %51 = icmp sgt i32 %2, 0
@@ -504,7 +504,7 @@ modnn.exit257:                                    ; preds = %.lr.ph.i255, %79
   br label %.preheader304
 
 .preheader309.lr.ph:                              ; preds = %.preheader310
-  %97 = getelementptr inbounds i8, ptr %6, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %98 = sext i32 %95 to i64
   br label %.preheader309
 
@@ -705,7 +705,7 @@ modnn.exit269:                                    ; preds = %.lr.ph.i267, %164, 
   br i1 %exitcond452.not, label %.preheader304.preheader, label %.preheader309, !llvm.loop !23
 
 .preheader303:                                    ; preds = %.preheader304
-  %181 = getelementptr inbounds i8, ptr %10, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %10, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(192) %181, ptr noundef nonnull align 4 dereferenceable(192) %50, i64 192, i1 false)
   %.not383 = icmp eq i32 %spec.select, 0
   %182 = zext i32 %spec.select to i64
@@ -879,7 +879,7 @@ modnn.exit281:                                    ; preds = %.lr.ph.i279, %230
   br i1 %exitcond471.not, label %249, label %.lr.ph363, !llvm.loop !28
 
 249:                                              ; preds = %._crit_edge364
-  %250 = getelementptr inbounds i8, ptr %8, i64 192
+  %250 = getelementptr inbounds nuw i8, ptr %8, i64 192
   store i32 255, ptr %250, align 16
   %.4375 = add i32 %spec.select, -1
   %251 = icmp sgt i32 %.4375, -1

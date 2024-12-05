@@ -100,7 +100,7 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %28, %init.exit
-  %31 = getelementptr inbounds i8, ptr %3, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %32 = load i32, ptr %31, align 4
   %.not3 = icmp eq i32 %32, 0
   br i1 %.not3, label %33, label %37

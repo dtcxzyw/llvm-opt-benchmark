@@ -118,10 +118,10 @@ define dso_local noundef zeroext i1 @_Z14cmBreakCommandRKSt6vectorINSt7__cxx1112
   br label %34
 
 34:                                               ; preds = %.thread38, %2
-  %35 = getelementptr inbounds i8, ptr %1, i64 41
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 41
   store i8 1, ptr %35, align 1
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %36, %38
   br i1 %39, label %63, label %40

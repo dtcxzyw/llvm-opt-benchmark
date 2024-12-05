@@ -689,7 +689,7 @@ thread-pre-split18:                               ; preds = %thread-pre-split18.
   %468 = mul nsw i64 %467, %461
   %469 = getelementptr double, ptr %464, i64 %468
   %470 = load double, ptr %469, align 8, !tbaa !11
-  %471 = getelementptr inbounds double, ptr %31, i64 %466
+  %471 = getelementptr inbounds nuw double, ptr %31, i64 %466
   store double %470, ptr %471, align 8, !tbaa !11
   %472 = icmp eq i64 %467, %463
   br i1 %472, label %.loopexit40, label %465, !llvm.loop !20
@@ -724,7 +724,7 @@ thread-pre-split18:                               ; preds = %thread-pre-split18.
   %489 = mul nsw i64 %488, %482
   %490 = getelementptr double, ptr %486, i64 %489
   %491 = load double, ptr %490, align 8, !tbaa !11
-  %492 = getelementptr inbounds double, ptr %30, i64 %488
+  %492 = getelementptr inbounds nuw double, ptr %30, i64 %488
   store double %491, ptr %492, align 8, !tbaa !11
   %493 = add nuw nsw i64 %488, 1
   %494 = icmp eq i64 %493, %485
@@ -1250,7 +1250,7 @@ thread-pre-split23.thread:                        ; preds = %496, %thread-pre-sp
   %863 = mul nsw i64 %862, %859
   %864 = getelementptr double, ptr %856, i64 %863
   %865 = load double, ptr %864, align 8, !tbaa !11
-  %866 = getelementptr inbounds double, ptr %31, i64 %862
+  %866 = getelementptr inbounds nuw double, ptr %31, i64 %862
   store double %865, ptr %866, align 8, !tbaa !11
   %867 = add nuw nsw i64 %862, 1
   %868 = icmp eq i64 %867, %860
@@ -1284,7 +1284,7 @@ thread-pre-split23.thread:                        ; preds = %496, %thread-pre-sp
   %883 = mul nsw i64 %882, %878
   %884 = getelementptr double, ptr %877, i64 %883
   %885 = load double, ptr %884, align 8, !tbaa !11
-  %886 = getelementptr inbounds double, ptr %30, i64 %882
+  %886 = getelementptr inbounds nuw double, ptr %30, i64 %882
   store double %885, ptr %886, align 8, !tbaa !11
   %887 = add nuw nsw i64 %882, 1
   %888 = icmp eq i64 %887, %880

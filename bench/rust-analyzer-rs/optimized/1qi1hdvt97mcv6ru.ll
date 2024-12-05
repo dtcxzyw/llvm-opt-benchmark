@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17hae1e2f99d5187a36E(ptr noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = ptrtoint ptr %0 to i64
   %3 = urem i64 %2, 67
-  %4 = getelementptr inbounds [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 0, i64 %3
   %5 = load atomic i64, ptr %4 acquire, align 8
   %.not = icmp eq i64 %5, 1
   br i1 %.not, label %10, label %6
@@ -63,7 +63,7 @@ _ZN15crossbeam_utils6atomic8seq_lock7SeqLock5write17hcee33be407eb2aebE.exit: ; p
   %.lcssa.i = phi i64 [ %11, %10 ], [ %17, %.thread.i.i ]
   fence release
   %21 = load i64, ptr %0, align 8, !noundef !4
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8, !range !5, !noundef !4
   store atomic i64 %.lcssa.i, ptr %4 release, align 8
   br label %25
@@ -86,7 +86,7 @@ _ZN15crossbeam_utils6atomic8seq_lock7SeqLock5write17hcee33be407eb2aebE.exit: ; p
 define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h4a628e3a1925800fE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = ptrtoint ptr %1 to i64
   %8 = urem i64 %7, 67
-  %9 = getelementptr inbounds [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [67 x { { { i64 } }, [15 x i64] }], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 0, i64 %8
   %10 = atomicrmw xchg ptr %9, i64 1 acquire, align 8
   %11 = icmp eq i64 %10, 1
   br i1 %11, label %.lr.ph.i, label %.loopexit
@@ -129,9 +129,9 @@ define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exc
 
 23:                                               ; preds = %.loopexit
   store atomic i64 %.lcssa.i, ptr %9 release, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.val, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.val3, ptr %25, align 8
   store i64 1, ptr %0, align 8
   br label %26
@@ -142,9 +142,9 @@ define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exc
 27:                                               ; preds = %.loopexit
   store i64 %4, ptr %1, align 8
   store i32 %5, ptr %20, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %29, align 8
   store i64 0, ptr %0, align 8
   %30 = add i64 %.lcssa.i, 2
@@ -154,7 +154,7 @@ define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exc
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @"_ZN3std6thread18JoinInner$LT$T$GT$4join17he0df60fedfc3dcd8E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !4
   invoke void @_ZN3std3sys3pal4unix6thread6Thread4join17h4f4f68010317fc99E(i64 noundef %3)
           to label %6 unwind label %4
@@ -166,10 +166,10 @@ define hidden { ptr, ptr } @"_ZN3std6thread18JoinInner$LT$T$GT$4join17he0df60fed
           to label %38 unwind label %36
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %8 = load ptr, ptr %7, align 8, !alias.scope !11, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = invoke { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h0c5e99cc50b9b7c9E.llvm.6969479408765091135(ptr noundef nonnull %9, i64 noundef 1, i64 noundef -1, i8 noundef 2, i8 noundef 0)
           to label %.noexc unwind label %4
 
@@ -187,11 +187,11 @@ define hidden { ptr, ptr } @"_ZN3std6thread18JoinInner$LT$T$GT$4join17he0df60fed
 
 15:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9is_unique17hf62c432b7ccf64ebE.exit"
   %16 = load ptr, ptr %7, align 8, !nonnull !4
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %.sroa.0.0.copyload = load i64, ptr %17, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 40
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 40
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   store i64 0, ptr %17, align 8
   %switch = icmp eq i64 %.sroa.0.0.copyload, 0
@@ -267,7 +267,7 @@ define hidden { ptr, ptr } @"_ZN3std6thread18JoinInner$LT$T$GT$4join17he0df60fed
   resume { ptr, i32 } %.pn
 
 38:                                               ; preds = %4
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %40 = load ptr, ptr %39, align 8, !alias.scope !47, !nonnull !4, !noundef !4
@@ -339,7 +339,7 @@ define hidden void @_ZN4core4hash6Hasher9write_str17h1e84de3c0c4cd39cE.llvm.1451
   %8 = xor i64 %.val.i.i.i, %7
   %9 = mul i64 %8, 5871781006564002453
   %10 = add i64 %.sroa.11.069.i, -8
-  %11 = getelementptr inbounds i8, ptr %.sroa.0.070.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.070.i, i64 8
   %12 = icmp ugt i64 %10, 7
   br i1 %12, label %.lr.ph.i, label %._crit_edge.i
 
@@ -350,7 +350,7 @@ define hidden void @_ZN4core4hash6Hasher9write_str17h1e84de3c0c4cd39cE.llvm.1451
   %15 = xor i64 %13, %14
   %16 = mul i64 %15, 5871781006564002453
   %17 = add nsw i64 %.sroa.11.0.lcssa.i, -4
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i, i64 4
   br label %19
 
 19:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h76cac1d9a914d9b9E.exit.i", %._crit_edge.i
@@ -367,7 +367,7 @@ define hidden void @_ZN4core4hash6Hasher9write_str17h1e84de3c0c4cd39cE.llvm.1451
   %23 = xor i64 %21, %22
   %24 = mul i64 %23, 5871781006564002453
   %25 = add nsw i64 %.sroa.11.1.i, -2
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 2
   br label %27
 
 27:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7c65f766656dc988E.exit.i", %19
@@ -411,13 +411,13 @@ define hidden void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.14517926
 4:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   store ptr @anon.8e1c7397de9a49defed4f04e7ab77c7a.38, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @anon.8e1c7397de9a49defed4f04e7ab77c7a.11, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %8, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8e1c7397de9a49defed4f04e7ab77c7a.39) #14
   unreachable
@@ -455,8 +455,8 @@ define hidden void @"_ZN53_$LT$camino..Utf8Path$u20$as$u20$core..hash..Hash$GT$4
   br i1 %7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.sroa.411.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %8
 
 ._crit_edge:                                      ; preds = %"_ZN58_$LT$camino..Utf8Component$u20$as$u20$core..hash..Hash$GT$4hash17heabcb037ec937f5bE.llvm.14517926847443944930.exit", %3
@@ -512,7 +512,7 @@ define hidden void @"_ZN53_$LT$camino..Utf8Path$u20$as$u20$core..hash..Hash$GT$4
   %24 = xor i64 %.val.i.i.i.i.i, %23
   %25 = mul i64 %24, 5871781006564002453
   %26 = add i64 %.sroa.11.069.i.i.i, -8
-  %27 = getelementptr inbounds i8, ptr %.sroa.0.070.i.i.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.070.i.i.i, i64 8
   %28 = icmp ugt i64 %26, 7
   br i1 %28, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -523,7 +523,7 @@ define hidden void @"_ZN53_$LT$camino..Utf8Path$u20$as$u20$core..hash..Hash$GT$4
   %31 = xor i64 %29, %30
   %32 = mul i64 %31, 5871781006564002453
   %33 = add nsw i64 %.sroa.11.0.lcssa.i.i.i, -4
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i.i, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i.i, i64 4
   br label %35
 
 35:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h76cac1d9a914d9b9E.exit.i.i.i", %._crit_edge.i.i.i
@@ -540,7 +540,7 @@ define hidden void @"_ZN53_$LT$camino..Utf8Path$u20$as$u20$core..hash..Hash$GT$4
   %39 = xor i64 %37, %38
   %40 = mul i64 %39, 5871781006564002453
   %41 = add nsw i64 %.sroa.11.1.i.i.i, -2
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i.i, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 2
   br label %43
 
 43:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7c65f766656dc988E.exit.i.i.i", %35
@@ -597,9 +597,9 @@ default.unreachable145:                           ; preds = %2
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !align !120, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
   %15 = xor i64 %13, %14
@@ -623,7 +623,7 @@ default.unreachable145:                           ; preds = %2
   %20 = xor i64 %.val.i.i.i.i, %19
   %21 = mul i64 %20, 5871781006564002453
   %22 = add i64 %.sroa.11.069.i.i, -8
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.070.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.070.i.i, i64 8
   %24 = icmp ugt i64 %22, 7
   br i1 %24, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -634,7 +634,7 @@ default.unreachable145:                           ; preds = %2
   %27 = xor i64 %25, %26
   %28 = mul i64 %27, 5871781006564002453
   %29 = add nsw i64 %.sroa.11.0.lcssa.i.i, -4
-  %30 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i, i64 4
   br label %31
 
 31:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h76cac1d9a914d9b9E.exit.i.i", %._crit_edge.i.i
@@ -651,7 +651,7 @@ default.unreachable145:                           ; preds = %2
   %35 = xor i64 %33, %34
   %36 = mul i64 %35, 5871781006564002453
   %37 = add nsw i64 %.sroa.11.1.i.i, -2
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 2
   br label %39
 
 39:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7c65f766656dc988E.exit.i.i", %31
@@ -670,9 +670,9 @@ default.unreachable145:                           ; preds = %2
   br label %"_ZN60_$LT$std..ffi..os_str..OsStr$u20$as$u20$core..hash..Hash$GT$4hash17h4401197e0cde1609E.exit"
 
 46:                                               ; preds = %2
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8, !nonnull !4, !align !120, !noundef !4
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
@@ -700,7 +700,7 @@ default.unreachable145:                           ; preds = %2
   %57 = xor i64 %.val.i.i.i.i21, %56
   %58 = mul i64 %57, 5871781006564002453
   %59 = add i64 %.sroa.11.069.i.i19, -8
-  %60 = getelementptr inbounds i8, ptr %.sroa.0.070.i.i18, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.070.i.i18, i64 8
   %61 = icmp ugt i64 %59, 7
   br i1 %61, label %.lr.ph.i.i17, label %._crit_edge.i.i1
 
@@ -711,7 +711,7 @@ default.unreachable145:                           ; preds = %2
   %64 = xor i64 %62, %63
   %65 = mul i64 %64, 5871781006564002453
   %66 = add nsw i64 %.sroa.11.0.lcssa.i.i3, -4
-  %67 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i4, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i4, i64 4
   br label %68
 
 68:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h76cac1d9a914d9b9E.exit.i.i15", %._crit_edge.i.i1
@@ -728,7 +728,7 @@ default.unreachable145:                           ; preds = %2
   %72 = xor i64 %70, %71
   %73 = mul i64 %72, 5871781006564002453
   %74 = add nsw i64 %.sroa.11.1.i.i6, -2
-  %75 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i7, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i7, i64 2
   br label %76
 
 76:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7c65f766656dc988E.exit.i.i13", %68
@@ -749,9 +749,9 @@ default.unreachable145:                           ; preds = %2
 "_ZN60_$LT$std..ffi..os_str..OsStr$u20$as$u20$core..hash..Hash$GT$4hash17h4401197e0cde1609E.exit22": ; preds = %76, %77
   %.3.i.i12 = phi i64 [ %82, %77 ], [ %.2.i.i8, %76 ]
   store i64 %.3.i.i12, ptr %1, align 8, !alias.scope !162, !noalias !166
-  %83 = getelementptr inbounds i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = load ptr, ptr %83, align 8, !nonnull !4, !align !120, !noundef !4
-  %85 = getelementptr inbounds i8, ptr %0, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %86 = load i64, ptr %85, align 8, !noundef !4
   %87 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i12, i64 %.3.i.i12, i64 5)
   %88 = xor i64 %86, %87
@@ -775,7 +775,7 @@ default.unreachable145:                           ; preds = %2
   %93 = xor i64 %.val.i.i.i.i43, %92
   %94 = mul i64 %93, 5871781006564002453
   %95 = add i64 %.sroa.11.069.i.i41, -8
-  %96 = getelementptr inbounds i8, ptr %.sroa.0.070.i.i40, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.070.i.i40, i64 8
   %97 = icmp ugt i64 %95, 7
   br i1 %97, label %.lr.ph.i.i39, label %._crit_edge.i.i23
 
@@ -786,7 +786,7 @@ default.unreachable145:                           ; preds = %2
   %100 = xor i64 %98, %99
   %101 = mul i64 %100, 5871781006564002453
   %102 = add nsw i64 %.sroa.11.0.lcssa.i.i25, -4
-  %103 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i26, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i26, i64 4
   br label %104
 
 104:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h76cac1d9a914d9b9E.exit.i.i37", %._crit_edge.i.i23
@@ -803,7 +803,7 @@ default.unreachable145:                           ; preds = %2
   %108 = xor i64 %106, %107
   %109 = mul i64 %108, 5871781006564002453
   %110 = add nsw i64 %.sroa.11.1.i.i28, -2
-  %111 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i29, i64 2
+  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i29, i64 2
   br label %112
 
 112:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7c65f766656dc988E.exit.i.i35", %104
@@ -822,7 +822,7 @@ default.unreachable145:                           ; preds = %2
   br label %"_ZN60_$LT$std..ffi..os_str..OsStr$u20$as$u20$core..hash..Hash$GT$4hash17h4401197e0cde1609E.exit"
 
 119:                                              ; preds = %2
-  %120 = getelementptr inbounds i8, ptr %0, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %121 = load i8, ptr %120, align 1, !noundef !4
   %122 = zext i8 %121 to i64
   %123 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
@@ -831,9 +831,9 @@ default.unreachable145:                           ; preds = %2
   br label %"_ZN60_$LT$std..ffi..os_str..OsStr$u20$as$u20$core..hash..Hash$GT$4hash17h4401197e0cde1609E.exit"
 
 126:                                              ; preds = %2
-  %127 = getelementptr inbounds i8, ptr %0, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %128 = load ptr, ptr %127, align 8, !nonnull !4, !align !120, !noundef !4
-  %129 = getelementptr inbounds i8, ptr %0, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %130 = load i64, ptr %129, align 8, !noundef !4
   %131 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
   %132 = xor i64 %130, %131
@@ -857,7 +857,7 @@ default.unreachable145:                           ; preds = %2
   %137 = xor i64 %.val.i.i.i.i65, %136
   %138 = mul i64 %137, 5871781006564002453
   %139 = add i64 %.sroa.11.069.i.i63, -8
-  %140 = getelementptr inbounds i8, ptr %.sroa.0.070.i.i62, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.0.070.i.i62, i64 8
   %141 = icmp ugt i64 %139, 7
   br i1 %141, label %.lr.ph.i.i61, label %._crit_edge.i.i45
 
@@ -868,7 +868,7 @@ default.unreachable145:                           ; preds = %2
   %144 = xor i64 %142, %143
   %145 = mul i64 %144, 5871781006564002453
   %146 = add nsw i64 %.sroa.11.0.lcssa.i.i47, -4
-  %147 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i48, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i48, i64 4
   br label %148
 
 148:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h76cac1d9a914d9b9E.exit.i.i59", %._crit_edge.i.i45
@@ -885,7 +885,7 @@ default.unreachable145:                           ; preds = %2
   %152 = xor i64 %150, %151
   %153 = mul i64 %152, 5871781006564002453
   %154 = add nsw i64 %.sroa.11.1.i.i50, -2
-  %155 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i51, i64 2
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i51, i64 2
   br label %156
 
 156:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7c65f766656dc988E.exit.i.i57", %148
@@ -904,9 +904,9 @@ default.unreachable145:                           ; preds = %2
   br label %"_ZN60_$LT$std..ffi..os_str..OsStr$u20$as$u20$core..hash..Hash$GT$4hash17h4401197e0cde1609E.exit"
 
 163:                                              ; preds = %2
-  %164 = getelementptr inbounds i8, ptr %0, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %165 = load ptr, ptr %164, align 8, !nonnull !4, !align !120, !noundef !4
-  %166 = getelementptr inbounds i8, ptr %0, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %167 = load i64, ptr %166, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
@@ -934,7 +934,7 @@ default.unreachable145:                           ; preds = %2
   %174 = xor i64 %.val.i.i.i.i87, %173
   %175 = mul i64 %174, 5871781006564002453
   %176 = add i64 %.sroa.11.069.i.i85, -8
-  %177 = getelementptr inbounds i8, ptr %.sroa.0.070.i.i84, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0.070.i.i84, i64 8
   %178 = icmp ugt i64 %176, 7
   br i1 %178, label %.lr.ph.i.i83, label %._crit_edge.i.i67
 
@@ -945,7 +945,7 @@ default.unreachable145:                           ; preds = %2
   %181 = xor i64 %179, %180
   %182 = mul i64 %181, 5871781006564002453
   %183 = add nsw i64 %.sroa.11.0.lcssa.i.i69, -4
-  %184 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i70, i64 4
+  %184 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i70, i64 4
   br label %185
 
 185:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h76cac1d9a914d9b9E.exit.i.i81", %._crit_edge.i.i67
@@ -962,7 +962,7 @@ default.unreachable145:                           ; preds = %2
   %189 = xor i64 %187, %188
   %190 = mul i64 %189, 5871781006564002453
   %191 = add nsw i64 %.sroa.11.1.i.i72, -2
-  %192 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i73, i64 2
+  %192 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i73, i64 2
   br label %193
 
 193:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7c65f766656dc988E.exit.i.i79", %185
@@ -983,9 +983,9 @@ default.unreachable145:                           ; preds = %2
 "_ZN60_$LT$std..ffi..os_str..OsStr$u20$as$u20$core..hash..Hash$GT$4hash17h4401197e0cde1609E.exit88": ; preds = %193, %194
   %.3.i.i78 = phi i64 [ %199, %194 ], [ %.2.i.i74, %193 ]
   store i64 %.3.i.i78, ptr %1, align 8, !alias.scope !229, !noalias !233
-  %200 = getelementptr inbounds i8, ptr %0, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %201 = load ptr, ptr %200, align 8, !nonnull !4, !align !120, !noundef !4
-  %202 = getelementptr inbounds i8, ptr %0, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %203 = load i64, ptr %202, align 8, !noundef !4
   %204 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i78, i64 %.3.i.i78, i64 5)
   %205 = xor i64 %203, %204
@@ -1009,7 +1009,7 @@ default.unreachable145:                           ; preds = %2
   %210 = xor i64 %.val.i.i.i.i109, %209
   %211 = mul i64 %210, 5871781006564002453
   %212 = add i64 %.sroa.11.069.i.i107, -8
-  %213 = getelementptr inbounds i8, ptr %.sroa.0.070.i.i106, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.0.070.i.i106, i64 8
   %214 = icmp ugt i64 %212, 7
   br i1 %214, label %.lr.ph.i.i105, label %._crit_edge.i.i89
 
@@ -1020,7 +1020,7 @@ default.unreachable145:                           ; preds = %2
   %217 = xor i64 %215, %216
   %218 = mul i64 %217, 5871781006564002453
   %219 = add nsw i64 %.sroa.11.0.lcssa.i.i91, -4
-  %220 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i92, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i92, i64 4
   br label %221
 
 221:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h76cac1d9a914d9b9E.exit.i.i103", %._crit_edge.i.i89
@@ -1037,7 +1037,7 @@ default.unreachable145:                           ; preds = %2
   %225 = xor i64 %223, %224
   %226 = mul i64 %225, 5871781006564002453
   %227 = add nsw i64 %.sroa.11.1.i.i94, -2
-  %228 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i95, i64 2
+  %228 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i95, i64 2
   br label %229
 
 229:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7c65f766656dc988E.exit.i.i101", %221
@@ -1056,7 +1056,7 @@ default.unreachable145:                           ; preds = %2
   br label %"_ZN60_$LT$std..ffi..os_str..OsStr$u20$as$u20$core..hash..Hash$GT$4hash17h4401197e0cde1609E.exit"
 
 236:                                              ; preds = %2
-  %237 = getelementptr inbounds i8, ptr %0, i64 1
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %238 = load i8, ptr %237, align 1, !noundef !4
   %239 = zext i8 %238 to i64
   %240 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
@@ -1072,9 +1072,9 @@ default.unreachable145:                           ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN56_$LT$camino..Utf8PathBuf$u20$as$u20$core..hash..Hash$GT$4hash17h457f2ba3720d66a8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   tail call void @"_ZN53_$LT$camino..Utf8Path$u20$as$u20$core..hash..Hash$GT$4hash17h629a7a93b1175d7fE.llvm.14517926847443944930"(ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   ret void
@@ -1106,9 +1106,9 @@ define hidden void @"_ZN58_$LT$camino..Utf8Component$u20$as$u20$core..hash..Hash
   br label %13
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !4, !align !120, !noundef !4
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
@@ -1131,7 +1131,7 @@ define hidden void @"_ZN58_$LT$camino..Utf8Component$u20$as$u20$core..hash..Hash
   %23 = xor i64 %.val.i.i.i.i, %22
   %24 = mul i64 %23, 5871781006564002453
   %25 = add i64 %.sroa.11.069.i.i, -8
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.070.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.070.i.i, i64 8
   %27 = icmp ugt i64 %25, 7
   br i1 %27, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -1142,7 +1142,7 @@ define hidden void @"_ZN58_$LT$camino..Utf8Component$u20$as$u20$core..hash..Hash
   %30 = xor i64 %28, %29
   %31 = mul i64 %30, 5871781006564002453
   %32 = add nsw i64 %.sroa.11.0.lcssa.i.i, -4
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i.i, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i, i64 4
   br label %34
 
 34:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h76cac1d9a914d9b9E.exit.i.i", %._crit_edge.i.i
@@ -1159,7 +1159,7 @@ define hidden void @"_ZN58_$LT$camino..Utf8Component$u20$as$u20$core..hash..Hash
   %38 = xor i64 %36, %37
   %39 = mul i64 %38, 5871781006564002453
   %40 = add nsw i64 %.sroa.11.1.i.i, -2
-  %41 = getelementptr inbounds i8, ptr %.sroa.0.1.i.i, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 2
   br label %42
 
 42:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7c65f766656dc988E.exit.i.i", %34
@@ -1218,7 +1218,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %8 = xor i64 %.val.i.i, %7
   %9 = mul i64 %8, 5871781006564002453
   %10 = add i64 %.sroa.11.069, -8
-  %11 = getelementptr inbounds i8, ptr %.sroa.0.070, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.070, i64 8
   %12 = icmp ugt i64 %10, 7
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -1229,7 +1229,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %15 = xor i64 %13, %14
   %16 = mul i64 %15, 5871781006564002453
   %17 = add nsw i64 %.sroa.11.0.lcssa, -4
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 4
   br label %19
 
 19:                                               ; preds = %._crit_edge, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h76cac1d9a914d9b9E.exit"
@@ -1246,7 +1246,7 @@ define hidden void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hashe
   %23 = xor i64 %21, %22
   %24 = mul i64 %23, 5871781006564002453
   %25 = add nsw i64 %.sroa.11.1, -2
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 2
   br label %27
 
 27:                                               ; preds = %19, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7c65f766656dc988E.exit"

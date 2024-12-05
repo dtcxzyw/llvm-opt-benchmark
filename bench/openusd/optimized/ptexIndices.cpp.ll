@@ -66,11 +66,11 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %19, %25, %23, %21
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
   %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %35, %28 ]
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i
   store i32 %.019.i, ptr %30, align 4
   %31 = load ptr, ptr %27, align 8
-  %.idx.i = shl nsw i64 %indvars.iv.i, 3
-  %32 = getelementptr inbounds i8, ptr %31, i64 %.idx.i
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, %4
   %spec.select.i = select i1 %34, i32 1, i32 %33
@@ -158,11 +158,11 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %.019 = phi i32 [ 0, %.lr.ph ], [ %35, %28 ]
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   store i32 %.019, ptr %30, align 4
   %31 = load ptr, ptr %27, align 8
-  %.idx = shl nsw i64 %indvars.iv, 3
-  %32 = getelementptr inbounds i8, ptr %31, i64 %.idx
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, %4
   %spec.select = select i1 %34, i32 1, i32 %33
@@ -297,7 +297,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i32, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -368,7 +368,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far11PtexIndices12GetAdjacencyERKNS1_15Topo
 
 30:                                               ; preds = %.lr.ph, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit ]
-  %31 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %.val = load ptr, ptr %28, align 8
   %33 = shl nsw i32 %32, 1
@@ -389,13 +389,13 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, %2
   %spec.select.idx.i = select i1 %44, i64 4, i64 0
-  %spec.select.i = getelementptr inbounds i8, ptr %42, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %42, i64 %spec.select.idx.i
   %45 = load i32, ptr %spec.select.i, align 4
   %46 = icmp eq i32 %45, -1
   br i1 %46, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5LevelEii.exit.thread, label %48
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5LevelEii.exit.thread: ; preds = %30, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5LevelEii.exit
-  %47 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 -1, ptr %47, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit
 
@@ -420,13 +420,13 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
   br i1 %61, label %.lr.ph.i, label %73
 
 .lr.ph.i:                                         ; preds = %48
-  %66 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %65, ptr %66, align 4
   br label %67
 
 67:                                               ; preds = %71, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %71 ]
-  %68 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %32, %69
   br i1 %70, label %._crit_edge.loopexit.split.loop.exit11.i, label %71
@@ -450,7 +450,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
 
 75:                                               ; preds = %79, %.lr.ph.i106
   %indvars.iv.i108 = phi i64 [ 0, %.lr.ph.i106 ], [ %indvars.iv.next.i109, %79 ]
-  %76 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv.i108
+  %76 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i108
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %32, %77
   br i1 %78, label %._crit_edge.loopexit.split.loop.exit11.i111, label %79
@@ -469,13 +469,13 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit112: ; preds = %79, %
   %.06.i105 = phi i32 [ 0, %73 ], [ %81, %._crit_edge.loopexit.split.loop.exit11.i111 ], [ 0, %79 ]
   %82 = srem i32 %.06.i105, %60
   %83 = add nsw i32 %82, %65
-  %84 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %83, ptr %84, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit
 
 _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit: ; preds = %71, %._crit_edge.loopexit.split.loop.exit11.i, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5LevelEii.exit.thread, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit112
   %.sink = phi i32 [ 0, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5LevelEii.exit.thread ], [ 3, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit112 ], [ %72, %._crit_edge.loopexit.split.loop.exit11.i ], [ -1, %71 ]
-  %85 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %.sink, ptr %85, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -486,9 +486,9 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit: ; preds = %71, %._c
   br i1 %86, label %87, label %._crit_edge.thread
 
 87:                                               ; preds = %._crit_edge
-  %88 = getelementptr inbounds i8, ptr %4, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 -1, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %5, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %89, align 4
   br label %._crit_edge.thread
 
@@ -507,17 +507,17 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit: ; preds = %71, %._c
   %100 = getelementptr inbounds i32, ptr %99, i64 %98
   %101 = load i32, ptr %100, align 4
   %102 = add nsw i32 %101, %94
-  %103 = getelementptr inbounds i8, ptr %4, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %102, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %5, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 2, ptr %104, align 4
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr inbounds i32, ptr %105, i64 %98
   %107 = load i32, ptr %106, align 4
   %108 = add nsw i32 %107, %97
-  %109 = getelementptr inbounds i8, ptr %4, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %108, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %5, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %110, align 4
   %111 = sext i32 %3 to i64
   %112 = getelementptr inbounds i32, ptr %22, i64 %111
@@ -543,7 +543,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
   %126 = load i32, ptr %125, align 4
   %127 = icmp eq i32 %126, %2
   %spec.select.idx.i115 = select i1 %127, i64 4, i64 0
-  %spec.select.i116 = getelementptr inbounds i8, ptr %125, i64 %spec.select.idx.i115
+  %spec.select.i116 = getelementptr inbounds nuw i8, ptr %125, i64 %spec.select.idx.i115
   %128 = load i32, ptr %spec.select.i116, align 4
   %129 = icmp eq i32 %128, -1
   br i1 %129, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5LevelEii.exit117.thread, label %130
@@ -579,19 +579,19 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
   br i1 %150, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit, label %151
 
 151:                                              ; preds = %144
-  %152 = getelementptr inbounds i8, ptr %139, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %153 = load i32, ptr %152, align 4
   %154 = icmp eq i32 %113, %153
   br i1 %154, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit, label %155
 
 155:                                              ; preds = %151
-  %156 = getelementptr inbounds i8, ptr %139, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %157 = load i32, ptr %156, align 4
   %158 = icmp eq i32 %113, %157
   br i1 %158, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit, label %159
 
 159:                                              ; preds = %155
-  %160 = getelementptr inbounds i8, ptr %139, i64 12
+  %160 = getelementptr inbounds nuw i8, ptr %139, i64 12
   %161 = load i32, ptr %160, align 4
   %162 = icmp eq i32 %113, %161
   %..i = select i1 %162, i32 3, i32 -1
@@ -607,7 +607,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
 
 165:                                              ; preds = %169, %.lr.ph.i122
   %indvars.iv.i124 = phi i64 [ 0, %.lr.ph.i122 ], [ %indvars.iv.next.i125, %169 ]
-  %166 = getelementptr inbounds i32, ptr %139, i64 %indvars.iv.i124
+  %166 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv.i124
   %167 = load i32, ptr %166, align 4
   %168 = icmp eq i32 %113, %167
   br i1 %168, label %._crit_edge.loopexit.split.loop.exit11.i127, label %169
@@ -658,15 +658,15 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
   %191 = load i32, ptr %190, align 4
   %192 = icmp eq i32 %191, %2
   %spec.select.idx.i131 = select i1 %192, i64 4, i64 0
-  %spec.select.i132 = getelementptr inbounds i8, ptr %190, i64 %spec.select.idx.i131
+  %spec.select.i132 = getelementptr inbounds nuw i8, ptr %190, i64 %spec.select.idx.i131
   %193 = load i32, ptr %spec.select.i132, align 4
   %194 = icmp eq i32 %193, -1
   br i1 %194, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5LevelEii.exit133.thread, label %197
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5LevelEii.exit133.thread: ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5LevelEii.exit133
-  %195 = getelementptr inbounds i8, ptr %4, i64 12
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 -1, ptr %195, align 4
-  %196 = getelementptr inbounds i8, ptr %5, i64 12
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %196, align 4
   br label %._crit_edge.thread
 
@@ -691,26 +691,26 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
   %213 = load ptr, ptr %0, align 8
   %214 = getelementptr inbounds i32, ptr %213, i64 %212
   %215 = load i32, ptr %214, align 4
-  %216 = getelementptr inbounds i8, ptr %4, i64 12
+  %216 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %215, ptr %216, align 4
   %217 = load i32, ptr %206, align 4
   %218 = icmp eq i32 %180, %217
   br i1 %218, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit138, label %219
 
 219:                                              ; preds = %211
-  %220 = getelementptr inbounds i8, ptr %206, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %206, i64 4
   %221 = load i32, ptr %220, align 4
   %222 = icmp eq i32 %180, %221
   br i1 %222, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit138, label %223
 
 223:                                              ; preds = %219
-  %224 = getelementptr inbounds i8, ptr %206, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %225 = load i32, ptr %224, align 4
   %226 = icmp eq i32 %180, %225
   br i1 %226, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit138, label %227
 
 227:                                              ; preds = %223
-  %228 = getelementptr inbounds i8, ptr %206, i64 12
+  %228 = getelementptr inbounds nuw i8, ptr %206, i64 12
   %229 = load i32, ptr %228, align 4
   %230 = icmp eq i32 %180, %229
   %..i136 = select i1 %230, i32 3, i32 -1
@@ -718,7 +718,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_115getAdjacentFaceERKNS0_3Vtr8internal5Le
 
 _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit138: ; preds = %211, %219, %223, %227
   %.0.i137 = phi i32 [ 0, %211 ], [ 1, %219 ], [ 2, %223 ], [ %..i136, %227 ]
-  %231 = getelementptr inbounds i8, ptr %5, i64 12
+  %231 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %.0.i137, ptr %231, align 4
   br label %._crit_edge.thread
 
@@ -732,7 +732,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit138: ; preds
 
 234:                                              ; preds = %238, %.lr.ph.i140
   %indvars.iv.i142 = phi i64 [ 0, %.lr.ph.i140 ], [ %indvars.iv.next.i143, %238 ]
-  %235 = getelementptr inbounds i32, ptr %206, i64 %indvars.iv.i142
+  %235 = getelementptr inbounds nuw i32, ptr %206, i64 %indvars.iv.i142
   %236 = load i32, ptr %235, align 4
   %237 = icmp eq i32 %180, %236
   br i1 %237, label %._crit_edge.loopexit.split.loop.exit11.i145, label %238
@@ -753,9 +753,9 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit146: ; preds = %238, 
   %242 = getelementptr inbounds i32, ptr %241, i64 %240
   %243 = load i32, ptr %242, align 4
   %244 = add nsw i32 %243, %.06.i139
-  %245 = getelementptr inbounds i8, ptr %4, i64 12
+  %245 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %244, ptr %245, align 4
-  %246 = getelementptr inbounds i8, ptr %5, i64 12
+  %246 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %246, align 4
   br label %._crit_edge.thread
 

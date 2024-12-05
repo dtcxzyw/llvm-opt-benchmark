@@ -72,7 +72,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__16HdRendererPlugin20CreateRenderDelegateERKNS_9TfHashMapINS_7TfTokenENS_7VtValueENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret ptr %6
@@ -104,7 +104,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdRendererPlugin14CreateDele
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext true)
   br i1 %12, label %14, label %13
@@ -118,7 +118,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdRendererPlugin14CreateDele
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__16HfPluginRegistry18AddPluginReferenceEPNS_12HfPluginBaseE(ptr noundef nonnull align 8 dereferenceable(89) %15, ptr noundef nonnull %1)
   store ptr %1, ptr %4, align 8
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %20 unwind label %46
@@ -154,7 +154,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdRendererPlugin14CreateDele
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %32 = getelementptr inbounds i8, ptr %5, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %33
 
 33:                                               ; preds = %44, %30
@@ -168,7 +168,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdRendererPlugin14CreateDele
           to label %36 unwind label %.loopexit
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.026.0, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %37)
           to label %39 unwind label %.loopexit
 
@@ -177,7 +177,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdRendererPlugin14CreateDele
           to label %41 unwind label %.loopexit
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.sroa.026.0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.026.0, i64 16
   %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(16) %42)
           to label %44 unwind label %.loopexit
 

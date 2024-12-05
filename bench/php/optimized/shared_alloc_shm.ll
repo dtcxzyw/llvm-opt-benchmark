@@ -78,14 +78,14 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr nocaptu
   br i1 %33, label %.lr.ph92, label %.loopexit
 
 .lr.ph92:                                         ; preds = %.preheader
-  %34 = getelementptr inbounds i8, ptr %31, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   br label %41
 
 .lr.ph89:                                         ; preds = %27, %.lr.ph89
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph89 ], [ 0, %27 ]
-  %35 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %31, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %31, i64 %indvars.iv
   %36 = load ptr, ptr %1, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   store ptr %35, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %2, align 4
@@ -102,7 +102,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr nocaptu
 
 43:                                               ; preds = %41
   %44 = call i32 @shmget(i32 noundef 0, i64 noundef %42, i32 noundef 1920) #5
-  %45 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %31, i64 %indvars.iv99, i32 1
+  %45 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %31, i64 %indvars.iv99, i32 1
   store i32 %44, ptr %45, align 8
   br label %47
 
@@ -112,14 +112,14 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr nocaptu
 
 47:                                               ; preds = %46, %43
   %48 = phi i32 [ %14, %46 ], [ %44, %43 ]
-  %49 = getelementptr inbounds %struct.zend_shared_segment_shm, ptr %31, i64 %indvars.iv99
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %49 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %31, i64 %indvars.iv99
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = icmp eq i32 %48, -1
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %47
   %53 = call ptr @shmat(i32 noundef %48, ptr noundef null, i32 noundef 0) #5
-  %54 = getelementptr inbounds i8, ptr %49, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %53, ptr %54, align 8
   %55 = icmp eq ptr %53, inttoptr (i64 -1 to ptr)
   br i1 %55, label %56, label %59
@@ -133,7 +133,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr nocaptu
 59:                                               ; preds = %52
   %60 = load i32, ptr %50, align 8
   %61 = call i32 @shmctl(i32 noundef %60, i32 noundef 0, ptr noundef nonnull %5) #5
-  %62 = getelementptr inbounds i8, ptr %49, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i64 0, ptr %62, align 8
   store i64 %42, ptr %49, align 8
   %63 = sub i64 %.07590, %42
@@ -150,7 +150,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @detach_segment(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @shmdt(ptr noundef %3) #5
   ret i32 0

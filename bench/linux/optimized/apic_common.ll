@@ -95,7 +95,7 @@ define dso_local i32 @default_cpu_present_to_apicid(i32 noundef %0) #2 align 16 
 define dso_local zeroext i1 @default_apic_id_registered() local_unnamed_addr #2 align 16 {
   %1 = tail call i32 @__SCT__apic_call_read(i32 noundef 32) #7
   %2 = load ptr, ptr @apic, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(i32 noundef %1) #7
   %6 = zext i32 %5 to i64

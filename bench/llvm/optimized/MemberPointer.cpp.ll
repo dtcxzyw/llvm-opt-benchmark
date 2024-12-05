@@ -115,9 +115,9 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.thread.i.i: ; preds = %_ZNK5clang6interp
   br label %_ZNK5clang6interp7Pointer9getRecordEv.exit
 
 53:                                               ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i
-  %54 = getelementptr inbounds i8, ptr %43, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %55 = zext i32 %45 to i64
-  %56 = getelementptr inbounds i8, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 -8
   br label %_ZNK5clang6interp7Pointer9getRecordEv.exit
 
@@ -248,7 +248,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit53:          ; preds = %101, %102
   %134 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %135 = load i32, ptr %134, align 8
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds ptr, ptr %133, i64 %136
+  %137 = getelementptr inbounds nuw ptr, ptr %133, i64 %136
   %.not4760 = icmp eq i32 %135, 0
   br i1 %.not4760, label %.loopexit, label %.lr.ph
 
@@ -282,7 +282,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit57:          ; preds = %.lr.ph, %144
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load i32, ptr %154, align 8
   %156 = add i32 %155, %.162
-  %157 = getelementptr inbounds i8, ptr %.03761, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %.03761, i64 8
   %.not47 = icmp eq ptr %157, %137
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
@@ -370,9 +370,9 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.thread.i: ; preds = %_ZNK5clang6interp7P
   br label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit
 
 22:                                               ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i
-  %23 = getelementptr inbounds i8, ptr %12, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %24 = zext i32 %14 to i64
-  %25 = getelementptr inbounds i8, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -8
   br label %_ZNK5clang6interp7Pointer12getFieldDescEv.exit
 

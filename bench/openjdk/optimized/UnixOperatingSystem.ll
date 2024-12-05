@@ -54,7 +54,7 @@ define hidden range(i32 -1, 1) i32 @perfInit() local_unnamed_addr #0 {
 12:                                               ; preds = %10, %12
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @counters, i64 56), align 8
-  %14 = getelementptr inbounds %struct.ticks, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.ticks, ptr %13, i64 %indvars.iv
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = tail call fastcc i32 @get_totalticks(i32 noundef %15, ptr noundef %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -182,7 +182,7 @@ define internal fastcc range(i32 -2, 1) i32 @get_totalticks(i32 noundef %0, ptr 
   %39 = add i64 %38, %37
   %40 = load i64, ptr %9, align 8
   %41 = add i64 %39, %40
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %41, ptr %42, align 8
   %43 = load i64, ptr %6, align 8
   %44 = load i64, ptr %7, align 8
@@ -190,7 +190,7 @@ define internal fastcc range(i32 -2, 1) i32 @get_totalticks(i32 noundef %0, ptr 
   %46 = add i64 %45, %40
   %47 = add i64 %46, %43
   %48 = add i64 %47, %44
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %48, ptr %49, align 8
   br label %50
 
@@ -239,9 +239,9 @@ define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr nocaptur
   %15 = getelementptr inbounds %struct.ticks, ptr %13, i64 %14
   %.036.ph = select i1 %12, ptr getelementptr inbounds (i8, ptr @counters, i64 32), ptr %15
   %.sroa.0.0.copyload46 = load i64, ptr %.036.ph, align 8
-  %.sroa.2.0..sroa_idx47 = getelementptr inbounds i8, ptr %.036.ph, i64 8
+  %.sroa.2.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %.036.ph, i64 8
   %.sroa.2.0.copyload48 = load i64, ptr %.sroa.2.0..sroa_idx47, align 8
-  %.sroa.3.0..sroa_idx49 = getelementptr inbounds i8, ptr %.036.ph, i64 16
+  %.sroa.3.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %.036.ph, i64 16
   %.sroa.3.0.copyload50 = load i64, ptr %.sroa.3.0..sroa_idx49, align 8
   %16 = tail call fastcc i32 @get_totalticks(i32 noundef %0, ptr noundef nonnull %.036.ph)
   %17 = icmp sgt i32 %16, -1
@@ -524,7 +524,7 @@ define internal i32 @read_statdata(ptr nocapture readnone %0, ptr noundef %1, ..
   br i1 %.not16.i, label %22, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %14, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %17 = ashr exact i64 %11, 32
   %18 = getelementptr inbounds i8, ptr %3, i64 %17
   %19 = icmp ult ptr %16, %18

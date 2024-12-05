@@ -61,7 +61,7 @@ define hidden void @_ZN16ZGlobalsPointers14set_good_masksEv() local_unnamed_addr
 
 14:                                               ; preds = %14, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %14 ]
-  %15 = getelementptr inbounds i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i
   store i64 %11, ptr %15, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -69,7 +69,7 @@ define hidden void @_ZN16ZGlobalsPointers14set_good_masksEv() local_unnamed_addr
 
 _ZL15set_vector_maskPmm.exit:                     ; preds = %14, %_ZL15set_vector_maskPmm.exit
   %indvars.iv.i1 = phi i64 [ %indvars.iv.next.i2, %_ZL15set_vector_maskPmm.exit ], [ 0, %14 ]
-  %16 = getelementptr inbounds i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1
+  %16 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1
   store i64 %13, ptr %16, align 8
   %indvars.iv.next.i2 = add nuw nsw i64 %indvars.iv.i1, 1
   %exitcond.not.i3 = icmp eq i64 %indvars.iv.next.i2, 8
@@ -77,7 +77,7 @@ _ZL15set_vector_maskPmm.exit:                     ; preds = %14, %_ZL15set_vecto
 
 _ZL15set_vector_maskPmm.exit4:                    ; preds = %_ZL15set_vector_maskPmm.exit, %_ZL15set_vector_maskPmm.exit4
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i6, %_ZL15set_vector_maskPmm.exit4 ], [ 0, %_ZL15set_vector_maskPmm.exit ]
-  %17 = getelementptr inbounds i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5
+  %17 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5
   store i64 %10, ptr %17, align 8
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 8
@@ -133,7 +133,7 @@ define hidden void @_ZN16ZGlobalsPointers10initializeEv() local_unnamed_addr #0 
 
 13:                                               ; preds = %13, %10
   %indvars.iv.i.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i.i
   store i64 57344, ptr %14, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -141,7 +141,7 @@ define hidden void @_ZN16ZGlobalsPointers10initializeEv() local_unnamed_addr #0 
 
 _ZL15set_vector_maskPmm.exit.i:                   ; preds = %13, %_ZL15set_vector_maskPmm.exit.i
   %indvars.iv.i1.i = phi i64 [ %indvars.iv.next.i2.i, %_ZL15set_vector_maskPmm.exit.i ], [ 0, %13 ]
-  %15 = getelementptr inbounds i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1.i
+  %15 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1.i
   store i64 60128, ptr %15, align 8
   %indvars.iv.next.i2.i = add nuw nsw i64 %indvars.iv.i1.i, 1
   %exitcond.not.i3.i = icmp eq i64 %indvars.iv.next.i2.i, 8
@@ -149,7 +149,7 @@ _ZL15set_vector_maskPmm.exit.i:                   ; preds = %13, %_ZL15set_vecto
 
 _ZL15set_vector_maskPmm.exit4.i:                  ; preds = %_ZL15set_vector_maskPmm.exit.i, %_ZL15set_vector_maskPmm.exit4.i
   %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i6.i, %_ZL15set_vector_maskPmm.exit4.i ], [ 0, %_ZL15set_vector_maskPmm.exit.i ]
-  %16 = getelementptr inbounds i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5.i
+  %16 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5.i
   store i64 5392, ptr %16, align 8
   %indvars.iv.next.i6.i = add nuw nsw i64 %indvars.iv.i5.i, 1
   %exitcond.not.i7.i = icmp eq i64 %indvars.iv.next.i6.i, 8
@@ -167,7 +167,7 @@ declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ...) unnamed_addr #0 comdat align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = load ptr, ptr %0, align 8
@@ -208,7 +208,7 @@ define hidden void @_ZN16ZGlobalsPointers21flip_young_mark_startEv() local_unnam
 
 16:                                               ; preds = %16, %0
   %indvars.iv.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i.i
   store i64 %13, ptr %17, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -216,7 +216,7 @@ define hidden void @_ZN16ZGlobalsPointers21flip_young_mark_startEv() local_unnam
 
 _ZL15set_vector_maskPmm.exit.i:                   ; preds = %16, %_ZL15set_vector_maskPmm.exit.i
   %indvars.iv.i1.i = phi i64 [ %indvars.iv.next.i2.i, %_ZL15set_vector_maskPmm.exit.i ], [ 0, %16 ]
-  %18 = getelementptr inbounds i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1.i
+  %18 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1.i
   store i64 %15, ptr %18, align 8
   %indvars.iv.next.i2.i = add nuw nsw i64 %indvars.iv.i1.i, 1
   %exitcond.not.i3.i = icmp eq i64 %indvars.iv.next.i2.i, 8
@@ -224,7 +224,7 @@ _ZL15set_vector_maskPmm.exit.i:                   ; preds = %16, %_ZL15set_vecto
 
 _ZL15set_vector_maskPmm.exit4.i:                  ; preds = %_ZL15set_vector_maskPmm.exit.i, %_ZL15set_vector_maskPmm.exit4.i
   %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i6.i, %_ZL15set_vector_maskPmm.exit4.i ], [ 0, %_ZL15set_vector_maskPmm.exit.i ]
-  %19 = getelementptr inbounds i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5.i
+  %19 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5.i
   store i64 %12, ptr %19, align 8
   %indvars.iv.next.i6.i = add nuw nsw i64 %indvars.iv.i5.i, 1
   %exitcond.not.i7.i = icmp eq i64 %indvars.iv.next.i6.i, 8
@@ -263,7 +263,7 @@ define hidden void @_ZN16ZGlobalsPointers25flip_young_relocate_startEv() local_u
 
 15:                                               ; preds = %15, %0
   %indvars.iv.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i.i, %15 ]
-  %16 = getelementptr inbounds i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i.i
   store i64 %12, ptr %16, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -271,7 +271,7 @@ define hidden void @_ZN16ZGlobalsPointers25flip_young_relocate_startEv() local_u
 
 _ZL15set_vector_maskPmm.exit.i:                   ; preds = %15, %_ZL15set_vector_maskPmm.exit.i
   %indvars.iv.i1.i = phi i64 [ %indvars.iv.next.i2.i, %_ZL15set_vector_maskPmm.exit.i ], [ 0, %15 ]
-  %17 = getelementptr inbounds i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1.i
+  %17 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1.i
   store i64 %14, ptr %17, align 8
   %indvars.iv.next.i2.i = add nuw nsw i64 %indvars.iv.i1.i, 1
   %exitcond.not.i3.i = icmp eq i64 %indvars.iv.next.i2.i, 8
@@ -279,7 +279,7 @@ _ZL15set_vector_maskPmm.exit.i:                   ; preds = %15, %_ZL15set_vecto
 
 _ZL15set_vector_maskPmm.exit4.i:                  ; preds = %_ZL15set_vector_maskPmm.exit.i, %_ZL15set_vector_maskPmm.exit4.i
   %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i6.i, %_ZL15set_vector_maskPmm.exit4.i ], [ 0, %_ZL15set_vector_maskPmm.exit.i ]
-  %18 = getelementptr inbounds i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5.i
+  %18 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5.i
   store i64 %11, ptr %18, align 8
   %indvars.iv.next.i6.i = add nuw nsw i64 %indvars.iv.i5.i, 1
   %exitcond.not.i7.i = icmp eq i64 %indvars.iv.next.i6.i, 8
@@ -321,7 +321,7 @@ define hidden void @_ZN16ZGlobalsPointers19flip_old_mark_startEv() local_unnamed
 
 17:                                               ; preds = %17, %0
   %indvars.iv.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i.i, %17 ]
-  %18 = getelementptr inbounds i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i.i
   store i64 %14, ptr %18, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -329,7 +329,7 @@ define hidden void @_ZN16ZGlobalsPointers19flip_old_mark_startEv() local_unnamed
 
 _ZL15set_vector_maskPmm.exit.i:                   ; preds = %17, %_ZL15set_vector_maskPmm.exit.i
   %indvars.iv.i1.i = phi i64 [ %indvars.iv.next.i2.i, %_ZL15set_vector_maskPmm.exit.i ], [ 0, %17 ]
-  %19 = getelementptr inbounds i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1.i
+  %19 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1.i
   store i64 %16, ptr %19, align 8
   %indvars.iv.next.i2.i = add nuw nsw i64 %indvars.iv.i1.i, 1
   %exitcond.not.i3.i = icmp eq i64 %indvars.iv.next.i2.i, 8
@@ -337,7 +337,7 @@ _ZL15set_vector_maskPmm.exit.i:                   ; preds = %17, %_ZL15set_vecto
 
 _ZL15set_vector_maskPmm.exit4.i:                  ; preds = %_ZL15set_vector_maskPmm.exit.i, %_ZL15set_vector_maskPmm.exit4.i
   %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i6.i, %_ZL15set_vector_maskPmm.exit4.i ], [ 0, %_ZL15set_vector_maskPmm.exit.i ]
-  %20 = getelementptr inbounds i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5.i
+  %20 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5.i
   store i64 %13, ptr %20, align 8
   %indvars.iv.next.i6.i = add nuw nsw i64 %indvars.iv.i5.i, 1
   %exitcond.not.i7.i = icmp eq i64 %indvars.iv.next.i6.i, 8
@@ -376,7 +376,7 @@ define hidden void @_ZN16ZGlobalsPointers23flip_old_relocate_startEv() local_unn
 
 15:                                               ; preds = %15, %0
   %indvars.iv.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i.i, %15 ]
-  %16 = getelementptr inbounds i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw i64, ptr @ZPointerVectorLoadBadMask, i64 %indvars.iv.i.i
   store i64 %12, ptr %16, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -384,7 +384,7 @@ define hidden void @_ZN16ZGlobalsPointers23flip_old_relocate_startEv() local_unn
 
 _ZL15set_vector_maskPmm.exit.i:                   ; preds = %15, %_ZL15set_vector_maskPmm.exit.i
   %indvars.iv.i1.i = phi i64 [ %indvars.iv.next.i2.i, %_ZL15set_vector_maskPmm.exit.i ], [ 0, %15 ]
-  %17 = getelementptr inbounds i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1.i
+  %17 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreBadMask, i64 %indvars.iv.i1.i
   store i64 %14, ptr %17, align 8
   %indvars.iv.next.i2.i = add nuw nsw i64 %indvars.iv.i1.i, 1
   %exitcond.not.i3.i = icmp eq i64 %indvars.iv.next.i2.i, 8
@@ -392,7 +392,7 @@ _ZL15set_vector_maskPmm.exit.i:                   ; preds = %15, %_ZL15set_vecto
 
 _ZL15set_vector_maskPmm.exit4.i:                  ; preds = %_ZL15set_vector_maskPmm.exit.i, %_ZL15set_vector_maskPmm.exit4.i
   %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i6.i, %_ZL15set_vector_maskPmm.exit4.i ], [ 0, %_ZL15set_vector_maskPmm.exit.i ]
-  %18 = getelementptr inbounds i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5.i
+  %18 = getelementptr inbounds nuw i64, ptr @ZPointerVectorStoreGoodMask, i64 %indvars.iv.i5.i
   store i64 %11, ptr %18, align 8
   %indvars.iv.next.i6.i = add nuw nsw i64 %indvars.iv.i5.i, 1
   %exitcond.not.i7.i = icmp eq i64 %indvars.iv.next.i6.i, 8

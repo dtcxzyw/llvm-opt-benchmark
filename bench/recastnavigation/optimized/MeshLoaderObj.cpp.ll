@@ -12,9 +12,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15rcMeshLoaderObjC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float 1.000000e+00, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   ret void
 }
@@ -24,7 +24,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15rcMeshLoaderObjD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -34,7 +34,7 @@ define dso_local void @_ZN15rcMeshLoaderObjD2Ev(ptr noundef nonnull align 8 dere
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -44,7 +44,7 @@ define dso_local void @_ZN15rcMeshLoaderObjD2Ev(ptr noundef nonnull align 8 dere
   br label %11
 
 11:                                               ; preds = %10, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
@@ -66,14 +66,14 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15rcMeshLoaderObj9addVertexEfffRi(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, float noundef %1, float noundef %2, float noundef %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #3 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = load i32, ptr %4, align 4
   %.not = icmp slt i32 %7, %8
   br i1 %.not, label %._crit_edge18, label %9
 
 ._crit_edge18:                                    ; preds = %5
-  %.phi.trans.insert19 = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre20 = load ptr, ptr %.phi.trans.insert19, align 8
   br label %26
 
@@ -90,7 +90,7 @@ define dso_local void @_ZN15rcMeshLoaderObj9addVertexEfffRi(ptr nocapture nounde
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #14
   %17 = load i32, ptr %6, align 8
   %.not17 = icmp eq i32 %17, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not17, label %._crit_edge, label %18
 
@@ -102,7 +102,7 @@ define dso_local void @_ZN15rcMeshLoaderObj9addVertexEfffRi(ptr nocapture nounde
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = icmp eq ptr %.pre, null
   br i1 %23, label %25, label %24
 
@@ -122,14 +122,14 @@ define dso_local void @_ZN15rcMeshLoaderObj9addVertexEfffRi(ptr nocapture nounde
   %29 = mul nsw i32 %27, 3
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds float, ptr %28, i64 %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load float, ptr %32, align 8
   %34 = fmul float %1, %33
-  %35 = getelementptr inbounds i8, ptr %31, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store float %34, ptr %31, align 4
   %36 = load float, ptr %32, align 8
   %37 = fmul float %2, %36
-  %38 = getelementptr inbounds i8, ptr %31, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store float %37, ptr %35, align 4
   %39 = load float, ptr %32, align 8
   %40 = fmul float %3, %39
@@ -148,14 +148,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15rcMeshLoaderObj11addTriangleEiiiRi(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #3 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 68
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %7 = load i32, ptr %6, align 4
   %8 = load i32, ptr %4, align 4
   %.not = icmp slt i32 %7, %8
   br i1 %.not, label %._crit_edge17, label %9
 
 ._crit_edge17:                                    ; preds = %5
-  %.phi.trans.insert18 = getelementptr inbounds i8, ptr %0, i64 48
+  %.phi.trans.insert18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre19 = load ptr, ptr %.phi.trans.insert18, align 8
   br label %26
 
@@ -172,7 +172,7 @@ define dso_local void @_ZN15rcMeshLoaderObj11addTriangleEiiiRi(ptr nocapture nou
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #14
   %17 = load i32, ptr %6, align 4
   %.not16 = icmp eq i32 %17, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not16, label %._crit_edge, label %18
 
@@ -184,7 +184,7 @@ define dso_local void @_ZN15rcMeshLoaderObj11addTriangleEiiiRi(ptr nocapture nou
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = icmp eq ptr %.pre, null
   br i1 %23, label %25, label %24
 
@@ -204,9 +204,9 @@ define dso_local void @_ZN15rcMeshLoaderObj11addTriangleEiiiRi(ptr nocapture nou
   %29 = mul nsw i32 %27, 3
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i32, ptr %28, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %1, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %2, ptr %32, align 4
   store i32 %3, ptr %33, align 4
   %34 = load i32, ptr %6, align 4
@@ -268,14 +268,14 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
   br label %226
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %26, i64 %17
-  %32 = getelementptr inbounds i8, ptr %3, i64 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 40
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
-  %35 = getelementptr inbounds i8, ptr %0, i64 68
-  %.phi.trans.insert.i112 = getelementptr inbounds i8, ptr %0, i64 48
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 %17
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %.phi.trans.insert.i112 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit, %30
@@ -298,7 +298,7 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
   %.01526.i = phi i32 [ %.1.i, %50 ], [ 0, %38 ]
   %.01824.i = phi i8 [ %.119.i, %50 ], [ 1, %38 ]
   %39 = load i8, ptr %.027.i, align 1
-  %40 = getelementptr inbounds i8, ptr %.027.i, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.027.i, i64 1
   switch i8 %39, label %45 [
     i8 92, label %50
     i8 10, label %41
@@ -408,11 +408,11 @@ _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %7
   %81 = getelementptr inbounds float, ptr %78, i64 %80
   %82 = load float, ptr %34, align 8
   %83 = fmul float %58, %82
-  %84 = getelementptr inbounds i8, ptr %81, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store float %83, ptr %81, align 4
   %85 = load float, ptr %34, align 8
   %86 = fmul float %59, %85
-  %87 = getelementptr inbounds i8, ptr %81, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store float %86, ptr %84, align 4
   %88 = load float, ptr %34, align 8
   %89 = fmul float %60, %88
@@ -447,7 +447,7 @@ _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %7
   ]
 
 .critedge2.i:                                     ; preds = %.preheader.i, %.preheader.i
-  %97 = getelementptr inbounds i8, ptr %.1.i108, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.1.i108, i64 1
   %.pr.i = load i8, ptr %97, align 1
   br label %.preheader.i, !llvm.loop !7
 
@@ -466,7 +466,7 @@ _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %7
   br label %100
 
 100:                                              ; preds = %99, %.critedge.i
-  %101 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %.pre45.i = load i8, ptr %101, align 1
   br label %.critedge.i, !llvm.loop !8
 
@@ -481,7 +481,7 @@ _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %7
   %..i = select i1 %.inv.i, i32 -1, i32 %93
   %106 = add nsw i32 %..i, %105
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %107 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
   store i32 %106, ptr %107, align 4
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.i, label %.lr.ph, label %.outer.i, !llvm.loop !9
@@ -505,7 +505,7 @@ _ZL9parseFacePcPiii.exit:                         ; preds = %94
   %111 = phi i32 [ %.pre, %.lr.ph.split.preheader ], [ %113, %147 ]
   %indvars.iv = phi i64 [ 2, %.lr.ph.split.preheader ], [ %indvars.iv.next, %147 ]
   %.2127 = phi i32 [ %.0117.ph, %.lr.ph.split.preheader ], [ %.3, %147 ]
-  %112 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
   %114 = load i32, ptr %33, align 8
   %115 = icmp sge i32 %109, %114
@@ -572,9 +572,9 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %140 = mul nsw i32 %138, 3
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds i32, ptr %139, i64 %141
-  %143 = getelementptr inbounds i8, ptr %142, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store i32 %109, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %142, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i32 %111, ptr %143, align 4
   store i32 %113, ptr %144, align 4
   %145 = load i32, ptr %35, align 4
@@ -602,33 +602,33 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %153 = shl nsw i64 %151, 2
   %154 = select i1 %152, i64 -1, i64 %153
   %155 = call noalias noundef nonnull ptr @_Znam(i64 noundef %154) #14
-  %156 = getelementptr inbounds i8, ptr %0, i64 56
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %155, ptr %156, align 8
   %157 = icmp sgt i32 %149, 0
   br i1 %157, label %.lr.ph131, label %._crit_edge
 
 .lr.ph131:                                        ; preds = %148
-  %158 = getelementptr inbounds i8, ptr %8, i64 4
-  %159 = getelementptr inbounds i8, ptr %9, i64 8
-  %160 = getelementptr inbounds i8, ptr %8, i64 8
-  %161 = getelementptr inbounds i8, ptr %9, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %9, i64 4
   br label %162
 
 162:                                              ; preds = %.lr.ph131, %220
   %indvars.iv141 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next142, %220 ]
   %163 = load ptr, ptr %.phi.trans.insert.i, align 8
   %164 = load ptr, ptr %.phi.trans.insert.i112, align 8
-  %165 = getelementptr inbounds i32, ptr %164, i64 %indvars.iv141
+  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv141
   %166 = load i32, ptr %165, align 4
   %167 = mul nsw i32 %166, 3
   %168 = sext i32 %167 to i64
   %169 = getelementptr inbounds float, ptr %163, i64 %168
-  %170 = getelementptr inbounds i8, ptr %165, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %165, i64 4
   %171 = load i32, ptr %170, align 4
   %172 = mul nsw i32 %171, 3
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds float, ptr %163, i64 %173
-  %175 = getelementptr inbounds i8, ptr %165, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %176 = load i32, ptr %175, align 4
   %177 = mul nsw i32 %176, 3
   %178 = sext i32 %177 to i64
@@ -637,17 +637,17 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
 
 180:                                              ; preds = %162, %180
   %indvars.iv137 = phi i64 [ 0, %162 ], [ %indvars.iv.next138, %180 ]
-  %181 = getelementptr inbounds float, ptr %174, i64 %indvars.iv137
+  %181 = getelementptr inbounds nuw float, ptr %174, i64 %indvars.iv137
   %182 = load float, ptr %181, align 4
-  %183 = getelementptr inbounds float, ptr %169, i64 %indvars.iv137
+  %183 = getelementptr inbounds nuw float, ptr %169, i64 %indvars.iv137
   %184 = load float, ptr %183, align 4
   %185 = fsub float %182, %184
-  %186 = getelementptr inbounds [3 x float], ptr %8, i64 0, i64 %indvars.iv137
+  %186 = getelementptr inbounds nuw [3 x float], ptr %8, i64 0, i64 %indvars.iv137
   store float %185, ptr %186, align 4
-  %187 = getelementptr inbounds float, ptr %179, i64 %indvars.iv137
+  %187 = getelementptr inbounds nuw float, ptr %179, i64 %indvars.iv137
   %188 = load float, ptr %187, align 4
   %189 = fsub float %188, %184
-  %190 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %indvars.iv137
+  %190 = getelementptr inbounds nuw [3 x float], ptr %9, i64 0, i64 %indvars.iv137
   store float %189, ptr %190, align 4
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next138, 3
@@ -655,7 +655,7 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
 
 191:                                              ; preds = %180
   %192 = load ptr, ptr %156, align 8
-  %193 = getelementptr inbounds float, ptr %192, i64 %indvars.iv141
+  %193 = getelementptr inbounds nuw float, ptr %192, i64 %indvars.iv141
   %194 = load float, ptr %158, align 4
   %195 = load float, ptr %159, align 4
   %196 = load float, ptr %160, align 4
@@ -669,12 +669,12 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %203 = fneg float %195
   %204 = fmul float %202, %203
   %205 = call float @llvm.fmuladd.f32(float %196, float %201, float %204)
-  %206 = getelementptr inbounds i8, ptr %193, i64 4
+  %206 = getelementptr inbounds nuw i8, ptr %193, i64 4
   store float %205, ptr %206, align 4
   %207 = fneg float %201
   %208 = fmul float %194, %207
   %209 = call float @llvm.fmuladd.f32(float %202, float %197, float %208)
-  %210 = getelementptr inbounds i8, ptr %193, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store float %209, ptr %210, align 4
   %211 = fmul float %205, %205
   %212 = call float @llvm.fmuladd.f32(float %200, float %200, float %211)

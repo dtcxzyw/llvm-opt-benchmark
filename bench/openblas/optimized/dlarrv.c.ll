@@ -158,8 +158,8 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %120 = getelementptr i8, ptr %118, i64 8
   %121 = getelementptr i8, ptr %22, i64 -16
   %122 = zext nneg i32 %79 to i64
-  %123 = getelementptr inbounds double, ptr %68, i64 %122
-  %124 = getelementptr inbounds i32, ptr %69, i64 %122
+  %123 = getelementptr inbounds nuw double, ptr %68, i64 %122
+  %124 = getelementptr inbounds nuw i32, ptr %69, i64 %122
   %125 = getelementptr i8, ptr %15, i64 -24
   %126 = getelementptr i8, ptr %15, i64 -16
   %127 = fmul double %101, 3.000000e+00
@@ -179,7 +179,7 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %139 = phi i32 [ 1, %115 ], [ %846, %844 ]
   %140 = phi i32 [ 1, %115 ], [ %848, %844 ]
   %141 = phi double [ undef, %115 ], [ %845, %844 ]
-  %142 = getelementptr inbounds i32, ptr %56, i64 %137
+  %142 = getelementptr inbounds nuw i32, ptr %56, i64 %137
   %143 = load i32, ptr %142, align 4, !tbaa !3
   %144 = sext i32 %143 to i64
   %145 = getelementptr inbounds double, ptr %55, i64 %144
@@ -292,19 +292,19 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   store i32 %140, ptr %217, align 4, !tbaa !3
   store i32 %140, ptr %216, align 4, !tbaa !3
   %218 = zext nneg i32 %139 to i64
-  %219 = getelementptr inbounds double, ptr %57, i64 %218
+  %219 = getelementptr inbounds nuw double, ptr %57, i64 %218
   %220 = load double, ptr %219, align 8, !tbaa !7
   %221 = fadd double %146, %220
   store double %221, ptr %219, align 8, !tbaa !7
-  %222 = getelementptr inbounds double, ptr %68, i64 %218
+  %222 = getelementptr inbounds nuw double, ptr %68, i64 %218
   store double %221, ptr %222, align 8, !tbaa !7
   %223 = add nuw nsw i32 %139, 1
   br label %844
 
 224:                                              ; preds = %201
   %225 = zext nneg i32 %139 to i64
-  %226 = getelementptr inbounds double, ptr %57, i64 %225
-  %227 = getelementptr inbounds double, ptr %68, i64 %225
+  %226 = getelementptr inbounds nuw double, ptr %57, i64 %225
+  %227 = getelementptr inbounds nuw double, ptr %68, i64 %225
   call void @dcopy_(ptr noundef nonnull %39, ptr noundef nonnull %226, ptr noundef nonnull @c__1, ptr noundef nonnull %227, ptr noundef nonnull @c__1) #6
   %228 = load i32, ptr %39, align 4, !tbaa !3
   %229 = icmp slt i32 %228, 1
@@ -338,12 +338,12 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %243 = getelementptr inbounds double, ptr %54, i64 %242
   %244 = getelementptr inbounds double, ptr %55, i64 %242
   %245 = add nsw i32 %143, -1
-  %246 = getelementptr inbounds i32, ptr %61, i64 %225
+  %246 = getelementptr inbounds nuw i32, ptr %61, i64 %225
   %247 = add nsw i32 %77, %140
   %248 = sext i32 %247 to i64
   %249 = getelementptr double, ptr %121, i64 %248
-  %250 = getelementptr inbounds double, ptr %59, i64 %225
-  %251 = getelementptr inbounds double, ptr %58, i64 %225
+  %250 = getelementptr inbounds nuw double, ptr %59, i64 %225
+  %251 = getelementptr inbounds nuw double, ptr %58, i64 %225
   %252 = add i32 %140, %70
   %253 = sext i32 %252 to i64
   %254 = getelementptr inbounds double, ptr %68, i64 %253
@@ -499,19 +499,19 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 355:                                              ; preds = %353
   %.reass84 = add i32 %290, %invariant.op83
   %356 = zext nneg i32 %.reass84 to i64
-  %357 = getelementptr inbounds double, ptr %59, i64 %356
+  %357 = getelementptr inbounds nuw double, ptr %59, i64 %356
   %358 = load double, ptr %357, align 8, !tbaa !7
   store double %358, ptr %28, align 8, !tbaa !7
   %359 = zext nneg i32 %341 to i64
-  %360 = getelementptr inbounds double, ptr %57, i64 %359
+  %360 = getelementptr inbounds nuw double, ptr %57, i64 %359
   %361 = load double, ptr %360, align 8, !tbaa !7
-  %362 = getelementptr inbounds double, ptr %58, i64 %359
+  %362 = getelementptr inbounds nuw double, ptr %58, i64 %359
   %363 = load double, ptr %362, align 8, !tbaa !7
   %364 = fsub double %361, %363
-  %365 = getelementptr inbounds double, ptr %57, i64 %356
+  %365 = getelementptr inbounds nuw double, ptr %57, i64 %356
   %366 = load double, ptr %365, align 8, !tbaa !7
   %367 = fsub double %364, %366
-  %368 = getelementptr inbounds double, ptr %58, i64 %356
+  %368 = getelementptr inbounds nuw double, ptr %58, i64 %356
   %369 = load double, ptr %368, align 8, !tbaa !7
   %370 = fsub double %367, %369
   %371 = fcmp oge double %358, %370
@@ -843,7 +843,7 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 597:                                              ; preds = %579
   %598 = zext nneg i32 %568 to i64
-  %599 = getelementptr inbounds double, ptr %59, i64 %598
+  %599 = getelementptr inbounds nuw double, ptr %59, i64 %598
   %600 = load double, ptr %599, align 8, !tbaa !7
   br label %601
 
@@ -1125,15 +1125,15 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 778:                                              ; preds = %769
   %779 = zext nneg i32 %568 to i64
-  %780 = getelementptr inbounds double, ptr %59, i64 %779
+  %780 = getelementptr inbounds nuw double, ptr %59, i64 %779
   %781 = load double, ptr %780, align 8, !tbaa !7
   store double %781, ptr %28, align 8, !tbaa !7
   %782 = load double, ptr %580, align 8, !tbaa !7
   %783 = fsub double %775, %782
-  %784 = getelementptr inbounds double, ptr %57, i64 %779
+  %784 = getelementptr inbounds nuw double, ptr %57, i64 %779
   %785 = load double, ptr %784, align 8, !tbaa !7
   %786 = fsub double %783, %785
-  %787 = getelementptr inbounds double, ptr %58, i64 %779
+  %787 = getelementptr inbounds nuw double, ptr %58, i64 %779
   %788 = load double, ptr %787, align 8, !tbaa !7
   %789 = fsub double %786, %788
   %790 = fcmp oge double %781, %789

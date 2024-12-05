@@ -32,7 +32,7 @@ define i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_
   %3 = alloca ptr, align 8
   store ptr %0, ptr @jvm, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 %6(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 65538) #5
   %.not = icmp eq i32 %7, 0
@@ -50,14 +50,14 @@ define i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_
   br label %23
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %3, align 8
   %17 = call i32 %15(ptr noundef %16) #5
   store i32 %17, ptr @jmm_version_management_ext, align 4
   %18 = load ptr, ptr %3, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 %21(ptr noundef nonnull %18) #5
   br label %23

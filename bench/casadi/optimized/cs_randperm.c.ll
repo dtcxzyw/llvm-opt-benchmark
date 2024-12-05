@@ -26,7 +26,7 @@ define ptr @cs_randperm(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = xor i32 %7, -1
   %9 = add nsw i32 %0, %8
-  %10 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store i32 %9, ptr %10, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -60,7 +60,7 @@ define ptr @cs_randperm(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds i32, ptr %5, i64 %19
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv39
+  %22 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv39
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %20, align 4
   store i32 %21, ptr %22, align 4

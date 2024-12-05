@@ -76,7 +76,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly initializes((0, 12), (16, 32)) %4) local_unnamed_addr #4 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 16, !tbaa !6
   %8 = load float, ptr %7, align 4, !tbaa !21
   %9 = fadd reassoc nsz arcp contract afn float %8, 1.000000e+00
@@ -85,10 +85,10 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
   %12 = fmul reassoc nsz arcp contract afn double %11, 1.600000e-01
   %13 = fptosi double %12 to i32
   %14 = sitofp i32 %13 to float
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load float, ptr %15, align 4, !tbaa !23
   %17 = fmul reassoc nsz arcp contract afn float %16, %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %19 = load float, ptr %18, align 8, !tbaa !24
   %20 = fdiv reassoc nsz arcp contract afn float %17, %19
   %21 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %20)
@@ -106,15 +106,15 @@ define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture no
   %33 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %32)
   %34 = fptosi float %33 to i32
   store <2 x float> <float 0x4000CCCCC0000000, float 3.000000e+00>, ptr %4, align 4, !tbaa !25
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float 1.000000e+00, ptr %35, align 4, !tbaa !26
-  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %36, align 4, !tbaa !28
-  %37 = getelementptr inbounds i8, ptr %4, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %34, ptr %37, align 4, !tbaa !29
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 1, ptr %38, align 4, !tbaa !30
-  %39 = getelementptr inbounds i8, ptr %4, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 1, ptr %39, align 4, !tbaa !31
   ret void
 }
@@ -130,19 +130,19 @@ declare float @llvm.sqrt.f32(float) #5
 
 ; Function Attrs: nounwind uwtable
 define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 132
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %8 = load i32, ptr %7, align 4, !tbaa !32
   %9 = tail call i32 @dt_iop_have_required_input_format(i32 noundef 4, ptr noundef %0, i32 noundef %8, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #19
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 16, !tbaa !6
-  %14 = getelementptr inbounds i8, ptr %5, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !33
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = load i32, ptr %17, align 4, !tbaa !34
   %19 = sext i32 %18 to i64
   %20 = mul nsw i64 %19, %16
@@ -236,10 +236,10 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %80 = fmul reassoc nsz arcp contract afn double %79, 1.600000e-01
   %81 = fptosi double %80 to i32
   %82 = sitofp i32 %81 to float
-  %83 = getelementptr inbounds i8, ptr %4, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %84 = load float, ptr %83, align 4, !tbaa !23
   %85 = fmul reassoc nsz arcp contract afn float %84, %82
-  %86 = getelementptr inbounds i8, ptr %1, i64 104
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %87 = load float, ptr %86, align 8, !tbaa !24
   %88 = fdiv reassoc nsz arcp contract afn float %85, %87
   %89 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %88)
@@ -304,7 +304,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 125:                                              ; preds = %119, %.loopexit20
   %126 = phi i64 [ %124, %119 ], [ 16, %.loopexit20 ]
   tail call void @dt_box_mean(ptr noundef %3, i64 noundef %16, i64 noundef %19, i32 noundef 1, i64 noundef %126, i32 noundef 8) #19
-  %127 = getelementptr inbounds i8, ptr %13, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %128 = load float, ptr %127, align 4, !tbaa !44
   %129 = fmul reassoc nsz arcp contract afn float %128, 0x3FA3333320000000
   %130 = fpext float %129 to double
@@ -342,7 +342,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %151 = phi float [ 1.000000e+02, %.preheader17 ], [ %149, %148 ], [ 0.000000e+00, %146 ]
   %152 = getelementptr inbounds float, ptr %3, i64 %137
   store float %151, ptr %152, align 4, !tbaa !25, !alias.scope !50, !noalias !45
-  %153 = getelementptr inbounds i8, ptr %152, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %153, i8 0, i64 12, i1 false), !alias.scope !48, !noalias !45
   %154 = add i64 %134, -1
   %155 = icmp ult i64 %154, %131
@@ -383,7 +383,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %176 = phi float [ 1.000000e+02, %.preheader15 ], [ %174, %173 ], [ 0.000000e+00, %171 ]
   %177 = getelementptr inbounds float, ptr %3, i64 %162
   store float %176, ptr %177, align 4, !tbaa !25, !alias.scope !59, !noalias !54
-  %178 = getelementptr inbounds i8, ptr %177, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %178, i8 0, i64 12, i1 false), !alias.scope !57, !noalias !54
   %179 = add i64 %159, -1
   %180 = icmp ult i64 %179, %156
@@ -399,7 +399,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %184 = getelementptr inbounds float, ptr %3, i64 %183
   %185 = load float, ptr %184, align 4, !tbaa !25
   %186 = shl nuw nsw i64 %183, 2
-  %187 = getelementptr inbounds float, ptr %2, i64 %186
+  %187 = getelementptr inbounds nuw float, ptr %2, i64 %186
   %188 = load float, ptr %187, align 4, !tbaa !25
   %189 = fadd reassoc nsz arcp contract afn float %185, -1.000000e+02
   %190 = fadd reassoc nsz arcp contract afn float %189, %188
@@ -409,9 +409,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %194 = fcmp reassoc nsz arcp contract afn olt float %192, 0.000000e+00
   %195 = select reassoc nsz arcp contract afn i1 %194, float 0.000000e+00, float %192
   %196 = select reassoc nsz arcp contract afn i1 %193, float 1.000000e+02, float %195
-  %197 = getelementptr inbounds float, ptr %3, i64 %186
+  %197 = getelementptr inbounds nuw float, ptr %3, i64 %186
   store float %196, ptr %197, align 4, !tbaa !25, !alias.scope !63
-  %198 = getelementptr inbounds i8, ptr %197, i64 4
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %198, i8 0, i64 12, i1 false)
   %199 = icmp sgt i64 %182, 1
   br i1 %199, label %.preheader, label %.loopexit
@@ -429,7 +429,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3) local_unnamed_addr #7 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !6
   %7 = load <2 x float>, ptr %1, align 4, !tbaa !25
   store <2 x float> %7, ptr %6, align 4, !tbaa !25
@@ -439,7 +439,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #8 {
   %4 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #20
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !6
   ret void
 }
@@ -449,7 +449,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef %2) local_unnamed_addr #10 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 16, !tbaa !6
   tail call void @free(ptr noundef %5) #19
   store ptr null, ptr %4, align 16, !tbaa !6
@@ -462,7 +462,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #12 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
-  %3 = getelementptr inbounds i8, ptr %0, i64 528
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !67
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 -1, i64 16, i1 false)
   ret void
@@ -473,7 +473,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @cleanup_global(ptr nocapture noundef %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 528
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !67
   tail call void @free(ptr noundef %3) #19
   store ptr null, ptr %2, align 8, !tbaa !67
@@ -491,9 +491,9 @@ define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 704
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store ptr %2, ptr %6, align 16, !tbaa !70
-  %7 = getelementptr inbounds i8, ptr %0, i64 712
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %8 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %7, ptr noundef null) #19
   %9 = load ptr, ptr %6, align 16, !tbaa !70
   %10 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.10) #19
@@ -503,7 +503,7 @@ define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr
   %12 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef 5) #19
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %11, ptr noundef %12) #19
   %13 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.13) #19
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %13, ptr %14, align 8, !tbaa !78
   tail call void @dt_bauhaus_slider_set_format(ptr noundef %13, ptr noundef nonnull @.str.11) #19
   %15 = load ptr, ptr %14, align 8, !tbaa !78
@@ -558,7 +558,7 @@ define ptr @get_p(ptr noundef readnone %0, ptr nocapture noundef readonly %1) lo
 5:                                                ; preds = %2
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.13) #22
   %7 = icmp eq i32 %6, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = select i1 %7, ptr %8, ptr null
   br label %10
 

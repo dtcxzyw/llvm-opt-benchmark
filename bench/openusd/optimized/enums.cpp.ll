@@ -58,7 +58,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17HdInvertCullStyleENS_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__17HdInvertCullStyleENS_11HdCullStyleE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__17HdInvertCullStyleENS_11HdCullStyleE, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

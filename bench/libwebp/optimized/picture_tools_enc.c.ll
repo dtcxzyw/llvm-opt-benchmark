@@ -16,9 +16,9 @@ define hidden void @WebPReplaceTransparentPixels(ptr noundef readonly %0, i32 no
   br i1 %.not12, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = and i32 %1, 16777215
   tail call void @WebPInitAlphaProcessing() #4
@@ -26,8 +26,8 @@ define hidden void @WebPReplaceTransparentPixels(ptr noundef readonly %0, i32 no
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
@@ -55,10 +55,10 @@ define void @WebPCleanupTransparentArea(ptr noundef readonly %0) local_unnamed_a
   br i1 %2, label %SmoothenBlock.exit251, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sdiv i32 %5, 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = sdiv i32 %8, 8
   %10 = load i32, ptr %0, align 8
@@ -71,8 +71,8 @@ define void @WebPCleanupTransparentArea(ptr noundef readonly %0) local_unnamed_a
 
 .preheader260.lr.ph:                              ; preds = %.preheader261
   %12 = icmp sgt i32 %5, 7
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br i1 %12, label %.preheader260.us, label %SmoothenBlock.exit251
 
 .preheader260.us:                                 ; preds = %.preheader260.lr.ph, %._crit_edge.us
@@ -101,7 +101,7 @@ define void @WebPCleanupTransparentArea(ptr noundef readonly %0) local_unnamed_a
 
 24:                                               ; preds = %27, %.preheader.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next.i.us, %27 ]
-  %25 = getelementptr inbounds i32, ptr %.01216.i.us, i64 %indvars.iv.i.us
+  %25 = getelementptr inbounds nuw i32, ptr %.01216.i.us, i64 %indvars.iv.i.us
   %26 = load i32, ptr %25, align 4
   %.not.i.us = icmp ult i32 %26, 16777216
   br i1 %.not.i.us, label %27, label %FlattenARGB.exit.us
@@ -136,7 +136,7 @@ IsTransparentARGBArea.exit.us:                    ; preds = %28
 
 34:                                               ; preds = %34, %.preheader.i144.us
   %indvars.iv.i145.us = phi i64 [ 0, %.preheader.i144.us ], [ %indvars.iv.next.i146.us, %34 ]
-  %35 = getelementptr inbounds i32, ptr %.01114.i.us, i64 %indvars.iv.i145.us
+  %35 = getelementptr inbounds nuw i32, ptr %.01114.i.us, i64 %indvars.iv.i145.us
   store i32 %.2122.us, ptr %35, align 4
   %indvars.iv.next.i146.us = add nuw nsw i64 %indvars.iv.i145.us, 1
   %exitcond.not.i147.us = icmp eq i64 %indvars.iv.next.i146.us, 8
@@ -161,19 +161,19 @@ FlattenARGB.exit.us:                              ; preds = %36, %24
   br i1 %exitcond305.not, label %SmoothenBlock.exit251, label %.preheader260.us, !llvm.loop !11
 
 41:                                               ; preds = %3
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 44
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   %57 = icmp eq ptr %49, null
@@ -221,8 +221,8 @@ FlattenARGB.exit.us:                              ; preds = %36, %24
   %.sroa.5.1271 = phi i8 [ %.sroa.5.3, %Flatten.exit159 ], [ %.sroa.5.0284, %.preheader ]
   %.sroa.3.1270 = phi i8 [ %.sroa.3.3, %Flatten.exit159 ], [ %.sroa.3.0283, %.preheader ]
   %.sroa.0.1269 = phi i8 [ %.sroa.0.3, %Flatten.exit159 ], [ %.sroa.0.0282, %.preheader ]
-  %72 = getelementptr inbounds i8, ptr %.0114281, i64 %indvars.iv306
-  %73 = getelementptr inbounds i8, ptr %.0117278, i64 %indvars.iv306
+  %72 = getelementptr inbounds nuw i8, ptr %.0114281, i64 %indvars.iv306
+  %73 = getelementptr inbounds nuw i8, ptr %.0117278, i64 %indvars.iv306
   br label %.preheader54.us.i
 
 .preheader54.us.i:                                ; preds = %._crit_edge.us.i, %.lr.ph
@@ -237,14 +237,14 @@ FlattenARGB.exit.us:                              ; preds = %36, %24
   %indvars.iv.i148 = phi i64 [ 0, %.preheader54.us.i ], [ %indvars.iv.next.i149, %83 ]
   %.157.us.i = phi i32 [ %.063.us.i, %.preheader54.us.i ], [ %.2.us.i, %83 ]
   %.15055.us.i = phi i32 [ %.04959.us.i, %.preheader54.us.i ], [ %.251.us.i, %83 ]
-  %75 = getelementptr inbounds i8, ptr %.04361.us.i, i64 %indvars.iv.i148
+  %75 = getelementptr inbounds nuw i8, ptr %.04361.us.i, i64 %indvars.iv.i148
   %76 = load i8, ptr %75, align 1
   %.not.us.i = icmp eq i8 %76, 0
   br i1 %.not.us.i, label %83, label %77
 
 77:                                               ; preds = %74
   %78 = add nsw i32 %.15055.us.i, 1
-  %79 = getelementptr inbounds i8, ptr %.04162.us.i, i64 %indvars.iv.i148
+  %79 = getelementptr inbounds nuw i8, ptr %.04162.us.i, i64 %indvars.iv.i148
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = add nsw i32 %.157.us.i, %81
@@ -282,13 +282,13 @@ FlattenARGB.exit.us:                              ; preds = %36, %24
 
 91:                                               ; preds = %97, %.preheader.us.i
   %indvars.iv77.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next78.i, %97 ]
-  %92 = getelementptr inbounds i8, ptr %.14470.us.i, i64 %indvars.iv77.i
+  %92 = getelementptr inbounds nuw i8, ptr %.14470.us.i, i64 %indvars.iv77.i
   %93 = load i8, ptr %92, align 1
   %94 = icmp eq i8 %93, 0
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %.14271.us.i, i64 %indvars.iv77.i
+  %96 = getelementptr inbounds nuw i8, ptr %.14271.us.i, i64 %indvars.iv77.i
   store i8 %90, ptr %96, align 1
   br label %97
 
@@ -315,9 +315,9 @@ SmoothenBlock.exit:                               ; preds = %._crit_edge64.i
 102:                                              ; preds = %101
   %103 = load i8, ptr %73, align 1
   %104 = lshr exact i64 %indvars.iv306, 1
-  %105 = getelementptr inbounds i8, ptr %.0116279, i64 %104
+  %105 = getelementptr inbounds nuw i8, ptr %.0116279, i64 %104
   %106 = load i8, ptr %105, align 1
-  %107 = getelementptr inbounds i8, ptr %.0115280, i64 %104
+  %107 = getelementptr inbounds nuw i8, ptr %.0115280, i64 %104
   %108 = load i8, ptr %107, align 1
   br label %109
 
@@ -338,7 +338,7 @@ SmoothenBlock.exit:                               ; preds = %._crit_edge64.i
 
 Flatten.exit:                                     ; preds = %110
   %113 = lshr exact i64 %indvars.iv306, 1
-  %114 = getelementptr inbounds i8, ptr %.0116279, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %.0116279, i64 %113
   br label %115
 
 115:                                              ; preds = %115, %Flatten.exit
@@ -351,7 +351,7 @@ Flatten.exit:                                     ; preds = %110
   br i1 %exitcond.not.i154, label %Flatten.exit155, label %115, !llvm.loop !16
 
 Flatten.exit155:                                  ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %.0115280, i64 %113
+  %118 = getelementptr inbounds nuw i8, ptr %.0115280, i64 %113
   br label %119
 
 119:                                              ; preds = %119, %Flatten.exit155
@@ -387,8 +387,8 @@ Flatten.exit159:                                  ; preds = %119, %._crit_edge.u
 
 124:                                              ; preds = %._crit_edge
   %125 = zext nneg i32 %.1.lcssa to i64
-  %126 = getelementptr inbounds i8, ptr %.0114281, i64 %125
-  %127 = getelementptr inbounds i8, ptr %.0117278, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr %.0114281, i64 %125
+  %127 = getelementptr inbounds nuw i8, ptr %.0117278, i64 %125
   %128 = sub nsw i32 %5, %.1.lcssa
   %129 = icmp sgt i32 %128, 0
   br i1 %129, label %.preheader54.us.preheader.i, label %SmoothenBlock.exit188
@@ -409,14 +409,14 @@ Flatten.exit159:                                  ; preds = %119, %._crit_edge.u
   %indvars.iv.i167 = phi i64 [ 0, %.preheader54.us.i161 ], [ %indvars.iv.next.i173, %139 ]
   %.157.us.i168 = phi i32 [ %.063.us.i162, %.preheader54.us.i161 ], [ %.2.us.i172, %139 ]
   %.15055.us.i169 = phi i32 [ %.04959.us.i166, %.preheader54.us.i161 ], [ %.251.us.i171, %139 ]
-  %131 = getelementptr inbounds i8, ptr %.04361.us.i164, i64 %indvars.iv.i167
+  %131 = getelementptr inbounds nuw i8, ptr %.04361.us.i164, i64 %indvars.iv.i167
   %132 = load i8, ptr %131, align 1
   %.not.us.i170 = icmp eq i8 %132, 0
   br i1 %.not.us.i170, label %139, label %133
 
 133:                                              ; preds = %130
   %134 = add nsw i32 %.15055.us.i169, 1
-  %135 = getelementptr inbounds i8, ptr %.04162.us.i163, i64 %indvars.iv.i167
+  %135 = getelementptr inbounds nuw i8, ptr %.04162.us.i163, i64 %indvars.iv.i167
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i32
   %138 = add nsw i32 %.157.us.i168, %137
@@ -456,13 +456,13 @@ Flatten.exit159:                                  ; preds = %119, %._crit_edge.u
 
 149:                                              ; preds = %155, %.preheader.us.i179
   %indvars.iv77.i183 = phi i64 [ 0, %.preheader.us.i179 ], [ %indvars.iv.next78.i184, %155 ]
-  %150 = getelementptr inbounds i8, ptr %.14470.us.i181, i64 %indvars.iv77.i183
+  %150 = getelementptr inbounds nuw i8, ptr %.14470.us.i181, i64 %indvars.iv77.i183
   %151 = load i8, ptr %150, align 1
   %152 = icmp eq i8 %151, 0
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %149
-  %154 = getelementptr inbounds i8, ptr %.14271.us.i180, i64 %indvars.iv77.i183
+  %154 = getelementptr inbounds nuw i8, ptr %.14271.us.i180, i64 %indvars.iv77.i183
   store i8 %148, ptr %154, align 1
   br label %155
 
@@ -517,8 +517,8 @@ SmoothenBlock.exit218.preheader:                  ; preds = %.lr.ph292
 .preheader54.lr.ph.i.us:                          ; preds = %.preheader54.lr.ph.i.us.preheader, %SmoothenBlock.exit218.us
   %indvars.iv310 = phi i64 [ 0, %.preheader54.lr.ph.i.us.preheader ], [ %indvars.iv.next311, %SmoothenBlock.exit218.us ]
   %indvars.iv308 = phi i64 [ 8, %.preheader54.lr.ph.i.us.preheader ], [ %indvars.iv.next309, %SmoothenBlock.exit218.us ]
-  %173 = getelementptr inbounds i8, ptr %.0114.lcssa, i64 %indvars.iv310
-  %174 = getelementptr inbounds i8, ptr %.0117.lcssa, i64 %indvars.iv310
+  %173 = getelementptr inbounds nuw i8, ptr %.0114.lcssa, i64 %indvars.iv310
+  %174 = getelementptr inbounds nuw i8, ptr %.0117.lcssa, i64 %indvars.iv310
   br label %.preheader54.us.i191.us
 
 .preheader54.us.i191.us:                          ; preds = %._crit_edge.us.i205.us, %.preheader54.lr.ph.i.us
@@ -533,14 +533,14 @@ SmoothenBlock.exit218.preheader:                  ; preds = %.lr.ph292
   %indvars.iv.i197.us = phi i64 [ 0, %.preheader54.us.i191.us ], [ %indvars.iv.next.i203.us, %184 ]
   %.157.us.i198.us = phi i32 [ %.063.us.i192.us, %.preheader54.us.i191.us ], [ %.2.us.i202.us, %184 ]
   %.15055.us.i199.us = phi i32 [ %.04959.us.i196.us, %.preheader54.us.i191.us ], [ %.251.us.i201.us, %184 ]
-  %176 = getelementptr inbounds i8, ptr %.04361.us.i194.us, i64 %indvars.iv.i197.us
+  %176 = getelementptr inbounds nuw i8, ptr %.04361.us.i194.us, i64 %indvars.iv.i197.us
   %177 = load i8, ptr %176, align 1
   %.not.us.i200.us = icmp eq i8 %177, 0
   br i1 %.not.us.i200.us, label %184, label %178
 
 178:                                              ; preds = %175
   %179 = add nsw i32 %.15055.us.i199.us, 1
-  %180 = getelementptr inbounds i8, ptr %.04162.us.i193.us, i64 %indvars.iv.i197.us
+  %180 = getelementptr inbounds nuw i8, ptr %.04162.us.i193.us, i64 %indvars.iv.i197.us
   %181 = load i8, ptr %180, align 1
   %182 = zext i8 %181 to i32
   %183 = add nsw i32 %.157.us.i198.us, %182
@@ -579,13 +579,13 @@ SmoothenBlock.exit218.preheader:                  ; preds = %.lr.ph292
 
 193:                                              ; preds = %199, %.preheader.us.i209.us
   %indvars.iv77.i213.us = phi i64 [ 0, %.preheader.us.i209.us ], [ %indvars.iv.next78.i214.us, %199 ]
-  %194 = getelementptr inbounds i8, ptr %.14470.us.i211.us, i64 %indvars.iv77.i213.us
+  %194 = getelementptr inbounds nuw i8, ptr %.14470.us.i211.us, i64 %indvars.iv77.i213.us
   %195 = load i8, ptr %194, align 1
   %196 = icmp eq i8 %195, 0
   br i1 %196, label %197, label %199
 
 197:                                              ; preds = %193
-  %198 = getelementptr inbounds i8, ptr %.14271.us.i210.us, i64 %indvars.iv77.i213.us
+  %198 = getelementptr inbounds nuw i8, ptr %.14271.us.i210.us, i64 %indvars.iv77.i213.us
   store i8 %192, ptr %198, align 1
   br label %199
 
@@ -618,8 +618,8 @@ SmoothenBlock.exit218.us:                         ; preds = %._crit_edge.us72.i2
 
 205:                                              ; preds = %._crit_edge293
   %206 = zext nneg i32 %.2.lcssa to i64
-  %207 = getelementptr inbounds i8, ptr %.0114.lcssa, i64 %206
-  %208 = getelementptr inbounds i8, ptr %.0117.lcssa, i64 %206
+  %207 = getelementptr inbounds nuw i8, ptr %.0114.lcssa, i64 %206
+  %208 = getelementptr inbounds nuw i8, ptr %.0117.lcssa, i64 %206
   %209 = sub nsw i32 %5, %.2.lcssa
   %210 = icmp sgt i32 %166, 0
   br i1 %210, label %.preheader54.lr.ph.i220, label %SmoothenBlock.exit251
@@ -646,14 +646,14 @@ SmoothenBlock.exit218.us:                         ; preds = %._crit_edge.us72.i2
   %indvars.iv.i229 = phi i64 [ 0, %.preheader54.us.i223 ], [ %indvars.iv.next.i235, %223 ]
   %.157.us.i230 = phi i32 [ %.063.us.i224, %.preheader54.us.i223 ], [ %.2.us.i234, %223 ]
   %.15055.us.i231 = phi i32 [ %.04959.us.i228, %.preheader54.us.i223 ], [ %.251.us.i233, %223 ]
-  %215 = getelementptr inbounds i8, ptr %.04361.us.i226, i64 %indvars.iv.i229
+  %215 = getelementptr inbounds nuw i8, ptr %.04361.us.i226, i64 %indvars.iv.i229
   %216 = load i8, ptr %215, align 1
   %.not.us.i232 = icmp eq i8 %216, 0
   br i1 %.not.us.i232, label %223, label %217
 
 217:                                              ; preds = %214
   %218 = add nsw i32 %.15055.us.i231, 1
-  %219 = getelementptr inbounds i8, ptr %.04162.us.i225, i64 %indvars.iv.i229
+  %219 = getelementptr inbounds nuw i8, ptr %.04162.us.i225, i64 %indvars.iv.i229
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i32
   %222 = add nsw i32 %.157.us.i230, %221
@@ -693,13 +693,13 @@ SmoothenBlock.exit218.us:                         ; preds = %._crit_edge.us72.i2
 
 233:                                              ; preds = %239, %.preheader.us.i242
   %indvars.iv77.i246 = phi i64 [ 0, %.preheader.us.i242 ], [ %indvars.iv.next78.i247, %239 ]
-  %234 = getelementptr inbounds i8, ptr %.14470.us.i244, i64 %indvars.iv77.i246
+  %234 = getelementptr inbounds nuw i8, ptr %.14470.us.i244, i64 %indvars.iv77.i246
   %235 = load i8, ptr %234, align 1
   %236 = icmp eq i8 %235, 0
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %233
-  %238 = getelementptr inbounds i8, ptr %.14271.us.i243, i64 %indvars.iv77.i246
+  %238 = getelementptr inbounds nuw i8, ptr %.14271.us.i243, i64 %indvars.iv77.i246
   store i8 %232, ptr %238, align 1
   br label %239
 
@@ -738,7 +738,7 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
   br i1 %.not, label %11, label %179
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = ashr i32 %13, 1
   %15 = mul nuw nsw i32 %4, 16839
@@ -762,10 +762,10 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
   %30 = add nuw nsw i32 %29, %28
   %31 = add nsw i32 %30, %.neg.i157
   %32 = lshr i32 %31, 18
-  %33 = getelementptr inbounds i8, ptr %0, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq i32 %35, 0
   %39 = icmp eq ptr %37, null
@@ -773,22 +773,22 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
   br i1 %or.cond, label %.loopexit, label %40
 
 40:                                               ; preds = %11
-  %41 = getelementptr inbounds i8, ptr %0, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 44
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = icmp sgt i32 %14, 0
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %.preheader
 
@@ -805,7 +805,7 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
 .lr.ph164:                                        ; preds = %.preheader, %72
   %56 = phi i32 [ %73, %72 ], [ %54, %.preheader ]
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %72 ], [ 0, %.preheader ]
-  %57 = getelementptr inbounds i8, ptr %.0148170, i64 %indvars.iv179
+  %57 = getelementptr inbounds nuw i8, ptr %.0148170, i64 %indvars.iv179
   %58 = load i8, ptr %57, align 1
   %.not154 = icmp eq i8 %58, -1
   br i1 %.not154, label %72, label %59
@@ -814,7 +814,7 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
   %60 = zext i8 %58 to i32
   %61 = xor i32 %60, 255
   %62 = mul nuw nsw i32 %61, %21
-  %63 = getelementptr inbounds i8, ptr %.0142174, i64 %indvars.iv179
+  %63 = getelementptr inbounds nuw i8, ptr %.0142174, i64 %indvars.iv179
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = mul nuw nsw i32 %65, %60
@@ -859,25 +859,25 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
 .lr.ph168:                                        ; preds = %87, %.lr.ph168
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %.lr.ph168 ], [ 0, %87 ]
   %89 = shl nuw nsw i64 %indvars.iv182, 1
-  %90 = getelementptr inbounds i8, ptr %.0148170, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr %.0148170, i64 %89
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i32
   %93 = or disjoint i64 %89, 1
-  %94 = getelementptr inbounds i8, ptr %.0148170, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %.0148170, i64 %93
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i32
   %97 = add nuw nsw i32 %96, %92
-  %98 = getelementptr inbounds i8, ptr %88, i64 %89
+  %98 = getelementptr inbounds nuw i8, ptr %88, i64 %89
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
   %101 = add nuw nsw i32 %97, %100
-  %102 = getelementptr inbounds i8, ptr %88, i64 %93
+  %102 = getelementptr inbounds nuw i8, ptr %88, i64 %93
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   %105 = add nuw nsw i32 %101, %104
   %106 = sub nuw nsw i32 1020, %105
   %107 = mul nuw nsw i32 %106, %27
-  %108 = getelementptr inbounds i8, ptr %.0143173, i64 %indvars.iv182
+  %108 = getelementptr inbounds nuw i8, ptr %.0143173, i64 %indvars.iv182
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = mul nuw nsw i32 %105, %110
@@ -888,7 +888,7 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
   %116 = trunc i32 %115 to i8
   store i8 %116, ptr %108, align 1
   %117 = mul nuw nsw i32 %106, %32
-  %118 = getelementptr inbounds i8, ptr %.0145172, i64 %indvars.iv182
+  %118 = getelementptr inbounds nuw i8, ptr %.0145172, i64 %indvars.iv182
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i32
   %121 = mul nuw nsw i32 %105, %120
@@ -916,10 +916,10 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
 129:                                              ; preds = %._crit_edge169
   %130 = shl nuw nsw i32 %.1.lcssa, 1
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds i8, ptr %.0148170, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr %.0148170, i64 %131
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
-  %135 = getelementptr inbounds i8, ptr %88, i64 %131
+  %135 = getelementptr inbounds nuw i8, ptr %88, i64 %131
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i32
   %138 = add nuw nsw i32 %137, %134
@@ -927,7 +927,7 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
   %140 = sub nuw nsw i32 1020, %139
   %141 = mul nuw nsw i32 %140, %27
   %142 = zext nneg i32 %.1.lcssa to i64
-  %143 = getelementptr inbounds i8, ptr %.0143173, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %.0143173, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = mul nuw nsw i32 %139, %145
@@ -938,7 +938,7 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
   %151 = trunc i32 %150 to i8
   store i8 %151, ptr %143, align 1
   %152 = mul nuw nsw i32 %140, %32
-  %153 = getelementptr inbounds i8, ptr %.0145172, i64 %142
+  %153 = getelementptr inbounds nuw i8, ptr %.0145172, i64 %142
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
   %156 = mul nuw nsw i32 %139, %155
@@ -980,20 +980,20 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
   %181 = shl nuw nsw i32 %6, 8
   %182 = or disjoint i32 %180, %181
   %183 = or disjoint i32 %182, %7
-  %184 = getelementptr inbounds i8, ptr %0, i64 12
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %185 = load i32, ptr %184, align 4
   %186 = icmp sgt i32 %185, 0
   br i1 %186, label %.preheader158.lr.ph, label %.loopexit
 
 .preheader158.lr.ph:                              ; preds = %179
-  %187 = getelementptr inbounds i8, ptr %0, i64 8
-  %188 = getelementptr inbounds i8, ptr %0, i64 80
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %189 = load i32, ptr %187, align 8
   %190 = icmp sgt i32 %189, 0
   br i1 %190, label %.preheader158.preheader, label %.loopexit
 
 .preheader158.preheader:                          ; preds = %.preheader158.lr.ph
-  %191 = getelementptr inbounds i8, ptr %0, i64 72
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %192 = load ptr, ptr %191, align 8
   br label %.preheader158
 
@@ -1007,7 +1007,7 @@ define void @WebPBlendAlpha(ptr noundef readonly %0, i32 noundef %1) local_unnam
 
 .lr.ph:                                           ; preds = %.preheader158, %228
   %indvars.iv = phi i64 [ %indvars.iv.next, %228 ], [ 0, %.preheader158 ]
-  %196 = getelementptr inbounds i32, ptr %.0147161, i64 %indvars.iv
+  %196 = getelementptr inbounds nuw i32, ptr %.0147161, i64 %indvars.iv
   %197 = load i32, ptr %196, align 4
   %198 = lshr i32 %197, 24
   %.not155 = icmp eq i32 %198, 255

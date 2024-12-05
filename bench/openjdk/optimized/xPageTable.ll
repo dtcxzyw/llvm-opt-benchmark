@@ -61,7 +61,7 @@ define hidden void @_ZN10XPageTableC2Ev(ptr nocapture noundef nonnull writeonly 
   unreachable
 
 _ZN11XGranuleMapIP5XPageEC2Em.exit:               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN2os21commit_memory_or_exitEPcmbPKc(ptr noundef nonnull %10, i64 noundef %9, i1 noundef zeroext false, ptr noundef nonnull @.str.9) #5
   store ptr %10, ptr %13, align 8
   ret void
@@ -69,9 +69,9 @@ _ZN11XGranuleMapIP5XPageEC2Em.exit:               ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10XPageTable6insertEP5XPage(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %6, %4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
@@ -82,13 +82,13 @@ define hidden void @_ZN10XPageTable6insertEP5XPage(ptr nocapture noundef nonnull
   br i1 %.not.i, label %_ZN11XGranuleMapIP5XPageE3putEmmS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
   %.09.i = phi i64 [ %8, %.lr.ph.i ], [ %15, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %.09.i
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.09.i
   store ptr %1, ptr %14, align 8
   %15 = add nuw nsw i64 %.09.i, 1
   %16 = icmp samesign ult i64 %15, %10
@@ -100,9 +100,9 @@ _ZN11XGranuleMapIP5XPageE3putEmmS1_.exit:         ; preds = %12, %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN10XPageTable6removeEP5XPage(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %6, %4
   %8 = lshr i64 %4, 21
@@ -112,13 +112,13 @@ define hidden void @_ZN10XPageTable6removeEP5XPage(ptr nocapture noundef nonnull
   br i1 %.not.i, label %_ZN11XGranuleMapIP5XPageE3putEmmS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
   %.09.i = phi i64 [ %8, %.lr.ph.i ], [ %15, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %.09.i
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.09.i
   store ptr null, ptr %14, align 8
   %15 = add nuw nsw i64 %.09.i, 1
   %16 = icmp samesign ult i64 %15, %10

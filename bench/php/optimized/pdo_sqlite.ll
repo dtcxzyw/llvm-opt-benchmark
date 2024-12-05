@@ -161,27 +161,27 @@ define hidden i32 @zm_startup_pdo_sqlite(i32 %0, i32 %1) #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %3, i8 0, i64 512, i1 false)
   %26 = load ptr, ptr @zend_string_init_interned, align 8
   %27 = tail call ptr %26(ptr noundef nonnull @.str.28, i64 noundef 9, i1 noundef zeroext true) #11
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 360
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 360
   store ptr @std_object_handlers, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 496
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store ptr @class_PdoSqlite_methods, ptr %30, align 8
   %31 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %3, ptr noundef %25) #11
-  %32 = getelementptr inbounds i8, ptr %31, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, 536879104
   store i32 %34, ptr %32, align 4
   store i64 2048, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %35, align 8
   %36 = load ptr, ptr @zend_string_init_interned, align 8
   %37 = call ptr %36(ptr noundef nonnull @.str.29, i64 noundef 13, i1 noundef zeroext true) #11
   store ptr null, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 16, ptr %38, align 8
   %39 = call ptr @zend_declare_typed_class_constant(ptr noundef %31, ptr noundef %37, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %5) #11
-  %40 = getelementptr inbounds i8, ptr %37, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 64
   %.not.i = icmp eq i32 %42, 0
@@ -211,15 +211,15 @@ define hidden i32 @zm_startup_pdo_sqlite(i32 %0, i32 %1) #0 {
 
 52:                                               ; preds = %51, %50, %43, %2
   store i64 1, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 4, ptr %53, align 8
   %54 = load ptr, ptr @zend_string_init_interned, align 8
   %55 = call ptr %54(ptr noundef nonnull @.str.30, i64 noundef 13, i1 noundef zeroext true) #11
   store ptr null, ptr %7, align 8
-  %56 = getelementptr inbounds i8, ptr %7, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 16, ptr %56, align 8
   %57 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %31, ptr noundef %55, ptr noundef nonnull %6, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %7) #11
-  %58 = getelementptr inbounds i8, ptr %55, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 64
   %.not101.i = icmp eq i32 %60, 0
@@ -249,15 +249,15 @@ define hidden i32 @zm_startup_pdo_sqlite(i32 %0, i32 %1) #0 {
 
 70:                                               ; preds = %69, %68, %61, %52
   store i64 2, ptr %8, align 8
-  %71 = getelementptr inbounds i8, ptr %8, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 4, ptr %71, align 8
   %72 = load ptr, ptr @zend_string_init_interned, align 8
   %73 = call ptr %72(ptr noundef nonnull @.str.31, i64 noundef 14, i1 noundef zeroext true) #11
   store ptr null, ptr %9, align 8
-  %74 = getelementptr inbounds i8, ptr %9, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 16, ptr %74, align 8
   %75 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %31, ptr noundef %73, ptr noundef nonnull %8, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %9) #11
-  %76 = getelementptr inbounds i8, ptr %73, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, 64
   %.not103.i = icmp eq i32 %78, 0
@@ -287,15 +287,15 @@ define hidden i32 @zm_startup_pdo_sqlite(i32 %0, i32 %1) #0 {
 
 88:                                               ; preds = %87, %86, %79, %70
   store i64 4, ptr %10, align 8
-  %89 = getelementptr inbounds i8, ptr %10, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 4, ptr %89, align 8
   %90 = load ptr, ptr @zend_string_init_interned, align 8
   %91 = call ptr %90(ptr noundef nonnull @.str.32, i64 noundef 11, i1 noundef zeroext true) #11
   store ptr null, ptr %11, align 8
-  %92 = getelementptr inbounds i8, ptr %11, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 16, ptr %92, align 8
   %93 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %31, ptr noundef %91, ptr noundef nonnull %10, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %11) #11
-  %94 = getelementptr inbounds i8, ptr %91, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 64
   %.not105.i = icmp eq i32 %96, 0
@@ -325,15 +325,15 @@ define hidden i32 @zm_startup_pdo_sqlite(i32 %0, i32 %1) #0 {
 
 106:                                              ; preds = %105, %104, %97, %88
   store i64 1000, ptr %12, align 8
-  %107 = getelementptr inbounds i8, ptr %12, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 4, ptr %107, align 8
   %108 = load ptr, ptr @zend_string_init_interned, align 8
   %109 = call ptr %108(ptr noundef nonnull @.str.33, i64 noundef 15, i1 noundef zeroext true) #11
   store ptr null, ptr %13, align 8
-  %110 = getelementptr inbounds i8, ptr %13, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 16, ptr %110, align 8
   %111 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %31, ptr noundef %109, ptr noundef nonnull %12, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %13) #11
-  %112 = getelementptr inbounds i8, ptr %109, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 64
   %.not107.i = icmp eq i32 %114, 0
@@ -363,15 +363,15 @@ define hidden i32 @zm_startup_pdo_sqlite(i32 %0, i32 %1) #0 {
 
 124:                                              ; preds = %123, %122, %115, %106
   store i64 1001, ptr %14, align 8
-  %125 = getelementptr inbounds i8, ptr %14, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 4, ptr %125, align 8
   %126 = load ptr, ptr @zend_string_init_interned, align 8
   %127 = call ptr %126(ptr noundef nonnull @.str.34, i64 noundef 23, i1 noundef zeroext true) #11
   store ptr null, ptr %15, align 8
-  %128 = getelementptr inbounds i8, ptr %15, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 16, ptr %128, align 8
   %129 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %31, ptr noundef %127, ptr noundef nonnull %14, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %15) #11
-  %130 = getelementptr inbounds i8, ptr %127, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %131 = load i32, ptr %130, align 4
   %132 = and i32 %131, 64
   %.not109.i = icmp eq i32 %132, 0
@@ -401,15 +401,15 @@ define hidden i32 @zm_startup_pdo_sqlite(i32 %0, i32 %1) #0 {
 
 142:                                              ; preds = %141, %140, %133, %124
   store i64 1002, ptr %16, align 8
-  %143 = getelementptr inbounds i8, ptr %16, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 4, ptr %143, align 8
   %144 = load ptr, ptr @zend_string_init_interned, align 8
   %145 = call ptr %144(ptr noundef nonnull @.str.35, i64 noundef 26, i1 noundef zeroext true) #11
   store ptr null, ptr %17, align 8
-  %146 = getelementptr inbounds i8, ptr %17, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 16, ptr %146, align 8
   %147 = call ptr @zend_declare_typed_class_constant(ptr noundef nonnull %31, ptr noundef %145, ptr noundef nonnull %16, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %17) #11
-  %148 = getelementptr inbounds i8, ptr %145, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %149 = load i32, ptr %148, align 4
   %150 = and i32 %149, 64
   %.not111.i = icmp eq i32 %150, 0
@@ -454,7 +454,7 @@ register_class_PdoSqlite.exit:                    ; preds = %142, %151, %158, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   store ptr %31, ptr @pdosqlite_ce, align 8
-  %160 = getelementptr inbounds i8, ptr %31, i64 384
+  %160 = getelementptr inbounds nuw i8, ptr %31, i64 384
   store ptr @pdo_dbh_new, ptr %160, align 8
   %161 = call i32 @php_pdo_register_driver(ptr noundef nonnull @pdo_sqlite_driver) #11
   %162 = icmp eq i32 %161, -1
@@ -501,8 +501,8 @@ define hidden void @zim_PdoSqlite_loadExtension(ptr nocapture noundef readonly %
   %5 = alloca [4096 x i8], align 16
   %6 = alloca i64, align 8
   store ptr null, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %6) #11
   %11 = icmp eq i32 %10, -1
@@ -530,17 +530,17 @@ define hidden void @zim_PdoSqlite_loadExtension(ptr nocapture noundef readonly %
   %22 = load ptr, ptr %7, align 8
   %23 = getelementptr i8, ptr %22, i64 -8
   %.val = load ptr, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %.val, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %34
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %31) #11
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %33 = icmp ne ptr %32, null
@@ -548,7 +548,7 @@ define hidden void @zim_PdoSqlite_loadExtension(ptr nocapture noundef readonly %
   br label %59
 
 34:                                               ; preds = %21
-  %35 = getelementptr inbounds i8, ptr %.val, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %3, align 8
   %38 = call ptr @tsrm_realpath(ptr noundef %37, ptr noundef nonnull %5) #11
@@ -626,21 +626,21 @@ define hidden void @zim_PdoSqlite_openBlob(ptr nocapture noundef readonly %0, pt
   store ptr @.str.7, ptr %5, align 8
   store i64 1, ptr %10, align 8
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 -8
   %.val = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %.val, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %25
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %13, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %22) #11
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %24 = icmp ne ptr %23, null
@@ -648,9 +648,9 @@ define hidden void @zim_PdoSqlite_openBlob(ptr nocapture noundef readonly %0, pt
   br label %68
 
 25:                                               ; preds = %2
-  %26 = getelementptr inbounds i8, ptr %.val, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %29 = load i32, ptr %28, align 4
   %30 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %29, ptr noundef nonnull @.str.9, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %10) #11
   %31 = icmp eq i32 %30, -1
@@ -679,7 +679,7 @@ define hidden void @zim_PdoSqlite_openBlob(ptr nocapture noundef readonly %0, pt
 45:                                               ; preds = %35
   %46 = call ptr @sqlite3_errmsg(ptr noundef %36) #11
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.10, ptr noundef %46) #11
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %47, align 8
   br label %68
 
@@ -690,13 +690,13 @@ define hidden void @zim_PdoSqlite_openBlob(ptr nocapture noundef readonly %0, pt
   store ptr %50, ptr %49, align 8
   %51 = load i64, ptr %10, align 8
   %52 = trunc i64 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %49, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i32 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %49, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 0, ptr %54, align 8
   %55 = call i32 @sqlite3_blob_bytes(ptr noundef %50) #11
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %49, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i64 %56, ptr %57, align 8
   %spec.select = select i1 %.not24.not, ptr @.str.8, ptr @.str.11
   %58 = call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_pdosqlite3_ops, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull %spec.select) #11
@@ -704,19 +704,19 @@ define hidden void @zim_PdoSqlite_openBlob(ptr nocapture noundef readonly %0, pt
   br i1 %.not26, label %66, label %59
 
 59:                                               ; preds = %48
-  %60 = getelementptr inbounds i8, ptr %58, i64 120
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 120
   %61 = load ptr, ptr %60, align 8
   store ptr %61, ptr %1, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 265, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %58, i64 96
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 96
   %64 = load i16, ptr %63, align 8
   %65 = or i16 %64, 16
   store i16 %65, ptr %63, align 8
   br label %68
 
 66:                                               ; preds = %48
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %67, align 8
   br label %68
 
@@ -756,62 +756,62 @@ declare void @pdo_sqlite_create_collation_internal(ptr noundef, ptr noundef, ptr
 define internal i32 @php_sqlite_collation_callback(ptr noundef initializes((32, 52), (56, 84)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca [2 x %struct._zval_struct], align 16
   %7 = alloca %struct._zval_struct, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 64, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   store ptr %11, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %7, ptr %16, align 8
   %17 = sext i32 %1 to i64
   %18 = and i64 %17, -8
   %19 = add nsw i64 %18, 32
   %20 = call noalias ptr @_emalloc(i64 noundef %19) #12
   store i32 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 22, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 %17, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %2, i64 %17, i1 false)
   %25 = getelementptr inbounds [1 x i8], ptr %24, i64 0, i64 %17
   store i8 0, ptr %25, align 1
   store ptr %20, ptr %6, align 16
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 262, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %28 = sext i32 %3 to i64
   %29 = and i64 %28, -8
   %30 = add nsw i64 %29, 32
   %31 = call noalias ptr @_emalloc(i64 noundef %30) #12
   store i32 1, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 22, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 %28, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr align 1 %4, i64 %28, i1 false)
   %36 = getelementptr inbounds [1 x i8], ptr %35, i64 0, i64 %28
   store i8 0, ptr %36, align 1
   store ptr %31, ptr %27, align 16
-  %37 = getelementptr inbounds i8, ptr %6, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 262, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 2, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %6, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %41 = call i32 @zend_call_function(ptr noundef nonnull %8, ptr noundef nonnull %40) #11
   %42 = icmp eq i32 %41, -1
   br i1 %42, label %43, label %44
@@ -821,7 +821,7 @@ define internal i32 @php_sqlite_collation_callback(ptr noundef initializes((32, 
   br label %66
 
 44:                                               ; preds = %5
-  %45 = getelementptr inbounds i8, ptr %7, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %46 = load i8, ptr %45, align 8
   switch i8 %46, label %47 [
     i8 0, label %66
@@ -830,10 +830,10 @@ define internal i32 @php_sqlite_collation_callback(ptr noundef initializes((32, 
 
 47:                                               ; preds = %44
   %48 = call ptr @get_active_function_or_method_name() #11
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = call ptr @zend_zval_value_name(ptr noundef nonnull %7) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.27, ptr noundef nonnull %49, ptr noundef %50) #11
-  %51 = getelementptr inbounds i8, ptr %48, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 64
   %.not155 = icmp eq i32 %53, 0
@@ -903,9 +903,9 @@ declare void @php_info_print_table_end() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @php_pdosqlite3_stream_write(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1
   %.not = icmp eq i32 %8, 0
@@ -916,10 +916,10 @@ define internal noundef i64 @php_pdosqlite3_stream_write(ptr nocapture noundef %
   br label %33
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %2
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp ugt i64 %13, %15
   br i1 %16, label %17, label %18
@@ -944,7 +944,7 @@ define internal noundef i64 @php_pdosqlite3_stream_write(ptr nocapture noundef %
   br i1 %.not20, label %32, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load i16, ptr %28, align 8
   %30 = or i16 %29, 8
   store i16 %30, ptr %28, align 8
@@ -963,19 +963,19 @@ define internal noundef i64 @php_pdosqlite3_stream_write(ptr nocapture noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @php_pdosqlite3_stream_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %2
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load i64, ptr %9, align 8
   %.not = icmp ult i64 %8, %10
   br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %3
   %12 = sub i64 %10, %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load i16, ptr %13, align 8
   %15 = or i16 %14, 8
   store i16 %15, ptr %13, align 8
@@ -1008,7 +1008,7 @@ define internal i64 @php_pdosqlite3_stream_read(ptr nocapture noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_pdosqlite3_stream_close(ptr nocapture noundef readonly %0, i32 %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @sqlite3_blob_close(ptr noundef %5) #11
@@ -1023,7 +1023,7 @@ define internal noundef i32 @php_pdosqlite3_stream_flush(ptr nocapture readnone 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #4 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   switch i32 %2, label %57 [
     i32 1, label %7
@@ -1033,7 +1033,7 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture n
 
 7:                                                ; preds = %4
   %8 = icmp slt i64 %1, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8
   br i1 %8, label %11, label %20
 
@@ -1051,7 +1051,7 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture n
   %16 = add i64 %10, %1
   store i64 %16, ptr %9, align 8
   store i64 %16, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = load i16, ptr %17, align 8
   %19 = and i16 %18, -9
   store i16 %19, ptr %17, align 8
@@ -1059,7 +1059,7 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture n
 
 20:                                               ; preds = %7
   %21 = add i64 %10, %1
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = icmp ugt i64 %21, %23
   br i1 %24, label %25, label %26
@@ -1072,17 +1072,17 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture n
 26:                                               ; preds = %20
   store i64 %21, ptr %9, align 8
   store i64 %21, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = load i16, ptr %27, align 8
   %29 = and i16 %28, -9
   store i16 %29, ptr %27, align 8
   br label %60
 
 30:                                               ; preds = %4
-  %31 = getelementptr inbounds i8, ptr %6, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = icmp ult i64 %32, %1
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %33, label %35, label %36
 
 35:                                               ; preds = %30
@@ -1093,7 +1093,7 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture n
 36:                                               ; preds = %30
   store i64 %1, ptr %34, align 8
   store i64 %1, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = load i16, ptr %37, align 8
   %39 = and i16 %38, -9
   store i16 %39, ptr %37, align 8
@@ -1101,12 +1101,12 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture n
 
 40:                                               ; preds = %4
   %41 = icmp sgt i64 %1, 0
-  %42 = getelementptr inbounds i8, ptr %6, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %43 = load i64, ptr %42, align 8
   br i1 %41, label %44, label %46
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %6, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %43, ptr %45, align 8
   store i64 -1, ptr %3, align 8
   br label %60
@@ -1117,24 +1117,24 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr nocapture n
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %6, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %50, align 8
   store i64 -1, ptr %3, align 8
   br label %60
 
 51:                                               ; preds = %46
   %52 = add i64 %43, %1
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %52, ptr %53, align 8
   store i64 %52, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %55 = load i16, ptr %54, align 8
   %56 = and i16 %55, -9
   store i16 %56, ptr %54, align 8
   br label %60
 
 57:                                               ; preds = %4
-  %58 = getelementptr inbounds i8, ptr %6, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %59 = load i64, ptr %58, align 8
   store i64 %59, ptr %3, align 8
   br label %60
@@ -1151,11 +1151,11 @@ define internal noundef i32 @php_pdosqlite3_stream_cast(ptr nocapture readnone %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @php_pdosqlite3_stream_stat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((48, 56)) %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 %6, ptr %7, align 8
   ret i32 0
 }

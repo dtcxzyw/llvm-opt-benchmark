@@ -21,21 +21,21 @@ define dso_local ptr @__i915_gem_object_create_internal(ptr noundef %0, ptr noun
 6:                                                ; preds = %3
   tail call void @drm_gem_private_object_init(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %2) #4
   tail call void @i915_gem_object_init(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull @__i915_gem_object_create_internal.lock_class, i32 noundef 0) #4
-  %7 = getelementptr inbounds i8, ptr %4, i64 640
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 640
   %8 = load i32, ptr %7, align 8
   %9 = or i32 %8, 1
   store i32 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 632
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 632
   %11 = load i64, ptr %10, align 8
   %12 = or i64 %11, 2
   store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 646
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 646
   store i16 1, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %4, i64 648
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 648
   store i16 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 7168
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 7168
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %18 = load i64, ptr %17, align 4
   %19 = trunc i64 %18 to i32
   %20 = lshr i32 %19, 19
@@ -69,21 +69,21 @@ define dso_local ptr @i915_gem_object_create_internal(ptr noundef %0, i64 nounde
 5:                                                ; preds = %2
   tail call void @drm_gem_private_object_init(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %1) #4
   tail call void @i915_gem_object_init(ptr noundef nonnull %3, ptr noundef nonnull @i915_gem_object_internal_ops, ptr noundef nonnull @__i915_gem_object_create_internal.lock_class, i32 noundef 0) #4
-  %6 = getelementptr inbounds i8, ptr %3, i64 640
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 640
   %7 = load i32, ptr %6, align 8
   %8 = or i32 %7, 1
   store i32 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 632
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 632
   %10 = load i64, ptr %9, align 8
   %11 = or i64 %10, 2
   store i64 %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 646
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 646
   store i16 1, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %3, i64 648
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 648
   store i16 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 7168
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 7168
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %17 = load i64, ptr %16, align 4
   %18 = trunc i64 %17 to i32
   %19 = lshr i32 %18, 19
@@ -98,15 +98,15 @@ define dso_local ptr @i915_gem_object_create_internal(ptr noundef %0, i64 nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -12, 1) i32 @i915_gem_object_get_pages_internal(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i64, ptr %2, align 8
   %4 = icmp ugt i64 %3, 17592186044415
   br i1 %4, label %.loopexit21, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @dma_max_mapping_size(ptr noundef %9) #4
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 4294967295)
@@ -114,7 +114,7 @@ define internal range(i32 -12, 1) i32 @i915_gem_object_get_pages_internal(ptr no
   %13 = add nsw i64 %12, -1
   %14 = lshr i64 %13, 12
   %15 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %14, i32 -1) #5, !srcloc !5
-  %16 = getelementptr inbounds i8, ptr %7, i64 7184
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 7184
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 49152
   %19 = icmp eq i32 %18, 0
@@ -145,7 +145,7 @@ define internal range(i32 -12, 1) i32 @i915_gem_object_get_pages_internal(ptr no
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %30, align 8
-  %38 = getelementptr inbounds i8, ptr %30, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %38, align 8
   br label %39
 
@@ -200,9 +200,9 @@ define internal range(i32 -12, 1) i32 @i915_gem_object_get_pages_internal(ptr no
   %71 = and i64 %70, 3
   %72 = or disjoint i64 %71, %62
   store i64 %72, ptr %42, align 8
-  %73 = getelementptr inbounds i8, ptr %42, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 0, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %42, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 %69, ptr %74, align 4
   %75 = load i32, ptr %38, align 8
   %76 = add i32 %75, 1
@@ -244,7 +244,7 @@ define internal range(i32 -12, 1) i32 @i915_gem_object_get_pages_internal(ptr no
 
 97:                                               ; preds = %92
   %98 = load ptr, ptr %30, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %100 = load i32, ptr %99, align 4
   %101 = zext i32 %100 to i64
   %102 = add nsw i64 %101, -1
@@ -266,7 +266,7 @@ define internal range(i32 -12, 1) i32 @i915_gem_object_get_pages_internal(ptr no
 
 112:                                              ; preds = %.preheader18
   %113 = inttoptr i64 %110 to ptr
-  %114 = getelementptr inbounds i8, ptr %108, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %115 = load i32, ptr %114, align 4
   %116 = zext i32 %115 to i64
   %117 = add nsw i64 %116, -1
@@ -313,9 +313,9 @@ define internal range(i32 -12, 1) i32 @i915_gem_object_get_pages_internal(ptr no
   br label %.loopexit21
 
 .thread:                                          ; preds = %97, %50, %51
-  %140 = getelementptr inbounds i8, ptr %42, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 0, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %42, i64 12
+  %141 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 0, ptr %141, align 4
   store i64 2, ptr %42, align 8
   %142 = load ptr, ptr %30, align 8
@@ -331,7 +331,7 @@ define internal range(i32 -12, 1) i32 @i915_gem_object_get_pages_internal(ptr no
 
 148:                                              ; preds = %.preheader
   %149 = inttoptr i64 %146 to ptr
-  %150 = getelementptr inbounds i8, ptr %144, i64 12
+  %150 = getelementptr inbounds nuw i8, ptr %144, i64 12
   %151 = load i32, ptr %150, align 4
   %152 = zext i32 %151 to i64
   %153 = add nsw i64 %152, -1
@@ -391,7 +391,7 @@ define internal void @i915_gem_object_put_pages_internal(ptr noundef %0, ptr nou
 
 9:                                                ; preds = %.preheader
   %10 = inttoptr i64 %7 to ptr
-  %11 = getelementptr inbounds i8, ptr %5, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
   %14 = add nsw i64 %13, -1
@@ -428,19 +428,19 @@ define internal void @i915_gem_object_put_pages_internal(ptr noundef %0, ptr nou
 .thread:                                          ; preds = %18, %30, %2
   tail call void @sg_free_table(ptr noundef %1) #4
   tail call void @kfree(ptr noundef %1) #4
-  %33 = getelementptr inbounds i8, ptr %0, i64 912
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %34 = load i8, ptr %33, align 8
   %35 = and i8 %34, -5
   store i8 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 646
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 646
   store i16 1, ptr %36, align 2
-  %37 = getelementptr inbounds i8, ptr %0, i64 648
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store i16 1, ptr %37, align 8
   %38 = tail call zeroext i1 @i915_gem_cpu_write_needs_clflush(ptr noundef %0) #4
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %.thread
-  %40 = getelementptr inbounds i8, ptr %0, i64 644
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 644
   %41 = load i16, ptr %40, align 4
   %42 = or i16 %41, 512
   store i16 %42, ptr %40, align 4

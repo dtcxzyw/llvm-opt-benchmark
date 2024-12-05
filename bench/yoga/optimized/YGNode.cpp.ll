@@ -104,9 +104,9 @@ entry:
   %ref.tmp = alloca %"struct.facebook::yoga::Event::TypedData", align 8
   %call1 = tail call noalias noundef nonnull dereferenceable(640) ptr @_Znwm(i64 noundef 640) #13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(640) %call1, ptr noundef nonnull align 8 dereferenceable(640) %oldNodeRef, i64 592, i1 false)
-  %children_.i = getelementptr inbounds i8, ptr %call1, i64 592
-  %children_2.i = getelementptr inbounds i8, ptr %oldNodeRef, i64 592
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %oldNodeRef, i64 600
+  %children_.i = getelementptr inbounds nuw i8, ptr %call1, i64 592
+  %children_2.i = getelementptr inbounds nuw i8, ptr %oldNodeRef, i64 592
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %oldNodeRef, i64 600
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
   %1 = load ptr, ptr %children_2.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -117,9 +117,9 @@ entry:
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i.thread, label %cond.true.i.i.i.i.i
 
 invoke.cont.i.i.thread:                           ; preds = %entry
-  %_M_finish.i.i.i.i7 = getelementptr inbounds i8, ptr %call1, i64 600
+  %_M_finish.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %call1, i64 600
   %add.ptr.i.i.i.i8 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
-  %_M_end_of_storage.i.i.i.i9 = getelementptr inbounds i8, ptr %call1, i64 608
+  %_M_end_of_storage.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %call1, i64 608
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %children_.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i8, ptr %_M_end_of_storage.i.i.i.i9, align 8
   br label %invoke.cont
@@ -141,21 +141,20 @@ _ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i.
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt16allocator_traitsISaIPN8facebook4yoga4NodeEEE8allocateERS4_m.exit.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i6.i.i4, ptr %children_.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %call1, i64 600
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 600
   store ptr %call5.i.i.i.i2.i6.i.i4, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i.i4, i64 %sub.ptr.sub.i.i.i
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %call1, i64 608
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i6.i.i4, i64 %sub.ptr.sub.i.i.i
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 608
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i.i4, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i, i1 false)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.thread
-  %_M_finish.i.i.i.i11 = phi ptr [ %_M_finish.i.i.i.i7, %invoke.cont.i.i.thread ], [ %_M_finish.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
-  %cond.i.i.i.i.i10 = phi ptr [ null, %invoke.cont.i.i.thread ], [ %call5.i.i.i.i2.i6.i.i4, %if.then.i.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i10, i64 %sub.ptr.sub.i.i.i
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i11, align 8
-  %config_.i = getelementptr inbounds i8, ptr %call1, i64 616
-  %config_3.i = getelementptr inbounds i8, ptr %oldNodeRef, i64 616
+  %add.ptr.i.i.i.i11 = phi ptr [ %add.ptr.i.i.i.i8, %invoke.cont.i.i.thread ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+  %_M_finish.i.i.i.i10 = phi ptr [ %_M_finish.i.i.i.i7, %invoke.cont.i.i.thread ], [ %_M_finish.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+  store ptr %add.ptr.i.i.i.i11, ptr %_M_finish.i.i.i.i10, align 8
+  %config_.i = getelementptr inbounds nuw i8, ptr %call1, i64 616
+  %config_3.i = getelementptr inbounds nuw i8, ptr %oldNodeRef, i64 616
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %config_.i, ptr noundef nonnull align 8 dereferenceable(24) %config_3.i, i64 24, i1 false)
   %2 = load ptr, ptr %config_.i, align 8
   store ptr %2, ptr %ref.tmp, align 8
@@ -163,7 +162,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   store ptr %ref.tmp, ptr %ref.tmp.i, align 8
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef nonnull %call1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %owner_.i = getelementptr inbounds i8, ptr %call1, i64 584
+  %owner_.i = getelementptr inbounds nuw i8, ptr %call1, i64 584
   store ptr null, ptr %owner_.i, align 8
   ret ptr %call1
 
@@ -179,7 +178,7 @@ define void @YGNodeFree(ptr noundef %nodeRef) local_unnamed_addr #0 personality 
 entry:
   %ref.tmp.i = alloca %"class.facebook::yoga::Event::Data", align 8
   %ref.tmp = alloca %"struct.facebook::yoga::Event::TypedData.6", align 8
-  %owner_.i = getelementptr inbounds i8, ptr %nodeRef, i64 584
+  %owner_.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 584
   %0 = load ptr, ptr %owner_.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -190,8 +189,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %children_.i = getelementptr inbounds i8, ptr %nodeRef, i64 592
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %nodeRef, i64 600
+  %children_.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 592
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 600
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %children_.i, align 8
   %cmp17.not = icmp eq ptr %1, %2
@@ -223,7 +222,7 @@ if.then.i.i.i:                                    ; preds = %for.body
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %for.body
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %i.018
   %5 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %owner_.i14 = getelementptr inbounds i8, ptr %5, i64 584
+  %owner_.i14 = getelementptr inbounds nuw i8, ptr %5, i64 584
   store ptr null, ptr %owner_.i14, align 8
   %inc = add nuw i64 %i.018, 1
   %exitcond.not = icmp eq i64 %inc, %umax
@@ -231,7 +230,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %for.body
 
 delete.notnull:                                   ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit, %if.end
   tail call void @_ZN8facebook4yoga4Node13clearChildrenEv(ptr noundef nonnull align 8 dereferenceable(640) %nodeRef)
-  %config_.i.i = getelementptr inbounds i8, ptr %nodeRef, i64 616
+  %config_.i.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 616
   %6 = load ptr, ptr %config_.i.i, align 8
   store ptr %6, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -258,7 +257,7 @@ declare void @_ZN8facebook4yoga4Node13clearChildrenEv(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @YGNodeGetConfig(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %config_.i = getelementptr inbounds i8, ptr %node, i64 616
+  %config_.i = getelementptr inbounds nuw i8, ptr %node, i64 616
   %0 = load ptr, ptr %config_.i, align 8
   ret ptr %0
 }
@@ -267,28 +266,28 @@ entry:
 define void @YGNodeFreeRecursive(ptr noundef %rootRef) local_unnamed_addr #0 {
 entry:
   %ref.tmp.i = alloca %"struct.facebook::yoga::LayoutResults", align 4
-  %children_.i = getelementptr inbounds i8, ptr %rootRef, i64 592
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %rootRef, i64 600
+  %children_.i = getelementptr inbounds nuw i8, ptr %rootRef, i64 592
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %rootRef, i64 600
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %children_.i, align 8
   %cmp14.not = icmp eq ptr %0, %1
   br i1 %cmp14.not, label %while.end, label %_ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph
 
 _ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph:    ; preds = %entry
-  %computedFlexBasis.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
-  %nextCachedMeasurementsIndex.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %cachedLayout.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 212
-  %availableHeight4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 216
-  %widthSizingMode5.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 220
-  %heightSizingMode6.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 224
-  %computedWidth7.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 228
-  %computedHeight8.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 232
-  %direction_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 236
-  %dimensions_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 240
-  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 244
-  %measuredDimensions_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 248
-  %arrayinit.element16.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 252
-  %position_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 256
+  %computedFlexBasis.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
+  %nextCachedMeasurementsIndex.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
+  %cachedLayout.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 212
+  %availableHeight4.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 216
+  %widthSizingMode5.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 220
+  %heightSizingMode6.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 224
+  %computedWidth7.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 228
+  %computedHeight8.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 232
+  %direction_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 236
+  %dimensions_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 240
+  %arrayinit.element.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 244
+  %measuredDimensions_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 248
+  %arrayinit.element16.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 252
+  %position_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 256
   br label %_ZNK8facebook4yoga4Node8getChildEm.exit
 
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph, %if.end
@@ -297,7 +296,7 @@ _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %_ZNK8facebook4yoga4
   %skipped.015 = phi i64 [ 0, %_ZNK8facebook4yoga4Node8getChildEm.exit.lr.ph ], [ %skipped.1, %if.end ]
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %skipped.015
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %owner_.i = getelementptr inbounds i8, ptr %4, i64 584
+  %owner_.i = getelementptr inbounds nuw i8, ptr %4, i64 584
   %5 = load ptr, ptr %owner_.i, align 8
   %cmp4.not = icmp eq ptr %5, %rootRef
   br i1 %cmp4.not, label %if.else, label %if.then
@@ -323,17 +322,17 @@ if.then7.i:                                       ; preds = %if.end.i
 
 arrayinit.body.i.i:                               ; preds = %arrayinit.body.i.i, %if.then7.i
   %arrayinit.cur.idx.i.i = phi i64 [ 20, %if.then7.i ], [ %arrayinit.cur.add.i.i, %arrayinit.body.i.i ]
-  %arrayinit.cur.ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 %arrayinit.cur.idx.i.i
+  %arrayinit.cur.ptr.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 %arrayinit.cur.idx.i.i
   store float -1.000000e+00, ptr %arrayinit.cur.ptr.i.i, align 4
-  %availableHeight.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 4
+  %availableHeight.i.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i.i, i64 4
   store float -1.000000e+00, ptr %availableHeight.i.i, align 4
-  %widthSizingMode.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 8
+  %widthSizingMode.i.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i.i, i64 8
   store i32 1, ptr %widthSizingMode.i.i, align 4
-  %heightSizingMode.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 12
+  %heightSizingMode.i.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i.i, i64 12
   store i32 1, ptr %heightSizingMode.i.i, align 4
-  %computedWidth.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 16
+  %computedWidth.i.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i.i, i64 16
   store float -1.000000e+00, ptr %computedWidth.i.i, align 4
-  %computedHeight.i.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i.i, i64 20
+  %computedHeight.i.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i.i, i64 20
   store float -1.000000e+00, ptr %computedHeight.i.i, align 4
   %arrayinit.cur.add.i.i = add nuw nsw i64 %arrayinit.cur.idx.i.i, 24
   %arrayinit.done.i.i = icmp eq i64 %arrayinit.cur.add.i.i, 212
@@ -354,7 +353,7 @@ if.end8.i:                                        ; preds = %arrayinit.body.i.i
   store float 0x7FF8000000000000, ptr %measuredDimensions_.i.i, align 4
   store float 0x7FF8000000000000, ptr %arrayinit.element16.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i.i, i8 0, i64 64, i1 false)
-  %layout_.i.i = getelementptr inbounds i8, ptr %4, i64 252
+  %layout_.i.i = getelementptr inbounds nuw i8, ptr %4, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i.i, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp.i, i64 320, i1 false)
   store ptr null, ptr %owner_.i, align 8
   tail call void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(640) %rootRef)
@@ -387,15 +386,15 @@ while.end:                                        ; preds = %if.end, %entry
 define void @YGNodeRemoveChild(ptr noundef %ownerRef, ptr noundef %excludedChildRef) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"struct.facebook::yoga::LayoutResults", align 4
-  %children_.i = getelementptr inbounds i8, ptr %ownerRef, i64 592
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %ownerRef, i64 600
+  %children_.i = getelementptr inbounds nuw i8, ptr %ownerRef, i64 592
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %ownerRef, i64 600
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %children_.i, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.end9, label %if.end
 
 if.end:                                           ; preds = %entry
-  %owner_.i = getelementptr inbounds i8, ptr %excludedChildRef, i64 584
+  %owner_.i = getelementptr inbounds nuw i8, ptr %excludedChildRef, i64 584
   %2 = load ptr, ptr %owner_.i, align 8
   %call4 = tail call noundef zeroext i1 @_ZN8facebook4yoga4Node11removeChildEPS1_(ptr noundef nonnull align 8 dereferenceable(640) %ownerRef, ptr noundef nonnull %excludedChildRef)
   br i1 %call4, label %if.then5, label %if.end9
@@ -405,61 +404,61 @@ if.then5:                                         ; preds = %if.end
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.then5
-  %computedFlexBasis.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %computedFlexBasis.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp, i8 0, i64 320, i1 false)
   store float 0x7FF8000000000000, ptr %computedFlexBasis.i, align 4
-  %lastOwnerDirection.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %lastOwnerDirection.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
   store i8 0, ptr %lastOwnerDirection.i, align 4
-  %nextCachedMeasurementsIndex.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %nextCachedMeasurementsIndex.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %nextCachedMeasurementsIndex.i, i8 0, i64 196, i1 false)
   br label %arrayinit.body.i
 
 arrayinit.body.i:                                 ; preds = %arrayinit.body.i, %if.then7
   %arrayinit.cur.idx.i = phi i64 [ 20, %if.then7 ], [ %arrayinit.cur.add.i, %arrayinit.body.i ]
-  %arrayinit.cur.ptr.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %arrayinit.cur.idx.i
+  %arrayinit.cur.ptr.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %arrayinit.cur.idx.i
   store float -1.000000e+00, ptr %arrayinit.cur.ptr.i, align 4
-  %availableHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 4
+  %availableHeight.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 4
   store float -1.000000e+00, ptr %availableHeight.i, align 4
-  %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 8
+  %widthSizingMode.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 8
   store i32 1, ptr %widthSizingMode.i, align 4
-  %heightSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 12
+  %heightSizingMode.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 12
   store i32 1, ptr %heightSizingMode.i, align 4
-  %computedWidth.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 16
+  %computedWidth.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 16
   store float -1.000000e+00, ptr %computedWidth.i, align 4
-  %computedHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 20
+  %computedHeight.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 20
   store float -1.000000e+00, ptr %computedHeight.i, align 4
   %arrayinit.cur.add.i = add nuw nsw i64 %arrayinit.cur.idx.i, 24
   %arrayinit.done.i = icmp eq i64 %arrayinit.cur.add.i, 212
   br i1 %arrayinit.done.i, label %_ZN8facebook4yoga13LayoutResultsC2Ev.exit, label %arrayinit.body.i
 
 _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %arrayinit.body.i
-  %cachedLayout.i = getelementptr inbounds i8, ptr %ref.tmp, i64 212
+  %cachedLayout.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 212
   store float -1.000000e+00, ptr %cachedLayout.i, align 4
-  %availableHeight4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 216
+  %availableHeight4.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 216
   store float -1.000000e+00, ptr %availableHeight4.i, align 4
-  %widthSizingMode5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 220
+  %widthSizingMode5.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 220
   store i32 1, ptr %widthSizingMode5.i, align 4
-  %heightSizingMode6.i = getelementptr inbounds i8, ptr %ref.tmp, i64 224
+  %heightSizingMode6.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 224
   store i32 1, ptr %heightSizingMode6.i, align 4
-  %computedWidth7.i = getelementptr inbounds i8, ptr %ref.tmp, i64 228
+  %computedWidth7.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 228
   store float -1.000000e+00, ptr %computedWidth7.i, align 4
-  %computedHeight8.i = getelementptr inbounds i8, ptr %ref.tmp, i64 232
+  %computedHeight8.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 232
   store float -1.000000e+00, ptr %computedHeight8.i, align 4
-  %direction_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 236
+  %direction_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 236
   %bf.load.i = load i8, ptr %direction_.i, align 4
   %bf.clear10.i = and i8 %bf.load.i, -8
   store i8 %bf.clear10.i, ptr %direction_.i, align 4
-  %dimensions_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 240
+  %dimensions_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 240
   store float 0x7FF8000000000000, ptr %dimensions_.i, align 4
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp, i64 244
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 244
   store float 0x7FF8000000000000, ptr %arrayinit.element.i, align 4
-  %measuredDimensions_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 248
+  %measuredDimensions_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 248
   store float 0x7FF8000000000000, ptr %measuredDimensions_.i, align 4
-  %arrayinit.element16.i = getelementptr inbounds i8, ptr %ref.tmp, i64 252
+  %arrayinit.element16.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 252
   store float 0x7FF8000000000000, ptr %arrayinit.element16.i, align 4
-  %position_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 256
+  %position_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i, i8 0, i64 64, i1 false)
-  %layout_.i = getelementptr inbounds i8, ptr %excludedChildRef, i64 252
+  %layout_.i = getelementptr inbounds nuw i8, ptr %excludedChildRef, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp, i64 320, i1 false)
   store ptr null, ptr %owner_.i, align 8
   br label %if.end8
@@ -477,14 +476,14 @@ define void @YGNodeFinalize(ptr noundef %node) local_unnamed_addr #0 personality
 delete.notnull:
   %ref.tmp.i = alloca %"class.facebook::yoga::Event::Data", align 8
   %ref.tmp = alloca %"struct.facebook::yoga::Event::TypedData.6", align 8
-  %config_.i.i = getelementptr inbounds i8, ptr %node, i64 616
+  %config_.i.i = getelementptr inbounds nuw i8, ptr %node, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
   store ptr %0, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store ptr %ref.tmp, ptr %ref.tmp.i, align 8
   call void @_ZN8facebook4yoga5Event7publishEPK6YGNodeNS1_4TypeERKNS1_4DataE(ptr noundef %node, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %children_.i = getelementptr inbounds i8, ptr %node, i64 592
+  %children_.i = getelementptr inbounds nuw i8, ptr %node, i64 592
   %1 = load ptr, ptr %children_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %delete.end, label %if.then.i.i.i.i
@@ -548,7 +547,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeMarkDirty(ptr noundef %nodeRef) local_unnamed_addr #0 {
 entry:
-  %measureFunc_.i = getelementptr inbounds i8, ptr %nodeRef, i64 16
+  %measureFunc_.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 16
   %0 = load ptr, ptr %measureFunc_.i, align 8
   %cmp.i = icmp ne ptr %0, null
   tail call void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr noundef nonnull %nodeRef, i1 noundef zeroext %cmp.i, ptr noundef nonnull @.str.1)
@@ -563,7 +562,7 @@ declare void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnul
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @YGNodeSetDirtiedFunc(ptr nocapture noundef writeonly initializes((40, 48)) %node, ptr noundef %dirtiedFunc) local_unnamed_addr #6 {
 entry:
-  %dirtiedFunc_.i = getelementptr inbounds i8, ptr %node, i64 40
+  %dirtiedFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 40
   store ptr %dirtiedFunc, ptr %dirtiedFunc_.i, align 8
   ret void
 }
@@ -571,7 +570,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @YGNodeGetDirtiedFunc(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %dirtiedFunc_.i = getelementptr inbounds i8, ptr %node, i64 40
+  %dirtiedFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 40
   %0 = load ptr, ptr %dirtiedFunc_.i, align 8
   ret ptr %0
 }
@@ -579,11 +578,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @YGNodeInsertChild(ptr noundef %ownerRef, ptr noundef %childRef, i64 noundef %index) local_unnamed_addr #0 {
 entry:
-  %owner_.i = getelementptr inbounds i8, ptr %childRef, i64 584
+  %owner_.i = getelementptr inbounds nuw i8, ptr %childRef, i64 584
   %0 = load ptr, ptr %owner_.i, align 8
   %cmp = icmp eq ptr %0, null
   tail call void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr noundef %ownerRef, i1 noundef zeroext %cmp, ptr noundef nonnull @.str.2)
-  %measureFunc_.i = getelementptr inbounds i8, ptr %ownerRef, i64 16
+  %measureFunc_.i = getelementptr inbounds nuw i8, ptr %ownerRef, i64 16
   %1 = load ptr, ptr %measureFunc_.i, align 8
   %cmp.i.not = icmp eq ptr %1, null
   tail call void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr noundef nonnull %ownerRef, i1 noundef zeroext %cmp.i.not, ptr noundef nonnull @.str.3)
@@ -599,7 +598,7 @@ declare void @_ZN8facebook4yoga4Node11insertChildEPS1_m(ptr noundef nonnull alig
 define void @YGNodeSwapChild(ptr noundef nonnull %ownerRef, ptr noundef %childRef, i64 noundef %index) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN8facebook4yoga4Node12replaceChildEPS1_m(ptr noundef nonnull align 8 dereferenceable(640) %ownerRef, ptr noundef %childRef, i64 noundef %index)
-  %owner_.i = getelementptr inbounds i8, ptr %childRef, i64 584
+  %owner_.i = getelementptr inbounds nuw i8, ptr %childRef, i64 584
   store ptr %ownerRef, ptr %owner_.i, align 8
   ret void
 }
@@ -614,8 +613,8 @@ define void @YGNodeRemoveAllChildren(ptr noundef %ownerRef) local_unnamed_addr #
 entry:
   %ref.tmp = alloca %"struct.facebook::yoga::LayoutResults", align 4
   %ref.tmp9 = alloca %"class.std::vector", align 8
-  %children_.i = getelementptr inbounds i8, ptr %ownerRef, i64 592
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %ownerRef, i64 600
+  %children_.i = getelementptr inbounds nuw i8, ptr %ownerRef, i64 592
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %ownerRef, i64 600
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %children_.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -627,27 +626,27 @@ entry:
 
 _ZNK8facebook4yoga4Node8getChildEm.exit:          ; preds = %entry
   %2 = load ptr, ptr %1, align 8
-  %owner_.i = getelementptr inbounds i8, ptr %2, i64 584
+  %owner_.i = getelementptr inbounds nuw i8, ptr %2, i64 584
   %3 = load ptr, ptr %owner_.i, align 8
   %cmp4 = icmp eq ptr %3, %ownerRef
   br i1 %cmp4, label %for.body.lr.ph, label %if.end8
 
 for.body.lr.ph:                                   ; preds = %_ZNK8facebook4yoga4Node8getChildEm.exit
-  %computedFlexBasis.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %lastOwnerDirection.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
-  %nextCachedMeasurementsIndex.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %cachedLayout.i = getelementptr inbounds i8, ptr %ref.tmp, i64 212
-  %availableHeight4.i = getelementptr inbounds i8, ptr %ref.tmp, i64 216
-  %widthSizingMode5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 220
-  %heightSizingMode6.i = getelementptr inbounds i8, ptr %ref.tmp, i64 224
-  %computedWidth7.i = getelementptr inbounds i8, ptr %ref.tmp, i64 228
-  %computedHeight8.i = getelementptr inbounds i8, ptr %ref.tmp, i64 232
-  %direction_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 236
-  %dimensions_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 240
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp, i64 244
-  %measuredDimensions_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 248
-  %arrayinit.element16.i = getelementptr inbounds i8, ptr %ref.tmp, i64 252
-  %position_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 256
+  %computedFlexBasis.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
+  %lastOwnerDirection.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
+  %nextCachedMeasurementsIndex.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %cachedLayout.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 212
+  %availableHeight4.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 216
+  %widthSizingMode5.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 220
+  %heightSizingMode6.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 224
+  %computedWidth7.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 228
+  %computedHeight8.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 232
+  %direction_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 236
+  %dimensions_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 240
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 244
+  %measuredDimensions_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 248
+  %arrayinit.element16.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 252
+  %position_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 256
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
   br label %for.body
 
@@ -677,17 +676,17 @@ _ZNK8facebook4yoga4Node8getChildEm.exit21:        ; preds = %for.body
 
 arrayinit.body.i:                                 ; preds = %arrayinit.body.i, %_ZNK8facebook4yoga4Node8getChildEm.exit21
   %arrayinit.cur.idx.i = phi i64 [ 20, %_ZNK8facebook4yoga4Node8getChildEm.exit21 ], [ %arrayinit.cur.add.i, %arrayinit.body.i ]
-  %arrayinit.cur.ptr.i = getelementptr inbounds i8, ptr %ref.tmp, i64 %arrayinit.cur.idx.i
+  %arrayinit.cur.ptr.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %arrayinit.cur.idx.i
   store float -1.000000e+00, ptr %arrayinit.cur.ptr.i, align 4
-  %availableHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 4
+  %availableHeight.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 4
   store float -1.000000e+00, ptr %availableHeight.i, align 4
-  %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 8
+  %widthSizingMode.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 8
   store i32 1, ptr %widthSizingMode.i, align 4
-  %heightSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 12
+  %heightSizingMode.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 12
   store i32 1, ptr %heightSizingMode.i, align 4
-  %computedWidth.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 16
+  %computedWidth.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 16
   store float -1.000000e+00, ptr %computedWidth.i, align 4
-  %computedHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 20
+  %computedHeight.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 20
   store float -1.000000e+00, ptr %computedHeight.i, align 4
   %arrayinit.cur.add.i = add nuw nsw i64 %arrayinit.cur.idx.i, 24
   %arrayinit.done.i = icmp eq i64 %arrayinit.cur.add.i, 212
@@ -708,9 +707,9 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %arrayinit.body.i
   store float 0x7FF8000000000000, ptr %measuredDimensions_.i, align 4
   store float 0x7FF8000000000000, ptr %arrayinit.element16.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i, i8 0, i64 64, i1 false)
-  %layout_.i = getelementptr inbounds i8, ptr %6, i64 252
+  %layout_.i = getelementptr inbounds nuw i8, ptr %6, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp, i64 320, i1 false)
-  %owner_.i22 = getelementptr inbounds i8, ptr %6, i64 584
+  %owner_.i22 = getelementptr inbounds nuw i8, ptr %6, i64 584
   store ptr null, ptr %owner_.i22, align 8
   %inc = add nuw i64 %i.031, 1
   %exitcond.not = icmp eq i64 %inc, %umax
@@ -779,60 +778,63 @@ if.then.i.i.i:                                    ; preds = %if.end
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i: ; preds = %if.end
   %cmp.not.i.i.i = icmp eq i64 %count, 0
-  br i1 %cmp.not.i.i.i, label %if.then2, label %if.then.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
+
+_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
+  %add.ptr5.i.i = getelementptr inbounds nuw i8, ptr null, i64 %add.ptr.idx
+  %_M_end_of_storage6.i.i = getelementptr inbounds nuw i8, ptr %childrenVector, i64 16
+  store ptr %add.ptr5.i.i, ptr %_M_end_of_storage6.i.i, align 8
+  br label %invoke.cont
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
   %call5.i.i.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.idx) #13
   store ptr %call5.i.i.i.i1.i, ptr %childrenVector, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %add.ptr.idx
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %childrenVector, i64 16
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i, i64 %add.ptr.idx
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %childrenVector, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, ptr align 8 %childrenRefs, i64 %add.ptr.idx, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %add.ptr.idx
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %childrenVector, i64 8
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
-  %children_.i29 = getelementptr inbounds i8, ptr %ownerRef, i64 592
-  %_M_finish.i.i30 = getelementptr inbounds i8, ptr %ownerRef, i64 600
-  %0 = load ptr, ptr %_M_finish.i.i30, align 8
-  %1 = load ptr, ptr %children_.i29, align 8
-  %cmp26.not = icmp eq ptr %0, %1
-  br i1 %cmp26.not, label %if.end65, label %for.body40.lr.ph
+  br label %invoke.cont
 
-if.then2:                                         ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
-  %add.ptr5.i.i = getelementptr inbounds i8, ptr null, i64 %add.ptr.idx
-  %_M_end_of_storage6.i.i = getelementptr inbounds i8, ptr %childrenVector, i64 16
-  store ptr %add.ptr5.i.i, ptr %_M_end_of_storage6.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr null, i64 %add.ptr.idx
-  %_M_finish.i.i124 = getelementptr inbounds i8, ptr %childrenVector, i64 8
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i123, ptr %_M_finish.i.i124, align 8
-  %children_.i = getelementptr inbounds i8, ptr %ownerRef, i64 592
-  %_M_finish.i.i17 = getelementptr inbounds i8, ptr %ownerRef, i64 600
-  %2 = load ptr, ptr %_M_finish.i.i17, align 8
-  %3 = load ptr, ptr %children_.i, align 8
-  %cmp6.not = icmp eq ptr %2, %3
-  br i1 %cmp6.not, label %return, label %for.body.lr.ph
+invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.i
+  %0 = phi ptr [ null, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.i ], [ %call5.i.i.i.i1.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr7.i.i = phi ptr [ %add.ptr5.i.i, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.thread.i.i ], [ %add.ptr.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %childrenVector, i64 8
+  store ptr %add.ptr7.i.i, ptr %_M_finish.i.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr7.i.i to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  %cmp = icmp eq i64 %sub.ptr.sub.i, 0
+  %children_.i = getelementptr inbounds nuw i8, ptr %ownerRef, i64 592
+  %_M_finish.i.i17 = getelementptr inbounds nuw i8, ptr %ownerRef, i64 600
+  %1 = load ptr, ptr %_M_finish.i.i17, align 8
+  %2 = load ptr, ptr %children_.i, align 8
+  %cmp6.not = icmp eq ptr %1, %2
+  br i1 %cmp, label %if.then2, label %if.else
+
+if.then2:                                         ; preds = %invoke.cont
+  br i1 %cmp6.not, label %if.end82, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then2
-  %computedFlexBasis.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 4
-  %lastOwnerDirection.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 12
-  %nextCachedMeasurementsIndex.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
-  %cachedLayout.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 212
-  %availableHeight4.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 216
-  %widthSizingMode5.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 220
-  %heightSizingMode6.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 224
-  %computedWidth7.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 228
-  %computedHeight8.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 232
-  %direction_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 236
-  %dimensions_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 240
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 244
-  %measuredDimensions_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 248
-  %arrayinit.element16.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 252
-  %position_.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 256
+  %computedFlexBasis.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 4
+  %lastOwnerDirection.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 12
+  %nextCachedMeasurementsIndex.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 16
+  %cachedLayout.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 212
+  %availableHeight4.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 216
+  %widthSizingMode5.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 220
+  %heightSizingMode6.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 224
+  %computedWidth7.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 228
+  %computedHeight8.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 232
+  %direction_.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 236
+  %dimensions_.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 240
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 244
+  %measuredDimensions_.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 248
+  %arrayinit.element16.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 252
+  %position_.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 256
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit
-  %__begin3.sroa.0.0117 = phi ptr [ %3, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit ]
-  %4 = load ptr, ptr %__begin3.sroa.0.0117, align 8
+  %__begin3.sroa.0.0117 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit ]
+  %3 = load ptr, ptr %__begin3.sroa.0.0117, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp15, i8 0, i64 320, i1 false)
   store float 0x7FF8000000000000, ptr %computedFlexBasis.i, align 4
   store i8 0, ptr %lastOwnerDirection.i, align 4
@@ -841,17 +843,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 arrayinit.body.i:                                 ; preds = %arrayinit.body.i, %for.body
   %arrayinit.cur.idx.i = phi i64 [ 20, %for.body ], [ %arrayinit.cur.add.i, %arrayinit.body.i ]
-  %arrayinit.cur.ptr.i = getelementptr inbounds i8, ptr %ref.tmp15, i64 %arrayinit.cur.idx.i
+  %arrayinit.cur.ptr.i = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 %arrayinit.cur.idx.i
   store float -1.000000e+00, ptr %arrayinit.cur.ptr.i, align 4
-  %availableHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 4
+  %availableHeight.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 4
   store float -1.000000e+00, ptr %availableHeight.i, align 4
-  %widthSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 8
+  %widthSizingMode.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 8
   store i32 1, ptr %widthSizingMode.i, align 4
-  %heightSizingMode.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 12
+  %heightSizingMode.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 12
   store i32 1, ptr %heightSizingMode.i, align 4
-  %computedWidth.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 16
+  %computedWidth.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 16
   store float -1.000000e+00, ptr %computedWidth.i, align 4
-  %computedHeight.i = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i, i64 20
+  %computedHeight.i = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i, i64 20
   store float -1.000000e+00, ptr %computedHeight.i, align 4
   %arrayinit.cur.add.i = add nuw nsw i64 %arrayinit.cur.idx.i, 24
   %arrayinit.done.i = icmp eq i64 %arrayinit.cur.add.i, 212
@@ -872,13 +874,19 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit:        ; preds = %arrayinit.body.i
   store float 0x7FF8000000000000, ptr %measuredDimensions_.i, align 4
   store float 0x7FF8000000000000, ptr %arrayinit.element16.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i, i8 0, i64 64, i1 false)
-  %layout_.i = getelementptr inbounds i8, ptr %4, i64 252
+  %layout_.i = getelementptr inbounds nuw i8, ptr %3, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp15, i64 320, i1 false)
-  %owner_.i = getelementptr inbounds i8, ptr %4, i64 584
+  %owner_.i = getelementptr inbounds nuw i8, ptr %3, i64 584
   store ptr null, ptr %owner_.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0117, i64 8
-  %cmp.i = icmp eq ptr %incdec.ptr.i, %2
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.0117, i64 8
+  %cmp.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i, label %for.end, label %for.body
+
+lpad3:                                            ; preds = %if.end65, %for.end80, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
+  %4 = landingpad { ptr, i32 }
+          cleanup
+  %.pre = load ptr, ptr %childrenVector, align 8
+  br label %ehcleanup
 
 for.end:                                          ; preds = %_ZN8facebook4yoga13LayoutResultsC2Ev.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp19, i8 0, i64 24, i1 false)
@@ -896,83 +904,90 @@ if.then.i.i.i23:                                  ; preds = %invoke.cont21
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %invoke.cont21, %if.then.i.i.i23
   invoke void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(640) %ownerRef)
-          to label %return unwind label %ehcleanup
+          to label %if.end82 unwind label %lpad3
 
 lpad20:                                           ; preds = %for.end
   %6 = landingpad { ptr, i32 }
           cleanup
   %7 = load ptr, ptr %ref.tmp19, align 8
   %tobool.not.i.i.i25 = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i25, label %eh.resume, label %eh.resume.sink.split
+  br i1 %tobool.not.i.i.i25, label %ehcleanup, label %if.then.i.i.i26
 
-for.body40.lr.ph:                                 ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %shr.i.i.i = lshr i64 %add.ptr.idx, 5
-  %cmp50.i.i.i.not = icmp samesign ult i64 %add.ptr.idx, 32
-  %8 = and i64 %add.ptr.idx, 9223372036854775776
-  %scevgep.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 %8
-  %gepdiff = and i64 %add.ptr.idx, 24
-  %computedFlexBasis.i45 = getelementptr inbounds i8, ptr %ref.tmp58, i64 4
-  %lastOwnerDirection.i47 = getelementptr inbounds i8, ptr %ref.tmp58, i64 12
-  %nextCachedMeasurementsIndex.i48 = getelementptr inbounds i8, ptr %ref.tmp58, i64 16
-  %cachedLayout.i59 = getelementptr inbounds i8, ptr %ref.tmp58, i64 212
-  %availableHeight4.i60 = getelementptr inbounds i8, ptr %ref.tmp58, i64 216
-  %widthSizingMode5.i61 = getelementptr inbounds i8, ptr %ref.tmp58, i64 220
-  %heightSizingMode6.i62 = getelementptr inbounds i8, ptr %ref.tmp58, i64 224
-  %computedWidth7.i63 = getelementptr inbounds i8, ptr %ref.tmp58, i64 228
-  %computedHeight8.i64 = getelementptr inbounds i8, ptr %ref.tmp58, i64 232
-  %direction_.i65 = getelementptr inbounds i8, ptr %ref.tmp58, i64 236
-  %dimensions_.i68 = getelementptr inbounds i8, ptr %ref.tmp58, i64 240
-  %arrayinit.element.i69 = getelementptr inbounds i8, ptr %ref.tmp58, i64 244
-  %measuredDimensions_.i70 = getelementptr inbounds i8, ptr %ref.tmp58, i64 248
-  %arrayinit.element16.i71 = getelementptr inbounds i8, ptr %ref.tmp58, i64 252
-  %position_.i72 = getelementptr inbounds i8, ptr %ref.tmp58, i64 256
+if.then.i.i.i26:                                  ; preds = %lpad20
+  call void @_ZdlPv(ptr noundef nonnull %7) #14
+  br label %ehcleanup
+
+if.else:                                          ; preds = %invoke.cont
+  br i1 %cmp6.not, label %if.end65, label %for.body40.lr.ph
+
+for.body40.lr.ph:                                 ; preds = %if.else
+  %shr.i.i.i = ashr i64 %sub.ptr.sub.i, 5
+  %cmp50.i.i.i = icmp sgt i64 %shr.i.i.i, 0
+  %8 = and i64 %sub.ptr.sub.i, -32
+  %scevgep.i.i.i = getelementptr i8, ptr %0, i64 %8
+  %.pre58.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
+  %.pre59.i.i.i = sub i64 %sub.ptr.lhs.cast.i, %.pre58.i.i.i
+  %computedFlexBasis.i45 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 4
+  %lastOwnerDirection.i47 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 12
+  %nextCachedMeasurementsIndex.i48 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 16
+  %cachedLayout.i59 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 212
+  %availableHeight4.i60 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 216
+  %widthSizingMode5.i61 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 220
+  %heightSizingMode6.i62 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 224
+  %computedWidth7.i63 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 228
+  %computedHeight8.i64 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 232
+  %direction_.i65 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 236
+  %dimensions_.i68 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 240
+  %arrayinit.element.i69 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 244
+  %measuredDimensions_.i70 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 248
+  %arrayinit.element16.i71 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 252
+  %position_.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 256
   br label %for.body40
 
 for.body40:                                       ; preds = %for.body40.lr.ph, %for.inc62
-  %__begin331.sroa.0.0113 = phi ptr [ %1, %for.body40.lr.ph ], [ %incdec.ptr.i76, %for.inc62 ]
+  %__begin331.sroa.0.0113 = phi ptr [ %2, %for.body40.lr.ph ], [ %incdec.ptr.i76, %for.inc62 ]
   %9 = load ptr, ptr %__begin331.sroa.0.0113, align 8
-  br i1 %cmp50.i.i.i.not, label %for.end.i.i.i, label %for.body.i.i.i
+  br i1 %cmp50.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body40, %if.end22.i.i.i
   %__trip_count.052.i.i.i = phi i64 [ %dec.i.i.i, %if.end22.i.i.i ], [ %shr.i.i.i, %for.body40 ]
-  %__first.sroa.0.051.i.i.i = phi ptr [ %incdec.ptr.i14.i.i.i, %if.end22.i.i.i ], [ %call5.i.i.i.i1.i, %for.body40 ]
+  %__first.sroa.0.051.i.i.i = phi ptr [ %incdec.ptr.i14.i.i.i, %if.end22.i.i.i ], [ %0, %for.body40 ]
   %10 = load ptr, ptr %__first.sroa.0.051.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %10, %9
   br i1 %cmp.i.i.i.i, label %invoke.cont50, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i, i64 8
   %11 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
   %cmp.i9.i.i.i = icmp eq ptr %11, %9
-  br i1 %cmp.i9.i.i.i, label %invoke.cont50.loopexit.split.loop.exit131, label %if.end10.i.i.i
+  br i1 %cmp.i9.i.i.i, label %invoke.cont50.loopexit.split.loop.exit125, label %if.end10.i.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
-  %incdec.ptr.i10.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 16
+  %incdec.ptr.i10.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i, i64 16
   %12 = load ptr, ptr %incdec.ptr.i10.i.i.i, align 8
   %cmp.i11.i.i.i = icmp eq ptr %12, %9
-  br i1 %cmp.i11.i.i.i, label %invoke.cont50.loopexit.split.loop.exit129, label %if.end16.i.i.i
+  br i1 %cmp.i11.i.i.i, label %invoke.cont50.loopexit.split.loop.exit123, label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.end10.i.i.i
-  %incdec.ptr.i12.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 24
+  %incdec.ptr.i12.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i, i64 24
   %13 = load ptr, ptr %incdec.ptr.i12.i.i.i, align 8
   %cmp.i13.i.i.i = icmp eq ptr %13, %9
   br i1 %cmp.i13.i.i.i, label %invoke.cont50.loopexit.split.loop.exit, label %if.end22.i.i.i
 
 if.end22.i.i.i:                                   ; preds = %if.end16.i.i.i
-  %incdec.ptr.i14.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 32
+  %incdec.ptr.i14.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i, i64 32
   %dec.i.i.i = add nsw i64 %__trip_count.052.i.i.i, -1
   %cmp.i.i.i42 = icmp sgt i64 %__trip_count.052.i.i.i, 1
   br i1 %cmp.i.i.i42, label %for.body.i.i.i, label %for.end.i.i.i, !llvm.loop !8
 
 for.end.i.i.i:                                    ; preds = %if.end22.i.i.i, %for.body40
-  %sub.ptr.sub.i17.pre-phi.i.i.i = phi i64 [ %add.ptr.idx, %for.body40 ], [ %gepdiff, %if.end22.i.i.i ]
-  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i.i1.i, %for.body40 ], [ %scevgep.i.i.i, %if.end22.i.i.i ]
-  %sub.ptr.div.i18.i.i.i = lshr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i, 3
-  switch i64 %sub.ptr.div.i18.i.i.i, label %for.end.i.i.i.unreachabledefault [
+  %sub.ptr.sub.i17.pre-phi.i.i.i = phi i64 [ %sub.ptr.sub.i, %for.body40 ], [ %.pre59.i.i.i, %if.end22.i.i.i ]
+  %__first.sroa.0.0.lcssa.i.i.i = phi ptr [ %0, %for.body40 ], [ %scevgep.i.i.i, %if.end22.i.i.i ]
+  %sub.ptr.div.i18.i.i.i = ashr exact i64 %sub.ptr.sub.i17.pre-phi.i.i.i, 3
+  switch i64 %sub.ptr.div.i18.i.i.i, label %if.then57 [
     i64 3, label %sw.bb.i.i.i
     i64 2, label %sw.bb31.i.i.i
     i64 1, label %sw.bb38.i.i.i
-    i64 0, label %if.then57
   ]
 
 sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
@@ -981,7 +996,7 @@ sw.bb.i.i.i:                                      ; preds = %for.end.i.i.i
   br i1 %cmp.i19.i.i.i, label %invoke.cont50, label %if.end29.i.i.i
 
 if.end29.i.i.i:                                   ; preds = %sw.bb.i.i.i
-  %incdec.ptr.i20.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 8
+  %incdec.ptr.i20.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.lcssa.i.i.i, i64 8
   br label %sw.bb31.i.i.i
 
 sw.bb31.i.i.i:                                    ; preds = %for.end.i.i.i, %if.end29.i.i.i
@@ -991,35 +1006,32 @@ sw.bb31.i.i.i:                                    ; preds = %for.end.i.i.i, %if.
   br i1 %cmp.i21.i.i.i, label %invoke.cont50, label %if.end36.i.i.i
 
 if.end36.i.i.i:                                   ; preds = %sw.bb31.i.i.i
-  %incdec.ptr.i22.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i.i, i64 8
+  %incdec.ptr.i22.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i.i, i64 8
   br label %sw.bb38.i.i.i
 
 sw.bb38.i.i.i:                                    ; preds = %for.end.i.i.i, %if.end36.i.i.i
   %__first.sroa.0.2.i.i.i = phi ptr [ %incdec.ptr.i22.i.i.i, %if.end36.i.i.i ], [ %__first.sroa.0.0.lcssa.i.i.i, %for.end.i.i.i ]
   %16 = load ptr, ptr %__first.sroa.0.2.i.i.i, align 8
   %cmp.i23.i.i.i = icmp eq ptr %16, %9
-  %spec.select.i.i.i = select i1 %cmp.i23.i.i.i, ptr %__first.sroa.0.2.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i
+  %spec.select.i.i.i = select i1 %cmp.i23.i.i.i, ptr %__first.sroa.0.2.i.i.i, ptr %add.ptr7.i.i
   br label %invoke.cont50
 
 invoke.cont50.loopexit.split.loop.exit:           ; preds = %if.end16.i.i.i
-  %incdec.ptr.i12.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 24
+  %incdec.ptr.i12.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i, i64 24
   br label %invoke.cont50
 
-invoke.cont50.loopexit.split.loop.exit129:        ; preds = %if.end10.i.i.i
-  %incdec.ptr.i10.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 16
+invoke.cont50.loopexit.split.loop.exit123:        ; preds = %if.end10.i.i.i
+  %incdec.ptr.i10.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i, i64 16
   br label %invoke.cont50
 
-invoke.cont50.loopexit.split.loop.exit131:        ; preds = %if.end.i.i.i
-  %incdec.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.051.i.i.i, i64 8
+invoke.cont50.loopexit.split.loop.exit125:        ; preds = %if.end.i.i.i
+  %incdec.ptr.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.051.i.i.i, i64 8
   br label %invoke.cont50
 
-invoke.cont50:                                    ; preds = %for.body.i.i.i, %invoke.cont50.loopexit.split.loop.exit, %invoke.cont50.loopexit.split.loop.exit129, %invoke.cont50.loopexit.split.loop.exit131, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i12.i.i.i.le, %invoke.cont50.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.le, %invoke.cont50.loopexit.split.loop.exit129 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont50.loopexit.split.loop.exit131 ], [ %__first.sroa.0.051.i.i.i, %for.body.i.i.i ]
-  %cmp.i44 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i.i
+invoke.cont50:                                    ; preds = %for.body.i.i.i, %invoke.cont50.loopexit.split.loop.exit, %invoke.cont50.loopexit.split.loop.exit123, %invoke.cont50.loopexit.split.loop.exit125, %sw.bb38.i.i.i, %sw.bb31.i.i.i, %sw.bb.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i12.i.i.i.le, %invoke.cont50.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.le, %invoke.cont50.loopexit.split.loop.exit123 ], [ %incdec.ptr.i.i.i.i.le, %invoke.cont50.loopexit.split.loop.exit125 ], [ %__first.sroa.0.051.i.i.i, %for.body.i.i.i ]
+  %cmp.i44 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %add.ptr7.i.i
   br i1 %cmp.i44, label %if.then57, label %for.inc62
-
-for.end.i.i.i.unreachabledefault:                 ; preds = %for.end.i.i.i
-  unreachable
 
 if.then57:                                        ; preds = %for.end.i.i.i, %invoke.cont50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp58, i8 0, i64 320, i1 false)
@@ -1030,17 +1042,17 @@ if.then57:                                        ; preds = %for.end.i.i.i, %inv
 
 arrayinit.body.i49:                               ; preds = %arrayinit.body.i49, %if.then57
   %arrayinit.cur.idx.i50 = phi i64 [ 20, %if.then57 ], [ %arrayinit.cur.add.i57, %arrayinit.body.i49 ]
-  %arrayinit.cur.ptr.i51 = getelementptr inbounds i8, ptr %ref.tmp58, i64 %arrayinit.cur.idx.i50
+  %arrayinit.cur.ptr.i51 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 %arrayinit.cur.idx.i50
   store float -1.000000e+00, ptr %arrayinit.cur.ptr.i51, align 4
-  %availableHeight.i52 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 4
+  %availableHeight.i52 = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i51, i64 4
   store float -1.000000e+00, ptr %availableHeight.i52, align 4
-  %widthSizingMode.i53 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 8
+  %widthSizingMode.i53 = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i51, i64 8
   store i32 1, ptr %widthSizingMode.i53, align 4
-  %heightSizingMode.i54 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 12
+  %heightSizingMode.i54 = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i51, i64 12
   store i32 1, ptr %heightSizingMode.i54, align 4
-  %computedWidth.i55 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 16
+  %computedWidth.i55 = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i51, i64 16
   store float -1.000000e+00, ptr %computedWidth.i55, align 4
-  %computedHeight.i56 = getelementptr inbounds i8, ptr %arrayinit.cur.ptr.i51, i64 20
+  %computedHeight.i56 = getelementptr inbounds nuw i8, ptr %arrayinit.cur.ptr.i51, i64 20
   store float -1.000000e+00, ptr %computedHeight.i56, align 4
   %arrayinit.cur.add.i57 = add nuw nsw i64 %arrayinit.cur.idx.i50, 24
   %arrayinit.done.i58 = icmp eq i64 %arrayinit.cur.add.i57, 212
@@ -1061,20 +1073,20 @@ _ZN8facebook4yoga13LayoutResultsC2Ev.exit73:      ; preds = %arrayinit.body.i49
   store float 0x7FF8000000000000, ptr %measuredDimensions_.i70, align 4
   store float 0x7FF8000000000000, ptr %arrayinit.element16.i71, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %position_.i72, i8 0, i64 64, i1 false)
-  %layout_.i74 = getelementptr inbounds i8, ptr %9, i64 252
+  %layout_.i74 = getelementptr inbounds nuw i8, ptr %9, i64 252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %layout_.i74, ptr noundef nonnull align 4 dereferenceable(320) %ref.tmp58, i64 320, i1 false)
-  %owner_.i75 = getelementptr inbounds i8, ptr %9, i64 584
+  %owner_.i75 = getelementptr inbounds nuw i8, ptr %9, i64 584
   store ptr null, ptr %owner_.i75, align 8
   br label %for.inc62
 
 for.inc62:                                        ; preds = %invoke.cont50, %_ZN8facebook4yoga13LayoutResultsC2Ev.exit73
-  %incdec.ptr.i76 = getelementptr inbounds i8, ptr %__begin331.sroa.0.0113, i64 8
-  %cmp.i37 = icmp eq ptr %incdec.ptr.i76, %0
+  %incdec.ptr.i76 = getelementptr inbounds nuw i8, ptr %__begin331.sroa.0.0113, i64 8
+  %cmp.i37 = icmp eq ptr %incdec.ptr.i76, %1
   br i1 %cmp.i37, label %if.end65, label %for.body40
 
-if.end65:                                         ; preds = %for.inc62, %if.then.i.i.i.i.i.i.i.i.i.i
-  %call.i78 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %children_.i29, ptr noundef nonnull align 8 dereferenceable(24) %childrenVector)
-          to label %invoke.cont66 unwind label %ehcleanup
+if.end65:                                         ; preds = %for.inc62, %if.else
+  %call.i78 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %children_.i, ptr noundef nonnull align 8 dereferenceable(24) %childrenVector)
+          to label %invoke.cont66 unwind label %lpad3
 
 invoke.cont66:                                    ; preds = %if.end65
   %17 = load ptr, ptr %childrenVector, align 8
@@ -1085,51 +1097,51 @@ invoke.cont66:                                    ; preds = %if.end65
 for.body74:                                       ; preds = %invoke.cont66, %for.body74
   %__begin2.sroa.0.0115 = phi ptr [ %incdec.ptr.i83, %for.body74 ], [ %17, %invoke.cont66 ]
   %19 = load ptr, ptr %__begin2.sroa.0.0115, align 8
-  %owner_.i82 = getelementptr inbounds i8, ptr %19, i64 584
+  %owner_.i82 = getelementptr inbounds nuw i8, ptr %19, i64 584
   store ptr %ownerRef, ptr %owner_.i82, align 8
-  %incdec.ptr.i83 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0115, i64 8
+  %incdec.ptr.i83 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0115, i64 8
   %cmp.i81 = icmp eq ptr %incdec.ptr.i83, %18
   br i1 %cmp.i81, label %for.end80, label %for.body74
 
 for.end80:                                        ; preds = %for.body74, %invoke.cont66
   invoke void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(640) %ownerRef)
-          to label %if.end82 unwind label %ehcleanup
+          to label %for.end80.if.end82_crit_edge unwind label %lpad3
 
-if.end82:                                         ; preds = %for.end80
+for.end80.if.end82_crit_edge:                     ; preds = %for.end80
   %.pre122 = load ptr, ptr %childrenVector, align 8
-  %tobool.not.i.i.i84 = icmp eq ptr %.pre122, null
+  br label %if.end82
+
+if.end82:                                         ; preds = %for.end80.if.end82_crit_edge, %if.then2, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
+  %20 = phi ptr [ %.pre122, %for.end80.if.end82_crit_edge ], [ %0, %if.then2 ], [ %0, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit ]
+  %tobool.not.i.i.i84 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i84, label %return, label %if.then.i.i.i85
 
 if.then.i.i.i85:                                  ; preds = %if.end82
-  call void @_ZdlPv(ptr noundef nonnull %.pre122) #14
+  call void @_ZdlPv(ptr noundef nonnull %20) #14
   br label %return
 
-return:                                           ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit, %if.then2, %if.then.i.i.i85, %if.end82, %entry
+return:                                           ; preds = %if.then.i.i.i85, %if.end82, %entry
   ret void
 
-ehcleanup:                                        ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit, %for.end80, %if.end65
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  %.pre = load ptr, ptr %childrenVector, align 8
-  %tobool.not.i.i.i88 = icmp eq ptr %.pre, null
-  br i1 %tobool.not.i.i.i88, label %eh.resume, label %eh.resume.sink.split
+ehcleanup:                                        ; preds = %if.then.i.i.i26, %lpad20, %lpad3
+  %21 = phi ptr [ %.pre, %lpad3 ], [ %0, %lpad20 ], [ %0, %if.then.i.i.i26 ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad3 ], [ %6, %lpad20 ], [ %6, %if.then.i.i.i26 ]
+  %tobool.not.i.i.i88 = icmp eq ptr %21, null
+  br i1 %tobool.not.i.i.i88, label %eh.resume, label %if.then.i.i.i89
 
-eh.resume.sink.split:                             ; preds = %ehcleanup, %lpad20
-  %.sink = phi ptr [ %7, %lpad20 ], [ %.pre, %ehcleanup ]
-  %.pn.pn.ph = phi { ptr, i32 } [ %6, %lpad20 ], [ %20, %ehcleanup ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink) #14
+if.then.i.i.i89:                                  ; preds = %ehcleanup
+  call void @_ZdlPv(ptr noundef nonnull %21) #14
   br label %eh.resume
 
-eh.resume:                                        ; preds = %eh.resume.sink.split, %lpad20, %ehcleanup
-  %.pn.pn = phi { ptr, i32 } [ %20, %ehcleanup ], [ %6, %lpad20 ], [ %.pn.pn.ph, %eh.resume.sink.split ]
-  resume { ptr, i32 } %.pn.pn
+eh.resume:                                        ; preds = %if.then.i.i.i89, %ehcleanup
+  resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @YGNodeGetChild(ptr nocapture noundef readonly %nodeRef, i64 noundef %index) local_unnamed_addr #8 {
 entry:
-  %children_.i = getelementptr inbounds i8, ptr %nodeRef, i64 592
-  %_M_finish.i = getelementptr inbounds i8, ptr %nodeRef, i64 600
+  %children_.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 592
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 600
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %children_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1152,8 +1164,8 @@ return:                                           ; preds = %entry, %_ZNK8facebo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i64 -1152921504606846976, 1152921504606846976) i64 @YGNodeGetChildCount(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %children_.i = getelementptr inbounds i8, ptr %node, i64 592
-  %_M_finish.i = getelementptr inbounds i8, ptr %node, i64 600
+  %children_.i = getelementptr inbounds nuw i8, ptr %node, i64 592
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %node, i64 600
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %children_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -1166,7 +1178,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @YGNodeGetOwner(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %owner_.i = getelementptr inbounds i8, ptr %node, i64 584
+  %owner_.i = getelementptr inbounds nuw i8, ptr %node, i64 584
   %0 = load ptr, ptr %owner_.i, align 8
   ret ptr %0
 }
@@ -1174,7 +1186,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @YGNodeGetParent(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %owner_.i = getelementptr inbounds i8, ptr %node, i64 584
+  %owner_.i = getelementptr inbounds nuw i8, ptr %node, i64 584
   %0 = load ptr, ptr %owner_.i, align 8
   ret ptr %0
 }
@@ -1191,7 +1203,7 @@ declare void @_ZN8facebook4yoga4Node9setConfigEPNS0_6ConfigE(ptr noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @YGNodeSetContext(ptr nocapture noundef writeonly initializes((8, 16)) %node, ptr noundef %context) local_unnamed_addr #6 {
 entry:
-  %context_.i = getelementptr inbounds i8, ptr %node, i64 8
+  %context_.i = getelementptr inbounds nuw i8, ptr %node, i64 8
   store ptr %context, ptr %context_.i, align 8
   ret void
 }
@@ -1199,7 +1211,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @YGNodeGetContext(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %context_.i = getelementptr inbounds i8, ptr %node, i64 8
+  %context_.i = getelementptr inbounds nuw i8, ptr %node, i64 8
   %0 = load ptr, ptr %context_.i, align 8
   ret ptr %0
 }
@@ -1216,7 +1228,7 @@ declare void @_ZN8facebook4yoga4Node14setMeasureFuncEPF6YGSizePK6YGNodef13YGMeas
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @YGNodeHasMeasureFunc(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %measureFunc_.i = getelementptr inbounds i8, ptr %node, i64 16
+  %measureFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 16
   %0 = load ptr, ptr %measureFunc_.i, align 8
   %cmp.i = icmp ne ptr %0, null
   ret i1 %cmp.i
@@ -1225,7 +1237,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @YGNodeSetBaselineFunc(ptr nocapture noundef writeonly initializes((24, 32)) %node, ptr noundef %baselineFunc) local_unnamed_addr #6 {
 entry:
-  %baselineFunc_.i = getelementptr inbounds i8, ptr %node, i64 24
+  %baselineFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 24
   store ptr %baselineFunc, ptr %baselineFunc_.i, align 8
   ret void
 }
@@ -1233,7 +1245,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @YGNodeHasBaselineFunc(ptr nocapture noundef readonly %node) local_unnamed_addr #4 {
 entry:
-  %baselineFunc_.i = getelementptr inbounds i8, ptr %node, i64 24
+  %baselineFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 24
   %0 = load ptr, ptr %baselineFunc_.i, align 8
   %cmp.i = icmp ne ptr %0, null
   ret i1 %cmp.i
@@ -1295,7 +1307,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @YGNodeSetPrintFunc(ptr nocapture noundef writeonly initializes((32, 40)) %node, ptr noundef %printFunc) local_unnamed_addr #6 {
 entry:
-  %printFunc_.i = getelementptr inbounds i8, ptr %node, i64 32
+  %printFunc_.i = getelementptr inbounds nuw i8, ptr %node, i64 32
   store ptr %printFunc, ptr %printFunc_.i, align 8
   ret void
 }
@@ -1314,7 +1326,7 @@ sw.epilog.i:                                      ; preds = %entry
 switch.lookup:                                    ; preds = %entry
   %conv.i.mask = and i32 %widthMode, 3
   %1 = zext nneg i32 %conv.i.mask to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %conv.i1 = trunc i32 %heightMode to i8
   %2 = icmp ult i8 %conv.i1, 3
@@ -1327,7 +1339,7 @@ sw.epilog.i5:                                     ; preds = %switch.lookup
 switch.lookup22:                                  ; preds = %switch.lookup
   %conv.i1.mask = and i32 %heightMode, 3
   %3 = zext nneg i32 %conv.i1.mask to i64
-  %switch.gep23 = getelementptr inbounds [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %3
+  %switch.gep23 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %3
   %switch.load24 = load i32, ptr %switch.gep23, align 4
   %conv.i7 = trunc i32 %lastWidthMode to i8
   %4 = icmp ult i8 %conv.i7, 3
@@ -1349,11 +1361,11 @@ sw.epilog.i17:                                    ; preds = %switch.lookup19
 switch.lookup25:                                  ; preds = %switch.lookup19
   %conv.i7.mask = and i32 %lastWidthMode, 3
   %6 = zext nneg i32 %conv.i7.mask to i64
-  %switch.gep20 = getelementptr inbounds [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %6
+  %switch.gep20 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %6
   %switch.load21 = load i32, ptr %switch.gep20, align 4
   %conv.i13.mask = and i32 %lastHeightMode, 3
   %7 = zext nneg i32 %conv.i13.mask to i64
-  %switch.gep26 = getelementptr inbounds [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %7
+  %switch.gep26 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.YGNodeCanUseCachedMeasurement.3, i64 0, i64 %7
   %switch.load27 = load i32, ptr %switch.gep26, align 4
   %call9 = tail call noundef zeroext i1 @_ZN8facebook4yoga23canUseCachedMeasurementENS0_10SizingModeEfS1_fS1_fS1_fffffPKNS0_6ConfigE(i32 noundef %switch.load, float noundef %availableWidth, i32 noundef %switch.load24, float noundef %availableHeight, i32 noundef %switch.load21, float noundef %lastAvailableWidth, i32 noundef %switch.load27, float noundef %lastAvailableHeight, float noundef %lastComputedWidth, float noundef %lastComputedHeight, float noundef %marginRow, float noundef %marginColumn, ptr noundef %config)
   ret i1 %call9
@@ -1380,13 +1392,13 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -1422,12 +1434,12 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIPN8fac
 
 _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEEEPS3_mT_SD_.exit, %if.then.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i19 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i19 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
@@ -1476,7 +1488,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPPN8faceb
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPPN8facebook4yoga4NodeES4_ET0_T_S6_S5_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE13_M_deallocateEPS3_m.exit
   %8 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub.i
-  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish74 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 

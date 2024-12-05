@@ -36,13 +36,13 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 define hidden void @_ZN15G1YoungGenSizerC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 13), (16, 24)) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV15G1YoungGenSizer, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %6, align 4
   %7 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_cmdlineE12JVMFlagsEnum(i32 noundef 1200) #8
   br i1 %7, label %8, label %16
@@ -56,7 +56,7 @@ define hidden void @_ZN15G1YoungGenSizerC2Ev(ptr nocapture noundef nonnull align
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %10, %8
-  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %16, label %14
 
@@ -80,7 +80,7 @@ define hidden void @_ZN15G1YoungGenSizerC2Ev(ptr nocapture noundef nonnull align
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %20
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not1 = icmp eq ptr %23, null
   br i1 %.not1, label %29, label %24
 
@@ -181,7 +181,7 @@ define hidden noundef range(i32 1, 42949673) i32 @_ZN15G1YoungGenSizer28calculat
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %37 [
     i32 0, label %7
@@ -253,9 +253,9 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15G1YoungGenSizer19adjust_max_new_sizeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %28 [
     i32 0, label %8
@@ -273,7 +273,7 @@ define hidden void @_ZN15G1YoungGenSizer19adjust_max_new_sizeEj(ptr nocapture no
   br label %_ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0_.exit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = load i32, ptr @G1MaxNewSizePercent, align 4
   %17 = mul i32 %16, %1
@@ -319,9 +319,9 @@ _ZN15G1YoungGenSizer32recalculate_min_max_young_lengthEjPjS0_.exit: ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15G1YoungGenSizer17heap_size_changedEj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %37 [
     i32 0, label %7

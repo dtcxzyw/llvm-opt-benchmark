@@ -32,7 +32,7 @@ define void @mq_clustering(ptr noundef %0, i32 noundef %1, ptr nocapture noundef
 11:                                               ; preds = %9, %5
   %.0 = phi ptr [ %10, %9 ], [ %7, %5 ]
   %12 = tail call ptr @SparseMatrix_remove_diagonal(ptr noundef %.0) #13
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 1
   br i1 %.not, label %17, label %15
@@ -58,7 +58,7 @@ define void @mq_clustering(ptr noundef %0, i32 noundef %1, ptr nocapture noundef
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %.1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq i32 %25, 1
   br i1 %.not.i.i, label %28, label %26
@@ -75,7 +75,7 @@ define void @mq_clustering(ptr noundef %0, i32 noundef %1, ptr nocapture noundef
   br i1 %.not14.i.i, label %Multilevel_MQ_Clustering_new.exit.i.preheader, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i8 1, ptr %32, align 8
   br label %Multilevel_MQ_Clustering_new.exit.i.preheader
 
@@ -84,13 +84,13 @@ Multilevel_MQ_Clustering_new.exit.i.preheader:    ; preds = %31, %28
 
 Multilevel_MQ_Clustering_new.exit.i:              ; preds = %Multilevel_MQ_Clustering_new.exit.i.preheader, %Multilevel_MQ_Clustering_new.exit.i
   %.037.i = phi ptr [ %34, %Multilevel_MQ_Clustering_new.exit.i ], [ %29, %Multilevel_MQ_Clustering_new.exit.i.preheader ]
-  %33 = getelementptr inbounds i8, ptr %.037.i, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.037.i, i64 24
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %35, label %Multilevel_MQ_Clustering_new.exit.i
 
 35:                                               ; preds = %Multilevel_MQ_Clustering_new.exit.i
-  %36 = getelementptr inbounds i8, ptr %.037.i, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.037.i, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = tail call fastcc ptr @gv_calloc(i64 noundef %38, i64 noundef 8)
@@ -99,17 +99,17 @@ Multilevel_MQ_Clustering_new.exit.i:              ; preds = %Multilevel_MQ_Clust
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %.037.i, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %.037.i, i64 48
   %.pre.i = load ptr, ptr %42, align 8
   %43 = zext nneg i32 %40 to i64
   br label %44
 
 44:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
-  %45 = getelementptr inbounds i32, ptr %.pre.i, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 4
   %47 = sitofp i32 %46 to double
-  %48 = getelementptr inbounds double, ptr %39, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv.i
   store double %47, ptr %48, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %43
@@ -117,10 +117,10 @@ Multilevel_MQ_Clustering_new.exit.i:              ; preds = %Multilevel_MQ_Clust
 
 ._crit_edge.i:                                    ; preds = %44, %35
   store i32 %40, ptr %2, align 4
-  %49 = getelementptr inbounds i8, ptr %.037.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.037.i, i64 56
   %50 = load double, ptr %49, align 8
   store double %50, ptr %4, align 8
-  %51 = getelementptr inbounds i8, ptr %.037.i, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.037.i, i64 32
   %52 = load ptr, ptr %51, align 8
   %.not4447.i = icmp eq ptr %52, null
   br i1 %.not4447.i, label %._crit_edge51.i, label %.lr.ph50.i
@@ -130,13 +130,13 @@ Multilevel_MQ_Clustering_new.exit.i:              ; preds = %Multilevel_MQ_Clust
   %54 = phi ptr [ %59, %.lr.ph50.i ], [ %51, %._crit_edge.i ]
   %.048.i = phi ptr [ %57, %.lr.ph50.i ], [ %39, %._crit_edge.i ]
   store ptr null, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load ptr, ptr %55, align 8
   call void @SparseMatrix_multiply_vector(ptr noundef %56, ptr noundef %.048.i, ptr noundef nonnull %6) #13
   call void @free(ptr noundef %.048.i) #13
   %57 = load ptr, ptr %6, align 8
   %58 = load ptr, ptr %54, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8
   %.not44.i = icmp eq ptr %60, null
   br i1 %.not44.i, label %._crit_edge51.i, label %.lr.ph50.i
@@ -148,7 +148,7 @@ Multilevel_MQ_Clustering_new.exit.i:              ; preds = %Multilevel_MQ_Clust
   br i1 %.not45.i, label %62, label %67
 
 62:                                               ; preds = %._crit_edge51.i
-  %63 = getelementptr inbounds i8, ptr %29, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = call fastcc ptr @gv_calloc(i64 noundef %65, i64 noundef 4)
@@ -157,17 +157,17 @@ Multilevel_MQ_Clustering_new.exit.i:              ; preds = %Multilevel_MQ_Clust
 
 67:                                               ; preds = %62, %._crit_edge51.i
   %.040.i = phi ptr [ %66, %62 ], [ %61, %._crit_edge51.i ]
-  %68 = getelementptr inbounds i8, ptr %29, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %.lr.ph55.i, label %hierachical_mq_clustering.exit
 
 .lr.ph55.i:                                       ; preds = %67, %.lr.ph55.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %.lr.ph55.i ], [ 0, %67 ]
-  %71 = getelementptr inbounds double, ptr %.0.lcssa.i, i64 %indvars.iv60.i
+  %71 = getelementptr inbounds nuw double, ptr %.0.lcssa.i, i64 %indvars.iv60.i
   %72 = load double, ptr %71, align 8
   %73 = fptosi double %72 to i32
-  %74 = getelementptr inbounds i32, ptr %.040.i, i64 %indvars.iv60.i
+  %74 = getelementptr inbounds nuw i32, ptr %.040.i, i64 %indvars.iv60.i
   store i32 %73, ptr %74, align 4
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %75 = load i32, ptr %68, align 4
@@ -248,7 +248,7 @@ define internal fastcc void @Multilevel_MQ_Clustering_delete(ptr noundef %0) unn
   br i1 %.not, label %common.ret15, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not14 = icmp eq ptr %4, null
   br i1 %.not14, label %12, label %5
@@ -259,7 +259,7 @@ define internal fastcc void @Multilevel_MQ_Clustering_delete(ptr noundef %0) unn
   br i1 %7, label %8, label %.sink.split
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %.sink.split, label %12
@@ -272,22 +272,22 @@ common.ret15:                                     ; preds = %1, %12
   br label %12
 
 12:                                               ; preds = %.sink.split, %8, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void @SparseMatrix_delete(ptr noundef %14) #13
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #13
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load ptr, ptr %17, align 8
   tail call void @free(ptr noundef %18) #13
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8
   tail call void @free(ptr noundef %20) #13
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #13
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   tail call fastcc void @Multilevel_MQ_Clustering_delete(ptr noundef %24)
   tail call void @free(ptr noundef nonnull %0) #13
@@ -300,7 +300,7 @@ declare ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @Multilevel_MQ_Clustering_init(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #14
   %6 = icmp eq ptr %5, null
@@ -314,21 +314,21 @@ define internal fastcc noalias noundef ptr @Multilevel_MQ_Clustering_init(ptr no
 
 gv_alloc.exit:                                    ; preds = %2
   store i32 %1, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %4, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %11, align 8
   %12 = sext i32 %4 to i64
   %13 = tail call fastcc ptr @gv_calloc(i64 noundef %12, i64 noundef 8)
-  %14 = getelementptr inbounds i8, ptr %5, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %16 = icmp eq i32 %1, 0
   br i1 %16, label %17, label %188
 
 17:                                               ; preds = %gv_alloc.exit
-  %18 = getelementptr inbounds i8, ptr %5, i64 104
-  %19 = getelementptr inbounds i8, ptr %5, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %20 = tail call fastcc ptr @gv_calloc(i64 noundef %12, i64 noundef 8)
   store ptr %20, ptr %19, align 8
   %21 = tail call fastcc ptr @gv_calloc(i64 noundef %12, i64 noundef 8)
@@ -348,7 +348,7 @@ gv_alloc.exit:                                    ; preds = %2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
   store double 1.000000e+00, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %23
@@ -356,7 +356,7 @@ gv_alloc.exit:                                    ; preds = %2
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63
   %indvars.iv67 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next68, %.lr.ph63 ]
-  %26 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv67
+  %26 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv67
   %27 = trunc nuw nsw i64 %indvars.iv67 to i32
   store i32 %27, ptr %26, align 4
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
@@ -365,17 +365,17 @@ gv_alloc.exit:                                    ; preds = %2
 
 ._crit_edge:                                      ; preds = %.lr.ph63, %17
   %28 = load i32, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %._crit_edge
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = freeze ptr %38
   br label %40
@@ -401,14 +401,14 @@ gv_alloc.exit:                                    ; preds = %2
   %indvars.iv216.i = phi i64 [ %indvars.iv.next217.i, %.loopexit119.us.us.i ], [ 0, %.preheader.i ]
   %.0107145.us.us.i = phi double [ %.1108.lcssa.us.us.i, %.loopexit119.us.us.i ], [ 0.000000e+00, %.preheader.i ]
   %.0110144.us.us.i = phi double [ %.1111.lcssa.us.us.i, %.loopexit119.us.us.i ], [ 0.000000e+00, %.preheader.i ]
-  %45 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv216.i
+  %45 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv216.i
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i32, ptr %42, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = sitofp i32 %49 to double
   %indvars.iv.next217.i = add nuw nsw i64 %indvars.iv216.i, 1
-  %51 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv.next217.i
+  %51 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.next217.i
   %52 = load i32, ptr %51, align 4
   %53 = icmp slt i32 %44, %52
   br i1 %53, label %.lr.ph126.us.us.i, label %.loopexit119.us.us.i
@@ -466,7 +466,7 @@ gv_alloc.exit:                                    ; preds = %2
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0101122.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %76 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i32, ptr %42, i64 %78
@@ -491,14 +491,14 @@ gv_alloc.exit:                                    ; preds = %2
   %indvars.iv186.i = phi i64 [ %indvars.iv.next187.i, %.loopexit119.i ], [ 0, %.preheader.i ]
   %.0107145.i = phi double [ %.1108.lcssa.i, %.loopexit119.i ], [ 0.000000e+00, %.preheader.i ]
   %.0110144.i = phi double [ %.1111.lcssa.i, %.loopexit119.i ], [ 0.000000e+00, %.preheader.i ]
-  %85 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv186.i
+  %85 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv186.i
   %86 = load i32, ptr %85, align 4
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds i32, ptr %42, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = sitofp i32 %89 to double
   %indvars.iv.next187.i = add nuw nsw i64 %indvars.iv186.i, 1
-  %91 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv.next187.i
+  %91 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.next187.i
   %92 = load i32, ptr %91, align 4
   %93 = icmp slt i32 %84, %92
   br i1 %93, label %.lr.ph126.i, label %.loopexit119.i
@@ -567,7 +567,7 @@ gv_alloc.exit:                                    ; preds = %2
   %122 = phi i32 [ %124, %.loopexit.us.i ], [ %.pre239.i, %._crit_edge.i ]
   %indvars.iv232.i = phi i64 [ %indvars.iv.next233.i, %.loopexit.us.i ], [ 0, %._crit_edge.i ]
   %indvars.iv.next233.i = add nuw nsw i64 %indvars.iv232.i, 1
-  %123 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv.next233.i
+  %123 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.next233.i
   %124 = load i32, ptr %123, align 4
   %125 = icmp slt i32 %122, %124
   br i1 %125, label %.lr.ph169.us.i, label %.loopexit.us.i
@@ -577,7 +577,7 @@ gv_alloc.exit:                                    ; preds = %2
   br i1 %exitcond236.not.i, label %._crit_edge175.i, label %.lr.ph174.split.us.i
 
 .lr.ph169.us.i:                                   ; preds = %.lr.ph174.split.us.i
-  %126 = getelementptr inbounds double, ptr %121, i64 %indvars.iv232.i
+  %126 = getelementptr inbounds nuw double, ptr %121, i64 %indvars.iv232.i
   %127 = sext i32 %122 to i64
   %128 = sext i32 %124 to i64
   br label %129
@@ -617,13 +617,13 @@ gv_alloc.exit:                                    ; preds = %2
   %146 = phi i32 [ %148, %.loopexit.i ], [ %.pre239.i, %._crit_edge.i ]
   %indvars.iv224.i = phi i64 [ %indvars.iv.next225.i, %.loopexit.i ], [ 0, %._crit_edge.i ]
   %indvars.iv.next225.i = add nuw nsw i64 %indvars.iv224.i, 1
-  %147 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv.next225.i
+  %147 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.next225.i
   %148 = load i32, ptr %147, align 4
   %149 = icmp slt i32 %146, %148
   br i1 %149, label %.lr.ph169.i, label %.loopexit.i
 
 .lr.ph169.i:                                      ; preds = %.lr.ph174.split.i
-  %150 = getelementptr inbounds double, ptr %121, i64 %indvars.iv224.i
+  %150 = getelementptr inbounds nuw double, ptr %121, i64 %indvars.iv224.i
   %151 = sext i32 %146 to i64
   %152 = sext i32 %148 to i64
   br label %153
@@ -681,14 +681,14 @@ get_mq.exit:                                      ; preds = %._crit_edge175.i.th
   %.0.i = fmul double %.0.in.i, 2.000000e+00
   %182 = load ptr, ptr @stderr, align 8
   %183 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %182, ptr noundef nonnull @.str, i32 noundef %.0101.lcssa242246.i58, double noundef %.0.i) #15
-  %184 = getelementptr inbounds i8, ptr %5, i64 56
+  %184 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double %.0.i, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %5, i64 64
+  %185 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store double %.0110.lcssa247.i57, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %5, i64 72
+  %186 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store double %.0107.lcssa248.i56, ptr %186, align 8
   store ptr %181, ptr %15, align 8
-  %187 = getelementptr inbounds i8, ptr %5, i64 80
+  %187 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 %.0101.lcssa242246.i58, ptr %187, align 8
   br label %188
 
@@ -699,30 +699,30 @@ get_mq.exit:                                      ; preds = %._crit_edge175.i.th
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr noundef returned %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8
   %21 = sext i32 %9 to i64
   %22 = tail call fastcc ptr @gv_calloc(i64 noundef %21, i64 noundef 24)
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load double, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load double, ptr %27, align 8
   %29 = tail call fastcc ptr @gv_calloc(i64 noundef %21, i64 noundef 8)
   %30 = tail call fastcc ptr @gv_calloc(i64 noundef %21, i64 noundef 8)
@@ -739,7 +739,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   %37 = zext nneg i32 %9 to i64
   %38 = shl nuw nsw i64 %37, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 -1, i64 %38, i1 false)
-  %39 = getelementptr inbounds i8, ptr %7, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %40 = load ptr, ptr %39, align 8
   %invariant.smax601 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %wide.trip.count581 = zext nneg i32 %9 to i64
@@ -759,24 +759,24 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   %.0422530 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.1423, %.loopexit478 ]
   %.0426529 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.1427, %.loopexit478 ]
   %.0431528 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.1432, %.loopexit478 ]
-  %41 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv578
+  %41 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv578
   %42 = load i32, ptr %41, align 4
   %.not463 = icmp eq i32 %42, -1
   br i1 %.not463, label %43, label %.loopexit478
 
 43:                                               ; preds = %.lr.ph541
-  %44 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv578
+  %44 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv578
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %44, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %45, %47
   br i1 %48, label %.lr.ph485.preheader, label %._crit_edge486.thread
 
 ._crit_edge486.thread:                            ; preds = %43
-  %49 = getelementptr inbounds double, ptr %16, i64 %indvars.iv578
-  %50 = getelementptr inbounds double, ptr %18, i64 %indvars.iv578
+  %49 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv578
+  %50 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv578
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds double, ptr %20, i64 %indvars.iv578
+  %52 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv578
   %53 = load double, ptr %52, align 8
   br label %._crit_edge498
 
@@ -832,11 +832,11 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   br i1 %exitcond.not, label %._crit_edge486, label %.lr.ph485
 
 ._crit_edge486:                                   ; preds = %79
-  %80 = getelementptr inbounds double, ptr %16, i64 %indvars.iv578
+  %80 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv578
   %81 = load double, ptr %80, align 8
-  %82 = getelementptr inbounds double, ptr %18, i64 %indvars.iv578
+  %82 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv578
   %83 = load double, ptr %82, align 8
-  %84 = getelementptr inbounds double, ptr %20, i64 %indvars.iv578
+  %84 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv578
   %85 = load double, ptr %84, align 8
   %square = fmul double %83, %83
   %86 = fdiv double %81, %square
@@ -1298,7 +1298,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 
 .lr.ph554:                                        ; preds = %.lr.ph554.preheader, %.lr.ph554
   %indvars.iv588 = phi i64 [ 0, %.lr.ph554.preheader ], [ %indvars.iv.next589, %.lr.ph554 ]
-  %328 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv588
+  %328 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv588
   %329 = load i32, ptr %328, align 4
   %330 = trunc nuw nsw i64 %indvars.iv588 to i32
   %331 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %327, i32 noundef %329, i32 noundef %330, ptr noundef nonnull %3) #13
@@ -1334,7 +1334,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   br label %386
 
 339:                                              ; preds = %336
-  %340 = getelementptr inbounds i8, ptr %0, i64 16
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %333, ptr %340, align 8
   %341 = add nsw i32 %10, 1
   %342 = call fastcc ptr @Multilevel_MQ_Clustering_init(ptr noundef nonnull %337, i32 noundef %341)
@@ -1381,13 +1381,13 @@ gv_recalloc.exit.thread:                          ; preds = %351
 
 gv_recalloc.exit476:                              ; preds = %gv_recalloc.exit.thread, %362
   %364 = phi ptr [ %355, %362 ], [ %357, %gv_recalloc.exit.thread ]
-  %365 = getelementptr inbounds i8, ptr %342, i64 88
+  %365 = getelementptr inbounds nuw i8, ptr %342, i64 88
   store ptr %346, ptr %365, align 8
   %366 = load double, ptr %23, align 8
   %367 = fadd double %.0417.lcssa, %366
-  %368 = getelementptr inbounds i8, ptr %342, i64 56
+  %368 = getelementptr inbounds nuw i8, ptr %342, i64 56
   store double %367, ptr %368, align 8
-  %369 = getelementptr inbounds i8, ptr %342, i64 104
+  %369 = getelementptr inbounds nuw i8, ptr %342, i64 104
   store ptr %364, ptr %369, align 8
   %370 = call ptr @realloc(ptr noundef %33, i64 noundef range(i64 8, 17179869177) %345) #17
   %371 = icmp eq ptr %370, null
@@ -1409,12 +1409,12 @@ gv_recalloc.exit476:                              ; preds = %gv_recalloc.exit.th
   br label %gv_recalloc.exit477
 
 gv_recalloc.exit477:                              ; preds = %375, %376
-  %379 = getelementptr inbounds i8, ptr %342, i64 96
+  %379 = getelementptr inbounds nuw i8, ptr %342, i64 96
   store ptr %370, ptr %379, align 8
   %380 = call fastcc ptr @Multilevel_MQ_Clustering_establish(ptr noundef nonnull %342, i32 noundef %1)
-  %381 = getelementptr inbounds i8, ptr %0, i64 24
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %342, ptr %381, align 8
-  %382 = getelementptr inbounds i8, ptr %342, i64 32
+  %382 = getelementptr inbounds nuw i8, ptr %342, i64 32
   store ptr %0, ptr %382, align 8
   br label %386
 
@@ -1427,7 +1427,7 @@ gv_recalloc.exit477:                              ; preds = %375, %376
 
 .lr.ph550:                                        ; preds = %.lr.ph550.preheader, %.lr.ph550
   %indvars.iv583 = phi i64 [ 0, %.lr.ph550.preheader ], [ %indvars.iv.next584, %.lr.ph550 ]
-  %384 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv583
+  %384 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv583
   %385 = trunc nuw nsw i64 %indvars.iv583 to i32
   store i32 %385, ptr %384, align 4
   %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
@@ -1449,8 +1449,8 @@ gv_recalloc.exit477:                              ; preds = %375, %376
 
 .lr.ph558:                                        ; preds = %.lr.ph558.preheader, %.lr.ph558
   %indvars.iv593 = phi i64 [ 0, %.lr.ph558.preheader ], [ %indvars.iv.next594, %.lr.ph558 ]
-  %387 = getelementptr inbounds %struct.ints_t, ptr %22, i64 %indvars.iv593
-  %388 = getelementptr inbounds i8, ptr %387, i64 8
+  %387 = getelementptr inbounds nuw %struct.ints_t, ptr %22, i64 %indvars.iv593
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   store i64 0, ptr %388, align 8
   %389 = load ptr, ptr %387, align 8
   call void @free(ptr noundef %389) #13
@@ -1471,9 +1471,9 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ints_append(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %4, %6
   br i1 %7, label %8, label %._crit_edge.i

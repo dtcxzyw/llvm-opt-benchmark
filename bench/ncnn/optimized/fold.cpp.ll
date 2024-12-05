@@ -182,7 +182,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Fold7forwardERKNS_3MatER
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %77, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = load ptr, ptr %81, align 8
   invoke void %82(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef %78)
           to label %.thread unwind label %63
@@ -362,7 +362,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Fold7forwardERKNS_3MatER
   %180 = load i32, ptr %40, align 8
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds float, ptr %.1231, i64 %181
-  %183 = getelementptr inbounds i8, ptr %.3230, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %.3230, i64 4
   %184 = add nuw i32 %.0232, 1
   %exitcond.not = icmp eq i32 %.0232, %42
   br i1 %exitcond.not, label %._crit_edge, label %176, !llvm.loop !4
@@ -465,7 +465,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Fold7forwardERKNS_3MatER
 
 231:                                              ; preds = %227
   %232 = load ptr, ptr %229, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
   %234 = load ptr, ptr %233, align 8
   invoke void %234(ptr noundef nonnull align 8 dereferenceable(8) %229, ptr noundef %230)
           to label %237 unwind label %63
@@ -534,7 +534,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Fold7forwardERKNS_3MatER
 
 266:                                              ; preds = %263
   %267 = load ptr, ptr %264, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 24
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %269 = load ptr, ptr %268, align 8
   invoke void %269(ptr noundef nonnull align 8 dereferenceable(8) %264, ptr noundef %265)
           to label %272 unwind label %273
@@ -570,7 +570,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Fold7forwardERKNS_3MatER
 
 282:                                              ; preds = %279
   %283 = load ptr, ptr %280, align 8
-  %284 = getelementptr inbounds i8, ptr %283, i64 24
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %285 = load ptr, ptr %284, align 8
   invoke void %285(ptr noundef nonnull align 8 dereferenceable(8) %280, ptr noundef %281)
           to label %288 unwind label %289

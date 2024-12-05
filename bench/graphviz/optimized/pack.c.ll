@@ -59,13 +59,13 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br i1 %6, label %polyGraphs.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp ult i32 %9, 4
   br i1 %10, label %11, label %.lr.ph.preheader
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not203.i = icmp eq ptr %13, null
   br label %14
@@ -89,27 +89,27 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br i1 %20, label %21, label %47
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %16, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load double, ptr %24, align 8
   %26 = fcmp ult double %25, 0.000000e+00
   %.in.v.i = select i1 %26, double -5.000000e-01, double 5.000000e-01
   %.in.i = fadd double %25, %.in.v.i
   %27 = fptosi double %.in.i to i32
-  %28 = getelementptr inbounds i8, ptr %23, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %29 = load double, ptr %28, align 8
   %30 = fcmp ult double %29, 0.000000e+00
   %.in204.v.i = select i1 %30, double -5.000000e-01, double 5.000000e-01
   %.in204.i = fadd double %29, %.in204.v.i
   %31 = fptosi double %.in204.i to i32
-  %32 = getelementptr inbounds i8, ptr %23, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %33 = load double, ptr %32, align 8
   %34 = fcmp ult double %33, 0.000000e+00
   %.in205.v.i = select i1 %34, double -5.000000e-01, double 5.000000e-01
   %.in205.i = fadd double %33, %.in205.v.i
   %35 = fptosi double %.in205.i to i32
-  %36 = getelementptr inbounds i8, ptr %23, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %37 = load double, ptr %36, align 8
   %38 = fcmp ult double %37, 0.000000e+00
   %.in206.v.i = select i1 %38, double -5.000000e-01, double 5.000000e-01
@@ -146,15 +146,15 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 50:                                               ; preds = %47
   %51 = load ptr, ptr @stderr, align 8
   %52 = tail call ptr @agnameof(ptr noundef %16) #18
-  %53 = getelementptr inbounds i8, ptr %16, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %58 = load double, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %54, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %60 = load double, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %54, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %62 = load double, ptr %61, align 8
   %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.16, ptr noundef %52, double noundef %56, double noundef %58, double noundef %60, double noundef %62) #19
   br label %64
@@ -173,16 +173,16 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %69 = getelementptr inbounds %struct.boxf, ptr %67, i64 %.0188224.i
   %70 = getelementptr inbounds ptr, ptr %1, i64 %.0188224.i
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %74, i64 32, i1 false)
   %75 = add nuw i64 %.0188224.i, 1
   %exitcond234.not.i = icmp eq i64 %75, %0
   br i1 %exitcond234.not.i, label %76, label %68
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds i8, ptr %3, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = tail call fastcc i32 @computeStep(i64 noundef range(i64 1, 0) %0, ptr noundef nonnull %67, i32 noundef %78)
   %80 = load i8, ptr @Verbose, align 1
@@ -222,7 +222,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %.sroa.0388.0.extract.trunc.i.i = trunc nuw i64 %.sroa.0.0.i to i32
   %.sroa.2389.0.extract.shift.i.i = lshr exact i64 %.sroa.5.0.i, 32
   %.sroa.2389.0.extract.trunc.i.i = trunc nuw i64 %.sroa.2389.0.extract.shift.i.i to i32
-  %98 = getelementptr inbounds i8, ptr %3, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.not.i.i = icmp eq ptr %2, null
   %99 = uitofp nneg i32 %79 to double
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.i, %.sroa.5.0.i
@@ -233,16 +233,16 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %101 = getelementptr inbounds ptr, ptr %1, i64 %.0187225.i
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds %struct.ginfo, ptr %97, i64 %.0187225.i
-  %104 = getelementptr inbounds i8, ptr %103, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   store i64 %.0187225.i, ptr %104, align 8
   %105 = load i32, ptr %8, align 8
   %106 = icmp eq i32 %105, 3
   br i1 %106, label %107, label %113
 
 107:                                              ; preds = %100
-  %108 = getelementptr inbounds i8, ptr %102, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load i32, ptr %77, align 8
   %112 = tail call ptr @agnameof(ptr noundef %102) #18
   tail call fastcc void @genBox(ptr noundef nonnull byval(%struct.boxf) align 8 %110, ptr noundef nonnull %103, i32 noundef %79, i32 noundef %111, i64 %.sroa.0.0.insert.insert.i, ptr noundef %112)
@@ -254,16 +254,16 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %116 = trunc i8 %115 to i1
   %..i.i = select i1 %.not.i.i, ptr %102, ptr %2
   %117 = tail call ptr @newPS() #18
-  %118 = getelementptr inbounds i8, ptr %102, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %121 = load double, ptr %120, align 8
   %122 = fcmp ult double %121, 0.000000e+00
   %.in.v.i.i = select i1 %122, double -5.000000e-01, double 5.000000e-01
   %.in.i.i = fadd double %121, %.in.v.i.i
   %123 = fptosi double %.in.i.i to i32
   %124 = sub nsw i32 %.sroa.0388.0.extract.trunc.i.i, %123
-  %125 = getelementptr inbounds i8, ptr %119, i64 40
+  %125 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %126 = load double, ptr %125, align 8
   %127 = fcmp ult double %126, 0.000000e+00
   %.in449.v.i.i = select i1 %127, double -5.000000e-01, double 5.000000e-01
@@ -284,7 +284,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 
 .preheader489.i.i:                                ; preds = %.lr.ph509.i.i, %132
   %137 = load ptr, ptr %118, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 236
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 236
   %139 = load i32, ptr %138, align 4
   %.not457521.i.i = icmp slt i32 %139, 1
   br i1 %.not457521.i.i, label %._crit_edge524.i.i, label %.lr.ph523.i.i
@@ -299,12 +299,12 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 .lr.ph509.i.i:                                    ; preds = %132, %.lr.ph509.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph509.i.i ], [ 0, %132 ]
   %.0392506.i.i = phi ptr [ %149, %.lr.ph509.i.i ], [ %136, %132 ]
-  %144 = getelementptr inbounds i8, ptr %.0392506.i.i, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %.0392506.i.i, i64 16
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 152
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 152
   %147 = load ptr, ptr %146, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %148 = getelementptr inbounds ptr, ptr %135, i64 %indvars.iv.i.i
+  %148 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv.i.i
   store ptr %147, ptr %148, align 8
   store ptr null, ptr %146, align 8
   %149 = tail call ptr @agnxtnode(ptr noundef %102, ptr noundef nonnull %.0392506.i.i) #18
@@ -314,31 +314,31 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 150:                                              ; preds = %.loopexit488.i.i, %.lr.ph523.i.i
   %indvars.iv562.i.i = phi i64 [ 1, %.lr.ph523.i.i ], [ %indvars.iv.next563.i.i, %.loopexit488.i.i ]
   %151 = phi ptr [ %137, %.lr.ph523.i.i ], [ %225, %.loopexit488.i.i ]
-  %152 = getelementptr inbounds i8, ptr %151, i64 240
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 240
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds ptr, ptr %153, i64 %indvars.iv562.i.i
+  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv562.i.i
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
   %159 = load double, ptr %158, align 8
   %160 = fcmp ult double %159, 0.000000e+00
   %.in467.v.i.i = select i1 %160, double -5.000000e-01, double 5.000000e-01
   %.in467.i.i = fadd double %159, %.in467.v.i.i
   %161 = fptosi double %.in467.i.i to i32
-  %162 = getelementptr inbounds i8, ptr %157, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %157, i64 40
   %163 = load double, ptr %162, align 8
   %164 = fcmp ult double %163, 0.000000e+00
   %.in468.v.i.i = select i1 %164, double -5.000000e-01, double 5.000000e-01
   %.in468.i.i = fadd double %163, %.in468.v.i.i
   %165 = fptosi double %.in468.i.i to i32
-  %166 = getelementptr inbounds i8, ptr %157, i64 48
+  %166 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %167 = load double, ptr %166, align 8
   %168 = fcmp ult double %167, 0.000000e+00
   %.in469.v.i.i = select i1 %168, double -5.000000e-01, double 5.000000e-01
   %.in469.i.i = fadd double %167, %.in469.v.i.i
   %169 = fptosi double %.in469.i.i to i32
-  %170 = getelementptr inbounds i8, ptr %157, i64 56
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 56
   %171 = load double, ptr %170, align 8
   %172 = fcmp ult double %171, 0.000000e+00
   %.in470.v.i.i = select i1 %172, double -5.000000e-01, double 5.000000e-01
@@ -442,9 +442,9 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 
 .lr.ph520.i.i:                                    ; preds = %._crit_edge516.i.i, %.lr.ph520.i.i
   %.1393518.i.i = phi ptr [ %224, %.lr.ph520.i.i ], [ %220, %._crit_edge516.i.i ]
-  %221 = getelementptr inbounds i8, ptr %.1393518.i.i, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %.1393518.i.i, i64 16
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 336
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 336
   store ptr %155, ptr %223, align 8
   %224 = tail call ptr @agnxtnode(ptr noundef %155, ptr noundef nonnull %.1393518.i.i) #18
   %.not472.i.i = icmp eq ptr %224, null
@@ -453,7 +453,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 .loopexit488.i.i:                                 ; preds = %.lr.ph520.i.i, %._crit_edge516.i.i, %150
   %indvars.iv.next563.i.i = add nuw nsw i64 %indvars.iv562.i.i, 1
   %225 = load ptr, ptr %118, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 236
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 236
   %227 = load i32, ptr %226, align 4
   %228 = sext i32 %227 to i64
   %.not457.not.i.i = icmp slt i64 %indvars.iv562.i.i, %228
@@ -483,23 +483,23 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %238 = fptosi double %.in461.i.i to i32
   %239 = add nsw i32 %124, %236
   %240 = add nsw i32 %129, %238
-  %241 = getelementptr inbounds i8, ptr %.2394541.i.i, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %.2394541.i.i, i64 16
   %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 336
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 336
   %244 = load ptr, ptr %243, align 8
   %.not462.i.i = icmp eq ptr %244, null
   br i1 %.not462.i.i, label %245, label %319
 
 245:                                              ; preds = %231
-  %246 = getelementptr inbounds i8, ptr %242, i64 104
+  %246 = getelementptr inbounds nuw i8, ptr %242, i64 104
   %247 = load double, ptr %246, align 8
-  %248 = getelementptr inbounds i8, ptr %242, i64 112
+  %248 = getelementptr inbounds nuw i8, ptr %242, i64 112
   %249 = load double, ptr %248, align 8
   %250 = fadd double %247, %249
   %251 = fmul double %250, 5.000000e-01
   %252 = fadd double %251, %230
   %253 = fptosi double %252 to i32
-  %254 = getelementptr inbounds i8, ptr %242, i64 96
+  %254 = getelementptr inbounds nuw i8, ptr %242, i64 96
   %255 = load double, ptr %254, align 8
   %256 = fmul double %255, 5.000000e-01
   %257 = fadd double %256, %230
@@ -691,18 +691,18 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 339:                                              ; preds = %355, %.lr.ph528.i.i
   %.1396526.i.i = phi ptr [ %338, %.lr.ph528.i.i ], [ %356, %355 ]
   %340 = load ptr, ptr %241, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 336
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 336
   %342 = load ptr, ptr %341, align 8
   %343 = load i32, ptr %.1396526.i.i, align 8
   %344 = and i32 %343, 3
   %345 = icmp eq i32 %344, 2
   %.idx.i.i = select i1 %345, i64 0, i64 -64
   %346 = getelementptr inbounds i8, ptr %.1396526.i.i, i64 %.idx.i.i
-  %347 = getelementptr inbounds i8, ptr %346, i64 56
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 56
   %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 16
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
   %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 336
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 336
   %352 = load ptr, ptr %351, align 8
   %353 = icmp eq ptr %342, %352
   br i1 %353, label %355, label %354
@@ -730,11 +730,11 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %indvars.iv567.i.i = phi i64 [ %indvars.iv.next568.i.i, %.lr.ph549.i.i ], [ 0, %._crit_edge544.i.i ]
   %.3546.i.i = phi ptr [ %364, %.lr.ph549.i.i ], [ %358, %._crit_edge544.i.i ]
   %indvars.iv.next568.i.i = add nuw nsw i64 %indvars.iv567.i.i, 1
-  %359 = getelementptr inbounds ptr, ptr %135, i64 %indvars.iv567.i.i
+  %359 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv567.i.i
   %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds i8, ptr %.3546.i.i, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %.3546.i.i, i64 16
   %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 152
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 152
   store ptr %360, ptr %363, align 8
   %364 = tail call ptr @agnxtnode(ptr noundef %102, ptr noundef nonnull %.3546.i.i) #18
   %.not459.i.i = icmp eq ptr %364, null
@@ -768,17 +768,17 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %375 = fptosi double %.in452.i.i to i32
   %376 = add nsw i32 %124, %373
   %377 = add nsw i32 %129, %375
-  %378 = getelementptr inbounds i8, ptr %.4502.i.i, i64 16
+  %378 = getelementptr inbounds nuw i8, ptr %.4502.i.i, i64 16
   %379 = load ptr, ptr %378, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 104
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 104
   %381 = load double, ptr %380, align 8
-  %382 = getelementptr inbounds i8, ptr %379, i64 112
+  %382 = getelementptr inbounds nuw i8, ptr %379, i64 112
   %383 = load double, ptr %382, align 8
   %384 = fadd double %381, %383
   %385 = fmul double %384, 5.000000e-01
   %386 = fadd double %385, %367
   %387 = fptosi double %386 to i32
-  %388 = getelementptr inbounds i8, ptr %379, i64 96
+  %388 = getelementptr inbounds nuw i8, ptr %379, i64 96
   %389 = load double, ptr %388, align 8
   %390 = fmul double %389, 5.000000e-01
   %391 = fadd double %390, %367
@@ -932,14 +932,14 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 
 .loopexit491.i.i:                                 ; preds = %._crit_edge500.i.i, %365, %._crit_edge550.i.i
   %454 = tail call ptr @pointsOf(ptr noundef %117) #18
-  %455 = getelementptr inbounds i8, ptr %103, i64 8
+  %455 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %454, ptr %455, align 8
   %456 = tail call i32 @sizeOf(ptr noundef %117) #18
-  %457 = getelementptr inbounds i8, ptr %103, i64 16
+  %457 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store i32 %456, ptr %457, align 8
   %458 = load ptr, ptr %118, align 8
-  %459 = getelementptr inbounds i8, ptr %458, i64 32
-  %460 = getelementptr inbounds i8, ptr %458, i64 48
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 32
+  %460 = getelementptr inbounds nuw i8, ptr %458, i64 48
   %461 = load double, ptr %460, align 8
   %462 = load double, ptr %459, align 8
   %463 = fsub double %461, %462
@@ -949,9 +949,9 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %467 = fdiv double %466, %99
   %468 = tail call double @llvm.ceil.f64(double %467)
   %469 = fptosi double %468 to i32
-  %470 = getelementptr inbounds i8, ptr %458, i64 56
+  %470 = getelementptr inbounds nuw i8, ptr %458, i64 56
   %471 = load double, ptr %470, align 8
-  %472 = getelementptr inbounds i8, ptr %458, i64 40
+  %472 = getelementptr inbounds nuw i8, ptr %458, i64 40
   %473 = load double, ptr %472, align 8
   %474 = fsub double %471, %473
   %475 = fadd double %474, %465
@@ -978,9 +978,9 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 .lr.ph553.i.i:                                    ; preds = %.lr.ph553.i.i, %.lr.ph553.i.preheader.i
   %indvars.iv570.i.i = phi i64 [ %indvars.iv.next571.i.i, %.lr.ph553.i.i ], [ 0, %.lr.ph553.i.preheader.i ]
   %488 = load ptr, ptr @stderr, align 8
-  %489 = getelementptr inbounds %struct.point, ptr %454, i64 %indvars.iv570.i.i
+  %489 = getelementptr inbounds nuw %struct.point, ptr %454, i64 %indvars.iv570.i.i
   %490 = load i32, ptr %489, align 4
-  %491 = getelementptr inbounds i8, ptr %489, i64 4
+  %491 = getelementptr inbounds nuw i8, ptr %489, i64 4
   %492 = load i32, ptr %491, align 4
   %493 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %488, ptr noundef nonnull @.str.25, i32 noundef %490, i32 noundef %492) #19
   %indvars.iv.next571.i.i = add nuw nsw i64 %indvars.iv570.i.i, 1
@@ -1030,7 +1030,7 @@ genPoly.exit.i:                                   ; preds = %.lr.ph553.i.i, %482
 511:                                              ; preds = %507
   %512 = getelementptr inbounds ptr, ptr %497, i64 %.0183227.i
   %513 = load ptr, ptr %512, align 8
-  %514 = getelementptr inbounds i8, ptr %513, i64 24
+  %514 = getelementptr inbounds nuw i8, ptr %513, i64 24
   %515 = load i64, ptr %514, align 8
   %516 = getelementptr inbounds %struct.point, ptr %504, i64 %515
   %517 = getelementptr i8, ptr %513, i64 8
@@ -1038,7 +1038,7 @@ genPoly.exit.i:                                   ; preds = %.lr.ph553.i.i, %482
   %518 = getelementptr i8, ptr %513, i64 16
   %.val208.i = load i32, ptr %518, align 8
   store i32 %505, ptr %516, align 4
-  %519 = getelementptr inbounds i8, ptr %516, i64 4
+  %519 = getelementptr inbounds nuw i8, ptr %516, i64 4
   store i32 %506, ptr %519, align 4
   %520 = icmp sgt i32 %.val208.i, 0
   br i1 %520, label %.lr.ph.i210.i, label %._crit_edge.i209.i
@@ -1046,7 +1046,7 @@ genPoly.exit.i:                                   ; preds = %.lr.ph553.i.i, %482
 .lr.ph.i210.i:                                    ; preds = %511, %.lr.ph.i210.i
   %.02.i.i = phi i32 [ %523, %.lr.ph.i210.i ], [ 0, %511 ]
   %.0111.i.i = phi ptr [ %521, %.lr.ph.i210.i ], [ %.val.i, %511 ]
-  %521 = getelementptr inbounds i8, ptr %.0111.i.i, i64 8
+  %521 = getelementptr inbounds nuw i8, ptr %.0111.i.i, i64 8
   %522 = load i64, ptr %.0111.i.i, align 4
   tail call void @insertPS(ptr noundef %503, i64 %522) #18
   %523 = add nuw nsw i32 %.02.i.i, 1
@@ -1078,7 +1078,7 @@ placeFixed.exit.i:                                ; preds = %526, %._crit_edge.i
 533:                                              ; preds = %.preheader214.i
   %534 = getelementptr inbounds ptr, ptr %497, i64 %.0182228.i
   %535 = load ptr, ptr %534, align 8
-  %536 = getelementptr inbounds i8, ptr %535, i64 24
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 24
   %537 = load i64, ptr %536, align 8
   %538 = getelementptr inbounds %struct.point, ptr %504, i64 %537
   %539 = load i32, ptr %77, align 8
@@ -1094,7 +1094,7 @@ placeFixed.exit.i:                                ; preds = %526, %._crit_edge.i
   %.0181229.i = phi i64 [ %548, %.preheader212.i ], [ 0, %502 ]
   %542 = getelementptr inbounds ptr, ptr %497, i64 %.0181229.i
   %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %543, i64 24
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 24
   %545 = load i64, ptr %544, align 8
   %546 = getelementptr inbounds %struct.point, ptr %504, i64 %545
   %547 = load i32, ptr %77, align 8
@@ -1129,7 +1129,7 @@ placeFixed.exit.i:                                ; preds = %526, %._crit_edge.i
   %556 = load ptr, ptr @stderr, align 8
   %557 = getelementptr inbounds %struct.point, ptr %504, i64 %.0231.i
   %558 = load i32, ptr %557, align 4
-  %559 = getelementptr inbounds i8, ptr %557, i64 4
+  %559 = getelementptr inbounds nuw i8, ptr %557, i64 4
   %560 = load i32, ptr %559, align 4
   %561 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %556, ptr noundef nonnull @.str.18, i64 noundef %.0231.i, i32 noundef %558, i32 noundef %560) #19
   %562 = add nuw i64 %.0231.i, 1
@@ -1146,9 +1146,9 @@ placeFixed.exit.i:                                ; preds = %526, %._crit_edge.i
   %565 = load ptr, ptr %564, align 8
   tail call void @compute_bb(ptr noundef %565) #18
   %566 = getelementptr inbounds %struct.boxf, ptr %563, i64 %.03747
-  %567 = getelementptr inbounds i8, ptr %565, i64 16
+  %567 = getelementptr inbounds nuw i8, ptr %565, i64 16
   %568 = load ptr, ptr %567, align 8
-  %569 = getelementptr inbounds i8, ptr %568, i64 32
+  %569 = getelementptr inbounds nuw i8, ptr %568, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %566, ptr noundef nonnull align 8 dereferenceable(32) %569, i64 32, i1 false)
   %570 = add nuw i64 %.03747, 1
   %exitcond.not = icmp eq i64 %570, %0
@@ -1160,7 +1160,7 @@ placeFixed.exit.i:                                ; preds = %526, %._crit_edge.i
   br i1 %572, label %573, label %598
 
 573:                                              ; preds = %._crit_edge
-  %574 = getelementptr inbounds i8, ptr %3, i64 40
+  %574 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %575 = load i32, ptr %574, align 8
   %576 = and i32 %575, 2
   %.not = icmp eq i32 %576, 0
@@ -1168,7 +1168,7 @@ placeFixed.exit.i:                                ; preds = %526, %._crit_edge.i
 
 .lr.ph50.preheader:                               ; preds = %573
   %577 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 4)
-  %578 = getelementptr inbounds i8, ptr %3, i64 32
+  %578 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %577, ptr %578, align 8
   br label %.lr.ph50
 
@@ -1207,7 +1207,7 @@ placeFixed.exit.i:                                ; preds = %526, %._crit_edge.i
   br i1 %.not43, label %598, label %595
 
 595:                                              ; preds = %.loopexit
-  %596 = getelementptr inbounds i8, ptr %3, i64 32
+  %596 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %597 = load ptr, ptr %596, align 8
   call void @free(ptr noundef %597) #18
   br label %598
@@ -1272,9 +1272,9 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @arrayRects(i64 noundef range(i64 1, 0) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 8)
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 1
   %.not.not.not.not = icmp eq i32 %9, 0
@@ -1340,7 +1340,7 @@ define internal fastcc noalias noundef ptr @arrayRects(i64 noundef range(i64 1, 
   %46 = add i64 %.0, 1
   %47 = tail call fastcc ptr @gv_calloc(i64 noundef %46, i64 noundef 8)
   %48 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 24)
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = uitofp i32 %50 to double
   br label %52
@@ -1350,23 +1350,23 @@ define internal fastcc noalias noundef ptr @arrayRects(i64 noundef range(i64 1, 
   %.0183224 = phi ptr [ %48, %43 ], [ %61, %52 ]
   %53 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.0182225
   %.sroa.0.0.copyload = load double, ptr %53, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 16
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 16
   %.sroa.8.0.copyload = load double, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 24
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 24
   %.sroa.11.0.copyload = load double, ptr %.sroa.11.0..sroa_idx, align 8
   %54 = fsub double %.sroa.8.0.copyload, %.sroa.0.0.copyload
   %55 = fadd double %54, %51
   store double %55, ptr %.0183224, align 8
   %56 = fsub double %.sroa.11.0.copyload, %.sroa.5.0.copyload
   %57 = fadd double %56, %51
-  %58 = getelementptr inbounds i8, ptr %.0183224, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.0183224, i64 8
   store double %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %.0183224, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.0183224, i64 16
   store i64 %.0182225, ptr %59, align 8
   %60 = add nuw i64 %.0182225, 1
-  %61 = getelementptr inbounds i8, ptr %.0183224, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.0183224, i64 24
   %exitcond.not = icmp eq i64 %60, %0
   br i1 %exitcond.not, label %62, label %52
 
@@ -1384,7 +1384,7 @@ define internal fastcc noalias noundef ptr @arrayRects(i64 noundef range(i64 1, 
   br i1 %exitcond240.not, label %68, label %64
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %2, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %70 = load ptr, ptr %69, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %76, label %71
@@ -1433,7 +1433,7 @@ gv_sort.exit:                                     ; preds = %71, %75
   store double %., ptr %83, align 8
   %87 = getelementptr inbounds double, ptr %47, i64 %.0184228
   %88 = load double, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %82, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %90 = load double, ptr %89, align 8
   %91 = fcmp ogt double %88, %90
   %92 = select i1 %91, double %88, double %90
@@ -1512,15 +1512,15 @@ gv_sort.exit:                                     ; preds = %71, %75
   %.2187237 = phi i64 [ 0, %._crit_edge ], [ %.3188, %171 ]
   %118 = getelementptr inbounds ptr, ptr %63, i64 %.0176239
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i64, ptr %120, align 8
   %122 = getelementptr inbounds %struct.boxf, ptr %1, i64 %121
   %.sroa.0.0.copyload75 = load double, ptr %122, align 8
-  %.sroa.5.0..sroa_idx76 = getelementptr inbounds i8, ptr %122, i64 8
+  %.sroa.5.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %.sroa.5.0.copyload77 = load double, ptr %.sroa.5.0..sroa_idx76, align 8
-  %.sroa.8.0..sroa_idx80 = getelementptr inbounds i8, ptr %122, i64 16
+  %.sroa.8.0..sroa_idx80 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %.sroa.8.0.copyload81 = load double, ptr %.sroa.8.0..sroa_idx80, align 8
-  %.sroa.11.0..sroa_idx84 = getelementptr inbounds i8, ptr %122, i64 24
+  %.sroa.11.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %.sroa.11.0.copyload85 = load double, ptr %.sroa.11.0..sroa_idx84, align 8
   br i1 %.not209, label %126, label %123
 
@@ -1630,7 +1630,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   br i1 %4, label %polyRects.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %polyRects.exit [
     i32 4, label %58
@@ -1638,7 +1638,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = tail call fastcc i32 @computeStep(i64 noundef range(i64 1, 0) %0, ptr noundef readonly %1, i32 noundef %10)
   %12 = load i8, ptr @Verbose, align 1
@@ -1661,7 +1661,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
 20:                                               ; preds = %20, %18
   %.06366.i = phi i64 [ 0, %18 ], [ %25, %20 ]
   %21 = getelementptr inbounds %struct.ginfo, ptr %19, i64 %.06366.i
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 %.06366.i, ptr %22, align 8
   %23 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.06366.i
   %24 = load i32, ptr %9, align 8
@@ -1693,7 +1693,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   %.06068.i = phi i64 [ 0, %32 ], [ %42, %35 ]
   %36 = getelementptr inbounds ptr, ptr %27, i64 %.06068.i
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds %struct.point, ptr %34, i64 %39
   %41 = load i32, ptr %9, align 8
@@ -1727,7 +1727,7 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   %51 = load ptr, ptr @stderr, align 8
   %52 = getelementptr inbounds %struct.point, ptr %34, i64 %.070.i
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %52, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str.18, i64 noundef %.070.i, i32 noundef %53, i32 noundef %55) #19
   %57 = add nuw i64 %.070.i, 1
@@ -1757,15 +1757,15 @@ define range(i32 0, 2) i32 @packRects(i64 noundef %0, ptr nocapture noundef %1, 
   %.028 = phi i64 [ %15, %.preheader ], [ 0, %5 ]
   %7 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.028
   %.sroa.07.0.copyload = load double, ptr %7, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.8.0.copyload = load double, ptr %.sroa.8.0..sroa_idx, align 8
   %8 = getelementptr inbounds %struct.point, ptr %6, i64 %.028
   %.sroa.0.0.copyload = load i32, ptr %8, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %9 = sitofp i32 %.sroa.0.0.copyload to double
   %10 = fadd double %.sroa.07.0.copyload, %9
@@ -1806,7 +1806,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %..us = select i1 %.not, ptr %8, ptr %3
   %9 = getelementptr inbounds %struct.point, ptr %2, i64 %.058.us
   %.sroa.0.0.copyload.us = load i32, ptr %9, align 4
-  %.sroa.2.0..sroa_idx.us = getelementptr inbounds i8, ptr %9, i64 4
+  %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.2.0.copyload.us = load i32, ptr %.sroa.2.0..sroa_idx.us, align 4
   %10 = sitofp i32 %.sroa.0.0.copyload.us to double
   %11 = fdiv double %10, 7.200000e+01
@@ -1824,45 +1824,45 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 
 .lr.ph57.us:                                      ; preds = %.preheader.split.us, %.loopexit.us.us
   %.04356.us.us = phi ptr [ %161, %.loopexit.us.us ], [ %14, %.preheader.split.us ]
-  %16 = getelementptr inbounds i8, ptr %.04356.us.us, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.04356.us.us, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 176
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 176
   %19 = load ptr, ptr %18, align 8
   %20 = load double, ptr %19, align 8
   %21 = fadd double %11, %20
   store double %21, ptr %19, align 8
   %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 176
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load double, ptr %25, align 8
   %27 = fadd double %13, %26
   store double %27, ptr %25, align 8
   %28 = load ptr, ptr %16, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load double, ptr %29, align 8
   %31 = fadd double %30, %10
   store double %31, ptr %29, align 8
   %32 = load ptr, ptr %16, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load double, ptr %33, align 8
   %35 = fadd double %34, %12
   store double %35, ptr %33, align 8
   %36 = load ptr, ptr %16, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 144
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 144
   %38 = load ptr, ptr %37, align 8
   %.not50.us.us = icmp eq ptr %38, null
   br i1 %.not50.us.us, label %49, label %39
 
 39:                                               ; preds = %.lr.ph57.us
-  %40 = getelementptr inbounds i8, ptr %38, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %41 = load double, ptr %40, align 8
   %42 = fadd double %41, %10
   store double %42, ptr %40, align 8
   %43 = load ptr, ptr %16, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 144
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 80
   %47 = load double, ptr %46, align 8
   %48 = fadd double %47, %12
   store double %48, ptr %46, align 8
@@ -1875,22 +1875,22 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 
 .lr.ph.us.us:                                     ; preds = %49, %shiftEdge.exit.us.us
   %.04254.us.us = phi ptr [ %160, %shiftEdge.exit.us.us ], [ %50, %49 ]
-  %51 = getelementptr inbounds i8, ptr %.04254.us.us, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.04254.us.us, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 120
   %54 = load ptr, ptr %53, align 8
   %.not.i.us.us = icmp eq ptr %54, null
   br i1 %.not.i.us.us, label %65, label %55
 
 55:                                               ; preds = %.lr.ph.us.us
-  %56 = getelementptr inbounds i8, ptr %54, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 72
   %57 = load double, ptr %56, align 8
   %58 = fadd double %57, %10
   store double %58, ptr %56, align 8
   %59 = load ptr, ptr %51, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 120
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 120
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 80
   %63 = load double, ptr %62, align 8
   %64 = fadd double %63, %12
   store double %64, ptr %62, align 8
@@ -1899,20 +1899,20 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 
 65:                                               ; preds = %55, %.lr.ph.us.us
   %66 = phi ptr [ %.pre.i.us.us, %55 ], [ %52, %.lr.ph.us.us ]
-  %67 = getelementptr inbounds i8, ptr %66, i64 144
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 144
   %68 = load ptr, ptr %67, align 8
   %.not49.i.us.us = icmp eq ptr %68, null
   br i1 %.not49.i.us.us, label %79, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %68, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %71 = load double, ptr %70, align 8
   %72 = fadd double %71, %10
   store double %72, ptr %70, align 8
   %73 = load ptr, ptr %51, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 144
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 144
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 80
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 80
   %77 = load double, ptr %76, align 8
   %78 = fadd double %77, %12
   store double %78, ptr %76, align 8
@@ -1921,20 +1921,20 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 
 79:                                               ; preds = %69, %65
   %80 = phi ptr [ %.pre59.i.us.us, %69 ], [ %66, %65 ]
-  %81 = getelementptr inbounds i8, ptr %80, i64 128
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 128
   %82 = load ptr, ptr %81, align 8
   %.not50.i.us.us = icmp eq ptr %82, null
   br i1 %.not50.i.us.us, label %93, label %83
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %82, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 72
   %85 = load double, ptr %84, align 8
   %86 = fadd double %85, %10
   store double %86, ptr %84, align 8
   %87 = load ptr, ptr %51, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 128
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 128
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 80
   %91 = load double, ptr %90, align 8
   %92 = fadd double %91, %12
   store double %92, ptr %90, align 8
@@ -1943,20 +1943,20 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 
 93:                                               ; preds = %83, %79
   %94 = phi ptr [ %.pre60.i.us.us, %83 ], [ %80, %79 ]
-  %95 = getelementptr inbounds i8, ptr %94, i64 136
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 136
   %96 = load ptr, ptr %95, align 8
   %.not51.i.us.us = icmp eq ptr %96, null
   br i1 %.not51.i.us.us, label %107, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %96, i64 72
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 72
   %99 = load double, ptr %98, align 8
   %100 = fadd double %99, %10
   store double %100, ptr %98, align 8
   %101 = load ptr, ptr %51, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 136
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 136
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 80
   %105 = load double, ptr %104, align 8
   %106 = fadd double %105, %12
   store double %106, ptr %104, align 8
@@ -1965,13 +1965,13 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 
 107:                                              ; preds = %97, %93
   %108 = phi ptr [ %.pre61.i.us.us, %97 ], [ %94, %93 ]
-  %109 = getelementptr inbounds i8, ptr %108, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, null
   br i1 %111, label %shiftEdge.exit.us.us, label %.preheader.i.us.us
 
 .preheader.i.us.us:                               ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %110, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %113 = load i64, ptr %112, align 8
   %.not57.i.us.us = icmp eq i64 %113, 0
   br i1 %.not57.i.us.us, label %shiftEdge.exit.us.us, label %.lr.ph56.i.us.us
@@ -1983,11 +1983,11 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds %struct.bezier, ptr %115, i64 %.04455.i.us.us
   %.sroa.0.0.copyload.i.us.us = load ptr, ptr %116, align 8
-  %.sroa.3.0..sroa_idx.i.us.us = getelementptr inbounds i8, ptr %116, i64 8
+  %.sroa.3.0..sroa_idx.i.us.us = getelementptr inbounds nuw i8, ptr %116, i64 8
   %.sroa.3.0.copyload.i.us.us = load i64, ptr %.sroa.3.0..sroa_idx.i.us.us, align 8
-  %.sroa.4.0..sroa_idx.i.us.us = getelementptr inbounds i8, ptr %116, i64 16
+  %.sroa.4.0..sroa_idx.i.us.us = getelementptr inbounds nuw i8, ptr %116, i64 16
   %.sroa.4.0.copyload.i.us.us = load i32, ptr %.sroa.4.0..sroa_idx.i.us.us, align 8
-  %.sroa.5.0..sroa_idx.i.us.us = getelementptr inbounds i8, ptr %116, i64 20
+  %.sroa.5.0..sroa_idx.i.us.us = getelementptr inbounds nuw i8, ptr %116, i64 20
   %.sroa.5.0.copyload.i.us.us = load i32, ptr %.sroa.5.0..sroa_idx.i.us.us, align 4
   %.not58.i.us.us = icmp eq i64 %.sroa.3.0.copyload.i.us.us, 0
   br i1 %.not58.i.us.us, label %._crit_edge.i.us.us, label %.lr.ph.i.us.us
@@ -1998,7 +1998,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %118 = load double, ptr %117, align 8
   %119 = fadd double %118, %10
   store double %119, ptr %117, align 8
-  %120 = getelementptr inbounds i8, ptr %117, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %121 = load double, ptr %120, align 8
   %122 = fadd double %121, %12
   store double %122, ptr %120, align 8
@@ -2016,7 +2016,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   br i1 %.not52.i.us.us, label %138, label %124
 
 124:                                              ; preds = %._crit_edge.i.us.us
-  %125 = getelementptr inbounds i8, ptr %.pre63.pre64.i.us.us, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.pre63.pre64.i.us.us, i64 16
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds %struct.bezier, ptr %127, i64 %.04455.i.us.us, i32 4
@@ -2024,7 +2024,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %130 = fadd double %129, %10
   store double %130, ptr %128, align 8
   %131 = load ptr, ptr %51, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds %struct.bezier, ptr %134, i64 %.04455.i.us.us, i32 4, i32 1
@@ -2040,7 +2040,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   br i1 %.not53.i.us.us, label %153, label %139
 
 139:                                              ; preds = %138
-  %140 = getelementptr inbounds i8, ptr %.pre63.pre6468.i.us.us, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %.pre63.pre6468.i.us.us, i64 16
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds %struct.bezier, ptr %142, i64 %.04455.i.us.us, i32 5
@@ -2048,7 +2048,7 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
   %145 = fadd double %144, %10
   store double %145, ptr %143, align 8
   %146 = load ptr, ptr %51, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %148 = load ptr, ptr %147, align 8
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds %struct.bezier, ptr %149, i64 %.04455.i.us.us, i32 5, i32 1
@@ -2061,9 +2061,9 @@ define noundef i32 @shiftGraphs(i64 noundef %0, ptr nocapture noundef readonly %
 153:                                              ; preds = %139, %138
   %.pre63.pre6467.i.us.us = phi ptr [ %.pre63.pre6468.i.us.us, %138 ], [ %.pre62.i.us.us, %139 ]
   %154 = add nuw i64 %.04455.i.us.us, 1
-  %155 = getelementptr inbounds i8, ptr %.pre63.pre6467.i.us.us, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %.pre63.pre6467.i.us.us, i64 16
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load i64, ptr %157, align 8
   %159 = icmp ult i64 %154, %158
   br i1 %159, label %.lr.ph56.i.us.us, label %shiftEdge.exit.us.us
@@ -2084,7 +2084,7 @@ shiftEdge.exit.us.us:                             ; preds = %153, %.preheader.i.
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds %struct.point, ptr %2, i64 %.058
   %.sroa.0.0.copyload = load i32, ptr %164, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %164, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %164, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %165 = sitofp i32 %.sroa.0.0.copyload to double
   %166 = fdiv double %165, 7.200000e+01
@@ -2096,45 +2096,45 @@ shiftEdge.exit.us.us:                             ; preds = %153, %.preheader.i.
 
 .lr.ph57:                                         ; preds = %.preheader.split, %203
   %.04356 = phi ptr [ %204, %203 ], [ %169, %.preheader.split ]
-  %170 = getelementptr inbounds i8, ptr %.04356, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %.04356, i64 16
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 176
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 176
   %173 = load ptr, ptr %172, align 8
   %174 = load double, ptr %173, align 8
   %175 = fadd double %166, %174
   store double %175, ptr %173, align 8
   %176 = load ptr, ptr %170, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 176
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 176
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load double, ptr %179, align 8
   %181 = fadd double %168, %180
   store double %181, ptr %179, align 8
   %182 = load ptr, ptr %170, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 32
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %184 = load double, ptr %183, align 8
   %185 = fadd double %184, %165
   store double %185, ptr %183, align 8
   %186 = load ptr, ptr %170, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 40
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 40
   %188 = load double, ptr %187, align 8
   %189 = fadd double %188, %167
   store double %189, ptr %187, align 8
   %190 = load ptr, ptr %170, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 144
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 144
   %192 = load ptr, ptr %191, align 8
   %.not50 = icmp eq ptr %192, null
   br i1 %.not50, label %203, label %193
 
 193:                                              ; preds = %.lr.ph57
-  %194 = getelementptr inbounds i8, ptr %192, i64 72
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 72
   %195 = load double, ptr %194, align 8
   %196 = fadd double %195, %165
   store double %196, ptr %194, align 8
   %197 = load ptr, ptr %170, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 144
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 144
   %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 80
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 80
   %201 = load double, ptr %200, align 8
   %202 = fadd double %201, %167
   store double %202, ptr %200, align 8
@@ -2165,12 +2165,12 @@ declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @shiftGraph(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 48
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 56
   %.sroa.0.0.copyload3 = load double, ptr %6, align 8
   %.sroa.5.0.copyload6 = load double, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0.copyload10 = load double, ptr %.sroa.7.0..sroa_idx, align 8
@@ -2186,26 +2186,26 @@ define internal fastcc void @shiftGraph(ptr nocapture noundef readonly %0, i32 n
   store double %9, ptr %.sroa.7.0..sroa_idx, align 8
   store double %12, ptr %.sroa.9.0..sroa_idx, align 8
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %30, label %16
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %15, i64 105
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 105
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %15, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %22 = load double, ptr %21, align 8
   %23 = fadd double %22, %7
   store double %23, ptr %21, align 8
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %28 = load double, ptr %27, align 8
   %29 = fadd double %28, %10
   store double %29, ptr %27, align 8
@@ -2214,7 +2214,7 @@ define internal fastcc void @shiftGraph(ptr nocapture noundef readonly %0, i32 n
 
 30:                                               ; preds = %20, %16, %3
   %31 = phi ptr [ %.pre, %20 ], [ %13, %16 ], [ %13, %3 ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 236
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 236
   %33 = load i32, ptr %32, align 4
   %.not3536 = icmp slt i32 %33, 1
   br i1 %.not3536, label %._crit_edge, label %.lr.ph
@@ -2222,14 +2222,14 @@ define internal fastcc void @shiftGraph(ptr nocapture noundef readonly %0, i32 n
 .lr.ph:                                           ; preds = %30, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %30 ]
   %34 = phi ptr [ %39, %.lr.ph ], [ %31, %30 ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 240
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 240
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   tail call fastcc void @shiftGraph(ptr noundef %38, i32 noundef %1, i32 noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 236
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 236
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %.not35.not = icmp slt i64 %indvars.iv, %42
@@ -2246,7 +2246,7 @@ define range(i32 0, 2) i32 @packGraphs(i64 noundef %0, ptr nocapture noundef rea
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
   %10 = tail call i32 @shiftGraphs(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, i1 noundef zeroext %9)
@@ -2265,21 +2265,21 @@ define range(i32 0, 2) i32 @packSubgraphs(i64 noundef %0, ptr nocapture noundef 
   br i1 %.not.i, label %packGraphs.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %8 = load i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
   %10 = tail call i32 @shiftGraphs(i64 noundef %0, ptr noundef readonly %1, ptr noundef nonnull %5, ptr noundef %2, i1 noundef zeroext %9)
   tail call void @free(ptr noundef nonnull %5) #18
   tail call void @compute_bb(ptr noundef %2) #18
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.sroa.0.0.copyload = load double, ptr %13, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 40
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 48
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 48
   %.sroa.8.0.copyload = load double, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 56
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 56
   %.sroa.11.0.copyload = load double, ptr %.sroa.11.0..sroa_idx, align 8
   %.not72 = icmp eq i64 %0, 0
   br i1 %.not72, label %._crit_edge67, label %.lr.ph66
@@ -2292,15 +2292,15 @@ define range(i32 0, 2) i32 @packSubgraphs(i64 noundef %0, ptr nocapture noundef 
   %.sroa.11.060 = phi double [ %.sroa.11.1.lcssa, %._crit_edge ], [ %.sroa.11.0.copyload, %6 ]
   %14 = getelementptr inbounds ptr, ptr %1, i64 %.064
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 236
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 236
   %19 = load i32, ptr %18, align 4
   %.not51 = icmp slt i32 %19, 1
   br i1 %.not51, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph66
-  %20 = getelementptr inbounds i8, ptr %17, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 240
   %21 = load ptr, ptr %20, align 8
   %22 = add nuw i32 %19, 1
   %wide.trip.count = zext i32 %22 to i64
@@ -2312,23 +2312,23 @@ define range(i32 0, 2) i32 @packSubgraphs(i64 noundef %0, ptr nocapture noundef 
   %.sroa.5.154 = phi double [ %.sroa.5.062, %.lr.ph ], [ %34, %23 ]
   %.sroa.8.153 = phi double [ %.sroa.8.061, %.lr.ph ], [ %38, %23 ]
   %.sroa.11.152 = phi double [ %.sroa.11.060, %.lr.ph ], [ %42, %23 ]
-  %24 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load double, ptr %28, align 8
   %30 = fcmp olt double %.sroa.0.155, %29
   %.sroa.0.1. = select i1 %30, double %.sroa.0.155, double %29
-  %31 = getelementptr inbounds i8, ptr %27, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %32 = load double, ptr %31, align 8
   %33 = fcmp olt double %.sroa.5.154, %32
   %34 = select i1 %33, double %.sroa.5.154, double %32
-  %35 = getelementptr inbounds i8, ptr %27, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %36 = load double, ptr %35, align 8
   %37 = fcmp ogt double %.sroa.8.153, %36
   %38 = select i1 %37, double %.sroa.8.153, double %36
-  %39 = getelementptr inbounds i8, ptr %27, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %40 = load double, ptr %39, align 8
   %41 = fcmp ogt double %.sroa.11.152, %40
   %42 = select i1 %41, double %.sroa.11.152, double %40
@@ -2382,7 +2382,7 @@ define range(i32 0, 2) i32 @pack_graph(i64 noundef %0, ptr nocapture noundef rea
 getPack.exit.i:                                   ; preds = %8, %4
   %.0.i.i = phi i32 [ 8, %4 ], [ %spec.select.i, %8 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %.0.i.i, ptr %13, align 8
   %14 = load i8, ptr @Verbose, align 1
   %.not.i = icmp eq i8 %14, 0
@@ -2394,9 +2394,9 @@ getPack.exit.i:                                   ; preds = %8, %4
   br label %getPackInfo.exit
 
 getPackInfo.exit:                                 ; preds = %getPack.exit.i, %15
-  %18 = getelementptr inbounds i8, ptr %6, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %6, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %19, align 8
   %20 = call ptr @agget(ptr noundef %2, ptr noundef nonnull @.str.13) #18
   %21 = call i32 @parsePackModeInfo(ptr noundef %20, i32 noundef 3, ptr noundef nonnull %6)
@@ -2434,7 +2434,7 @@ define i32 @getPackInfo(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noca
 getPack.exit:                                     ; preds = %7, %4
   %.0.i = phi i32 [ %2, %4 ], [ %spec.select, %7 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.0.i, ptr %12, align 8
   %13 = load i8, ptr @Verbose, align 1
   %.not = icmp eq i8 %13, 0
@@ -2446,13 +2446,13 @@ getPack.exit:                                     ; preds = %7, %4
   br label %17
 
 17:                                               ; preds = %14, %getPack.exit
-  %18 = getelementptr inbounds i8, ptr %3, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr null, ptr %19, align 8
   %20 = call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.13) #18
   %21 = call i32 @parsePackModeInfo(ptr noundef %20, i32 noundef %1, ptr noundef nonnull %3)
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = load i32, ptr %22, align 8
   ret i32 %23
 }
@@ -2463,13 +2463,13 @@ declare void @dotneato_postprocess(ptr noundef) local_unnamed_addr #2
 define i32 @parsePackModeInfo(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8), (16, 20), (32, 44)) %2) local_unnamed_addr #1 {
   %4 = alloca float, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %9, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %54, label %10
@@ -2481,7 +2481,7 @@ define i32 @parsePackModeInfo(ptr noundef readonly %0, i32 noundef %1, ptr nocap
 
 13:                                               ; preds = %10
   store i32 4, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 5
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %15 = load i8, ptr %14, align 1
   %.not.i = icmp eq i8 %15, 95
   br i1 %.not.i, label %.preheader, label %chkFlags.exit
@@ -2489,7 +2489,7 @@ define i32 @parsePackModeInfo(ptr noundef readonly %0, i32 noundef %1, ptr nocap
 .preheader:                                       ; preds = %13, %24
   %16 = phi i32 [ %25, %24 ], [ 0, %13 ]
   %.pn.i = phi ptr [ %.02227.i, %24 ], [ %14, %13 ]
-  %.02227.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %.02227.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 1
   %17 = load i8, ptr %.02227.i, align 1
   switch i8 %17, label %chkFlags.exit [
     i8 114, label %23
@@ -2545,7 +2545,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
 
 34:                                               ; preds = %31
   store i32 5, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 6
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %35, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #18
   %37 = icmp sgt i32 %36, 0
   %38 = load float, ptr %4, align 4
@@ -2604,7 +2604,7 @@ chkFlags.exit:                                    ; preds = %.preheader, %13
 
 switch.lookup:                                    ; preds = %56
   %62 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.parsePackModeInfo, i64 0, i64 %62
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.parsePackModeInfo, i64 0, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %mode2Str.exit
 
@@ -2699,11 +2699,11 @@ define internal fastcc range(i32 1, 0) i32 @computeStep(i64 noundef range(i64 1,
   %.05355 = phi i64 [ 0, %3 ], [ %17, %7 ]
   %8 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.05355
   %.sroa.0.0.copyload = load double, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
   %9 = fsub double %.sroa.3.0.copyload, %.sroa.0.0.copyload
   %10 = fadd double %9, %6
@@ -2779,19 +2779,19 @@ define internal fastcc void @genBox(ptr nocapture noundef readonly byval(%struct
   %.in.v = select i1 %8, double -5.000000e-01, double 5.000000e-01
   %.in = fadd double %7, %.in.v
   %9 = fptosi double %.in to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load double, ptr %10, align 8
   %12 = fcmp ult double %11, 0.000000e+00
   %.in77.v = select i1 %12, double -5.000000e-01, double 5.000000e-01
   %.in77 = fadd double %11, %.in77.v
   %13 = fptosi double %.in77 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ult double %15, 0.000000e+00
   %.in78.v = select i1 %16, double -5.000000e-01, double 5.000000e-01
   %.in78 = fadd double %15, %.in78.v
   %17 = fptosi double %.in78 to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load double, ptr %18, align 8
   %20 = fcmp ult double %19, 0.000000e+00
   %.in79.v = select i1 %20, double -5.000000e-01, double 5.000000e-01
@@ -2889,10 +2889,10 @@ define internal fastcc void @genBox(ptr nocapture noundef readonly byval(%struct
 
 ._crit_edge92:                                    ; preds = %._crit_edge, %61
   %66 = tail call ptr @pointsOf(ptr noundef %22) #18
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %66, ptr %67, align 8
   %68 = tail call i32 @sizeOf(ptr noundef %22) #18
-  %69 = getelementptr inbounds i8, ptr %1, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %68, ptr %69, align 8
   %70 = fsub double %15, %7
   %71 = shl i32 %3, 1
@@ -2924,9 +2924,9 @@ define internal fastcc void @genBox(ptr nocapture noundef readonly byval(%struct
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %86 ]
   %91 = load ptr, ptr @stderr, align 8
   %92 = load ptr, ptr %67, align 8
-  %93 = getelementptr inbounds %struct.point, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw %struct.point, ptr %92, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %93, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %91, ptr noundef nonnull @.str.25, i32 noundef %94, i32 noundef %96) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2957,15 +2957,15 @@ declare ptr @newPS() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @placeGraph(i64 noundef range(i64 0, -1) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 1, -2147483648) %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds %struct.boxf, ptr %6, i64 %9
   %.sroa.0.0.copyload = load double, ptr %10, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8
   %11 = icmp eq i64 %0, 0
   br i1 %11, label %12, label %29
@@ -3186,15 +3186,15 @@ define internal fastcc void @fillEdge(ptr nocapture noundef nonnull readonly %0,
   br i1 %6, label %10, label %20
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %20, label %.preheader
 
 .preheader:                                       ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8
   %.not156 = icmp eq i64 %16, 0
   br i1 %.not156, label %.loopexit, label %.lr.ph155
@@ -3211,7 +3211,7 @@ define internal fastcc void @fillEdge(ptr nocapture noundef nonnull readonly %0,
   %23 = icmp eq i32 %22, 2
   %.idx = select i1 %23, i64 0, i64 -64
   %24 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = tail call { double, double } @coord(ptr noundef %26) #18
   %28 = extractvalue { double, double } %27, 0
@@ -3263,27 +3263,27 @@ define internal fastcc void @fillEdge(ptr nocapture noundef nonnull readonly %0,
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds %struct.bezier, ptr %58, i64 %.0154
   %.sroa.075.0.copyload = load ptr, ptr %59, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 16
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 20
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 20
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 40
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 40
   %.sroa.10.0.copyload = load double, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 48
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 48
   %.sroa.11.0.copyload = load double, ptr %.sroa.11.0..sroa_idx, align 8
   %.not146 = icmp eq i32 %.sroa.6.0.copyload, 0
   br i1 %.not146, label %61, label %60
 
 60:                                               ; preds = %56
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 32
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 24
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 24
   br label %63
 
 61:                                               ; preds = %56
-  %.sroa.15.0..sroa_idx66 = getelementptr inbounds i8, ptr %.sroa.075.0.copyload, i64 8
-  %62 = getelementptr inbounds i8, ptr %.sroa.075.0.copyload, i64 16
+  %.sroa.15.0..sroa_idx66 = getelementptr inbounds nuw i8, ptr %.sroa.075.0.copyload, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.075.0.copyload, i64 16
   br label %63
 
 63:                                               ; preds = %61, %60
@@ -3292,7 +3292,7 @@ define internal fastcc void @fillEdge(ptr nocapture noundef nonnull readonly %0,
   %.sroa.057.0.in = phi ptr [ %.sroa.075.0.copyload, %61 ], [ %.sroa.8.0..sroa_idx, %60 ]
   %.sroa.15.0.in = phi ptr [ %.sroa.15.0..sroa_idx66, %61 ], [ %.sroa.9.0..sroa_idx, %60 ]
   %.0125 = phi i64 [ 2, %61 ], [ 1, %60 ]
-  %.sroa.35.0..sroa_idx28 = getelementptr inbounds i8, ptr %.sroa.075.0.copyload, i64 %.sink
+  %.sroa.35.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %.sroa.075.0.copyload, i64 %.sink
   %.sroa.15.0 = load double, ptr %.sroa.15.0.in, align 8
   %.sroa.057.0 = load double, ptr %.sroa.057.0.in, align 8
   %.sroa.03.0 = load double, ptr %.sroa.03.0.in, align 8
@@ -3335,7 +3335,7 @@ define internal fastcc void @fillEdge(ptr nocapture noundef nonnull readonly %0,
   %.sroa.35.1150 = phi double [ %107, %fillLine.exit ], [ %91, %63 ]
   %93 = getelementptr inbounds %struct.pointf_s, ptr %.sroa.075.0.copyload, i64 %.1152
   %.sroa.03.0.copyload25 = load double, ptr %93, align 8
-  %.sroa.35.0..sroa_idx32 = getelementptr inbounds i8, ptr %93, i64 8
+  %.sroa.35.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %.sroa.35.0.copyload33 = load double, ptr %.sroa.35.0..sroa_idx32, align 8
   %94 = fadd double %.sroa.03.0.copyload25, %17
   %95 = fadd double %.sroa.35.0.copyload33, %18
@@ -3461,9 +3461,9 @@ fillLine.exit:                                    ; preds = %.lr.ph.i, %.lr.ph83
 161:                                              ; preds = %._crit_edge, %146
   %162 = add nuw i64 %.0154, 1
   %163 = load ptr, ptr %11, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load i64, ptr %166, align 8
   %168 = icmp ult i64 %162, %167
   br i1 %168, label %56, label %.loopexit
@@ -3563,8 +3563,8 @@ declare void @insertPS(ptr noundef, i64) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef range(i32 1, -2147483648) %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
@@ -3577,7 +3577,7 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   %.05868 = phi ptr [ %17, %16 ], [ %12, %.lr.ph.preheader ]
   %.05967 = phi i32 [ %18, %16 ], [ 0, %.lr.ph.preheader ]
   %.sroa.04.0.copyload = load i32, ptr %.05868, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %.05868, i64 4
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.05868, i64 4
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
   %13 = add nsw i32 %.sroa.04.0.copyload, %0
   %14 = add nsw i32 %.sroa.8.0.copyload, %1
@@ -3590,13 +3590,13 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   br i1 %.not, label %16, label %.loopexit
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.05868, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.05868, i64 8
   %18 = add nuw nsw i32 %.05967, 1
   %exitcond.not = icmp eq i32 %18, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %16, %7
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds %struct.boxf, ptr %6, i64 %20
   %22 = load double, ptr %21, align 8
@@ -3615,7 +3615,7 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   store i32 %30, ptr %4, align 4
   %31 = mul nsw i32 %5, %1
   %32 = sub nsw i32 %31, %28
-  %33 = getelementptr inbounds i8, ptr %4, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %32, ptr %33, align 4
   br i1 %11, label %.lr.ph72.preheader, label %._crit_edge73
 
@@ -3627,7 +3627,7 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   %.170 = phi ptr [ %37, %.lr.ph72 ], [ %34, %.lr.ph72.preheader ]
   %.16069 = phi i32 [ %38, %.lr.ph72 ], [ 0, %.lr.ph72.preheader ]
   %.sroa.04.0.copyload7 = load i32, ptr %.170, align 4
-  %.sroa.8.0..sroa_idx12 = getelementptr inbounds i8, ptr %.170, i64 4
+  %.sroa.8.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.170, i64 4
   %.sroa.8.0.copyload13 = load i32, ptr %.sroa.8.0..sroa_idx12, align 4
   %35 = add nsw i32 %.sroa.04.0.copyload7, %0
   %36 = add nsw i32 %.sroa.8.0.copyload13, %1
@@ -3636,7 +3636,7 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   %.sroa.04.0.insert.ext9 = zext i32 %35 to i64
   %.sroa.04.0.insert.insert11 = or disjoint i64 %.sroa.8.0.insert.shift16, %.sroa.04.0.insert.ext9
   tail call void @insertPS(ptr noundef %3, i64 %.sroa.04.0.insert.insert11) #18
-  %37 = getelementptr inbounds i8, ptr %.170, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.170, i64 8
   %38 = add nuw nsw i32 %.16069, 1
   %exitcond74.not = icmp eq i32 %38, %10
   br i1 %exitcond74.not, label %._crit_edge73, label %.lr.ph72
@@ -3676,11 +3676,11 @@ declare void @exit(i32 noundef) local_unnamed_addr #13
 define internal range(i32 -1, 2) i32 @ucmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #8 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i32, ptr %2, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds i32, ptr %2, i64 %11
   %13 = load i32, ptr %12, align 4
@@ -3692,11 +3692,11 @@ define internal range(i32 -1, 2) i32 @ucmpf(ptr nocapture noundef readonly %0, p
 define internal range(i32 -1, 2) i32 @acmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load double, ptr %5, align 8
   %7 = load double, ptr %3, align 8
   %8 = fadd double %6, %7
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load double, ptr %9, align 8
   %11 = load double, ptr %4, align 8
   %12 = fadd double %10, %11

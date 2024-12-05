@@ -40,7 +40,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #3 {
 
 .preheader.preheader:                             ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8191) %2, i8 32, i64 8191, i1 false)
-  %7 = getelementptr inbounds i8, ptr %2, i64 8191
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8191
   store i8 0, ptr %7, align 1
   call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__16ArchStringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %2)
   %8 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #10

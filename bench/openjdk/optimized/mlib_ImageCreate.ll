@@ -10,17 +10,17 @@ define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly %0, i32 noundef %
 
 9:                                                ; preds = %7
   store i32 %1, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %4, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %6, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = icmp slt i32 %3, 1
   %17 = icmp slt i32 %4, 1
   %or.cond = or i1 %16, %17
@@ -90,7 +90,7 @@ define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly %0, i32 noundef %
 44:                                               ; preds = %42
   %45 = shl i32 %3, 8
   %46 = and i32 %45, 3840
-  %47 = getelementptr inbounds i8, ptr %0, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %48 = shl i32 %5, 16
   %49 = and i32 %48, 983040
   %50 = shl i32 %4, 12
@@ -237,19 +237,19 @@ define ptr @j2d_mlib_ImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 42:                                               ; preds = %38
   store i32 %0, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %1, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %39, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %2, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %39, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 %3, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %39, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i32 %.077, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %39, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %36, ptr %47, align 8
   %48 = shl i32 %2, 8
   %49 = and i32 %48, 3840
-  %50 = getelementptr inbounds i8, ptr %39, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %51 = shl i32 %3, 12
   %52 = and i32 %51, 61440
   %53 = or disjoint i32 %52, %49
@@ -260,7 +260,7 @@ define ptr @j2d_mlib_ImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   %58 = trunc i64 %57 to i32
   %59 = and i32 %58, 255
   %60 = or disjoint i32 %56, %59
-  %61 = getelementptr inbounds i8, ptr %39, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %62 = icmp ne i32 %0, 0
   %63 = shl nsw i32 %.077, 3
   %.not = icmp eq i32 %63, %13
@@ -269,7 +269,7 @@ define ptr @j2d_mlib_ImageCreate(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   %64 = or disjoint i32 %60, 1048576
   %spec.select = select i1 %or.cond84, i32 %60, i32 %64
   store i32 %spec.select, ptr %50, align 4
-  %65 = getelementptr inbounds i8, ptr %39, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr null, ptr %65, align 8
   br label %66
 
@@ -284,20 +284,20 @@ define void @j2d_mlib_ImageDelete(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %2, label %16, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 2097152
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @mlib_free(ptr noundef %10) #7
   br label %11
 
 11:                                               ; preds = %3, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %mlib_ImageDeleteRowTable.exit, label %14
@@ -322,7 +322,7 @@ define hidden void @mlib_ImageDeleteRowTable(ptr noundef %0) local_unnamed_addr 
   br i1 %2, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -348,13 +348,13 @@ define hidden ptr @mlib_ImageCreateSubimage(ptr noundef readonly %0, i32 noundef
 
 9:                                                ; preds = %5
   %10 = load i32, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = add nsw i32 %3, %1
   %20 = icmp slt i32 %19, 1
@@ -384,7 +384,7 @@ define hidden ptr @mlib_ImageCreateSubimage(ptr noundef readonly %0, i32 noundef
   %31 = icmp sgt i32 %30, %16
   %32 = sub nsw i32 %16, %.075
   %.178 = select i1 %31, i32 %32, i32 %.077
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = mul nsw i32 %18, %.075
   %36 = sext i32 %35 to i64
@@ -427,7 +427,7 @@ define hidden ptr @mlib_ImageCreateSubimage(ptr noundef readonly %0, i32 noundef
   br label %66
 
 57:                                               ; preds = %24
-  %58 = getelementptr inbounds i8, ptr %0, i64 44
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %59 = load i32, ptr %58, align 4
   %60 = mul nsw i32 %12, %spec.select92
   %61 = add nsw i32 %59, %60
@@ -462,7 +462,7 @@ j2d_mlib_ImageCreateStruct.exit:                  ; preds = %71
   br i1 %75, label %76, label %j2d_mlib_ImageCreateStruct.exit.thread
 
 76:                                               ; preds = %j2d_mlib_ImageCreateStruct.exit
-  %77 = getelementptr inbounds i8, ptr %69, i64 44
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 44
   store i32 %.072, ptr %77, align 4
   br label %j2d_mlib_ImageCreateStruct.exit.thread
 
@@ -474,11 +474,11 @@ j2d_mlib_ImageCreateStruct.exit.thread:           ; preds = %74, %68, %66, %j2d_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @mlib_ImageSetSubimage(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = load i32, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = mul nsw i32 %11, %3
   %15 = sext i32 %14 to i64
@@ -521,7 +521,7 @@ define hidden noundef ptr @mlib_ImageSetSubimage(ptr noundef %0, ptr nocapture n
   br label %48
 
 36:                                               ; preds = %6
-  %37 = getelementptr inbounds i8, ptr %1, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %38 = load i32, ptr %37, align 4
   %39 = mul nsw i32 %9, %2
   %40 = add nsw i32 %38, %39
@@ -564,7 +564,7 @@ define hidden noundef ptr @mlib_ImageSetSubimage(ptr noundef %0, ptr nocapture n
   br i1 %or.cond, label %63, label %65
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %.054, i64 44
+  %64 = getelementptr inbounds nuw i8, ptr %.054, i64 44
   store i32 %.0, ptr %64, align 4
   br label %65
 
@@ -579,7 +579,7 @@ define hidden ptr @mlib_ImageCreateRowTable(ptr noundef %0) local_unnamed_addr #
   br i1 %2, label %25, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %25
@@ -603,13 +603,13 @@ define hidden ptr @mlib_ImageCreateRowTable(ptr noundef %0) local_unnamed_addr #
 
 16:                                               ; preds = %11
   store ptr null, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %17, ptr %17, align 8
   %18 = sext i32 %.val to i64
   %19 = getelementptr ptr, ptr %14, i64 %18
   %20 = getelementptr i8, ptr %19, i64 16
   store ptr %17, ptr %20, align 8
-  %invariant.gep = getelementptr inbounds i8, ptr %14, i64 16
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %14, i64 16
   %21 = icmp sgt i32 %.val, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
@@ -621,7 +621,7 @@ define hidden ptr @mlib_ImageCreateRowTable(ptr noundef %0) local_unnamed_addr #
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.02635 = phi ptr [ %.val33, %.lr.ph ], [ %24, %23 ]
-  %gep = getelementptr inbounds ptr, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv
   store ptr %.02635, ptr %gep, align 8
   %24 = getelementptr inbounds i8, ptr %.02635, i64 %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -646,7 +646,7 @@ define hidden range(i32 0, 4) i32 @mlib_ImageSetPaddings(ptr noundef %0, i8 noun
   %8 = zext i8 %1 to i32
   %9 = zext i8 %3 to i32
   %10 = add nuw nsw i32 %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %.not = icmp slt i32 %10, %12
   br i1 %.not, label %13, label %24
@@ -655,19 +655,19 @@ define hidden range(i32 0, 4) i32 @mlib_ImageSetPaddings(ptr noundef %0, i8 noun
   %14 = zext i8 %2 to i32
   %15 = zext i8 %4 to i32
   %16 = add nuw nsw i32 %15, %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %17, align 4
   %.not16 = icmp slt i32 %16, %18
   br i1 %.not16, label %19, label %24
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 41
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 %2, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 42
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %3, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %0, i64 43
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 43
   store i8 %4, ptr %23, align 1
   br label %24
 
@@ -682,7 +682,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageSetFormat(ptr noundef writeonly %0,
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %1, ptr %5, align 8
   br label %6
 

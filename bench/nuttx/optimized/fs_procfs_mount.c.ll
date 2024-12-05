@@ -48,9 +48,9 @@ define internal range(i32 -13, 1) i32 @mount_open(ptr nocapture noundef writeonl
   br i1 %.not12, label %20, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i8 %.0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %19, align 8
   br label %20
 
@@ -61,7 +61,7 @@ define internal range(i32 -13, 1) i32 @mount_open(ptr nocapture noundef writeonl
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @mount_close(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3)
   store ptr null, ptr %2, align 8
@@ -71,35 +71,35 @@ define internal noundef i32 @mount_close(ptr nocapture noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal i64 @mount_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.mount_info_s, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 16, i1 false)
-  %8 = getelementptr inbounds i8, ptr %6, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 9
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 64, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i8, ptr %16, align 8
   %18 = icmp ult i8 %17, 3
   br i1 %18, label %switch.lookup, label %28
 
 switch.lookup:                                    ; preds = %3
   %19 = zext nneg i8 %17 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.mount_read, i64 0, i64 %19
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.mount_read, i64 0, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = call i32 @foreach_mountpoint(ptr noundef nonnull %switch.load, ptr noundef nonnull %4) #13
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %22 = load i64, ptr %21, align 8
   %23 = icmp sgt i64 %22, 0
   br i1 %23, label %24, label %28
@@ -118,7 +118,7 @@ switch.lookup:                                    ; preds = %3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define internal range(i32 -12, 1) i32 @mount_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #15
   %.not = icmp eq ptr %5, null
@@ -126,7 +126,7 @@ define internal range(i32 -12, 1) i32 @mount_dup(ptr nocapture noundef readonly 
 
 6:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %5, ptr %7, align 8
   br label %8
 
@@ -138,7 +138,7 @@ define internal range(i32 -12, 1) i32 @mount_dup(ptr nocapture noundef readonly 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @mount_stat(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 88)) %1) #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 33060, ptr %3, align 8
   ret i32 0
 }
@@ -159,9 +159,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 define internal range(i32 0, 2) i32 @mount_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr @fs_gettype(ptr noundef %1) #13
   tail call void (ptr, ptr, ...) @mount_sprintf(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load i64, ptr %7, align 8
   %.not = icmp uge i64 %6, %8
   %9 = zext i1 %.not to i32
@@ -170,7 +170,7 @@ define internal range(i32 0, 2) i32 @mount_entry(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @blocks_entry(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %8, label %7
@@ -182,17 +182,17 @@ define internal range(i32 0, 2) i32 @blocks_entry(ptr noundef %0, ptr nocapture 
   br label %8
 
 8:                                                ; preds = %7, %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = sub i32 %12, %14
   tail call void (ptr, ptr, ...) @mount_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.6, i64 noundef %10, i32 noundef %12, i32 noundef %15, i32 noundef %14, ptr noundef %0)
-  %16 = getelementptr inbounds i8, ptr %2, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load i64, ptr %18, align 8
   %.not = icmp uge i64 %17, %19
   %20 = zext i1 %.not to i32
@@ -201,7 +201,7 @@ define internal range(i32 0, 2) i32 @blocks_entry(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 52
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %8, label %7
@@ -213,13 +213,13 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
 
 8:                                                ; preds = %7, %3
   %9 = tail call ptr @fs_gettype(ptr noundef %1) #13
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = trunc i64 %11 to i32
   %15 = mul i32 %13, %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = mul i32 %17, %14
   br label %19
@@ -244,7 +244,7 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
 
 28:                                               ; preds = %21
   %29 = zext nneg i32 %.045 to i64
-  %30 = getelementptr inbounds [5 x i8], ptr @usage_entry.labels, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [5 x i8], ptr @usage_entry.labels, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   br label %32
 
@@ -269,7 +269,7 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
 41:                                               ; preds = %34
   %42 = sub i32 %15, %18
   %43 = zext nneg i32 %.1 to i64
-  %44 = getelementptr inbounds [5 x i8], ptr @usage_entry.labels, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [5 x i8], ptr @usage_entry.labels, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
   br label %46
 
@@ -293,15 +293,15 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
 
 55:                                               ; preds = %48
   %56 = zext nneg i32 %.2 to i64
-  %57 = getelementptr inbounds [5 x i8], ptr @usage_entry.labels, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [5 x i8], ptr @usage_entry.labels, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = sext i8 %31 to i32
   %60 = sext i8 %58 to i32
   %61 = sext i8 %45 to i32
   tail call void (ptr, ptr, ...) @mount_sprintf(ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef %9, i32 noundef %.0, i32 noundef %59, i32 noundef %.043, i32 noundef %60, i32 noundef %.044, i32 noundef %61, ptr noundef %0)
-  %62 = getelementptr inbounds i8, ptr %2, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %2, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %65 = load i64, ptr %64, align 8
   %.not = icmp uge i64 %63, %65
   %66 = zext i1 %.not to i32
@@ -317,19 +317,19 @@ define internal void @mount_sprintf(ptr noundef %0, ptr nocapture noundef readon
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = call i32 @vsnprintf(ptr noundef %4, i64 noundef %6, ptr noundef %1, ptr noundef nonnull %3) #13
   %8 = sext i32 %7 to i64
   call void @llvm.va_end.p0(ptr nonnull %3)
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = call i64 @procfs_memcpy(ptr noundef %9, i64 noundef %8, ptr noundef %11, i64 noundef %13, ptr noundef nonnull %14) #13
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8

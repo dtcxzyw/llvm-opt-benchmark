@@ -32,7 +32,7 @@ define dso_local noundef ptr @MD5FileChunk(ptr nocapture noundef readonly %0, pt
   br i1 %13, label %55, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %8, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %16 = load i64, ptr %15, align 8
   %spec.select = call i64 @llvm.smin.i64(i64 %2, i64 %16)
   %17 = call i64 @lseek(i32 noundef %9, i64 noundef %spec.select, i32 noundef 0) #9
@@ -90,28 +90,28 @@ define dso_local noundef ptr @MD5FileChunk(ptr nocapture noundef readonly %0, pt
 
 38:                                               ; preds = %38, %.thread.i
   %indvars.iv.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %40 = load i8, ptr %39, align 1
   %41 = lshr i8 %40, 4
   %42 = zext nneg i8 %41 to i64
-  %43 = getelementptr inbounds [17 x i8], ptr @MD5End.hex, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [17 x i8], ptr @MD5End.hex, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = shl nuw nsw i64 %indvars.iv.i, 1
-  %46 = getelementptr inbounds i8, ptr %.01723.i, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 %45
   store i8 %44, ptr %46, align 1
   %47 = and i8 %40, 15
   %48 = zext nneg i8 %47 to i64
-  %49 = getelementptr inbounds [17 x i8], ptr @MD5End.hex, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [17 x i8], ptr @MD5End.hex, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = or disjoint i64 %45, 1
-  %52 = getelementptr inbounds i8, ptr %.01723.i, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 %51
   store i8 %50, ptr %52, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %53, label %38, !llvm.loop !7
 
 53:                                               ; preds = %38
-  %54 = getelementptr inbounds i8, ptr %.01723.i, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 32
   store i8 0, ptr %54, align 1
   br label %MD5End.exit
 

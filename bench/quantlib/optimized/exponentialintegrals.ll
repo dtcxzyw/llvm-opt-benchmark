@@ -543,7 +543,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -556,7 +556,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !16
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -806,7 +806,7 @@ if.end50:                                         ; preds = %do.end
 
 if.then53:                                        ; preds = %if.end50
   %retval.sroa.0.0.copyload.i94 = load double, ptr %acc, align 8
-  %retval.sroa.4.0.__x.sroa_idx.i95 = getelementptr inbounds i8, ptr %acc, i64 8
+  %retval.sroa.4.0.__x.sroa_idx.i95 = getelementptr inbounds nuw i8, ptr %acc, i64 8
   %retval.sroa.4.0.copyload.i96 = load double, ptr %retval.sroa.4.0.__x.sroa_idx.i95, align 8, !tbaa !13
   %_M_value.real.i.i104 = load double, ptr %z, align 8
   %_M_value.imag.i.i106 = load double, ptr %_M_value.imagp.i, align 8
@@ -1070,7 +1070,7 @@ for.cond.cleanup143:                              ; preds = %for.body144
   %66 = fmul double %65, 0x400921FB54442D18
   %mul170 = select i1 %cmp.i180, double 0.000000e+00, double %66
   %retval.sroa.0.0.copyload.i185 = load double, ptr %acc, align 8
-  %retval.sroa.4.0.__x.sroa_idx.i186 = getelementptr inbounds i8, ptr %acc, i64 8
+  %retval.sroa.4.0.__x.sroa_idx.i186 = getelementptr inbounds nuw i8, ptr %acc, i64 8
   %retval.sroa.4.0.copyload.i187 = load double, ptr %retval.sroa.4.0.__x.sroa_idx.i186, align 8, !tbaa !13
   %add.r.i.i191 = fadd double %retval.sroa.0.0.copyload.i185, 0.000000e+00
   %add.i.i.i192 = fadd double %retval.sroa.4.0.copyload.i187, %mul170
@@ -1347,7 +1347,7 @@ ehcleanup265:                                     ; preds = %_ZNKSt7__cxx1112bas
 
 do.end269:                                        ; preds = %land.rhs
   %retval.sroa.0.0.copyload.i335 = load double, ptr %acc, align 8
-  %retval.sroa.4.0.__y.sroa_idx.i = getelementptr inbounds i8, ptr %acc, i64 8
+  %retval.sroa.4.0.__y.sroa_idx.i = getelementptr inbounds nuw i8, ptr %acc, i64 8
   %retval.sroa.4.0.copyload.i336 = load double, ptr %retval.sroa.4.0.__y.sroa_idx.i, align 8, !tbaa !13
   %add.r.i.i337 = fadd double %retval.sroa.0.0.copyload.i335, 0x3FE2788CFC6FB619
   %_M_value.real.i.i340 = load double, ptr %z, align 8

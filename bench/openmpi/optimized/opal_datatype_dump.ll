@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define i32 @opal_datatype_contain_basic_datatypes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 64
   %.not = icmp eq i16 %6, 0
@@ -54,8 +54,8 @@ define i32 @opal_datatype_contain_basic_datatypes(ptr nocapture noundef readonly
 
 18:                                               ; preds = %12, %9
   %.1 = phi i32 [ %17, %12 ], [ %.033, %9 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
-  %20 = getelementptr inbounds i8, ptr %0, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %21
 
 21:                                               ; preds = %18, %44
@@ -74,9 +74,9 @@ define i32 @opal_datatype_contain_basic_datatypes(ptr nocapture noundef readonly
   %28 = sext i32 %.240 to i64
   %29 = getelementptr inbounds i8, ptr %1, i64 %28
   %30 = sub i64 %2, %28
-  %31 = getelementptr inbounds [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   br i1 %27, label %34, label %37
 
 34:                                               ; preds = %25
@@ -85,7 +85,7 @@ define i32 @opal_datatype_contain_basic_datatypes(ptr nocapture noundef readonly
   br label %42
 
 37:                                               ; preds = %25
-  %38 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv
   %39 = load i64, ptr %38, align 8
   %40 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %29, i64 noundef %30, ptr noundef nonnull @.str.3, ptr noundef nonnull %33, i64 noundef %39) #8
   %41 = add nsw i32 %40, %.240
@@ -123,7 +123,7 @@ define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 99, ptr %9, align 1
   br label %10
 
@@ -133,7 +133,7 @@ define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %
   br i1 %.not23, label %14, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 67, ptr %13, align 1
   br label %14
 
@@ -143,7 +143,7 @@ define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %
   br i1 %.not24, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %1, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 111, ptr %17, align 1
   br label %18
 
@@ -153,7 +153,7 @@ define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %
   br i1 %.not25, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 108, ptr %21, align 1
   br label %22
 
@@ -163,7 +163,7 @@ define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %
   br i1 %.not26, label %26, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %1, i64 5
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 5
   store i8 117, ptr %25, align 1
   br label %26
 
@@ -173,7 +173,7 @@ define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %
   br i1 %.not27, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %1, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i8 80, ptr %29, align 1
   br label %30
 
@@ -183,7 +183,7 @@ define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %
   br i1 %.not28, label %32, label %34
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %1, i64 7
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 7
   store i8 71, ptr %33, align 1
   br label %34
 
@@ -193,7 +193,7 @@ define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %
   br i1 %.not29, label %38, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 68, ptr %37, align 1
   br label %38
 
@@ -209,7 +209,7 @@ define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %
 
 .sink.split:                                      ; preds = %41, %38
   %.sink = phi i8 [ 66, %38 ], [ 72, %41 ]
-  %43 = getelementptr inbounds i8, ptr %1, i64 9
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %.sink, ptr %43, align 1
   br label %44
 
@@ -244,7 +244,7 @@ define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 
   br i1 %.not.i, label %16, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %9, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 99, ptr %15, align 1
   br label %16
 
@@ -254,7 +254,7 @@ define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 
   br i1 %.not23.i, label %20, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %9, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i8 67, ptr %19, align 1
   br label %20
 
@@ -264,7 +264,7 @@ define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 
   br i1 %.not24.i, label %24, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %9, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 3
   store i8 111, ptr %23, align 1
   br label %24
 
@@ -274,7 +274,7 @@ define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 
   br i1 %.not25.i, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %9, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i8 108, ptr %27, align 1
   br label %28
 
@@ -284,7 +284,7 @@ define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 
   br i1 %.not26.i, label %32, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %9, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 5
   store i8 117, ptr %31, align 1
   br label %32
 
@@ -294,7 +294,7 @@ define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 
   br i1 %.not27.i, label %36, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %9, i64 6
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 6
   store i8 80, ptr %35, align 1
   br label %36
 
@@ -304,7 +304,7 @@ define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 
   br i1 %.not28.i, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %9, i64 7
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 7
   store i8 71, ptr %39, align 1
   br label %40
 
@@ -314,7 +314,7 @@ define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 
   br i1 %.not29.i, label %44, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %9, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i8 68, ptr %43, align 1
   br label %44
 
@@ -330,7 +330,7 @@ define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 
 
 .sink.split.i:                                    ; preds = %47, %44
   %.sink.i = phi i8 [ 66, %44 ], [ 72, %47 ]
-  %49 = getelementptr inbounds i8, ptr %9, i64 9
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 9
   store i8 %.sink.i, ptr %49, align 1
   br label %opal_datatype_dump_data_flags.exit
 
@@ -344,12 +344,12 @@ opal_datatype_dump_data_flags.exit:               ; preds = %7, %47, %.sink.spli
 52:                                               ; preds = %opal_datatype_dump_data_flags.exit
   %53 = getelementptr inbounds i8, ptr %2, i64 %51
   %54 = sub nuw i64 %3, %51
-  %55 = getelementptr inbounds i8, ptr %.05360, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %.05360, i64 2
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i64
-  %58 = getelementptr inbounds [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %57
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %61 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %53, i64 noundef %54, ptr noundef nonnull @.str.5, ptr noundef nonnull %60) #8
   %62 = add nsw i32 %61, %50
   %63 = sext i32 %62 to i64
@@ -366,40 +366,40 @@ opal_datatype_dump_data_flags.exit:               ; preds = %7, %47, %.sink.spli
   ]
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %.05360, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.05360, i64 8
   %70 = load i32, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.05360, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.05360, i64 4
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %.05360, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.05360, i64 24
   %74 = load i64, ptr %73, align 8
   %75 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %66, i64 noundef %67, ptr noundef nonnull @.str.6, i32 noundef %70, i32 noundef %72, i64 noundef %74) #8
   br label %102
 
 76:                                               ; preds = %64
-  %77 = getelementptr inbounds i8, ptr %.05360, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.05360, i64 4
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %.05360, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.05360, i64 24
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.05360, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.05360, i64 16
   %82 = load i64, ptr %81, align 8
   %83 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %66, i64 noundef %67, ptr noundef nonnull @.str.7, i32 noundef %78, i64 noundef %80, i64 noundef %82) #8
   br label %102
 
 84:                                               ; preds = %64
-  %85 = getelementptr inbounds i8, ptr %.05360, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.05360, i64 4
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %.05360, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %.05360, i64 24
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %.05360, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.05360, i64 8
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %.05360, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.05360, i64 16
   %92 = load i64, ptr %91, align 8
   %93 = zext i32 %86 to i64
   %94 = mul i64 %90, %93
   %95 = zext i16 %65 to i64
-  %96 = getelementptr inbounds [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [28 x ptr], ptr @opal_datatype_basicDatatypes, i64 0, i64 %95
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %99 = load i64, ptr %98, align 8
   %100 = mul i64 %94, %99
   %101 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %66, i64 noundef %67, ptr noundef nonnull @.str.8, i32 noundef %86, i64 noundef %88, i64 noundef %88, i64 noundef %90, i64 noundef %92, i64 noundef %100) #8
@@ -410,7 +410,7 @@ opal_datatype_dump_data_flags.exit:               ; preds = %7, %47, %.sink.spli
   %.2 = add nsw i32 %.pn, %62
   %103 = sext i32 %.2 to i64
   %.not59 = icmp ugt i64 %3, %103
-  %104 = getelementptr inbounds i8, ptr %.05360, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %.05360, i64 32
   %105 = add nuw nsw i32 %.05261, 1
   %106 = icmp slt i32 %105, %1
   %or.cond = select i1 %.not59, i1 %106, i1 false
@@ -423,39 +423,39 @@ opal_datatype_dump_data_flags.exit:               ; preds = %7, %47, %.sink.spli
 
 ; Function Attrs: nounwind uwtable
 define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 176
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %3
   %8 = mul i64 %7, 100
   %9 = add i64 %8, 500
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #9
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 18
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = load i64, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i64, ptr %22, align 8
   %24 = sub nsw i64 %23, %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load i64, ptr %27, align 8
   %29 = sub nsw i64 %28, %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i16, ptr %34, align 8
   %36 = zext i16 %35 to i32
   %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %9, ptr noundef nonnull @.str.9, ptr noundef %0, ptr noundef nonnull %11, i64 noundef %13, i32 noundef %15, i32 noundef %18, i64 noundef %19, i64 noundef %6, i64 noundef %21, i64 noundef %23, i64 noundef %24, i64 noundef %26, i64 noundef %28, i64 noundef %29, i64 noundef %31, i32 noundef %33, i32 noundef %36) #8
@@ -516,7 +516,7 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not.i, label %72, label %70
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %63, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store i8 99, ptr %71, align 1
   br label %72
 
@@ -526,7 +526,7 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not23.i, label %76, label %74
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %63, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 2
   store i8 67, ptr %75, align 1
   br label %76
 
@@ -536,7 +536,7 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not24.i, label %80, label %78
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %63, i64 3
+  %79 = getelementptr inbounds nuw i8, ptr %63, i64 3
   store i8 111, ptr %79, align 1
   br label %80
 
@@ -546,7 +546,7 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not25.i, label %84, label %82
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds i8, ptr %63, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i8 108, ptr %83, align 1
   br label %84
 
@@ -556,7 +556,7 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not26.i, label %88, label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %63, i64 5
+  %87 = getelementptr inbounds nuw i8, ptr %63, i64 5
   store i8 117, ptr %87, align 1
   br label %88
 
@@ -566,7 +566,7 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not27.i, label %92, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %63, i64 6
+  %91 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store i8 80, ptr %91, align 1
   br label %92
 
@@ -576,7 +576,7 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not28.i, label %94, label %96
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %63, i64 7
+  %95 = getelementptr inbounds nuw i8, ptr %63, i64 7
   store i8 71, ptr %95, align 1
   br label %96
 
@@ -586,7 +586,7 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not29.i, label %100, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %63, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i8 68, ptr %99, align 1
   br label %100
 
@@ -602,7 +602,7 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
 
 .sink.split.i:                                    ; preds = %103, %100
   %.sink.i = phi i8 [ 66, %100 ], [ 72, %103 ]
-  %105 = getelementptr inbounds i8, ptr %63, i64 9
+  %105 = getelementptr inbounds nuw i8, ptr %63, i64 9
   store i8 %.sink.i, ptr %105, align 1
   br label %opal_datatype_dump_data_flags.exit
 
@@ -624,9 +624,9 @@ opal_datatype_dump_data_flags.exit:               ; preds = %56, %103, %.sink.sp
   %119 = sub i64 %9, %117
   %120 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %118, i64 noundef %119, ptr noundef nonnull @.str.15) #8
   %121 = add nsw i32 %116, %120
-  %122 = getelementptr inbounds i8, ptr %0, i64 184
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 160
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %125 = load ptr, ptr %124, align 8
   %.not112 = icmp eq ptr %123, %125
   %.not113 = icmp eq ptr %123, null

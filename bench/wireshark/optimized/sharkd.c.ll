@@ -127,7 +127,7 @@ print_current_user.exit:                          ; preds = %2, %16
 38:                                               ; preds = %33, %30
   call void @cap_file_init(ptr noundef nonnull @cfile) #9
   call void @prefs_apply_all() #9
-  %39 = getelementptr inbounds i8, ptr %31, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %40 = load i32, ptr %39, align 8
   call void @build_column_format_array(ptr noundef nonnull getelementptr inbounds (i8, ptr @cfile, i64 304), i32 noundef %40, i32 noundef 1) #9
   %41 = load i32, ptr %3, align 4
@@ -250,43 +250,43 @@ define hidden range(i32 0, 2) i32 @cf_open(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %8, label %35, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 248
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 0, ptr %11, align 8
   %12 = call noalias ptr @g_strdup(ptr noundef %1) #9
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %3, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %15, align 4
   %16 = load ptr, ptr %10, align 8
   %17 = call i32 @wtap_file_type_subtype(ptr noundef %16) #9
   %18 = trunc i32 %17 to i16
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i16 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %2, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 116
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 0, ptr %23, align 4
   %24 = load ptr, ptr %10, align 8
   %25 = call i32 @wtap_snapshot_length(ptr noundef %24) #9
-  %26 = getelementptr inbounds i8, ptr %0, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @nstime_set_zero(ptr noundef nonnull %27) #9
-  %28 = getelementptr inbounds i8, ptr %0, i64 256
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, i8 0, i64 24, i1 false)
   %29 = load ptr, ptr %0, align 8
   call void @epan_free(ptr noundef %29) #9
   %30 = call ptr @epan_new(ptr noundef nonnull %10, ptr noundef nonnull @sharkd_epan_new.funcs) #9
   store ptr %30, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %31, align 8
   %32 = load ptr, ptr %10, align 8
   call void @wtap_set_cb_new_ipv4(ptr noundef %32, ptr noundef nonnull @add_ipv4_name) #9
@@ -380,7 +380,7 @@ define hidden i32 @sharkd_load_cap_file() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %14
   %.not.i.i = icmp eq ptr %.fr.i, null
-  %20 = getelementptr inbounds i8, ptr %.fr.i, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 104
   br i1 %.not.i.i, label %process_packet.exit.thread.us.i, label %.lr.ph.split.i
 
 process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %31
@@ -493,7 +493,7 @@ process_packet.exit.thread.us.i:                  ; preds = %.lr.ph.i, %31
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr %20, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %69 = load ptr, ptr %68, align 8
   %.not53.i.i = icmp eq ptr %69, null
   br i1 %.not53.i.i, label %process_packet.exit.i, label %70
@@ -586,7 +586,7 @@ define hidden range(i32 0, 3) i32 @sharkd_dissect_request(i32 noundef %0, i32 no
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = tail call i32 @wtap_seek_read(ptr noundef %17, i64 noundef %19, ptr noundef %3, ptr noundef %4, ptr noundef %9, ptr noundef %10) #9
   %.not = icmp eq i32 %20, 0
@@ -639,7 +639,7 @@ define hidden range(i32 0, 3) i32 @sharkd_dissect_request(i32 noundef %0, i32 no
 
 37:                                               ; preds = %.thread, %._crit_edge
   call void @color_filters_prime_edt(ptr noundef nonnull %12) #9
-  %38 = getelementptr inbounds i8, ptr %14, i64 50
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 50
   %39 = load i16, ptr %38, align 2
   %40 = or i16 %39, 512
   store i16 %40, ptr %38, align 2
@@ -655,15 +655,15 @@ define hidden range(i32 0, 3) i32 @sharkd_dissect_request(i32 noundef %0, i32 no
 
 43:                                               ; preds = %42, %41
   %44 = icmp eq i32 %0, %1
-  %45 = getelementptr inbounds i8, ptr %14, i64 50
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 50
   %46 = load i16, ptr %45, align 2
   %47 = select i1 %44, i16 32, i16 0
   %48 = and i16 %46, -33
   %49 = or disjoint i16 %48, %47
   store i16 %49, ptr %45, align 2
-  %50 = getelementptr inbounds i8, ptr %14, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store i32 %1, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %14, i64 92
+  %51 = getelementptr inbounds nuw i8, ptr %14, i64 92
   store i32 %2, ptr %51, align 4
   %52 = load i16, ptr getelementptr inbounds (i8, ptr @cfile, i64 56), align 8
   %53 = zext i16 %52 to i32
@@ -676,12 +676,12 @@ define hidden range(i32 0, 3) i32 @sharkd_dissect_request(i32 noundef %0, i32 no
   br label %56
 
 56:                                               ; preds = %55, %43
-  %57 = getelementptr inbounds i8, ptr %12, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = select i1 %.not42, ptr null, ptr %58
   %60 = and i32 %6, 1
   %.not48 = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %12, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %62 = load ptr, ptr %61, align 8
   %63 = select i1 %.not48, ptr null, ptr %62
   call void %7(ptr noundef nonnull %12, ptr noundef %59, ptr noundef %5, ptr noundef %63, ptr noundef %8) #9
@@ -750,23 +750,23 @@ define hidden noundef i32 @sharkd_retap() local_unnamed_addr #0 {
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
   %18 = call ptr @frame_data_sequence_find(ptr noundef %17, i32 noundef %.017) #9
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = call i32 @wtap_seek_read(ptr noundef %19, i64 noundef %21, ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %.not14 = icmp eq i32 %22, 0
   br i1 %.not14, label %._crit_edge, label %23
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %18, i64 50
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 50
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, -33
   store i16 %26, ptr %24, align 2
   %.not15 = icmp ne i32 %.017, 1
   %27 = zext i1 %.not15 to i32
-  %28 = getelementptr inbounds i8, ptr %18, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 88
   store i32 %27, ptr %28, align 8
   %29 = add i32 %.017, -1
-  %30 = getelementptr inbounds i8, ptr %18, i64 92
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 92
   store i32 %29, ptr %30, align 4
   %31 = load i16, ptr getelementptr inbounds (i8, ptr @cfile, i64 56), align 8
   %32 = zext i16 %31 to i32
@@ -861,7 +861,7 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
 29:                                               ; preds = %24, %.lr.ph
   %.2 = phi i8 [ 0, %24 ], [ %.03040, %.lr.ph ]
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
-  %31 = getelementptr inbounds i8, ptr %21, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = call i32 @wtap_seek_read(ptr noundef %30, i64 noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
   %.not35 = icmp eq i32 %33, 0
@@ -870,15 +870,15 @@ define hidden i32 @sharkd_filter(ptr noundef %0, ptr nocapture noundef writeonly
 34:                                               ; preds = %29
   %35 = load ptr, ptr %3, align 8
   call void @epan_dissect_prime_with_dfilter(ptr noundef nonnull %8, ptr noundef %35) #9
-  %36 = getelementptr inbounds i8, ptr %21, i64 50
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 50
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, -33
   store i16 %38, ptr %36, align 2
   %.not36 = icmp ne i32 %.03139, 1
   %39 = zext i1 %.not36 to i32
-  %40 = getelementptr inbounds i8, ptr %21, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 88
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %21, i64 92
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 92
   store i32 %.03338, ptr %41, align 4
   %42 = load i16, ptr getelementptr inbounds (i8, ptr @cfile, i64 56), align 8
   %43 = zext i16 %42 to i32
@@ -951,7 +951,7 @@ define hidden ptr @sharkd_get_packet_block(ptr noundef %0) local_unnamed_addr #0
   %3 = alloca %struct.Buffer, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 50
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 256
   %.not = icmp eq i16 %8, 0
@@ -966,10 +966,10 @@ define hidden ptr @sharkd_get_packet_block(ptr noundef %0) local_unnamed_addr #0
   call void @wtap_rec_init(ptr noundef nonnull %2) #9
   call void @ws_buffer_init(ptr noundef nonnull %3, i64 noundef 1514) #9
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 248), align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = call i32 @wtap_seek_read(ptr noundef %13, i64 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
-  %17 = getelementptr inbounds i8, ptr %2, i64 232
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr @wtap_block_ref(ptr noundef %18) #9
   call void @wtap_rec_cleanup(ptr noundef nonnull %2) #9

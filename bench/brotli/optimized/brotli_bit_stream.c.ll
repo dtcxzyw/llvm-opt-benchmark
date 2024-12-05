@@ -53,7 +53,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx = getelementptr inbounds [704 x i8], ptr %huffman_tree, i64 0, i64 %i.018
   %1 = load i8, ptr %arrayidx, align 1
   %idxprom = zext i8 %1 to i64
-  %arrayidx2 = getelementptr inbounds [18 x i32], ptr %huffman_tree_histogram, i64 0, i64 %idxprom
+  %arrayidx2 = getelementptr inbounds nuw [18 x i32], ptr %huffman_tree_histogram, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx2, align 4
   %inc = add i32 %2, 1
   store i32 %inc, ptr %arrayidx2, align 4
@@ -68,7 +68,7 @@ for.body6:                                        ; preds = %for.body6.preheader
   %code.021 = phi i64 [ %code.1, %for.inc14 ], [ 0, %for.body6.preheader ]
   %num_codes.020 = phi i32 [ %num_codes.2, %for.inc14 ], [ 0, %for.body6.preheader ]
   %i.119 = phi i64 [ %inc15, %for.inc14 ], [ 0, %for.body6.preheader ]
-  %arrayidx7 = getelementptr inbounds [18 x i32], ptr %huffman_tree_histogram, i64 0, i64 %i.119
+  %arrayidx7 = getelementptr inbounds nuw [18 x i32], ptr %huffman_tree_histogram, i64 0, i64 %i.119
   %3 = load i32, ptr %arrayidx7, align 4
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %for.inc14, label %if.then
@@ -98,7 +98,7 @@ for.body.i:                                       ; preds = %for.end16, %for.inc
   %arrayidx.i = getelementptr inbounds [18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 %sub.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i8 %4 to i64
-  %arrayidx2.i = getelementptr inbounds i8, ptr %code_length_bitdepth, i64 %idxprom.i
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %code_length_bitdepth, i64 %idxprom.i
   %5 = load i8, ptr %arrayidx2.i, align 1
   %cmp3.not.i = icmp eq i8 %5, 0
   br i1 %cmp3.not.i, label %for.inc.i, label %if.end6.i
@@ -109,21 +109,21 @@ for.inc.i:                                        ; preds = %for.body.i
 
 if.end6.i:                                        ; preds = %for.inc.i, %for.body.i, %for.end16
   %codes_to_store.0.i = phi i64 [ 18, %for.end16 ], [ %codes_to_store.1.i, %for.body.i ], [ 0, %for.inc.i ]
-  %arrayidx8.i = getelementptr inbounds i8, ptr %code_length_bitdepth, i64 1
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %code_length_bitdepth, i64 1
   %6 = load i8, ptr %arrayidx8.i, align 1
   %cmp10.i = icmp eq i8 %6, 0
-  %arrayidx13.i = getelementptr inbounds i8, ptr %code_length_bitdepth, i64 2
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %code_length_bitdepth, i64 2
   %7 = load i8, ptr %arrayidx13.i, align 2
   %cmp15.i = icmp eq i8 %7, 0
   %or.cond = select i1 %cmp10.i, i1 %cmp15.i, i1 false
-  %arrayidx19.i = getelementptr inbounds i8, ptr %code_length_bitdepth, i64 3
+  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %code_length_bitdepth, i64 3
   %8 = load i8, ptr %arrayidx19.i, align 1
   %cmp21.i = icmp eq i8 %8, 0
   %spec.select.i = select i1 %cmp21.i, i64 3, i64 2
   %skip_some.0.i = select i1 %or.cond, i64 %spec.select.i, i64 0
   %9 = load i64, ptr %storage_ix, align 8
   %shr.i46.i = lshr i64 %9, 3
-  %arrayidx.i47.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i46.i
+  %arrayidx.i47.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i46.i
   %10 = load i8, ptr %arrayidx.i47.i, align 1
   %conv.i48.i = zext i8 %10 to i64
   %and.i49.i = and i64 %9, 7
@@ -139,20 +139,20 @@ if.end6.i:                                        ; preds = %for.inc.i, %for.bod
 for.body29.i:                                     ; preds = %if.end6.i, %for.body29.i
   %12 = phi i64 [ %add.i.i, %for.body29.i ], [ %add.i52.i, %if.end6.i ]
   %i.024.i = phi i64 [ %inc.i, %for.body29.i ], [ %skip_some.0.i, %if.end6.i ]
-  %arrayidx30.i = getelementptr inbounds [18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 %i.024.i
+  %arrayidx30.i = getelementptr inbounds nuw [18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 %i.024.i
   %13 = load i8, ptr %arrayidx30.i, align 1
   %idxprom31.i = zext i8 %13 to i64
-  %arrayidx32.i = getelementptr inbounds i8, ptr %code_length_bitdepth, i64 %idxprom31.i
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %code_length_bitdepth, i64 %idxprom31.i
   %14 = load i8, ptr %arrayidx32.i, align 1
   %conv33.i = zext i8 %14 to i64
-  %arrayidx34.i = getelementptr inbounds [6 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kHuffmanBitLengthHuffmanCodeBitLengths, i64 0, i64 %conv33.i
+  %arrayidx34.i = getelementptr inbounds nuw [6 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kHuffmanBitLengthHuffmanCodeBitLengths, i64 0, i64 %conv33.i
   %15 = load i8, ptr %arrayidx34.i, align 1
   %conv35.i = zext i8 %15 to i64
-  %arrayidx36.i = getelementptr inbounds [6 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kHuffmanBitLengthHuffmanCodeSymbols, i64 0, i64 %conv33.i
+  %arrayidx36.i = getelementptr inbounds nuw [6 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kHuffmanBitLengthHuffmanCodeSymbols, i64 0, i64 %conv33.i
   %16 = load i8, ptr %arrayidx36.i, align 1
   %conv37.i = zext i8 %16 to i64
   %shr.i.i = lshr i64 %12, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i
   %17 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %17 to i64
   %and.i.i = and i64 %12, 7
@@ -189,14 +189,14 @@ for.body.i12:                                     ; preds = %if.end25, %for.inc.
   %arrayidx.i13 = getelementptr inbounds i8, ptr %huffman_tree, i64 %i.025.i
   %20 = load i8, ptr %arrayidx.i13, align 1, !noalias !13
   %conv.i = zext i8 %20 to i64
-  %arrayidx1.i = getelementptr inbounds i8, ptr %code_length_bitdepth, i64 %conv.i
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %code_length_bitdepth, i64 %conv.i
   %21 = load i8, ptr %arrayidx1.i, align 1, !noalias !13
   %conv2.i = zext i8 %21 to i64
-  %arrayidx3.i = getelementptr inbounds i16, ptr %code_length_bitdepth_symbols, i64 %conv.i
+  %arrayidx3.i = getelementptr inbounds nuw i16, ptr %code_length_bitdepth_symbols, i64 %conv.i
   %22 = load i16, ptr %arrayidx3.i, align 2, !noalias !13
   %conv4.i = zext i16 %22 to i64
   %shr.i29.i = lshr i64 %add.i3527.i, 3
-  %arrayidx.i30.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i29.i
+  %arrayidx.i30.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i29.i
   %23 = load i8, ptr %arrayidx.i30.i, align 1, !alias.scope !11, !noalias !8
   %conv.i31.i = zext i8 %23 to i64
   %and.i32.i = and i64 %add.i3527.i, 7
@@ -218,7 +218,7 @@ for.inc.sink.split.i:                             ; preds = %sw.bb7.i, %for.body
   %24 = load i8, ptr %arrayidx5.i, align 1, !noalias !13
   %conv6.i = zext i8 %24 to i64
   %shr.i16.i = lshr i64 %add.i35.i, 3
-  %arrayidx.i17.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i16.i
+  %arrayidx.i17.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i16.i
   %25 = load i8, ptr %arrayidx.i17.i, align 1, !alias.scope !11, !noalias !8
   %conv.i18.i = zext i8 %25 to i64
   %and.i19.i = and i64 %add.i35.i, 7
@@ -273,7 +273,7 @@ if.then:                                          ; preds = %while.body
   br i1 %cmp1, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %arrayidx3 = getelementptr inbounds [4 x i64], ptr %symbols, i64 0, i64 %count.0282
+  %arrayidx3 = getelementptr inbounds nuw [4 x i64], ptr %symbols, i64 0, i64 %count.0282
   store i64 %length.0283, ptr %arrayidx3, align 8
   br label %if.end
 
@@ -297,7 +297,7 @@ while.end:                                        ; preds = %if.end5
 if.then9:                                         ; preds = %entry, %while.end
   %1 = load i64, ptr %storage_ix, align 8
   %shr.i433 = lshr i64 %1, 3
-  %arrayidx.i434 = getelementptr inbounds i8, ptr %storage, i64 %shr.i433
+  %arrayidx.i434 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i433
   %2 = load i8, ptr %arrayidx.i434, align 1
   %conv.i435 = zext i8 %2 to i64
   %and.i436 = and i64 %1, 7
@@ -309,7 +309,7 @@ if.then9:                                         ; preds = %entry, %while.end
   store i64 %add.i439, ptr %storage_ix, align 8
   %4 = load i64, ptr %symbols, align 16
   %shr.i420 = lshr i64 %add.i439, 3
-  %arrayidx.i421 = getelementptr inbounds i8, ptr %storage, i64 %shr.i420
+  %arrayidx.i421 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i420
   %5 = load i8, ptr %arrayidx.i421, align 1
   %conv.i422 = zext i8 %5 to i64
   %and.i423 = and i64 %add.i439, 7
@@ -348,11 +348,11 @@ if.then21:                                        ; preds = %for.body
   %spec.select = tail call i32 @llvm.umax.i32(i32 %7, i32 %count_limit.0)
   %conv30.sink = trunc i64 %dec to i16
   store i32 %spec.select, ptr %node.0287, align 4
-  %8 = getelementptr inbounds i8, ptr %node.0287, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %node.0287, i64 4
   store i16 -1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %node.0287, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %node.0287, i64 6
   store i16 %conv30.sink, ptr %9, align 2
-  %incdec.ptr = getelementptr inbounds i8, ptr %node.0287, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %node.0287, i64 8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then21, %for.body
@@ -382,7 +382,7 @@ for.cond.i.preheader:                             ; preds = %for.end
 
 for.body.i:                                       ; preds = %for.cond.i.preheader, %while.end.i
   %i.i.0298 = phi i64 [ %inc.i, %while.end.i ], [ 1, %for.cond.i.preheader ]
-  %arrayidx.i452 = getelementptr inbounds %struct.HuffmanTree, ptr %tree, i64 %i.i.0298
+  %arrayidx.i452 = getelementptr inbounds nuw %struct.HuffmanTree, ptr %tree, i64 %i.i.0298
   %10 = load i64, ptr %arrayidx.i452, align 4
   %tmp.i.sroa.0.0.extract.trunc = trunc i64 %10 to i32
   br label %while.cond.i
@@ -417,7 +417,7 @@ if.else.i:                                        ; preds = %for.end
 
 for.body11.i:                                     ; preds = %if.else.i, %for.end36.i
   %indvars.iv = phi i64 [ %13, %if.else.i ], [ %indvars.iv.next, %for.end36.i ]
-  %arrayidx12.i = getelementptr inbounds [6 x i64], ptr @kBrotliShellGaps, i64 0, i64 %indvars.iv
+  %arrayidx12.i = getelementptr inbounds nuw [6 x i64], ptr @kBrotliShellGaps, i64 0, i64 %indvars.iv
   %14 = load i64, ptr %arrayidx12.i, align 8
   %cmp15.i294 = icmp ult i64 %14, %conv35
   br i1 %cmp15.i294, label %for.body16.i, label %for.end36.i
@@ -464,7 +464,7 @@ SortHuffmanTreeItems.exit:                        ; preds = %for.end36.i, %while
   br i1 %cmp40299, label %for.body42.preheader, label %for.end82
 
 for.body42.preheader:                             ; preds = %SortHuffmanTreeItems.exit
-  %incdec.ptr37 = getelementptr inbounds i8, ptr %node.0.lcssa, i64 16
+  %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %node.0.lcssa, i64 16
   br label %for.body42
 
 for.body42:                                       ; preds = %for.body42.preheader, %for.body42
@@ -514,7 +514,7 @@ for.body42:                                       ; preds = %for.body42.preheade
   %conv78 = trunc i32 %right.0 to i16
   %index_right_or_value_ = getelementptr inbounds i8, ptr %node.2300, i64 -2
   store i16 %conv78, ptr %index_right_or_value_, align 2
-  %incdec.ptr80 = getelementptr inbounds i8, ptr %node.2300, i64 8
+  %incdec.ptr80 = getelementptr inbounds nuw i8, ptr %node.2300, i64 8
   %cmp40 = icmp samesign ugt i32 %k.0.in303, 2
   store i64 -1, ptr %node.2300, align 4
   br i1 %cmp40, label %for.body42, label %for.end82, !llvm.loop !22
@@ -532,7 +532,7 @@ for.end90:                                        ; preds = %for.end82
   %cmp91 = icmp ult i64 %count.1, 5
   %24 = load i64, ptr %storage_ix, align 8
   %shr.i407 = lshr i64 %24, 3
-  %arrayidx.i408 = getelementptr inbounds i8, ptr %storage, i64 %shr.i407
+  %arrayidx.i408 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i407
   %25 = load i8, ptr %arrayidx.i408, align 1
   %conv.i409 = zext i8 %25 to i64
   %and.i410 = and i64 %24, 7
@@ -547,7 +547,7 @@ if.then93:                                        ; preds = %for.end90
   store i64 %add.i413, ptr %storage_ix, align 8
   %sub95 = add nsw i64 %count.1, -1
   %shr.i394 = lshr i64 %add.i413, 3
-  %arrayidx.i395 = getelementptr inbounds i8, ptr %storage, i64 %shr.i394
+  %arrayidx.i395 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i394
   %27 = load i8, ptr %arrayidx.i395, align 1
   %conv.i396 = zext i8 %27 to i64
   %and.i397 = and i64 %add.i413, 7
@@ -570,14 +570,14 @@ for.body99:                                       ; preds = %if.then93, %for.con
   br i1 %cmp103315, label %for.body105.lr.ph, label %for.cond96.loopexit
 
 for.body105.lr.ph:                                ; preds = %for.body99
-  %arrayidx109 = getelementptr inbounds [4 x i64], ptr %symbols, i64 0, i64 %i94.0317
+  %arrayidx109 = getelementptr inbounds nuw [4 x i64], ptr %symbols, i64 0, i64 %i94.0317
   %.pre = load i64, ptr %arrayidx109, align 8
   br label %for.body105
 
 for.body105:                                      ; preds = %for.body105.lr.ph, %for.inc120
   %29 = phi i64 [ %.pre, %for.body105.lr.ph ], [ %33, %for.inc120 ]
   %j100.0316 = phi i64 [ %add101, %for.body105.lr.ph ], [ %inc121, %for.inc120 ]
-  %arrayidx106 = getelementptr inbounds [4 x i64], ptr %symbols, i64 0, i64 %j100.0316
+  %arrayidx106 = getelementptr inbounds nuw [4 x i64], ptr %symbols, i64 0, i64 %j100.0316
   %30 = load i64, ptr %arrayidx106, align 8
   %arrayidx107 = getelementptr inbounds i8, ptr %depth, i64 %30
   %31 = load i8, ptr %arrayidx107, align 1
@@ -600,7 +600,7 @@ for.inc120:                                       ; preds = %for.body105, %if.th
 for.end125:                                       ; preds = %for.cond96.loopexit
   %34 = load i64, ptr %symbols, align 16
   %shr.i316 = lshr i64 %add.i400, 3
-  %arrayidx.i317 = getelementptr inbounds i8, ptr %storage, i64 %shr.i316
+  %arrayidx.i317 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i316
   %35 = load i8, ptr %arrayidx.i317, align 1
   %conv.i318 = zext i8 %35 to i64
   %and.i319 = and i64 %add.i400, 7
@@ -610,10 +610,10 @@ for.end125:                                       ; preds = %for.cond96.loopexit
   %36 = load i64, ptr %storage_ix, align 8
   %add.i322 = add i64 %36, %max_bits
   store i64 %add.i322, ptr %storage_ix, align 8
-  %arrayidx140 = getelementptr inbounds i8, ptr %symbols, i64 8
+  %arrayidx140 = getelementptr inbounds nuw i8, ptr %symbols, i64 8
   %37 = load i64, ptr %arrayidx140, align 8
   %shr.i303 = lshr i64 %add.i322, 3
-  %arrayidx.i304 = getelementptr inbounds i8, ptr %storage, i64 %shr.i303
+  %arrayidx.i304 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i303
   %38 = load i8, ptr %arrayidx.i304, align 1
   %conv.i305 = zext i8 %38 to i64
   %and.i306 = and i64 %add.i322, 7
@@ -629,10 +629,10 @@ for.end125:                                       ; preds = %for.cond96.loopexit
   ]
 
 if.then134:                                       ; preds = %for.end125
-  %arrayidx137 = getelementptr inbounds i8, ptr %symbols, i64 16
+  %arrayidx137 = getelementptr inbounds nuw i8, ptr %symbols, i64 16
   %40 = load i64, ptr %arrayidx137, align 16
   %shr.i329 = lshr i64 %add.i309, 3
-  %arrayidx.i330 = getelementptr inbounds i8, ptr %storage, i64 %shr.i329
+  %arrayidx.i330 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i329
   %41 = load i8, ptr %arrayidx.i330, align 1
   %conv.i331 = zext i8 %41 to i64
   %and.i332 = and i64 %add.i309, 7
@@ -645,10 +645,10 @@ if.then134:                                       ; preds = %for.end125
   br label %if.end218
 
 if.else138:                                       ; preds = %for.end125
-  %arrayidx141 = getelementptr inbounds i8, ptr %symbols, i64 16
+  %arrayidx141 = getelementptr inbounds nuw i8, ptr %symbols, i64 16
   %43 = load i64, ptr %arrayidx141, align 16
   %shr.i290 = lshr i64 %add.i309, 3
-  %arrayidx.i291 = getelementptr inbounds i8, ptr %storage, i64 %shr.i290
+  %arrayidx.i291 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i290
   %44 = load i8, ptr %arrayidx.i291, align 1
   %conv.i292 = zext i8 %44 to i64
   %and.i293 = and i64 %add.i309, 7
@@ -658,10 +658,10 @@ if.else138:                                       ; preds = %for.end125
   %45 = load i64, ptr %storage_ix, align 8
   %add.i296 = add i64 %45, %max_bits
   store i64 %add.i296, ptr %storage_ix, align 8
-  %arrayidx142 = getelementptr inbounds i8, ptr %symbols, i64 24
+  %arrayidx142 = getelementptr inbounds nuw i8, ptr %symbols, i64 24
   %46 = load i64, ptr %arrayidx142, align 8
   %shr.i277 = lshr i64 %add.i296, 3
-  %arrayidx.i278 = getelementptr inbounds i8, ptr %storage, i64 %shr.i277
+  %arrayidx.i278 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i277
   %47 = load i8, ptr %arrayidx.i278, align 1
   %conv.i279 = zext i8 %47 to i64
   %and.i280 = and i64 %add.i296, 7
@@ -676,7 +676,7 @@ if.else138:                                       ; preds = %for.end125
   %cmp146 = icmp eq i8 %49, 1
   %conv148 = zext i1 %cmp146 to i64
   %shr.i264 = lshr i64 %add.i283, 3
-  %arrayidx.i265 = getelementptr inbounds i8, ptr %storage, i64 %shr.i264
+  %arrayidx.i265 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i264
   %50 = load i8, ptr %arrayidx.i265, align 1
   %conv.i266 = zext i8 %50 to i64
   %and.i267 = and i64 %add.i283, 7
@@ -747,14 +747,14 @@ if.else181:                                       ; preds = %for.end172
 
 if.then186:                                       ; preds = %if.else181
   %idxprom187 = zext i8 %54 to i64
-  %arrayidx188 = getelementptr inbounds [18 x i8], ptr @kCodeLengthDepth, i64 0, i64 %idxprom187
+  %arrayidx188 = getelementptr inbounds nuw [18 x i8], ptr @kCodeLengthDepth, i64 0, i64 %idxprom187
   %57 = load i8, ptr %arrayidx188, align 1
   %conv189 = zext i8 %57 to i64
-  %arrayidx191 = getelementptr inbounds [18 x i32], ptr @kCodeLengthBits, i64 0, i64 %idxprom187
+  %arrayidx191 = getelementptr inbounds nuw [18 x i32], ptr @kCodeLengthBits, i64 0, i64 %idxprom187
   %58 = load i32, ptr %arrayidx191, align 4
   %conv192 = zext i32 %58 to i64
   %shr.i238 = lshr i64 %53, 3
-  %arrayidx.i239 = getelementptr inbounds i8, ptr %storage, i64 %shr.i238
+  %arrayidx.i239 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i238
   %59 = load i8, ptr %arrayidx.i239, align 1
   %conv.i240 = zext i8 %59 to i64
   %and.i241 = and i64 %53, 7
@@ -779,10 +779,10 @@ while.cond198.preheader:                          ; preds = %if.end194
 
 while.body201.lr.ph:                              ; preds = %while.cond198.preheader
   %idxprom203 = zext i8 %54 to i64
-  %arrayidx204 = getelementptr inbounds [18 x i8], ptr @kCodeLengthDepth, i64 0, i64 %idxprom203
+  %arrayidx204 = getelementptr inbounds nuw [18 x i8], ptr @kCodeLengthDepth, i64 0, i64 %idxprom203
   %62 = load i8, ptr %arrayidx204, align 1
   %conv205 = zext i8 %62 to i64
-  %arrayidx207 = getelementptr inbounds [18 x i32], ptr @kCodeLengthBits, i64 0, i64 %idxprom203
+  %arrayidx207 = getelementptr inbounds nuw [18 x i32], ptr @kCodeLengthBits, i64 0, i64 %idxprom203
   %63 = load i32, ptr %arrayidx207, align 4
   %conv208 = zext i32 %63 to i64
   br label %while.body201
@@ -792,7 +792,7 @@ while.body201:                                    ; preds = %while.body201.lr.ph
   %reps.2311 = phi i64 [ %reps.1, %while.body201.lr.ph ], [ %dec202, %while.body201 ]
   %dec202 = add nsw i64 %reps.2311, -1
   %shr.i225 = lshr i64 %64, 3
-  %arrayidx.i226 = getelementptr inbounds i8, ptr %storage, i64 %shr.i225
+  %arrayidx.i226 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i225
   %65 = load i8, ptr %arrayidx.i226, align 1
   %conv.i227 = zext i8 %65 to i64
   %and.i228 = and i64 %64, 7
@@ -820,7 +820,7 @@ if.end216.sink.split:                             ; preds = %if.then177, %if.els
   %conv213.sink = zext i32 %conv213.sink.in to i64
   %.sink = load i64, ptr %.sink.in, align 8
   %shr.i = lshr i64 %.sink334, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i
   %67 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %67 to i64
   %and.i = and i64 %.sink334, 7
@@ -850,18 +850,18 @@ declare hidden i32 @BrotliSetDepth(i32 noundef, ptr noundef, ptr noundef, i32 no
 ; Function Attrs: nounwind uwtable
 define hidden void @BrotliStoreMetaBlock(ptr noundef %m, ptr nocapture noundef readonly %input, i64 noundef %start_pos, i64 noundef %length, i64 noundef %mask, i8 noundef zeroext %prev_byte, i8 noundef zeroext %prev_byte2, i32 noundef %is_last, ptr nocapture noundef readonly %params, i32 noundef %literal_context_mode, ptr nocapture noundef readonly %commands, i64 noundef %n_commands, ptr nocapture noundef readonly %mb, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) local_unnamed_addr #0 {
 entry:
-  %dist = getelementptr inbounds i8, ptr %params, i64 56
-  %alphabet_size_max = getelementptr inbounds i8, ptr %params, i64 64
+  %dist = getelementptr inbounds nuw i8, ptr %params, i64 56
+  %alphabet_size_max = getelementptr inbounds nuw i8, ptr %params, i64 64
   %0 = load i32, ptr %alphabet_size_max, align 8
-  %alphabet_size_limit = getelementptr inbounds i8, ptr %params, i64 68
+  %alphabet_size_limit = getelementptr inbounds nuw i8, ptr %params, i64 68
   %1 = load i32, ptr %alphabet_size_limit, align 4
   %shl = shl i32 %literal_context_mode, 9
   %idxprom = zext i32 %shl to i64
-  %arrayidx = getelementptr inbounds [2048 x i8], ptr @_kBrotliContextLookupTable, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2048 x i8], ptr @_kBrotliContextLookupTable, i64 0, i64 %idxprom
   %conv.i212 = sext i32 %is_last to i64
   %2 = load i64, ptr %storage_ix, align 8
   %shr.i49.i = lshr i64 %2, 3
-  %arrayidx.i50.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i49.i
+  %arrayidx.i50.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i49.i
   %3 = load i8, ptr %arrayidx.i50.i, align 1
   %conv.i51.i = zext i8 %3 to i64
   %and.i52.i = and i64 %2, 7
@@ -876,7 +876,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i36.i = lshr i64 %add.i55.i, 3
-  %arrayidx.i37.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i36.i
+  %arrayidx.i37.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i36.i
   %5 = load i8, ptr %arrayidx.i37.i, align 1
   %conv.i38.i = zext i8 %5 to i64
   store i64 %conv.i38.i, ptr %arrayidx.i37.i, align 1
@@ -902,7 +902,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %mul.i.i = shl nuw nsw i64 %div.i.i, 2
   %sub11.i.i = add i64 %length, -1
   %shr.i23.i = lshr i64 %7, 3
-  %arrayidx.i24.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i23.i
+  %arrayidx.i24.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i23.i
   %12 = load i8, ptr %arrayidx.i24.i, align 1
   %conv.i25.i = zext i8 %12 to i64
   %and.i26.i = and i64 %7, 7
@@ -913,7 +913,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %add.i29.i = add i64 %13, 2
   store i64 %add.i29.i, ptr %storage_ix, align 8
   %shr.i10.i = lshr i64 %add.i29.i, 3
-  %arrayidx.i11.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i10.i
+  %arrayidx.i11.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i10.i
   %14 = load i8, ptr %arrayidx.i11.i, align 1
   %conv.i12.i = zext i8 %14 to i64
   %and.i13.i = and i64 %add.i29.i, 7
@@ -927,7 +927,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %shr.i.i213 = lshr i64 %add.i16.i, 3
-  %arrayidx.i.i214 = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i213
+  %arrayidx.i.i214 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i213
   %16 = load i8, ptr %arrayidx.i.i214, align 1
   %conv.i.i215 = zext i8 %16 to i64
   store i64 %conv.i.i215, ptr %arrayidx.i.i214, align 1
@@ -939,29 +939,29 @@ if.then2.i:                                       ; preds = %if.end.i
 StoreCompressedMetaBlockHeader.exit:              ; preds = %if.end.i, %if.then2.i
   %call = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 11272) #12
   %call4 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 4760) #12
-  %command_enc6 = getelementptr inbounds i8, ptr %call4, i64 952
-  %distance_enc7 = getelementptr inbounds i8, ptr %call4, i64 1904
+  %command_enc6 = getelementptr inbounds nuw i8, ptr %call4, i64 952
+  %distance_enc7 = getelementptr inbounds nuw i8, ptr %call4, i64 1904
   %18 = load i64, ptr %mb, align 8
-  %types = getelementptr inbounds i8, ptr %mb, i64 16
+  %types = getelementptr inbounds nuw i8, ptr %mb, i64 16
   %19 = load ptr, ptr %types, align 8
-  %lengths = getelementptr inbounds i8, ptr %mb, i64 24
+  %lengths = getelementptr inbounds nuw i8, ptr %mb, i64 24
   %20 = load ptr, ptr %lengths, align 8
-  %num_blocks = getelementptr inbounds i8, ptr %mb, i64 8
+  %num_blocks = getelementptr inbounds nuw i8, ptr %mb, i64 8
   %21 = load i64, ptr %num_blocks, align 8
   store i64 256, ptr %call4, align 8
-  %num_block_types_.i = getelementptr inbounds i8, ptr %call4, i64 8
+  %num_block_types_.i = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store i64 %18, ptr %num_block_types_.i, align 8
-  %block_types_.i = getelementptr inbounds i8, ptr %call4, i64 16
+  %block_types_.i = getelementptr inbounds nuw i8, ptr %call4, i64 16
   store ptr %19, ptr %block_types_.i, align 8
-  %block_lengths_.i = getelementptr inbounds i8, ptr %call4, i64 24
+  %block_lengths_.i = getelementptr inbounds nuw i8, ptr %call4, i64 24
   store ptr %20, ptr %block_lengths_.i, align 8
-  %num_blocks_.i = getelementptr inbounds i8, ptr %call4, i64 32
+  %num_blocks_.i = getelementptr inbounds nuw i8, ptr %call4, i64 32
   store i64 %21, ptr %num_blocks_.i, align 8
-  %block_split_code_.i = getelementptr inbounds i8, ptr %call4, i64 40
+  %block_split_code_.i = getelementptr inbounds nuw i8, ptr %call4, i64 40
   store i64 1, ptr %block_split_code_.i, align 8
-  %second_last_type.i.i = getelementptr inbounds i8, ptr %call4, i64 48
+  %second_last_type.i.i = getelementptr inbounds nuw i8, ptr %call4, i64 48
   store i64 0, ptr %second_last_type.i.i, align 8
-  %block_ix_.i = getelementptr inbounds i8, ptr %call4, i64 912
+  %block_ix_.i = getelementptr inbounds nuw i8, ptr %call4, i64 912
   store i64 0, ptr %block_ix_.i, align 8
   %cmp.i = icmp eq i64 %21, 0
   br i1 %cmp.i, label %InitBlockEncoder.exit, label %cond.false.i
@@ -973,32 +973,32 @@ cond.false.i:                                     ; preds = %StoreCompressedMeta
 
 InitBlockEncoder.exit:                            ; preds = %StoreCompressedMetaBlockHeader.exit, %cond.false.i
   %cond.i = phi i64 [ %23, %cond.false.i ], [ 0, %StoreCompressedMetaBlockHeader.exit ]
-  %block_len_.i = getelementptr inbounds i8, ptr %call4, i64 920
+  %block_len_.i = getelementptr inbounds nuw i8, ptr %call4, i64 920
   store i64 %cond.i, ptr %block_len_.i, align 8
-  %entropy_ix_.i = getelementptr inbounds i8, ptr %call4, i64 928
+  %entropy_ix_.i = getelementptr inbounds nuw i8, ptr %call4, i64 928
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entropy_ix_.i, i8 0, i64 24, i1 false)
-  %command_split = getelementptr inbounds i8, ptr %mb, i64 48
+  %command_split = getelementptr inbounds nuw i8, ptr %mb, i64 48
   %24 = load i64, ptr %command_split, align 8
-  %types13 = getelementptr inbounds i8, ptr %mb, i64 64
+  %types13 = getelementptr inbounds nuw i8, ptr %mb, i64 64
   %25 = load ptr, ptr %types13, align 8
-  %lengths15 = getelementptr inbounds i8, ptr %mb, i64 72
+  %lengths15 = getelementptr inbounds nuw i8, ptr %mb, i64 72
   %26 = load ptr, ptr %lengths15, align 8
-  %num_blocks17 = getelementptr inbounds i8, ptr %mb, i64 56
+  %num_blocks17 = getelementptr inbounds nuw i8, ptr %mb, i64 56
   %27 = load i64, ptr %num_blocks17, align 8
   store i64 704, ptr %command_enc6, align 8
-  %num_block_types_.i217 = getelementptr inbounds i8, ptr %call4, i64 960
+  %num_block_types_.i217 = getelementptr inbounds nuw i8, ptr %call4, i64 960
   store i64 %24, ptr %num_block_types_.i217, align 8
-  %block_types_.i218 = getelementptr inbounds i8, ptr %call4, i64 968
+  %block_types_.i218 = getelementptr inbounds nuw i8, ptr %call4, i64 968
   store ptr %25, ptr %block_types_.i218, align 8
-  %block_lengths_.i219 = getelementptr inbounds i8, ptr %call4, i64 976
+  %block_lengths_.i219 = getelementptr inbounds nuw i8, ptr %call4, i64 976
   store ptr %26, ptr %block_lengths_.i219, align 8
-  %num_blocks_.i220 = getelementptr inbounds i8, ptr %call4, i64 984
+  %num_blocks_.i220 = getelementptr inbounds nuw i8, ptr %call4, i64 984
   store i64 %27, ptr %num_blocks_.i220, align 8
-  %block_split_code_.i221 = getelementptr inbounds i8, ptr %call4, i64 992
+  %block_split_code_.i221 = getelementptr inbounds nuw i8, ptr %call4, i64 992
   store i64 1, ptr %block_split_code_.i221, align 8
-  %second_last_type.i.i222 = getelementptr inbounds i8, ptr %call4, i64 1000
+  %second_last_type.i.i222 = getelementptr inbounds nuw i8, ptr %call4, i64 1000
   store i64 0, ptr %second_last_type.i.i222, align 8
-  %block_ix_.i223 = getelementptr inbounds i8, ptr %call4, i64 1864
+  %block_ix_.i223 = getelementptr inbounds nuw i8, ptr %call4, i64 1864
   store i64 0, ptr %block_ix_.i223, align 8
   %cmp.i224 = icmp eq i64 %27, 0
   br i1 %cmp.i224, label %InitBlockEncoder.exit229, label %cond.false.i225
@@ -1010,33 +1010,33 @@ cond.false.i225:                                  ; preds = %InitBlockEncoder.ex
 
 InitBlockEncoder.exit229:                         ; preds = %InitBlockEncoder.exit, %cond.false.i225
   %cond.i226 = phi i64 [ %29, %cond.false.i225 ], [ 0, %InitBlockEncoder.exit ]
-  %block_len_.i227 = getelementptr inbounds i8, ptr %call4, i64 1872
+  %block_len_.i227 = getelementptr inbounds nuw i8, ptr %call4, i64 1872
   store i64 %cond.i226, ptr %block_len_.i227, align 8
-  %entropy_ix_.i228 = getelementptr inbounds i8, ptr %call4, i64 1880
+  %entropy_ix_.i228 = getelementptr inbounds nuw i8, ptr %call4, i64 1880
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entropy_ix_.i228, i8 0, i64 24, i1 false)
   %conv = zext i32 %1 to i64
-  %distance_split = getelementptr inbounds i8, ptr %mb, i64 96
+  %distance_split = getelementptr inbounds nuw i8, ptr %mb, i64 96
   %30 = load i64, ptr %distance_split, align 8
-  %types20 = getelementptr inbounds i8, ptr %mb, i64 112
+  %types20 = getelementptr inbounds nuw i8, ptr %mb, i64 112
   %31 = load ptr, ptr %types20, align 8
-  %lengths22 = getelementptr inbounds i8, ptr %mb, i64 120
+  %lengths22 = getelementptr inbounds nuw i8, ptr %mb, i64 120
   %32 = load ptr, ptr %lengths22, align 8
-  %num_blocks24 = getelementptr inbounds i8, ptr %mb, i64 104
+  %num_blocks24 = getelementptr inbounds nuw i8, ptr %mb, i64 104
   %33 = load i64, ptr %num_blocks24, align 8
   store i64 %conv, ptr %distance_enc7, align 8
-  %num_block_types_.i230 = getelementptr inbounds i8, ptr %call4, i64 1912
+  %num_block_types_.i230 = getelementptr inbounds nuw i8, ptr %call4, i64 1912
   store i64 %30, ptr %num_block_types_.i230, align 8
-  %block_types_.i231 = getelementptr inbounds i8, ptr %call4, i64 1920
+  %block_types_.i231 = getelementptr inbounds nuw i8, ptr %call4, i64 1920
   store ptr %31, ptr %block_types_.i231, align 8
-  %block_lengths_.i232 = getelementptr inbounds i8, ptr %call4, i64 1928
+  %block_lengths_.i232 = getelementptr inbounds nuw i8, ptr %call4, i64 1928
   store ptr %32, ptr %block_lengths_.i232, align 8
-  %num_blocks_.i233 = getelementptr inbounds i8, ptr %call4, i64 1936
+  %num_blocks_.i233 = getelementptr inbounds nuw i8, ptr %call4, i64 1936
   store i64 %33, ptr %num_blocks_.i233, align 8
-  %block_split_code_.i234 = getelementptr inbounds i8, ptr %call4, i64 1944
+  %block_split_code_.i234 = getelementptr inbounds nuw i8, ptr %call4, i64 1944
   store i64 1, ptr %block_split_code_.i234, align 8
-  %second_last_type.i.i235 = getelementptr inbounds i8, ptr %call4, i64 1952
+  %second_last_type.i.i235 = getelementptr inbounds nuw i8, ptr %call4, i64 1952
   store i64 0, ptr %second_last_type.i.i235, align 8
-  %block_ix_.i236 = getelementptr inbounds i8, ptr %call4, i64 2816
+  %block_ix_.i236 = getelementptr inbounds nuw i8, ptr %call4, i64 2816
   store i64 0, ptr %block_ix_.i236, align 8
   %cmp.i237 = icmp eq i64 %33, 0
   br i1 %cmp.i237, label %InitBlockEncoder.exit242, label %cond.false.i238
@@ -1048,9 +1048,9 @@ cond.false.i238:                                  ; preds = %InitBlockEncoder.ex
 
 InitBlockEncoder.exit242:                         ; preds = %InitBlockEncoder.exit229, %cond.false.i238
   %cond.i239 = phi i64 [ %35, %cond.false.i238 ], [ 0, %InitBlockEncoder.exit229 ]
-  %block_len_.i240 = getelementptr inbounds i8, ptr %call4, i64 2824
+  %block_len_.i240 = getelementptr inbounds nuw i8, ptr %call4, i64 2824
   store i64 %cond.i239, ptr %block_len_.i240, align 8
-  %entropy_ix_.i241 = getelementptr inbounds i8, ptr %call4, i64 2832
+  %entropy_ix_.i241 = getelementptr inbounds nuw i8, ptr %call4, i64 2832
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entropy_ix_.i241, i8 0, i64 24, i1 false)
   tail call fastcc void @BuildAndStoreBlockSwitchEntropyCodes(ptr noundef nonnull %call4, ptr noundef %call, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
   tail call fastcc void @BuildAndStoreBlockSwitchEntropyCodes(ptr noundef nonnull %command_enc6, ptr noundef %call, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
@@ -1059,7 +1059,7 @@ InitBlockEncoder.exit242:                         ; preds = %InitBlockEncoder.ex
   %conv25 = zext i32 %36 to i64
   %37 = load i64, ptr %storage_ix, align 8
   %shr.i165 = lshr i64 %37, 3
-  %arrayidx.i166 = getelementptr inbounds i8, ptr %storage, i64 %shr.i165
+  %arrayidx.i166 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i165
   %38 = load i8, ptr %arrayidx.i166, align 1
   %conv.i167 = zext i8 %38 to i64
   %and.i168 = and i64 %37, 7
@@ -1069,13 +1069,13 @@ InitBlockEncoder.exit242:                         ; preds = %InitBlockEncoder.ex
   %39 = load i64, ptr %storage_ix, align 8
   %add.i171 = add i64 %39, 2
   store i64 %add.i171, ptr %storage_ix, align 8
-  %num_direct_distance_codes = getelementptr inbounds i8, ptr %params, i64 60
+  %num_direct_distance_codes = getelementptr inbounds nuw i8, ptr %params, i64 60
   %40 = load i32, ptr %num_direct_distance_codes, align 4
   %41 = load i32, ptr %dist, align 8
   %shr = lshr i32 %40, %41
   %conv27 = zext i32 %shr to i64
   %shr.i152 = lshr i64 %add.i171, 3
-  %arrayidx.i153 = getelementptr inbounds i8, ptr %storage, i64 %shr.i152
+  %arrayidx.i153 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i152
   %42 = load i8, ptr %arrayidx.i153, align 1
   %conv.i154 = zext i8 %42 to i64
   %and.i155 = and i64 %add.i171, 7
@@ -1097,7 +1097,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %45 = phi i64 [ %add.i158, %for.body.lr.ph ], [ %add.i145, %for.body ]
   %i.0514 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %shr.i139 = lshr i64 %45, 3
-  %arrayidx.i140 = getelementptr inbounds i8, ptr %storage, i64 %shr.i139
+  %arrayidx.i140 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i139
   %46 = load i8, ptr %arrayidx.i140, align 1
   %conv.i141 = zext i8 %46 to i64
   %and.i142 = and i64 %45, 7
@@ -1113,51 +1113,51 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !28
 
 for.end:                                          ; preds = %for.body, %InitBlockEncoder.exit242
-  %literal_context_map_size = getelementptr inbounds i8, ptr %mb, i64 152
+  %literal_context_map_size = getelementptr inbounds nuw i8, ptr %mb, i64 152
   %49 = load i64, ptr %literal_context_map_size, align 8
   %cmp32 = icmp eq i64 %49, 0
-  %context_map_arena = getelementptr inbounds i8, ptr %call4, i64 2856
+  %context_map_arena = getelementptr inbounds nuw i8, ptr %call4, i64 2856
   br i1 %cmp32, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.end
-  %literal_histograms_size = getelementptr inbounds i8, ptr %mb, i64 184
+  %literal_histograms_size = getelementptr inbounds nuw i8, ptr %mb, i64 184
   %50 = load i64, ptr %literal_histograms_size, align 8
   tail call fastcc void @StoreTrivialContextMap(ptr noundef nonnull %context_map_arena, i64 noundef %50, i64 noundef 6, ptr noundef %call, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
   br label %if.end
 
 if.else:                                          ; preds = %for.end
-  %literal_context_map = getelementptr inbounds i8, ptr %mb, i64 144
+  %literal_context_map = getelementptr inbounds nuw i8, ptr %mb, i64 144
   %51 = load ptr, ptr %literal_context_map, align 8
-  %literal_histograms_size36 = getelementptr inbounds i8, ptr %mb, i64 184
+  %literal_histograms_size36 = getelementptr inbounds nuw i8, ptr %mb, i64 184
   %52 = load i64, ptr %literal_histograms_size36, align 8
   tail call fastcc void @EncodeContextMap(ptr noundef %m, ptr noundef nonnull %context_map_arena, ptr noundef %51, i64 noundef %49, i64 noundef %52, ptr noundef %call, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %distance_context_map_size = getelementptr inbounds i8, ptr %mb, i64 168
+  %distance_context_map_size = getelementptr inbounds nuw i8, ptr %mb, i64 168
   %53 = load i64, ptr %distance_context_map_size, align 8
   %cmp37 = icmp eq i64 %53, 0
-  %context_map_arena40 = getelementptr inbounds i8, ptr %call4, i64 2856
+  %context_map_arena40 = getelementptr inbounds nuw i8, ptr %call4, i64 2856
   br i1 %cmp37, label %if.then39, label %if.else41
 
 if.then39:                                        ; preds = %if.end
-  %distance_histograms_size = getelementptr inbounds i8, ptr %mb, i64 216
+  %distance_histograms_size = getelementptr inbounds nuw i8, ptr %mb, i64 216
   %54 = load i64, ptr %distance_histograms_size, align 8
   tail call fastcc void @StoreTrivialContextMap(ptr noundef nonnull %context_map_arena40, i64 noundef %54, i64 noundef 2, ptr noundef %call, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
   br label %if.end45
 
 if.else41:                                        ; preds = %if.end
-  %distance_context_map = getelementptr inbounds i8, ptr %mb, i64 160
+  %distance_context_map = getelementptr inbounds nuw i8, ptr %mb, i64 160
   %55 = load ptr, ptr %distance_context_map, align 8
-  %distance_histograms_size44 = getelementptr inbounds i8, ptr %mb, i64 216
+  %distance_histograms_size44 = getelementptr inbounds nuw i8, ptr %mb, i64 216
   %56 = load i64, ptr %distance_histograms_size44, align 8
   tail call fastcc void @EncodeContextMap(ptr noundef %m, ptr noundef nonnull %context_map_arena40, ptr noundef %55, i64 noundef %53, i64 noundef %56, ptr noundef %call, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.else41, %if.then39
-  %literal_histograms = getelementptr inbounds i8, ptr %mb, i64 176
+  %literal_histograms = getelementptr inbounds nuw i8, ptr %mb, i64 176
   %57 = load ptr, ptr %literal_histograms, align 8
-  %literal_histograms_size46 = getelementptr inbounds i8, ptr %mb, i64 184
+  %literal_histograms_size46 = getelementptr inbounds nuw i8, ptr %mb, i64 184
   %58 = load i64, ptr %literal_histograms_size46, align 8
   %59 = load i64, ptr %call4, align 8
   %mul.i = mul i64 %59, %58
@@ -1165,13 +1165,13 @@ if.end45:                                         ; preds = %if.else41, %if.then
   br i1 %cmp.not.i, label %cond.end.thread.i, label %cond.true3.i
 
 cond.end.thread.i:                                ; preds = %if.end45
-  %depths_17.i = getelementptr inbounds i8, ptr %call4, i64 936
+  %depths_17.i = getelementptr inbounds nuw i8, ptr %call4, i64 936
   store ptr null, ptr %depths_17.i, align 8
   br label %cond.end7.i
 
 cond.true3.i:                                     ; preds = %if.end45
   %call.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul.i) #12
-  %depths_.i = getelementptr inbounds i8, ptr %call4, i64 936
+  %depths_.i = getelementptr inbounds nuw i8, ptr %call4, i64 936
   store ptr %call.i, ptr %depths_.i, align 8
   %mul4.i = shl i64 %mul.i, 1
   %call5.i = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul4.i) #12
@@ -1180,7 +1180,7 @@ cond.true3.i:                                     ; preds = %if.end45
 cond.end7.i:                                      ; preds = %cond.true3.i, %cond.end.thread.i
   %depths_18.i = phi ptr [ %depths_.i, %cond.true3.i ], [ %depths_17.i, %cond.end.thread.i ]
   %cond8.i = phi ptr [ %call5.i, %cond.true3.i ], [ null, %cond.end.thread.i ]
-  %bits_.i = getelementptr inbounds i8, ptr %call4, i64 944
+  %bits_.i = getelementptr inbounds nuw i8, ptr %call4, i64 944
   store ptr %cond8.i, ptr %bits_.i, align 8
   %cmp919.not.i = icmp eq i64 %58, 0
   br i1 %cmp919.not.i, label %BuildAndStoreEntropyCodesLiteral.exit, label %for.body.i
@@ -1200,9 +1200,9 @@ for.body.i:                                       ; preds = %cond.end7.i, %for.b
   br i1 %exitcond.not.i, label %BuildAndStoreEntropyCodesLiteral.exit, label %for.body.i, !llvm.loop !29
 
 BuildAndStoreEntropyCodesLiteral.exit:            ; preds = %for.body.i, %cond.end7.i
-  %command_histograms = getelementptr inbounds i8, ptr %mb, i64 192
+  %command_histograms = getelementptr inbounds nuw i8, ptr %mb, i64 192
   %63 = load ptr, ptr %command_histograms, align 8
-  %command_histograms_size = getelementptr inbounds i8, ptr %mb, i64 200
+  %command_histograms_size = getelementptr inbounds nuw i8, ptr %mb, i64 200
   %64 = load i64, ptr %command_histograms_size, align 8
   %65 = load i64, ptr %command_enc6, align 8
   %mul.i244 = mul i64 %65, %64
@@ -1210,13 +1210,13 @@ BuildAndStoreEntropyCodesLiteral.exit:            ; preds = %for.body.i, %cond.e
   br i1 %cmp.not.i245, label %cond.end.thread.i264, label %cond.true3.i246
 
 cond.end.thread.i264:                             ; preds = %BuildAndStoreEntropyCodesLiteral.exit
-  %depths_17.i265 = getelementptr inbounds i8, ptr %call4, i64 1888
+  %depths_17.i265 = getelementptr inbounds nuw i8, ptr %call4, i64 1888
   store ptr null, ptr %depths_17.i265, align 8
   br label %cond.end7.i251
 
 cond.true3.i246:                                  ; preds = %BuildAndStoreEntropyCodesLiteral.exit
   %call.i247 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul.i244) #12
-  %depths_.i248 = getelementptr inbounds i8, ptr %call4, i64 1888
+  %depths_.i248 = getelementptr inbounds nuw i8, ptr %call4, i64 1888
   store ptr %call.i247, ptr %depths_.i248, align 8
   %mul4.i249 = shl i64 %mul.i244, 1
   %call5.i250 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul4.i249) #12
@@ -1225,7 +1225,7 @@ cond.true3.i246:                                  ; preds = %BuildAndStoreEntrop
 cond.end7.i251:                                   ; preds = %cond.true3.i246, %cond.end.thread.i264
   %depths_18.i252 = phi ptr [ %depths_.i248, %cond.true3.i246 ], [ %depths_17.i265, %cond.end.thread.i264 ]
   %cond8.i253 = phi ptr [ %call5.i250, %cond.true3.i246 ], [ null, %cond.end.thread.i264 ]
-  %bits_.i254 = getelementptr inbounds i8, ptr %call4, i64 1896
+  %bits_.i254 = getelementptr inbounds nuw i8, ptr %call4, i64 1896
   store ptr %cond8.i253, ptr %bits_.i254, align 8
   %cmp919.not.i255 = icmp eq i64 %64, 0
   br i1 %cmp919.not.i255, label %BuildAndStoreEntropyCodesCommand.exit, label %for.body.i256
@@ -1245,9 +1245,9 @@ for.body.i256:                                    ; preds = %cond.end7.i251, %fo
   br i1 %exitcond.not.i263, label %BuildAndStoreEntropyCodesCommand.exit, label %for.body.i256, !llvm.loop !30
 
 BuildAndStoreEntropyCodesCommand.exit:            ; preds = %for.body.i256, %cond.end7.i251
-  %distance_histograms = getelementptr inbounds i8, ptr %mb, i64 208
+  %distance_histograms = getelementptr inbounds nuw i8, ptr %mb, i64 208
   %69 = load ptr, ptr %distance_histograms, align 8
-  %distance_histograms_size47 = getelementptr inbounds i8, ptr %mb, i64 216
+  %distance_histograms_size47 = getelementptr inbounds nuw i8, ptr %mb, i64 216
   %70 = load i64, ptr %distance_histograms_size47, align 8
   %conv48 = zext i32 %0 to i64
   %71 = load i64, ptr %distance_enc7, align 8
@@ -1256,13 +1256,13 @@ BuildAndStoreEntropyCodesCommand.exit:            ; preds = %for.body.i256, %con
   br i1 %cmp.not.i267, label %cond.end.thread.i286, label %cond.true3.i268
 
 cond.end.thread.i286:                             ; preds = %BuildAndStoreEntropyCodesCommand.exit
-  %depths_17.i287 = getelementptr inbounds i8, ptr %call4, i64 2840
+  %depths_17.i287 = getelementptr inbounds nuw i8, ptr %call4, i64 2840
   store ptr null, ptr %depths_17.i287, align 8
   br label %cond.end7.i273
 
 cond.true3.i268:                                  ; preds = %BuildAndStoreEntropyCodesCommand.exit
   %call.i269 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul.i266) #12
-  %depths_.i270 = getelementptr inbounds i8, ptr %call4, i64 2840
+  %depths_.i270 = getelementptr inbounds nuw i8, ptr %call4, i64 2840
   store ptr %call.i269, ptr %depths_.i270, align 8
   %mul4.i271 = shl i64 %mul.i266, 1
   %call5.i272 = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef %mul4.i271) #12
@@ -1271,7 +1271,7 @@ cond.true3.i268:                                  ; preds = %BuildAndStoreEntrop
 cond.end7.i273:                                   ; preds = %cond.true3.i268, %cond.end.thread.i286
   %depths_18.i274 = phi ptr [ %depths_.i270, %cond.true3.i268 ], [ %depths_17.i287, %cond.end.thread.i286 ]
   %cond8.i275 = phi ptr [ %call5.i272, %cond.true3.i268 ], [ null, %cond.end.thread.i286 ]
-  %bits_.i276 = getelementptr inbounds i8, ptr %call4, i64 2848
+  %bits_.i276 = getelementptr inbounds nuw i8, ptr %call4, i64 2848
   store ptr %cond8.i275, ptr %bits_.i276, align 8
   %cmp919.not.i277 = icmp eq i64 %70, 0
   br i1 %cmp919.not.i277, label %BuildAndStoreEntropyCodesDistance.exit, label %for.body.i278
@@ -1296,19 +1296,19 @@ BuildAndStoreEntropyCodesDistance.exit:           ; preds = %for.body.i278, %con
   br i1 %cmp50526.not, label %for.end129, label %for.body52.lr.ph
 
 for.body52.lr.ph:                                 ; preds = %BuildAndStoreEntropyCodesDistance.exit
-  %add.ptr = getelementptr inbounds i8, ptr %arrayidx, i64 256
-  %literal_context_map87 = getelementptr inbounds i8, ptr %mb, i64 144
-  %type_depths.i.i354 = getelementptr inbounds i8, ptr %call4, i64 56
-  %type_bits.i.i355 = getelementptr inbounds i8, ptr %call4, i64 314
-  %length_depths.i.i379 = getelementptr inbounds i8, ptr %call4, i64 830
-  %length_bits.i.i382 = getelementptr inbounds i8, ptr %call4, i64 856
-  %depths_.i322 = getelementptr inbounds i8, ptr %call4, i64 936
-  %distance_context_map122 = getelementptr inbounds i8, ptr %mb, i64 160
-  %type_depths.i.i445 = getelementptr inbounds i8, ptr %call4, i64 1960
-  %type_bits.i.i448 = getelementptr inbounds i8, ptr %call4, i64 2218
-  %length_depths.i.i478 = getelementptr inbounds i8, ptr %call4, i64 2734
-  %length_bits.i.i481 = getelementptr inbounds i8, ptr %call4, i64 2760
-  %depths_.i411 = getelementptr inbounds i8, ptr %call4, i64 2840
+  %add.ptr = getelementptr inbounds nuw i8, ptr %arrayidx, i64 256
+  %literal_context_map87 = getelementptr inbounds nuw i8, ptr %mb, i64 144
+  %type_depths.i.i354 = getelementptr inbounds nuw i8, ptr %call4, i64 56
+  %type_bits.i.i355 = getelementptr inbounds nuw i8, ptr %call4, i64 314
+  %length_depths.i.i379 = getelementptr inbounds nuw i8, ptr %call4, i64 830
+  %length_bits.i.i382 = getelementptr inbounds nuw i8, ptr %call4, i64 856
+  %depths_.i322 = getelementptr inbounds nuw i8, ptr %call4, i64 936
+  %distance_context_map122 = getelementptr inbounds nuw i8, ptr %mb, i64 160
+  %type_depths.i.i445 = getelementptr inbounds nuw i8, ptr %call4, i64 1960
+  %type_bits.i.i448 = getelementptr inbounds nuw i8, ptr %call4, i64 2218
+  %length_depths.i.i478 = getelementptr inbounds nuw i8, ptr %call4, i64 2734
+  %length_bits.i.i481 = getelementptr inbounds nuw i8, ptr %call4, i64 2760
+  %depths_.i411 = getelementptr inbounds nuw i8, ptr %call4, i64 2840
   br label %for.body52
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %for.inc127
@@ -1318,13 +1318,13 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %i.1527 = phi i64 [ 0, %for.body52.lr.ph ], [ %inc128, %for.inc127 ]
   %arrayidx53 = getelementptr inbounds %struct.Command, ptr %commands, i64 %i.1527
   %cmd.sroa.0.0.copyload = load i32, ptr %arrayidx53, align 4
-  %cmd.sroa.5.0.arrayidx53.sroa_idx = getelementptr inbounds i8, ptr %arrayidx53, i64 4
+  %cmd.sroa.5.0.arrayidx53.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx53, i64 4
   %cmd.sroa.5.0.copyload = load i32, ptr %cmd.sroa.5.0.arrayidx53.sroa_idx, align 4
-  %cmd.sroa.9.0.arrayidx53.sroa_idx = getelementptr inbounds i8, ptr %arrayidx53, i64 8
+  %cmd.sroa.9.0.arrayidx53.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx53, i64 8
   %cmd.sroa.9.0.copyload = load i32, ptr %cmd.sroa.9.0.arrayidx53.sroa_idx, align 4
-  %cmd.sroa.10.0.arrayidx53.sroa_idx = getelementptr inbounds i8, ptr %arrayidx53, i64 12
+  %cmd.sroa.10.0.arrayidx53.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx53, i64 12
   %cmd.sroa.10.0.copyload = load i16, ptr %cmd.sroa.10.0.arrayidx53.sroa_idx, align 4
-  %cmd.sroa.14.0.arrayidx53.sroa_idx = getelementptr inbounds i8, ptr %arrayidx53, i64 14
+  %cmd.sroa.14.0.arrayidx53.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx53, i64 14
   %cmd.sroa.14.0.copyload = load i16, ptr %cmd.sroa.14.0.arrayidx53.sroa_idx, align 2
   %conv54 = zext i16 %cmd.sroa.10.0.copyload to i64
   tail call fastcc void @StoreSymbol(ptr noundef nonnull %command_enc6, i64 noundef %conv54, ptr noundef nonnull %storage_ix, ptr noundef %storage)
@@ -1419,27 +1419,27 @@ if.then13.i:                                      ; preds = %if.else10.i
 GetCopyLengthCode.exit:                           ; preds = %if.else10.i, %if.then13.i, %if.then3.i220, %if.then.i226
   %retval.i213.0 = phi i64 [ %conv.i228, %if.then.i226 ], [ %conv9.i, %if.then3.i220 ], [ %conv17.i, %if.then13.i ], [ 23, %if.else10.i ]
   %idxprom.i = and i64 %retval.i201.0, 65535
-  %arrayidx.i229 = getelementptr inbounds [24 x i32], ptr @kBrotliInsExtra, i64 0, i64 %idxprom.i
+  %arrayidx.i229 = getelementptr inbounds nuw [24 x i32], ptr @kBrotliInsExtra, i64 0, i64 %idxprom.i
   %79 = load i32, ptr %arrayidx.i229, align 4
-  %arrayidx.i232 = getelementptr inbounds [24 x i32], ptr @kBrotliInsBase, i64 0, i64 %idxprom.i
+  %arrayidx.i232 = getelementptr inbounds nuw [24 x i32], ptr @kBrotliInsBase, i64 0, i64 %idxprom.i
   %80 = load i32, ptr %arrayidx.i232, align 4
   %sub.i = sub i32 %cmd.sroa.0.0.copyload, %80
   %conv7.i = zext i32 %sub.i to i64
   %idxprom.i233 = and i64 %retval.i213.0, 65535
-  %arrayidx.i234 = getelementptr inbounds [24 x i32], ptr @kBrotliCopyBase, i64 0, i64 %idxprom.i233
+  %arrayidx.i234 = getelementptr inbounds nuw [24 x i32], ptr @kBrotliCopyBase, i64 0, i64 %idxprom.i233
   %81 = load i32, ptr %arrayidx.i234, align 4
   %sub9.i = sub i32 %add.i200, %81
   %conv10.i = zext i32 %sub9.i to i64
   %sh_prom.i = zext nneg i32 %79 to i64
   %shl.i173 = shl i64 %conv10.i, %sh_prom.i
   %or.i174 = or i64 %shl.i173, %conv7.i
-  %arrayidx.i237 = getelementptr inbounds [24 x i32], ptr @kBrotliCopyExtra, i64 0, i64 %idxprom.i233
+  %arrayidx.i237 = getelementptr inbounds nuw [24 x i32], ptr @kBrotliCopyExtra, i64 0, i64 %idxprom.i233
   %82 = load i32, ptr %arrayidx.i237, align 4
   %add.i175 = add i32 %82, %79
   %conv12.i = zext i32 %add.i175 to i64
   %83 = load i64, ptr %storage_ix, align 8
   %shr.i.i = lshr i64 %83, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i
   %84 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %84 to i64
   %and.i.i = and i64 %83, 7
@@ -1511,7 +1511,7 @@ NextBlockTypeCode.exit.i.i:                       ; preds = %cond.false.i.i.i, %
   %conv2.i.i = zext i16 %99 to i64
   %100 = load i64, ptr %storage_ix, align 8
   %shr.i28.i.i = lshr i64 %100, 3
-  %arrayidx.i29.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i28.i.i
+  %arrayidx.i29.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i28.i.i
   %101 = load i8, ptr %arrayidx.i29.i.i, align 1
   %conv.i30.i.i = zext i8 %101 to i64
   %and.i31.i.i = and i64 %100, 7
@@ -1536,7 +1536,7 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %Ne
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.i19.i = getelementptr inbounds [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next.i
+  %arrayidx.i.i19.i = getelementptr inbounds nuw [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next.i
   %103 = load i16, ptr %arrayidx.i.i19.i, align 4
   %conv.i.i20.i = zext i16 %103 to i32
   %cmp6.i.i.not.i = icmp ult i32 %91, %conv.i.i20.i
@@ -1544,20 +1544,20 @@ land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
 
 GetBlockLengthPrefixCode.exit.i:                  ; preds = %land.rhs.i.i.i, %while.cond.i.i.i
   %conv.i16.i = and i64 %indvars.iv.i, 4294967295
-  %arrayidx.i17.i = getelementptr inbounds [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %conv.i16.i
-  %nbits.i.i = getelementptr inbounds i8, ptr %arrayidx.i17.i, i64 2
+  %arrayidx.i17.i = getelementptr inbounds nuw [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %conv.i16.i
+  %nbits.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i17.i, i64 2
   %104 = load i8, ptr %nbits.i.i, align 2
   %105 = load i16, ptr %arrayidx.i17.i, align 4
   %conv3.i.i = zext i16 %105 to i32
   %sub.i.i = sub i32 %91, %conv3.i.i
-  %arrayidx3.i.i = getelementptr inbounds [26 x i8], ptr %length_depths.i.i379, i64 0, i64 %conv.i16.i
+  %arrayidx3.i.i = getelementptr inbounds nuw [26 x i8], ptr %length_depths.i.i379, i64 0, i64 %conv.i16.i
   %106 = load i8, ptr %arrayidx3.i.i, align 1
   %conv4.i.i = zext i8 %106 to i64
-  %arrayidx5.i.i = getelementptr inbounds [26 x i16], ptr %length_bits.i.i382, i64 0, i64 %conv.i16.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [26 x i16], ptr %length_bits.i.i382, i64 0, i64 %conv.i16.i
   %107 = load i16, ptr %arrayidx5.i.i, align 2
   %conv6.i.i = zext i16 %107 to i64
   %shr.i15.i.i = lshr i64 %add.i34.i.i, 3
-  %arrayidx.i16.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i15.i.i
+  %arrayidx.i16.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i15.i.i
   %108 = load i8, ptr %arrayidx.i16.i.i, align 1
   %conv.i17.i.i = zext i8 %108 to i64
   %and.i18.i.i = and i64 %add.i34.i.i, 7
@@ -1570,7 +1570,7 @@ GetBlockLengthPrefixCode.exit.i:                  ; preds = %land.rhs.i.i.i, %wh
   %conv7.i.i = zext i8 %104 to i64
   %conv8.i.i = zext i32 %sub.i.i to i64
   %shr.i.i.i = lshr i64 %add.i21.i.i, 3
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i.i
   %110 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i.i = zext i8 %110 to i64
   %and.i.i.i = and i64 %add.i21.i.i, 7
@@ -1599,7 +1599,7 @@ StoreSymbol.exit:                                 ; preds = %for.body63, %GetBlo
   %conv9.i295 = zext i16 %117 to i64
   %118 = load i64, ptr %storage_ix, align 8
   %shr.i.i296 = lshr i64 %118, 3
-  %arrayidx.i.i297 = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i296
+  %arrayidx.i.i297 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i296
   %119 = load i8, ptr %arrayidx.i.i297, align 1
   %conv.i.i298 = zext i8 %119 to i64
   %and.i.i299 = and i64 %118, 7
@@ -1620,10 +1620,10 @@ for.body76:                                       ; preds = %for.cond73.preheade
   %pos.3517 = phi i64 [ %inc88, %StoreSymbolWithContext.exit ], [ %pos.0528, %for.cond73.preheader ]
   %j70.0516 = phi i64 [ %dec90, %StoreSymbolWithContext.exit ], [ %conv.i172, %for.cond73.preheader ]
   %idxprom77 = zext i8 %prev_byte.addr.2519 to i64
-  %arrayidx78 = getelementptr inbounds i8, ptr %arrayidx, i64 %idxprom77
+  %arrayidx78 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 %idxprom77
   %121 = load i8, ptr %arrayidx78, align 1
   %idxprom80 = zext i8 %prev_byte2.addr.2518 to i64
-  %arrayidx81 = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom80
+  %arrayidx81 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %idxprom80
   %122 = load i8, ptr %arrayidx81, align 1
   %or210 = or i8 %122, %121
   %conv83 = zext i8 %or210 to i64
@@ -1675,7 +1675,7 @@ NextBlockTypeCode.exit.i.i351:                    ; preds = %cond.false.i.i.i347
   %conv2.i.i357 = zext i16 %135 to i64
   %136 = load i64, ptr %storage_ix, align 8
   %shr.i28.i.i358 = lshr i64 %136, 3
-  %arrayidx.i29.i.i359 = getelementptr inbounds i8, ptr %storage, i64 %shr.i28.i.i358
+  %arrayidx.i29.i.i359 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i28.i.i358
   %137 = load i8, ptr %arrayidx.i29.i.i359, align 1
   %conv.i30.i.i360 = zext i8 %137 to i64
   %and.i31.i.i361 = and i64 %136, 7
@@ -1700,7 +1700,7 @@ while.cond.i.i.i369:                              ; preds = %land.rhs.i.i.i372, 
 
 land.rhs.i.i.i372:                                ; preds = %while.cond.i.i.i369
   %indvars.iv.next.i373 = add nuw nsw i64 %indvars.iv.i370, 1
-  %arrayidx.i.i22.i = getelementptr inbounds [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next.i373
+  %arrayidx.i.i22.i = getelementptr inbounds nuw [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next.i373
   %139 = load i16, ptr %arrayidx.i.i22.i, align 4
   %conv.i.i23.i = zext i16 %139 to i32
   %cmp6.i.i.not.i374 = icmp ult i32 %128, %conv.i.i23.i
@@ -1708,20 +1708,20 @@ land.rhs.i.i.i372:                                ; preds = %while.cond.i.i.i369
 
 GetBlockLengthPrefixCode.exit.i375:               ; preds = %land.rhs.i.i.i372, %while.cond.i.i.i369
   %conv.i19.i = and i64 %indvars.iv.i370, 4294967295
-  %arrayidx.i20.i = getelementptr inbounds [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %conv.i19.i
-  %nbits.i.i376 = getelementptr inbounds i8, ptr %arrayidx.i20.i, i64 2
+  %arrayidx.i20.i = getelementptr inbounds nuw [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %conv.i19.i
+  %nbits.i.i376 = getelementptr inbounds nuw i8, ptr %arrayidx.i20.i, i64 2
   %140 = load i8, ptr %nbits.i.i376, align 2
   %141 = load i16, ptr %arrayidx.i20.i, align 4
   %conv3.i.i377 = zext i16 %141 to i32
   %sub.i.i378 = sub i32 %128, %conv3.i.i377
-  %arrayidx3.i.i380 = getelementptr inbounds [26 x i8], ptr %length_depths.i.i379, i64 0, i64 %conv.i19.i
+  %arrayidx3.i.i380 = getelementptr inbounds nuw [26 x i8], ptr %length_depths.i.i379, i64 0, i64 %conv.i19.i
   %142 = load i8, ptr %arrayidx3.i.i380, align 1
   %conv4.i.i381 = zext i8 %142 to i64
-  %arrayidx5.i.i383 = getelementptr inbounds [26 x i16], ptr %length_bits.i.i382, i64 0, i64 %conv.i19.i
+  %arrayidx5.i.i383 = getelementptr inbounds nuw [26 x i16], ptr %length_bits.i.i382, i64 0, i64 %conv.i19.i
   %143 = load i16, ptr %arrayidx5.i.i383, align 2
   %conv6.i.i384 = zext i16 %143 to i64
   %shr.i15.i.i385 = lshr i64 %add.i34.i.i364, 3
-  %arrayidx.i16.i.i386 = getelementptr inbounds i8, ptr %storage, i64 %shr.i15.i.i385
+  %arrayidx.i16.i.i386 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i15.i.i385
   %144 = load i8, ptr %arrayidx.i16.i.i386, align 1
   %conv.i17.i.i387 = zext i8 %144 to i64
   %and.i18.i.i388 = and i64 %add.i34.i.i364, 7
@@ -1734,7 +1734,7 @@ GetBlockLengthPrefixCode.exit.i375:               ; preds = %land.rhs.i.i.i372, 
   %conv7.i.i392 = zext i8 %140 to i64
   %conv8.i.i393 = zext i32 %sub.i.i378 to i64
   %shr.i.i.i394 = lshr i64 %add.i21.i.i391, 3
-  %arrayidx.i.i.i395 = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i.i394
+  %arrayidx.i.i.i395 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i.i394
   %146 = load i8, ptr %arrayidx.i.i.i395, align 1
   %conv.i.i.i396 = zext i8 %146 to i64
   %and.i.i.i397 = and i64 %add.i21.i.i391, 7
@@ -1769,7 +1769,7 @@ StoreSymbolWithContext.exit:                      ; preds = %for.body76, %GetBlo
   %conv12.i325 = zext i16 %156 to i64
   %157 = load i64, ptr %storage_ix, align 8
   %shr.i.i326 = lshr i64 %157, 3
-  %arrayidx.i.i327 = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i326
+  %arrayidx.i.i327 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i326
   %158 = load i8, ptr %arrayidx.i.i327, align 1
   %conv.i.i328 = zext i8 %158 to i64
   %and.i.i329 = and i64 %157, 7
@@ -1877,7 +1877,7 @@ NextBlockTypeCode.exit.i.i442:                    ; preds = %cond.false.i.i.i438
   %conv2.i.i450 = zext i16 %175 to i64
   %176 = load i64, ptr %storage_ix, align 8
   %shr.i28.i.i451 = lshr i64 %176, 3
-  %arrayidx.i29.i.i452 = getelementptr inbounds i8, ptr %storage, i64 %shr.i28.i.i451
+  %arrayidx.i29.i.i452 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i28.i.i451
   %177 = load i8, ptr %arrayidx.i29.i.i452, align 1
   %conv.i30.i.i453 = zext i8 %177 to i64
   %and.i31.i.i454 = and i64 %176, 7
@@ -1902,7 +1902,7 @@ while.cond.i.i.i464:                              ; preds = %land.rhs.i.i.i467, 
 
 land.rhs.i.i.i467:                                ; preds = %while.cond.i.i.i464
   %indvars.iv.next.i468 = add nuw nsw i64 %indvars.iv.i465, 1
-  %arrayidx.i.i22.i469 = getelementptr inbounds [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next.i468
+  %arrayidx.i.i22.i469 = getelementptr inbounds nuw [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next.i468
   %179 = load i16, ptr %arrayidx.i.i22.i469, align 4
   %conv.i.i23.i470 = zext i16 %179 to i32
   %cmp6.i.i.not.i471 = icmp ult i32 %168, %conv.i.i23.i470
@@ -1910,20 +1910,20 @@ land.rhs.i.i.i467:                                ; preds = %while.cond.i.i.i464
 
 GetBlockLengthPrefixCode.exit.i472:               ; preds = %land.rhs.i.i.i467, %while.cond.i.i.i464
   %conv.i19.i473 = and i64 %indvars.iv.i465, 4294967295
-  %arrayidx.i20.i474 = getelementptr inbounds [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %conv.i19.i473
-  %nbits.i.i475 = getelementptr inbounds i8, ptr %arrayidx.i20.i474, i64 2
+  %arrayidx.i20.i474 = getelementptr inbounds nuw [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %conv.i19.i473
+  %nbits.i.i475 = getelementptr inbounds nuw i8, ptr %arrayidx.i20.i474, i64 2
   %180 = load i8, ptr %nbits.i.i475, align 2
   %181 = load i16, ptr %arrayidx.i20.i474, align 4
   %conv3.i.i476 = zext i16 %181 to i32
   %sub.i.i477 = sub i32 %168, %conv3.i.i476
-  %arrayidx3.i.i479 = getelementptr inbounds [26 x i8], ptr %length_depths.i.i478, i64 0, i64 %conv.i19.i473
+  %arrayidx3.i.i479 = getelementptr inbounds nuw [26 x i8], ptr %length_depths.i.i478, i64 0, i64 %conv.i19.i473
   %182 = load i8, ptr %arrayidx3.i.i479, align 1
   %conv4.i.i480 = zext i8 %182 to i64
-  %arrayidx5.i.i482 = getelementptr inbounds [26 x i16], ptr %length_bits.i.i481, i64 0, i64 %conv.i19.i473
+  %arrayidx5.i.i482 = getelementptr inbounds nuw [26 x i16], ptr %length_bits.i.i481, i64 0, i64 %conv.i19.i473
   %183 = load i16, ptr %arrayidx5.i.i482, align 2
   %conv6.i.i483 = zext i16 %183 to i64
   %shr.i15.i.i484 = lshr i64 %add.i34.i.i457, 3
-  %arrayidx.i16.i.i485 = getelementptr inbounds i8, ptr %storage, i64 %shr.i15.i.i484
+  %arrayidx.i16.i.i485 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i15.i.i484
   %184 = load i8, ptr %arrayidx.i16.i.i485, align 1
   %conv.i17.i.i486 = zext i8 %184 to i64
   %and.i18.i.i487 = and i64 %add.i34.i.i457, 7
@@ -1936,7 +1936,7 @@ GetBlockLengthPrefixCode.exit.i472:               ; preds = %land.rhs.i.i.i467, 
   %conv7.i.i491 = zext i8 %180 to i64
   %conv8.i.i492 = zext i32 %sub.i.i477 to i64
   %shr.i.i.i493 = lshr i64 %add.i21.i.i490, 3
-  %arrayidx.i.i.i494 = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i.i493
+  %arrayidx.i.i.i494 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i.i493
   %186 = load i8, ptr %arrayidx.i.i.i494, align 1
   %conv.i.i.i495 = zext i8 %186 to i64
   %and.i.i.i496 = and i64 %add.i21.i.i490, 7
@@ -1971,7 +1971,7 @@ StoreSymbolWithContext.exit501:                   ; preds = %if.else118, %GetBlo
   %conv12.i416 = zext i16 %196 to i64
   %197 = load i64, ptr %storage_ix, align 8
   %shr.i.i417 = lshr i64 %197, 3
-  %arrayidx.i.i418 = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i417
+  %arrayidx.i.i418 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i417
   %198 = load i8, ptr %arrayidx.i.i418, align 1
   %conv.i.i419 = zext i8 %198 to i64
   %and.i.i420 = and i64 %197, 7
@@ -1987,7 +1987,7 @@ if.end123:                                        ; preds = %StoreSymbolWithCont
   %200 = phi i64 [ %add.i.i423, %StoreSymbolWithContext.exit501 ], [ %.pre, %if.then117 ]
   %conv124 = zext nneg i32 %shr112 to i64
   %shr.i = lshr i64 %200, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i
   %201 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %201 to i64
   %and.i = and i64 %200, 7
@@ -2007,21 +2007,21 @@ for.inc127:                                       ; preds = %if.end92, %if.end12
   br i1 %exitcond.not, label %for.end129, label %for.body52, !llvm.loop !35
 
 for.end129:                                       ; preds = %for.inc127, %BuildAndStoreEntropyCodesDistance.exit
-  %depths_.i502 = getelementptr inbounds i8, ptr %call4, i64 2840
+  %depths_.i502 = getelementptr inbounds nuw i8, ptr %call4, i64 2840
   %203 = load ptr, ptr %depths_.i502, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %203) #12
   store ptr null, ptr %depths_.i502, align 8
   %204 = load ptr, ptr %bits_.i276, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %204) #12
   store ptr null, ptr %bits_.i276, align 8
-  %depths_.i504 = getelementptr inbounds i8, ptr %call4, i64 1888
+  %depths_.i504 = getelementptr inbounds nuw i8, ptr %call4, i64 1888
   %205 = load ptr, ptr %depths_.i504, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %205) #12
   store ptr null, ptr %depths_.i504, align 8
   %206 = load ptr, ptr %bits_.i254, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %206) #12
   store ptr null, ptr %bits_.i254, align 8
-  %depths_.i506 = getelementptr inbounds i8, ptr %call4, i64 936
+  %depths_.i506 = getelementptr inbounds nuw i8, ptr %call4, i64 936
   %207 = load ptr, ptr %depths_.i506, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %207) #12
   store ptr null, ptr %depths_.i506, align 8
@@ -2037,7 +2037,7 @@ if.then131:                                       ; preds = %for.end129
   %and.i509 = and i64 %add.i508, 4294967288
   store i64 %and.i509, ptr %storage_ix, align 8
   %shr.i510 = lshr exact i64 %and.i509, 3
-  %arrayidx.i511 = getelementptr inbounds i8, ptr %storage, i64 %shr.i510
+  %arrayidx.i511 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i510
   store i8 0, ptr %arrayidx.i511, align 1
   br label %if.end132
 
@@ -2052,15 +2052,15 @@ define internal fastcc void @BuildAndStoreBlockSwitchEntropyCodes(ptr noundef %s
 entry:
   %type_histo.i = alloca [258 x i32], align 16
   %length_histo.i = alloca [26 x i32], align 16
-  %block_types_ = getelementptr inbounds i8, ptr %self, i64 16
+  %block_types_ = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %block_types_, align 8
-  %block_lengths_ = getelementptr inbounds i8, ptr %self, i64 24
+  %block_lengths_ = getelementptr inbounds nuw i8, ptr %self, i64 24
   %1 = load ptr, ptr %block_lengths_, align 8
-  %num_blocks_ = getelementptr inbounds i8, ptr %self, i64 32
+  %num_blocks_ = getelementptr inbounds nuw i8, ptr %self, i64 32
   %2 = load i64, ptr %num_blocks_, align 8
-  %num_block_types_ = getelementptr inbounds i8, ptr %self, i64 8
+  %num_block_types_ = getelementptr inbounds nuw i8, ptr %self, i64 8
   %3 = load i64, ptr %num_block_types_, align 8
-  %block_split_code_ = getelementptr inbounds i8, ptr %self, i64 40
+  %block_split_code_ = getelementptr inbounds nuw i8, ptr %self, i64 40
   call void @llvm.lifetime.start.p0(i64 1032, ptr nonnull %type_histo.i)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %length_histo.i)
   %add.i = add i64 %3, 2
@@ -2087,7 +2087,7 @@ if.then.i:                                        ; preds = %for.body.i
   %add8.i.i = add nuw nsw i64 %conv.i.i, 2
   %5 = select i1 %cmp3.i.i, i64 0, i64 %add8.i.i
   %cond10.i.i = select i1 %cmp.i.i, i64 1, i64 %5
-  %arrayidx3.i = getelementptr inbounds [258 x i32], ptr %type_histo.i, i64 0, i64 %cond10.i.i
+  %arrayidx3.i = getelementptr inbounds nuw [258 x i32], ptr %type_histo.i, i64 0, i64 %cond10.i.i
   %6 = load i32, ptr %arrayidx3.i, align 4
   %inc.i = add i32 %6, 1
   store i32 %inc.i, ptr %arrayidx3.i, align 4
@@ -2111,7 +2111,7 @@ while.cond.i.i:                                   ; preds = %land.rhs.i.i, %if.e
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.i = getelementptr inbounds [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next.i
+  %arrayidx.i.i = getelementptr inbounds nuw [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next.i
   %8 = load i16, ptr %arrayidx.i.i, align 4
   %conv.i26.i = zext i16 %8 to i32
   %cmp6.i.not.i = icmp ult i32 %7, %conv.i26.i
@@ -2119,7 +2119,7 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
 
 BlockLengthPrefixCode.exit.i:                     ; preds = %land.rhs.i.i, %while.cond.i.i
   %idxprom.i = and i64 %indvars.iv.i, 4294967295
-  %arrayidx6.i = getelementptr inbounds [26 x i32], ptr %length_histo.i, i64 0, i64 %idxprom.i
+  %arrayidx6.i = getelementptr inbounds nuw [26 x i32], ptr %length_histo.i, i64 0, i64 %idxprom.i
   %9 = load i32, ptr %arrayidx6.i, align 4
   %inc7.i = add i32 %9, 1
   store i32 %inc7.i, ptr %arrayidx6.i, align 4
@@ -2135,7 +2135,7 @@ for.end.i:                                        ; preds = %BlockLengthPrefixCo
 StoreVarLenUint8.exit.thread.i:                   ; preds = %for.end.i
   %10 = load i64, ptr %storage_ix, align 8
   %shr.i33.i.i = lshr i64 %10, 3
-  %arrayidx.i34.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i33.i.i
+  %arrayidx.i34.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i33.i.i
   %11 = load i8, ptr %arrayidx.i34.i.i, align 1
   %conv.i35.i.i = zext i8 %11 to i64
   store i64 %conv.i35.i.i, ptr %arrayidx.i34.i.i, align 1
@@ -2148,7 +2148,7 @@ StoreVarLenUint8.exit.i:                          ; preds = %for.end.i
   %conv.i79.i = zext nneg i32 %xor.i.i.i to i64
   %13 = load i64, ptr %storage_ix, align 8
   %shr.i20.i.i = lshr i64 %13, 3
-  %arrayidx.i21.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i20.i.i
+  %arrayidx.i21.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i20.i.i
   %14 = load i8, ptr %arrayidx.i21.i.i, align 1
   %conv.i22.i.i = zext i8 %14 to i64
   %and.i23.i.i = and i64 %13, 7
@@ -2159,7 +2159,7 @@ StoreVarLenUint8.exit.i:                          ; preds = %for.end.i
   %add.i26.i.i = add i64 %15, 1
   store i64 %add.i26.i.i, ptr %storage_ix, align 8
   %shr.i7.i.i = lshr i64 %add.i26.i.i, 3
-  %arrayidx.i8.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i7.i.i
+  %arrayidx.i8.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i7.i.i
   %16 = load i8, ptr %arrayidx.i8.i.i, align 1
   %conv.i9.i.i = zext i8 %16 to i64
   %and.i10.i.i = and i64 %add.i26.i.i, 7
@@ -2172,7 +2172,7 @@ StoreVarLenUint8.exit.i:                          ; preds = %for.end.i
   %shl.neg.i.i = shl nsw i64 -1, %conv.i79.i
   %sub.i80.i = add i64 %shl.neg.i.i, %sub.i
   %shr.i.i81.i = lshr i64 %add.i13.i.i, 3
-  %arrayidx.i.i82.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i81.i
+  %arrayidx.i.i82.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i81.i
   %18 = load i8, ptr %arrayidx.i.i82.i, align 1
   %conv.i.i83.i = zext i8 %18 to i64
   %and.i.i84.i = and i64 %add.i13.i.i, 7
@@ -2186,17 +2186,17 @@ StoreVarLenUint8.exit.i:                          ; preds = %for.end.i
   br i1 %cmp9.i, label %if.then10.i, label %BuildAndStoreBlockSplitCode.exit
 
 if.then10.i:                                      ; preds = %StoreVarLenUint8.exit.i
-  %type_depths.i = getelementptr inbounds i8, ptr %self, i64 56
-  %type_bits.i = getelementptr inbounds i8, ptr %self, i64 314
+  %type_depths.i = getelementptr inbounds nuw i8, ptr %self, i64 56
+  %type_bits.i = getelementptr inbounds nuw i8, ptr %self, i64 314
   call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %type_histo.i, i64 noundef %add.i, i64 noundef %add.i, ptr noundef %tree, ptr noundef nonnull %type_depths.i, ptr noundef nonnull %type_bits.i, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
-  %length_depths.i = getelementptr inbounds i8, ptr %self, i64 830
-  %length_bits.i = getelementptr inbounds i8, ptr %self, i64 856
+  %length_depths.i = getelementptr inbounds nuw i8, ptr %self, i64 830
+  %length_bits.i = getelementptr inbounds nuw i8, ptr %self, i64 856
   call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %length_histo.i, i64 noundef 26, i64 noundef 26, ptr noundef %tree, ptr noundef nonnull %length_depths.i, ptr noundef nonnull %length_bits.i, ptr noundef nonnull %storage_ix, ptr noundef nonnull %storage)
   %20 = load i32, ptr %1, align 4
   %21 = load i8, ptr %0, align 1
   %conv.i39.i.i = zext i8 %21 to i64
   %22 = load i64, ptr %block_split_code_, align 8
-  %second_last_type13.i.i.i = getelementptr inbounds i8, ptr %self, i64 48
+  %second_last_type13.i.i.i = getelementptr inbounds nuw i8, ptr %self, i64 48
   store i64 %22, ptr %second_last_type13.i.i.i, align 8
   store i64 %conv.i39.i.i, ptr %block_split_code_, align 8
   %cmp.i.i35.i = icmp ugt i32 %20, 176
@@ -2214,7 +2214,7 @@ while.cond.i.i.i:                                 ; preds = %land.rhs.i.i.i, %if
 
 land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
-  %arrayidx.i.i41.i = getelementptr inbounds [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next99.i
+  %arrayidx.i.i41.i = getelementptr inbounds nuw [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next99.i
   %23 = load i16, ptr %arrayidx.i.i41.i, align 4
   %conv.i.i42.i = zext i16 %23 to i32
   %cmp6.i.i.not.i = icmp ult i32 %20, %conv.i.i42.i
@@ -2222,21 +2222,21 @@ land.rhs.i.i.i:                                   ; preds = %while.cond.i.i.i
 
 GetBlockLengthPrefixCode.exit.i:                  ; preds = %land.rhs.i.i.i, %while.cond.i.i.i
   %conv.i38.i = and i64 %indvars.iv98.i, 4294967295
-  %arrayidx.i39.i = getelementptr inbounds [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %conv.i38.i
-  %nbits.i.i = getelementptr inbounds i8, ptr %arrayidx.i39.i, i64 2
+  %arrayidx.i39.i = getelementptr inbounds nuw [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %conv.i38.i
+  %nbits.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i39.i, i64 2
   %24 = load i8, ptr %nbits.i.i, align 2
   %25 = load i16, ptr %arrayidx.i39.i, align 4
   %conv3.i.i = zext i16 %25 to i32
   %sub.i.i = sub i32 %20, %conv3.i.i
-  %arrayidx3.i.i = getelementptr inbounds [26 x i8], ptr %length_depths.i, i64 0, i64 %conv.i38.i
+  %arrayidx3.i.i = getelementptr inbounds nuw [26 x i8], ptr %length_depths.i, i64 0, i64 %conv.i38.i
   %26 = load i8, ptr %arrayidx3.i.i, align 1
   %conv4.i.i = zext i8 %26 to i64
-  %arrayidx5.i.i = getelementptr inbounds [26 x i16], ptr %length_bits.i, i64 0, i64 %conv.i38.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [26 x i16], ptr %length_bits.i, i64 0, i64 %conv.i38.i
   %27 = load i16, ptr %arrayidx5.i.i, align 2
   %conv6.i.i = zext i16 %27 to i64
   %28 = load i64, ptr %storage_ix, align 8
   %shr.i15.i.i = lshr i64 %28, 3
-  %arrayidx.i16.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i15.i.i
+  %arrayidx.i16.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i15.i.i
   %29 = load i8, ptr %arrayidx.i16.i.i, align 1
   %conv.i17.i.i = zext i8 %29 to i64
   %and.i18.i.i = and i64 %28, 7
@@ -2249,7 +2249,7 @@ GetBlockLengthPrefixCode.exit.i:                  ; preds = %land.rhs.i.i.i, %wh
   %conv7.i32.i = zext i8 %24 to i64
   %conv8.i.i = zext i32 %sub.i.i to i64
   %shr.i.i.i = lshr i64 %add.i21.i.i, 3
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i.i
   %31 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i.i = zext i8 %31 to i64
   %and.i.i.i = and i64 %add.i21.i.i, 7
@@ -2281,7 +2281,7 @@ entry:
 StoreVarLenUint8.exit.thread:                     ; preds = %entry
   %0 = load i64, ptr %storage_ix, align 8
   %shr.i33.i = lshr i64 %0, 3
-  %arrayidx.i34.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i33.i
+  %arrayidx.i34.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i33.i
   %1 = load i8, ptr %arrayidx.i34.i, align 1
   %conv.i35.i = zext i8 %1 to i64
   store i64 %conv.i35.i, ptr %arrayidx.i34.i, align 1
@@ -2294,7 +2294,7 @@ StoreVarLenUint8.exit:                            ; preds = %entry
   %conv.i71 = zext nneg i32 %xor.i.i to i64
   %3 = load i64, ptr %storage_ix, align 8
   %shr.i20.i = lshr i64 %3, 3
-  %arrayidx.i21.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i20.i
+  %arrayidx.i21.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i20.i
   %4 = load i8, ptr %arrayidx.i21.i, align 1
   %conv.i22.i = zext i8 %4 to i64
   %and.i23.i = and i64 %3, 7
@@ -2305,7 +2305,7 @@ StoreVarLenUint8.exit:                            ; preds = %entry
   %add.i26.i = add i64 %5, 1
   store i64 %add.i26.i, ptr %storage_ix, align 8
   %shr.i7.i = lshr i64 %add.i26.i, 3
-  %arrayidx.i8.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i7.i
+  %arrayidx.i8.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i7.i
   %6 = load i8, ptr %arrayidx.i8.i, align 1
   %conv.i9.i = zext i8 %6 to i64
   %and.i10.i = and i64 %add.i26.i, 7
@@ -2318,7 +2318,7 @@ StoreVarLenUint8.exit:                            ; preds = %entry
   %shl.neg.i = shl nsw i64 -1, %conv.i71
   %sub.i = add i64 %shl.neg.i, %sub
   %shr.i.i = lshr i64 %add.i13.i, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i
   %8 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %8 to i64
   %and.i.i = and i64 %add.i13.i, 7
@@ -2338,13 +2338,13 @@ if.then:                                          ; preds = %StoreVarLenUint8.ex
   %sub2 = xor i32 %notmask, -1
   %conv = zext nneg i32 %sub2 to i64
   %add = add i64 %sub1, %num_types
-  %depths4 = getelementptr inbounds i8, ptr %arena, i64 1088
-  %bits6 = getelementptr inbounds i8, ptr %arena, i64 1360
+  %depths4 = getelementptr inbounds nuw i8, ptr %arena, i64 1088
+  %bits6 = getelementptr inbounds nuw i8, ptr %arena, i64 1360
   %mul = shl i64 %add, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %arena, i8 0, i64 %mul, i1 false)
   %10 = load i64, ptr %storage_ix, align 8
   %shr.i91 = lshr i64 %10, 3
-  %arrayidx.i92 = getelementptr inbounds i8, ptr %storage, i64 %shr.i91
+  %arrayidx.i92 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i91
   %11 = load i8, ptr %arrayidx.i92, align 1
   %conv.i93 = zext i8 %11 to i64
   %and.i94 = and i64 %10, 7
@@ -2356,7 +2356,7 @@ if.then:                                          ; preds = %StoreVarLenUint8.ex
   store i64 %add.i97, ptr %storage_ix, align 8
   %sub8 = add nsw i64 %context_bits, -2
   %shr.i78 = lshr i64 %add.i97, 3
-  %arrayidx.i79 = getelementptr inbounds i8, ptr %storage, i64 %shr.i78
+  %arrayidx.i79 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i78
   %13 = load i8, ptr %arrayidx.i79, align 1
   %conv.i80 = zext i8 %13 to i64
   %and.i81 = and i64 %add.i97, 7
@@ -2402,7 +2402,7 @@ for.body17:                                       ; preds = %for.end, %for.body1
   %17 = load i16, ptr %arrayidx24, align 2
   %conv25 = zext i16 %17 to i64
   %shr.i65 = lshr i64 %15, 3
-  %arrayidx.i66 = getelementptr inbounds i8, ptr %storage, i64 %shr.i65
+  %arrayidx.i66 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i65
   %18 = load i8, ptr %arrayidx.i66, align 1
   %conv.i67 = zext i8 %18 to i64
   %and.i68 = and i64 %15, 7
@@ -2417,7 +2417,7 @@ for.body17:                                       ; preds = %for.end, %for.body1
   %21 = load i16, ptr %arrayidx28, align 2
   %conv29 = zext i16 %21 to i64
   %shr.i52 = lshr i64 %add.i71, 3
-  %arrayidx.i53 = getelementptr inbounds i8, ptr %storage, i64 %shr.i52
+  %arrayidx.i53 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i52
   %22 = load i8, ptr %arrayidx.i53, align 1
   %conv.i54 = zext i8 %22 to i64
   %and.i55 = and i64 %add.i71, 7
@@ -2428,7 +2428,7 @@ for.body17:                                       ; preds = %for.end, %for.body1
   %add.i58 = add i64 %23, %conv27
   store i64 %add.i58, ptr %storage_ix, align 8
   %shr.i39 = lshr i64 %add.i58, 3
-  %arrayidx.i40 = getelementptr inbounds i8, ptr %storage, i64 %shr.i39
+  %arrayidx.i40 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i39
   %24 = load i8, ptr %arrayidx.i40, align 1
   %conv.i41 = zext i8 %24 to i64
   %and.i42 = and i64 %add.i58, 7
@@ -2444,7 +2444,7 @@ for.body17:                                       ; preds = %for.end, %for.body1
 
 for.end32:                                        ; preds = %for.body17
   %shr.i = lshr i64 %add.i45, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i
   %26 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %26 to i64
   %and.i = and i64 %add.i45, 7
@@ -2467,8 +2467,8 @@ if.end:                                           ; preds = %if.end.sink.split, 
 define internal fastcc void @EncodeContextMap(ptr noundef %m, ptr noundef %arena, ptr nocapture noundef readonly %context_map, i64 noundef range(i64 1, 0) %context_map_size, i64 noundef %num_clusters, ptr noundef %tree, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) unnamed_addr #0 {
 entry:
   %mtf.i = alloca [256 x i8], align 16
-  %depths2 = getelementptr inbounds i8, ptr %arena, i64 1088
-  %bits4 = getelementptr inbounds i8, ptr %arena, i64 1360
+  %depths2 = getelementptr inbounds nuw i8, ptr %arena, i64 1088
+  %bits4 = getelementptr inbounds nuw i8, ptr %arena, i64 1360
   %sub = add i64 %num_clusters, -1
   %cmp.i = icmp eq i64 %sub, 0
   br i1 %cmp.i, label %StoreVarLenUint8.exit.thread, label %cond.true
@@ -2476,7 +2476,7 @@ entry:
 StoreVarLenUint8.exit.thread:                     ; preds = %entry
   %0 = load i64, ptr %storage_ix, align 8
   %shr.i33.i = lshr i64 %0, 3
-  %arrayidx.i34.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i33.i
+  %arrayidx.i34.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i33.i
   %1 = load i8, ptr %arrayidx.i34.i, align 1
   %conv.i35.i = zext i8 %1 to i64
   store i64 %conv.i35.i, ptr %arrayidx.i34.i, align 1
@@ -2492,7 +2492,7 @@ cond.true:                                        ; preds = %entry
   %conv.i62 = zext nneg i32 %xor.i.i to i64
   %4 = load i64, ptr %storage_ix, align 8
   %shr.i20.i = lshr i64 %4, 3
-  %arrayidx.i21.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i20.i
+  %arrayidx.i21.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i20.i
   %5 = load i8, ptr %arrayidx.i21.i, align 1
   %conv.i22.i = zext i8 %5 to i64
   %and.i23.i = and i64 %4, 7
@@ -2503,7 +2503,7 @@ cond.true:                                        ; preds = %entry
   %add.i26.i = add i64 %6, 1
   store i64 %add.i26.i, ptr %storage_ix, align 8
   %shr.i7.i = lshr i64 %add.i26.i, 3
-  %arrayidx.i8.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i7.i
+  %arrayidx.i8.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i7.i
   %7 = load i8, ptr %arrayidx.i8.i, align 1
   %conv.i9.i = zext i8 %7 to i64
   %and.i10.i = and i64 %add.i26.i, 7
@@ -2516,7 +2516,7 @@ cond.true:                                        ; preds = %entry
   %shl.neg.i = shl nsw i64 -1, %conv.i62
   %sub.i = add i64 %shl.neg.i, %sub
   %shr.i.i = lshr i64 %add.i13.i, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %9 to i64
   %and.i.i = and i64 %add.i13.i, 7
@@ -2552,7 +2552,7 @@ for.body.i:                                       ; preds = %cond.true, %for.bod
 for.body10.i:                                     ; preds = %for.body10.i, %for.cond7.preheader.i
   %i.137.i = phi i64 [ 0, %for.cond7.preheader.i ], [ %inc14.i, %for.body10.i ]
   %conv11.i = trunc i64 %i.137.i to i8
-  %arrayidx12.i = getelementptr inbounds [256 x i8], ptr %mtf.i, i64 0, i64 %i.137.i
+  %arrayidx12.i = getelementptr inbounds nuw [256 x i8], ptr %mtf.i, i64 0, i64 %i.137.i
   store i8 %conv11.i, ptr %arrayidx12.i, align 1, !noalias !39
   %inc14.i = add nuw nsw i64 %i.137.i, 1
   %exitcond42.not.i = icmp eq i64 %i.137.i, %conv.i63
@@ -2562,8 +2562,8 @@ for.end15.i:                                      ; preds = %for.body10.i
   %add.i64 = add i32 %max_value.0.lcssa.i, 1
   %conv16.i = zext i32 %add.i64 to i64
   %cmp5.not.i.i = icmp eq i32 %add.i64, 0
-  %arrayidx.i2030.i = getelementptr inbounds i8, ptr %mtf.i, i64 %conv16.i
-  %scevgep.i.i = getelementptr inbounds i8, ptr %mtf.i, i64 1
+  %arrayidx.i2030.i = getelementptr inbounds nuw i8, ptr %mtf.i, i64 %conv16.i
+  %scevgep.i.i = getelementptr inbounds nuw i8, ptr %mtf.i, i64 1
   br i1 %cmp5.not.i.i, label %for.end15.split.us.i, label %for.body20.i
 
 for.end15.split.us.i:                             ; preds = %for.end15.i
@@ -2579,7 +2579,7 @@ for.body20.i:                                     ; preds = %for.end15.i, %MoveT
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body20.i
   %i.06.i.i = phi i64 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.body20.i ]
-  %arrayidx.i.i65 = getelementptr inbounds i8, ptr %mtf.i, i64 %i.06.i.i
+  %arrayidx.i.i65 = getelementptr inbounds nuw i8, ptr %mtf.i, i64 %i.06.i.i
   %14 = load i8, ptr %arrayidx.i.i65, align 1, !noalias !39
   %cmp2.i.i = icmp eq i8 %14, %conv22.i
   br i1 %cmp2.i.i, label %IndexOf.exit.i, label %for.inc.i.i
@@ -2790,7 +2790,7 @@ for.body:                                         ; preds = %RunLengthCodeZeros.
   %35 = load i32, ptr %arrayidx, align 4
   %and = and i32 %35, 511
   %idxprom = zext nneg i32 %and to i64
-  %arrayidx8 = getelementptr inbounds i32, ptr %arena, i64 %idxprom
+  %arrayidx8 = getelementptr inbounds nuw i32, ptr %arena, i64 %idxprom
   %36 = load i32, ptr %arrayidx8, align 4
   %inc = add i32 %36, 1
   store i32 %inc, ptr %arrayidx8, align 4
@@ -2803,7 +2803,7 @@ for.end:                                          ; preds = %for.body, %RunLengt
   %conv = zext i1 %cmp10.not to i64
   %37 = load i64, ptr %storage_ix, align 8
   %shr.i89 = lshr i64 %37, 3
-  %arrayidx.i90 = getelementptr inbounds i8, ptr %storage, i64 %shr.i89
+  %arrayidx.i90 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i89
   %38 = load i8, ptr %arrayidx.i90, align 1
   %conv.i91 = zext i8 %38 to i64
   %and.i92 = and i64 %37, 7
@@ -2819,7 +2819,7 @@ if.then13:                                        ; preds = %for.end
   %sub14 = add nsw i32 %26, -1
   %conv15 = zext i32 %sub14 to i64
   %shr.i76 = lshr i64 %add.i95, 3
-  %arrayidx.i77 = getelementptr inbounds i8, ptr %storage, i64 %shr.i76
+  %arrayidx.i77 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i76
   %40 = load i8, ptr %arrayidx.i77, align 1
   %conv.i78 = zext i8 %40 to i64
   %and.i79 = and i64 %add.i95, 7
@@ -2845,14 +2845,14 @@ for.body23:                                       ; preds = %if.end16, %for.inc4
   %43 = load i32, ptr %arrayidx24, align 4
   %and25 = and i32 %43, 511
   %idxprom27 = zext nneg i32 %and25 to i64
-  %arrayidx28 = getelementptr inbounds i8, ptr %depths2, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %depths2, i64 %idxprom27
   %44 = load i8, ptr %arrayidx28, align 1
   %conv29 = zext i8 %44 to i64
-  %arrayidx31 = getelementptr inbounds i16, ptr %bits4, i64 %idxprom27
+  %arrayidx31 = getelementptr inbounds nuw i16, ptr %bits4, i64 %idxprom27
   %45 = load i16, ptr %arrayidx31, align 2
   %conv32 = zext i16 %45 to i64
   %shr.i63 = lshr i64 %42, 3
-  %arrayidx.i64 = getelementptr inbounds i8, ptr %storage, i64 %shr.i63
+  %arrayidx.i64 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i63
   %46 = load i8, ptr %arrayidx.i64, align 1
   %conv.i65 = zext i8 %46 to i64
   %and.i66 = and i64 %42, 7
@@ -2870,7 +2870,7 @@ if.then37:                                        ; preds = %for.body23
   %shr = lshr i32 %43, 9
   %conv39 = zext nneg i32 %shr to i64
   %shr.i50 = lshr i64 %add.i69, 3
-  %arrayidx.i51 = getelementptr inbounds i8, ptr %storage, i64 %shr.i50
+  %arrayidx.i51 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i50
   %49 = load i8, ptr %arrayidx.i51, align 1
   %conv.i52 = zext i8 %49 to i64
   %and.i53 = and i64 %add.i69, 7
@@ -2891,7 +2891,7 @@ for.inc41:                                        ; preds = %for.body23, %if.the
 for.end43:                                        ; preds = %for.inc41, %if.end16
   %52 = phi i64 [ %.pre113, %if.end16 ], [ %51, %for.inc41 ]
   %shr.i = lshr i64 %52, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i
   %53 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %53 to i64
   %and.i = and i64 %52, 7
@@ -2913,21 +2913,21 @@ declare hidden void @BrotliFree(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @StoreSymbol(ptr nocapture noundef %self, i64 noundef range(i64 0, 65536) %symbol, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) unnamed_addr #4 {
 entry:
-  %block_len_ = getelementptr inbounds i8, ptr %self, i64 920
+  %block_len_ = getelementptr inbounds nuw i8, ptr %self, i64 920
   %0 = load i64, ptr %block_len_, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %block_ix_ = getelementptr inbounds i8, ptr %self, i64 912
+  %block_ix_ = getelementptr inbounds nuw i8, ptr %self, i64 912
   %1 = load i64, ptr %block_ix_, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %block_ix_, align 8
-  %block_lengths_ = getelementptr inbounds i8, ptr %self, i64 24
+  %block_lengths_ = getelementptr inbounds nuw i8, ptr %self, i64 24
   %2 = load ptr, ptr %block_lengths_, align 8
   %arrayidx = getelementptr inbounds i32, ptr %2, i64 %inc
   %3 = load i32, ptr %arrayidx, align 4
-  %block_types_ = getelementptr inbounds i8, ptr %self, i64 16
+  %block_types_ = getelementptr inbounds nuw i8, ptr %self, i64 16
   %4 = load ptr, ptr %block_types_, align 8
   %arrayidx1 = getelementptr inbounds i8, ptr %4, i64 %inc
   %5 = load i8, ptr %arrayidx1, align 1
@@ -2936,16 +2936,16 @@ if.then:                                          ; preds = %entry
   %conv3 = zext i8 %5 to i64
   %6 = load i64, ptr %self, align 8
   %mul = mul i64 %6, %conv3
-  %entropy_ix_ = getelementptr inbounds i8, ptr %self, i64 928
+  %entropy_ix_ = getelementptr inbounds nuw i8, ptr %self, i64 928
   store i64 %mul, ptr %entropy_ix_, align 8
-  %block_split_code_ = getelementptr inbounds i8, ptr %self, i64 40
+  %block_split_code_ = getelementptr inbounds nuw i8, ptr %self, i64 40
   %7 = load i64, ptr %block_split_code_, align 8
   %add.i40.i = add i64 %7, 1
   %cmp.i.i = icmp eq i64 %add.i40.i, %conv3
   br i1 %cmp.i.i, label %NextBlockTypeCode.exit.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.then
-  %second_last_type.i.i = getelementptr inbounds i8, ptr %self, i64 48
+  %second_last_type.i.i = getelementptr inbounds nuw i8, ptr %self, i64 48
   %8 = load i64, ptr %second_last_type.i.i, align 8
   %cmp3.i.i = icmp eq i64 %8, %conv3
   %add8.i.i = add nuw nsw i64 %conv3, 2
@@ -2954,20 +2954,20 @@ cond.false.i.i:                                   ; preds = %if.then
 
 NextBlockTypeCode.exit.i:                         ; preds = %if.then, %cond.false.i.i
   %cond10.i.i = phi i64 [ %9, %cond.false.i.i ], [ 1, %if.then ]
-  %second_last_type13.i.i = getelementptr inbounds i8, ptr %self, i64 48
+  %second_last_type13.i.i = getelementptr inbounds nuw i8, ptr %self, i64 48
   store i64 %7, ptr %second_last_type13.i.i, align 8
   store i64 %conv3, ptr %block_split_code_, align 8
-  %type_depths.i = getelementptr inbounds i8, ptr %self, i64 56
+  %type_depths.i = getelementptr inbounds nuw i8, ptr %self, i64 56
   %arrayidx.i10 = getelementptr inbounds [258 x i8], ptr %type_depths.i, i64 0, i64 %cond10.i.i
   %10 = load i8, ptr %arrayidx.i10, align 1
   %conv.i11 = zext i8 %10 to i64
-  %type_bits.i = getelementptr inbounds i8, ptr %self, i64 314
+  %type_bits.i = getelementptr inbounds nuw i8, ptr %self, i64 314
   %arrayidx1.i = getelementptr inbounds [258 x i16], ptr %type_bits.i, i64 0, i64 %cond10.i.i
   %11 = load i16, ptr %arrayidx1.i, align 2
   %conv2.i = zext i16 %11 to i64
   %12 = load i64, ptr %storage_ix, align 8
   %shr.i28.i = lshr i64 %12, 3
-  %arrayidx.i29.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i28.i
+  %arrayidx.i29.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i28.i
   %13 = load i8, ptr %arrayidx.i29.i, align 1
   %conv.i30.i = zext i8 %13 to i64
   %and.i31.i = and i64 %12, 7
@@ -2992,7 +2992,7 @@ while.cond.i.i:                                   ; preds = %land.rhs.i.i, %Next
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx.i.i19 = getelementptr inbounds [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next
+  %arrayidx.i.i19 = getelementptr inbounds nuw [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %indvars.iv.next
   %15 = load i16, ptr %arrayidx.i.i19, align 4
   %conv.i.i20 = zext i16 %15 to i32
   %cmp6.i.i.not = icmp ult i32 %3, %conv.i.i20
@@ -3000,22 +3000,22 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
 
 GetBlockLengthPrefixCode.exit:                    ; preds = %while.cond.i.i, %land.rhs.i.i
   %conv.i16 = and i64 %indvars.iv, 4294967295
-  %arrayidx.i17 = getelementptr inbounds [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %conv.i16
-  %nbits.i = getelementptr inbounds i8, ptr %arrayidx.i17, i64 2
+  %arrayidx.i17 = getelementptr inbounds nuw [26 x %struct.BrotliPrefixCodeRange], ptr @_kBrotliPrefixCodeRanges, i64 0, i64 %conv.i16
+  %nbits.i = getelementptr inbounds nuw i8, ptr %arrayidx.i17, i64 2
   %16 = load i8, ptr %nbits.i, align 2
   %17 = load i16, ptr %arrayidx.i17, align 4
   %conv3.i = zext i16 %17 to i32
   %sub.i = sub i32 %3, %conv3.i
-  %length_depths.i = getelementptr inbounds i8, ptr %self, i64 830
-  %arrayidx3.i = getelementptr inbounds [26 x i8], ptr %length_depths.i, i64 0, i64 %conv.i16
+  %length_depths.i = getelementptr inbounds nuw i8, ptr %self, i64 830
+  %arrayidx3.i = getelementptr inbounds nuw [26 x i8], ptr %length_depths.i, i64 0, i64 %conv.i16
   %18 = load i8, ptr %arrayidx3.i, align 1
   %conv4.i = zext i8 %18 to i64
-  %length_bits.i = getelementptr inbounds i8, ptr %self, i64 856
-  %arrayidx5.i = getelementptr inbounds [26 x i16], ptr %length_bits.i, i64 0, i64 %conv.i16
+  %length_bits.i = getelementptr inbounds nuw i8, ptr %self, i64 856
+  %arrayidx5.i = getelementptr inbounds nuw [26 x i16], ptr %length_bits.i, i64 0, i64 %conv.i16
   %19 = load i16, ptr %arrayidx5.i, align 2
   %conv6.i = zext i16 %19 to i64
   %shr.i15.i = lshr i64 %add.i34.i, 3
-  %arrayidx.i16.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i15.i
+  %arrayidx.i16.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i15.i
   %20 = load i8, ptr %arrayidx.i16.i, align 1
   %conv.i17.i = zext i8 %20 to i64
   %and.i18.i = and i64 %add.i34.i, 7
@@ -3028,7 +3028,7 @@ GetBlockLengthPrefixCode.exit:                    ; preds = %while.cond.i.i, %la
   %conv7.i = zext i8 %16 to i64
   %conv8.i = zext i32 %sub.i to i64
   %shr.i.i = lshr i64 %add.i21.i, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i
   %22 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %22 to i64
   %and.i.i = and i64 %add.i21.i, 7
@@ -3045,22 +3045,22 @@ if.end:                                           ; preds = %GetBlockLengthPrefi
   %24 = phi i64 [ %.pre, %GetBlockLengthPrefixCode.exit ], [ %0, %entry ]
   %dec = add i64 %24, -1
   store i64 %dec, ptr %block_len_, align 8
-  %entropy_ix_5 = getelementptr inbounds i8, ptr %self, i64 928
+  %entropy_ix_5 = getelementptr inbounds nuw i8, ptr %self, i64 928
   %25 = load i64, ptr %entropy_ix_5, align 8
   %add = add i64 %25, %symbol
-  %depths_ = getelementptr inbounds i8, ptr %self, i64 936
+  %depths_ = getelementptr inbounds nuw i8, ptr %self, i64 936
   %26 = load ptr, ptr %depths_, align 8
   %arrayidx6 = getelementptr inbounds i8, ptr %26, i64 %add
   %27 = load i8, ptr %arrayidx6, align 1
   %conv7 = zext i8 %27 to i64
-  %bits_ = getelementptr inbounds i8, ptr %self, i64 944
+  %bits_ = getelementptr inbounds nuw i8, ptr %self, i64 944
   %28 = load ptr, ptr %bits_, align 8
   %arrayidx8 = getelementptr inbounds i16, ptr %28, i64 %add
   %29 = load i16, ptr %arrayidx8, align 2
   %conv9 = zext i16 %29 to i64
   %30 = load i64, ptr %storage_ix, align 8
   %shr.i = lshr i64 %30, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i
   %31 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %31 to i64
   %and.i = and i64 %30, 7
@@ -3077,12 +3077,12 @@ if.end:                                           ; preds = %GetBlockLengthPrefi
 define hidden void @BrotliStoreMetaBlockTrivial(ptr noundef %m, ptr nocapture noundef readonly %input, i64 noundef %start_pos, i64 noundef %length, i64 noundef %mask, i32 noundef %is_last, ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %commands, i64 noundef %n_commands, ptr nocapture noundef %storage_ix, ptr nocapture noundef %storage) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 20640) #12
-  %alphabet_size_max = getelementptr inbounds i8, ptr %params, i64 64
+  %alphabet_size_max = getelementptr inbounds nuw i8, ptr %params, i64 64
   %0 = load i32, ptr %alphabet_size_max, align 8
   %conv.i54 = sext i32 %is_last to i64
   %1 = load i64, ptr %storage_ix, align 8
   %shr.i49.i = lshr i64 %1, 3
-  %arrayidx.i50.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i49.i
+  %arrayidx.i50.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i49.i
   %2 = load i8, ptr %arrayidx.i50.i, align 1
   %conv.i51.i = zext i8 %2 to i64
   %and.i52.i = and i64 %1, 7
@@ -3097,7 +3097,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i36.i = lshr i64 %add.i55.i, 3
-  %arrayidx.i37.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i36.i
+  %arrayidx.i37.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i36.i
   %4 = load i8, ptr %arrayidx.i37.i, align 1
   %conv.i38.i = zext i8 %4 to i64
   store i64 %conv.i38.i, ptr %arrayidx.i37.i, align 1
@@ -3123,7 +3123,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %mul.i.i = shl nuw nsw i64 %div.i.i, 2
   %sub11.i.i = add i64 %length, -1
   %shr.i23.i = lshr i64 %6, 3
-  %arrayidx.i24.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i23.i
+  %arrayidx.i24.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i23.i
   %11 = load i8, ptr %arrayidx.i24.i, align 1
   %conv.i25.i = zext i8 %11 to i64
   %and.i26.i = and i64 %6, 7
@@ -3134,7 +3134,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %add.i29.i = add i64 %12, 2
   store i64 %add.i29.i, ptr %storage_ix, align 8
   %shr.i10.i = lshr i64 %add.i29.i, 3
-  %arrayidx.i11.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i10.i
+  %arrayidx.i11.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i10.i
   %13 = load i8, ptr %arrayidx.i11.i, align 1
   %conv.i12.i = zext i8 %13 to i64
   %and.i13.i = and i64 %add.i29.i, 7
@@ -3148,7 +3148,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %shr.i.i = lshr i64 %add.i16.i, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i
   %15 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %15 to i64
   store i64 %conv.i.i, ptr %arrayidx.i.i, align 1
@@ -3158,18 +3158,18 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %StoreCompressedMetaBlockHeader.exit
 
 StoreCompressedMetaBlockHeader.exit:              ; preds = %if.end.i, %if.then2.i
-  %total_count_.i = getelementptr inbounds i8, ptr %call, i64 1024
-  %bit_cost_.i = getelementptr inbounds i8, ptr %call, i64 1032
+  %total_count_.i = getelementptr inbounds nuw i8, ptr %call, i64 1024
+  %bit_cost_.i = getelementptr inbounds nuw i8, ptr %call, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %call, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i, align 8
-  %cmd_histo = getelementptr inbounds i8, ptr %call, i64 1040
-  %total_count_.i35 = getelementptr inbounds i8, ptr %call, i64 3856
-  %bit_cost_.i36 = getelementptr inbounds i8, ptr %call, i64 3864
+  %cmd_histo = getelementptr inbounds nuw i8, ptr %call, i64 1040
+  %total_count_.i35 = getelementptr inbounds nuw i8, ptr %call, i64 3856
+  %bit_cost_.i36 = getelementptr inbounds nuw i8, ptr %call, i64 3864
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %cmd_histo, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i36, align 8
-  %dist_histo = getelementptr inbounds i8, ptr %call, i64 3872
-  %total_count_.i38 = getelementptr inbounds i8, ptr %call, i64 6048
-  %bit_cost_.i39 = getelementptr inbounds i8, ptr %call, i64 6056
+  %dist_histo = getelementptr inbounds nuw i8, ptr %call, i64 3872
+  %total_count_.i38 = getelementptr inbounds nuw i8, ptr %call, i64 6048
+  %bit_cost_.i39 = getelementptr inbounds nuw i8, ptr %call, i64 6056
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %dist_histo, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i39, align 8
   %cmp15.not.i = icmp eq i64 %n_commands, 0
@@ -3181,14 +3181,14 @@ for.body.i:                                       ; preds = %StoreCompressedMeta
   %pos.016.i = phi i64 [ %add.i58, %for.inc17.i ], [ %start_pos, %StoreCompressedMetaBlockHeader.exit ]
   %arrayidx.i55 = getelementptr inbounds %struct.Command, ptr %commands, i64 %i.017.i
   %cmd.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i55, align 4
-  %cmd.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i55, i64 4
+  %cmd.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i55, i64 4
   %cmd.sroa.2.0.copyload.i = load i32, ptr %cmd.sroa.2.0.arrayidx.sroa_idx.i, align 4
-  %cmd.sroa.410.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i55, i64 12
+  %cmd.sroa.410.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i55, i64 12
   %cmd.sroa.410.0.copyload.i = load i16, ptr %cmd.sroa.410.0.arrayidx.sroa_idx.i, align 4
-  %cmd.sroa.6.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i55, i64 14
+  %cmd.sroa.6.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i55, i64 14
   %cmd.sroa.6.0.copyload.i = load i16, ptr %cmd.sroa.6.0.arrayidx.sroa_idx.i, align 2
   %conv.i56 = zext i16 %cmd.sroa.410.0.copyload.i to i64
-  %arrayidx.i.i57 = getelementptr inbounds [704 x i32], ptr %cmd_histo, i64 0, i64 %conv.i56
+  %arrayidx.i.i57 = getelementptr inbounds nuw [704 x i32], ptr %cmd_histo, i64 0, i64 %conv.i56
   %17 = load i32, ptr %arrayidx.i.i57, align 4
   %inc.i.i = add i32 %17, 1
   store i32 %inc.i.i, ptr %arrayidx.i.i57, align 4
@@ -3210,7 +3210,7 @@ for.body5.i:                                      ; preds = %for.body5.i, %for.b
   %arrayidx6.i = getelementptr inbounds i8, ptr %input, i64 %and.i
   %20 = load i8, ptr %arrayidx6.i, align 1
   %conv7.i = zext i8 %20 to i64
-  %arrayidx.i26.i = getelementptr inbounds [256 x i32], ptr %call, i64 0, i64 %conv7.i
+  %arrayidx.i26.i = getelementptr inbounds nuw [256 x i32], ptr %call, i64 0, i64 %conv7.i
   %21 = load i32, ptr %arrayidx.i26.i, align 4
   %inc.i27.i = add i32 %21, 1
   store i32 %inc.i27.i, ptr %arrayidx.i26.i, align 4
@@ -3235,7 +3235,7 @@ for.end.i:                                        ; preds = %for.body5.i, %for.b
 if.then.i59:                                      ; preds = %for.end.i
   %22 = and i16 %cmd.sroa.6.0.copyload.i, 1023
   %conv16.i = zext nneg i16 %22 to i64
-  %arrayidx.i32.i = getelementptr inbounds [544 x i32], ptr %dist_histo, i64 0, i64 %conv16.i
+  %arrayidx.i32.i = getelementptr inbounds nuw [544 x i32], ptr %dist_histo, i64 0, i64 %conv16.i
   %23 = load i32, ptr %arrayidx.i32.i, align 4
   %inc.i33.i = add i32 %23, 1
   store i32 %inc.i33.i, ptr %arrayidx.i32.i, align 4
@@ -3252,23 +3252,23 @@ for.inc17.i:                                      ; preds = %if.then.i59, %for.e
 BuildHistograms.exit:                             ; preds = %for.inc17.i, %StoreCompressedMetaBlockHeader.exit
   %25 = load i64, ptr %storage_ix, align 8
   %shr.i = lshr i64 %25, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i
   %26 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %26 to i64
   store i64 %conv.i, ptr %arrayidx.i, align 1
   %27 = load i64, ptr %storage_ix, align 8
   %add.i = add i64 %27, 13
   store i64 %add.i, ptr %storage_ix, align 8
-  %tree = getelementptr inbounds i8, ptr %call, i64 9364
-  %lit_depth = getelementptr inbounds i8, ptr %call, i64 6064
-  %lit_bits = getelementptr inbounds i8, ptr %call, i64 6320
+  %tree = getelementptr inbounds nuw i8, ptr %call, i64 9364
+  %lit_depth = getelementptr inbounds nuw i8, ptr %call, i64 6064
+  %lit_bits = getelementptr inbounds nuw i8, ptr %call, i64 6320
   tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %call, i64 noundef 256, i64 noundef 256, ptr noundef nonnull %tree, ptr noundef nonnull %lit_depth, ptr noundef nonnull %lit_bits, ptr noundef nonnull %storage_ix, ptr noundef %storage)
-  %cmd_depth = getelementptr inbounds i8, ptr %call, i64 6832
-  %cmd_bits = getelementptr inbounds i8, ptr %call, i64 7536
+  %cmd_depth = getelementptr inbounds nuw i8, ptr %call, i64 6832
+  %cmd_bits = getelementptr inbounds nuw i8, ptr %call, i64 7536
   tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %cmd_histo, i64 noundef 704, i64 noundef 704, ptr noundef nonnull %tree, ptr noundef nonnull %cmd_depth, ptr noundef nonnull %cmd_bits, ptr noundef nonnull %storage_ix, ptr noundef %storage)
   %conv = zext i32 %0 to i64
-  %dist_depth = getelementptr inbounds i8, ptr %call, i64 8944
-  %dist_bits = getelementptr inbounds i8, ptr %call, i64 9084
+  %dist_depth = getelementptr inbounds nuw i8, ptr %call, i64 8944
+  %dist_bits = getelementptr inbounds nuw i8, ptr %call, i64 9084
   tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %dist_histo, i64 noundef 140, i64 noundef %conv, ptr noundef nonnull %tree, ptr noundef nonnull %dist_depth, ptr noundef nonnull %dist_bits, ptr noundef nonnull %storage_ix, ptr noundef %storage)
   tail call fastcc void @StoreDataWithHuffmanCodes(ptr noundef %input, i64 noundef %start_pos, i64 noundef %mask, ptr noundef %commands, i64 noundef %n_commands, ptr noundef nonnull %lit_depth, ptr noundef nonnull %lit_bits, ptr noundef nonnull %cmd_depth, ptr noundef nonnull %cmd_bits, ptr noundef nonnull %dist_depth, ptr noundef nonnull %dist_bits, ptr noundef nonnull %storage_ix, ptr noundef %storage)
   tail call void @BrotliFree(ptr noundef %m, ptr noundef nonnull %call) #12
@@ -3280,7 +3280,7 @@ if.then:                                          ; preds = %BuildHistograms.exi
   %and.i61 = and i64 %add.i60, 4294967288
   store i64 %and.i61, ptr %storage_ix, align 8
   %shr.i62 = lshr exact i64 %and.i61, 3
-  %arrayidx.i63 = getelementptr inbounds i8, ptr %storage, i64 %shr.i62
+  %arrayidx.i63 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i62
   store i8 0, ptr %arrayidx.i63, align 1
   br label %if.end
 
@@ -3309,7 +3309,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %arrayidx3 = getelementptr inbounds [4 x i64], ptr %s4, i64 0, i64 %count.042
+  %arrayidx3 = getelementptr inbounds nuw [4 x i64], ptr %s4, i64 0, i64 %count.042
   store i64 %i.043, ptr %arrayidx3, align 8
   br label %if.end6
 
@@ -3340,7 +3340,7 @@ for.end:                                          ; preds = %for.inc, %if.else, 
 if.then12:                                        ; preds = %for.end
   %3 = load i64, ptr %storage_ix, align 8
   %shr.i29 = lshr i64 %3, 3
-  %arrayidx.i30 = getelementptr inbounds i8, ptr %storage, i64 %shr.i29
+  %arrayidx.i30 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i29
   %4 = load i8, ptr %arrayidx.i30, align 1
   %conv.i31 = zext i8 %4 to i64
   %and.i32 = and i64 %3, 7
@@ -3352,7 +3352,7 @@ if.then12:                                        ; preds = %for.end
   store i64 %add.i35, ptr %storage_ix, align 8
   %6 = load i64, ptr %s4, align 16
   %shr.i = lshr i64 %add.i35, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %7 to i64
   %and.i = and i64 %add.i35, 7
@@ -3378,7 +3378,7 @@ if.end18:                                         ; preds = %for.end
 if.then20:                                        ; preds = %if.end18
   %9 = load i64, ptr %storage_ix, align 8
   %shr.i177.i = lshr i64 %9, 3
-  %arrayidx.i178.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i177.i
+  %arrayidx.i178.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i177.i
   %10 = load i8, ptr %arrayidx.i178.i, align 1
   %conv.i179.i = zext i8 %10 to i64
   %and.i180.i = and i64 %9, 7
@@ -3390,7 +3390,7 @@ if.then20:                                        ; preds = %if.end18
   store i64 %add.i183.i, ptr %storage_ix, align 8
   %sub.i = add nsw i64 %count.0.lcssa, -1
   %shr.i164.i = lshr i64 %add.i183.i, 3
-  %arrayidx.i165.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i164.i
+  %arrayidx.i165.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i164.i
   %12 = load i8, ptr %arrayidx.i165.i, align 1
   %conv.i166.i = zext i8 %12 to i64
   %and.i167.i = and i64 %add.i183.i, 7
@@ -3413,14 +3413,14 @@ for.body.i:                                       ; preds = %for.cond.loopexit.i
   br i1 %cmp2109.i, label %for.body3.lr.ph.i, label %for.cond.loopexit.i
 
 for.body3.lr.ph.i:                                ; preds = %for.body.i
-  %arrayidx5.i = getelementptr inbounds i64, ptr %s4, i64 %i.0111.i
+  %arrayidx5.i = getelementptr inbounds nuw i64, ptr %s4, i64 %i.0111.i
   %.pre.i = load i64, ptr %arrayidx5.i, align 8
   br label %for.body3.i
 
 for.body3.i:                                      ; preds = %for.inc.i, %for.body3.lr.ph.i
   %14 = phi i64 [ %.pre.i, %for.body3.lr.ph.i ], [ %18, %for.inc.i ]
   %j.0110.i = phi i64 [ %add.i39, %for.body3.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i40 = getelementptr inbounds i64, ptr %s4, i64 %j.0110.i
+  %arrayidx.i40 = getelementptr inbounds nuw i64, ptr %s4, i64 %j.0110.i
   %15 = load i64, ptr %arrayidx.i40, align 8
   %arrayidx4.i = getelementptr inbounds i8, ptr %depth, i64 %15
   %16 = load i8, ptr %arrayidx4.i, align 1
@@ -3443,7 +3443,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
 for.end16.i:                                      ; preds = %for.cond.loopexit.i
   %19 = load i64, ptr %s4, align 16
   %shr.i86.i = lshr i64 %add.i170.i, 3
-  %arrayidx.i87.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i86.i
+  %arrayidx.i87.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i86.i
   %20 = load i8, ptr %arrayidx.i87.i, align 1
   %conv.i88.i = zext i8 %20 to i64
   %and.i89.i = and i64 %add.i170.i, 7
@@ -3453,10 +3453,10 @@ for.end16.i:                                      ; preds = %for.cond.loopexit.i
   %21 = load i64, ptr %storage_ix, align 8
   %add.i92.i = add i64 %21, %max_bits.0.lcssa
   store i64 %add.i92.i, ptr %storage_ix, align 8
-  %arrayidx30.i = getelementptr inbounds i8, ptr %s4, i64 8
+  %arrayidx30.i = getelementptr inbounds nuw i8, ptr %s4, i64 8
   %22 = load i64, ptr %arrayidx30.i, align 8
   %shr.i73.i = lshr i64 %add.i92.i, 3
-  %arrayidx.i74.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i73.i
+  %arrayidx.i74.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i73.i
   %23 = load i8, ptr %arrayidx.i74.i, align 1
   %conv.i75.i = zext i8 %23 to i64
   %and.i76.i = and i64 %add.i92.i, 7
@@ -3472,15 +3472,15 @@ for.end16.i:                                      ; preds = %for.cond.loopexit.i
   ]
 
 if.then24.i:                                      ; preds = %for.end16.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %s4, i64 16
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %s4, i64 16
   %25 = load i64, ptr %arrayidx27.i, align 16
   br label %if.end40.sink.split.i
 
 if.else28.i:                                      ; preds = %for.end16.i
-  %arrayidx31.i = getelementptr inbounds i8, ptr %s4, i64 16
+  %arrayidx31.i = getelementptr inbounds nuw i8, ptr %s4, i64 16
   %26 = load i64, ptr %arrayidx31.i, align 16
   %shr.i60.i = lshr i64 %add.i79.i, 3
-  %arrayidx.i61.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i60.i
+  %arrayidx.i61.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i60.i
   %27 = load i8, ptr %arrayidx.i61.i, align 1
   %conv.i62.i = zext i8 %27 to i64
   %and.i63.i = and i64 %add.i79.i, 7
@@ -3490,10 +3490,10 @@ if.else28.i:                                      ; preds = %for.end16.i
   %28 = load i64, ptr %storage_ix, align 8
   %add.i66.i = add i64 %28, %max_bits.0.lcssa
   store i64 %add.i66.i, ptr %storage_ix, align 8
-  %arrayidx32.i = getelementptr inbounds i8, ptr %s4, i64 24
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %s4, i64 24
   %29 = load i64, ptr %arrayidx32.i, align 8
   %shr.i47.i = lshr i64 %add.i66.i, 3
-  %arrayidx.i48.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i47.i
+  %arrayidx.i48.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i47.i
   %30 = load i8, ptr %arrayidx.i48.i, align 1
   %conv.i49.i = zext i8 %30 to i64
   %and.i50.i = and i64 %add.i66.i, 7
@@ -3514,7 +3514,7 @@ if.end40.sink.split.i:                            ; preds = %if.else28.i, %if.th
   %.sink.i = phi i64 [ %25, %if.then24.i ], [ %conv38.i, %if.else28.i ]
   %max_bits.sink.i = phi i64 [ %max_bits.0.lcssa, %if.then24.i ], [ 1, %if.else28.i ]
   %shr.i99.i = lshr i64 %add.i79.sink115.i, 3
-  %arrayidx.i100.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i99.i
+  %arrayidx.i100.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i99.i
   %33 = load i8, ptr %arrayidx.i100.i, align 1
   %conv.i101.i = zext i8 %33 to i64
   %and.i102.i = and i64 %add.i79.sink115.i, 7
@@ -3550,23 +3550,23 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.074 = phi i64 [ %inc34, %for.inc33 ], [ 0, %for.body.preheader ]
   %arrayidx = getelementptr inbounds %struct.Command, ptr %commands, i64 %i.074
   %cmd.sroa.0.0.copyload = load i32, ptr %arrayidx, align 4
-  %cmd.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %cmd.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %cmd.sroa.4.0.copyload = load i32, ptr %cmd.sroa.4.0.arrayidx.sroa_idx, align 4
-  %cmd.sroa.8.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %cmd.sroa.8.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %cmd.sroa.8.0.copyload = load i32, ptr %cmd.sroa.8.0.arrayidx.sroa_idx, align 4
-  %cmd.sroa.9.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %cmd.sroa.9.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %cmd.sroa.9.0.copyload = load i16, ptr %cmd.sroa.9.0.arrayidx.sroa_idx, align 4
-  %cmd.sroa.11.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 14
+  %cmd.sroa.11.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 14
   %cmd.sroa.11.0.copyload = load i16, ptr %cmd.sroa.11.0.arrayidx.sroa_idx, align 2
   %conv = zext i16 %cmd.sroa.9.0.copyload to i64
-  %arrayidx1 = getelementptr inbounds i8, ptr %cmd_depth, i64 %conv
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %cmd_depth, i64 %conv
   %1 = load i8, ptr %arrayidx1, align 1
   %conv2 = zext i8 %1 to i64
-  %arrayidx3 = getelementptr inbounds i16, ptr %cmd_bits, i64 %conv
+  %arrayidx3 = getelementptr inbounds nuw i16, ptr %cmd_bits, i64 %conv
   %2 = load i16, ptr %arrayidx3, align 2
   %conv4 = zext i16 %2 to i64
   %shr.i68 = lshr i64 %0, 3
-  %arrayidx.i69 = getelementptr inbounds i8, ptr %storage, i64 %shr.i68
+  %arrayidx.i69 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i68
   %3 = load i8, ptr %arrayidx.i69, align 1
   %conv.i70 = zext i8 %3 to i64
   %and.i71 = and i64 %0, 7
@@ -3667,26 +3667,26 @@ if.then13.i:                                      ; preds = %if.else10.i
 GetCopyLengthCode.exit:                           ; preds = %if.else10.i, %if.then13.i, %if.then3.i114, %if.then.i120
   %retval.i107.0 = phi i64 [ %conv.i122, %if.then.i120 ], [ %conv9.i, %if.then3.i114 ], [ %conv17.i, %if.then13.i ], [ 23, %if.else10.i ]
   %idxprom.i = and i64 %retval.i.0, 65535
-  %arrayidx.i123 = getelementptr inbounds [24 x i32], ptr @kBrotliInsExtra, i64 0, i64 %idxprom.i
+  %arrayidx.i123 = getelementptr inbounds nuw [24 x i32], ptr @kBrotliInsExtra, i64 0, i64 %idxprom.i
   %9 = load i32, ptr %arrayidx.i123, align 4
-  %arrayidx.i126 = getelementptr inbounds [24 x i32], ptr @kBrotliInsBase, i64 0, i64 %idxprom.i
+  %arrayidx.i126 = getelementptr inbounds nuw [24 x i32], ptr @kBrotliInsBase, i64 0, i64 %idxprom.i
   %10 = load i32, ptr %arrayidx.i126, align 4
   %sub.i = sub i32 %cmd.sroa.0.0.copyload, %10
   %conv7.i = zext i32 %sub.i to i64
   %idxprom.i127 = and i64 %retval.i107.0, 65535
-  %arrayidx.i128 = getelementptr inbounds [24 x i32], ptr @kBrotliCopyBase, i64 0, i64 %idxprom.i127
+  %arrayidx.i128 = getelementptr inbounds nuw [24 x i32], ptr @kBrotliCopyBase, i64 0, i64 %idxprom.i127
   %11 = load i32, ptr %arrayidx.i128, align 4
   %sub9.i = sub i32 %add.i98, %11
   %conv10.i = zext i32 %sub9.i to i64
   %sh_prom.i = zext nneg i32 %9 to i64
   %shl.i76 = shl i64 %conv10.i, %sh_prom.i
   %or.i77 = or i64 %shl.i76, %conv7.i
-  %arrayidx.i131 = getelementptr inbounds [24 x i32], ptr @kBrotliCopyExtra, i64 0, i64 %idxprom.i127
+  %arrayidx.i131 = getelementptr inbounds nuw [24 x i32], ptr @kBrotliCopyExtra, i64 0, i64 %idxprom.i127
   %12 = load i32, ptr %arrayidx.i131, align 4
   %add.i78 = add i32 %12, %9
   %conv12.i = zext i32 %add.i78 to i64
   %shr.i.i = lshr i64 %add.i74, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i
   %13 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %13 to i64
   %and.i.i = and i64 %add.i74, 7
@@ -3707,14 +3707,14 @@ for.body9:                                        ; preds = %GetCopyLengthCode.e
   %arrayidx10 = getelementptr inbounds i8, ptr %input, i64 %and
   %16 = load i8, ptr %arrayidx10, align 1
   %idxprom = zext i8 %16 to i64
-  %arrayidx11 = getelementptr inbounds i8, ptr %lit_depth, i64 %idxprom
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %lit_depth, i64 %idxprom
   %17 = load i8, ptr %arrayidx11, align 1
   %conv12 = zext i8 %17 to i64
-  %arrayidx14 = getelementptr inbounds i16, ptr %lit_bits, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds nuw i16, ptr %lit_bits, i64 %idxprom
   %18 = load i16, ptr %arrayidx14, align 2
   %conv15 = zext i16 %18 to i64
   %shr.i55 = lshr i64 %15, 3
-  %arrayidx.i56 = getelementptr inbounds i8, ptr %storage, i64 %shr.i55
+  %arrayidx.i56 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i55
   %19 = load i8, ptr %arrayidx.i56, align 1
   %conv.i57 = zext i8 %19 to i64
   %and.i58 = and i64 %15, 7
@@ -3744,14 +3744,14 @@ if.then:                                          ; preds = %for.end
   %and23 = and i32 %conv22, 1023
   %conv24 = zext nneg i32 %and23 to i64
   %shr = lshr i32 %conv22, 10
-  %arrayidx27 = getelementptr inbounds i8, ptr %dist_depth, i64 %conv24
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %dist_depth, i64 %conv24
   %22 = load i8, ptr %arrayidx27, align 1
   %conv28 = zext i8 %22 to i64
-  %arrayidx29 = getelementptr inbounds i16, ptr %dist_bits, i64 %conv24
+  %arrayidx29 = getelementptr inbounds nuw i16, ptr %dist_bits, i64 %conv24
   %23 = load i16, ptr %arrayidx29, align 2
   %conv30 = zext i16 %23 to i64
   %shr.i42 = lshr i64 %21, 3
-  %arrayidx.i43 = getelementptr inbounds i8, ptr %storage, i64 %shr.i42
+  %arrayidx.i43 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i42
   %24 = load i8, ptr %arrayidx.i43, align 1
   %conv.i44 = zext i8 %24 to i64
   %and.i45 = and i64 %21, 7
@@ -3764,7 +3764,7 @@ if.then:                                          ; preds = %for.end
   %conv31 = zext nneg i32 %shr to i64
   %conv32 = zext i32 %cmd.sroa.8.0.copyload to i64
   %shr.i = lshr i64 %add.i48, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i
   %26 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %26 to i64
   %and.i = and i64 %add.i48, 7
@@ -3791,12 +3791,12 @@ define hidden void @BrotliStoreMetaBlockFast(ptr noundef %m, ptr nocapture nound
 entry:
   %histogram = alloca [256 x i32], align 16
   %call = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 20640) #12
-  %alphabet_size_max = getelementptr inbounds i8, ptr %params, i64 64
+  %alphabet_size_max = getelementptr inbounds nuw i8, ptr %params, i64 64
   %0 = load i32, ptr %alphabet_size_max, align 8
   %conv.i102 = sext i32 %is_last to i64
   %1 = load i64, ptr %storage_ix, align 8
   %shr.i49.i = lshr i64 %1, 3
-  %arrayidx.i50.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i49.i
+  %arrayidx.i50.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i49.i
   %2 = load i8, ptr %arrayidx.i50.i, align 1
   %conv.i51.i = zext i8 %2 to i64
   %and.i52.i = and i64 %1, 7
@@ -3811,7 +3811,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i36.i = lshr i64 %add.i55.i, 3
-  %arrayidx.i37.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i36.i
+  %arrayidx.i37.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i36.i
   %4 = load i8, ptr %arrayidx.i37.i, align 1
   %conv.i38.i = zext i8 %4 to i64
   store i64 %conv.i38.i, ptr %arrayidx.i37.i, align 1
@@ -3837,7 +3837,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %mul.i.i = shl nuw nsw i64 %div.i.i, 2
   %sub11.i.i = add i64 %length, -1
   %shr.i23.i = lshr i64 %6, 3
-  %arrayidx.i24.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i23.i
+  %arrayidx.i24.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i23.i
   %11 = load i8, ptr %arrayidx.i24.i, align 1
   %conv.i25.i = zext i8 %11 to i64
   %and.i26.i = and i64 %6, 7
@@ -3848,7 +3848,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %add.i29.i = add i64 %12, 2
   store i64 %add.i29.i, ptr %storage_ix, align 8
   %shr.i10.i = lshr i64 %add.i29.i, 3
-  %arrayidx.i11.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i10.i
+  %arrayidx.i11.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i10.i
   %13 = load i8, ptr %arrayidx.i11.i, align 1
   %conv.i12.i = zext i8 %13 to i64
   %and.i13.i = and i64 %add.i29.i, 7
@@ -3862,7 +3862,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   %shr.i.i103 = lshr i64 %add.i16.i, 3
-  %arrayidx.i.i104 = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i103
+  %arrayidx.i.i104 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i103
   %15 = load i8, ptr %arrayidx.i.i104, align 1
   %conv.i.i105 = zext i8 %15 to i64
   store i64 %conv.i.i105, ptr %arrayidx.i.i104, align 1
@@ -3874,7 +3874,7 @@ if.then2.i:                                       ; preds = %if.end.i
 StoreCompressedMetaBlockHeader.exit:              ; preds = %if.end.i, %if.then2.i
   %17 = phi i64 [ %add.i16.i, %if.end.i ], [ %add.i.i106, %if.then2.i ]
   %shr.i = lshr i64 %17, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i
   %18 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %18 to i64
   store i64 %conv.i, ptr %arrayidx.i, align 1
@@ -3893,9 +3893,9 @@ for.body:                                         ; preds = %if.then, %for.end
   %i.0122 = phi i64 [ %inc20, %for.end ], [ 0, %if.then ]
   %num_literals.0121 = phi i64 [ %add15, %for.end ], [ 0, %if.then ]
   %pos.0120 = phi i64 [ %add18, %for.end ], [ %start_pos, %if.then ]
-  %arrayidx = getelementptr inbounds %struct.Command, ptr %commands, i64 %i.0122
+  %arrayidx = getelementptr inbounds nuw %struct.Command, ptr %commands, i64 %i.0122
   %cmd.sroa.0.0.copyload = load i32, ptr %arrayidx, align 4
-  %cmd.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %cmd.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %cmd.sroa.3.0.copyload = load i32, ptr %cmd.sroa.3.0.arrayidx.sroa_idx, align 4
   %conv5 = zext i32 %cmd.sroa.0.0.copyload to i64
   %cmp7.not116 = icmp eq i32 %cmd.sroa.0.0.copyload, 0
@@ -3908,7 +3908,7 @@ for.body9:                                        ; preds = %for.body, %for.body
   %arrayidx10 = getelementptr inbounds i8, ptr %input, i64 %and
   %20 = load i8, ptr %arrayidx10, align 1
   %idxprom = zext i8 %20 to i64
-  %arrayidx11 = getelementptr inbounds [256 x i32], ptr %histogram, i64 0, i64 %idxprom
+  %arrayidx11 = getelementptr inbounds nuw [256 x i32], ptr %histogram, i64 0, i64 %idxprom
   %21 = load i32, ptr %arrayidx11, align 4
   %inc = add i32 %21, 1
   store i32 %inc, ptr %arrayidx11, align 4
@@ -3929,13 +3929,13 @@ for.end:                                          ; preds = %for.body9, %for.bod
 
 for.end21:                                        ; preds = %for.end, %if.then
   %num_literals.0.lcssa = phi i64 [ 0, %if.then ], [ %add15, %for.end ]
-  %tree = getelementptr inbounds i8, ptr %call, i64 9364
-  %lit_depth = getelementptr inbounds i8, ptr %call, i64 6064
-  %lit_bits = getelementptr inbounds i8, ptr %call, i64 6320
+  %tree = getelementptr inbounds nuw i8, ptr %call, i64 9364
+  %lit_depth = getelementptr inbounds nuw i8, ptr %call, i64 6064
+  %lit_bits = getelementptr inbounds nuw i8, ptr %call, i64 6320
   call void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef nonnull %tree, ptr noundef nonnull %histogram, i64 noundef %num_literals.0.lcssa, i64 noundef 8, ptr noundef nonnull %lit_depth, ptr noundef nonnull %lit_bits, ptr noundef nonnull %storage_ix, ptr noundef %storage)
   %22 = load i64, ptr %storage_ix, align 8
   %shr.i7.i = lshr i64 %22, 3
-  %arrayidx.i8.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i7.i
+  %arrayidx.i8.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i7.i
   %23 = load i8, ptr %arrayidx.i8.i, align 1
   %conv.i9.i = zext i8 %23 to i64
   %and.i10.i = and i64 %22, 7
@@ -3946,7 +3946,7 @@ for.end21:                                        ; preds = %for.end, %if.then
   %add.i13.i = add i64 %24, 56
   store i64 %add.i13.i, ptr %storage_ix, align 8
   %shr.i.i = lshr i64 %add.i13.i, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i
   %25 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %25 to i64
   store i64 %conv.i.i, ptr %arrayidx.i.i, align 1
@@ -3954,7 +3954,7 @@ for.end21:                                        ; preds = %for.end, %if.then
   %add.i.i = add i64 %26, 3
   store i64 %add.i.i, ptr %storage_ix, align 8
   %shr.i.i91 = lshr i64 %add.i.i, 3
-  %arrayidx.i.i92 = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i91
+  %arrayidx.i.i92 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i91
   %27 = load i8, ptr %arrayidx.i.i92, align 1
   %conv.i.i93 = zext i8 %27 to i64
   %and.i.i94 = and i64 %add.i.i, 7
@@ -3970,18 +3970,18 @@ for.end21:                                        ; preds = %for.end, %if.then
 for.body.lr.ph.i:                                 ; preds = %StoreCompressedMetaBlockHeader.exit
   %sub = add i32 %0, -1
   %29 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %sub, i1 true)
-  %total_count_.i = getelementptr inbounds i8, ptr %call, i64 1024
-  %bit_cost_.i = getelementptr inbounds i8, ptr %call, i64 1032
+  %total_count_.i = getelementptr inbounds nuw i8, ptr %call, i64 1024
+  %bit_cost_.i = getelementptr inbounds nuw i8, ptr %call, i64 1032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %call, i8 0, i64 1032, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i, align 8
-  %cmd_histo = getelementptr inbounds i8, ptr %call, i64 1040
-  %total_count_.i77 = getelementptr inbounds i8, ptr %call, i64 3856
-  %bit_cost_.i78 = getelementptr inbounds i8, ptr %call, i64 3864
+  %cmd_histo = getelementptr inbounds nuw i8, ptr %call, i64 1040
+  %total_count_.i77 = getelementptr inbounds nuw i8, ptr %call, i64 3856
+  %bit_cost_.i78 = getelementptr inbounds nuw i8, ptr %call, i64 3864
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %cmd_histo, i8 0, i64 2824, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i78, align 8
-  %dist_histo = getelementptr inbounds i8, ptr %call, i64 3872
-  %total_count_.i80 = getelementptr inbounds i8, ptr %call, i64 6048
-  %bit_cost_.i81 = getelementptr inbounds i8, ptr %call, i64 6056
+  %dist_histo = getelementptr inbounds nuw i8, ptr %call, i64 3872
+  %total_count_.i80 = getelementptr inbounds nuw i8, ptr %call, i64 6048
+  %bit_cost_.i81 = getelementptr inbounds nuw i8, ptr %call, i64 6056
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %dist_histo, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %bit_cost_.i81, align 8
   br label %for.body.i
@@ -3992,14 +3992,14 @@ for.body.i:                                       ; preds = %for.inc17.i, %for.b
   %pos.016.i = phi i64 [ %start_pos, %for.body.lr.ph.i ], [ %add.i110, %for.inc17.i ]
   %arrayidx.i107 = getelementptr inbounds %struct.Command, ptr %commands, i64 %i.017.i
   %cmd.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i107, align 4
-  %cmd.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i107, i64 4
+  %cmd.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i107, i64 4
   %cmd.sroa.2.0.copyload.i = load i32, ptr %cmd.sroa.2.0.arrayidx.sroa_idx.i, align 4
-  %cmd.sroa.410.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i107, i64 12
+  %cmd.sroa.410.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i107, i64 12
   %cmd.sroa.410.0.copyload.i = load i16, ptr %cmd.sroa.410.0.arrayidx.sroa_idx.i, align 4
-  %cmd.sroa.6.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i107, i64 14
+  %cmd.sroa.6.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx.i107, i64 14
   %cmd.sroa.6.0.copyload.i = load i16, ptr %cmd.sroa.6.0.arrayidx.sroa_idx.i, align 2
   %conv.i108 = zext i16 %cmd.sroa.410.0.copyload.i to i64
-  %arrayidx.i.i109 = getelementptr inbounds [704 x i32], ptr %cmd_histo, i64 0, i64 %conv.i108
+  %arrayidx.i.i109 = getelementptr inbounds nuw [704 x i32], ptr %cmd_histo, i64 0, i64 %conv.i108
   %30 = load i32, ptr %arrayidx.i.i109, align 4
   %inc.i.i = add i32 %30, 1
   store i32 %inc.i.i, ptr %arrayidx.i.i109, align 4
@@ -4021,7 +4021,7 @@ for.body5.i:                                      ; preds = %for.body5.i, %for.b
   %arrayidx6.i = getelementptr inbounds i8, ptr %input, i64 %and.i
   %33 = load i8, ptr %arrayidx6.i, align 1
   %conv7.i = zext i8 %33 to i64
-  %arrayidx.i26.i = getelementptr inbounds [256 x i32], ptr %call, i64 0, i64 %conv7.i
+  %arrayidx.i26.i = getelementptr inbounds nuw [256 x i32], ptr %call, i64 0, i64 %conv7.i
   %34 = load i32, ptr %arrayidx.i26.i, align 4
   %inc.i27.i = add i32 %34, 1
   store i32 %inc.i27.i, ptr %arrayidx.i26.i, align 4
@@ -4046,7 +4046,7 @@ for.end.i:                                        ; preds = %for.body5.i, %for.b
 if.then.i111:                                     ; preds = %for.end.i
   %36 = and i16 %cmd.sroa.6.0.copyload.i, 1023
   %conv16.i = zext nneg i16 %36 to i64
-  %arrayidx.i32.i = getelementptr inbounds [544 x i32], ptr %dist_histo, i64 0, i64 %conv16.i
+  %arrayidx.i32.i = getelementptr inbounds nuw [544 x i32], ptr %dist_histo, i64 0, i64 %conv16.i
   %37 = load i32, ptr %arrayidx.i32.i, align 4
   %inc.i33.i = add i32 %37, 1
   store i32 %inc.i33.i, ptr %arrayidx.i32.i, align 4
@@ -4062,18 +4062,18 @@ for.inc17.i:                                      ; preds = %if.then.i111, %for.
 
 BuildHistograms.exit:                             ; preds = %for.inc17.i
   %add = sub nuw nsw i32 32, %29
-  %tree32 = getelementptr inbounds i8, ptr %call, i64 9364
-  %lit_depth37 = getelementptr inbounds i8, ptr %call, i64 6064
-  %lit_bits39 = getelementptr inbounds i8, ptr %call, i64 6320
+  %tree32 = getelementptr inbounds nuw i8, ptr %call, i64 9364
+  %lit_depth37 = getelementptr inbounds nuw i8, ptr %call, i64 6064
+  %lit_bits39 = getelementptr inbounds nuw i8, ptr %call, i64 6320
   tail call void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef nonnull %tree32, ptr noundef nonnull %call, i64 noundef %35, i64 noundef 8, ptr noundef nonnull %lit_depth37, ptr noundef nonnull %lit_bits39, ptr noundef nonnull %storage_ix, ptr noundef %storage)
   %39 = load i64, ptr %total_count_.i77, align 8
-  %cmd_depth = getelementptr inbounds i8, ptr %call, i64 6832
-  %cmd_bits = getelementptr inbounds i8, ptr %call, i64 7536
+  %cmd_depth = getelementptr inbounds nuw i8, ptr %call, i64 6832
+  %cmd_bits = getelementptr inbounds nuw i8, ptr %call, i64 7536
   tail call void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef nonnull %tree32, ptr noundef nonnull %cmd_histo, i64 noundef %39, i64 noundef 10, ptr noundef nonnull %cmd_depth, ptr noundef nonnull %cmd_bits, ptr noundef nonnull %storage_ix, ptr noundef %storage)
   %40 = load i64, ptr %total_count_.i80, align 8
   %conv57 = zext nneg i32 %add to i64
-  %dist_depth = getelementptr inbounds i8, ptr %call, i64 8944
-  %dist_bits = getelementptr inbounds i8, ptr %call, i64 9084
+  %dist_depth = getelementptr inbounds nuw i8, ptr %call, i64 8944
+  %dist_bits = getelementptr inbounds nuw i8, ptr %call, i64 9084
   tail call void @BrotliBuildAndStoreHuffmanTreeFast(ptr noundef nonnull %tree32, ptr noundef nonnull %dist_histo, i64 noundef %40, i64 noundef %conv57, ptr noundef nonnull %dist_depth, ptr noundef nonnull %dist_bits, ptr noundef nonnull %storage_ix, ptr noundef %storage)
   tail call fastcc void @StoreDataWithHuffmanCodes(ptr noundef %input, i64 noundef %start_pos, i64 noundef %mask, ptr noundef %commands, i64 noundef %n_commands, ptr noundef nonnull %lit_depth37, ptr noundef nonnull %lit_bits39, ptr noundef nonnull %cmd_depth, ptr noundef nonnull %cmd_bits, ptr noundef nonnull %dist_depth, ptr noundef nonnull %dist_bits, ptr noundef nonnull %storage_ix, ptr noundef %storage)
   br label %if.end
@@ -4088,7 +4088,7 @@ if.then72:                                        ; preds = %if.end
   %and.i113 = and i64 %add.i112, 4294967288
   store i64 %and.i113, ptr %storage_ix, align 8
   %shr.i114 = lshr exact i64 %and.i113, 3
-  %arrayidx.i115 = getelementptr inbounds i8, ptr %storage, i64 %shr.i114
+  %arrayidx.i115 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i114
   store i8 0, ptr %arrayidx.i115, align 1
   br label %if.end73
 
@@ -4102,7 +4102,7 @@ entry:
   %and = and i64 %mask, %position
   %0 = load i64, ptr %storage_ix, align 8
   %shr.i33.i = lshr i64 %0, 3
-  %arrayidx.i34.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i33.i
+  %arrayidx.i34.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i33.i
   %1 = load i8, ptr %arrayidx.i34.i, align 1
   %conv.i35.i = zext i8 %1 to i64
   store i64 %conv.i35.i, ptr %arrayidx.i34.i, align 1
@@ -4122,7 +4122,7 @@ entry:
   %mul.i.i = shl nuw nsw i64 %div.i.i, 2
   %sub11.i.i = add i64 %len, -1
   %shr.i20.i = lshr i64 %add.i39.i, 3
-  %arrayidx.i21.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i20.i
+  %arrayidx.i21.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i20.i
   %6 = load i8, ptr %arrayidx.i21.i, align 1
   %conv.i22.i = zext i8 %6 to i64
   %and.i23.i = and i64 %add.i39.i, 7
@@ -4131,7 +4131,7 @@ entry:
   store i64 %or.i25.i, ptr %arrayidx.i21.i, align 1
   %add.i26.i = add i64 %0, 3
   %shr.i7.i = lshr i64 %add.i26.i, 3
-  %arrayidx.i8.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i7.i
+  %arrayidx.i8.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i7.i
   %7 = load i8, ptr %arrayidx.i8.i, align 1
   %conv.i9.i = zext i8 %7 to i64
   %and.i10.i = and i64 %add.i26.i, 7
@@ -4140,7 +4140,7 @@ entry:
   store i64 %or.i12.i, ptr %arrayidx.i8.i, align 1
   %add.i13.i = add i64 %add.i26.i, %mul.i.i
   %shr.i.i = lshr i64 %add.i13.i, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i.i
   %8 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %8 to i64
   %and.i.i = and i64 %add.i13.i, 7
@@ -4150,7 +4150,7 @@ entry:
   %add.i37 = add i64 %add.i13.i, 8
   %and.i38 = and i64 %add.i37, 4294967288
   %shr.i39 = lshr exact i64 %and.i38, 3
-  %arrayidx.i40 = getelementptr inbounds i8, ptr %storage, i64 %shr.i39
+  %arrayidx.i40 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i39
   store i8 0, ptr %arrayidx.i40, align 1
   %add = add i64 %and, %len
   %add1 = add i64 %mask, 1
@@ -4172,14 +4172,14 @@ if.end:                                           ; preds = %if.then, %entry
   %9 = phi i64 [ %add4, %if.then ], [ %and.i38, %entry ]
   %masked_pos.0 = phi i64 [ 0, %if.then ], [ %and, %entry ]
   %len.addr.0 = phi i64 [ %sub5, %if.then ], [ %len, %entry ]
-  %arrayidx7 = getelementptr inbounds i8, ptr %storage, i64 %shr6.pre-phi
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr6.pre-phi
   %arrayidx8 = getelementptr inbounds i8, ptr %input, i64 %masked_pos.0
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx7, ptr align 1 %arrayidx8, i64 %len.addr.0, i1 false)
   %shl9 = shl i64 %len.addr.0, 3
   %add10 = add i64 %9, %shl9
   store i64 %add10, ptr %storage_ix, align 8
   %shr.i28 = lshr i64 %add10, 3
-  %arrayidx.i29 = getelementptr inbounds i8, ptr %storage, i64 %shr.i28
+  %arrayidx.i29 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i28
   store i8 0, ptr %arrayidx.i29, align 1
   %tobool.not = icmp eq i32 %is_final_block, 0
   br i1 %tobool.not, label %if.end12, label %if.then11
@@ -4190,7 +4190,7 @@ if.then11:                                        ; preds = %if.end
   store i64 %shl.i23, ptr %arrayidx.i29, align 1
   %add.i25 = add i64 %add10, 1
   %shr.i = lshr i64 %add.i25, 3
-  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i
   %10 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %10 to i64
   %and.i = and i64 %add.i25, 7
@@ -4201,7 +4201,7 @@ if.then11:                                        ; preds = %if.end
   %and.i42 = and i64 %add.i41, 4294967288
   store i64 %and.i42, ptr %storage_ix, align 8
   %shr.i43 = lshr exact i64 %and.i42, 3
-  %arrayidx.i44 = getelementptr inbounds i8, ptr %storage, i64 %shr.i43
+  %arrayidx.i44 = getelementptr inbounds nuw i8, ptr %storage, i64 %shr.i43
   store i8 0, ptr %arrayidx.i44, align 1
   br label %if.end12
 

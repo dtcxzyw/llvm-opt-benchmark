@@ -276,7 +276,7 @@ define internal i32 @dissect_cbsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %21 = alloca [3 x %struct.crumb_spec_t], align 16
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %23 = tail call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef 1, i32 noundef 0) #4
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.137) #4
   %26 = load ptr, ptr %24, align 8
@@ -307,7 +307,7 @@ define internal i32 @dissect_cbsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %41, label %.lr.ph.i, label %dissect_cbsp_tlvs.exit
 
 .lr.ph.i:                                         ; preds = %30
-  %42 = getelementptr inbounds i8, ptr %1, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %43
 
 43:                                               ; preds = %350, %.lr.ph.i
@@ -326,7 +326,7 @@ define internal i32 @dissect_cbsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %47, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %51 = load i8, ptr %50, align 4
   %52 = zext i8 %51 to i32
   br label %59
@@ -673,7 +673,7 @@ cbsp_warn_period_to_secs.exit155.i:               ; preds = %223, %221, %218, %2
 switch.lookup:                                    ; preds = %.lr.ph.i.i
   %.mask39 = and i32 %237, 7
   %240 = zext nneg i32 %.mask39 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_cbsp, i64 0, i64 %240
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_cbsp, i64 0, i64 %240
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %cell_id_len.exit.i.i
 
@@ -738,7 +738,7 @@ dissect_cell_id_list_ie.exit.i:                   ; preds = %cell_id_len.exit._c
 switch.lookup29:                                  ; preds = %.lr.ph.i157.i
   %.mask38 = and i32 %262, 7
   %265 = zext nneg i32 %.mask38 to i64
-  %switch.gep30 = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_cbsp.1, i64 0, i64 %265
+  %switch.gep30 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_cbsp.1, i64 0, i64 %265
   %switch.load31 = load i32, ptr %switch.gep30, align 4
   br label %cell_id_len.exit.i158.i
 
@@ -804,7 +804,7 @@ dissect_bc_compl_list_ie.exit.i:                  ; preds = %cell_id_len.exit._c
 
 switch.lookup32:                                  ; preds = %.lr.ph.i163.i
   %294 = zext nneg i8 %292 to i64
-  %switch.gep33 = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_cbsp.3, i64 0, i64 %294
+  %switch.gep33 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_cbsp.3, i64 0, i64 %294
   %switch.load34 = load i32, ptr %switch.gep33, align 4
   br label %cell_id_len.exit.i165.i
 
@@ -870,7 +870,7 @@ dissect_failure_list_ie.exit.i:                   ; preds = %303, %cell_id_len.e
 switch.lookup35:                                  ; preds = %.lr.ph.i169.i
   %.mask = and i32 %321, 7
   %324 = zext nneg i32 %.mask to i64
-  %switch.gep36 = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_cbsp.3, i64 0, i64 %324
+  %switch.gep36 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_cbsp.3, i64 0, i64 %324
   %switch.load37 = load i32, ptr %switch.gep36, align 4
   br label %cell_id_len.exit.i170.i
 

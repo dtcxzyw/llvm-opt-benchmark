@@ -122,7 +122,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
   %12 = tail call i32 (...) @dbgsysTlsAlloc() #13
   store i32 %12, ptr @tlsIndex, align 4
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 589824) #13
   %.not = icmp eq i32 %16, 0
@@ -131,7 +131,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
 17:                                               ; preds = %11
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr %21(ptr noundef nonnull %18, ptr noundef nonnull @.str) #13
   %23 = icmp eq ptr %22, null
@@ -140,7 +140,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
 24:                                               ; preds = %17
   %25 = load ptr, ptr %5, align 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 904
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 904
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr %28(ptr noundef nonnull %25, ptr noundef nonnull %22, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #13
   %30 = icmp eq ptr %29, null
@@ -149,7 +149,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
 31:                                               ; preds = %24
   %32 = load ptr, ptr %5, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1336
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1336
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr %35(ptr noundef nonnull %32, ptr noundef nonnull @.str.3) #13
   %37 = icmp eq ptr %36, null
@@ -157,11 +157,11 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr %32, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 912
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 912
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr (ptr, ptr, ptr, ...) %41(ptr noundef nonnull %32, ptr noundef nonnull %22, ptr noundef nonnull %29, ptr noundef nonnull %36) #13
   %43 = load ptr, ptr %32, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1824
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1824
   %45 = load ptr, ptr %44, align 8
   %46 = call zeroext i8 %45(ptr noundef nonnull %32) #13
   %.not.i = icmp ne i8 %46, 0
@@ -171,7 +171,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
 
 47:                                               ; preds = %38
   %48 = load ptr, ptr %32, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1352
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1352
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr %50(ptr noundef nonnull %32, ptr noundef nonnull %42, ptr noundef null) #13
   %52 = icmp eq ptr %51, null
@@ -194,7 +194,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
 
 59:                                               ; preds = %.sink.split.i, %56
   %60 = load ptr, ptr %32, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1360
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1360
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull %32, ptr noundef nonnull %42, ptr noundef nonnull %51) #13
   br label %readBooleanSysProp.exit
@@ -202,7 +202,7 @@ define range(i32 -5, 1) i32 @jdwpTransport_OnLoad(ptr noundef %0, ptr noundef %1
 readBooleanSysProp.exit:                          ; preds = %31, %38, %47, %59
   %63 = load ptr, ptr %5, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1336
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1336
   %66 = load ptr, ptr %65, align 8
   %67 = call ptr %66(ptr noundef nonnull %63, ptr noundef nonnull @.str.4) #13
   %68 = icmp eq ptr %67, null
@@ -210,11 +210,11 @@ readBooleanSysProp.exit:                          ; preds = %31, %38, %47, %59
 
 69:                                               ; preds = %readBooleanSysProp.exit
   %70 = load ptr, ptr %63, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 912
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 912
   %72 = load ptr, ptr %71, align 8
   %73 = call ptr (ptr, ptr, ptr, ...) %72(ptr noundef nonnull %63, ptr noundef nonnull %22, ptr noundef nonnull %29, ptr noundef nonnull %67) #13
   %74 = load ptr, ptr %63, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1824
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1824
   %76 = load ptr, ptr %75, align 8
   %77 = call zeroext i8 %76(ptr noundef nonnull %63) #13
   %.not.i22 = icmp ne i8 %77, 0
@@ -224,7 +224,7 @@ readBooleanSysProp.exit:                          ; preds = %31, %38, %47, %59
 
 78:                                               ; preds = %69
   %79 = load ptr, ptr %63, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 1352
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1352
   %81 = load ptr, ptr %80, align 8
   %82 = call ptr %81(ptr noundef nonnull %63, ptr noundef nonnull %73, ptr noundef null) #13
   %83 = icmp eq ptr %82, null
@@ -252,7 +252,7 @@ readBooleanSysProp.exit:                          ; preds = %31, %38, %47, %59
 
 93:                                               ; preds = %.sink.split.i24, %90
   %94 = load ptr, ptr %63, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 1360
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1360
   %96 = load ptr, ptr %95, align 8
   call void %96(ptr noundef nonnull %63, ptr noundef nonnull %73, ptr noundef nonnull %82) #13
   br label %readPreferIPv6Addresses.exit
@@ -264,7 +264,7 @@ readPreferIPv6Addresses.exit:                     ; preds = %93, %78, %69, %read
 
 98:                                               ; preds = %readPreferIPv6Addresses.exit
   %99 = load ptr, ptr %97, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 1824
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1824
   %101 = load ptr, ptr %100, align 8
   %102 = call zeroext i8 %101(ptr noundef nonnull %97) #13
   %.not21 = icmp eq i8 %102, 0
@@ -273,7 +273,7 @@ readPreferIPv6Addresses.exit:                     ; preds = %93, %78, %69, %read
 103:                                              ; preds = %98
   %104 = load ptr, ptr %5, align 8
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 136
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 136
   %107 = load ptr, ptr %106, align 8
   call void %107(ptr noundef nonnull %104) #13
   br label %108
@@ -286,7 +286,7 @@ readPreferIPv6Addresses.exit:                     ; preds = %93, %78, %69, %read
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @socketTransport_getCapabilities(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
   store i16 7, ptr %1, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 2
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 0, ptr %.sroa.8.0..sroa_idx, align 2
   ret i32 0
 }
@@ -312,7 +312,7 @@ define internal i32 @socketTransport_attach(ptr nocapture readnone %0, ptr nound
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @callback, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %13) #13
   br label %18
@@ -374,7 +374,7 @@ setLastError.exit:                                ; preds = %18, %22
   %.pre55 = phi i32 [ %.pre56, %.lr.ph ], [ %.pre54, %96 ]
   %.044 = phi ptr [ %.041, %.lr.ph ], [ %.0, %96 ]
   %.143 = phi i32 [ %.02348, %.lr.ph ], [ %.2, %96 ]
-  %36 = getelementptr inbounds i8, ptr %.044, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.044, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr @preferredAddressFamily, align 4
   %.not36 = icmp eq i32 %37, %38
@@ -387,9 +387,9 @@ setLastError.exit:                                ; preds = %18, %22
   br i1 %.not36, label %96, label %41
 
 41:                                               ; preds = %40, %39
-  %42 = getelementptr inbounds i8, ptr %.044, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %.044, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %.044, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = call i32 @dbgsysSocket(i32 noundef %37, i32 noundef %43, i32 noundef %45) #13
   store i32 %46, ptr @socketFD, align 4
@@ -401,7 +401,7 @@ setLastError.exit:                                ; preds = %18, %22
   br label %91
 
 49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %.044, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.044, i64 4
   %51 = load i32, ptr %50, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %52 = icmp eq i32 %51, 10
@@ -433,9 +433,9 @@ setOptionsCommon.exit.i:                          ; preds = %55
 
 62:                                               ; preds = %59, %58
   %63 = load i32, ptr @socketFD, align 4
-  %64 = getelementptr inbounds i8, ptr %.044, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.044, i64 24
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.044, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.044, i64 16
   %67 = load i32, ptr %66, align 8
   %68 = call i32 @dbgsysConnect(i32 noundef %63, ptr noundef %65, i32 noundef %67) #13
   %69 = icmp eq i32 %68, -150
@@ -458,7 +458,7 @@ setOptionsCommon.exit.i:                          ; preds = %55
 
 79:                                               ; preds = %74
   %80 = load ptr, ptr @callback, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
   call void %82(ptr noundef nonnull %78) #13
   br label %83
@@ -506,7 +506,7 @@ setLastError.exit.i:                              ; preds = %87, %83
 96:                                               ; preds = %39, %40, %94, %91
   %.pre54 = phi i32 [ -1, %94 ], [ %92, %91 ], [ %.pre55, %40 ], [ %.pre55, %39 ]
   %.2 = phi i32 [ %.018.i.ph, %94 ], [ %.018.i.ph, %91 ], [ %.143, %40 ], [ %.143, %39 ]
-  %97 = getelementptr inbounds i8, ptr %.044, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %.044, i64 40
   %.0 = load ptr, ptr %97, align 8
   %.not35 = icmp eq ptr %.0, null
   br i1 %.not35, label %connectToAddr.exit, label %35, !llvm.loop !6
@@ -598,13 +598,13 @@ define internal range(i32 0, 203) i32 @socketTransport_startListening(ptr nocapt
 
 .lr.ph:                                           ; preds = %21, %26
   %.051 = phi ptr [ %.0, %26 ], [ %.049, %21 ]
-  %23 = getelementptr inbounds i8, ptr %.051, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.051, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, %22
   br i1 %25, label %.loopexit48, label %26
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds i8, ptr %.051, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %.051, i64 40
   %.0 = load ptr, ptr %27, align 8
   %.not28 = icmp eq ptr %.0, null
   br i1 %.not28, label %.loopexit48, label %.lr.ph, !llvm.loop !10
@@ -620,14 +620,14 @@ define internal range(i32 0, 203) i32 @socketTransport_startListening(ptr nocapt
 30:                                               ; preds = %.loopexit48
   %31 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull @.str.24, ptr noundef nonnull %13) #13
   %32 = load i64, ptr %13, align 8
-  %33 = getelementptr inbounds i8, ptr %13, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr i8, ptr %spec.select, i64 24
   %spec.select.val = load ptr, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %11)
   store i64 %32, ptr %10, align 8
-  %36 = getelementptr inbounds i8, ptr %10, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %34, ptr %36, align 8
   %37 = load i16, ptr %spec.select.val, align 2
   %38 = icmp eq i16 %37, 10
@@ -640,7 +640,7 @@ isEqualIPv6Addr.exit.thread:                      ; preds = %30
 
 isEqualIPv6Addr.exit:                             ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull readonly align 4 dereferenceable(28) %spec.select.val, i64 28, i1 false)
-  %39 = getelementptr inbounds i8, ptr %11, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %39, ptr noundef nonnull dereferenceable(16) %10, i64 16)
   %.not45 = icmp eq i32 %bcmp.i, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
@@ -655,8 +655,8 @@ isEqualIPv6Addr.exit:                             ; preds = %30
 .lr.ph57:                                         ; preds = %.preheader
   %40 = load i64, ptr @in6addr_any, align 4
   %41 = load i64, ptr getelementptr inbounds (i8, ptr @in6addr_any, i64 8), align 4
-  %42 = getelementptr inbounds i8, ptr %8, i64 8
-  %43 = getelementptr inbounds i8, ptr %9, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %44
 
 44:                                               ; preds = %.lr.ph57, %48
@@ -685,7 +685,7 @@ isEqualIPv6Addr.exit36:                           ; preds = %44
   br i1 %.not46, label %.loopexit, label %48
 
 48:                                               ; preds = %isEqualIPv6Addr.exit36.thread, %isEqualIPv6Addr.exit36
-  %49 = getelementptr inbounds i8, ptr %.156, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %.156, i64 40
   %.1 = load ptr, ptr %49, align 8
   %.not31 = icmp eq ptr %.1, null
   br i1 %.not31, label %.loopexit, label %44, !llvm.loop !11
@@ -695,7 +695,7 @@ isEqualIPv6Addr.exit36:                           ; preds = %44
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %50 = getelementptr inbounds i8, ptr %.2, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = call i32 @dbgsysSocket(i32 noundef %51, i32 noundef 1, i32 noundef 6) #13
   store i32 %52, ptr @serverSocketFD, align 4
@@ -729,7 +729,7 @@ setOptionsCommon.exit.i:                          ; preds = %60
 
 63:                                               ; preds = %60
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %64 = getelementptr inbounds i8, ptr %.2, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr i8, ptr %65, i64 2
   %.val.i = load i16, ptr %66, align 2
@@ -750,7 +750,7 @@ setReuseAddrOption.exit.i:                        ; preds = %68
 setReuseAddrOption.exit.thread.i:                 ; preds = %68, %63
   %72 = load i32, ptr @serverSocketFD, align 4
   %73 = load ptr, ptr %64, align 8
-  %74 = getelementptr inbounds i8, ptr %.2, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = call i32 @dbgsysBind(i32 noundef %72, ptr noundef %73, i32 noundef %75) #13
   %77 = icmp slt i32 %76, 0
@@ -782,7 +782,7 @@ setReuseAddrOption.exit.thread.i:                 ; preds = %68, %63
   br label %103
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %6, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %.val30.i = load i16, ptr %89, align 2
   %90 = call zeroext i16 @dbgsysNetworkToHostShort(i16 noundef zeroext %.val30.i) #13
   %91 = zext i16 %90 to i32
@@ -845,7 +845,7 @@ define internal range(i32 0, 203) i32 @socketTransport_stopListening(ptr nocaptu
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @callback, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull %6) #13
   br label %11
@@ -893,11 +893,11 @@ define internal range(i32 0, 204) i32 @socketTransport_accept(ptr nocapture read
   %8 = alloca [16 x i8], align 16
   %9 = icmp eq i64 %2, 0
   %spec.store.select = select i1 %9, i64 2000, i64 %2
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 11
-  %13 = getelementptr inbounds i8, ptr %4, i64 10
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %.outer
 
 .outer:                                           ; preds = %thread-pre-split34, %3
@@ -936,7 +936,7 @@ define internal range(i32 0, 204) i32 @socketTransport_accept(ptr nocapture read
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr @callback, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   call void %34(ptr noundef nonnull %30) #13
   br label %35
@@ -1014,8 +1014,8 @@ setLastError.exit:                                ; preds = %35, %39
 
 .lr.ph.i:                                         ; preds = %75, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %75 ]
-  %63 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %indvars.iv.i
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %63 = getelementptr inbounds nuw [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   br label %67
 
 65:                                               ; preds = %67
@@ -1025,12 +1025,12 @@ setLastError.exit:                                ; preds = %35, %39
 
 67:                                               ; preds = %65, %.lr.ph.i
   %.09.i.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %65 ]
-  %68 = getelementptr inbounds [16 x i8], ptr %.010.i, i64 0, i64 %.09.i.i
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %.010.i, i64 0, i64 %.09.i.i
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds [16 x i8], ptr %64, i64 0, i64 %.09.i.i
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 0, i64 %.09.i.i
   %71 = load i8, ptr %70, align 1
   %72 = and i8 %71, %69
-  %73 = getelementptr inbounds [16 x i8], ptr %63, i64 0, i64 %.09.i.i
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 0, i64 %.09.i.i
   %74 = load i8, ptr %73, align 1
   %.not.i.i = icmp eq i8 %72, %74
   br i1 %.not.i.i, label %65, label %75
@@ -1063,7 +1063,7 @@ isPeerAllowed.exit:                               ; preds = %65
 
 85:                                               ; preds = %76
   %86 = load ptr, ptr @callback, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull %84) #13
   br label %89
@@ -1178,7 +1178,7 @@ define internal range(i32 0, 203) i32 @socketTransport_readPacket(ptr nocapture 
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @callback, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %7) #13
   br label %12
@@ -1206,7 +1206,7 @@ setLastError.exit:                                ; preds = %12, %16
 .lr.ph.i:                                         ; preds = %28, %18
   %.01316.i = phi i32 [ %29, %28 ], [ 0, %18 ]
   %20 = zext nneg i32 %.01316.i to i64
-  %21 = getelementptr inbounds i8, ptr %3, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 %20
   %22 = sub nsw i32 4, %.01316.i
   %23 = zext nneg i32 %22 to i64
   %24 = call i32 @dbgsysRecv(i32 noundef %19, ptr noundef nonnull %21, i64 noundef %23, i32 noundef 0) #13
@@ -1243,13 +1243,13 @@ recv_fully.exit:                                  ; preds = %.lr.ph.i, %26, %28
   store i32 %35, ptr %3, align 4
   store i32 %35, ptr %1, align 8
   %36 = load i32, ptr @socketFD, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %46, %33
   %.01316.i49 = phi i32 [ %47, %46 ], [ 0, %33 ]
   %38 = zext nneg i32 %.01316.i49 to i64
-  %39 = getelementptr inbounds i8, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
   %40 = sub nsw i32 4, %.01316.i49
   %41 = zext nneg i32 %40 to i64
   %42 = call i32 @dbgsysRecv(i32 noundef %36, ptr noundef nonnull %39, i64 noundef %41, i32 noundef 0) #13
@@ -1282,13 +1282,13 @@ recv_fully.exit51:                                ; preds = %46
   %53 = call i32 @dbgsysNetworkToHostLong(i32 noundef %52) #13
   store i32 %53, ptr %37, align 4
   %54 = load i32, ptr @socketFD, align 4
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.lr.ph.i52
 
 .lr.ph.i52:                                       ; preds = %64, %recv_fully.exit51
   %.01316.i53 = phi i32 [ %65, %64 ], [ 0, %recv_fully.exit51 ]
   %56 = zext nneg i32 %.01316.i53 to i64
-  %57 = getelementptr inbounds i8, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
   %58 = sub nsw i32 1, %.01316.i53
   %59 = zext nneg i32 %58 to i64
   %60 = call i32 @dbgsysRecv(i32 noundef %54, ptr noundef nonnull %57, i64 noundef %59, i32 noundef 0) #13
@@ -1323,13 +1323,13 @@ recv_fully.exit55:                                ; preds = %64
   br i1 %.not46, label %89, label %72
 
 72:                                               ; preds = %recv_fully.exit55
-  %73 = getelementptr inbounds i8, ptr %1, i64 10
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 10
   br label %.lr.ph.i56
 
 .lr.ph.i56:                                       ; preds = %82, %72
   %.01316.i57 = phi i32 [ %83, %82 ], [ 0, %72 ]
   %74 = zext nneg i32 %.01316.i57 to i64
-  %75 = getelementptr inbounds i8, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %74
   %76 = sub nsw i32 1, %.01316.i57
   %77 = zext nneg i32 %76 to i64
   %78 = call i32 @dbgsysRecv(i32 noundef %71, ptr noundef nonnull %75, i64 noundef %77, i32 noundef 0) #13
@@ -1362,13 +1362,13 @@ recv_fully.exit59:                                ; preds = %82
   br label %148
 
 89:                                               ; preds = %recv_fully.exit55
-  %90 = getelementptr inbounds i8, ptr %1, i64 9
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 9
   br label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %99, %89
   %.01316.i61 = phi i32 [ %100, %99 ], [ 0, %89 ]
   %91 = zext nneg i32 %.01316.i61 to i64
-  %92 = getelementptr inbounds i8, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 %91
   %93 = sub nsw i32 1, %.01316.i61
   %94 = zext nneg i32 %93 to i64
   %95 = call i32 @dbgsysRecv(i32 noundef %71, ptr noundef nonnull %92, i64 noundef %94, i32 noundef 0) #13
@@ -1398,13 +1398,13 @@ recv_fully.exit59:                                ; preds = %82
 
 recv_fully.exit63:                                ; preds = %99
   %105 = load i32, ptr @socketFD, align 4
-  %106 = getelementptr inbounds i8, ptr %1, i64 10
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 10
   br label %.lr.ph.i64
 
 .lr.ph.i64:                                       ; preds = %115, %recv_fully.exit63
   %.01316.i65 = phi i32 [ %116, %115 ], [ 0, %recv_fully.exit63 ]
   %107 = zext nneg i32 %.01316.i65 to i64
-  %108 = getelementptr inbounds i8, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 %107
   %109 = sub nsw i32 1, %.01316.i65
   %110 = zext nneg i32 %109 to i64
   %111 = call i32 @dbgsysRecv(i32 noundef %105, ptr noundef nonnull %108, i64 noundef %110, i32 noundef 0) #13
@@ -1447,7 +1447,7 @@ recv_fully.exit67:                                ; preds = %115, %recv_fully.ex
   br i1 %126, label %127, label %129
 
 127:                                              ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %1, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %128, align 8
   br label %148
 
@@ -1455,7 +1455,7 @@ recv_fully.exit67:                                ; preds = %115, %recv_fully.ex
   %130 = load ptr, ptr @callback, align 8
   %131 = load ptr, ptr %130, align 8
   %132 = call ptr %131(i32 noundef %122) #13
-  %133 = getelementptr inbounds i8, ptr %1, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %132, ptr %133, align 8
   %134 = icmp eq ptr %132, null
   br i1 %134, label %135, label %136
@@ -1472,7 +1472,7 @@ recv_fully.exit67:                                ; preds = %115, %recv_fully.ex
 
 140:                                              ; preds = %136
   %141 = load ptr, ptr @callback, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = load ptr, ptr %133, align 8
   call void %143(ptr noundef %144) #13
@@ -1506,7 +1506,7 @@ define internal range(i32 0, 203) i32 @socketTransport_writePacket(ptr nocapture
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @callback, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %7) #13
   br label %12
@@ -1541,7 +1541,7 @@ setLastError.exit:                                ; preds = %12, %16
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @callback, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %24) #13
   br label %29
@@ -1564,43 +1564,43 @@ setLastError.exit31:                              ; preds = %29, %33
 
 35:                                               ; preds = %18
   %36 = tail call i32 @dbgsysHostToNetworkLong(i32 noundef %19) #13
-  %37 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = tail call i32 @dbgsysHostToNetworkLong(i32 noundef %38) #13
   store i32 %36, ptr %3, align 16
-  %40 = getelementptr inbounds i8, ptr %3, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i8, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %42, ptr %43, align 8
   %.not = icmp sgt i8 %42, -1
   br i1 %.not, label %49, label %44
 
 44:                                               ; preds = %35
-  %45 = getelementptr inbounds i8, ptr %1, i64 10
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %46 = load i16, ptr %45, align 2
   %47 = tail call zeroext i16 @dbgsysHostToNetworkShort(i16 noundef zeroext %46) #13
-  %48 = getelementptr inbounds i8, ptr %3, i64 9
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i16 %47, ptr %48, align 1
   br label %56
 
 49:                                               ; preds = %35
-  %50 = getelementptr inbounds i8, ptr %1, i64 9
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %3, i64 9
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 %51, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %1, i64 10
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %54 = load i8, ptr %53, align 2
-  %55 = getelementptr inbounds i8, ptr %3, i64 10
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 10
   store i8 %54, ptr %55, align 2
   br label %56
 
 56:                                               ; preds = %49, %44
-  %57 = getelementptr inbounds i8, ptr %1, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = icmp samesign ult i32 %19, 1012
-  %60 = getelementptr inbounds i8, ptr %3, i64 11
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 11
   br i1 %59, label %61, label %76
 
 61:                                               ; preds = %56
@@ -1612,7 +1612,7 @@ setLastError.exit31:                              ; preds = %29, %33
 .lr.ph.i:                                         ; preds = %61, %72
   %.01316.i = phi i32 [ %73, %72 ], [ 0, %61 ]
   %64 = zext nneg i32 %.01316.i to i64
-  %65 = getelementptr inbounds i8, ptr %3, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 %64
   %66 = sub nsw i32 %19, %.01316.i
   %67 = sext i32 %66 to i64
   %68 = call i32 @dbgsysSend(i32 noundef %63, ptr noundef nonnull %65, i64 noundef %67, i32 noundef 0) #13
@@ -1645,7 +1645,7 @@ send_fully.exit:                                  ; preds = %.lr.ph.i, %70, %72
 .lr.ph.i33:                                       ; preds = %83, %76
   %.01316.i34 = phi i32 [ %84, %83 ], [ 0, %76 ]
   %78 = zext nneg i32 %.01316.i34 to i64
-  %79 = getelementptr inbounds i8, ptr %3, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 %78
   %80 = sub nsw i32 1011, %.01316.i34
   %81 = zext nneg i32 %80 to i64
   %82 = call i32 @dbgsysSend(i32 noundef %77, ptr noundef nonnull %79, i64 noundef %81, i32 noundef 0) #13
@@ -1667,14 +1667,14 @@ send_fully.exit36.thread:                         ; preds = %.lr.ph.i33, %send_f
 
 .lr.ph.i38.preheader:                             ; preds = %send_fully.exit36
   %86 = load i32, ptr @socketFD, align 4
-  %87 = getelementptr inbounds i8, ptr %58, i64 1000
+  %87 = getelementptr inbounds nuw i8, ptr %58, i64 1000
   %88 = add nsw i32 %19, -1011
   br label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %.lr.ph.i38.preheader, %97
   %.01316.i39 = phi i32 [ %98, %97 ], [ 0, %.lr.ph.i38.preheader ]
   %89 = zext nneg i32 %.01316.i39 to i64
-  %90 = getelementptr inbounds i8, ptr %87, i64 %89
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 %89
   %91 = sub nsw i32 %88, %.01316.i39
   %92 = sext i32 %91 to i64
   %93 = call i32 @dbgsysSend(i32 noundef %86, ptr noundef nonnull %90, i64 noundef %92, i32 noundef 0) #13
@@ -1746,7 +1746,7 @@ define internal range(i32 0, 111) i32 @socketTransport_setConfiguration(ptr noca
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @callback, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %8) #13
   br label %13
@@ -1788,7 +1788,7 @@ setLastError.exit:                                ; preds = %13, %17
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr @callback, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull %28) #13
   br label %33
@@ -1841,7 +1841,7 @@ setLastError.exit22:                              ; preds = %33, %37
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr @callback, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   tail call void %59(ptr noundef nonnull %55) #13
   br label %60
@@ -1866,9 +1866,9 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 1 dereferenceable(1) %20, i64 range(i64 1, 0) %22, i1 false)
   %67 = getelementptr inbounds i8, ptr %51, i64 %22
   store i8 0, ptr %67, align 1
-  %68 = getelementptr inbounds i8, ptr %4, i64 11
-  %69 = getelementptr inbounds i8, ptr %4, i64 10
-  %70 = getelementptr inbounds i8, ptr %4, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %71
 
 71:                                               ; preds = %.loopexit.i.i, %66
@@ -1878,7 +1878,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br i1 %73, label %84, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %72, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %76 = load i8, ptr %72, align 1
   %77 = icmp eq i8 %76, 47
   br i1 %77, label %78, label %83
@@ -1889,7 +1889,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br i1 %80, label %83, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %79, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 1
   store i8 0, ptr %79, align 1
   br label %83
 
@@ -1937,7 +1937,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
 
 100:                                              ; preds = %95
   %101 = load ptr, ptr @callback, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   call void %103(ptr noundef nonnull %99) #13
   br label %104
@@ -1985,7 +1985,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br i1 %122, label %.loopexit41.i.i, label %123
 
 123:                                              ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %.024.i.i.i, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %.024.i.i.i, i64 1
   %125 = load i8, ptr %124, align 1
   %.not27.i.i.i = icmp eq i8 %125, 0
   br i1 %.not27.i.i.i, label %126, label %115, !llvm.loop !17
@@ -2017,12 +2017,12 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %133 = sub nuw nsw i32 8, %132
   %134 = shl nuw nsw i32 255, %133
   %135 = trunc i32 %134 to i8
-  %136 = getelementptr inbounds [16 x i8], ptr %112, i64 0, i64 %wide.trip.count.i.i
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 0, i64 %wide.trip.count.i.i
   store i8 %135, ptr %136, align 1
   br label %parseAllowedMask.exit.i.i
 
 137:                                              ; preds = %.lr.ph.i.i.i
-  %138 = getelementptr inbounds [16 x i8], ptr %112, i64 0, i64 %indvars.iv.i.i.i
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 0, i64 %indvars.iv.i.i.i
   store i8 -1, ptr %138, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %139 = add nsw i32 %.229.i.i.i, -8
@@ -2031,7 +2031,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
 
 parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i, %129
   %140 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111
-  %141 = getelementptr inbounds i8, ptr %140, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   br label %155
 
 .loopexit41.i.i:                                  ; preds = %126, %118, %115
@@ -2045,7 +2045,7 @@ parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i
 
 146:                                              ; preds = %.loopexit41.i.i
   %147 = load ptr, ptr @callback, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8
   call void %149(ptr noundef nonnull %145) #13
   br label %150
@@ -2063,9 +2063,9 @@ parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i
 
 155:                                              ; preds = %155, %parseAllowedMask.exit.i.i
   %.053.i.i = phi i64 [ 0, %parseAllowedMask.exit.i.i ], [ %161, %155 ]
-  %156 = getelementptr inbounds [16 x i8], ptr %141, i64 0, i64 %.053.i.i
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 0, i64 %.053.i.i
   %157 = load i8, ptr %156, align 1
-  %158 = getelementptr inbounds [16 x i8], ptr %140, i64 0, i64 %.053.i.i
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 0, i64 %.053.i.i
   %159 = load i8, ptr %158, align 1
   %160 = and i8 %159, %157
   store i8 %160, ptr %158, align 1
@@ -2085,7 +2085,7 @@ parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i
 
 parseAllowedPeers.exit.thread42:                  ; preds = %.loopexit.i.i
   %164 = load ptr, ptr @callback, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8
   call void %166(ptr noundef nonnull %51) #13
   br label %171
@@ -2095,7 +2095,7 @@ parseAllowedPeers.exit:                           ; preds = %104, %108, %150, %1
   %167 = load i32, ptr @tlsIndex, align 4
   call void @dbgsysTlsPut(i32 noundef %167, ptr noundef %.sink39.i) #13
   %168 = load ptr, ptr @callback, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %170 = load ptr, ptr %169, align 8
   call void %170(ptr noundef nonnull %51) #13
   br label %171
@@ -2131,7 +2131,7 @@ define internal fastcc void @setLastError(i32 noundef %0, ptr nocapture noundef 
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @callback, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull %9) #13
   br label %14
@@ -2189,7 +2189,7 @@ define internal fastcc range(i32 0, 203) i32 @parseAddress(ptr noundef %0, ptr n
   store ptr null, ptr %1, align 8
   %6 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 58) #14
   %7 = icmp eq ptr %6, null
-  %8 = getelementptr inbounds i8, ptr %6, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %9 = select i1 %7, ptr %0, ptr %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %10 = load i8, ptr %9, align 1
@@ -2215,16 +2215,16 @@ getPortNumber.exit.thread:                        ; preds = %2, %12
 
 getPortNumber.exit:                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 32, i1 false)
   %21 = load i32, ptr @allowOnlyIPv4, align 4
   %.not = icmp eq i32 %21, 0
   %22 = select i1 %.not, i32 0, i32 2
-  %23 = getelementptr inbounds i8, ptr %5, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 6, ptr %25, align 4
   store i32 1024, ptr %5, align 8
   %26 = ptrtoint ptr %6 to i64
@@ -2236,7 +2236,7 @@ getPortNumber.exit:                               ; preds = %12
 
 31:                                               ; preds = %getPortNumber.exit.thread
   %32 = load ptr, ptr @callback, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull %19) #13
   br label %35
@@ -2285,7 +2285,7 @@ setLastError.exit:                                ; preds = %35, %39
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %0, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %58 = add i64 %28, -2
   br label %59
 
@@ -2308,7 +2308,7 @@ setLastError.exit:                                ; preds = %35, %39
 
 69:                                               ; preds = %66
   %70 = load ptr, ptr @callback, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull %68) #13
   br label %73
@@ -2339,7 +2339,7 @@ setLastError.exit.i:                              ; preds = %77, %73
 
 82:                                               ; preds = %79
   store i8 0, ptr %81, align 1
-  %83 = getelementptr inbounds i8, ptr %81, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %84 = tail call i32 @if_nametoindex(ptr noundef nonnull %83) #13
   %85 = zext i32 %84 to i64
@@ -2361,7 +2361,7 @@ setLastError.exit.i:                              ; preds = %77, %73
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr @callback, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
   tail call void %97(ptr noundef nonnull %93) #13
   br label %98
@@ -2389,7 +2389,7 @@ setLastError.exit.i:                              ; preds = %77, %73
 
 108:                                              ; preds = %105
   %109 = load ptr, ptr @callback, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   tail call void %111(ptr noundef nonnull %107) #13
   br label %112
@@ -2416,7 +2416,7 @@ parseScopeId.exit.thread.i:                       ; preds = %103, %82
   tail call void @dbgsysTlsPut(i32 noundef %118, ptr noundef %.sink12.i.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %119 = load ptr, ptr @callback, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8
   tail call void %121(ptr noundef nonnull %64) #13
   br label %getAddrInfo.exit
@@ -2425,7 +2425,7 @@ parseScopeId.exit.thread.i:                       ; preds = %103, %82
   %.0.ph.i = phi i64 [ %.05.i.ph.i, %parseScopeId.exit.thread.i ], [ 0, %79 ]
   %123 = call i32 @dbgsysGetAddrInfo(ptr noundef nonnull %64, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %1) #13
   %124 = load ptr, ptr @callback, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   call void %126(ptr noundef nonnull %64) #13
   %.not44.i = icmp eq i32 %123, 0
@@ -2447,7 +2447,7 @@ parseScopeId.exit.thread.i:                       ; preds = %103, %82
 
 131:                                              ; preds = %130
   %132 = load ptr, ptr %1, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %134 = load i32, ptr %133, align 4
   %.not46.i = icmp eq i32 %134, 10
   br i1 %.not46.i, label %148, label %135
@@ -2460,7 +2460,7 @@ parseScopeId.exit.thread.i:                       ; preds = %103, %82
 
 138:                                              ; preds = %135
   %139 = load ptr, ptr @callback, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
   call void %141(ptr noundef nonnull %137) #13
   br label %142
@@ -2483,9 +2483,9 @@ setLastError.exit51.i:                            ; preds = %146, %142
 
 148:                                              ; preds = %131
   %149 = trunc i64 %.0.ph.i to i32
-  %150 = getelementptr inbounds i8, ptr %132, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   store i32 %149, ptr %152, align 4
   br label %getAddrInfo.exit
 
@@ -2520,14 +2520,14 @@ define internal fastcc range(i32 0, 203) i32 @handshake(i32 noundef %0, i64 noun
 
 10:                                               ; preds = %.split.us
   %11 = zext nneg i32 %.02959.us to i64
-  %12 = getelementptr inbounds i8, ptr %3, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 %11
   %13 = sub nsw i32 14, %.02959.us
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %22, %10
   %.01316.i.us = phi i32 [ %23, %22 ], [ 0, %10 ]
   %14 = zext nneg i32 %.01316.i.us to i64
-  %15 = getelementptr inbounds i8, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 %14
   %16 = sub nsw i32 %13, %.01316.i.us
   %17 = sext i32 %16 to i64
   %18 = call i32 @dbgsysRecv(i32 noundef %0, ptr noundef nonnull %15, i64 noundef %17, i32 noundef 0) #13
@@ -2556,7 +2556,7 @@ recv_fully.exit.thread.us:                        ; preds = %22, %recv_fully.exi
 .split:                                           ; preds = %2, %recv_fully.exit.thread
   %.02959 = phi i32 [ %67, %recv_fully.exit.thread ], [ 0, %2 ]
   %28 = zext nneg i32 %.02959 to i64
-  %29 = getelementptr inbounds i8, ptr %3, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %28
   %30 = sub nsw i32 14, %.02959
   br label %.lr.ph.i
 
@@ -2568,7 +2568,7 @@ recv_fully.exit.thread.us:                        ; preds = %22, %recv_fully.exi
 
 33:                                               ; preds = %.split61.us
   %34 = load ptr, ptr @callback, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull %32) #13
   br label %37
@@ -2592,7 +2592,7 @@ setLastError.exit:                                ; preds = %37, %41
 .lr.ph.i:                                         ; preds = %.split, %51
   %.01316.i = phi i32 [ %52, %51 ], [ 0, %.split ]
   %43 = zext nneg i32 %.01316.i to i64
-  %44 = getelementptr inbounds i8, ptr %29, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %29, i64 %43
   %45 = sub nsw i32 %30, %.01316.i
   %46 = sext i32 %45 to i64
   %47 = call i32 @dbgsysRecv(i32 noundef %0, ptr noundef nonnull %44, i64 noundef %46, i32 noundef 0) #13
@@ -2620,7 +2620,7 @@ recv_fully.exit.thread48:                         ; preds = %recv_fully.exit, %r
 
 57:                                               ; preds = %recv_fully.exit.thread48
   %58 = load ptr, ptr @callback, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull %56) #13
   br label %61
@@ -2666,7 +2666,7 @@ recv_fully.exit.thread:                           ; preds = %51, %recv_fully.exi
   br i1 %.not, label %.lr.ph.i43, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %72
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 0, i64 %72
   store i8 0, ptr %75, align 1
   %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 112, ptr noundef nonnull @.str.21, ptr noundef nonnull %3, ptr noundef nonnull @.str.17) #13
   %77 = load i32, ptr @tlsIndex, align 4
@@ -2676,7 +2676,7 @@ recv_fully.exit.thread:                           ; preds = %51, %recv_fully.exi
 
 79:                                               ; preds = %74
   %80 = load ptr, ptr @callback, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
   call void %82(ptr noundef nonnull %78) #13
   br label %83
@@ -2703,7 +2703,7 @@ setLastError.exit42:                              ; preds = %83, %90
 .lr.ph.i43:                                       ; preds = %71, %98
   %.01316.i44 = phi i32 [ %99, %98 ], [ 0, %71 ]
   %93 = zext nneg i32 %.01316.i44 to i64
-  %94 = getelementptr inbounds i8, ptr @.str.17, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %93
   %95 = sub nsw i32 14, %.01316.i44
   %96 = zext nneg i32 %95 to i64
   %97 = call i32 @dbgsysSend(i32 noundef %0, ptr noundef nonnull %94, i64 noundef %96, i32 noundef 0) #13
@@ -2778,7 +2778,7 @@ define internal fastcc i32 @recv_fully(i32 noundef %0, ptr noundef nonnull %1, i
 .lr.ph:                                           ; preds = %3, %13
   %.01316 = phi i32 [ %14, %13 ], [ 0, %3 ]
   %5 = zext nneg i32 %.01316 to i64
-  %6 = getelementptr inbounds i8, ptr %1, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %7 = sub nsw i32 %2, %.01316
   %8 = sext i32 %7 to i64
   %9 = tail call i32 @dbgsysRecv(i32 noundef %0, ptr noundef nonnull %6, i64 noundef %8, i32 noundef 0) #13

@@ -37,11 +37,11 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %15 = tail call noundef i32 @_Z11effnNparamsi(i32 noundef %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull align 8 dereferenceable(72) @lm_control_double, i64 72, i1 false)
   %16 = zext i1 %5 to i32
-  %17 = getelementptr inbounds i8, ptr %10, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i32 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 60
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %10, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i32 0, ptr %19, align 8
   %20 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 138, i64 noundef 1, i64 noundef 24)
   br i1 %5, label %21, label %.thread68
@@ -83,22 +83,22 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
 .critedge.preheader:                              ; preds = %32, %.thread68
   %.04767 = phi i32 [ %15, %.thread68 ], [ %.2, %32 ]
   %35 = zext nneg i32 %6 to i64
-  %36 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %35
-  %37 = getelementptr inbounds i8, ptr %9, i64 8
-  %38 = getelementptr inbounds i8, ptr %9, i64 16
-  %39 = getelementptr inbounds i8, ptr %9, i64 24
+  %36 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %.critedge
 
 .split.us.preheader:                              ; preds = %21, %.thread
   %.04764 = phi i32 [ %.2, %.thread ], [ %15, %21 ]
   %40 = zext nneg i32 %6 to i64
-  %41 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %40
-  %42 = getelementptr inbounds i8, ptr %9, i64 8
-  %43 = getelementptr inbounds i8, ptr %9, i64 16
-  %44 = getelementptr inbounds i8, ptr %9, i64 24
-  %45 = getelementptr inbounds i8, ptr %20, i64 8
-  %46 = getelementptr inbounds i8, ptr %20, i64 16
-  %47 = getelementptr inbounds i8, ptr %20, i64 12
+  %41 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %40
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %20, i64 12
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %.critedge.us
@@ -141,7 +141,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
 
 .lr.ph.us:                                        ; preds = %.split.us, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 0, %.split.us ]
-  %70 = getelementptr inbounds double, ptr %4, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   %71 = load double, ptr %70, align 8
   %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %71)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -206,30 +206,30 @@ define internal void @_ZL16lmcurve_evaluatePKdiPKvPdPi(ptr noundef %0, i32 nound
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   %13 = load double, ptr %12, align 8
   %14 = fcmp oeq double %13, 0.000000e+00
   %.0 = select i1 %14, double 1.000000e+00, double %13
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds double, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
   %17 = load double, ptr %16, align 8
   %18 = load ptr, ptr %9, align 8
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
   %21 = load double, ptr %20, align 8
   %22 = tail call noundef double %18(double noundef %21, ptr noundef %0)
   %23 = fsub double %17, %22
   %24 = fdiv double %23, %.0
-  %25 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   store double %24, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %4, align 4
@@ -36,7 +36,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.critedge.preheader, label %13, !llvm.loop !4
 
 .critedge.preheader:                              ; preds = %7, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val79 = load i32, ptr %10, align 4
@@ -51,7 +51,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %14 = getelementptr inbounds ptr, ptr %.val81, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %.val81, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 8
   %.val84 = load ptr, ptr %16, align 8
@@ -74,7 +74,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond151.not, label %.critedge2.preheader, label %25, !llvm.loop !6
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 4
   %.val80134 = load i32, ptr %23, align 4
@@ -83,7 +83,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %.lr.ph133, %.critedge
   %indvars.iv147 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next148, %.critedge ]
-  %26 = getelementptr inbounds ptr, ptr %.val82, i64 %indvars.iv147
+  %26 = getelementptr inbounds nuw ptr, ptr %.val82, i64 %indvars.iv147
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 8
   %.val85 = load ptr, ptr %28, align 8
@@ -109,7 +109,7 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %36 = getelementptr i8, ptr %35, i64 8
   %.val83 = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds ptr, ptr %.val83, i64 %indvars.iv152
+  %37 = getelementptr inbounds nuw ptr, ptr %.val83, i64 %indvars.iv152
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.critedge2, label %40
@@ -146,9 +146,9 @@ define range(i32 0, 2) i32 @Aig_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 56:                                               ; preds = %50
   %57 = inttoptr i64 %53 to ptr
-  %58 = getelementptr inbounds i8, ptr %49, i64 36
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 36
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %57, i64 36
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 36
   %61 = load i32, ptr %60, align 4
   %.not73 = icmp slt i32 %59, %61
   br i1 %.not73, label %64, label %62

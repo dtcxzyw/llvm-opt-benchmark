@@ -37,7 +37,7 @@ define internal i32 @netlbl_mgmt_add(ptr nocapture readnone %0, ptr nocapture no
   %3 = alloca %struct.netlbl_audit, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -92,15 +92,15 @@ define internal i32 @netlbl_mgmt_add(ptr nocapture readnone %0, ptr nocapture no
 
 41:                                               ; preds = %33
   call void @security_current_getsecid_subj(ptr noundef nonnull %3) #10
-  %42 = getelementptr inbounds i8, ptr %3, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %43 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 1984
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1984
   %46 = load i32, ptr %45, align 64
   store i32 %46, ptr %42, align 4
-  %47 = getelementptr inbounds i8, ptr %44, i64 1988
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 1988
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %3, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %48, ptr %49, align 4
   %50 = call fastcc i32 @netlbl_mgmt_add_common(ptr noundef %1, ptr noundef nonnull %3)
   br label %51
@@ -116,7 +116,7 @@ define internal i32 @netlbl_mgmt_remove(ptr nocapture readnone %0, ptr nocapture
   %3 = alloca %struct.netlbl_audit, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -125,15 +125,15 @@ define internal i32 @netlbl_mgmt_remove(ptr nocapture readnone %0, ptr nocapture
 
 9:                                                ; preds = %2
   call void @security_current_getsecid_subj(ptr noundef nonnull %3) #10
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 1984
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1984
   %14 = load i32, ptr %13, align 64
   store i32 %14, ptr %10, align 4
-  %15 = getelementptr inbounds i8, ptr %12, i64 1988
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 1988
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %16, ptr %17, align 4
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr i8, ptr %18, i64 8
@@ -154,10 +154,10 @@ define internal i32 @netlbl_mgmt_listall(ptr noundef %0, ptr noundef %1) #2 alig
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8, !annotation !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %4, align 4
@@ -167,13 +167,13 @@ define internal i32 @netlbl_mgmt_listall(ptr noundef %0, ptr noundef %1) #2 alig
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %5, align 4
   store ptr %1, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %17, ptr %18, align 8
   %19 = call i32 @netlbl_domhsh_walk(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @netlbl_mgmt_listall_cb, ptr noundef nonnull %3) #10
   %20 = load i32, ptr %4, align 4
@@ -182,7 +182,7 @@ define internal i32 @netlbl_mgmt_listall(ptr noundef %0, ptr noundef %1) #2 alig
   %22 = load i32, ptr %5, align 4
   %23 = zext i32 %22 to i64
   store i64 %23, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %25 = load i32, ptr %24, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
@@ -195,7 +195,7 @@ define internal i32 @netlbl_mgmt_adddef(ptr nocapture readnone %0, ptr nocapture
   %3 = alloca %struct.netlbl_audit, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -244,15 +244,15 @@ define internal i32 @netlbl_mgmt_adddef(ptr nocapture readnone %0, ptr nocapture
 
 37:                                               ; preds = %29
   call void @security_current_getsecid_subj(ptr noundef nonnull %3) #10
-  %38 = getelementptr inbounds i8, ptr %3, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %39 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %40, i64 1984
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1984
   %42 = load i32, ptr %41, align 64
   store i32 %42, ptr %38, align 4
-  %43 = getelementptr inbounds i8, ptr %40, i64 1988
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 1988
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %44, ptr %45, align 4
   %46 = call fastcc i32 @netlbl_mgmt_add_common(ptr noundef %1, ptr noundef nonnull %3)
   br label %47
@@ -269,15 +269,15 @@ define internal i32 @netlbl_mgmt_removedef(ptr nocapture readnone %0, ptr nocapt
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false), !annotation !5
   call void @security_current_getsecid_subj(ptr noundef nonnull %3) #10
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1984
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1984
   %8 = load i32, ptr %7, align 64
   store i32 %8, ptr %4, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 1988
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1988
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %10, ptr %11, align 4
   %12 = call i32 @netlbl_domhsh_remove_default(i16 noundef zeroext 0, ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #10
@@ -286,7 +286,7 @@ define internal i32 @netlbl_mgmt_removedef(ptr nocapture readnone %0, ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @netlbl_mgmt_listdef(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
@@ -305,7 +305,7 @@ define internal i32 @netlbl_mgmt_listdef(ptr nocapture readnone %0, ptr nocaptur
   br i1 %14, label %49, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = load i32, ptr %1, align 8
   %19 = tail call ptr @genlmsg_put(ptr noundef nonnull %13, i32 noundef %17, i32 noundef %18, ptr noundef nonnull @netlbl_mgmt_gnl_family, i32 noundef 0, i8 noundef zeroext 6) #10
@@ -330,9 +330,9 @@ define internal i32 @netlbl_mgmt_listdef(ptr nocapture readnone %0, ptr nocaptur
 
 28:                                               ; preds = %25
   %29 = getelementptr i8, ptr %19, i64 -20
-  %30 = getelementptr inbounds i8, ptr %13, i64 192
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 192
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %13, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 184
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
   %35 = getelementptr i8, ptr %31, i64 %34
@@ -341,10 +341,10 @@ define internal i32 @netlbl_mgmt_listdef(ptr nocapture readnone %0, ptr nocaptur
   %38 = sub i64 %36, %37
   %39 = trunc i64 %38 to i32
   store i32 %39, ptr %29, align 4
-  %40 = getelementptr inbounds i8, ptr %1, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %16, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 280
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 280
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @netlink_unicast(ptr noundef %44, ptr noundef nonnull %13, i32 noundef %42, i32 noundef 64) #10
   %46 = tail call i32 @llvm.smin.i32(i32 %45, i32 0)
@@ -365,7 +365,7 @@ define internal i32 @netlbl_mgmt_protocols(ptr noundef %0, ptr nocapture noundef
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
   switch i32 %8, label %netlbl_mgmt_protocols_cb.exit.thread [
@@ -396,9 +396,9 @@ define internal i32 @netlbl_mgmt_protocols(ptr noundef %0, ptr nocapture noundef
   br i1 %17, label %netlbl_mgmt_protocols_cb.exit.thread12, label %29
 
 netlbl_mgmt_protocols_cb.exit.thread12:           ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = getelementptr i8, ptr %20, i64 %23
@@ -414,7 +414,7 @@ netlbl_mgmt_protocols_cb.exit.thread12:           ; preds = %15
   br i1 %30, label %netlbl_mgmt_protocols_cb.exit, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 200
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %33 = load ptr, ptr %32, align 8
   %34 = icmp ugt ptr %33, %18
   br i1 %34, label %35, label %36, !prof !7
@@ -461,9 +461,9 @@ netlbl_mgmt_protocols_cb.exit:                    ; preds = %29, %36
   br i1 %50, label %netlbl_mgmt_protocols_cb.exit9.thread13, label %62
 
 netlbl_mgmt_protocols_cb.exit9.thread13:          ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 192
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 184
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %55 = load i32, ptr %54, align 8
   %56 = zext i32 %55 to i64
   %57 = getelementptr i8, ptr %53, i64 %56
@@ -479,7 +479,7 @@ netlbl_mgmt_protocols_cb.exit9.thread13:          ; preds = %48
   br i1 %63, label %netlbl_mgmt_protocols_cb.exit9, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %0, i64 200
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %66 = load ptr, ptr %65, align 8
   %67 = icmp ugt ptr %66, %51
   br i1 %67, label %68, label %69, !prof !7
@@ -527,9 +527,9 @@ netlbl_mgmt_protocols_cb.exit9:                   ; preds = %62, %69
   br i1 %83, label %netlbl_mgmt_protocols_cb.exit11.thread17, label %95
 
 netlbl_mgmt_protocols_cb.exit11.thread17:         ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %0, i64 192
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 184
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %88 = load i32, ptr %87, align 8
   %89 = zext i32 %88 to i64
   %90 = getelementptr i8, ptr %86, i64 %89
@@ -545,7 +545,7 @@ netlbl_mgmt_protocols_cb.exit11.thread17:         ; preds = %81
   br i1 %96, label %netlbl_mgmt_protocols_cb.exit11, label %97
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %0, i64 200
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %99 = load ptr, ptr %98, align 8
   %100 = icmp ugt ptr %99, %84
   br i1 %100, label %101, label %102, !prof !7
@@ -577,7 +577,7 @@ netlbl_mgmt_protocols_cb.exit.thread:             ; preds = %2, %.thread, %9, %n
   %109 = phi i64 [ 0, %netlbl_mgmt_protocols_cb.exit ], [ 1, %netlbl_mgmt_protocols_cb.exit9 ], [ 2, %netlbl_mgmt_protocols_cb.exit11.thread ], [ 3, %netlbl_mgmt_protocols_cb.exit11 ], [ 3, %netlbl_mgmt_protocols_cb.exit11.thread17 ], [ 0, %9 ], [ 1, %.thread ], [ %7, %2 ]
   %110 = and i64 %109, 4294967295
   store i64 %110, ptr %6, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 112
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %112 = load i32, ptr %111, align 8
   ret i32 %112
 }
@@ -590,7 +590,7 @@ define internal i32 @netlbl_mgmt_version(ptr nocapture readnone %0, ptr nocaptur
   br i1 %5, label %36, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %1, align 8
   %10 = tail call ptr @genlmsg_put(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @netlbl_mgmt_gnl_family, i32 noundef 0, i8 noundef zeroext 8) #10
@@ -607,9 +607,9 @@ define internal i32 @netlbl_mgmt_version(ptr nocapture readnone %0, ptr nocaptur
 
 15:                                               ; preds = %12
   %16 = getelementptr i8, ptr %10, i64 -20
-  %17 = getelementptr inbounds i8, ptr %4, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = getelementptr i8, ptr %18, i64 %21
@@ -618,10 +618,10 @@ define internal i32 @netlbl_mgmt_version(ptr nocapture readnone %0, ptr nocaptur
   %25 = sub i64 %23, %24
   %26 = trunc i64 %25 to i32
   store i32 %26, ptr %16, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %7, align 4
-  %30 = getelementptr inbounds i8, ptr %28, i64 280
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 280
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 @netlink_unicast(ptr noundef %31, ptr noundef nonnull %4, i32 noundef %29, i32 noundef 64) #10
   %33 = call i32 @llvm.smin.i32(i32 %32, i32 0)
@@ -651,13 +651,13 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   br i1 %5, label %205, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %12, ptr %13, align 8
   %14 = getelementptr i8, ptr %8, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -694,11 +694,11 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   %32 = getelementptr i8, ptr %31, i64 88
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
-  %35 = getelementptr inbounds i8, ptr %4, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %34, label %.thread26, label %63
 
 .thread26:                                        ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i16 0, ptr %36, align 8
   br label %._crit_edge
 
@@ -717,11 +717,11 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   br i1 %46, label %201, label %.thread27
 
 .thread27:                                        ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %4, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i16 2, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %45, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %68
 
 50:                                               ; preds = %28
@@ -739,18 +739,18 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   br i1 %59, label %201, label %.thread28
 
 .thread28:                                        ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %4, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i16 10, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %4, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %58, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %4, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %75
 
 63:                                               ; preds = %30
   %64 = getelementptr i8, ptr %33, i64 4
   %65 = load i16, ptr %64, align 2
   store i16 %65, ptr %35, align 8
-  %66 = getelementptr inbounds i8, ptr %4, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 24
   switch i16 %65, label %._crit_edge [
     i16 2, label %68
     i16 10, label %75
@@ -797,11 +797,11 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
 
 94:                                               ; preds = %90
   store volatile ptr %92, ptr %92, align 8
-  %95 = getelementptr inbounds i8, ptr %92, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store volatile ptr %92, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %92, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store volatile ptr %96, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %92, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 24
   store volatile ptr %96, ptr %97, align 8
   %98 = load ptr, ptr %7, align 8
   %99 = getelementptr i8, ptr %98, i64 56
@@ -829,12 +829,12 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   %115 = load i32, ptr %114, align 4
   %116 = load i32, ptr %113, align 4
   %117 = and i32 %116, %115
-  %118 = getelementptr inbounds i8, ptr %110, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store i32 %117, ptr %118, align 8
   %119 = load i32, ptr %113, align 4
-  %120 = getelementptr inbounds i8, ptr %110, i64 20
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 20
   store i32 %119, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %110, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store i32 1, ptr %121, align 8
   %122 = load i32, ptr %13, align 8
   store i32 %122, ptr %110, align 8
@@ -842,12 +842,12 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   br i1 %123, label %126, label %124
 
 124:                                              ; preds = %112
-  %125 = getelementptr inbounds i8, ptr %110, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %85, ptr %125, align 8
   br label %126
 
 126:                                              ; preds = %124, %112
-  %127 = tail call i32 @netlbl_af4list_add(ptr noundef %118, ptr noundef nonnull %92) #10
+  %127 = tail call i32 @netlbl_af4list_add(ptr noundef nonnull %118, ptr noundef nonnull %92) #10
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %.sink.split, label %.thread20
 
@@ -865,11 +865,11 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
 
 137:                                              ; preds = %133
   store volatile ptr %135, ptr %135, align 8
-  %138 = getelementptr inbounds i8, ptr %135, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store volatile ptr %135, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %135, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store volatile ptr %139, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %135, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %135, i64 24
   store volatile ptr %139, ptr %140, align 8
   %141 = load ptr, ptr %7, align 8
   %142 = getelementptr i8, ptr %141, i64 40
@@ -894,8 +894,8 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
 155:                                              ; preds = %151
   %156 = getelementptr i8, ptr %148, i64 4
   %157 = getelementptr i8, ptr %143, i64 4
-  %158 = getelementptr inbounds i8, ptr %153, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %158, ptr noundef align 4 dereferenceable(16) %157, i64 16, i1 false)
+  %158 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %158, ptr noundef align 4 dereferenceable(16) %157, i64 16, i1 false)
   %159 = load i32, ptr %156, align 4
   %160 = load i32, ptr %158, align 8
   %161 = and i32 %160, %159
@@ -918,9 +918,9 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   %175 = load i32, ptr %174, align 4
   %176 = and i32 %175, %173
   store i32 %176, ptr %174, align 4
-  %177 = getelementptr inbounds i8, ptr %153, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %177, ptr noundef align 4 dereferenceable(16) %156, i64 16, i1 false)
-  %178 = getelementptr inbounds i8, ptr %153, i64 48
+  %177 = getelementptr inbounds nuw i8, ptr %153, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef align 4 dereferenceable(16) %156, i64 16, i1 false)
+  %178 = getelementptr inbounds nuw i8, ptr %153, i64 48
   store i32 1, ptr %178, align 8
   %179 = load i32, ptr %13, align 8
   store i32 %179, ptr %153, align 8
@@ -928,12 +928,12 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   br i1 %180, label %183, label %181
 
 181:                                              ; preds = %155
-  %182 = getelementptr inbounds i8, ptr %153, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store ptr %84, ptr %182, align 8
   br label %183
 
 183:                                              ; preds = %181, %155
-  %184 = tail call i32 @netlbl_af6list_add(ptr noundef %158, ptr noundef %139) #10
+  %184 = tail call i32 @netlbl_af6list_add(ptr noundef nonnull %158, ptr noundef nonnull %139) #10
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %.sink.split, label %.thread20
 
@@ -943,7 +943,7 @@ define internal fastcc i32 @netlbl_mgmt_add_common(ptr nocapture noundef readonl
   %.ph = phi ptr [ %110, %126 ], [ %153, %183 ]
   store i16 %.sink31, ptr %83, align 8
   store i32 6, ptr %13, align 8
-  %186 = getelementptr inbounds i8, ptr %4, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sink, ptr %186, align 8
   br label %187
 
@@ -1041,13 +1041,13 @@ declare dso_local i32 @netlbl_domhsh_walk(ptr noundef, ptr noundef, ptr noundef,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @netlbl_mgmt_listall_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = tail call ptr @genlmsg_put(ptr noundef %4, i32 noundef %8, i32 noundef %10, ptr noundef nonnull @netlbl_mgmt_gnl_family, i32 noundef 2, i8 noundef zeroext 3) #10
   %12 = icmp eq ptr %11, null
@@ -1065,9 +1065,9 @@ define internal i32 @netlbl_mgmt_listall_cb(ptr nocapture noundef readonly %0, p
   store i32 %19, ptr %9, align 8
   %20 = load ptr, ptr %3, align 8
   %21 = getelementptr i8, ptr %11, i64 -20
-  %22 = getelementptr inbounds i8, ptr %20, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 192
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = getelementptr i8, ptr %23, i64 %26
@@ -1085,7 +1085,7 @@ define internal i32 @netlbl_mgmt_listall_cb(ptr nocapture noundef readonly %0, p
   br i1 %35, label %.thread, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %33, i64 200
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 200
   %38 = load ptr, ptr %37, align 8
   %39 = icmp ugt ptr %38, %34
   br i1 %39, label %40, label %41, !prof !7
@@ -1141,7 +1141,7 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr nocapture 
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %17, %2
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i16, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14) #10
   store i16 %25, ptr %14, align 2
@@ -1151,7 +1151,7 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr nocapture 
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 8
   switch i32 %30, label %.thread [
     i32 6, label %31
@@ -1161,9 +1161,9 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr nocapture 
   ]
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 192
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 184
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   %37 = getelementptr i8, ptr %33, i64 %36
@@ -1174,7 +1174,7 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr nocapture 
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %44
@@ -1289,7 +1289,7 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr nocapture 
 
 .loopexit53:                                      ; preds = %.loopexit48, %.loopexit55
   %110 = phi ptr [ %44, %.loopexit55 ], [ %99, %.loopexit48 ]
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, %111
   br i1 %113, label %.loopexit45, label %.preheader44
@@ -1373,7 +1373,7 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr nocapture 
   store i16 %162, ptr %127, align 2
   %163 = load ptr, ptr %123, align 8
   %164 = load ptr, ptr %43, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %166 = icmp eq ptr %163, %165
   br i1 %166, label %.loopexit, label %.preheader
 
@@ -1422,7 +1422,7 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr nocapture 
   br i1 %188, label %189, label %.thread
 
 189:                                              ; preds = %186
-  %190 = getelementptr inbounds i8, ptr %1, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %191 = load ptr, ptr %190, align 8
   %192 = load i32, ptr %191, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
@@ -1440,7 +1440,7 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr nocapture 
   br i1 %196, label %197, label %.thread
 
 197:                                              ; preds = %194
-  %198 = getelementptr inbounds i8, ptr %1, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %199 = load ptr, ptr %198, align 8
   %200 = load i32, ptr %199, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10

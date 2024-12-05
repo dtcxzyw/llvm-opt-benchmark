@@ -61,7 +61,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb21NativeEnumLineNumbers13getChildCoun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm3pdb21NativeEnumLineNumbers15getChildAtIndexEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(36) %1) #8
   %.not = icmp ult i32 %2, %7
@@ -74,7 +74,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16NativeLineNumberESt14default_deleteIS2_EED2Ev.exit
   %11 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN4llvm3pdb16NativeLineNumberE, i64 16), ptr %11, align 8, !noalias !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = getelementptr inbounds %"class.llvm::pdb::NativeLineNumber", ptr %10, i64 %9, i32 1
+  %13 = getelementptr inbounds nuw %"class.llvm::pdb::NativeLineNumber", ptr %10, i64 %9, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull align 8 dereferenceable(36) %13, i64 36, i1 false), !noalias !4
   br label %14
 
@@ -91,7 +91,7 @@ define dso_local void @_ZN4llvm3pdb21NativeEnumLineNumbers7getNextEv(ptr dead_on
   %5 = add i32 %4, 1
   store i32 %5, ptr %3, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %4) #8
   ret void
@@ -119,7 +119,7 @@ define linkonce_odr hidden void @_ZN4llvm3pdb21NativeEnumLineNumbersD2Ev(ptr nou
   %6 = load ptr, ptr %.05.i.i.i.i, align 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(44) %.05.i.i.i.i) #8
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 48
   %.not.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN4llvm3pdb16NativeLineNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
@@ -160,7 +160,7 @@ define linkonce_odr hidden void @_ZN4llvm3pdb21NativeEnumLineNumbersD0Ev(ptr nou
   %6 = load ptr, ptr %.05.i.i.i.i.i, align 8
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(44) %.05.i.i.i.i.i) #8
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN4llvm3pdb16NativeLineNumberES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 

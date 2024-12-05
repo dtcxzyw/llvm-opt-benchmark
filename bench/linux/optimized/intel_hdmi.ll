@@ -106,24 +106,24 @@ define dso_local ptr @intel_hdmi_to_i915(ptr nocapture noundef readonly %0) loca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @hsw_write_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 864
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 2624
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 2624
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = sext i32 %8 to i64
   %13 = getelementptr [7 x i32], ptr %11, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %11, align 4
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %14, 393728
   %19 = sub i32 %18, %15
   %20 = add i32 %19, %17
-  %21 = getelementptr inbounds i8, ptr %6, i64 7368
-  %22 = getelementptr inbounds i8, ptr %6, i64 7512
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 7368
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 7512
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(ptr noundef %21, i32 %20, i1 noundef zeroext true) #14
+  %24 = tail call i32 %23(ptr noundef nonnull %21, i32 %20, i1 noundef zeroext true) #14
   switch i32 %2, label %31 [
     i32 7, label %32
     i32 16, label %25
@@ -134,7 +134,7 @@ define dso_local void @hsw_write_infoframe(ptr nocapture noundef readonly %0, pt
   br label %32
 
 26:                                               ; preds = %5
-  %27 = getelementptr inbounds i8, ptr %6, i64 2632
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 2632
   %28 = load i16, ptr %27, align 8
   %29 = icmp ugt i16 %28, 10
   %30 = select i1 %29, i32 36, i32 32
@@ -151,11 +151,11 @@ define dso_local void @hsw_write_infoframe(ptr nocapture noundef readonly %0, pt
 
 36:                                               ; preds = %32
   tail call void asm sideeffect "941: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 941b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 941) #14, !srcloc !6
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @dev_driver_string(ptr noundef %38) #14
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %46
@@ -219,9 +219,9 @@ define dso_local void @hsw_write_infoframe(ptr nocapture noundef readonly %0, pt
 58:                                               ; preds = %56, %55, %54, %53, %52, %51, %50, %49, %48
   %59 = phi i32 [ -1, %56 ], [ -268435457, %55 ], [ -257, %54 ], [ -2, %53 ], [ -4097, %52 ], [ -16777217, %51 ], [ -1048577, %50 ], [ -17, %49 ], [ -65537, %48 ]
   %60 = and i32 %59, %24
-  %61 = getelementptr inbounds i8, ptr %6, i64 7544
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %62 = load ptr, ptr %61, align 8
-  tail call void %62(ptr noundef %21, i32 %20, i32 noundef %60, i1 noundef zeroext true) #14
+  tail call void %62(ptr noundef nonnull %21, i32 %20, i32 noundef %60, i1 noundef zeroext true) #14
   %63 = icmp sgt i64 %4, 0
   br i1 %63, label %.preheader2, label %.preheader.preheader
 
@@ -240,7 +240,7 @@ define dso_local void @hsw_write_infoframe(ptr nocapture noundef readonly %0, pt
   %68 = tail call fastcc i32 @hsw_dip_data_reg(ptr noundef %6, i32 noundef %8, i32 noundef %2, i32 noundef %67)
   %69 = load i32, ptr %65, align 4
   %70 = load ptr, ptr %61, align 8
-  tail call void %70(ptr noundef %21, i32 %68, i32 noundef %69, i1 noundef zeroext true) #14
+  tail call void %70(ptr noundef nonnull %21, i32 %68, i32 noundef %69, i1 noundef zeroext true) #14
   %71 = getelementptr i8, ptr %65, i64 4
   %72 = add i32 %66, 4
   %73 = sext i32 %72 to i64
@@ -252,20 +252,20 @@ define dso_local void @hsw_write_infoframe(ptr nocapture noundef readonly %0, pt
   %76 = ashr exact i32 %75, 2
   %77 = tail call fastcc i32 @hsw_dip_data_reg(ptr noundef %6, i32 noundef %8, i32 noundef %2, i32 noundef %76)
   %78 = load ptr, ptr %61, align 8
-  tail call void %78(ptr noundef %21, i32 %77, i32 noundef 0, i1 noundef zeroext true) #14
+  tail call void %78(ptr noundef nonnull %21, i32 %77, i32 noundef 0, i1 noundef zeroext true) #14
   %79 = add nsw i32 %75, 4
   %80 = icmp slt i32 %79, %33
   br i1 %80, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit3
-  %81 = getelementptr inbounds i8, ptr %6, i64 2632
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 2632
   %82 = load i16, ptr %81, align 8
   %83 = add i16 %82, -13
   %84 = icmp ult i16 %83, 2
   br i1 %84, label %85, label %91
 
 85:                                               ; preds = %.loopexit
-  %86 = getelementptr inbounds i8, ptr %1, i64 1409
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 1409
   %87 = load i8, ptr %86, align 1, !range !20, !noundef !21
   %88 = icmp ne i8 %87, 0
   %89 = icmp eq i32 %2, 7
@@ -319,9 +319,9 @@ define dso_local void @hsw_write_infoframe(ptr nocapture noundef readonly %0, pt
   %102 = phi i32 [ 0, %99 ], [ 268435456, %98 ], [ 256, %97 ], [ 1, %96 ], [ 4096, %95 ], [ 16777216, %94 ], [ 1048576, %93 ], [ 16, %92 ], [ 65536, %91 ]
   %103 = or i32 %102, %60
   %104 = load ptr, ptr %61, align 8
-  tail call void %104(ptr noundef %21, i32 %20, i32 noundef %103, i1 noundef zeroext true) #14
+  tail call void %104(ptr noundef nonnull %21, i32 %20, i32 noundef %103, i1 noundef zeroext true) #14
   %105 = load ptr, ptr %22, align 8
-  %106 = tail call i32 %105(ptr noundef %21, i32 %20, i1 noundef zeroext false) #14
+  %106 = tail call i32 %105(ptr noundef nonnull %21, i32 %20, i1 noundef zeroext false) #14
   br label %107
 
 107:                                              ; preds = %101, %85
@@ -356,14 +356,14 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr nocapture noundef readonly %0, 
   ]
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 2624
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = sext i32 %1 to i64
   %10 = getelementptr [7 x i32], ptr %8, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %8, align 4
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = load i32, ptr %13, align 4
   %15 = shl nsw i32 %3, 2
   %16 = add i32 %15, 393952
@@ -373,14 +373,14 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr nocapture noundef readonly %0, 
   br label %112
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %0, i64 2624
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = sext i32 %1 to i64
   %25 = getelementptr [7 x i32], ptr %23, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %23, align 4
-  %28 = getelementptr inbounds i8, ptr %22, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %29 = load i32, ptr %28, align 4
   %30 = shl nsw i32 %3, 2
   %31 = add i32 %30, 394016
@@ -390,14 +390,14 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr nocapture noundef readonly %0, 
   br label %112
 
 35:                                               ; preds = %4
-  %36 = getelementptr inbounds i8, ptr %0, i64 2624
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = sext i32 %1 to i64
   %40 = getelementptr [7 x i32], ptr %38, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %38, align 4
-  %43 = getelementptr inbounds i8, ptr %37, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %44 = load i32, ptr %43, align 4
   %45 = shl nsw i32 %3, 2
   %46 = add i32 %45, 394064
@@ -407,14 +407,14 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr nocapture noundef readonly %0, 
   br label %112
 
 50:                                               ; preds = %4
-  %51 = getelementptr inbounds i8, ptr %0, i64 2624
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = sext i32 %1 to i64
   %55 = getelementptr [7 x i32], ptr %53, i64 0, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %53, align 4
-  %58 = getelementptr inbounds i8, ptr %52, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %59 = load i32, ptr %58, align 4
   %60 = shl nsw i32 %3, 2
   %61 = add i32 %60, 393760
@@ -424,14 +424,14 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr nocapture noundef readonly %0, 
   br label %112
 
 65:                                               ; preds = %4
-  %66 = getelementptr inbounds i8, ptr %0, i64 2624
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %69 = sext i32 %1 to i64
   %70 = getelementptr [7 x i32], ptr %68, i64 0, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = load i32, ptr %68, align 4
-  %73 = getelementptr inbounds i8, ptr %67, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %74 = load i32, ptr %73, align 4
   %75 = shl nsw i32 %3, 2
   %76 = add i32 %75, 393888
@@ -441,14 +441,14 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr nocapture noundef readonly %0, 
   br label %112
 
 80:                                               ; preds = %4
-  %81 = getelementptr inbounds i8, ptr %0, i64 2624
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %84 = sext i32 %1 to i64
   %85 = getelementptr [7 x i32], ptr %83, i64 0, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = load i32, ptr %83, align 4
-  %88 = getelementptr inbounds i8, ptr %82, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %89 = load i32, ptr %88, align 4
   %90 = shl nsw i32 %3, 2
   %91 = add i32 %90, 393824
@@ -458,14 +458,14 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr nocapture noundef readonly %0, 
   br label %112
 
 95:                                               ; preds = %4
-  %96 = getelementptr inbounds i8, ptr %0, i64 2624
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 64
   %99 = sext i32 %1 to i64
   %100 = getelementptr [7 x i32], ptr %98, i64 0, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = load i32, ptr %98, align 4
-  %103 = getelementptr inbounds i8, ptr %97, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %104 = load i32, ptr %103, align 4
   %105 = shl nsw i32 %3, 2
   %106 = add i32 %105, 394304
@@ -492,14 +492,14 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @hsw_read_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 864
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i64 %4, 0
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %6, i64 7368
-  %12 = getelementptr inbounds i8, ptr %6, i64 7512
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 7368
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 7512
   br label %13
 
 13:                                               ; preds = %13, %10
@@ -508,7 +508,7 @@ define dso_local void @hsw_read_infoframe(ptr nocapture noundef readonly %0, ptr
   %16 = ashr exact i32 %14, 2
   %17 = tail call fastcc i32 @hsw_dip_data_reg(ptr noundef %6, i32 noundef %8, i32 noundef %2, i32 noundef %16)
   %18 = load ptr, ptr %12, align 8
-  %19 = tail call i32 %18(ptr noundef %11, i32 %17, i1 noundef zeroext true) #14
+  %19 = tail call i32 %18(ptr noundef nonnull %11, i32 %17, i1 noundef zeroext true) #14
   %20 = getelementptr i8, ptr %15, i64 4
   store i32 %19, ptr %15, align 4
   %21 = add i32 %14, 4
@@ -551,7 +551,7 @@ define dso_local i32 @intel_hdmi_infoframe_enable(i32 noundef %0) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_hdmi_infoframes_enabled(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %9 [
     i32 10, label %10
@@ -562,7 +562,7 @@ define dso_local i32 @intel_hdmi_infoframes_enabled(ptr noundef %0, ptr noundef 
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 392
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %8 = load ptr, ptr %7, align 8
   br label %10
 
@@ -571,10 +571,10 @@ define dso_local i32 @intel_hdmi_infoframes_enabled(ptr noundef %0, ptr noundef 
 
 10:                                               ; preds = %9, %6, %2, %2, %2, %2
   %11 = phi ptr [ %8, %6 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ %0, %2 ], [ null, %9 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 4040
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4040
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %0, ptr noundef %1) #14
-  %15 = getelementptr inbounds i8, ptr %3, i64 2624
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2624
   br label %16
 
 16:                                               ; preds = %60, %10
@@ -583,7 +583,7 @@ define dso_local i32 @intel_hdmi_infoframes_enabled(ptr noundef %0, ptr noundef 
   %19 = getelementptr [7 x i8], ptr @infoframe_type_to_idx, i64 0, i64 %17
   %20 = load i8, ptr %19, align 1
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %23 = load i16, ptr %22, align 4
   %24 = and i16 %23, 8
   %25 = icmp eq i16 %24, 0
@@ -705,7 +705,7 @@ define dso_local i32 @intel_hdmi_infoframes_enabled(ptr noundef %0, ptr noundef 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_read_infoframe(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   %5 = alloca [32 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %11 [
     i32 10, label %12
@@ -716,7 +716,7 @@ define dso_local void @intel_read_infoframe(ptr noundef %0, ptr noundef %1, i32 
   ]
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %10 = load ptr, ptr %9, align 8
   br label %12
 
@@ -727,7 +727,7 @@ define dso_local void @intel_read_infoframe(ptr noundef %0, ptr noundef %1, i32 
   %13 = phi ptr [ %10, %8 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ null, %11 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !35
-  %14 = getelementptr inbounds i8, ptr %1, i64 4340
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4340
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -757,12 +757,12 @@ define dso_local void @intel_read_infoframe(ptr noundef %0, ptr noundef %1, i32 
   br i1 %31, label %57, label %32
 
 32:                                               ; preds = %.loopexit
-  %33 = getelementptr inbounds i8, ptr %13, i64 4024
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 4024
   %34 = load ptr, ptr %33, align 8
   call void %34(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, i64 noundef 32) #14
-  %35 = getelementptr inbounds i8, ptr %5, i64 1
-  call void @llvm.memmove.p0.p0.i64(ptr noundef align 1 dereferenceable(3) %35, ptr noundef nonnull align 16 dereferenceable(3) %5, i64 3, i1 false)
-  %36 = call i32 @hdmi_infoframe_unpack(ptr noundef %3, ptr noundef %35, i64 noundef 31) #14
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %35, ptr noundef nonnull align 16 dereferenceable(3) %5, i64 3, i1 false)
+  %36 = call i32 @hdmi_infoframe_unpack(ptr noundef %3, ptr noundef nonnull %35, i64 noundef 31) #14
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %46, label %38
 
@@ -772,7 +772,7 @@ define dso_local void @intel_read_infoframe(ptr noundef %0, ptr noundef %1, i32 
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load ptr, ptr %42, align 8
   br label %44
 
@@ -792,7 +792,7 @@ define dso_local void @intel_read_infoframe(ptr noundef %0, ptr noundef %1, i32 
   br i1 %51, label %55, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %54 = load ptr, ptr %53, align 8
   br label %55
 
@@ -819,30 +819,30 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 define dso_local void @intel_hdmi_read_gcp_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 4340
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4340
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 1
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %57, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 2624
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2624
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %13 = load i16, ptr %12, align 4
   %14 = and i16 %13, 8
   %15 = icmp eq i16 %14, 0
   br i1 %15, label %29, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %11, i64 64
-  %18 = getelementptr inbounds i8, ptr %1, i64 864
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   %21 = getelementptr [7 x i32], ptr %17, i64 0, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = load i32, ptr %17, align 4
-  %24 = getelementptr inbounds i8, ptr %11, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %22, 393744
   %27 = sub i32 %26, %23
@@ -850,14 +850,14 @@ define dso_local void @intel_hdmi_read_gcp_infoframe(ptr nocapture noundef reado
   br label %50
 
 29:                                               ; preds = %9
-  %30 = getelementptr inbounds i8, ptr %3, i64 7184
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 7184
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 18874368
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %41, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %4, i64 1648
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 1648
   %36 = load i32, ptr %35, align 8
   %37 = icmp slt i32 %36, 1
   %38 = shl i32 %36, 7
@@ -866,13 +866,13 @@ define dso_local void @intel_hdmi_read_gcp_infoframe(ptr nocapture noundef reado
   br label %50
 
 41:                                               ; preds = %29
-  %42 = getelementptr inbounds i8, ptr %3, i64 8112
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8112
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %57, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %4, i64 1648
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 1648
   %47 = load i32, ptr %46, align 8
   %48 = shl i32 %47, 12
   %49 = add i32 %48, 918032
@@ -880,11 +880,11 @@ define dso_local void @intel_hdmi_read_gcp_infoframe(ptr nocapture noundef reado
 
 50:                                               ; preds = %45, %34, %16
   %51 = phi i32 [ %28, %16 ], [ %40, %34 ], [ %49, %45 ]
-  %52 = getelementptr inbounds i8, ptr %3, i64 7368
-  %53 = getelementptr inbounds i8, ptr %3, i64 7512
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 %54(ptr noundef %52, i32 %51, i1 noundef zeroext true) #14
-  %56 = getelementptr inbounds i8, ptr %1, i64 4344
+  %55 = tail call i32 %54(ptr noundef nonnull %52, i32 %51, i1 noundef zeroext true) #14
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4344
   store i32 %55, ptr %56, align 4
   br label %57
 
@@ -899,11 +899,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @intel_dp_dual_mode_set_tmds_output(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -3848
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1872
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1872
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp ult i32 %10, 4
   br i1 %11, label %22, label %12
@@ -913,7 +913,7 @@ define dso_local void @intel_dp_dual_mode_set_tmds_output(ptr nocapture noundef 
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -947,17 +947,17 @@ define dso_local range(i32 -268435456, 268435456) i32 @intel_hdmi_tmds_clock(i32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4748
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4748
   %13 = zext nneg i32 %7 to i64
   br i1 %2, label %.split.us, label %.split
 
@@ -970,9 +970,9 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
   br i1 %18, label %51, label %19
 
 19:                                               ; preds = %.split.us
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %0, align 8
   %25 = icmp eq ptr %23, %24
@@ -991,13 +991,13 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %17, i64 249
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 249
   %32 = load i8, ptr %31, align 1
   %33 = and i8 %32, 16
   br label %48
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %17, i64 328
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 328
   %36 = load i8, ptr %35, align 8
   %37 = and i8 %36, 1
   br label %48
@@ -1007,13 +1007,13 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %17, i64 249
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 249
   %42 = load i8, ptr %41, align 1
   %43 = and i8 %42, 32
   br label %48
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %17, i64 328
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 328
   %46 = load i8, ptr %45, align 8
   %47 = and i8 %46, 2
   br label %48
@@ -1045,9 +1045,9 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
   br i1 %59, label %67, label %60
 
 60:                                               ; preds = %.split.split.us
-  %61 = getelementptr inbounds i8, ptr %57, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %0, align 8
   %66 = icmp eq ptr %64, %65
@@ -1068,9 +1068,9 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
   br i1 %75, label %83, label %76
 
 76:                                               ; preds = %.split.split.us12
-  %77 = getelementptr inbounds i8, ptr %73, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %0, align 8
   %82 = icmp eq ptr %80, %81
@@ -1091,9 +1091,9 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
   br i1 %91, label %100, label %92
 
 92:                                               ; preds = %.split.split
-  %93 = getelementptr inbounds i8, ptr %89, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr %0, align 8
   %98 = icmp eq ptr %96, %97
@@ -1123,26 +1123,26 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @intel_hdmi_limited_color_range(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 608
-  %4 = getelementptr inbounds i8, ptr %0, i64 4744
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 164
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 876
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 876
   %13 = load i8, ptr %12, align 4, !range !20, !noundef !21
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call i32 @drm_default_rgb_quant_range(ptr noundef %3) #14
+  %16 = tail call i32 @drm_default_rgb_quant_range(ptr noundef nonnull %3) #14
   %17 = icmp eq i32 %16, 1
   br label %20
 
@@ -1160,7 +1160,7 @@ declare dso_local i32 @drm_default_rgb_quant_range(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
 define dso_local zeroext i1 @intel_hdmi_compute_has_hdmi_sink(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #8 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %9 [
     i32 10, label %10
@@ -1171,7 +1171,7 @@ define dso_local zeroext i1 @intel_hdmi_compute_has_hdmi_sink(ptr nocapture noun
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 392
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %8 = load ptr, ptr %7, align 8
   br label %10
 
@@ -1180,21 +1180,21 @@ define dso_local zeroext i1 @intel_hdmi_compute_has_hdmi_sink(ptr nocapture noun
 
 10:                                               ; preds = %9, %6, %3, %3, %3, %3
   %11 = phi ptr [ %8, %6 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ null, %9 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 3864
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 3864
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 245
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 245
   %15 = load i8, ptr %14, align 1, !range !20, !noundef !21
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %28, label %17
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %2, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %19 = load volatile i32, ptr %18, align 8
   %20 = icmp eq i32 %19, -2
   br i1 %20, label %28, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %1, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %28, label %25
@@ -1213,14 +1213,14 @@ define dso_local zeroext i1 @intel_hdmi_compute_has_hdmi_sink(ptr nocapture noun
 define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 632
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 32
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %391
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 148
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %12 = load i8, ptr %11, align 4, !range !20, !noundef !21
   %13 = icmp ne i8 %12, 0
   %14 = and i32 %7, 16
@@ -1229,15 +1229,15 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
   br i1 %16, label %17, label %391
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %1, i64 4744
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4744
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 876
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 876
   %20 = load i8, ptr %19, align 4, !range !20, !noundef !21
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %1, i64 861
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 861
   store i8 1, ptr %23, align 1
   br label %24
 
@@ -1247,7 +1247,7 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %1, i64 1452
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1452
   store i32 2, ptr %28, align 4
   br label %29
 
@@ -1256,7 +1256,7 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
   br i1 %21, label %40, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %2, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %33 = load i32, ptr %32, align 8
   switch i32 %33, label %40 [
     i32 0, label %34
@@ -1264,7 +1264,7 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
   ]
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %30, i64 246
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 246
   %36 = load i8, ptr %35, align 2, !range !20, !noundef !21
   %.not = icmp eq i8 %36, 0
   br i1 %.not, label %40, label %37
@@ -1276,7 +1276,7 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
 
 40:                                               ; preds = %31, %34, %37, %29
   %41 = phi i8 [ %39, %37 ], [ 0, %29 ], [ 0, %34 ], [ 0, %31 ]
-  %42 = getelementptr inbounds i8, ptr %1, i64 877
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 877
   store i8 %41, ptr %42, align 1
   %.val = load ptr, ptr %2, align 8
   %43 = tail call fastcc i32 @intel_hdmi_compute_output_format(ptr noundef %0, ptr noundef %1, ptr %.val, i1 noundef zeroext true)
@@ -1294,13 +1294,13 @@ define dso_local i32 @intel_hdmi_compute_config(ptr noundef %0, ptr noundef %1, 
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %4, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %53
 
 53:                                               ; preds = %50, %48
   %54 = phi ptr [ %52, %50 ], [ null, %48 ]
-  %55 = getelementptr inbounds i8, ptr %1, i64 636
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 636
   %56 = load i32, ptr %55, align 4
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %54, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %56) #14
   br label %391
@@ -1321,12 +1321,12 @@ thread-pre-split:                                 ; preds = %59
 
 62:                                               ; preds = %thread-pre-split, %.thread
   %63 = phi i32 [ %.pr, %thread-pre-split ], [ %57, %.thread ]
-  %64 = getelementptr inbounds i8, ptr %1, i64 608
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %65 = icmp eq i32 %63, 0
   br i1 %65, label %66, label %78
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %2, i64 164
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %76
@@ -1337,7 +1337,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %72, label %78, label %73
 
 73:                                               ; preds = %70
-  %74 = tail call i32 @drm_default_rgb_quant_range(ptr noundef %64) #14
+  %74 = tail call i32 @drm_default_rgb_quant_range(ptr noundef nonnull %64) #14
   %75 = icmp eq i32 %74, 1
   br label %78
 
@@ -1347,30 +1347,30 @@ thread-pre-split:                                 ; preds = %59
 
 78:                                               ; preds = %76, %73, %70, %62
   %79 = phi i1 [ %77, %76 ], [ false, %62 ], [ false, %70 ], [ %75, %73 ]
-  %80 = getelementptr inbounds i8, ptr %1, i64 868
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 868
   %81 = zext i1 %79 to i8
   store i8 %81, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %2, i64 108
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %87, label %85
 
 85:                                               ; preds = %78
-  %86 = getelementptr inbounds i8, ptr %1, i64 724
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 724
   store i32 %83, ptr %86, align 4
   br label %87
 
 87:                                               ; preds = %85, %78
-  %88 = getelementptr inbounds i8, ptr %1, i64 1457
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 1457
   store i8 4, ptr %88, align 1
-  %89 = getelementptr inbounds i8, ptr %5, i64 258
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 258
   %90 = load i8, ptr %89, align 1, !range !20, !noundef !21
   %91 = icmp eq i8 %90, 0
   br i1 %91, label %129, label %92
 
 92:                                               ; preds = %87
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 2632
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 2632
   %95 = load i16, ptr %94, align 8
   %96 = icmp ugt i16 %95, 9
   br i1 %96, label %107, label %97
@@ -1380,7 +1380,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %98, label %107, label %99
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %93, i64 7184
+  %100 = getelementptr inbounds nuw i8, ptr %93, i64 7184
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, 4194304
   %103 = icmp eq i32 %102, 0
@@ -1393,7 +1393,7 @@ thread-pre-split:                                 ; preds = %59
 
 107:                                              ; preds = %104, %99, %97, %92
   %108 = phi i32 [ 594000, %92 ], [ 300000, %99 ], [ 300000, %97 ], [ %106, %104 ]
-  %109 = getelementptr inbounds i8, ptr %0, i64 376
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %110 = load ptr, ptr %109, align 8
   %111 = tail call i32 @intel_bios_hdmi_max_tmds_clock(ptr noundef %110) #14
   %112 = icmp eq i32 %111, 0
@@ -1403,36 +1403,36 @@ thread-pre-split:                                 ; preds = %59
   br i1 %115, label %116, label %129
 
 116:                                              ; preds = %107
-  %117 = getelementptr inbounds i8, ptr %5, i64 259
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 259
   %118 = load i8, ptr %117, align 1, !range !20, !noundef !21
   %119 = icmp eq i8 %118, 0
   br i1 %119, label %122, label %120
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %1, i64 4740
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 4740
   store i8 1, ptr %121, align 4
   br label %122
 
 122:                                              ; preds = %120, %116
-  %123 = getelementptr inbounds i8, ptr %1, i64 1448
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 1448
   %124 = load i32, ptr %123, align 8
   %125 = icmp sgt i32 %124, 340000
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds i8, ptr %1, i64 4740
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 4740
   store i8 1, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %1, i64 4741
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 4741
   store i8 1, ptr %128, align 1
   br label %129
 
 129:                                              ; preds = %126, %122, %107, %87
   %130 = load ptr, ptr %0, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 7184
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 7184
   %132 = load i32, ptr %131, align 4
   %133 = and i32 %132, 196608
   %134 = icmp eq i32 %133, 0
-  %135 = getelementptr inbounds i8, ptr %1, i64 861
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 861
   %136 = load i8, ptr %135, align 1, !range !20
   %137 = icmp eq i8 %136, 0
   br i1 %134, label %138, label %204
@@ -1441,17 +1441,17 @@ thread-pre-split:                                 ; preds = %59
   br i1 %137, label %.thread21, label %139
 
 139:                                              ; preds = %138
-  %140 = getelementptr inbounds i8, ptr %1, i64 4340
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 4340
   %141 = load i32, ptr %140, align 4
   %142 = or i32 %141, 1
   store i32 %142, ptr %140, align 4
-  %143 = getelementptr inbounds i8, ptr %1, i64 1364
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 1364
   %144 = load i32, ptr %143, align 4
   %145 = icmp sgt i32 %144, 24
   br i1 %145, label %146, label %150
 
 146:                                              ; preds = %139
-  %147 = getelementptr inbounds i8, ptr %1, i64 4344
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 4344
   %148 = load i32, ptr %147, align 4
   %149 = or i32 %148, 4
   store i32 %149, ptr %147, align 4
@@ -1472,7 +1472,7 @@ thread-pre-split:                                 ; preds = %59
 
 153:                                              ; preds = %152, %151, %150
   %154 = phi i32 [ 1, %152 ], [ 2, %151 ], [ 4, %150 ]
-  %155 = getelementptr inbounds i8, ptr %1, i64 640
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %156 = load i16, ptr %155, align 8
   %157 = zext i16 %156 to i32
   %158 = add nuw nsw i32 %154, 65535
@@ -1481,7 +1481,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %160, label %161, label %.thread23
 
 161:                                              ; preds = %153
-  %162 = getelementptr inbounds i8, ptr %1, i64 650
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 650
   %163 = load i16, ptr %162, align 2
   %164 = zext i16 %163 to i32
   %165 = and i32 %158, %164
@@ -1489,7 +1489,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %166, label %167, label %.thread23
 
 167:                                              ; preds = %161
-  %168 = getelementptr inbounds i8, ptr %1, i64 642
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 642
   %169 = load i16, ptr %168, align 2
   %170 = zext i16 %169 to i32
   %171 = and i32 %158, %170
@@ -1497,7 +1497,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %172, label %173, label %.thread23
 
 173:                                              ; preds = %167
-  %174 = getelementptr inbounds i8, ptr %1, i64 644
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 644
   %175 = load i16, ptr %174, align 4
   %176 = zext i16 %175 to i32
   %177 = and i32 %158, %176
@@ -1505,7 +1505,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %178, label %179, label %.thread23
 
 179:                                              ; preds = %173
-  %180 = getelementptr inbounds i8, ptr %1, i64 646
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 646
   %181 = load i16, ptr %180, align 2
   %182 = zext i16 %181 to i32
   %183 = and i32 %158, %182
@@ -1513,7 +1513,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %184, label %185, label %.thread23
 
 185:                                              ; preds = %179
-  %186 = getelementptr inbounds i8, ptr %1, i64 648
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %187 = load i16, ptr %186, align 8
   %188 = zext i16 %187 to i32
   %189 = and i32 %158, %188
@@ -1534,7 +1534,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %199, label %200, label %.thread23
 
 200:                                              ; preds = %195, %191
-  %201 = getelementptr inbounds i8, ptr %1, i64 4344
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 4344
   %202 = load i32, ptr %201, align 4
   %203 = or i32 %202, 2
   store i32 %203, ptr %201, align 4
@@ -1544,26 +1544,26 @@ thread-pre-split:                                 ; preds = %59
   br i1 %137, label %.thread21, label %.thread23
 
 .thread23:                                        ; preds = %150, %153, %161, %167, %173, %179, %185, %195, %200, %204
-  %205 = getelementptr inbounds i8, ptr %1, i64 4348
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 4348
   %206 = load ptr, ptr %2, align 8
-  %207 = getelementptr inbounds i8, ptr %1, i64 861
-  %208 = getelementptr inbounds i8, ptr %1, i64 4340
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 861
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 4340
   %209 = load i32, ptr %208, align 4
   %210 = or i32 %209, 8
   store i32 %210, ptr %208, align 4
-  %211 = tail call i32 @drm_hdmi_avi_infoframe_from_display_mode(ptr noundef %205, ptr noundef %206, ptr noundef %64) #14
+  %211 = tail call i32 @drm_hdmi_avi_infoframe_from_display_mode(ptr noundef nonnull %205, ptr noundef %206, ptr noundef nonnull %64) #14
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %213, label %266
 
 213:                                              ; preds = %.thread23
   %214 = load i32, ptr %18, align 8
-  %215 = getelementptr inbounds i8, ptr %1, i64 4356
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 4356
   %216 = icmp eq i32 %214, 2
   %217 = select i1 %216, i32 2, i32 0
   %218 = icmp eq i32 %214, 1
   %219 = select i1 %218, i32 3, i32 %217
   store i32 %219, ptr %215, align 4
-  tail call void @drm_hdmi_avi_infoframe_colorimetry(ptr noundef %205, ptr noundef %2) #14
+  tail call void @drm_hdmi_avi_infoframe_colorimetry(ptr noundef nonnull %205, ptr noundef %2) #14
   %220 = load i8, ptr %80, align 4, !range !20, !noundef !21
   %221 = icmp eq i8 %220, 0
   br i1 %221, label %240, label %222
@@ -1576,13 +1576,13 @@ thread-pre-split:                                 ; preds = %59
 225:                                              ; preds = %222
   tail call void asm sideeffect "953: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 953b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 953) #14, !srcloc !44
   %226 = load ptr, ptr %0, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load ptr, ptr %227, align 8
   %229 = tail call ptr @dev_driver_string(ptr noundef %228) #14
   %230 = load ptr, ptr %0, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 80
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 80
   %234 = load ptr, ptr %233, align 8
   %235 = icmp eq ptr %234, null
   br i1 %235, label %236, label %238
@@ -1613,32 +1613,32 @@ thread-pre-split:                                 ; preds = %59
 
 .thread15:                                        ; preds = %..thread15_crit_edge, %222
   %244 = phi i32 [ %243, %..thread15_crit_edge ], [ 1, %222 ]
-  tail call void @drm_hdmi_avi_infoframe_quant_range(ptr noundef %205, ptr noundef %206, ptr noundef %64, i32 noundef %244) #14
+  tail call void @drm_hdmi_avi_infoframe_quant_range(ptr noundef nonnull %205, ptr noundef %206, ptr noundef nonnull %64, i32 noundef %244) #14
   br label %248
 
 245:                                              ; preds = %240
-  %246 = getelementptr inbounds i8, ptr %1, i64 4380
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 4380
   store i32 0, ptr %246, align 4
-  %247 = getelementptr inbounds i8, ptr %1, i64 4392
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 4392
   store i32 0, ptr %247, align 4
   br label %248
 
 248:                                              ; preds = %245, %.thread15
-  tail call void @drm_hdmi_avi_infoframe_content_type(ptr noundef %205, ptr noundef %2) #14
-  %249 = tail call i32 @hdmi_avi_infoframe_check(ptr noundef %205) #14
+  tail call void @drm_hdmi_avi_infoframe_content_type(ptr noundef nonnull %205, ptr noundef %2) #14
+  %249 = tail call i32 @hdmi_avi_infoframe_check(ptr noundef nonnull %205) #14
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %273, label %251, !prof !43
 
 251:                                              ; preds = %248
   tail call void asm sideeffect "957: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 957b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 957) #14, !srcloc !49
   %252 = load ptr, ptr %0, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %254 = load ptr, ptr %253, align 8
   %255 = tail call ptr @dev_driver_string(ptr noundef %254) #14
   %256 = load ptr, ptr %0, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 80
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 80
   %260 = load ptr, ptr %259, align 8
   %261 = icmp eq ptr %260, null
   br i1 %261, label %262, label %264
@@ -1661,7 +1661,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %267, label %271, label %268
 
 268:                                              ; preds = %266
-  %269 = getelementptr inbounds i8, ptr %4, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %270 = load ptr, ptr %269, align 8
   br label %271
 
@@ -1672,7 +1672,7 @@ thread-pre-split:                                 ; preds = %59
 
 273:                                              ; preds = %248
   %.pr17 = load i8, ptr %207, align 1
-  %274 = getelementptr inbounds i8, ptr %1, i64 4408
+  %274 = getelementptr inbounds nuw i8, ptr %1, i64 4408
   %275 = icmp eq i8 %.pr17, 0
   br i1 %275, label %.thread21, label %276
 
@@ -1681,27 +1681,27 @@ thread-pre-split:                                 ; preds = %59
   %278 = load i32, ptr %208, align 4
   %279 = or i32 %278, 16
   store i32 %279, ptr %208, align 4
-  %280 = getelementptr inbounds i8, ptr %277, i64 7168
+  %280 = getelementptr inbounds nuw i8, ptr %277, i64 7168
   %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 28
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 28
   %283 = load i64, ptr %282, align 4
   %284 = and i64 %283, 8
   %285 = icmp eq i64 %284, 0
   %286 = select i1 %285, ptr @.str.28, ptr @.str.27
-  %287 = tail call i32 @hdmi_spd_infoframe_init(ptr noundef %274, ptr noundef nonnull @.str.26, ptr noundef nonnull %286) #14
+  %287 = tail call i32 @hdmi_spd_infoframe_init(ptr noundef nonnull %274, ptr noundef nonnull @.str.26, ptr noundef nonnull %286) #14
   %288 = icmp eq i32 %287, 0
   br i1 %288, label %304, label %289, !prof !43
 
 289:                                              ; preds = %276
   tail call void asm sideeffect "961: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 961b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 961) #14, !srcloc !54
   %290 = load ptr, ptr %0, align 8
-  %291 = getelementptr inbounds i8, ptr %290, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %292 = load ptr, ptr %291, align 8
   %293 = tail call ptr @dev_driver_string(ptr noundef %292) #14
   %294 = load ptr, ptr %0, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %296 = load ptr, ptr %295, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 80
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 80
   %298 = load ptr, ptr %297, align 8
   %299 = icmp eq ptr %298, null
   br i1 %299, label %300, label %302
@@ -1720,22 +1720,22 @@ thread-pre-split:                                 ; preds = %59
   br label %323
 
 304:                                              ; preds = %276
-  %305 = getelementptr inbounds i8, ptr %1, i64 4440
+  %305 = getelementptr inbounds nuw i8, ptr %1, i64 4440
   store i32 9, ptr %305, align 4
-  %306 = tail call i32 @hdmi_spd_infoframe_check(ptr noundef %274) #14
+  %306 = tail call i32 @hdmi_spd_infoframe_check(ptr noundef nonnull %274) #14
   %307 = icmp eq i32 %306, 0
   br i1 %307, label %330, label %308, !prof !43
 
 308:                                              ; preds = %304
   tail call void asm sideeffect "965: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 965b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 965) #14, !srcloc !59
   %309 = load ptr, ptr %0, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %311 = load ptr, ptr %310, align 8
   %312 = tail call ptr @dev_driver_string(ptr noundef %311) #14
   %313 = load ptr, ptr %0, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 8
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 80
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 80
   %317 = load ptr, ptr %316, align 8
   %318 = icmp eq ptr %317, null
   br i1 %318, label %319, label %321
@@ -1758,7 +1758,7 @@ thread-pre-split:                                 ; preds = %59
   br i1 %324, label %328, label %325
 
 325:                                              ; preds = %323
-  %326 = getelementptr inbounds i8, ptr %4, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %327 = load ptr, ptr %326, align 8
   br label %328
 
@@ -1769,13 +1769,13 @@ thread-pre-split:                                 ; preds = %59
 
 330:                                              ; preds = %304
   %.pr20 = load i8, ptr %207, align 1
-  %331 = getelementptr inbounds i8, ptr %1, i64 4468
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 4468
   %332 = icmp eq i8 %.pr20, 0
   br i1 %332, label %.thread21, label %333
 
 333:                                              ; preds = %330
   %334 = load ptr, ptr %2, align 8
-  %335 = getelementptr inbounds i8, ptr %334, i64 247
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 247
   %336 = load i8, ptr %335, align 1, !range !20, !noundef !21
   %337 = icmp eq i8 %336, 0
   br i1 %337, label %.thread21, label %338
@@ -1785,20 +1785,20 @@ thread-pre-split:                                 ; preds = %59
   %340 = or i32 %339, 32
   store i32 %340, ptr %208, align 4
   %341 = load ptr, ptr %2, align 8
-  %342 = tail call i32 @drm_hdmi_vendor_infoframe_from_display_mode(ptr noundef %331, ptr noundef %341, ptr noundef %64) #14
+  %342 = tail call i32 @drm_hdmi_vendor_infoframe_from_display_mode(ptr noundef nonnull %331, ptr noundef %341, ptr noundef nonnull %64) #14
   %343 = icmp eq i32 %342, 0
   br i1 %343, label %359, label %344, !prof !43
 
 344:                                              ; preds = %338
   tail call void asm sideeffect "969: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 969b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 969) #14, !srcloc !64
   %345 = load ptr, ptr %0, align 8
-  %346 = getelementptr inbounds i8, ptr %345, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %347 = load ptr, ptr %346, align 8
   %348 = tail call ptr @dev_driver_string(ptr noundef %347) #14
   %349 = load ptr, ptr %0, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 80
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 80
   %353 = load ptr, ptr %352, align 8
   %354 = icmp eq ptr %353, null
   br i1 %354, label %355, label %357
@@ -1817,20 +1817,20 @@ thread-pre-split:                                 ; preds = %59
   br label %intel_hdmi_compute_hdmi_infoframe.exit
 
 359:                                              ; preds = %338
-  %360 = tail call i32 @hdmi_vendor_infoframe_check(ptr noundef %331) #14
+  %360 = tail call i32 @hdmi_vendor_infoframe_check(ptr noundef nonnull %331) #14
   %361 = icmp eq i32 %360, 0
   br i1 %361, label %.thread21, label %362, !prof !43
 
 362:                                              ; preds = %359
   tail call void asm sideeffect "973: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 973b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 973) #14, !srcloc !69
   %363 = load ptr, ptr %0, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 8
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 8
   %365 = load ptr, ptr %364, align 8
   %366 = tail call ptr @dev_driver_string(ptr noundef %365) #14
   %367 = load ptr, ptr %0, align 8
-  %368 = getelementptr inbounds i8, ptr %367, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %369 = load ptr, ptr %368, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 80
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 80
   %371 = load ptr, ptr %370, align 8
   %372 = icmp eq ptr %371, null
   br i1 %372, label %373, label %375
@@ -1853,7 +1853,7 @@ intel_hdmi_compute_hdmi_infoframe.exit:           ; preds = %375, %357
   br i1 %377, label %381, label %378
 
 378:                                              ; preds = %intel_hdmi_compute_hdmi_infoframe.exit
-  %379 = getelementptr inbounds i8, ptr %4, i64 8
+  %379 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %380 = load ptr, ptr %379, align 8
   br label %381
 
@@ -1872,7 +1872,7 @@ intel_hdmi_compute_hdmi_infoframe.exit:           ; preds = %375, %357
   br i1 %385, label %389, label %386
 
 386:                                              ; preds = %384
-  %387 = getelementptr inbounds i8, ptr %4, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %388 = load ptr, ptr %387, align 8
   br label %389
 
@@ -1891,17 +1891,17 @@ declare dso_local zeroext i1 @intel_audio_compute_config(ptr noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_output_format(ptr noundef %0, ptr noundef %1, ptr %.0.val, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 608
-  %5 = getelementptr inbounds i8, ptr %.0.val, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 608
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 200
   %6 = load ptr, ptr %.0.val, align 8
-  %7 = tail call zeroext i1 @drm_mode_is_420_only(ptr noundef %5, ptr noundef %4) #14
-  %8 = getelementptr inbounds i8, ptr %1, i64 876
+  %7 = tail call zeroext i1 @drm_mode_is_420_only(ptr noundef nonnull %5, ptr noundef nonnull %4) #14
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 876
   %9 = load i8, ptr %8, align 4, !range !20, !noundef !21
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %.0.val, i64 151
+  %12 = getelementptr inbounds nuw i8, ptr %.0.val, i64 151
   %13 = load i8, ptr %12, align 1, !range !20, !noundef !21
   %14 = icmp ne i8 %13, 0
   %15 = and i1 %7, %14
@@ -1910,7 +1910,7 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_output_format(p
 
 17:                                               ; preds = %11, %3
   %18 = phi i32 [ 0, %3 ], [ %16, %11 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 4748
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4748
   store i32 %18, ptr %19, align 4
   %20 = icmp eq i32 %18, 0
   %21 = select i1 %7, i1 %20, i1 false
@@ -1921,7 +1921,7 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_output_format(p
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -1933,7 +1933,7 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_output_format(p
 
 29:                                               ; preds = %27, %17
   %30 = phi i32 [ 0, %27 ], [ %18, %17 ]
-  %31 = getelementptr inbounds i8, ptr %1, i64 4744
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 4744
   store i32 %30, ptr %31, align 8
   %32 = tail call fastcc i32 @intel_hdmi_compute_clock(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2), !range !74
   %33 = icmp eq i32 %32, 0
@@ -1950,13 +1950,13 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_output_format(p
   br i1 %39, label %48, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %.0.val, i64 151
+  %41 = getelementptr inbounds nuw i8, ptr %.0.val, i64 151
   %42 = load i8, ptr %41, align 1, !range !20, !noundef !21
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %40
-  %45 = tail call zeroext i1 @drm_mode_is_420_also(ptr noundef %5, ptr noundef %4) #14
+  %45 = tail call zeroext i1 @drm_mode_is_420_also(ptr noundef nonnull %5, ptr noundef nonnull %4) #14
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %44
@@ -1975,21 +1975,21 @@ declare dso_local i32 @intel_panel_fitting(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr readonly %.0.val, ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4340
-  %4 = getelementptr inbounds i8, ptr %0, i64 4528
-  %5 = getelementptr inbounds i8, ptr %.0.val, i64 2632
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4340
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4528
+  %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 2632
   %6 = load i16, ptr %5, align 8
   %7 = icmp ult i16 %6, 10
   br i1 %7, label %43, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 861
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 861
   %10 = load i8, ptr %9, align 1, !range !20, !noundef !21
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %43, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %43, label %16
@@ -1998,7 +1998,7 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr 
   %17 = load i32, ptr %3, align 4
   %18 = or i32 %17, 64
   store i32 %18, ptr %3, align 4
-  %19 = tail call i32 @drm_hdmi_infoframe_set_hdr_metadata(ptr noundef %4, ptr noundef %1) #14
+  %19 = tail call i32 @drm_hdmi_infoframe_set_hdr_metadata(ptr noundef nonnull %4, ptr noundef %1) #14
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %21, label %28
 
@@ -2007,7 +2007,7 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr 
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %.0.val, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -2017,17 +2017,17 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr 
   br label %43
 
 28:                                               ; preds = %16
-  %29 = tail call i32 @hdmi_drm_infoframe_check(ptr noundef %4) #14
+  %29 = tail call i32 @hdmi_drm_infoframe_check(ptr noundef nonnull %4) #14
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %43, label %31, !prof !43
 
 31:                                               ; preds = %28
   tail call void asm sideeffect "977: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 977b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 977) #14, !srcloc !75
-  %32 = getelementptr inbounds i8, ptr %.0.val, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @dev_driver_string(ptr noundef %33) #14
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
@@ -2052,7 +2052,7 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_compute_drm_infoframe(ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_hdmi_encoder_shutdown(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %7 [
     i32 10, label %8
@@ -2063,7 +2063,7 @@ define dso_local void @intel_hdmi_encoder_shutdown(ptr nocapture noundef readonl
   ]
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 392
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %6 = load ptr, ptr %5, align 8
   br label %8
 
@@ -2073,11 +2073,11 @@ define dso_local void @intel_hdmi_encoder_shutdown(ptr nocapture noundef readonl
 8:                                                ; preds = %7, %4, %1, %1, %1, %1
   %9 = phi ptr [ %6, %4 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ %0, %1 ], [ null, %7 ]
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 3864
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 3864
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1872
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1872
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 3852
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 3852
   %16 = load i32, ptr %15, align 4
   %17 = icmp ult i32 %16, 4
   br i1 %17, label %27, label %18
@@ -2087,7 +2087,7 @@ define dso_local void @intel_hdmi_encoder_shutdown(ptr nocapture noundef readonl
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %10, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %22 = load ptr, ptr %21, align 8
   br label %23
 
@@ -2105,7 +2105,7 @@ define dso_local void @intel_hdmi_encoder_shutdown(ptr nocapture noundef readonl
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @intel_hdmi_handle_sink_scrambling(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 16 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 258
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 258
   %7 = load i8, ptr %6, align 1, !range !20, !noundef !21
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %25, label %9
@@ -2115,15 +2115,15 @@ define dso_local zeroext i1 @intel_hdmi_handle_sink_scrambling(ptr nocapture nou
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %14
 
 14:                                               ; preds = %11, %9
   %15 = phi ptr [ %13, %11 ], [ null, %9 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %19 = load ptr, ptr %18, align 8
   %20 = select i1 %3, ptr @.str.30, ptr @.str.31
   %21 = select i1 %2, i32 40, i32 10
@@ -2149,7 +2149,7 @@ declare dso_local zeroext i1 @drm_scdc_set_scrambling(ptr noundef, i1 noundef ze
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_infoframe_init(ptr nocapture noundef initializes((4016, 4048)) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 7184
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 7184
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
   %6 = and i64 %5, 18874368
@@ -2157,13 +2157,13 @@ define dso_local void @intel_infoframe_init(ptr nocapture noundef initializes((4
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 4016
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4016
   store ptr @vlv_write_infoframe, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4024
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4024
   store ptr @vlv_read_infoframe, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 4032
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4032
   store ptr @vlv_set_infoframes, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4040
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4040
   store ptr @vlv_infoframes_enabled, ptr %12, align 8
   br label %44
 
@@ -2173,31 +2173,31 @@ define dso_local void @intel_infoframe_init(ptr nocapture noundef initializes((4
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 4016
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4016
   store ptr @g4x_write_infoframe, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4024
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4024
   store ptr @g4x_read_infoframe, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 4032
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4032
   store ptr @g4x_set_infoframes, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 4040
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4040
   store ptr @g4x_infoframes_enabled, ptr %20, align 8
   br label %44
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %2, i64 2624
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 2624
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %25 = load i16, ptr %24, align 4
   %26 = and i16 %25, 8
   %27 = icmp eq i16 %26, 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 4016
-  %29 = getelementptr inbounds i8, ptr %0, i64 4024
-  %30 = getelementptr inbounds i8, ptr %0, i64 4032
-  %31 = getelementptr inbounds i8, ptr %0, i64 4040
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4016
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4024
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4032
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4040
   br i1 %27, label %38, label %32
 
 32:                                               ; preds = %21
-  %33 = getelementptr inbounds i8, ptr %0, i64 376
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i1 @intel_bios_encoder_is_lspcon(ptr noundef %34) #14
   br i1 %35, label %36, label %37
@@ -2217,7 +2217,7 @@ define dso_local void @intel_infoframe_init(ptr nocapture noundef initializes((4
   br label %44
 
 38:                                               ; preds = %21
-  %39 = getelementptr inbounds i8, ptr %2, i64 8112
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8112
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %42, label %43
@@ -2244,26 +2244,26 @@ define dso_local void @intel_infoframe_init(ptr nocapture noundef initializes((4
 define internal void @vlv_write_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1648
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
   %9 = load i32, ptr %8, align 8
   %10 = icmp slt i32 %9, 1
   %11 = shl i32 %9, 7
   %12 = add i32 %11, 1970416
   %13 = select i1 %10, i32 1966592, i32 %12
-  %14 = getelementptr inbounds i8, ptr %6, i64 7368
-  %15 = getelementptr inbounds i8, ptr %6, i64 7512
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 7368
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 7512
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %14, i32 %13, i1 noundef zeroext true) #14
+  %17 = tail call i32 %16(ptr noundef nonnull %14, i32 %13, i1 noundef zeroext true) #14
   %18 = icmp sgt i32 %17, -1
   br i1 %18, label %19, label %31, !prof !5
 
 19:                                               ; preds = %5
   tail call void asm sideeffect "937: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 937b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 937) #14, !srcloc !80
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @dev_driver_string(ptr noundef %21) #14
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29
@@ -2332,9 +2332,9 @@ define internal void @vlv_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %40 = phi i32 [ %32, %39 ], [ %32, %38 ], [ %32, %36 ], [ %33, %.thread ], [ %34, %.thread3 ], [ %35, %.thread4 ], [ %32, %31 ]
   %41 = phi i32 [ -1, %39 ], [ -1, %38 ], [ -33554433, %36 ], [ -8388609, %.thread ], [ -16777217, %.thread3 ], [ -4194305, %.thread4 ], [ -2097153, %31 ]
   %42 = and i32 %41, %40
-  %43 = getelementptr inbounds i8, ptr %6, i64 7544
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef %14, i32 %13, i32 noundef %42, i1 noundef zeroext true) #14
+  tail call void %44(ptr noundef nonnull %14, i32 %13, i32 noundef %42, i1 noundef zeroext true) #14
   %45 = icmp sgt i64 %4, 0
   br i1 %45, label %.preheader5, label %.preheader.preheader
 
@@ -2356,7 +2356,7 @@ define internal void @vlv_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %53 = select i1 %50, i32 1966600, i32 %52
   %54 = load i32, ptr %47, align 4
   %55 = load ptr, ptr %43, align 8
-  tail call void %55(ptr noundef %14, i32 %53, i32 noundef %54, i1 noundef zeroext true) #14
+  tail call void %55(ptr noundef nonnull %14, i32 %53, i32 noundef %54, i1 noundef zeroext true) #14
   %56 = getelementptr i8, ptr %47, i64 4
   %57 = add i32 %48, 4
   %58 = sext i32 %57 to i64
@@ -2371,7 +2371,7 @@ define internal void @vlv_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %64 = add i32 %63, 1970420
   %65 = select i1 %62, i32 1966600, i32 %64
   %66 = load ptr, ptr %43, align 8
-  tail call void %66(ptr noundef %14, i32 %65, i32 noundef 0, i1 noundef zeroext true) #14
+  tail call void %66(ptr noundef nonnull %14, i32 %65, i32 noundef 0, i1 noundef zeroext true) #14
   %67 = add nsw i32 %60, 4
   %68 = icmp slt i32 %60, 28
   br i1 %68, label %.preheader, label %.loopexit, !llvm.loop !91
@@ -2418,9 +2418,9 @@ define internal void @vlv_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %79 = or i32 %78, %77
   %80 = or disjoint i32 %79, 65536
   %81 = load ptr, ptr %43, align 8
-  tail call void %81(ptr noundef %14, i32 %13, i32 noundef %80, i1 noundef zeroext true) #14
+  tail call void %81(ptr noundef nonnull %14, i32 %13, i32 noundef %80, i1 noundef zeroext true) #14
   %82 = load ptr, ptr %15, align 8
-  %83 = tail call i32 %82(ptr noundef %14, i32 %13, i1 noundef zeroext false) #14
+  %83 = tail call i32 %82(ptr noundef nonnull %14, i32 %13, i1 noundef zeroext false) #14
   ret void
 }
 
@@ -2428,7 +2428,7 @@ define internal void @vlv_write_infoframe(ptr nocapture noundef readonly %0, ptr
 define internal void @vlv_read_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1648
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
   %9 = load i32, ptr %8, align 8
   %10 = icmp slt i32 %9, 1
   %11 = shl i32 %9, 7
@@ -2462,15 +2462,15 @@ define internal void @vlv_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 
 19:                                               ; preds = %17, %16, %15, %14, %5
   %20 = phi i32 [ 0, %17 ], [ 524288, %16 ], [ 1572864, %15 ], [ 0, %14 ], [ 1048576, %5 ]
-  %21 = getelementptr inbounds i8, ptr %6, i64 7368
-  %22 = getelementptr inbounds i8, ptr %6, i64 7512
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 7368
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 7512
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(ptr noundef %21, i32 %13, i1 noundef zeroext true) #14
+  %24 = tail call i32 %23(ptr noundef nonnull %21, i32 %13, i1 noundef zeroext true) #14
   %25 = and i32 %24, -1572880
   %26 = or disjoint i32 %25, %20
-  %27 = getelementptr inbounds i8, ptr %6, i64 7544
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef %21, i32 %13, i32 noundef %26, i1 noundef zeroext true) #14
+  tail call void %28(ptr noundef nonnull %21, i32 %13, i32 noundef %26, i1 noundef zeroext true) #14
   %29 = icmp sgt i64 %4, 0
   br i1 %29, label %.preheader, label %.loopexit
 
@@ -2483,7 +2483,7 @@ define internal void @vlv_read_infoframe(ptr nocapture noundef readonly %0, ptr 
   %35 = add i32 %34, 1970420
   %36 = select i1 %33, i32 1966600, i32 %35
   %37 = load ptr, ptr %22, align 8
-  %38 = tail call i32 %37(ptr noundef %21, i32 %36, i1 noundef zeroext true) #14
+  %38 = tail call i32 %37(ptr noundef nonnull %21, i32 %36, i1 noundef zeroext true) #14
   %39 = getelementptr i8, ptr %31, i64 4
   store i32 %38, ptr %31, align 4
   %40 = add i32 %30, 4
@@ -2499,7 +2499,7 @@ define internal void @vlv_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %12 [
     i32 10, label %13
@@ -2510,7 +2510,7 @@ define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   ]
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 392
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %11 = load ptr, ptr %10, align 8
   br label %13
 
@@ -2519,36 +2519,36 @@ define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 13:                                               ; preds = %12, %9, %4, %4, %4, %4
   %14 = phi ptr [ %11, %9 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ null, %12 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 3848
-  %16 = getelementptr inbounds i8, ptr %6, i64 1648
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 3848
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1648
   %17 = load i32, ptr %16, align 8
   %18 = icmp slt i32 %17, 1
   %19 = shl i32 %17, 7
   %20 = add i32 %19, 1970416
   %21 = select i1 %18, i32 1966592, i32 %20
-  %22 = getelementptr inbounds i8, ptr %5, i64 7368
-  %23 = getelementptr inbounds i8, ptr %5, i64 7512
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 7368
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 7512
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 %24(ptr noundef %22, i32 %21, i1 noundef zeroext true) #14
-  %26 = getelementptr inbounds i8, ptr %0, i64 132
+  %25 = tail call i32 %24(ptr noundef nonnull %22, i32 %21, i1 noundef zeroext true) #14
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %27 = load i32, ptr %26, align 4
   %28 = shl i32 %27, 29
   %29 = load ptr, ptr %14, align 8
   %30 = load i32, ptr %15, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 7368
-  %32 = getelementptr inbounds i8, ptr %29, i64 7512
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 7368
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 7512
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 %33(ptr noundef %31, i32 %30, i1 noundef zeroext true) #14
+  %34 = tail call i32 %33(ptr noundef nonnull %31, i32 %30, i1 noundef zeroext true) #14
   %35 = icmp sgt i32 %34, -1
   br i1 %35, label %48, label %36, !prof !43
 
 36:                                               ; preds = %13
   tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #14, !srcloc !93
-  %37 = getelementptr inbounds i8, ptr %29, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @dev_driver_string(ptr noundef %38) #14
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %46
@@ -2576,11 +2576,11 @@ define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 52:                                               ; preds = %50
   %53 = and i32 %49, 2082471935
-  %54 = getelementptr inbounds i8, ptr %5, i64 7544
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef %22, i32 %21, i32 noundef %53, i1 noundef zeroext true) #14
+  tail call void %55(ptr noundef nonnull %22, i32 %21, i32 noundef %53, i1 noundef zeroext true) #14
   %56 = load ptr, ptr %23, align 8
-  %57 = tail call i32 %56(ptr noundef %22, i32 %21, i1 noundef zeroext false) #14
+  %57 = tail call i32 %56(ptr noundef nonnull %22, i32 %21, i1 noundef zeroext false) #14
   br label %146
 
 58:                                               ; preds = %48
@@ -2594,11 +2594,11 @@ define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 63:                                               ; preds = %61
   tail call void asm sideeffect "985: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 985b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 985) #14, !srcloc !98
-  %64 = getelementptr inbounds i8, ptr %5, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr @dev_driver_string(ptr noundef %65) #14
   %67 = load ptr, ptr %64, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 80
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 80
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %73
@@ -2627,30 +2627,30 @@ define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   %81 = and i32 %80, 2082471935
   %82 = load ptr, ptr %0, align 8
   %83 = load ptr, ptr %2, align 8
-  %84 = getelementptr inbounds i8, ptr %2, i64 4340
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 4340
   %85 = load i32, ptr %84, align 4
   %86 = and i32 %85, 1
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %136, label %88
 
 88:                                               ; preds = %79
-  %89 = getelementptr inbounds i8, ptr %82, i64 2624
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 2624
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 28
   %92 = load i16, ptr %91, align 4
   %93 = and i16 %92, 8
   %94 = icmp eq i16 %93, 0
   br i1 %94, label %108, label %95
 
 95:                                               ; preds = %88
-  %96 = getelementptr inbounds i8, ptr %90, i64 64
-  %97 = getelementptr inbounds i8, ptr %2, i64 864
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 64
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %98 = load i32, ptr %97, align 8
   %99 = sext i32 %98 to i64
   %100 = getelementptr [7 x i32], ptr %96, i64 0, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = load i32, ptr %96, align 4
-  %103 = getelementptr inbounds i8, ptr %90, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %104 = load i32, ptr %103, align 4
   %105 = add i32 %101, 393744
   %106 = sub i32 %105, %102
@@ -2658,14 +2658,14 @@ define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   br label %129
 
 108:                                              ; preds = %88
-  %109 = getelementptr inbounds i8, ptr %82, i64 7184
+  %109 = getelementptr inbounds nuw i8, ptr %82, i64 7184
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 18874368
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %120, label %113
 
 113:                                              ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %83, i64 1648
+  %114 = getelementptr inbounds nuw i8, ptr %83, i64 1648
   %115 = load i32, ptr %114, align 8
   %116 = icmp slt i32 %115, 1
   %117 = shl i32 %115, 7
@@ -2674,13 +2674,13 @@ define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   br label %129
 
 120:                                              ; preds = %108
-  %121 = getelementptr inbounds i8, ptr %82, i64 8112
+  %121 = getelementptr inbounds nuw i8, ptr %82, i64 8112
   %122 = load i32, ptr %121, align 8
   %123 = icmp eq i32 %122, 0
   br i1 %123, label %136, label %124
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %83, i64 1648
+  %125 = getelementptr inbounds nuw i8, ptr %83, i64 1648
   %126 = load i32, ptr %125, align 8
   %127 = shl i32 %126, 12
   %128 = add i32 %127, 918032
@@ -2688,28 +2688,28 @@ define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 129:                                              ; preds = %124, %113, %95
   %130 = phi i32 [ %107, %95 ], [ %119, %113 ], [ %128, %124 ]
-  %131 = getelementptr inbounds i8, ptr %2, i64 4344
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 4344
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds i8, ptr %82, i64 7368
-  %134 = getelementptr inbounds i8, ptr %82, i64 7544
+  %133 = getelementptr inbounds nuw i8, ptr %82, i64 7368
+  %134 = getelementptr inbounds nuw i8, ptr %82, i64 7544
   %135 = load ptr, ptr %134, align 8
-  tail call void %135(ptr noundef %133, i32 %130, i32 noundef %132, i1 noundef zeroext true) #14
+  tail call void %135(ptr noundef nonnull %133, i32 %130, i32 noundef %132, i1 noundef zeroext true) #14
   br label %136
 
 136:                                              ; preds = %129, %120, %79
   %137 = phi i32 [ -2113929216, %129 ], [ -2147483648, %79 ], [ -2147483648, %120 ]
   %138 = or disjoint i32 %137, %81
-  %139 = getelementptr inbounds i8, ptr %5, i64 7544
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %140 = load ptr, ptr %139, align 8
-  tail call void %140(ptr noundef %22, i32 %21, i32 noundef %138, i1 noundef zeroext true) #14
+  tail call void %140(ptr noundef nonnull %22, i32 %21, i32 noundef %138, i1 noundef zeroext true) #14
   %141 = load ptr, ptr %23, align 8
-  %142 = tail call i32 %141(ptr noundef %22, i32 %21, i1 noundef zeroext false) #14
-  %143 = getelementptr inbounds i8, ptr %2, i64 4348
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 130, ptr noundef %143)
-  %144 = getelementptr inbounds i8, ptr %2, i64 4408
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 131, ptr noundef %144)
-  %145 = getelementptr inbounds i8, ptr %2, i64 4468
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 129, ptr noundef %145)
+  %142 = tail call i32 %141(ptr noundef nonnull %22, i32 %21, i1 noundef zeroext false) #14
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 4348
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 130, ptr noundef nonnull %143)
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 4408
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 131, ptr noundef nonnull %144)
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 4468
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 129, ptr noundef nonnull %145)
   br label %146
 
 146:                                              ; preds = %136, %52, %50
@@ -2720,22 +2720,22 @@ define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 define internal range(i32 0, 65011713) i32 @vlv_infoframes_enabled(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1648
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1648
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 1
   %8 = shl i32 %6, 7
   %9 = add i32 %8, 1970416
   %10 = select i1 %7, i32 1966592, i32 %9
-  %11 = getelementptr inbounds i8, ptr %3, i64 7368
-  %12 = getelementptr inbounds i8, ptr %3, i64 7512
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %11, i32 %10, i1 noundef zeroext true) #14
+  %14 = tail call i32 %13(ptr noundef nonnull %11, i32 %10, i1 noundef zeroext true) #14
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %24, label %16
 
 16:                                               ; preds = %2
   %17 = and i32 %14, 1610612736
-  %18 = getelementptr inbounds i8, ptr %0, i64 132
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %19 = load i32, ptr %18, align 4
   %20 = shl i32 %19, 29
   %21 = icmp eq i32 %17, %20
@@ -2751,20 +2751,20 @@ define internal range(i32 0, 65011713) i32 @vlv_infoframes_enabled(ptr nocapture
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @g4x_write_infoframe(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 7368
-  %8 = getelementptr inbounds i8, ptr %6, i64 7512
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 7368
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 7512
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %9(ptr noundef %7, i32 397680, i1 noundef zeroext true) #14
+  %10 = tail call i32 %9(ptr noundef nonnull %7, i32 397680, i1 noundef zeroext true) #14
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %12, label %24, !prof !5
 
 12:                                               ; preds = %5
   tail call void asm sideeffect "925: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 925b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 925) #14, !srcloc !103
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @dev_driver_string(ptr noundef %14) #14
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
@@ -2833,9 +2833,9 @@ define internal void @g4x_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %33 = phi i32 [ %25, %32 ], [ %25, %31 ], [ %25, %29 ], [ %26, %.thread ], [ %27, %.thread3 ], [ %28, %.thread4 ], [ %25, %24 ]
   %34 = phi i32 [ -1, %32 ], [ -1, %31 ], [ -33554433, %29 ], [ -8388609, %.thread ], [ -16777217, %.thread3 ], [ -4194305, %.thread4 ], [ -2097153, %24 ]
   %35 = and i32 %34, %33
-  %36 = getelementptr inbounds i8, ptr %6, i64 7544
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef %7, i32 397680, i32 noundef %35, i1 noundef zeroext true) #14
+  tail call void %37(ptr noundef nonnull %7, i32 397680, i32 noundef %35, i1 noundef zeroext true) #14
   %38 = icmp sgt i64 %4, 0
   br i1 %38, label %.preheader5, label %.preheader.preheader
 
@@ -2852,7 +2852,7 @@ define internal void @g4x_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %41 = phi i32 [ %45, %.preheader5 ], [ 0, %.thread2 ]
   %42 = load i32, ptr %40, align 4
   %43 = load ptr, ptr %36, align 8
-  tail call void %43(ptr noundef %7, i32 397688, i32 noundef %42, i1 noundef zeroext true) #14
+  tail call void %43(ptr noundef nonnull %7, i32 397688, i32 noundef %42, i1 noundef zeroext true) #14
   %44 = getelementptr i8, ptr %40, i64 4
   %45 = add i32 %41, 4
   %46 = sext i32 %45 to i64
@@ -2862,7 +2862,7 @@ define internal void @g4x_write_infoframe(ptr nocapture noundef readonly %0, ptr
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %48 = phi i32 [ %50, %.preheader ], [ %.ph, %.preheader.preheader ]
   %49 = load ptr, ptr %36, align 8
-  tail call void %49(ptr noundef %7, i32 397688, i32 noundef 0, i1 noundef zeroext true) #14
+  tail call void %49(ptr noundef nonnull %7, i32 397688, i32 noundef 0, i1 noundef zeroext true) #14
   %50 = add nsw i32 %48, 4
   %51 = icmp slt i32 %48, 28
   br i1 %51, label %.preheader, label %.loopexit, !llvm.loop !109
@@ -2909,9 +2909,9 @@ define internal void @g4x_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %62 = or i32 %61, %60
   %63 = or disjoint i32 %62, 65536
   %64 = load ptr, ptr %36, align 8
-  tail call void %64(ptr noundef %7, i32 397680, i32 noundef %63, i1 noundef zeroext true) #14
+  tail call void %64(ptr noundef nonnull %7, i32 397680, i32 noundef %63, i1 noundef zeroext true) #14
   %65 = load ptr, ptr %8, align 8
-  %66 = tail call i32 %65(ptr noundef %7, i32 397680, i1 noundef zeroext false) #14
+  %66 = tail call i32 %65(ptr noundef nonnull %7, i32 397680, i1 noundef zeroext false) #14
   ret void
 }
 
@@ -2946,15 +2946,15 @@ define internal void @g4x_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 
 12:                                               ; preds = %10, %9, %8, %7, %5
   %13 = phi i32 [ 0, %10 ], [ 524288, %9 ], [ 1572864, %8 ], [ 0, %7 ], [ 1048576, %5 ]
-  %14 = getelementptr inbounds i8, ptr %6, i64 7368
-  %15 = getelementptr inbounds i8, ptr %6, i64 7512
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 7368
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 7512
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %14, i32 397680, i1 noundef zeroext true) #14
+  %17 = tail call i32 %16(ptr noundef nonnull %14, i32 397680, i1 noundef zeroext true) #14
   %18 = and i32 %17, -1572880
   %19 = or disjoint i32 %18, %13
-  %20 = getelementptr inbounds i8, ptr %6, i64 7544
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef %14, i32 397680, i32 noundef %19, i1 noundef zeroext true) #14
+  tail call void %21(ptr noundef nonnull %14, i32 397680, i32 noundef %19, i1 noundef zeroext true) #14
   %22 = icmp sgt i64 %4, 0
   br i1 %22, label %.preheader, label %.loopexit
 
@@ -2962,7 +2962,7 @@ define internal void @g4x_read_infoframe(ptr nocapture noundef readonly %0, ptr 
   %23 = phi ptr [ %27, %.preheader ], [ %3, %12 ]
   %24 = phi i32 [ %28, %.preheader ], [ 0, %12 ]
   %25 = load ptr, ptr %15, align 8
-  %26 = tail call i32 %25(ptr noundef %14, i32 397688, i1 noundef zeroext true) #14
+  %26 = tail call i32 %25(ptr noundef nonnull %14, i32 397688, i1 noundef zeroext true) #14
   %27 = getelementptr i8, ptr %23, i64 4
   store i32 %26, ptr %23, align 4
   %28 = add i32 %24, 4
@@ -2977,7 +2977,7 @@ define internal void @g4x_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @g4x_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %11 [
     i32 10, label %12
@@ -2988,7 +2988,7 @@ define internal void @g4x_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   ]
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %10 = load ptr, ptr %9, align 8
   br label %12
 
@@ -2997,30 +2997,30 @@ define internal void @g4x_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 12:                                               ; preds = %11, %8, %4, %4, %4, %4
   %13 = phi ptr [ %10, %8 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ null, %11 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 3848
-  %15 = getelementptr inbounds i8, ptr %5, i64 7368
-  %16 = getelementptr inbounds i8, ptr %5, i64 7512
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 3848
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 7368
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 7512
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef %15, i32 397680, i1 noundef zeroext true) #14
-  %19 = getelementptr inbounds i8, ptr %0, i64 132
+  %18 = tail call i32 %17(ptr noundef nonnull %15, i32 397680, i1 noundef zeroext true) #14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %20 = load i32, ptr %19, align 4
   %21 = shl i32 %20, 29
   %22 = load ptr, ptr %13, align 8
   %23 = load i32, ptr %14, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 7368
-  %25 = getelementptr inbounds i8, ptr %22, i64 7512
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 7368
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 7512
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef %24, i32 %23, i1 noundef zeroext true) #14
+  %27 = tail call i32 %26(ptr noundef nonnull %24, i32 %23, i1 noundef zeroext true) #14
   %28 = icmp sgt i32 %27, -1
   br i1 %28, label %41, label %29, !prof !43
 
 29:                                               ; preds = %12
   tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #14, !srcloc !93
-  %30 = getelementptr inbounds i8, ptr %22, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @dev_driver_string(ptr noundef %31) #14
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %39
@@ -3056,7 +3056,7 @@ define internal void @g4x_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %53
 
@@ -3068,11 +3068,11 @@ define internal void @g4x_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 56:                                               ; preds = %45
   %57 = and i32 %42, 2124414975
-  %58 = getelementptr inbounds i8, ptr %5, i64 7544
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef %15, i32 397680, i32 noundef %57, i1 noundef zeroext true) #14
+  tail call void %59(ptr noundef nonnull %15, i32 397680, i32 noundef %57, i1 noundef zeroext true) #14
   %60 = load ptr, ptr %16, align 8
-  %61 = tail call i32 %60(ptr noundef %15, i32 397680, i1 noundef zeroext false) #14
+  %61 = tail call i32 %60(ptr noundef nonnull %15, i32 397680, i1 noundef zeroext false) #14
   br label %89
 
 62:                                               ; preds = %41
@@ -3089,7 +3089,7 @@ define internal void @g4x_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   br i1 %68, label %72, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %5, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %71 = load ptr, ptr %70, align 8
   br label %72
 
@@ -3108,17 +3108,17 @@ define internal void @g4x_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   %79 = phi i32 [ %77, %75 ], [ %42, %62 ]
   %80 = and i32 %79, 2124414975
   %81 = or disjoint i32 %80, -2147483648
-  %82 = getelementptr inbounds i8, ptr %5, i64 7544
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %83 = load ptr, ptr %82, align 8
-  tail call void %83(ptr noundef %15, i32 397680, i32 noundef %81, i1 noundef zeroext true) #14
+  tail call void %83(ptr noundef nonnull %15, i32 397680, i32 noundef %81, i1 noundef zeroext true) #14
   %84 = load ptr, ptr %16, align 8
-  %85 = tail call i32 %84(ptr noundef %15, i32 397680, i1 noundef zeroext false) #14
-  %86 = getelementptr inbounds i8, ptr %2, i64 4348
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 130, ptr noundef %86)
-  %87 = getelementptr inbounds i8, ptr %2, i64 4408
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 131, ptr noundef %87)
-  %88 = getelementptr inbounds i8, ptr %2, i64 4468
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 129, ptr noundef %88)
+  %85 = tail call i32 %84(ptr noundef nonnull %15, i32 397680, i1 noundef zeroext false) #14
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 4348
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 130, ptr noundef nonnull %86)
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 4408
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 131, ptr noundef nonnull %87)
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 4468
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 129, ptr noundef nonnull %88)
   br label %89
 
 89:                                               ; preds = %78, %72, %56, %53, %43
@@ -3128,16 +3128,16 @@ define internal void @g4x_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 23068673) i32 @g4x_infoframes_enabled(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 7368
-  %5 = getelementptr inbounds i8, ptr %3, i64 7512
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %4, i32 397680, i1 noundef zeroext true) #14
+  %7 = tail call i32 %6(ptr noundef nonnull %4, i32 397680, i1 noundef zeroext true) #14
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %2
   %10 = and i32 %7, 1610612736
-  %11 = getelementptr inbounds i8, ptr %0, i64 132
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %12 = load i32, ptr %11, align 4
   %13 = shl i32 %12, 29
   %14 = icmp eq i32 %10, %13
@@ -3168,48 +3168,48 @@ declare dso_local i32 @lspcon_infoframes_enabled(ptr noundef, ptr noundef) #4
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 2624
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 2624
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
-  %9 = getelementptr inbounds i8, ptr %2, i64 864
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr [7 x i32], ptr %8, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %8, align 4
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %13, 393728
   %18 = sub i32 %17, %14
   %19 = add i32 %18, %16
-  %20 = getelementptr inbounds i8, ptr %5, i64 7368
-  %21 = getelementptr inbounds i8, ptr %5, i64 7512
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 7368
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 7512
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #14
+  %23 = tail call i32 %22(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext true) #14
   %24 = load i32, ptr %9, align 8
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = sext i32 %24 to i64
   %28 = getelementptr [7 x i32], ptr %26, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = load i32, ptr %26, align 4
-  %31 = getelementptr inbounds i8, ptr %25, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %29, 394240
   %34 = sub i32 %33, %30
   %35 = add i32 %34, %32
   %36 = load ptr, ptr %21, align 8
-  %37 = tail call i32 %36(ptr noundef %20, i32 %35, i1 noundef zeroext true) #14
+  %37 = tail call i32 %36(ptr noundef nonnull %20, i32 %35, i1 noundef zeroext true) #14
   %38 = icmp sgt i32 %37, -1
   br i1 %38, label %51, label %39, !prof !43
 
 39:                                               ; preds = %4
   tail call void asm sideeffect "905: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 905b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 905) #14, !srcloc !111
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @dev_driver_string(ptr noundef %41) #14
   %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %49
@@ -3232,39 +3232,39 @@ define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   br i1 %1, label %58, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %5, i64 7544
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef %20, i32 %19, i32 noundef %52, i1 noundef zeroext true) #14
+  tail call void %55(ptr noundef nonnull %20, i32 %19, i32 noundef %52, i1 noundef zeroext true) #14
   %56 = load ptr, ptr %21, align 8
-  %57 = tail call i32 %56(ptr noundef %20, i32 %19, i1 noundef zeroext false) #14
+  %57 = tail call i32 %56(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext false) #14
   br label %122
 
 58:                                               ; preds = %51
   %59 = load ptr, ptr %0, align 8
   %60 = load ptr, ptr %2, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 4340
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 4340
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 1
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds i8, ptr %59, i64 2624
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 2624
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 28
   %69 = load i16, ptr %68, align 4
   %70 = and i16 %69, 8
   %71 = icmp eq i16 %70, 0
   br i1 %71, label %84, label %72
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds i8, ptr %67, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %74 = load i32, ptr %9, align 8
   %75 = sext i32 %74 to i64
   %76 = getelementptr [7 x i32], ptr %73, i64 0, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = load i32, ptr %73, align 4
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %77, 393744
   %82 = sub i32 %81, %78
@@ -3272,14 +3272,14 @@ define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   br label %105
 
 84:                                               ; preds = %65
-  %85 = getelementptr inbounds i8, ptr %59, i64 7184
+  %85 = getelementptr inbounds nuw i8, ptr %59, i64 7184
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 18874368
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %96, label %89
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %60, i64 1648
+  %90 = getelementptr inbounds nuw i8, ptr %60, i64 1648
   %91 = load i32, ptr %90, align 8
   %92 = icmp slt i32 %91, 1
   %93 = shl i32 %91, 7
@@ -3288,13 +3288,13 @@ define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   br label %105
 
 96:                                               ; preds = %84
-  %97 = getelementptr inbounds i8, ptr %59, i64 8112
+  %97 = getelementptr inbounds nuw i8, ptr %59, i64 8112
   %98 = load i32, ptr %97, align 8
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %.thread, label %100
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds i8, ptr %60, i64 1648
+  %101 = getelementptr inbounds nuw i8, ptr %60, i64 1648
   %102 = load i32, ptr %101, align 8
   %103 = shl i32 %102, 12
   %104 = add i32 %103, 918032
@@ -3302,30 +3302,30 @@ define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 105:                                              ; preds = %100, %89, %72
   %106 = phi i32 [ %83, %72 ], [ %95, %89 ], [ %104, %100 ]
-  %107 = getelementptr inbounds i8, ptr %2, i64 4344
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 4344
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %59, i64 7368
-  %110 = getelementptr inbounds i8, ptr %59, i64 7544
+  %109 = getelementptr inbounds nuw i8, ptr %59, i64 7368
+  %110 = getelementptr inbounds nuw i8, ptr %59, i64 7544
   %111 = load ptr, ptr %110, align 8
-  tail call void %111(ptr noundef %109, i32 %106, i32 noundef %108, i1 noundef zeroext true) #14
+  tail call void %111(ptr noundef nonnull %109, i32 %106, i32 noundef %108, i1 noundef zeroext true) #14
   %112 = or disjoint i32 %52, 65536
   br label %.thread
 
 .thread:                                          ; preds = %96, %58, %105
   %113 = phi i32 [ %112, %105 ], [ %52, %58 ], [ %52, %96 ]
-  %114 = getelementptr inbounds i8, ptr %5, i64 7544
+  %114 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %115 = load ptr, ptr %114, align 8
-  tail call void %115(ptr noundef %20, i32 %19, i32 noundef %113, i1 noundef zeroext true) #14
+  tail call void %115(ptr noundef nonnull %20, i32 %19, i32 noundef %113, i1 noundef zeroext true) #14
   %116 = load ptr, ptr %21, align 8
-  %117 = tail call i32 %116(ptr noundef %20, i32 %19, i1 noundef zeroext false) #14
-  %118 = getelementptr inbounds i8, ptr %2, i64 4348
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 130, ptr noundef %118)
-  %119 = getelementptr inbounds i8, ptr %2, i64 4408
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 131, ptr noundef %119)
-  %120 = getelementptr inbounds i8, ptr %2, i64 4468
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 129, ptr noundef %120)
-  %121 = getelementptr inbounds i8, ptr %2, i64 4528
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 135, ptr noundef %121)
+  %117 = tail call i32 %116(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext false) #14
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 4348
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 130, ptr noundef nonnull %118)
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 4408
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 131, ptr noundef nonnull %119)
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 4468
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 129, ptr noundef nonnull %120)
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 4528
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 135, ptr noundef nonnull %121)
   br label %122
 
 122:                                              ; preds = %.thread, %53
@@ -3335,25 +3335,25 @@ define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 269553938) i32 @hsw_infoframes_enabled(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 2624
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2624
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
-  %7 = getelementptr inbounds i8, ptr %1, i64 864
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = getelementptr [7 x i32], ptr %6, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %6, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %11, 393728
   %16 = sub i32 %15, %12
   %17 = add i32 %16, %14
-  %18 = getelementptr inbounds i8, ptr %3, i64 7368
-  %19 = getelementptr inbounds i8, ptr %3, i64 7512
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef %18, i32 %17, i1 noundef zeroext true) #14
-  %22 = getelementptr inbounds i8, ptr %3, i64 2632
+  %21 = tail call i32 %20(ptr noundef nonnull %18, i32 %17, i1 noundef zeroext true) #14
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 2632
   %23 = load i16, ptr %22, align 8
   %24 = icmp ugt i16 %23, 9
   %25 = select i1 %24, i32 269553937, i32 1118481
@@ -3365,24 +3365,24 @@ define internal range(i32 0, 269553938) i32 @hsw_infoframes_enabled(ptr nocaptur
 define internal void @ibx_write_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1648
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
   %9 = load i32, ptr %8, align 8
   %10 = shl i32 %9, 12
   %11 = add i32 %10, 918016
-  %12 = getelementptr inbounds i8, ptr %6, i64 7368
-  %13 = getelementptr inbounds i8, ptr %6, i64 7512
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 7368
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 7512
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %12, i32 %11, i1 noundef zeroext true) #14
+  %15 = tail call i32 %14(ptr noundef nonnull %12, i32 %11, i1 noundef zeroext true) #14
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %17, label %29, !prof !5
 
 17:                                               ; preds = %5
   tail call void asm sideeffect "929: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 929b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 929) #14, !srcloc !116
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @dev_driver_string(ptr noundef %19) #14
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
@@ -3451,9 +3451,9 @@ define internal void @ibx_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %38 = phi i32 [ %30, %37 ], [ %30, %36 ], [ %30, %34 ], [ %31, %.thread ], [ %32, %.thread3 ], [ %33, %.thread4 ], [ %30, %29 ]
   %39 = phi i32 [ -1, %37 ], [ -1, %36 ], [ -33554433, %34 ], [ -8388609, %.thread ], [ -16777217, %.thread3 ], [ -4194305, %.thread4 ], [ -2097153, %29 ]
   %40 = and i32 %39, %38
-  %41 = getelementptr inbounds i8, ptr %6, i64 7544
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef %12, i32 %11, i32 noundef %40, i1 noundef zeroext true) #14
+  tail call void %42(ptr noundef nonnull %12, i32 %11, i32 noundef %40, i1 noundef zeroext true) #14
   %43 = icmp sgt i64 %4, 0
   br i1 %43, label %.preheader5, label %.preheader.preheader
 
@@ -3473,7 +3473,7 @@ define internal void @ibx_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %49 = add i32 %48, 918024
   %50 = load i32, ptr %45, align 4
   %51 = load ptr, ptr %41, align 8
-  tail call void %51(ptr noundef %12, i32 %49, i32 noundef %50, i1 noundef zeroext true) #14
+  tail call void %51(ptr noundef nonnull %12, i32 %49, i32 noundef %50, i1 noundef zeroext true) #14
   %52 = getelementptr i8, ptr %45, i64 4
   %53 = add i32 %46, 4
   %54 = sext i32 %53 to i64
@@ -3486,7 +3486,7 @@ define internal void @ibx_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %58 = shl i32 %57, 12
   %59 = add i32 %58, 918024
   %60 = load ptr, ptr %41, align 8
-  tail call void %60(ptr noundef %12, i32 %59, i32 noundef 0, i1 noundef zeroext true) #14
+  tail call void %60(ptr noundef nonnull %12, i32 %59, i32 noundef 0, i1 noundef zeroext true) #14
   %61 = add nsw i32 %56, 4
   %62 = icmp slt i32 %56, 28
   br i1 %62, label %.preheader, label %.loopexit, !llvm.loop !122
@@ -3533,9 +3533,9 @@ define internal void @ibx_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %73 = or i32 %72, %71
   %74 = or disjoint i32 %73, 65536
   %75 = load ptr, ptr %41, align 8
-  tail call void %75(ptr noundef %12, i32 %11, i32 noundef %74, i1 noundef zeroext true) #14
+  tail call void %75(ptr noundef nonnull %12, i32 %11, i32 noundef %74, i1 noundef zeroext true) #14
   %76 = load ptr, ptr %13, align 8
-  %77 = tail call i32 %76(ptr noundef %12, i32 %11, i1 noundef zeroext false) #14
+  %77 = tail call i32 %76(ptr noundef nonnull %12, i32 %11, i1 noundef zeroext false) #14
   ret void
 }
 
@@ -3543,7 +3543,7 @@ define internal void @ibx_write_infoframe(ptr nocapture noundef readonly %0, ptr
 define internal void @ibx_read_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1648
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
   %9 = load i32, ptr %8, align 8
   %10 = shl i32 %9, 12
   %11 = add i32 %10, 918016
@@ -3575,15 +3575,15 @@ define internal void @ibx_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 
 17:                                               ; preds = %15, %14, %13, %12, %5
   %18 = phi i32 [ 0, %15 ], [ 524288, %14 ], [ 1572864, %13 ], [ 0, %12 ], [ 1048576, %5 ]
-  %19 = getelementptr inbounds i8, ptr %6, i64 7368
-  %20 = getelementptr inbounds i8, ptr %6, i64 7512
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 7368
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 7512
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %19, i32 %11, i1 noundef zeroext true) #14
+  %22 = tail call i32 %21(ptr noundef nonnull %19, i32 %11, i1 noundef zeroext true) #14
   %23 = and i32 %22, -1572880
   %24 = or disjoint i32 %23, %18
-  %25 = getelementptr inbounds i8, ptr %6, i64 7544
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef %19, i32 %11, i32 noundef %24, i1 noundef zeroext true) #14
+  tail call void %26(ptr noundef nonnull %19, i32 %11, i32 noundef %24, i1 noundef zeroext true) #14
   %27 = icmp sgt i64 %4, 0
   br i1 %27, label %.preheader, label %.loopexit
 
@@ -3594,7 +3594,7 @@ define internal void @ibx_read_infoframe(ptr nocapture noundef readonly %0, ptr 
   %31 = shl i32 %30, 12
   %32 = add i32 %31, 918024
   %33 = load ptr, ptr %20, align 8
-  %34 = tail call i32 %33(ptr noundef %19, i32 %32, i1 noundef zeroext true) #14
+  %34 = tail call i32 %33(ptr noundef nonnull %19, i32 %32, i1 noundef zeroext true) #14
   %35 = getelementptr i8, ptr %29, i64 4
   store i32 %34, ptr %29, align 4
   %36 = add i32 %28, 4
@@ -3610,7 +3610,7 @@ define internal void @ibx_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %12 [
     i32 10, label %13
@@ -3621,7 +3621,7 @@ define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   ]
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 392
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %11 = load ptr, ptr %10, align 8
   br label %13
 
@@ -3630,34 +3630,34 @@ define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 13:                                               ; preds = %12, %9, %4, %4, %4, %4
   %14 = phi ptr [ %11, %9 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ null, %12 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 3848
-  %16 = getelementptr inbounds i8, ptr %6, i64 1648
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 3848
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1648
   %17 = load i32, ptr %16, align 8
   %18 = shl i32 %17, 12
   %19 = add i32 %18, 918016
-  %20 = getelementptr inbounds i8, ptr %5, i64 7368
-  %21 = getelementptr inbounds i8, ptr %5, i64 7512
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 7368
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 7512
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #14
-  %24 = getelementptr inbounds i8, ptr %0, i64 132
+  %23 = tail call i32 %22(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext true) #14
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %25 = load i32, ptr %24, align 4
   %26 = shl i32 %25, 29
   %27 = load ptr, ptr %14, align 8
   %28 = load i32, ptr %15, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 7368
-  %30 = getelementptr inbounds i8, ptr %27, i64 7512
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 7368
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 7512
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 %31(ptr noundef %29, i32 %28, i1 noundef zeroext true) #14
+  %32 = tail call i32 %31(ptr noundef nonnull %29, i32 %28, i1 noundef zeroext true) #14
   %33 = icmp sgt i32 %32, -1
   br i1 %33, label %46, label %34, !prof !43
 
 34:                                               ; preds = %13
   tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #14, !srcloc !93
-  %35 = getelementptr inbounds i8, ptr %27, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @dev_driver_string(ptr noundef %36) #14
   %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %44
@@ -3685,11 +3685,11 @@ define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 50:                                               ; preds = %48
   %51 = and i32 %47, 2082471935
-  %52 = getelementptr inbounds i8, ptr %5, i64 7544
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef %20, i32 %19, i32 noundef %51, i1 noundef zeroext true) #14
+  tail call void %53(ptr noundef nonnull %20, i32 %19, i32 noundef %51, i1 noundef zeroext true) #14
   %54 = load ptr, ptr %21, align 8
-  %55 = tail call i32 %54(ptr noundef %20, i32 %19, i1 noundef zeroext false) #14
+  %55 = tail call i32 %54(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext false) #14
   br label %144
 
 56:                                               ; preds = %46
@@ -3703,11 +3703,11 @@ define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 61:                                               ; preds = %59
   tail call void asm sideeffect "981: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 981b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 981) #14, !srcloc !124
-  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = tail call ptr @dev_driver_string(ptr noundef %63) #14
   %65 = load ptr, ptr %62, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %71
@@ -3736,30 +3736,30 @@ define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   %79 = and i32 %78, 2082471935
   %80 = load ptr, ptr %0, align 8
   %81 = load ptr, ptr %2, align 8
-  %82 = getelementptr inbounds i8, ptr %2, i64 4340
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 4340
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 1
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %134, label %86
 
 86:                                               ; preds = %77
-  %87 = getelementptr inbounds i8, ptr %80, i64 2624
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 2624
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 28
   %90 = load i16, ptr %89, align 4
   %91 = and i16 %90, 8
   %92 = icmp eq i16 %91, 0
   br i1 %92, label %106, label %93
 
 93:                                               ; preds = %86
-  %94 = getelementptr inbounds i8, ptr %88, i64 64
-  %95 = getelementptr inbounds i8, ptr %2, i64 864
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %96 = load i32, ptr %95, align 8
   %97 = sext i32 %96 to i64
   %98 = getelementptr [7 x i32], ptr %94, i64 0, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = load i32, ptr %94, align 4
-  %101 = getelementptr inbounds i8, ptr %88, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %102 = load i32, ptr %101, align 4
   %103 = add i32 %99, 393744
   %104 = sub i32 %103, %100
@@ -3767,14 +3767,14 @@ define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   br label %127
 
 106:                                              ; preds = %86
-  %107 = getelementptr inbounds i8, ptr %80, i64 7184
+  %107 = getelementptr inbounds nuw i8, ptr %80, i64 7184
   %108 = load i32, ptr %107, align 4
   %109 = and i32 %108, 18874368
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %118, label %111
 
 111:                                              ; preds = %106
-  %112 = getelementptr inbounds i8, ptr %81, i64 1648
+  %112 = getelementptr inbounds nuw i8, ptr %81, i64 1648
   %113 = load i32, ptr %112, align 8
   %114 = icmp slt i32 %113, 1
   %115 = shl i32 %113, 7
@@ -3783,13 +3783,13 @@ define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   br label %127
 
 118:                                              ; preds = %106
-  %119 = getelementptr inbounds i8, ptr %80, i64 8112
+  %119 = getelementptr inbounds nuw i8, ptr %80, i64 8112
   %120 = load i32, ptr %119, align 8
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %134, label %122
 
 122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %81, i64 1648
+  %123 = getelementptr inbounds nuw i8, ptr %81, i64 1648
   %124 = load i32, ptr %123, align 8
   %125 = shl i32 %124, 12
   %126 = add i32 %125, 918032
@@ -3797,28 +3797,28 @@ define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 127:                                              ; preds = %122, %111, %93
   %128 = phi i32 [ %105, %93 ], [ %117, %111 ], [ %126, %122 ]
-  %129 = getelementptr inbounds i8, ptr %2, i64 4344
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 4344
   %130 = load i32, ptr %129, align 4
-  %131 = getelementptr inbounds i8, ptr %80, i64 7368
-  %132 = getelementptr inbounds i8, ptr %80, i64 7544
+  %131 = getelementptr inbounds nuw i8, ptr %80, i64 7368
+  %132 = getelementptr inbounds nuw i8, ptr %80, i64 7544
   %133 = load ptr, ptr %132, align 8
-  tail call void %133(ptr noundef %131, i32 %128, i32 noundef %130, i1 noundef zeroext true) #14
+  tail call void %133(ptr noundef nonnull %131, i32 %128, i32 noundef %130, i1 noundef zeroext true) #14
   br label %134
 
 134:                                              ; preds = %127, %118, %77
   %135 = phi i32 [ -2113929216, %127 ], [ -2147483648, %77 ], [ -2147483648, %118 ]
   %136 = or disjoint i32 %135, %79
-  %137 = getelementptr inbounds i8, ptr %5, i64 7544
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %138 = load ptr, ptr %137, align 8
-  tail call void %138(ptr noundef %20, i32 %19, i32 noundef %136, i1 noundef zeroext true) #14
+  tail call void %138(ptr noundef nonnull %20, i32 %19, i32 noundef %136, i1 noundef zeroext true) #14
   %139 = load ptr, ptr %21, align 8
-  %140 = tail call i32 %139(ptr noundef %20, i32 %19, i1 noundef zeroext false) #14
-  %141 = getelementptr inbounds i8, ptr %2, i64 4348
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 130, ptr noundef %141)
-  %142 = getelementptr inbounds i8, ptr %2, i64 4408
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 131, ptr noundef %142)
-  %143 = getelementptr inbounds i8, ptr %2, i64 4468
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 129, ptr noundef %143)
+  %140 = tail call i32 %139(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext false) #14
+  %141 = getelementptr inbounds nuw i8, ptr %2, i64 4348
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 130, ptr noundef nonnull %141)
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 4408
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 131, ptr noundef nonnull %142)
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 4468
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 129, ptr noundef nonnull %143)
   br label %144
 
 144:                                              ; preds = %134, %50, %48
@@ -3829,20 +3829,20 @@ define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 define internal range(i32 0, 65011713) i32 @ibx_infoframes_enabled(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1648
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1648
   %6 = load i32, ptr %5, align 8
   %7 = shl i32 %6, 12
   %8 = add i32 %7, 918016
-  %9 = getelementptr inbounds i8, ptr %3, i64 7368
-  %10 = getelementptr inbounds i8, ptr %3, i64 7512
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %9, i32 %8, i1 noundef zeroext true) #14
+  %12 = tail call i32 %11(ptr noundef nonnull %9, i32 %8, i1 noundef zeroext true) #14
   %13 = icmp sgt i32 %12, -1
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %2
   %15 = and i32 %12, 1610612736
-  %16 = getelementptr inbounds i8, ptr %0, i64 132
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %17 = load i32, ptr %16, align 4
   %18 = shl i32 %17, 29
   %19 = icmp eq i32 %15, %18
@@ -3859,24 +3859,24 @@ define internal range(i32 0, 65011713) i32 @ibx_infoframes_enabled(ptr nocapture
 define internal void @cpt_write_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1648
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
   %9 = load i32, ptr %8, align 8
   %10 = shl i32 %9, 12
   %11 = add i32 %10, 918016
-  %12 = getelementptr inbounds i8, ptr %6, i64 7368
-  %13 = getelementptr inbounds i8, ptr %6, i64 7512
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 7368
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 7512
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 %14(ptr noundef %12, i32 %11, i1 noundef zeroext true) #14
+  %15 = tail call i32 %14(ptr noundef nonnull %12, i32 %11, i1 noundef zeroext true) #14
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %17, label %29, !prof !5
 
 17:                                               ; preds = %5
   tail call void asm sideeffect "933: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 933b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 933) #14, !srcloc !129
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @dev_driver_string(ptr noundef %19) #14
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27
@@ -3949,9 +3949,9 @@ define internal void @cpt_write_infoframe(ptr nocapture noundef readonly %0, ptr
 
 .thread:                                          ; preds = %29, %38
   %42 = phi i32 [ %41, %38 ], [ %30, %29 ]
-  %43 = getelementptr inbounds i8, ptr %6, i64 7544
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef %12, i32 %11, i32 noundef %42, i1 noundef zeroext true) #14
+  tail call void %44(ptr noundef nonnull %12, i32 %11, i32 noundef %42, i1 noundef zeroext true) #14
   %45 = icmp sgt i64 %4, 0
   br i1 %45, label %.preheader5, label %.preheader.preheader
 
@@ -3971,7 +3971,7 @@ define internal void @cpt_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %51 = add i32 %50, 918024
   %52 = load i32, ptr %47, align 4
   %53 = load ptr, ptr %43, align 8
-  tail call void %53(ptr noundef %12, i32 %51, i32 noundef %52, i1 noundef zeroext true) #14
+  tail call void %53(ptr noundef nonnull %12, i32 %51, i32 noundef %52, i1 noundef zeroext true) #14
   %54 = getelementptr i8, ptr %47, i64 4
   %55 = add i32 %48, 4
   %56 = sext i32 %55 to i64
@@ -3984,7 +3984,7 @@ define internal void @cpt_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %60 = shl i32 %59, 12
   %61 = add i32 %60, 918024
   %62 = load ptr, ptr %43, align 8
-  tail call void %62(ptr noundef %12, i32 %61, i32 noundef 0, i1 noundef zeroext true) #14
+  tail call void %62(ptr noundef nonnull %12, i32 %61, i32 noundef 0, i1 noundef zeroext true) #14
   %63 = add nsw i32 %58, 4
   %64 = icmp slt i32 %58, 28
   br i1 %64, label %.preheader, label %.loopexit, !llvm.loop !135
@@ -4031,9 +4031,9 @@ define internal void @cpt_write_infoframe(ptr nocapture noundef readonly %0, ptr
   %75 = or i32 %74, %73
   %76 = or disjoint i32 %75, 65536
   %77 = load ptr, ptr %43, align 8
-  tail call void %77(ptr noundef %12, i32 %11, i32 noundef %76, i1 noundef zeroext true) #14
+  tail call void %77(ptr noundef nonnull %12, i32 %11, i32 noundef %76, i1 noundef zeroext true) #14
   %78 = load ptr, ptr %13, align 8
-  %79 = tail call i32 %78(ptr noundef %12, i32 %11, i1 noundef zeroext false) #14
+  %79 = tail call i32 %78(ptr noundef nonnull %12, i32 %11, i1 noundef zeroext false) #14
   ret void
 }
 
@@ -4041,7 +4041,7 @@ define internal void @cpt_write_infoframe(ptr nocapture noundef readonly %0, ptr
 define internal void @cpt_read_infoframe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) #1 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1648
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1648
   %9 = load i32, ptr %8, align 8
   %10 = shl i32 %9, 12
   %11 = add i32 %10, 918016
@@ -4073,15 +4073,15 @@ define internal void @cpt_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 
 17:                                               ; preds = %15, %14, %13, %12, %5
   %18 = phi i32 [ 0, %15 ], [ 524288, %14 ], [ 1572864, %13 ], [ 0, %12 ], [ 1048576, %5 ]
-  %19 = getelementptr inbounds i8, ptr %6, i64 7368
-  %20 = getelementptr inbounds i8, ptr %6, i64 7512
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 7368
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 7512
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %19, i32 %11, i1 noundef zeroext true) #14
+  %22 = tail call i32 %21(ptr noundef nonnull %19, i32 %11, i1 noundef zeroext true) #14
   %23 = and i32 %22, -1572880
   %24 = or disjoint i32 %23, %18
-  %25 = getelementptr inbounds i8, ptr %6, i64 7544
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 7544
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef %19, i32 %11, i32 noundef %24, i1 noundef zeroext true) #14
+  tail call void %26(ptr noundef nonnull %19, i32 %11, i32 noundef %24, i1 noundef zeroext true) #14
   %27 = icmp sgt i64 %4, 0
   br i1 %27, label %.preheader, label %.loopexit
 
@@ -4092,7 +4092,7 @@ define internal void @cpt_read_infoframe(ptr nocapture noundef readonly %0, ptr 
   %31 = shl i32 %30, 12
   %32 = add i32 %31, 918024
   %33 = load ptr, ptr %20, align 8
-  %34 = tail call i32 %33(ptr noundef %19, i32 %32, i1 noundef zeroext true) #14
+  %34 = tail call i32 %33(ptr noundef nonnull %19, i32 %32, i1 noundef zeroext true) #14
   %35 = getelementptr i8, ptr %29, i64 4
   store i32 %34, ptr %29, align 4
   %36 = add i32 %28, 4
@@ -4108,7 +4108,7 @@ define internal void @cpt_read_infoframe(ptr nocapture noundef readonly %0, ptr 
 define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture readnone %3) #1 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %12 [
     i32 10, label %13
@@ -4119,7 +4119,7 @@ define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   ]
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 392
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %11 = load ptr, ptr %10, align 8
   br label %13
 
@@ -4128,31 +4128,31 @@ define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 13:                                               ; preds = %12, %9, %4, %4, %4, %4
   %14 = phi ptr [ %11, %9 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ null, %12 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 3848
-  %16 = getelementptr inbounds i8, ptr %6, i64 1648
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 3848
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1648
   %17 = load i32, ptr %16, align 8
   %18 = shl i32 %17, 12
   %19 = add i32 %18, 918016
-  %20 = getelementptr inbounds i8, ptr %5, i64 7368
-  %21 = getelementptr inbounds i8, ptr %5, i64 7512
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 7368
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 7512
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #14
+  %23 = tail call i32 %22(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext true) #14
   %24 = load ptr, ptr %14, align 8
   %25 = load i32, ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 7368
-  %27 = getelementptr inbounds i8, ptr %24, i64 7512
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 7368
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 7512
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %28(ptr noundef %26, i32 %25, i1 noundef zeroext true) #14
+  %29 = tail call i32 %28(ptr noundef nonnull %26, i32 %25, i1 noundef zeroext true) #14
   %30 = icmp sgt i32 %29, -1
   br i1 %30, label %43, label %31, !prof !43
 
 31:                                               ; preds = %13
   tail call void asm sideeffect "901: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 901b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 901) #14, !srcloc !93
-  %32 = getelementptr inbounds i8, ptr %24, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @dev_driver_string(ptr noundef %33) #14
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
@@ -4180,41 +4180,41 @@ define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 46:                                               ; preds = %44
   %47 = and i32 %23, 2082406399
   %48 = or disjoint i32 %47, 65536
-  %49 = getelementptr inbounds i8, ptr %5, i64 7544
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef %20, i32 %19, i32 noundef %48, i1 noundef zeroext true) #14
+  tail call void %50(ptr noundef nonnull %20, i32 %19, i32 noundef %48, i1 noundef zeroext true) #14
   %51 = load ptr, ptr %21, align 8
-  %52 = tail call i32 %51(ptr noundef %20, i32 %19, i1 noundef zeroext false) #14
+  %52 = tail call i32 %51(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext false) #14
   br label %119
 
 53:                                               ; preds = %43
   %54 = and i32 %23, 2082406399
   %55 = load ptr, ptr %0, align 8
   %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 4340
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 4340
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 1
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %109, label %61
 
 61:                                               ; preds = %53
-  %62 = getelementptr inbounds i8, ptr %55, i64 2624
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 2624
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 28
   %65 = load i16, ptr %64, align 4
   %66 = and i16 %65, 8
   %67 = icmp eq i16 %66, 0
   br i1 %67, label %81, label %68
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %63, i64 64
-  %70 = getelementptr inbounds i8, ptr %2, i64 864
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %71 to i64
   %73 = getelementptr [7 x i32], ptr %69, i64 0, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = load i32, ptr %69, align 4
-  %76 = getelementptr inbounds i8, ptr %63, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %74, 393744
   %79 = sub i32 %78, %75
@@ -4222,14 +4222,14 @@ define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   br label %102
 
 81:                                               ; preds = %61
-  %82 = getelementptr inbounds i8, ptr %55, i64 7184
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 7184
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 18874368
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %93, label %86
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %56, i64 1648
+  %87 = getelementptr inbounds nuw i8, ptr %56, i64 1648
   %88 = load i32, ptr %87, align 8
   %89 = icmp slt i32 %88, 1
   %90 = shl i32 %88, 7
@@ -4238,13 +4238,13 @@ define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   br label %102
 
 93:                                               ; preds = %81
-  %94 = getelementptr inbounds i8, ptr %55, i64 8112
+  %94 = getelementptr inbounds nuw i8, ptr %55, i64 8112
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %109, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds i8, ptr %56, i64 1648
+  %98 = getelementptr inbounds nuw i8, ptr %56, i64 1648
   %99 = load i32, ptr %98, align 8
   %100 = shl i32 %99, 12
   %101 = add i32 %100, 918032
@@ -4252,28 +4252,28 @@ define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 
 102:                                              ; preds = %97, %86, %68
   %103 = phi i32 [ %80, %68 ], [ %92, %86 ], [ %101, %97 ]
-  %104 = getelementptr inbounds i8, ptr %2, i64 4344
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 4344
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %55, i64 7368
-  %107 = getelementptr inbounds i8, ptr %55, i64 7544
+  %106 = getelementptr inbounds nuw i8, ptr %55, i64 7368
+  %107 = getelementptr inbounds nuw i8, ptr %55, i64 7544
   %108 = load ptr, ptr %107, align 8
-  tail call void %108(ptr noundef %106, i32 %103, i32 noundef %105, i1 noundef zeroext true) #14
+  tail call void %108(ptr noundef nonnull %106, i32 %103, i32 noundef %105, i1 noundef zeroext true) #14
   br label %109
 
 109:                                              ; preds = %102, %93, %53
   %110 = phi i32 [ -2111766528, %102 ], [ -2145320960, %53 ], [ -2145320960, %93 ]
   %111 = or disjoint i32 %110, %54
-  %112 = getelementptr inbounds i8, ptr %5, i64 7544
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 7544
   %113 = load ptr, ptr %112, align 8
-  tail call void %113(ptr noundef %20, i32 %19, i32 noundef %111, i1 noundef zeroext true) #14
+  tail call void %113(ptr noundef nonnull %20, i32 %19, i32 noundef %111, i1 noundef zeroext true) #14
   %114 = load ptr, ptr %21, align 8
-  %115 = tail call i32 %114(ptr noundef %20, i32 %19, i1 noundef zeroext false) #14
-  %116 = getelementptr inbounds i8, ptr %2, i64 4348
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 130, ptr noundef %116)
-  %117 = getelementptr inbounds i8, ptr %2, i64 4408
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 131, ptr noundef %117)
-  %118 = getelementptr inbounds i8, ptr %2, i64 4468
-  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 129, ptr noundef %118)
+  %115 = tail call i32 %114(ptr noundef nonnull %20, i32 %19, i1 noundef zeroext false) #14
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 4348
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 130, ptr noundef nonnull %116)
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 4408
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 131, ptr noundef nonnull %117)
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 4468
+  tail call fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %2, i32 noundef 129, ptr noundef nonnull %118)
   br label %119
 
 119:                                              ; preds = %109, %46, %44
@@ -4284,14 +4284,14 @@ define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
 define internal range(i32 0, 65011713) i32 @cpt_infoframes_enabled(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1648
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1648
   %6 = load i32, ptr %5, align 8
   %7 = shl i32 %6, 12
   %8 = add i32 %7, 918016
-  %9 = getelementptr inbounds i8, ptr %3, i64 7368
-  %10 = getelementptr inbounds i8, ptr %3, i64 7512
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 7368
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 7512
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %9, i32 %8, i1 noundef zeroext true) #14
+  %12 = tail call i32 %11(ptr noundef nonnull %9, i32 %8, i1 noundef zeroext true) #14
   %13 = tail call i32 @llvm.smin.i32(i32 %12, i32 0)
   %14 = and i32 %13, 65011712
   ret i32 %14
@@ -4300,25 +4300,25 @@ define internal range(i32 0, 65011713) i32 @cpt_infoframes_enabled(ptr nocapture
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 132
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq ptr %3, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %10
 
 10:                                               ; preds = %7, %2
   %11 = phi ptr [ %9, %7 ], [ null, %2 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %11, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %13, ptr noundef %15) #14
-  %16 = getelementptr inbounds i8, ptr %3, i64 2624
-  %17 = getelementptr inbounds i8, ptr %3, i64 2632
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 2624
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2632
   %18 = load i16, ptr %17, align 8
   %19 = icmp ult i16 %18, 12
   %20 = icmp eq i32 %5, 0
@@ -4327,11 +4327,11 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
 
 22:                                               ; preds = %10
   tail call void asm sideeffect "1046: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1046b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1046) #14, !srcloc !138
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @dev_driver_string(ptr noundef %24) #14
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %32
@@ -4350,18 +4350,18 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   br label %.thread17
 
 34:                                               ; preds = %10
-  %35 = getelementptr inbounds i8, ptr %0, i64 3905
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 3905
   %36 = load i8, ptr %35, align 1
   %37 = icmp ult i8 %36, 4
   br i1 %37, label %38, label %54, !prof !5
 
 38:                                               ; preds = %34
   tail call void asm sideeffect "1050: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1050b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1050) #14, !srcloc !143
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @dev_driver_string(ptr noundef %40) #14
   %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 80
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %48
@@ -4385,7 +4385,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
 
 54:                                               ; preds = %34
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 376
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @intel_bios_hdmi_ddc_pin(ptr noundef %57) #14
   %59 = trunc i32 %58 to i8
@@ -4395,7 +4395,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
 61:                                               ; preds = %54
   %62 = load ptr, ptr %0, align 8
   %63 = load i32, ptr %4, align 4
-  %64 = getelementptr inbounds i8, ptr %62, i64 7184
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 7184
   %65 = getelementptr i8, ptr %62, i64 7188
   %66 = load i32, ptr %65, align 4
   %67 = zext i32 %66 to i64
@@ -4423,7 +4423,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   br label %164
 
 80:                                               ; preds = %61
-  %81 = getelementptr inbounds i8, ptr %62, i64 8112
+  %81 = getelementptr inbounds nuw i8, ptr %62, i64 8112
   %82 = load i32, ptr %81, align 8
   %83 = icmp sgt i32 %82, 1023
   br i1 %83, label %84, label %88
@@ -4461,7 +4461,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   br label %164
 
 103:                                              ; preds = %88
-  %104 = getelementptr inbounds i8, ptr %62, i64 2632
+  %104 = getelementptr inbounds nuw i8, ptr %62, i64 2632
   %105 = load i16, ptr %104, align 8
   %106 = icmp eq i16 %105, 9
   %107 = icmp eq i32 %82, 7
@@ -4475,11 +4475,11 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
 
 112:                                              ; preds = %109
   tail call void asm sideeffect "1036: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1036b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1036) #14, !srcloc !154
-  %113 = getelementptr inbounds i8, ptr %62, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = tail call ptr @dev_driver_string(ptr noundef %114) #14
   %116 = load ptr, ptr %113, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 80
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 80
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
   br i1 %119, label %120, label %122
@@ -4589,7 +4589,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   br i1 %170, label %174, label %171
 
 171:                                              ; preds = %169
-  %172 = getelementptr inbounds i8, ptr %55, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %173 = load ptr, ptr %172, align 8
   br label %174
 
@@ -4602,7 +4602,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
 
 178:                                              ; preds = %164
   %179 = load ptr, ptr %0, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 688
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 688
   %181 = load ptr, ptr %180, align 8
   %182 = icmp eq ptr %181, %180
   br i1 %182, label %.thread15, label %.preheader
@@ -4630,7 +4630,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   br i1 %192, label %198, label %193
 
 193:                                              ; preds = %189
-  %194 = getelementptr inbounds i8, ptr %191, i64 1872
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 1872
   %195 = load ptr, ptr %194, align 8
   %196 = tail call ptr @intel_gmbus_get_adapter(ptr noundef %179, i32 noundef %167) #14
   %197 = icmp eq ptr %195, %196
@@ -4654,7 +4654,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   br i1 %204, label %209, label %206
 
 206:                                              ; preds = %205
-  %207 = getelementptr inbounds i8, ptr %55, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %208 = load ptr, ptr %207, align 8
   br label %209
 
@@ -4673,7 +4673,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   br i1 %204, label %221, label %218
 
 218:                                              ; preds = %.thread15, %217
-  %219 = getelementptr inbounds i8, ptr %55, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %220 = load ptr, ptr %219, align 8
   br label %221
 
@@ -4688,38 +4688,38 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
 226:                                              ; preds = %221
   %227 = tail call ptr @intel_gmbus_get_adapter(ptr noundef %3, i32 noundef %167) #14
   %228 = tail call i32 @drm_connector_init_with_ddc(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @intel_hdmi_connector_funcs, i32 noundef 11, ptr noundef %227) #14
-  %229 = getelementptr inbounds i8, ptr %1, i64 1544
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 1544
   store ptr @intel_hdmi_connector_helper_funcs, ptr %229, align 8
   %230 = load i16, ptr %17, align 8
   %231 = icmp ult i16 %230, 12
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %226
-  %233 = getelementptr inbounds i8, ptr %1, i64 148
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 148
   store i8 1, ptr %233, align 4
   br label %234
 
 234:                                              ; preds = %232, %226
-  %235 = getelementptr inbounds i8, ptr %1, i64 150
+  %235 = getelementptr inbounds nuw i8, ptr %1, i64 150
   store i8 1, ptr %235, align 2
   %236 = load i16, ptr %17, align 8
   %237 = icmp ugt i16 %236, 9
   br i1 %237, label %238, label %240
 
 238:                                              ; preds = %234
-  %239 = getelementptr inbounds i8, ptr %1, i64 151
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 151
   store i8 1, ptr %239, align 1
   br label %240
 
 240:                                              ; preds = %238, %234
-  %241 = getelementptr inbounds i8, ptr %1, i64 2412
+  %241 = getelementptr inbounds nuw i8, ptr %1, i64 2412
   store i8 1, ptr %241, align 4
   %242 = load ptr, ptr %16, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 28
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 28
   %244 = load i16, ptr %243, align 4
   %245 = and i16 %244, 8
   %246 = icmp eq i16 %245, 0
-  %247 = getelementptr inbounds i8, ptr %1, i64 1992
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 1992
   %248 = select i1 %246, ptr @intel_connector_get_hw_state, ptr @intel_ddi_connector_get_hw_state
   store ptr %248, ptr %247, align 8
   %249 = load ptr, ptr %1, align 8
@@ -4728,8 +4728,8 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   tail call void @intel_attach_aspect_ratio_property(ptr noundef %1) #14
   tail call void @intel_attach_hdmi_colorspace_property(ptr noundef %1) #14
   %250 = tail call i32 @drm_connector_attach_content_type_property(ptr noundef %1) #14
-  %251 = getelementptr inbounds i8, ptr %249, i64 2624
-  %252 = getelementptr inbounds i8, ptr %249, i64 2632
+  %251 = getelementptr inbounds nuw i8, ptr %249, i64 2624
+  %252 = getelementptr inbounds nuw i8, ptr %249, i64 2632
   %253 = load i16, ptr %252, align 8
   %254 = icmp ugt i16 %253, 9
   br i1 %254, label %255, label %257
@@ -4740,7 +4740,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
 
 257:                                              ; preds = %255, %240
   %258 = load ptr, ptr %251, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 28
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 28
   %260 = load i16, ptr %259, align 4
   %261 = and i16 %260, 128
   %262 = icmp eq i16 %261, 0
@@ -4752,7 +4752,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
 
 265:                                              ; preds = %263, %257
   tail call void @intel_connector_attach_encoder(ptr noundef %1, ptr noundef %0) #14
-  %266 = getelementptr inbounds i8, ptr %0, i64 3864
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 3864
   store ptr %1, ptr %266, align 8
   %267 = tail call zeroext i1 @is_hdcp_supported(ptr noundef %3, i32 noundef %5) #14
   br i1 %267, label %268, label %277
@@ -4766,7 +4766,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   br i1 %6, label %275, label %272
 
 272:                                              ; preds = %271
-  %273 = getelementptr inbounds i8, ptr %3, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %274 = load ptr, ptr %273, align 8
   br label %275
 
@@ -4776,7 +4776,7 @@ define dso_local void @intel_hdmi_init_connector(ptr noundef %0, ptr noundef %1)
   br label %277
 
 277:                                              ; preds = %275, %268, %265
-  %278 = getelementptr inbounds i8, ptr %0, i64 3872
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 3872
   store ptr inttoptr (i64 3735944941 to ptr), ptr %278, align 8
   br label %.thread17
 
@@ -4832,9 +4832,9 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 636
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 636
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 4744
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, -3
   %13 = icmp eq i32 %12, 0
@@ -4862,7 +4862,7 @@ define dso_local noundef range(i32 0, 17) i32 @intel_hdmi_dsc_get_num_slices(ptr
   %35 = icmp sgt i32 %3, 11
   %36 = icmp sgt i32 %1, 15
   %37 = icmp sgt i32 %3, 15
-  %38 = getelementptr inbounds i8, ptr %0, i64 612
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 612
   %invariant.op = and i1 %26, %27
   %invariant.op1 = and i1 %28, %29
   %invariant.op3 = and i1 %30, %31
@@ -5136,14 +5136,14 @@ declare dso_local zeroext i1 @drm_mode_is_420_only(ptr noundef, ptr noundef) loc
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 636
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 636
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 632
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %8 = load i32, ptr %7, align 8
   %9 = lshr i32 %8, 12
   %10 = and i32 %9, 1
   %11 = shl i32 %6, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %17 [
     i32 10, label %18
@@ -5154,7 +5154,7 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr nound
   ]
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 392
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %16 = load ptr, ptr %15, align 8
   br label %18
 
@@ -5163,18 +5163,18 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr nound
 
 18:                                               ; preds = %17, %14, %3, %3, %3, %3
   %19 = phi ptr [ %16, %14 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ null, %17 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 3848
-  %21 = getelementptr inbounds i8, ptr %1, i64 1364
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 3848
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1364
   %22 = load i32, ptr %21, align 4
   %23 = sdiv i32 %22, 3
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 8)
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %1, i64 4748
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4748
   %27 = sdiv i32 %11, 2
-  %28 = getelementptr inbounds i8, ptr %1, i64 4744
-  %29 = getelementptr inbounds i8, ptr %1, i64 644
-  %30 = getelementptr inbounds i8, ptr %1, i64 642
-  %31 = getelementptr inbounds i8, ptr %1, i64 876
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4744
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 644
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 642
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 876
   %32 = select i1 %2, i64 %25, i64 8
   br label %36
 
@@ -5203,7 +5203,7 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr nound
   ]
 
 49:                                               ; preds = %36
-  %50 = getelementptr inbounds i8, ptr %48, i64 2632
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 2632
   %51 = load i16, ptr %50, align 8
   %52 = icmp ugt i16 %51, 10
   br i1 %52, label %61, label %33
@@ -5218,9 +5218,9 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr nound
   br label %33
 
 54:                                               ; preds = %36
-  %55 = getelementptr inbounds i8, ptr %48, i64 2624
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 2624
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %58 = load i16, ptr %57, align 4
   %59 = and i16 %58, 128
   %60 = icmp eq i16 %59, 0
@@ -5234,7 +5234,7 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr nound
   br i1 %65, label %66, label %78
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %48, i64 2632
+  %67 = getelementptr inbounds nuw i8, ptr %48, i64 2632
   %68 = load i16, ptr %67, align 8
   %69 = icmp eq i16 %68, 11
   br i1 %69, label %70, label %78
@@ -5258,7 +5258,7 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr nound
 82:                                               ; preds = %78
   %83 = load i8, ptr %31, align 4, !range !20, !noundef !21
   %84 = icmp ne i8 %83, 0
-  %85 = tail call fastcc i32 @hdmi_port_clock_valid(ptr noundef %20, i32 noundef %46, i1 noundef zeroext %2, i1 noundef zeroext %84)
+  %85 = tail call fastcc i32 @hdmi_port_clock_valid(ptr noundef nonnull %20, i32 noundef %46, i1 noundef zeroext %2, i1 noundef zeroext %84)
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %33
 
@@ -5271,7 +5271,7 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr nound
   %93 = select i1 %92, i32 4, i32 -4
   %94 = add i32 %93, %91
   %95 = sdiv i32 %94, 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 1448
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 1448
   store i32 %95, ptr %96, align 8
   %97 = load i32, ptr %21, align 4
   %98 = mul nuw nsw i32 %41, 3
@@ -5281,7 +5281,7 @@ define internal fastcc range(i32 -22, 1) i32 @intel_hdmi_compute_clock(ptr nound
   br i1 %100, label %104, label %101
 
 101:                                              ; preds = %87
-  %102 = getelementptr inbounds i8, ptr %4, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %103 = load ptr, ptr %102, align 8
   br label %104
 
@@ -5310,7 +5310,7 @@ define internal fastcc i32 @hdmi_port_clock_valid(ptr noundef %0, i32 noundef ra
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 2632
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 2632
   %14 = load i16, ptr %13, align 8
   %15 = icmp ugt i16 %14, 9
   br i1 %15, label %26, label %16
@@ -5320,7 +5320,7 @@ define internal fastcc i32 @hdmi_port_clock_valid(ptr noundef %0, i32 noundef ra
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %12, i64 7184
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 7184
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 4194304
   %22 = icmp eq i32 %21, 0
@@ -5342,14 +5342,14 @@ define internal fastcc i32 @hdmi_port_clock_valid(ptr noundef %0, i32 noundef ra
   br i1 %2, label %34, label %50
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
   %40 = tail call i32 @llvm.smin.i32(i32 %33, i32 %38)
   %41 = select i1 %39, i32 %33, i32 %40
-  %42 = getelementptr inbounds i8, ptr %36, i64 240
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 240
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %47, label %45
@@ -5371,7 +5371,7 @@ define internal fastcc i32 @hdmi_port_clock_valid(ptr noundef %0, i32 noundef ra
   br i1 %52, label %100, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %6, i64 7184
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 7184
   %55 = load i32, ptr %54, align 4
   %56 = zext i32 %55 to i64
   %57 = and i64 %56, 268435456
@@ -5419,7 +5419,7 @@ define internal fastcc i32 @hdmi_port_clock_valid(ptr noundef %0, i32 noundef ra
   br i1 %86, label %100, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %6, i64 2632
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 2632
   %89 = load i16, ptr %88, align 8
   %90 = icmp ugt i16 %89, 13
   br i1 %90, label %91, label %93
@@ -5498,7 +5498,7 @@ declare dso_local i32 @hdmi_drm_infoframe_check(ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 129, 136) %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = alloca [32 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %11 [
     i32 10, label %12
@@ -5509,7 +5509,7 @@ define internal fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %
   ]
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %10 = load ptr, ptr %9, align 8
   br label %12
 
@@ -5520,7 +5520,7 @@ define internal fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %
   %13 = phi ptr [ %10, %8 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ %0, %4 ], [ null, %11 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !35
-  %14 = getelementptr inbounds i8, ptr %1, i64 4340
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4340
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -5557,13 +5557,13 @@ define internal fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %
 35:                                               ; preds = %32
   tail call void asm sideeffect "945: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 945b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 945) #14, !srcloc !173
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @dev_driver_string(ptr noundef %38) #14
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 80
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %48
@@ -5582,21 +5582,21 @@ define internal fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %
   br label %74
 
 50:                                               ; preds = %32
-  %51 = getelementptr inbounds i8, ptr %5, i64 1
-  %52 = call i64 @hdmi_infoframe_pack_only(ptr noundef %3, ptr noundef %51, i64 noundef 31) #14
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %52 = call i64 @hdmi_infoframe_pack_only(ptr noundef %3, ptr noundef nonnull %51, i64 noundef 31) #14
   %53 = icmp slt i64 %52, 0
   br i1 %53, label %54, label %69, !prof !5
 
 54:                                               ; preds = %50
   call void asm sideeffect "949: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 949b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 949) #14, !srcloc !178
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = call ptr @dev_driver_string(ptr noundef %57) #14
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 80
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %67
@@ -5615,11 +5615,11 @@ define internal fastcc void @intel_write_infoframe(ptr noundef %0, ptr noundef %
   br label %74
 
 69:                                               ; preds = %50
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %5, ptr noundef align 1 dereferenceable(3) %51, i64 3, i1 false)
-  %70 = getelementptr inbounds i8, ptr %5, i64 3
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %5, ptr noundef nonnull align 1 dereferenceable(3) %51, i64 3, i1 false)
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 0, ptr %70, align 1
   %71 = add nuw i64 %52, 1
-  %72 = getelementptr inbounds i8, ptr %13, i64 4016
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 4016
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, i64 noundef %71) #14
   br label %74
@@ -5661,11 +5661,11 @@ define internal fastcc zeroext i8 @icl_port_to_ddc_pin(ptr noundef %0, i32 nound
 
 14:                                               ; preds = %8
   tail call void asm sideeffect "1026: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1026b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1026) #14, !srcloc !183
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @dev_driver_string(ptr noundef %16) #14
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
@@ -5811,9 +5811,9 @@ declare dso_local i32 @intel_port_to_tc(ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 1, 3) i32 @intel_hdmi_detect(ptr noundef %0, i1 zeroext %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1976
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %11 [
     i32 10, label %12
@@ -5824,7 +5824,7 @@ define internal noundef range(i32 1, 3) i32 @intel_hdmi_detect(ptr noundef %0, i
   ]
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %5, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 392
   %10 = load ptr, ptr %9, align 8
   br label %12
 
@@ -5837,15 +5837,15 @@ define internal noundef range(i32 1, 3) i32 @intel_hdmi_detect(ptr noundef %0, i
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8
   br label %18
 
 18:                                               ; preds = %15, %12
   %19 = phi ptr [ %17, %15 ], [ null, %12 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = load ptr, ptr %22, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %19, i32 noundef 2, ptr noundef nonnull @.str.48, i32 noundef %21, ptr noundef %23) #14
   %24 = tail call zeroext i1 @intel_display_device_enabled(ptr noundef %3) #14
@@ -5853,7 +5853,7 @@ define internal noundef range(i32 1, 3) i32 @intel_hdmi_detect(ptr noundef %0, i
 
 25:                                               ; preds = %18
   %26 = tail call i64 @intel_display_power_get(ptr noundef %3, i32 noundef 71) #14
-  %27 = getelementptr inbounds i8, ptr %3, i64 2632
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 2632
   %28 = load i16, ptr %27, align 8
   %29 = icmp ugt i16 %28, 10
   br i1 %29, label %30, label %32
@@ -5864,7 +5864,7 @@ define internal noundef range(i32 1, 3) i32 @intel_hdmi_detect(ptr noundef %0, i
 
 32:                                               ; preds = %30, %25
   %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 128
   %35 = load i32, ptr %34, align 8
   switch i32 %35, label %39 [
     i32 10, label %40
@@ -5875,7 +5875,7 @@ define internal noundef range(i32 1, 3) i32 @intel_hdmi_detect(ptr noundef %0, i
   ]
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %33, i64 392
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 392
   %38 = load ptr, ptr %37, align 8
   br label %40
 
@@ -5884,11 +5884,11 @@ define internal noundef range(i32 1, 3) i32 @intel_hdmi_detect(ptr noundef %0, i
 
 40:                                               ; preds = %39, %36, %32, %32, %32, %32
   %41 = phi ptr [ %38, %36 ], [ %33, %32 ], [ %33, %32 ], [ %33, %32 ], [ %33, %32 ], [ null, %39 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 3852
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 3852
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 3856
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 3856
   store i32 0, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 2400
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %45 = load ptr, ptr %44, align 8
   tail call void @drm_edid_free(ptr noundef %45) #14
   store ptr null, ptr %44, align 8
@@ -5913,20 +5913,20 @@ define internal void @intel_hdmi_force(ptr noundef %0) #1 align 16 {
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %4, %1
   %8 = phi ptr [ %6, %4 ], [ null, %1 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %8, i32 noundef 2, ptr noundef nonnull @.str.48, i32 noundef %10, ptr noundef %12) #14
-  %13 = getelementptr inbounds i8, ptr %0, i64 1976
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %20 [
     i32 10, label %21
@@ -5937,7 +5937,7 @@ define internal void @intel_hdmi_force(ptr noundef %0) #1 align 16 {
   ]
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %14, i64 392
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 392
   %19 = load ptr, ptr %18, align 8
   br label %21
 
@@ -5946,15 +5946,15 @@ define internal void @intel_hdmi_force(ptr noundef %0) #1 align 16 {
 
 21:                                               ; preds = %20, %17, %7, %7, %7, %7
   %22 = phi ptr [ %19, %17 ], [ %14, %7 ], [ %14, %7 ], [ %14, %7 ], [ %14, %7 ], [ null, %20 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 3852
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 3852
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %22, i64 3856
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 3856
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 2400
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   %26 = load ptr, ptr %25, align 8
   tail call void @drm_edid_free(ptr noundef %26) #14
   store ptr null, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 176
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %30, label %32
@@ -6009,8 +6009,8 @@ declare dso_local zeroext i1 @intel_digital_port_connected(ptr noundef) local_un
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @intel_hdmi_set_edid(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1976
-  %4 = getelementptr inbounds i8, ptr %0, i64 1872
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1976
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1872
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @intel_display_power_get(ptr noundef %2, i32 noundef 71) #14
   %7 = tail call ptr @drm_edid_read_ddc(ptr noundef %0, ptr noundef %5) #14
@@ -6026,7 +6026,7 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_set_edid(ptr noundef %0) u
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   br label %16
 
@@ -6041,7 +6041,7 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_set_edid(ptr noundef %0) u
 19:                                               ; preds = %16, %9, %1
   %20 = phi ptr [ %7, %1 ], [ null, %9 ], [ %18, %16 ]
   %21 = tail call i32 @drm_edid_connector_update(ptr noundef %0, ptr noundef %20) #14
-  %22 = getelementptr inbounds i8, ptr %0, i64 2400
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2400
   store ptr %20, ptr %22, align 8
   %23 = tail call zeroext i1 @drm_edid_is_digital(ptr noundef %20) #14
   br i1 %23, label %24, label %.thread
@@ -6049,7 +6049,7 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_set_edid(ptr noundef %0) u
 24:                                               ; preds = %19
   %25 = load ptr, ptr %0, align 8
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %28 = load i32, ptr %27, align 8
   switch i32 %28, label %32 [
     i32 10, label %33
@@ -6060,7 +6060,7 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_set_edid(ptr noundef %0) u
   ]
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %26, i64 392
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 392
   %31 = load ptr, ptr %30, align 8
   br label %33
 
@@ -6077,13 +6077,13 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_set_edid(ptr noundef %0) u
   ]
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 1648
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %34, i64 376
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 376
   %43 = load ptr, ptr %42, align 8
   %44 = tail call zeroext i1 @intel_bios_encoder_supports_dp_dual_mode(ptr noundef %43) #14
   br i1 %44, label %45, label %.thread
@@ -6093,7 +6093,7 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_set_edid(ptr noundef %0) u
   br i1 %46, label %.thread5, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %25, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %49 = load ptr, ptr %48, align 8
   br label %.thread5
 
@@ -6104,16 +6104,16 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_set_edid(ptr noundef %0) u
 
 51:                                               ; preds = %33, %.thread5
   %52 = phi i32 [ 2, %.thread5 ], [ %36, %33 ]
-  %53 = getelementptr inbounds i8, ptr %34, i64 3852
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 3852
   store i32 %52, ptr %53, align 4
   %54 = tail call i32 @drm_dp_dual_mode_max_tmds_clock(ptr noundef %25, i32 noundef %52, ptr noundef %35) #14
-  %55 = getelementptr inbounds i8, ptr %34, i64 3856
+  %55 = getelementptr inbounds nuw i8, ptr %34, i64 3856
   store i32 %54, ptr %55, align 4
   %56 = icmp eq ptr %25, null
   br i1 %56, label %60, label %57
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %25, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %59 = load ptr, ptr %58, align 8
   br label %60
 
@@ -6122,20 +6122,20 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_set_edid(ptr noundef %0) u
   %62 = tail call ptr @drm_dp_get_dual_mode_type_name(i32 noundef %52) #14
   %63 = load i32, ptr %55, align 4
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %61, i32 noundef 2, ptr noundef nonnull @.str.51, ptr noundef %62, i32 noundef %63) #14
-  %64 = getelementptr inbounds i8, ptr %25, i64 2632
+  %64 = getelementptr inbounds nuw i8, ptr %25, i64 2632
   %65 = load i16, ptr %64, align 8
   %66 = icmp ugt i16 %65, 7
   br i1 %66, label %72, label %67
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %25, i64 7184
+  %68 = getelementptr inbounds nuw i8, ptr %25, i64 7184
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 4194304
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.thread, label %72
 
 72:                                               ; preds = %67, %60
-  %73 = getelementptr inbounds i8, ptr %34, i64 376
+  %73 = getelementptr inbounds nuw i8, ptr %34, i64 376
   %74 = load ptr, ptr %73, align 8
   %75 = tail call zeroext i1 @intel_bios_encoder_supports_dp_dual_mode(ptr noundef %74) #14
   br i1 %75, label %.thread, label %76
@@ -6144,7 +6144,7 @@ define internal fastcc noundef zeroext i1 @intel_hdmi_set_edid(ptr noundef %0) u
   br i1 %56, label %80, label %77
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %25, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %79 = load ptr, ptr %78, align 8
   br label %80
 
@@ -6206,9 +6206,9 @@ define internal i32 @intel_hdmi_get_modes(ptr noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_hdmi_mode_valid(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1976
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %10 [
     i32 10, label %11
@@ -6219,7 +6219,7 @@ define internal i32 @intel_hdmi_mode_valid(ptr noundef %0, ptr noundef %1) #1 al
   ]
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 392
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 392
   %9 = load ptr, ptr %8, align 8
   br label %11
 
@@ -6231,19 +6231,19 @@ define internal i32 @intel_hdmi_mode_valid(ptr noundef %0, ptr noundef %1) #1 al
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %1, align 8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8076
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8076
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %12, i64 3864
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 3864
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 245
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 245
   %21 = load i8, ptr %20, align 1, !range !20, !noundef !21
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %11
-  %24 = getelementptr inbounds i8, ptr %0, i64 1904
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 160
   %27 = load volatile i32, ptr %26, align 8
   %28 = icmp ne i32 %27, -2
   br label %29
@@ -6255,7 +6255,7 @@ define internal i32 @intel_hdmi_mode_valid(ptr noundef %0, ptr noundef %1) #1 al
   br i1 %32, label %33, label %68
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 507904
   %37 = icmp eq i32 %36, 16384
@@ -6282,8 +6282,8 @@ define internal i32 @intel_hdmi_mode_valid(ptr noundef %0, ptr noundef %1) #1 al
   br i1 %49, label %68, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %0, i64 200
-  %52 = tail call zeroext i1 @drm_mode_is_420_only(ptr noundef %51, ptr noundef %1) #14
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %52 = tail call zeroext i1 @drm_mode_is_420_only(ptr noundef nonnull %51, ptr noundef %1) #14
   %53 = zext i1 %52 to i32
   %54 = tail call fastcc i32 @intel_hdmi_mode_clock_valid(ptr noundef %0, i32 noundef %48, i1 noundef zeroext %30, i32 noundef %53)
   %55 = icmp eq i32 %54, 0
@@ -6293,13 +6293,13 @@ define internal i32 @intel_hdmi_mode_valid(ptr noundef %0, ptr noundef %1) #1 al
   br i1 %52, label %68, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 151
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 151
   %59 = load i8, ptr %58, align 1, !range !20, !noundef !21
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %68, label %61
 
 61:                                               ; preds = %57
-  %62 = tail call zeroext i1 @drm_mode_is_420_also(ptr noundef %51, ptr noundef %1) #14
+  %62 = tail call zeroext i1 @drm_mode_is_420_also(ptr noundef nonnull %51, ptr noundef %1) #14
   br i1 %62, label %63, label %68
 
 63:                                               ; preds = %61
@@ -6318,11 +6318,11 @@ define internal i32 @intel_hdmi_mode_valid(ptr noundef %0, ptr noundef %1) #1 al
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_hdmi_connector_atomic_check(ptr noundef %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 2624
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2624
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %8 = load i16, ptr %7, align 4
   %9 = and i16 %8, 8
   %10 = icmp eq i16 %9, 0
@@ -6350,9 +6350,9 @@ declare dso_local i32 @intel_cpu_transcoder_mode_valid(ptr noundef, ptr noundef)
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483648, 600001) %1, i1 noundef zeroext %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 align 16 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1976
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %13 [
     i32 10, label %14
@@ -6363,7 +6363,7 @@ define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr nocapture noundef re
   ]
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %7, i64 392
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 392
   %12 = load ptr, ptr %11, align 8
   br label %14
 
@@ -6372,14 +6372,14 @@ define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr nocapture noundef re
 
 14:                                               ; preds = %13, %10, %4, %4, %4, %4
   %15 = phi ptr [ %12, %10 ], [ %7, %4 ], [ %7, %4 ], [ %7, %4 ], [ %7, %4 ], [ null, %13 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 3848
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 3848
   %.not = icmp eq i32 %3, 0
   %17 = sdiv i32 %1, 2
   %18 = select i1 %.not, i32 %1, i32 %17
-  %19 = getelementptr inbounds i8, ptr %5, i64 2632
-  %20 = getelementptr inbounds i8, ptr %5, i64 2624
-  %21 = getelementptr inbounds i8, ptr %0, i64 249
-  %22 = getelementptr inbounds i8, ptr %0, i64 328
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 2632
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 2624
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 249
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 328
   br label %23
 
 23:                                               ; preds = %.thread2, %14
@@ -6414,7 +6414,7 @@ define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr nocapture noundef re
 
 36:                                               ; preds = %23
   %37 = load ptr, ptr %20, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %39 = load i16, ptr %38, align 4
   %40 = and i16 %39, 128
   %41 = icmp eq i16 %40, 0
@@ -6453,7 +6453,7 @@ define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr nocapture noundef re
   br i1 %58, label %.thread2, label %59
 
 59:                                               ; preds = %23, %56
-  %60 = tail call fastcc i32 @hdmi_port_clock_valid(ptr noundef %16, i32 noundef %31, i1 noundef zeroext true, i1 noundef zeroext %2)
+  %60 = tail call fastcc i32 @hdmi_port_clock_valid(ptr noundef nonnull %16, i32 noundef %31, i1 noundef zeroext true, i1 noundef zeroext %2)
   %.not10 = icmp eq i32 %60, 0
   br i1 %.not10, label %.loopexit, label %.thread2
 
@@ -6469,11 +6469,11 @@ define internal fastcc i32 @intel_hdmi_mode_clock_valid(ptr nocapture noundef re
 
 66:                                               ; preds = %64
   tail call void asm sideeffect "1006: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1006b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1006) #14, !srcloc !209
-  %67 = getelementptr inbounds i8, ptr %5, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = tail call ptr @dev_driver_string(ptr noundef %68) #14
   %70 = load ptr, ptr %67, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 80
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %76
@@ -6530,9 +6530,9 @@ declare dso_local i32 @drm_connector_attach_max_bpc_property(ptr noundef, i32 no
 define internal i32 @intel_hdmi_hdcp_write_an_aksv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
   %3 = alloca %struct.i2c_msg, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 3864
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3864
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1872
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1872
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   store i64 0, ptr %3, align 8, !annotation !35
@@ -6547,11 +6547,11 @@ define internal i32 @intel_hdmi_hdcp_write_an_aksv(ptr nocapture noundef readonl
   %14 = load i64, ptr %1, align 1
   store i64 %14, ptr %13, align 1
   store i16 58, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 0, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 9, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %10, ptr %17, align 8
   %18 = call i32 @i2c_transfer(ptr noundef %8, ptr noundef nonnull %3, i32 noundef 1) #14
   %19 = icmp eq i32 %18, 1
@@ -6567,7 +6567,7 @@ define internal i32 @intel_hdmi_hdcp_write_an_aksv(ptr nocapture noundef readonl
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -6587,7 +6587,7 @@ define internal i32 @intel_hdmi_hdcp_write_an_aksv(ptr nocapture noundef readonl
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = load ptr, ptr %35, align 8
   br label %37
 
@@ -6606,26 +6606,26 @@ define internal i32 @intel_hdmi_hdcp_read_bksv(ptr nocapture noundef readonly %0
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 3864
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3864
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1872
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1872
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
   store i8 0, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !35
   store i16 58, ptr %4, align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 58, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %4, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 1, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 5, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %15, align 8
   %16 = call i32 @i2c_transfer(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 2) #14
   %17 = icmp eq i32 %16, 2
@@ -6640,7 +6640,7 @@ define internal i32 @intel_hdmi_hdcp_read_bksv(ptr nocapture noundef readonly %0
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -6659,26 +6659,26 @@ define internal i32 @intel_hdmi_hdcp_read_bstatus(ptr nocapture noundef readonly
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 3864
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3864
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1872
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1872
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
   store i8 65, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !35
   store i16 58, ptr %4, align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 58, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %4, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 1, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 2, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %15, align 8
   %16 = call i32 @i2c_transfer(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 2) #14
   %17 = icmp eq i32 %16, 2
@@ -6693,7 +6693,7 @@ define internal i32 @intel_hdmi_hdcp_read_bstatus(ptr nocapture noundef readonly
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -6715,26 +6715,26 @@ define internal i32 @intel_hdmi_hdcp_repeater_present(ptr nocapture noundef read
   %6 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
   store i8 0, ptr %5, align 1, !annotation !35
-  %7 = getelementptr inbounds i8, ptr %0, i64 3864
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3864
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1872
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1872
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
   store i8 64, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !35
   store i16 58, ptr %4, align 16
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 58, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %4, i64 18
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 1, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %4, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %5, ptr %16, align 8
   %17 = call i32 @i2c_transfer(ptr noundef %10, ptr noundef nonnull %4, i32 noundef 2) #14
   %18 = icmp eq i32 %17, 2
@@ -6749,7 +6749,7 @@ define internal i32 @intel_hdmi_hdcp_repeater_present(ptr nocapture noundef read
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -6776,26 +6776,26 @@ define internal i32 @intel_hdmi_hdcp_read_ri_prime(ptr nocapture noundef readonl
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 3864
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3864
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1872
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1872
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
   store i8 8, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !35
   store i16 58, ptr %4, align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 58, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %4, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 1, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 2, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %15, align 8
   %16 = call i32 @i2c_transfer(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 2) #14
   %17 = icmp eq i32 %16, 2
@@ -6810,7 +6810,7 @@ define internal i32 @intel_hdmi_hdcp_read_ri_prime(ptr nocapture noundef readonl
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -6832,26 +6832,26 @@ define internal i32 @intel_hdmi_hdcp_read_ksv_ready(ptr nocapture noundef readon
   %6 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
   store i8 0, ptr %5, align 1, !annotation !35
-  %7 = getelementptr inbounds i8, ptr %0, i64 3864
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3864
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1872
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1872
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
   store i8 64, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !35
   store i16 58, ptr %4, align 16
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 58, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %4, i64 18
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 1, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %4, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %4, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %5, ptr %16, align 8
   %17 = call i32 @i2c_transfer(ptr noundef %10, ptr noundef nonnull %4, i32 noundef 2) #14
   %18 = icmp eq i32 %17, 2
@@ -6866,7 +6866,7 @@ define internal i32 @intel_hdmi_hdcp_read_ksv_ready(ptr nocapture noundef readon
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -6893,28 +6893,28 @@ define internal i32 @intel_hdmi_hdcp_read_ksv_fifo(ptr nocapture noundef readonl
   %4 = alloca i8, align 1
   %5 = alloca [2 x %struct.i2c_msg], align 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 3864
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3864
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1872
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1872
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
   store i8 67, ptr %4, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !35
   store i16 58, ptr %5, align 16
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 58, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %5, i64 18
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 18
   store i16 1, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %5, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %16 = trunc i32 %1 to i16
   %17 = mul i16 %16, 5
   store i16 %17, ptr %15, align 4
-  %18 = getelementptr inbounds i8, ptr %5, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %18, align 8
   %19 = call i32 @i2c_transfer(ptr noundef %10, ptr noundef nonnull %5, i32 noundef 2) #14
   %20 = icmp eq i32 %19, 2
@@ -6929,7 +6929,7 @@ define internal i32 @intel_hdmi_hdcp_read_ksv_fifo(ptr nocapture noundef readonl
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %27 = load ptr, ptr %26, align 8
   br label %28
 
@@ -6952,9 +6952,9 @@ define internal i32 @intel_hdmi_hdcp_read_v_prime_part(ptr nocapture noundef rea
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 3864
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3864
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1872
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1872
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
   %13 = trunc i32 %1 to i8
@@ -6964,17 +6964,17 @@ define internal i32 @intel_hdmi_hdcp_read_v_prime_part(ptr nocapture noundef rea
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !35
   store i16 58, ptr %5, align 16
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i16 58, ptr %18, align 16
-  %19 = getelementptr inbounds i8, ptr %5, i64 18
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 18
   store i16 1, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %5, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 4, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %21, align 8
   %22 = call i32 @i2c_transfer(ptr noundef %12, ptr noundef nonnull %5, i32 noundef 2) #14
   %23 = icmp eq i32 %22, 2
@@ -6989,7 +6989,7 @@ define internal i32 @intel_hdmi_hdcp_read_v_prime_part(ptr nocapture noundef rea
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -7005,7 +7005,7 @@ define internal i32 @intel_hdmi_hdcp_read_v_prime_part(ptr nocapture noundef rea
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 3864
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3864
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   br i1 %2, label %8, label %7
@@ -7024,7 +7024,7 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load ptr, ptr %14, align 8
   br label %16
 
@@ -7035,7 +7035,7 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
   br label %96
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %6, i64 7184
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 7184
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 134217728
   %23 = icmp ne i32 %22, 0
@@ -7044,9 +7044,9 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 1976
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 1976
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
   %30 = load i32, ptr %29, align 8
   switch i32 %30, label %34 [
     i32 10, label %35
@@ -7057,7 +7057,7 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
   ]
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %28, i64 392
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 392
   %33 = load ptr, ptr %32, align 8
   br label %35
 
@@ -7066,28 +7066,28 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
 
 35:                                               ; preds = %34, %31, %25, %25, %25, %25
   %36 = phi ptr [ %33, %31 ], [ %28, %25 ], [ %28, %25 ], [ %28, %25 ], [ %28, %25 ], [ null, %34 ]
-  %37 = getelementptr inbounds i8, ptr %5, i64 1904
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 1904
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %26, i64 2624
-  %42 = getelementptr inbounds i8, ptr %40, i64 1648
-  %43 = getelementptr inbounds i8, ptr %26, i64 7368
-  %44 = getelementptr inbounds i8, ptr %26, i64 7512
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 2624
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 1648
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 7368
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 7512
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 36
   %47 = load i32, ptr %42, align 8
   %48 = sext i32 %47 to i64
   %49 = getelementptr [7 x i32], ptr %46, i64 0, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %46, align 4
-  %52 = getelementptr inbounds i8, ptr %45, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %50, 458752
   %55 = sub i32 %54, %51
   %56 = add i32 %55, %53
   %57 = load ptr, ptr %44, align 8
-  %58 = tail call i32 %57(ptr noundef %43, i32 %56, i1 noundef zeroext true) #14
+  %58 = tail call i32 %57(ptr noundef nonnull %43, i32 %56, i1 noundef zeroext true) #14
   %59 = add i32 %58, -101
   %60 = icmp ult i32 %59, 99
   br i1 %60, label %.loopexit, label %.preheader
@@ -7095,19 +7095,19 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
 .preheader:                                       ; preds = %35, %.preheader
   tail call void @usleep_range_state(i64 noundef 25, i64 noundef 50, i32 noundef 2) #14
   %61 = load ptr, ptr %41, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 36
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 36
   %63 = load i32, ptr %42, align 8
   %64 = sext i32 %63 to i64
   %65 = getelementptr [7 x i32], ptr %62, i64 0, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %62, align 4
-  %68 = getelementptr inbounds i8, ptr %61, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %66, 458752
   %71 = sub i32 %70, %67
   %72 = add i32 %71, %69
   %73 = load ptr, ptr %44, align 8
-  %74 = tail call i32 %73(ptr noundef %43, i32 %72, i1 noundef zeroext true) #14
+  %74 = tail call i32 %73(ptr noundef nonnull %43, i32 %72, i1 noundef zeroext true) #14
   %75 = add i32 %74, -101
   %76 = icmp ult i32 %75, 99
   br i1 %76, label %.loopexit, label %.preheader, !llvm.loop !214
@@ -7122,7 +7122,7 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
   br i1 %80, label %84, label %81
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %26, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %83 = load ptr, ptr %82, align 8
   br label %84
 
@@ -7141,7 +7141,7 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
   br i1 %90, label %94, label %91
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %26, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %93 = load ptr, ptr %92, align 8
   br label %94
 
@@ -7161,15 +7161,15 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = alloca %union.anon.86, align 4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 132
-  %8 = getelementptr inbounds i8, ptr %1, i64 2712
-  %9 = getelementptr inbounds i8, ptr %0, i64 3864
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  %13 = getelementptr inbounds i8, ptr %4, i64 18
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2712
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3864
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %16
 
 16:                                               ; preds = %98, %2
@@ -7181,7 +7181,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   store i32 0, ptr %5, align 4, !annotation !35
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1872
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1872
   %24 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
   store i8 8, ptr %3, align 1
@@ -7207,7 +7207,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %19, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %33 = load ptr, ptr %32, align 8
   br label %34
 
@@ -7217,7 +7217,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
   br label %98
 
 36:                                               ; preds = %16
-  %37 = getelementptr inbounds i8, ptr %19, i64 7176
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 7176
   %38 = load i8, ptr %37, align 8
   %39 = icmp ugt i8 %38, 11
   br i1 %39, label %40, label %43
@@ -7241,16 +7241,16 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
   %.pre-phi = phi i64 [ %44, %43 ], [ %.pre, %40 ]
   %49 = phi i32 [ %47, %43 ], [ %42, %40 ]
   %50 = load i32, ptr %5, align 4
-  %51 = getelementptr inbounds i8, ptr %19, i64 7368
-  %52 = getelementptr inbounds i8, ptr %19, i64 7544
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 7368
+  %52 = getelementptr inbounds nuw i8, ptr %19, i64 7544
   %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef %51, i32 %49, i32 noundef %50, i1 noundef zeroext true) #14
+  call void %53(ptr noundef nonnull %51, i32 %49, i32 noundef %50, i1 noundef zeroext true) #14
   %54 = call i64 @ktime_get_raw() #14
   %55 = add i64 %54, 1000000
   %56 = call i32 @__SCT__might_resched() #14
   %57 = getelementptr [6 x i32], ptr @constinit.71, i64 0, i64 %.pre-phi
   %58 = add i32 %.pre-phi8, 418844
-  %59 = getelementptr inbounds i8, ptr %19, i64 7512
+  %59 = getelementptr inbounds nuw i8, ptr %19, i64 7512
   br label %60
 
 60:                                               ; preds = %76, %48
@@ -7270,7 +7270,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
 69:                                               ; preds = %66, %60
   %70 = phi i32 [ %68, %66 ], [ %58, %60 ]
   %71 = load ptr, ptr %59, align 8
-  %72 = call i32 %71(ptr noundef %51, i32 %70, i1 noundef zeroext true) #14
+  %72 = call i32 %71(ptr noundef nonnull %51, i32 %70, i1 noundef zeroext true) #14
   %73 = and i32 %72, 1572864
   %74 = icmp ne i32 %73, 1572864
   %75 = select i1 %74, i1 %63, i1 false
@@ -7291,7 +7291,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
   br i1 %82, label %86, label %83
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %19, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %85 = load ptr, ptr %84, align 8
   br label %86
 
@@ -7309,7 +7309,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
 93:                                               ; preds = %90, %86
   %94 = phi i32 [ %92, %90 ], [ %58, %86 ]
   %95 = load ptr, ptr %59, align 8
-  %96 = call i32 %95(ptr noundef %51, i32 %94, i1 noundef zeroext true) #14
+  %96 = call i32 %95(ptr noundef nonnull %51, i32 %94, i1 noundef zeroext true) #14
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %87, i32 noundef 2, ptr noundef nonnull @.str.70, i32 noundef %96) #14
   br label %98
 
@@ -7329,7 +7329,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
   br i1 %103, label %107, label %104
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %6, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %106 = load ptr, ptr %105, align 8
   br label %107
 
@@ -7348,9 +7348,9 @@ define internal i32 @intel_hdmi_hdcp2_capable(ptr nocapture noundef readonly %0,
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1976
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %13 [
     i32 10, label %14
@@ -7361,7 +7361,7 @@ define internal i32 @intel_hdmi_hdcp2_capable(ptr nocapture noundef readonly %0,
   ]
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %7, i64 392
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 392
   %12 = load ptr, ptr %11, align 8
   br label %14
 
@@ -7373,26 +7373,26 @@ define internal i32 @intel_hdmi_hdcp2_capable(ptr nocapture noundef readonly %0,
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
   store i8 0, ptr %5, align 1, !annotation !35
   store i8 0, ptr %1, align 1
-  %16 = getelementptr inbounds i8, ptr %15, i64 3864
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 3864
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1872
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1872
   %19 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
   store i8 80, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !35
   store i16 58, ptr %4, align 16
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 58, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %4, i64 18
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 1, ptr %23, align 2
-  %24 = getelementptr inbounds i8, ptr %4, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %4, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %5, ptr %25, align 8
   %26 = call i32 @i2c_transfer(ptr noundef %19, ptr noundef nonnull %4, i32 noundef 2) #14
   %27 = icmp eq i32 %26, 2
@@ -7421,9 +7421,9 @@ define internal i32 @intel_hdmi_hdcp2_capable(ptr nocapture noundef readonly %0,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @intel_hdmi_hdcp2_write_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 align 16 {
   %4 = alloca %struct.i2c_msg, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1976
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %12 [
     i32 10, label %13
@@ -7434,7 +7434,7 @@ define internal i32 @intel_hdmi_hdcp2_write_msg(ptr nocapture noundef readonly %
   ]
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %6, i64 392
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %11 = load ptr, ptr %10, align 8
   br label %13
 
@@ -7443,9 +7443,9 @@ define internal i32 @intel_hdmi_hdcp2_write_msg(ptr nocapture noundef readonly %
 
 13:                                               ; preds = %12, %9, %3, %3, %3, %3
   %14 = phi ptr [ %11, %9 ], [ %6, %3 ], [ %6, %3 ], [ %6, %3 ], [ %6, %3 ], [ null, %12 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 3864
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 3864
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1872
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1872
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !annotation !35
@@ -7459,12 +7459,12 @@ define internal i32 @intel_hdmi_hdcp2_write_msg(ptr nocapture noundef readonly %
   %23 = getelementptr i8, ptr %20, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %1, i64 %2, i1 false)
   store i16 58, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 0, ptr %24, align 2
   %25 = trunc i64 %19 to i16
-  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %20, ptr %27, align 8
   %28 = call i32 @i2c_transfer(ptr noundef %18, ptr noundef nonnull %4, i32 noundef 1) #14
   %29 = icmp eq i32 %28, 1
@@ -7487,9 +7487,9 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0
   %7 = alloca i8, align 1
   %8 = alloca [2 x %struct.i2c_msg], align 16
   %9 = alloca [2 x i8], align 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 1976
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %17 [
     i32 10, label %18
@@ -7500,7 +7500,7 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0
   ]
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %11, i64 392
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 392
   %16 = load ptr, ptr %15, align 8
   br label %18
 
@@ -7510,13 +7510,13 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0
 18:                                               ; preds = %17, %14, %4, %4, %4, %4
   %19 = phi ptr [ %16, %14 ], [ %11, %4 ], [ %11, %4 ], [ %11, %4 ], [ %11, %4 ], [ null, %17 ]
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 3864
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 3864
   %22 = icmp eq i8 %1, 7
   br i1 %22, label %23, label %.preheader
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 2668
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 2668
   %26 = load i8, ptr %25, align 4, !range !20, !noundef !21
   %27 = icmp eq i8 %26, 0
   %28 = select i1 %27, i32 1000, i32 200
@@ -7548,13 +7548,13 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0
   %44 = mul nuw nsw i64 %43, 1000
   %45 = add i64 %44, %41
   %46 = tail call i32 @__SCT__might_resched() #14
-  %47 = getelementptr inbounds i8, ptr %8, i64 4
-  %48 = getelementptr inbounds i8, ptr %8, i64 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 16
-  %50 = getelementptr inbounds i8, ptr %8, i64 18
-  %51 = getelementptr inbounds i8, ptr %8, i64 20
-  %52 = getelementptr inbounds i8, ptr %8, i64 24
-  %53 = getelementptr inbounds i8, ptr %9, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 18
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %54 = icmp eq i8 %1, 12
   br label %55
 
@@ -7566,7 +7566,7 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #14
   store i16 0, ptr %9, align 2, !annotation !35
   %60 = load ptr, ptr %21, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1872
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1872
   %62 = load ptr, ptr %61, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #14
   store i8 112, ptr %7, align 1
@@ -7592,7 +7592,7 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0
   br i1 %68, label %92, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %59, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %71 = load ptr, ptr %70, align 8
   br label %92
 
@@ -7648,7 +7648,7 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0
   br i1 %99, label %.thread, label %100
 
 100:                                              ; preds = %.thread15
-  %101 = getelementptr inbounds i8, ptr %20, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %102 = load ptr, ptr %101, align 8
   br label %.thread
 
@@ -7667,7 +7667,7 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0
   br i1 %108, label %112, label %109
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %20, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %111 = load ptr, ptr %110, align 8
   br label %112
 
@@ -7678,25 +7678,25 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0
 
 114:                                              ; preds = %105
   %115 = load ptr, ptr %21, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 1872
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 1872
   %117 = load ptr, ptr %116, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
   store i8 -128, ptr %5, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !35
   store i16 58, ptr %6, align 16
-  %118 = getelementptr inbounds i8, ptr %6, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 1, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %6, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %6, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i16 58, ptr %120, align 16
-  %121 = getelementptr inbounds i8, ptr %6, i64 18
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i16 1, ptr %121, align 2
-  %122 = getelementptr inbounds i8, ptr %6, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %123 = trunc nuw nsw i64 %79 to i16
   store i16 %123, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %6, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %124, align 8
   %125 = call i32 @i2c_transfer(ptr noundef %117, ptr noundef nonnull %6, i32 noundef 2) #14
   %126 = icmp eq i32 %125, 2
@@ -7713,7 +7713,7 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr nocapture noundef readonly %0
   br i1 %132, label %136, label %133
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %20, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %135 = load ptr, ptr %134, align 8
   br label %136
 
@@ -7735,26 +7735,26 @@ define internal i32 @intel_hdmi_hdcp2_check_link(ptr nocapture noundef readonly 
   %5 = alloca [2 x i8], align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #14
   store i16 0, ptr %5, align 2, !annotation !35
-  %6 = getelementptr inbounds i8, ptr %0, i64 3864
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 3864
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1872
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1872
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
   store i8 112, ptr %3, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !35
   store i16 58, ptr %4, align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i16 58, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %4, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i16 1, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 2, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %5, ptr %15, align 8
   %16 = call i32 @i2c_transfer(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 2) #14
   %17 = icmp eq i32 %16, 2
@@ -7765,7 +7765,7 @@ define internal i32 @intel_hdmi_hdcp2_check_link(ptr nocapture noundef readonly 
   br i1 %17, label %20, label %29
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %5, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = and i8 %22, 8
   %24 = icmp eq i8 %23, 0

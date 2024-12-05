@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_zddProduct(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -27,11 +27,11 @@ define ptr @cuddZddProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 320
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %21, %3
@@ -54,11 +54,11 @@ tailrecurse:                                      ; preds = %21, %3
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr %.tr260, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %.tr261, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %22, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %22, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %26, %30
   br i1 %31, label %tailrecurse, label %32
@@ -324,7 +324,7 @@ tailrecurse:                                      ; preds = %21, %3
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_zddUnateProduct(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -342,11 +342,11 @@ define ptr @Cudd_zddUnateProduct(ptr noundef initializes((448, 452)) %0, ptr nou
 define ptr @cuddZddUnateProduct(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %17, %3
@@ -369,11 +369,11 @@ tailrecurse:                                      ; preds = %17, %3
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr %.tr170, align 8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = load i32, ptr %.tr171, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %18, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %18, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp sgt i32 %22, %26
   br i1 %27, label %tailrecurse, label %28
@@ -530,7 +530,7 @@ cuddZddGetCofactors2.exit.thread:                 ; preds = %15, %13, %tailrecur
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_zddWeakDiv(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -552,9 +552,9 @@ define ptr @cuddZddWeakDiv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %2, %11
   br i1 %14, label %72, label %15
@@ -756,7 +756,7 @@ define ptr @cuddZddWeakDiv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_zddDivide(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -772,9 +772,9 @@ define ptr @Cudd_zddDivide(ptr noundef initializes((448, 452)) %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddZddDivide(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %2, %5
   br i1 %8, label %cuddZddGetCofactors2.exit.thread, label %9
@@ -900,7 +900,7 @@ cuddZddGetCofactors2.exit.thread:                 ; preds = %16, %23, %14, %12, 
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_zddWeakDivF(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -922,9 +922,9 @@ define ptr @cuddZddWeakDivF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %2, %11
   br i1 %14, label %113, label %15
@@ -945,15 +945,15 @@ define ptr @cuddZddWeakDivF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %.not, label %22, label %113
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 320
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %1, align 8
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %24, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %2, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %24, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %30
   %32 = load i32, ptr %31, align 4
   %.not229 = icmp sgt i32 %28, %32
   br i1 %.not229, label %._crit_edge, label %33
@@ -1230,7 +1230,7 @@ define ptr @cuddZddWeakDivF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_zddDivideF(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 448
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %5
 
 5:                                                ; preds = %5, %3
@@ -1246,9 +1246,9 @@ define ptr @Cudd_zddDivideF(ptr noundef initializes((448, 452)) %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define ptr @cuddZddDivideF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %2, %5
   br i1 %8, label %cuddZddGetCofactors2.exit.thread, label %9
@@ -1435,7 +1435,7 @@ define ptr @cuddZddComplement(ptr noundef %0, ptr noundef %1) #0 {
   %8 = ptrtoint ptr %6 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -1453,7 +1453,7 @@ define ptr @cuddZddComplement(ptr noundef %0, ptr noundef %1) #0 {
   %19 = ptrtoint ptr %16 to i64
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 4
@@ -1461,7 +1461,7 @@ define ptr @cuddZddComplement(ptr noundef %0, ptr noundef %1) #0 {
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, -2
   %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr %29, align 4
@@ -1473,7 +1473,7 @@ define ptr @cuddZddComplement(ptr noundef %0, ptr noundef %1) #0 {
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, -1
   store i32 %39, ptr %37, align 4
@@ -1501,11 +1501,11 @@ declare ptr @cuddCacheLookup2Zdd(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @cuddZddGetCofactors3(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 320
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %1, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %8, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %2 to i64
   %14 = getelementptr inbounds i32, ptr %8, i64 %13
@@ -1516,7 +1516,7 @@ define range(i32 0, 2) i32 @cuddZddGetCofactors3(ptr noundef %0, ptr noundef %1,
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %3, align 8
   store ptr %21, ptr %4, align 8
@@ -1717,7 +1717,7 @@ declare ptr @cuddZddIntersect(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @cuddZddGetPosVarLevel(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = and i32 %1, -2
-  %4 = getelementptr inbounds i8, ptr %0, i64 320
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds i32, ptr %5, i64 %6
@@ -1728,7 +1728,7 @@ define i32 @cuddZddGetPosVarLevel(ptr nocapture noundef readonly %0, i32 noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @cuddZddGetNegVarLevel(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = or i32 %1, 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 320
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds i32, ptr %5, i64 %6

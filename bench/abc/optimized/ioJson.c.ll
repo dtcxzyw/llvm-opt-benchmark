@@ -139,7 +139,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   ]
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %.val, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 1
   %.not118 = icmp eq i32 %16, 0
@@ -167,7 +167,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %34
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %34 ], [ 1, %.lr.ph ]
   %.val123.us = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i32, ptr %.val123.us, i64 %indvars.iv150
+  %24 = getelementptr inbounds nuw i32, ptr %.val123.us, i64 %indvars.iv150
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %.not119.us = icmp eq i32 %26, 0
@@ -196,7 +196,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 .lr.ph.split:                                     ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 1, %.lr.ph ]
   %.val123 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds i32, ptr %.val123, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw i32, ptr %.val123, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 1
   %.not119 = icmp eq i32 %39, 0
@@ -237,9 +237,9 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %indvars.iv153 = phi i64 [ 2, %.lr.ph144 ], [ %indvars.iv.next154, %125 ]
   %.098142 = phi i32 [ 0, %.lr.ph144 ], [ %.199, %125 ]
   %.val124 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds i32, ptr %.val124, i64 %indvars.iv155
+  %58 = getelementptr inbounds nuw i32, ptr %.val124, i64 %indvars.iv155
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i32, ptr %.val124, i64 %indvars.iv153
+  %60 = getelementptr inbounds nuw i32, ptr %.val124, i64 %indvars.iv153
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %59, 1
   %.not105 = icmp eq i32 %62, 0
@@ -450,7 +450,7 @@ define void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br label %55
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %.val90, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.val90, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 1
   %.not82 = icmp eq i32 %17, 0
@@ -488,7 +488,7 @@ define void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %.val94102 = phi i32 [ %.val94100, %.lr.ph ], [ %.val94, %50 ]
   %.val87 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds i32, ptr %.val87, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %.val87, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %.val94102, -1
   %37 = sext i32 %36 to i64
@@ -559,9 +559,9 @@ define void @Json_Write_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %indvars.iv108 = phi i64 [ 2, %.lr.ph106 ], [ %indvars.iv.next109, %100 ]
   %.val92105 = phi i32 [ %.val92103, %.lr.ph106 ], [ %.val92, %100 ]
   %.val86 = load ptr, ptr %8, align 8
-  %71 = getelementptr inbounds i32, ptr %.val86, i64 %indvars.iv110
+  %71 = getelementptr inbounds nuw i32, ptr %.val86, i64 %indvars.iv110
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i32, ptr %.val86, i64 %indvars.iv108
+  %73 = getelementptr inbounds nuw i32, ptr %.val86, i64 %indvars.iv108
   %74 = load i32, ptr %73, align 4
   %75 = add nsw i32 %.val92105, -3
   %76 = sext i32 %75 to i64
@@ -662,7 +662,7 @@ define noalias noundef ptr @Json_ReadPreprocess(ptr nocapture noundef readonly %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %.029 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %19 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %15 [
     i8 123, label %9
@@ -742,7 +742,7 @@ define noalias noundef ptr @Json_Read(ptr noundef %0, ptr nocapture noundef writ
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %32 ]
   %.029.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %32 ]
-  %20 = getelementptr inbounds i8, ptr %11, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   switch i8 %21, label %28 [
     i8 123, label %22
@@ -786,18 +786,18 @@ define noalias noundef ptr @Json_Read(ptr noundef %0, ptr nocapture noundef writ
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #12
   tail call void @free(ptr noundef nonnull %11) #13
   %37 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 0, ptr %38, align 4
   store i32 1000, ptr %37, align 8
   %39 = tail call noalias dereferenceable_or_null(16000) ptr @calloc(i64 noundef 1000, i64 noundef 16) #15
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %39, ptr %40, align 8
   %41 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 0, ptr %42, align 4
   store i32 100, ptr %41, align 8
   %43 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #14
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %43, ptr %44, align 8
   %45 = tail call ptr @Abc_NamStart(i32 noundef 1000, i32 noundef 24) #13
   %sext = shl i64 %36, 32
@@ -819,7 +819,7 @@ define noalias noundef ptr @Json_Read(ptr noundef %0, ptr nocapture noundef writ
   ]
 
 Json_CharIsSpace.exit.thread.i:                   ; preds = %.preheader101, %.preheader101, %.preheader101, %.preheader101, %.preheader101
-  %50 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.preheader101.backedge
 
 .preheader101.backedge:                           ; preds = %Json_CharIsSpace.exit.thread.i, %.backedge
@@ -838,7 +838,7 @@ Json_CharIsSpace.exit.thread.i:                   ; preds = %.preheader101, %.pr
   ]
 
 52:                                               ; preds = %.preheader
-  %53 = getelementptr inbounds i8, ptr %.0.i73, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i73, i64 1
   %.pr = load i8, ptr %53, align 1
   br label %.preheader, !llvm.loop !11
 
@@ -868,14 +868,14 @@ Json_SkipNonSpaces.exit:                          ; preds = %.preheader, %.prehe
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val66, i64 %61
   %63 = shl nsw i32 %.val72.pre109, 1
-  %64 = getelementptr inbounds i8, ptr %62, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = load i32, ptr %62, align 8
   %67 = icmp eq i32 %65, %66
   br i1 %67, label %68, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %56
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %62, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
@@ -884,7 +884,7 @@ Json_SkipNonSpaces.exit:                          ; preds = %.preheader, %.prehe
   br i1 %69, label %70, label %78
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %62, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not9.i.i = icmp eq ptr %72, null
   br i1 %.not9.i.i, label %75, label %73
@@ -905,7 +905,7 @@ Vec_IntGrow.exit.i:                               ; preds = %75, %73
 
 78:                                               ; preds = %68
   %79 = shl nuw nsw i32 %65, 1
-  %80 = getelementptr inbounds i8, ptr %62, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %81 = load ptr, ptr %80, align 8
   %.not9.i9.i = icmp eq ptr %81, null
   %82 = zext nneg i32 %79 to i64
@@ -1059,7 +1059,7 @@ Vec_WecGrow.exit.i:                               ; preds = %132, %130
   %150 = phi ptr [ %146, %145 ], [ %148, %147 ]
   store ptr %150, ptr %40, align 8
   %151 = zext nneg i32 %123 to i64
-  %152 = getelementptr inbounds %struct.Vec_Int_t_, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %150, i64 %151
   %153 = zext nneg i32 %123 to i64
   %154 = shl nuw nsw i64 %153, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %152, i8 0, i64 %154, i1 false)
@@ -1178,7 +1178,7 @@ Vec_IntPush.exit89:                               ; preds = %.Vec_IntGrow.exit10
   %210 = sext i32 %208 to i64
   %211 = getelementptr inbounds i32, ptr %207, i64 %210
   store i32 %206, ptr %211, align 4
-  %212 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %212 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.backedge
 
 .backedge:                                        ; preds = %Vec_IntPush.exit89, %214, %218, %Vec_IntPush.exit97
@@ -1190,17 +1190,17 @@ Vec_IntPush.exit89:                               ; preds = %.Vec_IntGrow.exit10
   %215 = load i32, ptr %42, align 4
   %216 = add nsw i32 %215, -1
   store i32 %216, ptr %42, align 4
-  %217 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %217 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.backedge
 
 218:                                              ; preds = %Json_SkipNonSpaces.exit, %Json_SkipNonSpaces.exit
-  %219 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %219 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %.backedge
 
 220:                                              ; preds = %Json_SkipNonSpaces.exit
   %221 = icmp eq i8 %49, 34
   %spec.select.idx.i = zext i1 %221 to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %.0.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %.0.i, i64 %spec.select.idx.i
   %222 = getelementptr inbounds i8, ptr %.0.i73, i64 -1
   %223 = load i8, ptr %222, align 1
   %224 = icmp eq i8 %223, 44
@@ -1221,14 +1221,14 @@ Vec_IntPush.exit89:                               ; preds = %.Vec_IntGrow.exit10
   %234 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val65, i64 %233
   %235 = shl nsw i32 %228, 1
   %236 = or disjoint i32 %235, 1
-  %237 = getelementptr inbounds i8, ptr %234, i64 4
+  %237 = getelementptr inbounds nuw i8, ptr %234, i64 4
   %238 = load i32, ptr %237, align 4
   %239 = load i32, ptr %234, align 8
   %240 = icmp eq i32 %238, %239
   br i1 %240, label %241, label %.Vec_IntGrow.exit10_crit_edge.i91
 
 .Vec_IntGrow.exit10_crit_edge.i91:                ; preds = %220
-  %.phi.trans.insert.i92 = getelementptr inbounds i8, ptr %234, i64 8
+  %.phi.trans.insert.i92 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %.pre.i93 = load ptr, ptr %.phi.trans.insert.i92, align 8
   br label %Vec_IntPush.exit97
 
@@ -1237,7 +1237,7 @@ Vec_IntPush.exit89:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %242, label %243, label %251
 
 243:                                              ; preds = %241
-  %244 = getelementptr inbounds i8, ptr %234, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %245 = load ptr, ptr %244, align 8
   %.not9.i.i95 = icmp eq ptr %245, null
   br i1 %.not9.i.i95, label %248, label %246
@@ -1258,7 +1258,7 @@ Vec_IntGrow.exit.i96:                             ; preds = %248, %246
 
 251:                                              ; preds = %241
   %252 = shl nuw nsw i32 %238, 1
-  %253 = getelementptr inbounds i8, ptr %234, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %254 = load ptr, ptr %253, align 8
   %.not9.i9.i94 = icmp eq ptr %254, null
   %255 = zext nneg i32 %252 to i64
@@ -1362,14 +1362,14 @@ Json_Write.exit:                                  ; preds = %9, %11
   br i1 %15, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %Json_Write.exit
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %17
 
 17:                                               ; preds = %25, %.lr.ph.i.i
   %18 = phi i32 [ %14, %.lr.ph.i.i ], [ %26, %25 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds %struct.Vec_Int_t_, ptr %19, i64 %indvars.iv.i.i, i32 2
+  %20 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %19, i64 %indvars.iv.i.i, i32 2
   %21 = load ptr, ptr %20, align 8
   %.not15.i.i = icmp eq ptr %21, null
   br i1 %.not15.i.i, label %25, label %22
@@ -1377,7 +1377,7 @@ Json_Write.exit:                                  ; preds = %9, %11
 22:                                               ; preds = %17
   tail call void @free(ptr noundef nonnull %21) #13
   %23 = load ptr, ptr %16, align 8
-  %24 = getelementptr inbounds %struct.Vec_Int_t_, ptr %23, i64 %indvars.iv.i.i, i32 2
+  %24 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %23, i64 %indvars.iv.i.i, i32 2
   store ptr null, ptr %24, align 8
   %.pre.i.i = load i32, ptr %3, align 8
   br label %25
@@ -1390,7 +1390,7 @@ Json_Write.exit:                                  ; preds = %9, %11
   br i1 %28, label %17, label %._crit_edge.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %25, %Json_Write.exit
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %Vec_WecFree.exit, label %31

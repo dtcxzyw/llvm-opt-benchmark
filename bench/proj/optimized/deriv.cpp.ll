@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i32 0, 2) i32 @_Z8pj_deriv5PJ_LPdPK8PJconstsP6DERIVS(double %0, double %1, double noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %77, label %9
@@ -27,11 +27,11 @@ define hidden noundef range(i32 0, 2) i32 @_Z8pj_deriv5PJ_LPdPK8PJconstsP6DERIVS
 19:                                               ; preds = %14
   %20 = extractvalue { double, double } %16, 1
   store double %17, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store double %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %17, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %20, ptr %23, align 8
   %24 = fsub double %11, %15
   %25 = tail call double @llvm.fabs.f64(double %24)

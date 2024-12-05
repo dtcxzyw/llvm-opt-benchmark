@@ -45,11 +45,11 @@ define hidden i32 @mbedtls_psa_rsa_load_representation(i16 noundef zeroext %0, p
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %22, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %24, ptr %25, align 8
   %26 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #7
   %cond.i = icmp eq i32 %26, 1
@@ -66,7 +66,7 @@ define hidden i32 @mbedtls_psa_rsa_load_representation(i16 noundef zeroext %0, p
   %33 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %32, ptr %7, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %33, ptr %34, align 8
   %35 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %7) #7
   %cond.i13 = icmp eq i32 %35, 1
@@ -99,7 +99,7 @@ psa_check_rsa_key_byte_aligned.exit.thread:       ; preds = %31, %40
   %45 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %44, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %45, ptr %46, align 8
   %47 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %5) #7
   %cond.i16 = icmp eq i32 %47, 1
@@ -156,7 +156,7 @@ define hidden i32 @mbedtls_psa_rsa_import_key(ptr nocapture noundef readonly %0,
   store ptr %18, ptr %9, align 8
   call void @mbedtls_pk_init(ptr noundef nonnull %8) #7
   store ptr @mbedtls_rsa_info, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.pre, ptr %19, align 8
   %20 = and i16 %17, 28672
   %21 = icmp eq i16 %20, 28672
@@ -201,7 +201,7 @@ define hidden i32 @mbedtls_psa_rsa_import_key(ptr nocapture noundef readonly %0,
   %39 = sub nsw i64 0, %31
   %40 = getelementptr inbounds i8, ptr %18, i64 %39
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %40, i64 %31, i1 false)
-  %41 = getelementptr inbounds i8, ptr %3, i64 %31
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 %31
   %42 = sub nuw nsw i64 %4, %31
   call void @llvm.memset.p0.i64(ptr align 1 %41, i8 0, i64 %42, i1 false)
   br label %43
@@ -231,7 +231,7 @@ define hidden i32 @mbedtls_psa_rsa_export_key(i16 noundef zeroext %0, ptr nounde
   store ptr %8, ptr %7, align 8
   call void @mbedtls_pk_init(ptr noundef nonnull %6) #7
   store ptr @mbedtls_rsa_info, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %9, align 8
   %10 = and i16 %0, 28672
   %11 = icmp eq i16 %10, 28672
@@ -276,7 +276,7 @@ define hidden i32 @mbedtls_psa_rsa_export_key(i16 noundef zeroext %0, ptr nounde
   %29 = sub nsw i64 0, %21
   %30 = getelementptr inbounds i8, ptr %8, i64 %29
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %30, i64 %21, i1 false)
-  %31 = getelementptr inbounds i8, ptr %2, i64 %21
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %21
   %32 = sub nuw nsw i64 %3, %21
   call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)
   br label %33
@@ -327,7 +327,7 @@ define hidden i32 @mbedtls_psa_rsa_export_public_key(ptr nocapture noundef reado
   store ptr %14, ptr %8, align 8
   call void @mbedtls_pk_init(ptr noundef nonnull %7) #7
   store ptr @mbedtls_rsa_info, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %13, ptr %15, align 8
   %16 = call i32 @mbedtls_pk_write_pubkey(ptr noundef nonnull %8, ptr noundef %3, ptr noundef nonnull %7) #7
   %17 = icmp slt i32 %16, 0
@@ -359,7 +359,7 @@ define hidden i32 @mbedtls_psa_rsa_export_public_key(ptr nocapture noundef reado
   %29 = sub nsw i64 0, %21
   %30 = getelementptr inbounds i8, ptr %14, i64 %29
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %30, i64 %21, i1 false)
-  %31 = getelementptr inbounds i8, ptr %3, i64 %21
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %21
   %32 = sub nuw nsw i64 %4, %21
   call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)
   br label %33
@@ -386,9 +386,9 @@ define hidden i32 @mbedtls_psa_rsa_generate_key(ptr nocapture noundef readonly %
   %5 = alloca %struct.mbedtls_pk_context, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct.mbedtls_rsa_context, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %.sink.split.i, label %13
@@ -401,7 +401,7 @@ define hidden i32 @mbedtls_psa_rsa_generate_key(ptr nocapture noundef readonly %
   %.016.i = phi i32 [ %19, %.preheader.i ], [ 0, %13 ]
   %.01215.i = phi i64 [ %20, %.preheader.i ], [ 0, %13 ]
   %15 = shl i32 %.016.i, 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 %.01215.i
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %.01215.i
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %15, %18
@@ -417,7 +417,7 @@ define hidden i32 @mbedtls_psa_rsa_generate_key(ptr nocapture noundef readonly %
   %.015.ph = phi i32 [ 65537, %4 ], [ %19, %21 ]
   call void @mbedtls_rsa_init(ptr noundef nonnull %7) #7
   %23 = load ptr, ptr @mbedtls_psa_random_state, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
   %27 = call i32 @mbedtls_rsa_gen_key(ptr noundef nonnull %7, ptr noundef nonnull @mbedtls_ctr_drbg_random, ptr noundef %23, i32 noundef %26, i32 noundef %.015.ph) #7
@@ -436,7 +436,7 @@ define hidden i32 @mbedtls_psa_rsa_generate_key(ptr nocapture noundef readonly %
   store ptr %32, ptr %6, align 8
   call void @mbedtls_pk_init(ptr noundef nonnull %5) #7
   store ptr @mbedtls_rsa_info, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %33, align 8
   %34 = and i16 %31, 28672
   %35 = icmp eq i16 %34, 28672
@@ -481,7 +481,7 @@ define hidden i32 @mbedtls_psa_rsa_generate_key(ptr nocapture noundef readonly %
   %53 = sub nsw i64 0, %45
   %54 = getelementptr inbounds i8, ptr %32, i64 %53
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %54, i64 %45, i1 false)
-  %55 = getelementptr inbounds i8, ptr %1, i64 %45
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %45
   %56 = sub nuw nsw i64 %2, %45
   call void @llvm.memset.p0.i64(ptr align 1 %55, i8 0, i64 %56, i1 false)
   br label %57

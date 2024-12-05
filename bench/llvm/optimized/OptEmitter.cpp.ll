@@ -172,8 +172,8 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit47:          ; preds = %58, %59
   br i1 %.not37, label %64, label %.critedge.loopexit
 
 64:                                               ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit47
-  %65 = getelementptr inbounds i8, ptr %.sroa.073.0101, i64 16
-  %66 = getelementptr inbounds i8, ptr %.sroa.067.0100, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.073.0101, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.067.0100, i64 16
   %67 = icmp eq ptr %65, %45
   %68 = icmp eq ptr %66, %48
   %or.cond.not = select i1 %67, i1 true, i1 %68
@@ -252,10 +252,10 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit49: ; preds = %_ZNSt6vectorIN4llv
   %.0916.i.i.i.i.i = phi ptr [ %108, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i.i.i ], [ %93, %104 ]
   %.01015.i.i.i.i.i = phi ptr [ %109, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i.i.i ], [ %99, %104 ]
   %.sroa.01.0.copyload.i.i.i.i.i = load ptr, ptr %.0916.i.i.i.i.i, align 8
-  %.sroa.22.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.0916.i.i.i.i.i, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0916.i.i.i.i.i, i64 8
   %.sroa.22.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i, align 8
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %.01015.i.i.i.i.i, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.01015.i.i.i.i.i, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01015.i.i.i.i.i, i64 8
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %105, label %_ZSteqIN4llvm9StringRefESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread
@@ -270,8 +270,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i:      ; preds = %105
   br i1 %107, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i.i.i, label %_ZSteqIN4llvm9StringRefESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i, %105
-  %108 = getelementptr inbounds i8, ptr %.0916.i.i.i.i.i, i64 16
-  %109 = getelementptr inbounds i8, ptr %.01015.i.i.i.i.i, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %.0916.i.i.i.i.i, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.01015.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %108, %92
   br i1 %.not.i.i.i.i.i, label %_ZSteqIN4llvm9StringRefESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !18
 
@@ -374,11 +374,11 @@ define internal fastcc noundef i32 @_ZN4llvmL16StrCmpOptionNameEPKcS1_(ptr nocap
   br label %33
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.01729, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.01729, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
   %19 = tail call i32 @tolower(i32 noundef %18) #13
-  %20 = getelementptr inbounds i8, ptr %.01630, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01630, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i32
   %23 = tail call i32 @tolower(i32 noundef %22) #13

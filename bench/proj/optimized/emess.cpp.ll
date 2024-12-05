@@ -34,13 +34,13 @@ sub_0:                                            ; preds = %5
   br i1 %.not16, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %8 = getelementptr inbounds i8, ptr %6, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %9 = load i8, ptr %8, align 1
   %.not17 = icmp eq i8 %9, 79
   br i1 %.not17, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %10 = getelementptr inbounds i8, ptr %6, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %17, label %.tail.thread

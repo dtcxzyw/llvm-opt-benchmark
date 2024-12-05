@@ -95,13 +95,13 @@ define dso_local void @dmam_free_coherent(ptr noundef %0, i64 noundef %1, ptr no
   %6 = alloca %struct.dma_devres, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
   store i64 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 552
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %13 = load ptr, ptr @dma_ops, align 8
@@ -134,7 +134,7 @@ define dso_local void @dmam_free_coherent(ptr noundef %0, i64 noundef %1, ptr no
   br label %29
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %14, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -169,13 +169,13 @@ declare dso_local i32 @devres_destroy(ptr noundef, ptr noundef, ptr noundef, ptr
 define internal void @dmam_release(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load i64, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 552
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   %14 = load ptr, ptr @dma_ops, align 8
@@ -208,7 +208,7 @@ define internal void @dmam_release(ptr noundef %0, ptr nocapture noundef readonl
   br label %30
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %15, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %30, label %29
@@ -223,9 +223,9 @@ define internal void @dmam_release(ptr noundef %0, ptr nocapture noundef readonl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @dmam_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %5, %7
   br i1 %8, label %9, label %20
@@ -237,9 +237,9 @@ define internal noundef range(i32 0, 2) i32 @dmam_match(ptr nocapture readnone %
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %15, %17
   br i1 %18, label %20, label %19, !prof !11
@@ -265,12 +265,12 @@ define dso_local ptr @dmam_alloc_attrs(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %7, label %41, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 552
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   %12 = load ptr, ptr @dma_ops, align 8
   %13 = select i1 %11, ptr %12, ptr %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 568
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %18, !prof !7
@@ -302,7 +302,7 @@ define dso_local ptr @dmam_alloc_attrs(ptr noundef %0, i64 noundef %1, ptr nound
   br label %33
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %13, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread, label %31
@@ -321,13 +321,13 @@ define dso_local ptr @dmam_alloc_attrs(ptr noundef %0, i64 noundef %1, ptr nound
   br label %41
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %34, ptr %37, align 8
   %38 = load i64, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %38, ptr %39, align 8
   store i64 %1, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %4, ptr %40, align 8
   tail call void @devres_add(ptr noundef %0, ptr noundef nonnull %6) #7
   br label %41
@@ -342,12 +342,12 @@ declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @dma_alloc_attrs(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = load ptr, ptr @dma_ops, align 8
   %10 = select i1 %8, ptr %9, ptr %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 568
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %15, !prof !7
@@ -379,7 +379,7 @@ define dso_local ptr @dma_alloc_attrs(ptr noundef %0, i64 noundef %1, ptr nounde
   br label %30
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %10, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %30, label %28
@@ -402,7 +402,7 @@ declare dso_local void @devres_add(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) #0 align 16 {
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 552
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   %11 = load ptr, ptr @dma_ops, align 8
@@ -416,7 +416,7 @@ define dso_local i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %1, i64 nou
   unreachable
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 560
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20, !prof !7
@@ -438,13 +438,13 @@ define dso_local i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %1, i64 nou
   %26 = shl i64 %25, 6
   %27 = add i64 %26, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  %28 = getelementptr inbounds i8, ptr %0, i64 584
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %22
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %.loopexit, label %.preheader
@@ -467,7 +467,7 @@ define dso_local i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %46, label %35, label %47
 
 47:                                               ; preds = %.preheader
-  %48 = getelementptr inbounds i8, ptr %41, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, %43
   br label %.loopexit
@@ -475,13 +475,13 @@ define dso_local i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %1, i64 nou
 .loopexit:                                        ; preds = %35, %47, %31, %22
   %51 = phi i64 [ %27, %22 ], [ -1, %31 ], [ %50, %47 ], [ -1, %35 ]
   store i64 %51, ptr %7, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 616
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %61, label %55
 
 55:                                               ; preds = %.loopexit
-  %56 = getelementptr inbounds i8, ptr %53, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 80
   %57 = load i8, ptr %56, align 8, !range !32, !noundef !33
   %58 = icmp eq i8 %57, 0
   br i1 %58, label %61, label %59
@@ -498,7 +498,7 @@ define dso_local i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %1, i64 nou
 
 65:                                               ; preds = %61
   %66 = load i64, ptr %17, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 576
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %68 = load i64, ptr %67, align 8
   %69 = icmp eq i64 %66, 0
   br i1 %69, label %74, label %70
@@ -532,7 +532,7 @@ define dso_local i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %1, i64 nou
   store i1 true, ptr @dma_direct_map_page.__already_done, align 1
   tail call void asm sideeffect "360: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 360b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 360) #7, !srcloc !34
   %84 = tail call ptr @dev_driver_string(ptr noundef %0) #7
-  %85 = getelementptr inbounds i8, ptr %0, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %90
@@ -545,7 +545,7 @@ define dso_local i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %1, i64 nou
   %91 = phi ptr [ %89, %88 ], [ %86, %83 ]
   %92 = load ptr, ptr %16, align 8
   %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %0, i64 576
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %95 = load i64, ptr %94, align 8
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.2, ptr noundef %84, ptr noundef %91, ptr noundef nonnull %7, i64 noundef %3, i64 noundef %93, i64 noundef %95) #7
   call void asm sideeffect "361: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 361b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 361) #7, !srcloc !35
@@ -560,7 +560,7 @@ define dso_local i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %1, i64 nou
   br label %102
 
 98:                                               ; preds = %20
-  %99 = getelementptr inbounds i8, ptr %12, i64 72
+  %99 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %100 = load ptr, ptr %99, align 8
   %101 = tail call i64 %100(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) #7
   br label %102
@@ -572,7 +572,7 @@ define dso_local i64 @dma_map_page_attrs(ptr noundef %0, ptr noundef %1, i64 nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = load ptr, ptr @dma_ops, align 8
@@ -590,13 +590,13 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
   br i1 %14, label %15, label %89
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 584
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread16, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %.thread14, label %.preheader19
@@ -611,7 +611,7 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
 .preheader19:                                     ; preds = %19, %23
   %28 = phi i64 [ %26, %23 ], [ %21, %19 ]
   %29 = phi ptr [ %24, %23 ], [ %17, %19 ]
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = sub i64 %1, %31
   %33 = icmp ugt i64 %31, %1
@@ -650,7 +650,7 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
 .preheader:                                       ; preds = %.loopexit, %46
   %51 = phi i64 [ %49, %46 ], [ %21, %.loopexit ]
   %52 = phi ptr [ %47, %46 ], [ %17, %.loopexit ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8
   %55 = sub i64 %1, %54
   %56 = icmp ugt i64 %54, %1
@@ -666,7 +666,7 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
 .thread17:                                        ; preds = %46, %.thread14, %.thread16, %59
   %62 = phi i64 [ %39, %59 ], [ %1, %.thread16 ], [ -1, %.thread14 ], [ %39, %46 ]
   %63 = phi i64 [ %61, %59 ], [ %1, %.thread16 ], [ -1, %.thread14 ], [ -1, %46 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 616
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %75, label %67
@@ -677,7 +677,7 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
   br i1 %69, label %75, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %65, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %72 = load i64, ptr %71, align 8
   %73 = icmp ugt i64 %72, %63
   br i1 %73, label %74, label %75, !prof !7
@@ -688,7 +688,7 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
 
 75:                                               ; preds = %.thread16, %.thread14, %74, %70, %67, %.thread17, %.loopexit
   %76 = phi i64 [ -1, %.thread14 ], [ %62, %74 ], [ %62, %70 ], [ %62, %67 ], [ %62, %.thread17 ], [ %39, %.loopexit ], [ %1, %.thread16 ]
-  %77 = getelementptr inbounds i8, ptr %0, i64 616
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %94, label %80
@@ -699,7 +699,7 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
   br i1 %82, label %94, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %78, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %85 = load i64, ptr %84, align 8
   %86 = icmp ugt i64 %85, %76
   br i1 %86, label %87, label %94, !prof !7
@@ -710,7 +710,7 @@ define dso_local void @dma_unmap_page_attrs(ptr noundef %0, i64 noundef %1, i64 
   br label %94
 
 89:                                               ; preds = %13
-  %90 = getelementptr inbounds i8, ptr %10, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %94, label %93
@@ -732,7 +732,7 @@ define dso_local range(i32 0, -2147483648) i32 @dma_map_sg_attrs(ptr noundef %0,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 -121, -2147483648) i32 @__dma_map_sg_attrs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = load ptr, ptr @dma_ops, align 8
@@ -746,7 +746,7 @@ define internal fastcc range(i32 -121, -2147483648) i32 @__dma_map_sg_attrs(ptr 
   unreachable
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 560
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18, !prof !7
@@ -766,7 +766,7 @@ define internal fastcc range(i32 -121, -2147483648) i32 @__dma_map_sg_attrs(ptr 
   br label %26
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %10, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #7
   br label %26
@@ -798,14 +798,14 @@ define internal fastcc range(i32 -121, -2147483648) i32 @__dma_map_sg_attrs(ptr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -121, 1) i32 @dma_map_sgtable(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call fastcc i32 @__dma_map_sg_attrs(ptr noundef %0, ptr noundef %5, i32 noundef %7, i32 noundef %2, i64 noundef %3)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %8, ptr %11, align 8
   br label %12
 
@@ -816,7 +816,7 @@ define dso_local range(i32 -121, 1) i32 @dma_map_sgtable(ptr noundef %0, ptr noc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_unmap_sg_attrs(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = load ptr, ptr @dma_ops, align 8
@@ -838,7 +838,7 @@ define dso_local void @dma_unmap_sg_attrs(ptr noundef %0, ptr noundef %1, i32 no
   br label %21
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %10, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %21, label %20
@@ -856,7 +856,7 @@ declare dso_local void @dma_direct_unmap_sg(ptr noundef, ptr noundef, i32 nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @dma_map_resource(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = load ptr, ptr @dma_ops, align 8
@@ -870,7 +870,7 @@ define dso_local i64 @dma_map_resource(ptr noundef %0, i64 noundef %1, i64 nound
   unreachable
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 560
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %18, !prof !7
@@ -890,7 +890,7 @@ define dso_local i64 @dma_map_resource(ptr noundef %0, i64 noundef %1, i64 nound
   br label %28
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %10, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -909,7 +909,7 @@ declare dso_local i64 @dma_direct_map_resource(ptr noundef, i64 noundef, i64 nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_unmap_resource(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = load ptr, ptr @dma_ops, align 8
@@ -927,7 +927,7 @@ define dso_local void @dma_unmap_resource(ptr noundef %0, i64 noundef %1, i64 no
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %10, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %19
@@ -942,7 +942,7 @@ define dso_local void @dma_unmap_resource(ptr noundef %0, i64 noundef %1, i64 no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_sync_single_for_cpu(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 552
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = load ptr, ptr @dma_ops, align 8
@@ -960,13 +960,13 @@ define dso_local void @dma_sync_single_for_cpu(ptr noundef %0, i64 noundef %1, i
   br i1 %13, label %14, label %50
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 584
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.loopexit, label %.preheader
@@ -981,7 +981,7 @@ define dso_local void @dma_sync_single_for_cpu(ptr noundef %0, i64 noundef %1, i
 .preheader:                                       ; preds = %18, %22
   %27 = phi i64 [ %25, %22 ], [ %20, %18 ]
   %28 = phi ptr [ %23, %22 ], [ %16, %18 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = sub i64 %1, %30
   %32 = icmp ugt i64 %30, %1
@@ -996,7 +996,7 @@ define dso_local void @dma_sync_single_for_cpu(ptr noundef %0, i64 noundef %1, i
 
 .loopexit:                                        ; preds = %22, %35, %18, %14
   %38 = phi i64 [ %1, %14 ], [ -1, %18 ], [ %37, %35 ], [ -1, %22 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 616
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %55, label %42
@@ -1007,7 +1007,7 @@ define dso_local void @dma_sync_single_for_cpu(ptr noundef %0, i64 noundef %1, i
   br i1 %44, label %55, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %40, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = load i64, ptr %46, align 8
   %48 = icmp ugt i64 %47, %38
   br i1 %48, label %49, label %55, !prof !7
@@ -1017,7 +1017,7 @@ define dso_local void @dma_sync_single_for_cpu(ptr noundef %0, i64 noundef %1, i
   br label %55
 
 50:                                               ; preds = %12
-  %51 = getelementptr inbounds i8, ptr %9, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %55, label %54
@@ -1032,7 +1032,7 @@ define dso_local void @dma_sync_single_for_cpu(ptr noundef %0, i64 noundef %1, i
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_sync_single_for_device(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 552
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = load ptr, ptr @dma_ops, align 8
@@ -1050,13 +1050,13 @@ define dso_local void @dma_sync_single_for_device(ptr noundef %0, i64 noundef %1
   br i1 %13, label %14, label %50
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 584
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.loopexit, label %.preheader
@@ -1071,7 +1071,7 @@ define dso_local void @dma_sync_single_for_device(ptr noundef %0, i64 noundef %1
 .preheader:                                       ; preds = %18, %22
   %27 = phi i64 [ %25, %22 ], [ %20, %18 ]
   %28 = phi ptr [ %23, %22 ], [ %16, %18 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = sub i64 %1, %30
   %32 = icmp ugt i64 %30, %1
@@ -1086,7 +1086,7 @@ define dso_local void @dma_sync_single_for_device(ptr noundef %0, i64 noundef %1
 
 .loopexit:                                        ; preds = %22, %35, %18, %14
   %38 = phi i64 [ %1, %14 ], [ -1, %18 ], [ %37, %35 ], [ -1, %22 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 616
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %55, label %42
@@ -1097,7 +1097,7 @@ define dso_local void @dma_sync_single_for_device(ptr noundef %0, i64 noundef %1
   br i1 %44, label %55, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %40, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %47 = load i64, ptr %46, align 8
   %48 = icmp ugt i64 %47, %38
   br i1 %48, label %49, label %55, !prof !7
@@ -1107,7 +1107,7 @@ define dso_local void @dma_sync_single_for_device(ptr noundef %0, i64 noundef %1
   br label %55
 
 50:                                               ; preds = %12
-  %51 = getelementptr inbounds i8, ptr %9, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %55, label %54
@@ -1122,7 +1122,7 @@ define dso_local void @dma_sync_single_for_device(ptr noundef %0, i64 noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_sync_sg_for_cpu(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 552
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = load ptr, ptr @dma_ops, align 8
@@ -1144,7 +1144,7 @@ define dso_local void @dma_sync_sg_for_cpu(ptr noundef %0, ptr noundef %1, i32 n
   br label %20
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %9, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %19
@@ -1162,7 +1162,7 @@ declare dso_local void @dma_direct_sync_sg_for_cpu(ptr noundef, ptr noundef, i32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_sync_sg_for_device(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 552
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = load ptr, ptr @dma_ops, align 8
@@ -1184,7 +1184,7 @@ define dso_local void @dma_sync_sg_for_device(ptr noundef %0, ptr noundef %1, i3
   br label %20
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %9, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %19
@@ -1202,7 +1202,7 @@ declare dso_local void @dma_direct_sync_sg_for_device(ptr noundef, ptr noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @dma_get_sgtable_attrs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 552
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = load ptr, ptr @dma_ops, align 8
@@ -1215,7 +1215,7 @@ define dso_local i32 @dma_get_sgtable_attrs(ptr noundef %0, ptr noundef %1, ptr 
   br label %21
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %11, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %21, label %19
@@ -1239,7 +1239,7 @@ define dso_local i64 @dma_pgprot(ptr nocapture noundef readnone %0, i64 returned
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @dma_can_mmap(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 552
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr @dma_ops, align 8
@@ -1252,7 +1252,7 @@ define dso_local zeroext i1 @dma_can_mmap(ptr noundef %0) #0 align 16 {
   br label %14
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ne ptr %12, null
   br label %14
@@ -1267,7 +1267,7 @@ declare dso_local zeroext i1 @dma_direct_can_mmap(ptr noundef) local_unnamed_add
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @dma_mmap_attrs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 552
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = load ptr, ptr @dma_ops, align 8
@@ -1280,7 +1280,7 @@ define dso_local i32 @dma_mmap_attrs(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %21
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %11, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %21, label %19
@@ -1299,7 +1299,7 @@ declare dso_local i32 @dma_direct_mmap(ptr noundef, ptr noundef, ptr noundef, i6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @dma_get_required_mask(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 552
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr @dma_ops, align 8
@@ -1312,7 +1312,7 @@ define dso_local i64 @dma_get_required_mask(ptr noundef %0) #0 align 16 {
   br label %16
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
@@ -1335,7 +1335,7 @@ declare dso_local ptr @dma_direct_alloc(ptr noundef, i64 noundef, ptr noundef, i
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_free_attrs(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 552
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = load ptr, ptr @dma_ops, align 8
@@ -1368,7 +1368,7 @@ define dso_local void @dma_free_attrs(ptr noundef %0, i64 noundef %1, ptr nounde
   br label %26
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %11, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %25
@@ -1392,12 +1392,12 @@ define dso_local ptr @dma_alloc_pages(ptr noundef %0, i64 noundef %1, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @__dma_alloc_pages(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = load ptr, ptr @dma_ops, align 8
   %10 = select i1 %8, ptr %9, ptr %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 568
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %15, !prof !7
@@ -1441,7 +1441,7 @@ define internal fastcc ptr @__dma_alloc_pages(ptr noundef %0, i64 noundef %1, pt
   br label %35
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %10, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %35, label %33
@@ -1457,7 +1457,7 @@ define internal fastcc ptr @__dma_alloc_pages(ptr noundef %0, i64 noundef %1, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_free_pages(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = load ptr, ptr @dma_ops, align 8
@@ -1472,7 +1472,7 @@ define dso_local void @dma_free_pages(ptr noundef %0, i64 noundef %1, ptr nounde
   br label %20
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %19
@@ -1489,13 +1489,13 @@ define dso_local void @dma_free_pages(ptr noundef %0, i64 noundef %1, ptr nounde
 define dso_local i32 @dma_mmap_pages(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = add i64 %2, 4095
   %6 = lshr i64 %5, 12
-  %7 = getelementptr inbounds i8, ptr %1, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %8, %6
   br i1 %9, label %10, label %28
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = load i64, ptr %1, align 8
   %14 = sub i64 %12, %13
@@ -1511,7 +1511,7 @@ define dso_local i32 @dma_mmap_pages(ptr nocapture readnone %0, ptr noundef %1, 
   %22 = ashr exact i64 %21, 6
   %23 = add nsw i64 %22, %8
   %24 = and i64 %14, -4096
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = tail call i32 @remap_pfn_range(ptr noundef %1, i64 noundef %13, i64 noundef %23, i64 noundef %24, i64 %26) #7
   br label %28
@@ -1526,7 +1526,7 @@ declare dso_local i32 @remap_pfn_range(ptr noundef, i64 noundef, i64 noundef, i6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @dma_alloc_noncontiguous(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = load ptr, ptr @dma_ops, align 8
@@ -1557,7 +1557,7 @@ define dso_local ptr @dma_alloc_noncontiguous(ptr noundef %0, i64 noundef %1, i3
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %10, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %65
@@ -1588,8 +1588,8 @@ define dso_local ptr @dma_alloc_noncontiguous(ptr noundef %0, i64 noundef %1, i3
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %35, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = tail call fastcc ptr @__dma_alloc_pages(ptr noundef %0, i64 noundef %1, ptr noundef %42, i32 noundef %2, i32 noundef %3)
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = tail call fastcc ptr @__dma_alloc_pages(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %42, i32 noundef %2, i32 noundef %3)
   %44 = icmp eq ptr %43, null
   br i1 %44, label %63, label %45
 
@@ -1613,14 +1613,14 @@ define dso_local ptr @dma_alloc_noncontiguous(ptr noundef %0, i64 noundef %1, i3
   %55 = and i64 %54, 3
   %56 = or disjoint i64 %55, %46
   store i64 %56, ptr %53, align 8
-  %57 = getelementptr inbounds i8, ptr %53, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %53, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 %52, ptr %58, align 4
   %59 = load ptr, ptr %35, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %59, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i32 %61, ptr %62, align 8
   br label %68
 
@@ -1639,7 +1639,7 @@ define dso_local ptr @dma_alloc_noncontiguous(ptr noundef %0, i64 noundef %1, i3
 
 68:                                               ; preds = %.thread5, %65
   %69 = phi ptr [ %35, %.thread5 ], [ %66, %65 ]
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 1, ptr %70, align 8
   br label %.thread
 
@@ -1650,7 +1650,7 @@ define dso_local ptr @dma_alloc_noncontiguous(ptr noundef %0, i64 noundef %1, i3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_free_noncontiguous(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 552
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = load ptr, ptr @dma_ops, align 8
@@ -1659,7 +1659,7 @@ define dso_local void @dma_free_noncontiguous(ptr noundef %0, i64 noundef %1, pt
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %25, label %15
@@ -1673,7 +1673,7 @@ define dso_local void @dma_free_noncontiguous(ptr noundef %0, i64 noundef %1, pt
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, -4
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %1, 4095
   %24 = and i64 %23, -4096
@@ -1681,7 +1681,7 @@ define dso_local void @dma_free_noncontiguous(ptr noundef %0, i64 noundef %1, pt
   br label %38
 
 25:                                               ; preds = %11
-  %26 = getelementptr inbounds i8, ptr %9, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %38, label %29
@@ -1690,7 +1690,7 @@ define dso_local void @dma_free_noncontiguous(ptr noundef %0, i64 noundef %1, pt
   %30 = add i64 %1, 4095
   %31 = and i64 %30, -4096
   %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = load i64, ptr %32, align 8
   %36 = and i64 %35, -4
@@ -1709,7 +1709,7 @@ define dso_local void @dma_free_noncontiguous(ptr noundef %0, i64 noundef %1, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @dma_vmap_noncontiguous(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 552
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = load ptr, ptr @dma_ops, align 8
@@ -1720,13 +1720,13 @@ define dso_local ptr @dma_vmap_noncontiguous(ptr nocapture noundef readonly %0, 
   br i1 %11, label %23, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = trunc i64 %10 to i32
   %20 = load i64, ptr @__default_kernel_pte_mask, align 8
@@ -1756,7 +1756,7 @@ declare dso_local ptr @vmap(ptr noundef, i32 noundef, i64 noundef, i64) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dma_vunmap_noncontiguous(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 552
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = load ptr, ptr @dma_ops, align 8
@@ -1765,7 +1765,7 @@ define dso_local void @dma_vunmap_noncontiguous(ptr nocapture noundef readonly %
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13
@@ -1783,7 +1783,7 @@ declare dso_local void @vunmap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @dma_mmap_noncontiguous(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 552
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   %8 = load ptr, ptr @dma_ops, align 8
@@ -1792,7 +1792,7 @@ define dso_local i32 @dma_mmap_noncontiguous(ptr nocapture noundef readonly %0, 
   br i1 %10, label %33, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %9, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %33, label %15
@@ -1800,13 +1800,13 @@ define dso_local i32 @dma_mmap_noncontiguous(ptr nocapture noundef readonly %0, 
 15:                                               ; preds = %11
   %16 = add i64 %2, 4095
   %17 = lshr i64 %16, 12
-  %18 = getelementptr inbounds i8, ptr %1, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %19 = load i64, ptr %18, align 8
   %20 = icmp ult i64 %19, %17
   br i1 %20, label %21, label %59
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr %1, align 8
   %25 = sub i64 %23, %24
@@ -1816,7 +1816,7 @@ define dso_local i32 @dma_mmap_noncontiguous(ptr nocapture noundef readonly %0, 
   br i1 %28, label %59, label %29
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @vm_map_pages(ptr noundef %1, ptr noundef %31, i64 noundef %17) #7
   br label %59
@@ -1827,13 +1827,13 @@ define dso_local i32 @dma_mmap_noncontiguous(ptr nocapture noundef readonly %0, 
   %36 = and i64 %35, -4
   %37 = add i64 %2, 4095
   %38 = lshr i64 %37, 12
-  %39 = getelementptr inbounds i8, ptr %1, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %40 = load i64, ptr %39, align 8
   %41 = icmp ult i64 %40, %38
   br i1 %41, label %42, label %59
 
 42:                                               ; preds = %33
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = load i64, ptr %1, align 8
   %46 = sub i64 %44, %45
@@ -1848,7 +1848,7 @@ define dso_local i32 @dma_mmap_noncontiguous(ptr nocapture noundef readonly %0, 
   %53 = ashr exact i64 %52, 6
   %54 = add nsw i64 %53, %40
   %55 = and i64 %46, -4096
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %57 = load i64, ptr %56, align 8
   %58 = tail call i32 @remap_pfn_range(ptr noundef %1, i64 noundef %45, i64 noundef %54, i64 noundef %55, i64 %57) #7
   br label %59
@@ -1863,7 +1863,7 @@ declare dso_local i32 @vm_map_pages(ptr noundef, ptr noundef, i64 noundef) local
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local zeroext i1 @dma_pci_p2pdma_supported(ptr nocapture noundef readonly %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 552
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr @dma_ops, align 8
@@ -1884,13 +1884,13 @@ define dso_local zeroext i1 @dma_pci_p2pdma_supported(ptr nocapture noundef read
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -5, 1) i32 @dma_set_mask(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 560
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %25, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 552
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = load ptr, ptr @dma_ops, align 8
@@ -1903,7 +1903,7 @@ define dso_local noundef range(i32 -5, 1) i32 @dma_set_mask(ptr noundef %0, i64 
   br label %21
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %11, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread, label %19
@@ -1933,7 +1933,7 @@ define dso_local noundef range(i32 -5, 1) i32 @dma_set_mask(ptr noundef %0, i64 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -5, 1) i32 @dma_set_coherent_mask(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 552
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = load ptr, ptr @dma_ops, align 8
@@ -1946,7 +1946,7 @@ define dso_local noundef range(i32 -5, 1) i32 @dma_set_coherent_mask(ptr noundef
   br label %17
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %7, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
@@ -1961,7 +1961,7 @@ define dso_local noundef range(i32 -5, 1) i32 @dma_set_coherent_mask(ptr noundef
   br i1 %19, label %21, label %.thread
 
 .thread:                                          ; preds = %11, %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 568
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store i64 %1, ptr %20, align 8
   br label %21
 
@@ -1972,12 +1972,12 @@ define dso_local noundef range(i32 -5, 1) i32 @dma_set_coherent_mask(ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @dma_addressing_limited(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 552
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr @dma_ops, align 8
   %6 = select i1 %4, ptr %5, ptr %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 560
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
@@ -1992,7 +1992,7 @@ define dso_local zeroext i1 @dma_addressing_limited(ptr noundef %0) #0 align 16 
 
 14:                                               ; preds = %13, %10
   %15 = phi i64 [ 4294967295, %13 ], [ %11, %10 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 576
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   %19 = tail call i64 @llvm.umin.i64(i64 %15, i64 %17)
@@ -2001,7 +2001,7 @@ define dso_local zeroext i1 @dma_addressing_limited(ptr noundef %0) #0 align 16 
   br i1 %.not, label %28, label %21
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %6, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %25
@@ -2035,7 +2035,7 @@ declare dso_local zeroext i1 @dma_direct_all_ram_mapped(ptr noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @dma_max_mapping_size(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 552
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr @dma_ops, align 8
@@ -2048,7 +2048,7 @@ define dso_local i64 @dma_max_mapping_size(ptr noundef %0) #0 align 16 {
   br label %16
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
@@ -2067,7 +2067,7 @@ declare dso_local i64 @dma_direct_max_mapping_size(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @dma_opt_mapping_size(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 552
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr @dma_ops, align 8
@@ -2076,7 +2076,7 @@ define dso_local i64 @dma_opt_mapping_size(ptr noundef %0) #0 align 16 {
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %6, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %12
@@ -2101,7 +2101,7 @@ define dso_local i64 @dma_opt_mapping_size(ptr noundef %0) #0 align 16 {
   br label %29
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %19, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 176
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %29, label %27
@@ -2118,7 +2118,7 @@ define dso_local i64 @dma_opt_mapping_size(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @dma_need_sync(ptr noundef %0, i64 noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 552
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = load ptr, ptr @dma_ops, align 8
@@ -2131,13 +2131,13 @@ define dso_local zeroext i1 @dma_need_sync(ptr noundef %0, i64 noundef %1) #0 al
   br label %19
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %7, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %7, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %17 = load ptr, ptr %16, align 8
   %18 = icmp ne ptr %17, null
   br label %19
@@ -2152,7 +2152,7 @@ declare dso_local zeroext i1 @dma_direct_need_sync(ptr noundef, i64 noundef) loc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @dma_get_merge_boundary(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 552
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr @dma_ops, align 8
@@ -2161,7 +2161,7 @@ define dso_local i64 @dma_get_merge_boundary(ptr noundef %0) #0 align 16 {
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %6, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %12

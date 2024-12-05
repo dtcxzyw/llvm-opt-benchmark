@@ -141,7 +141,7 @@ define void @dtrevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, p
   br i1 %93, label %96, label %94
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i32, ptr %31, i64 %91
+  %95 = getelementptr inbounds nuw i32, ptr %31, i64 %91
   store i32 0, ptr %95, align 4, !tbaa !3
   br label %127
 
@@ -157,7 +157,7 @@ define void @dtrevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, p
   %102 = getelementptr double, ptr %gep, i64 %101
   %103 = load double, ptr %102, align 8, !tbaa !7
   %104 = fcmp oeq double %103, 0.000000e+00
-  %105 = getelementptr inbounds i32, ptr %31, i64 %91
+  %105 = getelementptr inbounds nuw i32, ptr %31, i64 %91
   %106 = load i32, ptr %105, align 4, !tbaa !3
   %107 = icmp eq i32 %106, 0
   br i1 %104, label %108, label %112
@@ -267,7 +267,7 @@ define void @dtrevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, p
 
 161:                                              ; preds = %177, %157
   %162 = phi i64 [ 2, %157 ], [ %178, %177 ]
-  %163 = getelementptr inbounds double, ptr %44, i64 %162
+  %163 = getelementptr inbounds nuw double, ptr %44, i64 %162
   store double 0.000000e+00, ptr %163, align 8, !tbaa !7
   %164 = mul nsw i64 %162, %158
   %165 = getelementptr double, ptr %35, i64 %164
@@ -314,9 +314,9 @@ define void @dtrevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, p
   %190 = icmp eq i32 %55, 0
   %191 = add i32 %32, 1
   %192 = getelementptr i8, ptr %35, i64 8
-  %193 = getelementptr inbounds i8, ptr %24, i64 16
-  %194 = getelementptr inbounds i8, ptr %24, i64 8
-  %195 = getelementptr inbounds i8, ptr %24, i64 24
+  %193 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %196 = or disjoint i32 %183, 1
   %197 = sext i32 %196 to i64
   %198 = getelementptr inbounds double, ptr %44, i64 %197
@@ -365,7 +365,7 @@ define void @dtrevc_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, p
   br i1 %223, label %225, label %233
 
 225:                                              ; preds = %222
-  %226 = getelementptr inbounds i32, ptr %31, i64 %224
+  %226 = getelementptr inbounds nuw i32, ptr %31, i64 %224
   %227 = load i32, ptr %226, align 4, !tbaa !3
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %.thread78, label %.thread59
@@ -1303,9 +1303,9 @@ thread-pre-split67:                               ; preds = %626, %636
 836:                                              ; preds = %832
   %837 = icmp eq i32 %55, 0
   %838 = add i32 %32, 1
-  %839 = getelementptr inbounds i8, ptr %24, i64 16
-  %840 = getelementptr inbounds i8, ptr %24, i64 8
-  %841 = getelementptr inbounds i8, ptr %24, i64 24
+  %839 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %840 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %841 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %842 = icmp eq i32 %54, 0
   %843 = sext i32 %32 to i64
   %844 = sext i32 %183 to i64

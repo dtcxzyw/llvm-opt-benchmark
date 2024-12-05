@@ -56,13 +56,13 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN15wiggle_generate5names13struct_member17h164431b464d9134fE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %16, ptr nonnull align 8 %18), !noalias !3
   %19 = trunc i64 %3 to i32
   store i32 %19, ptr %15, align 4, !noalias !3
   store ptr %16, ptr %13, align 8, !noalias !3
   store ptr %13, ptr %9, align 8, !noalias !3
-  %20 = getelementptr inbounds i8, ptr %9, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN86_$LT$quote..__private..IdentFragmentAdapter$LT$T$GT$$u20$as$u20$core..fmt..Display$GT$3fmt17h8df7ad8f59c5dc93E", ptr %20, align 8, !noalias !3
   invoke void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %10, ptr nonnull align 8 @anon.c09250ef17efc04c77eb14c314286b3e.9, i64 1, ptr nonnull align 8 %9, i64 1)
           to label %24 unwind label %22, !noalias !3
@@ -83,9 +83,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 25:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !3
-  %26 = getelementptr inbounds i8, ptr %12, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %27 = load ptr, ptr %26, align 8, !noalias !3, !nonnull !6, !noundef !6
-  %28 = getelementptr inbounds i8, ptr %12, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %29 = load i64, ptr %28, align 8, !noalias !3, !noundef !6
   %30 = load ptr, ptr %13, align 8, !noalias !3, !nonnull !6, !align !7, !noundef !6
   %31 = load i64, ptr %30, align 8, !range !8, !noalias !3, !noundef !6
@@ -93,7 +93,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %30, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %35 = load i32, ptr %34, align 4, !range !9, !noalias !3, !noundef !6
   br label %36
 
@@ -270,7 +270,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN15wiggle_generate5names13struct_member17h164431b464d9134fE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %28, ptr nonnull align 8 %30), !noalias !10
   %31 = trunc i64 %3 to i32
   store i32 %31, ptr %27, align 4, !noalias !10
@@ -384,19 +384,19 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false), !noalias !10
   %60 = load i64, ptr %2, align 8, !range !13, !noalias !10, !noundef !6
   %61 = icmp eq i64 %60, 0
-  %62 = getelementptr inbounds i8, ptr %2, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %61, label %63, label %66
 
 63:                                               ; preds = %59
   %64 = load ptr, ptr %62, align 8, !noalias !10, !nonnull !6, !noundef !6
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   invoke void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %20, ptr nonnull align 8 %65)
           to label %73 unwind label %71, !noalias !10
 
 66:                                               ; preds = %59
   store ptr %62, ptr %16, align 8, !noalias !10
   %67 = load ptr, ptr %62, align 8, !noalias !10, !nonnull !6, !noundef !6
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load i8, ptr %68, align 8, !range !14, !noalias !10, !noundef !6
   switch i8 %69, label %104 [
     i8 4, label %111
@@ -534,15 +534,15 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 104:                                              ; preds = %66
   store ptr %16, ptr %5, align 8, !noalias !10
-  %105 = getelementptr inbounds i8, ptr %5, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1793203ae86abc8E", ptr %105, align 8, !noalias !10
   invoke void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr nonnull align 8 @anon.c09250ef17efc04c77eb14c314286b3e.5, i64 1, ptr nonnull align 8 %5, i64 1)
           to label %174 unwind label %71, !noalias !10
 
 106:                                              ; preds = %66
-  %107 = getelementptr inbounds i8, ptr %67, i64 17
+  %107 = getelementptr inbounds nuw i8, ptr %67, i64 17
   %108 = load i8, ptr %107, align 1, !range !15, !noalias !10, !noundef !6
-  %109 = getelementptr inbounds i8, ptr %67, i64 18
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 18
   %110 = load i8, ptr %109, align 1, !noalias !10
   invoke void @_ZN15wiggle_generate5names12builtin_type17hf0ae0e024bc5c15bE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %15, i8 %108, i8 %110)
           to label %146 unwind label %71, !noalias !10
@@ -552,7 +552,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
           to label %112 unwind label %71, !noalias !10
 
 112:                                              ; preds = %111
-  %.0.i = getelementptr inbounds i8, ptr %67, i64 24
+  %.0.i = getelementptr inbounds nuw i8, ptr %67, i64 24
   invoke void @_ZN15wiggle_generate5names8type_ref17h5caf44ab7596050bE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %11, ptr nonnull align 8 %.0.i, ptr nonnull align 8 %10)
           to label %113 unwind label %71, !noalias !10
 
@@ -854,7 +854,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN15wiggle_generate5names13struct_member17h164431b464d9134fE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %13, ptr nonnull align 8 %15), !noalias !16
   %16 = trunc i64 %3 to i32
   store i32 %16, ptr %12, align 4, !noalias !16
@@ -1063,7 +1063,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd4a9a9d8c72d8a99E"(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr nocapture readnone align 1 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @_ZN15wiggle_generate5names13struct_member17h164431b464d9134fE(ptr sret({ { i64, [3 x i64] }, {} }) align 8 %0, ptr nonnull align 8 %5)
   ret void
 }
@@ -1096,21 +1096,21 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @_ZN15wiggle_generate5names13struct_member17h164431b464d9134fE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %15, ptr nonnull align 8 %17), !noalias !19
   %18 = load i64, ptr %2, align 8, !range !13, !noalias !19, !noundef !6
   %19 = icmp eq i64 %18, 0
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8, !noalias !19, !nonnull !6, !noundef !6
   br i1 %19, label %22, label %24
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %21, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 32
   invoke void @_ZN15wiggle_generate5names5type_17hb0317323f16209cbE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %13, ptr nonnull align 8 %23)
           to label %30 unwind label %28, !noalias !19
 
 24:                                               ; preds = %3
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %26 = load i8, ptr %25, align 8, !range !14, !noalias !19, !noundef !6
   switch i8 %26, label %51 [
     i8 4, label %58
@@ -1203,21 +1203,21 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 
 51:                                               ; preds = %24
   store ptr %2, ptr %5, align 8, !noalias !19
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN55_$LT$witx..ast..TypeRef$u20$as$u20$core..fmt..Debug$GT$3fmt17h071e2f2fb5cbf357E", ptr %52, align 8, !noalias !19
   invoke void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr nonnull align 8 @anon.c09250ef17efc04c77eb14c314286b3e.5, i64 1, ptr nonnull align 8 %5, i64 1)
           to label %88 unwind label %28, !noalias !19
 
 53:                                               ; preds = %24
-  %54 = getelementptr inbounds i8, ptr %21, i64 17
+  %54 = getelementptr inbounds nuw i8, ptr %21, i64 17
   %55 = load i8, ptr %54, align 1, !range !15, !noalias !19, !noundef !6
-  %56 = getelementptr inbounds i8, ptr %21, i64 18
+  %56 = getelementptr inbounds nuw i8, ptr %21, i64 18
   %57 = load i8, ptr %56, align 1, !noalias !19
   invoke void @_ZN15wiggle_generate5names12builtin_type17hf0ae0e024bc5c15bE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %14, i8 %55, i8 %57)
           to label %50 unwind label %28, !noalias !19
 
 58:                                               ; preds = %24, %24
-  %.0.i = getelementptr inbounds i8, ptr %21, i64 24
+  %.0.i = getelementptr inbounds nuw i8, ptr %21, i64 24
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %8)
           to label %59 unwind label %28, !noalias !19
 

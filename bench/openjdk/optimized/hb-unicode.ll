@@ -41,14 +41,14 @@ define hidden nonnull ptr @hb_unicode_funcs_create(ptr noundef %0) local_unnamed
 
 3:                                                ; preds = %1
   store atomic i32 1, ptr %2 monotonic, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store atomic i32 1, ptr %4 monotonic, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store atomic i64 0, ptr %5 monotonic, align 8
   %6 = load atomic i32, ptr %2 monotonic, align 4
   %.not13 = icmp eq ptr %0, null
   %spec.select = select i1 %.not13, ptr @_hb_Null_hb_unicode_funcs_t, ptr %0
-  %7 = getelementptr inbounds i8, ptr %spec.select, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
   %8 = load atomic i32, ptr %7 monotonic, align 4
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %hb_unicode_funcs_make_immutable.exit, label %9
@@ -68,13 +68,13 @@ hb_unicode_funcs_make_immutable.exit:             ; preds = %3, %9
   br label %hb_unicode_funcs_reference.exit
 
 hb_unicode_funcs_reference.exit:                  ; preds = %hb_unicode_funcs_make_immutable.exit, %12
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %spec.select, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %spec.select, i64 24
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false)
-  %17 = getelementptr inbounds i8, ptr %spec.select, i64 88
-  %18 = getelementptr inbounds i8, ptr %2, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %spec.select, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false)
   br label %19
 
@@ -90,7 +90,7 @@ define hidden noundef nonnull ptr @hb_unicode_funcs_get_empty() local_unnamed_ad
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @hb_unicode_funcs_make_immutable(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %5, label %4
@@ -183,14 +183,14 @@ define hidden void @hb_unicode_funcs_destroy(ptr noundef %0) local_unnamed_addr 
 
 7:                                                ; preds = %5
   store atomic i32 -57005, ptr %0 monotonic, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %.not.i9.i = icmp eq i64 %9, 0
   br i1 %.not.i9.i, label %_ZL17hb_object_destroyI18hb_unicode_funcs_tEbPT_.exit, label %10
 
 10:                                               ; preds = %7
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(56) %11)
   %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %11) #14
   tail call void @free(ptr noundef nonnull %11) #14
@@ -198,97 +198,97 @@ define hidden void @hb_unicode_funcs_destroy(ptr noundef %0) local_unnamed_addr 
   br label %_ZL17hb_object_destroyI18hb_unicode_funcs_tEbPT_.exit
 
 _ZL17hb_object_destroyI18hb_unicode_funcs_tEbPT_.exit: ; preds = %10, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %_ZL17hb_object_destroyI18hb_unicode_funcs_tEbPT_.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load ptr, ptr %17, align 8
   tail call void %15(ptr noundef %18)
   br label %19
 
 19:                                               ; preds = %16, %_ZL17hb_object_destroyI18hb_unicode_funcs_tEbPT_.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load ptr, ptr %20, align 8
   %.not34 = icmp eq ptr %21, null
   br i1 %.not34, label %25, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = load ptr, ptr %23, align 8
   tail call void %21(ptr noundef %24)
   br label %25
 
 25:                                               ; preds = %22, %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 168
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %27 = load ptr, ptr %26, align 8
   %.not35 = icmp eq ptr %27, null
   br i1 %.not35, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %30 = load ptr, ptr %29, align 8
   tail call void %27(ptr noundef %30)
   br label %31
 
 31:                                               ; preds = %28, %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 176
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %33 = load ptr, ptr %32, align 8
   %.not36 = icmp eq ptr %33, null
   br i1 %.not36, label %37, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %36 = load ptr, ptr %35, align 8
   tail call void %33(ptr noundef %36)
   br label %37
 
 37:                                               ; preds = %34, %31
-  %38 = getelementptr inbounds i8, ptr %0, i64 184
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %39 = load ptr, ptr %38, align 8
   %.not37 = icmp eq ptr %39, null
   br i1 %.not37, label %43, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %42 = load ptr, ptr %41, align 8
   tail call void %39(ptr noundef %42)
   br label %43
 
 43:                                               ; preds = %40, %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 192
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %45 = load ptr, ptr %44, align 8
   %.not38 = icmp eq ptr %45, null
   br i1 %.not38, label %49, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %0, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %48 = load ptr, ptr %47, align 8
   tail call void %45(ptr noundef %48)
   br label %49
 
 49:                                               ; preds = %46, %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 200
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %51 = load ptr, ptr %50, align 8
   %.not39 = icmp eq ptr %51, null
   br i1 %.not39, label %55, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %54 = load ptr, ptr %53, align 8
   tail call void %51(ptr noundef %54)
   br label %55
 
 55:                                               ; preds = %52, %49
-  %56 = getelementptr inbounds i8, ptr %0, i64 208
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %57 = load ptr, ptr %56, align 8
   %.not40 = icmp eq ptr %57, null
   br i1 %.not40, label %61, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 144
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %60 = load ptr, ptr %59, align 8
   tail call void %57(ptr noundef %60)
   br label %61
@@ -297,7 +297,7 @@ common.ret42:                                     ; preds = %1, %5, %2, %61
   ret void
 
 61:                                               ; preds = %58, %55
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = load ptr, ptr %62, align 8
   tail call void @hb_unicode_funcs_destroy(ptr noundef %63)
   tail call void @free(ptr noundef nonnull %0) #14
@@ -318,7 +318,7 @@ define hidden range(i32 0, 2) i32 @hb_unicode_funcs_set_user_data(ptr noundef %0
   br i1 %.not.i.i, label %_ZL23hb_object_set_user_dataI18hb_unicode_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %.not1923.i = icmp eq i64 %9, 0
   br i1 %.not1923.i, label %.lr.ph.i, label %.split.loop.exit21.i
@@ -330,7 +330,7 @@ define hidden range(i32 0, 2) i32 @hb_unicode_funcs_set_user_data(ptr noundef %0
 
 11:                                               ; preds = %.lr.ph.i
   %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef null) #14
-  %13 = getelementptr inbounds i8, ptr %10, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = ptrtoint ptr %10 to i64
   %15 = cmpxchg weak ptr %8, i64 0, i64 %14 acq_rel monotonic, align 8
@@ -372,7 +372,7 @@ define hidden ptr @hb_unicode_funcs_get_user_data(ptr noundef readonly %0, ptr n
   br i1 %.not.i.i, label %_ZL23hb_object_get_user_dataIK18hb_unicode_funcs_tEPvPT_P18hb_user_data_key_t.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = inttoptr i64 %7 to ptr
   %.not9.i = icmp eq i64 %7, 0
@@ -380,9 +380,9 @@ define hidden ptr @hb_unicode_funcs_get_user_data(ptr noundef readonly %0, ptr n
 
 9:                                                ; preds = %5
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %8) #14
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %14 = load i32, ptr %13, align 4
   %.sroa.2.8.insert.ext.i.i.i.i.i.i = zext i32 %14 to i64
   %.not24.i.i.i.i.i.i = icmp eq i32 %14, 0
@@ -390,7 +390,7 @@ define hidden ptr @hb_unicode_funcs_get_user_data(ptr noundef readonly %0, ptr n
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9, %17
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %17 ], [ 0, %9 ]
-  %15 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
+  %15 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
   %.val17.i.i.i.i.i.i = load ptr, ptr %15, align 8
   %16 = icmp eq ptr %.val17.i.i.i.i.i.i, %1
   br i1 %16, label %18, label %17
@@ -402,7 +402,7 @@ define hidden ptr @hb_unicode_funcs_get_user_data(ptr noundef readonly %0, ptr n
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19, i32 1
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19, i32 1
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
 
@@ -418,7 +418,7 @@ _ZL23hb_object_get_user_dataIK18hb_unicode_funcs_tEPvPT_P18hb_user_data_key_t.ex
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @hb_unicode_funcs_is_immutable(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
   %4 = zext i1 %.not.i to i32
@@ -427,7 +427,7 @@ define hidden range(i32 0, 2) i32 @hb_unicode_funcs_is_immutable(ptr nocapture n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden nonnull ptr @hb_unicode_funcs_get_parent(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   %spec.select = select i1 %.not, ptr @_hb_Null_hb_unicode_funcs_t, ptr %3
@@ -436,7 +436,7 @@ define hidden nonnull ptr @hb_unicode_funcs_get_parent(ptr nocapture noundef rea
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_unicode_funcs_set_combining_class_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %30, label %7
@@ -454,22 +454,22 @@ define hidden void @hb_unicode_funcs_set_combining_class_func(ptr nocapture noun
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %10, %7
   %.021 = phi ptr [ %2, %7 ], [ %14, %10 ]
   %.0 = phi ptr [ %3, %7 ], [ null, %10 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = load ptr, ptr %16, align 8
   %.not26 = icmp eq ptr %17, null
   br i1 %.not26, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %20 = load ptr, ptr %19, align 8
   tail call void %17(ptr noundef %20)
   br label %21
@@ -478,17 +478,17 @@ define hidden void @hb_unicode_funcs_set_combining_class_func(ptr nocapture noun
   br i1 %.not, label %22, label %27
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   br label %27
 
 27:                                               ; preds = %21, %22
   %.sink = phi ptr [ %26, %22 ], [ %1, %21 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %.021, ptr %29, align 8
   store ptr %.0, ptr %16, align 8
   br label %32
@@ -507,7 +507,7 @@ define hidden void @hb_unicode_funcs_set_combining_class_func(ptr nocapture noun
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_unicode_funcs_set_eastasian_width_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %30, label %7
@@ -525,22 +525,22 @@ define hidden void @hb_unicode_funcs_set_eastasian_width_func(ptr nocapture noun
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %10, %7
   %.021 = phi ptr [ %2, %7 ], [ %14, %10 ]
   %.0 = phi ptr [ %3, %7 ], [ null, %10 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %17 = load ptr, ptr %16, align 8
   %.not26 = icmp eq ptr %17, null
   br i1 %.not26, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8
   tail call void %17(ptr noundef %20)
   br label %21
@@ -549,17 +549,17 @@ define hidden void @hb_unicode_funcs_set_eastasian_width_func(ptr nocapture noun
   br i1 %.not, label %22, label %27
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   br label %27
 
 27:                                               ; preds = %21, %22
   %.sink = phi ptr [ %26, %22 ], [ %1, %21 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sink, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %.021, ptr %29, align 8
   store ptr %.0, ptr %16, align 8
   br label %32
@@ -578,7 +578,7 @@ define hidden void @hb_unicode_funcs_set_eastasian_width_func(ptr nocapture noun
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_unicode_funcs_set_general_category_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %30, label %7
@@ -596,22 +596,22 @@ define hidden void @hb_unicode_funcs_set_general_category_func(ptr nocapture nou
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %10, %7
   %.021 = phi ptr [ %2, %7 ], [ %14, %10 ]
   %.0 = phi ptr [ %3, %7 ], [ null, %10 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %17 = load ptr, ptr %16, align 8
   %.not26 = icmp eq ptr %17, null
   br i1 %.not26, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load ptr, ptr %19, align 8
   tail call void %17(ptr noundef %20)
   br label %21
@@ -620,17 +620,17 @@ define hidden void @hb_unicode_funcs_set_general_category_func(ptr nocapture nou
   br i1 %.not, label %22, label %27
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8
   br label %27
 
 27:                                               ; preds = %21, %22
   %.sink = phi ptr [ %26, %22 ], [ %1, %21 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.sink, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %.021, ptr %29, align 8
   store ptr %.0, ptr %16, align 8
   br label %32
@@ -649,7 +649,7 @@ define hidden void @hb_unicode_funcs_set_general_category_func(ptr nocapture nou
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_unicode_funcs_set_mirroring_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %30, label %7
@@ -667,22 +667,22 @@ define hidden void @hb_unicode_funcs_set_mirroring_func(ptr nocapture noundef %0
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = load ptr, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %10, %7
   %.021 = phi ptr [ %2, %7 ], [ %14, %10 ]
   %.0 = phi ptr [ %3, %7 ], [ null, %10 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 176
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %17 = load ptr, ptr %16, align 8
   %.not26 = icmp eq ptr %17, null
   br i1 %.not26, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %20 = load ptr, ptr %19, align 8
   tail call void %17(ptr noundef %20)
   br label %21
@@ -691,17 +691,17 @@ define hidden void @hb_unicode_funcs_set_mirroring_func(ptr nocapture noundef %0
   br i1 %.not, label %22, label %27
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
   br label %27
 
 27:                                               ; preds = %21, %22
   %.sink = phi ptr [ %26, %22 ], [ %1, %21 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sink, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %.021, ptr %29, align 8
   store ptr %.0, ptr %16, align 8
   br label %32
@@ -720,7 +720,7 @@ define hidden void @hb_unicode_funcs_set_mirroring_func(ptr nocapture noundef %0
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_unicode_funcs_set_script_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %30, label %7
@@ -738,22 +738,22 @@ define hidden void @hb_unicode_funcs_set_script_func(ptr nocapture noundef %0, p
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %10, %7
   %.021 = phi ptr [ %2, %7 ], [ %14, %10 ]
   %.0 = phi ptr [ %3, %7 ], [ null, %10 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %17 = load ptr, ptr %16, align 8
   %.not26 = icmp eq ptr %17, null
   br i1 %.not26, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %20 = load ptr, ptr %19, align 8
   tail call void %17(ptr noundef %20)
   br label %21
@@ -762,17 +762,17 @@ define hidden void @hb_unicode_funcs_set_script_func(ptr nocapture noundef %0, p
   br i1 %.not, label %22, label %27
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
   br label %27
 
 27:                                               ; preds = %21, %22
   %.sink = phi ptr [ %26, %22 ], [ %1, %21 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %.021, ptr %29, align 8
   store ptr %.0, ptr %16, align 8
   br label %32
@@ -791,7 +791,7 @@ define hidden void @hb_unicode_funcs_set_script_func(ptr nocapture noundef %0, p
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_unicode_funcs_set_compose_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %30, label %7
@@ -809,22 +809,22 @@ define hidden void @hb_unicode_funcs_set_compose_func(ptr nocapture noundef %0, 
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %14 = load ptr, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %10, %7
   %.021 = phi ptr [ %2, %7 ], [ %14, %10 ]
   %.0 = phi ptr [ %3, %7 ], [ null, %10 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %17 = load ptr, ptr %16, align 8
   %.not26 = icmp eq ptr %17, null
   br i1 %.not26, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   tail call void %17(ptr noundef %20)
   br label %21
@@ -833,17 +833,17 @@ define hidden void @hb_unicode_funcs_set_compose_func(ptr nocapture noundef %0, 
   br i1 %.not, label %22, label %27
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load ptr, ptr %25, align 8
   br label %27
 
 27:                                               ; preds = %21, %22
   %.sink = phi ptr [ %26, %22 ], [ %1, %21 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %.021, ptr %29, align 8
   store ptr %.0, ptr %16, align 8
   br label %32
@@ -862,7 +862,7 @@ define hidden void @hb_unicode_funcs_set_compose_func(ptr nocapture noundef %0, 
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_unicode_funcs_set_decompose_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %30, label %7
@@ -880,22 +880,22 @@ define hidden void @hb_unicode_funcs_set_decompose_func(ptr nocapture noundef %0
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %14 = load ptr, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %10, %7
   %.021 = phi ptr [ %2, %7 ], [ %14, %10 ]
   %.0 = phi ptr [ %3, %7 ], [ null, %10 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %17 = load ptr, ptr %16, align 8
   %.not26 = icmp eq ptr %17, null
   br i1 %.not26, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load ptr, ptr %19, align 8
   tail call void %17(ptr noundef %20)
   br label %21
@@ -904,17 +904,17 @@ define hidden void @hb_unicode_funcs_set_decompose_func(ptr nocapture noundef %0
   br i1 %.not, label %22, label %27
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %26 = load ptr, ptr %25, align 8
   br label %27
 
 27:                                               ; preds = %21, %22
   %.sink = phi ptr [ %26, %22 ], [ %1, %21 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.sink, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.021, ptr %29, align 8
   store ptr %.0, ptr %16, align 8
   br label %32
@@ -933,7 +933,7 @@ define hidden void @hb_unicode_funcs_set_decompose_func(ptr nocapture noundef %0
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_unicode_funcs_set_decompose_compatibility_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %30, label %7
@@ -951,22 +951,22 @@ define hidden void @hb_unicode_funcs_set_decompose_compatibility_func(ptr nocapt
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %14 = load ptr, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %10, %7
   %.021 = phi ptr [ %2, %7 ], [ %14, %10 ]
   %.0 = phi ptr [ %3, %7 ], [ null, %10 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %17 = load ptr, ptr %16, align 8
   %.not26 = icmp eq ptr %17, null
   br i1 %.not26, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %20 = load ptr, ptr %19, align 8
   tail call void %17(ptr noundef %20)
   br label %21
@@ -975,17 +975,17 @@ define hidden void @hb_unicode_funcs_set_decompose_compatibility_func(ptr nocapt
   br i1 %.not, label %22, label %27
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %26 = load ptr, ptr %25, align 8
   br label %27
 
 27:                                               ; preds = %21, %22
   %.sink = phi ptr [ %26, %22 ], [ %1, %21 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.sink, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %.021, ptr %29, align 8
   store ptr %.0, ptr %16, align 8
   br label %32
@@ -1004,9 +1004,9 @@ define hidden void @hb_unicode_funcs_set_decompose_compatibility_func(ptr nocapt
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_unicode_combining_class(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, ptr noundef %6)
   ret i32 %7
@@ -1014,9 +1014,9 @@ define hidden noundef i32 @hb_unicode_combining_class(ptr noundef %0, i32 nounde
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_unicode_eastasian_width(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, ptr noundef %6)
   ret i32 %7
@@ -1024,9 +1024,9 @@ define hidden noundef i32 @hb_unicode_eastasian_width(ptr noundef %0, i32 nounde
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_unicode_general_category(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, ptr noundef %6)
   ret i32 %7
@@ -1034,9 +1034,9 @@ define hidden noundef i32 @hb_unicode_general_category(ptr noundef %0, i32 nound
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_unicode_mirroring(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, ptr noundef %6)
   ret i32 %7
@@ -1044,9 +1044,9 @@ define hidden noundef i32 @hb_unicode_mirroring(ptr noundef %0, i32 noundef %1) 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_unicode_script(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, ptr noundef %6)
   ret i32 %7
@@ -1061,9 +1061,9 @@ define hidden noundef i32 @hb_unicode_compose(ptr noundef %0, i32 noundef %1, i3
   br i1 %or.cond.i, label %7, label %_ZN18hb_unicode_funcs_t7composeEjjPj.exit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %11)
   br label %_ZN18hb_unicode_funcs_t7composeEjjPj.exit
@@ -1077,9 +1077,9 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit:        ; preds = %4, %7
 define hidden noundef i32 @hb_unicode_decompose(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
   store i32 %1, ptr %2, align 4
   store i32 0, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %8)
   ret i32 %9
@@ -1087,9 +1087,9 @@ define hidden noundef i32 @hb_unicode_decompose(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_unicode_decompose_compatibility(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, ptr noundef %2, ptr noundef %7)
   %9 = icmp eq i32 %8, 1
@@ -1106,7 +1106,7 @@ define hidden noundef i32 @hb_unicode_decompose_compatibility(ptr noundef %0, i3
 
 14:                                               ; preds = %10, %3
   %15 = zext i32 %8 to i64
-  %16 = getelementptr inbounds i32, ptr %2, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %15
   store i32 0, ptr %16, align 4
   br label %_ZN18hb_unicode_funcs_t23decompose_compatibilityEjPj.exit
 
@@ -1125,7 +1125,7 @@ define hidden noundef zeroext i1 @_Z42_hb_unicode_is_emoji_Extended_Pictographic
   %5 = lshr i32 %0, 7
   %6 = lshr i32 %0, 11
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr @_ZL12_hb_emoji_u8, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr @_ZL12_hb_emoji_u8, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = lshr i32 %0, 8
@@ -1137,7 +1137,7 @@ define hidden noundef zeroext i1 @_Z42_hb_unicode_is_emoji_Extended_Pictographic
   %17 = or disjoint i32 %16, 64
   %18 = add nuw nsw i32 %17, %15
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds [464 x i8], ptr @_ZL12_hb_emoji_u8, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [464 x i8], ptr @_ZL12_hb_emoji_u8, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = shl nuw nsw i32 %22, 2
@@ -1145,7 +1145,7 @@ define hidden noundef zeroext i1 @_Z42_hb_unicode_is_emoji_Extended_Pictographic
   %25 = or disjoint i32 %24, 144
   %26 = add nuw nsw i32 %25, %23
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds [464 x i8], ptr @_ZL12_hb_emoji_u8, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [464 x i8], ptr @_ZL12_hb_emoji_u8, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 5
@@ -1153,7 +1153,7 @@ define hidden noundef zeroext i1 @_Z42_hb_unicode_is_emoji_Extended_Pictographic
   %33 = or disjoint i32 %31, %32
   %34 = lshr exact i32 %33, 3
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL12_hb_emoji_u8, i64 264), i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL12_hb_emoji_u8, i64 264), i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = and i32 %0, 7
@@ -1175,7 +1175,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %10
@@ -1187,7 +1187,7 @@ define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t1
 
 7:                                                ; preds = %5
   store i32 0, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #14
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -1203,7 +1203,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph: ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph, %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
@@ -1211,10 +1211,10 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %15 = add i32 %14, -1
   %16 = load ptr, ptr %13, align 8
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %16, i64 %17
-  %.sroa.1.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %16, i64 %17
+  %.sroa.1.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..0.i.i.sroa_idx, align 8
-  %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !8
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #14
@@ -1238,7 +1238,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
 
 24:                                               ; preds = %._crit_edge
   store i32 0, ptr %3, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @free(ptr noundef %26) #14
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9
@@ -1279,9 +1279,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 12:                                               ; preds = %9
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4
   %.sroa.2.8.insert.ext.i.i.i.i = zext i32 %17 to i64
   %.not24.i.i.i.i = icmp eq i32 %17, 0
@@ -1289,7 +1289,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 .lr.ph.i.i.i.i:                                   ; preds = %12, %20
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %20 ], [ 0, %12 ]
-  %18 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %indvars.iv.i.i.i.i
+  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %indvars.iv.i.i.i.i
   %.val17.i.i.i.i = load ptr, ptr %18, align 8
   %19 = icmp eq ptr %.val17.i.i.i.i, %1
   br i1 %19, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i, label %20
@@ -1301,14 +1301,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i: ; preds = %.lr.ph.i.i.i.i
   %21 = and i64 %indvars.iv.i.i.i.i, 4294967295
-  %22 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %21
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 8
+  %22 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %21
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.1.0.copyload.i = load ptr, ptr %.sroa.1.0..sroa_idx.i, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %23 = add i32 %17, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   %26 = load i32, ptr %16, align 4, !noalias !12
   %.not.i.i = icmp eq i32 %26, 0
@@ -1333,11 +1333,11 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18h
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 32:                                               ; preds = %9, %7
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %.sroa.3.0..sroa_idx, align 8
   %34 = tail call noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext %8)
   %35 = icmp ne ptr %34, null
@@ -1354,9 +1354,9 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i1 noundef zeroext %3) local_unnamed_addr #0 comdat align 2 {
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %.sroa.2.8.insert.ext.i.i.i = zext i32 %9 to i64
   %.not24.i.i.i = icmp eq i32 %9, 0
@@ -1368,7 +1368,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 10:                                               ; preds = %13, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %13 ]
-  %11 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %indvars.iv.i.i.i
   %.val17.i.i.i = load ptr, ptr %11, align 8
   %12 = icmp eq ptr %.val.i.i.i, %.val17.i.i.i
   br i1 %12, label %14, label %13
@@ -1380,13 +1380,13 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 14:                                               ; preds = %10
   %15 = and i64 %indvars.iv.i.i.i, 4294967295
-  %16 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %15
   br i1 %3, label %17, label %20
 
 17:                                               ; preds = %14
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #14
@@ -1464,7 +1464,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exi
   %39 = add i32 %38, 1
   store i32 %39, ptr %8, align 4
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %37, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
 

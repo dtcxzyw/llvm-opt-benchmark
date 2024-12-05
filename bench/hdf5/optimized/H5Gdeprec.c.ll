@@ -279,7 +279,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Gcreate1(i64 noundef %0, ptr n
   br label %112
 
 84:                                               ; preds = %77
-  %85 = getelementptr inbounds i8, ptr %4, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %85, align 4
   %86 = call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %86, ptr %4, align 8
@@ -308,7 +308,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Gcreate1(i64 noundef %0, ptr n
   br label %112
 
 103:                                              ; preds = %93
-  %104 = getelementptr inbounds i8, ptr %87, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = call i64 @H5VL_register(i32 noundef 2, ptr noundef nonnull %97, ptr noundef %105, i1 noundef zeroext true) #4
   %107 = icmp slt i64 %106, 0
@@ -462,7 +462,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Gopen1(i64 noundef %0, ptr nou
   br label %.thread64
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %3, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %32, align 4
   %33 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %33, ptr %3, align 8
@@ -490,7 +490,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Gopen1(i64 noundef %0, ptr nou
   br label %.thread64
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %34, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = call i64 @H5VL_register(i32 noundef 2, ptr noundef nonnull %43, ptr noundef %51, i1 noundef zeroext true) #4
   %53 = icmp slt i64 %52, 0
@@ -618,12 +618,12 @@ define range(i32 -1, 1) i32 @H5Glink(i64 noundef %0, i32 noundef %1, ptr noundef
   ]
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %6, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %53, align 8
   %54 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %54, ptr %55, align 8
   %56 = tail call ptr @H5I_object(i64 noundef %0) #4
   %57 = icmp eq ptr %56, null
@@ -637,23 +637,23 @@ define range(i32 -1, 1) i32 @H5Glink(i64 noundef %0, i32 noundef %1, ptr noundef
 
 62:                                               ; preds = %51
   store ptr null, ptr %7, align 8
-  %63 = getelementptr inbounds i8, ptr %56, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %7, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %64, ptr %65, align 8
   store i32 0, ptr %5, align 8
   %66 = load ptr, ptr %56, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %5, i64 16
-  %69 = getelementptr inbounds i8, ptr %5, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 1, ptr %69, align 4
   %70 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %70, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %5, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %71, align 8
   %72 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %73 = getelementptr inbounds i8, ptr %5, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %72, ptr %73, align 8
   %74 = load i64, ptr @H5P_LST_LINK_CREATE_ID_g, align 8
   %75 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
@@ -668,12 +668,12 @@ define range(i32 -1, 1) i32 @H5Glink(i64 noundef %0, i32 noundef %1, ptr noundef
   br label %.thread54
 
 82:                                               ; preds = %50
-  %83 = getelementptr inbounds i8, ptr %8, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 1, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %8, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %3, ptr %84, align 8
   %85 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %86 = getelementptr inbounds i8, ptr %8, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %85, ptr %86, align 8
   %87 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %87, ptr %8, align 8
@@ -689,7 +689,7 @@ define range(i32 -1, 1) i32 @H5Glink(i64 noundef %0, i32 noundef %1, ptr noundef
 
 94:                                               ; preds = %82
   store i32 1, ptr %5, align 8
-  %95 = getelementptr inbounds i8, ptr %5, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %95, align 8
   %96 = load i64, ptr @H5P_LST_LINK_CREATE_ID_g, align 8
   %97 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
@@ -812,14 +812,14 @@ define range(i32 -1, 1) i32 @H5Glink2(i64 noundef %0, ptr noundef %1, i32 nounde
   ]
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %7, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %52, align 4
   %53 = tail call i32 @H5I_get_type(i64 noundef %3) #4
   store i32 %53, ptr %7, align 8
-  %54 = getelementptr inbounds i8, ptr %7, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %4, ptr %54, align 8
   %55 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %56 = getelementptr inbounds i8, ptr %7, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %55, ptr %56, align 8
   %57 = tail call ptr @H5I_object(i64 noundef %0) #4
   %58 = icmp eq ptr %57, null
@@ -845,17 +845,17 @@ define range(i32 -1, 1) i32 @H5Glink2(i64 noundef %0, ptr noundef %1, i32 nounde
 70:                                               ; preds = %63
   store i32 0, ptr %6, align 8
   %71 = load ptr, ptr %57, align 8
-  %72 = getelementptr inbounds i8, ptr %6, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %6, i64 16
-  %74 = getelementptr inbounds i8, ptr %6, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 1, ptr %74, align 4
   %75 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %75, ptr %73, align 8
-  %76 = getelementptr inbounds i8, ptr %6, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %76, align 8
   %77 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %78 = getelementptr inbounds i8, ptr %6, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %77, ptr %78, align 8
   %79 = load i64, ptr @H5P_LST_LINK_CREATE_ID_g, align 8
   %80 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
@@ -872,12 +872,12 @@ define range(i32 -1, 1) i32 @H5Glink2(i64 noundef %0, ptr noundef %1, i32 nounde
 87:                                               ; preds = %50
   %88 = icmp eq i64 %3, 0
   %spec.select = select i1 %88, i64 %0, i64 %3
-  %89 = getelementptr inbounds i8, ptr %8, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 1, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %8, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %4, ptr %90, align 8
   %91 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %92 = getelementptr inbounds i8, ptr %8, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %91, ptr %92, align 8
   %93 = tail call i32 @H5I_get_type(i64 noundef %spec.select) #4
   store i32 %93, ptr %8, align 8
@@ -893,7 +893,7 @@ define range(i32 -1, 1) i32 @H5Glink2(i64 noundef %0, ptr noundef %1, i32 nounde
 
 100:                                              ; preds = %87
   store i32 1, ptr %6, align 8
-  %101 = getelementptr inbounds i8, ptr %6, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %101, align 8
   %102 = load i64, ptr @H5P_LST_LINK_CREATE_ID_g, align 8
   %103 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
@@ -977,20 +977,20 @@ define range(i32 -1, 1) i32 @H5Gmove(i64 noundef %0, ptr noundef %1, ptr noundef
   br label %.thread30
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %4, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %34, align 4
   %35 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %35, ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %36, align 8
   %37 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %37, ptr %41, align 8
   %42 = tail call ptr @H5I_object(i64 noundef %0) #4
   %43 = icmp eq ptr %42, null
@@ -1081,21 +1081,21 @@ define range(i32 -1, 1) i32 @H5Gmove2(i64 noundef %0, ptr noundef %1, i64 nounde
   br label %.thread42
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %5, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %36, align 8
   %37 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %37, ptr %38, align 8
   %39 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %39, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %41, align 8
   %42 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %42, ptr %43, align 8
   %44 = tail call i32 @H5I_get_type(i64 noundef %2) #4
   store i32 %44, ptr %6, align 8
@@ -1222,14 +1222,14 @@ define range(i32 -1, 1) i32 @H5Gunlink(i64 noundef %0, ptr noundef %1) local_unn
   br label %.thread34
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %4, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %40, align 4
   %41 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %41, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %42, align 8
   %43 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %43, ptr %44, align 8
   %45 = tail call ptr @H5I_object(i64 noundef %0) #4
   %46 = icmp eq ptr %45, null
@@ -1334,14 +1334,14 @@ define range(i32 -1, 1) i32 @H5Gget_linkval(i64 noundef %0, ptr noundef %1, i64 
   br label %.thread36
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %6, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %42, align 4
   %43 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %43, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %44, align 8
   %45 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %45, ptr %46, align 8
   %47 = tail call ptr @H5I_object(i64 noundef %0) #4
   %48 = icmp eq ptr %47, null
@@ -1355,8 +1355,8 @@ define range(i32 -1, 1) i32 @H5Gget_linkval(i64 noundef %0, ptr noundef %1, i64 
 
 53:                                               ; preds = %41
   store i32 2, ptr %5, align 8
-  %54 = getelementptr inbounds i8, ptr %5, i64 8
-  %55 = getelementptr inbounds i8, ptr %5, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %3, ptr %55, align 8
   store i64 %2, ptr %54, align 8
   %56 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
@@ -1451,12 +1451,12 @@ define range(i32 -1, 1) i32 @H5Gset_comment(i64 noundef %0, ptr noundef %1, ptr 
   br label %.thread35
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %6, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %43, align 8
   %44 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %44, ptr %45, align 8
   %46 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %46, ptr %6, align 8
@@ -1473,7 +1473,7 @@ define range(i32 -1, 1) i32 @H5Gset_comment(i64 noundef %0, ptr noundef %1, ptr 
 53:                                               ; preds = %41
   store ptr %2, ptr %5, align 8
   store i32 1, ptr %4, align 8
-  %54 = getelementptr inbounds i8, ptr %4, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %54, align 8
   %55 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %56 = call i32 @H5VL_object_optional(ptr noundef nonnull %47, ptr noundef nonnull %6, ptr noundef nonnull %4, i64 noundef %55, ptr noundef null) #4
@@ -1583,12 +1583,12 @@ define i32 @H5Gget_comment(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br label %.thread40
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %7, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %7, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %52, align 8
   %53 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %54 = getelementptr inbounds i8, ptr %7, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %53, ptr %54, align 8
   %55 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %55, ptr %7, align 8
@@ -1603,13 +1603,13 @@ define i32 @H5Gget_comment(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br label %.thread40
 
 62:                                               ; preds = %50
-  %63 = getelementptr inbounds i8, ptr %6, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %63, align 8
   store i64 %2, ptr %6, align 8
-  %64 = getelementptr inbounds i8, ptr %6, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %64, align 8
   store i32 0, ptr %5, align 8
-  %65 = getelementptr inbounds i8, ptr %5, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %65, align 8
   %66 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %67 = call i32 @H5VL_object_optional(ptr noundef nonnull %56, ptr noundef nonnull %7, ptr noundef nonnull %5, i64 noundef %66, ptr noundef null) #4
@@ -1729,12 +1729,12 @@ define i32 @H5Giterate(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br label %.thread46
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds i8, ptr %7, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %7, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %58, align 8
   %59 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %60 = getelementptr inbounds i8, ptr %7, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %59, ptr %60, align 8
   %61 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %61, ptr %7, align 8
@@ -1747,16 +1747,16 @@ define i32 @H5Giterate(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 
 65:                                               ; preds = %56, %62
   %66 = phi i64 [ %64, %62 ], [ 0, %56 ]
-  %67 = getelementptr inbounds i8, ptr %7, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %7, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %8, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %7, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %3, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %7, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %4, ptr %70, align 8
   store i32 0, ptr %6, align 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %71, align 8
   %72 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %73 = call i32 @H5VL_group_optional(ptr noundef nonnull %50, ptr noundef nonnull %6, i64 noundef %72, ptr noundef null) #4
@@ -1857,7 +1857,7 @@ define range(i32 -1, 1) i32 @H5Gget_num_objs(i64 noundef %0, ptr noundef writeon
 
 38:                                               ; preds = %33
   store i32 1, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = call i32 @H5VL_setup_self_args(i64 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %39) #4
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %46
@@ -1869,7 +1869,7 @@ define range(i32 -1, 1) i32 @H5Gget_num_objs(i64 noundef %0, ptr noundef writeon
   br label %.thread32
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %4, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %5, ptr %47, align 8
   %48 = load ptr, ptr %3, align 8
   %49 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
@@ -1888,7 +1888,7 @@ define range(i32 -1, 1) i32 @H5Gget_num_objs(i64 noundef %0, ptr noundef writeon
   br label %.thread26
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load i64, ptr %58, align 8
   store i64 %59, ptr %1, align 8
   %60 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
@@ -1980,21 +1980,21 @@ define range(i32 -1, 1) i32 @H5Gget_objinfo(i64 noundef %0, ptr noundef %1, i1 n
   br label %.thread37
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %6, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %51, align 8
   %52 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %52, ptr %53, align 8
   %54 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %54, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i8 %7, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %6, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %3, ptr %56, align 8
   store i32 1, ptr %5, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %57, align 8
   %58 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %59 = call i32 @H5VL_group_optional(ptr noundef nonnull %43, ptr noundef nonnull %5, i64 noundef %58, ptr noundef null) #4
@@ -2041,11 +2041,11 @@ define range(i32 -1, 1) i32 @H5G__get_objinfo(ptr noundef %0, ptr noundef %1, i1
 
 12:                                               ; preds = %11, %4
   store ptr %3, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %10, ptr %13, align 8
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %15, ptr %16, align 8
   %17 = select i1 %2, i32 0, i32 5
   %18 = call i32 @H5G_traverse(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %17, ptr noundef nonnull @H5G__get_objinfo_cb, ptr noundef nonnull %5) #4
@@ -2102,12 +2102,12 @@ define range(i32 -1, 1) i32 @H5G__get_objinfo(ptr noundef %0, ptr noundef %1, i1
   br i1 %or.cond, label %47, label %55
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %6, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %3, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %49, ptr %50, align 8
   %51 = icmp eq i32 %45, 1
-  %52 = getelementptr inbounds i8, ptr %3, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 36
   br i1 %51, label %53, label %54
 
 53:                                               ; preds = %47
@@ -2164,7 +2164,7 @@ define internal range(i32 -1, 1) i32 @H5G__get_objinfo_cb(ptr nocapture noundef 
   br label %89
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   %or.cond3.not = or i1 %10, %31
@@ -2200,17 +2200,17 @@ define internal range(i32 -1, 1) i32 @H5G__get_objinfo_cb(ptr nocapture noundef 
   br label %89
 
 H5G_map_obj_type.exit:                            ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %7, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = icmp ult i32 %52, 3
   %. = select i1 %53, i32 %52, i32 -1
-  %54 = getelementptr inbounds i8, ptr %17, i64 36
+  %54 = getelementptr inbounds nuw i8, ptr %17, i64 36
   store i32 %., ptr %54, align 4
   %55 = load ptr, ptr %3, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %7, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %7, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %60 = load i64, ptr %59, align 8
   %61 = call i32 @H5VL_native_token_to_addr(ptr noundef %56, i32 noundef 1, i64 %58, i64 %60, ptr noundef nonnull %9) #4
   %62 = icmp slt i32 %61, 0
@@ -2224,33 +2224,33 @@ H5G_map_obj_type.exit:                            ; preds = %43
 
 67:                                               ; preds = %H5G_map_obj_type.exit
   %68 = load i64, ptr %9, align 8
-  %69 = getelementptr inbounds i8, ptr %17, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %17, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %7, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %17, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %7, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %17, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i64 %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %8, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %17, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store i64 %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %8, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %17, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store i64 %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %8, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %17, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %17, i64 72
   store i32 %84, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %8, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %17, i64 76
+  %88 = getelementptr inbounds nuw i8, ptr %17, i64 76
   store i32 %87, ptr %88, align 4
   br label %89
 
@@ -2320,18 +2320,18 @@ define i64 @H5Gget_objname_by_idx(i64 noundef %0, i64 noundef %1, ptr noundef %2
   br label %.thread31
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %6, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 2, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.41, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %1, ptr %40, align 8
   %41 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %41, ptr %42, align 8
   %43 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %43, ptr %6, align 8
@@ -2347,11 +2347,11 @@ define i64 @H5Gget_objname_by_idx(i64 noundef %0, i64 noundef %1, ptr noundef %2
 
 50:                                               ; preds = %35
   store i32 1, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %5, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %7, ptr %53, align 8
   %54 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %55 = call i32 @H5VL_link_get(ptr noundef nonnull %44, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %54, ptr noundef null) #4
@@ -2418,18 +2418,18 @@ define range(i32 -1, 3) i32 @H5Gget_objtype_by_idx(i64 noundef %0, i64 noundef %
 
 25:                                               ; preds = %18
   %26 = tail call i32 @H5E_clear_stack() #4
-  %27 = getelementptr inbounds i8, ptr %4, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.41, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %1, ptr %31, align 8
   %32 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %32, ptr %33, align 8
   %34 = tail call i32 @H5I_get_type(i64 noundef %0) #4
   store i32 %34, ptr %4, align 8
@@ -2445,8 +2445,8 @@ define range(i32 -1, 3) i32 @H5Gget_objtype_by_idx(i64 noundef %0, i64 noundef %
 
 41:                                               ; preds = %25
   store i32 3, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %43, align 8
   store i32 1, ptr %42, align 8
   %44 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
@@ -2461,7 +2461,7 @@ define range(i32 -1, 3) i32 @H5Gget_objtype_by_idx(i64 noundef %0, i64 noundef %
   br label %.thread30
 
 51:                                               ; preds = %41
-  %52 = getelementptr inbounds i8, ptr %5, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %53 = load i32, ptr %52, align 8
   %switch = icmp ult i32 %53, 3
   br i1 %switch, label %58, label %H5G_map_obj_type.exit

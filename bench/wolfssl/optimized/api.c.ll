@@ -2386,7 +2386,7 @@ if.end17.i:                                       ; preds = %for.body.i
   %7 = load i8, ptr %out.i, align 1
   %8 = urem i8 %7, 62
   %rem.i = zext nneg i8 %8 to i64
-  %arrayidx.i = getelementptr inbounds [63 x i8], ptr @mymktemp.alphanum, i64 0, i64 %rem.i
+  %arrayidx.i = getelementptr inbounds nuw [63 x i8], ptr @mymktemp.alphanum, i64 0, i64 %rem.i
   %9 = load i8, ptr %arrayidx.i, align 1
   %arrayidx18.i = getelementptr inbounds i8, ptr %tmpDir, i64 %indvars.iv.i
   store i8 %9, ptr %arrayidx18.i, align 1
@@ -2399,7 +2399,7 @@ mymktemp.exit.thread:                             ; preds = %if.then.i, %if.then
   br label %return
 
 if.end5:                                          ; preds = %if.end17.i
-  %arrayidx20.i = getelementptr inbounds i8, ptr %tmpDir, i64 %2
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %tmpDir, i64 %2
   store i8 0, ptr %arrayidx20.i, align 1
   %call21.i = call i32 @wc_FreeRng(ptr noundef nonnull %rng.i) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rng.i)
@@ -2666,7 +2666,7 @@ if.end13:                                         ; preds = %if.end9
   tail call void @wolfSSL_CTX_SetIORecv(ptr noundef %1, ptr noundef nonnull @test_memio_read_cb) #25
   %2 = load ptr, ptr %ctx_c, align 8
   tail call void @wolfSSL_CTX_SetIOSend(ptr noundef %2, ptr noundef nonnull @test_memio_write_cb) #25
-  %c_ciphers = getelementptr inbounds i8, ptr %ctx, i64 65544
+  %c_ciphers = getelementptr inbounds nuw i8, ptr %ctx, i64 65544
   %3 = load ptr, ptr %c_ciphers, align 8
   %cmp14.not = icmp eq ptr %3, null
   br i1 %cmp14.not, label %if.end24, label %if.then16
@@ -2735,7 +2735,7 @@ if.end60:                                         ; preds = %if.end56
   tail call void @wolfSSL_CTX_SetIORecv(ptr noundef %7, ptr noundef nonnull @test_memio_read_cb) #25
   %8 = load ptr, ptr %ctx_s, align 8
   tail call void @wolfSSL_CTX_SetIOSend(ptr noundef %8, ptr noundef nonnull @test_memio_write_cb) #25
-  %s_ciphers = getelementptr inbounds i8, ptr %ctx, i64 131096
+  %s_ciphers = getelementptr inbounds nuw i8, ptr %ctx, i64 131096
   %9 = load ptr, ptr %s_ciphers, align 8
   %cmp61.not = icmp eq ptr %9, null
   br i1 %cmp61.not, label %if.end71, label %if.then63
@@ -2803,14 +2803,14 @@ entry:
   %call = tail call i32 @wolfSSL_GetSide(ptr noundef %ssl) #25
   %cmp = icmp eq i32 %call, 0
   %len.0.v = select i1 %cmp, i64 131088, i64 65536
-  %len.0 = getelementptr inbounds i8, ptr %ctx, i64 %len.0.v
+  %len.0 = getelementptr inbounds nuw i8, ptr %ctx, i64 %len.0.v
   %0 = load i32, ptr %len.0, align 4
   %cmp2 = icmp eq i32 %0, 0
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
   %buf.0.idx = select i1 %cmp, i64 65552, i64 0
-  %buf.0 = getelementptr inbounds i8, ptr %ctx, i64 %buf.0.idx
+  %buf.0 = getelementptr inbounds nuw i8, ptr %ctx, i64 %buf.0.idx
   %sz. = tail call i32 @llvm.smin.i32(i32 %sz, i32 %0)
   %conv = sext i32 %sz. to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data, ptr align 1 %buf.0, i64 %conv, i1 false)
@@ -2837,7 +2837,7 @@ entry:
   %call = tail call i32 @wolfSSL_GetSide(ptr noundef %ssl) #25
   %cmp = icmp eq i32 %call, 0
   %len.0.v = select i1 %cmp, i64 65536, i64 131088
-  %len.0 = getelementptr inbounds i8, ptr %ctx, i64 %len.0.v
+  %len.0 = getelementptr inbounds nuw i8, ptr %ctx, i64 %len.0.v
   %0 = load i32, ptr %len.0, align 4
   %add = add nsw i32 %0, %sz
   %cmp2 = icmp ugt i32 %add, 65536
@@ -2845,7 +2845,7 @@ entry:
 
 if.end4:                                          ; preds = %entry
   %buf.0.idx = select i1 %cmp, i64 0, i64 65552
-  %buf.0 = getelementptr inbounds i8, ptr %ctx, i64 %buf.0.idx
+  %buf.0 = getelementptr inbounds nuw i8, ptr %ctx, i64 %buf.0.idx
   %idx.ext = sext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %buf.0, i64 %idx.ext
   %conv = sext i32 %sz to i64
@@ -2886,7 +2886,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @signal_ready(ptr noundef %ready) local_unnamed_addr #0 {
 entry:
-  %cond = getelementptr inbounds i8, ptr %ready, i64 56
+  %cond = getelementptr inbounds nuw i8, ptr %ready, i64 56
   %call = tail call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond) #25
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %do.end, label %if.then
@@ -2954,9 +2954,9 @@ declare i32 @wolfSSL_CondEnd(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local void @wait_tcp_ready(ptr nocapture noundef readonly %args) local_unnamed_addr #0 {
 entry:
-  %signal = getelementptr inbounds i8, ptr %args, i64 24
+  %signal = getelementptr inbounds nuw i8, ptr %args, i64 24
   %0 = load ptr, ptr %signal, align 8
-  %cond = getelementptr inbounds i8, ptr %0, i64 56
+  %cond = getelementptr inbounds nuw i8, ptr %0, i64 56
   %call = tail call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond) #25
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %do.end, label %if.then
@@ -3054,19 +3054,19 @@ define dso_local range(i32 0, 2) i32 @test_wolfSSL_client_server_nofail_memio(pt
 entry:
   %input.i = alloca [1024 x i8], align 16
   %test_ctx = alloca %struct.test_ssl_memio_ctx, align 8
-  %0 = getelementptr inbounds i8, ptr %test_ctx, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %test_ctx, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131368) %0, i8 0, i64 131360, i1 false)
-  %c_cb = getelementptr inbounds i8, ptr %test_ctx, i64 184
+  %c_cb = getelementptr inbounds nuw i8, ptr %test_ctx, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %c_cb, ptr noundef nonnull align 8 dereferenceable(104) %client_cb, i64 104, i1 false)
-  %s_cb = getelementptr inbounds i8, ptr %test_ctx, i64 80
+  %s_cb = getelementptr inbounds nuw i8, ptr %test_ctx, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %s_cb, ptr noundef nonnull align 8 dereferenceable(104) %server_cb, i64 104, i1 false)
-  %c_ctx = getelementptr inbounds i8, ptr %test_ctx, i64 8
-  %ctx1 = getelementptr inbounds i8, ptr %server_cb, i64 48
+  %c_ctx = getelementptr inbounds nuw i8, ptr %test_ctx, i64 8
+  %ctx1 = getelementptr inbounds nuw i8, ptr %server_cb, i64 48
   %1 = load ptr, ptr %ctx1, align 8
   store ptr %1, ptr %test_ctx, align 8
-  %return_code = getelementptr inbounds i8, ptr %test_ctx, i64 276
+  %return_code = getelementptr inbounds nuw i8, ptr %test_ctx, i64 276
   store i32 0, ptr %return_code, align 4
-  %return_code4 = getelementptr inbounds i8, ptr %test_ctx, i64 172
+  %return_code4 = getelementptr inbounds nuw i8, ptr %test_ctx, i64 172
   store i32 0, ptr %return_code4, align 4
   %2 = load ptr, ptr %c_cb, align 8
   %cmp.not.i = icmp eq ptr %2, null
@@ -3104,7 +3104,7 @@ do.body9.i:                                       ; preds = %if.then6.i
 do.end20.i:                                       ; preds = %do.body9.i, %if.then6.i
   tail call void @wolfSSL_CTX_SetIORecv(ptr noundef %call7.i, ptr noundef nonnull @test_ssl_memio_read_cb) #25
   tail call void @wolfSSL_CTX_SetIOSend(ptr noundef %call7.i, ptr noundef nonnull @test_ssl_memio_write_cb) #25
-  %caPemFile.i = getelementptr inbounds i8, ptr %test_ctx, i64 240
+  %caPemFile.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 240
   %10 = load ptr, ptr %caPemFile.i, align 8
   %cmp24.not.i = icmp eq ptr %10, null
   br i1 %cmp24.not.i, label %do.body54.i, label %do.body26.i
@@ -3164,7 +3164,7 @@ do.body121.i:                                     ; preds = %if.then111.i
   br label %if.end199.sink.split.i
 
 if.end166.i:                                      ; preds = %if.then111.i
-  %ctx_ready.i = getelementptr inbounds i8, ptr %test_ctx, i64 192
+  %ctx_ready.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 192
   %19 = load ptr, ptr %ctx_ready.i, align 8
   %cmp168.not.i = icmp eq ptr %19, null
   br i1 %cmp168.not.i, label %if.end199.i, label %if.then172.i
@@ -3199,7 +3199,7 @@ if.end199.i:                                      ; preds = %if.end199.sink.spli
   br i1 %cmp200.not.i, label %if.else202.i, label %if.then201.i
 
 if.then201.i:                                     ; preds = %if.end199.i
-  %isSharedCtx.i = getelementptr inbounds i8, ptr %test_ctx, i64 180
+  %isSharedCtx.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 180
   %bf.load.i = load i8, ptr %isSharedCtx.i, align 4
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %isSharedCtx.i, align 4
@@ -3245,7 +3245,7 @@ do.body221.i:                                     ; preds = %if.then216.i
 do.end233.i:                                      ; preds = %do.body221.i, %if.then216.i, %do.body214.i
   %.pre174.i = phi ptr [ null, %do.body221.i ], [ null, %do.body214.i ], [ %call217.i, %if.then216.i ]
   %_ret.7.i = phi i32 [ 0, %do.body221.i ], [ 0, %do.body214.i ], [ 1, %if.then216.i ]
-  %isSharedCtx235.i = getelementptr inbounds i8, ptr %test_ctx, i64 180
+  %isSharedCtx235.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 180
   %bf.load236.i = load i8, ptr %isSharedCtx235.i, align 4
   %bf.clear237.i = and i8 %bf.load236.i, -2
   store i8 %bf.clear237.i, ptr %isSharedCtx235.i, align 4
@@ -3257,7 +3257,7 @@ if.end239.i:                                      ; preds = %do.end233.i, %if.th
   tail call void @wolfSSL_CTX_SetIORecv(ptr noundef %35, ptr noundef nonnull @test_ssl_memio_read_cb) #25
   tail call void @wolfSSL_CTX_SetIOSend(ptr noundef %35, ptr noundef nonnull @test_ssl_memio_write_cb) #25
   tail call void @wolfSSL_CTX_set_verify(ptr noundef %35, i32 noundef 3, ptr noundef null) #25
-  %caPemFile252.i = getelementptr inbounds i8, ptr %test_ctx, i64 136
+  %caPemFile252.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 136
   %36 = load ptr, ptr %caPemFile252.i, align 8
   %cmp253.not.i = icmp eq ptr %36, null
   %cmp286.not.i = icmp eq i32 %_ret.6.i, 0
@@ -3300,7 +3300,7 @@ do.body297.i:                                     ; preds = %if.then287.i
   br label %do.end463.sink.split.i
 
 if.then321.i:                                     ; preds = %if.then287.i, %if.then257.i
-  %certPemFile.i = getelementptr inbounds i8, ptr %test_ctx, i64 144
+  %certPemFile.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 144
   %45 = load ptr, ptr %certPemFile.i, align 8
   %cmp314.not.i = icmp eq ptr %45, null
   %spec.select.i = select i1 %cmp314.not.i, ptr @.str.7, ptr %45
@@ -3319,7 +3319,7 @@ do.body331.i:                                     ; preds = %if.then321.i
   br label %do.end463.sink.split.i
 
 if.then354.i:                                     ; preds = %if.then321.i
-  %keyPemFile.i = getelementptr inbounds i8, ptr %test_ctx, i64 152
+  %keyPemFile.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 152
   %50 = load ptr, ptr %keyPemFile.i, align 8
   %cmp347.not.i = icmp eq ptr %50, null
   %spec.select138.i = select i1 %cmp347.not.i, ptr @.str.6, ptr %50
@@ -3338,7 +3338,7 @@ do.body364.i:                                     ; preds = %if.then354.i
   br label %do.end463.sink.split.i
 
 if.end409.i:                                      ; preds = %if.then354.i
-  %ctx_ready411.i = getelementptr inbounds i8, ptr %test_ctx, i64 88
+  %ctx_ready411.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 88
   %55 = load ptr, ptr %ctx_ready411.i, align 8
   %cmp412.not.i = icmp eq ptr %55, null
   br i1 %cmp412.not.i, label %if.then446.i, label %if.then416.i
@@ -3360,7 +3360,7 @@ do.body428.i:                                     ; preds = %if.then416.i
 
 if.then446.i:                                     ; preds = %if.then416.i, %if.end409.i
   %call448.i = tail call ptr @wolfSSL_new(ptr noundef %call7.i) #25
-  %c_ssl.i = getelementptr inbounds i8, ptr %test_ctx, i64 24
+  %c_ssl.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 24
   store ptr %call448.i, ptr %c_ssl.i, align 8
   %tobool449.not.i = icmp eq ptr %call448.i, null
   br i1 %tobool449.not.i, label %do.body451.i, label %do.end463.i
@@ -3386,11 +3386,11 @@ do.end463.i:                                      ; preds = %do.end463.sink.spli
   %67 = phi ptr [ %call448.i, %if.then446.i ], [ null, %do.body255.i ], [ null, %do.body285.i ], [ null, %do.end463.sink.split.i ]
   %cmp470.i = phi i1 [ true, %if.then446.i ], [ false, %do.body255.i ], [ false, %do.body285.i ], [ false, %do.end463.sink.split.i ]
   %cmp500.not.i = phi i1 [ false, %if.then446.i ], [ true, %do.body255.i ], [ true, %do.body285.i ], [ true, %do.end463.sink.split.i ]
-  %c_ssl464.i = getelementptr inbounds i8, ptr %test_ctx, i64 24
+  %c_ssl464.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 24
   call void @wolfSSL_SetIOWriteCtx(ptr noundef %67, ptr noundef nonnull %test_ctx) #25
   %68 = load ptr, ptr %c_ssl464.i, align 8
   call void @wolfSSL_SetIOReadCtx(ptr noundef %68, ptr noundef nonnull %test_ctx) #25
-  %ssl_ready.i = getelementptr inbounds i8, ptr %test_ctx, i64 200
+  %ssl_ready.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 200
   %69 = load ptr, ptr %ssl_ready.i, align 8
   %cmp467.i = icmp ne ptr %69, null
   %or.cond4.i = and i1 %cmp470.i, %cmp467.i
@@ -3418,7 +3418,7 @@ do.body499.i:                                     ; preds = %do.end463.i
 if.then501.i:                                     ; preds = %do.body499.i, %if.then471.i
   %75 = load ptr, ptr %test_ctx, align 8
   %call503.i = call ptr @wolfSSL_new(ptr noundef %75) #25
-  %s_ssl.i = getelementptr inbounds i8, ptr %test_ctx, i64 16
+  %s_ssl.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 16
   store ptr %call503.i, ptr %s_ssl.i, align 8
   %tobool504.not.i = icmp eq ptr %call503.i, null
   br i1 %tobool504.not.i, label %do.body506.i, label %do.end518.i
@@ -3443,14 +3443,14 @@ do.end518.sink.split.i:                           ; preds = %do.body506.i, %do.b
 do.end518.i:                                      ; preds = %do.end518.sink.split.i, %if.then501.i, %do.body499.i
   %cmp528.i = phi i1 [ false, %do.body499.i ], [ true, %if.then501.i ], [ false, %do.end518.sink.split.i ]
   %cmp8.not = phi i1 [ true, %do.body499.i ], [ false, %if.then501.i ], [ true, %do.end518.sink.split.i ]
-  %s_ssl519.i = getelementptr inbounds i8, ptr %test_ctx, i64 16
+  %s_ssl519.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 16
   %83 = load ptr, ptr %s_ssl519.i, align 8
   call void @wolfSSL_SetIOWriteCtx(ptr noundef %83, ptr noundef nonnull %test_ctx) #25
   %84 = load ptr, ptr %s_ssl519.i, align 8
   call void @wolfSSL_SetIOReadCtx(ptr noundef %84, ptr noundef nonnull %test_ctx) #25
   %85 = load ptr, ptr %s_ssl519.i, align 8
   %call522.i = call i32 @wolfSSL_SetTmpDH_file(ptr noundef %85, ptr noundef nonnull @.str.930, i32 noundef 1) #25
-  %ssl_ready524.i = getelementptr inbounds i8, ptr %test_ctx, i64 96
+  %ssl_ready524.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 96
   %86 = load ptr, ptr %ssl_ready524.i, align 8
   %cmp525.i = icmp ne ptr %86, null
   %or.cond5.i = and i1 %cmp528.i, %cmp525.i
@@ -3602,7 +3602,7 @@ do.body62:                                        ; preds = %if.then52
   br label %do.end167
 
 if.end77:                                         ; preds = %if.then52, %do.end47
-  %on_handshake = getelementptr inbounds i8, ptr %client_cb, i64 40
+  %on_handshake = getelementptr inbounds nuw i8, ptr %client_cb, i64 40
   %125 = load ptr, ptr %on_handshake, align 8
   %cmp78.not = icmp eq ptr %125, null
   br i1 %cmp78.not, label %if.end109, label %if.then82
@@ -3627,7 +3627,7 @@ do.body94:                                        ; preds = %if.then82
   br label %do.end167
 
 if.end109:                                        ; preds = %if.then82, %if.end77
-  %on_handshake110 = getelementptr inbounds i8, ptr %server_cb, i64 40
+  %on_handshake110 = getelementptr inbounds nuw i8, ptr %server_cb, i64 40
   %133 = load ptr, ptr %on_handshake110, align 8
   %cmp111.not = icmp eq ptr %133, null
   br i1 %cmp111.not, label %if.then144, label %if.then115
@@ -3653,17 +3653,17 @@ do.body126:                                       ; preds = %if.then115
 
 if.then144:                                       ; preds = %if.end109, %if.then115
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %input.i)
-  %c_msg.i = getelementptr inbounds i8, ptr %test_ctx, i64 48
+  %c_msg.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 48
   %141 = load ptr, ptr %c_msg.i, align 8
   %cmp.not.i45 = icmp eq ptr %141, null
-  %c_msglen.i = getelementptr inbounds i8, ptr %test_ctx, i64 56
+  %c_msglen.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 56
   %142 = load i32, ptr %c_msglen.i, align 8
   %msglen_c.0.i = select i1 %cmp.not.i45, i32 14, i32 %142
   %msg_c.0.i = select i1 %cmp.not.i45, ptr @.str.932, ptr %141
-  %s_msg.i = getelementptr inbounds i8, ptr %test_ctx, i64 64
+  %s_msg.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 64
   %143 = load ptr, ptr %s_msg.i, align 8
   %cmp5.not.i = icmp eq ptr %143, null
-  %s_msglen.i = getelementptr inbounds i8, ptr %test_ctx, i64 72
+  %s_msglen.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 72
   %144 = load i32, ptr %s_msglen.i, align 8
   %msglen_s.0.i = select i1 %cmp5.not.i, i32 22, i32 %144
   %msg_s.0.i = select i1 %cmp5.not.i, ptr @__const.run_wolfssl_server.msg, ptr %143
@@ -3713,13 +3713,13 @@ do.end62.i:                                       ; preds = %if.then37.critedge.
 
 do.body67.thread73.i:                             ; preds = %do.end62.i
   %idxprom76.i = zext nneg i32 %call39.i51 to i64
-  %arrayidx77.i = getelementptr inbounds [1024 x i8], ptr %input.i, i64 0, i64 %idxprom76.i
+  %arrayidx77.i = getelementptr inbounds nuw [1024 x i8], ptr %input.i, i64 0, i64 %idxprom76.i
   store i8 0, ptr %arrayidx77.i, align 1
   br label %do.end157.critedge.i
 
 if.then70.i:                                      ; preds = %if.then37.critedge.i
   %idxprom.i = zext nneg i32 %call39.i51 to i64
-  %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %input.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [1024 x i8], ptr %input.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
   %161 = load ptr, ptr @stderr, align 8
   %call73.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.940, ptr noundef nonnull %input.i) #24
@@ -3794,7 +3794,7 @@ do.end157.i:                                      ; preds = %do.end157.critedge.
 if.then167.i:                                     ; preds = %do.end126.i
   call void @wolfSSL_SetLoggingPrefix(ptr noundef null) #25
   %idxprom161.i = zext nneg i32 %call134.i to i64
-  %arrayidx162.i = getelementptr inbounds [1024 x i8], ptr %input.i, i64 0, i64 %idxprom161.i
+  %arrayidx162.i = getelementptr inbounds nuw [1024 x i8], ptr %input.i, i64 0, i64 %idxprom161.i
   store i8 0, ptr %arrayidx162.i, align 1
   %185 = load ptr, ptr @stderr, align 8
   %call170.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %185, ptr noundef nonnull @.str.945, ptr noundef nonnull %input.i) #24
@@ -3821,7 +3821,7 @@ do.end193.thread.i:                               ; preds = %do.body179.i, %do.e
 
 do.end193.i:                                      ; preds = %if.then167.i
   store i32 1, ptr %return_code, align 4
-  %on_result.i = getelementptr inbounds i8, ptr %test_ctx, i64 208
+  %on_result.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 208
   %193 = load ptr, ptr %on_result.i, align 8
   %cmp196.not.i = icmp eq ptr %193, null
   br i1 %cmp196.not.i, label %if.end231.i, label %if.then202.i
@@ -3847,7 +3847,7 @@ do.body216.i:                                     ; preds = %if.then202.i
   br label %do.body153
 
 if.end231.i:                                      ; preds = %if.then202.i, %do.end193.i
-  %on_result233.i = getelementptr inbounds i8, ptr %test_ctx, i64 104
+  %on_result233.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 104
   %202 = load ptr, ptr %on_result233.i, align 8
   %cmp234.not.i = icmp eq ptr %202, null
   br i1 %cmp234.not.i, label %test_ssl_memio_read_write.exit, label %if.then240.i
@@ -3895,13 +3895,13 @@ do.end167:                                        ; preds = %do.body10, %do.body
   %_ret.5 = phi i32 [ 0, %do.body153 ], [ 1, %test_ssl_memio_read_write.exit ], [ 0, %do.body126 ], [ 0, %do.body94 ], [ 0, %do.body62 ], [ 0, %do.body33 ], [ 0, %do.body10 ]
   %218 = load ptr, ptr %c_ssl464.i, align 8
   %call.i56 = call i32 @wolfSSL_get_error(ptr noundef %218, i32 noundef 0) #25
-  %last_err.i = getelementptr inbounds i8, ptr %test_ctx, i64 280
+  %last_err.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 280
   store i32 %call.i56, ptr %last_err.i, align 8
   %219 = load ptr, ptr %s_ssl519.i, align 8
   %call1.i = call i32 @wolfSSL_get_error(ptr noundef %219, i32 noundef 0) #25
-  %last_err2.i = getelementptr inbounds i8, ptr %test_ctx, i64 176
+  %last_err2.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 176
   store i32 %call1.i, ptr %last_err2.i, align 8
-  %on_cleanup.i = getelementptr inbounds i8, ptr %test_ctx, i64 216
+  %on_cleanup.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 216
   %220 = load ptr, ptr %on_cleanup.i, align 8
   %cmp.not.i58 = icmp eq ptr %220, null
   br i1 %cmp.not.i58, label %if.end.i61, label %if.then.i59
@@ -3912,7 +3912,7 @@ if.then.i59:                                      ; preds = %do.end167
   br label %if.end.i61
 
 if.end.i61:                                       ; preds = %if.then.i59, %do.end167
-  %on_cleanup9.i = getelementptr inbounds i8, ptr %test_ctx, i64 112
+  %on_cleanup9.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 112
   %222 = load ptr, ptr %on_cleanup9.i, align 8
   %cmp10.not.i = icmp eq ptr %222, null
   br i1 %cmp10.not.i, label %if.end16.i, label %if.then11.i
@@ -3931,7 +3931,7 @@ if.end16.i:                                       ; preds = %if.then11.i, %if.en
   call void @wolfSSL_free(ptr noundef %226) #25
   %227 = load ptr, ptr %c_ssl464.i, align 8
   call void @wolfSSL_free(ptr noundef %227) #25
-  %isSharedCtx.i62 = getelementptr inbounds i8, ptr %test_ctx, i64 180
+  %isSharedCtx.i62 = getelementptr inbounds nuw i8, ptr %test_ctx, i64 180
   %bf.load.i63 = load i8, ptr %isSharedCtx.i62, align 4
   %bf.clear.i = and i8 %bf.load.i63, 1
   %tobool.not.i64 = icmp eq i8 %bf.clear.i, 0
@@ -3944,7 +3944,7 @@ if.then24.i:                                      ; preds = %if.end16.i
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.then24.i, %if.end16.i
-  %isSharedCtx28.i = getelementptr inbounds i8, ptr %test_ctx, i64 284
+  %isSharedCtx28.i = getelementptr inbounds nuw i8, ptr %test_ctx, i64 284
   %bf.load29.i = load i8, ptr %isSharedCtx28.i, align 4
   %bf.clear30.i = and i8 %bf.load29.i, 1
   %tobool31.not.i65 = icmp eq i8 %bf.clear30.i, 0
@@ -3957,16 +3957,16 @@ if.then32.i:                                      ; preds = %if.end26.i
 
 test_ssl_memio_cleanup.exit:                      ; preds = %if.end26.i, %if.then32.i
   %230 = load i32, ptr %return_code, align 4
-  %return_code170 = getelementptr inbounds i8, ptr %client_cb, i64 92
+  %return_code170 = getelementptr inbounds nuw i8, ptr %client_cb, i64 92
   store i32 %230, ptr %return_code170, align 4
   %231 = load i32, ptr %last_err.i, align 8
-  %last_err172 = getelementptr inbounds i8, ptr %client_cb, i64 96
+  %last_err172 = getelementptr inbounds nuw i8, ptr %client_cb, i64 96
   store i32 %231, ptr %last_err172, align 8
   %232 = load i32, ptr %return_code4, align 4
-  %return_code175 = getelementptr inbounds i8, ptr %server_cb, i64 92
+  %return_code175 = getelementptr inbounds nuw i8, ptr %server_cb, i64 92
   store i32 %232, ptr %return_code175, align 4
   %233 = load i32, ptr %last_err2.i, align 8
-  %last_err178 = getelementptr inbounds i8, ptr %server_cb, i64 96
+  %last_err178 = getelementptr inbounds nuw i8, ptr %server_cb, i64 96
   store i32 %233, ptr %last_err178, align 8
   ret i32 %_ret.5
 }
@@ -3990,13 +3990,13 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %client_args, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %server_args, i8 0, i64 24, i1 false)
   call fastcc void @InitTcpReady(ptr noundef %ready)
-  %signal = getelementptr inbounds i8, ptr %server_args, i64 24
+  %signal = getelementptr inbounds nuw i8, ptr %server_args, i64 24
   store ptr %ready, ptr %signal, align 8
-  %callbacks = getelementptr inbounds i8, ptr %server_args, i64 32
+  %callbacks = getelementptr inbounds nuw i8, ptr %server_args, i64 32
   store ptr %server_cb, ptr %callbacks, align 8
-  %signal1 = getelementptr inbounds i8, ptr %client_args, i64 24
+  %signal1 = getelementptr inbounds nuw i8, ptr %client_args, i64 24
   store ptr %ready, ptr %signal1, align 8
-  %callbacks2 = getelementptr inbounds i8, ptr %client_args, i64 32
+  %callbacks2 = getelementptr inbounds nuw i8, ptr %client_args, i64 32
   store ptr %client_cb, ptr %callbacks2, align 8
   %call.i = call i32 @wolfSSL_NewThread(ptr noundef nonnull %serverThread, ptr noundef nonnull @test_server_nofail, ptr noundef nonnull %server_args) #25
   %cmp.not.i = icmp eq i32 %call.i, 0
@@ -4027,13 +4027,13 @@ if.then.i5:                                       ; preds = %start_thread.exit
   unreachable
 
 join_thread.exit:                                 ; preds = %start_thread.exit
-  %return_code = getelementptr inbounds i8, ptr %client_args, i64 16
+  %return_code = getelementptr inbounds nuw i8, ptr %client_args, i64 16
   %3 = load i32, ptr %return_code, align 8
-  %return_code3 = getelementptr inbounds i8, ptr %client_cb, i64 84
+  %return_code3 = getelementptr inbounds nuw i8, ptr %client_cb, i64 84
   store i32 %3, ptr %return_code3, align 4
-  %return_code4 = getelementptr inbounds i8, ptr %server_args, i64 16
+  %return_code4 = getelementptr inbounds nuw i8, ptr %server_args, i64 16
   %4 = load i32, ptr %return_code4, align 8
-  %return_code5 = getelementptr inbounds i8, ptr %server_cb, i64 84
+  %return_code5 = getelementptr inbounds nuw i8, ptr %server_cb, i64 84
   store i32 %4, ptr %return_code5, align 4
   call fastcc void @FreeTcpReady(ptr noundef %ready)
   ret void
@@ -4043,11 +4043,11 @@ join_thread.exit:                                 ; preds = %start_thread.exit
 define internal fastcc void @InitTcpReady(ptr noundef nonnull initializes((0, 4), (8, 16)) %ready) unnamed_addr #0 {
 entry:
   store i16 0, ptr %ready, align 8
-  %port = getelementptr inbounds i8, ptr %ready, i64 2
+  %port = getelementptr inbounds nuw i8, ptr %ready, i64 2
   store i16 0, ptr %port, align 2
-  %srfName = getelementptr inbounds i8, ptr %ready, i64 8
+  %srfName = getelementptr inbounds nuw i8, ptr %ready, i64 8
   store ptr null, ptr %srfName, align 8
-  %mutex = getelementptr inbounds i8, ptr %ready, i64 16
+  %mutex = getelementptr inbounds nuw i8, ptr %ready, i64 16
   %call = tail call i32 @wc_InitMutex(ptr noundef nonnull %mutex) #25
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %do.body4, label %if.then
@@ -4061,7 +4061,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.body4:                                         ; preds = %entry
-  %cond = getelementptr inbounds i8, ptr %ready, i64 56
+  %cond = getelementptr inbounds nuw i8, ptr %ready, i64 56
   %call6 = tail call i32 @wolfSSL_CondInit(ptr noundef nonnull %cond) #25
   %cmp7.not = icmp eq i32 %call6, 0
   br i1 %cmp7.not, label %do.end12, label %if.then8
@@ -4092,15 +4092,15 @@ entry:
   store i32 0, ptr %clientfd, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(23) %msg, ptr noundef nonnull align 16 dereferenceable(23) @__const.run_wolfssl_server.msg, i64 23, i1 false)
   tail call void @wolfSSL_SetLoggingPrefix(ptr noundef nonnull @.str.4) #25
-  %return_code = getelementptr inbounds i8, ptr %args, i64 16
+  %return_code = getelementptr inbounds nuw i8, ptr %args, i64 16
   store i32 0, ptr %return_code, align 8
-  %callbacks = getelementptr inbounds i8, ptr %args, i64 32
+  %callbacks = getelementptr inbounds nuw i8, ptr %args, i64 32
   %0 = load ptr, ptr %callbacks, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %ctx1 = getelementptr inbounds i8, ptr %0, i64 40
+  %ctx1 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %ctx1, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %land.lhs.true4, label %if.end26
@@ -4123,7 +4123,7 @@ if.end12.thread90:                                ; preds = %land.lhs.true4
   br i1 %cmp1393, label %if.then14, label %if.end26
 
 if.then14:                                        ; preds = %if.end12.thread90, %if.end12
-  %signal = getelementptr inbounds i8, ptr %args, i64 24
+  %signal = getelementptr inbounds nuw i8, ptr %args, i64 24
   %3 = load ptr, ptr %signal, align 8
   tail call void @signal_ready(ptr noundef %3)
   br label %done
@@ -4138,7 +4138,7 @@ if.end26.thread:                                  ; preds = %if.end15
 if.end26:                                         ; preds = %if.end12.thread90, %land.lhs.true, %if.end15
   %tobool179.not8188 = phi i1 [ true, %if.end15 ], [ false, %land.lhs.true ], [ true, %if.end12.thread90 ]
   %ctx.08386 = phi ptr [ %call11, %if.end15 ], [ %1, %land.lhs.true ], [ %call1192, %if.end12.thread90 ]
-  %doUdp22 = getelementptr inbounds i8, ptr %0, i64 92
+  %doUdp22 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %bf.load23 = load i8, ptr %doUdp22, align 4
   %bf.lshr24 = lshr i8 %bf.load23, 3
   %bf.clear25 = and i8 %bf.lshr24, 1
@@ -4195,7 +4195,7 @@ if.end59:                                         ; preds = %if.end51
   br i1 %cmp61.not, label %if.end72, label %if.end177
 
 if.end59.thread:                                  ; preds = %if.end51
-  %certPemFile = getelementptr inbounds i8, ptr %0, i64 56
+  %certPemFile = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %certPemFile, align 8
   %cmp55.not = icmp eq ptr %13, null
   %spec.select = select i1 %cmp55.not, ptr @.str.7, ptr %13
@@ -4209,7 +4209,7 @@ if.end72:                                         ; preds = %if.end59
   br i1 %cmp74.not, label %if.end85, label %if.end177
 
 if.end72.thread:                                  ; preds = %if.end59.thread
-  %keyPemFile = getelementptr inbounds i8, ptr %0, i64 64
+  %keyPemFile = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %keyPemFile, align 8
   %cmp68.not = icmp eq ptr %14, null
   %spec.select76 = select i1 %cmp68.not, ptr @.str.6, ptr %14
@@ -4218,7 +4218,7 @@ if.end72.thread:                                  ; preds = %if.end59.thread
   br i1 %cmp74.not118, label %land.lhs.true80, label %if.then168
 
 land.lhs.true80:                                  ; preds = %if.end72.thread
-  %ctx_ready = getelementptr inbounds i8, ptr %0, i64 8
+  %ctx_ready = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %ctx_ready, align 8
   %cmp81.not = icmp eq ptr %15, null
   br i1 %cmp81.not, label %if.end85, label %if.then83
@@ -4265,7 +4265,7 @@ if.end113:                                        ; preds = %if.end108
   br i1 %cmp.not, label %do.body123.preheader, label %land.lhs.true117
 
 land.lhs.true117:                                 ; preds = %if.end113
-  %ssl_ready = getelementptr inbounds i8, ptr %0, i64 16
+  %ssl_ready = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %ssl_ready, align 8
   %cmp118.not = icmp eq ptr %18, null
   br i1 %cmp118.not, label %do.body123.preheader, label %if.then120
@@ -4301,7 +4301,7 @@ if.end136:                                        ; preds = %do.end128
 
 if.then141:                                       ; preds = %if.end136
   %idxprom = zext nneg i32 %call138 to i64
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %input, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [1024 x i8], ptr %input, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %20 = load ptr, ptr @stderr, align 8
   %call143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.940, ptr noundef nonnull %input) #24
@@ -4320,7 +4320,7 @@ if.end156:                                        ; preds = %if.end149
   br i1 %cmp.not, label %if.end164, label %land.lhs.true159
 
 land.lhs.true159:                                 ; preds = %if.end156
-  %on_result = getelementptr inbounds i8, ptr %0, i64 24
+  %on_result = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %on_result, align 8
   %cmp160.not = icmp eq ptr %21, null
   br i1 %cmp160.not, label %if.end164, label %if.then162
@@ -4345,9 +4345,9 @@ if.then168:                                       ; preds = %if.end59.thread, %i
   %err.0135 = phi i32 [ %err.0, %done ], [ 0, %if.end72.thread ], [ 0, %if.end59.thread ]
   %tobool179.not80133 = phi i1 [ %tobool179.not80, %done ], [ %tobool179.not8189102, %if.end72.thread ], [ %tobool179.not8189102, %if.end59.thread ]
   %ctx.082131 = phi ptr [ %ctx.082, %done ], [ %ctx.08387104, %if.end72.thread ], [ %ctx.08387104, %if.end59.thread ]
-  %last_err = getelementptr inbounds i8, ptr %0, i64 88
+  %last_err = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %err.0135, ptr %last_err, align 8
-  %on_cleanup = getelementptr inbounds i8, ptr %0, i64 32
+  %on_cleanup = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %on_cleanup, align 8
   %cmp173.not = icmp eq ptr %22, null
   br i1 %cmp173.not, label %if.end177, label %if.then175
@@ -4388,9 +4388,9 @@ entry:
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #30
   %conv = trunc i64 %call to i32
   tail call void @wolfSSL_SetLoggingPrefix(ptr noundef nonnull @.str.3) #25
-  %return_code = getelementptr inbounds i8, ptr %args, i64 16
+  %return_code = getelementptr inbounds nuw i8, ptr %args, i64 16
   store i32 0, ptr %return_code, align 8
-  %callbacks = getelementptr inbounds i8, ptr %args, i64 32
+  %callbacks = getelementptr inbounds nuw i8, ptr %args, i64 32
   %0 = load ptr, ptr %callbacks, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -4412,7 +4412,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
 
 if.then11:                                        ; preds = %if.end.thread, %if.end
   %call882 = phi ptr [ %call881, %if.end.thread ], [ %call8, %if.end ]
-  %doUdp12 = getelementptr inbounds i8, ptr %0, i64 92
+  %doUdp12 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %bf.load = load i8, ptr %doUdp12, align 4
   %bf.lshr = lshr i8 %bf.load, 3
   %bf.clear = and i8 %bf.lshr, 1
@@ -4422,9 +4422,9 @@ if.then11:                                        ; preds = %if.end.thread, %if.
 if.end14:                                         ; preds = %if.then11, %if.end
   %call883 = phi ptr [ %call882, %if.then11 ], [ %call8, %if.end ]
   %doUdp.0 = phi i32 [ %conv13, %if.then11 ], [ 0, %if.end ]
-  %signal = getelementptr inbounds i8, ptr %args, i64 24
+  %signal = getelementptr inbounds nuw i8, ptr %args, i64 24
   %2 = load ptr, ptr %signal, align 8
-  %port = getelementptr inbounds i8, ptr %2, i64 2
+  %port = getelementptr inbounds nuw i8, ptr %2, i64 2
   %3 = load i16, ptr %port, align 2
   call fastcc void @tcp_connect(ptr noundef %sockfd, i16 noundef zeroext %3, i32 noundef %doUdp.0, ptr noundef null)
   %tobool = icmp ne i32 %doUdp.0, 0
@@ -4432,14 +4432,14 @@ if.end14:                                         ; preds = %if.then11, %if.end
 
 if.then15:                                        ; preds = %if.end14
   %4 = load ptr, ptr %signal, align 8
-  %port17 = getelementptr inbounds i8, ptr %4, i64 2
+  %port17 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %5 = load i16, ptr %port17, align 2
   %sockfd.val = load i32, ptr %sockfd, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %addr.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
   %call.i.i = tail call ptr @__ctype_b_loc() #26
   %6 = load ptr, ptr %call.i.i, align 8
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %6, i64 98
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %6, i64 98
   %7 = load i16, ptr %arrayidx2.i.i, align 2
   %8 = and i16 %7, 1024
   %tobool.not.i.i = icmp eq i16 %8, 0
@@ -4451,17 +4451,17 @@ if.then4.i.i:                                     ; preds = %if.then15
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then4.i.i
-  %sin_addr.i.i = getelementptr inbounds i8, ptr %addr.i, i64 4
-  %h_addr_list.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 24
+  %sin_addr.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 4
+  %h_addr_list.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 24
   %9 = load ptr, ptr %h_addr_list.i.i, align 8
   %10 = load ptr, ptr %9, align 8
-  %h_length.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 20
+  %h_length.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 20
   %11 = load i32, ptr %h_length.i.i, align 4
   %conv10.i.i = sext i32 %11 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i.i, ptr align 1 %10, i64 %conv10.i.i, i1 false)
   store i16 2, ptr %addr.i, align 4
   %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext %5) #26
-  %sin_port.c.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
+  %sin_port.c.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 2
   store i16 %call13.c.i.i, ptr %sin_port.c.i.i, align 2
   br label %build_addr.exit.i
 
@@ -4472,10 +4472,10 @@ if.else.i.i:                                      ; preds = %if.then4.i.i
 if.end12.i.i:                                     ; preds = %if.then15
   store i16 2, ptr %addr.i, align 4
   %call13.i.i = tail call zeroext i16 @htons(i16 noundef zeroext %5) #26
-  %sin_port.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
+  %sin_port.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 2
   store i16 %call13.i.i, ptr %sin_port.i.i, align 2
   %call22.i.i = tail call i32 @inet_addr(ptr noundef nonnull @.str.959) #25
-  %sin_addr23.i.i = getelementptr inbounds i8, ptr %addr.i, i64 4
+  %sin_addr23.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 4
   store i32 %call22.i.i, ptr %sin_addr23.i.i, align 4
   br label %build_addr.exit.i
 
@@ -4511,7 +4511,7 @@ if.end33:                                         ; preds = %if.end28
   br i1 %cmp.not, label %if.end41, label %land.lhs.true36
 
 land.lhs.true36:                                  ; preds = %if.end33
-  %ctx_ready = getelementptr inbounds i8, ptr %0, i64 8
+  %ctx_ready = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %ctx_ready, align 8
   %cmp37.not = icmp eq ptr %12, null
   br i1 %cmp37.not, label %if.end41, label %if.then39
@@ -4546,7 +4546,7 @@ if.end65:                                         ; preds = %if.then58
   br i1 %cmp.not, label %do.body.preheader, label %land.lhs.true68
 
 land.lhs.true68:                                  ; preds = %if.end65
-  %ssl_ready = getelementptr inbounds i8, ptr %0, i64 16
+  %ssl_ready = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %ssl_ready, align 8
   %cmp69.not = icmp eq ptr %14, null
   br i1 %cmp69.not, label %do.body.preheader, label %if.then71
@@ -4681,7 +4681,7 @@ if.end186:                                        ; preds = %if.end180
 
 if.then191:                                       ; preds = %if.end186
   %idxprom = zext nneg i32 %call188 to i64
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %reply, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [1024 x i8], ptr %reply, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %40 = load ptr, ptr @stderr, align 8
   %call193 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.945, ptr noundef nonnull %reply) #24
@@ -4691,7 +4691,7 @@ if.end194:                                        ; preds = %if.then191, %if.end
   br i1 %cmp.not, label %if.end202, label %land.lhs.true197
 
 land.lhs.true197:                                 ; preds = %if.end194
-  %on_result = getelementptr inbounds i8, ptr %0, i64 24
+  %on_result = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %on_result, align 8
   %cmp198.not = icmp eq ptr %41, null
   br i1 %cmp198.not, label %if.end202, label %if.then200
@@ -4710,9 +4710,9 @@ done:                                             ; preds = %if.end180, %if.then
   br i1 %cmp.not, label %if.end215, label %if.then206
 
 if.then206:                                       ; preds = %done
-  %last_err = getelementptr inbounds i8, ptr %0, i64 88
+  %last_err = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %err.0, ptr %last_err, align 8
-  %on_cleanup = getelementptr inbounds i8, ptr %0, i64 32
+  %on_cleanup = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %on_cleanup, align 8
   %cmp211.not = icmp eq ptr %42, null
   br i1 %cmp211.not, label %if.end215, label %if.then213
@@ -4733,7 +4733,7 @@ if.end215:                                        ; preds = %done, %if.then213, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @FreeTcpReady(ptr noundef nonnull %ready) unnamed_addr #0 {
 entry:
-  %mutex = getelementptr inbounds i8, ptr %ready, i64 16
+  %mutex = getelementptr inbounds nuw i8, ptr %ready, i64 16
   %call = tail call i32 @wc_FreeMutex(ptr noundef nonnull %mutex) #25
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %do.body3, label %if.then
@@ -4747,7 +4747,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.body3:                                         ; preds = %entry
-  %cond = getelementptr inbounds i8, ptr %ready, i64 56
+  %cond = getelementptr inbounds nuw i8, ptr %ready, i64 56
   %call5 = tail call i32 @wolfSSL_CondFree(ptr noundef nonnull %cond) #25
   %cmp6.not = icmp eq i32 %call5, 0
   br i1 %cmp6.not, label %do.end11, label %if.then7
@@ -4791,7 +4791,7 @@ for.cond2.preheader:                              ; preds = %ForceZero.exit, %fo
   br i1 %cmp539, label %for.cond8.preheader.lr.ph, label %for.inc88
 
 for.cond8.preheader.lr.ph:                        ; preds = %for.cond2.preheader
-  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %indvars.iv57
+  %add.ptr = getelementptr inbounds nuw i8, ptr %data, i64 %indvars.iv57
   %0 = ptrtoint ptr %add.ptr to i64
   %1 = trunc i64 %0 to i32
   %2 = sub i32 0, %1
@@ -4807,7 +4807,7 @@ for.cond8.preheader:                              ; preds = %for.cond8.preheader
 for.body12:                                       ; preds = %for.cond8.preheader, %for.body12
   %indvars.iv = phi i64 [ 0, %for.cond8.preheader ], [ %indvars.iv.next, %for.body12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [32 x i8], ptr %data, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %data, i64 0, i64 %indvars.iv
   %3 = trunc nuw nsw i64 %indvars.iv.next to i8
   store i8 %3, ptr %arrayidx, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -4828,7 +4828,7 @@ while.body.i:                                     ; preds = %for.end, %while.bod
   %l.114.i = phi i32 [ %dec.i, %while.body.i ], [ %spec.select.i, %for.end ]
   %z.013.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr, %for.end ]
   %dec.i = add nsw i32 %l.114.i, -1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %z.013.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %z.013.i, i64 1
   store volatile i8 0, ptr %z.013.i, align 1
   %tobool.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i, label %for.cond.preheader.i, label %while.body.i, !llvm.loop !13
@@ -4842,7 +4842,7 @@ while.cond9.preheader.i:                          ; preds = %for.body.i, %for.co
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %w.017.i = phi ptr [ %incdec.ptr7.i, %for.body.i ], [ %z.0.lcssa.i, %for.cond.preheader.i ]
   %len.addr.016.i = phi i32 [ %sub8.i, %for.body.i ], [ %sub3.i, %for.cond.preheader.i ]
-  %incdec.ptr7.i = getelementptr inbounds i8, ptr %w.017.i, i64 8
+  %incdec.ptr7.i = getelementptr inbounds nuw i8, ptr %w.017.i, i64 8
   store volatile i64 0, ptr %w.017.i, align 8
   %sub8.i = add i32 %len.addr.016.i, -8
   %cmp5.i = icmp ugt i32 %sub8.i, 7
@@ -4852,7 +4852,7 @@ while.body12.i28:                                 ; preds = %while.cond9.prehead
   %z.122.i29 = phi ptr [ %incdec.ptr13.i32, %while.body12.i28 ], [ %w.0.lcssa.i, %while.cond9.preheader.i ]
   %len.addr.121.i30 = phi i32 [ %dec10.i31, %while.body12.i28 ], [ %len.addr.0.lcssa.i, %while.cond9.preheader.i ]
   %dec10.i31 = add i32 %len.addr.121.i30, -1
-  %incdec.ptr13.i32 = getelementptr inbounds i8, ptr %z.122.i29, i64 1
+  %incdec.ptr13.i32 = getelementptr inbounds nuw i8, ptr %z.122.i29, i64 1
   store volatile i8 0, ptr %z.122.i29, align 1
   %tobool11.not.i33 = icmp eq i32 %dec10.i31, 0
   br i1 %tobool11.not.i33, label %ForceZero.exit34, label %while.body12.i28, !llvm.loop !15
@@ -4874,7 +4874,7 @@ do.body:                                          ; preds = %for.body19
   br i1 %cmp51.not, label %for.inc82, label %if.then34
 
 if.then34:                                        ; preds = %do.body
-  %arrayidx29 = getelementptr inbounds [32 x i8], ptr %data, i64 0, i64 %indvars.iv46
+  %arrayidx29 = getelementptr inbounds nuw [32 x i8], ptr %data, i64 0, i64 %indvars.iv46
   %6 = load i8, ptr %arrayidx29, align 1
   %cmp35.not = icmp eq i8 %6, 0
   br i1 %cmp35.not, label %do.body38, label %for.inc82
@@ -4893,7 +4893,7 @@ do.body50:                                        ; preds = %for.body19
   br i1 %cmp51.not, label %for.inc82, label %if.then53
 
 if.then53:                                        ; preds = %do.body50
-  %arrayidx56 = getelementptr inbounds [32 x i8], ptr %data, i64 0, i64 %indvars.iv46
+  %arrayidx56 = getelementptr inbounds nuw [32 x i8], ptr %data, i64 0, i64 %indvars.iv46
   %11 = load i8, ptr %arrayidx56, align 1
   %cmp63 = icmp eq i8 %11, 0
   br i1 %cmp63, label %for.inc82, label %do.body66
@@ -5202,9 +5202,9 @@ do.body6:                                         ; preds = %entry
 
 do.end17:                                         ; preds = %entry, %do.body6
   store ptr %hash1, ptr %hash_test, align 16
-  %arrayidx19 = getelementptr inbounds i8, ptr %hash_test, i64 8
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %hash_test, i64 8
   store ptr %hash2, ptr %arrayidx19, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %hash_test, i64 16
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %hash_test, i64 16
   store ptr %hash3, ptr %arrayidx21, align 16
   br label %do.body23
 
@@ -5214,7 +5214,7 @@ do.body23:                                        ; preds = %do.body23.backedge,
   br i1 %_ret.124, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
-  %arrayidx27 = getelementptr inbounds [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @wc_Md5Final(ptr noundef nonnull %md5, ptr noundef %7) #25
   %cmp33 = icmp eq i32 %call28, 0
@@ -5543,9 +5543,9 @@ do.body6:                                         ; preds = %entry
 
 do.end17:                                         ; preds = %entry, %do.body6
   store ptr %hash1, ptr %hash_test, align 16
-  %arrayidx19 = getelementptr inbounds i8, ptr %hash_test, i64 8
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %hash_test, i64 8
   store ptr %hash2, ptr %arrayidx19, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %hash_test, i64 16
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %hash_test, i64 16
   store ptr %hash3, ptr %arrayidx21, align 16
   br label %do.body23
 
@@ -5555,7 +5555,7 @@ do.body23:                                        ; preds = %do.body23.backedge,
   br i1 %_ret.124, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
-  %arrayidx27 = getelementptr inbounds [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @wc_ShaFinal(ptr noundef nonnull %sha, ptr noundef %7) #25
   %cmp33 = icmp eq i32 %call28, 0
@@ -5815,7 +5815,7 @@ do.body248:                                       ; preds = %if.then234
   br label %do.end393.sink.split
 
 if.then266:                                       ; preds = %if.then234
-  %add.ptr269 = getelementptr inbounds i8, ptr %hash_unaligned, i64 1
+  %add.ptr269 = getelementptr inbounds nuw i8, ptr %hash_unaligned, i64 1
   %call270 = call i32 @wc_Sha256Final(ptr noundef nonnull %sha256, ptr noundef nonnull %add.ptr269) #25
   %cmp276 = icmp eq i32 %call270, 0
   br i1 %cmp276, label %if.then299, label %do.body279
@@ -5916,9 +5916,9 @@ do.body6:                                         ; preds = %entry
 
 do.end17:                                         ; preds = %entry, %do.body6
   store ptr %hash1, ptr %hash_test, align 16
-  %arrayidx19 = getelementptr inbounds i8, ptr %hash_test, i64 8
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %hash_test, i64 8
   store ptr %hash2, ptr %arrayidx19, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %hash_test, i64 16
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %hash_test, i64 16
   store ptr %hash3, ptr %arrayidx21, align 16
   br label %do.body23
 
@@ -5928,7 +5928,7 @@ do.body23:                                        ; preds = %do.body23.backedge,
   br i1 %_ret.124, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
-  %arrayidx27 = getelementptr inbounds [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @wc_Sha256Final(ptr noundef nonnull %sha256, ptr noundef %7) #25
   %cmp33 = icmp eq i32 %call28, 0
@@ -6029,9 +6029,9 @@ do.body6:                                         ; preds = %entry
 
 do.end17:                                         ; preds = %entry, %do.body6
   store ptr %hash1, ptr %hash_test, align 16
-  %arrayidx19 = getelementptr inbounds i8, ptr %hash_test, i64 8
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %hash_test, i64 8
   store ptr %hash2, ptr %arrayidx19, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %hash_test, i64 16
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %hash_test, i64 16
   store ptr %hash3, ptr %arrayidx21, align 16
   br label %do.body23
 
@@ -6041,7 +6041,7 @@ do.body23:                                        ; preds = %do.body23.backedge,
   br i1 %_ret.124, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
-  %arrayidx27 = getelementptr inbounds [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @wc_Sha256FinalRaw(ptr noundef nonnull %sha256, ptr noundef %7) #25
   %cmp33 = icmp eq i32 %call28, 0
@@ -6585,9 +6585,9 @@ do.body6:                                         ; preds = %entry
 
 do.end17:                                         ; preds = %entry, %do.body6
   store ptr %hash1, ptr %hash_test, align 16
-  %arrayidx19 = getelementptr inbounds i8, ptr %hash_test, i64 8
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %hash_test, i64 8
   store ptr %hash2, ptr %arrayidx19, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %hash_test, i64 16
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %hash_test, i64 16
   store ptr %hash3, ptr %arrayidx21, align 16
   br label %do.body23
 
@@ -6597,7 +6597,7 @@ do.body23:                                        ; preds = %do.body23.backedge,
   br i1 %_ret.124, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
-  %arrayidx27 = getelementptr inbounds [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @wc_Sha224Final(ptr noundef nonnull %sha224, ptr noundef %7) #25
   %cmp33 = icmp eq i32 %call28, 0
@@ -7078,7 +7078,7 @@ do.body248:                                       ; preds = %if.then234
   br label %do.end393.sink.split
 
 if.then266:                                       ; preds = %if.then234
-  %add.ptr269 = getelementptr inbounds i8, ptr %hash_unaligned, i64 1
+  %add.ptr269 = getelementptr inbounds nuw i8, ptr %hash_unaligned, i64 1
   %call270 = call i32 @wc_Sha512Final(ptr noundef nonnull %sha512, ptr noundef nonnull %add.ptr269) #25
   %cmp276 = icmp eq i32 %call270, 0
   br i1 %cmp276, label %if.then299, label %do.body279
@@ -7179,9 +7179,9 @@ do.body6:                                         ; preds = %entry
 
 do.end17:                                         ; preds = %entry, %do.body6
   store ptr %hash1, ptr %hash_test, align 16
-  %arrayidx19 = getelementptr inbounds i8, ptr %hash_test, i64 8
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %hash_test, i64 8
   store ptr %hash2, ptr %arrayidx19, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %hash_test, i64 16
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %hash_test, i64 16
   store ptr %hash3, ptr %arrayidx21, align 16
   br label %do.body23
 
@@ -7191,7 +7191,7 @@ do.body23:                                        ; preds = %do.body23.backedge,
   br i1 %_ret.124, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
-  %arrayidx27 = getelementptr inbounds [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @wc_Sha512Final(ptr noundef nonnull %sha512, ptr noundef %7) #25
   %cmp33 = icmp eq i32 %call28, 0
@@ -7298,9 +7298,9 @@ do.body6:                                         ; preds = %entry
 
 do.end17:                                         ; preds = %entry, %do.body6
   store ptr %hash1, ptr %hash_test, align 16
-  %arrayidx19 = getelementptr inbounds i8, ptr %hash_test, i64 8
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %hash_test, i64 8
   store ptr %hash2, ptr %arrayidx19, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %hash_test, i64 16
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %hash_test, i64 16
   store ptr %hash3, ptr %arrayidx21, align 16
   br label %do.body23
 
@@ -7310,7 +7310,7 @@ do.body23:                                        ; preds = %do.body23.backedge,
   br i1 %_ret.124, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
-  %arrayidx27 = getelementptr inbounds [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @wc_Sha512FinalRaw(ptr noundef nonnull %sha512, ptr noundef %7) #25
   %cmp33 = icmp eq i32 %call28, 0
@@ -8850,9 +8850,9 @@ do.body6:                                         ; preds = %entry
 
 do.end17:                                         ; preds = %entry, %do.body6
   store ptr %hash1, ptr %hash_test, align 16
-  %arrayidx19 = getelementptr inbounds i8, ptr %hash_test, i64 8
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %hash_test, i64 8
   store ptr %hash2, ptr %arrayidx19, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %hash_test, i64 16
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %hash_test, i64 16
   store ptr %hash3, ptr %arrayidx21, align 16
   br label %do.body23
 
@@ -8862,7 +8862,7 @@ do.body23:                                        ; preds = %do.body23.backedge,
   br i1 %_ret.124, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
-  %arrayidx27 = getelementptr inbounds [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @wc_Sha384Final(ptr noundef nonnull %sha384, ptr noundef %7) #25
   %cmp33 = icmp eq i32 %call28, 0
@@ -8969,9 +8969,9 @@ do.body6:                                         ; preds = %entry
 
 do.end17:                                         ; preds = %entry, %do.body6
   store ptr %hash1, ptr %hash_test, align 16
-  %arrayidx19 = getelementptr inbounds i8, ptr %hash_test, i64 8
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %hash_test, i64 8
   store ptr %hash2, ptr %arrayidx19, align 8
-  %arrayidx21 = getelementptr inbounds i8, ptr %hash_test, i64 16
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %hash_test, i64 16
   store ptr %hash3, ptr %arrayidx21, align 16
   br label %do.body23
 
@@ -8981,7 +8981,7 @@ do.body23:                                        ; preds = %do.body23.backedge,
   br i1 %_ret.124, label %for.inc, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
-  %arrayidx27 = getelementptr inbounds [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds nuw [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @wc_Sha384FinalRaw(ptr noundef nonnull %sha384, ptr noundef %7) #25
   %cmp33 = icmp eq i32 %call28, 0
@@ -9509,7 +9509,7 @@ do.body29:                                        ; preds = %if.then20
   br label %do.body246.critedge
 
 if.then46:                                        ; preds = %if.then20
-  %t = getelementptr inbounds i8, ptr %sha3, i64 200
+  %t = getelementptr inbounds nuw i8, ptr %sha3, i64 200
   %call50 = call i32 @memcmp(ptr noundef nonnull dereferenceable(36) %msg, ptr noundef nonnull dereferenceable(36) %t, i64 noundef 36) #30
   %cmp56 = icmp eq i32 %call50, 0
   br i1 %cmp56, label %if.then77, label %do.body59
@@ -9525,7 +9525,7 @@ do.body59:                                        ; preds = %if.then46
   br label %do.body246.critedge
 
 if.then77:                                        ; preds = %if.then46
-  %i = getelementptr inbounds i8, ptr %sha3, i64 400
+  %i = getelementptr inbounds nuw i8, ptr %sha3, i64 400
   %12 = load i8, ptr %i, align 8
   %cmp79 = icmp eq i8 %12, 36
   br i1 %cmp79, label %if.then98, label %do.body82
@@ -12133,7 +12133,7 @@ do.body:                                          ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %_ret.018 = phi i32 [ -7777, %entry ], [ %_ret.2, %for.inc ]
   %cmp1.not = icmp eq i32 %_ret.018, 0
-  %arrayidx2015.phi.trans.insert = getelementptr inbounds [6 x i32], ptr @__const.test_wc_HashInit.enumArray, i64 0, i64 %indvars.iv
+  %arrayidx2015.phi.trans.insert = getelementptr inbounds nuw [6 x i32], ptr @__const.test_wc_HashInit.enumArray, i64 0, i64 %indvars.iv
   %.pre = load i32, ptr %arrayidx2015.phi.trans.insert, align 4
   br i1 %cmp1.not, label %do.end18.thread, label %if.then
 
@@ -12230,7 +12230,7 @@ for.body.preheader:                               ; preds = %entry, %do.body6
 for.body:                                         ; preds = %for.body.backedge, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.be, %for.body.backedge ]
   %cmp24.not = phi i1 [ %cmp4, %for.body.preheader ], [ %cmp24.not.be, %for.body.backedge ]
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @__const.test_wc_Md5HmacSetKey.keys, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @__const.test_wc_Md5HmacSetKey.keys, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
   %call21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
   %conv = trunc i64 %call21 to i32
@@ -12605,7 +12605,7 @@ do.body19:                                        ; preds = %do.body19.backedge,
   br i1 %cmp20.not, label %for.inc, label %if.then21
 
 if.then21:                                        ; preds = %do.body19
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
   %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
   %conv = trunc i64 %call25 to i32
@@ -12977,7 +12977,7 @@ do.body19:                                        ; preds = %do.body19.backedge,
   br i1 %cmp20.not, label %for.inc, label %if.then21
 
 if.then21:                                        ; preds = %do.body19
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
   %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
   %conv = trunc i64 %call25 to i32
@@ -13349,7 +13349,7 @@ do.body19:                                        ; preds = %do.body19.backedge,
   br i1 %cmp20.not, label %for.inc, label %if.then21
 
 if.then21:                                        ; preds = %do.body19
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
   %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
   %conv = trunc i64 %call25 to i32
@@ -13721,7 +13721,7 @@ do.body19:                                        ; preds = %do.body19.backedge,
   br i1 %cmp20.not, label %for.inc, label %if.then21
 
 if.then21:                                        ; preds = %do.body19
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @__const.test_wc_Sha384HmacSetKey.keys, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
   %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
   %conv = trunc i64 %call25 to i32
@@ -14279,7 +14279,7 @@ if.then258:                                       ; preds = %if.then228
   br i1 %cmp268, label %if.then289, label %do.end417.sink.split
 
 if.then289:                                       ; preds = %if.then258
-  %add.ptr = getelementptr inbounds i8, ptr %cipher, i64 24
+  %add.ptr = getelementptr inbounds nuw i8, ptr %cipher, i64 24
   %call295 = call i32 @wc_Chacha_Process(ptr noundef nonnull %enc, ptr noundef nonnull %add.ptr, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.1328, i64 24), i32 noundef 2) #25
   %cmp301 = icmp eq i32 %call295, 0
   br i1 %cmp301, label %if.then322, label %do.end417.sink.split
@@ -14324,7 +14324,7 @@ do.end417:                                        ; preds = %do.end417.sink.spli
 for.body:                                         ; preds = %do.end417, %for.body
   %indvars.iv = phi i64 [ 0, %do.end417 ], [ %indvars.iv.next, %for.body ]
   %conv420 = trunc i64 %indvars.iv to i8
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %input2, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr %input2, i64 0, i64 %indvars.iv
   store i8 %conv420, ptr %arrayidx, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -14379,7 +14379,7 @@ do.body498:                                       ; preds = %if.then485
   br label %do.end735.sink.split
 
 if.then516:                                       ; preds = %if.then485
-  %add.ptr520 = getelementptr inbounds i8, ptr %input2, i64 64
+  %add.ptr520 = getelementptr inbounds nuw i8, ptr %input2, i64 64
   %call521 = call i32 @wc_Chacha_Process(ptr noundef nonnull %enc, ptr noundef nonnull %cipher, ptr noundef nonnull %add.ptr520, i32 noundef 128) #25
   %cmp527 = icmp eq i32 %call521, 0
   br i1 %cmp527, label %if.then548, label %do.body530
@@ -14410,7 +14410,7 @@ do.body562:                                       ; preds = %if.then548
   br label %do.end735.sink.split
 
 if.then580:                                       ; preds = %if.then548
-  %add.ptr584 = getelementptr inbounds i8, ptr %input2, i64 192
+  %add.ptr584 = getelementptr inbounds nuw i8, ptr %input2, i64 192
   %call585 = call i32 @wc_Chacha_Process(ptr noundef nonnull %enc, ptr noundef nonnull %cipher, ptr noundef nonnull %add.ptr584, i32 noundef 32) #25
   %cmp591 = icmp eq i32 %call585, 0
   br i1 %cmp591, label %if.then612, label %do.body594
@@ -14441,7 +14441,7 @@ do.body626:                                       ; preds = %if.then612
   br label %do.end735.sink.split
 
 if.then644:                                       ; preds = %if.then612
-  %add.ptr648 = getelementptr inbounds i8, ptr %input2, i64 224
+  %add.ptr648 = getelementptr inbounds nuw i8, ptr %input2, i64 224
   %call649 = call i32 @wc_Chacha_Process(ptr noundef nonnull %enc, ptr noundef nonnull %cipher, ptr noundef nonnull %add.ptr648, i32 noundef 32) #25
   %cmp655 = icmp eq i32 %call649, 0
   br i1 %cmp655, label %if.then676, label %do.body658
@@ -15287,7 +15287,7 @@ do.body330:                                       ; preds = %do.body330.backedge
   br i1 %cmp331.not, label %for.inc, label %if.then332
 
 if.then332:                                       ; preds = %do.body330
-  %arrayidx = getelementptr inbounds [32 x i8], ptr %enc, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %enc, i64 0, i64 %indvars.iv
   %54 = load i8, ptr %arrayidx, align 1
   %cmp339 = icmp eq i8 %54, 0
   br i1 %cmp339, label %for.inc.thread, label %do.body342
@@ -15393,7 +15393,7 @@ do.body516:                                       ; preds = %do.body516.backedge
   br i1 %cmp517.not, label %for.inc547, label %if.then519
 
 if.then519:                                       ; preds = %do.body516
-  %arrayidx522 = getelementptr inbounds [32 x i8], ptr %dec, i64 0, i64 %indvars.iv102
+  %arrayidx522 = getelementptr inbounds nuw [32 x i8], ptr %dec, i64 0, i64 %indvars.iv102
   %76 = load i8, ptr %arrayidx522, align 1
   %cmp529 = icmp eq i8 %76, 0
   br i1 %cmp529, label %for.inc547.thread, label %do.body532
@@ -18084,7 +18084,7 @@ do.body23:                                        ; preds = %if.then20
   br label %do.end79.sink.split
 
 if.then38:                                        ; preds = %if.then20
-  %id = getelementptr inbounds i8, ptr %call21, i64 4
+  %id = getelementptr inbounds nuw i8, ptr %call21, i64 4
   %8 = load i32, ptr %id, align 4
   %cmp44 = icmp eq i32 %8, 7
   br i1 %cmp44, label %if.then63, label %do.body46
@@ -18346,7 +18346,7 @@ do.end322:                                        ; preds = %if.then298
   %72 = load i32, ptr %siglen, align 4
   %conv325 = zext i32 %72 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %adjustedSig, ptr nonnull align 16 %sig, i64 %conv325, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %adjustedSig, i64 1
+  %arrayidx = getelementptr inbounds nuw i8, ptr %adjustedSig, i64 1
   %73 = load i8, ptr %arrayidx, align 1
   %add = add i8 %73, 1
   store i8 %add, ptr %arrayidx, align 1
@@ -18373,7 +18373,7 @@ do.body361.critedge:                              ; preds = %do.end50.thread, %d
   %81 = load i32, ptr %siglen, align 4
   %conv325.c = zext i32 %81 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %adjustedSig, ptr nonnull align 16 %sig, i64 %conv325.c, i1 false)
-  %arrayidx.c = getelementptr inbounds i8, ptr %adjustedSig, i64 1
+  %arrayidx.c = getelementptr inbounds nuw i8, ptr %adjustedSig, i64 1
   %82 = load i8, ptr %arrayidx.c, align 1
   %add.c = add i8 %82, 1
   store i8 %add.c, ptr %arrayidx.c, align 1
@@ -18874,7 +18874,7 @@ do.body185:                                       ; preds = %if.then173
   br label %do.body230.critedge
 
 do.end199:                                        ; preds = %if.then173
-  %idx = getelementptr inbounds i8, ptr %key, i64 4
+  %idx = getelementptr inbounds nuw i8, ptr %key, i64 4
   store i32 -4, ptr %idx, align 4
   %call206 = call i32 @wc_ecc_export_x963(ptr noundef nonnull %key, ptr noundef nonnull %out, ptr noundef nonnull %outlen) #25
   %cmp212 = icmp eq i32 %call206, -170
@@ -18895,7 +18895,7 @@ do.body215:                                       ; preds = %do.end199
   br label %do.body230.thread
 
 do.body230.critedge:                              ; preds = %do.end51.thread, %do.body155, %do.body96, %do.body66, %do.body126, %do.body185
-  %idx.c = getelementptr inbounds i8, ptr %key, i64 4
+  %idx.c = getelementptr inbounds nuw i8, ptr %key, i64 4
   store i32 -4, ptr %idx.c, align 4
   br label %do.body230.thread
 
@@ -19081,7 +19081,7 @@ do.body213:                                       ; preds = %if.then201
   br label %do.body258.critedge
 
 do.end227:                                        ; preds = %if.then201
-  %idx = getelementptr inbounds i8, ptr %key, i64 4
+  %idx = getelementptr inbounds nuw i8, ptr %key, i64 4
   store i32 -4, ptr %idx, align 4
   %call234 = call i32 @wc_ecc_export_x963_ex(ptr noundef nonnull %key, ptr noundef nonnull %out, ptr noundef nonnull %outlen, i32 noundef 0) #25
   %cmp240 = icmp eq i32 %call234, -170
@@ -19102,7 +19102,7 @@ do.body243:                                       ; preds = %do.end227
   br label %do.body258.thread
 
 do.body258.critedge:                              ; preds = %do.end49.thread, %do.body183, %do.body124, %do.body64, %do.body94, %do.body153, %do.body213
-  %idx.c = getelementptr inbounds i8, ptr %key, i64 4
+  %idx.c = getelementptr inbounds nuw i8, ptr %key, i64 4
   store i32 -4, ptr %idx.c, align 4
   br label %do.body258.thread
 
@@ -20462,9 +20462,9 @@ do.body105:                                       ; preds = %if.then101
   br label %do.end712
 
 if.then121:                                       ; preds = %if.then101
-  %idx123 = getelementptr inbounds i8, ptr %key, i64 4
+  %idx123 = getelementptr inbounds nuw i8, ptr %key, i64 4
   %28 = load i32, ptr %idx123, align 4
-  %pubkey = getelementptr inbounds i8, ptr %key, i64 32
+  %pubkey = getelementptr inbounds nuw i8, ptr %key, i64 32
   %call124 = call i32 @wc_ecc_export_point_der(i32 noundef %28, ptr noundef nonnull %pubkey, ptr noundef null, ptr noundef nonnull %derlenChk) #25
   %cmp130 = icmp eq i32 %call124, -202
   br i1 %cmp130, label %if.then151, label %do.body133
@@ -21050,7 +21050,7 @@ do.body205:                                       ; preds = %if.then194
   br label %do.body403.critedge
 
 if.then223:                                       ; preds = %if.then194
-  %pubkey = getelementptr inbounds i8, ptr %key2, i64 32
+  %pubkey = getelementptr inbounds nuw i8, ptr %key2, i64 32
   %call226 = call i32 @wc_ecc_shared_secret_ex(ptr noundef nonnull %key, ptr noundef nonnull %pubkey, ptr noundef nonnull %secret, ptr noundef nonnull %secretLen) #25
   %cmp232 = icmp eq i32 %call226, 0
   br i1 %cmp232, label %if.then253, label %do.body235
@@ -21296,13 +21296,13 @@ do.body131:                                       ; preds = %if.then128
   br label %do.end364
 
 if.then147:                                       ; preds = %if.then128
-  %dp = getelementptr inbounds i8, ptr %key1, i64 16
+  %dp = getelementptr inbounds nuw i8, ptr %key1, i64 16
   %21 = load ptr, ptr %dp, align 8
-  %Gx = getelementptr inbounds i8, ptr %21, i64 48
+  %Gx = getelementptr inbounds nuw i8, ptr %21, i64 48
   %22 = load ptr, ptr %Gx, align 8
-  %Gy = getelementptr inbounds i8, ptr %21, i64 56
+  %Gy = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load ptr, ptr %Gy, align 8
-  %Af = getelementptr inbounds i8, ptr %21, i64 24
+  %Af = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = load ptr, ptr %Af, align 8
   %call151 = call i32 @wc_ecc_import_raw_ex(ptr noundef nonnull %key2, ptr noundef %22, ptr noundef %23, ptr noundef %24, i32 noundef 7) #25
   %cmp156 = icmp eq i32 %call151, 0
@@ -21324,11 +21324,11 @@ do.body158:                                       ; preds = %if.then147
 
 if.then175:                                       ; preds = %if.then147
   %32 = load ptr, ptr %dp, align 8
-  %Gx178 = getelementptr inbounds i8, ptr %32, i64 48
+  %Gx178 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %33 = load ptr, ptr %Gx178, align 8
-  %Gy180 = getelementptr inbounds i8, ptr %32, i64 56
+  %Gy180 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %34 = load ptr, ptr %Gy180, align 8
-  %prime = getelementptr inbounds i8, ptr %32, i64 16
+  %prime = getelementptr inbounds nuw i8, ptr %32, i64 16
   %35 = load ptr, ptr %prime, align 8
   %call182 = call i32 @wc_ecc_import_raw_ex(ptr noundef nonnull %key3, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef 7) #25
   %cmp187 = icmp eq i32 %call182, 0
@@ -21349,11 +21349,11 @@ do.body189:                                       ; preds = %if.then175
   br label %do.end364
 
 if.then206:                                       ; preds = %if.then175
-  %k = getelementptr inbounds i8, ptr %key1, i64 3152
-  %pubkey = getelementptr inbounds i8, ptr %key2, i64 32
-  %pubkey208 = getelementptr inbounds i8, ptr %key3, i64 32
-  %k209 = getelementptr inbounds i8, ptr %key2, i64 3152
-  %k211 = getelementptr inbounds i8, ptr %key3, i64 3152
+  %k = getelementptr inbounds nuw i8, ptr %key1, i64 3152
+  %pubkey = getelementptr inbounds nuw i8, ptr %key2, i64 32
+  %pubkey208 = getelementptr inbounds nuw i8, ptr %key3, i64 32
+  %k209 = getelementptr inbounds nuw i8, ptr %key2, i64 3152
+  %k211 = getelementptr inbounds nuw i8, ptr %key3, i64 3152
   %call213 = call i32 @wc_ecc_mulmod(ptr noundef nonnull %k, ptr noundef nonnull %pubkey, ptr noundef nonnull %pubkey208, ptr noundef nonnull %k209, ptr noundef nonnull %k211, i32 noundef 1) #25
   %cmp218 = icmp eq i32 %call213, 0
   br i1 %cmp218, label %if.then237, label %do.body220
@@ -21510,7 +21510,7 @@ do.body55:                                        ; preds = %if.then52
   br label %do.body148.thread
 
 if.then72:                                        ; preds = %if.then52
-  %idx = getelementptr inbounds i8, ptr %key, i64 4
+  %idx = getelementptr inbounds nuw i8, ptr %key, i64 4
   %14 = load i32, ptr %idx, align 4
   %call74 = call i32 @wc_ecc_is_valid_idx(i32 noundef %14) #25
   %cmp79 = icmp eq i32 %call74, 1
@@ -21717,7 +21717,7 @@ do.body55:                                        ; preds = %if.then52
   br label %do.body96.thread
 
 if.then72:                                        ; preds = %if.then52
-  %dp = getelementptr inbounds i8, ptr %key, i64 16
+  %dp = getelementptr inbounds nuw i8, ptr %key, i64 16
   %14 = load ptr, ptr %dp, align 8
   %15 = load i32, ptr %14, align 8
   %call74 = call i32 @wc_ecc_sig_size_calc(i32 noundef %15) #25
@@ -22612,7 +22612,7 @@ do.body58:                                        ; preds = %if.then49
 
 do.end72:                                         ; preds = %if.then49
   store i8 10, ptr %key_buf, align 16
-  %add.ptr = getelementptr inbounds i8, ptr %key_buf, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %key_buf, i64 1
   %24 = load ptr, ptr %cert_buf, align 8
   %25 = load i64, ptr %cert_sz, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %24, i64 %25, i1 false)
@@ -23656,7 +23656,7 @@ do.body136:                                       ; preds = %if.then125
 if.then154:                                       ; preds = %if.then125
   %35 = load i32, ptr %tradIdx, align 4
   %idx.ext = zext i32 %35 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %call47, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call47, i64 %idx.ext
   %call156 = call i32 @memcmp(ptr noundef nonnull dereferenceable(1193) %add.ptr, ptr noundef nonnull dereferenceable(1193) @server_key_der_2048, i64 noundef 1193) #30
   %cmp162 = icmp eq i32 %call156, 0
   br i1 %cmp162, label %if.then181, label %do.body165
@@ -23882,7 +23882,7 @@ do.body6:                                         ; preds = %entry
   br label %do.end58.sink.split
 
 if.then20:                                        ; preds = %entry
-  %subjectEmail = getelementptr inbounds i8, ptr %decodedCert, i64 896
+  %subjectEmail = getelementptr inbounds nuw i8, ptr %decodedCert, i64 896
   %4 = load ptr, ptr %subjectEmail, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %do.body22, label %if.then37
@@ -23898,7 +23898,7 @@ do.body22:                                        ; preds = %if.then20
   br label %do.end58.sink.split
 
 if.then37:                                        ; preds = %if.then20
-  %altEmailNames = getelementptr inbounds i8, ptr %decodedCert, i64 56
+  %altEmailNames = getelementptr inbounds nuw i8, ptr %decodedCert, i64 56
   %9 = load ptr, ptr %altEmailNames, align 8
   %tobool42.not = icmp eq ptr %9, null
   br i1 %tobool42.not, label %do.end58, label %do.body44
@@ -23942,42 +23942,42 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %c3, ptr noundef nonnull align 1 dereferenceable(9) @__const.test_wc_ParseCert_Error.c3, i64 9, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %c4, ptr noundef nonnull align 1 dereferenceable(5) @__const.test_wc_ParseCert_Error.c4, i64 5, i1 false)
   store ptr %c0, ptr %t, align 16
-  %cSz = getelementptr inbounds i8, ptr %t, i64 8
+  %cSz = getelementptr inbounds nuw i8, ptr %t, i64 8
   store i32 8, ptr %cSz, align 8
-  %expRet = getelementptr inbounds i8, ptr %t, i64 12
+  %expRet = getelementptr inbounds nuw i8, ptr %t, i64 12
   store i32 -140, ptr %expRet, align 4
-  %arrayinit.element = getelementptr inbounds i8, ptr %t, i64 16
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %t, i64 16
   store ptr %c1, ptr %arrayinit.element, align 16
-  %cSz7 = getelementptr inbounds i8, ptr %t, i64 24
+  %cSz7 = getelementptr inbounds nuw i8, ptr %t, i64 24
   store i32 8, ptr %cSz7, align 8
-  %expRet8 = getelementptr inbounds i8, ptr %t, i64 28
+  %expRet8 = getelementptr inbounds nuw i8, ptr %t, i64 28
   store i32 -140, ptr %expRet8, align 4
-  %arrayinit.element9 = getelementptr inbounds i8, ptr %t, i64 32
+  %arrayinit.element9 = getelementptr inbounds nuw i8, ptr %t, i64 32
   store ptr %c2, ptr %arrayinit.element9, align 16
-  %cSz12 = getelementptr inbounds i8, ptr %t, i64 40
+  %cSz12 = getelementptr inbounds nuw i8, ptr %t, i64 40
   store i32 8, ptr %cSz12, align 8
-  %expRet13 = getelementptr inbounds i8, ptr %t, i64 44
+  %expRet13 = getelementptr inbounds nuw i8, ptr %t, i64 44
   store i32 -140, ptr %expRet13, align 4
-  %arrayinit.element14 = getelementptr inbounds i8, ptr %t, i64 48
+  %arrayinit.element14 = getelementptr inbounds nuw i8, ptr %t, i64 48
   store ptr %c3, ptr %arrayinit.element14, align 16
-  %cSz17 = getelementptr inbounds i8, ptr %t, i64 56
+  %cSz17 = getelementptr inbounds nuw i8, ptr %t, i64 56
   store i32 9, ptr %cSz17, align 8
-  %expRet18 = getelementptr inbounds i8, ptr %t, i64 60
+  %expRet18 = getelementptr inbounds nuw i8, ptr %t, i64 60
   store i32 -140, ptr %expRet18, align 4
-  %arrayinit.element19 = getelementptr inbounds i8, ptr %t, i64 64
+  %arrayinit.element19 = getelementptr inbounds nuw i8, ptr %t, i64 64
   store ptr %c4, ptr %arrayinit.element19, align 16
-  %cSz22 = getelementptr inbounds i8, ptr %t, i64 72
+  %cSz22 = getelementptr inbounds nuw i8, ptr %t, i64 72
   store i32 5, ptr %cSz22, align 8
-  %expRet23 = getelementptr inbounds i8, ptr %t, i64 76
+  %expRet23 = getelementptr inbounds nuw i8, ptr %t, i64 76
   store i32 -140, ptr %expRet23, align 4
   br label %do.end
 
 do.end:                                           ; preds = %entry, %do.end50
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %do.end50 ]
   %_ret.010 = phi i32 [ -7777, %entry ], [ %_ret.1, %do.end50 ]
-  %arrayidx = getelementptr inbounds [5 x %struct.testStruct], ptr %t, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [5 x %struct.testStruct], ptr %t, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 16
-  %cSz27 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %cSz27 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %cSz27, align 8
   call void @wc_InitDecodedCert(ptr noundef nonnull %decodedCert, ptr noundef %0, i32 noundef %1, ptr noundef null) #25
   %cmp29.not = icmp eq i32 %_ret.010, 0
@@ -23985,7 +23985,7 @@ do.end:                                           ; preds = %entry, %do.end50
 
 if.then:                                          ; preds = %do.end
   %call = call i32 @wc_ParseCert(ptr noundef nonnull %decodedCert, i32 noundef 0, i32 noundef 0, ptr noundef null) #25
-  %expRet32 = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %expRet32 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %2 = load i32, ptr %expRet32, align 4
   %cmp36 = icmp eq i32 %call, %2
   br i1 %cmp36, label %do.end50, label %do.body38
@@ -25899,7 +25899,7 @@ do.body60:                                        ; preds = %if.then53
 do.end74:                                         ; preds = %if.then53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %server_args, i8 0, i64 40, i1 false)
   call fastcc void @InitTcpReady(ptr noundef %ready)
-  %signal = getelementptr inbounds i8, ptr %server_args, i64 24
+  %signal = getelementptr inbounds nuw i8, ptr %server_args, i64 24
   store ptr %ready, ptr %signal, align 8
   %call.i = call i32 @wolfSSL_NewThread(ptr noundef nonnull %serverThread, ptr noundef nonnull @test_server_nofail, ptr noundef nonnull %server_args) #25
   %cmp.not.i = icmp eq i32 %call.i, 0
@@ -25940,7 +25940,7 @@ do.end95.critedge:                                ; preds = %do.body13.thread, %
   %call10 = tail call i32 @fflush(ptr noundef %26)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %server_args, i8 0, i64 40, i1 false)
   call fastcc void @InitTcpReady(ptr noundef %ready)
-  %signal.c = getelementptr inbounds i8, ptr %server_args, i64 24
+  %signal.c = getelementptr inbounds nuw i8, ptr %server_args, i64 24
   store ptr %ready, ptr %signal.c, align 8
   %call.i67 = call i32 @wolfSSL_NewThread(ptr noundef nonnull %serverThread, ptr noundef nonnull @test_server_nofail, ptr noundef nonnull %server_args) #25
   %cmp.not.i68 = icmp eq i32 %call.i67, 0
@@ -25959,13 +25959,13 @@ start_thread.exit72:                              ; preds = %do.end95.critedge
   br label %do.end95.thread
 
 do.end95.thread:                                  ; preds = %do.body83, %start_thread.exit72
-  %port84 = getelementptr inbounds i8, ptr %ready, i64 2
+  %port84 = getelementptr inbounds nuw i8, ptr %ready, i64 2
   %28 = load i16, ptr %port84, align 2
   call fastcc void @tcp_connect(ptr noundef %sockfd, i16 noundef zeroext %28, i32 noundef 0, ptr noundef null)
   br label %do.end121
 
 if.then98:                                        ; preds = %start_thread.exit
-  %port = getelementptr inbounds i8, ptr %ready, i64 2
+  %port = getelementptr inbounds nuw i8, ptr %ready, i64 2
   %29 = load i16, ptr %port, align 2
   call fastcc void @tcp_connect(ptr noundef %sockfd, i16 noundef zeroext %29, i32 noundef 0, ptr noundef nonnull %call80)
   %30 = load i32, ptr %sockfd, align 4
@@ -27884,43 +27884,43 @@ if.then14:                                        ; preds = %entry
   br i1 %cmp.not.i.i, label %if.else.i, label %do.body21.sink.split
 
 if.else.i:                                        ; preds = %if.then14
-  %arrayidx2.i = getelementptr inbounds i8, ptr %chainGArr.i, i64 50
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %chainGArr.i, i64 50
   %call.i67.i = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx2.i, ptr noundef null) #25
   %cmp.not.i68.i = icmp eq i32 %call.i67.i, 1
   br i1 %cmp.not.i68.i, label %if.else7.i, label %do.body21.sink.split
 
 if.else7.i:                                       ; preds = %if.else.i
-  %arrayidx12.i = getelementptr inbounds i8, ptr %chainGArr.i, i64 100
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %chainGArr.i, i64 100
   %call.i76.i = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx12.i, ptr noundef null) #25
   %cmp.not.i77.i = icmp eq i32 %call.i76.i, 1
   br i1 %cmp.not.i77.i, label %if.else17.i, label %do.body21.sink.split
 
 if.else17.i:                                      ; preds = %if.else7.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %chainGArr.i, i64 150
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %chainGArr.i, i64 150
   %call.i85.i = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx22.i, ptr noundef null) #25
   %cmp.not.i86.i = icmp eq i32 %call.i85.i, 1
   br i1 %cmp.not.i86.i, label %if.else27.i, label %do.body21.sink.split
 
 if.else27.i:                                      ; preds = %if.else17.i
-  %arrayidx32.i = getelementptr inbounds i8, ptr %chainGArr.i, i64 200
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %chainGArr.i, i64 200
   %call.i178 = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx32.i, ptr noundef null) #25
   %cmp.not.i179 = icmp eq i32 %call.i178, 1
   br i1 %cmp.not.i179, label %if.else37.i, label %do.body21.sink.split
 
 if.else37.i:                                      ; preds = %if.else27.i
-  %arrayidx42.i = getelementptr inbounds i8, ptr %chainGArr.i, i64 250
+  %arrayidx42.i = getelementptr inbounds nuw i8, ptr %chainGArr.i, i64 250
   %call.i169 = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx42.i, ptr noundef null) #25
   %cmp.not.i170 = icmp eq i32 %call.i169, 1
   br i1 %cmp.not.i170, label %if.else47.i, label %do.body21.sink.split
 
 if.else47.i:                                      ; preds = %if.else37.i
-  %arrayidx52.i = getelementptr inbounds i8, ptr %chainGArr.i, i64 300
+  %arrayidx52.i = getelementptr inbounds nuw i8, ptr %chainGArr.i, i64 300
   %call.i160 = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx52.i, ptr noundef null) #25
   %cmp.not.i161 = icmp eq i32 %call.i160, 1
   br i1 %cmp.not.i161, label %if.else57.i, label %do.body21.sink.split
 
 if.else57.i:                                      ; preds = %if.else47.i
-  %arrayidx62.i = getelementptr inbounds i8, ptr %chainGArr.i, i64 350
+  %arrayidx62.i = getelementptr inbounds nuw i8, ptr %chainGArr.i, i64 350
   %call.i = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call, ptr noundef nonnull %arrayidx62.i, ptr noundef null) #25
   %cmp.not.i = icmp eq i32 %call.i, 1
   br i1 %cmp.not.i, label %if.else67.i, label %do.body21.sink.split
@@ -27961,7 +27961,7 @@ if.else127.i:                                     ; preds = %if.else117.i
   br i1 %cmp135.not.i, label %if.else137.i, label %do.body21
 
 if.else137.i:                                     ; preds = %if.else127.i
-  %arrayidx142.i = getelementptr inbounds i8, ptr %chainGArr.i, i64 400
+  %arrayidx142.i = getelementptr inbounds nuw i8, ptr %chainGArr.i, i64 400
   %call144.i = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call, ptr noundef %arrayidx142.i)
   %cmp145.not.i = icmp eq i32 %call144.i, 0
   br i1 %cmp145.not.i, label %if.else147.i, label %do.body21
@@ -28051,25 +28051,25 @@ if.then83:                                        ; preds = %do.end61
   br i1 %cmp.not.i.i70, label %if.else.i77, label %if.then109.sink.split
 
 if.else.i77:                                      ; preds = %if.then83
-  %arrayidx2.i78 = getelementptr inbounds i8, ptr %chainHArr.i, i64 50
+  %arrayidx2.i78 = getelementptr inbounds nuw i8, ptr %chainHArr.i, i64 50
   %call.i39.i = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call65, ptr noundef nonnull %arrayidx2.i78, ptr noundef null) #25
   %cmp.not.i40.i = icmp eq i32 %call.i39.i, 1
   br i1 %cmp.not.i40.i, label %if.else7.i79, label %if.then109.sink.split
 
 if.else7.i79:                                     ; preds = %if.else.i77
-  %arrayidx12.i80 = getelementptr inbounds i8, ptr %chainHArr.i, i64 100
+  %arrayidx12.i80 = getelementptr inbounds nuw i8, ptr %chainHArr.i, i64 100
   %call.i48.i = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call65, ptr noundef nonnull %arrayidx12.i80, ptr noundef null) #25
   %cmp.not.i49.i = icmp eq i32 %call.i48.i, 1
   br i1 %cmp.not.i49.i, label %if.else17.i81, label %if.then109.sink.split
 
 if.else17.i81:                                    ; preds = %if.else7.i79
-  %arrayidx22.i82 = getelementptr inbounds i8, ptr %chainHArr.i, i64 150
+  %arrayidx22.i82 = getelementptr inbounds nuw i8, ptr %chainHArr.i, i64 150
   %call.i57.i = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call65, ptr noundef nonnull %arrayidx22.i82, ptr noundef null) #25
   %cmp.not.i58.i = icmp eq i32 %call.i57.i, 1
   br i1 %cmp.not.i58.i, label %if.else27.i83, label %if.then109.sink.split
 
 if.else27.i83:                                    ; preds = %if.else17.i81
-  %arrayidx32.i84 = getelementptr inbounds i8, ptr %chainHArr.i, i64 200
+  %arrayidx32.i84 = getelementptr inbounds nuw i8, ptr %chainHArr.i, i64 200
   %call.i187 = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call65, ptr noundef nonnull %arrayidx32.i84, ptr noundef null) #25
   %cmp.not.i188 = icmp eq i32 %call.i187, 1
   br i1 %cmp.not.i188, label %if.else37.i87, label %if.then109.sink.split
@@ -28095,7 +28095,7 @@ if.else67.i96:                                    ; preds = %if.else57.i93
   br i1 %cmp75.not.i98, label %if.else77.i99, label %if.then109
 
 if.else77.i99:                                    ; preds = %if.else67.i96
-  %arrayidx82.i = getelementptr inbounds i8, ptr %chainHArr.i, i64 250
+  %arrayidx82.i = getelementptr inbounds nuw i8, ptr %chainHArr.i, i64 250
   %call84.i100 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call65, ptr noundef %arrayidx82.i)
   %cmp85.not.i101 = icmp eq i32 %call84.i100, 0
   br i1 %cmp85.not.i101, label %do.body92, label %if.then109
@@ -28330,25 +28330,25 @@ if.then315:                                       ; preds = %do.end293
   br i1 %cmp.not.i.i104, label %if.else.i111, label %if.then341.sink.split
 
 if.else.i111:                                     ; preds = %if.then315
-  %arrayidx2.i112 = getelementptr inbounds i8, ptr %chainJArr.i, i64 50
+  %arrayidx2.i112 = getelementptr inbounds nuw i8, ptr %chainJArr.i, i64 50
   %call.i39.i113 = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call297, ptr noundef nonnull %arrayidx2.i112, ptr noundef null) #25
   %cmp.not.i40.i114 = icmp eq i32 %call.i39.i113, 1
   br i1 %cmp.not.i40.i114, label %if.else7.i120, label %if.then341.sink.split
 
 if.else7.i120:                                    ; preds = %if.else.i111
-  %arrayidx12.i121 = getelementptr inbounds i8, ptr %chainJArr.i, i64 100
+  %arrayidx12.i121 = getelementptr inbounds nuw i8, ptr %chainJArr.i, i64 100
   %call.i48.i122 = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call297, ptr noundef nonnull %arrayidx12.i121, ptr noundef null) #25
   %cmp.not.i49.i123 = icmp eq i32 %call.i48.i122, 1
   br i1 %cmp.not.i49.i123, label %if.else17.i129, label %if.then341.sink.split
 
 if.else17.i129:                                   ; preds = %if.else7.i120
-  %arrayidx22.i130 = getelementptr inbounds i8, ptr %chainJArr.i, i64 150
+  %arrayidx22.i130 = getelementptr inbounds nuw i8, ptr %chainJArr.i, i64 150
   %call.i57.i131 = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call297, ptr noundef nonnull %arrayidx22.i130, ptr noundef null) #25
   %cmp.not.i58.i132 = icmp eq i32 %call.i57.i131, 1
   br i1 %cmp.not.i58.i132, label %if.else27.i138, label %if.then341.sink.split
 
 if.else27.i138:                                   ; preds = %if.else17.i129
-  %arrayidx32.i139 = getelementptr inbounds i8, ptr %chainJArr.i, i64 200
+  %arrayidx32.i139 = getelementptr inbounds nuw i8, ptr %chainJArr.i, i64 200
   %call.i196 = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef nonnull %call297, ptr noundef nonnull %arrayidx32.i139, ptr noundef null) #25
   %cmp.not.i197 = icmp eq i32 %call.i196, 1
   br i1 %cmp.not.i197, label %if.else37.i142, label %if.then341.sink.split
@@ -28374,7 +28374,7 @@ if.else67.i151:                                   ; preds = %if.else57.i148
   br i1 %cmp75.not.i153, label %if.else77.i154, label %if.then341
 
 if.else77.i154:                                   ; preds = %if.else67.i151
-  %arrayidx82.i155 = getelementptr inbounds i8, ptr %chainJArr.i, i64 250
+  %arrayidx82.i155 = getelementptr inbounds nuw i8, ptr %chainJArr.i, i64 250
   %call84.i156 = call fastcc i32 @verify_cert_with_cm(ptr noundef nonnull %call297, ptr noundef %arrayidx82.i155)
   %cmp85.not.i157 = icmp eq i32 %call84.i156, 0
   br i1 %cmp85.not.i157, label %do.body324, label %if.then341
@@ -32069,7 +32069,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %if.then4, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %if.then4 ]
-  %arrayidx = getelementptr inbounds ptr, ptr %call5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %call5, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
   %call11 = call i32 @wc_ReadDirFirst(ptr noundef nonnull %dirCtx, ptr noundef %7, ptr noundef null) #25
   %cmp12 = icmp eq i32 %call11, 0
@@ -33700,9 +33700,9 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %client_args, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %server_args, i8 0, i64 40, i1 false)
   call fastcc void @InitTcpReady(ptr noundef %ready)
-  %signal = getelementptr inbounds i8, ptr %server_args, i64 24
+  %signal = getelementptr inbounds nuw i8, ptr %server_args, i64 24
   store ptr %ready, ptr %signal, align 8
-  %signal1 = getelementptr inbounds i8, ptr %client_args, i64 24
+  %signal1 = getelementptr inbounds nuw i8, ptr %client_args, i64 24
   store ptr %ready, ptr %signal1, align 8
   %call.i = call i32 @wolfSSL_NewThread(ptr noundef nonnull %serverThread, ptr noundef nonnull @test_server_nofail, ptr noundef nonnull %server_args) #25
   %cmp.not.i = icmp eq i32 %call.i, 0
@@ -33733,13 +33733,13 @@ if.then.i5:                                       ; preds = %start_thread.exit
   unreachable
 
 join_thread.exit:                                 ; preds = %start_thread.exit
-  %return_code = getelementptr inbounds i8, ptr %client_args, i64 16
+  %return_code = getelementptr inbounds nuw i8, ptr %client_args, i64 16
   %3 = load i32, ptr %return_code, align 8
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %do.end33.sink.split, label %if.then17
 
 if.then17:                                        ; preds = %join_thread.exit
-  %return_code18 = getelementptr inbounds i8, ptr %server_args, i64 16
+  %return_code18 = getelementptr inbounds nuw i8, ptr %server_args, i64 16
   %4 = load i32, ptr %return_code18, align 8
   %tobool19.not = icmp eq i32 %4, 0
   br i1 %tobool19.not, label %do.end33.sink.split, label %do.end33
@@ -33827,7 +33827,7 @@ for.body:                                         ; preds = %entry, %for.body
   %cmp = phi i1 [ true, %entry ], [ false, %for.body ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.body ]
   %failFlag.05 = phi i32 [ 1, %entry ], [ %spec.select, %for.body ]
-  %add.ptr = getelementptr inbounds i32, ptr @__const.test_wolfSSL_CTX_SetMinVersion.versions, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw i32, ptr @__const.test_wolfSSL_CTX_SetMinVersion.versions, i64 %indvars.iv
   %0 = load i32, ptr %add.ptr, align 4
   %call3 = tail call i32 @wolfSSL_SetMinVersion(ptr noundef %call2, i32 noundef %0) #25
   %cmp4.not = icmp eq i32 %call3, 1
@@ -33851,7 +33851,7 @@ for.body:                                         ; preds = %entry, %for.body
   %cmp = phi i1 [ true, %entry ], [ false, %for.body ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.body ]
   %failFlag.04 = phi i32 [ 1, %entry ], [ %spec.select, %for.body ]
-  %add.ptr = getelementptr inbounds i32, ptr @__const.test_wolfSSL_CTX_SetMinVersion.versions, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw i32, ptr @__const.test_wolfSSL_CTX_SetMinVersion.versions, i64 %indvars.iv
   %0 = load i32, ptr %add.ptr, align 4
   %call2 = tail call i32 @wolfSSL_CTX_SetMinVersion(ptr noundef %call1, i32 noundef %0) #25
   %cmp3.not = icmp eq i32 %call2, 1
@@ -34137,16 +34137,16 @@ define internal noundef i32 @test_wolfSSL_UseSNI_connection() #9 {
 entry:
   %client_cb = alloca %struct.callback_functions, align 8
   %server_cb = alloca %struct.callback_functions, align 8
-  %devId = getelementptr inbounds i8, ptr %client_cb, i64 80
-  %devId3 = getelementptr inbounds i8, ptr %server_cb, i64 80
-  %ctx_ready = getelementptr inbounds i8, ptr %client_cb, i64 8
-  %ssl_ready = getelementptr inbounds i8, ptr %client_cb, i64 16
-  %on_result = getelementptr inbounds i8, ptr %client_cb, i64 24
-  %ctx_ready4 = getelementptr inbounds i8, ptr %server_cb, i64 8
-  %ssl_ready5 = getelementptr inbounds i8, ptr %server_cb, i64 16
-  %on_result6 = getelementptr inbounds i8, ptr %server_cb, i64 24
-  %0 = getelementptr inbounds i8, ptr %client_cb, i64 32
-  %1 = getelementptr inbounds i8, ptr %server_cb, i64 8
+  %devId = getelementptr inbounds nuw i8, ptr %client_cb, i64 80
+  %devId3 = getelementptr inbounds nuw i8, ptr %server_cb, i64 80
+  %ctx_ready = getelementptr inbounds nuw i8, ptr %client_cb, i64 8
+  %ssl_ready = getelementptr inbounds nuw i8, ptr %client_cb, i64 16
+  %on_result = getelementptr inbounds nuw i8, ptr %client_cb, i64 24
+  %ctx_ready4 = getelementptr inbounds nuw i8, ptr %server_cb, i64 8
+  %ssl_ready5 = getelementptr inbounds nuw i8, ptr %server_cb, i64 16
+  %on_result6 = getelementptr inbounds nuw i8, ptr %server_cb, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %client_cb, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %server_cb, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -34154,10 +34154,10 @@ for.body:                                         ; preds = %entry, %for.body
   %i.04 = phi i64 [ 0, %entry ], [ 1, %for.body ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, i8 0, i64 88, i1 false)
-  %arrayidx = getelementptr inbounds [2 x %struct.anon.0], ptr @__const.test_wolfSSL_UseSNI_connection.methods, i64 0, i64 %i.04
+  %arrayidx = getelementptr inbounds nuw [2 x %struct.anon.0], ptr @__const.test_wolfSSL_UseSNI_connection.methods, i64 0, i64 %i.04
   %2 = load ptr, ptr %arrayidx, align 16
   store ptr %2, ptr %client_cb, align 8
-  %server_meth = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %server_meth = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %server_meth, align 8
   store ptr %3, ptr %server_cb, align 8
   store i32 -2, ptr %devId, align 8
@@ -34345,7 +34345,7 @@ do.body116:                                       ; preds = %do.end102
   br label %do.end345.thread
 
 do.end130:                                        ; preds = %do.end102
-  %arrayidx131 = getelementptr inbounds i8, ptr %buff, i64 1
+  %arrayidx131 = getelementptr inbounds nuw i8, ptr %buff, i64 1
   store i8 3, ptr %arrayidx131, align 1
   %call139 = call i32 @wolfSSL_SNI_GetFromBuffer(ptr noundef nonnull %buff, i32 noundef 105, i8 noundef zeroext 0, ptr noundef nonnull %result, ptr noundef nonnull %length) #25
   %cmp143 = icmp eq i32 %call139, -396
@@ -34362,7 +34362,7 @@ do.body145:                                       ; preds = %do.end130
   br label %do.end345.thread
 
 do.end159:                                        ; preds = %do.end130
-  %arrayidx160 = getelementptr inbounds i8, ptr %buff, i64 2
+  %arrayidx160 = getelementptr inbounds nuw i8, ptr %buff, i64 2
   store i8 3, ptr %arrayidx160, align 2
   %call168 = call i32 @wolfSSL_SNI_GetFromBuffer(ptr noundef nonnull %buff, i32 noundef 105, i8 noundef zeroext 0, ptr noundef nonnull %result, ptr noundef nonnull %length) #25
   %cmp172 = icmp eq i32 %call168, -310
@@ -34379,7 +34379,7 @@ do.body174:                                       ; preds = %do.end159
   br label %do.end345.thread
 
 do.end188:                                        ; preds = %do.end159
-  %arrayidx189 = getelementptr inbounds i8, ptr %buff, i64 4
+  %arrayidx189 = getelementptr inbounds nuw i8, ptr %buff, i64 4
   store i8 100, ptr %arrayidx189, align 4
   %call197 = call i32 @wolfSSL_SNI_GetFromBuffer(ptr noundef nonnull %buff, i32 noundef 105, i8 noundef zeroext 0, ptr noundef nonnull %result, ptr noundef nonnull %length) #25
   %cmp201 = icmp eq i32 %call197, 1
@@ -34398,7 +34398,7 @@ do.body203:                                       ; preds = %do.end188
 cond.true:                                        ; preds = %do.end188
   %32 = load i32, ptr %length, align 4
   %idxprom = zext i32 %32 to i64
-  %arrayidx220 = getelementptr inbounds [32 x i8], ptr %result, i64 0, i64 %idxprom
+  %arrayidx220 = getelementptr inbounds nuw [32 x i8], ptr %result, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx220, align 1
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @.str.2147, ptr noundef nonnull dereferenceable(15) %result, i64 15)
   %cmp233 = icmp eq i32 %bcmp, 0
@@ -34433,7 +34433,7 @@ do.body263:                                       ; preds = %do.end249
 cond.true293:                                     ; preds = %do.end249
   %41 = load i32, ptr %length, align 4
   %idxprom280 = zext i32 %41 to i64
-  %arrayidx281 = getelementptr inbounds [32 x i8], ptr %result, i64 0, i64 %idxprom280
+  %arrayidx281 = getelementptr inbounds nuw [32 x i8], ptr %result, i64 0, i64 %idxprom280
   store i8 0, ptr %arrayidx281, align 1
   %bcmp68 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) @.str.2151, ptr noundef nonnull dereferenceable(17) %result, i64 17)
   %cmp301 = icmp eq i32 %bcmp68, 0
@@ -34469,11 +34469,11 @@ do.end345.thread:                                 ; preds = %do.body235, %do.bod
   %51 = call i64 @fwrite(ptr nonnull @.str.25, i64 2, i64 1, ptr %50)
   %52 = load ptr, ptr @stdout, align 8
   %call338 = call i32 @fflush(ptr noundef %52)
-  %arrayidx34681 = getelementptr inbounds i8, ptr %buff5, i64 2
+  %arrayidx34681 = getelementptr inbounds nuw i8, ptr %buff5, i64 2
   br label %do.end374.thread
 
 if.then349:                                       ; preds = %if.then320
-  %arrayidx346 = getelementptr inbounds i8, ptr %buff5, i64 2
+  %arrayidx346 = getelementptr inbounds nuw i8, ptr %buff5, i64 2
   store i8 2, ptr %arrayidx346, align 2
   %call354 = call i32 @wolfSSL_SNI_GetFromBuffer(ptr noundef nonnull %buff5, i32 noundef 45, i8 noundef zeroext 0, ptr noundef nonnull %result, ptr noundef nonnull %length) #25
   %cmp358 = icmp eq i32 %call354, -328
@@ -34496,12 +34496,12 @@ do.body360:                                       ; preds = %if.then349
 do.end374.thread:                                 ; preds = %do.body360, %do.end345.thread
   %arrayidx34682.ph = phi ptr [ %arrayidx34681, %do.end345.thread ], [ %arrayidx346, %do.body360 ]
   store i8 1, ptr %arrayidx34682.ph, align 2
-  %arrayidx37685 = getelementptr inbounds i8, ptr %buff5, i64 6
+  %arrayidx37685 = getelementptr inbounds nuw i8, ptr %buff5, i64 6
   br label %do.end434.critedge
 
 if.then379:                                       ; preds = %if.then349
   store i8 1, ptr %arrayidx346, align 2
-  %arrayidx376 = getelementptr inbounds i8, ptr %buff5, i64 6
+  %arrayidx376 = getelementptr inbounds nuw i8, ptr %buff5, i64 6
   store i8 8, ptr %arrayidx376, align 2
   %call384 = call i32 @wolfSSL_SNI_GetFromBuffer(ptr noundef nonnull %buff5, i32 noundef 45, i8 noundef zeroext 0, ptr noundef nonnull %result, ptr noundef nonnull %length) #25
   %cmp388 = icmp eq i32 %call384, -328
@@ -34523,7 +34523,7 @@ do.body390:                                       ; preds = %if.then379
 
 do.end404:                                        ; preds = %if.then379
   store i8 9, ptr %arrayidx376, align 2
-  %arrayidx406 = getelementptr inbounds i8, ptr %buff5, i64 8
+  %arrayidx406 = getelementptr inbounds nuw i8, ptr %buff5, i64 8
   store i8 1, ptr %arrayidx406, align 8
   %call414 = call i32 @wolfSSL_SNI_GetFromBuffer(ptr noundef nonnull %buff5, i32 noundef 45, i8 noundef zeroext 0, ptr noundef nonnull %result, ptr noundef nonnull %length) #25
   %cmp418 = icmp eq i32 %call414, -328
@@ -34907,7 +34907,7 @@ do.body57:                                        ; preds = %if.then54
 
 do.end69:                                         ; preds = %if.then54
   store ptr %clientHelloDupTlsExt, ptr %msg, align 8
-  %length = getelementptr inbounds i8, ptr %msg, i64 8
+  %length = getelementptr inbounds nuw i8, ptr %msg, i64 8
   store i32 111, ptr %length, align 8
   call void @wolfSSL_SetIOReadCtx(ptr noundef nonnull %call51, ptr noundef nonnull %msg) #25
   %call73 = call i32 @wolfSSL_accept(ptr noundef nonnull %call51) #25
@@ -34930,7 +34930,7 @@ do.body79:                                        ; preds = %do.end69
 
 do.end93.critedge:                                ; preds = %do.end50, %do.body57
   store ptr %clientHelloDupTlsExt, ptr %msg, align 8
-  %length.c = getelementptr inbounds i8, ptr %msg, i64 8
+  %length.c = getelementptr inbounds nuw i8, ptr %msg, i64 8
   store i32 111, ptr %length.c, align 8
   call void @wolfSSL_SetIOReadCtx(ptr noundef %call51, ptr noundef nonnull %msg) #25
   br label %do.end93.thread
@@ -35193,9 +35193,9 @@ entry:
   %server_cbf = alloca %struct.test_ssl_cbf, align 8
   %0 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
-  %ssl_ready = getelementptr inbounds i8, ptr %client_cbf, i64 16
-  %1 = getelementptr inbounds i8, ptr %client_cbf, i64 8
-  %2 = getelementptr inbounds i8, ptr %server_cbf, i64 8
+  %ssl_ready = getelementptr inbounds nuw i8, ptr %client_cbf, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %client_cbf, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %server_cbf, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -35204,14 +35204,14 @@ for.body:                                         ; preds = %entry, %for.inc
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %1, i8 0, i64 96, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 0, i64 96, i1 false)
   %3 = load ptr, ptr @stderr, align 8
-  %arrayidx = getelementptr inbounds [2 x %struct.anon.1], ptr @__const.test_short_session_id.params, i64 0, i64 %i.010
-  %tls_version = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx = getelementptr inbounds nuw [2 x %struct.anon.1], ptr @__const.test_short_session_id.params, i64 0, i64 %i.010
+  %tls_version = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %4 = load ptr, ptr %tls_version, align 8
   %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.2167, ptr noundef %4) #24
   store ptr @test_short_session_id_ssl_ready, ptr %ssl_ready, align 8
   %5 = load ptr, ptr %arrayidx, align 8
   store ptr %5, ptr %client_cbf, align 8
-  %server_meth = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %server_meth = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %6 = load ptr, ptr %server_meth, align 8
   store ptr %6, ptr %server_cbf, align 8
   %call7 = call i32 @test_wolfSSL_client_server_nofail_memio(ptr noundef nonnull %client_cbf, ptr noundef nonnull %server_cbf, ptr noundef null)
@@ -35329,9 +35329,9 @@ define internal range(i32 0, 2) i32 @test_certreq_sighash_algos() #0 {
 if.then.i:
   %test_ctx = alloca %struct.test_memio_ctx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131104) %test_ctx, i8 0, i64 131096, i1 false)
-  %s_ciphers = getelementptr inbounds i8, ptr %test_ctx, i64 131096
+  %s_ciphers = getelementptr inbounds nuw i8, ptr %test_ctx, i64 131096
   store ptr @.str.2171, ptr %s_ciphers, align 8
-  %c_ciphers = getelementptr inbounds i8, ptr %test_ctx, i64 65544
+  %c_ciphers = getelementptr inbounds nuw i8, ptr %test_ctx, i64 65544
   store ptr @.str.2171, ptr %c_ciphers, align 8
   %call.i91 = tail call ptr @wolfTLSv1_2_client_method() #25
   %call2.i = tail call ptr @wolfSSL_CTX_new(ptr noundef %call.i91) #25
@@ -35543,7 +35543,7 @@ do.body185:                                       ; preds = %if.then176
   br label %do.end471
 
 do.end199:                                        ; preds = %if.then176
-  %c_len = getelementptr inbounds i8, ptr %test_ctx, i64 65536
+  %c_len = getelementptr inbounds nuw i8, ptr %test_ctx, i64 65536
   %53 = load i32, ptr %c_len, align 8
   %cmp200145 = icmp sgt i32 %53, 0
   br i1 %cmp200145, label %if.then204, label %if.then417
@@ -35834,7 +35834,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = trunc nuw nsw i64 %indvars.iv.next to i32
   %call1 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.886, i32 noundef %1, ptr noundef %0)
@@ -35860,7 +35860,7 @@ if.end:                                           ; preds = %entry
   store i32 0, ptr @testAll, align 4
   %sub = add nsw i32 %idx, -1
   %idxprom = zext nneg i32 %sub to i64
-  %run = getelementptr inbounds [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %idxprom, i32 2
+  %run = getelementptr inbounds nuw [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %idxprom, i32 2
   %bf.load = load i8, ptr %run, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %run, align 8
@@ -35883,7 +35883,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %name) #30
   %cmp2 = icmp eq i32 %call, 0
@@ -35891,7 +35891,7 @@ for.body:                                         ; preds = %entry, %for.cond
 
 if.then:                                          ; preds = %for.body
   store i32 0, ptr @testAll, align 4
-  %run = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %run = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %bf.load = load i8, ptr %run, align 8
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %run, align 8
@@ -35932,8 +35932,8 @@ if.then3:                                         ; preds = %if.then
   br label %if.end60
 
 if.then7.critedge:                                ; preds = %if.then, %entry
-  %tv_usec.i = getelementptr inbounds i8, ptr %tv.i, i64 8
-  %tv_usec.i33 = getelementptr inbounds i8, ptr %tv.i29, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %tv.i, i64 8
+  %tv_usec.i33 = getelementptr inbounds nuw i8, ptr %tv.i29, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %if.then7.critedge, %for.inc
@@ -35944,7 +35944,7 @@ for.body:                                         ; preds = %if.then7.critedge, 
   br i1 %tobool9.not, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %for.body
-  %run = getelementptr inbounds [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv, i32 2
+  %run = getelementptr inbounds nuw [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv, i32 2
   %bf.load = load i8, ptr %run, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool10.not = icmp eq i8 %bf.clear, 0
@@ -35956,7 +35956,7 @@ land.lhs.true.for.inc_crit_edge:                  ; preds = %land.lhs.true
 
 if.end12:                                         ; preds = %land.lhs.true, %for.body
   %3 = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx14 = getelementptr inbounds [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv
+  %arrayidx14 = getelementptr inbounds nuw [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx14, align 8
   %5 = trunc nuw nsw i64 %3 to i32
   %call15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.892, i32 noundef %5, ptr noundef %4)
@@ -35983,7 +35983,7 @@ gettime_secs.exit:                                ; preds = %if.end12
   %div.i = fdiv double %conv3.i, 1.000000e+06
   %add.i = fadd double %div.i, %conv.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
-  %func = getelementptr inbounds i8, ptr %arrayidx14, i64 8
+  %func = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 8
   %11 = load ptr, ptr %func, align 8
   %call20 = tail call i32 %11() #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i29)
@@ -36049,7 +36049,7 @@ do.end46:                                         ; preds = %if.end28, %do.body3
   %cmp47 = icmp slt i32 %call20, 1
   %24 = and i1 %cmp47, %cmp22
   %land.ext = zext i1 %24 to i32
-  %fail = getelementptr inbounds i8, ptr %arrayidx14, i64 16
+  %fail = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 16
   %bf.load51 = load i8, ptr %fail, align 8
   %bf.shl = select i1 %24, i8 2, i8 0
   %bf.clear52 = and i8 %bf.load51, -3
@@ -36084,8 +36084,8 @@ if.then67:                                        ; preds = %if.end64
 
 for.body72:                                       ; preds = %if.then67, %for.inc86
   %indvars.iv52 = phi i64 [ 0, %if.then67 ], [ %.pre57, %for.inc86 ]
-  %arrayidx74 = getelementptr inbounds [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv52
-  %fail75 = getelementptr inbounds i8, ptr %arrayidx74, i64 16
+  %arrayidx74 = getelementptr inbounds nuw [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv52
+  %fail75 = getelementptr inbounds nuw i8, ptr %arrayidx74, i64 16
   %bf.load76 = load i8, ptr %fail75, align 8
   %26 = and i8 %bf.load76, 2
   %tobool78.not = icmp eq i8 %26, 0
@@ -36143,14 +36143,14 @@ entry:
   %call = tail call i32 @wolfSSL_GetSide(ptr noundef %ssl) #25
   %cmp = icmp eq i32 %call, 0
   %len.0.v = select i1 %cmp, i64 131364, i64 65824
-  %len.0 = getelementptr inbounds i8, ptr %ctx, i64 %len.0.v
+  %len.0 = getelementptr inbounds nuw i8, ptr %ctx, i64 %len.0.v
   %0 = load i32, ptr %len.0, align 4
   %cmp2 = icmp eq i32 %0, 0
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
   %buf.0.v = select i1 %cmp, i64 65828, i64 288
-  %buf.0 = getelementptr inbounds i8, ptr %ctx, i64 %buf.0.v
+  %buf.0 = getelementptr inbounds nuw i8, ptr %ctx, i64 %buf.0.v
   %sz. = tail call i32 @llvm.smin.i32(i32 %sz, i32 %0)
   %conv = sext i32 %sz. to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %data, ptr nonnull align 1 %buf.0, i64 %conv, i1 false)
@@ -36175,7 +36175,7 @@ entry:
   %call = tail call i32 @wolfSSL_GetSide(ptr noundef %ssl) #25
   %cmp = icmp eq i32 %call, 0
   %len.0.v = select i1 %cmp, i64 65824, i64 131364
-  %len.0 = getelementptr inbounds i8, ptr %ctx, i64 %len.0.v
+  %len.0 = getelementptr inbounds nuw i8, ptr %ctx, i64 %len.0.v
   %0 = load i32, ptr %len.0, align 4
   %add = add nsw i32 %0, %sz
   %cmp2 = icmp ugt i32 %add, 65536
@@ -36183,7 +36183,7 @@ entry:
 
 if.end4:                                          ; preds = %entry
   %1 = select i1 %cmp, i64 288, i64 65828
-  %2 = getelementptr inbounds i8, ptr %ctx, i64 %1
+  %2 = getelementptr inbounds nuw i8, ptr %ctx, i64 %1
   %idx.ext = sext i32 %0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.ext
   %conv = sext i32 %sz to i64
@@ -36246,7 +36246,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len15.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %call.i.i29, align 8
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %0, i64 98
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %0, i64 98
   %1 = load i16, ptr %arrayidx2.i.i, align 2
   %2 = and i16 %1, 1024
   %tobool.not.i.i = icmp eq i16 %2, 0
@@ -36258,17 +36258,17 @@ if.then4.i.i:                                     ; preds = %if.then
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then4.i.i
-  %sin_addr.i.i = getelementptr inbounds i8, ptr %addr.i, i64 4
-  %h_addr_list.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 24
+  %sin_addr.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 4
+  %h_addr_list.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 24
   %3 = load ptr, ptr %h_addr_list.i.i, align 8
   %4 = load ptr, ptr %3, align 8
-  %h_length.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 20
+  %h_length.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 20
   %5 = load i32, ptr %h_length.i.i, align 4
   %conv10.i.i = sext i32 %5 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i.i, ptr align 1 %4, i64 %conv10.i.i, i1 false)
   store i16 2, ptr %addr.i, align 4
   %call13.c.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 0) #26
-  %sin_port.c.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
+  %sin_port.c.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 2
   store i16 %call13.c.i.i, ptr %sin_port.c.i.i, align 2
   br label %build_addr.exit.i
 
@@ -36279,10 +36279,10 @@ if.else.i.i:                                      ; preds = %if.then4.i.i
 if.end12.i.i:                                     ; preds = %if.then
   store i16 2, ptr %addr.i, align 4
   %call13.i.i = tail call zeroext i16 @htons(i16 noundef zeroext 0) #26
-  %sin_port.i.i = getelementptr inbounds i8, ptr %addr.i, i64 2
+  %sin_port.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 2
   store i16 %call13.i.i, ptr %sin_port.i.i, align 2
   %call22.i.i = tail call i32 @inet_addr(ptr noundef nonnull @.str.959) #25
-  %sin_addr23.i.i = getelementptr inbounds i8, ptr %addr.i, i64 4
+  %sin_addr23.i.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 4
   store i32 %call22.i.i, ptr %sin_addr23.i.i, align 4
   br label %build_addr.exit.i
 
@@ -36337,7 +36337,7 @@ if.then14.i:                                      ; preds = %if.end7.i
   br i1 %cmp17.i, label %if.then19.i, label %if.end22.i
 
 if.then19.i:                                      ; preds = %if.then14.i
-  %sin_port.i = getelementptr inbounds i8, ptr %addr.i, i64 2
+  %sin_port.i = getelementptr inbounds nuw i8, ptr %addr.i, i64 2
   %10 = load i16, ptr %sin_port.i, align 2
   %call20.i = call zeroext i16 @ntohs(i16 noundef zeroext %10) #26
   br label %if.end22.i
@@ -36348,13 +36348,13 @@ if.end22.i:                                       ; preds = %if.then19.i, %if.th
   br i1 %cmp23.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end22.i
-  %signal.i = getelementptr inbounds i8, ptr %args, i64 24
+  %signal.i = getelementptr inbounds nuw i8, ptr %args, i64 24
   %11 = load ptr, ptr %signal.i, align 8
   %cmp25.not.i = icmp eq ptr %11, null
   br i1 %cmp25.not.i, label %if.else.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %land.lhs.true.i
-  %cond29.i = getelementptr inbounds i8, ptr %11, i64 56
+  %cond29.i = getelementptr inbounds nuw i8, ptr %11, i64 56
   %call30.i = call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond29.i) #25
   %cmp31.not.i = icmp eq i32 %call30.i, 0
   br i1 %cmp31.not.i, label %do.end.i, label %if.then33.i
@@ -36369,7 +36369,7 @@ if.then33.i:                                      ; preds = %if.then27.i
 
 do.end.i:                                         ; preds = %if.then27.i
   store i16 1, ptr %11, align 8
-  %port38.i = getelementptr inbounds i8, ptr %11, i64 2
+  %port38.i = getelementptr inbounds nuw i8, ptr %11, i64 2
   store i16 %port.addr.0.i, ptr %port38.i, align 2
   %call42.i = call i32 @wolfSSL_CondSignal(ptr noundef nonnull %cond29.i) #25
   %cmp43.not.i = icmp eq i32 %call42.i, 0
@@ -36417,7 +36417,7 @@ if.then2:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len22.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr.i26, i8 0, i64 16, i1 false)
   %18 = load ptr, ptr %call.i.i29, align 8
-  %arrayidx2.i.i30 = getelementptr inbounds i8, ptr %18, i64 98
+  %arrayidx2.i.i30 = getelementptr inbounds nuw i8, ptr %18, i64 98
   %19 = load i16, ptr %arrayidx2.i.i30, align 2
   %20 = and i16 %19, 1024
   %tobool.not.i.i31 = icmp eq i16 %20, 0
@@ -36429,17 +36429,17 @@ if.then4.i.i32:                                   ; preds = %if.then2
   br i1 %tobool7.not.i.i34, label %if.else.i.i57, label %if.then8.i.i35
 
 if.then8.i.i35:                                   ; preds = %if.then4.i.i32
-  %sin_addr.i.i36 = getelementptr inbounds i8, ptr %addr.i26, i64 4
-  %h_addr_list.i.i37 = getelementptr inbounds i8, ptr %call6.i.i33, i64 24
+  %sin_addr.i.i36 = getelementptr inbounds nuw i8, ptr %addr.i26, i64 4
+  %h_addr_list.i.i37 = getelementptr inbounds nuw i8, ptr %call6.i.i33, i64 24
   %21 = load ptr, ptr %h_addr_list.i.i37, align 8
   %22 = load ptr, ptr %21, align 8
-  %h_length.i.i38 = getelementptr inbounds i8, ptr %call6.i.i33, i64 20
+  %h_length.i.i38 = getelementptr inbounds nuw i8, ptr %call6.i.i33, i64 20
   %23 = load i32, ptr %h_length.i.i38, align 4
   %conv10.i.i39 = sext i32 %23 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i.i36, ptr align 1 %22, i64 %conv10.i.i39, i1 false)
   store i16 2, ptr %addr.i26, align 4
   %call13.c.i.i40 = tail call zeroext i16 @htons(i16 noundef zeroext 0) #26
-  %sin_port.c.i.i41 = getelementptr inbounds i8, ptr %addr.i26, i64 2
+  %sin_port.c.i.i41 = getelementptr inbounds nuw i8, ptr %addr.i26, i64 2
   store i16 %call13.c.i.i40, ptr %sin_port.c.i.i41, align 2
   br label %build_addr.exit.i42
 
@@ -36450,10 +36450,10 @@ if.else.i.i57:                                    ; preds = %if.then4.i.i32
 if.end12.i.i58:                                   ; preds = %if.then2
   store i16 2, ptr %addr.i26, align 4
   %call13.i.i59 = tail call zeroext i16 @htons(i16 noundef zeroext 0) #26
-  %sin_port.i.i60 = getelementptr inbounds i8, ptr %addr.i26, i64 2
+  %sin_port.i.i60 = getelementptr inbounds nuw i8, ptr %addr.i26, i64 2
   store i16 %call13.i.i59, ptr %sin_port.i.i60, align 2
   %call22.i.i61 = tail call i32 @inet_addr(ptr noundef nonnull @.str.959) #25
-  %sin_addr23.i.i62 = getelementptr inbounds i8, ptr %addr.i26, i64 4
+  %sin_addr23.i.i62 = getelementptr inbounds nuw i8, ptr %addr.i26, i64 4
   store i32 %call22.i.i61, ptr %sin_addr23.i.i62, align 4
   br label %build_addr.exit.i42
 
@@ -36531,7 +36531,7 @@ if.then21.i:                                      ; preds = %if.then13.i
   br i1 %cmp24.i, label %if.then26.i, label %tcp_listen.exit
 
 if.then26.i:                                      ; preds = %if.then21.i
-  %sin_port.i53 = getelementptr inbounds i8, ptr %addr.i26, i64 2
+  %sin_port.i53 = getelementptr inbounds nuw i8, ptr %addr.i26, i64 2
   %30 = load i16, ptr %sin_port.i53, align 2
   %call27.i = call zeroext i16 @ntohs(i16 noundef zeroext %30) #26
   br label %tcp_listen.exit
@@ -36546,13 +36546,13 @@ tcp_listen.exit:                                  ; preds = %if.then21.i, %if.th
   br i1 %tobool3.not, label %if.end59, label %if.end5
 
 if.end5:                                          ; preds = %tcp_listen.exit
-  %signal = getelementptr inbounds i8, ptr %args, i64 24
+  %signal = getelementptr inbounds nuw i8, ptr %args, i64 24
   %31 = load ptr, ptr %signal, align 8
   %tobool6.not = icmp eq ptr %31, null
   br i1 %tobool6.not, label %if.end59, label %do.body
 
 do.body:                                          ; preds = %if.end5
-  %cond = getelementptr inbounds i8, ptr %31, i64 56
+  %cond = getelementptr inbounds nuw i8, ptr %31, i64 56
   %call = call i32 @wolfSSL_CondStart(ptr noundef nonnull %cond) #25
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %do.end, label %if.then8
@@ -36567,7 +36567,7 @@ if.then8:                                         ; preds = %do.body
 
 do.end:                                           ; preds = %do.body
   store i16 1, ptr %31, align 8
-  %port13 = getelementptr inbounds i8, ptr %31, i64 2
+  %port13 = getelementptr inbounds nuw i8, ptr %31, i64 2
   store i16 %port.addr.0, ptr %port13, align 2
   %call17 = call i32 @wolfSSL_CondSignal(ptr noundef nonnull %cond) #25
   %cmp18.not = icmp eq i32 %call17, 0
@@ -36685,7 +36685,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr, i8 0, i64 16, i1 false)
   %call.i = tail call ptr @__ctype_b_loc() #26
   %0 = load ptr, ptr %call.i, align 8
-  %arrayidx2.i = getelementptr inbounds i8, ptr %0, i64 98
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %0, i64 98
   %1 = load i16, ptr %arrayidx2.i, align 2
   %2 = and i16 %1, 1024
   %tobool.not.i = icmp eq i16 %2, 0
@@ -36697,17 +36697,17 @@ if.then4.i:                                       ; preds = %entry
   br i1 %tobool7.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then4.i
-  %sin_addr.i = getelementptr inbounds i8, ptr %addr, i64 4
-  %h_addr_list.i = getelementptr inbounds i8, ptr %call6.i, i64 24
+  %sin_addr.i = getelementptr inbounds nuw i8, ptr %addr, i64 4
+  %h_addr_list.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 24
   %3 = load ptr, ptr %h_addr_list.i, align 8
   %4 = load ptr, ptr %3, align 8
-  %h_length.i = getelementptr inbounds i8, ptr %call6.i, i64 20
+  %h_length.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 20
   %5 = load i32, ptr %h_length.i, align 4
   %conv10.i = sext i32 %5 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %sin_addr.i, ptr align 1 %4, i64 %conv10.i, i1 false)
   store i16 2, ptr %addr, align 4
   %call13.c.i = tail call zeroext i16 @htons(i16 noundef zeroext %port) #26
-  %sin_port.c.i = getelementptr inbounds i8, ptr %addr, i64 2
+  %sin_port.c.i = getelementptr inbounds nuw i8, ptr %addr, i64 2
   store i16 %call13.c.i, ptr %sin_port.c.i, align 2
   br label %build_addr.exit
 
@@ -36718,10 +36718,10 @@ if.else.i:                                        ; preds = %if.then4.i
 if.end12.i:                                       ; preds = %entry
   store i16 2, ptr %addr, align 4
   %call13.i = tail call zeroext i16 @htons(i16 noundef zeroext %port) #26
-  %sin_port.i = getelementptr inbounds i8, ptr %addr, i64 2
+  %sin_port.i = getelementptr inbounds nuw i8, ptr %addr, i64 2
   store i16 %call13.i, ptr %sin_port.i, align 2
   %call22.i = tail call i32 @inet_addr(ptr noundef nonnull @.str.959) #25
-  %sin_addr23.i = getelementptr inbounds i8, ptr %addr, i64 4
+  %sin_addr23.i = getelementptr inbounds nuw i8, ptr %addr, i64 4
   store i32 %call22.i, ptr %sin_addr23.i, align 4
   br label %build_addr.exit
 
@@ -36905,9 +36905,9 @@ do.body20:                                        ; preds = %entry
 
 do.end33:                                         ; preds = %entry, %do.body20
   store ptr %hash1, ptr %hash_test, align 16
-  %arrayidx35 = getelementptr inbounds i8, ptr %hash_test, i64 8
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %hash_test, i64 8
   store ptr %hash2, ptr %arrayidx35, align 8
-  %arrayidx37 = getelementptr inbounds i8, ptr %hash_test, i64 16
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %hash_test, i64 16
   store ptr %hash3, ptr %arrayidx37, align 16
   br label %do.body39
 
@@ -36917,7 +36917,7 @@ do.body39:                                        ; preds = %do.body39.backedge,
   br i1 %_ret.131, label %for.inc, label %if.then41
 
 if.then41:                                        ; preds = %do.body39
-  %arrayidx43 = getelementptr inbounds [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
+  %arrayidx43 = getelementptr inbounds nuw [3 x ptr], ptr %hash_test, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx43, align 8
   %call44 = call i32 %finalFp.0(ptr noundef nonnull %sha512, ptr noundef %7) #25, !callees !58
   %cmp49 = icmp eq i32 %call44, 0
@@ -37453,7 +37453,7 @@ if.then11:                                        ; preds = %if.end9
 
 if.then15:                                        ; preds = %if.then11
   %6 = load ptr, ptr %5, align 8
-  %length = getelementptr inbounds i8, ptr %5, i64 16
+  %length = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %length, align 8
   %call.i13 = call ptr @wolfSSL_CertManagerNew() #25
   %cmp.i14 = icmp eq ptr %call.i13, null
@@ -37554,7 +37554,7 @@ if.then11:                                        ; preds = %if.end9
 
 if.then15:                                        ; preds = %if.then11
   %6 = load ptr, ptr %5, align 8
-  %length = getelementptr inbounds i8, ptr %5, i64 16
+  %length = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %length, align 8
   %call.i15 = call ptr @wolfSSL_CertManagerNew() #25
   %cmp.i16 = icmp eq ptr %call.i15, null
@@ -37593,17 +37593,17 @@ define internal noundef i32 @myVerify(i32 noundef %preverify, ptr nocapture noun
 entry:
   %buffer = alloca [80 x i8], align 16
   %0 = load ptr, ptr @stderr, align 8
-  %error = getelementptr inbounds i8, ptr %store, i64 48
+  %error = getelementptr inbounds nuw i8, ptr %store, i64 48
   %1 = load i32, ptr %error, align 8
   %conv = sext i32 %1 to i64
   %call = call ptr @wolfSSL_ERR_error_string(i64 noundef %conv, ptr noundef nonnull %buffer) #25
   %call2 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1810, i32 noundef %1, ptr noundef %call) #24
-  %totalCerts = getelementptr inbounds i8, ptr %store, i64 60
+  %totalCerts = getelementptr inbounds nuw i8, ptr %store, i64 60
   %2 = load i32, ptr %totalCerts, align 4
   %call3 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1811, i32 noundef %2)
-  %error_depth = getelementptr inbounds i8, ptr %store, i64 52
+  %error_depth = getelementptr inbounds nuw i8, ptr %store, i64 52
   %3 = load i32, ptr %error_depth, align 4
-  %domain = getelementptr inbounds i8, ptr %store, i64 32
+  %domain = getelementptr inbounds nuw i8, ptr %store, i64 32
   %4 = load ptr, ptr %domain, align 8
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1812, i32 noundef %3, ptr noundef %4)
   %5 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @myVerifyAction)
@@ -37666,7 +37666,7 @@ load_ca_into_cm.exit:                             ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %arrayidx2 = getelementptr inbounds i8, ptr %chainIArr, i64 50
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %chainIArr, i64 50
   %call.i31 = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef %cm, ptr noundef nonnull %arrayidx2, ptr noundef null) #25
   %cmp.not.i32 = icmp eq i32 %call.i31, 1
   br i1 %cmp.not.i32, label %if.else7, label %load_ca_into_cm.exit39
@@ -37681,7 +37681,7 @@ load_ca_into_cm.exit39:                           ; preds = %if.else
   br label %return
 
 if.else7:                                         ; preds = %if.else
-  %arrayidx12 = getelementptr inbounds i8, ptr %chainIArr, i64 100
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %chainIArr, i64 100
   %call.i40 = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef %cm, ptr noundef nonnull %arrayidx12, ptr noundef null) #25
   %cmp.not.i41 = icmp eq i32 %call.i40, 1
   br i1 %cmp.not.i41, label %if.else17, label %load_ca_into_cm.exit48
@@ -37696,7 +37696,7 @@ load_ca_into_cm.exit48:                           ; preds = %if.else7
   br label %return
 
 if.else17:                                        ; preds = %if.else7
-  %arrayidx22 = getelementptr inbounds i8, ptr %chainIArr, i64 150
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %chainIArr, i64 150
   %call.i49 = call i32 @wolfSSL_CertManagerLoadCA(ptr noundef %cm, ptr noundef nonnull %arrayidx22, ptr noundef null) #25
   %cmp.not.i50 = icmp eq i32 %call.i49, 1
   br i1 %cmp.not.i50, label %if.else27, label %load_ca_into_cm.exit57
@@ -37726,7 +37726,7 @@ if.else47:                                        ; preds = %if.else37
   br i1 %cmp55.not, label %if.else57, label %return
 
 if.else57:                                        ; preds = %if.else47
-  %arrayidx62 = getelementptr inbounds i8, ptr %chainIArr, i64 200
+  %arrayidx62 = getelementptr inbounds nuw i8, ptr %chainIArr, i64 200
   %call64 = call fastcc i32 @verify_cert_with_cm(ptr noundef %cm, ptr noundef %arrayidx62)
   %cmp65.not = icmp eq i32 %call64, 0
   %. = select i1 %cmp65.not, i32 0, i32 -8
@@ -38027,10 +38027,10 @@ entry:
   %server_args = alloca %struct.func_args, align 8
   %serverThread = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %server_args, i8 0, i64 24, i1 false)
-  %callbacks1 = getelementptr inbounds i8, ptr %server_args, i64 32
+  %callbacks1 = getelementptr inbounds nuw i8, ptr %server_args, i64 32
   store ptr %server_callbacks, ptr %callbacks1, align 8
   call fastcc void @InitTcpReady(ptr noundef %ready)
-  %signal = getelementptr inbounds i8, ptr %server_args, i64 24
+  %signal = getelementptr inbounds nuw i8, ptr %server_args, i64 24
   store ptr %ready, ptr %signal, align 8
   %call.i = call i32 @wolfSSL_NewThread(ptr noundef nonnull %serverThread, ptr noundef nonnull @run_wolfssl_server, ptr noundef nonnull %server_args) #25
   %cmp.not.i = icmp eq i32 %call.i, 0
@@ -38054,7 +38054,7 @@ start_thread.exit:                                ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(22) %msg.i, ptr noundef nonnull align 16 dereferenceable(22) @__const.run_wolfssl_client.msg, i64 22, i1 false)
   %call.i3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg.i) #30
   %conv.i = trunc i64 %call.i3 to i32
-  %caPemFile.i = getelementptr inbounds i8, ptr %client_callbacks, i64 48
+  %caPemFile.i = getelementptr inbounds nuw i8, ptr %client_callbacks, i64 48
   %1 = load ptr, ptr %caPemFile.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.then.i4, label %if.end.i
@@ -38064,7 +38064,7 @@ if.then.i4:                                       ; preds = %start_thread.exit
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i4, %start_thread.exit
-  %certPemFile.i = getelementptr inbounds i8, ptr %client_callbacks, i64 56
+  %certPemFile.i = getelementptr inbounds nuw i8, ptr %client_callbacks, i64 56
   %2 = load ptr, ptr %certPemFile.i, align 8
   %cmp4.i = icmp eq ptr %2, null
   br i1 %cmp4.i, label %if.then6.i, label %if.end8.i
@@ -38074,7 +38074,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then6.i, %if.end.i
-  %keyPemFile.i = getelementptr inbounds i8, ptr %client_callbacks, i64 64
+  %keyPemFile.i = getelementptr inbounds nuw i8, ptr %client_callbacks, i64 64
   %3 = load ptr, ptr %keyPemFile.i, align 8
   %cmp9.i = icmp eq ptr %3, null
   br i1 %cmp9.i, label %if.then11.i, label %if.end13.i
@@ -38096,14 +38096,14 @@ if.then18.i:                                      ; preds = %if.end13.i
   br label %run_wolfssl_client.exit
 
 if.end20.i:                                       ; preds = %if.end13.i
-  %loadToSSL.i = getelementptr inbounds i8, ptr %client_callbacks, i64 92
+  %loadToSSL.i = getelementptr inbounds nuw i8, ptr %client_callbacks, i64 92
   %bf.load.i = load i8, ptr %loadToSSL.i, align 4
   %7 = and i8 %bf.load.i, 2
   %tobool.not.i = icmp eq i8 %7, 0
   br i1 %tobool.not.i, label %if.then21.i, label %if.end23.i
 
 if.then21.i:                                      ; preds = %if.end20.i
-  %devId.i = getelementptr inbounds i8, ptr %client_callbacks, i64 80
+  %devId.i = getelementptr inbounds nuw i8, ptr %client_callbacks, i64 80
   %8 = load i32, ptr %devId.i, align 8
   %call22.i = call i32 @wolfSSL_CTX_SetDevId(ptr noundef nonnull %call15.i, i32 noundef %8) #25
   br label %if.end23.i
@@ -38133,7 +38133,7 @@ if.end41.i:                                       ; preds = %if.then35.i
   br i1 %cmp44.not.i, label %if.end48.i, label %run_wolfssl_client.exit
 
 if.end48.i:                                       ; preds = %if.end41.i, %if.end29.i
-  %ctx_ready.i = getelementptr inbounds i8, ptr %client_callbacks, i64 8
+  %ctx_ready.i = getelementptr inbounds nuw i8, ptr %client_callbacks, i64 8
   %13 = load ptr, ptr %ctx_ready.i, align 8
   %tobool49.not.i = icmp eq ptr %13, null
   br i1 %tobool49.not.i, label %if.end52.i, label %if.then50.i
@@ -38146,7 +38146,7 @@ if.end52.i:                                       ; preds = %if.then50.i, %if.en
   %call53.i = call ptr @wolfSSL_new(ptr noundef nonnull %call15.i) #25
   %call54.i = call i32 @wolfSSL_dtls(ptr noundef %call53.i) #25
   %tobool55.not.i = icmp ne i32 %call54.i, 0
-  %port58.i = getelementptr inbounds i8, ptr %ready, i64 2
+  %port58.i = getelementptr inbounds nuw i8, ptr %ready, i64 2
   %14 = load i16, ptr %port58.i, align 2
   %..i = zext i1 %tobool55.not.i to i32
   call fastcc void @tcp_connect(ptr noundef %sfd.i, i16 noundef zeroext %14, i32 noundef %..i, ptr noundef %call53.i)
@@ -38162,7 +38162,7 @@ if.end64.i:                                       ; preds = %if.end52.i
   br i1 %tobool69.not.i, label %if.end85.i, label %if.then70.i
 
 if.then70.i:                                      ; preds = %if.end64.i
-  %devId71.i = getelementptr inbounds i8, ptr %client_callbacks, i64 80
+  %devId71.i = getelementptr inbounds nuw i8, ptr %client_callbacks, i64 80
   %17 = load i32, ptr %devId71.i, align 8
   %call72.i = call i32 @wolfSSL_SetDevId(ptr noundef %call53.i, i32 noundef %17) #25
   %18 = load ptr, ptr %certPemFile.i, align 8
@@ -38177,7 +38177,7 @@ if.end78.i:                                       ; preds = %if.then70.i
   br i1 %cmp81.not.i, label %if.end85.i, label %run_wolfssl_client.exit
 
 if.end85.i:                                       ; preds = %if.end78.i, %if.end64.i
-  %ssl_ready.i = getelementptr inbounds i8, ptr %client_callbacks, i64 16
+  %ssl_ready.i = getelementptr inbounds nuw i8, ptr %client_callbacks, i64 16
   %20 = load ptr, ptr %ssl_ready.i, align 8
   %tobool86.not.i = icmp eq ptr %20, null
   br i1 %tobool86.not.i, label %do.body.i.preheader, label %if.then87.i
@@ -38228,7 +38228,7 @@ do.end121.i:                                      ; preds = %do.body114.i
 
 if.then124.i:                                     ; preds = %do.end121.i
   %idxprom.i = zext nneg i32 %call116.i to i64
-  %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %input.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [1024 x i8], ptr %input.i, i64 0, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i, align 1
   %22 = load ptr, ptr @stderr, align 8
   %call126.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.945, ptr noundef nonnull %input.i) #24
@@ -38236,7 +38236,7 @@ if.then124.i:                                     ; preds = %do.end121.i
 
 if.end129.i:                                      ; preds = %do.end121.i, %if.then124.i, %if.then96.i
   %client_args.sroa.1.0 = phi i32 [ 0, %if.then96.i ], [ 1, %if.then124.i ], [ 1, %do.end121.i ]
-  %on_result.i = getelementptr inbounds i8, ptr %client_callbacks, i64 24
+  %on_result.i = getelementptr inbounds nuw i8, ptr %client_callbacks, i64 24
   %23 = load ptr, ptr %on_result.i, align 8
   %tobool130.not.i = icmp eq ptr %23, null
   br i1 %tobool130.not.i, label %run_wolfssl_client.exit, label %if.then131.i
@@ -38271,11 +38271,11 @@ if.then.i7:                                       ; preds = %run_wolfssl_client.
 
 join_thread.exit:                                 ; preds = %run_wolfssl_client.exit
   call fastcc void @FreeTcpReady(ptr noundef %ready)
-  %return_code3 = getelementptr inbounds i8, ptr %client_callbacks, i64 84
+  %return_code3 = getelementptr inbounds nuw i8, ptr %client_callbacks, i64 84
   store i32 %client_args.sroa.1.1, ptr %return_code3, align 4
-  %return_code4 = getelementptr inbounds i8, ptr %server_args, i64 16
+  %return_code4 = getelementptr inbounds nuw i8, ptr %server_args, i64 16
   %27 = load i32, ptr %return_code4, align 8
-  %return_code5 = getelementptr inbounds i8, ptr %server_callbacks, i64 84
+  %return_code5 = getelementptr inbounds nuw i8, ptr %server_callbacks, i64 84
   store i32 %27, ptr %return_code5, align 4
   ret void
 }
@@ -38627,14 +38627,14 @@ entry:
   %cliAddr = alloca %struct.sockaddr_in, align 4
   %cliLen = alloca i32, align 4
   %buff = alloca [80 x i8], align 16
-  %callbacks1 = getelementptr inbounds i8, ptr %args, i64 32
+  %callbacks1 = getelementptr inbounds nuw i8, ptr %args, i64 32
   %0 = load ptr, ptr %callbacks1, align 8
   store i32 0, ptr %sfd, align 4
   store i32 0, ptr %cfd, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(23) %msg, ptr noundef nonnull align 16 dereferenceable(23) @__const.run_wolfssl_server.msg, i64 23, i1 false)
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #30
   %conv = trunc i64 %call to i32
-  %return_code = getelementptr inbounds i8, ptr %args, i64 16
+  %return_code = getelementptr inbounds nuw i8, ptr %args, i64 16
   store i32 0, ptr %return_code, align 8
   call fastcc void @tcp_accept(ptr noundef %sfd, ptr noundef %cfd, ptr noundef %args, i32 noundef 0)
   %1 = load ptr, ptr %0, align 8
@@ -38649,7 +38649,7 @@ if.then:                                          ; preds = %entry
   br label %cleanup
 
 if.end:                                           ; preds = %entry
-  %caPemFile = getelementptr inbounds i8, ptr %0, i64 48
+  %caPemFile = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %caPemFile, align 8
   %cmp6 = icmp eq ptr %4, null
   br i1 %cmp6, label %if.then8, label %if.end10
@@ -38659,7 +38659,7 @@ if.then8:                                         ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then8, %if.end
-  %certPemFile = getelementptr inbounds i8, ptr %0, i64 56
+  %certPemFile = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %certPemFile, align 8
   %cmp11 = icmp eq ptr %5, null
   br i1 %cmp11, label %if.then13, label %if.end15
@@ -38669,7 +38669,7 @@ if.then13:                                        ; preds = %if.end10
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %if.end10
-  %keyPemFile = getelementptr inbounds i8, ptr %0, i64 64
+  %keyPemFile = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %keyPemFile, align 8
   %cmp16 = icmp eq ptr %6, null
   br i1 %cmp16, label %if.then18, label %if.end20
@@ -38679,7 +38679,7 @@ if.then18:                                        ; preds = %if.end15
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %if.end15
-  %devId = getelementptr inbounds i8, ptr %0, i64 80
+  %devId = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i32, ptr %devId, align 8
   %call21 = tail call i32 @wolfSSL_CTX_SetDevId(ptr noundef nonnull %call3, i32 noundef %7) #25
   tail call void @wolfSSL_CTX_set_verify(ptr noundef nonnull %call3, i32 noundef 3, ptr noundef null) #25
@@ -38701,7 +38701,7 @@ if.end33:                                         ; preds = %if.end27
   br i1 %cmp36.not, label %if.end39, label %cleanup
 
 if.end39:                                         ; preds = %if.end33
-  %ctx_ready = getelementptr inbounds i8, ptr %0, i64 8
+  %ctx_ready = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %ctx_ready, align 8
   %tobool.not = icmp eq ptr %11, null
   br i1 %tobool.not, label %if.end42, label %if.then40
@@ -38750,7 +38750,7 @@ if.end61:                                         ; preds = %if.else, %if.end58
   br i1 %cmp63.not, label %if.end66, label %cleanup
 
 if.end66:                                         ; preds = %if.end61
-  %loadToSSL = getelementptr inbounds i8, ptr %0, i64 92
+  %loadToSSL = getelementptr inbounds nuw i8, ptr %0, i64 92
   %bf.load = load i8, ptr %loadToSSL, align 4
   %18 = and i8 %bf.load, 2
   %tobool67.not = icmp eq i8 %18, 0
@@ -38772,7 +38772,7 @@ if.end76:                                         ; preds = %if.then68
 
 if.end83:                                         ; preds = %if.end76, %if.end66
   %call84 = call i32 @wolfSSL_SetTmpDH_file(ptr noundef nonnull %call43, ptr noundef nonnull @.str.930, i32 noundef 1) #25
-  %ssl_ready = getelementptr inbounds i8, ptr %0, i64 16
+  %ssl_ready = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %ssl_ready, align 8
   %tobool85.not = icmp eq ptr %22, null
   br i1 %tobool85.not, label %do.body.preheader, label %if.then86
@@ -38813,7 +38813,7 @@ do.end108:                                        ; preds = %do.body101
 
 if.then111:                                       ; preds = %do.end108
   %idxprom = zext nneg i32 %call103 to i64
-  %arrayidx = getelementptr inbounds [1024 x i8], ptr %input, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [1024 x i8], ptr %input, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %24 = load ptr, ptr @stderr, align 8
   %call113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.940, ptr noundef nonnull %input) #24
@@ -38837,7 +38837,7 @@ if.end126:                                        ; preds = %do.end122
   br label %if.end128
 
 if.end128:                                        ; preds = %if.end126, %if.then95
-  %on_result = getelementptr inbounds i8, ptr %0, i64 24
+  %on_result = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %on_result, align 8
   %tobool129.not = icmp eq ptr %25, null
   br i1 %tobool129.not, label %if.end132, label %if.then130
@@ -38880,7 +38880,7 @@ declare i32 @wolfSSL_DisableExtendedMasterSecret(ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal i32 @BufferInfoRecv(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %buf, i32 noundef %sz, ptr nocapture noundef %ctx) #19 {
 entry:
-  %length = getelementptr inbounds i8, ptr %ctx, i64 8
+  %length = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load i32, ptr %length, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %sz)
   %1 = load ptr, ptr %ctx, align 8
@@ -38904,21 +38904,21 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_short_session_id_ssl_ready(ptr noundef %ssl) #0 {
 entry:
-  %session = getelementptr inbounds i8, ptr %ssl, i64 608
+  %session = getelementptr inbounds nuw i8, ptr %ssl, i64 608
   %0 = load ptr, ptr %session, align 16
-  %timeout = getelementptr inbounds i8, ptr %0, i64 112
+  %timeout = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 -1, ptr %timeout, align 8
   %1 = load ptr, ptr %session, align 16
-  %side = getelementptr inbounds i8, ptr %1, i64 104
+  %side = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i8 1, ptr %side, align 8
   %2 = load ptr, ptr %session, align 16
-  %sessionIDSz = getelementptr inbounds i8, ptr %2, i64 148
+  %sessionIDSz = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i8 4, ptr %sessionIDSz, align 4
   %3 = load ptr, ptr %session, align 16
-  %idLen = getelementptr inbounds i8, ptr %3, i64 202
+  %idLen = getelementptr inbounds nuw i8, ptr %3, i64 202
   store i16 4, ptr %idLen, align 2
   %4 = load ptr, ptr %session, align 16
-  %isSetup = getelementptr inbounds i8, ptr %4, i64 226
+  %isSetup = getelementptr inbounds nuw i8, ptr %4, i64 226
   %bf.load = load i8, ptr %isSetup, align 2
   %bf.set = or i8 %bf.load, 1
   store i8 %bf.set, ptr %isSetup, align 2

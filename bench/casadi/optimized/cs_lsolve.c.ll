@@ -9,7 +9,7 @@ define range(i32 0, 2) i32 @cs_lsolve(ptr noundef readonly %0, ptr noundef %1) l
   br i1 %.not, label %.loopexit33, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   %7 = icmp ne ptr %1, null
@@ -17,13 +17,13 @@ define range(i32 0, 2) i32 @cs_lsolve(ptr noundef readonly %0, ptr noundef %1) l
   br i1 %or.cond, label %8, label %.loopexit33
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = icmp sgt i32 %10, 0
   br i1 %17, label %.lr.ph37.preheader, label %.loopexit33
@@ -41,17 +41,17 @@ define range(i32 0, 2) i32 @cs_lsolve(ptr noundef readonly %0, ptr noundef %1) l
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.loopexit
   %19 = phi i32 [ %.pre, %.lr.ph37.preheader ], [ %18, %.loopexit ]
   %indvars.iv39 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next40, %.loopexit ]
-  %20 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv39
+  %20 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv39
   %21 = sext i32 %19 to i64
   %22 = getelementptr inbounds double, ptr %16, i64 %21
   %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds double, ptr %1, i64 %indvars.iv39
+  %24 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv39
   %25 = load double, ptr %24, align 8
   %26 = fdiv double %25, %23
   store double %26, ptr %24, align 8
   %27 = load i32, ptr %20, align 4
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %28 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.next40
+  %28 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next40
   %.02934 = add nsw i32 %27, 1
   %29 = load i32, ptr %28, align 4
   %30 = icmp slt i32 %.02934, %29

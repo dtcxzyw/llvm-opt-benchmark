@@ -84,8 +84,8 @@ _ZN4cvc58internal8RationalC2ERKNS0_7IntegerE.exit: ; preds = %entry
 define hidden void @_ZN4cvc58internal19RealAlgebraicNumberC2ERKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %r)
-  %_mp_den.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_mp_den10.i.i = getelementptr inbounds i8, ptr %r, i64 16
+  %_mp_den.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_mp_den10.i.i = getelementptr inbounds nuw i8, ptr %r, i64 16
   tail call void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
   invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %_ZN4cvc58internal8RationalC2ERKS1_.exit unwind label %lpad.i
@@ -115,7 +115,7 @@ define hidden void @_ZN4cvc58internal19RealAlgebraicNumberC2ERKSt6vectorIlSaIlEE
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
   tail call void @__gmpq_init(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %_mp_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %_mp_size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %_mp_size.i.i.i.i.i.i, align 4
   invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %_ZN4cvc58internal8RationalC2Ev.exit unwind label %lpad.i
@@ -193,7 +193,7 @@ define hidden void @_ZN4cvc58internal19RealAlgebraicNumberC2ERKSt6vectorINS0_7In
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
   tail call void @__gmpq_init(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %_mp_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %_mp_size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %_mp_size.i.i.i.i.i.i, align 4
   invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %_ZN4cvc58internal8RationalC2Ev.exit unwind label %lpad.i
@@ -260,7 +260,7 @@ define hidden void @_ZN4cvc58internal19RealAlgebraicNumberC2ERKSt6vectorINS0_8Ra
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::FatalStream", align 1
   tail call void @__gmpq_init(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %_mp_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %_mp_size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %_mp_size.i.i.i.i.i.i, align 4
   invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %_ZN4cvc58internal8RationalC2Ev.exit unwind label %lpad.i
@@ -332,8 +332,8 @@ entry:
 define hidden void @_ZNK4cvc58internal19RealAlgebraicNumber10toRationalEv(ptr noalias sret(%"class.cvc5::internal::Rational") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_mp_den.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
   invoke void @__gmpq_canonicalize(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %_ZN4cvc58internal8RationalC2ERKS1_.exit unwind label %lpad.i
@@ -363,7 +363,7 @@ define hidden void @_ZNK4cvc58internal19RealAlgebraicNumber8toStringB5cxx11Ev(pt
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont2 unwind label %lpad
 
@@ -448,8 +448,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_mp_den.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i)
           to label %.noexc1 unwind label %lpad
 
@@ -515,8 +515,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_mp_den.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -560,8 +560,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_mp_den.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i)
           to label %.noexc1 unwind label %lpad
 
@@ -627,8 +627,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_mp_den.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -672,8 +672,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_mp_den.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i)
           to label %.noexc1 unwind label %lpad
 
@@ -739,8 +739,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_mp_den.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -784,8 +784,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_mp_den.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i)
           to label %.noexc1 unwind label %lpad
 
@@ -851,8 +851,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_mp_den.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -896,8 +896,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_mp_den.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i)
           to label %.noexc1 unwind label %lpad
 
@@ -963,8 +963,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_mp_den.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i, ptr noundef nonnull %_mp_den10.i.i)
           to label %invoke.cont unwind label %lpad
 
@@ -1131,7 +1131,7 @@ _ZN4cvc58internal8RationalD2Ev.exit2:             ; preds = %lpad
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 -1, 2) i32 @_ZNK4cvc58internal19RealAlgebraicNumber3sgnEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %_mp_size.i = getelementptr inbounds i8, ptr %this, i64 4
+  %_mp_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %_mp_size.i, align 4
   %cmp6.i = icmp ne i32 %0, 0
   %conv.i = zext i1 %cmp6.i to i32
@@ -1143,7 +1143,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal19RealAlgebraicNumber6isZeroEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %_mp_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %_mp_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %_mp_size.i.i, align 4
   %cmp6.i.not.i = icmp eq i32 %0, 0
   ret i1 %cmp6.i.not.i
@@ -1152,7 +1152,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal19RealAlgebraicNumber5isOneEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_mp_den.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call4.i = tail call i32 @__gmpz_cmp(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %_mp_den.i) #14
   %cmp.i = icmp eq i32 %call4.i, 0
   ret i1 %cmp.i
@@ -1167,8 +1167,8 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_mp_den10.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_mp_den.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  %_mp_den10.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i.i, ptr noundef nonnull %_mp_den10.i.i.i)
           to label %.noexc1 unwind label %lpad
 
@@ -1229,7 +1229,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal8Rational7inverseEv(ptr noali
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp2 = alloca %"class.cvc5::internal::Integer", align 8
-  %_mp_den.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_mp_den.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %_mp_den.i.i)
   invoke void @__gmpz_init_set(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont unwind label %lpad
@@ -1239,7 +1239,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
-  %_mp_den.i.i2 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_mp_den.i.i2 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i.i2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %.noexc3 unwind label %lpad3
 
@@ -1347,7 +1347,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i: ; preds = %for.body.i.i, %entry
   %hash.0.lcssa.i.i = phi i64 [ 0, %entry ], [ %xor.i.i, %for.body.i.i ]
-  %_mp_den.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_mp_den.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call.i1.i = tail call i64 @__gmpz_size(ptr noundef nonnull %_mp_den.i.i) #14
   %conv.i2.i = trunc i64 %call.i1.i to i32
   %cmp6.i3.i = icmp sgt i32 %conv.i2.i, 0
@@ -1380,7 +1380,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i), !noalias !6
-  %add.ptr.i = getelementptr inbounds i8, ptr %ss.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %ss.i, i64 16
   %call3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_8RationalE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(32) %ran)
           to label %invoke.cont2.i unwind label %lpad.i, !noalias !6
 
@@ -1444,7 +1444,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 _ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i: ; preds = %for.body.i.i.i, %entry
   %hash.0.lcssa.i.i.i = phi i64 [ 0, %entry ], [ %xor.i.i.i, %for.body.i.i.i ]
-  %_mp_den.i.i.i = getelementptr inbounds i8, ptr %ran, i64 16
+  %_mp_den.i.i.i = getelementptr inbounds nuw i8, ptr %ran, i64 16
   %call.i1.i.i = tail call i64 @__gmpz_size(ptr noundef nonnull %_mp_den.i.i.i) #14
   %conv.i2.i.i = trunc i64 %call.i1.i.i to i32
   %cmp6.i3.i.i = icmp sgt i32 %conv.i2.i.i, 0

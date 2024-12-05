@@ -27,7 +27,7 @@ if.else:                                          ; preds = %entry
   br i1 %2, label %switch.lookup, label %if.end
 
 switch.lookup:                                    ; preds = %if.else
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_14ordinal_holderE, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN8QuantLib6detaillsERSoRKNS0_14ordinal_holderE, i64 0, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %if.end
 

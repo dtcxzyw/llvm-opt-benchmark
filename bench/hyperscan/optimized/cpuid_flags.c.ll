@@ -98,8 +98,8 @@ do.end:                                           ; preds = %if.else, %if.then
 
 for.body.us:                                      ; preds = %do.end, %for.inc.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.us ], [ 0, %do.end ]
-  %arrayidx.us = getelementptr inbounds [29 x %struct.family_id], ptr @known_microarch, i64 0, i64 %indvars.iv
-  %full_model.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 4
+  %arrayidx.us = getelementptr inbounds nuw [29 x %struct.family_id], ptr @known_microarch, i64 0, i64 %indvars.iv
+  %full_model.us = getelementptr inbounds nuw i8, ptr %arrayidx.us, i64 4
   %1 = load i32, ptr %full_model.us, align 4
   %cmp16.not.us = icmp eq i32 %model.0, %1
   br i1 %cmp16.not.us, label %if.end19, label %for.inc.us
@@ -110,7 +110,7 @@ for.inc.us:                                       ; preds = %for.body.us
   br i1 %exitcond.not, label %return, label %for.body.us, !llvm.loop !7
 
 if.end19:                                         ; preds = %for.body.us
-  %tune22 = getelementptr inbounds i8, ptr %arrayidx.us, i64 8
+  %tune22 = getelementptr inbounds nuw i8, ptr %arrayidx.us, i64 8
   %2 = load i32, ptr %tune22, align 4
   br label %return
 

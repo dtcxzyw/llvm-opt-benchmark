@@ -47,16 +47,16 @@ $_ZN11DebugDrawGLD0Ev = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN12BuildContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16472) initializes((0, 10), (240, 8468), (16468, 16472)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN9rcContext11resetTimersEv.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 9
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 1, ptr %2, align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTV12BuildContext, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16468
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16468
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 464
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8004) %4, i8 0, i64 8004, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 240
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %5, i8 -1, i64 224, i1 false)
   ret void
 }
@@ -68,9 +68,9 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN12BuildContext10doResetLogEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16472) initializes((8464, 8468), (16468, 16472)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8464
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8464
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16468
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16468
   store i32 0, ptr %3, align 4
   ret void
 }
@@ -81,22 +81,22 @@ define dso_local void @_ZN12BuildContext5doLogE13rcLogCategoryPKci(ptr noundef n
   br i1 %.not, label %33, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8464
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8464
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 999
   br i1 %8, label %33, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16468
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16468
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 7998
   br i1 %12, label %33, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 8468
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8468
   %15 = sext i32 %11 to i64
   %16 = getelementptr inbounds [8000 x i8], ptr %14, i64 0, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %18 = sub i32 7999, %11
   %19 = trunc i32 %1 to i8
   store i8 %19, ptr %16, align 1
@@ -111,7 +111,7 @@ define dso_local void @_ZN12BuildContext5doLogE13rcLogCategoryPKci(ptr noundef n
   %26 = load i32, ptr %10, align 4
   %27 = add nsw i32 %25, %26
   store i32 %27, ptr %10, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 464
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %29 = load i32, ptr %6, align 8
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %6, align 8
@@ -129,7 +129,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN12BuildContext13doResetTimersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16472) initializes((240, 464)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %2, i8 -1, i64 224, i1 false)
   ret void
 }
@@ -137,9 +137,9 @@ define dso_local void @_ZN12BuildContext13doResetTimersEv(ptr nocapture noundef 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12BuildContext12doStartTimerE12rcTimerLabel(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16472) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = tail call noundef i64 @_Z11getPerfTimev()
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds [28 x i64], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [28 x i64], ptr %4, i64 0, i64 %5
   store i64 %3, ptr %6, align 8
   ret void
 }
@@ -149,13 +149,13 @@ declare noundef i64 @_Z11getPerfTimev() local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12BuildContext11doStopTimerE12rcTimerLabel(ptr nocapture noundef nonnull align 8 dereferenceable(16472) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = tail call noundef i64 @_Z11getPerfTimev()
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds [28 x i64], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [28 x i64], ptr %4, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %3, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 240
-  %10 = getelementptr inbounds [28 x i64], ptr %9, i64 0, i64 %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %10 = getelementptr inbounds nuw [28 x i64], ptr %9, i64 0, i64 %5
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, -1
   %13 = select i1 %12, i64 0, i64 %11
@@ -166,9 +166,9 @@ define dso_local void @_ZN12BuildContext11doStopTimerE12rcTimerLabel(ptr nocaptu
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK12BuildContext20doGetAccumulatedTimeE12rcTimerLabel(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16472) %0, i32 noundef %1) unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds [28 x i64], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [28 x i64], ptr %3, i64 0, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = tail call noundef i32 @_Z15getPerfTimeUsecl(i64 noundef %6)
   ret i32 %7
@@ -183,25 +183,25 @@ define dso_local void @_ZN12BuildContext7dumpLogEPKcz(ptr nocapture noundef nonn
   %4 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #18
   call void @llvm.va_end.p0(ptr nonnull %3)
   %putchar = call i32 @putchar(i32 10)
-  %5 = getelementptr inbounds i8, ptr %0, i64 8464
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8464
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph32, label %._crit_edge
 
 .lr.ph32:                                         ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 464
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 464
   br label %9
 
 9:                                                ; preds = %.lr.ph32, %28
   %indvars.iv36 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next37, %28 ]
-  %10 = getelementptr inbounds [1000 x ptr], ptr %8, i64 0, i64 %indvars.iv36
+  %10 = getelementptr inbounds nuw [1000 x ptr], ptr %8, i64 0, i64 %indvars.iv36
   %11 = load ptr, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %.loopexit, %9
   %.pn = phi ptr [ %11, %9 ], [ %.020, %.loopexit ]
   %.018 = phi i32 [ 0, %9 ], [ %.2, %.loopexit ]
-  %.020 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %.020 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %13 = load i8, ptr %.020, align 1
   switch i8 %13, label %23 [
     i8 0, label %28
@@ -215,7 +215,7 @@ define dso_local void @_ZN12BuildContext7dumpLogEPKcz(ptr nocapture noundef nonn
 
 .preheader:                                       ; preds = %12, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %12 ]
-  %15 = getelementptr inbounds [4 x i32], ptr @__const._ZN12BuildContext7dumpLogEPKcz.TAB_STOPS, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN12BuildContext7dumpLogEPKcz.TAB_STOPS, i64 0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp slt i32 %.018, %16
   br i1 %17, label %.loopexit27, label %14
@@ -267,18 +267,18 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK12BuildContext11getLogCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16472) %0) local_unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8464
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8464
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef nonnull ptr @_ZNK12BuildContext10getLogTextEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16472) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 464
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [1000 x ptr], ptr %3, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   ret ptr %7
 }
 
@@ -361,7 +361,7 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTexture4bindEv(ptr noundef non
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.preheader.split.us ], [ 0, %.preheader ]
-  %10 = getelementptr inbounds [4096 x i32], ptr %2, i64 0, i64 %indvars.iv31
+  %10 = getelementptr inbounds nuw [4096 x i32], ptr %2, i64 0, i64 %indvars.iv31
   store i32 -2631721, ptr %10, align 4
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %7
@@ -372,7 +372,7 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTexture4bindEv(ptr noundef non
   %11 = icmp eq i64 %indvars.iv, 0
   %spec.select = select i1 %11, i32 -2631721, i32 -1
   %12 = add nuw nsw i64 %indvars.iv, %9
-  %13 = getelementptr inbounds [4096 x i32], ptr %2, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [4096 x i32], ptr %2, i64 0, i64 %12
   store i32 %spec.select, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
@@ -501,9 +501,9 @@ declare void @glEnd() local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN6FileIOC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV6FileIO, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %3, align 8
   ret void
 }
@@ -511,7 +511,7 @@ define dso_local void @_ZN6FileIOC2Ev(ptr nocapture noundef nonnull writeonly al
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6FileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV6FileIO, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -546,7 +546,7 @@ declare void @_ZN8duFileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) u
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6FileIOD0Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV6FileIO, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN6FileIOD2Ev.exit, label %4
@@ -566,7 +566,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN6FileIO12openForWriteEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %9
@@ -578,7 +578,7 @@ define dso_local noundef zeroext i1 @_ZN6FileIO12openForWriteEPKc(ptr nocapture 
   br i1 %.not3, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %8, align 8
   br label %9
 
@@ -592,7 +592,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN6FileIO11openForReadEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %9
@@ -604,7 +604,7 @@ define dso_local noundef zeroext i1 @_ZN6FileIO11openForReadEPKc(ptr nocapture n
   br i1 %.not3, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 2, ptr %8, align 8
   br label %9
 
@@ -615,7 +615,7 @@ define dso_local noundef zeroext i1 @_ZN6FileIO11openForReadEPKc(ptr nocapture n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK6FileIO9isWritingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
   ret i1 %4
@@ -623,7 +623,7 @@ define dso_local noundef zeroext i1 @_ZNK6FileIO9isWritingEv(ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK6FileIO9isReadingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
   ret i1 %4
@@ -631,10 +631,10 @@ define dso_local noundef zeroext i1 @_ZNK6FileIO9isReadingEv(ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN6FileIO5writeEPKvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #6 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp ne ptr %5, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not4 = icmp eq i32 %7, 1
   %or.cond = select i1 %.not, i1 %.not4, i1 false
@@ -653,10 +653,10 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN6FileIO4readEPvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #6 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp ne ptr %5, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not5 = icmp eq i32 %7, 2
   %or.cond = select i1 %.not, i1 %.not5, i1 false

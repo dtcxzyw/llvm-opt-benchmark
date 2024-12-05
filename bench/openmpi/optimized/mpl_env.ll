@@ -41,7 +41,7 @@ define range(i32 -1, 1) i32 @MPL_env2range(ptr noundef %0, ptr nocapture noundef
   br i1 %.not37, label %.lr.ph64, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %.058, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   %16 = load i8, ptr %15, align 1
   %.not36 = icmp eq i8 %16, 0
   br i1 %.not36, label %.critedge4.thread, label %8, !llvm.loop !4
@@ -65,7 +65,7 @@ define range(i32 -1, 1) i32 @MPL_env2range(ptr noundef %0, ptr nocapture noundef
 25:                                               ; preds = %19
   %26 = sext i8 %20 to i32
   %27 = mul nsw i32 %.02962, 10
-  %28 = getelementptr inbounds i8, ptr %.163, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.163, i64 1
   %29 = add i32 %27, -48
   %30 = add i32 %29, %26
   %31 = load i8, ptr %28, align 1
@@ -77,7 +77,7 @@ define range(i32 -1, 1) i32 @MPL_env2range(ptr noundef %0, ptr nocapture noundef
   br i1 %32, label %.preheader, label %.critedge4
 
 .preheader:                                       ; preds = %.critedge2
-  %.366 = getelementptr inbounds i8, ptr %.163, i64 1
+  %.366 = getelementptr inbounds nuw i8, ptr %.163, i64 1
   %33 = load i8, ptr %.366, align 1
   %.not4067 = icmp eq i8 %33, 0
   br i1 %.not4067, label %.critedge4.thread, label %.lr.ph70
@@ -98,7 +98,7 @@ define range(i32 -1, 1) i32 @MPL_env2range(ptr noundef %0, ptr nocapture noundef
   %41 = mul nsw i32 %.12868, 10
   %42 = add i32 %41, -48
   %43 = add i32 %42, %40
-  %.3 = getelementptr inbounds i8, ptr %.369, i64 1
+  %.3 = getelementptr inbounds nuw i8, ptr %.369, i64 1
   %44 = load i8, ptr %.3, align 1
   %.not40 = icmp eq i8 %44, 0
   br i1 %.not40, label %.critedge4.thread, label %.lr.ph70, !llvm.loop !7
@@ -158,7 +158,7 @@ define range(i32 -1, 2) i32 @MPL_env2int(ptr noundef %0, ptr nocapture noundef w
   br i1 %.not30, label %.critedge.loopexit, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %.02338, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.02338, i64 1
   %15 = load i8, ptr %14, align 1
   %.not29 = icmp eq i8 %15, 0
   br i1 %.not29, label %.critedge.loopexit, label %7, !llvm.loop !8
@@ -173,11 +173,11 @@ define range(i32 -1, 2) i32 @MPL_env2int(ptr noundef %0, ptr nocapture noundef w
   %.023.lcssa = phi ptr [ %3, %.preheader ], [ %.023.lcssa.ph, %.critedge.loopexit ]
   %.lcssa = phi i1 [ false, %.preheader ], [ %16, %.critedge.loopexit ]
   %spec.select.idx = zext i1 %.lcssa to i64
-  %spec.select = getelementptr inbounds i8, ptr %.023.lcssa, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.023.lcssa, i64 %spec.select.idx
   %17 = load i8, ptr %spec.select, align 1
   %18 = icmp eq i8 %17, 43
   %.2.idx = zext i1 %18 to i64
-  %.2 = getelementptr inbounds i8, ptr %spec.select, i64 %.2.idx
+  %.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %.2.idx
   %19 = load i8, ptr %.2, align 1
   %.not3143 = icmp eq i8 %19, 0
   br i1 %.not3143, label %._crit_edge, label %.lr.ph46
@@ -201,7 +201,7 @@ define range(i32 -1, 2) i32 @MPL_env2int(ptr noundef %0, ptr nocapture noundef w
 
 29:                                               ; preds = %22
   %30 = mul nsw i32 %.045, 10
-  %31 = getelementptr inbounds i8, ptr %.344, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.344, i64 1
   %32 = add i32 %30, -48
   %33 = add i32 %32, %24
   %34 = load i8, ptr %31, align 1
@@ -262,55 +262,55 @@ sub_0:                                            ; preds = %13
   ]
 
 sub_1:                                            ; preds = %sub_0
-  %17 = getelementptr inbounds i8, ptr %3, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %18 = load i8, ptr %17, align 1
   %.not43 = icmp eq i8 %18, 78
   br i1 %.not43, label %.tail, label %.tail33.thread
 
 .tail:                                            ; preds = %sub_1
-  %19 = getelementptr inbounds i8, ptr %3, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %.tail38.thread.sink.split, label %.tail33.thread
 
 sub_121:                                          ; preds = %sub_0
-  %22 = getelementptr inbounds i8, ptr %3, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %23 = load i8, ptr %22, align 1
   %.not45 = icmp eq i8 %23, 110
   br i1 %.not45, label %.tail19, label %.tail33.thread
 
 .tail19:                                          ; preds = %sub_121
-  %24 = getelementptr inbounds i8, ptr %3, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %.tail38.thread.sink.split, label %.tail33.thread
 
 .tail24:                                          ; preds = %sub_0
-  %27 = getelementptr inbounds i8, ptr %3, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %.tail38.thread.sink.split, label %.tail33.thread
 
 sub_130:                                          ; preds = %sub_0
-  %30 = getelementptr inbounds i8, ptr %3, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %31 = load i8, ptr %30, align 1
   %.not48 = icmp eq i8 %31, 79
   br i1 %.not48, label %.tail28, label %.tail33.thread
 
 .tail28:                                          ; preds = %sub_130
-  %32 = getelementptr inbounds i8, ptr %3, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %.tail38.thread.sink.split, label %.tail33.thread
 
 sub_135:                                          ; preds = %sub_0
-  %35 = getelementptr inbounds i8, ptr %3, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %36 = load i8, ptr %35, align 1
   %.not50 = icmp eq i8 %36, 111
   br i1 %.not50, label %.tail33, label %.tail33.thread
 
 .tail33:                                          ; preds = %sub_135
-  %37 = getelementptr inbounds i8, ptr %3, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %.tail38.thread.sink.split, label %.tail33.thread
@@ -340,7 +340,7 @@ sub_039:                                          ; preds = %48
   br i1 %.not51, label %.tail38, label %.tail38.thread
 
 .tail38:                                          ; preds = %sub_039
-  %51 = getelementptr inbounds i8, ptr %3, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %.tail38.thread.sink.split, label %.tail38.thread

@@ -3052,7 +3052,7 @@ default.unreachable86:                            ; preds = %82, %44, %25
   br label %104
 
 70:                                               ; preds = %5
-  %71 = getelementptr inbounds i8, ptr %4, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %72 = load ptr, ptr %71, align 8
   tail call void @col_append_sep_str(ptr noundef %72, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str) #3
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %9)
@@ -3064,7 +3064,7 @@ default.unreachable86:                            ; preds = %82, %44, %25
   br label %104
 
 76:                                               ; preds = %5
-  %77 = getelementptr inbounds i8, ptr %4, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %78 = load ptr, ptr %77, align 8
   tail call void @col_append_sep_str(ptr noundef %78, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1) #3
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %8)
@@ -3126,7 +3126,7 @@ default.unreachable86:                            ; preds = %82, %44, %25
   br label %104
 
 101:                                              ; preds = %5
-  %102 = getelementptr inbounds i8, ptr %4, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %103 = load ptr, ptr %102, align 8
   tail call void @col_append_sep_str(ptr noundef %103, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.2) #3
   br label %104
@@ -3264,7 +3264,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_tetra(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i32], align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.1054) #3
   %9 = load ptr, ptr %7, align 8
@@ -3430,8 +3430,8 @@ define internal i32 @dissect_tetra(ptr noundef %0, ptr noundef %1, ptr noundef %
 83:                                               ; preds = %81, %69
   %.042.i = phi i32 [ 3, %81 ], [ %74, %69 ]
   %84 = or disjoint i32 %.0, 8
-  %85 = getelementptr inbounds i8, ptr %6, i64 4
-  %86 = getelementptr inbounds i8, ptr %6, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %wide.trip.count.i = zext nneg i32 %.042.i to i64
   br label %87
 
@@ -3456,7 +3456,7 @@ define internal i32 @dissect_tetra(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 switch.lookup:                                    ; preds = %87
   %97 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.dissect_tetra, i64 0, i64 %97
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.dissect_tetra, i64 0, i64 %97
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_tx_pdu_length.exit.i
 
@@ -3497,8 +3497,8 @@ dissect_tetra_UNITDATA_REQ.exit:                  ; preds = %get_tx_pdu_length.e
 
 .lr.ph.i:                                         ; preds = %103
   %116 = or disjoint i32 %.0, 12
-  %117 = getelementptr inbounds i8, ptr %5, i64 4
-  %118 = getelementptr inbounds i8, ptr %5, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %wide.trip.count.i65 = zext nneg i32 %111 to i64
   br label %119
 
@@ -3532,7 +3532,7 @@ dissect_tetra_UNITDATA_REQ.exit:                  ; preds = %get_tx_pdu_length.e
 
 switch.lookup72:                                  ; preds = %119
   %136 = zext nneg i32 %switch.tableidx73 to i64
-  %switch.gep74 = getelementptr inbounds [15 x i32], ptr @switch.table.dissect_tetra.15, i64 0, i64 %136
+  %switch.gep74 = getelementptr inbounds nuw [15 x i32], ptr @switch.table.dissect_tetra.15, i64 0, i64 %136
   %switch.load75 = load i32, ptr %switch.gep74, align 4
   br label %get_rx_pdu_length.exit.i
 
@@ -3919,9 +3919,9 @@ define internal i32 @dissect_tetra_DMLE_PDU(ptr noundef %0, i32 noundef %1, ptr 
 define internal i32 @dissect_tetra_D_LOCATION_UPDATE_ACCEPT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_LOCATION_UPDATE_ACCEPT, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_LOCATION_UPDATE_ACCEPT_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1059) #3
   ret i32 %7
@@ -3931,9 +3931,9 @@ define internal i32 @dissect_tetra_D_LOCATION_UPDATE_ACCEPT(ptr noundef %0, i32 
 define internal i32 @dissect_tetra_D_LOCATION_UPDATE_REJECT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_LOCATION_UPDATE_REJECT, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_LOCATION_UPDATE_REJECT_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1060) #3
   ret i32 %7
@@ -3943,9 +3943,9 @@ define internal i32 @dissect_tetra_D_LOCATION_UPDATE_REJECT(ptr noundef %0, i32 
 define internal i32 @dissect_tetra_D_ATTACH_DETACH_GROUP_IDENTITY(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_ATTACH_DETACH_GROUP_IDENTITY, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_ATTACH_DETACH_GROUP_IDENTITY_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1061) #3
   ret i32 %7
@@ -3955,9 +3955,9 @@ define internal i32 @dissect_tetra_D_ATTACH_DETACH_GROUP_IDENTITY(ptr noundef %0
 define internal i32 @dissect_tetra_D_ATTACH_DETACH_GROUP_IDENTITY_ACK(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_ATTACH_DETACH_GROUP_IDENTITY_ACK, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_ATTACH_DETACH_GROUP_IDENTITY_ACK_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1062) #3
   ret i32 %7
@@ -3967,9 +3967,9 @@ define internal i32 @dissect_tetra_D_ATTACH_DETACH_GROUP_IDENTITY_ACK(ptr nounde
 define internal i32 @dissect_tetra_D_MM_STATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_MM_STATUS, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_MM_STATUS_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1063) #3
   ret i32 %7
@@ -4235,9 +4235,9 @@ define internal i32 @dissect_tetra_T_type3_elements_05(ptr noundef %0, i32 nound
 define internal i32 @dissect_tetra_D_ALERT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_ALERT, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_ALERT_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1064) #3
   ret i32 %7
@@ -4247,9 +4247,9 @@ define internal i32 @dissect_tetra_D_ALERT(ptr noundef %0, i32 noundef %1, ptr n
 define internal i32 @dissect_tetra_D_CALL_PROCEEDING(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_CALL_PROCEEDING, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_CALL_PROCEEDING_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1065) #3
   ret i32 %7
@@ -4259,9 +4259,9 @@ define internal i32 @dissect_tetra_D_CALL_PROCEEDING(ptr noundef %0, i32 noundef
 define internal i32 @dissect_tetra_D_CONNECT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_CONNECT, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_CONNECT_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1066) #3
   ret i32 %7
@@ -4271,9 +4271,9 @@ define internal i32 @dissect_tetra_D_CONNECT(ptr noundef %0, i32 noundef %1, ptr
 define internal i32 @dissect_tetra_D_CONNECT_ACK(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_CONNECT_ACK, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_CONNECT_ACK_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1067) #3
   ret i32 %7
@@ -4283,9 +4283,9 @@ define internal i32 @dissect_tetra_D_CONNECT_ACK(ptr noundef %0, i32 noundef %1,
 define internal i32 @dissect_tetra_D_DISCONNECT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_DISCONNECT, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_DISCONNECT_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1068) #3
   ret i32 %7
@@ -4295,9 +4295,9 @@ define internal i32 @dissect_tetra_D_DISCONNECT(ptr noundef %0, i32 noundef %1, 
 define internal i32 @dissect_tetra_D_INFO(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_INFO, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_INFO_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1069) #3
   ret i32 %7
@@ -4307,9 +4307,9 @@ define internal i32 @dissect_tetra_D_INFO(ptr noundef %0, i32 noundef %1, ptr no
 define internal i32 @dissect_tetra_D_RELEASE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_RELEASE, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_RELEASE_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1070) #3
   ret i32 %7
@@ -4319,9 +4319,9 @@ define internal i32 @dissect_tetra_D_RELEASE(ptr noundef %0, i32 noundef %1, ptr
 define internal i32 @dissect_tetra_D_SETUP(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_SETUP, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_SETUP_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1071) #3
   ret i32 %7
@@ -4331,9 +4331,9 @@ define internal i32 @dissect_tetra_D_SETUP(ptr noundef %0, i32 noundef %1, ptr n
 define internal i32 @dissect_tetra_D_STATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_STATUS, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_STATUS_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1072) #3
   ret i32 %7
@@ -4343,9 +4343,9 @@ define internal i32 @dissect_tetra_D_STATUS(ptr noundef %0, i32 noundef %1, ptr 
 define internal i32 @dissect_tetra_D_TX_CEASED(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_TX_CEASED, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_TX_CEASED_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1073) #3
   ret i32 %7
@@ -4355,9 +4355,9 @@ define internal i32 @dissect_tetra_D_TX_CEASED(ptr noundef %0, i32 noundef %1, p
 define internal i32 @dissect_tetra_D_TX_CONTINUE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_TX_CONTINUE, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_TX_CONTINUE_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1074) #3
   ret i32 %7
@@ -4367,9 +4367,9 @@ define internal i32 @dissect_tetra_D_TX_CONTINUE(ptr noundef %0, i32 noundef %1,
 define internal i32 @dissect_tetra_D_TX_GRANTED(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_TX_GRANTED, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_TX_GRANTED_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1075) #3
   ret i32 %7
@@ -4379,15 +4379,15 @@ define internal i32 @dissect_tetra_D_TX_GRANTED(ptr noundef %0, i32 noundef %1, 
 define internal i32 @dissect_tetra_D_TX_WAIT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_TX_WAIT, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_TX_WAIT_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1076) #3
   %12 = load i32, ptr @ett_tetra_D_TX_WAIT, align 4
   %13 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %12, ptr noundef nonnull @D_TX_WAIT_sequence) #3
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1076) #3
   ret i32 %13
@@ -4397,9 +4397,9 @@ define internal i32 @dissect_tetra_D_TX_WAIT(ptr noundef %0, i32 noundef %1, ptr
 define internal i32 @dissect_tetra_D_CALL_RESTORE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_CALL_RESTORE, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_CALL_RESTORE_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1077) #3
   ret i32 %7
@@ -4409,9 +4409,9 @@ define internal i32 @dissect_tetra_D_CALL_RESTORE(ptr noundef %0, i32 noundef %1
 define internal i32 @dissect_tetra_D_SDS_DATA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_D_SDS_DATA, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @D_SDS_DATA_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1078) #3
   ret i32 %7
@@ -5116,9 +5116,9 @@ define internal i32 @dissect_tetra_UMLE_PDU(ptr noundef %0, i32 noundef %1, ptr 
 define internal i32 @dissect_tetra_U_LOCATION_UPDATE_DEMAND(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_LOCATION_UPDATE_DEMAND, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_LOCATION_UPDATE_DEMAND_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1079) #3
   ret i32 %7
@@ -5128,9 +5128,9 @@ define internal i32 @dissect_tetra_U_LOCATION_UPDATE_DEMAND(ptr noundef %0, i32 
 define internal i32 @dissect_tetra_U_MM_STATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_MM_STATUS, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_MM_STATUS_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1063) #3
   ret i32 %7
@@ -5140,9 +5140,9 @@ define internal i32 @dissect_tetra_U_MM_STATUS(ptr noundef %0, i32 noundef %1, p
 define internal i32 @dissect_tetra_U_ATTACH_DETACH_GROUP_IDENTITY(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_ATTACH_DETACH_GROUP_IDENTITY, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_ATTACH_DETACH_GROUP_IDENTITY_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1061) #3
   ret i32 %7
@@ -5152,9 +5152,9 @@ define internal i32 @dissect_tetra_U_ATTACH_DETACH_GROUP_IDENTITY(ptr noundef %0
 define internal i32 @dissect_tetra_U_ATTACH_DETACH_GROUP_IDENTITY_ACK(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_ATTACH_DETACH_GROUP_IDENTITY_ACK, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_ATTACH_DETACH_GROUP_IDENTITY_ACK_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1062) #3
   ret i32 %7
@@ -5372,9 +5372,9 @@ define internal i32 @dissect_tetra_T_type3_elements_03(ptr noundef %0, i32 nound
 define internal i32 @dissect_tetra_U_ALERT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_ALERT, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_ALERT_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1080) #3
   ret i32 %7
@@ -5384,9 +5384,9 @@ define internal i32 @dissect_tetra_U_ALERT(ptr noundef %0, i32 noundef %1, ptr n
 define internal i32 @dissect_tetra_U_CONNECT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_CONNECT, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_CONNECT_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1081) #3
   ret i32 %7
@@ -5396,9 +5396,9 @@ define internal i32 @dissect_tetra_U_CONNECT(ptr noundef %0, i32 noundef %1, ptr
 define internal i32 @dissect_tetra_U_DISCONNECT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_DISCONNECT, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_DISCONNECT_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1082) #3
   ret i32 %7
@@ -5415,15 +5415,15 @@ define internal i32 @dissect_tetra_U_INFO(ptr noundef %0, i32 noundef %1, ptr no
 define internal i32 @dissect_tetra_U_RELEASE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_RELEASE, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_RELEASE_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1083) #3
   %12 = load i32, ptr @ett_tetra_U_RELEASE, align 4
   %13 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %12, ptr noundef nonnull @U_RELEASE_sequence) #3
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_append_sep_str(ptr noundef %16, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1083) #3
   ret i32 %13
@@ -5433,9 +5433,9 @@ define internal i32 @dissect_tetra_U_RELEASE(ptr noundef %0, i32 noundef %1, ptr
 define internal i32 @dissect_tetra_U_SETUP(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_SETUP, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_SETUP_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1084) #3
   ret i32 %7
@@ -5445,9 +5445,9 @@ define internal i32 @dissect_tetra_U_SETUP(ptr noundef %0, i32 noundef %1, ptr n
 define internal i32 @dissect_tetra_U_STATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_STATUS, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_STATUS_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1085) #3
   ret i32 %7
@@ -5457,9 +5457,9 @@ define internal i32 @dissect_tetra_U_STATUS(ptr noundef %0, i32 noundef %1, ptr 
 define internal i32 @dissect_tetra_U_TX_CEASED(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_TX_CEASED, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_TX_CEASED_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1086) #3
   ret i32 %7
@@ -5469,9 +5469,9 @@ define internal i32 @dissect_tetra_U_TX_CEASED(ptr noundef %0, i32 noundef %1, p
 define internal i32 @dissect_tetra_U_TX_DEMAND(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_TX_DEMAND, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_TX_DEMAND_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1087) #3
   ret i32 %7
@@ -5481,9 +5481,9 @@ define internal i32 @dissect_tetra_U_TX_DEMAND(ptr noundef %0, i32 noundef %1, p
 define internal i32 @dissect_tetra_U_CALL_RESTORE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_CALL_RESTORE, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_CALL_RESTORE_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1088) #3
   ret i32 %7
@@ -5493,9 +5493,9 @@ define internal i32 @dissect_tetra_U_CALL_RESTORE(ptr noundef %0, i32 noundef %1
 define internal i32 @dissect_tetra_U_SDS_DATA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_tetra_U_SDS_DATA, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @U_SDS_DATA_sequence) #3
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_append_sep_str(ptr noundef %11, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.1089) #3
   ret i32 %7

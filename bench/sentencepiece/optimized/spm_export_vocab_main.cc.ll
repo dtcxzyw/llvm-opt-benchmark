@@ -237,7 +237,7 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
 52:                                               ; preds = %_ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_4FlagIS7_EE.exit55
   %53 = load ptr, ptr %10, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   invoke void %56(ptr dead_on_unwind nonnull writable sret(%"class.sentencepiece::util::Status") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %53)
           to label %57 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -311,12 +311,12 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
           to label %84 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %83, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 64
   %86 = load ptr, ptr %85, align 8
   %.not.i.i60 = icmp eq ptr %86, null
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %spec.select.i.i = select i1 %.not.i.i60, ptr null, ptr %87
-  %88 = getelementptr inbounds i8, ptr %83, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 56
   %89 = load i32, ptr %88, align 8
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %90
@@ -330,7 +330,7 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
           to label %93 unwind label %.loopexit
 
 93:                                               ; preds = %.lr.ph
-  %94 = getelementptr inbounds i8, ptr %92, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %95 = load ptr, ptr %94, align 8
   %96 = ptrtoint ptr %95 to i64
   %97 = and i64 %96, -2
@@ -343,7 +343,7 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
           to label %102 unwind label %132
 
 102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %92, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %104 = load float, ptr %103, align 8
   %105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %101, float noundef %104)
           to label %106 unwind label %132
@@ -358,7 +358,7 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
   %110 = extractvalue { i64, ptr } %109, 0
   %111 = extractvalue { i64, ptr } %109, 1
   %112 = load ptr, ptr %107, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %114 = load ptr, ptr %113, align 8
   %115 = invoke noundef zeroext i1 %114(ptr noundef nonnull align 8 dereferenceable(8) %107, i64 %110, ptr %111)
           to label %116 unwind label %134
@@ -366,7 +366,7 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
 116:                                              ; preds = %108
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #12
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %14) #12
-  %117 = getelementptr inbounds i8, ptr %.sroa.070.078, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.070.078, i64 8
   %.not = icmp eq ptr %117, %91
   br i1 %.not, label %.critedge54, label %.lr.ph
 
@@ -460,7 +460,7 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
           to label %142 unwind label %.loopexit.split-lp.loopexit
 
 142:                                              ; preds = %.preheader
-  %143 = getelementptr inbounds i8, ptr %141, i64 56
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 56
   %144 = load i32, ptr %143, align 8
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv, %145
@@ -475,12 +475,12 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
           to label %150 unwind label %178
 
 150:                                              ; preds = %148
-  %151 = getelementptr inbounds i8, ptr %149, i64 64
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 64
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 8
-  %154 = getelementptr inbounds [268435454 x ptr], ptr %153, i64 0, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %154 = getelementptr inbounds nuw [268435454 x ptr], ptr %153, i64 0, i64 %indvars.iv
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 48
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %157 = load ptr, ptr %156, align 8
   %158 = ptrtoint ptr %157 to i64
   %159 = and i64 %158, -2
@@ -507,7 +507,7 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
   %171 = extractvalue { i64, ptr } %170, 0
   %172 = extractvalue { i64, ptr } %170, 1
   %173 = load ptr, ptr %168, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 32
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
   %175 = load ptr, ptr %174, align 8
   %176 = invoke noundef zeroext i1 %175(ptr noundef nonnull align 8 dereferenceable(8) %168, i64 %171, ptr %172)
           to label %177 unwind label %180
@@ -611,7 +611,7 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
 
 _ZNKSt14default_deleteIN13sentencepiece10filesystem12WritableFileEEclEPS2_.exit.i: ; preds = %.critedge54
   %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load ptr, ptr %216, align 8
   call void %217(ptr noundef nonnull align 8 dereferenceable(8) %214) #12
   br label %_ZNSt10unique_ptrIN13sentencepiece10filesystem12WritableFileESt14default_deleteIS2_EED2Ev.exit
@@ -644,7 +644,7 @@ _ZN13sentencepiece24ScopedResourceDestructorD2Ev.exit: ; preds = %.noexc.i
 
 _ZNKSt14default_deleteIN13sentencepiece10filesystem12WritableFileEEclEPS2_.exit.i68: ; preds = %.loopexit.split-lp
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %224 = load ptr, ptr %223, align 8
   call void %224(ptr noundef nonnull align 8 dereferenceable(8) %221) #12
   br label %_ZNSt10unique_ptrIN13sentencepiece10filesystem12WritableFileESt14default_deleteIS2_EED2Ev.exit69
@@ -677,7 +677,7 @@ define linkonce_odr void @_ZN13sentencepiece21ParseCommandLineFlagsEPKcPiPPPcb(p
   %10 = load i32, ptr %1, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %9, i64 %11
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %5, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -715,7 +715,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPcSt6vectorIS2_SaIS2_EEEEPS2_ET0_T_SB
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = ptrtoint ptr %28 to i64
@@ -741,7 +741,7 @@ _ZN4absl7GetFlagIiEERKT_RKNS_4FlagIS1_EE.exit:    ; preds = %35
   br i1 %.not.i.i.i12, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit13, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %5, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %39 to i64

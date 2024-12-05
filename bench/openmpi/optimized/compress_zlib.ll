@@ -62,12 +62,12 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
 
 21:                                               ; preds = %16
   store ptr %0, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %10, ptr %22, align 8
   %23 = trunc nuw i64 %13 to i32
-  %24 = getelementptr inbounds i8, ptr %5, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %17, ptr %25, align 8
   %26 = call i32 @deflate(ptr noundef nonnull %5, i32 noundef 4) #8
   %27 = call i32 @deflateEnd(ptr noundef nonnull %5) #8
@@ -95,7 +95,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
   store ptr %34, ptr %2, align 8
   store i64 %33, ptr %3, align 8
   store i32 %10, ptr %34, align 1
-  %38 = getelementptr inbounds i8, ptr %34, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %17, i64 %32, i1 false)
   call void @free(ptr noundef nonnull %17) #8
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pcompress_base_framework, i64 76), align 4
@@ -104,7 +104,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
 
 40:                                               ; preds = %37
   %41 = zext nneg i32 %39 to i64
-  %42 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %41, i32 2
+  %42 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %41, i32 2
   %43 = load i32, ptr %42, align 4
   %44 = icmp sgt i32 %43, 1
   br i1 %44, label %45, label %46
@@ -128,7 +128,7 @@ define internal noundef zeroext i1 @zlib_decompress(ptr nocapture noundef writeo
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
+  %8 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %7, i32 2
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %11, label %12
@@ -138,7 +138,7 @@ define internal noundef zeroext i1 @zlib_decompress(ptr nocapture noundef writeo
   br label %12
 
 12:                                               ; preds = %11, %6, %4
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = zext i32 %.0.copyload to i64
   %15 = tail call fastcc zeroext i1 @doit(ptr noundef %0, i64 noundef %14, ptr noundef nonnull %13, i64 noundef %3)
   br i1 %15, label %16, label %17
@@ -171,14 +171,14 @@ define internal noundef zeroext i1 @decompress_string(ptr nocapture noundef init
 
 6:                                                ; preds = %3
   %7 = add nuw i32 %.0.copyload, 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = zext i32 %7 to i64
   %10 = tail call fastcc zeroext i1 @doit(ptr noundef %0, i64 noundef %9, ptr noundef nonnull %8, i64 noundef %2)
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %6
   %12 = zext i32 %.0.copyload to i64
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %12
   %14 = load ptr, ptr %13, align 8
   store i8 0, ptr %14, align 1
   br label %16
@@ -237,13 +237,13 @@ define internal fastcc noundef zeroext i1 @doit(ptr nocapture noundef writeonly 
 
 10:                                               ; preds = %7
   %11 = trunc i64 %3 to i32
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %11, ptr %12, align 8
   store ptr %2, ptr %5, align 8
   %13 = trunc nuw i64 %1 to i32
-  %14 = getelementptr inbounds i8, ptr %5, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %calloc, ptr %15, align 8
   %16 = call i32 @inflate(ptr noundef nonnull %5, i32 noundef 4) #8
   %17 = call i32 @inflateEnd(ptr noundef nonnull %5) #8

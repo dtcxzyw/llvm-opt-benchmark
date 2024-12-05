@@ -113,7 +113,7 @@ define hidden ptr @lbttcp_transport_find(ptr noundef %0, i16 noundef zeroext %1,
   br i1 %.not10, label %14, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @wmem_tree_lookup32(ptr noundef %12, i32 noundef %2) #4
   br label %14
@@ -155,7 +155,7 @@ define hidden ptr @lbttcp_transport_add(ptr noundef %0, i16 noundef zeroext %1, 
   store ptr %18, ptr %16, align 8
   %19 = tail call ptr @wmem_file_scope() #4
   %20 = tail call noalias ptr @wmem_tree_new(ptr noundef %19) #4
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %20, ptr %21, align 8
   %22 = load i32, ptr @proto_lbttcp, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %.027, i32 noundef %22, ptr noundef nonnull %16) #4
@@ -163,7 +163,7 @@ define hidden ptr @lbttcp_transport_add(ptr noundef %0, i16 noundef zeroext %1, 
 
 23:                                               ; preds = %14, %10
   %.0 = phi ptr [ %16, %14 ], [ %12, %10 ]
-  %24 = getelementptr inbounds i8, ptr %.0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @wmem_tree_lookup32(ptr noundef %25, i32 noundef %2) #4
   %.not = icmp eq ptr %26, null
@@ -198,9 +198,9 @@ define internal fastcc noalias ptr @lbttcp_transport_create(ptr nocapture nounde
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 56) #4
   %6 = tail call ptr @wmem_file_scope() #4
   %7 = load i32, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   store i32 %7, ptr %5, align 8
@@ -210,27 +210,27 @@ define internal fastcc noalias ptr @lbttcp_transport_create(ptr nocapture nounde
 13:                                               ; preds = %3
   %14 = sext i32 %9 to i64
   %15 = tail call noalias ptr @wmem_memdup(ptr noundef %6, ptr noundef %11, i64 noundef %14) #4
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %9, ptr %18, align 4
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %3, %13
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i16 %1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %2, ptr %20, align 4
   %21 = tail call i64 @lbm_channel_assign(i8 noundef zeroext 0) #4
-  %22 = getelementptr inbounds i8, ptr %5, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 1, ptr %23, align 8
   %24 = tail call ptr @wmem_file_scope() #4
   %25 = tail call noalias ptr @wmem_list_new(ptr noundef %24) #4
-  %26 = getelementptr inbounds i8, ptr %5, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %25, ptr %26, align 8
   ret ptr %5
 }
@@ -289,7 +289,7 @@ define hidden range(i32 0, 2) i32 @lbttcp_transport_sid_find(ptr noundef %0, i16
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %16, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %3, align 4
   br label %21
@@ -327,7 +327,7 @@ define hidden void @lbttcp_transport_sid_add(ptr noundef %0, i16 noundef zeroext
   store ptr %18, ptr %16, align 8
   %19 = tail call ptr @wmem_file_scope() #4
   %20 = tail call noalias ptr @wmem_tree_new(ptr noundef %19) #4
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %20, ptr %21, align 8
   %22 = load i32, ptr @proto_lbttcp, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %.028, i32 noundef %22, ptr noundef nonnull %16) #4
@@ -341,14 +341,14 @@ define hidden void @lbttcp_transport_sid_add(ptr noundef %0, i16 noundef zeroext
   br i1 %.not, label %.critedge, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %28 = load i32, ptr %27, align 4
   %.not32.not = icmp eq i32 %28, %3
   br i1 %.not32.not, label %33, label %.critedge
 
 .critedge:                                        ; preds = %23, %26
   %29 = tail call fastcc ptr @lbttcp_transport_create(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %3)
-  %30 = getelementptr inbounds i8, ptr %.027, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.027, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void @wmem_tree_insert32(ptr noundef %31, i32 noundef %3, ptr noundef %29) #4
   %32 = load ptr, ptr %.027, align 8
@@ -470,29 +470,29 @@ define internal noundef ptr @lbttcp_tag_copy_cb(ptr noundef returned writeonly i
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #4
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %22, ptr %23, align 4
   ret ptr %0
 }
@@ -544,13 +544,13 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_lbttcp_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 2
   br i1 %.not, label %7, label %lbttcp_tag_find.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 236
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %9 = load i32, ptr %8, align 4
   %.not30 = icmp eq i32 %9, 4
   br i1 %.not30, label %10, label %lbttcp_tag_find.exit.thread
@@ -567,22 +567,22 @@ define internal range(i32 0, 2) i32 @test_lbttcp_packet(ptr noundef %0, ptr noun
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %13 = load ptr, ptr @lbttcp_tag_entry, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 284
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 288
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %wide.trip.count.i.i = zext i32 %12 to i64
   br label %17
 
 17:                                               ; preds = %49, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %49 ]
   %18 = getelementptr %struct.lbttcp_tag_entry_t, ptr %13, i64 %indvars.iv.i.i
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %.not35.i.i = icmp ult i32 %15, %20
   br i1 %.not35.i.i, label %24, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %18, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %23 = load i32, ptr %22, align 4
   %.not36.i.i = icmp ugt i32 %15, %23
   br i1 %.not36.i.i, label %24, label %lbttcp_tag_locate.exit.i
@@ -593,19 +593,19 @@ define internal range(i32 0, 2) i32 @test_lbttcp_packet(ptr noundef %0, ptr noun
   br i1 %.not37.i.i, label %29, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %18, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %28 = load i32, ptr %27, align 4
   %.not38.i.i = icmp ugt i32 %25, %28
   br i1 %.not38.i.i, label %29, label %lbttcp_tag_locate.exit.i
 
 29:                                               ; preds = %26, %24
-  %30 = getelementptr inbounds i8, ptr %18, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %31 = load i32, ptr %30, align 8
   %.not39.i.i = icmp ult i32 %15, %31
   br i1 %.not39.i.i, label %35, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %18, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %34 = load i32, ptr %33, align 4
   %.not40.i.i = icmp ugt i32 %15, %34
   br i1 %.not40.i.i, label %35, label %lbttcp_tag_locate.exit.i
@@ -615,19 +615,19 @@ define internal range(i32 0, 2) i32 @test_lbttcp_packet(ptr noundef %0, ptr noun
   br i1 %.not41.i.i, label %39, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %18, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %38 = load i32, ptr %37, align 4
   %.not42.i.i = icmp ugt i32 %25, %38
   br i1 %.not42.i.i, label %39, label %lbttcp_tag_locate.exit.i
 
 39:                                               ; preds = %36, %35
-  %40 = getelementptr inbounds i8, ptr %18, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %41 = load i32, ptr %40, align 8
   %.not43.i.i = icmp ult i32 %15, %41
   br i1 %.not43.i.i, label %45, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %18, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %44 = load i32, ptr %43, align 4
   %.not44.i.i = icmp ugt i32 %15, %44
   br i1 %.not44.i.i, label %45, label %lbttcp_tag_locate.exit.i
@@ -637,7 +637,7 @@ define internal range(i32 0, 2) i32 @test_lbttcp_packet(ptr noundef %0, ptr noun
   br i1 %.not45.i.i, label %49, label %46
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %18, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %48 = load i32, ptr %47, align 4
   %.not46.i.i = icmp ugt i32 %25, %48
   br i1 %.not46.i.i, label %49, label %lbttcp_tag_locate.exit.i
@@ -657,7 +657,7 @@ lbttcp_tag_find.exit:                             ; preds = %lbttcp_tag_locate.e
   br i1 %.not45, label %lbttcp_tag_find.exit.thread, label %lbttcp_tag_find.exit.thread.sink.split
 
 51:                                               ; preds = %10
-  %52 = getelementptr inbounds i8, ptr %1, i64 284
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr @lbttcp_source_port_low, align 4
   %.not32 = icmp ult i32 %53, %54
@@ -667,7 +667,7 @@ lbttcp_tag_find.exit:                             ; preds = %lbttcp_tag_locate.e
   br i1 %or.cond, label %56, label %67
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %1, i64 288
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %58 = load i32, ptr %57, align 8
   %.not34 = icmp ult i32 %58, %54
   %.not35 = icmp ugt i32 %58, %55
@@ -726,7 +726,7 @@ declare i32 @lbmc_test_lbmc_header(ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @col_add_str(ptr noundef %5, i32 noundef 34, ptr noundef nonnull @.str.11) #4
   %6 = load ptr, ptr %4, align 8
@@ -742,22 +742,22 @@ define internal fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %9 = load ptr, ptr @lbttcp_tag_entry, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 284
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %wide.trip.count.i.i = zext i32 %8 to i64
   br label %13
 
 13:                                               ; preds = %45, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %45 ]
   %14 = getelementptr %struct.lbttcp_tag_entry_t, ptr %9, i64 %indvars.iv.i.i
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %.not35.i.i = icmp ult i32 %11, %16
   br i1 %.not35.i.i, label %20, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %14, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %19 = load i32, ptr %18, align 4
   %.not36.i.i = icmp ugt i32 %11, %19
   br i1 %.not36.i.i, label %20, label %lbttcp_tag_locate.exit.i
@@ -768,19 +768,19 @@ define internal fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef %1, 
   br i1 %.not37.i.i, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %14, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %24 = load i32, ptr %23, align 4
   %.not38.i.i = icmp ugt i32 %21, %24
   br i1 %.not38.i.i, label %25, label %lbttcp_tag_locate.exit.i
 
 25:                                               ; preds = %22, %20
-  %26 = getelementptr inbounds i8, ptr %14, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %27 = load i32, ptr %26, align 8
   %.not39.i.i = icmp ult i32 %11, %27
   br i1 %.not39.i.i, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %14, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %30 = load i32, ptr %29, align 4
   %.not40.i.i = icmp ugt i32 %11, %30
   br i1 %.not40.i.i, label %31, label %lbttcp_tag_locate.exit.i
@@ -790,19 +790,19 @@ define internal fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef %1, 
   br i1 %.not41.i.i, label %35, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %14, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %34 = load i32, ptr %33, align 4
   %.not42.i.i = icmp ugt i32 %21, %34
   br i1 %.not42.i.i, label %35, label %lbttcp_tag_locate.exit.i
 
 35:                                               ; preds = %32, %31
-  %36 = getelementptr inbounds i8, ptr %14, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %37 = load i32, ptr %36, align 8
   %.not43.i.i = icmp ult i32 %11, %37
   br i1 %.not43.i.i, label %41, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %14, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %40 = load i32, ptr %39, align 4
   %.not44.i.i = icmp ugt i32 %11, %40
   br i1 %.not44.i.i, label %41, label %lbttcp_tag_locate.exit.i
@@ -812,7 +812,7 @@ define internal fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef %1, 
   br i1 %.not45.i.i, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %14, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %44 = load i32, ptr %43, align 4
   %.not46.i.i = icmp ugt i32 %21, %44
   br i1 %.not46.i.i, label %45, label %lbttcp_tag_locate.exit.i
@@ -879,22 +879,22 @@ define internal i32 @dissect_lbttcp_pdu(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %9 = load ptr, ptr @lbttcp_tag_entry, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 284
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %wide.trip.count.i = zext i32 %8 to i64
   br label %13
 
 13:                                               ; preds = %45, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %45 ]
   %14 = getelementptr %struct.lbttcp_tag_entry_t, ptr %9, i64 %indvars.iv.i
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %.not35.i = icmp ult i32 %11, %16
   br i1 %.not35.i, label %20, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %14, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %19 = load i32, ptr %18, align 4
   %.not36.i = icmp ugt i32 %11, %19
   br i1 %.not36.i, label %20, label %.lr.ph.i.i
@@ -905,19 +905,19 @@ define internal i32 @dissect_lbttcp_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not37.i, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %14, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %24 = load i32, ptr %23, align 4
   %.not38.i = icmp ugt i32 %21, %24
   br i1 %.not38.i, label %25, label %.lr.ph.i.i
 
 25:                                               ; preds = %22, %20
-  %26 = getelementptr inbounds i8, ptr %14, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %27 = load i32, ptr %26, align 8
   %.not39.i = icmp ult i32 %11, %27
   br i1 %.not39.i, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %14, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %30 = load i32, ptr %29, align 4
   %.not40.i = icmp ugt i32 %11, %30
   br i1 %.not40.i, label %31, label %.lr.ph.i.i
@@ -927,19 +927,19 @@ define internal i32 @dissect_lbttcp_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not41.i, label %35, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %14, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %34 = load i32, ptr %33, align 4
   %.not42.i = icmp ugt i32 %21, %34
   br i1 %.not42.i, label %35, label %.lr.ph.i.i
 
 35:                                               ; preds = %32, %31
-  %36 = getelementptr inbounds i8, ptr %14, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %37 = load i32, ptr %36, align 8
   %.not43.i = icmp ult i32 %11, %37
   br i1 %.not43.i, label %41, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %14, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %40 = load i32, ptr %39, align 4
   %.not44.i = icmp ugt i32 %11, %40
   br i1 %.not44.i, label %41, label %.lr.ph.i.i
@@ -949,7 +949,7 @@ define internal i32 @dissect_lbttcp_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not45.i, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %14, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %44 = load i32, ptr %43, align 4
   %.not46.i = icmp ugt i32 %21, %44
   br i1 %.not46.i, label %45, label %.lr.ph.i.i
@@ -966,13 +966,13 @@ define internal i32 @dissect_lbttcp_pdu(ptr noundef %0, ptr noundef %1, ptr noun
 46:                                               ; preds = %78, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %78 ]
   %47 = getelementptr %struct.lbttcp_tag_entry_t, ptr %9, i64 %indvars.iv.i.i
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i32, ptr %48, align 8
   %.not35.i.i = icmp ult i32 %11, %49
   br i1 %.not35.i.i, label %53, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %47, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %52 = load i32, ptr %51, align 4
   %.not36.i.i = icmp ugt i32 %11, %52
   br i1 %.not36.i.i, label %53, label %lbttcp_tag_locate.exit.i
@@ -983,19 +983,19 @@ define internal i32 @dissect_lbttcp_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not37.i.i, label %58, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %47, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %57 = load i32, ptr %56, align 4
   %.not38.i.i = icmp ugt i32 %54, %57
   br i1 %.not38.i.i, label %58, label %lbttcp_tag_locate.exit.i
 
 58:                                               ; preds = %55, %53
-  %59 = getelementptr inbounds i8, ptr %47, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %60 = load i32, ptr %59, align 8
   %.not39.i.i = icmp ult i32 %11, %60
   br i1 %.not39.i.i, label %64, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %47, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %63 = load i32, ptr %62, align 4
   %.not40.i.i = icmp ugt i32 %11, %63
   br i1 %.not40.i.i, label %64, label %lbttcp_tag_locate.exit.i
@@ -1005,19 +1005,19 @@ define internal i32 @dissect_lbttcp_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not41.i.i, label %68, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %47, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %67 = load i32, ptr %66, align 4
   %.not42.i.i = icmp ugt i32 %54, %67
   br i1 %.not42.i.i, label %68, label %lbttcp_tag_locate.exit.i
 
 68:                                               ; preds = %65, %64
-  %69 = getelementptr inbounds i8, ptr %47, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %70 = load i32, ptr %69, align 8
   %.not43.i.i = icmp ult i32 %11, %70
   br i1 %.not43.i.i, label %74, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %47, i64 28
+  %72 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %73 = load i32, ptr %72, align 4
   %.not44.i.i = icmp ugt i32 %11, %73
   br i1 %.not44.i.i, label %74, label %lbttcp_tag_locate.exit.i
@@ -1027,7 +1027,7 @@ define internal i32 @dissect_lbttcp_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not45.i.i, label %78, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %47, i64 28
+  %76 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %77 = load i32, ptr %76, align 4
   %.not46.i.i = icmp ugt i32 %54, %77
   br i1 %.not46.i.i, label %78, label %lbttcp_tag_locate.exit.i
@@ -1065,13 +1065,13 @@ lbttcp_tag_find.exit:                             ; preds = %lbttcp_tag_locate.e
   br i1 %.not.i103, label %proto_item_set_generated.exit, label %91
 
 91:                                               ; preds = %84
-  %92 = getelementptr inbounds i8, ptr %90, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %93 = load ptr, ptr %92, align 8
   %.not5.i104 = icmp eq ptr %93, null
   br i1 %.not5.i104, label %proto_item_set_generated.exit, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %93, i64 28
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 28
   %96 = load i32, ptr %95, align 4
   %97 = or i32 %96, 2
   store i32 %97, ptr %95, align 4
@@ -1082,12 +1082,12 @@ proto_item_set_generated.exit:                    ; preds = %94, %91, %84, %.thr
   %.084141152 = phi ptr [ %.084142, %.thread ], [ %.028.i.ph, %84 ], [ %.028.i.ph, %91 ], [ %.028.i.ph, %94 ]
   %.079143151 = phi ptr [ null, %.thread ], [ %79, %84 ], [ %79, %91 ], [ %79, %94 ]
   %99 = icmp eq ptr %.084141152, null
-  %100 = getelementptr inbounds i8, ptr %1, i64 284
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %101 = load i32, ptr %100, align 4
   br i1 %99, label %lbttcp_packet_is_transport_source.exit, label %102
 
 102:                                              ; preds = %proto_item_set_generated.exit
-  %103 = getelementptr inbounds i8, ptr %.084141152, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.084141152, i64 8
   %104 = load i32, ptr %103, align 8
   %.not.i105 = icmp ult i32 %101, %104
   br i1 %.not.i105, label %.thread159, label %lbttcp_packet_is_transport_source.exit.thread163
@@ -1101,25 +1101,25 @@ lbttcp_packet_is_transport_source.exit:           ; preds = %proto_item_set_gene
   br i1 %or.cond.not.i.not, label %lbttcp_packet_is_transport_client.exit, label %.critedge101
 
 lbttcp_packet_is_transport_source.exit.thread163: ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %.084141152, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %.084141152, i64 12
   %108 = load i32, ptr %107, align 4
   %.not10.i.not = icmp ugt i32 %101, %108
   br i1 %.not10.i.not, label %.thread159, label %.critedge101
 
 .thread159:                                       ; preds = %lbttcp_packet_is_transport_source.exit.thread163, %102
-  %.in = getelementptr inbounds i8, ptr %1, i64 288
+  %.in = getelementptr inbounds nuw i8, ptr %1, i64 288
   %109 = load i32, ptr %.in, align 8
   %.not.i107 = icmp ult i32 %109, %104
   br i1 %.not.i107, label %lbttcp_packet_is_transport_client.exit.thread, label %110
 
 110:                                              ; preds = %.thread159
-  %111 = getelementptr inbounds i8, ptr %.084141152, i64 12
+  %111 = getelementptr inbounds nuw i8, ptr %.084141152, i64 12
   %112 = load i32, ptr %111, align 4
   %.not10.i108.not = icmp ugt i32 %109, %112
   br i1 %.not10.i108.not, label %lbttcp_packet_is_transport_client.exit.thread, label %.critedge
 
 lbttcp_packet_is_transport_client.exit:           ; preds = %lbttcp_packet_is_transport_source.exit
-  %113 = getelementptr inbounds i8, ptr %1, i64 288
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %114 = load i32, ptr %113, align 8
   %.not11.i111 = icmp uge i32 %114, %105
   %.not12.i112 = icmp ule i32 %114, %106
@@ -1127,63 +1127,63 @@ lbttcp_packet_is_transport_client.exit:           ; preds = %lbttcp_packet_is_tr
   br i1 %or.cond.not.i113, label %.critedge, label %lbttcp_packet_is_transport_client.exit.thread
 
 .critedge101:                                     ; preds = %lbttcp_packet_is_transport_source.exit, %lbttcp_packet_is_transport_source.exit.thread163
-  %115 = getelementptr inbounds i8, ptr %1, i64 208
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %116 = load i32, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %1, i64 212
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds i8, ptr %1, i64 216
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %120 = load ptr, ptr %119, align 8
   store i32 %116, ptr %5, align 8
-  %121 = getelementptr inbounds i8, ptr %5, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %118, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %5, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %120, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %5, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %1, i64 232
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %125 = load i32, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %1, i64 236
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %1, i64 240
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %129 = load ptr, ptr %128, align 8
   store i32 %125, ptr %6, align 8
-  %130 = getelementptr inbounds i8, ptr %6, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %127, ptr %130, align 4
-  %131 = getelementptr inbounds i8, ptr %6, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %129, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %6, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %1, i64 288
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %.077.in.pre = load i32, ptr %133, align 4
   br label %153
 
 .critedge:                                        ; preds = %110, %lbttcp_packet_is_transport_client.exit
   %134 = phi i32 [ %109, %110 ], [ %114, %lbttcp_packet_is_transport_client.exit ]
-  %135 = getelementptr inbounds i8, ptr %1, i64 232
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %136 = load i32, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %1, i64 236
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %138 = load i32, ptr %137, align 4
-  %139 = getelementptr inbounds i8, ptr %1, i64 240
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %140 = load ptr, ptr %139, align 8
   store i32 %136, ptr %5, align 8
-  %141 = getelementptr inbounds i8, ptr %5, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %138, ptr %141, align 4
-  %142 = getelementptr inbounds i8, ptr %5, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %140, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %5, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %1, i64 208
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %145 = load i32, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %1, i64 212
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %1, i64 216
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %149 = load ptr, ptr %148, align 8
   store i32 %145, ptr %6, align 8
-  %150 = getelementptr inbounds i8, ptr %6, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %147, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %6, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %149, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %6, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %152, align 8
   br label %153
 
@@ -1193,7 +1193,7 @@ lbttcp_packet_is_transport_client.exit:           ; preds = %lbttcp_packet_is_tr
   %.078.in = phi i32 [ %101, %.critedge101 ], [ %134, %.critedge ]
   %.077 = trunc i32 %.077.in to i16
   %.078 = trunc i32 %.078.in to i16
-  %154 = getelementptr inbounds i8, ptr %1, i64 20
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %155 = load i32, ptr %154, align 4
   %156 = and i32 %.078.in, 65535
   %157 = call ptr @find_conversation(i32 noundef %155, ptr noundef nonnull %5, ptr noundef nonnull @lbttcp_null_address, i32 noundef 2, i32 noundef %156, i32 noundef 0, i32 noundef 0) #4
@@ -1207,7 +1207,7 @@ lbttcp_packet_is_transport_client.exit:           ; preds = %lbttcp_packet_is_tr
   br i1 %.not10.i115, label %lbttcp_transport_find.exit.thread, label %lbttcp_transport_find.exit
 
 lbttcp_transport_find.exit:                       ; preds = %158
-  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8
   %163 = call ptr @wmem_tree_lookup32(ptr noundef %162, i32 noundef 0) #4
   %164 = icmp eq ptr %163, null
@@ -1236,7 +1236,7 @@ lbttcp_transport_find.exit.thread:                ; preds = %153, %158, %lbttcp_
   br i1 %177, label %lbttcp_transport_find.exit121.thread, label %178
 
 178:                                              ; preds = %175
-  %179 = getelementptr inbounds i8, ptr %176, i64 28
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 28
   %180 = load i32, ptr %179, align 4
   %181 = load i32, ptr %154, align 4
   %182 = call ptr @find_conversation(i32 noundef %181, ptr noundef nonnull %5, ptr noundef nonnull @lbttcp_null_address, i32 noundef 2, i32 noundef %156, i32 noundef 0, i32 noundef 0) #4
@@ -1250,7 +1250,7 @@ lbttcp_transport_find.exit.thread:                ; preds = %153, %158, %lbttcp_
   br i1 %.not10.i119, label %lbttcp_transport_find.exit121.thread, label %lbttcp_transport_find.exit121
 
 lbttcp_transport_find.exit121:                    ; preds = %183
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = call ptr @wmem_tree_lookup32(ptr noundef %187, i32 noundef %180) #4
   %.not95 = icmp eq ptr %188, null
@@ -1258,10 +1258,10 @@ lbttcp_transport_find.exit121:                    ; preds = %183
 
 lbttcp_transport_find.exit121.thread180:          ; preds = %lbttcp_transport_find.exit, %lbttcp_transport_find.exit121
   %.076183 = phi ptr [ %188, %lbttcp_transport_find.exit121 ], [ %163, %lbttcp_transport_find.exit ]
-  %189 = getelementptr inbounds i8, ptr %.076183, i64 32
+  %189 = getelementptr inbounds nuw i8, ptr %.076183, i64 32
   %190 = load i64, ptr %189, align 8
   %191 = load i32, ptr %154, align 4
-  %192 = getelementptr inbounds i8, ptr %.076183, i64 24
+  %192 = getelementptr inbounds nuw i8, ptr %.076183, i64 24
   %193 = load i16, ptr %192, align 8
   %194 = zext i16 %193 to i32
   %195 = and i32 %.077.in, 65535
@@ -1276,7 +1276,7 @@ lbttcp_transport_find.exit121.thread180:          ; preds = %lbttcp_transport_fi
   br i1 %.not16.i, label %lbttcp_client_transport_find.exit.thread, label %lbttcp_client_transport_find.exit
 
 lbttcp_client_transport_find.exit:                ; preds = %197
-  %200 = getelementptr inbounds i8, ptr %.076183, i64 28
+  %200 = getelementptr inbounds nuw i8, ptr %.076183, i64 28
   %201 = load i32, ptr %200, align 4
   %202 = call ptr @wmem_tree_lookup32(ptr noundef nonnull %199, i32 noundef %201) #4
   %203 = icmp eq ptr %202, null
@@ -1290,14 +1290,14 @@ lbttcp_client_transport_find.exit.thread:         ; preds = %lbttcp_transport_fi
 
 .thread185:                                       ; preds = %lbttcp_client_transport_find.exit, %lbttcp_client_transport_find.exit.thread
   %.075188 = phi ptr [ %205, %lbttcp_client_transport_find.exit.thread ], [ %202, %lbttcp_client_transport_find.exit ]
-  %206 = getelementptr inbounds i8, ptr %.075188, i64 28
+  %206 = getelementptr inbounds nuw i8, ptr %.075188, i64 28
   %207 = load i32, ptr %206, align 4
   br label %230
 
 lbttcp_transport_find.exit121.thread:             ; preds = %175, %172, %168, %lbttcp_transport_find.exit.thread, %178, %183, %lbttcp_transport_find.exit121
-  %208 = getelementptr inbounds i8, ptr %1, i64 80
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 50
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 50
   %211 = load i16, ptr %210, align 2
   %212 = and i16 %211, 8
   %.not96 = icmp eq i16 %212, 0
@@ -1310,7 +1310,7 @@ lbttcp_transport_find.exit121.thread:             ; preds = %175, %172, %168, %l
   br i1 %.not97, label %230, label %216
 
 216:                                              ; preds = %213
-  %217 = getelementptr inbounds i8, ptr %215, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %215, i64 32
   %218 = load i64, ptr %217, align 8
   %219 = load i32, ptr %154, align 4
   %220 = call fastcc ptr @lbttcp_client_transport_add(ptr noundef %215, ptr noundef %6, i16 noundef zeroext %.077, i32 noundef %219)
@@ -1318,7 +1318,7 @@ lbttcp_transport_find.exit121.thread:             ; preds = %175, %172, %168, %l
   br i1 %.not98, label %230, label %221
 
 221:                                              ; preds = %216
-  %222 = getelementptr inbounds i8, ptr %220, i64 28
+  %222 = getelementptr inbounds nuw i8, ptr %220, i64 28
   %223 = load i32, ptr %222, align 4
   br label %230
 
@@ -1351,13 +1351,13 @@ lbttcp_packet_is_transport_client.exit.thread:    ; preds = %110, %.thread159, %
   br i1 %.not.i124, label %proto_item_set_generated.exit126, label %235
 
 235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %234, i64 32
+  %236 = getelementptr inbounds nuw i8, ptr %234, i64 32
   %237 = load ptr, ptr %236, align 8
   %.not5.i125 = icmp eq ptr %237, null
   br i1 %.not5.i125, label %proto_item_set_generated.exit126, label %238
 
 238:                                              ; preds = %235
-  %239 = getelementptr inbounds i8, ptr %237, i64 28
+  %239 = getelementptr inbounds nuw i8, ptr %237, i64 28
   %240 = load i32, ptr %239, align 4
   %241 = or i32 %240, 2
   store i32 %241, ptr %239, align 4
@@ -1372,13 +1372,13 @@ proto_item_set_generated.exit126:                 ; preds = %232, %235, %238
   br i1 %.not.i127, label %proto_item_set_generated.exit129, label %246
 
 246:                                              ; preds = %proto_item_set_generated.exit126
-  %247 = getelementptr inbounds i8, ptr %245, i64 32
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 32
   %248 = load ptr, ptr %247, align 8
   %.not5.i128 = icmp eq ptr %248, null
   br i1 %.not5.i128, label %proto_item_set_generated.exit129, label %249
 
 249:                                              ; preds = %246
-  %250 = getelementptr inbounds i8, ptr %248, i64 28
+  %250 = getelementptr inbounds nuw i8, ptr %248, i64 28
   %251 = load i32, ptr %250, align 4
   %252 = or i32 %251, 2
   store i32 %252, ptr %250, align 4
@@ -1391,13 +1391,13 @@ proto_item_set_generated.exit129:                 ; preds = %proto_item_set_gene
   br i1 %.not.i130, label %proto_item_set_generated.exit132, label %255
 
 255:                                              ; preds = %proto_item_set_generated.exit129
-  %256 = getelementptr inbounds i8, ptr %254, i64 32
+  %256 = getelementptr inbounds nuw i8, ptr %254, i64 32
   %257 = load ptr, ptr %256, align 8
   %.not5.i131 = icmp eq ptr %257, null
   br i1 %.not5.i131, label %proto_item_set_generated.exit132, label %258
 
 258:                                              ; preds = %255
-  %259 = getelementptr inbounds i8, ptr %257, i64 28
+  %259 = getelementptr inbounds nuw i8, ptr %257, i64 28
   %260 = load i32, ptr %259, align 4
   %261 = or i32 %260, 2
   store i32 %261, ptr %259, align 4
@@ -1420,7 +1420,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lbttcp_client_transport_add(ptr noundef nonnull %0, ptr noundef nonnull %1, i16 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i16, ptr %5, align 8
   %7 = zext i16 %6 to i32
   %8 = zext i16 %2 to i32
@@ -1435,7 +1435,7 @@ define internal fastcc ptr @lbttcp_client_transport_add(ptr noundef nonnull %0, 
   br i1 %.not16.i, label %lbttcp_client_transport_find.exit.thread, label %lbttcp_client_transport_find.exit
 
 lbttcp_client_transport_find.exit:                ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @wmem_tree_lookup32(ptr noundef nonnull %12, i32 noundef %14) #4
   %.not = icmp eq ptr %15, null
@@ -1446,9 +1446,9 @@ lbttcp_client_transport_find.exit.thread:         ; preds = %4, %10, %lbttcp_cli
   %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 40) #4
   %18 = tail call ptr @wmem_file_scope() #4
   %19 = load i32, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   store i32 %19, ptr %17, align 8
@@ -1458,22 +1458,22 @@ lbttcp_client_transport_find.exit.thread:         ; preds = %4, %10, %lbttcp_cli
 25:                                               ; preds = %lbttcp_client_transport_find.exit.thread
   %26 = sext i32 %21 to i64
   %27 = tail call noalias ptr @wmem_memdup(ptr noundef %18, ptr noundef %23, i64 noundef %26) #4
-  %28 = getelementptr inbounds i8, ptr %17, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %17, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %27, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %17, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %21, ptr %30, align 4
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %lbttcp_client_transport_find.exit.thread, %25
-  %31 = getelementptr inbounds i8, ptr %17, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i16 %2, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %17, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 28
   store i32 %33, ptr %35, align 4
   %36 = load i16, ptr %5, align 8
   %37 = zext i16 %36 to i32
@@ -1507,10 +1507,10 @@ copy_address_wmem.exit:                           ; preds = %lbttcp_client_trans
 
 55:                                               ; preds = %51, %47
   %.0 = phi ptr [ %53, %51 ], [ %49, %47 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %57 = load i32, ptr %56, align 4
   tail call void @wmem_tree_insert32(ptr noundef %.0, i32 noundef %57, ptr noundef nonnull %17) #4
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load ptr, ptr %58, align 8
   tail call void @wmem_list_append(ptr noundef %59, ptr noundef nonnull %17) #4
   br label %60
@@ -1589,7 +1589,7 @@ declare zeroext i1 @uat_fld_chk_num_dec(ptr noundef, ptr noundef, i32 noundef, p
 define internal void @lbttcp_tag_source_port_low_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #4
   tail call void @g_free(ptr noundef %7) #4
   ret void
@@ -1597,7 +1597,7 @@ define internal void @lbttcp_tag_source_port_low_set_cb(ptr noundef %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbttcp_tag_source_port_low_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef %7) #4
   store ptr %8, ptr %1, align 8
@@ -1611,7 +1611,7 @@ define internal void @lbttcp_tag_source_port_low_tostr_cb(ptr nocapture noundef 
 define internal void @lbttcp_tag_source_port_high_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #4
   tail call void @g_free(ptr noundef %7) #4
   ret void
@@ -1619,7 +1619,7 @@ define internal void @lbttcp_tag_source_port_high_set_cb(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbttcp_tag_source_port_high_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef %7) #4
   store ptr %8, ptr %1, align 8
@@ -1633,7 +1633,7 @@ define internal void @lbttcp_tag_source_port_high_tostr_cb(ptr nocapture noundef
 define internal void @lbttcp_tag_request_port_low_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #4
   tail call void @g_free(ptr noundef %7) #4
   ret void
@@ -1641,7 +1641,7 @@ define internal void @lbttcp_tag_request_port_low_set_cb(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbttcp_tag_request_port_low_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef %7) #4
   store ptr %8, ptr %1, align 8
@@ -1655,7 +1655,7 @@ define internal void @lbttcp_tag_request_port_low_tostr_cb(ptr nocapture noundef
 define internal void @lbttcp_tag_request_port_high_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #4
   tail call void @g_free(ptr noundef %7) #4
   ret void
@@ -1663,7 +1663,7 @@ define internal void @lbttcp_tag_request_port_high_set_cb(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbttcp_tag_request_port_high_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef %7) #4
   store ptr %8, ptr %1, align 8
@@ -1677,7 +1677,7 @@ define internal void @lbttcp_tag_request_port_high_tostr_cb(ptr nocapture nounde
 define internal void @lbttcp_tag_store_port_low_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #4
   tail call void @g_free(ptr noundef %7) #4
   ret void
@@ -1685,7 +1685,7 @@ define internal void @lbttcp_tag_store_port_low_set_cb(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbttcp_tag_store_port_low_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef %7) #4
   store ptr %8, ptr %1, align 8
@@ -1699,7 +1699,7 @@ define internal void @lbttcp_tag_store_port_low_tostr_cb(ptr nocapture noundef r
 define internal void @lbttcp_tag_store_port_high_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #4
   tail call void @g_free(ptr noundef %7) #4
   ret void
@@ -1707,7 +1707,7 @@ define internal void @lbttcp_tag_store_port_high_set_cb(ptr noundef %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbttcp_tag_store_port_high_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef %7) #4
   store ptr %8, ptr %1, align 8

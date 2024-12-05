@@ -53,18 +53,18 @@ define hidden void @aom_scale_frame(ptr nocapture noundef readonly %0, ptr nocap
   %41 = zext i1 %40 to i32
   %42 = ashr i32 %15, %41
   %43 = ashr i32 %21, %41
-  %44 = getelementptr inbounds [3 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [3 x ptr], ptr %23, i64 0, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = zext i1 %40 to i64
-  %47 = getelementptr inbounds [2 x i32], ptr %24, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i32], ptr %24, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds [2 x i32], ptr %0, i64 0, i64 %46
+  %49 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 0, i64 %46
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds [2 x i32], ptr %17, i64 0, i64 %46
+  %51 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 0, i64 %46
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds [3 x ptr], ptr %25, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [3 x ptr], ptr %25, i64 0, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds [2 x i32], ptr %26, i64 0, i64 %46
+  %55 = getelementptr inbounds nuw [2 x i32], ptr %26, i64 0, i64 %46
   %56 = load i32, ptr %55, align 4
   %57 = icmp slt i32 %48, 0
   %58 = add i32 %52, -1
@@ -155,7 +155,7 @@ define hidden void @aom_scale_frame(ptr nocapture noundef readonly %0, ptr nocap
   %83 = getelementptr inbounds i8, ptr %2, i64 %82
   %84 = mul i32 %.0183.i, %56
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %2, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 %85
   %87 = zext i32 %42 to i64
   %88 = zext nneg i32 %.0183.i to i64
   %89 = sext i32 %48 to i64
@@ -184,14 +184,14 @@ define hidden void @aom_scale_frame(ptr nocapture noundef readonly %0, ptr nocap
   %98 = trunc nuw nsw i64 %indvars.iv263.i to i32
   %99 = mul i32 %48, %98
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds i8, ptr %.3228.us.i, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %.3228.us.i, i64 %100
   %102 = icmp ult ptr %101, %.0173.i
   %spec.select210.us.i = select i1 %102, ptr %.0173.i, ptr %101
   %indvars.iv.next264.i = add nuw nsw i64 %indvars.iv263.i, 1
   %103 = trunc nuw nsw i64 %indvars.iv.next264.i to i32
   %104 = mul i32 %56, %103
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds i8, ptr %2, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 %105
   tail call void %.0180.i(ptr noundef %spec.select210.us.i, i32 noundef %50, ptr noundef %106, i32 noundef %42) #6, !callees !4
   %exitcond267.not.i = icmp eq i64 %indvars.iv.next264.i, %88
   br i1 %exitcond267.not.i, label %93, label %97, !llvm.loop !9
@@ -207,14 +207,14 @@ define hidden void @aom_scale_frame(ptr nocapture noundef readonly %0, ptr nocap
   %108 = trunc nuw nsw i64 %indvars.iv.i to i32
   %109 = mul i32 %48, %108
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %.3228.i, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %.3228.i, i64 %110
   %112 = icmp ult ptr %111, %.0173.i
   %spec.select210.i = select i1 %112, ptr %.0173.i, ptr %111
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %113 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %114 = mul i32 %56, %113
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds i8, ptr %2, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 %115
   tail call void %.0180.i(ptr noundef %spec.select210.i, i32 noundef %50, ptr noundef %116, i32 noundef %42) #6, !callees !4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %88
   br i1 %exitcond.not.i, label %117, label %107, !llvm.loop !9
@@ -284,7 +284,7 @@ define hidden void @aom_scale_frame(ptr nocapture noundef readonly %0, ptr nocap
   %.not253.i = icmp eq i32 %42, 0
   %144 = mul i32 %.1184.i, %56
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds i8, ptr %2, i64 %145
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 %145
   %147 = mul i32 %.1184.i, %48
   %148 = zext i32 %147 to i64
   %149 = mul i32 %.1186.i, %56
@@ -305,16 +305,16 @@ define hidden void @aom_scale_frame(ptr nocapture noundef readonly %0, ptr nocap
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph235.us.i, %..preheader218_crit_edge.us.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %146, i64 %143, i1 false)
-  %152 = getelementptr inbounds i8, ptr %.5238.us.i, i64 %148
-  %153 = getelementptr inbounds i8, ptr %.3190237.us.i, i64 %150
+  %152 = getelementptr inbounds nuw i8, ptr %.5238.us.i, i64 %148
+  %153 = getelementptr inbounds nuw i8, ptr %.3190237.us.i, i64 %150
   %154 = add nuw i32 %.3194236.us.i, 1
   %155 = icmp ult i32 %154, %140
   br i1 %155, label %.preheader219.us.i, label %Scale2D.exit, !llvm.loop !12
 
 .lr.ph235.us.i:                                   ; preds = %..preheader218_crit_edge.us.i, %.lr.ph235.us.i
   %indvars.iv281.i = phi i64 [ %indvars.iv.next282.i, %.lr.ph235.us.i ], [ 0, %..preheader218_crit_edge.us.i ]
-  %156 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv281.i
-  %157 = getelementptr inbounds i8, ptr %.3190237.us.i, i64 %indvars.iv281.i
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv281.i
+  %157 = getelementptr inbounds nuw i8, ptr %.3190237.us.i, i64 %indvars.iv281.i
   tail call void %.0182.i(ptr noundef %156, i32 noundef %56, i32 noundef %6, i32 noundef %141, ptr noundef %157, i32 noundef %56, i32 noundef %7, i32 noundef %.1186.i) #6, !callees !13
   %indvars.iv.next282.i = add nuw nsw i64 %indvars.iv281.i, 1
   %exitcond285.not.i = icmp eq i64 %indvars.iv.next282.i, %wide.trip.count284.i
@@ -330,21 +330,21 @@ define hidden void @aom_scale_frame(ptr nocapture noundef readonly %0, ptr nocap
 161:                                              ; preds = %158
   %162 = mul i32 %56, %indvars278.i
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds i8, ptr %2, i64 %163
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 %163
   %165 = add i32 %indvars278.i, -1
   %166 = mul i32 %165, %56
   %167 = zext i32 %166 to i64
-  %168 = getelementptr inbounds i8, ptr %2, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 %167
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %164, ptr align 1 %168, i64 %143, i1 false)
   br label %176
 
 169:                                              ; preds = %158
   %170 = mul i32 %48, %indvars278.i
   %171 = zext i32 %170 to i64
-  %172 = getelementptr inbounds i8, ptr %.5238.us.i, i64 %171
+  %172 = getelementptr inbounds nuw i8, ptr %.5238.us.i, i64 %171
   %173 = mul i32 %56, %indvars278.i
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds i8, ptr %2, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 %174
   tail call void %spec.select211.i(ptr noundef %172, i32 noundef 1, i32 noundef %4, i32 noundef %137, ptr noundef %175, i32 noundef 1, i32 noundef %5, i32 noundef %42) #6, !callees !10
   br label %176
 
@@ -370,8 +370,8 @@ define hidden void @aom_scale_frame(ptr nocapture noundef readonly %0, ptr nocap
 
 177:                                              ; preds = %177, %.preheader219.us239.i
   %indvars.iv271.i = phi i64 [ 0, %.preheader219.us239.i ], [ %indvars.iv.next272.i, %177 ]
-  %178 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv271.i
-  %179 = getelementptr inbounds i8, ptr %.3190237.us241.i, i64 %indvars.iv271.i
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv271.i
+  %179 = getelementptr inbounds nuw i8, ptr %.3190237.us241.i, i64 %indvars.iv271.i
   tail call void %.0182.i(ptr noundef %178, i32 noundef %56, i32 noundef %6, i32 noundef %141, ptr noundef %179, i32 noundef %56, i32 noundef %7, i32 noundef %.1186.i) #6, !callees !13
   %indvars.iv.next272.i = add nuw nsw i64 %indvars.iv271.i, 1
   %exitcond275.not.i = icmp eq i64 %indvars.iv.next272.i, %wide.trip.count274.i
@@ -379,7 +379,7 @@ define hidden void @aom_scale_frame(ptr nocapture noundef readonly %0, ptr nocap
 
 ._crit_edge.us245.i:                              ; preds = %177
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %146, i64 %143, i1 false)
-  %180 = getelementptr inbounds i8, ptr %.3190237.us241.i, i64 %150
+  %180 = getelementptr inbounds nuw i8, ptr %.3190237.us241.i, i64 %150
   %181 = add nuw i32 %.3194236.us242.i, 1
   %182 = icmp ult i32 %181, %140
   br i1 %182, label %.preheader219.us239.i, label %Scale2D.exit, !llvm.loop !12
@@ -392,11 +392,11 @@ define hidden void @aom_scale_frame(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %184, label %.preheader219.i, label %Scale2D.exit, !llvm.loop !12
 
 Scale2D.exit.thread:                              ; preds = %.preheader221.i, %.preheader.i
-  %185 = getelementptr inbounds [2 x i32], ptr %1, i64 0, i64 %46
+  %185 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 0, i64 %46
   br label %.loopexit81
 
 Scale2D.exit:                                     ; preds = %117, %93, %71, %._crit_edge.us245.i, %.preheader219.i, %._crit_edge.us.i, %125, %78, %136
-  %186 = getelementptr inbounds [2 x i32], ptr %1, i64 0, i64 %46
+  %186 = getelementptr inbounds nuw [2 x i32], ptr %1, i64 0, i64 %46
   %187 = load i32, ptr %186, align 4
   %188 = icmp slt i32 %42, %187
   %189 = icmp sgt i32 %43, 0
@@ -432,7 +432,7 @@ Scale2D.exit:                                     ; preds = %117, %93, %71, %._c
 
 .loopexit81:                                      ; preds = %191, %Scale2D.exit.thread, %Scale2D.exit
   %208 = phi ptr [ %185, %Scale2D.exit.thread ], [ %186, %Scale2D.exit ], [ %186, %191 ]
-  %209 = getelementptr inbounds [2 x i32], ptr %38, i64 0, i64 %46
+  %209 = getelementptr inbounds nuw [2 x i32], ptr %38, i64 0, i64 %46
   %210 = load i32, ptr %209, align 4
   %211 = icmp slt i32 %43, %210
   br i1 %211, label %.lr.ph90, label %.loopexit
@@ -553,7 +553,7 @@ declare void @aom_vertical_band_2_1_scale_i_c(ptr noundef, i32 noundef, ptr noun
 define internal void @scale1d_2t1_ps(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
   %9 = mul i32 %7, %5
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -581,7 +581,7 @@ define internal void @scale1d_2t1_ps(ptr nocapture noundef readonly %0, i32 noun
 define internal void @scale1d_2t1_i(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly initializes((0, 1)) %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
   %9 = mul i32 %7, %5
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
   %12 = shl nsw i32 %1, 1
   %13 = load i8, ptr %0, align 1
   store i8 %13, ptr %4, align 1

@@ -65,14 +65,14 @@ define range(i32 0, 4) i32 @PMPI_Status_set_elements_x(ptr noundef writeonly %0,
   %26 = getelementptr i8, ptr %1, i64 24
   %.val23 = load i64, ptr %26, align 8
   %27 = mul i64 %.val23, %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %27, ptr %28, align 8
   br label %33
 
 29:                                               ; preds = %22
   %30 = call i32 @opal_datatype_set_element_count(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %4) #2
   %31 = load i64, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %31, ptr %32, align 8
   br label %33
 

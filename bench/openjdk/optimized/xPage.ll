@@ -63,7 +63,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XPageC2ERK14XVirtualMemoryRK15XPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 2), (4, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %1, align 8
   %7 = sub i64 %5, %6
@@ -73,20 +73,20 @@ define hidden void @_ZN5XPageC2ERK14XVirtualMemoryRK15XPhysicalMemory(ptr nounde
   %..i = select i1 %10, i8 1, i8 2
   %.0.i = select i1 %8, i8 0, i8 %..i
   store i8 %.0.i, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 -1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i64, ptr %13, align 8
   store volatile i64 %15, ptr %14, align 8
   %cond.i.i = icmp eq i8 %.0.i, 2
   br i1 %cond.i.i, label %_ZN5XPageC2EhRK14XVirtualMemoryRK15XPhysicalMemory.exit, label %_ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i.i
 
 _ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i.i: ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = sub i64 %17, %15
   %19 = load ptr, ptr @XObjectAlignmentSmallShift, align 8
@@ -99,15 +99,15 @@ _ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i.i: ; preds = %3
 
 _ZN5XPageC2EhRK14XVirtualMemoryRK15XPhysicalMemory.exit: ; preds = %3, %_ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i.i
   %.0.i.i = phi i32 [ %23, %_ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i.i ], [ 1, %3 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN8XLiveMapC1Ej(ptr noundef nonnull align 8 dereferenceable(64) %24, i32 noundef %.0.i.i) #8
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN15XPhysicalMemoryC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %2) #8
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %27, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %27, ptr %28, align 8
   ret void
 }
@@ -115,20 +115,20 @@ _ZN5XPageC2EhRK14XVirtualMemoryRK15XPhysicalMemory.exit: ; preds = %3, %_ZNK5XPa
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XPageC2EhRK14XVirtualMemoryRK15XPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 2), (4, 24)) %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
   store i8 %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 -1, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %7, align 8
   store volatile i64 %9, ptr %8, align 8
   %cond.i = icmp eq i8 %1, 2
   br i1 %cond.i, label %_ZNK5XPage16object_max_countEv.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = sub i64 %12, %9
   switch i8 %1, label %_ZNK5XPage22object_alignment_shiftEv.exit.i [
@@ -154,15 +154,15 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i:      ; preds = %_ZNK5XPage22object_
 
 _ZNK5XPage16object_max_countEv.exit:              ; preds = %4, %_ZNK5XPage22object_alignment_shiftEv.exit.i
   %.0.i = phi i32 [ %19, %_ZNK5XPage22object_alignment_shiftEv.exit.i ], [ 1, %4 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN8XLiveMapC1Ej(ptr noundef nonnull align 8 dereferenceable(64) %20, i32 noundef %.0.i) #8
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZN15XPhysicalMemoryC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %3) #8
-  %23 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %23, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %23, ptr %24, align 8
   ret void
 }
@@ -181,15 +181,15 @@ define hidden void @_ZNK5XPage18assert_initializedEv(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5XPageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((104, 108)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 108
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN15XPhysicalMemoryD2Ev.exit, label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   store i32 0, ptr %3, align 4
   %.not.i.i.i.i = icmp eq ptr %7, null
@@ -204,7 +204,7 @@ define hidden void @_ZN5XPageD2Ev(ptr noundef nonnull align 8 dereferenceable(13
   br label %_ZN15XPhysicalMemoryD2Ev.exit
 
 _ZN15XPhysicalMemoryD2Ev.exit:                    ; preds = %1, %8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN11CHeapBitMapD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %9) #8
   ret void
 }
@@ -212,15 +212,15 @@ _ZN15XPhysicalMemoryD2Ev.exit:                    ; preds = %1, %8
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN5XPage5resetEv(ptr noundef nonnull align 8 dereferenceable(136) initializes((4, 8)) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr @XGlobalSeqNum, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile i64 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 0, ptr %8, align 8
   ret void
 }
@@ -228,11 +228,11 @@ define hidden void @_ZN5XPage5resetEv(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN5XPage29reset_for_in_place_relocationEv(ptr noundef nonnull align 8 dereferenceable(136) initializes((4, 8)) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr @XGlobalSeqNum, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile i64 %5, ptr %6, align 8
   ret void
 }
@@ -244,8 +244,8 @@ define hidden noundef nonnull ptr @_ZN5XPage6retypeEh(ptr noundef nonnull return
   br i1 %cond.i, label %_ZNK5XPage16object_max_countEv.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = sub i64 %6, %7
@@ -272,7 +272,7 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i:      ; preds = %_ZNK5XPage22object_
 
 _ZNK5XPage16object_max_countEv.exit:              ; preds = %2, %_ZNK5XPage22object_alignment_shiftEv.exit.i
   %.0.i = phi i32 [ %14, %_ZNK5XPage22object_alignment_shiftEv.exit.i ], [ 1, %2 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN8XLiveMap6resizeEj(ptr noundef nonnull align 8 dereferenceable(64) %15, i32 noundef %.0.i) #8
   ret ptr %0
 }
@@ -293,13 +293,13 @@ define hidden noundef ptr @_ZN5XPage5splitEm(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5XPage5splitEhm(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 noundef zeroext %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.XPhysicalMemory, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %2
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @_ZN15XPhysicalMemory5splitEm(ptr dead_on_unwind nonnull writable sret(%class.XPhysicalMemory) align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %2) #8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %5, align 8
   %12 = sub i64 %10, %11
@@ -309,9 +309,9 @@ define hidden noundef ptr @_ZN5XPage5splitEhm(ptr noundef nonnull align 8 derefe
   %..i = select i1 %15, i8 1, i8 2
   %.0.i = select i1 %13, i8 0, i8 %..i
   store i8 %.0.i, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile i64 %11, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %cond.i = icmp eq i8 %.0.i, 2
   br i1 %cond.i, label %_ZNK5XPage16object_max_countEv.exit, label %_ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i
 
@@ -329,15 +329,15 @@ _ZNK5XPage16object_max_countEv.exit:              ; preds = %3, %_ZNK5XPage22obj
   call void @_ZN8XLiveMap6resizeEj(ptr noundef nonnull align 8 dereferenceable(64) %17, i32 noundef %.0.i9) #8
   %23 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 136, i8 noundef zeroext 5, i32 noundef 0) #8
   store i8 %1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 -1, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %23, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 %6, ptr %26, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 %7, ptr %.sroa.2.0..sroa_idx, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store volatile i64 %6, ptr %27, align 8
   switch i8 %1, label %_ZNK5XPage22object_alignment_shiftEv.exit.i.i [
     i8 2, label %_ZN5XPageC2EhRK14XVirtualMemoryRK15XPhysicalMemory.exit
@@ -363,30 +363,30 @@ _ZNK5XPage22object_alignment_shiftEv.exit.i.i:    ; preds = %_ZNK5XPage16object_
 
 _ZN5XPageC2EhRK14XVirtualMemoryRK15XPhysicalMemory.exit: ; preds = %_ZNK5XPage16object_max_countEv.exit, %_ZNK5XPage22object_alignment_shiftEv.exit.i.i
   %.0.i.i10 = phi i32 [ %33, %_ZNK5XPage22object_alignment_shiftEv.exit.i.i ], [ 1, %_ZNK5XPage16object_max_countEv.exit ]
-  %34 = getelementptr inbounds i8, ptr %23, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 32
   call void @_ZN8XLiveMapC1Ej(ptr noundef nonnull align 8 dereferenceable(64) %34, i32 noundef %.0.i.i10) #8
-  %35 = getelementptr inbounds i8, ptr %23, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 96
   store i64 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %23, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 104
   call void @_ZN15XPhysicalMemoryC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %4) #8
-  %37 = getelementptr inbounds i8, ptr %23, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 120
   store ptr %37, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %23, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 128
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = load i32, ptr %39, align 4
   store i32 %40, ptr %25, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %42 = load i64, ptr %41, align 8
   store i64 %42, ptr %35, align 8
   store i32 0, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %_ZN15XPhysicalMemoryD2Ev.exit, label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %_ZN5XPageC2EhRK14XVirtualMemoryRK15XPhysicalMemory.exit
-  %46 = getelementptr inbounds i8, ptr %4, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %47 = load ptr, ptr %46, align 8
   store i32 0, ptr %43, align 4
   %.not.i.i.i.i = icmp eq ptr %47, null
@@ -405,19 +405,19 @@ declare void @_ZN15XPhysicalMemory5splitEm(ptr dead_on_unwind writable sret(%cla
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN5XPage15split_committedEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.XPhysicalMemory, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @_ZN15XPhysicalMemory15split_committedEv(ptr dead_on_unwind nonnull writable sret(%class.XPhysicalMemory) align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #8
   %4 = load i32, ptr %2, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %42, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = call noundef i64 @_ZNK15XPhysicalMemory4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #8
   %9 = load i64, ptr %7, align 8
   %10 = add i64 %9, %8
   store i64 %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = sub i64 %12, %10
   %14 = icmp eq i64 %13, 2097152
@@ -426,9 +426,9 @@ define hidden noundef ptr @_ZN5XPage15split_committedEv(ptr noundef nonnull alig
   %..i = select i1 %16, i8 1, i8 2
   %.0.i = select i1 %14, i8 0, i8 %..i
   store i8 %.0.i, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile i64 %10, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %cond.i = icmp eq i8 %.0.i, 2
   br i1 %cond.i, label %_ZNK5XPage16object_max_countEv.exit, label %_ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i
 
@@ -451,15 +451,15 @@ _ZNK5XPage16object_max_countEv.exit:              ; preds = %6, %_ZNK5XPage22obj
   %..i.i = select i1 %27, i8 1, i8 2
   %.0.i.i5 = select i1 %25, i8 0, i8 %..i.i
   store i8 %.0.i.i5, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 -1, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %24, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %9, ptr %30, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 %10, ptr %.sroa.3.0..sroa_idx, align 8
-  %31 = getelementptr inbounds i8, ptr %24, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store volatile i64 %9, ptr %31, align 8
   %cond.i.i.i = icmp eq i8 %.0.i.i5, 2
   br i1 %cond.i.i.i, label %_ZN5XPageC2ERK14XVirtualMemoryRK15XPhysicalMemory.exit, label %_ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i.i.i
@@ -475,28 +475,28 @@ _ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i.i.i: ; preds = %_ZNK5XPag
 
 _ZN5XPageC2ERK14XVirtualMemoryRK15XPhysicalMemory.exit: ; preds = %_ZNK5XPage16object_max_countEv.exit, %_ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i.i.i
   %.0.i.i.i = phi i32 [ %36, %_ZNK5XPage22object_alignment_shiftEv.exit.sink.split.i.i.i ], [ 1, %_ZNK5XPage16object_max_countEv.exit ]
-  %37 = getelementptr inbounds i8, ptr %24, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 32
   call void @_ZN8XLiveMapC1Ej(ptr noundef nonnull align 8 dereferenceable(64) %37, i32 noundef %.0.i.i.i) #8
-  %38 = getelementptr inbounds i8, ptr %24, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 96
   store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %24, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 104
   call void @_ZN15XPhysicalMemoryC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %2) #8
-  %40 = getelementptr inbounds i8, ptr %24, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 120
   store ptr %40, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %24, i64 128
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 128
   store ptr %40, ptr %41, align 8
   br label %42
 
 42:                                               ; preds = %1, %_ZN5XPageC2ERK14XVirtualMemoryRK15XPhysicalMemory.exit
   %.0 = phi ptr [ %24, %_ZN5XPageC2ERK14XVirtualMemoryRK15XPhysicalMemory.exit ], [ null, %1 ]
   store i32 0, ptr %2, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %_ZN15XPhysicalMemoryD2Ev.exit, label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load ptr, ptr %46, align 8
   store i32 0, ptr %43, align 4
   %.not.i.i.i.i = icmp eq ptr %47, null
@@ -521,13 +521,13 @@ define hidden void @_ZNK5XPage8print_onEP12outputStream(ptr noundef nonnull alig
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.17, ptr @.str.18
   %switch.selectcmp2.i = icmp eq i8 %3, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, ptr @.str.16, ptr %switch.select.i
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load volatile i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr @XGlobalSeqNum, align 4
   %13 = icmp eq i32 %11, %12
@@ -548,13 +548,13 @@ define hidden void @_ZNK5XPage5printEv(ptr noundef nonnull align 8 dereferenceab
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, ptr @.str.17, ptr @.str.18
   %switch.selectcmp2.i.i = icmp eq i8 %3, 0
   %switch.select3.i.i = select i1 %switch.selectcmp2.i.i, ptr @.str.16, ptr %switch.select.i.i
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load volatile i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr @XGlobalSeqNum, align 4
   %13 = icmp eq i32 %11, %12
@@ -567,7 +567,7 @@ define hidden void @_ZNK5XPage5printEv(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK5XPage11verify_liveEjm(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load volatile i32, ptr %4, align 4
   %6 = icmp eq i32 %1, %5
   br i1 %6, label %9, label %7
@@ -579,7 +579,7 @@ define hidden void @_ZNK5XPage11verify_liveEjm(ptr noundef nonnull align 8 deref
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load volatile i64, ptr %10, align 8
   %12 = icmp eq i64 %2, %11
   br i1 %12, label %15, label %13

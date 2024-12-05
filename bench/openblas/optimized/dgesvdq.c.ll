@@ -606,7 +606,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %381 = uitofp nneg i32 %367 to double
   store double %381, ptr %17, align 8, !tbaa !7
   %382 = uitofp nneg i32 %366 to double
-  %383 = getelementptr inbounds i8, ptr %17, i64 8
+  %383 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store double %382, ptr %383, align 8, !tbaa !7
   %384 = uitofp nneg i32 %111 to double
   store double %384, ptr %19, align 8, !tbaa !7
@@ -760,7 +760,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 458:                                              ; preds = %458, %455
   %459 = phi i64 [ 1, %455 ], [ %462, %458 ]
-  %460 = getelementptr inbounds i32, ptr %45, i64 %459
+  %460 = getelementptr inbounds nuw i32, ptr %45, i64 %459
   %461 = trunc i64 %459 to i32
   store i32 %461, ptr %460, align 4, !tbaa !3
   %462 = add nuw nsw i64 %459, 1
@@ -804,7 +804,7 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br label %484
 
 484:                                              ; preds = %483, %.loopexit181
-  %485 = getelementptr inbounds i8, ptr %19, i64 8
+  %485 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double -1.000000e+00, ptr %485, align 8, !tbaa !7
   br label %1686
 
@@ -2755,7 +2755,7 @@ thread-pre-split155:                              ; preds = %1030, %1031
 
 1652:                                             ; preds = %.thread151
   %1653 = zext nneg i32 %1650 to i64
-  %1654 = getelementptr inbounds double, ptr %36, i64 %1653
+  %1654 = getelementptr inbounds nuw double, ptr %36, i64 %1653
   %1655 = load double, ptr %1654, align 8, !tbaa !7
   %1656 = fcmp ogt double %1655, 0.000000e+00
   br i1 %1656, label %.loopexit, label %.lr.ph
@@ -2815,7 +2815,7 @@ thread-pre-split155:                              ; preds = %1030, %1031
   %1682 = load i32, ptr %30, align 4, !tbaa !3
   %1683 = sub nsw i32 %1681, %1682
   %1684 = sitofp i32 %1683 to double
-  %1685 = getelementptr inbounds i8, ptr %19, i64 8
+  %1685 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double %1684, ptr %1685, align 8, !tbaa !7
   store i32 %1682, ptr %14, align 4, !tbaa !3
   br label %1686

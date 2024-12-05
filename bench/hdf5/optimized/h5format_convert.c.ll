@@ -657,7 +657,7 @@ define internal range(i32 -1, 1) i32 @convert_dsets_cb(ptr noundef %0, ptr nocap
   br i1 %6, label %7, label %17
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %17

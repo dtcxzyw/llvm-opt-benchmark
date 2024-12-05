@@ -90,16 +90,16 @@ define ptr @ws_strptime(ptr noundef %0, ptr nocapture noundef readonly %1, ptr n
 
 .lr.ph885:                                        ; preds = %4
   %9 = load ptr, ptr @g_ascii_table, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.not332 = icmp eq ptr %3, null
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 20
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 28
-  %18 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   br label %19
 
 19:                                               ; preds = %.lr.ph885, %select.unfold.backedge
@@ -1468,7 +1468,7 @@ thread-pre-split591:                              ; preds = %423, %434, %438, %.
   br i1 %or.cond388.not, label %567, label %591
 
 567:                                              ; preds = %565
-  %568 = getelementptr inbounds i8, ptr %2, i64 20
+  %568 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %569 = load i32, ptr %568, align 4
   %570 = srem i32 %569, 400
   %571 = and i32 %570, 3
@@ -1490,12 +1490,12 @@ thread-pre-split591:                              ; preds = %423, %434, %438, %.
 
 580:                                              ; preds = %573, %576, %567
   %581 = phi i64 [ 0, %567 ], [ 1, %573 ], [ %579, %576 ]
-  %582 = getelementptr inbounds i8, ptr %2, i64 16
+  %582 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %583 = load i32, ptr %582, align 8
   %584 = sext i32 %583 to i64
   %585 = getelementptr [2 x [13 x i32]], ptr @start_of_month, i64 0, i64 %581, i64 %584
   %586 = load i32, ptr %585, align 4
-  %587 = getelementptr inbounds i8, ptr %2, i64 12
+  %587 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %588 = load i32, ptr %587, align 4
   %589 = add i32 %586, -1
   %590 = add i32 %589, %588
@@ -1511,14 +1511,14 @@ thread-pre-split591:                              ; preds = %423, %434, %438, %.
   br i1 %.not313, label %594, label %597
 
 594:                                              ; preds = %592
-  %595 = getelementptr inbounds i8, ptr %2, i64 24
+  %595 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %.0264.lcssa.ph, ptr %595, align 8
   %596 = or disjoint i32 %.0266.lcssa.ph, 16
   br label %597
 
 597:                                              ; preds = %594, %592
   %.4 = phi i32 [ %.0266.lcssa.ph, %592 ], [ %596, %594 ]
-  %598 = getelementptr inbounds i8, ptr %2, i64 20
+  %598 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %599 = load i32, ptr %598, align 4
   %600 = add i32 %599, 1900
   %601 = srem i32 %600, 100
@@ -1556,7 +1556,7 @@ first_wday_of.exit:                               ; preds = %597, %605, %606
   %reass.sub = add nsw i32 %.0264.lcssa.ph, 7
   %619 = add nsw i32 %reass.sub, %.sext7.i.neg
   %620 = urem i32 %619, 7
-  %621 = getelementptr inbounds i8, ptr %2, i64 24
+  %621 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %622 = load i32, ptr %621, align 8
   %reass.sub906 = sub i32 %563, %.0264.lcssa.ph
   %623 = add i32 %reass.sub906, -7
@@ -1567,7 +1567,7 @@ first_wday_of.exit:                               ; preds = %597, %605, %606
 .sink.split1372:                                  ; preds = %first_wday_of.exit, %580
   %.sink1373 = phi i32 [ %590, %580 ], [ %625, %first_wday_of.exit ]
   %.0266.lcssa.ph.sink = phi i32 [ %.0266.lcssa.ph, %580 ], [ %.4, %first_wday_of.exit ]
-  %626 = getelementptr inbounds i8, ptr %2, i64 28
+  %626 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %.sink1373, ptr %626, align 4
   %627 = or i32 %.0266.lcssa.ph.sink, 4
   br label %628
@@ -1584,7 +1584,7 @@ first_wday_of.exit:                               ; preds = %597, %605, %606
   br i1 %.not317, label %632, label %666
 
 632:                                              ; preds = %630
-  %633 = getelementptr inbounds i8, ptr %2, i64 20
+  %633 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %634 = load i32, ptr %633, align 4
   %635 = srem i32 %634, 400
   %636 = and i32 %635, 3
@@ -1606,7 +1606,7 @@ first_wday_of.exit:                               ; preds = %597, %605, %606
 
 645:                                              ; preds = %638, %641, %632
   %646 = phi i64 [ 0, %632 ], [ 1, %638 ], [ %644, %641 ]
-  %647 = getelementptr inbounds i8, ptr %2, i64 28
+  %647 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %648 = load i32, ptr %647, align 4
   br label %649
 
@@ -1635,7 +1635,7 @@ first_wday_of.exit:                               ; preds = %597, %605, %606
 662:                                              ; preds = %657, %655
   %663 = phi i32 [ 1, %657 ], [ %650, %655 ]
   %664 = add i32 %663, -1
-  %665 = getelementptr inbounds i8, ptr %2, i64 16
+  %665 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %664, ptr %665, align 8
   br label %666
 
@@ -1645,7 +1645,7 @@ first_wday_of.exit:                               ; preds = %597, %605, %606
   br i1 %.not320, label %668, label %693
 
 668:                                              ; preds = %666
-  %669 = getelementptr inbounds i8, ptr %2, i64 20
+  %669 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %670 = load i32, ptr %669, align 4
   %671 = srem i32 %670, 400
   %672 = and i32 %671, 3
@@ -1667,16 +1667,16 @@ first_wday_of.exit:                               ; preds = %597, %605, %606
 
 681:                                              ; preds = %674, %677, %668
   %682 = phi i64 [ 0, %668 ], [ 1, %674 ], [ %680, %677 ]
-  %683 = getelementptr inbounds i8, ptr %2, i64 28
+  %683 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %684 = load i32, ptr %683, align 4
-  %685 = getelementptr inbounds i8, ptr %2, i64 16
+  %685 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %686 = load i32, ptr %685, align 8
   %687 = sext i32 %686 to i64
   %688 = getelementptr [2 x [13 x i32]], ptr @start_of_month, i64 0, i64 %682, i64 %687
   %689 = load i32, ptr %688, align 4
   %690 = add i32 %684, 1
   %691 = sub i32 %690, %689
-  %692 = getelementptr inbounds i8, ptr %2, i64 12
+  %692 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %691, ptr %692, align 4
   br label %693
 
@@ -1686,7 +1686,7 @@ first_wday_of.exit:                               ; preds = %597, %605, %606
   br i1 %.not322, label %695, label %.loopexit616
 
 695:                                              ; preds = %693
-  %696 = getelementptr inbounds i8, ptr %2, i64 20
+  %696 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %697 = load i32, ptr %696, align 4
   %698 = srem i32 %697, 100
   %699 = sdiv i32 %697, 100
@@ -1719,7 +1719,7 @@ first_wday_of.exit587:                            ; preds = %695, %702, %703
   %.lhs.trunc6.i584 = add nsw i16 %714, 1
   %715 = srem i16 %.lhs.trunc6.i584, 7
   %.sext7.i585 = sext i16 %715 to i32
-  %716 = getelementptr inbounds i8, ptr %2, i64 28
+  %716 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %717 = load i32, ptr %716, align 4
   %.not323898 = icmp slt i32 %717, 0
   br i1 %.not323898, label %._crit_edge901, label %.lr.ph900
@@ -1736,7 +1736,7 @@ first_wday_of.exit587:                            ; preds = %695, %702, %703
 
 ._crit_edge901:                                   ; preds = %.lr.ph900, %first_wday_of.exit587
   %.1263.lcssa = phi i32 [ %.sext7.i585, %first_wday_of.exit587 ], [ %spec.store.select, %.lr.ph900 ]
-  %722 = getelementptr inbounds i8, ptr %2, i64 24
+  %722 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %.1263.lcssa, ptr %722, align 8
   br label %.loopexit616
 

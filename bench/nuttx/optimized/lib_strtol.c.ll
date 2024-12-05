@@ -24,7 +24,7 @@ define i64 @strtol(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   br label %19
 
 9:                                                ; preds = %5, %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %10, ptr %4, align 8
   %11 = call i64 @strtoul(ptr noundef nonnull %10, ptr noundef %1, i32 noundef %2)
   %12 = icmp eq i8 %7, 45

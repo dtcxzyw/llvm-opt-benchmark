@@ -40,7 +40,7 @@ if.end:                                           ; preds = %lor.lhs.false
 if.end5:                                          ; preds = %if.end
   %4 = load ptr, ptr @imath_half_to_float_table, align 8
   %idxprom.i.i = zext nneg i16 %h.coerce to i64
-  %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %4, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %union.imath_half_uif, ptr %4, i64 %idxprom.i.i
   %5 = load float, ptr %arrayidx.i.i, align 4
   %conv = fptoui float %5 to i32
   br label %return
@@ -75,7 +75,7 @@ define range(i16 0, -32768) i16 @_ZN7Imf_3_210uintToHalfEj(i32 noundef %ui) loca
 entry:
   %conv = uitofp i32 %ui to float
   %0 = load ptr, ptr @imath_half_to_float_table, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 126972
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 126972
   %1 = load float, ptr %arrayidx.i.i, align 4
   %cmp = fcmp olt float %1, %conv
   br i1 %cmp, label %return, label %if.end
@@ -157,13 +157,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @imath_half_to_float_table, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 126972
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 126972
   %2 = load float, ptr %arrayidx.i.i, align 4
   %cmp = fcmp ogt float %f, %2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %arrayidx.i.i5 = getelementptr inbounds i8, ptr %1, i64 258044
+  %arrayidx.i.i5 = getelementptr inbounds nuw i8, ptr %1, i64 258044
   %3 = load float, ptr %arrayidx.i.i5, align 4
   %cmp10 = fcmp olt float %f, %3
   br i1 %cmp10, label %return, label %if.end15

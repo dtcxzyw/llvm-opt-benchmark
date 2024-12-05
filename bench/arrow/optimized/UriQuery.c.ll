@@ -24,7 +24,7 @@ while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %i
   %queryList.addr.050.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %if.end.i ]
   %ampersandLen.048.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %if.end.i ]
   %1 = load ptr, ptr %queryList.addr.050.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i.i, i64 8
+  %value3.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 8
   %2 = load ptr, ptr %value3.us.i.i, align 8
   %cmp5.us.i.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
@@ -60,7 +60,7 @@ if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
   %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
   %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
   store i32 %add34.us.i.i, ptr %charsRequired, align 4
-  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i.i, i64 16
+  %next.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 16
   %3 = load ptr, ptr %next.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i.i, label %uriComposeQueryCharsRequiredExA.exit, label %while.body.us.i.i, !llvm.loop !4
@@ -90,7 +90,7 @@ while.body.us.i:                                  ; preds = %if.end21.us.i, %if.
   %queryList.addr.050.us.i = phi ptr [ %3, %if.end21.us.i ], [ %queryList, %if.end ]
   %ampersandLen.048.us.i = phi i32 [ 1, %if.end21.us.i ], [ 0, %if.end ]
   %1 = load ptr, ptr %queryList.addr.050.us.i, align 8
-  %value3.us.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i, i64 8
+  %value3.us.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i, i64 8
   %2 = load ptr, ptr %value3.us.i, align 8
   %cmp5.us.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i, label %cond.end.us.i, label %cond.false.us.i
@@ -126,7 +126,7 @@ if.end21.us.i:                                    ; preds = %cond.end13.us.i
   %add33.us.i = add nsw i32 %add.us.i, %cond32.us.i
   %add34.us.i = add nsw i32 %add33.us.i, %0
   store i32 %add34.us.i, ptr %charsRequired, align 4
-  %next.us.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i, i64 16
+  %next.us.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i, i64 16
   %3 = load ptr, ptr %next.us.i, align 8
   %cmp1.not.us.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i, label %return, label %while.body.us.i, !llvm.loop !4
@@ -170,7 +170,7 @@ while.body.i:                                     ; preds = %if.end75.i, %while.
   %ampersandLen.048.i = phi i32 [ %ampersandLen.2.i, %if.end75.i ], [ 0, %while.body.preheader.i ]
   %write.047.i = phi ptr [ %write.1.i, %if.end75.i ], [ %dest, %while.body.preheader.i ]
   %0 = load ptr, ptr %queryList.addr.050.i, align 8
-  %value3.i = getelementptr inbounds i8, ptr %queryList.addr.050.i, i64 8
+  %value3.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.i, i64 8
   %1 = load ptr, ptr %value3.i, align 8
   %cmp5.i = icmp eq ptr %0, null
   br i1 %cmp5.i, label %cond.end.i, label %cond.false.i
@@ -214,7 +214,7 @@ if.end48.i:                                       ; preds = %if.end21.i
 
 if.else52.i:                                      ; preds = %if.end48.i
   store i8 38, ptr %write.047.i, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %write.047.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %write.047.i, i64 1
   br label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.else52.i, %if.end48.i
@@ -236,7 +236,7 @@ if.then57.i:                                      ; preds = %if.end53.i
 
 if.end68.i:                                       ; preds = %if.then57.i
   store i8 61, ptr %call54.i, align 1
-  %incdec.ptr70.i = getelementptr inbounds i8, ptr %call54.i, i64 1
+  %incdec.ptr70.i = getelementptr inbounds nuw i8, ptr %call54.i, i64 1
   %idx.ext71.i = sext i32 %cond14.i to i64
   %add.ptr72.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext71.i
   %call73.i = tail call ptr @uriEscapeExA(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr72.i, ptr noundef nonnull %incdec.ptr70.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
@@ -244,7 +244,7 @@ if.end68.i:                                       ; preds = %if.then57.i
 
 if.end75.i:                                       ; preds = %if.end68.i, %if.end53.i
   %write.1.i = phi ptr [ %call73.i, %if.end68.i ], [ %call54.i, %if.end53.i ]
-  %next.i = getelementptr inbounds i8, ptr %queryList.addr.050.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.i, i64 16
   %2 = load ptr, ptr %next.i, align 8
   %cmp1.not.i = icmp eq ptr %2, null
   br i1 %cmp1.not.i, label %if.then78.i, label %while.body.i, !llvm.loop !4
@@ -312,7 +312,7 @@ while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %i
   %queryList.addr.050.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %if.end.i ]
   %ampersandLen.048.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %if.end.i ]
   %1 = load ptr, ptr %queryList.addr.050.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i.i, i64 8
+  %value3.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 8
   %2 = load ptr, ptr %value3.us.i.i, align 8
   %cmp5.us.i.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
@@ -347,7 +347,7 @@ if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
   %add.us.i.i = add i32 %ampersandLen.048.us.i.i, %0
   %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
   %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
-  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i.i, i64 16
+  %next.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 16
   %3 = load ptr, ptr %next.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i.i, label %if.end10, label %while.body.us.i.i, !llvm.loop !4
@@ -366,7 +366,7 @@ if.end15:                                         ; preds = %if.end10
   br i1 %cmp17.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  %free = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   %5 = load ptr, ptr %free, align 8
   tail call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %call11) #6
   br label %return
@@ -390,16 +390,16 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %queryList.addr.013.i = phi ptr [ %0, %while.body.i ], [ %queryList, %entry ]
-  %next.i = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 16
   %0 = load ptr, ptr %next.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
   %2 = load ptr, ptr %queryList.addr.013.i, align 8
   tail call void %1(ptr noundef nonnull @defaultMemoryManager, ptr noundef %2) #6
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
-  %value.i = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
+  %value.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 8
   %4 = load ptr, ptr %value.i, align 8
   tail call void %3(ptr noundef nonnull @defaultMemoryManager, ptr noundef %4) #6
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
   tail call void %5(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %queryList.addr.013.i) #6
   %cmp4.not.i = icmp eq ptr %0, null
   br i1 %cmp4.not.i, label %uriFreeQueryListMmA.exit, label %while.body.i, !llvm.loop !6
@@ -425,18 +425,18 @@ do.end:                                           ; preds = %entry, %if.else
   br i1 %cmp4.not12, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %do.end
-  %free = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %queryList.addr.013 = phi ptr [ %queryList, %while.body.lr.ph ], [ %0, %while.body ]
-  %next = getelementptr inbounds i8, ptr %queryList.addr.013, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %queryList.addr.013, i64 16
   %0 = load ptr, ptr %next, align 8
   %1 = load ptr, ptr %free, align 8
   %2 = load ptr, ptr %queryList.addr.013, align 8
   tail call void %1(ptr noundef nonnull %memory.addr.0, ptr noundef %2) #6
   %3 = load ptr, ptr %free, align 8
-  %value = getelementptr inbounds i8, ptr %queryList.addr.013, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %queryList.addr.013, i64 8
   %4 = load ptr, ptr %value, align 8
   tail call void %3(ptr noundef nonnull %memory.addr.0, ptr noundef %4) #6
   %5 = load ptr, ptr %free, align 8
@@ -548,7 +548,7 @@ if.end.i:                                         ; preds = %lor.lhs.false20.i
   br i1 %cmp28.i, label %if.then23, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.end.i
-  %next.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr null, ptr %next.i, align 8
   %4 = load ptr, ptr %memory.addr.0, align 8
   %add.i = shl i64 %sub.ptr.sub.i, 32
@@ -559,7 +559,7 @@ if.end31.i:                                       ; preds = %if.end.i
   br i1 %cmp35.i, label %if.then37.i, label %if.end38.i
 
 if.then37.i:                                      ; preds = %if.end31.i
-  %free.i = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free.i = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   %5 = load ptr, ptr %free.i, align 8
   %6 = load ptr, ptr %prevNext.0143.ph, align 8
   call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef %6) #6
@@ -582,7 +582,7 @@ if.end45.i:                                       ; preds = %if.then41.i, %if.en
   %7 = load ptr, ptr %prevNext.0143.ph, align 8
   store ptr %call34.i, ptr %7, align 8
   %8 = load ptr, ptr %prevNext.0143.ph, align 8
-  %value72.i = getelementptr inbounds i8, ptr %8, i64 8
+  %value72.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %value72.i, align 8
   %9 = load i32, ptr %cond, align 4
   %inc.i = add nsw i32 %9, 1
@@ -604,18 +604,18 @@ if.then23:                                        ; preds = %if.end.i, %if.end19
   br i1 %or.cond121, label %return, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then23
-  %free.i57 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free.i57 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %queryList.addr.013.i = phi ptr [ %10, %while.body.lr.ph.i ], [ %11, %while.body.i ]
-  %next.i58 = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 16
+  %next.i58 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 16
   %11 = load ptr, ptr %next.i58, align 8
   %12 = load ptr, ptr %free.i57, align 8
   %13 = load ptr, ptr %queryList.addr.013.i, align 8
   call void %12(ptr noundef nonnull %memory.addr.0, ptr noundef %13) #6
   %14 = load ptr, ptr %free.i57, align 8
-  %value.i = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 8
   %15 = load ptr, ptr %value.i, align 8
   call void %14(ptr noundef nonnull %memory.addr.0, ptr noundef %15) #6
   %16 = load ptr, ptr %free.i57, align 8
@@ -628,26 +628,26 @@ sw.bb38:                                          ; preds = %for.body
   br i1 %cmp39, label %if.then41, label %for.inc
 
 if.then41:                                        ; preds = %sw.bb38
-  %add.ptr42 = getelementptr inbounds i8, ptr %walk.0137, i64 1
+  %add.ptr42 = getelementptr inbounds nuw i8, ptr %walk.0137, i64 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then41, %sw.bb38, %for.body
   %keyAfter.2 = phi ptr [ %keyAfter.0140, %for.body ], [ %keyAfter.0140, %sw.bb38 ], [ %walk.0137, %if.then41 ]
   %valueFirst.1 = phi ptr [ %valueFirst.0141, %for.body ], [ %valueFirst.0141, %sw.bb38 ], [ %add.ptr42, %if.then41 ]
   %valueAfter.2 = phi ptr [ %valueAfter.0142, %for.body ], [ %valueAfter.0142, %sw.bb38 ], [ %add.ptr42, %if.then41 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %walk.0137, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %walk.0137, i64 1
   %exitcond.not = icmp eq ptr %incdec.ptr, %afterLast
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.inc.thread:                                   ; preds = %if.end19, %if.end45.i, %lor.lhs.false20.i, %if.else18.split
   %17 = load ptr, ptr %prevNext.0143.ph, align 8
   %cmp28.not = icmp eq ptr %17, null
-  %next = getelementptr inbounds i8, ptr %17, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %17, i64 16
   %spec.select = select i1 %cmp28.not, ptr %prevNext.0143.ph, ptr %next
-  %add.ptr = getelementptr inbounds i8, ptr %walk.0137, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %walk.0137, i64 1
   %cmp32 = icmp ult ptr %add.ptr, %afterLast
   %keyFirst.1 = select i1 %cmp32, ptr %add.ptr, ptr null
-  %incdec.ptr170 = getelementptr inbounds i8, ptr %walk.0137, i64 1
+  %incdec.ptr170 = getelementptr inbounds nuw i8, ptr %walk.0137, i64 1
   %exitcond.not171 = icmp eq ptr %incdec.ptr170, %afterLast
   br i1 %exitcond.not171, label %if.else53.split, label %for.body.outer, !llvm.loop !7
 
@@ -681,7 +681,7 @@ if.end.i73:                                       ; preds = %if.else53.split
   br i1 %cmp28.i75, label %if.then58, label %if.end31.i76
 
 if.end31.i76:                                     ; preds = %if.end.i73
-  %next.i77 = getelementptr inbounds i8, ptr %call.i74, i64 16
+  %next.i77 = getelementptr inbounds nuw i8, ptr %call.i74, i64 16
   store ptr null, ptr %next.i77, align 8
   %21 = load ptr, ptr %memory.addr.0, align 8
   %add.i78 = shl i64 %sub.ptr.sub.i61, 32
@@ -692,7 +692,7 @@ if.end31.i76:                                     ; preds = %if.end.i73
   br i1 %cmp35.i82, label %if.then37.i93, label %if.end38.i83
 
 if.then37.i93:                                    ; preds = %if.end31.i76
-  %free.i94 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free.i94 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   %22 = load ptr, ptr %free.i94, align 8
   %23 = load ptr, ptr %prevNext.0.lcssa164, align 8
   call void %22(ptr noundef nonnull %memory.addr.0, ptr noundef %23) #6
@@ -715,7 +715,7 @@ if.end45.i87:                                     ; preds = %if.then41.i91, %if.
   %24 = load ptr, ptr %prevNext.0.lcssa164, align 8
   store ptr %call34.i81, ptr %24, align 8
   %25 = load ptr, ptr %prevNext.0.lcssa164, align 8
-  %value72.i88 = getelementptr inbounds i8, ptr %25, i64 8
+  %value72.i88 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr null, ptr %value72.i88, align 8
   %26 = load i32, ptr %cond, align 4
   %inc.i89 = add nsw i32 %26, 1
@@ -737,18 +737,18 @@ if.then58:                                        ; preds = %if.end.i73, %if.the
   br i1 %or.cond122, label %return, label %while.body.lr.ph.i101
 
 while.body.lr.ph.i101:                            ; preds = %if.then58
-  %free.i102 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free.i102 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   br label %while.body.i103
 
 while.body.i103:                                  ; preds = %while.body.i103, %while.body.lr.ph.i101
   %queryList.addr.013.i104 = phi ptr [ %27, %while.body.lr.ph.i101 ], [ %28, %while.body.i103 ]
-  %next.i105 = getelementptr inbounds i8, ptr %queryList.addr.013.i104, i64 16
+  %next.i105 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i104, i64 16
   %28 = load ptr, ptr %next.i105, align 8
   %29 = load ptr, ptr %free.i102, align 8
   %30 = load ptr, ptr %queryList.addr.013.i104, align 8
   call void %29(ptr noundef nonnull %memory.addr.0, ptr noundef %30) #6
   %31 = load ptr, ptr %free.i102, align 8
-  %value.i106 = getelementptr inbounds i8, ptr %queryList.addr.013.i104, i64 8
+  %value.i106 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i104, i64 8
   %32 = load ptr, ptr %value.i106, align 8
   call void %31(ptr noundef nonnull %memory.addr.0, ptr noundef %32) #6
   %33 = load ptr, ptr %free.i102, align 8
@@ -798,7 +798,7 @@ if.end:                                           ; preds = %lor.lhs.false20
   br i1 %cmp28, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.end
-  %next = getelementptr inbounds i8, ptr %call, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %next, align 8
   %2 = load ptr, ptr %memory, align 8
   %add = shl i64 %sub.ptr.sub, 32
@@ -809,7 +809,7 @@ if.end31:                                         ; preds = %if.end
   br i1 %cmp35, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %if.end31
-  %free = getelementptr inbounds i8, ptr %memory, i64 32
+  %free = getelementptr inbounds nuw i8, ptr %memory, i64 32
   %3 = load ptr, ptr %free, align 8
   %4 = load ptr, ptr %prevNext, align 8
   tail call void %3(ptr noundef nonnull %memory, ptr noundef %4) #6
@@ -843,7 +843,7 @@ if.then49:                                        ; preds = %if.end45
   br i1 %cmp55, label %if.then57, label %if.end60
 
 if.then57:                                        ; preds = %if.then49
-  %free58 = getelementptr inbounds i8, ptr %memory, i64 32
+  %free58 = getelementptr inbounds nuw i8, ptr %memory, i64 32
   %7 = load ptr, ptr %free58, align 8
   tail call void %7(ptr noundef nonnull %memory, ptr noundef nonnull %call34) #6
   %8 = load ptr, ptr %free58, align 8
@@ -866,14 +866,14 @@ if.then65:                                        ; preds = %if.end60
 
 if.end69:                                         ; preds = %if.then65, %if.end60
   %10 = load ptr, ptr %prevNext, align 8
-  %value70 = getelementptr inbounds i8, ptr %10, i64 8
+  %value70 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %call54, ptr %value70, align 8
   br label %if.end71
 
 if.end71:                                         ; preds = %if.end45, %if.end69
   %value.0 = phi ptr [ %call54, %if.end69 ], [ null, %if.end45 ]
   %11 = load ptr, ptr %prevNext, align 8
-  %value72 = getelementptr inbounds i8, ptr %11, i64 8
+  %value72 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %value.0, ptr %value72, align 8
   %12 = load i32, ptr %itemCount, align 4
   %inc = add nsw i32 %12, 1
@@ -902,7 +902,7 @@ while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %i
   %queryList.addr.050.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %if.end.i ]
   %ampersandLen.048.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %if.end.i ]
   %1 = load ptr, ptr %queryList.addr.050.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i.i, i64 8
+  %value3.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 8
   %2 = load ptr, ptr %value3.us.i.i, align 8
   %cmp5.us.i.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
@@ -938,7 +938,7 @@ if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
   %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
   %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
   store i32 %add34.us.i.i, ptr %charsRequired, align 4
-  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i.i, i64 16
+  %next.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 16
   %3 = load ptr, ptr %next.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %while.body.us.i.i, !llvm.loop !8
@@ -968,7 +968,7 @@ while.body.us.i:                                  ; preds = %if.end21.us.i, %if.
   %queryList.addr.050.us.i = phi ptr [ %3, %if.end21.us.i ], [ %queryList, %if.end ]
   %ampersandLen.048.us.i = phi i32 [ 1, %if.end21.us.i ], [ 0, %if.end ]
   %1 = load ptr, ptr %queryList.addr.050.us.i, align 8
-  %value3.us.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i, i64 8
+  %value3.us.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i, i64 8
   %2 = load ptr, ptr %value3.us.i, align 8
   %cmp5.us.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i, label %cond.end.us.i, label %cond.false.us.i
@@ -1004,7 +1004,7 @@ if.end21.us.i:                                    ; preds = %cond.end13.us.i
   %add33.us.i = add nsw i32 %add.us.i, %cond32.us.i
   %add34.us.i = add nsw i32 %add33.us.i, %0
   store i32 %add34.us.i, ptr %charsRequired, align 4
-  %next.us.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i, i64 16
+  %next.us.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i, i64 16
   %3 = load ptr, ptr %next.us.i, align 8
   %cmp1.not.us.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i, label %return, label %while.body.us.i, !llvm.loop !8
@@ -1048,7 +1048,7 @@ while.body.i:                                     ; preds = %if.end76.i, %while.
   %ampersandLen.048.i = phi i32 [ %ampersandLen.2.i, %if.end76.i ], [ 0, %while.body.preheader.i ]
   %write.047.i = phi ptr [ %write.1.i, %if.end76.i ], [ %dest, %while.body.preheader.i ]
   %0 = load ptr, ptr %queryList.addr.050.i, align 8
-  %value3.i = getelementptr inbounds i8, ptr %queryList.addr.050.i, i64 8
+  %value3.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.i, i64 8
   %1 = load ptr, ptr %value3.i, align 8
   %cmp5.i = icmp eq ptr %0, null
   br i1 %cmp5.i, label %cond.end.i, label %cond.false.i
@@ -1093,7 +1093,7 @@ if.end48.i:                                       ; preds = %if.end21.i
 
 if.else52.i:                                      ; preds = %if.end48.i
   store i32 38, ptr %write.047.i, align 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %write.047.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %write.047.i, i64 4
   br label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.else52.i, %if.end48.i
@@ -1116,7 +1116,7 @@ if.then57.i:                                      ; preds = %if.end53.i
 
 if.end69.i:                                       ; preds = %if.then57.i
   store i32 61, ptr %call54.i, align 4
-  %incdec.ptr71.i = getelementptr inbounds i8, ptr %call54.i, i64 4
+  %incdec.ptr71.i = getelementptr inbounds nuw i8, ptr %call54.i, i64 4
   %idx.ext72.i = sext i32 %cond14.i to i64
   %add.ptr73.i = getelementptr inbounds i32, ptr %1, i64 %idx.ext72.i
   %call74.i = tail call ptr @uriEscapeExW(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr73.i, ptr noundef nonnull %incdec.ptr71.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
@@ -1124,7 +1124,7 @@ if.end69.i:                                       ; preds = %if.then57.i
 
 if.end76.i:                                       ; preds = %if.end69.i, %if.end53.i
   %write.1.i = phi ptr [ %call74.i, %if.end69.i ], [ %call54.i, %if.end53.i ]
-  %next.i = getelementptr inbounds i8, ptr %queryList.addr.050.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.i, i64 16
   %2 = load ptr, ptr %next.i, align 8
   %cmp1.not.i = icmp eq ptr %2, null
   br i1 %cmp1.not.i, label %if.then79.i, label %while.body.i, !llvm.loop !8
@@ -1193,7 +1193,7 @@ while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %i
   %queryList.addr.050.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %if.end.i ]
   %ampersandLen.048.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %if.end.i ]
   %1 = load ptr, ptr %queryList.addr.050.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i.i, i64 8
+  %value3.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 8
   %2 = load ptr, ptr %value3.us.i.i, align 8
   %cmp5.us.i.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
@@ -1228,7 +1228,7 @@ if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
   %add.us.i.i = add i32 %ampersandLen.048.us.i.i, %0
   %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
   %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
-  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.050.us.i.i, i64 16
+  %next.us.i.i = getelementptr inbounds nuw i8, ptr %queryList.addr.050.us.i.i, i64 16
   %3 = load ptr, ptr %next.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i.i, label %if.end10, label %while.body.us.i.i, !llvm.loop !8
@@ -1248,7 +1248,7 @@ if.end15:                                         ; preds = %if.end10
   br i1 %cmp17.not, label %if.end20, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  %free = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   %5 = load ptr, ptr %free, align 8
   tail call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef nonnull %call11) #6
   br label %return
@@ -1270,16 +1270,16 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %queryList.addr.013.i = phi ptr [ %0, %while.body.i ], [ %queryList, %entry ]
-  %next.i = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 16
   %0 = load ptr, ptr %next.i, align 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
   %2 = load ptr, ptr %queryList.addr.013.i, align 8
   tail call void %1(ptr noundef nonnull @defaultMemoryManager, ptr noundef %2) #6
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
-  %value.i = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
+  %value.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 8
   %4 = load ptr, ptr %value.i, align 8
   tail call void %3(ptr noundef nonnull @defaultMemoryManager, ptr noundef %4) #6
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @defaultMemoryManager, i64 32), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @defaultMemoryManager, i64 32), align 8
   tail call void %5(ptr noundef nonnull @defaultMemoryManager, ptr noundef nonnull %queryList.addr.013.i) #6
   %cmp4.not.i = icmp eq ptr %0, null
   br i1 %cmp4.not.i, label %uriFreeQueryListMmW.exit, label %while.body.i, !llvm.loop !9
@@ -1305,18 +1305,18 @@ do.end:                                           ; preds = %entry, %if.else
   br i1 %cmp4.not12, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %do.end
-  %free = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %queryList.addr.013 = phi ptr [ %queryList, %while.body.lr.ph ], [ %0, %while.body ]
-  %next = getelementptr inbounds i8, ptr %queryList.addr.013, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %queryList.addr.013, i64 16
   %0 = load ptr, ptr %next, align 8
   %1 = load ptr, ptr %free, align 8
   %2 = load ptr, ptr %queryList.addr.013, align 8
   tail call void %1(ptr noundef nonnull %memory.addr.0, ptr noundef %2) #6
   %3 = load ptr, ptr %free, align 8
-  %value = getelementptr inbounds i8, ptr %queryList.addr.013, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %queryList.addr.013, i64 8
   %4 = load ptr, ptr %value, align 8
   tail call void %3(ptr noundef nonnull %memory.addr.0, ptr noundef %4) #6
   %5 = load ptr, ptr %free, align 8
@@ -1422,7 +1422,7 @@ if.end.i:                                         ; preds = %lor.lhs.false21.i
   br i1 %cmp29.i, label %if.then21, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end.i
-  %next.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr null, ptr %next.i, align 8
   %3 = load ptr, ptr %memory.addr.0, align 8
   %add.i = shl i64 %sub.ptr.sub.i, 30
@@ -1434,7 +1434,7 @@ if.end32.i:                                       ; preds = %if.end.i
   br i1 %cmp36.i, label %if.then38.i, label %if.end39.i
 
 if.then38.i:                                      ; preds = %if.end32.i
-  %free.i = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free.i = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   %5 = load ptr, ptr %free.i, align 8
   %6 = load ptr, ptr %prevNext.0146.ph, align 8
   call void %5(ptr noundef nonnull %memory.addr.0, ptr noundef %6) #6
@@ -1458,7 +1458,7 @@ if.end46.i:                                       ; preds = %if.then42.i, %if.en
   %7 = load ptr, ptr %prevNext.0146.ph, align 8
   store ptr %call35.i, ptr %7, align 8
   %8 = load ptr, ptr %prevNext.0146.ph, align 8
-  %value73.i = getelementptr inbounds i8, ptr %8, i64 8
+  %value73.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %value73.i, align 8
   %9 = load i32, ptr %cond, align 4
   %inc.i = add nsw i32 %9, 1
@@ -1480,18 +1480,18 @@ if.then21:                                        ; preds = %if.end.i, %if.end18
   br i1 %or.cond124, label %return, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then21
-  %free.i57 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free.i57 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %queryList.addr.013.i = phi ptr [ %10, %while.body.lr.ph.i ], [ %11, %while.body.i ]
-  %next.i58 = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 16
+  %next.i58 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 16
   %11 = load ptr, ptr %next.i58, align 8
   %12 = load ptr, ptr %free.i57, align 8
   %13 = load ptr, ptr %queryList.addr.013.i, align 8
   call void %12(ptr noundef nonnull %memory.addr.0, ptr noundef %13) #6
   %14 = load ptr, ptr %free.i57, align 8
-  %value.i = getelementptr inbounds i8, ptr %queryList.addr.013.i, i64 8
+  %value.i = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i, i64 8
   %15 = load ptr, ptr %value.i, align 8
   call void %14(ptr noundef nonnull %memory.addr.0, ptr noundef %15) #6
   %16 = load ptr, ptr %free.i57, align 8
@@ -1504,7 +1504,7 @@ sw.bb33:                                          ; preds = %for.body
   br i1 %cmp34, label %if.then35, label %for.inc
 
 if.then35:                                        ; preds = %sw.bb33
-  %add.ptr36 = getelementptr inbounds i8, ptr %walk.0140, i64 4
+  %add.ptr36 = getelementptr inbounds nuw i8, ptr %walk.0140, i64 4
   %cmp37.not = icmp ugt ptr %add.ptr36, %afterLast
   %spec.select53 = select i1 %cmp37.not, ptr %valueFirst.0144, ptr %add.ptr36
   %spec.select54 = select i1 %cmp37.not, ptr %valueAfter.0145, ptr %add.ptr36
@@ -1514,19 +1514,19 @@ for.inc:                                          ; preds = %if.then35, %sw.bb33
   %keyAfter.2 = phi ptr [ %keyAfter.0143, %for.body ], [ %keyAfter.0143, %sw.bb33 ], [ %walk.0140, %if.then35 ]
   %valueFirst.1 = phi ptr [ %valueFirst.0144, %for.body ], [ %valueFirst.0144, %sw.bb33 ], [ %spec.select53, %if.then35 ]
   %valueAfter.2 = phi ptr [ %valueAfter.0145, %for.body ], [ %valueAfter.0145, %sw.bb33 ], [ %spec.select54, %if.then35 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %walk.0140, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %walk.0140, i64 4
   %cmp14 = icmp ult ptr %incdec.ptr, %afterLast
   br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !10
 
 for.inc.thread:                                   ; preds = %if.end18, %if.end46.i, %lor.lhs.false21.i, %if.else17.split
   %17 = load ptr, ptr %prevNext.0146.ph, align 8
   %cmp25.not = icmp eq ptr %17, null
-  %next = getelementptr inbounds i8, ptr %17, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %17, i64 16
   %spec.select = select i1 %cmp25.not, ptr %prevNext.0146.ph, ptr %next
-  %add.ptr = getelementptr inbounds i8, ptr %walk.0140, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %walk.0140, i64 4
   %cmp28 = icmp ult ptr %add.ptr, %afterLast
   %keyFirst.1 = select i1 %cmp28, ptr %add.ptr, ptr null
-  %incdec.ptr171 = getelementptr inbounds i8, ptr %walk.0140, i64 4
+  %incdec.ptr171 = getelementptr inbounds nuw i8, ptr %walk.0140, i64 4
   %cmp14172 = icmp ult ptr %incdec.ptr171, %afterLast
   br i1 %cmp14172, label %for.body.outer, label %if.else45.split, !llvm.loop !10
 
@@ -1561,7 +1561,7 @@ if.end.i75:                                       ; preds = %if.else45.split
   br i1 %cmp29.i77, label %if.then49, label %if.end32.i78
 
 if.end32.i78:                                     ; preds = %if.end.i75
-  %next.i79 = getelementptr inbounds i8, ptr %call.i76, i64 16
+  %next.i79 = getelementptr inbounds nuw i8, ptr %call.i76, i64 16
   store ptr null, ptr %next.i79, align 8
   %21 = load ptr, ptr %memory.addr.0, align 8
   %add.i80 = shl i64 %sub.ptr.sub.i61, 30
@@ -1573,7 +1573,7 @@ if.end32.i78:                                     ; preds = %if.end.i75
   br i1 %cmp36.i84, label %if.then38.i96, label %if.end39.i85
 
 if.then38.i96:                                    ; preds = %if.end32.i78
-  %free.i97 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free.i97 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   %23 = load ptr, ptr %free.i97, align 8
   %24 = load ptr, ptr %prevNext.0.lcssa165, align 8
   call void %23(ptr noundef nonnull %memory.addr.0, ptr noundef %24) #6
@@ -1597,7 +1597,7 @@ if.end46.i89:                                     ; preds = %if.then42.i93, %if.
   %25 = load ptr, ptr %prevNext.0.lcssa165, align 8
   store ptr %call35.i83, ptr %25, align 8
   %26 = load ptr, ptr %prevNext.0.lcssa165, align 8
-  %value73.i90 = getelementptr inbounds i8, ptr %26, i64 8
+  %value73.i90 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr null, ptr %value73.i90, align 8
   %27 = load i32, ptr %cond, align 4
   %inc.i91 = add nsw i32 %27, 1
@@ -1619,18 +1619,18 @@ if.then49:                                        ; preds = %if.end.i75, %if.the
   br i1 %or.cond125, label %return, label %while.body.lr.ph.i104
 
 while.body.lr.ph.i104:                            ; preds = %if.then49
-  %free.i105 = getelementptr inbounds i8, ptr %memory.addr.0, i64 32
+  %free.i105 = getelementptr inbounds nuw i8, ptr %memory.addr.0, i64 32
   br label %while.body.i106
 
 while.body.i106:                                  ; preds = %while.body.i106, %while.body.lr.ph.i104
   %queryList.addr.013.i107 = phi ptr [ %28, %while.body.lr.ph.i104 ], [ %29, %while.body.i106 ]
-  %next.i108 = getelementptr inbounds i8, ptr %queryList.addr.013.i107, i64 16
+  %next.i108 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i107, i64 16
   %29 = load ptr, ptr %next.i108, align 8
   %30 = load ptr, ptr %free.i105, align 8
   %31 = load ptr, ptr %queryList.addr.013.i107, align 8
   call void %30(ptr noundef nonnull %memory.addr.0, ptr noundef %31) #6
   %32 = load ptr, ptr %free.i105, align 8
-  %value.i109 = getelementptr inbounds i8, ptr %queryList.addr.013.i107, i64 8
+  %value.i109 = getelementptr inbounds nuw i8, ptr %queryList.addr.013.i107, i64 8
   %33 = load ptr, ptr %value.i109, align 8
   call void %32(ptr noundef nonnull %memory.addr.0, ptr noundef %33) #6
   %34 = load ptr, ptr %free.i105, align 8
@@ -1682,7 +1682,7 @@ if.end:                                           ; preds = %lor.lhs.false21
   br i1 %cmp29, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end
-  %next = getelementptr inbounds i8, ptr %call, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %next, align 8
   %2 = load ptr, ptr %memory, align 8
   %add = shl i64 %sub.ptr.sub, 30
@@ -1694,7 +1694,7 @@ if.end32:                                         ; preds = %if.end
   br i1 %cmp36, label %if.then38, label %if.end39
 
 if.then38:                                        ; preds = %if.end32
-  %free = getelementptr inbounds i8, ptr %memory, i64 32
+  %free = getelementptr inbounds nuw i8, ptr %memory, i64 32
   %4 = load ptr, ptr %free, align 8
   %5 = load ptr, ptr %prevNext, align 8
   tail call void %4(ptr noundef nonnull %memory, ptr noundef %5) #6
@@ -1730,7 +1730,7 @@ if.then50:                                        ; preds = %if.end46
   br i1 %cmp56, label %if.then58, label %if.end61
 
 if.then58:                                        ; preds = %if.then50
-  %free59 = getelementptr inbounds i8, ptr %memory, i64 32
+  %free59 = getelementptr inbounds nuw i8, ptr %memory, i64 32
   %9 = load ptr, ptr %free59, align 8
   tail call void %9(ptr noundef nonnull %memory, ptr noundef nonnull %call35) #6
   %10 = load ptr, ptr %free59, align 8
@@ -1754,14 +1754,14 @@ if.then66:                                        ; preds = %if.end61
 
 if.end70:                                         ; preds = %if.then66, %if.end61
   %12 = load ptr, ptr %prevNext, align 8
-  %value71 = getelementptr inbounds i8, ptr %12, i64 8
+  %value71 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %call55, ptr %value71, align 8
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end46, %if.end70
   %value.0 = phi ptr [ %call55, %if.end70 ], [ null, %if.end46 ]
   %13 = load ptr, ptr %prevNext, align 8
-  %value73 = getelementptr inbounds i8, ptr %13, i64 8
+  %value73 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %value.0, ptr %value73, align 8
   %14 = load i32, ptr %itemCount, align 4
   %inc = add nsw i32 %14, 1

@@ -357,7 +357,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call ptr @setlocale(i32 noundef 0, ptr noundef nonnull @.str.1) #13
-  %u = getelementptr inbounds i8, ptr %opts, i64 16
+  %u = getelementptr inbounds nuw i8, ptr %opts, i64 16
   %2 = load ptr, ptr %u, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end7, label %if.then4
@@ -471,7 +471,7 @@ if.then15.i.i:                                    ; preds = %if.end12.i.i
   unreachable
 
 for.cond23.preheader.i.i:                         ; preds = %for.body.i.i
-  %arrayidx15.i.i.i = getelementptr inbounds i8, ptr %wch.i.i.i, i64 4
+  %arrayidx15.i.i.i = getelementptr inbounds nuw i8, ptr %wch.i.i.i, i64 4
   br label %for.body26.i.i
 
 for.body.i.i:                                     ; preds = %if.end12.i.i, %for.body.i.i
@@ -944,7 +944,7 @@ curses_keyboard_setup.exit:                       ; preds = %curses_setup.exit, 
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %winch.i)
   %call11 = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #16
   store ptr %call11, ptr @dcl, align 8
-  %ops = getelementptr inbounds i8, ptr %call11, i64 8
+  %ops = getelementptr inbounds nuw i8, ptr %call11, i64 8
   store ptr @dcl_ops, ptr %ops, align 8
   call void @register_displaychangelistener(ptr noundef %call11) #13
   store i1 true, ptr @invalidate, align 4
@@ -1068,7 +1068,7 @@ if.then10:                                        ; preds = %if.end
   br label %return
 
 if.end15:                                         ; preds = %if.end
-  %arrayidx16 = getelementptr inbounds i8, ptr %wch, i64 4
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %wch, i64 4
   store i32 0, ptr %arrayidx16, align 4
   %7 = load ptr, ptr @vga_to_curses, align 8
   %idxprom = zext i8 %fch to i64
@@ -1131,7 +1131,7 @@ if.end.i:                                         ; preds = %entry
 curses_winch_check.exit.thread:                   ; preds = %if.end.i
   %1 = load i16, ptr %ws.i, align 2
   %conv.i = zext i16 %1 to i32
-  %ws_col.i = getelementptr inbounds i8, ptr %ws.i, i64 2
+  %ws_col.i = getelementptr inbounds nuw i8, ptr %ws.i, i64 2
   %2 = load i16, ptr %ws_col.i, align 2
   %conv3.i = zext i16 %2 to i32
   %call4.i = call i32 @resize_term(i32 noundef %conv.i, i32 noundef %conv3.i) #13
@@ -1560,7 +1560,7 @@ for.cond2.preheader.lr.ph:                        ; preds = %entry
   %mul = mul i32 %2, %y
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i32, ptr %1, i64 %idx.ext
-  %arrayidx24 = getelementptr inbounds i8, ptr %wch, i64 4
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %wch, i64 4
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %for.cond2.preheader.lr.ph, %for.inc33

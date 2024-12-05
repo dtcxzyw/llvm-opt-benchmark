@@ -82,7 +82,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds float, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i
   %16 = load float, ptr %15, align 4
   %17 = tail call fast noundef float @llvm.fabs.f32(float %16)
   store float %17, ptr %15, align 4
@@ -107,7 +107,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44, %.lr.ph.preheader.i42
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.preheader.i42 ], [ %indvars.iv.next.i46, %.lr.ph.i44 ]
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds float, ptr %26, i64 %indvars.iv.i45
+  %27 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i45
   %28 = load float, ptr %27, align 4
   %29 = fneg fast float %28
   store float %29, ptr %27, align 4
@@ -132,7 +132,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i50:                                       ; preds = %.lr.ph.i50, %.lr.ph.preheader.i48
   %indvars.iv.i51 = phi i64 [ 0, %.lr.ph.preheader.i48 ], [ %indvars.iv.next.i52, %.lr.ph.i50 ]
   %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds float, ptr %38, i64 %indvars.iv.i51
+  %39 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i51
   %40 = load float, ptr %39, align 4
   %41 = tail call fast noundef float @llvm.floor.f32(float %40)
   store float %41, ptr %39, align 4
@@ -157,7 +157,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i56:                                       ; preds = %.lr.ph.i56, %.lr.ph.preheader.i54
   %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.preheader.i54 ], [ %indvars.iv.next.i58, %.lr.ph.i56 ]
   %50 = load ptr, ptr %1, align 8
-  %51 = getelementptr inbounds float, ptr %50, i64 %indvars.iv.i57
+  %51 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i57
   %52 = load float, ptr %51, align 4
   %53 = tail call fast noundef float @llvm.ceil.f32(float %52)
   store float %53, ptr %51, align 4
@@ -182,7 +182,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i62:                                       ; preds = %.lr.ph.i62, %.lr.ph.preheader.i60
   %indvars.iv.i63 = phi i64 [ 0, %.lr.ph.preheader.i60 ], [ %indvars.iv.next.i64, %.lr.ph.i62 ]
   %62 = load ptr, ptr %1, align 8
-  %63 = getelementptr inbounds float, ptr %62, i64 %indvars.iv.i63
+  %63 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i63
   %64 = load float, ptr %63, align 4
   %65 = fmul fast float %64, %64
   store float %65, ptr %63, align 4
@@ -207,7 +207,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i68:                                       ; preds = %.lr.ph.i68, %.lr.ph.preheader.i66
   %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.preheader.i66 ], [ %indvars.iv.next.i70, %.lr.ph.i68 ]
   %74 = load ptr, ptr %1, align 8
-  %75 = getelementptr inbounds float, ptr %74, i64 %indvars.iv.i69
+  %75 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv.i69
   %76 = load float, ptr %75, align 4
   %77 = tail call fast noundef float @llvm.sqrt.f32(float %76)
   store float %77, ptr %75, align 4
@@ -232,7 +232,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i74:                                       ; preds = %.lr.ph.i74, %.lr.ph.preheader.i72
   %indvars.iv.i75 = phi i64 [ 0, %.lr.ph.preheader.i72 ], [ %indvars.iv.next.i76, %.lr.ph.i74 ]
   %86 = load ptr, ptr %1, align 8
-  %87 = getelementptr inbounds float, ptr %86, i64 %indvars.iv.i75
+  %87 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv.i75
   %88 = load float, ptr %87, align 4
   %89 = tail call fast float @llvm.sqrt.f32(float %88)
   %90 = fdiv fast float 1.000000e+00, %89
@@ -258,7 +258,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i78
   %indvars.iv.i81 = phi i64 [ 0, %.lr.ph.preheader.i78 ], [ %indvars.iv.next.i82, %.lr.ph.i80 ]
   %99 = load ptr, ptr %1, align 8
-  %100 = getelementptr inbounds float, ptr %99, i64 %indvars.iv.i81
+  %100 = getelementptr inbounds nuw float, ptr %99, i64 %indvars.iv.i81
   %101 = load float, ptr %100, align 4
   %102 = tail call fast noundef float @llvm.exp.f32(float %101)
   store float %102, ptr %100, align 4
@@ -283,7 +283,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i86:                                       ; preds = %.lr.ph.i86, %.lr.ph.preheader.i84
   %indvars.iv.i87 = phi i64 [ 0, %.lr.ph.preheader.i84 ], [ %indvars.iv.next.i88, %.lr.ph.i86 ]
   %111 = load ptr, ptr %1, align 8
-  %112 = getelementptr inbounds float, ptr %111, i64 %indvars.iv.i87
+  %112 = getelementptr inbounds nuw float, ptr %111, i64 %indvars.iv.i87
   %113 = load float, ptr %112, align 4
   %114 = tail call fast noundef float @llvm.log.f32(float %113)
   store float %114, ptr %112, align 4
@@ -308,7 +308,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i92:                                       ; preds = %.lr.ph.i92, %.lr.ph.preheader.i90
   %indvars.iv.i93 = phi i64 [ 0, %.lr.ph.preheader.i90 ], [ %indvars.iv.next.i94, %.lr.ph.i92 ]
   %123 = load ptr, ptr %1, align 8
-  %124 = getelementptr inbounds float, ptr %123, i64 %indvars.iv.i93
+  %124 = getelementptr inbounds nuw float, ptr %123, i64 %indvars.iv.i93
   %125 = load float, ptr %124, align 4
   %126 = tail call fast noundef float @llvm.sin.f32(float %125)
   store float %126, ptr %124, align 4
@@ -333,7 +333,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i98:                                       ; preds = %.lr.ph.i98, %.lr.ph.preheader.i96
   %indvars.iv.i99 = phi i64 [ 0, %.lr.ph.preheader.i96 ], [ %indvars.iv.next.i100, %.lr.ph.i98 ]
   %135 = load ptr, ptr %1, align 8
-  %136 = getelementptr inbounds float, ptr %135, i64 %indvars.iv.i99
+  %136 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv.i99
   %137 = load float, ptr %136, align 4
   %138 = tail call fast noundef float @llvm.cos.f32(float %137)
   store float %138, ptr %136, align 4
@@ -358,7 +358,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i104:                                      ; preds = %.lr.ph.i104, %.lr.ph.preheader.i102
   %indvars.iv.i105 = phi i64 [ 0, %.lr.ph.preheader.i102 ], [ %indvars.iv.next.i106, %.lr.ph.i104 ]
   %147 = load ptr, ptr %1, align 8
-  %148 = getelementptr inbounds float, ptr %147, i64 %indvars.iv.i105
+  %148 = getelementptr inbounds nuw float, ptr %147, i64 %indvars.iv.i105
   %149 = load float, ptr %148, align 4
   %150 = tail call fast noundef float @llvm.tan.f32(float %149)
   store float %150, ptr %148, align 4
@@ -383,7 +383,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i110:                                      ; preds = %.lr.ph.i110, %.lr.ph.preheader.i108
   %indvars.iv.i111 = phi i64 [ 0, %.lr.ph.preheader.i108 ], [ %indvars.iv.next.i112, %.lr.ph.i110 ]
   %159 = load ptr, ptr %1, align 8
-  %160 = getelementptr inbounds float, ptr %159, i64 %indvars.iv.i111
+  %160 = getelementptr inbounds nuw float, ptr %159, i64 %indvars.iv.i111
   %161 = load float, ptr %160, align 4
   %162 = tail call fast noundef float @llvm.asin.f32(float %161)
   store float %162, ptr %160, align 4
@@ -408,7 +408,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i116:                                      ; preds = %.lr.ph.i116, %.lr.ph.preheader.i114
   %indvars.iv.i117 = phi i64 [ 0, %.lr.ph.preheader.i114 ], [ %indvars.iv.next.i118, %.lr.ph.i116 ]
   %171 = load ptr, ptr %1, align 8
-  %172 = getelementptr inbounds float, ptr %171, i64 %indvars.iv.i117
+  %172 = getelementptr inbounds nuw float, ptr %171, i64 %indvars.iv.i117
   %173 = load float, ptr %172, align 4
   %174 = tail call fast noundef float @llvm.acos.f32(float %173)
   store float %174, ptr %172, align 4
@@ -433,7 +433,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i122:                                      ; preds = %.lr.ph.i122, %.lr.ph.preheader.i120
   %indvars.iv.i123 = phi i64 [ 0, %.lr.ph.preheader.i120 ], [ %indvars.iv.next.i124, %.lr.ph.i122 ]
   %183 = load ptr, ptr %1, align 8
-  %184 = getelementptr inbounds float, ptr %183, i64 %indvars.iv.i123
+  %184 = getelementptr inbounds nuw float, ptr %183, i64 %indvars.iv.i123
   %185 = load float, ptr %184, align 4
   %186 = tail call fast noundef float @llvm.atan.f32(float %185)
   store float %186, ptr %184, align 4
@@ -458,7 +458,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i128:                                      ; preds = %.lr.ph.i128, %.lr.ph.preheader.i126
   %indvars.iv.i129 = phi i64 [ 0, %.lr.ph.preheader.i126 ], [ %indvars.iv.next.i130, %.lr.ph.i128 ]
   %195 = load ptr, ptr %1, align 8
-  %196 = getelementptr inbounds float, ptr %195, i64 %indvars.iv.i129
+  %196 = getelementptr inbounds nuw float, ptr %195, i64 %indvars.iv.i129
   %197 = load float, ptr %196, align 4
   %198 = fdiv fast float 1.000000e+00, %197
   store float %198, ptr %196, align 4
@@ -483,7 +483,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i134:                                      ; preds = %.lr.ph.i134, %.lr.ph.preheader.i132
   %indvars.iv.i135 = phi i64 [ 0, %.lr.ph.preheader.i132 ], [ %indvars.iv.next.i136, %.lr.ph.i134 ]
   %207 = load ptr, ptr %1, align 8
-  %208 = getelementptr inbounds float, ptr %207, i64 %indvars.iv.i135
+  %208 = getelementptr inbounds nuw float, ptr %207, i64 %indvars.iv.i135
   %209 = load float, ptr %208, align 4
   %210 = tail call fast noundef float @llvm.tanh.f32(float %209)
   store float %210, ptr %208, align 4
@@ -508,7 +508,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i140:                                      ; preds = %.lr.ph.i140, %.lr.ph.preheader.i138
   %indvars.iv.i141 = phi i64 [ 0, %.lr.ph.preheader.i138 ], [ %indvars.iv.next.i142, %.lr.ph.i140 ]
   %219 = load ptr, ptr %1, align 8
-  %220 = getelementptr inbounds float, ptr %219, i64 %indvars.iv.i141
+  %220 = getelementptr inbounds nuw float, ptr %219, i64 %indvars.iv.i141
   %221 = load float, ptr %220, align 4
   %222 = tail call fast noundef float @llvm.log10.f32(float %221)
   store float %222, ptr %220, align 4
@@ -533,14 +533,14 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i146:                                      ; preds = %.lr.ph.i146, %.lr.ph.preheader.i144
   %indvars.iv.i147 = phi i64 [ 0, %.lr.ph.preheader.i144 ], [ %indvars.iv.next.i148, %.lr.ph.i146 ]
   %231 = load ptr, ptr %1, align 8
-  %232 = getelementptr inbounds float, ptr %231, i64 %indvars.iv.i147
+  %232 = getelementptr inbounds nuw float, ptr %231, i64 %indvars.iv.i147
   %233 = tail call i32 @fegetround() #7
   %234 = tail call i32 @fesetround(i32 noundef 0) #8
   %235 = load float, ptr %232, align 4
   %236 = tail call fast float @llvm.nearbyint.f32(float %235)
   %237 = tail call i32 @fesetround(i32 noundef %233) #8
   %238 = load ptr, ptr %1, align 8
-  %239 = getelementptr inbounds float, ptr %238, i64 %indvars.iv.i147
+  %239 = getelementptr inbounds nuw float, ptr %238, i64 %indvars.iv.i147
   store float %236, ptr %239, align 4
   %indvars.iv.next.i148 = add nuw nsw i64 %indvars.iv.i147, 1
   %exitcond.not.i149 = icmp eq i64 %indvars.iv.next.i148, %wide.trip.count.i145
@@ -563,7 +563,7 @@ define hidden noundef i32 @_ZNK4ncnn7UnaryOp15forward_inplaceERNS_3MatERKNS_6Opt
 .lr.ph.i152:                                      ; preds = %.lr.ph.i152, %.lr.ph.preheader.i150
   %indvars.iv.i153 = phi i64 [ 0, %.lr.ph.preheader.i150 ], [ %indvars.iv.next.i154, %.lr.ph.i152 ]
   %248 = load ptr, ptr %1, align 8
-  %249 = getelementptr inbounds float, ptr %248, i64 %indvars.iv.i153
+  %249 = getelementptr inbounds nuw float, ptr %248, i64 %indvars.iv.i153
   %250 = load float, ptr %249, align 4
   %251 = tail call fast noundef float @llvm.trunc.f32(float %250)
   store float %251, ptr %249, align 4

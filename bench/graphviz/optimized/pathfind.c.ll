@@ -32,7 +32,7 @@ define ptr @pathfind(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
 
 10:                                               ; preds = %9
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull %2)
-  %11 = getelementptr inbounds i8, ptr %4, i64 31
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 31
   %.val.i = load i8, ptr %11, align 1
   %.not.i = icmp eq i8 %.val.i, -1
   br i1 %.not.i, label %agxbsizeof.exit.i.i, label %agxblen.exit.i
@@ -51,9 +51,9 @@ agxblen.exit.i:                                   ; preds = %10
   unreachable
 
 agxbsizeof.exit.i.i:                              ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = load i64, ptr %21, align 8
   %.not.i7.i = icmp ult i64 %20, %22
   br i1 %.not.i7.i, label %.thread.i, label %23
@@ -70,7 +70,7 @@ agxbsizeof.exit.i.i:                              ; preds = %10
 
 24:                                               ; preds = %23
   %25 = zext i8 %.val.i15.pre.i.i to i64
-  %26 = getelementptr inbounds [31 x i8], ptr %4, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %25
   store i8 0, ptr %26, align 1
   %.pre = load ptr, ptr %4, align 8
   br label %agxbdisown.exit
@@ -108,15 +108,15 @@ agxbdisown.exit:                                  ; preds = %24, %.thread.i, %ag
 agxbsizeof.exit.i.i87:                            ; preds = %35
   %37 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #18
   %.not46 = icmp eq ptr %37, null
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %spec.select53 = select i1 %.not46, ptr %1, ptr %38
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.select53, ptr noundef nonnull %0)
-  %39 = getelementptr inbounds i8, ptr %4, i64 31
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 31
   %.val.i.i.i84 = load i8, ptr %39, align 1
   %.not.i.i.i85 = icmp eq i8 %.val.i.i.i84, -1
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = zext i8 %.val.i.i.i84 to i64
   %.0.i20.i.i88 = select i1 %.not.i.i.i85, i64 %41, i64 %44
@@ -143,7 +143,7 @@ agxbputc.exit.i94.thread:                         ; preds = %46
 
 agxbputc.exit.i94:                                ; preds = %46
   %50 = zext i8 %.val.i.pr.i98 to i64
-  %51 = getelementptr inbounds [31 x i8], ptr %4, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %50
   store i8 0, ptr %51, align 1
   %52 = load i8, ptr %39, align 1
   %53 = add i8 %52, 1
@@ -198,7 +198,7 @@ agxbuse.exit99:                                   ; preds = %agxbclear.exit.thre
   br label %agxbfree.exit
 
 69:                                               ; preds = %35, %63, %62, %33
-  %70 = getelementptr inbounds i8, ptr %4, i64 31
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 31
   %.val62 = load i8, ptr %70, align 1
   %71 = icmp eq i8 %.val62, -1
   br i1 %71, label %72, label %agxbfree.exit
@@ -251,9 +251,9 @@ agxbsizeof.exit.i:                                ; preds = %8
   br label %agxblen.exit.i
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   br label %agxblen.exit.i
 
@@ -277,11 +277,11 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 22:                                               ; preds = %21
   %23 = zext i8 %.val.i.i.i to i64
-  %24 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %23
   br label %agxbnext.exit.i
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
@@ -306,7 +306,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %31 to i64
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8
@@ -338,9 +338,9 @@ agxblen.exit.i:                                   ; preds = %1
   br label %agxbsizeof.exit.i
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   br label %agxbsizeof.exit.i
 
@@ -362,7 +362,7 @@ agxbsizeof.exit.i:                                ; preds = %4, %agxblen.exit.i
 
 11:                                               ; preds = %10
   %12 = zext i8 %.val.i15.i to i64
-  %13 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %12
   store i8 0, ptr %13, align 1
   %14 = load i8, ptr %2, align 1
   %15 = add i8 %14, 1
@@ -370,7 +370,7 @@ agxbsizeof.exit.i:                                ; preds = %4, %agxblen.exit.i
   br label %agxbputc.exit
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %18
@@ -391,7 +391,7 @@ agxbclear.exit.thread:                            ; preds = %agxbputc.exit
   br label %agxbstart.exit
 
 23:                                               ; preds = %agxbputc.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %24, align 8
   %25 = load ptr, ptr %0, align 8
   br label %agxbstart.exit
@@ -415,7 +415,7 @@ define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noun
   br i1 %.not.i, label %agxbsizeof.exit, label %23
 
 agxbsizeof.exit:                                  ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
@@ -468,7 +468,7 @@ agxbsizeof.exit:                                  ; preds = %2
 gv_calloc.exit:                                   ; preds = %23
   %30 = zext i8 %.val.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 8 %0, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %30, ptr %31, align 8
   br label %gv_recalloc.exit
 
@@ -476,7 +476,7 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
   %spec.select3641 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select33, %18 ], [ %spec.select33, %20 ]
   %.0 = phi ptr [ %25, %gv_calloc.exit ], [ null, %11 ], [ %13, %18 ], [ %13, %20 ]
   store ptr %.0, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select3641, ptr %32, align 8
   store i8 -1, ptr %3, align 1
   ret void

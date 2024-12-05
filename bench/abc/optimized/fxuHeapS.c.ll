@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Fxu_HeapSingleStart() local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
-  %1 = getelementptr inbounds i8, ptr %calloc, i64 12
+  %1 = getelementptr inbounds nuw i8, ptr %calloc, i64 12
   store i32 2000, ptr %1, align 4
   %2 = tail call noalias dereferenceable_or_null(16080) ptr @malloc(i64 noundef 16080) #14
   store ptr %2, ptr %calloc, align 8
@@ -42,8 +42,8 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Fxu_HeapSinglePrint(ptr nocapture noundef %0, ptr nocapture noundef initializes((16, 20)) %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   store i32 1, ptr %3, align 8
   %.not10.i = icmp slt i32 %5, 1
@@ -64,7 +64,7 @@ define void @Fxu_HeapSinglePrint(ptr nocapture noundef %0, ptr nocapture noundef
 
 10:                                               ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
-  %11 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %.not9.i = icmp eq ptr %12, null
   br i1 %.not9.i, label %Fxu_HeapSingleCheck.exit, label %8
@@ -89,9 +89,9 @@ Fxu_HeapSingleCheck.exit:                         ; preds = %8, %10, %2
   br i1 %.not23, label %.critedge, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %25, i32 noundef %24) #15
@@ -124,8 +124,8 @@ Fxu_HeapSingleCheck.exit:                         ; preds = %8, %10, %2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @Fxu_HeapSingleCheck(ptr nocapture noundef initializes((16, 20)) %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   store i32 1, ptr %2, align 8
   %.not10 = icmp slt i32 %4, 1
@@ -146,7 +146,7 @@ define void @Fxu_HeapSingleCheck(ptr nocapture noundef initializes((16, 20)) %0)
 
 9:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %10 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not9 = icmp eq ptr %11, null
   br i1 %.not9, label %.critedge, label %7
@@ -165,9 +165,9 @@ define void @Fxu_HeapSingleCheckOne(ptr nocapture noundef readonly %0, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define void @Fxu_HeapSingleInsert(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   %.pre = load ptr, ptr %0, align 8
@@ -206,13 +206,13 @@ Fxu_HeapSingleResize.exit:                        ; preds = %13, %15
   %23 = getelementptr inbounds ptr, ptr %20, i64 %22
   store ptr %1, ptr %23, align 8
   %24 = load i32, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %24, ptr %25, align 4
   %26 = load ptr, ptr %0, align 8
   %27 = sext i32 %24 to i64
   %28 = getelementptr inbounds ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, 1
   br i1 %32, label %.lr.ph.i, label %Fxu_HeapSingleMoveUp.exit
@@ -225,11 +225,11 @@ Fxu_HeapSingleResize.exit:                        ; preds = %13, %15
   %36 = load ptr, ptr %0, align 8
   %37 = lshr i32 %33, 1
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %36, i64 %38
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp sgt i32 %41, %44
   br i1 %45, label %46, label %Fxu_HeapSingleMoveUp.exit
@@ -238,15 +238,15 @@ Fxu_HeapSingleResize.exit:                        ; preds = %13, %15
   store ptr %42, ptr %.01.i, align 8
   store ptr %35, ptr %39, align 8
   %47 = load ptr, ptr %.01.i, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = load i32, ptr %34, align 4
   store i32 %50, ptr %48, align 4
   %51 = load ptr, ptr %39, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 %49, ptr %52, align 4
   %53 = load ptr, ptr %39, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = icmp sgt i32 %55, 1
   br i1 %56, label %.lr.ph.i, label %Fxu_HeapSingleMoveUp.exit, !llvm.loop !7
@@ -257,29 +257,29 @@ Fxu_HeapSingleMoveUp.exit:                        ; preds = %.lr.ph.i, %46, %18
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 1
   br i1 %5, label %6, label %48
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = lshr i32 %4, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp sgt i32 %8, %15
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %6
   %18 = zext nneg i32 %4 to i64
-  %19 = getelementptr inbounds ptr, ptr %9, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %9, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %.lr.ph.i, label %Fxu_HeapSingleMoveUp.exit
@@ -292,11 +292,11 @@ define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %27 = load ptr, ptr %0, align 8
   %28 = lshr i32 %24, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %32, %35
   br i1 %36, label %37, label %Fxu_HeapSingleMoveUp.exit
@@ -305,34 +305,34 @@ define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   store ptr %33, ptr %.01.i, align 8
   store ptr %26, ptr %30, align 8
   %38 = load ptr, ptr %.01.i, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = load i32, ptr %25, align 4
   store i32 %41, ptr %39, align 4
   %42 = load ptr, ptr %30, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 %40, ptr %43, align 4
   %44 = load ptr, ptr %30, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %46, 1
   br i1 %47, label %.lr.ph.i, label %Fxu_HeapSingleMoveUp.exit, !llvm.loop !7
 
 48:                                               ; preds = %6, %2
   %49 = shl i32 %4, 1
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i32, ptr %50, align 8
   %.not = icmp sgt i32 %49, %51
   br i1 %.not, label %105, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = load ptr, ptr %0, align 8
   %56 = sext i32 %49 to i64
   %57 = getelementptr inbounds ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = icmp slt i32 %54, %60
   br i1 %61, label %62, label %105
@@ -341,7 +341,7 @@ define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %63 = sext i32 %4 to i64
   %64 = getelementptr inbounds ptr, ptr %55, i64 %63
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = shl i32 %67, 1
   %.not1.i = icmp sgt i32 %68, %51
@@ -363,14 +363,14 @@ define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %77 = or disjoint i32 %70, 1
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds ptr, ptr %73, i64 %78
-  %80 = getelementptr inbounds i8, ptr %72, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %81 = load i32, ptr %80, align 8
   %82 = load ptr, ptr %75, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8
   %.not33.i = icmp slt i32 %81, %84
   %.pre.i = load ptr, ptr %79, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 8
   %.not34.i = icmp slt i32 %81, %.pre6.i
   %or.cond.i = select i1 %.not33.i, i1 true, i1 %.not34.i
@@ -391,10 +391,10 @@ define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   br label %94
 
 87:                                               ; preds = %.lr.ph.i25
-  %88 = getelementptr inbounds i8, ptr %72, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %89 = load i32, ptr %88, align 8
   %90 = load ptr, ptr %75, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i32, ptr %91, align 8
   %.not32.i = icmp slt i32 %89, %92
   br i1 %.not32.i, label %93, label %Fxu_HeapSingleMoveUp.exit
@@ -407,15 +407,15 @@ define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
 94:                                               ; preds = %93, %86, %85
   %.sink8.in.i = phi ptr [ %79, %86 ], [ %75, %85 ], [ %75, %93 ]
   %95 = load ptr, ptr %.02.i, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = load i32, ptr %71, align 4
   store i32 %98, ptr %96, align 4
   %.sink8.i = load ptr, ptr %.sink8.in.i, align 8
-  %99 = getelementptr inbounds i8, ptr %.sink8.i, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %.sink8.i, i64 4
   store i32 %97, ptr %99, align 4
   %100 = load ptr, ptr %.sink8.in.i, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = shl i32 %102, 1
   %104 = load i32, ptr %50, align 8
@@ -428,13 +428,13 @@ define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
 
 106:                                              ; preds = %105
   %107 = or disjoint i32 %49, 1
-  %108 = getelementptr inbounds i8, ptr %1, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %109 = load i32, ptr %108, align 8
   %110 = load ptr, ptr %0, align 8
   %111 = sext i32 %107 to i64
   %112 = getelementptr inbounds ptr, ptr %110, i64 %111
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load i32, ptr %114, align 8
   %116 = icmp slt i32 %109, %115
   br i1 %116, label %117, label %Fxu_HeapSingleMoveUp.exit
@@ -443,7 +443,7 @@ define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %118 = sext i32 %4 to i64
   %119 = getelementptr inbounds ptr, ptr %110, i64 %118
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = shl i32 %122, 1
   %.not1.i26 = icmp sgt i32 %123, %51
@@ -465,14 +465,14 @@ define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   %132 = or disjoint i32 %125, 1
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds ptr, ptr %128, i64 %133
-  %135 = getelementptr inbounds i8, ptr %127, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %136 = load i32, ptr %135, align 8
   %137 = load ptr, ptr %130, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load i32, ptr %138, align 8
   %.not33.i35 = icmp slt i32 %136, %139
   %.pre.i36 = load ptr, ptr %134, align 8
-  %.phi.trans.insert.i37 = getelementptr inbounds i8, ptr %.pre.i36, i64 8
+  %.phi.trans.insert.i37 = getelementptr inbounds nuw i8, ptr %.pre.i36, i64 8
   %.pre6.i38 = load i32, ptr %.phi.trans.insert.i37, align 8
   %.not34.i39 = icmp slt i32 %136, %.pre6.i38
   %or.cond.i40 = select i1 %.not33.i35, i1 true, i1 %.not34.i39
@@ -493,10 +493,10 @@ define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
   br label %149
 
 142:                                              ; preds = %.lr.ph.i27
-  %143 = getelementptr inbounds i8, ptr %127, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %144 = load i32, ptr %143, align 8
   %145 = load ptr, ptr %130, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load i32, ptr %146, align 8
   %.not32.i30 = icmp slt i32 %144, %147
   br i1 %.not32.i30, label %148, label %Fxu_HeapSingleMoveUp.exit
@@ -509,15 +509,15 @@ define void @Fxu_HeapSingleUpdate(ptr nocapture noundef readonly %0, ptr nocaptu
 149:                                              ; preds = %148, %141, %140
   %.sink8.in.i31 = phi ptr [ %134, %141 ], [ %130, %140 ], [ %130, %148 ]
   %150 = load ptr, ptr %.02.i28, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %152 = load i32, ptr %151, align 4
   %153 = load i32, ptr %126, align 4
   store i32 %153, ptr %151, align 4
   %.sink8.i33 = load ptr, ptr %.sink8.in.i31, align 8
-  %154 = getelementptr inbounds i8, ptr %.sink8.i33, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %.sink8.i33, i64 4
   store i32 %152, ptr %154, align 4
   %155 = load ptr, ptr %.sink8.in.i31, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %157 = load i32, ptr %156, align 4
   %158 = shl i32 %157, 1
   %159 = load i32, ptr %50, align 8
@@ -530,10 +530,10 @@ Fxu_HeapSingleMoveUp.exit:                        ; preds = %94, %87, %76, %149,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fxu_HeapSingleDelete(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, -1
   store i32 %8, ptr %6, align 8
@@ -546,7 +546,7 @@ define void @Fxu_HeapSingleDelete(ptr nocapture noundef %0, ptr nocapture nounde
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds ptr, ptr %14, i64 %12
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %4, ptr %17, align 4
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds ptr, ptr %18, i64 %12
@@ -558,14 +558,14 @@ define void @Fxu_HeapSingleDelete(ptr nocapture noundef %0, ptr nocapture nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @Fxu_HeapSingleReadMax(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -576,16 +576,16 @@ define ptr @Fxu_HeapSingleReadMax(ptr nocapture noundef readonly %0) local_unnam
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @Fxu_HeapSingleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %Fxu_HeapSingleMoveDn.exit, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %0, align 8
   %11 = load i32, ptr %2, align 8
@@ -594,22 +594,22 @@ define ptr @Fxu_HeapSingleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9
   %13 = sext i32 %11 to i64
   %14 = getelementptr inbounds ptr, ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %15, ptr %16, align 8
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 1, ptr %20, align 4
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 4
   %.val = load i32, ptr %24, align 4
   %25 = sext i32 %.val to i64
   %26 = getelementptr inbounds ptr, ptr %21, i64 %25
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = shl i32 %29, 1
   %31 = load i32, ptr %2, align 8
@@ -632,14 +632,14 @@ define ptr @Fxu_HeapSingleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9
   %40 = or disjoint i32 %33, 1
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds ptr, ptr %36, i64 %41
-  %43 = getelementptr inbounds i8, ptr %35, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = load ptr, ptr %38, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
   %.not33.i = icmp slt i32 %44, %47
   %.pre.i = load ptr, ptr %42, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %.pre6.i = load i32, ptr %.phi.trans.insert.i, align 8
   %.not34.i = icmp slt i32 %44, %.pre6.i
   %or.cond.i = select i1 %.not33.i, i1 true, i1 %.not34.i
@@ -660,10 +660,10 @@ define ptr @Fxu_HeapSingleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9
   br label %57
 
 50:                                               ; preds = %.lr.ph.i
-  %51 = getelementptr inbounds i8, ptr %35, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = load ptr, ptr %38, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 8
   %.not32.i = icmp slt i32 %52, %55
   br i1 %.not32.i, label %56, label %Fxu_HeapSingleMoveDn.exit
@@ -676,15 +676,15 @@ define ptr @Fxu_HeapSingleGetMax(ptr nocapture noundef %0) local_unnamed_addr #9
 57:                                               ; preds = %56, %49, %48
   %.sink8.in.i = phi ptr [ %42, %49 ], [ %38, %48 ], [ %38, %56 ]
   %58 = load ptr, ptr %.02.i, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = load i32, ptr %34, align 4
   store i32 %61, ptr %59, align 4
   %.sink8.i = load ptr, ptr %.sink8.in.i, align 8
-  %62 = getelementptr inbounds i8, ptr %.sink8.i, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.sink8.i, i64 4
   store i32 %60, ptr %62, align 4
   %63 = load ptr, ptr %.sink8.in.i, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = shl i32 %65, 1
   %67 = load i32, ptr %2, align 8
@@ -698,16 +698,16 @@ Fxu_HeapSingleMoveDn.exit:                        ; preds = %57, %50, %39, %5, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Fxu_HeapSingleReadMaxWeight(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   br label %11
 

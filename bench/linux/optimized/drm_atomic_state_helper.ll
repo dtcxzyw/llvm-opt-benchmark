@@ -96,7 +96,7 @@ define dso_local void @__drm_atomic_helper_crtc_reset(ptr noundef %0, ptr nounde
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 1480
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   store ptr %1, ptr %10, align 8
   ret void
 }
@@ -111,15 +111,15 @@ declare dso_local void @drm_crtc_vblank_reset(ptr noundef) local_unnamed_addr #2
 define dso_local void @drm_atomic_helper_crtc_reset(ptr noundef %0) #1 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %3 = tail call noalias align 8 dereferenceable_or_null(336) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 336) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 1480
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef %0, ptr noundef nonnull %5) #9
   br label %12
@@ -154,10 +154,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__drm_atomic_helper_crtc_duplicate_state(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 336)) %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1480
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(336) %1, ptr noundef align 8 dereferenceable(336) %4, i64 336, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
@@ -167,7 +167,7 @@ define dso_local void @__drm_atomic_helper_crtc_duplicate_state(ptr nocapture no
   br label %10
 
 10:                                               ; preds = %8, %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 272
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
@@ -177,7 +177,7 @@ define dso_local void @__drm_atomic_helper_crtc_duplicate_state(ptr nocapture no
   br label %16
 
 16:                                               ; preds = %14, %10
-  %17 = getelementptr inbounds i8, ptr %1, i64 280
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %22, label %20
@@ -187,7 +187,7 @@ define dso_local void @__drm_atomic_helper_crtc_duplicate_state(ptr nocapture no
   br label %22
 
 22:                                               ; preds = %20, %16
-  %23 = getelementptr inbounds i8, ptr %1, i64 288
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %28, label %26
@@ -197,28 +197,28 @@ define dso_local void @__drm_atomic_helper_crtc_duplicate_state(ptr nocapture no
   br label %28
 
 28:                                               ; preds = %26, %22
-  %29 = getelementptr inbounds i8, ptr %1, i64 10
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %30 = load i8, ptr %29, align 2
   %31 = and i8 %30, -64
   store i8 %31, ptr %29, align 2
-  %32 = getelementptr inbounds i8, ptr %1, i64 312
-  %33 = getelementptr inbounds i8, ptr %1, i64 300
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 300
   store i8 0, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 9
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %35 = load i8, ptr %34, align 1, !range !5, !noundef !6
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %28
-  %38 = getelementptr inbounds i8, ptr %1, i64 302
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 302
   %39 = load i8, ptr %38, align 2, !range !5, !noundef !6
   br label %40
 
 40:                                               ; preds = %37, %28
   %41 = phi i8 [ 1, %28 ], [ %39, %37 ]
   store i8 %41, ptr %34, align 1
-  %42 = getelementptr inbounds i8, ptr %1, i64 302
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 302
   store i8 0, ptr %42, align 2
   ret void
 }
@@ -231,7 +231,7 @@ declare dso_local ptr @drm_property_blob_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_atomic_helper_crtc_duplicate_state(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1480
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6, !prof !7
@@ -251,7 +251,7 @@ define dso_local noundef ptr @drm_atomic_helper_crtc_duplicate_state(ptr nocaptu
 10:                                               ; preds = %6
   %11 = load ptr, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %8, ptr noundef align 8 dereferenceable(336) %11, i64 336, i1 false)
-  %12 = getelementptr inbounds i8, ptr %8, i64 264
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 264
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %17, label %15
@@ -261,7 +261,7 @@ define dso_local noundef ptr @drm_atomic_helper_crtc_duplicate_state(ptr nocaptu
   br label %17
 
 17:                                               ; preds = %15, %10
-  %18 = getelementptr inbounds i8, ptr %8, i64 272
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %23, label %21
@@ -271,7 +271,7 @@ define dso_local noundef ptr @drm_atomic_helper_crtc_duplicate_state(ptr nocaptu
   br label %23
 
 23:                                               ; preds = %21, %17
-  %24 = getelementptr inbounds i8, ptr %8, i64 280
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %29, label %27
@@ -281,7 +281,7 @@ define dso_local noundef ptr @drm_atomic_helper_crtc_duplicate_state(ptr nocaptu
   br label %29
 
 29:                                               ; preds = %27, %23
-  %30 = getelementptr inbounds i8, ptr %8, i64 288
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %35, label %33
@@ -291,28 +291,28 @@ define dso_local noundef ptr @drm_atomic_helper_crtc_duplicate_state(ptr nocaptu
   br label %35
 
 35:                                               ; preds = %33, %29
-  %36 = getelementptr inbounds i8, ptr %8, i64 10
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %37 = load i8, ptr %36, align 2
   %38 = and i8 %37, -64
   store i8 %38, ptr %36, align 2
-  %39 = getelementptr inbounds i8, ptr %8, i64 312
-  %40 = getelementptr inbounds i8, ptr %8, i64 300
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 312
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 300
   store i8 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %8, i64 9
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   %42 = load i8, ptr %41, align 1, !range !5, !noundef !6
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %44, label %__drm_atomic_helper_crtc_duplicate_state.exit
 
 44:                                               ; preds = %35
-  %45 = getelementptr inbounds i8, ptr %8, i64 302
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 302
   %46 = load i8, ptr %45, align 2, !range !5, !noundef !6
   br label %__drm_atomic_helper_crtc_duplicate_state.exit
 
 __drm_atomic_helper_crtc_duplicate_state.exit:    ; preds = %35, %44
   %47 = phi i8 [ 1, %35 ], [ %46, %44 ]
   store i8 %47, ptr %41, align 1
-  %48 = getelementptr inbounds i8, ptr %8, i64 302
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 302
   store i8 0, ptr %48, align 2
   br label %49
 
@@ -323,26 +323,26 @@ __drm_atomic_helper_crtc_duplicate_state.exit:    ; preds = %35, %44
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__drm_atomic_helper_crtc_destroy_state(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread4, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 312
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %3, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %11 = load i8, ptr %10, align 8, !range !5, !noundef !6
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  %15 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14, i32 -1, ptr elementtype(i32) %14) #9, !srcloc !11
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #9, !srcloc !11
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %20, label %17
 
@@ -351,25 +351,25 @@ define dso_local void @__drm_atomic_helper_crtc_destroy_state(ptr nocapture noun
   br i1 %18, label %.thread, label %19, !prof !12
 
 19:                                               ; preds = %17
-  tail call void @refcount_warn_saturate(ptr noundef %14, i32 noundef 3) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %14, i32 noundef 3) #9
   br label %.thread
 
 20:                                               ; preds = %13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
-  tail call void @__drm_crtc_commit_free(ptr noundef %14) #9, !callees !14
+  tail call void @__drm_crtc_commit_free(ptr noundef nonnull %14) #9, !callees !14
   br label %.thread
 
 .thread:                                          ; preds = %17, %19, %20, %9, %5
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %23 = load ptr, ptr %22, align 8
   tail call void @kfree(ptr noundef %23) #9
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
   store ptr null, ptr %25, align 8
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27, i32 -1, ptr elementtype(i32) %27) #9, !srcloc !11
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %27, i32 -1, ptr nonnull elementtype(i32) %27) #9, !srcloc !11
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %33, label %30
 
@@ -378,25 +378,25 @@ define dso_local void @__drm_atomic_helper_crtc_destroy_state(ptr nocapture noun
   br i1 %31, label %.thread4, label %32, !prof !12
 
 32:                                               ; preds = %30
-  tail call void @refcount_warn_saturate(ptr noundef %27, i32 noundef 3) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %27, i32 noundef 3) #9
   br label %.thread4
 
 33:                                               ; preds = %.thread
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
-  tail call void @__drm_crtc_commit_free(ptr noundef %27) #9, !callees !14
+  tail call void @__drm_crtc_commit_free(ptr noundef nonnull %27) #9, !callees !14
   br label %.thread4
 
 .thread4:                                         ; preds = %30, %32, %33, %1
-  %34 = getelementptr inbounds i8, ptr %0, i64 264
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %35 = load ptr, ptr %34, align 8
   tail call void @drm_property_blob_put(ptr noundef %35) #9
-  %36 = getelementptr inbounds i8, ptr %0, i64 272
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %37 = load ptr, ptr %36, align 8
   tail call void @drm_property_blob_put(ptr noundef %37) #9
-  %38 = getelementptr inbounds i8, ptr %0, i64 280
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %39 = load ptr, ptr %38, align 8
   tail call void @drm_property_blob_put(ptr noundef %39) #9
-  %40 = getelementptr inbounds i8, ptr %0, i64 288
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %41 = load ptr, ptr %40, align 8
   tail call void @drm_property_blob_put(ptr noundef %41) #9
   ret void
@@ -421,105 +421,105 @@ define dso_local void @__drm_atomic_helper_plane_state_reset(ptr nocapture nound
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store i64 0, ptr %3, align 8, !annotation !15
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 76
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i16 -1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 74
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 74
   store i16 0, ptr %6, align 2
-  %7 = getelementptr inbounds i8, ptr %1, i64 1280
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 88
-  %12 = call i32 @drm_object_property_get_default_value(ptr noundef %11, ptr noundef nonnull %8, ptr noundef nonnull %3) #9
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %12 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %3) #9
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
   %15 = load i64, ptr %3, align 8
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %16, ptr %17, align 8
   br label %18
 
 18:                                               ; preds = %14, %10, %2
-  %19 = getelementptr inbounds i8, ptr %1, i64 1288
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1288
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 88
-  %24 = call i32 @drm_object_property_get_default_value(ptr noundef %23, ptr noundef nonnull %20, ptr noundef nonnull %3) #9
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %24 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %23, ptr noundef nonnull %20, ptr noundef nonnull %3) #9
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
   %27 = load i64, ptr %3, align 8
   %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %0, i64 92
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %28, ptr %29, align 4
   br label %30
 
 30:                                               ; preds = %26, %22, %18
-  %31 = getelementptr inbounds i8, ptr %1, i64 1256
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %43, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %1, i64 88
-  %36 = call i32 @drm_object_property_get_default_value(ptr noundef %35, ptr noundef nonnull %32, ptr noundef nonnull %3) #9
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %36 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %35, ptr noundef nonnull %32, ptr noundef nonnull %3) #9
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %34
   %39 = load i64, ptr %3, align 8
   %40 = trunc i64 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 84
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %40, ptr %42, align 4
   br label %43
 
 43:                                               ; preds = %38, %34, %30
-  %44 = getelementptr inbounds i8, ptr %1, i64 1304
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 1304
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %55, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %1, i64 88
-  %49 = call i32 @drm_object_property_get_default_value(ptr noundef %48, ptr noundef nonnull %45, ptr noundef nonnull %3) #9
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %49 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %48, ptr noundef nonnull %45, ptr noundef nonnull %3) #9
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %47
   %52 = load i64, ptr %3, align 8
   %53 = trunc i64 %52 to i32
-  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %53, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %51, %47, %43
-  %56 = getelementptr inbounds i8, ptr %1, i64 1312
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 1312
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %67, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %1, i64 88
-  %61 = call i32 @drm_object_property_get_default_value(ptr noundef %60, ptr noundef nonnull %57, ptr noundef nonnull %3) #9
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %61 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %60, ptr noundef nonnull %57, ptr noundef nonnull %3) #9
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %59
   %64 = load i64, ptr %3, align 8
   %65 = trunc i64 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %0, i64 68
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %65, ptr %66, align 4
   br label %67
 
@@ -541,14 +541,14 @@ define dso_local void @__drm_atomic_helper_plane_reset(ptr noundef %0, ptr nound
   br label %5
 
 5:                                                ; preds = %4, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   store ptr %1, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_atomic_helper_plane_reset(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -578,25 +578,25 @@ define dso_local void @drm_atomic_helper_plane_reset(ptr noundef %0) #1 align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__drm_atomic_helper_plane_destroy_state(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  tail call void @drm_mode_object_put(ptr noundef %6) #9
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  tail call void @drm_mode_object_put(ptr noundef nonnull %6) #9
   br label %7
 
 7:                                                ; preds = %5, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 56
-  %13 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %12, i32 -1, ptr elementtype(i32) %12) #9, !srcloc !11
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %13 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 -1, ptr nonnull elementtype(i32) %12) #9, !srcloc !11
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %18, label %15
 
@@ -605,23 +605,23 @@ define dso_local void @__drm_atomic_helper_plane_destroy_state(ptr nocapture nou
   br i1 %16, label %.thread, label %17, !prof !12
 
 17:                                               ; preds = %15
-  tail call void @refcount_warn_saturate(ptr noundef %12, i32 noundef 3) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %12, i32 noundef 3) #9
   br label %.thread
 
 18:                                               ; preds = %11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
-  tail call void @dma_fence_release(ptr noundef %12) #9, !callees !14
+  tail call void @dma_fence_release(ptr noundef nonnull %12) #9, !callees !14
   br label %.thread
 
 .thread:                                          ; preds = %15, %17, %18, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread6, label %22
 
 22:                                               ; preds = %.thread
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
-  %24 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %23, i32 -1, ptr elementtype(i32) %23) #9, !srcloc !11
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %24 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %23, i32 -1, ptr nonnull elementtype(i32) %23) #9, !srcloc !11
   %25 = icmp eq i32 %24, 1
   br i1 %25, label %29, label %26
 
@@ -630,16 +630,16 @@ define dso_local void @__drm_atomic_helper_plane_destroy_state(ptr nocapture nou
   br i1 %27, label %.thread6, label %28, !prof !12
 
 28:                                               ; preds = %26
-  tail call void @refcount_warn_saturate(ptr noundef %23, i32 noundef 3) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %23, i32 noundef 3) #9
   br label %.thread6
 
 29:                                               ; preds = %22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
-  tail call void @__drm_crtc_commit_free(ptr noundef %23) #9, !callees !14
+  tail call void @__drm_crtc_commit_free(ptr noundef nonnull %23) #9, !callees !14
   br label %.thread6
 
 .thread6:                                         ; preds = %26, %28, %29, %.thread
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   tail call void @drm_property_blob_put(ptr noundef %31) #9
   ret void
@@ -647,27 +647,27 @@ define dso_local void @__drm_atomic_helper_plane_destroy_state(ptr nocapture nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__drm_atomic_helper_plane_duplicate_state(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 176)) %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(176) %1, ptr noundef align 8 dereferenceable(176) %4, i64 176, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @drm_mode_object_get(ptr noundef %9) #9
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  tail call void @drm_mode_object_get(ptr noundef nonnull %9) #9
   br label %10
 
 10:                                               ; preds = %8, %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %15 = load i8, ptr %14, align 8
   %16 = and i8 %15, -2
   store i8 %16, ptr %14, align 8
@@ -676,7 +676,7 @@ define dso_local void @__drm_atomic_helper_plane_duplicate_state(ptr nocapture n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_atomic_helper_plane_duplicate_state(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1240
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6, !prof !7
@@ -696,24 +696,24 @@ define dso_local noundef ptr @drm_atomic_helper_plane_duplicate_state(ptr nocapt
 10:                                               ; preds = %6
   %11 = load ptr, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef align 8 dereferenceable(176) %11, i64 176, i1 false)
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
-  tail call void @drm_mode_object_get(ptr noundef %16) #9
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  tail call void @drm_mode_object_get(ptr noundef nonnull %16) #9
   br label %17
 
 17:                                               ; preds = %15, %10
-  %18 = getelementptr inbounds i8, ptr %8, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 152
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %22 = load i8, ptr %21, align 8
   %23 = and i8 %22, -2
   store i8 %23, ptr %21, align 8
@@ -747,7 +747,7 @@ define dso_local void @__drm_atomic_helper_connector_reset(ptr noundef %0, ptr n
   br label %5
 
 5:                                                ; preds = %4, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1904
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   store ptr %1, ptr %6, align 8
   ret void
 }
@@ -756,32 +756,32 @@ define dso_local void @__drm_atomic_helper_connector_reset(ptr noundef %0, ptr n
 define dso_local void @drm_atomic_helper_connector_reset(ptr noundef %0) #1 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(160) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 160) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 1904
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %32, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
-  tail call void @drm_mode_object_put(ptr noundef %13) #9
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  tail call void @drm_mode_object_put(ptr noundef nonnull %13) #9
   br label %14
 
 14:                                               ; preds = %11, %7
-  %15 = getelementptr inbounds i8, ptr %5, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread.i, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
-  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 -1, ptr elementtype(i32) %19) #9, !srcloc !11
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %20 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %19, i32 -1, ptr nonnull elementtype(i32) %19) #9, !srcloc !11
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %25, label %22
 
@@ -790,16 +790,16 @@ define dso_local void @drm_atomic_helper_connector_reset(ptr noundef %0) #1 alig
   br i1 %23, label %.thread.i, label %24, !prof !12
 
 24:                                               ; preds = %22
-  tail call void @refcount_warn_saturate(ptr noundef %19, i32 noundef 3) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %19, i32 noundef 3) #9
   br label %.thread.i
 
 25:                                               ; preds = %18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
-  tail call void @__drm_crtc_commit_free(ptr noundef %19) #9, !callees !14
+  tail call void @__drm_crtc_commit_free(ptr noundef nonnull %19) #9, !callees !14
   br label %.thread.i
 
 .thread.i:                                        ; preds = %25, %24, %22, %14
-  %26 = getelementptr inbounds i8, ptr %5, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %__drm_atomic_helper_connector_destroy_state.exit, label %29
@@ -809,7 +809,7 @@ define dso_local void @drm_atomic_helper_connector_reset(ptr noundef %0) #1 alig
   br label %__drm_atomic_helper_connector_destroy_state.exit
 
 __drm_atomic_helper_connector_destroy_state.exit: ; preds = %.thread.i, %29
-  %30 = getelementptr inbounds i8, ptr %5, i64 152
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %31 = load ptr, ptr %30, align 8
   tail call void @drm_property_blob_put(ptr noundef %31) #9
   %.pre = load ptr, ptr %4, align 8
@@ -832,26 +832,26 @@ __drm_atomic_helper_connector_destroy_state.exit: ; preds = %.thread.i, %29
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__drm_atomic_helper_connector_destroy_state(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
-  tail call void @drm_mode_object_put(ptr noundef %7) #9
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  tail call void @drm_mode_object_put(ptr noundef nonnull %7) #9
   br label %8
 
 8:                                                ; preds = %5, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  %14 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13, i32 -1, ptr elementtype(i32) %13) #9, !srcloc !11
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %14 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 -1, ptr nonnull elementtype(i32) %13) #9, !srcloc !11
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %19, label %16
 
@@ -860,16 +860,16 @@ define dso_local void @__drm_atomic_helper_connector_destroy_state(ptr nocapture
   br i1 %17, label %.thread, label %18, !prof !12
 
 18:                                               ; preds = %16
-  tail call void @refcount_warn_saturate(ptr noundef %13, i32 noundef 3) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %13, i32 noundef 3) #9
   br label %.thread
 
 19:                                               ; preds = %12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
-  tail call void @__drm_crtc_commit_free(ptr noundef %13) #9, !callees !14
+  tail call void @__drm_crtc_commit_free(ptr noundef nonnull %13) #9, !callees !14
   br label %.thread
 
 .thread:                                          ; preds = %16, %18, %19, %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %24, label %23
@@ -879,7 +879,7 @@ define dso_local void @__drm_atomic_helper_connector_destroy_state(ptr nocapture
   br label %24
 
 24:                                               ; preds = %23, %.thread
-  %25 = getelementptr inbounds i8, ptr %0, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %26 = load ptr, ptr %25, align 8
   tail call void @drm_property_blob_put(ptr noundef %26) #9
   ret void
@@ -887,21 +887,21 @@ define dso_local void @__drm_atomic_helper_connector_destroy_state(ptr nocapture
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @drm_atomic_helper_connector_tv_margins_reset(ptr nocapture noundef readonly %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1904
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1624
-  %5 = getelementptr inbounds i8, ptr %0, i64 1628
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1628
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 56
-  %8 = getelementptr inbounds i8, ptr %3, i64 60
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 %6, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 1632
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1636
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1636
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i32 %13, ptr %14, align 4
   %15 = load i32, ptr %4, align 4
   store i32 %15, ptr %7, align 8
@@ -912,208 +912,208 @@ define dso_local void @drm_atomic_helper_connector_tv_margins_reset(ptr nocaptur
 define dso_local void @drm_atomic_helper_connector_tv_reset(ptr noundef %0) #1 align 16 {
   %2 = alloca i64, align 8
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1904
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   store i64 0, ptr %2, align 8, !annotation !15
-  %6 = getelementptr inbounds i8, ptr %3, i64 1176
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1176
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = call i32 @drm_object_property_get_default_value(ptr noundef %10, ptr noundef nonnull %7, ptr noundef nonnull %2) #9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %2) #9
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
   %14 = load i64, ptr %2, align 8
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %5, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 %15, ptr %16, align 4
   br label %17
 
 17:                                               ; preds = %13, %9, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 1644
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1644
   %19 = load i8, ptr %18, align 4, !range !5, !noundef !6
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 1640
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 76
   store i32 %23, ptr %24, align 4
   br label %25
 
 25:                                               ; preds = %21, %17
-  %26 = getelementptr inbounds i8, ptr %3, i64 1160
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 1160
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %37, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
-  %31 = call i32 @drm_object_property_get_default_value(ptr noundef %30, ptr noundef nonnull %27, ptr noundef nonnull %2) #9
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %31 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %30, ptr noundef nonnull %27, ptr noundef nonnull %2) #9
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %29
   %34 = load i64, ptr %2, align 8
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %5, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %35, ptr %36, align 8
   br label %37
 
 37:                                               ; preds = %33, %29, %25
-  %38 = getelementptr inbounds i8, ptr %3, i64 1152
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 1152
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %49, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 64
-  %43 = call i32 @drm_object_property_get_default_value(ptr noundef %42, ptr noundef nonnull %39, ptr noundef nonnull %2) #9
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %43 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %42, ptr noundef nonnull %39, ptr noundef nonnull %2) #9
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %41
   %46 = load i64, ptr %2, align 8
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %5, i64 52
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 %47, ptr %48, align 4
   br label %49
 
 49:                                               ; preds = %45, %41, %37
-  %50 = getelementptr inbounds i8, ptr %3, i64 1216
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 1216
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %61, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 64
-  %55 = call i32 @drm_object_property_get_default_value(ptr noundef %54, ptr noundef nonnull %51, ptr noundef nonnull %2) #9
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %55 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %54, ptr noundef nonnull %51, ptr noundef nonnull %2) #9
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %53
   %58 = load i64, ptr %2, align 8
   %59 = trunc i64 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %5, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 %59, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %57, %53, %49
-  %62 = getelementptr inbounds i8, ptr %3, i64 1224
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 1224
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %73, label %65
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %0, i64 64
-  %67 = call i32 @drm_object_property_get_default_value(ptr noundef %66, ptr noundef nonnull %63, ptr noundef nonnull %2) #9
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %67 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %66, ptr noundef nonnull %63, ptr noundef nonnull %2) #9
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %65
   %70 = load i64, ptr %2, align 8
   %71 = trunc i64 %70 to i32
-  %72 = getelementptr inbounds i8, ptr %5, i64 84
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 84
   store i32 %71, ptr %72, align 4
   br label %73
 
 73:                                               ; preds = %69, %65, %61
-  %74 = getelementptr inbounds i8, ptr %3, i64 1232
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 1232
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %85, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %0, i64 64
-  %79 = call i32 @drm_object_property_get_default_value(ptr noundef %78, ptr noundef nonnull %75, ptr noundef nonnull %2) #9
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %79 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %78, ptr noundef nonnull %75, ptr noundef nonnull %2) #9
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %77
   %82 = load i64, ptr %2, align 8
   %83 = trunc i64 %82 to i32
-  %84 = getelementptr inbounds i8, ptr %5, i64 88
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i32 %83, ptr %84, align 8
   br label %85
 
 85:                                               ; preds = %81, %77, %73
-  %86 = getelementptr inbounds i8, ptr %3, i64 1240
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 1240
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %97, label %89
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %0, i64 64
-  %91 = call i32 @drm_object_property_get_default_value(ptr noundef %90, ptr noundef nonnull %87, ptr noundef nonnull %2) #9
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %91 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %90, ptr noundef nonnull %87, ptr noundef nonnull %2) #9
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %97
 
 93:                                               ; preds = %89
   %94 = load i64, ptr %2, align 8
   %95 = trunc i64 %94 to i32
-  %96 = getelementptr inbounds i8, ptr %5, i64 92
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 %95, ptr %96, align 4
   br label %97
 
 97:                                               ; preds = %93, %89, %85
-  %98 = getelementptr inbounds i8, ptr %3, i64 1248
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 1248
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %109, label %101
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %0, i64 64
-  %103 = call i32 @drm_object_property_get_default_value(ptr noundef %102, ptr noundef nonnull %99, ptr noundef nonnull %2) #9
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %103 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %102, ptr noundef nonnull %99, ptr noundef nonnull %2) #9
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %101
   %106 = load i64, ptr %2, align 8
   %107 = trunc i64 %106 to i32
-  %108 = getelementptr inbounds i8, ptr %5, i64 96
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i32 %107, ptr %108, align 8
   br label %109
 
 109:                                              ; preds = %105, %101, %97
-  %110 = getelementptr inbounds i8, ptr %3, i64 1256
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 1256
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   br i1 %112, label %121, label %113
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %0, i64 64
-  %115 = call i32 @drm_object_property_get_default_value(ptr noundef %114, ptr noundef nonnull %111, ptr noundef nonnull %2) #9
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %115 = call i32 @drm_object_property_get_default_value(ptr noundef nonnull %114, ptr noundef nonnull %111, ptr noundef nonnull %2) #9
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %121
 
 117:                                              ; preds = %113
   %118 = load i64, ptr %2, align 8
   %119 = trunc i64 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %5, i64 100
+  %120 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 %119, ptr %120, align 4
   br label %121
 
 121:                                              ; preds = %117, %113, %109
   %122 = load ptr, ptr %4, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 1624
-  %124 = getelementptr inbounds i8, ptr %0, i64 1628
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1628
   %125 = load i32, ptr %124, align 4
-  %126 = getelementptr inbounds i8, ptr %122, i64 56
-  %127 = getelementptr inbounds i8, ptr %122, i64 60
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 56
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 60
   store i32 %125, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %0, i64 1632
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %129 = load i32, ptr %128, align 4
-  %130 = getelementptr inbounds i8, ptr %122, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %122, i64 64
   store i32 %129, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 1636
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 1636
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds i8, ptr %122, i64 68
+  %133 = getelementptr inbounds nuw i8, ptr %122, i64 68
   store i32 %132, ptr %133, align 4
   %134 = load i32, ptr %123, align 4
   store i32 %134, ptr %126, align 8
@@ -1123,15 +1123,15 @@ define dso_local void @drm_atomic_helper_connector_tv_reset(ptr noundef %0) #1 a
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_connector_tv_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %4, %6
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %4 to i64
   %12 = getelementptr %struct.__drm_connnectors_state, ptr %10, i64 %11, i32 2
@@ -1143,15 +1143,15 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_connector_tv_c
 16:                                               ; preds = %2, %8
   %17 = phi ptr [ %13, %8 ], [ null, %2 ]
   %18 = phi ptr [ %15, %8 ], [ null, %2 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %109, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
   %28 = getelementptr %struct.__drm_crtcs_state, ptr %24, i64 %27, i32 3
@@ -1160,42 +1160,42 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_connector_tv_c
   br i1 %30, label %109, label %31
 
 31:                                               ; preds = %22
-  %32 = getelementptr inbounds i8, ptr %17, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 76
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %18, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 76
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %33, %35
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %29, i64 10
+  %38 = getelementptr inbounds nuw i8, ptr %29, i64 10
   %39 = load i8, ptr %38, align 2
   %40 = or i8 %39, 2
   store i8 %40, ptr %38, align 2
   br label %41
 
 41:                                               ; preds = %37, %31
-  %42 = getelementptr inbounds i8, ptr %17, i64 56
-  %43 = getelementptr inbounds i8, ptr %17, i64 60
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %17, i64 60
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %18, i64 56
-  %46 = getelementptr inbounds i8, ptr %18, i64 60
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %18, i64 60
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %44, %47
   br i1 %48, label %49, label %105
 
 49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %17, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %18, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %51, %53
   br i1 %54, label %55, label %105
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %17, i64 68
+  %56 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %18, i64 68
+  %58 = getelementptr inbounds nuw i8, ptr %18, i64 68
   %59 = load i32, ptr %58, align 4
   %60 = icmp eq i32 %57, %59
   br i1 %60, label %61, label %105
@@ -1213,55 +1213,55 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_connector_tv_c
   br i1 %68, label %69, label %105
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %17, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %18, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %73 = load i32, ptr %72, align 8
   %74 = icmp eq i32 %71, %73
   br i1 %74, label %75, label %105
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %17, i64 84
+  %76 = getelementptr inbounds nuw i8, ptr %17, i64 84
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %18, i64 84
+  %78 = getelementptr inbounds nuw i8, ptr %18, i64 84
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %77, %79
   br i1 %80, label %81, label %105
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %17, i64 88
+  %82 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %18, i64 88
+  %84 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %85 = load i32, ptr %84, align 8
   %86 = icmp eq i32 %83, %85
   br i1 %86, label %87, label %105
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %17, i64 92
+  %88 = getelementptr inbounds nuw i8, ptr %17, i64 92
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %18, i64 92
+  %90 = getelementptr inbounds nuw i8, ptr %18, i64 92
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %89, %91
   br i1 %92, label %93, label %105
 
 93:                                               ; preds = %87
-  %94 = getelementptr inbounds i8, ptr %17, i64 96
+  %94 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %18, i64 96
+  %96 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %97 = load i32, ptr %96, align 8
   %98 = icmp eq i32 %95, %97
   br i1 %98, label %99, label %105
 
 99:                                               ; preds = %93
-  %100 = getelementptr inbounds i8, ptr %17, i64 100
+  %100 = getelementptr inbounds nuw i8, ptr %17, i64 100
   %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %18, i64 100
+  %102 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %101, %103
   br i1 %104, label %109, label %105
 
 105:                                              ; preds = %99, %93, %87, %81, %75, %69, %65, %61, %55, %49, %41
-  %106 = getelementptr inbounds i8, ptr %29, i64 10
+  %106 = getelementptr inbounds nuw i8, ptr %29, i64 10
   %107 = load i8, ptr %106, align 2
   %108 = or i8 %107, 8
   store i8 %108, ptr %106, align 2
@@ -1274,23 +1274,23 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_connector_tv_c
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__drm_atomic_helper_connector_duplicate_state(ptr noundef %0, ptr nocapture noundef initializes((0, 160)) %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1904
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(160) %1, ptr noundef align 8 dereferenceable(160) %4, i64 160, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @drm_mode_object_get(ptr noundef %9) #9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @drm_mode_object_get(ptr noundef nonnull %9) #9
   br label %10
 
 10:                                               ; preds = %8, %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %17, label %15
@@ -1300,14 +1300,14 @@ define dso_local void @__drm_atomic_helper_connector_duplicate_state(ptr noundef
   br label %17
 
 17:                                               ; preds = %15, %10
-  %18 = getelementptr inbounds i8, ptr %1, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr null, ptr %18, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_atomic_helper_connector_duplicate_state(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1904
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6, !prof !7
@@ -1327,20 +1327,20 @@ define dso_local noundef ptr @drm_atomic_helper_connector_duplicate_state(ptr no
 10:                                               ; preds = %6
   %11 = load ptr, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %8, ptr noundef align 8 dereferenceable(160) %11, i64 160, i1 false)
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call void @drm_mode_object_get(ptr noundef %16) #9
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @drm_mode_object_get(ptr noundef nonnull %16) #9
   br label %17
 
 17:                                               ; preds = %15, %10
-  %18 = getelementptr inbounds i8, ptr %8, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %24, label %22
@@ -1350,7 +1350,7 @@ define dso_local noundef ptr @drm_atomic_helper_connector_duplicate_state(ptr no
   br label %24
 
 24:                                               ; preds = %22, %17
-  %25 = getelementptr inbounds i8, ptr %8, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store ptr null, ptr %25, align 8
   br label %26
 
@@ -1364,26 +1364,26 @@ declare dso_local void @drm_writeback_cleanup_job(ptr noundef) local_unnamed_add
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_atomic_helper_connector_destroy_state(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
-  tail call void @drm_mode_object_put(ptr noundef %8) #9
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  tail call void @drm_mode_object_put(ptr noundef nonnull %8) #9
   br label %9
 
 9:                                                ; preds = %6, %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread.i, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
-  %15 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %14, i32 -1, ptr elementtype(i32) %14) #9, !srcloc !11
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %15 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, i32 -1, ptr nonnull elementtype(i32) %14) #9, !srcloc !11
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %20, label %17
 
@@ -1392,16 +1392,16 @@ define dso_local void @drm_atomic_helper_connector_destroy_state(ptr nocapture r
   br i1 %18, label %.thread.i, label %19, !prof !12
 
 19:                                               ; preds = %17
-  tail call void @refcount_warn_saturate(ptr noundef %14, i32 noundef 3) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %14, i32 noundef 3) #9
   br label %.thread.i
 
 20:                                               ; preds = %13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
-  tail call void @__drm_crtc_commit_free(ptr noundef %14) #9, !callees !14
+  tail call void @__drm_crtc_commit_free(ptr noundef nonnull %14) #9, !callees !14
   br label %.thread.i
 
 .thread.i:                                        ; preds = %20, %19, %17, %9
-  %21 = getelementptr inbounds i8, ptr %1, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %__drm_atomic_helper_connector_destroy_state.exit, label %24
@@ -1411,7 +1411,7 @@ define dso_local void @drm_atomic_helper_connector_destroy_state(ptr nocapture r
   br label %__drm_atomic_helper_connector_destroy_state.exit
 
 __drm_atomic_helper_connector_destroy_state.exit: ; preds = %.thread.i, %24
-  %25 = getelementptr inbounds i8, ptr %1, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %26 = load ptr, ptr %25, align 8
   tail call void @drm_property_blob_put(ptr noundef %26) #9
   tail call void @kfree(ptr noundef %1) #9
@@ -1420,7 +1420,7 @@ __drm_atomic_helper_connector_destroy_state.exit: ; preds = %.thread.i, %24
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local void @__drm_atomic_helper_private_obj_duplicate_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %1, ptr noundef align 8 dereferenceable(16) %4, i64 16, i1 false)
   ret void
@@ -1428,17 +1428,17 @@ define dso_local void @__drm_atomic_helper_private_obj_duplicate_state(ptr nocap
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local void @__drm_atomic_helper_bridge_duplicate_state(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %1, ptr noundef align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @drm_atomic_helper_bridge_duplicate_state(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6, !prof !7
@@ -1458,7 +1458,7 @@ define dso_local noundef ptr @drm_atomic_helper_bridge_duplicate_state(ptr nound
 10:                                               ; preds = %6
   %11 = load ptr, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef align 8 dereferenceable(16) %11, i64 16, i1 false)
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %0, ptr %12, align 8
   br label %13
 
@@ -1476,7 +1476,7 @@ define dso_local void @drm_atomic_helper_bridge_destroy_state(ptr nocapture read
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define dso_local void @__drm_atomic_helper_bridge_reset(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
@@ -1493,7 +1493,7 @@ define dso_local noundef ptr @drm_atomic_helper_bridge_reset(ptr noundef %0) #1 
 
 5:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %0, ptr %6, align 8
   br label %7
 

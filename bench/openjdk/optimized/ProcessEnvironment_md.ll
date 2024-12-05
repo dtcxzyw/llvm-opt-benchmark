@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @Java_java_lang_ProcessEnvironment_environ(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #2
   %7 = icmp eq ptr %6, null
@@ -30,7 +30,7 @@ define ptr @Java_java_lang_ProcessEnvironment_environ(ptr noundef %0, ptr nocapt
   %12 = zext i1 %.not70 to i32
   %spec.select = add nuw nsw i32 %.05674, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
@@ -42,7 +42,7 @@ define ptr @Java_java_lang_ProcessEnvironment_environ(ptr noundef %0, ptr nocapt
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader71
   %.056.lcssa = phi i32 [ 0, %.preheader71 ], [ %15, %._crit_edge.loopexit ]
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1376
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1376
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, i32 noundef %.056.lcssa, ptr noundef nonnull %6, ptr noundef null) #2
   %20 = icmp eq ptr %19, null
@@ -64,7 +64,7 @@ define ptr @Java_java_lang_ProcessEnvironment_environ(ptr noundef %0, ptr nocapt
   br i1 %.not69, label %70, label %26
 
 26:                                               ; preds = %.lr.ph78
-  %27 = getelementptr inbounds i8, ptr %25, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %28 = ptrtoint ptr %25 to i64
   %29 = ptrtoint ptr %24 to i64
   %30 = sub i64 %28, %29
@@ -72,7 +72,7 @@ define ptr @Java_java_lang_ProcessEnvironment_environ(ptr noundef %0, ptr nocapt
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #3
   %33 = trunc i64 %32 to i32
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1408
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1408
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %0, i32 noundef %31) #2
   %38 = icmp eq ptr %37, null
@@ -80,7 +80,7 @@ define ptr @Java_java_lang_ProcessEnvironment_environ(ptr noundef %0, ptr nocapt
 
 39:                                               ; preds = %26
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1408
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1408
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr %42(ptr noundef nonnull %0, i32 noundef %33) #2
   %44 = icmp eq ptr %43, null
@@ -88,32 +88,32 @@ define ptr @Java_java_lang_ProcessEnvironment_environ(ptr noundef %0, ptr nocapt
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1664
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1664
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @environ, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv85
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv85
   %51 = load ptr, ptr %50, align 8
   tail call void %48(ptr noundef nonnull %0, ptr noundef nonnull %37, i32 noundef 0, i32 noundef %31, ptr noundef %51) #2
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1664
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1664
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull %0, ptr noundef nonnull %43, i32 noundef 0, i32 noundef %33, ptr noundef nonnull %27) #2
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1392
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1392
   %57 = load ptr, ptr %56, align 8
   %58 = shl nsw i32 %.05976, 1
   tail call void %57(ptr noundef nonnull %0, ptr noundef nonnull %19, i32 noundef %58, ptr noundef nonnull %37) #2
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 1392
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1392
   %61 = load ptr, ptr %60, align 8
   %62 = or disjoint i32 %58, 1
   tail call void %61(ptr noundef nonnull %0, ptr noundef nonnull %19, i32 noundef %62, ptr noundef nonnull %43) #2
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 184
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 184
   %65 = load ptr, ptr %64, align 8
   tail call void %65(ptr noundef nonnull %0, ptr noundef nonnull %37) #2
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 184
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
   %68 = load ptr, ptr %67, align 8
   tail call void %68(ptr noundef nonnull %0, ptr noundef nonnull %43) #2
   %69 = add nsw i32 %.05976, 1
@@ -124,7 +124,7 @@ define ptr @Java_java_lang_ProcessEnvironment_environ(ptr noundef %0, ptr nocapt
   %71 = phi ptr [ %.pre, %45 ], [ %23, %.lr.ph78 ]
   %.160 = phi i32 [ %69, %45 ], [ %.05976, %.lr.ph78 ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %72 = getelementptr inbounds ptr, ptr %71, i64 %indvars.iv.next86
+  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv.next86
   %73 = load ptr, ptr %72, align 8
   %.not68 = icmp eq ptr %73, null
   br i1 %.not68, label %.loopexit, label %.lr.ph78, !llvm.loop !8

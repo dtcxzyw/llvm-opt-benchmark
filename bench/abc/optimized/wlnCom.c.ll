@@ -218,7 +218,7 @@ sub_0:                                            ; preds = %48
   br i1 %.not171, label %.tail, label %sub_0123
 
 .tail:                                            ; preds = %sub_0
-  %52 = getelementptr inbounds i8, ptr %50, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %65, label %sub_0123
@@ -230,13 +230,13 @@ sub_0123:                                         ; preds = %sub_0, %.tail
   br i1 %.not169, label %sub_1124, label %.tail122.thread
 
 sub_1124:                                         ; preds = %sub_0123
-  %57 = getelementptr inbounds i8, ptr %55, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %58 = load i8, ptr %57, align 1
   %.not170 = icmp eq i8 %58, 118
   br i1 %.not170, label %.tail122, label %.tail122.thread
 
 .tail122:                                         ; preds = %sub_1124
-  %59 = getelementptr inbounds i8, ptr %55, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 2
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %65, label %.tail122.thread
@@ -260,7 +260,7 @@ sub_0127:                                         ; preds = %48
   br i1 %.not171, label %.tail126, label %sub_0131
 
 .tail126:                                         ; preds = %sub_0127
-  %67 = getelementptr inbounds i8, ptr %50, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %80, label %sub_0131
@@ -272,13 +272,13 @@ sub_0131:                                         ; preds = %sub_0127, %.tail126
   br i1 %.not172, label %sub_1132, label %.tail130.thread
 
 sub_1132:                                         ; preds = %sub_0131
-  %72 = getelementptr inbounds i8, ptr %70, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 1
   %73 = load i8, ptr %72, align 1
   %.not173 = icmp eq i8 %73, 118
   br i1 %.not173, label %.tail130, label %.tail130.thread
 
 .tail130:                                         ; preds = %sub_1132
-  %74 = getelementptr inbounds i8, ptr %70, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 2
   %75 = load i8, ptr %74, align 1
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %80, label %.tail130.thread

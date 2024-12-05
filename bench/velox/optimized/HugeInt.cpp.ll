@@ -317,7 +317,7 @@ while.body.i.i:                                   ; preds = %if.end10, %while.bo
   %6 = load i8, ptr %__last.sroa.0.012.i.i, align 1
   store i8 %6, ptr %__first.sroa.0.011.i.i, align 1
   store i8 %5, ptr %__last.sroa.0.012.i.i, align 1
-  %incdec.ptr.i2.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.011.i.i, i64 1
+  %incdec.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.011.i.i, i64 1
   %__last.sroa.0.0.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i, i64 -1
   %cmp.i1.i.i = icmp ult ptr %incdec.ptr.i2.i.i, %__last.sroa.0.0.i.i
   br i1 %cmp.i1.i.i, label %while.body.i.i, label %return, !llvm.loop !8

@@ -67,7 +67,7 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
 define internal noundef i32 @crypto_onetimeauth_poly1305_sse2_update(ptr noundef %state, ptr noundef %in, i64 noundef %inlen) #1 {
 entry:
-  %leftover.i = getelementptr inbounds i8, ptr %state, i64 128
+  %leftover.i = getelementptr inbounds nuw i8, ptr %state, i64 128
   %0 = load i64, ptr %leftover.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %if.end15.i, label %if.then.i
@@ -79,7 +79,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp338.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then.i
-  %buffer.i = getelementptr inbounds i8, ptr %state, i64 136
+  %buffer.i = getelementptr inbounds nuw i8, ptr %state, i64 136
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -108,7 +108,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 if.end12.i:                                       ; preds = %for.end.i
   %add.ptr.i = getelementptr i8, ptr %in, i64 %spec.select.i
   %sub6.i = sub i64 %inlen, %spec.select.i
-  %buffer13.i = getelementptr inbounds i8, ptr %state, i64 136
+  %buffer13.i = getelementptr inbounds nuw i8, ptr %state, i64 136
   tail call fastcc void @poly1305_blocks(ptr noundef nonnull %state, ptr noundef nonnull %buffer13.i, i64 noundef 32)
   store i64 0, ptr %leftover.i, align 8
   br label %if.end15.i
@@ -133,7 +133,7 @@ if.end21.i:                                       ; preds = %if.then17.i, %if.en
   br i1 %tobool22.not.i, label %poly1305_update.exit, label %for.cond24.preheader.i
 
 for.cond24.preheader.i:                           ; preds = %if.end21.i
-  %buffer28.i = getelementptr inbounds i8, ptr %state, i64 136
+  %buffer28.i = getelementptr inbounds nuw i8, ptr %state, i64 136
   br label %for.body26.i
 
 for.body26.i:                                     ; preds = %for.body26.i, %for.cond24.preheader.i
@@ -161,8 +161,8 @@ poly1305_update.exit:                             ; preds = %for.end.i, %if.end2
 ; Function Attrs: nounwind ssp uwtable
 define internal noundef i32 @crypto_onetimeauth_poly1305_sse2_final(ptr noundef %state, ptr nocapture noundef writeonly initializes((0, 16)) %out) #0 {
 entry:
-  %buffer.i = getelementptr inbounds i8, ptr %state, i64 136
-  %leftover.i = getelementptr inbounds i8, ptr %state, i64 128
+  %buffer.i = getelementptr inbounds nuw i8, ptr %state, i64 136
+  %leftover.i = getelementptr inbounds nuw i8, ptr %state, i64 128
   %0 = load i64, ptr %leftover.i, align 8
   tail call fastcc void @poly1305_finish_ext(ptr noundef %state, ptr noundef nonnull %buffer.i, i64 noundef %0, ptr noundef %out)
   ret i32 0
@@ -182,7 +182,7 @@ entry:
   %and7 = and i64 %or, 17592181915647
   %shr8 = lshr i64 %t1.0.copyload, 24
   %and9 = and i64 %shr8, 68719475727
-  %R10 = getelementptr inbounds i8, ptr %st, i64 40
+  %R10 = getelementptr inbounds nuw i8, ptr %st, i64 40
   %conv = trunc i64 %t0.0.copyload to i32
   %and11 = and i32 %conv, 67108863
   store i32 %and11, ptr %R10, align 4
@@ -209,7 +209,7 @@ entry:
   %conv30 = trunc nuw nsw i64 %shr29 to i32
   %arrayidx31 = getelementptr i8, ptr %st, i64 56
   store i32 %conv30, ptr %arrayidx31, align 4
-  %pad = getelementptr inbounds i8, ptr %st, i64 104
+  %pad = getelementptr inbounds nuw i8, ptr %st, i64 104
   %add.ptr33 = getelementptr i8, ptr %key, i64 16
   %0 = load i64, ptr %add.ptr33, align 1
   store i64 %0, ptr %pad, align 8
@@ -217,8 +217,8 @@ entry:
   %add.ptr36 = getelementptr i8, ptr %key, i64 24
   %1 = load i64, ptr %add.ptr36, align 1
   store i64 %1, ptr %arrayidx35, align 8
-  %R4 = getelementptr inbounds i8, ptr %st, i64 80
-  %R2 = getelementptr inbounds i8, ptr %st, i64 60
+  %R4 = getelementptr inbounds nuw i8, ptr %st, i64 80
+  %R2 = getelementptr inbounds nuw i8, ptr %st, i64 60
   %cmp50 = icmp ult i64 %spec.store.select, 96
   %cmp42 = icmp ult i64 %spec.store.select, 17
   br label %for.body
@@ -309,7 +309,7 @@ if.end55:                                         ; preds = %if.then48, %if.then
   br i1 %cmp38, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.then48, %if.then40, %if.end55
-  %flags = getelementptr inbounds i8, ptr %st, i64 120
+  %flags = getelementptr inbounds nuw i8, ptr %st, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %flags, i8 0, i64 16, i1 false)
   ret void
 }
@@ -317,7 +317,7 @@ for.end:                                          ; preds = %if.then48, %if.then
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
 define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr noundef readonly %m, i64 noundef range(i64 0, -31) %bytes) unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %st, i64 120
+  %flags = getelementptr inbounds nuw i8, ptr %st, i64 120
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 4
   %tobool.not = icmp eq i64 %and, 0
@@ -390,7 +390,7 @@ if.end50:                                         ; preds = %if.else, %if.then15
 if.then54:                                        ; preds = %if.end50
   %and56 = and i64 %16, 16
   %tobool57.not = icmp eq i64 %and56, 0
-  %R73 = getelementptr inbounds i8, ptr %st, i64 40
+  %R73 = getelementptr inbounds nuw i8, ptr %st, i64 40
   %17 = load <4 x i32>, ptr %R73, align 1
   %arrayidx77 = getelementptr i8, ptr %st, i64 56
   %18 = load i32, ptr %arrayidx77, align 8
@@ -399,7 +399,7 @@ if.then54:                                        ; preds = %if.end50
 if.then58:                                        ; preds = %if.then54
   %vecinit3.i550 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %18, i64 0
   %19 = bitcast <4 x i32> %vecinit3.i550 to <2 x i64>
-  %R2 = getelementptr inbounds i8, ptr %st, i64 60
+  %R2 = getelementptr inbounds nuw i8, ptr %st, i64 60
   %20 = load <4 x i32>, ptr %R2, align 1
   %arrayidx67 = getelementptr i8, ptr %st, i64 76
   %21 = load i32, ptr %arrayidx67, align 4
@@ -428,7 +428,7 @@ if.end82:                                         ; preds = %if.else72, %if.then
   br label %if.end99
 
 if.else87:                                        ; preds = %if.end50
-  %R288 = getelementptr inbounds i8, ptr %st, i64 60
+  %R288 = getelementptr inbounds nuw i8, ptr %st, i64 60
   %24 = load <4 x i32>, ptr %R288, align 1
   %arrayidx92 = getelementptr i8, ptr %st, i64 76
   %25 = load i32, ptr %arrayidx92, align 4
@@ -463,7 +463,7 @@ if.end99:                                         ; preds = %if.else87, %if.end8
   br i1 %cmp, label %if.then104, label %if.end282
 
 if.then104:                                       ; preds = %if.end99
-  %R4 = getelementptr inbounds i8, ptr %st, i64 80
+  %R4 = getelementptr inbounds nuw i8, ptr %st, i64 80
   %35 = load <4 x i32>, ptr %R4, align 1
   %arrayidx108 = getelementptr i8, ptr %st, i64 96
   %36 = load i32, ptr %arrayidx108, align 8
@@ -950,7 +950,7 @@ if.then.i:                                        ; preds = %if.then
   %0 = load <2 x i64>, ptr %m, align 1
   store <2 x i64> %0, ptr %final, align 16
   %add.ptr.i = getelementptr i8, ptr %m, i64 16
-  %add.ptr1.i = getelementptr inbounds i8, ptr %final, i64 16
+  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %final, i64 16
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
@@ -1019,7 +1019,7 @@ if.then1:                                         ; preds = %poly1305_block_copy
 if.end:                                           ; preds = %if.then1, %poly1305_block_copy31.exit
   %cmp2 = icmp ugt i64 %leftover, 15
   %conv = select i1 %cmp2, i64 4, i64 8
-  %flags = getelementptr inbounds i8, ptr %st, i64 120
+  %flags = getelementptr inbounds nuw i8, ptr %st, i64 120
   %5 = load i64, ptr %flags, align 8
   %or = or i64 %5, %conv
   store i64 %or, ptr %flags, align 8
@@ -1027,7 +1027,7 @@ if.end:                                           ; preds = %if.then1, %poly1305
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end, %entry
-  %flags5 = getelementptr inbounds i8, ptr %st, i64 120
+  %flags5 = getelementptr inbounds nuw i8, ptr %st, i64 120
   %6 = load i64, ptr %flags5, align 8
   %and = and i64 %6, 1
   %tobool6.not = icmp eq i64 %and, 0
@@ -1053,7 +1053,7 @@ if.end17:                                         ; preds = %if.then7, %if.end4
   %shr = lshr i64 %9, 20
   %shl24 = shl i64 %10, 24
   %or25 = or i64 %shl24, %shr
-  %pad = getelementptr inbounds i8, ptr %st, i64 104
+  %pad = getelementptr inbounds nuw i8, ptr %st, i64 104
   %11 = load i64, ptr %pad, align 8
   %arrayidx28 = getelementptr i8, ptr %st, i64 112
   %12 = load i64, ptr %arrayidx28, align 8

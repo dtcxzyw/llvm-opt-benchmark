@@ -49,9 +49,9 @@ define hidden range(i32 -1, 2) i32 @ascend_open(ptr noundef initializes((96, 104
   %5 = alloca %struct.ascend_state_t, align 8
   %6 = alloca %struct.stat, align 8
   %7 = alloca %struct.wtap_rec, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, i8 0, i64 160, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr null, ptr %9, align 8
   %10 = tail call fastcc i64 @ascend_find_next_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %11 = icmp eq i64 %10, -1
@@ -68,8 +68,8 @@ define hidden range(i32 -1, 2) i32 @ascend_open(ptr noundef initializes((96, 104
 15:                                               ; preds = %3
   %16 = load ptr, ptr %0, align 8
   store ptr %16, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 80
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %17, ptr %18, align 8
   %19 = call zeroext i1 @run_ascend_parser(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2) #4
   br i1 %19, label %20, label %22
@@ -80,38 +80,38 @@ define hidden range(i32 -1, 2) i32 @ascend_open(ptr noundef initializes((96, 104
   br i1 %.not, label %22, label %42
 
 22:                                               ; preds = %20, %15
-  %23 = getelementptr inbounds i8, ptr %5, i64 76
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %42, label %26
 
 26:                                               ; preds = %22
   %27 = load i32, ptr @ascend_file_type_subtype, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 16, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 128, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @ascend_read, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @ascend_seek_read, ptr %32, align 8
   %33 = call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #5
   store ptr %33, ptr %9, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 %10, ptr %34, align 8
   %35 = call i32 @wtap_fstat(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1) #4
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %6, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %39 = load i64, ptr %38, align 8
   store i64 %39, ptr %33, align 8
-  %40 = getelementptr inbounds i8, ptr %33, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 148
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %41, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #4
   br label %42
@@ -149,7 +149,7 @@ define internal fastcc i64 @ascend_find_next_packet(ptr nocapture noundef readon
 .preheader:                                       ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.lr.ph ]
   %10 = getelementptr [10 x %struct._ascend_magic_string], ptr @ascend_magic, i64 0, i64 %indvars.iv
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr [10 x i64], ptr %4, i64 0, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8
@@ -160,7 +160,7 @@ define internal fastcc i64 @ascend_find_next_packet(ptr nocapture noundef readon
   br i1 %18, label %19, label %36
 
 19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %10, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %14, 1
   store i64 %22, ptr %13, align 8
@@ -249,10 +249,10 @@ declare zeroext i1 @run_ascend_parser(ptr noundef, ptr noundef, ptr noundef, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ascend_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = tail call i64 @file_seek(ptr noundef %9, i64 noundef %11, i32 noundef 0, ptr noundef %3) #4
   %13 = icmp eq i64 %12, -1
@@ -265,7 +265,7 @@ define internal range(i32 0, 2) i32 @ascend_read(ptr nocapture noundef readonly 
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = tail call fastcc i32 @parse_ascend(ptr noundef nonnull %8, ptr noundef %18, ptr noundef %1, ptr noundef %2, i32 noundef %20, ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %21, 0
@@ -293,9 +293,9 @@ define internal range(i32 0, 2) i32 @ascend_read(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @ascend_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @file_seek(ptr noundef %10, i64 noundef %1, i32 noundef 0, ptr noundef %4) #4
   %12 = icmp eq i64 %11, -1
@@ -303,7 +303,7 @@ define internal range(i32 0, 2) i32 @ascend_seek_read(ptr nocapture noundef read
 
 13:                                               ; preds = %6
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = tail call fastcc i32 @parse_ascend(ptr noundef %8, ptr noundef %14, ptr noundef %2, ptr noundef %3, i32 noundef %16, ptr noundef null, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %17, 0
@@ -355,21 +355,21 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_ascend(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.ascend_state_t, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %10, i8 0, i64 160, i1 false)
   %11 = zext i32 %4 to i64
   tail call void @ws_buffer_assure_space(ptr noundef %3, i64 noundef %11) #4
   store ptr %1, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 64
-  %13 = getelementptr inbounds i8, ptr %2, i64 80
-  %14 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr i8, ptr %15, i64 %17
   %19 = call zeroext i1 @run_ascend_parser(ptr noundef %18, ptr noundef nonnull %9, ptr noundef %6, ptr noundef %7) #4
-  %20 = getelementptr inbounds i8, ptr %9, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %21 = load i64, ptr %20, align 8
   %.not = icmp eq i64 %21, 0
   %.not38 = icmp eq ptr %5, null
@@ -393,20 +393,20 @@ define internal fastcc range(i32 0, 2) i32 @parse_ascend(ptr nocapture noundef %
 
 26:                                               ; preds = %.sink.split, %23, %22
   %.0.shrunk = phi i1 [ %19, %22 ], [ false, %23 ], [ %.0.shrunk.ph, %.sink.split ]
-  %27 = getelementptr inbounds i8, ptr %9, i64 76
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %28 = load i32, ptr %27, align 4
   %.not40 = icmp eq i32 %28, 0
   br i1 %.not40, label %62, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8
   %.not42 = icmp eq i32 %31, 0
   br i1 %.not42, label %32, label %45
 
 32:                                               ; preds = %29
   store i32 1, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %9, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %34 = load i32, ptr %33, align 8
   %.not43 = icmp eq i32 %34, 0
   br i1 %.not43, label %._crit_edge, label %35
@@ -416,14 +416,14 @@ define internal fastcc range(i32 0, 2) i32 @parse_ascend(ptr nocapture noundef %
   br label %38
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %9, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %37 = load i64, ptr %36, align 8
   store i64 %37, ptr %0, align 8
   br label %38
 
 38:                                               ; preds = %._crit_edge, %35
   %39 = phi i64 [ %.pre, %._crit_edge ], [ %37, %35 ]
-  %40 = getelementptr inbounds i8, ptr %9, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %41 = load i64, ptr %40, align 8
   %42 = icmp sgt i64 %39, %41
   br i1 %42, label %43, label %45
@@ -436,26 +436,26 @@ define internal fastcc range(i32 0, 2) i32 @parse_ascend(ptr nocapture noundef %
 45:                                               ; preds = %38, %43, %29
   store i32 0, ptr %2, align 8
   %46 = call ptr @wtap_block_create(i32 noundef 5) #4
-  %47 = getelementptr inbounds i8, ptr %2, i64 232
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 3, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %9, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %50 = load i64, ptr %49, align 8
   %51 = load i64, ptr %0, align 8
   %52 = add i64 %51, %50
-  %53 = getelementptr inbounds i8, ptr %2, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %9, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %55 = load i32, ptr %54, align 8
   %56 = mul i32 %55, 1000
-  %57 = getelementptr inbounds i8, ptr %2, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %56, ptr %57, align 8
   %58 = load i32, ptr %27, align 4
   store i32 %58, ptr %12, align 8
-  %59 = getelementptr inbounds i8, ptr %9, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %60 = load i32, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %2, i64 68
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %60, ptr %61, align 4
   br label %74
 
@@ -469,7 +469,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_ascend(ptr nocapture noundef %
 
 66:                                               ; preds = %65
   store i32 -13, ptr %6, align 4
-  %67 = getelementptr inbounds i8, ptr %9, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not41 = icmp eq ptr %68, null
   %69 = select i1 %.not41, ptr @.str.11, ptr %68

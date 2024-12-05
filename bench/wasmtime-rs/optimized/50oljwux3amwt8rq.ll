@@ -144,13 +144,13 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..func
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i32, ptr %14, align 8, !noundef !3
   %16 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %11, i64 %13, i32 %15, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.109)
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8, !range !6, !noundef !3
   %19 = icmp eq i64 %18, 1
   br i1 %19, label %20, label %"_ZN20wasmtime_wit_bindgen19get_world_resources28_$u7b$$u7b$closure$u7d$$u7d$17h43a1a2f459dd99dfE.exit"
@@ -161,9 +161,9 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..func
   br i1 %.not.i, label %27, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8, !noundef !3
   br label %"_ZN20wasmtime_wit_bindgen19get_world_resources28_$u7b$$u7b$closure$u7d$$u7d$17h43a1a2f459dd99dfE.exit"
 
@@ -181,7 +181,7 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..func
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h64c4c8e618a74fcaE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8, !nonnull !3, !noundef !3
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
@@ -190,10 +190,10 @@ define align 8 ptr @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 24
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = tail call zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17habd3a32dafb72660E"(ptr nonnull align 8 %8, ptr nonnull align 8 %9)
-  %11 = getelementptr inbounds i8, ptr %.sroa.1.0.copyload, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.1.0.copyload, i64 48
   %spec.select.i = select i1 %10, ptr %11, ptr null
   br label %"_ZN20wasmtime_wit_bindgen8Wasmtime19name_package_module28_$u7b$$u7b$closure$u7d$$u7d$17h427fe49382bffb22E.exit"
 
@@ -223,20 +223,20 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..func
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
   %7 = load ptr, ptr %4, align 8, !nonnull !3, !align !4, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load i64, ptr %2, align 8, !noundef !3
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 8, !noundef !3
   %12 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %8, i64 %9, i32 %11, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.108)
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8, !range !6, !noundef !3
   %15 = icmp eq i64 %14, 1
   br i1 %15, label %16, label %"_ZN20wasmtime_wit_bindgen13get_resources28_$u7b$$u7b$closure$u7d$$u7d$17h4241e38983a6d313E.exit"
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !3
   br label %"_ZN20wasmtime_wit_bindgen13get_resources28_$u7b$$u7b$closure$u7d$$u7d$17h4241e38983a6d313E.exit"
 
@@ -269,10 +269,10 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = load ptr, ptr %8, align 8, !noalias !8, !nonnull !3, !noundef !3
-  %10 = getelementptr inbounds i8, ptr %2, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %11 = load i64, ptr %10, align 8, !noalias !8, !noundef !3
   call void @"_ZN59_$LT$str$u20$as$u20$heck..upper_camel..ToUpperCamelCase$GT$19to_upper_camel_case17ha26a7806f7d5045aE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %5, ptr nonnull align 1 %9, i64 %11), !noalias !8
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %4, ptr nonnull align 8 %7)
@@ -297,13 +297,13 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   %17 = load i64, ptr %2, align 8, !range !11, !noalias !8, !noundef !3
   %18 = icmp eq i64 %17, 14
   %..i = select i1 %18, ptr null, ptr %2
-  %19 = getelementptr inbounds i8, ptr %2, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %19, ptr %21, align 8, !alias.scope !8
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %..i, ptr %22, align 8, !alias.scope !8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -323,7 +323,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @"_ZN59_$LT$str$u20$as$u20$heck..upper_camel..ToUpperCamelCase$GT$19to_upper_camel_case17ha26a7806f7d5045aE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %4, ptr nonnull align 1 %.val, i64 %.val1), !noalias !12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %8, align 8, !alias.scope !12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   ret void
@@ -341,7 +341,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %2, ptr %6, align 8, !noalias !15
   store ptr %6, ptr %4, align 8, !noalias !15
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h46e302759e5c2cb5E", ptr %8, align 8, !noalias !15
   call void @_ZN4core3fmt9Arguments6new_v117h6427ca1b3147dc17E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %5, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.71, i64 2, ptr nonnull align 8 %4, i64 1), !noalias !15
   call void @_ZN5alloc3fmt6format17h087f148fdbec138eE(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nonnull align 8 %5)
@@ -354,14 +354,14 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h69e666e735981446E"(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, ptr }) align 8 initializes((0, 32)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 {
   %4 = alloca { i64, [2 x i64] }, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 56
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sroa.3.0.copyload, ptr %6, align 8, !alias.scope !18
   call void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hc7d51140bcab2768E"(ptr nonnull align 8 %4), !noalias !18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -386,9 +386,9 @@ define { i64, i32 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..func
 define { i64, i32 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hc64803f236300b22E"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = alloca { { ptr, { i64, i32, {}, [4 x i8] }, { { { i64, ptr, {} }, i64 } } } }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !3
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8, !noundef !3
   call void @"_ZN4core3ptr118drop_in_place$LT$$LP$$RF$wit_parser..Result_$C$id_arena..Id$LT$wit_parser..TypeDef$GT$$C$alloc..string..String$RP$$GT$17h22625d5ef5a5f7e4E"(ptr nonnull align 8 %3)
   %8 = insertvalue { i64, i32 } poison, i64 %5, 0
@@ -419,12 +419,12 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
   store i64 %9, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %12, align 8
   store ptr %7, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %13, align 8
   %14 = invoke { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17hfcbb837f8df43bc1E"(ptr nonnull align 8 %7)
           to label %16 unwind label %.loopexit.split-lp
@@ -451,11 +451,11 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   %20 = icmp ne ptr %1, null
   call void @llvm.assume(i1 %20)
   store ptr %1, ptr %5, align 8
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %19, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = icmp eq i64 %18, 0
   br i1 %21, label %.thread, label %.lr.ph
 
@@ -590,9 +590,9 @@ default.unreachable10:                            ; preds = %4
   br i1 %19, label %26, label %27
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i64, ptr %21, align 8, !noundef !3
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i32, ptr %23, align 8, !noundef !3
   tail call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_tyid17h70df38da76330361E(ptr align 8 %0, i64 %22, i32 %24, ptr align 1 %2, i64 %3)
   br label %25
@@ -678,9 +678,9 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E.
   %.sroa.02.0.i = phi ptr [ null, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i ], [ null, %5 ], [ null, %16 ], [ %3, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i ], [ %3, %20 ]
   %.sroa.6.0.i = phi i64 [ undef, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i ], [ undef, %5 ], [ undef, %16 ], [ %4, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i ], [ %4, %20 ]
   %24 = tail call align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr align 8 %0)
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %25, i64 %1, i32 %2, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.23)
-  %27 = getelementptr inbounds i8, ptr %26, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %28 = load i64, ptr %27, align 8, !range !7, !noundef !3
   %.not = icmp eq i64 %28, -9223372036854775808
   br i1 %.not, label %31, label %29
@@ -691,7 +691,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E.
   br i1 %30, label %35, label %34
 
 31:                                               ; preds = %_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E.exit
-  %32 = getelementptr inbounds i8, ptr %26, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %33 = load i64, ptr %32, align 8, !range !6, !noundef !3
   switch i64 %33, label %default.unreachable72 [
     i64 0, label %60
@@ -739,9 +739,9 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E.
 
 41:                                               ; preds = %.thread74, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
-  %42 = getelementptr inbounds i8, ptr %12, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %43 = load ptr, ptr %42, align 8, !nonnull !3, !noundef !3
-  %44 = getelementptr inbounds i8, ptr %12, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %45 = load i64, ptr %44, align 8, !noundef !3
   invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator28print_type_name_in_interface17ha1efa70b0c280a9aE(ptr align 8 %0, ptr nonnull align 8 %11, ptr nonnull align 1 %43, i64 %45)
           to label %48 unwind label %46
@@ -764,7 +764,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
           to label %51 unwind label %46
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds i8, ptr %26, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %53 = invoke zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_tyid14needs_generics17h6238b148dbc42c8eE(ptr align 8 %50, ptr nonnull align 8 %52)
           to label %54 unwind label %46
 
@@ -806,13 +806,13 @@ default.unreachable72:                            ; preds = %31
 
 60:                                               ; preds = %31
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.25, ptr %8, align 8
-  %61 = getelementptr inbounds i8, ptr %8, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 1, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %8, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %8, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %8, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %64, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %8, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.28) #12
   unreachable
@@ -822,32 +822,32 @@ default.unreachable72:                            ; preds = %31
   unreachable
 
 66:                                               ; preds = %31
-  %67 = getelementptr inbounds i8, ptr %26, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %26, i64 32
   tail call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12print_handle17hdfad5d7fb59e4f89E(ptr align 8 %0, ptr nonnull align 8 %67)
   br label %56
 
 68:                                               ; preds = %31
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.32, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %7, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %7, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %7, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %7, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %72, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %7, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.33) #12
   unreachable
 
 73:                                               ; preds = %31
   tail call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.34, i64 1)
-  %74 = getelementptr inbounds i8, ptr %26, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %75 = load ptr, ptr %74, align 8, !nonnull !3, !noundef !3
-  %76 = getelementptr inbounds i8, ptr %26, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %77 = load i64, ptr %76, align 8, !noundef !3
   %78 = getelementptr inbounds { i64, [2 x i64] }, ptr %75, i64 %77
   store ptr %75, ptr %9, align 8
-  %79 = getelementptr inbounds i8, ptr %9, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %78, ptr %79, align 8
   %80 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2454e89c1de15270E"(ptr nonnull align 8 %9)
   %81 = icmp eq ptr %80, null
@@ -855,40 +855,40 @@ default.unreachable72:                            ; preds = %31
 
 82:                                               ; preds = %31
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.38, ptr %10, align 8
-  %83 = getelementptr inbounds i8, ptr %10, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 1, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %10, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr null, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %10, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %10, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %86, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %10, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.39) #12
   unreachable
 
 87:                                               ; preds = %31
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.41, ptr %6, align 8
-  %88 = getelementptr inbounds i8, ptr %6, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 1, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %6, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %6, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.26, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %6, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %91, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.42) #12
   unreachable
 
 92:                                               ; preds = %31
   tail call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.43, i64 7)
-  %93 = getelementptr inbounds i8, ptr %26, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %26, i64 32
   tail call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr nonnull align 8 %93, ptr align 1 %3, i64 %4)
   tail call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.44, i64 1)
   br label %56
 
 94:                                               ; preds = %31
   tail call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.45, i64 7)
-  %95 = getelementptr inbounds i8, ptr %26, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %96 = load i64, ptr %95, align 8, !range !11, !noundef !3
   %97 = icmp eq i64 %96, 14
   br i1 %97, label %98, label %99
@@ -903,7 +903,7 @@ default.unreachable72:                            ; preds = %31
 
 _ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E.exit: ; preds = %98, %99
   tail call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.36, i64 1)
-  %100 = getelementptr inbounds i8, ptr %26, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %101 = load i64, ptr %100, align 8, !range !11, !noundef !3
   %102 = icmp eq i64 %101, 14
   br i1 %102, label %103, label %104
@@ -921,13 +921,13 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ec
   br label %56
 
 105:                                              ; preds = %31
-  %106 = getelementptr inbounds i8, ptr %26, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %26, i64 32
   tail call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_list17h468cacc57d27acedE(ptr align 8 %0, ptr nonnull align 8 %106, ptr align 1 %3, i64 %4)
   br label %56
 
 107:                                              ; preds = %31
   tail call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.46, i64 7)
-  %108 = getelementptr inbounds i8, ptr %26, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %109 = load i64, ptr %108, align 8, !range !11, !noundef !3
   %110 = icmp eq i64 %109, 14
   br i1 %110, label %111, label %112
@@ -946,7 +946,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ec
 
 113:                                              ; preds = %31
   tail call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.47, i64 7)
-  %114 = getelementptr inbounds i8, ptr %26, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %115 = load i64, ptr %114, align 8, !range !11, !noundef !3
   %116 = icmp eq i64 %115, 14
   br i1 %116, label %117, label %118
@@ -961,7 +961,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ec
 
 _ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ecea0E.exit65: ; preds = %117, %118
   tail call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.36, i64 1)
-  %119 = getelementptr inbounds i8, ptr %26, i64 56
+  %119 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %120 = load i64, ptr %119, align 8, !range !11, !noundef !3
   %121 = icmp eq i64 %120, 14
   br i1 %121, label %122, label %123
@@ -979,7 +979,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator17print_optional_ty17h9e43c6bc556ec
   br label %56
 
 124:                                              ; preds = %31
-  %125 = getelementptr inbounds i8, ptr %26, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %26, i64 32
   tail call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr nonnull align 8 %125, ptr align 1 %3, i64 %4)
   br label %56
 
@@ -1009,9 +1009,9 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator28print_type_name_in_i
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8, !noundef !3
   call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$17path_to_interface17hcdfaa3bccd922492E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %6, ptr align 8 %0, i64 %11, i32 %13)
   %14 = load i64, ptr %6, align 8, !range !7, !noundef !3
@@ -1024,9 +1024,9 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator28print_type_name_in_i
 
 16:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !3
   invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %18, i64 %20)
           to label %23 unwind label %21
@@ -1093,28 +1093,28 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_list17h468cacc
 define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12print_handle17hdfad5d7fb59e4f89E(ptr align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
-  %.0 = getelementptr inbounds i8, ptr %1, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %.0, align 8, !noundef !3
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8, !noundef !3
   %8 = tail call align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr align 8 %0)
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %9, i64 %5, i32 %7, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.53)
   %11 = tail call align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr align 8 %0)
   %12 = tail call { i64, i32 } @_ZN20wasmtime_wit_bindgen26resolve_type_definition_id17h309350b1bf9caef1E(ptr align 8 %11, i64 %5, i32 %7)
   %13 = extractvalue { i64, i32 } %12, 0
   %14 = extractvalue { i64, i32 } %12, 1
   %15 = tail call align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr align 8 %0)
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %16, i64 %13, i32 %14, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.54)
   %18 = load i64, ptr %17, align 8, !range !23, !noundef !3
   %19 = icmp eq i64 %18, 1
   br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load i64, ptr %21, align 8, !noundef !3
-  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %24 = load i32, ptr %23, align 8, !noundef !3
   %25 = tail call zeroext i1 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$21is_imported_interface17h9525ce5a76c42b80E"(ptr align 8 %0, i64 %22, i32 %24)
   br i1 %25, label %.critedge, label %26
@@ -1126,7 +1126,7 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12print_handle17hdfad5
 .critedge:                                        ; preds = %2, %20
   tail call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.56, i64 30)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %27 = getelementptr inbounds i8, ptr %10, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %28 = load i64, ptr %27, align 8, !range !7, !noundef !3
   %29 = icmp eq i64 %28, -9223372036854775808
   br i1 %29, label %31, label %32
@@ -1139,14 +1139,14 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12print_handle17hdfad5
   unreachable
 
 32:                                               ; preds = %.critedge
-  %33 = getelementptr inbounds i8, ptr %10, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %34 = load ptr, ptr %33, align 8, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds i8, ptr %10, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %36 = load i64, ptr %35, align 8, !noundef !3
   call void @"_ZN59_$LT$str$u20$as$u20$heck..upper_camel..ToUpperCamelCase$GT$19to_upper_camel_case17ha26a7806f7d5045aE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, ptr nonnull align 1 %34, i64 %36)
-  %37 = getelementptr inbounds i8, ptr %3, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !3, !noundef !3
-  %39 = getelementptr inbounds i8, ptr %3, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %40 = load i64, ptr %39, align 8, !noundef !3
   invoke void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator28print_type_name_in_interface17ha1efa70b0c280a9aE(ptr align 8 %0, ptr nonnull align 8 %4, ptr nonnull align 1 %38, i64 %40)
           to label %43 unwind label %41
@@ -1202,9 +1202,9 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8modes_of17hbef7543a83
 
 .thread:                                          ; preds = %4
   store i64 0, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %13, align 8
   br label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit
 
@@ -1214,9 +1214,9 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8modes_of17hbef7543a83
 
 16:                                               ; preds = %14
   store i64 0, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %18, align 8
   br label %19
 
@@ -1225,9 +1225,9 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8modes_of17hbef7543a83
 
 20:                                               ; preds = %14
   store i64 0, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %22, align 8
   %23 = invoke i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %1)
           to label %26 unwind label %24, !range !22
@@ -1250,9 +1250,9 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
 
 28:                                               ; preds = %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %29 = getelementptr inbounds i8, ptr %8, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %.sroa.0.0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 2, ptr %30, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h38c9e3050d4be4caE"(ptr nonnull align 8 %9, ptr nonnull align 8 %8)
           to label %31 unwind label %24
@@ -1282,9 +1282,9 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
 
 39:                                               ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @anon.1ed22c87c0bfd8076dc71e37a923bb51.59, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %6, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 2, ptr %41, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h38c9e3050d4be4caE"(ptr nonnull align 8 %9, ptr nonnull align 8 %6)
           to label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit6.thread unwind label %24
@@ -1306,9 +1306,9 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10param_name17hc8791f3
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = tail call i40 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$4info17h7ee73b7b031a3440E"(ptr align 8 %1, i64 %2, i32 %3)
   %9 = tail call align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr align 8 %1)
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %10, i64 %2, i32 %3, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.62)
-  %12 = getelementptr inbounds i8, ptr %11, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load i64, ptr %12, align 8, !range !7, !noundef !3
   %14 = icmp eq i64 %13, -9223372036854775808
   br i1 %14, label %15, label %16
@@ -1318,9 +1318,9 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10param_name17hc8791f3
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %11, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %18 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
-  %19 = getelementptr inbounds i8, ptr %11, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %20 = load i64, ptr %19, align 8, !noundef !3
   call void @"_ZN59_$LT$str$u20$as$u20$heck..upper_camel..ToUpperCamelCase$GT$19to_upper_camel_case17ha26a7806f7d5045aE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %7, ptr nonnull align 1 %18, i64 %20)
   %21 = and i40 %8, 16777216
@@ -1350,7 +1350,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
 
 30:                                               ; preds = %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit
   store ptr %7, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h501e2ab095e4e83eE", ptr %31, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h6427ca1b3147dc17E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.65, i64 2, ptr nonnull align 8 %5, i64 1)
           to label %32 unwind label %27
@@ -1387,9 +1387,9 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator11result_name17hafe827
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = tail call i40 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$4info17h7ee73b7b031a3440E"(ptr align 8 %1, i64 %2, i32 %3)
   %9 = tail call align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr align 8 %1)
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %10, i64 %2, i32 %3, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.66)
-  %12 = getelementptr inbounds i8, ptr %11, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load i64, ptr %12, align 8, !range !7, !noundef !3
   %14 = icmp eq i64 %13, -9223372036854775808
   br i1 %14, label %15, label %16
@@ -1399,9 +1399,9 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator11result_name17hafe827
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %11, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %18 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
-  %19 = getelementptr inbounds i8, ptr %11, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %20 = load i64, ptr %19, align 8, !noundef !3
   call void @"_ZN59_$LT$str$u20$as$u20$heck..upper_camel..ToUpperCamelCase$GT$19to_upper_camel_case17ha26a7806f7d5045aE"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %7, ptr nonnull align 1 %18, i64 %20)
   %21 = and i40 %8, 16777216
@@ -1431,7 +1431,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
 
 30:                                               ; preds = %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit
   store ptr %7, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h501e2ab095e4e83eE", ptr %31, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h6427ca1b3147dc17E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.69, i64 2, ptr nonnull align 8 %5, i64 1)
           to label %32 unwind label %27
@@ -1463,7 +1463,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE(ptr align 8 %0, ptr nocapture readonly align 1 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 3
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %4 = load i8, ptr %3, align 1, !range !24, !noundef !3
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %16
@@ -1474,7 +1474,7 @@ define zeroext i1 @_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1, !range !24, !noundef !3
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %16
@@ -1505,7 +1505,7 @@ define { ptr, i64 } @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for
   ret { ptr, i64 } %9
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %12 = load i8, ptr %11, align 1, !range !24, !noundef !3
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %7
@@ -1516,7 +1516,7 @@ define { ptr, i64 } @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for
   br i1 %16, label %17, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %19 = load i8, ptr %18, align 1, !range !24, !noundef !3
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit, label %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread
@@ -1539,7 +1539,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
   br label %7
 
 26:                                               ; preds = %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread
-  %27 = getelementptr inbounds i8, ptr %1, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %28 = load i8, ptr %27, align 1, !range !24, !noundef !3
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %25, label %7
@@ -1547,7 +1547,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden align 8 ptr @"_ZN20wasmtime_wit_bindgen23resolve_type_in_package28_$u7b$$u7b$closure$u7d$$u7d$17ha4d8a11f8e918c9cE"(ptr nocapture readnone align 1 %0, ptr nocapture readnone align 8 %1, ptr readonly align 8 %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp eq i64 %5, 1
   %. = select i1 %6, ptr %2, ptr null
@@ -1596,50 +1596,50 @@ define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_rust_en
   %41 = alloca { ptr, i64 }, align 8
   %42 = alloca { { ptr, ptr, {} }, {} }, align 8
   store ptr %3, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %4, ptr %43, align 8
   store ptr %6, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 %7, ptr %44, align 8
   %45 = tail call i40 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$4info17h7ee73b7b031a3440E"(ptr align 8 %0, i64 %1, i32 %2)
   store i40 %45, ptr %40, align 8
   call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8modes_of17hbef7543a83454ed8E(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %38, ptr align 8 %0, i64 %1, i32 %2)
   call void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h24271f30e0c56369E"(ptr nonnull sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %39, ptr nonnull align 8 %38)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false)
-  %46 = getelementptr inbounds i8, ptr %36, i64 24
-  %47 = getelementptr inbounds i8, ptr %36, i64 32
-  %48 = getelementptr inbounds i8, ptr %35, i64 8
-  %49 = getelementptr inbounds i8, ptr %35, i64 16
-  %50 = getelementptr inbounds i8, ptr %40, i64 3
-  %51 = getelementptr inbounds i8, ptr %40, i64 1
-  %52 = getelementptr inbounds i8, ptr %30, i64 8
-  %53 = getelementptr inbounds i8, ptr %33, i64 8
-  %54 = getelementptr inbounds i8, ptr %33, i64 16
-  %55 = getelementptr inbounds i8, ptr %26, i64 8
-  %56 = getelementptr inbounds i8, ptr %29, i64 8
-  %57 = getelementptr inbounds i8, ptr %29, i64 16
-  %58 = getelementptr inbounds i8, ptr %25, i64 8
-  %59 = getelementptr inbounds i8, ptr %24, i64 24
-  %60 = getelementptr inbounds i8, ptr %24, i64 48
-  %61 = getelementptr inbounds i8, ptr %24, i64 56
-  %62 = getelementptr inbounds i8, ptr %17, i64 8
-  %63 = getelementptr inbounds i8, ptr %20, i64 8
-  %64 = getelementptr inbounds i8, ptr %20, i64 16
-  %65 = getelementptr inbounds i8, ptr %23, i64 8
-  %66 = getelementptr inbounds i8, ptr %23, i64 16
-  %67 = getelementptr inbounds i8, ptr %34, i64 8
-  %68 = getelementptr inbounds i8, ptr %34, i64 16
-  %69 = getelementptr inbounds i8, ptr %16, i64 8
-  %70 = getelementptr inbounds i8, ptr %15, i64 8
-  %71 = getelementptr inbounds i8, ptr %14, i64 24
-  %72 = getelementptr inbounds i8, ptr %13, i64 8
-  %73 = getelementptr inbounds i8, ptr %13, i64 16
-  %74 = getelementptr inbounds i8, ptr %9, i64 8
-  %75 = getelementptr inbounds i8, ptr %9, i64 16
-  %76 = getelementptr inbounds i8, ptr %9, i64 24
-  %77 = getelementptr inbounds i8, ptr %12, i64 8
-  %78 = getelementptr inbounds i8, ptr %12, i64 16
-  %79 = getelementptr inbounds i8, ptr %40, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 3
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %40, i64 2
   br label %81
 
 80:                                               ; preds = %82
@@ -2472,7 +2472,7 @@ define hidden void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator21print_rust_en
   %16 = alloca { { ptr, ptr, {} }, {} }, align 8
   %17 = alloca { ptr, i64 }, align 8
   store ptr %5, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %6, ptr %18, align 8
   %19 = tail call i40 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$4info17h7ee73b7b031a3440E"(ptr align 8 %0, i64 %1, i32 %2)
   %20 = tail call i8 @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$9ownership17h1c94743b9a7d39e4E"(ptr align 8 %0), !range !22
@@ -2526,7 +2526,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
   %30 = extractvalue { ptr, ptr } %29, 0
   %31 = extractvalue { ptr, ptr } %29, 1
   store ptr %30, ptr %16, align 8
-  %32 = getelementptr inbounds i8, ptr %16, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %31, ptr %32, align 8
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf28894361ebdd39cE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %15, ptr nonnull align 8 %16)
   %33 = load i64, ptr %15, align 8, !range !7, !noundef !3
@@ -2534,14 +2534,14 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
   br i1 %34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759E.exit18
-  %35 = getelementptr inbounds i8, ptr %15, i64 24
-  %36 = getelementptr inbounds i8, ptr %14, i64 8
-  %37 = getelementptr inbounds i8, ptr %14, i64 16
-  %38 = getelementptr inbounds i8, ptr %10, i64 8
-  %39 = getelementptr inbounds i8, ptr %10, i64 16
-  %40 = getelementptr inbounds i8, ptr %10, i64 24
-  %41 = getelementptr inbounds i8, ptr %13, i64 8
-  %42 = getelementptr inbounds i8, ptr %13, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %43
 
 43:                                               ; preds = %.lr.ph, %69
@@ -2658,17 +2658,17 @@ define hidden void @"_ZN20wasmtime_wit_bindgen18InterfaceGenerator29generate_gue
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca i64, align 8
   store i64 %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !3
   call void @_ZN20wasmtime_wit_bindgen4rust13to_rust_ident17h6839e89771a8fe11E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %7, ptr nonnull align 1 %10, i64 %12)
   store ptr %7, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h501e2ab095e4e83eE", ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %15, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117h6427ca1b3147dc17E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.106, i64 3, ptr nonnull align 8 %5, i64 2)
           to label %18 unwind label %16
@@ -2700,20 +2700,20 @@ define hidden void @"_ZN20wasmtime_wit_bindgen18InterfaceGenerator29generate_gue
 ; Function Attrs: inlinehint nonlazybind uwtable
 define { ptr, i64 } @"_ZN20wasmtime_wit_bindgen13get_resources28_$u7b$$u7b$closure$u7d$$u7d$17h4241e38983a6d313E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load i64, ptr %2, align 8, !noundef !3
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i32, ptr %7, align 8, !noundef !3
   %9 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %5, i64 %6, i32 %8, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.108)
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8, !range !6, !noundef !3
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !3
   br label %18
 
@@ -2733,13 +2733,13 @@ define { ptr, i64 } @"_ZN20wasmtime_wit_bindgen19get_world_resources28_$u7b$$u7b
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i32, ptr %11, align 8, !noundef !3
   %13 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %8, i64 %10, i32 %12, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.109)
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8, !range !6, !noundef !3
   %16 = icmp eq i64 %15, 1
   br i1 %16, label %17, label %25
@@ -2750,9 +2750,9 @@ define { ptr, i64 } @"_ZN20wasmtime_wit_bindgen19get_world_resources28_$u7b$$u7b
   br i1 %.not, label %24, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8, !noundef !3
   br label %25
 

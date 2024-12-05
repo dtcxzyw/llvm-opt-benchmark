@@ -250,11 +250,11 @@ define dso_local void @xml_dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
   %6 = alloca %struct.H5O_info2_t, align 8
   store i64 0, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %7, i8 0, i64 1112, i1 false)
   %8 = load i32, ptr @dump_indent, align 4
   %9 = udiv i32 %8, 3
-  %10 = getelementptr inbounds i8, ptr %3, i64 568
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 568
   %11 = zext i32 %8 to i64
   store i64 %11, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, ptr noundef nonnull align 8 dereferenceable(424) @xml_dataformat, i64 424, i1 false)
@@ -263,9 +263,9 @@ define dso_local void @xml_dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %4, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store ptr %12, ptr %15, align 8
   br label %16
 
@@ -275,16 +275,16 @@ define dso_local void @xml_dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 296
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 296
   store i64 1, ptr %20, align 8
   br label %21
 
 21:                                               ; preds = %16, %19
   %.sink = phi i32 [ 65535, %19 ], [ %17, %16 ]
-  %22 = getelementptr inbounds i8, ptr %4, i64 288
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 288
   store i32 %.sink, ptr %22, align 8
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 420
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 420
   store i32 %23, ptr %24, align 4
   %25 = add nuw nsw i32 %9, 1
   store i32 %25, ptr %10, align 8
@@ -297,23 +297,23 @@ define dso_local void @xml_dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
 29:                                               ; preds = %21
   %30 = call i32 @H5Oget_info3(i64 noundef %0, ptr noundef nonnull %6, i32 noundef 1) #14
   %31 = load ptr, ptr @type_table, align 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = call ptr @search_obj(ptr noundef %31, ptr noundef nonnull %32) #14
   %.not26 = icmp eq ptr %33, null
   br i1 %.not26, label %62, label %34
 
 34:                                               ; preds = %29
   %35 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
-  %36 = getelementptr inbounds i8, ptr %33, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %37 = load ptr, ptr %36, align 8
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %37, ptr noundef %35, i32 noundef 1)
-  %38 = getelementptr inbounds i8, ptr %33, i64 25
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 25
   %39 = load i8, ptr %38, align 1
   %40 = trunc i8 %39 to i1
   br i1 %40, label %50, label %41
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 1, ptr %42, align 8
   %43 = call ptr @h5tools_str_reset(ptr noundef nonnull %2) #14
   %44 = load ptr, ptr @xmlnsprefix, align 8
@@ -327,7 +327,7 @@ define dso_local void @xml_dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
 50:                                               ; preds = %34
   %51 = load ptr, ptr %36, align 8
   %52 = call fastcc ptr @xml_escape_the_name(ptr noundef %51)
-  %53 = getelementptr inbounds i8, ptr %3, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 1, ptr %53, align 8
   %54 = call ptr @h5tools_str_reset(ptr noundef nonnull %2) #14
   %55 = load ptr, ptr @xmlnsprefix, align 8
@@ -344,7 +344,7 @@ define dso_local void @xml_dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
   br label %94
 
 62:                                               ; preds = %29
-  %63 = getelementptr inbounds i8, ptr %3, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 1, ptr %63, align 8
   %64 = call ptr @h5tools_str_reset(ptr noundef nonnull %2) #14
   %65 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %2, ptr noundef nonnull @.str.3) #14
@@ -355,7 +355,7 @@ define dso_local void @xml_dump_datatype(i64 noundef %0) local_unnamed_addr #0 {
   br label %94
 
 70:                                               ; preds = %21
-  %71 = getelementptr inbounds i8, ptr %3, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 1, ptr %71, align 8
   %72 = call ptr @h5tools_str_reset(ptr noundef nonnull %2) #14
   %73 = load ptr, ptr @xmlnsprefix, align 8
@@ -507,7 +507,7 @@ define internal fastcc ptr @xml_escape_the_name(ptr noundef readonly %0) unnamed
 
 15:                                               ; preds = %.lr.ph, %7, %11, %13, %9, %5
   %.158 = phi i64 [ %6, %5 ], [ %8, %7 ], [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %.05765, %.lr.ph ]
-  %16 = getelementptr inbounds i8, ptr %.05467, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.05467, i64 1
   %17 = add nuw i64 %.05566, 1
   %exitcond.not = icmp eq i64 %17, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -567,9 +567,9 @@ define internal fastcc ptr @xml_escape_the_name(ptr noundef readonly %0) unnamed
 
 36:                                               ; preds = %27, %31, %35, %33, %29, %25
   %.0 = phi i64 [ 6, %25 ], [ 4, %27 ], [ 4, %29 ], [ 6, %31 ], [ 5, %33 ], [ 1, %35 ]
-  %37 = getelementptr inbounds i8, ptr %.05370, i64 %.0
+  %37 = getelementptr inbounds nuw i8, ptr %.05370, i64 %.0
   %38 = sub i64 %.05171, %.0
-  %39 = getelementptr inbounds i8, ptr %.169, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.169, i64 1
   %40 = add nuw i64 %.15668, 1
   %exitcond77.not = icmp eq i64 %40, %3
   br i1 %exitcond77.not, label %._crit_edge73, label %.lr.ph72
@@ -601,11 +601,11 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
   %13 = alloca %struct.H5O_info2_t, align 8
   store i64 0, ptr %12, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %14, i8 0, i64 1112, i1 false)
   %15 = load i32, ptr @dump_indent, align 4
   %16 = udiv i32 %15, 3
-  %17 = getelementptr inbounds i8, ptr %10, i64 568
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 568
   store i32 %16, ptr %17, align 8
   %18 = zext i32 %15 to i64
   store i64 %18, ptr %10, align 8
@@ -615,9 +615,9 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
   br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %11, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 96
   store ptr %19, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 104
   store ptr %19, ptr %22, align 8
   br label %23
 
@@ -627,16 +627,16 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %11, i64 296
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 296
   store i64 1, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %23, %26
   %.sink = phi i32 [ 65535, %26 ], [ %24, %23 ]
-  %29 = getelementptr inbounds i8, ptr %11, i64 288
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 288
   store i32 %.sink, ptr %29, align 8
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %31 = getelementptr inbounds i8, ptr %11, i64 420
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 420
   store i32 %30, ptr %31, align 4
   %.not170 = icmp eq i32 %1, 0
   br i1 %.not170, label %32, label %76
@@ -649,23 +649,23 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
 35:                                               ; preds = %32
   %36 = call i32 @H5Oget_info3(i64 noundef %0, ptr noundef nonnull %13, i32 noundef 1) #14
   %37 = load ptr, ptr @type_table, align 8
-  %38 = getelementptr inbounds i8, ptr %13, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %39 = call ptr @search_obj(ptr noundef %37, ptr noundef nonnull %38) #14
   %.not171 = icmp eq ptr %39, null
   br i1 %.not171, label %68, label %40
 
 40:                                               ; preds = %35
   %41 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
-  %42 = getelementptr inbounds i8, ptr %39, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %43 = load ptr, ptr %42, align 8
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %43, ptr noundef %41, i32 noundef 1)
-  %44 = getelementptr inbounds i8, ptr %39, i64 25
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 25
   %45 = load i8, ptr %44, align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %10, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %48, align 8
   %49 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %50 = load ptr, ptr @xmlnsprefix, align 8
@@ -679,7 +679,7 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
 56:                                               ; preds = %40
   %57 = load ptr, ptr %42, align 8
   %58 = call fastcc ptr @xml_escape_the_name(ptr noundef %57)
-  %59 = getelementptr inbounds i8, ptr %10, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %59, align 8
   %60 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %61 = load ptr, ptr @xmlnsprefix, align 8
@@ -696,7 +696,7 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
   br label %567
 
 68:                                               ; preds = %35
-  %69 = getelementptr inbounds i8, ptr %10, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %69, align 8
   %70 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %71 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.3) #14
@@ -724,7 +724,7 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
   ]
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %10, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %79, align 8
   %80 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %81 = load ptr, ptr @xmlnsprefix, align 8
@@ -776,7 +776,7 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
 
 114:                                              ; preds = %76
   %115 = tail call i32 @H5Tget_order(i64 noundef %0) #14
-  %116 = getelementptr inbounds i8, ptr %10, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %116, align 8
   %117 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %118 = load ptr, ptr @xmlnsprefix, align 8
@@ -797,7 +797,7 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
 
 switch.lookup:                                    ; preds = %114
   %130 = zext nneg i32 %115 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.xml_print_datatype, i64 0, i64 %130
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_print_datatype, i64 0, i64 %130
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %131
 
@@ -834,7 +834,7 @@ switch.lookup:                                    ; preds = %114
   br label %567
 
 158:                                              ; preds = %76
-  %159 = getelementptr inbounds i8, ptr %10, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %159, align 8
   %160 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %161 = load ptr, ptr @xmlnsprefix, align 8
@@ -873,7 +873,7 @@ switch.lookup:                                    ; preds = %114
   %188 = tail call i32 @H5Tget_strpad(i64 noundef %0) #14
   %189 = tail call i32 @H5Tget_cset(i64 noundef %0) #14
   %190 = tail call i32 @H5Tis_variable_str(i64 noundef %0) #14
-  %191 = getelementptr inbounds i8, ptr %10, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %191, align 8
   %192 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %193 = load ptr, ptr @xmlnsprefix, align 8
@@ -910,7 +910,7 @@ switch.lookup:                                    ; preds = %114
 
 switch.lookup197:                                 ; preds = %211
   %213 = zext nneg i32 %188 to i64
-  %switch.gep198 = getelementptr inbounds [3 x ptr], ptr @switch.table.xml_print_datatype.1, i64 0, i64 %213
+  %switch.gep198 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_print_datatype.1, i64 0, i64 %213
   %switch.load199 = load ptr, ptr %switch.gep198, align 8
   br label %214
 
@@ -936,7 +936,7 @@ switch.lookup197:                                 ; preds = %211
 
 229:                                              ; preds = %76
   %230 = tail call i32 @H5Tget_order(i64 noundef %0) #14
-  %231 = getelementptr inbounds i8, ptr %10, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %231, align 8
   %232 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %233 = load ptr, ptr @xmlnsprefix, align 8
@@ -977,7 +977,7 @@ switch.lookup197:                                 ; preds = %211
   br label %567
 
 260:                                              ; preds = %76
-  %261 = getelementptr inbounds i8, ptr %10, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %261, align 8
   %262 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %263 = load ptr, ptr @xmlnsprefix, align 8
@@ -1016,7 +1016,7 @@ switch.lookup197:                                 ; preds = %211
 
 291:                                              ; preds = %76
   %292 = tail call i32 @H5Tget_nmembers(i64 noundef %0) #14
-  %293 = getelementptr inbounds i8, ptr %10, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %293, align 8
   %294 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %295 = load ptr, ptr @xmlnsprefix, align 8
@@ -1125,7 +1125,7 @@ switch.lookup197:                                 ; preds = %211
   br label %567
 
 365:                                              ; preds = %76
-  %366 = getelementptr inbounds i8, ptr %10, i64 16
+  %366 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %366, align 8
   %367 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %368 = load ptr, ptr @xmlnsprefix, align 8
@@ -1182,7 +1182,7 @@ switch.lookup197:                                 ; preds = %211
 
 410:                                              ; preds = %76
   %411 = tail call i32 @H5Tget_nmembers(i64 noundef %0) #14
-  %412 = getelementptr inbounds i8, ptr %10, i64 16
+  %412 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %412, align 8
   %413 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %414 = load ptr, ptr @xmlnsprefix, align 8
@@ -1231,7 +1231,7 @@ switch.lookup197:                                 ; preds = %211
   br label %567
 
 449:                                              ; preds = %76
-  %450 = getelementptr inbounds i8, ptr %10, i64 16
+  %450 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %450, align 8
   %451 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %452 = load ptr, ptr @xmlnsprefix, align 8
@@ -1295,7 +1295,7 @@ switch.lookup197:                                 ; preds = %211
 
 497:                                              ; preds = %76
   %498 = tail call i64 @H5Tget_super(i64 noundef %0) #14
-  %499 = getelementptr inbounds i8, ptr %10, i64 16
+  %499 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %499, align 8
   %500 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %501 = load ptr, ptr @xmlnsprefix, align 8
@@ -1322,7 +1322,7 @@ switch.lookup197:                                 ; preds = %211
   store i32 1, ptr %499, align 8
   %512 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %513 = load ptr, ptr @xmlnsprefix, align 8
-  %514 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %514 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv
   %515 = load i64, ptr %514, align 8
   %516 = trunc i64 %515 to i32
   %517 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.144, ptr noundef %513, i32 noundef %516) #14
@@ -1391,7 +1391,7 @@ switch.lookup197:                                 ; preds = %211
   br label %567
 
 559:                                              ; preds = %76
-  %560 = getelementptr inbounds i8, ptr %10, i64 16
+  %560 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %560, align 8
   %561 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %562 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.146) #14
@@ -1421,11 +1421,11 @@ define dso_local void @xml_dump_dataspace(i64 noundef %0) local_unnamed_addr #0 
   %8 = call i32 @H5Sget_simple_extent_dims(i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
   %9 = call i32 @H5Sget_simple_extent_type(i64 noundef %0) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %10, i8 0, i64 1112, i1 false)
   %11 = load i32, ptr @dump_indent, align 4
   %12 = udiv i32 %11, 3
-  %13 = getelementptr inbounds i8, ptr %5, i64 568
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 568
   %14 = zext i32 %11 to i64
   store i64 %14, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %6, ptr noundef nonnull align 8 dereferenceable(424) @xml_dataformat, i64 424, i1 false)
@@ -1434,9 +1434,9 @@ define dso_local void @xml_dump_dataspace(i64 noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %6, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %15, ptr %18, align 8
   br label %19
 
@@ -1446,20 +1446,20 @@ define dso_local void @xml_dump_dataspace(i64 noundef %0) local_unnamed_addr #0 
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %6, i64 296
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store i64 1, ptr %23, align 8
   br label %24
 
 24:                                               ; preds = %19, %22
   %.sink = phi i32 [ 65535, %22 ], [ %20, %19 ]
-  %25 = getelementptr inbounds i8, ptr %6, i64 288
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i32 %.sink, ptr %25, align 8
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %27 = getelementptr inbounds i8, ptr %6, i64 420
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 420
   store i32 %26, ptr %27, align 4
   %28 = add nuw nsw i32 %12, 1
   store i32 %28, ptr %13, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %29, align 8
   %30 = call ptr @h5tools_str_reset(ptr noundef nonnull %4) #14
   %31 = load ptr, ptr @xmlnsprefix, align 8
@@ -1501,12 +1501,12 @@ define dso_local void @xml_dump_dataspace(i64 noundef %0) local_unnamed_addr #0 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %65 ]
-  %52 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8
   store i32 1, ptr %29, align 8
   %54 = call ptr @h5tools_str_reset(ptr noundef nonnull %4) #14
   %55 = load ptr, ptr @xmlnsprefix, align 8
-  %56 = getelementptr inbounds [32 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %indvars.iv
   %57 = load i64, ptr %56, align 8
   switch i64 %53, label %62 [
     i64 -1, label %58
@@ -1589,11 +1589,11 @@ define dso_local void @xml_dump_data(i64 noundef %0, i32 noundef %1, ptr nocaptu
   %9 = alloca %struct.h5tools_context_t, align 8
   %10 = alloca %struct.h5tools_context_t, align 8
   store i64 0, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %11, i8 0, i64 1112, i1 false)
   %12 = load i32, ptr @dump_indent, align 4
   %13 = udiv i32 %12, 3
-  %14 = getelementptr inbounds i8, ptr %7, i64 568
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 568
   store i32 %13, ptr %14, align 8
   %15 = zext i32 %12 to i64
   store i64 %15, ptr %7, align 8
@@ -1604,9 +1604,9 @@ define dso_local void @xml_dump_data(i64 noundef %0, i32 noundef %1, ptr nocaptu
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %8, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %16, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr %16, ptr %19, align 8
   br label %20
 
@@ -1616,27 +1616,27 @@ define dso_local void @xml_dump_data(i64 noundef %0, i32 noundef %1, ptr nocaptu
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %8, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 296
   store i64 1, ptr %24, align 8
   br label %25
 
 25:                                               ; preds = %20, %23
   %.sink = phi i32 [ 65535, %23 ], [ %21, %20 ]
-  %26 = getelementptr inbounds i8, ptr %8, i64 288
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 288
   store i32 %.sink, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %8, i64 168
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 168
   store ptr @.str.14, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 176
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 176
   store ptr @.str.15, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 184
   store ptr @.str.15, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 192
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 192
   store ptr @.str.15, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 152
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 152
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store ptr @.str.15, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %33, align 8
   %34 = call ptr @h5tools_str_reset(ptr noundef nonnull %6) #14
   %35 = load ptr, ptr @xmlnsprefix, align 8
@@ -1681,12 +1681,12 @@ define dso_local void @xml_dump_data(i64 noundef %0, i32 noundef %1, ptr nocaptu
   br label %97
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %9, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %64, i8 0, i64 1112, i1 false)
-  %65 = getelementptr inbounds i8, ptr %9, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 1, ptr %65, align 8
   %66 = load i32, ptr %14, align 8
-  %67 = getelementptr inbounds i8, ptr %9, i64 568
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 568
   store i32 %66, ptr %67, align 8
   %68 = load i64, ptr %7, align 8
   store i64 %68, ptr %9, align 8
@@ -1722,12 +1722,12 @@ define dso_local void @xml_dump_data(i64 noundef %0, i32 noundef %1, ptr nocaptu
   ]
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %10, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %86, i8 0, i64 1112, i1 false)
-  %87 = getelementptr inbounds i8, ptr %10, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 1, ptr %87, align 8
   %88 = load i32, ptr %14, align 8
-  %89 = getelementptr inbounds i8, ptr %10, i64 568
+  %89 = getelementptr inbounds nuw i8, ptr %10, i64 568
   store i32 %88, ptr %89, align 8
   %90 = load i64, ptr %7, align 8
   store i64 %90, ptr %10, align 8
@@ -1870,11 +1870,11 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_refs(i64 noundef %0, i32 
   %.048 = phi i64 [ %22, %27 ], [ %33, %38 ]
   %.1 = phi ptr [ %25, %27 ], [ %36, %38 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %43, i8 0, i64 1112, i1 false)
   %44 = load i32, ptr @dump_indent, align 4
   %45 = udiv i32 %44, 3
-  %46 = getelementptr inbounds i8, ptr %4, i64 568
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 568
   store i32 %45, ptr %46, align 8
   %47 = zext i32 %44 to i64
   store i64 %47, ptr %4, align 8
@@ -1884,9 +1884,9 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_refs(i64 noundef %0, i32 
   br i1 %.not65, label %52, label %49
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %5, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %48, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store ptr %48, ptr %51, align 8
   br label %52
 
@@ -1896,22 +1896,22 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_refs(i64 noundef %0, i32 
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %5, i64 296
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 296
   store i64 1, ptr %56, align 8
   br label %57
 
 57:                                               ; preds = %52, %55
   %.sink = phi i32 [ 65535, %55 ], [ %53, %52 ]
-  %58 = getelementptr inbounds i8, ptr %5, i64 288
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 288
   store i32 %.sink, ptr %58, align 8
   %59 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %60 = getelementptr inbounds i8, ptr %5, i64 420
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 420
   store i32 %59, ptr %60, align 4
   %.not76 = icmp eq i64 %.048, 0
   br i1 %.not76, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %4, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %62
 
 62:                                               ; preds = %.lr.ph, %81
@@ -1951,7 +1951,7 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_refs(i64 noundef %0, i32 
   %83 = add i32 %82, -1
   store i32 %83, ptr %46, align 8
   %84 = call i32 @H5Rdestroy(ptr noundef nonnull %.04675) #14
-  %85 = getelementptr inbounds i8, ptr %.04675, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %.04675, i64 64
   %86 = add nuw i64 %.04774, 1
   %exitcond.not = icmp eq i64 %86, %.048
   br i1 %exitcond.not, label %._crit_edge, label %62
@@ -2099,11 +2099,11 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
 50:                                               ; preds = %47, %46
   %.074 = phi ptr [ null, %46 ], [ %48, %47 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %51 = getelementptr inbounds i8, ptr %4, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %51, i8 0, i64 1112, i1 false)
   %52 = load i32, ptr @dump_indent, align 4
   %53 = udiv i32 %52, 3
-  %54 = getelementptr inbounds i8, ptr %4, i64 568
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 568
   store i32 %53, ptr %54, align 8
   %55 = zext i32 %52 to i64
   store i64 %55, ptr %4, align 8
@@ -2113,9 +2113,9 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br i1 %.not103, label %60, label %57
 
 57:                                               ; preds = %50
-  %58 = getelementptr inbounds i8, ptr %5, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %56, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %5, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store ptr %56, ptr %59, align 8
   br label %60
 
@@ -2125,22 +2125,22 @@ define internal fastcc range(i32 -1, 1) i32 @xml_print_strs(i64 noundef %0, i32 
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %5, i64 296
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 296
   store i64 1, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %60, %63
   %.sink = phi i32 [ 65535, %63 ], [ %61, %60 ]
-  %66 = getelementptr inbounds i8, ptr %5, i64 288
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 288
   store i32 %.sink, ptr %66, align 8
   %67 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %68 = getelementptr inbounds i8, ptr %5, i64 420
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 420
   store i32 %67, ptr %68, align 4
   %.not133 = icmp eq i64 %.081, 0
   br i1 %.not133, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %4, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %70
 
 70:                                               ; preds = %.lr.ph, %93
@@ -2291,11 +2291,11 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   store i64 0, ptr %5, align 8
   %9 = tail call fastcc ptr @xml_escape_the_name(ptr noundef %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %10, i8 0, i64 1112, i1 false)
   %11 = load i32, ptr @dump_indent, align 4
   %12 = udiv i32 %11, 3
-  %13 = getelementptr inbounds i8, ptr %7, i64 568
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 568
   store i32 %12, ptr %13, align 8
   %14 = zext i32 %11 to i64
   store i64 %14, ptr %7, align 8
@@ -2305,9 +2305,9 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %8, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr %15, ptr %18, align 8
   br label %19
 
@@ -2317,18 +2317,18 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %8, i64 296
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 296
   store i64 1, ptr %23, align 8
   br label %24
 
 24:                                               ; preds = %19, %22
   %.sink = phi i32 [ 65535, %22 ], [ %20, %19 ]
-  %25 = getelementptr inbounds i8, ptr %8, i64 288
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 288
   store i32 %.sink, ptr %25, align 8
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %27 = getelementptr inbounds i8, ptr %8, i64 420
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 420
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 1, ptr %28, align 8
   %29 = call ptr @h5tools_str_reset(ptr noundef nonnull %6) #14
   %30 = load ptr, ptr @xmlnsprefix, align 8
@@ -2346,11 +2346,11 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   %39 = call i64 @H5Aget_space(i64 noundef %35) #14
   %40 = call i32 @H5Sget_simple_extent_type(i64 noundef %39) #14
   %41 = load ptr, ptr @dump_function_table, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   call void %43(i64 noundef %39) #14
   %44 = load ptr, ptr @dump_function_table, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load ptr, ptr %45, align 8
   call void %46(i64 noundef %38) #14
   %47 = load i32, ptr %13, align 8
@@ -2383,7 +2383,7 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
 
 56:                                               ; preds = %54, %54, %54, %54, %54, %54, %54
   %57 = load ptr, ptr @dump_function_table, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %59 = load ptr, ptr %58, align 8
   call void %59(i64 noundef %35, i32 noundef 0, ptr noundef null, i32 noundef 0) #14
   br label %217
@@ -2450,7 +2450,7 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   %107 = zext i32 %106 to i64
   %108 = call zeroext i1 @h5tools_render_element(ptr noundef %105, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %107, i64 noundef 0, i64 noundef 0) #14
   %109 = load ptr, ptr @dump_function_table, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 48
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %111 = load ptr, ptr %110, align 8
   call void %111(i64 noundef %35, i32 noundef 0, ptr noundef null, i32 noundef 0) #14
   br label %217
@@ -2518,7 +2518,7 @@ define dso_local range(i32 -1, 1) i32 @xml_dump_attr(i64 noundef %0, ptr noundef
   %157 = zext i32 %156 to i64
   %158 = call zeroext i1 @h5tools_render_element(ptr noundef %155, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %157, i64 noundef 0, i64 noundef 0) #14
   %159 = load ptr, ptr @dump_function_table, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 48
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 48
   %161 = load ptr, ptr %160, align 8
   call void %161(i64 noundef %35, i32 noundef 0, ptr noundef null, i32 noundef 0) #14
   br label %217
@@ -2683,11 +2683,11 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   store i16 47, ptr %endptr, align 1
   %20 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %1) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %21, i8 0, i64 1112, i1 false)
   %22 = load i32, ptr @dump_indent, align 4
   %23 = udiv i32 %22, 3
-  %24 = getelementptr inbounds i8, ptr %5, i64 568
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 568
   store i32 %23, ptr %24, align 8
   %25 = zext i32 %22 to i64
   store i64 %25, ptr %5, align 8
@@ -2697,9 +2697,9 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   br i1 %.not, label %30, label %27
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %6, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %26, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %26, ptr %29, align 8
   br label %30
 
@@ -2709,16 +2709,16 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %6, i64 296
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store i64 1, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %30, %33
   %.sink = phi i32 [ 65535, %33 ], [ %31, %30 ]
-  %36 = getelementptr inbounds i8, ptr %6, i64 288
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i32 %.sink, ptr %36, align 8
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %38 = getelementptr inbounds i8, ptr %6, i64 420
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 420
   store i32 %37, ptr %38, align 4
   %39 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
   %40 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
@@ -2731,7 +2731,7 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   tail call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %45, ptr noundef %40, i32 noundef 1)
   %lhsc = load i8, ptr %1, align 1
   %46 = icmp eq i8 %lhsc, 35
-  %47 = getelementptr inbounds i8, ptr %5, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %47, align 8
   %48 = call ptr @h5tools_str_reset(ptr noundef nonnull %4) #14
   %49 = load ptr, ptr @xmlnsprefix, align 8
@@ -2756,14 +2756,14 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   %62 = zext i32 %61 to i64
   %63 = call zeroext i1 @h5tools_render_element(ptr noundef %60, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %62, i64 noundef 0, i64 noundef 0) #14
   %64 = call i32 @H5Oget_info3(i64 noundef %0, ptr noundef nonnull %7, i32 noundef 1) #14
-  %65 = getelementptr inbounds i8, ptr %7, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %66 = load i32, ptr %65, align 4
   %67 = icmp ugt i32 %66, 1
   br i1 %67, label %68, label %103
 
 68:                                               ; preds = %58
   %69 = load ptr, ptr @type_table, align 8
-  %70 = getelementptr inbounds i8, ptr %7, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %71 = call ptr @search_obj(ptr noundef %69, ptr noundef nonnull %70) #14
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %75
@@ -2776,13 +2776,13 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   br label %142
 
 75:                                               ; preds = %68
-  %76 = getelementptr inbounds i8, ptr %71, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %77 = load i8, ptr %76, align 8
   %78 = trunc i8 %77 to i1
   br i1 %78, label %79, label %102
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %71, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = call fastcc ptr @xml_escape_the_name(ptr noundef %81)
   %83 = load i32, ptr %24, align 8
@@ -2823,7 +2823,7 @@ define dso_local void @xml_dump_named_datatype(i64 noundef %0, ptr noundef %1) l
   %106 = load i32, ptr @dump_indent, align 4
   %107 = add i32 %106, 3
   store i32 %107, ptr @dump_indent, align 4
-  %108 = getelementptr inbounds i8, ptr %5, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %108, align 8
   %109 = call ptr @h5tools_str_reset(ptr noundef nonnull %4) #14
   %110 = load ptr, ptr @xmlnsprefix, align 8
@@ -2952,11 +2952,11 @@ define dso_local void @xml_dump_group(i64 noundef %0, ptr noundef %1) local_unna
 
 28:                                               ; preds = %27, %24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %29, i8 0, i64 1112, i1 false)
   %30 = load i32, ptr @dump_indent, align 4
   %31 = udiv i32 %30, 3
-  %32 = getelementptr inbounds i8, ptr %8, i64 568
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 568
   store i32 %31, ptr %32, align 8
   %33 = zext i32 %30 to i64
   store i64 %33, ptr %8, align 8
@@ -2966,9 +2966,9 @@ define dso_local void @xml_dump_group(i64 noundef %0, ptr noundef %1) local_unna
   br i1 %.not, label %38, label %35
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %9, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store ptr %34, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %9, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store ptr %34, ptr %37, align 8
   br label %38
 
@@ -2978,23 +2978,23 @@ define dso_local void @xml_dump_group(i64 noundef %0, ptr noundef %1) local_unna
   br i1 %40, label %41, label %sub_0
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %9, i64 296
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 296
   store i64 1, ptr %42, align 8
   br label %sub_0
 
 sub_0:                                            ; preds = %38, %41
   %.sink = phi i32 [ 65535, %41 ], [ %39, %38 ]
-  %43 = getelementptr inbounds i8, ptr %9, i64 288
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 288
   store i32 %.sink, ptr %43, align 8
   %44 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %45 = getelementptr inbounds i8, ptr %9, i64 420
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 420
   store i32 %44, ptr %45, align 4
   %46 = load i8, ptr %1, align 1
   %.not184 = icmp eq i8 %46, 47
   br i1 %.not184, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %47 = getelementptr inbounds i8, ptr %1, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %50, label %.tail.thread
@@ -3036,7 +3036,7 @@ sub_0:                                            ; preds = %38, %41
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %63, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store i8 0, ptr %70, align 1
   br label %72
 
@@ -3049,14 +3049,14 @@ sub_0:                                            ; preds = %38, %41
   %.0157 = phi ptr [ null, %50 ], [ %62, %69 ], [ %62, %71 ], [ %62, %60 ]
   %.0156 = phi ptr [ %51, %50 ], [ %57, %69 ], [ %57, %71 ], [ %57, %60 ]
   %74 = call i32 @H5Oget_info3(i64 noundef %0, ptr noundef nonnull %3, i32 noundef 1) #14
-  %75 = getelementptr inbounds i8, ptr %3, i64 28
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %76 = load i32, ptr %75, align 4
   %77 = icmp ugt i32 %76, 1
   br i1 %77, label %78, label %231
 
 78:                                               ; preds = %72
   %79 = load ptr, ptr @group_table, align 8
-  %80 = getelementptr inbounds i8, ptr %3, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %81 = call ptr @search_obj(ptr noundef %79, ptr noundef nonnull %80) #14
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %85
@@ -3072,7 +3072,7 @@ sub_0:                                            ; preds = %38, %41
   %86 = call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
   %87 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
   %88 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
-  %89 = getelementptr inbounds i8, ptr %81, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %90 = load i8, ptr %89, align 8
   %91 = trunc i8 %90 to i1
   br i1 %91, label %92, label %133
@@ -3083,7 +3083,7 @@ sub_0:                                            ; preds = %38, %41
 
 94:                                               ; preds = %92
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %87, i32 noundef 1)
-  %95 = getelementptr inbounds i8, ptr %8, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %95, align 8
   %96 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %97 = load ptr, ptr @xmlnsprefix, align 8
@@ -3095,13 +3095,13 @@ sub_0:                                            ; preds = %38, %41
   br label %132
 
 103:                                              ; preds = %92
-  %104 = getelementptr inbounds i8, ptr %81, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %105 = load ptr, ptr %104, align 8
   %106 = call fastcc ptr @xml_escape_the_name(ptr noundef %105)
   %107 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0156, ptr noundef %87, i32 noundef 1)
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %88, i32 noundef 1)
-  %108 = getelementptr inbounds i8, ptr %8, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %108, align 8
   %109 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %110 = load ptr, ptr @xmlnsprefix, align 8
@@ -3146,7 +3146,7 @@ sub_0:                                            ; preds = %38, %41
 
 134:                                              ; preds = %133
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull @.str.34, ptr noundef %87, i32 noundef 1)
-  %135 = getelementptr inbounds i8, ptr %8, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %135, align 8
   %136 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %137 = load ptr, ptr @xmlnsprefix, align 8
@@ -3162,7 +3162,7 @@ sub_0:                                            ; preds = %38, %41
   %145 = call fastcc ptr @xml_escape_the_name(ptr noundef %.0157)
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0156, ptr noundef %87, i32 noundef 1)
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %.0157, ptr noundef %88, i32 noundef 1)
-  %146 = getelementptr inbounds i8, ptr %8, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %146, align 8
   %147 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %148 = load ptr, ptr @xmlnsprefix, align 8
@@ -3196,7 +3196,7 @@ sub_0:                                            ; preds = %38, %41
 164:                                              ; preds = %161
   %165 = load i32, ptr @sort_order, align 4
   %166 = load ptr, ptr @dump_function_table, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 40
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 40
   %168 = load ptr, ptr %167, align 8
   %169 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 1, i32 noundef %165, ptr noundef null, ptr noundef %168, ptr noundef null) #14
   %170 = icmp slt i32 %169, 0
@@ -3205,7 +3205,7 @@ sub_0:                                            ; preds = %38, %41
 171:                                              ; preds = %161, %154
   %172 = load i32, ptr @sort_order, align 4
   %173 = load ptr, ptr @dump_function_table, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 40
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 40
   %175 = load ptr, ptr %174, align 8
   %176 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 0, i32 noundef %172, ptr noundef null, ptr noundef %175, ptr noundef null) #14
   %177 = icmp slt i32 %176, 0
@@ -3224,7 +3224,7 @@ sub_0:                                            ; preds = %38, %41
 
 .preheader:                                       ; preds = %178
   %181 = load ptr, ptr @type_table, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %183 = load i64, ptr %182, align 8
   %.not186 = icmp eq i64 %183, 0
   br i1 %.not186, label %.loopexit, label %.lr.ph183
@@ -3233,30 +3233,30 @@ sub_0:                                            ; preds = %38, %41
   %184 = phi ptr [ %211, %210 ], [ %181, %.preheader ]
   %185 = phi i64 [ %213, %210 ], [ 0, %.preheader ]
   %.0155182 = phi i32 [ %212, %210 ], [ 0, %.preheader ]
-  %186 = getelementptr inbounds i8, ptr %184, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds %struct.obj_t, ptr %187, i64 %185, i32 3
+  %188 = getelementptr inbounds nuw %struct.obj_t, ptr %187, i64 %185, i32 3
   %189 = load i8, ptr %188, align 1
   %190 = trunc i8 %189 to i1
   br i1 %190, label %210, label %191
 
 191:                                              ; preds = %.lr.ph183
   store ptr null, ptr %11, align 8
-  %192 = getelementptr inbounds %struct.obj_t, ptr %187, i64 %185, i32 1
+  %192 = getelementptr inbounds nuw %struct.obj_t, ptr %187, i64 %185, i32 1
   %193 = load ptr, ptr %192, align 8
   %194 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef %193, i64 noundef 0) #14
   %195 = call i64 @H5Dget_type(i64 noundef %194) #14
   %196 = load ptr, ptr @type_table, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds %struct.obj_t, ptr %198, i64 %185
+  %199 = getelementptr inbounds nuw %struct.obj_t, ptr %198, i64 %185
   %200 = call i32 @H5Otoken_to_str(i64 noundef %194, ptr noundef %199, ptr noundef nonnull %11) #14
   %201 = load ptr, ptr %11, align 8
   %202 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.48, ptr noundef %201) #14
   %203 = load ptr, ptr %11, align 8
   %204 = call i32 @H5free_memory(ptr noundef %203) #14
   %205 = load ptr, ptr @dump_function_table, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %207 = load ptr, ptr %206, align 8
   call void %207(i64 noundef %195, ptr noundef nonnull %6) #14
   %208 = call i32 @H5Tclose(i64 noundef %195) #14
@@ -3268,7 +3268,7 @@ sub_0:                                            ; preds = %38, %41
   %211 = phi ptr [ %184, %.lr.ph183 ], [ %.pre187, %191 ]
   %212 = add i32 %.0155182, 1
   %213 = zext i32 %212 to i64
-  %214 = getelementptr inbounds i8, ptr %211, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %215 = load i64, ptr %214, align 8
   %216 = icmp ugt i64 %215, %213
   br i1 %216, label %.lr.ph183, label %.loopexit
@@ -3309,7 +3309,7 @@ sub_0:                                            ; preds = %38, %41
   %232 = call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %1)
   %233 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
   %234 = call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #15
-  %235 = getelementptr inbounds i8, ptr %8, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %235, align 8
   %236 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   br i1 %73, label %237, label %240
@@ -3358,7 +3358,7 @@ sub_0:                                            ; preds = %38, %41
 259:                                              ; preds = %256
   %260 = load i32, ptr @sort_order, align 4
   %261 = load ptr, ptr @dump_function_table, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 40
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 40
   %263 = load ptr, ptr %262, align 8
   %264 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 1, i32 noundef %260, ptr noundef null, ptr noundef %263, ptr noundef null) #14
   %265 = icmp slt i32 %264, 0
@@ -3367,7 +3367,7 @@ sub_0:                                            ; preds = %38, %41
 266:                                              ; preds = %256, %245
   %267 = load i32, ptr @sort_order, align 4
   %268 = load ptr, ptr @dump_function_table, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 40
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 40
   %270 = load ptr, ptr %269, align 8
   %271 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 0, i32 noundef %267, ptr noundef null, ptr noundef %270, ptr noundef null) #14
   %272 = icmp slt i32 %271, 0
@@ -3386,7 +3386,7 @@ sub_0:                                            ; preds = %38, %41
 
 .preheader179:                                    ; preds = %273
   %276 = load ptr, ptr @type_table, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 16
   %278 = load i64, ptr %277, align 8
   %.not185 = icmp eq i64 %278, 0
   br i1 %.not185, label %.loopexit180, label %.lr.ph
@@ -3395,30 +3395,30 @@ sub_0:                                            ; preds = %38, %41
   %279 = phi ptr [ %306, %305 ], [ %276, %.preheader179 ]
   %280 = phi i64 [ %308, %305 ], [ 0, %.preheader179 ]
   %.0181 = phi i32 [ %307, %305 ], [ 0, %.preheader179 ]
-  %281 = getelementptr inbounds i8, ptr %279, i64 24
+  %281 = getelementptr inbounds nuw i8, ptr %279, i64 24
   %282 = load ptr, ptr %281, align 8
-  %283 = getelementptr inbounds %struct.obj_t, ptr %282, i64 %280, i32 3
+  %283 = getelementptr inbounds nuw %struct.obj_t, ptr %282, i64 %280, i32 3
   %284 = load i8, ptr %283, align 1
   %285 = trunc i8 %284 to i1
   br i1 %285, label %305, label %286
 
 286:                                              ; preds = %.lr.ph
   store ptr null, ptr %12, align 8
-  %287 = getelementptr inbounds %struct.obj_t, ptr %282, i64 %280, i32 1
+  %287 = getelementptr inbounds nuw %struct.obj_t, ptr %282, i64 %280, i32 1
   %288 = load ptr, ptr %287, align 8
   %289 = call i64 @H5Dopen2(i64 noundef %0, ptr noundef %288, i64 noundef 0) #14
   %290 = call i64 @H5Dget_type(i64 noundef %289) #14
   %291 = load ptr, ptr @type_table, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 24
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 24
   %293 = load ptr, ptr %292, align 8
-  %294 = getelementptr inbounds %struct.obj_t, ptr %293, i64 %280
+  %294 = getelementptr inbounds nuw %struct.obj_t, ptr %293, i64 %280
   %295 = call i32 @H5Otoken_to_str(i64 noundef %289, ptr noundef %294, ptr noundef nonnull %12) #14
   %296 = load ptr, ptr %12, align 8
   %297 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.48, ptr noundef %296) #14
   %298 = load ptr, ptr %12, align 8
   %299 = call i32 @H5free_memory(ptr noundef %298) #14
   %300 = load ptr, ptr @dump_function_table, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load ptr, ptr %301, align 8
   call void %302(i64 noundef %290, ptr noundef nonnull %6) #14
   %303 = call i32 @H5Tclose(i64 noundef %290) #14
@@ -3430,7 +3430,7 @@ sub_0:                                            ; preds = %38, %41
   %306 = phi ptr [ %279, %.lr.ph ], [ %.pre, %286 ]
   %307 = add i32 %.0181, 1
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds i8, ptr %306, i64 16
+  %309 = getelementptr inbounds nuw i8, ptr %306, i64 16
   %310 = load i64, ptr %309, align 8
   %311 = icmp ugt i64 %310, %308
   br i1 %311, label %.lr.ph, label %.loopexit180
@@ -3462,7 +3462,7 @@ sub_0:                                            ; preds = %38, %41
   br label %325
 
 325:                                              ; preds = %83, %230, %318
-  %326 = getelementptr inbounds i8, ptr %8, i64 16
+  %326 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %326, align 8
   %327 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %328 = load ptr, ptr @xmlnsprefix, align 8
@@ -3546,11 +3546,11 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %23 = alloca [100 x i8], align 16
   store i64 0, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %24, i8 0, i64 1112, i1 false)
   %25 = load i32, ptr @dump_indent, align 4
   %26 = udiv i32 %25, 3
-  %27 = getelementptr inbounds i8, ptr %8, i64 568
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 568
   store i32 %26, ptr %27, align 8
   %28 = zext i32 %25 to i64
   store i64 %28, ptr %8, align 8
@@ -3560,9 +3560,9 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br i1 %.not, label %33, label %30
 
 30:                                               ; preds = %4
-  %31 = getelementptr inbounds i8, ptr %9, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store ptr %29, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %9, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store ptr %29, ptr %32, align 8
   br label %33
 
@@ -3572,16 +3572,16 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %9, i64 296
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 296
   store i64 1, ptr %37, align 8
   br label %38
 
 38:                                               ; preds = %33, %36
   %.sink = phi i32 [ 65535, %36 ], [ %34, %33 ]
-  %39 = getelementptr inbounds i8, ptr %9, i64 288
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 288
   store i32 %.sink, ptr %39, align 8
   %40 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %41 = getelementptr inbounds i8, ptr %9, i64 420
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 420
   store i32 %40, ptr %41, align 4
   %42 = load ptr, ptr @prefix, align 8
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #16
@@ -3616,7 +3616,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %304
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %11, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %58 = load i32, ptr %57, align 8
   switch i32 %58, label %189 [
     i32 0, label %59
@@ -3666,7 +3666,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br i1 %77, label %78, label %179
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %11, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %80 = load i32, ptr %79, align 4
   %81 = icmp ugt i32 %80, 1
   br i1 %81, label %85, label %82
@@ -3678,7 +3678,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 
 85:                                               ; preds = %82, %78
   %86 = load ptr, ptr @dset_table, align 8
-  %87 = getelementptr inbounds i8, ptr %11, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %88 = call ptr @search_obj(ptr noundef %86, ptr noundef nonnull %87) #14
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %130
@@ -3687,13 +3687,13 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %91 = load i32, ptr %27, align 8
   %92 = add i32 %91, 1
   store i32 %92, ptr %27, align 8
-  %93 = getelementptr inbounds i8, ptr %8, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %93, align 8
   %94 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %95 = load ptr, ptr @h5tools_dump_header_format, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %95, i64 312
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 312
   %99 = load ptr, ptr %98, align 8
   %100 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.158, ptr noundef %97, ptr noundef %1, ptr noundef %99) #14
   %101 = load ptr, ptr @rawoutstream, align 8
@@ -3704,7 +3704,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   store i32 1, ptr %93, align 8
   %105 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %106 = load ptr, ptr @h5tools_dump_header_format, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 320
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 320
   %108 = load ptr, ptr %107, align 8
   %char0 = load i8, ptr %108, align 1
   %.not166 = icmp eq i8 %char0, 0
@@ -3713,7 +3713,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 109:                                              ; preds = %90
   %110 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %7, ptr noundef nonnull @.str.88, ptr noundef nonnull %108) #14
   %111 = load ptr, ptr @h5tools_dump_header_format, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 64
   %113 = load ptr, ptr %112, align 8
   %char0167 = load i8, ptr %113, align 1
   %.not168 = icmp eq i8 %char0167, 0
@@ -3726,7 +3726,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 
 116:                                              ; preds = %109, %114, %90
   %117 = phi ptr [ %111, %109 ], [ %.pre, %114 ], [ %106, %90 ]
-  %118 = getelementptr inbounds i8, ptr %117, i64 64
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
   %119 = load ptr, ptr %118, align 8
   %char0169 = load i8, ptr %119, align 1
   %.not170 = icmp eq i8 %char0169, 0
@@ -3749,7 +3749,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %304
 
 130:                                              ; preds = %85
-  %131 = getelementptr inbounds i8, ptr %88, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %132 = load i8, ptr %131, align 8
   %133 = trunc i8 %132 to i1
   br i1 %133, label %134, label %173
@@ -3762,13 +3762,13 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %137 = select i1 %.not165, ptr @.str.34, ptr %136
   %138 = call fastcc ptr @xml_escape_the_name(ptr noundef nonnull %137)
   %139 = call fastcc ptr @xml_escape_the_name(ptr noundef %1)
-  %140 = getelementptr inbounds i8, ptr %88, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %141 = load ptr, ptr %140, align 8
   %142 = call fastcc ptr @xml_escape_the_name(ptr noundef %141)
   call fastcc void @xml_name_to_XID(i64 noundef %76, ptr noundef nonnull %47, ptr noundef nonnull %12, i32 noundef 1)
   %143 = load ptr, ptr @prefix, align 8
   call fastcc void @xml_name_to_XID(i64 noundef %76, ptr noundef %143, ptr noundef nonnull %13, i32 noundef 1)
-  %144 = getelementptr inbounds i8, ptr %8, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %144, align 8
   %145 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %146 = load ptr, ptr @xmlnsprefix, align 8
@@ -3815,7 +3815,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 
 174:                                              ; preds = %173, %82
   %175 = load ptr, ptr @dump_function_table, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %177 = load ptr, ptr %176, align 8
   call void %177(i64 noundef %76, ptr noundef %1, ptr noundef null) #14
   %178 = call i32 @H5Dclose(i64 noundef %76) #14
@@ -3838,7 +3838,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 
 184:                                              ; preds = %180
   %185 = load ptr, ptr @dump_function_table, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8
   call void %187(i64 noundef %181, ptr noundef %1) #14
   %188 = call i32 @H5Tclose(i64 noundef %181) #14
@@ -3850,7 +3850,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %304
 
 190:                                              ; preds = %48
-  %191 = getelementptr inbounds i8, ptr %2, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %192 = load i64, ptr %191, align 8
   %193 = tail call noalias ptr @malloc(i64 noundef %192) #15
   %194 = icmp eq ptr %193, null
@@ -3931,7 +3931,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   %234 = call i32 @H5free_memory(ptr noundef %233) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %235 = getelementptr inbounds i8, ptr %8, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %235, align 8
   %236 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %237 = load ptr, ptr @xmlnsprefix, align 8
@@ -3941,7 +3941,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
 239:                                              ; preds = %226, %224
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %240 = getelementptr inbounds i8, ptr %8, i64 16
+  %240 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %240, align 8
   %241 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %242 = load ptr, ptr @xmlnsprefix, align 8
@@ -3966,7 +3966,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   br label %304
 
 250:                                              ; preds = %48
-  %251 = getelementptr inbounds i8, ptr %2, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %252 = load i64, ptr %251, align 8
   %253 = tail call noalias ptr @malloc(i64 noundef %252) #15
   %254 = icmp eq ptr %253, null
@@ -4013,7 +4013,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %270, ptr noundef nonnull %20, i32 noundef 1)
   %275 = load ptr, ptr @prefix, align 8
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %275, ptr noundef nonnull %21, i32 noundef 1)
-  %276 = getelementptr inbounds i8, ptr %8, i64 16
+  %276 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %276, align 8
   %277 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %278 = load ptr, ptr @xmlnsprefix, align 8
@@ -4047,7 +4047,7 @@ define internal range(i32 -1, 1) i32 @xml_dump_all_cb(i64 noundef %0, ptr nounde
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %292, ptr noundef nonnull %22, i32 noundef 1)
   %293 = load ptr, ptr @prefix, align 8
   call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %293, ptr noundef nonnull %23, i32 noundef 1)
-  %294 = getelementptr inbounds i8, ptr %8, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 1, ptr %294, align 8
   %295 = call ptr @h5tools_str_reset(ptr noundef nonnull %7) #14
   %296 = load ptr, ptr @xmlnsprefix, align 8
@@ -4125,11 +4125,11 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noca
   store i16 47, ptr %endptr, align 1
   %36 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %1) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  %37 = getelementptr inbounds i8, ptr %21, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %37, i8 0, i64 1112, i1 false)
   %38 = load i32, ptr @dump_indent, align 4
   %39 = udiv i32 %38, 3
-  %40 = getelementptr inbounds i8, ptr %21, i64 568
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 568
   store i32 %39, ptr %40, align 8
   %41 = zext i32 %38 to i64
   store i64 %41, ptr %21, align 8
@@ -4143,9 +4143,9 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noca
   br i1 %.not, label %50, label %47
 
 47:                                               ; preds = %34
-  %48 = getelementptr inbounds i8, ptr %22, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %22, i64 96
   store ptr %46, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %22, i64 104
+  %49 = getelementptr inbounds nuw i8, ptr %22, i64 104
   store ptr %46, ptr %49, align 8
   br label %50
 
@@ -4155,21 +4155,21 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noca
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %22, i64 296
+  %54 = getelementptr inbounds nuw i8, ptr %22, i64 296
   store i64 1, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %50, %53
   %.sink = phi i32 [ 65535, %53 ], [ %51, %50 ]
-  %56 = getelementptr inbounds i8, ptr %22, i64 288
+  %56 = getelementptr inbounds nuw i8, ptr %22, i64 288
   store i32 %.sink, ptr %56, align 8
   %57 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %58 = getelementptr inbounds i8, ptr %22, i64 420
+  %58 = getelementptr inbounds nuw i8, ptr %22, i64 420
   store i32 %57, ptr %58, align 4
   tail call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef nonnull %31, ptr noundef %24, i32 noundef 1)
   %59 = load ptr, ptr @prefix, align 8
   tail call fastcc void @xml_name_to_XID(i64 noundef %0, ptr noundef %59, ptr noundef %25, i32 noundef 1)
-  %60 = getelementptr inbounds i8, ptr %21, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 1, ptr %60, align 8
   %61 = call ptr @h5tools_str_reset(ptr noundef nonnull %20) #14
   %62 = load ptr, ptr @xmlnsprefix, align 8
@@ -4259,7 +4259,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noca
   store i32 1, ptr %60, align 8
   %113 = call ptr @h5tools_str_reset(ptr noundef nonnull %20) #14
   %114 = load ptr, ptr @xmlnsprefix, align 8
-  %115 = getelementptr inbounds i64, ptr %83, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv
   %116 = load i64, ptr %115, align 8
   %117 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %20, ptr noundef nonnull @.str.57, ptr noundef %114, i64 noundef %116) #14
   %118 = load ptr, ptr @rawoutstream, align 8
@@ -4296,10 +4296,10 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noca
   store i64 20, ptr %9, align 8
   store i64 0, ptr %15, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %133 = getelementptr inbounds i8, ptr %13, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %133, i8 0, i64 1112, i1 false)
   %134 = udiv i32 %132, 3
-  %135 = getelementptr inbounds i8, ptr %13, i64 568
+  %135 = getelementptr inbounds nuw i8, ptr %13, i64 568
   store i32 %134, ptr %135, align 8
   %136 = zext i32 %132 to i64
   store i64 %136, ptr %13, align 8
@@ -4309,9 +4309,9 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noca
   br i1 %.not.i, label %141, label %138
 
 138:                                              ; preds = %._crit_edge
-  %139 = getelementptr inbounds i8, ptr %14, i64 96
+  %139 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store ptr %137, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %14, i64 104
+  %140 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store ptr %137, ptr %140, align 8
   br label %141
 
@@ -4321,24 +4321,24 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef %1, ptr noca
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %14, i64 296
+  %145 = getelementptr inbounds nuw i8, ptr %14, i64 296
   store i64 1, ptr %145, align 8
   br label %146
 
 146:                                              ; preds = %144, %141
   %.sink.i = phi i32 [ 65535, %144 ], [ %142, %141 ]
-  %147 = getelementptr inbounds i8, ptr %14, i64 288
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 288
   store i32 %.sink.i, ptr %147, align 8
   %148 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %149 = getelementptr inbounds i8, ptr %14, i64 420
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 420
   store i32 %148, ptr %149, align 4
   %150 = call i32 @H5Pget_nfilters(i64 noundef %70) #14
   %151 = icmp slt i32 %150, 1
   br i1 %151, label %check_filters.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %146
-  %152 = getelementptr inbounds i8, ptr %13, i64 16
-  %153 = getelementptr inbounds i8, ptr %10, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %153 = getelementptr inbounds nuw i8, ptr %10, i64 4
   br label %154
 
 154:                                              ; preds = %231, %.preheader.i
@@ -4666,7 +4666,7 @@ check_filters.exit:                               ; preds = %146, %233
 
 switch.lookup:                                    ; preds = %336
   %348 = zext nneg i32 %346 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.xml_dump_dataset, i64 0, i64 %348
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_dump_dataset, i64 0, i64 %348
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %349
 
@@ -4683,7 +4683,7 @@ switch.lookup:                                    ; preds = %336
 
 switch.lookup168:                                 ; preds = %349
   %356 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep169 = getelementptr inbounds [3 x ptr], ptr @switch.table.xml_dump_dataset.2, i64 0, i64 %356
+  %switch.gep169 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.xml_dump_dataset.2, i64 0, i64 %356
   %switch.load170 = load ptr, ptr %switch.gep169, align 8
   br label %357
 
@@ -4746,11 +4746,11 @@ switch.lookup168:                                 ; preds = %349
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 0, ptr %7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %396 = getelementptr inbounds i8, ptr %5, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %396, i8 0, i64 1112, i1 false)
   %397 = load i32, ptr @dump_indent, align 4
   %398 = udiv i32 %397, 3
-  %399 = getelementptr inbounds i8, ptr %5, i64 568
+  %399 = getelementptr inbounds nuw i8, ptr %5, i64 568
   %400 = zext i32 %397 to i64
   store i64 %400, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %6, ptr noundef nonnull align 8 dereferenceable(424) @xml_dataformat, i64 424, i1 false)
@@ -4759,9 +4759,9 @@ switch.lookup168:                                 ; preds = %349
   br i1 %.not.i157, label %405, label %402
 
 402:                                              ; preds = %395
-  %403 = getelementptr inbounds i8, ptr %6, i64 96
+  %403 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %401, ptr %403, align 8
-  %404 = getelementptr inbounds i8, ptr %6, i64 104
+  %404 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %401, ptr %404, align 8
   br label %405
 
@@ -4771,22 +4771,22 @@ switch.lookup168:                                 ; preds = %349
   br i1 %407, label %408, label %410
 
 408:                                              ; preds = %405
-  %409 = getelementptr inbounds i8, ptr %6, i64 296
+  %409 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store i64 1, ptr %409, align 8
   br label %410
 
 410:                                              ; preds = %408, %405
   %.sink.i158 = phi i32 [ 65535, %408 ], [ %406, %405 ]
-  %411 = getelementptr inbounds i8, ptr %6, i64 288
+  %411 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i32 %.sink.i158, ptr %411, align 8
   %412 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %413 = getelementptr inbounds i8, ptr %6, i64 420
+  %413 = getelementptr inbounds nuw i8, ptr %6, i64 420
   store i32 %412, ptr %413, align 4
   %414 = add nuw nsw i32 %398, 1
   store i32 %414, ptr %399, align 8
   %415 = add i32 %397, 3
   store i32 %415, ptr @dump_indent, align 4
-  %416 = getelementptr inbounds i8, ptr %5, i64 16
+  %416 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 1, ptr %416, align 8
   %417 = call ptr @h5tools_str_reset(ptr noundef nonnull %4) #14
   %418 = load ptr, ptr @xmlnsprefix, align 8
@@ -5183,11 +5183,11 @@ xml_dump_fill_value.exit:                         ; preds = %456, %468, %484, %5
   %695 = add i32 %694, -3
   store i32 %695, ptr @dump_indent, align 4
   %696 = load ptr, ptr @dump_function_table, align 8
-  %697 = getelementptr inbounds i8, ptr %696, i64 24
+  %697 = getelementptr inbounds nuw i8, ptr %696, i64 24
   %698 = load ptr, ptr %697, align 8
   call void %698(i64 noundef %72) #14
   %699 = load ptr, ptr @dump_function_table, align 8
-  %700 = getelementptr inbounds i8, ptr %699, i64 32
+  %700 = getelementptr inbounds nuw i8, ptr %699, i64 32
   %701 = load ptr, ptr %700, align 8
   call void %701(i64 noundef %71) #14
   %702 = load i32, ptr %40, align 8
@@ -5209,7 +5209,7 @@ xml_dump_fill_value.exit:                         ; preds = %456, %468, %484, %5
 711:                                              ; preds = %708
   %712 = load i32, ptr @sort_order, align 4
   %713 = load ptr, ptr @dump_function_table, align 8
-  %714 = getelementptr inbounds i8, ptr %713, i64 40
+  %714 = getelementptr inbounds nuw i8, ptr %713, i64 40
   %715 = load ptr, ptr %714, align 8
   %716 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 1, i32 noundef %712, ptr noundef null, ptr noundef %715, ptr noundef null) #14
   %717 = icmp slt i32 %716, 0
@@ -5218,7 +5218,7 @@ xml_dump_fill_value.exit:                         ; preds = %456, %468, %484, %5
 718:                                              ; preds = %708, %673
   %719 = load i32, ptr @sort_order, align 4
   %720 = load ptr, ptr @dump_function_table, align 8
-  %721 = getelementptr inbounds i8, ptr %720, i64 40
+  %721 = getelementptr inbounds nuw i8, ptr %720, i64 40
   %722 = load ptr, ptr %721, align 8
   %723 = call i32 @H5Aiterate2(i64 noundef %0, i32 noundef 0, i32 noundef %719, ptr noundef null, ptr noundef %722, ptr noundef null) #14
   %724 = icmp slt i32 %723, 0
@@ -5267,7 +5267,7 @@ xml_dump_fill_value.exit:                         ; preds = %456, %468, %484, %5
   %740 = add i32 %739, 3
   store i32 %740, ptr @dump_indent, align 4
   %741 = load ptr, ptr @dump_function_table, align 8
-  %742 = getelementptr inbounds i8, ptr %741, i64 48
+  %742 = getelementptr inbounds nuw i8, ptr %741, i64 48
   %743 = load ptr, ptr %742, align 8
   call void %743(i64 noundef %0, i32 noundef 1, ptr noundef null, i32 noundef 0) #14
   %744 = load i32, ptr %40, align 8
@@ -5333,7 +5333,7 @@ xml_dump_fill_value.exit:                         ; preds = %456, %468, %484, %5
   %790 = add i32 %789, 3
   store i32 %790, ptr @dump_indent, align 4
   %791 = load ptr, ptr @dump_function_table, align 8
-  %792 = getelementptr inbounds i8, ptr %791, i64 48
+  %792 = getelementptr inbounds nuw i8, ptr %791, i64 48
   %793 = load ptr, ptr %792, align 8
   call void %793(i64 noundef %0, i32 noundef 1, ptr noundef null, i32 noundef 0) #14
   %794 = load i32, ptr %40, align 8
@@ -5419,7 +5419,7 @@ xml_dump_fill_value.exit:                         ; preds = %456, %468, %484, %5
   %852 = add i32 %850, 6
   store i32 %852, ptr @dump_indent, align 4
   %853 = load ptr, ptr @dump_function_table, align 8
-  %854 = getelementptr inbounds i8, ptr %853, i64 48
+  %854 = getelementptr inbounds nuw i8, ptr %853, i64 48
   %855 = load ptr, ptr %854, align 8
   call void %855(i64 noundef %0, i32 noundef 1, ptr noundef null, i32 noundef 0) #14
   %856 = load i32, ptr %40, align 8
@@ -5578,11 +5578,11 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1120) %6, i8 0, i64 1112, i1 false)
   %7 = load i32, ptr @dump_indent, align 4
   %8 = udiv i32 %7, 3
-  %9 = getelementptr inbounds i8, ptr %3, i64 568
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 568
   store i32 %8, ptr %9, align 8
   %10 = zext i32 %7 to i64
   store i64 %10, ptr %3, align 8
@@ -5592,9 +5592,9 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %4, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store ptr %11, ptr %14, align 8
   br label %15
 
@@ -5604,20 +5604,20 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 296
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 296
   store i64 1, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %15, %18
   %.sink = phi i32 [ 65535, %18 ], [ %16, %15 ]
-  %21 = getelementptr inbounds i8, ptr %4, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 288
   store i32 %.sink, ptr %21, align 8
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 40), align 4
-  %23 = getelementptr inbounds i8, ptr %4, i64 420
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 420
   store i32 %22, ptr %23, align 4
   %24 = tail call i32 @H5Tget_nmembers(i64 noundef %0) #14
   %25 = tail call i64 @H5Tget_super(i64 noundef %0) #14
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 1, ptr %26, align 8
   %27 = call ptr @h5tools_str_reset(ptr noundef nonnull %2) #14
   %28 = load ptr, ptr @xmlnsprefix, align 8
@@ -5678,7 +5678,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %58 ]
   %61 = trunc nuw i64 %indvars.iv to i32
   %62 = call ptr @H5Tget_member_name(i64 noundef %0, i32 noundef %61) #14
-  %63 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   store ptr %62, ptr %63, align 8
   %64 = call i64 @H5Tget_size(i64 noundef %0) #14
   %65 = mul i64 %64, %indvars.iv
@@ -5718,7 +5718,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
 
 77:                                               ; preds = %.lr.ph92, %.loopexit
   %indvars.iv104 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next105, %.loopexit ]
-  %78 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv104
+  %78 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv104
   %79 = load ptr, ptr %78, align 8
   %80 = call fastcc ptr @xml_escape_the_name(ptr noundef %79)
   store i32 1, ptr %26, align 8
@@ -5831,7 +5831,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
 
 .lr.ph96:                                         ; preds = %._crit_edge93, %.lr.ph96
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph96 ], [ 0, %._crit_edge93 ]
-  %147 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv109
+  %147 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv109
   %148 = load ptr, ptr %147, align 8
   %149 = call i32 @H5free_memory(ptr noundef %148) #14
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
@@ -5940,7 +5940,7 @@ define internal fastcc noundef ptr @xml_escape_the_string(ptr nocapture noundef 
 
 22:                                               ; preds = %.lr.ph, %12, %16, %20, %18, %14, %10
   %.169 = phi i64 [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %.06876, %.lr.ph ]
-  %23 = getelementptr inbounds i8, ptr %.06378, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.06378, i64 1
   %24 = add nuw i64 %.06577, 1
   %exitcond.not = icmp eq i64 %24, %.067
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -5972,7 +5972,7 @@ define internal fastcc noundef ptr @xml_escape_the_string(ptr nocapture noundef 
   ]
 
 30:                                               ; preds = %.lr.ph83
-  %31 = getelementptr inbounds i8, ptr %.06181, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.06181, i64 1
   store i8 92, ptr %.06181, align 1
   %32 = add i64 %.06082, -1
   %33 = load i8, ptr %.16480, align 1
@@ -5980,7 +5980,7 @@ define internal fastcc noundef ptr @xml_escape_the_string(ptr nocapture noundef 
   br label %47
 
 34:                                               ; preds = %.lr.ph83
-  %35 = getelementptr inbounds i8, ptr %.06181, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.06181, i64 1
   store i8 92, ptr %.06181, align 1
   %36 = add i64 %.06082, -1
   %37 = load i8, ptr %.16480, align 1
@@ -6011,9 +6011,9 @@ define internal fastcc noundef ptr @xml_escape_the_string(ptr nocapture noundef 
   %.162 = phi ptr [ %31, %30 ], [ %35, %34 ], [ %.06181, %38 ], [ %.06181, %40 ], [ %.06181, %42 ], [ %.06181, %44 ], [ %.06181, %46 ]
   %.1 = phi i64 [ %32, %30 ], [ %36, %34 ], [ %.06082, %38 ], [ %.06082, %40 ], [ %.06082, %42 ], [ %.06082, %44 ], [ %.06082, %46 ]
   %.0 = phi i64 [ 1, %30 ], [ 1, %34 ], [ 6, %38 ], [ 4, %40 ], [ 4, %42 ], [ 5, %44 ], [ 1, %46 ]
-  %48 = getelementptr inbounds i8, ptr %.162, i64 %.0
+  %48 = getelementptr inbounds nuw i8, ptr %.162, i64 %.0
   %49 = sub i64 %.1, %.0
-  %50 = getelementptr inbounds i8, ptr %.16480, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.16480, i64 1
   %51 = add nuw i64 %.16679, 1
   %exitcond87.not = icmp eq i64 %51, %.067
   br i1 %exitcond87.not, label %._crit_edge84, label %.lr.ph83

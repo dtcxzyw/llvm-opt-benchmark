@@ -244,278 +244,278 @@ define hidden void @xmpp_iq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %6 = alloca [29 x %struct._xmpp_elem_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %5, ptr noundef nonnull align 16 dereferenceable(240) @__const.xmpp_iq.attrs_info, i64 240, i1 false)
   store i32 2, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @xmpp_name_attr_struct(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.12) #4
   store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @xmpp_disco_items_query, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 2, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %6, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %15 = load ptr, ptr %8, align 8
   %16 = tail call ptr @xmpp_name_attr_struct(ptr noundef %15, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.13) #4
   store ptr %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @xmpp_roster_query, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %6, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 2, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %6, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %21 = load ptr, ptr %8, align 8
   %22 = tail call ptr @xmpp_name_attr_struct(ptr noundef %21, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.14) #4
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr @xmpp_disco_info_query, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %6, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 2, ptr %25, align 16
-  %26 = getelementptr inbounds i8, ptr %6, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %27 = load ptr, ptr %8, align 8
   %28 = tail call ptr @xmpp_name_attr_struct(ptr noundef %27, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.15) #4
   store ptr %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr @xmpp_bytestreams_query, ptr %29, align 16
-  %30 = getelementptr inbounds i8, ptr %6, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %6, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store i32 2, ptr %31, align 16
-  %32 = getelementptr inbounds i8, ptr %6, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %33 = load ptr, ptr %8, align 8
   %34 = tail call ptr @xmpp_name_attr_struct(ptr noundef %33, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.16) #4
   store ptr %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store ptr @xmpp_muc_owner_query, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %6, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 160
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store i32 2, ptr %37, align 16
-  %38 = getelementptr inbounds i8, ptr %6, i64 168
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %39 = load ptr, ptr %8, align 8
   %40 = tail call ptr @xmpp_name_attr_struct(ptr noundef %39, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.17) #4
   store ptr %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %6, i64 176
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store ptr @xmpp_muc_admin_query, ptr %41, align 16
-  %42 = getelementptr inbounds i8, ptr %6, i64 184
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i32 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 192
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store i32 0, ptr %43, align 16
-  %44 = getelementptr inbounds i8, ptr %6, i64 200
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr @.str.18, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 208
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr @xmpp_iq_bind, ptr %45, align 16
-  %46 = getelementptr inbounds i8, ptr %6, i64 216
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 224
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 224
   store i32 2, ptr %47, align 16
-  %48 = getelementptr inbounds i8, ptr %6, i64 232
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %49 = load ptr, ptr %8, align 8
   %50 = tail call ptr @xmpp_name_attr_struct(ptr noundef %49, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.20) #4
   store ptr %50, ptr %48, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 240
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 240
   store ptr @xmpp_session, ptr %51, align 16
-  %52 = getelementptr inbounds i8, ptr %6, i64 248
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 248
   store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 256
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 256
   store i32 0, ptr %53, align 16
-  %54 = getelementptr inbounds i8, ptr %6, i64 264
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 264
   store ptr @.str.21, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 272
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 272
   store ptr @xmpp_vcard, ptr %55, align 16
-  %56 = getelementptr inbounds i8, ptr %6, i64 280
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 280
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 288
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i32 0, ptr %57, align 16
-  %58 = getelementptr inbounds i8, ptr %6, i64 296
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store ptr @.str.22, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 304
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 304
   store ptr @xmpp_jingle, ptr %59, align 16
-  %60 = getelementptr inbounds i8, ptr %6, i64 312
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 312
   store i32 0, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 320
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 320
   store i32 2, ptr %61, align 16
-  %62 = getelementptr inbounds i8, ptr %6, i64 328
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 328
   %63 = load ptr, ptr %8, align 8
   %64 = tail call ptr @xmpp_name_attr_struct(ptr noundef %63, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.24) #4
   store ptr %64, ptr %62, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 336
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 336
   store ptr @xmpp_jinglenodes_services, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %6, i64 344
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 344
   store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 352
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 352
   store i32 2, ptr %67, align 16
-  %68 = getelementptr inbounds i8, ptr %6, i64 360
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 360
   %69 = load ptr, ptr %8, align 8
   %70 = tail call ptr @xmpp_name_attr_struct(ptr noundef %69, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.26) #4
   store ptr %70, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 368
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 368
   store ptr @xmpp_jinglenodes_channel, ptr %71, align 16
-  %72 = getelementptr inbounds i8, ptr %6, i64 376
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 376
   store i32 0, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %6, i64 384
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 384
   store i32 2, ptr %73, align 16
-  %74 = getelementptr inbounds i8, ptr %6, i64 392
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %75 = load ptr, ptr %8, align 8
   %76 = tail call ptr @xmpp_name_attr_struct(ptr noundef %75, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.28) #4
   store ptr %76, ptr %74, align 8
-  %77 = getelementptr inbounds i8, ptr %6, i64 400
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 400
   store ptr @xmpp_ibb_open, ptr %77, align 16
-  %78 = getelementptr inbounds i8, ptr %6, i64 408
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 408
   store i32 0, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %6, i64 416
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 416
   store i32 2, ptr %79, align 16
-  %80 = getelementptr inbounds i8, ptr %6, i64 424
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 424
   %81 = load ptr, ptr %8, align 8
   %82 = tail call ptr @xmpp_name_attr_struct(ptr noundef %81, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.28) #4
   store ptr %82, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %6, i64 432
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 432
   store ptr @xmpp_ibb_close, ptr %83, align 16
-  %84 = getelementptr inbounds i8, ptr %6, i64 440
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 440
   store i32 0, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %6, i64 448
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 448
   store i32 2, ptr %85, align 16
-  %86 = getelementptr inbounds i8, ptr %6, i64 456
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 456
   %87 = load ptr, ptr %8, align 8
   %88 = tail call ptr @xmpp_name_attr_struct(ptr noundef %87, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.28) #4
   store ptr %88, ptr %86, align 8
-  %89 = getelementptr inbounds i8, ptr %6, i64 464
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 464
   store ptr @xmpp_ibb_data, ptr %89, align 16
-  %90 = getelementptr inbounds i8, ptr %6, i64 472
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 472
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %6, i64 480
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 480
   store i32 0, ptr %91, align 16
-  %92 = getelementptr inbounds i8, ptr %6, i64 488
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 488
   store ptr @.str.31, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %6, i64 496
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 496
   store ptr @xmpp_si, ptr %93, align 16
-  %94 = getelementptr inbounds i8, ptr %6, i64 504
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 504
   store i32 0, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %6, i64 512
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 512
   store i32 0, ptr %95, align 16
-  %96 = getelementptr inbounds i8, ptr %6, i64 520
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 520
   store ptr @.str.32, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %6, i64 528
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 528
   store ptr @xmpp_error, ptr %97, align 16
-  %98 = getelementptr inbounds i8, ptr %6, i64 536
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 536
   store i32 0, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %6, i64 544
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 544
   store i32 2, ptr %99, align 16
-  %100 = getelementptr inbounds i8, ptr %6, i64 552
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 552
   %101 = load ptr, ptr %8, align 8
   %102 = tail call ptr @xmpp_name_attr_struct(ptr noundef %101, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.33) #4
   store ptr %102, ptr %100, align 8
-  %103 = getelementptr inbounds i8, ptr %6, i64 560
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 560
   store ptr @xmpp_gtalk_session, ptr %103, align 16
-  %104 = getelementptr inbounds i8, ptr %6, i64 568
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 568
   store i32 0, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %6, i64 576
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 576
   store i32 2, ptr %105, align 16
-  %106 = getelementptr inbounds i8, ptr %6, i64 584
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 584
   %107 = load ptr, ptr %8, align 8
   %108 = tail call ptr @xmpp_name_attr_struct(ptr noundef %107, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.34) #4
   store ptr %108, ptr %106, align 8
-  %109 = getelementptr inbounds i8, ptr %6, i64 592
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 592
   store ptr @xmpp_gtalk_jingleinfo_query, ptr %109, align 16
-  %110 = getelementptr inbounds i8, ptr %6, i64 600
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 600
   store i32 0, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %6, i64 608
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 608
   store i32 2, ptr %111, align 16
-  %112 = getelementptr inbounds i8, ptr %6, i64 616
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 616
   %113 = load ptr, ptr %8, align 8
   %114 = tail call ptr @xmpp_name_attr_struct(ptr noundef %113, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.36) #4
   store ptr %114, ptr %112, align 8
-  %115 = getelementptr inbounds i8, ptr %6, i64 624
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 624
   store ptr @xmpp_gtalk_usersetting, ptr %115, align 16
-  %116 = getelementptr inbounds i8, ptr %6, i64 632
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 632
   store i32 0, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %6, i64 640
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 640
   store i32 2, ptr %117, align 16
-  %118 = getelementptr inbounds i8, ptr %6, i64 648
+  %118 = getelementptr inbounds nuw i8, ptr %6, i64 648
   %119 = load ptr, ptr %8, align 8
   %120 = tail call ptr @xmpp_name_attr_struct(ptr noundef %119, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.37) #4
   store ptr %120, ptr %118, align 8
-  %121 = getelementptr inbounds i8, ptr %6, i64 656
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 656
   store ptr @xmpp_last_query, ptr %121, align 16
-  %122 = getelementptr inbounds i8, ptr %6, i64 664
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 664
   store i32 0, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %6, i64 672
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 672
   store i32 2, ptr %123, align 16
-  %124 = getelementptr inbounds i8, ptr %6, i64 680
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 680
   %125 = load ptr, ptr %8, align 8
   %126 = tail call ptr @xmpp_name_attr_struct(ptr noundef %125, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.38) #4
   store ptr %126, ptr %124, align 8
-  %127 = getelementptr inbounds i8, ptr %6, i64 688
+  %127 = getelementptr inbounds nuw i8, ptr %6, i64 688
   store ptr @xmpp_version_query, ptr %127, align 16
-  %128 = getelementptr inbounds i8, ptr %6, i64 696
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 696
   store i32 0, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %6, i64 704
+  %129 = getelementptr inbounds nuw i8, ptr %6, i64 704
   store i32 2, ptr %129, align 16
-  %130 = getelementptr inbounds i8, ptr %6, i64 712
+  %130 = getelementptr inbounds nuw i8, ptr %6, i64 712
   %131 = load ptr, ptr %8, align 8
   %132 = tail call ptr @xmpp_name_attr_struct(ptr noundef %131, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.39) #4
   store ptr %132, ptr %130, align 8
-  %133 = getelementptr inbounds i8, ptr %6, i64 720
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 720
   store ptr @xmpp_gtalk_mail_query, ptr %133, align 16
-  %134 = getelementptr inbounds i8, ptr %6, i64 728
+  %134 = getelementptr inbounds nuw i8, ptr %6, i64 728
   store i32 0, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %6, i64 736
+  %135 = getelementptr inbounds nuw i8, ptr %6, i64 736
   store i32 0, ptr %135, align 16
-  %136 = getelementptr inbounds i8, ptr %6, i64 744
+  %136 = getelementptr inbounds nuw i8, ptr %6, i64 744
   store ptr @.str.40, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %6, i64 752
+  %137 = getelementptr inbounds nuw i8, ptr %6, i64 752
   store ptr @xmpp_gtalk_mail_mailbox, ptr %137, align 16
-  %138 = getelementptr inbounds i8, ptr %6, i64 760
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 760
   store i32 0, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %6, i64 768
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 768
   store i32 0, ptr %139, align 16
-  %140 = getelementptr inbounds i8, ptr %6, i64 776
+  %140 = getelementptr inbounds nuw i8, ptr %6, i64 776
   store ptr @.str.41, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %6, i64 784
+  %141 = getelementptr inbounds nuw i8, ptr %6, i64 784
   store ptr @xmpp_gtalk_mail_new_mail, ptr %141, align 16
-  %142 = getelementptr inbounds i8, ptr %6, i64 792
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 792
   store i32 0, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %6, i64 800
+  %143 = getelementptr inbounds nuw i8, ptr %6, i64 800
   store i32 2, ptr %143, align 16
-  %144 = getelementptr inbounds i8, ptr %6, i64 808
+  %144 = getelementptr inbounds nuw i8, ptr %6, i64 808
   %145 = load ptr, ptr %8, align 8
   %146 = tail call ptr @xmpp_name_attr_struct(ptr noundef %145, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.42) #4
   store ptr %146, ptr %144, align 8
-  %147 = getelementptr inbounds i8, ptr %6, i64 816
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 816
   store ptr @xmpp_gtalk_status_query, ptr %147, align 16
-  %148 = getelementptr inbounds i8, ptr %6, i64 824
+  %148 = getelementptr inbounds nuw i8, ptr %6, i64 824
   store i32 0, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %6, i64 832
+  %149 = getelementptr inbounds nuw i8, ptr %6, i64 832
   store i32 0, ptr %149, align 16
-  %150 = getelementptr inbounds i8, ptr %6, i64 840
+  %150 = getelementptr inbounds nuw i8, ptr %6, i64 840
   store ptr @.str.43, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %6, i64 848
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 848
   store ptr @xmpp_conference_info, ptr %151, align 16
-  %152 = getelementptr inbounds i8, ptr %6, i64 856
+  %152 = getelementptr inbounds nuw i8, ptr %6, i64 856
   store i32 0, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %6, i64 864
+  %153 = getelementptr inbounds nuw i8, ptr %6, i64 864
   store i32 2, ptr %153, align 16
-  %154 = getelementptr inbounds i8, ptr %6, i64 872
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 872
   %155 = load ptr, ptr %8, align 8
   %156 = tail call ptr @xmpp_name_attr_struct(ptr noundef %155, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.45) #4
   store ptr %156, ptr %154, align 8
-  %157 = getelementptr inbounds i8, ptr %6, i64 880
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 880
   store ptr @xmpp_ping, ptr %157, align 16
-  %158 = getelementptr inbounds i8, ptr %6, i64 888
+  %158 = getelementptr inbounds nuw i8, ptr %6, i64 888
   store i32 0, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %6, i64 896
+  %159 = getelementptr inbounds nuw i8, ptr %6, i64 896
   store i32 2, ptr %159, align 16
-  %160 = getelementptr inbounds i8, ptr %6, i64 904
+  %160 = getelementptr inbounds nuw i8, ptr %6, i64 904
   %161 = load ptr, ptr %8, align 8
   %162 = tail call ptr @xmpp_name_attr_struct(ptr noundef %161, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.47) #4
   store ptr %162, ptr %160, align 8
-  %163 = getelementptr inbounds i8, ptr %6, i64 912
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 912
   store ptr @xmpp_jitsi_inputevt, ptr %163, align 16
-  %164 = getelementptr inbounds i8, ptr %6, i64 920
+  %164 = getelementptr inbounds nuw i8, ptr %6, i64 920
   store i32 0, ptr %164, align 8
   %165 = tail call ptr @xmpp_get_attr(ptr noundef %3, ptr noundef nonnull @.str.6) #4
   %166 = tail call ptr @xmpp_get_attr(ptr noundef %3, ptr noundef nonnull @.str.7) #4
@@ -523,15 +523,15 @@ define hidden void @xmpp_iq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %168 = load i32, ptr @proto_xmpp, align 4
   %169 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %167, i32 noundef %168) #4
   %170 = load i32, ptr @hf_xmpp_iq, align 4
-  %171 = getelementptr inbounds i8, ptr %3, i64 48
+  %171 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %172 = load i32, ptr %171, align 8
-  %173 = getelementptr inbounds i8, ptr %3, i64 52
+  %173 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %174 = load i32, ptr %173, align 4
   %175 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %170, ptr noundef %1, i32 noundef %172, i32 noundef %174, i32 noundef -2147483648) #4
   %176 = load i32, ptr @ett_xmpp_iq, align 4
   %177 = tail call ptr @proto_item_add_subtree(ptr noundef %175, i32 noundef %176) #4
   call void @xmpp_display_attrs(ptr noundef %177, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 6) #4
-  %178 = getelementptr inbounds i8, ptr %2, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %179 = load ptr, ptr %178, align 8
   %.not = icmp eq ptr %166, null
   br i1 %.not, label %182, label %180
@@ -550,7 +550,7 @@ define hidden void @xmpp_iq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %or.cond, label %186, label %proto_item_set_generated.exit106
 
 186:                                              ; preds = %182
-  %187 = getelementptr inbounds i8, ptr %169, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = load ptr, ptr %165, align 8
   %190 = call ptr @wmem_tree_lookup_string(ptr noundef %188, ptr noundef %189, i32 noundef 1) #4
@@ -564,20 +564,20 @@ define hidden void @xmpp_iq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %194
 
 194:                                              ; preds = %191
-  %195 = getelementptr inbounds i8, ptr %193, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 32
   %196 = load ptr, ptr %195, align 8
   %.not5.i = icmp eq ptr %196, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %197
 
 197:                                              ; preds = %194
-  %198 = getelementptr inbounds i8, ptr %196, i64 28
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 28
   %199 = load i32, ptr %198, align 4
   %200 = or i32 %199, 2
   store i32 %200, ptr %198, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %197, %194, %191, %186
-  %201 = getelementptr inbounds i8, ptr %169, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %202 = load ptr, ptr %201, align 8
   %203 = load ptr, ptr %165, align 8
   %204 = call ptr @wmem_tree_lookup_string(ptr noundef %202, ptr noundef %203, i32 noundef 1) #4
@@ -591,20 +591,20 @@ proto_item_set_generated.exit:                    ; preds = %197, %194, %191, %1
   br i1 %.not.i98, label %proto_item_set_generated.exit100, label %208
 
 208:                                              ; preds = %205
-  %209 = getelementptr inbounds i8, ptr %207, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %207, i64 32
   %210 = load ptr, ptr %209, align 8
   %.not5.i99 = icmp eq ptr %210, null
   br i1 %.not5.i99, label %proto_item_set_generated.exit100, label %211
 
 211:                                              ; preds = %208
-  %212 = getelementptr inbounds i8, ptr %210, i64 28
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 28
   %213 = load i32, ptr %212, align 4
   %214 = or i32 %213, 2
   store i32 %214, ptr %212, align 4
   br label %proto_item_set_generated.exit100
 
 proto_item_set_generated.exit100:                 ; preds = %211, %208, %205, %proto_item_set_generated.exit
-  %215 = getelementptr inbounds i8, ptr %169, i64 24
+  %215 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %216 = load ptr, ptr %215, align 8
   %217 = load ptr, ptr %165, align 8
   %218 = call ptr @wmem_tree_lookup_string(ptr noundef %216, ptr noundef %217, i32 noundef 1) #4
@@ -618,13 +618,13 @@ proto_item_set_generated.exit100:                 ; preds = %211, %208, %205, %p
   br i1 %.not.i101, label %proto_item_set_generated.exit103, label %222
 
 222:                                              ; preds = %219
-  %223 = getelementptr inbounds i8, ptr %221, i64 32
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 32
   %224 = load ptr, ptr %223, align 8
   %.not5.i102 = icmp eq ptr %224, null
   br i1 %.not5.i102, label %proto_item_set_generated.exit103, label %225
 
 225:                                              ; preds = %222
-  %226 = getelementptr inbounds i8, ptr %224, i64 28
+  %226 = getelementptr inbounds nuw i8, ptr %224, i64 28
   %227 = load i32, ptr %226, align 4
   %228 = or i32 %227, 2
   store i32 %228, ptr %226, align 4
@@ -639,13 +639,13 @@ proto_item_set_generated.exit103:                 ; preds = %225, %222, %219, %p
 
 232:                                              ; preds = %proto_item_set_generated.exit103
   %233 = load i32, ptr %231, align 4
-  %234 = getelementptr inbounds i8, ptr %2, i64 20
+  %234 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %235 = load i32, ptr %234, align 4
   %236 = icmp eq i32 %233, %235
   br i1 %236, label %237, label %252
 
 237:                                              ; preds = %232
-  %238 = getelementptr inbounds i8, ptr %231, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %231, i64 4
   %239 = load i32, ptr %238, align 4
   %.not97 = icmp eq i32 %239, 0
   br i1 %.not97, label %250, label %240
@@ -657,13 +657,13 @@ proto_item_set_generated.exit103:                 ; preds = %225, %222, %219, %p
   br i1 %.not.i104, label %proto_item_set_generated.exit106, label %243
 
 243:                                              ; preds = %240
-  %244 = getelementptr inbounds i8, ptr %242, i64 32
+  %244 = getelementptr inbounds nuw i8, ptr %242, i64 32
   %245 = load ptr, ptr %244, align 8
   %.not5.i105 = icmp eq ptr %245, null
   br i1 %.not5.i105, label %proto_item_set_generated.exit106, label %246
 
 246:                                              ; preds = %243
-  %247 = getelementptr inbounds i8, ptr %245, i64 28
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 28
   %248 = load i32, ptr %247, align 4
   %249 = or i32 %248, 2
   store i32 %249, ptr %247, align 4
@@ -684,13 +684,13 @@ proto_item_set_generated.exit103:                 ; preds = %225, %222, %219, %p
   br i1 %.not.i107, label %proto_item_set_generated.exit106, label %256
 
 256:                                              ; preds = %253
-  %257 = getelementptr inbounds i8, ptr %255, i64 32
+  %257 = getelementptr inbounds nuw i8, ptr %255, i64 32
   %258 = load ptr, ptr %257, align 8
   %.not5.i108 = icmp eq ptr %258, null
   br i1 %.not5.i108, label %proto_item_set_generated.exit106, label %259
 
 259:                                              ; preds = %256
-  %260 = getelementptr inbounds i8, ptr %258, i64 28
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 28
   %261 = load i32, ptr %260, align 4
   %262 = or i32 %261, 2
   store i32 %262, ptr %260, align 4
@@ -745,13 +745,13 @@ declare void @xmpp_si(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 define internal void @xmpp_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca [3 x %struct._xmpp_attr_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %5, ptr noundef nonnull align 16 dereferenceable(120) @__const.xmpp_error.attrs_info, i64 120, i1 false)
-  %6 = getelementptr inbounds i8, ptr %2, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @wmem_strdup(ptr noundef %7, ptr noundef nonnull @.str.119) #4
   %9 = load i32, ptr @hf_xmpp_error, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %13 = load i32, ptr %12, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %11, i32 noundef %13, i32 noundef 0) #4
   %15 = load i32, ptr @ett_xmpp_query_item, align 4
@@ -763,12 +763,12 @@ define internal void @xmpp_error(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 18:                                               ; preds = %4
   %19 = load ptr, ptr %6, align 8
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 52
   %24 = load i32, ptr %23, align 4
   %25 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %19, ptr noundef %20, i32 noundef %22, i32 noundef %24) #4
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @g_hash_table_insert(ptr noundef %27, ptr noundef nonnull @.str.88, ptr noundef %25) #4
   %29 = load ptr, ptr %6, align 8
@@ -787,11 +787,11 @@ define internal void @xmpp_error(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %34 = phi ptr [ %53, %50 ], [ %33, %32 ]
   %.142 = phi ptr [ %52, %50 ], [ %.0, %32 ]
   %35 = load i32, ptr @hf_xmpp_error_text, align 4
-  %36 = getelementptr inbounds i8, ptr %34, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %34, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 52
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %34, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %41 = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %xmpp_error_text.exit, label %42
@@ -878,152 +878,152 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 define hidden void @xmpp_presence(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [7 x %struct._xmpp_attr_info], align 16
   %6 = alloca [9 x %struct._xmpp_elem_info], align 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @xmpp_ep_init_array_t(ptr noundef %8, ptr noundef nonnull @xmpp_presence.type_enums, i32 noundef 7) #4
   %10 = load ptr, ptr %7, align 8
   %11 = tail call ptr @xmpp_ep_init_array_t(ptr noundef %10, ptr noundef nonnull @xmpp_presence.show_enums, i32 noundef 4) #4
   store ptr @.str.8, ptr %5, align 16
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @hf_xmpp_from, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
-  %14 = getelementptr inbounds i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store ptr @.str.6, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr @hf_xmpp_id, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %5, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 60
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 1, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %5, i64 64
-  %19 = getelementptr inbounds i8, ptr %5, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store ptr @.str.9, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %5, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr @hf_xmpp_to, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 96
-  %22 = getelementptr inbounds i8, ptr %5, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   store ptr @.str.7, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr @hf_xmpp_type, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %5, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 140
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 140
   store i32 1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store ptr @xmpp_val_enum_list, ptr %26, align 16
-  %27 = getelementptr inbounds i8, ptr %5, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store ptr %9, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %28, i8 0, i64 40, i1 false)
   store ptr @.str.10, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %5, i64 200
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 200
   store ptr @.str.60, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 208
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 208
   store ptr @hf_xmpp_presence_show, ptr %30, align 16
-  %31 = getelementptr inbounds i8, ptr %5, i64 216
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 220
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 220
   store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 224
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 224
   store ptr @xmpp_val_enum_list, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %5, i64 232
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 232
   store ptr %11, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 240
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %35, i8 0, i64 40, i1 false)
   store ptr @.str.61, ptr %35, align 16
   store i32 0, ptr %6, align 16
-  %36 = getelementptr inbounds i8, ptr %6, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.62, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @xmpp_presence_status, ptr %37, align 16
-  %38 = getelementptr inbounds i8, ptr %6, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 2, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %6, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %41 = load ptr, ptr %7, align 8
   %42 = tail call ptr @xmpp_name_attr_struct(ptr noundef %41, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.64) #4
   store ptr %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @xmpp_presence_caps, ptr %43, align 16
-  %44 = getelementptr inbounds i8, ptr %6, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 0, ptr %45, align 16
-  %46 = getelementptr inbounds i8, ptr %6, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr @.str.65, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr @xmpp_delay, ptr %47, align 16
-  %48 = getelementptr inbounds i8, ptr %6, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 2, ptr %49, align 16
-  %50 = getelementptr inbounds i8, ptr %6, i64 104
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %51 = load ptr, ptr %7, align 8
   %52 = tail call ptr @xmpp_name_attr_struct(ptr noundef %51, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.67) #4
   store ptr %52, ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr @xmpp_delay, ptr %53, align 16
-  %54 = getelementptr inbounds i8, ptr %6, i64 120
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 128
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store i32 2, ptr %55, align 16
-  %56 = getelementptr inbounds i8, ptr %6, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %57 = load ptr, ptr %7, align 8
   %58 = tail call ptr @xmpp_name_attr_struct(ptr noundef %57, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.68) #4
   store ptr %58, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 144
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store ptr @xmpp_vcard_x_update, ptr %59, align 16
-  %60 = getelementptr inbounds i8, ptr %6, i64 152
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store i32 0, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 160
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store i32 2, ptr %61, align 16
-  %62 = getelementptr inbounds i8, ptr %6, i64 168
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %63 = load ptr, ptr %7, align 8
   %64 = tail call ptr @xmpp_name_attr_struct(ptr noundef %63, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.69) #4
   store ptr %64, ptr %62, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 176
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store ptr @xmpp_muc_x, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %6, i64 184
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i32 0, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 192
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store i32 2, ptr %67, align 16
-  %68 = getelementptr inbounds i8, ptr %6, i64 200
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %69 = load ptr, ptr %7, align 8
   %70 = tail call ptr @xmpp_name_attr_struct(ptr noundef %69, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.70) #4
   store ptr %70, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 208
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr @xmpp_muc_user_x, ptr %71, align 16
-  %72 = getelementptr inbounds i8, ptr %6, i64 216
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store i32 0, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %6, i64 224
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 224
   store i32 0, ptr %73, align 16
-  %74 = getelementptr inbounds i8, ptr %6, i64 232
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 232
   store ptr @.str.32, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 240
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 240
   store ptr @xmpp_error, ptr %75, align 16
-  %76 = getelementptr inbounds i8, ptr %6, i64 248
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 248
   store i32 0, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %6, i64 256
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 256
   store i32 2, ptr %77, align 16
-  %78 = getelementptr inbounds i8, ptr %6, i64 264
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %79 = load ptr, ptr %7, align 8
   %80 = tail call ptr @xmpp_name_attr_struct(ptr noundef %79, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.37) #4
   store ptr %80, ptr %78, align 8
-  %81 = getelementptr inbounds i8, ptr %6, i64 272
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 272
   store ptr @xmpp_last_query, ptr %81, align 16
-  %82 = getelementptr inbounds i8, ptr %6, i64 280
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 280
   store i32 0, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %2, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %84 = load ptr, ptr %83, align 8
   tail call void @col_set_str(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.71) #4
   %85 = load i32, ptr @hf_xmpp_presence, align 4
-  %86 = getelementptr inbounds i8, ptr %3, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %3, i64 52
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %89 = load i32, ptr %88, align 4
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %85, ptr noundef %1, i32 noundef %87, i32 noundef %89, i32 noundef 0) #4
   %91 = load i32, ptr @ett_xmpp_presence, align 4
@@ -1034,7 +1034,7 @@ define hidden void @xmpp_presence(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 94:                                               ; preds = %4
   %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 40
   %97 = load ptr, ptr %96, align 8
   %.not43 = icmp eq ptr %97, null
   br i1 %.not43, label %100, label %98
@@ -1045,12 +1045,12 @@ define hidden void @xmpp_presence(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 100:                                              ; preds = %94, %98
   %101 = phi ptr [ %99, %98 ], [ @.str.49, %94 ]
-  %102 = getelementptr inbounds i8, ptr %93, i64 48
+  %102 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %103 = load i32, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %93, i64 52
+  %104 = getelementptr inbounds nuw i8, ptr %93, i64 52
   %105 = load i32, ptr %104, align 4
   %106 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %95, ptr noundef %101, i32 noundef %103, i32 noundef %105) #4
-  %107 = getelementptr inbounds i8, ptr %3, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %108 = load ptr, ptr %107, align 8
   %109 = tail call i32 @g_hash_table_insert(ptr noundef %108, ptr noundef nonnull @.str.60, ptr noundef %106) #4
   br label %110
@@ -1062,7 +1062,7 @@ define hidden void @xmpp_presence(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 112:                                              ; preds = %110
   %113 = load ptr, ptr %7, align 8
-  %114 = getelementptr inbounds i8, ptr %111, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 40
   %115 = load ptr, ptr %114, align 8
   %.not45 = icmp eq ptr %115, null
   br i1 %.not45, label %118, label %116
@@ -1073,12 +1073,12 @@ define hidden void @xmpp_presence(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 118:                                              ; preds = %112, %116
   %119 = phi ptr [ %117, %116 ], [ @.str.49, %112 ]
-  %120 = getelementptr inbounds i8, ptr %111, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %111, i64 52
+  %122 = getelementptr inbounds nuw i8, ptr %111, i64 52
   %123 = load i32, ptr %122, align 4
   %124 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %113, ptr noundef %119, i32 noundef %121, i32 noundef %123) #4
-  %125 = getelementptr inbounds i8, ptr %3, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %126 = load ptr, ptr %125, align 8
   %127 = tail call i32 @g_hash_table_insert(ptr noundef %126, ptr noundef nonnull @.str.61, ptr noundef %124) #4
   br label %128
@@ -1101,17 +1101,17 @@ define internal void @xmpp_presence_status(ptr noundef %0, ptr noundef %1, ptr n
   %5 = alloca [2 x %struct._xmpp_attr_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, ptr noundef nonnull align 16 dereferenceable(80) @__const.xmpp_message_body.attrs_info, i64 80, i1 false)
   %6 = load i32, ptr @hf_xmpp_presence_status, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %8, i32 noundef %10, i32 noundef 0) #4
   %12 = load i32, ptr @ett_xmpp_presence_status, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
-  %14 = getelementptr inbounds i8, ptr %3, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %2, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %17 = load ptr, ptr %16, align 8
   br i1 %.not, label %20, label %18
 
@@ -1124,7 +1124,7 @@ define internal void @xmpp_presence_status(ptr noundef %0, ptr noundef %1, ptr n
   %21 = load i32, ptr %7, align 8
   %22 = load i32, ptr %9, align 4
   %23 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %17, ptr noundef %.str.125.sink, i32 noundef %21, i32 noundef %22) #4
-  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @g_hash_table_insert(ptr noundef %25, ptr noundef nonnull @.str.124, ptr noundef %23) #4
   call void @xmpp_display_attrs(ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 2) #4
@@ -1154,135 +1154,135 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 define hidden void @xmpp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [6 x %struct._xmpp_attr_info], align 16
   %6 = alloca [9 x %struct._xmpp_elem_info], align 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @xmpp_ep_init_array_t(ptr noundef %8, ptr noundef nonnull @xmpp_message.type_enums, i32 noundef 5) #4
   store ptr @.str.8, ptr %5, align 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @hf_xmpp_from, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   store ptr @.str.6, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr @hf_xmpp_id, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %5, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 64
-  %17 = getelementptr inbounds i8, ptr %5, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   store ptr @.str.9, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %5, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr @hf_xmpp_to, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 96
-  %20 = getelementptr inbounds i8, ptr %5, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   store ptr @.str.7, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr @hf_xmpp_type, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %5, i64 136
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 140
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 140
   store i32 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 144
   store ptr @xmpp_val_enum_list, ptr %24, align 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store ptr %9, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %26, i8 0, i64 40, i1 false)
   store ptr @.str.10, ptr %26, align 16
-  %27 = getelementptr inbounds i8, ptr %5, i64 200
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 200
   store ptr @.str.75, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 208
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 208
   store ptr @hf_xmpp_message_chatstate, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %5, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 220
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 220
   store i32 1, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 224
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 224
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   store i32 2, ptr %6, align 16
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %33 = load ptr, ptr %7, align 8
   %34 = tail call ptr @xmpp_name_attr_struct(ptr noundef %33, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.28) #4
   store ptr %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @xmpp_ibb_data, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %6, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %37, align 16
-  %38 = getelementptr inbounds i8, ptr %6, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr @.str.76, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @xmpp_message_thread, ptr %39, align 16
-  %40 = getelementptr inbounds i8, ptr %6, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %6, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 0, ptr %41, align 16
-  %42 = getelementptr inbounds i8, ptr %6, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr @.str.77, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr @xmpp_message_body, ptr %43, align 16
-  %44 = getelementptr inbounds i8, ptr %6, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 0, ptr %45, align 16
-  %46 = getelementptr inbounds i8, ptr %6, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr @.str.78, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr @xmpp_message_subject, ptr %47, align 16
-  %48 = getelementptr inbounds i8, ptr %6, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i32 1, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store i32 0, ptr %49, align 16
-  %50 = getelementptr inbounds i8, ptr %6, i64 136
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store ptr @.str.65, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 144
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store ptr @xmpp_delay, ptr %51, align 16
-  %52 = getelementptr inbounds i8, ptr %6, i64 152
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 160
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store i32 2, ptr %53, align 16
-  %54 = getelementptr inbounds i8, ptr %6, i64 168
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %55 = load ptr, ptr %7, align 8
   %56 = tail call ptr @xmpp_name_attr_struct(ptr noundef %55, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.79) #4
   store ptr %56, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 176
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store ptr @xmpp_x_event, ptr %57, align 16
-  %58 = getelementptr inbounds i8, ptr %6, i64 184
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i32 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 192
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store i32 2, ptr %59, align 16
-  %60 = getelementptr inbounds i8, ptr %6, i64 200
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %61 = load ptr, ptr %7, align 8
   %62 = tail call ptr @xmpp_name_attr_struct(ptr noundef %61, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.70) #4
   store ptr %62, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 208
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr @xmpp_muc_user_x, ptr %63, align 16
-  %64 = getelementptr inbounds i8, ptr %6, i64 216
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store i32 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 224
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 224
   store i32 2, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %6, i64 232
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %67 = load ptr, ptr %7, align 8
   %68 = tail call ptr @xmpp_name_attr_struct(ptr noundef %67, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.80) #4
   store ptr %68, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 240
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 240
   store ptr @xmpp_gtalk_nosave_x, ptr %69, align 16
-  %70 = getelementptr inbounds i8, ptr %6, i64 248
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 248
   store i32 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 256
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 256
   store i32 0, ptr %71, align 16
-  %72 = getelementptr inbounds i8, ptr %6, i64 264
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 264
   store ptr @.str.32, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %6, i64 272
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 272
   store ptr @xmpp_error, ptr %73, align 16
-  %74 = getelementptr inbounds i8, ptr %6, i64 280
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 280
   store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %2, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %76 = load ptr, ptr %75, align 8
   tail call void @col_set_str(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.81) #4
   %77 = tail call ptr @xmpp_get_attr(ptr noundef %3, ptr noundef nonnull @.str.6) #4
@@ -1290,9 +1290,9 @@ define hidden void @xmpp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %79 = load i32, ptr @proto_xmpp, align 4
   %80 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %78, i32 noundef %79) #4
   %81 = load i32, ptr @hf_xmpp_message, align 4
-  %82 = getelementptr inbounds i8, ptr %3, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %3, i64 52
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %85 = load i32, ptr %84, align 4
   %86 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %81, ptr noundef %1, i32 noundef %83, i32 noundef %85, i32 noundef 0) #4
   %87 = load i32, ptr @ett_xmpp_message, align 4
@@ -1304,12 +1304,12 @@ define hidden void @xmpp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 90:                                               ; preds = %4
   %91 = load ptr, ptr %7, align 8
   %92 = load ptr, ptr %89, align 8
-  %93 = getelementptr inbounds i8, ptr %89, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 48
   %94 = load i32, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %89, i64 52
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 52
   %96 = load i32, ptr %95, align 4
   %97 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %91, ptr noundef %92, i32 noundef %94, i32 noundef %96) #4
-  %98 = getelementptr inbounds i8, ptr %3, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %99 = load ptr, ptr %98, align 8
   %100 = tail call i32 @g_hash_table_insert(ptr noundef %99, ptr noundef nonnull @.str.75, ptr noundef %97) #4
   br label %101
@@ -1323,7 +1323,7 @@ define hidden void @xmpp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond, label %104, label %proto_item_set_generated.exit
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %80, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %77, align 8
   %108 = call ptr @wmem_tree_lookup_string(ptr noundef %106, ptr noundef %107, i32 noundef 1) #4
@@ -1337,13 +1337,13 @@ define hidden void @xmpp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %111, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %114 = load ptr, ptr %113, align 8
   %.not5.i = icmp eq ptr %114, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %115
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %114, i64 28
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 28
   %117 = load i32, ptr %116, align 4
   %118 = or i32 %117, 2
   store i32 %118, ptr %116, align 4
@@ -1358,16 +1358,16 @@ define internal void @xmpp_message_thread(ptr noundef %0, ptr noundef %1, ptr no
   %5 = alloca [2 x %struct._xmpp_attr_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, ptr noundef nonnull align 16 dereferenceable(80) @__const.xmpp_message_thread.attrs_info, i64 80, i1 false)
   %6 = load i32, ptr @hf_xmpp_message_thread, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %8, i32 noundef %10, i32 noundef 0) #4
   %12 = load i32, ptr @ett_xmpp_message_thread, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
-  %14 = getelementptr inbounds i8, ptr %2, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %20, label %18
@@ -1381,7 +1381,7 @@ define internal void @xmpp_message_thread(ptr noundef %0, ptr noundef %1, ptr no
   %22 = load i32, ptr %7, align 8
   %23 = load i32, ptr %9, align 4
   %24 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %15, ptr noundef %21, i32 noundef %22, i32 noundef %23) #4
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef nonnull @.str.124, ptr noundef %24) #4
   call void @xmpp_display_attrs(ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 2) #4
@@ -1394,16 +1394,16 @@ define internal void @xmpp_message_body(ptr noundef %0, ptr noundef %1, ptr noun
   %5 = alloca [2 x %struct._xmpp_attr_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, ptr noundef nonnull align 16 dereferenceable(80) @__const.xmpp_message_body.attrs_info, i64 80, i1 false)
   %6 = load i32, ptr @hf_xmpp_message_body, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %8, i32 noundef %10, i32 noundef 0) #4
   %12 = load i32, ptr @ett_xmpp_message_body, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
-  %14 = getelementptr inbounds i8, ptr %2, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %20, label %18
@@ -1417,7 +1417,7 @@ define internal void @xmpp_message_body(ptr noundef %0, ptr noundef %1, ptr noun
   %22 = load i32, ptr %7, align 8
   %23 = load i32, ptr %9, align 4
   %24 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %15, ptr noundef %21, i32 noundef %22, i32 noundef %23) #4
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef nonnull @.str.124, ptr noundef %24) #4
   call void @xmpp_display_attrs(ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 2) #4
@@ -1430,16 +1430,16 @@ define internal void @xmpp_message_subject(ptr noundef %0, ptr noundef %1, ptr n
   %5 = alloca [2 x %struct._xmpp_attr_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, ptr noundef nonnull align 16 dereferenceable(80) @__const.xmpp_message_subject.attrs_info, i64 80, i1 false)
   %6 = load i32, ptr @hf_xmpp_message_subject, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %8, i32 noundef %10, i32 noundef 0) #4
   %12 = load i32, ptr @ett_xmpp_message_subject, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
-  %14 = getelementptr inbounds i8, ptr %2, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %20, label %18
@@ -1453,7 +1453,7 @@ define internal void @xmpp_message_subject(ptr noundef %0, ptr noundef %1, ptr n
   %22 = load i32, ptr %7, align 8
   %23 = load i32, ptr %9, align 4
   %24 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %15, ptr noundef %21, i32 noundef %22, i32 noundef %23) #4
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @g_hash_table_insert(ptr noundef %26, ptr noundef nonnull @.str.124, ptr noundef %24) #4
   call void @xmpp_display_attrs(ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 2) #4
@@ -1471,13 +1471,13 @@ declare ptr @xmpp_steal_element_by_attr(ptr noundef, ptr noundef, ptr noundef) l
 define hidden void @xmpp_auth(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4 x %struct._xmpp_attr_info_ext], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %5, ptr noundef nonnull align 16 dereferenceable(192) @__const.xmpp_auth.attrs_info, i64 192, i1 false)
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.87) #4
   %8 = load i32, ptr @hf_xmpp_auth, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %10, i32 noundef %12, i32 noundef 0) #4
   %14 = load i32, ptr @ett_xmpp_auth, align 4
@@ -1498,12 +1498,12 @@ declare void @xmpp_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 define hidden void @xmpp_challenge_response_success(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [1 x %struct._xmpp_attr_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %8, ptr noundef nonnull align 16 dereferenceable(40) @__const.xmpp_features_mechanisms.attrs_info, i64 40, i1 false)
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef %6) #4
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @proto_tree_add_expert(ptr noundef %0, ptr noundef %2, ptr noundef %4, ptr noundef %1, i32 noundef %12, i32 noundef %14) #4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %5) #4
@@ -1519,13 +1519,13 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 define hidden void @xmpp_failure(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [2 x %struct._xmpp_attr_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %5, ptr noundef nonnull align 16 dereferenceable(80) @__const.xmpp_failure.attrs_info, i64 80, i1 false)
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.101) #4
   %8 = load i32, ptr @hf_xmpp_failure, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %10, i32 noundef %12, i32 noundef 0) #4
   %14 = load i32, ptr @ett_xmpp_failure, align 4
@@ -1535,15 +1535,15 @@ define hidden void @xmpp_failure(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not, label %29, label %17
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %2, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 52
   %24 = load i32, ptr %23, align 4
   %25 = tail call ptr @xmpp_ep_init_attr_t(ptr noundef %19, ptr noundef %20, i32 noundef %22, i32 noundef %24) #4
-  %26 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @g_hash_table_insert(ptr noundef %27, ptr noundef nonnull @.str.88, ptr noundef %25) #4
   br label %29
@@ -1556,11 +1556,11 @@ define hidden void @xmpp_failure(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 31:                                               ; preds = %29
   %32 = tail call ptr @xmpp_get_attr(ptr noundef nonnull %30, ptr noundef nonnull @.str.10) #4
   %33 = load i32, ptr @hf_xmpp_failure_text, align 4
-  %34 = getelementptr inbounds i8, ptr %30, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %30, i64 52
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %30, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %42, label %40
@@ -1575,7 +1575,7 @@ define hidden void @xmpp_failure(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not14.i, label %49, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %2, i64 408
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %32, align 8
   %48 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %46, ptr noundef nonnull @.str.128, ptr noundef %47) #4
@@ -1607,13 +1607,13 @@ declare ptr @xmpp_steal_element_by_names(ptr noundef, ptr noundef, i32 noundef) 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @xmpp_xml_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.103) #4
   %7 = load i32, ptr @hf_xmpp_xml_header_version, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %11 = load i32, ptr %10, align 4
   %12 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef %9, i32 noundef %11, ptr noundef nonnull @.str.104) #4
   ret void
@@ -1623,13 +1623,13 @@ define hidden void @xmpp_xml_header(ptr noundef %0, ptr noundef %1, ptr nocaptur
 define hidden void @xmpp_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [7 x %struct._xmpp_attr_info_ext], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %5, ptr noundef nonnull align 16 dereferenceable(336) @__const.xmpp_stream.attrs_info, i64 336, i1 false)
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.108) #4
   %8 = load i32, ptr @hf_xmpp_stream, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %10, i32 noundef %12, i32 noundef 0) #4
   %14 = load i32, ptr @ett_xmpp_stream, align 4
@@ -1641,7 +1641,7 @@ define hidden void @xmpp_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @xmpp_stream_close(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @want_ignore, align 8
   %7 = tail call ptr @tvbparse_init(ptr noundef %5, ptr noundef %1, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %6) #4
@@ -1652,12 +1652,12 @@ define hidden range(i32 0, 2) i32 @xmpp_stream_close(ptr noundef %0, ptr noundef
 
 10:                                               ; preds = %3
   %11 = load i32, ptr @hf_xmpp_stream_end, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %13, i32 noundef %15, i32 noundef 0) #4
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.109) #4
   br label %19
@@ -1676,14 +1676,14 @@ define hidden void @xmpp_features(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %5 = alloca [1 x %struct._xmpp_elem_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) @__const.xmpp_features.elems_info, i64 32, i1 false)
   %6 = load i32, ptr @hf_xmpp_features, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef %8, i32 noundef %10, i32 noundef 0) #4
   %12 = load i32, ptr @ett_xmpp_features, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.111) #4
   tail call void @xmpp_display_attrs(ptr noundef %13, ptr noundef %3, ptr noundef %2, ptr noundef %1, ptr noundef null, i32 noundef 0) #4
@@ -1697,9 +1697,9 @@ define internal void @xmpp_features_mechanisms(ptr noundef %0, ptr noundef %1, p
   %6 = alloca [1 x %struct._xmpp_elem_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %5, ptr noundef nonnull align 16 dereferenceable(40) @__const.xmpp_features_mechanisms.attrs_info, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 16 dereferenceable(32) @__const.xmpp_features_mechanisms.elems_info, i64 32, i1 false)
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %10 = load i32, ptr %9, align 4
   %11 = load i32, ptr @ett_xmpp_features_mechanisms, align 4
   %12 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef %10, i32 noundef %11, ptr noundef null, ptr noundef nonnull @.str.129) #4
@@ -1712,21 +1712,21 @@ define internal void @xmpp_features_mechanisms(ptr noundef %0, ptr noundef %1, p
 define hidden void @xmpp_starttls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct._xmpp_attr_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, ptr noundef nonnull align 16 dereferenceable(40) @__const.xmpp_features_mechanisms.attrs_info, i64 40, i1 false)
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.112) #4
   %9 = load i32, ptr @hf_xmpp_starttls, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %13 = load i32, ptr %12, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %11, i32 noundef %13, i32 noundef 0) #4
   %15 = load i32, ptr @ett_xmpp_starttls, align 4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #4
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %18, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 20
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br i1 %.not, label %._crit_edge, label %19
 
@@ -1755,18 +1755,18 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 define hidden void @xmpp_proceed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct._xmpp_attr_info], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, ptr noundef nonnull align 16 dereferenceable(40) @__const.xmpp_features_mechanisms.attrs_info, i64 40, i1 false)
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.114) #4
   %9 = load i32, ptr @hf_xmpp_proceed, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %13 = load i32, ptr %12, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %11, i32 noundef %13, i32 noundef 0) #4
   %15 = load i32, ptr @ett_xmpp_proceed, align 4
   %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #4
-  %17 = getelementptr inbounds i8, ptr %4, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %21
@@ -1783,7 +1783,7 @@ define hidden void @xmpp_proceed(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not23, label %30, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %2, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %27 = load i32, ptr %26, align 4
   %.not24 = icmp eq i32 %24, %27
   br i1 %.not24, label %30, label %28

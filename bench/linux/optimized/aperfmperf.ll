@@ -122,10 +122,10 @@ define dso_local void @arch_scale_freq_tick() local_unnamed_addr #1 align 16 {
   br label %17
 
 17:                                               ; preds = %16, %10
-  %18 = getelementptr inbounds i8, ptr %2, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %19 = load i64, ptr %18, align 8
   %20 = sub i64 %8, %19
-  %21 = getelementptr inbounds i8, ptr %2, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %22 = load i64, ptr %21, align 8
   %23 = sub i64 %15, %22
   store i64 %8, ptr %18, align 8
@@ -135,11 +135,11 @@ define dso_local void @arch_scale_freq_tick() local_unnamed_addr #1 align 16 {
   store i32 %25, ptr %2, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
   %26 = load volatile i64, ptr @jiffies, align 64
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %20, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %23, ptr %29, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !14
   %30 = load i32, ptr %2, align 4
@@ -196,9 +196,9 @@ define dso_local i32 @arch_freq_get_on_cpu(i32 noundef %0) local_unnamed_addr #1
           to label %7 [label %7, label %36], !srcloc !11
 
 7:                                                ; preds = %1, %1
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %11
 
 11:                                               ; preds = %.loopexit, %7

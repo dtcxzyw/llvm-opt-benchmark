@@ -78,7 +78,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_lsd_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %.thread [
     i32 2, label %7
@@ -86,7 +86,7 @@ define internal range(i32 0, 2) i32 @dissect_lsd_heur(ptr noundef %0, ptr nounde
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 240
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
@@ -109,13 +109,13 @@ define internal range(i32 0, 2) i32 @dissect_lsd_heur(ptr noundef %0, ptr nounde
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %7
-  %29 = getelementptr inbounds i8, ptr %1, i64 288
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 6771
   br i1 %31, label %.thread.sink.split, label %.thread
 
 32:                                               ; preds = %4
-  %33 = getelementptr inbounds i8, ptr %1, i64 288
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 6771
   br i1 %35, label %.thread.sink.split, label %.thread
@@ -143,7 +143,7 @@ define internal fastcc i32 @dissect_lsd(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %8, label %77, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.13) #3
   %12 = load ptr, ptr %10, align 8
@@ -177,7 +177,7 @@ define internal fastcc i32 @dissect_lsd(ptr noundef %0, ptr noundef %1, ptr noun
   br label %77
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %1, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr @tvb_get_string_enc(ptr noundef %33, ptr noundef %0, i32 noundef %26, i32 noundef %27, i32 noundef 0) #3
   %35 = call i32 @g_ascii_strncasecmp(ptr noundef %34, ptr noundef nonnull @.str.4, i64 noundef 4) #3
@@ -275,7 +275,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_string_field(ptr noundef %0, i
   br i1 %10, label %40, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %2, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @tvb_get_string_enc(ptr noundef %13, ptr noundef %3, i32 noundef %4, i32 noundef %9, i32 noundef 0) #3
   %15 = load ptr, ptr %8, align 8

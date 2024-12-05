@@ -119,7 +119,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandlerC2Ev(ptr nocapture noundef nonn
   %10 = zext nneg i32 %.0.i.i to i64
   %11 = shl nuw nsw i64 %10, 6
   %12 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %11, i8 noundef zeroext 5, i32 noundef 0) #8
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %12, ptr %13, align 8
   %14 = load i32, ptr %0, align 8
   %15 = icmp sgt i32 %14, 0
@@ -128,7 +128,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandlerC2Ev(ptr nocapture noundef nonn
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds %class.ShenandoahEvacOOMCounter, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %class.ShenandoahEvacOOMCounter, ptr %16, i64 %indvars.iv
   store volatile i32 0, ptr %17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %0, align 8
@@ -183,7 +183,7 @@ define hidden noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6T
   %9 = mul i64 %8, -4265267296055464877
   %10 = lshr i64 %9, 33
   %11 = xor i64 %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %0, align 8
   %15 = add nsw i32 %14, -1
@@ -220,13 +220,13 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv(pt
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %5
 
 5:                                                ; preds = %.lr.ph, %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %class.ShenandoahEvacOOMCounter, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %class.ShenandoahEvacOOMCounter, ptr %6, i64 %indvars.iv
   %8 = load volatile i32, ptr %7, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %.not1.i = icmp eq i32 %8, -2147483648
@@ -249,7 +249,7 @@ _ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.
 ._crit_edge:                                      ; preds = %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit, %1
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 42
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 42
   store i8 1, ptr %15, align 2
   ret void
 }
@@ -265,7 +265,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler15register_threadEP6Thread(ptr 
   %9 = mul i64 %8, -4265267296055464877
   %10 = lshr i64 %9, 33
   %11 = xor i64 %10, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %0, align 8
   %15 = add nsw i32 %14, -1
@@ -295,7 +295,7 @@ _ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit: ; preds = %20
 .lr.ph.i:                                         ; preds = %_ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit, %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i ], [ 0, %_ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit ]
   %27 = load ptr, ptr %12, align 8
-  %28 = getelementptr inbounds %class.ShenandoahEvacOOMCounter, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw %class.ShenandoahEvacOOMCounter, ptr %27, i64 %indvars.iv.i
   %29 = load volatile i32, ptr %28, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %.not1.i.i = icmp eq i32 %29, -2147483648
@@ -318,7 +318,7 @@ _ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.
 _ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv.exit: ; preds = %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i, %_ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit
   %34 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 42
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 42
   store i8 1, ptr %36, align 2
   br label %_ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit.thread
 
@@ -328,7 +328,7 @@ _ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit.thread: ; preds = %21, %_ZN2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 42
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
   br i1 %5, label %24, label %6
@@ -343,7 +343,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(pt
   %13 = mul i64 %12, -4265267296055464877
   %14 = lshr i64 %13, 33
   %15 = xor i64 %14, %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %0, align 8
   %19 = add nsw i32 %18, -1
@@ -374,7 +374,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler38handle_out_of_memory_during_e
   %10 = mul i64 %9, -4265267296055464877
   %11 = lshr i64 %10, 33
   %12 = xor i64 %11, %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %0, align 8
   %16 = add nsw i32 %15, -1
@@ -387,7 +387,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler38handle_out_of_memory_during_e
 .lr.ph:                                           ; preds = %1, %_ZN24ShenandoahEvacOOMCounter11set_oom_bitEb.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN24ShenandoahEvacOOMCounter11set_oom_bitEb.exit ], [ 0, %1 ]
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds %class.ShenandoahEvacOOMCounter, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %class.ShenandoahEvacOOMCounter, ptr %21, i64 %indvars.iv
   %23 = icmp eq ptr %22, %19
   %24 = load volatile i32, ptr %22, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
@@ -422,7 +422,7 @@ _ZN24ShenandoahEvacOOMCounter11set_oom_bitEb.exit: ; preds = %.split.i, %.split.
 .lr.ph.i:                                         ; preds = %._crit_edge, %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i ], [ 0, %._crit_edge ]
   %35 = load ptr, ptr %13, align 8
-  %36 = getelementptr inbounds %class.ShenandoahEvacOOMCounter, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw %class.ShenandoahEvacOOMCounter, ptr %35, i64 %indvars.iv.i
   %37 = load volatile i32, ptr %36, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %.not1.i.i = icmp eq i32 %37, -2147483648
@@ -444,7 +444,7 @@ _ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.
 
 _ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv.exit: ; preds = %_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.exit.i, %1, %._crit_edge
   %42 = load ptr, ptr %2, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 42
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 42
   store i8 1, ptr %43, align 2
   ret void
 }
@@ -456,13 +456,13 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler5clearEv(ptr nocapture noundef 
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %class.ShenandoahEvacOOMCounter, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %class.ShenandoahEvacOOMCounter, ptr %6, i64 %indvars.iv
   %8 = tail call i32 asm sideeffect "xchgl ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull align 4 dereferenceable(64) %7) #8, !srcloc !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %0, align 8

@@ -229,7 +229,7 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %7, label %262, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.101) #4
   %11 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 0, i64 noundef 16) #4
@@ -246,12 +246,12 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   %21 = and i32 %19, -16777216
   %22 = or disjoint i32 %21, %20
   store i32 %22, ptr %5, align 4
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load i16, ptr %23, align 4
   %rev = call i16 @llvm.bswap.i16(i16 %24)
   store i16 %rev, ptr %23, align 4
   %25 = zext i16 %rev to i32
-  %26 = getelementptr inbounds i8, ptr %5, i64 10
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %27 = load i16, ptr %26, align 2
   %rev152 = call i16 @llvm.bswap.i16(i16 %27)
   store i16 %rev152, ptr %26, align 2
@@ -278,17 +278,17 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds i8, ptr %1, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 208
-  %43 = getelementptr inbounds i8, ptr %1, i64 232
-  %44 = getelementptr inbounds i8, ptr %1, i64 280
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %45 = load i32, ptr %44, align 8
   %46 = call i32 @conversation_pt_to_conversation_type(i32 noundef %45) #4
-  %47 = getelementptr inbounds i8, ptr %3, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %48 = load i16, ptr %47, align 8
   %49 = zext i16 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %3, i64 58
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 58
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i32
   %53 = call ptr @find_conversation(i32 noundef %41, ptr noundef nonnull %42, ptr noundef nonnull %43, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef 131072) #4
@@ -308,7 +308,7 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 63:                                               ; preds = %54, %39
   %.0142 = phi ptr [ %53, %39 ], [ %62, %54 ]
-  %64 = getelementptr inbounds i8, ptr %.0142, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.0142, i64 24
   %65 = load i32, ptr %64, align 8
   store i32 %65, ptr %6, align 4
   %66 = load ptr, ptr @fcfzs_req_hash, align 8
@@ -339,17 +339,17 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %116
 
 80:                                               ; preds = %38, %38
-  %81 = getelementptr inbounds i8, ptr %1, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %1, i64 208
-  %84 = getelementptr inbounds i8, ptr %1, i64 232
-  %85 = getelementptr inbounds i8, ptr %1, i64 280
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %86 = load i32, ptr %85, align 8
   %87 = call i32 @conversation_pt_to_conversation_type(i32 noundef %86) #4
-  %88 = getelementptr inbounds i8, ptr %3, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %89 = load i16, ptr %88, align 8
   %90 = zext i16 %89 to i32
-  %91 = getelementptr inbounds i8, ptr %3, i64 58
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 58
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %92 to i32
   %94 = call ptr @find_conversation(i32 noundef %82, ptr noundef nonnull %83, ptr noundef nonnull %84, i32 noundef %87, i32 noundef %90, i32 noundef %93, i32 noundef 131072) #4
@@ -368,7 +368,7 @@ define internal i32 @dissect_fcfzs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %262
 
 101:                                              ; preds = %80
-  %102 = getelementptr inbounds i8, ptr %94, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %103 = load i32, ptr %102, align 8
   store i32 %103, ptr %6, align 4
   %104 = load ptr, ptr @fcfzs_req_hash, align 8

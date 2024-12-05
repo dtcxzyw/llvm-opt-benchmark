@@ -68,7 +68,7 @@ define dso_local noundef zeroext i1 @_Z18cmBuildNameCommandRKSt6vectorINSt7__cxx
   %27 = alloca %"class.std::__cxx11::basic_string", align 8
   %28 = alloca %"class.std::allocator.0", align 1
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp ne ptr %29, %31
   br i1 %32, label %43, label %33
@@ -93,7 +93,7 @@ define dso_local noundef zeroext i1 @_Z18cmBuildNameCommandRKSt6vectorINSt7__cxx
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc59
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %41
 
@@ -125,11 +125,11 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %.not, label %97, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %7, i64 528
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 528
   store ptr null, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %7, i64 544
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 544
   store ptr null, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %7, i64 552
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 552
   store i32 0, ptr %49, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %7, i8 0, i64 522, i1 false)
   %50 = call noundef zeroext i1 @_ZN5cmsys17RegularExpression7compileEPKc(ptr noundef nonnull align 8 dereferenceable(556) %7, ptr noundef nonnull @.str.1)
@@ -161,7 +161,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %60
 
 60:                                               ; preds = %59, %.lr.ph.i
-  %61 = getelementptr inbounds i8, ptr %.sroa.02.07.i, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i, i64 1
   %.not.i = icmp eq ptr %61, %56
   br i1 %.not.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i, !llvm.loop !5
 
@@ -182,7 +182,7 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   br label %67
 
 67:                                               ; preds = %66, %.lr.ph.i63
-  %68 = getelementptr inbounds i8, ptr %.sroa.02.07.i64, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i64, i64 1
   %.not.i65 = icmp eq ptr %68, %63
   br i1 %.not.i65, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit66, label %.lr.ph.i63, !llvm.loop !5
 
@@ -203,7 +203,7 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   br label %74
 
 74:                                               ; preds = %73, %.lr.ph.i68
-  %75 = getelementptr inbounds i8, ptr %.sroa.02.07.i69, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i69, i64 1
   %.not.i70 = icmp eq ptr %75, %70
   br i1 %.not.i70, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit71, label %.lr.ph.i68, !llvm.loop !5
 
@@ -387,11 +387,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit93: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit98: ; preds = %.noexc95
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #11
-  %117 = getelementptr inbounds i8, ptr %19, i64 528
+  %117 = getelementptr inbounds nuw i8, ptr %19, i64 528
   store ptr null, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %19, i64 544
+  %118 = getelementptr inbounds nuw i8, ptr %19, i64 544
   store ptr null, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %19, i64 552
+  %119 = getelementptr inbounds nuw i8, ptr %19, i64 552
   store i32 0, ptr %119, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(556) %19, i8 0, i64 522, i1 false)
   %120 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #11
@@ -408,7 +408,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 124:                                              ; preds = %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit101
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !7
-  %125 = getelementptr inbounds i8, ptr %19, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !10
   %127 = icmp eq ptr %126, null
   br i1 %127, label %128, label %129
@@ -418,7 +418,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %138
 
 129:                                              ; preds = %124
-  %130 = getelementptr inbounds i8, ptr %19, i64 264
+  %130 = getelementptr inbounds nuw i8, ptr %19, i64 264
   %131 = load ptr, ptr %130, align 8, !noalias !10
   %132 = ptrtoint ptr %131 to i64
   %133 = ptrtoint ptr %126 to i64
@@ -445,7 +445,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 140:                                              ; preds = %138
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %139) #11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !13
-  %141 = getelementptr inbounds i8, ptr %19, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %142 = load ptr, ptr %141, align 8, !noalias !16
   %143 = icmp eq ptr %142, null
   br i1 %143, label %144, label %145
@@ -455,7 +455,7 @@ _ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %154
 
 145:                                              ; preds = %140
-  %146 = getelementptr inbounds i8, ptr %19, i64 272
+  %146 = getelementptr inbounds nuw i8, ptr %19, i64 272
   %147 = load ptr, ptr %146, align 8, !noalias !16
   %148 = ptrtoint ptr %147 to i64
   %149 = ptrtoint ptr %142 to i64
@@ -671,7 +671,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit117: ;
   br label %212
 
 212:                                              ; preds = %211, %.lr.ph.i119
-  %213 = getelementptr inbounds i8, ptr %.sroa.02.07.i120, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i120, i64 1
   %.not.i121 = icmp eq ptr %213, %208
   br i1 %.not.i121, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit122, label %.lr.ph.i119, !llvm.loop !5
 
@@ -692,7 +692,7 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   br label %219
 
 219:                                              ; preds = %218, %.lr.ph.i124
-  %220 = getelementptr inbounds i8, ptr %.sroa.02.07.i125, i64 1
+  %220 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i125, i64 1
   %.not.i126 = icmp eq ptr %220, %215
   br i1 %.not.i126, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit127, label %.lr.ph.i124, !llvm.loop !5
 
@@ -713,7 +713,7 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   br label %226
 
 226:                                              ; preds = %225, %.lr.ph.i129
-  %227 = getelementptr inbounds i8, ptr %.sroa.02.07.i130, i64 1
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i130, i64 1
   %.not.i131 = icmp eq ptr %227, %222
   br i1 %.not.i131, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit132, label %.lr.ph.i129, !llvm.loop !5
 

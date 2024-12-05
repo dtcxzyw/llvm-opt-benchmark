@@ -28,34 +28,34 @@ define dso_local i32 @i915_ttm_buddy_man_init(ptr noundef %0, i32 noundef %1, i1
   br i1 %11, label %44, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %10, i64 120
-  %14 = tail call i32 @drm_buddy_init(ptr noundef %13, i64 noundef %3, i64 noundef %6) #7
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 120
+  %14 = tail call i32 @drm_buddy_init(ptr noundef nonnull %13, i64 noundef %3, i64 noundef %6) #7
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %43
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %10, i64 184
-  tail call void @__mutex_init(ptr noundef %17, ptr noundef nonnull @.str, ptr noundef nonnull @i915_ttm_buddy_man_init.__key) #7
-  %18 = getelementptr inbounds i8, ptr %10, i64 168
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  tail call void @__mutex_init(ptr noundef nonnull %17, ptr noundef nonnull @.str, ptr noundef nonnull @i915_ttm_buddy_man_init.__key) #7
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 168
   store volatile ptr %18, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %10, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store volatile ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 240
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 240
   store i64 %5, ptr %20, align 8
   %21 = lshr i64 %4, 12
-  %22 = getelementptr inbounds i8, ptr %10, i64 216
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 216
   store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 224
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 224
   store i64 %21, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %8, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %10, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr @i915_ttm_buddy_manager_func, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %10, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %27 = load i64, ptr %26, align 8
   %28 = lshr i64 %27, 12
   tail call void @ttm_resource_manager_init(ptr noundef nonnull %10, ptr noundef %0, i64 noundef %28) #7
-  %29 = getelementptr inbounds i8, ptr %10, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 48
   br label %30
 
 30:                                               ; preds = %36, %16
@@ -78,7 +78,7 @@ define dso_local i32 @i915_ttm_buddy_man_init(ptr noundef %0, i32 noundef %1, i1
 
 39:                                               ; preds = %36
   store i8 1, ptr %10, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %41 = sext i32 %1 to i64
   %42 = getelementptr [8 x ptr], ptr %40, i64 0, i64 %41
   store ptr %10, ptr %42, align 8
@@ -107,11 +107,11 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @i915_ttm_buddy_man_fini(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = sext i32 %1 to i64
   %5 = getelementptr [8 x ptr], ptr %3, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   br label %8
 
 8:                                                ; preds = %14, %2
@@ -139,20 +139,20 @@ define dso_local i32 @i915_ttm_buddy_man_fini(ptr noundef %0, i32 noundef %1) lo
   br i1 %19, label %20, label %45
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %6, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr null, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 184
-  tail call void @mutex_lock(ptr noundef %22) #7
-  %23 = getelementptr inbounds i8, ptr %6, i64 168
-  tail call void @drm_buddy_free_list(ptr noundef %21, ptr noundef %23) #7
-  tail call void @drm_buddy_fini(ptr noundef %21) #7
-  %24 = getelementptr inbounds i8, ptr %6, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 184
+  tail call void @mutex_lock(ptr noundef nonnull %22) #7
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  tail call void @drm_buddy_free_list(ptr noundef nonnull %21, ptr noundef nonnull %23) #7
+  tail call void @drm_buddy_fini(ptr noundef nonnull %21) #7
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 224
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %25
   store i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %30 = load i64, ptr %29, align 8
   %31 = icmp eq i64 %28, %30
   br i1 %31, label %33, label %32, !prof !5
@@ -164,15 +164,15 @@ define dso_local i32 @i915_ttm_buddy_man_fini(ptr noundef %0, i32 noundef %1) lo
   br label %33
 
 33:                                               ; preds = %32, %20
-  tail call void @mutex_unlock(ptr noundef %22) #7
-  %34 = getelementptr inbounds i8, ptr %6, i64 40
+  tail call void @mutex_unlock(ptr noundef nonnull %22) #7
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %35, i64 56
-  %39 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38, i32 -1, ptr elementtype(i32) %38) #7, !srcloc !15
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  %39 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %38, i32 -1, ptr nonnull elementtype(i32) %38) #7, !srcloc !15
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %44, label %41
 
@@ -181,12 +181,12 @@ define dso_local i32 @i915_ttm_buddy_man_fini(ptr noundef %0, i32 noundef %1) lo
   br i1 %42, label %.thread, label %43, !prof !5
 
 43:                                               ; preds = %41
-  tail call void @refcount_warn_saturate(ptr noundef %38, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %38, i32 noundef 3) #7
   br label %.thread
 
 44:                                               ; preds = %37
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
-  tail call void @dma_fence_release(ptr noundef %38) #7
+  tail call void @dma_fence_release(ptr noundef nonnull %38) #7
   br label %.thread
 
 .thread:                                          ; preds = %41, %43, %44, %33
@@ -215,16 +215,16 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @i915_ttm_buddy_man_reserve(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = lshr i64 %1, 12
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @mutex_lock(ptr noundef %6) #7
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @mutex_lock(ptr noundef nonnull %6) #7
   %7 = add i64 %2, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
-  %11 = tail call i32 @drm_buddy_alloc_blocks(ptr noundef %4, i64 noundef %1, i64 noundef %7, i64 noundef %2, i64 noundef %9, ptr noundef %10, i64 noundef 1) #7
-  %12 = getelementptr inbounds i8, ptr %0, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %11 = tail call i32 @drm_buddy_alloc_blocks(ptr noundef nonnull %4, i64 noundef %1, i64 noundef %7, i64 noundef %2, i64 noundef %9, ptr noundef nonnull %10, i64 noundef 1) #7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %5, %13
   br i1 %14, label %15, label %26
@@ -234,18 +234,18 @@ define dso_local i32 @i915_ttm_buddy_man_reserve(ptr noundef %0, i64 noundef %1,
   %17 = add nuw nsw i64 %16, %5
   %18 = tail call i64 @llvm.umin.i64(i64 %17, i64 %13)
   %19 = sub nsw i64 %18, %5
-  %20 = getelementptr inbounds i8, ptr %0, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %19
   store i64 %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 224
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %24 = load i64, ptr %23, align 8
   %25 = sub i64 %24, %19
   store i64 %25, ptr %23, align 8
   br label %26
 
 26:                                               ; preds = %15, %3
-  tail call void @mutex_unlock(ptr noundef %6) #7
+  tail call void @mutex_unlock(ptr noundef nonnull %6) #7
   ret i32 %11
 }
 
@@ -254,23 +254,23 @@ declare dso_local i32 @drm_buddy_alloc_blocks(ptr noundef, i64 noundef, i64 noun
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local i64 @i915_ttm_buddy_man_visible_size(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_ttm_buddy_man_avail(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @mutex_lock(ptr noundef %4) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @mutex_lock(ptr noundef nonnull %4) #7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 12
   store i64 %7, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %2, align 8
-  tail call void @mutex_unlock(ptr noundef %4) #7
+  tail call void @mutex_unlock(ptr noundef nonnull %4) #7
   ret void
 }
 
@@ -279,15 +279,15 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
   %9 = icmp eq i32 %7, 0
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   br label %13
 
@@ -300,20 +300,20 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
 
 18:                                               ; preds = %13
   tail call void @ttm_resource_init(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store volatile ptr %19, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 80
   store volatile ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 104
   store ptr %5, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 2
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %16, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %28 = load i64, ptr %27, align 8
   %29 = or i64 %28, 2
   store i64 %29, ptr %27, align 8
@@ -325,7 +325,7 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %16, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %35 = load i64, ptr %34, align 8
   %36 = or i64 %35, 4
   store i64 %36, ptr %34, align 8
@@ -337,24 +337,24 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %14, %42
   br i1 %43, label %48, label %44
 
 44:                                               ; preds = %40, %37
-  %45 = getelementptr inbounds i8, ptr %16, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %46 = load i64, ptr %45, align 8
   %47 = or i64 %46, 1
   store i64 %47, ptr %45, align 8
   br label %48
 
 48:                                               ; preds = %44, %40
-  %49 = getelementptr inbounds i8, ptr %16, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 240
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 364
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 364
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
   %56 = shl i32 %54, 12
@@ -365,20 +365,20 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
   br i1 %60, label %124, label %61
 
 61:                                               ; preds = %48
-  %62 = getelementptr inbounds i8, ptr %0, i64 144
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %63 = load i64, ptr %62, align 8
   %64 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %63, i32 -1) #8, !srcloc !17
   %65 = zext nneg i32 %64 to i64
   %66 = lshr i64 %50, %65
-  %67 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @mutex_lock(ptr noundef %67) #7
-  %68 = getelementptr inbounds i8, ptr %0, i64 216
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @mutex_lock(ptr noundef nonnull %67) #7
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %69 = load i64, ptr %68, align 8
   %70 = icmp ugt i64 %14, %69
   br i1 %70, label %75, label %71
 
 71:                                               ; preds = %61
-  %72 = getelementptr inbounds i8, ptr %0, i64 224
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %73 = load i64, ptr %72, align 8
   %74 = icmp ugt i64 %66, %73
   br i1 %74, label %122, label %75
@@ -388,9 +388,9 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
   %77 = zext i32 %76 to i64
   %78 = shl nuw nsw i64 %77, 12
   %79 = shl i64 %66, 12
-  %80 = getelementptr inbounds i8, ptr %16, i64 88
+  %80 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %81 = load i64, ptr %80, align 8
-  %82 = tail call i32 @drm_buddy_alloc_blocks(ptr noundef %5, i64 noundef %78, i64 noundef %59, i64 noundef %79, i64 noundef %58, ptr noundef %19, i64 noundef %81) #7
+  %82 = tail call i32 @drm_buddy_alloc_blocks(ptr noundef nonnull %5, i64 noundef %78, i64 noundef %59, i64 noundef %79, i64 noundef %58, ptr noundef nonnull %19, i64 noundef %81) #7
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %121, !prof !5
 
@@ -402,7 +402,7 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
 87:                                               ; preds = %84
   %88 = load ptr, ptr %19, align 8
   %89 = icmp eq ptr %88, %19
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %16, i64 96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %16, i64 96
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br i1 %89, label %.loopexit, label %.preheader
 
@@ -410,7 +410,7 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
   %91 = load i64, ptr %49, align 8
   %92 = add i64 %91, 4095
   %93 = lshr i64 %92, 12
-  %94 = getelementptr inbounds i8, ptr %16, i64 96
+  %94 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store i64 %93, ptr %94, align 8
   br label %.loopexit
 
@@ -447,24 +447,24 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
   br i1 %115, label %120, label %116
 
 116:                                              ; preds = %.loopexit
-  %117 = getelementptr inbounds i8, ptr %0, i64 224
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %118 = load i64, ptr %117, align 8
   %119 = sub i64 %118, %114
   store i64 %119, ptr %117, align 8
   br label %120
 
 120:                                              ; preds = %116, %.loopexit
-  tail call void @mutex_unlock(ptr noundef %67) #7
+  tail call void @mutex_unlock(ptr noundef nonnull %67) #7
   store ptr %16, ptr %3, align 8
   br label %126
 
 121:                                              ; preds = %75
-  tail call void @drm_buddy_free_list(ptr noundef %5, ptr noundef %19) #7
+  tail call void @drm_buddy_free_list(ptr noundef nonnull %5, ptr noundef nonnull %19) #7
   br label %122
 
 122:                                              ; preds = %121, %71
   %123 = phi i32 [ %82, %121 ], [ -28, %71 ]
-  tail call void @mutex_unlock(ptr noundef %67) #7
+  tail call void @mutex_unlock(ptr noundef nonnull %67) #7
   br label %124
 
 124:                                              ; preds = %122, %48
@@ -480,18 +480,18 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i915_ttm_buddy_man_free(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @mutex_lock(ptr noundef %3) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
-  tail call void @drm_buddy_free_list(ptr noundef %4, ptr noundef %5) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @mutex_lock(ptr noundef nonnull %3) #7
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  tail call void @drm_buddy_free_list(ptr noundef nonnull %4, ptr noundef nonnull %5) #7
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %7
   store i64 %10, ptr %8, align 8
-  tail call void @mutex_unlock(ptr noundef %3) #7
+  tail call void @mutex_unlock(ptr noundef nonnull %3) #7
   tail call void @ttm_resource_fini(ptr noundef %0, ptr noundef %1) #7
   tail call void @kfree(ptr noundef %1) #7
   ret void
@@ -504,33 +504,33 @@ define internal zeroext i1 @i915_ttm_buddy_man_intersects(ptr nocapture noundef 
   br i1 %6, label %7, label %20
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %7
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 216
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, %12
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %1, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %18 = load i64, ptr %17, align 8
   %19 = icmp ne i64 %18, 0
   br label %.loopexit
 
 20:                                               ; preds = %11, %4
-  %21 = getelementptr inbounds i8, ptr %1, i64 72
-  %22 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load ptr, ptr %21, align 8
   %24 = icmp eq ptr %23, %21
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %27 = load i64, ptr %26, align 8
   %28 = zext i32 %5 to i64
   br label %29
@@ -570,22 +570,22 @@ define internal zeroext i1 @i915_ttm_buddy_man_compatible(ptr nocapture noundef 
   br i1 %6, label %7, label %24
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %7
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 216
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, %12
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %1, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 4095
   %22 = lshr i64 %21, 12
@@ -593,10 +593,10 @@ define internal zeroext i1 @i915_ttm_buddy_man_compatible(ptr nocapture noundef 
   br label %.loopexit
 
 24:                                               ; preds = %11, %4
-  %25 = getelementptr inbounds i8, ptr %1, i64 72
-  %26 = getelementptr inbounds i8, ptr %0, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %27 = zext i32 %5 to i64
-  %28 = getelementptr inbounds i8, ptr %2, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %29
 
 29:                                               ; preds = %38, %24
@@ -630,31 +630,31 @@ define internal zeroext i1 @i915_ttm_buddy_man_compatible(ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @i915_ttm_buddy_man_debug(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void @mutex_lock(ptr noundef %3) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @mutex_lock(ptr noundef nonnull %3) #7
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load i64, ptr %4, align 8
   %6 = lshr i64 %5, 10
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.3, i64 noundef %6) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load i64, ptr %7, align 8
   %9 = lshr i64 %8, 8
   %10 = and i64 %9, 17592186044415
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.4, i64 noundef %10) #7
-  %11 = getelementptr inbounds i8, ptr %0, i64 216
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 8
   %14 = and i64 %13, 17592186044415
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.5, i64 noundef %14) #7
-  %15 = getelementptr inbounds i8, ptr %0, i64 232
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %16 = load i64, ptr %15, align 8
   %17 = lshr i64 %16, 8
   %18 = and i64 %17, 17592186044415
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.6, i64 noundef %18) #7
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
-  tail call void @drm_buddy_print(ptr noundef %19, ptr noundef %1) #7
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  tail call void @drm_buddy_print(ptr noundef nonnull %19, ptr noundef %1) #7
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.7) #7
-  %20 = getelementptr inbounds i8, ptr %0, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %20
   br i1 %22, label %.loopexit, label %.preheader
@@ -662,13 +662,13 @@ define internal void @i915_ttm_buddy_man_debug(ptr noundef %0, ptr noundef %1) #
 .preheader:                                       ; preds = %2, %.preheader
   %23 = phi ptr [ %25, %.preheader ], [ %21, %2 ]
   %24 = getelementptr i8, ptr %23, i64 -40
-  tail call void @drm_buddy_block_print(ptr noundef %19, ptr noundef %24, ptr noundef %1) #7
+  tail call void @drm_buddy_block_print(ptr noundef nonnull %19, ptr noundef %24, ptr noundef %1) #7
   %25 = load ptr, ptr %23, align 8
   %26 = icmp eq ptr %25, %20
   br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %2
-  tail call void @mutex_unlock(ptr noundef %3) #7
+  tail call void @mutex_unlock(ptr noundef nonnull %3) #7
   ret void
 }
 

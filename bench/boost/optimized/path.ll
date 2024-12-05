@@ -61,7 +61,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms19lexically_normal_v3E
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %4, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !11
   %15 = icmp eq i8 %14, 47
   br i1 %15, label %16, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread
@@ -71,7 +71,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms19lexically_normal_v3E
   br i1 %17, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %4, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %20 = load i8, ptr %19, align 1, !tbaa !11
   %21 = icmp eq i8 %20, 47
   br i1 %21, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -616,7 +616,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms19lexically_normal_v4E
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %4, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !11
   %15 = icmp eq i8 %14, 47
   br i1 %15, label %16, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread
@@ -626,7 +626,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms19lexically_normal_v4E
   br i1 %17, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %4, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %20 = load i8, ptr %19, align 1, !tbaa !11
   %21 = icmp eq i8 %20, 47
   br i1 %21, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -1200,7 +1200,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms15generic_path_v3ERKNS
   br i1 %.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %8, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = icmp eq i8 %16, 47
   br i1 %17, label %18, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
@@ -1210,7 +1210,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms15generic_path_v3ERKNS
   br i1 %19, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread63, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %8, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %22 = load i8, ptr %21, align 1, !tbaa !11
   %23 = icmp eq i8 %22, 47
   br i1 %23, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -1448,7 +1448,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms15generic_path_v4ERKNS
   br i1 %.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %8, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = icmp eq i8 %16, 47
   br i1 %17, label %18, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
@@ -1458,7 +1458,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms15generic_path_v4ERKNS
   br i1 %19, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread63, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %8, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %22 = load i8, ptr %21, align 1, !tbaa !11
   %23 = icmp eq i8 %22, 47
   br i1 %23, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -1880,7 +1880,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathE
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !11
   %23 = icmp eq i8 %22, 47
   br i1 %23, label %24, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -1890,7 +1890,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms9append_v4ERNS0_4pathE
   br i1 %25, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %28 = load i8, ptr %27, align 1, !tbaa !11
   %29 = icmp eq i8 %28, 47
   br i1 %29, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %30
@@ -1928,7 +1928,7 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %13, 
   br i1 %or.cond70, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit55, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %7, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !11
   %47 = icmp eq i8 %46, 47
   br i1 %47, label %48, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit55
@@ -1938,7 +1938,7 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %13, 
   br i1 %49, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit55, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %7, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %52 = load i8, ptr %51, align 1, !tbaa !11
   %53 = icmp eq i8 %52, 47
   br i1 %53, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit55, label %54
@@ -2094,7 +2094,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   br i1 %or.cond.i.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %114, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 1
   %121 = load i8, ptr %120, align 1, !tbaa !11
   %122 = icmp eq i8 %121, 47
   br i1 %122, label %123, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
@@ -2104,7 +2104,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   br i1 %124, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %125
 
 125:                                              ; preds = %123
-  %126 = getelementptr inbounds i8, ptr %114, i64 2
+  %126 = getelementptr inbounds nuw i8, ptr %114, i64 2
   %127 = load i8, ptr %126, align 1, !tbaa !11
   %128 = icmp eq i8 %127, 47
   br i1 %128, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %129
@@ -2347,7 +2347,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12increment_v3ERNS0_11
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %14, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !11
   %25 = icmp eq i8 %24, 47
   br i1 %25, label %26, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -2357,7 +2357,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12increment_v3ERNS0_11
   br i1 %27, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %14, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %30 = load i8, ptr %29, align 1, !tbaa !11
   %31 = icmp eq i8 %30, 47
   br i1 %31, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %32
@@ -2637,7 +2637,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12increment_v4ERNS0_11
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %24, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %34 = load i8, ptr %33, align 1, !tbaa !11
   %35 = icmp eq i8 %34, 47
   br i1 %35, label %36, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -2647,7 +2647,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms12increment_v4ERNS0_11
   br i1 %37, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %24, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %40 = load i8, ptr %39, align 1, !tbaa !11
   %41 = icmp eq i8 %40, 47
   br i1 %41, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %42
@@ -2976,7 +2976,7 @@ define void @_ZNK5boost10filesystem4path5beginEv(ptr dead_on_unwind noalias writ
   br i1 %cond30.i.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread.i.i, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %13, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !11
   %20 = icmp eq i8 %19, 47
   br i1 %20, label %21, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread.i.i
@@ -2986,7 +2986,7 @@ define void @_ZNK5boost10filesystem4path5beginEv(ptr dead_on_unwind noalias writ
   br i1 %22, label %_ZN12_GLOBAL__N_113first_elementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmS8_.exit.thread.thread, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %13, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %25 = load i8, ptr %24, align 1, !tbaa !11
   %26 = icmp eq i8 %25, 47
   br i1 %26, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread.i.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
@@ -3471,7 +3471,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms18remove_filename_v3ER
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %4, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !11
   %13 = icmp eq i8 %12, 47
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
@@ -3481,7 +3481,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms18remove_filename_v3ER
   br i1 %15, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %4, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = icmp eq i8 %18, 47
   br i1 %19, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %20
@@ -3573,7 +3573,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %4, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !11
   %13 = icmp eq i8 %12, 47
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i
@@ -3583,7 +3583,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
   br i1 %15, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %4, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = icmp eq i8 %18, 47
   br i1 %19, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i, label %20
@@ -3673,7 +3673,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms18remove_filename_v4ER
   br i1 %or.cond.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = icmp eq i8 %11, 47
   br i1 %12, label %13, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i
@@ -3683,7 +3683,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms18remove_filename_v4ER
   br i1 %14, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %4, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %17 = load i8, ptr %16, align 1, !tbaa !11
   %18 = icmp eq i8 %17, 47
   br i1 %18, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i, label %19
@@ -3740,7 +3740,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms21find_filename
   br i1 %or.cond, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = icmp eq i8 %11, 47
   br i1 %12, label %13, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -3750,7 +3750,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms21find_filename
   br i1 %14, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %4, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %17 = load i8, ptr %16, align 1, !tbaa !11
   %18 = icmp eq i8 %17, 47
   br i1 %18, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %19
@@ -4138,7 +4138,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms22find_extensio
   br i1 %or.cond, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = icmp eq i8 %11, 47
   br i1 %12, label %13, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -4148,7 +4148,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms22find_extensio
   br i1 %14, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %4, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %17 = load i8, ptr %16, align 1, !tbaa !11
   %18 = icmp eq i8 %17, 47
   br i1 %18, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %19
@@ -4249,7 +4249,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms19find_root_nam
   br i1 %or.cond, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %2, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = icmp eq i8 %11, 47
   br i1 %12, label %13, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -4259,7 +4259,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms19find_root_nam
   br i1 %14, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %2, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %17 = load i8, ptr %16, align 1, !tbaa !11
   %18 = icmp eq i8 %17, 47
   br i1 %18, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %19
@@ -4298,7 +4298,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms19find_root_pat
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %2, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !11
   %13 = icmp eq i8 %12, 47
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -4308,7 +4308,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms19find_root_pat
   br i1 %15, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = icmp eq i8 %18, 47
   br i1 %19, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %20
@@ -4351,7 +4351,7 @@ define { i64, i64 } @_ZN5boost10filesystem6detail15path_algorithms19find_root_di
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %2, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !11
   %13 = icmp eq i8 %12, 47
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -4361,7 +4361,7 @@ define { i64, i64 } @_ZN5boost10filesystem6detail15path_algorithms19find_root_di
   br i1 %15, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = icmp eq i8 %18, 47
   br i1 %19, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %20
@@ -4404,7 +4404,7 @@ define { i64, i64 } @_ZN5boost10filesystem6detail15path_algorithms18find_relativ
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %2, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !11
   %13 = icmp eq i8 %12, 47
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -4414,7 +4414,7 @@ define { i64, i64 } @_ZN5boost10filesystem6detail15path_algorithms18find_relativ
   br i1 %15, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = icmp eq i8 %18, 47
   br i1 %19, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %20
@@ -4477,7 +4477,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms21find_parent_p
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %4, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !11
   %13 = icmp eq i8 %12, 47
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -4487,7 +4487,7 @@ define noundef i64 @_ZN5boost10filesystem6detail15path_algorithms21find_parent_p
   br i1 %15, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %4, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = icmp eq i8 %18, 47
   br i1 %19, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %20
@@ -4578,7 +4578,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms11filename_v3ERKNS0_4p
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %7, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !11
   %16 = icmp eq i8 %15, 47
   br i1 %16, label %17, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -4588,7 +4588,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms11filename_v3ERKNS0_4p
   br i1 %18, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %7, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !11
   %22 = icmp eq i8 %21, 47
   br i1 %22, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %23
@@ -4887,7 +4887,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms7stem_v4ERKNS0_4pathE(
   br i1 %or.cond.i.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %6, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !11, !noalias !50
   %14 = icmp eq i8 %13, 47
   br i1 %14, label %15, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
@@ -4897,7 +4897,7 @@ define void @_ZN5boost10filesystem6detail15path_algorithms7stem_v4ERKNS0_4pathE(
   br i1 %16, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %6, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %19 = load i8, ptr %18, align 1, !tbaa !11, !noalias !50
   %20 = icmp eq i8 %19, 47
   br i1 %20, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %21
@@ -5069,7 +5069,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
   br i1 %or.cond.i.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %5, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !11
   %13 = icmp eq i8 %12, 47
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i
@@ -5079,7 +5079,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost10filesystem4pa
   br i1 %15, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %5, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %19 = icmp eq i8 %18, 47
   br i1 %19, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.i.i, label %20
@@ -6195,7 +6195,7 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %8
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = icmp eq i8 %16, 47
   br i1 %17, label %18, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -6205,7 +6205,7 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %8
   br i1 %19, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %6, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %22 = load i8, ptr %21, align 1, !tbaa !11
   %23 = icmp eq i8 %22, 47
   br i1 %23, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %24
@@ -6359,7 +6359,7 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %8
   br i1 %.not.i, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = icmp eq i8 %16, 47
   br i1 %17, label %18, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit
@@ -6369,7 +6369,7 @@ _ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit.thread: ; preds = %8
   br i1 %19, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %6, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %22 = load i8, ptr %21, align 1, !tbaa !11
   %23 = icmp eq i8 %22, 47
   br i1 %23, label %_ZN12_GLOBAL__N_125find_root_directory_startEPKcmRm.exit, label %24

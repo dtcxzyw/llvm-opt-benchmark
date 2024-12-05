@@ -26,17 +26,17 @@ define dso_local noundef ptr @i915_drm_client_alloc() local_unnamed_addr #0 alig
 
 4:                                                ; preds = %0
   store volatile i32 1, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store volatile ptr %6, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store volatile ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store volatile ptr %9, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store volatile ptr %9, ptr %10, align 8
   br label %11
 
@@ -64,40 +64,40 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
   %3 = alloca %struct.i915_gem_engines_iter, align 8
   %4 = alloca [7 x %struct.drm_memory_stats], align 16
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(280) %4, i8 0, i64 280, i1 false)
-  %9 = getelementptr inbounds i8, ptr %7, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
-  %11 = getelementptr inbounds i8, ptr %1, i64 104
-  tail call void @_raw_spin_lock(ptr noundef %11) #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  tail call void @_raw_spin_lock(ptr noundef nonnull %11) #7
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %5, align 4
-  %13 = call ptr @idr_get_next(ptr noundef %12, ptr noundef nonnull %5) #7
+  %13 = call ptr @idr_get_next(ptr noundef nonnull %12, ptr noundef nonnull %5) #7
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit27, label %.preheader26
 
 .preheader26:                                     ; preds = %2, %63
   %15 = phi ptr [ %66, %63 ], [ %13, %2 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 704
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 704
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %.preheader26
-  %20 = getelementptr inbounds i8, ptr %17, i64 148
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 148
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
   br label %23
 
 23:                                               ; preds = %19, %.preheader26
   %24 = phi i64 [ %22, %19 ], [ 0, %.preheader26 ]
-  %25 = getelementptr inbounds i8, ptr %15, i64 216
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 216
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %15, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp ugt i32 %28, 1
   %30 = getelementptr %struct.drm_memory_stats, ptr %4, i64 %24, i32 1
@@ -106,7 +106,7 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %26
   store i64 %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %15, i64 744
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 744
   %36 = load volatile ptr, ptr %35, align 8
   %37 = icmp ne ptr %36, null
   %38 = icmp ule ptr %36, inttoptr (i64 -4096 to ptr)
@@ -114,17 +114,17 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
   br i1 %39, label %40, label %63
 
 40:                                               ; preds = %23
-  %41 = getelementptr inbounds i8, ptr %31, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, %26
   store i64 %43, ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %15, i64 248
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 248
   %45 = load ptr, ptr %44, align 8
   %46 = call zeroext i1 @dma_resv_test_signaled(ptr noundef %45, i32 noundef 3) #7
   br i1 %46, label %47, label %58
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i8, ptr %15, i64 464
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 464
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 2
@@ -132,7 +132,7 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
   br i1 %52, label %63, label %53
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %15, i64 912
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 912
   %55 = load i8, ptr %54, align 8
   %56 = and i8 %55, 3
   %57 = icmp eq i8 %56, 1
@@ -140,7 +140,7 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
 
 58:                                               ; preds = %53, %40
   %59 = phi i64 [ 32, %40 ], [ 24, %53 ]
-  %60 = getelementptr inbounds i8, ptr %31, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %31, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, %26
   store i64 %62, ptr %60, align 8
@@ -150,14 +150,14 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
   %64 = load i32, ptr %5, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %5, align 4
-  %66 = call ptr @idr_get_next(ptr noundef %12, ptr noundef nonnull %5) #7
+  %66 = call ptr @idr_get_next(ptr noundef nonnull %12, ptr noundef nonnull %5) #7
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.loopexit27, label %.preheader26, !llvm.loop !5
 
 .loopexit27:                                      ; preds = %63, %2
-  call void @_raw_spin_unlock(ptr noundef %11) #7
+  call void @_raw_spin_unlock(ptr noundef nonnull %11) #7
   call void @__rcu_read_lock() #7
-  %68 = getelementptr inbounds i8, ptr %10, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %69 = load volatile ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, %68
   br i1 %70, label %.loopexit25, label %.preheader24
@@ -210,7 +210,7 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %94, i64 148
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 148
   %98 = load i32, ptr %97, align 4
   %99 = zext i32 %98 to i64
   br label %100
@@ -236,7 +236,7 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
   br i1 %116, label %117, label %140
 
 117:                                              ; preds = %100
-  %118 = getelementptr inbounds i8, ptr %108, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %119 = load i64, ptr %118, align 8
   %120 = add i64 %119, %103
   store i64 %120, ptr %118, align 8
@@ -262,7 +262,7 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
 
 135:                                              ; preds = %130, %117
   %136 = phi i64 [ 32, %117 ], [ 24, %130 ]
-  %137 = getelementptr inbounds i8, ptr %108, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr %108, i64 %136
   %138 = load i64, ptr %137, align 8
   %139 = add i64 %138, %103
   store i64 %139, ptr %137, align 8
@@ -293,7 +293,7 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
 
 .loopexit25:                                      ; preds = %.thread17, %.loopexit27
   call void @__rcu_read_unlock() #7
-  %149 = getelementptr inbounds i8, ptr %8, i64 8504
+  %149 = getelementptr inbounds nuw i8, ptr %8, i64 8504
   store i32 0, ptr %5, align 4
   br label %150
 
@@ -307,8 +307,8 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
 
 156:                                              ; preds = %150
   %157 = getelementptr [7 x %struct.drm_memory_stats], ptr %4, i64 0, i64 %152
-  %158 = getelementptr inbounds i8, ptr %154, i64 168
-  call void @drm_print_memory_stats(ptr noundef %0, ptr noundef %157, i32 noundef 3, ptr noundef %158) #7
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 168
+  call void @drm_print_memory_stats(ptr noundef %0, ptr noundef %157, i32 noundef 3, ptr noundef nonnull %158) #7
   %.pre = load i32, ptr %5, align 4
   br label %159
 
@@ -323,14 +323,14 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
 164:                                              ; preds = %159
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %4) #7
-  %165 = getelementptr inbounds i8, ptr %8, i64 7176
+  %165 = getelementptr inbounds nuw i8, ptr %8, i64 7176
   %166 = load i8, ptr %165, align 8
   %167 = icmp ult i8 %166, 8
   br i1 %167, label %.loopexit22, label %168
 
 168:                                              ; preds = %164
-  %169 = getelementptr inbounds i8, ptr %8, i64 7912
-  %170 = getelementptr inbounds i8, ptr %3, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %8, i64 7912
+  %170 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %171
 
 171:                                              ; preds = %.thread20, %168
@@ -338,11 +338,11 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
   %173 = load ptr, ptr %9, align 8
   %174 = getelementptr [5 x i32], ptr %169, i64 0, i64 %172
   %175 = load i32, ptr %174, align 4
-  %176 = getelementptr inbounds i8, ptr %173, i64 56
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 56
   %177 = getelementptr [5 x %struct.atomic64_t], ptr %176, i64 0, i64 %172
   %178 = load volatile i64, ptr %177, align 8
   call void @__rcu_read_lock() #7
-  %179 = getelementptr inbounds i8, ptr %173, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %180 = load volatile ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, %179
   br i1 %181, label %.loopexit, label %.preheader
@@ -368,9 +368,9 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
   br i1 %190, label %201, label %191
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %189, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 58
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 58
   %195 = load i16, ptr %194, align 2
   %196 = zext i16 %195 to i64
   %197 = icmp eq i64 %172, %196
@@ -416,10 +416,10 @@ define dso_local void @i915_drm_client_fdinfo(ptr noundef %0, ptr noundef %1) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_drm_client_add_object(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 560
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %4 = load volatile ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #7
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %5) #7
   %7 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #7, !srcloc !21
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %13, label %9, !prof !9
@@ -436,18 +436,18 @@ define dso_local void @i915_drm_client_add_object(ptr noundef %0, ptr noundef %1
   br label %15
 
 15:                                               ; preds = %13, %9
-  %16 = getelementptr inbounds i8, ptr %1, i64 552
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 552
   store ptr %0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
   store ptr %17, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 568
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 568
   store ptr %19, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !22
   store volatile ptr %3, ptr %19, align 8
   store ptr %3, ptr %18, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #7
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %5, i64 noundef %6) #7
   ret void
 }
 
@@ -456,24 +456,24 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_drm_client_remove_object(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 552
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
-  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 560
-  %9 = getelementptr inbounds i8, ptr %0, i64 568
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %6) #7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %10, ptr %12, align 8
   store volatile ptr %11, ptr %10, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %9, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %6, i64 noundef %7) #7
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %7) #7
   %13 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 -1, ptr nonnull elementtype(i32) %3) #7, !srcloc !12
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %18, label %15
@@ -497,18 +497,18 @@ define dso_local void @i915_drm_client_remove_object(ptr nocapture noundef %0) l
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_drm_client_add_context_objects(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %27, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 184
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 560
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 560
   %10 = load volatile ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %11) #7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %11) #7
   %13 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #7, !srcloc !21
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %19, label %15, !prof !9
@@ -525,43 +525,43 @@ define dso_local void @i915_drm_client_add_context_objects(ptr noundef %0, ptr n
   br label %21
 
 21:                                               ; preds = %19, %15
-  %22 = getelementptr inbounds i8, ptr %8, i64 552
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 552
   store ptr %0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
   store ptr %23, ptr %9, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 568
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 568
   store ptr %25, ptr %26, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !22
   store volatile ptr %9, ptr %25, align 8
   store ptr %9, ptr %24, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %11, i64 noundef %12) #7
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %11, i64 noundef %12) #7
   br label %27
 
 27:                                               ; preds = %21, %2
-  %28 = getelementptr inbounds i8, ptr %1, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 512
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 512
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %29, %33
   br i1 %34, label %60, label %35
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %29, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %60, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %37, i64 184
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 184
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 560
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 560
   %43 = load volatile ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
-  %45 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %44) #7
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %45 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %44) #7
   %46 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #7, !srcloc !21
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %52, label %48, !prof !9
@@ -578,18 +578,18 @@ define dso_local void @i915_drm_client_add_context_objects(ptr noundef %0, ptr n
   br label %54
 
 54:                                               ; preds = %52, %48
-  %55 = getelementptr inbounds i8, ptr %41, i64 552
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 552
   store ptr %0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 40
-  %57 = getelementptr inbounds i8, ptr %0, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %58 = load ptr, ptr %57, align 8
   store ptr %56, ptr %42, align 8
-  %59 = getelementptr inbounds i8, ptr %41, i64 568
+  %59 = getelementptr inbounds nuw i8, ptr %41, i64 568
   store ptr %58, ptr %59, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !22
   store volatile ptr %42, ptr %58, align 8
   store ptr %42, ptr %57, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %44, i64 noundef %45) #7
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %44, i64 noundef %45) #7
   br label %60
 
 60:                                               ; preds = %54, %35, %27

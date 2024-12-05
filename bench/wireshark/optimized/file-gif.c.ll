@@ -204,12 +204,12 @@ define internal noundef i32 @dissect_gif(ptr noundef %0, ptr noundef %1, ptr nou
   %18 = load i32, ptr @ett_gif, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #2
   %20 = load i32, ptr @hf_version, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @proto_tree_add_item_ret_string(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 6, i32 noundef 0, ptr noundef %22, ptr noundef nonnull %6) #2
   %24 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.89, ptr noundef %24) #2
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.90, ptr noundef %27) #2

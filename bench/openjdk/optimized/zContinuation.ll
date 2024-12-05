@@ -82,7 +82,7 @@ define hidden noundef ptr @_ZN13ZContinuation8load_oopEP17stackChunkOopDescPv(pt
   %25 = load i64, ptr %24, align 8
   %26 = lshr i64 %25, 12
   %27 = and i64 %26, 15
-  %28 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = zext nneg i32 %29 to i64
   %31 = shl i64 %3, %30
@@ -99,7 +99,7 @@ _ZL20materialize_zpointerP17stackChunkOopDescPv.exit: ; preds = %2, %6, %12
 35:                                               ; preds = %_ZL20materialize_zpointerP17stackChunkOopDescPv.exit
   %36 = lshr i64 %.0.i, 12
   %37 = and i64 %36, 15
-  %38 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = zext nneg i32 %39 to i64
   %41 = lshr i64 %.0.i, %40
@@ -113,7 +113,7 @@ _ZL20materialize_zpointerP17stackChunkOopDescPv.exit: ; preds = %2, %6, %12
 45:                                               ; preds = %42
   %46 = lshr i64 %.0.i, 12
   %47 = and i64 %46, 15
-  %48 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = zext nneg i32 %49 to i64
   %51 = lshr i64 %.0.i, %50
@@ -151,9 +151,9 @@ _ZL20materialize_zpointerP17stackChunkOopDescPv.exit: ; preds = %2, %6, %12
   %69 = load i64, ptr @ZAddressOffsetMask, align 8
   %70 = and i64 %69, %51
   %71 = lshr i64 %70, 21
-  %72 = getelementptr inbounds i8, ptr %68, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %71
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %71
   %75 = load volatile ptr, ptr %74, align 8
   %.not.i6.i.i.i = icmp eq ptr %75, null
   %76 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -174,7 +174,7 @@ _ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit: ; preds =
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN13ZContinuation21ZColorStackOopClosureC2EP17stackChunkOopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13ZContinuation21ZColorStackOopClosureE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4
   %5 = ptrtoint ptr %1 to i64
   %6 = sext i32 %4 to i64
@@ -195,11 +195,11 @@ define hidden void @_ZN13ZContinuation21ZColorStackOopClosureC2EP17stackChunkOop
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN13ZContinuation21ZColorStackOopClosure6do_oopEPP7oopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #2 align 2 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = lshr i64 %5, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 %3, %10
@@ -224,7 +224,7 @@ define hidden void @_ZN13ZContinuation23ZUncolorStackOopClosure6do_oopEPP7oopDes
   %3 = load volatile i64, ptr %1, align 8
   %4 = lshr i64 %3, 12
   %5 = and i64 %4, 15
-  %6 = getelementptr inbounds [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [9 x i32], ptr @_ZL22ZPointerLoadShiftTable, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = zext nneg i32 %7 to i64
   %9 = lshr i64 %3, %8

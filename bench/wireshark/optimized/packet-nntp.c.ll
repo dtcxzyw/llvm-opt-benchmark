@@ -76,19 +76,19 @@ define internal i32 @dissect_nntp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 13:                                               ; preds = %9, %4
   %.0 = phi ptr [ %8, %4 ], [ %11, %9 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 292
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 288
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %15, %17
   %.str.3..str = select i1 %18, ptr @.str.3, ptr @.str
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef nonnull @.str.7) #2
   %21 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #2
   %22 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %21) #2
   %23 = load ptr, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @tvb_format_text(ptr noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef %21) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.11, ptr noundef nonnull %.str.3..str, ptr noundef %26) #2
@@ -146,13 +146,13 @@ define internal i32 @dissect_nntp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %53
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %.048, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.048, i64 32
   %55 = load ptr, ptr %54, align 8
   %.not5.i = icmp eq ptr %55, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %55, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = or i32 %58, 1
   store i32 %59, ptr %57, align 4

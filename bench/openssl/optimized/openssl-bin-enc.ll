@@ -277,7 +277,7 @@ sw.bb12:                                          ; preds = %while.cond
   %call13 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.84) #11
   %3 = load ptr, ptr @bio_out, align 8
   store ptr %3, ptr %dec, align 8
-  %n14 = getelementptr inbounds i8, ptr %dec, i64 8
+  %n14 = getelementptr inbounds nuw i8, ptr %dec, i64 8
   store i32 0, ptr %n14, align 8
   call void @OBJ_NAME_do_all_sorted(i32 noundef 2, ptr noundef nonnull @show_ciphers, ptr noundef nonnull %dec) #11
   %4 = load ptr, ptr @bio_out, align 8
@@ -344,7 +344,7 @@ sw.bb37:                                          ; preds = %while.cond
 land.end:                                         ; preds = %sw.bb37
   %sub = add i64 %call39, 4294967295
   %idxprom = and i64 %sub, 4294967295
-  %arrayidx42 = getelementptr inbounds i8, ptr %call38, i64 %idxprom
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr %call38, i64 %idxprom
   %5 = load i8, ptr %arrayidx42, align 1
   %cmp44 = icmp eq i8 %5, 107
   br i1 %cmp44, label %if.then46, label %if.end49
@@ -412,7 +412,7 @@ if.then78:                                        ; preds = %if.end73
 land.rhs86:                                       ; preds = %land.rhs86.preheader, %while.body99
   %indvars.iv = phi i64 [ %10, %land.rhs86.preheader ], [ %12, %while.body99 ]
   %12 = add nsw i64 %indvars.iv, -1
-  %arrayidx88 = getelementptr inbounds [128 x i8], ptr @enc_main.buf, i64 0, i64 %12
+  %arrayidx88 = getelementptr inbounds nuw [128 x i8], ptr @enc_main.buf, i64 0, i64 %12
   %13 = load i8, ptr %arrayidx88, align 1
   switch i8 %13, label %while.cond.backedge [
     i8 13, label %while.body99
@@ -1007,7 +1007,7 @@ if.then553:                                       ; preds = %if.then551
 
 for.body:                                         ; preds = %if.then553, %for.body
   %indvars.iv471 = phi i64 [ %indvars.iv.next472, %for.body ], [ 0, %if.then553 ]
-  %arrayidx559 = getelementptr inbounds [16 x i8], ptr %salt, i64 0, i64 %indvars.iv471
+  %arrayidx559 = getelementptr inbounds nuw [16 x i8], ptr %salt, i64 0, i64 %indvars.iv471
   %74 = load i8, ptr %arrayidx559, align 1
   %conv560 = zext i8 %74 to i32
   %call561 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, i32 noundef %conv560)
@@ -1036,7 +1036,7 @@ if.then568:                                       ; preds = %if.end564
 
 for.body574:                                      ; preds = %if.then568, %for.body574
   %indvars.iv474 = phi i64 [ %indvars.iv.next475, %for.body574 ], [ 0, %if.then568 ]
-  %arrayidx576 = getelementptr inbounds [64 x i8], ptr %key, i64 0, i64 %indvars.iv474
+  %arrayidx576 = getelementptr inbounds nuw [64 x i8], ptr %key, i64 0, i64 %indvars.iv474
   %79 = load i8, ptr %arrayidx576, align 1
   %conv577 = zext i8 %79 to i32
   %call578 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, i32 noundef %conv577)
@@ -1066,7 +1066,7 @@ if.then587:                                       ; preds = %if.end583
 
 for.body593:                                      ; preds = %if.then587, %for.body593
   %indvars.iv477 = phi i64 [ %indvars.iv.next478, %for.body593 ], [ 0, %if.then587 ]
-  %arrayidx595 = getelementptr inbounds [16 x i8], ptr %iv, i64 0, i64 %indvars.iv477
+  %arrayidx595 = getelementptr inbounds nuw [16 x i8], ptr %iv, i64 0, i64 %indvars.iv477
   %84 = load i8, ptr %arrayidx595, align 1
   %conv596 = zext i8 %84 to i32
   %call597 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, i32 noundef %conv596)
@@ -1232,11 +1232,11 @@ define internal void @show_ciphers(ptr nocapture noundef readonly %name, ptr noc
 entry:
   %call = tail call ptr @__ctype_b_loc() #12
   %0 = load ptr, ptr %call, align 8
-  %name1 = getelementptr inbounds i8, ptr %name, i64 8
+  %name1 = getelementptr inbounds nuw i8, ptr %name, i64 8
   %1 = load ptr, ptr %name1, align 8
   %2 = load i8, ptr %1, align 1
   %idxprom = zext i8 %2 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i16, ptr %0, i64 %idxprom
   %3 = load i16, ptr %arrayidx, align 2
   %4 = and i16 %3, 512
   %tobool.not = icmp eq i16 %4, 0
@@ -1262,7 +1262,7 @@ if.end15:                                         ; preds = %lor.lhs.false10
   %5 = load ptr, ptr %arg, align 8
   %6 = load ptr, ptr %name1, align 8
   %call17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %5, ptr noundef nonnull @.str.119, ptr noundef %6) #11
-  %n = getelementptr inbounds i8, ptr %arg, i64 8
+  %n = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %7 = load i32, ptr %n, align 8
   %inc = add nsw i32 %7, 1
   store i32 %inc, ptr %n, align 8
@@ -1380,11 +1380,11 @@ for.body.lr.ph:                                   ; preds = %if.end7
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.020 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %in.addr.019 = phi ptr [ %in, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.019, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %in.addr.019, i64 1
   %1 = load i8, ptr %in.addr.019, align 1
   %2 = load ptr, ptr %call11, align 8
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr inbounds i16, ptr %2, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i16, ptr %2, i64 %idxprom
   %3 = load i16, ptr %arrayidx, align 2
   %4 = and i16 %3, 4096
   %tobool.not = icmp eq i16 %4, 0
@@ -1404,7 +1404,7 @@ if.end16:                                         ; preds = %for.body
 if.then21:                                        ; preds = %if.end16
   %div17 = lshr i32 %i.020, 1
   %idxprom23 = zext nneg i32 %div17 to i64
-  %arrayidx24 = getelementptr inbounds i8, ptr %out, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %out, i64 %idxprom23
   %6 = load i8, ptr %arrayidx24, align 1
   %7 = trunc i32 %call17 to i8
   %conv26 = or i8 %6, %7
@@ -1416,7 +1416,7 @@ if.else27:                                        ; preds = %if.end16
   %conv29 = shl i8 %call17.tr, 4
   %div30 = lshr exact i32 %i.020, 1
   %idxprom31 = zext nneg i32 %div30 to i64
-  %arrayidx32 = getelementptr inbounds i8, ptr %out, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %out, i64 %idxprom31
   store i8 %conv29, ptr %arrayidx32, align 1
   br label %for.inc
 

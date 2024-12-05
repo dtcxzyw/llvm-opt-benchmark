@@ -15,7 +15,7 @@ define { ptr, i64 } @_RINvMNtCs1LoaDTb72WA_4core3stre12trim_matchesNCNvB2_4trim0
   %4 = phi i64 [ %47, %_RNvXs8_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_8Searcher4nextCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678.exit.i ], [ 0, %2 ]
   %5 = phi ptr [ %43, %_RNvXs8_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_8Searcher4nextCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678.exit.i ], [ %0, %2 ]
   %6 = ptrtoint ptr %5 to i64
-  %7 = getelementptr inbounds i8, ptr %5, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %8 = load i8, ptr %5, align 1, !noalias !4, !noundef !15
   %9 = icmp sgt i8 %8, -1
   br i1 %9, label %20, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit12.i.i.i.i
@@ -25,7 +25,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   %11 = zext nneg i8 %10 to i32
   %12 = icmp ne ptr %7, %3
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds i8, ptr %5, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %14 = load i8, ptr %7, align 1, !noalias !4, !noundef !15
   %15 = shl nuw nsw i32 %11, 6
   %16 = and i8 %14, 63
@@ -41,7 +41,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit14.i.i.i.i: ; preds = %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit12.i.i.i.i
   %22 = icmp ne ptr %13, %3
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds i8, ptr %5, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %24 = load i8, ptr %13, align 1, !noalias !4, !noundef !15
   %25 = shl nuw nsw i32 %17, 6
   %26 = and i8 %24, 63
@@ -55,7 +55,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit16.i.i.i.i: ; preds = %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit14.i.i.i.i
   %32 = icmp ne ptr %23, %3
   tail call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %34 = load i8, ptr %23, align 1, !noalias !4, !noundef !15
   %35 = shl nuw nsw i32 %11, 18
   %36 = and i32 %35, 1835008
@@ -109,14 +109,14 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 58:                                               ; preds = %50
   %59 = and i32 %.sroa.4.0.i.ph.i.i.i, 255
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1, !noalias !16, !noundef !15
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.i.i
 
 63:                                               ; preds = %50
   %64 = and i32 %.sroa.4.0.i.ph.i.i.i, 255
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %65
   %67 = load i8, ptr %66, align 1, !noalias !16, !noundef !15
   %68 = lshr i8 %67, 1
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.i.i
@@ -241,14 +241,14 @@ _RNvXs2V_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits1
 124:                                              ; preds = %116
   %125 = and i32 %.sroa.4.1.i.ph.i.i.i.i, 255
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %126
+  %127 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %126
   %128 = load i8, ptr %127, align 1, !noalias !31, !noundef !15
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.i.i.i
 
 129:                                              ; preds = %116
   %130 = and i32 %.sroa.4.1.i.ph.i.i.i.i, 255
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %131
   %133 = load i8, ptr %132, align 1, !noalias !31, !noundef !15
   %134 = lshr i8 %133, 1
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.i.i.i
@@ -289,21 +289,21 @@ _RNvXsp_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_21CharPredicateSearcherNCNvMB7_
 define hidden void @_RNvXs7_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_18MultiCharEqPatternNCNvMB7_e4trim0ENtB5_7Pattern13into_searcherCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %6, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_RNvXs8_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_8Searcher4nextCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !alias.scope !32, !nonnull !15, !noundef !15
   %6 = load ptr, ptr %3, align 8, !alias.scope !32, !nonnull !15, !noundef !15
   %7 = ptrtoint ptr %6 to i64
@@ -313,7 +313,7 @@ define hidden void @_RNvXs8_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiChar
   br i1 %8, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9982233b8b9c1d9E.exit.thread", label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %10, ptr %3, align 8, !alias.scope !41
   %11 = load i8, ptr %6, align 1, !noalias !44, !noundef !15
   %12 = icmp sgt i8 %11, -1
@@ -324,7 +324,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   %14 = zext nneg i8 %13 to i32
   %15 = icmp ne ptr %10, %5
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store ptr %16, ptr %3, align 8, !alias.scope !45
   %17 = load i8, ptr %10, align 1, !noalias !44, !noundef !15
   %18 = shl nuw nsw i32 %14, 6
@@ -341,7 +341,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit14.i.i: ; preds = %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit12.i.i
   %25 = icmp ne ptr %16, %5
   tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds i8, ptr %6, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store ptr %26, ptr %3, align 8, !alias.scope !48
   %27 = load i8, ptr %16, align 1, !noalias !44, !noundef !15
   %28 = shl nuw nsw i32 %20, 6
@@ -356,7 +356,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit16.i.i: ; preds = %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit14.i.i
   %35 = icmp ne ptr %26, %5
   tail call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds i8, ptr %6, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store ptr %36, ptr %3, align 8, !alias.scope !51
   %37 = load i8, ptr %26, align 1, !noalias !44, !noundef !15
   %38 = shl nuw nsw i32 %14, 18
@@ -373,7 +373,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   %.sroa.4.0.i.ph.i = phi i32 [ %21, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit12.i.i ], [ %33, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit14.i.i ], [ %44, %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit16.i.i ], [ %24, %23 ]
   %47 = icmp samesign ult i32 %.sroa.4.0.i.ph.i, 1114112
   tail call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds i8, ptr %1, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %49 = load i64, ptr %48, align 8, !alias.scope !35, !noundef !15
   %50 = ptrtoint ptr %46 to i64
   %51 = sub i64 %50, %7
@@ -414,14 +414,14 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 63:                                               ; preds = %55
   %64 = and i32 %.sroa.4.0.i.ph.i, 255
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %65
   %67 = load i8, ptr %66, align 1, !noundef !15
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit
 
 68:                                               ; preds = %55
   %69 = and i32 %.sroa.4.0.i.ph.i, 255
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %70
   %72 = load i8, ptr %71, align 1, !noundef !15
   %73 = lshr i8 %72, 1
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit
@@ -436,9 +436,9 @@ _RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7mat
 
 "_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9982233b8b9c1d9E.exit.thread.sink.split": ; preds = %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit, %53, %55, %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.thread
   %storemerge2.ph = phi i64 [ 0, %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.thread ], [ 1, %55 ], [ 1, %53 ], [ 1, %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %49, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %52, ptr %76, align 8
   br label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb9982233b8b9c1d9E.exit.thread"
 
@@ -450,8 +450,8 @@ _RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7mat
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_RNvXs9_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_15ReverseSearcher9next_backCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !alias.scope !54, !nonnull !15, !noundef !15
   %6 = load ptr, ptr %3, align 8, !alias.scope !54, !nonnull !15, !noundef !15
   %7 = ptrtoint ptr %5 to i64
@@ -531,7 +531,7 @@ _RNvXs2V_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits1
   %.sroa.4.1.i.ph.i = phi i32 [ %21, %20 ], [ %33, %28 ]
   %51 = icmp samesign ult i32 %.sroa.4.1.i.ph.i, 1114112
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds i8, ptr %1, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = load i64, ptr %52, align 8, !alias.scope !57, !noundef !15
   %54 = ptrtoint ptr %50 to i64
   %55 = sub i64 %53, %8
@@ -571,14 +571,14 @@ _RNvXs2V_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits1
 67:                                               ; preds = %59
   %68 = and i32 %.sroa.4.1.i.ph.i, 255
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %69
   %71 = load i8, ptr %70, align 1, !noundef !15
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit
 
 72:                                               ; preds = %59
   %73 = and i32 %.sroa.4.1.i.ph.i, 255
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %74
   %76 = load i8, ptr %75, align 1, !noundef !15
   %77 = lshr i8 %76, 1
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit
@@ -594,9 +594,9 @@ _RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7mat
 "_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h84a02c9ad5f10fd6E.exit.thread.sink.split": ; preds = %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit, %57, %59, %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.thread
   %storemerge2.ph = phi i64 [ 0, %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.thread ], [ 1, %59 ], [ 1, %57 ], [ 1, %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit ]
   %79 = add i64 %55, %7
-  %80 = getelementptr inbounds i8, ptr %0, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %56, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %79, ptr %81, align 8
   br label %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h84a02c9ad5f10fd6E.exit.thread"
 
@@ -616,15 +616,15 @@ define hidden void @_RNvXso_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_21CharPredi
 define hidden void @_RNvXsp_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_21CharPredicateSearcherNCNvMB7_e4trim0ENtB5_15ReverseSearcher16next_reject_backCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %3, align 8, !alias.scope !81, !noalias !86, !nonnull !15, !noundef !15
   %.promoted.i = load ptr, ptr %4, align 8, !alias.scope !88, !noalias !86
   %6 = icmp eq ptr %5, %.promoted.i
   br i1 %6, label %_RNvYINtNtNtCs1LoaDTb72WA_4core3str7pattern19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_15ReverseSearcher16next_reject_backCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8, !alias.scope !89, !noalias !86, !noundef !15
   br label %9
 
@@ -733,14 +733,14 @@ _RNvXs2V_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits1
 62:                                               ; preds = %54
   %63 = and i32 %.sroa.4.1.i.ph.i.i.i, 255
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %64
   %66 = load i8, ptr %65, align 1, !noalias !98, !noundef !15
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.i.i
 
 67:                                               ; preds = %54
   %68 = and i32 %.sroa.4.1.i.ph.i.i.i, 255
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %69
   %71 = load i8, ptr %70, align 1, !noalias !98, !noundef !15
   %72 = lshr i8 %71, 1
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.i.i
@@ -758,9 +758,9 @@ _RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7mat
   %78 = sub i64 %8, %76
   %79 = add i64 %78, %77
   %80 = add i64 %78, %75
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %79, ptr %81, align 8, !alias.scope !76, !noalias !79
-  %82 = getelementptr inbounds i8, ptr %0, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %80, ptr %82, align 8, !alias.scope !76, !noalias !79
   br label %_RNvYINtNtNtCs1LoaDTb72WA_4core3str7pattern19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_15ReverseSearcher16next_reject_backCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678.exit
 
@@ -782,28 +782,28 @@ _RNvYINtNtNtCs1LoaDTb72WA_4core3str7pattern19MultiCharEqSearcherNCNvMB7_e4trim0E
 define hidden void @_RNvXsr_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_7Pattern13into_searcherCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %1, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %.sroa.7.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_RNvYINtNtNtCs1LoaDTb72WA_4core3str7pattern19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_15ReverseSearcher16next_reject_backCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %3, align 8, !alias.scope !100, !noalias !105, !nonnull !15, !noundef !15
   %.promoted = load ptr, ptr %4, align 8, !alias.scope !107, !noalias !105
   %6 = icmp eq ptr %5, %.promoted
   br i1 %6, label %_RNvXs9_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_15ReverseSearcher9next_backCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8, !alias.scope !108, !noalias !105, !noundef !15
   br label %9
 
@@ -912,14 +912,14 @@ _RNvXs2V_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits1
 62:                                               ; preds = %54
   %63 = and i32 %.sroa.4.1.i.ph.i.i, 255
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %64
   %66 = load i8, ptr %65, align 1, !noalias !116, !noundef !15
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.i
 
 67:                                               ; preds = %54
   %68 = and i32 %.sroa.4.1.i.ph.i.i, 255
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %69
   %71 = load i8, ptr %70, align 1, !noalias !116, !noundef !15
   %72 = lshr i8 %71, 1
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.i
@@ -937,9 +937,9 @@ _RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7mat
   %78 = sub i64 %8, %76
   %79 = add i64 %78, %77
   %80 = add i64 %78, %75
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %79, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %80, ptr %82, align 8
   br label %_RNvXs9_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_15ReverseSearcher9next_backCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678.exit.thread
 
@@ -959,15 +959,15 @@ _RNvXs9_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_RNvYINtNtNtCs1LoaDTb72WA_4core3str7pattern19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_8Searcher11next_rejectCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !alias.scope !118, !noalias !123, !nonnull !15, !noundef !15
   %.promoted = load ptr, ptr %3, align 8, !alias.scope !125, !noalias !123
   %6 = icmp eq ptr %.promoted, %5
   br i1 %6, label %_RNvXs8_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_8Searcher4nextCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678.exit.thread6, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.promoted13 = load i64, ptr %7, align 8, !alias.scope !126, !noalias !123
   br label %8
 
@@ -978,7 +978,7 @@ define hidden void @_RNvYINtNtNtCs1LoaDTb72WA_4core3str7pattern19MultiCharEqSear
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
-  %12 = getelementptr inbounds i8, ptr %10, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %13 = load i8, ptr %10, align 1, !noalias !133, !noundef !15
   %14 = icmp sgt i8 %13, -1
   br i1 %14, label %25, label %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit12.i.i.i
@@ -988,7 +988,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   %16 = zext nneg i8 %15 to i32
   %17 = icmp ne ptr %12, %5
   tail call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds i8, ptr %10, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %19 = load i8, ptr %12, align 1, !noalias !133, !noundef !15
   %20 = shl nuw nsw i32 %16, 6
   %21 = and i8 %19, 63
@@ -1004,7 +1004,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit14.i.i.i: ; preds = %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit12.i.i.i
   %27 = icmp ne ptr %18, %5
   tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds i8, ptr %10, i64 3
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 3
   %29 = load i8, ptr %18, align 1, !noalias !133, !noundef !15
   %30 = shl nuw nsw i32 %22, 6
   %31 = and i8 %29, 63
@@ -1018,7 +1018,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit16.i.i.i: ; preds = %_RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8iterator8Iterator4nextCslOtZNRIhnDi_7pidlock.exit14.i.i.i
   %37 = icmp ne ptr %28, %5
   tail call void @llvm.assume(i1 %37)
-  %38 = getelementptr inbounds i8, ptr %10, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %39 = load i8, ptr %28, align 1, !noalias !133, !noundef !15
   %40 = shl nuw nsw i32 %16, 18
   %41 = and i32 %40, 1835008
@@ -1072,14 +1072,14 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 63:                                               ; preds = %55
   %64 = and i32 %.sroa.4.0.i.ph.i.i, 255
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %65
   %67 = load i8, ptr %66, align 1, !noalias !134, !noundef !15
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.i
 
 68:                                               ; preds = %55
   %69 = and i32 %.sroa.4.0.i.ph.i.i, 255
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h180a9a188c58af1aE, i64 0, i64 %70
   %72 = load i8, ptr %71, align 1, !noalias !134, !noundef !15
   %73 = lshr i8 %72, 1
   br label %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.i
@@ -1092,9 +1092,9 @@ _RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7mat
 75:                                               ; preds = %55, %53, %_RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7matchesCslOtZNRIhnDi_7pidlock.exit.i
   store ptr %48, ptr %3, align 8, !alias.scope !135, !noalias !123
   store i64 %52, ptr %7, align 8, !alias.scope !126, !noalias !123
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %52, ptr %77, align 8
   br label %_RNvXs8_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_8Searcher4nextCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678.exit.thread6
 

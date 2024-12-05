@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_memory_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = add i32 %2, -8
   %11 = tail call i32 @llvm.fshl.i32(i32 %10, i32 %10, i32 29)
@@ -49,14 +49,14 @@ define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_memory_space_ha
 22:                                               ; preds = %19
   %23 = zext nneg i32 %17 to i64
   %24 = add i64 %1, %23
-  %25 = getelementptr inbounds i8, ptr %9, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %20
   %28 = icmp ugt i64 %24, %27
   br i1 %28, label %29, label %88
 
 29:                                               ; preds = %22, %19, %16
-  %30 = getelementptr inbounds i8, ptr %5, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.loopexit9, label %33
@@ -77,14 +77,14 @@ define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_memory_space_ha
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %37, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, %40
   %46 = icmp ugt i64 %35, %45
   br i1 %46, label %47, label %.loopexit
 
 47:                                               ; preds = %42, %39, %36
-  %48 = getelementptr inbounds i8, ptr %37, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.loopexit9, label %36, !llvm.loop !5
@@ -111,7 +111,7 @@ define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_memory_space_ha
   br label %119
 
 62:                                               ; preds = %.loopexit9
-  %63 = getelementptr inbounds i8, ptr %5, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = load i32, ptr %5, align 8
   %66 = zext i32 %65 to i64
@@ -137,13 +137,13 @@ define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_memory_space_ha
   br label %119
 
 82:                                               ; preds = %62
-  %83 = getelementptr inbounds i8, ptr %56, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %75, ptr %83, align 8
   store i64 %1, ptr %56, align 8
-  %84 = getelementptr inbounds i8, ptr %56, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i64 %74, ptr %84, align 8
   %85 = load ptr, ptr %30, align 8
-  %86 = getelementptr inbounds i8, ptr %56, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %85, ptr %86, align 8
   store ptr %56, ptr %30, align 8
   br label %.loopexit
@@ -157,7 +157,7 @@ define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_memory_space_ha
 88:                                               ; preds = %.loopexit, %22
   %89 = phi i64 [ %20, %22 ], [ %.pre, %.loopexit ]
   %90 = phi ptr [ %9, %22 ], [ %87, %.loopexit ]
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = sub i64 %1, %89
   %94 = getelementptr i8, ptr %92, i64 %93

@@ -15,9 +15,9 @@ Abc_Clock.exit:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   %2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 148
   %.val = load i32, ptr %7, align 4
@@ -69,7 +69,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %14
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %22 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %.not31 = icmp eq ptr %23, null
   br i1 %.not31, label %._crit_edge, label %.lr.ph
@@ -89,7 +89,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %14
   %30 = ptrtoint ptr %.val10.i.i to i64
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 36
   %34 = load i32, ptr %33, align 4
   %35 = mul nsw i32 %34, 7937
   %36 = sext i32 %35 to i64
@@ -99,7 +99,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %14
   %39 = ptrtoint ptr %.val11.i.i to i64
   %40 = and i64 %39, -2
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 36
   %43 = load i32, ptr %42, align 4
   %44 = mul nsw i32 %43, 2971
   %45 = sext i32 %44 to i64
@@ -151,7 +151,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @Aig_TableLookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
@@ -181,18 +181,18 @@ define ptr @Aig_TableLookup(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %.not17, label %.loopexit, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr i8, ptr %1, i64 24
   %.val.i = load i64, ptr %23, align 8
   %24 = and i64 %.val.i, 7
   %25 = icmp eq i64 %24, 6
   %26 = select i1 %25, i64 1699, i64 0
-  %27 = getelementptr inbounds i8, ptr %10, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %28 = load i32, ptr %27, align 4
   %29 = mul nsw i32 %28, 7937
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %17, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 36
   %32 = load i32, ptr %31, align 4
   %33 = mul nsw i32 %32, 2971
   %34 = sext i32 %33 to i64
@@ -306,9 +306,9 @@ define ptr @Aig_TableLookupTwo(ptr nocapture noundef %0, ptr noundef %1, ptr nou
   br i1 %41, label %Aig_ObjCreateGhost.exit, label %42
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %18, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %18, i64 36
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %28, i64 36
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %46 = load i32, ptr %45, align 4
   %47 = icmp slt i32 %44, %46
   %spec.select.i = select i1 %47, ptr %1, ptr %2
@@ -322,7 +322,7 @@ Aig_ObjCreateGhost.exit:                          ; preds = %36, %42
   store ptr %.val.i, ptr %48, align 8
   %49 = getelementptr i8, ptr %0, i64 72
   store ptr %.val19.i, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 160
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %Aig_TableLookup.exit, label %53
@@ -348,13 +348,13 @@ Aig_ObjCreateGhost.exit:                          ; preds = %36, %42
   br i1 %.not17.i, label %Aig_TableLookup.exit, label %65
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %0, i64 168
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %67 = load i32, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %56, i64 36
+  %68 = getelementptr inbounds nuw i8, ptr %56, i64 36
   %69 = load i32, ptr %68, align 4
   %70 = mul nsw i32 %69, 7937
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %62, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %62, i64 36
   %73 = load i32, ptr %72, align 4
   %74 = mul nsw i32 %73, 2971
   %75 = sext i32 %74 to i64
@@ -404,14 +404,14 @@ Aig_TableLookup.exit:                             ; preds = %95, %91, %65, %59, 
 
 ; Function Attrs: nounwind uwtable
 define void @Aig_TableInsert(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 255
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load i32, ptr %8, align 8
   %10 = shl nsw i32 %9, 1
   %11 = getelementptr i8, ptr %0, i64 148
@@ -441,7 +441,7 @@ define void @Aig_TableInsert(ptr nocapture noundef %0, ptr noundef %1) local_unn
   %24 = ptrtoint ptr %.val10.i.i to i64
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr inbounds i8, ptr %26, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %28 = load i32, ptr %27, align 4
   %29 = mul nsw i32 %28, 7937
   %30 = sext i32 %29 to i64
@@ -451,7 +451,7 @@ define void @Aig_TableInsert(ptr nocapture noundef %0, ptr noundef %1) local_unn
   %33 = ptrtoint ptr %.val11.i.i to i64
   %34 = and i64 %33, -2
   %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds i8, ptr %35, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %37 = load i32, ptr %36, align 4
   %38 = mul nsw i32 %37, 2971
   %39 = sext i32 %38 to i64
@@ -496,7 +496,7 @@ define void @Aig_TableDelete(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %10 = ptrtoint ptr %.val10.i.i to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %14 = load i32, ptr %13, align 4
   %15 = mul nsw i32 %14, 7937
   %16 = sext i32 %15 to i64
@@ -506,7 +506,7 @@ define void @Aig_TableDelete(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %19 = ptrtoint ptr %.val11.i.i to i64
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %23 = load i32, ptr %22, align 4
   %24 = mul nsw i32 %23, 2971
   %25 = sext i32 %24 to i64
@@ -539,13 +539,13 @@ Aig_TableFind.exit:                               ; preds = %36
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Aig_TableCountEntries(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
@@ -553,7 +553,7 @@ define i32 @Aig_TableCountEntries(ptr nocapture noundef readonly %0) local_unnam
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.011 = phi i32 [ 0, %.lr.ph ], [ %.1, %11 ]
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   br label %9
 
 9:                                                ; preds = %9, %7
@@ -576,7 +576,7 @@ define i32 @Aig_TableCountEntries(ptr nocapture noundef readonly %0) local_unnam
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Aig_TableProfile(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 148
   %.val = load i32, ptr %4, align 4
@@ -589,14 +589,14 @@ define void @Aig_TableProfile(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %11
 
 11:                                               ; preds = %.lr.ph, %20
   %12 = phi i32 [ %8, %.lr.ph ], [ %21, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   br label %15
 
 15:                                               ; preds = %15, %11
@@ -632,7 +632,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Aig_TableClear(ptr nocapture noundef initializes((168, 172)) %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -643,7 +643,7 @@ define void @Aig_TableClear(ptr nocapture noundef initializes((168, 172)) %0) lo
   br label %5
 
 5:                                                ; preds = %1, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %6, align 8
   ret void
 }

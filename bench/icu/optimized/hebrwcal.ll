@@ -230,7 +230,7 @@ if.end35:                                         ; preds = %if.end28, %if.end12
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 2, i32 noundef %month.2)
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 1, i32 noundef %year.1)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 392
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog
@@ -266,7 +266,7 @@ declare void @_ZN6icu_758Calendar3addE19UCalendarDateFieldsiR10UErrorCode(ptr no
 define void @_ZN6icu_7514HebrewCalendar3addENS_8Calendar11EDateFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %amount, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %amount, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -327,7 +327,7 @@ if.end20:                                         ; preds = %if.else, %if.then11
   %rem22 = srem i32 %add21, 13
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 2, i32 noundef %rem22)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 392
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 5, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %sw.epilog
@@ -359,7 +359,7 @@ declare void @_ZN6icu_758Calendar4rollE19UCalendarDateFieldsiR10UErrorCode(ptr n
 define void @_ZN6icu_7514HebrewCalendar4rollENS_8Calendar11EDateFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %amount, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %amount, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -457,7 +457,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %0) #7
   br label %delete.end
@@ -485,7 +485,7 @@ entry:
 define noundef range(i32 0, 3) i32 @_ZNK6icu_7514HebrewCalendar8yearTypeEi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 320
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 320
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year)
   %cmp = icmp sgt i32 %call, 380
@@ -503,7 +503,7 @@ define noundef i32 @_ZNK6icu_7514HebrewCalendar14handleGetLimitE19UCalendarDateF
 entry:
   %idxprom = zext i32 %field to i64
   %idxprom2 = zext i32 %limitType to i64
-  %arrayidx3 = getelementptr inbounds [24 x [4 x i32]], ptr @_ZL6LIMITS, i64 0, i64 %idxprom, i64 %idxprom2
+  %arrayidx3 = getelementptr inbounds nuw [24 x [4 x i32]], ptr @_ZL6LIMITS, i64 0, i64 %idxprom, i64 %idxprom2
   %0 = load i32, ptr %arrayidx3, align 4
   ret i32 %0
 }
@@ -558,7 +558,7 @@ while.end6:                                       ; preds = %while.body4, %while
 
 sw.bb:                                            ; preds = %while.end6
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 320
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 320
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %extendedYear.addr.1.lcssa)
   %cmp.i = icmp sgt i32 %call.i, 380
@@ -568,11 +568,11 @@ sw.bb:                                            ; preds = %while.end6
   %switch.select.i = select i1 %switch.selectcmp.i, i64 2, i64 1
   %switch.selectcmp3.i = icmp eq i32 %spec.select.i, 353
   %switch.select4.i = select i1 %switch.selectcmp3.i, i64 0, i64 %switch.select.i
-  %arrayidx9 = getelementptr inbounds [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %idxprom, i64 %switch.select4.i
+  %arrayidx9 = getelementptr inbounds nuw [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %idxprom, i64 %switch.select4.i
   br label %return
 
 sw.default:                                       ; preds = %while.end6
-  %arrayidx11 = getelementptr inbounds [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %idxprom
+  %arrayidx11 = getelementptr inbounds nuw [13 x [3 x i8]], ptr @_ZL12MONTH_LENGTH, i64 0, i64 %idxprom
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb
@@ -604,7 +604,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry, %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 328
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 328
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %mul.i = mul nsw i32 %call, 12
@@ -617,7 +617,7 @@ land.lhs.true:                                    ; preds = %entry, %entry
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 264
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 264
   %1 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %cmp8 = icmp eq i32 %call7, 5
@@ -667,7 +667,7 @@ while.end:                                        ; preds = %while.body, %entry
   %year.0.lcssa = phi i32 [ %conv4, %entry ], [ %dec, %while.body ]
   %dayOfYear.0.lcssa = phi i32 [ %dayOfYear.073, %entry ], [ %dayOfYear.0, %while.body ]
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 320
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 320
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i36 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %year.0.lcssa)
   %cmp.i = icmp sgt i32 %call.i36, 380
@@ -688,7 +688,7 @@ while.end:                                        ; preds = %while.body, %entry
 
 land.rhs.us:                                      ; preds = %while.end, %while.body21.us
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %while.body21.us ], [ 0, %while.end ]
-  %arrayidx18.us = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %indvars.iv84, i64 %switch.select4.i
+  %arrayidx18.us = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %indvars.iv84, i64 %switch.select4.i
   %cond.us = load i16, ptr %arrayidx18.us, align 2
   %conv19.us = sext i16 %cond.us to i32
   %cmp20.us = icmp sgt i32 %dayOfYear.0.lcssa, %conv19.us
@@ -701,7 +701,7 @@ while.body21.us:                                  ; preds = %land.rhs.us
 
 land.rhs:                                         ; preds = %while.end, %while.body21
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body21 ], [ 0, %while.end ]
-  %arrayidx14 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %indvars.iv, i64 %switch.select4.i
+  %arrayidx14 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %indvars.iv, i64 %switch.select4.i
   %cond = load i16, ptr %arrayidx14, align 2
   %conv19 = sext i16 %cond to i32
   %cmp20 = icmp sgt i32 %dayOfYear.0.lcssa, %conv19
@@ -725,57 +725,57 @@ if.then:                                          ; preds = %while.body21, %whil
 if.end:                                           ; preds = %while.end22
   %dec25 = add nsw i32 %.us-phi, -1
   %idxprom28 = zext nneg i32 %dec25 to i64
-  %arrayidx31 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %idxprom28, i64 %switch.select4.i
-  %arrayidx36 = getelementptr inbounds [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %idxprom28, i64 %switch.select4.i
+  %arrayidx31 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %idxprom28, i64 %switch.select4.i
+  %arrayidx36 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %idxprom28, i64 %switch.select4.i
   %cond38.in = select i1 %cmp1.i.not.fr, ptr %arrayidx36, ptr %arrayidx31
   %cond38 = load i16, ptr %cond38.in, align 2
   %conv39 = sext i16 %cond38 to i32
   %sub40 = sub nsw i32 %dayOfYear.0.lcssa, %conv39
-  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  %fFields.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %fFields.i, align 4
-  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  %fStamp.i = getelementptr inbounds nuw i8, ptr %this, i64 132
   store i32 1, ptr %fStamp.i, align 4
-  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  %fIsSet.i = getelementptr inbounds nuw i8, ptr %this, i64 108
   store i8 1, ptr %fIsSet.i, align 4
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %year.0.lcssa, ptr %arrayidx.i, align 8
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 136
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   store i32 1, ptr %arrayidx3.i, align 8
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 109
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 109
   store i8 1, ptr %arrayidx5.i, align 1
-  %arrayidx.i42 = getelementptr inbounds i8, ptr %this, i64 88
+  %arrayidx.i42 = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i32 %year.0.lcssa, ptr %arrayidx.i42, align 8
-  %arrayidx3.i44 = getelementptr inbounds i8, ptr %this, i64 208
+  %arrayidx3.i44 = getelementptr inbounds nuw i8, ptr %this, i64 208
   store i32 1, ptr %arrayidx3.i44, align 8
-  %arrayidx5.i46 = getelementptr inbounds i8, ptr %this, i64 127
+  %arrayidx5.i46 = getelementptr inbounds nuw i8, ptr %this, i64 127
   store i8 1, ptr %arrayidx5.i46, align 1
   %cmp42 = icmp samesign ugt i32 %.us-phi, 6
   %or.cond1 = select i1 %cmp1.i.not.fr, i1 %cmp42, i1 false
   %dec44 = add nsw i32 %.us-phi, -2
   %ordinal_month.0 = select i1 %or.cond1, i32 %dec44, i32 %dec25
-  %arrayidx.i48 = getelementptr inbounds i8, ptr %this, i64 104
+  %arrayidx.i48 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 %ordinal_month.0, ptr %arrayidx.i48, align 8
-  %arrayidx3.i50 = getelementptr inbounds i8, ptr %this, i64 224
+  %arrayidx3.i50 = getelementptr inbounds nuw i8, ptr %this, i64 224
   store i32 1, ptr %arrayidx3.i50, align 8
-  %arrayidx5.i52 = getelementptr inbounds i8, ptr %this, i64 131
+  %arrayidx5.i52 = getelementptr inbounds nuw i8, ptr %this, i64 131
   store i8 1, ptr %arrayidx5.i52, align 1
-  %arrayidx.i54 = getelementptr inbounds i8, ptr %this, i64 20
+  %arrayidx.i54 = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %dec25, ptr %arrayidx.i54, align 4
-  %arrayidx3.i56 = getelementptr inbounds i8, ptr %this, i64 140
+  %arrayidx3.i56 = getelementptr inbounds nuw i8, ptr %this, i64 140
   store i32 1, ptr %arrayidx3.i56, align 4
-  %arrayidx5.i58 = getelementptr inbounds i8, ptr %this, i64 110
+  %arrayidx5.i58 = getelementptr inbounds nuw i8, ptr %this, i64 110
   store i8 1, ptr %arrayidx5.i58, align 2
-  %arrayidx.i60 = getelementptr inbounds i8, ptr %this, i64 32
+  %arrayidx.i60 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %sub40, ptr %arrayidx.i60, align 8
-  %arrayidx3.i62 = getelementptr inbounds i8, ptr %this, i64 152
+  %arrayidx3.i62 = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i32 1, ptr %arrayidx3.i62, align 8
-  %arrayidx5.i64 = getelementptr inbounds i8, ptr %this, i64 113
+  %arrayidx5.i64 = getelementptr inbounds nuw i8, ptr %this, i64 113
   store i8 1, ptr %arrayidx5.i64, align 1
-  %arrayidx.i66 = getelementptr inbounds i8, ptr %this, i64 36
+  %arrayidx.i66 = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i32 %dayOfYear.0.lcssa, ptr %arrayidx.i66, align 4
-  %arrayidx3.i68 = getelementptr inbounds i8, ptr %this, i64 156
+  %arrayidx3.i68 = getelementptr inbounds nuw i8, ptr %this, i64 156
   store i32 1, ptr %arrayidx3.i68, align 4
-  %arrayidx5.i70 = getelementptr inbounds i8, ptr %this, i64 114
+  %arrayidx5.i70 = getelementptr inbounds nuw i8, ptr %this, i64 114
   store i8 1, ptr %arrayidx5.i70, align 2
   br label %return
 
@@ -794,24 +794,24 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 208
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %0 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %cond.true.i, label %if.end
 
 cond.true.i:                                      ; preds = %if.then
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 88
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %1 = load i32, ptr %arrayidx3.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx.i2 = getelementptr inbounds i8, ptr %this, i64 136
+  %arrayidx.i2 = getelementptr inbounds nuw i8, ptr %this, i64 136
   %2 = load i32, ptr %arrayidx.i2, align 8
   %cmp.i3 = icmp sgt i32 %2, 0
   br i1 %cmp.i3, label %cond.true.i5, label %if.end
 
 cond.true.i5:                                     ; preds = %if.else
-  %arrayidx3.i7 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3.i7 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %arrayidx3.i7, align 8
   br label %if.end
 
@@ -885,7 +885,7 @@ if.then10:                                        ; preds = %if.end
   %cmp1.i.not = icmp slt i32 %rem.i, %cond.i22
   %idxprom18 = zext nneg i32 %month.addr.1.lcssa to i64
   %vtable.i25 = load ptr, ptr %this, align 8
-  %vfn.i26 = getelementptr inbounds i8, ptr %vtable.i25, i64 320
+  %vfn.i26 = getelementptr inbounds nuw i8, ptr %vtable.i25, i64 320
   %2 = load ptr, ptr %vfn.i26, align 8
   %call.i27 = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %eyear.addr.1.lcssa)
   %cmp.i28 = icmp sgt i32 %call.i27, 380
@@ -896,7 +896,7 @@ if.then10:                                        ; preds = %if.end
   %switch.selectcmp3.i33 = icmp eq i32 %spec.select.i30, 353
   %switch.select4.i34 = select i1 %switch.selectcmp3.i33, i64 0, i64 %switch.select.i32
   %_ZL11MONTH_START._ZL16LEAP_MONTH_START = select i1 %cmp1.i.not, ptr @_ZL11MONTH_START, ptr @_ZL16LEAP_MONTH_START
-  %arrayidx16 = getelementptr inbounds [14 x [3 x i16]], ptr %_ZL11MONTH_START._ZL16LEAP_MONTH_START, i64 0, i64 %idxprom18, i64 %switch.select4.i34
+  %arrayidx16 = getelementptr inbounds nuw [14 x [3 x i16]], ptr %_ZL11MONTH_START._ZL16LEAP_MONTH_START, i64 0, i64 %idxprom18, i64 %switch.select4.i34
   %3 = load i16, ptr %arrayidx16, align 2
   %conv = sext i16 %3 to i32
   %add17 = add nsw i32 %call7, %conv
@@ -1111,7 +1111,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
-  %arrayidx = getelementptr inbounds [14 x ptr], ptr @_ZN6icu_75L28gTemporalMonthCodesForHebrewE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [14 x ptr], ptr @_ZN6icu_75L28gTemporalMonthCodesForHebrewE, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %call8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %code, ptr noundef nonnull dereferenceable(1) %2) #8
   %cmp9 = icmp eq i32 %call8, 0
@@ -1149,10 +1149,10 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 104
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i32, ptr %arrayidx.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 328
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 328
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(618) %this)
   %mul.i = mul nsw i32 %call3, 12

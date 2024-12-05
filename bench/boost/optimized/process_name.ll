@@ -957,7 +957,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   %341 = zext nneg i32 %340 to i64
   %342 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %341
   %343 = load i8, ptr %342, align 1, !tbaa !11, !noalias !18
-  %344 = getelementptr inbounds i8, ptr %317, i64 1
+  %344 = getelementptr inbounds nuw i8, ptr %317, i64 1
   store i8 %343, ptr %344, align 1, !tbaa !11
   %345 = zext nneg i32 %339 to i64
   %346 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %345

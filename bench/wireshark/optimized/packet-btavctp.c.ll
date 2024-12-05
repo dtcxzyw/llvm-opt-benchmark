@@ -126,7 +126,7 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %11 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %12 = alloca i32, align 4
   %13 = alloca %struct._uuid_t, align 2
-  %14 = getelementptr inbounds i8, ptr %1, i64 360
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @wmem_list_tail(ptr noundef %15) #3
   %17 = tail call ptr @wmem_list_frame_prev(ptr noundef %16) #3
@@ -139,12 +139,12 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
 
 23:                                               ; preds = %4
   %24 = load i32, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load i16, ptr %27, align 8
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %3, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %31 = load i16, ptr %30, align 8
   %32 = zext i16 %31 to i32
   br label %33
@@ -163,12 +163,12 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef %35, i32 noundef 0) #3
   %37 = load i32, ptr @ett_btavctp, align 4
   %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #3
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
   tail call void @col_set_str(ptr noundef %40, i32 noundef 34, ptr noundef nonnull @.str.37) #3
   %41 = load ptr, ptr %39, align 8
   tail call void @col_clear(ptr noundef %41, i32 noundef 25) #3
-  %42 = getelementptr inbounds i8, ptr %1, i64 348
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr %39, align 8
   %switch.selectcmp = icmp eq i32 %43, 1
@@ -225,7 +225,7 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %79, ptr noundef %0, i32 noundef %.0199.ph, i32 noundef 2, i32 noundef 0) #3
   %81 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0199.ph) #3
   %82 = zext i16 %81 to i32
-  %83 = getelementptr inbounds i8, ptr %1, i64 408
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %84 = load ptr, ptr %83, align 8
   %85 = load i32, ptr @proto_bluetooth, align 4
   %86 = tail call ptr @p_get_proto_data(ptr noundef %84, ptr noundef nonnull %1, i32 noundef %85, i32 noundef 0) #3
@@ -233,15 +233,15 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br i1 %87, label %88, label %101
 
 88:                                               ; preds = %78
-  %89 = getelementptr inbounds i8, ptr %9, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i8 2, ptr %89, align 2
   store i16 %81, ptr %9, align 2
   %90 = lshr i16 %81, 8
   %91 = trunc nuw i16 %90 to i8
-  %92 = getelementptr inbounds i8, ptr %9, i64 3
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 3
   store i8 %91, ptr %92, align 1
   %93 = trunc i16 %81 to i8
-  %94 = getelementptr inbounds i8, ptr %9, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i8 %93, ptr %94, align 2
   %95 = tail call ptr @wmem_file_scope() #3
   %96 = load ptr, ptr %83, align 8
@@ -277,39 +277,39 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br i1 %111, label %370, label %112
 
 112:                                              ; preds = %107, %103
-  %113 = getelementptr inbounds i8, ptr %1, i64 408
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %114 = load ptr, ptr %113, align 8
   %115 = call noalias ptr @wmem_alloc(ptr noundef %114, i64 noundef 16) #3
-  %116 = getelementptr inbounds i8, ptr %115, i64 12
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 12
   store i8 %60, ptr %116, align 4
   %117 = load i32, ptr %5, align 4
   store i32 %117, ptr %115, align 4
   %118 = load i32, ptr %6, align 4
-  %119 = getelementptr inbounds i8, ptr %115, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i32 %118, ptr %119, align 4
   %120 = load i32, ptr %7, align 4
   %121 = trunc i32 %120 to i16
-  %122 = getelementptr inbounds i8, ptr %115, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i16 %121, ptr %122, align 4
   %123 = load i32, ptr %8, align 4
   %124 = trunc i32 %123 to i16
-  %125 = getelementptr inbounds i8, ptr %115, i64 10
+  %125 = getelementptr inbounds nuw i8, ptr %115, i64 10
   store i16 %124, ptr %125, align 2
   %126 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1200) #3
   %127 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1200, i32 noundef %126) #3
   br i1 %62, label %128, label %142
 
 128:                                              ; preds = %112
-  %129 = getelementptr inbounds i8, ptr %10, i64 2
+  %129 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 2, ptr %129, align 2
   %130 = trunc nuw i32 %.0201 to i16
   store i16 %130, ptr %10, align 2
   %131 = lshr i32 %.0201, 8
   %132 = trunc nuw i32 %131 to i8
-  %133 = getelementptr inbounds i8, ptr %10, i64 3
+  %133 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store i8 %132, ptr %133, align 1
   %134 = trunc i32 %.0201 to i8
-  %135 = getelementptr inbounds i8, ptr %10, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %134, ptr %135, align 2
   %136 = load ptr, ptr @bluetooth_uuid_table, align 8
   %137 = load ptr, ptr %113, align 8
@@ -323,38 +323,38 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br label %370
 
 142:                                              ; preds = %112
-  %143 = getelementptr inbounds i8, ptr %1, i64 20
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %144 = load i32, ptr %143, align 4
   store i32 %144, ptr %12, align 4
   store i32 1, ptr %11, align 16
-  %145 = getelementptr inbounds i8, ptr %11, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %5, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %11, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 1, ptr %146, align 16
-  %147 = getelementptr inbounds i8, ptr %11, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %6, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %11, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 1, ptr %148, align 16
-  %149 = getelementptr inbounds i8, ptr %11, i64 40
+  %149 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %7, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %11, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 1, ptr %150, align 16
-  %151 = getelementptr inbounds i8, ptr %11, i64 56
+  %151 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %8, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %11, i64 64
+  %152 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 1, ptr %152, align 16
-  %153 = getelementptr inbounds i8, ptr %11, i64 72
+  %153 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store ptr %12, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %11, i64 80
+  %154 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store i32 0, ptr %154, align 16
-  %155 = getelementptr inbounds i8, ptr %11, i64 88
+  %155 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store ptr null, ptr %155, align 8
   br i1 %63, label %156, label %215
 
 156:                                              ; preds = %142
-  %157 = getelementptr inbounds i8, ptr %1, i64 80
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 50
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 50
   %160 = load i16, ptr %159, align 2
   %161 = and i16 %160, 8
   %.not214 = icmp eq i16 %161, 0
@@ -367,37 +367,37 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %165 = call ptr @wmem_file_scope() #3
   %166 = zext i32 %126 to i64
   %167 = call noalias ptr @wmem_alloc(ptr noundef %165, i64 noundef %166) #3
-  %168 = getelementptr inbounds i8, ptr %164, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store ptr %167, ptr %168, align 8
   %169 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %167, i32 noundef %.1200, i64 noundef %166) #3
   %170 = call ptr @wmem_file_scope() #3
   %171 = call noalias ptr @wmem_alloc(ptr noundef %170, i64 noundef 40) #3
   store ptr %171, ptr @fragments, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 20
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 20
   store i32 %.0198231, ptr %172, align 4
-  %173 = getelementptr inbounds i8, ptr %171, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 24
   store i32 %.0201, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %171, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store i32 1, ptr %174, align 8
   %175 = call ptr @wmem_file_scope() #3
   %176 = call noalias ptr @wmem_tree_new(ptr noundef %175) #3
   %177 = load ptr, ptr @fragments, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 32
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
   store ptr %176, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %177, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %180 = load i32, ptr %179, align 8
   call void @wmem_tree_insert32(ptr noundef %176, i32 noundef %180, ptr noundef nonnull %164) #3
   %181 = load i32, ptr %5, align 4
   %182 = load ptr, ptr @fragments, align 8
   store i32 %181, ptr %182, align 8
   %183 = load i32, ptr %6, align 4
-  %184 = getelementptr inbounds i8, ptr %182, i64 4
+  %184 = getelementptr inbounds nuw i8, ptr %182, i64 4
   store i32 %183, ptr %184, align 4
   %185 = load i32, ptr %7, align 4
-  %186 = getelementptr inbounds i8, ptr %182, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i32 %185, ptr %186, align 8
   %187 = load i32, ptr %8, align 4
-  %188 = getelementptr inbounds i8, ptr %182, i64 12
+  %188 = getelementptr inbounds nuw i8, ptr %182, i64 12
   store i32 %187, ptr %188, align 4
   %189 = load ptr, ptr @reassembling, align 8
   call void @wmem_tree_insert32_array(ptr noundef %189, ptr noundef nonnull %11, ptr noundef nonnull %182) #3
@@ -417,21 +417,21 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br i1 %196, label %197, label %212
 
 197:                                              ; preds = %193
-  %198 = getelementptr inbounds i8, ptr %192, i64 4
+  %198 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %199 = load i32, ptr %198, align 4
   %200 = load i32, ptr %6, align 4
   %201 = icmp eq i32 %199, %200
   br i1 %201, label %202, label %212
 
 202:                                              ; preds = %197
-  %203 = getelementptr inbounds i8, ptr %192, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %204 = load i32, ptr %203, align 8
   %205 = load i32, ptr %7, align 4
   %206 = icmp eq i32 %204, %205
   br i1 %206, label %207, label %212
 
 207:                                              ; preds = %202
-  %208 = getelementptr inbounds i8, ptr %192, i64 12
+  %208 = getelementptr inbounds nuw i8, ptr %192, i64 12
   %209 = load i32, ptr %208, align 4
   %210 = load i32, ptr %8, align 4
   %211 = icmp eq i32 %209, %210
@@ -463,21 +463,21 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br i1 %223, label %224, label %.thread
 
 224:                                              ; preds = %220
-  %225 = getelementptr inbounds i8, ptr %218, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %226 = load i32, ptr %225, align 4
   %227 = load i32, ptr %6, align 4
   %228 = icmp eq i32 %226, %227
   br i1 %228, label %229, label %.thread
 
 229:                                              ; preds = %224
-  %230 = getelementptr inbounds i8, ptr %218, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %231 = load i32, ptr %230, align 8
   %232 = load i32, ptr %7, align 4
   %233 = icmp eq i32 %231, %232
   br i1 %233, label %234, label %.thread
 
 234:                                              ; preds = %229
-  %235 = getelementptr inbounds i8, ptr %218, i64 12
+  %235 = getelementptr inbounds nuw i8, ptr %218, i64 12
   %236 = load i32, ptr %235, align 4
   %237 = load i32, ptr %8, align 4
   %238 = icmp eq i32 %236, %237
@@ -488,9 +488,9 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br label %270
 
 239:                                              ; preds = %234
-  %240 = getelementptr inbounds i8, ptr %1, i64 80
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 50
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 50
   %243 = load i16, ptr %242, align 2
   %244 = and i16 %243, 8
   %245 = icmp eq i16 %244, 0
@@ -503,28 +503,28 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %249 = call ptr @wmem_file_scope() #3
   %250 = zext i32 %126 to i64
   %251 = call noalias ptr @wmem_alloc(ptr noundef %249, i64 noundef %250) #3
-  %252 = getelementptr inbounds i8, ptr %248, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %248, i64 8
   store ptr %251, ptr %252, align 8
   %253 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %251, i32 noundef %.1200, i64 noundef %250) #3
   %254 = load ptr, ptr @fragments, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %256 = load i32, ptr %255, align 8
   %257 = add i32 %256, 1
   store i32 %257, ptr %255, align 8
-  %258 = getelementptr inbounds i8, ptr %254, i64 32
+  %258 = getelementptr inbounds nuw i8, ptr %254, i64 32
   %259 = load ptr, ptr %258, align 8
   call void @wmem_tree_insert32(ptr noundef %259, i32 noundef %257, ptr noundef nonnull %248) #3
   %260 = load i32, ptr %5, align 4
   %261 = load ptr, ptr @fragments, align 8
   store i32 %260, ptr %261, align 8
   %262 = load i32, ptr %6, align 4
-  %263 = getelementptr inbounds i8, ptr %261, i64 4
+  %263 = getelementptr inbounds nuw i8, ptr %261, i64 4
   store i32 %262, ptr %263, align 4
   %264 = load i32, ptr %7, align 4
-  %265 = getelementptr inbounds i8, ptr %261, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %261, i64 8
   store i32 %264, ptr %265, align 8
   %266 = load i32, ptr %8, align 4
-  %267 = getelementptr inbounds i8, ptr %261, i64 12
+  %267 = getelementptr inbounds nuw i8, ptr %261, i64 12
   store i32 %266, ptr %267, align 4
   %268 = load i32, ptr %143, align 4
   store i32 %268, ptr %12, align 4
@@ -558,21 +558,21 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br i1 %276, label %277, label %.thread243
 
 277:                                              ; preds = %273
-  %278 = getelementptr inbounds i8, ptr %218, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %279 = load i32, ptr %278, align 4
   %280 = load i32, ptr %6, align 4
   %281 = icmp eq i32 %279, %280
   br i1 %281, label %282, label %.thread243
 
 282:                                              ; preds = %277
-  %283 = getelementptr inbounds i8, ptr %218, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %284 = load i32, ptr %283, align 8
   %285 = load i32, ptr %7, align 4
   %286 = icmp eq i32 %284, %285
   br i1 %286, label %287, label %.thread243
 
 287:                                              ; preds = %282
-  %288 = getelementptr inbounds i8, ptr %218, i64 12
+  %288 = getelementptr inbounds nuw i8, ptr %218, i64 12
   %289 = load i32, ptr %288, align 4
   %290 = load i32, ptr %8, align 4
   %291 = icmp eq i32 %289, %290
@@ -583,9 +583,9 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   br label %328
 
 292:                                              ; preds = %287
-  %293 = getelementptr inbounds i8, ptr %1, i64 80
+  %293 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 50
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 50
   %296 = load i16, ptr %295, align 2
   %297 = and i16 %296, 8
   %298 = icmp eq i16 %297, 0
@@ -598,28 +598,28 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %302 = call ptr @wmem_file_scope() #3
   %303 = zext i32 %126 to i64
   %304 = call noalias ptr @wmem_alloc(ptr noundef %302, i64 noundef %303) #3
-  %305 = getelementptr inbounds i8, ptr %301, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %301, i64 8
   store ptr %304, ptr %305, align 8
   %306 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %304, i32 noundef %.1200, i64 noundef %303) #3
   %307 = load ptr, ptr @fragments, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 16
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 16
   %309 = load i32, ptr %308, align 8
   %310 = add i32 %309, 1
   store i32 %310, ptr %308, align 8
-  %311 = getelementptr inbounds i8, ptr %307, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %307, i64 32
   %312 = load ptr, ptr %311, align 8
   call void @wmem_tree_insert32(ptr noundef %312, i32 noundef %310, ptr noundef nonnull %301) #3
   %313 = load i32, ptr %5, align 4
   %314 = load ptr, ptr @fragments, align 8
   store i32 %313, ptr %314, align 8
   %315 = load i32, ptr %6, align 4
-  %316 = getelementptr inbounds i8, ptr %314, i64 4
+  %316 = getelementptr inbounds nuw i8, ptr %314, i64 4
   store i32 %315, ptr %316, align 4
   %317 = load i32, ptr %7, align 4
-  %318 = getelementptr inbounds i8, ptr %314, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %314, i64 8
   store i32 %317, ptr %318, align 8
   %319 = load i32, ptr %8, align 4
-  %320 = getelementptr inbounds i8, ptr %314, i64 12
+  %320 = getelementptr inbounds nuw i8, ptr %314, i64 12
   store i32 %319, ptr %320, align 4
   %321 = load i32, ptr %143, align 4
   store i32 %321, ptr %12, align 4
@@ -643,9 +643,9 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
 
 .thread245:                                       ; preds = %292, %299
   %323 = phi ptr [ %.pr, %299 ], [ %218, %292 ]
-  %324 = getelementptr inbounds i8, ptr %323, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 16
   %325 = load i32, ptr %324, align 8
-  %326 = getelementptr inbounds i8, ptr %323, i64 20
+  %326 = getelementptr inbounds nuw i8, ptr %323, i64 20
   %327 = load i32, ptr %326, align 4
   %.not209 = icmp eq i32 %325, %327
   br i1 %.not209, label %.preheader, label %328
@@ -663,7 +663,7 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %.0236 = phi ptr [ %.1, %348 ], [ null, %.preheader ]
   %.0195235 = phi i32 [ %349, %348 ], [ 1, %.preheader ]
   %.0196234 = phi i32 [ %.1197, %348 ], [ 0, %.preheader ]
-  %331 = getelementptr inbounds i8, ptr %330, i64 32
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 32
   %332 = load ptr, ptr %331, align 8
   %333 = call ptr @wmem_tree_lookup32_le(ptr noundef %332, i32 noundef %.0195235) #3
   %.not212 = icmp eq ptr %333, null
@@ -677,7 +677,7 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %339 = call noalias ptr @wmem_realloc(ptr noundef %335, ptr noundef %.0236, i64 noundef %338) #3
   %340 = zext i32 %.0196234 to i64
   %341 = getelementptr i8, ptr %339, i64 %340
-  %342 = getelementptr inbounds i8, ptr %333, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %333, i64 8
   %343 = load ptr, ptr %342, align 8
   %344 = load i32, ptr %333, align 8
   %345 = zext i32 %344 to i64
@@ -691,7 +691,7 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %.1 = phi ptr [ %339, %334 ], [ %.0236, %.lr.ph ]
   %349 = add i32 %.0195235, 1
   %350 = load ptr, ptr @fragments, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 16
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 16
   %352 = load i32, ptr %351, align 8
   %.not210 = icmp ugt i32 %349, %352
   br i1 %.not210, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -701,19 +701,19 @@ define internal range(i32 1, 5) i32 @dissect_btavctp(ptr noundef %0, ptr noundef
   %.0.lcssa = phi ptr [ null, %.preheader ], [ %.1, %348 ]
   %353 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %.0.lcssa, i32 noundef %.0196.lcssa, i32 noundef %.0196.lcssa) #3
   call void @add_new_data_source(ptr noundef %1, ptr noundef %353, ptr noundef nonnull @.str.44) #3
-  %354 = getelementptr inbounds i8, ptr %13, i64 2
+  %354 = getelementptr inbounds nuw i8, ptr %13, i64 2
   store i8 2, ptr %354, align 2
   %355 = load ptr, ptr @fragments, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 24
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 24
   %357 = load i32, ptr %356, align 8
   %358 = trunc i32 %357 to i16
   store i16 %358, ptr %13, align 2
   %359 = lshr i32 %357, 8
   %360 = trunc i32 %359 to i8
-  %361 = getelementptr inbounds i8, ptr %13, i64 3
+  %361 = getelementptr inbounds nuw i8, ptr %13, i64 3
   store i8 %360, ptr %361, align 1
   %362 = trunc i32 %357 to i8
-  %363 = getelementptr inbounds i8, ptr %13, i64 4
+  %363 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i8 %362, ptr %363, align 2
   %364 = load ptr, ptr @bluetooth_uuid_table, align 8
   %365 = load ptr, ptr %113, align 8

@@ -44,11 +44,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   store ptr null, ptr %bw, align 8
-  %capacity = getelementptr inbounds i8, ptr %bw, i64 16
+  %capacity = getelementptr inbounds nuw i8, ptr %bw, i64 16
   store i32 0, ptr %capacity, align 8
-  %bits = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   store i32 0, ptr %bits, align 8
-  %words = getelementptr inbounds i8, ptr %bw, i64 20
+  %words = getelementptr inbounds nuw i8, ptr %bw, i64 20
   store i32 0, ptr %words, align 4
   ret void
 }
@@ -59,11 +59,11 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @FLAC__bitwriter_init(ptr nocapture noundef writeonly initializes((0, 8), (16, 28)) %bw) local_unnamed_addr #4 {
 entry:
-  %bits = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   store i32 0, ptr %bits, align 8
-  %words = getelementptr inbounds i8, ptr %bw, i64 20
+  %words = getelementptr inbounds nuw i8, ptr %bw, i64 20
   store i32 0, ptr %words, align 4
-  %capacity = getelementptr inbounds i8, ptr %bw, i64 16
+  %capacity = getelementptr inbounds nuw i8, ptr %bw, i64 16
   store i32 4096, ptr %capacity, align 8
   %call = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #16
   store ptr %call, ptr %bw, align 8
@@ -78,9 +78,9 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define hidden void @FLAC__bitwriter_clear(ptr nocapture noundef writeonly initializes((20, 28)) %bw) local_unnamed_addr #6 {
 entry:
-  %bits = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   store i32 0, ptr %bits, align 8
-  %words = getelementptr inbounds i8, ptr %bw, i64 20
+  %words = getelementptr inbounds nuw i8, ptr %bw, i64 20
   store i32 0, ptr %words, align 4
   ret void
 }
@@ -88,7 +88,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_write_crc16(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
 entry:
-  %bits.i = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits.i = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits.i, align 8
   %and.i = and i32 %0, 7
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -99,9 +99,9 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool2.not.i, label %if.end, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %words.i = getelementptr inbounds i8, ptr %bw, i64 20
+  %words.i = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %1 = load i32, ptr %words.i, align 4
-  %capacity.i = getelementptr inbounds i8, ptr %bw, i64 16
+  %capacity.i = getelementptr inbounds nuw i8, ptr %bw, i64 16
   %2 = load i32, ptr %capacity.i, align 8
   %cmp.i = icmp eq i32 %1, %2
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end6.i
@@ -145,7 +145,7 @@ if.end21.i.i:                                     ; preds = %if.end7.i.i
 if.end6.i:                                        ; preds = %if.end21.i.i, %land.lhs.true.i, %if.then3.i
   %5 = phi i32 [ %.pre14.i, %if.end21.i.i ], [ %1, %land.lhs.true.i ], [ %1, %if.then3.i ]
   %6 = phi i32 [ %.pre.i, %if.end21.i.i ], [ %0, %land.lhs.true.i ], [ %0, %if.then3.i ]
-  %accum.i = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum.i = getelementptr inbounds nuw i8, ptr %bw, i64 8
   %7 = load i64, ptr %accum.i, align 8
   %sub.i = sub i32 64, %6
   %sh_prom.i = zext nneg i32 %sub.i to i64
@@ -153,7 +153,7 @@ if.end6.i:                                        ; preds = %if.end21.i.i, %land
   %8 = tail call i64 @llvm.bswap.i64(i64 %shl.i)
   %9 = load ptr, ptr %bw, align 8
   %idxprom.i = zext i32 %5 to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %9, i64 %idxprom.i
   store i64 %8, ptr %arrayidx.i, align 8
   %.pre = load i32, ptr %bits.i, align 8
   %10 = lshr i32 %.pre, 3
@@ -162,7 +162,7 @@ if.end6.i:                                        ; preds = %if.end21.i.i, %land
 if.end:                                           ; preds = %if.end6.i, %if.end.i
   %shr.i = phi i32 [ %10, %if.end6.i ], [ 0, %if.end.i ]
   %11 = load ptr, ptr %bw, align 8
-  %words12.i = getelementptr inbounds i8, ptr %bw, i64 20
+  %words12.i = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %12 = load i32, ptr %words12.i, align 4
   %mul.i = shl i32 %12, 3
   %add.i = add i32 %shr.i, %mul.i
@@ -178,7 +178,7 @@ return:                                           ; preds = %if.end7.i.i, %if.en
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_buffer(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef writeonly %bytes) local_unnamed_addr #2 {
 entry:
-  %bits = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits, align 8
   %and = and i32 %0, 7
   %tobool.not = icmp eq i32 %and, 0
@@ -189,9 +189,9 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.end10, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %words = getelementptr inbounds i8, ptr %bw, i64 20
+  %words = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %1 = load i32, ptr %words, align 4
-  %capacity = getelementptr inbounds i8, ptr %bw, i64 16
+  %capacity = getelementptr inbounds nuw i8, ptr %bw, i64 16
   %2 = load i32, ptr %capacity, align 8
   %cmp = icmp eq i32 %1, %2
   br i1 %cmp, label %land.lhs.true, label %if.end6
@@ -235,7 +235,7 @@ if.end21.i:                                       ; preds = %if.end7.i
 if.end6:                                          ; preds = %if.end21.i, %land.lhs.true, %if.then3
   %5 = phi i32 [ %.pre14, %if.end21.i ], [ %1, %land.lhs.true ], [ %1, %if.then3 ]
   %6 = phi i32 [ %.pre, %if.end21.i ], [ %0, %land.lhs.true ], [ %0, %if.then3 ]
-  %accum = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum = getelementptr inbounds nuw i8, ptr %bw, i64 8
   %7 = load i64, ptr %accum, align 8
   %sub = sub i32 64, %6
   %sh_prom = zext nneg i32 %sub to i64
@@ -243,14 +243,14 @@ if.end6:                                          ; preds = %if.end21.i, %land.l
   %8 = tail call i64 @llvm.bswap.i64(i64 %shl)
   %9 = load ptr, ptr %bw, align 8
   %idxprom = zext i32 %5 to i64
-  %arrayidx = getelementptr inbounds i64, ptr %9, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i64, ptr %9, i64 %idxprom
   store i64 %8, ptr %arrayidx, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end6, %if.end
   %10 = load ptr, ptr %bw, align 8
   store ptr %10, ptr %buffer, align 8
-  %words12 = getelementptr inbounds i8, ptr %bw, i64 20
+  %words12 = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %11 = load i32, ptr %words12, align 4
   %mul = shl i32 %11, 3
   %12 = load i32, ptr %bits, align 8
@@ -276,7 +276,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_write_crc8(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
 entry:
-  %bits.i = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits.i = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits.i, align 8
   %and.i = and i32 %0, 7
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -287,9 +287,9 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool2.not.i, label %if.end, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %words.i = getelementptr inbounds i8, ptr %bw, i64 20
+  %words.i = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %1 = load i32, ptr %words.i, align 4
-  %capacity.i = getelementptr inbounds i8, ptr %bw, i64 16
+  %capacity.i = getelementptr inbounds nuw i8, ptr %bw, i64 16
   %2 = load i32, ptr %capacity.i, align 8
   %cmp.i = icmp eq i32 %1, %2
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end6.i
@@ -333,7 +333,7 @@ if.end21.i.i:                                     ; preds = %if.end7.i.i
 if.end6.i:                                        ; preds = %if.end21.i.i, %land.lhs.true.i, %if.then3.i
   %5 = phi i32 [ %.pre14.i, %if.end21.i.i ], [ %1, %land.lhs.true.i ], [ %1, %if.then3.i ]
   %6 = phi i32 [ %.pre.i, %if.end21.i.i ], [ %0, %land.lhs.true.i ], [ %0, %if.then3.i ]
-  %accum.i = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum.i = getelementptr inbounds nuw i8, ptr %bw, i64 8
   %7 = load i64, ptr %accum.i, align 8
   %sub.i = sub i32 64, %6
   %sh_prom.i = zext nneg i32 %sub.i to i64
@@ -341,7 +341,7 @@ if.end6.i:                                        ; preds = %if.end21.i.i, %land
   %8 = tail call i64 @llvm.bswap.i64(i64 %shl.i)
   %9 = load ptr, ptr %bw, align 8
   %idxprom.i = zext i32 %5 to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %9, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %9, i64 %idxprom.i
   store i64 %8, ptr %arrayidx.i, align 8
   %.pre = load i32, ptr %bits.i, align 8
   %10 = lshr i32 %.pre, 3
@@ -350,7 +350,7 @@ if.end6.i:                                        ; preds = %if.end21.i.i, %land
 if.end:                                           ; preds = %if.end6.i, %if.end.i
   %shr.i = phi i32 [ %10, %if.end6.i ], [ 0, %if.end.i ]
   %11 = load ptr, ptr %bw, align 8
-  %words12.i = getelementptr inbounds i8, ptr %bw, i64 20
+  %words12.i = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %12 = load i32, ptr %words12.i, align 4
   %mul.i = shl i32 %12, 3
   %add.i = add i32 %shr.i, %mul.i
@@ -368,7 +368,7 @@ declare zeroext i8 @FLAC__crc8(ptr noundef, i32 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @FLAC__bitwriter_is_byte_aligned(ptr nocapture noundef readonly %bw) local_unnamed_addr #10 {
 entry:
-  %bits = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits, align 8
   %and = and i32 %0, 7
   %cmp = icmp eq i32 %and, 0
@@ -379,10 +379,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define hidden i32 @FLAC__bitwriter_get_input_bits_unconsumed(ptr nocapture noundef readonly %bw) local_unnamed_addr #10 {
 entry:
-  %words = getelementptr inbounds i8, ptr %bw, i64 20
+  %words = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %0 = load i32, ptr %words, align 4
   %mul = shl i32 %0, 6
-  %bits = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %1 = load i32, ptr %bits, align 8
   %add = add i32 %mul, %1
   ret i32 %add
@@ -398,16 +398,16 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds i8, ptr %bw, i64 16
+  %capacity = getelementptr inbounds nuw i8, ptr %bw, i64 16
   %0 = load i32, ptr %capacity, align 8
-  %words = getelementptr inbounds i8, ptr %bw, i64 20
+  %words = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %1 = load i32, ptr %words, align 4
   %add = add i32 %1, %bits
   %cmp1.not = icmp ugt i32 %0, %add
   br i1 %cmp1.not, label %if.end3, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %bits.i = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits.i = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %2 = load i32, ptr %bits.i, align 8
   %add.i = add i32 %bits, 63
   %sub.i = add i32 %add.i, %2
@@ -445,7 +445,7 @@ if.end21.i:                                       ; preds = %if.end7.i
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end21.i, %land.lhs.true, %if.end
-  %bits4 = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits4 = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %5 = load i32, ptr %bits4, align 8
   %tobool5.not = icmp eq i32 %5, 0
   br i1 %tobool5.not, label %if.end21, label %if.then6
@@ -453,7 +453,7 @@ if.end3:                                          ; preds = %if.end21.i, %land.l
 if.then6:                                         ; preds = %if.end3
   %sub = sub i32 64, %5
   %sub.bits = tail call i32 @llvm.umin.i32(i32 %sub, i32 %bits)
-  %accum = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum = getelementptr inbounds nuw i8, ptr %bw, i64 8
   %6 = load i64, ptr %accum, align 8
   %sh_prom = zext nneg i32 %sub.bits to i64
   %shl = shl i64 %6, %sh_prom
@@ -471,7 +471,7 @@ if.then16:                                        ; preds = %if.then6
   %inc = add i32 %9, 1
   store i32 %inc, ptr %words, align 4
   %idxprom = zext i32 %9 to i64
-  %arrayidx = getelementptr inbounds i64, ptr %8, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i64, ptr %8, i64 %idxprom
   store i64 %7, ptr %arrayidx, align 8
   store i32 0, ptr %bits4, align 8
   br label %if.end21
@@ -488,7 +488,7 @@ while.body:                                       ; preds = %if.end21, %while.bo
   %inc25 = add i32 %11, 1
   store i32 %inc25, ptr %words, align 4
   %idxprom26 = zext i32 %11 to i64
-  %arrayidx27 = getelementptr inbounds i64, ptr %10, i64 %idxprom26
+  %arrayidx27 = getelementptr inbounds nuw i64, ptr %10, i64 %idxprom26
   store i64 0, ptr %arrayidx27, align 8
   %sub28 = add i32 %bits.addr.131, -64
   %cmp22 = icmp ugt i32 %sub28, 63
@@ -500,7 +500,7 @@ while.end:                                        ; preds = %while.body, %if.end
   br i1 %cmp29.not, label %return, label %if.then30
 
 if.then30:                                        ; preds = %while.end
-  %accum31 = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum31 = getelementptr inbounds nuw i8, ptr %bw, i64 8
   store i64 0, ptr %accum31, align 8
   store i32 %bits.addr.1.lcssa, ptr %bits4, align 8
   br label %return
@@ -546,16 +546,16 @@ if.end4:                                          ; preds = %lor.lhs.false
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end4
-  %capacity = getelementptr inbounds i8, ptr %bw, i64 16
+  %capacity = getelementptr inbounds nuw i8, ptr %bw, i64 16
   %1 = load i32, ptr %capacity, align 8
-  %words = getelementptr inbounds i8, ptr %bw, i64 20
+  %words = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %2 = load i32, ptr %words, align 4
   %add = add i32 %2, %bits
   %cmp8.not = icmp ugt i32 %1, %add
   br i1 %cmp8.not, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end7
-  %bits.i = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits.i = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %3 = load i32, ptr %bits.i, align 8
   %add.i = add nuw nsw i32 %bits, 63
   %sub.i = add i32 %add.i, %3
@@ -593,14 +593,14 @@ if.end21.i:                                       ; preds = %if.end7.i
 
 if.end10:                                         ; preds = %if.end21.i, %land.lhs.true, %if.end7
   %5 = phi ptr [ %call4.i.i, %if.end21.i ], [ %0, %land.lhs.true ], [ %0, %if.end7 ]
-  %bits11 = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits11 = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %6 = load i32, ptr %bits11, align 8
   %sub = sub i32 64, %6
   %cmp12 = icmp ult i32 %bits, %sub
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end10
-  %accum = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum = getelementptr inbounds nuw i8, ptr %bw, i64 8
   %7 = load i64, ptr %accum, align 8
   %sh_prom = zext nneg i32 %bits to i64
   %shl = shl i64 %7, %sh_prom
@@ -616,7 +616,7 @@ if.else:                                          ; preds = %if.end10
   br i1 %tobool18.not, label %if.else33, label %if.then19
 
 if.then19:                                        ; preds = %if.else
-  %accum20 = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum20 = getelementptr inbounds nuw i8, ptr %bw, i64 8
   %8 = load i64, ptr %accum20, align 8
   %sh_prom21 = zext nneg i32 %sub to i64
   %shl22 = shl i64 %8, %sh_prom21
@@ -630,7 +630,7 @@ if.then19:                                        ; preds = %if.else
   %inc = add i32 %10, 1
   store i32 %inc, ptr %words, align 4
   %idxprom = zext i32 %10 to i64
-  %arrayidx = getelementptr inbounds i64, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i64, ptr %5, i64 %idxprom
   store i64 %9, ptr %arrayidx, align 8
   %conv31 = zext i32 %val to i64
   store i64 %conv31, ptr %accum20, align 8
@@ -643,7 +643,7 @@ if.else33:                                        ; preds = %if.else
   %inc37 = add i32 %12, 1
   store i32 %inc37, ptr %words, align 4
   %idxprom38 = zext i32 %12 to i64
-  %arrayidx39 = getelementptr inbounds i64, ptr %5, i64 %idxprom38
+  %arrayidx39 = getelementptr inbounds nuw i64, ptr %5, i64 %idxprom38
   store i64 %11, ptr %arrayidx39, align 8
   br label %return
 
@@ -791,9 +791,9 @@ return:                                           ; preds = %if.end11, %if.end5,
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_byte_block(ptr noundef %bw, ptr nocapture noundef readonly %vals, i32 noundef %nvals) local_unnamed_addr #7 {
 entry:
-  %capacity = getelementptr inbounds i8, ptr %bw, i64 16
+  %capacity = getelementptr inbounds nuw i8, ptr %bw, i64 16
   %0 = load i32, ptr %capacity, align 8
-  %words = getelementptr inbounds i8, ptr %bw, i64 20
+  %words = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %1 = load i32, ptr %words, align 4
   %div8 = lshr i32 %nvals, 3
   %add = add nuw nsw i32 %div8, 1
@@ -803,7 +803,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %mul = shl i32 %nvals, 3
-  %bits.i = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits.i = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %2 = load i32, ptr %bits.i, align 8
   %add.i = add i32 %mul, 63
   %sub.i = add i32 %add.i, %2
@@ -855,7 +855,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds i8, ptr %vals, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %vals, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %5 to i32
   %call3 = tail call fastcc i32 @FLAC__bitwriter_write_raw_uint32_nocheck(ptr noundef %bw, i32 noundef %conv, i32 noundef 8)
@@ -899,7 +899,7 @@ entry:
   %sub = sub i32 31, %parameter
   %shr = lshr i32 -1, %sub
   %add = add i32 %parameter, 1
-  %bits = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits, align 8
   %1 = add i32 %0, -1
   %or.cond = icmp ult i32 %1, 31
@@ -907,7 +907,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub4 = sub nuw nsw i32 64, %0
-  %accum = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum = getelementptr inbounds nuw i8, ptr %bw, i64 8
   %2 = load i64, ptr %accum, align 8
   %sh_prom = zext nneg i32 %sub4 to i64
   %shl5 = shl i64 %2, %sh_prom
@@ -920,7 +920,7 @@ if.else:                                          ; preds = %entry
 if.then9:                                         ; preds = %if.else
   %sub11 = add i32 %0, -32
   %sub12 = sub i32 96, %0
-  %accum13 = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum13 = getelementptr inbounds nuw i8, ptr %bw, i64 8
   %3 = load i64, ptr %accum13, align 8
   %sh_prom14 = zext nneg i32 %sub12 to i64
   %shl15 = shl i64 %3, %sh_prom14
@@ -940,10 +940,10 @@ if.end22:                                         ; preds = %if.end22.sink.split
   %4 = phi i32 [ %0, %if.else ], [ %.sink, %if.end22.sink.split ]
   %wide_accum.0 = phi i64 [ 0, %if.else ], [ %wide_accum.0.ph, %if.end22.sink.split ]
   %bitpointer.0 = phi i32 [ 64, %if.else ], [ %bitpointer.0.ph, %if.end22.sink.split ]
-  %capacity = getelementptr inbounds i8, ptr %bw, i64 16
+  %capacity = getelementptr inbounds nuw i8, ptr %bw, i64 16
   %5 = load i32, ptr %capacity, align 8
   %mul = shl i32 %5, 6
-  %words = getelementptr inbounds i8, ptr %bw, i64 20
+  %words = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %6 = load i32, ptr %words, align 4
   %mul23168 = add i32 %6, %nvals
   %add25 = shl i32 %mul23168, 6
@@ -993,7 +993,7 @@ if.end32:                                         ; preds = %if.end21.i, %land.l
   br i1 %tobool33.not212, label %while.end247, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end32
-  %accum57 = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum57 = getelementptr inbounds nuw i8, ptr %bw, i64 8
   %9 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %shl.i186 = shl nuw i32 1, %9
   %conv3.i187 = zext i32 %shl.i186 to i64
@@ -1044,7 +1044,7 @@ if.else56:                                        ; preds = %if.then47
   %inc = add i32 %15, 1
   store i32 %inc, ptr %words, align 4
   %idxprom = zext i32 %15 to i64
-  %arrayidx = getelementptr inbounds i64, ptr %14, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i64, ptr %14, i64 %idxprom
   store i64 %13, ptr %arrayidx, align 8
   br label %if.end246.sink.split
 
@@ -1125,7 +1125,7 @@ if.else106:                                       ; preds = %if.then95
   %inc115 = add i32 %24, 1
   store i32 %inc115, ptr %words, align 4
   %idxprom116 = zext i32 %24 to i64
-  %arrayidx117 = getelementptr inbounds i64, ptr %23, i64 %idxprom116
+  %arrayidx117 = getelementptr inbounds nuw i64, ptr %23, i64 %idxprom116
   store i64 %22, ptr %arrayidx117, align 8
   br label %if.end120
 
@@ -1158,7 +1158,7 @@ if.else134:                                       ; preds = %while.body125
   %inc143 = add i32 %29, 1
   store i32 %inc143, ptr %words, align 4
   %idxprom144 = zext i32 %29 to i64
-  %arrayidx145 = getelementptr inbounds i64, ptr %28, i64 %idxprom144
+  %arrayidx145 = getelementptr inbounds nuw i64, ptr %28, i64 %idxprom144
   store i64 %27, ptr %arrayidx145, align 8
   br label %if.end148
 
@@ -1195,7 +1195,7 @@ if.else164:                                       ; preds = %if.then155
   %inc173 = add i32 %34, 1
   store i32 %inc173, ptr %words, align 4
   %idxprom174 = zext i32 %34 to i64
-  %arrayidx175 = getelementptr inbounds i64, ptr %33, i64 %idxprom174
+  %arrayidx175 = getelementptr inbounds nuw i64, ptr %33, i64 %idxprom174
   store i64 %32, ptr %arrayidx175, align 8
   br label %if.end178
 
@@ -1230,7 +1230,7 @@ if.else194:                                       ; preds = %if.then185
   %inc203 = add i32 %39, 1
   store i32 %inc203, ptr %words, align 4
   %idxprom204 = zext i32 %39 to i64
-  %arrayidx205 = getelementptr inbounds i64, ptr %38, i64 %idxprom204
+  %arrayidx205 = getelementptr inbounds nuw i64, ptr %38, i64 %idxprom204
   store i64 %37, ptr %arrayidx205, align 8
   br label %if.end208
 
@@ -1272,7 +1272,7 @@ if.else229:                                       ; preds = %if.then220
   %inc238 = add i32 %44, 1
   store i32 %inc238, ptr %words, align 4
   %idxprom239 = zext i32 %44 to i64
-  %arrayidx240 = getelementptr inbounds i64, ptr %43, i64 %idxprom239
+  %arrayidx240 = getelementptr inbounds nuw i64, ptr %43, i64 %idxprom239
   store i64 %42, ptr %arrayidx240, align 8
   br label %if.end246.sink.split
 
@@ -1288,7 +1288,7 @@ if.end246.sink.split:                             ; preds = %if.then224, %if.els
 if.end246:                                        ; preds = %if.end246.sink.split, %if.end211, %if.then39
   %wide_accum.3 = phi i64 [ %or43, %if.then39 ], [ %or216, %if.end211 ], [ %wide_accum.10, %if.end246.sink.split ]
   %bitpointer.2 = phi i32 [ %sub40, %if.then39 ], [ %sub213, %if.end211 ], [ %add244, %if.end246.sink.split ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %vals.addr.0217, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %vals.addr.0217, i64 4
   %dec = add i32 %nvals.addr.0213, -1
   %tobool33.not = icmp eq i32 %dec, 0
   br i1 %tobool33.not, label %while.end247, label %while.body, !llvm.loop !8
@@ -1309,13 +1309,13 @@ if.then250:                                       ; preds = %while.end247
 if.then254:                                       ; preds = %if.then250
   %sh_prom255 = zext nneg i32 %bitpointer.1.lcssa to i64
   %shr256 = lshr i64 %wide_accum.1.lcssa, %sh_prom255
-  %accum257 = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum257 = getelementptr inbounds nuw i8, ptr %bw, i64 8
   store i64 %shr256, ptr %accum257, align 8
   br label %return.sink.split
 
 if.then264:                                       ; preds = %if.then250
   %sub265 = sub nuw nsw i32 64, %bitpointer.1.lcssa
-  %accum266 = getelementptr inbounds i8, ptr %bw, i64 8
+  %accum266 = getelementptr inbounds nuw i8, ptr %bw, i64 8
   %46 = load i64, ptr %accum266, align 8
   %sh_prom267 = zext nneg i32 %sub265 to i64
   %shl268 = shl i64 %46, %sh_prom267
@@ -1658,7 +1658,7 @@ return:                                           ; preds = %if.then17, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i32 0, 2) i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr nocapture noundef %bw) local_unnamed_addr #7 {
 entry:
-  %bits = getelementptr inbounds i8, ptr %bw, i64 24
+  %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits, align 8
   %and = and i32 %0, 7
   %tobool.not = icmp eq i32 %and, 0

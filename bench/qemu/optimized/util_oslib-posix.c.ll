@@ -104,8 +104,8 @@ entry:
   br i1 %cmp19, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %st_ino = getelementptr inbounds i8, ptr %a, i64 8
-  %st_ino15 = getelementptr inbounds i8, ptr %b, i64 8
+  %st_ino = getelementptr inbounds nuw i8, ptr %a, i64 8
+  %st_ino15 = getelementptr inbounds nuw i8, ptr %b, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %while.body.backedge
@@ -269,7 +269,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call.i.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 186) #15
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %conv.i.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %size, ptr noundef %call) #15
   br label %trace_qemu_anon_ram_alloc.exit
@@ -317,7 +317,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call.i.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 186) #15
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %conv.i.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %ptr, i64 noundef %size) #15
   br label %trace_qemu_anon_ram_free.exit
@@ -512,7 +512,7 @@ define dso_local void @qemu_set_tty_echo(i32 noundef %fd, i1 noundef zeroext %ec
 entry:
   %tty = alloca %struct.termios, align 4
   %call = call i32 @tcgetattr(i32 noundef %fd, ptr noundef nonnull %tty) #15
-  %c_lflag = getelementptr inbounds i8, ptr %tty, i64 12
+  %c_lflag = getelementptr inbounds nuw i8, ptr %tty, i64 12
   %0 = load i32, ptr %c_lflag, align 4
   %and = and i32 %0, -32843
   %masksel = select i1 %echo, i32 32842, i32 0
@@ -566,10 +566,10 @@ while.end:                                        ; preds = %if.then, %if.then7,
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void %3(ptr noundef nonnull @sigbus_mutex, ptr noundef nonnull @.str, i32 noundef 522) #15
-  %4 = getelementptr inbounds i8, ptr %act, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %act, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, i8 0, i64 144, i1 false)
   store ptr @sigbus_handler, ptr %act, align 8
-  %sa_flags = getelementptr inbounds i8, ptr %act, i64 136
+  %sa_flags = getelementptr inbounds nuw i8, ptr %act, i64 136
   store i32 4, ptr %sa_flags, align 8
   %call9 = call i32 @sigaction(i32 noundef 7, ptr noundef nonnull %act, ptr noundef nonnull @sigbus_oldact) #15
   %tobool10.not = icmp eq i32 %call9, 0
@@ -585,7 +585,7 @@ if.end14:                                         ; preds = %entry, %while.end, 
   %6 = phi i1 [ false, %while.end ], [ true, %madv_populate_write_possible.exit ], [ true, %entry ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %context.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %context.i, i8 0, i64 24, i1 false)
-  %num_threads.i = getelementptr inbounds i8, ptr %context.i, i64 16
+  %num_threads.i = getelementptr inbounds nuw i8, ptr %context.i, i64 16
   %call.i.i = call i64 @sysconf(i32 noundef 84) #15
   %cmp.i.i = icmp sgt i64 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %get_memset_num_threads.exit.i
@@ -649,7 +649,7 @@ if.end15.i:                                       ; preds = %if.then6.i, %if.end
   %touch_fn.0.i = phi ptr [ @do_madv_populate_write_pages, %if.then6.i ], [ @do_touch_pages, %if.end.i ]
   %conv.i = sext i32 %.pre.i to i64
   %call17.i = call noalias ptr @g_malloc0_n(i64 noundef %conv.i, i64 noundef 240) #19
-  %threads.i = getelementptr inbounds i8, ptr %context.i, i64 8
+  %threads.i = getelementptr inbounds nuw i8, ptr %context.i, i64 8
   store ptr %call17.i, ptr %threads.i, align 8
   %div.i = udiv i64 %div, %conv.i
   %rem.i = urem i64 %div, %conv.i
@@ -680,7 +680,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   store ptr %context.i, ptr %context42.us.i, align 8
   %14 = load ptr, ptr %threads.i, align 8
   %arrayidx54.us.i = getelementptr %struct.MemsetThread, ptr %14, i64 %indvars.iv36.i
-  %pgthread55.us.i = getelementptr inbounds i8, ptr %arrayidx54.us.i, i64 24
+  %pgthread55.us.i = getelementptr inbounds nuw i8, ptr %arrayidx54.us.i, i64 24
   call void @qemu_thread_create(ptr noundef nonnull %pgthread55.us.i, ptr noundef nonnull @.str.21, ptr noundef nonnull %touch_fn.0.i, ptr noundef %arrayidx54.us.i, i32 noundef 0) #15
   %15 = load ptr, ptr %threads.i, align 8
   %numpages63.us.i = getelementptr %struct.MemsetThread, ptr %15, i64 %indvars.iv36.i, i32 1
@@ -713,7 +713,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   store ptr %context.i, ptr %context42.i, align 8
   %23 = load ptr, ptr %threads.i, align 8
   %arrayidx47.i = getelementptr %struct.MemsetThread, ptr %23, i64 %indvars.iv.i
-  %pgthread.i = getelementptr inbounds i8, ptr %arrayidx47.i, i64 24
+  %pgthread.i = getelementptr inbounds nuw i8, ptr %arrayidx47.i, i64 24
   call void @thread_context_create_thread(ptr noundef nonnull %tc, ptr noundef nonnull %pgthread.i, ptr noundef nonnull @.str.21, ptr noundef nonnull %touch_fn.0.i, ptr noundef %arrayidx47.i, i32 noundef 0) #15
   %24 = load ptr, ptr %threads.i, align 8
   %numpages63.i = getelementptr %struct.MemsetThread, ptr %24, i64 %indvars.iv.i, i32 1
@@ -824,7 +824,7 @@ entry:
   br i1 %tobool.not, label %if.end2, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %num_threads4 = getelementptr inbounds i8, ptr %0, i64 16
+  %num_threads4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load i32, ptr %num_threads4, align 8
   %cmp5 = icmp sgt i32 %1, 0
   br i1 %cmp5, label %for.body, label %if.end2
@@ -832,7 +832,7 @@ for.cond.preheader:                               ; preds = %entry
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load ptr, ptr @sigbus_memset_context, align 8
-  %num_threads = getelementptr inbounds i8, ptr %2, i64 16
+  %num_threads = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load i32, ptr %num_threads, align 8
   %4 = sext i32 %3 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %4
@@ -841,15 +841,15 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.cond.preheader ]
   %5 = phi ptr [ %2, %for.cond ], [ %0, %for.cond.preheader ]
-  %threads = getelementptr inbounds i8, ptr %5, i64 8
+  %threads = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %threads, align 8
   %arrayidx = getelementptr %struct.MemsetThread, ptr %6, i64 %indvars.iv
-  %pgthread = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %pgthread = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %call = tail call zeroext i1 @qemu_thread_is_self(ptr noundef nonnull %pgthread) #15
   br i1 %call, label %if.then1, label %for.cond
 
 if.then1:                                         ; preds = %for.body
-  %env = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %env = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   tail call void @siglongjmp(ptr noundef nonnull %env, i32 noundef 1) #18
   unreachable
 
@@ -966,17 +966,17 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local void @sigaction_invoke(ptr nocapture noundef readonly %action, ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.siginfo_t, align 8
-  %0 = getelementptr inbounds i8, ptr %si, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %si, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 120, i1 false)
   %1 = load i32, ptr %info, align 8
   store i32 %1, ptr %si, align 8
-  %ssi_errno = getelementptr inbounds i8, ptr %info, i64 4
+  %ssi_errno = getelementptr inbounds nuw i8, ptr %info, i64 4
   %2 = load i32, ptr %ssi_errno, align 4
-  %si_errno = getelementptr inbounds i8, ptr %si, i64 4
+  %si_errno = getelementptr inbounds nuw i8, ptr %si, i64 4
   store i32 %2, ptr %si_errno, align 4
-  %ssi_code = getelementptr inbounds i8, ptr %info, i64 8
+  %ssi_code = getelementptr inbounds nuw i8, ptr %info, i64 8
   %3 = load i32, ptr %ssi_code, align 8
-  %si_code = getelementptr inbounds i8, ptr %si, i64 8
+  %si_code = getelementptr inbounds nuw i8, ptr %si, i64 8
   store i32 %3, ptr %si_code, align 8
   switch i32 %3, label %lor.lhs.false4 [
     i32 0, label %if.then
@@ -988,13 +988,13 @@ lor.lhs.false4:                                   ; preds = %entry
   br i1 %cmp6, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry, %entry, %lor.lhs.false4
-  %ssi_pid = getelementptr inbounds i8, ptr %info, i64 12
+  %ssi_pid = getelementptr inbounds nuw i8, ptr %info, i64 12
   %4 = load i32, ptr %ssi_pid, align 4
-  %_sifields = getelementptr inbounds i8, ptr %si, i64 16
+  %_sifields = getelementptr inbounds nuw i8, ptr %si, i64 16
   store i32 %4, ptr %_sifields, align 8
-  %ssi_uid = getelementptr inbounds i8, ptr %info, i64 16
+  %ssi_uid = getelementptr inbounds nuw i8, ptr %info, i64 16
   %5 = load i32, ptr %ssi_uid, align 8
-  %si_uid = getelementptr inbounds i8, ptr %si, i64 20
+  %si_uid = getelementptr inbounds nuw i8, ptr %si, i64 20
   store i32 %5, ptr %si_uid, align 4
   br label %if.end33
 
@@ -1008,25 +1008,25 @@ if.else:                                          ; preds = %lor.lhs.false4
   ]
 
 if.then19:                                        ; preds = %if.else, %if.else, %if.else, %if.else
-  %ssi_addr = getelementptr inbounds i8, ptr %info, i64 72
+  %ssi_addr = getelementptr inbounds nuw i8, ptr %info, i64 72
   %6 = load i64, ptr %ssi_addr, align 8
   %7 = inttoptr i64 %6 to ptr
-  %_sifields20 = getelementptr inbounds i8, ptr %si, i64 16
+  %_sifields20 = getelementptr inbounds nuw i8, ptr %si, i64 16
   store ptr %7, ptr %_sifields20, align 8
   br label %if.end33
 
 if.then24:                                        ; preds = %if.else
-  %ssi_pid25 = getelementptr inbounds i8, ptr %info, i64 12
+  %ssi_pid25 = getelementptr inbounds nuw i8, ptr %info, i64 12
   %8 = load i32, ptr %ssi_pid25, align 4
-  %_sifields26 = getelementptr inbounds i8, ptr %si, i64 16
+  %_sifields26 = getelementptr inbounds nuw i8, ptr %si, i64 16
   store i32 %8, ptr %_sifields26, align 8
-  %ssi_status = getelementptr inbounds i8, ptr %info, i64 40
+  %ssi_status = getelementptr inbounds nuw i8, ptr %info, i64 40
   %9 = load i32, ptr %ssi_status, align 8
-  %si_status = getelementptr inbounds i8, ptr %si, i64 24
+  %si_status = getelementptr inbounds nuw i8, ptr %si, i64 24
   store i32 %9, ptr %si_status, align 8
-  %ssi_uid29 = getelementptr inbounds i8, ptr %info, i64 16
+  %ssi_uid29 = getelementptr inbounds nuw i8, ptr %info, i64 16
   %10 = load i32, ptr %ssi_uid29, align 8
-  %si_uid31 = getelementptr inbounds i8, ptr %si, i64 20
+  %si_uid31 = getelementptr inbounds nuw i8, ptr %si, i64 20
   store i32 %10, ptr %si_uid31, align 4
   br label %if.end33
 
@@ -1096,16 +1096,16 @@ declare void @qemu_cond_init(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @do_madv_populate_write_pages(ptr nocapture noundef readonly %arg) #0 {
 entry:
-  %numpages = getelementptr inbounds i8, ptr %arg, i64 8
+  %numpages = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %0 = load i64, ptr %numpages, align 8
-  %hpagesize = getelementptr inbounds i8, ptr %arg, i64 16
+  %hpagesize = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %1 = load i64, ptr %hpagesize, align 8
   %mul = mul i64 %1, %0
   %2 = load ptr, ptr %arg, align 8
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   tail call void %4(ptr noundef nonnull @page_mutex, ptr noundef nonnull @.str, i32 noundef 384) #15
-  %context = getelementptr inbounds i8, ptr %arg, i64 232
+  %context = getelementptr inbounds nuw i8, ptr %arg, i64 232
   %5 = load ptr, ptr %context, align 8
   %6 = load i8, ptr %5, align 8
   %tobool5 = trunc i8 %6 to i1
@@ -1151,7 +1151,7 @@ entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   call void %1(ptr noundef nonnull @page_mutex, ptr noundef nonnull @.str, i32 noundef 341) #15
-  %context = getelementptr inbounds i8, ptr %arg, i64 232
+  %context = getelementptr inbounds nuw i8, ptr %arg, i64 232
   %2 = load ptr, ptr %context, align 8
   %3 = load i8, ptr %2, align 8
   %tobool8 = trunc i8 %3 to i1
@@ -1171,15 +1171,15 @@ while.end11:                                      ; preds = %while.end8, %entry
   %call = call i32 @sigemptyset(ptr noundef nonnull %set) #15
   %call12 = call i32 @sigaddset(ptr noundef nonnull %set, i32 noundef 7) #15
   %call13 = call i32 @pthread_sigmask(i32 noundef 1, ptr noundef nonnull %set, ptr noundef nonnull %oldset) #15
-  %env = getelementptr inbounds i8, ptr %arg, i64 32
+  %env = getelementptr inbounds nuw i8, ptr %arg, i64 32
   %call14 = call i32 @__sigsetjmp(ptr noundef nonnull %env, i32 noundef 1) #22
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %while.end11
-  %numpages17 = getelementptr inbounds i8, ptr %arg, i64 8
+  %numpages17 = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %8 = load i64, ptr %numpages17, align 8
-  %hpagesize18 = getelementptr inbounds i8, ptr %arg, i64 16
+  %hpagesize18 = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %9 = load i64, ptr %hpagesize18, align 8
   %cmp9.not = icmp eq i64 %8, 0
   br i1 %cmp9.not, label %if.end, label %for.body.preheader

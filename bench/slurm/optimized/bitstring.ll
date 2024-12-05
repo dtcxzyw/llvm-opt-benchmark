@@ -330,7 +330,7 @@ define noundef ptr @bit_alloc(i64 noundef %0) #0 {
   %5 = add nuw nsw i64 %4, 16
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %5, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #16
   store i64 1111704645, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %0, ptr %7, align 8
   ret ptr %6
 }
@@ -513,7 +513,7 @@ define void @bit_nset(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @bit_set_all(ptr nocapture noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
   %.not1825.i = icmp slt i64 %3, 1
@@ -548,7 +548,7 @@ bit_nset.exit:                                    ; preds = %.critedge.i, %1, %.
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @bit_clear_all(ptr nocapture noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
   %.not1825.i = icmp slt i64 %3, 1
@@ -584,7 +584,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %1, %.
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_ffc(ptr nocapture noundef readonly %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp sgt i64 %3, 0
   br i1 %4, label %.lr.ph26, label %._crit_edge
@@ -647,7 +647,7 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_ffc(ptr noc
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i64 @bit_ffs(ptr nocapture noundef readonly %0) #4 {
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %2 = icmp sgt i64 %.pre.i, 0
   br i1 %2, label %.lr.ph, label %bit_ffs_from_bit.exit
@@ -685,16 +685,16 @@ bit_ffs_from_bit.exit:                            ; preds = %._crit_edge.i.outer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @bit_size(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @bit_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %4, i64 %6)
   %.not22 = icmp ult i64 %., 64
@@ -740,7 +740,7 @@ define void @bit_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @bit_not(ptr nocapture noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = icmp sgt i64 %3, 0
@@ -764,9 +764,9 @@ define void @bit_not(ptr nocapture noundef %0) #3 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @bit_or(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %4, i64 %6)
   %.not22 = icmp ult i64 %., 64
@@ -813,7 +813,7 @@ define void @bit_or(ptr nocapture noundef %0, ptr nocapture noundef readonly %1)
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @bit_set_count(ptr nocapture noundef readonly %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   %.not17 = icmp ult i64 %3, 64
@@ -861,7 +861,7 @@ define i32 @bit_set_count(ptr nocapture noundef readonly %0) #4 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @bit_set_count_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #4 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp sgt i64 %6, %4
   %8 = trunc i64 %6 to i32
@@ -958,7 +958,7 @@ define i32 @bit_set_count_range(ptr nocapture noundef readonly %0, i32 noundef %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @bit_clear_count(ptr nocapture noundef readonly %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
   %.not17.i = icmp ult i64 %3, 64
@@ -1013,7 +1013,7 @@ define range(i32 -2147483646, -2147483648) i32 @bit_clear_count_range(ptr nocapt
 
 6:                                                ; preds = %3
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp sgt i64 %9, %7
   %11 = trunc i64 %9 to i32
@@ -1115,7 +1115,7 @@ bit_set_count_range.exit:                         ; preds = %._crit_edge.i, %53
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @bit_nset_max_count(ptr nocapture noundef readonly %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
   %invariant.gep = getelementptr i8, ptr %0, i64 16
@@ -1166,7 +1166,7 @@ define i32 @bit_nset_max_count(ptr nocapture noundef readonly %0) #4 {
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @bit_rotate_copy(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = sub nsw i64 %2, %5
   %7 = sext i32 %1 to i64
@@ -1185,7 +1185,7 @@ define noundef ptr @bit_rotate_copy(ptr nocapture noundef readonly %0, i32 nound
   %16 = add nuw nsw i64 %15, 16
   %17 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #16
   store i64 1111704645, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %2, ptr %18, align 8
   %invariant.gep.i = getelementptr i8, ptr %17, i64 16
   %.not1825.i = icmp slt i64 %2, 1
@@ -1296,15 +1296,15 @@ define void @bit_rotate(ptr nocapture noundef %0, i32 noundef %1) #0 {
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 4294967295
   %9 = tail call ptr @bit_rotate_copy(ptr noundef %0, i32 noundef %1, i64 noundef %8)
   store ptr %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = shl i64 %11, 29
   %15 = add i64 %14, 33822867456
   %sext.i = ashr i64 %15, 32
@@ -1321,7 +1321,7 @@ define void @bit_rotate(ptr nocapture noundef %0, i32 noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define noundef ptr @bit_fmt(ptr noundef returned initializes((0, 1)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
   store i8 0, ptr %0, align 1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %invariant.gep43 = getelementptr i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i64 %5, 0
@@ -1421,7 +1421,7 @@ define noundef ptr @bit_fmt(ptr noundef returned initializes((0, 1)) %0, i32 nou
 define ptr @bit_fmt_full(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %invariant.gep28 = getelementptr i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
@@ -1559,7 +1559,7 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
   %.078 = phi i32 [ -1, %.lr.ph79.preheader ], [ %.2, %32 ]
   %.05377 = phi i32 [ 0, %.lr.ph79.preheader ], [ %.154, %32 ]
   %.05576 = phi i32 [ 0, %.lr.ph79.preheader ], [ %.156, %32 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv85
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv85
   %17 = load i8, ptr %16, align 1
   %18 = add i8 %17, -48
   %or.cond71 = icmp ult i8 %18, 10
@@ -1613,7 +1613,7 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
   br i1 %.not68, label %38, label %70
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %36, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %40 = call i64 @strtol(ptr noundef nonnull %39, ptr noundef nonnull %2, i32 noundef 10) #16
   %41 = trunc i64 %40 to i32
   %42 = load ptr, ptr %2, align 8
@@ -1622,7 +1622,7 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
   br i1 %.not69, label %44, label %70
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %42, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %46 = call i64 @strtol(ptr noundef nonnull %45, ptr noundef nonnull %2, i32 noundef 10) #16
   %47 = trunc i64 %46 to i32
   %48 = load ptr, ptr %2, align 8
@@ -1651,10 +1651,10 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %53 ]
   %.15973 = phi i32 [ %65, %.lr.ph ], [ %35, %53 ]
   %62 = or disjoint i64 %indvars.iv, 1
-  %63 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
   store i32 %.15973, ptr %63, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %64 = getelementptr inbounds i32, ptr %60, i64 %62
+  %64 = getelementptr inbounds nuw i32, ptr %60, i64 %62
   store i32 %.15973, ptr %64, align 4
   %65 = add nsw i32 %.15973, %47
   %66 = icmp slt i32 %65, %41
@@ -1698,7 +1698,7 @@ define range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef %0, ptr noundef %1) #
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %sext = shl i64 %6, 32
   %9 = ashr exact i64 %sext, 32
@@ -1736,7 +1736,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   %20 = tail call i32 @xstrncmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i64 noundef 2) #16
   %21 = icmp eq i32 %20, 0
   %spec.select.idx = select i1 %21, i64 2, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %1, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   %.not81 = icmp ult ptr %11, %spec.select
   br i1 %.not81, label %.loopexit, label %.lr.ph
 
@@ -1868,7 +1868,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
 
 ; Function Attrs: nounwind uwtable
 define ptr @bit_fmt_binmask(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = add nsw i64 %3, 1
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1730, ptr noundef nonnull @__func__.bit_fmt_binmask) #16
@@ -1905,7 +1905,7 @@ define void @bit_unfmt_binmask(ptr nocapture noundef %0, ptr noundef readonly %1
   %sext = shl i64 %3, 32
   %4 = ashr exact i64 %sext, 32
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
   %.not1825.i = icmp slt i64 %7, 1
@@ -1972,7 +1972,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %2, %.
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i64 -63, 9223372036854775807) i64 @bit_fls(ptr nocapture noundef readonly %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %bit_fls_from_bit.exit, label %.preheader.i
@@ -2034,7 +2034,7 @@ bit_fls_from_bit.exit:                            ; preds = %7, %13, %.outer.i, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i64 -63, -9223372036854775808) i64 @bit_fls_from_bit(ptr nocapture noundef readonly %0, i64 noundef %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %.loopexit, label %.preheader
@@ -2097,7 +2097,7 @@ define range(i64 -63, -9223372036854775808) i64 @bit_fls_from_bit(ptr nocapture 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @bit_fill_gaps(ptr nocapture noundef %0) #3 {
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %2 = icmp sgt i64 %.pre.i.i, 0
   br i1 %2, label %.lr.ph.i, label %bit_nset.exit
@@ -2248,7 +2248,7 @@ bit_nset.exit:                                    ; preds = %._crit_edge.i.outer
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @bit_super_set(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -2293,7 +2293,7 @@ define range(i32 0, 2) i32 @bit_super_set(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @bit_overlap(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
   br i1 %5, label %.lr.ph.split.us.i, label %_bit_overlap_internal.exit
@@ -2344,7 +2344,7 @@ _bit_overlap_internal.exit:                       ; preds = %7, %2, %.split.us.i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @bit_overlap_any(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
   br i1 %5, label %.lr.ph.split.i, label %_bit_overlap_internal.exit
@@ -2394,9 +2394,9 @@ _bit_overlap_internal.exit:                       ; preds = %8, %16, %2, %.split
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @bit_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %4, %6
   br i1 %.not, label %.preheader, label %.loopexit
@@ -2446,7 +2446,7 @@ define range(i32 0, 2) i32 @bit_equal(ptr nocapture noundef readonly %0, ptr noc
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @bit_copy(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %sext = shl i64 %3, 32
   %4 = ashr exact i64 %sext, 32
@@ -2456,10 +2456,10 @@ define noundef ptr @bit_copy(ptr nocapture noundef readonly %0) #0 {
   %8 = add nuw nsw i64 %7, 16
   %9 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #16
   store i64 1111704645, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr nonnull align 8 %12, i64 %7, i1 false)
   ret ptr %9
 }
@@ -2467,7 +2467,7 @@ define noundef ptr @bit_copy(ptr nocapture noundef readonly %0) #0 {
 ; Function Attrs: nounwind uwtable
 define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp slt i64 %5, %1
   br i1 %6, label %.critedge, label %7
@@ -2479,7 +2479,7 @@ define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef 
   %11 = add nuw nsw i64 %10, 16
   %12 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %11, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.bit_alloc) #16
   store i64 1111704645, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %5, ptr %13, align 8
   store ptr %12, ptr %3, align 8
   %14 = load i64, ptr %4, align 8
@@ -2594,7 +2594,7 @@ define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i64 @bit_nffc(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   %5 = icmp sgt i64 %4, 0
@@ -2637,7 +2637,7 @@ define i64 @bit_nffc(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
 define i64 @bit_noc(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #4 {
   %4 = add nsw i32 %2, %1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not = icmp sgt i64 %7, %5
   %8 = trunc i64 %7 to i32
@@ -2718,7 +2718,7 @@ define i64 @bit_noc(ptr nocapture noundef readonly %0, i32 noundef %1, i32 nound
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i64 @bit_nffs(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = sext i32 %1 to i64
   %invariant.gep = getelementptr i8, ptr %0, i64 16
@@ -2765,10 +2765,10 @@ define i64 @bit_nffs(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @bit_copybits(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = shl i64 %4, 29
   %8 = add i64 %7, 33822867456
   %sext = ashr i64 %8, 32
@@ -2779,7 +2779,7 @@ define void @bit_copybits(ptr nocapture noundef writeonly %0, ptr nocapture noun
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_get_bit_num(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   %5 = icmp sgt i64 %4, 0
@@ -2825,7 +2825,7 @@ define ptr @slurm_bit_realloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %5 = add nuw nsw i64 %4, 2
   %6 = tail call ptr @slurm_xrecalloc(ptr noundef %0, i64 noundef %5, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 257, ptr noundef nonnull @__func__.slurm_bit_realloc) #16
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %1, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
   ret ptr %9
@@ -2850,7 +2850,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 define i64 @bit_ffs_from_bit(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = and i64 %1, 63
   %.not = icmp ne i64 %3, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %4 = icmp slt i64 %1, %.pre
   %or.cond = select i1 %.not, i1 %4, i1 false
@@ -2912,9 +2912,9 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @bit_and_not(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %4, i64 %6)
   %.not23 = icmp ult i64 %., 64
@@ -2962,9 +2962,9 @@ define void @bit_and_not(ptr nocapture noundef %0, ptr nocapture noundef readonl
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @bit_or_not(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %4, i64 %6)
   %.not22 = icmp ult i64 %., 64
@@ -3030,7 +3030,7 @@ declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 define ptr @bit_fmt_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add nsw i32 %2, %1
   %8 = sext i32 %7 to i64
@@ -3114,7 +3114,7 @@ define ptr @bit_fmt_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define range(i32 -1, 1) i32 @inx2bitstr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   %6 = icmp sgt i32 %5, 0
@@ -3173,7 +3173,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %19, %
   br i1 %or.cond, label %25, label %._crit_edge
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %.01638, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.01638, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %27, -1
   %.not21 = icmp slt i32 %27, %5
@@ -3244,7 +3244,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %19, %
   br label %bit_nset.exit
 
 bit_nset.exit:                                    ; preds = %.critedge2.i27, %52
-  %57 = getelementptr inbounds i8, ptr %.01638, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.01638, i64 8
   %58 = load i32, ptr %57, align 4
   %.not = icmp eq i32 %58, -1
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !47
@@ -3277,12 +3277,12 @@ define ptr @inx2bitfmt(ptr noundef readonly %0) local_unnamed_addr #0 {
   %7 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %7, null
   %8 = or disjoint i64 %indvars.iv, 1
-  %9 = getelementptr inbounds i32, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %8
   %10 = load i32, ptr %9, align 4
   %.str.7..str.6 = select i1 %.not, ptr @.str.7, ptr @.str.6
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull %.str.7..str.6, i32 noundef %6, i32 noundef %10) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, -1
   br i1 %13, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !48
@@ -3307,7 +3307,7 @@ define ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %39
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = shl i64 %6, 2
   %8 = add i64 %7, 8
@@ -3394,7 +3394,7 @@ define ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_bit_fmt_hexmask(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   br i1 %1, label %5, label %28
 
@@ -3472,7 +3472,7 @@ bit_fls.exit:                                     ; preds = %9, %15, %.outer.i.i
   %34 = add nsw i64 %33, 3
   %35 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %34, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1544, ptr noundef nonnull @__func__._bit_fmt_hexmask) #16
   store i8 48, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 120, ptr %36, align 1
   %37 = getelementptr i8, ptr %35, i64 %33
   %38 = getelementptr i8, ptr %37, i64 2
@@ -3500,12 +3500,12 @@ bit_fls.exit:                                     ; preds = %9, %15, %.outer.i.i
 44:                                               ; preds = %42, %44
   %.183 = phi ptr [ %.05393, %42 ], [ %54, %44 ]
   %.05882 = phi i64 [ 0, %42 ], [ %55, %44 ]
-  %45 = getelementptr inbounds i8, ptr %gep, i64 %.05882
+  %45 = getelementptr inbounds nuw i8, ptr %gep, i64 %.05882
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i64
-  %48 = getelementptr inbounds [256 x ptr], ptr @hexmask_lookup, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [256 x ptr], ptr @hexmask_lookup, i64 0, i64 %47
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %51 = load i8, ptr %50, align 1
   store i8 %51, ptr %.183, align 1
   %52 = getelementptr inbounds i8, ptr %.183, i64 -1
@@ -3611,7 +3611,7 @@ declare i32 @toupper(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @bit_consolidate(ptr nocapture noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
   %.not17.i = icmp ult i64 %3, 64

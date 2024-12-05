@@ -20,13 +20,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpi_rshift: 
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @mpi_normalize(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -50,13 +50,13 @@ define dso_local void @mpi_normalize(ptr nocapture noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
 define dso_local i32 @mpi_get_nbits(ptr nocapture noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -89,14 +89,14 @@ define dso_local i32 @mpi_get_nbits(ptr nocapture noundef %0) #1 align 16 {
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local range(i32 0, 2) i32 @mpi_test_bit(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
   %3 = lshr i32 %1, 6
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %3, %5
   br i1 %6, label %7, label %18
 
 7:                                                ; preds = %2
   %8 = and i32 %1, 63
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %3 to i64
   %12 = getelementptr i64, ptr %10, i64 %11
@@ -115,7 +115,7 @@ define dso_local range(i32 0, 2) i32 @mpi_test_bit(ptr nocapture noundef readonl
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mpi_set_bit(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
   %3 = lshr i32 %1, 6
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %3, %5
   br i1 %6, label %23, label %7
@@ -126,7 +126,7 @@ define dso_local void @mpi_set_bit(ptr noundef %0, i32 noundef %1) local_unnamed
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = zext nneg i32 %5 to i64
   br label %13
 
@@ -151,7 +151,7 @@ define dso_local void @mpi_set_bit(ptr noundef %0, i32 noundef %1) local_unnamed
   %24 = and i32 %1, 63
   %25 = zext nneg i32 %24 to i64
   %26 = shl nuw i64 1, %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %3 to i64
   %30 = getelementptr i64, ptr %28, i64 %29
@@ -168,7 +168,7 @@ declare dso_local i32 @mpi_resize(ptr noundef, i32 noundef) local_unnamed_addr #
 define dso_local void @mpi_set_highbit(ptr noundef %0, i32 noundef %1) #3 align 16 {
   %3 = lshr i32 %1, 6
   %4 = and i32 %1, 63
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %3, %6
   br i1 %7, label %24, label %8
@@ -179,7 +179,7 @@ define dso_local void @mpi_set_highbit(ptr noundef %0, i32 noundef %1) #3 align 
   br i1 %10, label %11, label %.loopexit3
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = zext nneg i32 %6 to i64
   br label %14
 
@@ -203,7 +203,7 @@ define dso_local void @mpi_set_highbit(ptr noundef %0, i32 noundef %1) #3 align 
 24:                                               ; preds = %.loopexit3, %2
   %25 = zext nneg i32 %4 to i64
   %26 = shl nuw i64 1, %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %3 to i64
   %30 = getelementptr i64, ptr %28, i64 %29
@@ -235,13 +235,13 @@ define dso_local void @mpi_set_highbit(ptr noundef %0, i32 noundef %1) #3 align 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local void @mpi_clear_highbit(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
   %3 = lshr i32 %1, 6
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %3, %5
   br i1 %6, label %7, label %24
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = zext nneg i32 %3 to i64
   %10 = and i32 %1, 63
   %11 = zext nneg i32 %10 to i64
@@ -272,7 +272,7 @@ define dso_local void @mpi_clear_highbit(ptr nocapture noundef %0, i32 noundef %
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define dso_local void @mpi_clear_bit(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
   %3 = lshr i32 %1, 6
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %3, %5
   br i1 %6, label %7, label %18
@@ -282,7 +282,7 @@ define dso_local void @mpi_clear_bit(ptr nocapture noundef readonly %0, i32 noun
   %9 = zext nneg i32 %8 to i64
   %10 = shl nuw i64 1, %9
   %11 = xor i64 %10, -1
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %3 to i64
   %15 = getelementptr i64, ptr %13, i64 %14
@@ -297,9 +297,9 @@ define dso_local void @mpi_clear_bit(ptr nocapture noundef readonly %0, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local void @mpi_rshift_limbs(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp ugt i32 %6, %1
   br i1 %7, label %8, label %25
@@ -343,7 +343,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %6, label %7, label %43
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp ult i32 %4, %9
   br i1 %10, label %11, label %.thread
@@ -353,7 +353,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %12, label %34, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %15
 
 15:                                               ; preds = %15, %13
@@ -390,18 +390,18 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %38, label %39, label %.loopexit15
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i64 @mpihelp_rshift(ptr noundef %41, ptr noundef %41, i32 noundef %35, i32 noundef %5) #10
   br label %.loopexit15
 
 43:                                               ; preds = %3
   %44 = icmp ult i32 %2, 64
-  %45 = getelementptr inbounds i8, ptr %1, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %48, ptr %49, align 4
   %50 = load i32, ptr %0, align 8
   %51 = icmp slt i32 %50, %46
@@ -415,15 +415,15 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br label %55
 
 55:                                               ; preds = %53, %52
-  %56 = getelementptr inbounds i8, ptr %0, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %46, ptr %56, align 4
   %57 = load i32, ptr %45, align 4
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %1, i64 24
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %62
 
 62:                                               ; preds = %62, %59
@@ -488,7 +488,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br label %103
 
 103:                                              ; preds = %101, %100
-  %104 = getelementptr inbounds i8, ptr %0, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %46, ptr %104, align 4
   %105 = icmp eq i32 %46, 0
   br i1 %105, label %.loopexit15, label %106
@@ -498,14 +498,14 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %107, label %108, label %111
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds i8, ptr %1, i64 24
-  %110 = getelementptr inbounds i8, ptr %0, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %117
 
 111:                                              ; preds = %106
-  %112 = getelementptr inbounds i8, ptr %0, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %1, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %115 = load ptr, ptr %114, align 8
   %116 = tail call i64 @mpihelp_rshift(ptr noundef %113, ptr noundef %115, i32 noundef %46, i32 noundef %5) #10
   br label %.loopexit15
@@ -525,13 +525,13 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %127, label %117, label %.loopexit15, !llvm.loop !17
 
 .loopexit15:                                      ; preds = %117, %111, %103, %97, %89, %39, %34
-  %128 = getelementptr inbounds i8, ptr %0, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %131, label %.loopexit
 
 131:                                              ; preds = %.loopexit15
-  %132 = getelementptr inbounds i8, ptr %0, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr i8, ptr %133, i64 -8
   br label %135
@@ -564,7 +564,7 @@ declare dso_local i64 @mpihelp_rshift(ptr noundef, ptr noundef, i32 noundef, i32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mpi_lshift_limbs(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp ne i32 %1, 0
   %6 = icmp ne i32 %4, 0
@@ -582,7 +582,7 @@ define dso_local void @mpi_lshift_limbs(ptr noundef %0, i32 noundef %1) local_un
   br label %14
 
 14:                                               ; preds = %12, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = add i32 %4, -1
   %18 = icmp sgt i32 %17, -1
@@ -640,9 +640,9 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %6, label %10, label %39
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %0, align 8
   %16 = add nuw nsw i32 %4, 1
@@ -655,9 +655,9 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br label %21
 
 21:                                               ; preds = %19, %10
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq i32 %12, 0
   br i1 %26, label %.loopexit21, label %.preheader
@@ -674,13 +674,13 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %33, label %.loopexit21, label %.preheader, !llvm.loop !21
 
 .loopexit21:                                      ; preds = %.preheader, %21
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %12, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %14, ptr %38, align 4
   br label %39
 
@@ -691,7 +691,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %42, label %74, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.loopexit, label %47
@@ -707,7 +707,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br label %53
 
 53:                                               ; preds = %51, %47
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = add i32 %45, -1
   %57 = icmp sgt i32 %56, -1
@@ -744,13 +744,13 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %7, label %75, label %..loopexit18_crit_edge
 
 ..loopexit18_crit_edge:                           ; preds = %74
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %.loopexit18
 
 75:                                               ; preds = %74
   %76 = add nuw nsw i32 %4, 1
-  %77 = getelementptr inbounds i8, ptr %0, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.thread, label %80
@@ -766,7 +766,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br label %86
 
 86:                                               ; preds = %84, %80
-  %87 = getelementptr inbounds i8, ptr %0, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %88 = load ptr, ptr %87, align 8
   %89 = add i32 %78, -1
   %90 = icmp sgt i32 %89, -1
@@ -813,7 +813,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %113, label %114, label %135
 
 114:                                              ; preds = %112
-  %115 = getelementptr inbounds i8, ptr %0, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %116
 
 116:                                              ; preds = %116, %114
@@ -850,7 +850,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %0, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %142 = load ptr, ptr %141, align 8
   %143 = tail call i64 @mpihelp_rshift(ptr noundef %142, ptr noundef %142, i32 noundef %136, i32 noundef %110) #10
   %.pr = load i32, ptr %77, align 4
@@ -862,7 +862,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %146, label %147, label %.loopexit
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %0, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr i8, ptr %149, i64 -8
   br label %151
@@ -888,8 +888,8 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
 
 .loopexit18.thread22:                             ; preds = %151, %.loopexit18
   %162 = phi i32 [ %160, %.loopexit18 ], [ %152, %151 ]
-  %163 = getelementptr inbounds i8, ptr %0, i64 4
-  %164 = getelementptr inbounds i8, ptr %0, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr i8, ptr %165, i64 -8
   br label %167

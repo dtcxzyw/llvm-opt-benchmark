@@ -26,7 +26,7 @@ define i32 @exec_module(ptr nocapture noundef readonly %0, ptr noundef %1, ptr n
 
 14:                                               ; preds = %12, %10
   %.046 = phi ptr [ %13, %12 ], [ %3, %10 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
   %.not53 = icmp eq ptr %2, null
   br i1 %.not53, label %29, label %17
@@ -37,22 +37,22 @@ define i32 @exec_module(ptr nocapture noundef readonly %0, ptr noundef %1, ptr n
   br i1 %.not54, label %29, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load i8, ptr %20, align 8
   %22 = zext i8 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %24 to i32
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = tail call i32 @nxtask_init(ptr noundef nonnull %9, ptr noundef nonnull %18, i32 noundef %22, ptr noundef %16, i32 noundef %25, ptr noundef %26, ptr noundef nonnull %27, ptr noundef %.046, ptr noundef %4) #6
   br label %38
 
 29:                                               ; preds = %17, %14
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load i8, ptr %30, align 8
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i32
   %36 = load ptr, ptr %0, align 8
@@ -74,12 +74,12 @@ define i32 @exec_module(ptr nocapture noundef readonly %0, ptr noundef %1, ptr n
   %43 = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
-  %44 = getelementptr inbounds i8, ptr %42, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = load volatile i32, ptr @g_npidhash, align 4
   %47 = add nsw i32 %46, -1
   %48 = and i32 %47, %45
-  %49 = getelementptr inbounds i8, ptr %9, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = load volatile i32, ptr @g_npidhash, align 4
   %52 = add nsw i32 %51, -1
@@ -96,47 +96,47 @@ define i32 @exec_module(ptr nocapture noundef readonly %0, ptr noundef %1, ptr n
   %61 = load i32, ptr %44, align 8
   store i32 %61, ptr %49, align 8
   store i32 %60, ptr %44, align 8
-  %62 = getelementptr inbounds i8, ptr %9, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %63 = load ptr, ptr %62, align 16
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i32, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %42, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %67 = load ptr, ptr %66, align 16
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 8
   store i32 %69, ptr %64, align 8
   %70 = load ptr, ptr %66, align 16
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 %65, ptr %71, align 8
   %72 = load ptr, ptr %62, align 16
-  %73 = getelementptr inbounds i8, ptr %72, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
   %74 = load i32, ptr %73, align 4
   %75 = load ptr, ptr %66, align 16
-  %76 = getelementptr inbounds i8, ptr %75, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 12
   %77 = load i32, ptr %76, align 4
   store i32 %77, ptr %73, align 4
   %78 = load ptr, ptr %66, align 16
-  %79 = getelementptr inbounds i8, ptr %78, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 12
   store i32 %74, ptr %79, align 4
   %80 = load ptr, ptr %62, align 16
-  %81 = getelementptr inbounds i8, ptr %80, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = load ptr, ptr %66, align 16
-  %84 = getelementptr inbounds i8, ptr %83, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
   store ptr %85, ptr %81, align 8
   %86 = load ptr, ptr %66, align 16
-  %87 = getelementptr inbounds i8, ptr %86, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr %82, ptr %87, align 8
   %88 = load ptr, ptr %62, align 16
-  %89 = getelementptr inbounds i8, ptr %88, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %66, align 16
-  %92 = getelementptr inbounds i8, ptr %91, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load ptr, ptr %92, align 8
   store ptr %93, ptr %89, align 8
   %94 = load ptr, ptr %66, align 16
-  %95 = getelementptr inbounds i8, ptr %94, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   store ptr %90, ptr %95, align 8
   %96 = and i64 %43, 512
   %.not.i.i = icmp eq i64 %96, 0
@@ -147,7 +147,7 @@ define i32 @exec_module(ptr nocapture noundef readonly %0, ptr noundef %1, ptr n
   br label %exec_swap.exit
 
 exec_swap.exit:                                   ; preds = %97, %41, %40
-  %98 = getelementptr inbounds i8, ptr %9, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %99 = load i32, ptr %98, align 8
   %.not55 = icmp eq ptr %5, null
   br i1 %.not55, label %103, label %100
@@ -167,7 +167,7 @@ exec_swap.exit:                                   ; preds = %97, %41, %40
   br i1 %.not56, label %108, label %106
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %9, i64 112
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store ptr null, ptr %107, align 16
   br label %108
 

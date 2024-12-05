@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_backup_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #9
@@ -126,7 +126,7 @@ define dso_local i64 @pg_backup_start(ptr nocapture noundef readonly %0) local_u
   %29 = load ptr, ptr @tablespace_map, align 8
   tail call void @do_pg_backup_start(ptr noundef %9, i1 noundef zeroext %24, ptr noundef null, ptr noundef %28, ptr noundef %29) #9
   %30 = load ptr, ptr @backup_state, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1032
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1032
   %32 = load i64, ptr %31, align 8
   ret i64 %32
 }
@@ -166,7 +166,7 @@ define dso_local i64 @pg_backup_stop(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca [3 x i64], align 16
   %4 = alloca [3 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = tail call i32 @get_backup_status() #9
   %8 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %2) #9
@@ -200,18 +200,18 @@ define dso_local i64 @pg_backup_stop(ptr noundef %0) local_unnamed_addr #0 {
   %21 = load ptr, ptr @backup_state, align 8
   %22 = call ptr @build_backup_content(ptr noundef %21, i1 noundef zeroext false) #9
   %23 = load ptr, ptr @backup_state, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1088
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1088
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %3, align 16
   %26 = call ptr @cstring_to_text(ptr noundef %22) #9
   %27 = ptrtoint ptr %26 to i64
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %27, ptr %28, align 8
   %29 = load ptr, ptr @tablespace_map, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @cstring_to_text(ptr noundef %30) #9
   %32 = ptrtoint ptr %31 to i64
-  %33 = getelementptr inbounds i8, ptr %3, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %32, ptr %33, align 16
   call void @pfree(ptr noundef %22) #9
   store ptr null, ptr @backup_state, align 8
@@ -307,7 +307,7 @@ declare i64 @LogStandbySnapshot() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_create_restore_point(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #9
@@ -431,7 +431,7 @@ define dso_local i64 @pg_last_wal_receive_lsn(ptr nocapture noundef writeonly %0
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %5, align 4
   br label %6
 
@@ -448,7 +448,7 @@ define dso_local i64 @pg_last_wal_replay_lsn(ptr nocapture noundef writeonly %0)
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %5, align 4
   br label %6
 
@@ -463,7 +463,7 @@ define dso_local i64 @pg_walfile_name_offset(ptr nocapture noundef readonly %0) 
   %2 = alloca [64 x i8], align 16
   %3 = alloca [2 x i64], align 16
   %4 = alloca [2 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %7, label %8, label %13
@@ -503,9 +503,9 @@ define dso_local i64 @pg_walfile_name_offset(ptr nocapture noundef readonly %0) 
   %32 = trunc i64 %6 to i32
   %33 = and i32 %31, %32
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 0, ptr %36, align 1
   %37 = call ptr @heap_form_tuple(ptr noundef %15, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %38 = getelementptr i8, ptr %37, i64 16
@@ -525,7 +525,7 @@ declare i32 @GetWALInsertionTimeLine() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_walfile_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = tail call zeroext i1 @RecoveryInProgress() #9
   br i1 %5, label %6, label %11
@@ -566,7 +566,7 @@ define dso_local i64 @pg_split_walfile_name(ptr noundef %0) local_unnamed_addr #
   %6 = alloca [2 x i8], align 2
   %7 = alloca ptr, align 8
   %8 = alloca [256 x i8], align 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #9
@@ -638,7 +638,7 @@ IsXLogFileName.exit.thread:                       ; preds = %._crit_edge, %IsXLo
   store i64 %45, ptr %5, align 16
   %46 = load i32, ptr %4, align 4
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %5, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %47, ptr %48, align 8
   %49 = load ptr, ptr %7, align 8
   %50 = call ptr @heap_form_tuple(ptr noundef %49, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
@@ -773,7 +773,7 @@ define dso_local i64 @pg_get_wal_replay_pause_state(ptr nocapture noundef readno
 
 switch.lookup:                                    ; preds = %8
   %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.pg_get_wal_replay_pause_state, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.pg_get_wal_replay_pause_state, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %12
 
@@ -791,7 +791,7 @@ define dso_local i64 @pg_last_xact_replay_timestamp(ptr nocapture noundef writeo
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %5, align 4
   br label %6
 
@@ -810,7 +810,7 @@ define dso_local range(i64 0, 2) i64 @pg_is_in_recovery(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_wal_lsn_diff(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -824,7 +824,7 @@ declare i64 @pg_lsn_mi(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @pg_promote(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %.not19 = icmp eq i64 %3, 0
   %4 = getelementptr i8, ptr %0, i64 48

@@ -48,13 +48,13 @@ define range(i32 -2, 1) i32 @mca_sharedfp_individual_file_open(ptr nocapture nou
   br label %62
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   %10 = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #10
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %mca_sharedfp_individual_insert_headnode.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   br label %mca_sharedfp_individual_insert_headnode.exit
@@ -83,7 +83,7 @@ mca_sharedfp_individual_insert_headnode.exit:     ; preds = %8, %11
   br label %62
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %4, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %24 = load i32, ptr %23, align 4
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %19, i64 noundef %18, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef nonnull @.str.4, i32 noundef %24) #9
   %26 = tail call noalias dereferenceable_or_null(464) ptr @malloc(i64 noundef 464) #10
@@ -168,20 +168,20 @@ mca_sharedfp_individual_insert_headnode.exit:     ; preds = %8, %11
   br i1 %.not.i, label %60, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %10, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %26, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %10, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %45, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %10, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %19, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr %38, ptr %59, align 8
   br label %60
 
 60:                                               ; preds = %54, %55, %51, %47, %40, %31
   %.060 = phi i32 [ 0, %31 ], [ -2, %40 ], [ -2, %47 ], [ 0, %51 ], [ 0, %55 ], [ 0, %54 ]
   %.0 = phi ptr [ null, %31 ], [ null, %40 ], [ null, %47 ], [ null, %51 ], [ %calloc, %55 ], [ %calloc, %54 ]
-  %61 = getelementptr inbounds i8, ptr %4, i64 168
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store ptr %.0, ptr %61, align 8
   br label %62
 
@@ -202,7 +202,7 @@ define noalias noundef ptr @mca_sharedfp_individual_insert_headnode() local_unna
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   br label %4
@@ -226,20 +226,20 @@ declare i32 @mca_common_ompio_file_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @mca_sharedfp_individual_file_close(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %28, label %5
 
 5:                                                ; preds = %1
   %6 = tail call i32 @mca_sharedfp_individual_collaborate_data(ptr noundef nonnull %3, ptr noundef nonnull %0) #9
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %27, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not24 = icmp eq ptr %11, null
   br i1 %.not24, label %14, label %12
@@ -250,7 +250,7 @@ define i32 @mca_sharedfp_individual_file_close(ptr noundef %0) local_unnamed_add
 
 14:                                               ; preds = %12, %9
   %.1 = phi i32 [ %13, %12 ], [ %6, %9 ]
-  %15 = getelementptr inbounds i8, ptr %8, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not25 = icmp eq ptr %16, null
   br i1 %.not25, label %18, label %17
@@ -260,7 +260,7 @@ define i32 @mca_sharedfp_individual_file_close(ptr noundef %0) local_unnamed_add
   br label %18
 
 18:                                               ; preds = %17, %14
-  %19 = getelementptr inbounds i8, ptr %8, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not26 = icmp eq ptr %20, null
   br i1 %.not26, label %23, label %21
@@ -271,7 +271,7 @@ define i32 @mca_sharedfp_individual_file_close(ptr noundef %0) local_unnamed_add
 
 23:                                               ; preds = %21, %18
   %.2 = phi i32 [ %22, %21 ], [ %.1, %18 ]
-  %24 = getelementptr inbounds i8, ptr %8, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %25 = load ptr, ptr %24, align 8
   %.not27 = icmp eq ptr %25, null
   br i1 %.not27, label %27, label %26

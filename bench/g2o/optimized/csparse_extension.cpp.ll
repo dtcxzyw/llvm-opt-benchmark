@@ -135,11 +135,11 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %52 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %53, ptr %54, align 4
-  %55 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
   store i32 %53, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -149,12 +149,12 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
   %indvars.iv189 = phi i64 [ 0, %.lr.ph174.preheader ], [ %indvars.iv.next190, %115 ]
   %56 = trunc nuw nsw i64 %indvars.iv189 to i32
   %57 = tail call i32 @cs_di_ereach(ptr noundef nonnull %27, i32 noundef %56, ptr noundef %22, ptr noundef nonnull %34, ptr noundef nonnull %2)
-  %58 = getelementptr inbounds double, ptr %3, i64 %indvars.iv189
+  %58 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv189
   store double 0.000000e+00, ptr %58, align 8
-  %59 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv189
+  %59 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv189
   %60 = load i32, ptr %59, align 4
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %61 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv.next190
+  %61 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.next190
   %62 = load i32, ptr %61, align 4
   %63 = icmp slt i32 %60, %62
   br i1 %63, label %.lr.ph160.preheader, label %._crit_edge
@@ -271,7 +271,7 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
   br i1 %114, label %115, label %.sink.split
 
 115:                                              ; preds = %._crit_edge171
-  %116 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv189
+  %116 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv189
   %117 = load i32, ptr %116, align 4
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr %116, align 4

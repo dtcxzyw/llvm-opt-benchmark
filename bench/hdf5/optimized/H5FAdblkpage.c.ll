@@ -59,17 +59,17 @@ define ptr @H5FA__dblk_page_alloc(ptr noundef %0, i64 noundef %1) local_unnamed_
   br i1 %11, label %26, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %3, i64 256
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 256
   store ptr %0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 288
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 288
   store i64 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 248
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = mul i64 %18, %1
   %20 = tail call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_page_elmts_blk_free_list, i64 noundef %19) #2
-  %21 = getelementptr inbounds i8, ptr %3, i64 248
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 248
   store ptr %20, ptr %21, align 8
   %22 = icmp eq ptr %20, null
   br i1 %22, label %.thread22, label %.thread
@@ -84,15 +84,15 @@ define ptr @H5FA__dblk_page_alloc(ptr noundef %0, i64 noundef %1) local_unnamed_
   %27 = load i64, ptr @H5E_FARRAY_g, align 8
   %28 = load i64, ptr @H5E_CANTINC_g, align 8
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA__dblk_page_alloc, i32 noundef 101, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.3) #2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 256
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 256
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not.i = icmp eq ptr %.pre, null
   br i1 %.not.i, label %H5FA__dblk_page_dest.exit, label %30
 
 30:                                               ; preds = %.thread22, %26
   %31 = phi ptr [ %0, %.thread22 ], [ %.pre, %26 ]
-  %32 = getelementptr inbounds i8, ptr %3, i64 256
-  %33 = getelementptr inbounds i8, ptr %3, i64 248
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 256
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %34 = load ptr, ptr %33, align 8
   %.not9.i = icmp eq ptr %34, null
   br i1 %.not9.i, label %37, label %35
@@ -141,13 +141,13 @@ declare noalias ptr @H5FL_blk_malloc(ptr noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5FA__dblk_page_dest(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 256
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %9, label %7
@@ -196,20 +196,20 @@ define range(i32 -1, 1) i32 @H5FA__dblk_page_create(ptr noundef %0, i64 noundef 
   br label %.thread
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 272
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 272
   store i64 %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 248
-  %13 = getelementptr inbounds i8, ptr %0, i64 256
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %14 = load i8, ptr %13, align 8
   %15 = zext i8 %14 to i64
   %16 = mul i64 %2, %15
   %17 = add i64 %16, 4
-  %18 = getelementptr inbounds i8, ptr %4, i64 280
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 280
   store i64 %17, ptr %18, align 8
   %19 = load ptr, ptr %12, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 248
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %21(ptr noundef %23, i64 noundef %2) #2
   %25 = icmp slt i32 %24, 0
@@ -222,7 +222,7 @@ define range(i32 -1, 1) i32 @H5FA__dblk_page_create(ptr noundef %0, i64 noundef 
   br label %60
 
 30:                                               ; preds = %10
-  %31 = getelementptr inbounds i8, ptr %0, i64 328
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %32 = load ptr, ptr %31, align 8
   %33 = load i64, ptr %11, align 8
   %34 = tail call i32 @H5AC_insert_entry(ptr noundef %32, ptr noundef nonnull @H5AC_FARRAY_DBLK_PAGE, i64 noundef %33, ptr noundef nonnull %4, i32 noundef 0) #2
@@ -236,7 +236,7 @@ define range(i32 -1, 1) i32 @H5FA__dblk_page_create(ptr noundef %0, i64 noundef 
   br label %60
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %0, i64 384
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %.thread, label %43
@@ -249,7 +249,7 @@ define range(i32 -1, 1) i32 @H5FA__dblk_page_create(ptr noundef %0, i64 noundef 
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %41, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 264
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 264
   store ptr %48, ptr %49, align 8
   br label %.thread
 
@@ -268,7 +268,7 @@ define range(i32 -1, 1) i32 @H5FA__dblk_page_create(ptr noundef %0, i64 noundef 
   br label %60
 
 60:                                               ; preds = %26, %36, %50, %56
-  %61 = getelementptr inbounds i8, ptr %4, i64 256
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %62 = load ptr, ptr %61, align 8
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %H5FA__dblk_page_dest.exit, label %63
@@ -322,11 +322,11 @@ declare i32 @H5AC_remove_entry(ptr noundef) local_unnamed_addr #1
 define ptr @H5FA__dblk_page_protect(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5FA_dblk_page_cache_ud_t, align 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 328
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @H5AC_protect(ptr noundef %9, ptr noundef nonnull @H5AC_FARRAY_DBLK_PAGE, i64 noundef %1, ptr noundef nonnull %5, i32 noundef %3) #2
   %11 = icmp eq ptr %10, null
@@ -339,13 +339,13 @@ define ptr @H5FA__dblk_page_protect(ptr noundef %0, i64 noundef %1, i64 noundef 
   br label %.thread
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 384
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %10, i64 264
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 264
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %.thread
@@ -366,7 +366,7 @@ define ptr @H5FA__dblk_page_protect(ptr noundef %0, i64 noundef %1, i64 noundef 
   %31 = load i64, ptr @H5E_CANTSET_g, align 8
   %32 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5FA__dblk_page_protect, i32 noundef 243, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.8) #2
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %10, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 272
   %35 = load i64, ptr %34, align 8
   %36 = call i32 @H5AC_unprotect(ptr noundef %33, ptr noundef nonnull @H5AC_FARRAY_DBLK_PAGE, i64 noundef %35, ptr noundef nonnull %10, i32 noundef 0) #2
   %37 = icmp slt i32 %36, 0
@@ -390,11 +390,11 @@ declare i32 @H5AC_unprotect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5FA__dblk_page_unprotect(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 256
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 328
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 @H5AC_unprotect(ptr noundef %6, ptr noundef nonnull @H5AC_FARRAY_DBLK_PAGE, i64 noundef %8, ptr noundef %0, i32 noundef %1) #2
   %10 = icmp slt i32 %9, 0

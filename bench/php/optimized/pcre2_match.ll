@@ -62,13 +62,13 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %25, label %.loopexit1005, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %28 = load i32, ptr %27, align 8
   %.not845 = icmp eq i32 %28, 1346589253
   br i1 %.not845, label %29, label %.loopexit1005
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 7
   %.not846 = icmp eq i32 %32, 1
@@ -78,13 +78,13 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %34 = lshr i32 %31, 14
   %35 = and i32 %34, 12
   %36 = or i32 %35, %4
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = icmp ne ptr %38, null
   %40 = and i32 %4, -1610342400
   %41 = icmp eq i32 %40, 0
   %42 = and i1 %41, %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 524288
   %46 = icmp ne i32 %45, 0
@@ -99,7 +99,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %53 = lshr i16 %52, 4
   %54 = and i16 %53, 1
   %55 = select i1 %.not847, i16 %54, i16 2
-  %56 = getelementptr inbounds i8, ptr %9, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 96
   store i16 %55, ptr %56, align 8
   %.not850 = icmp eq i16 %55, 0
   br i1 %.not850, label %60, label %57
@@ -115,7 +115,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %.not852, label %66, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %6, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %63 = load i64, ptr %62, align 8
   %.not853 = icmp ne i64 %63, -1
   %64 = and i32 %44, 8388608
@@ -124,18 +124,18 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %or.cond979, label %.loopexit1005, label %66
 
 66:                                               ; preds = %61, %60
-  %67 = getelementptr inbounds i8, ptr %5, i64 97
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 97
   %68 = load i8, ptr %67, align 1
   %69 = and i8 %68, 1
   %.not854 = icmp eq i8 %69, 0
   br i1 %.not854, label %79, label %70
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %5, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %5, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %5, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %76 = load ptr, ptr %75, align 8
   tail call void %72(ptr noundef %74, ptr noundef %76) #8
   %77 = load i8, ptr %67, align 1
@@ -144,9 +144,9 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br label %79
 
 79:                                               ; preds = %70, %66
-  %80 = getelementptr inbounds i8, ptr %5, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %5, i64 88
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i64 0, ptr %81, align 8
   br i1 %42, label %82, label %129
 
@@ -172,7 +172,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br label %.loopexit1005
 
 91:                                               ; preds = %87, %85
-  %92 = getelementptr inbounds i8, ptr %0, i64 124
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %93 = load i16, ptr %92, align 4
   %94 = icmp ne i16 %93, 0
   %95 = icmp sgt i64 %3, 0
@@ -211,7 +211,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %106 = sub i64 %104, %105
   %107 = sub i64 %.0726, %106
   %108 = tail call i32 @_pcre2_valid_utf_8(ptr noundef %.2762.lcssa, i64 noundef %107, ptr noundef nonnull %81) #8
-  %109 = getelementptr inbounds i8, ptr %5, i64 100
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 %108, ptr %109, align 4
   %.not855 = icmp eq i32 %108, 0
   br i1 %.not855, label %113, label %110
@@ -230,7 +230,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %.not857, label %129, label %115
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %5, i64 64
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %.0726, ptr %116, align 8
   %117 = icmp slt i32 %114, 0
   %118 = and i32 %4, 16384
@@ -241,7 +241,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 119:                                              ; preds = %115
   %120 = add i64 %.0726, %.0740
   %121 = load ptr, ptr %5, align 8
-  %122 = getelementptr inbounds i8, ptr %5, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %123 = load ptr, ptr %122, align 8
   %124 = tail call ptr %121(i64 noundef %120, ptr noundef %123) #8
   store ptr %124, ptr %80, align 8
@@ -258,7 +258,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 129:                                              ; preds = %113, %79
   %.0760 = phi ptr [ %.1761, %113 ], [ %18, %79 ]
   %.0743 = phi i32 [ %.1744, %113 ], [ 0, %79 ]
-  %130 = getelementptr inbounds i8, ptr %9, i64 128
+  %130 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store ptr %spec.store.select56, ptr %130, align 8
   %131 = icmp eq i32 %45, 0
   %132 = icmp ne i32 %.0743, 0
@@ -290,7 +290,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 
 .lr.ph1188:                                       ; preds = %.lr.ph.preheader, %.lr.ph
   %.510211187 = phi ptr [ %142, %.lr.ph ], [ %.0760, %.lr.ph.preheader ]
-  %142 = getelementptr inbounds i8, ptr %.510211187, i64 1
+  %142 = getelementptr inbounds nuw i8, ptr %.510211187, i64 1
   %143 = icmp ult ptr %142, %24
   br i1 %143, label %.lr.ph, label %.critedge13.thread1115
 
@@ -322,7 +322,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 
 149:                                              ; preds = %.sink.split, %.critedge13
   %.promoted = phi ptr [ %.51021.lcssa, %.critedge13 ], [ %.0760, %.sink.split ]
-  %150 = getelementptr inbounds i8, ptr %0, i64 124
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %151 = load i16, ptr %150, align 4
   %.not8601028 = icmp ne i16 %151, 0
   %152 = icmp ugt ptr %.promoted, %spec.store.select56
@@ -363,7 +363,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %162 = ptrtoint ptr %.promoted1031 to i64
   %163 = sub i64 %.neg, %162
   %164 = tail call i32 @_pcre2_valid_utf_8(ptr noundef %.promoted1031, i64 noundef %163, ptr noundef nonnull %81) #8
-  %165 = getelementptr inbounds i8, ptr %5, i64 100
+  %165 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 %164, ptr %165, align 4
   %166 = icmp eq i32 %164, 0
   br i1 %166, label %.loopexit1004, label %.lr.ph1035
@@ -396,7 +396,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 
 .preheader1003:                                   ; preds = %176, %180
   %.pn862 = phi ptr [ %storemerge861, %180 ], [ %177, %176 ]
-  %storemerge861 = getelementptr inbounds i8, ptr %.pn862, i64 1
+  %storemerge861 = getelementptr inbounds nuw i8, ptr %.pn862, i64 1
   store ptr %storemerge861, ptr %130, align 8
   %179 = icmp ult ptr %storemerge861, %.6943
   br i1 %179, label %180, label %.critedge19
@@ -430,82 +430,82 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %192 = load i32, ptr %30, align 8
   %193 = and i32 %192, 512
   %.not864 = icmp ne i32 %193, 0
-  %194 = getelementptr inbounds i8, ptr %_pcre2_default_match_context_8., i64 72
+  %194 = getelementptr inbounds nuw i8, ptr %_pcre2_default_match_context_8., i64 72
   %195 = load i64, ptr %194, align 8
   %196 = icmp eq i64 %195, -1
   %197 = getelementptr inbounds i8, ptr %spec.store.select56, i64 %195
   %198 = select i1 %196, ptr %24, ptr %197
-  %199 = getelementptr inbounds i8, ptr %9, i64 240
+  %199 = getelementptr inbounds nuw i8, ptr %9, i64 240
   store ptr %8, ptr %199, align 8
   store i32 2, ptr %8, align 8
-  %200 = getelementptr inbounds i8, ptr %8, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %spec.store.select56, ptr %200, align 8
   %201 = ptrtoint ptr %.0769 to i64
   %202 = ptrtoint ptr %spec.store.select56 to i64
   %203 = sub i64 %201, %202
-  %204 = getelementptr inbounds i8, ptr %8, i64 40
+  %204 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %203, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %8, i64 104
+  %205 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store i32 0, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %_pcre2_default_match_context_8., i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %_pcre2_default_match_context_8., i64 40
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %9, i64 256
+  %208 = getelementptr inbounds nuw i8, ptr %9, i64 256
   store ptr %207, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %_pcre2_default_match_context_8., i64 48
+  %209 = getelementptr inbounds nuw i8, ptr %_pcre2_default_match_context_8., i64 48
   %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds i8, ptr %9, i64 248
+  %211 = getelementptr inbounds nuw i8, ptr %9, i64 248
   store ptr %210, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %9, i64 120
+  %212 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store ptr %spec.store.select56, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %9, i64 80
+  %213 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store i64 %3, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %9, i64 136
+  %214 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store ptr %.0769, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %9, i64 144
+  %215 = getelementptr inbounds nuw i8, ptr %9, i64 144
   store ptr %24, ptr %215, align 8
   %216 = lshr i32 %192, 12
   %.lobit865 = and i32 %216, 1
-  %217 = getelementptr inbounds i8, ptr %9, i64 44
+  %217 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %.lobit865, ptr %217, align 4
-  %218 = getelementptr inbounds i8, ptr %0, i64 124
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %219 = load i16, ptr %218, align 4
   %.not866 = icmp eq i16 %219, 0
   %220 = lshr i32 %192, 13
   %.lobit867 = and i32 %220, 1
   %221 = select i1 %.not866, i32 %.lobit867, i32 1
-  %222 = getelementptr inbounds i8, ptr %9, i64 48
+  %222 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %221, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %9, i64 216
+  %223 = getelementptr inbounds nuw i8, ptr %9, i64 216
   store i32 %187, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %9, i64 224
+  %224 = getelementptr inbounds nuw i8, ptr %9, i64 224
   store i32 0, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %9, i64 184
-  %226 = getelementptr inbounds i8, ptr %9, i64 176
-  %227 = getelementptr inbounds i8, ptr %0, i64 136
-  %228 = getelementptr inbounds i8, ptr %9, i64 104
+  %225 = getelementptr inbounds nuw i8, ptr %9, i64 184
+  %226 = getelementptr inbounds nuw i8, ptr %9, i64 176
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %228 = getelementptr inbounds nuw i8, ptr %9, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %226, i8 0, i64 16, i1 false)
   store ptr %227, ptr %228, align 8
-  %229 = getelementptr inbounds i8, ptr %0, i64 134
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 134
   %230 = load i16, ptr %229, align 2
-  %231 = getelementptr inbounds i8, ptr %9, i64 100
+  %231 = getelementptr inbounds nuw i8, ptr %9, i64 100
   store i16 %230, ptr %231, align 4
-  %232 = getelementptr inbounds i8, ptr %0, i64 132
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %233 = load i16, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %9, i64 102
+  %234 = getelementptr inbounds nuw i8, ptr %9, i64 102
   store i16 %233, ptr %234, align 2
   %235 = zext i16 %230 to i64
   %236 = zext i16 %233 to i64
   %237 = mul nuw nsw i64 %236, %235
-  %238 = getelementptr inbounds i8, ptr %227, i64 %237
-  %239 = getelementptr inbounds i8, ptr %9, i64 112
+  %238 = getelementptr inbounds nuw i8, ptr %227, i64 %237
+  %239 = getelementptr inbounds nuw i8, ptr %9, i64 112
   store ptr %238, ptr %239, align 8
-  %240 = getelementptr inbounds i8, ptr %0, i64 120
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %241 = load i16, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %9, i64 98
+  %242 = getelementptr inbounds nuw i8, ptr %9, i64 98
   store i16 %241, ptr %242, align 2
-  %243 = getelementptr inbounds i8, ptr %9, i64 228
+  %243 = getelementptr inbounds nuw i8, ptr %9, i64 228
   store i32 0, ptr %243, align 4
-  %244 = getelementptr inbounds i8, ptr %0, i64 122
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 122
   %245 = load i16, ptr %244, align 2
   switch i16 %245, label %.loopexit1005 [
     i16 1, label %246
@@ -517,32 +517,32 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   ]
 
 246:                                              ; preds = %.loopexit1004
-  %247 = getelementptr inbounds i8, ptr %9, i64 232
+  %247 = getelementptr inbounds nuw i8, ptr %9, i64 232
   store i32 1, ptr %247, align 8
-  %248 = getelementptr inbounds i8, ptr %9, i64 236
+  %248 = getelementptr inbounds nuw i8, ptr %9, i64 236
   store i8 13, ptr %248, align 4
   br label %261
 
 249:                                              ; preds = %.loopexit1004
-  %250 = getelementptr inbounds i8, ptr %9, i64 232
+  %250 = getelementptr inbounds nuw i8, ptr %9, i64 232
   store i32 1, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %9, i64 236
+  %251 = getelementptr inbounds nuw i8, ptr %9, i64 236
   store i8 10, ptr %251, align 4
   br label %261
 
 252:                                              ; preds = %.loopexit1004
-  %253 = getelementptr inbounds i8, ptr %9, i64 232
+  %253 = getelementptr inbounds nuw i8, ptr %9, i64 232
   store i32 1, ptr %253, align 8
-  %254 = getelementptr inbounds i8, ptr %9, i64 236
+  %254 = getelementptr inbounds nuw i8, ptr %9, i64 236
   store i8 0, ptr %254, align 4
   br label %261
 
 255:                                              ; preds = %.loopexit1004
-  %256 = getelementptr inbounds i8, ptr %9, i64 232
+  %256 = getelementptr inbounds nuw i8, ptr %9, i64 232
   store i32 2, ptr %256, align 8
-  %257 = getelementptr inbounds i8, ptr %9, i64 236
+  %257 = getelementptr inbounds nuw i8, ptr %9, i64 236
   store i8 13, ptr %257, align 4
-  %258 = getelementptr inbounds i8, ptr %9, i64 237
+  %258 = getelementptr inbounds nuw i8, ptr %9, i64 237
   store i8 10, ptr %258, align 1
   br label %261
 
@@ -555,32 +555,32 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br label %261
 
 261:                                              ; preds = %260, %259, %255, %252, %249, %246
-  %262 = getelementptr inbounds i8, ptr %0, i64 128
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %263 = load i16, ptr %262, align 8
   %264 = zext i16 %263 to i64
   %265 = shl nuw nsw i64 %264, 4
   %266 = add nuw nsw i64 %265, 143
   %267 = and i64 %266, 2097144
-  %268 = getelementptr inbounds i8, ptr %_pcre2_default_match_context_8., i64 80
+  %268 = getelementptr inbounds nuw i8, ptr %_pcre2_default_match_context_8., i64 80
   %269 = load i32, ptr %268, align 8
-  %270 = getelementptr inbounds i8, ptr %0, i64 100
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %271 = load i32, ptr %270, align 4
   %.912 = call i32 @llvm.umin.i32(i32 %269, i32 %271)
-  %272 = getelementptr inbounds i8, ptr %9, i64 24
+  %272 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %.912, ptr %272, align 8
-  %273 = getelementptr inbounds i8, ptr %_pcre2_default_match_context_8., i64 84
+  %273 = getelementptr inbounds nuw i8, ptr %_pcre2_default_match_context_8., i64 84
   %274 = load i32, ptr %273, align 4
-  %275 = getelementptr inbounds i8, ptr %0, i64 104
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %276 = load i32, ptr %275, align 8
   %277 = call i32 @llvm.umin.i32(i32 %274, i32 %276)
-  %278 = getelementptr inbounds i8, ptr %9, i64 28
+  %278 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %277, ptr %278, align 4
-  %279 = getelementptr inbounds i8, ptr %_pcre2_default_match_context_8., i64 88
+  %279 = getelementptr inbounds nuw i8, ptr %_pcre2_default_match_context_8., i64 88
   %280 = load i32, ptr %279, align 8
-  %281 = getelementptr inbounds i8, ptr %0, i64 108
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %282 = load i32, ptr %281, align 4
   %283 = call i32 @llvm.umin.i32(i32 %280, i32 %282)
-  %284 = getelementptr inbounds i8, ptr %9, i64 32
+  %284 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %283, ptr %284, align 8
   %285 = mul nuw nsw i64 %267, 10
   %spec.store.select = call i64 @llvm.umax.i64(i64 %285, i64 20480)
@@ -597,22 +597,22 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 
 293:                                              ; preds = %289, %261
   %.0741 = phi i64 [ %spec.store.select, %261 ], [ %291, %289 ]
-  %294 = getelementptr inbounds i8, ptr %5, i64 56
+  %294 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %295 = load i64, ptr %294, align 8
   %296 = icmp ult i64 %295, %.0741
   br i1 %296, label %297, label %._crit_edge1107
 
 ._crit_edge1107:                                  ; preds = %293
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %310
 
 297:                                              ; preds = %293
-  %298 = getelementptr inbounds i8, ptr %5, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %5, i64 48
+  %300 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr inbounds i8, ptr %5, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %303 = load ptr, ptr %302, align 8
   call void %299(ptr noundef %301, ptr noundef %303) #8
   %304 = load ptr, ptr %5, align 8
@@ -632,18 +632,18 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 
 310:                                              ; preds = %._crit_edge1107, %309
   %311 = phi ptr [ %.pre, %._crit_edge1107 ], [ %306, %309 ]
-  %312 = getelementptr inbounds i8, ptr %311, i64 136
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 136
   %313 = add nsw i64 %267, -136
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %312, i8 -1, i64 %313, i1 false)
-  %314 = getelementptr inbounds i8, ptr %0, i64 24
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %9, i64 56
+  %316 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %315, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %315, i64 256
-  %318 = getelementptr inbounds i8, ptr %9, i64 64
+  %317 = getelementptr inbounds nuw i8, ptr %315, i64 256
+  %318 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %317, ptr %318, align 8
-  %319 = getelementptr inbounds i8, ptr %315, i64 832
-  %320 = getelementptr inbounds i8, ptr %9, i64 72
+  %319 = getelementptr inbounds nuw i8, ptr %315, i64 832
+  %320 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store ptr %319, ptr %320, align 8
   %321 = load i32, ptr %30, align 8
   %322 = and i32 %321, 16
@@ -651,7 +651,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %.not868, label %323, label %350
 
 323:                                              ; preds = %310
-  %324 = getelementptr inbounds i8, ptr %0, i64 112
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %325 = load i32, ptr %324, align 8
   %326 = trunc i32 %325 to i8
   %327 = and i32 %321, 32
@@ -661,7 +661,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 328:                                              ; preds = %323
   %.mask = and i32 %325, 255
   %329 = zext nneg i32 %.mask to i64
-  %330 = getelementptr inbounds i8, ptr %317, i64 %329
+  %330 = getelementptr inbounds nuw i8, ptr %317, i64 %329
   %331 = load i8, ptr %330, align 1
   %332 = icmp samesign ugt i32 %.mask, 127
   %or.cond21 = select i1 %332, i1 %50, i1 false
@@ -672,17 +672,17 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 333:                                              ; preds = %328
   %334 = lshr i32 %.mask, 7
   %335 = zext nneg i32 %334 to i64
-  %336 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %335
+  %336 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %335
   %337 = load i16, ptr %336, align 2
   %338 = zext i16 %337 to i32
   %339 = shl nuw nsw i32 %338, 7
   %340 = and i32 %325, 127
   %341 = or disjoint i32 %339, %340
   %342 = zext nneg i32 %341 to i64
-  %343 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %342
+  %343 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %342
   %344 = load i16, ptr %343, align 2
   %345 = zext i16 %344 to i64
-  %346 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %345, i32 4
+  %346 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %345, i32 4
   %347 = load i32, ptr %346, align 4
   %348 = add i32 %347, %325
   %349 = trunc i32 %348 to i8
@@ -692,7 +692,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %351 = and i32 %321, 64
   %.not869 = icmp eq i32 %351, 0
   %or.cond913 = or i1 %.not864, %.not869
-  %352 = getelementptr inbounds i8, ptr %0, i64 40
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %spec.select932 = select i1 %or.cond913, ptr null, ptr %352
   br label %353
 
@@ -705,7 +705,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %.not871, label %355, label %382
 
 355:                                              ; preds = %353
-  %356 = getelementptr inbounds i8, ptr %0, i64 116
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %357 = load i32, ptr %356, align 4
   %358 = trunc i32 %357 to i8
   %359 = and i32 %321, 256
@@ -715,7 +715,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 360:                                              ; preds = %355
   %.mask873 = and i32 %357, 255
   %361 = zext nneg i32 %.mask873 to i64
-  %362 = getelementptr inbounds i8, ptr %317, i64 %361
+  %362 = getelementptr inbounds nuw i8, ptr %317, i64 %361
   %363 = load i8, ptr %362, align 1
   %364 = icmp samesign ugt i32 %.mask873, 127
   %or.cond25 = select i1 %364, i1 %50, i1 false
@@ -726,17 +726,17 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 365:                                              ; preds = %360
   %366 = lshr i32 %.mask873, 7
   %367 = zext nneg i32 %366 to i64
-  %368 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %367
+  %368 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %367
   %369 = load i16, ptr %368, align 2
   %370 = zext i16 %369 to i32
   %371 = shl nuw nsw i32 %370, 7
   %372 = and i32 %357, 127
   %373 = or disjoint i32 %371, %372
   %374 = zext nneg i32 %373 to i64
-  %375 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %374
   %376 = load i16, ptr %375, align 2
   %377 = zext i16 %376 to i64
-  %378 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %377, i32 4
+  %378 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %377, i32 4
   %379 = load i32, ptr %378, align 4
   %380 = add i32 %379, %357
   %381 = trunc i32 %380 to i8
@@ -745,31 +745,31 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 382:                                              ; preds = %355, %365, %360, %353
   %.0785 = phi i32 [ %357, %360 ], [ %357, %365 ], [ %357, %355 ], [ 0, %353 ]
   %.0784 = phi i8 [ %363, %360 ], [ %381, %365 ], [ %358, %355 ], [ 0, %353 ]
-  %383 = getelementptr inbounds i8, ptr %9, i64 40
-  %384 = getelementptr inbounds i8, ptr %9, i64 232
-  %385 = getelementptr inbounds i8, ptr %9, i64 236
-  %386 = getelementptr inbounds i8, ptr %9, i64 237
+  %383 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %384 = getelementptr inbounds nuw i8, ptr %9, i64 232
+  %385 = getelementptr inbounds nuw i8, ptr %9, i64 236
+  %386 = getelementptr inbounds nuw i8, ptr %9, i64 237
   %.not881 = icmp eq ptr %.0742, null
   %387 = zext i8 %.0787 to i32
   %388 = zext i8 %.0786 to i32
   %.not890 = icmp eq i8 %.0787, %.0786
   %389 = icmp ne ptr %.0742, null
   %or.cond35 = select i1 %.not868, i1 true, i1 %389
-  %390 = getelementptr inbounds i8, ptr %0, i64 126
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %.lobit894 = lshr exact i32 %322, 4
   %391 = zext nneg i32 %.lobit894 to i64
   %392 = icmp sgt i32 %188, -1
   %393 = and i32 %.0785, 255
   %394 = zext i8 %.0784 to i32
   %.not896 = icmp eq i32 %393, %394
-  %395 = getelementptr inbounds i8, ptr %8, i64 48
-  %396 = getelementptr inbounds i8, ptr %9, i64 160
-  %397 = getelementptr inbounds i8, ptr %9, i64 168
-  %398 = getelementptr inbounds i8, ptr %9, i64 212
-  %399 = getelementptr inbounds i8, ptr %9, i64 36
-  %400 = getelementptr inbounds i8, ptr %9, i64 88
-  %401 = getelementptr inbounds i8, ptr %9, i64 220
-  %402 = getelementptr inbounds i8, ptr %9, i64 200
+  %395 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %396 = getelementptr inbounds nuw i8, ptr %9, i64 160
+  %397 = getelementptr inbounds nuw i8, ptr %9, i64 168
+  %398 = getelementptr inbounds nuw i8, ptr %9, i64 212
+  %399 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  %400 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  %401 = getelementptr inbounds nuw i8, ptr %9, i64 220
+  %402 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %.neg903 = add i64 %.0726, %202
   br label %.backedge
 
@@ -844,7 +844,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %427, label %.critedge29, label %428
 
 428:                                              ; preds = %426
-  %429 = getelementptr inbounds i8, ptr %.07311048, i64 1
+  %429 = getelementptr inbounds nuw i8, ptr %.07311048, i64 1
   %430 = load i8, ptr %429, align 1
   %431 = load i8, ptr %386, align 1
   %432 = icmp eq i8 %430, %431
@@ -855,7 +855,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 
 .preheader993:                                    ; preds = %.preheader993.preheader, %434
   %.0731.pn = phi ptr [ %.1, %434 ], [ %.07311048, %.preheader993.preheader ]
-  %.1 = getelementptr inbounds i8, ptr %.0731.pn, i64 1
+  %.1 = getelementptr inbounds nuw i8, ptr %.0731.pn, i64 1
   %433 = icmp ult ptr %.1, %.3772
   br i1 %433, label %434, label %.critedge29
 
@@ -899,14 +899,14 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %453, label %.critedge29, label %454
 
 454:                                              ; preds = %452
-  %455 = getelementptr inbounds i8, ptr %.31041, i64 1
+  %455 = getelementptr inbounds nuw i8, ptr %.31041, i64 1
   %456 = load i8, ptr %455, align 1
   %457 = load i8, ptr %386, align 1
   %458 = icmp eq i8 %456, %457
   br i1 %458, label %.critedge29, label %.thread946
 
 .thread946:                                       ; preds = %441, %443, %448, %439, %454
-  %459 = getelementptr inbounds i8, ptr %.31041, i64 1
+  %459 = getelementptr inbounds nuw i8, ptr %.31041, i64 1
   %460 = icmp ult ptr %459, %.3772
   br i1 %460, label %.lr.ph1042, label %.critedge29
 
@@ -936,7 +936,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %472 = zext i8 %465 to i32
   %473 = lshr i32 %472, 3
   %474 = zext nneg i32 %473 to i64
-  %475 = getelementptr inbounds i8, ptr %.0742, i64 %474
+  %475 = getelementptr inbounds nuw i8, ptr %.0742, i64 %474
   %476 = load i8, ptr %475, align 1
   %477 = zext i8 %476 to i32
   %478 = and i32 %472, 7
@@ -1066,7 +1066,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 532:                                              ; preds = %.lr.ph1071
   %533 = load i32, ptr %384, align 8
   %534 = zext i32 %533 to i64
-  %535 = getelementptr inbounds i8, ptr %527, i64 %534
+  %535 = getelementptr inbounds nuw i8, ptr %527, i64 %534
   %.not888 = icmp ult ptr %.121069, %535
   br i1 %.not888, label %.preheader.preheader, label %536
 
@@ -1083,7 +1083,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %543, label %.critedge39, label %544
 
 544:                                              ; preds = %542
-  %545 = getelementptr inbounds i8, ptr %538, i64 1
+  %545 = getelementptr inbounds nuw i8, ptr %538, i64 1
   %546 = load i8, ptr %545, align 1
   %547 = load i8, ptr %386, align 1
   %548 = icmp eq i8 %546, %547
@@ -1094,7 +1094,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 
 .preheader:                                       ; preds = %.preheader.preheader, %550
   %.12.pn = phi ptr [ %.13, %550 ], [ %.121069, %.preheader.preheader ]
-  %.13 = getelementptr inbounds i8, ptr %.12.pn, i64 1
+  %.13 = getelementptr inbounds nuw i8, ptr %.12.pn, i64 1
   %549 = icmp ult ptr %.13, %.57741122
   br i1 %549, label %550, label %.critedge39
 
@@ -1122,7 +1122,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 559:                                              ; preds = %.lr.ph1063
   %560 = load i32, ptr %384, align 8
   %561 = zext i32 %560 to i64
-  %562 = getelementptr inbounds i8, ptr %554, i64 %561
+  %562 = getelementptr inbounds nuw i8, ptr %554, i64 %561
   %.not885 = icmp ult ptr %.151062, %562
   br i1 %.not885, label %.thread956, label %563
 
@@ -1139,14 +1139,14 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %570, label %.critedge39, label %571
 
 571:                                              ; preds = %569
-  %572 = getelementptr inbounds i8, ptr %565, i64 1
+  %572 = getelementptr inbounds nuw i8, ptr %565, i64 1
   %573 = load i8, ptr %572, align 1
   %574 = load i8, ptr %386, align 1
   %575 = icmp eq i8 %573, %574
   br i1 %575, label %.critedge39, label %.thread956
 
 .thread956:                                       ; preds = %557, %559, %563, %555, %571
-  %576 = getelementptr inbounds i8, ptr %.151062, i64 1
+  %576 = getelementptr inbounds nuw i8, ptr %.151062, i64 1
   %577 = icmp ult ptr %576, %.57741122
   br i1 %577, label %.lr.ph1063, label %.critedge39
 
@@ -1169,7 +1169,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %585 = load i8, ptr %.14, align 1
   %586 = icmp eq i8 %585, 10
   %spec.select918.idx = zext i1 %586 to i64
-  %spec.select918 = getelementptr inbounds i8, ptr %.14, i64 %spec.select918.idx
+  %spec.select918 = getelementptr inbounds nuw i8, ptr %.14, i64 %spec.select918.idx
   br label %thread-pre-split
 
 587:                                              ; preds = %519
@@ -1190,7 +1190,7 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   %591 = zext i8 %590 to i32
   %592 = lshr i32 %591, 3
   %593 = zext nneg i32 %592 to i64
-  %594 = getelementptr inbounds i8, ptr %.0742, i64 %593
+  %594 = getelementptr inbounds nuw i8, ptr %.0742, i64 %593
   %595 = load i8, ptr %594, align 1
   %596 = zext i8 %595 to i32
   %597 = and i32 %591, 7
@@ -1200,8 +1200,8 @@ define i32 @php_pcre2_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %.not882, label %600, label %._crit_edge1058
 
 600:                                              ; preds = %.lr.ph1057
-  %601 = getelementptr inbounds i8, ptr %.161056, i64 1
-  %exitcond.not = icmp eq ptr %601, %scevgep
+  %601 = getelementptr inbounds nuw i8, ptr %.161056, i64 1
+  %exitcond.not = icmp eq ptr %601, %.57741122
   br i1 %exitcond.not, label %._crit_edge1058, label %.lr.ph1057
 
 ._crit_edge1058:                                  ; preds = %600, %.lr.ph1057, %.preheader998
@@ -1242,7 +1242,7 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
   br i1 %615, label %.thread950, label %616
 
 616:                                              ; preds = %609
-  %617 = getelementptr inbounds i8, ptr %.10, i64 %391
+  %617 = getelementptr inbounds nuw i8, ptr %.10, i64 %391
   %618 = icmp ugt ptr %617, %.1757
   %or.cond920 = select i1 %.not871, i1 %618, i1 false
   br i1 %or.cond920, label %619, label %633
@@ -1333,7 +1333,7 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
 
 651:                                              ; preds = %648, %635, %635, %635
   store i32 0, ptr %224, align 8
-  %652 = getelementptr inbounds i8, ptr %.9, i64 1
+  %652 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   %653 = icmp ult ptr %652, %.4773
   %or.cond1083 = select i1 %46, i1 %653, i1 false
   br i1 %or.cond1083, label %.lr.ph1078.preheader, label %.critedge49
@@ -1350,7 +1350,7 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
   br i1 %656, label %657, label %.critedge49
 
 657:                                              ; preds = %.lr.ph1078
-  %658 = getelementptr inbounds i8, ptr %.17331077, i64 1
+  %658 = getelementptr inbounds nuw i8, ptr %.17331077, i64 1
   %exitcond1105.not = icmp eq ptr %658, %scevgep1104
   br i1 %exitcond1105.not, label %.critedge49, label %.lr.ph1078
 
@@ -1392,7 +1392,7 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
   br i1 %676, label %.thread950, label %677
 
 677:                                              ; preds = %675
-  %678 = getelementptr inbounds i8, ptr %.9, i64 1
+  %678 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   %679 = load i8, ptr %678, align 1
   %680 = load i8, ptr %386, align 1
   %681 = icmp eq i8 %679, %680
@@ -1434,7 +1434,7 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
   %701 = icmp eq i32 %700, 2
   %or.cond938 = select i1 %switch935, i1 true, i1 %701
   %spec.select939.idx = zext i1 %or.cond938 to i64
-  %spec.select939 = getelementptr inbounds i8, ptr %.0732, i64 %spec.select939.idx
+  %spec.select939 = getelementptr inbounds nuw i8, ptr %.0732, i64 %spec.select939.idx
   br label %702
 
 702:                                              ; preds = %698, %694, %691, %686, %684
@@ -1474,15 +1474,15 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
 
 704:                                              ; preds = %710, %.preheader1002
   %.8777.pn = phi ptr [ %.8777.ph, %.preheader1002 ], [ %.20, %710 ]
-  %.20 = getelementptr inbounds i8, ptr %.8777.pn, i64 1
+  %.20 = getelementptr inbounds nuw i8, ptr %.8777.pn, i64 1
   %705 = icmp ult ptr %.20, %24
   br i1 %705, label %710, label %.thread974
 
 .thread974:                                       ; preds = %704
-  %706 = getelementptr inbounds i8, ptr %5, i64 24
+  %706 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %706, align 8
-  %707 = getelementptr inbounds i8, ptr %5, i64 40
-  %708 = getelementptr inbounds i8, ptr %5, i64 96
+  %707 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %708 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i8 0, ptr %708, align 8
   %709 = load ptr, ptr %225, align 8
   store ptr %709, ptr %707, align 8
@@ -1522,12 +1522,12 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
   br i1 %724, label %.backedge.backedge, label %.preheader1002.outer
 
 .critedge53:                                      ; preds = %703, %.thread950
-  %725 = getelementptr inbounds i8, ptr %5, i64 24
+  %725 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %0, ptr %725, align 8
   %726 = load ptr, ptr %226, align 8
-  %727 = getelementptr inbounds i8, ptr %5, i64 40
+  %727 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %726, ptr %727, align 8
-  %728 = getelementptr inbounds i8, ptr %5, i64 96
+  %728 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i8 0, ptr %728, align 8
   %729 = icmp eq i32 %.0734, 1
   br i1 %729, label %730, label %769
@@ -1535,7 +1535,7 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
 730:                                              ; preds = %.critedge53
   %731 = load i64, ptr %400, align 8
   %732 = trunc i64 %731 to i32
-  %733 = getelementptr inbounds i8, ptr %5, i64 98
+  %733 = getelementptr inbounds nuw i8, ptr %5, i64 98
   %734 = load i16, ptr %733, align 2
   %735 = zext i16 %734 to i32
   %736 = shl nuw nsw i32 %735, 1
@@ -1549,9 +1549,9 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
 
 740:                                              ; preds = %730, %737
   %741 = phi i32 [ %739, %737 ], [ 0, %730 ]
-  %742 = getelementptr inbounds i8, ptr %5, i64 100
+  %742 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 %741, ptr %742, align 4
-  %743 = getelementptr inbounds i8, ptr %5, i64 64
+  %743 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %.0726, ptr %743, align 8
   %744 = ptrtoint ptr %.17 to i64
   %745 = sub i64 %744, %202
@@ -1559,16 +1559,16 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
   %746 = load ptr, ptr %396, align 8
   %747 = ptrtoint ptr %746 to i64
   %748 = sub i64 %747, %202
-  %749 = getelementptr inbounds i8, ptr %5, i64 72
+  %749 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i64 %748, ptr %749, align 8
   %750 = load ptr, ptr %397, align 8
-  %751 = getelementptr inbounds i8, ptr %9, i64 152
+  %751 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %752 = load ptr, ptr %751, align 8
   %753 = icmp ugt ptr %750, %752
   %.929 = select i1 %753, ptr %750, ptr %752
   %754 = ptrtoint ptr %.929 to i64
   %755 = sub i64 %754, %202
-  %756 = getelementptr inbounds i8, ptr %5, i64 80
+  %756 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i64 %755, ptr %756, align 8
   %757 = and i32 %4, 16384
   %.not906 = icmp eq i32 %757, 0
@@ -1577,7 +1577,7 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
 758:                                              ; preds = %740
   %759 = add i64 %.0726, %.0740
   %760 = load ptr, ptr %5, align 8
-  %761 = getelementptr inbounds i8, ptr %5, i64 16
+  %761 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %762 = load ptr, ptr %761, align 8
   %763 = call ptr %760(i64 noundef %759, ptr noundef %762) #8
   store ptr %763, ptr %80, align 8
@@ -1605,7 +1605,7 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
   ]
 
 771:                                              ; preds = %769
-  %772 = getelementptr inbounds i8, ptr %5, i64 100
+  %772 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 %.0734, ptr %772, align 4
   br label %.loopexit1005
 
@@ -1615,29 +1615,29 @@ thread-pre-split:                                 ; preds = %481, %461, %.crited
 
 774:                                              ; preds = %773
   store ptr %spec.store.select56, ptr %80, align 8
-  %775 = getelementptr inbounds i8, ptr %5, i64 64
+  %775 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %.0726, ptr %775, align 8
   %776 = ptrtoint ptr %.2751 to i64
   %777 = sub i64 %776, %202
-  %778 = getelementptr inbounds i8, ptr %5, i64 104
+  %778 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 %777, ptr %778, align 8
   %779 = ptrtoint ptr %.6775 to i64
   %780 = sub i64 %779, %202
-  %781 = getelementptr inbounds i8, ptr %5, i64 112
+  %781 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store i64 %780, ptr %781, align 8
   store i64 %777, ptr %81, align 8
   %782 = ptrtoint ptr %.2755 to i64
   %783 = sub i64 %782, %202
-  %784 = getelementptr inbounds i8, ptr %5, i64 72
+  %784 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i64 %783, ptr %784, align 8
-  %785 = getelementptr inbounds i8, ptr %5, i64 80
+  %785 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i64 %780, ptr %785, align 8
-  %786 = getelementptr inbounds i8, ptr %5, i64 100
+  %786 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 -2, ptr %786, align 4
   br label %.loopexit1005
 
 787:                                              ; preds = %.thread974, %773
-  %788 = getelementptr inbounds i8, ptr %5, i64 100
+  %788 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 -1, ptr %788, align 4
   br label %.loopexit1005
 
@@ -1672,7 +1672,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 524288
   %15 = icmp ne i32 %14, 0
@@ -1680,67 +1680,67 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %16 = and i32 %13, 131072
   %.not8948 = icmp eq i32 %16, 0
   %17 = add nsw i64 %3, -80
-  %18 = getelementptr inbounds i8, ptr %4, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
-  %23 = getelementptr inbounds i8, ptr %19, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 116
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 116
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %19, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 112
   store i32 -1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 80
   store ptr %0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 88
   store ptr %0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 96
   store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %19, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 128
   store i64 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %19, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 120
   store i64 -1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 36
-  %32 = getelementptr inbounds i8, ptr %5, i64 28
-  %33 = getelementptr inbounds i8, ptr %5, i64 32
-  %34 = getelementptr inbounds i8, ptr %5, i64 220
-  %35 = getelementptr inbounds i8, ptr %5, i64 224
-  %36 = getelementptr inbounds i8, ptr %5, i64 128
-  %37 = getelementptr inbounds i8, ptr %5, i64 160
-  %38 = getelementptr inbounds i8, ptr %5, i64 72
-  %39 = getelementptr inbounds i8, ptr %5, i64 136
-  %40 = getelementptr inbounds i8, ptr %5, i64 96
-  %41 = getelementptr inbounds i8, ptr %5, i64 48
-  %42 = getelementptr inbounds i8, ptr %5, i64 40
-  %43 = getelementptr inbounds i8, ptr %5, i64 168
-  %44 = getelementptr inbounds i8, ptr %5, i64 120
-  %45 = getelementptr inbounds i8, ptr %5, i64 80
-  %46 = getelementptr inbounds i8, ptr %5, i64 212
-  %47 = getelementptr inbounds i8, ptr %5, i64 228
-  %48 = getelementptr inbounds i8, ptr %5, i64 232
-  %49 = getelementptr inbounds i8, ptr %5, i64 236
-  %50 = getelementptr inbounds i8, ptr %5, i64 237
-  %51 = getelementptr inbounds i8, ptr %5, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 220
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 224
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 160
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 168
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 212
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 228
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 232
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 236
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 237
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %52 = sub nsw i64 0, %3
-  %53 = getelementptr inbounds i8, ptr %5, i64 104
-  %54 = getelementptr inbounds i8, ptr %5, i64 102
-  %55 = getelementptr inbounds i8, ptr %5, i64 44
-  %56 = getelementptr inbounds i8, ptr %5, i64 98
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 102
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 98
   %57 = and i32 %13, 655360
   %or.cond3.not = icmp ne i32 %57, 0
-  %58 = getelementptr inbounds i8, ptr %5, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %or.cond.not = icmp eq i32 %57, 131072
-  %59 = getelementptr inbounds i8, ptr %5, i64 56
-  %60 = getelementptr inbounds i8, ptr %5, i64 240
-  %61 = getelementptr inbounds i8, ptr %5, i64 208
-  %62 = getelementptr inbounds i8, ptr %5, i64 192
-  %63 = getelementptr inbounds i8, ptr %5, i64 200
-  %64 = getelementptr inbounds i8, ptr %5, i64 184
-  %65 = getelementptr inbounds i8, ptr %5, i64 112
-  %66 = getelementptr inbounds i8, ptr %5, i64 24
-  %67 = getelementptr inbounds i8, ptr %4, i64 16
-  %68 = getelementptr inbounds i8, ptr %4, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 200
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %spec.select14220 = select i1 %15, i8 -56, i8 23
   %spec.select14219 = select i1 %15, i8 -50, i8 31
   %spec.select14218 = select i1 %15, i8 -52, i8 29
@@ -1754,10 +1754,10 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.17534 = phi ptr [ %.27535, %15783 ], [ %.27535, %15775 ], [ %.27535, %15764 ], [ %.27535, %15739 ], [ %.27535, %15722 ], [ %.27535, %15715 ], [ %.27535, %15698 ], [ %.27535, %15691 ], [ %.27535, %15668 ], [ %.587591, %.critedge195 ], [ %.5675899393, %14819 ], [ %.577590, %.loopexit9846 ], [ %.557588, %.loopexit9847 ], [ %.547587, %.loopexit9596 ], [ %.537586, %.loopexit9592 ], [ %.527585, %.loopexit9597 ], [ %.507583, %.loopexit9593 ], [ %.27535, %14228 ], [ %.27535, %14194 ], [ %.497582, %.loopexit9826 ], [ %.477580, %14157 ], [ %.467579, %.loopexit9839 ], [ %.457578, %13876 ], [ %.447577, %13538 ], [ %.437576, %12194 ], [ %.427575, %12052 ], [ %.417574, %.loopexit9586 ], [ %.407573, %.loopexit9571 ], [ %.397572, %10028 ], [ %.387571, %.loopexit9570 ], [ %.377570, %.loopexit9569 ], [ %.367569, %.loopexit9572 ], [ %.357568, %.loopexit9573 ], [ %.347567, %.loopexit9574 ], [ %.337566, %.loopexit9575 ], [ %.327565, %.loopexit9576 ], [ %.317564, %.loopexit9568 ], [ %.307563, %.loopexit9577 ], [ %.297562, %.loopexit9578 ], [ %.287561, %.loopexit9579 ], [ %.277560, %.loopexit9580 ], [ %.267559, %.loopexit9581 ], [ %.257558, %.loopexit9830 ], [ %.247557, %.loopexit9585 ], [ %.237556, %3142 ], [ %.217554, %.loopexit9832 ], [ %.187551, %2589 ], [ %.177550, %2558 ], [ %.147547, %2161 ], [ %.137546, %2129 ], [ %.107543, %1520 ], [ %.87541, %1448 ], [ %.67539, %1326 ], [ %.57538, %.loopexit9845 ], [ %.47537.ph.ph, %1418 ], [ %.47537.ph.ph, %.loopexit9589.loopexit ], [ %.47537.ph.ph, %.loopexit9583.loopexit ], [ %.47537.ph.ph, %2013 ], [ %.47537.ph.ph, %.loopexit9582.loopexit ], [ %.47537.ph.ph, %.loopexit9587.loopexit ], [ %.47537.ph.ph, %.loopexit9584.loopexit ], [ %.47537.ph.ph, %.loopexit9591.loopexit ], [ null, %15163 ], [ %.517584, %14347 ], [ %.27535, %1468 ], [ %.27535, %1390 ], [ %.27535, %1861 ], [ %.27535, %2301 ], [ %.27535, %2810 ]
   %.17470 = phi ptr [ %.27471, %15783 ], [ %.27471, %15775 ], [ %.27471, %15764 ], [ %.27471, %15739 ], [ %.27471, %15722 ], [ %.27471, %15715 ], [ %.27471, %15698 ], [ %.27471, %15691 ], [ %.27471, %15668 ], [ %.587527, %.critedge195 ], [ %.5675259395, %14819 ], [ %.577526, %.loopexit9846 ], [ %.557524, %.loopexit9847 ], [ %.547523, %.loopexit9596 ], [ %.537522, %.loopexit9592 ], [ %.527521, %.loopexit9597 ], [ %.507519, %.loopexit9593 ], [ %.27471, %14228 ], [ %.27471, %14194 ], [ %.497518, %.loopexit9826 ], [ %.477516, %14157 ], [ %.467515, %.loopexit9839 ], [ %.457514, %13876 ], [ %.447513, %13538 ], [ %.437512, %12194 ], [ %.427511, %12052 ], [ %.417510, %.loopexit9586 ], [ %.407509, %.loopexit9571 ], [ %.397508, %10028 ], [ %.387507, %.loopexit9570 ], [ %.377506, %.loopexit9569 ], [ %.367505, %.loopexit9572 ], [ %.357504, %.loopexit9573 ], [ %.347503, %.loopexit9574 ], [ %.337502, %.loopexit9575 ], [ %.327501, %.loopexit9576 ], [ %.317500, %.loopexit9568 ], [ %.307499, %.loopexit9577 ], [ %.297498, %.loopexit9578 ], [ %.287497, %.loopexit9579 ], [ %.277496, %.loopexit9580 ], [ %.267495, %.loopexit9581 ], [ %.257494, %.loopexit9830 ], [ %.247493, %.loopexit9585 ], [ %.237492, %3142 ], [ %.217490, %.loopexit9832 ], [ %.187487, %2589 ], [ %.177486, %2558 ], [ %.147483, %2161 ], [ %.137482, %2129 ], [ %.107479, %1520 ], [ %.87477, %1448 ], [ %.67475, %1326 ], [ %.57474, %.loopexit9845 ], [ %.47473.ph.ph, %1418 ], [ %.47473.ph.ph, %.loopexit9589.loopexit ], [ %.47473.ph.ph, %.loopexit9583.loopexit ], [ %.47473.ph.ph, %2013 ], [ %.47473.ph.ph, %.loopexit9582.loopexit ], [ %.47473.ph.ph, %.loopexit9587.loopexit ], [ %.47473.ph.ph, %.loopexit9584.loopexit ], [ %.47473.ph.ph, %.loopexit9591.loopexit ], [ %.27471, %15163 ], [ %.517520, %14347 ], [ %.27471, %1468 ], [ %.27471, %1390 ], [ %.27471, %1861 ], [ %.27471, %2301 ], [ %.27471, %2810 ]
   %.1 = phi ptr [ %15796, %15783 ], [ %15778, %15775 ], [ %15769, %15764 ], [ %15742, %15739 ], [ %15735, %15722 ], [ %15718, %15715 ], [ %15711, %15698 ], [ %15694, %15691 ], [ %15681, %15668 ], [ %14905, %.critedge195 ], [ %14820, %14819 ], [ %14760, %.loopexit9846 ], [ %14557, %.loopexit9847 ], [ %14507, %.loopexit9596 ], [ %14475, %.loopexit9592 ], [ %14393, %.loopexit9597 ], [ %14286, %.loopexit9593 ], [ %14229, %14228 ], [ %14195, %14194 ], [ %14167, %.loopexit9826 ], [ %14158, %14157 ], [ %14085, %.loopexit9839 ], [ %13877, %13876 ], [ %13539, %13538 ], [ %12195, %12194 ], [ %12053, %12052 ], [ %10385, %.loopexit9586 ], [ %10160, %.loopexit9571 ], [ %10029, %10028 ], [ %9879, %.loopexit9570 ], [ %9740, %.loopexit9569 ], [ %9612, %.loopexit9572 ], [ %9478, %.loopexit9573 ], [ %9338, %.loopexit9574 ], [ %9195, %.loopexit9575 ], [ %9056, %.loopexit9576 ], [ %8902, %.loopexit9568 ], [ %8764, %.loopexit9577 ], [ %8626, %.loopexit9578 ], [ %8486, %.loopexit9579 ], [ %8346, %.loopexit9580 ], [ %8305, %.loopexit9581 ], [ %3559, %.loopexit9830 ], [ %3327, %.loopexit9585 ], [ %3143, %3142 ], [ %3096, %.loopexit9832 ], [ %2590, %2589 ], [ %2559, %2558 ], [ %2162, %2161 ], [ %2130, %2129 ], [ %1521, %1520 ], [ %1449, %1448 ], [ %1327, %1326 ], [ %1257, %.loopexit9845 ], [ %.pre12628, %1418 ], [ %.pre12626, %.loopexit9589.loopexit ], [ %.pre12615, %.loopexit9583.loopexit ], [ %.pre12624, %2013 ], [ %.pre12613, %.loopexit9582.loopexit ], [ %.pre12622, %.loopexit9587.loopexit ], [ %.pre12617, %.loopexit9584.loopexit ], [ %.pre12630, %.loopexit9591.loopexit ], [ %spec.select15588, %15163 ], [ %14365, %14347 ], [ %1341, %1468 ], [ %1341, %1390 ], [ %1697, %1861 ], [ %1697, %2301 ], [ %2808, %2810 ]
-  %69 = getelementptr inbounds i8, ptr %.3.lcssa13717.sink, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %.3.lcssa13717.sink, i64 72
   store i8 %.sink, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.3.lcssa13717.sink, i64 %3
-  %71 = getelementptr inbounds i8, ptr %70, i64 %3
+  %70 = getelementptr inbounds nuw i8, ptr %.3.lcssa13717.sink, i64 %3
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %3
   %.not9278 = icmp ult ptr %71, %.07467
   br i1 %.not9278, label %113, label %72
 
@@ -1835,13 +1835,13 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.17468 = phi ptr [ %112, %105 ], [ %.07467, %.loopexit9844 ]
   %.17440 = phi ptr [ %107, %105 ], [ %70, %.loopexit9844 ]
   %.2 = phi ptr [ %108, %105 ], [ %.3.lcssa13717.sink, %.loopexit9844 ]
-  %114 = getelementptr inbounds i8, ptr %.17440, i64 80
-  %115 = getelementptr inbounds i8, ptr %.2, i64 80
+  %114 = getelementptr inbounds nuw i8, ptr %.17440, i64 80
+  %115 = getelementptr inbounds nuw i8, ptr %.2, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr nonnull align 1 %115, i64 %17, i1 false)
-  %116 = getelementptr inbounds i8, ptr %.2, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %.2, i64 48
   %117 = load i32, ptr %116, align 8
   %118 = add i32 %117, 1
-  %119 = getelementptr inbounds i8, ptr %.17440, i64 48
+  %119 = getelementptr inbounds nuw i8, ptr %.17440, i64 48
   store i32 %118, ptr %119, align 8
   br label %120
 
@@ -1854,10 +1854,10 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.07439 = phi ptr [ null, %6 ], [ %.17440, %113 ]
   %.07437 = phi ptr [ %19, %6 ], [ %.17440, %113 ]
   %.07434 = phi ptr [ %1, %6 ], [ %.1, %113 ]
-  %121 = getelementptr inbounds i8, ptr %.07437, i64 52
+  %121 = getelementptr inbounds nuw i8, ptr %.07437, i64 52
   store i32 %.07839, ptr %121, align 4
   store ptr %.07434, ptr %.07437, align 8
-  %122 = getelementptr inbounds i8, ptr %.07437, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %.07437, i64 32
   store i64 %3, ptr %122, align 8
   %.not = icmp eq i32 %.07839, 0
   br i1 %.not, label %134, label %123
@@ -1867,7 +1867,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %125 = ptrtoint ptr %.07437 to i64
   %126 = ptrtoint ptr %124 to i64
   %127 = sub i64 %125, %126
-  %128 = getelementptr inbounds i8, ptr %.07437, i64 120
+  %128 = getelementptr inbounds nuw i8, ptr %.07437, i64 120
   store i64 %127, ptr %128, align 8
   %129 = and i32 %.07839, -65536
   %130 = icmp eq i32 %129, 262144
@@ -1875,7 +1875,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 131:                                              ; preds = %123
   %132 = and i32 %.07839, 65535
-  %133 = getelementptr inbounds i8, ptr %.07437, i64 112
+  %133 = getelementptr inbounds nuw i8, ptr %.07437, i64 112
   store i32 %132, ptr %133, align 8
   br label %134
 
@@ -1888,7 +1888,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not8452, label %138, label %.loopexit
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %.07437, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %.07437, i64 48
   %140 = load i32, ptr %139, align 8
   %141 = load i32, ptr %33, align 8
   %.not8453 = icmp ult i32 %140, %141
@@ -1902,7 +1902,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.3 = phi ptr [ %.3.be, %.preheader9835.backedge ], [ %.07437, %138 ]
   %142 = load ptr, ptr %.3, align 8
   %143 = load i8, ptr %142, align 1
-  %144 = getelementptr inbounds i8, ptr %.3, i64 73
+  %144 = getelementptr inbounds nuw i8, ptr %.3, i64 73
   store i8 %143, ptr %144, align 1
   switch i8 %143, label %.loopexit [
     i8 -90, label %145
@@ -2069,17 +2069,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.backedge
 
 145:                                              ; preds = %.preheader9835
-  %146 = getelementptr inbounds i8, ptr %.3, i64 112
+  %146 = getelementptr inbounds nuw i8, ptr %.3, i64 112
   %147 = load i32, ptr %146, align 8
   %148 = icmp eq i32 %147, -1
   br i1 %148, label %149, label %193
 
 149:                                              ; preds = %145
-  %150 = getelementptr inbounds i8, ptr %142, i64 1
+  %150 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
   %153 = shl nuw nsw i32 %152, 8
-  %154 = getelementptr inbounds i8, ptr %142, i64 2
+  %154 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   %157 = or disjoint i32 %153, %156
@@ -2088,7 +2088,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 159:                                              ; preds = %161, %149
   %.3.pn9282 = phi ptr [ %.3, %149 ], [ %164, %161 ]
-  %.07613.in = getelementptr inbounds i8, ptr %.3.pn9282, i64 120
+  %.07613.in = getelementptr inbounds nuw i8, ptr %.3.pn9282, i64 120
   %.07613 = load i64, ptr %.07613.in, align 8
   %160 = icmp eq i64 %.07613, -1
   br i1 %160, label %.loopexit, label %161
@@ -2097,7 +2097,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %162 = load ptr, ptr %18, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 %.07613
   %164 = getelementptr inbounds i8, ptr %163, i64 %52
-  %165 = getelementptr inbounds i8, ptr %163, i64 52
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 52
   %166 = load i32, ptr %165, align 4
   %167 = icmp eq i32 %166, %158
   br i1 %167, label %168, label %159
@@ -2106,27 +2106,27 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %169 = shl nuw nsw i32 %157, 1
   %170 = add nsw i32 %169, -2
   %171 = zext i32 %170 to i64
-  %172 = getelementptr inbounds i8, ptr %.3, i64 116
+  %172 = getelementptr inbounds nuw i8, ptr %.3, i64 116
   store i32 %157, ptr %172, align 4
-  %173 = getelementptr inbounds i8, ptr %164, i64 80
+  %173 = getelementptr inbounds nuw i8, ptr %164, i64 80
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr %44, align 8
   %176 = ptrtoint ptr %174 to i64
   %177 = ptrtoint ptr %175 to i64
   %178 = sub i64 %176, %177
-  %179 = getelementptr inbounds i8, ptr %.3, i64 136
-  %180 = getelementptr inbounds [131072 x i64], ptr %179, i64 0, i64 %171
+  %179 = getelementptr inbounds nuw i8, ptr %.3, i64 136
+  %180 = getelementptr inbounds nuw [131072 x i64], ptr %179, i64 0, i64 %171
   store i64 %178, ptr %180, align 8
-  %181 = getelementptr inbounds i8, ptr %.3, i64 80
+  %181 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %182 = load ptr, ptr %181, align 8
   %183 = load ptr, ptr %44, align 8
   %184 = ptrtoint ptr %182 to i64
   %185 = ptrtoint ptr %183 to i64
   %186 = sub i64 %184, %185
   %187 = or disjoint i64 %171, 1
-  %188 = getelementptr inbounds [131072 x i64], ptr %179, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [131072 x i64], ptr %179, i64 0, i64 %187
   store i64 %186, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %.3, i64 128
+  %189 = getelementptr inbounds nuw i8, ptr %.3, i64 128
   %190 = load i64, ptr %189, align 8
   %.not9283 = icmp ugt i64 %190, %171
   br i1 %.not9283, label %193, label %191
@@ -2140,10 +2140,10 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.37442 = phi ptr [ %163, %191 ], [ %163, %168 ], [ %.27441, %145 ]
   %194 = load i8, ptr %142, align 1
   %195 = zext i8 %194 to i64
-  %196 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %195
   %197 = load i8, ptr %196, align 1
   %198 = zext i8 %197 to i64
-  %199 = getelementptr inbounds i8, ptr %142, i64 %198
+  %199 = getelementptr inbounds nuw i8, ptr %142, i64 %198
   store ptr %199, ptr %.3, align 8
   br label %.preheader9835.backedge
 
@@ -2156,7 +2156,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.preheader9835
 
 200:                                              ; preds = %.preheader9835
-  %201 = getelementptr inbounds i8, ptr %.3, i64 80
+  %201 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %202 = load ptr, ptr %201, align 8
   %203 = load ptr, ptr %43, align 8
   %204 = icmp ugt ptr %202, %203
@@ -2167,14 +2167,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.preheader9566.preheader
 
 206:                                              ; preds = %.preheader9835
-  %207 = getelementptr inbounds i8, ptr %.3, i64 112
+  %207 = getelementptr inbounds nuw i8, ptr %.3, i64 112
   %208 = load i32, ptr %207, align 8
   %.not9039 = icmp eq i32 %208, -1
   br i1 %.not9039, label %230, label %.preheader9598
 
 .preheader9598:                                   ; preds = %206, %210
   %.3.pn9045 = phi ptr [ %213, %210 ], [ %.3, %206 ]
-  %.17614.in = getelementptr inbounds i8, ptr %.3.pn9045, i64 120
+  %.17614.in = getelementptr inbounds nuw i8, ptr %.3.pn9045, i64 120
   %.17614 = load i64, ptr %.17614.in, align 8
   %209 = icmp eq i64 %.17614, -1
   br i1 %209, label %.loopexit, label %210
@@ -2183,34 +2183,34 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %211 = load ptr, ptr %18, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 %.17614
   %213 = getelementptr inbounds i8, ptr %212, i64 %52
-  %214 = getelementptr inbounds i8, ptr %212, i64 52
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 52
   %215 = load i32, ptr %214, align 4
   %216 = and i32 %215, -65536
   %217 = icmp eq i32 %216, 262144
   br i1 %217, label %218, label %.preheader9598
 
 218:                                              ; preds = %210
-  %219 = getelementptr inbounds i8, ptr %.3, i64 80
+  %219 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %213, i64 80
+  %221 = getelementptr inbounds nuw i8, ptr %213, i64 80
   store ptr %220, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %.3, i64 96
+  %222 = getelementptr inbounds nuw i8, ptr %.3, i64 96
   %223 = load ptr, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %213, i64 96
+  %224 = getelementptr inbounds nuw i8, ptr %213, i64 96
   store ptr %223, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %.3, i64 88
+  %225 = getelementptr inbounds nuw i8, ptr %.3, i64 88
   %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %213, i64 88
+  %227 = getelementptr inbounds nuw i8, ptr %213, i64 88
   store ptr %226, ptr %227, align 8
   %228 = load ptr, ptr %213, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 3
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 3
   store ptr %229, ptr %213, align 8
   br label %.preheader9835.backedge
 
 230:                                              ; preds = %206, %.preheader9835
-  %231 = getelementptr inbounds i8, ptr %.3, i64 80
+  %231 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %.3, i64 88
+  %233 = getelementptr inbounds nuw i8, ptr %.3, i64 88
   %234 = load ptr, ptr %233, align 8
   %235 = icmp eq ptr %232, %234
   br i1 %235, label %236, label %246
@@ -2251,17 +2251,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %255, label %.preheader9566.preheader, label %.loopexit
 
 256:                                              ; preds = %249, %246
-  %257 = getelementptr inbounds i8, ptr %.3, i64 80
-  %258 = getelementptr inbounds i8, ptr %.3, i64 88
-  %259 = getelementptr inbounds i8, ptr %5, i64 152
+  %257 = getelementptr inbounds nuw i8, ptr %.3, i64 80
+  %258 = getelementptr inbounds nuw i8, ptr %.3, i64 88
+  %259 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store ptr %232, ptr %259, align 8
-  %260 = getelementptr inbounds i8, ptr %.3, i64 128
+  %260 = getelementptr inbounds nuw i8, ptr %.3, i64 128
   %261 = load i64, ptr %260, align 8
-  %262 = getelementptr inbounds i8, ptr %5, i64 88
+  %262 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i64 %261, ptr %262, align 8
-  %263 = getelementptr inbounds i8, ptr %.3, i64 96
+  %263 = getelementptr inbounds nuw i8, ptr %.3, i64 96
   %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %5, i64 176
+  %265 = getelementptr inbounds nuw i8, ptr %5, i64 176
   store ptr %264, ptr %265, align 8
   %266 = load ptr, ptr %257, align 8
   %267 = load ptr, ptr %43, align 8
@@ -2278,16 +2278,16 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %273 = ptrtoint ptr %271 to i64
   %274 = ptrtoint ptr %272 to i64
   %275 = sub i64 %273, %274
-  %276 = getelementptr inbounds i8, ptr %4, i64 104
+  %276 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i64 %275, ptr %276, align 8
   %277 = load ptr, ptr %257, align 8
   %278 = load ptr, ptr %44, align 8
   %279 = ptrtoint ptr %277 to i64
   %280 = ptrtoint ptr %278 to i64
   %281 = sub i64 %279, %280
-  %282 = getelementptr inbounds i8, ptr %4, i64 112
+  %282 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 %281, ptr %282, align 8
-  %283 = getelementptr inbounds i8, ptr %4, i64 98
+  %283 = getelementptr inbounds nuw i8, ptr %4, i64 98
   %284 = load i16, ptr %283, align 2
   %.not9043 = icmp ult i16 %2, %284
   %285 = zext i16 %284 to i32
@@ -2295,8 +2295,8 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %287 = add nuw nsw i32 %286, 1
   %288 = select i1 %.not9043, i32 %287, i32 %285
   %289 = shl nuw nsw i32 %288, 1
-  %290 = getelementptr inbounds i8, ptr %4, i64 120
-  %291 = getelementptr inbounds i8, ptr %.3, i64 136
+  %290 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  %291 = getelementptr inbounds nuw i8, ptr %.3, i64 136
   %292 = add nsw i32 %289, -2
   %293 = zext i32 %292 to i64
   %294 = shl nuw nsw i64 %293, 3
@@ -2311,7 +2311,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 .lr.ph11272:                                      ; preds = %270, %.lr.ph11272
   %299 = phi i64 [ %303, %.lr.ph11272 ], [ %296, %270 ]
   %300 = phi i32 [ %302, %.lr.ph11272 ], [ %295, %270 ]
-  %301 = getelementptr inbounds [131072 x i64], ptr %276, i64 0, i64 %299
+  %301 = getelementptr inbounds nuw [131072 x i64], ptr %276, i64 0, i64 %299
   store i64 -1, ptr %301, align 8
   %302 = add i32 %300, -1
   %303 = zext i32 %302 to i64
@@ -2323,7 +2323,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 306:                                              ; preds = %.preheader9835
   %307 = load i32, ptr %47, align 4
   %.not9032 = icmp eq i32 %307, 0
-  %308 = getelementptr inbounds i8, ptr %.3, i64 80
+  %308 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %309 = load ptr, ptr %308, align 8
   %310 = load ptr, ptr %39, align 8
   br i1 %.not9032, label %315, label %311
@@ -2360,7 +2360,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %325, label %.preheader9566.preheader, label %326
 
 326:                                              ; preds = %324
-  %327 = getelementptr inbounds i8, ptr %309, i64 1
+  %327 = getelementptr inbounds nuw i8, ptr %309, i64 1
   %328 = load i8, ptr %327, align 1
   %329 = load i8, ptr %50, align 1
   %330 = icmp eq i8 %328, %329
@@ -2373,7 +2373,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9035, label %349, label %333
 
 333:                                              ; preds = %331
-  %334 = getelementptr inbounds i8, ptr %.3, i64 80
+  %334 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %335 = load ptr, ptr %334, align 8
   %336 = getelementptr inbounds i8, ptr %.pre12604, i64 -1
   %337 = icmp eq ptr %335, %336
@@ -2402,7 +2402,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 349:                                              ; preds = %.preheader9835._crit_edge, %331, %333, %338, %341, %344, %348
   %350 = phi ptr [ %.pre12603, %.preheader9835._crit_edge ], [ %.pre12604, %331 ], [ %.pre12604, %333 ], [ %.pre12604, %338 ], [ %.pre12604, %341 ], [ %.pre12604, %344 ], [ %.pre12604, %348 ]
-  %351 = getelementptr inbounds i8, ptr %.3, i64 80
+  %351 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %352 = load ptr, ptr %351, align 8
   %.not9036 = icmp ult ptr %352, %350
   br i1 %.not9036, label %361, label %353
@@ -2428,7 +2428,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9514, label %.preheader9566.preheader, label %.loopexit
 
 361:                                              ; preds = %349
-  %362 = getelementptr inbounds i8, ptr %352, i64 1
+  %362 = getelementptr inbounds nuw i8, ptr %352, i64 1
   store ptr %362, ptr %351, align 8
   br i1 %15, label %.preheader9600, label %.critedge
 
@@ -2444,7 +2444,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %367, label %368, label %.critedge
 
 368:                                              ; preds = %.lr.ph11221
-  %369 = getelementptr inbounds i8, ptr %365, i64 1
+  %369 = getelementptr inbounds nuw i8, ptr %365, i64 1
   store ptr %369, ptr %351, align 8
   %370 = load ptr, ptr %39, align 8
   %371 = icmp ult ptr %369, %370
@@ -2452,12 +2452,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 .critedge:                                        ; preds = %368, %.lr.ph11221, %.preheader9600, %361
   %372 = load ptr, ptr %.3, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 1
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 1
   store ptr %373, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 374:                                              ; preds = %.preheader9835
-  %375 = getelementptr inbounds i8, ptr %.3, i64 80
+  %375 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %376 = load ptr, ptr %375, align 8
   %377 = load ptr, ptr %39, align 8
   %.not9029 = icmp ult ptr %376, %377
@@ -2484,9 +2484,9 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9512, label %.preheader9566.preheader, label %.loopexit
 
 386:                                              ; preds = %374
-  %387 = getelementptr inbounds i8, ptr %376, i64 1
+  %387 = getelementptr inbounds nuw i8, ptr %376, i64 1
   store ptr %387, ptr %375, align 8
-  %388 = getelementptr inbounds i8, ptr %142, i64 1
+  %388 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %388, ptr %.3, align 8
   br label %.preheader9835.backedge
 
@@ -2494,9 +2494,9 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %15, label %390, label %434
 
 390:                                              ; preds = %389
-  %391 = getelementptr inbounds i8, ptr %.3, i64 24
+  %391 = getelementptr inbounds nuw i8, ptr %.3, i64 24
   store i64 1, ptr %391, align 8
-  %392 = getelementptr inbounds i8, ptr %142, i64 1
+  %392 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %392, ptr %.3, align 8
   %393 = load i8, ptr %392, align 1
   %394 = zext i8 %393 to i32
@@ -2532,7 +2532,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 408:                                              ; preds = %.sink.split, %390
   %.pr = phi i64 [ 1, %390 ], [ %.sink14181, %.sink.split ]
   %409 = load ptr, ptr %39, align 8
-  %410 = getelementptr inbounds i8, ptr %.3, i64 80
+  %410 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %411 = load ptr, ptr %410, align 8
   %412 = ptrtoint ptr %409 to i64
   %413 = ptrtoint ptr %411 to i64
@@ -2568,10 +2568,10 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %425 = phi ptr [ %430, %432 ], [ %411, %408 ]
   %426 = phi ptr [ %428, %432 ], [ %392, %408 ]
   %427 = phi i64 [ %433, %432 ], [ %.pr, %408 ]
-  %428 = getelementptr inbounds i8, ptr %426, i64 1
+  %428 = getelementptr inbounds nuw i8, ptr %426, i64 1
   store ptr %428, ptr %.3, align 8
   %429 = load i8, ptr %426, align 1
-  %430 = getelementptr inbounds i8, ptr %425, i64 1
+  %430 = getelementptr inbounds nuw i8, ptr %425, i64 1
   store ptr %430, ptr %410, align 8
   %431 = load i8, ptr %425, align 1
   %.not9025 = icmp eq i8 %429, %431
@@ -2585,7 +2585,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 434:                                              ; preds = %389
   %435 = load ptr, ptr %39, align 8
-  %436 = getelementptr inbounds i8, ptr %.3, i64 80
+  %436 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %437 = load ptr, ptr %436, align 8
   %438 = ptrtoint ptr %435 to i64
   %439 = ptrtoint ptr %437 to i64
@@ -2614,21 +2614,21 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9510, label %.preheader9566.preheader, label %.loopexit
 
 450:                                              ; preds = %434
-  %451 = getelementptr inbounds i8, ptr %142, i64 1
+  %451 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %452 = load i8, ptr %451, align 1
-  %453 = getelementptr inbounds i8, ptr %437, i64 1
+  %453 = getelementptr inbounds nuw i8, ptr %437, i64 1
   store ptr %453, ptr %436, align 8
   %454 = load i8, ptr %437, align 1
   %.not9021 = icmp eq i8 %452, %454
   br i1 %.not9021, label %455, label %.preheader9566.preheader
 
 455:                                              ; preds = %450
-  %456 = getelementptr inbounds i8, ptr %142, i64 2
+  %456 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %456, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 457:                                              ; preds = %.preheader9835
-  %458 = getelementptr inbounds i8, ptr %.3, i64 80
+  %458 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %459 = load ptr, ptr %458, align 8
   %460 = load ptr, ptr %39, align 8
   %.not9011 = icmp ult ptr %459, %460
@@ -2658,9 +2658,9 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %15, label %470, label %689
 
 470:                                              ; preds = %469
-  %471 = getelementptr inbounds i8, ptr %.3, i64 24
+  %471 = getelementptr inbounds nuw i8, ptr %.3, i64 24
   store i64 1, ptr %471, align 8
-  %472 = getelementptr inbounds i8, ptr %142, i64 1
+  %472 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %472, ptr %.3, align 8
   %473 = load i8, ptr %472, align 1
   %474 = zext i8 %473 to i32
@@ -2670,7 +2670,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 476:                                              ; preds = %470
   %477 = and i32 %474, 32
   %478 = icmp eq i32 %477, 0
-  %479 = getelementptr inbounds i8, ptr %142, i64 2
+  %479 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %480 = load i8, ptr %479, align 1
   %481 = and i8 %480, 63
   %482 = zext nneg i8 %481 to i32
@@ -2692,7 +2692,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %492 = and i32 %491, 61440
   %493 = shl nuw nsw i32 %482, 6
   %494 = or disjoint i32 %493, %492
-  %495 = getelementptr inbounds i8, ptr %142, i64 3
+  %495 = getelementptr inbounds nuw i8, ptr %142, i64 3
   %496 = load i8, ptr %495, align 1
   %497 = and i8 %496, 63
   %498 = zext nneg i8 %497 to i32
@@ -2709,13 +2709,13 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %505 = and i32 %504, 1835008
   %506 = shl nuw nsw i32 %482, 12
   %507 = or disjoint i32 %506, %505
-  %508 = getelementptr inbounds i8, ptr %142, i64 3
+  %508 = getelementptr inbounds nuw i8, ptr %142, i64 3
   %509 = load i8, ptr %508, align 1
   %510 = and i8 %509, 63
   %511 = zext nneg i8 %510 to i32
   %512 = shl nuw nsw i32 %511, 6
   %513 = or disjoint i32 %507, %512
-  %514 = getelementptr inbounds i8, ptr %142, i64 4
+  %514 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %515 = load i8, ptr %514, align 1
   %516 = and i8 %515, 63
   %517 = zext nneg i8 %516 to i32
@@ -2725,15 +2725,15 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 519:                                              ; preds = %500
   %520 = and i32 %474, 4
   %521 = icmp eq i32 %520, 0
-  %522 = getelementptr inbounds i8, ptr %142, i64 3
+  %522 = getelementptr inbounds nuw i8, ptr %142, i64 3
   %523 = load i8, ptr %522, align 1
   %524 = and i8 %523, 63
   %525 = zext nneg i8 %524 to i32
-  %526 = getelementptr inbounds i8, ptr %142, i64 4
+  %526 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %527 = load i8, ptr %526, align 1
   %528 = and i8 %527, 63
   %529 = zext nneg i8 %528 to i32
-  %530 = getelementptr inbounds i8, ptr %142, i64 5
+  %530 = getelementptr inbounds nuw i8, ptr %142, i64 5
   %531 = load i8, ptr %530, align 1
   %532 = and i8 %531, 63
   %533 = zext nneg i8 %532 to i32
@@ -2762,7 +2762,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %552 = or disjoint i32 %550, %551
   %553 = shl nuw nsw i32 %533, 6
   %554 = or disjoint i32 %552, %553
-  %555 = getelementptr inbounds i8, ptr %142, i64 6
+  %555 = getelementptr inbounds nuw i8, ptr %142, i64 6
   %556 = load i8, ptr %555, align 1
   %557 = and i8 %556, 63
   %558 = zext nneg i8 %557 to i32
@@ -2785,23 +2785,23 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %564 = load i8, ptr %459, align 1
   %565 = load ptr, ptr %59, align 8
   %566 = zext nneg i32 %.07688 to i64
-  %567 = getelementptr inbounds i8, ptr %565, i64 %566
+  %567 = getelementptr inbounds nuw i8, ptr %565, i64 %566
   %568 = load i8, ptr %567, align 1
   %569 = zext i8 %564 to i64
-  %570 = getelementptr inbounds i8, ptr %565, i64 %569
+  %570 = getelementptr inbounds nuw i8, ptr %565, i64 %569
   %571 = load i8, ptr %570, align 1
   %.not9018 = icmp eq i8 %568, %571
   br i1 %.not9018, label %572, label %.preheader9566.preheader
 
 572:                                              ; preds = %563
-  %573 = getelementptr inbounds i8, ptr %142, i64 2
+  %573 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %573, ptr %.3, align 8
-  %574 = getelementptr inbounds i8, ptr %459, i64 1
+  %574 = getelementptr inbounds nuw i8, ptr %459, i64 1
   store ptr %574, ptr %458, align 8
   br label %.preheader9835.backedge
 
 575:                                              ; preds = %560
-  %576 = getelementptr inbounds i8, ptr %459, i64 1
+  %576 = getelementptr inbounds nuw i8, ptr %459, i64 1
   store ptr %576, ptr %458, align 8
   %577 = load i8, ptr %459, align 1
   %578 = zext i8 %577 to i32
@@ -2816,7 +2816,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 583:                                              ; preds = %580
   %584 = shl nuw nsw i32 %578, 6
   %585 = and i32 %584, 1984
-  %586 = getelementptr inbounds i8, ptr %459, i64 2
+  %586 = getelementptr inbounds nuw i8, ptr %459, i64 2
   store ptr %586, ptr %458, align 8
   %587 = load i8, ptr %576, align 1
   %588 = and i8 %587, 63
@@ -2837,12 +2837,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %599 = and i32 %598, 61440
   %600 = shl nuw nsw i32 %596, 6
   %601 = or disjoint i32 %600, %599
-  %602 = getelementptr inbounds i8, ptr %459, i64 2
+  %602 = getelementptr inbounds nuw i8, ptr %459, i64 2
   %603 = load i8, ptr %602, align 1
   %604 = and i8 %603, 63
   %605 = zext nneg i8 %604 to i32
   %606 = or disjoint i32 %601, %605
-  %607 = getelementptr inbounds i8, ptr %459, i64 3
+  %607 = getelementptr inbounds nuw i8, ptr %459, i64 3
   store ptr %607, ptr %458, align 8
   br label %671
 
@@ -2856,33 +2856,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %613 = and i32 %612, 1835008
   %614 = shl nuw nsw i32 %596, 12
   %615 = or disjoint i32 %614, %613
-  %616 = getelementptr inbounds i8, ptr %459, i64 2
+  %616 = getelementptr inbounds nuw i8, ptr %459, i64 2
   %617 = load i8, ptr %616, align 1
   %618 = and i8 %617, 63
   %619 = zext nneg i8 %618 to i32
   %620 = shl nuw nsw i32 %619, 6
   %621 = or disjoint i32 %615, %620
-  %622 = getelementptr inbounds i8, ptr %459, i64 3
+  %622 = getelementptr inbounds nuw i8, ptr %459, i64 3
   %623 = load i8, ptr %622, align 1
   %624 = and i8 %623, 63
   %625 = zext nneg i8 %624 to i32
   %626 = or disjoint i32 %621, %625
-  %627 = getelementptr inbounds i8, ptr %459, i64 4
+  %627 = getelementptr inbounds nuw i8, ptr %459, i64 4
   store ptr %627, ptr %458, align 8
   br label %671
 
 628:                                              ; preds = %608
   %629 = and i32 %578, 4
   %630 = icmp eq i32 %629, 0
-  %631 = getelementptr inbounds i8, ptr %459, i64 2
+  %631 = getelementptr inbounds nuw i8, ptr %459, i64 2
   %632 = load i8, ptr %631, align 1
   %633 = and i8 %632, 63
   %634 = zext nneg i8 %633 to i32
-  %635 = getelementptr inbounds i8, ptr %459, i64 3
+  %635 = getelementptr inbounds nuw i8, ptr %459, i64 3
   %636 = load i8, ptr %635, align 1
   %637 = and i8 %636, 63
   %638 = zext nneg i8 %637 to i32
-  %639 = getelementptr inbounds i8, ptr %459, i64 4
+  %639 = getelementptr inbounds nuw i8, ptr %459, i64 4
   %640 = load i8, ptr %639, align 1
   %641 = and i8 %640, 63
   %642 = zext nneg i8 %641 to i32
@@ -2898,7 +2898,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %650 = shl nuw nsw i32 %638, 6
   %651 = or disjoint i32 %649, %650
   %652 = or disjoint i32 %651, %642
-  %653 = getelementptr inbounds i8, ptr %459, i64 5
+  %653 = getelementptr inbounds nuw i8, ptr %459, i64 5
   store ptr %653, ptr %458, align 8
   br label %671
 
@@ -2913,18 +2913,18 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %662 = or disjoint i32 %660, %661
   %663 = shl nuw nsw i32 %642, 6
   %664 = or disjoint i32 %662, %663
-  %665 = getelementptr inbounds i8, ptr %459, i64 5
+  %665 = getelementptr inbounds nuw i8, ptr %459, i64 5
   %666 = load i8, ptr %665, align 1
   %667 = and i8 %666, 63
   %668 = zext nneg i8 %667 to i32
   %669 = or disjoint i32 %664, %668
-  %670 = getelementptr inbounds i8, ptr %459, i64 6
+  %670 = getelementptr inbounds nuw i8, ptr %459, i64 6
   store ptr %670, ptr %458, align 8
   br label %671
 
 671:                                              ; preds = %583, %611, %654, %643, %597, %575
   %.07857 = phi i32 [ %590, %583 ], [ %606, %597 ], [ %626, %611 ], [ %652, %643 ], [ %669, %654 ], [ %578, %575 ]
-  %672 = getelementptr inbounds i8, ptr %472, i64 %561
+  %672 = getelementptr inbounds nuw i8, ptr %472, i64 %561
   store ptr %672, ptr %.3, align 8
   %.not9016 = icmp eq i32 %.07857, %.07688
   br i1 %.not9016, label %.preheader9835.backedge, label %673
@@ -2932,17 +2932,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 673:                                              ; preds = %671
   %674 = lshr i32 %.07688, 7
   %675 = zext nneg i32 %674 to i64
-  %676 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %675
+  %676 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %675
   %677 = load i16, ptr %676, align 2
   %678 = zext i16 %677 to i32
   %679 = shl nuw nsw i32 %678, 7
   %680 = and i32 %.07688, 127
   %681 = or disjoint i32 %679, %680
   %682 = zext nneg i32 %681 to i64
-  %683 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %682
+  %683 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %682
   %684 = load i16, ptr %683, align 2
   %685 = zext i16 %684 to i64
-  %686 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %685, i32 4
+  %686 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %685, i32 4
   %687 = load i32, ptr %686, align 4
   %688 = add nsw i32 %687, %.07688
   %.not9017 = icmp eq i32 %.07857, %688
@@ -2954,7 +2954,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 690:                                              ; preds = %689
   %691 = load i8, ptr %459, align 1
   %692 = zext i8 %691 to i32
-  %693 = getelementptr inbounds i8, ptr %142, i64 1
+  %693 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %694 = load i8, ptr %693, align 1
   %695 = zext i8 %694 to i32
   %696 = icmp sgt i8 %694, -1
@@ -2963,10 +2963,10 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 697:                                              ; preds = %690
   %698 = load ptr, ptr %59, align 8
   %699 = zext nneg i8 %694 to i64
-  %700 = getelementptr inbounds i8, ptr %698, i64 %699
+  %700 = getelementptr inbounds nuw i8, ptr %698, i64 %699
   %701 = load i8, ptr %700, align 1
   %702 = zext i8 %691 to i64
-  %703 = getelementptr inbounds i8, ptr %698, i64 %702
+  %703 = getelementptr inbounds nuw i8, ptr %698, i64 %702
   %704 = load i8, ptr %703, align 1
   %.not9015 = icmp eq i8 %701, %704
   br i1 %.not9015, label %719, label %.preheader9566.preheader
@@ -2982,45 +2982,45 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %710 = and i32 %695, 127
   %711 = or disjoint i32 %709, %710
   %712 = zext nneg i32 %711 to i64
-  %713 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %712
+  %713 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %712
   %714 = load i16, ptr %713, align 2
   %715 = zext i16 %714 to i64
-  %716 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %715, i32 4
+  %716 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %715, i32 4
   %717 = load i32, ptr %716, align 4
   %718 = add nsw i32 %717, %695
   %.not9014 = icmp eq i32 %718, %692
   br i1 %.not9014, label %719, label %.preheader9566.preheader
 
 719:                                              ; preds = %705, %706, %697
-  %720 = getelementptr inbounds i8, ptr %459, i64 1
+  %720 = getelementptr inbounds nuw i8, ptr %459, i64 1
   store ptr %720, ptr %458, align 8
-  %721 = getelementptr inbounds i8, ptr %142, i64 2
+  %721 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %721, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 722:                                              ; preds = %689
   %723 = load ptr, ptr %59, align 8
-  %724 = getelementptr inbounds i8, ptr %142, i64 1
+  %724 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %725 = load i8, ptr %724, align 1
   %726 = zext i8 %725 to i64
-  %727 = getelementptr inbounds i8, ptr %723, i64 %726
+  %727 = getelementptr inbounds nuw i8, ptr %723, i64 %726
   %728 = load i8, ptr %727, align 1
   %729 = load i8, ptr %459, align 1
   %730 = zext i8 %729 to i64
-  %731 = getelementptr inbounds i8, ptr %723, i64 %730
+  %731 = getelementptr inbounds nuw i8, ptr %723, i64 %730
   %732 = load i8, ptr %731, align 1
   %.not9012 = icmp eq i8 %728, %732
   br i1 %.not9012, label %733, label %.preheader9566.preheader
 
 733:                                              ; preds = %722
-  %734 = getelementptr inbounds i8, ptr %459, i64 1
+  %734 = getelementptr inbounds nuw i8, ptr %459, i64 1
   store ptr %734, ptr %458, align 8
-  %735 = getelementptr inbounds i8, ptr %142, i64 2
+  %735 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %735, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 736:                                              ; preds = %.preheader9835, %.preheader9835
-  %737 = getelementptr inbounds i8, ptr %.3, i64 80
+  %737 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %738 = load ptr, ptr %737, align 8
   %739 = load ptr, ptr %39, align 8
   %.not9008 = icmp ult ptr %738, %739
@@ -3050,8 +3050,8 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %15, label %749, label %972
 
 749:                                              ; preds = %748
-  %750 = getelementptr inbounds i8, ptr %142, i64 1
-  %751 = getelementptr inbounds i8, ptr %142, i64 2
+  %750 = getelementptr inbounds nuw i8, ptr %142, i64 1
+  %751 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %751, ptr %.3, align 8
   %752 = load i8, ptr %750, align 1
   %753 = zext i8 %752 to i32
@@ -3066,7 +3066,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 758:                                              ; preds = %755
   %759 = shl nuw nsw i32 %753, 6
   %760 = and i32 %759, 1984
-  %761 = getelementptr inbounds i8, ptr %142, i64 3
+  %761 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %761, ptr %.3, align 8
   %762 = load i8, ptr %751, align 1
   %763 = and i8 %762, 63
@@ -3087,12 +3087,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %774 = and i32 %773, 61440
   %775 = shl nuw nsw i32 %771, 6
   %776 = or disjoint i32 %775, %774
-  %777 = getelementptr inbounds i8, ptr %142, i64 3
+  %777 = getelementptr inbounds nuw i8, ptr %142, i64 3
   %778 = load i8, ptr %777, align 1
   %779 = and i8 %778, 63
   %780 = zext nneg i8 %779 to i32
   %781 = or disjoint i32 %776, %780
-  %782 = getelementptr inbounds i8, ptr %142, i64 4
+  %782 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store ptr %782, ptr %.3, align 8
   br label %846
 
@@ -3106,33 +3106,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %788 = and i32 %787, 1835008
   %789 = shl nuw nsw i32 %771, 12
   %790 = or disjoint i32 %789, %788
-  %791 = getelementptr inbounds i8, ptr %142, i64 3
+  %791 = getelementptr inbounds nuw i8, ptr %142, i64 3
   %792 = load i8, ptr %791, align 1
   %793 = and i8 %792, 63
   %794 = zext nneg i8 %793 to i32
   %795 = shl nuw nsw i32 %794, 6
   %796 = or disjoint i32 %790, %795
-  %797 = getelementptr inbounds i8, ptr %142, i64 4
+  %797 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %798 = load i8, ptr %797, align 1
   %799 = and i8 %798, 63
   %800 = zext nneg i8 %799 to i32
   %801 = or disjoint i32 %796, %800
-  %802 = getelementptr inbounds i8, ptr %142, i64 5
+  %802 = getelementptr inbounds nuw i8, ptr %142, i64 5
   store ptr %802, ptr %.3, align 8
   br label %846
 
 803:                                              ; preds = %783
   %804 = and i32 %753, 4
   %805 = icmp eq i32 %804, 0
-  %806 = getelementptr inbounds i8, ptr %142, i64 3
+  %806 = getelementptr inbounds nuw i8, ptr %142, i64 3
   %807 = load i8, ptr %806, align 1
   %808 = and i8 %807, 63
   %809 = zext nneg i8 %808 to i32
-  %810 = getelementptr inbounds i8, ptr %142, i64 4
+  %810 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %811 = load i8, ptr %810, align 1
   %812 = and i8 %811, 63
   %813 = zext nneg i8 %812 to i32
-  %814 = getelementptr inbounds i8, ptr %142, i64 5
+  %814 = getelementptr inbounds nuw i8, ptr %142, i64 5
   %815 = load i8, ptr %814, align 1
   %816 = and i8 %815, 63
   %817 = zext nneg i8 %816 to i32
@@ -3148,7 +3148,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %825 = shl nuw nsw i32 %813, 6
   %826 = or disjoint i32 %824, %825
   %827 = or disjoint i32 %826, %817
-  %828 = getelementptr inbounds i8, ptr %142, i64 6
+  %828 = getelementptr inbounds nuw i8, ptr %142, i64 6
   store ptr %828, ptr %.3, align 8
   br label %846
 
@@ -3163,18 +3163,18 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %837 = or disjoint i32 %835, %836
   %838 = shl nuw nsw i32 %817, 6
   %839 = or disjoint i32 %837, %838
-  %840 = getelementptr inbounds i8, ptr %142, i64 6
+  %840 = getelementptr inbounds nuw i8, ptr %142, i64 6
   %841 = load i8, ptr %840, align 1
   %842 = and i8 %841, 63
   %843 = zext nneg i8 %842 to i32
   %844 = or disjoint i32 %839, %843
-  %845 = getelementptr inbounds i8, ptr %142, i64 7
+  %845 = getelementptr inbounds nuw i8, ptr %142, i64 7
   store ptr %845, ptr %.3, align 8
   br label %846
 
 846:                                              ; preds = %758, %786, %829, %818, %772, %749
   %.07858 = phi i32 [ %765, %758 ], [ %781, %772 ], [ %801, %786 ], [ %827, %818 ], [ %844, %829 ], [ %753, %749 ]
-  %847 = getelementptr inbounds i8, ptr %738, i64 1
+  %847 = getelementptr inbounds nuw i8, ptr %738, i64 1
   store ptr %847, ptr %737, align 8
   %848 = load i8, ptr %738, align 1
   %849 = zext i8 %848 to i32
@@ -3189,7 +3189,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 854:                                              ; preds = %851
   %855 = shl nuw nsw i32 %849, 6
   %856 = and i32 %855, 1984
-  %857 = getelementptr inbounds i8, ptr %738, i64 2
+  %857 = getelementptr inbounds nuw i8, ptr %738, i64 2
   store ptr %857, ptr %737, align 8
   %858 = load i8, ptr %847, align 1
   %859 = and i8 %858, 63
@@ -3210,12 +3210,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %870 = and i32 %869, 61440
   %871 = shl nuw nsw i32 %867, 6
   %872 = or disjoint i32 %871, %870
-  %873 = getelementptr inbounds i8, ptr %738, i64 2
+  %873 = getelementptr inbounds nuw i8, ptr %738, i64 2
   %874 = load i8, ptr %873, align 1
   %875 = and i8 %874, 63
   %876 = zext nneg i8 %875 to i32
   %877 = or disjoint i32 %872, %876
-  %878 = getelementptr inbounds i8, ptr %738, i64 3
+  %878 = getelementptr inbounds nuw i8, ptr %738, i64 3
   store ptr %878, ptr %737, align 8
   br label %942
 
@@ -3229,33 +3229,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %884 = and i32 %883, 1835008
   %885 = shl nuw nsw i32 %867, 12
   %886 = or disjoint i32 %885, %884
-  %887 = getelementptr inbounds i8, ptr %738, i64 2
+  %887 = getelementptr inbounds nuw i8, ptr %738, i64 2
   %888 = load i8, ptr %887, align 1
   %889 = and i8 %888, 63
   %890 = zext nneg i8 %889 to i32
   %891 = shl nuw nsw i32 %890, 6
   %892 = or disjoint i32 %886, %891
-  %893 = getelementptr inbounds i8, ptr %738, i64 3
+  %893 = getelementptr inbounds nuw i8, ptr %738, i64 3
   %894 = load i8, ptr %893, align 1
   %895 = and i8 %894, 63
   %896 = zext nneg i8 %895 to i32
   %897 = or disjoint i32 %892, %896
-  %898 = getelementptr inbounds i8, ptr %738, i64 4
+  %898 = getelementptr inbounds nuw i8, ptr %738, i64 4
   store ptr %898, ptr %737, align 8
   br label %942
 
 899:                                              ; preds = %879
   %900 = and i32 %849, 4
   %901 = icmp eq i32 %900, 0
-  %902 = getelementptr inbounds i8, ptr %738, i64 2
+  %902 = getelementptr inbounds nuw i8, ptr %738, i64 2
   %903 = load i8, ptr %902, align 1
   %904 = and i8 %903, 63
   %905 = zext nneg i8 %904 to i32
-  %906 = getelementptr inbounds i8, ptr %738, i64 3
+  %906 = getelementptr inbounds nuw i8, ptr %738, i64 3
   %907 = load i8, ptr %906, align 1
   %908 = and i8 %907, 63
   %909 = zext nneg i8 %908 to i32
-  %910 = getelementptr inbounds i8, ptr %738, i64 4
+  %910 = getelementptr inbounds nuw i8, ptr %738, i64 4
   %911 = load i8, ptr %910, align 1
   %912 = and i8 %911, 63
   %913 = zext nneg i8 %912 to i32
@@ -3271,7 +3271,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %921 = shl nuw nsw i32 %909, 6
   %922 = or disjoint i32 %920, %921
   %923 = or disjoint i32 %922, %913
-  %924 = getelementptr inbounds i8, ptr %738, i64 5
+  %924 = getelementptr inbounds nuw i8, ptr %738, i64 5
   store ptr %924, ptr %737, align 8
   br label %942
 
@@ -3286,12 +3286,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %933 = or disjoint i32 %931, %932
   %934 = shl nuw nsw i32 %913, 6
   %935 = or disjoint i32 %933, %934
-  %936 = getelementptr inbounds i8, ptr %738, i64 5
+  %936 = getelementptr inbounds nuw i8, ptr %738, i64 5
   %937 = load i8, ptr %936, align 1
   %938 = and i8 %937, 63
   %939 = zext nneg i8 %938 to i32
   %940 = or disjoint i32 %935, %939
-  %941 = getelementptr inbounds i8, ptr %738, i64 6
+  %941 = getelementptr inbounds nuw i8, ptr %738, i64 6
   store ptr %941, ptr %737, align 8
   br label %942
 
@@ -3311,17 +3311,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 948:                                              ; preds = %946
   %949 = lshr i32 %.07858, 7
   %950 = zext nneg i32 %949 to i64
-  %951 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %950
+  %951 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %950
   %952 = load i16, ptr %951, align 2
   %953 = zext i16 %952 to i32
   %954 = shl nuw nsw i32 %953, 7
   %955 = and i32 %.07858, 127
   %956 = or disjoint i32 %954, %955
   %957 = zext nneg i32 %956 to i64
-  %958 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %957
+  %958 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %957
   %959 = load i16, ptr %958, align 2
   %960 = zext i16 %959 to i64
-  %961 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %960, i32 4
+  %961 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %960, i32 4
   %962 = load i32, ptr %961, align 4
   %963 = add nsw i32 %962, %.07858
   br label %970
@@ -3329,7 +3329,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 964:                                              ; preds = %946
   %965 = load ptr, ptr %58, align 8
   %966 = zext nneg i32 %.07858 to i64
-  %967 = getelementptr inbounds i8, ptr %965, i64 %966
+  %967 = getelementptr inbounds nuw i8, ptr %965, i64 %966
   %968 = load i8, ptr %967, align 1
   %969 = zext i8 %968 to i32
   br label %970
@@ -3343,14 +3343,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not8948, label %1007, label %973
 
 973:                                              ; preds = %972
-  %974 = getelementptr inbounds i8, ptr %738, i64 1
+  %974 = getelementptr inbounds nuw i8, ptr %738, i64 1
   store ptr %974, ptr %737, align 8
   %975 = load i8, ptr %738, align 1
   %976 = zext i8 %975 to i32
-  %977 = getelementptr inbounds i8, ptr %142, i64 1
+  %977 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %978 = load i8, ptr %977, align 1
   %979 = zext i8 %978 to i32
-  %980 = getelementptr inbounds i8, ptr %142, i64 2
+  %980 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %980, ptr %.3, align 8
   %981 = icmp eq i8 %978, %975
   br i1 %981, label %.preheader9566.preheader, label %982
@@ -3370,10 +3370,10 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %990 = and i32 %979, 127
   %991 = or disjoint i32 %989, %990
   %992 = zext nneg i32 %991 to i64
-  %993 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %992
+  %993 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %992
   %994 = load i16, ptr %993, align 2
   %995 = zext i16 %994 to i64
-  %996 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %995, i32 4
+  %996 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %995, i32 4
   %997 = load i32, ptr %996, align 4
   %998 = add nsw i32 %997, %979
   br label %1005
@@ -3381,7 +3381,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 999:                                              ; preds = %984
   %1000 = load ptr, ptr %58, align 8
   %1001 = zext nneg i8 %978 to i64
-  %1002 = getelementptr inbounds i8, ptr %1000, i64 %1001
+  %1002 = getelementptr inbounds nuw i8, ptr %1000, i64 %1001
   %1003 = load i8, ptr %1002, align 1
   %1004 = zext i8 %1003 to i32
   br label %1005
@@ -3392,9 +3392,9 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %1006, label %.preheader9566.preheader, label %.preheader9835.backedge
 
 1007:                                             ; preds = %972
-  %1008 = getelementptr inbounds i8, ptr %142, i64 1
+  %1008 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %1009 = load i8, ptr %1008, align 1
-  %1010 = getelementptr inbounds i8, ptr %738, i64 1
+  %1010 = getelementptr inbounds nuw i8, ptr %738, i64 1
   store ptr %1010, ptr %737, align 8
   %1011 = load i8, ptr %738, align 1
   %1012 = icmp eq i8 %1009, %1011
@@ -3407,113 +3407,113 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1015:                                             ; preds = %1013
   %1016 = load ptr, ptr %58, align 8
   %1017 = zext i8 %1009 to i64
-  %1018 = getelementptr inbounds i8, ptr %1016, i64 %1017
+  %1018 = getelementptr inbounds nuw i8, ptr %1016, i64 %1017
   %1019 = load i8, ptr %1018, align 1
   %1020 = icmp eq i8 %1019, %1011
   br i1 %1020, label %.preheader9566.preheader, label %1021
 
 1021:                                             ; preds = %1015, %1013
-  %1022 = getelementptr inbounds i8, ptr %142, i64 2
+  %1022 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %1022, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 1023:                                             ; preds = %.preheader9835, %.preheader9835
-  %1024 = getelementptr inbounds i8, ptr %142, i64 1
+  %1024 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %1025 = load i8, ptr %1024, align 1
   %1026 = zext i8 %1025 to i32
   %1027 = shl nuw nsw i32 %1026, 8
-  %1028 = getelementptr inbounds i8, ptr %142, i64 2
+  %1028 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %1029 = load i8, ptr %1028, align 1
   %1030 = zext i8 %1029 to i32
   %1031 = or disjoint i32 %1027, %1030
-  %1032 = getelementptr inbounds i8, ptr %.3, i64 56
-  %1033 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1032 = getelementptr inbounds nuw i8, ptr %.3, i64 56
+  %1033 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %1031, ptr %1033, align 4
   store i32 %1031, ptr %1032, align 8
-  %1034 = getelementptr inbounds i8, ptr %142, i64 3
+  %1034 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %1034, ptr %.3, align 8
   br label %1098
 
 1035:                                             ; preds = %.preheader9835, %.preheader9835
-  %1036 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1036 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %1036, align 8
-  %1037 = getelementptr inbounds i8, ptr %142, i64 1
+  %1037 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %1038 = load i8, ptr %1037, align 1
   %1039 = zext i8 %1038 to i32
   %1040 = shl nuw nsw i32 %1039, 8
-  %1041 = getelementptr inbounds i8, ptr %142, i64 2
+  %1041 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %1042 = load i8, ptr %1041, align 1
   %1043 = zext i8 %1042 to i32
   %1044 = or disjoint i32 %1040, %1043
-  %1045 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1045 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %1044, ptr %1045, align 4
-  %1046 = getelementptr inbounds i8, ptr %142, i64 3
+  %1046 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %1046, ptr %.3, align 8
   br label %1098
 
 1047:                                             ; preds = %.preheader9835, %.preheader9835
-  %1048 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1048 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %1048, align 8
-  %1049 = getelementptr inbounds i8, ptr %142, i64 1
+  %1049 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %1050 = load i8, ptr %1049, align 1
   %1051 = zext i8 %1050 to i32
   %1052 = shl nuw nsw i32 %1051, 8
-  %1053 = getelementptr inbounds i8, ptr %142, i64 2
+  %1053 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %1054 = load i8, ptr %1053, align 1
   %1055 = zext i8 %1054 to i32
   %1056 = or disjoint i32 %1052, %1055
-  %1057 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1057 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %1056, ptr %1057, align 4
-  %1058 = getelementptr inbounds i8, ptr %142, i64 3
+  %1058 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %1058, ptr %.3, align 8
   br label %1098
 
 1059:                                             ; preds = %.preheader9835, %.preheader9835
-  %1060 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1060 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %1060, align 8
-  %1061 = getelementptr inbounds i8, ptr %142, i64 1
+  %1061 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %1062 = load i8, ptr %1061, align 1
   %1063 = zext i8 %1062 to i32
   %1064 = shl nuw nsw i32 %1063, 8
-  %1065 = getelementptr inbounds i8, ptr %142, i64 2
+  %1065 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %1066 = load i8, ptr %1065, align 1
   %1067 = zext i8 %1066 to i32
   %1068 = or disjoint i32 %1064, %1067
-  %1069 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1069 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %1068, ptr %1069, align 4
-  %1070 = getelementptr inbounds i8, ptr %142, i64 3
+  %1070 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %1070, ptr %.3, align 8
   br label %1098
 
 1071:                                             ; preds = %.preheader9835, %.preheader9835
-  %1072 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1072 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %1072, align 8
-  %1073 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1073 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 -1, ptr %1073, align 4
-  %1074 = getelementptr inbounds i8, ptr %142, i64 1
+  %1074 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %1074, ptr %.3, align 8
   br label %1098
 
 1075:                                             ; preds = %.preheader9835, %.preheader9835
-  %1076 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1076 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 1, ptr %1076, align 8
-  %1077 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1077 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 -1, ptr %1077, align 4
-  %1078 = getelementptr inbounds i8, ptr %142, i64 1
+  %1078 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %1078, ptr %.3, align 8
   br label %1098
 
 1079:                                             ; preds = %.preheader9835, %.preheader9835
-  %1080 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1080 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %1080, align 8
-  %1081 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1081 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 1, ptr %1081, align 4
-  %1082 = getelementptr inbounds i8, ptr %142, i64 1
+  %1082 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %1082, ptr %.3, align 8
   br label %1098
 
 1083:                                             ; preds = %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835
-  %1084 = getelementptr inbounds i8, ptr %142, i64 1
+  %1084 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %1084, ptr %.3, align 8
   %1085 = load i8, ptr %142, align 1
   %1086 = zext i8 %1085 to i64
@@ -3521,15 +3521,15 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.neg8965 = select i1 %1087, i64 4294967263, i64 4294967250
   %1088 = add nuw nsw i64 %.neg8965, %1086
   %1089 = and i64 %1088, 4294967295
-  %1090 = getelementptr inbounds [11 x i32], ptr @rep_min, i64 0, i64 %1089
+  %1090 = getelementptr inbounds nuw [11 x i32], ptr @rep_min, i64 0, i64 %1089
   %1091 = load i32, ptr %1090, align 4
-  %1092 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1092 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %1091, ptr %1092, align 8
-  %1093 = getelementptr inbounds [11 x i32], ptr @rep_max, i64 0, i64 %1089
+  %1093 = getelementptr inbounds nuw [11 x i32], ptr @rep_max, i64 0, i64 %1089
   %1094 = load i32, ptr %1093, align 4
-  %1095 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1095 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %1094, ptr %1095, align 4
-  %1096 = getelementptr inbounds [12 x i32], ptr @rep_typ, i64 0, i64 %1089
+  %1096 = getelementptr inbounds nuw [12 x i32], ptr @rep_typ, i64 0, i64 %1089
   %1097 = load i32, ptr %1096, align 4
   br label %1098
 
@@ -3541,10 +3541,10 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %15, label %1102, label %1336
 
 1102:                                             ; preds = %1098
-  %1103 = getelementptr inbounds i8, ptr %.3, i64 24
+  %1103 = getelementptr inbounds nuw i8, ptr %.3, i64 24
   store i64 1, ptr %1103, align 8
-  %1104 = getelementptr inbounds i8, ptr %.3, i64 8
-  %1105 = getelementptr inbounds i8, ptr %.3, i64 16
+  %1104 = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %1105 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   store ptr %1101, ptr %1105, align 8
   %1106 = load i8, ptr %1101, align 1
   %1107 = zext i8 %1106 to i32
@@ -3554,7 +3554,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1109:                                             ; preds = %1102
   %1110 = and i32 %1107, 32
   %1111 = icmp eq i32 %1110, 0
-  %1112 = getelementptr inbounds i8, ptr %1101, i64 1
+  %1112 = getelementptr inbounds nuw i8, ptr %1101, i64 1
   %1113 = load i8, ptr %1112, align 1
   %1114 = and i8 %1113, 63
   %1115 = zext nneg i8 %1114 to i32
@@ -3576,7 +3576,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1125 = and i32 %1124, 61440
   %1126 = shl nuw nsw i32 %1115, 6
   %1127 = or disjoint i32 %1126, %1125
-  %1128 = getelementptr inbounds i8, ptr %1101, i64 2
+  %1128 = getelementptr inbounds nuw i8, ptr %1101, i64 2
   %1129 = load i8, ptr %1128, align 1
   %1130 = and i8 %1129, 63
   %1131 = zext nneg i8 %1130 to i32
@@ -3593,13 +3593,13 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1138 = and i32 %1137, 1835008
   %1139 = shl nuw nsw i32 %1115, 12
   %1140 = or disjoint i32 %1139, %1138
-  %1141 = getelementptr inbounds i8, ptr %1101, i64 2
+  %1141 = getelementptr inbounds nuw i8, ptr %1101, i64 2
   %1142 = load i8, ptr %1141, align 1
   %1143 = and i8 %1142, 63
   %1144 = zext nneg i8 %1143 to i32
   %1145 = shl nuw nsw i32 %1144, 6
   %1146 = or disjoint i32 %1140, %1145
-  %1147 = getelementptr inbounds i8, ptr %1101, i64 3
+  %1147 = getelementptr inbounds nuw i8, ptr %1101, i64 3
   %1148 = load i8, ptr %1147, align 1
   %1149 = and i8 %1148, 63
   %1150 = zext nneg i8 %1149 to i32
@@ -3609,15 +3609,15 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1152:                                             ; preds = %1133
   %1153 = and i32 %1107, 4
   %1154 = icmp eq i32 %1153, 0
-  %1155 = getelementptr inbounds i8, ptr %1101, i64 2
+  %1155 = getelementptr inbounds nuw i8, ptr %1101, i64 2
   %1156 = load i8, ptr %1155, align 1
   %1157 = and i8 %1156, 63
   %1158 = zext nneg i8 %1157 to i32
-  %1159 = getelementptr inbounds i8, ptr %1101, i64 3
+  %1159 = getelementptr inbounds nuw i8, ptr %1101, i64 3
   %1160 = load i8, ptr %1159, align 1
   %1161 = and i8 %1160, 63
   %1162 = zext nneg i8 %1161 to i32
-  %1163 = getelementptr inbounds i8, ptr %1101, i64 4
+  %1163 = getelementptr inbounds nuw i8, ptr %1101, i64 4
   %1164 = load i8, ptr %1163, align 1
   %1165 = and i8 %1164, 63
   %1166 = zext nneg i8 %1165 to i32
@@ -3646,7 +3646,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1185 = or disjoint i32 %1183, %1184
   %1186 = shl nuw nsw i32 %1166, 6
   %1187 = or disjoint i32 %1185, %1186
-  %1188 = getelementptr inbounds i8, ptr %1101, i64 5
+  %1188 = getelementptr inbounds nuw i8, ptr %1101, i64 5
   %1189 = load i8, ptr %1188, align 1
   %1190 = and i8 %1189, 63
   %1191 = zext nneg i8 %1190 to i32
@@ -3657,7 +3657,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.sink14185 = phi i64 [ 3, %1123 ], [ 5, %1167 ], [ 6, %1177 ], [ 4, %1136 ], [ 2, %1116 ]
   %.27690.ph = phi i32 [ %1132, %1123 ], [ %1176, %1167 ], [ %1192, %1177 ], [ %1151, %1136 ], [ %1119, %1116 ]
   store i64 %.sink14185, ptr %1103, align 8
-  %1194 = getelementptr inbounds i8, ptr %1101, i64 %.sink14185
+  %1194 = getelementptr inbounds nuw i8, ptr %1101, i64 %.sink14185
   store ptr %1194, ptr %.3, align 8
   %1195 = icmp samesign ugt i8 %143, 45
   br i1 %1195, label %1196, label %1217
@@ -3665,47 +3665,47 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1196:                                             ; preds = %1193
   %1197 = lshr i32 %.27690.ph, 7
   %1198 = zext nneg i32 %1197 to i64
-  %1199 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %1198
+  %1199 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %1198
   %1200 = load i16, ptr %1199, align 2
   %1201 = zext i16 %1200 to i32
   %1202 = shl nuw nsw i32 %1201, 7
   %1203 = and i32 %.27690.ph, 127
   %1204 = or disjoint i32 %1202, %1203
   %1205 = zext nneg i32 %1204 to i64
-  %1206 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %1205
+  %1206 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %1205
   %1207 = load i16, ptr %1206, align 2
   %1208 = zext i16 %1207 to i64
-  %1209 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %1208, i32 4
+  %1209 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %1208, i32 4
   %1210 = load i32, ptr %1209, align 4
   %.not8988 = icmp eq i32 %1210, 0
   br i1 %.not8988, label %1217, label %1211
 
 1211:                                             ; preds = %1196
   %1212 = add nsw i32 %1210, %.27690.ph
-  %1213 = getelementptr inbounds i8, ptr %.3, i64 74
+  %1213 = getelementptr inbounds nuw i8, ptr %.3, i64 74
   %1214 = tail call i32 @_pcre2_ord2utf_8(i32 noundef %1212, ptr noundef nonnull %1213) #8
   %1215 = zext i32 %1214 to i64
-  %1216 = getelementptr inbounds i8, ptr %.3, i64 40
+  %1216 = getelementptr inbounds nuw i8, ptr %.3, i64 40
   store i64 %1215, ptr %1216, align 8
-  %.phi.trans.insert12598 = getelementptr inbounds i8, ptr %.3, i64 56
+  %.phi.trans.insert12598 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   %.pre12599 = load i32, ptr %.phi.trans.insert12598, align 8
   br label %1219
 
 1217:                                             ; preds = %1196, %1193
-  %1218 = getelementptr inbounds i8, ptr %.3, i64 40
+  %1218 = getelementptr inbounds nuw i8, ptr %.3, i64 40
   store i64 0, ptr %1218, align 8
   br label %1219
 
 1219:                                             ; preds = %1217, %1211
   %1220 = phi i64 [ 0, %1217 ], [ %1215, %1211 ]
   %1221 = phi i32 [ %1100, %1217 ], [ %.pre12599, %1211 ]
-  %1222 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1222 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   %.not898911209 = icmp eq i32 %1221, 0
   br i1 %.not898911209, label %._crit_edge11213, label %.lr.ph11212
 
 .lr.ph11212:                                      ; preds = %1219
-  %1223 = getelementptr inbounds i8, ptr %.3, i64 80
-  %1224 = getelementptr inbounds i8, ptr %.3, i64 74
+  %1223 = getelementptr inbounds nuw i8, ptr %.3, i64 80
+  %1224 = getelementptr inbounds nuw i8, ptr %.3, i64 74
   %.pre12600 = load ptr, ptr %1223, align 8
   %.pre12601 = load i64, ptr %1103, align 8
   %1225 = sub i64 0, %.pre12601
@@ -3773,7 +3773,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 ._crit_edge11213:                                 ; preds = %1247, %1219
   %.lcssa10018 = phi i32 [ 0, %1219 ], [ %1249, %1247 ]
-  %1250 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1250 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   %1251 = load i32, ptr %1250, align 4
   %1252 = icmp eq i32 %.lcssa10018, %1251
   br i1 %1252, label %.preheader9835.backedge, label %1253
@@ -3784,7 +3784,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 .loopexit9845.sink.split:                         ; preds = %1281, %1272
   %.sink15585 = phi i64 [ %1269, %1272 ], [ %1278, %1281 ]
-  %1255 = getelementptr inbounds i8, ptr %15814, i64 80
+  %1255 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %1256 = getelementptr inbounds i8, ptr %1266, i64 %.sink15585
   store ptr %1256, ptr %1255, align 8
   br label %.loopexit9845
@@ -3798,20 +3798,20 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 1258:                                             ; preds = %15881
-  %1259 = getelementptr inbounds i8, ptr %15814, i64 56
+  %1259 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %1260 = load i32, ptr %1259, align 8
   %1261 = add i32 %1260, 1
   store i32 %1261, ptr %1259, align 8
-  %1262 = getelementptr inbounds i8, ptr %15814, i64 60
+  %1262 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %1263 = load i32, ptr %1262, align 4
   %.not9164 = icmp ult i32 %1260, %1263
   br i1 %.not9164, label %1264, label %.backedge.backedge
 
 1264:                                             ; preds = %1258
-  %1265 = getelementptr inbounds i8, ptr %15814, i64 80
+  %1265 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %1266 = load ptr, ptr %1265, align 8
   %1267 = load ptr, ptr %39, align 8
-  %1268 = getelementptr inbounds i8, ptr %15814, i64 24
+  %1268 = getelementptr inbounds nuw i8, ptr %15814, i64 24
   %1269 = load i64, ptr %1268, align 8
   %1270 = sub i64 0, %1269
   %1271 = getelementptr inbounds i8, ptr %1267, i64 %1270
@@ -3819,14 +3819,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9165, label %1276, label %1272
 
 1272:                                             ; preds = %1264
-  %1273 = getelementptr inbounds i8, ptr %15814, i64 16
+  %1273 = getelementptr inbounds nuw i8, ptr %15814, i64 16
   %1274 = load ptr, ptr %1273, align 8
   %bcmp9166 = tail call i32 @bcmp(ptr %1266, ptr %1274, i64 %1269)
   %1275 = icmp eq i32 %bcmp9166, 0
   br i1 %1275, label %.loopexit9845.sink.split, label %1276
 
 1276:                                             ; preds = %1272, %1264
-  %1277 = getelementptr inbounds i8, ptr %15814, i64 40
+  %1277 = getelementptr inbounds nuw i8, ptr %15814, i64 40
   %1278 = load i64, ptr %1277, align 8
   %.not9167 = icmp eq i64 %1278, 0
   %1279 = sub i64 0, %1278
@@ -3836,7 +3836,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %or.cond9425, label %1284, label %1281
 
 1281:                                             ; preds = %1276
-  %1282 = getelementptr inbounds i8, ptr %15814, i64 74
+  %1282 = getelementptr inbounds nuw i8, ptr %15814, i64 74
   %bcmp9169 = tail call i32 @bcmp(ptr %1266, ptr nonnull %1282, i64 %1278)
   %1283 = icmp eq i32 %bcmp9169, 0
   br i1 %1283, label %.loopexit9845.sink.split, label %1284
@@ -3866,14 +3866,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9535, label %.backedge.backedge, label %.loopexit
 
 1293:                                             ; preds = %1253
-  %1294 = getelementptr inbounds i8, ptr %.3, i64 80
+  %1294 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %1295 = load ptr, ptr %1294, align 8
   store ptr %1295, ptr %1104, align 8
   %1296 = icmp ult i32 %.lcssa10018, %1251
   br i1 %1296, label %.lr.ph11217, label %.loopexit9602
 
 .lr.ph11217:                                      ; preds = %1293
-  %1297 = getelementptr inbounds i8, ptr %.3, i64 74
+  %1297 = getelementptr inbounds nuw i8, ptr %.3, i64 74
   %.pre12602 = load i64, ptr %1103, align 8
   %1298 = sub i64 0, %.pre12602
   %.not8991 = icmp eq i64 %1220, 0
@@ -3952,7 +3952,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.67475 = phi ptr [ %.27471, %.loopexit9602..loopexit9559_crit_edge ], [ %.47473.ph.ph, %1331 ]
   %.67445 = phi ptr [ %.27441, %.loopexit9602..loopexit9559_crit_edge ], [ %.57444.ph.ph, %1331 ]
   %.7 = phi ptr [ %.3, %.loopexit9602..loopexit9559_crit_edge ], [ %15814, %1331 ]
-  %1324 = getelementptr inbounds i8, ptr %.7, i64 8
+  %1324 = getelementptr inbounds nuw i8, ptr %.7, i64 8
   %1325 = load ptr, ptr %1324, align 8
   %.not9161 = icmp ugt ptr %1323, %1325
   br i1 %.not9161, label %1326, label %.preheader9835.backedge
@@ -3962,7 +3962,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 1328:                                             ; preds = %15882
-  %1329 = getelementptr inbounds i8, ptr %15814, i64 80
+  %1329 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %1330 = load ptr, ptr %1329, align 8
   br label %1331
 
@@ -3975,12 +3975,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %1333, label %1331, label %.loopexit9559
 
 1334:                                             ; preds = %1102
-  %1335 = getelementptr inbounds i8, ptr %1101, i64 1
+  %1335 = getelementptr inbounds nuw i8, ptr %1101, i64 1
   store ptr %1335, ptr %.3, align 8
   br label %1340
 
 1336:                                             ; preds = %1098
-  %1337 = getelementptr inbounds i8, ptr %1101, i64 1
+  %1337 = getelementptr inbounds nuw i8, ptr %1101, i64 1
   store ptr %1337, ptr %.3, align 8
   %1338 = load i8, ptr %1101, align 1
   %1339 = zext i8 %1338 to i32
@@ -3989,7 +3989,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1340:                                             ; preds = %1336, %1334
   %.sink14186 = phi i32 [ %1339, %1336 ], [ %1107, %1334 ]
   %1341 = phi ptr [ %1337, %1336 ], [ %1335, %1334 ]
-  %1342 = getelementptr inbounds i8, ptr %.3, i64 64
+  %1342 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   store i32 %.sink14186, ptr %1342, align 8
   %1343 = icmp samesign ugt i8 %143, 45
   br i1 %1343, label %1345, label %.preheader9606
@@ -3999,7 +3999,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not896611190, label %._crit_edge11193, label %.lr.ph11192
 
 .lr.ph11192:                                      ; preds = %.preheader9606
-  %1344 = getelementptr inbounds i8, ptr %.3, i64 80
+  %1344 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12596 = load ptr, ptr %1344, align 8
   br label %1452
 
@@ -4011,17 +4011,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1347:                                             ; preds = %1345
   %1348 = lshr i32 %.sink14186, 7
   %1349 = zext nneg i32 %1348 to i64
-  %1350 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %1349
+  %1350 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %1349
   %1351 = load i16, ptr %1350, align 2
   %1352 = zext i16 %1351 to i32
   %1353 = shl nuw nsw i32 %1352, 7
   %1354 = and i32 %.sink14186, 127
   %1355 = or disjoint i32 %1353, %1354
   %1356 = zext nneg i32 %1355 to i64
-  %1357 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %1356
+  %1357 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %1356
   %1358 = load i16, ptr %1357, align 2
   %1359 = zext i16 %1358 to i64
-  %1360 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %1359, i32 4
+  %1360 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %1359, i32 4
   %1361 = load i32, ptr %1360, align 4
   %1362 = add nsw i32 %1361, %.sink14186
   br label %1369
@@ -4029,20 +4029,20 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1363:                                             ; preds = %1345
   %1364 = load ptr, ptr %58, align 8
   %1365 = zext nneg i32 %.sink14186 to i64
-  %1366 = getelementptr inbounds i8, ptr %1364, i64 %1365
+  %1366 = getelementptr inbounds nuw i8, ptr %1364, i64 %1365
   %1367 = load i8, ptr %1366, align 1
   %1368 = zext i8 %1367 to i32
   br label %1369
 
 1369:                                             ; preds = %1363, %1347
   %.sink14189 = phi i32 [ %1368, %1363 ], [ %1362, %1347 ]
-  %1370 = getelementptr inbounds i8, ptr %.3, i64 68
+  %1370 = getelementptr inbounds nuw i8, ptr %.3, i64 68
   store i32 %.sink14189, ptr %1370, align 4
   %.not897611199 = icmp eq i32 %1100, 0
   br i1 %.not897611199, label %._crit_edge11203, label %.lr.ph11202
 
 .lr.ph11202:                                      ; preds = %1369
-  %1371 = getelementptr inbounds i8, ptr %.3, i64 80
+  %1371 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12597 = load ptr, ptr %1371, align 8
   br label %1372
 
@@ -4082,7 +4082,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %or.cond14191, label %1386, label %.preheader9566.preheader
 
 1386:                                             ; preds = %1383
-  %1387 = getelementptr inbounds i8, ptr %1373, i64 1
+  %1387 = getelementptr inbounds nuw i8, ptr %1373, i64 1
   store ptr %1387, ptr %1371, align 8
   %1388 = add i32 %.3763011200, 1
   %.not8976 = icmp ugt i32 %1388, %1100
@@ -4097,17 +4097,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %1391, label %.loopexit9844, label %1421
 
 1392:                                             ; preds = %15859
-  %1393 = getelementptr inbounds i8, ptr %15814, i64 56
+  %1393 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %1394 = load i32, ptr %1393, align 8
   %1395 = add i32 %1394, 1
   store i32 %1395, ptr %1393, align 8
-  %1396 = getelementptr inbounds i8, ptr %15814, i64 60
+  %1396 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %1397 = load i32, ptr %1396, align 4
   %.not9227 = icmp ult i32 %1394, %1397
   br i1 %.not9227, label %1398, label %.backedge.backedge
 
 1398:                                             ; preds = %1392
-  %1399 = getelementptr inbounds i8, ptr %15814, i64 80
+  %1399 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %1400 = load ptr, ptr %1399, align 8
   %1401 = load ptr, ptr %39, align 8
   %.not9228 = icmp ult ptr %1400, %1401
@@ -4136,28 +4136,28 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1410:                                             ; preds = %1398
   %1411 = load i8, ptr %1400, align 1
   %1412 = zext i8 %1411 to i32
-  %1413 = getelementptr inbounds i8, ptr %15814, i64 64
+  %1413 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %1414 = load i32, ptr %1413, align 8
   %.not9229 = icmp eq i32 %1414, %1412
   br i1 %.not9229, label %1418, label %1415
 
 1415:                                             ; preds = %1410
-  %1416 = getelementptr inbounds i8, ptr %15814, i64 68
+  %1416 = getelementptr inbounds nuw i8, ptr %15814, i64 68
   %1417 = load i32, ptr %1416, align 4
   %.not9230 = icmp eq i32 %1417, %1412
   br i1 %.not9230, label %1418, label %.backedge.backedge
 
 1418:                                             ; preds = %1415, %1410
-  %1419 = getelementptr inbounds i8, ptr %15814, i64 80
-  %1420 = getelementptr inbounds i8, ptr %1400, i64 1
+  %1419 = getelementptr inbounds nuw i8, ptr %15814, i64 80
+  %1420 = getelementptr inbounds nuw i8, ptr %1400, i64 1
   store ptr %1420, ptr %1419, align 8
   %.pre12628 = load ptr, ptr %15814, align 8
   br label %.loopexit9844
 
 1421:                                             ; preds = %1390
-  %1422 = getelementptr inbounds i8, ptr %.3, i64 80
+  %1422 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %1423 = load ptr, ptr %1422, align 8
-  %1424 = getelementptr inbounds i8, ptr %.3, i64 8
+  %1424 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %1423, ptr %1424, align 8
   %1425 = icmp ult i32 %1100, %1099
   br i1 %1425, label %.lr.ph11207, label %.loopexit9603
@@ -4198,7 +4198,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %or.cond14192, label %1439, label %.loopexit9603
 
 1439:                                             ; preds = %1436
-  %1440 = getelementptr inbounds i8, ptr %1426, i64 1
+  %1440 = getelementptr inbounds nuw i8, ptr %1426, i64 1
   store ptr %1440, ptr %1422, align 8
   %1441 = add nuw i32 %.4763111205, 1
   %1442 = icmp ult i32 %1441, %1099
@@ -4223,7 +4223,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.87477 = phi ptr [ %.27471, %.loopexit9603..loopexit9590_crit_edge ], [ %.47473.ph.ph, %.loopexit9590.loopexit ]
   %.77446 = phi ptr [ %.27441, %.loopexit9603..loopexit9590_crit_edge ], [ %.57444.ph.ph, %.loopexit9590.loopexit ]
   %.9 = phi ptr [ %.3, %.loopexit9603..loopexit9590_crit_edge ], [ %15814, %.loopexit9590.loopexit ]
-  %1445 = getelementptr inbounds i8, ptr %.9, i64 8
+  %1445 = getelementptr inbounds nuw i8, ptr %.9, i64 8
   %1446 = load ptr, ptr %1445, align 8
   %1447 = icmp eq ptr %1444, %1446
   br i1 %1447, label %.preheader9835.backedge, label %1448
@@ -4265,7 +4265,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9500, label %.preheader9566.preheader, label %.loopexit
 
 1463:                                             ; preds = %1452
-  %1464 = getelementptr inbounds i8, ptr %1453, i64 1
+  %1464 = getelementptr inbounds nuw i8, ptr %1453, i64 1
   store ptr %1464, ptr %1344, align 8
   %1465 = load i8, ptr %1453, align 1
   %1466 = zext i8 %1465 to i32
@@ -4285,17 +4285,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 1470:                                             ; preds = %15864
-  %1471 = getelementptr inbounds i8, ptr %15814, i64 56
+  %1471 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %1472 = load i32, ptr %1471, align 8
   %1473 = add i32 %1472, 1
   store i32 %1473, ptr %1471, align 8
-  %1474 = getelementptr inbounds i8, ptr %15814, i64 60
+  %1474 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %1475 = load i32, ptr %1474, align 4
   %.not9220 = icmp ult i32 %1472, %1475
   br i1 %.not9220, label %1476, label %.backedge.backedge
 
 1476:                                             ; preds = %1470
-  %1477 = getelementptr inbounds i8, ptr %15814, i64 80
+  %1477 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %1478 = load ptr, ptr %1477, align 8
   %1479 = load ptr, ptr %39, align 8
   %.not9221 = icmp ult ptr %1478, %1479
@@ -4322,9 +4322,9 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9542, label %.backedge.backedge, label %.loopexit
 
 1488:                                             ; preds = %1476
-  %1489 = getelementptr inbounds i8, ptr %15814, i64 64
+  %1489 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %1490 = load i32, ptr %1489, align 8
-  %1491 = getelementptr inbounds i8, ptr %1478, i64 1
+  %1491 = getelementptr inbounds nuw i8, ptr %1478, i64 1
   store ptr %1491, ptr %1477, align 8
   %1492 = load i8, ptr %1478, align 1
   %1493 = zext i8 %1492 to i32
@@ -4332,9 +4332,9 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9222, label %.loopexit9589.loopexit, label %.backedge.backedge
 
 1494:                                             ; preds = %1468
-  %1495 = getelementptr inbounds i8, ptr %.3, i64 80
+  %1495 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %1496 = load ptr, ptr %1495, align 8
-  %1497 = getelementptr inbounds i8, ptr %.3, i64 8
+  %1497 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %1496, ptr %1497, align 8
   %1498 = icmp ult i32 %1100, %1099
   br i1 %1498, label %.lr.ph11197, label %.loopexit9605
@@ -4373,7 +4373,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not8968, label %1512, label %.loopexit9605
 
 1512:                                             ; preds = %1509
-  %1513 = getelementptr inbounds i8, ptr %1499, i64 1
+  %1513 = getelementptr inbounds nuw i8, ptr %1499, i64 1
   store ptr %1513, ptr %1495, align 8
   %1514 = add nuw i32 %.6763311195, 1
   %1515 = icmp ult i32 %1514, %1099
@@ -4398,7 +4398,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.107479 = phi ptr [ %.27471, %.loopexit9605..loopexit9588_crit_edge ], [ %.47473.ph.ph, %.loopexit9588.loopexit ]
   %.87447 = phi ptr [ %.27441, %.loopexit9605..loopexit9588_crit_edge ], [ %.57444.ph.ph, %.loopexit9588.loopexit ]
   %.11 = phi ptr [ %.3, %.loopexit9605..loopexit9588_crit_edge ], [ %15814, %.loopexit9588.loopexit ]
-  %1518 = getelementptr inbounds i8, ptr %.11, i64 8
+  %1518 = getelementptr inbounds nuw i8, ptr %.11, i64 8
   %1519 = load ptr, ptr %1518, align 8
   %.not9218 = icmp ugt ptr %1517, %1519
   br i1 %.not9218, label %1520, label %.preheader9835.backedge
@@ -4408,102 +4408,102 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 1522:                                             ; preds = %.preheader9835, %.preheader9835
-  %1523 = getelementptr inbounds i8, ptr %142, i64 1
+  %1523 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %1524 = load i8, ptr %1523, align 1
   %1525 = zext i8 %1524 to i32
   %1526 = shl nuw nsw i32 %1525, 8
-  %1527 = getelementptr inbounds i8, ptr %142, i64 2
+  %1527 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %1528 = load i8, ptr %1527, align 1
   %1529 = zext i8 %1528 to i32
   %1530 = or disjoint i32 %1526, %1529
-  %1531 = getelementptr inbounds i8, ptr %.3, i64 56
-  %1532 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1531 = getelementptr inbounds nuw i8, ptr %.3, i64 56
+  %1532 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %1530, ptr %1532, align 4
   store i32 %1530, ptr %1531, align 8
-  %1533 = getelementptr inbounds i8, ptr %142, i64 3
+  %1533 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %1533, ptr %.3, align 8
   br label %1597
 
 1534:                                             ; preds = %.preheader9835, %.preheader9835
-  %1535 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1535 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %1535, align 8
-  %1536 = getelementptr inbounds i8, ptr %142, i64 1
+  %1536 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %1537 = load i8, ptr %1536, align 1
   %1538 = zext i8 %1537 to i32
   %1539 = shl nuw nsw i32 %1538, 8
-  %1540 = getelementptr inbounds i8, ptr %142, i64 2
+  %1540 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %1541 = load i8, ptr %1540, align 1
   %1542 = zext i8 %1541 to i32
   %1543 = or disjoint i32 %1539, %1542
-  %1544 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1544 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %1543, ptr %1544, align 4
-  %1545 = getelementptr inbounds i8, ptr %142, i64 3
+  %1545 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %1545, ptr %.3, align 8
   br label %1597
 
 1546:                                             ; preds = %.preheader9835, %.preheader9835
-  %1547 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1547 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %1547, align 8
-  %1548 = getelementptr inbounds i8, ptr %142, i64 1
+  %1548 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %1549 = load i8, ptr %1548, align 1
   %1550 = zext i8 %1549 to i32
   %1551 = shl nuw nsw i32 %1550, 8
-  %1552 = getelementptr inbounds i8, ptr %142, i64 2
+  %1552 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %1553 = load i8, ptr %1552, align 1
   %1554 = zext i8 %1553 to i32
   %1555 = or disjoint i32 %1551, %1554
-  %1556 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1556 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %1555, ptr %1556, align 4
-  %1557 = getelementptr inbounds i8, ptr %142, i64 3
+  %1557 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %1557, ptr %.3, align 8
   br label %1597
 
 1558:                                             ; preds = %.preheader9835, %.preheader9835
-  %1559 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1559 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %1559, align 8
-  %1560 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1560 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 -1, ptr %1560, align 4
-  %1561 = getelementptr inbounds i8, ptr %142, i64 1
+  %1561 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %1561, ptr %.3, align 8
   br label %1597
 
 1562:                                             ; preds = %.preheader9835, %.preheader9835
-  %1563 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1563 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 1, ptr %1563, align 8
-  %1564 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1564 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 -1, ptr %1564, align 4
-  %1565 = getelementptr inbounds i8, ptr %142, i64 1
+  %1565 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %1565, ptr %.3, align 8
   br label %1597
 
 1566:                                             ; preds = %.preheader9835, %.preheader9835
-  %1567 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1567 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %1567, align 8
-  %1568 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1568 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 1, ptr %1568, align 4
-  %1569 = getelementptr inbounds i8, ptr %142, i64 1
+  %1569 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %1569, ptr %.3, align 8
   br label %1597
 
 1570:                                             ; preds = %.preheader9835, %.preheader9835
-  %1571 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1571 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %1571, align 8
-  %1572 = getelementptr inbounds i8, ptr %142, i64 1
+  %1572 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %1573 = load i8, ptr %1572, align 1
   %1574 = zext i8 %1573 to i32
   %1575 = shl nuw nsw i32 %1574, 8
-  %1576 = getelementptr inbounds i8, ptr %142, i64 2
+  %1576 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %1577 = load i8, ptr %1576, align 1
   %1578 = zext i8 %1577 to i32
   %1579 = or disjoint i32 %1575, %1578
-  %1580 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1580 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %1579, ptr %1580, align 4
-  %1581 = getelementptr inbounds i8, ptr %142, i64 3
+  %1581 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %1581, ptr %.3, align 8
   br label %1597
 
 1582:                                             ; preds = %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835
-  %1583 = getelementptr inbounds i8, ptr %142, i64 1
+  %1583 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %1583, ptr %.3, align 8
   %1584 = load i8, ptr %142, align 1
   %1585 = zext i8 %1584 to i64
@@ -4511,15 +4511,15 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.neg8931 = select i1 %1586, i64 4294967224, i64 4294967237
   %1587 = add nuw nsw i64 %.neg8931, %1585
   %1588 = and i64 %1587, 4294967295
-  %1589 = getelementptr inbounds [11 x i32], ptr @rep_min, i64 0, i64 %1588
+  %1589 = getelementptr inbounds nuw [11 x i32], ptr @rep_min, i64 0, i64 %1588
   %1590 = load i32, ptr %1589, align 4
-  %1591 = getelementptr inbounds i8, ptr %.3, i64 56
+  %1591 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %1590, ptr %1591, align 8
-  %1592 = getelementptr inbounds [11 x i32], ptr @rep_max, i64 0, i64 %1588
+  %1592 = getelementptr inbounds nuw [11 x i32], ptr @rep_max, i64 0, i64 %1588
   %1593 = load i32, ptr %1592, align 4
-  %1594 = getelementptr inbounds i8, ptr %.3, i64 60
+  %1594 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %1593, ptr %1594, align 4
-  %1595 = getelementptr inbounds [12 x i32], ptr @rep_typ, i64 0, i64 %1588
+  %1595 = getelementptr inbounds nuw [12 x i32], ptr @rep_typ, i64 0, i64 %1588
   %1596 = load i32, ptr %1595, align 4
   br label %1597
 
@@ -4528,11 +4528,11 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1599 = phi i32 [ %1590, %1582 ], [ 0, %1570 ], [ 0, %1566 ], [ 1, %1562 ], [ 0, %1558 ], [ 0, %1546 ], [ 0, %1534 ], [ %1530, %1522 ]
   %1600 = phi ptr [ %1583, %1582 ], [ %1581, %1570 ], [ %1569, %1566 ], [ %1565, %1562 ], [ %1561, %1558 ], [ %1557, %1546 ], [ %1545, %1534 ], [ %1533, %1522 ]
   %.127785 = phi i32 [ %1596, %1582 ], [ 2, %1570 ], [ 2, %1566 ], [ 2, %1562 ], [ 2, %1558 ], [ 0, %1546 ], [ 1, %1534 ], [ %.27775, %1522 ]
-  %1601 = getelementptr inbounds i8, ptr %1600, i64 1
+  %1601 = getelementptr inbounds nuw i8, ptr %1600, i64 1
   store ptr %1601, ptr %.3, align 8
   %1602 = load i8, ptr %1600, align 1
   %1603 = zext i8 %1602 to i32
-  %1604 = getelementptr inbounds i8, ptr %.3, i64 64
+  %1604 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   store i32 %1603, ptr %1604, align 8
   %1605 = icmp ugt i8 %1602, -65
   %or.cond = select i1 %15, i1 %1605, i1 false
@@ -4546,7 +4546,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1609:                                             ; preds = %1606
   %1610 = shl nuw nsw i32 %1603, 6
   %1611 = and i32 %1610, 1984
-  %1612 = getelementptr inbounds i8, ptr %1600, i64 2
+  %1612 = getelementptr inbounds nuw i8, ptr %1600, i64 2
   store ptr %1612, ptr %.3, align 8
   %1613 = load i8, ptr %1601, align 1
   %1614 = and i8 %1613, 63
@@ -4568,13 +4568,13 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1625 = and i32 %1624, 61440
   %1626 = shl nuw nsw i32 %1622, 6
   %1627 = or disjoint i32 %1626, %1625
-  %1628 = getelementptr inbounds i8, ptr %1600, i64 2
+  %1628 = getelementptr inbounds nuw i8, ptr %1600, i64 2
   %1629 = load i8, ptr %1628, align 1
   %1630 = and i8 %1629, 63
   %1631 = zext nneg i8 %1630 to i32
   %1632 = or disjoint i32 %1627, %1631
   store i32 %1632, ptr %1604, align 8
-  %1633 = getelementptr inbounds i8, ptr %1600, i64 3
+  %1633 = getelementptr inbounds nuw i8, ptr %1600, i64 3
   store ptr %1633, ptr %.3, align 8
   br label %1696
 
@@ -4588,38 +4588,38 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1639 = and i32 %1638, 1835008
   %1640 = shl nuw nsw i32 %1622, 12
   %1641 = or disjoint i32 %1640, %1639
-  %1642 = getelementptr inbounds i8, ptr %1600, i64 2
+  %1642 = getelementptr inbounds nuw i8, ptr %1600, i64 2
   %1643 = load i8, ptr %1642, align 1
   %1644 = and i8 %1643, 63
   %1645 = zext nneg i8 %1644 to i32
   %1646 = shl nuw nsw i32 %1645, 6
   %1647 = or disjoint i32 %1641, %1646
-  %1648 = getelementptr inbounds i8, ptr %1600, i64 3
+  %1648 = getelementptr inbounds nuw i8, ptr %1600, i64 3
   %1649 = load i8, ptr %1648, align 1
   %1650 = and i8 %1649, 63
   %1651 = zext nneg i8 %1650 to i32
   %1652 = or disjoint i32 %1647, %1651
   store i32 %1652, ptr %1604, align 8
-  %1653 = getelementptr inbounds i8, ptr %1600, i64 4
+  %1653 = getelementptr inbounds nuw i8, ptr %1600, i64 4
   store ptr %1653, ptr %.3, align 8
   br label %1696
 
 1654:                                             ; preds = %1634
   %1655 = and i32 %1603, 4
   %1656 = icmp eq i32 %1655, 0
-  %1657 = getelementptr inbounds i8, ptr %1600, i64 2
+  %1657 = getelementptr inbounds nuw i8, ptr %1600, i64 2
   %1658 = load i8, ptr %1657, align 1
   %1659 = and i8 %1658, 63
   %1660 = zext nneg i8 %1659 to i32
-  %1661 = getelementptr inbounds i8, ptr %1600, i64 3
+  %1661 = getelementptr inbounds nuw i8, ptr %1600, i64 3
   %1662 = load i8, ptr %1661, align 1
   %1663 = and i8 %1662, 63
   %1664 = zext nneg i8 %1663 to i32
-  %1665 = getelementptr inbounds i8, ptr %1600, i64 4
+  %1665 = getelementptr inbounds nuw i8, ptr %1600, i64 4
   %1666 = load i8, ptr %1665, align 1
   %1667 = and i8 %1666, 63
   %1668 = zext nneg i8 %1667 to i32
-  %1669 = getelementptr inbounds i8, ptr %1600, i64 5
+  %1669 = getelementptr inbounds nuw i8, ptr %1600, i64 5
   br i1 %1656, label %1670, label %1680
 
 1670:                                             ; preds = %1654
@@ -4652,7 +4652,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1693 = zext nneg i8 %1692 to i32
   %1694 = or disjoint i32 %1690, %1693
   store i32 %1694, ptr %1604, align 8
-  %1695 = getelementptr inbounds i8, ptr %1600, i64 6
+  %1695 = getelementptr inbounds nuw i8, ptr %1600, i64 6
   store ptr %1695, ptr %.3, align 8
   br label %1696
 
@@ -4670,17 +4670,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1702:                                             ; preds = %1700
   %1703 = lshr i32 %1698, 7
   %1704 = zext nneg i32 %1703 to i64
-  %1705 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %1704
+  %1705 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %1704
   %1706 = load i16, ptr %1705, align 2
   %1707 = zext i16 %1706 to i32
   %1708 = shl nuw nsw i32 %1707, 7
   %1709 = and i32 %1698, 127
   %1710 = or disjoint i32 %1708, %1709
   %1711 = zext nneg i32 %1710 to i64
-  %1712 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %1711
+  %1712 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %1711
   %1713 = load i16, ptr %1712, align 2
   %1714 = zext i16 %1713 to i64
-  %1715 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %1714, i32 4
+  %1715 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %1714, i32 4
   %1716 = load i32, ptr %1715, align 4
   %1717 = add nsw i32 %1716, %1698
   br label %1724
@@ -4688,14 +4688,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1718:                                             ; preds = %1700
   %1719 = load ptr, ptr %58, align 8
   %1720 = zext nneg i32 %1698 to i64
-  %1721 = getelementptr inbounds i8, ptr %1719, i64 %1720
+  %1721 = getelementptr inbounds nuw i8, ptr %1719, i64 %1720
   %1722 = load i8, ptr %1721, align 1
   %1723 = zext i8 %1722 to i32
   br label %1724
 
 1724:                                             ; preds = %1718, %1702
   %.sink14194 = phi i32 [ %1723, %1718 ], [ %1717, %1702 ]
-  %1725 = getelementptr inbounds i8, ptr %.3, i64 68
+  %1725 = getelementptr inbounds nuw i8, ptr %.3, i64 68
   store i32 %.sink14194, ptr %1725, align 4
   %.not895311179 = icmp eq i32 %1599, 0
   br i1 %15, label %.preheader9612, label %.preheader9614
@@ -4704,7 +4704,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not895311179, label %.loopexit9613, label %.lr.ph11178
 
 .lr.ph11178:                                      ; preds = %.preheader9614
-  %1726 = getelementptr inbounds i8, ptr %.3, i64 80
+  %1726 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12593 = load ptr, ptr %1726, align 8
   br label %1841
 
@@ -4712,7 +4712,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not895311179, label %.loopexit9613, label %.lr.ph11181
 
 .lr.ph11181:                                      ; preds = %.preheader9612
-  %1727 = getelementptr inbounds i8, ptr %.3, i64 80
+  %1727 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12594 = load ptr, ptr %1727, align 8
   br label %1730
 
@@ -4749,7 +4749,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9497, label %.preheader9566.preheader, label %.loopexit
 
 1741:                                             ; preds = %1730
-  %1742 = getelementptr inbounds i8, ptr %1731, i64 1
+  %1742 = getelementptr inbounds nuw i8, ptr %1731, i64 1
   store ptr %1742, ptr %1727, align 8
   %1743 = load i8, ptr %1731, align 1
   %1744 = zext i8 %1743 to i32
@@ -4764,7 +4764,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1749:                                             ; preds = %1746
   %1750 = shl nuw nsw i32 %1744, 6
   %1751 = and i32 %1750, 1984
-  %1752 = getelementptr inbounds i8, ptr %1731, i64 2
+  %1752 = getelementptr inbounds nuw i8, ptr %1731, i64 2
   store ptr %1752, ptr %1727, align 8
   %1753 = load i8, ptr %1742, align 1
   %1754 = and i8 %1753, 63
@@ -4785,12 +4785,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1765 = and i32 %1764, 61440
   %1766 = shl nuw nsw i32 %1762, 6
   %1767 = or disjoint i32 %1766, %1765
-  %1768 = getelementptr inbounds i8, ptr %1731, i64 2
+  %1768 = getelementptr inbounds nuw i8, ptr %1731, i64 2
   %1769 = load i8, ptr %1768, align 1
   %1770 = and i8 %1769, 63
   %1771 = zext nneg i8 %1770 to i32
   %1772 = or disjoint i32 %1767, %1771
-  %1773 = getelementptr inbounds i8, ptr %1731, i64 3
+  %1773 = getelementptr inbounds nuw i8, ptr %1731, i64 3
   store ptr %1773, ptr %1727, align 8
   br label %1837
 
@@ -4804,33 +4804,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1779 = and i32 %1778, 1835008
   %1780 = shl nuw nsw i32 %1762, 12
   %1781 = or disjoint i32 %1780, %1779
-  %1782 = getelementptr inbounds i8, ptr %1731, i64 2
+  %1782 = getelementptr inbounds nuw i8, ptr %1731, i64 2
   %1783 = load i8, ptr %1782, align 1
   %1784 = and i8 %1783, 63
   %1785 = zext nneg i8 %1784 to i32
   %1786 = shl nuw nsw i32 %1785, 6
   %1787 = or disjoint i32 %1781, %1786
-  %1788 = getelementptr inbounds i8, ptr %1731, i64 3
+  %1788 = getelementptr inbounds nuw i8, ptr %1731, i64 3
   %1789 = load i8, ptr %1788, align 1
   %1790 = and i8 %1789, 63
   %1791 = zext nneg i8 %1790 to i32
   %1792 = or disjoint i32 %1787, %1791
-  %1793 = getelementptr inbounds i8, ptr %1731, i64 4
+  %1793 = getelementptr inbounds nuw i8, ptr %1731, i64 4
   store ptr %1793, ptr %1727, align 8
   br label %1837
 
 1794:                                             ; preds = %1774
   %1795 = and i32 %1744, 4
   %1796 = icmp eq i32 %1795, 0
-  %1797 = getelementptr inbounds i8, ptr %1731, i64 2
+  %1797 = getelementptr inbounds nuw i8, ptr %1731, i64 2
   %1798 = load i8, ptr %1797, align 1
   %1799 = and i8 %1798, 63
   %1800 = zext nneg i8 %1799 to i32
-  %1801 = getelementptr inbounds i8, ptr %1731, i64 3
+  %1801 = getelementptr inbounds nuw i8, ptr %1731, i64 3
   %1802 = load i8, ptr %1801, align 1
   %1803 = and i8 %1802, 63
   %1804 = zext nneg i8 %1803 to i32
-  %1805 = getelementptr inbounds i8, ptr %1731, i64 4
+  %1805 = getelementptr inbounds nuw i8, ptr %1731, i64 4
   %1806 = load i8, ptr %1805, align 1
   %1807 = and i8 %1806, 63
   %1808 = zext nneg i8 %1807 to i32
@@ -4846,7 +4846,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1816 = shl nuw nsw i32 %1804, 6
   %1817 = or disjoint i32 %1815, %1816
   %1818 = or disjoint i32 %1817, %1808
-  %1819 = getelementptr inbounds i8, ptr %1731, i64 5
+  %1819 = getelementptr inbounds nuw i8, ptr %1731, i64 5
   store ptr %1819, ptr %1727, align 8
   br label %1837
 
@@ -4861,12 +4861,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1828 = or disjoint i32 %1826, %1827
   %1829 = shl nuw nsw i32 %1808, 6
   %1830 = or disjoint i32 %1828, %1829
-  %1831 = getelementptr inbounds i8, ptr %1731, i64 5
+  %1831 = getelementptr inbounds nuw i8, ptr %1731, i64 5
   %1832 = load i8, ptr %1831, align 1
   %1833 = and i8 %1832, 63
   %1834 = zext nneg i8 %1833 to i32
   %1835 = or disjoint i32 %1830, %1834
-  %1836 = getelementptr inbounds i8, ptr %1731, i64 6
+  %1836 = getelementptr inbounds nuw i8, ptr %1731, i64 6
   store ptr %1836, ptr %1727, align 8
   br label %1837
 
@@ -4914,7 +4914,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %or.cond14197, label %.preheader9566.preheader, label %1857
 
 1857:                                             ; preds = %1852
-  %1858 = getelementptr inbounds i8, ptr %1842, i64 1
+  %1858 = getelementptr inbounds nuw i8, ptr %1842, i64 1
   store ptr %1858, ptr %1726, align 8
   %1859 = add i32 %.8763511177, 1
   %.not8949 = icmp ugt i32 %1859, %1599
@@ -4933,17 +4933,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 1863:                                             ; preds = %15883
-  %1864 = getelementptr inbounds i8, ptr %15814, i64 56
+  %1864 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %1865 = load i32, ptr %1864, align 8
   %1866 = add i32 %1865, 1
   store i32 %1866, ptr %1864, align 8
-  %1867 = getelementptr inbounds i8, ptr %15814, i64 60
+  %1867 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %1868 = load i32, ptr %1867, align 4
   %.not9155 = icmp ult i32 %1865, %1868
   br i1 %.not9155, label %1869, label %.backedge.backedge
 
 1869:                                             ; preds = %1863
-  %1870 = getelementptr inbounds i8, ptr %15814, i64 80
+  %1870 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %1871 = load ptr, ptr %1870, align 8
   %1872 = load ptr, ptr %39, align 8
   %.not9156 = icmp ult ptr %1871, %1872
@@ -4970,7 +4970,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9534, label %.backedge.backedge, label %.loopexit
 
 1881:                                             ; preds = %1869
-  %1882 = getelementptr inbounds i8, ptr %1871, i64 1
+  %1882 = getelementptr inbounds nuw i8, ptr %1871, i64 1
   store ptr %1882, ptr %1870, align 8
   %1883 = load i8, ptr %1871, align 1
   %1884 = zext i8 %1883 to i32
@@ -4985,7 +4985,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 1889:                                             ; preds = %1886
   %1890 = shl nuw nsw i32 %1884, 6
   %1891 = and i32 %1890, 1984
-  %1892 = getelementptr inbounds i8, ptr %1871, i64 2
+  %1892 = getelementptr inbounds nuw i8, ptr %1871, i64 2
   store ptr %1892, ptr %1870, align 8
   %1893 = load i8, ptr %1882, align 1
   %1894 = and i8 %1893, 63
@@ -5006,12 +5006,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1905 = and i32 %1904, 61440
   %1906 = shl nuw nsw i32 %1902, 6
   %1907 = or disjoint i32 %1906, %1905
-  %1908 = getelementptr inbounds i8, ptr %1871, i64 2
+  %1908 = getelementptr inbounds nuw i8, ptr %1871, i64 2
   %1909 = load i8, ptr %1908, align 1
   %1910 = and i8 %1909, 63
   %1911 = zext nneg i8 %1910 to i32
   %1912 = or disjoint i32 %1907, %1911
-  %1913 = getelementptr inbounds i8, ptr %1871, i64 3
+  %1913 = getelementptr inbounds nuw i8, ptr %1871, i64 3
   store ptr %1913, ptr %1870, align 8
   br label %1977
 
@@ -5025,33 +5025,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1919 = and i32 %1918, 1835008
   %1920 = shl nuw nsw i32 %1902, 12
   %1921 = or disjoint i32 %1920, %1919
-  %1922 = getelementptr inbounds i8, ptr %1871, i64 2
+  %1922 = getelementptr inbounds nuw i8, ptr %1871, i64 2
   %1923 = load i8, ptr %1922, align 1
   %1924 = and i8 %1923, 63
   %1925 = zext nneg i8 %1924 to i32
   %1926 = shl nuw nsw i32 %1925, 6
   %1927 = or disjoint i32 %1921, %1926
-  %1928 = getelementptr inbounds i8, ptr %1871, i64 3
+  %1928 = getelementptr inbounds nuw i8, ptr %1871, i64 3
   %1929 = load i8, ptr %1928, align 1
   %1930 = and i8 %1929, 63
   %1931 = zext nneg i8 %1930 to i32
   %1932 = or disjoint i32 %1927, %1931
-  %1933 = getelementptr inbounds i8, ptr %1871, i64 4
+  %1933 = getelementptr inbounds nuw i8, ptr %1871, i64 4
   store ptr %1933, ptr %1870, align 8
   br label %1977
 
 1934:                                             ; preds = %1914
   %1935 = and i32 %1884, 4
   %1936 = icmp eq i32 %1935, 0
-  %1937 = getelementptr inbounds i8, ptr %1871, i64 2
+  %1937 = getelementptr inbounds nuw i8, ptr %1871, i64 2
   %1938 = load i8, ptr %1937, align 1
   %1939 = and i8 %1938, 63
   %1940 = zext nneg i8 %1939 to i32
-  %1941 = getelementptr inbounds i8, ptr %1871, i64 3
+  %1941 = getelementptr inbounds nuw i8, ptr %1871, i64 3
   %1942 = load i8, ptr %1941, align 1
   %1943 = and i8 %1942, 63
   %1944 = zext nneg i8 %1943 to i32
-  %1945 = getelementptr inbounds i8, ptr %1871, i64 4
+  %1945 = getelementptr inbounds nuw i8, ptr %1871, i64 4
   %1946 = load i8, ptr %1945, align 1
   %1947 = and i8 %1946, 63
   %1948 = zext nneg i8 %1947 to i32
@@ -5067,7 +5067,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1956 = shl nuw nsw i32 %1944, 6
   %1957 = or disjoint i32 %1955, %1956
   %1958 = or disjoint i32 %1957, %1948
-  %1959 = getelementptr inbounds i8, ptr %1871, i64 5
+  %1959 = getelementptr inbounds nuw i8, ptr %1871, i64 5
   store ptr %1959, ptr %1870, align 8
   br label %1977
 
@@ -5082,40 +5082,40 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %1968 = or disjoint i32 %1966, %1967
   %1969 = shl nuw nsw i32 %1948, 6
   %1970 = or disjoint i32 %1968, %1969
-  %1971 = getelementptr inbounds i8, ptr %1871, i64 5
+  %1971 = getelementptr inbounds nuw i8, ptr %1871, i64 5
   %1972 = load i8, ptr %1971, align 1
   %1973 = and i8 %1972, 63
   %1974 = zext nneg i8 %1973 to i32
   %1975 = or disjoint i32 %1970, %1974
-  %1976 = getelementptr inbounds i8, ptr %1871, i64 6
+  %1976 = getelementptr inbounds nuw i8, ptr %1871, i64 6
   store ptr %1976, ptr %1870, align 8
   br label %1977
 
 1977:                                             ; preds = %1889, %1917, %1960, %1949, %1903, %1881
   %.07862 = phi i32 [ %1896, %1889 ], [ %1912, %1903 ], [ %1932, %1917 ], [ %1958, %1949 ], [ %1975, %1960 ], [ %1884, %1881 ]
-  %1978 = getelementptr inbounds i8, ptr %15814, i64 64
+  %1978 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %1979 = load i32, ptr %1978, align 8
   %1980 = icmp eq i32 %1979, %.07862
   br i1 %1980, label %.backedge.backedge, label %1981
 
 1981:                                             ; preds = %1977
-  %1982 = getelementptr inbounds i8, ptr %15814, i64 68
+  %1982 = getelementptr inbounds nuw i8, ptr %15814, i64 68
   %1983 = load i32, ptr %1982, align 4
   %1984 = icmp eq i32 %1983, %.07862
   br i1 %1984, label %.backedge.backedge, label %.loopexit9583.loopexit
 
 1985:                                             ; preds = %15869
-  %1986 = getelementptr inbounds i8, ptr %15814, i64 56
+  %1986 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %1987 = load i32, ptr %1986, align 8
   %1988 = add i32 %1987, 1
   store i32 %1988, ptr %1986, align 8
-  %1989 = getelementptr inbounds i8, ptr %15814, i64 60
+  %1989 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %1990 = load i32, ptr %1989, align 4
   %.not9213 = icmp ult i32 %1987, %1990
   br i1 %.not9213, label %1991, label %.backedge.backedge
 
 1991:                                             ; preds = %1985
-  %1992 = getelementptr inbounds i8, ptr %15814, i64 80
+  %1992 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %1993 = load ptr, ptr %1992, align 8
   %1994 = load ptr, ptr %39, align 8
   %.not9214 = icmp ult ptr %1993, %1994
@@ -5142,7 +5142,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9541, label %.backedge.backedge, label %.loopexit
 
 2003:                                             ; preds = %1991
-  %2004 = getelementptr inbounds i8, ptr %15814, i64 64
+  %2004 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %2005 = load i32, ptr %2004, align 8
   %2006 = load i8, ptr %1993, align 1
   %2007 = zext i8 %2006 to i32
@@ -5150,22 +5150,22 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %2008, label %.backedge.backedge, label %2009
 
 2009:                                             ; preds = %2003
-  %2010 = getelementptr inbounds i8, ptr %15814, i64 68
+  %2010 = getelementptr inbounds nuw i8, ptr %15814, i64 68
   %2011 = load i32, ptr %2010, align 4
   %2012 = icmp eq i32 %2011, %2007
   br i1 %2012, label %.backedge.backedge, label %2013
 
 2013:                                             ; preds = %2009
-  %2014 = getelementptr inbounds i8, ptr %15814, i64 80
-  %2015 = getelementptr inbounds i8, ptr %1993, i64 1
+  %2014 = getelementptr inbounds nuw i8, ptr %15814, i64 80
+  %2015 = getelementptr inbounds nuw i8, ptr %1993, i64 1
   store ptr %2015, ptr %2014, align 8
   %.pre12624 = load ptr, ptr %15814, align 8
   br label %.loopexit9844
 
 2016:                                             ; preds = %1861
-  %2017 = getelementptr inbounds i8, ptr %.3, i64 80
+  %2017 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %2018 = load ptr, ptr %2017, align 8
-  %2019 = getelementptr inbounds i8, ptr %.3, i64 8
+  %2019 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %2018, ptr %2019, align 8
   %2020 = icmp ult i32 %1599, %1598
   br i1 %15, label %.preheader9608, label %.preheader9610
@@ -5212,7 +5212,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 2035:                                             ; preds = %2031
   %2036 = and i32 %2033, 32
   %2037 = icmp eq i32 %2036, 0
-  %2038 = getelementptr inbounds i8, ptr %2021, i64 1
+  %2038 = getelementptr inbounds nuw i8, ptr %2021, i64 1
   %2039 = load i8, ptr %2038, align 1
   %2040 = and i8 %2039, 63
   %2041 = zext nneg i8 %2040 to i32
@@ -5234,7 +5234,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2051 = and i32 %2050, 61440
   %2052 = shl nuw nsw i32 %2041, 6
   %2053 = or disjoint i32 %2052, %2051
-  %2054 = getelementptr inbounds i8, ptr %2021, i64 2
+  %2054 = getelementptr inbounds nuw i8, ptr %2021, i64 2
   %2055 = load i8, ptr %2054, align 1
   %2056 = and i8 %2055, 63
   %2057 = zext nneg i8 %2056 to i32
@@ -5251,13 +5251,13 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2064 = and i32 %2063, 1835008
   %2065 = shl nuw nsw i32 %2041, 12
   %2066 = or disjoint i32 %2065, %2064
-  %2067 = getelementptr inbounds i8, ptr %2021, i64 2
+  %2067 = getelementptr inbounds nuw i8, ptr %2021, i64 2
   %2068 = load i8, ptr %2067, align 1
   %2069 = and i8 %2068, 63
   %2070 = zext nneg i8 %2069 to i32
   %2071 = shl nuw nsw i32 %2070, 6
   %2072 = or disjoint i32 %2066, %2071
-  %2073 = getelementptr inbounds i8, ptr %2021, i64 3
+  %2073 = getelementptr inbounds nuw i8, ptr %2021, i64 3
   %2074 = load i8, ptr %2073, align 1
   %2075 = and i8 %2074, 63
   %2076 = zext nneg i8 %2075 to i32
@@ -5267,15 +5267,15 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 2078:                                             ; preds = %2059
   %2079 = and i32 %2033, 4
   %2080 = icmp eq i32 %2079, 0
-  %2081 = getelementptr inbounds i8, ptr %2021, i64 2
+  %2081 = getelementptr inbounds nuw i8, ptr %2021, i64 2
   %2082 = load i8, ptr %2081, align 1
   %2083 = and i8 %2082, 63
   %2084 = zext nneg i8 %2083 to i32
-  %2085 = getelementptr inbounds i8, ptr %2021, i64 3
+  %2085 = getelementptr inbounds nuw i8, ptr %2021, i64 3
   %2086 = load i8, ptr %2085, align 1
   %2087 = and i8 %2086, 63
   %2088 = zext nneg i8 %2087 to i32
-  %2089 = getelementptr inbounds i8, ptr %2021, i64 4
+  %2089 = getelementptr inbounds nuw i8, ptr %2021, i64 4
   %2090 = load i8, ptr %2089, align 1
   %2091 = and i8 %2090, 63
   %2092 = zext nneg i8 %2091 to i32
@@ -5304,7 +5304,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2111 = or disjoint i32 %2109, %2110
   %2112 = shl nuw nsw i32 %2092, 6
   %2113 = or disjoint i32 %2111, %2112
-  %2114 = getelementptr inbounds i8, ptr %2021, i64 5
+  %2114 = getelementptr inbounds nuw i8, ptr %2021, i64 5
   %2115 = load i8, ptr %2114, align 1
   %2116 = and i8 %2115, 63
   %2117 = zext nneg i8 %2116 to i32
@@ -5320,7 +5320,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %or.cond14198, label %.loopexit9609, label %2122
 
 2122:                                             ; preds = %2119
-  %2123 = getelementptr inbounds i8, ptr %2021, i64 %.07864
+  %2123 = getelementptr inbounds nuw i8, ptr %2021, i64 %.07864
   store ptr %2123, ptr %2017, align 8
   %2124 = add nuw i32 %.9763611186, 1
   %2125 = icmp ult i32 %2124, %1598
@@ -5341,7 +5341,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.137482 = phi ptr [ %.27471, %.loopexit9609..loopexit9560_crit_edge ], [ %.47473.ph.ph, %2134 ]
   %.97448 = phi ptr [ %.27441, %.loopexit9609..loopexit9560_crit_edge ], [ %.57444.ph.ph, %2134 ]
   %.14 = phi ptr [ %.3, %.loopexit9609..loopexit9560_crit_edge ], [ %15814, %2134 ]
-  %2127 = getelementptr inbounds i8, ptr %.14, i64 8
+  %2127 = getelementptr inbounds nuw i8, ptr %.14, i64 8
   %2128 = load ptr, ptr %2127, align 8
   %.not9152 = icmp ugt ptr %2126, %2128
   br i1 %.not9152, label %2129, label %.preheader9835.backedge
@@ -5351,7 +5351,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 2131:                                             ; preds = %15884
-  %2132 = getelementptr inbounds i8, ptr %15814, i64 80
+  %2132 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %2133 = load ptr, ptr %2132, align 8
   br label %2134
 
@@ -5399,7 +5399,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %or.cond14199, label %.loopexit9611, label %2152
 
 2152:                                             ; preds = %2147
-  %2153 = getelementptr inbounds i8, ptr %2137, i64 1
+  %2153 = getelementptr inbounds nuw i8, ptr %2137, i64 1
   store ptr %2153, ptr %2017, align 8
   %2154 = add nuw i32 %.10763711182, 1
   %2155 = icmp ult i32 %2154, %1598
@@ -5420,7 +5420,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.147483 = phi ptr [ %.47473.ph.ph, %2163 ], [ %.27471, %.loopexit9611._crit_edge ]
   %.107449 = phi ptr [ %.57444.ph.ph, %2163 ], [ %.27441, %.loopexit9611._crit_edge ]
   %.15 = phi ptr [ %15814, %2163 ], [ %.3, %.loopexit9611._crit_edge ]
-  %2158 = getelementptr inbounds i8, ptr %.15, i64 8
+  %2158 = getelementptr inbounds nuw i8, ptr %.15, i64 8
   %2159 = load ptr, ptr %2158, align 8
   %2160 = icmp eq ptr %2157, %2159
   br i1 %2160, label %.preheader9835.backedge, label %2161
@@ -5430,7 +5430,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 2163:                                             ; preds = %15870
-  %2164 = getelementptr inbounds i8, ptr %15814, i64 80
+  %2164 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %2165 = load ptr, ptr %2164, align 8
   %2166 = getelementptr inbounds i8, ptr %2165, i64 -1
   store ptr %2166, ptr %2164, align 8
@@ -5444,7 +5444,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not893611167, label %.loopexit9621, label %.lr.ph11166
 
 .lr.ph11166:                                      ; preds = %.preheader9623
-  %2168 = getelementptr inbounds i8, ptr %.3, i64 80
+  %2168 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12591 = load ptr, ptr %2168, align 8
   br label %2284
 
@@ -5452,7 +5452,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not893611167, label %.loopexit9621, label %.lr.ph11169
 
 .lr.ph11169:                                      ; preds = %.preheader9620
-  %2169 = getelementptr inbounds i8, ptr %.3, i64 80
+  %2169 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12592 = load ptr, ptr %2169, align 8
   br label %2172
 
@@ -5489,7 +5489,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9493, label %.preheader9566.preheader, label %.loopexit
 
 2183:                                             ; preds = %2172
-  %2184 = getelementptr inbounds i8, ptr %2173, i64 1
+  %2184 = getelementptr inbounds nuw i8, ptr %2173, i64 1
   store ptr %2184, ptr %2169, align 8
   %2185 = load i8, ptr %2173, align 1
   %2186 = zext i8 %2185 to i32
@@ -5504,7 +5504,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 2191:                                             ; preds = %2188
   %2192 = shl nuw nsw i32 %2186, 6
   %2193 = and i32 %2192, 1984
-  %2194 = getelementptr inbounds i8, ptr %2173, i64 2
+  %2194 = getelementptr inbounds nuw i8, ptr %2173, i64 2
   store ptr %2194, ptr %2169, align 8
   %2195 = load i8, ptr %2184, align 1
   %2196 = and i8 %2195, 63
@@ -5525,12 +5525,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2207 = and i32 %2206, 61440
   %2208 = shl nuw nsw i32 %2204, 6
   %2209 = or disjoint i32 %2208, %2207
-  %2210 = getelementptr inbounds i8, ptr %2173, i64 2
+  %2210 = getelementptr inbounds nuw i8, ptr %2173, i64 2
   %2211 = load i8, ptr %2210, align 1
   %2212 = and i8 %2211, 63
   %2213 = zext nneg i8 %2212 to i32
   %2214 = or disjoint i32 %2209, %2213
-  %2215 = getelementptr inbounds i8, ptr %2173, i64 3
+  %2215 = getelementptr inbounds nuw i8, ptr %2173, i64 3
   store ptr %2215, ptr %2169, align 8
   br label %2279
 
@@ -5544,33 +5544,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2221 = and i32 %2220, 1835008
   %2222 = shl nuw nsw i32 %2204, 12
   %2223 = or disjoint i32 %2222, %2221
-  %2224 = getelementptr inbounds i8, ptr %2173, i64 2
+  %2224 = getelementptr inbounds nuw i8, ptr %2173, i64 2
   %2225 = load i8, ptr %2224, align 1
   %2226 = and i8 %2225, 63
   %2227 = zext nneg i8 %2226 to i32
   %2228 = shl nuw nsw i32 %2227, 6
   %2229 = or disjoint i32 %2223, %2228
-  %2230 = getelementptr inbounds i8, ptr %2173, i64 3
+  %2230 = getelementptr inbounds nuw i8, ptr %2173, i64 3
   %2231 = load i8, ptr %2230, align 1
   %2232 = and i8 %2231, 63
   %2233 = zext nneg i8 %2232 to i32
   %2234 = or disjoint i32 %2229, %2233
-  %2235 = getelementptr inbounds i8, ptr %2173, i64 4
+  %2235 = getelementptr inbounds nuw i8, ptr %2173, i64 4
   store ptr %2235, ptr %2169, align 8
   br label %2279
 
 2236:                                             ; preds = %2216
   %2237 = and i32 %2186, 4
   %2238 = icmp eq i32 %2237, 0
-  %2239 = getelementptr inbounds i8, ptr %2173, i64 2
+  %2239 = getelementptr inbounds nuw i8, ptr %2173, i64 2
   %2240 = load i8, ptr %2239, align 1
   %2241 = and i8 %2240, 63
   %2242 = zext nneg i8 %2241 to i32
-  %2243 = getelementptr inbounds i8, ptr %2173, i64 3
+  %2243 = getelementptr inbounds nuw i8, ptr %2173, i64 3
   %2244 = load i8, ptr %2243, align 1
   %2245 = and i8 %2244, 63
   %2246 = zext nneg i8 %2245 to i32
-  %2247 = getelementptr inbounds i8, ptr %2173, i64 4
+  %2247 = getelementptr inbounds nuw i8, ptr %2173, i64 4
   %2248 = load i8, ptr %2247, align 1
   %2249 = and i8 %2248, 63
   %2250 = zext nneg i8 %2249 to i32
@@ -5586,7 +5586,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2258 = shl nuw nsw i32 %2246, 6
   %2259 = or disjoint i32 %2257, %2258
   %2260 = or disjoint i32 %2259, %2250
-  %2261 = getelementptr inbounds i8, ptr %2173, i64 5
+  %2261 = getelementptr inbounds nuw i8, ptr %2173, i64 5
   store ptr %2261, ptr %2169, align 8
   br label %2279
 
@@ -5601,12 +5601,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2270 = or disjoint i32 %2268, %2269
   %2271 = shl nuw nsw i32 %2250, 6
   %2272 = or disjoint i32 %2270, %2271
-  %2273 = getelementptr inbounds i8, ptr %2173, i64 5
+  %2273 = getelementptr inbounds nuw i8, ptr %2173, i64 5
   %2274 = load i8, ptr %2273, align 1
   %2275 = and i8 %2274, 63
   %2276 = zext nneg i8 %2275 to i32
   %2277 = or disjoint i32 %2272, %2276
-  %2278 = getelementptr inbounds i8, ptr %2173, i64 6
+  %2278 = getelementptr inbounds nuw i8, ptr %2173, i64 6
   store ptr %2278, ptr %2169, align 8
   br label %2279
 
@@ -5649,7 +5649,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9492, label %.preheader9566.preheader, label %.loopexit
 
 2295:                                             ; preds = %2284
-  %2296 = getelementptr inbounds i8, ptr %2285, i64 1
+  %2296 = getelementptr inbounds nuw i8, ptr %2285, i64 1
   store ptr %2296, ptr %2168, align 8
   %2297 = load i8, ptr %2285, align 1
   %2298 = zext i8 %2297 to i32
@@ -5669,17 +5669,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 2303:                                             ; preds = %15885
-  %2304 = getelementptr inbounds i8, ptr %15814, i64 56
+  %2304 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %2305 = load i32, ptr %2304, align 8
   %2306 = add i32 %2305, 1
   store i32 %2306, ptr %2304, align 8
-  %2307 = getelementptr inbounds i8, ptr %15814, i64 60
+  %2307 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %2308 = load i32, ptr %2307, align 4
   %.not9146 = icmp ult i32 %2305, %2308
   br i1 %.not9146, label %2309, label %.backedge.backedge
 
 2309:                                             ; preds = %2303
-  %2310 = getelementptr inbounds i8, ptr %15814, i64 80
+  %2310 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %2311 = load ptr, ptr %2310, align 8
   %2312 = load ptr, ptr %39, align 8
   %.not9147 = icmp ult ptr %2311, %2312
@@ -5706,7 +5706,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9533, label %.backedge.backedge, label %.loopexit
 
 2321:                                             ; preds = %2309
-  %2322 = getelementptr inbounds i8, ptr %2311, i64 1
+  %2322 = getelementptr inbounds nuw i8, ptr %2311, i64 1
   store ptr %2322, ptr %2310, align 8
   %2323 = load i8, ptr %2311, align 1
   %2324 = zext i8 %2323 to i32
@@ -5721,7 +5721,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 2329:                                             ; preds = %2326
   %2330 = shl nuw nsw i32 %2324, 6
   %2331 = and i32 %2330, 1984
-  %2332 = getelementptr inbounds i8, ptr %2311, i64 2
+  %2332 = getelementptr inbounds nuw i8, ptr %2311, i64 2
   store ptr %2332, ptr %2310, align 8
   %2333 = load i8, ptr %2322, align 1
   %2334 = and i8 %2333, 63
@@ -5742,12 +5742,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2345 = and i32 %2344, 61440
   %2346 = shl nuw nsw i32 %2342, 6
   %2347 = or disjoint i32 %2346, %2345
-  %2348 = getelementptr inbounds i8, ptr %2311, i64 2
+  %2348 = getelementptr inbounds nuw i8, ptr %2311, i64 2
   %2349 = load i8, ptr %2348, align 1
   %2350 = and i8 %2349, 63
   %2351 = zext nneg i8 %2350 to i32
   %2352 = or disjoint i32 %2347, %2351
-  %2353 = getelementptr inbounds i8, ptr %2311, i64 3
+  %2353 = getelementptr inbounds nuw i8, ptr %2311, i64 3
   store ptr %2353, ptr %2310, align 8
   br label %2417
 
@@ -5761,33 +5761,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2359 = and i32 %2358, 1835008
   %2360 = shl nuw nsw i32 %2342, 12
   %2361 = or disjoint i32 %2360, %2359
-  %2362 = getelementptr inbounds i8, ptr %2311, i64 2
+  %2362 = getelementptr inbounds nuw i8, ptr %2311, i64 2
   %2363 = load i8, ptr %2362, align 1
   %2364 = and i8 %2363, 63
   %2365 = zext nneg i8 %2364 to i32
   %2366 = shl nuw nsw i32 %2365, 6
   %2367 = or disjoint i32 %2361, %2366
-  %2368 = getelementptr inbounds i8, ptr %2311, i64 3
+  %2368 = getelementptr inbounds nuw i8, ptr %2311, i64 3
   %2369 = load i8, ptr %2368, align 1
   %2370 = and i8 %2369, 63
   %2371 = zext nneg i8 %2370 to i32
   %2372 = or disjoint i32 %2367, %2371
-  %2373 = getelementptr inbounds i8, ptr %2311, i64 4
+  %2373 = getelementptr inbounds nuw i8, ptr %2311, i64 4
   store ptr %2373, ptr %2310, align 8
   br label %2417
 
 2374:                                             ; preds = %2354
   %2375 = and i32 %2324, 4
   %2376 = icmp eq i32 %2375, 0
-  %2377 = getelementptr inbounds i8, ptr %2311, i64 2
+  %2377 = getelementptr inbounds nuw i8, ptr %2311, i64 2
   %2378 = load i8, ptr %2377, align 1
   %2379 = and i8 %2378, 63
   %2380 = zext nneg i8 %2379 to i32
-  %2381 = getelementptr inbounds i8, ptr %2311, i64 3
+  %2381 = getelementptr inbounds nuw i8, ptr %2311, i64 3
   %2382 = load i8, ptr %2381, align 1
   %2383 = and i8 %2382, 63
   %2384 = zext nneg i8 %2383 to i32
-  %2385 = getelementptr inbounds i8, ptr %2311, i64 4
+  %2385 = getelementptr inbounds nuw i8, ptr %2311, i64 4
   %2386 = load i8, ptr %2385, align 1
   %2387 = and i8 %2386, 63
   %2388 = zext nneg i8 %2387 to i32
@@ -5803,7 +5803,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2396 = shl nuw nsw i32 %2384, 6
   %2397 = or disjoint i32 %2395, %2396
   %2398 = or disjoint i32 %2397, %2388
-  %2399 = getelementptr inbounds i8, ptr %2311, i64 5
+  %2399 = getelementptr inbounds nuw i8, ptr %2311, i64 5
   store ptr %2399, ptr %2310, align 8
   br label %2417
 
@@ -5818,18 +5818,18 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2408 = or disjoint i32 %2406, %2407
   %2409 = shl nuw nsw i32 %2388, 6
   %2410 = or disjoint i32 %2408, %2409
-  %2411 = getelementptr inbounds i8, ptr %2311, i64 5
+  %2411 = getelementptr inbounds nuw i8, ptr %2311, i64 5
   %2412 = load i8, ptr %2411, align 1
   %2413 = and i8 %2412, 63
   %2414 = zext nneg i8 %2413 to i32
   %2415 = or disjoint i32 %2410, %2414
-  %2416 = getelementptr inbounds i8, ptr %2311, i64 6
+  %2416 = getelementptr inbounds nuw i8, ptr %2311, i64 6
   store ptr %2416, ptr %2310, align 8
   br label %2417
 
 2417:                                             ; preds = %2329, %2357, %2400, %2389, %2343, %2321
   %.07866 = phi i32 [ %2336, %2329 ], [ %2352, %2343 ], [ %2372, %2357 ], [ %2398, %2389 ], [ %2415, %2400 ], [ %2324, %2321 ]
-  %2418 = getelementptr inbounds i8, ptr %15814, i64 64
+  %2418 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %2419 = load i32, ptr %2418, align 8
   %2420 = icmp eq i32 %2419, %.07866
   br i1 %2420, label %.backedge.backedge, label %.loopexit9582.loopexit
@@ -5839,17 +5839,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 2421:                                             ; preds = %15871
-  %2422 = getelementptr inbounds i8, ptr %15814, i64 56
+  %2422 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %2423 = load i32, ptr %2422, align 8
   %2424 = add i32 %2423, 1
   store i32 %2424, ptr %2422, align 8
-  %2425 = getelementptr inbounds i8, ptr %15814, i64 60
+  %2425 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %2426 = load i32, ptr %2425, align 4
   %.not9207 = icmp ult i32 %2423, %2426
   br i1 %.not9207, label %2427, label %.backedge.backedge
 
 2427:                                             ; preds = %2421
-  %2428 = getelementptr inbounds i8, ptr %15814, i64 80
+  %2428 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %2429 = load ptr, ptr %2428, align 8
   %2430 = load ptr, ptr %39, align 8
   %.not9208 = icmp ult ptr %2429, %2430
@@ -5876,9 +5876,9 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9540, label %.backedge.backedge, label %.loopexit
 
 2439:                                             ; preds = %2427
-  %2440 = getelementptr inbounds i8, ptr %15814, i64 64
+  %2440 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %2441 = load i32, ptr %2440, align 8
-  %2442 = getelementptr inbounds i8, ptr %2429, i64 1
+  %2442 = getelementptr inbounds nuw i8, ptr %2429, i64 1
   store ptr %2442, ptr %2428, align 8
   %2443 = load i8, ptr %2429, align 1
   %2444 = zext i8 %2443 to i32
@@ -5886,9 +5886,9 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %2445, label %.backedge.backedge, label %.loopexit9587.loopexit
 
 2446:                                             ; preds = %2301
-  %2447 = getelementptr inbounds i8, ptr %.3, i64 80
+  %2447 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %2448 = load ptr, ptr %2447, align 8
-  %2449 = getelementptr inbounds i8, ptr %.3, i64 8
+  %2449 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %2448, ptr %2449, align 8
   %2450 = icmp ult i32 %1599, %1598
   br i1 %15, label %.preheader9616, label %.preheader9618
@@ -5935,7 +5935,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 2465:                                             ; preds = %2461
   %2466 = and i32 %2463, 32
   %2467 = icmp eq i32 %2466, 0
-  %2468 = getelementptr inbounds i8, ptr %2451, i64 1
+  %2468 = getelementptr inbounds nuw i8, ptr %2451, i64 1
   %2469 = load i8, ptr %2468, align 1
   %2470 = and i8 %2469, 63
   %2471 = zext nneg i8 %2470 to i32
@@ -5957,7 +5957,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2481 = and i32 %2480, 61440
   %2482 = shl nuw nsw i32 %2471, 6
   %2483 = or disjoint i32 %2482, %2481
-  %2484 = getelementptr inbounds i8, ptr %2451, i64 2
+  %2484 = getelementptr inbounds nuw i8, ptr %2451, i64 2
   %2485 = load i8, ptr %2484, align 1
   %2486 = and i8 %2485, 63
   %2487 = zext nneg i8 %2486 to i32
@@ -5974,13 +5974,13 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2494 = and i32 %2493, 1835008
   %2495 = shl nuw nsw i32 %2471, 12
   %2496 = or disjoint i32 %2495, %2494
-  %2497 = getelementptr inbounds i8, ptr %2451, i64 2
+  %2497 = getelementptr inbounds nuw i8, ptr %2451, i64 2
   %2498 = load i8, ptr %2497, align 1
   %2499 = and i8 %2498, 63
   %2500 = zext nneg i8 %2499 to i32
   %2501 = shl nuw nsw i32 %2500, 6
   %2502 = or disjoint i32 %2496, %2501
-  %2503 = getelementptr inbounds i8, ptr %2451, i64 3
+  %2503 = getelementptr inbounds nuw i8, ptr %2451, i64 3
   %2504 = load i8, ptr %2503, align 1
   %2505 = and i8 %2504, 63
   %2506 = zext nneg i8 %2505 to i32
@@ -5990,15 +5990,15 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 2508:                                             ; preds = %2489
   %2509 = and i32 %2463, 4
   %2510 = icmp eq i32 %2509, 0
-  %2511 = getelementptr inbounds i8, ptr %2451, i64 2
+  %2511 = getelementptr inbounds nuw i8, ptr %2451, i64 2
   %2512 = load i8, ptr %2511, align 1
   %2513 = and i8 %2512, 63
   %2514 = zext nneg i8 %2513 to i32
-  %2515 = getelementptr inbounds i8, ptr %2451, i64 3
+  %2515 = getelementptr inbounds nuw i8, ptr %2451, i64 3
   %2516 = load i8, ptr %2515, align 1
   %2517 = and i8 %2516, 63
   %2518 = zext nneg i8 %2517 to i32
-  %2519 = getelementptr inbounds i8, ptr %2451, i64 4
+  %2519 = getelementptr inbounds nuw i8, ptr %2451, i64 4
   %2520 = load i8, ptr %2519, align 1
   %2521 = and i8 %2520, 63
   %2522 = zext nneg i8 %2521 to i32
@@ -6027,7 +6027,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2541 = or disjoint i32 %2539, %2540
   %2542 = shl nuw nsw i32 %2522, 6
   %2543 = or disjoint i32 %2541, %2542
-  %2544 = getelementptr inbounds i8, ptr %2451, i64 5
+  %2544 = getelementptr inbounds nuw i8, ptr %2451, i64 5
   %2545 = load i8, ptr %2544, align 1
   %2546 = and i8 %2545, 63
   %2547 = zext nneg i8 %2546 to i32
@@ -6041,7 +6041,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %2550, label %.loopexit9617, label %2551
 
 2551:                                             ; preds = %2549
-  %2552 = getelementptr inbounds i8, ptr %2451, i64 %.07868
+  %2552 = getelementptr inbounds nuw i8, ptr %2451, i64 %.07868
   store ptr %2552, ptr %2447, align 8
   %2553 = add nuw i32 %.13764011173, 1
   %2554 = icmp ult i32 %2553, %1598
@@ -6062,7 +6062,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.177486 = phi ptr [ %.27471, %.loopexit9617..loopexit9561_crit_edge ], [ %.47473.ph.ph, %2563 ]
   %.117450 = phi ptr [ %.27441, %.loopexit9617..loopexit9561_crit_edge ], [ %.57444.ph.ph, %2563 ]
   %.18 = phi ptr [ %.3, %.loopexit9617..loopexit9561_crit_edge ], [ %15814, %2563 ]
-  %2556 = getelementptr inbounds i8, ptr %.18, i64 8
+  %2556 = getelementptr inbounds nuw i8, ptr %.18, i64 8
   %2557 = load ptr, ptr %2556, align 8
   %.not9143 = icmp ugt ptr %2555, %2557
   br i1 %.not9143, label %2558, label %.preheader9835.backedge
@@ -6072,7 +6072,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 2560:                                             ; preds = %15886
-  %2561 = getelementptr inbounds i8, ptr %15814, i64 80
+  %2561 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %2562 = load ptr, ptr %2561, align 8
   br label %2563
 
@@ -6118,7 +6118,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %2579, label %.loopexit9619, label %2580
 
 2580:                                             ; preds = %2576
-  %2581 = getelementptr inbounds i8, ptr %2566, i64 1
+  %2581 = getelementptr inbounds nuw i8, ptr %2566, i64 1
   store ptr %2581, ptr %2447, align 8
   %2582 = add nuw i32 %.14764111170, 1
   %2583 = icmp ult i32 %2582, %1598
@@ -6139,7 +6139,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.187487 = phi ptr [ %.47473.ph.ph, %2591 ], [ %.27471, %.loopexit9619._crit_edge ]
   %.127451 = phi ptr [ %.57444.ph.ph, %2591 ], [ %.27441, %.loopexit9619._crit_edge ]
   %.19 = phi ptr [ %15814, %2591 ], [ %.3, %.loopexit9619._crit_edge ]
-  %2586 = getelementptr inbounds i8, ptr %.19, i64 8
+  %2586 = getelementptr inbounds nuw i8, ptr %.19, i64 8
   %2587 = load ptr, ptr %2586, align 8
   %2588 = icmp eq ptr %2585, %2587
   br i1 %2588, label %.preheader9835.backedge, label %2589
@@ -6149,18 +6149,18 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 2591:                                             ; preds = %15872
-  %2592 = getelementptr inbounds i8, ptr %15814, i64 80
+  %2592 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %2593 = load ptr, ptr %2592, align 8
   %2594 = getelementptr inbounds i8, ptr %2593, i64 -1
   store ptr %2594, ptr %2592, align 8
   br label %2584
 
 2595:                                             ; preds = %.preheader9835, %.preheader9835
-  %2596 = getelementptr inbounds i8, ptr %142, i64 1
-  %2597 = getelementptr inbounds i8, ptr %.3, i64 8
-  %2598 = getelementptr inbounds i8, ptr %.3, i64 16
+  %2596 = getelementptr inbounds nuw i8, ptr %142, i64 1
+  %2597 = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %2598 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   store ptr %2596, ptr %2598, align 8
-  %2599 = getelementptr inbounds i8, ptr %142, i64 33
+  %2599 = getelementptr inbounds nuw i8, ptr %142, i64 33
   store ptr %2599, ptr %.3, align 8
   %2600 = load i8, ptr %2599, align 1
   switch i8 %2600, label %.thread12752 [
@@ -6179,44 +6179,44 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   ]
 
 2601:                                             ; preds = %2595, %2595, %2595, %2595, %2595, %2595, %2595, %2595, %2595
-  %2602 = getelementptr inbounds i8, ptr %142, i64 34
+  %2602 = getelementptr inbounds nuw i8, ptr %142, i64 34
   store ptr %2602, ptr %.3, align 8
   %2603 = load i8, ptr %2599, align 1
   %2604 = zext i8 %2603 to i64
   %2605 = add nuw nsw i64 %2604, 4294967198
   %2606 = and i64 %2605, 4294967295
-  %2607 = getelementptr inbounds [11 x i32], ptr @rep_min, i64 0, i64 %2606
+  %2607 = getelementptr inbounds nuw [11 x i32], ptr @rep_min, i64 0, i64 %2606
   %2608 = load i32, ptr %2607, align 4
-  %2609 = getelementptr inbounds i8, ptr %.3, i64 56
+  %2609 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %2608, ptr %2609, align 8
-  %2610 = getelementptr inbounds [11 x i32], ptr @rep_max, i64 0, i64 %2606
+  %2610 = getelementptr inbounds nuw [11 x i32], ptr @rep_max, i64 0, i64 %2606
   %2611 = load i32, ptr %2610, align 4
-  %2612 = getelementptr inbounds i8, ptr %.3, i64 60
+  %2612 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %2611, ptr %2612, align 4
-  %2613 = getelementptr inbounds [12 x i32], ptr @rep_typ, i64 0, i64 %2606
+  %2613 = getelementptr inbounds nuw [12 x i32], ptr @rep_typ, i64 0, i64 %2606
   %2614 = load i32, ptr %2613, align 4
   br label %2641
 
 2615:                                             ; preds = %2595, %2595, %2595
-  %2616 = getelementptr inbounds i8, ptr %142, i64 34
+  %2616 = getelementptr inbounds nuw i8, ptr %142, i64 34
   %2617 = load i8, ptr %2616, align 1
   %2618 = zext i8 %2617 to i32
   %2619 = shl nuw nsw i32 %2618, 8
-  %2620 = getelementptr inbounds i8, ptr %142, i64 35
+  %2620 = getelementptr inbounds nuw i8, ptr %142, i64 35
   %2621 = load i8, ptr %2620, align 1
   %2622 = zext i8 %2621 to i32
   %2623 = or disjoint i32 %2619, %2622
-  %2624 = getelementptr inbounds i8, ptr %.3, i64 56
+  %2624 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %2623, ptr %2624, align 8
-  %2625 = getelementptr inbounds i8, ptr %142, i64 36
+  %2625 = getelementptr inbounds nuw i8, ptr %142, i64 36
   %2626 = load i8, ptr %2625, align 1
   %2627 = zext i8 %2626 to i32
   %2628 = shl nuw nsw i32 %2627, 8
-  %2629 = getelementptr inbounds i8, ptr %142, i64 37
+  %2629 = getelementptr inbounds nuw i8, ptr %142, i64 37
   %2630 = load i8, ptr %2629, align 1
   %2631 = zext i8 %2630 to i32
   %2632 = or disjoint i32 %2628, %2631
-  %2633 = getelementptr inbounds i8, ptr %.3, i64 60
+  %2633 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   %2634 = icmp eq i32 %2632, 0
   %spec.select = select i1 %2634, i32 -1, i32 %2632
   store i32 %spec.select, ptr %2633, align 4
@@ -6225,7 +6225,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2637 = add nsw i64 %2636, -98
   %2638 = getelementptr inbounds [12 x i32], ptr @rep_typ, i64 0, i64 %2637
   %2639 = load i32, ptr %2638, align 4
-  %2640 = getelementptr inbounds i8, ptr %142, i64 38
+  %2640 = getelementptr inbounds nuw i8, ptr %142, i64 38
   store ptr %2640, ptr %.3, align 8
   br label %2641
 
@@ -6238,8 +6238,8 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %15, label %.preheader9630, label %.preheader9633
 
 .thread12752:                                     ; preds = %2595
-  %2645 = getelementptr inbounds i8, ptr %.3, i64 56
-  %2646 = getelementptr inbounds i8, ptr %.3, i64 60
+  %2645 = getelementptr inbounds nuw i8, ptr %.3, i64 56
+  %2646 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 1, ptr %2646, align 4
   store i32 1, ptr %2645, align 8
   br i1 %15, label %.lr.ph11157, label %.lr.ph11154
@@ -6252,7 +6252,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2648 = phi i32 [ %2643, %.preheader9633 ], [ 1, %.thread12752 ]
   %2649 = phi i32 [ %2644, %.preheader9633 ], [ 1, %.thread12752 ]
   %.2177941275512759 = phi i32 [ %.217794, %.preheader9633 ], [ %.27775, %.thread12752 ]
-  %2650 = getelementptr inbounds i8, ptr %.3, i64 80
+  %2650 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12589 = load ptr, ptr %2650, align 8
   br label %2782
 
@@ -6264,7 +6264,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2652 = phi i32 [ %2643, %.preheader9630 ], [ 1, %.thread12752 ]
   %2653 = phi i32 [ %2644, %.preheader9630 ], [ 1, %.thread12752 ]
   %.2177941275612762 = phi i32 [ %.217794, %.preheader9630 ], [ %.27775, %.thread12752 ]
-  %2654 = getelementptr inbounds i8, ptr %.3, i64 80
+  %2654 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12590 = load ptr, ptr %2654, align 8
   %2655 = icmp eq i8 %143, 110
   br label %2656
@@ -6297,7 +6297,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9489, label %.preheader9566.preheader, label %.loopexit
 
 2667:                                             ; preds = %2656
-  %2668 = getelementptr inbounds i8, ptr %2657, i64 1
+  %2668 = getelementptr inbounds nuw i8, ptr %2657, i64 1
   store ptr %2668, ptr %2654, align 8
   %2669 = load i8, ptr %2657, align 1
   %2670 = zext i8 %2669 to i32
@@ -6312,7 +6312,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 2675:                                             ; preds = %2672
   %2676 = shl nuw nsw i32 %2670, 6
   %2677 = and i32 %2676, 1984
-  %2678 = getelementptr inbounds i8, ptr %2657, i64 2
+  %2678 = getelementptr inbounds nuw i8, ptr %2657, i64 2
   store ptr %2678, ptr %2654, align 8
   %2679 = load i8, ptr %2668, align 1
   %2680 = and i8 %2679, 63
@@ -6333,12 +6333,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2691 = and i32 %2690, 61440
   %2692 = shl nuw nsw i32 %2688, 6
   %2693 = or disjoint i32 %2692, %2691
-  %2694 = getelementptr inbounds i8, ptr %2657, i64 2
+  %2694 = getelementptr inbounds nuw i8, ptr %2657, i64 2
   %2695 = load i8, ptr %2694, align 1
   %2696 = and i8 %2695, 63
   %2697 = zext nneg i8 %2696 to i32
   %2698 = or disjoint i32 %2693, %2697
-  %2699 = getelementptr inbounds i8, ptr %2657, i64 3
+  %2699 = getelementptr inbounds nuw i8, ptr %2657, i64 3
   store ptr %2699, ptr %2654, align 8
   br label %2763
 
@@ -6352,33 +6352,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2705 = and i32 %2704, 1835008
   %2706 = shl nuw nsw i32 %2688, 12
   %2707 = or disjoint i32 %2706, %2705
-  %2708 = getelementptr inbounds i8, ptr %2657, i64 2
+  %2708 = getelementptr inbounds nuw i8, ptr %2657, i64 2
   %2709 = load i8, ptr %2708, align 1
   %2710 = and i8 %2709, 63
   %2711 = zext nneg i8 %2710 to i32
   %2712 = shl nuw nsw i32 %2711, 6
   %2713 = or disjoint i32 %2707, %2712
-  %2714 = getelementptr inbounds i8, ptr %2657, i64 3
+  %2714 = getelementptr inbounds nuw i8, ptr %2657, i64 3
   %2715 = load i8, ptr %2714, align 1
   %2716 = and i8 %2715, 63
   %2717 = zext nneg i8 %2716 to i32
   %2718 = or disjoint i32 %2713, %2717
-  %2719 = getelementptr inbounds i8, ptr %2657, i64 4
+  %2719 = getelementptr inbounds nuw i8, ptr %2657, i64 4
   store ptr %2719, ptr %2654, align 8
   br label %2763
 
 2720:                                             ; preds = %2700
   %2721 = and i32 %2670, 4
   %2722 = icmp eq i32 %2721, 0
-  %2723 = getelementptr inbounds i8, ptr %2657, i64 2
+  %2723 = getelementptr inbounds nuw i8, ptr %2657, i64 2
   %2724 = load i8, ptr %2723, align 1
   %2725 = and i8 %2724, 63
   %2726 = zext nneg i8 %2725 to i32
-  %2727 = getelementptr inbounds i8, ptr %2657, i64 3
+  %2727 = getelementptr inbounds nuw i8, ptr %2657, i64 3
   %2728 = load i8, ptr %2727, align 1
   %2729 = and i8 %2728, 63
   %2730 = zext nneg i8 %2729 to i32
-  %2731 = getelementptr inbounds i8, ptr %2657, i64 4
+  %2731 = getelementptr inbounds nuw i8, ptr %2657, i64 4
   %2732 = load i8, ptr %2731, align 1
   %2733 = and i8 %2732, 63
   %2734 = zext nneg i8 %2733 to i32
@@ -6394,7 +6394,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2742 = shl nuw nsw i32 %2730, 6
   %2743 = or disjoint i32 %2741, %2742
   %2744 = or disjoint i32 %2743, %2734
-  %2745 = getelementptr inbounds i8, ptr %2657, i64 5
+  %2745 = getelementptr inbounds nuw i8, ptr %2657, i64 5
   store ptr %2745, ptr %2654, align 8
   br label %2763
 
@@ -6409,12 +6409,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2754 = or disjoint i32 %2752, %2753
   %2755 = shl nuw nsw i32 %2734, 6
   %2756 = or disjoint i32 %2754, %2755
-  %2757 = getelementptr inbounds i8, ptr %2657, i64 5
+  %2757 = getelementptr inbounds nuw i8, ptr %2657, i64 5
   %2758 = load i8, ptr %2757, align 1
   %2759 = and i8 %2758, 63
   %2760 = zext nneg i8 %2759 to i32
   %2761 = or disjoint i32 %2756, %2760
-  %2762 = getelementptr inbounds i8, ptr %2657, i64 6
+  %2762 = getelementptr inbounds nuw i8, ptr %2657, i64 6
   store ptr %2762, ptr %2654, align 8
   br label %2763
 
@@ -6432,7 +6432,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.376919300 = phi i32 [ %.37691, %2763 ], [ %2670, %2667 ]
   %2768 = lshr i32 %.376919300, 3
   %2769 = zext nneg i32 %2768 to i64
-  %2770 = getelementptr inbounds i8, ptr %2596, i64 %2769
+  %2770 = getelementptr inbounds nuw i8, ptr %2596, i64 %2769
   %2771 = load i8, ptr %2770, align 1
   %2772 = zext i8 %2771 to i32
   %2773 = and i32 %.376919300, 7
@@ -6480,13 +6480,13 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9488, label %.preheader9566.preheader, label %.loopexit
 
 2793:                                             ; preds = %2782
-  %2794 = getelementptr inbounds i8, ptr %2783, i64 1
+  %2794 = getelementptr inbounds nuw i8, ptr %2783, i64 1
   store ptr %2794, ptr %2650, align 8
   %2795 = load i8, ptr %2783, align 1
   %2796 = zext i8 %2795 to i32
   %2797 = lshr i32 %2796, 3
   %2798 = zext nneg i32 %2797 to i64
-  %2799 = getelementptr inbounds i8, ptr %2596, i64 %2798
+  %2799 = getelementptr inbounds nuw i8, ptr %2596, i64 %2798
   %2800 = load i8, ptr %2799, align 1
   %2801 = zext i8 %2800 to i32
   %2802 = and i32 %2796, 7
@@ -6512,17 +6512,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 2812:                                             ; preds = %15879
-  %2813 = getelementptr inbounds i8, ptr %15814, i64 56
+  %2813 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %2814 = load i32, ptr %2813, align 8
   %2815 = add i32 %2814, 1
   store i32 %2815, ptr %2813, align 8
-  %2816 = getelementptr inbounds i8, ptr %15814, i64 60
+  %2816 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %2817 = load i32, ptr %2816, align 4
   %.not9176 = icmp ult i32 %2814, %2817
   br i1 %.not9176, label %2818, label %.backedge.backedge
 
 2818:                                             ; preds = %2812
-  %2819 = getelementptr inbounds i8, ptr %15814, i64 80
+  %2819 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %2820 = load ptr, ptr %2819, align 8
   %2821 = load ptr, ptr %39, align 8
   %.not9177 = icmp ult ptr %2820, %2821
@@ -6549,7 +6549,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9536, label %.backedge.backedge, label %.loopexit
 
 2830:                                             ; preds = %2818
-  %2831 = getelementptr inbounds i8, ptr %2820, i64 1
+  %2831 = getelementptr inbounds nuw i8, ptr %2820, i64 1
   store ptr %2831, ptr %2819, align 8
   %2832 = load i8, ptr %2820, align 1
   %2833 = zext i8 %2832 to i32
@@ -6564,7 +6564,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 2838:                                             ; preds = %2835
   %2839 = shl nuw nsw i32 %2833, 6
   %2840 = and i32 %2839, 1984
-  %2841 = getelementptr inbounds i8, ptr %2820, i64 2
+  %2841 = getelementptr inbounds nuw i8, ptr %2820, i64 2
   store ptr %2841, ptr %2819, align 8
   %2842 = load i8, ptr %2831, align 1
   %2843 = and i8 %2842, 63
@@ -6585,12 +6585,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2854 = and i32 %2853, 61440
   %2855 = shl nuw nsw i32 %2851, 6
   %2856 = or disjoint i32 %2855, %2854
-  %2857 = getelementptr inbounds i8, ptr %2820, i64 2
+  %2857 = getelementptr inbounds nuw i8, ptr %2820, i64 2
   %2858 = load i8, ptr %2857, align 1
   %2859 = and i8 %2858, 63
   %2860 = zext nneg i8 %2859 to i32
   %2861 = or disjoint i32 %2856, %2860
-  %2862 = getelementptr inbounds i8, ptr %2820, i64 3
+  %2862 = getelementptr inbounds nuw i8, ptr %2820, i64 3
   store ptr %2862, ptr %2819, align 8
   br label %2926
 
@@ -6604,33 +6604,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2868 = and i32 %2867, 1835008
   %2869 = shl nuw nsw i32 %2851, 12
   %2870 = or disjoint i32 %2869, %2868
-  %2871 = getelementptr inbounds i8, ptr %2820, i64 2
+  %2871 = getelementptr inbounds nuw i8, ptr %2820, i64 2
   %2872 = load i8, ptr %2871, align 1
   %2873 = and i8 %2872, 63
   %2874 = zext nneg i8 %2873 to i32
   %2875 = shl nuw nsw i32 %2874, 6
   %2876 = or disjoint i32 %2870, %2875
-  %2877 = getelementptr inbounds i8, ptr %2820, i64 3
+  %2877 = getelementptr inbounds nuw i8, ptr %2820, i64 3
   %2878 = load i8, ptr %2877, align 1
   %2879 = and i8 %2878, 63
   %2880 = zext nneg i8 %2879 to i32
   %2881 = or disjoint i32 %2876, %2880
-  %2882 = getelementptr inbounds i8, ptr %2820, i64 4
+  %2882 = getelementptr inbounds nuw i8, ptr %2820, i64 4
   store ptr %2882, ptr %2819, align 8
   br label %2926
 
 2883:                                             ; preds = %2863
   %2884 = and i32 %2833, 4
   %2885 = icmp eq i32 %2884, 0
-  %2886 = getelementptr inbounds i8, ptr %2820, i64 2
+  %2886 = getelementptr inbounds nuw i8, ptr %2820, i64 2
   %2887 = load i8, ptr %2886, align 1
   %2888 = and i8 %2887, 63
   %2889 = zext nneg i8 %2888 to i32
-  %2890 = getelementptr inbounds i8, ptr %2820, i64 3
+  %2890 = getelementptr inbounds nuw i8, ptr %2820, i64 3
   %2891 = load i8, ptr %2890, align 1
   %2892 = and i8 %2891, 63
   %2893 = zext nneg i8 %2892 to i32
-  %2894 = getelementptr inbounds i8, ptr %2820, i64 4
+  %2894 = getelementptr inbounds nuw i8, ptr %2820, i64 4
   %2895 = load i8, ptr %2894, align 1
   %2896 = and i8 %2895, 63
   %2897 = zext nneg i8 %2896 to i32
@@ -6646,7 +6646,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2905 = shl nuw nsw i32 %2893, 6
   %2906 = or disjoint i32 %2904, %2905
   %2907 = or disjoint i32 %2906, %2897
-  %2908 = getelementptr inbounds i8, ptr %2820, i64 5
+  %2908 = getelementptr inbounds nuw i8, ptr %2820, i64 5
   store ptr %2908, ptr %2819, align 8
   br label %2926
 
@@ -6661,12 +6661,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %2917 = or disjoint i32 %2915, %2916
   %2918 = shl nuw nsw i32 %2897, 6
   %2919 = or disjoint i32 %2917, %2918
-  %2920 = getelementptr inbounds i8, ptr %2820, i64 5
+  %2920 = getelementptr inbounds nuw i8, ptr %2820, i64 5
   %2921 = load i8, ptr %2920, align 1
   %2922 = and i8 %2921, 63
   %2923 = zext nneg i8 %2922 to i32
   %2924 = or disjoint i32 %2919, %2923
-  %2925 = getelementptr inbounds i8, ptr %2820, i64 6
+  %2925 = getelementptr inbounds nuw i8, ptr %2820, i64 6
   store ptr %2925, ptr %2819, align 8
   br label %2926
 
@@ -6676,18 +6676,18 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %2927, label %2928, label %.thread9301
 
 2928:                                             ; preds = %2926
-  %2929 = getelementptr inbounds i8, ptr %15814, i64 73
+  %2929 = getelementptr inbounds nuw i8, ptr %15814, i64 73
   %2930 = load i8, ptr %2929, align 1
   %2931 = icmp eq i8 %2930, 110
   br i1 %2931, label %.backedge.backedge, label %.loopexit9584.loopexit
 
 .thread9301:                                      ; preds = %2830, %2926
   %.476929303 = phi i32 [ %.47692, %2926 ], [ %2833, %2830 ]
-  %2932 = getelementptr inbounds i8, ptr %15814, i64 16
+  %2932 = getelementptr inbounds nuw i8, ptr %15814, i64 16
   %2933 = load ptr, ptr %2932, align 8
   %2934 = lshr i32 %.476929303, 3
   %2935 = zext nneg i32 %2934 to i64
-  %2936 = getelementptr inbounds i8, ptr %2933, i64 %2935
+  %2936 = getelementptr inbounds nuw i8, ptr %2933, i64 %2935
   %2937 = load i8, ptr %2936, align 1
   %2938 = zext i8 %2937 to i32
   %2939 = and i32 %.476929303, 7
@@ -6701,17 +6701,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 2943:                                             ; preds = %15857
-  %2944 = getelementptr inbounds i8, ptr %15814, i64 56
+  %2944 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %2945 = load i32, ptr %2944, align 8
   %2946 = add i32 %2945, 1
   store i32 %2946, ptr %2944, align 8
-  %2947 = getelementptr inbounds i8, ptr %15814, i64 60
+  %2947 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %2948 = load i32, ptr %2947, align 4
   %.not9236 = icmp ult i32 %2945, %2948
   br i1 %.not9236, label %2949, label %.backedge.backedge
 
 2949:                                             ; preds = %2943
-  %2950 = getelementptr inbounds i8, ptr %15814, i64 80
+  %2950 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %2951 = load ptr, ptr %2950, align 8
   %2952 = load ptr, ptr %39, align 8
   %.not9237 = icmp ult ptr %2951, %2952
@@ -6738,15 +6738,15 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9544, label %.backedge.backedge, label %.loopexit
 
 2961:                                             ; preds = %2949
-  %2962 = getelementptr inbounds i8, ptr %2951, i64 1
+  %2962 = getelementptr inbounds nuw i8, ptr %2951, i64 1
   store ptr %2962, ptr %2950, align 8
   %2963 = load i8, ptr %2951, align 1
   %2964 = zext i8 %2963 to i32
-  %2965 = getelementptr inbounds i8, ptr %15814, i64 16
+  %2965 = getelementptr inbounds nuw i8, ptr %15814, i64 16
   %2966 = load ptr, ptr %2965, align 8
   %2967 = lshr i32 %2964, 3
   %2968 = zext nneg i32 %2967 to i64
-  %2969 = getelementptr inbounds i8, ptr %2966, i64 %2968
+  %2969 = getelementptr inbounds nuw i8, ptr %2966, i64 %2968
   %2970 = load i8, ptr %2969, align 1
   %2971 = zext i8 %2970 to i32
   %2972 = and i32 %2964, 7
@@ -6756,7 +6756,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %2975, label %.backedge.backedge, label %.loopexit9591.loopexit
 
 2976:                                             ; preds = %2810
-  %2977 = getelementptr inbounds i8, ptr %.3, i64 80
+  %2977 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %2978 = load ptr, ptr %2977, align 8
   store ptr %2978, ptr %2597, align 8
   %2979 = icmp ult i32 %2806, %2807
@@ -6808,7 +6808,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 2995:                                             ; preds = %2991
   %2996 = and i32 %2993, 32
   %2997 = icmp eq i32 %2996, 0
-  %2998 = getelementptr inbounds i8, ptr %2981, i64 1
+  %2998 = getelementptr inbounds nuw i8, ptr %2981, i64 1
   %2999 = load i8, ptr %2998, align 1
   %3000 = and i8 %2999, 63
   %3001 = zext nneg i8 %3000 to i32
@@ -6830,7 +6830,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3011 = and i32 %3010, 61440
   %3012 = shl nuw nsw i32 %3001, 6
   %3013 = or disjoint i32 %3012, %3011
-  %3014 = getelementptr inbounds i8, ptr %2981, i64 2
+  %3014 = getelementptr inbounds nuw i8, ptr %2981, i64 2
   %3015 = load i8, ptr %3014, align 1
   %3016 = and i8 %3015, 63
   %3017 = zext nneg i8 %3016 to i32
@@ -6847,13 +6847,13 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3024 = and i32 %3023, 1835008
   %3025 = shl nuw nsw i32 %3001, 12
   %3026 = or disjoint i32 %3025, %3024
-  %3027 = getelementptr inbounds i8, ptr %2981, i64 2
+  %3027 = getelementptr inbounds nuw i8, ptr %2981, i64 2
   %3028 = load i8, ptr %3027, align 1
   %3029 = and i8 %3028, 63
   %3030 = zext nneg i8 %3029 to i32
   %3031 = shl nuw nsw i32 %3030, 6
   %3032 = or disjoint i32 %3026, %3031
-  %3033 = getelementptr inbounds i8, ptr %2981, i64 3
+  %3033 = getelementptr inbounds nuw i8, ptr %2981, i64 3
   %3034 = load i8, ptr %3033, align 1
   %3035 = and i8 %3034, 63
   %3036 = zext nneg i8 %3035 to i32
@@ -6863,15 +6863,15 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 3038:                                             ; preds = %3019
   %3039 = and i32 %2993, 4
   %3040 = icmp eq i32 %3039, 0
-  %3041 = getelementptr inbounds i8, ptr %2981, i64 2
+  %3041 = getelementptr inbounds nuw i8, ptr %2981, i64 2
   %3042 = load i8, ptr %3041, align 1
   %3043 = and i8 %3042, 63
   %3044 = zext nneg i8 %3043 to i32
-  %3045 = getelementptr inbounds i8, ptr %2981, i64 3
+  %3045 = getelementptr inbounds nuw i8, ptr %2981, i64 3
   %3046 = load i8, ptr %3045, align 1
   %3047 = and i8 %3046, 63
   %3048 = zext nneg i8 %3047 to i32
-  %3049 = getelementptr inbounds i8, ptr %2981, i64 4
+  %3049 = getelementptr inbounds nuw i8, ptr %2981, i64 4
   %3050 = load i8, ptr %3049, align 1
   %3051 = and i8 %3050, 63
   %3052 = zext nneg i8 %3051 to i32
@@ -6900,7 +6900,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3071 = or disjoint i32 %3069, %3070
   %3072 = shl nuw nsw i32 %3052, 6
   %3073 = or disjoint i32 %3071, %3072
-  %3074 = getelementptr inbounds i8, ptr %2981, i64 5
+  %3074 = getelementptr inbounds nuw i8, ptr %2981, i64 5
   %3075 = load i8, ptr %3074, align 1
   %3076 = and i8 %3075, 63
   %3077 = zext nneg i8 %3076 to i32
@@ -6921,7 +6921,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.078699308 = phi i64 [ %.07869, %3079 ], [ 1, %2991 ]
   %3082 = lshr i32 %.576939309, 3
   %3083 = zext nneg i32 %3082 to i64
-  %3084 = getelementptr inbounds i8, ptr %2596, i64 %3083
+  %3084 = getelementptr inbounds nuw i8, ptr %2596, i64 %3083
   %3085 = load i8, ptr %3084, align 1
   %3086 = zext i8 %3085 to i32
   %3087 = and i32 %.576939309, 7
@@ -6932,7 +6932,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 3091:                                             ; preds = %.thread9304, %3081
   %.078699307 = phi i64 [ %.078699308, %.thread9304 ], [ %.07869, %3081 ]
-  %3092 = getelementptr inbounds i8, ptr %2981, i64 %.078699307
+  %3092 = getelementptr inbounds nuw i8, ptr %2981, i64 %.078699307
   store ptr %3092, ptr %2977, align 8
   %3093 = add nuw i32 %.17764411161, 1
   %3094 = icmp ult i32 %3093, %2807
@@ -6951,11 +6951,11 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 3097:                                             ; preds = %15880
-  %3098 = getelementptr inbounds i8, ptr %15814, i64 80
+  %3098 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %3099 = load ptr, ptr %3098, align 8
   %3100 = getelementptr inbounds i8, ptr %3099, i64 -1
   store ptr %3100, ptr %3098, align 8
-  %3101 = getelementptr inbounds i8, ptr %15814, i64 8
+  %3101 = getelementptr inbounds nuw i8, ptr %15814, i64 8
   %3102 = load ptr, ptr %3101, align 8
   %.not9174 = icmp ugt ptr %3099, %3102
   br i1 %.not9174, label %.preheader9831, label %.preheader9566.backedge
@@ -6964,7 +6964,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.preheader9566
 
 .preheader9831:                                   ; preds = %3097
-  %3103 = getelementptr inbounds i8, ptr %15814, i64 80
+  %3103 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %3104 = getelementptr inbounds i8, ptr %3099, i64 -1
   %3105 = load i8, ptr %3104, align 1
   %3106 = icmp slt i8 %3105, -64
@@ -7010,7 +7010,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3123 = zext i8 %3122 to i32
   %3124 = lshr i32 %3123, 3
   %3125 = zext nneg i32 %3124 to i64
-  %3126 = getelementptr inbounds i8, ptr %2596, i64 %3125
+  %3126 = getelementptr inbounds nuw i8, ptr %2596, i64 %3125
   %3127 = load i8, ptr %3126, align 1
   %3128 = zext i8 %3127 to i32
   %3129 = and i32 %3123, 7
@@ -7020,7 +7020,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %3132, label %.loopexit9629, label %3133
 
 3133:                                             ; preds = %3121
-  %3134 = getelementptr inbounds i8, ptr %3111, i64 1
+  %3134 = getelementptr inbounds nuw i8, ptr %3111, i64 1
   store ptr %3134, ptr %2977, align 8
   %3135 = add nuw i32 %.18764511158, 1
   %3136 = icmp ult i32 %3135, %2807
@@ -7041,7 +7041,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.237492 = phi ptr [ %.47473.ph.ph, %3144 ], [ %.27471, %.loopexit9629._crit_edge ]
   %.147453 = phi ptr [ %.57444.ph.ph, %3144 ], [ %.27441, %.loopexit9629._crit_edge ]
   %.24 = phi ptr [ %15814, %3144 ], [ %.3, %.loopexit9629._crit_edge ]
-  %3140 = getelementptr inbounds i8, ptr %.24, i64 8
+  %3140 = getelementptr inbounds nuw i8, ptr %.24, i64 8
   %3141 = load ptr, ptr %3140, align 8
   %.not9234 = icmp ult ptr %3139, %3141
   br i1 %.not9234, label %.preheader9566.preheader, label %3142
@@ -7051,26 +7051,26 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 3144:                                             ; preds = %15858
-  %3145 = getelementptr inbounds i8, ptr %15814, i64 80
+  %3145 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %3146 = load ptr, ptr %3145, align 8
   %3147 = getelementptr inbounds i8, ptr %3146, i64 -1
   store ptr %3147, ptr %3145, align 8
   br label %3138
 
 3148:                                             ; preds = %.preheader9835
-  %3149 = getelementptr inbounds i8, ptr %142, i64 3
-  %3150 = getelementptr inbounds i8, ptr %.3, i64 8
-  %3151 = getelementptr inbounds i8, ptr %.3, i64 16
+  %3149 = getelementptr inbounds nuw i8, ptr %142, i64 3
+  %3150 = getelementptr inbounds nuw i8, ptr %.3, i64 8
+  %3151 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   store ptr %3149, ptr %3151, align 8
-  %3152 = getelementptr inbounds i8, ptr %142, i64 1
+  %3152 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %3153 = load i8, ptr %3152, align 1
   %3154 = zext i8 %3153 to i64
   %3155 = shl nuw nsw i64 %3154, 8
-  %3156 = getelementptr inbounds i8, ptr %142, i64 2
+  %3156 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %3157 = load i8, ptr %3156, align 1
   %3158 = zext i8 %3157 to i64
   %3159 = or disjoint i64 %3155, %3158
-  %3160 = getelementptr inbounds i8, ptr %142, i64 %3159
+  %3160 = getelementptr inbounds nuw i8, ptr %142, i64 %3159
   store ptr %3160, ptr %.3, align 8
   %3161 = load i8, ptr %3160, align 1
   switch i8 %3161, label %.thread12763 [
@@ -7089,44 +7089,44 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   ]
 
 3162:                                             ; preds = %3148, %3148, %3148, %3148, %3148, %3148, %3148, %3148, %3148
-  %3163 = getelementptr inbounds i8, ptr %3160, i64 1
+  %3163 = getelementptr inbounds nuw i8, ptr %3160, i64 1
   store ptr %3163, ptr %.3, align 8
   %3164 = load i8, ptr %3160, align 1
   %3165 = zext i8 %3164 to i64
   %3166 = add nuw nsw i64 %3165, 4294967198
   %3167 = and i64 %3166, 4294967295
-  %3168 = getelementptr inbounds [11 x i32], ptr @rep_min, i64 0, i64 %3167
+  %3168 = getelementptr inbounds nuw [11 x i32], ptr @rep_min, i64 0, i64 %3167
   %3169 = load i32, ptr %3168, align 4
-  %3170 = getelementptr inbounds i8, ptr %.3, i64 56
+  %3170 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %3169, ptr %3170, align 8
-  %3171 = getelementptr inbounds [11 x i32], ptr @rep_max, i64 0, i64 %3167
+  %3171 = getelementptr inbounds nuw [11 x i32], ptr @rep_max, i64 0, i64 %3167
   %3172 = load i32, ptr %3171, align 4
-  %3173 = getelementptr inbounds i8, ptr %.3, i64 60
+  %3173 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %3172, ptr %3173, align 4
-  %3174 = getelementptr inbounds [12 x i32], ptr @rep_typ, i64 0, i64 %3167
+  %3174 = getelementptr inbounds nuw [12 x i32], ptr @rep_typ, i64 0, i64 %3167
   %3175 = load i32, ptr %3174, align 4
   br label %3204
 
 3176:                                             ; preds = %3148, %3148, %3148
-  %3177 = getelementptr inbounds i8, ptr %3160, i64 1
+  %3177 = getelementptr inbounds nuw i8, ptr %3160, i64 1
   %3178 = load i8, ptr %3177, align 1
   %3179 = zext i8 %3178 to i32
   %3180 = shl nuw nsw i32 %3179, 8
-  %3181 = getelementptr inbounds i8, ptr %3160, i64 2
+  %3181 = getelementptr inbounds nuw i8, ptr %3160, i64 2
   %3182 = load i8, ptr %3181, align 1
   %3183 = zext i8 %3182 to i32
   %3184 = or disjoint i32 %3180, %3183
-  %3185 = getelementptr inbounds i8, ptr %.3, i64 56
+  %3185 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %3184, ptr %3185, align 8
-  %3186 = getelementptr inbounds i8, ptr %3160, i64 3
+  %3186 = getelementptr inbounds nuw i8, ptr %3160, i64 3
   %3187 = load i8, ptr %3186, align 1
   %3188 = zext i8 %3187 to i32
   %3189 = shl nuw nsw i32 %3188, 8
-  %3190 = getelementptr inbounds i8, ptr %3160, i64 4
+  %3190 = getelementptr inbounds nuw i8, ptr %3160, i64 4
   %3191 = load i8, ptr %3190, align 1
   %3192 = zext i8 %3191 to i32
   %3193 = or disjoint i32 %3189, %3192
-  %3194 = getelementptr inbounds i8, ptr %.3, i64 60
+  %3194 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   %3195 = icmp eq i32 %3193, 0
   %spec.select9284 = select i1 %3195, i32 -1, i32 %3193
   store i32 %spec.select9284, ptr %3194, align 4
@@ -7135,13 +7135,13 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3198 = add nsw i64 %3197, -98
   %3199 = getelementptr inbounds [12 x i32], ptr @rep_typ, i64 0, i64 %3198
   %3200 = load i32, ptr %3199, align 4
-  %3201 = getelementptr inbounds i8, ptr %3160, i64 5
+  %3201 = getelementptr inbounds nuw i8, ptr %3160, i64 5
   store ptr %3201, ptr %.3, align 8
   br label %3204
 
 .thread12763:                                     ; preds = %3148
-  %3202 = getelementptr inbounds i8, ptr %.3, i64 56
-  %3203 = getelementptr inbounds i8, ptr %.3, i64 60
+  %3202 = getelementptr inbounds nuw i8, ptr %.3, i64 56
+  %3203 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 1, ptr %3203, align 4
   store i32 1, ptr %3202, align 8
   br label %.lr.ph11145
@@ -7155,8 +7155,8 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 .lr.ph11145:                                      ; preds = %.thread12763, %3204
   %.27780012766 = phi i32 [ %.27775, %.thread12763 ], [ %.277800, %3204 ]
-  %3207 = getelementptr inbounds i8, ptr %.3, i64 56
-  %3208 = getelementptr inbounds i8, ptr %.3, i64 80
+  %3207 = getelementptr inbounds nuw i8, ptr %.3, i64 56
+  %3208 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   br label %3212
 
 3209:                                             ; preds = %3319
@@ -7193,7 +7193,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9486, label %.preheader9566.preheader, label %.loopexit
 
 3223:                                             ; preds = %3212
-  %3224 = getelementptr inbounds i8, ptr %3213, i64 1
+  %3224 = getelementptr inbounds nuw i8, ptr %3213, i64 1
   store ptr %3224, ptr %3208, align 8
   %3225 = load i8, ptr %3213, align 1
   %3226 = zext i8 %3225 to i32
@@ -7209,7 +7209,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 3231:                                             ; preds = %3228
   %3232 = shl nuw nsw i32 %3226, 6
   %3233 = and i32 %3232, 1984
-  %3234 = getelementptr inbounds i8, ptr %3213, i64 2
+  %3234 = getelementptr inbounds nuw i8, ptr %3213, i64 2
   store ptr %3234, ptr %3208, align 8
   %3235 = load i8, ptr %3224, align 1
   %3236 = and i8 %3235, 63
@@ -7230,12 +7230,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3247 = and i32 %3246, 61440
   %3248 = shl nuw nsw i32 %3244, 6
   %3249 = or disjoint i32 %3248, %3247
-  %3250 = getelementptr inbounds i8, ptr %3213, i64 2
+  %3250 = getelementptr inbounds nuw i8, ptr %3213, i64 2
   %3251 = load i8, ptr %3250, align 1
   %3252 = and i8 %3251, 63
   %3253 = zext nneg i8 %3252 to i32
   %3254 = or disjoint i32 %3249, %3253
-  %3255 = getelementptr inbounds i8, ptr %3213, i64 3
+  %3255 = getelementptr inbounds nuw i8, ptr %3213, i64 3
   store ptr %3255, ptr %3208, align 8
   br label %3319
 
@@ -7249,33 +7249,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3261 = and i32 %3260, 1835008
   %3262 = shl nuw nsw i32 %3244, 12
   %3263 = or disjoint i32 %3262, %3261
-  %3264 = getelementptr inbounds i8, ptr %3213, i64 2
+  %3264 = getelementptr inbounds nuw i8, ptr %3213, i64 2
   %3265 = load i8, ptr %3264, align 1
   %3266 = and i8 %3265, 63
   %3267 = zext nneg i8 %3266 to i32
   %3268 = shl nuw nsw i32 %3267, 6
   %3269 = or disjoint i32 %3263, %3268
-  %3270 = getelementptr inbounds i8, ptr %3213, i64 3
+  %3270 = getelementptr inbounds nuw i8, ptr %3213, i64 3
   %3271 = load i8, ptr %3270, align 1
   %3272 = and i8 %3271, 63
   %3273 = zext nneg i8 %3272 to i32
   %3274 = or disjoint i32 %3269, %3273
-  %3275 = getelementptr inbounds i8, ptr %3213, i64 4
+  %3275 = getelementptr inbounds nuw i8, ptr %3213, i64 4
   store ptr %3275, ptr %3208, align 8
   br label %3319
 
 3276:                                             ; preds = %3256
   %3277 = and i32 %3226, 4
   %3278 = icmp eq i32 %3277, 0
-  %3279 = getelementptr inbounds i8, ptr %3213, i64 2
+  %3279 = getelementptr inbounds nuw i8, ptr %3213, i64 2
   %3280 = load i8, ptr %3279, align 1
   %3281 = and i8 %3280, 63
   %3282 = zext nneg i8 %3281 to i32
-  %3283 = getelementptr inbounds i8, ptr %3213, i64 3
+  %3283 = getelementptr inbounds nuw i8, ptr %3213, i64 3
   %3284 = load i8, ptr %3283, align 1
   %3285 = and i8 %3284, 63
   %3286 = zext nneg i8 %3285 to i32
-  %3287 = getelementptr inbounds i8, ptr %3213, i64 4
+  %3287 = getelementptr inbounds nuw i8, ptr %3213, i64 4
   %3288 = load i8, ptr %3287, align 1
   %3289 = and i8 %3288, 63
   %3290 = zext nneg i8 %3289 to i32
@@ -7291,7 +7291,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3298 = shl nuw nsw i32 %3286, 6
   %3299 = or disjoint i32 %3297, %3298
   %3300 = or disjoint i32 %3299, %3290
-  %3301 = getelementptr inbounds i8, ptr %3213, i64 5
+  %3301 = getelementptr inbounds nuw i8, ptr %3213, i64 5
   store ptr %3301, ptr %3208, align 8
   br label %3319
 
@@ -7306,12 +7306,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3310 = or disjoint i32 %3308, %3309
   %3311 = shl nuw nsw i32 %3290, 6
   %3312 = or disjoint i32 %3310, %3311
-  %3313 = getelementptr inbounds i8, ptr %3213, i64 5
+  %3313 = getelementptr inbounds nuw i8, ptr %3213, i64 5
   %3314 = load i8, ptr %3313, align 1
   %3315 = and i8 %3314, 63
   %3316 = zext nneg i8 %3315 to i32
   %3317 = or disjoint i32 %3312, %3316
-  %3318 = getelementptr inbounds i8, ptr %3213, i64 6
+  %3318 = getelementptr inbounds nuw i8, ptr %3213, i64 6
   store ptr %3318, ptr %3208, align 8
   br label %3319
 
@@ -7323,7 +7323,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not8913, label %.preheader9566.preheader, label %3209
 
 ._crit_edge11146.loopexit:                        ; preds = %3209
-  %.phi.trans.insert12587 = getelementptr inbounds i8, ptr %.3, i64 60
+  %.phi.trans.insert12587 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   %.pre12588 = load i32, ptr %.phi.trans.insert12587, align 4
   br label %._crit_edge11146
 
@@ -7331,7 +7331,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.27780012767 = phi i32 [ %.277800, %3204 ], [ %.27780012766, %._crit_edge11146.loopexit ]
   %3322 = phi i32 [ %3205, %3204 ], [ %.pre12588, %._crit_edge11146.loopexit ]
   %.lcssa9982 = phi i32 [ 0, %3204 ], [ %3211, %._crit_edge11146.loopexit ]
-  %3323 = getelementptr inbounds i8, ptr %.3, i64 60
+  %3323 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   %3324 = icmp eq i32 %.lcssa9982, %3322
   br i1 %3324, label %.preheader9835.backedge, label %3325
 
@@ -7348,17 +7348,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 3328:                                             ; preds = %15877
-  %3329 = getelementptr inbounds i8, ptr %15814, i64 56
+  %3329 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %3330 = load i32, ptr %3329, align 8
   %3331 = add i32 %3330, 1
   store i32 %3331, ptr %3329, align 8
-  %3332 = getelementptr inbounds i8, ptr %15814, i64 60
+  %3332 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %3333 = load i32, ptr %3332, align 4
   %.not9183 = icmp ult i32 %3330, %3333
   br i1 %.not9183, label %3334, label %.backedge.backedge
 
 3334:                                             ; preds = %3328
-  %3335 = getelementptr inbounds i8, ptr %15814, i64 80
+  %3335 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %3336 = load ptr, ptr %3335, align 8
   %3337 = load ptr, ptr %39, align 8
   %.not9184 = icmp ult ptr %3336, %3337
@@ -7385,7 +7385,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9537, label %.backedge.backedge, label %.loopexit
 
 3346:                                             ; preds = %3334
-  %3347 = getelementptr inbounds i8, ptr %3336, i64 1
+  %3347 = getelementptr inbounds nuw i8, ptr %3336, i64 1
   store ptr %3347, ptr %3335, align 8
   %3348 = load i8, ptr %3336, align 1
   %3349 = zext i8 %3348 to i32
@@ -7401,7 +7401,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 3354:                                             ; preds = %3351
   %3355 = shl nuw nsw i32 %3349, 6
   %3356 = and i32 %3355, 1984
-  %3357 = getelementptr inbounds i8, ptr %3336, i64 2
+  %3357 = getelementptr inbounds nuw i8, ptr %3336, i64 2
   store ptr %3357, ptr %3335, align 8
   %3358 = load i8, ptr %3347, align 1
   %3359 = and i8 %3358, 63
@@ -7422,12 +7422,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3370 = and i32 %3369, 61440
   %3371 = shl nuw nsw i32 %3367, 6
   %3372 = or disjoint i32 %3371, %3370
-  %3373 = getelementptr inbounds i8, ptr %3336, i64 2
+  %3373 = getelementptr inbounds nuw i8, ptr %3336, i64 2
   %3374 = load i8, ptr %3373, align 1
   %3375 = and i8 %3374, 63
   %3376 = zext nneg i8 %3375 to i32
   %3377 = or disjoint i32 %3372, %3376
-  %3378 = getelementptr inbounds i8, ptr %3336, i64 3
+  %3378 = getelementptr inbounds nuw i8, ptr %3336, i64 3
   store ptr %3378, ptr %3335, align 8
   br label %3442
 
@@ -7441,33 +7441,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3384 = and i32 %3383, 1835008
   %3385 = shl nuw nsw i32 %3367, 12
   %3386 = or disjoint i32 %3385, %3384
-  %3387 = getelementptr inbounds i8, ptr %3336, i64 2
+  %3387 = getelementptr inbounds nuw i8, ptr %3336, i64 2
   %3388 = load i8, ptr %3387, align 1
   %3389 = and i8 %3388, 63
   %3390 = zext nneg i8 %3389 to i32
   %3391 = shl nuw nsw i32 %3390, 6
   %3392 = or disjoint i32 %3386, %3391
-  %3393 = getelementptr inbounds i8, ptr %3336, i64 3
+  %3393 = getelementptr inbounds nuw i8, ptr %3336, i64 3
   %3394 = load i8, ptr %3393, align 1
   %3395 = and i8 %3394, 63
   %3396 = zext nneg i8 %3395 to i32
   %3397 = or disjoint i32 %3392, %3396
-  %3398 = getelementptr inbounds i8, ptr %3336, i64 4
+  %3398 = getelementptr inbounds nuw i8, ptr %3336, i64 4
   store ptr %3398, ptr %3335, align 8
   br label %3442
 
 3399:                                             ; preds = %3379
   %3400 = and i32 %3349, 4
   %3401 = icmp eq i32 %3400, 0
-  %3402 = getelementptr inbounds i8, ptr %3336, i64 2
+  %3402 = getelementptr inbounds nuw i8, ptr %3336, i64 2
   %3403 = load i8, ptr %3402, align 1
   %3404 = and i8 %3403, 63
   %3405 = zext nneg i8 %3404 to i32
-  %3406 = getelementptr inbounds i8, ptr %3336, i64 3
+  %3406 = getelementptr inbounds nuw i8, ptr %3336, i64 3
   %3407 = load i8, ptr %3406, align 1
   %3408 = and i8 %3407, 63
   %3409 = zext nneg i8 %3408 to i32
-  %3410 = getelementptr inbounds i8, ptr %3336, i64 4
+  %3410 = getelementptr inbounds nuw i8, ptr %3336, i64 4
   %3411 = load i8, ptr %3410, align 1
   %3412 = and i8 %3411, 63
   %3413 = zext nneg i8 %3412 to i32
@@ -7483,7 +7483,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3421 = shl nuw nsw i32 %3409, 6
   %3422 = or disjoint i32 %3420, %3421
   %3423 = or disjoint i32 %3422, %3413
-  %3424 = getelementptr inbounds i8, ptr %3336, i64 5
+  %3424 = getelementptr inbounds nuw i8, ptr %3336, i64 5
   store ptr %3424, ptr %3335, align 8
   br label %3442
 
@@ -7498,25 +7498,25 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3433 = or disjoint i32 %3431, %3432
   %3434 = shl nuw nsw i32 %3413, 6
   %3435 = or disjoint i32 %3433, %3434
-  %3436 = getelementptr inbounds i8, ptr %3336, i64 5
+  %3436 = getelementptr inbounds nuw i8, ptr %3336, i64 5
   %3437 = load i8, ptr %3436, align 1
   %3438 = and i8 %3437, 63
   %3439 = zext nneg i8 %3438 to i32
   %3440 = or disjoint i32 %3435, %3439
-  %3441 = getelementptr inbounds i8, ptr %3336, i64 6
+  %3441 = getelementptr inbounds nuw i8, ptr %3336, i64 6
   store ptr %3441, ptr %3335, align 8
   br label %3442
 
 3442:                                             ; preds = %3354, %3382, %3425, %3414, %3368, %3346
   %.77695 = phi i32 [ %3361, %3354 ], [ %3377, %3368 ], [ %3397, %3382 ], [ %3423, %3414 ], [ %3440, %3425 ], [ %3349, %3346 ]
-  %3443 = getelementptr inbounds i8, ptr %15814, i64 16
+  %3443 = getelementptr inbounds nuw i8, ptr %15814, i64 16
   %3444 = load ptr, ptr %3443, align 8
   %3445 = tail call i32 @_pcre2_xclass_8(i32 noundef %.77695, ptr noundef %3444, i32 noundef %.lobit) #8
   %.not9185 = icmp eq i32 %3445, 0
   br i1 %.not9185, label %.backedge.backedge, label %.loopexit9585
 
 3446:                                             ; preds = %3325
-  %3447 = getelementptr inbounds i8, ptr %.3, i64 80
+  %3447 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %3448 = load ptr, ptr %3447, align 8
   store ptr %3448, ptr %3150, align 8
   %3449 = load i32, ptr %3323, align 4
@@ -7560,7 +7560,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 3465:                                             ; preds = %3461
   %3466 = and i32 %3463, 32
   %3467 = icmp eq i32 %3466, 0
-  %3468 = getelementptr inbounds i8, ptr %3451, i64 1
+  %3468 = getelementptr inbounds nuw i8, ptr %3451, i64 1
   %3469 = load i8, ptr %3468, align 1
   %3470 = and i8 %3469, 63
   %3471 = zext nneg i8 %3470 to i32
@@ -7582,7 +7582,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3481 = and i32 %3480, 61440
   %3482 = shl nuw nsw i32 %3471, 6
   %3483 = or disjoint i32 %3482, %3481
-  %3484 = getelementptr inbounds i8, ptr %3451, i64 2
+  %3484 = getelementptr inbounds nuw i8, ptr %3451, i64 2
   %3485 = load i8, ptr %3484, align 1
   %3486 = and i8 %3485, 63
   %3487 = zext nneg i8 %3486 to i32
@@ -7599,13 +7599,13 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3494 = and i32 %3493, 1835008
   %3495 = shl nuw nsw i32 %3471, 12
   %3496 = or disjoint i32 %3495, %3494
-  %3497 = getelementptr inbounds i8, ptr %3451, i64 2
+  %3497 = getelementptr inbounds nuw i8, ptr %3451, i64 2
   %3498 = load i8, ptr %3497, align 1
   %3499 = and i8 %3498, 63
   %3500 = zext nneg i8 %3499 to i32
   %3501 = shl nuw nsw i32 %3500, 6
   %3502 = or disjoint i32 %3496, %3501
-  %3503 = getelementptr inbounds i8, ptr %3451, i64 3
+  %3503 = getelementptr inbounds nuw i8, ptr %3451, i64 3
   %3504 = load i8, ptr %3503, align 1
   %3505 = and i8 %3504, 63
   %3506 = zext nneg i8 %3505 to i32
@@ -7615,15 +7615,15 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 3508:                                             ; preds = %3489
   %3509 = and i32 %3463, 4
   %3510 = icmp eq i32 %3509, 0
-  %3511 = getelementptr inbounds i8, ptr %3451, i64 2
+  %3511 = getelementptr inbounds nuw i8, ptr %3451, i64 2
   %3512 = load i8, ptr %3511, align 1
   %3513 = and i8 %3512, 63
   %3514 = zext nneg i8 %3513 to i32
-  %3515 = getelementptr inbounds i8, ptr %3451, i64 3
+  %3515 = getelementptr inbounds nuw i8, ptr %3451, i64 3
   %3516 = load i8, ptr %3515, align 1
   %3517 = and i8 %3516, 63
   %3518 = zext nneg i8 %3517 to i32
-  %3519 = getelementptr inbounds i8, ptr %3451, i64 4
+  %3519 = getelementptr inbounds nuw i8, ptr %3451, i64 4
   %3520 = load i8, ptr %3519, align 1
   %3521 = and i8 %3520, 63
   %3522 = zext nneg i8 %3521 to i32
@@ -7652,7 +7652,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3541 = or disjoint i32 %3539, %3540
   %3542 = shl nuw nsw i32 %3522, 6
   %3543 = or disjoint i32 %3541, %3542
-  %3544 = getelementptr inbounds i8, ptr %3451, i64 5
+  %3544 = getelementptr inbounds nuw i8, ptr %3451, i64 5
   %3545 = load i8, ptr %3544, align 1
   %3546 = and i8 %3545, 63
   %3547 = zext nneg i8 %3546 to i32
@@ -7669,7 +7669,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 3552:                                             ; preds = %3549
   %3553 = load ptr, ptr %3447, align 8
-  %3554 = getelementptr inbounds i8, ptr %3553, i64 %.07871
+  %3554 = getelementptr inbounds nuw i8, ptr %3553, i64 %.07871
   store ptr %3554, ptr %3447, align 8
   %3555 = add nuw i32 %.20764711148, 1
   %3556 = load i32, ptr %3323, align 4
@@ -7689,17 +7689,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 3560:                                             ; preds = %15878
-  %3561 = getelementptr inbounds i8, ptr %15814, i64 80
+  %3561 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %3562 = load ptr, ptr %3561, align 8
   %3563 = getelementptr inbounds i8, ptr %3562, i64 -1
   store ptr %3563, ptr %3561, align 8
-  %3564 = getelementptr inbounds i8, ptr %15814, i64 8
+  %3564 = getelementptr inbounds nuw i8, ptr %15814, i64 8
   %3565 = load ptr, ptr %3564, align 8
   %.not9181 = icmp ugt ptr %3562, %3565
   br i1 %.not9181, label %3566, label %.backedge.backedge
 
 3566:                                             ; preds = %3560
-  %3567 = getelementptr inbounds i8, ptr %15814, i64 80
+  %3567 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   br i1 %15, label %.preheader9829, label %.loopexit9830
 
 .preheader9829:                                   ; preds = %3566
@@ -7717,7 +7717,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %3574, label %.lr.ph11264, label %.loopexit9830
 
 3575:                                             ; preds = %.preheader9835
-  %3576 = getelementptr inbounds i8, ptr %.3, i64 80
+  %3576 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %3577 = load ptr, ptr %3576, align 8
   %3578 = load ptr, ptr %39, align 8
   %.not8902 = icmp ult ptr %3577, %3578
@@ -7744,7 +7744,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9485, label %.preheader9566.preheader, label %.loopexit
 
 3587:                                             ; preds = %3575
-  %3588 = getelementptr inbounds i8, ptr %3577, i64 1
+  %3588 = getelementptr inbounds nuw i8, ptr %3577, i64 1
   store ptr %3588, ptr %3576, align 8
   %3589 = load i8, ptr %3577, align 1
   %3590 = zext i8 %3589 to i32
@@ -7760,7 +7760,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 3595:                                             ; preds = %3592
   %3596 = shl nuw nsw i32 %3590, 6
   %3597 = and i32 %3596, 1984
-  %3598 = getelementptr inbounds i8, ptr %3577, i64 2
+  %3598 = getelementptr inbounds nuw i8, ptr %3577, i64 2
   store ptr %3598, ptr %3576, align 8
   %3599 = load i8, ptr %3588, align 1
   %3600 = and i8 %3599, 63
@@ -7781,12 +7781,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3611 = and i32 %3610, 61440
   %3612 = shl nuw nsw i32 %3608, 6
   %3613 = or disjoint i32 %3612, %3611
-  %3614 = getelementptr inbounds i8, ptr %3577, i64 2
+  %3614 = getelementptr inbounds nuw i8, ptr %3577, i64 2
   %3615 = load i8, ptr %3614, align 1
   %3616 = and i8 %3615, 63
   %3617 = zext nneg i8 %3616 to i32
   %3618 = or disjoint i32 %3613, %3617
-  %3619 = getelementptr inbounds i8, ptr %3577, i64 3
+  %3619 = getelementptr inbounds nuw i8, ptr %3577, i64 3
   store ptr %3619, ptr %3576, align 8
   br label %3683
 
@@ -7800,33 +7800,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3625 = and i32 %3624, 1835008
   %3626 = shl nuw nsw i32 %3608, 12
   %3627 = or disjoint i32 %3626, %3625
-  %3628 = getelementptr inbounds i8, ptr %3577, i64 2
+  %3628 = getelementptr inbounds nuw i8, ptr %3577, i64 2
   %3629 = load i8, ptr %3628, align 1
   %3630 = and i8 %3629, 63
   %3631 = zext nneg i8 %3630 to i32
   %3632 = shl nuw nsw i32 %3631, 6
   %3633 = or disjoint i32 %3627, %3632
-  %3634 = getelementptr inbounds i8, ptr %3577, i64 3
+  %3634 = getelementptr inbounds nuw i8, ptr %3577, i64 3
   %3635 = load i8, ptr %3634, align 1
   %3636 = and i8 %3635, 63
   %3637 = zext nneg i8 %3636 to i32
   %3638 = or disjoint i32 %3633, %3637
-  %3639 = getelementptr inbounds i8, ptr %3577, i64 4
+  %3639 = getelementptr inbounds nuw i8, ptr %3577, i64 4
   store ptr %3639, ptr %3576, align 8
   br label %3683
 
 3640:                                             ; preds = %3620
   %3641 = and i32 %3590, 4
   %3642 = icmp eq i32 %3641, 0
-  %3643 = getelementptr inbounds i8, ptr %3577, i64 2
+  %3643 = getelementptr inbounds nuw i8, ptr %3577, i64 2
   %3644 = load i8, ptr %3643, align 1
   %3645 = and i8 %3644, 63
   %3646 = zext nneg i8 %3645 to i32
-  %3647 = getelementptr inbounds i8, ptr %3577, i64 3
+  %3647 = getelementptr inbounds nuw i8, ptr %3577, i64 3
   %3648 = load i8, ptr %3647, align 1
   %3649 = and i8 %3648, 63
   %3650 = zext nneg i8 %3649 to i32
-  %3651 = getelementptr inbounds i8, ptr %3577, i64 4
+  %3651 = getelementptr inbounds nuw i8, ptr %3577, i64 4
   %3652 = load i8, ptr %3651, align 1
   %3653 = and i8 %3652, 63
   %3654 = zext nneg i8 %3653 to i32
@@ -7842,7 +7842,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3662 = shl nuw nsw i32 %3650, 6
   %3663 = or disjoint i32 %3661, %3662
   %3664 = or disjoint i32 %3663, %3654
-  %3665 = getelementptr inbounds i8, ptr %3577, i64 5
+  %3665 = getelementptr inbounds nuw i8, ptr %3577, i64 5
   store ptr %3665, ptr %3576, align 8
   br label %3683
 
@@ -7857,12 +7857,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3674 = or disjoint i32 %3672, %3673
   %3675 = shl nuw nsw i32 %3654, 6
   %3676 = or disjoint i32 %3674, %3675
-  %3677 = getelementptr inbounds i8, ptr %3577, i64 5
+  %3677 = getelementptr inbounds nuw i8, ptr %3577, i64 5
   %3678 = load i8, ptr %3677, align 1
   %3679 = and i8 %3678, 63
   %3680 = zext nneg i8 %3679 to i32
   %3681 = or disjoint i32 %3676, %3680
-  %3682 = getelementptr inbounds i8, ptr %3577, i64 6
+  %3682 = getelementptr inbounds nuw i8, ptr %3577, i64 6
   store ptr %3682, ptr %3576, align 8
   br label %3683
 
@@ -7875,19 +7875,19 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.976979312 = phi i32 [ %.97697, %3683 ], [ %3590, %3587 ]
   %3685 = load ptr, ptr %38, align 8
   %3686 = zext nneg i32 %.976979312 to i64
-  %3687 = getelementptr inbounds i8, ptr %3685, i64 %3686
+  %3687 = getelementptr inbounds nuw i8, ptr %3685, i64 %3686
   %3688 = load i8, ptr %3687, align 1
   %3689 = and i8 %3688, 8
   %.not8903 = icmp eq i8 %3689, 0
   br i1 %.not8903, label %3690, label %.preheader9566.preheader
 
 3690:                                             ; preds = %.thread9310, %3683
-  %3691 = getelementptr inbounds i8, ptr %142, i64 1
+  %3691 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %3691, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 3692:                                             ; preds = %.preheader9835
-  %3693 = getelementptr inbounds i8, ptr %.3, i64 80
+  %3693 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %3694 = load ptr, ptr %3693, align 8
   %3695 = load ptr, ptr %39, align 8
   %.not8899 = icmp ult ptr %3694, %3695
@@ -7914,7 +7914,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9484, label %.preheader9566.preheader, label %.loopexit
 
 3704:                                             ; preds = %3692
-  %3705 = getelementptr inbounds i8, ptr %3694, i64 1
+  %3705 = getelementptr inbounds nuw i8, ptr %3694, i64 1
   store ptr %3705, ptr %3693, align 8
   %3706 = load i8, ptr %3694, align 1
   %3707 = zext i8 %3706 to i32
@@ -7930,7 +7930,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 3712:                                             ; preds = %3709
   %3713 = shl nuw nsw i32 %3707, 6
   %3714 = and i32 %3713, 1984
-  %3715 = getelementptr inbounds i8, ptr %3694, i64 2
+  %3715 = getelementptr inbounds nuw i8, ptr %3694, i64 2
   store ptr %3715, ptr %3693, align 8
   %3716 = load i8, ptr %3705, align 1
   %3717 = and i8 %3716, 63
@@ -7951,12 +7951,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3728 = and i32 %3727, 61440
   %3729 = shl nuw nsw i32 %3725, 6
   %3730 = or disjoint i32 %3729, %3728
-  %3731 = getelementptr inbounds i8, ptr %3694, i64 2
+  %3731 = getelementptr inbounds nuw i8, ptr %3694, i64 2
   %3732 = load i8, ptr %3731, align 1
   %3733 = and i8 %3732, 63
   %3734 = zext nneg i8 %3733 to i32
   %3735 = or disjoint i32 %3730, %3734
-  %3736 = getelementptr inbounds i8, ptr %3694, i64 3
+  %3736 = getelementptr inbounds nuw i8, ptr %3694, i64 3
   store ptr %3736, ptr %3693, align 8
   br label %3800
 
@@ -7970,33 +7970,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3742 = and i32 %3741, 1835008
   %3743 = shl nuw nsw i32 %3725, 12
   %3744 = or disjoint i32 %3743, %3742
-  %3745 = getelementptr inbounds i8, ptr %3694, i64 2
+  %3745 = getelementptr inbounds nuw i8, ptr %3694, i64 2
   %3746 = load i8, ptr %3745, align 1
   %3747 = and i8 %3746, 63
   %3748 = zext nneg i8 %3747 to i32
   %3749 = shl nuw nsw i32 %3748, 6
   %3750 = or disjoint i32 %3744, %3749
-  %3751 = getelementptr inbounds i8, ptr %3694, i64 3
+  %3751 = getelementptr inbounds nuw i8, ptr %3694, i64 3
   %3752 = load i8, ptr %3751, align 1
   %3753 = and i8 %3752, 63
   %3754 = zext nneg i8 %3753 to i32
   %3755 = or disjoint i32 %3750, %3754
-  %3756 = getelementptr inbounds i8, ptr %3694, i64 4
+  %3756 = getelementptr inbounds nuw i8, ptr %3694, i64 4
   store ptr %3756, ptr %3693, align 8
   br label %3800
 
 3757:                                             ; preds = %3737
   %3758 = and i32 %3707, 4
   %3759 = icmp eq i32 %3758, 0
-  %3760 = getelementptr inbounds i8, ptr %3694, i64 2
+  %3760 = getelementptr inbounds nuw i8, ptr %3694, i64 2
   %3761 = load i8, ptr %3760, align 1
   %3762 = and i8 %3761, 63
   %3763 = zext nneg i8 %3762 to i32
-  %3764 = getelementptr inbounds i8, ptr %3694, i64 3
+  %3764 = getelementptr inbounds nuw i8, ptr %3694, i64 3
   %3765 = load i8, ptr %3764, align 1
   %3766 = and i8 %3765, 63
   %3767 = zext nneg i8 %3766 to i32
-  %3768 = getelementptr inbounds i8, ptr %3694, i64 4
+  %3768 = getelementptr inbounds nuw i8, ptr %3694, i64 4
   %3769 = load i8, ptr %3768, align 1
   %3770 = and i8 %3769, 63
   %3771 = zext nneg i8 %3770 to i32
@@ -8012,7 +8012,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3779 = shl nuw nsw i32 %3767, 6
   %3780 = or disjoint i32 %3778, %3779
   %3781 = or disjoint i32 %3780, %3771
-  %3782 = getelementptr inbounds i8, ptr %3694, i64 5
+  %3782 = getelementptr inbounds nuw i8, ptr %3694, i64 5
   store ptr %3782, ptr %3693, align 8
   br label %3800
 
@@ -8027,12 +8027,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3791 = or disjoint i32 %3789, %3790
   %3792 = shl nuw nsw i32 %3771, 6
   %3793 = or disjoint i32 %3791, %3792
-  %3794 = getelementptr inbounds i8, ptr %3694, i64 5
+  %3794 = getelementptr inbounds nuw i8, ptr %3694, i64 5
   %3795 = load i8, ptr %3794, align 1
   %3796 = and i8 %3795, 63
   %3797 = zext nneg i8 %3796 to i32
   %3798 = or disjoint i32 %3793, %3797
-  %3799 = getelementptr inbounds i8, ptr %3694, i64 6
+  %3799 = getelementptr inbounds nuw i8, ptr %3694, i64 6
   store ptr %3799, ptr %3693, align 8
   br label %3800
 
@@ -8045,19 +8045,19 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.1076989315 = phi i32 [ %.107698, %3800 ], [ %3707, %3704 ]
   %3802 = load ptr, ptr %38, align 8
   %3803 = zext nneg i32 %.1076989315 to i64
-  %3804 = getelementptr inbounds i8, ptr %3802, i64 %3803
+  %3804 = getelementptr inbounds nuw i8, ptr %3802, i64 %3803
   %3805 = load i8, ptr %3804, align 1
   %3806 = and i8 %3805, 8
   %3807 = icmp eq i8 %3806, 0
   br i1 %3807, label %.preheader9566.preheader, label %3808
 
 3808:                                             ; preds = %.thread9313
-  %3809 = getelementptr inbounds i8, ptr %142, i64 1
+  %3809 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %3809, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 3810:                                             ; preds = %.preheader9835
-  %3811 = getelementptr inbounds i8, ptr %.3, i64 80
+  %3811 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %3812 = load ptr, ptr %3811, align 8
   %3813 = load ptr, ptr %39, align 8
   %.not8895 = icmp ult ptr %3812, %3813
@@ -8084,7 +8084,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9483, label %.preheader9566.preheader, label %.loopexit
 
 3822:                                             ; preds = %3810
-  %3823 = getelementptr inbounds i8, ptr %3812, i64 1
+  %3823 = getelementptr inbounds nuw i8, ptr %3812, i64 1
   store ptr %3823, ptr %3811, align 8
   %3824 = load i8, ptr %3812, align 1
   %3825 = zext i8 %3824 to i32
@@ -8100,7 +8100,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 3830:                                             ; preds = %3827
   %3831 = shl nuw nsw i32 %3825, 6
   %3832 = and i32 %3831, 1984
-  %3833 = getelementptr inbounds i8, ptr %3812, i64 2
+  %3833 = getelementptr inbounds nuw i8, ptr %3812, i64 2
   store ptr %3833, ptr %3811, align 8
   %3834 = load i8, ptr %3823, align 1
   %3835 = and i8 %3834, 63
@@ -8121,12 +8121,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3846 = and i32 %3845, 61440
   %3847 = shl nuw nsw i32 %3843, 6
   %3848 = or disjoint i32 %3847, %3846
-  %3849 = getelementptr inbounds i8, ptr %3812, i64 2
+  %3849 = getelementptr inbounds nuw i8, ptr %3812, i64 2
   %3850 = load i8, ptr %3849, align 1
   %3851 = and i8 %3850, 63
   %3852 = zext nneg i8 %3851 to i32
   %3853 = or disjoint i32 %3848, %3852
-  %3854 = getelementptr inbounds i8, ptr %3812, i64 3
+  %3854 = getelementptr inbounds nuw i8, ptr %3812, i64 3
   store ptr %3854, ptr %3811, align 8
   br label %3918
 
@@ -8140,33 +8140,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3860 = and i32 %3859, 1835008
   %3861 = shl nuw nsw i32 %3843, 12
   %3862 = or disjoint i32 %3861, %3860
-  %3863 = getelementptr inbounds i8, ptr %3812, i64 2
+  %3863 = getelementptr inbounds nuw i8, ptr %3812, i64 2
   %3864 = load i8, ptr %3863, align 1
   %3865 = and i8 %3864, 63
   %3866 = zext nneg i8 %3865 to i32
   %3867 = shl nuw nsw i32 %3866, 6
   %3868 = or disjoint i32 %3862, %3867
-  %3869 = getelementptr inbounds i8, ptr %3812, i64 3
+  %3869 = getelementptr inbounds nuw i8, ptr %3812, i64 3
   %3870 = load i8, ptr %3869, align 1
   %3871 = and i8 %3870, 63
   %3872 = zext nneg i8 %3871 to i32
   %3873 = or disjoint i32 %3868, %3872
-  %3874 = getelementptr inbounds i8, ptr %3812, i64 4
+  %3874 = getelementptr inbounds nuw i8, ptr %3812, i64 4
   store ptr %3874, ptr %3811, align 8
   br label %3918
 
 3875:                                             ; preds = %3855
   %3876 = and i32 %3825, 4
   %3877 = icmp eq i32 %3876, 0
-  %3878 = getelementptr inbounds i8, ptr %3812, i64 2
+  %3878 = getelementptr inbounds nuw i8, ptr %3812, i64 2
   %3879 = load i8, ptr %3878, align 1
   %3880 = and i8 %3879, 63
   %3881 = zext nneg i8 %3880 to i32
-  %3882 = getelementptr inbounds i8, ptr %3812, i64 3
+  %3882 = getelementptr inbounds nuw i8, ptr %3812, i64 3
   %3883 = load i8, ptr %3882, align 1
   %3884 = and i8 %3883, 63
   %3885 = zext nneg i8 %3884 to i32
-  %3886 = getelementptr inbounds i8, ptr %3812, i64 4
+  %3886 = getelementptr inbounds nuw i8, ptr %3812, i64 4
   %3887 = load i8, ptr %3886, align 1
   %3888 = and i8 %3887, 63
   %3889 = zext nneg i8 %3888 to i32
@@ -8182,7 +8182,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3897 = shl nuw nsw i32 %3885, 6
   %3898 = or disjoint i32 %3896, %3897
   %3899 = or disjoint i32 %3898, %3889
-  %3900 = getelementptr inbounds i8, ptr %3812, i64 5
+  %3900 = getelementptr inbounds nuw i8, ptr %3812, i64 5
   store ptr %3900, ptr %3811, align 8
   br label %3918
 
@@ -8197,12 +8197,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3909 = or disjoint i32 %3907, %3908
   %3910 = shl nuw nsw i32 %3889, 6
   %3911 = or disjoint i32 %3909, %3910
-  %3912 = getelementptr inbounds i8, ptr %3812, i64 5
+  %3912 = getelementptr inbounds nuw i8, ptr %3812, i64 5
   %3913 = load i8, ptr %3912, align 1
   %3914 = and i8 %3913, 63
   %3915 = zext nneg i8 %3914 to i32
   %3916 = or disjoint i32 %3911, %3915
-  %3917 = getelementptr inbounds i8, ptr %3812, i64 6
+  %3917 = getelementptr inbounds nuw i8, ptr %3812, i64 6
   store ptr %3917, ptr %3811, align 8
   br label %3918
 
@@ -8215,19 +8215,19 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.1176999318 = phi i32 [ %.117699, %3918 ], [ %3825, %3822 ]
   %3920 = load ptr, ptr %38, align 8
   %3921 = zext nneg i32 %.1176999318 to i64
-  %3922 = getelementptr inbounds i8, ptr %3920, i64 %3921
+  %3922 = getelementptr inbounds nuw i8, ptr %3920, i64 %3921
   %3923 = load i8, ptr %3922, align 1
   %3924 = and i8 %3923, 1
   %.not8896 = icmp eq i8 %3924, 0
   br i1 %.not8896, label %3925, label %.preheader9566.preheader
 
 3925:                                             ; preds = %.thread9316, %3918
-  %3926 = getelementptr inbounds i8, ptr %142, i64 1
+  %3926 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %3926, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 3927:                                             ; preds = %.preheader9835
-  %3928 = getelementptr inbounds i8, ptr %.3, i64 80
+  %3928 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %3929 = load ptr, ptr %3928, align 8
   %3930 = load ptr, ptr %39, align 8
   %.not8892 = icmp ult ptr %3929, %3930
@@ -8254,7 +8254,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9482, label %.preheader9566.preheader, label %.loopexit
 
 3939:                                             ; preds = %3927
-  %3940 = getelementptr inbounds i8, ptr %3929, i64 1
+  %3940 = getelementptr inbounds nuw i8, ptr %3929, i64 1
   store ptr %3940, ptr %3928, align 8
   %3941 = load i8, ptr %3929, align 1
   %3942 = zext i8 %3941 to i32
@@ -8270,7 +8270,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 3947:                                             ; preds = %3944
   %3948 = shl nuw nsw i32 %3942, 6
   %3949 = and i32 %3948, 1984
-  %3950 = getelementptr inbounds i8, ptr %3929, i64 2
+  %3950 = getelementptr inbounds nuw i8, ptr %3929, i64 2
   store ptr %3950, ptr %3928, align 8
   %3951 = load i8, ptr %3940, align 1
   %3952 = and i8 %3951, 63
@@ -8291,12 +8291,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3963 = and i32 %3962, 61440
   %3964 = shl nuw nsw i32 %3960, 6
   %3965 = or disjoint i32 %3964, %3963
-  %3966 = getelementptr inbounds i8, ptr %3929, i64 2
+  %3966 = getelementptr inbounds nuw i8, ptr %3929, i64 2
   %3967 = load i8, ptr %3966, align 1
   %3968 = and i8 %3967, 63
   %3969 = zext nneg i8 %3968 to i32
   %3970 = or disjoint i32 %3965, %3969
-  %3971 = getelementptr inbounds i8, ptr %3929, i64 3
+  %3971 = getelementptr inbounds nuw i8, ptr %3929, i64 3
   store ptr %3971, ptr %3928, align 8
   br label %4035
 
@@ -8310,33 +8310,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %3977 = and i32 %3976, 1835008
   %3978 = shl nuw nsw i32 %3960, 12
   %3979 = or disjoint i32 %3978, %3977
-  %3980 = getelementptr inbounds i8, ptr %3929, i64 2
+  %3980 = getelementptr inbounds nuw i8, ptr %3929, i64 2
   %3981 = load i8, ptr %3980, align 1
   %3982 = and i8 %3981, 63
   %3983 = zext nneg i8 %3982 to i32
   %3984 = shl nuw nsw i32 %3983, 6
   %3985 = or disjoint i32 %3979, %3984
-  %3986 = getelementptr inbounds i8, ptr %3929, i64 3
+  %3986 = getelementptr inbounds nuw i8, ptr %3929, i64 3
   %3987 = load i8, ptr %3986, align 1
   %3988 = and i8 %3987, 63
   %3989 = zext nneg i8 %3988 to i32
   %3990 = or disjoint i32 %3985, %3989
-  %3991 = getelementptr inbounds i8, ptr %3929, i64 4
+  %3991 = getelementptr inbounds nuw i8, ptr %3929, i64 4
   store ptr %3991, ptr %3928, align 8
   br label %4035
 
 3992:                                             ; preds = %3972
   %3993 = and i32 %3942, 4
   %3994 = icmp eq i32 %3993, 0
-  %3995 = getelementptr inbounds i8, ptr %3929, i64 2
+  %3995 = getelementptr inbounds nuw i8, ptr %3929, i64 2
   %3996 = load i8, ptr %3995, align 1
   %3997 = and i8 %3996, 63
   %3998 = zext nneg i8 %3997 to i32
-  %3999 = getelementptr inbounds i8, ptr %3929, i64 3
+  %3999 = getelementptr inbounds nuw i8, ptr %3929, i64 3
   %4000 = load i8, ptr %3999, align 1
   %4001 = and i8 %4000, 63
   %4002 = zext nneg i8 %4001 to i32
-  %4003 = getelementptr inbounds i8, ptr %3929, i64 4
+  %4003 = getelementptr inbounds nuw i8, ptr %3929, i64 4
   %4004 = load i8, ptr %4003, align 1
   %4005 = and i8 %4004, 63
   %4006 = zext nneg i8 %4005 to i32
@@ -8352,7 +8352,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4014 = shl nuw nsw i32 %4002, 6
   %4015 = or disjoint i32 %4013, %4014
   %4016 = or disjoint i32 %4015, %4006
-  %4017 = getelementptr inbounds i8, ptr %3929, i64 5
+  %4017 = getelementptr inbounds nuw i8, ptr %3929, i64 5
   store ptr %4017, ptr %3928, align 8
   br label %4035
 
@@ -8367,12 +8367,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4026 = or disjoint i32 %4024, %4025
   %4027 = shl nuw nsw i32 %4006, 6
   %4028 = or disjoint i32 %4026, %4027
-  %4029 = getelementptr inbounds i8, ptr %3929, i64 5
+  %4029 = getelementptr inbounds nuw i8, ptr %3929, i64 5
   %4030 = load i8, ptr %4029, align 1
   %4031 = and i8 %4030, 63
   %4032 = zext nneg i8 %4031 to i32
   %4033 = or disjoint i32 %4028, %4032
-  %4034 = getelementptr inbounds i8, ptr %3929, i64 6
+  %4034 = getelementptr inbounds nuw i8, ptr %3929, i64 6
   store ptr %4034, ptr %3928, align 8
   br label %4035
 
@@ -8385,19 +8385,19 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.1277009321 = phi i32 [ %.127700, %4035 ], [ %3942, %3939 ]
   %4037 = load ptr, ptr %38, align 8
   %4038 = zext nneg i32 %.1277009321 to i64
-  %4039 = getelementptr inbounds i8, ptr %4037, i64 %4038
+  %4039 = getelementptr inbounds nuw i8, ptr %4037, i64 %4038
   %4040 = load i8, ptr %4039, align 1
   %4041 = and i8 %4040, 1
   %4042 = icmp eq i8 %4041, 0
   br i1 %4042, label %.preheader9566.preheader, label %4043
 
 4043:                                             ; preds = %.thread9319
-  %4044 = getelementptr inbounds i8, ptr %142, i64 1
+  %4044 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %4044, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 4045:                                             ; preds = %.preheader9835
-  %4046 = getelementptr inbounds i8, ptr %.3, i64 80
+  %4046 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %4047 = load ptr, ptr %4046, align 8
   %4048 = load ptr, ptr %39, align 8
   %.not8888 = icmp ult ptr %4047, %4048
@@ -8424,7 +8424,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9481, label %.preheader9566.preheader, label %.loopexit
 
 4057:                                             ; preds = %4045
-  %4058 = getelementptr inbounds i8, ptr %4047, i64 1
+  %4058 = getelementptr inbounds nuw i8, ptr %4047, i64 1
   store ptr %4058, ptr %4046, align 8
   %4059 = load i8, ptr %4047, align 1
   %4060 = zext i8 %4059 to i32
@@ -8440,7 +8440,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 4065:                                             ; preds = %4062
   %4066 = shl nuw nsw i32 %4060, 6
   %4067 = and i32 %4066, 1984
-  %4068 = getelementptr inbounds i8, ptr %4047, i64 2
+  %4068 = getelementptr inbounds nuw i8, ptr %4047, i64 2
   store ptr %4068, ptr %4046, align 8
   %4069 = load i8, ptr %4058, align 1
   %4070 = and i8 %4069, 63
@@ -8461,12 +8461,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4081 = and i32 %4080, 61440
   %4082 = shl nuw nsw i32 %4078, 6
   %4083 = or disjoint i32 %4082, %4081
-  %4084 = getelementptr inbounds i8, ptr %4047, i64 2
+  %4084 = getelementptr inbounds nuw i8, ptr %4047, i64 2
   %4085 = load i8, ptr %4084, align 1
   %4086 = and i8 %4085, 63
   %4087 = zext nneg i8 %4086 to i32
   %4088 = or disjoint i32 %4083, %4087
-  %4089 = getelementptr inbounds i8, ptr %4047, i64 3
+  %4089 = getelementptr inbounds nuw i8, ptr %4047, i64 3
   store ptr %4089, ptr %4046, align 8
   br label %4153
 
@@ -8480,33 +8480,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4095 = and i32 %4094, 1835008
   %4096 = shl nuw nsw i32 %4078, 12
   %4097 = or disjoint i32 %4096, %4095
-  %4098 = getelementptr inbounds i8, ptr %4047, i64 2
+  %4098 = getelementptr inbounds nuw i8, ptr %4047, i64 2
   %4099 = load i8, ptr %4098, align 1
   %4100 = and i8 %4099, 63
   %4101 = zext nneg i8 %4100 to i32
   %4102 = shl nuw nsw i32 %4101, 6
   %4103 = or disjoint i32 %4097, %4102
-  %4104 = getelementptr inbounds i8, ptr %4047, i64 3
+  %4104 = getelementptr inbounds nuw i8, ptr %4047, i64 3
   %4105 = load i8, ptr %4104, align 1
   %4106 = and i8 %4105, 63
   %4107 = zext nneg i8 %4106 to i32
   %4108 = or disjoint i32 %4103, %4107
-  %4109 = getelementptr inbounds i8, ptr %4047, i64 4
+  %4109 = getelementptr inbounds nuw i8, ptr %4047, i64 4
   store ptr %4109, ptr %4046, align 8
   br label %4153
 
 4110:                                             ; preds = %4090
   %4111 = and i32 %4060, 4
   %4112 = icmp eq i32 %4111, 0
-  %4113 = getelementptr inbounds i8, ptr %4047, i64 2
+  %4113 = getelementptr inbounds nuw i8, ptr %4047, i64 2
   %4114 = load i8, ptr %4113, align 1
   %4115 = and i8 %4114, 63
   %4116 = zext nneg i8 %4115 to i32
-  %4117 = getelementptr inbounds i8, ptr %4047, i64 3
+  %4117 = getelementptr inbounds nuw i8, ptr %4047, i64 3
   %4118 = load i8, ptr %4117, align 1
   %4119 = and i8 %4118, 63
   %4120 = zext nneg i8 %4119 to i32
-  %4121 = getelementptr inbounds i8, ptr %4047, i64 4
+  %4121 = getelementptr inbounds nuw i8, ptr %4047, i64 4
   %4122 = load i8, ptr %4121, align 1
   %4123 = and i8 %4122, 63
   %4124 = zext nneg i8 %4123 to i32
@@ -8522,7 +8522,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4132 = shl nuw nsw i32 %4120, 6
   %4133 = or disjoint i32 %4131, %4132
   %4134 = or disjoint i32 %4133, %4124
-  %4135 = getelementptr inbounds i8, ptr %4047, i64 5
+  %4135 = getelementptr inbounds nuw i8, ptr %4047, i64 5
   store ptr %4135, ptr %4046, align 8
   br label %4153
 
@@ -8537,12 +8537,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4144 = or disjoint i32 %4142, %4143
   %4145 = shl nuw nsw i32 %4124, 6
   %4146 = or disjoint i32 %4144, %4145
-  %4147 = getelementptr inbounds i8, ptr %4047, i64 5
+  %4147 = getelementptr inbounds nuw i8, ptr %4047, i64 5
   %4148 = load i8, ptr %4147, align 1
   %4149 = and i8 %4148, 63
   %4150 = zext nneg i8 %4149 to i32
   %4151 = or disjoint i32 %4146, %4150
-  %4152 = getelementptr inbounds i8, ptr %4047, i64 6
+  %4152 = getelementptr inbounds nuw i8, ptr %4047, i64 6
   store ptr %4152, ptr %4046, align 8
   br label %4153
 
@@ -8555,19 +8555,19 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.1377019324 = phi i32 [ %.137701, %4153 ], [ %4060, %4057 ]
   %4155 = load ptr, ptr %38, align 8
   %4156 = zext nneg i32 %.1377019324 to i64
-  %4157 = getelementptr inbounds i8, ptr %4155, i64 %4156
+  %4157 = getelementptr inbounds nuw i8, ptr %4155, i64 %4156
   %4158 = load i8, ptr %4157, align 1
   %4159 = and i8 %4158, 16
   %.not8889 = icmp eq i8 %4159, 0
   br i1 %.not8889, label %4160, label %.preheader9566.preheader
 
 4160:                                             ; preds = %.thread9322, %4153
-  %4161 = getelementptr inbounds i8, ptr %142, i64 1
+  %4161 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %4161, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 4162:                                             ; preds = %.preheader9835
-  %4163 = getelementptr inbounds i8, ptr %.3, i64 80
+  %4163 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %4164 = load ptr, ptr %4163, align 8
   %4165 = load ptr, ptr %39, align 8
   %.not8885 = icmp ult ptr %4164, %4165
@@ -8594,7 +8594,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9480, label %.preheader9566.preheader, label %.loopexit
 
 4174:                                             ; preds = %4162
-  %4175 = getelementptr inbounds i8, ptr %4164, i64 1
+  %4175 = getelementptr inbounds nuw i8, ptr %4164, i64 1
   store ptr %4175, ptr %4163, align 8
   %4176 = load i8, ptr %4164, align 1
   %4177 = zext i8 %4176 to i32
@@ -8610,7 +8610,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 4182:                                             ; preds = %4179
   %4183 = shl nuw nsw i32 %4177, 6
   %4184 = and i32 %4183, 1984
-  %4185 = getelementptr inbounds i8, ptr %4164, i64 2
+  %4185 = getelementptr inbounds nuw i8, ptr %4164, i64 2
   store ptr %4185, ptr %4163, align 8
   %4186 = load i8, ptr %4175, align 1
   %4187 = and i8 %4186, 63
@@ -8631,12 +8631,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4198 = and i32 %4197, 61440
   %4199 = shl nuw nsw i32 %4195, 6
   %4200 = or disjoint i32 %4199, %4198
-  %4201 = getelementptr inbounds i8, ptr %4164, i64 2
+  %4201 = getelementptr inbounds nuw i8, ptr %4164, i64 2
   %4202 = load i8, ptr %4201, align 1
   %4203 = and i8 %4202, 63
   %4204 = zext nneg i8 %4203 to i32
   %4205 = or disjoint i32 %4200, %4204
-  %4206 = getelementptr inbounds i8, ptr %4164, i64 3
+  %4206 = getelementptr inbounds nuw i8, ptr %4164, i64 3
   store ptr %4206, ptr %4163, align 8
   br label %4270
 
@@ -8650,33 +8650,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4212 = and i32 %4211, 1835008
   %4213 = shl nuw nsw i32 %4195, 12
   %4214 = or disjoint i32 %4213, %4212
-  %4215 = getelementptr inbounds i8, ptr %4164, i64 2
+  %4215 = getelementptr inbounds nuw i8, ptr %4164, i64 2
   %4216 = load i8, ptr %4215, align 1
   %4217 = and i8 %4216, 63
   %4218 = zext nneg i8 %4217 to i32
   %4219 = shl nuw nsw i32 %4218, 6
   %4220 = or disjoint i32 %4214, %4219
-  %4221 = getelementptr inbounds i8, ptr %4164, i64 3
+  %4221 = getelementptr inbounds nuw i8, ptr %4164, i64 3
   %4222 = load i8, ptr %4221, align 1
   %4223 = and i8 %4222, 63
   %4224 = zext nneg i8 %4223 to i32
   %4225 = or disjoint i32 %4220, %4224
-  %4226 = getelementptr inbounds i8, ptr %4164, i64 4
+  %4226 = getelementptr inbounds nuw i8, ptr %4164, i64 4
   store ptr %4226, ptr %4163, align 8
   br label %4270
 
 4227:                                             ; preds = %4207
   %4228 = and i32 %4177, 4
   %4229 = icmp eq i32 %4228, 0
-  %4230 = getelementptr inbounds i8, ptr %4164, i64 2
+  %4230 = getelementptr inbounds nuw i8, ptr %4164, i64 2
   %4231 = load i8, ptr %4230, align 1
   %4232 = and i8 %4231, 63
   %4233 = zext nneg i8 %4232 to i32
-  %4234 = getelementptr inbounds i8, ptr %4164, i64 3
+  %4234 = getelementptr inbounds nuw i8, ptr %4164, i64 3
   %4235 = load i8, ptr %4234, align 1
   %4236 = and i8 %4235, 63
   %4237 = zext nneg i8 %4236 to i32
-  %4238 = getelementptr inbounds i8, ptr %4164, i64 4
+  %4238 = getelementptr inbounds nuw i8, ptr %4164, i64 4
   %4239 = load i8, ptr %4238, align 1
   %4240 = and i8 %4239, 63
   %4241 = zext nneg i8 %4240 to i32
@@ -8692,7 +8692,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4249 = shl nuw nsw i32 %4237, 6
   %4250 = or disjoint i32 %4248, %4249
   %4251 = or disjoint i32 %4250, %4241
-  %4252 = getelementptr inbounds i8, ptr %4164, i64 5
+  %4252 = getelementptr inbounds nuw i8, ptr %4164, i64 5
   store ptr %4252, ptr %4163, align 8
   br label %4270
 
@@ -8707,12 +8707,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4261 = or disjoint i32 %4259, %4260
   %4262 = shl nuw nsw i32 %4241, 6
   %4263 = or disjoint i32 %4261, %4262
-  %4264 = getelementptr inbounds i8, ptr %4164, i64 5
+  %4264 = getelementptr inbounds nuw i8, ptr %4164, i64 5
   %4265 = load i8, ptr %4264, align 1
   %4266 = and i8 %4265, 63
   %4267 = zext nneg i8 %4266 to i32
   %4268 = or disjoint i32 %4263, %4267
-  %4269 = getelementptr inbounds i8, ptr %4164, i64 6
+  %4269 = getelementptr inbounds nuw i8, ptr %4164, i64 6
   store ptr %4269, ptr %4163, align 8
   br label %4270
 
@@ -8725,19 +8725,19 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.1477029327 = phi i32 [ %.147702, %4270 ], [ %4177, %4174 ]
   %4272 = load ptr, ptr %38, align 8
   %4273 = zext nneg i32 %.1477029327 to i64
-  %4274 = getelementptr inbounds i8, ptr %4272, i64 %4273
+  %4274 = getelementptr inbounds nuw i8, ptr %4272, i64 %4273
   %4275 = load i8, ptr %4274, align 1
   %4276 = and i8 %4275, 16
   %4277 = icmp eq i8 %4276, 0
   br i1 %4277, label %.preheader9566.preheader, label %4278
 
 4278:                                             ; preds = %.thread9325
-  %4279 = getelementptr inbounds i8, ptr %142, i64 1
+  %4279 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %4279, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 4280:                                             ; preds = %.preheader9835
-  %4281 = getelementptr inbounds i8, ptr %.3, i64 80
+  %4281 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %4282 = load ptr, ptr %4281, align 8
   %4283 = load ptr, ptr %39, align 8
   %.not8879 = icmp ult ptr %4282, %4283
@@ -8764,7 +8764,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9478, label %.preheader9566.preheader, label %.loopexit
 
 4292:                                             ; preds = %4280
-  %4293 = getelementptr inbounds i8, ptr %4282, i64 1
+  %4293 = getelementptr inbounds nuw i8, ptr %4282, i64 1
   store ptr %4293, ptr %4281, align 8
   %4294 = load i8, ptr %4282, align 1
   %4295 = zext i8 %4294 to i32
@@ -8780,7 +8780,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 4300:                                             ; preds = %4297
   %4301 = shl nuw nsw i32 %4295, 6
   %4302 = and i32 %4301, 1984
-  %4303 = getelementptr inbounds i8, ptr %4282, i64 2
+  %4303 = getelementptr inbounds nuw i8, ptr %4282, i64 2
   store ptr %4303, ptr %4281, align 8
   %4304 = load i8, ptr %4293, align 1
   %4305 = and i8 %4304, 63
@@ -8801,12 +8801,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4316 = and i32 %4315, 61440
   %4317 = shl nuw nsw i32 %4313, 6
   %4318 = or disjoint i32 %4317, %4316
-  %4319 = getelementptr inbounds i8, ptr %4282, i64 2
+  %4319 = getelementptr inbounds nuw i8, ptr %4282, i64 2
   %4320 = load i8, ptr %4319, align 1
   %4321 = and i8 %4320, 63
   %4322 = zext nneg i8 %4321 to i32
   %4323 = or disjoint i32 %4318, %4322
-  %4324 = getelementptr inbounds i8, ptr %4282, i64 3
+  %4324 = getelementptr inbounds nuw i8, ptr %4282, i64 3
   store ptr %4324, ptr %4281, align 8
   br label %4388
 
@@ -8820,33 +8820,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4330 = and i32 %4329, 1835008
   %4331 = shl nuw nsw i32 %4313, 12
   %4332 = or disjoint i32 %4331, %4330
-  %4333 = getelementptr inbounds i8, ptr %4282, i64 2
+  %4333 = getelementptr inbounds nuw i8, ptr %4282, i64 2
   %4334 = load i8, ptr %4333, align 1
   %4335 = and i8 %4334, 63
   %4336 = zext nneg i8 %4335 to i32
   %4337 = shl nuw nsw i32 %4336, 6
   %4338 = or disjoint i32 %4332, %4337
-  %4339 = getelementptr inbounds i8, ptr %4282, i64 3
+  %4339 = getelementptr inbounds nuw i8, ptr %4282, i64 3
   %4340 = load i8, ptr %4339, align 1
   %4341 = and i8 %4340, 63
   %4342 = zext nneg i8 %4341 to i32
   %4343 = or disjoint i32 %4338, %4342
-  %4344 = getelementptr inbounds i8, ptr %4282, i64 4
+  %4344 = getelementptr inbounds nuw i8, ptr %4282, i64 4
   store ptr %4344, ptr %4281, align 8
   br label %4388
 
 4345:                                             ; preds = %4325
   %4346 = and i32 %4295, 4
   %4347 = icmp eq i32 %4346, 0
-  %4348 = getelementptr inbounds i8, ptr %4282, i64 2
+  %4348 = getelementptr inbounds nuw i8, ptr %4282, i64 2
   %4349 = load i8, ptr %4348, align 1
   %4350 = and i8 %4349, 63
   %4351 = zext nneg i8 %4350 to i32
-  %4352 = getelementptr inbounds i8, ptr %4282, i64 3
+  %4352 = getelementptr inbounds nuw i8, ptr %4282, i64 3
   %4353 = load i8, ptr %4352, align 1
   %4354 = and i8 %4353, 63
   %4355 = zext nneg i8 %4354 to i32
-  %4356 = getelementptr inbounds i8, ptr %4282, i64 4
+  %4356 = getelementptr inbounds nuw i8, ptr %4282, i64 4
   %4357 = load i8, ptr %4356, align 1
   %4358 = and i8 %4357, 63
   %4359 = zext nneg i8 %4358 to i32
@@ -8862,7 +8862,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4367 = shl nuw nsw i32 %4355, 6
   %4368 = or disjoint i32 %4366, %4367
   %4369 = or disjoint i32 %4368, %4359
-  %4370 = getelementptr inbounds i8, ptr %4282, i64 5
+  %4370 = getelementptr inbounds nuw i8, ptr %4282, i64 5
   store ptr %4370, ptr %4281, align 8
   br label %4388
 
@@ -8877,12 +8877,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4379 = or disjoint i32 %4377, %4378
   %4380 = shl nuw nsw i32 %4359, 6
   %4381 = or disjoint i32 %4379, %4380
-  %4382 = getelementptr inbounds i8, ptr %4282, i64 5
+  %4382 = getelementptr inbounds nuw i8, ptr %4282, i64 5
   %4383 = load i8, ptr %4382, align 1
   %4384 = and i8 %4383, 63
   %4385 = zext nneg i8 %4384 to i32
   %4386 = or disjoint i32 %4381, %4385
-  %4387 = getelementptr inbounds i8, ptr %4282, i64 6
+  %4387 = getelementptr inbounds nuw i8, ptr %4282, i64 6
   store ptr %4387, ptr %4281, align 8
   br label %4388
 
@@ -8934,7 +8934,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %4402, label %4403, label %4408
 
 4403:                                             ; preds = %4400
-  %4404 = getelementptr inbounds i8, ptr %4389, i64 1
+  %4404 = getelementptr inbounds nuw i8, ptr %4389, i64 1
   store ptr %4404, ptr %4281, align 8
   br label %4408
 
@@ -8945,12 +8945,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 4408:                                             ; preds = %._crit_edge12585, %4405, %4388, %4397, %4392, %4403, %4400
   %4409 = phi ptr [ %.pre12586, %._crit_edge12585 ], [ %142, %4405 ], [ %142, %4388 ], [ %142, %4397 ], [ %142, %4392 ], [ %142, %4403 ], [ %142, %4400 ]
-  %4410 = getelementptr inbounds i8, ptr %4409, i64 1
+  %4410 = getelementptr inbounds nuw i8, ptr %4409, i64 1
   store ptr %4410, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 4411:                                             ; preds = %.preheader9835
-  %4412 = getelementptr inbounds i8, ptr %.3, i64 80
+  %4412 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %4413 = load ptr, ptr %4412, align 8
   %4414 = load ptr, ptr %39, align 8
   %.not8876 = icmp ult ptr %4413, %4414
@@ -8977,7 +8977,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9477, label %.preheader9566.preheader, label %.loopexit
 
 4423:                                             ; preds = %4411
-  %4424 = getelementptr inbounds i8, ptr %4413, i64 1
+  %4424 = getelementptr inbounds nuw i8, ptr %4413, i64 1
   store ptr %4424, ptr %4412, align 8
   %4425 = load i8, ptr %4413, align 1
   %4426 = zext i8 %4425 to i32
@@ -8993,7 +8993,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 4431:                                             ; preds = %4428
   %4432 = shl nuw nsw i32 %4426, 6
   %4433 = and i32 %4432, 1984
-  %4434 = getelementptr inbounds i8, ptr %4413, i64 2
+  %4434 = getelementptr inbounds nuw i8, ptr %4413, i64 2
   store ptr %4434, ptr %4412, align 8
   %4435 = load i8, ptr %4424, align 1
   %4436 = and i8 %4435, 63
@@ -9014,12 +9014,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4447 = and i32 %4446, 61440
   %4448 = shl nuw nsw i32 %4444, 6
   %4449 = or disjoint i32 %4448, %4447
-  %4450 = getelementptr inbounds i8, ptr %4413, i64 2
+  %4450 = getelementptr inbounds nuw i8, ptr %4413, i64 2
   %4451 = load i8, ptr %4450, align 1
   %4452 = and i8 %4451, 63
   %4453 = zext nneg i8 %4452 to i32
   %4454 = or disjoint i32 %4449, %4453
-  %4455 = getelementptr inbounds i8, ptr %4413, i64 3
+  %4455 = getelementptr inbounds nuw i8, ptr %4413, i64 3
   store ptr %4455, ptr %4412, align 8
   br label %4519
 
@@ -9033,33 +9033,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4461 = and i32 %4460, 1835008
   %4462 = shl nuw nsw i32 %4444, 12
   %4463 = or disjoint i32 %4462, %4461
-  %4464 = getelementptr inbounds i8, ptr %4413, i64 2
+  %4464 = getelementptr inbounds nuw i8, ptr %4413, i64 2
   %4465 = load i8, ptr %4464, align 1
   %4466 = and i8 %4465, 63
   %4467 = zext nneg i8 %4466 to i32
   %4468 = shl nuw nsw i32 %4467, 6
   %4469 = or disjoint i32 %4463, %4468
-  %4470 = getelementptr inbounds i8, ptr %4413, i64 3
+  %4470 = getelementptr inbounds nuw i8, ptr %4413, i64 3
   %4471 = load i8, ptr %4470, align 1
   %4472 = and i8 %4471, 63
   %4473 = zext nneg i8 %4472 to i32
   %4474 = or disjoint i32 %4469, %4473
-  %4475 = getelementptr inbounds i8, ptr %4413, i64 4
+  %4475 = getelementptr inbounds nuw i8, ptr %4413, i64 4
   store ptr %4475, ptr %4412, align 8
   br label %4519
 
 4476:                                             ; preds = %4456
   %4477 = and i32 %4426, 4
   %4478 = icmp eq i32 %4477, 0
-  %4479 = getelementptr inbounds i8, ptr %4413, i64 2
+  %4479 = getelementptr inbounds nuw i8, ptr %4413, i64 2
   %4480 = load i8, ptr %4479, align 1
   %4481 = and i8 %4480, 63
   %4482 = zext nneg i8 %4481 to i32
-  %4483 = getelementptr inbounds i8, ptr %4413, i64 3
+  %4483 = getelementptr inbounds nuw i8, ptr %4413, i64 3
   %4484 = load i8, ptr %4483, align 1
   %4485 = and i8 %4484, 63
   %4486 = zext nneg i8 %4485 to i32
-  %4487 = getelementptr inbounds i8, ptr %4413, i64 4
+  %4487 = getelementptr inbounds nuw i8, ptr %4413, i64 4
   %4488 = load i8, ptr %4487, align 1
   %4489 = and i8 %4488, 63
   %4490 = zext nneg i8 %4489 to i32
@@ -9075,7 +9075,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4498 = shl nuw nsw i32 %4486, 6
   %4499 = or disjoint i32 %4497, %4498
   %4500 = or disjoint i32 %4499, %4490
-  %4501 = getelementptr inbounds i8, ptr %4413, i64 5
+  %4501 = getelementptr inbounds nuw i8, ptr %4413, i64 5
   store ptr %4501, ptr %4412, align 8
   br label %4519
 
@@ -9090,12 +9090,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4510 = or disjoint i32 %4508, %4509
   %4511 = shl nuw nsw i32 %4490, 6
   %4512 = or disjoint i32 %4510, %4511
-  %4513 = getelementptr inbounds i8, ptr %4413, i64 5
+  %4513 = getelementptr inbounds nuw i8, ptr %4413, i64 5
   %4514 = load i8, ptr %4513, align 1
   %4515 = and i8 %4514, 63
   %4516 = zext nneg i8 %4515 to i32
   %4517 = or disjoint i32 %4512, %4516
-  %4518 = getelementptr inbounds i8, ptr %4413, i64 6
+  %4518 = getelementptr inbounds nuw i8, ptr %4413, i64 6
   store ptr %4518, ptr %4412, align 8
   br label %4519
 
@@ -9124,12 +9124,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   ]
 
 4520:                                             ; preds = %4519
-  %4521 = getelementptr inbounds i8, ptr %142, i64 1
+  %4521 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %4521, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 4522:                                             ; preds = %.preheader9835
-  %4523 = getelementptr inbounds i8, ptr %.3, i64 80
+  %4523 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %4524 = load ptr, ptr %4523, align 8
   %4525 = load ptr, ptr %39, align 8
   %.not8873 = icmp ult ptr %4524, %4525
@@ -9156,7 +9156,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9476, label %.preheader9566.preheader, label %.loopexit
 
 4534:                                             ; preds = %4522
-  %4535 = getelementptr inbounds i8, ptr %4524, i64 1
+  %4535 = getelementptr inbounds nuw i8, ptr %4524, i64 1
   store ptr %4535, ptr %4523, align 8
   %4536 = load i8, ptr %4524, align 1
   %4537 = zext i8 %4536 to i32
@@ -9172,7 +9172,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 4542:                                             ; preds = %4539
   %4543 = shl nuw nsw i32 %4537, 6
   %4544 = and i32 %4543, 1984
-  %4545 = getelementptr inbounds i8, ptr %4524, i64 2
+  %4545 = getelementptr inbounds nuw i8, ptr %4524, i64 2
   store ptr %4545, ptr %4523, align 8
   %4546 = load i8, ptr %4535, align 1
   %4547 = and i8 %4546, 63
@@ -9193,12 +9193,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4558 = and i32 %4557, 61440
   %4559 = shl nuw nsw i32 %4555, 6
   %4560 = or disjoint i32 %4559, %4558
-  %4561 = getelementptr inbounds i8, ptr %4524, i64 2
+  %4561 = getelementptr inbounds nuw i8, ptr %4524, i64 2
   %4562 = load i8, ptr %4561, align 1
   %4563 = and i8 %4562, 63
   %4564 = zext nneg i8 %4563 to i32
   %4565 = or disjoint i32 %4560, %4564
-  %4566 = getelementptr inbounds i8, ptr %4524, i64 3
+  %4566 = getelementptr inbounds nuw i8, ptr %4524, i64 3
   store ptr %4566, ptr %4523, align 8
   br label %4630
 
@@ -9212,33 +9212,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4572 = and i32 %4571, 1835008
   %4573 = shl nuw nsw i32 %4555, 12
   %4574 = or disjoint i32 %4573, %4572
-  %4575 = getelementptr inbounds i8, ptr %4524, i64 2
+  %4575 = getelementptr inbounds nuw i8, ptr %4524, i64 2
   %4576 = load i8, ptr %4575, align 1
   %4577 = and i8 %4576, 63
   %4578 = zext nneg i8 %4577 to i32
   %4579 = shl nuw nsw i32 %4578, 6
   %4580 = or disjoint i32 %4574, %4579
-  %4581 = getelementptr inbounds i8, ptr %4524, i64 3
+  %4581 = getelementptr inbounds nuw i8, ptr %4524, i64 3
   %4582 = load i8, ptr %4581, align 1
   %4583 = and i8 %4582, 63
   %4584 = zext nneg i8 %4583 to i32
   %4585 = or disjoint i32 %4580, %4584
-  %4586 = getelementptr inbounds i8, ptr %4524, i64 4
+  %4586 = getelementptr inbounds nuw i8, ptr %4524, i64 4
   store ptr %4586, ptr %4523, align 8
   br label %4630
 
 4587:                                             ; preds = %4567
   %4588 = and i32 %4537, 4
   %4589 = icmp eq i32 %4588, 0
-  %4590 = getelementptr inbounds i8, ptr %4524, i64 2
+  %4590 = getelementptr inbounds nuw i8, ptr %4524, i64 2
   %4591 = load i8, ptr %4590, align 1
   %4592 = and i8 %4591, 63
   %4593 = zext nneg i8 %4592 to i32
-  %4594 = getelementptr inbounds i8, ptr %4524, i64 3
+  %4594 = getelementptr inbounds nuw i8, ptr %4524, i64 3
   %4595 = load i8, ptr %4594, align 1
   %4596 = and i8 %4595, 63
   %4597 = zext nneg i8 %4596 to i32
-  %4598 = getelementptr inbounds i8, ptr %4524, i64 4
+  %4598 = getelementptr inbounds nuw i8, ptr %4524, i64 4
   %4599 = load i8, ptr %4598, align 1
   %4600 = and i8 %4599, 63
   %4601 = zext nneg i8 %4600 to i32
@@ -9254,7 +9254,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4609 = shl nuw nsw i32 %4597, 6
   %4610 = or disjoint i32 %4608, %4609
   %4611 = or disjoint i32 %4610, %4601
-  %4612 = getelementptr inbounds i8, ptr %4524, i64 5
+  %4612 = getelementptr inbounds nuw i8, ptr %4524, i64 5
   store ptr %4612, ptr %4523, align 8
   br label %4630
 
@@ -9269,12 +9269,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4621 = or disjoint i32 %4619, %4620
   %4622 = shl nuw nsw i32 %4601, 6
   %4623 = or disjoint i32 %4621, %4622
-  %4624 = getelementptr inbounds i8, ptr %4524, i64 5
+  %4624 = getelementptr inbounds nuw i8, ptr %4524, i64 5
   %4625 = load i8, ptr %4624, align 1
   %4626 = and i8 %4625, 63
   %4627 = zext nneg i8 %4626 to i32
   %4628 = or disjoint i32 %4623, %4627
-  %4629 = getelementptr inbounds i8, ptr %4524, i64 6
+  %4629 = getelementptr inbounds nuw i8, ptr %4524, i64 6
   store ptr %4629, ptr %4523, align 8
   br label %4630
 
@@ -9303,12 +9303,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   ]
 
 4631:                                             ; preds = %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630, %4630
-  %4632 = getelementptr inbounds i8, ptr %142, i64 1
+  %4632 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %4632, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 4633:                                             ; preds = %.preheader9835
-  %4634 = getelementptr inbounds i8, ptr %.3, i64 80
+  %4634 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %4635 = load ptr, ptr %4634, align 8
   %4636 = load ptr, ptr %39, align 8
   %.not8870 = icmp ult ptr %4635, %4636
@@ -9335,7 +9335,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9475, label %.preheader9566.preheader, label %.loopexit
 
 4645:                                             ; preds = %4633
-  %4646 = getelementptr inbounds i8, ptr %4635, i64 1
+  %4646 = getelementptr inbounds nuw i8, ptr %4635, i64 1
   store ptr %4646, ptr %4634, align 8
   %4647 = load i8, ptr %4635, align 1
   %4648 = zext i8 %4647 to i32
@@ -9351,7 +9351,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 4653:                                             ; preds = %4650
   %4654 = shl nuw nsw i32 %4648, 6
   %4655 = and i32 %4654, 1984
-  %4656 = getelementptr inbounds i8, ptr %4635, i64 2
+  %4656 = getelementptr inbounds nuw i8, ptr %4635, i64 2
   store ptr %4656, ptr %4634, align 8
   %4657 = load i8, ptr %4646, align 1
   %4658 = and i8 %4657, 63
@@ -9372,12 +9372,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4669 = and i32 %4668, 61440
   %4670 = shl nuw nsw i32 %4666, 6
   %4671 = or disjoint i32 %4670, %4669
-  %4672 = getelementptr inbounds i8, ptr %4635, i64 2
+  %4672 = getelementptr inbounds nuw i8, ptr %4635, i64 2
   %4673 = load i8, ptr %4672, align 1
   %4674 = and i8 %4673, 63
   %4675 = zext nneg i8 %4674 to i32
   %4676 = or disjoint i32 %4671, %4675
-  %4677 = getelementptr inbounds i8, ptr %4635, i64 3
+  %4677 = getelementptr inbounds nuw i8, ptr %4635, i64 3
   store ptr %4677, ptr %4634, align 8
   br label %4741
 
@@ -9391,33 +9391,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4683 = and i32 %4682, 1835008
   %4684 = shl nuw nsw i32 %4666, 12
   %4685 = or disjoint i32 %4684, %4683
-  %4686 = getelementptr inbounds i8, ptr %4635, i64 2
+  %4686 = getelementptr inbounds nuw i8, ptr %4635, i64 2
   %4687 = load i8, ptr %4686, align 1
   %4688 = and i8 %4687, 63
   %4689 = zext nneg i8 %4688 to i32
   %4690 = shl nuw nsw i32 %4689, 6
   %4691 = or disjoint i32 %4685, %4690
-  %4692 = getelementptr inbounds i8, ptr %4635, i64 3
+  %4692 = getelementptr inbounds nuw i8, ptr %4635, i64 3
   %4693 = load i8, ptr %4692, align 1
   %4694 = and i8 %4693, 63
   %4695 = zext nneg i8 %4694 to i32
   %4696 = or disjoint i32 %4691, %4695
-  %4697 = getelementptr inbounds i8, ptr %4635, i64 4
+  %4697 = getelementptr inbounds nuw i8, ptr %4635, i64 4
   store ptr %4697, ptr %4634, align 8
   br label %4741
 
 4698:                                             ; preds = %4678
   %4699 = and i32 %4648, 4
   %4700 = icmp eq i32 %4699, 0
-  %4701 = getelementptr inbounds i8, ptr %4635, i64 2
+  %4701 = getelementptr inbounds nuw i8, ptr %4635, i64 2
   %4702 = load i8, ptr %4701, align 1
   %4703 = and i8 %4702, 63
   %4704 = zext nneg i8 %4703 to i32
-  %4705 = getelementptr inbounds i8, ptr %4635, i64 3
+  %4705 = getelementptr inbounds nuw i8, ptr %4635, i64 3
   %4706 = load i8, ptr %4705, align 1
   %4707 = and i8 %4706, 63
   %4708 = zext nneg i8 %4707 to i32
-  %4709 = getelementptr inbounds i8, ptr %4635, i64 4
+  %4709 = getelementptr inbounds nuw i8, ptr %4635, i64 4
   %4710 = load i8, ptr %4709, align 1
   %4711 = and i8 %4710, 63
   %4712 = zext nneg i8 %4711 to i32
@@ -9433,7 +9433,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4720 = shl nuw nsw i32 %4708, 6
   %4721 = or disjoint i32 %4719, %4720
   %4722 = or disjoint i32 %4721, %4712
-  %4723 = getelementptr inbounds i8, ptr %4635, i64 5
+  %4723 = getelementptr inbounds nuw i8, ptr %4635, i64 5
   store ptr %4723, ptr %4634, align 8
   br label %4741
 
@@ -9448,12 +9448,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4732 = or disjoint i32 %4730, %4731
   %4733 = shl nuw nsw i32 %4712, 6
   %4734 = or disjoint i32 %4732, %4733
-  %4735 = getelementptr inbounds i8, ptr %4635, i64 5
+  %4735 = getelementptr inbounds nuw i8, ptr %4635, i64 5
   %4736 = load i8, ptr %4735, align 1
   %4737 = and i8 %4736, 63
   %4738 = zext nneg i8 %4737 to i32
   %4739 = or disjoint i32 %4734, %4738
-  %4740 = getelementptr inbounds i8, ptr %4635, i64 6
+  %4740 = getelementptr inbounds nuw i8, ptr %4635, i64 6
   store ptr %4740, ptr %4634, align 8
   br label %4741
 
@@ -9470,12 +9470,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   ]
 
 4742:                                             ; preds = %4741
-  %4743 = getelementptr inbounds i8, ptr %142, i64 1
+  %4743 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %4743, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 4744:                                             ; preds = %.preheader9835
-  %4745 = getelementptr inbounds i8, ptr %.3, i64 80
+  %4745 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %4746 = load ptr, ptr %4745, align 8
   %4747 = load ptr, ptr %39, align 8
   %.not8867 = icmp ult ptr %4746, %4747
@@ -9502,7 +9502,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9474, label %.preheader9566.preheader, label %.loopexit
 
 4756:                                             ; preds = %4744
-  %4757 = getelementptr inbounds i8, ptr %4746, i64 1
+  %4757 = getelementptr inbounds nuw i8, ptr %4746, i64 1
   store ptr %4757, ptr %4745, align 8
   %4758 = load i8, ptr %4746, align 1
   %4759 = zext i8 %4758 to i32
@@ -9518,7 +9518,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 4764:                                             ; preds = %4761
   %4765 = shl nuw nsw i32 %4759, 6
   %4766 = and i32 %4765, 1984
-  %4767 = getelementptr inbounds i8, ptr %4746, i64 2
+  %4767 = getelementptr inbounds nuw i8, ptr %4746, i64 2
   store ptr %4767, ptr %4745, align 8
   %4768 = load i8, ptr %4757, align 1
   %4769 = and i8 %4768, 63
@@ -9539,12 +9539,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4780 = and i32 %4779, 61440
   %4781 = shl nuw nsw i32 %4777, 6
   %4782 = or disjoint i32 %4781, %4780
-  %4783 = getelementptr inbounds i8, ptr %4746, i64 2
+  %4783 = getelementptr inbounds nuw i8, ptr %4746, i64 2
   %4784 = load i8, ptr %4783, align 1
   %4785 = and i8 %4784, 63
   %4786 = zext nneg i8 %4785 to i32
   %4787 = or disjoint i32 %4782, %4786
-  %4788 = getelementptr inbounds i8, ptr %4746, i64 3
+  %4788 = getelementptr inbounds nuw i8, ptr %4746, i64 3
   store ptr %4788, ptr %4745, align 8
   br label %4852
 
@@ -9558,33 +9558,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4794 = and i32 %4793, 1835008
   %4795 = shl nuw nsw i32 %4777, 12
   %4796 = or disjoint i32 %4795, %4794
-  %4797 = getelementptr inbounds i8, ptr %4746, i64 2
+  %4797 = getelementptr inbounds nuw i8, ptr %4746, i64 2
   %4798 = load i8, ptr %4797, align 1
   %4799 = and i8 %4798, 63
   %4800 = zext nneg i8 %4799 to i32
   %4801 = shl nuw nsw i32 %4800, 6
   %4802 = or disjoint i32 %4796, %4801
-  %4803 = getelementptr inbounds i8, ptr %4746, i64 3
+  %4803 = getelementptr inbounds nuw i8, ptr %4746, i64 3
   %4804 = load i8, ptr %4803, align 1
   %4805 = and i8 %4804, 63
   %4806 = zext nneg i8 %4805 to i32
   %4807 = or disjoint i32 %4802, %4806
-  %4808 = getelementptr inbounds i8, ptr %4746, i64 4
+  %4808 = getelementptr inbounds nuw i8, ptr %4746, i64 4
   store ptr %4808, ptr %4745, align 8
   br label %4852
 
 4809:                                             ; preds = %4789
   %4810 = and i32 %4759, 4
   %4811 = icmp eq i32 %4810, 0
-  %4812 = getelementptr inbounds i8, ptr %4746, i64 2
+  %4812 = getelementptr inbounds nuw i8, ptr %4746, i64 2
   %4813 = load i8, ptr %4812, align 1
   %4814 = and i8 %4813, 63
   %4815 = zext nneg i8 %4814 to i32
-  %4816 = getelementptr inbounds i8, ptr %4746, i64 3
+  %4816 = getelementptr inbounds nuw i8, ptr %4746, i64 3
   %4817 = load i8, ptr %4816, align 1
   %4818 = and i8 %4817, 63
   %4819 = zext nneg i8 %4818 to i32
-  %4820 = getelementptr inbounds i8, ptr %4746, i64 4
+  %4820 = getelementptr inbounds nuw i8, ptr %4746, i64 4
   %4821 = load i8, ptr %4820, align 1
   %4822 = and i8 %4821, 63
   %4823 = zext nneg i8 %4822 to i32
@@ -9600,7 +9600,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4831 = shl nuw nsw i32 %4819, 6
   %4832 = or disjoint i32 %4830, %4831
   %4833 = or disjoint i32 %4832, %4823
-  %4834 = getelementptr inbounds i8, ptr %4746, i64 5
+  %4834 = getelementptr inbounds nuw i8, ptr %4746, i64 5
   store ptr %4834, ptr %4745, align 8
   br label %4852
 
@@ -9615,12 +9615,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4843 = or disjoint i32 %4841, %4842
   %4844 = shl nuw nsw i32 %4823, 6
   %4845 = or disjoint i32 %4843, %4844
-  %4846 = getelementptr inbounds i8, ptr %4746, i64 5
+  %4846 = getelementptr inbounds nuw i8, ptr %4746, i64 5
   %4847 = load i8, ptr %4846, align 1
   %4848 = and i8 %4847, 63
   %4849 = zext nneg i8 %4848 to i32
   %4850 = or disjoint i32 %4845, %4849
-  %4851 = getelementptr inbounds i8, ptr %4746, i64 6
+  %4851 = getelementptr inbounds nuw i8, ptr %4746, i64 6
   store ptr %4851, ptr %4745, align 8
   br label %4852
 
@@ -9637,12 +9637,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   ]
 
 4853:                                             ; preds = %4852, %4852, %4852, %4852, %4852, %4852, %4852
-  %4854 = getelementptr inbounds i8, ptr %142, i64 1
+  %4854 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %4854, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 4855:                                             ; preds = %.preheader9835, %.preheader9835
-  %4856 = getelementptr inbounds i8, ptr %.3, i64 80
+  %4856 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %4857 = load ptr, ptr %4856, align 8
   %4858 = load ptr, ptr %39, align 8
   %.not8864 = icmp ult ptr %4857, %4858
@@ -9669,7 +9669,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9472, label %.preheader9566.preheader, label %.loopexit
 
 4867:                                             ; preds = %4855
-  %4868 = getelementptr inbounds i8, ptr %4857, i64 1
+  %4868 = getelementptr inbounds nuw i8, ptr %4857, i64 1
   store ptr %4868, ptr %4856, align 8
   %4869 = load i8, ptr %4857, align 1
   %4870 = zext i8 %4869 to i32
@@ -9685,7 +9685,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 4875:                                             ; preds = %4872
   %4876 = shl nuw nsw i32 %4870, 6
   %4877 = and i32 %4876, 1984
-  %4878 = getelementptr inbounds i8, ptr %4857, i64 2
+  %4878 = getelementptr inbounds nuw i8, ptr %4857, i64 2
   store ptr %4878, ptr %4856, align 8
   %4879 = load i8, ptr %4868, align 1
   %4880 = and i8 %4879, 63
@@ -9706,12 +9706,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4891 = and i32 %4890, 61440
   %4892 = shl nuw nsw i32 %4888, 6
   %4893 = or disjoint i32 %4892, %4891
-  %4894 = getelementptr inbounds i8, ptr %4857, i64 2
+  %4894 = getelementptr inbounds nuw i8, ptr %4857, i64 2
   %4895 = load i8, ptr %4894, align 1
   %4896 = and i8 %4895, 63
   %4897 = zext nneg i8 %4896 to i32
   %4898 = or disjoint i32 %4893, %4897
-  %4899 = getelementptr inbounds i8, ptr %4857, i64 3
+  %4899 = getelementptr inbounds nuw i8, ptr %4857, i64 3
   store ptr %4899, ptr %4856, align 8
   br label %4963
 
@@ -9725,33 +9725,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4905 = and i32 %4904, 1835008
   %4906 = shl nuw nsw i32 %4888, 12
   %4907 = or disjoint i32 %4906, %4905
-  %4908 = getelementptr inbounds i8, ptr %4857, i64 2
+  %4908 = getelementptr inbounds nuw i8, ptr %4857, i64 2
   %4909 = load i8, ptr %4908, align 1
   %4910 = and i8 %4909, 63
   %4911 = zext nneg i8 %4910 to i32
   %4912 = shl nuw nsw i32 %4911, 6
   %4913 = or disjoint i32 %4907, %4912
-  %4914 = getelementptr inbounds i8, ptr %4857, i64 3
+  %4914 = getelementptr inbounds nuw i8, ptr %4857, i64 3
   %4915 = load i8, ptr %4914, align 1
   %4916 = and i8 %4915, 63
   %4917 = zext nneg i8 %4916 to i32
   %4918 = or disjoint i32 %4913, %4917
-  %4919 = getelementptr inbounds i8, ptr %4857, i64 4
+  %4919 = getelementptr inbounds nuw i8, ptr %4857, i64 4
   store ptr %4919, ptr %4856, align 8
   br label %4963
 
 4920:                                             ; preds = %4900
   %4921 = and i32 %4870, 4
   %4922 = icmp eq i32 %4921, 0
-  %4923 = getelementptr inbounds i8, ptr %4857, i64 2
+  %4923 = getelementptr inbounds nuw i8, ptr %4857, i64 2
   %4924 = load i8, ptr %4923, align 1
   %4925 = and i8 %4924, 63
   %4926 = zext nneg i8 %4925 to i32
-  %4927 = getelementptr inbounds i8, ptr %4857, i64 3
+  %4927 = getelementptr inbounds nuw i8, ptr %4857, i64 3
   %4928 = load i8, ptr %4927, align 1
   %4929 = and i8 %4928, 63
   %4930 = zext nneg i8 %4929 to i32
-  %4931 = getelementptr inbounds i8, ptr %4857, i64 4
+  %4931 = getelementptr inbounds nuw i8, ptr %4857, i64 4
   %4932 = load i8, ptr %4931, align 1
   %4933 = and i8 %4932, 63
   %4934 = zext nneg i8 %4933 to i32
@@ -9767,7 +9767,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4942 = shl nuw nsw i32 %4930, 6
   %4943 = or disjoint i32 %4941, %4942
   %4944 = or disjoint i32 %4943, %4934
-  %4945 = getelementptr inbounds i8, ptr %4857, i64 5
+  %4945 = getelementptr inbounds nuw i8, ptr %4857, i64 5
   store ptr %4945, ptr %4856, align 8
   br label %4963
 
@@ -9782,12 +9782,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %4954 = or disjoint i32 %4952, %4953
   %4955 = shl nuw nsw i32 %4934, 6
   %4956 = or disjoint i32 %4954, %4955
-  %4957 = getelementptr inbounds i8, ptr %4857, i64 5
+  %4957 = getelementptr inbounds nuw i8, ptr %4857, i64 5
   %4958 = load i8, ptr %4957, align 1
   %4959 = and i8 %4958, 63
   %4960 = zext nneg i8 %4959 to i32
   %4961 = or disjoint i32 %4956, %4960
-  %4962 = getelementptr inbounds i8, ptr %4857, i64 6
+  %4962 = getelementptr inbounds nuw i8, ptr %4857, i64 6
   store ptr %4962, ptr %4856, align 8
   br label %4963
 
@@ -9795,20 +9795,20 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.207708 = phi i32 [ %4882, %4875 ], [ %4898, %4889 ], [ %4918, %4903 ], [ %4944, %4935 ], [ %4961, %4946 ], [ %4870, %4867 ]
   %4964 = lshr i32 %.207708, 7
   %4965 = zext nneg i32 %4964 to i64
-  %4966 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %4965
+  %4966 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %4965
   %4967 = load i16, ptr %4966, align 2
   %4968 = zext i16 %4967 to i32
   %4969 = shl nuw nsw i32 %4968, 7
   %4970 = and i32 %.207708, 127
   %4971 = or disjoint i32 %4969, %4970
   %4972 = zext nneg i32 %4971 to i64
-  %4973 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %4972
+  %4973 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %4972
   %4974 = load i16, ptr %4973, align 2
   %4975 = zext i16 %4974 to i64
-  %4976 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %4975
+  %4976 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %4975
   %4977 = icmp eq i8 %143, 15
   %4978 = zext i1 %4977 to i32
-  %4979 = getelementptr inbounds i8, ptr %142, i64 1
+  %4979 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %4980 = load i8, ptr %4979, align 1
   switch i8 %4980, label %.loopexit [
     i8 0, label %4981
@@ -9831,7 +9831,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %4977, label %.preheader9566.preheader, label %5120
 
 4982:                                             ; preds = %4963
-  %4983 = getelementptr inbounds i8, ptr %4976, i64 1
+  %4983 = getelementptr inbounds nuw i8, ptr %4976, i64 1
   %4984 = load i8, ptr %4983, align 1
   switch i8 %4984, label %4985 [
     i8 9, label %4988
@@ -9849,29 +9849,29 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %4990, label %.preheader9566.preheader, label %5120
 
 4991:                                             ; preds = %4963
-  %4992 = getelementptr inbounds i8, ptr %142, i64 2
+  %4992 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %4993 = load i8, ptr %4992, align 1
   %4994 = zext i8 %4993 to i32
-  %4995 = getelementptr inbounds i8, ptr %4976, i64 1
+  %4995 = getelementptr inbounds nuw i8, ptr %4976, i64 1
   %4996 = load i8, ptr %4995, align 1
   %4997 = zext i8 %4996 to i64
-  %4998 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %4997
+  %4998 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %4997
   %4999 = load i32, ptr %4998, align 4
   %5000 = icmp ne i32 %4999, %4994
   %5001 = xor i1 %4977, %5000
   br i1 %5001, label %.preheader9566.preheader, label %5120
 
 5002:                                             ; preds = %4963
-  %5003 = getelementptr inbounds i8, ptr %142, i64 2
+  %5003 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %5004 = load i8, ptr %5003, align 1
-  %5005 = getelementptr inbounds i8, ptr %4976, i64 1
+  %5005 = getelementptr inbounds nuw i8, ptr %4976, i64 1
   %5006 = load i8, ptr %5005, align 1
   %5007 = icmp ne i8 %5004, %5006
   %5008 = xor i1 %4977, %5007
   br i1 %5008, label %.preheader9566.preheader, label %5120
 
 5009:                                             ; preds = %4963
-  %5010 = getelementptr inbounds i8, ptr %142, i64 2
+  %5010 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %5011 = load i8, ptr %5010, align 1
   %5012 = load i8, ptr %4976, align 4
   %5013 = icmp ne i8 %5011, %5012
@@ -9879,7 +9879,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %5014, label %.preheader9566.preheader, label %5120
 
 5015:                                             ; preds = %4963
-  %5016 = getelementptr inbounds i8, ptr %142, i64 2
+  %5016 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %5017 = load i8, ptr %5016, align 1
   %5018 = load i8, ptr %4976, align 4
   %5019 = icmp eq i8 %5017, %5018
@@ -9887,14 +9887,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 5020:                                             ; preds = %5015
   %5021 = zext i8 %5017 to i32
-  %5022 = getelementptr inbounds i8, ptr %4976, i64 8
+  %5022 = getelementptr inbounds nuw i8, ptr %4976, i64 8
   %5023 = load i16, ptr %5022, align 4
   %5024 = and i16 %5023, 1023
   %5025 = zext nneg i16 %5024 to i64
-  %5026 = getelementptr inbounds i32, ptr @_pcre2_ucd_script_sets_8, i64 %5025
+  %5026 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_script_sets_8, i64 %5025
   %5027 = lshr i32 %5021, 5
   %5028 = zext nneg i32 %5027 to i64
-  %5029 = getelementptr inbounds i32, ptr %5026, i64 %5028
+  %5029 = getelementptr inbounds nuw i32, ptr %5026, i64 %5028
   %5030 = load i32, ptr %5029, align 4
   %5031 = and i32 %5021, 31
   %5032 = lshr i32 %5030, %5031
@@ -9907,10 +9907,10 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %5036, label %.preheader9566.preheader, label %5120
 
 5037:                                             ; preds = %4963
-  %5038 = getelementptr inbounds i8, ptr %4976, i64 1
+  %5038 = getelementptr inbounds nuw i8, ptr %4976, i64 1
   %5039 = load i8, ptr %5038, align 1
   %5040 = zext i8 %5039 to i64
-  %5041 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %5040
+  %5041 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %5040
   %5042 = load i32, ptr %5041, align 4
   %5043 = and i32 %5042, -3
   %5044 = icmp ne i32 %5043, 1
@@ -9951,20 +9951,20 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %4977, label %.preheader9566.preheader, label %5120
 
 5048:                                             ; preds = %5046
-  %5049 = getelementptr inbounds i8, ptr %4976, i64 1
+  %5049 = getelementptr inbounds nuw i8, ptr %4976, i64 1
   %5050 = load i8, ptr %5049, align 1
   %5051 = zext i8 %5050 to i64
-  %5052 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %5051
+  %5052 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %5051
   %5053 = load i32, ptr %5052, align 4
   %5054 = icmp ne i32 %5053, 6
   %5055 = xor i1 %4977, %5054
   br i1 %5055, label %.preheader9566.preheader, label %5120
 
 5056:                                             ; preds = %4963
-  %5057 = getelementptr inbounds i8, ptr %4976, i64 1
+  %5057 = getelementptr inbounds nuw i8, ptr %4976, i64 1
   %5058 = load i8, ptr %5057, align 1
   %5059 = zext i8 %5058 to i64
-  %5060 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %5059
+  %5060 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %5059
   %5061 = load i32, ptr %5060, align 4
   %5062 = icmp eq i32 %5061, 1
   br i1 %5062, label %5069, label %5063
@@ -9986,10 +9986,10 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %5071, label %.preheader9566.preheader, label %5120
 
 5072:                                             ; preds = %4963
-  %5073 = getelementptr inbounds i8, ptr %142, i64 2
+  %5073 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %5074 = load i8, ptr %5073, align 1
   %5075 = zext i8 %5074 to i64
-  %5076 = getelementptr inbounds i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %5075
+  %5076 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %5075
   br label %5077
 
 5077:                                             ; preds = %5081, %5072
@@ -10002,7 +10002,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %4977, label %5120, label %.preheader9566.preheader
 
 5081:                                             ; preds = %5077
-  %5082 = getelementptr inbounds i8, ptr %.07872, i64 4
+  %5082 = getelementptr inbounds nuw i8, ptr %.07872, i64 4
   %5083 = icmp eq i32 %.207708, %5078
   br i1 %5083, label %5084, label %5077
 
@@ -10032,10 +10032,10 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %5093, label %.preheader9566.preheader, label %5120
 
 5094:                                             ; preds = %4963
-  %5095 = getelementptr inbounds i8, ptr %4976, i64 8
+  %5095 = getelementptr inbounds nuw i8, ptr %4976, i64 8
   %5096 = load i16, ptr %5095, align 4
   %5097 = lshr i16 %5096, 11
-  %5098 = getelementptr inbounds i8, ptr %142, i64 2
+  %5098 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %5099 = load i8, ptr %5098, align 1
   %5100 = zext i8 %5099 to i16
   %5101 = icmp ne i16 %5097, %5100
@@ -10043,17 +10043,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %5102, label %.preheader9566.preheader, label %5120
 
 5103:                                             ; preds = %4963
-  %5104 = getelementptr inbounds i8, ptr %4976, i64 10
+  %5104 = getelementptr inbounds nuw i8, ptr %4976, i64 10
   %5105 = load i16, ptr %5104, align 2
   %5106 = and i16 %5105, 4095
   %5107 = zext nneg i16 %5106 to i64
-  %5108 = getelementptr inbounds i32, ptr @_pcre2_ucd_boolprop_sets_8, i64 %5107
-  %5109 = getelementptr inbounds i8, ptr %142, i64 2
+  %5108 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_boolprop_sets_8, i64 %5107
+  %5109 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %5110 = load i8, ptr %5109, align 1
   %5111 = zext i8 %5110 to i32
   %5112 = lshr i32 %5111, 5
   %5113 = zext nneg i32 %5112 to i64
-  %5114 = getelementptr inbounds i32, ptr %5108, i64 %5113
+  %5114 = getelementptr inbounds nuw i32, ptr %5108, i64 %5113
   %5115 = load i32, ptr %5114, align 4
   %5116 = and i32 %5111, 31
   %5117 = lshr i32 %5115, %5116
@@ -10062,12 +10062,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %5119, label %5120, label %.preheader9566.preheader
 
 5120:                                             ; preds = %5103, %5094, %5091, %5080, %5084, %5069, %5047, %5048, %5037, %5034, %5009, %5002, %4991, %4988, %4981
-  %5121 = getelementptr inbounds i8, ptr %142, i64 3
+  %5121 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %5121, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 5122:                                             ; preds = %.preheader9835
-  %5123 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5123 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %5124 = load ptr, ptr %5123, align 8
   %5125 = load ptr, ptr %39, align 8
   %.not8858 = icmp ult ptr %5124, %5125
@@ -10094,7 +10094,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9470, label %.preheader9566.preheader, label %.loopexit
 
 5134:                                             ; preds = %5122
-  %5135 = getelementptr inbounds i8, ptr %5124, i64 1
+  %5135 = getelementptr inbounds nuw i8, ptr %5124, i64 1
   store ptr %5135, ptr %5123, align 8
   %5136 = load i8, ptr %5124, align 1
   %5137 = zext i8 %5136 to i32
@@ -10110,7 +10110,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 5142:                                             ; preds = %5139
   %5143 = shl nuw nsw i32 %5137, 6
   %5144 = and i32 %5143, 1984
-  %5145 = getelementptr inbounds i8, ptr %5124, i64 2
+  %5145 = getelementptr inbounds nuw i8, ptr %5124, i64 2
   store ptr %5145, ptr %5123, align 8
   %5146 = load i8, ptr %5135, align 1
   %5147 = and i8 %5146, 63
@@ -10131,12 +10131,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5158 = and i32 %5157, 61440
   %5159 = shl nuw nsw i32 %5155, 6
   %5160 = or disjoint i32 %5159, %5158
-  %5161 = getelementptr inbounds i8, ptr %5124, i64 2
+  %5161 = getelementptr inbounds nuw i8, ptr %5124, i64 2
   %5162 = load i8, ptr %5161, align 1
   %5163 = and i8 %5162, 63
   %5164 = zext nneg i8 %5163 to i32
   %5165 = or disjoint i32 %5160, %5164
-  %5166 = getelementptr inbounds i8, ptr %5124, i64 3
+  %5166 = getelementptr inbounds nuw i8, ptr %5124, i64 3
   store ptr %5166, ptr %5123, align 8
   br label %5230
 
@@ -10150,33 +10150,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5172 = and i32 %5171, 1835008
   %5173 = shl nuw nsw i32 %5155, 12
   %5174 = or disjoint i32 %5173, %5172
-  %5175 = getelementptr inbounds i8, ptr %5124, i64 2
+  %5175 = getelementptr inbounds nuw i8, ptr %5124, i64 2
   %5176 = load i8, ptr %5175, align 1
   %5177 = and i8 %5176, 63
   %5178 = zext nneg i8 %5177 to i32
   %5179 = shl nuw nsw i32 %5178, 6
   %5180 = or disjoint i32 %5174, %5179
-  %5181 = getelementptr inbounds i8, ptr %5124, i64 3
+  %5181 = getelementptr inbounds nuw i8, ptr %5124, i64 3
   %5182 = load i8, ptr %5181, align 1
   %5183 = and i8 %5182, 63
   %5184 = zext nneg i8 %5183 to i32
   %5185 = or disjoint i32 %5180, %5184
-  %5186 = getelementptr inbounds i8, ptr %5124, i64 4
+  %5186 = getelementptr inbounds nuw i8, ptr %5124, i64 4
   store ptr %5186, ptr %5123, align 8
   br label %5230
 
 5187:                                             ; preds = %5167
   %5188 = and i32 %5137, 4
   %5189 = icmp eq i32 %5188, 0
-  %5190 = getelementptr inbounds i8, ptr %5124, i64 2
+  %5190 = getelementptr inbounds nuw i8, ptr %5124, i64 2
   %5191 = load i8, ptr %5190, align 1
   %5192 = and i8 %5191, 63
   %5193 = zext nneg i8 %5192 to i32
-  %5194 = getelementptr inbounds i8, ptr %5124, i64 3
+  %5194 = getelementptr inbounds nuw i8, ptr %5124, i64 3
   %5195 = load i8, ptr %5194, align 1
   %5196 = and i8 %5195, 63
   %5197 = zext nneg i8 %5196 to i32
-  %5198 = getelementptr inbounds i8, ptr %5124, i64 4
+  %5198 = getelementptr inbounds nuw i8, ptr %5124, i64 4
   %5199 = load i8, ptr %5198, align 1
   %5200 = and i8 %5199, 63
   %5201 = zext nneg i8 %5200 to i32
@@ -10192,7 +10192,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5209 = shl nuw nsw i32 %5197, 6
   %5210 = or disjoint i32 %5208, %5209
   %5211 = or disjoint i32 %5210, %5201
-  %5212 = getelementptr inbounds i8, ptr %5124, i64 5
+  %5212 = getelementptr inbounds nuw i8, ptr %5124, i64 5
   store ptr %5212, ptr %5123, align 8
   br label %5230
 
@@ -10207,12 +10207,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5221 = or disjoint i32 %5219, %5220
   %5222 = shl nuw nsw i32 %5201, 6
   %5223 = or disjoint i32 %5221, %5222
-  %5224 = getelementptr inbounds i8, ptr %5124, i64 5
+  %5224 = getelementptr inbounds nuw i8, ptr %5124, i64 5
   %5225 = load i8, ptr %5224, align 1
   %5226 = and i8 %5225, 63
   %5227 = zext nneg i8 %5226 to i32
   %5228 = or disjoint i32 %5223, %5227
-  %5229 = getelementptr inbounds i8, ptr %5124, i64 6
+  %5229 = getelementptr inbounds nuw i8, ptr %5124, i64 6
   store ptr %5229, ptr %5123, align 8
   br label %5230
 
@@ -10249,98 +10249,98 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 5244:                                             ; preds = %5236, %5241, %5243, %5230
   %5245 = load ptr, ptr %.3, align 8
-  %5246 = getelementptr inbounds i8, ptr %5245, i64 1
+  %5246 = getelementptr inbounds nuw i8, ptr %5245, i64 1
   store ptr %5246, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 5247:                                             ; preds = %.preheader9835
-  %5248 = getelementptr inbounds i8, ptr %142, i64 1
+  %5248 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %5249 = load i8, ptr %5248, align 1
   %5250 = zext i8 %5249 to i32
   %5251 = shl nuw nsw i32 %5250, 8
-  %5252 = getelementptr inbounds i8, ptr %142, i64 2
+  %5252 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %5253 = load i8, ptr %5252, align 1
   %5254 = zext i8 %5253 to i32
   %5255 = or disjoint i32 %5251, %5254
-  %5256 = getelementptr inbounds i8, ptr %.3, i64 56
-  %5257 = getelementptr inbounds i8, ptr %.3, i64 60
+  %5256 = getelementptr inbounds nuw i8, ptr %.3, i64 56
+  %5257 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %5255, ptr %5257, align 4
   store i32 %5255, ptr %5256, align 8
-  %5258 = getelementptr inbounds i8, ptr %142, i64 3
+  %5258 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %5258, ptr %.3, align 8
   br label %5308
 
 5259:                                             ; preds = %.preheader9835, %.preheader9835
-  %5260 = getelementptr inbounds i8, ptr %.3, i64 56
+  %5260 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %5260, align 8
-  %5261 = getelementptr inbounds i8, ptr %142, i64 1
+  %5261 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %5262 = load i8, ptr %5261, align 1
   %5263 = zext i8 %5262 to i32
   %5264 = shl nuw nsw i32 %5263, 8
-  %5265 = getelementptr inbounds i8, ptr %142, i64 2
+  %5265 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %5266 = load i8, ptr %5265, align 1
   %5267 = zext i8 %5266 to i32
   %5268 = or disjoint i32 %5264, %5267
-  %5269 = getelementptr inbounds i8, ptr %.3, i64 60
+  %5269 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %5268, ptr %5269, align 4
   %5270 = load i8, ptr %142, align 1
   %5271 = icmp ne i8 %5270, 92
   %5272 = zext i1 %5271 to i32
-  %5273 = getelementptr inbounds i8, ptr %142, i64 3
+  %5273 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %5273, ptr %.3, align 8
   br label %5308
 
 5274:                                             ; preds = %.preheader9835
-  %5275 = getelementptr inbounds i8, ptr %.3, i64 56
+  %5275 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %5275, align 8
-  %5276 = getelementptr inbounds i8, ptr %.3, i64 60
+  %5276 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 -1, ptr %5276, align 4
-  %5277 = getelementptr inbounds i8, ptr %142, i64 1
+  %5277 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %5277, ptr %.3, align 8
   br label %5308
 
 5278:                                             ; preds = %.preheader9835
-  %5279 = getelementptr inbounds i8, ptr %.3, i64 56
+  %5279 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %5279, align 8
-  %5280 = getelementptr inbounds i8, ptr %.3, i64 60
+  %5280 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 1, ptr %5280, align 4
-  %5281 = getelementptr inbounds i8, ptr %142, i64 1
+  %5281 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %5281, ptr %.3, align 8
   br label %5308
 
 5282:                                             ; preds = %.preheader9835
-  %5283 = getelementptr inbounds i8, ptr %.3, i64 56
+  %5283 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %5283, align 8
-  %5284 = getelementptr inbounds i8, ptr %142, i64 1
+  %5284 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %5285 = load i8, ptr %5284, align 1
   %5286 = zext i8 %5285 to i32
   %5287 = shl nuw nsw i32 %5286, 8
-  %5288 = getelementptr inbounds i8, ptr %142, i64 2
+  %5288 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %5289 = load i8, ptr %5288, align 1
   %5290 = zext i8 %5289 to i32
   %5291 = or disjoint i32 %5287, %5290
-  %5292 = getelementptr inbounds i8, ptr %.3, i64 60
+  %5292 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %5291, ptr %5292, align 4
-  %5293 = getelementptr inbounds i8, ptr %142, i64 3
+  %5293 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %5293, ptr %.3, align 8
   br label %5308
 
 5294:                                             ; preds = %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835
-  %5295 = getelementptr inbounds i8, ptr %142, i64 1
+  %5295 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %5295, ptr %.3, align 8
   %5296 = load i8, ptr %142, align 1
   %5297 = zext i8 %5296 to i64
   %5298 = add nuw nsw i64 %5297, 4294967211
   %5299 = and i64 %5298, 4294967295
-  %5300 = getelementptr inbounds [11 x i32], ptr @rep_min, i64 0, i64 %5299
+  %5300 = getelementptr inbounds nuw [11 x i32], ptr @rep_min, i64 0, i64 %5299
   %5301 = load i32, ptr %5300, align 4
-  %5302 = getelementptr inbounds i8, ptr %.3, i64 56
+  %5302 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %5301, ptr %5302, align 8
-  %5303 = getelementptr inbounds [11 x i32], ptr @rep_max, i64 0, i64 %5299
+  %5303 = getelementptr inbounds nuw [11 x i32], ptr @rep_max, i64 0, i64 %5299
   %5304 = load i32, ptr %5303, align 4
-  %5305 = getelementptr inbounds i8, ptr %.3, i64 60
+  %5305 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %5304, ptr %5305, align 4
-  %5306 = getelementptr inbounds [12 x i32], ptr @rep_typ, i64 0, i64 %5299
+  %5306 = getelementptr inbounds nuw [12 x i32], ptr @rep_typ, i64 0, i64 %5299
   %5307 = load i32, ptr %5306, align 4
   br label %5308
 
@@ -10348,57 +10348,57 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5309 = phi i32 [ %5301, %5294 ], [ 0, %5282 ], [ 0, %5278 ], [ 0, %5274 ], [ 0, %5259 ], [ %5255, %5247 ]
   %5310 = phi ptr [ %5295, %5294 ], [ %5293, %5282 ], [ %5281, %5278 ], [ %5277, %5274 ], [ %5273, %5259 ], [ %5258, %5247 ]
   %.307803 = phi i32 [ %5307, %5294 ], [ 2, %5282 ], [ 2, %5278 ], [ 2, %5274 ], [ %5272, %5259 ], [ %.27775, %5247 ]
-  %5311 = getelementptr inbounds i8, ptr %5310, i64 1
+  %5311 = getelementptr inbounds nuw i8, ptr %5310, i64 1
   store ptr %5311, ptr %.3, align 8
   %5312 = load i8, ptr %5310, align 1
   %5313 = zext i8 %5312 to i32
-  %5314 = getelementptr inbounds i8, ptr %.3, i64 56
-  %5315 = getelementptr inbounds i8, ptr %.3, i64 64
+  %5314 = getelementptr inbounds nuw i8, ptr %.3, i64 56
+  %5315 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   store i32 %5313, ptr %5315, align 8
   %.off = add i8 %5312, -15
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %5331, label %.thread9328
 
 .thread12768:                                     ; preds = %.preheader9835
-  %5316 = getelementptr inbounds i8, ptr %.3, i64 56
+  %5316 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 1, ptr %5316, align 8
-  %5317 = getelementptr inbounds i8, ptr %.3, i64 60
+  %5317 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 -1, ptr %5317, align 4
-  %5318 = getelementptr inbounds i8, ptr %142, i64 1
-  %5319 = getelementptr inbounds i8, ptr %142, i64 2
+  %5318 = getelementptr inbounds nuw i8, ptr %142, i64 1
+  %5319 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %5319, ptr %.3, align 8
   %5320 = load i8, ptr %5318, align 1
   %5321 = zext i8 %5320 to i32
-  %5322 = getelementptr inbounds i8, ptr %.3, i64 56
-  %5323 = getelementptr inbounds i8, ptr %.3, i64 64
+  %5322 = getelementptr inbounds nuw i8, ptr %.3, i64 56
+  %5323 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   store i32 %5321, ptr %5323, align 8
   %.off12770 = add i8 %5320, -15
   %switch12771 = icmp ult i8 %.off12770, 2
   br i1 %switch12771, label %.thread12792, label %.thread9328.thread
 
 .thread12792:                                     ; preds = %.thread12768
-  %5324 = getelementptr inbounds i8, ptr %142, i64 3
+  %5324 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %5324, ptr %.3, align 8
   %5325 = load i8, ptr %5319, align 1
   %5326 = zext i8 %5325 to i32
-  %5327 = getelementptr inbounds i8, ptr %142, i64 4
+  %5327 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store ptr %5327, ptr %.3, align 8
   %5328 = load i8, ptr %5324, align 1
   %5329 = zext i8 %5328 to i32
-  %5330 = getelementptr inbounds i8, ptr %.3, i64 68
+  %5330 = getelementptr inbounds nuw i8, ptr %.3, i64 68
   store i32 %5329, ptr %5330, align 4
   br label %5339
 
 5331:                                             ; preds = %5308
-  %5332 = getelementptr inbounds i8, ptr %5310, i64 2
+  %5332 = getelementptr inbounds nuw i8, ptr %5310, i64 2
   store ptr %5332, ptr %.3, align 8
   %5333 = load i8, ptr %5311, align 1
   %5334 = zext i8 %5333 to i32
-  %5335 = getelementptr inbounds i8, ptr %5310, i64 3
+  %5335 = getelementptr inbounds nuw i8, ptr %5310, i64 3
   store ptr %5335, ptr %.3, align 8
   %5336 = load i8, ptr %5332, align 1
   %5337 = zext i8 %5336 to i32
-  %5338 = getelementptr inbounds i8, ptr %.3, i64 68
+  %5338 = getelementptr inbounds nuw i8, ptr %.3, i64 68
   store i32 %5337, ptr %5338, align 4
   %.not8527 = icmp eq i32 %5309, 0
   br i1 %.not8527, label %.loopexit9707, label %5339
@@ -10437,68 +10437,68 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   ]
 
 .lr.ph10973:                                      ; preds = %5339
-  %5350 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5350 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12563 = load ptr, ptr %5350, align 8
   %5351 = lshr i32 %5340, 5
   %5352 = zext nneg i32 %5351 to i64
-  %invariant.gep = getelementptr inbounds i32, ptr @_pcre2_ucd_boolprop_sets_8, i64 %5352
+  %invariant.gep = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_boolprop_sets_8, i64 %5352
   %5353 = and i32 %5340, 31
   br label %6823
 
 .lr.ph10976:                                      ; preds = %5339
-  %5354 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5354 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12564 = load ptr, ptr %5354, align 8
   %5355 = zext i8 %5341 to i16
   br label %6695
 
 .lr.ph10979:                                      ; preds = %5339
-  %5356 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5356 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12565 = load ptr, ptr %5356, align 8
   br label %6576
 
 .lr.ph10982:                                      ; preds = %5339
-  %5357 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5357 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12566 = load ptr, ptr %5357, align 8
   %5358 = zext i8 %5341 to i64
-  %5359 = getelementptr inbounds i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %5358
+  %5359 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %5358
   br label %6455
 
 .lr.ph10985:                                      ; preds = %5339
-  %5360 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5360 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12567 = load ptr, ptr %5360, align 8
   br label %6322
 
 .lr.ph10992:                                      ; preds = %5339
-  %5361 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5361 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12569 = load ptr, ptr %5361, align 8
   br label %6058
 
 .lr.ph10995:                                      ; preds = %5339
-  %5362 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5362 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12570 = load ptr, ptr %5362, align 8
   %5363 = lshr i32 %5340, 5
   %5364 = zext nneg i32 %5363 to i64
-  %invariant.gep14151 = getelementptr inbounds i32, ptr @_pcre2_ucd_script_sets_8, i64 %5364
+  %invariant.gep14151 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_script_sets_8, i64 %5364
   %5365 = and i32 %5340, 31
   br label %5921
 
 .lr.ph10998:                                      ; preds = %5339
-  %5366 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5366 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12571 = load ptr, ptr %5366, align 8
   br label %5794
 
 .lr.ph11001:                                      ; preds = %5339
-  %5367 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5367 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12572 = load ptr, ptr %5367, align 8
   br label %5667
 
 .lr.ph11004:                                      ; preds = %5339
-  %5368 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5368 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12573 = load ptr, ptr %5368, align 8
   br label %5537
 
 .lr.ph11007:                                      ; preds = %5339
-  %5369 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5369 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12574 = load ptr, ptr %5369, align 8
   br label %5406
 
@@ -10506,7 +10506,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %5348, label %.preheader9566.preheader, label %.lr.ph11010
 
 .lr.ph11010:                                      ; preds = %5370
-  %5371 = getelementptr inbounds i8, ptr %.3, i64 80
+  %5371 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12575 = load ptr, ptr %5371, align 8
   br label %5372
 
@@ -10538,7 +10538,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12744, label %.preheader9566.preheader, label %.loopexit
 
 5383:                                             ; preds = %5372
-  %5384 = getelementptr inbounds i8, ptr %5373, i64 1
+  %5384 = getelementptr inbounds nuw i8, ptr %5373, i64 1
   store ptr %5384, ptr %5371, align 8
   %5385 = load i8, ptr %5373, align 1
   %5386 = zext i8 %5385 to i32
@@ -10569,7 +10569,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 .sink.split14200:                                 ; preds = %5397, %5394, %5391, %5388
   %.sink14203 = phi i64 [ 2, %5388 ], [ 3, %5391 ], [ 4, %5394 ], [ %.14221, %5397 ]
-  %5400 = getelementptr inbounds i8, ptr %5373, i64 %.sink14203
+  %5400 = getelementptr inbounds nuw i8, ptr %5373, i64 %.sink14203
   store ptr %5400, ptr %5371, align 8
   br label %5401
 
@@ -10612,7 +10612,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12743, label %.preheader9566.preheader, label %.loopexit
 
 5417:                                             ; preds = %5406
-  %5418 = getelementptr inbounds i8, ptr %5407, i64 1
+  %5418 = getelementptr inbounds nuw i8, ptr %5407, i64 1
   store ptr %5418, ptr %5369, align 8
   %5419 = load i8, ptr %5407, align 1
   %5420 = zext i8 %5419 to i32
@@ -10628,7 +10628,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 5425:                                             ; preds = %5422
   %5426 = shl nuw nsw i32 %5420, 6
   %5427 = and i32 %5426, 1984
-  %5428 = getelementptr inbounds i8, ptr %5407, i64 2
+  %5428 = getelementptr inbounds nuw i8, ptr %5407, i64 2
   store ptr %5428, ptr %5369, align 8
   %5429 = load i8, ptr %5418, align 1
   %5430 = and i8 %5429, 63
@@ -10649,12 +10649,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5441 = and i32 %5440, 61440
   %5442 = shl nuw nsw i32 %5438, 6
   %5443 = or disjoint i32 %5442, %5441
-  %5444 = getelementptr inbounds i8, ptr %5407, i64 2
+  %5444 = getelementptr inbounds nuw i8, ptr %5407, i64 2
   %5445 = load i8, ptr %5444, align 1
   %5446 = and i8 %5445, 63
   %5447 = zext nneg i8 %5446 to i32
   %5448 = or disjoint i32 %5443, %5447
-  %5449 = getelementptr inbounds i8, ptr %5407, i64 3
+  %5449 = getelementptr inbounds nuw i8, ptr %5407, i64 3
   store ptr %5449, ptr %5369, align 8
   br label %5513
 
@@ -10668,33 +10668,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5455 = and i32 %5454, 1835008
   %5456 = shl nuw nsw i32 %5438, 12
   %5457 = or disjoint i32 %5456, %5455
-  %5458 = getelementptr inbounds i8, ptr %5407, i64 2
+  %5458 = getelementptr inbounds nuw i8, ptr %5407, i64 2
   %5459 = load i8, ptr %5458, align 1
   %5460 = and i8 %5459, 63
   %5461 = zext nneg i8 %5460 to i32
   %5462 = shl nuw nsw i32 %5461, 6
   %5463 = or disjoint i32 %5457, %5462
-  %5464 = getelementptr inbounds i8, ptr %5407, i64 3
+  %5464 = getelementptr inbounds nuw i8, ptr %5407, i64 3
   %5465 = load i8, ptr %5464, align 1
   %5466 = and i8 %5465, 63
   %5467 = zext nneg i8 %5466 to i32
   %5468 = or disjoint i32 %5463, %5467
-  %5469 = getelementptr inbounds i8, ptr %5407, i64 4
+  %5469 = getelementptr inbounds nuw i8, ptr %5407, i64 4
   store ptr %5469, ptr %5369, align 8
   br label %5513
 
 5470:                                             ; preds = %5450
   %5471 = and i32 %5420, 4
   %5472 = icmp eq i32 %5471, 0
-  %5473 = getelementptr inbounds i8, ptr %5407, i64 2
+  %5473 = getelementptr inbounds nuw i8, ptr %5407, i64 2
   %5474 = load i8, ptr %5473, align 1
   %5475 = and i8 %5474, 63
   %5476 = zext nneg i8 %5475 to i32
-  %5477 = getelementptr inbounds i8, ptr %5407, i64 3
+  %5477 = getelementptr inbounds nuw i8, ptr %5407, i64 3
   %5478 = load i8, ptr %5477, align 1
   %5479 = and i8 %5478, 63
   %5480 = zext nneg i8 %5479 to i32
-  %5481 = getelementptr inbounds i8, ptr %5407, i64 4
+  %5481 = getelementptr inbounds nuw i8, ptr %5407, i64 4
   %5482 = load i8, ptr %5481, align 1
   %5483 = and i8 %5482, 63
   %5484 = zext nneg i8 %5483 to i32
@@ -10710,7 +10710,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5492 = shl nuw nsw i32 %5480, 6
   %5493 = or disjoint i32 %5491, %5492
   %5494 = or disjoint i32 %5493, %5484
-  %5495 = getelementptr inbounds i8, ptr %5407, i64 5
+  %5495 = getelementptr inbounds nuw i8, ptr %5407, i64 5
   store ptr %5495, ptr %5369, align 8
   br label %5513
 
@@ -10725,12 +10725,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5504 = or disjoint i32 %5502, %5503
   %5505 = shl nuw nsw i32 %5484, 6
   %5506 = or disjoint i32 %5504, %5505
-  %5507 = getelementptr inbounds i8, ptr %5407, i64 5
+  %5507 = getelementptr inbounds nuw i8, ptr %5407, i64 5
   %5508 = load i8, ptr %5507, align 1
   %5509 = and i8 %5508, 63
   %5510 = zext nneg i8 %5509 to i32
   %5511 = or disjoint i32 %5506, %5510
-  %5512 = getelementptr inbounds i8, ptr %5407, i64 6
+  %5512 = getelementptr inbounds nuw i8, ptr %5407, i64 6
   store ptr %5512, ptr %5369, align 8
   br label %5513
 
@@ -10739,17 +10739,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.227710 = phi i32 [ %5432, %5425 ], [ %5448, %5439 ], [ %5468, %5453 ], [ %5494, %5485 ], [ %5511, %5496 ], [ %5420, %5417 ]
   %5515 = lshr i32 %.227710, 7
   %5516 = zext nneg i32 %5515 to i64
-  %5517 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %5516
+  %5517 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %5516
   %5518 = load i16, ptr %5517, align 2
   %5519 = zext i16 %5518 to i32
   %5520 = shl nuw nsw i32 %5519, 7
   %5521 = and i32 %.227710, 127
   %5522 = or disjoint i32 %5520, %5521
   %5523 = zext nneg i32 %5522 to i64
-  %5524 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %5523
+  %5524 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %5523
   %5525 = load i16, ptr %5524, align 2
   %5526 = zext i16 %5525 to i64
-  %5527 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %5526, i32 1
+  %5527 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %5526, i32 1
   %5528 = load i8, ptr %5527, align 1
   switch i8 %5528, label %5529 [
     i8 9, label %5532
@@ -10799,7 +10799,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12742, label %.preheader9566.preheader, label %.loopexit
 
 5548:                                             ; preds = %5537
-  %5549 = getelementptr inbounds i8, ptr %5538, i64 1
+  %5549 = getelementptr inbounds nuw i8, ptr %5538, i64 1
   store ptr %5549, ptr %5368, align 8
   %5550 = load i8, ptr %5538, align 1
   %5551 = zext i8 %5550 to i32
@@ -10815,7 +10815,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 5556:                                             ; preds = %5553
   %5557 = shl nuw nsw i32 %5551, 6
   %5558 = and i32 %5557, 1984
-  %5559 = getelementptr inbounds i8, ptr %5538, i64 2
+  %5559 = getelementptr inbounds nuw i8, ptr %5538, i64 2
   store ptr %5559, ptr %5368, align 8
   %5560 = load i8, ptr %5549, align 1
   %5561 = and i8 %5560, 63
@@ -10836,12 +10836,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5572 = and i32 %5571, 61440
   %5573 = shl nuw nsw i32 %5569, 6
   %5574 = or disjoint i32 %5573, %5572
-  %5575 = getelementptr inbounds i8, ptr %5538, i64 2
+  %5575 = getelementptr inbounds nuw i8, ptr %5538, i64 2
   %5576 = load i8, ptr %5575, align 1
   %5577 = and i8 %5576, 63
   %5578 = zext nneg i8 %5577 to i32
   %5579 = or disjoint i32 %5574, %5578
-  %5580 = getelementptr inbounds i8, ptr %5538, i64 3
+  %5580 = getelementptr inbounds nuw i8, ptr %5538, i64 3
   store ptr %5580, ptr %5368, align 8
   br label %5644
 
@@ -10855,33 +10855,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5586 = and i32 %5585, 1835008
   %5587 = shl nuw nsw i32 %5569, 12
   %5588 = or disjoint i32 %5587, %5586
-  %5589 = getelementptr inbounds i8, ptr %5538, i64 2
+  %5589 = getelementptr inbounds nuw i8, ptr %5538, i64 2
   %5590 = load i8, ptr %5589, align 1
   %5591 = and i8 %5590, 63
   %5592 = zext nneg i8 %5591 to i32
   %5593 = shl nuw nsw i32 %5592, 6
   %5594 = or disjoint i32 %5588, %5593
-  %5595 = getelementptr inbounds i8, ptr %5538, i64 3
+  %5595 = getelementptr inbounds nuw i8, ptr %5538, i64 3
   %5596 = load i8, ptr %5595, align 1
   %5597 = and i8 %5596, 63
   %5598 = zext nneg i8 %5597 to i32
   %5599 = or disjoint i32 %5594, %5598
-  %5600 = getelementptr inbounds i8, ptr %5538, i64 4
+  %5600 = getelementptr inbounds nuw i8, ptr %5538, i64 4
   store ptr %5600, ptr %5368, align 8
   br label %5644
 
 5601:                                             ; preds = %5581
   %5602 = and i32 %5551, 4
   %5603 = icmp eq i32 %5602, 0
-  %5604 = getelementptr inbounds i8, ptr %5538, i64 2
+  %5604 = getelementptr inbounds nuw i8, ptr %5538, i64 2
   %5605 = load i8, ptr %5604, align 1
   %5606 = and i8 %5605, 63
   %5607 = zext nneg i8 %5606 to i32
-  %5608 = getelementptr inbounds i8, ptr %5538, i64 3
+  %5608 = getelementptr inbounds nuw i8, ptr %5538, i64 3
   %5609 = load i8, ptr %5608, align 1
   %5610 = and i8 %5609, 63
   %5611 = zext nneg i8 %5610 to i32
-  %5612 = getelementptr inbounds i8, ptr %5538, i64 4
+  %5612 = getelementptr inbounds nuw i8, ptr %5538, i64 4
   %5613 = load i8, ptr %5612, align 1
   %5614 = and i8 %5613, 63
   %5615 = zext nneg i8 %5614 to i32
@@ -10897,7 +10897,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5623 = shl nuw nsw i32 %5611, 6
   %5624 = or disjoint i32 %5622, %5623
   %5625 = or disjoint i32 %5624, %5615
-  %5626 = getelementptr inbounds i8, ptr %5538, i64 5
+  %5626 = getelementptr inbounds nuw i8, ptr %5538, i64 5
   store ptr %5626, ptr %5368, align 8
   br label %5644
 
@@ -10912,12 +10912,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5635 = or disjoint i32 %5633, %5634
   %5636 = shl nuw nsw i32 %5615, 6
   %5637 = or disjoint i32 %5635, %5636
-  %5638 = getelementptr inbounds i8, ptr %5538, i64 5
+  %5638 = getelementptr inbounds nuw i8, ptr %5538, i64 5
   %5639 = load i8, ptr %5638, align 1
   %5640 = and i8 %5639, 63
   %5641 = zext nneg i8 %5640 to i32
   %5642 = or disjoint i32 %5637, %5641
-  %5643 = getelementptr inbounds i8, ptr %5538, i64 6
+  %5643 = getelementptr inbounds nuw i8, ptr %5538, i64 6
   store ptr %5643, ptr %5368, align 8
   br label %5644
 
@@ -10926,20 +10926,20 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.237711 = phi i32 [ %5563, %5556 ], [ %5579, %5570 ], [ %5599, %5584 ], [ %5625, %5616 ], [ %5642, %5627 ], [ %5551, %5548 ]
   %5646 = lshr i32 %.237711, 7
   %5647 = zext nneg i32 %5646 to i64
-  %5648 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %5647
+  %5648 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %5647
   %5649 = load i16, ptr %5648, align 2
   %5650 = zext i16 %5649 to i32
   %5651 = shl nuw nsw i32 %5650, 7
   %5652 = and i32 %.237711, 127
   %5653 = or disjoint i32 %5651, %5652
   %5654 = zext nneg i32 %5653 to i64
-  %5655 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %5654
+  %5655 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %5654
   %5656 = load i16, ptr %5655, align 2
   %5657 = zext i16 %5656 to i64
-  %5658 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %5657, i32 1
+  %5658 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %5657, i32 1
   %5659 = load i8, ptr %5658, align 1
   %5660 = zext i8 %5659 to i64
-  %5661 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %5660
+  %5661 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %5660
   %5662 = load i32, ptr %5661, align 4
   %5663 = icmp ne i32 %5662, %5340
   %5664 = xor i1 %5348, %5663
@@ -10978,7 +10978,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12741, label %.preheader9566.preheader, label %.loopexit
 
 5678:                                             ; preds = %5667
-  %5679 = getelementptr inbounds i8, ptr %5668, i64 1
+  %5679 = getelementptr inbounds nuw i8, ptr %5668, i64 1
   store ptr %5679, ptr %5367, align 8
   %5680 = load i8, ptr %5668, align 1
   %5681 = zext i8 %5680 to i32
@@ -10994,7 +10994,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 5686:                                             ; preds = %5683
   %5687 = shl nuw nsw i32 %5681, 6
   %5688 = and i32 %5687, 1984
-  %5689 = getelementptr inbounds i8, ptr %5668, i64 2
+  %5689 = getelementptr inbounds nuw i8, ptr %5668, i64 2
   store ptr %5689, ptr %5367, align 8
   %5690 = load i8, ptr %5679, align 1
   %5691 = and i8 %5690, 63
@@ -11015,12 +11015,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5702 = and i32 %5701, 61440
   %5703 = shl nuw nsw i32 %5699, 6
   %5704 = or disjoint i32 %5703, %5702
-  %5705 = getelementptr inbounds i8, ptr %5668, i64 2
+  %5705 = getelementptr inbounds nuw i8, ptr %5668, i64 2
   %5706 = load i8, ptr %5705, align 1
   %5707 = and i8 %5706, 63
   %5708 = zext nneg i8 %5707 to i32
   %5709 = or disjoint i32 %5704, %5708
-  %5710 = getelementptr inbounds i8, ptr %5668, i64 3
+  %5710 = getelementptr inbounds nuw i8, ptr %5668, i64 3
   store ptr %5710, ptr %5367, align 8
   br label %5774
 
@@ -11034,33 +11034,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5716 = and i32 %5715, 1835008
   %5717 = shl nuw nsw i32 %5699, 12
   %5718 = or disjoint i32 %5717, %5716
-  %5719 = getelementptr inbounds i8, ptr %5668, i64 2
+  %5719 = getelementptr inbounds nuw i8, ptr %5668, i64 2
   %5720 = load i8, ptr %5719, align 1
   %5721 = and i8 %5720, 63
   %5722 = zext nneg i8 %5721 to i32
   %5723 = shl nuw nsw i32 %5722, 6
   %5724 = or disjoint i32 %5718, %5723
-  %5725 = getelementptr inbounds i8, ptr %5668, i64 3
+  %5725 = getelementptr inbounds nuw i8, ptr %5668, i64 3
   %5726 = load i8, ptr %5725, align 1
   %5727 = and i8 %5726, 63
   %5728 = zext nneg i8 %5727 to i32
   %5729 = or disjoint i32 %5724, %5728
-  %5730 = getelementptr inbounds i8, ptr %5668, i64 4
+  %5730 = getelementptr inbounds nuw i8, ptr %5668, i64 4
   store ptr %5730, ptr %5367, align 8
   br label %5774
 
 5731:                                             ; preds = %5711
   %5732 = and i32 %5681, 4
   %5733 = icmp eq i32 %5732, 0
-  %5734 = getelementptr inbounds i8, ptr %5668, i64 2
+  %5734 = getelementptr inbounds nuw i8, ptr %5668, i64 2
   %5735 = load i8, ptr %5734, align 1
   %5736 = and i8 %5735, 63
   %5737 = zext nneg i8 %5736 to i32
-  %5738 = getelementptr inbounds i8, ptr %5668, i64 3
+  %5738 = getelementptr inbounds nuw i8, ptr %5668, i64 3
   %5739 = load i8, ptr %5738, align 1
   %5740 = and i8 %5739, 63
   %5741 = zext nneg i8 %5740 to i32
-  %5742 = getelementptr inbounds i8, ptr %5668, i64 4
+  %5742 = getelementptr inbounds nuw i8, ptr %5668, i64 4
   %5743 = load i8, ptr %5742, align 1
   %5744 = and i8 %5743, 63
   %5745 = zext nneg i8 %5744 to i32
@@ -11076,7 +11076,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5753 = shl nuw nsw i32 %5741, 6
   %5754 = or disjoint i32 %5752, %5753
   %5755 = or disjoint i32 %5754, %5745
-  %5756 = getelementptr inbounds i8, ptr %5668, i64 5
+  %5756 = getelementptr inbounds nuw i8, ptr %5668, i64 5
   store ptr %5756, ptr %5367, align 8
   br label %5774
 
@@ -11091,12 +11091,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5765 = or disjoint i32 %5763, %5764
   %5766 = shl nuw nsw i32 %5745, 6
   %5767 = or disjoint i32 %5765, %5766
-  %5768 = getelementptr inbounds i8, ptr %5668, i64 5
+  %5768 = getelementptr inbounds nuw i8, ptr %5668, i64 5
   %5769 = load i8, ptr %5768, align 1
   %5770 = and i8 %5769, 63
   %5771 = zext nneg i8 %5770 to i32
   %5772 = or disjoint i32 %5767, %5771
-  %5773 = getelementptr inbounds i8, ptr %5668, i64 6
+  %5773 = getelementptr inbounds nuw i8, ptr %5668, i64 6
   store ptr %5773, ptr %5367, align 8
   br label %5774
 
@@ -11105,17 +11105,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.247712 = phi i32 [ %5693, %5686 ], [ %5709, %5700 ], [ %5729, %5714 ], [ %5755, %5746 ], [ %5772, %5757 ], [ %5681, %5678 ]
   %5776 = lshr i32 %.247712, 7
   %5777 = zext nneg i32 %5776 to i64
-  %5778 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %5777
+  %5778 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %5777
   %5779 = load i16, ptr %5778, align 2
   %5780 = zext i16 %5779 to i32
   %5781 = shl nuw nsw i32 %5780, 7
   %5782 = and i32 %.247712, 127
   %5783 = or disjoint i32 %5781, %5782
   %5784 = zext nneg i32 %5783 to i64
-  %5785 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %5784
+  %5785 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %5784
   %5786 = load i16, ptr %5785, align 2
   %5787 = zext i16 %5786 to i64
-  %5788 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %5787, i32 1
+  %5788 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %5787, i32 1
   %5789 = load i8, ptr %5788, align 1
   %5790 = icmp ne i8 %5341, %5789
   %5791 = xor i1 %5348, %5790
@@ -11154,7 +11154,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12740, label %.preheader9566.preheader, label %.loopexit
 
 5805:                                             ; preds = %5794
-  %5806 = getelementptr inbounds i8, ptr %5795, i64 1
+  %5806 = getelementptr inbounds nuw i8, ptr %5795, i64 1
   store ptr %5806, ptr %5366, align 8
   %5807 = load i8, ptr %5795, align 1
   %5808 = zext i8 %5807 to i32
@@ -11170,7 +11170,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 5813:                                             ; preds = %5810
   %5814 = shl nuw nsw i32 %5808, 6
   %5815 = and i32 %5814, 1984
-  %5816 = getelementptr inbounds i8, ptr %5795, i64 2
+  %5816 = getelementptr inbounds nuw i8, ptr %5795, i64 2
   store ptr %5816, ptr %5366, align 8
   %5817 = load i8, ptr %5806, align 1
   %5818 = and i8 %5817, 63
@@ -11191,12 +11191,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5829 = and i32 %5828, 61440
   %5830 = shl nuw nsw i32 %5826, 6
   %5831 = or disjoint i32 %5830, %5829
-  %5832 = getelementptr inbounds i8, ptr %5795, i64 2
+  %5832 = getelementptr inbounds nuw i8, ptr %5795, i64 2
   %5833 = load i8, ptr %5832, align 1
   %5834 = and i8 %5833, 63
   %5835 = zext nneg i8 %5834 to i32
   %5836 = or disjoint i32 %5831, %5835
-  %5837 = getelementptr inbounds i8, ptr %5795, i64 3
+  %5837 = getelementptr inbounds nuw i8, ptr %5795, i64 3
   store ptr %5837, ptr %5366, align 8
   br label %5901
 
@@ -11210,33 +11210,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5843 = and i32 %5842, 1835008
   %5844 = shl nuw nsw i32 %5826, 12
   %5845 = or disjoint i32 %5844, %5843
-  %5846 = getelementptr inbounds i8, ptr %5795, i64 2
+  %5846 = getelementptr inbounds nuw i8, ptr %5795, i64 2
   %5847 = load i8, ptr %5846, align 1
   %5848 = and i8 %5847, 63
   %5849 = zext nneg i8 %5848 to i32
   %5850 = shl nuw nsw i32 %5849, 6
   %5851 = or disjoint i32 %5845, %5850
-  %5852 = getelementptr inbounds i8, ptr %5795, i64 3
+  %5852 = getelementptr inbounds nuw i8, ptr %5795, i64 3
   %5853 = load i8, ptr %5852, align 1
   %5854 = and i8 %5853, 63
   %5855 = zext nneg i8 %5854 to i32
   %5856 = or disjoint i32 %5851, %5855
-  %5857 = getelementptr inbounds i8, ptr %5795, i64 4
+  %5857 = getelementptr inbounds nuw i8, ptr %5795, i64 4
   store ptr %5857, ptr %5366, align 8
   br label %5901
 
 5858:                                             ; preds = %5838
   %5859 = and i32 %5808, 4
   %5860 = icmp eq i32 %5859, 0
-  %5861 = getelementptr inbounds i8, ptr %5795, i64 2
+  %5861 = getelementptr inbounds nuw i8, ptr %5795, i64 2
   %5862 = load i8, ptr %5861, align 1
   %5863 = and i8 %5862, 63
   %5864 = zext nneg i8 %5863 to i32
-  %5865 = getelementptr inbounds i8, ptr %5795, i64 3
+  %5865 = getelementptr inbounds nuw i8, ptr %5795, i64 3
   %5866 = load i8, ptr %5865, align 1
   %5867 = and i8 %5866, 63
   %5868 = zext nneg i8 %5867 to i32
-  %5869 = getelementptr inbounds i8, ptr %5795, i64 4
+  %5869 = getelementptr inbounds nuw i8, ptr %5795, i64 4
   %5870 = load i8, ptr %5869, align 1
   %5871 = and i8 %5870, 63
   %5872 = zext nneg i8 %5871 to i32
@@ -11252,7 +11252,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5880 = shl nuw nsw i32 %5868, 6
   %5881 = or disjoint i32 %5879, %5880
   %5882 = or disjoint i32 %5881, %5872
-  %5883 = getelementptr inbounds i8, ptr %5795, i64 5
+  %5883 = getelementptr inbounds nuw i8, ptr %5795, i64 5
   store ptr %5883, ptr %5366, align 8
   br label %5901
 
@@ -11267,12 +11267,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5892 = or disjoint i32 %5890, %5891
   %5893 = shl nuw nsw i32 %5872, 6
   %5894 = or disjoint i32 %5892, %5893
-  %5895 = getelementptr inbounds i8, ptr %5795, i64 5
+  %5895 = getelementptr inbounds nuw i8, ptr %5795, i64 5
   %5896 = load i8, ptr %5895, align 1
   %5897 = and i8 %5896, 63
   %5898 = zext nneg i8 %5897 to i32
   %5899 = or disjoint i32 %5894, %5898
-  %5900 = getelementptr inbounds i8, ptr %5795, i64 6
+  %5900 = getelementptr inbounds nuw i8, ptr %5795, i64 6
   store ptr %5900, ptr %5366, align 8
   br label %5901
 
@@ -11281,17 +11281,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.257713 = phi i32 [ %5820, %5813 ], [ %5836, %5827 ], [ %5856, %5841 ], [ %5882, %5873 ], [ %5899, %5884 ], [ %5808, %5805 ]
   %5903 = lshr i32 %.257713, 7
   %5904 = zext nneg i32 %5903 to i64
-  %5905 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %5904
+  %5905 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %5904
   %5906 = load i16, ptr %5905, align 2
   %5907 = zext i16 %5906 to i32
   %5908 = shl nuw nsw i32 %5907, 7
   %5909 = and i32 %.257713, 127
   %5910 = or disjoint i32 %5908, %5909
   %5911 = zext nneg i32 %5910 to i64
-  %5912 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %5911
+  %5912 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %5911
   %5913 = load i16, ptr %5912, align 2
   %5914 = zext i16 %5913 to i64
-  %5915 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %5914
+  %5915 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %5914
   %5916 = load i8, ptr %5915, align 4
   %5917 = icmp ne i8 %5341, %5916
   %5918 = xor i1 %5348, %5917
@@ -11330,7 +11330,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12739, label %.preheader9566.preheader, label %.loopexit
 
 5932:                                             ; preds = %5921
-  %5933 = getelementptr inbounds i8, ptr %5922, i64 1
+  %5933 = getelementptr inbounds nuw i8, ptr %5922, i64 1
   store ptr %5933, ptr %5362, align 8
   %5934 = load i8, ptr %5922, align 1
   %5935 = zext i8 %5934 to i32
@@ -11346,7 +11346,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 5940:                                             ; preds = %5937
   %5941 = shl nuw nsw i32 %5935, 6
   %5942 = and i32 %5941, 1984
-  %5943 = getelementptr inbounds i8, ptr %5922, i64 2
+  %5943 = getelementptr inbounds nuw i8, ptr %5922, i64 2
   store ptr %5943, ptr %5362, align 8
   %5944 = load i8, ptr %5933, align 1
   %5945 = and i8 %5944, 63
@@ -11367,12 +11367,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5956 = and i32 %5955, 61440
   %5957 = shl nuw nsw i32 %5953, 6
   %5958 = or disjoint i32 %5957, %5956
-  %5959 = getelementptr inbounds i8, ptr %5922, i64 2
+  %5959 = getelementptr inbounds nuw i8, ptr %5922, i64 2
   %5960 = load i8, ptr %5959, align 1
   %5961 = and i8 %5960, 63
   %5962 = zext nneg i8 %5961 to i32
   %5963 = or disjoint i32 %5958, %5962
-  %5964 = getelementptr inbounds i8, ptr %5922, i64 3
+  %5964 = getelementptr inbounds nuw i8, ptr %5922, i64 3
   store ptr %5964, ptr %5362, align 8
   br label %6028
 
@@ -11386,33 +11386,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %5970 = and i32 %5969, 1835008
   %5971 = shl nuw nsw i32 %5953, 12
   %5972 = or disjoint i32 %5971, %5970
-  %5973 = getelementptr inbounds i8, ptr %5922, i64 2
+  %5973 = getelementptr inbounds nuw i8, ptr %5922, i64 2
   %5974 = load i8, ptr %5973, align 1
   %5975 = and i8 %5974, 63
   %5976 = zext nneg i8 %5975 to i32
   %5977 = shl nuw nsw i32 %5976, 6
   %5978 = or disjoint i32 %5972, %5977
-  %5979 = getelementptr inbounds i8, ptr %5922, i64 3
+  %5979 = getelementptr inbounds nuw i8, ptr %5922, i64 3
   %5980 = load i8, ptr %5979, align 1
   %5981 = and i8 %5980, 63
   %5982 = zext nneg i8 %5981 to i32
   %5983 = or disjoint i32 %5978, %5982
-  %5984 = getelementptr inbounds i8, ptr %5922, i64 4
+  %5984 = getelementptr inbounds nuw i8, ptr %5922, i64 4
   store ptr %5984, ptr %5362, align 8
   br label %6028
 
 5985:                                             ; preds = %5965
   %5986 = and i32 %5935, 4
   %5987 = icmp eq i32 %5986, 0
-  %5988 = getelementptr inbounds i8, ptr %5922, i64 2
+  %5988 = getelementptr inbounds nuw i8, ptr %5922, i64 2
   %5989 = load i8, ptr %5988, align 1
   %5990 = and i8 %5989, 63
   %5991 = zext nneg i8 %5990 to i32
-  %5992 = getelementptr inbounds i8, ptr %5922, i64 3
+  %5992 = getelementptr inbounds nuw i8, ptr %5922, i64 3
   %5993 = load i8, ptr %5992, align 1
   %5994 = and i8 %5993, 63
   %5995 = zext nneg i8 %5994 to i32
-  %5996 = getelementptr inbounds i8, ptr %5922, i64 4
+  %5996 = getelementptr inbounds nuw i8, ptr %5922, i64 4
   %5997 = load i8, ptr %5996, align 1
   %5998 = and i8 %5997, 63
   %5999 = zext nneg i8 %5998 to i32
@@ -11428,7 +11428,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6007 = shl nuw nsw i32 %5995, 6
   %6008 = or disjoint i32 %6006, %6007
   %6009 = or disjoint i32 %6008, %5999
-  %6010 = getelementptr inbounds i8, ptr %5922, i64 5
+  %6010 = getelementptr inbounds nuw i8, ptr %5922, i64 5
   store ptr %6010, ptr %5362, align 8
   br label %6028
 
@@ -11443,12 +11443,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6019 = or disjoint i32 %6017, %6018
   %6020 = shl nuw nsw i32 %5999, 6
   %6021 = or disjoint i32 %6019, %6020
-  %6022 = getelementptr inbounds i8, ptr %5922, i64 5
+  %6022 = getelementptr inbounds nuw i8, ptr %5922, i64 5
   %6023 = load i8, ptr %6022, align 1
   %6024 = and i8 %6023, 63
   %6025 = zext nneg i8 %6024 to i32
   %6026 = or disjoint i32 %6021, %6025
-  %6027 = getelementptr inbounds i8, ptr %5922, i64 6
+  %6027 = getelementptr inbounds nuw i8, ptr %5922, i64 6
   store ptr %6027, ptr %5362, align 8
   br label %6028
 
@@ -11457,27 +11457,27 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.267714 = phi i32 [ %5947, %5940 ], [ %5963, %5954 ], [ %5983, %5968 ], [ %6009, %6000 ], [ %6026, %6011 ], [ %5935, %5932 ]
   %6030 = lshr i32 %.267714, 7
   %6031 = zext nneg i32 %6030 to i64
-  %6032 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6031
+  %6032 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6031
   %6033 = load i16, ptr %6032, align 2
   %6034 = zext i16 %6033 to i32
   %6035 = shl nuw nsw i32 %6034, 7
   %6036 = and i32 %.267714, 127
   %6037 = or disjoint i32 %6035, %6036
   %6038 = zext nneg i32 %6037 to i64
-  %6039 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6038
+  %6039 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6038
   %6040 = load i16, ptr %6039, align 2
   %6041 = zext i16 %6040 to i64
-  %6042 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6041
+  %6042 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6041
   %6043 = load i8, ptr %6042, align 4
   %6044 = icmp eq i8 %5341, %6043
   br i1 %6044, label %6053, label %6045
 
 6045:                                             ; preds = %6028
-  %6046 = getelementptr inbounds i8, ptr %6042, i64 8
+  %6046 = getelementptr inbounds nuw i8, ptr %6042, i64 8
   %6047 = load i16, ptr %6046, align 4
   %6048 = and i16 %6047, 1023
   %6049 = zext nneg i16 %6048 to i64
-  %gep14152 = getelementptr inbounds i32, ptr %invariant.gep14151, i64 %6049
+  %gep14152 = getelementptr inbounds nuw i32, ptr %invariant.gep14151, i64 %6049
   %6050 = load i32, ptr %gep14152, align 4
   %6051 = lshr i32 %6050, %5365
   %6052 = and i32 %6051, 1
@@ -11521,7 +11521,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12738, label %.preheader9566.preheader, label %.loopexit
 
 6069:                                             ; preds = %6058
-  %6070 = getelementptr inbounds i8, ptr %6059, i64 1
+  %6070 = getelementptr inbounds nuw i8, ptr %6059, i64 1
   store ptr %6070, ptr %5361, align 8
   %6071 = load i8, ptr %6059, align 1
   %6072 = zext i8 %6071 to i32
@@ -11537,7 +11537,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 6077:                                             ; preds = %6074
   %6078 = shl nuw nsw i32 %6072, 6
   %6079 = and i32 %6078, 1984
-  %6080 = getelementptr inbounds i8, ptr %6059, i64 2
+  %6080 = getelementptr inbounds nuw i8, ptr %6059, i64 2
   store ptr %6080, ptr %5361, align 8
   %6081 = load i8, ptr %6070, align 1
   %6082 = and i8 %6081, 63
@@ -11558,12 +11558,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6093 = and i32 %6092, 61440
   %6094 = shl nuw nsw i32 %6090, 6
   %6095 = or disjoint i32 %6094, %6093
-  %6096 = getelementptr inbounds i8, ptr %6059, i64 2
+  %6096 = getelementptr inbounds nuw i8, ptr %6059, i64 2
   %6097 = load i8, ptr %6096, align 1
   %6098 = and i8 %6097, 63
   %6099 = zext nneg i8 %6098 to i32
   %6100 = or disjoint i32 %6095, %6099
-  %6101 = getelementptr inbounds i8, ptr %6059, i64 3
+  %6101 = getelementptr inbounds nuw i8, ptr %6059, i64 3
   store ptr %6101, ptr %5361, align 8
   br label %6165
 
@@ -11577,33 +11577,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6107 = and i32 %6106, 1835008
   %6108 = shl nuw nsw i32 %6090, 12
   %6109 = or disjoint i32 %6108, %6107
-  %6110 = getelementptr inbounds i8, ptr %6059, i64 2
+  %6110 = getelementptr inbounds nuw i8, ptr %6059, i64 2
   %6111 = load i8, ptr %6110, align 1
   %6112 = and i8 %6111, 63
   %6113 = zext nneg i8 %6112 to i32
   %6114 = shl nuw nsw i32 %6113, 6
   %6115 = or disjoint i32 %6109, %6114
-  %6116 = getelementptr inbounds i8, ptr %6059, i64 3
+  %6116 = getelementptr inbounds nuw i8, ptr %6059, i64 3
   %6117 = load i8, ptr %6116, align 1
   %6118 = and i8 %6117, 63
   %6119 = zext nneg i8 %6118 to i32
   %6120 = or disjoint i32 %6115, %6119
-  %6121 = getelementptr inbounds i8, ptr %6059, i64 4
+  %6121 = getelementptr inbounds nuw i8, ptr %6059, i64 4
   store ptr %6121, ptr %5361, align 8
   br label %6165
 
 6122:                                             ; preds = %6102
   %6123 = and i32 %6072, 4
   %6124 = icmp eq i32 %6123, 0
-  %6125 = getelementptr inbounds i8, ptr %6059, i64 2
+  %6125 = getelementptr inbounds nuw i8, ptr %6059, i64 2
   %6126 = load i8, ptr %6125, align 1
   %6127 = and i8 %6126, 63
   %6128 = zext nneg i8 %6127 to i32
-  %6129 = getelementptr inbounds i8, ptr %6059, i64 3
+  %6129 = getelementptr inbounds nuw i8, ptr %6059, i64 3
   %6130 = load i8, ptr %6129, align 1
   %6131 = and i8 %6130, 63
   %6132 = zext nneg i8 %6131 to i32
-  %6133 = getelementptr inbounds i8, ptr %6059, i64 4
+  %6133 = getelementptr inbounds nuw i8, ptr %6059, i64 4
   %6134 = load i8, ptr %6133, align 1
   %6135 = and i8 %6134, 63
   %6136 = zext nneg i8 %6135 to i32
@@ -11619,7 +11619,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6144 = shl nuw nsw i32 %6132, 6
   %6145 = or disjoint i32 %6143, %6144
   %6146 = or disjoint i32 %6145, %6136
-  %6147 = getelementptr inbounds i8, ptr %6059, i64 5
+  %6147 = getelementptr inbounds nuw i8, ptr %6059, i64 5
   store ptr %6147, ptr %5361, align 8
   br label %6165
 
@@ -11634,12 +11634,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6156 = or disjoint i32 %6154, %6155
   %6157 = shl nuw nsw i32 %6136, 6
   %6158 = or disjoint i32 %6156, %6157
-  %6159 = getelementptr inbounds i8, ptr %6059, i64 5
+  %6159 = getelementptr inbounds nuw i8, ptr %6059, i64 5
   %6160 = load i8, ptr %6159, align 1
   %6161 = and i8 %6160, 63
   %6162 = zext nneg i8 %6161 to i32
   %6163 = or disjoint i32 %6158, %6162
-  %6164 = getelementptr inbounds i8, ptr %6059, i64 6
+  %6164 = getelementptr inbounds nuw i8, ptr %6059, i64 6
   store ptr %6164, ptr %5361, align 8
   br label %6165
 
@@ -11648,20 +11648,20 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.277715 = phi i32 [ %6084, %6077 ], [ %6100, %6091 ], [ %6120, %6105 ], [ %6146, %6137 ], [ %6163, %6148 ], [ %6072, %6069 ]
   %6167 = lshr i32 %.277715, 7
   %6168 = zext nneg i32 %6167 to i64
-  %6169 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6168
+  %6169 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6168
   %6170 = load i16, ptr %6169, align 2
   %6171 = zext i16 %6170 to i32
   %6172 = shl nuw nsw i32 %6171, 7
   %6173 = and i32 %.277715, 127
   %6174 = or disjoint i32 %6172, %6173
   %6175 = zext nneg i32 %6174 to i64
-  %6176 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6175
+  %6176 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6175
   %6177 = load i16, ptr %6176, align 2
   %6178 = zext i16 %6177 to i64
-  %6179 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6178, i32 1
+  %6179 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6178, i32 1
   %6180 = load i8, ptr %6179, align 1
   %6181 = zext i8 %6180 to i64
-  %6182 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %6181
+  %6182 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %6181
   %6183 = load i32, ptr %6182, align 4
   %6184 = and i32 %6183, -3
   %6185 = icmp ne i32 %6184, 1
@@ -11669,7 +11669,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %6186, label %.preheader9566.preheader, label %6056
 
 .lr.ph10989:                                      ; preds = %5339, %5339
-  %6187 = getelementptr inbounds i8, ptr %.3, i64 80
+  %6187 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12568 = load ptr, ptr %6187, align 8
   br label %6188
 
@@ -11701,7 +11701,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12737, label %.preheader9566.preheader, label %.loopexit
 
 6199:                                             ; preds = %6188
-  %6200 = getelementptr inbounds i8, ptr %6189, i64 1
+  %6200 = getelementptr inbounds nuw i8, ptr %6189, i64 1
   store ptr %6200, ptr %6187, align 8
   %6201 = load i8, ptr %6189, align 1
   %6202 = zext i8 %6201 to i32
@@ -11717,7 +11717,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 6207:                                             ; preds = %6204
   %6208 = shl nuw nsw i32 %6202, 6
   %6209 = and i32 %6208, 1984
-  %6210 = getelementptr inbounds i8, ptr %6189, i64 2
+  %6210 = getelementptr inbounds nuw i8, ptr %6189, i64 2
   store ptr %6210, ptr %6187, align 8
   %6211 = load i8, ptr %6200, align 1
   %6212 = and i8 %6211, 63
@@ -11738,12 +11738,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6223 = and i32 %6222, 61440
   %6224 = shl nuw nsw i32 %6220, 6
   %6225 = or disjoint i32 %6224, %6223
-  %6226 = getelementptr inbounds i8, ptr %6189, i64 2
+  %6226 = getelementptr inbounds nuw i8, ptr %6189, i64 2
   %6227 = load i8, ptr %6226, align 1
   %6228 = and i8 %6227, 63
   %6229 = zext nneg i8 %6228 to i32
   %6230 = or disjoint i32 %6225, %6229
-  %6231 = getelementptr inbounds i8, ptr %6189, i64 3
+  %6231 = getelementptr inbounds nuw i8, ptr %6189, i64 3
   store ptr %6231, ptr %6187, align 8
   br label %6295
 
@@ -11757,33 +11757,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6237 = and i32 %6236, 1835008
   %6238 = shl nuw nsw i32 %6220, 12
   %6239 = or disjoint i32 %6238, %6237
-  %6240 = getelementptr inbounds i8, ptr %6189, i64 2
+  %6240 = getelementptr inbounds nuw i8, ptr %6189, i64 2
   %6241 = load i8, ptr %6240, align 1
   %6242 = and i8 %6241, 63
   %6243 = zext nneg i8 %6242 to i32
   %6244 = shl nuw nsw i32 %6243, 6
   %6245 = or disjoint i32 %6239, %6244
-  %6246 = getelementptr inbounds i8, ptr %6189, i64 3
+  %6246 = getelementptr inbounds nuw i8, ptr %6189, i64 3
   %6247 = load i8, ptr %6246, align 1
   %6248 = and i8 %6247, 63
   %6249 = zext nneg i8 %6248 to i32
   %6250 = or disjoint i32 %6245, %6249
-  %6251 = getelementptr inbounds i8, ptr %6189, i64 4
+  %6251 = getelementptr inbounds nuw i8, ptr %6189, i64 4
   store ptr %6251, ptr %6187, align 8
   br label %6295
 
 6252:                                             ; preds = %6232
   %6253 = and i32 %6202, 4
   %6254 = icmp eq i32 %6253, 0
-  %6255 = getelementptr inbounds i8, ptr %6189, i64 2
+  %6255 = getelementptr inbounds nuw i8, ptr %6189, i64 2
   %6256 = load i8, ptr %6255, align 1
   %6257 = and i8 %6256, 63
   %6258 = zext nneg i8 %6257 to i32
-  %6259 = getelementptr inbounds i8, ptr %6189, i64 3
+  %6259 = getelementptr inbounds nuw i8, ptr %6189, i64 3
   %6260 = load i8, ptr %6259, align 1
   %6261 = and i8 %6260, 63
   %6262 = zext nneg i8 %6261 to i32
-  %6263 = getelementptr inbounds i8, ptr %6189, i64 4
+  %6263 = getelementptr inbounds nuw i8, ptr %6189, i64 4
   %6264 = load i8, ptr %6263, align 1
   %6265 = and i8 %6264, 63
   %6266 = zext nneg i8 %6265 to i32
@@ -11799,7 +11799,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6274 = shl nuw nsw i32 %6262, 6
   %6275 = or disjoint i32 %6273, %6274
   %6276 = or disjoint i32 %6275, %6266
-  %6277 = getelementptr inbounds i8, ptr %6189, i64 5
+  %6277 = getelementptr inbounds nuw i8, ptr %6189, i64 5
   store ptr %6277, ptr %6187, align 8
   br label %6295
 
@@ -11814,12 +11814,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6286 = or disjoint i32 %6284, %6285
   %6287 = shl nuw nsw i32 %6266, 6
   %6288 = or disjoint i32 %6286, %6287
-  %6289 = getelementptr inbounds i8, ptr %6189, i64 5
+  %6289 = getelementptr inbounds nuw i8, ptr %6189, i64 5
   %6290 = load i8, ptr %6289, align 1
   %6291 = and i8 %6290, 63
   %6292 = zext nneg i8 %6291 to i32
   %6293 = or disjoint i32 %6288, %6292
-  %6294 = getelementptr inbounds i8, ptr %6189, i64 6
+  %6294 = getelementptr inbounds nuw i8, ptr %6189, i64 6
   store ptr %6294, ptr %6187, align 8
   br label %6295
 
@@ -11861,20 +11861,20 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 6298:                                             ; preds = %6295
   %6299 = lshr i32 %.287716, 7
   %6300 = zext nneg i32 %6299 to i64
-  %6301 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6300
+  %6301 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6300
   %6302 = load i16, ptr %6301, align 2
   %6303 = zext i16 %6302 to i32
   %6304 = shl nuw nsw i32 %6303, 7
   %6305 = and i32 %.287716, 127
   %6306 = or disjoint i32 %6304, %6305
   %6307 = zext nneg i32 %6306 to i64
-  %6308 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6307
+  %6308 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6307
   %6309 = load i16, ptr %6308, align 2
   %6310 = zext i16 %6309 to i64
-  %6311 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6310, i32 1
+  %6311 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6310, i32 1
   %6312 = load i8, ptr %6311, align 1
   %6313 = zext i8 %6312 to i64
-  %6314 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %6313
+  %6314 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %6313
   %6315 = load i32, ptr %6314, align 4
   %6316 = icmp ne i32 %6315, 6
   %6317 = xor i1 %5348, %6316
@@ -11918,7 +11918,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12736, label %.preheader9566.preheader, label %.loopexit
 
 6333:                                             ; preds = %6322
-  %6334 = getelementptr inbounds i8, ptr %6323, i64 1
+  %6334 = getelementptr inbounds nuw i8, ptr %6323, i64 1
   store ptr %6334, ptr %5360, align 8
   %6335 = load i8, ptr %6323, align 1
   %6336 = zext i8 %6335 to i32
@@ -11934,7 +11934,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 6341:                                             ; preds = %6338
   %6342 = shl nuw nsw i32 %6336, 6
   %6343 = and i32 %6342, 1984
-  %6344 = getelementptr inbounds i8, ptr %6323, i64 2
+  %6344 = getelementptr inbounds nuw i8, ptr %6323, i64 2
   store ptr %6344, ptr %5360, align 8
   %6345 = load i8, ptr %6334, align 1
   %6346 = and i8 %6345, 63
@@ -11955,12 +11955,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6357 = and i32 %6356, 61440
   %6358 = shl nuw nsw i32 %6354, 6
   %6359 = or disjoint i32 %6358, %6357
-  %6360 = getelementptr inbounds i8, ptr %6323, i64 2
+  %6360 = getelementptr inbounds nuw i8, ptr %6323, i64 2
   %6361 = load i8, ptr %6360, align 1
   %6362 = and i8 %6361, 63
   %6363 = zext nneg i8 %6362 to i32
   %6364 = or disjoint i32 %6359, %6363
-  %6365 = getelementptr inbounds i8, ptr %6323, i64 3
+  %6365 = getelementptr inbounds nuw i8, ptr %6323, i64 3
   store ptr %6365, ptr %5360, align 8
   br label %6429
 
@@ -11974,33 +11974,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6371 = and i32 %6370, 1835008
   %6372 = shl nuw nsw i32 %6354, 12
   %6373 = or disjoint i32 %6372, %6371
-  %6374 = getelementptr inbounds i8, ptr %6323, i64 2
+  %6374 = getelementptr inbounds nuw i8, ptr %6323, i64 2
   %6375 = load i8, ptr %6374, align 1
   %6376 = and i8 %6375, 63
   %6377 = zext nneg i8 %6376 to i32
   %6378 = shl nuw nsw i32 %6377, 6
   %6379 = or disjoint i32 %6373, %6378
-  %6380 = getelementptr inbounds i8, ptr %6323, i64 3
+  %6380 = getelementptr inbounds nuw i8, ptr %6323, i64 3
   %6381 = load i8, ptr %6380, align 1
   %6382 = and i8 %6381, 63
   %6383 = zext nneg i8 %6382 to i32
   %6384 = or disjoint i32 %6379, %6383
-  %6385 = getelementptr inbounds i8, ptr %6323, i64 4
+  %6385 = getelementptr inbounds nuw i8, ptr %6323, i64 4
   store ptr %6385, ptr %5360, align 8
   br label %6429
 
 6386:                                             ; preds = %6366
   %6387 = and i32 %6336, 4
   %6388 = icmp eq i32 %6387, 0
-  %6389 = getelementptr inbounds i8, ptr %6323, i64 2
+  %6389 = getelementptr inbounds nuw i8, ptr %6323, i64 2
   %6390 = load i8, ptr %6389, align 1
   %6391 = and i8 %6390, 63
   %6392 = zext nneg i8 %6391 to i32
-  %6393 = getelementptr inbounds i8, ptr %6323, i64 3
+  %6393 = getelementptr inbounds nuw i8, ptr %6323, i64 3
   %6394 = load i8, ptr %6393, align 1
   %6395 = and i8 %6394, 63
   %6396 = zext nneg i8 %6395 to i32
-  %6397 = getelementptr inbounds i8, ptr %6323, i64 4
+  %6397 = getelementptr inbounds nuw i8, ptr %6323, i64 4
   %6398 = load i8, ptr %6397, align 1
   %6399 = and i8 %6398, 63
   %6400 = zext nneg i8 %6399 to i32
@@ -12016,7 +12016,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6408 = shl nuw nsw i32 %6396, 6
   %6409 = or disjoint i32 %6407, %6408
   %6410 = or disjoint i32 %6409, %6400
-  %6411 = getelementptr inbounds i8, ptr %6323, i64 5
+  %6411 = getelementptr inbounds nuw i8, ptr %6323, i64 5
   store ptr %6411, ptr %5360, align 8
   br label %6429
 
@@ -12031,12 +12031,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6420 = or disjoint i32 %6418, %6419
   %6421 = shl nuw nsw i32 %6400, 6
   %6422 = or disjoint i32 %6420, %6421
-  %6423 = getelementptr inbounds i8, ptr %6323, i64 5
+  %6423 = getelementptr inbounds nuw i8, ptr %6323, i64 5
   %6424 = load i8, ptr %6423, align 1
   %6425 = and i8 %6424, 63
   %6426 = zext nneg i8 %6425 to i32
   %6427 = or disjoint i32 %6422, %6426
-  %6428 = getelementptr inbounds i8, ptr %6323, i64 6
+  %6428 = getelementptr inbounds nuw i8, ptr %6323, i64 6
   store ptr %6428, ptr %5360, align 8
   br label %6429
 
@@ -12045,20 +12045,20 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.297717 = phi i32 [ %6348, %6341 ], [ %6364, %6355 ], [ %6384, %6369 ], [ %6410, %6401 ], [ %6427, %6412 ], [ %6336, %6333 ]
   %6431 = lshr i32 %.297717, 7
   %6432 = zext nneg i32 %6431 to i64
-  %6433 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6432
+  %6433 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6432
   %6434 = load i16, ptr %6433, align 2
   %6435 = zext i16 %6434 to i32
   %6436 = shl nuw nsw i32 %6435, 7
   %6437 = and i32 %.297717, 127
   %6438 = or disjoint i32 %6436, %6437
   %6439 = zext nneg i32 %6438 to i64
-  %6440 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6439
+  %6440 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6439
   %6441 = load i16, ptr %6440, align 2
   %6442 = zext i16 %6441 to i64
-  %6443 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6442, i32 1
+  %6443 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6442, i32 1
   %6444 = load i8, ptr %6443, align 1
   %6445 = zext i8 %6444 to i64
-  %6446 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %6445
+  %6446 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %6445
   %6447 = load i32, ptr %6446, align 4
   %6448 = and i32 %6447, -3
   %6449 = icmp ne i32 %6448, 1
@@ -12097,7 +12097,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12735, label %.preheader9566.preheader, label %.loopexit
 
 6466:                                             ; preds = %6455
-  %6467 = getelementptr inbounds i8, ptr %6456, i64 1
+  %6467 = getelementptr inbounds nuw i8, ptr %6456, i64 1
   store ptr %6467, ptr %5357, align 8
   %6468 = load i8, ptr %6456, align 1
   %6469 = zext i8 %6468 to i32
@@ -12113,7 +12113,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 6474:                                             ; preds = %6471
   %6475 = shl nuw nsw i32 %6469, 6
   %6476 = and i32 %6475, 1984
-  %6477 = getelementptr inbounds i8, ptr %6456, i64 2
+  %6477 = getelementptr inbounds nuw i8, ptr %6456, i64 2
   store ptr %6477, ptr %5357, align 8
   %6478 = load i8, ptr %6467, align 1
   %6479 = and i8 %6478, 63
@@ -12134,12 +12134,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6490 = and i32 %6489, 61440
   %6491 = shl nuw nsw i32 %6487, 6
   %6492 = or disjoint i32 %6491, %6490
-  %6493 = getelementptr inbounds i8, ptr %6456, i64 2
+  %6493 = getelementptr inbounds nuw i8, ptr %6456, i64 2
   %6494 = load i8, ptr %6493, align 1
   %6495 = and i8 %6494, 63
   %6496 = zext nneg i8 %6495 to i32
   %6497 = or disjoint i32 %6492, %6496
-  %6498 = getelementptr inbounds i8, ptr %6456, i64 3
+  %6498 = getelementptr inbounds nuw i8, ptr %6456, i64 3
   store ptr %6498, ptr %5357, align 8
   br label %6562
 
@@ -12153,33 +12153,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6504 = and i32 %6503, 1835008
   %6505 = shl nuw nsw i32 %6487, 12
   %6506 = or disjoint i32 %6505, %6504
-  %6507 = getelementptr inbounds i8, ptr %6456, i64 2
+  %6507 = getelementptr inbounds nuw i8, ptr %6456, i64 2
   %6508 = load i8, ptr %6507, align 1
   %6509 = and i8 %6508, 63
   %6510 = zext nneg i8 %6509 to i32
   %6511 = shl nuw nsw i32 %6510, 6
   %6512 = or disjoint i32 %6506, %6511
-  %6513 = getelementptr inbounds i8, ptr %6456, i64 3
+  %6513 = getelementptr inbounds nuw i8, ptr %6456, i64 3
   %6514 = load i8, ptr %6513, align 1
   %6515 = and i8 %6514, 63
   %6516 = zext nneg i8 %6515 to i32
   %6517 = or disjoint i32 %6512, %6516
-  %6518 = getelementptr inbounds i8, ptr %6456, i64 4
+  %6518 = getelementptr inbounds nuw i8, ptr %6456, i64 4
   store ptr %6518, ptr %5357, align 8
   br label %6562
 
 6519:                                             ; preds = %6499
   %6520 = and i32 %6469, 4
   %6521 = icmp eq i32 %6520, 0
-  %6522 = getelementptr inbounds i8, ptr %6456, i64 2
+  %6522 = getelementptr inbounds nuw i8, ptr %6456, i64 2
   %6523 = load i8, ptr %6522, align 1
   %6524 = and i8 %6523, 63
   %6525 = zext nneg i8 %6524 to i32
-  %6526 = getelementptr inbounds i8, ptr %6456, i64 3
+  %6526 = getelementptr inbounds nuw i8, ptr %6456, i64 3
   %6527 = load i8, ptr %6526, align 1
   %6528 = and i8 %6527, 63
   %6529 = zext nneg i8 %6528 to i32
-  %6530 = getelementptr inbounds i8, ptr %6456, i64 4
+  %6530 = getelementptr inbounds nuw i8, ptr %6456, i64 4
   %6531 = load i8, ptr %6530, align 1
   %6532 = and i8 %6531, 63
   %6533 = zext nneg i8 %6532 to i32
@@ -12195,7 +12195,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6541 = shl nuw nsw i32 %6529, 6
   %6542 = or disjoint i32 %6540, %6541
   %6543 = or disjoint i32 %6542, %6533
-  %6544 = getelementptr inbounds i8, ptr %6456, i64 5
+  %6544 = getelementptr inbounds nuw i8, ptr %6456, i64 5
   store ptr %6544, ptr %5357, align 8
   br label %6562
 
@@ -12210,12 +12210,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6553 = or disjoint i32 %6551, %6552
   %6554 = shl nuw nsw i32 %6533, 6
   %6555 = or disjoint i32 %6553, %6554
-  %6556 = getelementptr inbounds i8, ptr %6456, i64 5
+  %6556 = getelementptr inbounds nuw i8, ptr %6456, i64 5
   %6557 = load i8, ptr %6556, align 1
   %6558 = and i8 %6557, 63
   %6559 = zext nneg i8 %6558 to i32
   %6560 = or disjoint i32 %6555, %6559
-  %6561 = getelementptr inbounds i8, ptr %6456, i64 6
+  %6561 = getelementptr inbounds nuw i8, ptr %6456, i64 6
   store ptr %6561, ptr %5357, align 8
   br label %6562
 
@@ -12234,7 +12234,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %5348, label %6572, label %.preheader9566.preheader.loopexit15660
 
 6568:                                             ; preds = %6564
-  %6569 = getelementptr inbounds i8, ptr %.07870, i64 4
+  %6569 = getelementptr inbounds nuw i8, ptr %.07870, i64 4
   %6570 = icmp eq i32 %.307718, %6565
   br i1 %6570, label %6571, label %6564
 
@@ -12279,7 +12279,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12734, label %.preheader9566.preheader, label %.loopexit
 
 6587:                                             ; preds = %6576
-  %6588 = getelementptr inbounds i8, ptr %6577, i64 1
+  %6588 = getelementptr inbounds nuw i8, ptr %6577, i64 1
   store ptr %6588, ptr %5356, align 8
   %6589 = load i8, ptr %6577, align 1
   %6590 = zext i8 %6589 to i32
@@ -12295,7 +12295,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 6595:                                             ; preds = %6592
   %6596 = shl nuw nsw i32 %6590, 6
   %6597 = and i32 %6596, 1984
-  %6598 = getelementptr inbounds i8, ptr %6577, i64 2
+  %6598 = getelementptr inbounds nuw i8, ptr %6577, i64 2
   store ptr %6598, ptr %5356, align 8
   %6599 = load i8, ptr %6588, align 1
   %6600 = and i8 %6599, 63
@@ -12316,12 +12316,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6611 = and i32 %6610, 61440
   %6612 = shl nuw nsw i32 %6608, 6
   %6613 = or disjoint i32 %6612, %6611
-  %6614 = getelementptr inbounds i8, ptr %6577, i64 2
+  %6614 = getelementptr inbounds nuw i8, ptr %6577, i64 2
   %6615 = load i8, ptr %6614, align 1
   %6616 = and i8 %6615, 63
   %6617 = zext nneg i8 %6616 to i32
   %6618 = or disjoint i32 %6613, %6617
-  %6619 = getelementptr inbounds i8, ptr %6577, i64 3
+  %6619 = getelementptr inbounds nuw i8, ptr %6577, i64 3
   store ptr %6619, ptr %5356, align 8
   br label %6683
 
@@ -12335,33 +12335,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6625 = and i32 %6624, 1835008
   %6626 = shl nuw nsw i32 %6608, 12
   %6627 = or disjoint i32 %6626, %6625
-  %6628 = getelementptr inbounds i8, ptr %6577, i64 2
+  %6628 = getelementptr inbounds nuw i8, ptr %6577, i64 2
   %6629 = load i8, ptr %6628, align 1
   %6630 = and i8 %6629, 63
   %6631 = zext nneg i8 %6630 to i32
   %6632 = shl nuw nsw i32 %6631, 6
   %6633 = or disjoint i32 %6627, %6632
-  %6634 = getelementptr inbounds i8, ptr %6577, i64 3
+  %6634 = getelementptr inbounds nuw i8, ptr %6577, i64 3
   %6635 = load i8, ptr %6634, align 1
   %6636 = and i8 %6635, 63
   %6637 = zext nneg i8 %6636 to i32
   %6638 = or disjoint i32 %6633, %6637
-  %6639 = getelementptr inbounds i8, ptr %6577, i64 4
+  %6639 = getelementptr inbounds nuw i8, ptr %6577, i64 4
   store ptr %6639, ptr %5356, align 8
   br label %6683
 
 6640:                                             ; preds = %6620
   %6641 = and i32 %6590, 4
   %6642 = icmp eq i32 %6641, 0
-  %6643 = getelementptr inbounds i8, ptr %6577, i64 2
+  %6643 = getelementptr inbounds nuw i8, ptr %6577, i64 2
   %6644 = load i8, ptr %6643, align 1
   %6645 = and i8 %6644, 63
   %6646 = zext nneg i8 %6645 to i32
-  %6647 = getelementptr inbounds i8, ptr %6577, i64 3
+  %6647 = getelementptr inbounds nuw i8, ptr %6577, i64 3
   %6648 = load i8, ptr %6647, align 1
   %6649 = and i8 %6648, 63
   %6650 = zext nneg i8 %6649 to i32
-  %6651 = getelementptr inbounds i8, ptr %6577, i64 4
+  %6651 = getelementptr inbounds nuw i8, ptr %6577, i64 4
   %6652 = load i8, ptr %6651, align 1
   %6653 = and i8 %6652, 63
   %6654 = zext nneg i8 %6653 to i32
@@ -12377,7 +12377,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6662 = shl nuw nsw i32 %6650, 6
   %6663 = or disjoint i32 %6661, %6662
   %6664 = or disjoint i32 %6663, %6654
-  %6665 = getelementptr inbounds i8, ptr %6577, i64 5
+  %6665 = getelementptr inbounds nuw i8, ptr %6577, i64 5
   store ptr %6665, ptr %5356, align 8
   br label %6683
 
@@ -12392,12 +12392,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6674 = or disjoint i32 %6672, %6673
   %6675 = shl nuw nsw i32 %6654, 6
   %6676 = or disjoint i32 %6674, %6675
-  %6677 = getelementptr inbounds i8, ptr %6577, i64 5
+  %6677 = getelementptr inbounds nuw i8, ptr %6577, i64 5
   %6678 = load i8, ptr %6677, align 1
   %6679 = and i8 %6678, 63
   %6680 = zext nneg i8 %6679 to i32
   %6681 = or disjoint i32 %6676, %6680
-  %6682 = getelementptr inbounds i8, ptr %6577, i64 6
+  %6682 = getelementptr inbounds nuw i8, ptr %6577, i64 6
   store ptr %6682, ptr %5356, align 8
   br label %6683
 
@@ -12458,7 +12458,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12733, label %.preheader9566.preheader, label %.loopexit
 
 6706:                                             ; preds = %6695
-  %6707 = getelementptr inbounds i8, ptr %6696, i64 1
+  %6707 = getelementptr inbounds nuw i8, ptr %6696, i64 1
   store ptr %6707, ptr %5354, align 8
   %6708 = load i8, ptr %6696, align 1
   %6709 = zext i8 %6708 to i32
@@ -12474,7 +12474,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 6714:                                             ; preds = %6711
   %6715 = shl nuw nsw i32 %6709, 6
   %6716 = and i32 %6715, 1984
-  %6717 = getelementptr inbounds i8, ptr %6696, i64 2
+  %6717 = getelementptr inbounds nuw i8, ptr %6696, i64 2
   store ptr %6717, ptr %5354, align 8
   %6718 = load i8, ptr %6707, align 1
   %6719 = and i8 %6718, 63
@@ -12495,12 +12495,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6730 = and i32 %6729, 61440
   %6731 = shl nuw nsw i32 %6727, 6
   %6732 = or disjoint i32 %6731, %6730
-  %6733 = getelementptr inbounds i8, ptr %6696, i64 2
+  %6733 = getelementptr inbounds nuw i8, ptr %6696, i64 2
   %6734 = load i8, ptr %6733, align 1
   %6735 = and i8 %6734, 63
   %6736 = zext nneg i8 %6735 to i32
   %6737 = or disjoint i32 %6732, %6736
-  %6738 = getelementptr inbounds i8, ptr %6696, i64 3
+  %6738 = getelementptr inbounds nuw i8, ptr %6696, i64 3
   store ptr %6738, ptr %5354, align 8
   br label %6802
 
@@ -12514,33 +12514,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6744 = and i32 %6743, 1835008
   %6745 = shl nuw nsw i32 %6727, 12
   %6746 = or disjoint i32 %6745, %6744
-  %6747 = getelementptr inbounds i8, ptr %6696, i64 2
+  %6747 = getelementptr inbounds nuw i8, ptr %6696, i64 2
   %6748 = load i8, ptr %6747, align 1
   %6749 = and i8 %6748, 63
   %6750 = zext nneg i8 %6749 to i32
   %6751 = shl nuw nsw i32 %6750, 6
   %6752 = or disjoint i32 %6746, %6751
-  %6753 = getelementptr inbounds i8, ptr %6696, i64 3
+  %6753 = getelementptr inbounds nuw i8, ptr %6696, i64 3
   %6754 = load i8, ptr %6753, align 1
   %6755 = and i8 %6754, 63
   %6756 = zext nneg i8 %6755 to i32
   %6757 = or disjoint i32 %6752, %6756
-  %6758 = getelementptr inbounds i8, ptr %6696, i64 4
+  %6758 = getelementptr inbounds nuw i8, ptr %6696, i64 4
   store ptr %6758, ptr %5354, align 8
   br label %6802
 
 6759:                                             ; preds = %6739
   %6760 = and i32 %6709, 4
   %6761 = icmp eq i32 %6760, 0
-  %6762 = getelementptr inbounds i8, ptr %6696, i64 2
+  %6762 = getelementptr inbounds nuw i8, ptr %6696, i64 2
   %6763 = load i8, ptr %6762, align 1
   %6764 = and i8 %6763, 63
   %6765 = zext nneg i8 %6764 to i32
-  %6766 = getelementptr inbounds i8, ptr %6696, i64 3
+  %6766 = getelementptr inbounds nuw i8, ptr %6696, i64 3
   %6767 = load i8, ptr %6766, align 1
   %6768 = and i8 %6767, 63
   %6769 = zext nneg i8 %6768 to i32
-  %6770 = getelementptr inbounds i8, ptr %6696, i64 4
+  %6770 = getelementptr inbounds nuw i8, ptr %6696, i64 4
   %6771 = load i8, ptr %6770, align 1
   %6772 = and i8 %6771, 63
   %6773 = zext nneg i8 %6772 to i32
@@ -12556,7 +12556,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6781 = shl nuw nsw i32 %6769, 6
   %6782 = or disjoint i32 %6780, %6781
   %6783 = or disjoint i32 %6782, %6773
-  %6784 = getelementptr inbounds i8, ptr %6696, i64 5
+  %6784 = getelementptr inbounds nuw i8, ptr %6696, i64 5
   store ptr %6784, ptr %5354, align 8
   br label %6802
 
@@ -12571,12 +12571,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6793 = or disjoint i32 %6791, %6792
   %6794 = shl nuw nsw i32 %6773, 6
   %6795 = or disjoint i32 %6793, %6794
-  %6796 = getelementptr inbounds i8, ptr %6696, i64 5
+  %6796 = getelementptr inbounds nuw i8, ptr %6696, i64 5
   %6797 = load i8, ptr %6796, align 1
   %6798 = and i8 %6797, 63
   %6799 = zext nneg i8 %6798 to i32
   %6800 = or disjoint i32 %6795, %6799
-  %6801 = getelementptr inbounds i8, ptr %6696, i64 6
+  %6801 = getelementptr inbounds nuw i8, ptr %6696, i64 6
   store ptr %6801, ptr %5354, align 8
   br label %6802
 
@@ -12585,17 +12585,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.327720 = phi i32 [ %6721, %6714 ], [ %6737, %6728 ], [ %6757, %6742 ], [ %6783, %6774 ], [ %6800, %6785 ], [ %6709, %6706 ]
   %6804 = lshr i32 %.327720, 7
   %6805 = zext nneg i32 %6804 to i64
-  %6806 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6805
+  %6806 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6805
   %6807 = load i16, ptr %6806, align 2
   %6808 = zext i16 %6807 to i32
   %6809 = shl nuw nsw i32 %6808, 7
   %6810 = and i32 %.327720, 127
   %6811 = or disjoint i32 %6809, %6810
   %6812 = zext nneg i32 %6811 to i64
-  %6813 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6812
+  %6813 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6812
   %6814 = load i16, ptr %6813, align 2
   %6815 = zext i16 %6814 to i64
-  %6816 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6815, i32 5
+  %6816 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6815, i32 5
   %6817 = load i16, ptr %6816, align 4
   %6818 = lshr i16 %6817, 11
   %6819 = icmp ne i16 %6818, %5355
@@ -12635,7 +12635,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12732, label %.preheader9566.preheader, label %.loopexit
 
 6834:                                             ; preds = %6823
-  %6835 = getelementptr inbounds i8, ptr %6824, i64 1
+  %6835 = getelementptr inbounds nuw i8, ptr %6824, i64 1
   store ptr %6835, ptr %5350, align 8
   %6836 = load i8, ptr %6824, align 1
   %6837 = zext i8 %6836 to i32
@@ -12651,7 +12651,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 6842:                                             ; preds = %6839
   %6843 = shl nuw nsw i32 %6837, 6
   %6844 = and i32 %6843, 1984
-  %6845 = getelementptr inbounds i8, ptr %6824, i64 2
+  %6845 = getelementptr inbounds nuw i8, ptr %6824, i64 2
   store ptr %6845, ptr %5350, align 8
   %6846 = load i8, ptr %6835, align 1
   %6847 = and i8 %6846, 63
@@ -12672,12 +12672,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6858 = and i32 %6857, 61440
   %6859 = shl nuw nsw i32 %6855, 6
   %6860 = or disjoint i32 %6859, %6858
-  %6861 = getelementptr inbounds i8, ptr %6824, i64 2
+  %6861 = getelementptr inbounds nuw i8, ptr %6824, i64 2
   %6862 = load i8, ptr %6861, align 1
   %6863 = and i8 %6862, 63
   %6864 = zext nneg i8 %6863 to i32
   %6865 = or disjoint i32 %6860, %6864
-  %6866 = getelementptr inbounds i8, ptr %6824, i64 3
+  %6866 = getelementptr inbounds nuw i8, ptr %6824, i64 3
   store ptr %6866, ptr %5350, align 8
   br label %6930
 
@@ -12691,33 +12691,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6872 = and i32 %6871, 1835008
   %6873 = shl nuw nsw i32 %6855, 12
   %6874 = or disjoint i32 %6873, %6872
-  %6875 = getelementptr inbounds i8, ptr %6824, i64 2
+  %6875 = getelementptr inbounds nuw i8, ptr %6824, i64 2
   %6876 = load i8, ptr %6875, align 1
   %6877 = and i8 %6876, 63
   %6878 = zext nneg i8 %6877 to i32
   %6879 = shl nuw nsw i32 %6878, 6
   %6880 = or disjoint i32 %6874, %6879
-  %6881 = getelementptr inbounds i8, ptr %6824, i64 3
+  %6881 = getelementptr inbounds nuw i8, ptr %6824, i64 3
   %6882 = load i8, ptr %6881, align 1
   %6883 = and i8 %6882, 63
   %6884 = zext nneg i8 %6883 to i32
   %6885 = or disjoint i32 %6880, %6884
-  %6886 = getelementptr inbounds i8, ptr %6824, i64 4
+  %6886 = getelementptr inbounds nuw i8, ptr %6824, i64 4
   store ptr %6886, ptr %5350, align 8
   br label %6930
 
 6887:                                             ; preds = %6867
   %6888 = and i32 %6837, 4
   %6889 = icmp eq i32 %6888, 0
-  %6890 = getelementptr inbounds i8, ptr %6824, i64 2
+  %6890 = getelementptr inbounds nuw i8, ptr %6824, i64 2
   %6891 = load i8, ptr %6890, align 1
   %6892 = and i8 %6891, 63
   %6893 = zext nneg i8 %6892 to i32
-  %6894 = getelementptr inbounds i8, ptr %6824, i64 3
+  %6894 = getelementptr inbounds nuw i8, ptr %6824, i64 3
   %6895 = load i8, ptr %6894, align 1
   %6896 = and i8 %6895, 63
   %6897 = zext nneg i8 %6896 to i32
-  %6898 = getelementptr inbounds i8, ptr %6824, i64 4
+  %6898 = getelementptr inbounds nuw i8, ptr %6824, i64 4
   %6899 = load i8, ptr %6898, align 1
   %6900 = and i8 %6899, 63
   %6901 = zext nneg i8 %6900 to i32
@@ -12733,7 +12733,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6909 = shl nuw nsw i32 %6897, 6
   %6910 = or disjoint i32 %6908, %6909
   %6911 = or disjoint i32 %6910, %6901
-  %6912 = getelementptr inbounds i8, ptr %6824, i64 5
+  %6912 = getelementptr inbounds nuw i8, ptr %6824, i64 5
   store ptr %6912, ptr %5350, align 8
   br label %6930
 
@@ -12748,12 +12748,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6921 = or disjoint i32 %6919, %6920
   %6922 = shl nuw nsw i32 %6901, 6
   %6923 = or disjoint i32 %6921, %6922
-  %6924 = getelementptr inbounds i8, ptr %6824, i64 5
+  %6924 = getelementptr inbounds nuw i8, ptr %6824, i64 5
   %6925 = load i8, ptr %6924, align 1
   %6926 = and i8 %6925, 63
   %6927 = zext nneg i8 %6926 to i32
   %6928 = or disjoint i32 %6923, %6927
-  %6929 = getelementptr inbounds i8, ptr %6824, i64 6
+  %6929 = getelementptr inbounds nuw i8, ptr %6824, i64 6
   store ptr %6929, ptr %5350, align 8
   br label %6930
 
@@ -12762,21 +12762,21 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.337721 = phi i32 [ %6849, %6842 ], [ %6865, %6856 ], [ %6885, %6870 ], [ %6911, %6902 ], [ %6928, %6913 ], [ %6837, %6834 ]
   %6932 = lshr i32 %.337721, 7
   %6933 = zext nneg i32 %6932 to i64
-  %6934 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6933
+  %6934 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %6933
   %6935 = load i16, ptr %6934, align 2
   %6936 = zext i16 %6935 to i32
   %6937 = shl nuw nsw i32 %6936, 7
   %6938 = and i32 %.337721, 127
   %6939 = or disjoint i32 %6937, %6938
   %6940 = zext nneg i32 %6939 to i64
-  %6941 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6940
+  %6941 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %6940
   %6942 = load i16, ptr %6941, align 2
   %6943 = zext i16 %6942 to i64
-  %6944 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6943, i32 6
+  %6944 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %6943, i32 6
   %6945 = load i16, ptr %6944, align 2
   %6946 = and i16 %6945, 4095
   %6947 = zext nneg i16 %6946 to i64
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %6947
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %6947
   %6948 = load i32, ptr %gep, align 4
   %6949 = lshr i32 %6948, %5353
   %6950 = trunc i32 %6949 to i1
@@ -12793,7 +12793,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %6956, label %.lr.ph10970, label %7082
 
 .lr.ph10970:                                      ; preds = %.thread9328.thread
-  %6957 = getelementptr inbounds i8, ptr %.3, i64 80
+  %6957 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12562 = load ptr, ptr %39, align 8
   br label %6958
 
@@ -12825,7 +12825,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12730, label %.preheader9566.preheader, label %.loopexit
 
 6969:                                             ; preds = %6958
-  %6970 = getelementptr inbounds i8, ptr %6960, i64 1
+  %6970 = getelementptr inbounds nuw i8, ptr %6960, i64 1
   store ptr %6970, ptr %6957, align 8
   %6971 = load i8, ptr %6960, align 1
   %6972 = zext i8 %6971 to i32
@@ -12841,7 +12841,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 6977:                                             ; preds = %6974
   %6978 = shl nuw nsw i32 %6972, 6
   %6979 = and i32 %6978, 1984
-  %6980 = getelementptr inbounds i8, ptr %6960, i64 2
+  %6980 = getelementptr inbounds nuw i8, ptr %6960, i64 2
   store ptr %6980, ptr %6957, align 8
   %6981 = load i8, ptr %6970, align 1
   %6982 = and i8 %6981, 63
@@ -12862,12 +12862,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %6993 = and i32 %6992, 61440
   %6994 = shl nuw nsw i32 %6990, 6
   %6995 = or disjoint i32 %6994, %6993
-  %6996 = getelementptr inbounds i8, ptr %6960, i64 2
+  %6996 = getelementptr inbounds nuw i8, ptr %6960, i64 2
   %6997 = load i8, ptr %6996, align 1
   %6998 = and i8 %6997, 63
   %6999 = zext nneg i8 %6998 to i32
   %7000 = or disjoint i32 %6995, %6999
-  %7001 = getelementptr inbounds i8, ptr %6960, i64 3
+  %7001 = getelementptr inbounds nuw i8, ptr %6960, i64 3
   store ptr %7001, ptr %6957, align 8
   br label %7065
 
@@ -12881,33 +12881,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7007 = and i32 %7006, 1835008
   %7008 = shl nuw nsw i32 %6990, 12
   %7009 = or disjoint i32 %7008, %7007
-  %7010 = getelementptr inbounds i8, ptr %6960, i64 2
+  %7010 = getelementptr inbounds nuw i8, ptr %6960, i64 2
   %7011 = load i8, ptr %7010, align 1
   %7012 = and i8 %7011, 63
   %7013 = zext nneg i8 %7012 to i32
   %7014 = shl nuw nsw i32 %7013, 6
   %7015 = or disjoint i32 %7009, %7014
-  %7016 = getelementptr inbounds i8, ptr %6960, i64 3
+  %7016 = getelementptr inbounds nuw i8, ptr %6960, i64 3
   %7017 = load i8, ptr %7016, align 1
   %7018 = and i8 %7017, 63
   %7019 = zext nneg i8 %7018 to i32
   %7020 = or disjoint i32 %7015, %7019
-  %7021 = getelementptr inbounds i8, ptr %6960, i64 4
+  %7021 = getelementptr inbounds nuw i8, ptr %6960, i64 4
   store ptr %7021, ptr %6957, align 8
   br label %7065
 
 7022:                                             ; preds = %7002
   %7023 = and i32 %6972, 4
   %7024 = icmp eq i32 %7023, 0
-  %7025 = getelementptr inbounds i8, ptr %6960, i64 2
+  %7025 = getelementptr inbounds nuw i8, ptr %6960, i64 2
   %7026 = load i8, ptr %7025, align 1
   %7027 = and i8 %7026, 63
   %7028 = zext nneg i8 %7027 to i32
-  %7029 = getelementptr inbounds i8, ptr %6960, i64 3
+  %7029 = getelementptr inbounds nuw i8, ptr %6960, i64 3
   %7030 = load i8, ptr %7029, align 1
   %7031 = and i8 %7030, 63
   %7032 = zext nneg i8 %7031 to i32
-  %7033 = getelementptr inbounds i8, ptr %6960, i64 4
+  %7033 = getelementptr inbounds nuw i8, ptr %6960, i64 4
   %7034 = load i8, ptr %7033, align 1
   %7035 = and i8 %7034, 63
   %7036 = zext nneg i8 %7035 to i32
@@ -12923,7 +12923,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7044 = shl nuw nsw i32 %7032, 6
   %7045 = or disjoint i32 %7043, %7044
   %7046 = or disjoint i32 %7045, %7036
-  %7047 = getelementptr inbounds i8, ptr %6960, i64 5
+  %7047 = getelementptr inbounds nuw i8, ptr %6960, i64 5
   store ptr %7047, ptr %6957, align 8
   br label %7065
 
@@ -12938,12 +12938,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7056 = or disjoint i32 %7054, %7055
   %7057 = shl nuw nsw i32 %7036, 6
   %7058 = or disjoint i32 %7056, %7057
-  %7059 = getelementptr inbounds i8, ptr %6960, i64 5
+  %7059 = getelementptr inbounds nuw i8, ptr %6960, i64 5
   %7060 = load i8, ptr %7059, align 1
   %7061 = and i8 %7060, 63
   %7062 = zext nneg i8 %7061 to i32
   %7063 = or disjoint i32 %7058, %7062
-  %7064 = getelementptr inbounds i8, ptr %6960, i64 6
+  %7064 = getelementptr inbounds nuw i8, ptr %6960, i64 6
   store ptr %7064, ptr %6957, align 8
   br label %7065
 
@@ -13006,70 +13006,70 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   ]
 
 .lr.ph10931:                                      ; preds = %7083
-  %7084 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7084 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12542 = load ptr, ptr %7084, align 8
   br label %7966
 
 .lr.ph10934:                                      ; preds = %7083
-  %7085 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7085 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12543 = load ptr, ptr %7085, align 8
   %.pre12544 = load ptr, ptr %39, align 8
   br label %7939
 
 .lr.ph10937:                                      ; preds = %7083
-  %7086 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7086 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12545 = load ptr, ptr %7086, align 8
   br label %7915
 
 .lr.ph10940:                                      ; preds = %7083
-  %7087 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7087 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12546 = load ptr, ptr %7087, align 8
   %.pre12547 = load ptr, ptr %39, align 8
   br label %7888
 
 .lr.ph10943:                                      ; preds = %7083
-  %7088 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7088 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12548 = load ptr, ptr %7088, align 8
   br label %7864
 
 .lr.ph10946:                                      ; preds = %7083
-  %7089 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7089 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12549 = load ptr, ptr %7089, align 8
   br label %7746
 
 .lr.ph10949:                                      ; preds = %7083
-  %7090 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7090 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12550 = load ptr, ptr %7090, align 8
   br label %7635
 
 .lr.ph10952:                                      ; preds = %7083
-  %7091 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7091 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12551 = load ptr, ptr %7091, align 8
   br label %7524
 
 .lr.ph10955:                                      ; preds = %7083
-  %7092 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7092 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12552 = load ptr, ptr %7092, align 8
   br label %7413
 
 .lr.ph10958:                                      ; preds = %7083
-  %7093 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7093 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12553 = load ptr, ptr %7093, align 8
   br label %7302
 
 .lr.ph10961:                                      ; preds = %7083
-  %7094 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7094 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12554 = load ptr, ptr %7094, align 8
   br label %7179
 
 .lr.ph10964:                                      ; preds = %7083
-  %7095 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7095 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12555 = load ptr, ptr %7095, align 8
   %.pre12556 = load ptr, ptr %39, align 8
   br label %7152
 
 .lr.ph10967:                                      ; preds = %7083
-  %7096 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7096 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12557 = load ptr, ptr %7096, align 8
   %.pre12558 = load ptr, ptr %39, align 8
   br label %7097
@@ -13134,7 +13134,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %7122, label %.preheader9566.preheader.loopexit15670, label %7123
 
 7123:                                             ; preds = %7121
-  %7124 = getelementptr inbounds i8, ptr %7099, i64 1
+  %7124 = getelementptr inbounds nuw i8, ptr %7099, i64 1
   %7125 = load i8, ptr %7124, align 1
   %7126 = load i8, ptr %50, align 1
   %7127 = icmp eq i8 %7125, %7126
@@ -13147,7 +13147,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not8648, label %.preheader15591, label %7130
 
 7130:                                             ; preds = %7128
-  %7131 = getelementptr inbounds i8, ptr %.pre12561, i64 1
+  %7131 = getelementptr inbounds nuw i8, ptr %.pre12561, i64 1
   %7132 = load ptr, ptr %39, align 8
   %.not8649 = icmp ult ptr %7131, %7132
   br i1 %.not8649, label %.preheader15591, label %7133
@@ -13183,7 +13183,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 7144:                                             ; preds = %.preheader15591, %7147
   %.pn8651 = phi ptr [ %storemerge8650, %7147 ], [ %.pn8651.ph, %.preheader15591 ]
-  %storemerge8650 = getelementptr inbounds i8, ptr %.pn8651, i64 1
+  %storemerge8650 = getelementptr inbounds nuw i8, ptr %.pn8651, i64 1
   store ptr %storemerge8650, ptr %7096, align 8
   %7145 = load ptr, ptr %39, align 8
   %7146 = icmp ult ptr %storemerge8650, %7145
@@ -13229,7 +13229,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 .preheader9551:                                   ; preds = %7152, %7165
   %.pn8640 = phi ptr [ %storemerge8639, %7165 ], [ %7154, %7152 ]
-  %storemerge8639 = getelementptr inbounds i8, ptr %.pn8640, i64 1
+  %storemerge8639 = getelementptr inbounds nuw i8, ptr %.pn8640, i64 1
   store ptr %storemerge8639, ptr %7095, align 8
   %7163 = load ptr, ptr %39, align 8
   %7164 = icmp ult ptr %storemerge8639, %7163
@@ -13246,7 +13246,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not8637, label %.loopexit9707, label %7152
 
 7169:                                             ; preds = %7083
-  %7170 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7170 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %7171 = load ptr, ptr %7170, align 8
   %7172 = load ptr, ptr %39, align 8
   %7173 = zext i32 %6952 to i64
@@ -13256,7 +13256,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %7176, label %.preheader9566.preheader, label %7177
 
 7177:                                             ; preds = %7169
-  %7178 = getelementptr inbounds i8, ptr %7171, i64 %7173
+  %7178 = getelementptr inbounds nuw i8, ptr %7171, i64 %7173
   store ptr %7178, ptr %7170, align 8
   br label %.loopexit9707
 
@@ -13288,7 +13288,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12726, label %.preheader9566.preheader, label %.loopexit
 
 7190:                                             ; preds = %7179
-  %7191 = getelementptr inbounds i8, ptr %7180, i64 1
+  %7191 = getelementptr inbounds nuw i8, ptr %7180, i64 1
   store ptr %7191, ptr %7094, align 8
   %7192 = load i8, ptr %7180, align 1
   %7193 = zext i8 %7192 to i32
@@ -13303,7 +13303,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7198:                                             ; preds = %7195
   %7199 = shl nuw nsw i32 %7193, 6
   %7200 = and i32 %7199, 1984
-  %7201 = getelementptr inbounds i8, ptr %7180, i64 2
+  %7201 = getelementptr inbounds nuw i8, ptr %7180, i64 2
   store ptr %7201, ptr %7094, align 8
   %7202 = load i8, ptr %7191, align 1
   %7203 = and i8 %7202, 63
@@ -13324,12 +13324,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7214 = and i32 %7213, 61440
   %7215 = shl nuw nsw i32 %7211, 6
   %7216 = or disjoint i32 %7215, %7214
-  %7217 = getelementptr inbounds i8, ptr %7180, i64 2
+  %7217 = getelementptr inbounds nuw i8, ptr %7180, i64 2
   %7218 = load i8, ptr %7217, align 1
   %7219 = and i8 %7218, 63
   %7220 = zext nneg i8 %7219 to i32
   %7221 = or disjoint i32 %7216, %7220
-  %7222 = getelementptr inbounds i8, ptr %7180, i64 3
+  %7222 = getelementptr inbounds nuw i8, ptr %7180, i64 3
   store ptr %7222, ptr %7094, align 8
   br label %7286
 
@@ -13343,33 +13343,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7228 = and i32 %7227, 1835008
   %7229 = shl nuw nsw i32 %7211, 12
   %7230 = or disjoint i32 %7229, %7228
-  %7231 = getelementptr inbounds i8, ptr %7180, i64 2
+  %7231 = getelementptr inbounds nuw i8, ptr %7180, i64 2
   %7232 = load i8, ptr %7231, align 1
   %7233 = and i8 %7232, 63
   %7234 = zext nneg i8 %7233 to i32
   %7235 = shl nuw nsw i32 %7234, 6
   %7236 = or disjoint i32 %7230, %7235
-  %7237 = getelementptr inbounds i8, ptr %7180, i64 3
+  %7237 = getelementptr inbounds nuw i8, ptr %7180, i64 3
   %7238 = load i8, ptr %7237, align 1
   %7239 = and i8 %7238, 63
   %7240 = zext nneg i8 %7239 to i32
   %7241 = or disjoint i32 %7236, %7240
-  %7242 = getelementptr inbounds i8, ptr %7180, i64 4
+  %7242 = getelementptr inbounds nuw i8, ptr %7180, i64 4
   store ptr %7242, ptr %7094, align 8
   br label %7286
 
 7243:                                             ; preds = %7223
   %7244 = and i32 %7193, 4
   %7245 = icmp eq i32 %7244, 0
-  %7246 = getelementptr inbounds i8, ptr %7180, i64 2
+  %7246 = getelementptr inbounds nuw i8, ptr %7180, i64 2
   %7247 = load i8, ptr %7246, align 1
   %7248 = and i8 %7247, 63
   %7249 = zext nneg i8 %7248 to i32
-  %7250 = getelementptr inbounds i8, ptr %7180, i64 3
+  %7250 = getelementptr inbounds nuw i8, ptr %7180, i64 3
   %7251 = load i8, ptr %7250, align 1
   %7252 = and i8 %7251, 63
   %7253 = zext nneg i8 %7252 to i32
-  %7254 = getelementptr inbounds i8, ptr %7180, i64 4
+  %7254 = getelementptr inbounds nuw i8, ptr %7180, i64 4
   %7255 = load i8, ptr %7254, align 1
   %7256 = and i8 %7255, 63
   %7257 = zext nneg i8 %7256 to i32
@@ -13385,7 +13385,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7265 = shl nuw nsw i32 %7253, 6
   %7266 = or disjoint i32 %7264, %7265
   %7267 = or disjoint i32 %7266, %7257
-  %7268 = getelementptr inbounds i8, ptr %7180, i64 5
+  %7268 = getelementptr inbounds nuw i8, ptr %7180, i64 5
   store ptr %7268, ptr %7094, align 8
   br label %7286
 
@@ -13400,12 +13400,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7277 = or disjoint i32 %7275, %7276
   %7278 = shl nuw nsw i32 %7257, 6
   %7279 = or disjoint i32 %7277, %7278
-  %7280 = getelementptr inbounds i8, ptr %7180, i64 5
+  %7280 = getelementptr inbounds nuw i8, ptr %7180, i64 5
   %7281 = load i8, ptr %7280, align 1
   %7282 = and i8 %7281, 63
   %7283 = zext nneg i8 %7282 to i32
   %7284 = or disjoint i32 %7279, %7283
-  %7285 = getelementptr inbounds i8, ptr %7180, i64 6
+  %7285 = getelementptr inbounds nuw i8, ptr %7180, i64 6
   store ptr %7285, ptr %7094, align 8
   br label %7286
 
@@ -13433,7 +13433,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %7293, label %7294, label %7299
 
 7294:                                             ; preds = %7291
-  %7295 = getelementptr inbounds i8, ptr %7287, i64 1
+  %7295 = getelementptr inbounds nuw i8, ptr %7287, i64 1
   store ptr %7295, ptr %7094, align 8
   br label %7299
 
@@ -13476,7 +13476,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12725, label %.preheader9566.preheader, label %.loopexit
 
 7313:                                             ; preds = %7302
-  %7314 = getelementptr inbounds i8, ptr %7303, i64 1
+  %7314 = getelementptr inbounds nuw i8, ptr %7303, i64 1
   store ptr %7314, ptr %7093, align 8
   %7315 = load i8, ptr %7303, align 1
   %7316 = zext i8 %7315 to i32
@@ -13491,7 +13491,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7321:                                             ; preds = %7318
   %7322 = shl nuw nsw i32 %7316, 6
   %7323 = and i32 %7322, 1984
-  %7324 = getelementptr inbounds i8, ptr %7303, i64 2
+  %7324 = getelementptr inbounds nuw i8, ptr %7303, i64 2
   store ptr %7324, ptr %7093, align 8
   %7325 = load i8, ptr %7314, align 1
   %7326 = and i8 %7325, 63
@@ -13512,12 +13512,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7337 = and i32 %7336, 61440
   %7338 = shl nuw nsw i32 %7334, 6
   %7339 = or disjoint i32 %7338, %7337
-  %7340 = getelementptr inbounds i8, ptr %7303, i64 2
+  %7340 = getelementptr inbounds nuw i8, ptr %7303, i64 2
   %7341 = load i8, ptr %7340, align 1
   %7342 = and i8 %7341, 63
   %7343 = zext nneg i8 %7342 to i32
   %7344 = or disjoint i32 %7339, %7343
-  %7345 = getelementptr inbounds i8, ptr %7303, i64 3
+  %7345 = getelementptr inbounds nuw i8, ptr %7303, i64 3
   store ptr %7345, ptr %7093, align 8
   br label %7409
 
@@ -13531,33 +13531,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7351 = and i32 %7350, 1835008
   %7352 = shl nuw nsw i32 %7334, 12
   %7353 = or disjoint i32 %7352, %7351
-  %7354 = getelementptr inbounds i8, ptr %7303, i64 2
+  %7354 = getelementptr inbounds nuw i8, ptr %7303, i64 2
   %7355 = load i8, ptr %7354, align 1
   %7356 = and i8 %7355, 63
   %7357 = zext nneg i8 %7356 to i32
   %7358 = shl nuw nsw i32 %7357, 6
   %7359 = or disjoint i32 %7353, %7358
-  %7360 = getelementptr inbounds i8, ptr %7303, i64 3
+  %7360 = getelementptr inbounds nuw i8, ptr %7303, i64 3
   %7361 = load i8, ptr %7360, align 1
   %7362 = and i8 %7361, 63
   %7363 = zext nneg i8 %7362 to i32
   %7364 = or disjoint i32 %7359, %7363
-  %7365 = getelementptr inbounds i8, ptr %7303, i64 4
+  %7365 = getelementptr inbounds nuw i8, ptr %7303, i64 4
   store ptr %7365, ptr %7093, align 8
   br label %7409
 
 7366:                                             ; preds = %7346
   %7367 = and i32 %7316, 4
   %7368 = icmp eq i32 %7367, 0
-  %7369 = getelementptr inbounds i8, ptr %7303, i64 2
+  %7369 = getelementptr inbounds nuw i8, ptr %7303, i64 2
   %7370 = load i8, ptr %7369, align 1
   %7371 = and i8 %7370, 63
   %7372 = zext nneg i8 %7371 to i32
-  %7373 = getelementptr inbounds i8, ptr %7303, i64 3
+  %7373 = getelementptr inbounds nuw i8, ptr %7303, i64 3
   %7374 = load i8, ptr %7373, align 1
   %7375 = and i8 %7374, 63
   %7376 = zext nneg i8 %7375 to i32
-  %7377 = getelementptr inbounds i8, ptr %7303, i64 4
+  %7377 = getelementptr inbounds nuw i8, ptr %7303, i64 4
   %7378 = load i8, ptr %7377, align 1
   %7379 = and i8 %7378, 63
   %7380 = zext nneg i8 %7379 to i32
@@ -13573,7 +13573,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7388 = shl nuw nsw i32 %7376, 6
   %7389 = or disjoint i32 %7387, %7388
   %7390 = or disjoint i32 %7389, %7380
-  %7391 = getelementptr inbounds i8, ptr %7303, i64 5
+  %7391 = getelementptr inbounds nuw i8, ptr %7303, i64 5
   store ptr %7391, ptr %7093, align 8
   br label %7409
 
@@ -13588,12 +13588,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7400 = or disjoint i32 %7398, %7399
   %7401 = shl nuw nsw i32 %7380, 6
   %7402 = or disjoint i32 %7400, %7401
-  %7403 = getelementptr inbounds i8, ptr %7303, i64 5
+  %7403 = getelementptr inbounds nuw i8, ptr %7303, i64 5
   %7404 = load i8, ptr %7403, align 1
   %7405 = and i8 %7404, 63
   %7406 = zext nneg i8 %7405 to i32
   %7407 = or disjoint i32 %7402, %7406
-  %7408 = getelementptr inbounds i8, ptr %7303, i64 6
+  %7408 = getelementptr inbounds nuw i8, ptr %7303, i64 6
   store ptr %7408, ptr %7093, align 8
   br label %7409
 
@@ -13655,7 +13655,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12724, label %.preheader9566.preheader, label %.loopexit
 
 7424:                                             ; preds = %7413
-  %7425 = getelementptr inbounds i8, ptr %7414, i64 1
+  %7425 = getelementptr inbounds nuw i8, ptr %7414, i64 1
   store ptr %7425, ptr %7092, align 8
   %7426 = load i8, ptr %7414, align 1
   %7427 = zext i8 %7426 to i32
@@ -13670,7 +13670,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7432:                                             ; preds = %7429
   %7433 = shl nuw nsw i32 %7427, 6
   %7434 = and i32 %7433, 1984
-  %7435 = getelementptr inbounds i8, ptr %7414, i64 2
+  %7435 = getelementptr inbounds nuw i8, ptr %7414, i64 2
   store ptr %7435, ptr %7092, align 8
   %7436 = load i8, ptr %7425, align 1
   %7437 = and i8 %7436, 63
@@ -13691,12 +13691,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7448 = and i32 %7447, 61440
   %7449 = shl nuw nsw i32 %7445, 6
   %7450 = or disjoint i32 %7449, %7448
-  %7451 = getelementptr inbounds i8, ptr %7414, i64 2
+  %7451 = getelementptr inbounds nuw i8, ptr %7414, i64 2
   %7452 = load i8, ptr %7451, align 1
   %7453 = and i8 %7452, 63
   %7454 = zext nneg i8 %7453 to i32
   %7455 = or disjoint i32 %7450, %7454
-  %7456 = getelementptr inbounds i8, ptr %7414, i64 3
+  %7456 = getelementptr inbounds nuw i8, ptr %7414, i64 3
   store ptr %7456, ptr %7092, align 8
   br label %7520
 
@@ -13710,33 +13710,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7462 = and i32 %7461, 1835008
   %7463 = shl nuw nsw i32 %7445, 12
   %7464 = or disjoint i32 %7463, %7462
-  %7465 = getelementptr inbounds i8, ptr %7414, i64 2
+  %7465 = getelementptr inbounds nuw i8, ptr %7414, i64 2
   %7466 = load i8, ptr %7465, align 1
   %7467 = and i8 %7466, 63
   %7468 = zext nneg i8 %7467 to i32
   %7469 = shl nuw nsw i32 %7468, 6
   %7470 = or disjoint i32 %7464, %7469
-  %7471 = getelementptr inbounds i8, ptr %7414, i64 3
+  %7471 = getelementptr inbounds nuw i8, ptr %7414, i64 3
   %7472 = load i8, ptr %7471, align 1
   %7473 = and i8 %7472, 63
   %7474 = zext nneg i8 %7473 to i32
   %7475 = or disjoint i32 %7470, %7474
-  %7476 = getelementptr inbounds i8, ptr %7414, i64 4
+  %7476 = getelementptr inbounds nuw i8, ptr %7414, i64 4
   store ptr %7476, ptr %7092, align 8
   br label %7520
 
 7477:                                             ; preds = %7457
   %7478 = and i32 %7427, 4
   %7479 = icmp eq i32 %7478, 0
-  %7480 = getelementptr inbounds i8, ptr %7414, i64 2
+  %7480 = getelementptr inbounds nuw i8, ptr %7414, i64 2
   %7481 = load i8, ptr %7480, align 1
   %7482 = and i8 %7481, 63
   %7483 = zext nneg i8 %7482 to i32
-  %7484 = getelementptr inbounds i8, ptr %7414, i64 3
+  %7484 = getelementptr inbounds nuw i8, ptr %7414, i64 3
   %7485 = load i8, ptr %7484, align 1
   %7486 = and i8 %7485, 63
   %7487 = zext nneg i8 %7486 to i32
-  %7488 = getelementptr inbounds i8, ptr %7414, i64 4
+  %7488 = getelementptr inbounds nuw i8, ptr %7414, i64 4
   %7489 = load i8, ptr %7488, align 1
   %7490 = and i8 %7489, 63
   %7491 = zext nneg i8 %7490 to i32
@@ -13752,7 +13752,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7499 = shl nuw nsw i32 %7487, 6
   %7500 = or disjoint i32 %7498, %7499
   %7501 = or disjoint i32 %7500, %7491
-  %7502 = getelementptr inbounds i8, ptr %7414, i64 5
+  %7502 = getelementptr inbounds nuw i8, ptr %7414, i64 5
   store ptr %7502, ptr %7092, align 8
   br label %7520
 
@@ -13767,12 +13767,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7511 = or disjoint i32 %7509, %7510
   %7512 = shl nuw nsw i32 %7491, 6
   %7513 = or disjoint i32 %7511, %7512
-  %7514 = getelementptr inbounds i8, ptr %7414, i64 5
+  %7514 = getelementptr inbounds nuw i8, ptr %7414, i64 5
   %7515 = load i8, ptr %7514, align 1
   %7516 = and i8 %7515, 63
   %7517 = zext nneg i8 %7516 to i32
   %7518 = or disjoint i32 %7513, %7517
-  %7519 = getelementptr inbounds i8, ptr %7414, i64 6
+  %7519 = getelementptr inbounds nuw i8, ptr %7414, i64 6
   store ptr %7519, ptr %7092, align 8
   br label %7520
 
@@ -13834,7 +13834,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12723, label %.preheader9566.preheader, label %.loopexit
 
 7535:                                             ; preds = %7524
-  %7536 = getelementptr inbounds i8, ptr %7525, i64 1
+  %7536 = getelementptr inbounds nuw i8, ptr %7525, i64 1
   store ptr %7536, ptr %7091, align 8
   %7537 = load i8, ptr %7525, align 1
   %7538 = zext i8 %7537 to i32
@@ -13849,7 +13849,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7543:                                             ; preds = %7540
   %7544 = shl nuw nsw i32 %7538, 6
   %7545 = and i32 %7544, 1984
-  %7546 = getelementptr inbounds i8, ptr %7525, i64 2
+  %7546 = getelementptr inbounds nuw i8, ptr %7525, i64 2
   store ptr %7546, ptr %7091, align 8
   %7547 = load i8, ptr %7536, align 1
   %7548 = and i8 %7547, 63
@@ -13870,12 +13870,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7559 = and i32 %7558, 61440
   %7560 = shl nuw nsw i32 %7556, 6
   %7561 = or disjoint i32 %7560, %7559
-  %7562 = getelementptr inbounds i8, ptr %7525, i64 2
+  %7562 = getelementptr inbounds nuw i8, ptr %7525, i64 2
   %7563 = load i8, ptr %7562, align 1
   %7564 = and i8 %7563, 63
   %7565 = zext nneg i8 %7564 to i32
   %7566 = or disjoint i32 %7561, %7565
-  %7567 = getelementptr inbounds i8, ptr %7525, i64 3
+  %7567 = getelementptr inbounds nuw i8, ptr %7525, i64 3
   store ptr %7567, ptr %7091, align 8
   br label %7631
 
@@ -13889,33 +13889,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7573 = and i32 %7572, 1835008
   %7574 = shl nuw nsw i32 %7556, 12
   %7575 = or disjoint i32 %7574, %7573
-  %7576 = getelementptr inbounds i8, ptr %7525, i64 2
+  %7576 = getelementptr inbounds nuw i8, ptr %7525, i64 2
   %7577 = load i8, ptr %7576, align 1
   %7578 = and i8 %7577, 63
   %7579 = zext nneg i8 %7578 to i32
   %7580 = shl nuw nsw i32 %7579, 6
   %7581 = or disjoint i32 %7575, %7580
-  %7582 = getelementptr inbounds i8, ptr %7525, i64 3
+  %7582 = getelementptr inbounds nuw i8, ptr %7525, i64 3
   %7583 = load i8, ptr %7582, align 1
   %7584 = and i8 %7583, 63
   %7585 = zext nneg i8 %7584 to i32
   %7586 = or disjoint i32 %7581, %7585
-  %7587 = getelementptr inbounds i8, ptr %7525, i64 4
+  %7587 = getelementptr inbounds nuw i8, ptr %7525, i64 4
   store ptr %7587, ptr %7091, align 8
   br label %7631
 
 7588:                                             ; preds = %7568
   %7589 = and i32 %7538, 4
   %7590 = icmp eq i32 %7589, 0
-  %7591 = getelementptr inbounds i8, ptr %7525, i64 2
+  %7591 = getelementptr inbounds nuw i8, ptr %7525, i64 2
   %7592 = load i8, ptr %7591, align 1
   %7593 = and i8 %7592, 63
   %7594 = zext nneg i8 %7593 to i32
-  %7595 = getelementptr inbounds i8, ptr %7525, i64 3
+  %7595 = getelementptr inbounds nuw i8, ptr %7525, i64 3
   %7596 = load i8, ptr %7595, align 1
   %7597 = and i8 %7596, 63
   %7598 = zext nneg i8 %7597 to i32
-  %7599 = getelementptr inbounds i8, ptr %7525, i64 4
+  %7599 = getelementptr inbounds nuw i8, ptr %7525, i64 4
   %7600 = load i8, ptr %7599, align 1
   %7601 = and i8 %7600, 63
   %7602 = zext nneg i8 %7601 to i32
@@ -13931,7 +13931,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7610 = shl nuw nsw i32 %7598, 6
   %7611 = or disjoint i32 %7609, %7610
   %7612 = or disjoint i32 %7611, %7602
-  %7613 = getelementptr inbounds i8, ptr %7525, i64 5
+  %7613 = getelementptr inbounds nuw i8, ptr %7525, i64 5
   store ptr %7613, ptr %7091, align 8
   br label %7631
 
@@ -13946,12 +13946,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7622 = or disjoint i32 %7620, %7621
   %7623 = shl nuw nsw i32 %7602, 6
   %7624 = or disjoint i32 %7622, %7623
-  %7625 = getelementptr inbounds i8, ptr %7525, i64 5
+  %7625 = getelementptr inbounds nuw i8, ptr %7525, i64 5
   %7626 = load i8, ptr %7625, align 1
   %7627 = and i8 %7626, 63
   %7628 = zext nneg i8 %7627 to i32
   %7629 = or disjoint i32 %7624, %7628
-  %7630 = getelementptr inbounds i8, ptr %7525, i64 6
+  %7630 = getelementptr inbounds nuw i8, ptr %7525, i64 6
   store ptr %7630, ptr %7091, align 8
   br label %7631
 
@@ -14001,7 +14001,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12722, label %.preheader9566.preheader, label %.loopexit
 
 7646:                                             ; preds = %7635
-  %7647 = getelementptr inbounds i8, ptr %7636, i64 1
+  %7647 = getelementptr inbounds nuw i8, ptr %7636, i64 1
   store ptr %7647, ptr %7090, align 8
   %7648 = load i8, ptr %7636, align 1
   %7649 = zext i8 %7648 to i32
@@ -14016,7 +14016,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7654:                                             ; preds = %7651
   %7655 = shl nuw nsw i32 %7649, 6
   %7656 = and i32 %7655, 1984
-  %7657 = getelementptr inbounds i8, ptr %7636, i64 2
+  %7657 = getelementptr inbounds nuw i8, ptr %7636, i64 2
   store ptr %7657, ptr %7090, align 8
   %7658 = load i8, ptr %7647, align 1
   %7659 = and i8 %7658, 63
@@ -14037,12 +14037,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7670 = and i32 %7669, 61440
   %7671 = shl nuw nsw i32 %7667, 6
   %7672 = or disjoint i32 %7671, %7670
-  %7673 = getelementptr inbounds i8, ptr %7636, i64 2
+  %7673 = getelementptr inbounds nuw i8, ptr %7636, i64 2
   %7674 = load i8, ptr %7673, align 1
   %7675 = and i8 %7674, 63
   %7676 = zext nneg i8 %7675 to i32
   %7677 = or disjoint i32 %7672, %7676
-  %7678 = getelementptr inbounds i8, ptr %7636, i64 3
+  %7678 = getelementptr inbounds nuw i8, ptr %7636, i64 3
   store ptr %7678, ptr %7090, align 8
   br label %7742
 
@@ -14056,33 +14056,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7684 = and i32 %7683, 1835008
   %7685 = shl nuw nsw i32 %7667, 12
   %7686 = or disjoint i32 %7685, %7684
-  %7687 = getelementptr inbounds i8, ptr %7636, i64 2
+  %7687 = getelementptr inbounds nuw i8, ptr %7636, i64 2
   %7688 = load i8, ptr %7687, align 1
   %7689 = and i8 %7688, 63
   %7690 = zext nneg i8 %7689 to i32
   %7691 = shl nuw nsw i32 %7690, 6
   %7692 = or disjoint i32 %7686, %7691
-  %7693 = getelementptr inbounds i8, ptr %7636, i64 3
+  %7693 = getelementptr inbounds nuw i8, ptr %7636, i64 3
   %7694 = load i8, ptr %7693, align 1
   %7695 = and i8 %7694, 63
   %7696 = zext nneg i8 %7695 to i32
   %7697 = or disjoint i32 %7692, %7696
-  %7698 = getelementptr inbounds i8, ptr %7636, i64 4
+  %7698 = getelementptr inbounds nuw i8, ptr %7636, i64 4
   store ptr %7698, ptr %7090, align 8
   br label %7742
 
 7699:                                             ; preds = %7679
   %7700 = and i32 %7649, 4
   %7701 = icmp eq i32 %7700, 0
-  %7702 = getelementptr inbounds i8, ptr %7636, i64 2
+  %7702 = getelementptr inbounds nuw i8, ptr %7636, i64 2
   %7703 = load i8, ptr %7702, align 1
   %7704 = and i8 %7703, 63
   %7705 = zext nneg i8 %7704 to i32
-  %7706 = getelementptr inbounds i8, ptr %7636, i64 3
+  %7706 = getelementptr inbounds nuw i8, ptr %7636, i64 3
   %7707 = load i8, ptr %7706, align 1
   %7708 = and i8 %7707, 63
   %7709 = zext nneg i8 %7708 to i32
-  %7710 = getelementptr inbounds i8, ptr %7636, i64 4
+  %7710 = getelementptr inbounds nuw i8, ptr %7636, i64 4
   %7711 = load i8, ptr %7710, align 1
   %7712 = and i8 %7711, 63
   %7713 = zext nneg i8 %7712 to i32
@@ -14098,7 +14098,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7721 = shl nuw nsw i32 %7709, 6
   %7722 = or disjoint i32 %7720, %7721
   %7723 = or disjoint i32 %7722, %7713
-  %7724 = getelementptr inbounds i8, ptr %7636, i64 5
+  %7724 = getelementptr inbounds nuw i8, ptr %7636, i64 5
   store ptr %7724, ptr %7090, align 8
   br label %7742
 
@@ -14113,12 +14113,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7733 = or disjoint i32 %7731, %7732
   %7734 = shl nuw nsw i32 %7713, 6
   %7735 = or disjoint i32 %7733, %7734
-  %7736 = getelementptr inbounds i8, ptr %7636, i64 5
+  %7736 = getelementptr inbounds nuw i8, ptr %7636, i64 5
   %7737 = load i8, ptr %7736, align 1
   %7738 = and i8 %7737, 63
   %7739 = zext nneg i8 %7738 to i32
   %7740 = or disjoint i32 %7735, %7739
-  %7741 = getelementptr inbounds i8, ptr %7636, i64 6
+  %7741 = getelementptr inbounds nuw i8, ptr %7636, i64 6
   store ptr %7741, ptr %7090, align 8
   br label %7742
 
@@ -14168,7 +14168,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12721, label %.preheader9566.preheader, label %.loopexit
 
 7757:                                             ; preds = %7746
-  %7758 = getelementptr inbounds i8, ptr %7747, i64 1
+  %7758 = getelementptr inbounds nuw i8, ptr %7747, i64 1
   store ptr %7758, ptr %7089, align 8
   %7759 = load i8, ptr %7747, align 1
   %7760 = zext i8 %7759 to i32
@@ -14183,7 +14183,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7765:                                             ; preds = %7762
   %7766 = shl nuw nsw i32 %7760, 6
   %7767 = and i32 %7766, 1984
-  %7768 = getelementptr inbounds i8, ptr %7747, i64 2
+  %7768 = getelementptr inbounds nuw i8, ptr %7747, i64 2
   store ptr %7768, ptr %7089, align 8
   %7769 = load i8, ptr %7758, align 1
   %7770 = and i8 %7769, 63
@@ -14204,12 +14204,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7781 = and i32 %7780, 61440
   %7782 = shl nuw nsw i32 %7778, 6
   %7783 = or disjoint i32 %7782, %7781
-  %7784 = getelementptr inbounds i8, ptr %7747, i64 2
+  %7784 = getelementptr inbounds nuw i8, ptr %7747, i64 2
   %7785 = load i8, ptr %7784, align 1
   %7786 = and i8 %7785, 63
   %7787 = zext nneg i8 %7786 to i32
   %7788 = or disjoint i32 %7783, %7787
-  %7789 = getelementptr inbounds i8, ptr %7747, i64 3
+  %7789 = getelementptr inbounds nuw i8, ptr %7747, i64 3
   store ptr %7789, ptr %7089, align 8
   br label %7853
 
@@ -14223,33 +14223,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7795 = and i32 %7794, 1835008
   %7796 = shl nuw nsw i32 %7778, 12
   %7797 = or disjoint i32 %7796, %7795
-  %7798 = getelementptr inbounds i8, ptr %7747, i64 2
+  %7798 = getelementptr inbounds nuw i8, ptr %7747, i64 2
   %7799 = load i8, ptr %7798, align 1
   %7800 = and i8 %7799, 63
   %7801 = zext nneg i8 %7800 to i32
   %7802 = shl nuw nsw i32 %7801, 6
   %7803 = or disjoint i32 %7797, %7802
-  %7804 = getelementptr inbounds i8, ptr %7747, i64 3
+  %7804 = getelementptr inbounds nuw i8, ptr %7747, i64 3
   %7805 = load i8, ptr %7804, align 1
   %7806 = and i8 %7805, 63
   %7807 = zext nneg i8 %7806 to i32
   %7808 = or disjoint i32 %7803, %7807
-  %7809 = getelementptr inbounds i8, ptr %7747, i64 4
+  %7809 = getelementptr inbounds nuw i8, ptr %7747, i64 4
   store ptr %7809, ptr %7089, align 8
   br label %7853
 
 7810:                                             ; preds = %7790
   %7811 = and i32 %7760, 4
   %7812 = icmp eq i32 %7811, 0
-  %7813 = getelementptr inbounds i8, ptr %7747, i64 2
+  %7813 = getelementptr inbounds nuw i8, ptr %7747, i64 2
   %7814 = load i8, ptr %7813, align 1
   %7815 = and i8 %7814, 63
   %7816 = zext nneg i8 %7815 to i32
-  %7817 = getelementptr inbounds i8, ptr %7747, i64 3
+  %7817 = getelementptr inbounds nuw i8, ptr %7747, i64 3
   %7818 = load i8, ptr %7817, align 1
   %7819 = and i8 %7818, 63
   %7820 = zext nneg i8 %7819 to i32
-  %7821 = getelementptr inbounds i8, ptr %7747, i64 4
+  %7821 = getelementptr inbounds nuw i8, ptr %7747, i64 4
   %7822 = load i8, ptr %7821, align 1
   %7823 = and i8 %7822, 63
   %7824 = zext nneg i8 %7823 to i32
@@ -14265,7 +14265,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7832 = shl nuw nsw i32 %7820, 6
   %7833 = or disjoint i32 %7831, %7832
   %7834 = or disjoint i32 %7833, %7824
-  %7835 = getelementptr inbounds i8, ptr %7747, i64 5
+  %7835 = getelementptr inbounds nuw i8, ptr %7747, i64 5
   store ptr %7835, ptr %7089, align 8
   br label %7853
 
@@ -14280,12 +14280,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %7844 = or disjoint i32 %7842, %7843
   %7845 = shl nuw nsw i32 %7824, 6
   %7846 = or disjoint i32 %7844, %7845
-  %7847 = getelementptr inbounds i8, ptr %7747, i64 5
+  %7847 = getelementptr inbounds nuw i8, ptr %7747, i64 5
   %7848 = load i8, ptr %7847, align 1
   %7849 = and i8 %7848, 63
   %7850 = zext nneg i8 %7849 to i32
   %7851 = or disjoint i32 %7846, %7850
-  %7852 = getelementptr inbounds i8, ptr %7747, i64 6
+  %7852 = getelementptr inbounds nuw i8, ptr %7747, i64 6
   store ptr %7852, ptr %7089, align 8
   br label %7853
 
@@ -14298,7 +14298,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7856:                                             ; preds = %7853
   %7857 = load ptr, ptr %38, align 8
   %7858 = zext nneg i32 %.407728 to i64
-  %7859 = getelementptr inbounds i8, ptr %7857, i64 %7858
+  %7859 = getelementptr inbounds nuw i8, ptr %7857, i64 %7858
   %7860 = load i8, ptr %7859, align 1
   %7861 = and i8 %7860, 8
   %.not8614 = icmp eq i8 %7861, 0
@@ -14344,14 +14344,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7878:                                             ; preds = %7875
   %7879 = load ptr, ptr %38, align 8
   %7880 = zext nneg i8 %7876 to i64
-  %7881 = getelementptr inbounds i8, ptr %7879, i64 %7880
+  %7881 = getelementptr inbounds nuw i8, ptr %7879, i64 %7880
   %7882 = load i8, ptr %7881, align 1
   %7883 = and i8 %7882, 8
   %7884 = icmp eq i8 %7883, 0
   br i1 %7884, label %.preheader9566.preheader.loopexit15686, label %7885
 
 7885:                                             ; preds = %7878
-  %7886 = getelementptr inbounds i8, ptr %7865, i64 1
+  %7886 = getelementptr inbounds nuw i8, ptr %7865, i64 1
   store ptr %7886, ptr %7088, align 8
   %7887 = add i32 %.43767010942, 1
   %.not8608 = icmp ugt i32 %7887, %6952
@@ -14392,7 +14392,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7902:                                             ; preds = %7899
   %7903 = load ptr, ptr %38, align 8
   %7904 = zext nneg i8 %7900 to i64
-  %7905 = getelementptr inbounds i8, ptr %7903, i64 %7904
+  %7905 = getelementptr inbounds nuw i8, ptr %7903, i64 %7904
   %7906 = load i8, ptr %7905, align 1
   %7907 = and i8 %7906, 1
   %.not8603 = icmp eq i8 %7907, 0
@@ -14403,7 +14403,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 7908:                                             ; preds = %.preheader15592, %7911
   %.pn8605 = phi ptr [ %storemerge8604, %7911 ], [ %7890, %.preheader15592 ]
-  %storemerge8604 = getelementptr inbounds i8, ptr %.pn8605, i64 1
+  %storemerge8604 = getelementptr inbounds nuw i8, ptr %.pn8605, i64 1
   store ptr %storemerge8604, ptr %7087, align 8
   %7909 = load ptr, ptr %39, align 8
   %7910 = icmp ult ptr %storemerge8604, %7909
@@ -14454,14 +14454,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7929:                                             ; preds = %7926
   %7930 = load ptr, ptr %38, align 8
   %7931 = zext nneg i8 %7927 to i64
-  %7932 = getelementptr inbounds i8, ptr %7930, i64 %7931
+  %7932 = getelementptr inbounds nuw i8, ptr %7930, i64 %7931
   %7933 = load i8, ptr %7932, align 1
   %7934 = and i8 %7933, 1
   %7935 = icmp eq i8 %7934, 0
   br i1 %7935, label %.preheader9566.preheader.loopexit15690, label %7936
 
 7936:                                             ; preds = %7929
-  %7937 = getelementptr inbounds i8, ptr %7916, i64 1
+  %7937 = getelementptr inbounds nuw i8, ptr %7916, i64 1
   store ptr %7937, ptr %7086, align 8
   %7938 = add i32 %.45767210936, 1
   %.not8597 = icmp ugt i32 %7938, %6952
@@ -14502,7 +14502,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7953:                                             ; preds = %7950
   %7954 = load ptr, ptr %38, align 8
   %7955 = zext nneg i8 %7951 to i64
-  %7956 = getelementptr inbounds i8, ptr %7954, i64 %7955
+  %7956 = getelementptr inbounds nuw i8, ptr %7954, i64 %7955
   %7957 = load i8, ptr %7956, align 1
   %7958 = and i8 %7957, 16
   %.not8592 = icmp eq i8 %7958, 0
@@ -14513,7 +14513,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 7959:                                             ; preds = %.preheader15593, %7962
   %.pn8594 = phi ptr [ %storemerge8593, %7962 ], [ %7941, %.preheader15593 ]
-  %storemerge8593 = getelementptr inbounds i8, ptr %.pn8594, i64 1
+  %storemerge8593 = getelementptr inbounds nuw i8, ptr %.pn8594, i64 1
   store ptr %storemerge8593, ptr %7085, align 8
   %7960 = load ptr, ptr %39, align 8
   %7961 = icmp ult ptr %storemerge8593, %7960
@@ -14564,14 +14564,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 7980:                                             ; preds = %7977
   %7981 = load ptr, ptr %38, align 8
   %7982 = zext nneg i8 %7978 to i64
-  %7983 = getelementptr inbounds i8, ptr %7981, i64 %7982
+  %7983 = getelementptr inbounds nuw i8, ptr %7981, i64 %7982
   %7984 = load i8, ptr %7983, align 1
   %7985 = and i8 %7984, 16
   %7986 = icmp eq i8 %7985, 0
   br i1 %7986, label %.preheader9566.preheader.loopexit15694, label %7987
 
 7987:                                             ; preds = %7980
-  %7988 = getelementptr inbounds i8, ptr %7967, i64 1
+  %7988 = getelementptr inbounds nuw i8, ptr %7967, i64 1
   store ptr %7988, ptr %7084, align 8
   %7989 = add i32 %.47767410930, 1
   %.not8586 = icmp ugt i32 %7989, %6952
@@ -14595,62 +14595,62 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   ]
 
 .lr.ph10895:                                      ; preds = %7990
-  %7991 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7991 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12527 = load ptr, ptr %7991, align 8
   br label %8272
 
 .lr.ph10898:                                      ; preds = %7990
-  %7992 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7992 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12528 = load ptr, ptr %7992, align 8
   br label %8251
 
 .lr.ph10901:                                      ; preds = %7990
-  %7993 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7993 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12529 = load ptr, ptr %7993, align 8
   br label %8229
 
 .lr.ph10904:                                      ; preds = %7990
-  %7994 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7994 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12530 = load ptr, ptr %7994, align 8
   br label %8208
 
 .lr.ph10907:                                      ; preds = %7990
-  %7995 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7995 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12531 = load ptr, ptr %7995, align 8
   br label %8186
 
 .lr.ph10910:                                      ; preds = %7990
-  %7996 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7996 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12532 = load ptr, ptr %7996, align 8
   br label %8165
 
 .lr.ph10913:                                      ; preds = %7990
-  %7997 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7997 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12533 = load ptr, ptr %7997, align 8
   br label %8149
 
 .lr.ph10916:                                      ; preds = %7990
-  %7998 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7998 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12534 = load ptr, ptr %7998, align 8
   br label %8133
 
 .lr.ph10919:                                      ; preds = %7990
-  %7999 = getelementptr inbounds i8, ptr %.3, i64 80
+  %7999 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12535 = load ptr, ptr %7999, align 8
   br label %8117
 
 .lr.ph10922:                                      ; preds = %7990
-  %8000 = getelementptr inbounds i8, ptr %.3, i64 80
+  %8000 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12536 = load ptr, ptr %8000, align 8
   br label %8101
 
 .lr.ph10925:                                      ; preds = %7990
-  %8001 = getelementptr inbounds i8, ptr %.3, i64 80
+  %8001 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12537 = load ptr, ptr %8001, align 8
   br label %8073
 
 .lr.ph10928:                                      ; preds = %7990
-  %8002 = getelementptr inbounds i8, ptr %.3, i64 80
+  %8002 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12538 = load ptr, ptr %8002, align 8
   br label %8003
 
@@ -14714,7 +14714,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %8028, label %.preheader9566.preheader.loopexit15696, label %8029
 
 8029:                                             ; preds = %8027
-  %8030 = getelementptr inbounds i8, ptr %8004, i64 1
+  %8030 = getelementptr inbounds nuw i8, ptr %8004, i64 1
   %8031 = load i8, ptr %8030, align 1
   %8032 = load i8, ptr %50, align 1
   %8033 = icmp eq i8 %8031, %8032
@@ -14727,7 +14727,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not8582, label %8050, label %8036
 
 8036:                                             ; preds = %8034
-  %8037 = getelementptr inbounds i8, ptr %.pre12541, i64 1
+  %8037 = getelementptr inbounds nuw i8, ptr %.pre12541, i64 1
   %8038 = load ptr, ptr %39, align 8
   %.not8583 = icmp ult ptr %8037, %8038
   br i1 %.not8583, label %8050, label %8039
@@ -14759,7 +14759,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 8050:                                             ; preds = %._crit_edge12539, %8045, %8042, %8039, %8036, %8034
   %8051 = phi ptr [ %.pre12540, %._crit_edge12539 ], [ %.pre12541, %8045 ], [ %.pre12541, %8042 ], [ %.pre12541, %8039 ], [ %.pre12541, %8036 ], [ %.pre12541, %8034 ]
-  %8052 = getelementptr inbounds i8, ptr %8051, i64 1
+  %8052 = getelementptr inbounds nuw i8, ptr %8051, i64 1
   store ptr %8052, ptr %8002, align 8
   %8053 = add i32 %.48767510927, 1
   %8054 = load i32, ptr %6954, align 8
@@ -14767,7 +14767,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not8577, label %.loopexit9707, label %8003
 
 8055:                                             ; preds = %7990
-  %8056 = getelementptr inbounds i8, ptr %.3, i64 80
+  %8056 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %8057 = load ptr, ptr %8056, align 8
   %8058 = load ptr, ptr %39, align 8
   %8059 = zext i32 %6952 to i64
@@ -14797,7 +14797,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12713, label %.preheader9566.preheader, label %.loopexit
 
 8071:                                             ; preds = %8055
-  %8072 = getelementptr inbounds i8, ptr %8057, i64 %8059
+  %8072 = getelementptr inbounds nuw i8, ptr %8057, i64 %8059
   store ptr %8072, ptr %8056, align 8
   br label %.loopexit9707
 
@@ -14829,7 +14829,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12712, label %.preheader9566.preheader, label %.loopexit
 
 8084:                                             ; preds = %8073
-  %8085 = getelementptr inbounds i8, ptr %8074, i64 1
+  %8085 = getelementptr inbounds nuw i8, ptr %8074, i64 1
   store ptr %8085, ptr %8001, align 8
   %8086 = load i8, ptr %8074, align 1
   switch i8 %8086, label %.preheader9566.preheader.loopexit15699 [
@@ -14851,7 +14851,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %8092, label %8093, label %8098
 
 8093:                                             ; preds = %8090
-  %8094 = getelementptr inbounds i8, ptr %8074, i64 2
+  %8094 = getelementptr inbounds nuw i8, ptr %8074, i64 2
   store ptr %8094, ptr %8001, align 8
   br label %8098
 
@@ -14894,7 +14894,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12711, label %.preheader9566.preheader, label %.loopexit
 
 8112:                                             ; preds = %8101
-  %8113 = getelementptr inbounds i8, ptr %8102, i64 1
+  %8113 = getelementptr inbounds nuw i8, ptr %8102, i64 1
   store ptr %8113, ptr %8000, align 8
   %8114 = load i8, ptr %8102, align 1
   switch i8 %8114, label %8115 [
@@ -14936,7 +14936,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12710, label %.preheader9566.preheader, label %.loopexit
 
 8128:                                             ; preds = %8117
-  %8129 = getelementptr inbounds i8, ptr %8118, i64 1
+  %8129 = getelementptr inbounds nuw i8, ptr %8118, i64 1
   store ptr %8129, ptr %7999, align 8
   %8130 = load i8, ptr %8118, align 1
   switch i8 %8130, label %.preheader9566.preheader [
@@ -14978,7 +14978,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12709, label %.preheader9566.preheader, label %.loopexit
 
 8144:                                             ; preds = %8133
-  %8145 = getelementptr inbounds i8, ptr %8134, i64 1
+  %8145 = getelementptr inbounds nuw i8, ptr %8134, i64 1
   store ptr %8145, ptr %7998, align 8
   %8146 = load i8, ptr %8134, align 1
   switch i8 %8146, label %8147 [
@@ -15022,7 +15022,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not12708, label %.preheader9566.preheader, label %.loopexit
 
 8160:                                             ; preds = %8149
-  %8161 = getelementptr inbounds i8, ptr %8150, i64 1
+  %8161 = getelementptr inbounds nuw i8, ptr %8150, i64 1
   store ptr %8161, ptr %7997, align 8
   %8162 = load i8, ptr %8150, align 1
   switch i8 %8162, label %.preheader9566.preheader [
@@ -15069,14 +15069,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8177 = load ptr, ptr %38, align 8
   %8178 = load i8, ptr %8166, align 1
   %8179 = zext i8 %8178 to i64
-  %8180 = getelementptr inbounds i8, ptr %8177, i64 %8179
+  %8180 = getelementptr inbounds nuw i8, ptr %8177, i64 %8179
   %8181 = load i8, ptr %8180, align 1
   %8182 = and i8 %8181, 8
   %.not8552 = icmp eq i8 %8182, 0
   br i1 %.not8552, label %8183, label %.preheader9566.preheader
 
 8183:                                             ; preds = %8176
-  %8184 = getelementptr inbounds i8, ptr %8166, i64 1
+  %8184 = getelementptr inbounds nuw i8, ptr %8166, i64 1
   store ptr %8184, ptr %7996, align 8
   %8185 = add i32 %.54768110909, 1
   %.not8550 = icmp ugt i32 %8185, %6952
@@ -15113,14 +15113,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8198 = load ptr, ptr %38, align 8
   %8199 = load i8, ptr %8187, align 1
   %8200 = zext i8 %8199 to i64
-  %8201 = getelementptr inbounds i8, ptr %8198, i64 %8200
+  %8201 = getelementptr inbounds nuw i8, ptr %8198, i64 %8200
   %8202 = load i8, ptr %8201, align 1
   %8203 = and i8 %8202, 8
   %8204 = icmp eq i8 %8203, 0
   br i1 %8204, label %.preheader9566.preheader, label %8205
 
 8205:                                             ; preds = %8197
-  %8206 = getelementptr inbounds i8, ptr %8187, i64 1
+  %8206 = getelementptr inbounds nuw i8, ptr %8187, i64 1
   store ptr %8206, ptr %7995, align 8
   %8207 = add i32 %.55768210906, 1
   %.not8546 = icmp ugt i32 %8207, %6952
@@ -15157,14 +15157,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8220 = load ptr, ptr %38, align 8
   %8221 = load i8, ptr %8209, align 1
   %8222 = zext i8 %8221 to i64
-  %8223 = getelementptr inbounds i8, ptr %8220, i64 %8222
+  %8223 = getelementptr inbounds nuw i8, ptr %8220, i64 %8222
   %8224 = load i8, ptr %8223, align 1
   %8225 = and i8 %8224, 1
   %.not8543 = icmp eq i8 %8225, 0
   br i1 %.not8543, label %8226, label %.preheader9566.preheader
 
 8226:                                             ; preds = %8219
-  %8227 = getelementptr inbounds i8, ptr %8209, i64 1
+  %8227 = getelementptr inbounds nuw i8, ptr %8209, i64 1
   store ptr %8227, ptr %7994, align 8
   %8228 = add i32 %.56768310903, 1
   %.not8541 = icmp ugt i32 %8228, %6952
@@ -15201,14 +15201,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8241 = load ptr, ptr %38, align 8
   %8242 = load i8, ptr %8230, align 1
   %8243 = zext i8 %8242 to i64
-  %8244 = getelementptr inbounds i8, ptr %8241, i64 %8243
+  %8244 = getelementptr inbounds nuw i8, ptr %8241, i64 %8243
   %8245 = load i8, ptr %8244, align 1
   %8246 = and i8 %8245, 1
   %8247 = icmp eq i8 %8246, 0
   br i1 %8247, label %.preheader9566.preheader, label %8248
 
 8248:                                             ; preds = %8240
-  %8249 = getelementptr inbounds i8, ptr %8230, i64 1
+  %8249 = getelementptr inbounds nuw i8, ptr %8230, i64 1
   store ptr %8249, ptr %7993, align 8
   %8250 = add i32 %.57768410900, 1
   %.not8537 = icmp ugt i32 %8250, %6952
@@ -15245,14 +15245,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8263 = load ptr, ptr %38, align 8
   %8264 = load i8, ptr %8252, align 1
   %8265 = zext i8 %8264 to i64
-  %8266 = getelementptr inbounds i8, ptr %8263, i64 %8265
+  %8266 = getelementptr inbounds nuw i8, ptr %8263, i64 %8265
   %8267 = load i8, ptr %8266, align 1
   %8268 = and i8 %8267, 16
   %.not8534 = icmp eq i8 %8268, 0
   br i1 %.not8534, label %8269, label %.preheader9566.preheader
 
 8269:                                             ; preds = %8262
-  %8270 = getelementptr inbounds i8, ptr %8252, i64 1
+  %8270 = getelementptr inbounds nuw i8, ptr %8252, i64 1
   store ptr %8270, ptr %7992, align 8
   %8271 = add i32 %.58768510897, 1
   %.not8532 = icmp ugt i32 %8271, %6952
@@ -15289,14 +15289,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8284 = load ptr, ptr %38, align 8
   %8285 = load i8, ptr %8273, align 1
   %8286 = zext i8 %8285 to i64
-  %8287 = getelementptr inbounds i8, ptr %8284, i64 %8286
+  %8287 = getelementptr inbounds nuw i8, ptr %8284, i64 %8286
   %8288 = load i8, ptr %8287, align 1
   %8289 = and i8 %8288, 16
   %8290 = icmp eq i8 %8289, 0
   br i1 %8290, label %.preheader9566.preheader, label %8291
 
 8291:                                             ; preds = %8283
-  %8292 = getelementptr inbounds i8, ptr %8273, i64 1
+  %8292 = getelementptr inbounds nuw i8, ptr %8273, i64 1
   store ptr %8292, ptr %7991, align 8
   %8293 = add i32 %.59768610894, 1
   %.not8528 = icmp ugt i32 %8293, %6952
@@ -15308,7 +15308,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.30780312772 = phi i32 [ %.307803, %.thread9328 ], [ %.3078031277312777, %7177 ], [ %.3078031277312777, %8071 ], [ %.307803, %5331 ], [ %.3078031277412795, %5401 ], [ %.3078031277412795, %5404 ], [ %.3078031277412795, %5535 ], [ %.3078031277412795, %5665 ], [ %.3078031277412795, %5792 ], [ %.3078031277412795, %5919 ], [ %.3078031277412795, %6056 ], [ %.3078031277412795, %6318 ], [ %.3078031277412795, %6320 ], [ %.3078031277412795, %6572 ], [ %.3078031277412795, %6574 ], [ %.3078031277412795, %6693 ], [ %.3078031277412795, %6821 ], [ %.3078031277312777, %7079 ], [ %.3078031277312777, %.critedge87 ], [ %.3078031277312777, %.critedge89 ], [ %.3078031277312777, %7299 ], [ %.3078031277312777, %7411 ], [ %.3078031277312777, %7522 ], [ %.3078031277312777, %7633 ], [ %.3078031277312777, %7744 ], [ %.3078031277312777, %7862 ], [ %.3078031277312777, %7885 ], [ %.3078031277312777, %.critedge91 ], [ %.3078031277312777, %7936 ], [ %.3078031277312777, %.critedge93 ], [ %.3078031277312777, %7987 ], [ %.3078031277312777, %8050 ], [ %.3078031277312777, %8098 ], [ %.3078031277312777, %8115 ], [ %.3078031277312777, %8131 ], [ %.3078031277312777, %8147 ], [ %.3078031277312777, %8163 ], [ %.3078031277312777, %8183 ], [ %.3078031277312777, %8205 ], [ %.3078031277312777, %8226 ], [ %.3078031277312777, %8248 ], [ %.3078031277312777, %8269 ], [ %.3078031277312777, %8291 ]
   %.076219332 = phi i32 [ -1, %.thread9328 ], [ -1, %7177 ], [ -1, %8071 ], [ %5334, %5331 ], [ %5342, %5401 ], [ %5342, %5404 ], [ %5342, %5535 ], [ %5342, %5665 ], [ %5342, %5792 ], [ %5342, %5919 ], [ %5342, %6056 ], [ %5342, %6318 ], [ %5342, %6320 ], [ %5342, %6572 ], [ %5342, %6574 ], [ %5342, %6693 ], [ %5342, %6821 ], [ -1, %7079 ], [ -1, %.critedge87 ], [ -1, %.critedge89 ], [ -1, %7299 ], [ -1, %7411 ], [ -1, %7522 ], [ -1, %7633 ], [ -1, %7744 ], [ -1, %7862 ], [ -1, %7885 ], [ -1, %.critedge91 ], [ -1, %7936 ], [ -1, %.critedge93 ], [ -1, %7987 ], [ -1, %8050 ], [ -1, %8098 ], [ -1, %8115 ], [ -1, %8131 ], [ -1, %8147 ], [ -1, %8163 ], [ -1, %8183 ], [ -1, %8205 ], [ -1, %8226 ], [ -1, %8248 ], [ -1, %8269 ], [ -1, %8291 ]
   %8296 = load i32, ptr %8295, align 8
-  %8297 = getelementptr inbounds i8, ptr %.3, i64 60
+  %8297 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   %8298 = load i32, ptr %8297, align 4
   %8299 = icmp eq i32 %8296, %8298
   br i1 %8299, label %.preheader9835.backedge, label %8300
@@ -15348,17 +15348,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 8306:                                             ; preds = %15887
-  %8307 = getelementptr inbounds i8, ptr %15814, i64 56
+  %8307 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %8308 = load i32, ptr %8307, align 8
   %8309 = add i32 %8308, 1
   store i32 %8309, ptr %8307, align 8
-  %8310 = getelementptr inbounds i8, ptr %15814, i64 60
+  %8310 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %8311 = load i32, ptr %8310, align 4
   %.not9137 = icmp ult i32 %8308, %8311
   br i1 %.not9137, label %8312, label %.backedge.backedge
 
 8312:                                             ; preds = %8306
-  %8313 = getelementptr inbounds i8, ptr %15814, i64 80
+  %8313 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %8314 = load ptr, ptr %8313, align 8
   %8315 = load ptr, ptr %39, align 8
   %.not9138 = icmp ult ptr %8314, %8315
@@ -15385,7 +15385,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9532, label %.backedge.backedge, label %.loopexit
 
 8324:                                             ; preds = %8312
-  %8325 = getelementptr inbounds i8, ptr %8314, i64 1
+  %8325 = getelementptr inbounds nuw i8, ptr %8314, i64 1
   store ptr %8325, ptr %8313, align 8
   %8326 = load i8, ptr %8314, align 1
   %8327 = zext i8 %8326 to i32
@@ -15416,12 +15416,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 .sink.split14204:                                 ; preds = %8338, %8335, %8332, %8329
   %.sink14206 = phi i64 [ 2, %8329 ], [ 3, %8332 ], [ 4, %8335 ], [ %.14222, %8338 ]
-  %8341 = getelementptr inbounds i8, ptr %8314, i64 %.sink14206
+  %8341 = getelementptr inbounds nuw i8, ptr %8314, i64 %.sink14206
   store ptr %8341, ptr %8313, align 8
   br label %8342
 
 8342:                                             ; preds = %.sink.split14204, %8324
-  %8343 = getelementptr inbounds i8, ptr %15814, i64 64
+  %8343 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %8344 = load i32, ptr %8343, align 8
   %8345 = icmp eq i32 %8344, 15
   br i1 %8345, label %.backedge.backedge, label %.loopexit9581
@@ -15435,17 +15435,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 8347:                                             ; preds = %15888
-  %8348 = getelementptr inbounds i8, ptr %15814, i64 56
+  %8348 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %8349 = load i32, ptr %8348, align 8
   %8350 = add i32 %8349, 1
   store i32 %8350, ptr %8348, align 8
-  %8351 = getelementptr inbounds i8, ptr %15814, i64 60
+  %8351 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %8352 = load i32, ptr %8351, align 4
   %.not9132 = icmp ult i32 %8349, %8352
   br i1 %.not9132, label %8353, label %.backedge.backedge
 
 8353:                                             ; preds = %8347
-  %8354 = getelementptr inbounds i8, ptr %15814, i64 80
+  %8354 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %8355 = load ptr, ptr %8354, align 8
   %8356 = load ptr, ptr %39, align 8
   %.not9133 = icmp ult ptr %8355, %8356
@@ -15472,7 +15472,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9531, label %.backedge.backedge, label %.loopexit
 
 8365:                                             ; preds = %8353
-  %8366 = getelementptr inbounds i8, ptr %8355, i64 1
+  %8366 = getelementptr inbounds nuw i8, ptr %8355, i64 1
   store ptr %8366, ptr %8354, align 8
   %8367 = load i8, ptr %8355, align 1
   %8368 = zext i8 %8367 to i32
@@ -15488,7 +15488,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 8373:                                             ; preds = %8370
   %8374 = shl nuw nsw i32 %8368, 6
   %8375 = and i32 %8374, 1984
-  %8376 = getelementptr inbounds i8, ptr %8355, i64 2
+  %8376 = getelementptr inbounds nuw i8, ptr %8355, i64 2
   store ptr %8376, ptr %8354, align 8
   %8377 = load i8, ptr %8366, align 1
   %8378 = and i8 %8377, 63
@@ -15509,12 +15509,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8389 = and i32 %8388, 61440
   %8390 = shl nuw nsw i32 %8386, 6
   %8391 = or disjoint i32 %8390, %8389
-  %8392 = getelementptr inbounds i8, ptr %8355, i64 2
+  %8392 = getelementptr inbounds nuw i8, ptr %8355, i64 2
   %8393 = load i8, ptr %8392, align 1
   %8394 = and i8 %8393, 63
   %8395 = zext nneg i8 %8394 to i32
   %8396 = or disjoint i32 %8391, %8395
-  %8397 = getelementptr inbounds i8, ptr %8355, i64 3
+  %8397 = getelementptr inbounds nuw i8, ptr %8355, i64 3
   store ptr %8397, ptr %8354, align 8
   br label %8461
 
@@ -15528,33 +15528,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8403 = and i32 %8402, 1835008
   %8404 = shl nuw nsw i32 %8386, 12
   %8405 = or disjoint i32 %8404, %8403
-  %8406 = getelementptr inbounds i8, ptr %8355, i64 2
+  %8406 = getelementptr inbounds nuw i8, ptr %8355, i64 2
   %8407 = load i8, ptr %8406, align 1
   %8408 = and i8 %8407, 63
   %8409 = zext nneg i8 %8408 to i32
   %8410 = shl nuw nsw i32 %8409, 6
   %8411 = or disjoint i32 %8405, %8410
-  %8412 = getelementptr inbounds i8, ptr %8355, i64 3
+  %8412 = getelementptr inbounds nuw i8, ptr %8355, i64 3
   %8413 = load i8, ptr %8412, align 1
   %8414 = and i8 %8413, 63
   %8415 = zext nneg i8 %8414 to i32
   %8416 = or disjoint i32 %8411, %8415
-  %8417 = getelementptr inbounds i8, ptr %8355, i64 4
+  %8417 = getelementptr inbounds nuw i8, ptr %8355, i64 4
   store ptr %8417, ptr %8354, align 8
   br label %8461
 
 8418:                                             ; preds = %8398
   %8419 = and i32 %8368, 4
   %8420 = icmp eq i32 %8419, 0
-  %8421 = getelementptr inbounds i8, ptr %8355, i64 2
+  %8421 = getelementptr inbounds nuw i8, ptr %8355, i64 2
   %8422 = load i8, ptr %8421, align 1
   %8423 = and i8 %8422, 63
   %8424 = zext nneg i8 %8423 to i32
-  %8425 = getelementptr inbounds i8, ptr %8355, i64 3
+  %8425 = getelementptr inbounds nuw i8, ptr %8355, i64 3
   %8426 = load i8, ptr %8425, align 1
   %8427 = and i8 %8426, 63
   %8428 = zext nneg i8 %8427 to i32
-  %8429 = getelementptr inbounds i8, ptr %8355, i64 4
+  %8429 = getelementptr inbounds nuw i8, ptr %8355, i64 4
   %8430 = load i8, ptr %8429, align 1
   %8431 = and i8 %8430, 63
   %8432 = zext nneg i8 %8431 to i32
@@ -15570,7 +15570,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8440 = shl nuw nsw i32 %8428, 6
   %8441 = or disjoint i32 %8439, %8440
   %8442 = or disjoint i32 %8441, %8432
-  %8443 = getelementptr inbounds i8, ptr %8355, i64 5
+  %8443 = getelementptr inbounds nuw i8, ptr %8355, i64 5
   store ptr %8443, ptr %8354, align 8
   br label %8461
 
@@ -15585,12 +15585,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8452 = or disjoint i32 %8450, %8451
   %8453 = shl nuw nsw i32 %8432, 6
   %8454 = or disjoint i32 %8452, %8453
-  %8455 = getelementptr inbounds i8, ptr %8355, i64 5
+  %8455 = getelementptr inbounds nuw i8, ptr %8355, i64 5
   %8456 = load i8, ptr %8455, align 1
   %8457 = and i8 %8456, 63
   %8458 = zext nneg i8 %8457 to i32
   %8459 = or disjoint i32 %8454, %8458
-  %8460 = getelementptr inbounds i8, ptr %8355, i64 6
+  %8460 = getelementptr inbounds nuw i8, ptr %8355, i64 6
   store ptr %8460, ptr %8354, align 8
   br label %8461
 
@@ -15598,17 +15598,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.417729 = phi i32 [ %8380, %8373 ], [ %8396, %8387 ], [ %8416, %8401 ], [ %8442, %8433 ], [ %8459, %8444 ], [ %8368, %8365 ]
   %8462 = lshr i32 %.417729, 7
   %8463 = zext nneg i32 %8462 to i64
-  %8464 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %8463
+  %8464 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %8463
   %8465 = load i16, ptr %8464, align 2
   %8466 = zext i16 %8465 to i32
   %8467 = shl nuw nsw i32 %8466, 7
   %8468 = and i32 %.417729, 127
   %8469 = or disjoint i32 %8467, %8468
   %8470 = zext nneg i32 %8469 to i64
-  %8471 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %8470
+  %8471 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %8470
   %8472 = load i16, ptr %8471, align 2
   %8473 = zext i16 %8472 to i64
-  %8474 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %8473, i32 1
+  %8474 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %8473, i32 1
   %8475 = load i8, ptr %8474, align 1
   switch i8 %8475, label %8476 [
     i8 9, label %8479
@@ -15622,7 +15622,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 8479:                                             ; preds = %8461, %8461, %8476
   %8480 = phi i32 [ 1, %8461 ], [ %8478, %8476 ], [ 1, %8461 ]
-  %8481 = getelementptr inbounds i8, ptr %15814, i64 64
+  %8481 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %8482 = load i32, ptr %8481, align 8
   %8483 = icmp eq i32 %8482, 15
   %8484 = zext i1 %8483 to i32
@@ -15638,17 +15638,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 8487:                                             ; preds = %15889
-  %8488 = getelementptr inbounds i8, ptr %15814, i64 56
+  %8488 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %8489 = load i32, ptr %8488, align 8
   %8490 = add i32 %8489, 1
   store i32 %8490, ptr %8488, align 8
-  %8491 = getelementptr inbounds i8, ptr %15814, i64 60
+  %8491 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %8492 = load i32, ptr %8491, align 4
   %.not9127 = icmp ult i32 %8489, %8492
   br i1 %.not9127, label %8493, label %.backedge.backedge
 
 8493:                                             ; preds = %8487
-  %8494 = getelementptr inbounds i8, ptr %15814, i64 80
+  %8494 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %8495 = load ptr, ptr %8494, align 8
   %8496 = load ptr, ptr %39, align 8
   %.not9128 = icmp ult ptr %8495, %8496
@@ -15675,7 +15675,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9530, label %.backedge.backedge, label %.loopexit
 
 8505:                                             ; preds = %8493
-  %8506 = getelementptr inbounds i8, ptr %8495, i64 1
+  %8506 = getelementptr inbounds nuw i8, ptr %8495, i64 1
   store ptr %8506, ptr %8494, align 8
   %8507 = load i8, ptr %8495, align 1
   %8508 = zext i8 %8507 to i32
@@ -15691,7 +15691,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 8513:                                             ; preds = %8510
   %8514 = shl nuw nsw i32 %8508, 6
   %8515 = and i32 %8514, 1984
-  %8516 = getelementptr inbounds i8, ptr %8495, i64 2
+  %8516 = getelementptr inbounds nuw i8, ptr %8495, i64 2
   store ptr %8516, ptr %8494, align 8
   %8517 = load i8, ptr %8506, align 1
   %8518 = and i8 %8517, 63
@@ -15712,12 +15712,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8529 = and i32 %8528, 61440
   %8530 = shl nuw nsw i32 %8526, 6
   %8531 = or disjoint i32 %8530, %8529
-  %8532 = getelementptr inbounds i8, ptr %8495, i64 2
+  %8532 = getelementptr inbounds nuw i8, ptr %8495, i64 2
   %8533 = load i8, ptr %8532, align 1
   %8534 = and i8 %8533, 63
   %8535 = zext nneg i8 %8534 to i32
   %8536 = or disjoint i32 %8531, %8535
-  %8537 = getelementptr inbounds i8, ptr %8495, i64 3
+  %8537 = getelementptr inbounds nuw i8, ptr %8495, i64 3
   store ptr %8537, ptr %8494, align 8
   br label %8601
 
@@ -15731,33 +15731,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8543 = and i32 %8542, 1835008
   %8544 = shl nuw nsw i32 %8526, 12
   %8545 = or disjoint i32 %8544, %8543
-  %8546 = getelementptr inbounds i8, ptr %8495, i64 2
+  %8546 = getelementptr inbounds nuw i8, ptr %8495, i64 2
   %8547 = load i8, ptr %8546, align 1
   %8548 = and i8 %8547, 63
   %8549 = zext nneg i8 %8548 to i32
   %8550 = shl nuw nsw i32 %8549, 6
   %8551 = or disjoint i32 %8545, %8550
-  %8552 = getelementptr inbounds i8, ptr %8495, i64 3
+  %8552 = getelementptr inbounds nuw i8, ptr %8495, i64 3
   %8553 = load i8, ptr %8552, align 1
   %8554 = and i8 %8553, 63
   %8555 = zext nneg i8 %8554 to i32
   %8556 = or disjoint i32 %8551, %8555
-  %8557 = getelementptr inbounds i8, ptr %8495, i64 4
+  %8557 = getelementptr inbounds nuw i8, ptr %8495, i64 4
   store ptr %8557, ptr %8494, align 8
   br label %8601
 
 8558:                                             ; preds = %8538
   %8559 = and i32 %8508, 4
   %8560 = icmp eq i32 %8559, 0
-  %8561 = getelementptr inbounds i8, ptr %8495, i64 2
+  %8561 = getelementptr inbounds nuw i8, ptr %8495, i64 2
   %8562 = load i8, ptr %8561, align 1
   %8563 = and i8 %8562, 63
   %8564 = zext nneg i8 %8563 to i32
-  %8565 = getelementptr inbounds i8, ptr %8495, i64 3
+  %8565 = getelementptr inbounds nuw i8, ptr %8495, i64 3
   %8566 = load i8, ptr %8565, align 1
   %8567 = and i8 %8566, 63
   %8568 = zext nneg i8 %8567 to i32
-  %8569 = getelementptr inbounds i8, ptr %8495, i64 4
+  %8569 = getelementptr inbounds nuw i8, ptr %8495, i64 4
   %8570 = load i8, ptr %8569, align 1
   %8571 = and i8 %8570, 63
   %8572 = zext nneg i8 %8571 to i32
@@ -15773,7 +15773,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8580 = shl nuw nsw i32 %8568, 6
   %8581 = or disjoint i32 %8579, %8580
   %8582 = or disjoint i32 %8581, %8572
-  %8583 = getelementptr inbounds i8, ptr %8495, i64 5
+  %8583 = getelementptr inbounds nuw i8, ptr %8495, i64 5
   store ptr %8583, ptr %8494, align 8
   br label %8601
 
@@ -15788,12 +15788,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8592 = or disjoint i32 %8590, %8591
   %8593 = shl nuw nsw i32 %8572, 6
   %8594 = or disjoint i32 %8592, %8593
-  %8595 = getelementptr inbounds i8, ptr %8495, i64 5
+  %8595 = getelementptr inbounds nuw i8, ptr %8495, i64 5
   %8596 = load i8, ptr %8595, align 1
   %8597 = and i8 %8596, 63
   %8598 = zext nneg i8 %8597 to i32
   %8599 = or disjoint i32 %8594, %8598
-  %8600 = getelementptr inbounds i8, ptr %8495, i64 6
+  %8600 = getelementptr inbounds nuw i8, ptr %8495, i64 6
   store ptr %8600, ptr %8494, align 8
   br label %8601
 
@@ -15801,25 +15801,25 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.427730 = phi i32 [ %8520, %8513 ], [ %8536, %8527 ], [ %8556, %8541 ], [ %8582, %8573 ], [ %8599, %8584 ], [ %8508, %8505 ]
   %8602 = lshr i32 %.427730, 7
   %8603 = zext nneg i32 %8602 to i64
-  %8604 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %8603
+  %8604 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %8603
   %8605 = load i16, ptr %8604, align 2
   %8606 = zext i16 %8605 to i32
   %8607 = shl nuw nsw i32 %8606, 7
   %8608 = and i32 %.427730, 127
   %8609 = or disjoint i32 %8607, %8608
   %8610 = zext nneg i32 %8609 to i64
-  %8611 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %8610
+  %8611 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %8610
   %8612 = load i16, ptr %8611, align 2
   %8613 = zext i16 %8612 to i64
-  %8614 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %8613, i32 1
+  %8614 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %8613, i32 1
   %8615 = load i8, ptr %8614, align 1
   %8616 = zext i8 %8615 to i64
-  %8617 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %8616
+  %8617 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %8616
   %8618 = load i32, ptr %8617, align 4
-  %8619 = getelementptr inbounds i8, ptr %15814, i64 68
+  %8619 = getelementptr inbounds nuw i8, ptr %15814, i64 68
   %8620 = load i32, ptr %8619, align 4
   %8621 = icmp eq i32 %8618, %8620
-  %8622 = getelementptr inbounds i8, ptr %15814, i64 64
+  %8622 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %8623 = load i32, ptr %8622, align 8
   %8624 = icmp ne i32 %8623, 15
   %8625 = xor i1 %8621, %8624
@@ -15834,17 +15834,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 8627:                                             ; preds = %15890
-  %8628 = getelementptr inbounds i8, ptr %15814, i64 56
+  %8628 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %8629 = load i32, ptr %8628, align 8
   %8630 = add i32 %8629, 1
   store i32 %8630, ptr %8628, align 8
-  %8631 = getelementptr inbounds i8, ptr %15814, i64 60
+  %8631 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %8632 = load i32, ptr %8631, align 4
   %.not9122 = icmp ult i32 %8629, %8632
   br i1 %.not9122, label %8633, label %.backedge.backedge
 
 8633:                                             ; preds = %8627
-  %8634 = getelementptr inbounds i8, ptr %15814, i64 80
+  %8634 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %8635 = load ptr, ptr %8634, align 8
   %8636 = load ptr, ptr %39, align 8
   %.not9123 = icmp ult ptr %8635, %8636
@@ -15871,7 +15871,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9529, label %.backedge.backedge, label %.loopexit
 
 8645:                                             ; preds = %8633
-  %8646 = getelementptr inbounds i8, ptr %8635, i64 1
+  %8646 = getelementptr inbounds nuw i8, ptr %8635, i64 1
   store ptr %8646, ptr %8634, align 8
   %8647 = load i8, ptr %8635, align 1
   %8648 = zext i8 %8647 to i32
@@ -15887,7 +15887,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 8653:                                             ; preds = %8650
   %8654 = shl nuw nsw i32 %8648, 6
   %8655 = and i32 %8654, 1984
-  %8656 = getelementptr inbounds i8, ptr %8635, i64 2
+  %8656 = getelementptr inbounds nuw i8, ptr %8635, i64 2
   store ptr %8656, ptr %8634, align 8
   %8657 = load i8, ptr %8646, align 1
   %8658 = and i8 %8657, 63
@@ -15908,12 +15908,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8669 = and i32 %8668, 61440
   %8670 = shl nuw nsw i32 %8666, 6
   %8671 = or disjoint i32 %8670, %8669
-  %8672 = getelementptr inbounds i8, ptr %8635, i64 2
+  %8672 = getelementptr inbounds nuw i8, ptr %8635, i64 2
   %8673 = load i8, ptr %8672, align 1
   %8674 = and i8 %8673, 63
   %8675 = zext nneg i8 %8674 to i32
   %8676 = or disjoint i32 %8671, %8675
-  %8677 = getelementptr inbounds i8, ptr %8635, i64 3
+  %8677 = getelementptr inbounds nuw i8, ptr %8635, i64 3
   store ptr %8677, ptr %8634, align 8
   br label %8741
 
@@ -15927,33 +15927,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8683 = and i32 %8682, 1835008
   %8684 = shl nuw nsw i32 %8666, 12
   %8685 = or disjoint i32 %8684, %8683
-  %8686 = getelementptr inbounds i8, ptr %8635, i64 2
+  %8686 = getelementptr inbounds nuw i8, ptr %8635, i64 2
   %8687 = load i8, ptr %8686, align 1
   %8688 = and i8 %8687, 63
   %8689 = zext nneg i8 %8688 to i32
   %8690 = shl nuw nsw i32 %8689, 6
   %8691 = or disjoint i32 %8685, %8690
-  %8692 = getelementptr inbounds i8, ptr %8635, i64 3
+  %8692 = getelementptr inbounds nuw i8, ptr %8635, i64 3
   %8693 = load i8, ptr %8692, align 1
   %8694 = and i8 %8693, 63
   %8695 = zext nneg i8 %8694 to i32
   %8696 = or disjoint i32 %8691, %8695
-  %8697 = getelementptr inbounds i8, ptr %8635, i64 4
+  %8697 = getelementptr inbounds nuw i8, ptr %8635, i64 4
   store ptr %8697, ptr %8634, align 8
   br label %8741
 
 8698:                                             ; preds = %8678
   %8699 = and i32 %8648, 4
   %8700 = icmp eq i32 %8699, 0
-  %8701 = getelementptr inbounds i8, ptr %8635, i64 2
+  %8701 = getelementptr inbounds nuw i8, ptr %8635, i64 2
   %8702 = load i8, ptr %8701, align 1
   %8703 = and i8 %8702, 63
   %8704 = zext nneg i8 %8703 to i32
-  %8705 = getelementptr inbounds i8, ptr %8635, i64 3
+  %8705 = getelementptr inbounds nuw i8, ptr %8635, i64 3
   %8706 = load i8, ptr %8705, align 1
   %8707 = and i8 %8706, 63
   %8708 = zext nneg i8 %8707 to i32
-  %8709 = getelementptr inbounds i8, ptr %8635, i64 4
+  %8709 = getelementptr inbounds nuw i8, ptr %8635, i64 4
   %8710 = load i8, ptr %8709, align 1
   %8711 = and i8 %8710, 63
   %8712 = zext nneg i8 %8711 to i32
@@ -15969,7 +15969,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8720 = shl nuw nsw i32 %8708, 6
   %8721 = or disjoint i32 %8719, %8720
   %8722 = or disjoint i32 %8721, %8712
-  %8723 = getelementptr inbounds i8, ptr %8635, i64 5
+  %8723 = getelementptr inbounds nuw i8, ptr %8635, i64 5
   store ptr %8723, ptr %8634, align 8
   br label %8741
 
@@ -15984,12 +15984,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8732 = or disjoint i32 %8730, %8731
   %8733 = shl nuw nsw i32 %8712, 6
   %8734 = or disjoint i32 %8732, %8733
-  %8735 = getelementptr inbounds i8, ptr %8635, i64 5
+  %8735 = getelementptr inbounds nuw i8, ptr %8635, i64 5
   %8736 = load i8, ptr %8735, align 1
   %8737 = and i8 %8736, 63
   %8738 = zext nneg i8 %8737 to i32
   %8739 = or disjoint i32 %8734, %8738
-  %8740 = getelementptr inbounds i8, ptr %8635, i64 6
+  %8740 = getelementptr inbounds nuw i8, ptr %8635, i64 6
   store ptr %8740, ptr %8634, align 8
   br label %8741
 
@@ -15997,23 +15997,23 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.437731 = phi i32 [ %8660, %8653 ], [ %8676, %8667 ], [ %8696, %8681 ], [ %8722, %8713 ], [ %8739, %8724 ], [ %8648, %8645 ]
   %8742 = lshr i32 %.437731, 7
   %8743 = zext nneg i32 %8742 to i64
-  %8744 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %8743
+  %8744 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %8743
   %8745 = load i16, ptr %8744, align 2
   %8746 = zext i16 %8745 to i32
   %8747 = shl nuw nsw i32 %8746, 7
   %8748 = and i32 %.437731, 127
   %8749 = or disjoint i32 %8747, %8748
   %8750 = zext nneg i32 %8749 to i64
-  %8751 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %8750
+  %8751 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %8750
   %8752 = load i16, ptr %8751, align 2
   %8753 = zext i16 %8752 to i64
-  %8754 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %8753, i32 1
+  %8754 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %8753, i32 1
   %8755 = load i8, ptr %8754, align 1
   %8756 = zext i8 %8755 to i32
-  %8757 = getelementptr inbounds i8, ptr %15814, i64 68
+  %8757 = getelementptr inbounds nuw i8, ptr %15814, i64 68
   %8758 = load i32, ptr %8757, align 4
   %8759 = icmp eq i32 %8758, %8756
-  %8760 = getelementptr inbounds i8, ptr %15814, i64 64
+  %8760 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %8761 = load i32, ptr %8760, align 8
   %8762 = icmp ne i32 %8761, 15
   %8763 = xor i1 %8759, %8762
@@ -16028,17 +16028,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 8765:                                             ; preds = %15891
-  %8766 = getelementptr inbounds i8, ptr %15814, i64 56
+  %8766 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %8767 = load i32, ptr %8766, align 8
   %8768 = add i32 %8767, 1
   store i32 %8768, ptr %8766, align 8
-  %8769 = getelementptr inbounds i8, ptr %15814, i64 60
+  %8769 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %8770 = load i32, ptr %8769, align 4
   %.not9117 = icmp ult i32 %8767, %8770
   br i1 %.not9117, label %8771, label %.backedge.backedge
 
 8771:                                             ; preds = %8765
-  %8772 = getelementptr inbounds i8, ptr %15814, i64 80
+  %8772 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %8773 = load ptr, ptr %8772, align 8
   %8774 = load ptr, ptr %39, align 8
   %.not9118 = icmp ult ptr %8773, %8774
@@ -16065,7 +16065,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9528, label %.backedge.backedge, label %.loopexit
 
 8783:                                             ; preds = %8771
-  %8784 = getelementptr inbounds i8, ptr %8773, i64 1
+  %8784 = getelementptr inbounds nuw i8, ptr %8773, i64 1
   store ptr %8784, ptr %8772, align 8
   %8785 = load i8, ptr %8773, align 1
   %8786 = zext i8 %8785 to i32
@@ -16081,7 +16081,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 8791:                                             ; preds = %8788
   %8792 = shl nuw nsw i32 %8786, 6
   %8793 = and i32 %8792, 1984
-  %8794 = getelementptr inbounds i8, ptr %8773, i64 2
+  %8794 = getelementptr inbounds nuw i8, ptr %8773, i64 2
   store ptr %8794, ptr %8772, align 8
   %8795 = load i8, ptr %8784, align 1
   %8796 = and i8 %8795, 63
@@ -16102,12 +16102,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8807 = and i32 %8806, 61440
   %8808 = shl nuw nsw i32 %8804, 6
   %8809 = or disjoint i32 %8808, %8807
-  %8810 = getelementptr inbounds i8, ptr %8773, i64 2
+  %8810 = getelementptr inbounds nuw i8, ptr %8773, i64 2
   %8811 = load i8, ptr %8810, align 1
   %8812 = and i8 %8811, 63
   %8813 = zext nneg i8 %8812 to i32
   %8814 = or disjoint i32 %8809, %8813
-  %8815 = getelementptr inbounds i8, ptr %8773, i64 3
+  %8815 = getelementptr inbounds nuw i8, ptr %8773, i64 3
   store ptr %8815, ptr %8772, align 8
   br label %8879
 
@@ -16121,33 +16121,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8821 = and i32 %8820, 1835008
   %8822 = shl nuw nsw i32 %8804, 12
   %8823 = or disjoint i32 %8822, %8821
-  %8824 = getelementptr inbounds i8, ptr %8773, i64 2
+  %8824 = getelementptr inbounds nuw i8, ptr %8773, i64 2
   %8825 = load i8, ptr %8824, align 1
   %8826 = and i8 %8825, 63
   %8827 = zext nneg i8 %8826 to i32
   %8828 = shl nuw nsw i32 %8827, 6
   %8829 = or disjoint i32 %8823, %8828
-  %8830 = getelementptr inbounds i8, ptr %8773, i64 3
+  %8830 = getelementptr inbounds nuw i8, ptr %8773, i64 3
   %8831 = load i8, ptr %8830, align 1
   %8832 = and i8 %8831, 63
   %8833 = zext nneg i8 %8832 to i32
   %8834 = or disjoint i32 %8829, %8833
-  %8835 = getelementptr inbounds i8, ptr %8773, i64 4
+  %8835 = getelementptr inbounds nuw i8, ptr %8773, i64 4
   store ptr %8835, ptr %8772, align 8
   br label %8879
 
 8836:                                             ; preds = %8816
   %8837 = and i32 %8786, 4
   %8838 = icmp eq i32 %8837, 0
-  %8839 = getelementptr inbounds i8, ptr %8773, i64 2
+  %8839 = getelementptr inbounds nuw i8, ptr %8773, i64 2
   %8840 = load i8, ptr %8839, align 1
   %8841 = and i8 %8840, 63
   %8842 = zext nneg i8 %8841 to i32
-  %8843 = getelementptr inbounds i8, ptr %8773, i64 3
+  %8843 = getelementptr inbounds nuw i8, ptr %8773, i64 3
   %8844 = load i8, ptr %8843, align 1
   %8845 = and i8 %8844, 63
   %8846 = zext nneg i8 %8845 to i32
-  %8847 = getelementptr inbounds i8, ptr %8773, i64 4
+  %8847 = getelementptr inbounds nuw i8, ptr %8773, i64 4
   %8848 = load i8, ptr %8847, align 1
   %8849 = and i8 %8848, 63
   %8850 = zext nneg i8 %8849 to i32
@@ -16163,7 +16163,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8858 = shl nuw nsw i32 %8846, 6
   %8859 = or disjoint i32 %8857, %8858
   %8860 = or disjoint i32 %8859, %8850
-  %8861 = getelementptr inbounds i8, ptr %8773, i64 5
+  %8861 = getelementptr inbounds nuw i8, ptr %8773, i64 5
   store ptr %8861, ptr %8772, align 8
   br label %8879
 
@@ -16178,12 +16178,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8870 = or disjoint i32 %8868, %8869
   %8871 = shl nuw nsw i32 %8850, 6
   %8872 = or disjoint i32 %8870, %8871
-  %8873 = getelementptr inbounds i8, ptr %8773, i64 5
+  %8873 = getelementptr inbounds nuw i8, ptr %8773, i64 5
   %8874 = load i8, ptr %8873, align 1
   %8875 = and i8 %8874, 63
   %8876 = zext nneg i8 %8875 to i32
   %8877 = or disjoint i32 %8872, %8876
-  %8878 = getelementptr inbounds i8, ptr %8773, i64 6
+  %8878 = getelementptr inbounds nuw i8, ptr %8773, i64 6
   store ptr %8878, ptr %8772, align 8
   br label %8879
 
@@ -16191,23 +16191,23 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.447732 = phi i32 [ %8798, %8791 ], [ %8814, %8805 ], [ %8834, %8819 ], [ %8860, %8851 ], [ %8877, %8862 ], [ %8786, %8783 ]
   %8880 = lshr i32 %.447732, 7
   %8881 = zext nneg i32 %8880 to i64
-  %8882 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %8881
+  %8882 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %8881
   %8883 = load i16, ptr %8882, align 2
   %8884 = zext i16 %8883 to i32
   %8885 = shl nuw nsw i32 %8884, 7
   %8886 = and i32 %.447732, 127
   %8887 = or disjoint i32 %8885, %8886
   %8888 = zext nneg i32 %8887 to i64
-  %8889 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %8888
+  %8889 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %8888
   %8890 = load i16, ptr %8889, align 2
   %8891 = zext i16 %8890 to i64
-  %8892 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %8891
+  %8892 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %8891
   %8893 = load i8, ptr %8892, align 4
   %8894 = zext i8 %8893 to i32
-  %8895 = getelementptr inbounds i8, ptr %15814, i64 68
+  %8895 = getelementptr inbounds nuw i8, ptr %15814, i64 68
   %8896 = load i32, ptr %8895, align 4
   %8897 = icmp eq i32 %8896, %8894
-  %8898 = getelementptr inbounds i8, ptr %15814, i64 64
+  %8898 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %8899 = load i32, ptr %8898, align 8
   %8900 = icmp ne i32 %8899, 15
   %8901 = xor i1 %8897, %8900
@@ -16222,17 +16222,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 8903:                                             ; preds = %15904
-  %8904 = getelementptr inbounds i8, ptr %15814, i64 56
+  %8904 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %8905 = load i32, ptr %8904, align 8
   %8906 = add i32 %8905, 1
   store i32 %8906, ptr %8904, align 8
-  %8907 = getelementptr inbounds i8, ptr %15814, i64 60
+  %8907 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %8908 = load i32, ptr %8907, align 4
   %.not9047 = icmp ult i32 %8905, %8908
   br i1 %.not9047, label %8909, label %.backedge.backedge
 
 8909:                                             ; preds = %8903
-  %8910 = getelementptr inbounds i8, ptr %15814, i64 80
+  %8910 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %8911 = load ptr, ptr %8910, align 8
   %8912 = load ptr, ptr %39, align 8
   %.not9048 = icmp ult ptr %8911, %8912
@@ -16259,7 +16259,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9515, label %.backedge.backedge, label %.loopexit
 
 8921:                                             ; preds = %8909
-  %8922 = getelementptr inbounds i8, ptr %8911, i64 1
+  %8922 = getelementptr inbounds nuw i8, ptr %8911, i64 1
   store ptr %8922, ptr %8910, align 8
   %8923 = load i8, ptr %8911, align 1
   %8924 = zext i8 %8923 to i32
@@ -16275,7 +16275,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 8929:                                             ; preds = %8926
   %8930 = shl nuw nsw i32 %8924, 6
   %8931 = and i32 %8930, 1984
-  %8932 = getelementptr inbounds i8, ptr %8911, i64 2
+  %8932 = getelementptr inbounds nuw i8, ptr %8911, i64 2
   store ptr %8932, ptr %8910, align 8
   %8933 = load i8, ptr %8922, align 1
   %8934 = and i8 %8933, 63
@@ -16296,12 +16296,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8945 = and i32 %8944, 61440
   %8946 = shl nuw nsw i32 %8942, 6
   %8947 = or disjoint i32 %8946, %8945
-  %8948 = getelementptr inbounds i8, ptr %8911, i64 2
+  %8948 = getelementptr inbounds nuw i8, ptr %8911, i64 2
   %8949 = load i8, ptr %8948, align 1
   %8950 = and i8 %8949, 63
   %8951 = zext nneg i8 %8950 to i32
   %8952 = or disjoint i32 %8947, %8951
-  %8953 = getelementptr inbounds i8, ptr %8911, i64 3
+  %8953 = getelementptr inbounds nuw i8, ptr %8911, i64 3
   store ptr %8953, ptr %8910, align 8
   br label %9017
 
@@ -16315,33 +16315,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8959 = and i32 %8958, 1835008
   %8960 = shl nuw nsw i32 %8942, 12
   %8961 = or disjoint i32 %8960, %8959
-  %8962 = getelementptr inbounds i8, ptr %8911, i64 2
+  %8962 = getelementptr inbounds nuw i8, ptr %8911, i64 2
   %8963 = load i8, ptr %8962, align 1
   %8964 = and i8 %8963, 63
   %8965 = zext nneg i8 %8964 to i32
   %8966 = shl nuw nsw i32 %8965, 6
   %8967 = or disjoint i32 %8961, %8966
-  %8968 = getelementptr inbounds i8, ptr %8911, i64 3
+  %8968 = getelementptr inbounds nuw i8, ptr %8911, i64 3
   %8969 = load i8, ptr %8968, align 1
   %8970 = and i8 %8969, 63
   %8971 = zext nneg i8 %8970 to i32
   %8972 = or disjoint i32 %8967, %8971
-  %8973 = getelementptr inbounds i8, ptr %8911, i64 4
+  %8973 = getelementptr inbounds nuw i8, ptr %8911, i64 4
   store ptr %8973, ptr %8910, align 8
   br label %9017
 
 8974:                                             ; preds = %8954
   %8975 = and i32 %8924, 4
   %8976 = icmp eq i32 %8975, 0
-  %8977 = getelementptr inbounds i8, ptr %8911, i64 2
+  %8977 = getelementptr inbounds nuw i8, ptr %8911, i64 2
   %8978 = load i8, ptr %8977, align 1
   %8979 = and i8 %8978, 63
   %8980 = zext nneg i8 %8979 to i32
-  %8981 = getelementptr inbounds i8, ptr %8911, i64 3
+  %8981 = getelementptr inbounds nuw i8, ptr %8911, i64 3
   %8982 = load i8, ptr %8981, align 1
   %8983 = and i8 %8982, 63
   %8984 = zext nneg i8 %8983 to i32
-  %8985 = getelementptr inbounds i8, ptr %8911, i64 4
+  %8985 = getelementptr inbounds nuw i8, ptr %8911, i64 4
   %8986 = load i8, ptr %8985, align 1
   %8987 = and i8 %8986, 63
   %8988 = zext nneg i8 %8987 to i32
@@ -16357,7 +16357,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %8996 = shl nuw nsw i32 %8984, 6
   %8997 = or disjoint i32 %8995, %8996
   %8998 = or disjoint i32 %8997, %8988
-  %8999 = getelementptr inbounds i8, ptr %8911, i64 5
+  %8999 = getelementptr inbounds nuw i8, ptr %8911, i64 5
   store ptr %8999, ptr %8910, align 8
   br label %9017
 
@@ -16372,12 +16372,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9008 = or disjoint i32 %9006, %9007
   %9009 = shl nuw nsw i32 %8988, 6
   %9010 = or disjoint i32 %9008, %9009
-  %9011 = getelementptr inbounds i8, ptr %8911, i64 5
+  %9011 = getelementptr inbounds nuw i8, ptr %8911, i64 5
   %9012 = load i8, ptr %9011, align 1
   %9013 = and i8 %9012, 63
   %9014 = zext nneg i8 %9013 to i32
   %9015 = or disjoint i32 %9010, %9014
-  %9016 = getelementptr inbounds i8, ptr %8911, i64 6
+  %9016 = getelementptr inbounds nuw i8, ptr %8911, i64 6
   store ptr %9016, ptr %8910, align 8
   br label %9017
 
@@ -16385,33 +16385,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.457733 = phi i32 [ %8936, %8929 ], [ %8952, %8943 ], [ %8972, %8957 ], [ %8998, %8989 ], [ %9015, %9000 ], [ %8924, %8921 ]
   %9018 = lshr i32 %.457733, 7
   %9019 = zext nneg i32 %9018 to i64
-  %9020 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9019
+  %9020 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9019
   %9021 = load i16, ptr %9020, align 2
   %9022 = zext i16 %9021 to i32
   %9023 = shl nuw nsw i32 %9022, 7
   %9024 = and i32 %.457733, 127
   %9025 = or disjoint i32 %9023, %9024
   %9026 = zext nneg i32 %9025 to i64
-  %9027 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %9026
+  %9027 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %9026
   %9028 = load i16, ptr %9027, align 2
   %9029 = zext i16 %9028 to i64
-  %9030 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %9029
+  %9030 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %9029
   %9031 = load i8, ptr %9030, align 4
   %9032 = zext i8 %9031 to i32
-  %9033 = getelementptr inbounds i8, ptr %15814, i64 68
+  %9033 = getelementptr inbounds nuw i8, ptr %15814, i64 68
   %9034 = load i32, ptr %9033, align 4
   %9035 = icmp eq i32 %9034, %9032
   br i1 %9035, label %9049, label %9036
 
 9036:                                             ; preds = %9017
-  %9037 = getelementptr inbounds i8, ptr %9030, i64 8
+  %9037 = getelementptr inbounds nuw i8, ptr %9030, i64 8
   %9038 = load i16, ptr %9037, align 4
   %9039 = and i16 %9038, 1023
   %9040 = zext nneg i16 %9039 to i64
-  %9041 = getelementptr inbounds i32, ptr @_pcre2_ucd_script_sets_8, i64 %9040
+  %9041 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_script_sets_8, i64 %9040
   %9042 = lshr i32 %9034, 5
   %9043 = zext nneg i32 %9042 to i64
-  %9044 = getelementptr inbounds i32, ptr %9041, i64 %9043
+  %9044 = getelementptr inbounds nuw i32, ptr %9041, i64 %9043
   %9045 = load i32, ptr %9044, align 4
   %9046 = and i32 %9034, 31
   %9047 = lshr i32 %9045, %9046
@@ -16420,7 +16420,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 9049:                                             ; preds = %9036, %9017
   %9050 = phi i32 [ 1, %9017 ], [ %9048, %9036 ]
-  %9051 = getelementptr inbounds i8, ptr %15814, i64 64
+  %9051 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %9052 = load i32, ptr %9051, align 8
   %9053 = icmp eq i32 %9052, 15
   %9054 = zext i1 %9053 to i32
@@ -16436,17 +16436,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 9057:                                             ; preds = %15892
-  %9058 = getelementptr inbounds i8, ptr %15814, i64 56
+  %9058 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %9059 = load i32, ptr %9058, align 8
   %9060 = add i32 %9059, 1
   store i32 %9060, ptr %9058, align 8
-  %9061 = getelementptr inbounds i8, ptr %15814, i64 60
+  %9061 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %9062 = load i32, ptr %9061, align 4
   %.not9112 = icmp ult i32 %9059, %9062
   br i1 %.not9112, label %9063, label %.backedge.backedge
 
 9063:                                             ; preds = %9057
-  %9064 = getelementptr inbounds i8, ptr %15814, i64 80
+  %9064 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %9065 = load ptr, ptr %9064, align 8
   %9066 = load ptr, ptr %39, align 8
   %.not9113 = icmp ult ptr %9065, %9066
@@ -16473,7 +16473,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9527, label %.backedge.backedge, label %.loopexit
 
 9075:                                             ; preds = %9063
-  %9076 = getelementptr inbounds i8, ptr %9065, i64 1
+  %9076 = getelementptr inbounds nuw i8, ptr %9065, i64 1
   store ptr %9076, ptr %9064, align 8
   %9077 = load i8, ptr %9065, align 1
   %9078 = zext i8 %9077 to i32
@@ -16489,7 +16489,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 9083:                                             ; preds = %9080
   %9084 = shl nuw nsw i32 %9078, 6
   %9085 = and i32 %9084, 1984
-  %9086 = getelementptr inbounds i8, ptr %9065, i64 2
+  %9086 = getelementptr inbounds nuw i8, ptr %9065, i64 2
   store ptr %9086, ptr %9064, align 8
   %9087 = load i8, ptr %9076, align 1
   %9088 = and i8 %9087, 63
@@ -16510,12 +16510,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9099 = and i32 %9098, 61440
   %9100 = shl nuw nsw i32 %9096, 6
   %9101 = or disjoint i32 %9100, %9099
-  %9102 = getelementptr inbounds i8, ptr %9065, i64 2
+  %9102 = getelementptr inbounds nuw i8, ptr %9065, i64 2
   %9103 = load i8, ptr %9102, align 1
   %9104 = and i8 %9103, 63
   %9105 = zext nneg i8 %9104 to i32
   %9106 = or disjoint i32 %9101, %9105
-  %9107 = getelementptr inbounds i8, ptr %9065, i64 3
+  %9107 = getelementptr inbounds nuw i8, ptr %9065, i64 3
   store ptr %9107, ptr %9064, align 8
   br label %9171
 
@@ -16529,33 +16529,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9113 = and i32 %9112, 1835008
   %9114 = shl nuw nsw i32 %9096, 12
   %9115 = or disjoint i32 %9114, %9113
-  %9116 = getelementptr inbounds i8, ptr %9065, i64 2
+  %9116 = getelementptr inbounds nuw i8, ptr %9065, i64 2
   %9117 = load i8, ptr %9116, align 1
   %9118 = and i8 %9117, 63
   %9119 = zext nneg i8 %9118 to i32
   %9120 = shl nuw nsw i32 %9119, 6
   %9121 = or disjoint i32 %9115, %9120
-  %9122 = getelementptr inbounds i8, ptr %9065, i64 3
+  %9122 = getelementptr inbounds nuw i8, ptr %9065, i64 3
   %9123 = load i8, ptr %9122, align 1
   %9124 = and i8 %9123, 63
   %9125 = zext nneg i8 %9124 to i32
   %9126 = or disjoint i32 %9121, %9125
-  %9127 = getelementptr inbounds i8, ptr %9065, i64 4
+  %9127 = getelementptr inbounds nuw i8, ptr %9065, i64 4
   store ptr %9127, ptr %9064, align 8
   br label %9171
 
 9128:                                             ; preds = %9108
   %9129 = and i32 %9078, 4
   %9130 = icmp eq i32 %9129, 0
-  %9131 = getelementptr inbounds i8, ptr %9065, i64 2
+  %9131 = getelementptr inbounds nuw i8, ptr %9065, i64 2
   %9132 = load i8, ptr %9131, align 1
   %9133 = and i8 %9132, 63
   %9134 = zext nneg i8 %9133 to i32
-  %9135 = getelementptr inbounds i8, ptr %9065, i64 3
+  %9135 = getelementptr inbounds nuw i8, ptr %9065, i64 3
   %9136 = load i8, ptr %9135, align 1
   %9137 = and i8 %9136, 63
   %9138 = zext nneg i8 %9137 to i32
-  %9139 = getelementptr inbounds i8, ptr %9065, i64 4
+  %9139 = getelementptr inbounds nuw i8, ptr %9065, i64 4
   %9140 = load i8, ptr %9139, align 1
   %9141 = and i8 %9140, 63
   %9142 = zext nneg i8 %9141 to i32
@@ -16571,7 +16571,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9150 = shl nuw nsw i32 %9138, 6
   %9151 = or disjoint i32 %9149, %9150
   %9152 = or disjoint i32 %9151, %9142
-  %9153 = getelementptr inbounds i8, ptr %9065, i64 5
+  %9153 = getelementptr inbounds nuw i8, ptr %9065, i64 5
   store ptr %9153, ptr %9064, align 8
   br label %9171
 
@@ -16586,12 +16586,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9162 = or disjoint i32 %9160, %9161
   %9163 = shl nuw nsw i32 %9142, 6
   %9164 = or disjoint i32 %9162, %9163
-  %9165 = getelementptr inbounds i8, ptr %9065, i64 5
+  %9165 = getelementptr inbounds nuw i8, ptr %9065, i64 5
   %9166 = load i8, ptr %9165, align 1
   %9167 = and i8 %9166, 63
   %9168 = zext nneg i8 %9167 to i32
   %9169 = or disjoint i32 %9164, %9168
-  %9170 = getelementptr inbounds i8, ptr %9065, i64 6
+  %9170 = getelementptr inbounds nuw i8, ptr %9065, i64 6
   store ptr %9170, ptr %9064, align 8
   br label %9171
 
@@ -16599,24 +16599,24 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.467734 = phi i32 [ %9090, %9083 ], [ %9106, %9097 ], [ %9126, %9111 ], [ %9152, %9143 ], [ %9169, %9154 ], [ %9078, %9075 ]
   %9172 = lshr i32 %.467734, 7
   %9173 = zext nneg i32 %9172 to i64
-  %9174 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9173
+  %9174 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9173
   %9175 = load i16, ptr %9174, align 2
   %9176 = zext i16 %9175 to i32
   %9177 = shl nuw nsw i32 %9176, 7
   %9178 = and i32 %.467734, 127
   %9179 = or disjoint i32 %9177, %9178
   %9180 = zext nneg i32 %9179 to i64
-  %9181 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %9180
+  %9181 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %9180
   %9182 = load i16, ptr %9181, align 2
   %9183 = zext i16 %9182 to i64
-  %9184 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %9183, i32 1
+  %9184 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %9183, i32 1
   %9185 = load i8, ptr %9184, align 1
   %9186 = zext i8 %9185 to i64
-  %9187 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %9186
+  %9187 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %9186
   %9188 = load i32, ptr %9187, align 4
   %9189 = and i32 %9188, -3
   %9190 = icmp eq i32 %9189, 1
-  %9191 = getelementptr inbounds i8, ptr %15814, i64 64
+  %9191 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %9192 = load i32, ptr %9191, align 8
   %9193 = icmp ne i32 %9192, 15
   %9194 = xor i1 %9190, %9193
@@ -16631,17 +16631,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 9196:                                             ; preds = %15893
-  %9197 = getelementptr inbounds i8, ptr %15814, i64 56
+  %9197 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %9198 = load i32, ptr %9197, align 8
   %9199 = add i32 %9198, 1
   store i32 %9199, ptr %9197, align 8
-  %9200 = getelementptr inbounds i8, ptr %15814, i64 60
+  %9200 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %9201 = load i32, ptr %9200, align 4
   %.not9107 = icmp ult i32 %9198, %9201
   br i1 %.not9107, label %9202, label %.backedge.backedge
 
 9202:                                             ; preds = %9196
-  %9203 = getelementptr inbounds i8, ptr %15814, i64 80
+  %9203 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %9204 = load ptr, ptr %9203, align 8
   %9205 = load ptr, ptr %39, align 8
   %.not9108 = icmp ult ptr %9204, %9205
@@ -16668,7 +16668,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9526, label %.backedge.backedge, label %.loopexit
 
 9214:                                             ; preds = %9202
-  %9215 = getelementptr inbounds i8, ptr %9204, i64 1
+  %9215 = getelementptr inbounds nuw i8, ptr %9204, i64 1
   store ptr %9215, ptr %9203, align 8
   %9216 = load i8, ptr %9204, align 1
   %9217 = zext i8 %9216 to i32
@@ -16684,7 +16684,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 9222:                                             ; preds = %9219
   %9223 = shl nuw nsw i32 %9217, 6
   %9224 = and i32 %9223, 1984
-  %9225 = getelementptr inbounds i8, ptr %9204, i64 2
+  %9225 = getelementptr inbounds nuw i8, ptr %9204, i64 2
   store ptr %9225, ptr %9203, align 8
   %9226 = load i8, ptr %9215, align 1
   %9227 = and i8 %9226, 63
@@ -16705,12 +16705,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9238 = and i32 %9237, 61440
   %9239 = shl nuw nsw i32 %9235, 6
   %9240 = or disjoint i32 %9239, %9238
-  %9241 = getelementptr inbounds i8, ptr %9204, i64 2
+  %9241 = getelementptr inbounds nuw i8, ptr %9204, i64 2
   %9242 = load i8, ptr %9241, align 1
   %9243 = and i8 %9242, 63
   %9244 = zext nneg i8 %9243 to i32
   %9245 = or disjoint i32 %9240, %9244
-  %9246 = getelementptr inbounds i8, ptr %9204, i64 3
+  %9246 = getelementptr inbounds nuw i8, ptr %9204, i64 3
   store ptr %9246, ptr %9203, align 8
   br label %9310
 
@@ -16724,33 +16724,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9252 = and i32 %9251, 1835008
   %9253 = shl nuw nsw i32 %9235, 12
   %9254 = or disjoint i32 %9253, %9252
-  %9255 = getelementptr inbounds i8, ptr %9204, i64 2
+  %9255 = getelementptr inbounds nuw i8, ptr %9204, i64 2
   %9256 = load i8, ptr %9255, align 1
   %9257 = and i8 %9256, 63
   %9258 = zext nneg i8 %9257 to i32
   %9259 = shl nuw nsw i32 %9258, 6
   %9260 = or disjoint i32 %9254, %9259
-  %9261 = getelementptr inbounds i8, ptr %9204, i64 3
+  %9261 = getelementptr inbounds nuw i8, ptr %9204, i64 3
   %9262 = load i8, ptr %9261, align 1
   %9263 = and i8 %9262, 63
   %9264 = zext nneg i8 %9263 to i32
   %9265 = or disjoint i32 %9260, %9264
-  %9266 = getelementptr inbounds i8, ptr %9204, i64 4
+  %9266 = getelementptr inbounds nuw i8, ptr %9204, i64 4
   store ptr %9266, ptr %9203, align 8
   br label %9310
 
 9267:                                             ; preds = %9247
   %9268 = and i32 %9217, 4
   %9269 = icmp eq i32 %9268, 0
-  %9270 = getelementptr inbounds i8, ptr %9204, i64 2
+  %9270 = getelementptr inbounds nuw i8, ptr %9204, i64 2
   %9271 = load i8, ptr %9270, align 1
   %9272 = and i8 %9271, 63
   %9273 = zext nneg i8 %9272 to i32
-  %9274 = getelementptr inbounds i8, ptr %9204, i64 3
+  %9274 = getelementptr inbounds nuw i8, ptr %9204, i64 3
   %9275 = load i8, ptr %9274, align 1
   %9276 = and i8 %9275, 63
   %9277 = zext nneg i8 %9276 to i32
-  %9278 = getelementptr inbounds i8, ptr %9204, i64 4
+  %9278 = getelementptr inbounds nuw i8, ptr %9204, i64 4
   %9279 = load i8, ptr %9278, align 1
   %9280 = and i8 %9279, 63
   %9281 = zext nneg i8 %9280 to i32
@@ -16766,7 +16766,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9289 = shl nuw nsw i32 %9277, 6
   %9290 = or disjoint i32 %9288, %9289
   %9291 = or disjoint i32 %9290, %9281
-  %9292 = getelementptr inbounds i8, ptr %9204, i64 5
+  %9292 = getelementptr inbounds nuw i8, ptr %9204, i64 5
   store ptr %9292, ptr %9203, align 8
   br label %9310
 
@@ -16781,12 +16781,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9301 = or disjoint i32 %9299, %9300
   %9302 = shl nuw nsw i32 %9281, 6
   %9303 = or disjoint i32 %9301, %9302
-  %9304 = getelementptr inbounds i8, ptr %9204, i64 5
+  %9304 = getelementptr inbounds nuw i8, ptr %9204, i64 5
   %9305 = load i8, ptr %9304, align 1
   %9306 = and i8 %9305, 63
   %9307 = zext nneg i8 %9306 to i32
   %9308 = or disjoint i32 %9303, %9307
-  %9309 = getelementptr inbounds i8, ptr %9204, i64 6
+  %9309 = getelementptr inbounds nuw i8, ptr %9204, i64 6
   store ptr %9309, ptr %9203, align 8
   br label %9310
 
@@ -16822,7 +16822,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   ]
 
 9311:                                             ; preds = %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310, %9310
-  %9312 = getelementptr inbounds i8, ptr %15814, i64 64
+  %9312 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %9313 = load i32, ptr %9312, align 8
   %9314 = icmp eq i32 %9313, 15
   br i1 %9314, label %.backedge.backedge, label %.loopexit9575
@@ -16830,23 +16830,23 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 9315:                                             ; preds = %9310
   %9316 = lshr i32 %.477735, 7
   %9317 = zext nneg i32 %9316 to i64
-  %9318 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9317
+  %9318 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9317
   %9319 = load i16, ptr %9318, align 2
   %9320 = zext i16 %9319 to i32
   %9321 = shl nuw nsw i32 %9320, 7
   %9322 = and i32 %.477735, 127
   %9323 = or disjoint i32 %9321, %9322
   %9324 = zext nneg i32 %9323 to i64
-  %9325 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %9324
+  %9325 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %9324
   %9326 = load i16, ptr %9325, align 2
   %9327 = zext i16 %9326 to i64
-  %9328 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %9327, i32 1
+  %9328 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %9327, i32 1
   %9329 = load i8, ptr %9328, align 1
   %9330 = zext i8 %9329 to i64
-  %9331 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %9330
+  %9331 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %9330
   %9332 = load i32, ptr %9331, align 4
   %9333 = icmp eq i32 %9332, 6
-  %9334 = getelementptr inbounds i8, ptr %15814, i64 64
+  %9334 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %9335 = load i32, ptr %9334, align 8
   %9336 = icmp ne i32 %9335, 15
   %9337 = xor i1 %9333, %9336
@@ -16861,17 +16861,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 9339:                                             ; preds = %15894
-  %9340 = getelementptr inbounds i8, ptr %15814, i64 56
+  %9340 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %9341 = load i32, ptr %9340, align 8
   %9342 = add i32 %9341, 1
   store i32 %9342, ptr %9340, align 8
-  %9343 = getelementptr inbounds i8, ptr %15814, i64 60
+  %9343 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %9344 = load i32, ptr %9343, align 4
   %.not9102 = icmp ult i32 %9341, %9344
   br i1 %.not9102, label %9345, label %.backedge.backedge
 
 9345:                                             ; preds = %9339
-  %9346 = getelementptr inbounds i8, ptr %15814, i64 80
+  %9346 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %9347 = load ptr, ptr %9346, align 8
   %9348 = load ptr, ptr %39, align 8
   %.not9103 = icmp ult ptr %9347, %9348
@@ -16898,7 +16898,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9524, label %.backedge.backedge, label %.loopexit
 
 9357:                                             ; preds = %9345
-  %9358 = getelementptr inbounds i8, ptr %9347, i64 1
+  %9358 = getelementptr inbounds nuw i8, ptr %9347, i64 1
   store ptr %9358, ptr %9346, align 8
   %9359 = load i8, ptr %9347, align 1
   %9360 = zext i8 %9359 to i32
@@ -16914,7 +16914,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 9365:                                             ; preds = %9362
   %9366 = shl nuw nsw i32 %9360, 6
   %9367 = and i32 %9366, 1984
-  %9368 = getelementptr inbounds i8, ptr %9347, i64 2
+  %9368 = getelementptr inbounds nuw i8, ptr %9347, i64 2
   store ptr %9368, ptr %9346, align 8
   %9369 = load i8, ptr %9358, align 1
   %9370 = and i8 %9369, 63
@@ -16935,12 +16935,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9381 = and i32 %9380, 61440
   %9382 = shl nuw nsw i32 %9378, 6
   %9383 = or disjoint i32 %9382, %9381
-  %9384 = getelementptr inbounds i8, ptr %9347, i64 2
+  %9384 = getelementptr inbounds nuw i8, ptr %9347, i64 2
   %9385 = load i8, ptr %9384, align 1
   %9386 = and i8 %9385, 63
   %9387 = zext nneg i8 %9386 to i32
   %9388 = or disjoint i32 %9383, %9387
-  %9389 = getelementptr inbounds i8, ptr %9347, i64 3
+  %9389 = getelementptr inbounds nuw i8, ptr %9347, i64 3
   store ptr %9389, ptr %9346, align 8
   br label %9453
 
@@ -16954,33 +16954,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9395 = and i32 %9394, 1835008
   %9396 = shl nuw nsw i32 %9378, 12
   %9397 = or disjoint i32 %9396, %9395
-  %9398 = getelementptr inbounds i8, ptr %9347, i64 2
+  %9398 = getelementptr inbounds nuw i8, ptr %9347, i64 2
   %9399 = load i8, ptr %9398, align 1
   %9400 = and i8 %9399, 63
   %9401 = zext nneg i8 %9400 to i32
   %9402 = shl nuw nsw i32 %9401, 6
   %9403 = or disjoint i32 %9397, %9402
-  %9404 = getelementptr inbounds i8, ptr %9347, i64 3
+  %9404 = getelementptr inbounds nuw i8, ptr %9347, i64 3
   %9405 = load i8, ptr %9404, align 1
   %9406 = and i8 %9405, 63
   %9407 = zext nneg i8 %9406 to i32
   %9408 = or disjoint i32 %9403, %9407
-  %9409 = getelementptr inbounds i8, ptr %9347, i64 4
+  %9409 = getelementptr inbounds nuw i8, ptr %9347, i64 4
   store ptr %9409, ptr %9346, align 8
   br label %9453
 
 9410:                                             ; preds = %9390
   %9411 = and i32 %9360, 4
   %9412 = icmp eq i32 %9411, 0
-  %9413 = getelementptr inbounds i8, ptr %9347, i64 2
+  %9413 = getelementptr inbounds nuw i8, ptr %9347, i64 2
   %9414 = load i8, ptr %9413, align 1
   %9415 = and i8 %9414, 63
   %9416 = zext nneg i8 %9415 to i32
-  %9417 = getelementptr inbounds i8, ptr %9347, i64 3
+  %9417 = getelementptr inbounds nuw i8, ptr %9347, i64 3
   %9418 = load i8, ptr %9417, align 1
   %9419 = and i8 %9418, 63
   %9420 = zext nneg i8 %9419 to i32
-  %9421 = getelementptr inbounds i8, ptr %9347, i64 4
+  %9421 = getelementptr inbounds nuw i8, ptr %9347, i64 4
   %9422 = load i8, ptr %9421, align 1
   %9423 = and i8 %9422, 63
   %9424 = zext nneg i8 %9423 to i32
@@ -16996,7 +16996,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9432 = shl nuw nsw i32 %9420, 6
   %9433 = or disjoint i32 %9431, %9432
   %9434 = or disjoint i32 %9433, %9424
-  %9435 = getelementptr inbounds i8, ptr %9347, i64 5
+  %9435 = getelementptr inbounds nuw i8, ptr %9347, i64 5
   store ptr %9435, ptr %9346, align 8
   br label %9453
 
@@ -17011,12 +17011,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9444 = or disjoint i32 %9442, %9443
   %9445 = shl nuw nsw i32 %9424, 6
   %9446 = or disjoint i32 %9444, %9445
-  %9447 = getelementptr inbounds i8, ptr %9347, i64 5
+  %9447 = getelementptr inbounds nuw i8, ptr %9347, i64 5
   %9448 = load i8, ptr %9447, align 1
   %9449 = and i8 %9448, 63
   %9450 = zext nneg i8 %9449 to i32
   %9451 = or disjoint i32 %9446, %9450
-  %9452 = getelementptr inbounds i8, ptr %9347, i64 6
+  %9452 = getelementptr inbounds nuw i8, ptr %9347, i64 6
   store ptr %9452, ptr %9346, align 8
   br label %9453
 
@@ -17024,20 +17024,20 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.487736 = phi i32 [ %9372, %9365 ], [ %9388, %9379 ], [ %9408, %9393 ], [ %9434, %9425 ], [ %9451, %9436 ], [ %9360, %9357 ]
   %9454 = lshr i32 %.487736, 7
   %9455 = zext nneg i32 %9454 to i64
-  %9456 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9455
+  %9456 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9455
   %9457 = load i16, ptr %9456, align 2
   %9458 = zext i16 %9457 to i32
   %9459 = shl nuw nsw i32 %9458, 7
   %9460 = and i32 %.487736, 127
   %9461 = or disjoint i32 %9459, %9460
   %9462 = zext nneg i32 %9461 to i64
-  %9463 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %9462
+  %9463 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %9462
   %9464 = load i16, ptr %9463, align 2
   %9465 = zext i16 %9464 to i64
-  %9466 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %9465, i32 1
+  %9466 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %9465, i32 1
   %9467 = load i8, ptr %9466, align 1
   %9468 = zext i8 %9467 to i64
-  %9469 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %9468
+  %9469 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %9468
   %9470 = load i32, ptr %9469, align 4
   %9471 = and i32 %9470, -3
   %or.cond115 = icmp eq i32 %9471, 1
@@ -17045,7 +17045,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %or.cond117 = or i1 %9472, %or.cond115
   %9473 = icmp eq i8 %9467, 16
   %narrow9525 = or i1 %9473, %or.cond117
-  %9474 = getelementptr inbounds i8, ptr %15814, i64 64
+  %9474 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %9475 = load i32, ptr %9474, align 8
   %9476 = icmp ne i32 %9475, 15
   %9477 = xor i1 %9476, %narrow9525
@@ -17060,17 +17060,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 9479:                                             ; preds = %15895
-  %9480 = getelementptr inbounds i8, ptr %15814, i64 56
+  %9480 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %9481 = load i32, ptr %9480, align 8
   %9482 = add i32 %9481, 1
   store i32 %9482, ptr %9480, align 8
-  %9483 = getelementptr inbounds i8, ptr %15814, i64 60
+  %9483 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %9484 = load i32, ptr %9483, align 4
   %.not9097 = icmp ult i32 %9481, %9484
   br i1 %.not9097, label %9485, label %.backedge.backedge
 
 9485:                                             ; preds = %9479
-  %9486 = getelementptr inbounds i8, ptr %15814, i64 80
+  %9486 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %9487 = load ptr, ptr %9486, align 8
   %9488 = load ptr, ptr %39, align 8
   %.not9098 = icmp ult ptr %9487, %9488
@@ -17097,7 +17097,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9523, label %.backedge.backedge, label %.loopexit
 
 9497:                                             ; preds = %9485
-  %9498 = getelementptr inbounds i8, ptr %9487, i64 1
+  %9498 = getelementptr inbounds nuw i8, ptr %9487, i64 1
   store ptr %9498, ptr %9486, align 8
   %9499 = load i8, ptr %9487, align 1
   %9500 = zext i8 %9499 to i32
@@ -17113,7 +17113,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 9505:                                             ; preds = %9502
   %9506 = shl nuw nsw i32 %9500, 6
   %9507 = and i32 %9506, 1984
-  %9508 = getelementptr inbounds i8, ptr %9487, i64 2
+  %9508 = getelementptr inbounds nuw i8, ptr %9487, i64 2
   store ptr %9508, ptr %9486, align 8
   %9509 = load i8, ptr %9498, align 1
   %9510 = and i8 %9509, 63
@@ -17134,12 +17134,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9521 = and i32 %9520, 61440
   %9522 = shl nuw nsw i32 %9518, 6
   %9523 = or disjoint i32 %9522, %9521
-  %9524 = getelementptr inbounds i8, ptr %9487, i64 2
+  %9524 = getelementptr inbounds nuw i8, ptr %9487, i64 2
   %9525 = load i8, ptr %9524, align 1
   %9526 = and i8 %9525, 63
   %9527 = zext nneg i8 %9526 to i32
   %9528 = or disjoint i32 %9523, %9527
-  %9529 = getelementptr inbounds i8, ptr %9487, i64 3
+  %9529 = getelementptr inbounds nuw i8, ptr %9487, i64 3
   store ptr %9529, ptr %9486, align 8
   br label %9593
 
@@ -17153,33 +17153,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9535 = and i32 %9534, 1835008
   %9536 = shl nuw nsw i32 %9518, 12
   %9537 = or disjoint i32 %9536, %9535
-  %9538 = getelementptr inbounds i8, ptr %9487, i64 2
+  %9538 = getelementptr inbounds nuw i8, ptr %9487, i64 2
   %9539 = load i8, ptr %9538, align 1
   %9540 = and i8 %9539, 63
   %9541 = zext nneg i8 %9540 to i32
   %9542 = shl nuw nsw i32 %9541, 6
   %9543 = or disjoint i32 %9537, %9542
-  %9544 = getelementptr inbounds i8, ptr %9487, i64 3
+  %9544 = getelementptr inbounds nuw i8, ptr %9487, i64 3
   %9545 = load i8, ptr %9544, align 1
   %9546 = and i8 %9545, 63
   %9547 = zext nneg i8 %9546 to i32
   %9548 = or disjoint i32 %9543, %9547
-  %9549 = getelementptr inbounds i8, ptr %9487, i64 4
+  %9549 = getelementptr inbounds nuw i8, ptr %9487, i64 4
   store ptr %9549, ptr %9486, align 8
   br label %9593
 
 9550:                                             ; preds = %9530
   %9551 = and i32 %9500, 4
   %9552 = icmp eq i32 %9551, 0
-  %9553 = getelementptr inbounds i8, ptr %9487, i64 2
+  %9553 = getelementptr inbounds nuw i8, ptr %9487, i64 2
   %9554 = load i8, ptr %9553, align 1
   %9555 = and i8 %9554, 63
   %9556 = zext nneg i8 %9555 to i32
-  %9557 = getelementptr inbounds i8, ptr %9487, i64 3
+  %9557 = getelementptr inbounds nuw i8, ptr %9487, i64 3
   %9558 = load i8, ptr %9557, align 1
   %9559 = and i8 %9558, 63
   %9560 = zext nneg i8 %9559 to i32
-  %9561 = getelementptr inbounds i8, ptr %9487, i64 4
+  %9561 = getelementptr inbounds nuw i8, ptr %9487, i64 4
   %9562 = load i8, ptr %9561, align 1
   %9563 = and i8 %9562, 63
   %9564 = zext nneg i8 %9563 to i32
@@ -17195,7 +17195,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9572 = shl nuw nsw i32 %9560, 6
   %9573 = or disjoint i32 %9571, %9572
   %9574 = or disjoint i32 %9573, %9564
-  %9575 = getelementptr inbounds i8, ptr %9487, i64 5
+  %9575 = getelementptr inbounds nuw i8, ptr %9487, i64 5
   store ptr %9575, ptr %9486, align 8
   br label %9593
 
@@ -17210,21 +17210,21 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9584 = or disjoint i32 %9582, %9583
   %9585 = shl nuw nsw i32 %9564, 6
   %9586 = or disjoint i32 %9584, %9585
-  %9587 = getelementptr inbounds i8, ptr %9487, i64 5
+  %9587 = getelementptr inbounds nuw i8, ptr %9487, i64 5
   %9588 = load i8, ptr %9587, align 1
   %9589 = and i8 %9588, 63
   %9590 = zext nneg i8 %9589 to i32
   %9591 = or disjoint i32 %9586, %9590
-  %9592 = getelementptr inbounds i8, ptr %9487, i64 6
+  %9592 = getelementptr inbounds nuw i8, ptr %9487, i64 6
   store ptr %9592, ptr %9486, align 8
   br label %9593
 
 9593:                                             ; preds = %9505, %9533, %9576, %9565, %9519, %9497
   %.497737 = phi i32 [ %9512, %9505 ], [ %9528, %9519 ], [ %9548, %9533 ], [ %9574, %9565 ], [ %9591, %9576 ], [ %9500, %9497 ]
-  %9594 = getelementptr inbounds i8, ptr %15814, i64 68
+  %9594 = getelementptr inbounds nuw i8, ptr %15814, i64 68
   %9595 = load i32, ptr %9594, align 4
   %9596 = zext i32 %9595 to i64
-  %9597 = getelementptr inbounds i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %9596
+  %9597 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %9596
   br label %9598
 
 9598:                                             ; preds = %9605, %9593
@@ -17234,18 +17234,18 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %9600, label %9601, label %9605
 
 9601:                                             ; preds = %9598
-  %9602 = getelementptr inbounds i8, ptr %15814, i64 64
+  %9602 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %9603 = load i32, ptr %9602, align 8
   %9604 = icmp eq i32 %9603, 15
   br i1 %9604, label %.loopexit9573, label %.backedge.backedge
 
 9605:                                             ; preds = %9598
-  %9606 = getelementptr inbounds i8, ptr %.07855, i64 4
+  %9606 = getelementptr inbounds nuw i8, ptr %.07855, i64 4
   %9607 = icmp eq i32 %.497737, %9599
   br i1 %9607, label %9608, label %9598
 
 9608:                                             ; preds = %9605
-  %9609 = getelementptr inbounds i8, ptr %15814, i64 64
+  %9609 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %9610 = load i32, ptr %9609, align 8
   %9611 = icmp eq i32 %9610, 15
   br i1 %9611, label %.backedge.backedge, label %.loopexit9573
@@ -17259,17 +17259,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 9613:                                             ; preds = %15896
-  %9614 = getelementptr inbounds i8, ptr %15814, i64 56
+  %9614 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %9615 = load i32, ptr %9614, align 8
   %9616 = add i32 %9615, 1
   store i32 %9616, ptr %9614, align 8
-  %9617 = getelementptr inbounds i8, ptr %15814, i64 60
+  %9617 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %9618 = load i32, ptr %9617, align 4
   %.not9092 = icmp ult i32 %9615, %9618
   br i1 %.not9092, label %9619, label %.backedge.backedge
 
 9619:                                             ; preds = %9613
-  %9620 = getelementptr inbounds i8, ptr %15814, i64 80
+  %9620 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %9621 = load ptr, ptr %9620, align 8
   %9622 = load ptr, ptr %39, align 8
   %.not9093 = icmp ult ptr %9621, %9622
@@ -17296,7 +17296,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9522, label %.backedge.backedge, label %.loopexit
 
 9631:                                             ; preds = %9619
-  %9632 = getelementptr inbounds i8, ptr %9621, i64 1
+  %9632 = getelementptr inbounds nuw i8, ptr %9621, i64 1
   store ptr %9632, ptr %9620, align 8
   %9633 = load i8, ptr %9621, align 1
   %9634 = zext i8 %9633 to i32
@@ -17312,7 +17312,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 9639:                                             ; preds = %9636
   %9640 = shl nuw nsw i32 %9634, 6
   %9641 = and i32 %9640, 1984
-  %9642 = getelementptr inbounds i8, ptr %9621, i64 2
+  %9642 = getelementptr inbounds nuw i8, ptr %9621, i64 2
   store ptr %9642, ptr %9620, align 8
   %9643 = load i8, ptr %9632, align 1
   %9644 = and i8 %9643, 63
@@ -17333,12 +17333,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9655 = and i32 %9654, 61440
   %9656 = shl nuw nsw i32 %9652, 6
   %9657 = or disjoint i32 %9656, %9655
-  %9658 = getelementptr inbounds i8, ptr %9621, i64 2
+  %9658 = getelementptr inbounds nuw i8, ptr %9621, i64 2
   %9659 = load i8, ptr %9658, align 1
   %9660 = and i8 %9659, 63
   %9661 = zext nneg i8 %9660 to i32
   %9662 = or disjoint i32 %9657, %9661
-  %9663 = getelementptr inbounds i8, ptr %9621, i64 3
+  %9663 = getelementptr inbounds nuw i8, ptr %9621, i64 3
   store ptr %9663, ptr %9620, align 8
   br label %9727
 
@@ -17352,33 +17352,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9669 = and i32 %9668, 1835008
   %9670 = shl nuw nsw i32 %9652, 12
   %9671 = or disjoint i32 %9670, %9669
-  %9672 = getelementptr inbounds i8, ptr %9621, i64 2
+  %9672 = getelementptr inbounds nuw i8, ptr %9621, i64 2
   %9673 = load i8, ptr %9672, align 1
   %9674 = and i8 %9673, 63
   %9675 = zext nneg i8 %9674 to i32
   %9676 = shl nuw nsw i32 %9675, 6
   %9677 = or disjoint i32 %9671, %9676
-  %9678 = getelementptr inbounds i8, ptr %9621, i64 3
+  %9678 = getelementptr inbounds nuw i8, ptr %9621, i64 3
   %9679 = load i8, ptr %9678, align 1
   %9680 = and i8 %9679, 63
   %9681 = zext nneg i8 %9680 to i32
   %9682 = or disjoint i32 %9677, %9681
-  %9683 = getelementptr inbounds i8, ptr %9621, i64 4
+  %9683 = getelementptr inbounds nuw i8, ptr %9621, i64 4
   store ptr %9683, ptr %9620, align 8
   br label %9727
 
 9684:                                             ; preds = %9664
   %9685 = and i32 %9634, 4
   %9686 = icmp eq i32 %9685, 0
-  %9687 = getelementptr inbounds i8, ptr %9621, i64 2
+  %9687 = getelementptr inbounds nuw i8, ptr %9621, i64 2
   %9688 = load i8, ptr %9687, align 1
   %9689 = and i8 %9688, 63
   %9690 = zext nneg i8 %9689 to i32
-  %9691 = getelementptr inbounds i8, ptr %9621, i64 3
+  %9691 = getelementptr inbounds nuw i8, ptr %9621, i64 3
   %9692 = load i8, ptr %9691, align 1
   %9693 = and i8 %9692, 63
   %9694 = zext nneg i8 %9693 to i32
-  %9695 = getelementptr inbounds i8, ptr %9621, i64 4
+  %9695 = getelementptr inbounds nuw i8, ptr %9621, i64 4
   %9696 = load i8, ptr %9695, align 1
   %9697 = and i8 %9696, 63
   %9698 = zext nneg i8 %9697 to i32
@@ -17394,7 +17394,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9706 = shl nuw nsw i32 %9694, 6
   %9707 = or disjoint i32 %9705, %9706
   %9708 = or disjoint i32 %9707, %9698
-  %9709 = getelementptr inbounds i8, ptr %9621, i64 5
+  %9709 = getelementptr inbounds nuw i8, ptr %9621, i64 5
   store ptr %9709, ptr %9620, align 8
   br label %9727
 
@@ -17409,12 +17409,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9718 = or disjoint i32 %9716, %9717
   %9719 = shl nuw nsw i32 %9698, 6
   %9720 = or disjoint i32 %9718, %9719
-  %9721 = getelementptr inbounds i8, ptr %9621, i64 5
+  %9721 = getelementptr inbounds nuw i8, ptr %9621, i64 5
   %9722 = load i8, ptr %9721, align 1
   %9723 = and i8 %9722, 63
   %9724 = zext nneg i8 %9723 to i32
   %9725 = or disjoint i32 %9720, %9724
-  %9726 = getelementptr inbounds i8, ptr %9621, i64 6
+  %9726 = getelementptr inbounds nuw i8, ptr %9621, i64 6
   store ptr %9726, ptr %9620, align 8
   br label %9727
 
@@ -17438,7 +17438,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 9733:                                             ; preds = %9727, %9727, %9727, %9728, %9730
   %9734 = phi i32 [ 1, %9727 ], [ %9732, %9730 ], [ 1, %9728 ], [ 1, %9727 ], [ 1, %9727 ]
-  %9735 = getelementptr inbounds i8, ptr %15814, i64 64
+  %9735 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %9736 = load i32, ptr %9735, align 8
   %9737 = icmp eq i32 %9736, 15
   %9738 = zext i1 %9737 to i32
@@ -17454,17 +17454,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 9741:                                             ; preds = %15903
-  %9742 = getelementptr inbounds i8, ptr %15814, i64 56
+  %9742 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %9743 = load i32, ptr %9742, align 8
   %9744 = add i32 %9743, 1
   store i32 %9744, ptr %9742, align 8
-  %9745 = getelementptr inbounds i8, ptr %15814, i64 60
+  %9745 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %9746 = load i32, ptr %9745, align 4
   %.not9052 = icmp ult i32 %9743, %9746
   br i1 %.not9052, label %9747, label %.backedge.backedge
 
 9747:                                             ; preds = %9741
-  %9748 = getelementptr inbounds i8, ptr %15814, i64 80
+  %9748 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %9749 = load ptr, ptr %9748, align 8
   %9750 = load ptr, ptr %39, align 8
   %.not9053 = icmp ult ptr %9749, %9750
@@ -17491,7 +17491,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9516, label %.backedge.backedge, label %.loopexit
 
 9759:                                             ; preds = %9747
-  %9760 = getelementptr inbounds i8, ptr %9749, i64 1
+  %9760 = getelementptr inbounds nuw i8, ptr %9749, i64 1
   store ptr %9760, ptr %9748, align 8
   %9761 = load i8, ptr %9749, align 1
   %9762 = zext i8 %9761 to i32
@@ -17507,7 +17507,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 9767:                                             ; preds = %9764
   %9768 = shl nuw nsw i32 %9762, 6
   %9769 = and i32 %9768, 1984
-  %9770 = getelementptr inbounds i8, ptr %9749, i64 2
+  %9770 = getelementptr inbounds nuw i8, ptr %9749, i64 2
   store ptr %9770, ptr %9748, align 8
   %9771 = load i8, ptr %9760, align 1
   %9772 = and i8 %9771, 63
@@ -17528,12 +17528,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9783 = and i32 %9782, 61440
   %9784 = shl nuw nsw i32 %9780, 6
   %9785 = or disjoint i32 %9784, %9783
-  %9786 = getelementptr inbounds i8, ptr %9749, i64 2
+  %9786 = getelementptr inbounds nuw i8, ptr %9749, i64 2
   %9787 = load i8, ptr %9786, align 1
   %9788 = and i8 %9787, 63
   %9789 = zext nneg i8 %9788 to i32
   %9790 = or disjoint i32 %9785, %9789
-  %9791 = getelementptr inbounds i8, ptr %9749, i64 3
+  %9791 = getelementptr inbounds nuw i8, ptr %9749, i64 3
   store ptr %9791, ptr %9748, align 8
   br label %9855
 
@@ -17547,33 +17547,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9797 = and i32 %9796, 1835008
   %9798 = shl nuw nsw i32 %9780, 12
   %9799 = or disjoint i32 %9798, %9797
-  %9800 = getelementptr inbounds i8, ptr %9749, i64 2
+  %9800 = getelementptr inbounds nuw i8, ptr %9749, i64 2
   %9801 = load i8, ptr %9800, align 1
   %9802 = and i8 %9801, 63
   %9803 = zext nneg i8 %9802 to i32
   %9804 = shl nuw nsw i32 %9803, 6
   %9805 = or disjoint i32 %9799, %9804
-  %9806 = getelementptr inbounds i8, ptr %9749, i64 3
+  %9806 = getelementptr inbounds nuw i8, ptr %9749, i64 3
   %9807 = load i8, ptr %9806, align 1
   %9808 = and i8 %9807, 63
   %9809 = zext nneg i8 %9808 to i32
   %9810 = or disjoint i32 %9805, %9809
-  %9811 = getelementptr inbounds i8, ptr %9749, i64 4
+  %9811 = getelementptr inbounds nuw i8, ptr %9749, i64 4
   store ptr %9811, ptr %9748, align 8
   br label %9855
 
 9812:                                             ; preds = %9792
   %9813 = and i32 %9762, 4
   %9814 = icmp eq i32 %9813, 0
-  %9815 = getelementptr inbounds i8, ptr %9749, i64 2
+  %9815 = getelementptr inbounds nuw i8, ptr %9749, i64 2
   %9816 = load i8, ptr %9815, align 1
   %9817 = and i8 %9816, 63
   %9818 = zext nneg i8 %9817 to i32
-  %9819 = getelementptr inbounds i8, ptr %9749, i64 3
+  %9819 = getelementptr inbounds nuw i8, ptr %9749, i64 3
   %9820 = load i8, ptr %9819, align 1
   %9821 = and i8 %9820, 63
   %9822 = zext nneg i8 %9821 to i32
-  %9823 = getelementptr inbounds i8, ptr %9749, i64 4
+  %9823 = getelementptr inbounds nuw i8, ptr %9749, i64 4
   %9824 = load i8, ptr %9823, align 1
   %9825 = and i8 %9824, 63
   %9826 = zext nneg i8 %9825 to i32
@@ -17589,7 +17589,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9834 = shl nuw nsw i32 %9822, 6
   %9835 = or disjoint i32 %9833, %9834
   %9836 = or disjoint i32 %9835, %9826
-  %9837 = getelementptr inbounds i8, ptr %9749, i64 5
+  %9837 = getelementptr inbounds nuw i8, ptr %9749, i64 5
   store ptr %9837, ptr %9748, align 8
   br label %9855
 
@@ -17604,12 +17604,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9846 = or disjoint i32 %9844, %9845
   %9847 = shl nuw nsw i32 %9826, 6
   %9848 = or disjoint i32 %9846, %9847
-  %9849 = getelementptr inbounds i8, ptr %9749, i64 5
+  %9849 = getelementptr inbounds nuw i8, ptr %9749, i64 5
   %9850 = load i8, ptr %9849, align 1
   %9851 = and i8 %9850, 63
   %9852 = zext nneg i8 %9851 to i32
   %9853 = or disjoint i32 %9848, %9852
-  %9854 = getelementptr inbounds i8, ptr %9749, i64 6
+  %9854 = getelementptr inbounds nuw i8, ptr %9749, i64 6
   store ptr %9854, ptr %9748, align 8
   br label %9855
 
@@ -17617,24 +17617,24 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.517739 = phi i32 [ %9774, %9767 ], [ %9790, %9781 ], [ %9810, %9795 ], [ %9836, %9827 ], [ %9853, %9838 ], [ %9762, %9759 ]
   %9856 = lshr i32 %.517739, 7
   %9857 = zext nneg i32 %9856 to i64
-  %9858 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9857
+  %9858 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9857
   %9859 = load i16, ptr %9858, align 2
   %9860 = zext i16 %9859 to i32
   %9861 = shl nuw nsw i32 %9860, 7
   %9862 = and i32 %.517739, 127
   %9863 = or disjoint i32 %9861, %9862
   %9864 = zext nneg i32 %9863 to i64
-  %9865 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %9864
+  %9865 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %9864
   %9866 = load i16, ptr %9865, align 2
   %9867 = zext i16 %9866 to i64
-  %9868 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %9867, i32 5
+  %9868 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %9867, i32 5
   %9869 = load i16, ptr %9868, align 4
   %9870 = lshr i16 %9869, 11
   %9871 = zext nneg i16 %9870 to i32
-  %9872 = getelementptr inbounds i8, ptr %15814, i64 68
+  %9872 = getelementptr inbounds nuw i8, ptr %15814, i64 68
   %9873 = load i32, ptr %9872, align 4
   %9874 = icmp eq i32 %9873, %9871
-  %9875 = getelementptr inbounds i8, ptr %15814, i64 64
+  %9875 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %9876 = load i32, ptr %9875, align 8
   %9877 = icmp ne i32 %9876, 15
   %9878 = xor i1 %9874, %9877
@@ -17649,17 +17649,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 9880:                                             ; preds = %15902
-  %9881 = getelementptr inbounds i8, ptr %15814, i64 56
+  %9881 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %9882 = load i32, ptr %9881, align 8
   %9883 = add i32 %9882, 1
   store i32 %9883, ptr %9881, align 8
-  %9884 = getelementptr inbounds i8, ptr %15814, i64 60
+  %9884 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %9885 = load i32, ptr %9884, align 4
   %.not9057 = icmp ult i32 %9882, %9885
   br i1 %.not9057, label %9886, label %.backedge.backedge
 
 9886:                                             ; preds = %9880
-  %9887 = getelementptr inbounds i8, ptr %15814, i64 80
+  %9887 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %9888 = load ptr, ptr %9887, align 8
   %9889 = load ptr, ptr %39, align 8
   %.not9058 = icmp ult ptr %9888, %9889
@@ -17686,7 +17686,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9517, label %.backedge.backedge, label %.loopexit
 
 9898:                                             ; preds = %9886
-  %9899 = getelementptr inbounds i8, ptr %9888, i64 1
+  %9899 = getelementptr inbounds nuw i8, ptr %9888, i64 1
   store ptr %9899, ptr %9887, align 8
   %9900 = load i8, ptr %9888, align 1
   %9901 = zext i8 %9900 to i32
@@ -17702,7 +17702,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 9906:                                             ; preds = %9903
   %9907 = shl nuw nsw i32 %9901, 6
   %9908 = and i32 %9907, 1984
-  %9909 = getelementptr inbounds i8, ptr %9888, i64 2
+  %9909 = getelementptr inbounds nuw i8, ptr %9888, i64 2
   store ptr %9909, ptr %9887, align 8
   %9910 = load i8, ptr %9899, align 1
   %9911 = and i8 %9910, 63
@@ -17723,12 +17723,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9922 = and i32 %9921, 61440
   %9923 = shl nuw nsw i32 %9919, 6
   %9924 = or disjoint i32 %9923, %9922
-  %9925 = getelementptr inbounds i8, ptr %9888, i64 2
+  %9925 = getelementptr inbounds nuw i8, ptr %9888, i64 2
   %9926 = load i8, ptr %9925, align 1
   %9927 = and i8 %9926, 63
   %9928 = zext nneg i8 %9927 to i32
   %9929 = or disjoint i32 %9924, %9928
-  %9930 = getelementptr inbounds i8, ptr %9888, i64 3
+  %9930 = getelementptr inbounds nuw i8, ptr %9888, i64 3
   store ptr %9930, ptr %9887, align 8
   br label %9994
 
@@ -17742,33 +17742,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9936 = and i32 %9935, 1835008
   %9937 = shl nuw nsw i32 %9919, 12
   %9938 = or disjoint i32 %9937, %9936
-  %9939 = getelementptr inbounds i8, ptr %9888, i64 2
+  %9939 = getelementptr inbounds nuw i8, ptr %9888, i64 2
   %9940 = load i8, ptr %9939, align 1
   %9941 = and i8 %9940, 63
   %9942 = zext nneg i8 %9941 to i32
   %9943 = shl nuw nsw i32 %9942, 6
   %9944 = or disjoint i32 %9938, %9943
-  %9945 = getelementptr inbounds i8, ptr %9888, i64 3
+  %9945 = getelementptr inbounds nuw i8, ptr %9888, i64 3
   %9946 = load i8, ptr %9945, align 1
   %9947 = and i8 %9946, 63
   %9948 = zext nneg i8 %9947 to i32
   %9949 = or disjoint i32 %9944, %9948
-  %9950 = getelementptr inbounds i8, ptr %9888, i64 4
+  %9950 = getelementptr inbounds nuw i8, ptr %9888, i64 4
   store ptr %9950, ptr %9887, align 8
   br label %9994
 
 9951:                                             ; preds = %9931
   %9952 = and i32 %9901, 4
   %9953 = icmp eq i32 %9952, 0
-  %9954 = getelementptr inbounds i8, ptr %9888, i64 2
+  %9954 = getelementptr inbounds nuw i8, ptr %9888, i64 2
   %9955 = load i8, ptr %9954, align 1
   %9956 = and i8 %9955, 63
   %9957 = zext nneg i8 %9956 to i32
-  %9958 = getelementptr inbounds i8, ptr %9888, i64 3
+  %9958 = getelementptr inbounds nuw i8, ptr %9888, i64 3
   %9959 = load i8, ptr %9958, align 1
   %9960 = and i8 %9959, 63
   %9961 = zext nneg i8 %9960 to i32
-  %9962 = getelementptr inbounds i8, ptr %9888, i64 4
+  %9962 = getelementptr inbounds nuw i8, ptr %9888, i64 4
   %9963 = load i8, ptr %9962, align 1
   %9964 = and i8 %9963, 63
   %9965 = zext nneg i8 %9964 to i32
@@ -17784,7 +17784,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9973 = shl nuw nsw i32 %9961, 6
   %9974 = or disjoint i32 %9972, %9973
   %9975 = or disjoint i32 %9974, %9965
-  %9976 = getelementptr inbounds i8, ptr %9888, i64 5
+  %9976 = getelementptr inbounds nuw i8, ptr %9888, i64 5
   store ptr %9976, ptr %9887, align 8
   br label %9994
 
@@ -17799,12 +17799,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %9985 = or disjoint i32 %9983, %9984
   %9986 = shl nuw nsw i32 %9965, 6
   %9987 = or disjoint i32 %9985, %9986
-  %9988 = getelementptr inbounds i8, ptr %9888, i64 5
+  %9988 = getelementptr inbounds nuw i8, ptr %9888, i64 5
   %9989 = load i8, ptr %9988, align 1
   %9990 = and i8 %9989, 63
   %9991 = zext nneg i8 %9990 to i32
   %9992 = or disjoint i32 %9987, %9991
-  %9993 = getelementptr inbounds i8, ptr %9888, i64 6
+  %9993 = getelementptr inbounds nuw i8, ptr %9888, i64 6
   store ptr %9993, ptr %9887, align 8
   br label %9994
 
@@ -17812,30 +17812,30 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %.527740 = phi i32 [ %9913, %9906 ], [ %9929, %9920 ], [ %9949, %9934 ], [ %9975, %9966 ], [ %9992, %9977 ], [ %9901, %9898 ]
   %9995 = lshr i32 %.527740, 7
   %9996 = zext nneg i32 %9995 to i64
-  %9997 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9996
+  %9997 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %9996
   %9998 = load i16, ptr %9997, align 2
   %9999 = zext i16 %9998 to i32
   %10000 = shl nuw nsw i32 %9999, 7
   %10001 = and i32 %.527740, 127
   %10002 = or disjoint i32 %10000, %10001
   %10003 = zext nneg i32 %10002 to i64
-  %10004 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %10003
+  %10004 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %10003
   %10005 = load i16, ptr %10004, align 2
   %10006 = zext i16 %10005 to i64
-  %10007 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %10006, i32 6
+  %10007 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %10006, i32 6
   %10008 = load i16, ptr %10007, align 2
   %10009 = and i16 %10008, 4095
   %10010 = zext nneg i16 %10009 to i64
-  %10011 = getelementptr inbounds i32, ptr @_pcre2_ucd_boolprop_sets_8, i64 %10010
-  %10012 = getelementptr inbounds i8, ptr %15814, i64 68
+  %10011 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_boolprop_sets_8, i64 %10010
+  %10012 = getelementptr inbounds nuw i8, ptr %15814, i64 68
   %10013 = load i32, ptr %10012, align 4
   %10014 = lshr i32 %10013, 5
   %10015 = zext nneg i32 %10014 to i64
-  %10016 = getelementptr inbounds i32, ptr %10011, i64 %10015
+  %10016 = getelementptr inbounds nuw i32, ptr %10011, i64 %10015
   %10017 = load i32, ptr %10016, align 4
   %10018 = and i32 %10013, 31
   %10019 = lshr i32 %10017, %10018
-  %10020 = getelementptr inbounds i8, ptr %15814, i64 64
+  %10020 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %10021 = load i32, ptr %10020, align 8
   %10022 = trunc i32 %10019 to i1
   %10023 = icmp ne i32 %10021, 15
@@ -17856,17 +17856,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 10030:                                            ; preds = %15897
-  %10031 = getelementptr inbounds i8, ptr %15814, i64 56
+  %10031 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %10032 = load i32, ptr %10031, align 8
   %10033 = add i32 %10032, 1
   store i32 %10033, ptr %10031, align 8
-  %10034 = getelementptr inbounds i8, ptr %15814, i64 60
+  %10034 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %10035 = load i32, ptr %10034, align 4
   %.not9084 = icmp ult i32 %10032, %10035
   br i1 %.not9084, label %10036, label %.backedge.backedge
 
 10036:                                            ; preds = %10030
-  %10037 = getelementptr inbounds i8, ptr %15814, i64 80
+  %10037 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %10038 = load ptr, ptr %10037, align 8
   %10039 = load ptr, ptr %39, align 8
   %.not9085 = icmp ult ptr %10038, %10039
@@ -17893,8 +17893,8 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9520, label %.backedge.backedge, label %.loopexit
 
 10048:                                            ; preds = %10036
-  %10049 = getelementptr inbounds i8, ptr %15814, i64 80
-  %10050 = getelementptr inbounds i8, ptr %10038, i64 1
+  %10049 = getelementptr inbounds nuw i8, ptr %15814, i64 80
+  %10050 = getelementptr inbounds nuw i8, ptr %10038, i64 1
   store ptr %10050, ptr %10049, align 8
   %10051 = load i8, ptr %10038, align 1
   %10052 = zext i8 %10051 to i32
@@ -17910,7 +17910,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 10057:                                            ; preds = %10054
   %10058 = shl nuw nsw i32 %10052, 6
   %10059 = and i32 %10058, 1984
-  %10060 = getelementptr inbounds i8, ptr %10038, i64 2
+  %10060 = getelementptr inbounds nuw i8, ptr %10038, i64 2
   store ptr %10060, ptr %10049, align 8
   %10061 = load i8, ptr %10050, align 1
   %10062 = and i8 %10061, 63
@@ -17931,12 +17931,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %10073 = and i32 %10072, 61440
   %10074 = shl nuw nsw i32 %10070, 6
   %10075 = or disjoint i32 %10074, %10073
-  %10076 = getelementptr inbounds i8, ptr %10038, i64 2
+  %10076 = getelementptr inbounds nuw i8, ptr %10038, i64 2
   %10077 = load i8, ptr %10076, align 1
   %10078 = and i8 %10077, 63
   %10079 = zext nneg i8 %10078 to i32
   %10080 = or disjoint i32 %10075, %10079
-  %10081 = getelementptr inbounds i8, ptr %10038, i64 3
+  %10081 = getelementptr inbounds nuw i8, ptr %10038, i64 3
   store ptr %10081, ptr %10049, align 8
   br label %10145
 
@@ -17950,33 +17950,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %10087 = and i32 %10086, 1835008
   %10088 = shl nuw nsw i32 %10070, 12
   %10089 = or disjoint i32 %10088, %10087
-  %10090 = getelementptr inbounds i8, ptr %10038, i64 2
+  %10090 = getelementptr inbounds nuw i8, ptr %10038, i64 2
   %10091 = load i8, ptr %10090, align 1
   %10092 = and i8 %10091, 63
   %10093 = zext nneg i8 %10092 to i32
   %10094 = shl nuw nsw i32 %10093, 6
   %10095 = or disjoint i32 %10089, %10094
-  %10096 = getelementptr inbounds i8, ptr %10038, i64 3
+  %10096 = getelementptr inbounds nuw i8, ptr %10038, i64 3
   %10097 = load i8, ptr %10096, align 1
   %10098 = and i8 %10097, 63
   %10099 = zext nneg i8 %10098 to i32
   %10100 = or disjoint i32 %10095, %10099
-  %10101 = getelementptr inbounds i8, ptr %10038, i64 4
+  %10101 = getelementptr inbounds nuw i8, ptr %10038, i64 4
   store ptr %10101, ptr %10049, align 8
   br label %10145
 
 10102:                                            ; preds = %10082
   %10103 = and i32 %10052, 4
   %10104 = icmp eq i32 %10103, 0
-  %10105 = getelementptr inbounds i8, ptr %10038, i64 2
+  %10105 = getelementptr inbounds nuw i8, ptr %10038, i64 2
   %10106 = load i8, ptr %10105, align 1
   %10107 = and i8 %10106, 63
   %10108 = zext nneg i8 %10107 to i32
-  %10109 = getelementptr inbounds i8, ptr %10038, i64 3
+  %10109 = getelementptr inbounds nuw i8, ptr %10038, i64 3
   %10110 = load i8, ptr %10109, align 1
   %10111 = and i8 %10110, 63
   %10112 = zext nneg i8 %10111 to i32
-  %10113 = getelementptr inbounds i8, ptr %10038, i64 4
+  %10113 = getelementptr inbounds nuw i8, ptr %10038, i64 4
   %10114 = load i8, ptr %10113, align 1
   %10115 = and i8 %10114, 63
   %10116 = zext nneg i8 %10115 to i32
@@ -17992,7 +17992,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %10124 = shl nuw nsw i32 %10112, 6
   %10125 = or disjoint i32 %10123, %10124
   %10126 = or disjoint i32 %10125, %10116
-  %10127 = getelementptr inbounds i8, ptr %10038, i64 5
+  %10127 = getelementptr inbounds nuw i8, ptr %10038, i64 5
   store ptr %10127, ptr %10049, align 8
   br label %10145
 
@@ -18007,12 +18007,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %10136 = or disjoint i32 %10134, %10135
   %10137 = shl nuw nsw i32 %10116, 6
   %10138 = or disjoint i32 %10136, %10137
-  %10139 = getelementptr inbounds i8, ptr %10038, i64 5
+  %10139 = getelementptr inbounds nuw i8, ptr %10038, i64 5
   %10140 = load i8, ptr %10139, align 1
   %10141 = and i8 %10140, 63
   %10142 = zext nneg i8 %10141 to i32
   %10143 = or disjoint i32 %10138, %10142
-  %10144 = getelementptr inbounds i8, ptr %10038, i64 6
+  %10144 = getelementptr inbounds nuw i8, ptr %10038, i64 6
   store ptr %10144, ptr %10049, align 8
   br label %10145
 
@@ -18059,17 +18059,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 10161:                                            ; preds = %15898
-  %10162 = getelementptr inbounds i8, ptr %15814, i64 56
+  %10162 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %10163 = load i32, ptr %10162, align 8
   %10164 = add i32 %10163, 1
   store i32 %10164, ptr %10162, align 8
-  %10165 = getelementptr inbounds i8, ptr %15814, i64 60
+  %10165 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %10166 = load i32, ptr %10165, align 4
   %.not9071 = icmp ult i32 %10163, %10166
   br i1 %.not9071, label %10167, label %.backedge.backedge
 
 10167:                                            ; preds = %10161
-  %10168 = getelementptr inbounds i8, ptr %15814, i64 80
+  %10168 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %10169 = load ptr, ptr %10168, align 8
   %10170 = load ptr, ptr %39, align 8
   %.not9072 = icmp ult ptr %10169, %10170
@@ -18096,7 +18096,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9518, label %.backedge.backedge, label %.loopexit
 
 10179:                                            ; preds = %10167
-  %10180 = getelementptr inbounds i8, ptr %15814, i64 64
+  %10180 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %10181 = load i32, ptr %10180, align 8
   %10182 = icmp eq i32 %10181, 12
   br i1 %10182, label %10183, label %10203
@@ -18134,7 +18134,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %10197, label %.backedge.backedge, label %10198
 
 10198:                                            ; preds = %10196
-  %10199 = getelementptr inbounds i8, ptr %10169, i64 1
+  %10199 = getelementptr inbounds nuw i8, ptr %10169, i64 1
   %10200 = load i8, ptr %10199, align 1
   %10201 = load i8, ptr %50, align 1
   %10202 = icmp eq i8 %10200, %10201
@@ -18142,7 +18142,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 
 10203:                                            ; preds = %._crit_edge12610, %10198, %10192, %10187, %10179
   %10204 = phi ptr [ %.pre12611, %._crit_edge12610 ], [ %10169, %10198 ], [ %10169, %10192 ], [ %10169, %10187 ], [ %10169, %10179 ]
-  %10205 = getelementptr inbounds i8, ptr %10204, i64 1
+  %10205 = getelementptr inbounds nuw i8, ptr %10204, i64 1
   store ptr %10205, ptr %10168, align 8
   %10206 = load i8, ptr %10204, align 1
   %10207 = zext i8 %10206 to i32
@@ -18157,7 +18157,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 10212:                                            ; preds = %10209
   %10213 = shl nuw nsw i32 %10207, 6
   %10214 = and i32 %10213, 1984
-  %10215 = getelementptr inbounds i8, ptr %10204, i64 2
+  %10215 = getelementptr inbounds nuw i8, ptr %10204, i64 2
   store ptr %10215, ptr %10168, align 8
   %10216 = load i8, ptr %10205, align 1
   %10217 = and i8 %10216, 63
@@ -18178,12 +18178,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %10228 = and i32 %10227, 61440
   %10229 = shl nuw nsw i32 %10225, 6
   %10230 = or disjoint i32 %10229, %10228
-  %10231 = getelementptr inbounds i8, ptr %10204, i64 2
+  %10231 = getelementptr inbounds nuw i8, ptr %10204, i64 2
   %10232 = load i8, ptr %10231, align 1
   %10233 = and i8 %10232, 63
   %10234 = zext nneg i8 %10233 to i32
   %10235 = or disjoint i32 %10230, %10234
-  %10236 = getelementptr inbounds i8, ptr %10204, i64 3
+  %10236 = getelementptr inbounds nuw i8, ptr %10204, i64 3
   store ptr %10236, ptr %10168, align 8
   br label %10300
 
@@ -18197,33 +18197,33 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %10242 = and i32 %10241, 1835008
   %10243 = shl nuw nsw i32 %10225, 12
   %10244 = or disjoint i32 %10243, %10242
-  %10245 = getelementptr inbounds i8, ptr %10204, i64 2
+  %10245 = getelementptr inbounds nuw i8, ptr %10204, i64 2
   %10246 = load i8, ptr %10245, align 1
   %10247 = and i8 %10246, 63
   %10248 = zext nneg i8 %10247 to i32
   %10249 = shl nuw nsw i32 %10248, 6
   %10250 = or disjoint i32 %10244, %10249
-  %10251 = getelementptr inbounds i8, ptr %10204, i64 3
+  %10251 = getelementptr inbounds nuw i8, ptr %10204, i64 3
   %10252 = load i8, ptr %10251, align 1
   %10253 = and i8 %10252, 63
   %10254 = zext nneg i8 %10253 to i32
   %10255 = or disjoint i32 %10250, %10254
-  %10256 = getelementptr inbounds i8, ptr %10204, i64 4
+  %10256 = getelementptr inbounds nuw i8, ptr %10204, i64 4
   store ptr %10256, ptr %10168, align 8
   br label %10300
 
 10257:                                            ; preds = %10237
   %10258 = and i32 %10207, 4
   %10259 = icmp eq i32 %10258, 0
-  %10260 = getelementptr inbounds i8, ptr %10204, i64 2
+  %10260 = getelementptr inbounds nuw i8, ptr %10204, i64 2
   %10261 = load i8, ptr %10260, align 1
   %10262 = and i8 %10261, 63
   %10263 = zext nneg i8 %10262 to i32
-  %10264 = getelementptr inbounds i8, ptr %10204, i64 3
+  %10264 = getelementptr inbounds nuw i8, ptr %10204, i64 3
   %10265 = load i8, ptr %10264, align 1
   %10266 = and i8 %10265, 63
   %10267 = zext nneg i8 %10266 to i32
-  %10268 = getelementptr inbounds i8, ptr %10204, i64 4
+  %10268 = getelementptr inbounds nuw i8, ptr %10204, i64 4
   %10269 = load i8, ptr %10268, align 1
   %10270 = and i8 %10269, 63
   %10271 = zext nneg i8 %10270 to i32
@@ -18239,7 +18239,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %10279 = shl nuw nsw i32 %10267, 6
   %10280 = or disjoint i32 %10278, %10279
   %10281 = or disjoint i32 %10280, %10271
-  %10282 = getelementptr inbounds i8, ptr %10204, i64 5
+  %10282 = getelementptr inbounds nuw i8, ptr %10204, i64 5
   store ptr %10282, ptr %10168, align 8
   br label %10300
 
@@ -18254,12 +18254,12 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %10291 = or disjoint i32 %10289, %10290
   %10292 = shl nuw nsw i32 %10271, 6
   %10293 = or disjoint i32 %10291, %10292
-  %10294 = getelementptr inbounds i8, ptr %10204, i64 5
+  %10294 = getelementptr inbounds nuw i8, ptr %10204, i64 5
   %10295 = load i8, ptr %10294, align 1
   %10296 = and i8 %10295, 63
   %10297 = zext nneg i8 %10296 to i32
   %10298 = or disjoint i32 %10293, %10297
-  %10299 = getelementptr inbounds i8, ptr %10204, i64 6
+  %10299 = getelementptr inbounds nuw i8, ptr %10204, i64 6
   store ptr %10299, ptr %10168, align 8
   br label %10300
 
@@ -18337,7 +18337,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %10324, label %10325, label %.loopexit9571
 
 10325:                                            ; preds = %10322
-  %10326 = getelementptr inbounds i8, ptr %10301, i64 1
+  %10326 = getelementptr inbounds nuw i8, ptr %10301, i64 1
   store ptr %10326, ptr %10168, align 8
   br label %.loopexit9571
 
@@ -18421,7 +18421,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 10336:                                            ; preds = %10334
   %10337 = load ptr, ptr %38, align 8
   %10338 = zext nneg i32 %.547742 to i64
-  %10339 = getelementptr inbounds i8, ptr %10337, i64 %10338
+  %10339 = getelementptr inbounds nuw i8, ptr %10337, i64 %10338
   %10340 = load i8, ptr %10339, align 1
   %10341 = and i8 %10340, 8
   %.not9078 = icmp eq i8 %10341, 0
@@ -18434,7 +18434,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 10344:                                            ; preds = %10342
   %10345 = load ptr, ptr %38, align 8
   %10346 = zext nneg i32 %.547742 to i64
-  %10347 = getelementptr inbounds i8, ptr %10345, i64 %10346
+  %10347 = getelementptr inbounds nuw i8, ptr %10345, i64 %10346
   %10348 = load i8, ptr %10347, align 1
   %10349 = and i8 %10348, 8
   %10350 = icmp eq i8 %10349, 0
@@ -18447,7 +18447,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 10353:                                            ; preds = %10351
   %10354 = load ptr, ptr %38, align 8
   %10355 = zext nneg i32 %.547742 to i64
-  %10356 = getelementptr inbounds i8, ptr %10354, i64 %10355
+  %10356 = getelementptr inbounds nuw i8, ptr %10354, i64 %10355
   %10357 = load i8, ptr %10356, align 1
   %10358 = and i8 %10357, 1
   %.not9077 = icmp eq i8 %10358, 0
@@ -18460,7 +18460,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 10361:                                            ; preds = %10359
   %10362 = load ptr, ptr %38, align 8
   %10363 = zext nneg i32 %.547742 to i64
-  %10364 = getelementptr inbounds i8, ptr %10362, i64 %10363
+  %10364 = getelementptr inbounds nuw i8, ptr %10362, i64 %10363
   %10365 = load i8, ptr %10364, align 1
   %10366 = and i8 %10365, 1
   %10367 = icmp eq i8 %10366, 0
@@ -18473,7 +18473,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 10370:                                            ; preds = %10368
   %10371 = load ptr, ptr %38, align 8
   %10372 = zext nneg i32 %.547742 to i64
-  %10373 = getelementptr inbounds i8, ptr %10371, i64 %10372
+  %10373 = getelementptr inbounds nuw i8, ptr %10371, i64 %10372
   %10374 = load i8, ptr %10373, align 1
   %10375 = and i8 %10374, 16
   %.not9076 = icmp eq i8 %10375, 0
@@ -18486,7 +18486,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
 10378:                                            ; preds = %10376
   %10379 = load ptr, ptr %38, align 8
   %10380 = zext nneg i32 %.547742 to i64
-  %10381 = getelementptr inbounds i8, ptr %10379, i64 %10380
+  %10381 = getelementptr inbounds nuw i8, ptr %10379, i64 %10380
   %10382 = load i8, ptr %10381, align 1
   %10383 = and i8 %10382, 16
   %10384 = icmp eq i8 %10383, 0
@@ -18501,17 +18501,17 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %.loopexit9844
 
 10386:                                            ; preds = %15873
-  %10387 = getelementptr inbounds i8, ptr %15814, i64 56
+  %10387 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %10388 = load i32, ptr %10387, align 8
   %10389 = add i32 %10388, 1
   store i32 %10389, ptr %10387, align 8
-  %10390 = getelementptr inbounds i8, ptr %15814, i64 60
+  %10390 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %10391 = load i32, ptr %10390, align 4
   %.not9193 = icmp ult i32 %10388, %10391
   br i1 %.not9193, label %10392, label %.backedge.backedge
 
 10392:                                            ; preds = %10386
-  %10393 = getelementptr inbounds i8, ptr %15814, i64 80
+  %10393 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %10394 = load ptr, ptr %10393, align 8
   %10395 = load ptr, ptr %39, align 8
   %.not9194 = icmp ult ptr %10394, %10395
@@ -18538,7 +18538,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %.not9538, label %.backedge.backedge, label %.loopexit
 
 10404:                                            ; preds = %10392
-  %10405 = getelementptr inbounds i8, ptr %15814, i64 64
+  %10405 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %10406 = load i32, ptr %10405, align 8
   %10407 = icmp eq i32 %10406, 12
   br i1 %10407, label %10408, label %thread-pre-split9336
@@ -18577,14 +18577,14 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br i1 %10422, label %.backedge.backedge, label %10423
 
 10423:                                            ; preds = %10421
-  %10424 = getelementptr inbounds i8, ptr %10394, i64 1
+  %10424 = getelementptr inbounds nuw i8, ptr %10394, i64 1
   %10425 = load i8, ptr %10424, align 1
   %10426 = load i8, ptr %50, align 1
   %10427 = icmp eq i8 %10425, %10426
   br i1 %10427, label %.backedge.backedge, label %thread-pre-split9336.thread
 
 thread-pre-split9336.thread:                      ; preds = %10412, %10417, %10423
-  %10428 = getelementptr inbounds i8, ptr %10394, i64 1
+  %10428 = getelementptr inbounds nuw i8, ptr %10394, i64 1
   store ptr %10428, ptr %10393, align 8
   %10429 = load i8, ptr %10394, align 1
   br label %10435
@@ -18592,7 +18592,7 @@ thread-pre-split9336.thread:                      ; preds = %10412, %10417, %104
 thread-pre-split9336:                             ; preds = %.thread-pre-split9336_crit_edge, %10404
   %10430 = phi ptr [ %10394, %10404 ], [ %.pre12620.pre, %.thread-pre-split9336_crit_edge ]
   %10431 = phi i32 [ %10406, %10404 ], [ %.pr9337.pre, %.thread-pre-split9336_crit_edge ]
-  %10432 = getelementptr inbounds i8, ptr %10430, i64 1
+  %10432 = getelementptr inbounds nuw i8, ptr %10430, i64 1
   store ptr %10432, ptr %10393, align 8
   %10433 = load i8, ptr %10430, align 1
   switch i32 %10431, label %.loopexit [
@@ -18613,7 +18613,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   ]
 
 .loopexit12799:                                   ; preds = %thread-pre-split9336
-  %10434 = getelementptr inbounds i8, ptr %10430, i64 1
+  %10434 = getelementptr inbounds nuw i8, ptr %10430, i64 1
   br label %10435
 
 10435:                                            ; preds = %.loopexit12799, %thread-pre-split9336.thread
@@ -18658,7 +18658,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   ]
 
 10452:                                            ; preds = %10451
-  %10453 = getelementptr inbounds i8, ptr %10430, i64 1
+  %10453 = getelementptr inbounds nuw i8, ptr %10430, i64 1
   %10454 = load ptr, ptr %39, align 8
   %10455 = icmp ult ptr %10453, %10454
   br i1 %10455, label %10456, label %.loopexit9586
@@ -18669,7 +18669,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10458, label %10459, label %.loopexit9586
 
 10459:                                            ; preds = %10456
-  %10460 = getelementptr inbounds i8, ptr %10430, i64 2
+  %10460 = getelementptr inbounds nuw i8, ptr %10430, i64 2
   store ptr %10460, ptr %10393, align 8
   br label %.loopexit9586
 
@@ -18713,7 +18713,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10468:                                            ; preds = %thread-pre-split9336
   %10469 = load ptr, ptr %38, align 8
   %10470 = zext i8 %10433 to i64
-  %10471 = getelementptr inbounds i8, ptr %10469, i64 %10470
+  %10471 = getelementptr inbounds nuw i8, ptr %10469, i64 %10470
   %10472 = load i8, ptr %10471, align 1
   %10473 = and i8 %10472, 8
   %.not9200 = icmp eq i8 %10473, 0
@@ -18722,7 +18722,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10474:                                            ; preds = %thread-pre-split9336
   %10475 = load ptr, ptr %38, align 8
   %10476 = zext i8 %10433 to i64
-  %10477 = getelementptr inbounds i8, ptr %10475, i64 %10476
+  %10477 = getelementptr inbounds nuw i8, ptr %10475, i64 %10476
   %10478 = load i8, ptr %10477, align 1
   %10479 = and i8 %10478, 8
   %10480 = icmp eq i8 %10479, 0
@@ -18731,7 +18731,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10481:                                            ; preds = %thread-pre-split9336
   %10482 = load ptr, ptr %38, align 8
   %10483 = zext i8 %10433 to i64
-  %10484 = getelementptr inbounds i8, ptr %10482, i64 %10483
+  %10484 = getelementptr inbounds nuw i8, ptr %10482, i64 %10483
   %10485 = load i8, ptr %10484, align 1
   %10486 = and i8 %10485, 1
   %.not9199 = icmp eq i8 %10486, 0
@@ -18740,7 +18740,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10487:                                            ; preds = %thread-pre-split9336
   %10488 = load ptr, ptr %38, align 8
   %10489 = zext i8 %10433 to i64
-  %10490 = getelementptr inbounds i8, ptr %10488, i64 %10489
+  %10490 = getelementptr inbounds nuw i8, ptr %10488, i64 %10489
   %10491 = load i8, ptr %10490, align 1
   %10492 = and i8 %10491, 1
   %10493 = icmp eq i8 %10492, 0
@@ -18749,7 +18749,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10494:                                            ; preds = %thread-pre-split9336
   %10495 = load ptr, ptr %38, align 8
   %10496 = zext i8 %10433 to i64
-  %10497 = getelementptr inbounds i8, ptr %10495, i64 %10496
+  %10497 = getelementptr inbounds nuw i8, ptr %10495, i64 %10496
   %10498 = load i8, ptr %10497, align 1
   %10499 = and i8 %10498, 16
   %.not9198 = icmp eq i8 %10499, 0
@@ -18758,16 +18758,16 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10500:                                            ; preds = %thread-pre-split9336
   %10501 = load ptr, ptr %38, align 8
   %10502 = zext i8 %10433 to i64
-  %10503 = getelementptr inbounds i8, ptr %10501, i64 %10502
+  %10503 = getelementptr inbounds nuw i8, ptr %10501, i64 %10502
   %10504 = load i8, ptr %10503, align 1
   %10505 = and i8 %10504, 16
   %10506 = icmp eq i8 %10505, 0
   br i1 %10506, label %.backedge.backedge, label %.loopexit9586
 
 10507:                                            ; preds = %8300
-  %10508 = getelementptr inbounds i8, ptr %.3, i64 80
+  %10508 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %10509 = load ptr, ptr %10508, align 8
-  %10510 = getelementptr inbounds i8, ptr %.3, i64 8
+  %10510 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %10509, ptr %10510, align 8
   %10511 = icmp sgt i32 %.076219332, -1
   %10512 = load i32, ptr %8294, align 8
@@ -18799,7 +18799,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10516, label %.lr.ph11101, label %.loopexit9639
 
 .lr.ph11101:                                      ; preds = %.preheader9661
-  %10517 = getelementptr inbounds i8, ptr %.3, i64 68
+  %10517 = getelementptr inbounds nuw i8, ptr %.3, i64 68
   br label %11918
 
 .preheader9659:                                   ; preds = %10513
@@ -18807,7 +18807,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10518, label %.lr.ph11104, label %.loopexit9639
 
 .lr.ph11104:                                      ; preds = %.preheader9659
-  %10519 = getelementptr inbounds i8, ptr %.3, i64 68
+  %10519 = getelementptr inbounds nuw i8, ptr %.3, i64 68
   br label %11795
 
 .preheader9657:                                   ; preds = %10513
@@ -18819,7 +18819,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10521, label %.lr.ph11110, label %.loopexit9639
 
 .lr.ph11110:                                      ; preds = %.preheader9655
-  %10522 = getelementptr inbounds i8, ptr %.3, i64 68
+  %10522 = getelementptr inbounds nuw i8, ptr %.3, i64 68
   br label %11569
 
 .preheader9653:                                   ; preds = %10513
@@ -18835,7 +18835,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10525, label %.lr.ph11125, label %.loopexit9639
 
 .lr.ph11125:                                      ; preds = %.preheader9648
-  %10526 = getelementptr inbounds i8, ptr %.3, i64 68
+  %10526 = getelementptr inbounds nuw i8, ptr %.3, i64 68
   br label %11056
 
 .preheader9646:                                   ; preds = %10513
@@ -18843,7 +18843,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10527, label %.lr.ph11128, label %.loopexit9639
 
 .lr.ph11128:                                      ; preds = %.preheader9646
-  %10528 = getelementptr inbounds i8, ptr %.3, i64 68
+  %10528 = getelementptr inbounds nuw i8, ptr %.3, i64 68
   br label %10934
 
 .preheader9644:                                   ; preds = %10513
@@ -18851,7 +18851,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10529, label %.lr.ph11131, label %.loopexit9639
 
 .lr.ph11131:                                      ; preds = %.preheader9644
-  %10530 = getelementptr inbounds i8, ptr %.3, i64 68
+  %10530 = getelementptr inbounds nuw i8, ptr %.3, i64 68
   br label %10812
 
 .preheader9642:                                   ; preds = %10513
@@ -18859,7 +18859,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10531, label %.lr.ph11134, label %.loopexit9639
 
 .lr.ph11134:                                      ; preds = %.preheader9642
-  %10532 = getelementptr inbounds i8, ptr %.3, i64 68
+  %10532 = getelementptr inbounds nuw i8, ptr %.3, i64 68
   br label %10688
 
 .preheader9640:                                   ; preds = %10513
@@ -18936,7 +18936,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 10561:                                            ; preds = %10558, %10555, %10552, %10549, %10545
   %.07850 = phi i64 [ 1, %10545 ], [ 2, %10549 ], [ 3, %10552 ], [ 4, %10555 ], [ %., %10558 ]
-  %10562 = getelementptr inbounds i8, ptr %10536, i64 %.07850
+  %10562 = getelementptr inbounds nuw i8, ptr %10536, i64 %.07850
   store ptr %10562, ptr %10508, align 8
   %10563 = add nuw i32 %.60768711139, 1
   %10564 = icmp ult i32 %10563, %8298
@@ -18979,7 +18979,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10579:                                            ; preds = %10575
   %10580 = and i32 %10577, 32
   %10581 = icmp eq i32 %10580, 0
-  %10582 = getelementptr inbounds i8, ptr %10565, i64 1
+  %10582 = getelementptr inbounds nuw i8, ptr %10565, i64 1
   %10583 = load i8, ptr %10582, align 1
   %10584 = and i8 %10583, 63
   %10585 = zext nneg i8 %10584 to i32
@@ -19001,7 +19001,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %10595 = and i32 %10594, 61440
   %10596 = shl nuw nsw i32 %10585, 6
   %10597 = or disjoint i32 %10596, %10595
-  %10598 = getelementptr inbounds i8, ptr %10565, i64 2
+  %10598 = getelementptr inbounds nuw i8, ptr %10565, i64 2
   %10599 = load i8, ptr %10598, align 1
   %10600 = and i8 %10599, 63
   %10601 = zext nneg i8 %10600 to i32
@@ -19018,13 +19018,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %10608 = and i32 %10607, 1835008
   %10609 = shl nuw nsw i32 %10585, 12
   %10610 = or disjoint i32 %10609, %10608
-  %10611 = getelementptr inbounds i8, ptr %10565, i64 2
+  %10611 = getelementptr inbounds nuw i8, ptr %10565, i64 2
   %10612 = load i8, ptr %10611, align 1
   %10613 = and i8 %10612, 63
   %10614 = zext nneg i8 %10613 to i32
   %10615 = shl nuw nsw i32 %10614, 6
   %10616 = or disjoint i32 %10610, %10615
-  %10617 = getelementptr inbounds i8, ptr %10565, i64 3
+  %10617 = getelementptr inbounds nuw i8, ptr %10565, i64 3
   %10618 = load i8, ptr %10617, align 1
   %10619 = and i8 %10618, 63
   %10620 = zext nneg i8 %10619 to i32
@@ -19034,15 +19034,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10622:                                            ; preds = %10603
   %10623 = and i32 %10577, 4
   %10624 = icmp eq i32 %10623, 0
-  %10625 = getelementptr inbounds i8, ptr %10565, i64 2
+  %10625 = getelementptr inbounds nuw i8, ptr %10565, i64 2
   %10626 = load i8, ptr %10625, align 1
   %10627 = and i8 %10626, 63
   %10628 = zext nneg i8 %10627 to i32
-  %10629 = getelementptr inbounds i8, ptr %10565, i64 3
+  %10629 = getelementptr inbounds nuw i8, ptr %10565, i64 3
   %10630 = load i8, ptr %10629, align 1
   %10631 = and i8 %10630, 63
   %10632 = zext nneg i8 %10631 to i32
-  %10633 = getelementptr inbounds i8, ptr %10565, i64 4
+  %10633 = getelementptr inbounds nuw i8, ptr %10565, i64 4
   %10634 = load i8, ptr %10633, align 1
   %10635 = and i8 %10634, 63
   %10636 = zext nneg i8 %10635 to i32
@@ -19071,7 +19071,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %10655 = or disjoint i32 %10653, %10654
   %10656 = shl nuw nsw i32 %10636, 6
   %10657 = or disjoint i32 %10655, %10656
-  %10658 = getelementptr inbounds i8, ptr %10565, i64 5
+  %10658 = getelementptr inbounds nuw i8, ptr %10565, i64 5
   %10659 = load i8, ptr %10658, align 1
   %10660 = and i8 %10659, 63
   %10661 = zext nneg i8 %10660 to i32
@@ -19083,17 +19083,17 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.557743 = phi i32 [ %10589, %10586 ], [ %10602, %10593 ], [ %10621, %10606 ], [ %10646, %10637 ], [ %10662, %10647 ], [ %10577, %10575 ]
   %10664 = lshr i32 %.557743, 7
   %10665 = zext nneg i32 %10664 to i64
-  %10666 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %10665
+  %10666 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %10665
   %10667 = load i16, ptr %10666, align 2
   %10668 = zext i16 %10667 to i32
   %10669 = shl nuw nsw i32 %10668, 7
   %10670 = and i32 %.557743, 127
   %10671 = or disjoint i32 %10669, %10670
   %10672 = zext nneg i32 %10671 to i64
-  %10673 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %10672
+  %10673 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %10672
   %10674 = load i16, ptr %10673, align 2
   %10675 = zext i16 %10674 to i64
-  %10676 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %10675, i32 1
+  %10676 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %10675, i32 1
   %10677 = load i8, ptr %10676, align 1
   switch i8 %10677, label %10678 [
     i8 9, label %10681
@@ -19111,7 +19111,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10683, label %.loopexit9639, label %10684
 
 10684:                                            ; preds = %10681
-  %10685 = getelementptr inbounds i8, ptr %10565, i64 %.07845
+  %10685 = getelementptr inbounds nuw i8, ptr %10565, i64 %.07845
   store ptr %10685, ptr %10508, align 8
   %10686 = add nuw i32 %.6111136, 1
   %10687 = icmp ult i32 %10686, %8298
@@ -19154,7 +19154,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10703:                                            ; preds = %10699
   %10704 = and i32 %10701, 32
   %10705 = icmp eq i32 %10704, 0
-  %10706 = getelementptr inbounds i8, ptr %10689, i64 1
+  %10706 = getelementptr inbounds nuw i8, ptr %10689, i64 1
   %10707 = load i8, ptr %10706, align 1
   %10708 = and i8 %10707, 63
   %10709 = zext nneg i8 %10708 to i32
@@ -19176,7 +19176,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %10719 = and i32 %10718, 61440
   %10720 = shl nuw nsw i32 %10709, 6
   %10721 = or disjoint i32 %10720, %10719
-  %10722 = getelementptr inbounds i8, ptr %10689, i64 2
+  %10722 = getelementptr inbounds nuw i8, ptr %10689, i64 2
   %10723 = load i8, ptr %10722, align 1
   %10724 = and i8 %10723, 63
   %10725 = zext nneg i8 %10724 to i32
@@ -19193,13 +19193,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %10732 = and i32 %10731, 1835008
   %10733 = shl nuw nsw i32 %10709, 12
   %10734 = or disjoint i32 %10733, %10732
-  %10735 = getelementptr inbounds i8, ptr %10689, i64 2
+  %10735 = getelementptr inbounds nuw i8, ptr %10689, i64 2
   %10736 = load i8, ptr %10735, align 1
   %10737 = and i8 %10736, 63
   %10738 = zext nneg i8 %10737 to i32
   %10739 = shl nuw nsw i32 %10738, 6
   %10740 = or disjoint i32 %10734, %10739
-  %10741 = getelementptr inbounds i8, ptr %10689, i64 3
+  %10741 = getelementptr inbounds nuw i8, ptr %10689, i64 3
   %10742 = load i8, ptr %10741, align 1
   %10743 = and i8 %10742, 63
   %10744 = zext nneg i8 %10743 to i32
@@ -19209,15 +19209,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10746:                                            ; preds = %10727
   %10747 = and i32 %10701, 4
   %10748 = icmp eq i32 %10747, 0
-  %10749 = getelementptr inbounds i8, ptr %10689, i64 2
+  %10749 = getelementptr inbounds nuw i8, ptr %10689, i64 2
   %10750 = load i8, ptr %10749, align 1
   %10751 = and i8 %10750, 63
   %10752 = zext nneg i8 %10751 to i32
-  %10753 = getelementptr inbounds i8, ptr %10689, i64 3
+  %10753 = getelementptr inbounds nuw i8, ptr %10689, i64 3
   %10754 = load i8, ptr %10753, align 1
   %10755 = and i8 %10754, 63
   %10756 = zext nneg i8 %10755 to i32
-  %10757 = getelementptr inbounds i8, ptr %10689, i64 4
+  %10757 = getelementptr inbounds nuw i8, ptr %10689, i64 4
   %10758 = load i8, ptr %10757, align 1
   %10759 = and i8 %10758, 63
   %10760 = zext nneg i8 %10759 to i32
@@ -19246,7 +19246,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %10779 = or disjoint i32 %10777, %10778
   %10780 = shl nuw nsw i32 %10760, 6
   %10781 = or disjoint i32 %10779, %10780
-  %10782 = getelementptr inbounds i8, ptr %10689, i64 5
+  %10782 = getelementptr inbounds nuw i8, ptr %10689, i64 5
   %10783 = load i8, ptr %10782, align 1
   %10784 = and i8 %10783, 63
   %10785 = zext nneg i8 %10784 to i32
@@ -19258,20 +19258,20 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.567744 = phi i32 [ %10713, %10710 ], [ %10726, %10717 ], [ %10745, %10730 ], [ %10770, %10761 ], [ %10786, %10771 ], [ %10701, %10699 ]
   %10788 = lshr i32 %.567744, 7
   %10789 = zext nneg i32 %10788 to i64
-  %10790 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %10789
+  %10790 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %10789
   %10791 = load i16, ptr %10790, align 2
   %10792 = zext i16 %10791 to i32
   %10793 = shl nuw nsw i32 %10792, 7
   %10794 = and i32 %.567744, 127
   %10795 = or disjoint i32 %10793, %10794
   %10796 = zext nneg i32 %10795 to i64
-  %10797 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %10796
+  %10797 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %10796
   %10798 = load i16, ptr %10797, align 2
   %10799 = zext i16 %10798 to i64
-  %10800 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %10799, i32 1
+  %10800 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %10799, i32 1
   %10801 = load i8, ptr %10800, align 1
   %10802 = zext i8 %10801 to i64
-  %10803 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %10802
+  %10803 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %10802
   %10804 = load i32, ptr %10803, align 4
   %10805 = load i32, ptr %10532, align 4
   %10806 = icmp ne i32 %10804, %10805
@@ -19279,7 +19279,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10807, label %.loopexit9639, label %10808
 
 10808:                                            ; preds = %10787
-  %10809 = getelementptr inbounds i8, ptr %10689, i64 %.07844
+  %10809 = getelementptr inbounds nuw i8, ptr %10689, i64 %.07844
   store ptr %10809, ptr %10508, align 8
   %10810 = add nuw i32 %.6211133, 1
   %10811 = icmp ult i32 %10810, %8298
@@ -19322,7 +19322,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10827:                                            ; preds = %10823
   %10828 = and i32 %10825, 32
   %10829 = icmp eq i32 %10828, 0
-  %10830 = getelementptr inbounds i8, ptr %10813, i64 1
+  %10830 = getelementptr inbounds nuw i8, ptr %10813, i64 1
   %10831 = load i8, ptr %10830, align 1
   %10832 = and i8 %10831, 63
   %10833 = zext nneg i8 %10832 to i32
@@ -19344,7 +19344,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %10843 = and i32 %10842, 61440
   %10844 = shl nuw nsw i32 %10833, 6
   %10845 = or disjoint i32 %10844, %10843
-  %10846 = getelementptr inbounds i8, ptr %10813, i64 2
+  %10846 = getelementptr inbounds nuw i8, ptr %10813, i64 2
   %10847 = load i8, ptr %10846, align 1
   %10848 = and i8 %10847, 63
   %10849 = zext nneg i8 %10848 to i32
@@ -19361,13 +19361,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %10856 = and i32 %10855, 1835008
   %10857 = shl nuw nsw i32 %10833, 12
   %10858 = or disjoint i32 %10857, %10856
-  %10859 = getelementptr inbounds i8, ptr %10813, i64 2
+  %10859 = getelementptr inbounds nuw i8, ptr %10813, i64 2
   %10860 = load i8, ptr %10859, align 1
   %10861 = and i8 %10860, 63
   %10862 = zext nneg i8 %10861 to i32
   %10863 = shl nuw nsw i32 %10862, 6
   %10864 = or disjoint i32 %10858, %10863
-  %10865 = getelementptr inbounds i8, ptr %10813, i64 3
+  %10865 = getelementptr inbounds nuw i8, ptr %10813, i64 3
   %10866 = load i8, ptr %10865, align 1
   %10867 = and i8 %10866, 63
   %10868 = zext nneg i8 %10867 to i32
@@ -19377,15 +19377,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10870:                                            ; preds = %10851
   %10871 = and i32 %10825, 4
   %10872 = icmp eq i32 %10871, 0
-  %10873 = getelementptr inbounds i8, ptr %10813, i64 2
+  %10873 = getelementptr inbounds nuw i8, ptr %10813, i64 2
   %10874 = load i8, ptr %10873, align 1
   %10875 = and i8 %10874, 63
   %10876 = zext nneg i8 %10875 to i32
-  %10877 = getelementptr inbounds i8, ptr %10813, i64 3
+  %10877 = getelementptr inbounds nuw i8, ptr %10813, i64 3
   %10878 = load i8, ptr %10877, align 1
   %10879 = and i8 %10878, 63
   %10880 = zext nneg i8 %10879 to i32
-  %10881 = getelementptr inbounds i8, ptr %10813, i64 4
+  %10881 = getelementptr inbounds nuw i8, ptr %10813, i64 4
   %10882 = load i8, ptr %10881, align 1
   %10883 = and i8 %10882, 63
   %10884 = zext nneg i8 %10883 to i32
@@ -19414,7 +19414,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %10903 = or disjoint i32 %10901, %10902
   %10904 = shl nuw nsw i32 %10884, 6
   %10905 = or disjoint i32 %10903, %10904
-  %10906 = getelementptr inbounds i8, ptr %10813, i64 5
+  %10906 = getelementptr inbounds nuw i8, ptr %10813, i64 5
   %10907 = load i8, ptr %10906, align 1
   %10908 = and i8 %10907, 63
   %10909 = zext nneg i8 %10908 to i32
@@ -19426,17 +19426,17 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.577745 = phi i32 [ %10837, %10834 ], [ %10850, %10841 ], [ %10869, %10854 ], [ %10894, %10885 ], [ %10910, %10895 ], [ %10825, %10823 ]
   %10912 = lshr i32 %.577745, 7
   %10913 = zext nneg i32 %10912 to i64
-  %10914 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %10913
+  %10914 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %10913
   %10915 = load i16, ptr %10914, align 2
   %10916 = zext i16 %10915 to i32
   %10917 = shl nuw nsw i32 %10916, 7
   %10918 = and i32 %.577745, 127
   %10919 = or disjoint i32 %10917, %10918
   %10920 = zext nneg i32 %10919 to i64
-  %10921 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %10920
+  %10921 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %10920
   %10922 = load i16, ptr %10921, align 2
   %10923 = zext i16 %10922 to i64
-  %10924 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %10923, i32 1
+  %10924 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %10923, i32 1
   %10925 = load i8, ptr %10924, align 1
   %10926 = zext i8 %10925 to i32
   %10927 = load i32, ptr %10530, align 4
@@ -19445,7 +19445,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10929, label %.loopexit9639, label %10930
 
 10930:                                            ; preds = %10911
-  %10931 = getelementptr inbounds i8, ptr %10813, i64 %.07843
+  %10931 = getelementptr inbounds nuw i8, ptr %10813, i64 %.07843
   store ptr %10931, ptr %10508, align 8
   %10932 = add nuw i32 %.6311130, 1
   %10933 = icmp ult i32 %10932, %8298
@@ -19488,7 +19488,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10949:                                            ; preds = %10945
   %10950 = and i32 %10947, 32
   %10951 = icmp eq i32 %10950, 0
-  %10952 = getelementptr inbounds i8, ptr %10935, i64 1
+  %10952 = getelementptr inbounds nuw i8, ptr %10935, i64 1
   %10953 = load i8, ptr %10952, align 1
   %10954 = and i8 %10953, 63
   %10955 = zext nneg i8 %10954 to i32
@@ -19510,7 +19510,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %10965 = and i32 %10964, 61440
   %10966 = shl nuw nsw i32 %10955, 6
   %10967 = or disjoint i32 %10966, %10965
-  %10968 = getelementptr inbounds i8, ptr %10935, i64 2
+  %10968 = getelementptr inbounds nuw i8, ptr %10935, i64 2
   %10969 = load i8, ptr %10968, align 1
   %10970 = and i8 %10969, 63
   %10971 = zext nneg i8 %10970 to i32
@@ -19527,13 +19527,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %10978 = and i32 %10977, 1835008
   %10979 = shl nuw nsw i32 %10955, 12
   %10980 = or disjoint i32 %10979, %10978
-  %10981 = getelementptr inbounds i8, ptr %10935, i64 2
+  %10981 = getelementptr inbounds nuw i8, ptr %10935, i64 2
   %10982 = load i8, ptr %10981, align 1
   %10983 = and i8 %10982, 63
   %10984 = zext nneg i8 %10983 to i32
   %10985 = shl nuw nsw i32 %10984, 6
   %10986 = or disjoint i32 %10980, %10985
-  %10987 = getelementptr inbounds i8, ptr %10935, i64 3
+  %10987 = getelementptr inbounds nuw i8, ptr %10935, i64 3
   %10988 = load i8, ptr %10987, align 1
   %10989 = and i8 %10988, 63
   %10990 = zext nneg i8 %10989 to i32
@@ -19543,15 +19543,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 10992:                                            ; preds = %10973
   %10993 = and i32 %10947, 4
   %10994 = icmp eq i32 %10993, 0
-  %10995 = getelementptr inbounds i8, ptr %10935, i64 2
+  %10995 = getelementptr inbounds nuw i8, ptr %10935, i64 2
   %10996 = load i8, ptr %10995, align 1
   %10997 = and i8 %10996, 63
   %10998 = zext nneg i8 %10997 to i32
-  %10999 = getelementptr inbounds i8, ptr %10935, i64 3
+  %10999 = getelementptr inbounds nuw i8, ptr %10935, i64 3
   %11000 = load i8, ptr %10999, align 1
   %11001 = and i8 %11000, 63
   %11002 = zext nneg i8 %11001 to i32
-  %11003 = getelementptr inbounds i8, ptr %10935, i64 4
+  %11003 = getelementptr inbounds nuw i8, ptr %10935, i64 4
   %11004 = load i8, ptr %11003, align 1
   %11005 = and i8 %11004, 63
   %11006 = zext nneg i8 %11005 to i32
@@ -19580,7 +19580,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11025 = or disjoint i32 %11023, %11024
   %11026 = shl nuw nsw i32 %11006, 6
   %11027 = or disjoint i32 %11025, %11026
-  %11028 = getelementptr inbounds i8, ptr %10935, i64 5
+  %11028 = getelementptr inbounds nuw i8, ptr %10935, i64 5
   %11029 = load i8, ptr %11028, align 1
   %11030 = and i8 %11029, 63
   %11031 = zext nneg i8 %11030 to i32
@@ -19592,17 +19592,17 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.587746 = phi i32 [ %10959, %10956 ], [ %10972, %10963 ], [ %10991, %10976 ], [ %11016, %11007 ], [ %11032, %11017 ], [ %10947, %10945 ]
   %11034 = lshr i32 %.587746, 7
   %11035 = zext nneg i32 %11034 to i64
-  %11036 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11035
+  %11036 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11035
   %11037 = load i16, ptr %11036, align 2
   %11038 = zext i16 %11037 to i32
   %11039 = shl nuw nsw i32 %11038, 7
   %11040 = and i32 %.587746, 127
   %11041 = or disjoint i32 %11039, %11040
   %11042 = zext nneg i32 %11041 to i64
-  %11043 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11042
+  %11043 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11042
   %11044 = load i16, ptr %11043, align 2
   %11045 = zext i16 %11044 to i64
-  %11046 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11045
+  %11046 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11045
   %11047 = load i8, ptr %11046, align 4
   %11048 = zext i8 %11047 to i32
   %11049 = load i32, ptr %10528, align 4
@@ -19611,7 +19611,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %11051, label %.loopexit9639, label %11052
 
 11052:                                            ; preds = %11033
-  %11053 = getelementptr inbounds i8, ptr %10935, i64 %.07842
+  %11053 = getelementptr inbounds nuw i8, ptr %10935, i64 %.07842
   store ptr %11053, ptr %10508, align 8
   %11054 = add nuw i32 %.6411127, 1
   %11055 = icmp ult i32 %11054, %8298
@@ -19654,7 +19654,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11071:                                            ; preds = %11067
   %11072 = and i32 %11069, 32
   %11073 = icmp eq i32 %11072, 0
-  %11074 = getelementptr inbounds i8, ptr %11057, i64 1
+  %11074 = getelementptr inbounds nuw i8, ptr %11057, i64 1
   %11075 = load i8, ptr %11074, align 1
   %11076 = and i8 %11075, 63
   %11077 = zext nneg i8 %11076 to i32
@@ -19676,7 +19676,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11087 = and i32 %11086, 61440
   %11088 = shl nuw nsw i32 %11077, 6
   %11089 = or disjoint i32 %11088, %11087
-  %11090 = getelementptr inbounds i8, ptr %11057, i64 2
+  %11090 = getelementptr inbounds nuw i8, ptr %11057, i64 2
   %11091 = load i8, ptr %11090, align 1
   %11092 = and i8 %11091, 63
   %11093 = zext nneg i8 %11092 to i32
@@ -19693,13 +19693,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11100 = and i32 %11099, 1835008
   %11101 = shl nuw nsw i32 %11077, 12
   %11102 = or disjoint i32 %11101, %11100
-  %11103 = getelementptr inbounds i8, ptr %11057, i64 2
+  %11103 = getelementptr inbounds nuw i8, ptr %11057, i64 2
   %11104 = load i8, ptr %11103, align 1
   %11105 = and i8 %11104, 63
   %11106 = zext nneg i8 %11105 to i32
   %11107 = shl nuw nsw i32 %11106, 6
   %11108 = or disjoint i32 %11102, %11107
-  %11109 = getelementptr inbounds i8, ptr %11057, i64 3
+  %11109 = getelementptr inbounds nuw i8, ptr %11057, i64 3
   %11110 = load i8, ptr %11109, align 1
   %11111 = and i8 %11110, 63
   %11112 = zext nneg i8 %11111 to i32
@@ -19709,15 +19709,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11114:                                            ; preds = %11095
   %11115 = and i32 %11069, 4
   %11116 = icmp eq i32 %11115, 0
-  %11117 = getelementptr inbounds i8, ptr %11057, i64 2
+  %11117 = getelementptr inbounds nuw i8, ptr %11057, i64 2
   %11118 = load i8, ptr %11117, align 1
   %11119 = and i8 %11118, 63
   %11120 = zext nneg i8 %11119 to i32
-  %11121 = getelementptr inbounds i8, ptr %11057, i64 3
+  %11121 = getelementptr inbounds nuw i8, ptr %11057, i64 3
   %11122 = load i8, ptr %11121, align 1
   %11123 = and i8 %11122, 63
   %11124 = zext nneg i8 %11123 to i32
-  %11125 = getelementptr inbounds i8, ptr %11057, i64 4
+  %11125 = getelementptr inbounds nuw i8, ptr %11057, i64 4
   %11126 = load i8, ptr %11125, align 1
   %11127 = and i8 %11126, 63
   %11128 = zext nneg i8 %11127 to i32
@@ -19746,7 +19746,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11147 = or disjoint i32 %11145, %11146
   %11148 = shl nuw nsw i32 %11128, 6
   %11149 = or disjoint i32 %11147, %11148
-  %11150 = getelementptr inbounds i8, ptr %11057, i64 5
+  %11150 = getelementptr inbounds nuw i8, ptr %11057, i64 5
   %11151 = load i8, ptr %11150, align 1
   %11152 = and i8 %11151, 63
   %11153 = zext nneg i8 %11152 to i32
@@ -19758,17 +19758,17 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.597747 = phi i32 [ %11081, %11078 ], [ %11094, %11085 ], [ %11113, %11098 ], [ %11138, %11129 ], [ %11154, %11139 ], [ %11069, %11067 ]
   %11156 = lshr i32 %.597747, 7
   %11157 = zext nneg i32 %11156 to i64
-  %11158 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11157
+  %11158 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11157
   %11159 = load i16, ptr %11158, align 2
   %11160 = zext i16 %11159 to i32
   %11161 = shl nuw nsw i32 %11160, 7
   %11162 = and i32 %.597747, 127
   %11163 = or disjoint i32 %11161, %11162
   %11164 = zext nneg i32 %11163 to i64
-  %11165 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11164
+  %11165 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11164
   %11166 = load i16, ptr %11165, align 2
   %11167 = zext i16 %11166 to i64
-  %11168 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11167
+  %11168 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11167
   %11169 = load i8, ptr %11168, align 4
   %11170 = zext i8 %11169 to i32
   %11171 = load i32, ptr %10526, align 4
@@ -19776,14 +19776,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %11172, label %11186, label %11173
 
 11173:                                            ; preds = %11155
-  %11174 = getelementptr inbounds i8, ptr %11168, i64 8
+  %11174 = getelementptr inbounds nuw i8, ptr %11168, i64 8
   %11175 = load i16, ptr %11174, align 4
   %11176 = and i16 %11175, 1023
   %11177 = zext nneg i16 %11176 to i64
-  %11178 = getelementptr inbounds i32, ptr @_pcre2_ucd_script_sets_8, i64 %11177
+  %11178 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_script_sets_8, i64 %11177
   %11179 = lshr i32 %11171, 5
   %11180 = zext nneg i32 %11179 to i64
-  %11181 = getelementptr inbounds i32, ptr %11178, i64 %11180
+  %11181 = getelementptr inbounds nuw i32, ptr %11178, i64 %11180
   %11182 = load i32, ptr %11181, align 4
   %11183 = and i32 %11171, 31
   %11184 = lshr i32 %11182, %11183
@@ -19796,7 +19796,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %11188, label %.loopexit9639, label %11189
 
 11189:                                            ; preds = %11186
-  %11190 = getelementptr inbounds i8, ptr %11057, i64 %.07772
+  %11190 = getelementptr inbounds nuw i8, ptr %11057, i64 %.07772
   store ptr %11190, ptr %10508, align 8
   %11191 = add nuw i32 %.6511124, 1
   %11192 = icmp ult i32 %11191, %8298
@@ -19839,7 +19839,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11207:                                            ; preds = %11203
   %11208 = and i32 %11205, 32
   %11209 = icmp eq i32 %11208, 0
-  %11210 = getelementptr inbounds i8, ptr %11193, i64 1
+  %11210 = getelementptr inbounds nuw i8, ptr %11193, i64 1
   %11211 = load i8, ptr %11210, align 1
   %11212 = and i8 %11211, 63
   %11213 = zext nneg i8 %11212 to i32
@@ -19861,7 +19861,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11223 = and i32 %11222, 61440
   %11224 = shl nuw nsw i32 %11213, 6
   %11225 = or disjoint i32 %11224, %11223
-  %11226 = getelementptr inbounds i8, ptr %11193, i64 2
+  %11226 = getelementptr inbounds nuw i8, ptr %11193, i64 2
   %11227 = load i8, ptr %11226, align 1
   %11228 = and i8 %11227, 63
   %11229 = zext nneg i8 %11228 to i32
@@ -19878,13 +19878,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11236 = and i32 %11235, 1835008
   %11237 = shl nuw nsw i32 %11213, 12
   %11238 = or disjoint i32 %11237, %11236
-  %11239 = getelementptr inbounds i8, ptr %11193, i64 2
+  %11239 = getelementptr inbounds nuw i8, ptr %11193, i64 2
   %11240 = load i8, ptr %11239, align 1
   %11241 = and i8 %11240, 63
   %11242 = zext nneg i8 %11241 to i32
   %11243 = shl nuw nsw i32 %11242, 6
   %11244 = or disjoint i32 %11238, %11243
-  %11245 = getelementptr inbounds i8, ptr %11193, i64 3
+  %11245 = getelementptr inbounds nuw i8, ptr %11193, i64 3
   %11246 = load i8, ptr %11245, align 1
   %11247 = and i8 %11246, 63
   %11248 = zext nneg i8 %11247 to i32
@@ -19894,15 +19894,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11250:                                            ; preds = %11231
   %11251 = and i32 %11205, 4
   %11252 = icmp eq i32 %11251, 0
-  %11253 = getelementptr inbounds i8, ptr %11193, i64 2
+  %11253 = getelementptr inbounds nuw i8, ptr %11193, i64 2
   %11254 = load i8, ptr %11253, align 1
   %11255 = and i8 %11254, 63
   %11256 = zext nneg i8 %11255 to i32
-  %11257 = getelementptr inbounds i8, ptr %11193, i64 3
+  %11257 = getelementptr inbounds nuw i8, ptr %11193, i64 3
   %11258 = load i8, ptr %11257, align 1
   %11259 = and i8 %11258, 63
   %11260 = zext nneg i8 %11259 to i32
-  %11261 = getelementptr inbounds i8, ptr %11193, i64 4
+  %11261 = getelementptr inbounds nuw i8, ptr %11193, i64 4
   %11262 = load i8, ptr %11261, align 1
   %11263 = and i8 %11262, 63
   %11264 = zext nneg i8 %11263 to i32
@@ -19931,7 +19931,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11283 = or disjoint i32 %11281, %11282
   %11284 = shl nuw nsw i32 %11264, 6
   %11285 = or disjoint i32 %11283, %11284
-  %11286 = getelementptr inbounds i8, ptr %11193, i64 5
+  %11286 = getelementptr inbounds nuw i8, ptr %11193, i64 5
   %11287 = load i8, ptr %11286, align 1
   %11288 = and i8 %11287, 63
   %11289 = zext nneg i8 %11288 to i32
@@ -19943,20 +19943,20 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.607748 = phi i32 [ %11217, %11214 ], [ %11230, %11221 ], [ %11249, %11234 ], [ %11274, %11265 ], [ %11290, %11275 ], [ %11205, %11203 ]
   %11292 = lshr i32 %.607748, 7
   %11293 = zext nneg i32 %11292 to i64
-  %11294 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11293
+  %11294 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11293
   %11295 = load i16, ptr %11294, align 2
   %11296 = zext i16 %11295 to i32
   %11297 = shl nuw nsw i32 %11296, 7
   %11298 = and i32 %.607748, 127
   %11299 = or disjoint i32 %11297, %11298
   %11300 = zext nneg i32 %11299 to i64
-  %11301 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11300
+  %11301 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11300
   %11302 = load i16, ptr %11301, align 2
   %11303 = zext i16 %11302 to i64
-  %11304 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11303, i32 1
+  %11304 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11303, i32 1
   %11305 = load i8, ptr %11304, align 1
   %11306 = zext i8 %11305 to i64
-  %11307 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %11306
+  %11307 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %11306
   %11308 = load i32, ptr %11307, align 4
   %11309 = and i32 %11308, -3
   %11310 = icmp ne i32 %11309, 1
@@ -19964,7 +19964,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %11311, label %.loopexit9639, label %11312
 
 11312:                                            ; preds = %11291
-  %11313 = getelementptr inbounds i8, ptr %11193, i64 %.07770
+  %11313 = getelementptr inbounds nuw i8, ptr %11193, i64 %.07770
   store ptr %11313, ptr %10508, align 8
   %11314 = add nuw i32 %.6611121, 1
   %11315 = icmp ult i32 %11314, %8298
@@ -20011,7 +20011,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11332:                                            ; preds = %11328
   %11333 = and i32 %11330, 32
   %11334 = icmp eq i32 %11333, 0
-  %11335 = getelementptr inbounds i8, ptr %11318, i64 1
+  %11335 = getelementptr inbounds nuw i8, ptr %11318, i64 1
   %11336 = load i8, ptr %11335, align 1
   %11337 = and i8 %11336, 63
   %11338 = zext nneg i8 %11337 to i32
@@ -20033,7 +20033,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11348 = and i32 %11347, 61440
   %11349 = shl nuw nsw i32 %11338, 6
   %11350 = or disjoint i32 %11349, %11348
-  %11351 = getelementptr inbounds i8, ptr %11318, i64 2
+  %11351 = getelementptr inbounds nuw i8, ptr %11318, i64 2
   %11352 = load i8, ptr %11351, align 1
   %11353 = and i8 %11352, 63
   %11354 = zext nneg i8 %11353 to i32
@@ -20050,13 +20050,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11361 = and i32 %11360, 1835008
   %11362 = shl nuw nsw i32 %11338, 12
   %11363 = or disjoint i32 %11362, %11361
-  %11364 = getelementptr inbounds i8, ptr %11318, i64 2
+  %11364 = getelementptr inbounds nuw i8, ptr %11318, i64 2
   %11365 = load i8, ptr %11364, align 1
   %11366 = and i8 %11365, 63
   %11367 = zext nneg i8 %11366 to i32
   %11368 = shl nuw nsw i32 %11367, 6
   %11369 = or disjoint i32 %11363, %11368
-  %11370 = getelementptr inbounds i8, ptr %11318, i64 3
+  %11370 = getelementptr inbounds nuw i8, ptr %11318, i64 3
   %11371 = load i8, ptr %11370, align 1
   %11372 = and i8 %11371, 63
   %11373 = zext nneg i8 %11372 to i32
@@ -20066,15 +20066,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11375:                                            ; preds = %11356
   %11376 = and i32 %11330, 4
   %11377 = icmp eq i32 %11376, 0
-  %11378 = getelementptr inbounds i8, ptr %11318, i64 2
+  %11378 = getelementptr inbounds nuw i8, ptr %11318, i64 2
   %11379 = load i8, ptr %11378, align 1
   %11380 = and i8 %11379, 63
   %11381 = zext nneg i8 %11380 to i32
-  %11382 = getelementptr inbounds i8, ptr %11318, i64 3
+  %11382 = getelementptr inbounds nuw i8, ptr %11318, i64 3
   %11383 = load i8, ptr %11382, align 1
   %11384 = and i8 %11383, 63
   %11385 = zext nneg i8 %11384 to i32
-  %11386 = getelementptr inbounds i8, ptr %11318, i64 4
+  %11386 = getelementptr inbounds nuw i8, ptr %11318, i64 4
   %11387 = load i8, ptr %11386, align 1
   %11388 = and i8 %11387, 63
   %11389 = zext nneg i8 %11388 to i32
@@ -20103,7 +20103,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11408 = or disjoint i32 %11406, %11407
   %11409 = shl nuw nsw i32 %11389, 6
   %11410 = or disjoint i32 %11408, %11409
-  %11411 = getelementptr inbounds i8, ptr %11318, i64 5
+  %11411 = getelementptr inbounds nuw i8, ptr %11318, i64 5
   %11412 = load i8, ptr %11411, align 1
   %11413 = and i8 %11412, 63
   %11414 = zext nneg i8 %11413 to i32
@@ -20148,27 +20148,27 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11418:                                            ; preds = %11416
   %11419 = lshr i32 %.617749, 7
   %11420 = zext nneg i32 %11419 to i64
-  %11421 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11420
+  %11421 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11420
   %11422 = load i16, ptr %11421, align 2
   %11423 = zext i16 %11422 to i32
   %11424 = shl nuw nsw i32 %11423, 7
   %11425 = and i32 %.617749, 127
   %11426 = or disjoint i32 %11424, %11425
   %11427 = zext nneg i32 %11426 to i64
-  %11428 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11427
+  %11428 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11427
   %11429 = load i16, ptr %11428, align 2
   %11430 = zext i16 %11429 to i64
-  %11431 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11430, i32 1
+  %11431 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11430, i32 1
   %11432 = load i8, ptr %11431, align 1
   %11433 = zext i8 %11432 to i64
-  %11434 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %11433
+  %11434 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %11433
   %11435 = load i32, ptr %11434, align 4
   %11436 = icmp ne i32 %11435, 6
   %11437 = xor i1 %10514, %11436
   br i1 %11437, label %.loopexit9639, label %11438
 
 11438:                                            ; preds = %11418, %11417
-  %11439 = getelementptr inbounds i8, ptr %11318, i64 %.07769
+  %11439 = getelementptr inbounds nuw i8, ptr %11318, i64 %.07769
   store ptr %11439, ptr %10508, align 8
   %11440 = add nuw i32 %.6711116, 1
   %11441 = icmp ult i32 %11440, %8298
@@ -20211,7 +20211,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11456:                                            ; preds = %11452
   %11457 = and i32 %11454, 32
   %11458 = icmp eq i32 %11457, 0
-  %11459 = getelementptr inbounds i8, ptr %11442, i64 1
+  %11459 = getelementptr inbounds nuw i8, ptr %11442, i64 1
   %11460 = load i8, ptr %11459, align 1
   %11461 = and i8 %11460, 63
   %11462 = zext nneg i8 %11461 to i32
@@ -20233,7 +20233,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11472 = and i32 %11471, 61440
   %11473 = shl nuw nsw i32 %11462, 6
   %11474 = or disjoint i32 %11473, %11472
-  %11475 = getelementptr inbounds i8, ptr %11442, i64 2
+  %11475 = getelementptr inbounds nuw i8, ptr %11442, i64 2
   %11476 = load i8, ptr %11475, align 1
   %11477 = and i8 %11476, 63
   %11478 = zext nneg i8 %11477 to i32
@@ -20250,13 +20250,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11485 = and i32 %11484, 1835008
   %11486 = shl nuw nsw i32 %11462, 12
   %11487 = or disjoint i32 %11486, %11485
-  %11488 = getelementptr inbounds i8, ptr %11442, i64 2
+  %11488 = getelementptr inbounds nuw i8, ptr %11442, i64 2
   %11489 = load i8, ptr %11488, align 1
   %11490 = and i8 %11489, 63
   %11491 = zext nneg i8 %11490 to i32
   %11492 = shl nuw nsw i32 %11491, 6
   %11493 = or disjoint i32 %11487, %11492
-  %11494 = getelementptr inbounds i8, ptr %11442, i64 3
+  %11494 = getelementptr inbounds nuw i8, ptr %11442, i64 3
   %11495 = load i8, ptr %11494, align 1
   %11496 = and i8 %11495, 63
   %11497 = zext nneg i8 %11496 to i32
@@ -20266,15 +20266,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11499:                                            ; preds = %11480
   %11500 = and i32 %11454, 4
   %11501 = icmp eq i32 %11500, 0
-  %11502 = getelementptr inbounds i8, ptr %11442, i64 2
+  %11502 = getelementptr inbounds nuw i8, ptr %11442, i64 2
   %11503 = load i8, ptr %11502, align 1
   %11504 = and i8 %11503, 63
   %11505 = zext nneg i8 %11504 to i32
-  %11506 = getelementptr inbounds i8, ptr %11442, i64 3
+  %11506 = getelementptr inbounds nuw i8, ptr %11442, i64 3
   %11507 = load i8, ptr %11506, align 1
   %11508 = and i8 %11507, 63
   %11509 = zext nneg i8 %11508 to i32
-  %11510 = getelementptr inbounds i8, ptr %11442, i64 4
+  %11510 = getelementptr inbounds nuw i8, ptr %11442, i64 4
   %11511 = load i8, ptr %11510, align 1
   %11512 = and i8 %11511, 63
   %11513 = zext nneg i8 %11512 to i32
@@ -20303,7 +20303,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11532 = or disjoint i32 %11530, %11531
   %11533 = shl nuw nsw i32 %11513, 6
   %11534 = or disjoint i32 %11532, %11533
-  %11535 = getelementptr inbounds i8, ptr %11442, i64 5
+  %11535 = getelementptr inbounds nuw i8, ptr %11442, i64 5
   %11536 = load i8, ptr %11535, align 1
   %11537 = and i8 %11536, 63
   %11538 = zext nneg i8 %11537 to i32
@@ -20315,20 +20315,20 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.07626 = phi i64 [ 2, %11463 ], [ 3, %11470 ], [ 4, %11483 ], [ 5, %11514 ], [ 6, %11524 ], [ 1, %11452 ]
   %11541 = lshr i32 %.627750, 7
   %11542 = zext nneg i32 %11541 to i64
-  %11543 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11542
+  %11543 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11542
   %11544 = load i16, ptr %11543, align 2
   %11545 = zext i16 %11544 to i32
   %11546 = shl nuw nsw i32 %11545, 7
   %11547 = and i32 %.627750, 127
   %11548 = or disjoint i32 %11546, %11547
   %11549 = zext nneg i32 %11548 to i64
-  %11550 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11549
+  %11550 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11549
   %11551 = load i16, ptr %11550, align 2
   %11552 = zext i16 %11551 to i64
-  %11553 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11552, i32 1
+  %11553 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11552, i32 1
   %11554 = load i8, ptr %11553, align 1
   %11555 = zext i8 %11554 to i64
-  %11556 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %11555
+  %11556 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %11555
   %11557 = load i32, ptr %11556, align 4
   %11558 = and i32 %11557, -3
   %11559 = icmp ne i32 %11558, 1
@@ -20340,7 +20340,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %11564, label %.loopexit9639, label %11565
 
 11565:                                            ; preds = %11540
-  %11566 = getelementptr inbounds i8, ptr %11442, i64 %.07626
+  %11566 = getelementptr inbounds nuw i8, ptr %11442, i64 %.07626
   store ptr %11566, ptr %10508, align 8
   %11567 = add nuw i32 %.6811113, 1
   %11568 = icmp ult i32 %11567, %8298
@@ -20383,7 +20383,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11584:                                            ; preds = %11580
   %11585 = and i32 %11582, 32
   %11586 = icmp eq i32 %11585, 0
-  %11587 = getelementptr inbounds i8, ptr %11570, i64 1
+  %11587 = getelementptr inbounds nuw i8, ptr %11570, i64 1
   %11588 = load i8, ptr %11587, align 1
   %11589 = and i8 %11588, 63
   %11590 = zext nneg i8 %11589 to i32
@@ -20405,7 +20405,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11600 = and i32 %11599, 61440
   %11601 = shl nuw nsw i32 %11590, 6
   %11602 = or disjoint i32 %11601, %11600
-  %11603 = getelementptr inbounds i8, ptr %11570, i64 2
+  %11603 = getelementptr inbounds nuw i8, ptr %11570, i64 2
   %11604 = load i8, ptr %11603, align 1
   %11605 = and i8 %11604, 63
   %11606 = zext nneg i8 %11605 to i32
@@ -20422,13 +20422,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11613 = and i32 %11612, 1835008
   %11614 = shl nuw nsw i32 %11590, 12
   %11615 = or disjoint i32 %11614, %11613
-  %11616 = getelementptr inbounds i8, ptr %11570, i64 2
+  %11616 = getelementptr inbounds nuw i8, ptr %11570, i64 2
   %11617 = load i8, ptr %11616, align 1
   %11618 = and i8 %11617, 63
   %11619 = zext nneg i8 %11618 to i32
   %11620 = shl nuw nsw i32 %11619, 6
   %11621 = or disjoint i32 %11615, %11620
-  %11622 = getelementptr inbounds i8, ptr %11570, i64 3
+  %11622 = getelementptr inbounds nuw i8, ptr %11570, i64 3
   %11623 = load i8, ptr %11622, align 1
   %11624 = and i8 %11623, 63
   %11625 = zext nneg i8 %11624 to i32
@@ -20438,15 +20438,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11627:                                            ; preds = %11608
   %11628 = and i32 %11582, 4
   %11629 = icmp eq i32 %11628, 0
-  %11630 = getelementptr inbounds i8, ptr %11570, i64 2
+  %11630 = getelementptr inbounds nuw i8, ptr %11570, i64 2
   %11631 = load i8, ptr %11630, align 1
   %11632 = and i8 %11631, 63
   %11633 = zext nneg i8 %11632 to i32
-  %11634 = getelementptr inbounds i8, ptr %11570, i64 3
+  %11634 = getelementptr inbounds nuw i8, ptr %11570, i64 3
   %11635 = load i8, ptr %11634, align 1
   %11636 = and i8 %11635, 63
   %11637 = zext nneg i8 %11636 to i32
-  %11638 = getelementptr inbounds i8, ptr %11570, i64 4
+  %11638 = getelementptr inbounds nuw i8, ptr %11570, i64 4
   %11639 = load i8, ptr %11638, align 1
   %11640 = and i8 %11639, 63
   %11641 = zext nneg i8 %11640 to i32
@@ -20475,7 +20475,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11660 = or disjoint i32 %11658, %11659
   %11661 = shl nuw nsw i32 %11641, 6
   %11662 = or disjoint i32 %11660, %11661
-  %11663 = getelementptr inbounds i8, ptr %11570, i64 5
+  %11663 = getelementptr inbounds nuw i8, ptr %11570, i64 5
   %11664 = load i8, ptr %11663, align 1
   %11665 = and i8 %11664, 63
   %11666 = zext nneg i8 %11665 to i32
@@ -20487,7 +20487,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.07624 = phi i64 [ 2, %11591 ], [ 3, %11598 ], [ 4, %11611 ], [ 5, %11642 ], [ 6, %11652 ], [ 1, %11580 ]
   %11669 = load i32, ptr %10522, align 4
   %11670 = zext i32 %11669 to i64
-  %11671 = getelementptr inbounds i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %11670
+  %11671 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %11670
   br label %11672
 
 11672:                                            ; preds = %11676, %11668
@@ -20500,7 +20500,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10514, label %11680, label %.loopexit9639
 
 11676:                                            ; preds = %11672
-  %11677 = getelementptr inbounds i8, ptr %.07625, i64 4
+  %11677 = getelementptr inbounds nuw i8, ptr %.07625, i64 4
   %11678 = icmp eq i32 %.637751, %11673
   br i1 %11678, label %11679, label %11672
 
@@ -20508,7 +20508,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %10514, label %.loopexit9639, label %11680
 
 11680:                                            ; preds = %11679, %11675
-  %11681 = getelementptr inbounds i8, ptr %11570, i64 %.07624
+  %11681 = getelementptr inbounds nuw i8, ptr %11570, i64 %.07624
   store ptr %11681, ptr %10508, align 8
   %11682 = add nuw i32 %.6911109, 1
   %11683 = icmp ult i32 %11682, %8298
@@ -20551,7 +20551,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11698:                                            ; preds = %11694
   %11699 = and i32 %11696, 32
   %11700 = icmp eq i32 %11699, 0
-  %11701 = getelementptr inbounds i8, ptr %11684, i64 1
+  %11701 = getelementptr inbounds nuw i8, ptr %11684, i64 1
   %11702 = load i8, ptr %11701, align 1
   %11703 = and i8 %11702, 63
   %11704 = zext nneg i8 %11703 to i32
@@ -20573,7 +20573,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11714 = and i32 %11713, 61440
   %11715 = shl nuw nsw i32 %11704, 6
   %11716 = or disjoint i32 %11715, %11714
-  %11717 = getelementptr inbounds i8, ptr %11684, i64 2
+  %11717 = getelementptr inbounds nuw i8, ptr %11684, i64 2
   %11718 = load i8, ptr %11717, align 1
   %11719 = and i8 %11718, 63
   %11720 = zext nneg i8 %11719 to i32
@@ -20590,13 +20590,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11727 = and i32 %11726, 1835008
   %11728 = shl nuw nsw i32 %11704, 12
   %11729 = or disjoint i32 %11728, %11727
-  %11730 = getelementptr inbounds i8, ptr %11684, i64 2
+  %11730 = getelementptr inbounds nuw i8, ptr %11684, i64 2
   %11731 = load i8, ptr %11730, align 1
   %11732 = and i8 %11731, 63
   %11733 = zext nneg i8 %11732 to i32
   %11734 = shl nuw nsw i32 %11733, 6
   %11735 = or disjoint i32 %11729, %11734
-  %11736 = getelementptr inbounds i8, ptr %11684, i64 3
+  %11736 = getelementptr inbounds nuw i8, ptr %11684, i64 3
   %11737 = load i8, ptr %11736, align 1
   %11738 = and i8 %11737, 63
   %11739 = zext nneg i8 %11738 to i32
@@ -20606,15 +20606,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11741:                                            ; preds = %11722
   %11742 = and i32 %11696, 4
   %11743 = icmp eq i32 %11742, 0
-  %11744 = getelementptr inbounds i8, ptr %11684, i64 2
+  %11744 = getelementptr inbounds nuw i8, ptr %11684, i64 2
   %11745 = load i8, ptr %11744, align 1
   %11746 = and i8 %11745, 63
   %11747 = zext nneg i8 %11746 to i32
-  %11748 = getelementptr inbounds i8, ptr %11684, i64 3
+  %11748 = getelementptr inbounds nuw i8, ptr %11684, i64 3
   %11749 = load i8, ptr %11748, align 1
   %11750 = and i8 %11749, 63
   %11751 = zext nneg i8 %11750 to i32
-  %11752 = getelementptr inbounds i8, ptr %11684, i64 4
+  %11752 = getelementptr inbounds nuw i8, ptr %11684, i64 4
   %11753 = load i8, ptr %11752, align 1
   %11754 = and i8 %11753, 63
   %11755 = zext nneg i8 %11754 to i32
@@ -20643,7 +20643,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11774 = or disjoint i32 %11772, %11773
   %11775 = shl nuw nsw i32 %11755, 6
   %11776 = or disjoint i32 %11774, %11775
-  %11777 = getelementptr inbounds i8, ptr %11684, i64 5
+  %11777 = getelementptr inbounds nuw i8, ptr %11684, i64 5
   %11778 = load i8, ptr %11777, align 1
   %11779 = and i8 %11778, 63
   %11780 = zext nneg i8 %11779 to i32
@@ -20675,7 +20675,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %11790, label %.loopexit9639, label %11791
 
 11791:                                            ; preds = %11788
-  %11792 = getelementptr inbounds i8, ptr %11684, i64 %.07623
+  %11792 = getelementptr inbounds nuw i8, ptr %11684, i64 %.07623
   store ptr %11792, ptr %10508, align 8
   %11793 = add nuw i32 %.7011106, 1
   %11794 = icmp ult i32 %11793, %8298
@@ -20718,7 +20718,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11810:                                            ; preds = %11806
   %11811 = and i32 %11808, 32
   %11812 = icmp eq i32 %11811, 0
-  %11813 = getelementptr inbounds i8, ptr %11796, i64 1
+  %11813 = getelementptr inbounds nuw i8, ptr %11796, i64 1
   %11814 = load i8, ptr %11813, align 1
   %11815 = and i8 %11814, 63
   %11816 = zext nneg i8 %11815 to i32
@@ -20740,7 +20740,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11826 = and i32 %11825, 61440
   %11827 = shl nuw nsw i32 %11816, 6
   %11828 = or disjoint i32 %11827, %11826
-  %11829 = getelementptr inbounds i8, ptr %11796, i64 2
+  %11829 = getelementptr inbounds nuw i8, ptr %11796, i64 2
   %11830 = load i8, ptr %11829, align 1
   %11831 = and i8 %11830, 63
   %11832 = zext nneg i8 %11831 to i32
@@ -20757,13 +20757,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11839 = and i32 %11838, 1835008
   %11840 = shl nuw nsw i32 %11816, 12
   %11841 = or disjoint i32 %11840, %11839
-  %11842 = getelementptr inbounds i8, ptr %11796, i64 2
+  %11842 = getelementptr inbounds nuw i8, ptr %11796, i64 2
   %11843 = load i8, ptr %11842, align 1
   %11844 = and i8 %11843, 63
   %11845 = zext nneg i8 %11844 to i32
   %11846 = shl nuw nsw i32 %11845, 6
   %11847 = or disjoint i32 %11841, %11846
-  %11848 = getelementptr inbounds i8, ptr %11796, i64 3
+  %11848 = getelementptr inbounds nuw i8, ptr %11796, i64 3
   %11849 = load i8, ptr %11848, align 1
   %11850 = and i8 %11849, 63
   %11851 = zext nneg i8 %11850 to i32
@@ -20773,15 +20773,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11853:                                            ; preds = %11834
   %11854 = and i32 %11808, 4
   %11855 = icmp eq i32 %11854, 0
-  %11856 = getelementptr inbounds i8, ptr %11796, i64 2
+  %11856 = getelementptr inbounds nuw i8, ptr %11796, i64 2
   %11857 = load i8, ptr %11856, align 1
   %11858 = and i8 %11857, 63
   %11859 = zext nneg i8 %11858 to i32
-  %11860 = getelementptr inbounds i8, ptr %11796, i64 3
+  %11860 = getelementptr inbounds nuw i8, ptr %11796, i64 3
   %11861 = load i8, ptr %11860, align 1
   %11862 = and i8 %11861, 63
   %11863 = zext nneg i8 %11862 to i32
-  %11864 = getelementptr inbounds i8, ptr %11796, i64 4
+  %11864 = getelementptr inbounds nuw i8, ptr %11796, i64 4
   %11865 = load i8, ptr %11864, align 1
   %11866 = and i8 %11865, 63
   %11867 = zext nneg i8 %11866 to i32
@@ -20810,7 +20810,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11886 = or disjoint i32 %11884, %11885
   %11887 = shl nuw nsw i32 %11867, 6
   %11888 = or disjoint i32 %11886, %11887
-  %11889 = getelementptr inbounds i8, ptr %11796, i64 5
+  %11889 = getelementptr inbounds nuw i8, ptr %11796, i64 5
   %11890 = load i8, ptr %11889, align 1
   %11891 = and i8 %11890, 63
   %11892 = zext nneg i8 %11891 to i32
@@ -20822,17 +20822,17 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.07622 = phi i64 [ 2, %11817 ], [ 3, %11824 ], [ 4, %11837 ], [ 5, %11868 ], [ 6, %11878 ], [ 1, %11806 ]
   %11895 = lshr i32 %.657753, 7
   %11896 = zext nneg i32 %11895 to i64
-  %11897 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11896
+  %11897 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %11896
   %11898 = load i16, ptr %11897, align 2
   %11899 = zext i16 %11898 to i32
   %11900 = shl nuw nsw i32 %11899, 7
   %11901 = and i32 %.657753, 127
   %11902 = or disjoint i32 %11900, %11901
   %11903 = zext nneg i32 %11902 to i64
-  %11904 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11903
+  %11904 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %11903
   %11905 = load i16, ptr %11904, align 2
   %11906 = zext i16 %11905 to i64
-  %11907 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11906, i32 5
+  %11907 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %11906, i32 5
   %11908 = load i16, ptr %11907, align 4
   %11909 = lshr i16 %11908, 11
   %11910 = zext nneg i16 %11909 to i32
@@ -20842,7 +20842,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %11913, label %.loopexit9639, label %11914
 
 11914:                                            ; preds = %11894
-  %11915 = getelementptr inbounds i8, ptr %11796, i64 %.07622
+  %11915 = getelementptr inbounds nuw i8, ptr %11796, i64 %.07622
   store ptr %11915, ptr %10508, align 8
   %11916 = add nuw i32 %.7111103, 1
   %11917 = icmp ult i32 %11916, %8298
@@ -20885,7 +20885,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11933:                                            ; preds = %11929
   %11934 = and i32 %11931, 32
   %11935 = icmp eq i32 %11934, 0
-  %11936 = getelementptr inbounds i8, ptr %11919, i64 1
+  %11936 = getelementptr inbounds nuw i8, ptr %11919, i64 1
   %11937 = load i8, ptr %11936, align 1
   %11938 = and i8 %11937, 63
   %11939 = zext nneg i8 %11938 to i32
@@ -20907,7 +20907,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11949 = and i32 %11948, 61440
   %11950 = shl nuw nsw i32 %11939, 6
   %11951 = or disjoint i32 %11950, %11949
-  %11952 = getelementptr inbounds i8, ptr %11919, i64 2
+  %11952 = getelementptr inbounds nuw i8, ptr %11919, i64 2
   %11953 = load i8, ptr %11952, align 1
   %11954 = and i8 %11953, 63
   %11955 = zext nneg i8 %11954 to i32
@@ -20924,13 +20924,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %11962 = and i32 %11961, 1835008
   %11963 = shl nuw nsw i32 %11939, 12
   %11964 = or disjoint i32 %11963, %11962
-  %11965 = getelementptr inbounds i8, ptr %11919, i64 2
+  %11965 = getelementptr inbounds nuw i8, ptr %11919, i64 2
   %11966 = load i8, ptr %11965, align 1
   %11967 = and i8 %11966, 63
   %11968 = zext nneg i8 %11967 to i32
   %11969 = shl nuw nsw i32 %11968, 6
   %11970 = or disjoint i32 %11964, %11969
-  %11971 = getelementptr inbounds i8, ptr %11919, i64 3
+  %11971 = getelementptr inbounds nuw i8, ptr %11919, i64 3
   %11972 = load i8, ptr %11971, align 1
   %11973 = and i8 %11972, 63
   %11974 = zext nneg i8 %11973 to i32
@@ -20940,15 +20940,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 11976:                                            ; preds = %11957
   %11977 = and i32 %11931, 4
   %11978 = icmp eq i32 %11977, 0
-  %11979 = getelementptr inbounds i8, ptr %11919, i64 2
+  %11979 = getelementptr inbounds nuw i8, ptr %11919, i64 2
   %11980 = load i8, ptr %11979, align 1
   %11981 = and i8 %11980, 63
   %11982 = zext nneg i8 %11981 to i32
-  %11983 = getelementptr inbounds i8, ptr %11919, i64 3
+  %11983 = getelementptr inbounds nuw i8, ptr %11919, i64 3
   %11984 = load i8, ptr %11983, align 1
   %11985 = and i8 %11984, 63
   %11986 = zext nneg i8 %11985 to i32
-  %11987 = getelementptr inbounds i8, ptr %11919, i64 4
+  %11987 = getelementptr inbounds nuw i8, ptr %11919, i64 4
   %11988 = load i8, ptr %11987, align 1
   %11989 = and i8 %11988, 63
   %11990 = zext nneg i8 %11989 to i32
@@ -20977,7 +20977,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12009 = or disjoint i32 %12007, %12008
   %12010 = shl nuw nsw i32 %11990, 6
   %12011 = or disjoint i32 %12009, %12010
-  %12012 = getelementptr inbounds i8, ptr %11919, i64 5
+  %12012 = getelementptr inbounds nuw i8, ptr %11919, i64 5
   %12013 = load i8, ptr %12012, align 1
   %12014 = and i8 %12013, 63
   %12015 = zext nneg i8 %12014 to i32
@@ -20989,25 +20989,25 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.07616 = phi i64 [ 2, %11940 ], [ 3, %11947 ], [ 4, %11960 ], [ 5, %11991 ], [ 6, %12001 ], [ 1, %11929 ]
   %12018 = lshr i32 %.667754, 7
   %12019 = zext nneg i32 %12018 to i64
-  %12020 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %12019
+  %12020 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %12019
   %12021 = load i16, ptr %12020, align 2
   %12022 = zext i16 %12021 to i32
   %12023 = shl nuw nsw i32 %12022, 7
   %12024 = and i32 %.667754, 127
   %12025 = or disjoint i32 %12023, %12024
   %12026 = zext nneg i32 %12025 to i64
-  %12027 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %12026
+  %12027 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %12026
   %12028 = load i16, ptr %12027, align 2
   %12029 = zext i16 %12028 to i64
-  %12030 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %12029, i32 6
+  %12030 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %12029, i32 6
   %12031 = load i16, ptr %12030, align 2
   %12032 = and i16 %12031, 4095
   %12033 = zext nneg i16 %12032 to i64
-  %12034 = getelementptr inbounds i32, ptr @_pcre2_ucd_boolprop_sets_8, i64 %12033
+  %12034 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_boolprop_sets_8, i64 %12033
   %12035 = load i32, ptr %10517, align 4
   %12036 = lshr i32 %12035, 5
   %12037 = zext nneg i32 %12036 to i64
-  %12038 = getelementptr inbounds i32, ptr %12034, i64 %12037
+  %12038 = getelementptr inbounds nuw i32, ptr %12034, i64 %12037
   %12039 = load i32, ptr %12038, align 4
   %12040 = and i32 %12035, 31
   %12041 = lshr i32 %12039, %12040
@@ -21016,7 +21016,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %12043, label %12044, label %.loopexit9639
 
 12044:                                            ; preds = %12017
-  %12045 = getelementptr inbounds i8, ptr %11919, i64 %.07616
+  %12045 = getelementptr inbounds nuw i8, ptr %11919, i64 %.07616
   store ptr %12045, ptr %10508, align 8
   %12046 = add nuw i32 %.7211100, 1
   %12047 = icmp ult i32 %12046, %8298
@@ -21037,7 +21037,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.427511 = phi ptr [ %.47473.ph.ph, %12054 ], [ %.27471, %.loopexit9639..loopexit9565_crit_edge ], [ %.47473.ph.ph, %.preheader9564 ], [ %.47473.ph.ph, %.lr.ph11233 ]
   %.157454 = phi ptr [ %.57444.ph.ph, %12054 ], [ %.27441, %.loopexit9639..loopexit9565_crit_edge ], [ %.57444.ph.ph, %.preheader9564 ], [ %.57444.ph.ph, %.lr.ph11233 ]
   %.43 = phi ptr [ %15814, %12054 ], [ %.3, %.loopexit9639..loopexit9565_crit_edge ], [ %15814, %.preheader9564 ], [ %15814, %.lr.ph11233 ]
-  %12050 = getelementptr inbounds i8, ptr %.43, i64 8
+  %12050 = getelementptr inbounds nuw i8, ptr %.43, i64 8
   %12051 = load ptr, ptr %12050, align 8
   %.not9062 = icmp ugt ptr %12049, %12051
   br i1 %.not9062, label %12052, label %.preheader9835.backedge
@@ -21047,7 +21047,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br label %.loopexit9844
 
 12054:                                            ; preds = %15901
-  %12055 = getelementptr inbounds i8, ptr %15814, i64 80
+  %12055 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %12056 = load ptr, ptr %12055, align 8
   %12057 = getelementptr inbounds i8, ptr %12056, i64 -1
   store ptr %12057, ptr %12055, align 8
@@ -21106,7 +21106,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %.not9454, label %.loopexit9664, label %.loopexit
 
 12077:                                            ; preds = %.lr.ph11099
-  %12078 = getelementptr inbounds i8, ptr %12068, i64 1
+  %12078 = getelementptr inbounds nuw i8, ptr %12068, i64 1
   store ptr %12078, ptr %10508, align 8
   %12079 = load i8, ptr %12068, align 1
   %12080 = zext i8 %12079 to i32
@@ -21122,7 +21122,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12085:                                            ; preds = %12082
   %12086 = shl nuw nsw i32 %12080, 6
   %12087 = and i32 %12086, 1984
-  %12088 = getelementptr inbounds i8, ptr %12068, i64 2
+  %12088 = getelementptr inbounds nuw i8, ptr %12068, i64 2
   store ptr %12088, ptr %10508, align 8
   %12089 = load i8, ptr %12078, align 1
   %12090 = and i8 %12089, 63
@@ -21143,12 +21143,12 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12101 = and i32 %12100, 61440
   %12102 = shl nuw nsw i32 %12098, 6
   %12103 = or disjoint i32 %12102, %12101
-  %12104 = getelementptr inbounds i8, ptr %12068, i64 2
+  %12104 = getelementptr inbounds nuw i8, ptr %12068, i64 2
   %12105 = load i8, ptr %12104, align 1
   %12106 = and i8 %12105, 63
   %12107 = zext nneg i8 %12106 to i32
   %12108 = or disjoint i32 %12103, %12107
-  %12109 = getelementptr inbounds i8, ptr %12068, i64 3
+  %12109 = getelementptr inbounds nuw i8, ptr %12068, i64 3
   store ptr %12109, ptr %10508, align 8
   br label %12173
 
@@ -21162,33 +21162,33 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12115 = and i32 %12114, 1835008
   %12116 = shl nuw nsw i32 %12098, 12
   %12117 = or disjoint i32 %12116, %12115
-  %12118 = getelementptr inbounds i8, ptr %12068, i64 2
+  %12118 = getelementptr inbounds nuw i8, ptr %12068, i64 2
   %12119 = load i8, ptr %12118, align 1
   %12120 = and i8 %12119, 63
   %12121 = zext nneg i8 %12120 to i32
   %12122 = shl nuw nsw i32 %12121, 6
   %12123 = or disjoint i32 %12117, %12122
-  %12124 = getelementptr inbounds i8, ptr %12068, i64 3
+  %12124 = getelementptr inbounds nuw i8, ptr %12068, i64 3
   %12125 = load i8, ptr %12124, align 1
   %12126 = and i8 %12125, 63
   %12127 = zext nneg i8 %12126 to i32
   %12128 = or disjoint i32 %12123, %12127
-  %12129 = getelementptr inbounds i8, ptr %12068, i64 4
+  %12129 = getelementptr inbounds nuw i8, ptr %12068, i64 4
   store ptr %12129, ptr %10508, align 8
   br label %12173
 
 12130:                                            ; preds = %12110
   %12131 = and i32 %12080, 4
   %12132 = icmp eq i32 %12131, 0
-  %12133 = getelementptr inbounds i8, ptr %12068, i64 2
+  %12133 = getelementptr inbounds nuw i8, ptr %12068, i64 2
   %12134 = load i8, ptr %12133, align 1
   %12135 = and i8 %12134, 63
   %12136 = zext nneg i8 %12135 to i32
-  %12137 = getelementptr inbounds i8, ptr %12068, i64 3
+  %12137 = getelementptr inbounds nuw i8, ptr %12068, i64 3
   %12138 = load i8, ptr %12137, align 1
   %12139 = and i8 %12138, 63
   %12140 = zext nneg i8 %12139 to i32
-  %12141 = getelementptr inbounds i8, ptr %12068, i64 4
+  %12141 = getelementptr inbounds nuw i8, ptr %12068, i64 4
   %12142 = load i8, ptr %12141, align 1
   %12143 = and i8 %12142, 63
   %12144 = zext nneg i8 %12143 to i32
@@ -21204,7 +21204,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12152 = shl nuw nsw i32 %12140, 6
   %12153 = or disjoint i32 %12151, %12152
   %12154 = or disjoint i32 %12153, %12144
-  %12155 = getelementptr inbounds i8, ptr %12068, i64 5
+  %12155 = getelementptr inbounds nuw i8, ptr %12068, i64 5
   store ptr %12155, ptr %10508, align 8
   br label %12173
 
@@ -21219,12 +21219,12 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12164 = or disjoint i32 %12162, %12163
   %12165 = shl nuw nsw i32 %12144, 6
   %12166 = or disjoint i32 %12164, %12165
-  %12167 = getelementptr inbounds i8, ptr %12068, i64 5
+  %12167 = getelementptr inbounds nuw i8, ptr %12068, i64 5
   %12168 = load i8, ptr %12167, align 1
   %12169 = and i8 %12168, 63
   %12170 = zext nneg i8 %12169 to i32
   %12171 = or disjoint i32 %12166, %12170
-  %12172 = getelementptr inbounds i8, ptr %12068, i64 6
+  %12172 = getelementptr inbounds nuw i8, ptr %12068, i64 6
   store ptr %12172, ptr %10508, align 8
   br label %12173
 
@@ -21290,7 +21290,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br label %.loopexit9844
 
 12196:                                            ; preds = %15899
-  %12197 = getelementptr inbounds i8, ptr %15814, i64 80
+  %12197 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %12198 = load ptr, ptr %12197, align 8
   %12199 = getelementptr inbounds i8, ptr %12198, i64 -1
   store ptr %12199, ptr %12197, align 8
@@ -21323,7 +21323,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12211:                                            ; preds = %._crit_edge11236
   %12212 = and i32 %.lcssa10132, 32
   %12213 = icmp eq i32 %12212, 0
-  %12214 = getelementptr inbounds i8, ptr %.lcssa10134, i64 1
+  %12214 = getelementptr inbounds nuw i8, ptr %.lcssa10134, i64 1
   %12215 = load i8, ptr %12214, align 1
   %12216 = and i8 %12215, 63
   %12217 = zext nneg i8 %12216 to i32
@@ -21345,7 +21345,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12227 = and i32 %12226, 61440
   %12228 = shl nuw nsw i32 %12217, 6
   %12229 = or disjoint i32 %12228, %12227
-  %12230 = getelementptr inbounds i8, ptr %.lcssa10134, i64 2
+  %12230 = getelementptr inbounds nuw i8, ptr %.lcssa10134, i64 2
   %12231 = load i8, ptr %12230, align 1
   %12232 = and i8 %12231, 63
   %12233 = zext nneg i8 %12232 to i32
@@ -21362,13 +21362,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12240 = and i32 %12239, 1835008
   %12241 = shl nuw nsw i32 %12217, 12
   %12242 = or disjoint i32 %12241, %12240
-  %12243 = getelementptr inbounds i8, ptr %.lcssa10134, i64 2
+  %12243 = getelementptr inbounds nuw i8, ptr %.lcssa10134, i64 2
   %12244 = load i8, ptr %12243, align 1
   %12245 = and i8 %12244, 63
   %12246 = zext nneg i8 %12245 to i32
   %12247 = shl nuw nsw i32 %12246, 6
   %12248 = or disjoint i32 %12242, %12247
-  %12249 = getelementptr inbounds i8, ptr %.lcssa10134, i64 3
+  %12249 = getelementptr inbounds nuw i8, ptr %.lcssa10134, i64 3
   %12250 = load i8, ptr %12249, align 1
   %12251 = and i8 %12250, 63
   %12252 = zext nneg i8 %12251 to i32
@@ -21378,15 +21378,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12254:                                            ; preds = %12235
   %12255 = and i32 %.lcssa10132, 4
   %12256 = icmp eq i32 %12255, 0
-  %12257 = getelementptr inbounds i8, ptr %.lcssa10134, i64 2
+  %12257 = getelementptr inbounds nuw i8, ptr %.lcssa10134, i64 2
   %12258 = load i8, ptr %12257, align 1
   %12259 = and i8 %12258, 63
   %12260 = zext nneg i8 %12259 to i32
-  %12261 = getelementptr inbounds i8, ptr %.lcssa10134, i64 3
+  %12261 = getelementptr inbounds nuw i8, ptr %.lcssa10134, i64 3
   %12262 = load i8, ptr %12261, align 1
   %12263 = and i8 %12262, 63
   %12264 = zext nneg i8 %12263 to i32
-  %12265 = getelementptr inbounds i8, ptr %.lcssa10134, i64 4
+  %12265 = getelementptr inbounds nuw i8, ptr %.lcssa10134, i64 4
   %12266 = load i8, ptr %12265, align 1
   %12267 = and i8 %12266, 63
   %12268 = zext nneg i8 %12267 to i32
@@ -21415,7 +21415,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12287 = or disjoint i32 %12285, %12286
   %12288 = shl nuw nsw i32 %12268, 6
   %12289 = or disjoint i32 %12287, %12288
-  %12290 = getelementptr inbounds i8, ptr %.lcssa10134, i64 5
+  %12290 = getelementptr inbounds nuw i8, ptr %.lcssa10134, i64 5
   %12291 = load i8, ptr %12290, align 1
   %12292 = and i8 %12291, 63
   %12293 = zext nneg i8 %12292 to i32
@@ -21425,7 +21425,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12295:                                            ; preds = %12196, %._crit_edge11236, %12225, %12269, %12279, %12238, %12218
   %.promoted11240 = phi ptr [ %.lcssa10134, %12218 ], [ %.lcssa10134, %12225 ], [ %.lcssa10134, %12238 ], [ %.lcssa10134, %12269 ], [ %.lcssa10134, %12279 ], [ %.lcssa10134, %._crit_edge11236 ], [ %12199, %12196 ]
   %.687756 = phi i32 [ %12221, %12218 ], [ %12234, %12225 ], [ %12253, %12238 ], [ %12278, %12269 ], [ %12294, %12279 ], [ %.lcssa10132, %._crit_edge11236 ], [ %12201, %12196 ]
-  %12296 = getelementptr inbounds i8, ptr %15814, i64 8
+  %12296 = getelementptr inbounds nuw i8, ptr %15814, i64 8
   %12297 = load ptr, ptr %12296, align 8
   %.not906811242 = icmp ugt ptr %.promoted11240, %12297
   br i1 %.not906811242, label %.lr.ph11245.preheader, label %.loopexit9562
@@ -21433,17 +21433,17 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 .lr.ph11245.preheader:                            ; preds = %12295
   %12298 = lshr i32 %.687756, 7
   %12299 = zext nneg i32 %12298 to i64
-  %12300 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %12299
+  %12300 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %12299
   %12301 = load i16, ptr %12300, align 2
   %12302 = zext i16 %12301 to i32
   %12303 = shl nuw nsw i32 %12302, 7
   %12304 = and i32 %.687756, 127
   %12305 = or disjoint i32 %12303, %12304
   %12306 = zext nneg i32 %12305 to i64
-  %12307 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %12306
+  %12307 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %12306
   %12308 = load i16, ptr %12307, align 2
   %12309 = zext i16 %12308 to i64
-  %12310 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %12309, i32 2
+  %12310 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %12309, i32 2
   %12311 = load i8, ptr %12310, align 2
   br label %.lr.ph11245
 
@@ -21475,7 +21475,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12324:                                            ; preds = %12322
   %12325 = and i32 %12318, 32
   %12326 = icmp eq i32 %12325, 0
-  %12327 = getelementptr inbounds i8, ptr %.17611, i64 1
+  %12327 = getelementptr inbounds nuw i8, ptr %.17611, i64 1
   %12328 = load i8, ptr %12327, align 1
   %12329 = and i8 %12328, 63
   %12330 = zext nneg i8 %12329 to i32
@@ -21497,7 +21497,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12340 = and i32 %12339, 61440
   %12341 = shl nuw nsw i32 %12330, 6
   %12342 = or disjoint i32 %12341, %12340
-  %12343 = getelementptr inbounds i8, ptr %.17611, i64 2
+  %12343 = getelementptr inbounds nuw i8, ptr %.17611, i64 2
   %12344 = load i8, ptr %12343, align 1
   %12345 = and i8 %12344, 63
   %12346 = zext nneg i8 %12345 to i32
@@ -21514,13 +21514,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12353 = and i32 %12352, 1835008
   %12354 = shl nuw nsw i32 %12330, 12
   %12355 = or disjoint i32 %12354, %12353
-  %12356 = getelementptr inbounds i8, ptr %.17611, i64 2
+  %12356 = getelementptr inbounds nuw i8, ptr %.17611, i64 2
   %12357 = load i8, ptr %12356, align 1
   %12358 = and i8 %12357, 63
   %12359 = zext nneg i8 %12358 to i32
   %12360 = shl nuw nsw i32 %12359, 6
   %12361 = or disjoint i32 %12355, %12360
-  %12362 = getelementptr inbounds i8, ptr %.17611, i64 3
+  %12362 = getelementptr inbounds nuw i8, ptr %.17611, i64 3
   %12363 = load i8, ptr %12362, align 1
   %12364 = and i8 %12363, 63
   %12365 = zext nneg i8 %12364 to i32
@@ -21530,15 +21530,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12367:                                            ; preds = %12348
   %12368 = and i32 %12318, 4
   %12369 = icmp eq i32 %12368, 0
-  %12370 = getelementptr inbounds i8, ptr %.17611, i64 2
+  %12370 = getelementptr inbounds nuw i8, ptr %.17611, i64 2
   %12371 = load i8, ptr %12370, align 1
   %12372 = and i8 %12371, 63
   %12373 = zext nneg i8 %12372 to i32
-  %12374 = getelementptr inbounds i8, ptr %.17611, i64 3
+  %12374 = getelementptr inbounds nuw i8, ptr %.17611, i64 3
   %12375 = load i8, ptr %12374, align 1
   %12376 = and i8 %12375, 63
   %12377 = zext nneg i8 %12376 to i32
-  %12378 = getelementptr inbounds i8, ptr %.17611, i64 4
+  %12378 = getelementptr inbounds nuw i8, ptr %.17611, i64 4
   %12379 = load i8, ptr %12378, align 1
   %12380 = and i8 %12379, 63
   %12381 = zext nneg i8 %12380 to i32
@@ -21567,7 +21567,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12400 = or disjoint i32 %12398, %12399
   %12401 = shl nuw nsw i32 %12381, 6
   %12402 = or disjoint i32 %12400, %12401
-  %12403 = getelementptr inbounds i8, ptr %.17611, i64 5
+  %12403 = getelementptr inbounds nuw i8, ptr %.17611, i64 5
   %12404 = load i8, ptr %12403, align 1
   %12405 = and i8 %12404, 63
   %12406 = zext nneg i8 %12405 to i32
@@ -21579,20 +21579,20 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.07610 = phi ptr [ %.17611, %12331 ], [ %.17611, %12338 ], [ %.17611, %12351 ], [ %.17611, %12382 ], [ %.17611, %12392 ], [ %.17611, %12322 ], [ %12313, %12314 ]
   %12409 = lshr i32 %.697757, 7
   %12410 = zext nneg i32 %12409 to i64
-  %12411 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %12410
+  %12411 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %12410
   %12412 = load i16, ptr %12411, align 2
   %12413 = zext i16 %12412 to i32
   %12414 = shl nuw nsw i32 %12413, 7
   %12415 = and i32 %.697757, 127
   %12416 = or disjoint i32 %12414, %12415
   %12417 = zext nneg i32 %12416 to i64
-  %12418 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %12417
+  %12418 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %12417
   %12419 = load i16, ptr %12418, align 2
   %12420 = zext i16 %12419 to i64
-  %12421 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %12420, i32 2
+  %12421 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %12420, i32 2
   %12422 = load i8, ptr %12421, align 2
   %12423 = zext i8 %12422 to i64
-  %12424 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gbtable_8, i64 0, i64 %12423
+  %12424 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gbtable_8, i64 0, i64 %12423
   %12425 = load i32, ptr %12424, align 4
   %12426 = shl nuw i32 1, %.0761211243
   %12427 = and i32 %12425, %12426
@@ -21721,7 +21721,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %12464, label %.loopexit9667, label %12465
 
 12465:                                            ; preds = %12463
-  %12466 = getelementptr inbounds i8, ptr %12441, i64 1
+  %12466 = getelementptr inbounds nuw i8, ptr %12441, i64 1
   %12467 = load i8, ptr %12466, align 1
   %12468 = load i8, ptr %50, align 1
   %12469 = icmp eq i8 %12467, %12468
@@ -21734,7 +21734,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %.not8804, label %.preheader15590, label %12472
 
 12472:                                            ; preds = %12470
-  %12473 = getelementptr inbounds i8, ptr %.pre12583, i64 1
+  %12473 = getelementptr inbounds nuw i8, ptr %.pre12583, i64 1
   %12474 = load ptr, ptr %39, align 8
   %.not8805 = icmp ult ptr %12473, %12474
   br i1 %.not8805, label %.preheader15590, label %12475
@@ -21770,7 +21770,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 12486:                                            ; preds = %.preheader15590, %12489
   %.pn8807 = phi ptr [ %storemerge8806, %12489 ], [ %.pn8807.ph, %.preheader15590 ]
-  %storemerge8806 = getelementptr inbounds i8, ptr %.pn8807, i64 1
+  %storemerge8806 = getelementptr inbounds nuw i8, ptr %.pn8807, i64 1
   store ptr %storemerge8806, ptr %10508, align 8
   %12487 = load ptr, ptr %39, align 8
   %12488 = icmp ult ptr %storemerge8806, %12487
@@ -21828,7 +21828,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .preheader9550:                                   ; preds = %.lr.ph11092, %12509
   %.pn8797 = phi ptr [ %storemerge8796, %12509 ], [ %12498, %.lr.ph11092 ]
-  %storemerge8796 = getelementptr inbounds i8, ptr %.pn8797, i64 1
+  %storemerge8796 = getelementptr inbounds nuw i8, ptr %.pn8797, i64 1
   store ptr %storemerge8796, ptr %10508, align 8
   %12507 = load ptr, ptr %39, align 8
   %12508 = icmp ult ptr %storemerge8796, %12507
@@ -21899,7 +21899,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 12539:                                            ; preds = %12523
   %12540 = zext i32 %12524 to i64
-  %12541 = getelementptr inbounds i8, ptr %10509, i64 %12540
+  %12541 = getelementptr inbounds nuw i8, ptr %10509, i64 %12540
   store ptr %12541, ptr %10508, align 8
   br label %.loopexit9667
 
@@ -21939,7 +21939,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12556:                                            ; preds = %12552
   %12557 = and i32 %12554, 32
   %12558 = icmp eq i32 %12557, 0
-  %12559 = getelementptr inbounds i8, ptr %12542, i64 1
+  %12559 = getelementptr inbounds nuw i8, ptr %12542, i64 1
   %12560 = load i8, ptr %12559, align 1
   %12561 = and i8 %12560, 63
   %12562 = zext nneg i8 %12561 to i32
@@ -21961,7 +21961,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12572 = and i32 %12571, 61440
   %12573 = shl nuw nsw i32 %12562, 6
   %12574 = or disjoint i32 %12573, %12572
-  %12575 = getelementptr inbounds i8, ptr %12542, i64 2
+  %12575 = getelementptr inbounds nuw i8, ptr %12542, i64 2
   %12576 = load i8, ptr %12575, align 1
   %12577 = and i8 %12576, 63
   %12578 = zext nneg i8 %12577 to i32
@@ -21978,13 +21978,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12585 = and i32 %12584, 1835008
   %12586 = shl nuw nsw i32 %12562, 12
   %12587 = or disjoint i32 %12586, %12585
-  %12588 = getelementptr inbounds i8, ptr %12542, i64 2
+  %12588 = getelementptr inbounds nuw i8, ptr %12542, i64 2
   %12589 = load i8, ptr %12588, align 1
   %12590 = and i8 %12589, 63
   %12591 = zext nneg i8 %12590 to i32
   %12592 = shl nuw nsw i32 %12591, 6
   %12593 = or disjoint i32 %12587, %12592
-  %12594 = getelementptr inbounds i8, ptr %12542, i64 3
+  %12594 = getelementptr inbounds nuw i8, ptr %12542, i64 3
   %12595 = load i8, ptr %12594, align 1
   %12596 = and i8 %12595, 63
   %12597 = zext nneg i8 %12596 to i32
@@ -21994,15 +21994,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12599:                                            ; preds = %12580
   %12600 = and i32 %12554, 4
   %12601 = icmp eq i32 %12600, 0
-  %12602 = getelementptr inbounds i8, ptr %12542, i64 2
+  %12602 = getelementptr inbounds nuw i8, ptr %12542, i64 2
   %12603 = load i8, ptr %12602, align 1
   %12604 = and i8 %12603, 63
   %12605 = zext nneg i8 %12604 to i32
-  %12606 = getelementptr inbounds i8, ptr %12542, i64 3
+  %12606 = getelementptr inbounds nuw i8, ptr %12542, i64 3
   %12607 = load i8, ptr %12606, align 1
   %12608 = and i8 %12607, 63
   %12609 = zext nneg i8 %12608 to i32
-  %12610 = getelementptr inbounds i8, ptr %12542, i64 4
+  %12610 = getelementptr inbounds nuw i8, ptr %12542, i64 4
   %12611 = load i8, ptr %12610, align 1
   %12612 = and i8 %12611, 63
   %12613 = zext nneg i8 %12612 to i32
@@ -22031,7 +22031,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12632 = or disjoint i32 %12630, %12631
   %12633 = shl nuw nsw i32 %12613, 6
   %12634 = or disjoint i32 %12632, %12633
-  %12635 = getelementptr inbounds i8, ptr %12542, i64 5
+  %12635 = getelementptr inbounds nuw i8, ptr %12542, i64 5
   %12636 = load i8, ptr %12635, align 1
   %12637 = and i8 %12636, 63
   %12638 = zext nneg i8 %12637 to i32
@@ -22047,7 +22047,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   ]
 
 12641:                                            ; preds = %12640
-  %12642 = getelementptr inbounds i8, ptr %12542, i64 1
+  %12642 = getelementptr inbounds nuw i8, ptr %12542, i64 1
   store ptr %12642, ptr %10508, align 8
   %12643 = load ptr, ptr %39, align 8
   %.not8787 = icmp ult ptr %12642, %12643
@@ -22074,7 +22074,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .sink.split14207:                                 ; preds = %12640, %12650, %12650, %12650, %12650, %12650, %12644
   %.07609.sink = phi i64 [ 2, %12644 ], [ %.07609, %12650 ], [ %.07609, %12650 ], [ %.07609, %12650 ], [ %.07609, %12650 ], [ %.07609, %12650 ], [ %.07609, %12640 ]
-  %12651 = getelementptr inbounds i8, ptr %12542, i64 %.07609.sink
+  %12651 = getelementptr inbounds nuw i8, ptr %12542, i64 %.07609.sink
   store ptr %12651, ptr %10508, align 8
   br label %12652
 
@@ -22129,7 +22129,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12674:                                            ; preds = %12670
   %12675 = and i32 %12672, 32
   %12676 = icmp eq i32 %12675, 0
-  %12677 = getelementptr inbounds i8, ptr %12660, i64 1
+  %12677 = getelementptr inbounds nuw i8, ptr %12660, i64 1
   %12678 = load i8, ptr %12677, align 1
   %12679 = and i8 %12678, 63
   %12680 = zext nneg i8 %12679 to i32
@@ -22151,7 +22151,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12690 = and i32 %12689, 61440
   %12691 = shl nuw nsw i32 %12680, 6
   %12692 = or disjoint i32 %12691, %12690
-  %12693 = getelementptr inbounds i8, ptr %12660, i64 2
+  %12693 = getelementptr inbounds nuw i8, ptr %12660, i64 2
   %12694 = load i8, ptr %12693, align 1
   %12695 = and i8 %12694, 63
   %12696 = zext nneg i8 %12695 to i32
@@ -22168,13 +22168,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12703 = and i32 %12702, 1835008
   %12704 = shl nuw nsw i32 %12680, 12
   %12705 = or disjoint i32 %12704, %12703
-  %12706 = getelementptr inbounds i8, ptr %12660, i64 2
+  %12706 = getelementptr inbounds nuw i8, ptr %12660, i64 2
   %12707 = load i8, ptr %12706, align 1
   %12708 = and i8 %12707, 63
   %12709 = zext nneg i8 %12708 to i32
   %12710 = shl nuw nsw i32 %12709, 6
   %12711 = or disjoint i32 %12705, %12710
-  %12712 = getelementptr inbounds i8, ptr %12660, i64 3
+  %12712 = getelementptr inbounds nuw i8, ptr %12660, i64 3
   %12713 = load i8, ptr %12712, align 1
   %12714 = and i8 %12713, 63
   %12715 = zext nneg i8 %12714 to i32
@@ -22184,15 +22184,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12717:                                            ; preds = %12698
   %12718 = and i32 %12672, 4
   %12719 = icmp eq i32 %12718, 0
-  %12720 = getelementptr inbounds i8, ptr %12660, i64 2
+  %12720 = getelementptr inbounds nuw i8, ptr %12660, i64 2
   %12721 = load i8, ptr %12720, align 1
   %12722 = and i8 %12721, 63
   %12723 = zext nneg i8 %12722 to i32
-  %12724 = getelementptr inbounds i8, ptr %12660, i64 3
+  %12724 = getelementptr inbounds nuw i8, ptr %12660, i64 3
   %12725 = load i8, ptr %12724, align 1
   %12726 = and i8 %12725, 63
   %12727 = zext nneg i8 %12726 to i32
-  %12728 = getelementptr inbounds i8, ptr %12660, i64 4
+  %12728 = getelementptr inbounds nuw i8, ptr %12660, i64 4
   %12729 = load i8, ptr %12728, align 1
   %12730 = and i8 %12729, 63
   %12731 = zext nneg i8 %12730 to i32
@@ -22221,7 +22221,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12750 = or disjoint i32 %12748, %12749
   %12751 = shl nuw nsw i32 %12731, 6
   %12752 = or disjoint i32 %12750, %12751
-  %12753 = getelementptr inbounds i8, ptr %12660, i64 5
+  %12753 = getelementptr inbounds nuw i8, ptr %12660, i64 5
   %12754 = load i8, ptr %12753, align 1
   %12755 = and i8 %12754, 63
   %12756 = zext nneg i8 %12755 to i32
@@ -22262,7 +22262,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %12761, label %.loopexit9667, label %12762
 
 12762:                                            ; preds = %12760
-  %12763 = getelementptr inbounds i8, ptr %12660, i64 %.07607
+  %12763 = getelementptr inbounds nuw i8, ptr %12660, i64 %.07607
   store ptr %12763, ptr %10508, align 8
   %12764 = add nuw i32 %.7711082, 1
   %12765 = icmp ult i32 %12764, %8298
@@ -22313,7 +22313,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12784:                                            ; preds = %12780
   %12785 = and i32 %12782, 32
   %12786 = icmp eq i32 %12785, 0
-  %12787 = getelementptr inbounds i8, ptr %12770, i64 1
+  %12787 = getelementptr inbounds nuw i8, ptr %12770, i64 1
   %12788 = load i8, ptr %12787, align 1
   %12789 = and i8 %12788, 63
   %12790 = zext nneg i8 %12789 to i32
@@ -22335,7 +22335,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12800 = and i32 %12799, 61440
   %12801 = shl nuw nsw i32 %12790, 6
   %12802 = or disjoint i32 %12801, %12800
-  %12803 = getelementptr inbounds i8, ptr %12770, i64 2
+  %12803 = getelementptr inbounds nuw i8, ptr %12770, i64 2
   %12804 = load i8, ptr %12803, align 1
   %12805 = and i8 %12804, 63
   %12806 = zext nneg i8 %12805 to i32
@@ -22352,13 +22352,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12813 = and i32 %12812, 1835008
   %12814 = shl nuw nsw i32 %12790, 12
   %12815 = or disjoint i32 %12814, %12813
-  %12816 = getelementptr inbounds i8, ptr %12770, i64 2
+  %12816 = getelementptr inbounds nuw i8, ptr %12770, i64 2
   %12817 = load i8, ptr %12816, align 1
   %12818 = and i8 %12817, 63
   %12819 = zext nneg i8 %12818 to i32
   %12820 = shl nuw nsw i32 %12819, 6
   %12821 = or disjoint i32 %12815, %12820
-  %12822 = getelementptr inbounds i8, ptr %12770, i64 3
+  %12822 = getelementptr inbounds nuw i8, ptr %12770, i64 3
   %12823 = load i8, ptr %12822, align 1
   %12824 = and i8 %12823, 63
   %12825 = zext nneg i8 %12824 to i32
@@ -22368,15 +22368,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12827:                                            ; preds = %12808
   %12828 = and i32 %12782, 4
   %12829 = icmp eq i32 %12828, 0
-  %12830 = getelementptr inbounds i8, ptr %12770, i64 2
+  %12830 = getelementptr inbounds nuw i8, ptr %12770, i64 2
   %12831 = load i8, ptr %12830, align 1
   %12832 = and i8 %12831, 63
   %12833 = zext nneg i8 %12832 to i32
-  %12834 = getelementptr inbounds i8, ptr %12770, i64 3
+  %12834 = getelementptr inbounds nuw i8, ptr %12770, i64 3
   %12835 = load i8, ptr %12834, align 1
   %12836 = and i8 %12835, 63
   %12837 = zext nneg i8 %12836 to i32
-  %12838 = getelementptr inbounds i8, ptr %12770, i64 4
+  %12838 = getelementptr inbounds nuw i8, ptr %12770, i64 4
   %12839 = load i8, ptr %12838, align 1
   %12840 = and i8 %12839, 63
   %12841 = zext nneg i8 %12840 to i32
@@ -22405,7 +22405,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12860 = or disjoint i32 %12858, %12859
   %12861 = shl nuw nsw i32 %12841, 6
   %12862 = or disjoint i32 %12860, %12861
-  %12863 = getelementptr inbounds i8, ptr %12770, i64 5
+  %12863 = getelementptr inbounds nuw i8, ptr %12770, i64 5
   %12864 = load i8, ptr %12863, align 1
   %12865 = and i8 %12864, 63
   %12866 = zext nneg i8 %12865 to i32
@@ -22434,7 +22434,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %12871, label %.loopexit9667, label %12872
 
 12872:                                            ; preds = %12870
-  %12873 = getelementptr inbounds i8, ptr %12770, i64 %.07605
+  %12873 = getelementptr inbounds nuw i8, ptr %12770, i64 %.07605
   store ptr %12873, ptr %10508, align 8
   %12874 = add nuw i32 %.7811078, 1
   %12875 = icmp ult i32 %12874, %8298
@@ -22476,7 +22476,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12890:                                            ; preds = %12886
   %12891 = and i32 %12888, 32
   %12892 = icmp eq i32 %12891, 0
-  %12893 = getelementptr inbounds i8, ptr %12876, i64 1
+  %12893 = getelementptr inbounds nuw i8, ptr %12876, i64 1
   %12894 = load i8, ptr %12893, align 1
   %12895 = and i8 %12894, 63
   %12896 = zext nneg i8 %12895 to i32
@@ -22498,7 +22498,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12906 = and i32 %12905, 61440
   %12907 = shl nuw nsw i32 %12896, 6
   %12908 = or disjoint i32 %12907, %12906
-  %12909 = getelementptr inbounds i8, ptr %12876, i64 2
+  %12909 = getelementptr inbounds nuw i8, ptr %12876, i64 2
   %12910 = load i8, ptr %12909, align 1
   %12911 = and i8 %12910, 63
   %12912 = zext nneg i8 %12911 to i32
@@ -22515,13 +22515,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12919 = and i32 %12918, 1835008
   %12920 = shl nuw nsw i32 %12896, 12
   %12921 = or disjoint i32 %12920, %12919
-  %12922 = getelementptr inbounds i8, ptr %12876, i64 2
+  %12922 = getelementptr inbounds nuw i8, ptr %12876, i64 2
   %12923 = load i8, ptr %12922, align 1
   %12924 = and i8 %12923, 63
   %12925 = zext nneg i8 %12924 to i32
   %12926 = shl nuw nsw i32 %12925, 6
   %12927 = or disjoint i32 %12921, %12926
-  %12928 = getelementptr inbounds i8, ptr %12876, i64 3
+  %12928 = getelementptr inbounds nuw i8, ptr %12876, i64 3
   %12929 = load i8, ptr %12928, align 1
   %12930 = and i8 %12929, 63
   %12931 = zext nneg i8 %12930 to i32
@@ -22531,15 +22531,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12933:                                            ; preds = %12914
   %12934 = and i32 %12888, 4
   %12935 = icmp eq i32 %12934, 0
-  %12936 = getelementptr inbounds i8, ptr %12876, i64 2
+  %12936 = getelementptr inbounds nuw i8, ptr %12876, i64 2
   %12937 = load i8, ptr %12936, align 1
   %12938 = and i8 %12937, 63
   %12939 = zext nneg i8 %12938 to i32
-  %12940 = getelementptr inbounds i8, ptr %12876, i64 3
+  %12940 = getelementptr inbounds nuw i8, ptr %12876, i64 3
   %12941 = load i8, ptr %12940, align 1
   %12942 = and i8 %12941, 63
   %12943 = zext nneg i8 %12942 to i32
-  %12944 = getelementptr inbounds i8, ptr %12876, i64 4
+  %12944 = getelementptr inbounds nuw i8, ptr %12876, i64 4
   %12945 = load i8, ptr %12944, align 1
   %12946 = and i8 %12945, 63
   %12947 = zext nneg i8 %12946 to i32
@@ -22568,7 +22568,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %12966 = or disjoint i32 %12964, %12965
   %12967 = shl nuw nsw i32 %12947, 6
   %12968 = or disjoint i32 %12966, %12967
-  %12969 = getelementptr inbounds i8, ptr %12876, i64 5
+  %12969 = getelementptr inbounds nuw i8, ptr %12876, i64 5
   %12970 = load i8, ptr %12969, align 1
   %12971 = and i8 %12970, 63
   %12972 = zext nneg i8 %12971 to i32
@@ -22586,7 +22586,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.7377619341 = phi i32 [ %.737761, %12974 ], [ %12888, %12886 ]
   %12976 = load ptr, ptr %38, align 8
   %12977 = zext nneg i32 %.7377619341 to i64
-  %12978 = getelementptr inbounds i8, ptr %12976, i64 %12977
+  %12978 = getelementptr inbounds nuw i8, ptr %12976, i64 %12977
   %12979 = load i8, ptr %12978, align 1
   %12980 = and i8 %12979, 8
   %.not8776 = icmp eq i8 %12980, 0
@@ -22594,7 +22594,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 12981:                                            ; preds = %.thread9338, %12974
   %.076049342 = phi i64 [ %.076049343, %.thread9338 ], [ %.07604, %12974 ]
-  %12982 = getelementptr inbounds i8, ptr %12876, i64 %.076049342
+  %12982 = getelementptr inbounds nuw i8, ptr %12876, i64 %.076049342
   store ptr %12982, ptr %10508, align 8
   %12983 = add nuw i32 %.7911076, 1
   %12984 = icmp ult i32 %12983, %8298
@@ -22636,7 +22636,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 12999:                                            ; preds = %12995
   %13000 = and i32 %12997, 32
   %13001 = icmp eq i32 %13000, 0
-  %13002 = getelementptr inbounds i8, ptr %12985, i64 1
+  %13002 = getelementptr inbounds nuw i8, ptr %12985, i64 1
   %13003 = load i8, ptr %13002, align 1
   %13004 = and i8 %13003, 63
   %13005 = zext nneg i8 %13004 to i32
@@ -22658,7 +22658,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13015 = and i32 %13014, 61440
   %13016 = shl nuw nsw i32 %13005, 6
   %13017 = or disjoint i32 %13016, %13015
-  %13018 = getelementptr inbounds i8, ptr %12985, i64 2
+  %13018 = getelementptr inbounds nuw i8, ptr %12985, i64 2
   %13019 = load i8, ptr %13018, align 1
   %13020 = and i8 %13019, 63
   %13021 = zext nneg i8 %13020 to i32
@@ -22675,13 +22675,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13028 = and i32 %13027, 1835008
   %13029 = shl nuw nsw i32 %13005, 12
   %13030 = or disjoint i32 %13029, %13028
-  %13031 = getelementptr inbounds i8, ptr %12985, i64 2
+  %13031 = getelementptr inbounds nuw i8, ptr %12985, i64 2
   %13032 = load i8, ptr %13031, align 1
   %13033 = and i8 %13032, 63
   %13034 = zext nneg i8 %13033 to i32
   %13035 = shl nuw nsw i32 %13034, 6
   %13036 = or disjoint i32 %13030, %13035
-  %13037 = getelementptr inbounds i8, ptr %12985, i64 3
+  %13037 = getelementptr inbounds nuw i8, ptr %12985, i64 3
   %13038 = load i8, ptr %13037, align 1
   %13039 = and i8 %13038, 63
   %13040 = zext nneg i8 %13039 to i32
@@ -22691,15 +22691,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13042:                                            ; preds = %13023
   %13043 = and i32 %12997, 4
   %13044 = icmp eq i32 %13043, 0
-  %13045 = getelementptr inbounds i8, ptr %12985, i64 2
+  %13045 = getelementptr inbounds nuw i8, ptr %12985, i64 2
   %13046 = load i8, ptr %13045, align 1
   %13047 = and i8 %13046, 63
   %13048 = zext nneg i8 %13047 to i32
-  %13049 = getelementptr inbounds i8, ptr %12985, i64 3
+  %13049 = getelementptr inbounds nuw i8, ptr %12985, i64 3
   %13050 = load i8, ptr %13049, align 1
   %13051 = and i8 %13050, 63
   %13052 = zext nneg i8 %13051 to i32
-  %13053 = getelementptr inbounds i8, ptr %12985, i64 4
+  %13053 = getelementptr inbounds nuw i8, ptr %12985, i64 4
   %13054 = load i8, ptr %13053, align 1
   %13055 = and i8 %13054, 63
   %13056 = zext nneg i8 %13055 to i32
@@ -22728,7 +22728,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13075 = or disjoint i32 %13073, %13074
   %13076 = shl nuw nsw i32 %13056, 6
   %13077 = or disjoint i32 %13075, %13076
-  %13078 = getelementptr inbounds i8, ptr %12985, i64 5
+  %13078 = getelementptr inbounds nuw i8, ptr %12985, i64 5
   %13079 = load i8, ptr %13078, align 1
   %13080 = and i8 %13079, 63
   %13081 = zext nneg i8 %13080 to i32
@@ -22746,14 +22746,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.7477629347 = phi i32 [ %.747762, %13083 ], [ %12997, %12995 ]
   %13085 = load ptr, ptr %38, align 8
   %13086 = zext nneg i32 %.7477629347 to i64
-  %13087 = getelementptr inbounds i8, ptr %13085, i64 %13086
+  %13087 = getelementptr inbounds nuw i8, ptr %13085, i64 %13086
   %13088 = load i8, ptr %13087, align 1
   %13089 = and i8 %13088, 8
   %13090 = icmp eq i8 %13089, 0
   br i1 %13090, label %.loopexit9667, label %13091
 
 13091:                                            ; preds = %.thread9344
-  %13092 = getelementptr inbounds i8, ptr %12985, i64 %.076039348
+  %13092 = getelementptr inbounds nuw i8, ptr %12985, i64 %.076039348
   store ptr %13092, ptr %10508, align 8
   %13093 = add nuw i32 %.8011073, 1
   %13094 = icmp ult i32 %13093, %8298
@@ -22795,7 +22795,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13109:                                            ; preds = %13105
   %13110 = and i32 %13107, 32
   %13111 = icmp eq i32 %13110, 0
-  %13112 = getelementptr inbounds i8, ptr %13095, i64 1
+  %13112 = getelementptr inbounds nuw i8, ptr %13095, i64 1
   %13113 = load i8, ptr %13112, align 1
   %13114 = and i8 %13113, 63
   %13115 = zext nneg i8 %13114 to i32
@@ -22817,7 +22817,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13125 = and i32 %13124, 61440
   %13126 = shl nuw nsw i32 %13115, 6
   %13127 = or disjoint i32 %13126, %13125
-  %13128 = getelementptr inbounds i8, ptr %13095, i64 2
+  %13128 = getelementptr inbounds nuw i8, ptr %13095, i64 2
   %13129 = load i8, ptr %13128, align 1
   %13130 = and i8 %13129, 63
   %13131 = zext nneg i8 %13130 to i32
@@ -22834,13 +22834,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13138 = and i32 %13137, 1835008
   %13139 = shl nuw nsw i32 %13115, 12
   %13140 = or disjoint i32 %13139, %13138
-  %13141 = getelementptr inbounds i8, ptr %13095, i64 2
+  %13141 = getelementptr inbounds nuw i8, ptr %13095, i64 2
   %13142 = load i8, ptr %13141, align 1
   %13143 = and i8 %13142, 63
   %13144 = zext nneg i8 %13143 to i32
   %13145 = shl nuw nsw i32 %13144, 6
   %13146 = or disjoint i32 %13140, %13145
-  %13147 = getelementptr inbounds i8, ptr %13095, i64 3
+  %13147 = getelementptr inbounds nuw i8, ptr %13095, i64 3
   %13148 = load i8, ptr %13147, align 1
   %13149 = and i8 %13148, 63
   %13150 = zext nneg i8 %13149 to i32
@@ -22850,15 +22850,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13152:                                            ; preds = %13133
   %13153 = and i32 %13107, 4
   %13154 = icmp eq i32 %13153, 0
-  %13155 = getelementptr inbounds i8, ptr %13095, i64 2
+  %13155 = getelementptr inbounds nuw i8, ptr %13095, i64 2
   %13156 = load i8, ptr %13155, align 1
   %13157 = and i8 %13156, 63
   %13158 = zext nneg i8 %13157 to i32
-  %13159 = getelementptr inbounds i8, ptr %13095, i64 3
+  %13159 = getelementptr inbounds nuw i8, ptr %13095, i64 3
   %13160 = load i8, ptr %13159, align 1
   %13161 = and i8 %13160, 63
   %13162 = zext nneg i8 %13161 to i32
-  %13163 = getelementptr inbounds i8, ptr %13095, i64 4
+  %13163 = getelementptr inbounds nuw i8, ptr %13095, i64 4
   %13164 = load i8, ptr %13163, align 1
   %13165 = and i8 %13164, 63
   %13166 = zext nneg i8 %13165 to i32
@@ -22887,7 +22887,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13185 = or disjoint i32 %13183, %13184
   %13186 = shl nuw nsw i32 %13166, 6
   %13187 = or disjoint i32 %13185, %13186
-  %13188 = getelementptr inbounds i8, ptr %13095, i64 5
+  %13188 = getelementptr inbounds nuw i8, ptr %13095, i64 5
   %13189 = load i8, ptr %13188, align 1
   %13190 = and i8 %13189, 63
   %13191 = zext nneg i8 %13190 to i32
@@ -22905,7 +22905,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.7577639352 = phi i32 [ %.757763, %13193 ], [ %13107, %13105 ]
   %13195 = load ptr, ptr %38, align 8
   %13196 = zext nneg i32 %.7577639352 to i64
-  %13197 = getelementptr inbounds i8, ptr %13195, i64 %13196
+  %13197 = getelementptr inbounds nuw i8, ptr %13195, i64 %13196
   %13198 = load i8, ptr %13197, align 1
   %13199 = and i8 %13198, 1
   %.not8769 = icmp eq i8 %13199, 0
@@ -22913,7 +22913,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 13200:                                            ; preds = %.thread9349, %13193
   %.076029353 = phi i64 [ %.076029354, %.thread9349 ], [ %.07602, %13193 ]
-  %13201 = getelementptr inbounds i8, ptr %13095, i64 %.076029353
+  %13201 = getelementptr inbounds nuw i8, ptr %13095, i64 %.076029353
   store ptr %13201, ptr %10508, align 8
   %13202 = add nuw i32 %.8111071, 1
   %13203 = icmp ult i32 %13202, %8298
@@ -22955,7 +22955,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13218:                                            ; preds = %13214
   %13219 = and i32 %13216, 32
   %13220 = icmp eq i32 %13219, 0
-  %13221 = getelementptr inbounds i8, ptr %13204, i64 1
+  %13221 = getelementptr inbounds nuw i8, ptr %13204, i64 1
   %13222 = load i8, ptr %13221, align 1
   %13223 = and i8 %13222, 63
   %13224 = zext nneg i8 %13223 to i32
@@ -22977,7 +22977,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13234 = and i32 %13233, 61440
   %13235 = shl nuw nsw i32 %13224, 6
   %13236 = or disjoint i32 %13235, %13234
-  %13237 = getelementptr inbounds i8, ptr %13204, i64 2
+  %13237 = getelementptr inbounds nuw i8, ptr %13204, i64 2
   %13238 = load i8, ptr %13237, align 1
   %13239 = and i8 %13238, 63
   %13240 = zext nneg i8 %13239 to i32
@@ -22994,13 +22994,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13247 = and i32 %13246, 1835008
   %13248 = shl nuw nsw i32 %13224, 12
   %13249 = or disjoint i32 %13248, %13247
-  %13250 = getelementptr inbounds i8, ptr %13204, i64 2
+  %13250 = getelementptr inbounds nuw i8, ptr %13204, i64 2
   %13251 = load i8, ptr %13250, align 1
   %13252 = and i8 %13251, 63
   %13253 = zext nneg i8 %13252 to i32
   %13254 = shl nuw nsw i32 %13253, 6
   %13255 = or disjoint i32 %13249, %13254
-  %13256 = getelementptr inbounds i8, ptr %13204, i64 3
+  %13256 = getelementptr inbounds nuw i8, ptr %13204, i64 3
   %13257 = load i8, ptr %13256, align 1
   %13258 = and i8 %13257, 63
   %13259 = zext nneg i8 %13258 to i32
@@ -23010,15 +23010,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13261:                                            ; preds = %13242
   %13262 = and i32 %13216, 4
   %13263 = icmp eq i32 %13262, 0
-  %13264 = getelementptr inbounds i8, ptr %13204, i64 2
+  %13264 = getelementptr inbounds nuw i8, ptr %13204, i64 2
   %13265 = load i8, ptr %13264, align 1
   %13266 = and i8 %13265, 63
   %13267 = zext nneg i8 %13266 to i32
-  %13268 = getelementptr inbounds i8, ptr %13204, i64 3
+  %13268 = getelementptr inbounds nuw i8, ptr %13204, i64 3
   %13269 = load i8, ptr %13268, align 1
   %13270 = and i8 %13269, 63
   %13271 = zext nneg i8 %13270 to i32
-  %13272 = getelementptr inbounds i8, ptr %13204, i64 4
+  %13272 = getelementptr inbounds nuw i8, ptr %13204, i64 4
   %13273 = load i8, ptr %13272, align 1
   %13274 = and i8 %13273, 63
   %13275 = zext nneg i8 %13274 to i32
@@ -23047,7 +23047,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13294 = or disjoint i32 %13292, %13293
   %13295 = shl nuw nsw i32 %13275, 6
   %13296 = or disjoint i32 %13294, %13295
-  %13297 = getelementptr inbounds i8, ptr %13204, i64 5
+  %13297 = getelementptr inbounds nuw i8, ptr %13204, i64 5
   %13298 = load i8, ptr %13297, align 1
   %13299 = and i8 %13298, 63
   %13300 = zext nneg i8 %13299 to i32
@@ -23065,14 +23065,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.7677649358 = phi i32 [ %.767764, %13302 ], [ %13216, %13214 ]
   %13304 = load ptr, ptr %38, align 8
   %13305 = zext nneg i32 %.7677649358 to i64
-  %13306 = getelementptr inbounds i8, ptr %13304, i64 %13305
+  %13306 = getelementptr inbounds nuw i8, ptr %13304, i64 %13305
   %13307 = load i8, ptr %13306, align 1
   %13308 = and i8 %13307, 1
   %13309 = icmp eq i8 %13308, 0
   br i1 %13309, label %.loopexit9667, label %13310
 
 13310:                                            ; preds = %.thread9355
-  %13311 = getelementptr inbounds i8, ptr %13204, i64 %.076019359
+  %13311 = getelementptr inbounds nuw i8, ptr %13204, i64 %.076019359
   store ptr %13311, ptr %10508, align 8
   %13312 = add nuw i32 %.8211068, 1
   %13313 = icmp ult i32 %13312, %8298
@@ -23114,7 +23114,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13328:                                            ; preds = %13324
   %13329 = and i32 %13326, 32
   %13330 = icmp eq i32 %13329, 0
-  %13331 = getelementptr inbounds i8, ptr %13314, i64 1
+  %13331 = getelementptr inbounds nuw i8, ptr %13314, i64 1
   %13332 = load i8, ptr %13331, align 1
   %13333 = and i8 %13332, 63
   %13334 = zext nneg i8 %13333 to i32
@@ -23136,7 +23136,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13344 = and i32 %13343, 61440
   %13345 = shl nuw nsw i32 %13334, 6
   %13346 = or disjoint i32 %13345, %13344
-  %13347 = getelementptr inbounds i8, ptr %13314, i64 2
+  %13347 = getelementptr inbounds nuw i8, ptr %13314, i64 2
   %13348 = load i8, ptr %13347, align 1
   %13349 = and i8 %13348, 63
   %13350 = zext nneg i8 %13349 to i32
@@ -23153,13 +23153,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13357 = and i32 %13356, 1835008
   %13358 = shl nuw nsw i32 %13334, 12
   %13359 = or disjoint i32 %13358, %13357
-  %13360 = getelementptr inbounds i8, ptr %13314, i64 2
+  %13360 = getelementptr inbounds nuw i8, ptr %13314, i64 2
   %13361 = load i8, ptr %13360, align 1
   %13362 = and i8 %13361, 63
   %13363 = zext nneg i8 %13362 to i32
   %13364 = shl nuw nsw i32 %13363, 6
   %13365 = or disjoint i32 %13359, %13364
-  %13366 = getelementptr inbounds i8, ptr %13314, i64 3
+  %13366 = getelementptr inbounds nuw i8, ptr %13314, i64 3
   %13367 = load i8, ptr %13366, align 1
   %13368 = and i8 %13367, 63
   %13369 = zext nneg i8 %13368 to i32
@@ -23169,15 +23169,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13371:                                            ; preds = %13352
   %13372 = and i32 %13326, 4
   %13373 = icmp eq i32 %13372, 0
-  %13374 = getelementptr inbounds i8, ptr %13314, i64 2
+  %13374 = getelementptr inbounds nuw i8, ptr %13314, i64 2
   %13375 = load i8, ptr %13374, align 1
   %13376 = and i8 %13375, 63
   %13377 = zext nneg i8 %13376 to i32
-  %13378 = getelementptr inbounds i8, ptr %13314, i64 3
+  %13378 = getelementptr inbounds nuw i8, ptr %13314, i64 3
   %13379 = load i8, ptr %13378, align 1
   %13380 = and i8 %13379, 63
   %13381 = zext nneg i8 %13380 to i32
-  %13382 = getelementptr inbounds i8, ptr %13314, i64 4
+  %13382 = getelementptr inbounds nuw i8, ptr %13314, i64 4
   %13383 = load i8, ptr %13382, align 1
   %13384 = and i8 %13383, 63
   %13385 = zext nneg i8 %13384 to i32
@@ -23206,7 +23206,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13404 = or disjoint i32 %13402, %13403
   %13405 = shl nuw nsw i32 %13385, 6
   %13406 = or disjoint i32 %13404, %13405
-  %13407 = getelementptr inbounds i8, ptr %13314, i64 5
+  %13407 = getelementptr inbounds nuw i8, ptr %13314, i64 5
   %13408 = load i8, ptr %13407, align 1
   %13409 = and i8 %13408, 63
   %13410 = zext nneg i8 %13409 to i32
@@ -23224,7 +23224,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.7777659363 = phi i32 [ %.777765, %13412 ], [ %13326, %13324 ]
   %13414 = load ptr, ptr %38, align 8
   %13415 = zext nneg i32 %.7777659363 to i64
-  %13416 = getelementptr inbounds i8, ptr %13414, i64 %13415
+  %13416 = getelementptr inbounds nuw i8, ptr %13414, i64 %13415
   %13417 = load i8, ptr %13416, align 1
   %13418 = and i8 %13417, 16
   %.not8762 = icmp eq i8 %13418, 0
@@ -23232,7 +23232,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 13419:                                            ; preds = %.thread9360, %13412
   %.076009364 = phi i64 [ %.076009365, %.thread9360 ], [ %.07600, %13412 ]
-  %13420 = getelementptr inbounds i8, ptr %13314, i64 %.076009364
+  %13420 = getelementptr inbounds nuw i8, ptr %13314, i64 %.076009364
   store ptr %13420, ptr %10508, align 8
   %13421 = add nuw i32 %.8311066, 1
   %13422 = icmp ult i32 %13421, %8298
@@ -23274,7 +23274,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13437:                                            ; preds = %13433
   %13438 = and i32 %13435, 32
   %13439 = icmp eq i32 %13438, 0
-  %13440 = getelementptr inbounds i8, ptr %13423, i64 1
+  %13440 = getelementptr inbounds nuw i8, ptr %13423, i64 1
   %13441 = load i8, ptr %13440, align 1
   %13442 = and i8 %13441, 63
   %13443 = zext nneg i8 %13442 to i32
@@ -23296,7 +23296,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13453 = and i32 %13452, 61440
   %13454 = shl nuw nsw i32 %13443, 6
   %13455 = or disjoint i32 %13454, %13453
-  %13456 = getelementptr inbounds i8, ptr %13423, i64 2
+  %13456 = getelementptr inbounds nuw i8, ptr %13423, i64 2
   %13457 = load i8, ptr %13456, align 1
   %13458 = and i8 %13457, 63
   %13459 = zext nneg i8 %13458 to i32
@@ -23313,13 +23313,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13466 = and i32 %13465, 1835008
   %13467 = shl nuw nsw i32 %13443, 12
   %13468 = or disjoint i32 %13467, %13466
-  %13469 = getelementptr inbounds i8, ptr %13423, i64 2
+  %13469 = getelementptr inbounds nuw i8, ptr %13423, i64 2
   %13470 = load i8, ptr %13469, align 1
   %13471 = and i8 %13470, 63
   %13472 = zext nneg i8 %13471 to i32
   %13473 = shl nuw nsw i32 %13472, 6
   %13474 = or disjoint i32 %13468, %13473
-  %13475 = getelementptr inbounds i8, ptr %13423, i64 3
+  %13475 = getelementptr inbounds nuw i8, ptr %13423, i64 3
   %13476 = load i8, ptr %13475, align 1
   %13477 = and i8 %13476, 63
   %13478 = zext nneg i8 %13477 to i32
@@ -23329,15 +23329,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13480:                                            ; preds = %13461
   %13481 = and i32 %13435, 4
   %13482 = icmp eq i32 %13481, 0
-  %13483 = getelementptr inbounds i8, ptr %13423, i64 2
+  %13483 = getelementptr inbounds nuw i8, ptr %13423, i64 2
   %13484 = load i8, ptr %13483, align 1
   %13485 = and i8 %13484, 63
   %13486 = zext nneg i8 %13485 to i32
-  %13487 = getelementptr inbounds i8, ptr %13423, i64 3
+  %13487 = getelementptr inbounds nuw i8, ptr %13423, i64 3
   %13488 = load i8, ptr %13487, align 1
   %13489 = and i8 %13488, 63
   %13490 = zext nneg i8 %13489 to i32
-  %13491 = getelementptr inbounds i8, ptr %13423, i64 4
+  %13491 = getelementptr inbounds nuw i8, ptr %13423, i64 4
   %13492 = load i8, ptr %13491, align 1
   %13493 = and i8 %13492, 63
   %13494 = zext nneg i8 %13493 to i32
@@ -23366,7 +23366,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13513 = or disjoint i32 %13511, %13512
   %13514 = shl nuw nsw i32 %13494, 6
   %13515 = or disjoint i32 %13513, %13514
-  %13516 = getelementptr inbounds i8, ptr %13423, i64 5
+  %13516 = getelementptr inbounds nuw i8, ptr %13423, i64 5
   %13517 = load i8, ptr %13516, align 1
   %13518 = and i8 %13517, 63
   %13519 = zext nneg i8 %13518 to i32
@@ -23384,14 +23384,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.7877669369 = phi i32 [ %.787766, %13521 ], [ %13435, %13433 ]
   %13523 = load ptr, ptr %38, align 8
   %13524 = zext nneg i32 %.7877669369 to i64
-  %13525 = getelementptr inbounds i8, ptr %13523, i64 %13524
+  %13525 = getelementptr inbounds nuw i8, ptr %13523, i64 %13524
   %13526 = load i8, ptr %13525, align 1
   %13527 = and i8 %13526, 16
   %13528 = icmp eq i8 %13527, 0
   br i1 %13528, label %.loopexit9667, label %13529
 
 13529:                                            ; preds = %.thread9366
-  %13530 = getelementptr inbounds i8, ptr %13423, i64 %.075999370
+  %13530 = getelementptr inbounds nuw i8, ptr %13423, i64 %.075999370
   store ptr %13530, ptr %10508, align 8
   %13531 = add nuw i32 %.8411063, 1
   %13532 = icmp ult i32 %13531, %8298
@@ -23412,7 +23412,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.447513 = phi ptr [ %.47473.ph.ph, %13559 ], [ %.47473.ph.ph, %13555 ], [ %.47473.ph.ph, %13550 ], [ %.47473.ph.ph, %13546 ], [ %.27471, %.loopexit9667._crit_edge ]
   %.177456 = phi ptr [ %.57444.ph.ph, %13559 ], [ %.57444.ph.ph, %13555 ], [ %.57444.ph.ph, %13550 ], [ %.57444.ph.ph, %13546 ], [ %.27441, %.loopexit9667._crit_edge ]
   %.45 = phi ptr [ %15814, %13559 ], [ %15814, %13555 ], [ %15814, %13550 ], [ %15814, %13546 ], [ %.3, %.loopexit9667._crit_edge ]
-  %13536 = getelementptr inbounds i8, ptr %.45, i64 8
+  %13536 = getelementptr inbounds nuw i8, ptr %.45, i64 8
   %13537 = load ptr, ptr %13536, align 8
   %.not9065 = icmp ugt ptr %13535, %13537
   br i1 %.not9065, label %13538, label %.preheader9835.backedge
@@ -23422,7 +23422,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br label %.loopexit9844
 
 13540:                                            ; preds = %15900
-  %13541 = getelementptr inbounds i8, ptr %15814, i64 80
+  %13541 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %13542 = load ptr, ptr %13541, align 8
   br label %13543
 
@@ -23435,13 +23435,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %13545, label %13543, label %13546
 
 13546:                                            ; preds = %13543
-  %13547 = getelementptr inbounds i8, ptr %15814, i64 64
+  %13547 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %13548 = load i32, ptr %13547, align 8
   %13549 = icmp eq i32 %13548, 17
   br i1 %13549, label %13550, label %13534
 
 13550:                                            ; preds = %13546
-  %13551 = getelementptr inbounds i8, ptr %15814, i64 8
+  %13551 = getelementptr inbounds nuw i8, ptr %15814, i64 8
   %13552 = load ptr, ptr %13551, align 8
   %13553 = icmp ugt ptr %storemerge9064, %13552
   %13554 = icmp eq i8 %13544, 10
@@ -23560,7 +23560,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %13591, label %.loopexit9688, label %13592
 
 13592:                                            ; preds = %13590
-  %13593 = getelementptr inbounds i8, ptr %13567, i64 1
+  %13593 = getelementptr inbounds nuw i8, ptr %13567, i64 1
   %13594 = load i8, ptr %13593, align 1
   %13595 = load i8, ptr %50, align 1
   %13596 = icmp eq i8 %13594, %13595
@@ -23573,7 +23573,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %.not8754, label %13613, label %13599
 
 13599:                                            ; preds = %13597
-  %13600 = getelementptr inbounds i8, ptr %.pre12578, i64 1
+  %13600 = getelementptr inbounds nuw i8, ptr %.pre12578, i64 1
   %13601 = load ptr, ptr %39, align 8
   %.not8755 = icmp ult ptr %13600, %13601
   br i1 %.not8755, label %13613, label %13602
@@ -23605,7 +23605,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 13613:                                            ; preds = %._crit_edge12576, %13608, %13605, %13602, %13599, %13597
   %13614 = phi ptr [ %.pre12577, %._crit_edge12576 ], [ %.pre12578, %13608 ], [ %.pre12578, %13605 ], [ %.pre12578, %13602 ], [ %.pre12578, %13599 ], [ %.pre12578, %13597 ]
-  %13615 = getelementptr inbounds i8, ptr %13614, i64 1
+  %13615 = getelementptr inbounds nuw i8, ptr %13614, i64 1
   store ptr %13615, ptr %10508, align 8
   %13616 = add nuw i32 %.8511058, 1
   %13617 = load i32, ptr %8297, align 4
@@ -23645,7 +23645,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 13635:                                            ; preds = %13619
   %13636 = zext i32 %13620 to i64
-  %13637 = getelementptr inbounds i8, ptr %10509, i64 %13636
+  %13637 = getelementptr inbounds nuw i8, ptr %10509, i64 %13636
   store ptr %13637, ptr %10508, align 8
   br label %.loopexit9688
 
@@ -23684,7 +23684,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   ]
 
 13650:                                            ; preds = %13648
-  %13651 = getelementptr inbounds i8, ptr %13638, i64 1
+  %13651 = getelementptr inbounds nuw i8, ptr %13638, i64 1
   store ptr %13651, ptr %10508, align 8
   %13652 = load ptr, ptr %39, align 8
   %.not8745 = icmp ult ptr %13651, %13652
@@ -23709,7 +23709,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .sink.split14210:                                 ; preds = %13648, %13659, %13659, %13659, %13653
   %.sink14213 = phi i64 [ 2, %13653 ], [ 1, %13659 ], [ 1, %13659 ], [ 1, %13659 ], [ 1, %13648 ]
-  %13660 = getelementptr inbounds i8, ptr %13638, i64 %.sink14213
+  %13660 = getelementptr inbounds nuw i8, ptr %13638, i64 %.sink14213
   store ptr %13660, ptr %10508, align 8
   br label %13661
 
@@ -23755,7 +23755,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   ]
 
 13677:                                            ; preds = %13675
-  %13678 = getelementptr inbounds i8, ptr %13665, i64 1
+  %13678 = getelementptr inbounds nuw i8, ptr %13665, i64 1
   store ptr %13678, ptr %10508, align 8
   %13679 = add nuw i32 %.8711048, 1
   %13680 = icmp ult i32 %13679, %8298
@@ -23797,7 +23797,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   ]
 
 13693:                                            ; preds = %13691, %13691, %13691
-  %13694 = getelementptr inbounds i8, ptr %13681, i64 1
+  %13694 = getelementptr inbounds nuw i8, ptr %13681, i64 1
   store ptr %13694, ptr %10508, align 8
   %13695 = add nuw i32 %.8811045, 1
   %13696 = icmp ult i32 %13695, %8298
@@ -23841,7 +23841,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   ]
 
 13709:                                            ; preds = %13707
-  %13710 = getelementptr inbounds i8, ptr %13697, i64 1
+  %13710 = getelementptr inbounds nuw i8, ptr %13697, i64 1
   store ptr %13710, ptr %10508, align 8
   %13711 = add nuw i32 %.8911038, 1
   %13712 = icmp ult i32 %13711, %8298
@@ -23885,7 +23885,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   ]
 
 13725:                                            ; preds = %13723, %13723, %13723, %13723, %13723
-  %13726 = getelementptr inbounds i8, ptr %13713, i64 1
+  %13726 = getelementptr inbounds nuw i8, ptr %13713, i64 1
   store ptr %13726, ptr %10508, align 8
   %13727 = add nuw i32 %.9011035, 1
   %13728 = icmp ult i32 %13727, %8298
@@ -23926,14 +23926,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13742 = load ptr, ptr %38, align 8
   %13743 = load i8, ptr %13731, align 1
   %13744 = zext i8 %13743 to i64
-  %13745 = getelementptr inbounds i8, ptr %13742, i64 %13744
+  %13745 = getelementptr inbounds nuw i8, ptr %13742, i64 %13744
   %13746 = load i8, ptr %13745, align 1
   %13747 = and i8 %13746, 8
   %.not8728 = icmp eq i8 %13747, 0
   br i1 %.not8728, label %13748, label %.loopexit9688
 
 13748:                                            ; preds = %13741
-  %13749 = getelementptr inbounds i8, ptr %13731, i64 1
+  %13749 = getelementptr inbounds nuw i8, ptr %13731, i64 1
   store ptr %13749, ptr %10508, align 8
   %13750 = add nuw i32 %.9111031, 1
   %13751 = icmp ult i32 %13750, %8298
@@ -23974,14 +23974,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13765 = load ptr, ptr %38, align 8
   %13766 = load i8, ptr %13754, align 1
   %13767 = zext i8 %13766 to i64
-  %13768 = getelementptr inbounds i8, ptr %13765, i64 %13767
+  %13768 = getelementptr inbounds nuw i8, ptr %13765, i64 %13767
   %13769 = load i8, ptr %13768, align 1
   %13770 = and i8 %13769, 8
   %13771 = icmp eq i8 %13770, 0
   br i1 %13771, label %.loopexit9688, label %13772
 
 13772:                                            ; preds = %13764
-  %13773 = getelementptr inbounds i8, ptr %13754, i64 1
+  %13773 = getelementptr inbounds nuw i8, ptr %13754, i64 1
   store ptr %13773, ptr %10508, align 8
   %13774 = add nuw i32 %.9211027, 1
   %13775 = icmp ult i32 %13774, %8298
@@ -24022,14 +24022,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13789 = load ptr, ptr %38, align 8
   %13790 = load i8, ptr %13778, align 1
   %13791 = zext i8 %13790 to i64
-  %13792 = getelementptr inbounds i8, ptr %13789, i64 %13791
+  %13792 = getelementptr inbounds nuw i8, ptr %13789, i64 %13791
   %13793 = load i8, ptr %13792, align 1
   %13794 = and i8 %13793, 1
   %.not8721 = icmp eq i8 %13794, 0
   br i1 %.not8721, label %13795, label %.loopexit9688
 
 13795:                                            ; preds = %13788
-  %13796 = getelementptr inbounds i8, ptr %13778, i64 1
+  %13796 = getelementptr inbounds nuw i8, ptr %13778, i64 1
   store ptr %13796, ptr %10508, align 8
   %13797 = add nuw i32 %.9311023, 1
   %13798 = icmp ult i32 %13797, %8298
@@ -24070,14 +24070,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13812 = load ptr, ptr %38, align 8
   %13813 = load i8, ptr %13801, align 1
   %13814 = zext i8 %13813 to i64
-  %13815 = getelementptr inbounds i8, ptr %13812, i64 %13814
+  %13815 = getelementptr inbounds nuw i8, ptr %13812, i64 %13814
   %13816 = load i8, ptr %13815, align 1
   %13817 = and i8 %13816, 1
   %13818 = icmp eq i8 %13817, 0
   br i1 %13818, label %.loopexit9688, label %13819
 
 13819:                                            ; preds = %13811
-  %13820 = getelementptr inbounds i8, ptr %13801, i64 1
+  %13820 = getelementptr inbounds nuw i8, ptr %13801, i64 1
   store ptr %13820, ptr %10508, align 8
   %13821 = add nuw i32 %.9411019, 1
   %13822 = icmp ult i32 %13821, %8298
@@ -24118,14 +24118,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13836 = load ptr, ptr %38, align 8
   %13837 = load i8, ptr %13825, align 1
   %13838 = zext i8 %13837 to i64
-  %13839 = getelementptr inbounds i8, ptr %13836, i64 %13838
+  %13839 = getelementptr inbounds nuw i8, ptr %13836, i64 %13838
   %13840 = load i8, ptr %13839, align 1
   %13841 = and i8 %13840, 16
   %.not8714 = icmp eq i8 %13841, 0
   br i1 %.not8714, label %13842, label %.loopexit9688
 
 13842:                                            ; preds = %13835
-  %13843 = getelementptr inbounds i8, ptr %13825, i64 1
+  %13843 = getelementptr inbounds nuw i8, ptr %13825, i64 1
   store ptr %13843, ptr %10508, align 8
   %13844 = add nuw i32 %.9511015, 1
   %13845 = icmp ult i32 %13844, %8298
@@ -24166,14 +24166,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13859 = load ptr, ptr %38, align 8
   %13860 = load i8, ptr %13848, align 1
   %13861 = zext i8 %13860 to i64
-  %13862 = getelementptr inbounds i8, ptr %13859, i64 %13861
+  %13862 = getelementptr inbounds nuw i8, ptr %13859, i64 %13861
   %13863 = load i8, ptr %13862, align 1
   %13864 = and i8 %13863, 16
   %13865 = icmp eq i8 %13864, 0
   br i1 %13865, label %.loopexit9688, label %13866
 
 13866:                                            ; preds = %13858
-  %13867 = getelementptr inbounds i8, ptr %13848, i64 1
+  %13867 = getelementptr inbounds nuw i8, ptr %13848, i64 1
   store ptr %13867, ptr %10508, align 8
   %13868 = add nuw i32 %.9611011, 1
   %13869 = icmp ult i32 %13868, %8298
@@ -24194,7 +24194,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.457514 = phi ptr [ %.47473.ph.ph, %13896 ], [ %.47473.ph.ph, %13892 ], [ %.47473.ph.ph, %13889 ], [ %.47473.ph.ph, %13885 ], [ %.47473.ph.ph, %13878 ], [ %.27471, %.loopexit9688._crit_edge ]
   %.187457 = phi ptr [ %.57444.ph.ph, %13896 ], [ %.57444.ph.ph, %13892 ], [ %.57444.ph.ph, %13889 ], [ %.57444.ph.ph, %13885 ], [ %.57444.ph.ph, %13878 ], [ %.27441, %.loopexit9688._crit_edge ]
   %.46 = phi ptr [ %15814, %13896 ], [ %15814, %13892 ], [ %15814, %13889 ], [ %15814, %13885 ], [ %15814, %13878 ], [ %.3, %.loopexit9688._crit_edge ]
-  %13873 = getelementptr inbounds i8, ptr %.46, i64 8
+  %13873 = getelementptr inbounds nuw i8, ptr %.46, i64 8
   %13874 = load ptr, ptr %13873, align 8
   %13875 = icmp eq ptr %13872, %13874
   br i1 %13875, label %.preheader9835.backedge, label %13876
@@ -24204,17 +24204,17 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br label %.loopexit9844
 
 13878:                                            ; preds = %15874
-  %13879 = getelementptr inbounds i8, ptr %15814, i64 80
+  %13879 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %13880 = load ptr, ptr %13879, align 8
   %13881 = getelementptr inbounds i8, ptr %13880, i64 -1
   store ptr %13881, ptr %13879, align 8
-  %13882 = getelementptr inbounds i8, ptr %15814, i64 64
+  %13882 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %13883 = load i32, ptr %13882, align 8
   %13884 = icmp eq i32 %13883, 17
   br i1 %13884, label %13885, label %13871
 
 13885:                                            ; preds = %13878
-  %13886 = getelementptr inbounds i8, ptr %15814, i64 8
+  %13886 = getelementptr inbounds nuw i8, ptr %15814, i64 8
   %13887 = load ptr, ptr %13886, align 8
   %13888 = icmp ugt ptr %13881, %13887
   br i1 %13888, label %13889, label %13871
@@ -24237,25 +24237,25 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13897:                                            ; preds = %.preheader9835, %.preheader9835
   %13898 = icmp eq i8 %143, 116
   %13899 = zext i1 %13898 to i32
-  %13900 = getelementptr inbounds i8, ptr %.3, i64 64
+  %13900 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   store i32 %13899, ptr %13900, align 8
-  %13901 = getelementptr inbounds i8, ptr %142, i64 3
+  %13901 = getelementptr inbounds nuw i8, ptr %142, i64 3
   %13902 = load i8, ptr %13901, align 1
   %13903 = zext i8 %13902 to i32
   %13904 = shl nuw nsw i32 %13903, 8
-  %13905 = getelementptr inbounds i8, ptr %142, i64 4
+  %13905 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %13906 = load i8, ptr %13905, align 1
   %13907 = zext i8 %13906 to i32
   %13908 = or disjoint i32 %13904, %13907
   %13909 = load ptr, ptr %53, align 8
-  %13910 = getelementptr inbounds i8, ptr %142, i64 1
+  %13910 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %13911 = load i8, ptr %13910, align 1
-  %13912 = getelementptr inbounds i8, ptr %142, i64 2
+  %13912 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %13913 = load i8, ptr %13912, align 1
   %13914 = load i16, ptr %54, align 2
-  %13915 = getelementptr inbounds i8, ptr %142, i64 5
+  %13915 = getelementptr inbounds nuw i8, ptr %142, i64 5
   store ptr %13915, ptr %.3, align 8
-  %13916 = getelementptr inbounds i8, ptr %.3, i64 136
+  %13916 = getelementptr inbounds nuw i8, ptr %.3, i64 136
   %.not11284 = icmp eq i32 %13908, 0
   br i1 %.not11284, label %.loopexit9814, label %.lr.ph10881
 
@@ -24266,9 +24266,9 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13920 = or disjoint i64 %13918, %13919
   %13921 = zext i16 %13914 to i64
   %13922 = mul nuw nsw i64 %13920, %13921
-  %13923 = getelementptr inbounds i8, ptr %13909, i64 %13922
-  %13924 = getelementptr inbounds i8, ptr %.3, i64 40
-  %13925 = getelementptr inbounds i8, ptr %.3, i64 128
+  %13923 = getelementptr inbounds nuw i8, ptr %13909, i64 %13922
+  %13924 = getelementptr inbounds nuw i8, ptr %.3, i64 40
+  %13925 = getelementptr inbounds nuw i8, ptr %.3, i64 128
   %.pre12517 = load i64, ptr %13925, align 8
   br label %13926
 
@@ -24278,7 +24278,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13927 = add nsw i32 %.in11285, -1
   %13928 = load i8, ptr %.0759710880, align 1
   %13929 = zext i8 %13928 to i64
-  %13930 = getelementptr inbounds i8, ptr %.0759710880, i64 1
+  %13930 = getelementptr inbounds nuw i8, ptr %.0759710880, i64 1
   %13931 = load i8, ptr %13930, align 1
   %13932 = zext i8 %13931 to i64
   %13933 = shl nuw nsw i64 %13929, 9
@@ -24291,7 +24291,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %13938, label %13939, label %13942
 
 13939:                                            ; preds = %13926
-  %13940 = getelementptr inbounds [131072 x i64], ptr %13916, i64 0, i64 %13937
+  %13940 = getelementptr inbounds nuw [131072 x i64], ptr %13916, i64 0, i64 %13937
   %13941 = load i64, ptr %13940, align 8
   %.not8511 = icmp eq i64 %13941, -1
   br i1 %.not8511, label %13942, label %.loopexit9814
@@ -24299,19 +24299,19 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 13942:                                            ; preds = %13939, %13926
   %13943 = load i16, ptr %54, align 2
   %13944 = zext i16 %13943 to i64
-  %13945 = getelementptr inbounds i8, ptr %.0759710880, i64 %13944
+  %13945 = getelementptr inbounds nuw i8, ptr %.0759710880, i64 %13944
   %13946 = icmp samesign ugt i32 %.in11285, 1
   br i1 %13946, label %13926, label %.loopexit9814
 
 13947:                                            ; preds = %.preheader9835, %.preheader9835
   %13948 = icmp eq i8 %143, 114
   %13949 = zext i1 %13948 to i32
-  %13950 = getelementptr inbounds i8, ptr %.3, i64 64
+  %13950 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   store i32 %13949, ptr %13950, align 8
-  %13951 = getelementptr inbounds i8, ptr %142, i64 1
+  %13951 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %13952 = load i8, ptr %13951, align 1
   %13953 = zext i8 %13952 to i64
-  %13954 = getelementptr inbounds i8, ptr %142, i64 2
+  %13954 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %13955 = load i8, ptr %13954, align 1
   %13956 = zext i8 %13955 to i64
   %13957 = shl nuw nsw i64 %13953, 9
@@ -24319,9 +24319,9 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %13959 = or disjoint i64 %13958, %13957
   %13960 = add nuw nsw i64 %13959, 4294967294
   %13961 = and i64 %13960, 4294967294
-  %13962 = getelementptr inbounds i8, ptr %.3, i64 40
+  %13962 = getelementptr inbounds nuw i8, ptr %.3, i64 40
   store i64 %13961, ptr %13962, align 8
-  %13963 = getelementptr inbounds i8, ptr %142, i64 3
+  %13963 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %13963, ptr %.3, align 8
   br label %.loopexit9814
 
@@ -24341,44 +24341,44 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   ]
 
 13967:                                            ; preds = %.loopexit9814, %.loopexit9814, %.loopexit9814, %.loopexit9814, %.loopexit9814, %.loopexit9814
-  %13968 = getelementptr inbounds i8, ptr %13965, i64 1
+  %13968 = getelementptr inbounds nuw i8, ptr %13965, i64 1
   store ptr %13968, ptr %.3, align 8
   %13969 = load i8, ptr %13965, align 1
   %13970 = zext i8 %13969 to i64
   %13971 = add nuw nsw i64 %13970, 4294967198
   %13972 = and i64 %13971, 4294967295
-  %13973 = getelementptr inbounds [11 x i32], ptr @rep_min, i64 0, i64 %13972
+  %13973 = getelementptr inbounds nuw [11 x i32], ptr @rep_min, i64 0, i64 %13972
   %13974 = load i32, ptr %13973, align 4
-  %13975 = getelementptr inbounds i8, ptr %.3, i64 56
+  %13975 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %13974, ptr %13975, align 8
-  %13976 = getelementptr inbounds [11 x i32], ptr @rep_max, i64 0, i64 %13972
+  %13976 = getelementptr inbounds nuw [11 x i32], ptr @rep_max, i64 0, i64 %13972
   %13977 = load i32, ptr %13976, align 4
-  %13978 = getelementptr inbounds i8, ptr %.3, i64 60
+  %13978 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %13977, ptr %13978, align 4
-  %13979 = getelementptr inbounds [12 x i32], ptr @rep_typ, i64 0, i64 %13972
+  %13979 = getelementptr inbounds nuw [12 x i32], ptr @rep_typ, i64 0, i64 %13972
   %13980 = load i32, ptr %13979, align 4
   br label %14030
 
 13981:                                            ; preds = %.loopexit9814, %.loopexit9814
-  %13982 = getelementptr inbounds i8, ptr %13965, i64 1
+  %13982 = getelementptr inbounds nuw i8, ptr %13965, i64 1
   %13983 = load i8, ptr %13982, align 1
   %13984 = zext i8 %13983 to i32
   %13985 = shl nuw nsw i32 %13984, 8
-  %13986 = getelementptr inbounds i8, ptr %13965, i64 2
+  %13986 = getelementptr inbounds nuw i8, ptr %13965, i64 2
   %13987 = load i8, ptr %13986, align 1
   %13988 = zext i8 %13987 to i32
   %13989 = or disjoint i32 %13985, %13988
-  %13990 = getelementptr inbounds i8, ptr %.3, i64 56
+  %13990 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %13989, ptr %13990, align 8
-  %13991 = getelementptr inbounds i8, ptr %13965, i64 3
+  %13991 = getelementptr inbounds nuw i8, ptr %13965, i64 3
   %13992 = load i8, ptr %13991, align 1
   %13993 = zext i8 %13992 to i32
   %13994 = shl nuw nsw i32 %13993, 8
-  %13995 = getelementptr inbounds i8, ptr %13965, i64 4
+  %13995 = getelementptr inbounds nuw i8, ptr %13965, i64 4
   %13996 = load i8, ptr %13995, align 1
   %13997 = zext i8 %13996 to i32
   %13998 = or disjoint i32 %13994, %13997
-  %13999 = getelementptr inbounds i8, ptr %.3, i64 60
+  %13999 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %13998, ptr %13999, align 4
   %14000 = load i8, ptr %13965, align 1
   %14001 = zext i8 %14000 to i64
@@ -24388,12 +24388,12 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14005 = icmp eq i32 %13998, 0
   %spec.store.select = select i1 %14005, i32 -1, i32 %13998
   store i32 %spec.store.select, ptr %13999, align 4
-  %14006 = getelementptr inbounds i8, ptr %13965, i64 5
+  %14006 = getelementptr inbounds nuw i8, ptr %13965, i64 5
   store ptr %14006, ptr %.3, align 8
   br label %14030
 
 14007:                                            ; preds = %.loopexit9814
-  %14008 = getelementptr inbounds i8, ptr %.3, i64 40
+  %14008 = getelementptr inbounds nuw i8, ptr %.3, i64 40
   %14009 = load i64, ptr %14008, align 8
   %14010 = call fastcc i32 @match_ref(i64 noundef %14009, i32 noundef %13964, ptr noundef nonnull %.3, ptr noundef %5, ptr noundef %7)
   %.not8523 = icmp eq i32 %14010, 0
@@ -24405,12 +24405,12 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .thread12778:                                     ; preds = %14011
   %14013 = load ptr, ptr %39, align 8
-  %14014 = getelementptr inbounds i8, ptr %.3, i64 80
+  %14014 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   store ptr %14013, ptr %14014, align 8
   br label %14016
 
 14015:                                            ; preds = %14011
-  %.phi.trans.insert12524 = getelementptr inbounds i8, ptr %.3, i64 80
+  %.phi.trans.insert12524 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12525 = load ptr, ptr %.phi.trans.insert12524, align 8
   %.pre12526 = load ptr, ptr %39, align 8
   %.not8524 = icmp ult ptr %.pre12525, %.pre12526
@@ -24439,7 +24439,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14025:                                            ; preds = %14007
   %14026 = load i64, ptr %7, align 8
-  %14027 = getelementptr inbounds i8, ptr %.3, i64 80
+  %14027 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %14028 = load ptr, ptr %14027, align 8
   %14029 = getelementptr inbounds i8, ptr %14028, i64 %14026
   store ptr %14029, ptr %14027, align 8
@@ -24449,15 +24449,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14031 = phi i32 [ %spec.store.select, %13981 ], [ %13977, %13967 ]
   %14032 = phi i32 [ %13989, %13981 ], [ %13974, %13967 ]
   %.517824 = phi i32 [ %14004, %13981 ], [ %13980, %13967 ]
-  %14033 = getelementptr inbounds i8, ptr %.3, i64 40
+  %14033 = getelementptr inbounds nuw i8, ptr %.3, i64 40
   %14034 = load i64, ptr %14033, align 8
-  %14035 = getelementptr inbounds i8, ptr %.3, i64 128
+  %14035 = getelementptr inbounds nuw i8, ptr %.3, i64 128
   %14036 = load i64, ptr %14035, align 8
   %14037 = icmp ult i64 %14034, %14036
   br i1 %14037, label %14038, label %14047
 
 14038:                                            ; preds = %14030
-  %14039 = getelementptr inbounds i8, ptr %.3, i64 136
+  %14039 = getelementptr inbounds nuw i8, ptr %.3, i64 136
   %14040 = getelementptr inbounds [131072 x i64], ptr %14039, i64 0, i64 %14034
   %14041 = load i64, ptr %14040, align 8
   %.not8512 = icmp eq i64 %14041, -1
@@ -24485,9 +24485,9 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %.not851410883, label %._crit_edge, label %.lr.ph10885
 
 .lr.ph10885:                                      ; preds = %14049, %14052
-  %14053 = getelementptr inbounds i8, ptr %.3, i64 56
-  %14054 = getelementptr inbounds i8, ptr %.3, i64 64
-  %14055 = getelementptr inbounds i8, ptr %.3, i64 80
+  %14053 = getelementptr inbounds nuw i8, ptr %.3, i64 56
+  %14054 = getelementptr inbounds nuw i8, ptr %.3, i64 64
+  %14055 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   br label %14056
 
 14056:                                            ; preds = %.lr.ph10885, %14073
@@ -24545,14 +24545,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %.not8514, label %._crit_edge.loopexit, label %14056
 
 ._crit_edge.loopexit:                             ; preds = %14073
-  %.phi.trans.insert12521 = getelementptr inbounds i8, ptr %.3, i64 60
+  %.phi.trans.insert12521 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   %.pre12522 = load i32, ptr %.phi.trans.insert12521, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %14052
   %14079 = phi i32 [ 0, %14052 ], [ %14078, %._crit_edge.loopexit ]
   %14080 = phi i32 [ %14031, %14052 ], [ %.pre12522, %._crit_edge.loopexit ]
-  %14081 = getelementptr inbounds i8, ptr %.3, i64 60
+  %14081 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   %14082 = icmp eq i32 %14079, %14080
   br i1 %14082, label %.preheader9835.backedge, label %14083
 
@@ -24569,19 +24569,19 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br label %.loopexit9844
 
 14086:                                            ; preds = %15854
-  %14087 = getelementptr inbounds i8, ptr %15814, i64 56
+  %14087 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %14088 = load i32, ptr %14087, align 8
   %14089 = add i32 %14088, 1
   store i32 %14089, ptr %14087, align 8
-  %14090 = getelementptr inbounds i8, ptr %15814, i64 60
+  %14090 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %14091 = load i32, ptr %14090, align 4
   %.not9244 = icmp ult i32 %14088, %14091
   br i1 %.not9244, label %14092, label %.backedge.backedge
 
 14092:                                            ; preds = %14086
-  %14093 = getelementptr inbounds i8, ptr %15814, i64 40
+  %14093 = getelementptr inbounds nuw i8, ptr %15814, i64 40
   %14094 = load i64, ptr %14093, align 8
-  %14095 = getelementptr inbounds i8, ptr %15814, i64 64
+  %14095 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %14096 = load i32, ptr %14095, align 8
   %14097 = call fastcc i32 @match_ref(i64 noundef %14094, i32 noundef %14096, ptr noundef nonnull %15814, ptr noundef %5, ptr noundef %9)
   %.not9245 = icmp eq i32 %14097, 0
@@ -24593,12 +24593,12 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .thread12784:                                     ; preds = %14098
   %14100 = load ptr, ptr %39, align 8
-  %14101 = getelementptr inbounds i8, ptr %15814, i64 80
+  %14101 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   store ptr %14100, ptr %14101, align 8
   br label %14103
 
 14102:                                            ; preds = %14098
-  %.phi.trans.insert12633 = getelementptr inbounds i8, ptr %15814, i64 80
+  %.phi.trans.insert12633 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %.pre12634 = load ptr, ptr %.phi.trans.insert12633, align 8
   %.pre12635 = load ptr, ptr %39, align 8
   %.not9246 = icmp ult ptr %.pre12634, %.pre12635
@@ -24627,18 +24627,18 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14112:                                            ; preds = %14092
   %14113 = load i64, ptr %9, align 8
-  %14114 = getelementptr inbounds i8, ptr %15814, i64 80
+  %14114 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %14115 = load ptr, ptr %14114, align 8
   %14116 = getelementptr inbounds i8, ptr %14115, i64 %14113
   store ptr %14116, ptr %14114, align 8
   br label %.loopexit9839
 
 14117:                                            ; preds = %14083
-  %14118 = getelementptr inbounds i8, ptr %.3, i64 80
+  %14118 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %14119 = load ptr, ptr %14118, align 8
-  %14120 = getelementptr inbounds i8, ptr %.3, i64 8
+  %14120 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %14119, ptr %14120, align 8
-  %14121 = getelementptr inbounds i8, ptr %.3, i64 136
+  %14121 = getelementptr inbounds nuw i8, ptr %.3, i64 136
   %14122 = load i64, ptr %14033, align 8
   %14123 = add i64 %14122, 1
   %14124 = getelementptr inbounds [131072 x i64], ptr %14121, i64 0, i64 %14123
@@ -24646,13 +24646,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14126 = getelementptr inbounds [131072 x i64], ptr %14121, i64 0, i64 %14122
   %14127 = load i64, ptr %14126, align 8
   %14128 = sub i64 %14125, %14127
-  %14129 = getelementptr inbounds i8, ptr %.3, i64 24
+  %14129 = getelementptr inbounds nuw i8, ptr %.3, i64 24
   store i64 %14128, ptr %14129, align 8
   %14130 = icmp ult i32 %14079, %14080
   br i1 %14130, label %.lr.ph10890, label %.loopexit9813._crit_edge
 
 .lr.ph10890:                                      ; preds = %14117
-  %14131 = getelementptr inbounds i8, ptr %.3, i64 64
+  %14131 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   br label %14132
 
 14132:                                            ; preds = %.lr.ph10890, %14145
@@ -24714,7 +24714,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.477516 = phi ptr [ %.47473.ph.ph, %14159 ], [ %.27471, %.loopexit9813._crit_edge ]
   %.197458 = phi ptr [ %.57444.ph.ph, %14159 ], [ %.27441, %.loopexit9813._crit_edge ]
   %.48 = phi ptr [ %15814, %14159 ], [ %.3, %.loopexit9813._crit_edge ]
-  %14155 = getelementptr inbounds i8, ptr %.48, i64 8
+  %14155 = getelementptr inbounds nuw i8, ptr %.48, i64 8
   %14156 = load ptr, ptr %14155, align 8
   %.not9242 = icmp ult ptr %14154, %14156
   br i1 %.not9242, label %.preheader9566.preheader, label %14157
@@ -24724,9 +24724,9 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br label %.loopexit9844
 
 14159:                                            ; preds = %15855
-  %14160 = getelementptr inbounds i8, ptr %15814, i64 24
+  %14160 = getelementptr inbounds nuw i8, ptr %15814, i64 24
   %14161 = load i64, ptr %14160, align 8
-  %14162 = getelementptr inbounds i8, ptr %15814, i64 80
+  %14162 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %14163 = load ptr, ptr %14162, align 8
   %14164 = sub i64 0, %14161
   %14165 = getelementptr inbounds i8, ptr %14163, i64 %14164
@@ -24746,18 +24746,18 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br label %.loopexit9844
 
 14168:                                            ; preds = %15856
-  %14169 = getelementptr inbounds i8, ptr %15814, i64 80
+  %14169 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %14170 = load ptr, ptr %14169, align 8
-  %14171 = getelementptr inbounds i8, ptr %15814, i64 8
+  %14171 = getelementptr inbounds nuw i8, ptr %15814, i64 8
   %14172 = load ptr, ptr %14171, align 8
   %14173 = icmp eq ptr %14170, %14172
   br i1 %14173, label %.preheader9566.backedge, label %14174
 
 14174:                                            ; preds = %14168
-  %14175 = getelementptr inbounds i8, ptr %15814, i64 80
+  %14175 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   store ptr %14172, ptr %14175, align 8
-  %14176 = getelementptr inbounds i8, ptr %15814, i64 56
-  %14177 = getelementptr inbounds i8, ptr %15814, i64 60
+  %14176 = getelementptr inbounds nuw i8, ptr %15814, i64 56
+  %14177 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %14178 = load i32, ptr %14177, align 4
   %14179 = add i32 %14178, -1
   store i32 %14179, ptr %14177, align 4
@@ -24766,8 +24766,8 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %14181, label %.lr.ph11269, label %.loopexit9826
 
 .lr.ph11269:                                      ; preds = %14174
-  %14182 = getelementptr inbounds i8, ptr %15814, i64 40
-  %14183 = getelementptr inbounds i8, ptr %15814, i64 64
+  %14182 = getelementptr inbounds nuw i8, ptr %15814, i64 40
+  %14183 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   br label %14184
 
 14184:                                            ; preds = %.lr.ph11269, %14184
@@ -24785,94 +24785,94 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %14193, label %14184, label %.loopexit9826
 
 14194:                                            ; preds = %.preheader9835
-  %14195 = getelementptr inbounds i8, ptr %142, i64 1
-  %14196 = getelementptr inbounds i8, ptr %.3, i64 8
+  %14195 = getelementptr inbounds nuw i8, ptr %142, i64 1
+  %14196 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %14195, ptr %14196, align 8
   br label %.loopexit9844
 
 14197:                                            ; preds = %.preheader9558, %14197
   %14198 = phi ptr [ %.promoted11249, %.preheader9558 ], [ %14207, %14197 ]
-  %14199 = getelementptr inbounds i8, ptr %14198, i64 1
+  %14199 = getelementptr inbounds nuw i8, ptr %14198, i64 1
   %14200 = load i8, ptr %14199, align 1
   %14201 = zext i8 %14200 to i64
   %14202 = shl nuw nsw i64 %14201, 8
-  %14203 = getelementptr inbounds i8, ptr %14198, i64 2
+  %14203 = getelementptr inbounds nuw i8, ptr %14198, i64 2
   %14204 = load i8, ptr %14203, align 1
   %14205 = zext i8 %14204 to i64
   %14206 = or disjoint i64 %14202, %14205
-  %14207 = getelementptr inbounds i8, ptr %14198, i64 %14206
+  %14207 = getelementptr inbounds nuw i8, ptr %14198, i64 %14206
   store ptr %14207, ptr %15830, align 8
   %14208 = load i8, ptr %14207, align 1
   %14209 = icmp eq i8 %14208, 120
   br i1 %14209, label %14197, label %14210
 
 14210:                                            ; preds = %14197
-  %14211 = getelementptr inbounds i8, ptr %14207, i64 3
+  %14211 = getelementptr inbounds nuw i8, ptr %14207, i64 3
   store ptr %14211, ptr %15814, align 8
   br label %.preheader9835.backedge
 
 14212:                                            ; preds = %.preheader9835
-  %14213 = getelementptr inbounds i8, ptr %142, i64 1
-  %14214 = getelementptr inbounds i8, ptr %.3, i64 8
+  %14213 = getelementptr inbounds nuw i8, ptr %142, i64 1
+  %14214 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %14213, ptr %14214, align 8
   br label %14215
 
 14215:                                            ; preds = %14215, %14212
   %14216 = phi ptr [ %14225, %14215 ], [ %14213, %14212 ]
-  %14217 = getelementptr inbounds i8, ptr %14216, i64 1
+  %14217 = getelementptr inbounds nuw i8, ptr %14216, i64 1
   %14218 = load i8, ptr %14217, align 1
   %14219 = zext i8 %14218 to i64
   %14220 = shl nuw nsw i64 %14219, 8
-  %14221 = getelementptr inbounds i8, ptr %14216, i64 2
+  %14221 = getelementptr inbounds nuw i8, ptr %14216, i64 2
   %14222 = load i8, ptr %14221, align 1
   %14223 = zext i8 %14222 to i64
   %14224 = or disjoint i64 %14220, %14223
-  %14225 = getelementptr inbounds i8, ptr %14216, i64 %14224
+  %14225 = getelementptr inbounds nuw i8, ptr %14216, i64 %14224
   store ptr %14225, ptr %14214, align 8
   %14226 = load i8, ptr %14225, align 1
   %14227 = icmp eq i8 %14226, 120
   br i1 %14227, label %14215, label %14228
 
 14228:                                            ; preds = %14215
-  %14229 = getelementptr inbounds i8, ptr %14225, i64 3
+  %14229 = getelementptr inbounds nuw i8, ptr %14225, i64 3
   br label %.loopexit9844
 
 14230:                                            ; preds = %15831
   %14231 = load ptr, ptr %15814, align 8
-  %14232 = getelementptr inbounds i8, ptr %14231, i64 1
+  %14232 = getelementptr inbounds nuw i8, ptr %14231, i64 1
   store ptr %14232, ptr %15814, align 8
   br label %.preheader9835.backedge
 
 14233:                                            ; preds = %.preheader9835
-  %14234 = getelementptr inbounds i8, ptr %142, i64 1
+  %14234 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %14234, ptr %.3, align 8
   br label %14235
 
 14235:                                            ; preds = %14235, %14233
   %14236 = phi ptr [ %14245, %14235 ], [ %14234, %14233 ]
-  %14237 = getelementptr inbounds i8, ptr %14236, i64 1
+  %14237 = getelementptr inbounds nuw i8, ptr %14236, i64 1
   %14238 = load i8, ptr %14237, align 1
   %14239 = zext i8 %14238 to i64
   %14240 = shl nuw nsw i64 %14239, 8
-  %14241 = getelementptr inbounds i8, ptr %14236, i64 2
+  %14241 = getelementptr inbounds nuw i8, ptr %14236, i64 2
   %14242 = load i8, ptr %14241, align 1
   %14243 = zext i8 %14242 to i64
   %14244 = or disjoint i64 %14240, %14243
-  %14245 = getelementptr inbounds i8, ptr %14236, i64 %14244
+  %14245 = getelementptr inbounds nuw i8, ptr %14236, i64 %14244
   store ptr %14245, ptr %.3, align 8
   %14246 = load i8, ptr %14245, align 1
   %14247 = icmp eq i8 %14246, 120
   br i1 %14247, label %14235, label %14248
 
 14248:                                            ; preds = %14235
-  %14249 = getelementptr inbounds i8, ptr %14245, i64 3
+  %14249 = getelementptr inbounds nuw i8, ptr %14245, i64 3
   store ptr %14249, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 14250:                                            ; preds = %.preheader9835
-  %14251 = getelementptr inbounds i8, ptr %.3, i64 64
+  %14251 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   store i32 1, ptr %14251, align 8
-  %14252 = getelementptr inbounds i8, ptr %142, i64 1
+  %14252 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %14252, ptr %.3, align 8
   %14253 = load i8, ptr %14252, align 1
   switch i8 %14253, label %14269 [
@@ -24881,22 +24881,22 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   ]
 
 14254:                                            ; preds = %.preheader9835, %.preheader9835
-  %14255 = getelementptr inbounds i8, ptr %.3, i64 64
+  %14255 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   store i32 0, ptr %14255, align 8
   br label %14269
 
 14256:                                            ; preds = %.preheader9835, %.preheader9835
-  %14257 = getelementptr inbounds i8, ptr %.3, i64 64
+  %14257 = getelementptr inbounds nuw i8, ptr %.3, i64 64
   store i32 0, ptr %14257, align 8
   br label %14258
 
 14258:                                            ; preds = %14250, %14250, %14256
   %14259 = phi ptr [ %14252, %14250 ], [ %14252, %14250 ], [ %142, %14256 ]
-  %14260 = getelementptr inbounds i8, ptr %14259, i64 3
+  %14260 = getelementptr inbounds nuw i8, ptr %14259, i64 3
   %14261 = load i8, ptr %14260, align 1
   %14262 = zext i8 %14261 to i32
   %14263 = shl nuw nsw i32 %14262, 8
-  %14264 = getelementptr inbounds i8, ptr %14259, i64 4
+  %14264 = getelementptr inbounds nuw i8, ptr %14259, i64 4
   %14265 = load i8, ptr %14264, align 1
   %14266 = zext i8 %14265 to i32
   %14267 = or disjoint i32 %14263, %14266
@@ -24906,16 +24906,16 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 14269:                                            ; preds = %14254, %14250, %14258
   %.sink14214 = phi i32 [ %14268, %14258 ], [ 131072, %14250 ], [ 131072, %14254 ]
   %14270 = phi ptr [ %14259, %14258 ], [ %14252, %14250 ], [ %142, %14254 ]
-  %14271 = getelementptr inbounds i8, ptr %.3, i64 56
+  %14271 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %.sink14214, ptr %14271, align 8
-  %14272 = getelementptr inbounds i8, ptr %.3, i64 60
+  %14272 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 0, ptr %14272, align 4
-  %14273 = getelementptr inbounds i8, ptr %.3, i64 16
+  %14273 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   store ptr %14270, ptr %14273, align 8
   br label %.loopexit9593
 
 .loopexit9593.loopexit:                           ; preds = %.thread9371
-  %14274 = getelementptr inbounds i8, ptr %14329, i64 %.pre-phi12692
+  %14274 = getelementptr inbounds nuw i8, ptr %14329, i64 %.pre-phi12692
   br label %.loopexit9593
 
 .loopexit9593:                                    ; preds = %.loopexit9593.loopexit, %14307, %14269
@@ -24924,26 +24924,26 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.507583 = phi ptr [ %.47537.ph.ph, %14307 ], [ %.27535, %14269 ], [ %.47537.ph.ph, %.loopexit9593.loopexit ]
   %.507519 = phi ptr [ %.47473.ph.ph, %14307 ], [ %.27471, %14269 ], [ %.47473.ph.ph, %.loopexit9593.loopexit ]
   %.51 = phi ptr [ %15814, %14307 ], [ %.3, %14269 ], [ %15814, %.loopexit9593.loopexit ]
-  %14276 = getelementptr inbounds i8, ptr %.51, i64 80
+  %14276 = getelementptr inbounds nuw i8, ptr %.51, i64 80
   %14277 = load ptr, ptr %14276, align 8
-  %14278 = getelementptr inbounds i8, ptr %.51, i64 8
+  %14278 = getelementptr inbounds nuw i8, ptr %.51, i64 8
   store ptr %14277, ptr %14278, align 8
-  %14279 = getelementptr inbounds i8, ptr %.51, i64 56
+  %14279 = getelementptr inbounds nuw i8, ptr %.51, i64 56
   %14280 = load i32, ptr %14279, align 8
   %14281 = load i8, ptr %14275, align 1
   %14282 = zext i8 %14281 to i64
-  %14283 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14282
+  %14283 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14282
   %14284 = load i8, ptr %14283, align 1
   %14285 = zext i8 %14284 to i64
-  %14286 = getelementptr inbounds i8, ptr %14275, i64 %14285
+  %14286 = getelementptr inbounds nuw i8, ptr %14275, i64 %14285
   br label %.loopexit9844
 
 14287:                                            ; preds = %15828
-  %14288 = getelementptr inbounds i8, ptr %15814, i64 60
+  %14288 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   store i32 1, ptr %14288, align 4
-  %14289 = getelementptr inbounds i8, ptr %15814, i64 80
+  %14289 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %14290 = load ptr, ptr %14289, align 8
-  %14291 = getelementptr inbounds i8, ptr %15814, i64 8
+  %14291 = getelementptr inbounds nuw i8, ptr %15814, i64 8
   %14292 = load ptr, ptr %14291, align 8
   %14293 = icmp eq ptr %14290, %14292
   br i1 %14293, label %.preheader9548, label %14307
@@ -24954,37 +24954,37 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14294:                                            ; preds = %.preheader9548, %14294
   %14295 = phi ptr [ %.promoted11223, %.preheader9548 ], [ %14304, %14294 ]
-  %14296 = getelementptr inbounds i8, ptr %14295, i64 1
+  %14296 = getelementptr inbounds nuw i8, ptr %14295, i64 1
   %14297 = load i8, ptr %14296, align 1
   %14298 = zext i8 %14297 to i64
   %14299 = shl nuw nsw i64 %14298, 8
-  %14300 = getelementptr inbounds i8, ptr %14295, i64 2
+  %14300 = getelementptr inbounds nuw i8, ptr %14295, i64 2
   %14301 = load i8, ptr %14300, align 1
   %14302 = zext i8 %14301 to i64
   %14303 = or disjoint i64 %14299, %14302
-  %14304 = getelementptr inbounds i8, ptr %14295, i64 %14303
+  %14304 = getelementptr inbounds nuw i8, ptr %14295, i64 %14303
   store ptr %14304, ptr %15814, align 8
   %14305 = load i8, ptr %14304, align 1
   %14306 = icmp eq i8 %14305, 120
   br i1 %14306, label %14294, label %.loopexit9549.thread
 
 14307:                                            ; preds = %14287
-  %14308 = getelementptr inbounds i8, ptr %15814, i64 16
+  %14308 = getelementptr inbounds nuw i8, ptr %15814, i64 16
   %14309 = load ptr, ptr %14308, align 8
   store ptr %14309, ptr %15814, align 8
   br label %.loopexit9593
 
 14310:                                            ; preds = %15828
   %14311 = load ptr, ptr %15814, align 8
-  %14312 = getelementptr inbounds i8, ptr %14311, i64 1
+  %14312 = getelementptr inbounds nuw i8, ptr %14311, i64 1
   %14313 = load i8, ptr %14312, align 1
   %14314 = zext i8 %14313 to i64
   %14315 = shl nuw nsw i64 %14314, 8
-  %14316 = getelementptr inbounds i8, ptr %14311, i64 2
+  %14316 = getelementptr inbounds nuw i8, ptr %14311, i64 2
   %14317 = load i8, ptr %14316, align 1
   %14318 = zext i8 %14317 to i64
   %14319 = or disjoint i64 %14315, %14318
-  %14320 = getelementptr inbounds i8, ptr %14311, i64 %14319
+  %14320 = getelementptr inbounds nuw i8, ptr %14311, i64 %14319
   %14321 = load ptr, ptr %62, align 8
   %14322 = icmp ult ptr %14321, %14320
   br i1 %14322, label %14323, label %.backedge.backedge
@@ -25002,31 +25002,31 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 .thread9371:                                      ; preds = %..thread9371_crit_edge, %14326, %14323
   %.pre-phi12692 = phi i64 [ %.pre12691, %..thread9371_crit_edge ], [ %14319, %14326 ], [ %14319, %14323 ]
   %14329 = phi ptr [ %.pre12639, %..thread9371_crit_edge ], [ %14311, %14326 ], [ %14311, %14323 ]
-  %14330 = getelementptr inbounds i8, ptr %14329, i64 %.pre-phi12692
+  %14330 = getelementptr inbounds nuw i8, ptr %14329, i64 %.pre-phi12692
   store ptr %14330, ptr %15814, align 8
   %14331 = load i8, ptr %14330, align 1
   %.not9261 = icmp eq i8 %14331, 120
   br i1 %.not9261, label %.loopexit9593.loopexit, label %.loopexit9549
 
 .loopexit9549:                                    ; preds = %.thread9371
-  %.phi.trans.insert12644 = getelementptr inbounds i8, ptr %15814, i64 60
+  %.phi.trans.insert12644 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %.pre12645 = load i32, ptr %.phi.trans.insert12644, align 4
   %14332 = icmp eq i32 %.pre12645, 0
   br i1 %14332, label %14333, label %.loopexit9549.thread.loopexit12800
 
 14333:                                            ; preds = %.loopexit9549
-  %14334 = getelementptr inbounds i8, ptr %15814, i64 64
+  %14334 = getelementptr inbounds nuw i8, ptr %15814, i64 64
   %14335 = load i32, ptr %14334, align 8
   %.not9263 = icmp eq i32 %14335, 0
   br i1 %.not9263, label %.backedge.backedge, label %.loopexit9549.thread.loopexit12800
 
 .loopexit9549.thread.loopexit12800:               ; preds = %.loopexit9549, %14333
-  %14336 = getelementptr inbounds i8, ptr %14329, i64 %.pre-phi12692
+  %14336 = getelementptr inbounds nuw i8, ptr %14329, i64 %.pre-phi12692
   br label %.loopexit9549.thread
 
 .loopexit9549.thread:                             ; preds = %14294, %.loopexit9549.thread.loopexit12800
   %14337 = phi ptr [ %14336, %.loopexit9549.thread.loopexit12800 ], [ %14304, %14294 ]
-  %14338 = getelementptr inbounds i8, ptr %14337, i64 3
+  %14338 = getelementptr inbounds nuw i8, ptr %14337, i64 3
   store ptr %14338, ptr %15814, align 8
   br label %.preheader9835.backedge
 
@@ -25036,13 +25036,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %.not8510, label %14341, label %14345
 
 14341:                                            ; preds = %14339
-  %14342 = getelementptr inbounds i8, ptr %.3, i64 48
+  %14342 = getelementptr inbounds nuw i8, ptr %.3, i64 48
   %14343 = load i32, ptr %14342, align 8
   %14344 = icmp eq i32 %14343, 0
   br i1 %14344, label %14345, label %14347
 
 14345:                                            ; preds = %14341, %14339
-  %14346 = getelementptr inbounds i8, ptr %.3, i64 56
+  %14346 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 0, ptr %14346, align 8
   br label %.loopexit9597
 
@@ -25053,29 +25053,29 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.517520 = phi ptr [ %.47473.ph.ph, %14366 ], [ %.27471, %14341 ]
   %.217460 = phi ptr [ %.57444.ph.ph, %14366 ], [ %.27441, %14341 ]
   %.52 = phi ptr [ %15814, %14366 ], [ %.3, %14341 ]
-  %14349 = getelementptr inbounds i8, ptr %14348, i64 1
+  %14349 = getelementptr inbounds nuw i8, ptr %14348, i64 1
   %14350 = load i8, ptr %14349, align 1
   %14351 = zext i8 %14350 to i64
   %14352 = shl nuw nsw i64 %14351, 8
-  %14353 = getelementptr inbounds i8, ptr %14348, i64 2
+  %14353 = getelementptr inbounds nuw i8, ptr %14348, i64 2
   %14354 = load i8, ptr %14353, align 1
   %14355 = zext i8 %14354 to i64
   %14356 = or disjoint i64 %14352, %14355
-  %14357 = getelementptr inbounds i8, ptr %14348, i64 %14356
-  %14358 = getelementptr inbounds i8, ptr %.52, i64 8
+  %14357 = getelementptr inbounds nuw i8, ptr %14348, i64 %14356
+  %14358 = getelementptr inbounds nuw i8, ptr %.52, i64 8
   store ptr %14357, ptr %14358, align 8
   %14359 = load i8, ptr %14357, align 1
   %.not9277 = icmp eq i8 %14359, 120
   %14360 = load i8, ptr %14348, align 1
   %14361 = zext i8 %14360 to i64
-  %14362 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14361
+  %14362 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14361
   %14363 = load i8, ptr %14362, align 1
   %14364 = zext i8 %14363 to i64
-  %14365 = getelementptr inbounds i8, ptr %14348, i64 %14364
+  %14365 = getelementptr inbounds nuw i8, ptr %14348, i64 %14364
   br i1 %.not9277, label %.loopexit9844, label %14369
 
 14366:                                            ; preds = %15821
-  %14367 = getelementptr inbounds i8, ptr %15814, i64 8
+  %14367 = getelementptr inbounds nuw i8, ptr %15814, i64 8
   %14368 = load ptr, ptr %14367, align 8
   store ptr %14368, ptr %15814, align 8
   br label %14347
@@ -25085,29 +25085,29 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br label %.preheader9835.backedge
 
 14370:                                            ; preds = %.preheader9835, %.preheader9835
-  %14371 = getelementptr inbounds i8, ptr %142, i64 3
+  %14371 = getelementptr inbounds nuw i8, ptr %142, i64 3
   %14372 = load i8, ptr %14371, align 1
   %14373 = zext i8 %14372 to i32
   %14374 = shl nuw nsw i32 %14373, 8
-  %14375 = getelementptr inbounds i8, ptr %142, i64 4
+  %14375 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %14376 = load i8, ptr %14375, align 1
   %14377 = zext i8 %14376 to i32
   %14378 = or disjoint i32 %14374, %14377
   %14379 = or disjoint i32 %14378, 65536
-  %14380 = getelementptr inbounds i8, ptr %.3, i64 56
+  %14380 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %14379, ptr %14380, align 8
   br label %.loopexit9597
 
 14381:                                            ; preds = %.preheader9835, %.preheader9835, %.preheader9835
   %14382 = zext i8 %143 to i32
   %14383 = or disjoint i32 %14382, 131072
-  %14384 = getelementptr inbounds i8, ptr %.3, i64 56
+  %14384 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %14383, ptr %14384, align 8
   br label %.loopexit9597
 
 .loopexit9597.loopexit:                           ; preds = %.thread9374
-  %14385 = getelementptr inbounds i8, ptr %14413, i64 %.pre-phi12684
-  %.phi.trans.insert12663 = getelementptr inbounds i8, ptr %15814, i64 56
+  %14385 = getelementptr inbounds nuw i8, ptr %14413, i64 %.pre-phi12684
+  %.phi.trans.insert12663 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %.pre12664 = load i32, ptr %.phi.trans.insert12663, align 8
   br label %.loopexit9597
 
@@ -25120,23 +25120,23 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.53 = phi ptr [ %.3, %14381 ], [ %.3, %14370 ], [ %.3, %14345 ], [ %15814, %.loopexit9597.loopexit ]
   %14388 = load i8, ptr %14386, align 1
   %14389 = zext i8 %14388 to i64
-  %14390 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14389
+  %14390 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14389
   %14391 = load i8, ptr %14390, align 1
   %14392 = zext i8 %14391 to i64
-  %14393 = getelementptr inbounds i8, ptr %14386, i64 %14392
+  %14393 = getelementptr inbounds nuw i8, ptr %14386, i64 %14392
   br label %.loopexit9844
 
 14394:                                            ; preds = %15822
   %14395 = load ptr, ptr %15814, align 8
-  %14396 = getelementptr inbounds i8, ptr %14395, i64 1
+  %14396 = getelementptr inbounds nuw i8, ptr %14395, i64 1
   %14397 = load i8, ptr %14396, align 1
   %14398 = zext i8 %14397 to i64
   %14399 = shl nuw nsw i64 %14398, 8
-  %14400 = getelementptr inbounds i8, ptr %14395, i64 2
+  %14400 = getelementptr inbounds nuw i8, ptr %14395, i64 2
   %14401 = load i8, ptr %14400, align 1
   %14402 = zext i8 %14401 to i64
   %14403 = or disjoint i64 %14399, %14402
-  %14404 = getelementptr inbounds i8, ptr %14395, i64 %14403
+  %14404 = getelementptr inbounds nuw i8, ptr %14395, i64 %14403
   %14405 = load ptr, ptr %62, align 8
   %14406 = icmp ult ptr %14405, %14404
   br i1 %14406, label %14407, label %.backedge.backedge
@@ -25154,7 +25154,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 .thread9374:                                      ; preds = %..thread9374_crit_edge, %14410, %14407
   %.pre-phi12684 = phi i64 [ %.pre12683, %..thread9374_crit_edge ], [ %14403, %14410 ], [ %14403, %14407 ]
   %14413 = phi ptr [ %.pre12658, %..thread9374_crit_edge ], [ %14395, %14410 ], [ %14395, %14407 ]
-  %14414 = getelementptr inbounds i8, ptr %14413, i64 %.pre-phi12684
+  %14414 = getelementptr inbounds nuw i8, ptr %14413, i64 %.pre-phi12684
   store ptr %14414, ptr %15814, align 8
   %14415 = load i8, ptr %14414, align 1
   %.not9275 = icmp eq i8 %14415, 120
@@ -25162,24 +25162,24 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14416:                                            ; preds = %.preheader9835
   %14417 = load ptr, ptr %65, align 8
-  %14418 = getelementptr inbounds i8, ptr %142, i64 1
+  %14418 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %14419 = load i8, ptr %14418, align 1
   %14420 = zext i8 %14419 to i64
   %14421 = shl nuw nsw i64 %14420, 8
-  %14422 = getelementptr inbounds i8, ptr %142, i64 2
+  %14422 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %14423 = load i8, ptr %14422, align 1
   %14424 = zext i8 %14423 to i64
   %14425 = or disjoint i64 %14421, %14424
-  %14426 = getelementptr inbounds i8, ptr %14417, i64 %14425
+  %14426 = getelementptr inbounds nuw i8, ptr %14417, i64 %14425
   %14427 = icmp eq i64 %14425, 0
   br i1 %14427, label %14438, label %14428
 
 14428:                                            ; preds = %14416
-  %14429 = getelementptr inbounds i8, ptr %14426, i64 3
+  %14429 = getelementptr inbounds nuw i8, ptr %14426, i64 3
   %14430 = load i8, ptr %14429, align 1
   %14431 = zext i8 %14430 to i32
   %14432 = shl nuw nsw i32 %14431, 8
-  %14433 = getelementptr inbounds i8, ptr %14426, i64 4
+  %14433 = getelementptr inbounds nuw i8, ptr %14426, i64 4
   %14434 = load i8, ptr %14433, align 1
   %14435 = zext i8 %14434 to i32
   %14436 = or disjoint i32 %14432, %14435
@@ -25188,14 +25188,14 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14438:                                            ; preds = %14416, %14428
   %14439 = phi i32 [ %14437, %14428 ], [ 262144, %14416 ]
-  %14440 = getelementptr inbounds i8, ptr %.3, i64 112
+  %14440 = getelementptr inbounds nuw i8, ptr %.3, i64 112
   %14441 = load i32, ptr %14440, align 8
   %.not8508 = icmp eq i32 %14441, -1
   br i1 %.not8508, label %.loopexit9834, label %.preheader9833
 
 .preheader9833:                                   ; preds = %14438, %14442
   %.3.pn = phi ptr [ %14445, %14442 ], [ %.3, %14438 ]
-  %.27615.in = getelementptr inbounds i8, ptr %.3.pn, i64 120
+  %.27615.in = getelementptr inbounds nuw i8, ptr %.3.pn, i64 120
   %.27615 = load i64, ptr %.27615.in, align 8
   %.not8509 = icmp eq i64 %.27615, -1
   br i1 %.not8509, label %.loopexit9834, label %14442
@@ -25204,22 +25204,22 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14443 = load ptr, ptr %18, align 8
   %14444 = getelementptr inbounds i8, ptr %14443, i64 %.27615
   %14445 = getelementptr inbounds i8, ptr %14444, i64 %52
-  %14446 = getelementptr inbounds i8, ptr %14444, i64 52
+  %14446 = getelementptr inbounds nuw i8, ptr %14444, i64 52
   %14447 = load i32, ptr %14446, align 4
   %14448 = icmp eq i32 %14447, %14439
   br i1 %14448, label %14449, label %.preheader9833
 
 14449:                                            ; preds = %14442
-  %14450 = getelementptr inbounds i8, ptr %.3, i64 80
+  %14450 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %14451 = load ptr, ptr %14450, align 8
-  %14452 = getelementptr inbounds i8, ptr %14445, i64 80
+  %14452 = getelementptr inbounds nuw i8, ptr %14445, i64 80
   %14453 = load ptr, ptr %14452, align 8
   %14454 = icmp eq ptr %14451, %14453
   br i1 %14454, label %14455, label %.loopexit9834
 
 14455:                                            ; preds = %14449
   %14456 = load ptr, ptr %43, align 8
-  %14457 = getelementptr inbounds i8, ptr %14445, i64 104
+  %14457 = getelementptr inbounds nuw i8, ptr %14445, i64 104
   %14458 = load ptr, ptr %14457, align 8
   %14459 = icmp eq ptr %14456, %14458
   br i1 %14459, label %14460, label %.loopexit9834
@@ -25232,18 +25232,18 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .loopexit9834:                                    ; preds = %.preheader9833, %14460, %14455, %14449, %14438
   %14464 = load ptr, ptr %43, align 8
-  %14465 = getelementptr inbounds i8, ptr %.3, i64 104
+  %14465 = getelementptr inbounds nuw i8, ptr %.3, i64 104
   store ptr %14464, ptr %14465, align 8
-  %14466 = getelementptr inbounds i8, ptr %.3, i64 8
+  %14466 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %14426, ptr %14466, align 8
-  %14467 = getelementptr inbounds i8, ptr %.3, i64 56
+  %14467 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %14439, ptr %14467, align 8
   %.pre12638 = load i8, ptr %14426, align 1
   %14468 = zext i8 %.pre12638 to i64
   br label %.loopexit9592
 
 .loopexit9592.loopexit:                           ; preds = %.thread9378
-  %.phi.trans.insert12636 = getelementptr inbounds i8, ptr %15814, i64 56
+  %.phi.trans.insert12636 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %.pre12637 = load i32, ptr %.phi.trans.insert12636, align 8
   br label %.loopexit9592
 
@@ -25255,15 +25255,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.537586 = phi ptr [ %.27535, %.loopexit9834 ], [ %.47537.ph.ph, %.loopexit9592.loopexit ]
   %.537522 = phi ptr [ %.27471, %.loopexit9834 ], [ %.47473.ph.ph, %.loopexit9592.loopexit ]
   %.54 = phi ptr [ %.3, %.loopexit9834 ], [ %15814, %.loopexit9592.loopexit ]
-  %14472 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14469
+  %14472 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14469
   %14473 = load i8, ptr %14472, align 1
   %14474 = zext i8 %14473 to i64
-  %14475 = getelementptr inbounds i8, ptr %14470, i64 %14474
+  %14475 = getelementptr inbounds nuw i8, ptr %14470, i64 %14474
   br label %.loopexit9844
 
 14476:                                            ; preds = %15832
   %14477 = load i32, ptr %61, align 8
-  %14478 = getelementptr inbounds i8, ptr %15814, i64 56
+  %14478 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %14479 = load i32, ptr %14478, align 8
   %14480 = xor i32 %14479, %14477
   %14481 = icmp eq i32 %14480, 262144
@@ -25305,15 +25305,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 14495:                                            ; preds = %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835
   %14496 = zext i8 %143 to i32
   %14497 = or disjoint i32 %14496, 131072
-  %14498 = getelementptr inbounds i8, ptr %.3, i64 56
+  %14498 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %14497, ptr %14498, align 8
   %.pre12657 = load i8, ptr %142, align 1
   %14499 = zext i8 %.pre12657 to i64
   br label %.loopexit9596
 
 .loopexit9596.loopexit:                           ; preds = %14519
-  %14500 = getelementptr inbounds i8, ptr %14520, i64 %14528
-  %.phi.trans.insert12655 = getelementptr inbounds i8, ptr %15814, i64 56
+  %14500 = getelementptr inbounds nuw i8, ptr %14520, i64 %14528
+  %.phi.trans.insert12655 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %.pre12656 = load i32, ptr %.phi.trans.insert12655, align 8
   br label %.loopexit9596
 
@@ -25325,40 +25325,40 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.547587 = phi ptr [ %.27535, %14495 ], [ %.47537.ph.ph, %.loopexit9596.loopexit ]
   %.547523 = phi ptr [ %.27471, %14495 ], [ %.47473.ph.ph, %.loopexit9596.loopexit ]
   %.55 = phi ptr [ %.3, %14495 ], [ %15814, %.loopexit9596.loopexit ]
-  %14504 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14501
+  %14504 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14501
   %14505 = load i8, ptr %14504, align 1
   %14506 = zext i8 %14505 to i64
-  %14507 = getelementptr inbounds i8, ptr %14502, i64 %14506
+  %14507 = getelementptr inbounds nuw i8, ptr %14502, i64 %14506
   br label %.loopexit9844
 
 14508:                                            ; preds = %15823
-  %14509 = getelementptr inbounds i8, ptr %15814, i64 136
-  %14510 = getelementptr inbounds i8, ptr %.47473.ph.ph, i64 136
-  %14511 = getelementptr inbounds i8, ptr %.47473.ph.ph, i64 128
+  %14509 = getelementptr inbounds nuw i8, ptr %15814, i64 136
+  %14510 = getelementptr inbounds nuw i8, ptr %.47473.ph.ph, i64 136
+  %14511 = getelementptr inbounds nuw i8, ptr %.47473.ph.ph, i64 128
   %14512 = load i64, ptr %14511, align 8
   %14513 = shl i64 %14512, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14509, ptr nonnull align 1 %14510, i64 %14513, i1 false)
   %14514 = load i64, ptr %14511, align 8
-  %14515 = getelementptr inbounds i8, ptr %15814, i64 128
+  %14515 = getelementptr inbounds nuw i8, ptr %15814, i64 128
   store i64 %14514, ptr %14515, align 8
-  %14516 = getelementptr inbounds i8, ptr %.47473.ph.ph, i64 96
+  %14516 = getelementptr inbounds nuw i8, ptr %.47473.ph.ph, i64 96
   %14517 = load ptr, ptr %14516, align 8
-  %14518 = getelementptr inbounds i8, ptr %15814, i64 96
+  %14518 = getelementptr inbounds nuw i8, ptr %15814, i64 96
   store ptr %14517, ptr %14518, align 8
   %.lcssa10127.promoted = load ptr, ptr %15814, align 8
   br label %14531
 
 14519:                                            ; preds = %15823, %15823
   %14520 = load ptr, ptr %15814, align 8
-  %14521 = getelementptr inbounds i8, ptr %14520, i64 1
+  %14521 = getelementptr inbounds nuw i8, ptr %14520, i64 1
   %14522 = load i8, ptr %14521, align 1
   %14523 = zext i8 %14522 to i64
   %14524 = shl nuw nsw i64 %14523, 8
-  %14525 = getelementptr inbounds i8, ptr %14520, i64 2
+  %14525 = getelementptr inbounds nuw i8, ptr %14520, i64 2
   %14526 = load i8, ptr %14525, align 1
   %14527 = zext i8 %14526 to i64
   %14528 = or disjoint i64 %14524, %14527
-  %14529 = getelementptr inbounds i8, ptr %14520, i64 %14528
+  %14529 = getelementptr inbounds nuw i8, ptr %14520, i64 %14528
   store ptr %14529, ptr %15814, align 8
   %14530 = load i8, ptr %14529, align 1
   %.not9273 = icmp eq i8 %14530, 120
@@ -25366,36 +25366,36 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14531:                                            ; preds = %14531, %14508
   %14532 = phi ptr [ %14541, %14531 ], [ %.lcssa10127.promoted, %14508 ]
-  %14533 = getelementptr inbounds i8, ptr %14532, i64 1
+  %14533 = getelementptr inbounds nuw i8, ptr %14532, i64 1
   %14534 = load i8, ptr %14533, align 1
   %14535 = zext i8 %14534 to i64
   %14536 = shl nuw nsw i64 %14535, 8
-  %14537 = getelementptr inbounds i8, ptr %14532, i64 2
+  %14537 = getelementptr inbounds nuw i8, ptr %14532, i64 2
   %14538 = load i8, ptr %14537, align 1
   %14539 = zext i8 %14538 to i64
   %14540 = or disjoint i64 %14536, %14539
-  %14541 = getelementptr inbounds i8, ptr %14532, i64 %14540
+  %14541 = getelementptr inbounds nuw i8, ptr %14532, i64 %14540
   store ptr %14541, ptr %15814, align 8
   %14542 = load i8, ptr %14541, align 1
   %14543 = icmp eq i8 %14542, 120
   br i1 %14543, label %14531, label %14544
 
 14544:                                            ; preds = %14531
-  %14545 = getelementptr inbounds i8, ptr %14541, i64 3
+  %14545 = getelementptr inbounds nuw i8, ptr %14541, i64 3
   store ptr %14545, ptr %15814, align 8
   br label %.preheader9835.backedge
 
 14546:                                            ; preds = %.preheader9835, %.preheader9835
   %14547 = zext i8 %143 to i32
   %14548 = or disjoint i32 %14547, 131072
-  %14549 = getelementptr inbounds i8, ptr %.3, i64 56
+  %14549 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %14548, ptr %14549, align 8
   %.pre12654 = load i8, ptr %142, align 1
   %14550 = zext i8 %.pre12654 to i64
   br label %.loopexit9847
 
 .loopexit9847.loopexit:                           ; preds = %14559
-  %.phi.trans.insert12652 = getelementptr inbounds i8, ptr %15814, i64 56
+  %.phi.trans.insert12652 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %.pre12653 = load i32, ptr %.phi.trans.insert12652, align 8
   br label %.loopexit9847
 
@@ -25407,10 +25407,10 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.557588 = phi ptr [ %.27535, %14546 ], [ %.47537.ph.ph, %.loopexit9847.loopexit ]
   %.557524 = phi ptr [ %.27471, %14546 ], [ %.47473.ph.ph, %.loopexit9847.loopexit ]
   %.56 = phi ptr [ %.3, %14546 ], [ %15814, %.loopexit9847.loopexit ]
-  %14554 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14551
+  %14554 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14551
   %14555 = load i8, ptr %14554, align 1
   %14556 = zext i8 %14555 to i64
-  %14557 = getelementptr inbounds i8, ptr %14552, i64 %14556
+  %14557 = getelementptr inbounds nuw i8, ptr %14552, i64 %14556
   br label %.loopexit9844
 
 14558:                                            ; preds = %15824, %15824
@@ -25418,15 +25418,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14559:                                            ; preds = %15824, %15824
   %14560 = load ptr, ptr %15814, align 8
-  %14561 = getelementptr inbounds i8, ptr %14560, i64 1
+  %14561 = getelementptr inbounds nuw i8, ptr %14560, i64 1
   %14562 = load i8, ptr %14561, align 1
   %14563 = zext i8 %14562 to i64
   %14564 = shl nuw nsw i64 %14563, 8
-  %14565 = getelementptr inbounds i8, ptr %14560, i64 2
+  %14565 = getelementptr inbounds nuw i8, ptr %14560, i64 2
   %14566 = load i8, ptr %14565, align 1
   %14567 = zext i8 %14566 to i64
   %14568 = or disjoint i64 %14564, %14567
-  %14569 = getelementptr inbounds i8, ptr %14560, i64 %14568
+  %14569 = getelementptr inbounds nuw i8, ptr %14560, i64 %14568
   store ptr %14569, ptr %15814, align 8
   %14570 = load i8, ptr %14569, align 1
   %.not9272 = icmp eq i8 %14570, 120
@@ -25438,15 +25438,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14572:                                            ; preds = %14572, %14571
   %14573 = phi ptr [ %14582, %14572 ], [ %.lcssa10126.promoted, %14571 ]
-  %14574 = getelementptr inbounds i8, ptr %14573, i64 1
+  %14574 = getelementptr inbounds nuw i8, ptr %14573, i64 1
   %14575 = load i8, ptr %14574, align 1
   %14576 = zext i8 %14575 to i64
   %14577 = shl nuw nsw i64 %14576, 8
-  %14578 = getelementptr inbounds i8, ptr %14573, i64 2
+  %14578 = getelementptr inbounds nuw i8, ptr %14573, i64 2
   %14579 = load i8, ptr %14578, align 1
   %14580 = zext i8 %14579 to i64
   %14581 = or disjoint i64 %14577, %14580
-  %14582 = getelementptr inbounds i8, ptr %14573, i64 %14581
+  %14582 = getelementptr inbounds nuw i8, ptr %14573, i64 %14581
   store ptr %14582, ptr %15814, align 8
   %14583 = load i8, ptr %14582, align 1
   %14584 = icmp eq i8 %14583, 120
@@ -25454,7 +25454,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .loopexit9556:                                    ; preds = %14572, %14559
   %14585 = phi ptr [ %14569, %14559 ], [ %14582, %14572 ]
-  %14586 = getelementptr inbounds i8, ptr %14585, i64 3
+  %14586 = getelementptr inbounds nuw i8, ptr %14585, i64 3
   store ptr %14586, ptr %15814, align 8
   br label %.preheader9835.backedge
 
@@ -25475,17 +25475,17 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br label %.preheader9835.backedge
 
 14596:                                            ; preds = %.preheader9835, %.preheader9835
-  %14597 = getelementptr inbounds i8, ptr %142, i64 1
+  %14597 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %14598 = load i8, ptr %14597, align 1
   %14599 = zext i8 %14598 to i64
   %14600 = shl nuw nsw i64 %14599, 8
-  %14601 = getelementptr inbounds i8, ptr %142, i64 2
+  %14601 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %14602 = load i8, ptr %14601, align 1
   %14603 = zext i8 %14602 to i64
   %14604 = or disjoint i64 %14600, %14603
-  %14605 = getelementptr inbounds i8, ptr %.3, i64 24
+  %14605 = getelementptr inbounds nuw i8, ptr %.3, i64 24
   store i64 %14604, ptr %14605, align 8
-  %14606 = getelementptr inbounds i8, ptr %142, i64 %14604
+  %14606 = getelementptr inbounds nuw i8, ptr %142, i64 %14604
   %14607 = load i8, ptr %14606, align 1
   %.not8505 = icmp eq i8 %14607, 120
   br i1 %.not8505, label %14610, label %14608
@@ -25497,7 +25497,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14610:                                            ; preds = %14608, %14596
   %14611 = phi i64 [ %14609, %14608 ], [ %14604, %14596 ]
-  %14612 = getelementptr inbounds i8, ptr %142, i64 3
+  %14612 = getelementptr inbounds nuw i8, ptr %142, i64 3
   store ptr %14612, ptr %.3, align 8
   %14613 = load i8, ptr %14612, align 1
   %14614 = and i8 %14613, -2
@@ -25541,17 +25541,17 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   ]
 
 14631:                                            ; preds = %14627
-  %14632 = getelementptr inbounds i8, ptr %.3, i64 112
+  %14632 = getelementptr inbounds nuw i8, ptr %.3, i64 112
   %14633 = load i32, ptr %14632, align 8
   %.not8507 = icmp eq i32 %14633, -1
   br i1 %.not8507, label %.thread9383, label %14634
 
 14634:                                            ; preds = %14631
-  %14635 = getelementptr inbounds i8, ptr %14630, i64 1
+  %14635 = getelementptr inbounds nuw i8, ptr %14630, i64 1
   %14636 = load i8, ptr %14635, align 1
   %14637 = zext i8 %14636 to i32
   %14638 = shl nuw nsw i32 %14637, 8
-  %14639 = getelementptr inbounds i8, ptr %14630, i64 2
+  %14639 = getelementptr inbounds nuw i8, ptr %14630, i64 2
   %14640 = load i8, ptr %14639, align 1
   %14641 = zext i8 %14640 to i32
   %14642 = or disjoint i32 %14638, %14641
@@ -25561,17 +25561,17 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %or.cond15586, label %.thread9407, label %.thread9383
 
 14645:                                            ; preds = %14627
-  %14646 = getelementptr inbounds i8, ptr %.3, i64 112
+  %14646 = getelementptr inbounds nuw i8, ptr %.3, i64 112
   %14647 = load i32, ptr %14646, align 8
   %.not8506 = icmp eq i32 %14647, -1
   br i1 %.not8506, label %.thread9383, label %14648
 
 14648:                                            ; preds = %14645
-  %14649 = getelementptr inbounds i8, ptr %14630, i64 3
+  %14649 = getelementptr inbounds nuw i8, ptr %14630, i64 3
   %14650 = load i8, ptr %14649, align 1
   %14651 = zext i8 %14650 to i32
   %14652 = shl nuw nsw i32 %14651, 8
-  %14653 = getelementptr inbounds i8, ptr %14630, i64 4
+  %14653 = getelementptr inbounds nuw i8, ptr %14630, i64 4
   %14654 = load i8, ptr %14653, align 1
   %14655 = zext i8 %14654 to i32
   %14656 = or disjoint i32 %14652, %14655
@@ -25582,16 +25582,16 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .lr.ph10876.preheader:                            ; preds = %14648
   %14659 = load ptr, ptr %53, align 8
-  %14660 = getelementptr inbounds i8, ptr %14630, i64 1
+  %14660 = getelementptr inbounds nuw i8, ptr %14630, i64 1
   %14661 = load i8, ptr %14660, align 1
   %14662 = zext i8 %14661 to i64
   %14663 = shl nuw nsw i64 %14662, 8
-  %14664 = getelementptr inbounds i8, ptr %14630, i64 2
+  %14664 = getelementptr inbounds nuw i8, ptr %14630, i64 2
   %14665 = load i8, ptr %14664, align 1
   %14666 = zext i8 %14665 to i64
   %14667 = or disjoint i64 %14663, %14666
   %14668 = mul nuw nsw i64 %14667, %14658
-  %14669 = getelementptr inbounds i8, ptr %14659, i64 %14668
+  %14669 = getelementptr inbounds nuw i8, ptr %14659, i64 %14668
   br label %.lr.ph10876
 
 .lr.ph10876:                                      ; preds = %.lr.ph10876.preheader, %14678
@@ -25600,7 +25600,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14670 = load i8, ptr %.0753110875, align 1
   %14671 = zext i8 %14670 to i32
   %14672 = shl nuw nsw i32 %14671, 8
-  %14673 = getelementptr inbounds i8, ptr %.0753110875, i64 1
+  %14673 = getelementptr inbounds nuw i8, ptr %.0753110875, i64 1
   %14674 = load i8, ptr %14673, align 1
   %14675 = zext i8 %14674 to i32
   %14676 = or disjoint i32 %14672, %14675
@@ -25609,15 +25609,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14678:                                            ; preds = %.lr.ph10876
   %14679 = add nsw i32 %.in11283, -1
-  %14680 = getelementptr inbounds i8, ptr %.0753110875, i64 %14658
+  %14680 = getelementptr inbounds nuw i8, ptr %.0753110875, i64 %14658
   %14681 = icmp sgt i32 %.in11283, 1
   br i1 %14681, label %.lr.ph10876, label %.thread9383
 
 14682:                                            ; preds = %14627
-  %14683 = getelementptr inbounds i8, ptr %14630, i64 1
+  %14683 = getelementptr inbounds nuw i8, ptr %14630, i64 1
   %14684 = load i8, ptr %14683, align 1
   %14685 = zext i8 %14684 to i64
-  %14686 = getelementptr inbounds i8, ptr %14630, i64 2
+  %14686 = getelementptr inbounds nuw i8, ptr %14630, i64 2
   %14687 = load i8, ptr %14686, align 1
   %14688 = zext i8 %14687 to i64
   %14689 = shl nuw nsw i64 %14685, 9
@@ -25625,24 +25625,24 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14691 = or disjoint i64 %14690, %14689
   %14692 = add nuw nsw i64 %14691, 4294967294
   %14693 = and i64 %14692, 4294967294
-  %14694 = getelementptr inbounds i8, ptr %.3, i64 128
+  %14694 = getelementptr inbounds nuw i8, ptr %.3, i64 128
   %14695 = load i64, ptr %14694, align 8
   %14696 = icmp ult i64 %14693, %14695
   br i1 %14696, label %14697, label %.thread9383
 
 14697:                                            ; preds = %14682
-  %14698 = getelementptr inbounds i8, ptr %.3, i64 136
-  %14699 = getelementptr inbounds [131072 x i64], ptr %14698, i64 0, i64 %14693
+  %14698 = getelementptr inbounds nuw i8, ptr %.3, i64 136
+  %14699 = getelementptr inbounds nuw [131072 x i64], ptr %14698, i64 0, i64 %14693
   %14700 = load i64, ptr %14699, align 8
   %.not14223 = icmp eq i64 %14700, -1
   br i1 %.not14223, label %.thread9383, label %.thread9407
 
 14701:                                            ; preds = %14627
-  %14702 = getelementptr inbounds i8, ptr %14630, i64 3
+  %14702 = getelementptr inbounds nuw i8, ptr %14630, i64 3
   %14703 = load i8, ptr %14702, align 1
   %14704 = zext i8 %14703 to i32
   %14705 = shl nuw nsw i32 %14704, 8
-  %14706 = getelementptr inbounds i8, ptr %14630, i64 4
+  %14706 = getelementptr inbounds nuw i8, ptr %14630, i64 4
   %14707 = load i8, ptr %14706, align 1
   %14708 = zext i8 %14707 to i32
   %14709 = or disjoint i32 %14705, %14708
@@ -25653,19 +25653,19 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .lr.ph10874:                                      ; preds = %14701
   %14712 = load ptr, ptr %53, align 8
-  %14713 = getelementptr inbounds i8, ptr %14630, i64 1
+  %14713 = getelementptr inbounds nuw i8, ptr %14630, i64 1
   %14714 = load i8, ptr %14713, align 1
   %14715 = zext i8 %14714 to i64
   %14716 = shl nuw nsw i64 %14715, 8
-  %14717 = getelementptr inbounds i8, ptr %14630, i64 2
+  %14717 = getelementptr inbounds nuw i8, ptr %14630, i64 2
   %14718 = load i8, ptr %14717, align 1
   %14719 = zext i8 %14718 to i64
   %14720 = or disjoint i64 %14716, %14719
   %14721 = mul nuw nsw i64 %14720, %14711
-  %14722 = getelementptr inbounds i8, ptr %14712, i64 %14721
-  %14723 = getelementptr inbounds i8, ptr %.3, i64 128
+  %14722 = getelementptr inbounds nuw i8, ptr %14712, i64 %14721
+  %14723 = getelementptr inbounds nuw i8, ptr %.3, i64 128
   %14724 = load i64, ptr %14723, align 8
-  %14725 = getelementptr inbounds i8, ptr %.3, i64 136
+  %14725 = getelementptr inbounds nuw i8, ptr %.3, i64 136
   br label %14726
 
 14726:                                            ; preds = %.lr.ph10874, %.thread9381
@@ -25674,7 +25674,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14727 = add nsw i32 %.in11281, -1
   %14728 = load i8, ptr %.0752910873, align 1
   %14729 = zext i8 %14728 to i64
-  %14730 = getelementptr inbounds i8, ptr %.0752910873, i64 1
+  %14730 = getelementptr inbounds nuw i8, ptr %.0752910873, i64 1
   %14731 = load i8, ptr %14730, align 1
   %14732 = zext i8 %14731 to i64
   %14733 = shl nuw nsw i64 %14729, 9
@@ -25686,13 +25686,13 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %14738, label %14739, label %.thread9381
 
 14739:                                            ; preds = %14726
-  %14740 = getelementptr inbounds [131072 x i64], ptr %14725, i64 0, i64 %14737
+  %14740 = getelementptr inbounds nuw [131072 x i64], ptr %14725, i64 0, i64 %14737
   %14741 = load i64, ptr %14740, align 8
   %.not9431 = icmp eq i64 %14741, -1
   br i1 %.not9431, label %.thread9381, label %.thread9407
 
 .thread9381:                                      ; preds = %14726, %14739
-  %14742 = getelementptr inbounds i8, ptr %.0752910873, i64 %14711
+  %14742 = getelementptr inbounds nuw i8, ptr %.0752910873, i64 %14711
   %14743 = icmp samesign ugt i32 %.in11281, 1
   br i1 %14743, label %14726, label %.thread9383
 
@@ -25703,16 +25703,16 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .loopexit9838:                                    ; preds = %14627, %14744
   %14747 = phi i32 [ %14746, %14744 ], [ 1, %14627 ]
-  %14748 = getelementptr inbounds i8, ptr %.3, i64 56
+  %14748 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %14747, ptr %14748, align 8
-  %14749 = getelementptr inbounds i8, ptr %.3, i64 8
+  %14749 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %14630, ptr %14749, align 8
   %.pre12648 = load i8, ptr %14630, align 1
   %14750 = zext i8 %.pre12648 to i64
   br label %.loopexit9846
 
 .loopexit9846.loopexit:                           ; preds = %14771
-  %14751 = getelementptr inbounds i8, ptr %14773, i64 %14781
+  %14751 = getelementptr inbounds nuw i8, ptr %14773, i64 %14781
   %.pre12647 = load ptr, ptr %15814, align 8
   %.pre12676 = load i8, ptr %.pre12647, align 1
   br label %.loopexit9846
@@ -25727,55 +25727,55 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.58 = phi ptr [ %.3, %.loopexit9838 ], [ %15814, %.loopexit9846.loopexit ]
   %14755 = zext i8 %14752 to i32
   %14756 = or disjoint i32 %14755, 196608
-  %14757 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14753
+  %14757 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14753
   %14758 = load i8, ptr %14757, align 1
   %14759 = zext i8 %14758 to i64
-  %14760 = getelementptr inbounds i8, ptr %14754, i64 %14759
+  %14760 = getelementptr inbounds nuw i8, ptr %14754, i64 %14759
   br label %.loopexit9844
 
 14761:                                            ; preds = %15825
-  %14762 = getelementptr inbounds i8, ptr %15814, i64 136
-  %14763 = getelementptr inbounds i8, ptr %.47473.ph.ph, i64 136
-  %14764 = getelementptr inbounds i8, ptr %.47473.ph.ph, i64 128
+  %14762 = getelementptr inbounds nuw i8, ptr %15814, i64 136
+  %14763 = getelementptr inbounds nuw i8, ptr %.47473.ph.ph, i64 136
+  %14764 = getelementptr inbounds nuw i8, ptr %.47473.ph.ph, i64 128
   %14765 = load i64, ptr %14764, align 8
   %14766 = shl i64 %14765, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14762, ptr nonnull align 1 %14763, i64 %14766, i1 false)
   %14767 = load i64, ptr %14764, align 8
-  %14768 = getelementptr inbounds i8, ptr %15814, i64 128
+  %14768 = getelementptr inbounds nuw i8, ptr %15814, i64 128
   store i64 %14767, ptr %14768, align 8
   br label %.loopexit9595
 
 .loopexit9595:                                    ; preds = %15825, %14761
-  %14769 = getelementptr inbounds i8, ptr %15814, i64 56
+  %14769 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %14770 = load i32, ptr %14769, align 8
   br label %14793
 
 14771:                                            ; preds = %15825, %15825
-  %14772 = getelementptr inbounds i8, ptr %15814, i64 8
+  %14772 = getelementptr inbounds nuw i8, ptr %15814, i64 8
   %14773 = load ptr, ptr %14772, align 8
-  %14774 = getelementptr inbounds i8, ptr %14773, i64 1
+  %14774 = getelementptr inbounds nuw i8, ptr %14773, i64 1
   %14775 = load i8, ptr %14774, align 1
   %14776 = zext i8 %14775 to i64
   %14777 = shl nuw nsw i64 %14776, 8
-  %14778 = getelementptr inbounds i8, ptr %14773, i64 2
+  %14778 = getelementptr inbounds nuw i8, ptr %14773, i64 2
   %14779 = load i8, ptr %14778, align 1
   %14780 = zext i8 %14779 to i64
   %14781 = or disjoint i64 %14777, %14780
-  %14782 = getelementptr inbounds i8, ptr %14773, i64 %14781
+  %14782 = getelementptr inbounds nuw i8, ptr %14773, i64 %14781
   store ptr %14782, ptr %14772, align 8
   %14783 = load i8, ptr %14782, align 1
   %14784 = icmp eq i8 %14783, 120
   br i1 %14784, label %.loopexit9846.loopexit, label %14785
 
 14785:                                            ; preds = %14771
-  %14786 = getelementptr inbounds i8, ptr %15814, i64 56
+  %14786 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %14787 = load i32, ptr %14786, align 8
   %.not9269 = icmp eq i32 %14787, 0
   %14788 = zext i1 %.not9269 to i32
   br label %14793
 
 14789:                                            ; preds = %15825, %15825, %15825
-  %14790 = getelementptr inbounds i8, ptr %15814, i64 56
+  %14790 = getelementptr inbounds nuw i8, ptr %15814, i64 56
   %14791 = load i32, ptr %14790, align 8
   %.not9268 = icmp eq i32 %14791, 0
   %14792 = zext i1 %.not9268 to i32
@@ -25787,7 +25787,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %.not9270, label %..thread9383_crit_edge, label %.preheader9557
 
 ..thread9383_crit_edge:                           ; preds = %14793
-  %.phi.trans.insert12649 = getelementptr inbounds i8, ptr %15814, i64 24
+  %.phi.trans.insert12649 = getelementptr inbounds nuw i8, ptr %15814, i64 24
   %.pre12650 = load i64, ptr %.phi.trans.insert12649, align 8
   %.pre12651.pre = load ptr, ptr %15814, align 8
   br label %.thread9383
@@ -25798,15 +25798,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14794:                                            ; preds = %.preheader9557, %14794
   %14795 = phi ptr [ %.promoted11250, %.preheader9557 ], [ %14804, %14794 ]
-  %14796 = getelementptr inbounds i8, ptr %14795, i64 1
+  %14796 = getelementptr inbounds nuw i8, ptr %14795, i64 1
   %14797 = load i8, ptr %14796, align 1
   %14798 = zext i8 %14797 to i64
   %14799 = shl nuw nsw i64 %14798, 8
-  %14800 = getelementptr inbounds i8, ptr %14795, i64 2
+  %14800 = getelementptr inbounds nuw i8, ptr %14795, i64 2
   %14801 = load i8, ptr %14800, align 1
   %14802 = zext i8 %14801 to i64
   %14803 = or disjoint i64 %14799, %14802
-  %14804 = getelementptr inbounds i8, ptr %14795, i64 %14803
+  %14804 = getelementptr inbounds nuw i8, ptr %14795, i64 %14803
   store ptr %14804, ptr %15814, align 8
   %14805 = load i8, ptr %14804, align 1
   %14806 = icmp eq i8 %14805, 120
@@ -25824,7 +25824,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.5675259417 = phi ptr [ %.27471, %14627 ], [ %.27471, %14634 ], [ %.27471, %14697 ], [ %.47473.ph.ph, %.thread9407.loopexit ], [ %.27471, %.lr.ph10876 ], [ %.27471, %14739 ]
   %.5675899416 = phi ptr [ %.27535, %14627 ], [ %.27535, %14634 ], [ %.27535, %14697 ], [ %.47537.ph.ph, %.thread9407.loopexit ], [ %.27535, %.lr.ph10876 ], [ %.27535, %14739 ]
   %.6278359415 = phi i32 [ %.27775, %14627 ], [ %.27775, %14634 ], [ %.27775, %14697 ], [ %.47777.ph.ph, %.thread9407.loopexit ], [ %.27775, %.lr.ph10876 ], [ %.27775, %14739 ]
-  %14810 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14808
+  %14810 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %14808
   %14811 = load i8, ptr %14810, align 1
   %14812 = zext i8 %14811 to i64
   br label %.thread9383
@@ -25839,7 +25839,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14814 = phi i64 [ %14812, %.thread9407 ], [ %14628, %14682 ], [ %14628, %14631 ], [ %14628, %14645 ], [ %14628, %14627 ], [ %14628, %14627 ], [ %.pre12650, %..thread9383_crit_edge ], [ %14628, %14648 ], [ %14628, %14701 ], [ %14628, %14697 ], [ %14628, %14634 ], [ %14628, %14678 ], [ %14628, %.thread9381 ]
   %14815 = getelementptr inbounds i8, ptr %14813, i64 %14814
   store ptr %14815, ptr %.579399, align 8
-  %14816 = getelementptr inbounds i8, ptr %.579399, i64 73
+  %14816 = getelementptr inbounds nuw i8, ptr %.579399, i64 73
   %14817 = load i8, ptr %14816, align 1
   %14818 = icmp eq i8 %14817, -112
   br i1 %14818, label %14819, label %.preheader9835.backedge
@@ -25849,15 +25849,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br label %.loopexit9844
 
 14821:                                            ; preds = %.preheader9835
-  %14822 = getelementptr inbounds i8, ptr %142, i64 1
+  %14822 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %14823 = load i8, ptr %14822, align 1
   %14824 = zext i8 %14823 to i32
   %14825 = shl nuw nsw i32 %14824, 8
-  %14826 = getelementptr inbounds i8, ptr %142, i64 2
+  %14826 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %14827 = load i8, ptr %14826, align 1
   %14828 = zext i8 %14827 to i32
   %14829 = or disjoint i32 %14825, %14828
-  %.phi.trans.insert12513 = getelementptr inbounds i8, ptr %.3, i64 80
+  %.phi.trans.insert12513 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12514 = load ptr, ptr %.phi.trans.insert12513, align 8
   br i1 %15, label %.preheader9818, label %14835
 
@@ -25913,34 +25913,34 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14849:                                            ; preds = %14848, %.loopexit9819
   %14850 = phi ptr [ %.pre12515, %14848 ], [ %142, %.loopexit9819 ]
-  %14851 = getelementptr inbounds i8, ptr %14850, i64 3
+  %14851 = getelementptr inbounds nuw i8, ptr %14850, i64 3
   store ptr %14851, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 14852:                                            ; preds = %.preheader9835
-  %14853 = getelementptr inbounds i8, ptr %142, i64 1
+  %14853 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %14854 = load i8, ptr %14853, align 1
   %14855 = zext i8 %14854 to i32
   %14856 = shl nuw nsw i32 %14855, 8
-  %14857 = getelementptr inbounds i8, ptr %142, i64 2
+  %14857 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %14858 = load i8, ptr %14857, align 1
   %14859 = zext i8 %14858 to i32
   %14860 = or disjoint i32 %14856, %14859
-  %14861 = getelementptr inbounds i8, ptr %.3, i64 56
+  %14861 = getelementptr inbounds nuw i8, ptr %.3, i64 56
   store i32 %14860, ptr %14861, align 8
-  %14862 = getelementptr inbounds i8, ptr %142, i64 3
+  %14862 = getelementptr inbounds nuw i8, ptr %142, i64 3
   %14863 = load i8, ptr %14862, align 1
   %14864 = zext i8 %14863 to i32
   %14865 = shl nuw nsw i32 %14864, 8
-  %14866 = getelementptr inbounds i8, ptr %142, i64 4
+  %14866 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %14867 = load i8, ptr %14866, align 1
   %14868 = zext i8 %14867 to i32
   %14869 = or disjoint i32 %14865, %14868
-  %14870 = getelementptr inbounds i8, ptr %.3, i64 60
+  %14870 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %14869, ptr %14870, align 4
-  %14871 = getelementptr inbounds i8, ptr %.3, i64 80
+  %14871 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %14872 = load ptr, ptr %14871, align 8
-  %14873 = getelementptr inbounds i8, ptr %.3, i64 8
+  %14873 = getelementptr inbounds nuw i8, ptr %.3, i64 8
   store ptr %14872, ptr %14873, align 8
   br i1 %15, label %.preheader9821, label %14886
 
@@ -25960,7 +25960,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %14878, label %.preheader9566.preheader, label %14879
 
 14879:                                            ; preds = %14877
-  %14880 = getelementptr inbounds i8, ptr %.3, i64 60
+  %14880 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %.10010861, ptr %14880, align 4
   br label %.critedge195
 
@@ -25993,7 +25993,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %14896, label %14897, label %14899
 
 14897:                                            ; preds = %14895
-  %14898 = getelementptr inbounds i8, ptr %.3, i64 60
+  %14898 = getelementptr inbounds nuw i8, ptr %.3, i64 60
   store i32 %14893, ptr %14898, align 4
   br label %14899
 
@@ -26011,12 +26011,12 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %.587527 = phi ptr [ %.47473.ph.ph, %14912 ], [ %.27471, %14879 ], [ %.27471, %14899 ], [ %.47473.ph.ph, %.preheader9827 ], [ %.27471, %14883 ], [ %.47473.ph.ph, %14921 ], [ %.47473.ph.ph, %.lr.ph11265 ], [ %.27471, %.preheader9821 ]
   %.59 = phi ptr [ %15814, %14912 ], [ %.3, %14879 ], [ %.3, %14899 ], [ %15814, %.preheader9827 ], [ %.3, %14883 ], [ %15814, %14921 ], [ %15814, %.lr.ph11265 ], [ %.3, %.preheader9821 ]
   %14904 = load ptr, ptr %.59, align 8
-  %14905 = getelementptr inbounds i8, ptr %14904, i64 5
+  %14905 = getelementptr inbounds nuw i8, ptr %14904, i64 5
   br label %.loopexit9844
 
 14906:                                            ; preds = %15876
-  %14907 = getelementptr inbounds i8, ptr %15814, i64 56
-  %14908 = getelementptr inbounds i8, ptr %15814, i64 60
+  %14907 = getelementptr inbounds nuw i8, ptr %15814, i64 56
+  %14908 = getelementptr inbounds nuw i8, ptr %15814, i64 60
   %14909 = load i32, ptr %14908, align 4
   %14910 = add i32 %14909, -1
   store i32 %14910, ptr %14908, align 4
@@ -26025,9 +26025,9 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %.not9189, label %14912, label %.backedge.backedge
 
 14912:                                            ; preds = %14906
-  %14913 = getelementptr inbounds i8, ptr %15814, i64 80
+  %14913 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %14914 = load ptr, ptr %14913, align 8
-  %14915 = getelementptr inbounds i8, ptr %14914, i64 1
+  %14915 = getelementptr inbounds nuw i8, ptr %14914, i64 1
   store ptr %14915, ptr %14913, align 8
   br i1 %15, label %.preheader9827, label %.critedge195
 
@@ -26043,7 +26043,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   br i1 %14920, label %14921, label %.critedge195
 
 14921:                                            ; preds = %.lr.ph11265
-  %14922 = getelementptr inbounds i8, ptr %14918, i64 1
+  %14922 = getelementptr inbounds nuw i8, ptr %14918, i64 1
   store ptr %14922, ptr %14913, align 8
   %14923 = load ptr, ptr %39, align 8
   %14924 = icmp ult ptr %14922, %14923
@@ -26051,26 +26051,26 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 .preheader14342:                                  ; preds = %.preheader9835, %.preheader14342
   %14925 = phi ptr [ %14934, %.preheader14342 ], [ %142, %.preheader9835 ]
-  %14926 = getelementptr inbounds i8, ptr %14925, i64 1
+  %14926 = getelementptr inbounds nuw i8, ptr %14925, i64 1
   %14927 = load i8, ptr %14926, align 1
   %14928 = zext i8 %14927 to i64
   %14929 = shl nuw nsw i64 %14928, 8
-  %14930 = getelementptr inbounds i8, ptr %14925, i64 2
+  %14930 = getelementptr inbounds nuw i8, ptr %14925, i64 2
   %14931 = load i8, ptr %14930, align 1
   %14932 = zext i8 %14931 to i64
   %14933 = or disjoint i64 %14929, %14932
-  %14934 = getelementptr inbounds i8, ptr %14925, i64 %14933
+  %14934 = getelementptr inbounds nuw i8, ptr %14925, i64 %14933
   store ptr %14934, ptr %.3, align 8
   %14935 = load i8, ptr %14934, align 1
   %14936 = icmp eq i8 %14935, 120
   br i1 %14936, label %.preheader14342, label %.preheader9835.backedge
 
 14937:                                            ; preds = %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835
-  %14938 = getelementptr inbounds i8, ptr %142, i64 1
+  %14938 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %14939 = load i8, ptr %14938, align 1
   %14940 = zext i8 %14939 to i64
   %.neg = mul nsw i64 %14940, -256
-  %14941 = getelementptr inbounds i8, ptr %142, i64 2
+  %14941 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %14942 = load i8, ptr %14941, align 1
   %14943 = zext i8 %14942 to i64
   %.neg8487 = sub nsw i64 %.neg, %14943
@@ -26081,15 +26081,15 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14946:                                            ; preds = %14946, %14937
   %.07594 = phi ptr [ %14944, %14937 ], [ %14955, %14946 ]
-  %14947 = getelementptr inbounds i8, ptr %.07594, i64 1
+  %14947 = getelementptr inbounds nuw i8, ptr %.07594, i64 1
   %14948 = load i8, ptr %14947, align 1
   %14949 = zext i8 %14948 to i64
   %14950 = shl nuw nsw i64 %14949, 8
-  %14951 = getelementptr inbounds i8, ptr %.07594, i64 2
+  %14951 = getelementptr inbounds nuw i8, ptr %.07594, i64 2
   %14952 = load i8, ptr %14951, align 1
   %14953 = zext i8 %14952 to i64
   %14954 = or disjoint i64 %14950, %14953
-  %14955 = getelementptr inbounds i8, ptr %.07594, i64 %14954
+  %14955 = getelementptr inbounds nuw i8, ptr %.07594, i64 %14954
   %.not8488 = icmp eq ptr %14955, %spec.select9287
   br i1 %.not8488, label %14956, label %14946
 
@@ -26102,37 +26102,37 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
 
 14958:                                            ; preds = %14956
   %14959 = load ptr, ptr %18, align 8
-  %14960 = getelementptr inbounds i8, ptr %.3, i64 120
+  %14960 = getelementptr inbounds nuw i8, ptr %.3, i64 120
   %14961 = load i64, ptr %14960, align 8
   %14962 = getelementptr inbounds i8, ptr %14959, i64 %14961
   %14963 = getelementptr inbounds i8, ptr %14962, i64 %52
-  %14964 = getelementptr inbounds i8, ptr %14963, i64 120
+  %14964 = getelementptr inbounds nuw i8, ptr %14963, i64 120
   %14965 = load i64, ptr %14964, align 8
   store i64 %14965, ptr %14960, align 8
-  %14966 = getelementptr inbounds i8, ptr %14962, i64 52
+  %14966 = getelementptr inbounds nuw i8, ptr %14962, i64 52
   %14967 = load i32, ptr %14966, align 4
   %14968 = and i32 %14967, -65536
   %14969 = icmp eq i32 %14968, 196608
   br i1 %14969, label %14970, label %thread-pre-split9420
 
 14970:                                            ; preds = %14958
-  %14971 = getelementptr inbounds i8, ptr %14963, i64 136
-  %14972 = getelementptr inbounds i8, ptr %.3, i64 136
-  %14973 = getelementptr inbounds i8, ptr %.3, i64 128
+  %14971 = getelementptr inbounds nuw i8, ptr %14963, i64 136
+  %14972 = getelementptr inbounds nuw i8, ptr %.3, i64 136
+  %14973 = getelementptr inbounds nuw i8, ptr %.3, i64 128
   %14974 = load i64, ptr %14973, align 8
   %14975 = shl i64 %14974, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14971, ptr nonnull align 8 %14972, i64 %14975, i1 false)
   %14976 = load i64, ptr %14973, align 8
-  %14977 = getelementptr inbounds i8, ptr %14963, i64 128
+  %14977 = getelementptr inbounds nuw i8, ptr %14963, i64 128
   store i64 %14976, ptr %14977, align 8
-  %14978 = getelementptr inbounds i8, ptr %.3, i64 96
+  %14978 = getelementptr inbounds nuw i8, ptr %.3, i64 96
   %14979 = load ptr, ptr %14978, align 8
-  %14980 = getelementptr inbounds i8, ptr %14963, i64 96
+  %14980 = getelementptr inbounds nuw i8, ptr %14963, i64 96
   store ptr %14979, ptr %14980, align 8
   %14981 = ptrtoint ptr %.3 to i64
   %14982 = ptrtoint ptr %14963 to i64
   %14983 = sub i64 %14981, %14982
-  %14984 = getelementptr inbounds i8, ptr %.3, i64 32
+  %14984 = getelementptr inbounds nuw i8, ptr %.3, i64 32
   store i64 %14983, ptr %14984, align 8
   br label %.preheader9566.preheader
 
@@ -26161,19 +26161,19 @@ thread-pre-split9420:                             ; preds = %14958
   ]
 
 14987:                                            ; preds = %14985
-  %14988 = getelementptr inbounds i8, ptr %.3, i64 112
+  %14988 = getelementptr inbounds nuw i8, ptr %.3, i64 112
   %14989 = load i32, ptr %14988, align 8
   %.not8497 = icmp eq i32 %14989, 0
   br i1 %.not8497, label %14990, label %.loopexit9823
 
 14990:                                            ; preds = %14987
-  %14991 = getelementptr inbounds i8, ptr %142, i64 3
+  %14991 = getelementptr inbounds nuw i8, ptr %142, i64 3
   %14992 = load i8, ptr %14991, align 1
   %.not8498 = icmp eq i8 %14992, 0
   br i1 %.not8498, label %14993, label %.loopexit9823
 
 14993:                                            ; preds = %14990
-  %14994 = getelementptr inbounds i8, ptr %.3, i64 120
+  %14994 = getelementptr inbounds nuw i8, ptr %.3, i64 120
   %14995 = load i64, ptr %14994, align 8
   %14996 = icmp eq i64 %14995, -1
   br i1 %14996, label %.loopexit, label %14997
@@ -26182,46 +26182,46 @@ thread-pre-split9420:                             ; preds = %14958
   %14998 = load ptr, ptr %18, align 8
   %14999 = getelementptr inbounds i8, ptr %14998, i64 %14995
   %15000 = getelementptr inbounds i8, ptr %14999, i64 %52
-  %15001 = getelementptr inbounds i8, ptr %15000, i64 120
+  %15001 = getelementptr inbounds nuw i8, ptr %15000, i64 120
   %15002 = load i64, ptr %15001, align 8
   store i64 %15002, ptr %14994, align 8
-  %15003 = getelementptr inbounds i8, ptr %.3, i64 136
-  %15004 = getelementptr inbounds i8, ptr %15000, i64 136
-  %15005 = getelementptr inbounds i8, ptr %.3, i64 128
+  %15003 = getelementptr inbounds nuw i8, ptr %.3, i64 136
+  %15004 = getelementptr inbounds nuw i8, ptr %15000, i64 136
+  %15005 = getelementptr inbounds nuw i8, ptr %.3, i64 128
   %15006 = load i64, ptr %15005, align 8
   %15007 = shl i64 %15006, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15003, ptr nonnull align 8 %15004, i64 %15007, i1 false)
-  %15008 = getelementptr inbounds i8, ptr %15000, i64 128
+  %15008 = getelementptr inbounds nuw i8, ptr %15000, i64 128
   %15009 = load i64, ptr %15008, align 8
   store i64 %15009, ptr %15005, align 8
-  %15010 = getelementptr inbounds i8, ptr %15000, i64 116
+  %15010 = getelementptr inbounds nuw i8, ptr %15000, i64 116
   %15011 = load i32, ptr %15010, align 4
-  %15012 = getelementptr inbounds i8, ptr %.3, i64 116
+  %15012 = getelementptr inbounds nuw i8, ptr %.3, i64 116
   store i32 %15011, ptr %15012, align 4
-  %15013 = getelementptr inbounds i8, ptr %15000, i64 112
+  %15013 = getelementptr inbounds nuw i8, ptr %15000, i64 112
   %15014 = load i32, ptr %15013, align 8
   store i32 %15014, ptr %14988, align 8
   %15015 = load ptr, ptr %15000, align 8
-  %15016 = getelementptr inbounds i8, ptr %15015, i64 3
+  %15016 = getelementptr inbounds nuw i8, ptr %15015, i64 3
   store ptr %15016, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 15017:                                            ; preds = %14985
-  %15018 = getelementptr inbounds i8, ptr %.07594, i64 3
+  %15018 = getelementptr inbounds nuw i8, ptr %.07594, i64 3
   %15019 = load i8, ptr %15018, align 1
   %15020 = icmp eq i8 %15019, 126
   br i1 %15020, label %15021, label %15026
 
 15021:                                            ; preds = %15017
-  %15022 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15022 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15023 = load ptr, ptr %15022, align 8
-  %15024 = getelementptr inbounds i8, ptr %.07466, i64 80
+  %15024 = getelementptr inbounds nuw i8, ptr %.07466, i64 80
   %15025 = load ptr, ptr %15024, align 8
   %.not8495 = icmp eq ptr %15023, %15025
   br i1 %.not8495, label %15026, label %.preheader9566.preheader
 
 15026:                                            ; preds = %15017, %15021, %14985
-  %15027 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15027 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15028 = load ptr, ptr %15027, align 8
   %15029 = load ptr, ptr %43, align 8
   %15030 = icmp ugt ptr %15028, %15029
@@ -26232,27 +26232,27 @@ thread-pre-split9420:                             ; preds = %14958
   br label %15032
 
 15032:                                            ; preds = %15031, %15026
-  %15033 = getelementptr inbounds i8, ptr %.07466, i64 80
+  %15033 = getelementptr inbounds nuw i8, ptr %.07466, i64 80
   %15034 = load ptr, ptr %15033, align 8
   store ptr %15034, ptr %15027, align 8
   br label %.loopexit9823
 
 15035:                                            ; preds = %14985
-  %15036 = getelementptr inbounds i8, ptr %.07594, i64 3
+  %15036 = getelementptr inbounds nuw i8, ptr %.07594, i64 3
   %15037 = load i8, ptr %15036, align 1
   %15038 = icmp eq i8 %15037, 126
   br i1 %15038, label %15039, label %15044
 
 15039:                                            ; preds = %15035
-  %15040 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15040 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15041 = load ptr, ptr %15040, align 8
-  %15042 = getelementptr inbounds i8, ptr %.07466, i64 80
+  %15042 = getelementptr inbounds nuw i8, ptr %.07466, i64 80
   %15043 = load ptr, ptr %15042, align 8
   %.not8493 = icmp eq ptr %15041, %15043
   br i1 %.not8493, label %15044, label %.preheader9566.preheader
 
 15044:                                            ; preds = %15035, %15039, %14985
-  %15045 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15045 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15046 = load ptr, ptr %15045, align 8
   %15047 = load ptr, ptr %43, align 8
   %15048 = icmp ugt ptr %15046, %15047
@@ -26263,7 +26263,7 @@ thread-pre-split9420:                             ; preds = %14958
   br label %15050
 
 15050:                                            ; preds = %15049, %15044
-  %15051 = getelementptr inbounds i8, ptr %.07466, i64 80
+  %15051 = getelementptr inbounds nuw i8, ptr %.07466, i64 80
   %15052 = load ptr, ptr %15051, align 8
   store ptr %15052, ptr %15045, align 8
   br label %15053
@@ -26272,18 +26272,18 @@ thread-pre-split9420:                             ; preds = %14958
   %15054 = ptrtoint ptr %.3 to i64
   %15055 = ptrtoint ptr %.07466 to i64
   %15056 = sub i64 %15054, %15055
-  %15057 = getelementptr inbounds i8, ptr %.3, i64 32
+  %15057 = getelementptr inbounds nuw i8, ptr %.3, i64 32
   store i64 %15056, ptr %15057, align 8
   %.07466.promoted = load ptr, ptr %.07466, align 8
-  %15058 = getelementptr inbounds i8, ptr %.07466.promoted, i64 1
+  %15058 = getelementptr inbounds nuw i8, ptr %.07466.promoted, i64 1
   %15059 = load i8, ptr %15058, align 1
   %15060 = zext i8 %15059 to i64
   %15061 = shl nuw nsw i64 %15060, 8
-  %15062 = getelementptr inbounds i8, ptr %.07466.promoted, i64 2
+  %15062 = getelementptr inbounds nuw i8, ptr %.07466.promoted, i64 2
   %15063 = load i8, ptr %15062, align 1
   %15064 = zext i8 %15063 to i64
   %15065 = or disjoint i64 %15061, %15064
-  %15066 = getelementptr inbounds i8, ptr %.07466.promoted, i64 %15065
+  %15066 = getelementptr inbounds nuw i8, ptr %.07466.promoted, i64 %15065
   %15067 = load i8, ptr %15066, align 1
   %.not849410859 = icmp eq i8 %15067, 120
   br i1 %.not849410859, label %.lr.ph10860, label %.loopexit9823
@@ -26291,29 +26291,29 @@ thread-pre-split9420:                             ; preds = %14958
 .lr.ph10860:                                      ; preds = %15053, %.lr.ph10860
   %15068 = phi ptr [ %15077, %.lr.ph10860 ], [ %15066, %15053 ]
   store ptr %15068, ptr %.07466, align 8
-  %15069 = getelementptr inbounds i8, ptr %15068, i64 1
+  %15069 = getelementptr inbounds nuw i8, ptr %15068, i64 1
   %15070 = load i8, ptr %15069, align 1
   %15071 = zext i8 %15070 to i64
   %15072 = shl nuw nsw i64 %15071, 8
-  %15073 = getelementptr inbounds i8, ptr %15068, i64 2
+  %15073 = getelementptr inbounds nuw i8, ptr %15068, i64 2
   %15074 = load i8, ptr %15073, align 1
   %15075 = zext i8 %15074 to i64
   %15076 = or disjoint i64 %15072, %15075
-  %15077 = getelementptr inbounds i8, ptr %15068, i64 %15076
+  %15077 = getelementptr inbounds nuw i8, ptr %15068, i64 %15076
   %15078 = load i8, ptr %15077, align 1
   %.not8494 = icmp eq i8 %15078, 120
   br i1 %.not8494, label %.lr.ph10860, label %.loopexit9823
 
 15079:                                            ; preds = %14985
-  %15080 = getelementptr inbounds i8, ptr %.07594, i64 3
+  %15080 = getelementptr inbounds nuw i8, ptr %.07594, i64 3
   %15081 = load i8, ptr %15080, align 1
   %15082 = icmp eq i8 %15081, 126
   br i1 %15082, label %15083, label %15088
 
 15083:                                            ; preds = %15079
-  %15084 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15084 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15085 = load ptr, ptr %15084, align 8
-  %15086 = getelementptr inbounds i8, ptr %.07466, i64 80
+  %15086 = getelementptr inbounds nuw i8, ptr %.07466, i64 80
   %15087 = load ptr, ptr %15086, align 8
   %.not8492 = icmp eq ptr %15085, %15087
   br i1 %.not8492, label %15088, label %.preheader9566.preheader
@@ -26322,48 +26322,48 @@ thread-pre-split9420:                             ; preds = %14958
   br label %.preheader9566.preheader
 
 15089:                                            ; preds = %14985
-  %15090 = getelementptr inbounds i8, ptr %.07466, i64 80
+  %15090 = getelementptr inbounds nuw i8, ptr %.07466, i64 80
   %15091 = load ptr, ptr %15090, align 8
-  %15092 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15092 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15093 = load ptr, ptr %15092, align 8
   %15094 = tail call i32 @_pcre2_script_run_8(ptr noundef %15091, ptr noundef %15093, i32 noundef %.lobit) #8
   %.not8491 = icmp eq i32 %15094, 0
   br i1 %.not8491, label %.preheader9566.preheader, label %.loopexit9823
 
 15095:                                            ; preds = %14985, %14985, %14985, %14985
-  %15096 = getelementptr inbounds i8, ptr %14944, i64 3
+  %15096 = getelementptr inbounds nuw i8, ptr %14944, i64 3
   %15097 = load i8, ptr %15096, align 1
   %15098 = zext i8 %15097 to i32
   %15099 = shl nuw nsw i32 %15098, 8
-  %15100 = getelementptr inbounds i8, ptr %14944, i64 4
+  %15100 = getelementptr inbounds nuw i8, ptr %14944, i64 4
   %15101 = load i8, ptr %15100, align 1
   %15102 = zext i8 %15101 to i32
   %15103 = or disjoint i32 %15099, %15102
-  %15104 = getelementptr inbounds i8, ptr %.3, i64 112
+  %15104 = getelementptr inbounds nuw i8, ptr %.3, i64 112
   %15105 = load i32, ptr %15104, align 8
   %15106 = icmp eq i32 %15105, %15103
   br i1 %15106, label %15107, label %15123
 
 15107:                                            ; preds = %15095
   %15108 = getelementptr inbounds i8, ptr %.237462, i64 %52
-  %15109 = getelementptr inbounds i8, ptr %.3, i64 136
-  %15110 = getelementptr inbounds i8, ptr %15108, i64 136
-  %15111 = getelementptr inbounds i8, ptr %.3, i64 128
+  %15109 = getelementptr inbounds nuw i8, ptr %.3, i64 136
+  %15110 = getelementptr inbounds nuw i8, ptr %15108, i64 136
+  %15111 = getelementptr inbounds nuw i8, ptr %.3, i64 128
   %15112 = load i64, ptr %15111, align 8
   %15113 = shl i64 %15112, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15109, ptr nonnull align 8 %15110, i64 %15113, i1 false)
-  %15114 = getelementptr inbounds i8, ptr %15108, i64 128
+  %15114 = getelementptr inbounds nuw i8, ptr %15108, i64 128
   %15115 = load i64, ptr %15114, align 8
   store i64 %15115, ptr %15111, align 8
-  %15116 = getelementptr inbounds i8, ptr %15108, i64 116
+  %15116 = getelementptr inbounds nuw i8, ptr %15108, i64 116
   %15117 = load i32, ptr %15116, align 4
-  %15118 = getelementptr inbounds i8, ptr %.3, i64 116
+  %15118 = getelementptr inbounds nuw i8, ptr %.3, i64 116
   store i32 %15117, ptr %15118, align 4
-  %15119 = getelementptr inbounds i8, ptr %15108, i64 112
+  %15119 = getelementptr inbounds nuw i8, ptr %15108, i64 112
   %15120 = load i32, ptr %15119, align 8
   store i32 %15120, ptr %15104, align 8
   %15121 = load ptr, ptr %15108, align 8
-  %15122 = getelementptr inbounds i8, ptr %15121, i64 3
+  %15122 = getelementptr inbounds nuw i8, ptr %15121, i64 3
   store ptr %15122, ptr %.3, align 8
   br label %.preheader9835.backedge
 
@@ -26371,27 +26371,27 @@ thread-pre-split9420:                             ; preds = %14958
   %15124 = shl nuw nsw i32 %15103, 1
   %15125 = add nsw i32 %15124, -2
   %15126 = zext i32 %15125 to i64
-  %15127 = getelementptr inbounds i8, ptr %.3, i64 116
+  %15127 = getelementptr inbounds nuw i8, ptr %.3, i64 116
   store i32 %15103, ptr %15127, align 4
-  %15128 = getelementptr inbounds i8, ptr %.07466, i64 80
+  %15128 = getelementptr inbounds nuw i8, ptr %.07466, i64 80
   %15129 = load ptr, ptr %15128, align 8
   %15130 = load ptr, ptr %44, align 8
   %15131 = ptrtoint ptr %15129 to i64
   %15132 = ptrtoint ptr %15130 to i64
   %15133 = sub i64 %15131, %15132
-  %15134 = getelementptr inbounds i8, ptr %.3, i64 136
-  %15135 = getelementptr inbounds [131072 x i64], ptr %15134, i64 0, i64 %15126
+  %15134 = getelementptr inbounds nuw i8, ptr %.3, i64 136
+  %15135 = getelementptr inbounds nuw [131072 x i64], ptr %15134, i64 0, i64 %15126
   store i64 %15133, ptr %15135, align 8
-  %15136 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15136 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15137 = load ptr, ptr %15136, align 8
   %15138 = load ptr, ptr %44, align 8
   %15139 = ptrtoint ptr %15137 to i64
   %15140 = ptrtoint ptr %15138 to i64
   %15141 = sub i64 %15139, %15140
   %15142 = or disjoint i64 %15126, 1
-  %15143 = getelementptr inbounds [131072 x i64], ptr %15134, i64 0, i64 %15142
+  %15143 = getelementptr inbounds nuw [131072 x i64], ptr %15134, i64 0, i64 %15142
   store i64 %15141, ptr %15143, align 8
-  %15144 = getelementptr inbounds i8, ptr %.3, i64 128
+  %15144 = getelementptr inbounds nuw i8, ptr %.3, i64 128
   %15145 = load i64, ptr %15144, align 8
   %.not8496 = icmp ugt i64 %15145, %15126
   br i1 %.not8496, label %.loopexit9823, label %15146
@@ -26408,8 +26408,8 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %15150, label %15151, label %15154
 
 15151:                                            ; preds = %.loopexit9823
-  %15152 = getelementptr inbounds i8, ptr %.07466, i64 80
-  %15153 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15152 = getelementptr inbounds nuw i8, ptr %.07466, i64 80
+  %15153 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15152, ptr nonnull align 1 %15153, i64 %17, i1 false)
   br label %.preheader9566.preheader
 
@@ -26423,27 +26423,27 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %15157, label %15163, label %15158
 
 15158:                                            ; preds = %15156
-  %15159 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15159 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15160 = load ptr, ptr %15159, align 8
-  %15161 = getelementptr inbounds i8, ptr %.07466, i64 80
+  %15161 = getelementptr inbounds nuw i8, ptr %.07466, i64 80
   %15162 = load ptr, ptr %15161, align 8
   %.not8500 = icmp eq ptr %15160, %15162
   br i1 %.not8500, label %.loopexit9594, label %15163
 
 15163:                                            ; preds = %15158, %15156
   %15164 = icmp eq i8 %15155, 123
-  %15165 = getelementptr inbounds i8, ptr %15148, i64 3
+  %15165 = getelementptr inbounds nuw i8, ptr %15148, i64 3
   %spec.select15587 = select i1 %15164, i8 6, i8 7
   %spec.select15588 = select i1 %15164, ptr %15165, ptr %14944
   br label %.loopexit9844
 
 15166:                                            ; preds = %15826
   %15167 = load ptr, ptr %15814, align 8
-  %15168 = getelementptr inbounds i8, ptr %15167, i64 1
+  %15168 = getelementptr inbounds nuw i8, ptr %15167, i64 1
   %15169 = load i8, ptr %15168, align 1
   %15170 = zext i8 %15169 to i64
   %.neg9266 = mul nsw i64 %15170, -256
-  %15171 = getelementptr inbounds i8, ptr %15167, i64 2
+  %15171 = getelementptr inbounds nuw i8, ptr %15167, i64 2
   %15172 = load i8, ptr %15171, align 1
   %15173 = zext i8 %15172 to i64
   %.neg9267 = sub nsw i64 %.neg9266, %15173
@@ -26462,12 +26462,12 @@ thread-pre-split9420:                             ; preds = %14958
   %.597528 = phi ptr [ %.27471, %15158 ], [ %.27471, %15154 ], [ %.47473.ph.ph, %.loopexit9594.loopexit ]
   %.247463 = phi ptr [ %.237462, %15158 ], [ %.237462, %15154 ], [ %.57444.ph.ph, %.loopexit9594.loopexit ]
   %.60 = phi ptr [ %.3, %15158 ], [ %.3, %15154 ], [ %15814, %.loopexit9594.loopexit ]
-  %15176 = getelementptr inbounds i8, ptr %15175, i64 3
+  %15176 = getelementptr inbounds nuw i8, ptr %15175, i64 3
   store ptr %15176, ptr %.60, align 8
   br label %.preheader9835.backedge
 
 15177:                                            ; preds = %.preheader9835
-  %15178 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15178 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15179 = load ptr, ptr %15178, align 8
   %15180 = load ptr, ptr %44, align 8
   %.not8485 = icmp eq ptr %15179, %15180
@@ -26480,19 +26480,19 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %.not8486, label %15184, label %.preheader9566.preheader
 
 15184:                                            ; preds = %15181
-  %15185 = getelementptr inbounds i8, ptr %142, i64 1
+  %15185 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %15185, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 15186:                                            ; preds = %.preheader9835
-  %15187 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15187 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15188 = load ptr, ptr %15187, align 8
   %15189 = load ptr, ptr %44, align 8
   %.not8484 = icmp eq ptr %15188, %15189
   br i1 %.not8484, label %15190, label %.preheader9566.preheader
 
 15190:                                            ; preds = %15186
-  %15191 = getelementptr inbounds i8, ptr %142, i64 1
+  %15191 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %15191, ptr %.3, align 8
   br label %.preheader9835.backedge
 
@@ -26509,7 +26509,7 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %15198, label %15210, label %15199
 
 15199:                                            ; preds = %15195, %.preheader9835
-  %15200 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15200 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15201 = load ptr, ptr %15200, align 8
   %15202 = load ptr, ptr %51, align 8
   %15203 = icmp ult ptr %15201, %15202
@@ -26531,12 +26531,12 @@ thread-pre-split9420:                             ; preds = %14958
 
 15207:                                            ; preds = %._crit_edge12506, %15204
   %15208 = phi ptr [ %.pre12507, %._crit_edge12506 ], [ %142, %15204 ]
-  %15209 = getelementptr inbounds i8, ptr %15208, i64 1
+  %15209 = getelementptr inbounds nuw i8, ptr %15208, i64 1
   store ptr %15209, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 15210:                                            ; preds = %.preheader9835, %15195
-  %15211 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15211 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15212 = load ptr, ptr %15211, align 8
   %15213 = load ptr, ptr %39, align 8
   %15214 = icmp ult ptr %15212, %15213
@@ -26577,7 +26577,7 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %15229, label %15235, label %15230
 
 15230:                                            ; preds = %15228
-  %15231 = getelementptr inbounds i8, ptr %15212, i64 1
+  %15231 = getelementptr inbounds nuw i8, ptr %15212, i64 1
   %15232 = load i8, ptr %15231, align 1
   %15233 = load i8, ptr %50, align 1
   %15234 = icmp eq i8 %15232, %15233
@@ -26600,7 +26600,7 @@ thread-pre-split9420:                             ; preds = %14958
 
 15244:                                            ; preds = %15242
   %15245 = load ptr, ptr %15211, align 8
-  %15246 = getelementptr inbounds i8, ptr %15245, i64 1
+  %15246 = getelementptr inbounds nuw i8, ptr %15245, i64 1
   %15247 = load ptr, ptr %39, align 8
   %.not8483 = icmp ult ptr %15246, %15247
   br i1 %.not8483, label %.preheader9566.preheader, label %15248
@@ -26638,7 +26638,7 @@ thread-pre-split9420:                             ; preds = %14958
 
 15262:                                            ; preds = %15261, %15259
   %15263 = load ptr, ptr %.3, align 8
-  %15264 = getelementptr inbounds i8, ptr %15263, i64 1
+  %15264 = getelementptr inbounds nuw i8, ptr %15263, i64 1
   store ptr %15264, ptr %.3, align 8
   br label %.preheader9835.backedge
 
@@ -26646,7 +26646,7 @@ thread-pre-split9420:                             ; preds = %14958
   %15266 = load i32, ptr %46, align 4
   %15267 = and i32 %15266, 1
   %.not8470 = icmp ne i32 %15267, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.3, i64 80
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %.pre12502 = load ptr, ptr %.phi.trans.insert, align 8
   %.pre12503 = load ptr, ptr %44, align 8
   %15268 = icmp eq ptr %.pre12502, %.pre12503
@@ -26689,7 +26689,7 @@ thread-pre-split9420:                             ; preds = %14958
 15282:                                            ; preds = %15276
   %15283 = load i32, ptr %48, align 8
   %15284 = zext i32 %15283 to i64
-  %15285 = getelementptr inbounds i8, ptr %.pre12503, i64 %15284
+  %15285 = getelementptr inbounds nuw i8, ptr %.pre12503, i64 %15284
   %.not8473 = icmp ult ptr %.pre12502, %15285
   br i1 %.not8473, label %.preheader9566.preheader, label %15286
 
@@ -26706,7 +26706,7 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %15293, label %15299, label %15294
 
 15294:                                            ; preds = %15292
-  %15295 = getelementptr inbounds i8, ptr %15288, i64 1
+  %15295 = getelementptr inbounds nuw i8, ptr %15288, i64 1
   %15296 = load i8, ptr %15295, align 1
   %15297 = load i8, ptr %50, align 1
   %15298 = icmp eq i8 %15296, %15297
@@ -26714,12 +26714,12 @@ thread-pre-split9420:                             ; preds = %14958
 
 15299:                                            ; preds = %._crit_edge12504, %15294, %15292, %._crit_edge12501
   %15300 = phi ptr [ %.pre12505, %._crit_edge12504 ], [ %142, %15294 ], [ %142, %15292 ], [ %142, %._crit_edge12501 ]
-  %15301 = getelementptr inbounds i8, ptr %15300, i64 1
+  %15301 = getelementptr inbounds nuw i8, ptr %15300, i64 1
   store ptr %15301, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 15302:                                            ; preds = %.preheader9835
-  %15303 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15303 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15304 = load ptr, ptr %15303, align 8
   %15305 = load ptr, ptr %39, align 8
   %15306 = icmp ult ptr %15304, %15305
@@ -26754,7 +26754,7 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %15321, label %15355, label %15322
 
 15322:                                            ; preds = %15320
-  %15323 = getelementptr inbounds i8, ptr %15304, i64 1
+  %15323 = getelementptr inbounds nuw i8, ptr %15304, i64 1
   %15324 = load i8, ptr %15323, align 1
   %15325 = load i8, ptr %50, align 1
   %15326 = icmp eq i8 %15324, %15325
@@ -26767,7 +26767,7 @@ thread-pre-split9420:                             ; preds = %14958
 
 15329:                                            ; preds = %15327
   %15330 = load ptr, ptr %15303, align 8
-  %15331 = getelementptr inbounds i8, ptr %15330, i64 1
+  %15331 = getelementptr inbounds nuw i8, ptr %15330, i64 1
   %15332 = load ptr, ptr %39, align 8
   %.not8469 = icmp ult ptr %15331, %15332
   br i1 %.not8469, label %.preheader9566.preheader, label %15333
@@ -26821,12 +26821,12 @@ thread-pre-split9420:                             ; preds = %14958
 
 15355:                                            ; preds = %15347, %15352, %15354, %15309, %15320, %15322
   %15356 = load ptr, ptr %.3, align 8
-  %15357 = getelementptr inbounds i8, ptr %15356, i64 1
+  %15357 = getelementptr inbounds nuw i8, ptr %15356, i64 1
   store ptr %15357, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 15358:                                            ; preds = %.preheader9835
-  %15359 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15359 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15360 = load ptr, ptr %15359, align 8
   %15361 = load ptr, ptr %44, align 8
   %15362 = load i64, ptr %45, align 8
@@ -26835,21 +26835,21 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %.not8461, label %15364, label %.preheader9566.preheader
 
 15364:                                            ; preds = %15358
-  %15365 = getelementptr inbounds i8, ptr %142, i64 1
+  %15365 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %15365, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 15366:                                            ; preds = %.preheader9835
-  %15367 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15367 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15368 = load ptr, ptr %15367, align 8
-  %15369 = getelementptr inbounds i8, ptr %.3, i64 88
+  %15369 = getelementptr inbounds nuw i8, ptr %.3, i64 88
   store ptr %15368, ptr %15369, align 8
-  %15370 = getelementptr inbounds i8, ptr %142, i64 1
+  %15370 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %15370, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 15371:                                            ; preds = %.preheader9835, %.preheader9835, %.preheader9835, %.preheader9835
-  %15372 = getelementptr inbounds i8, ptr %.3, i64 80
+  %15372 = getelementptr inbounds nuw i8, ptr %.3, i64 80
   %15373 = load ptr, ptr %15372, align 8
   %15374 = load ptr, ptr %36, align 8
   %15375 = icmp eq ptr %15373, %15374
@@ -26875,7 +26875,7 @@ thread-pre-split9420:                             ; preds = %14958
 15385:                                            ; preds = %15383
   %15386 = and i32 %15379, 32
   %15387 = icmp eq i32 %15386, 0
-  %15388 = getelementptr inbounds i8, ptr %.07464, i64 1
+  %15388 = getelementptr inbounds nuw i8, ptr %.07464, i64 1
   %15389 = load i8, ptr %15388, align 1
   %15390 = and i8 %15389, 63
   %15391 = zext nneg i8 %15390 to i32
@@ -26897,7 +26897,7 @@ thread-pre-split9420:                             ; preds = %14958
   %15401 = and i32 %15400, 61440
   %15402 = shl nuw nsw i32 %15391, 6
   %15403 = or disjoint i32 %15402, %15401
-  %15404 = getelementptr inbounds i8, ptr %.07464, i64 2
+  %15404 = getelementptr inbounds nuw i8, ptr %.07464, i64 2
   %15405 = load i8, ptr %15404, align 1
   %15406 = and i8 %15405, 63
   %15407 = zext nneg i8 %15406 to i32
@@ -26914,13 +26914,13 @@ thread-pre-split9420:                             ; preds = %14958
   %15414 = and i32 %15413, 1835008
   %15415 = shl nuw nsw i32 %15391, 12
   %15416 = or disjoint i32 %15415, %15414
-  %15417 = getelementptr inbounds i8, ptr %.07464, i64 2
+  %15417 = getelementptr inbounds nuw i8, ptr %.07464, i64 2
   %15418 = load i8, ptr %15417, align 1
   %15419 = and i8 %15418, 63
   %15420 = zext nneg i8 %15419 to i32
   %15421 = shl nuw nsw i32 %15420, 6
   %15422 = or disjoint i32 %15416, %15421
-  %15423 = getelementptr inbounds i8, ptr %.07464, i64 3
+  %15423 = getelementptr inbounds nuw i8, ptr %.07464, i64 3
   %15424 = load i8, ptr %15423, align 1
   %15425 = and i8 %15424, 63
   %15426 = zext nneg i8 %15425 to i32
@@ -26930,15 +26930,15 @@ thread-pre-split9420:                             ; preds = %14958
 15428:                                            ; preds = %15409
   %15429 = and i32 %15379, 4
   %15430 = icmp eq i32 %15429, 0
-  %15431 = getelementptr inbounds i8, ptr %.07464, i64 2
+  %15431 = getelementptr inbounds nuw i8, ptr %.07464, i64 2
   %15432 = load i8, ptr %15431, align 1
   %15433 = and i8 %15432, 63
   %15434 = zext nneg i8 %15433 to i32
-  %15435 = getelementptr inbounds i8, ptr %.07464, i64 3
+  %15435 = getelementptr inbounds nuw i8, ptr %.07464, i64 3
   %15436 = load i8, ptr %15435, align 1
   %15437 = and i8 %15436, 63
   %15438 = zext nneg i8 %15437 to i32
-  %15439 = getelementptr inbounds i8, ptr %.07464, i64 4
+  %15439 = getelementptr inbounds nuw i8, ptr %.07464, i64 4
   %15440 = load i8, ptr %15439, align 1
   %15441 = and i8 %15440, 63
   %15442 = zext nneg i8 %15441 to i32
@@ -26967,7 +26967,7 @@ thread-pre-split9420:                             ; preds = %14958
   %15461 = or disjoint i32 %15459, %15460
   %15462 = shl nuw nsw i32 %15442, 6
   %15463 = or disjoint i32 %15461, %15462
-  %15464 = getelementptr inbounds i8, ptr %.07464, i64 5
+  %15464 = getelementptr inbounds nuw i8, ptr %.07464, i64 5
   %15465 = load i8, ptr %15464, align 1
   %15466 = and i8 %15465, 63
   %15467 = zext nneg i8 %15466 to i32
@@ -27000,20 +27000,20 @@ thread-pre-split9420:                             ; preds = %14958
 15478:                                            ; preds = %15476
   %15479 = lshr i32 %.797767, 7
   %15480 = zext nneg i32 %15479 to i64
-  %15481 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %15480
+  %15481 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %15480
   %15482 = load i16, ptr %15481, align 2
   %15483 = zext i16 %15482 to i32
   %15484 = shl nuw nsw i32 %15483, 7
   %15485 = and i32 %.797767, 127
   %15486 = or disjoint i32 %15484, %15485
   %15487 = zext nneg i32 %15486 to i64
-  %15488 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %15487
+  %15488 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %15487
   %15489 = load i16, ptr %15488, align 2
   %15490 = zext i16 %15489 to i64
-  %15491 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %15490, i32 1
+  %15491 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %15490, i32 1
   %15492 = load i8, ptr %15491, align 1
   %15493 = zext i8 %15492 to i64
-  %15494 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %15493
+  %15494 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %15493
   %15495 = load i32, ptr %15494, align 4
   %15496 = and i32 %15495, -3
   %or.cond197 = icmp eq i32 %15496, 1
@@ -27031,7 +27031,7 @@ thread-pre-split9420:                             ; preds = %14958
 15502:                                            ; preds = %15500
   %15503 = load ptr, ptr %38, align 8
   %15504 = zext nneg i32 %.797767 to i64
-  %15505 = getelementptr inbounds i8, ptr %15503, i64 %15504
+  %15505 = getelementptr inbounds nuw i8, ptr %15503, i64 %15504
   %15506 = load i8, ptr %15505, align 1
   %15507 = lshr i8 %15506, 4
   %.lobit8455 = and i8 %15507, 1
@@ -27069,7 +27069,7 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %.not12693, label %15657, label %.loopexit
 
 15523:                                            ; preds = %15509
-  %15524 = getelementptr inbounds i8, ptr %15511, i64 1
+  %15524 = getelementptr inbounds nuw i8, ptr %15511, i64 1
   br i1 %15, label %.preheader9824, label %15617
 
 .preheader9824:                                   ; preds = %15523
@@ -27088,7 +27088,7 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %15528, label %15529, label %.critedge201
 
 15529:                                            ; preds = %.lr.ph
-  %15530 = getelementptr inbounds i8, ptr %.0743510856, i64 1
+  %15530 = getelementptr inbounds nuw i8, ptr %.0743510856, i64 1
   %exitcond.not = icmp eq ptr %15530, %15513
   br i1 %exitcond.not, label %.critedge201, label %.lr.ph
 
@@ -27123,7 +27123,7 @@ thread-pre-split9420:                             ; preds = %14958
   %15549 = and i32 %15548, 61440
   %15550 = shl nuw nsw i32 %15539, 6
   %15551 = or disjoint i32 %15550, %15549
-  %15552 = getelementptr inbounds i8, ptr %15511, i64 2
+  %15552 = getelementptr inbounds nuw i8, ptr %15511, i64 2
   %15553 = load i8, ptr %15552, align 1
   %15554 = and i8 %15553, 63
   %15555 = zext nneg i8 %15554 to i32
@@ -27140,13 +27140,13 @@ thread-pre-split9420:                             ; preds = %14958
   %15562 = and i32 %15561, 1835008
   %15563 = shl nuw nsw i32 %15539, 12
   %15564 = or disjoint i32 %15563, %15562
-  %15565 = getelementptr inbounds i8, ptr %15511, i64 2
+  %15565 = getelementptr inbounds nuw i8, ptr %15511, i64 2
   %15566 = load i8, ptr %15565, align 1
   %15567 = and i8 %15566, 63
   %15568 = zext nneg i8 %15567 to i32
   %15569 = shl nuw nsw i32 %15568, 6
   %15570 = or disjoint i32 %15564, %15569
-  %15571 = getelementptr inbounds i8, ptr %15511, i64 3
+  %15571 = getelementptr inbounds nuw i8, ptr %15511, i64 3
   %15572 = load i8, ptr %15571, align 1
   %15573 = and i8 %15572, 63
   %15574 = zext nneg i8 %15573 to i32
@@ -27156,15 +27156,15 @@ thread-pre-split9420:                             ; preds = %14958
 15576:                                            ; preds = %15557
   %15577 = and i32 %15532, 4
   %15578 = icmp eq i32 %15577, 0
-  %15579 = getelementptr inbounds i8, ptr %15511, i64 2
+  %15579 = getelementptr inbounds nuw i8, ptr %15511, i64 2
   %15580 = load i8, ptr %15579, align 1
   %15581 = and i8 %15580, 63
   %15582 = zext nneg i8 %15581 to i32
-  %15583 = getelementptr inbounds i8, ptr %15511, i64 3
+  %15583 = getelementptr inbounds nuw i8, ptr %15511, i64 3
   %15584 = load i8, ptr %15583, align 1
   %15585 = and i8 %15584, 63
   %15586 = zext nneg i8 %15585 to i32
-  %15587 = getelementptr inbounds i8, ptr %15511, i64 4
+  %15587 = getelementptr inbounds nuw i8, ptr %15511, i64 4
   %15588 = load i8, ptr %15587, align 1
   %15589 = and i8 %15588, 63
   %15590 = zext nneg i8 %15589 to i32
@@ -27193,7 +27193,7 @@ thread-pre-split9420:                             ; preds = %14958
   %15609 = or disjoint i32 %15607, %15608
   %15610 = shl nuw nsw i32 %15590, 6
   %15611 = or disjoint i32 %15609, %15610
-  %15612 = getelementptr inbounds i8, ptr %15511, i64 5
+  %15612 = getelementptr inbounds nuw i8, ptr %15511, i64 5
   %15613 = load i8, ptr %15612, align 1
   %15614 = and i8 %15613, 63
   %15615 = zext nneg i8 %15614 to i32
@@ -27226,20 +27226,20 @@ thread-pre-split9420:                             ; preds = %14958
 15626:                                            ; preds = %15624
   %15627 = lshr i32 %.807768, 7
   %15628 = zext nneg i32 %15627 to i64
-  %15629 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %15628
+  %15629 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %15628
   %15630 = load i16, ptr %15629, align 2
   %15631 = zext i16 %15630 to i32
   %15632 = shl nuw nsw i32 %15631, 7
   %15633 = and i32 %.807768, 127
   %15634 = or disjoint i32 %15632, %15633
   %15635 = zext nneg i32 %15634 to i64
-  %15636 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %15635
+  %15636 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %15635
   %15637 = load i16, ptr %15636, align 2
   %15638 = zext i16 %15637 to i64
-  %15639 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %15638, i32 1
+  %15639 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %15638, i32 1
   %15640 = load i8, ptr %15639, align 1
   %15641 = zext i8 %15640 to i64
-  %15642 = getelementptr inbounds [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %15641
+  %15642 = getelementptr inbounds nuw [0 x i32], ptr @_pcre2_ucp_gentype_8, i64 0, i64 %15641
   %15643 = load i32, ptr %15642, align 4
   %15644 = and i32 %15643, -3
   %or.cond203 = icmp eq i32 %15644, 1
@@ -27257,7 +27257,7 @@ thread-pre-split9420:                             ; preds = %14958
 15650:                                            ; preds = %15648
   %15651 = load ptr, ptr %38, align 8
   %15652 = zext nneg i32 %.807768 to i64
-  %15653 = getelementptr inbounds i8, ptr %15651, i64 %15652
+  %15653 = getelementptr inbounds nuw i8, ptr %15651, i64 %15652
   %15654 = load i8, ptr %15653, align 1
   %15655 = lshr i8 %15654, 4
   %.lobit8457 = and i8 %15655, 1
@@ -27267,7 +27267,7 @@ thread-pre-split9420:                             ; preds = %14958
 15657:                                            ; preds = %15648, %15650, %15515, %15520, %15522, %15626
   %.07851 = phi i32 [ %15647, %15626 ], [ 0, %15522 ], [ 0, %15520 ], [ 0, %15515 ], [ 0, %15648 ], [ %15656, %15650 ]
   %15658 = load ptr, ptr %.3, align 8
-  %15659 = getelementptr inbounds i8, ptr %15658, i64 1
+  %15659 = getelementptr inbounds nuw i8, ptr %15658, i64 1
   store ptr %15659, ptr %.3, align 8
   %15660 = load i8, ptr %15658, align 1
   %15661 = icmp eq i8 %15660, 5
@@ -27338,120 +27338,120 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %.not8460, label %.preheader9835.backedge, label %.preheader9566.preheader
 
 15668:                                            ; preds = %.preheader9835
-  %15669 = getelementptr inbounds i8, ptr %142, i64 2
+  %15669 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %15669, ptr %64, align 8
-  %15670 = getelementptr inbounds i8, ptr %.3, i64 96
+  %15670 = getelementptr inbounds nuw i8, ptr %.3, i64 96
   store ptr %15669, ptr %15670, align 8
   %15671 = load ptr, ptr %.3, align 8
   %15672 = load i8, ptr %15671, align 1
   %15673 = zext i8 %15672 to i64
-  %15674 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %15673
+  %15674 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %15673
   %15675 = load i8, ptr %15674, align 1
   %15676 = zext i8 %15675 to i64
-  %15677 = getelementptr inbounds i8, ptr %15671, i64 %15676
-  %15678 = getelementptr inbounds i8, ptr %15671, i64 1
+  %15677 = getelementptr inbounds nuw i8, ptr %15671, i64 %15676
+  %15678 = getelementptr inbounds nuw i8, ptr %15671, i64 1
   %15679 = load i8, ptr %15678, align 1
   %15680 = zext i8 %15679 to i64
-  %15681 = getelementptr inbounds i8, ptr %15677, i64 %15680
+  %15681 = getelementptr inbounds nuw i8, ptr %15677, i64 %15680
   br label %.loopexit9844
 
 15682:                                            ; preds = %15845
   %15683 = load ptr, ptr %15814, align 8
-  %15684 = getelementptr inbounds i8, ptr %15683, i64 2
+  %15684 = getelementptr inbounds nuw i8, ptr %15683, i64 2
   %15685 = load ptr, ptr %63, align 8
   %15686 = tail call i32 @_pcre2_strcmp_8(ptr noundef nonnull %15684, ptr noundef %15685) #8
   %15687 = icmp eq i32 %15686, 0
   br i1 %15687, label %15688, label %.backedge.backedge
 
 15688:                                            ; preds = %15682
-  %15689 = getelementptr inbounds i8, ptr %15814, i64 80
+  %15689 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %15690 = load ptr, ptr %15689, align 8
   store ptr %15690, ptr %63, align 8
   br label %.backedge.backedge
 
 15691:                                            ; preds = %.preheader9835
-  %15692 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 161), align 1
+  %15692 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 161), align 1
   %15693 = zext i8 %15692 to i64
-  %15694 = getelementptr inbounds i8, ptr %142, i64 %15693
+  %15694 = getelementptr inbounds nuw i8, ptr %142, i64 %15693
   br label %.loopexit9844
 
 15695:                                            ; preds = %15847
-  %15696 = getelementptr inbounds i8, ptr %15814, i64 112
+  %15696 = getelementptr inbounds nuw i8, ptr %15814, i64 112
   %15697 = load i32, ptr %15696, align 8
   store i32 %15697, ptr %61, align 8
   br label %.backedge.backedge
 
 15698:                                            ; preds = %.preheader9835
-  %15699 = getelementptr inbounds i8, ptr %142, i64 2
+  %15699 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %15699, ptr %64, align 8
-  %15700 = getelementptr inbounds i8, ptr %.3, i64 96
+  %15700 = getelementptr inbounds nuw i8, ptr %.3, i64 96
   store ptr %15699, ptr %15700, align 8
   %15701 = load ptr, ptr %.3, align 8
   %15702 = load i8, ptr %15701, align 1
   %15703 = zext i8 %15702 to i64
-  %15704 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %15703
+  %15704 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %15703
   %15705 = load i8, ptr %15704, align 1
   %15706 = zext i8 %15705 to i64
-  %15707 = getelementptr inbounds i8, ptr %15701, i64 %15706
-  %15708 = getelementptr inbounds i8, ptr %15701, i64 1
+  %15707 = getelementptr inbounds nuw i8, ptr %15701, i64 %15706
+  %15708 = getelementptr inbounds nuw i8, ptr %15701, i64 1
   %15709 = load i8, ptr %15708, align 1
   %15710 = zext i8 %15709 to i64
-  %15711 = getelementptr inbounds i8, ptr %15707, i64 %15710
+  %15711 = getelementptr inbounds nuw i8, ptr %15707, i64 %15710
   br label %.loopexit9844
 
 15712:                                            ; preds = %15875
-  %15713 = getelementptr inbounds i8, ptr %15814, i64 112
+  %15713 = getelementptr inbounds nuw i8, ptr %15814, i64 112
   %15714 = load i32, ptr %15713, align 8
   store i32 %15714, ptr %61, align 8
   br label %.backedge.backedge
 
 15715:                                            ; preds = %.preheader9835
-  %15716 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 155), align 1
+  %15716 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 155), align 1
   %15717 = zext i8 %15716 to i64
-  %15718 = getelementptr inbounds i8, ptr %142, i64 %15717
+  %15718 = getelementptr inbounds nuw i8, ptr %142, i64 %15717
   br label %.loopexit9844
 
 15719:                                            ; preds = %15848
-  %15720 = getelementptr inbounds i8, ptr %15814, i64 112
+  %15720 = getelementptr inbounds nuw i8, ptr %15814, i64 112
   %15721 = load i32, ptr %15720, align 8
   store i32 %15721, ptr %61, align 8
   br label %.backedge.backedge
 
 15722:                                            ; preds = %.preheader9835
-  %15723 = getelementptr inbounds i8, ptr %142, i64 2
+  %15723 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %15723, ptr %64, align 8
-  %15724 = getelementptr inbounds i8, ptr %.3, i64 96
+  %15724 = getelementptr inbounds nuw i8, ptr %.3, i64 96
   store ptr %15723, ptr %15724, align 8
   %15725 = load ptr, ptr %.3, align 8
   %15726 = load i8, ptr %15725, align 1
   %15727 = zext i8 %15726 to i64
-  %15728 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %15727
+  %15728 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %15727
   %15729 = load i8, ptr %15728, align 1
   %15730 = zext i8 %15729 to i64
-  %15731 = getelementptr inbounds i8, ptr %15725, i64 %15730
-  %15732 = getelementptr inbounds i8, ptr %15725, i64 1
+  %15731 = getelementptr inbounds nuw i8, ptr %15725, i64 %15730
+  %15732 = getelementptr inbounds nuw i8, ptr %15725, i64 1
   %15733 = load i8, ptr %15732, align 1
   %15734 = zext i8 %15733 to i64
-  %15735 = getelementptr inbounds i8, ptr %15731, i64 %15734
+  %15735 = getelementptr inbounds nuw i8, ptr %15731, i64 %15734
   br label %.loopexit9844
 
 15736:                                            ; preds = %15849
-  %15737 = getelementptr inbounds i8, ptr %15814, i64 112
+  %15737 = getelementptr inbounds nuw i8, ptr %15814, i64 112
   %15738 = load i32, ptr %15737, align 8
   store i32 %15738, ptr %61, align 8
   br label %.backedge.backedge
 
 15739:                                            ; preds = %.preheader9835
-  %15740 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 157), align 1
+  %15740 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 157), align 1
   %15741 = zext i8 %15740 to i64
-  %15742 = getelementptr inbounds i8, ptr %142, i64 %15741
+  %15742 = getelementptr inbounds nuw i8, ptr %142, i64 %15741
   br label %.loopexit9844
 
 15743:                                            ; preds = %15850
-  %15744 = getelementptr inbounds i8, ptr %15814, i64 80
+  %15744 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %15745 = load ptr, ptr %15744, align 8
   store ptr %15745, ptr %63, align 8
-  %15746 = getelementptr inbounds i8, ptr %15814, i64 112
+  %15746 = getelementptr inbounds nuw i8, ptr %15814, i64 112
   %15747 = load i32, ptr %15746, align 8
   store i32 %15747, ptr %61, align 8
   br label %.backedge.backedge
@@ -27465,73 +27465,73 @@ thread-pre-split9420:                             ; preds = %14958
   %15752 = load ptr, ptr %.3, align 8
   %15753 = load i8, ptr %15752, align 1
   %15754 = zext i8 %15753 to i64
-  %15755 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %15754
+  %15755 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %15754
   %15756 = load i8, ptr %15755, align 1
   %15757 = zext i8 %15756 to i64
   br i1 %.not8454, label %15764, label %15758
 
 15758:                                            ; preds = %15748
-  %15759 = getelementptr inbounds i8, ptr %15752, i64 1
+  %15759 = getelementptr inbounds nuw i8, ptr %15752, i64 1
   %15760 = load i8, ptr %15759, align 1
   %15761 = zext i8 %15760 to i64
-  %15762 = getelementptr inbounds i8, ptr %15752, i64 %15757
-  %15763 = getelementptr inbounds i8, ptr %15762, i64 %15761
+  %15762 = getelementptr inbounds nuw i8, ptr %15752, i64 %15757
+  %15763 = getelementptr inbounds nuw i8, ptr %15762, i64 %15761
   store ptr %15763, ptr %.3, align 8
   br label %.preheader9835.backedge
 
 15764:                                            ; preds = %15748
-  %15765 = getelementptr inbounds i8, ptr %15752, i64 %15757
-  %15766 = getelementptr inbounds i8, ptr %15752, i64 1
+  %15765 = getelementptr inbounds nuw i8, ptr %15752, i64 %15757
+  %15766 = getelementptr inbounds nuw i8, ptr %15752, i64 1
   %15767 = load i8, ptr %15766, align 1
   %15768 = zext i8 %15767 to i64
-  %15769 = getelementptr inbounds i8, ptr %15765, i64 %15768
+  %15769 = getelementptr inbounds nuw i8, ptr %15765, i64 %15768
   br label %.loopexit9844
 
 15770:                                            ; preds = %15851
   %15771 = load ptr, ptr %15814, align 8
-  %15772 = getelementptr inbounds i8, ptr %15771, i64 2
+  %15772 = getelementptr inbounds nuw i8, ptr %15771, i64 2
   store ptr %15772, ptr %63, align 8
-  %15773 = getelementptr inbounds i8, ptr %15814, i64 112
+  %15773 = getelementptr inbounds nuw i8, ptr %15814, i64 112
   %15774 = load i32, ptr %15773, align 8
   store i32 %15774, ptr %61, align 8
   br label %.backedge.backedge
 
 15775:                                            ; preds = %.preheader9835
-  %15776 = load i8, ptr getelementptr inbounds (i8, ptr @_pcre2_OP_lengths_8, i64 159), align 1
+  %15776 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_pcre2_OP_lengths_8, i64 159), align 1
   %15777 = zext i8 %15776 to i64
-  %15778 = getelementptr inbounds i8, ptr %142, i64 %15777
+  %15778 = getelementptr inbounds nuw i8, ptr %142, i64 %15777
   br label %.loopexit9844
 
 15779:                                            ; preds = %15852
   %15780 = load ptr, ptr %15814, align 8
   store ptr %15780, ptr %62, align 8
-  %15781 = getelementptr inbounds i8, ptr %15814, i64 112
+  %15781 = getelementptr inbounds nuw i8, ptr %15814, i64 112
   %15782 = load i32, ptr %15781, align 8
   store i32 %15782, ptr %61, align 8
   br label %.backedge.backedge
 
 15783:                                            ; preds = %.preheader9835
-  %15784 = getelementptr inbounds i8, ptr %142, i64 2
+  %15784 = getelementptr inbounds nuw i8, ptr %142, i64 2
   store ptr %15784, ptr %64, align 8
-  %15785 = getelementptr inbounds i8, ptr %.3, i64 96
+  %15785 = getelementptr inbounds nuw i8, ptr %.3, i64 96
   store ptr %15784, ptr %15785, align 8
   %15786 = load ptr, ptr %.3, align 8
   %15787 = load i8, ptr %15786, align 1
   %15788 = zext i8 %15787 to i64
-  %15789 = getelementptr inbounds [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %15788
+  %15789 = getelementptr inbounds nuw [0 x i8], ptr @_pcre2_OP_lengths_8, i64 0, i64 %15788
   %15790 = load i8, ptr %15789, align 1
   %15791 = zext i8 %15790 to i64
-  %15792 = getelementptr inbounds i8, ptr %15786, i64 %15791
-  %15793 = getelementptr inbounds i8, ptr %15786, i64 1
+  %15792 = getelementptr inbounds nuw i8, ptr %15786, i64 %15791
+  %15793 = getelementptr inbounds nuw i8, ptr %15786, i64 1
   %15794 = load i8, ptr %15793, align 1
   %15795 = zext i8 %15794 to i64
-  %15796 = getelementptr inbounds i8, ptr %15792, i64 %15795
+  %15796 = getelementptr inbounds nuw i8, ptr %15792, i64 %15795
   br label %.loopexit9844
 
 15797:                                            ; preds = %15853
   %15798 = load ptr, ptr %15814, align 8
   store ptr %15798, ptr %62, align 8
-  %15799 = getelementptr inbounds i8, ptr %15814, i64 112
+  %15799 = getelementptr inbounds nuw i8, ptr %15814, i64 112
   %15800 = load i32, ptr %15799, align 8
   store i32 %15800, ptr %61, align 8
   br label %.backedge.backedge
@@ -27539,7 +27539,7 @@ thread-pre-split9420:                             ; preds = %14958
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader9566
   %.07617 = phi i32 [ %.07617.ph, %.preheader9566 ], [ %.07617.be, %.backedge.backedge ]
   %.5 = phi ptr [ %.5.ph, %.preheader9566 ], [ %15814, %.backedge.backedge ]
-  %15801 = getelementptr inbounds i8, ptr %.5, i64 80
+  %15801 = getelementptr inbounds nuw i8, ptr %.5, i64 80
   %15802 = load ptr, ptr %15801, align 8
   %15803 = load ptr, ptr %43, align 8
   %15804 = icmp ugt ptr %15802, %15803
@@ -27550,22 +27550,22 @@ thread-pre-split9420:                             ; preds = %14958
   br label %15806
 
 15806:                                            ; preds = %15805, %.backedge
-  %15807 = getelementptr inbounds i8, ptr %.5, i64 48
+  %15807 = getelementptr inbounds nuw i8, ptr %.5, i64 48
   %15808 = load i32, ptr %15807, align 8
   %15809 = icmp eq i32 %15808, 0
   br i1 %15809, label %.loopexit, label %15810
 
 15810:                                            ; preds = %15806
-  %15811 = getelementptr inbounds i8, ptr %.5, i64 32
+  %15811 = getelementptr inbounds nuw i8, ptr %.5, i64 32
   %15812 = load i64, ptr %15811, align 8
   %15813 = sub i64 0, %15812
   %15814 = getelementptr inbounds i8, ptr %.5, i64 %15813
   %15815 = load ptr, ptr %60, align 8
-  %15816 = getelementptr inbounds i8, ptr %15815, i64 104
+  %15816 = getelementptr inbounds nuw i8, ptr %15815, i64 104
   %15817 = load i32, ptr %15816, align 8
   %15818 = or i32 %15817, 2
   store i32 %15818, ptr %15816, align 8
-  %15819 = getelementptr inbounds i8, ptr %15814, i64 72
+  %15819 = getelementptr inbounds nuw i8, ptr %15814, i64 72
   %15820 = load i8, ptr %15819, align 8
   switch i8 %15820, label %.loopexit [
     i8 1, label %15821
@@ -27647,9 +27647,9 @@ thread-pre-split9420:                             ; preds = %14958
 
 ..thread9374_crit_edge:                           ; preds = %15822
   %.pre12658 = load ptr, ptr %15814, align 8
-  %.phi.trans.insert12659 = getelementptr inbounds i8, ptr %.pre12658, i64 1
+  %.phi.trans.insert12659 = getelementptr inbounds nuw i8, ptr %.pre12658, i64 1
   %.pre12660 = load i8, ptr %.phi.trans.insert12659, align 1
-  %.phi.trans.insert12661 = getelementptr inbounds i8, ptr %.pre12658, i64 2
+  %.phi.trans.insert12661 = getelementptr inbounds nuw i8, ptr %.pre12658, i64 2
   %.pre12662 = load i8, ptr %.phi.trans.insert12661, align 1
   %.pre12678 = zext i8 %.pre12660 to i64
   %.pre12679 = shl nuw nsw i64 %.pre12678, 8
@@ -27703,9 +27703,9 @@ thread-pre-split9420:                             ; preds = %14958
 
 ..thread9371_crit_edge:                           ; preds = %15828
   %.pre12639 = load ptr, ptr %15814, align 8
-  %.phi.trans.insert12640 = getelementptr inbounds i8, ptr %.pre12639, i64 1
+  %.phi.trans.insert12640 = getelementptr inbounds nuw i8, ptr %.pre12639, i64 1
   %.pre12641 = load i8, ptr %.phi.trans.insert12640, align 1
-  %.phi.trans.insert12642 = getelementptr inbounds i8, ptr %.pre12639, i64 2
+  %.phi.trans.insert12642 = getelementptr inbounds nuw i8, ptr %.pre12639, i64 2
   %.pre12643 = load i8, ptr %.phi.trans.insert12642, align 1
   %.pre12685 = zext i8 %.pre12641 to i64
   %.pre12687 = shl nuw nsw i64 %.pre12685, 8
@@ -27718,7 +27718,7 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %.not9259, label %.preheader9558, label %.backedge.backedge
 
 .preheader9558:                                   ; preds = %15829
-  %15830 = getelementptr inbounds i8, ptr %15814, i64 8
+  %15830 = getelementptr inbounds nuw i8, ptr %15814, i64 8
   %.promoted11249 = load ptr, ptr %15830, align 8
   br label %14197
 
@@ -27727,17 +27727,17 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %.not9258, label %14230, label %.backedge.backedge
 
 15832:                                            ; preds = %15810
-  %15833 = getelementptr inbounds i8, ptr %15814, i64 8
+  %15833 = getelementptr inbounds nuw i8, ptr %15814, i64 8
   %15834 = load ptr, ptr %15833, align 8
-  %15835 = getelementptr inbounds i8, ptr %15834, i64 1
+  %15835 = getelementptr inbounds nuw i8, ptr %15834, i64 1
   %15836 = load i8, ptr %15835, align 1
   %15837 = zext i8 %15836 to i64
   %15838 = shl nuw nsw i64 %15837, 8
-  %15839 = getelementptr inbounds i8, ptr %15834, i64 2
+  %15839 = getelementptr inbounds nuw i8, ptr %15834, i64 2
   %15840 = load i8, ptr %15839, align 1
   %15841 = zext i8 %15840 to i64
   %15842 = or disjoint i64 %15838, %15841
-  %15843 = getelementptr inbounds i8, ptr %15834, i64 %15842
+  %15843 = getelementptr inbounds nuw i8, ptr %15834, i64 %15842
   %15844 = add i32 %.07617, 997
   %or.cond191 = icmp ult i32 %15844, 5
   br i1 %or.cond191, label %14476, label %14493
@@ -27799,7 +27799,7 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %.not9226, label %1392, label %.backedge.backedge
 
 15860:                                            ; preds = %15810
-  %15861 = getelementptr inbounds i8, ptr %15814, i64 80
+  %15861 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %15862 = load ptr, ptr %15861, align 8
   %15863 = getelementptr inbounds i8, ptr %15862, i64 -1
   store ptr %15863, ptr %15861, align 8
@@ -27811,7 +27811,7 @@ thread-pre-split9420:                             ; preds = %14958
   br i1 %.not9219, label %1470, label %.backedge.backedge
 
 15865:                                            ; preds = %15810
-  %15866 = getelementptr inbounds i8, ptr %15814, i64 80
+  %15866 = getelementptr inbounds nuw i8, ptr %15814, i64 80
   %15867 = load ptr, ptr %15866, align 8
   %15868 = getelementptr inbounds i8, ptr %15867, i64 -1
   store ptr %15868, ptr %15866, align 8
@@ -27975,29 +27975,29 @@ declare ptr @_pcre2_extuni_8(i32 noundef, ptr noundef, ptr noundef, ptr noundef,
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #5 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %7 = load i64, ptr %6, align 8
   %.not = icmp ult i64 %0, %7
   br i1 %.not, label %8, label %13
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %2, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %10 = getelementptr inbounds [131072 x i64], ptr %9, i64 0, i64 %0
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, -1
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %8, %5
-  %14 = getelementptr inbounds i8, ptr %3, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 512
   %.not162 = icmp eq i32 %16, 0
   br i1 %.not162, label %.loopexit163, label %.loopexit163.sink.split
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %2, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 %11
   %23 = add nuw i64 %0, 1
@@ -28008,7 +28008,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   br i1 %.not148, label %313, label %27
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %3, i64 216
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %29 = load i32, ptr %28, align 8
   %.fr190 = freeze i32 %29
   %30 = and i32 %.fr190, 524288
@@ -28022,9 +28022,9 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   br i1 %.not156178, label %.loopexit, label %.lr.ph182
 
 .lr.ph182:                                        ; preds = %.preheader164
-  %32 = getelementptr inbounds i8, ptr %3, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %scevgep = getelementptr i8, ptr %19, i64 %26
   br label %298
 
@@ -28034,7 +28034,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   br i1 %37, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %3, i64 136
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %39 = load ptr, ptr %38, align 8
   br i1 %.not154, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -28045,40 +28045,40 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   br i1 %.not159.us, label %40, label %.loopexit163
 
 40:                                               ; preds = %.lr.ph.split.us
-  %41 = getelementptr inbounds i8, ptr %.0136176.us, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.0136176.us, i64 1
   %42 = load i8, ptr %.0136176.us, align 1
   %43 = zext i8 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %.0129177.us, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0129177.us, i64 1
   %45 = load i8, ptr %.0129177.us, align 1
   %46 = zext i8 %45 to i32
   %47 = lshr i32 %46, 7
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = shl nuw nsw i32 %51, 7
   %53 = and i32 %46, 127
   %54 = or disjoint i32 %52, %53
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i64
-  %59 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %58
+  %59 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %58
   %.not160.us = icmp eq i8 %42, %45
   br i1 %.not160.us, label %.loopexit169.us, label %60
 
 60:                                               ; preds = %40
-  %61 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = add nsw i32 %62, %46
   %.not161.us = icmp eq i32 %63, %43
   br i1 %.not161.us, label %.loopexit169.us, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %59, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 3
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i64
-  %68 = getelementptr inbounds i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %67
   br label %69
 
 69:                                               ; preds = %72, %64
@@ -28088,7 +28088,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   br i1 %71, label %.loopexit163, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %.0130.us, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %.0130.us, i64 4
   %74 = icmp eq i32 %70, %43
   br i1 %74, label %.loopexit169.us, label %69
 
@@ -28103,7 +28103,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   br i1 %.not159, label %76, label %.loopexit163
 
 76:                                               ; preds = %.lr.ph.split
-  %77 = getelementptr inbounds i8, ptr %.0136176, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.0136176, i64 1
   %78 = load i8, ptr %.0136176, align 1
   %79 = zext i8 %78 to i32
   %80 = icmp ugt i8 %78, -65
@@ -28117,7 +28117,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
 84:                                               ; preds = %81
   %85 = shl nuw nsw i32 %79, 6
   %86 = and i32 %85, 1984
-  %87 = getelementptr inbounds i8, ptr %.0136176, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.0136176, i64 2
   %88 = load i8, ptr %77, align 1
   %89 = and i8 %88, 63
   %90 = zext nneg i8 %89 to i32
@@ -28137,12 +28137,12 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %100 = and i32 %99, 61440
   %101 = shl nuw nsw i32 %97, 6
   %102 = or disjoint i32 %101, %100
-  %103 = getelementptr inbounds i8, ptr %.0136176, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %.0136176, i64 2
   %104 = load i8, ptr %103, align 1
   %105 = and i8 %104, 63
   %106 = zext nneg i8 %105 to i32
   %107 = or disjoint i32 %102, %106
-  %108 = getelementptr inbounds i8, ptr %.0136176, i64 3
+  %108 = getelementptr inbounds nuw i8, ptr %.0136176, i64 3
   br label %172
 
 109:                                              ; preds = %92
@@ -28155,32 +28155,32 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %114 = and i32 %113, 1835008
   %115 = shl nuw nsw i32 %97, 12
   %116 = or disjoint i32 %115, %114
-  %117 = getelementptr inbounds i8, ptr %.0136176, i64 2
+  %117 = getelementptr inbounds nuw i8, ptr %.0136176, i64 2
   %118 = load i8, ptr %117, align 1
   %119 = and i8 %118, 63
   %120 = zext nneg i8 %119 to i32
   %121 = shl nuw nsw i32 %120, 6
   %122 = or disjoint i32 %116, %121
-  %123 = getelementptr inbounds i8, ptr %.0136176, i64 3
+  %123 = getelementptr inbounds nuw i8, ptr %.0136176, i64 3
   %124 = load i8, ptr %123, align 1
   %125 = and i8 %124, 63
   %126 = zext nneg i8 %125 to i32
   %127 = or disjoint i32 %122, %126
-  %128 = getelementptr inbounds i8, ptr %.0136176, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %.0136176, i64 4
   br label %172
 
 129:                                              ; preds = %109
   %130 = and i32 %79, 4
   %131 = icmp eq i32 %130, 0
-  %132 = getelementptr inbounds i8, ptr %.0136176, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %.0136176, i64 2
   %133 = load i8, ptr %132, align 1
   %134 = and i8 %133, 63
   %135 = zext nneg i8 %134 to i32
-  %136 = getelementptr inbounds i8, ptr %.0136176, i64 3
+  %136 = getelementptr inbounds nuw i8, ptr %.0136176, i64 3
   %137 = load i8, ptr %136, align 1
   %138 = and i8 %137, 63
   %139 = zext nneg i8 %138 to i32
-  %140 = getelementptr inbounds i8, ptr %.0136176, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %.0136176, i64 4
   %141 = load i8, ptr %140, align 1
   %142 = and i8 %141, 63
   %143 = zext nneg i8 %142 to i32
@@ -28196,7 +28196,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %151 = shl nuw nsw i32 %139, 6
   %152 = or disjoint i32 %150, %151
   %153 = or disjoint i32 %152, %143
-  %154 = getelementptr inbounds i8, ptr %.0136176, i64 5
+  %154 = getelementptr inbounds nuw i8, ptr %.0136176, i64 5
   br label %172
 
 155:                                              ; preds = %129
@@ -28210,18 +28210,18 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %163 = or disjoint i32 %161, %162
   %164 = shl nuw nsw i32 %143, 6
   %165 = or disjoint i32 %163, %164
-  %166 = getelementptr inbounds i8, ptr %.0136176, i64 5
+  %166 = getelementptr inbounds nuw i8, ptr %.0136176, i64 5
   %167 = load i8, ptr %166, align 1
   %168 = and i8 %167, 63
   %169 = zext nneg i8 %168 to i32
   %170 = or disjoint i32 %165, %169
-  %171 = getelementptr inbounds i8, ptr %.0136176, i64 6
+  %171 = getelementptr inbounds nuw i8, ptr %.0136176, i64 6
   br label %172
 
 172:                                              ; preds = %84, %112, %155, %144, %98, %76
   %.1137 = phi ptr [ %87, %84 ], [ %108, %98 ], [ %128, %112 ], [ %154, %144 ], [ %171, %155 ], [ %77, %76 ]
   %.0134 = phi i32 [ %91, %84 ], [ %107, %98 ], [ %127, %112 ], [ %153, %144 ], [ %170, %155 ], [ %79, %76 ]
-  %173 = getelementptr inbounds i8, ptr %.0129177, i64 1
+  %173 = getelementptr inbounds nuw i8, ptr %.0129177, i64 1
   %174 = load i8, ptr %.0129177, align 1
   %175 = zext i8 %174 to i32
   %176 = icmp ugt i8 %174, -65
@@ -28235,7 +28235,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
 180:                                              ; preds = %177
   %181 = shl nuw nsw i32 %175, 6
   %182 = and i32 %181, 1984
-  %183 = getelementptr inbounds i8, ptr %.0129177, i64 2
+  %183 = getelementptr inbounds nuw i8, ptr %.0129177, i64 2
   %184 = load i8, ptr %173, align 1
   %185 = and i8 %184, 63
   %186 = zext nneg i8 %185 to i32
@@ -28255,12 +28255,12 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %196 = and i32 %195, 61440
   %197 = shl nuw nsw i32 %193, 6
   %198 = or disjoint i32 %197, %196
-  %199 = getelementptr inbounds i8, ptr %.0129177, i64 2
+  %199 = getelementptr inbounds nuw i8, ptr %.0129177, i64 2
   %200 = load i8, ptr %199, align 1
   %201 = and i8 %200, 63
   %202 = zext nneg i8 %201 to i32
   %203 = or disjoint i32 %198, %202
-  %204 = getelementptr inbounds i8, ptr %.0129177, i64 3
+  %204 = getelementptr inbounds nuw i8, ptr %.0129177, i64 3
   br label %268
 
 205:                                              ; preds = %188
@@ -28273,32 +28273,32 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %210 = and i32 %209, 1835008
   %211 = shl nuw nsw i32 %193, 12
   %212 = or disjoint i32 %211, %210
-  %213 = getelementptr inbounds i8, ptr %.0129177, i64 2
+  %213 = getelementptr inbounds nuw i8, ptr %.0129177, i64 2
   %214 = load i8, ptr %213, align 1
   %215 = and i8 %214, 63
   %216 = zext nneg i8 %215 to i32
   %217 = shl nuw nsw i32 %216, 6
   %218 = or disjoint i32 %212, %217
-  %219 = getelementptr inbounds i8, ptr %.0129177, i64 3
+  %219 = getelementptr inbounds nuw i8, ptr %.0129177, i64 3
   %220 = load i8, ptr %219, align 1
   %221 = and i8 %220, 63
   %222 = zext nneg i8 %221 to i32
   %223 = or disjoint i32 %218, %222
-  %224 = getelementptr inbounds i8, ptr %.0129177, i64 4
+  %224 = getelementptr inbounds nuw i8, ptr %.0129177, i64 4
   br label %268
 
 225:                                              ; preds = %205
   %226 = and i32 %175, 4
   %227 = icmp eq i32 %226, 0
-  %228 = getelementptr inbounds i8, ptr %.0129177, i64 2
+  %228 = getelementptr inbounds nuw i8, ptr %.0129177, i64 2
   %229 = load i8, ptr %228, align 1
   %230 = and i8 %229, 63
   %231 = zext nneg i8 %230 to i32
-  %232 = getelementptr inbounds i8, ptr %.0129177, i64 3
+  %232 = getelementptr inbounds nuw i8, ptr %.0129177, i64 3
   %233 = load i8, ptr %232, align 1
   %234 = and i8 %233, 63
   %235 = zext nneg i8 %234 to i32
-  %236 = getelementptr inbounds i8, ptr %.0129177, i64 4
+  %236 = getelementptr inbounds nuw i8, ptr %.0129177, i64 4
   %237 = load i8, ptr %236, align 1
   %238 = and i8 %237, 63
   %239 = zext nneg i8 %238 to i32
@@ -28314,7 +28314,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %247 = shl nuw nsw i32 %235, 6
   %248 = or disjoint i32 %246, %247
   %249 = or disjoint i32 %248, %239
-  %250 = getelementptr inbounds i8, ptr %.0129177, i64 5
+  %250 = getelementptr inbounds nuw i8, ptr %.0129177, i64 5
   br label %268
 
 251:                                              ; preds = %225
@@ -28328,12 +28328,12 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %259 = or disjoint i32 %257, %258
   %260 = shl nuw nsw i32 %239, 6
   %261 = or disjoint i32 %259, %260
-  %262 = getelementptr inbounds i8, ptr %.0129177, i64 5
+  %262 = getelementptr inbounds nuw i8, ptr %.0129177, i64 5
   %263 = load i8, ptr %262, align 1
   %264 = and i8 %263, 63
   %265 = zext nneg i8 %264 to i32
   %266 = or disjoint i32 %261, %265
-  %267 = getelementptr inbounds i8, ptr %.0129177, i64 6
+  %267 = getelementptr inbounds nuw i8, ptr %.0129177, i64 6
   br label %268
 
 268:                                              ; preds = %172, %194, %240, %251, %208, %180
@@ -28341,32 +28341,32 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %.1 = phi ptr [ %183, %180 ], [ %204, %194 ], [ %224, %208 ], [ %250, %240 ], [ %267, %251 ], [ %173, %172 ]
   %269 = lshr i32 %.0133, 7
   %270 = zext nneg i32 %269 to i64
-  %271 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %270
+  %271 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage1_8, i64 0, i64 %270
   %272 = load i16, ptr %271, align 2
   %273 = zext i16 %272 to i32
   %274 = shl nuw nsw i32 %273, 7
   %275 = and i32 %.0133, 127
   %276 = or disjoint i32 %274, %275
   %277 = zext nneg i32 %276 to i64
-  %278 = getelementptr inbounds [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %277
+  %278 = getelementptr inbounds nuw [0 x i16], ptr @_pcre2_ucd_stage2_8, i64 0, i64 %277
   %279 = load i16, ptr %278, align 2
   %280 = zext i16 %279 to i64
-  %281 = getelementptr inbounds %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %280
+  %281 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %280
   %.not160 = icmp eq i32 %.0134, %.0133
   br i1 %.not160, label %.loopexit169, label %282
 
 282:                                              ; preds = %268
-  %283 = getelementptr inbounds i8, ptr %281, i64 4
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 4
   %284 = load i32, ptr %283, align 4
   %285 = add nsw i32 %284, %.0133
   %.not161 = icmp eq i32 %.0134, %285
   br i1 %.not161, label %.loopexit169, label %286
 
 286:                                              ; preds = %282
-  %287 = getelementptr inbounds i8, ptr %281, i64 3
+  %287 = getelementptr inbounds nuw i8, ptr %281, i64 3
   %288 = load i8, ptr %287, align 1
   %289 = zext i8 %288 to i64
-  %290 = getelementptr inbounds i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %289
+  %290 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %289
   br label %291
 
 291:                                              ; preds = %294, %286
@@ -28376,7 +28376,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   br i1 %293, label %.loopexit163, label %294
 
 294:                                              ; preds = %291
-  %295 = getelementptr inbounds i8, ptr %.0130, i64 4
+  %295 = getelementptr inbounds nuw i8, ptr %.0130, i64 4
   %296 = icmp eq i32 %.0134, %292
   br i1 %296, label %.loopexit169, label %291
 
@@ -28396,23 +28396,23 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %301 = load i8, ptr %.2181, align 1
   %302 = load ptr, ptr %34, align 8
   %303 = zext i8 %301 to i64
-  %304 = getelementptr inbounds i8, ptr %302, i64 %303
+  %304 = getelementptr inbounds nuw i8, ptr %302, i64 %303
   %305 = load i8, ptr %304, align 1
   %306 = zext i8 %300 to i64
-  %307 = getelementptr inbounds i8, ptr %302, i64 %306
+  %307 = getelementptr inbounds nuw i8, ptr %302, i64 %306
   %308 = load i8, ptr %307, align 1
   %.not158 = icmp eq i8 %305, %308
   br i1 %.not158, label %309, label %.loopexit163
 
 309:                                              ; preds = %299
-  %310 = getelementptr inbounds i8, ptr %.2181, i64 1
-  %311 = getelementptr inbounds i8, ptr %.3139179, i64 1
+  %310 = getelementptr inbounds nuw i8, ptr %.2181, i64 1
+  %311 = getelementptr inbounds nuw i8, ptr %.3139179, i64 1
   %312 = add i64 %.0131180, -1
   %.not156 = icmp eq i64 %312, 0
   br i1 %.not156, label %.loopexit, label %298
 
 313:                                              ; preds = %17
-  %314 = getelementptr inbounds i8, ptr %3, i64 96
+  %314 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %315 = load i16, ptr %314, align 8
   %.not149 = icmp eq i16 %315, 0
   br i1 %.not149, label %326, label %.preheader
@@ -28422,7 +28422,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   br i1 %.not151184, label %.loopexit, label %.lr.ph188
 
 .lr.ph188:                                        ; preds = %.preheader
-  %316 = getelementptr inbounds i8, ptr %3, i64 136
+  %316 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %317 = load ptr, ptr %316, align 8
   %scevgep204 = getelementptr i8, ptr %19, i64 %26
   br label %318
@@ -28441,14 +28441,14 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   br i1 %.not153, label %322, label %.loopexit163
 
 322:                                              ; preds = %319
-  %323 = getelementptr inbounds i8, ptr %.5185, i64 1
-  %324 = getelementptr inbounds i8, ptr %.3187, i64 1
+  %323 = getelementptr inbounds nuw i8, ptr %.5185, i64 1
+  %324 = getelementptr inbounds nuw i8, ptr %.3187, i64 1
   %325 = add i64 %.1132186, -1
   %.not151 = icmp eq i64 %325, 0
   br i1 %.not151, label %.loopexit, label %318
 
 326:                                              ; preds = %313
-  %327 = getelementptr inbounds i8, ptr %3, i64 136
+  %327 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %328 = load ptr, ptr %327, align 8
   %329 = ptrtoint ptr %328 to i64
   %330 = ptrtoint ptr %19 to i64
@@ -28495,11 +28495,11 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr nocapture noundef non
   br label %19
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 5
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
   %14 = shl nuw nsw i64 %13, 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
   %18 = or disjoint i64 %14, %17
@@ -28508,62 +28508,62 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr nocapture noundef non
 19:                                               ; preds = %10, %7
   %20 = phi i64 [ %9, %7 ], [ %18, %10 ]
   store i64 %20, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 256
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %105, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 120
-  %26 = getelementptr inbounds i8, ptr %1, i64 240
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load i64, ptr %28, align 8
   %30 = trunc i64 %29 to i32
   %31 = lshr i32 %30, 1
   %32 = add nuw i32 %31, 1
-  %33 = getelementptr inbounds i8, ptr %27, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 116
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %27, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %27, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %25, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 184
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %27, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %42 to i64
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
-  %48 = getelementptr inbounds i8, ptr %27, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store i64 %47, ptr %48, align 8
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i64
   %53 = shl nuw nsw i64 %52, 8
-  %54 = getelementptr inbounds i8, ptr %49, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
   %57 = or disjoint i64 %53, %56
-  %58 = getelementptr inbounds i8, ptr %27, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store i64 %57, ptr %58, align 8
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 3
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 3
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i64
   %63 = shl nuw nsw i64 %62, 8
-  %64 = getelementptr inbounds i8, ptr %59, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i64
   %67 = or disjoint i64 %63, %66
-  %68 = getelementptr inbounds i8, ptr %27, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %27, i64 72
   store i64 %67, ptr %68, align 8
   %69 = load ptr, ptr %0, align 8
   %70 = load i8, ptr %69, align 1
@@ -28571,34 +28571,34 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr nocapture noundef non
   br i1 %71, label %72, label %79
 
 72:                                               ; preds = %24
-  %73 = getelementptr inbounds i8, ptr %69, i64 5
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 5
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
-  %76 = getelementptr inbounds i8, ptr %27, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %75, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %27, i64 80
+  %77 = getelementptr inbounds nuw i8, ptr %27, i64 80
   store i64 0, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %27, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %27, i64 96
   store ptr null, ptr %78, align 8
   br label %96
 
 79:                                               ; preds = %24
-  %80 = getelementptr inbounds i8, ptr %27, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 0, ptr %80, align 4
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 7
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 7
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i64
   %85 = shl nuw nsw i64 %84, 8
-  %86 = getelementptr inbounds i8, ptr %81, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i64
   %89 = or disjoint i64 %85, %88
-  %90 = getelementptr inbounds i8, ptr %27, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %27, i64 80
   store i64 %89, ptr %90, align 8
   %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 10
-  %93 = getelementptr inbounds i8, ptr %27, i64 96
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 10
+  %93 = getelementptr inbounds nuw i8, ptr %27, i64 96
   store ptr %92, ptr %93, align 8
   %94 = load i64, ptr %2, align 8
   %95 = add i64 %94, -11
@@ -28606,18 +28606,18 @@ define internal fastcc i32 @do_callout(ptr noundef %0, ptr nocapture noundef non
 
 96:                                               ; preds = %79, %72
   %.sink = phi i64 [ 0, %72 ], [ %95, %79 ]
-  %97 = getelementptr inbounds i8, ptr %27, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %27, i64 88
   store i64 %.sink, ptr %97, align 8
   %98 = load i64, ptr %25, align 8
   %99 = load i64, ptr %28, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 -1, i64 16, i1 false)
   %100 = load ptr, ptr %21, align 8
-  %101 = getelementptr inbounds i8, ptr %1, i64 248
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %102 = load ptr, ptr %101, align 8
   %103 = tail call i32 %100(ptr noundef nonnull %27, ptr noundef %102) #8
   store i64 %98, ptr %25, align 8
   store i64 %99, ptr %28, align 8
-  %104 = getelementptr inbounds i8, ptr %27, i64 104
+  %104 = getelementptr inbounds nuw i8, ptr %27, i64 104
   store i32 0, ptr %104, align 8
   br label %105
 

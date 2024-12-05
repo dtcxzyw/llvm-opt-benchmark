@@ -65,7 +65,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr nocapture noun
   br i1 %34, label %.loopexit, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds double, ptr %5, i64 %indvars.iv.next300
+  %36 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next300
   %37 = load double, ptr %36, align 8
   %38 = fptrunc double %37 to float
   br i1 %21, label %.preheader187.lr.ph, label %.preheader190
@@ -236,7 +236,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr nocapture noun
   br i1 %96, label %.loopexit197, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds double, ptr %5, i64 %indvars.iv.next269
+  %98 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next269
   %99 = load double, ptr %98, align 8
   br i1 %83, label %.preheader195.lr.ph, label %.preheader199
 

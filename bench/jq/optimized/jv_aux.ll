@@ -1139,14 +1139,14 @@ define { i64, ptr } @jv_sort(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr 
   %.pn19 = phi { i64, ptr } [ %10, %.lr.ph.preheader ], [ %21, %.lr.ph ]
   %.sroa.4.0 = extractvalue { i64, ptr } %.pn19, 1
   %.sroa.015.0 = extractvalue { i64, ptr } %.pn19, 0
-  %12 = getelementptr inbounds %struct.sort_entry, ptr %9, i64 %indvars.iv
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %12 = getelementptr inbounds nuw %struct.sort_entry, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void @jv_free(i64 %14, ptr %16) #6
   %17 = load i64, ptr %12, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.015.0, ptr %.sroa.4.0, i32 noundef %20, i64 %17, ptr %19) #6
@@ -1843,9 +1843,9 @@ define { i64, ptr } @jv_keys(i64 %0, ptr %1) local_unnamed_addr #0 {
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds %struct.jv, ptr %10, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.jv, ptr %10, i64 %indvars.iv
   store i64 %16, ptr %21, align 8
-  %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %17, ptr %.sroa.219.0..sroa_idx, align 8
   tail call void @jv_free(i64 %19, ptr %20) #6
   %22 = tail call i32 @jv_object_iter_next(i64 %0, ptr %1, i32 noundef %.15980) #6
@@ -1858,9 +1858,9 @@ define { i64, ptr } @jv_keys(i64 %0, ptr %1) local_unnamed_addr #0 {
   %.pn6488 = phi { i64, ptr } [ %13, %.lr.ph89.preheader ], [ %28, %.lr.ph89 ]
   %.sroa.8.0 = extractvalue { i64, ptr } %.pn6488, 1
   %.sroa.054.0 = extractvalue { i64, ptr } %.pn6488, 0
-  %24 = getelementptr inbounds %struct.jv, ptr %10, i64 %indvars.iv93
+  %24 = getelementptr inbounds nuw %struct.jv, ptr %10, i64 %indvars.iv93
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.054.0, ptr %.sroa.8.0, i64 %25, ptr %27) #6
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
@@ -1931,14 +1931,14 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @string_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load i64, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %5) #6
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
   %9 = tail call i32 @jv_string_length_bytes(i64 %7, ptr %8) #6
   %10 = load i64, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call { i64, ptr } @jv_copy(i64 %10, ptr %12) #6
   %14 = extractvalue { i64, ptr } %13, 0
@@ -2169,7 +2169,7 @@ define internal fastcc ptr @sort_items(i64 %0, ptr %1, i64 %2, ptr %3) unnamed_a
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds %struct.sort_entry, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.sort_entry, ptr %10, i64 %indvars.iv
   %13 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #6
   %14 = extractvalue { i64, ptr } %13, 0
   %15 = extractvalue { i64, ptr } %13, 1
@@ -2178,9 +2178,9 @@ define internal fastcc ptr @sort_items(i64 %0, ptr %1, i64 %2, ptr %3) unnamed_a
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   store i64 %18, ptr %12, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %19, ptr %.sroa.26.0..sroa_idx, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %21 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #6
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
@@ -2188,9 +2188,9 @@ define internal fastcc ptr @sort_items(i64 %0, ptr %1, i64 %2, ptr %3) unnamed_a
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
   store i64 %25, ptr %20, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %26, ptr %.sroa.22.0..sroa_idx, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 %16, ptr %27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2217,15 +2217,15 @@ define { i64, ptr } @jv_group(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr
 12:                                               ; preds = %4
   %13 = extractvalue { i64, ptr } %10, 1
   %14 = extractvalue { i64, ptr } %10, 0
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.023.0.copyload = load i64, ptr %15, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %16 = tail call { i64, ptr } @jv_array() #6
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
   %19 = load i64, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call { i64, ptr } @jv_array_append(i64 %17, ptr %18, i64 %19, ptr %21) #6
   %.sroa.6.053 = extractvalue { i64, ptr } %22, 1
@@ -2248,10 +2248,10 @@ define { i64, ptr } @jv_group(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr
   %23 = tail call { i64, ptr } @jv_copy(i64 %.sroa.023.056, ptr %.sroa.5.057) #6
   %24 = extractvalue { i64, ptr } %23, 0
   %25 = extractvalue { i64, ptr } %23, 1
-  %26 = getelementptr inbounds %struct.sort_entry, ptr %9, i64 %indvars.iv
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %26 = getelementptr inbounds nuw %struct.sort_entry, ptr %9, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = tail call { i64, ptr } @jv_copy(i64 %28, ptr %30) #6
   %32 = extractvalue { i64, ptr } %31, 0
@@ -2286,7 +2286,7 @@ define { i64, ptr } @jv_group(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr
   %.sroa.046.2 = phi i64 [ %.sroa.046.158, %35 ], [ %40, %38 ]
   %.sroa.649.2 = phi ptr [ %.sroa.649.159, %35 ], [ %41, %38 ]
   %46 = load i64, ptr %26, align 8
-  %47 = getelementptr inbounds i8, ptr %26, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.018.1, ptr %.sroa.6.1, i64 %46, ptr %48) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2325,16 +2325,16 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @sort_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call { i64, ptr } @jv_copy(i64 %4, ptr %6) #6
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call { i64, ptr } @jv_copy(i64 %11, ptr %13) #6
   %15 = extractvalue { i64, ptr } %14, 0
@@ -2344,9 +2344,9 @@ define internal i32 @sort_cmp(ptr nocapture noundef readonly %0, ptr nocapture n
   br i1 %.not, label %18, label %24
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = sub nsw i32 %20, %22
   br label %24

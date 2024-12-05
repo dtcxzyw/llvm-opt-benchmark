@@ -135,22 +135,22 @@ define internal fastcc range(i32 0, 5) i32 @PGSharedMemoryAttach(i32 noundef %0,
   br i1 %.not, label %26, label %40
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %17, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %28 = load i64, ptr %27, align 8
   %29 = load i64, ptr %4, align 8
   %.not13 = icmp eq i64 %28, %29
   br i1 %.not13, label %30, label %40
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %17, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = load i64, ptr %33, align 8
   %.not14 = icmp eq i64 %32, %34
   br i1 %.not14, label %35, label %40
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %3, i64 88
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %37 = load i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 0
   %39 = select i1 %38, i32 4, i32 1
@@ -399,7 +399,7 @@ CreateAnonymousSegment.exit:                      ; preds = %55
 66:                                               ; preds = %65, %CreateAnonymousSegment.exit
   %.044 = phi i64 [ %.2.i, %CreateAnonymousSegment.exit ], [ %0, %65 ]
   %.030 = phi i64 [ 56, %CreateAnonymousSegment.exit ], [ %0, %65 ]
-  %67 = getelementptr inbounds i8, ptr %6, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = trunc i64 %68 to i32
   br label %70
@@ -556,7 +556,7 @@ InternalIpcMemoryCreate.exit:                     ; preds = %100
 
 131:                                              ; preds = %113
   %132 = load ptr, ptr %7, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %134 = load i32, ptr %133, align 8
   %.not37 = icmp eq i32 %134, 0
   br i1 %.not37, label %136, label %135
@@ -599,19 +599,19 @@ default.unreachable98:                            ; preds = %113
 
 148:                                              ; preds = %InternalIpcMemoryCreate.exit
   %149 = call i32 @getpid() #11
-  %150 = getelementptr inbounds i8, ptr %102, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %102, i64 4
   store i32 %149, ptr %150, align 4
   store i32 679834894, ptr %102, align 8
-  %151 = getelementptr inbounds i8, ptr %102, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %102, i64 24
   store i32 0, ptr %151, align 8
   %152 = load i64, ptr %6, align 8
-  %153 = getelementptr inbounds i8, ptr %102, i64 40
+  %153 = getelementptr inbounds nuw i8, ptr %102, i64 40
   store i64 %152, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %102, i64 48
+  %154 = getelementptr inbounds nuw i8, ptr %102, i64 48
   store i64 %68, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %102, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i64 %.044, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %102, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store i64 56, ptr %156, align 8
   store ptr %102, ptr %1, align 8
   store ptr %102, ptr @UsedShmemSegAddr, align 8

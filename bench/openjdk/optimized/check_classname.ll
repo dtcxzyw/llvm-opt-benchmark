@@ -43,11 +43,11 @@ define hidden zeroext range(i8 0, 2) i8 @verifyClassname(ptr noundef %0, i8 noun
   ]
 
 13:                                               ; preds = %11, %11, %11, %11, %11, %11, %11, %11
-  %14 = getelementptr inbounds i8, ptr %.01829.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 1
   br label %skip_over_field_signature.exit
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.01829.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 1
   %17 = add i32 %.01630.i, -1
   %18 = tail call fastcc ptr @skip_over_fieldname(ptr noundef nonnull %16, i32 noundef %17)
   %.not21.i = icmp ne ptr %18, null
@@ -61,13 +61,13 @@ define hidden zeroext range(i8 0, 2) i8 @verifyClassname(ptr noundef %0, i8 noun
 23:                                               ; preds = %15
   %24 = load i8, ptr %18, align 1
   %25 = icmp eq i8 %24, 59
-  %26 = getelementptr inbounds i8, ptr %18, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %spec.select.i = select i1 %25, ptr %26, ptr null
   br label %skip_over_field_signature.exit
 
 27:                                               ; preds = %11
   %28 = add nuw nsw i32 %.01531.i, 1
-  %29 = getelementptr inbounds i8, ptr %.01829.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 1
   %30 = add i32 %.01630.i, -1
   %exitcond.i = icmp eq i32 %.01531.i, %umin.i
   br i1 %exitcond.i, label %skip_over_field_signature.exit, label %11, !llvm.loop !6
@@ -99,7 +99,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal fastcc ptr @skip_over_fieldname(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %.not87 = icmp eq i32 %1, 0
   br i1 %.not87, label %next_utf2unicode.exit, label %.lr.ph
 
@@ -112,7 +112,7 @@ define internal fastcc ptr @skip_over_fieldname(ptr noundef readonly %0, i32 nou
 
 7:                                                ; preds = %.lr.ph
   %8 = zext nneg i8 %5 to i16
-  %9 = getelementptr inbounds i8, ptr %.03288, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.03288, i64 1
   %10 = add nsw i16 %8, -92
   %or.cond.i = icmp ult i16 %10, -46
   %11 = add nsw i8 %5, -60
@@ -147,7 +147,7 @@ default.unreachable:                              ; preds = %15
   unreachable
 
 17:                                               ; preds = %15, %15
-  %18 = getelementptr inbounds i8, ptr %.03288, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.03288, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp slt i8 %19, -64
   br i1 %20, label %21, label %.thread
@@ -159,13 +159,13 @@ default.unreachable:                              ; preds = %15
   br label %41
 
 25:                                               ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %.03288, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.03288, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = icmp slt i8 %27, -64
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.03288, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %.03288, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp slt i8 %31, -64
   br i1 %32, label %33, label %.thread
@@ -181,7 +181,7 @@ default.unreachable:                              ; preds = %15
 
 .thread:                                          ; preds = %29, %17, %25
   %.0.i38.ph.ph = phi i64 [ 1, %25 ], [ 1, %17 ], [ 2, %29 ]
-  %40 = getelementptr inbounds i8, ptr %.03288, i64 %.0.i38.ph.ph
+  %40 = getelementptr inbounds nuw i8, ptr %.03288, i64 %.0.i38.ph.ph
   br label %isJvmIdentifier.exit.thread51
 
 41:                                               ; preds = %33, %21
@@ -191,7 +191,7 @@ default.unreachable:                              ; preds = %15
   %.sink110 = and i8 %.sink110.in, 63
   %42 = zext nneg i8 %.sink110 to i16
   %43 = or disjoint i16 %.sink, %42
-  %44 = getelementptr inbounds i8, ptr %.03288, i64 %.0.i38.ph
+  %44 = getelementptr inbounds nuw i8, ptr %.03288, i64 %.0.i38.ph
   %45 = add i16 %43, -92
   %or.cond.i39 = icmp ult i16 %45, -46
   %46 = add nsw i16 %43, -60
@@ -262,11 +262,11 @@ define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr nocapture nounde
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.0710, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.0710, i64 1
   br label %24
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %.0710, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.0710, i64 1
   store i8 47, ptr %.0710, align 1
   br label %24
 
@@ -287,20 +287,20 @@ define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr nocapture nounde
   br label %next_utf2unicode.exit
 
 11:                                               ; preds = %8, %8
-  %12 = getelementptr inbounds i8, ptr %.0710, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.0710, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp slt i8 %13, -64
   %spec.select = select i1 %14, i64 2, i64 1
   br label %next_utf2unicode.exit
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %.0710, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0710, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp slt i8 %17, -64
   br i1 %18, label %19, label %next_utf2unicode.exit
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %.0710, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.0710, i64 2
   %21 = load i8, ptr %20, align 1
   %22 = icmp slt i8 %21, -64
   %spec.select9 = select i1 %22, i64 3, i64 2
@@ -309,7 +309,7 @@ define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr nocapture nounde
 next_utf2unicode.exit:                            ; preds = %19, %11, %8, %8, %8, %8, %8, %10, %15
   %.2 = phi i32 [ 1, %10 ], [ 1, %15 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 1, %11 ], [ 1, %19 ]
   %.0.i = phi i64 [ 1, %10 ], [ 1, %15 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ %spec.select, %11 ], [ %spec.select9, %19 ]
-  %23 = getelementptr inbounds i8, ptr %.0710, i64 %.0.i
+  %23 = getelementptr inbounds nuw i8, ptr %.0710, i64 %.0.i
   br label %24
 
 24:                                               ; preds = %6, %next_utf2unicode.exit, %4
@@ -342,7 +342,7 @@ define hidden void @fixClassname(ptr nocapture noundef %0) local_unnamed_addr #3
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.036, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   store i8 47, ptr %.036, align 1
   br label %22
 
@@ -363,20 +363,20 @@ define hidden void @fixClassname(ptr nocapture noundef %0) local_unnamed_addr #3
   br label %next_utf2unicode.exit
 
 9:                                                ; preds = %6, %6
-  %10 = getelementptr inbounds i8, ptr %.036, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp slt i8 %11, -64
   %spec.select = select i1 %12, i64 2, i64 1
   br label %next_utf2unicode.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %.036, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.036, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp slt i8 %15, -64
   br i1 %16, label %17, label %next_utf2unicode.exit
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %.036, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.036, i64 2
   %19 = load i8, ptr %18, align 1
   %20 = icmp slt i8 %19, -64
   %spec.select5 = select i1 %20, i64 3, i64 2
@@ -385,7 +385,7 @@ define hidden void @fixClassname(ptr nocapture noundef %0) local_unnamed_addr #3
 next_utf2unicode.exit:                            ; preds = %17, %9, %6, %6, %6, %6, %6, %8, %13
   %.2 = phi i32 [ 1, %8 ], [ 1, %13 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 1, %9 ], [ 1, %17 ]
   %.0.i = phi i64 [ 1, %8 ], [ 1, %13 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ %spec.select, %9 ], [ %spec.select5, %17 ]
-  %21 = getelementptr inbounds i8, ptr %.036, i64 %.0.i
+  %21 = getelementptr inbounds nuw i8, ptr %.036, i64 %.0.i
   br label %22
 
 22:                                               ; preds = %next_utf2unicode.exit, %4

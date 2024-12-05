@@ -269,7 +269,7 @@ do.body13:                                        ; preds = %do.body
 do.end17:                                         ; preds = %do.body
   %nanos.0 = sub nsw i64 %shr.i, %call7.pn
   %agg.tmp19.sroa.0.0.copyload = load i64, ptr %now, align 8
-  %agg.tmp19.sroa.2.0.now.sroa_idx = getelementptr inbounds i8, ptr %now, i64 8
+  %agg.tmp19.sroa.2.0.now.sroa_idx = getelementptr inbounds nuw i8, ptr %now, i64 8
   %agg.tmp19.sroa.2.0.copyload = load i64, ptr %agg.tmp19.sroa.2.0.now.sroa_idx, align 8
   %call20 = call { i64, i32 } @_ZN4absl20DurationFromTimespecE8timespec(i64 %agg.tmp19.sroa.0.0.copyload, i64 %agg.tmp19.sroa.2.0.copyload) #9
   %call20.fca.0.extract = extractvalue { i64, i32 } %call20, 0
@@ -285,11 +285,11 @@ do.end17:                                         ; preds = %do.body
   %conv.i.pn.i.i.i = select i1 %cmp.i.i.i, i32 %conv.i.i.i.i, i32 %1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i)
   store i64 %call20.fca.0.extract, ptr %lhs.i, align 8
-  %coerce.sroa.2.0.lhs.sroa_idx.i = getelementptr inbounds i8, ptr %lhs.i, i64 8
+  %coerce.sroa.2.0.lhs.sroa_idx.i = getelementptr inbounds nuw i8, ptr %lhs.i, i64 8
   store i32 %call20.fca.1.extract, ptr %coerce.sroa.2.0.lhs.sroa_idx.i, align 8
   %call.i7 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull align 4 dereferenceable(12) %lhs.i, i64 %sub.pn.i.i.i, i32 %conv.i.pn.i.i.i) #8
   %retval.sroa.0.0.copyload.i = load i64, ptr %call.i7, align 4
-  %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %call.i7, i64 8
+  %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i7, i64 8
   %retval.sroa.2.0.copyload.i = load i32, ptr %retval.sroa.2.0.call.sroa_idx.i, align 4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %lhs.i)
   %cmp.not.i.i = icmp eq i64 %retval.sroa.0.0.copyload.i, 0

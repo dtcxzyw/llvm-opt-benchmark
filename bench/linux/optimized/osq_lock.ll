@@ -19,10 +19,10 @@ define dso_local noundef zeroext i1 @osq_lock(ptr noundef %0) local_unnamed_addr
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #2, !srcloc !6
   %5 = add i32 %4, 1
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %6, align 8
   store ptr null, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %5, ptr %7, align 4
   %8 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 %5, ptr elementtype(i32) %0) #3, !srcloc !7
   %9 = icmp eq i32 %8, 0
@@ -35,7 +35,7 @@ define dso_local noundef zeroext i1 @osq_lock(ptr noundef %0) local_unnamed_addr
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @osq_node to i64)
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %16, ptr %17, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !8
   store volatile ptr %3, ptr %16, align 8
@@ -83,7 +83,7 @@ define dso_local noundef zeroext i1 @osq_lock(ptr noundef %0) local_unnamed_addr
   br label %.preheader, !llvm.loop !15
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %30, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #2, !srcloc !16
   %45 = add i32 %44, 1
@@ -114,7 +114,7 @@ define dso_local noundef zeroext i1 @osq_lock(ptr noundef %0) local_unnamed_addr
   br label %46, !llvm.loop !19
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %56, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store volatile ptr %30, ptr %60, align 8
   store volatile ptr %56, ptr %30, align 8
   br label %.thread
@@ -181,7 +181,7 @@ define dso_local void @osq_unlock(ptr noundef %0) local_unnamed_addr #0 align 16
 
 14:                                               ; preds = %11, %6
   %15 = phi ptr [ %9, %6 ], [ %12, %11 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store volatile i32 1, ptr %16, align 8
   br label %17
 

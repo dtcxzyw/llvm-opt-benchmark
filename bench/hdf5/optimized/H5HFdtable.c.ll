@@ -16,55 +16,55 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5HF__dtable_init(ptr nocapture noundef initializes((44, 68), (72, 88)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = mul i64 %3, 125613361
   %5 = lshr i64 %4, 27
   %6 = and i64 %5, 31
-  %7 = getelementptr inbounds [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %6
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %8, ptr %9, align 4
   %10 = load i32, ptr %0, align 8
   %11 = mul i32 %10, 125613361
   %12 = lshr i32 %11, 27
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = sub i32 %19, %16
   %21 = add i32 %20, 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = mul i64 %24, 125613361
   %26 = lshr i64 %25, 27
   %27 = and i64 %26, 31
-  %28 = getelementptr inbounds [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %29, ptr %30, align 8
   %reass.sub = sub i32 %29, %8
   %31 = add i32 %reass.sub, 2
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %31, ptr %32, align 8
   %33 = zext i32 %10 to i64
   %34 = mul i64 %3, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %34, ptr %35, align 8
   %36 = add i32 %29, 7
   %37 = lshr i32 %36, 3
-  %38 = getelementptr inbounds i8, ptr %0, i64 60
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %37, ptr %38, align 4
   %39 = zext i32 %21 to i64
   %40 = shl nuw nsw i64 %39, 3
   %41 = tail call noalias ptr @malloc(i64 noundef %40) #6
-  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %41, ptr %42, align 8
   %43 = icmp eq ptr %41, null
   br i1 %43, label %44, label %48
@@ -77,7 +77,7 @@ define range(i32 -1, 1) i32 @H5HF__dtable_init(ptr nocapture noundef initializes
 
 48:                                               ; preds = %1
   %49 = tail call noalias ptr @malloc(i64 noundef %40) #6
-  %50 = getelementptr inbounds i8, ptr %0, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %49, ptr %50, align 8
   %51 = icmp eq ptr %49, null
   br i1 %51, label %52, label %56
@@ -90,7 +90,7 @@ define range(i32 -1, 1) i32 @H5HF__dtable_init(ptr nocapture noundef initializes
 
 56:                                               ; preds = %48
   %57 = tail call noalias ptr @malloc(i64 noundef %40) #6
-  %58 = getelementptr inbounds i8, ptr %0, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %57, ptr %58, align 8
   %59 = icmp eq ptr %57, null
   br i1 %59, label %60, label %64
@@ -103,7 +103,7 @@ define range(i32 -1, 1) i32 @H5HF__dtable_init(ptr nocapture noundef initializes
 
 64:                                               ; preds = %56
   %65 = tail call noalias ptr @malloc(i64 noundef %40) #6
-  %66 = getelementptr inbounds i8, ptr %0, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %65, ptr %66, align 8
   %67 = icmp eq ptr %65, null
   br i1 %67, label %68, label %72
@@ -125,10 +125,10 @@ define range(i32 -1, 1) i32 @H5HF__dtable_init(ptr nocapture noundef initializes
   %.04851 = phi i64 [ %79, %.lr.ph ], [ %34, %72 ]
   %.04950 = phi i64 [ %78, %.lr.ph ], [ %3, %72 ]
   %74 = load ptr, ptr %42, align 8
-  %75 = getelementptr inbounds i64, ptr %74, i64 %.04752
+  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %.04752
   store i64 %.04950, ptr %75, align 8
   %76 = load ptr, ptr %50, align 8
-  %77 = getelementptr inbounds i64, ptr %76, i64 %.04752
+  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %.04752
   store i64 %.04851, ptr %77, align 8
   %78 = shl i64 %.04950, 1
   %79 = shl i64 %.04851, 1
@@ -150,14 +150,14 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5HF__dtable_lookup(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %1, %6
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
   store i32 0, ptr %2, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = udiv i64 %1, %10
   br label %77
@@ -178,14 +178,14 @@ define noundef i32 @H5HF__dtable_lookup(ptr nocapture noundef readonly %0, i64 n
 
 17:                                               ; preds = %16
   %18 = lshr i64 %1, 56
-  %19 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %21, 56
   br label %H5VM_log2_gen.exit
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %15
+  %24 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %15
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %26, 48
@@ -197,14 +197,14 @@ define noundef i32 @H5HF__dtable_lookup(ptr nocapture noundef readonly %0, i64 n
 
 29:                                               ; preds = %28
   %30 = lshr i64 %1, 40
-  %31 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 40
   br label %H5VM_log2_gen.exit
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %13
+  %36 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %13
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = add nuw nsw i32 %38, 32
@@ -221,14 +221,14 @@ define noundef i32 @H5HF__dtable_lookup(ptr nocapture noundef readonly %0, i64 n
 
 43:                                               ; preds = %42
   %44 = lshr i64 %1, 24
-  %45 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
   %48 = add nuw nsw i32 %47, 24
   br label %H5VM_log2_gen.exit
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %41
+  %50 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %41
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = add nuw nsw i32 %52, 16
@@ -240,14 +240,14 @@ define noundef i32 @H5HF__dtable_lookup(ptr nocapture noundef readonly %0, i64 n
 
 55:                                               ; preds = %54
   %56 = lshr i64 %1, 8
-  %57 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = add nuw nsw i32 %59, 8
   br label %H5VM_log2_gen.exit
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %1
+  %62 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %1
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   br label %H5VM_log2_gen.exit
@@ -256,16 +256,16 @@ H5VM_log2_gen.exit:                               ; preds = %17, %23, %29, %35, 
   %.0.i = phi i32 [ %22, %17 ], [ %27, %23 ], [ %34, %29 ], [ %39, %35 ], [ %48, %43 ], [ %53, %49 ], [ %60, %55 ], [ %64, %61 ]
   %65 = zext nneg i32 %.0.i to i64
   %.neg = shl nsw i64 -1, %65
-  %66 = getelementptr inbounds i8, ptr %0, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %67 = load i32, ptr %66, align 8
   %68 = sub i32 %.0.i, %67
   %69 = add i32 %68, 1
   store i32 %69, ptr %2, align 4
   %70 = add i64 %.neg, %1
-  %71 = getelementptr inbounds i8, ptr %0, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %72 = load ptr, ptr %71, align 8
   %73 = zext i32 %69 to i64
-  %74 = getelementptr inbounds i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = udiv i64 %70, %75
   br label %77
@@ -279,16 +279,16 @@ H5VM_log2_gen.exit:                               ; preds = %17, %23, %29, %35, 
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @H5HF__dtable_dest(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @H5MM_xfree(ptr noundef %3) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @H5MM_xfree(ptr noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @H5MM_xfree(ptr noundef %9) #7
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @H5MM_xfree(ptr noundef %12) #7
   ret i32 0
@@ -298,7 +298,7 @@ declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @H5HF__dtable_size_to_row(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %1, %4
   br i1 %5, label %19, label %6
@@ -307,12 +307,12 @@ define i32 @H5HF__dtable_size_to_row(ptr nocapture noundef readonly %0, i64 noun
   %7 = mul i64 %1, 125613361
   %8 = lshr i64 %7, 27
   %9 = and i64 %8, 31
-  %10 = getelementptr inbounds [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = mul i64 %4, 125613361
   %13 = lshr i64 %12, 27
   %14 = and i64 %13, 31
-  %15 = getelementptr inbounds [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %11, 1
   %18 = sub i32 %17, %16
@@ -340,14 +340,14 @@ define i32 @H5HF__dtable_size_to_rows(ptr nocapture noundef readonly %0, i64 nou
 
 7:                                                ; preds = %6
   %8 = lshr i64 %1, 56
-  %9 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = add nuw nsw i32 %11, 56
   br label %H5VM_log2_gen.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %5
+  %14 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %5
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = add nuw nsw i32 %16, 48
@@ -359,14 +359,14 @@ define i32 @H5HF__dtable_size_to_rows(ptr nocapture noundef readonly %0, i64 nou
 
 19:                                               ; preds = %18
   %20 = lshr i64 %1, 40
-  %21 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = add nuw nsw i32 %23, 40
   br label %H5VM_log2_gen.exit
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %3
+  %26 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %3
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = add nuw nsw i32 %28, 32
@@ -383,14 +383,14 @@ define i32 @H5HF__dtable_size_to_rows(ptr nocapture noundef readonly %0, i64 nou
 
 33:                                               ; preds = %32
   %34 = lshr i64 %1, 24
-  %35 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = add nuw nsw i32 %37, 24
   br label %H5VM_log2_gen.exit
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %31
+  %40 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %31
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = add nuw nsw i32 %42, 16
@@ -402,21 +402,21 @@ define i32 @H5HF__dtable_size_to_rows(ptr nocapture noundef readonly %0, i64 nou
 
 45:                                               ; preds = %44
   %46 = lshr i64 %1, 8
-  %47 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = add nuw nsw i32 %49, 8
   br label %H5VM_log2_gen.exit
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %1
+  %52 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %1
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   br label %H5VM_log2_gen.exit
 
 H5VM_log2_gen.exit:                               ; preds = %7, %13, %19, %25, %33, %39, %45, %51
   %.0.i = phi i32 [ %12, %7 ], [ %17, %13 ], [ %24, %19 ], [ %29, %25 ], [ %38, %33 ], [ %43, %39 ], [ %50, %45 ], [ %54, %51 ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %56 = load i32, ptr %55, align 8
   %57 = add nuw nsw i32 %.0.i, 1
   %58 = sub i32 %57, %56
@@ -440,10 +440,10 @@ define i64 @H5HF__dtable_span_size(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %.not38, label %23, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %1 to i64
-  %17 = getelementptr inbounds i64, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = sub i32 %5, %2
   %20 = zext i32 %19 to i64
@@ -455,7 +455,7 @@ define i64 @H5HF__dtable_span_size(ptr nocapture noundef readonly %0, i32 nounde
   %.032 = phi i32 [ %22, %13 ], [ %1, %12 ]
   %.0 = phi i64 [ %21, %13 ], [ 0, %12 ]
   %24 = icmp ult i32 %.032, %10
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -468,7 +468,7 @@ define i64 @H5HF__dtable_span_size(ptr nocapture noundef readonly %0, i32 nounde
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.140 = phi i64 [ %.0, %.lr.ph ], [ %34, %30 ]
-  %31 = getelementptr inbounds i64, ptr %26, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8
   %33 = mul i64 %32, %27
   %34 = add i64 %33, %.140
@@ -484,7 +484,7 @@ define i64 @H5HF__dtable_span_size(ptr nocapture noundef readonly %0, i32 nounde
   %.133.lcssa = phi i32 [ %36, %._crit_edge.loopexit ], [ %.032, %23 ]
   %.1.lcssa = phi i64 [ %34, %._crit_edge.loopexit ], [ %.0, %23 ]
   %37 = zext i32 %.133.lcssa to i64
-  %38 = getelementptr inbounds i64, ptr %26, i64 %37
+  %38 = getelementptr inbounds nuw i64, ptr %26, i64 %37
   %39 = load i64, ptr %38, align 8
   %40 = add i32 %11, 1
   %41 = zext i32 %40 to i64
@@ -493,10 +493,10 @@ define i64 @H5HF__dtable_span_size(ptr nocapture noundef readonly %0, i32 nounde
   br label %53
 
 44:                                               ; preds = %4
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %46 = load ptr, ptr %45, align 8
   %47 = zext i32 %1 to i64
-  %48 = getelementptr inbounds i64, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw i64, ptr %46, i64 %47
   %49 = load i64, ptr %48, align 8
   %reass.sub = sub i32 %11, %2
   %50 = add i32 %reass.sub, 1

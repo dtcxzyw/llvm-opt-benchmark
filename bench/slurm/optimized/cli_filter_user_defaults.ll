@@ -52,8 +52,8 @@ define noundef i32 @cli_filter_p_setup_defaults(ptr noundef %0, i1 noundef zeroe
   br i1 %.not2356, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.backedge
@@ -88,7 +88,7 @@ define noundef i32 @cli_filter_p_setup_defaults(ptr noundef %0, i1 noundef zeroe
   %.not18.i = icmp eq i16 %33, 0
   %.not19.i = icmp eq i8 %29, 0
   %or.cond.i = or i1 %.not19.i, %.not18.i
-  %34 = getelementptr inbounds i8, ptr %.015.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.015.i, i64 1
   br i1 %or.cond.i, label %.critedge.i, label %28, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %28
@@ -152,7 +152,7 @@ _trim.exit:                                       ; preds = %.lr.ph.i, %23, %.cr
   %.not18.i30 = icmp eq i16 %68, 0
   %.not19.i31 = icmp eq i8 %64, 0
   %or.cond.i32 = or i1 %.not19.i31, %.not18.i30
-  %69 = getelementptr inbounds i8, ptr %.015.i29, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.015.i29, i64 1
   br i1 %or.cond.i32, label %.critedge.i33, label %63, !llvm.loop !6
 
 .critedge.i33:                                    ; preds = %63
@@ -195,7 +195,7 @@ _trim.exit39:                                     ; preds = %.lr.ph.i36, %.crite
 
 93:                                               ; preds = %93, %_trim.exit39
   %.015.i42.pn = phi ptr [ %.015.i42, %93 ], [ %60, %_trim.exit39 ]
-  %.015.i42 = getelementptr inbounds i8, ptr %.015.i42.pn, i64 1
+  %.015.i42 = getelementptr inbounds nuw i8, ptr %.015.i42.pn, i64 1
   %94 = load i8, ptr %.015.i42, align 1
   %95 = sext i8 %94 to i64
   %96 = getelementptr inbounds i16, ptr %92, i64 %95
@@ -253,7 +253,7 @@ _trim.exit52:                                     ; preds = %.lr.ph.i49, %.crite
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i53 ], [ 0, %_trim.exit52 ]
   %122 = phi ptr [ %124, %.lr.ph.i53 ], [ %121, %_trim.exit52 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %123 = getelementptr inbounds [3 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
   store ptr %122, ptr %123, align 8
   %124 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #13
   %125 = icmp ne ptr %124, null
@@ -284,7 +284,7 @@ _trim.exit52:                                     ; preds = %.lr.ph.i49, %.crite
   %.not18.i.i = icmp eq i16 %137, 0
   %.not19.i.i = icmp eq i8 %133, 0
   %or.cond.i.i = or i1 %.not19.i.i, %.not18.i.i
-  %138 = getelementptr inbounds i8, ptr %.015.i.i, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 1
   br i1 %or.cond.i.i, label %.critedge.i.i, label %132, !llvm.loop !6
 
 .critedge.i.i:                                    ; preds = %132
@@ -332,7 +332,7 @@ _trim.exit.thread.i:                              ; preds = %_trim.exit.i, %129
   %.03067.i = phi i32 [ %.030.i, %_trim.exit.i ], [ 1, %129 ]
   %161 = add nuw nsw i32 %.03067.i, 1
   %162 = zext nneg i32 %.03067.i to i64
-  %163 = getelementptr inbounds [3 x ptr], ptr %3, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %162
   %164 = load ptr, ptr %163, align 8
   %.not.i39.i = icmp eq ptr %164, null
   br i1 %.not.i39.i, label %_trim.exit51.i, label %.preheader.i40.i
@@ -351,7 +351,7 @@ _trim.exit.thread.i:                              ; preds = %_trim.exit.i, %129
   %.not18.i42.i = icmp eq i16 %171, 0
   %.not19.i43.i = icmp eq i8 %167, 0
   %or.cond.i44.i = or i1 %.not19.i43.i, %.not18.i42.i
-  %172 = getelementptr inbounds i8, ptr %.015.i41.i, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %.015.i41.i, i64 1
   br i1 %or.cond.i44.i, label %.critedge.i45.i, label %166, !llvm.loop !6
 
 .critedge.i45.i:                                  ; preds = %166
@@ -393,7 +393,7 @@ _trim.exit51.i:                                   ; preds = %.lr.ph.i48.i, %173,
   %.1.i = phi i32 [ %.030.i, %_trim.exit.i ], [ %161, %_trim.exit.thread.i ], [ %161, %.critedge.i45.i ], [ %161, %173 ], [ 0, %_trim.exit52 ], [ %161, %.lr.ph.i48.i ]
   %.0.i54 = phi ptr [ null, %_trim.exit.i ], [ null, %_trim.exit.thread.i ], [ %.015.i41.i, %.critedge.i45.i ], [ %.015.i41.i, %173 ], [ null, %_trim.exit52 ], [ %.015.i41.i, %.lr.ph.i48.i ]
   %195 = zext nneg i32 %.1.i to i64
-  %196 = getelementptr inbounds [3 x ptr], ptr %3, i64 0, i64 %195
+  %196 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %195
   %197 = load ptr, ptr %196, align 8
   %.not.i52.i = icmp eq ptr %197, null
   br i1 %.not.i52.i, label %_trim.exit64.i, label %.preheader.i53.i
@@ -412,7 +412,7 @@ _trim.exit51.i:                                   ; preds = %.lr.ph.i48.i, %173,
   %.not18.i55.i = icmp eq i16 %204, 0
   %.not19.i56.i = icmp eq i8 %200, 0
   %or.cond.i57.i = or i1 %.not19.i56.i, %.not18.i55.i
-  %205 = getelementptr inbounds i8, ptr %.015.i54.i, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %.015.i54.i, i64 1
   br i1 %or.cond.i57.i, label %.critedge.i58.i, label %199, !llvm.loop !6
 
 .critedge.i58.i:                                  ; preds = %199
@@ -490,7 +490,7 @@ sub_0.i:                                          ; preds = %238
   br i1 %.not72.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_0.i
-  %244 = getelementptr inbounds i8, ptr %.02768.i, i64 1
+  %244 = getelementptr inbounds nuw i8, ptr %.02768.i, i64 1
   %245 = load i8, ptr %244, align 1
   %246 = icmp eq i8 %245, 0
   br i1 %246, label %248, label %.tail.thread.i

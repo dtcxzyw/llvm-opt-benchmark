@@ -284,13 +284,13 @@ entry:
   %0 = getelementptr i8, ptr %py_fds_to_keep, i64 16
   %py_fds_to_keep.val = load i64, ptr %0, align 8
   %call.i.i = tail call ptr @_PyThreadState_GetCurrent() #11
-  %interp.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   %1 = load ptr, ptr %interp.i, align 8
   %cmp.not = icmp eq ptr %preexec_fn, @_Py_NoneStruct
   br i1 %cmp.not, label %if.end7, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %finalizing = getelementptr inbounds i8, ptr %1, i64 924
+  %finalizing = getelementptr inbounds nuw i8, ptr %1, i64 924
   %2 = load i32, ptr %finalizing, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %land.lhs.true3, label %if.then
@@ -322,7 +322,7 @@ if.then11:                                        ; preds = %if.end7
   br label %return
 
 if.end12:                                         ; preds = %if.end7
-  %ob_item.i = getelementptr inbounds i8, ptr %py_fds_to_keep, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %py_fds_to_keep, i64 24
   %fd_sequence.val8.i = load i64, ptr %0, align 8
   %cmp9.i = icmp sgt i64 %fd_sequence.val8.i, 0
   br i1 %cmp9.i, label %for.body.i, label %if.end16
@@ -398,8 +398,8 @@ for.cond.preheader:                               ; preds = %if.end30
   br i1 %cmp4086, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %ob_item = getelementptr inbounds i8, ptr %call27, i64 24
-  %ob_item.i111 = getelementptr inbounds i8, ptr %call36, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %call27, i64 24
+  %ob_item.i111 = getelementptr inbounds nuw i8, ptr %call36, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end65
@@ -1114,7 +1114,7 @@ entry:
   br i1 %cmp9, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %ob_item = getelementptr inbounds i8, ptr %py_fds_to_keep, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %py_fds_to_keep, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end7
@@ -1548,7 +1548,7 @@ error:                                            ; preds = %if.end.i, %do.end52
 
 if.then212:                                       ; preds = %error
   %call213 = tail call i64 @_Py_write_noraise(i32 noundef %errpipe_write, ptr noundef nonnull @.str.19, i64 noundef 8) #11
-  %add.ptr = getelementptr inbounds i8, ptr %hex_errno, i64 9
+  %add.ptr = getelementptr inbounds nuw i8, ptr %hex_errno, i64 9
   %10 = load ptr, ptr @Py_hexdigits, align 8
   br label %while.body218
 
@@ -1731,7 +1731,7 @@ for.body.us.us.i:                                 ; preds = %for.inc.us.us.i, %f
   %offset.034.us.us.i = phi i32 [ 0, %for.cond.preheader.us.i ], [ %add.us.us.i, %for.inc.us.us.i ]
   %idx.ext.us.us.i = sext i32 %offset.034.us.us.i to i64
   %add.ptr.us.us.i = getelementptr i8, ptr %buffer.i, i64 %idx.ext.us.us.i
-  %d_name.us.us.i = getelementptr inbounds i8, ptr %add.ptr.us.us.i, i64 19
+  %d_name.us.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.us.us.i, i64 19
   %1 = load i8, ptr %d_name.us.us.i, align 1
   %2 = add i8 %1, -48
   %or.cond6.i.us.us.i = icmp ult i8 %2, 10
@@ -1766,7 +1766,7 @@ land.lhs.true18.us.us.i:                          ; preds = %_pos_int_from_ascii
   br label %for.inc.us.us.i
 
 for.inc.us.us.i:                                  ; preds = %land.lhs.true18.us.us.i, %_pos_int_from_ascii.exit.us.us.i
-  %d_reclen.us.us.i = getelementptr inbounds i8, ptr %add.ptr.us.us.i, i64 16
+  %d_reclen.us.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.us.us.i, i64 16
   %6 = load i16, ptr %d_reclen.us.us.i, align 8
   %conv23.us.us.i = zext i16 %6 to i32
   %add.us.us.i = add i32 %offset.034.us.us.i, %conv23.us.us.i
@@ -1851,7 +1851,7 @@ for.body.i4:                                      ; preds = %for.inc.i5, %for.co
   %offset.034.i = phi i32 [ 0, %for.cond.preheader.i ], [ %add.i6, %for.inc.i5 ]
   %idx.ext.i = sext i32 %offset.034.i to i64
   %add.ptr.i = getelementptr i8, ptr %buffer.i, i64 %idx.ext.i
-  %d_name.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 19
+  %d_name.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 19
   %10 = load i8, ptr %d_name.i, align 1
   %11 = add i8 %10, -48
   %or.cond6.i.i = icmp ult i8 %11, 10
@@ -1905,7 +1905,7 @@ if.then20.loopexit.i:                             ; preds = %if.end5.i.i
   br label %for.inc.i5
 
 for.inc.i5:                                       ; preds = %do.body.i.i, %if.then20.loopexit.i, %_pos_int_from_ascii.exit.i
-  %d_reclen.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
+  %d_reclen.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %16 = load i16, ptr %d_reclen.i, align 8
   %conv23.i = zext i16 %16 to i32
   %add.i6 = add i32 %offset.034.i, %conv23.i

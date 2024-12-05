@@ -161,7 +161,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_syslog(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.30) #4
   %8 = load ptr, ptr %6, align 8
@@ -221,7 +221,7 @@ define internal i32 @dissect_syslog(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.088 = phi i32 [ %34, %.critedge ], [ -1, %4 ]
   %.0 = phi i32 [ %.1.lcssa, %.critedge ], [ -1, %4 ]
   %36 = tail call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.090) #4
-  %37 = getelementptr inbounds i8, ptr %1, i64 408
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @tvb_format_text(ptr noundef %38, ptr noundef %0, i32 noundef %.090, i32 noundef %36) #4
   %40 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.090) #4
@@ -510,13 +510,13 @@ dissect_syslog_message.exit:                      ; preds = %92, %.loopexit.i, %
   br i1 %.not.i98, label %proto_item_set_generated.exit, label %207
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds i8, ptr %206, i64 32
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 32
   %209 = load ptr, ptr %208, align 8
   %.not5.i = icmp eq ptr %209, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %210
 
 210:                                              ; preds = %207
-  %211 = getelementptr inbounds i8, ptr %209, i64 28
+  %211 = getelementptr inbounds nuw i8, ptr %209, i64 28
   %212 = load i32, ptr %211, align 4
   %213 = or i32 %212, 2
   store i32 %213, ptr %211, align 4

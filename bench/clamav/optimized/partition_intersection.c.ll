@@ -13,7 +13,7 @@ define noundef i32 @partition_intersection_list_init(ptr nocapture noundef write
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 21) i32 @partition_intersection_list_check(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   store i32 %7, ptr %1, align 4
@@ -35,7 +35,7 @@ define range(i32 0, 21) i32 @partition_intersection_list_check(ptr nocapture nou
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %.02838, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.02838, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %12
   %18 = icmp ugt i64 %17, %2
@@ -48,7 +48,7 @@ define range(i32 0, 21) i32 @partition_intersection_list_check(ptr nocapture nou
   br i1 %or.cond, label %._crit_edge, label %22
 
 22:                                               ; preds = %19, %14
-  %23 = getelementptr inbounds i8, ptr %.02838, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.02838, i64 16
   %.028 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.028, null
   br i1 %.not, label %._crit_edge, label %9
@@ -67,7 +67,7 @@ define range(i32 0, 21) i32 @partition_intersection_list_check(ptr nocapture nou
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
   %.val6.i = phi ptr [ %28, %.lr.ph.i ], [ %.val.pr.i, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.val6.i, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.val6.i, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void @free(ptr noundef nonnull %.val6.i) #7
   store ptr %28, ptr %0, align 8
@@ -79,10 +79,10 @@ define range(i32 0, 21) i32 @partition_intersection_list_check(ptr nocapture nou
 
 32:                                               ; preds = %._crit_edge
   store i64 %2, ptr %24, align 8
-  %33 = getelementptr inbounds i8, ptr %24, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %3, ptr %33, align 8
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %24, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %34, ptr %35, align 8
   store ptr %24, ptr %0, align 8
   %36 = load i64, ptr %5, align 8
@@ -107,12 +107,12 @@ define noundef i32 @partition_intersection_list_free(ptr nocapture noundef %0) l
   br i1 %2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %4
 
 4:                                                ; preds = %.lr.ph, %4
   %.val6 = phi ptr [ %.val.pr, %.lr.ph ], [ %6, %4 ]
-  %5 = getelementptr inbounds i8, ptr %.val6, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef nonnull %.val6) #7
   store ptr %6, ptr %0, align 8

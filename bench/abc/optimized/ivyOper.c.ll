@@ -22,7 +22,7 @@ define ptr @Ivy_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = xor i64 %15, 1
@@ -33,7 +33,7 @@ define ptr @Ivy_Oper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef
   %19 = ptrtoint ptr %1 to i64
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %21
   br i1 %24, label %25, label %30
@@ -89,7 +89,7 @@ define ptr @Ivy_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = xor i64 %13, 1
@@ -100,7 +100,7 @@ define ptr @Ivy_And(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
   %17 = ptrtoint ptr %1 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %19
   br i1 %22, label %23, label %28
@@ -152,7 +152,7 @@ define ptr @Ivy_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = xor i64 %13, 1
@@ -163,7 +163,7 @@ define ptr @Ivy_Exor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
   %17 = ptrtoint ptr %1 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %19
   br i1 %22, label %23, label %28
@@ -210,7 +210,7 @@ Ivy_And.exit:                                     ; preds = %3, %10, %23, %25, %
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %0, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = xor i64 %49, 1
@@ -220,7 +220,7 @@ Ivy_And.exit:                                     ; preds = %3, %10, %23, %25, %
 52:                                               ; preds = %44
   %53 = and i64 %40, -2
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %0, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %54
   br i1 %57, label %58, label %63
@@ -269,7 +269,7 @@ Ivy_And.exit8:                                    ; preds = %Ivy_And.exit, %46, 
   br i1 %82, label %83, label %88
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %0, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %85 = load ptr, ptr %84, align 8
   %86 = ptrtoint ptr %85 to i64
   %87 = xor i64 %86, 1
@@ -278,7 +278,7 @@ Ivy_And.exit8:                                    ; preds = %Ivy_And.exit, %46, 
 88:                                               ; preds = %81
   %89 = and i64 %74, -2
   %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds i8, ptr %0, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, %90
   br i1 %93, label %94, label %97
@@ -334,7 +334,7 @@ define ptr @Ivy_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = xor i64 %16, 1
@@ -343,7 +343,7 @@ define ptr @Ivy_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
 18:                                               ; preds = %11
   %19 = and i64 %4, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %20
   br i1 %23, label %24, label %27
@@ -394,14 +394,14 @@ define ptr @Ivy_Mux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br label %339
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, -1552
   %15 = or disjoint i32 %14, 5
   store i32 %15, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %2, ptr %17, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %Ivy_ObjCreateGhost.exit, label %18
@@ -431,7 +431,7 @@ Ivy_ObjFaninId1.exit.i:                           ; preds = %19, %18
   br label %Ivy_ObjCreateGhost.exit
 
 Ivy_ObjCreateGhost.exit:                          ; preds = %11, %Ivy_ObjFaninId1.exit.i, %27
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = tail call ptr @Ivy_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %28) #2
   %30 = ptrtoint ptr %1 to i64
   %31 = xor i64 %30, 1
@@ -669,7 +669,7 @@ Ivy_ObjCreateGhost.exit114:                       ; preds = %108, %Ivy_ObjFaninI
   br i1 %136, label %137, label %143
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds i8, ptr %0, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %139 = load ptr, ptr %138, align 8
   %140 = ptrtoint ptr %139 to i64
   %141 = xor i64 %140, 1
@@ -679,7 +679,7 @@ Ivy_ObjCreateGhost.exit114:                       ; preds = %108, %Ivy_ObjFaninI
 143:                                              ; preds = %135
   %144 = and i64 %30, -2
   %145 = inttoptr i64 %144 to ptr
-  %146 = getelementptr inbounds i8, ptr %0, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, %145
   br i1 %148, label %149, label %154
@@ -725,7 +725,7 @@ Ivy_And.exit:                                     ; preds = %163, %160, %158, %1
   br i1 %169, label %170, label %176
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds i8, ptr %0, i64 32
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %172 = load ptr, ptr %171, align 8
   %173 = ptrtoint ptr %172 to i64
   %174 = xor i64 %173, 1
@@ -735,7 +735,7 @@ Ivy_And.exit:                                     ; preds = %163, %160, %158, %1
 176:                                              ; preds = %168
   %177 = and i64 %30, -2
   %178 = inttoptr i64 %177 to ptr
-  %179 = getelementptr inbounds i8, ptr %0, i64 32
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %180 = load ptr, ptr %179, align 8
   %181 = icmp eq ptr %180, %178
   br i1 %181, label %182, label %187
@@ -784,7 +784,7 @@ Ivy_And.exit116:                                  ; preds = %196, %193, %191, %1
   br i1 %207, label %208, label %213
 
 208:                                              ; preds = %206
-  %209 = getelementptr inbounds i8, ptr %0, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %210 = load ptr, ptr %209, align 8
   %211 = ptrtoint ptr %210 to i64
   %212 = xor i64 %211, 1
@@ -793,7 +793,7 @@ Ivy_And.exit116:                                  ; preds = %196, %193, %191, %1
 213:                                              ; preds = %206
   %214 = and i64 %199, -2
   %215 = inttoptr i64 %214 to ptr
-  %216 = getelementptr inbounds i8, ptr %0, i64 32
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %217 = load ptr, ptr %216, align 8
   %218 = icmp eq ptr %217, %215
   br i1 %218, label %219, label %222
@@ -842,7 +842,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit116, %2
   br i1 %240, label %241, label %247
 
 241:                                              ; preds = %239
-  %242 = getelementptr inbounds i8, ptr %0, i64 32
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %243 = load ptr, ptr %242, align 8
   %244 = ptrtoint ptr %243 to i64
   %245 = xor i64 %244, 1
@@ -852,7 +852,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit116, %2
 247:                                              ; preds = %239
   %248 = and i64 %30, -2
   %249 = inttoptr i64 %248 to ptr
-  %250 = getelementptr inbounds i8, ptr %0, i64 32
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %251 = load ptr, ptr %250, align 8
   %252 = icmp eq ptr %251, %249
   br i1 %252, label %253, label %258
@@ -898,7 +898,7 @@ Ivy_And.exit118:                                  ; preds = %267, %264, %262, %2
   br i1 %273, label %274, label %280
 
 274:                                              ; preds = %272
-  %275 = getelementptr inbounds i8, ptr %0, i64 32
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %276 = load ptr, ptr %275, align 8
   %277 = ptrtoint ptr %276 to i64
   %278 = xor i64 %277, 1
@@ -908,7 +908,7 @@ Ivy_And.exit118:                                  ; preds = %267, %264, %262, %2
 280:                                              ; preds = %272
   %281 = and i64 %30, -2
   %282 = inttoptr i64 %281 to ptr
-  %283 = getelementptr inbounds i8, ptr %0, i64 32
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %284 = load ptr, ptr %283, align 8
   %285 = icmp eq ptr %284, %282
   br i1 %285, label %286, label %291
@@ -957,7 +957,7 @@ Ivy_And.exit120:                                  ; preds = %300, %297, %295, %2
   br i1 %311, label %312, label %317
 
 312:                                              ; preds = %310
-  %313 = getelementptr inbounds i8, ptr %0, i64 32
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %314 = load ptr, ptr %313, align 8
   %315 = ptrtoint ptr %314 to i64
   %316 = xor i64 %315, 1
@@ -966,7 +966,7 @@ Ivy_And.exit120:                                  ; preds = %300, %297, %295, %2
 317:                                              ; preds = %310
   %318 = and i64 %303, -2
   %319 = inttoptr i64 %318 to ptr
-  %320 = getelementptr inbounds i8, ptr %0, i64 32
+  %320 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %321 = load ptr, ptr %320, align 8
   %322 = icmp eq ptr %321, %319
   br i1 %322, label %323, label %326
@@ -1022,7 +1022,7 @@ define ptr @Ivy_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = xor i64 %14, 1
@@ -1033,7 +1033,7 @@ define ptr @Ivy_Maj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %18 = ptrtoint ptr %1 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %20
   br i1 %23, label %24, label %29
@@ -1080,7 +1080,7 @@ Ivy_And.exit:                                     ; preds = %4, %11, %24, %26, %
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = xor i64 %50, 1
@@ -1091,7 +1091,7 @@ Ivy_And.exit:                                     ; preds = %4, %11, %24, %26, %
   %54 = ptrtoint ptr %1 to i64
   %55 = and i64 %54, -2
   %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %0, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %56
   br i1 %59, label %60, label %65
@@ -1141,7 +1141,7 @@ Ivy_And.exit12:                                   ; preds = %Ivy_And.exit, %47, 
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %0, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %88 = load ptr, ptr %87, align 8
   %89 = ptrtoint ptr %88 to i64
   %90 = xor i64 %89, 1
@@ -1150,7 +1150,7 @@ Ivy_And.exit12:                                   ; preds = %Ivy_And.exit, %47, 
 91:                                               ; preds = %84
   %92 = and i64 %77, -2
   %93 = inttoptr i64 %92 to ptr
-  %94 = getelementptr inbounds i8, ptr %0, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, %93
   br i1 %96, label %97, label %100
@@ -1196,7 +1196,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit12, %86
   br i1 %119, label %120, label %126
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %0, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %122 = load ptr, ptr %121, align 8
   %123 = ptrtoint ptr %122 to i64
   %124 = xor i64 %123, 1
@@ -1207,7 +1207,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit12, %86
   %127 = ptrtoint ptr %2 to i64
   %128 = and i64 %127, -2
   %129 = inttoptr i64 %128 to ptr
-  %130 = getelementptr inbounds i8, ptr %0, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, %129
   br i1 %132, label %133, label %138
@@ -1254,7 +1254,7 @@ Ivy_And.exit14:                                   ; preds = %Ivy_Or.exit, %120, 
   br i1 %155, label %156, label %161
 
 156:                                              ; preds = %154
-  %157 = getelementptr inbounds i8, ptr %0, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %158 = load ptr, ptr %157, align 8
   %159 = ptrtoint ptr %158 to i64
   %160 = xor i64 %159, 1
@@ -1263,7 +1263,7 @@ Ivy_And.exit14:                                   ; preds = %Ivy_Or.exit, %120, 
 161:                                              ; preds = %154
   %162 = and i64 %.0.i.i, -2
   %163 = inttoptr i64 %162 to ptr
-  %164 = getelementptr inbounds i8, ptr %0, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %165 = load ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, %163
   br i1 %166, label %167, label %170
@@ -1334,7 +1334,7 @@ define ptr @Ivy_Multi_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = xor i64 %25, 1
@@ -1345,7 +1345,7 @@ define ptr @Ivy_Multi_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 no
   %29 = ptrtoint ptr %10 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %31
   br i1 %34, label %35, label %40
@@ -1396,22 +1396,22 @@ define ptr @Ivy_Multi(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define ptr @Ivy_Miter(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = or disjoint i64 %indvars.iv, 1
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @Ivy_Exor(ptr noundef %0, ptr noundef %10, ptr noundef %13)
   %15 = ptrtoint ptr %14 to i64
@@ -1419,7 +1419,7 @@ define ptr @Ivy_Miter(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_ad
   %17 = inttoptr i64 %16 to ptr
   %18 = load ptr, ptr %6, align 8
   %19 = lshr exact i64 %indvars.iv, 1
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   store ptr %17, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %21 = load i32, ptr %3, align 4
@@ -1431,7 +1431,7 @@ define ptr @Ivy_Miter(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_ad
   %.lcssa = phi i32 [ %4, %2 ], [ %21, %7 ]
   %24 = sdiv i32 %.lcssa, 2
   store i32 %24, ptr %3, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @Ivy_Multi_rec(ptr noundef %0, ptr noundef %26, i32 noundef %24, i32 noundef 5)
   %28 = ptrtoint ptr %27 to i64

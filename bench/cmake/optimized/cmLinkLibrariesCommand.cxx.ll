@@ -50,7 +50,7 @@ define dso_local noundef zeroext i1 @_Z22cmLinkLibrariesCommandRKSt6vectorINSt7_
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator.0", align 1
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %17, %19
   br i1 %20, label %.loopexit, label %.lr.ph.preheader
@@ -66,7 +66,7 @@ define dso_local noundef zeroext i1 @_Z22cmLinkLibrariesCommandRKSt6vectorINSt7_
   br i1 %23, label %24, label %51
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.sroa.070.080, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.070.080, i64 32
   %26 = load ptr, ptr %18, align 8
   %27 = icmp eq ptr %25, %26
   br i1 %27, label %28, label %38
@@ -91,7 +91,7 @@ define dso_local noundef zeroext i1 @_Z22cmLinkLibrariesCommandRKSt6vectorINSt7_
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc34
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.loopexit.sink.split unwind label %36
 
@@ -176,7 +176,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45: ; 
   br i1 %53, label %54, label %81
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %.sroa.070.080, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.070.080, i64 32
   %56 = load ptr, ptr %18, align 8
   %57 = icmp eq ptr %55, %56
   br i1 %57, label %58, label %68
@@ -201,7 +201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45: ; 
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50: ; preds = %.noexc47
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %.loopexit.sink.split unwind label %66
 
@@ -319,7 +319,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit67: ; 
 85:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit67
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #8
-  %86 = getelementptr inbounds i8, ptr %.sroa.070.1, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.070.1, i64 32
   %87 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %86, %87
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !5

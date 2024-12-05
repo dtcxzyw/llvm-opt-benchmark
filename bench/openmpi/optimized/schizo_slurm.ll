@@ -86,15 +86,15 @@ define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 zeroext %2) #0
   br label %.loopexit39
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %1, i64 240
-  %14 = getelementptr inbounds i8, ptr %1, i64 360
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %.013.i = load ptr, ptr %14, align 8
   %.not14.i = icmp eq ptr %.013.i, %13
   br i1 %.not14.i, label %convert_results.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %26
   %.015.i = phi ptr [ %.0.i, %26 ], [ %.013.i, %12 ]
-  %15 = getelementptr inbounds i8, ptr %.015.i, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %.015.i, i64 144
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(7) @.str.16) #7
   %18 = icmp eq i32 %17, 0
@@ -118,7 +118,7 @@ define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 zeroext %2) #0
   br label %26
 
 26:                                               ; preds = %.sink.split.i, %22
-  %27 = getelementptr inbounds i8, ptr %.015.i, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %.015.i, i64 120
   %.0.i = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %.0.i, %13
   br i1 %.not.i, label %convert_results.exit.loopexit, label %.lr.ph.i, !llvm.loop !4
@@ -134,14 +134,14 @@ convert_results.exit:                             ; preds = %convert_results.exi
 
 .lr.ph48:                                         ; preds = %convert_results.exit, %.loopexit
   %.047 = phi ptr [ %.0, %.loopexit ], [ %.045, %convert_results.exit ]
-  %28 = getelementptr inbounds i8, ptr %.047, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %.047, i64 144
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(8) @.str.7) #7
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.preheader, label %39
 
 .preheader:                                       ; preds = %.lr.ph48
-  %32 = getelementptr inbounds i8, ptr %.047, i64 152
+  %32 = getelementptr inbounds nuw i8, ptr %.047, i64 152
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
   %.not3642 = icmp eq ptr %34, null
@@ -153,7 +153,7 @@ convert_results.exit:                             ; preds = %convert_results.exi
   tail call void @prte_schizo_base_expose(ptr noundef nonnull %35, ptr noundef nonnull @.str.8) #8
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %36 = load ptr, ptr %32, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv.next52
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.next52
   %38 = load ptr, ptr %37, align 8
   %.not36 = icmp eq ptr %38, null
   br i1 %.not36, label %.loopexit, label %.lr.ph44, !llvm.loop !6
@@ -164,7 +164,7 @@ convert_results.exit:                             ; preds = %convert_results.exi
   br i1 %41, label %.preheader37, label %.loopexit
 
 .preheader37:                                     ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.047, i64 152
+  %42 = getelementptr inbounds nuw i8, ptr %.047, i64 152
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %.not3540 = icmp eq ptr %44, null
@@ -176,13 +176,13 @@ convert_results.exit:                             ; preds = %convert_results.exi
   tail call void @prte_schizo_base_expose(ptr noundef nonnull %45, ptr noundef nonnull @.str.10) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load ptr, ptr %42, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv.next
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.next
   %48 = load ptr, ptr %47, align 8
   %.not35 = icmp eq ptr %48, null
   br i1 %.not35, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph44, %.preheader37, %.preheader, %39
-  %49 = getelementptr inbounds i8, ptr %.047, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %.047, i64 120
   %.0 = load ptr, ptr %49, align 8
   %.not34 = icmp eq ptr %.0, %13
   br i1 %.not34, label %.loopexit39, label %.lr.ph48, !llvm.loop !8
@@ -205,7 +205,7 @@ define internal i32 @detect_proxy(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %4, i32 2
+  %5 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %4, i32 2
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 1
   br i1 %7, label %8, label %13
@@ -254,22 +254,22 @@ define internal i32 @detect_proxy(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @allow_run_as_root(ptr noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 240
-  %3 = getelementptr inbounds i8, ptr %0, i64 360
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %.01.i.i = load ptr, ptr %3, align 8
   %.not2.i.i = icmp eq ptr %.01.i.i, %2
   br i1 %.not2.i.i, label %pmix_cmd_line_is_taken.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %8
   %.03.i.i = phi ptr [ %.0.i.i, %8 ], [ %.01.i.i, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.03.i.i, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(18) @.str.28) #7
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %.lr.ph.i.i
-  %9 = getelementptr inbounds i8, ptr %.03.i.i, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 120
   %.0.i.i = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, %2
   br i1 %.not.i.i, label %pmix_cmd_line_is_taken.exit, label %.lr.ph.i.i, !llvm.loop !9
@@ -294,7 +294,7 @@ sub_0:                                            ; preds = %12
   br i1 %.not12, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %15 = getelementptr inbounds i8, ptr %11, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %sub_09, label %.tail.thread
@@ -305,7 +305,7 @@ sub_09:                                           ; preds = %.tail
   br i1 %.not13, label %.tail8, label %.tail.thread
 
 .tail8:                                           ; preds = %sub_09
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %.tail.thread

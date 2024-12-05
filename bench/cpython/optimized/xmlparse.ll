@@ -374,7 +374,7 @@ define hidden ptr @PyExpat_XML_ParserCreateNS(ptr noundef %encodingName, i8 noun
 entry:
   %tmp = alloca [2 x i8], align 1
   store i8 %nsSep, ptr %tmp, align 1
-  %arrayinit.element = getelementptr inbounds i8, ptr %tmp, i64 1
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %tmp, i64 1
   store i8 0, ptr %arrayinit.element, align 1
   %call.i = call fastcc ptr @parserCreate(ptr noundef %encodingName, ptr noundef null, ptr noundef nonnull %tmp, ptr noundef null)
   ret ptr %call.i
@@ -393,14 +393,14 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %m_mem = getelementptr inbounds i8, ptr %call, i64 24
+  %m_mem = getelementptr inbounds nuw i8, ptr %call, i64 24
   %1 = load ptr, ptr %memsuite, align 8
   store ptr %1, ptr %m_mem, align 8
-  %realloc_fcn = getelementptr inbounds i8, ptr %memsuite, i64 8
+  %realloc_fcn = getelementptr inbounds nuw i8, ptr %memsuite, i64 8
   %2 = load ptr, ptr %realloc_fcn, align 8
-  %realloc_fcn4 = getelementptr inbounds i8, ptr %call, i64 32
+  %realloc_fcn4 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %2, ptr %realloc_fcn4, align 8
-  %free_fcn = getelementptr inbounds i8, ptr %memsuite, i64 16
+  %free_fcn = getelementptr inbounds nuw i8, ptr %memsuite, i64 16
   %3 = load ptr, ptr %free_fcn, align 8
   br label %if.end18
 
@@ -410,9 +410,9 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.else
-  %m_mem10 = getelementptr inbounds i8, ptr %call7, i64 24
+  %m_mem10 = getelementptr inbounds nuw i8, ptr %call7, i64 24
   store ptr @malloc, ptr %m_mem10, align 8
-  %realloc_fcn12 = getelementptr inbounds i8, ptr %call7, i64 32
+  %realloc_fcn12 = getelementptr inbounds nuw i8, ptr %call7, i64 32
   store ptr @realloc, ptr %realloc_fcn12, align 8
   br label %if.end18
 
@@ -420,23 +420,23 @@ if.end18:                                         ; preds = %if.then1, %if.then9
   %call.sink = phi ptr [ %call, %if.then1 ], [ %call7, %if.then9 ]
   %.sink = phi ptr [ %3, %if.then1 ], [ @free, %if.then9 ]
   %4 = phi ptr [ %1, %if.then1 ], [ @malloc, %if.then9 ]
-  %free_fcn5 = getelementptr inbounds i8, ptr %call.sink, i64 40
+  %free_fcn5 = getelementptr inbounds nuw i8, ptr %call.sink, i64 40
   store ptr %.sink, ptr %free_fcn5, align 8
-  %m_buffer = getelementptr inbounds i8, ptr %call.sink, i64 16
+  %m_buffer = getelementptr inbounds nuw i8, ptr %call.sink, i64 16
   store ptr null, ptr %m_buffer, align 8
-  %m_bufferLim = getelementptr inbounds i8, ptr %call.sink, i64 64
+  %m_bufferLim = getelementptr inbounds nuw i8, ptr %call.sink, i64 64
   store ptr null, ptr %m_bufferLim, align 8
-  %m_attsSize = getelementptr inbounds i8, ptr %call.sink, i64 720
+  %m_attsSize = getelementptr inbounds nuw i8, ptr %call.sink, i64 720
   store i32 16, ptr %m_attsSize, align 8
-  %m_mem19 = getelementptr inbounds i8, ptr %call.sink, i64 24
+  %m_mem19 = getelementptr inbounds nuw i8, ptr %call.sink, i64 24
   %call22 = tail call ptr %4(i64 noundef 512) #25
-  %m_atts = getelementptr inbounds i8, ptr %call.sink, i64 736
+  %m_atts = getelementptr inbounds nuw i8, ptr %call.sink, i64 736
   store ptr %call22, ptr %m_atts, align 8
   %cmp24 = icmp eq ptr %call22, null
   br i1 %cmp24, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %if.end18
-  %free_fcn28 = getelementptr inbounds i8, ptr %call.sink, i64 40
+  %free_fcn28 = getelementptr inbounds nuw i8, ptr %call.sink, i64 40
   %5 = load ptr, ptr %free_fcn28, align 8
   tail call void %5(ptr noundef nonnull %call.sink) #25
   br label %return
@@ -444,13 +444,13 @@ if.then26:                                        ; preds = %if.end18
 if.end29:                                         ; preds = %if.end18
   %6 = load ptr, ptr %m_mem19, align 8
   %call32 = tail call ptr %6(i64 noundef 1024) #25
-  %m_dataBuf = getelementptr inbounds i8, ptr %call.sink, i64 88
+  %m_dataBuf = getelementptr inbounds nuw i8, ptr %call.sink, i64 88
   store ptr %call32, ptr %m_dataBuf, align 8
   %cmp34 = icmp eq ptr %call32, null
   br i1 %cmp34, label %if.then36, label %if.end42
 
 if.then36:                                        ; preds = %if.end29
-  %free_fcn38 = getelementptr inbounds i8, ptr %call.sink, i64 40
+  %free_fcn38 = getelementptr inbounds nuw i8, ptr %call.sink, i64 40
   %7 = load ptr, ptr %free_fcn38, align 8
   %8 = load ptr, ptr %m_atts, align 8
   tail call void %7(ptr noundef %8) #25
@@ -460,7 +460,7 @@ if.then36:                                        ; preds = %if.end29
 
 if.end42:                                         ; preds = %if.end29
   %add.ptr = getelementptr i8, ptr %call32, i64 1024
-  %m_dataBufEnd = getelementptr inbounds i8, ptr %call.sink, i64 96
+  %m_dataBufEnd = getelementptr inbounds nuw i8, ptr %call.sink, i64 96
   store ptr %add.ptr, ptr %m_dataBufEnd, align 8
   %tobool44.not = icmp eq ptr %dtd, null
   br i1 %tobool44.not, label %if.else46, label %if.end63
@@ -472,71 +472,71 @@ if.else46:                                        ; preds = %if.end42
   br i1 %cmp.i, label %if.then53, label %dtdCreate.exit
 
 dtdCreate.exit:                                   ; preds = %if.else46
-  %pool.i = getelementptr inbounds i8, ptr %call.i, i64 160
-  %mem.i.i = getelementptr inbounds i8, ptr %call.i, i64 200
+  %pool.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
+  %mem.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %pool.i, i8 0, i64 40, i1 false)
   store ptr %m_mem19, ptr %mem.i.i, align 8
-  %entityValuePool.i = getelementptr inbounds i8, ptr %call.i, i64 208
-  %mem.i30.i = getelementptr inbounds i8, ptr %call.i, i64 248
+  %entityValuePool.i = getelementptr inbounds nuw i8, ptr %call.i, i64 208
+  %mem.i30.i = getelementptr inbounds nuw i8, ptr %call.i, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %entityValuePool.i, i8 0, i64 40, i1 false)
   store ptr %m_mem19, ptr %mem.i30.i, align 8
-  %power.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %power.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i8 0, ptr %power.i.i, align 8
-  %size.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %size.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr null, ptr %call.i, align 8
-  %mem.i31.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %mem.i31.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i31.i, align 8
-  %elementTypes.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  %power.i32.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %elementTypes.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
+  %power.i32.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store i8 0, ptr %power.i32.i, align 8
-  %size.i33.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %size.i33.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store ptr null, ptr %elementTypes.i, align 8
-  %mem.i34.i = getelementptr inbounds i8, ptr %call.i, i64 72
+  %mem.i34.i = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i33.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i34.i, align 8
-  %attributeIds.i = getelementptr inbounds i8, ptr %call.i, i64 80
-  %power.i35.i = getelementptr inbounds i8, ptr %call.i, i64 88
+  %attributeIds.i = getelementptr inbounds nuw i8, ptr %call.i, i64 80
+  %power.i35.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   store i8 0, ptr %power.i35.i, align 8
-  %size.i36.i = getelementptr inbounds i8, ptr %call.i, i64 96
+  %size.i36.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr null, ptr %attributeIds.i, align 8
-  %mem.i37.i = getelementptr inbounds i8, ptr %call.i, i64 112
+  %mem.i37.i = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i36.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i37.i, align 8
-  %prefixes.i = getelementptr inbounds i8, ptr %call.i, i64 120
-  %power.i38.i = getelementptr inbounds i8, ptr %call.i, i64 128
+  %prefixes.i = getelementptr inbounds nuw i8, ptr %call.i, i64 120
+  %power.i38.i = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store i8 0, ptr %power.i38.i, align 8
-  %size.i39.i = getelementptr inbounds i8, ptr %call.i, i64 136
+  %size.i39.i = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr null, ptr %prefixes.i, align 8
-  %mem.i40.i = getelementptr inbounds i8, ptr %call.i, i64 152
+  %mem.i40.i = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i39.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i40.i, align 8
-  %paramEntityRead.i = getelementptr inbounds i8, ptr %call.i, i64 259
+  %paramEntityRead.i = getelementptr inbounds nuw i8, ptr %call.i, i64 259
   store i8 0, ptr %paramEntityRead.i, align 1
-  %paramEntities.i = getelementptr inbounds i8, ptr %call.i, i64 264
-  %power.i41.i = getelementptr inbounds i8, ptr %call.i, i64 272
+  %paramEntities.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
+  %power.i41.i = getelementptr inbounds nuw i8, ptr %call.i, i64 272
   store i8 0, ptr %power.i41.i, align 8
-  %size.i42.i = getelementptr inbounds i8, ptr %call.i, i64 280
+  %size.i42.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   store ptr null, ptr %paramEntities.i, align 8
-  %mem.i43.i = getelementptr inbounds i8, ptr %call.i, i64 296
+  %mem.i43.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %size.i42.i, i8 0, i64 16, i1 false)
   store ptr %m_mem19, ptr %mem.i43.i, align 8
-  %defaultPrefix.i = getelementptr inbounds i8, ptr %call.i, i64 304
-  %scaffold.i = getelementptr inbounds i8, ptr %call.i, i64 328
-  %keepProcessing.i = getelementptr inbounds i8, ptr %call.i, i64 256
+  %defaultPrefix.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
+  %scaffold.i = getelementptr inbounds nuw i8, ptr %call.i, i64 328
+  %keepProcessing.i = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %defaultPrefix.i, i8 0, i64 17, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scaffold.i, i8 0, i64 32, i1 false)
   store i8 1, ptr %keepProcessing.i, align 8
-  %hasParamEntityRefs.i = getelementptr inbounds i8, ptr %call.i, i64 257
+  %hasParamEntityRefs.i = getelementptr inbounds nuw i8, ptr %call.i, i64 257
   store i8 0, ptr %hasParamEntityRefs.i, align 1
-  %standalone.i = getelementptr inbounds i8, ptr %call.i, i64 258
+  %standalone.i = getelementptr inbounds nuw i8, ptr %call.i, i64 258
   store i8 0, ptr %standalone.i, align 2
   br label %if.end63
 
 if.then53:                                        ; preds = %if.else46
-  %m_dtd4976 = getelementptr inbounds i8, ptr %call.sink, i64 672
+  %m_dtd4976 = getelementptr inbounds nuw i8, ptr %call.sink, i64 672
   store ptr null, ptr %m_dtd4976, align 8
-  %free_fcn55 = getelementptr inbounds i8, ptr %call.sink, i64 40
+  %free_fcn55 = getelementptr inbounds nuw i8, ptr %call.sink, i64 40
   %11 = load ptr, ptr %free_fcn55, align 8
   %12 = load ptr, ptr %m_dataBuf, align 8
   tail call void %11(ptr noundef %12) #25
@@ -549,38 +549,38 @@ if.then53:                                        ; preds = %if.else46
 
 if.end63:                                         ; preds = %if.end42, %dtdCreate.exit
   %call.i.sink = phi ptr [ %call.i, %dtdCreate.exit ], [ %dtd, %if.end42 ]
-  %m_dtd49 = getelementptr inbounds i8, ptr %call.sink, i64 672
+  %m_dtd49 = getelementptr inbounds nuw i8, ptr %call.sink, i64 672
   store ptr %call.i.sink, ptr %m_dtd49, align 8
-  %m_freeBindingList = getelementptr inbounds i8, ptr %call.sink, i64 712
+  %m_freeBindingList = getelementptr inbounds nuw i8, ptr %call.sink, i64 712
   store ptr null, ptr %m_freeBindingList, align 8
-  %m_freeTagList = getelementptr inbounds i8, ptr %call.sink, i64 696
+  %m_freeTagList = getelementptr inbounds nuw i8, ptr %call.sink, i64 696
   store ptr null, ptr %m_freeTagList, align 8
-  %m_freeInternalEntities = getelementptr inbounds i8, ptr %call.sink, i64 576
+  %m_freeInternalEntities = getelementptr inbounds nuw i8, ptr %call.sink, i64 576
   store ptr null, ptr %m_freeInternalEntities, align 8
-  %m_groupSize = getelementptr inbounds i8, ptr %call.sink, i64 888
+  %m_groupSize = getelementptr inbounds nuw i8, ptr %call.sink, i64 888
   store i32 0, ptr %m_groupSize, align 8
-  %m_groupConnector = getelementptr inbounds i8, ptr %call.sink, i64 880
+  %m_groupConnector = getelementptr inbounds nuw i8, ptr %call.sink, i64 880
   store ptr null, ptr %m_groupConnector, align 8
-  %m_unknownEncodingHandler = getelementptr inbounds i8, ptr %call.sink, i64 248
+  %m_unknownEncodingHandler = getelementptr inbounds nuw i8, ptr %call.sink, i64 248
   store ptr null, ptr %m_unknownEncodingHandler, align 8
-  %m_unknownEncodingHandlerData = getelementptr inbounds i8, ptr %call.sink, i64 480
+  %m_unknownEncodingHandlerData = getelementptr inbounds nuw i8, ptr %call.sink, i64 480
   store ptr null, ptr %m_unknownEncodingHandlerData, align 8
-  %m_namespaceSeparator = getelementptr inbounds i8, ptr %call.sink, i64 892
+  %m_namespaceSeparator = getelementptr inbounds nuw i8, ptr %call.sink, i64 892
   store i8 33, ptr %m_namespaceSeparator, align 4
-  %m_ns = getelementptr inbounds i8, ptr %call.sink, i64 456
+  %m_ns = getelementptr inbounds nuw i8, ptr %call.sink, i64 456
   store i8 0, ptr %m_ns, align 8
-  %m_ns_triplets = getelementptr inbounds i8, ptr %call.sink, i64 457
+  %m_ns_triplets = getelementptr inbounds nuw i8, ptr %call.sink, i64 457
   store i8 0, ptr %m_ns_triplets, align 1
-  %m_nsAtts = getelementptr inbounds i8, ptr %call.sink, i64 744
-  %m_protocolEncodingName = getelementptr inbounds i8, ptr %call.sink, i64 448
+  %m_nsAtts = getelementptr inbounds nuw i8, ptr %call.sink, i64 744
+  %m_protocolEncodingName = getelementptr inbounds nuw i8, ptr %call.sink, i64 448
   store ptr null, ptr %m_protocolEncodingName, align 8
-  %m_tempPool = getelementptr inbounds i8, ptr %call.sink, i64 784
-  %mem.i = getelementptr inbounds i8, ptr %call.sink, i64 824
+  %m_tempPool = getelementptr inbounds nuw i8, ptr %call.sink, i64 784
+  %mem.i = getelementptr inbounds nuw i8, ptr %call.sink, i64 824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_tempPool, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %m_nsAtts, i8 0, i64 17, i1 false)
   store ptr %m_mem19, ptr %mem.i, align 8
-  %m_temp2Pool = getelementptr inbounds i8, ptr %call.sink, i64 832
-  %mem.i73 = getelementptr inbounds i8, ptr %call.sink, i64 872
+  %m_temp2Pool = getelementptr inbounds nuw i8, ptr %call.sink, i64 832
+  %mem.i73 = getelementptr inbounds nuw i8, ptr %call.sink, i64 872
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %m_temp2Pool, i8 0, i64 40, i1 false)
   store ptr %m_mem19, ptr %mem.i73, align 8
   tail call fastcc void @parserInit(ptr noundef %call.sink, ptr noundef %encodingName)
@@ -596,7 +596,7 @@ if.then69:                                        ; preds = %land.lhs.true
   br i1 %tobool44.not, label %if.end73, label %if.then71
 
 if.then71:                                        ; preds = %if.then69
-  %m_dtd72 = getelementptr inbounds i8, ptr %call.sink, i64 672
+  %m_dtd72 = getelementptr inbounds nuw i8, ptr %call.sink, i64 672
   store ptr null, ptr %m_dtd72, align 8
   br label %if.end73
 
@@ -611,7 +611,7 @@ if.end74:                                         ; preds = %land.lhs.true, %if.
 if.then76:                                        ; preds = %if.end74
   store i8 1, ptr %m_ns, align 8
   %call78 = tail call ptr @PyExpat_XmlGetUtf8InternalEncodingNS() #25
-  %m_internalEncoding = getelementptr inbounds i8, ptr %call.sink, i64 440
+  %m_internalEncoding = getelementptr inbounds nuw i8, ptr %call.sink, i64 440
   store ptr %call78, ptr %m_internalEncoding, align 8
   %17 = load i8, ptr %nameSep, align 1
   store i8 %17, ptr %m_namespaceSeparator, align 4
@@ -619,7 +619,7 @@ if.then76:                                        ; preds = %if.end74
 
 if.else80:                                        ; preds = %if.end74
   %call81 = tail call ptr @PyExpat_XmlGetUtf8InternalEncoding() #25
-  %m_internalEncoding82 = getelementptr inbounds i8, ptr %call.sink, i64 440
+  %m_internalEncoding82 = getelementptr inbounds nuw i8, ptr %call.sink, i64 440
   store ptr %call81, ptr %m_internalEncoding82, align 8
   br label %return
 
@@ -635,20 +635,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
+  %m_parentParser = getelementptr inbounds nuw i8, ptr %parser, i64 896
   %0 = load ptr, ptr %m_parentParser, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
-  %m_tagStack = getelementptr inbounds i8, ptr %parser, i64 688
+  %m_tagStack = getelementptr inbounds nuw i8, ptr %parser, i64 688
   %1 = load ptr, ptr %m_tagStack, align 8
   %tobool3.not53 = icmp eq ptr %1, null
   br i1 %tobool3.not53, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end2
-  %m_freeTagList = getelementptr inbounds i8, ptr %parser, i64 696
-  %m_freeBindingList.i = getelementptr inbounds i8, ptr %parser, i64 712
+  %m_freeTagList = getelementptr inbounds nuw i8, ptr %parser, i64 696
+  %m_freeBindingList.i = getelementptr inbounds nuw i8, ptr %parser, i64 712
   %.pre = load ptr, ptr %m_freeTagList, align 8
   br label %while.body
 
@@ -657,7 +657,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %tStk.054 = phi ptr [ %1, %while.body.lr.ph ], [ %3, %moveToFreeBindingList.exit ]
   %3 = load ptr, ptr %tStk.054, align 8
   store ptr %2, ptr %tStk.054, align 8
-  %bindings = getelementptr inbounds i8, ptr %tStk.054, i64 80
+  %bindings = getelementptr inbounds nuw i8, ptr %tStk.054, i64 80
   %4 = load ptr, ptr %bindings, align 8
   %tobool.not5.i = icmp eq ptr %4, null
   br i1 %tobool.not5.i, label %moveToFreeBindingList.exit, label %while.body.lr.ph.i
@@ -669,7 +669,7 @@ while.body.lr.ph.i:                               ; preds = %while.body
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %5 = phi ptr [ %.pre.i, %while.body.lr.ph.i ], [ %bindings.addr.06.i, %while.body.i ]
   %bindings.addr.06.i = phi ptr [ %4, %while.body.lr.ph.i ], [ %6, %while.body.i ]
-  %nextTagBinding.i = getelementptr inbounds i8, ptr %bindings.addr.06.i, i64 8
+  %nextTagBinding.i = getelementptr inbounds nuw i8, ptr %bindings.addr.06.i, i64 8
   %6 = load ptr, ptr %nextTagBinding.i, align 8
   store ptr %5, ptr %nextTagBinding.i, align 8
   store ptr %bindings.addr.06.i, ptr %m_freeBindingList.i, align 8
@@ -683,20 +683,20 @@ moveToFreeBindingList.exit:                       ; preds = %while.body.i, %whil
   br i1 %tobool3.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %moveToFreeBindingList.exit, %if.end2
-  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %7 = load ptr, ptr %m_openInternalEntities, align 8
   %tobool8.not55 = icmp eq ptr %7, null
   br i1 %tobool8.not55, label %while.end12, label %while.body9.lr.ph
 
 while.body9.lr.ph:                                ; preds = %while.end
-  %m_freeInternalEntities = getelementptr inbounds i8, ptr %parser, i64 576
+  %m_freeInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 576
   %.pre57 = load ptr, ptr %m_freeInternalEntities, align 8
   br label %while.body9
 
 while.body9:                                      ; preds = %while.body9.lr.ph, %while.body9
   %8 = phi ptr [ %.pre57, %while.body9.lr.ph ], [ %openEntityList.056, %while.body9 ]
   %openEntityList.056 = phi ptr [ %7, %while.body9.lr.ph ], [ %9, %while.body9 ]
-  %next = getelementptr inbounds i8, ptr %openEntityList.056, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %openEntityList.056, i64 16
   %9 = load ptr, ptr %next, align 8
   store ptr %8, ptr %next, align 8
   store ptr %openEntityList.056, ptr %m_freeInternalEntities, align 8
@@ -704,20 +704,20 @@ while.body9:                                      ; preds = %while.body9.lr.ph, 
   br i1 %tobool8.not, label %while.end12, label %while.body9, !llvm.loop !7
 
 while.end12:                                      ; preds = %while.body9, %while.end
-  %m_inheritedBindings = getelementptr inbounds i8, ptr %parser, i64 704
+  %m_inheritedBindings = getelementptr inbounds nuw i8, ptr %parser, i64 704
   %10 = load ptr, ptr %m_inheritedBindings, align 8
   %tobool.not5.i32 = icmp eq ptr %10, null
   br i1 %tobool.not5.i32, label %moveToFreeBindingList.exit40, label %while.body.lr.ph.i33
 
 while.body.lr.ph.i33:                             ; preds = %while.end12
-  %m_freeBindingList.i34 = getelementptr inbounds i8, ptr %parser, i64 712
+  %m_freeBindingList.i34 = getelementptr inbounds nuw i8, ptr %parser, i64 712
   %.pre.i35 = load ptr, ptr %m_freeBindingList.i34, align 8
   br label %while.body.i36
 
 while.body.i36:                                   ; preds = %while.body.i36, %while.body.lr.ph.i33
   %11 = phi ptr [ %.pre.i35, %while.body.lr.ph.i33 ], [ %bindings.addr.06.i37, %while.body.i36 ]
   %bindings.addr.06.i37 = phi ptr [ %10, %while.body.lr.ph.i33 ], [ %12, %while.body.i36 ]
-  %nextTagBinding.i38 = getelementptr inbounds i8, ptr %bindings.addr.06.i37, i64 8
+  %nextTagBinding.i38 = getelementptr inbounds nuw i8, ptr %bindings.addr.06.i37, i64 8
   %12 = load ptr, ptr %nextTagBinding.i38, align 8
   store ptr %11, ptr %nextTagBinding.i38, align 8
   store ptr %bindings.addr.06.i37, ptr %m_freeBindingList.i34, align 8
@@ -725,25 +725,25 @@ while.body.i36:                                   ; preds = %while.body.i36, %wh
   br i1 %tobool.not.i39, label %moveToFreeBindingList.exit40, label %while.body.i36, !llvm.loop !4
 
 moveToFreeBindingList.exit40:                     ; preds = %while.body.i36, %while.end12
-  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
+  %free_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 40
   %13 = load ptr, ptr %free_fcn, align 8
-  %m_unknownEncodingMem = getelementptr inbounds i8, ptr %parser, i64 464
+  %m_unknownEncodingMem = getelementptr inbounds nuw i8, ptr %parser, i64 464
   %14 = load ptr, ptr %m_unknownEncodingMem, align 8
   tail call void %13(ptr noundef %14) #25
-  %m_unknownEncodingRelease = getelementptr inbounds i8, ptr %parser, i64 488
+  %m_unknownEncodingRelease = getelementptr inbounds nuw i8, ptr %parser, i64 488
   %15 = load ptr, ptr %m_unknownEncodingRelease, align 8
   %tobool13.not = icmp eq ptr %15, null
   br i1 %tobool13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %moveToFreeBindingList.exit40
-  %m_unknownEncodingData = getelementptr inbounds i8, ptr %parser, i64 472
+  %m_unknownEncodingData = getelementptr inbounds nuw i8, ptr %parser, i64 472
   %16 = load ptr, ptr %m_unknownEncodingData, align 8
   tail call void %15(ptr noundef %16) #25
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %moveToFreeBindingList.exit40
-  %m_tempPool = getelementptr inbounds i8, ptr %parser, i64 784
-  %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 792
+  %m_tempPool = getelementptr inbounds nuw i8, ptr %parser, i64 784
+  %freeBlocks.i = getelementptr inbounds nuw i8, ptr %parser, i64 792
   %17 = load ptr, ptr %freeBlocks.i, align 8
   %tobool.not.i41 = icmp eq ptr %17, null
   %18 = load ptr, ptr %m_tempPool, align 8
@@ -768,10 +768,10 @@ while.body.i42:                                   ; preds = %if.else.i, %while.b
 
 poolClear.exit:                                   ; preds = %while.body.i42, %if.then.i, %if.else.i
   store ptr null, ptr %m_tempPool, align 8
-  %end.i = getelementptr inbounds i8, ptr %parser, i64 800
+  %end.i = getelementptr inbounds nuw i8, ptr %parser, i64 800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i, i8 0, i64 24, i1 false)
-  %m_temp2Pool = getelementptr inbounds i8, ptr %parser, i64 832
-  %freeBlocks.i43 = getelementptr inbounds i8, ptr %parser, i64 840
+  %m_temp2Pool = getelementptr inbounds nuw i8, ptr %parser, i64 832
+  %freeBlocks.i43 = getelementptr inbounds nuw i8, ptr %parser, i64 840
   %21 = load ptr, ptr %freeBlocks.i43, align 8
   %tobool.not.i44 = icmp eq ptr %21, null
   %22 = load ptr, ptr %m_temp2Pool, align 8
@@ -796,23 +796,23 @@ while.body.i47:                                   ; preds = %if.else.i45, %while
 
 poolClear.exit52:                                 ; preds = %while.body.i47, %if.then.i51, %if.else.i45
   store ptr null, ptr %m_temp2Pool, align 8
-  %end.i50 = getelementptr inbounds i8, ptr %parser, i64 848
+  %end.i50 = getelementptr inbounds nuw i8, ptr %parser, i64 848
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i50, i8 0, i64 24, i1 false)
   %25 = load ptr, ptr %free_fcn, align 8
-  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
+  %m_protocolEncodingName = getelementptr inbounds nuw i8, ptr %parser, i64 448
   %26 = load ptr, ptr %m_protocolEncodingName, align 8
   tail call void %25(ptr noundef %26) #25
   store ptr null, ptr %m_protocolEncodingName, align 8
   tail call fastcc void @parserInit(ptr noundef %parser, ptr noundef %encodingName)
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %27 = load ptr, ptr %m_dtd, align 8
-  %elementTypes.i = getelementptr inbounds i8, ptr %27, i64 40
+  %elementTypes.i = getelementptr inbounds nuw i8, ptr %27, i64 40
   %28 = load ptr, ptr %elementTypes.i, align 8
   %tobool.not.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i, label %hashTableIterInit.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %poolClear.exit52
-  %size.i.i = getelementptr inbounds i8, ptr %27, i64 56
+  %size.i.i = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = load i64, ptr %size.i.i, align 8
   %add.ptr.i.i = getelementptr ptr, ptr %28, i64 %29
   br label %hashTableIterInit.exit.i
@@ -836,32 +836,32 @@ while.cond.i.i.backedge:                          ; preds = %while.body.i.i, %if
   br label %while.cond.i.i, !llvm.loop !9
 
 if.end.i:                                         ; preds = %while.body.i.i
-  %allocDefaultAtts.i = getelementptr inbounds i8, ptr %30, i64 28
+  %allocDefaultAtts.i = getelementptr inbounds nuw i8, ptr %30, i64 28
   %31 = load i32, ptr %allocDefaultAtts.i, align 4
   %cmp.not.i = icmp eq i32 %31, 0
   br i1 %cmp.not.i, label %while.cond.i.i.backedge, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
   %32 = load ptr, ptr %free_fcn, align 8
-  %defaultAtts.i = getelementptr inbounds i8, ptr %30, i64 32
+  %defaultAtts.i = getelementptr inbounds nuw i8, ptr %30, i64 32
   %33 = load ptr, ptr %defaultAtts.i, align 8
   tail call void %32(ptr noundef %33) #25
   br label %while.cond.i.i.backedge
 
 for.end.i:                                        ; preds = %while.cond.i.i
-  %size.i29.i = getelementptr inbounds i8, ptr %27, i64 16
+  %size.i29.i = getelementptr inbounds nuw i8, ptr %27, i64 16
   %34 = load i64, ptr %size.i29.i, align 8
   %cmp8.not.i.i = icmp eq i64 %34, 0
   br i1 %cmp8.not.i.i, label %hashTableClear.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.end.i
-  %mem.i.i = getelementptr inbounds i8, ptr %27, i64 32
+  %mem.i.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %i.09.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
   %35 = load ptr, ptr %mem.i.i, align 8
-  %free_fcn.i.i = getelementptr inbounds i8, ptr %35, i64 16
+  %free_fcn.i.i = getelementptr inbounds nuw i8, ptr %35, i64 16
   %36 = load ptr, ptr %free_fcn.i.i, align 8
   %37 = load ptr, ptr %27, align 8
   %arrayidx.i.i = getelementptr ptr, ptr %37, i64 %i.09.i.i
@@ -876,24 +876,24 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i, label %for.body.i.i, label %hashTableClear.exit.i, !llvm.loop !10
 
 hashTableClear.exit.i:                            ; preds = %for.body.i.i, %for.end.i
-  %used.i.i = getelementptr inbounds i8, ptr %27, i64 24
+  %used.i.i = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i64 0, ptr %used.i.i, align 8
-  %paramEntityRead.i = getelementptr inbounds i8, ptr %27, i64 259
+  %paramEntityRead.i = getelementptr inbounds nuw i8, ptr %27, i64 259
   store i8 0, ptr %paramEntityRead.i, align 1
-  %paramEntities.i = getelementptr inbounds i8, ptr %27, i64 264
-  %size.i30.i = getelementptr inbounds i8, ptr %27, i64 280
+  %paramEntities.i = getelementptr inbounds nuw i8, ptr %27, i64 264
+  %size.i30.i = getelementptr inbounds nuw i8, ptr %27, i64 280
   %41 = load i64, ptr %size.i30.i, align 8
   %cmp8.not.i31.i = icmp eq i64 %41, 0
   br i1 %cmp8.not.i31.i, label %hashTableClear.exit42.i, label %for.body.lr.ph.i32.i
 
 for.body.lr.ph.i32.i:                             ; preds = %hashTableClear.exit.i
-  %mem.i33.i = getelementptr inbounds i8, ptr %27, i64 296
+  %mem.i33.i = getelementptr inbounds nuw i8, ptr %27, i64 296
   br label %for.body.i34.i
 
 for.body.i34.i:                                   ; preds = %for.body.i34.i, %for.body.lr.ph.i32.i
   %i.09.i35.i = phi i64 [ 0, %for.body.lr.ph.i32.i ], [ %inc.i39.i, %for.body.i34.i ]
   %42 = load ptr, ptr %mem.i33.i, align 8
-  %free_fcn.i36.i = getelementptr inbounds i8, ptr %42, i64 16
+  %free_fcn.i36.i = getelementptr inbounds nuw i8, ptr %42, i64 16
   %43 = load ptr, ptr %free_fcn.i36.i, align 8
   %44 = load ptr, ptr %paramEntities.i, align 8
   %arrayidx.i37.i = getelementptr ptr, ptr %44, i64 %i.09.i35.i
@@ -908,21 +908,21 @@ for.body.i34.i:                                   ; preds = %for.body.i34.i, %fo
   br i1 %cmp.i40.i, label %for.body.i34.i, label %hashTableClear.exit42.i, !llvm.loop !10
 
 hashTableClear.exit42.i:                          ; preds = %for.body.i34.i, %hashTableClear.exit.i
-  %used.i41.i = getelementptr inbounds i8, ptr %27, i64 288
+  %used.i41.i = getelementptr inbounds nuw i8, ptr %27, i64 288
   store i64 0, ptr %used.i41.i, align 8
-  %size.i43.i = getelementptr inbounds i8, ptr %27, i64 56
+  %size.i43.i = getelementptr inbounds nuw i8, ptr %27, i64 56
   %48 = load i64, ptr %size.i43.i, align 8
   %cmp8.not.i44.i = icmp eq i64 %48, 0
   br i1 %cmp8.not.i44.i, label %hashTableClear.exit55.i, label %for.body.lr.ph.i45.i
 
 for.body.lr.ph.i45.i:                             ; preds = %hashTableClear.exit42.i
-  %mem.i46.i = getelementptr inbounds i8, ptr %27, i64 72
+  %mem.i46.i = getelementptr inbounds nuw i8, ptr %27, i64 72
   br label %for.body.i47.i
 
 for.body.i47.i:                                   ; preds = %for.body.i47.i, %for.body.lr.ph.i45.i
   %i.09.i48.i = phi i64 [ 0, %for.body.lr.ph.i45.i ], [ %inc.i52.i, %for.body.i47.i ]
   %49 = load ptr, ptr %mem.i46.i, align 8
-  %free_fcn.i49.i = getelementptr inbounds i8, ptr %49, i64 16
+  %free_fcn.i49.i = getelementptr inbounds nuw i8, ptr %49, i64 16
   %50 = load ptr, ptr %free_fcn.i49.i, align 8
   %51 = load ptr, ptr %elementTypes.i, align 8
   %arrayidx.i50.i = getelementptr ptr, ptr %51, i64 %i.09.i48.i
@@ -937,22 +937,22 @@ for.body.i47.i:                                   ; preds = %for.body.i47.i, %fo
   br i1 %cmp.i53.i, label %for.body.i47.i, label %hashTableClear.exit55.i, !llvm.loop !10
 
 hashTableClear.exit55.i:                          ; preds = %for.body.i47.i, %hashTableClear.exit42.i
-  %used.i54.i = getelementptr inbounds i8, ptr %27, i64 64
+  %used.i54.i = getelementptr inbounds nuw i8, ptr %27, i64 64
   store i64 0, ptr %used.i54.i, align 8
-  %attributeIds.i = getelementptr inbounds i8, ptr %27, i64 80
-  %size.i56.i = getelementptr inbounds i8, ptr %27, i64 96
+  %attributeIds.i = getelementptr inbounds nuw i8, ptr %27, i64 80
+  %size.i56.i = getelementptr inbounds nuw i8, ptr %27, i64 96
   %55 = load i64, ptr %size.i56.i, align 8
   %cmp8.not.i57.i = icmp eq i64 %55, 0
   br i1 %cmp8.not.i57.i, label %hashTableClear.exit68.i, label %for.body.lr.ph.i58.i
 
 for.body.lr.ph.i58.i:                             ; preds = %hashTableClear.exit55.i
-  %mem.i59.i = getelementptr inbounds i8, ptr %27, i64 112
+  %mem.i59.i = getelementptr inbounds nuw i8, ptr %27, i64 112
   br label %for.body.i60.i
 
 for.body.i60.i:                                   ; preds = %for.body.i60.i, %for.body.lr.ph.i58.i
   %i.09.i61.i = phi i64 [ 0, %for.body.lr.ph.i58.i ], [ %inc.i65.i, %for.body.i60.i ]
   %56 = load ptr, ptr %mem.i59.i, align 8
-  %free_fcn.i62.i = getelementptr inbounds i8, ptr %56, i64 16
+  %free_fcn.i62.i = getelementptr inbounds nuw i8, ptr %56, i64 16
   %57 = load ptr, ptr %free_fcn.i62.i, align 8
   %58 = load ptr, ptr %attributeIds.i, align 8
   %arrayidx.i63.i = getelementptr ptr, ptr %58, i64 %i.09.i61.i
@@ -967,22 +967,22 @@ for.body.i60.i:                                   ; preds = %for.body.i60.i, %fo
   br i1 %cmp.i66.i, label %for.body.i60.i, label %hashTableClear.exit68.i, !llvm.loop !10
 
 hashTableClear.exit68.i:                          ; preds = %for.body.i60.i, %hashTableClear.exit55.i
-  %used.i67.i = getelementptr inbounds i8, ptr %27, i64 104
+  %used.i67.i = getelementptr inbounds nuw i8, ptr %27, i64 104
   store i64 0, ptr %used.i67.i, align 8
-  %prefixes.i = getelementptr inbounds i8, ptr %27, i64 120
-  %size.i69.i = getelementptr inbounds i8, ptr %27, i64 136
+  %prefixes.i = getelementptr inbounds nuw i8, ptr %27, i64 120
+  %size.i69.i = getelementptr inbounds nuw i8, ptr %27, i64 136
   %62 = load i64, ptr %size.i69.i, align 8
   %cmp8.not.i70.i = icmp eq i64 %62, 0
   br i1 %cmp8.not.i70.i, label %hashTableClear.exit81.i, label %for.body.lr.ph.i71.i
 
 for.body.lr.ph.i71.i:                             ; preds = %hashTableClear.exit68.i
-  %mem.i72.i = getelementptr inbounds i8, ptr %27, i64 152
+  %mem.i72.i = getelementptr inbounds nuw i8, ptr %27, i64 152
   br label %for.body.i73.i
 
 for.body.i73.i:                                   ; preds = %for.body.i73.i, %for.body.lr.ph.i71.i
   %i.09.i74.i = phi i64 [ 0, %for.body.lr.ph.i71.i ], [ %inc.i78.i, %for.body.i73.i ]
   %63 = load ptr, ptr %mem.i72.i, align 8
-  %free_fcn.i75.i = getelementptr inbounds i8, ptr %63, i64 16
+  %free_fcn.i75.i = getelementptr inbounds nuw i8, ptr %63, i64 16
   %64 = load ptr, ptr %free_fcn.i75.i, align 8
   %65 = load ptr, ptr %prefixes.i, align 8
   %arrayidx.i76.i = getelementptr ptr, ptr %65, i64 %i.09.i74.i
@@ -997,10 +997,10 @@ for.body.i73.i:                                   ; preds = %for.body.i73.i, %fo
   br i1 %cmp.i79.i, label %for.body.i73.i, label %hashTableClear.exit81.i, !llvm.loop !10
 
 hashTableClear.exit81.i:                          ; preds = %for.body.i73.i, %hashTableClear.exit68.i
-  %used.i80.i = getelementptr inbounds i8, ptr %27, i64 144
+  %used.i80.i = getelementptr inbounds nuw i8, ptr %27, i64 144
   store i64 0, ptr %used.i80.i, align 8
-  %pool.i = getelementptr inbounds i8, ptr %27, i64 160
-  %freeBlocks.i.i = getelementptr inbounds i8, ptr %27, i64 168
+  %pool.i = getelementptr inbounds nuw i8, ptr %27, i64 160
+  %freeBlocks.i.i = getelementptr inbounds nuw i8, ptr %27, i64 168
   %69 = load ptr, ptr %freeBlocks.i.i, align 8
   %tobool.not.i82.i = icmp eq ptr %69, null
   %70 = load ptr, ptr %pool.i, align 8
@@ -1025,10 +1025,10 @@ while.body.i83.i:                                 ; preds = %if.else.i.i, %while
 
 poolClear.exit.i:                                 ; preds = %while.body.i83.i, %if.else.i.i, %if.then.i.i
   store ptr null, ptr %pool.i, align 8
-  %end.i84.i = getelementptr inbounds i8, ptr %27, i64 176
+  %end.i84.i = getelementptr inbounds nuw i8, ptr %27, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i84.i, i8 0, i64 24, i1 false)
-  %entityValuePool.i = getelementptr inbounds i8, ptr %27, i64 208
-  %freeBlocks.i85.i = getelementptr inbounds i8, ptr %27, i64 216
+  %entityValuePool.i = getelementptr inbounds nuw i8, ptr %27, i64 208
+  %freeBlocks.i85.i = getelementptr inbounds nuw i8, ptr %27, i64 216
   %73 = load ptr, ptr %freeBlocks.i85.i, align 8
   %tobool.not.i86.i = icmp eq ptr %73, null
   %74 = load ptr, ptr %entityValuePool.i, align 8
@@ -1053,25 +1053,25 @@ while.body.i89.i:                                 ; preds = %if.else.i87.i, %whi
 
 dtdReset.exit:                                    ; preds = %while.body.i89.i, %if.then.i93.i, %if.else.i87.i
   store ptr null, ptr %entityValuePool.i, align 8
-  %end.i92.i = getelementptr inbounds i8, ptr %27, i64 224
+  %end.i92.i = getelementptr inbounds nuw i8, ptr %27, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i92.i, i8 0, i64 24, i1 false)
-  %defaultPrefix.i = getelementptr inbounds i8, ptr %27, i64 304
+  %defaultPrefix.i = getelementptr inbounds nuw i8, ptr %27, i64 304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %defaultPrefix.i, i8 0, i64 17, i1 false)
   %77 = load ptr, ptr %free_fcn, align 8
-  %scaffIndex.i = getelementptr inbounds i8, ptr %27, i64 352
+  %scaffIndex.i = getelementptr inbounds nuw i8, ptr %27, i64 352
   %78 = load ptr, ptr %scaffIndex.i, align 8
   tail call void %77(ptr noundef %78) #25
   store ptr null, ptr %scaffIndex.i, align 8
   %79 = load ptr, ptr %free_fcn, align 8
-  %scaffold.i = getelementptr inbounds i8, ptr %27, i64 328
+  %scaffold.i = getelementptr inbounds nuw i8, ptr %27, i64 328
   %80 = load ptr, ptr %scaffold.i, align 8
   tail call void %79(ptr noundef %80) #25
-  %keepProcessing.i = getelementptr inbounds i8, ptr %27, i64 256
+  %keepProcessing.i = getelementptr inbounds nuw i8, ptr %27, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scaffold.i, i8 0, i64 24, i1 false)
   store i8 1, ptr %keepProcessing.i, align 8
-  %hasParamEntityRefs.i = getelementptr inbounds i8, ptr %27, i64 257
+  %hasParamEntityRefs.i = getelementptr inbounds nuw i8, ptr %27, i64 257
   store i8 0, ptr %hasParamEntityRefs.i, align 1
-  %standalone.i = getelementptr inbounds i8, ptr %27, i64 258
+  %standalone.i = getelementptr inbounds nuw i8, ptr %27, i64 258
   store i8 0, ptr %standalone.i, align 2
   br label %return
 
@@ -1085,9 +1085,9 @@ define internal fastcc void @parserInit(ptr noundef nonnull initializes((528, 53
 entry:
   %afterValue.i78 = alloca ptr, align 8
   %afterValue.i = alloca ptr, align 8
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @prologInitProcessor, ptr %m_processor, align 8
-  %m_prologState = getelementptr inbounds i8, ptr %parser, i64 496
+  %m_prologState = getelementptr inbounds nuw i8, ptr %parser, i64 496
   tail call void @PyExpat_XmlPrologStateInit(ptr noundef nonnull %m_prologState) #25
   %cmp.not = icmp eq ptr %encodingName, null
   br i1 %cmp.not, label %if.end, label %while.cond.i
@@ -1101,7 +1101,7 @@ while.cond.i:                                     ; preds = %entry, %while.cond.
   br i1 %cmp.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %while.cond.i
-  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
+  %m_mem = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %1 = load ptr, ptr %m_mem, align 8
   %call.i = tail call ptr %1(i64 noundef %inc.i) #25
   %cmp3.i = icmp eq ptr %call.i, null
@@ -1112,63 +1112,63 @@ if.end.i:                                         ; preds = %while.end.i
   br label %copyString.exit
 
 copyString.exit:                                  ; preds = %while.end.i, %if.end.i
-  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
+  %m_protocolEncodingName = getelementptr inbounds nuw i8, ptr %parser, i64 448
   store ptr %call.i, ptr %m_protocolEncodingName, align 8
   br label %if.end
 
 if.end:                                           ; preds = %copyString.exit, %entry
-  %m_curBase = getelementptr inbounds i8, ptr %parser, i64 680
+  %m_curBase = getelementptr inbounds nuw i8, ptr %parser, i64 680
   store ptr null, ptr %m_curBase, align 8
-  %m_initEncoding = getelementptr inbounds i8, ptr %parser, i64 296
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_initEncoding = getelementptr inbounds nuw i8, ptr %parser, i64 296
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %call1 = tail call i32 @PyExpat_XmlInitEncoding(ptr noundef nonnull %m_initEncoding, ptr noundef nonnull %m_encoding, ptr noundef null) #25
-  %m_startElementHandler = getelementptr inbounds i8, ptr %parser, i64 104
-  %m_externalEntityRefHandlerArg = getelementptr inbounds i8, ptr %parser, i64 232
+  %m_startElementHandler = getelementptr inbounds nuw i8, ptr %parser, i64 104
+  %m_externalEntityRefHandlerArg = getelementptr inbounds nuw i8, ptr %parser, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %parser, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %m_startElementHandler, i8 0, i64 128, i1 false)
   store ptr %parser, ptr %m_externalEntityRefHandlerArg, align 8
-  %m_skippedEntityHandler = getelementptr inbounds i8, ptr %parser, i64 240
+  %m_skippedEntityHandler = getelementptr inbounds nuw i8, ptr %parser, i64 240
   store ptr null, ptr %m_skippedEntityHandler, align 8
-  %m_elementDeclHandler = getelementptr inbounds i8, ptr %parser, i64 256
-  %m_buffer = getelementptr inbounds i8, ptr %parser, i64 16
+  %m_elementDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 256
+  %m_buffer = getelementptr inbounds nuw i8, ptr %parser, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_elementDeclHandler, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr %m_buffer, align 8
-  %m_bufferPtr = getelementptr inbounds i8, ptr %parser, i64 48
+  %m_bufferPtr = getelementptr inbounds nuw i8, ptr %parser, i64 48
   store ptr %2, ptr %m_bufferPtr, align 8
-  %m_bufferEnd = getelementptr inbounds i8, ptr %parser, i64 56
+  %m_bufferEnd = getelementptr inbounds nuw i8, ptr %parser, i64 56
   store ptr %2, ptr %m_bufferEnd, align 8
-  %m_parseEndByteIndex = getelementptr inbounds i8, ptr %parser, i64 72
-  %m_declEntity = getelementptr inbounds i8, ptr %parser, i64 592
-  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
+  %m_parseEndByteIndex = getelementptr inbounds nuw i8, ptr %parser, i64 72
+  %m_declEntity = getelementptr inbounds nuw i8, ptr %parser, i64 592
+  %m_position = getelementptr inbounds nuw i8, ptr %parser, i64 768
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_position, i8 0, i64 16, i1 false)
-  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 0, ptr %m_errorCode, align 8
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_defaultExpandInternalEntities = getelementptr inbounds i8, ptr %parser, i64 584
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_defaultExpandInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 584
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_parseEndByteIndex, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %m_eventPtr, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %m_declEntity, i8 0, i64 74, i1 false)
   store i8 1, ptr %m_defaultExpandInternalEntities, align 8
-  %m_tagLevel = getelementptr inbounds i8, ptr %parser, i64 588
+  %m_tagLevel = getelementptr inbounds nuw i8, ptr %parser, i64 588
   store i32 0, ptr %m_tagLevel, align 4
-  %m_tagStack = getelementptr inbounds i8, ptr %parser, i64 688
+  %m_tagStack = getelementptr inbounds nuw i8, ptr %parser, i64 688
   store ptr null, ptr %m_tagStack, align 8
-  %m_inheritedBindings = getelementptr inbounds i8, ptr %parser, i64 704
+  %m_inheritedBindings = getelementptr inbounds nuw i8, ptr %parser, i64 704
   store ptr null, ptr %m_inheritedBindings, align 8
-  %m_nSpecifiedAtts = getelementptr inbounds i8, ptr %parser, i64 724
+  %m_nSpecifiedAtts = getelementptr inbounds nuw i8, ptr %parser, i64 724
   store i32 0, ptr %m_nSpecifiedAtts, align 4
-  %m_unknownEncodingMem = getelementptr inbounds i8, ptr %parser, i64 464
-  %m_unknownEncodingRelease = getelementptr inbounds i8, ptr %parser, i64 488
+  %m_unknownEncodingMem = getelementptr inbounds nuw i8, ptr %parser, i64 464
+  %m_unknownEncodingRelease = getelementptr inbounds nuw i8, ptr %parser, i64 488
   store ptr null, ptr %m_unknownEncodingRelease, align 8
-  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
+  %m_parentParser = getelementptr inbounds nuw i8, ptr %parser, i64 896
   store ptr null, ptr %m_parentParser, align 8
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   store i32 0, ptr %m_parsingStatus, align 8
-  %m_isParamEntity = getelementptr inbounds i8, ptr %parser, i64 912
+  %m_isParamEntity = getelementptr inbounds nuw i8, ptr %parser, i64 912
   store i8 0, ptr %m_isParamEntity, align 8
-  %m_useForeignDTD = getelementptr inbounds i8, ptr %parser, i64 913
+  %m_useForeignDTD = getelementptr inbounds nuw i8, ptr %parser, i64 913
   store i8 0, ptr %m_useForeignDTD, align 1
-  %m_paramEntityParsing = getelementptr inbounds i8, ptr %parser, i64 916
+  %m_paramEntityParsing = getelementptr inbounds nuw i8, ptr %parser, i64 916
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_unknownEncodingMem, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %m_paramEntityParsing, i8 0, i64 44, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i)
@@ -1199,13 +1199,13 @@ getDebugLevel.exit:                               ; preds = %if.end, %lor.lhs.fa
   %retval.0.i = phi i64 [ 0, %if.then7.i ], [ 0, %if.end ], [ %call2.i, %lor.lhs.false.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %afterValue.i)
   %conv = trunc i64 %retval.0.i to i32
-  %debugLevel = getelementptr inbounds i8, ptr %parser, i64 944
+  %debugLevel = getelementptr inbounds nuw i8, ptr %parser, i64 944
   store i32 %conv, ptr %debugLevel, align 8
-  %maximumAmplificationFactor = getelementptr inbounds i8, ptr %parser, i64 948
+  %maximumAmplificationFactor = getelementptr inbounds nuw i8, ptr %parser, i64 948
   store float 1.000000e+02, ptr %maximumAmplificationFactor, align 4
-  %activationThresholdBytes = getelementptr inbounds i8, ptr %parser, i64 952
+  %activationThresholdBytes = getelementptr inbounds nuw i8, ptr %parser, i64 952
   store i64 8388608, ptr %activationThresholdBytes, align 8
-  %m_entity_stats = getelementptr inbounds i8, ptr %parser, i64 960
+  %m_entity_stats = getelementptr inbounds nuw i8, ptr %parser, i64 960
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_entity_stats, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %afterValue.i78)
   %call.i79 = tail call ptr @getenv(ptr noundef nonnull @.str.309) #25
@@ -1235,7 +1235,7 @@ getDebugLevel.exit89:                             ; preds = %getDebugLevel.exit,
   %retval.0.i86 = phi i64 [ 0, %if.then7.i85 ], [ 0, %getDebugLevel.exit ], [ %call2.i83, %lor.lhs.false.i87 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %afterValue.i78)
   %conv8 = trunc i64 %retval.0.i86 to i32
-  %debugLevel10 = getelementptr inbounds i8, ptr %parser, i64 972
+  %debugLevel10 = getelementptr inbounds nuw i8, ptr %parser, i64 972
   store i32 %conv8, ptr %debugLevel10, align 4
   ret void
 }
@@ -1247,7 +1247,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %if.end6 [
     i32 1, label %return
@@ -1255,9 +1255,9 @@ if.end:                                           ; preds = %entry
   ]
 
 if.end6:                                          ; preds = %if.end
-  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
+  %free_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 40
   %1 = load ptr, ptr %free_fcn, align 8
-  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
+  %m_protocolEncodingName = getelementptr inbounds nuw i8, ptr %parser, i64 448
   %2 = load ptr, ptr %m_protocolEncodingName, align 8
   tail call void %1(ptr noundef %2) #25
   %cmp7 = icmp eq ptr %encodingName, null
@@ -1272,7 +1272,7 @@ while.cond.i:                                     ; preds = %if.end6, %while.con
   br i1 %cmp.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %while.cond.i
-  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
+  %m_mem = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %4 = load ptr, ptr %m_mem, align 8
   %call.i = tail call ptr %4(i64 noundef %inc.i) #25
   %cmp3.i = icmp eq ptr %call.i, null
@@ -1301,84 +1301,84 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_dtd = getelementptr inbounds i8, ptr %oldParser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %oldParser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %m_startElementHandler = getelementptr inbounds i8, ptr %oldParser, i64 104
+  %m_startElementHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 104
   %1 = load ptr, ptr %m_startElementHandler, align 8
-  %m_endElementHandler = getelementptr inbounds i8, ptr %oldParser, i64 112
+  %m_endElementHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 112
   %2 = load ptr, ptr %m_endElementHandler, align 8
-  %m_characterDataHandler = getelementptr inbounds i8, ptr %oldParser, i64 120
+  %m_characterDataHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 120
   %3 = load ptr, ptr %m_characterDataHandler, align 8
-  %m_processingInstructionHandler = getelementptr inbounds i8, ptr %oldParser, i64 128
+  %m_processingInstructionHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 128
   %4 = load ptr, ptr %m_processingInstructionHandler, align 8
-  %m_commentHandler = getelementptr inbounds i8, ptr %oldParser, i64 136
+  %m_commentHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 136
   %5 = load ptr, ptr %m_commentHandler, align 8
-  %m_startCdataSectionHandler = getelementptr inbounds i8, ptr %oldParser, i64 144
+  %m_startCdataSectionHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 144
   %6 = load ptr, ptr %m_startCdataSectionHandler, align 8
-  %m_endCdataSectionHandler = getelementptr inbounds i8, ptr %oldParser, i64 152
+  %m_endCdataSectionHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 152
   %7 = load ptr, ptr %m_endCdataSectionHandler, align 8
-  %m_defaultHandler = getelementptr inbounds i8, ptr %oldParser, i64 160
+  %m_defaultHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 160
   %8 = load ptr, ptr %m_defaultHandler, align 8
-  %m_unparsedEntityDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 184
+  %m_unparsedEntityDeclHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 184
   %9 = load ptr, ptr %m_unparsedEntityDeclHandler, align 8
-  %m_notationDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 192
+  %m_notationDeclHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 192
   %10 = load ptr, ptr %m_notationDeclHandler, align 8
-  %m_startNamespaceDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 200
+  %m_startNamespaceDeclHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 200
   %11 = load ptr, ptr %m_startNamespaceDeclHandler, align 8
-  %m_endNamespaceDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 208
+  %m_endNamespaceDeclHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 208
   %12 = load ptr, ptr %m_endNamespaceDeclHandler, align 8
-  %m_notStandaloneHandler = getelementptr inbounds i8, ptr %oldParser, i64 216
+  %m_notStandaloneHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 216
   %13 = load ptr, ptr %m_notStandaloneHandler, align 8
-  %m_externalEntityRefHandler = getelementptr inbounds i8, ptr %oldParser, i64 224
+  %m_externalEntityRefHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 224
   %14 = load ptr, ptr %m_externalEntityRefHandler, align 8
-  %m_skippedEntityHandler = getelementptr inbounds i8, ptr %oldParser, i64 240
+  %m_skippedEntityHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 240
   %15 = load ptr, ptr %m_skippedEntityHandler, align 8
-  %m_unknownEncodingHandler = getelementptr inbounds i8, ptr %oldParser, i64 248
+  %m_unknownEncodingHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 248
   %16 = load ptr, ptr %m_unknownEncodingHandler, align 8
-  %m_elementDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 256
+  %m_elementDeclHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 256
   %17 = load ptr, ptr %m_elementDeclHandler, align 8
-  %m_attlistDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 264
+  %m_attlistDeclHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 264
   %18 = load ptr, ptr %m_attlistDeclHandler, align 8
-  %m_entityDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 272
+  %m_entityDeclHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 272
   %19 = load ptr, ptr %m_entityDeclHandler, align 8
-  %m_xmlDeclHandler = getelementptr inbounds i8, ptr %oldParser, i64 280
+  %m_xmlDeclHandler = getelementptr inbounds nuw i8, ptr %oldParser, i64 280
   %20 = load ptr, ptr %m_xmlDeclHandler, align 8
-  %m_declElementType = getelementptr inbounds i8, ptr %oldParser, i64 648
+  %m_declElementType = getelementptr inbounds nuw i8, ptr %oldParser, i64 648
   %21 = load ptr, ptr %m_declElementType, align 8
   %22 = load ptr, ptr %oldParser, align 8
-  %m_handlerArg = getelementptr inbounds i8, ptr %oldParser, i64 8
+  %m_handlerArg = getelementptr inbounds nuw i8, ptr %oldParser, i64 8
   %23 = load ptr, ptr %m_handlerArg, align 8
-  %m_defaultExpandInternalEntities = getelementptr inbounds i8, ptr %oldParser, i64 584
+  %m_defaultExpandInternalEntities = getelementptr inbounds nuw i8, ptr %oldParser, i64 584
   %24 = load i8, ptr %m_defaultExpandInternalEntities, align 8
-  %m_externalEntityRefHandlerArg = getelementptr inbounds i8, ptr %oldParser, i64 232
+  %m_externalEntityRefHandlerArg = getelementptr inbounds nuw i8, ptr %oldParser, i64 232
   %25 = load ptr, ptr %m_externalEntityRefHandlerArg, align 8
-  %m_paramEntityParsing = getelementptr inbounds i8, ptr %oldParser, i64 916
+  %m_paramEntityParsing = getelementptr inbounds nuw i8, ptr %oldParser, i64 916
   %26 = load i32, ptr %m_paramEntityParsing, align 4
-  %inEntityValue = getelementptr inbounds i8, ptr %oldParser, i64 520
+  %inEntityValue = getelementptr inbounds nuw i8, ptr %oldParser, i64 520
   %27 = load i32, ptr %inEntityValue, align 8
-  %m_ns_triplets = getelementptr inbounds i8, ptr %oldParser, i64 457
+  %m_ns_triplets = getelementptr inbounds nuw i8, ptr %oldParser, i64 457
   %28 = load i8, ptr %m_ns_triplets, align 1
-  %m_hash_secret_salt = getelementptr inbounds i8, ptr %oldParser, i64 920
+  %m_hash_secret_salt = getelementptr inbounds nuw i8, ptr %oldParser, i64 920
   %29 = load i64, ptr %m_hash_secret_salt, align 8
   %tobool.not = icmp eq ptr %context, null
   %spec.select = select i1 %tobool.not, ptr %0, ptr null
-  %m_ns = getelementptr inbounds i8, ptr %oldParser, i64 456
+  %m_ns = getelementptr inbounds nuw i8, ptr %oldParser, i64 456
   %30 = load i8, ptr %m_ns, align 8
   %tobool3.not = icmp eq i8 %30, 0
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %m_namespaceSeparator = getelementptr inbounds i8, ptr %oldParser, i64 892
+  %m_namespaceSeparator = getelementptr inbounds nuw i8, ptr %oldParser, i64 892
   %31 = load i8, ptr %m_namespaceSeparator, align 4
   store i8 %31, ptr %tmp, align 1
-  %arrayinit.element = getelementptr inbounds i8, ptr %tmp, i64 1
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %tmp, i64 1
   store i8 0, ptr %arrayinit.element, align 1
-  %m_mem = getelementptr inbounds i8, ptr %oldParser, i64 24
+  %m_mem = getelementptr inbounds nuw i8, ptr %oldParser, i64 24
   %call = call fastcc ptr @parserCreate(ptr noundef %encodingName, ptr noundef nonnull %m_mem, ptr noundef nonnull %tmp, ptr noundef %spec.select)
   br label %if.end7
 
 if.else:                                          ; preds = %if.end
-  %m_mem5 = getelementptr inbounds i8, ptr %oldParser, i64 24
+  %m_mem5 = getelementptr inbounds nuw i8, ptr %oldParser, i64 24
   %call6 = tail call fastcc ptr @parserCreate(ptr noundef %encodingName, ptr noundef nonnull %m_mem5, ptr noundef null, ptr noundef %spec.select)
   br label %if.end7
 
@@ -1388,100 +1388,100 @@ if.end7:                                          ; preds = %if.else, %if.then4
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.end7
-  %m_startElementHandler11 = getelementptr inbounds i8, ptr %parser.0, i64 104
+  %m_startElementHandler11 = getelementptr inbounds nuw i8, ptr %parser.0, i64 104
   store ptr %1, ptr %m_startElementHandler11, align 8
-  %m_endElementHandler12 = getelementptr inbounds i8, ptr %parser.0, i64 112
+  %m_endElementHandler12 = getelementptr inbounds nuw i8, ptr %parser.0, i64 112
   store ptr %2, ptr %m_endElementHandler12, align 8
-  %m_characterDataHandler13 = getelementptr inbounds i8, ptr %parser.0, i64 120
+  %m_characterDataHandler13 = getelementptr inbounds nuw i8, ptr %parser.0, i64 120
   store ptr %3, ptr %m_characterDataHandler13, align 8
-  %m_processingInstructionHandler14 = getelementptr inbounds i8, ptr %parser.0, i64 128
+  %m_processingInstructionHandler14 = getelementptr inbounds nuw i8, ptr %parser.0, i64 128
   store ptr %4, ptr %m_processingInstructionHandler14, align 8
-  %m_commentHandler15 = getelementptr inbounds i8, ptr %parser.0, i64 136
+  %m_commentHandler15 = getelementptr inbounds nuw i8, ptr %parser.0, i64 136
   store ptr %5, ptr %m_commentHandler15, align 8
-  %m_startCdataSectionHandler16 = getelementptr inbounds i8, ptr %parser.0, i64 144
+  %m_startCdataSectionHandler16 = getelementptr inbounds nuw i8, ptr %parser.0, i64 144
   store ptr %6, ptr %m_startCdataSectionHandler16, align 8
-  %m_endCdataSectionHandler17 = getelementptr inbounds i8, ptr %parser.0, i64 152
+  %m_endCdataSectionHandler17 = getelementptr inbounds nuw i8, ptr %parser.0, i64 152
   store ptr %7, ptr %m_endCdataSectionHandler17, align 8
-  %m_defaultHandler18 = getelementptr inbounds i8, ptr %parser.0, i64 160
+  %m_defaultHandler18 = getelementptr inbounds nuw i8, ptr %parser.0, i64 160
   store ptr %8, ptr %m_defaultHandler18, align 8
-  %m_unparsedEntityDeclHandler19 = getelementptr inbounds i8, ptr %parser.0, i64 184
+  %m_unparsedEntityDeclHandler19 = getelementptr inbounds nuw i8, ptr %parser.0, i64 184
   store ptr %9, ptr %m_unparsedEntityDeclHandler19, align 8
-  %m_notationDeclHandler20 = getelementptr inbounds i8, ptr %parser.0, i64 192
+  %m_notationDeclHandler20 = getelementptr inbounds nuw i8, ptr %parser.0, i64 192
   store ptr %10, ptr %m_notationDeclHandler20, align 8
-  %m_startNamespaceDeclHandler21 = getelementptr inbounds i8, ptr %parser.0, i64 200
+  %m_startNamespaceDeclHandler21 = getelementptr inbounds nuw i8, ptr %parser.0, i64 200
   store ptr %11, ptr %m_startNamespaceDeclHandler21, align 8
-  %m_endNamespaceDeclHandler22 = getelementptr inbounds i8, ptr %parser.0, i64 208
+  %m_endNamespaceDeclHandler22 = getelementptr inbounds nuw i8, ptr %parser.0, i64 208
   store ptr %12, ptr %m_endNamespaceDeclHandler22, align 8
-  %m_notStandaloneHandler23 = getelementptr inbounds i8, ptr %parser.0, i64 216
+  %m_notStandaloneHandler23 = getelementptr inbounds nuw i8, ptr %parser.0, i64 216
   store ptr %13, ptr %m_notStandaloneHandler23, align 8
-  %m_externalEntityRefHandler24 = getelementptr inbounds i8, ptr %parser.0, i64 224
+  %m_externalEntityRefHandler24 = getelementptr inbounds nuw i8, ptr %parser.0, i64 224
   store ptr %14, ptr %m_externalEntityRefHandler24, align 8
-  %m_skippedEntityHandler25 = getelementptr inbounds i8, ptr %parser.0, i64 240
+  %m_skippedEntityHandler25 = getelementptr inbounds nuw i8, ptr %parser.0, i64 240
   store ptr %15, ptr %m_skippedEntityHandler25, align 8
-  %m_unknownEncodingHandler26 = getelementptr inbounds i8, ptr %parser.0, i64 248
+  %m_unknownEncodingHandler26 = getelementptr inbounds nuw i8, ptr %parser.0, i64 248
   store ptr %16, ptr %m_unknownEncodingHandler26, align 8
-  %m_elementDeclHandler27 = getelementptr inbounds i8, ptr %parser.0, i64 256
+  %m_elementDeclHandler27 = getelementptr inbounds nuw i8, ptr %parser.0, i64 256
   store ptr %17, ptr %m_elementDeclHandler27, align 8
-  %m_attlistDeclHandler28 = getelementptr inbounds i8, ptr %parser.0, i64 264
+  %m_attlistDeclHandler28 = getelementptr inbounds nuw i8, ptr %parser.0, i64 264
   store ptr %18, ptr %m_attlistDeclHandler28, align 8
-  %m_entityDeclHandler29 = getelementptr inbounds i8, ptr %parser.0, i64 272
+  %m_entityDeclHandler29 = getelementptr inbounds nuw i8, ptr %parser.0, i64 272
   store ptr %19, ptr %m_entityDeclHandler29, align 8
-  %m_xmlDeclHandler30 = getelementptr inbounds i8, ptr %parser.0, i64 280
+  %m_xmlDeclHandler30 = getelementptr inbounds nuw i8, ptr %parser.0, i64 280
   store ptr %20, ptr %m_xmlDeclHandler30, align 8
-  %m_declElementType31 = getelementptr inbounds i8, ptr %parser.0, i64 648
+  %m_declElementType31 = getelementptr inbounds nuw i8, ptr %parser.0, i64 648
   store ptr %21, ptr %m_declElementType31, align 8
   store ptr %22, ptr %parser.0, align 8
   %cmp33 = icmp eq ptr %22, %23
   %spec.select153 = select i1 %cmp33, ptr %22, ptr %parser.0
-  %32 = getelementptr inbounds i8, ptr %parser.0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %parser.0, i64 8
   store ptr %spec.select153, ptr %32, align 8
   %cmp40.not = icmp eq ptr %25, %oldParser
   br i1 %cmp40.not, label %if.end43, label %if.then41
 
 if.then41:                                        ; preds = %if.end10
-  %m_externalEntityRefHandlerArg42 = getelementptr inbounds i8, ptr %parser.0, i64 232
+  %m_externalEntityRefHandlerArg42 = getelementptr inbounds nuw i8, ptr %parser.0, i64 232
   store ptr %25, ptr %m_externalEntityRefHandlerArg42, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then41, %if.end10
-  %m_defaultExpandInternalEntities44 = getelementptr inbounds i8, ptr %parser.0, i64 584
+  %m_defaultExpandInternalEntities44 = getelementptr inbounds nuw i8, ptr %parser.0, i64 584
   store i8 %24, ptr %m_defaultExpandInternalEntities44, align 8
-  %m_ns_triplets45 = getelementptr inbounds i8, ptr %parser.0, i64 457
+  %m_ns_triplets45 = getelementptr inbounds nuw i8, ptr %parser.0, i64 457
   store i8 %28, ptr %m_ns_triplets45, align 1
-  %m_hash_secret_salt46 = getelementptr inbounds i8, ptr %parser.0, i64 920
+  %m_hash_secret_salt46 = getelementptr inbounds nuw i8, ptr %parser.0, i64 920
   store i64 %29, ptr %m_hash_secret_salt46, align 8
-  %m_parentParser = getelementptr inbounds i8, ptr %parser.0, i64 896
+  %m_parentParser = getelementptr inbounds nuw i8, ptr %parser.0, i64 896
   store ptr %oldParser, ptr %m_parentParser, align 8
-  %m_paramEntityParsing47 = getelementptr inbounds i8, ptr %parser.0, i64 916
+  %m_paramEntityParsing47 = getelementptr inbounds nuw i8, ptr %parser.0, i64 916
   store i32 %26, ptr %m_paramEntityParsing47, align 4
-  %inEntityValue49 = getelementptr inbounds i8, ptr %parser.0, i64 520
+  %inEntityValue49 = getelementptr inbounds nuw i8, ptr %parser.0, i64 520
   store i32 %27, ptr %inEntityValue49, align 8
   br i1 %tobool.not, label %if.else60, label %if.then51
 
 if.then51:                                        ; preds = %if.end43
-  %m_dtd52 = getelementptr inbounds i8, ptr %parser.0, i64 672
+  %m_dtd52 = getelementptr inbounds nuw i8, ptr %parser.0, i64 672
   %33 = load ptr, ptr %m_dtd52, align 8
-  %m_mem53 = getelementptr inbounds i8, ptr %parser.0, i64 24
-  %prefixes.i = getelementptr inbounds i8, ptr %0, i64 120
+  %m_mem53 = getelementptr inbounds nuw i8, ptr %parser.0, i64 24
+  %prefixes.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %34 = load ptr, ptr %prefixes.i, align 8
   %tobool.not.i.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i, label %hashTableIterInit.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then51
-  %size.i.i = getelementptr inbounds i8, ptr %0, i64 136
+  %size.i.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   %35 = load i64, ptr %size.i.i, align 8
   %add.ptr.i.i = getelementptr ptr, ptr %34, i64 %35
   br label %hashTableIterInit.exit.i
 
 hashTableIterInit.exit.i:                         ; preds = %cond.true.i.i, %if.then51
   %cond.i.i = phi ptr [ %add.ptr.i.i, %cond.true.i.i ], [ null, %if.then51 ]
-  %pool.i = getelementptr inbounds i8, ptr %33, i64 160
-  %ptr.i.i = getelementptr inbounds i8, ptr %33, i64 184
-  %end.i108.i = getelementptr inbounds i8, ptr %33, i64 176
-  %freeBlocks.i.i = getelementptr inbounds i8, ptr %33, i64 168
-  %start.i350.i = getelementptr inbounds i8, ptr %33, i64 192
-  %mem140.i.i = getelementptr inbounds i8, ptr %33, i64 200
-  %prefixes6.i = getelementptr inbounds i8, ptr %33, i64 120
+  %pool.i = getelementptr inbounds nuw i8, ptr %33, i64 160
+  %ptr.i.i = getelementptr inbounds nuw i8, ptr %33, i64 184
+  %end.i108.i = getelementptr inbounds nuw i8, ptr %33, i64 176
+  %freeBlocks.i.i = getelementptr inbounds nuw i8, ptr %33, i64 168
+  %start.i350.i = getelementptr inbounds nuw i8, ptr %33, i64 192
+  %mem140.i.i = getelementptr inbounds nuw i8, ptr %33, i64 200
+  %prefixes6.i = getelementptr inbounds nuw i8, ptr %33, i64 120
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.backedge, %hashTableIterInit.exit.i
@@ -1531,9 +1531,9 @@ if.then1.i.i:                                     ; preds = %if.then.i349.i
   store ptr %41, ptr %freeBlocks.i.i, align 8
   store ptr null, ptr %40, align 8
   %42 = load ptr, ptr %pool.i, align 8
-  %s.i.i = getelementptr inbounds i8, ptr %42, i64 12
+  %s.i.i = getelementptr inbounds nuw i8, ptr %42, i64 12
   store ptr %s.i.i, ptr %start.i350.i, align 8
-  %size.i357.i = getelementptr inbounds i8, ptr %42, i64 8
+  %size.i357.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   %43 = load i32, ptr %size.i357.i, align 8
   %idx.ext.i.i = sext i32 %43 to i64
   %add.ptr.i358.i = getelementptr i8, ptr %s.i.i, i64 %idx.ext.i.i
@@ -1545,7 +1545,7 @@ if.end.i.i:                                       ; preds = %if.then.i349.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %.pre.i353.pre.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %size15.i.i = getelementptr inbounds i8, ptr %40, i64 8
+  %size15.i.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   %44 = load i32, ptr %size15.i.i, align 8
   %conv.i352.i = sext i32 %44 to i64
   %cmp16.i.i = icmp slt i64 %sub.ptr.sub.i.i, %conv.i352.i
@@ -1558,7 +1558,7 @@ if.then18.i.i:                                    ; preds = %if.end.i.i
   %47 = load ptr, ptr %freeBlocks.i.i, align 8
   store ptr %47, ptr %pool.i, align 8
   store ptr %45, ptr %freeBlocks.i.i, align 8
-  %s28.i.i = getelementptr inbounds i8, ptr %47, i64 12
+  %s28.i.i = getelementptr inbounds nuw i8, ptr %47, i64 12
   %48 = load ptr, ptr %start.i350.i, align 8
   %49 = load ptr, ptr %end.i108.i, align 8
   %sub.ptr.lhs.cast33.i.i = ptrtoint ptr %49 to i64
@@ -1566,7 +1566,7 @@ if.then18.i.i:                                    ; preds = %if.end.i.i
   %sub.ptr.sub35.i.i = sub i64 %sub.ptr.lhs.cast33.i.i, %sub.ptr.rhs.cast34.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %s28.i.i, ptr align 1 %48, i64 %sub.ptr.sub35.i.i, i1 false)
   %50 = load ptr, ptr %pool.i, align 8
-  %s37.i.i = getelementptr inbounds i8, ptr %50, i64 12
+  %s37.i.i = getelementptr inbounds nuw i8, ptr %50, i64 12
   %51 = load ptr, ptr %ptr.i.i, align 8
   %52 = load ptr, ptr %start.i350.i, align 8
   %sub.ptr.lhs.cast41.i.i = ptrtoint ptr %51 to i64
@@ -1575,7 +1575,7 @@ if.then18.i.i:                                    ; preds = %if.end.i.i
   %add.ptr44.i.i = getelementptr i8, ptr %s37.i.i, i64 %sub.ptr.sub43.i.i
   store ptr %add.ptr44.i.i, ptr %ptr.i.i, align 8
   store ptr %s37.i.i, ptr %start.i350.i, align 8
-  %size52.i.i = getelementptr inbounds i8, ptr %50, i64 8
+  %size52.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i32, ptr %size52.i.i, align 8
   %idx.ext53.i.i = sext i32 %53 to i64
   %add.ptr54.i.i = getelementptr i8, ptr %s37.i.i, i64 %idx.ext53.i.i
@@ -1586,7 +1586,7 @@ if.end57.i.i:                                     ; preds = %land.lhs.true.i.i.i
   %sub.ptr.sub71.i.i.pre-phi = phi i64 [ %.pre132, %land.lhs.true.i.i.if.end57.i.i_crit_edge ], [ %sub.ptr.sub.i.i, %if.end.i.i ]
   %54 = load ptr, ptr %pool.i, align 8
   %tobool59.not.i.i = icmp ne ptr %54, null
-  %s62.i.i = getelementptr inbounds i8, ptr %54, i64 12
+  %s62.i.i = getelementptr inbounds nuw i8, ptr %54, i64 12
   %cmp64.i.i = icmp eq ptr %.pre.i353.pre.i, %s62.i.i
   %or.cond.i.i = select i1 %tobool59.not.i.i, i1 %cmp64.i.i, i1 false
   %conv72.i.i = trunc i64 %sub.ptr.sub71.i.i.pre-phi to i32
@@ -1608,7 +1608,7 @@ if.end82.i.i:                                     ; preds = %if.then66.i.i
 if.end86.i.i:                                     ; preds = %if.end82.i.i
   %retval.0.i.i.i = zext nneg i32 %narrow4.i.i.i to i64
   %55 = load ptr, ptr %mem140.i.i, align 8
-  %realloc_fcn.i.i = getelementptr inbounds i8, ptr %55, i64 8
+  %realloc_fcn.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   %56 = load ptr, ptr %realloc_fcn.i.i, align 8
   %call90.i.i = call ptr %56(ptr noundef nonnull %54, i64 noundef %retval.0.i.i.i) #25
   %cmp91.i.i = icmp eq ptr %call90.i.i, null
@@ -1616,10 +1616,10 @@ if.end86.i.i:                                     ; preds = %if.end82.i.i
 
 if.end94.i.i:                                     ; preds = %if.end86.i.i
   store ptr %call90.i.i, ptr %pool.i, align 8
-  %size97.i.i = getelementptr inbounds i8, ptr %call90.i.i, i64 8
+  %size97.i.i = getelementptr inbounds nuw i8, ptr %call90.i.i, i64 8
   store i32 %mul73.i.i, ptr %size97.i.i, align 8
   %57 = load ptr, ptr %pool.i, align 8
-  %s99.i.i = getelementptr inbounds i8, ptr %57, i64 12
+  %s99.i.i = getelementptr inbounds nuw i8, ptr %57, i64 12
   %add.ptr101.i.i = getelementptr i8, ptr %s99.i.i, i64 %sub.ptr.sub71.i.i.pre-phi
   store ptr %add.ptr101.i.i, ptr %ptr.i.i, align 8
   store ptr %s99.i.i, ptr %start.i350.i, align 8
@@ -1657,7 +1657,7 @@ if.end139.i.i:                                    ; preds = %if.end134.i.i
   br i1 %tobool142.not.i.i, label %if.then58, label %if.end144.i.i
 
 if.end144.i.i:                                    ; preds = %if.end139.i.i
-  %size145.i.i = getelementptr inbounds i8, ptr %call141.i.i, i64 8
+  %size145.i.i = getelementptr inbounds nuw i8, ptr %call141.i.i, i64 8
   store i32 %blockSize112.0.i.i, ptr %size145.i.i, align 8
   %60 = load ptr, ptr %pool.i, align 8
   store ptr %60, ptr %call141.i.i, align 8
@@ -1668,7 +1668,7 @@ if.end144.i.i:                                    ; preds = %if.end139.i.i
   br i1 %cmp151.not.i.i, label %if.end163.i.i, label %if.then153.i.i
 
 if.then153.i.i:                                   ; preds = %if.end144.i.i
-  %s154.i.i = getelementptr inbounds i8, ptr %call141.i.i, i64 12
+  %s154.i.i = getelementptr inbounds nuw i8, ptr %call141.i.i, i64 12
   %sub.ptr.lhs.cast159.i.i = ptrtoint ptr %61 to i64
   %sub.ptr.rhs.cast160.i.i = ptrtoint ptr %62 to i64
   %sub.ptr.sub161.i.i = sub i64 %sub.ptr.lhs.cast159.i.i, %sub.ptr.rhs.cast160.i.i
@@ -1680,7 +1680,7 @@ if.then153.i.i:                                   ; preds = %if.end144.i.i
 if.end163.i.i:                                    ; preds = %if.then153.i.i, %if.end144.i.i
   %63 = phi ptr [ %.pre99.i.i, %if.then153.i.i ], [ %61, %if.end144.i.i ]
   %64 = phi ptr [ %.pre98.i.i, %if.then153.i.i ], [ %61, %if.end144.i.i ]
-  %s164.i.i = getelementptr inbounds i8, ptr %call141.i.i, i64 12
+  %s164.i.i = getelementptr inbounds nuw i8, ptr %call141.i.i, i64 12
   %sub.ptr.lhs.cast168.i.i = ptrtoint ptr %64 to i64
   %sub.ptr.rhs.cast169.i.i = ptrtoint ptr %63 to i64
   %sub.ptr.sub170.i.i = sub i64 %sub.ptr.lhs.cast168.i.i, %sub.ptr.rhs.cast169.i.i
@@ -1716,24 +1716,24 @@ if.end5.i:                                        ; preds = %poolCopyString.exit
   br i1 %tobool8.not.i, label %if.then58, label %while.cond.i.i.backedge
 
 for.end.i:                                        ; preds = %while.cond.i.i
-  %attributeIds.i = getelementptr inbounds i8, ptr %0, i64 80
+  %attributeIds.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %70 = load ptr, ptr %attributeIds.i, align 8
   %tobool.not.i112.i = icmp eq ptr %70, null
   br i1 %tobool.not.i112.i, label %hashTableIterInit.exit118.i, label %cond.true.i113.i
 
 cond.true.i113.i:                                 ; preds = %for.end.i
-  %size.i114.i = getelementptr inbounds i8, ptr %0, i64 96
+  %size.i114.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %71 = load i64, ptr %size.i114.i, align 8
   %add.ptr.i115.i = getelementptr ptr, ptr %70, i64 %71
   br label %hashTableIterInit.exit118.i
 
 hashTableIterInit.exit118.i:                      ; preds = %cond.true.i113.i, %for.end.i
   %cond.i116.i = phi ptr [ %add.ptr.i115.i, %cond.true.i113.i ], [ null, %for.end.i ]
-  %attributeIds33.i = getelementptr inbounds i8, ptr %33, i64 80
-  %defaultPrefix.i = getelementptr inbounds i8, ptr %0, i64 304
-  %size.i147.i = getelementptr inbounds i8, ptr %33, i64 136
-  %power30.i.i = getelementptr inbounds i8, ptr %33, i64 128
-  %defaultPrefix45.i = getelementptr inbounds i8, ptr %33, i64 304
+  %attributeIds33.i = getelementptr inbounds nuw i8, ptr %33, i64 80
+  %defaultPrefix.i = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %size.i147.i = getelementptr inbounds nuw i8, ptr %33, i64 136
+  %power30.i.i = getelementptr inbounds nuw i8, ptr %33, i64 128
+  %defaultPrefix45.i = getelementptr inbounds nuw i8, ptr %33, i64 304
   br label %while.cond.i121.i
 
 while.cond.i121.i:                                ; preds = %while.cond.i121.i.backedge, %hashTableIterInit.exit118.i
@@ -1814,19 +1814,19 @@ if.end31.i:                                       ; preds = %poolCopyString.exit
   br i1 %tobool35.not.i, label %if.then58, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end31.i
-  %maybeTokenized.i = getelementptr inbounds i8, ptr %72, i64 16
+  %maybeTokenized.i = getelementptr inbounds nuw i8, ptr %72, i64 16
   %84 = load i8, ptr %maybeTokenized.i, align 8
-  %maybeTokenized38.i = getelementptr inbounds i8, ptr %call34.i, i64 16
+  %maybeTokenized38.i = getelementptr inbounds nuw i8, ptr %call34.i, i64 16
   store i8 %84, ptr %maybeTokenized38.i, align 8
-  %prefix.i = getelementptr inbounds i8, ptr %72, i64 8
+  %prefix.i = getelementptr inbounds nuw i8, ptr %72, i64 8
   %85 = load ptr, ptr %prefix.i, align 8
   %tobool39.not.i = icmp eq ptr %85, null
   br i1 %tobool39.not.i, label %while.cond.i121.i.backedge, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end37.i
-  %xmlns.i = getelementptr inbounds i8, ptr %72, i64 17
+  %xmlns.i = getelementptr inbounds nuw i8, ptr %72, i64 17
   %86 = load i8, ptr %xmlns.i, align 1
-  %xmlns41.i = getelementptr inbounds i8, ptr %call34.i, i64 17
+  %xmlns41.i = getelementptr inbounds nuw i8, ptr %call34.i, i64 17
   store i8 %86, ptr %xmlns41.i, align 1
   %87 = load ptr, ptr %prefix.i, align 8
   %cmp43.i = icmp eq ptr %87, %defaultPrefix.i
@@ -1909,27 +1909,27 @@ if.end35.i.i:                                     ; preds = %if.then28.i.i, %if.
 
 if.end53.sink.split.i:                            ; preds = %if.end35.i.i, %for.body.i.i.i, %if.else.i.i, %if.else.i, %if.then40.i
   %defaultPrefix45.sink.i = phi ptr [ %defaultPrefix45.i, %if.then40.i ], [ null, %if.else.i ], [ null, %if.else.i.i ], [ %94, %for.body.i.i.i ], [ null, %if.end35.i.i ]
-  %prefix46.i = getelementptr inbounds i8, ptr %call34.i, i64 8
+  %prefix46.i = getelementptr inbounds nuw i8, ptr %call34.i, i64 8
   store ptr %defaultPrefix45.sink.i, ptr %prefix46.i, align 8
   br label %while.cond.i121.i.backedge
 
 for.end54.i:                                      ; preds = %while.cond.i121.i
-  %elementTypes.i = getelementptr inbounds i8, ptr %0, i64 40
+  %elementTypes.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %103 = load ptr, ptr %elementTypes.i, align 8
   %tobool.not.i151.i = icmp eq ptr %103, null
   br i1 %tobool.not.i151.i, label %hashTableIterInit.exit157.i, label %cond.true.i152.i
 
 cond.true.i152.i:                                 ; preds = %for.end54.i
-  %size.i153.i = getelementptr inbounds i8, ptr %0, i64 56
+  %size.i153.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %104 = load i64, ptr %size.i153.i, align 8
   %add.ptr.i154.i = getelementptr ptr, ptr %103, i64 %104
   br label %hashTableIterInit.exit157.i
 
 hashTableIterInit.exit157.i:                      ; preds = %cond.true.i152.i, %for.end54.i
   %cond.i155.i = phi ptr [ %add.ptr.i154.i, %cond.true.i152.i ], [ null, %for.end54.i ]
-  %elementTypes67.i = getelementptr inbounds i8, ptr %33, i64 40
-  %size.i186.i = getelementptr inbounds i8, ptr %33, i64 96
-  %power30.i197.i = getelementptr inbounds i8, ptr %33, i64 88
+  %elementTypes67.i = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %size.i186.i = getelementptr inbounds nuw i8, ptr %33, i64 96
+  %power30.i197.i = getelementptr inbounds nuw i8, ptr %33, i64 88
   br label %while.cond.i160.i
 
 while.cond.i160.i:                                ; preds = %while.cond.i160.i.backedge, %hashTableIterInit.exit157.i
@@ -1990,7 +1990,7 @@ if.end66.i:                                       ; preds = %poolCopyString.exit
   br i1 %tobool69.not.i, label %if.then58, label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.end66.i
-  %nDefaultAtts.i = getelementptr inbounds i8, ptr %105, i64 24
+  %nDefaultAtts.i = getelementptr inbounds nuw i8, ptr %105, i64 24
   %114 = load i32, ptr %nDefaultAtts.i, align 8
   %tobool72.not.i = icmp eq i32 %114, 0
   br i1 %tobool72.not.i, label %if.end80.i, label %if.then73.i
@@ -2000,13 +2000,13 @@ if.then73.i:                                      ; preds = %if.end71.i
   %conv.i = sext i32 %114 to i64
   %mul.i = mul nsw i64 %conv.i, 24
   %call75.i = call ptr %115(i64 noundef %mul.i) #25
-  %defaultAtts.i = getelementptr inbounds i8, ptr %call68.i, i64 32
+  %defaultAtts.i = getelementptr inbounds nuw i8, ptr %call68.i, i64 32
   store ptr %call75.i, ptr %defaultAtts.i, align 8
   %tobool77.not.i = icmp eq ptr %call75.i, null
   br i1 %tobool77.not.i, label %if.then58, label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.then73.i, %if.end71.i
-  %idAtt.i = getelementptr inbounds i8, ptr %105, i64 16
+  %idAtt.i = getelementptr inbounds nuw i8, ptr %105, i64 16
   %116 = load ptr, ptr %idAtt.i, align 8
   %tobool81.not.i = icmp eq ptr %116, null
   br i1 %tobool81.not.i, label %if.end88.i, label %if.then82.i
@@ -2088,17 +2088,17 @@ if.end35.i205.i:                                  ; preds = %if.then28.i217.i, %
 
 lookup.exit233.i:                                 ; preds = %if.end35.i205.i, %for.body.i.i224.i, %if.else.i188.i, %if.then82.i
   %retval.0.i216.i = phi ptr [ null, %if.then82.i ], [ null, %if.else.i188.i ], [ %123, %for.body.i.i224.i ], [ null, %if.end35.i205.i ]
-  %idAtt87.i = getelementptr inbounds i8, ptr %call68.i, i64 16
+  %idAtt87.i = getelementptr inbounds nuw i8, ptr %call68.i, i64 16
   store ptr %retval.0.i216.i, ptr %idAtt87.i, align 8
   br label %if.end88.i
 
 if.end88.i:                                       ; preds = %lookup.exit233.i, %if.end80.i
   %132 = load i32, ptr %nDefaultAtts.i, align 8
-  %nDefaultAtts90.i = getelementptr inbounds i8, ptr %call68.i, i64 24
+  %nDefaultAtts90.i = getelementptr inbounds nuw i8, ptr %call68.i, i64 24
   store i32 %132, ptr %nDefaultAtts90.i, align 8
-  %allocDefaultAtts.i = getelementptr inbounds i8, ptr %call68.i, i64 28
+  %allocDefaultAtts.i = getelementptr inbounds nuw i8, ptr %call68.i, i64 28
   store i32 %132, ptr %allocDefaultAtts.i, align 4
-  %prefix91.i = getelementptr inbounds i8, ptr %105, i64 8
+  %prefix91.i = getelementptr inbounds nuw i8, ptr %105, i64 8
   %133 = load ptr, ptr %prefix91.i, align 8
   %tobool92.not.i = icmp eq ptr %133, null
   br i1 %tobool92.not.i, label %if.end99.i, label %if.then93.i
@@ -2180,7 +2180,7 @@ if.end35.i253.i:                                  ; preds = %if.then28.i265.i, %
 
 lookup.exit281.i:                                 ; preds = %if.end35.i253.i, %for.body.i.i272.i, %if.else.i236.i, %if.then93.i
   %retval.0.i264.i = phi ptr [ null, %if.then93.i ], [ null, %if.else.i236.i ], [ %140, %for.body.i.i272.i ], [ null, %if.end35.i253.i ]
-  %prefix98.i = getelementptr inbounds i8, ptr %call68.i, i64 8
+  %prefix98.i = getelementptr inbounds nuw i8, ptr %call68.i, i64 8
   store ptr %retval.0.i264.i, ptr %prefix98.i, align 8
   %.pre424.i = load i32, ptr %nDefaultAtts90.i, align 8
   br label %if.end99.i
@@ -2191,8 +2191,8 @@ if.end99.i:                                       ; preds = %lookup.exit281.i, %
   br i1 %cmp102400.i, label %for.body.lr.ph.i, label %while.cond.i160.i.backedge
 
 for.body.lr.ph.i:                                 ; preds = %if.end99.i
-  %defaultAtts105.i = getelementptr inbounds i8, ptr %105, i64 32
-  %defaultAtts108.i = getelementptr inbounds i8, ptr %call68.i, i64 32
+  %defaultAtts105.i = getelementptr inbounds nuw i8, ptr %105, i64 32
+  %defaultAtts108.i = getelementptr inbounds nuw i8, ptr %call68.i, i64 32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -2354,52 +2354,52 @@ for.end148.i:                                     ; preds = %while.cond.i160.i
   br i1 %tobool152.not.i, label %if.then58, label %if.end154.i
 
 if.end154.i:                                      ; preds = %for.end148.i
-  %paramEntities.i = getelementptr inbounds i8, ptr %33, i64 264
-  %paramEntities156.i = getelementptr inbounds i8, ptr %0, i64 264
+  %paramEntities.i = getelementptr inbounds nuw i8, ptr %33, i64 264
+  %paramEntities156.i = getelementptr inbounds nuw i8, ptr %0, i64 264
   %call157.i = call fastcc i32 @copyEntityTable(ptr noundef nonnull readonly %oldParser, ptr noundef nonnull %paramEntities.i, ptr noundef nonnull %pool.i, ptr noundef nonnull readonly %paramEntities156.i)
   %tobool158.not.i = icmp eq i32 %call157.i, 0
   br i1 %tobool158.not.i, label %if.then58, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end154.i
-  %paramEntityRead.i = getelementptr inbounds i8, ptr %0, i64 259
+  %paramEntityRead.i = getelementptr inbounds nuw i8, ptr %0, i64 259
   %186 = load i8, ptr %paramEntityRead.i, align 1
-  %paramEntityRead161.i = getelementptr inbounds i8, ptr %33, i64 259
+  %paramEntityRead161.i = getelementptr inbounds nuw i8, ptr %33, i64 259
   store i8 %186, ptr %paramEntityRead161.i, align 1
-  %keepProcessing.i = getelementptr inbounds i8, ptr %0, i64 256
+  %keepProcessing.i = getelementptr inbounds nuw i8, ptr %0, i64 256
   %187 = load i8, ptr %keepProcessing.i, align 8
-  %keepProcessing162.i = getelementptr inbounds i8, ptr %33, i64 256
+  %keepProcessing162.i = getelementptr inbounds nuw i8, ptr %33, i64 256
   store i8 %187, ptr %keepProcessing162.i, align 8
-  %hasParamEntityRefs.i = getelementptr inbounds i8, ptr %0, i64 257
+  %hasParamEntityRefs.i = getelementptr inbounds nuw i8, ptr %0, i64 257
   %188 = load i8, ptr %hasParamEntityRefs.i, align 1
-  %hasParamEntityRefs163.i = getelementptr inbounds i8, ptr %33, i64 257
+  %hasParamEntityRefs163.i = getelementptr inbounds nuw i8, ptr %33, i64 257
   store i8 %188, ptr %hasParamEntityRefs163.i, align 1
-  %standalone.i = getelementptr inbounds i8, ptr %0, i64 258
+  %standalone.i = getelementptr inbounds nuw i8, ptr %0, i64 258
   %189 = load i8, ptr %standalone.i, align 2
-  %standalone164.i = getelementptr inbounds i8, ptr %33, i64 258
+  %standalone164.i = getelementptr inbounds nuw i8, ptr %33, i64 258
   store i8 %189, ptr %standalone164.i, align 2
-  %in_eldecl.i = getelementptr inbounds i8, ptr %0, i64 320
+  %in_eldecl.i = getelementptr inbounds nuw i8, ptr %0, i64 320
   %190 = load i8, ptr %in_eldecl.i, align 8
-  %in_eldecl165.i = getelementptr inbounds i8, ptr %33, i64 320
+  %in_eldecl165.i = getelementptr inbounds nuw i8, ptr %33, i64 320
   store i8 %190, ptr %in_eldecl165.i, align 8
-  %scaffold.i = getelementptr inbounds i8, ptr %0, i64 328
+  %scaffold.i = getelementptr inbounds nuw i8, ptr %0, i64 328
   %191 = load ptr, ptr %scaffold.i, align 8
-  %scaffold166.i = getelementptr inbounds i8, ptr %33, i64 328
+  %scaffold166.i = getelementptr inbounds nuw i8, ptr %33, i64 328
   store ptr %191, ptr %scaffold166.i, align 8
-  %contentStringLen.i = getelementptr inbounds i8, ptr %0, i64 336
+  %contentStringLen.i = getelementptr inbounds nuw i8, ptr %0, i64 336
   %192 = load i32, ptr %contentStringLen.i, align 8
-  %contentStringLen167.i = getelementptr inbounds i8, ptr %33, i64 336
+  %contentStringLen167.i = getelementptr inbounds nuw i8, ptr %33, i64 336
   store i32 %192, ptr %contentStringLen167.i, align 8
-  %scaffSize.i = getelementptr inbounds i8, ptr %0, i64 340
+  %scaffSize.i = getelementptr inbounds nuw i8, ptr %0, i64 340
   %193 = load i32, ptr %scaffSize.i, align 4
-  %scaffSize168.i = getelementptr inbounds i8, ptr %33, i64 340
+  %scaffSize168.i = getelementptr inbounds nuw i8, ptr %33, i64 340
   store i32 %193, ptr %scaffSize168.i, align 4
-  %scaffLevel.i = getelementptr inbounds i8, ptr %0, i64 348
+  %scaffLevel.i = getelementptr inbounds nuw i8, ptr %0, i64 348
   %194 = load i32, ptr %scaffLevel.i, align 4
-  %scaffLevel169.i = getelementptr inbounds i8, ptr %33, i64 348
+  %scaffLevel169.i = getelementptr inbounds nuw i8, ptr %33, i64 348
   store i32 %194, ptr %scaffLevel169.i, align 4
-  %scaffIndex.i = getelementptr inbounds i8, ptr %0, i64 352
+  %scaffIndex.i = getelementptr inbounds nuw i8, ptr %0, i64 352
   %195 = load ptr, ptr %scaffIndex.i, align 8
-  %scaffIndex170.i = getelementptr inbounds i8, ptr %33, i64 352
+  %scaffIndex170.i = getelementptr inbounds nuw i8, ptr %33, i64 352
   store ptr %195, ptr %scaffIndex170.i, align 8
   %call56 = call fastcc zeroext i8 @setContext(ptr noundef %parser.0, ptr noundef nonnull %context)
   %tobool57.not = icmp eq i8 %call56, 0
@@ -2410,16 +2410,16 @@ if.then58:                                        ; preds = %if.end5.i, %poolCop
   br label %return
 
 if.end59:                                         ; preds = %lor.lhs.false
-  %m_processor = getelementptr inbounds i8, ptr %parser.0, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser.0, i64 528
   store ptr @externalEntityInitProcessor, ptr %m_processor, align 8
   br label %return
 
 if.else60:                                        ; preds = %if.end43
-  %m_prologState48 = getelementptr inbounds i8, ptr %parser.0, i64 496
-  %m_isParamEntity = getelementptr inbounds i8, ptr %parser.0, i64 912
+  %m_prologState48 = getelementptr inbounds nuw i8, ptr %parser.0, i64 496
+  %m_isParamEntity = getelementptr inbounds nuw i8, ptr %parser.0, i64 912
   store i8 1, ptr %m_isParamEntity, align 8
   call void @PyExpat_XmlPrologStateInitExternalEntity(ptr noundef nonnull %m_prologState48) #25
-  %m_processor62 = getelementptr inbounds i8, ptr %parser.0, i64 528
+  %m_processor62 = getelementptr inbounds nuw i8, ptr %parser.0, i64 528
   store ptr @externalParEntInitProcessor, ptr %m_processor62, align 8
   br label %return
 
@@ -2431,26 +2431,26 @@ return:                                           ; preds = %if.end59, %if.else6
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext range(i8 0, 2) i8 @setContext(ptr nocapture noundef nonnull %parser, ptr nocapture noundef readonly %context) unnamed_addr #0 {
 entry:
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
   %1 = load i8, ptr %context, align 1
   %cmp.not73 = icmp eq i8 %1, 0
   br i1 %cmp.not73, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %m_tempPool34 = getelementptr inbounds i8, ptr %parser, i64 784
-  %ptr35 = getelementptr inbounds i8, ptr %parser, i64 808
-  %start37 = getelementptr inbounds i8, ptr %parser, i64 816
-  %end45 = getelementptr inbounds i8, ptr %parser, i64 800
-  %prefixes = getelementptr inbounds i8, ptr %0, i64 120
-  %pool = getelementptr inbounds i8, ptr %0, i64 160
-  %ptr.i = getelementptr inbounds i8, ptr %0, i64 184
-  %end.i = getelementptr inbounds i8, ptr %0, i64 176
-  %start.i = getelementptr inbounds i8, ptr %0, i64 192
-  %defaultPrefix = getelementptr inbounds i8, ptr %0, i64 304
-  %m_inheritedBindings = getelementptr inbounds i8, ptr %parser, i64 704
-  %size.i = getelementptr inbounds i8, ptr %0, i64 16
-  %power30.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_tempPool34 = getelementptr inbounds nuw i8, ptr %parser, i64 784
+  %ptr35 = getelementptr inbounds nuw i8, ptr %parser, i64 808
+  %start37 = getelementptr inbounds nuw i8, ptr %parser, i64 816
+  %end45 = getelementptr inbounds nuw i8, ptr %parser, i64 800
+  %prefixes = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %pool = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %end.i = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %start.i = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %defaultPrefix = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %m_inheritedBindings = getelementptr inbounds nuw i8, ptr %parser, i64 704
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %power30.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end161
@@ -2558,7 +2558,7 @@ if.end35.i:                                       ; preds = %if.then28.i, %if.en
   br i1 %tobool17.not.i, label %if.end19, label %while.body.i, !llvm.loop !14
 
 if.then18:                                        ; preds = %for.body.i.i
-  %open = getelementptr inbounds i8, ptr %12, i64 56
+  %open = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i8 1, ptr %open, align 8
   br label %if.end19
 
@@ -2770,10 +2770,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_tagStack = getelementptr inbounds i8, ptr %parser, i64 688
+  %m_tagStack = getelementptr inbounds nuw i8, ptr %parser, i64 688
   %0 = load ptr, ptr %m_tagStack, align 8
-  %m_freeTagList = getelementptr inbounds i8, ptr %parser, i64 696
-  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
+  %m_freeTagList = getelementptr inbounds nuw i8, ptr %parser, i64 696
+  %free_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %destroyBindings.exit, %if.end
@@ -2794,20 +2794,20 @@ if.end8:                                          ; preds = %if.end5, %for.cond
   %tagList.1 = phi ptr [ %1, %if.end5 ], [ %tagList.0, %for.cond ]
   %2 = load ptr, ptr %tagList.1, align 8
   %3 = load ptr, ptr %free_fcn, align 8
-  %buf = getelementptr inbounds i8, ptr %tagList.1, i64 64
+  %buf = getelementptr inbounds nuw i8, ptr %tagList.1, i64 64
   %4 = load ptr, ptr %buf, align 8
   tail call void %3(ptr noundef %4) #25
-  %bindings = getelementptr inbounds i8, ptr %tagList.1, i64 80
+  %bindings = getelementptr inbounds nuw i8, ptr %tagList.1, i64 80
   %5 = load ptr, ptr %bindings, align 8
   %tobool.not5.i = icmp eq ptr %5, null
   br i1 %tobool.not5.i, label %destroyBindings.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end8, %if.end.i
   %bindings.addr.06.i = phi ptr [ %6, %if.end.i ], [ %5, %if.end8 ]
-  %nextTagBinding.i = getelementptr inbounds i8, ptr %bindings.addr.06.i, i64 8
+  %nextTagBinding.i = getelementptr inbounds nuw i8, ptr %bindings.addr.06.i, i64 8
   %6 = load ptr, ptr %nextTagBinding.i, align 8
   %7 = load ptr, ptr %free_fcn, align 8
-  %uri.i = getelementptr inbounds i8, ptr %bindings.addr.06.i, i64 32
+  %uri.i = getelementptr inbounds nuw i8, ptr %bindings.addr.06.i, i64 32
   %8 = load ptr, ptr %uri.i, align 8
   tail call void %7(ptr noundef %8) #25
   %9 = load ptr, ptr %free_fcn, align 8
@@ -2821,9 +2821,9 @@ destroyBindings.exit:                             ; preds = %if.end.i, %if.end8
   br label %for.cond
 
 for.end:                                          ; preds = %if.then2
-  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %11 = load ptr, ptr %m_openInternalEntities, align 8
-  %m_freeInternalEntities = getelementptr inbounds i8, ptr %parser, i64 576
+  %m_freeInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 576
   br label %for.cond11
 
 for.cond11:                                       ; preds = %if.end19, %for.end
@@ -2842,24 +2842,24 @@ if.end16:                                         ; preds = %if.then13
 
 if.end19:                                         ; preds = %if.end16, %for.cond11
   %entityList.1 = phi ptr [ %12, %if.end16 ], [ %entityList.0, %for.cond11 ]
-  %next = getelementptr inbounds i8, ptr %entityList.1, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %entityList.1, i64 16
   %13 = load ptr, ptr %next, align 8
   %14 = load ptr, ptr %free_fcn, align 8
   tail call void %14(ptr noundef nonnull %entityList.1) #25
   br label %for.cond11
 
 for.end22:                                        ; preds = %if.then13
-  %m_freeBindingList = getelementptr inbounds i8, ptr %parser, i64 712
+  %m_freeBindingList = getelementptr inbounds nuw i8, ptr %parser, i64 712
   %15 = load ptr, ptr %m_freeBindingList, align 8
   %tobool.not5.i52 = icmp eq ptr %15, null
   br i1 %tobool.not5.i52, label %destroyBindings.exit60, label %if.end.i55
 
 if.end.i55:                                       ; preds = %for.end22, %if.end.i55
   %bindings.addr.06.i56 = phi ptr [ %16, %if.end.i55 ], [ %15, %for.end22 ]
-  %nextTagBinding.i57 = getelementptr inbounds i8, ptr %bindings.addr.06.i56, i64 8
+  %nextTagBinding.i57 = getelementptr inbounds nuw i8, ptr %bindings.addr.06.i56, i64 8
   %16 = load ptr, ptr %nextTagBinding.i57, align 8
   %17 = load ptr, ptr %free_fcn, align 8
-  %uri.i58 = getelementptr inbounds i8, ptr %bindings.addr.06.i56, i64 32
+  %uri.i58 = getelementptr inbounds nuw i8, ptr %bindings.addr.06.i56, i64 32
   %18 = load ptr, ptr %uri.i58, align 8
   tail call void %17(ptr noundef %18) #25
   %19 = load ptr, ptr %free_fcn, align 8
@@ -2868,17 +2868,17 @@ if.end.i55:                                       ; preds = %for.end22, %if.end.
   br i1 %tobool.not.i59, label %destroyBindings.exit60, label %if.end.i55
 
 destroyBindings.exit60:                           ; preds = %if.end.i55, %for.end22
-  %m_inheritedBindings = getelementptr inbounds i8, ptr %parser, i64 704
+  %m_inheritedBindings = getelementptr inbounds nuw i8, ptr %parser, i64 704
   %20 = load ptr, ptr %m_inheritedBindings, align 8
   %tobool.not5.i61 = icmp eq ptr %20, null
   br i1 %tobool.not5.i61, label %destroyBindings.exit69, label %if.end.i64
 
 if.end.i64:                                       ; preds = %destroyBindings.exit60, %if.end.i64
   %bindings.addr.06.i65 = phi ptr [ %21, %if.end.i64 ], [ %20, %destroyBindings.exit60 ]
-  %nextTagBinding.i66 = getelementptr inbounds i8, ptr %bindings.addr.06.i65, i64 8
+  %nextTagBinding.i66 = getelementptr inbounds nuw i8, ptr %bindings.addr.06.i65, i64 8
   %21 = load ptr, ptr %nextTagBinding.i66, align 8
   %22 = load ptr, ptr %free_fcn, align 8
-  %uri.i67 = getelementptr inbounds i8, ptr %bindings.addr.06.i65, i64 32
+  %uri.i67 = getelementptr inbounds nuw i8, ptr %bindings.addr.06.i65, i64 32
   %23 = load ptr, ptr %uri.i67, align 8
   tail call void %22(ptr noundef %23) #25
   %24 = load ptr, ptr %free_fcn, align 8
@@ -2887,80 +2887,80 @@ if.end.i64:                                       ; preds = %destroyBindings.exi
   br i1 %tobool.not.i68, label %destroyBindings.exit69, label %if.end.i64
 
 destroyBindings.exit69:                           ; preds = %if.end.i64, %destroyBindings.exit60
-  %m_tempPool = getelementptr inbounds i8, ptr %parser, i64 784
+  %m_tempPool = getelementptr inbounds nuw i8, ptr %parser, i64 784
   %25 = load ptr, ptr %m_tempPool, align 8
   %tobool.not9.i = icmp eq ptr %25, null
   br i1 %tobool.not9.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %destroyBindings.exit69
-  %mem.i = getelementptr inbounds i8, ptr %parser, i64 824
+  %mem.i = getelementptr inbounds nuw i8, ptr %parser, i64 824
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %p.010.i = phi ptr [ %25, %while.body.lr.ph.i ], [ %26, %while.body.i ]
   %26 = load ptr, ptr %p.010.i, align 8
   %27 = load ptr, ptr %mem.i, align 8
-  %free_fcn.i70 = getelementptr inbounds i8, ptr %27, i64 16
+  %free_fcn.i70 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %28 = load ptr, ptr %free_fcn.i70, align 8
   tail call void %28(ptr noundef nonnull %p.010.i) #25
   %tobool.not.i71 = icmp eq ptr %26, null
   br i1 %tobool.not.i71, label %while.end.i, label %while.body.i, !llvm.loop !18
 
 while.end.i:                                      ; preds = %while.body.i, %destroyBindings.exit69
-  %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 792
+  %freeBlocks.i = getelementptr inbounds nuw i8, ptr %parser, i64 792
   %29 = load ptr, ptr %freeBlocks.i, align 8
   %tobool2.not11.i = icmp eq ptr %29, null
   br i1 %tobool2.not11.i, label %poolDestroy.exit, label %while.body3.lr.ph.i
 
 while.body3.lr.ph.i:                              ; preds = %while.end.i
-  %mem6.i = getelementptr inbounds i8, ptr %parser, i64 824
+  %mem6.i = getelementptr inbounds nuw i8, ptr %parser, i64 824
   br label %while.body3.i
 
 while.body3.i:                                    ; preds = %while.body3.i, %while.body3.lr.ph.i
   %p.112.i = phi ptr [ %29, %while.body3.lr.ph.i ], [ %30, %while.body3.i ]
   %30 = load ptr, ptr %p.112.i, align 8
   %31 = load ptr, ptr %mem6.i, align 8
-  %free_fcn7.i = getelementptr inbounds i8, ptr %31, i64 16
+  %free_fcn7.i = getelementptr inbounds nuw i8, ptr %31, i64 16
   %32 = load ptr, ptr %free_fcn7.i, align 8
   tail call void %32(ptr noundef nonnull %p.112.i) #25
   %tobool2.not.i = icmp eq ptr %30, null
   br i1 %tobool2.not.i, label %poolDestroy.exit, label %while.body3.i, !llvm.loop !19
 
 poolDestroy.exit:                                 ; preds = %while.body3.i, %while.end.i
-  %m_temp2Pool = getelementptr inbounds i8, ptr %parser, i64 832
+  %m_temp2Pool = getelementptr inbounds nuw i8, ptr %parser, i64 832
   %33 = load ptr, ptr %m_temp2Pool, align 8
   %tobool.not9.i72 = icmp eq ptr %33, null
   br i1 %tobool.not9.i72, label %while.end.i79, label %while.body.lr.ph.i73
 
 while.body.lr.ph.i73:                             ; preds = %poolDestroy.exit
-  %mem.i74 = getelementptr inbounds i8, ptr %parser, i64 872
+  %mem.i74 = getelementptr inbounds nuw i8, ptr %parser, i64 872
   br label %while.body.i75
 
 while.body.i75:                                   ; preds = %while.body.i75, %while.body.lr.ph.i73
   %p.010.i76 = phi ptr [ %33, %while.body.lr.ph.i73 ], [ %34, %while.body.i75 ]
   %34 = load ptr, ptr %p.010.i76, align 8
   %35 = load ptr, ptr %mem.i74, align 8
-  %free_fcn.i77 = getelementptr inbounds i8, ptr %35, i64 16
+  %free_fcn.i77 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %36 = load ptr, ptr %free_fcn.i77, align 8
   tail call void %36(ptr noundef nonnull %p.010.i76) #25
   %tobool.not.i78 = icmp eq ptr %34, null
   br i1 %tobool.not.i78, label %while.end.i79, label %while.body.i75, !llvm.loop !18
 
 while.end.i79:                                    ; preds = %while.body.i75, %poolDestroy.exit
-  %freeBlocks.i80 = getelementptr inbounds i8, ptr %parser, i64 840
+  %freeBlocks.i80 = getelementptr inbounds nuw i8, ptr %parser, i64 840
   %37 = load ptr, ptr %freeBlocks.i80, align 8
   %tobool2.not11.i81 = icmp eq ptr %37, null
   br i1 %tobool2.not11.i81, label %poolDestroy.exit88, label %while.body3.lr.ph.i82
 
 while.body3.lr.ph.i82:                            ; preds = %while.end.i79
-  %mem6.i83 = getelementptr inbounds i8, ptr %parser, i64 872
+  %mem6.i83 = getelementptr inbounds nuw i8, ptr %parser, i64 872
   br label %while.body3.i84
 
 while.body3.i84:                                  ; preds = %while.body3.i84, %while.body3.lr.ph.i82
   %p.112.i85 = phi ptr [ %37, %while.body3.lr.ph.i82 ], [ %38, %while.body3.i84 ]
   %38 = load ptr, ptr %p.112.i85, align 8
   %39 = load ptr, ptr %mem6.i83, align 8
-  %free_fcn7.i86 = getelementptr inbounds i8, ptr %39, i64 16
+  %free_fcn7.i86 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %40 = load ptr, ptr %free_fcn7.i86, align 8
   tail call void %40(ptr noundef nonnull %p.112.i85) #25
   %tobool2.not.i87 = icmp eq ptr %38, null
@@ -2968,31 +2968,31 @@ while.body3.i84:                                  ; preds = %while.body3.i84, %w
 
 poolDestroy.exit88:                               ; preds = %while.body3.i84, %while.end.i79
   %41 = load ptr, ptr %free_fcn, align 8
-  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
+  %m_protocolEncodingName = getelementptr inbounds nuw i8, ptr %parser, i64 448
   %42 = load ptr, ptr %m_protocolEncodingName, align 8
   tail call void %41(ptr noundef %42) #25
-  %m_isParamEntity = getelementptr inbounds i8, ptr %parser, i64 912
+  %m_isParamEntity = getelementptr inbounds nuw i8, ptr %parser, i64 912
   %43 = load i8, ptr %m_isParamEntity, align 8
   %tobool.not = icmp eq i8 %43, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end30
 
 land.lhs.true:                                    ; preds = %poolDestroy.exit88
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %44 = load ptr, ptr %m_dtd, align 8
   %tobool25.not = icmp eq ptr %44, null
   br i1 %tobool25.not, label %if.end30, label %if.then26
 
 if.then26:                                        ; preds = %land.lhs.true
-  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
+  %m_parentParser = getelementptr inbounds nuw i8, ptr %parser, i64 896
   %45 = load ptr, ptr %m_parentParser, align 8
   %tobool28.not.not = icmp eq ptr %45, null
-  %elementTypes.i = getelementptr inbounds i8, ptr %44, i64 40
+  %elementTypes.i = getelementptr inbounds nuw i8, ptr %44, i64 40
   %46 = load ptr, ptr %elementTypes.i, align 8
   %tobool.not.i.i = icmp eq ptr %46, null
   br i1 %tobool.not.i.i, label %hashTableIterInit.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then26
-  %size.i.i = getelementptr inbounds i8, ptr %44, i64 56
+  %size.i.i = getelementptr inbounds nuw i8, ptr %44, i64 56
   %47 = load i64, ptr %size.i.i, align 8
   %add.ptr.i.i = getelementptr ptr, ptr %46, i64 %47
   br label %hashTableIterInit.exit.i
@@ -3016,32 +3016,32 @@ while.cond.i.i.backedge:                          ; preds = %while.body.i.i, %if
   br label %while.cond.i.i, !llvm.loop !9
 
 if.end.i90:                                       ; preds = %while.body.i.i
-  %allocDefaultAtts.i = getelementptr inbounds i8, ptr %48, i64 28
+  %allocDefaultAtts.i = getelementptr inbounds nuw i8, ptr %48, i64 28
   %49 = load i32, ptr %allocDefaultAtts.i, align 4
   %cmp.not.i = icmp eq i32 %49, 0
   br i1 %cmp.not.i, label %while.cond.i.i.backedge, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i90
   %50 = load ptr, ptr %free_fcn, align 8
-  %defaultAtts.i = getelementptr inbounds i8, ptr %48, i64 32
+  %defaultAtts.i = getelementptr inbounds nuw i8, ptr %48, i64 32
   %51 = load ptr, ptr %defaultAtts.i, align 8
   tail call void %50(ptr noundef %51) #25
   br label %while.cond.i.i.backedge
 
 for.end.i:                                        ; preds = %while.cond.i.i
-  %size.i18.i = getelementptr inbounds i8, ptr %44, i64 16
+  %size.i18.i = getelementptr inbounds nuw i8, ptr %44, i64 16
   %52 = load i64, ptr %size.i18.i, align 8
   %cmp7.not.i.i = icmp eq i64 %52, 0
   br i1 %cmp7.not.i.i, label %hashTableDestroy.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.end.i
-  %mem.i.i = getelementptr inbounds i8, ptr %44, i64 32
+  %mem.i.i = getelementptr inbounds nuw i8, ptr %44, i64 32
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %i.08.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
   %53 = load ptr, ptr %mem.i.i, align 8
-  %free_fcn.i.i = getelementptr inbounds i8, ptr %53, i64 16
+  %free_fcn.i.i = getelementptr inbounds nuw i8, ptr %53, i64 16
   %54 = load ptr, ptr %free_fcn.i.i, align 8
   %55 = load ptr, ptr %44, align 8
   %arrayidx.i.i = getelementptr ptr, ptr %55, i64 %i.08.i.i
@@ -3053,26 +3053,26 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp.i.i, label %for.body.i.i, label %hashTableDestroy.exit.i, !llvm.loop !20
 
 hashTableDestroy.exit.i:                          ; preds = %for.body.i.i, %for.end.i
-  %mem1.i.i = getelementptr inbounds i8, ptr %44, i64 32
+  %mem1.i.i = getelementptr inbounds nuw i8, ptr %44, i64 32
   %58 = load ptr, ptr %mem1.i.i, align 8
-  %free_fcn2.i.i = getelementptr inbounds i8, ptr %58, i64 16
+  %free_fcn2.i.i = getelementptr inbounds nuw i8, ptr %58, i64 16
   %59 = load ptr, ptr %free_fcn2.i.i, align 8
   %60 = load ptr, ptr %44, align 8
   tail call void %59(ptr noundef %60) #25
-  %paramEntities.i = getelementptr inbounds i8, ptr %44, i64 264
-  %size.i19.i = getelementptr inbounds i8, ptr %44, i64 280
+  %paramEntities.i = getelementptr inbounds nuw i8, ptr %44, i64 264
+  %size.i19.i = getelementptr inbounds nuw i8, ptr %44, i64 280
   %61 = load i64, ptr %size.i19.i, align 8
   %cmp7.not.i20.i = icmp eq i64 %61, 0
   br i1 %cmp7.not.i20.i, label %hashTableDestroy.exit31.i, label %for.body.lr.ph.i21.i
 
 for.body.lr.ph.i21.i:                             ; preds = %hashTableDestroy.exit.i
-  %mem.i22.i = getelementptr inbounds i8, ptr %44, i64 296
+  %mem.i22.i = getelementptr inbounds nuw i8, ptr %44, i64 296
   br label %for.body.i23.i
 
 for.body.i23.i:                                   ; preds = %for.body.i23.i, %for.body.lr.ph.i21.i
   %i.08.i24.i = phi i64 [ 0, %for.body.lr.ph.i21.i ], [ %inc.i27.i, %for.body.i23.i ]
   %62 = load ptr, ptr %mem.i22.i, align 8
-  %free_fcn.i25.i = getelementptr inbounds i8, ptr %62, i64 16
+  %free_fcn.i25.i = getelementptr inbounds nuw i8, ptr %62, i64 16
   %63 = load ptr, ptr %free_fcn.i25.i, align 8
   %64 = load ptr, ptr %paramEntities.i, align 8
   %arrayidx.i26.i = getelementptr ptr, ptr %64, i64 %i.08.i24.i
@@ -3084,25 +3084,25 @@ for.body.i23.i:                                   ; preds = %for.body.i23.i, %fo
   br i1 %cmp.i28.i, label %for.body.i23.i, label %hashTableDestroy.exit31.i, !llvm.loop !20
 
 hashTableDestroy.exit31.i:                        ; preds = %for.body.i23.i, %hashTableDestroy.exit.i
-  %mem1.i29.i = getelementptr inbounds i8, ptr %44, i64 296
+  %mem1.i29.i = getelementptr inbounds nuw i8, ptr %44, i64 296
   %67 = load ptr, ptr %mem1.i29.i, align 8
-  %free_fcn2.i30.i = getelementptr inbounds i8, ptr %67, i64 16
+  %free_fcn2.i30.i = getelementptr inbounds nuw i8, ptr %67, i64 16
   %68 = load ptr, ptr %free_fcn2.i30.i, align 8
   %69 = load ptr, ptr %paramEntities.i, align 8
   tail call void %68(ptr noundef %69) #25
-  %size.i32.i = getelementptr inbounds i8, ptr %44, i64 56
+  %size.i32.i = getelementptr inbounds nuw i8, ptr %44, i64 56
   %70 = load i64, ptr %size.i32.i, align 8
   %cmp7.not.i33.i = icmp eq i64 %70, 0
   br i1 %cmp7.not.i33.i, label %hashTableDestroy.exit44.i, label %for.body.lr.ph.i34.i
 
 for.body.lr.ph.i34.i:                             ; preds = %hashTableDestroy.exit31.i
-  %mem.i35.i = getelementptr inbounds i8, ptr %44, i64 72
+  %mem.i35.i = getelementptr inbounds nuw i8, ptr %44, i64 72
   br label %for.body.i36.i
 
 for.body.i36.i:                                   ; preds = %for.body.i36.i, %for.body.lr.ph.i34.i
   %i.08.i37.i = phi i64 [ 0, %for.body.lr.ph.i34.i ], [ %inc.i40.i, %for.body.i36.i ]
   %71 = load ptr, ptr %mem.i35.i, align 8
-  %free_fcn.i38.i = getelementptr inbounds i8, ptr %71, i64 16
+  %free_fcn.i38.i = getelementptr inbounds nuw i8, ptr %71, i64 16
   %72 = load ptr, ptr %free_fcn.i38.i, align 8
   %73 = load ptr, ptr %elementTypes.i, align 8
   %arrayidx.i39.i = getelementptr ptr, ptr %73, i64 %i.08.i37.i
@@ -3114,26 +3114,26 @@ for.body.i36.i:                                   ; preds = %for.body.i36.i, %fo
   br i1 %cmp.i41.i, label %for.body.i36.i, label %hashTableDestroy.exit44.i, !llvm.loop !20
 
 hashTableDestroy.exit44.i:                        ; preds = %for.body.i36.i, %hashTableDestroy.exit31.i
-  %mem1.i42.i = getelementptr inbounds i8, ptr %44, i64 72
+  %mem1.i42.i = getelementptr inbounds nuw i8, ptr %44, i64 72
   %76 = load ptr, ptr %mem1.i42.i, align 8
-  %free_fcn2.i43.i = getelementptr inbounds i8, ptr %76, i64 16
+  %free_fcn2.i43.i = getelementptr inbounds nuw i8, ptr %76, i64 16
   %77 = load ptr, ptr %free_fcn2.i43.i, align 8
   %78 = load ptr, ptr %elementTypes.i, align 8
   tail call void %77(ptr noundef %78) #25
-  %attributeIds.i = getelementptr inbounds i8, ptr %44, i64 80
-  %size.i45.i = getelementptr inbounds i8, ptr %44, i64 96
+  %attributeIds.i = getelementptr inbounds nuw i8, ptr %44, i64 80
+  %size.i45.i = getelementptr inbounds nuw i8, ptr %44, i64 96
   %79 = load i64, ptr %size.i45.i, align 8
   %cmp7.not.i46.i = icmp eq i64 %79, 0
   br i1 %cmp7.not.i46.i, label %hashTableDestroy.exit57.i, label %for.body.lr.ph.i47.i
 
 for.body.lr.ph.i47.i:                             ; preds = %hashTableDestroy.exit44.i
-  %mem.i48.i = getelementptr inbounds i8, ptr %44, i64 112
+  %mem.i48.i = getelementptr inbounds nuw i8, ptr %44, i64 112
   br label %for.body.i49.i
 
 for.body.i49.i:                                   ; preds = %for.body.i49.i, %for.body.lr.ph.i47.i
   %i.08.i50.i = phi i64 [ 0, %for.body.lr.ph.i47.i ], [ %inc.i53.i, %for.body.i49.i ]
   %80 = load ptr, ptr %mem.i48.i, align 8
-  %free_fcn.i51.i = getelementptr inbounds i8, ptr %80, i64 16
+  %free_fcn.i51.i = getelementptr inbounds nuw i8, ptr %80, i64 16
   %81 = load ptr, ptr %free_fcn.i51.i, align 8
   %82 = load ptr, ptr %attributeIds.i, align 8
   %arrayidx.i52.i = getelementptr ptr, ptr %82, i64 %i.08.i50.i
@@ -3145,26 +3145,26 @@ for.body.i49.i:                                   ; preds = %for.body.i49.i, %fo
   br i1 %cmp.i54.i, label %for.body.i49.i, label %hashTableDestroy.exit57.i, !llvm.loop !20
 
 hashTableDestroy.exit57.i:                        ; preds = %for.body.i49.i, %hashTableDestroy.exit44.i
-  %mem1.i55.i = getelementptr inbounds i8, ptr %44, i64 112
+  %mem1.i55.i = getelementptr inbounds nuw i8, ptr %44, i64 112
   %85 = load ptr, ptr %mem1.i55.i, align 8
-  %free_fcn2.i56.i = getelementptr inbounds i8, ptr %85, i64 16
+  %free_fcn2.i56.i = getelementptr inbounds nuw i8, ptr %85, i64 16
   %86 = load ptr, ptr %free_fcn2.i56.i, align 8
   %87 = load ptr, ptr %attributeIds.i, align 8
   tail call void %86(ptr noundef %87) #25
-  %prefixes.i = getelementptr inbounds i8, ptr %44, i64 120
-  %size.i58.i = getelementptr inbounds i8, ptr %44, i64 136
+  %prefixes.i = getelementptr inbounds nuw i8, ptr %44, i64 120
+  %size.i58.i = getelementptr inbounds nuw i8, ptr %44, i64 136
   %88 = load i64, ptr %size.i58.i, align 8
   %cmp7.not.i59.i = icmp eq i64 %88, 0
   br i1 %cmp7.not.i59.i, label %hashTableDestroy.exit70.i, label %for.body.lr.ph.i60.i
 
 for.body.lr.ph.i60.i:                             ; preds = %hashTableDestroy.exit57.i
-  %mem.i61.i = getelementptr inbounds i8, ptr %44, i64 152
+  %mem.i61.i = getelementptr inbounds nuw i8, ptr %44, i64 152
   br label %for.body.i62.i
 
 for.body.i62.i:                                   ; preds = %for.body.i62.i, %for.body.lr.ph.i60.i
   %i.08.i63.i = phi i64 [ 0, %for.body.lr.ph.i60.i ], [ %inc.i66.i, %for.body.i62.i ]
   %89 = load ptr, ptr %mem.i61.i, align 8
-  %free_fcn.i64.i = getelementptr inbounds i8, ptr %89, i64 16
+  %free_fcn.i64.i = getelementptr inbounds nuw i8, ptr %89, i64 16
   %90 = load ptr, ptr %free_fcn.i64.i, align 8
   %91 = load ptr, ptr %prefixes.i, align 8
   %arrayidx.i65.i = getelementptr ptr, ptr %91, i64 %i.08.i63.i
@@ -3176,86 +3176,86 @@ for.body.i62.i:                                   ; preds = %for.body.i62.i, %fo
   br i1 %cmp.i67.i, label %for.body.i62.i, label %hashTableDestroy.exit70.i, !llvm.loop !20
 
 hashTableDestroy.exit70.i:                        ; preds = %for.body.i62.i, %hashTableDestroy.exit57.i
-  %mem1.i68.i = getelementptr inbounds i8, ptr %44, i64 152
+  %mem1.i68.i = getelementptr inbounds nuw i8, ptr %44, i64 152
   %94 = load ptr, ptr %mem1.i68.i, align 8
-  %free_fcn2.i69.i = getelementptr inbounds i8, ptr %94, i64 16
+  %free_fcn2.i69.i = getelementptr inbounds nuw i8, ptr %94, i64 16
   %95 = load ptr, ptr %free_fcn2.i69.i, align 8
   %96 = load ptr, ptr %prefixes.i, align 8
   tail call void %95(ptr noundef %96) #25
-  %pool.i = getelementptr inbounds i8, ptr %44, i64 160
+  %pool.i = getelementptr inbounds nuw i8, ptr %44, i64 160
   %97 = load ptr, ptr %pool.i, align 8
   %tobool.not9.i.i = icmp eq ptr %97, null
   br i1 %tobool.not9.i.i, label %while.end.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %hashTableDestroy.exit70.i
-  %mem.i71.i = getelementptr inbounds i8, ptr %44, i64 200
+  %mem.i71.i = getelementptr inbounds nuw i8, ptr %44, i64 200
   br label %while.body.i72.i
 
 while.body.i72.i:                                 ; preds = %while.body.i72.i, %while.body.lr.ph.i.i
   %p.010.i.i = phi ptr [ %97, %while.body.lr.ph.i.i ], [ %98, %while.body.i72.i ]
   %98 = load ptr, ptr %p.010.i.i, align 8
   %99 = load ptr, ptr %mem.i71.i, align 8
-  %free_fcn.i73.i = getelementptr inbounds i8, ptr %99, i64 16
+  %free_fcn.i73.i = getelementptr inbounds nuw i8, ptr %99, i64 16
   %100 = load ptr, ptr %free_fcn.i73.i, align 8
   tail call void %100(ptr noundef nonnull %p.010.i.i) #25
   %tobool.not.i74.i = icmp eq ptr %98, null
   br i1 %tobool.not.i74.i, label %while.end.i.i, label %while.body.i72.i, !llvm.loop !18
 
 while.end.i.i:                                    ; preds = %while.body.i72.i, %hashTableDestroy.exit70.i
-  %freeBlocks.i.i = getelementptr inbounds i8, ptr %44, i64 168
+  %freeBlocks.i.i = getelementptr inbounds nuw i8, ptr %44, i64 168
   %101 = load ptr, ptr %freeBlocks.i.i, align 8
   %tobool2.not11.i.i = icmp eq ptr %101, null
   br i1 %tobool2.not11.i.i, label %poolDestroy.exit.i, label %while.body3.lr.ph.i.i
 
 while.body3.lr.ph.i.i:                            ; preds = %while.end.i.i
-  %mem6.i.i = getelementptr inbounds i8, ptr %44, i64 200
+  %mem6.i.i = getelementptr inbounds nuw i8, ptr %44, i64 200
   br label %while.body3.i.i
 
 while.body3.i.i:                                  ; preds = %while.body3.i.i, %while.body3.lr.ph.i.i
   %p.112.i.i = phi ptr [ %101, %while.body3.lr.ph.i.i ], [ %102, %while.body3.i.i ]
   %102 = load ptr, ptr %p.112.i.i, align 8
   %103 = load ptr, ptr %mem6.i.i, align 8
-  %free_fcn7.i.i = getelementptr inbounds i8, ptr %103, i64 16
+  %free_fcn7.i.i = getelementptr inbounds nuw i8, ptr %103, i64 16
   %104 = load ptr, ptr %free_fcn7.i.i, align 8
   tail call void %104(ptr noundef nonnull %p.112.i.i) #25
   %tobool2.not.i.i = icmp eq ptr %102, null
   br i1 %tobool2.not.i.i, label %poolDestroy.exit.i, label %while.body3.i.i, !llvm.loop !19
 
 poolDestroy.exit.i:                               ; preds = %while.body3.i.i, %while.end.i.i
-  %entityValuePool.i = getelementptr inbounds i8, ptr %44, i64 208
+  %entityValuePool.i = getelementptr inbounds nuw i8, ptr %44, i64 208
   %105 = load ptr, ptr %entityValuePool.i, align 8
   %tobool.not9.i75.i = icmp eq ptr %105, null
   br i1 %tobool.not9.i75.i, label %while.end.i82.i, label %while.body.lr.ph.i76.i
 
 while.body.lr.ph.i76.i:                           ; preds = %poolDestroy.exit.i
-  %mem.i77.i = getelementptr inbounds i8, ptr %44, i64 248
+  %mem.i77.i = getelementptr inbounds nuw i8, ptr %44, i64 248
   br label %while.body.i78.i
 
 while.body.i78.i:                                 ; preds = %while.body.i78.i, %while.body.lr.ph.i76.i
   %p.010.i79.i = phi ptr [ %105, %while.body.lr.ph.i76.i ], [ %106, %while.body.i78.i ]
   %106 = load ptr, ptr %p.010.i79.i, align 8
   %107 = load ptr, ptr %mem.i77.i, align 8
-  %free_fcn.i80.i = getelementptr inbounds i8, ptr %107, i64 16
+  %free_fcn.i80.i = getelementptr inbounds nuw i8, ptr %107, i64 16
   %108 = load ptr, ptr %free_fcn.i80.i, align 8
   tail call void %108(ptr noundef nonnull %p.010.i79.i) #25
   %tobool.not.i81.i = icmp eq ptr %106, null
   br i1 %tobool.not.i81.i, label %while.end.i82.i, label %while.body.i78.i, !llvm.loop !18
 
 while.end.i82.i:                                  ; preds = %while.body.i78.i, %poolDestroy.exit.i
-  %freeBlocks.i83.i = getelementptr inbounds i8, ptr %44, i64 216
+  %freeBlocks.i83.i = getelementptr inbounds nuw i8, ptr %44, i64 216
   %109 = load ptr, ptr %freeBlocks.i83.i, align 8
   %tobool2.not11.i84.i = icmp eq ptr %109, null
   br i1 %tobool2.not11.i84.i, label %poolDestroy.exit91.i, label %while.body3.lr.ph.i85.i
 
 while.body3.lr.ph.i85.i:                          ; preds = %while.end.i82.i
-  %mem6.i86.i = getelementptr inbounds i8, ptr %44, i64 248
+  %mem6.i86.i = getelementptr inbounds nuw i8, ptr %44, i64 248
   br label %while.body3.i87.i
 
 while.body3.i87.i:                                ; preds = %while.body3.i87.i, %while.body3.lr.ph.i85.i
   %p.112.i88.i = phi ptr [ %109, %while.body3.lr.ph.i85.i ], [ %110, %while.body3.i87.i ]
   %110 = load ptr, ptr %p.112.i88.i, align 8
   %111 = load ptr, ptr %mem6.i86.i, align 8
-  %free_fcn7.i89.i = getelementptr inbounds i8, ptr %111, i64 16
+  %free_fcn7.i89.i = getelementptr inbounds nuw i8, ptr %111, i64 16
   %112 = load ptr, ptr %free_fcn7.i89.i, align 8
   tail call void %112(ptr noundef nonnull %p.112.i88.i) #25
   %tobool2.not.i90.i = icmp eq ptr %110, null
@@ -3266,11 +3266,11 @@ poolDestroy.exit91.i:                             ; preds = %while.body3.i87.i, 
 
 if.then5.i:                                       ; preds = %poolDestroy.exit91.i
   %113 = load ptr, ptr %free_fcn, align 8
-  %scaffIndex.i = getelementptr inbounds i8, ptr %44, i64 352
+  %scaffIndex.i = getelementptr inbounds nuw i8, ptr %44, i64 352
   %114 = load ptr, ptr %scaffIndex.i, align 8
   tail call void %113(ptr noundef %114) #25
   %115 = load ptr, ptr %free_fcn, align 8
-  %scaffold.i = getelementptr inbounds i8, ptr %44, i64 328
+  %scaffold.i = getelementptr inbounds nuw i8, ptr %44, i64 328
   %116 = load ptr, ptr %scaffold.i, align 8
   tail call void %115(ptr noundef %116) #25
   br label %dtdDestroy.exit
@@ -3282,36 +3282,36 @@ dtdDestroy.exit:                                  ; preds = %poolDestroy.exit91.
 
 if.end30:                                         ; preds = %dtdDestroy.exit, %land.lhs.true, %poolDestroy.exit88
   %118 = load ptr, ptr %free_fcn, align 8
-  %m_atts = getelementptr inbounds i8, ptr %parser, i64 736
+  %m_atts = getelementptr inbounds nuw i8, ptr %parser, i64 736
   %119 = load ptr, ptr %m_atts, align 8
   tail call void %118(ptr noundef %119) #25
   %120 = load ptr, ptr %free_fcn, align 8
-  %m_groupConnector = getelementptr inbounds i8, ptr %parser, i64 880
+  %m_groupConnector = getelementptr inbounds nuw i8, ptr %parser, i64 880
   %121 = load ptr, ptr %m_groupConnector, align 8
   tail call void %120(ptr noundef %121) #25
   %122 = load ptr, ptr %free_fcn, align 8
-  %m_buffer = getelementptr inbounds i8, ptr %parser, i64 16
+  %m_buffer = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %123 = load ptr, ptr %m_buffer, align 8
   tail call void %122(ptr noundef %123) #25
   %124 = load ptr, ptr %free_fcn, align 8
-  %m_dataBuf = getelementptr inbounds i8, ptr %parser, i64 88
+  %m_dataBuf = getelementptr inbounds nuw i8, ptr %parser, i64 88
   %125 = load ptr, ptr %m_dataBuf, align 8
   tail call void %124(ptr noundef %125) #25
   %126 = load ptr, ptr %free_fcn, align 8
-  %m_nsAtts = getelementptr inbounds i8, ptr %parser, i64 744
+  %m_nsAtts = getelementptr inbounds nuw i8, ptr %parser, i64 744
   %127 = load ptr, ptr %m_nsAtts, align 8
   tail call void %126(ptr noundef %127) #25
   %128 = load ptr, ptr %free_fcn, align 8
-  %m_unknownEncodingMem = getelementptr inbounds i8, ptr %parser, i64 464
+  %m_unknownEncodingMem = getelementptr inbounds nuw i8, ptr %parser, i64 464
   %129 = load ptr, ptr %m_unknownEncodingMem, align 8
   tail call void %128(ptr noundef %129) #25
-  %m_unknownEncodingRelease = getelementptr inbounds i8, ptr %parser, i64 488
+  %m_unknownEncodingRelease = getelementptr inbounds nuw i8, ptr %parser, i64 488
   %130 = load ptr, ptr %m_unknownEncodingRelease, align 8
   %tobool43.not = icmp eq ptr %130, null
   br i1 %tobool43.not, label %if.end46, label %if.then44
 
 if.then44:                                        ; preds = %if.end30
-  %m_unknownEncodingData = getelementptr inbounds i8, ptr %parser, i64 472
+  %m_unknownEncodingData = getelementptr inbounds nuw i8, ptr %parser, i64 472
   %131 = load ptr, ptr %m_unknownEncodingData, align 8
   tail call void %130(ptr noundef %131) #25
   br label %if.end46
@@ -3333,7 +3333,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @externalEntityInitProcessor2, ptr %m_processor, align 8
   %call1 = tail call i32 @externalEntityInitProcessor2(ptr noundef %parser, ptr noundef %start, ptr noundef %end, ptr noundef %endPtr)
   br label %return
@@ -3353,14 +3353,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %paramEntityRead = getelementptr inbounds i8, ptr %0, i64 259
+  %paramEntityRead = getelementptr inbounds nuw i8, ptr %0, i64 259
   store i8 1, ptr %paramEntityRead, align 1
-  %inEntityValue = getelementptr inbounds i8, ptr %parser, i64 520
+  %inEntityValue = getelementptr inbounds nuw i8, ptr %parser, i64 520
   %1 = load i32, ptr %inEntityValue, align 8
   %tobool.not = icmp eq i32 %1, 0
-  %m_processor3 = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor3 = getelementptr inbounds nuw i8, ptr %parser, i64 528
   br i1 %tobool.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.end
@@ -3385,7 +3385,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg = getelementptr inbounds nuw i8, ptr %parser, i64 8
   store ptr %parser, ptr %m_handlerArg, align 8
   br label %if.end
 
@@ -3400,7 +3400,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %if.end6 [
     i32 1, label %return
@@ -3408,7 +3408,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.end6:                                          ; preds = %if.end
-  %m_useForeignDTD = getelementptr inbounds i8, ptr %parser, i64 913
+  %m_useForeignDTD = getelementptr inbounds nuw i8, ptr %parser, i64 913
   store i8 %useDTD, ptr %m_useForeignDTD, align 1
   br label %return
 
@@ -3424,7 +3424,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %if.end6 [
     i32 1, label %return
@@ -3434,7 +3434,7 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %tobool.not = icmp ne i32 %do_nst, 0
   %conv = zext i1 %tobool.not to i8
-  %m_ns_triplets = getelementptr inbounds i8, ptr %parser, i64 457
+  %m_ns_triplets = getelementptr inbounds nuw i8, ptr %parser, i64 457
   store i8 %conv, ptr %m_ns_triplets, align 1
   br label %return
 
@@ -3449,7 +3449,7 @@ entry:
   br i1 %cmp, label %if.end6, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %0 = load ptr, ptr %m_handlerArg, align 8
   %1 = load ptr, ptr %parser, align 8
   %cmp1 = icmp eq ptr %0, %1
@@ -3475,11 +3475,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return.sink.split, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %pool = getelementptr inbounds i8, ptr %0, i64 160
-  %ptr.i = getelementptr inbounds i8, ptr %0, i64 184
-  %end.i = getelementptr inbounds i8, ptr %0, i64 176
+  %pool = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %end.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %do.body.i
 
 do.body.i:                                        ; preds = %cond.false.i, %if.then1
@@ -3510,7 +3510,7 @@ cond.false.i:                                     ; preds = %land.lhs.true.cond.
   br i1 %tobool3.not.i, label %poolCopyString.exit, label %do.body.i, !llvm.loop !12
 
 poolCopyString.exit:                              ; preds = %cond.false.i
-  %start.i = getelementptr inbounds i8, ptr %0, i64 192
+  %start.i = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %start.i, align 8
   %7 = load ptr, ptr %ptr.i, align 8
   store ptr %7, ptr %start.i, align 8
@@ -3519,7 +3519,7 @@ poolCopyString.exit:                              ; preds = %cond.false.i
 
 return.sink.split:                                ; preds = %if.end, %poolCopyString.exit
   %.sink = phi ptr [ %6, %poolCopyString.exit ], [ null, %if.end ]
-  %m_curBase = getelementptr inbounds i8, ptr %parser, i64 680
+  %m_curBase = getelementptr inbounds nuw i8, ptr %parser, i64 680
   store ptr %.sink, ptr %m_curBase, align 8
   br label %return
 
@@ -3535,7 +3535,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_curBase = getelementptr inbounds i8, ptr %parser, i64 680
+  %m_curBase = getelementptr inbounds nuw i8, ptr %parser, i64 680
   %0 = load ptr, ptr %m_curBase, align 8
   br label %return
 
@@ -3551,7 +3551,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_nSpecifiedAtts = getelementptr inbounds i8, ptr %parser, i64 724
+  %m_nSpecifiedAtts = getelementptr inbounds nuw i8, ptr %parser, i64 724
   %0 = load i32, ptr %m_nSpecifiedAtts, align 4
   br label %return
 
@@ -3567,7 +3567,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_idAttIndex = getelementptr inbounds i8, ptr %parser, i64 728
+  %m_idAttIndex = getelementptr inbounds nuw i8, ptr %parser, i64 728
   %0 = load i32, ptr %m_idAttIndex, align 8
   br label %return
 
@@ -3583,9 +3583,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_startElementHandler = getelementptr inbounds i8, ptr %parser, i64 104
+  %m_startElementHandler = getelementptr inbounds nuw i8, ptr %parser, i64 104
   store ptr %start, ptr %m_startElementHandler, align 8
-  %m_endElementHandler = getelementptr inbounds i8, ptr %parser, i64 112
+  %m_endElementHandler = getelementptr inbounds nuw i8, ptr %parser, i64 112
   store ptr %end, ptr %m_endElementHandler, align 8
   br label %return
 
@@ -3600,7 +3600,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_startElementHandler = getelementptr inbounds i8, ptr %parser, i64 104
+  %m_startElementHandler = getelementptr inbounds nuw i8, ptr %parser, i64 104
   store ptr %start, ptr %m_startElementHandler, align 8
   br label %if.end
 
@@ -3615,7 +3615,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_endElementHandler = getelementptr inbounds i8, ptr %parser, i64 112
+  %m_endElementHandler = getelementptr inbounds nuw i8, ptr %parser, i64 112
   store ptr %end, ptr %m_endElementHandler, align 8
   br label %if.end
 
@@ -3630,7 +3630,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_characterDataHandler = getelementptr inbounds i8, ptr %parser, i64 120
+  %m_characterDataHandler = getelementptr inbounds nuw i8, ptr %parser, i64 120
   store ptr %handler, ptr %m_characterDataHandler, align 8
   br label %if.end
 
@@ -3645,7 +3645,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_processingInstructionHandler = getelementptr inbounds i8, ptr %parser, i64 128
+  %m_processingInstructionHandler = getelementptr inbounds nuw i8, ptr %parser, i64 128
   store ptr %handler, ptr %m_processingInstructionHandler, align 8
   br label %if.end
 
@@ -3660,7 +3660,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_commentHandler = getelementptr inbounds i8, ptr %parser, i64 136
+  %m_commentHandler = getelementptr inbounds nuw i8, ptr %parser, i64 136
   store ptr %handler, ptr %m_commentHandler, align 8
   br label %if.end
 
@@ -3675,9 +3675,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_startCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 144
+  %m_startCdataSectionHandler = getelementptr inbounds nuw i8, ptr %parser, i64 144
   store ptr %start, ptr %m_startCdataSectionHandler, align 8
-  %m_endCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 152
+  %m_endCdataSectionHandler = getelementptr inbounds nuw i8, ptr %parser, i64 152
   store ptr %end, ptr %m_endCdataSectionHandler, align 8
   br label %return
 
@@ -3692,7 +3692,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_startCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 144
+  %m_startCdataSectionHandler = getelementptr inbounds nuw i8, ptr %parser, i64 144
   store ptr %start, ptr %m_startCdataSectionHandler, align 8
   br label %if.end
 
@@ -3707,7 +3707,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_endCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 152
+  %m_endCdataSectionHandler = getelementptr inbounds nuw i8, ptr %parser, i64 152
   store ptr %end, ptr %m_endCdataSectionHandler, align 8
   br label %if.end
 
@@ -3722,9 +3722,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_defaultHandler = getelementptr inbounds nuw i8, ptr %parser, i64 160
   store ptr %handler, ptr %m_defaultHandler, align 8
-  %m_defaultExpandInternalEntities = getelementptr inbounds i8, ptr %parser, i64 584
+  %m_defaultExpandInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 584
   store i8 0, ptr %m_defaultExpandInternalEntities, align 8
   br label %return
 
@@ -3739,9 +3739,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_defaultHandler = getelementptr inbounds nuw i8, ptr %parser, i64 160
   store ptr %handler, ptr %m_defaultHandler, align 8
-  %m_defaultExpandInternalEntities = getelementptr inbounds i8, ptr %parser, i64 584
+  %m_defaultExpandInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 584
   store i8 1, ptr %m_defaultExpandInternalEntities, align 8
   br label %return
 
@@ -3756,9 +3756,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_startDoctypeDeclHandler = getelementptr inbounds i8, ptr %parser, i64 168
+  %m_startDoctypeDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 168
   store ptr %start, ptr %m_startDoctypeDeclHandler, align 8
-  %m_endDoctypeDeclHandler = getelementptr inbounds i8, ptr %parser, i64 176
+  %m_endDoctypeDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 176
   store ptr %end, ptr %m_endDoctypeDeclHandler, align 8
   br label %return
 
@@ -3773,7 +3773,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_startDoctypeDeclHandler = getelementptr inbounds i8, ptr %parser, i64 168
+  %m_startDoctypeDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 168
   store ptr %start, ptr %m_startDoctypeDeclHandler, align 8
   br label %if.end
 
@@ -3788,7 +3788,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_endDoctypeDeclHandler = getelementptr inbounds i8, ptr %parser, i64 176
+  %m_endDoctypeDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 176
   store ptr %end, ptr %m_endDoctypeDeclHandler, align 8
   br label %if.end
 
@@ -3803,7 +3803,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_unparsedEntityDeclHandler = getelementptr inbounds i8, ptr %parser, i64 184
+  %m_unparsedEntityDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 184
   store ptr %handler, ptr %m_unparsedEntityDeclHandler, align 8
   br label %if.end
 
@@ -3818,7 +3818,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_notationDeclHandler = getelementptr inbounds i8, ptr %parser, i64 192
+  %m_notationDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 192
   store ptr %handler, ptr %m_notationDeclHandler, align 8
   br label %if.end
 
@@ -3833,9 +3833,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_startNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 200
+  %m_startNamespaceDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 200
   store ptr %start, ptr %m_startNamespaceDeclHandler, align 8
-  %m_endNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 208
+  %m_endNamespaceDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 208
   store ptr %end, ptr %m_endNamespaceDeclHandler, align 8
   br label %return
 
@@ -3850,7 +3850,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_startNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 200
+  %m_startNamespaceDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 200
   store ptr %start, ptr %m_startNamespaceDeclHandler, align 8
   br label %if.end
 
@@ -3865,7 +3865,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_endNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 208
+  %m_endNamespaceDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 208
   store ptr %end, ptr %m_endNamespaceDeclHandler, align 8
   br label %if.end
 
@@ -3880,7 +3880,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_notStandaloneHandler = getelementptr inbounds i8, ptr %parser, i64 216
+  %m_notStandaloneHandler = getelementptr inbounds nuw i8, ptr %parser, i64 216
   store ptr %handler, ptr %m_notStandaloneHandler, align 8
   br label %if.end
 
@@ -3895,7 +3895,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_externalEntityRefHandler = getelementptr inbounds i8, ptr %parser, i64 224
+  %m_externalEntityRefHandler = getelementptr inbounds nuw i8, ptr %parser, i64 224
   store ptr %handler, ptr %m_externalEntityRefHandler, align 8
   br label %if.end
 
@@ -3911,7 +3911,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %tobool.not = icmp eq ptr %arg, null
-  %m_externalEntityRefHandlerArg2 = getelementptr inbounds i8, ptr %parser, i64 232
+  %m_externalEntityRefHandlerArg2 = getelementptr inbounds nuw i8, ptr %parser, i64 232
   %parser.arg = select i1 %tobool.not, ptr %parser, ptr %arg
   store ptr %parser.arg, ptr %m_externalEntityRefHandlerArg2, align 8
   br label %if.end3
@@ -3927,7 +3927,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_skippedEntityHandler = getelementptr inbounds i8, ptr %parser, i64 240
+  %m_skippedEntityHandler = getelementptr inbounds nuw i8, ptr %parser, i64 240
   store ptr %handler, ptr %m_skippedEntityHandler, align 8
   br label %if.end
 
@@ -3942,9 +3942,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_unknownEncodingHandler = getelementptr inbounds i8, ptr %parser, i64 248
+  %m_unknownEncodingHandler = getelementptr inbounds nuw i8, ptr %parser, i64 248
   store ptr %handler, ptr %m_unknownEncodingHandler, align 8
-  %m_unknownEncodingHandlerData = getelementptr inbounds i8, ptr %parser, i64 480
+  %m_unknownEncodingHandlerData = getelementptr inbounds nuw i8, ptr %parser, i64 480
   store ptr %data, ptr %m_unknownEncodingHandlerData, align 8
   br label %return
 
@@ -3959,7 +3959,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_elementDeclHandler = getelementptr inbounds i8, ptr %parser, i64 256
+  %m_elementDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 256
   store ptr %eldecl, ptr %m_elementDeclHandler, align 8
   br label %if.end
 
@@ -3974,7 +3974,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_attlistDeclHandler = getelementptr inbounds i8, ptr %parser, i64 264
+  %m_attlistDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 264
   store ptr %attdecl, ptr %m_attlistDeclHandler, align 8
   br label %if.end
 
@@ -3989,7 +3989,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_entityDeclHandler = getelementptr inbounds i8, ptr %parser, i64 272
+  %m_entityDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 272
   store ptr %handler, ptr %m_entityDeclHandler, align 8
   br label %if.end
 
@@ -4004,7 +4004,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %m_xmlDeclHandler = getelementptr inbounds i8, ptr %parser, i64 280
+  %m_xmlDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 280
   store ptr %handler, ptr %m_xmlDeclHandler, align 8
   br label %if.end
 
@@ -4019,7 +4019,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %if.end6 [
     i32 1, label %return
@@ -4027,7 +4027,7 @@ if.end:                                           ; preds = %entry
   ]
 
 if.end6:                                          ; preds = %if.end
-  %m_paramEntityParsing = getelementptr inbounds i8, ptr %parser, i64 916
+  %m_paramEntityParsing = getelementptr inbounds nuw i8, ptr %parser, i64 916
   store i32 %peParsing, ptr %m_paramEntityParsing, align 4
   br label %return
 
@@ -4047,13 +4047,13 @@ tailrecurse:                                      ; preds = %if.end, %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %tailrecurse
-  %m_parentParser = getelementptr inbounds i8, ptr %parser.tr, i64 896
+  %m_parentParser = getelementptr inbounds nuw i8, ptr %parser.tr, i64 896
   %0 = load ptr, ptr %m_parentParser, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end3, label %tailrecurse
 
 if.end3:                                          ; preds = %if.end
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser.tr, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser.tr, i64 904
   %1 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %1, label %if.end9 [
     i32 1, label %return
@@ -4061,7 +4061,7 @@ if.end3:                                          ; preds = %if.end
   ]
 
 if.end9:                                          ; preds = %if.end3
-  %m_hash_secret_salt = getelementptr inbounds i8, ptr %parser.tr, i64 920
+  %m_hash_secret_salt = getelementptr inbounds nuw i8, ptr %parser.tr, i64 920
   store i64 %hash_salt, ptr %m_hash_secret_salt, align 8
   br label %return
 
@@ -4088,12 +4088,12 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.then6
 
 if.then6:                                         ; preds = %lor.lhs.false2, %if.then
-  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 41, ptr %m_errorCode, align 8
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false2
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %sw.default [
     i32 3, label %sw.bb
@@ -4102,17 +4102,17 @@ if.end7:                                          ; preds = %lor.lhs.false2
   ]
 
 sw.bb:                                            ; preds = %if.end7
-  %m_errorCode8 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode8 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 33, ptr %m_errorCode8, align 8
   br label %return
 
 sw.bb9:                                           ; preds = %if.end7
-  %m_errorCode10 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode10 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 36, ptr %m_errorCode10, align 8
   br label %return
 
 sw.bb11:                                          ; preds = %if.end7
-  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
+  %m_parentParser = getelementptr inbounds nuw i8, ptr %parser, i64 896
   %1 = load ptr, ptr %m_parentParser, align 8
   %cmp12 = icmp eq ptr %1, null
   br i1 %cmp12, label %land.lhs.true13, label %sw.default
@@ -4123,7 +4123,7 @@ land.lhs.true13:                                  ; preds = %sw.bb11
   br i1 %tobool.not, label %if.then14, label %sw.default
 
 if.then14:                                        ; preds = %land.lhs.true13
-  %m_errorCode15 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode15 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode15, align 8
   br label %return
 
@@ -4134,24 +4134,24 @@ sw.default:                                       ; preds = %sw.bb11, %land.lhs.
 
 if.then20:                                        ; preds = %sw.default
   %conv = trunc i32 %isFinal to i8
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   store i8 %conv, ptr %finalBuffer, align 4
   %tobool22.not = icmp eq i32 %isFinal, 0
   br i1 %tobool22.not, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.then20
-  %m_bufferPtr = getelementptr inbounds i8, ptr %parser, i64 48
+  %m_bufferPtr = getelementptr inbounds nuw i8, ptr %parser, i64 48
   %2 = load ptr, ptr %m_bufferPtr, align 8
-  %m_positionPtr = getelementptr inbounds i8, ptr %parser, i64 560
+  %m_positionPtr = getelementptr inbounds nuw i8, ptr %parser, i64 560
   store ptr %2, ptr %m_positionPtr, align 8
-  %m_bufferEnd = getelementptr inbounds i8, ptr %parser, i64 56
+  %m_bufferEnd = getelementptr inbounds nuw i8, ptr %parser, i64 56
   %3 = load ptr, ptr %m_bufferEnd, align 8
-  %m_parseEndPtr = getelementptr inbounds i8, ptr %parser, i64 80
+  %m_parseEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 80
   store ptr %3, ptr %m_parseEndPtr, align 8
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   %4 = load ptr, ptr %m_processor, align 8
   %call28 = tail call i32 %4(ptr noundef nonnull %parser, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %m_bufferPtr) #25
-  %m_errorCode29 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode29 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 %call28, ptr %m_errorCode29, align 8
   %cmp31 = icmp eq i32 %call28, 0
   br i1 %cmp31, label %if.then33, label %if.end46
@@ -4165,13 +4165,13 @@ if.then33:                                        ; preds = %if.end24
   ]
 
 sw.bb36:                                          ; preds = %if.then33
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %6 = load ptr, ptr %m_encoding, align 8
-  %updatePosition = getelementptr inbounds i8, ptr %6, i64 96
+  %updatePosition = getelementptr inbounds nuw i8, ptr %6, i64 96
   %7 = load ptr, ptr %updatePosition, align 8
   %8 = load ptr, ptr %m_positionPtr, align 8
   %9 = load ptr, ptr %m_bufferPtr, align 8
-  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
+  %m_position = getelementptr inbounds nuw i8, ptr %parser, i64 768
   tail call void %7(ptr noundef %6, ptr noundef %8, ptr noundef %9, ptr noundef nonnull %m_position) #25
   %10 = load ptr, ptr %m_bufferPtr, align 8
   store ptr %10, ptr %m_positionPtr, align 8
@@ -4182,9 +4182,9 @@ sw.bb42:                                          ; preds = %if.then33, %if.then
   br label %return
 
 if.end46:                                         ; preds = %if.end24
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   %11 = load ptr, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   store ptr %11, ptr %m_eventEndPtr, align 8
   store ptr @errorProcessor, ptr %m_processor, align 8
   br label %return
@@ -4212,7 +4212,7 @@ entry:
   %tv.i.i = alloca %struct.timeval, align 8
   %afterValue.i.i.i = alloca ptr, align 8
   %entropy.i = alloca i64, align 8
-  %m_hash_secret_salt = getelementptr inbounds i8, ptr %parser, i64 920
+  %m_hash_secret_salt = getelementptr inbounds nuw i8, ptr %parser, i64 920
   %0 = load i64, ptr %m_hash_secret_salt, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -4286,7 +4286,7 @@ if.then.i.i:                                      ; preds = %getDebugLevel.exit.
 if.end.i:                                         ; preds = %land.rhs.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i1.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #25
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %tv.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
   %call3.i = call i32 @getpid() #25
@@ -4338,7 +4338,7 @@ generate_hash_secret_salt.exit:                   ; preds = %getDebugLevel.exit.
   br label %if.end
 
 if.end:                                           ; preds = %generate_hash_secret_salt.exit, %entry
-  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
+  %m_ns = getelementptr inbounds nuw i8, ptr %parser, i64 456
   %12 = load i8, ptr %m_ns, align 8
   %tobool.not = icmp eq i8 %12, 0
   br i1 %tobool.not, label %return, label %if.then2
@@ -4355,7 +4355,7 @@ return:                                           ; preds = %if.end, %if.then2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @errorProcessor(ptr nocapture noundef readonly %parser, ptr nocapture readnone %s, ptr nocapture readnone %end, ptr nocapture readnone %nextPtr) #4 {
 entry:
-  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode = getelementptr inbounds nuw i8, ptr %parser, i64 536
   %0 = load i32, ptr %m_errorCode, align 8
   ret i32 %0
 }
@@ -4371,12 +4371,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode, align 8
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %sw.epilog [
     i32 3, label %sw.bb
@@ -4384,24 +4384,24 @@ if.end3:                                          ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end3
-  %m_errorCode4 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode4 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 33, ptr %m_errorCode4, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %if.end3
-  %m_errorCode6 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode6 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 36, ptr %m_errorCode6, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %if.end3
   %conv = zext nneg i32 %len to i64
-  %m_bufferLim = getelementptr inbounds i8, ptr %parser, i64 64
+  %m_bufferLim = getelementptr inbounds nuw i8, ptr %parser, i64 64
   %1 = load ptr, ptr %m_bufferLim, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.epilog
-  %m_bufferEnd = getelementptr inbounds i8, ptr %parser, i64 56
+  %m_bufferEnd = getelementptr inbounds nuw i8, ptr %parser, i64 56
   %2 = load ptr, ptr %m_bufferEnd, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %cond.end, label %cond.true
@@ -4415,7 +4415,7 @@ cond.true:                                        ; preds = %land.lhs.true
 cond.end:                                         ; preds = %sw.epilog, %land.lhs.true, %cond.true
   %cond = phi i64 [ %sub.ptr.sub, %cond.true ], [ 0, %land.lhs.true ], [ 0, %sw.epilog ]
   %cmp10 = icmp slt i64 %cond, %conv
-  %m_bufferEnd13 = getelementptr inbounds i8, ptr %parser, i64 56
+  %m_bufferEnd13 = getelementptr inbounds nuw i8, ptr %parser, i64 56
   %3 = load ptr, ptr %m_bufferEnd13, align 8
   br i1 %cmp10, label %if.then12, label %return
 
@@ -4424,7 +4424,7 @@ if.then12:                                        ; preds = %cond.end
   br i1 %tobool14.not, label %cond.end24, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %if.then12
-  %m_bufferPtr = getelementptr inbounds i8, ptr %parser, i64 48
+  %m_bufferPtr = getelementptr inbounds nuw i8, ptr %parser, i64 48
   %4 = load ptr, ptr %m_bufferPtr, align 8
   %tobool16.not = icmp eq ptr %4, null
   br i1 %tobool16.not, label %cond.end24, label %cond.true17
@@ -4443,18 +4443,18 @@ cond.end24:                                       ; preds = %if.then12, %land.lh
   br i1 %cmp27, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %cond.end24
-  %m_errorCode30 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode30 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode30, align 8
   br label %return
 
 if.end31:                                         ; preds = %cond.end24
-  %m_bufferPtr32 = getelementptr inbounds i8, ptr %parser, i64 48
+  %m_bufferPtr32 = getelementptr inbounds nuw i8, ptr %parser, i64 48
   %6 = load ptr, ptr %m_bufferPtr32, align 8
   %tobool33.not = icmp eq ptr %6, null
   br i1 %tobool33.not, label %cond.end43, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %if.end31
-  %m_buffer = getelementptr inbounds i8, ptr %parser, i64 16
+  %m_buffer = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %7 = load ptr, ptr %m_buffer, align 8
   %tobool35.not = icmp eq ptr %7, null
   br i1 %tobool35.not, label %cond.end43, label %cond.true36
@@ -4474,7 +4474,7 @@ cond.end43:                                       ; preds = %if.end31, %land.lhs
   br i1 %cmp50, label %if.then52, label %if.end54
 
 if.then52:                                        ; preds = %cond.end43
-  %m_errorCode53 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode53 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode53, align 8
   br label %return
 
@@ -4484,7 +4484,7 @@ if.end54:                                         ; preds = %cond.end43
 
 land.lhs.true59:                                  ; preds = %if.end54
   %conv56 = sext i32 %add55 to i64
-  %m_buffer60 = getelementptr inbounds i8, ptr %parser, i64 16
+  %m_buffer60 = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %9 = load ptr, ptr %m_buffer60, align 8
   %tobool61.not = icmp eq ptr %9, null
   %sub.ptr.lhs.cast65 = ptrtoint ptr %1 to i64
@@ -4503,7 +4503,7 @@ if.then73:                                        ; preds = %cond.end69.thread, 
   br i1 %tobool33.not, label %cond.end87.thread, label %land.lhs.true77
 
 land.lhs.true77:                                  ; preds = %if.then73
-  %m_buffer78 = getelementptr inbounds i8, ptr %parser, i64 16
+  %m_buffer78 = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %10 = load ptr, ptr %m_buffer78, align 8
   %tobool79.not = icmp eq ptr %10, null
   %sub.ptr.lhs.cast83 = ptrtoint ptr %6 to i64
@@ -4518,7 +4518,7 @@ cond.end87.thread:                                ; preds = %if.then73
   br i1 %cmp89116, label %cond.end87.thread.cond.end104_crit_edge, label %if.end214
 
 cond.end87.thread.cond.end104_crit_edge:          ; preds = %cond.end87.thread
-  %m_buffer108.phi.trans.insert = getelementptr inbounds i8, ptr %parser, i64 16
+  %m_buffer108.phi.trans.insert = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %.pre = load ptr, ptr %m_buffer108.phi.trans.insert, align 8
   br label %cond.end104
 
@@ -4575,12 +4575,12 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp146, label %if.then148, label %if.end150
 
 if.then148:                                       ; preds = %do.end
-  %m_errorCode149 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode149 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode149, align 8
   br label %return
 
 if.end150:                                        ; preds = %do.end
-  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
+  %m_mem = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %17 = load ptr, ptr %m_mem, align 8
   %conv151 = zext nneg i32 %mul to i64
   %call = tail call ptr %17(i64 noundef %conv151) #25
@@ -4588,7 +4588,7 @@ if.end150:                                        ; preds = %do.end
   br i1 %cmp152, label %if.then154, label %if.end156
 
 if.then154:                                       ; preds = %if.end150
-  %m_errorCode155 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode155 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode155, align 8
   br label %return
 
@@ -4612,9 +4612,9 @@ if.then162:                                       ; preds = %if.end156
   %conv181 = sext i32 %spec.store.select to i64
   %add182 = add i64 %cond180, %conv181
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %arrayidx166, i64 %add182, i1 false)
-  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
+  %free_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 40
   %20 = load ptr, ptr %free_fcn, align 8
-  %m_buffer184 = getelementptr inbounds i8, ptr %parser, i64 16
+  %m_buffer184 = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %21 = load ptr, ptr %m_buffer184, align 8
   tail call void %20(ptr noundef %21) #25
   store ptr %call, ptr %m_buffer184, align 8
@@ -4643,7 +4643,7 @@ cond.end199:                                      ; preds = %if.then162, %land.l
 
 if.else209:                                       ; preds = %if.end156
   store ptr %call, ptr %m_bufferEnd13, align 8
-  %m_buffer211 = getelementptr inbounds i8, ptr %parser, i64 16
+  %m_buffer211 = getelementptr inbounds nuw i8, ptr %parser, i64 16
   store ptr %call, ptr %m_buffer211, align 8
   br label %if.end214.sink.split
 
@@ -4655,7 +4655,7 @@ if.end214.sink.split:                             ; preds = %cond.end104, %if.el
 
 if.end214:                                        ; preds = %if.end214.sink.split, %cond.end87.thread, %land.lhs.true77
   %24 = phi ptr [ %3, %cond.end87.thread ], [ %3, %land.lhs.true77 ], [ %.ph, %if.end214.sink.split ]
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_eventPtr, i8 0, i64 24, i1 false)
   br label %return
 
@@ -4674,7 +4674,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %sw.default [
     i32 3, label %sw.bb
@@ -4683,28 +4683,28 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 33, ptr %m_errorCode, align 8
   br label %return
 
 sw.bb1:                                           ; preds = %if.end
-  %m_errorCode2 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode2 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 36, ptr %m_errorCode2, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %if.end
-  %m_bufferPtr = getelementptr inbounds i8, ptr %parser, i64 48
+  %m_bufferPtr = getelementptr inbounds nuw i8, ptr %parser, i64 48
   %1 = load ptr, ptr %m_bufferPtr, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %sw.bb3
-  %m_errorCode5 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode5 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 42, ptr %m_errorCode5, align 8
   br label %return
 
 if.end6:                                          ; preds = %sw.bb3
-  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
+  %m_parentParser = getelementptr inbounds nuw i8, ptr %parser, i64 896
   %2 = load ptr, ptr %m_parentParser, align 8
   %cmp7 = icmp eq ptr %2, null
   br i1 %cmp7, label %land.lhs.true, label %sw.default
@@ -4715,42 +4715,42 @@ land.lhs.true:                                    ; preds = %if.end6
   br i1 %tobool8.not, label %if.then9, label %sw.default
 
 if.then9:                                         ; preds = %land.lhs.true
-  %m_errorCode10 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode10 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 1, ptr %m_errorCode10, align 8
   br label %return
 
 sw.default:                                       ; preds = %if.end6, %land.lhs.true, %if.end
   store i32 1, ptr %m_parsingStatus, align 8
-  %m_bufferPtr14 = getelementptr inbounds i8, ptr %parser, i64 48
+  %m_bufferPtr14 = getelementptr inbounds nuw i8, ptr %parser, i64 48
   %3 = load ptr, ptr %m_bufferPtr14, align 8
-  %m_positionPtr = getelementptr inbounds i8, ptr %parser, i64 560
+  %m_positionPtr = getelementptr inbounds nuw i8, ptr %parser, i64 560
   store ptr %3, ptr %m_positionPtr, align 8
-  %m_bufferEnd = getelementptr inbounds i8, ptr %parser, i64 56
+  %m_bufferEnd = getelementptr inbounds nuw i8, ptr %parser, i64 56
   %4 = load ptr, ptr %m_bufferEnd, align 8
   %idx.ext = sext i32 %len to i64
   %add.ptr = getelementptr i8, ptr %4, i64 %idx.ext
   store ptr %add.ptr, ptr %m_bufferEnd, align 8
-  %m_parseEndPtr = getelementptr inbounds i8, ptr %parser, i64 80
+  %m_parseEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 80
   store ptr %add.ptr, ptr %m_parseEndPtr, align 8
-  %m_parseEndByteIndex = getelementptr inbounds i8, ptr %parser, i64 72
+  %m_parseEndByteIndex = getelementptr inbounds nuw i8, ptr %parser, i64 72
   %5 = load i64, ptr %m_parseEndByteIndex, align 8
   %add = add i64 %5, %idx.ext
   store i64 %add, ptr %m_parseEndByteIndex, align 8
   %conv16 = trunc i32 %isFinal to i8
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   store i8 %conv16, ptr %finalBuffer, align 4
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   %6 = load ptr, ptr %m_processor, align 8
   %call20 = tail call i32 %6(ptr noundef nonnull %parser, ptr noundef %3, ptr noundef %add.ptr, ptr noundef nonnull %m_bufferPtr14) #25
-  %m_errorCode21 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode21 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 %call20, ptr %m_errorCode21, align 8
   %cmp23.not = icmp eq i32 %call20, 0
   br i1 %cmp23.not, label %if.else, label %if.then25
 
 if.then25:                                        ; preds = %sw.default
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   %7 = load ptr, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   store ptr %7, ptr %m_eventEndPtr, align 8
   store ptr @errorProcessor, ptr %m_processor, align 8
   br label %return
@@ -4776,13 +4776,13 @@ if.then32:                                        ; preds = %sw.bb30
 
 if.end38:                                         ; preds = %sw.bb29, %sw.bb30, %if.else
   %result.0 = phi i32 [ 1, %if.else ], [ 1, %sw.bb30 ], [ 2, %sw.bb29 ]
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %9 = load ptr, ptr %m_encoding, align 8
-  %updatePosition = getelementptr inbounds i8, ptr %9, i64 96
+  %updatePosition = getelementptr inbounds nuw i8, ptr %9, i64 96
   %10 = load ptr, ptr %updatePosition, align 8
   %11 = load ptr, ptr %m_positionPtr, align 8
   %12 = load ptr, ptr %m_bufferPtr14, align 8
-  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
+  %m_position = getelementptr inbounds nuw i8, ptr %parser, i64 768
   tail call void %10(ptr noundef %9, ptr noundef %11, ptr noundef %12, ptr noundef nonnull %m_position) #25
   %13 = load ptr, ptr %m_bufferPtr14, align 8
   store ptr %13, ptr %m_positionPtr, align 8
@@ -4803,7 +4803,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %0, label %sw.default [
     i32 3, label %sw.bb
@@ -4815,7 +4815,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %tobool.not, label %if.end2, label %if.then1
 
 if.then1:                                         ; preds = %sw.bb
-  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 33, ptr %m_errorCode, align 8
   br label %return
 
@@ -4824,7 +4824,7 @@ if.end2:                                          ; preds = %sw.bb
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %m_errorCode6 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode6 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 36, ptr %m_errorCode6, align 8
   br label %return
 
@@ -4833,13 +4833,13 @@ sw.default:                                       ; preds = %if.end
   br i1 %tobool7.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %sw.default
-  %m_isParamEntity = getelementptr inbounds i8, ptr %parser, i64 912
+  %m_isParamEntity = getelementptr inbounds nuw i8, ptr %parser, i64 912
   %1 = load i8, ptr %m_isParamEntity, align 8
   %tobool9.not = icmp eq i8 %1, 0
   br i1 %tobool9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then8
-  %m_errorCode11 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode11 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 37, ptr %m_errorCode11, align 8
   br label %return
 
@@ -4863,34 +4863,34 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %0 = load i32, ptr %m_parsingStatus, align 8
   %cmp1.not = icmp eq i32 %0, 3
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 34, ptr %m_errorCode, align 8
   br label %return
 
 if.end3:                                          ; preds = %if.end
   store i32 1, ptr %m_parsingStatus, align 8
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   %1 = load ptr, ptr %m_processor, align 8
-  %m_bufferPtr = getelementptr inbounds i8, ptr %parser, i64 48
+  %m_bufferPtr = getelementptr inbounds nuw i8, ptr %parser, i64 48
   %2 = load ptr, ptr %m_bufferPtr, align 8
-  %m_parseEndPtr = getelementptr inbounds i8, ptr %parser, i64 80
+  %m_parseEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 80
   %3 = load ptr, ptr %m_parseEndPtr, align 8
   %call = tail call i32 %1(ptr noundef nonnull %parser, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %m_bufferPtr) #25
-  %m_errorCode7 = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode7 = getelementptr inbounds nuw i8, ptr %parser, i64 536
   store i32 %call, ptr %m_errorCode7, align 8
   %cmp9.not = icmp eq i32 %call, 0
   br i1 %cmp9.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end3
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   %4 = load ptr, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   store ptr %4, ptr %m_eventEndPtr, align 8
   store ptr @errorProcessor, ptr %m_processor, align 8
   br label %return
@@ -4907,7 +4907,7 @@ sw.bb:                                            ; preds = %if.else
   br label %if.end20
 
 sw.bb14:                                          ; preds = %if.else, %if.else
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %6 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %if.end20, label %if.then16
@@ -4918,14 +4918,14 @@ if.then16:                                        ; preds = %sw.bb14
 
 if.end20:                                         ; preds = %sw.bb, %sw.bb14, %if.else
   %result.0 = phi i32 [ 1, %if.else ], [ 1, %sw.bb14 ], [ 2, %sw.bb ]
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %7 = load ptr, ptr %m_encoding, align 8
-  %updatePosition = getelementptr inbounds i8, ptr %7, i64 96
+  %updatePosition = getelementptr inbounds nuw i8, ptr %7, i64 96
   %8 = load ptr, ptr %updatePosition, align 8
-  %m_positionPtr = getelementptr inbounds i8, ptr %parser, i64 560
+  %m_positionPtr = getelementptr inbounds nuw i8, ptr %parser, i64 560
   %9 = load ptr, ptr %m_positionPtr, align 8
   %10 = load ptr, ptr %m_bufferPtr, align 8
-  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
+  %m_position = getelementptr inbounds nuw i8, ptr %parser, i64 768
   tail call void %8(ptr noundef %7, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %m_position) #25
   %11 = load ptr, ptr %m_bufferPtr, align 8
   store ptr %11, ptr %m_positionPtr, align 8
@@ -4943,7 +4943,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %0 = load i64, ptr %m_parsingStatus, align 8
   store i64 %0, ptr %status, align 4
   br label %return
@@ -4959,7 +4959,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_errorCode = getelementptr inbounds i8, ptr %parser, i64 536
+  %m_errorCode = getelementptr inbounds nuw i8, ptr %parser, i64 536
   %0 = load i32, ptr %m_errorCode, align 8
   br label %return
 
@@ -4975,15 +4975,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   %0 = load ptr, ptr %m_eventPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %m_parseEndByteIndex = getelementptr inbounds i8, ptr %parser, i64 72
+  %m_parseEndByteIndex = getelementptr inbounds nuw i8, ptr %parser, i64 72
   %1 = load i64, ptr %m_parseEndByteIndex, align 8
-  %m_parseEndPtr = getelementptr inbounds i8, ptr %parser, i64 80
+  %m_parseEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 80
   %2 = load ptr, ptr %m_parseEndPtr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
@@ -5003,13 +5003,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   %0 = load ptr, ptr %m_eventEndPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   %1 = load ptr, ptr %m_eventPtr, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.then2
@@ -5033,13 +5033,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   %0 = load ptr, ptr %m_eventPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %m_buffer = getelementptr inbounds i8, ptr %parser, i64 16
+  %m_buffer = getelementptr inbounds nuw i8, ptr %parser, i64 16
   %1 = load ptr, ptr %m_buffer, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.then2
@@ -5063,7 +5063,7 @@ if.end7:                                          ; preds = %if.then4, %if.then2
   br i1 %cmp8.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
-  %m_bufferEnd = getelementptr inbounds i8, ptr %parser, i64 56
+  %m_bufferEnd = getelementptr inbounds nuw i8, ptr %parser, i64 56
   %2 = load ptr, ptr %m_bufferEnd, align 8
   %sub.ptr.lhs.cast12 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast13 = ptrtoint ptr %.pre11 to i64
@@ -5085,30 +5085,30 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   %0 = load ptr, ptr %m_eventPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %m_positionPtr = getelementptr inbounds i8, ptr %parser, i64 560
+  %m_positionPtr = getelementptr inbounds nuw i8, ptr %parser, i64 560
   %1 = load ptr, ptr %m_positionPtr, align 8
   %cmp2.not = icmp ult ptr %0, %1
   br i1 %cmp2.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %2 = load ptr, ptr %m_encoding, align 8
-  %updatePosition = getelementptr inbounds i8, ptr %2, i64 96
+  %updatePosition = getelementptr inbounds nuw i8, ptr %2, i64 96
   %3 = load ptr, ptr %updatePosition, align 8
-  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
+  %m_position = getelementptr inbounds nuw i8, ptr %parser, i64 768
   tail call void %3(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %m_position) #25
   %4 = load ptr, ptr %m_eventPtr, align 8
   store ptr %4, ptr %m_positionPtr, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then3, %land.lhs.true, %if.end
-  %m_position10 = getelementptr inbounds i8, ptr %parser, i64 768
+  %m_position10 = getelementptr inbounds nuw i8, ptr %parser, i64 768
   %5 = load i64, ptr %m_position10, align 8
   %add = add i64 %5, 1
   br label %return
@@ -5125,30 +5125,30 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   %0 = load ptr, ptr %m_eventPtr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %m_positionPtr = getelementptr inbounds i8, ptr %parser, i64 560
+  %m_positionPtr = getelementptr inbounds nuw i8, ptr %parser, i64 560
   %1 = load ptr, ptr %m_positionPtr, align 8
   %cmp2.not = icmp ult ptr %0, %1
   br i1 %cmp2.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %2 = load ptr, ptr %m_encoding, align 8
-  %updatePosition = getelementptr inbounds i8, ptr %2, i64 96
+  %updatePosition = getelementptr inbounds nuw i8, ptr %2, i64 96
   %3 = load ptr, ptr %updatePosition, align 8
-  %m_position = getelementptr inbounds i8, ptr %parser, i64 768
+  %m_position = getelementptr inbounds nuw i8, ptr %parser, i64 768
   tail call void %3(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %m_position) #25
   %4 = load ptr, ptr %m_eventPtr, align 8
   store ptr %4, ptr %m_positionPtr, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then3, %land.lhs.true, %if.end
-  %columnNumber = getelementptr inbounds i8, ptr %parser, i64 776
+  %columnNumber = getelementptr inbounds nuw i8, ptr %parser, i64 776
   %5 = load i64, ptr %columnNumber, align 8
   br label %return
 
@@ -5164,7 +5164,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
+  %free_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 40
   %0 = load ptr, ptr %free_fcn, align 8
   tail call void %0(ptr noundef %model) #25
   br label %if.end
@@ -5180,7 +5180,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
+  %m_mem = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %0 = load ptr, ptr %m_mem, align 8
   %call = tail call ptr %0(i64 noundef %size) #25
   br label %return
@@ -5197,7 +5197,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
+  %realloc_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 32
   %0 = load ptr, ptr %realloc_fcn, align 8
   %call = tail call ptr %0(ptr noundef %ptr, i64 noundef %size) #25
   br label %return
@@ -5214,7 +5214,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
+  %free_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 40
   %0 = load ptr, ptr %free_fcn, align 8
   tail call void %0(ptr noundef %ptr) #25
   br label %if.end
@@ -5234,43 +5234,43 @@ entry:
   br i1 %cmp, label %if.end7, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_defaultHandler = getelementptr inbounds nuw i8, ptr %parser, i64 160
   %0 = load ptr, ptr %m_defaultHandler, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end7, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %1 = load ptr, ptr %m_openInternalEntities, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then1
-  %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
+  %m_internalEncoding = getelementptr inbounds nuw i8, ptr %parser, i64 440
   %2 = load ptr, ptr %m_internalEncoding, align 8
   %3 = load ptr, ptr %1, align 8
-  %internalEventEndPtr = getelementptr inbounds i8, ptr %1, i64 8
+  %internalEventEndPtr = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %internalEventEndPtr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %3, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds i8, ptr %2, i64 132
+  %isUtf8.i = getelementptr inbounds nuw i8, ptr %2, i64 132
   %5 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else9.i
 
 if.then.i:                                        ; preds = %if.then3
-  %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding.i = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %6 = load ptr, ptr %m_encoding.i, align 8
   %cmp.i = icmp eq ptr %2, %6
-  %m_eventPtr.i = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventPtr.i = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_eventEndPtr.i = getelementptr inbounds nuw i8, ptr %parser, i64 552
   %eventPP.0.i = select i1 %cmp.i, ptr %m_eventPtr.i, ptr %1
   %eventEndPP.0.i = select i1 %cmp.i, ptr %m_eventEndPtr.i, ptr %internalEventEndPtr
-  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
-  %utf8Convert.i = getelementptr inbounds i8, ptr %2, i64 112
-  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
-  %m_handlerArg.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_dataBuf.i = getelementptr inbounds nuw i8, ptr %parser, i64 88
+  %utf8Convert.i = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %m_dataBufEnd.i = getelementptr inbounds nuw i8, ptr %parser, i64 96
+  %m_handlerArg.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then.i
@@ -5296,7 +5296,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   br i1 %16, label %do.body.i, label %reportDefault.exit, !llvm.loop !23
 
 if.else9.i:                                       ; preds = %if.then3
-  %m_handlerArg11.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg11.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %17 = load ptr, ptr %m_handlerArg11.i, align 8
   %sub.ptr.lhs.cast12.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %3 to i64
@@ -5311,25 +5311,25 @@ reportDefault.exit:                               ; preds = %do.body.i, %if.else
   br label %if.end7
 
 if.else:                                          ; preds = %if.then1
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %18 = load ptr, ptr %m_encoding, align 8
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   %19 = load ptr, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   %20 = load ptr, ptr %m_eventEndPtr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i12)
   store ptr %19, ptr %s.addr.i11, align 8
-  %isUtf8.i13 = getelementptr inbounds i8, ptr %18, i64 132
+  %isUtf8.i13 = getelementptr inbounds nuw i8, ptr %18, i64 132
   %21 = load i8, ptr %isUtf8.i13, align 4
   %tobool.not.i14 = icmp eq i8 %21, 0
   br i1 %tobool.not.i14, label %if.end.i28, label %if.else9.i15
 
 if.end.i28:                                       ; preds = %if.else
-  %m_dataBuf.i31 = getelementptr inbounds i8, ptr %parser, i64 88
-  %utf8Convert.i32 = getelementptr inbounds i8, ptr %18, i64 112
-  %m_dataBufEnd.i33 = getelementptr inbounds i8, ptr %parser, i64 96
-  %m_handlerArg.i35 = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_dataBuf.i31 = getelementptr inbounds nuw i8, ptr %parser, i64 88
+  %utf8Convert.i32 = getelementptr inbounds nuw i8, ptr %18, i64 112
+  %m_dataBufEnd.i33 = getelementptr inbounds nuw i8, ptr %parser, i64 96
+  %m_handlerArg.i35 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   br label %do.body.i36
 
 do.body.i36:                                      ; preds = %do.body.i36, %if.end.i28
@@ -5355,7 +5355,7 @@ do.body.i36:                                      ; preds = %do.body.i36, %if.en
   br i1 %31, label %do.body.i36, label %reportDefault.exit45, !llvm.loop !23
 
 if.else9.i15:                                     ; preds = %if.else
-  %m_handlerArg11.i17 = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg11.i17 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %32 = load ptr, ptr %m_handlerArg11.i17, align 8
   %sub.ptr.lhs.cast12.i18 = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast13.i19 = ptrtoint ptr %19 to i64
@@ -5379,36 +5379,36 @@ entry:
   %s.addr = alloca ptr, align 8
   %dataPtr = alloca ptr, align 8
   store ptr %s, ptr %s.addr, align 8
-  %isUtf8 = getelementptr inbounds i8, ptr %enc, i64 132
+  %isUtf8 = getelementptr inbounds nuw i8, ptr %enc, i64 132
   %0 = load i8, ptr %isUtf8, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then, label %if.else9
 
 if.then:                                          ; preds = %entry
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %enc, %1
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.then
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %2 = load ptr, ptr %m_openInternalEntities, align 8
-  %internalEventEndPtr = getelementptr inbounds i8, ptr %2, i64 8
+  %internalEventEndPtr = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then1
   %eventPP.0 = phi ptr [ %m_eventPtr, %if.then1 ], [ %2, %if.else ]
   %eventEndPP.0 = phi ptr [ %m_eventEndPtr, %if.then1 ], [ %internalEventEndPtr, %if.else ]
-  %m_dataBuf = getelementptr inbounds i8, ptr %parser, i64 88
-  %utf8Convert = getelementptr inbounds i8, ptr %enc, i64 112
-  %m_dataBufEnd = getelementptr inbounds i8, ptr %parser, i64 96
-  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
-  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_dataBuf = getelementptr inbounds nuw i8, ptr %parser, i64 88
+  %utf8Convert = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %m_dataBufEnd = getelementptr inbounds nuw i8, ptr %parser, i64 96
+  %m_defaultHandler = getelementptr inbounds nuw i8, ptr %parser, i64 160
+  %m_handlerArg = getelementptr inbounds nuw i8, ptr %parser, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.end
@@ -5434,9 +5434,9 @@ do.body:                                          ; preds = %do.body, %if.end
   br i1 %12, label %do.body, label %if.end16, !llvm.loop !23
 
 if.else9:                                         ; preds = %entry
-  %m_defaultHandler10 = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_defaultHandler10 = getelementptr inbounds nuw i8, ptr %parser, i64 160
   %13 = load ptr, ptr %m_defaultHandler10, align 8
-  %m_handlerArg11 = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg11 = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %14 = load ptr, ptr %m_handlerArg11, align 8
   %sub.ptr.lhs.cast12 = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast13 = ptrtoint ptr %s to i64
@@ -5458,7 +5458,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [43 x ptr], ptr @switch.table.PyExpat_XML_ErrorString, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [43 x ptr], ptr @switch.table.PyExpat_XML_ErrorString, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -5492,7 +5492,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
+  %m_parentParser = getelementptr inbounds nuw i8, ptr %parser, i64 896
   %0 = load ptr, ptr %m_parentParser, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %lor.lhs.false2, label %return
@@ -5504,7 +5504,7 @@ lor.lhs.false2:                                   ; preds = %lor.lhs.false
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %maximumAmplificationFactor5 = getelementptr inbounds i8, ptr %parser, i64 948
+  %maximumAmplificationFactor5 = getelementptr inbounds nuw i8, ptr %parser, i64 948
   store float %maximumAmplificationFactor, ptr %maximumAmplificationFactor5, align 4
   br label %return
 
@@ -5520,13 +5520,13 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
+  %m_parentParser = getelementptr inbounds nuw i8, ptr %parser, i64 896
   %0 = load ptr, ptr %m_parentParser, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %activationThresholdBytes2 = getelementptr inbounds i8, ptr %parser, i64 952
+  %activationThresholdBytes2 = getelementptr inbounds nuw i8, ptr %parser, i64 952
   store i64 %activationThresholdBytes, ptr %activationThresholdBytes2, align 8
   br label %return
 
@@ -5542,7 +5542,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_accounting = getelementptr inbounds i8, ptr %parser, i64 928
+  %m_accounting = getelementptr inbounds nuw i8, ptr %parser, i64 928
   %0 = load i64, ptr %m_accounting, align 8
   br label %return
 
@@ -5558,7 +5558,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %countBytesIndirect = getelementptr inbounds i8, ptr %parser, i64 936
+  %countBytesIndirect = getelementptr inbounds nuw i8, ptr %parser, i64 936
   %0 = load i64, ptr %countBytesIndirect, align 8
   br label %return
 
@@ -5572,7 +5572,7 @@ define hidden noundef nonnull ptr @PyExpat_unsignedCharToPrintable(i8 noundef ze
 entry:
   %switch.tableidx = xor i8 %c, -128
   %0 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [256 x ptr], ptr @switch.table.PyExpat_unsignedCharToPrintable, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw [256 x ptr], ptr @switch.table.PyExpat_unsignedCharToPrintable, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -5599,17 +5599,17 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @prologProcessor, ptr %m_processor, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %next.i)
   store ptr %s, ptr %next.i, align 8
-  %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding.i = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next.i) #25
   %2 = load ptr, ptr %m_encoding.i, align 8
   %3 = load ptr, ptr %next.i, align 8
-  %finalBuffer.i = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer.i = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %4 = load i8, ptr %finalBuffer.i, align 4
   %tobool.not.i = icmp eq i8 %4, 0
   %conv.i = zext i1 %tobool.not.i to i8
@@ -5633,14 +5633,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define internal fastcc range(i32 0, 19) i32 @initializeEncoding(ptr noundef %parser) unnamed_addr #0 {
 entry:
   %info.i = alloca %struct.XML_Encoding, align 8
-  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
+  %m_protocolEncodingName = getelementptr inbounds nuw i8, ptr %parser, i64 448
   %0 = load ptr, ptr %m_protocolEncodingName, align 8
-  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
+  %m_ns = getelementptr inbounds nuw i8, ptr %parser, i64 456
   %1 = load i8, ptr %m_ns, align 8
   %tobool.not = icmp eq i8 %1, 0
   %cond = select i1 %tobool.not, ptr @PyExpat_XmlInitEncoding, ptr @PyExpat_XmlInitEncodingNS
-  %m_initEncoding = getelementptr inbounds i8, ptr %parser, i64 296
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_initEncoding = getelementptr inbounds nuw i8, ptr %parser, i64 296
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %call = tail call i32 %cond(ptr noundef nonnull %m_initEncoding, ptr noundef nonnull %m_encoding, ptr noundef %0) #25, !callees !24
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end, label %return
@@ -5648,17 +5648,17 @@ entry:
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %m_protocolEncodingName, align 8
   call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %info.i)
-  %m_unknownEncodingHandler.i = getelementptr inbounds i8, ptr %parser, i64 248
+  %m_unknownEncodingHandler.i = getelementptr inbounds nuw i8, ptr %parser, i64 248
   %3 = load ptr, ptr %m_unknownEncodingHandler.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %handleUnknownEncoding.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %info.i, i8 -1, i64 1024, i1 false)
-  %convert.i = getelementptr inbounds i8, ptr %info.i, i64 1032
-  %data.i = getelementptr inbounds i8, ptr %info.i, i64 1024
-  %release.i = getelementptr inbounds i8, ptr %info.i, i64 1040
-  %m_unknownEncodingHandlerData.i = getelementptr inbounds i8, ptr %parser, i64 480
+  %convert.i = getelementptr inbounds nuw i8, ptr %info.i, i64 1032
+  %data.i = getelementptr inbounds nuw i8, ptr %info.i, i64 1024
+  %release.i = getelementptr inbounds nuw i8, ptr %info.i, i64 1040
+  %m_unknownEncodingHandlerData.i = getelementptr inbounds nuw i8, ptr %parser, i64 480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data.i, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %m_unknownEncodingHandlerData.i, align 8
   %call.i = call i32 %3(ptr noundef %4, ptr noundef %2, ptr noundef nonnull %info.i) #25
@@ -5666,12 +5666,12 @@ for.body.preheader.i:                             ; preds = %if.end
   br i1 %tobool2.not.i, label %if.end27.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.preheader.i
-  %m_mem.i = getelementptr inbounds i8, ptr %parser, i64 24
+  %m_mem.i = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %5 = load ptr, ptr %m_mem.i, align 8
   %call4.i = call i32 @PyExpat_XmlSizeOfUnknownEncoding() #25
   %conv.i = sext i32 %call4.i to i64
   %call5.i = call ptr %5(i64 noundef %conv.i) #25
-  %m_unknownEncodingMem.i = getelementptr inbounds i8, ptr %parser, i64 464
+  %m_unknownEncodingMem.i = getelementptr inbounds nuw i8, ptr %parser, i64 464
   store ptr %call5.i, ptr %m_unknownEncodingMem.i, align 8
   %tobool7.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool7.not.i, label %if.then8.i, label %if.end14.i
@@ -5698,10 +5698,10 @@ if.end14.i:                                       ; preds = %if.then3.i
 
 if.then23.i:                                      ; preds = %if.end14.i
   %11 = load ptr, ptr %data.i, align 8
-  %m_unknownEncodingData.i = getelementptr inbounds i8, ptr %parser, i64 472
+  %m_unknownEncodingData.i = getelementptr inbounds nuw i8, ptr %parser, i64 472
   store ptr %11, ptr %m_unknownEncodingData.i, align 8
   %12 = load ptr, ptr %release.i, align 8
-  %m_unknownEncodingRelease.i = getelementptr inbounds i8, ptr %parser, i64 488
+  %m_unknownEncodingRelease.i = getelementptr inbounds nuw i8, ptr %parser, i64 488
   store ptr %12, ptr %m_unknownEncodingRelease.i, align 8
   store ptr %call21.i, ptr %m_encoding, align 8
   br label %handleUnknownEncoding.exit
@@ -5731,13 +5731,13 @@ define internal i32 @prologProcessor(ptr noundef %parser, ptr noundef %s, ptr no
 entry:
   %next = alloca ptr, align 8
   store ptr %s, ptr %next, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
   %call = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #25
   %2 = load ptr, ptr %m_encoding, align 8
   %3 = load ptr, ptr %next, align 8
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %4 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %4, 0
   %conv = zext i1 %tobool.not to i8
@@ -5775,95 +5775,95 @@ entry:
   %ptr.addr.i.i = alloca ptr, align 8
   %next.addr = alloca ptr, align 8
   store ptr %next, ptr %next.addr, align 8
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %enc, %1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %2 = load ptr, ptr %m_openInternalEntities, align 8
-  %internalEventEndPtr = getelementptr inbounds i8, ptr %2, i64 8
+  %internalEventEndPtr = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %eventEndPP.0 = phi ptr [ %m_eventEndPtr, %if.then ], [ %internalEventEndPtr, %if.else ]
   %eventPP.0 = phi ptr [ %m_eventPtr, %if.then ], [ %2, %if.else ]
   %tobool = icmp ne i8 %haveMore, 0
-  %m_prologState34 = getelementptr inbounds i8, ptr %parser, i64 496
+  %m_prologState34 = getelementptr inbounds nuw i8, ptr %parser, i64 496
   %cmp1.i = icmp eq i32 %account, 0
-  %m_elementDeclHandler1432 = getelementptr inbounds i8, ptr %parser, i64 256
-  %keepProcessing1423 = getelementptr inbounds i8, ptr %0, i64 256
-  %m_attlistDeclHandler1427 = getelementptr inbounds i8, ptr %parser, i64 264
-  %m_notationDeclHandler1418 = getelementptr inbounds i8, ptr %parser, i64 192
-  %m_entityDeclHandler1413 = getelementptr inbounds i8, ptr %parser, i64 272
-  %m_startDoctypeDeclHandler1404 = getelementptr inbounds i8, ptr %parser, i64 168
-  %in_eldecl1355 = getelementptr inbounds i8, ptr %0, i64 320
-  %scaffLevel1362 = getelementptr inbounds i8, ptr %0, i64 348
-  %scaffold1363 = getelementptr inbounds i8, ptr %0, i64 328
-  %scaffIndex1364 = getelementptr inbounds i8, ptr %0, i64 352
+  %m_elementDeclHandler1432 = getelementptr inbounds nuw i8, ptr %parser, i64 256
+  %keepProcessing1423 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %m_attlistDeclHandler1427 = getelementptr inbounds nuw i8, ptr %parser, i64 264
+  %m_notationDeclHandler1418 = getelementptr inbounds nuw i8, ptr %parser, i64 192
+  %m_entityDeclHandler1413 = getelementptr inbounds nuw i8, ptr %parser, i64 272
+  %m_startDoctypeDeclHandler1404 = getelementptr inbounds nuw i8, ptr %parser, i64 168
+  %in_eldecl1355 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %scaffLevel1362 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  %scaffold1363 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %scaffIndex1364 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = getelementptr i8, ptr %parser, i64 24
-  %m_handlerArg1382 = getelementptr inbounds i8, ptr %parser, i64 8
-  %m_declElementType1383 = getelementptr inbounds i8, ptr %parser, i64 648
-  %contentStringLen1387 = getelementptr inbounds i8, ptr %0, i64 336
-  %scaffCount = getelementptr inbounds i8, ptr %0, i64 344
-  %hasParamEntityRefs1117 = getelementptr inbounds i8, ptr %0, i64 257
-  %m_paramEntityParsing1118 = getelementptr inbounds i8, ptr %parser, i64 916
-  %pool1126 = getelementptr inbounds i8, ptr %0, i64 160
-  %ptr1.i.i1246 = getelementptr inbounds i8, ptr %0, i64 184
-  %end4.i.i1250 = getelementptr inbounds i8, ptr %0, i64 176
-  %start.i.i1260 = getelementptr inbounds i8, ptr %0, i64 192
-  %size.i = getelementptr inbounds i8, ptr %0, i64 280
-  %paramEntities1138 = getelementptr inbounds i8, ptr %0, i64 264
-  %power30.i = getelementptr inbounds i8, ptr %0, i64 272
-  %documentEntity = getelementptr inbounds i8, ptr %parser, i64 516
-  %standalone1147 = getelementptr inbounds i8, ptr %0, i64 258
-  %m_openInternalEntities1151 = getelementptr inbounds i8, ptr %parser, i64 568
-  %m_externalEntityRefHandler1198 = getelementptr inbounds i8, ptr %parser, i64 224
-  %paramEntityRead1201 = getelementptr inbounds i8, ptr %0, i64 259
-  %m_externalEntityRefHandlerArg1204 = getelementptr inbounds i8, ptr %parser, i64 232
-  %m_skippedEntityHandler = getelementptr inbounds i8, ptr %parser, i64 240
-  %m_notStandaloneHandler1228 = getelementptr inbounds i8, ptr %parser, i64 216
-  %m_groupConnector1064 = getelementptr inbounds i8, ptr %parser, i64 880
-  %level1066 = getelementptr inbounds i8, ptr %parser, i64 504
-  %m_groupSize = getelementptr inbounds i8, ptr %parser, i64 888
-  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
-  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
-  %m_eventPtr.i = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
-  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
-  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
-  %m_declNotationPublicId937 = getelementptr inbounds i8, ptr %parser, i64 640
-  %m_declNotationName945 = getelementptr inbounds i8, ptr %parser, i64 632
-  %m_curBase946 = getelementptr inbounds i8, ptr %parser, i64 680
-  %m_tempPool949 = getelementptr inbounds i8, ptr %parser, i64 784
-  %freeBlocks.i1223 = getelementptr inbounds i8, ptr %parser, i64 792
-  %end.i1231 = getelementptr inbounds i8, ptr %parser, i64 800
-  %ptr1.i.i1183 = getelementptr inbounds i8, ptr %parser, i64 808
-  %start.i.i1197 = getelementptr inbounds i8, ptr %parser, i64 816
-  %m_declEntity819 = getelementptr inbounds i8, ptr %parser, i64 592
-  %m_parentParser843 = getelementptr inbounds i8, ptr %parser, i64 896
-  %m_unparsedEntityDeclHandler = getelementptr inbounds i8, ptr %parser, i64 184
-  %m_useForeignDTD578 = getelementptr inbounds i8, ptr %parser, i64 913
-  %m_doctypeSysid592 = getelementptr inbounds i8, ptr %parser, i64 608
-  %start539 = getelementptr inbounds i8, ptr %0, i64 240
-  %ptr542 = getelementptr inbounds i8, ptr %0, i64 232
-  %m_declAttributeIsCdata422 = getelementptr inbounds i8, ptr %parser, i64 664
-  %m_declAttributeId442 = getelementptr inbounds i8, ptr %parser, i64 656
-  %m_declAttributeType451 = getelementptr inbounds i8, ptr %parser, i64 624
-  %m_declAttributeIsId342 = getelementptr inbounds i8, ptr %parser, i64 665
+  %m_handlerArg1382 = getelementptr inbounds nuw i8, ptr %parser, i64 8
+  %m_declElementType1383 = getelementptr inbounds nuw i8, ptr %parser, i64 648
+  %contentStringLen1387 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %scaffCount = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %hasParamEntityRefs1117 = getelementptr inbounds nuw i8, ptr %0, i64 257
+  %m_paramEntityParsing1118 = getelementptr inbounds nuw i8, ptr %parser, i64 916
+  %pool1126 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %ptr1.i.i1246 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %end4.i.i1250 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %start.i.i1260 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %paramEntities1138 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %power30.i = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %documentEntity = getelementptr inbounds nuw i8, ptr %parser, i64 516
+  %standalone1147 = getelementptr inbounds nuw i8, ptr %0, i64 258
+  %m_openInternalEntities1151 = getelementptr inbounds nuw i8, ptr %parser, i64 568
+  %m_externalEntityRefHandler1198 = getelementptr inbounds nuw i8, ptr %parser, i64 224
+  %paramEntityRead1201 = getelementptr inbounds nuw i8, ptr %0, i64 259
+  %m_externalEntityRefHandlerArg1204 = getelementptr inbounds nuw i8, ptr %parser, i64 232
+  %m_skippedEntityHandler = getelementptr inbounds nuw i8, ptr %parser, i64 240
+  %m_notStandaloneHandler1228 = getelementptr inbounds nuw i8, ptr %parser, i64 216
+  %m_groupConnector1064 = getelementptr inbounds nuw i8, ptr %parser, i64 880
+  %level1066 = getelementptr inbounds nuw i8, ptr %parser, i64 504
+  %m_groupSize = getelementptr inbounds nuw i8, ptr %parser, i64 888
+  %realloc_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 32
+  %m_defaultHandler = getelementptr inbounds nuw i8, ptr %parser, i64 160
+  %m_eventPtr.i = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_eventEndPtr.i = getelementptr inbounds nuw i8, ptr %parser, i64 552
+  %m_dataBuf.i = getelementptr inbounds nuw i8, ptr %parser, i64 88
+  %m_dataBufEnd.i = getelementptr inbounds nuw i8, ptr %parser, i64 96
+  %m_declNotationPublicId937 = getelementptr inbounds nuw i8, ptr %parser, i64 640
+  %m_declNotationName945 = getelementptr inbounds nuw i8, ptr %parser, i64 632
+  %m_curBase946 = getelementptr inbounds nuw i8, ptr %parser, i64 680
+  %m_tempPool949 = getelementptr inbounds nuw i8, ptr %parser, i64 784
+  %freeBlocks.i1223 = getelementptr inbounds nuw i8, ptr %parser, i64 792
+  %end.i1231 = getelementptr inbounds nuw i8, ptr %parser, i64 800
+  %ptr1.i.i1183 = getelementptr inbounds nuw i8, ptr %parser, i64 808
+  %start.i.i1197 = getelementptr inbounds nuw i8, ptr %parser, i64 816
+  %m_declEntity819 = getelementptr inbounds nuw i8, ptr %parser, i64 592
+  %m_parentParser843 = getelementptr inbounds nuw i8, ptr %parser, i64 896
+  %m_unparsedEntityDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 184
+  %m_useForeignDTD578 = getelementptr inbounds nuw i8, ptr %parser, i64 913
+  %m_doctypeSysid592 = getelementptr inbounds nuw i8, ptr %parser, i64 608
+  %start539 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %ptr542 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %m_declAttributeIsCdata422 = getelementptr inbounds nuw i8, ptr %parser, i64 664
+  %m_declAttributeId442 = getelementptr inbounds nuw i8, ptr %parser, i64 656
+  %m_declAttributeType451 = getelementptr inbounds nuw i8, ptr %parser, i64 624
+  %m_declAttributeIsId342 = getelementptr inbounds nuw i8, ptr %parser, i64 665
   %cmp146.not.not = icmp eq i8 %allowClosingDoctype, 0
-  %m_doctypeName150 = getelementptr inbounds i8, ptr %parser, i64 600
-  %m_doctypePubid157 = getelementptr inbounds i8, ptr %parser, i64 616
-  %m_endDoctypeDeclHandler = getelementptr inbounds i8, ptr %parser, i64 176
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_doctypeName150 = getelementptr inbounds nuw i8, ptr %parser, i64 600
+  %m_doctypePubid157 = getelementptr inbounds nuw i8, ptr %parser, i64 616
+  %m_endDoctypeDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 176
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.default1446, %if.end
@@ -5905,7 +5905,7 @@ sw.bb11:                                          ; preds = %if.end7
 
 land.lhs.true15:                                  ; preds = %sw.bb11
   %6 = load ptr, ptr %m_openInternalEntities1151, align 8
-  %betweenDecl = getelementptr inbounds i8, ptr %6, i64 36
+  %betweenDecl = getelementptr inbounds nuw i8, ptr %6, i64 36
   %7 = load i8, ptr %betweenDecl, align 4
   %tobool17.not = icmp eq i8 %7, 0
   br i1 %tobool17.not, label %if.then18, label %if.then25
@@ -5915,7 +5915,7 @@ if.then18:                                        ; preds = %land.lhs.true15
   br label %return
 
 if.end19:                                         ; preds = %sw.bb11
-  %m_isParamEntity = getelementptr inbounds i8, ptr %parser, i64 912
+  %m_isParamEntity = getelementptr inbounds nuw i8, ptr %parser, i64 912
   %8 = load i8, ptr %m_isParamEntity, align 8
   %tobool21.not = icmp eq i8 %8, 0
   br i1 %tobool21.not, label %return, label %if.then25
@@ -5953,7 +5953,7 @@ sw.default39:                                     ; preds = %if.end33
 while.cond.i.i:                                   ; preds = %sw.default39, %while.cond.i.i
   %rootParser.0.i.i = phi ptr [ %13, %while.cond.i.i ], [ %parser, %sw.default39 ]
   %stepsTakenUpwards.0.i.i = phi i32 [ %inc.i.i, %while.cond.i.i ], [ 0, %sw.default39 ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %13 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %13, null
   %inc.i.i = add i32 %stepsTakenUpwards.0.i.i, 1
@@ -5965,8 +5965,8 @@ getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %s.addr.0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_accounting.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
-  %countBytesIndirect.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
+  %m_accounting.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 928
+  %countBytesIndirect.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 936
   %cond.i = select i1 %14, ptr %m_accounting.i, ptr %countBytesIndirect.i
   %15 = load i64, ptr %cond.i, align 8
   %sub.i = xor i64 %sub.ptr.sub.i, -1
@@ -5979,7 +5979,7 @@ if.end6.i:                                        ; preds = %getRootParserOf.exi
   %16 = load i64, ptr %m_accounting.i, align 8
   %17 = load i64, ptr %countBytesIndirect.i, align 8
   %add11.i = add i64 %17, %16
-  %activationThresholdBytes.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 952
+  %activationThresholdBytes.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 952
   %18 = load i64, ptr %activationThresholdBytes.i, align 8
   %cmp14.i = icmp ult i64 %add11.i, %18
   br i1 %cmp14.i, label %lor.end.i, label %lor.rhs.i
@@ -5990,14 +5990,14 @@ lor.rhs.i:                                        ; preds = %if.end6.i
   %conv6.i.i = uitofp i64 %16 to float
   %div.i.i = fdiv float %conv.i.i, %conv6.i.i
   %cond.i.i = select i1 %tobool.not.i19.i, float 1.000000e+00, float %div.i.i
-  %maximumAmplificationFactor.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 948
+  %maximumAmplificationFactor.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 948
   %19 = load float, ptr %maximumAmplificationFactor.i, align 4
   %cmp16.i = fcmp ugt float %cond.i.i, %19
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6.i
   %conv.i = phi i1 [ false, %if.end6.i ], [ %cmp16.i, %lor.rhs.i ]
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 944
   %20 = load i32, ptr %debugLevel.i, align 8
   %cmp18.i = icmp sgt i32 %20, 1
   br i1 %cmp18.i, label %if.then20.i, label %accountingDiffTolerated.exit
@@ -6015,22 +6015,22 @@ while.cond.i.i.i.preheader:                       ; preds = %getRootParserOf.exi
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %21, %while.cond.i.i.i ], [ %parser, %while.cond.i.i.i.preheader ]
-  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
+  %m_parentParser.i.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 896
   %21 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 944
   %22 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %22, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
+  %m_accounting.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 928
   %23 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %23, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -6147,7 +6147,7 @@ land.lhs.true.i.i:                                ; preds = %if.then54
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i736
 
 if.end.i.i736:                                    ; preds = %land.lhs.true.i.i, %if.then54
-  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i736
@@ -6276,14 +6276,14 @@ if.end87:                                         ; preds = %sw.bb82
   br i1 %tobool89.not, label %sw.bb109, label %if.then90
 
 if.then90:                                        ; preds = %if.end87
-  %isPublicId = getelementptr inbounds i8, ptr %enc.addr.0, i64 104
+  %isPublicId = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 104
   %51 = load ptr, ptr %isPublicId, align 8
   %call91 = call i32 %51(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %.pre1788, ptr noundef nonnull %eventPP.0) #25
   %tobool92.not = icmp eq i32 %call91, 0
   br i1 %tobool92.not, label %return, label %if.end94
 
 if.end94:                                         ; preds = %if.then90
-  %minBytesPerChar = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %minBytesPerChar = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 128
   %52 = load i32, ptr %minBytesPerChar, align 8
   %idx.ext = sext i32 %52 to i64
   %add.ptr = getelementptr i8, ptr %s.addr.0, i64 %idx.ext
@@ -6302,7 +6302,7 @@ land.lhs.true.i.i767:                             ; preds = %if.end94
   br i1 %tobool2.not.i.i769, label %poolAppend.exit.thread.i753, label %if.end.i.i744
 
 if.end.i.i744:                                    ; preds = %land.lhs.true.i.i767, %if.end94
-  %utf8Convert.i.i745 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i745 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i747
 
 for.cond.i.i747:                                  ; preds = %if.end8.i.i750, %if.end.i.i744
@@ -6404,7 +6404,7 @@ normalizePublicId.exit:                           ; preds = %for.end.i, %land.lh
 
 sw.bb109:                                         ; preds = %sw.epilog44.sw.bb109_crit_edge, %if.end87
   %66 = phi ptr [ %.pre1787, %sw.epilog44.sw.bb109_crit_edge ], [ %.pre1788, %if.end87 ]
-  %isPublicId110 = getelementptr inbounds i8, ptr %enc.addr.0, i64 104
+  %isPublicId110 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 104
   %67 = load ptr, ptr %isPublicId110, align 8
   %call111 = call i32 %67(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %66, ptr noundef nonnull %eventPP.0) #25
   %tobool112.not = icmp eq i32 %call111, 0
@@ -6422,7 +6422,7 @@ land.lhs.true117:                                 ; preds = %alreadyChecked
   br i1 %tobool119.not, label %sw.epilog1436, label %if.then120
 
 if.then120:                                       ; preds = %land.lhs.true117
-  %minBytesPerChar121 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %minBytesPerChar121 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 128
   %70 = load i32, ptr %minBytesPerChar121, align 8
   %idx.ext122 = sext i32 %70 to i64
   %add.ptr123 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext122
@@ -6441,7 +6441,7 @@ land.lhs.true.i.i798:                             ; preds = %if.then120
   br i1 %tobool2.not.i.i800, label %poolAppend.exit.thread.i784, label %if.end.i.i775
 
 if.end.i.i775:                                    ; preds = %land.lhs.true.i.i798, %if.then120
-  %utf8Convert.i.i776 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i776 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i778
 
 for.cond.i.i778:                                  ; preds = %if.end8.i.i781, %if.end.i.i775
@@ -6537,7 +6537,7 @@ normalizePublicId.exit823:                        ; preds = %for.end.i816, %land
   %p.2.i822 = phi ptr [ %79, %for.end.i816 ], [ %spec.select.i821, %land.lhs.true9.i818 ]
   store i8 0, ptr %p.2.i822, align 1
   %83 = load ptr, ptr %m_declEntity819, align 8
-  %publicId = getelementptr inbounds i8, ptr %83, i64 40
+  %publicId = getelementptr inbounds nuw i8, ptr %83, i64 40
   store ptr %79, ptr %publicId, align 8
   %84 = load ptr, ptr %ptr1.i.i1246, align 8
   store ptr %84, ptr %start.i.i1260, align 8
@@ -6623,7 +6623,7 @@ if.end177:                                        ; preds = %if.then172
 
 if.then180:                                       ; preds = %if.end177
   %101 = load ptr, ptr %m_curBase946, align 8
-  %base = getelementptr inbounds i8, ptr %call174, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %call174, i64 32
   store ptr %101, ptr %base, align 8
   br label %if.end181
 
@@ -6631,11 +6631,11 @@ if.end181:                                        ; preds = %if.then180, %if.end
   store i8 0, ptr %paramEntityRead1201, align 1
   %102 = load ptr, ptr %m_externalEntityRefHandler1198, align 8
   %103 = load ptr, ptr %m_externalEntityRefHandlerArg1204, align 8
-  %base183 = getelementptr inbounds i8, ptr %call174, i64 32
+  %base183 = getelementptr inbounds nuw i8, ptr %call174, i64 32
   %104 = load ptr, ptr %base183, align 8
-  %systemId = getelementptr inbounds i8, ptr %call174, i64 24
+  %systemId = getelementptr inbounds nuw i8, ptr %call174, i64 24
   %105 = load ptr, ptr %systemId, align 8
-  %publicId184 = getelementptr inbounds i8, ptr %call174, i64 40
+  %publicId184 = getelementptr inbounds nuw i8, ptr %call174, i64 40
   %106 = load ptr, ptr %publicId184, align 8
   %call185 = call i32 %102(ptr noundef %103, ptr noundef null, ptr noundef %104, ptr noundef %105, ptr noundef %106) #25
   %tobool186.not = icmp eq i32 %call185, 0
@@ -6709,15 +6709,15 @@ if.then229:                                       ; preds = %land.lhs.true226
 
 if.end235:                                        ; preds = %if.then229
   %118 = load ptr, ptr %m_curBase946, align 8
-  %base237 = getelementptr inbounds i8, ptr %call232, i64 32
+  %base237 = getelementptr inbounds nuw i8, ptr %call232, i64 32
   store ptr %118, ptr %base237, align 8
   store i8 0, ptr %paramEntityRead1201, align 1
   %119 = load ptr, ptr %m_externalEntityRefHandler1198, align 8
   %120 = load ptr, ptr %m_externalEntityRefHandlerArg1204, align 8
   %121 = load ptr, ptr %base237, align 8
-  %systemId242 = getelementptr inbounds i8, ptr %call232, i64 24
+  %systemId242 = getelementptr inbounds nuw i8, ptr %call232, i64 24
   %122 = load ptr, ptr %systemId242, align 8
-  %publicId243 = getelementptr inbounds i8, ptr %call232, i64 40
+  %publicId243 = getelementptr inbounds nuw i8, ptr %call232, i64 40
   %123 = load ptr, ptr %publicId243, align 8
   %call244 = call i32 %119(ptr noundef %120, ptr noundef null, ptr noundef %121, ptr noundef %122, ptr noundef %123) #25
   %tobool245.not = icmp eq i32 %call244, 0
@@ -6749,7 +6749,7 @@ if.else263:                                       ; preds = %if.end247
   br label %if.end267
 
 if.end267:                                        ; preds = %if.then220, %land.lhs.true226, %if.then250, %land.lhs.true253, %land.lhs.true256, %if.else263, %sw.bb217
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @contentProcessor, ptr %m_processor, align 8
   %call268 = call i32 @contentProcessor(ptr noundef nonnull %parser, ptr noundef %s.addr.0, ptr noundef %end, ptr noundef %nextPtr)
   br label %return
@@ -6884,7 +6884,7 @@ land.lhs.true.i849:                               ; preds = %if.end325
   br i1 %tobool2.not.i, label %poolAppend.exit.thread, label %if.end.i844
 
 if.end.i844:                                      ; preds = %land.lhs.true.i849, %if.end325
-  %utf8Convert.i = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i845
 
 for.cond.i845:                                    ; preds = %if.end8.i, %if.end.i844
@@ -6924,7 +6924,7 @@ if.then338:                                       ; preds = %sw.bb335
   %149 = load i8, ptr %m_declAttributeIsCdata422, align 8
   %150 = load i8, ptr %m_declAttributeIsId342, align 1
   %tobool1.i.not = icmp eq i8 %150, 0
-  %nDefaultAtts.i = getelementptr inbounds i8, ptr %147, i64 24
+  %nDefaultAtts.i = getelementptr inbounds nuw i8, ptr %147, i64 24
   %151 = load i32, ptr %nDefaultAtts.i, align 8
   br i1 %tobool1.i.not, label %if.end14.i, label %for.cond.preheader.i
 
@@ -6933,7 +6933,7 @@ for.cond.preheader.i:                             ; preds = %if.then338
   br i1 %cmp34.i, label %for.body.lr.ph.i, label %land.lhs.true.i858
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %defaultAtts.i = getelementptr inbounds i8, ptr %147, i64 32
+  %defaultAtts.i = getelementptr inbounds nuw i8, ptr %147, i64 32
   %152 = load ptr, ptr %defaultAtts.i, align 8
   %wide.trip.count.i = zext nneg i32 %151 to i64
   br label %for.body.i
@@ -6951,13 +6951,13 @@ for.body.i:                                       ; preds = %for.cond.i862, %for
   br i1 %cmp3.i, label %if.end346, label %for.cond.i862
 
 land.lhs.true.i858:                               ; preds = %for.cond.i862, %for.cond.preheader.i
-  %idAtt.i = getelementptr inbounds i8, ptr %147, i64 16
+  %idAtt.i = getelementptr inbounds nuw i8, ptr %147, i64 16
   %154 = load ptr, ptr %idAtt.i, align 8
   %tobool8.not.i = icmp eq ptr %154, null
   br i1 %tobool8.not.i, label %land.lhs.true9.i859, label %if.end14.i
 
 land.lhs.true9.i859:                              ; preds = %land.lhs.true.i858
-  %xmlns.i = getelementptr inbounds i8, ptr %148, i64 17
+  %xmlns.i = getelementptr inbounds nuw i8, ptr %148, i64 17
   %155 = load i8, ptr %xmlns.i, align 1
   %tobool10.not.i860 = icmp eq i8 %155, 0
   br i1 %tobool10.not.i860, label %if.then11.i, label %if.end14.i
@@ -6967,13 +6967,13 @@ if.then11.i:                                      ; preds = %land.lhs.true9.i859
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then11.i, %land.lhs.true9.i859, %land.lhs.true.i858, %if.then338
-  %allocDefaultAtts.i = getelementptr inbounds i8, ptr %147, i64 28
+  %allocDefaultAtts.i = getelementptr inbounds nuw i8, ptr %147, i64 28
   %156 = load i32, ptr %allocDefaultAtts.i, align 4
   %cmp16.i852 = icmp eq i32 %151, %156
   br i1 %cmp16.i852, label %if.then18.i, label %if.end14.if.end51_crit_edge.i
 
 if.end14.if.end51_crit_edge.i:                    ; preds = %if.end14.i
-  %defaultAtts52.phi.trans.insert.i = getelementptr inbounds i8, ptr %147, i64 32
+  %defaultAtts52.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %147, i64 32
   %.pre37.i = load ptr, ptr %defaultAtts52.phi.trans.insert.i, align 8
   br label %if.end51.i
 
@@ -6985,7 +6985,7 @@ if.then22.i:                                      ; preds = %if.then18.i
   store i32 8, ptr %allocDefaultAtts.i, align 4
   %157 = load ptr, ptr %3, align 8
   %call.i856 = call ptr %157(i64 noundef 192) #25
-  %defaultAtts26.i = getelementptr inbounds i8, ptr %147, i64 32
+  %defaultAtts26.i = getelementptr inbounds nuw i8, ptr %147, i64 32
   store ptr %call.i856, ptr %defaultAtts26.i, align 8
   %tobool28.not.i = icmp eq ptr %call.i856, null
   br i1 %tobool28.not.i, label %if.then29.i, label %if.end51.i
@@ -7001,7 +7001,7 @@ if.else.i855:                                     ; preds = %if.then18.i
 if.end36.i:                                       ; preds = %if.else.i855
   %mul38.i = shl i32 %151, 1
   %158 = load ptr, ptr %realloc_fcn, align 8
-  %defaultAtts40.i = getelementptr inbounds i8, ptr %147, i64 32
+  %defaultAtts40.i = getelementptr inbounds nuw i8, ptr %147, i64 32
   %159 = load ptr, ptr %defaultAtts40.i, align 8
   %conv41.i = sext i32 %mul38.i to i64
   %mul42.i = mul nsw i64 %conv41.i, 24
@@ -7020,15 +7020,15 @@ if.end51.i:                                       ; preds = %if.end47.i, %if.the
   %idx.ext.i = sext i32 %161 to i64
   %add.ptr.i = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %160, i64 %idx.ext.i
   store ptr %148, ptr %add.ptr.i, align 8
-  %value55.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
+  %value55.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   store ptr null, ptr %value55.i, align 8
-  %isCdata56.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %isCdata56.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   store i8 %149, ptr %isCdata56.i, align 8
   %tobool57.not.i = icmp eq i8 %149, 0
   br i1 %tobool57.not.i, label %if.then58.i, label %if.end59.i
 
 if.then58.i:                                      ; preds = %if.end51.i
-  %maybeTokenized.i = getelementptr inbounds i8, ptr %148, i64 16
+  %maybeTokenized.i = getelementptr inbounds nuw i8, ptr %148, i64 16
   store i8 1, ptr %maybeTokenized.i, align 8
   br label %if.end59.i
 
@@ -7156,7 +7156,7 @@ sw.bb417:                                         ; preds = %sw.epilog44, %sw.ep
 
 if.then420:                                       ; preds = %sw.bb417
   %187 = load i8, ptr %m_declAttributeIsCdata422, align 8
-  %minBytesPerChar423 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %minBytesPerChar423 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 128
   %188 = load i32, ptr %minBytesPerChar423, align 8
   %idx.ext424 = sext i32 %188 to i64
   %add.ptr425 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext424
@@ -7214,14 +7214,14 @@ if.end434:                                        ; preds = %land.lhs.true14.con
   %199 = load ptr, ptr %m_declAttributeId442, align 8
   %200 = load i8, ptr %m_declAttributeIsCdata422, align 8
   %tobool.i = icmp ne ptr %196, null
-  %nDefaultAtts.i887 = getelementptr inbounds i8, ptr %198, i64 24
+  %nDefaultAtts.i887 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %201 = load i32, ptr %nDefaultAtts.i887, align 8
   %cmp34.i926 = icmp sgt i32 %201, 0
   %or.cond1435 = select i1 %tobool.i, i1 %cmp34.i926, i1 false
   br i1 %or.cond1435, label %for.body.lr.ph.i928, label %if.end14.i888
 
 for.body.lr.ph.i928:                              ; preds = %if.end434
-  %defaultAtts.i929 = getelementptr inbounds i8, ptr %198, i64 32
+  %defaultAtts.i929 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %202 = load ptr, ptr %defaultAtts.i929, align 8
   %wide.trip.count.i930 = zext nneg i32 %201 to i64
   br label %for.body.i931
@@ -7239,13 +7239,13 @@ for.body.i931:                                    ; preds = %for.cond.i935, %for
   br i1 %cmp3.i934, label %if.end447, label %for.cond.i935
 
 if.end14.i888:                                    ; preds = %for.cond.i935, %if.end434
-  %allocDefaultAtts.i890 = getelementptr inbounds i8, ptr %198, i64 28
+  %allocDefaultAtts.i890 = getelementptr inbounds nuw i8, ptr %198, i64 28
   %204 = load i32, ptr %allocDefaultAtts.i890, align 4
   %cmp16.i891 = icmp eq i32 %201, %204
   br i1 %cmp16.i891, label %if.then18.i906, label %if.end14.if.end51_crit_edge.i892
 
 if.end14.if.end51_crit_edge.i892:                 ; preds = %if.end14.i888
-  %defaultAtts52.phi.trans.insert.i893 = getelementptr inbounds i8, ptr %198, i64 32
+  %defaultAtts52.phi.trans.insert.i893 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %.pre37.i894 = load ptr, ptr %defaultAtts52.phi.trans.insert.i893, align 8
   br label %if.end51.i895
 
@@ -7257,7 +7257,7 @@ if.then22.i919:                                   ; preds = %if.then18.i906
   store i32 8, ptr %allocDefaultAtts.i890, align 4
   %205 = load ptr, ptr %3, align 8
   %call.i921 = call ptr %205(i64 noundef 192) #25
-  %defaultAtts26.i922 = getelementptr inbounds i8, ptr %198, i64 32
+  %defaultAtts26.i922 = getelementptr inbounds nuw i8, ptr %198, i64 32
   store ptr %call.i921, ptr %defaultAtts26.i922, align 8
   %tobool28.not.i923 = icmp eq ptr %call.i921, null
   br i1 %tobool28.not.i923, label %if.then29.i924, label %if.end51.i895
@@ -7273,7 +7273,7 @@ if.else.i908:                                     ; preds = %if.then18.i906
 if.end36.i910:                                    ; preds = %if.else.i908
   %mul38.i911 = shl i32 %201, 1
   %206 = load ptr, ptr %realloc_fcn, align 8
-  %defaultAtts40.i913 = getelementptr inbounds i8, ptr %198, i64 32
+  %defaultAtts40.i913 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %207 = load ptr, ptr %defaultAtts40.i913, align 8
   %conv41.i914 = sext i32 %mul38.i911 to i64
   %mul42.i915 = mul nsw i64 %conv41.i914, 24
@@ -7292,15 +7292,15 @@ if.end51.i895:                                    ; preds = %if.end47.i918, %if.
   %idx.ext.i896 = sext i32 %209 to i64
   %add.ptr.i897 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %208, i64 %idx.ext.i896
   store ptr %199, ptr %add.ptr.i897, align 8
-  %value55.i898 = getelementptr inbounds i8, ptr %add.ptr.i897, i64 16
+  %value55.i898 = getelementptr inbounds nuw i8, ptr %add.ptr.i897, i64 16
   store ptr %196, ptr %value55.i898, align 8
-  %isCdata56.i899 = getelementptr inbounds i8, ptr %add.ptr.i897, i64 8
+  %isCdata56.i899 = getelementptr inbounds nuw i8, ptr %add.ptr.i897, i64 8
   store i8 %200, ptr %isCdata56.i899, align 8
   %tobool57.not.i900 = icmp eq i8 %200, 0
   br i1 %tobool57.not.i900, label %if.then58.i904, label %if.end59.i901
 
 if.then58.i904:                                   ; preds = %if.end51.i895
-  %maybeTokenized.i905 = getelementptr inbounds i8, ptr %199, i64 16
+  %maybeTokenized.i905 = getelementptr inbounds nuw i8, ptr %199, i64 16
   store i8 1, ptr %maybeTokenized.i905, align 8
   br label %if.end59.i901
 
@@ -7423,7 +7423,7 @@ sw.bb523:                                         ; preds = %sw.epilog44
   br i1 %tobool525.not, label %land.lhs.true1439, label %if.then526
 
 if.then526:                                       ; preds = %sw.bb523
-  %minBytesPerChar528 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %minBytesPerChar528 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 128
   %235 = load i32, ptr %minBytesPerChar528, align 8
   %idx.ext529 = sext i32 %235 to i64
   %add.ptr530 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext529
@@ -7437,7 +7437,7 @@ if.then526:                                       ; preds = %sw.bb523
   br i1 %tobool537.not, label %if.else566, label %if.then538
 
 if.then538:                                       ; preds = %if.then526
-  %textPtr = getelementptr inbounds i8, ptr %237, i64 8
+  %textPtr = getelementptr inbounds nuw i8, ptr %237, i64 8
   store ptr %238, ptr %textPtr, align 8
   %239 = load ptr, ptr %ptr542, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %239 to i64
@@ -7445,7 +7445,7 @@ if.then538:                                       ; preds = %if.then526
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv545 = trunc i64 %sub.ptr.sub to i32
   %240 = load ptr, ptr %m_declEntity819, align 8
-  %textLen = getelementptr inbounds i8, ptr %240, i64 16
+  %textLen = getelementptr inbounds nuw i8, ptr %240, i64 16
   store i32 %conv545, ptr %textLen, align 8
   %241 = load ptr, ptr %ptr542, align 8
   store ptr %241, ptr %start539, align 8
@@ -7459,12 +7459,12 @@ if.then553:                                       ; preds = %if.then538
   %244 = load ptr, ptr %m_handlerArg1382, align 8
   %245 = load ptr, ptr %m_declEntity819, align 8
   %246 = load ptr, ptr %245, align 8
-  %is_param = getelementptr inbounds i8, ptr %245, i64 57
+  %is_param = getelementptr inbounds nuw i8, ptr %245, i64 57
   %247 = load i8, ptr %is_param, align 1
   %conv559 = zext i8 %247 to i32
-  %textPtr561 = getelementptr inbounds i8, ptr %245, i64 8
+  %textPtr561 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %248 = load ptr, ptr %textPtr561, align 8
-  %textLen563 = getelementptr inbounds i8, ptr %245, i64 16
+  %textLen563 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %249 = load i32, ptr %textLen563, align 8
   %250 = load ptr, ptr %m_curBase946, align 8
   call void %243(ptr noundef %244, ptr noundef %246, i32 noundef %conv559, ptr noundef %248, i32 noundef %249, ptr noundef %250, ptr noundef null, ptr noundef null, ptr noundef null) #25
@@ -7487,7 +7487,7 @@ sw.bb577:                                         ; preds = %sw.epilog44
   br i1 %tobool581.not, label %if.else602, label %if.then582
 
 if.then582:                                       ; preds = %sw.bb577
-  %minBytesPerChar584 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %minBytesPerChar584 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 128
   %252 = load i32, ptr %minBytesPerChar584, align 8
   %idx.ext585 = sext i32 %252 to i64
   %add.ptr586 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext585
@@ -7506,7 +7506,7 @@ land.lhs.true.i.i976:                             ; preds = %if.then582
   br i1 %tobool2.not.i.i978, label %poolAppend.exit.thread.i962, label %if.end.i.i953
 
 if.end.i.i953:                                    ; preds = %land.lhs.true.i.i976, %if.then582
-  %utf8Convert.i.i954 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i954 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i956
 
 for.cond.i.i956:                                  ; preds = %if.end8.i.i959, %if.end.i.i953
@@ -7603,7 +7603,7 @@ if.then622:                                       ; preds = %if.end619
   br i1 %tobool627.not, label %return, label %if.end629
 
 if.end629:                                        ; preds = %if.then622
-  %publicId631 = getelementptr inbounds i8, ptr %call624, i64 40
+  %publicId631 = getelementptr inbounds nuw i8, ptr %call624, i64 40
   store ptr null, ptr %publicId631, align 8
   br label %sw.bb633
 
@@ -7619,7 +7619,7 @@ land.lhs.true637:                                 ; preds = %sw.bb633
   br i1 %tobool639.not, label %sw.epilog1436, label %if.then640
 
 if.then640:                                       ; preds = %land.lhs.true637
-  %minBytesPerChar642 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %minBytesPerChar642 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 128
   %270 = load i32, ptr %minBytesPerChar642, align 8
   %idx.ext643 = sext i32 %270 to i64
   %add.ptr644 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext643
@@ -7638,7 +7638,7 @@ land.lhs.true.i.i1006:                            ; preds = %if.then640
   br i1 %tobool2.not.i.i1008, label %poolAppend.exit.thread.i992, label %if.end.i.i983
 
 if.end.i.i983:                                    ; preds = %land.lhs.true.i.i1006, %if.then640
-  %utf8Convert.i.i984 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i984 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i986
 
 for.cond.i.i986:                                  ; preds = %if.end8.i.i989, %if.end.i.i983
@@ -7689,17 +7689,17 @@ if.end6.i999:                                     ; preds = %land.lhs.true.if.en
 poolStoreString.exit1009:                         ; preds = %poolAppend.exit.thread.i992, %poolAppend.exit.i994, %land.lhs.true.i1001, %if.end6.i999
   %retval.0.i993 = phi ptr [ %279, %if.end6.i999 ], [ null, %poolAppend.exit.i994 ], [ null, %land.lhs.true.i1001 ], [ null, %poolAppend.exit.thread.i992 ]
   %280 = load ptr, ptr %m_declEntity819, align 8
-  %systemId651 = getelementptr inbounds i8, ptr %280, i64 24
+  %systemId651 = getelementptr inbounds nuw i8, ptr %280, i64 24
   store ptr %retval.0.i993, ptr %systemId651, align 8
   %281 = load ptr, ptr %m_declEntity819, align 8
-  %systemId653 = getelementptr inbounds i8, ptr %281, i64 24
+  %systemId653 = getelementptr inbounds nuw i8, ptr %281, i64 24
   %282 = load ptr, ptr %systemId653, align 8
   %tobool654.not = icmp eq ptr %282, null
   br i1 %tobool654.not, label %return, label %if.end656
 
 if.end656:                                        ; preds = %poolStoreString.exit1009
   %283 = load ptr, ptr %m_curBase946, align 8
-  %base659 = getelementptr inbounds i8, ptr %281, i64 32
+  %base659 = getelementptr inbounds nuw i8, ptr %281, i64 32
   store ptr %283, ptr %base659, align 8
   %284 = load ptr, ptr %ptr1.i.i1246, align 8
   store ptr %284, ptr %start.i.i1260, align 8
@@ -7730,14 +7730,14 @@ if.then682:                                       ; preds = %land.lhs.true679
   %290 = load ptr, ptr %m_handlerArg1382, align 8
   %291 = load ptr, ptr %m_declEntity819, align 8
   %292 = load ptr, ptr %291, align 8
-  %is_param688 = getelementptr inbounds i8, ptr %291, i64 57
+  %is_param688 = getelementptr inbounds nuw i8, ptr %291, i64 57
   %293 = load i8, ptr %is_param688, align 1
   %conv689 = zext i8 %293 to i32
-  %base691 = getelementptr inbounds i8, ptr %291, i64 32
+  %base691 = getelementptr inbounds nuw i8, ptr %291, i64 32
   %294 = load ptr, ptr %base691, align 8
-  %systemId693 = getelementptr inbounds i8, ptr %291, i64 24
+  %systemId693 = getelementptr inbounds nuw i8, ptr %291, i64 24
   %295 = load ptr, ptr %systemId693, align 8
-  %publicId695 = getelementptr inbounds i8, ptr %291, i64 40
+  %publicId695 = getelementptr inbounds nuw i8, ptr %291, i64 40
   %296 = load ptr, ptr %publicId695, align 8
   call void %289(ptr noundef %290, ptr noundef %292, i32 noundef %conv689, ptr noundef null, i32 noundef 0, ptr noundef %294, ptr noundef %295, ptr noundef %296, ptr noundef null) #25
   br label %if.end1443
@@ -7766,7 +7766,7 @@ land.lhs.true.i.i1036:                            ; preds = %if.then704
   br i1 %tobool2.not.i.i1038, label %poolAppend.exit.thread.i1022, label %if.end.i.i1013
 
 if.end.i.i1013:                                   ; preds = %land.lhs.true.i.i1036, %if.then704
-  %utf8Convert.i.i1014 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i1014 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i1016
 
 for.cond.i.i1016:                                 ; preds = %if.end8.i.i1019, %if.end.i.i1013
@@ -7817,10 +7817,10 @@ if.end6.i1029:                                    ; preds = %land.lhs.true.if.en
 poolStoreString.exit1039:                         ; preds = %poolAppend.exit.thread.i1022, %poolAppend.exit.i1024, %land.lhs.true.i1031, %if.end6.i1029
   %retval.0.i1023 = phi ptr [ %307, %if.end6.i1029 ], [ null, %poolAppend.exit.i1024 ], [ null, %land.lhs.true.i1031 ], [ null, %poolAppend.exit.thread.i1022 ]
   %308 = load ptr, ptr %m_declEntity819, align 8
-  %notation = getelementptr inbounds i8, ptr %308, i64 48
+  %notation = getelementptr inbounds nuw i8, ptr %308, i64 48
   store ptr %retval.0.i1023, ptr %notation, align 8
   %309 = load ptr, ptr %m_declEntity819, align 8
-  %notation709 = getelementptr inbounds i8, ptr %309, i64 48
+  %notation709 = getelementptr inbounds nuw i8, ptr %309, i64 48
   %310 = load ptr, ptr %notation709, align 8
   %tobool710.not = icmp eq ptr %310, null
   br i1 %tobool710.not, label %return, label %if.end712
@@ -7838,13 +7838,13 @@ if.then718:                                       ; preds = %if.end712
   %314 = load ptr, ptr %m_handlerArg1382, align 8
   %315 = load ptr, ptr %m_declEntity819, align 8
   %316 = load ptr, ptr %315, align 8
-  %base724 = getelementptr inbounds i8, ptr %315, i64 32
+  %base724 = getelementptr inbounds nuw i8, ptr %315, i64 32
   %317 = load ptr, ptr %base724, align 8
-  %systemId726 = getelementptr inbounds i8, ptr %315, i64 24
+  %systemId726 = getelementptr inbounds nuw i8, ptr %315, i64 24
   %318 = load ptr, ptr %systemId726, align 8
-  %publicId728 = getelementptr inbounds i8, ptr %315, i64 40
+  %publicId728 = getelementptr inbounds nuw i8, ptr %315, i64 40
   %319 = load ptr, ptr %publicId728, align 8
-  %notation730 = getelementptr inbounds i8, ptr %315, i64 48
+  %notation730 = getelementptr inbounds nuw i8, ptr %315, i64 48
   %320 = load ptr, ptr %notation730, align 8
   call void %313(ptr noundef %314, ptr noundef %316, ptr noundef %317, ptr noundef %318, ptr noundef %319, ptr noundef %320) #25
   br label %if.end1443
@@ -7860,19 +7860,19 @@ if.then734:                                       ; preds = %if.else731
   %323 = load ptr, ptr %m_handlerArg1382, align 8
   %324 = load ptr, ptr %m_declEntity819, align 8
   %325 = load ptr, ptr %324, align 8
-  %base740 = getelementptr inbounds i8, ptr %324, i64 32
+  %base740 = getelementptr inbounds nuw i8, ptr %324, i64 32
   %326 = load ptr, ptr %base740, align 8
-  %systemId742 = getelementptr inbounds i8, ptr %324, i64 24
+  %systemId742 = getelementptr inbounds nuw i8, ptr %324, i64 24
   %327 = load ptr, ptr %systemId742, align 8
-  %publicId744 = getelementptr inbounds i8, ptr %324, i64 40
+  %publicId744 = getelementptr inbounds nuw i8, ptr %324, i64 40
   %328 = load ptr, ptr %publicId744, align 8
-  %notation746 = getelementptr inbounds i8, ptr %324, i64 48
+  %notation746 = getelementptr inbounds nuw i8, ptr %324, i64 48
   %329 = load ptr, ptr %notation746, align 8
   call void %322(ptr noundef %323, ptr noundef %325, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef %326, ptr noundef %327, ptr noundef %328, ptr noundef %329) #25
   br label %if.end1443
 
 sw.bb750:                                         ; preds = %sw.epilog44
-  %predefinedEntityName = getelementptr inbounds i8, ptr %enc.addr.0, i64 88
+  %predefinedEntityName = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 88
   %330 = load ptr, ptr %predefinedEntityName, align 8
   %331 = load ptr, ptr %next.addr, align 8
   %call751 = call i32 %330(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %331) #25
@@ -7902,7 +7902,7 @@ land.lhs.true.i.i1066:                            ; preds = %if.then758
   br i1 %tobool2.not.i.i1068, label %poolAppend.exit.thread.i1052, label %if.end.i.i1043
 
 if.end.i.i1043:                                   ; preds = %land.lhs.true.i.i1066, %if.then758
-  %utf8Convert.i.i1044 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i1044 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i1046
 
 for.cond.i.i1046:                                 ; preds = %if.end8.i.i1049, %if.end.i.i1043
@@ -7972,10 +7972,10 @@ if.else781:                                       ; preds = %if.end770
   %344 = load ptr, ptr %ptr1.i.i1246, align 8
   store ptr %344, ptr %start.i.i1260, align 8
   %345 = load ptr, ptr %m_declEntity819, align 8
-  %publicId787 = getelementptr inbounds i8, ptr %345, i64 40
+  %publicId787 = getelementptr inbounds nuw i8, ptr %345, i64 40
   store ptr null, ptr %publicId787, align 8
   %346 = load ptr, ptr %m_declEntity819, align 8
-  %is_param789 = getelementptr inbounds i8, ptr %346, i64 57
+  %is_param789 = getelementptr inbounds nuw i8, ptr %346, i64 57
   store i8 0, ptr %is_param789, align 1
   %347 = load ptr, ptr %m_parentParser843, align 8
   %tobool790.not = icmp eq ptr %347, null
@@ -7990,7 +7990,7 @@ lor.rhs:                                          ; preds = %if.else781
 lor.end:                                          ; preds = %lor.rhs, %if.else781
   %lnot = phi i8 [ 0, %if.else781 ], [ %349, %lor.rhs ]
   %350 = load ptr, ptr %m_declEntity819, align 8
-  %is_internal = getelementptr inbounds i8, ptr %350, i64 58
+  %is_internal = getelementptr inbounds nuw i8, ptr %350, i64 58
   store i8 %lnot, ptr %is_internal, align 2
   %351 = load ptr, ptr %m_entityDeclHandler1413, align 8
   %tobool796.not = icmp eq ptr %351, null
@@ -8021,7 +8021,7 @@ land.lhs.true.i.i1096:                            ; preds = %if.then810
   br i1 %tobool2.not.i.i1098, label %poolAppend.exit.thread.i1082, label %if.end.i.i1073
 
 if.end.i.i1073:                                   ; preds = %land.lhs.true.i.i1096, %if.then810
-  %utf8Convert.i.i1074 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i1074 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i1076
 
 for.cond.i.i1076:                                 ; preds = %if.end8.i.i1079, %if.end.i.i1073
@@ -8091,10 +8091,10 @@ if.else834:                                       ; preds = %if.end823
   %365 = load ptr, ptr %ptr1.i.i1246, align 8
   store ptr %365, ptr %start.i.i1260, align 8
   %366 = load ptr, ptr %m_declEntity819, align 8
-  %publicId840 = getelementptr inbounds i8, ptr %366, i64 40
+  %publicId840 = getelementptr inbounds nuw i8, ptr %366, i64 40
   store ptr null, ptr %publicId840, align 8
   %367 = load ptr, ptr %m_declEntity819, align 8
-  %is_param842 = getelementptr inbounds i8, ptr %367, i64 57
+  %is_param842 = getelementptr inbounds nuw i8, ptr %367, i64 57
   store i8 1, ptr %is_param842, align 1
   %368 = load ptr, ptr %m_parentParser843, align 8
   %tobool844.not = icmp eq ptr %368, null
@@ -8109,7 +8109,7 @@ lor.rhs845:                                       ; preds = %if.else834
 lor.end848:                                       ; preds = %lor.rhs845, %if.else834
   %lnot849 = phi i8 [ 0, %if.else834 ], [ %370, %lor.rhs845 ]
   %371 = load ptr, ptr %m_declEntity819, align 8
-  %is_internal853 = getelementptr inbounds i8, ptr %371, i64 58
+  %is_internal853 = getelementptr inbounds nuw i8, ptr %371, i64 58
   store i8 %lnot849, ptr %is_internal853, align 2
   %372 = load ptr, ptr %m_entityDeclHandler1413, align 8
   %tobool855.not = icmp eq ptr %372, null
@@ -8141,7 +8141,7 @@ land.lhs.true.i.i1126:                            ; preds = %if.then868
   br i1 %tobool2.not.i.i1128, label %poolAppend.exit.thread.i1112, label %if.end.i.i1103
 
 if.end.i.i1103:                                   ; preds = %land.lhs.true.i.i1126, %if.then868
-  %utf8Convert.i.i1104 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i1104 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i1106
 
 for.cond.i.i1106:                                 ; preds = %if.end8.i.i1109, %if.end.i.i1103
@@ -8201,7 +8201,7 @@ if.end875:                                        ; preds = %poolStoreString.exi
   br label %if.end1443
 
 sw.bb881:                                         ; preds = %sw.epilog44
-  %isPublicId882 = getelementptr inbounds i8, ptr %enc.addr.0, i64 104
+  %isPublicId882 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 104
   %385 = load ptr, ptr %isPublicId882, align 8
   %386 = load ptr, ptr %next.addr, align 8
   %call883 = call i32 %385(ptr noundef %enc.addr.0, ptr noundef %s.addr.0, ptr noundef %386, ptr noundef nonnull %eventPP.0) #25
@@ -8214,7 +8214,7 @@ if.end886:                                        ; preds = %sw.bb881
   br i1 %tobool888.not, label %land.lhs.true1439, label %if.then889
 
 if.then889:                                       ; preds = %if.end886
-  %minBytesPerChar892 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %minBytesPerChar892 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 128
   %388 = load i32, ptr %minBytesPerChar892, align 8
   %idx.ext893 = sext i32 %388 to i64
   %add.ptr894 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext893
@@ -8233,7 +8233,7 @@ land.lhs.true.i.i1156:                            ; preds = %if.then889
   br i1 %tobool2.not.i.i1158, label %poolAppend.exit.thread.i1142, label %if.end.i.i1133
 
 if.end.i.i1133:                                   ; preds = %land.lhs.true.i.i1156, %if.then889
-  %utf8Convert.i.i1134 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i1134 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i1136
 
 for.cond.i.i1136:                                 ; preds = %if.end8.i.i1139, %if.end.i.i1133
@@ -8344,7 +8344,7 @@ land.lhs.true912:                                 ; preds = %sw.bb909
   br i1 %tobool914.not, label %if.end934, label %if.then915
 
 if.then915:                                       ; preds = %land.lhs.true912
-  %minBytesPerChar918 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %minBytesPerChar918 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 128
   %404 = load i32, ptr %minBytesPerChar918, align 8
   %idx.ext919 = sext i32 %404 to i64
   %add.ptr920 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext919
@@ -8363,7 +8363,7 @@ land.lhs.true.i.i1208:                            ; preds = %if.then915
   br i1 %tobool2.not.i.i1210, label %poolAppend.exit.thread.i1194, label %if.end.i.i1185
 
 if.end.i.i1185:                                   ; preds = %land.lhs.true.i.i1208, %if.then915
-  %utf8Convert.i.i1186 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i1186 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i1188
 
 for.cond.i.i1188:                                 ; preds = %if.end8.i.i1191, %if.end.i.i1185
@@ -8517,7 +8517,7 @@ if.then957:                                       ; preds = %sw.bb954
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %s.addr.0, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds i8, ptr %enc.addr.0, i64 132
+  %isUtf8.i = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 132
   %436 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i1234 = icmp eq i8 %436, 0
   br i1 %tobool.not.i1234, label %if.then.i1235, label %if.else9.i
@@ -8529,13 +8529,13 @@ if.then.i1235:                                    ; preds = %if.then957
 
 if.else.i1237:                                    ; preds = %if.then.i1235
   %438 = load ptr, ptr %m_openInternalEntities1151, align 8
-  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %438, i64 8
+  %internalEventEndPtr.i = getelementptr inbounds nuw i8, ptr %438, i64 8
   br label %if.end.i1238
 
 if.end.i1238:                                     ; preds = %if.then.i1235, %if.else.i1237
   %eventPP.0.i = phi ptr [ %438, %if.else.i1237 ], [ %m_eventPtr.i, %if.then.i1235 ]
   %eventEndPP.0.i = phi ptr [ %internalEventEndPtr.i, %if.else.i1237 ], [ %m_eventEndPtr.i, %if.then.i1235 ]
-  %utf8Convert.i1239 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i1239 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i1238
@@ -8585,7 +8585,7 @@ if.else963:                                       ; preds = %if.end958
   br i1 %tobool964.not, label %if.then965, label %if.end1443
 
 if.then965:                                       ; preds = %if.else963
-  %m_processor966 = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor966 = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @ignoreSectionProcessor, ptr %m_processor966, align 8
   br label %return
 
@@ -8762,7 +8762,7 @@ if.then1120:                                      ; preds = %sw.bb1116
   br label %if.end1224
 
 if.else1123:                                      ; preds = %sw.bb1116
-  %minBytesPerChar1127 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %minBytesPerChar1127 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 128
   %486 = load i32, ptr %minBytesPerChar1127, align 8
   %idx.ext1128 = sext i32 %486 to i64
   %add.ptr1129 = getelementptr i8, ptr %s.addr.0, i64 %idx.ext1128
@@ -8781,7 +8781,7 @@ land.lhs.true.i.i1271:                            ; preds = %if.else1123
   br i1 %tobool2.not.i.i1273, label %poolAppend.exit.thread.i1257, label %if.end.i.i1248
 
 if.end.i.i1248:                                   ; preds = %land.lhs.true.i.i1271, %if.else1123
-  %utf8Convert.i.i1249 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i.i1249 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %for.cond.i.i1251
 
 for.cond.i.i1251:                                 ; preds = %if.end8.i.i1254, %if.end.i.i1248
@@ -8932,7 +8932,7 @@ if.then1156:                                      ; preds = %cond.false1153, %co
   br i1 %tobool1157.not, label %return, label %if.else1159
 
 if.else1159:                                      ; preds = %if.then1156
-  %is_internal1160 = getelementptr inbounds i8, ptr %retval.0.i1281, i64 58
+  %is_internal1160 = getelementptr inbounds nuw i8, ptr %retval.0.i1281, i64 58
   %515 = load i8, ptr %is_internal1160, align 2
   %tobool1161.not = icmp eq i8 %515, 0
   br i1 %tobool1161.not, label %return, label %if.end1179
@@ -8958,13 +8958,13 @@ if.then1174:                                      ; preds = %land.lhs.true1172
   br label %if.end1443
 
 if.end1179:                                       ; preds = %if.else1165, %if.else1159
-  %open = getelementptr inbounds i8, ptr %retval.0.i1281, i64 56
+  %open = getelementptr inbounds nuw i8, ptr %retval.0.i1281, i64 56
   %519 = load i8, ptr %open, align 8
   %tobool1180.not = icmp eq i8 %519, 0
   br i1 %tobool1180.not, label %if.end1182, label %return
 
 if.end1182:                                       ; preds = %if.end1179
-  %textPtr1183 = getelementptr inbounds i8, ptr %retval.0.i1281, i64 8
+  %textPtr1183 = getelementptr inbounds nuw i8, ptr %retval.0.i1281, i64 8
   %520 = load ptr, ptr %textPtr1183, align 8
   %tobool1184.not = icmp eq ptr %520, null
   br i1 %tobool1184.not, label %if.end1197, label %if.then1185
@@ -8988,21 +8988,21 @@ if.then1200:                                      ; preds = %if.end1197
 
 while.cond.i.i1285:                               ; preds = %while.cond.i.i1285, %if.then1200
   %rootParser.0.i.i1286 = phi ptr [ %parser, %if.then1200 ], [ %522, %while.cond.i.i1285 ]
-  %m_parentParser.i.i1287 = getelementptr inbounds i8, ptr %rootParser.0.i.i1286, i64 896
+  %m_parentParser.i.i1287 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i1286, i64 896
   %522 = load ptr, ptr %m_parentParser.i.i1287, align 8
   %tobool.not.i.i1288 = icmp eq ptr %522, null
   br i1 %tobool.not.i.i1288, label %getRootParserOf.exit.i1289, label %while.cond.i.i1285, !llvm.loop !26
 
 getRootParserOf.exit.i1289:                       ; preds = %while.cond.i.i1285
-  %m_entity_stats.i = getelementptr inbounds i8, ptr %rootParser.0.i.i1286, i64 960
+  %m_entity_stats.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i1286, i64 960
   %523 = load i32, ptr %m_entity_stats.i, align 8
   %inc.i = add i32 %523, 1
   store i32 %inc.i, ptr %m_entity_stats.i, align 8
-  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i.i1286, i64 964
+  %currentDepth.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i1286, i64 964
   %524 = load i32, ptr %currentDepth.i, align 4
   %inc2.i = add i32 %524, 1
   store i32 %inc2.i, ptr %currentDepth.i, align 4
-  %maximumDepthSeen.i = getelementptr inbounds i8, ptr %rootParser.0.i.i1286, i64 968
+  %maximumDepthSeen.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i1286, i64 968
   %525 = load i32, ptr %maximumDepthSeen.i, align 8
   %cmp.i1290 = icmp ugt i32 %inc2.i, %525
   br i1 %cmp.i1290, label %if.then.i1297, label %if.end.i1291
@@ -9014,7 +9014,7 @@ if.then.i1297:                                    ; preds = %getRootParserOf.exi
 
 if.end.i1291:                                     ; preds = %if.then.i1297, %getRootParserOf.exit.i1289
   %526 = phi i32 [ %inc8.i, %if.then.i1297 ], [ %525, %getRootParserOf.exit.i1289 ]
-  %debugLevel.i.i1292 = getelementptr inbounds i8, ptr %rootParser.0.i.i1286, i64 972
+  %debugLevel.i.i1292 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i1286, i64 972
   %527 = load i32, ptr %debugLevel.i.i1292, align 4
   %cmp.i.i1293 = icmp slt i32 %527, 1
   br i1 %cmp.i.i1293, label %entityTrackingOnOpen.exit, label %if.end.i.i1294
@@ -9024,11 +9024,11 @@ if.end.i.i1294:                                   ; preds = %if.end.i1291
   %529 = load ptr, ptr @stderr, align 8
   %sub.i.i = shl i32 %inc2.i, 1
   %mul.i.i = add i32 %sub.i.i, -2
-  %is_param.i.i = getelementptr inbounds i8, ptr %retval.0.i1281, i64 57
+  %is_param.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i1281, i64 57
   %530 = load i8, ptr %is_param.i.i, align 1
   %tobool.not.i6.i = icmp eq i8 %530, 0
   %cond.i.i1295 = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
-  %textLen.i.i = getelementptr inbounds i8, ptr %retval.0.i1281, i64 16
+  %textLen.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i1281, i64 16
   %531 = load i32, ptr %textLen.i.i, align 8
   %call.i.i1296 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %529, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i1286, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %526, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i1295, ptr noundef %528, ptr noundef nonnull @.str.319, i32 noundef %531, i32 noundef range(i32 5439, 6175) 5439) #28
   br label %entityTrackingOnOpen.exit
@@ -9036,11 +9036,11 @@ if.end.i.i1294:                                   ; preds = %if.end.i1291
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i1291, %if.end.i.i1294
   %532 = load ptr, ptr %m_externalEntityRefHandler1198, align 8
   %533 = load ptr, ptr %m_externalEntityRefHandlerArg1204, align 8
-  %base1205 = getelementptr inbounds i8, ptr %retval.0.i1281, i64 32
+  %base1205 = getelementptr inbounds nuw i8, ptr %retval.0.i1281, i64 32
   %534 = load ptr, ptr %base1205, align 8
-  %systemId1206 = getelementptr inbounds i8, ptr %retval.0.i1281, i64 24
+  %systemId1206 = getelementptr inbounds nuw i8, ptr %retval.0.i1281, i64 24
   %535 = load ptr, ptr %systemId1206, align 8
-  %publicId1207 = getelementptr inbounds i8, ptr %retval.0.i1281, i64 40
+  %publicId1207 = getelementptr inbounds nuw i8, ptr %retval.0.i1281, i64 40
   %536 = load ptr, ptr %publicId1207, align 8
   %call1208 = call i32 %532(ptr noundef %533, ptr noundef null, ptr noundef %534, ptr noundef %535, ptr noundef %536) #25
   %tobool1209.not = icmp eq i32 %call1208, 0
@@ -9053,39 +9053,39 @@ if.then1210:                                      ; preds = %entityTrackingOnOpe
 
 while.cond.i.i1298:                               ; preds = %entityTrackingOnOpen.exit, %while.cond.i.i1298
   %rootParser.0.i.i1299 = phi ptr [ %537, %while.cond.i.i1298 ], [ %parser, %entityTrackingOnOpen.exit ]
-  %m_parentParser.i.i1300 = getelementptr inbounds i8, ptr %rootParser.0.i.i1299, i64 896
+  %m_parentParser.i.i1300 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i1299, i64 896
   %537 = load ptr, ptr %m_parentParser.i.i1300, align 8
   %tobool.not.i.i1301 = icmp eq ptr %537, null
   br i1 %tobool.not.i.i1301, label %getRootParserOf.exit.i1302, label %while.cond.i.i1298, !llvm.loop !26
 
 getRootParserOf.exit.i1302:                       ; preds = %while.cond.i.i1298
-  %debugLevel.i.i1303 = getelementptr inbounds i8, ptr %rootParser.0.i.i1299, i64 972
+  %debugLevel.i.i1303 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i1299, i64 972
   %538 = load i32, ptr %debugLevel.i.i1303, align 4
   %cmp.i.i1304 = icmp slt i32 %538, 1
   br i1 %cmp.i.i1304, label %entityTrackingOnClose.exit, label %if.end.i.i1305
 
 if.end.i.i1305:                                   ; preds = %getRootParserOf.exit.i1302
-  %m_entity_stats.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i1299, i64 960
+  %m_entity_stats.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i1299, i64 960
   %539 = load ptr, ptr %retval.0.i1281, align 8
   %540 = load ptr, ptr @stderr, align 8
   %541 = load i32, ptr %m_entity_stats.i.i, align 8
-  %currentDepth.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i1299, i64 964
+  %currentDepth.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i1299, i64 964
   %542 = load i32, ptr %currentDepth.i.i, align 4
-  %maximumDepthSeen.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i1299, i64 968
+  %maximumDepthSeen.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i1299, i64 968
   %543 = load i32, ptr %maximumDepthSeen.i.i, align 8
   %sub.i.i1306 = shl i32 %542, 1
   %mul.i.i1307 = add i32 %sub.i.i1306, -2
-  %is_param.i.i1308 = getelementptr inbounds i8, ptr %retval.0.i1281, i64 57
+  %is_param.i.i1308 = getelementptr inbounds nuw i8, ptr %retval.0.i1281, i64 57
   %544 = load i8, ptr %is_param.i.i1308, align 1
   %tobool.not.i2.i = icmp eq i8 %544, 0
   %cond.i.i1309 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
-  %textLen.i.i1310 = getelementptr inbounds i8, ptr %retval.0.i1281, i64 16
+  %textLen.i.i1310 = getelementptr inbounds nuw i8, ptr %retval.0.i1281, i64 16
   %545 = load i32, ptr %textLen.i.i1310, align 8
   %call.i.i1311 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %540, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i1299, i32 noundef %541, i32 noundef %542, i32 noundef %543, i32 noundef %mul.i.i1307, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i1309, ptr noundef %539, ptr noundef nonnull @.str.321, i32 noundef %545, i32 noundef range(i32 5439, 6175) 5447) #28
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i1302, %if.end.i.i1305
-  %currentDepth.i1312 = getelementptr inbounds i8, ptr %rootParser.0.i.i1299, i64 964
+  %currentDepth.i1312 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i1299, i64 964
   %546 = load i32, ptr %currentDepth.i1312, align 4
   %dec.i = add i32 %546, -1
   store i32 %dec.i, ptr %currentDepth.i1312, align 4
@@ -9156,8 +9156,8 @@ if.then1256:                                      ; preds = %if.then1253
   br i1 %tobool1260.not, label %return, label %if.end1262
 
 if.end1262:                                       ; preds = %if.then1256
-  %quant1263 = getelementptr inbounds i8, ptr %call1259, i64 4
-  %children = getelementptr inbounds i8, ptr %call1259, i64 24
+  %quant1263 = getelementptr inbounds nuw i8, ptr %call1259, i64 4
+  %children = getelementptr inbounds nuw i8, ptr %call1259, i64 24
   store ptr null, ptr %children, align 8
   %cmp1265 = icmp eq i32 %call37, 41
   %cond1267 = select i1 %cmp1265, i32 2, i32 1
@@ -9219,7 +9219,7 @@ cond.true1304:                                    ; preds = %elementContent.thre
 
 cond.false1305:                                   ; preds = %elementContent
   %570 = load ptr, ptr %next.addr, align 8
-  %minBytesPerChar1306 = getelementptr inbounds i8, ptr %enc.addr.0, i64 128
+  %minBytesPerChar1306 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 128
   %571 = load i32, ptr %minBytesPerChar1306, align 8
   %idx.ext1307 = sext i32 %571 to i64
   %idx.neg1308 = sub nsw i64 0, %idx.ext1307
@@ -9315,8 +9315,8 @@ if.then1374:                                      ; preds = %if.then1357
 if.then1376:                                      ; preds = %if.then1374
   %parser.val = load ptr, ptr %3, align 8
   %parser.val734 = load ptr, ptr %m_dtd, align 8
-  %scaffCount.i = getelementptr inbounds i8, ptr %parser.val734, i64 344
-  %contentStringLen.i = getelementptr inbounds i8, ptr %parser.val734, i64 336
+  %scaffCount.i = getelementptr inbounds nuw i8, ptr %parser.val734, i64 344
+  %contentStringLen.i = getelementptr inbounds nuw i8, ptr %parser.val734, i64 336
   %586 = load i32, ptr %contentStringLen.i, align 8
   %conv1.i = zext i32 %586 to i64
   %587 = load i32, ptr %scaffCount.i, align 8
@@ -9331,21 +9331,21 @@ if.end11.i:                                       ; preds = %if.then1376
   %588 = load i32, ptr %scaffCount.i, align 8
   %idxprom.i = zext i32 %588 to i64
   %arrayidx.i1317 = getelementptr %struct.XML_cp, ptr %call.i1315, i64 %idxprom.i
-  %numchildren.i = getelementptr inbounds i8, ptr %call.i1315, i64 16
+  %numchildren.i = getelementptr inbounds nuw i8, ptr %call.i1315, i64 16
   store i32 0, ptr %numchildren.i, align 8
   %cmp165.i = icmp ult ptr %call.i1315, %arrayidx.i1317
   br i1 %cmp165.i, label %for.body.lr.ph.i1318, label %if.end1380
 
 for.body.lr.ph.i1318:                             ; preds = %if.end11.i
   %incdec.ptr.i1319 = getelementptr i8, ptr %call.i1315, i64 32
-  %scaffold.i = getelementptr inbounds i8, ptr %parser.val734, i64 328
+  %scaffold.i = getelementptr inbounds nuw i8, ptr %parser.val734, i64 328
   br label %for.body.i1320
 
 for.body.i1320:                                   ; preds = %for.inc62.i, %for.body.lr.ph.i1318
   %jobDest.08.i = phi ptr [ %incdec.ptr.i1319, %for.body.lr.ph.i1318 ], [ %jobDest.2.i, %for.inc62.i ]
   %str.07.i = phi ptr [ %arrayidx.i1317, %for.body.lr.ph.i1318 ], [ %str.2.i, %for.inc62.i ]
   %dest.06.i = phi ptr [ %call.i1315, %for.body.lr.ph.i1318 ], [ %incdec.ptr63.i, %for.inc62.i ]
-  %numchildren18.i = getelementptr inbounds i8, ptr %dest.06.i, i64 16
+  %numchildren18.i = getelementptr inbounds nuw i8, ptr %dest.06.i, i64 16
   %589 = load i32, ptr %numchildren18.i, align 8
   %590 = load ptr, ptr %scaffold.i, align 8
   %idxprom19.i = sext i32 %589 to i64
@@ -9355,10 +9355,10 @@ for.body.i1320:                                   ; preds = %for.inc62.i, %for.b
   %592 = load ptr, ptr %scaffold.i, align 8
   %quant.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %592, i64 %idxprom19.i, i32 1
   %593 = load i32, ptr %quant.i, align 4
-  %quant25.i = getelementptr inbounds i8, ptr %dest.06.i, i64 4
+  %quant25.i = getelementptr inbounds nuw i8, ptr %dest.06.i, i64 4
   store i32 %593, ptr %quant25.i, align 4
   %cmp27.i = icmp eq i32 %591, 4
-  %name.i = getelementptr inbounds i8, ptr %dest.06.i, i64 8
+  %name.i = getelementptr inbounds nuw i8, ptr %dest.06.i, i64 8
   br i1 %cmp27.i, label %if.then29.i1324, label %if.else.i1321
 
 if.then29.i1324:                                  ; preds = %for.body.i1320
@@ -9380,7 +9380,7 @@ for.cond34.i:                                     ; preds = %for.cond34.i, %if.t
 
 for.end.i1325:                                    ; preds = %for.cond34.i
   store i32 0, ptr %numchildren18.i, align 8
-  %children.i = getelementptr inbounds i8, ptr %dest.06.i, i64 24
+  %children.i = getelementptr inbounds nuw i8, ptr %dest.06.i, i64 24
   store ptr null, ptr %children.i, align 8
   br label %for.inc62.i
 
@@ -9390,7 +9390,7 @@ if.else.i1321:                                    ; preds = %for.body.i1320
   %childcnt.i = getelementptr %struct.CONTENT_SCAFFOLD, ptr %597, i64 %idxprom19.i, i32 5
   %598 = load i32, ptr %childcnt.i, align 8
   store i32 %598, ptr %numchildren18.i, align 8
-  %children46.i = getelementptr inbounds i8, ptr %dest.06.i, i64 24
+  %children46.i = getelementptr inbounds nuw i8, ptr %dest.06.i, i64 24
   store ptr %jobDest.08.i, ptr %children46.i, align 8
   %cmp521.not.i = icmp eq i32 %598, 0
   br i1 %cmp521.not.i, label %for.inc62.i, label %for.body54.preheader.i
@@ -9406,7 +9406,7 @@ for.body54.i:                                     ; preds = %for.body54.i, %for.
   %jobDest.12.i = phi ptr [ %incdec.ptr55.i, %for.body54.i ], [ %jobDest.08.i, %for.body54.preheader.i ]
   %cn.0.i = load i32, ptr %cn.0.in4.i, align 4
   %incdec.ptr55.i = getelementptr i8, ptr %jobDest.12.i, i64 32
-  %numchildren56.i = getelementptr inbounds i8, ptr %jobDest.12.i, i64 16
+  %numchildren56.i = getelementptr inbounds nuw i8, ptr %jobDest.12.i, i64 16
   store i32 %cn.0.i, ptr %numchildren56.i, align 8
   %inc.i1322 = add nuw i32 %i.03.i, 1
   %600 = load ptr, ptr %scaffold.i, align 8
@@ -9503,7 +9503,7 @@ if.then1442:                                      ; preds = %land.lhs.true1439
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i1326)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i1327)
   store ptr %s.addr.0, ptr %s.addr.i1326, align 8
-  %isUtf8.i1328 = getelementptr inbounds i8, ptr %enc.addr.0, i64 132
+  %isUtf8.i1328 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 132
   %617 = load i8, ptr %isUtf8.i1328, align 4
   %tobool.not.i1329 = icmp eq i8 %617, 0
   br i1 %tobool.not.i1329, label %if.then.i1337, label %if.else9.i1330
@@ -9515,13 +9515,13 @@ if.then.i1337:                                    ; preds = %if.then1442
 
 if.else.i1340:                                    ; preds = %if.then.i1337
   %619 = load ptr, ptr %m_openInternalEntities1151, align 8
-  %internalEventEndPtr.i1342 = getelementptr inbounds i8, ptr %619, i64 8
+  %internalEventEndPtr.i1342 = getelementptr inbounds nuw i8, ptr %619, i64 8
   br label %if.end.i1343
 
 if.end.i1343:                                     ; preds = %if.then.i1337, %if.else.i1340
   %eventPP.0.i1344 = phi ptr [ %619, %if.else.i1340 ], [ %m_eventPtr.i, %if.then.i1337 ]
   %eventEndPP.0.i1345 = phi ptr [ %internalEventEndPtr.i1342, %if.else.i1340 ], [ %m_eventEndPtr.i, %if.then.i1337 ]
-  %utf8Convert.i1347 = getelementptr inbounds i8, ptr %enc.addr.0, i64 112
+  %utf8Convert.i1347 = getelementptr inbounds nuw i8, ptr %enc.addr.0, i64 112
   br label %do.body.i1351
 
 do.body.i1351:                                    ; preds = %do.body.i1351, %if.end.i1343
@@ -9610,7 +9610,7 @@ entry:
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %entry
   %rootParser.0.i.i = phi ptr [ %0, %while.cond.i.i ], [ %parser, %entry ]
   %stepsTakenUpwards.0.i.i = phi i32 [ %inc.i.i, %while.cond.i.i ], [ 0, %entry ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %0 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   %inc.i.i = add i32 %stepsTakenUpwards.0.i.i, 1
@@ -9621,8 +9621,8 @@ getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %next to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %s to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_accounting.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
-  %countBytesIndirect.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
+  %m_accounting.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 928
+  %countBytesIndirect.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 936
   %cond.i = select i1 %cmp2.i, ptr %m_accounting.i, ptr %countBytesIndirect.i
   %1 = load i64, ptr %cond.i, align 8
   %sub.i = xor i64 %sub.ptr.sub.i, -1
@@ -9635,7 +9635,7 @@ if.end6.i:                                        ; preds = %getRootParserOf.exi
   %2 = load i64, ptr %m_accounting.i, align 8
   %3 = load i64, ptr %countBytesIndirect.i, align 8
   %add11.i = add i64 %3, %2
-  %activationThresholdBytes.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 952
+  %activationThresholdBytes.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 952
   %4 = load i64, ptr %activationThresholdBytes.i, align 8
   %cmp14.i = icmp ult i64 %add11.i, %4
   br i1 %cmp14.i, label %lor.end.i, label %lor.rhs.i
@@ -9646,14 +9646,14 @@ lor.rhs.i:                                        ; preds = %if.end6.i
   %conv6.i.i = uitofp i64 %2 to float
   %div.i.i = fdiv float %conv.i.i, %conv6.i.i
   %cond.i.i = select i1 %tobool.not.i19.i, float 1.000000e+00, float %div.i.i
-  %maximumAmplificationFactor.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 948
+  %maximumAmplificationFactor.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 948
   %5 = load float, ptr %maximumAmplificationFactor.i, align 4
   %cmp16.i = fcmp ugt float %cond.i.i, %5
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6.i
   %conv.i = phi i1 [ false, %if.end6.i ], [ %cmp16.i, %lor.rhs.i ]
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 944
   %6 = load i32, ptr %debugLevel.i, align 8
   %cmp18.i = icmp sgt i32 %6, 1
   br i1 %cmp18.i, label %if.then20.i, label %accountingDiffTolerated.exit
@@ -9671,22 +9671,22 @@ while.cond.i.i.i.preheader:                       ; preds = %getRootParserOf.exi
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %7, %while.cond.i.i.i ], [ %parser, %while.cond.i.i.i.preheader ]
-  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
+  %m_parentParser.i.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 896
   %7 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 944
   %8 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %8, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
+  %m_accounting.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 928
   %9 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %9, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -9705,13 +9705,13 @@ accountingGetCurrentAmplification.exit.i.i:       ; preds = %cond.true.i.i.i, %i
   br label %return
 
 if.end:                                           ; preds = %accountingDiffTolerated.exit
-  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
+  %m_ns = getelementptr inbounds nuw i8, ptr %parser, i64 456
   %12 = load i8, ptr %m_ns, align 8
   %tobool1.not = icmp eq i8 %12, 0
   %cond = select i1 %tobool1.not, ptr @PyExpat_XmlParseXmlDecl, ptr @PyExpat_XmlParseXmlDeclNS
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %13 = load ptr, ptr %m_encoding, align 8
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   %call2 = call i32 %cond(i32 noundef %isGeneralTextEntity, ptr noundef %13, ptr noundef %s, ptr noundef %next, ptr noundef nonnull %m_eventPtr, ptr noundef nonnull %version, ptr noundef nonnull %versionend, ptr noundef nonnull %encodingName, ptr noundef nonnull %newEncoding, ptr noundef nonnull %standalone) #25, !callees !33
   %tobool3.not = icmp eq i32 %call2, 0
   %tobool5.not = icmp eq i32 %isGeneralTextEntity, 0
@@ -9728,11 +9728,11 @@ if.end7:                                          ; preds = %if.end
   br i1 %or.cond, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %if.end7
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %15 = load ptr, ptr %m_dtd, align 8
-  %standalone11 = getelementptr inbounds i8, ptr %15, i64 258
+  %standalone11 = getelementptr inbounds nuw i8, ptr %15, i64 258
   store i8 1, ptr %standalone11, align 2
-  %m_paramEntityParsing = getelementptr inbounds i8, ptr %parser, i64 916
+  %m_paramEntityParsing = getelementptr inbounds nuw i8, ptr %parser, i64 916
   %16 = load i32, ptr %m_paramEntityParsing, align 4
   %cmp12 = icmp eq i32 %16, 1
   br i1 %cmp12, label %if.then14, label %if.end17
@@ -9742,7 +9742,7 @@ if.then14:                                        ; preds = %if.then10
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then10, %if.then14, %if.end7
-  %m_xmlDeclHandler = getelementptr inbounds i8, ptr %parser, i64 280
+  %m_xmlDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 280
   %17 = load ptr, ptr %m_xmlDeclHandler, align 8
   %tobool18.not = icmp eq ptr %17, null
   br i1 %tobool18.not, label %if.else47, label %if.then19
@@ -9753,16 +9753,16 @@ if.then19:                                        ; preds = %if.end17
   br i1 %cmp20.not, label %if.end33, label %if.then22
 
 if.then22:                                        ; preds = %if.then19
-  %m_temp2Pool = getelementptr inbounds i8, ptr %parser, i64 832
+  %m_temp2Pool = getelementptr inbounds nuw i8, ptr %parser, i64 832
   %19 = load ptr, ptr %m_encoding, align 8
-  %nameLength = getelementptr inbounds i8, ptr %19, i64 56
+  %nameLength = getelementptr inbounds nuw i8, ptr %19, i64 56
   %20 = load ptr, ptr %nameLength, align 8
   %call26 = call i32 %20(ptr noundef %19, ptr noundef nonnull %18) #25
   %idx.ext = sext i32 %call26 to i64
   %add.ptr = getelementptr i8, ptr %18, i64 %idx.ext
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   store ptr %18, ptr %ptr.addr.i.i, align 8
-  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 856
+  %ptr1.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 856
   %21 = load ptr, ptr %ptr1.i.i, align 8
   %tobool.not.i.i56 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i56, label %land.lhs.true.i.i, label %if.end.i.i57
@@ -9773,8 +9773,8 @@ land.lhs.true.i.i:                                ; preds = %if.then22
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i57
 
 if.end.i.i57:                                     ; preds = %land.lhs.true.i.i, %if.then22
-  %utf8Convert.i.i = getelementptr inbounds i8, ptr %19, i64 112
-  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 848
+  %utf8Convert.i.i = getelementptr inbounds nuw i8, ptr %19, i64 112
+  %end4.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 848
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i57
@@ -9794,7 +9794,7 @@ poolAppend.exit.thread.i:                         ; preds = %if.end8.i.i, %land.
   br label %return
 
 poolAppend.exit.i:                                ; preds = %for.cond.i.i
-  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 864
+  %start.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 864
   %24 = load ptr, ptr %start.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   %tobool.not.i = icmp eq ptr %24, null
@@ -9836,17 +9836,17 @@ if.end33:                                         ; preds = %if.end30, %if.then1
   br i1 %tobool34.not, label %if.end45, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
-  %m_temp2Pool36 = getelementptr inbounds i8, ptr %parser, i64 832
+  %m_temp2Pool36 = getelementptr inbounds nuw i8, ptr %parser, i64 832
   %31 = load ptr, ptr %m_encoding, align 8
   %32 = load ptr, ptr %versionend, align 8
-  %minBytesPerChar = getelementptr inbounds i8, ptr %31, i64 128
+  %minBytesPerChar = getelementptr inbounds nuw i8, ptr %31, i64 128
   %33 = load i32, ptr %minBytesPerChar, align 8
   %idx.ext39 = sext i32 %33 to i64
   %idx.neg = sub nsw i64 0, %idx.ext39
   %add.ptr40 = getelementptr i8, ptr %32, i64 %idx.neg
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i60)
   store ptr %30, ptr %ptr.addr.i.i60, align 8
-  %ptr1.i.i61 = getelementptr inbounds i8, ptr %parser, i64 856
+  %ptr1.i.i61 = getelementptr inbounds nuw i8, ptr %parser, i64 856
   %34 = load ptr, ptr %ptr1.i.i61, align 8
   %tobool.not.i.i62 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i62, label %land.lhs.true.i.i86, label %if.end.i.i63
@@ -9857,8 +9857,8 @@ land.lhs.true.i.i86:                              ; preds = %if.then35
   br i1 %tobool2.not.i.i88, label %poolAppend.exit.thread.i72, label %if.end.i.i63
 
 if.end.i.i63:                                     ; preds = %land.lhs.true.i.i86, %if.then35
-  %utf8Convert.i.i64 = getelementptr inbounds i8, ptr %31, i64 112
-  %end4.i.i65 = getelementptr inbounds i8, ptr %parser, i64 848
+  %utf8Convert.i.i64 = getelementptr inbounds nuw i8, ptr %31, i64 112
+  %end4.i.i65 = getelementptr inbounds nuw i8, ptr %parser, i64 848
   br label %for.cond.i.i66
 
 for.cond.i.i66:                                   ; preds = %if.end8.i.i69, %if.end.i.i63
@@ -9878,7 +9878,7 @@ poolAppend.exit.thread.i72:                       ; preds = %if.end8.i.i69, %lan
   br label %return
 
 poolAppend.exit.i74:                              ; preds = %for.cond.i.i66
-  %start.i.i75 = getelementptr inbounds i8, ptr %parser, i64 864
+  %start.i.i75 = getelementptr inbounds nuw i8, ptr %parser, i64 864
   %37 = load ptr, ptr %start.i.i75, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i60)
   %tobool.not.i76 = icmp eq ptr %37, null
@@ -9911,7 +9911,7 @@ poolStoreString.exit89:                           ; preds = %if.end.i77, %land.l
 if.end45:                                         ; preds = %poolStoreString.exit89, %if.end33
   %storedversion.0 = phi ptr [ %41, %poolStoreString.exit89 ], [ null, %if.end33 ]
   %42 = load ptr, ptr %m_xmlDeclHandler, align 8
-  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %43 = load ptr, ptr %m_handlerArg, align 8
   %44 = load i32, ptr %standalone, align 4
   call void %42(ptr noundef %43, ptr noundef %storedversion.0, ptr noundef %storedEncName.0, i32 noundef %44) #25
@@ -9919,7 +9919,7 @@ if.end45:                                         ; preds = %poolStoreString.exi
   br label %if.end52
 
 if.else47:                                        ; preds = %if.end17
-  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_defaultHandler = getelementptr inbounds nuw i8, ptr %parser, i64 160
   %46 = load ptr, ptr %m_defaultHandler, align 8
   %tobool48.not = icmp eq ptr %46, null
   br i1 %tobool48.not, label %if.end52, label %if.then49
@@ -9929,17 +9929,17 @@ if.then49:                                        ; preds = %if.else47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %s, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds i8, ptr %47, i64 132
+  %isUtf8.i = getelementptr inbounds nuw i8, ptr %47, i64 132
   %48 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i90 = icmp eq i8 %48, 0
   br i1 %tobool.not.i90, label %if.end.i92, label %if.else9.i
 
 if.end.i92:                                       ; preds = %if.then49
-  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
-  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
-  %utf8Convert.i = getelementptr inbounds i8, ptr %47, i64 112
-  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
-  %m_handlerArg.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_eventEndPtr.i = getelementptr inbounds nuw i8, ptr %parser, i64 552
+  %m_dataBuf.i = getelementptr inbounds nuw i8, ptr %parser, i64 88
+  %utf8Convert.i = getelementptr inbounds nuw i8, ptr %47, i64 112
+  %m_dataBufEnd.i = getelementptr inbounds nuw i8, ptr %parser, i64 96
+  %m_handlerArg.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i92
@@ -9965,7 +9965,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   br i1 %58, label %do.body.i, label %reportDefault.exit, !llvm.loop !23
 
 if.else9.i:                                       ; preds = %if.then49
-  %m_handlerArg11.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg11.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %59 = load ptr, ptr %m_handlerArg11.i, align 8
   %conv15.i = trunc i64 %sub.ptr.sub.i to i32
   call void %46(ptr noundef %59, ptr noundef %s, i32 noundef %conv15.i) #25
@@ -9979,7 +9979,7 @@ reportDefault.exit:                               ; preds = %do.body.i, %if.else
 if.end52:                                         ; preds = %if.else47, %reportDefault.exit, %if.end45
   %storedEncName.1 = phi ptr [ %storedEncName.0, %if.end45 ], [ null, %reportDefault.exit ], [ null, %if.else47 ]
   %storedversion.1 = phi i1 [ %45, %if.end45 ], [ false, %reportDefault.exit ], [ false, %if.else47 ]
-  %m_protocolEncodingName = getelementptr inbounds i8, ptr %parser, i64 448
+  %m_protocolEncodingName = getelementptr inbounds nuw i8, ptr %parser, i64 448
   %60 = load ptr, ptr %m_protocolEncodingName, align 8
   %cmp53 = icmp eq ptr %60, null
   br i1 %cmp53, label %if.then55, label %if.end101
@@ -9990,10 +9990,10 @@ if.then55:                                        ; preds = %if.end52
   br i1 %tobool56.not, label %if.else74, label %if.then57
 
 if.then57:                                        ; preds = %if.then55
-  %minBytesPerChar58 = getelementptr inbounds i8, ptr %61, i64 128
+  %minBytesPerChar58 = getelementptr inbounds nuw i8, ptr %61, i64 128
   %62 = load i32, ptr %minBytesPerChar58, align 8
   %63 = load ptr, ptr %m_encoding, align 8
-  %minBytesPerChar60 = getelementptr inbounds i8, ptr %63, i64 128
+  %minBytesPerChar60 = getelementptr inbounds nuw i8, ptr %63, i64 128
   %64 = load i32, ptr %minBytesPerChar60, align 8
   %cmp61.not = icmp eq i32 %62, %64
   br i1 %cmp61.not, label %lor.lhs.false, label %if.then70
@@ -10023,9 +10023,9 @@ if.then76:                                        ; preds = %if.else74
   br i1 %tobool77.not, label %if.then78, label %if.end91
 
 if.then78:                                        ; preds = %if.then76
-  %m_temp2Pool79 = getelementptr inbounds i8, ptr %parser, i64 832
+  %m_temp2Pool79 = getelementptr inbounds nuw i8, ptr %parser, i64 832
   %67 = load ptr, ptr %m_encoding, align 8
-  %nameLength82 = getelementptr inbounds i8, ptr %67, i64 56
+  %nameLength82 = getelementptr inbounds nuw i8, ptr %67, i64 56
   %68 = load ptr, ptr %nameLength82, align 8
   %call84 = call i32 %68(ptr noundef %67, ptr noundef nonnull %66) #25
   %idx.ext85 = sext i32 %call84 to i64
@@ -10037,17 +10037,17 @@ if.then78:                                        ; preds = %if.then76
 if.end91:                                         ; preds = %if.then78, %if.then76
   %storedEncName.2 = phi ptr [ %storedEncName.1, %if.then76 ], [ %call87, %if.then78 ]
   call void @llvm.lifetime.start.p0(i64 1048, ptr nonnull %info.i)
-  %m_unknownEncodingHandler.i = getelementptr inbounds i8, ptr %parser, i64 248
+  %m_unknownEncodingHandler.i = getelementptr inbounds nuw i8, ptr %parser, i64 248
   %69 = load ptr, ptr %m_unknownEncodingHandler.i, align 8
   %tobool.not.i97 = icmp eq ptr %69, null
   br i1 %tobool.not.i97, label %handleUnknownEncoding.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %info.i, i8 -1, i64 1024, i1 false)
-  %convert.i = getelementptr inbounds i8, ptr %info.i, i64 1032
-  %data.i = getelementptr inbounds i8, ptr %info.i, i64 1024
-  %release.i = getelementptr inbounds i8, ptr %info.i, i64 1040
-  %m_unknownEncodingHandlerData.i = getelementptr inbounds i8, ptr %parser, i64 480
+  %convert.i = getelementptr inbounds nuw i8, ptr %info.i, i64 1032
+  %data.i = getelementptr inbounds nuw i8, ptr %info.i, i64 1024
+  %release.i = getelementptr inbounds nuw i8, ptr %info.i, i64 1040
+  %m_unknownEncodingHandlerData.i = getelementptr inbounds nuw i8, ptr %parser, i64 480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data.i, i8 0, i64 24, i1 false)
   %70 = load ptr, ptr %m_unknownEncodingHandlerData.i, align 8
   %call.i98 = call i32 %69(ptr noundef %70, ptr noundef nonnull %storedEncName.2, ptr noundef nonnull %info.i) #25
@@ -10055,12 +10055,12 @@ for.body.preheader.i:                             ; preds = %if.end91
   br i1 %tobool2.not.i, label %if.end27.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.preheader.i
-  %m_mem.i = getelementptr inbounds i8, ptr %parser, i64 24
+  %m_mem.i = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %71 = load ptr, ptr %m_mem.i, align 8
   %call4.i = call i32 @PyExpat_XmlSizeOfUnknownEncoding() #25
   %conv.i99 = sext i32 %call4.i to i64
   %call5.i = call ptr %71(i64 noundef %conv.i99) #25
-  %m_unknownEncodingMem.i = getelementptr inbounds i8, ptr %parser, i64 464
+  %m_unknownEncodingMem.i = getelementptr inbounds nuw i8, ptr %parser, i64 464
   store ptr %call5.i, ptr %m_unknownEncodingMem.i, align 8
   %tobool7.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool7.not.i, label %if.then8.i, label %if.end14.i
@@ -10087,10 +10087,10 @@ if.end14.i:                                       ; preds = %if.then3.i
 
 if.then23.i:                                      ; preds = %if.end14.i
   %77 = load ptr, ptr %data.i, align 8
-  %m_unknownEncodingData.i = getelementptr inbounds i8, ptr %parser, i64 472
+  %m_unknownEncodingData.i = getelementptr inbounds nuw i8, ptr %parser, i64 472
   store ptr %77, ptr %m_unknownEncodingData.i, align 8
   %78 = load ptr, ptr %release.i, align 8
-  %m_unknownEncodingRelease.i = getelementptr inbounds i8, ptr %parser, i64 488
+  %m_unknownEncodingRelease.i = getelementptr inbounds nuw i8, ptr %parser, i64 488
   store ptr %78, ptr %m_unknownEncodingRelease.i, align 8
   store ptr %call21.i, ptr %m_encoding, align 8
   br label %handleUnknownEncoding.exit
@@ -10109,8 +10109,8 @@ handleUnknownEncoding.exit:                       ; preds = %if.end91, %if.then8
   %cmp94 = phi i1 [ false, %if.then23.i ], [ false, %if.then11.i ], [ false, %if.then8.i ], [ true, %if.end27.i ], [ true, %if.then31.i ], [ true, %if.end91 ]
   %retval.0.i102 = phi i32 [ 0, %if.then23.i ], [ 1, %if.then11.i ], [ 1, %if.then8.i ], [ 18, %if.end27.i ], [ 18, %if.then31.i ], [ 18, %if.end91 ]
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %info.i)
-  %m_temp2Pool93 = getelementptr inbounds i8, ptr %parser, i64 832
-  %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 840
+  %m_temp2Pool93 = getelementptr inbounds nuw i8, ptr %parser, i64 832
+  %freeBlocks.i = getelementptr inbounds nuw i8, ptr %parser, i64 840
   %81 = load ptr, ptr %freeBlocks.i, align 8
   %tobool.not.i103 = icmp eq ptr %81, null
   %82 = load ptr, ptr %m_temp2Pool93, align 8
@@ -10135,7 +10135,7 @@ while.body.i:                                     ; preds = %if.else.i104, %whil
 
 poolClear.exit:                                   ; preds = %while.body.i, %if.then.i106, %if.else.i104
   store ptr null, ptr %m_temp2Pool93, align 8
-  %end.i = getelementptr inbounds i8, ptr %parser, i64 848
+  %end.i = getelementptr inbounds nuw i8, ptr %parser, i64 848
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i, i8 0, i64 24, i1 false)
   br i1 %cmp94, label %if.then96, label %return
 
@@ -10150,8 +10150,8 @@ if.end101:                                        ; preds = %if.end72, %if.else7
   br i1 %or.cond1, label %if.then105, label %return
 
 if.then105:                                       ; preds = %if.end101
-  %m_temp2Pool106 = getelementptr inbounds i8, ptr %parser, i64 832
-  %freeBlocks.i107 = getelementptr inbounds i8, ptr %parser, i64 840
+  %m_temp2Pool106 = getelementptr inbounds nuw i8, ptr %parser, i64 832
+  %freeBlocks.i107 = getelementptr inbounds nuw i8, ptr %parser, i64 840
   %86 = load ptr, ptr %freeBlocks.i107, align 8
   %tobool.not.i108 = icmp eq ptr %86, null
   %87 = load ptr, ptr %m_temp2Pool106, align 8
@@ -10176,7 +10176,7 @@ while.body.i111:                                  ; preds = %if.else.i109, %whil
 
 poolClear.exit117:                                ; preds = %while.body.i111, %if.then.i116, %if.else.i109
   store ptr null, ptr %m_temp2Pool106, align 8
-  %end.i115 = getelementptr inbounds i8, ptr %parser, i64 848
+  %end.i115 = getelementptr inbounds nuw i8, ptr %parser, i64 848
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %end.i115, i8 0, i64 24, i1 false)
   br label %return
 
@@ -10191,7 +10191,7 @@ entry:
   %ptr.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i)
   store ptr %ptr, ptr %ptr.addr.i, align 8
-  %ptr1.i = getelementptr inbounds i8, ptr %pool, i64 24
+  %ptr1.i = getelementptr inbounds nuw i8, ptr %pool, i64 24
   %0 = load ptr, ptr %ptr1.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end.i
@@ -10202,8 +10202,8 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %poolAppend.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %entry
-  %utf8Convert.i = getelementptr inbounds i8, ptr %enc, i64 112
-  %end4.i = getelementptr inbounds i8, ptr %pool, i64 16
+  %utf8Convert.i = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %end4.i = getelementptr inbounds nuw i8, ptr %pool, i64 16
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end8.i, %if.end.i
@@ -10223,7 +10223,7 @@ poolAppend.exit.thread:                           ; preds = %if.end8.i, %land.lh
   br label %return
 
 poolAppend.exit:                                  ; preds = %for.cond.i
-  %start.i = getelementptr inbounds i8, ptr %pool, i64 32
+  %start.i = getelementptr inbounds nuw i8, ptr %pool, i64 32
   %3 = load ptr, ptr %start.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i)
   %tobool.not = icmp eq ptr %3, null
@@ -10260,7 +10260,7 @@ return:                                           ; preds = %poolAppend.exit.thr
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lookup(ptr nocapture noundef readonly %parser, ptr nocapture noundef %table, ptr noundef %name, i64 noundef range(i64 0, 65) %createSize) unnamed_addr #0 {
 entry:
-  %size = getelementptr inbounds i8, ptr %table, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %table, i64 16
   %0 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -10270,10 +10270,10 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %power = getelementptr inbounds i8, ptr %table, i64 8
+  %power = getelementptr inbounds nuw i8, ptr %table, i64 8
   store i8 6, ptr %power, align 8
   store i64 64, ptr %size, align 8
-  %mem = getelementptr inbounds i8, ptr %table, i64 32
+  %mem = getelementptr inbounds nuw i8, ptr %table, i64 32
   %1 = load ptr, ptr %mem, align 8
   %2 = load ptr, ptr %1, align 8
   %call = tail call ptr %2(i64 noundef 512) #25
@@ -10308,7 +10308,7 @@ while.body.lr.ph:                                 ; preds = %if.else
   %7 = load i8, ptr %name, align 1
   %not = sub i64 0, %4
   %and29 = and i64 %call12, %not
-  %power30 = getelementptr inbounds i8, ptr %table, i64 8
+  %power30 = getelementptr inbounds nuw i8, ptr %table, i64 8
   %shr32 = lshr i64 %sub14, 2
   br label %while.body
 
@@ -10369,9 +10369,9 @@ while.end:                                        ; preds = %if.end35, %if.else
   br i1 %tobool44.not, label %return, label %if.end46
 
 if.end46:                                         ; preds = %while.end
-  %used = getelementptr inbounds i8, ptr %table, i64 24
+  %used = getelementptr inbounds nuw i8, ptr %table, i64 24
   %17 = load i64, ptr %used, align 8
-  %power47 = getelementptr inbounds i8, ptr %table, i64 8
+  %power47 = getelementptr inbounds nuw i8, ptr %table, i64 8
   %18 = load i8, ptr %power47, align 8
   %conv48 = zext i8 %18 to i64
   %sub49 = add nuw nsw i64 %conv48, 4294967295
@@ -10395,7 +10395,7 @@ if.end62:                                         ; preds = %if.then53
 
 if.end69:                                         ; preds = %if.end62
   %mul71 = shl nuw i64 8, %sh_prom64
-  %mem72 = getelementptr inbounds i8, ptr %table, i64 32
+  %mem72 = getelementptr inbounds nuw i8, ptr %table, i64 32
   %19 = load ptr, ptr %mem72, align 8
   %20 = load ptr, ptr %19, align 8
   %call74 = tail call ptr %20(i64 noundef %mul71) #25
@@ -10474,7 +10474,7 @@ for.inc:                                          ; preds = %for.body, %while.en
 
 for.end:                                          ; preds = %for.inc, %if.end77
   %32 = load ptr, ptr %mem72, align 8
-  %free_fcn = getelementptr inbounds i8, ptr %32, i64 16
+  %free_fcn = getelementptr inbounds nuw i8, ptr %32, i64 16
   %33 = load ptr, ptr %free_fcn, align 8
   %34 = load ptr, ptr %table, align 8
   tail call void %33(ptr noundef %34) #25
@@ -10516,7 +10516,7 @@ while.body134:                                    ; preds = %while.body134.lr.ph
 
 if.end162:                                        ; preds = %while.body134, %for.end, %if.end46, %if.end8
   %i.0 = phi i64 [ %and, %if.end8 ], [ %i.1.lcssa, %if.end46 ], [ %and129, %for.end ], [ %i.5, %while.body134 ]
-  %mem163 = getelementptr inbounds i8, ptr %table, i64 32
+  %mem163 = getelementptr inbounds nuw i8, ptr %table, i64 32
   %38 = load ptr, ptr %mem163, align 8
   %39 = load ptr, ptr %38, align 8
   %call165 = tail call ptr %39(i64 noundef %createSize) #25
@@ -10535,7 +10535,7 @@ if.end172:                                        ; preds = %if.end162
   %arrayidx176 = getelementptr ptr, ptr %43, i64 %i.0
   %44 = load ptr, ptr %arrayidx176, align 8
   store ptr %name, ptr %44, align 8
-  %used178 = getelementptr inbounds i8, ptr %table, i64 24
+  %used178 = getelementptr inbounds nuw i8, ptr %table, i64 24
   %45 = load i64, ptr %used178, align 8
   %inc179 = add i64 %45, 1
   store i64 %inc179, ptr %used178, align 8
@@ -10552,9 +10552,9 @@ return:                                           ; preds = %for.body.i, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @contentProcessor(ptr noundef %parser, ptr noundef %start, ptr noundef %end, ptr nocapture noundef writeonly %endPtr) #0 {
 entry:
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %1 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %1, 0
   %conv = zext i1 %tobool.not to i8
@@ -10563,29 +10563,29 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %m_tagStack.i = getelementptr inbounds i8, ptr %parser, i64 688
-  %realloc_fcn.i = getelementptr inbounds i8, ptr %parser, i64 32
+  %m_tagStack.i = getelementptr inbounds nuw i8, ptr %parser, i64 688
+  %realloc_fcn.i = getelementptr inbounds nuw i8, ptr %parser, i64 32
   %tag.035.i = load ptr, ptr %m_tagStack.i, align 8
   %tobool.not36.i = icmp eq ptr %tag.035.i, null
   br i1 %tobool.not36.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %if.end50.i
   %tag.037.i = phi ptr [ %tag.0.i, %if.end50.i ], [ %tag.035.i, %if.then ]
-  %name.i = getelementptr inbounds i8, ptr %tag.037.i, i64 24
-  %strLen.i = getelementptr inbounds i8, ptr %tag.037.i, i64 48
+  %name.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 24
+  %strLen.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 48
   %2 = load i32, ptr %strLen.i, align 8
   %add.i = add i32 %2, 1
   %conv.i = sext i32 %add.i to i64
-  %buf.i = getelementptr inbounds i8, ptr %tag.037.i, i64 64
+  %buf.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 64
   %3 = load ptr, ptr %buf.i, align 8
   %add.ptr.i = getelementptr i8, ptr %3, i64 %conv.i
-  %rawName.i = getelementptr inbounds i8, ptr %tag.037.i, i64 8
+  %rawName.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 8
   %4 = load ptr, ptr %rawName.i, align 8
   %cmp.i = icmp eq ptr %4, %add.ptr.i
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %rawNameLength.i = getelementptr inbounds i8, ptr %tag.037.i, i64 16
+  %rawNameLength.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 16
   %5 = load i32, ptr %rawNameLength.i, align 8
   %conv3.i = sext i32 %5 to i64
   %sub.i = sub nsw i64 2147483647, %conv.i
@@ -10595,7 +10595,7 @@ if.end.i:                                         ; preds = %while.body.i
 if.end9.i:                                        ; preds = %if.end.i
   %add11.i = add i32 %5, %add.i
   %conv12.i = sext i32 %add11.i to i64
-  %bufEnd.i = getelementptr inbounds i8, ptr %tag.037.i, i64 72
+  %bufEnd.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 72
   %6 = load ptr, ptr %bufEnd.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
@@ -10620,7 +10620,7 @@ if.then27.i:                                      ; preds = %if.end22.i
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then27.i, %if.end22.i
-  %localPart.i = getelementptr inbounds i8, ptr %tag.037.i, i64 32
+  %localPart.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 32
   %10 = load ptr, ptr %localPart.i, align 8
   %tobool32.not.i = icmp eq ptr %10, null
   br i1 %tobool32.not.i, label %if.end43.i, label %if.then33.i
@@ -10662,12 +10662,12 @@ return:                                           ; preds = %while.body.i, %if.e
 define internal fastcc ptr @getElementType(ptr nocapture noundef readonly %parser, ptr noundef %enc, ptr noundef %ptr, ptr noundef %end) unnamed_addr #0 {
 entry:
   %ptr.addr.i.i = alloca ptr, align 8
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %pool = getelementptr inbounds i8, ptr %0, i64 160
+  %pool = getelementptr inbounds nuw i8, ptr %0, i64 160
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   store ptr %ptr, ptr %ptr.addr.i.i, align 8
-  %ptr1.i.i = getelementptr inbounds i8, ptr %0, i64 184
+  %ptr1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   %1 = load ptr, ptr %ptr1.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -10678,8 +10678,8 @@ land.lhs.true.i.i:                                ; preds = %entry
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %entry
-  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
-  %end4.i.i = getelementptr inbounds i8, ptr %0, i64 176
+  %utf8Convert.i.i = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %end4.i.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
@@ -10699,7 +10699,7 @@ poolAppend.exit.thread.i:                         ; preds = %if.end8.i.i, %land.
   br label %return
 
 poolAppend.exit.i:                                ; preds = %for.cond.i.i
-  %start.i.i = getelementptr inbounds i8, ptr %0, i64 192
+  %start.i.i = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %start.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   %tobool.not.i = icmp eq ptr %4, null
@@ -10730,7 +10730,7 @@ poolStoreString.exit:                             ; preds = %if.end.i, %land.lhs
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %poolStoreString.exit
-  %elementTypes = getelementptr inbounds i8, ptr %0, i64 40
+  %elementTypes = getelementptr inbounds nuw i8, ptr %0, i64 40
   %call1 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %elementTypes, ptr noundef nonnull %8, i64 noundef 40)
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %return, label %if.end4
@@ -10764,12 +10764,12 @@ return:                                           ; preds = %poolAppend.exit.thr
 define internal fastcc ptr @getAttributeId(ptr nocapture noundef readonly %parser, ptr noundef %enc, ptr noundef %start, ptr noundef %end) unnamed_addr #0 {
 entry:
   %ptr.addr.i.i = alloca ptr, align 8
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %pool = getelementptr inbounds i8, ptr %0, i64 160
-  %ptr = getelementptr inbounds i8, ptr %0, i64 184
+  %pool = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %ptr = getelementptr inbounds nuw i8, ptr %0, i64 184
   %1 = load ptr, ptr %ptr, align 8
-  %end2 = getelementptr inbounds i8, ptr %0, i64 176
+  %end2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %2 = load ptr, ptr %end2, align 8
   %cmp = icmp eq ptr %1, %2
   br i1 %cmp, label %land.lhs.true, label %cond.false
@@ -10800,7 +10800,7 @@ land.lhs.true.i.i:                                ; preds = %cond.false
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %cond.false
-  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
+  %utf8Convert.i.i = getelementptr inbounds nuw i8, ptr %enc, i64 112
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
@@ -10820,7 +10820,7 @@ poolAppend.exit.thread.i:                         ; preds = %if.end8.i.i, %land.
   br label %return
 
 poolAppend.exit.i:                                ; preds = %for.cond.i.i
-  %start.i.i = getelementptr inbounds i8, ptr %0, i64 192
+  %start.i.i = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %start.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   %tobool.not.i = icmp eq ptr %7, null
@@ -10852,7 +10852,7 @@ poolStoreString.exit:                             ; preds = %if.end.i, %land.lhs
 
 if.end10:                                         ; preds = %poolStoreString.exit
   %incdec.ptr11 = getelementptr i8, ptr %11, i64 1
-  %attributeIds = getelementptr inbounds i8, ptr %0, i64 80
+  %attributeIds = getelementptr inbounds nuw i8, ptr %0, i64 80
   %call12 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %attributeIds, ptr noundef %incdec.ptr11, i64 noundef 24)
   %tobool13.not = icmp eq ptr %call12, null
   br i1 %tobool13.not, label %return, label %if.end15
@@ -10870,7 +10870,7 @@ if.then18:                                        ; preds = %if.end15
 if.else:                                          ; preds = %if.end15
   %14 = load ptr, ptr %ptr, align 8
   store ptr %14, ptr %start.i.i, align 8
-  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
+  %m_ns = getelementptr inbounds nuw i8, ptr %parser, i64 456
   %15 = load i8, ptr %m_ns, align 8
   %tobool27.not = icmp eq i8 %15, 0
   br i1 %tobool27.not, label %return, label %if.else29
@@ -10916,20 +10916,20 @@ land.lhs.true52:                                  ; preds = %land.lhs.true47
   ]
 
 if.then66:                                        ; preds = %land.lhs.true52
-  %defaultPrefix = getelementptr inbounds i8, ptr %0, i64 304
+  %defaultPrefix = getelementptr inbounds nuw i8, ptr %0, i64 304
   br label %if.end70
 
 if.else67:                                        ; preds = %land.lhs.true52
-  %prefixes = getelementptr inbounds i8, ptr %0, i64 120
+  %prefixes = getelementptr inbounds nuw i8, ptr %0, i64 120
   %add.ptr = getelementptr i8, ptr %11, i64 7
   %call68 = call fastcc ptr @lookup(ptr noundef nonnull %parser, ptr noundef nonnull %prefixes, ptr noundef %add.ptr, i64 noundef 16)
   br label %if.end70
 
 if.end70:                                         ; preds = %if.else67, %if.then66
   %call68.sink = phi ptr [ %call68, %if.else67 ], [ %defaultPrefix, %if.then66 ]
-  %prefix69 = getelementptr inbounds i8, ptr %call12, i64 8
+  %prefix69 = getelementptr inbounds nuw i8, ptr %call12, i64 8
   store ptr %call68.sink, ptr %prefix69, align 8
-  %xmlns = getelementptr inbounds i8, ptr %call12, i64 17
+  %xmlns = getelementptr inbounds nuw i8, ptr %call12, i64 17
   store i8 1, ptr %xmlns, align 1
   br label %return
 
@@ -11000,10 +11000,10 @@ cond.false114:                                    ; preds = %land.lhs.true109.co
   %incdec.ptr117 = getelementptr i8, ptr %29, i64 1
   store ptr %incdec.ptr117, ptr %ptr, align 8
   store i8 0, ptr %29, align 1
-  %prefixes120 = getelementptr inbounds i8, ptr %0, i64 120
+  %prefixes120 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %start.i.i, align 8
   %call123 = call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %prefixes120, ptr noundef %30, i64 noundef 16)
-  %prefix124 = getelementptr inbounds i8, ptr %call12, i64 8
+  %prefix124 = getelementptr inbounds nuw i8, ptr %call12, i64 8
   store ptr %call123, ptr %prefix124, align 8
   %tobool126.not = icmp eq ptr %call123, null
   br i1 %tobool126.not, label %return, label %if.end128
@@ -11038,13 +11038,13 @@ return:                                           ; preds = %for.cond, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext range(i8 0, 2) i8 @poolGrow(ptr nocapture noundef %pool) unnamed_addr #0 {
 entry:
-  %freeBlocks = getelementptr inbounds i8, ptr %pool, i64 8
+  %freeBlocks = getelementptr inbounds nuw i8, ptr %pool, i64 8
   %0 = load ptr, ptr %freeBlocks, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end57, label %if.then
 
 if.then:                                          ; preds = %entry
-  %start = getelementptr inbounds i8, ptr %pool, i64 32
+  %start = getelementptr inbounds nuw i8, ptr %pool, i64 32
   %1 = load ptr, ptr %start, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then1, label %if.end
@@ -11055,25 +11055,25 @@ if.then1:                                         ; preds = %if.then
   store ptr %2, ptr %freeBlocks, align 8
   store ptr null, ptr %0, align 8
   %3 = load ptr, ptr %pool, align 8
-  %s = getelementptr inbounds i8, ptr %3, i64 12
+  %s = getelementptr inbounds nuw i8, ptr %3, i64 12
   store ptr %s, ptr %start, align 8
-  %size = getelementptr inbounds i8, ptr %3, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load i32, ptr %size, align 8
   %idx.ext = sext i32 %4 to i64
   %add.ptr = getelementptr i8, ptr %s, i64 %idx.ext
-  %end = getelementptr inbounds i8, ptr %pool, i64 16
+  %end = getelementptr inbounds nuw i8, ptr %pool, i64 16
   store ptr %add.ptr, ptr %end, align 8
-  %ptr = getelementptr inbounds i8, ptr %pool, i64 24
+  %ptr = getelementptr inbounds nuw i8, ptr %pool, i64 24
   store ptr %s, ptr %ptr, align 8
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %end12 = getelementptr inbounds i8, ptr %pool, i64 16
+  %end12 = getelementptr inbounds nuw i8, ptr %pool, i64 16
   %5 = load ptr, ptr %end12, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %size15 = getelementptr inbounds i8, ptr %0, i64 8
+  %size15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %size15, align 8
   %conv = sext i32 %6 to i64
   %cmp16 = icmp slt i64 %sub.ptr.sub, %conv
@@ -11086,7 +11086,7 @@ if.then18:                                        ; preds = %if.end
   %9 = load ptr, ptr %freeBlocks, align 8
   store ptr %9, ptr %pool, align 8
   store ptr %7, ptr %freeBlocks, align 8
-  %s28 = getelementptr inbounds i8, ptr %9, i64 12
+  %s28 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %10 = load ptr, ptr %start, align 8
   %11 = load ptr, ptr %end12, align 8
   %sub.ptr.lhs.cast33 = ptrtoint ptr %11 to i64
@@ -11094,8 +11094,8 @@ if.then18:                                        ; preds = %if.end
   %sub.ptr.sub35 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast34
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %s28, ptr align 1 %10, i64 %sub.ptr.sub35, i1 false)
   %12 = load ptr, ptr %pool, align 8
-  %s37 = getelementptr inbounds i8, ptr %12, i64 12
-  %ptr39 = getelementptr inbounds i8, ptr %pool, i64 24
+  %s37 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %ptr39 = getelementptr inbounds nuw i8, ptr %pool, i64 24
   %13 = load ptr, ptr %ptr39, align 8
   %14 = load ptr, ptr %start, align 8
   %sub.ptr.lhs.cast41 = ptrtoint ptr %13 to i64
@@ -11104,7 +11104,7 @@ if.then18:                                        ; preds = %if.end
   %add.ptr44 = getelementptr i8, ptr %s37, i64 %sub.ptr.sub43
   store ptr %add.ptr44, ptr %ptr39, align 8
   store ptr %s37, ptr %start, align 8
-  %size52 = getelementptr inbounds i8, ptr %12, i64 8
+  %size52 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %size52, align 8
   %idx.ext53 = sext i32 %15 to i64
   %add.ptr54 = getelementptr i8, ptr %s37, i64 %idx.ext53
@@ -11114,12 +11114,12 @@ if.then18:                                        ; preds = %if.end
 if.end57:                                         ; preds = %if.end, %entry
   %16 = load ptr, ptr %pool, align 8
   %tobool59.not = icmp ne ptr %16, null
-  %start114.phi.trans.insert = getelementptr inbounds i8, ptr %pool, i64 32
+  %start114.phi.trans.insert = getelementptr inbounds nuw i8, ptr %pool, i64 32
   %.pre = load ptr, ptr %start114.phi.trans.insert, align 8
-  %s62 = getelementptr inbounds i8, ptr %16, i64 12
+  %s62 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %cmp64 = icmp eq ptr %.pre, %s62
   %or.cond = select i1 %tobool59.not, i1 %cmp64, i1 false
-  %end67 = getelementptr inbounds i8, ptr %pool, i64 16
+  %end67 = getelementptr inbounds nuw i8, ptr %pool, i64 16
   %17 = load ptr, ptr %end67, align 8
   br i1 %or.cond, label %if.then66, label %if.else
 
@@ -11129,7 +11129,7 @@ if.then66:                                        ; preds = %if.end57
   %sub.ptr.sub71 = sub i64 %sub.ptr.lhs.cast69, %sub.ptr.rhs.cast70
   %conv72 = trunc i64 %sub.ptr.sub71 to i32
   %mul73 = shl i32 %conv72, 1
-  %ptr74 = getelementptr inbounds i8, ptr %pool, i64 24
+  %ptr74 = getelementptr inbounds nuw i8, ptr %pool, i64 24
   %18 = load ptr, ptr %ptr74, align 8
   %sub.ptr.lhs.cast76 = ptrtoint ptr %18 to i64
   %sub.ptr.sub78 = sub i64 %sub.ptr.lhs.cast76, %sub.ptr.rhs.cast70
@@ -11146,9 +11146,9 @@ if.end82:                                         ; preds = %if.then66
 
 if.end86:                                         ; preds = %if.end82
   %retval.0.i = zext nneg i32 %narrow4.i to i64
-  %mem = getelementptr inbounds i8, ptr %pool, i64 40
+  %mem = getelementptr inbounds nuw i8, ptr %pool, i64 40
   %19 = load ptr, ptr %mem, align 8
-  %realloc_fcn = getelementptr inbounds i8, ptr %19, i64 8
+  %realloc_fcn = getelementptr inbounds nuw i8, ptr %19, i64 8
   %20 = load ptr, ptr %realloc_fcn, align 8
   %call90 = tail call ptr %20(ptr noundef nonnull %16, i64 noundef %retval.0.i) #25
   %cmp91 = icmp eq ptr %call90, null
@@ -11156,10 +11156,10 @@ if.end86:                                         ; preds = %if.end82
 
 if.end94:                                         ; preds = %if.end86
   store ptr %call90, ptr %pool, align 8
-  %size97 = getelementptr inbounds i8, ptr %call90, i64 8
+  %size97 = getelementptr inbounds nuw i8, ptr %call90, i64 8
   store i32 %mul73, ptr %size97, align 8
   %21 = load ptr, ptr %pool, align 8
-  %s99 = getelementptr inbounds i8, ptr %21, i64 12
+  %s99 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %add.ptr101 = getelementptr i8, ptr %s99, i64 %sub.ptr.sub78
   store ptr %add.ptr101, ptr %ptr74, align 8
   store ptr %s99, ptr %start114.phi.trans.insert, align 8
@@ -11169,7 +11169,7 @@ if.end94:                                         ; preds = %if.end86
   br label %return
 
 if.else:                                          ; preds = %if.end57
-  %start114 = getelementptr inbounds i8, ptr %pool, i64 32
+  %start114 = getelementptr inbounds nuw i8, ptr %pool, i64 32
   %sub.ptr.lhs.cast115 = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast116 = ptrtoint ptr %.pre to i64
   %sub.ptr.sub117 = sub i64 %sub.ptr.lhs.cast115, %sub.ptr.rhs.cast116
@@ -11195,7 +11195,7 @@ if.end134:                                        ; preds = %if.else127, %if.end
 
 if.end139:                                        ; preds = %if.end134
   %retval.0.i96 = zext nneg i32 %narrow4.i94 to i64
-  %mem140 = getelementptr inbounds i8, ptr %pool, i64 40
+  %mem140 = getelementptr inbounds nuw i8, ptr %pool, i64 40
   %22 = load ptr, ptr %mem140, align 8
   %23 = load ptr, ptr %22, align 8
   %call141 = tail call ptr %23(i64 noundef %retval.0.i96) #25
@@ -11203,19 +11203,19 @@ if.end139:                                        ; preds = %if.end134
   br i1 %tobool142.not, label %return, label %if.end144
 
 if.end144:                                        ; preds = %if.end139
-  %size145 = getelementptr inbounds i8, ptr %call141, i64 8
+  %size145 = getelementptr inbounds nuw i8, ptr %call141, i64 8
   store i32 %blockSize112.0, ptr %size145, align 8
   %24 = load ptr, ptr %pool, align 8
   store ptr %24, ptr %call141, align 8
   store ptr %call141, ptr %pool, align 8
-  %ptr149 = getelementptr inbounds i8, ptr %pool, i64 24
+  %ptr149 = getelementptr inbounds nuw i8, ptr %pool, i64 24
   %25 = load ptr, ptr %ptr149, align 8
   %26 = load ptr, ptr %start114, align 8
   %cmp151.not = icmp eq ptr %25, %26
   br i1 %cmp151.not, label %if.end163, label %if.then153
 
 if.then153:                                       ; preds = %if.end144
-  %s154 = getelementptr inbounds i8, ptr %call141, i64 12
+  %s154 = getelementptr inbounds nuw i8, ptr %call141, i64 12
   %sub.ptr.lhs.cast159 = ptrtoint ptr %25 to i64
   %sub.ptr.rhs.cast160 = ptrtoint ptr %26 to i64
   %sub.ptr.sub161 = sub i64 %sub.ptr.lhs.cast159, %sub.ptr.rhs.cast160
@@ -11227,7 +11227,7 @@ if.then153:                                       ; preds = %if.end144
 if.end163:                                        ; preds = %if.then153, %if.end144
   %27 = phi ptr [ %.pre99, %if.then153 ], [ %25, %if.end144 ]
   %28 = phi ptr [ %.pre98, %if.then153 ], [ %25, %if.end144 ]
-  %s164 = getelementptr inbounds i8, ptr %call141, i64 12
+  %s164 = getelementptr inbounds nuw i8, ptr %call141, i64 12
   %sub.ptr.lhs.cast168 = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast169 = ptrtoint ptr %27 to i64
   %sub.ptr.sub170 = sub i64 %sub.ptr.lhs.cast168, %sub.ptr.rhs.cast169
@@ -11251,10 +11251,10 @@ entry:
   %ptr.addr.i.i = alloca ptr, align 8
   %next = alloca ptr, align 8
   %buf = alloca [4 x i8], align 1
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %entityValuePool = getelementptr inbounds i8, ptr %0, i64 208
-  %inEntityValue = getelementptr inbounds i8, ptr %parser, i64 520
+  %entityValuePool = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %inEntityValue = getelementptr inbounds nuw i8, ptr %parser, i64 520
   %1 = load i32, ptr %inEntityValue, align 8
   store i32 1, ptr %inEntityValue, align 8
   %2 = load ptr, ptr %entityValuePool, align 8
@@ -11270,27 +11270,27 @@ if.end5:                                          ; preds = %if.then, %entry
   %arrayidx = getelementptr i8, ptr %enc, i64 40
   %cmp.i = icmp eq i32 %account, 2
   %cmp1.i = icmp eq i32 %account, 0
-  %charRefNumber = getelementptr inbounds i8, ptr %enc, i64 80
-  %end105 = getelementptr inbounds i8, ptr %0, i64 224
-  %ptr106 = getelementptr inbounds i8, ptr %0, i64 232
-  %minBytesPerChar77 = getelementptr inbounds i8, ptr %enc, i64 128
-  %utf8Convert.i = getelementptr inbounds i8, ptr %enc, i64 112
-  %start.i = getelementptr inbounds i8, ptr %0, i64 240
-  %m_isParamEntity = getelementptr inbounds i8, ptr %parser, i64 912
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
-  %m_tempPool = getelementptr inbounds i8, ptr %parser, i64 784
-  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 808
-  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 800
-  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 816
-  %size.i = getelementptr inbounds i8, ptr %0, i64 280
-  %paramEntities = getelementptr inbounds i8, ptr %0, i64 264
-  %power30.i = getelementptr inbounds i8, ptr %0, i64 272
-  %m_externalEntityRefHandler = getelementptr inbounds i8, ptr %parser, i64 224
-  %paramEntityRead = getelementptr inbounds i8, ptr %0, i64 259
-  %m_externalEntityRefHandlerArg = getelementptr inbounds i8, ptr %parser, i64 232
-  %standalone51 = getelementptr inbounds i8, ptr %0, i64 258
-  %keepProcessing52 = getelementptr inbounds i8, ptr %0, i64 256
-  %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
+  %charRefNumber = getelementptr inbounds nuw i8, ptr %enc, i64 80
+  %end105 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %ptr106 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %minBytesPerChar77 = getelementptr inbounds nuw i8, ptr %enc, i64 128
+  %utf8Convert.i = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %start.i = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %m_isParamEntity = getelementptr inbounds nuw i8, ptr %parser, i64 912
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
+  %m_tempPool = getelementptr inbounds nuw i8, ptr %parser, i64 784
+  %ptr1.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 808
+  %end4.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 800
+  %start.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 816
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %paramEntities = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %power30.i = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %m_externalEntityRefHandler = getelementptr inbounds nuw i8, ptr %parser, i64 224
+  %paramEntityRead = getelementptr inbounds nuw i8, ptr %0, i64 259
+  %m_externalEntityRefHandlerArg = getelementptr inbounds nuw i8, ptr %parser, i64 232
+  %standalone51 = getelementptr inbounds nuw i8, ptr %0, i64 258
+  %keepProcessing52 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %m_internalEncoding = getelementptr inbounds nuw i8, ptr %parser, i64 440
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.epilog, %if.end5
@@ -11312,7 +11312,7 @@ sw.epilog.i:                                      ; preds = %for.cond
 while.cond.i.i:                                   ; preds = %sw.epilog.i, %while.cond.i.i
   %rootParser.0.i.i = phi ptr [ %5, %while.cond.i.i ], [ %parser, %sw.epilog.i ]
   %stepsTakenUpwards.0.i.i = phi i32 [ %inc.i.i, %while.cond.i.i ], [ 0, %sw.epilog.i ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %5 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   %inc.i.i = add i32 %stepsTakenUpwards.0.i.i, 1
@@ -11324,8 +11324,8 @@ getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %entityTextPtr.addr.0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_accounting.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
-  %countBytesIndirect.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
+  %m_accounting.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 928
+  %countBytesIndirect.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 936
   %cond.i = select i1 %6, ptr %m_accounting.i, ptr %countBytesIndirect.i
   %7 = load i64, ptr %cond.i, align 8
   %sub.i = xor i64 %sub.ptr.sub.i, -1
@@ -11338,7 +11338,7 @@ if.end6.i:                                        ; preds = %getRootParserOf.exi
   %8 = load i64, ptr %m_accounting.i, align 8
   %9 = load i64, ptr %countBytesIndirect.i, align 8
   %add11.i = add i64 %9, %8
-  %activationThresholdBytes.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 952
+  %activationThresholdBytes.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 952
   %10 = load i64, ptr %activationThresholdBytes.i, align 8
   %cmp14.i = icmp ult i64 %add11.i, %10
   br i1 %cmp14.i, label %lor.end.i, label %lor.rhs.i
@@ -11349,14 +11349,14 @@ lor.rhs.i:                                        ; preds = %if.end6.i
   %conv6.i.i = uitofp i64 %8 to float
   %div.i.i = fdiv float %conv.i.i, %conv6.i.i
   %cond.i.i = select i1 %tobool.not.i19.i, float 1.000000e+00, float %div.i.i
-  %maximumAmplificationFactor.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 948
+  %maximumAmplificationFactor.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 948
   %11 = load float, ptr %maximumAmplificationFactor.i, align 4
   %cmp16.i = fcmp ugt float %cond.i.i, %11
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6.i
   %conv.i = phi i1 [ false, %if.end6.i ], [ %cmp16.i, %lor.rhs.i ]
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 944
   %12 = load i32, ptr %debugLevel.i, align 8
   %cmp18.i = icmp sgt i32 %12, 1
   br i1 %cmp18.i, label %if.then20.i, label %accountingDiffTolerated.exit
@@ -11374,22 +11374,22 @@ while.cond.i.i.i.preheader:                       ; preds = %getRootParserOf.exi
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %13, %while.cond.i.i.i ], [ %parser, %while.cond.i.i.i.preheader ]
-  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
+  %m_parentParser.i.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 896
   %13 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 944
   %14 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %14, 1
   br i1 %cmp.i.i, label %endEntityValue, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
+  %m_accounting.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 928
   %15 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %15, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -11581,7 +11581,7 @@ lookup.exit.thread:                               ; preds = %if.end20, %if.else.
 lookup.exit:                                      ; preds = %for.body.i.i
   %46 = load ptr, ptr %start.i.i, align 8
   store ptr %46, ptr %ptr1.i.i, align 8
-  %open = getelementptr inbounds i8, ptr %35, i64 56
+  %open = getelementptr inbounds nuw i8, ptr %35, i64 56
   %47 = load i8, ptr %open, align 8
   %tobool27.not = icmp eq i8 %47, 0
   br i1 %tobool27.not, label %if.end34, label %if.then28
@@ -11592,12 +11592,12 @@ if.then28:                                        ; preds = %lookup.exit
   br i1 %cmp30, label %if.then32, label %endEntityValue
 
 if.then32:                                        ; preds = %if.then28
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %entityTextPtr.addr.0, ptr %m_eventPtr, align 8
   br label %endEntityValue
 
 if.end34:                                         ; preds = %lookup.exit
-  %systemId = getelementptr inbounds i8, ptr %35, i64 24
+  %systemId = getelementptr inbounds nuw i8, ptr %35, i64 24
   %49 = load ptr, ptr %systemId, align 8
   %tobool35.not = icmp eq ptr %49, null
   br i1 %tobool35.not, label %if.else57, label %if.then36
@@ -11614,21 +11614,21 @@ if.then38:                                        ; preds = %if.then36
 
 while.cond.i.i111:                                ; preds = %while.cond.i.i111, %if.then38
   %rootParser.0.i.i112 = phi ptr [ %parser, %if.then38 ], [ %51, %while.cond.i.i111 ]
-  %m_parentParser.i.i113 = getelementptr inbounds i8, ptr %rootParser.0.i.i112, i64 896
+  %m_parentParser.i.i113 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i112, i64 896
   %51 = load ptr, ptr %m_parentParser.i.i113, align 8
   %tobool.not.i.i114 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i114, label %getRootParserOf.exit.i115, label %while.cond.i.i111, !llvm.loop !26
 
 getRootParserOf.exit.i115:                        ; preds = %while.cond.i.i111
-  %m_entity_stats.i = getelementptr inbounds i8, ptr %rootParser.0.i.i112, i64 960
+  %m_entity_stats.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i112, i64 960
   %52 = load i32, ptr %m_entity_stats.i, align 8
   %inc.i = add i32 %52, 1
   store i32 %inc.i, ptr %m_entity_stats.i, align 8
-  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i.i112, i64 964
+  %currentDepth.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i112, i64 964
   %53 = load i32, ptr %currentDepth.i, align 4
   %inc2.i = add i32 %53, 1
   store i32 %inc2.i, ptr %currentDepth.i, align 4
-  %maximumDepthSeen.i = getelementptr inbounds i8, ptr %rootParser.0.i.i112, i64 968
+  %maximumDepthSeen.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i112, i64 968
   %54 = load i32, ptr %maximumDepthSeen.i, align 8
   %cmp.i116 = icmp ugt i32 %inc2.i, %54
   br i1 %cmp.i116, label %if.then.i123, label %if.end.i117
@@ -11640,7 +11640,7 @@ if.then.i123:                                     ; preds = %getRootParserOf.exi
 
 if.end.i117:                                      ; preds = %if.then.i123, %getRootParserOf.exit.i115
   %55 = phi i32 [ %inc8.i, %if.then.i123 ], [ %54, %getRootParserOf.exit.i115 ]
-  %debugLevel.i.i118 = getelementptr inbounds i8, ptr %rootParser.0.i.i112, i64 972
+  %debugLevel.i.i118 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i112, i64 972
   %56 = load i32, ptr %debugLevel.i.i118, align 4
   %cmp.i.i119 = icmp slt i32 %56, 1
   br i1 %cmp.i.i119, label %entityTrackingOnOpen.exit, label %if.end.i.i120
@@ -11650,11 +11650,11 @@ if.end.i.i120:                                    ; preds = %if.end.i117
   %58 = load ptr, ptr @stderr, align 8
   %sub.i.i = shl i32 %inc2.i, 1
   %mul.i.i = add i32 %sub.i.i, -2
-  %is_param.i.i = getelementptr inbounds i8, ptr %35, i64 57
+  %is_param.i.i = getelementptr inbounds nuw i8, ptr %35, i64 57
   %59 = load i8, ptr %is_param.i.i, align 1
   %tobool.not.i6.i = icmp eq i8 %59, 0
   %cond.i.i121 = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
-  %textLen.i.i = getelementptr inbounds i8, ptr %35, i64 16
+  %textLen.i.i = getelementptr inbounds nuw i8, ptr %35, i64 16
   %60 = load i32, ptr %textLen.i.i, align 8
   %call.i.i122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i112, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %55, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i121, ptr noundef %57, ptr noundef nonnull @.str.319, i32 noundef %60, i32 noundef range(i32 5439, 6175) 6152) #28
   br label %entityTrackingOnOpen.exit
@@ -11662,10 +11662,10 @@ if.end.i.i120:                                    ; preds = %if.end.i117
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i117, %if.end.i.i120
   %61 = load ptr, ptr %m_externalEntityRefHandler, align 8
   %62 = load ptr, ptr %m_externalEntityRefHandlerArg, align 8
-  %base = getelementptr inbounds i8, ptr %35, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %35, i64 32
   %63 = load ptr, ptr %base, align 8
   %64 = load ptr, ptr %systemId, align 8
-  %publicId = getelementptr inbounds i8, ptr %35, i64 40
+  %publicId = getelementptr inbounds nuw i8, ptr %35, i64 40
   %65 = load ptr, ptr %publicId, align 8
   %call42 = call i32 %61(ptr noundef %62, ptr noundef null, ptr noundef %63, ptr noundef %64, ptr noundef %65) #25
   %tobool43.not = icmp eq i32 %call42, 0
@@ -11678,39 +11678,39 @@ if.then44:                                        ; preds = %entityTrackingOnOpe
 
 while.cond.i.i124:                                ; preds = %entityTrackingOnOpen.exit, %while.cond.i.i124
   %rootParser.0.i.i125 = phi ptr [ %66, %while.cond.i.i124 ], [ %parser, %entityTrackingOnOpen.exit ]
-  %m_parentParser.i.i126 = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 896
+  %m_parentParser.i.i126 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i125, i64 896
   %66 = load ptr, ptr %m_parentParser.i.i126, align 8
   %tobool.not.i.i127 = icmp eq ptr %66, null
   br i1 %tobool.not.i.i127, label %getRootParserOf.exit.i128, label %while.cond.i.i124, !llvm.loop !26
 
 getRootParserOf.exit.i128:                        ; preds = %while.cond.i.i124
-  %debugLevel.i.i129 = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 972
+  %debugLevel.i.i129 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i125, i64 972
   %67 = load i32, ptr %debugLevel.i.i129, align 4
   %cmp.i.i130 = icmp slt i32 %67, 1
   br i1 %cmp.i.i130, label %entityTrackingOnClose.exit, label %if.end.i.i131
 
 if.end.i.i131:                                    ; preds = %getRootParserOf.exit.i128
-  %m_entity_stats.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 960
+  %m_entity_stats.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i125, i64 960
   %68 = load ptr, ptr %35, align 8
   %69 = load ptr, ptr @stderr, align 8
   %70 = load i32, ptr %m_entity_stats.i.i, align 8
-  %currentDepth.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 964
+  %currentDepth.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i125, i64 964
   %71 = load i32, ptr %currentDepth.i.i, align 4
-  %maximumDepthSeen.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 968
+  %maximumDepthSeen.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i125, i64 968
   %72 = load i32, ptr %maximumDepthSeen.i.i, align 8
   %sub.i.i132 = shl i32 %71, 1
   %mul.i.i133 = add i32 %sub.i.i132, -2
-  %is_param.i.i134 = getelementptr inbounds i8, ptr %35, i64 57
+  %is_param.i.i134 = getelementptr inbounds nuw i8, ptr %35, i64 57
   %73 = load i8, ptr %is_param.i.i134, align 1
   %tobool.not.i2.i = icmp eq i8 %73, 0
   %cond.i.i135 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
-  %textLen.i.i136 = getelementptr inbounds i8, ptr %35, i64 16
+  %textLen.i.i136 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %74 = load i32, ptr %textLen.i.i136, align 8
   %call.i.i137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i125, i32 noundef %70, i32 noundef %71, i32 noundef %72, i32 noundef %mul.i.i133, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i135, ptr noundef %68, ptr noundef nonnull @.str.321, i32 noundef %74, i32 noundef range(i32 5439, 6175) 6161) #28
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i128, %if.end.i.i131
-  %currentDepth.i138 = getelementptr inbounds i8, ptr %rootParser.0.i.i125, i64 964
+  %currentDepth.i138 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i125, i64 964
   %75 = load i32, ptr %currentDepth.i138, align 4
   %dec.i = add i32 %75, -1
   store i32 %dec.i, ptr %currentDepth.i138, align 4
@@ -11735,21 +11735,21 @@ if.else57:                                        ; preds = %if.end34
 
 while.cond.i.i139:                                ; preds = %while.cond.i.i139, %if.else57
   %rootParser.0.i.i140 = phi ptr [ %parser, %if.else57 ], [ %79, %while.cond.i.i139 ]
-  %m_parentParser.i.i141 = getelementptr inbounds i8, ptr %rootParser.0.i.i140, i64 896
+  %m_parentParser.i.i141 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i140, i64 896
   %79 = load ptr, ptr %m_parentParser.i.i141, align 8
   %tobool.not.i.i142 = icmp eq ptr %79, null
   br i1 %tobool.not.i.i142, label %getRootParserOf.exit.i143, label %while.cond.i.i139, !llvm.loop !26
 
 getRootParserOf.exit.i143:                        ; preds = %while.cond.i.i139
-  %m_entity_stats.i144 = getelementptr inbounds i8, ptr %rootParser.0.i.i140, i64 960
+  %m_entity_stats.i144 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i140, i64 960
   %80 = load i32, ptr %m_entity_stats.i144, align 8
   %inc.i145 = add i32 %80, 1
   store i32 %inc.i145, ptr %m_entity_stats.i144, align 8
-  %currentDepth.i146 = getelementptr inbounds i8, ptr %rootParser.0.i.i140, i64 964
+  %currentDepth.i146 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i140, i64 964
   %81 = load i32, ptr %currentDepth.i146, align 4
   %inc2.i147 = add i32 %81, 1
   store i32 %inc2.i147, ptr %currentDepth.i146, align 4
-  %maximumDepthSeen.i148 = getelementptr inbounds i8, ptr %rootParser.0.i.i140, i64 968
+  %maximumDepthSeen.i148 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i140, i64 968
   %82 = load i32, ptr %maximumDepthSeen.i148, align 8
   %cmp.i149 = icmp ugt i32 %inc2.i147, %82
   br i1 %cmp.i149, label %if.then.i161, label %if.end.i150
@@ -11761,7 +11761,7 @@ if.then.i161:                                     ; preds = %getRootParserOf.exi
 
 if.end.i150:                                      ; preds = %if.then.i161, %getRootParserOf.exit.i143
   %83 = phi i32 [ %inc8.i162, %if.then.i161 ], [ %82, %getRootParserOf.exit.i143 ]
-  %debugLevel.i.i151 = getelementptr inbounds i8, ptr %rootParser.0.i.i140, i64 972
+  %debugLevel.i.i151 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i140, i64 972
   %84 = load i32, ptr %debugLevel.i.i151, align 4
   %cmp.i.i152 = icmp slt i32 %84, 1
   br i1 %cmp.i.i152, label %entityTrackingOnOpen.exit163, label %if.end.i.i153
@@ -11771,20 +11771,20 @@ if.end.i.i153:                                    ; preds = %if.end.i150
   %86 = load ptr, ptr @stderr, align 8
   %sub.i.i154 = shl i32 %inc2.i147, 1
   %mul.i.i155 = add i32 %sub.i.i154, -2
-  %is_param.i.i156 = getelementptr inbounds i8, ptr %35, i64 57
+  %is_param.i.i156 = getelementptr inbounds nuw i8, ptr %35, i64 57
   %87 = load i8, ptr %is_param.i.i156, align 1
   %tobool.not.i6.i157 = icmp eq i8 %87, 0
   %cond.i.i158 = select i1 %tobool.not.i6.i157, ptr @.str.89, ptr @.str.88
-  %textLen.i.i159 = getelementptr inbounds i8, ptr %35, i64 16
+  %textLen.i.i159 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %88 = load i32, ptr %textLen.i.i159, align 8
   %call.i.i160 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i140, i32 noundef %inc.i145, i32 noundef %inc2.i147, i32 noundef %83, i32 noundef %mul.i.i155, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i158, ptr noundef %85, ptr noundef nonnull @.str.319, i32 noundef %88, i32 noundef range(i32 5439, 6175) 6169) #28
   br label %entityTrackingOnOpen.exit163
 
 entityTrackingOnOpen.exit163:                     ; preds = %if.end.i150, %if.end.i.i153
   %89 = load ptr, ptr %m_internalEncoding, align 8
-  %textPtr = getelementptr inbounds i8, ptr %35, i64 8
+  %textPtr = getelementptr inbounds nuw i8, ptr %35, i64 8
   %90 = load ptr, ptr %textPtr, align 8
-  %textLen = getelementptr inbounds i8, ptr %35, i64 16
+  %textLen = getelementptr inbounds nuw i8, ptr %35, i64 16
   %91 = load i32, ptr %textLen, align 8
   %idx.ext60 = sext i32 %91 to i64
   %add.ptr61 = getelementptr i8, ptr %90, i64 %idx.ext60
@@ -11793,29 +11793,29 @@ entityTrackingOnOpen.exit163:                     ; preds = %if.end.i150, %if.en
 
 while.cond.i.i164:                                ; preds = %while.cond.i.i164, %entityTrackingOnOpen.exit163
   %rootParser.0.i.i165 = phi ptr [ %parser, %entityTrackingOnOpen.exit163 ], [ %92, %while.cond.i.i164 ]
-  %m_parentParser.i.i166 = getelementptr inbounds i8, ptr %rootParser.0.i.i165, i64 896
+  %m_parentParser.i.i166 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i165, i64 896
   %92 = load ptr, ptr %m_parentParser.i.i166, align 8
   %tobool.not.i.i167 = icmp eq ptr %92, null
   br i1 %tobool.not.i.i167, label %getRootParserOf.exit.i168, label %while.cond.i.i164, !llvm.loop !26
 
 getRootParserOf.exit.i168:                        ; preds = %while.cond.i.i164
-  %debugLevel.i.i169 = getelementptr inbounds i8, ptr %rootParser.0.i.i165, i64 972
+  %debugLevel.i.i169 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i165, i64 972
   %93 = load i32, ptr %debugLevel.i.i169, align 4
   %cmp.i.i170 = icmp slt i32 %93, 1
   br i1 %cmp.i.i170, label %entityTrackingOnClose.exit184, label %if.end.i.i171
 
 if.end.i.i171:                                    ; preds = %getRootParserOf.exit.i168
-  %m_entity_stats.i.i172 = getelementptr inbounds i8, ptr %rootParser.0.i.i165, i64 960
+  %m_entity_stats.i.i172 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i165, i64 960
   %94 = load ptr, ptr %35, align 8
   %95 = load ptr, ptr @stderr, align 8
   %96 = load i32, ptr %m_entity_stats.i.i172, align 8
-  %currentDepth.i.i173 = getelementptr inbounds i8, ptr %rootParser.0.i.i165, i64 964
+  %currentDepth.i.i173 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i165, i64 964
   %97 = load i32, ptr %currentDepth.i.i173, align 4
-  %maximumDepthSeen.i.i174 = getelementptr inbounds i8, ptr %rootParser.0.i.i165, i64 968
+  %maximumDepthSeen.i.i174 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i165, i64 968
   %98 = load i32, ptr %maximumDepthSeen.i.i174, align 8
   %sub.i.i175 = shl i32 %97, 1
   %mul.i.i176 = add i32 %sub.i.i175, -2
-  %is_param.i.i177 = getelementptr inbounds i8, ptr %35, i64 57
+  %is_param.i.i177 = getelementptr inbounds nuw i8, ptr %35, i64 57
   %99 = load i8, ptr %is_param.i.i177, align 1
   %tobool.not.i2.i178 = icmp eq i8 %99, 0
   %cond.i.i179 = select i1 %tobool.not.i2.i178, ptr @.str.89, ptr @.str.88
@@ -11824,7 +11824,7 @@ if.end.i.i171:                                    ; preds = %getRootParserOf.exi
   br label %entityTrackingOnClose.exit184
 
 entityTrackingOnClose.exit184:                    ; preds = %getRootParserOf.exit.i168, %if.end.i.i171
-  %currentDepth.i182 = getelementptr inbounds i8, ptr %rootParser.0.i.i165, i64 964
+  %currentDepth.i182 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i165, i64 964
   %101 = load i32, ptr %currentDepth.i182, align 4
   %dec.i183 = add i32 %101, -1
   store i32 %dec.i183, ptr %currentDepth.i182, align 4
@@ -11833,7 +11833,7 @@ entityTrackingOnClose.exit184:                    ; preds = %getRootParserOf.exi
   br i1 %tobool64.not, label %sw.epilog, label %endEntityValue
 
 if.end68:                                         ; preds = %lor.lhs.false
-  %m_eventPtr69 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr69 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %entityTextPtr.addr.0, ptr %m_eventPtr69, align 8
   br label %endEntityValue
 
@@ -11916,7 +11916,7 @@ if.then93:                                        ; preds = %sw.bb89
   br i1 %cmp95, label %if.then97, label %endEntityValue
 
 if.then97:                                        ; preds = %if.then93
-  %m_eventPtr98 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr98 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %entityTextPtr.addr.0, ptr %m_eventPtr98, align 8
   br label %endEntityValue
 
@@ -11962,7 +11962,7 @@ sw.bb117:                                         ; preds = %for.cond, %if.end10
   br i1 %cmp119, label %if.then121, label %endEntityValue
 
 if.then121:                                       ; preds = %sw.bb117
-  %m_eventPtr122 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr122 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %entityTextPtr.addr.0, ptr %m_eventPtr122, align 8
   br label %endEntityValue
 
@@ -11973,7 +11973,7 @@ sw.bb124:                                         ; preds = %for.cond, %if.end10
 
 if.then128:                                       ; preds = %sw.bb124
   %119 = load ptr, ptr %next, align 8
-  %m_eventPtr129 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr129 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %119, ptr %m_eventPtr129, align 8
   br label %endEntityValue
 
@@ -11983,7 +11983,7 @@ sw.default:                                       ; preds = %for.cond, %if.end10
   br i1 %cmp132, label %if.then134, label %endEntityValue
 
 if.then134:                                       ; preds = %sw.default
-  %m_eventPtr135 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr135 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %entityTextPtr.addr.0, ptr %m_eventPtr135, align 8
   br label %endEntityValue
 
@@ -12009,21 +12009,21 @@ entry:
   %next = alloca ptr, align 8
   %0 = load ptr, ptr %startPtr, align 8
   store ptr %0, ptr %next, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %enc, %1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %0, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %2 = load ptr, ptr %m_openInternalEntities, align 8
-  %internalEventEndPtr = getelementptr inbounds i8, ptr %2, i64 8
+  %internalEventEndPtr = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -12045,7 +12045,7 @@ if.end:                                           ; preds = %if.else, %if.then
 while.cond.i.i:                                   ; preds = %if.end, %while.cond.i.i
   %rootParser.0.i.i = phi ptr [ %5, %while.cond.i.i ], [ %parser, %if.end ]
   %stepsTakenUpwards.0.i.i = phi i32 [ %inc.i.i, %while.cond.i.i ], [ 0, %if.end ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %5 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   %inc.i.i = add i32 %stepsTakenUpwards.0.i.i, 1
@@ -12056,8 +12056,8 @@ getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_accounting.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
-  %countBytesIndirect.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
+  %m_accounting.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 928
+  %countBytesIndirect.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 936
   %cond.i = select i1 %cmp2.i, ptr %m_accounting.i, ptr %countBytesIndirect.i
   %6 = load i64, ptr %cond.i, align 8
   %sub.i = xor i64 %sub.ptr.sub.i, -1
@@ -12070,7 +12070,7 @@ if.end6.i:                                        ; preds = %getRootParserOf.exi
   %7 = load i64, ptr %m_accounting.i, align 8
   %8 = load i64, ptr %countBytesIndirect.i, align 8
   %add11.i = add i64 %8, %7
-  %activationThresholdBytes.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 952
+  %activationThresholdBytes.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 952
   %9 = load i64, ptr %activationThresholdBytes.i, align 8
   %cmp14.i = icmp ult i64 %add11.i, %9
   br i1 %cmp14.i, label %lor.end.i, label %lor.rhs.i
@@ -12081,14 +12081,14 @@ lor.rhs.i:                                        ; preds = %if.end6.i
   %conv6.i.i = uitofp i64 %7 to float
   %div.i.i = fdiv float %conv.i.i, %conv6.i.i
   %cond.i.i = select i1 %tobool.not.i19.i, float 1.000000e+00, float %div.i.i
-  %maximumAmplificationFactor.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 948
+  %maximumAmplificationFactor.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 948
   %10 = load float, ptr %maximumAmplificationFactor.i, align 4
   %cmp16.i = fcmp ugt float %cond.i.i, %10
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6.i
   %conv.i = phi i1 [ false, %if.end6.i ], [ %cmp16.i, %lor.rhs.i ]
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 944
   %11 = load i32, ptr %debugLevel.i, align 8
   %cmp18.i = icmp sgt i32 %11, 1
   br i1 %cmp18.i, label %if.then20.i, label %accountingDiffTolerated.exit
@@ -12110,22 +12110,22 @@ accountingDiffTolerated.exit.if.end4_crit_edge:   ; preds = %accountingDiffToler
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %12, %while.cond.i.i.i ], [ %parser, %while.cond.i.i.i.preheader ]
-  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
+  %m_parentParser.i.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 896
   %12 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 944
   %13 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %13, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
+  %m_accounting.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 928
   %14 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %14, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -12155,7 +12155,7 @@ if.end4:                                          ; preds = %accountingDiffToler
   ]
 
 sw.bb:                                            ; preds = %if.end4
-  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_defaultHandler = getelementptr inbounds nuw i8, ptr %parser, i64 160
   %18 = load ptr, ptr %m_defaultHandler, align 8
   %tobool5.not = icmp eq ptr %18, null
   br i1 %tobool5.not, label %if.end7, label %if.then6
@@ -12164,7 +12164,7 @@ if.then6:                                         ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %0, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds i8, ptr %enc, i64 132
+  %isUtf8.i = getelementptr inbounds nuw i8, ptr %enc, i64 132
   %19 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i = icmp eq i8 %19, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else9.i
@@ -12175,23 +12175,23 @@ if.then.i:                                        ; preds = %if.then6
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %m_eventPtr.i = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventPtr.i = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_eventEndPtr.i = getelementptr inbounds nuw i8, ptr %parser, i64 552
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %m_openInternalEntities.i = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities.i = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %21 = load ptr, ptr %m_openInternalEntities.i, align 8
-  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %21, i64 8
+  %internalEventEndPtr.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then1.i
   %eventPP.0.i = phi ptr [ %m_eventPtr.i, %if.then1.i ], [ %21, %if.else.i ]
   %eventEndPP.0.i = phi ptr [ %m_eventEndPtr.i, %if.then1.i ], [ %internalEventEndPtr.i, %if.else.i ]
-  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
-  %utf8Convert.i = getelementptr inbounds i8, ptr %enc, i64 112
-  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
-  %m_handlerArg.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_dataBuf.i = getelementptr inbounds nuw i8, ptr %parser, i64 88
+  %utf8Convert.i = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %m_dataBufEnd.i = getelementptr inbounds nuw i8, ptr %parser, i64 96
+  %m_handlerArg.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
@@ -12217,7 +12217,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   br i1 %31, label %do.body.i, label %reportDefault.exit, !llvm.loop !23
 
 if.else9.i:                                       ; preds = %if.then6
-  %m_handlerArg11.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg11.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %32 = load ptr, ptr %m_handlerArg11.i, align 8
   %sub.ptr.lhs.cast12.i = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %0 to i64
@@ -12236,7 +12236,7 @@ if.end7:                                          ; preds = %reportDefault.exit,
   %33 = phi ptr [ %.pre38, %reportDefault.exit ], [ %17, %sw.bb ]
   store ptr %33, ptr %startPtr, align 8
   store ptr %33, ptr %nextPtr, align 8
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %34 = load i32, ptr %m_parsingStatus, align 8
   %cmp8 = icmp eq i32 %34, 2
   %. = select i1 %cmp8, i32 35, i32 0
@@ -12277,9 +12277,9 @@ entry:
   %next.i = alloca ptr, align 8
   %start.addr = alloca ptr, align 8
   store ptr %start, ptr %start.addr, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %1 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %1, 0
   %conv = zext i1 %tobool.not to i8
@@ -12293,7 +12293,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @prologProcessor, ptr %m_processor, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %next.i)
   store ptr %2, ptr %next.i, align 8
@@ -12317,17 +12317,17 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @nextScaffoldPart(ptr nocapture noundef readonly %parser) unnamed_addr #0 {
 entry:
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %scaffIndex = getelementptr inbounds i8, ptr %0, i64 352
+  %scaffIndex = getelementptr inbounds nuw i8, ptr %0, i64 352
   %1 = load ptr, ptr %scaffIndex, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
+  %m_mem = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %2 = load ptr, ptr %m_mem, align 8
-  %m_groupSize = getelementptr inbounds i8, ptr %parser, i64 888
+  %m_groupSize = getelementptr inbounds nuw i8, ptr %parser, i64 888
   %3 = load i32, ptr %m_groupSize, align 8
   %conv = zext i32 %3 to i64
   %mul = shl nuw nsw i64 %conv, 2
@@ -12341,12 +12341,12 @@ if.end:                                           ; preds = %if.then
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
-  %scaffCount = getelementptr inbounds i8, ptr %0, i64 344
+  %scaffCount = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load i32, ptr %scaffCount, align 8
-  %scaffSize = getelementptr inbounds i8, ptr %0, i64 340
+  %scaffSize = getelementptr inbounds nuw i8, ptr %0, i64 340
   %5 = load i32, ptr %scaffSize, align 4
   %cmp.not = icmp ult i32 %4, %5
-  %scaffold41.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 328
+  %scaffold41.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 328
   %.pre41 = load ptr, ptr %scaffold41.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end39, label %if.then8
 
@@ -12359,7 +12359,7 @@ if.then10:                                        ; preds = %if.then8
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then10
-  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
+  %realloc_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 32
   %6 = load ptr, ptr %realloc_fcn, align 8
   %mul19 = shl nuw i32 %5, 1
   %conv20 = zext i32 %mul19 to i64
@@ -12374,7 +12374,7 @@ if.end26:                                         ; preds = %if.end15
   br label %if.end37
 
 if.else:                                          ; preds = %if.then8
-  %m_mem29 = getelementptr inbounds i8, ptr %parser, i64 24
+  %m_mem29 = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %8 = load ptr, ptr %m_mem29, align 8
   %call31 = tail call ptr %8(i64 noundef 1024) #25
   %cmp32 = icmp eq ptr %call31, null
@@ -12394,7 +12394,7 @@ if.end39:                                         ; preds = %if.end6, %if.end37
   %inc = add i32 %10, 1
   store i32 %inc, ptr %scaffCount, align 8
   %idxprom = sext i32 %10 to i64
-  %scaffLevel = getelementptr inbounds i8, ptr %0, i64 348
+  %scaffLevel = getelementptr inbounds nuw i8, ptr %0, i64 348
   %11 = load i32, ptr %scaffLevel, align 4
   %tobool43.not = icmp eq i32 %11, 0
   br i1 %tobool43.not, label %if.end65, label %if.then44
@@ -12407,7 +12407,7 @@ if.then44:                                        ; preds = %if.end39
   %13 = load i32, ptr %arrayidx49, align 4
   %idxprom50 = sext i32 %13 to i64
   %arrayidx51 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %9, i64 %idxprom50
-  %lastchild = getelementptr inbounds i8, ptr %arrayidx51, i64 20
+  %lastchild = getelementptr inbounds nuw i8, ptr %arrayidx51, i64 20
   %14 = load i32, ptr %lastchild, align 4
   %tobool52.not = icmp eq i32 %14, 0
   br i1 %tobool52.not, label %if.end58, label %if.then53
@@ -12419,13 +12419,13 @@ if.then53:                                        ; preds = %if.then44
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then53, %if.then44
-  %childcnt = getelementptr inbounds i8, ptr %arrayidx51, i64 24
+  %childcnt = getelementptr inbounds nuw i8, ptr %arrayidx51, i64 24
   %15 = load i32, ptr %childcnt, align 8
   %tobool59.not = icmp eq i32 %15, 0
   br i1 %tobool59.not, label %if.then60, label %if.end61
 
 if.then60:                                        ; preds = %if.end58
-  %firstchild = getelementptr inbounds i8, ptr %arrayidx51, i64 16
+  %firstchild = getelementptr inbounds nuw i8, ptr %arrayidx51, i64 16
   store i32 %10, ptr %firstchild, align 8
   br label %if.end61
 
@@ -12449,19 +12449,19 @@ return:                                           ; preds = %if.else, %if.end15,
 define internal fastcc i32 @processInternalEntity(ptr noundef %parser, ptr noundef %entity, i8 noundef zeroext range(i8 0, 2) %betweenDecl) unnamed_addr #0 {
 entry:
   %next = alloca ptr, align 8
-  %m_freeInternalEntities = getelementptr inbounds i8, ptr %parser, i64 576
+  %m_freeInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 576
   %0 = load ptr, ptr %m_freeInternalEntities, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %next2 = getelementptr inbounds i8, ptr %0, i64 16
+  %next2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %next2, align 8
   store ptr %1, ptr %m_freeInternalEntities, align 8
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
+  %m_mem = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %2 = load ptr, ptr %m_mem, align 8
   %call = tail call ptr %2(i64 noundef 40) #25
   %tobool4.not = icmp eq ptr %call, null
@@ -12469,27 +12469,27 @@ if.else:                                          ; preds = %entry
 
 if.end6:                                          ; preds = %if.else, %if.then
   %openEntity.0 = phi ptr [ %0, %if.then ], [ %call, %if.else ]
-  %open = getelementptr inbounds i8, ptr %entity, i64 56
+  %open = getelementptr inbounds nuw i8, ptr %entity, i64 56
   store i8 1, ptr %open, align 8
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.end6
   %rootParser.0.i.i = phi ptr [ %parser, %if.end6 ], [ %3, %while.cond.i.i ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %3 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %getRootParserOf.exit.i, label %while.cond.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
-  %m_entity_stats.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 960
+  %m_entity_stats.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 960
   %4 = load i32, ptr %m_entity_stats.i, align 8
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %m_entity_stats.i, align 8
-  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 964
+  %currentDepth.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 964
   %5 = load i32, ptr %currentDepth.i, align 4
   %inc2.i = add i32 %5, 1
   store i32 %inc2.i, ptr %currentDepth.i, align 4
-  %maximumDepthSeen.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 968
+  %maximumDepthSeen.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 968
   %6 = load i32, ptr %maximumDepthSeen.i, align 8
   %cmp.i = icmp ugt i32 %inc2.i, %6
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -12501,7 +12501,7 @@ if.then.i:                                        ; preds = %getRootParserOf.exi
 
 if.end.i:                                         ; preds = %if.then.i, %getRootParserOf.exit.i
   %7 = phi i32 [ %inc8.i, %if.then.i ], [ %6, %getRootParserOf.exit.i ]
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 972
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 972
   %8 = load i32, ptr %debugLevel.i.i, align 4
   %cmp.i.i = icmp slt i32 %8, 1
   br i1 %cmp.i.i, label %entityTrackingOnOpen.exit, label %if.end.i.i
@@ -12511,46 +12511,46 @@ if.end.i.i:                                       ; preds = %if.end.i
   %10 = load ptr, ptr @stderr, align 8
   %sub.i.i = shl i32 %inc2.i, 1
   %mul.i.i = add i32 %sub.i.i, -2
-  %is_param.i.i = getelementptr inbounds i8, ptr %entity, i64 57
+  %is_param.i.i = getelementptr inbounds nuw i8, ptr %entity, i64 57
   %11 = load i8, ptr %is_param.i.i, align 1
   %tobool.not.i6.i = icmp eq i8 %11, 0
   %cond.i.i = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
-  %textLen.i.i = getelementptr inbounds i8, ptr %entity, i64 16
+  %textLen.i.i = getelementptr inbounds nuw i8, ptr %entity, i64 16
   %12 = load i32, ptr %textLen.i.i, align 8
   %call.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i.i, i32 noundef %inc.i, i32 noundef %inc2.i, i32 noundef %7, i32 noundef %mul.i.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i.i, ptr noundef %9, ptr noundef nonnull @.str.319, i32 noundef %12, i32 noundef range(i32 5439, 6175) 5732) #28
   br label %entityTrackingOnOpen.exit
 
 entityTrackingOnOpen.exit:                        ; preds = %if.end.i, %if.end.i.i
-  %processed = getelementptr inbounds i8, ptr %entity, i64 20
+  %processed = getelementptr inbounds nuw i8, ptr %entity, i64 20
   store i32 0, ptr %processed, align 4
-  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %13 = load ptr, ptr %m_openInternalEntities, align 8
-  %next7 = getelementptr inbounds i8, ptr %openEntity.0, i64 16
+  %next7 = getelementptr inbounds nuw i8, ptr %openEntity.0, i64 16
   store ptr %13, ptr %next7, align 8
   store ptr %openEntity.0, ptr %m_openInternalEntities, align 8
-  %entity9 = getelementptr inbounds i8, ptr %openEntity.0, i64 24
+  %entity9 = getelementptr inbounds nuw i8, ptr %openEntity.0, i64 24
   store ptr %entity, ptr %entity9, align 8
-  %m_tagLevel = getelementptr inbounds i8, ptr %parser, i64 588
+  %m_tagLevel = getelementptr inbounds nuw i8, ptr %parser, i64 588
   %14 = load i32, ptr %m_tagLevel, align 4
-  %startTagLevel = getelementptr inbounds i8, ptr %openEntity.0, i64 32
+  %startTagLevel = getelementptr inbounds nuw i8, ptr %openEntity.0, i64 32
   store i32 %14, ptr %startTagLevel, align 8
-  %betweenDecl10 = getelementptr inbounds i8, ptr %openEntity.0, i64 36
+  %betweenDecl10 = getelementptr inbounds nuw i8, ptr %openEntity.0, i64 36
   store i8 %betweenDecl, ptr %betweenDecl10, align 4
-  %textPtr = getelementptr inbounds i8, ptr %entity, i64 8
+  %textPtr = getelementptr inbounds nuw i8, ptr %entity, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %openEntity.0, i8 0, i64 16, i1 false)
   %15 = load ptr, ptr %textPtr, align 8
-  %textLen = getelementptr inbounds i8, ptr %entity, i64 16
+  %textLen = getelementptr inbounds nuw i8, ptr %entity, i64 16
   %16 = load i32, ptr %textLen, align 8
   %idx.ext = sext i32 %16 to i64
   %add.ptr = getelementptr i8, ptr %15, i64 %idx.ext
   store ptr %15, ptr %next, align 8
-  %is_param = getelementptr inbounds i8, ptr %entity, i64 57
+  %is_param = getelementptr inbounds nuw i8, ptr %entity, i64 57
   %17 = load i8, ptr %is_param, align 1
   %tobool12.not = icmp eq i8 %17, 0
   br i1 %tobool12.not, label %if.else18, label %if.then13
 
 if.then13:                                        ; preds = %entityTrackingOnOpen.exit
-  %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
+  %m_internalEncoding = getelementptr inbounds nuw i8, ptr %parser, i64 440
   %18 = load ptr, ptr %m_internalEncoding, align 8
   %19 = load ptr, ptr %18, align 8
   %call15 = call i32 %19(ptr noundef nonnull %18, ptr noundef %15, ptr noundef %add.ptr, ptr noundef nonnull %next) #25
@@ -12561,7 +12561,7 @@ if.then13:                                        ; preds = %entityTrackingOnOpe
 
 if.else18:                                        ; preds = %entityTrackingOnOpen.exit
   %22 = load i32, ptr %m_tagLevel, align 4
-  %m_internalEncoding20 = getelementptr inbounds i8, ptr %parser, i64 440
+  %m_internalEncoding20 = getelementptr inbounds nuw i8, ptr %parser, i64 440
   %23 = load ptr, ptr %m_internalEncoding20, align 8
   %call21 = call fastcc i32 @doContent(ptr noundef nonnull %parser, i32 noundef %22, ptr noundef %23, ptr noundef %15, ptr noundef %add.ptr, ptr noundef nonnull %next, i8 noundef zeroext 0, i32 noundef 1)
   br label %if.end22
@@ -12580,7 +12580,7 @@ while.cond.i.i51.preheader:                       ; preds = %land.lhs.true, %if.
   br label %while.cond.i.i51
 
 land.lhs.true:                                    ; preds = %if.then23
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %25 = load i32, ptr %m_parsingStatus, align 8
   %cmp25 = icmp eq i32 %25, 3
   br i1 %cmp25, label %if.then26, label %while.cond.i.i51.preheader
@@ -12591,31 +12591,31 @@ if.then26:                                        ; preds = %land.lhs.true
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
   store i32 %conv, ptr %processed, align 4
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @internalEntityProcessor, ptr %m_processor, align 8
   br label %return
 
 while.cond.i.i51:                                 ; preds = %while.cond.i.i51.preheader, %while.cond.i.i51
   %rootParser.0.i.i52 = phi ptr [ %26, %while.cond.i.i51 ], [ %parser, %while.cond.i.i51.preheader ]
-  %m_parentParser.i.i53 = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 896
+  %m_parentParser.i.i53 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i52, i64 896
   %26 = load ptr, ptr %m_parentParser.i.i53, align 8
   %tobool.not.i.i54 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i54, label %getRootParserOf.exit.i55, label %while.cond.i.i51, !llvm.loop !26
 
 getRootParserOf.exit.i55:                         ; preds = %while.cond.i.i51
-  %debugLevel.i.i56 = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 972
+  %debugLevel.i.i56 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i52, i64 972
   %27 = load i32, ptr %debugLevel.i.i56, align 4
   %cmp.i.i57 = icmp slt i32 %27, 1
   br i1 %cmp.i.i57, label %entityTrackingOnClose.exit, label %if.end.i.i58
 
 if.end.i.i58:                                     ; preds = %getRootParserOf.exit.i55
-  %m_entity_stats.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 960
+  %m_entity_stats.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i52, i64 960
   %28 = load ptr, ptr %entity, align 8
   %29 = load ptr, ptr @stderr, align 8
   %30 = load i32, ptr %m_entity_stats.i.i, align 8
-  %currentDepth.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 964
+  %currentDepth.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i52, i64 964
   %31 = load i32, ptr %currentDepth.i.i, align 4
-  %maximumDepthSeen.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 968
+  %maximumDepthSeen.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i52, i64 968
   %32 = load i32, ptr %maximumDepthSeen.i.i, align 8
   %sub.i.i59 = shl i32 %31, 1
   %mul.i.i60 = add i32 %sub.i.i59, -2
@@ -12627,7 +12627,7 @@ if.end.i.i58:                                     ; preds = %getRootParserOf.exi
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i55, %if.end.i.i58
-  %currentDepth.i65 = getelementptr inbounds i8, ptr %rootParser.0.i.i52, i64 964
+  %currentDepth.i65 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i52, i64 964
   %35 = load i32, ptr %currentDepth.i65, align 4
   %dec.i = add i32 %35, -1
   store i32 %dec.i, ptr %currentDepth.i65, align 4
@@ -12651,39 +12651,39 @@ entry:
 
 while.cond.i:                                     ; preds = %while.cond.i, %entry
   %rootParser.0.i = phi ptr [ %originParser, %entry ], [ %0, %while.cond.i ]
-  %m_parentParser.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 896
+  %m_parentParser.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i, i64 896
   %0 = load ptr, ptr %m_parentParser.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %getRootParserOf.exit, label %while.cond.i, !llvm.loop !26
 
 getRootParserOf.exit:                             ; preds = %while.cond.i
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 972
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i, i64 972
   %1 = load i32, ptr %debugLevel.i, align 4
   %cmp.i = icmp slt i32 %1, 1
   br i1 %cmp.i, label %entityTrackingReportStats.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %getRootParserOf.exit
-  %m_entity_stats.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 960
+  %m_entity_stats.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i, i64 960
   %2 = load ptr, ptr %entity, align 8
   %3 = load ptr, ptr @stderr, align 8
   %4 = load i32, ptr %m_entity_stats.i, align 8
-  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 964
+  %currentDepth.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i, i64 964
   %5 = load i32, ptr %currentDepth.i, align 4
-  %maximumDepthSeen.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 968
+  %maximumDepthSeen.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i, i64 968
   %6 = load i32, ptr %maximumDepthSeen.i, align 8
   %sub.i = shl i32 %5, 1
   %mul.i = add i32 %sub.i, -2
-  %is_param.i = getelementptr inbounds i8, ptr %entity, i64 57
+  %is_param.i = getelementptr inbounds nuw i8, ptr %entity, i64 57
   %7 = load i8, ptr %is_param.i, align 1
   %tobool.not.i2 = icmp eq i8 %7, 0
   %cond.i = select i1 %tobool.not.i2, ptr @.str.89, ptr @.str.88
-  %textLen.i = getelementptr inbounds i8, ptr %entity, i64 16
+  %textLen.i = getelementptr inbounds nuw i8, ptr %entity, i64 16
   %8 = load i32, ptr %textLen.i, align 8
   %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.320, ptr noundef nonnull %rootParser.0.i, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %mul.i, ptr noundef nonnull @.str.310, ptr noundef nonnull %cond.i, ptr noundef %2, ptr noundef nonnull @.str.321, i32 noundef %8, i32 noundef range(i32 5439, 6175) %sourceLine) #28
   br label %entityTrackingReportStats.exit
 
 entityTrackingReportStats.exit:                   ; preds = %getRootParserOf.exit, %if.end.i
-  %currentDepth = getelementptr inbounds i8, ptr %rootParser.0.i, i64 964
+  %currentDepth = getelementptr inbounds nuw i8, ptr %rootParser.0.i, i64 964
   %9 = load i32, ptr %currentDepth, align 4
   %dec = add i32 %9, -1
   store i32 %dec, ptr %currentDepth, align 4
@@ -12697,13 +12697,13 @@ entry:
   %ptr.addr.i.i = alloca ptr, align 8
   %s.addr.i = alloca ptr, align 8
   %dataPtr.i = alloca ptr, align 8
-  %m_processingInstructionHandler = getelementptr inbounds i8, ptr %parser, i64 128
+  %m_processingInstructionHandler = getelementptr inbounds nuw i8, ptr %parser, i64 128
   %0 = load ptr, ptr %m_processingInstructionHandler, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_defaultHandler = getelementptr inbounds nuw i8, ptr %parser, i64 160
   %1 = load ptr, ptr %m_defaultHandler, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.then2
@@ -12712,35 +12712,35 @@ if.then2:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %start, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds i8, ptr %enc, i64 132
+  %isUtf8.i = getelementptr inbounds nuw i8, ptr %enc, i64 132
   %2 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else9.i
 
 if.then.i:                                        ; preds = %if.then2
-  %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding.i = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %3 = load ptr, ptr %m_encoding.i, align 8
   %cmp.i = icmp eq ptr %enc, %3
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %m_eventPtr.i = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventPtr.i = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_eventEndPtr.i = getelementptr inbounds nuw i8, ptr %parser, i64 552
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %m_openInternalEntities.i = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities.i = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %4 = load ptr, ptr %m_openInternalEntities.i, align 8
-  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %4, i64 8
+  %internalEventEndPtr.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then1.i
   %eventPP.0.i = phi ptr [ %m_eventPtr.i, %if.then1.i ], [ %4, %if.else.i ]
   %eventEndPP.0.i = phi ptr [ %m_eventEndPtr.i, %if.then1.i ], [ %internalEventEndPtr.i, %if.else.i ]
-  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
-  %utf8Convert.i = getelementptr inbounds i8, ptr %enc, i64 112
-  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
-  %m_handlerArg.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_dataBuf.i = getelementptr inbounds nuw i8, ptr %parser, i64 88
+  %utf8Convert.i = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %m_dataBufEnd.i = getelementptr inbounds nuw i8, ptr %parser, i64 96
+  %m_handlerArg.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
@@ -12766,7 +12766,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   br i1 %14, label %do.body.i, label %reportDefault.exit, !llvm.loop !23
 
 if.else9.i:                                       ; preds = %if.then2
-  %m_handlerArg11.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg11.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %15 = load ptr, ptr %m_handlerArg11.i, align 8
   %sub.ptr.lhs.cast12.i = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %start to i64
@@ -12781,20 +12781,20 @@ reportDefault.exit:                               ; preds = %do.body.i, %if.else
   br label %return
 
 if.end3:                                          ; preds = %entry
-  %minBytesPerChar = getelementptr inbounds i8, ptr %enc, i64 128
+  %minBytesPerChar = getelementptr inbounds nuw i8, ptr %enc, i64 128
   %16 = load i32, ptr %minBytesPerChar, align 8
   %mul = shl i32 %16, 1
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr i8, ptr %start, i64 %idx.ext
-  %nameLength = getelementptr inbounds i8, ptr %enc, i64 56
+  %nameLength = getelementptr inbounds nuw i8, ptr %enc, i64 56
   %17 = load ptr, ptr %nameLength, align 8
   %call = tail call i32 %17(ptr noundef %enc, ptr noundef %add.ptr) #25
   %idx.ext4 = sext i32 %call to i64
   %add.ptr5 = getelementptr i8, ptr %add.ptr, i64 %idx.ext4
-  %m_tempPool = getelementptr inbounds i8, ptr %parser, i64 784
+  %m_tempPool = getelementptr inbounds nuw i8, ptr %parser, i64 784
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   store ptr %add.ptr, ptr %ptr.addr.i.i, align 8
-  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 808
+  %ptr1.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 808
   %18 = load ptr, ptr %ptr1.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -12805,8 +12805,8 @@ land.lhs.true.i.i:                                ; preds = %if.end3
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.end3
-  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
-  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 800
+  %utf8Convert.i.i = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %end4.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 800
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
@@ -12826,7 +12826,7 @@ poolAppend.exit.thread.i:                         ; preds = %if.end8.i.i, %land.
   br label %return
 
 poolAppend.exit.i:                                ; preds = %for.cond.i.i
-  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 816
+  %start.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 816
   %21 = load ptr, ptr %start.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   %tobool.not.i27 = icmp eq ptr %21, null
@@ -12859,7 +12859,7 @@ poolStoreString.exit:                             ; preds = %if.end.i28, %land.l
 if.end9:                                          ; preds = %poolStoreString.exit
   %26 = load ptr, ptr %ptr1.i.i, align 8
   store ptr %26, ptr %start.i.i, align 8
-  %skipS = getelementptr inbounds i8, ptr %enc, i64 64
+  %skipS = getelementptr inbounds nuw i8, ptr %enc, i64 64
   %27 = load ptr, ptr %skipS, align 8
   %call14 = call ptr %27(ptr noundef nonnull %enc, ptr noundef %add.ptr5) #25
   %28 = load i32, ptr %minBytesPerChar, align 8
@@ -12973,10 +12973,10 @@ do.end.i:                                         ; preds = %do.cond.i
 
 normalizeLines.exit:                              ; preds = %for.cond.i, %do.end.i
   %41 = load ptr, ptr %m_processingInstructionHandler, align 8
-  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %42 = load ptr, ptr %m_handlerArg, align 8
   call void %41(ptr noundef %42, ptr noundef nonnull %25, ptr noundef nonnull %36) #25
-  %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 792
+  %freeBlocks.i = getelementptr inbounds nuw i8, ptr %parser, i64 792
   %43 = load ptr, ptr %freeBlocks.i, align 8
   %tobool.not.i64 = icmp eq ptr %43, null
   %44 = load ptr, ptr %m_tempPool, align 8
@@ -13015,13 +13015,13 @@ entry:
   %ptr.addr.i.i = alloca ptr, align 8
   %s.addr.i = alloca ptr, align 8
   %dataPtr.i = alloca ptr, align 8
-  %m_commentHandler = getelementptr inbounds i8, ptr %parser, i64 136
+  %m_commentHandler = getelementptr inbounds nuw i8, ptr %parser, i64 136
   %0 = load ptr, ptr %m_commentHandler, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %m_defaultHandler = getelementptr inbounds i8, ptr %parser, i64 160
+  %m_defaultHandler = getelementptr inbounds nuw i8, ptr %parser, i64 160
   %1 = load ptr, ptr %m_defaultHandler, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.then2
@@ -13030,35 +13030,35 @@ if.then2:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %start, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds i8, ptr %enc, i64 132
+  %isUtf8.i = getelementptr inbounds nuw i8, ptr %enc, i64 132
   %2 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else9.i
 
 if.then.i:                                        ; preds = %if.then2
-  %m_encoding.i = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding.i = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %3 = load ptr, ptr %m_encoding.i, align 8
   %cmp.i = icmp eq ptr %enc, %3
   br i1 %cmp.i, label %if.then1.i, label %if.else.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %m_eventPtr.i = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_eventEndPtr.i = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventPtr.i = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_eventEndPtr.i = getelementptr inbounds nuw i8, ptr %parser, i64 552
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
-  %m_openInternalEntities.i = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities.i = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %4 = load ptr, ptr %m_openInternalEntities.i, align 8
-  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %4, i64 8
+  %internalEventEndPtr.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then1.i
   %eventPP.0.i = phi ptr [ %m_eventPtr.i, %if.then1.i ], [ %4, %if.else.i ]
   %eventEndPP.0.i = phi ptr [ %m_eventEndPtr.i, %if.then1.i ], [ %internalEventEndPtr.i, %if.else.i ]
-  %m_dataBuf.i = getelementptr inbounds i8, ptr %parser, i64 88
-  %utf8Convert.i = getelementptr inbounds i8, ptr %enc, i64 112
-  %m_dataBufEnd.i = getelementptr inbounds i8, ptr %parser, i64 96
-  %m_handlerArg.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_dataBuf.i = getelementptr inbounds nuw i8, ptr %parser, i64 88
+  %utf8Convert.i = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %m_dataBufEnd.i = getelementptr inbounds nuw i8, ptr %parser, i64 96
+  %m_handlerArg.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
@@ -13084,7 +13084,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end.
   br i1 %14, label %do.body.i, label %reportDefault.exit, !llvm.loop !23
 
 if.else9.i:                                       ; preds = %if.then2
-  %m_handlerArg11.i = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg11.i = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %15 = load ptr, ptr %m_handlerArg11.i, align 8
   %sub.ptr.lhs.cast12.i = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast13.i = ptrtoint ptr %start to i64
@@ -13099,8 +13099,8 @@ reportDefault.exit:                               ; preds = %do.body.i, %if.else
   br label %return
 
 if.end3:                                          ; preds = %entry
-  %m_tempPool = getelementptr inbounds i8, ptr %parser, i64 784
-  %minBytesPerChar = getelementptr inbounds i8, ptr %enc, i64 128
+  %m_tempPool = getelementptr inbounds nuw i8, ptr %parser, i64 784
+  %minBytesPerChar = getelementptr inbounds nuw i8, ptr %enc, i64 128
   %16 = load i32, ptr %minBytesPerChar, align 8
   %mul = shl i32 %16, 2
   %idx.ext = sext i32 %mul to i64
@@ -13111,7 +13111,7 @@ if.end3:                                          ; preds = %entry
   %add.ptr7 = getelementptr i8, ptr %end, i64 %idx.neg
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   store ptr %add.ptr, ptr %ptr.addr.i.i, align 8
-  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 808
+  %ptr1.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 808
   %17 = load ptr, ptr %ptr1.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i, label %land.lhs.true.i.i, label %if.end.i.i
@@ -13122,8 +13122,8 @@ land.lhs.true.i.i:                                ; preds = %if.end3
   br i1 %tobool2.not.i.i, label %poolAppend.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.end3
-  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
-  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 800
+  %utf8Convert.i.i = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %end4.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 800
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
@@ -13143,7 +13143,7 @@ poolAppend.exit.thread.i:                         ; preds = %if.end8.i.i, %land.
   br label %return
 
 poolAppend.exit.i:                                ; preds = %for.cond.i.i
-  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 816
+  %start.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 816
   %20 = load ptr, ptr %start.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   %tobool.not.i14 = icmp eq ptr %20, null
@@ -13219,10 +13219,10 @@ do.end.i:                                         ; preds = %do.cond.i
 
 normalizeLines.exit:                              ; preds = %for.cond.i, %do.end.i
   %29 = load ptr, ptr %m_commentHandler, align 8
-  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %30 = load ptr, ptr %m_handlerArg, align 8
   call void %29(ptr noundef %30, ptr noundef nonnull %24) #25
-  %freeBlocks.i = getelementptr inbounds i8, ptr %parser, i64 792
+  %freeBlocks.i = getelementptr inbounds nuw i8, ptr %parser, i64 792
   %31 = load ptr, ptr %freeBlocks.i, align 8
   %tobool.not.i21 = icmp eq ptr %31, null
   %32 = load ptr, ptr %m_tempPool, align 8
@@ -13262,22 +13262,22 @@ entry:
 
 while.cond.i:                                     ; preds = %while.cond.i, %entry
   %rootParser.0.i = phi ptr [ %originParser, %entry ], [ %0, %while.cond.i ]
-  %m_parentParser.i = getelementptr inbounds i8, ptr %rootParser.0.i, i64 896
+  %m_parentParser.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i, i64 896
   %0 = load ptr, ptr %m_parentParser.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %getRootParserOf.exit, label %while.cond.i, !llvm.loop !26
 
 getRootParserOf.exit:                             ; preds = %while.cond.i
-  %debugLevel = getelementptr inbounds i8, ptr %rootParser.0.i, i64 944
+  %debugLevel = getelementptr inbounds nuw i8, ptr %rootParser.0.i, i64 944
   %1 = load i32, ptr %debugLevel, align 8
   %cmp = icmp slt i32 %1, 1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %getRootParserOf.exit
-  %m_accounting = getelementptr inbounds i8, ptr %rootParser.0.i, i64 928
+  %m_accounting = getelementptr inbounds nuw i8, ptr %rootParser.0.i, i64 928
   %2 = load i64, ptr %m_accounting, align 8
   %tobool.not.i5 = icmp eq i64 %2, 0
-  %countBytesIndirect.phi.trans.insert = getelementptr inbounds i8, ptr %rootParser.0.i, i64 936
+  %countBytesIndirect.phi.trans.insert = getelementptr inbounds nuw i8, ptr %rootParser.0.i, i64 936
   %.pre = load i64, ptr %countBytesIndirect.phi.trans.insert, align 8
   br i1 %tobool.not.i5, label %accountingGetCurrentAmplification.exit, label %cond.true.i
 
@@ -13306,7 +13306,7 @@ entry:
   %cmp = icmp eq i32 %account, 0
   %cond = select i1 %cmp, ptr @.str.313, ptr @.str.314
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.312, i64 noundef %bytesMore, ptr noundef nonnull %cond, i32 noundef %levelsAwayFromRootParser, i32 noundef %source_line, i32 noundef 10, ptr noundef nonnull @.str.310) #28
-  %debugLevel = getelementptr inbounds i8, ptr %rootParser, i64 944
+  %debugLevel = getelementptr inbounds nuw i8, ptr %rootParser, i64 944
   %1 = load i32, ptr %debugLevel, align 8
   %cmp1 = icmp sgt i32 %1, 2
   %sub.ptr.lhs.cast = ptrtoint ptr %after to i64
@@ -13383,27 +13383,27 @@ entry:
 
 tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %entry
   %parser.tr.i.i = phi ptr [ %parser, %entry ], [ %0, %tailrecurse.i.i ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %parser.tr.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %parser.tr.i.i, i64 896
   %0 = load ptr, ptr %m_parentParser.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %copy_salt_to_sipkey.exit, label %tailrecurse.i.i
 
 copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
-  %m_hash_secret_salt.i.i = getelementptr inbounds i8, ptr %parser.tr.i.i, i64 920
+  %m_hash_secret_salt.i.i = getelementptr inbounds nuw i8, ptr %parser.tr.i.i, i64 920
   %1 = load i64, ptr %m_hash_secret_salt.i.i, align 8
   store i64 8317987319222330741, ptr %state, align 8
   %xor3.i = xor i64 %1, 7237128888997146477
-  %v1.i = getelementptr inbounds i8, ptr %state, i64 8
+  %v1.i = getelementptr inbounds nuw i8, ptr %state, i64 8
   store i64 %xor3.i, ptr %v1.i, align 8
-  %v2.i = getelementptr inbounds i8, ptr %state, i64 16
+  %v2.i = getelementptr inbounds nuw i8, ptr %state, i64 16
   store i64 7816392313619706465, ptr %v2.i, align 8
   %xor9.i = xor i64 %1, 8387220255154660723
-  %v3.i = getelementptr inbounds i8, ptr %state, i64 24
+  %v3.i = getelementptr inbounds nuw i8, ptr %state, i64 24
   store i64 %xor9.i, ptr %v3.i, align 8
-  %buf.i = getelementptr inbounds i8, ptr %state, i64 32
-  %p.i = getelementptr inbounds i8, ptr %state, i64 40
+  %buf.i = getelementptr inbounds nuw i8, ptr %state, i64 32
+  %p.i = getelementptr inbounds nuw i8, ptr %state, i64 40
   store ptr %buf.i, ptr %p.i, align 8
-  %c.i = getelementptr inbounds i8, ptr %state, i64 48
+  %c.i = getelementptr inbounds nuw i8, ptr %state, i64 48
   store i64 0, ptr %c.i, align 8
   %2 = load i8, ptr %s, align 1
   %tobool.not3.i = icmp eq i8 %2, 0
@@ -13421,10 +13421,10 @@ for.inc.i:                                        ; preds = %copy_salt_to_sipkey
 keylen.exit:                                      ; preds = %for.inc.i, %copy_salt_to_sipkey.exit
   %len.0.lcssa.i = phi i64 [ 0, %copy_salt_to_sipkey.exit ], [ %inc.i, %for.inc.i ]
   %add.ptr.i = getelementptr i8, ptr %s, i64 %len.0.lcssa.i
-  %arrayidx26.i = getelementptr inbounds i8, ptr %state, i64 36
-  %arrayidx31.i = getelementptr inbounds i8, ptr %state, i64 37
-  %arrayidx36.i = getelementptr inbounds i8, ptr %state, i64 38
-  %arrayidx41.i = getelementptr inbounds i8, ptr %state, i64 39
+  %arrayidx26.i = getelementptr inbounds nuw i8, ptr %state, i64 36
+  %arrayidx31.i = getelementptr inbounds nuw i8, ptr %state, i64 37
+  %arrayidx36.i = getelementptr inbounds nuw i8, ptr %state, i64 38
+  %arrayidx41.i = getelementptr inbounds nuw i8, ptr %state, i64 39
   br label %do.body.i
 
 do.body.i:                                        ; preds = %sip_round.exit.i, %keylen.exit
@@ -13528,16 +13528,16 @@ sip24_update.exit:                                ; preds = %do.body.i, %while.e
 define internal fastcc noundef nonnull ptr @sip24_update(ptr noundef nonnull returned %H, ptr noundef readonly %src, i64 noundef %len) unnamed_addr #15 {
 entry:
   %add.ptr = getelementptr i8, ptr %src, i64 %len
-  %p1 = getelementptr inbounds i8, ptr %H, i64 40
-  %buf6 = getelementptr inbounds i8, ptr %H, i64 32
+  %p1 = getelementptr inbounds nuw i8, ptr %H, i64 40
+  %buf6 = getelementptr inbounds nuw i8, ptr %H, i64 32
   %arrayidx26 = getelementptr i8, ptr %H, i64 36
   %arrayidx31 = getelementptr i8, ptr %H, i64 37
   %arrayidx36 = getelementptr i8, ptr %H, i64 38
   %arrayidx41 = getelementptr i8, ptr %H, i64 39
-  %v3 = getelementptr inbounds i8, ptr %H, i64 24
-  %v1.i = getelementptr inbounds i8, ptr %H, i64 8
-  %v2.i = getelementptr inbounds i8, ptr %H, i64 16
-  %c = getelementptr inbounds i8, ptr %H, i64 48
+  %v3 = getelementptr inbounds nuw i8, ptr %H, i64 24
+  %v1.i = getelementptr inbounds nuw i8, ptr %H, i64 8
+  %v2.i = getelementptr inbounds nuw i8, ptr %H, i64 16
+  %c = getelementptr inbounds nuw i8, ptr %H, i64 48
   br label %do.body
 
 do.body:                                          ; preds = %sip_round.exit, %entry
@@ -13636,14 +13636,14 @@ do.end:                                           ; preds = %while.end, %sip_rou
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc i64 @sip24_final(ptr noundef nonnull %H) unnamed_addr #16 {
 entry:
-  %p = getelementptr inbounds i8, ptr %H, i64 40
+  %p = getelementptr inbounds nuw i8, ptr %H, i64 40
   %0 = load ptr, ptr %p, align 8
-  %buf = getelementptr inbounds i8, ptr %H, i64 32
+  %buf = getelementptr inbounds nuw i8, ptr %H, i64 32
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %c = getelementptr inbounds i8, ptr %H, i64 48
+  %c = getelementptr inbounds nuw i8, ptr %H, i64 48
   %1 = load i64, ptr %c, align 8
   %add = add i64 %sub.ptr.sub, %1
   %shl = shl i64 %add, 56
@@ -13721,11 +13721,11 @@ sw.bb36:                                          ; preds = %sw.bb30, %entry
 
 sw.epilog:                                        ; preds = %sw.bb36, %entry
   %b.0 = phi i64 [ %shl, %entry ], [ %or41, %sw.bb36 ]
-  %v3 = getelementptr inbounds i8, ptr %H, i64 24
+  %v3 = getelementptr inbounds nuw i8, ptr %H, i64 24
   %9 = load i64, ptr %v3, align 8
   %xor = xor i64 %9, %b.0
-  %v1.i = getelementptr inbounds i8, ptr %H, i64 8
-  %v2.i = getelementptr inbounds i8, ptr %H, i64 16
+  %v1.i = getelementptr inbounds nuw i8, ptr %H, i64 8
+  %v2.i = getelementptr inbounds nuw i8, ptr %H, i64 16
   %v1.promoted.i = load i64, ptr %v1.i, align 8
   %H.promoted.i = load i64, ptr %H, align 8
   %v2.promoted.i = load i64, ptr %v2.i, align 8
@@ -13831,22 +13831,22 @@ entry:
   %dataPtr = alloca ptr, align 8
   %dataPtr555 = alloca ptr, align 8
   store ptr %s, ptr %s.addr, align 8
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %enc, %1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %2 = load ptr, ptr %m_openInternalEntities, align 8
-  %internalEventEndPtr = getelementptr inbounds i8, ptr %2, i64 8
+  %internalEventEndPtr = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -13856,54 +13856,54 @@ if.end:                                           ; preds = %if.else, %if.then
   %arrayidx = getelementptr i8, ptr %enc, i64 8
   %tobool.not = icmp eq i8 %haveMore, 0
   %cmp1.i = icmp eq i32 %account, 0
-  %m_characterDataHandler548 = getelementptr inbounds i8, ptr %parser, i64 120
-  %isUtf8551 = getelementptr inbounds i8, ptr %enc, i64 132
-  %m_handlerArg577 = getelementptr inbounds i8, ptr %parser, i64 8
-  %m_dataBuf556 = getelementptr inbounds i8, ptr %parser, i64 88
-  %utf8Convert558 = getelementptr inbounds i8, ptr %enc, i64 112
-  %m_dataBufEnd559 = getelementptr inbounds i8, ptr %parser, i64 96
-  %m_defaultHandler584 = getelementptr inbounds i8, ptr %parser, i64 160
-  %m_openInternalEntities.i731 = getelementptr inbounds i8, ptr %parser, i64 568
-  %m_eventPtr.i748 = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_eventEndPtr.i749 = getelementptr inbounds i8, ptr %parser, i64 552
-  %m_startCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 144
-  %charRefNumber = getelementptr inbounds i8, ptr %enc, i64 80
-  %m_tagLevel336 = getelementptr inbounds i8, ptr %parser, i64 588
-  %m_tagStack343 = getelementptr inbounds i8, ptr %parser, i64 688
-  %minBytesPerChar344 = getelementptr inbounds i8, ptr %enc, i64 128
-  %nameLength347 = getelementptr inbounds i8, ptr %enc, i64 56
-  %m_freeTagList362 = getelementptr inbounds i8, ptr %parser, i64 696
-  %m_endElementHandler366 = getelementptr inbounds i8, ptr %parser, i64 112
-  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
-  %m_ns_triplets = getelementptr inbounds i8, ptr %parser, i64 457
-  %m_namespaceSeparator = getelementptr inbounds i8, ptr %parser, i64 892
-  %m_endNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 208
-  %m_freeBindingList = getelementptr inbounds i8, ptr %parser, i64 712
-  %m_parsingStatus433 = getelementptr inbounds i8, ptr %parser, i64 904
-  %m_processor443 = getelementptr inbounds i8, ptr %parser, i64 528
-  %m_tempPool270 = getelementptr inbounds i8, ptr %parser, i64 784
-  %ptr1.i.i477 = getelementptr inbounds i8, ptr %parser, i64 808
-  %end4.i.i481 = getelementptr inbounds i8, ptr %parser, i64 800
-  %start.i.i491 = getelementptr inbounds i8, ptr %parser, i64 816
-  %m_startElementHandler294 = getelementptr inbounds i8, ptr %parser, i64 104
-  %m_atts300 = getelementptr inbounds i8, ptr %parser, i64 736
-  %freeBlocks.i549 = getelementptr inbounds i8, ptr %parser, i64 792
-  %m_mem = getelementptr inbounds i8, ptr %parser, i64 24
-  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
-  %predefinedEntityName = getelementptr inbounds i8, ptr %enc, i64 88
-  %add.ptr61 = getelementptr inbounds i8, ptr %ch, i64 1
-  %pool = getelementptr inbounds i8, ptr %0, i64 160
-  %ptr1.i.i = getelementptr inbounds i8, ptr %0, i64 184
-  %end4.i.i = getelementptr inbounds i8, ptr %0, i64 176
-  %start.i.i = getelementptr inbounds i8, ptr %0, i64 192
-  %size.i = getelementptr inbounds i8, ptr %0, i64 16
-  %power30.i = getelementptr inbounds i8, ptr %0, i64 8
-  %hasParamEntityRefs = getelementptr inbounds i8, ptr %0, i64 257
-  %standalone = getelementptr inbounds i8, ptr %0, i64 258
-  %m_skippedEntityHandler = getelementptr inbounds i8, ptr %parser, i64 240
-  %m_defaultExpandInternalEntities = getelementptr inbounds i8, ptr %parser, i64 584
-  %m_externalEntityRefHandler = getelementptr inbounds i8, ptr %parser, i64 224
-  %m_externalEntityRefHandlerArg = getelementptr inbounds i8, ptr %parser, i64 232
+  %m_characterDataHandler548 = getelementptr inbounds nuw i8, ptr %parser, i64 120
+  %isUtf8551 = getelementptr inbounds nuw i8, ptr %enc, i64 132
+  %m_handlerArg577 = getelementptr inbounds nuw i8, ptr %parser, i64 8
+  %m_dataBuf556 = getelementptr inbounds nuw i8, ptr %parser, i64 88
+  %utf8Convert558 = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %m_dataBufEnd559 = getelementptr inbounds nuw i8, ptr %parser, i64 96
+  %m_defaultHandler584 = getelementptr inbounds nuw i8, ptr %parser, i64 160
+  %m_openInternalEntities.i731 = getelementptr inbounds nuw i8, ptr %parser, i64 568
+  %m_eventPtr.i748 = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_eventEndPtr.i749 = getelementptr inbounds nuw i8, ptr %parser, i64 552
+  %m_startCdataSectionHandler = getelementptr inbounds nuw i8, ptr %parser, i64 144
+  %charRefNumber = getelementptr inbounds nuw i8, ptr %enc, i64 80
+  %m_tagLevel336 = getelementptr inbounds nuw i8, ptr %parser, i64 588
+  %m_tagStack343 = getelementptr inbounds nuw i8, ptr %parser, i64 688
+  %minBytesPerChar344 = getelementptr inbounds nuw i8, ptr %enc, i64 128
+  %nameLength347 = getelementptr inbounds nuw i8, ptr %enc, i64 56
+  %m_freeTagList362 = getelementptr inbounds nuw i8, ptr %parser, i64 696
+  %m_endElementHandler366 = getelementptr inbounds nuw i8, ptr %parser, i64 112
+  %m_ns = getelementptr inbounds nuw i8, ptr %parser, i64 456
+  %m_ns_triplets = getelementptr inbounds nuw i8, ptr %parser, i64 457
+  %m_namespaceSeparator = getelementptr inbounds nuw i8, ptr %parser, i64 892
+  %m_endNamespaceDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 208
+  %m_freeBindingList = getelementptr inbounds nuw i8, ptr %parser, i64 712
+  %m_parsingStatus433 = getelementptr inbounds nuw i8, ptr %parser, i64 904
+  %m_processor443 = getelementptr inbounds nuw i8, ptr %parser, i64 528
+  %m_tempPool270 = getelementptr inbounds nuw i8, ptr %parser, i64 784
+  %ptr1.i.i477 = getelementptr inbounds nuw i8, ptr %parser, i64 808
+  %end4.i.i481 = getelementptr inbounds nuw i8, ptr %parser, i64 800
+  %start.i.i491 = getelementptr inbounds nuw i8, ptr %parser, i64 816
+  %m_startElementHandler294 = getelementptr inbounds nuw i8, ptr %parser, i64 104
+  %m_atts300 = getelementptr inbounds nuw i8, ptr %parser, i64 736
+  %freeBlocks.i549 = getelementptr inbounds nuw i8, ptr %parser, i64 792
+  %m_mem = getelementptr inbounds nuw i8, ptr %parser, i64 24
+  %realloc_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 32
+  %predefinedEntityName = getelementptr inbounds nuw i8, ptr %enc, i64 88
+  %add.ptr61 = getelementptr inbounds nuw i8, ptr %ch, i64 1
+  %pool = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %ptr1.i.i = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %end4.i.i = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %start.i.i = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %power30.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %hasParamEntityRefs = getelementptr inbounds nuw i8, ptr %0, i64 257
+  %standalone = getelementptr inbounds nuw i8, ptr %0, i64 258
+  %m_skippedEntityHandler = getelementptr inbounds nuw i8, ptr %parser, i64 240
+  %m_defaultExpandInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 584
+  %m_externalEntityRefHandler = getelementptr inbounds nuw i8, ptr %parser, i64 224
+  %m_externalEntityRefHandlerArg = getelementptr inbounds nuw i8, ptr %parser, i64 232
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.epilog, %if.end
@@ -13939,7 +13939,7 @@ cond.end6:                                        ; preds = %cond.false5, %cond.
 while.cond.i.i:                                   ; preds = %cond.end6, %while.cond.i.i
   %rootParser.0.i.i = phi ptr [ %8, %while.cond.i.i ], [ %parser, %cond.end6 ]
   %stepsTakenUpwards.0.i.i = phi i32 [ %inc.i.i, %while.cond.i.i ], [ 0, %cond.end6 ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %8 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %8, null
   %inc.i.i = add i32 %stepsTakenUpwards.0.i.i, 1
@@ -13951,8 +13951,8 @@ getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %cond7 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_accounting.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
-  %countBytesIndirect.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
+  %m_accounting.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 928
+  %countBytesIndirect.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 936
   %cond.i = select i1 %9, ptr %m_accounting.i, ptr %countBytesIndirect.i
   %10 = load i64, ptr %cond.i, align 8
   %sub.i = xor i64 %sub.ptr.sub.i, -1
@@ -13965,7 +13965,7 @@ if.end6.i:                                        ; preds = %getRootParserOf.exi
   %11 = load i64, ptr %m_accounting.i, align 8
   %12 = load i64, ptr %countBytesIndirect.i, align 8
   %add11.i = add i64 %12, %11
-  %activationThresholdBytes.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 952
+  %activationThresholdBytes.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 952
   %13 = load i64, ptr %activationThresholdBytes.i, align 8
   %cmp14.i = icmp ult i64 %add11.i, %13
   br i1 %cmp14.i, label %lor.end.i, label %lor.rhs.i
@@ -13976,36 +13976,36 @@ lor.rhs.i:                                        ; preds = %if.end6.i
   %conv6.i.i = uitofp i64 %11 to float
   %div.i.i = fdiv float %conv.i.i, %conv6.i.i
   %cond.i.i = select i1 %tobool.not.i19.i, float 1.000000e+00, float %div.i.i
-  %maximumAmplificationFactor.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 948
+  %maximumAmplificationFactor.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 948
   %14 = load float, ptr %maximumAmplificationFactor.i, align 4
   %cmp16.i = fcmp ugt float %cond.i.i, %14
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6.i
   %conv.i = phi i1 [ false, %if.end6.i ], [ %cmp16.i, %lor.rhs.i ]
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 944
   %15 = load i32, ptr %debugLevel.i, align 8
   %cmp18.i = icmp sgt i32 %15, 1
   br i1 %cmp18.i, label %while.cond.i.i786, label %accountingDiffTolerated.exit
 
 while.cond.i.i786:                                ; preds = %lor.end.i, %while.cond.i.i786
   %rootParser.0.i.i787 = phi ptr [ %16, %while.cond.i.i786 ], [ %rootParser.0.i.i, %lor.end.i ]
-  %m_parentParser.i.i788 = getelementptr inbounds i8, ptr %rootParser.0.i.i787, i64 896
+  %m_parentParser.i.i788 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i787, i64 896
   %16 = load ptr, ptr %m_parentParser.i.i788, align 8
   %tobool.not.i.i789 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i789, label %getRootParserOf.exit.i790, label %while.cond.i.i786, !llvm.loop !26
 
 getRootParserOf.exit.i790:                        ; preds = %while.cond.i.i786
-  %debugLevel.i791 = getelementptr inbounds i8, ptr %rootParser.0.i.i787, i64 944
+  %debugLevel.i791 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i787, i64 944
   %17 = load i32, ptr %debugLevel.i791, align 8
   %cmp.i792 = icmp slt i32 %17, 1
   br i1 %cmp.i792, label %accountingReportStats.exit, label %if.end.i793
 
 if.end.i793:                                      ; preds = %getRootParserOf.exit.i790
-  %m_accounting.i794 = getelementptr inbounds i8, ptr %rootParser.0.i.i787, i64 928
+  %m_accounting.i794 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i787, i64 928
   %18 = load i64, ptr %m_accounting.i794, align 8
   %tobool.not.i5.i = icmp eq i64 %18, 0
-  %countBytesIndirect.phi.trans.insert.i = getelementptr inbounds i8, ptr %rootParser.0.i.i787, i64 936
+  %countBytesIndirect.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i787, i64 936
   %.pre.i795 = load i64, ptr %countBytesIndirect.phi.trans.insert.i, align 8
   br i1 %tobool.not.i5.i, label %accountingGetCurrentAmplification.exit.i, label %cond.true.i.i796
 
@@ -14035,22 +14035,22 @@ while.cond.i.i.i.preheader:                       ; preds = %getRootParserOf.exi
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %21, %while.cond.i.i.i ], [ %parser, %while.cond.i.i.i.preheader ]
-  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
+  %m_parentParser.i.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 896
   %21 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 944
   %22 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %22, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
+  %m_accounting.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 928
   %23 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %23, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -14195,14 +14195,14 @@ sw.bb53:                                          ; preds = %if.end11
 while.cond.i.i368:                                ; preds = %sw.bb53, %while.cond.i.i368
   %rootParser.0.i.i369 = phi ptr [ %41, %while.cond.i.i368 ], [ %parser, %sw.bb53 ]
   %stepsTakenUpwards.0.i.i370 = phi i32 [ %inc.i.i373, %while.cond.i.i368 ], [ 0, %sw.bb53 ]
-  %m_parentParser.i.i371 = getelementptr inbounds i8, ptr %rootParser.0.i.i369, i64 896
+  %m_parentParser.i.i371 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i369, i64 896
   %41 = load ptr, ptr %m_parentParser.i.i371, align 8
   %tobool.not.i.i372 = icmp eq ptr %41, null
   %inc.i.i373 = add i32 %stepsTakenUpwards.0.i.i370, 1
   br i1 %tobool.not.i.i372, label %getRootParserOf.exit.i374, label %while.cond.i.i368, !llvm.loop !26
 
 getRootParserOf.exit.i374:                        ; preds = %while.cond.i.i368
-  %countBytesIndirect.i380 = getelementptr inbounds i8, ptr %rootParser.0.i.i369, i64 936
+  %countBytesIndirect.i380 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i369, i64 936
   %42 = load i64, ptr %countBytesIndirect.i380, align 8
   %cmp4.i383 = icmp eq i64 %42, -1
   br i1 %cmp4.i383, label %accountingDiffTolerated.exit403, label %if.end6.i384
@@ -14210,7 +14210,7 @@ getRootParserOf.exit.i374:                        ; preds = %while.cond.i.i368
 if.end6.i384:                                     ; preds = %getRootParserOf.exit.i374
   %add.i385 = add nuw i64 %42, 1
   store i64 %add.i385, ptr %countBytesIndirect.i380, align 8
-  %debugLevel.i399 = getelementptr inbounds i8, ptr %rootParser.0.i.i369, i64 944
+  %debugLevel.i399 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i369, i64 944
   %43 = load i32, ptr %debugLevel.i399, align 8
   %cmp18.i400 = icmp sgt i32 %43, 1
   br i1 %cmp18.i400, label %if.then20.i402, label %accountingDiffTolerated.exit403
@@ -14252,7 +14252,7 @@ if.then.i:                                        ; preds = %if.then71
 
 if.else.i:                                        ; preds = %if.then.i
   %51 = load ptr, ptr %m_openInternalEntities.i731, align 8
-  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %51, i64 8
+  %internalEventEndPtr.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.else.i
@@ -14456,7 +14456,7 @@ if.then93:                                        ; preds = %lor.lhs.false90, %l
   br i1 %tobool94.not, label %return, label %if.else96
 
 if.else96:                                        ; preds = %if.then93
-  %is_internal = getelementptr inbounds i8, ptr %retval.0.i417, i64 58
+  %is_internal = getelementptr inbounds nuw i8, ptr %retval.0.i417, i64 58
   %91 = load i8, ptr %is_internal, align 2
   %tobool97.not = icmp eq i8 %91, 0
   br i1 %tobool97.not, label %return, label %if.end115
@@ -14487,19 +14487,19 @@ if.then111:                                       ; preds = %if.else108
   br label %sw.epilog
 
 if.end115:                                        ; preds = %if.else101, %if.else96
-  %open = getelementptr inbounds i8, ptr %retval.0.i417, i64 56
+  %open = getelementptr inbounds nuw i8, ptr %retval.0.i417, i64 56
   %97 = load i8, ptr %open, align 8
   %tobool116.not = icmp eq i8 %97, 0
   br i1 %tobool116.not, label %if.end118, label %return
 
 if.end118:                                        ; preds = %if.end115
-  %notation = getelementptr inbounds i8, ptr %retval.0.i417, i64 48
+  %notation = getelementptr inbounds nuw i8, ptr %retval.0.i417, i64 48
   %98 = load ptr, ptr %notation, align 8
   %tobool119.not = icmp eq ptr %98, null
   br i1 %tobool119.not, label %if.end121, label %return
 
 if.end121:                                        ; preds = %if.end118
-  %textPtr = getelementptr inbounds i8, ptr %retval.0.i417, i64 8
+  %textPtr = getelementptr inbounds nuw i8, ptr %retval.0.i417, i64 8
   %99 = load ptr, ptr %textPtr, align 8
   %tobool122.not = icmp eq ptr %99, null
   br i1 %tobool122.not, label %if.else144, label %if.then123
@@ -14544,7 +14544,7 @@ if.else144:                                       ; preds = %if.end121
 if.then146:                                       ; preds = %if.else144
   store i8 1, ptr %open, align 8
   %108 = load ptr, ptr %m_dtd, align 8
-  %binding.i = getelementptr inbounds i8, ptr %108, i64 312
+  %binding.i = getelementptr inbounds nuw i8, ptr %108, i64 312
   %109 = load ptr, ptr %binding.i, align 8
   %tobool.not.i421 = icmp eq ptr %109, null
   br i1 %tobool.not.i421, label %if.end31.i, label %if.then.i422
@@ -14570,7 +14570,7 @@ cond.false.i:                                     ; preds = %land.lhs.true.cond.
   store ptr %incdec.ptr.i424, ptr %ptr1.i.i477, align 8
   store i8 61, ptr %112, align 1
   %113 = load ptr, ptr %binding.i, align 8
-  %uriLen.i = getelementptr inbounds i8, ptr %113, i64 40
+  %uriLen.i = getelementptr inbounds nuw i8, ptr %113, i64 40
   %114 = load i32, ptr %uriLen.i, align 8
   %115 = load i8, ptr %m_namespaceSeparator, align 4
   %tobool9.not.i = icmp ne i8 %115, 0
@@ -14602,7 +14602,7 @@ land.lhs.true18.cond.false23_crit_edge.i:         ; preds = %land.lhs.true18.i
 cond.false23.i:                                   ; preds = %land.lhs.true18.cond.false23_crit_edge.i, %for.body.i
   %118 = phi ptr [ %.pre121.i, %land.lhs.true18.cond.false23_crit_edge.i ], [ %116, %for.body.i ]
   %119 = load ptr, ptr %binding.i, align 8
-  %uri.i = getelementptr inbounds i8, ptr %119, i64 32
+  %uri.i = getelementptr inbounds nuw i8, ptr %119, i64 32
   %120 = load ptr, ptr %uri.i, align 8
   %arrayidx.i430 = getelementptr i8, ptr %120, i64 %indvars.iv.i
   %121 = load i8, ptr %arrayidx.i430, align 1
@@ -14614,13 +14614,13 @@ cond.false23.i:                                   ; preds = %land.lhs.true18.con
   br i1 %exitcond.not.i, label %if.end31.i, label %for.body.i, !llvm.loop !49
 
 if.end31.i:                                       ; preds = %cond.false23.i, %cond.false.i, %if.then146
-  %prefixes.i = getelementptr inbounds i8, ptr %108, i64 120
+  %prefixes.i = getelementptr inbounds nuw i8, ptr %108, i64 120
   %122 = load ptr, ptr %prefixes.i, align 8
   %tobool.not.i.i425 = icmp eq ptr %122, null
   br i1 %tobool.not.i.i425, label %hashTableIterInit.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end31.i
-  %size.i.i = getelementptr inbounds i8, ptr %108, i64 136
+  %size.i.i = getelementptr inbounds nuw i8, ptr %108, i64 136
   %123 = load i64, ptr %size.i.i, align 8
   %add.ptr.i.i = getelementptr ptr, ptr %122, i64 %123
   br label %hashTableIterInit.exit.i
@@ -14649,13 +14649,13 @@ while.cond.i.i427.backedge:                       ; preds = %while.body.i.i, %if
   br label %while.cond.i.i427, !llvm.loop !9
 
 if.end38.i:                                       ; preds = %while.body.i.i
-  %binding39.i = getelementptr inbounds i8, ptr %124, i64 8
+  %binding39.i = getelementptr inbounds nuw i8, ptr %124, i64 8
   %125 = load ptr, ptr %binding39.i, align 8
   %tobool40.not.i = icmp eq ptr %125, null
   br i1 %tobool40.not.i, label %while.cond.i.i427.backedge, label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.end38.i
-  %binding39.i.le = getelementptr inbounds i8, ptr %124, i64 8
+  %binding39.i.le = getelementptr inbounds nuw i8, ptr %124, i64 8
   br i1 %needSep.1.ph.i, label %if.end61.i, label %land.lhs.true44.i
 
 land.lhs.true44.i:                                ; preds = %if.end42.i
@@ -14736,7 +14736,7 @@ cond.false96.i:                                   ; preds = %land.lhs.true91.con
   store ptr %incdec.ptr99.i, ptr %ptr1.i.i477, align 8
   store i8 61, ptr %139, align 1
   %140 = load ptr, ptr %binding39.i.le, align 8
-  %uriLen103.i = getelementptr inbounds i8, ptr %140, i64 40
+  %uriLen103.i = getelementptr inbounds nuw i8, ptr %140, i64 40
   %141 = load i32, ptr %uriLen103.i, align 8
   %142 = load i8, ptr %m_namespaceSeparator, align 4
   %tobool105.not.i = icmp ne i8 %142, 0
@@ -14771,7 +14771,7 @@ land.lhs.true119.cond.false124_crit_edge.i:       ; preds = %land.lhs.true119.i
 cond.false124.i:                                  ; preds = %land.lhs.true119.cond.false124_crit_edge.i, %for.body112.i
   %145 = phi ptr [ %.pre126.i, %land.lhs.true119.cond.false124_crit_edge.i ], [ %143, %for.body112.i ]
   %146 = load ptr, ptr %binding39.i.le, align 8
-  %uri126.i = getelementptr inbounds i8, ptr %146, i64 32
+  %uri126.i = getelementptr inbounds nuw i8, ptr %146, i64 32
   %147 = load ptr, ptr %uri126.i, align 8
   %arrayidx128.i = getelementptr i8, ptr %147, i64 %indvars.iv116.i
   %148 = load i8, ptr %arrayidx128.i, align 1
@@ -14788,7 +14788,7 @@ for.end137.i:                                     ; preds = %while.cond.i.i427
   br i1 %tobool.not.i64.i, label %hashTableIterInit.exit70.i, label %cond.true.i65.i
 
 cond.true.i65.i:                                  ; preds = %for.end137.i
-  %size.i66.i = getelementptr inbounds i8, ptr %108, i64 16
+  %size.i66.i = getelementptr inbounds nuw i8, ptr %108, i64 16
   %150 = load i64, ptr %size.i66.i, align 8
   %add.ptr.i67.i = getelementptr ptr, ptr %149, i64 %150
   br label %hashTableIterInit.exit70.i
@@ -14817,7 +14817,7 @@ while.cond.i73.i.backedge:                        ; preds = %while.body.i76.i, %
   br label %while.cond.i73.i, !llvm.loop !9
 
 if.end143.i:                                      ; preds = %while.body.i76.i
-  %open.i = getelementptr inbounds i8, ptr %151, i64 56
+  %open.i = getelementptr inbounds nuw i8, ptr %151, i64 56
   %152 = load i8, ptr %open.i, align 8
   %tobool144.not.i = icmp eq i8 %152, 0
   br i1 %tobool144.not.i, label %while.cond.i73.i.backedge, label %if.end146.i
@@ -14917,11 +14917,11 @@ getContext.exit:                                  ; preds = %for.end191.i, %land
 if.end152:                                        ; preds = %getContext.exit
   %168 = load ptr, ptr %m_externalEntityRefHandler, align 8
   %169 = load ptr, ptr %m_externalEntityRefHandlerArg, align 8
-  %base = getelementptr inbounds i8, ptr %retval.0.i417, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %retval.0.i417, i64 32
   %170 = load ptr, ptr %base, align 8
-  %systemId = getelementptr inbounds i8, ptr %retval.0.i417, i64 24
+  %systemId = getelementptr inbounds nuw i8, ptr %retval.0.i417, i64 24
   %171 = load ptr, ptr %systemId, align 8
-  %publicId = getelementptr inbounds i8, ptr %retval.0.i417, i64 40
+  %publicId = getelementptr inbounds nuw i8, ptr %retval.0.i417, i64 40
   %172 = load ptr, ptr %publicId, align 8
   %call154 = call i32 %168(ptr noundef %169, ptr noundef nonnull %167, ptr noundef %170, ptr noundef %171, ptr noundef %172) #25
   %tobool155.not = icmp eq i32 %call154, 0
@@ -14962,42 +14962,42 @@ if.else175:                                       ; preds = %sw.bb168
 if.end179:                                        ; preds = %if.else175
   %180 = load ptr, ptr %m_mem, align 8
   %call182 = call ptr %180(i64 noundef 32) #25
-  %buf = getelementptr inbounds i8, ptr %call176, i64 64
+  %buf = getelementptr inbounds nuw i8, ptr %call176, i64 64
   store ptr %call182, ptr %buf, align 8
   %tobool184.not = icmp eq ptr %call182, null
   br i1 %tobool184.not, label %if.then185, label %if.end187
 
 if.then185:                                       ; preds = %if.end179
-  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
+  %free_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 40
   %181 = load ptr, ptr %free_fcn, align 8
   call void %181(ptr noundef nonnull %call176) #25
   br label %return
 
 if.end187:                                        ; preds = %if.end179
   %add.ptr189 = getelementptr i8, ptr %call182, i64 32
-  %bufEnd = getelementptr inbounds i8, ptr %call176, i64 72
+  %bufEnd = getelementptr inbounds nuw i8, ptr %call176, i64 72
   store ptr %add.ptr189, ptr %bufEnd, align 8
   br label %if.end190
 
 if.end190:                                        ; preds = %if.end187, %if.then171
   %tag.0 = phi ptr [ %177, %if.then171 ], [ %call176, %if.end187 ]
-  %bindings = getelementptr inbounds i8, ptr %tag.0, i64 80
+  %bindings = getelementptr inbounds nuw i8, ptr %tag.0, i64 80
   store ptr null, ptr %bindings, align 8
   %182 = load ptr, ptr %m_tagStack343, align 8
   store ptr %182, ptr %tag.0, align 8
   store ptr %tag.0, ptr %m_tagStack343, align 8
-  %name193 = getelementptr inbounds i8, ptr %tag.0, i64 24
-  %localPart = getelementptr inbounds i8, ptr %tag.0, i64 32
+  %name193 = getelementptr inbounds nuw i8, ptr %tag.0, i64 24
+  %localPart = getelementptr inbounds nuw i8, ptr %tag.0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %localPart, i8 0, i64 16, i1 false)
   %183 = load ptr, ptr %s.addr, align 8
   %184 = load i32, ptr %minBytesPerChar344, align 8
   %idx.ext196 = sext i32 %184 to i64
   %add.ptr197 = getelementptr i8, ptr %183, i64 %idx.ext196
-  %rawName = getelementptr inbounds i8, ptr %tag.0, i64 8
+  %rawName = getelementptr inbounds nuw i8, ptr %tag.0, i64 8
   store ptr %add.ptr197, ptr %rawName, align 8
   %185 = load ptr, ptr %nameLength347, align 8
   %call199 = call i32 %185(ptr noundef %enc, ptr noundef %add.ptr197) #25
-  %rawNameLength = getelementptr inbounds i8, ptr %tag.0, i64 16
+  %rawNameLength = getelementptr inbounds nuw i8, ptr %tag.0, i64 16
   store i32 %call199, ptr %rawNameLength, align 8
   %186 = load i32, ptr %m_tagLevel336, align 4
   %inc = add i32 %186, 1
@@ -15007,9 +15007,9 @@ if.end190:                                        ; preds = %if.end187, %if.then
   %idx.ext203 = sext i32 %188 to i64
   %add.ptr204 = getelementptr i8, ptr %187, i64 %idx.ext203
   store ptr %187, ptr %fromPtr, align 8
-  %buf206 = getelementptr inbounds i8, ptr %tag.0, i64 64
+  %buf206 = getelementptr inbounds nuw i8, ptr %tag.0, i64 64
   %189 = load ptr, ptr %buf206, align 8
-  %bufEnd208 = getelementptr inbounds i8, ptr %tag.0, i64 72
+  %bufEnd208 = getelementptr inbounds nuw i8, ptr %tag.0, i64 72
   %.pre946 = load ptr, ptr %bufEnd208, align 8
   store ptr %189, ptr %toPtr, align 8
   %190 = load ptr, ptr %utf8Convert558, align 8
@@ -15031,7 +15031,7 @@ if.then218:                                       ; preds = %if.end234, %if.end1
   %.lcssa = phi ptr [ %192, %if.end190 ], [ %200, %if.end234 ]
   %sub.ptr.sub.lcssa = phi i64 [ %sub.ptr.sub1072, %if.end190 ], [ %sub.ptr.sub, %if.end234 ]
   %conv212 = trunc i64 %sub.ptr.sub.lcssa to i32
-  %strLen = getelementptr inbounds i8, ptr %tag.0, i64 48
+  %strLen = getelementptr inbounds nuw i8, ptr %tag.0, i64 48
   store i32 %conv212, ptr %strLen, align 8
   store ptr %.lcssa, ptr %name193, align 8
   store i8 0, ptr %.lcssa1023, align 1
@@ -15111,7 +15111,7 @@ if.then.i445:                                     ; preds = %if.then258
 
 if.else.i448:                                     ; preds = %if.then.i445
   %211 = load ptr, ptr %m_openInternalEntities.i731, align 8
-  %internalEventEndPtr.i450 = getelementptr inbounds i8, ptr %211, i64 8
+  %internalEventEndPtr.i450 = getelementptr inbounds nuw i8, ptr %211, i64 8
   br label %if.end.i451
 
 if.end.i451:                                      ; preds = %if.then.i445, %if.else.i448
@@ -15281,15 +15281,15 @@ if.then.i509:                                     ; preds = %while.body.i508
   br label %if.end.i510
 
 if.end.i510:                                      ; preds = %if.then.i509, %while.body.i508
-  %nextTagBinding.i = getelementptr inbounds i8, ptr %bindings.addr.012.i, i64 8
+  %nextTagBinding.i = getelementptr inbounds nuw i8, ptr %bindings.addr.012.i, i64 8
   %245 = load ptr, ptr %nextTagBinding.i, align 8
   %246 = load ptr, ptr %m_freeBindingList, align 8
   store ptr %246, ptr %nextTagBinding.i, align 8
   store ptr %bindings.addr.012.i, ptr %m_freeBindingList, align 8
-  %prevPrefixBinding.i = getelementptr inbounds i8, ptr %bindings.addr.012.i, i64 16
+  %prevPrefixBinding.i = getelementptr inbounds nuw i8, ptr %bindings.addr.012.i, i64 16
   %247 = load ptr, ptr %prevPrefixBinding.i, align 8
   %248 = load ptr, ptr %bindings.addr.012.i, align 8
-  %binding.i511 = getelementptr inbounds i8, ptr %248, i64 8
+  %binding.i511 = getelementptr inbounds nuw i8, ptr %248, i64 8
   store ptr %247, ptr %binding.i511, align 8
   %tobool.not.i512 = icmp eq ptr %245, null
   br i1 %tobool.not.i512, label %return, label %while.body.i508, !llvm.loop !53
@@ -15355,7 +15355,7 @@ if.then.i525:                                     ; preds = %if.then316
 
 if.else.i528:                                     ; preds = %if.then.i525
   %265 = load ptr, ptr %m_openInternalEntities.i731, align 8
-  %internalEventEndPtr.i530 = getelementptr inbounds i8, ptr %265, i64 8
+  %internalEventEndPtr.i530 = getelementptr inbounds nuw i8, ptr %265, i64 8
   br label %if.end.i531
 
 if.end.i531:                                      ; preds = %if.then.i525, %if.else.i528
@@ -15443,15 +15443,15 @@ if.then.i568:                                     ; preds = %while.body.i565
   br label %if.end.i569
 
 if.end.i569:                                      ; preds = %if.then.i568, %while.body.i565
-  %nextTagBinding.i570 = getelementptr inbounds i8, ptr %bindings.addr.012.i566, i64 8
+  %nextTagBinding.i570 = getelementptr inbounds nuw i8, ptr %bindings.addr.012.i566, i64 8
   %286 = load ptr, ptr %nextTagBinding.i570, align 8
   %287 = load ptr, ptr %m_freeBindingList, align 8
   store ptr %287, ptr %nextTagBinding.i570, align 8
   store ptr %bindings.addr.012.i566, ptr %m_freeBindingList, align 8
-  %prevPrefixBinding.i571 = getelementptr inbounds i8, ptr %bindings.addr.012.i566, i64 16
+  %prevPrefixBinding.i571 = getelementptr inbounds nuw i8, ptr %bindings.addr.012.i566, i64 16
   %288 = load ptr, ptr %prevPrefixBinding.i571, align 8
   %289 = load ptr, ptr %bindings.addr.012.i566, align 8
-  %binding.i572 = getelementptr inbounds i8, ptr %289, i64 8
+  %binding.i572 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store ptr %288, ptr %binding.i572, align 8
   %tobool.not.i573 = icmp eq ptr %286, null
   br i1 %tobool.not.i573, label %freeBindings.exit575, label %while.body.i565, !llvm.loop !53
@@ -15491,13 +15491,13 @@ if.else340:                                       ; preds = %sw.bb335
   %add.ptr346 = getelementptr i8, ptr %295, i64 %idx.ext345
   %297 = load ptr, ptr %nameLength347, align 8
   %call348 = call i32 %297(ptr noundef %enc, ptr noundef %add.ptr346) #25
-  %rawNameLength349 = getelementptr inbounds i8, ptr %294, i64 16
+  %rawNameLength349 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %298 = load i32, ptr %rawNameLength349, align 8
   %cmp350.not = icmp eq i32 %call348, %298
   br i1 %cmp350.not, label %lor.lhs.false352, label %if.then358
 
 lor.lhs.false352:                                 ; preds = %if.else340
-  %rawName353 = getelementptr inbounds i8, ptr %294, i64 8
+  %rawName353 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %299 = load ptr, ptr %rawName353, align 8
   %conv354 = sext i32 %call348 to i64
   %bcmp = call i32 @bcmp(ptr %299, ptr %add.ptr346, i64 %conv354)
@@ -15522,8 +15522,8 @@ if.end359:                                        ; preds = %lor.lhs.false352
   br i1 %tobool367.not, label %if.else405, label %if.then368
 
 if.then368:                                       ; preds = %if.end359
-  %name371 = getelementptr inbounds i8, ptr %294, i64 24
-  %localPart372 = getelementptr inbounds i8, ptr %294, i64 32
+  %name371 = getelementptr inbounds nuw i8, ptr %294, i64 24
+  %localPart372 = getelementptr inbounds nuw i8, ptr %294, i64 32
   %304 = load ptr, ptr %localPart372, align 8
   %305 = load i8, ptr %m_ns, align 8
   %tobool374 = icmp ne i8 %305, 0
@@ -15533,7 +15533,7 @@ if.then368:                                       ; preds = %if.end359
 
 if.then377:                                       ; preds = %if.then368
   %306 = load ptr, ptr %name371, align 8
-  %uriLen = getelementptr inbounds i8, ptr %294, i64 52
+  %uriLen = getelementptr inbounds nuw i8, ptr %294, i64 52
   %307 = load i32, ptr %uriLen, align 4
   %idx.ext381 = sext i32 %307 to i64
   %add.ptr382 = getelementptr i8, ptr %306, i64 %idx.ext381
@@ -15554,7 +15554,7 @@ while.body:                                       ; preds = %if.then377, %while.
 
 while.end:                                        ; preds = %while.body, %if.then377
   %uri.0.lcssa = phi ptr [ %add.ptr382, %if.then377 ], [ %incdec.ptr384, %while.body ]
-  %prefix386 = getelementptr inbounds i8, ptr %294, i64 40
+  %prefix386 = getelementptr inbounds nuw i8, ptr %294, i64 40
   %311 = load ptr, ptr %prefix386, align 8
   %312 = load i8, ptr %m_ns_triplets, align 1
   %tobool388 = icmp ne i8 %312, 0
@@ -15616,7 +15616,7 @@ if.then.i587:                                     ; preds = %if.then408
 
 if.else.i590:                                     ; preds = %if.then.i587
   %325 = load ptr, ptr %m_openInternalEntities.i731, align 8
-  %internalEventEndPtr.i592 = getelementptr inbounds i8, ptr %325, i64 8
+  %internalEventEndPtr.i592 = getelementptr inbounds nuw i8, ptr %325, i64 8
   br label %if.end.i593
 
 if.end.i593:                                      ; preds = %if.then.i587, %if.else.i590
@@ -15661,7 +15661,7 @@ reportDefault.exit610:                            ; preds = %do.body.i601, %if.e
   br label %if.end410
 
 if.end410:                                        ; preds = %if.else405, %reportDefault.exit610, %if.end400
-  %bindings412 = getelementptr inbounds i8, ptr %294, i64 80
+  %bindings412 = getelementptr inbounds nuw i8, ptr %294, i64 80
   %337 = load ptr, ptr %bindings412, align 8
   %tobool413.not882 = icmp eq ptr %337, null
   br i1 %tobool413.not882, label %while.end428, label %while.body414
@@ -15682,17 +15682,17 @@ if.then417:                                       ; preds = %while.body414
 
 if.end422:                                        ; preds = %if.then417, %while.body414
   %343 = phi ptr [ %.pre944, %if.then417 ], [ %338, %while.body414 ]
-  %nextTagBinding = getelementptr inbounds i8, ptr %343, i64 8
+  %nextTagBinding = getelementptr inbounds nuw i8, ptr %343, i64 8
   %344 = load ptr, ptr %nextTagBinding, align 8
   store ptr %344, ptr %bindings412, align 8
   %345 = load ptr, ptr %m_freeBindingList, align 8
-  %nextTagBinding425 = getelementptr inbounds i8, ptr %338, i64 8
+  %nextTagBinding425 = getelementptr inbounds nuw i8, ptr %338, i64 8
   store ptr %345, ptr %nextTagBinding425, align 8
   store ptr %338, ptr %m_freeBindingList, align 8
-  %prevPrefixBinding = getelementptr inbounds i8, ptr %338, i64 16
+  %prevPrefixBinding = getelementptr inbounds nuw i8, ptr %338, i64 16
   %346 = load ptr, ptr %prevPrefixBinding, align 8
   %347 = load ptr, ptr %338, align 8
-  %binding = getelementptr inbounds i8, ptr %347, i64 8
+  %binding = getelementptr inbounds nuw i8, ptr %347, i64 8
   store ptr %346, ptr %binding, align 8
   %348 = load ptr, ptr %bindings412, align 8
   %tobool413.not = icmp eq ptr %348, null
@@ -15759,7 +15759,7 @@ if.then.i622:                                     ; preds = %if.then466
 
 if.else.i625:                                     ; preds = %if.then.i622
   %361 = load ptr, ptr %m_openInternalEntities.i731, align 8
-  %internalEventEndPtr.i627 = getelementptr inbounds i8, ptr %361, i64 8
+  %internalEventEndPtr.i627 = getelementptr inbounds nuw i8, ptr %361, i64 8
   br label %if.end.i628
 
 if.end.i628:                                      ; preds = %if.then.i622, %if.else.i625
@@ -15835,7 +15835,7 @@ if.then.i657:                                     ; preds = %if.then480
 
 if.else.i660:                                     ; preds = %if.then.i657
   %379 = load ptr, ptr %m_openInternalEntities.i731, align 8
-  %internalEventEndPtr.i662 = getelementptr inbounds i8, ptr %379, i64 8
+  %internalEventEndPtr.i662 = getelementptr inbounds nuw i8, ptr %379, i64 8
   br label %if.end.i663
 
 if.end.i663:                                      ; preds = %if.then.i657, %if.else.i660
@@ -15910,7 +15910,7 @@ if.then.i692:                                     ; preds = %if.then492
 
 if.else.i695:                                     ; preds = %if.then.i692
   %397 = load ptr, ptr %m_openInternalEntities.i731, align 8
-  %internalEventEndPtr.i697 = getelementptr inbounds i8, ptr %397, i64 8
+  %internalEventEndPtr.i697 = getelementptr inbounds nuw i8, ptr %397, i64 8
   br label %if.end.i698
 
 if.end.i698:                                      ; preds = %if.then.i692, %if.else.i695
@@ -16111,7 +16111,7 @@ if.then.i727:                                     ; preds = %if.then586
 
 if.else.i730:                                     ; preds = %if.then.i727
   %442 = load ptr, ptr %m_openInternalEntities.i731, align 8
-  %internalEventEndPtr.i732 = getelementptr inbounds i8, ptr %442, i64 8
+  %internalEventEndPtr.i732 = getelementptr inbounds nuw i8, ptr %442, i64 8
   br label %if.end.i733
 
 if.end.i733:                                      ; preds = %if.then.i727, %if.else.i730
@@ -16188,7 +16188,7 @@ if.then.i762:                                     ; preds = %if.then601
 
 if.else.i765:                                     ; preds = %if.then.i762
   %460 = load ptr, ptr %m_openInternalEntities.i731, align 8
-  %internalEventEndPtr.i767 = getelementptr inbounds i8, ptr %460, i64 8
+  %internalEventEndPtr.i767 = getelementptr inbounds nuw i8, ptr %460, i64 8
   br label %if.end.i768
 
 if.end.i768:                                      ; preds = %if.then.i762, %if.else.i765
@@ -16254,29 +16254,29 @@ return:                                           ; preds = %land.lhs.true.i, %p
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext range(i8 0, 2) i8 @storeRawNames(ptr nocapture noundef readonly %parser) unnamed_addr #0 {
 entry:
-  %m_tagStack = getelementptr inbounds i8, ptr %parser, i64 688
-  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
+  %m_tagStack = getelementptr inbounds nuw i8, ptr %parser, i64 688
+  %realloc_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 32
   %tag.035 = load ptr, ptr %m_tagStack, align 8
   %tobool.not36 = icmp eq ptr %tag.035, null
   br i1 %tobool.not36, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end50
   %tag.037 = phi ptr [ %tag.0, %if.end50 ], [ %tag.035, %entry ]
-  %name = getelementptr inbounds i8, ptr %tag.037, i64 24
-  %strLen = getelementptr inbounds i8, ptr %tag.037, i64 48
+  %name = getelementptr inbounds nuw i8, ptr %tag.037, i64 24
+  %strLen = getelementptr inbounds nuw i8, ptr %tag.037, i64 48
   %0 = load i32, ptr %strLen, align 8
   %add = add i32 %0, 1
   %conv = sext i32 %add to i64
-  %buf = getelementptr inbounds i8, ptr %tag.037, i64 64
+  %buf = getelementptr inbounds nuw i8, ptr %tag.037, i64 64
   %1 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %conv
-  %rawName = getelementptr inbounds i8, ptr %tag.037, i64 8
+  %rawName = getelementptr inbounds nuw i8, ptr %tag.037, i64 8
   %2 = load ptr, ptr %rawName, align 8
   %cmp = icmp eq ptr %2, %add.ptr
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %rawNameLength = getelementptr inbounds i8, ptr %tag.037, i64 16
+  %rawNameLength = getelementptr inbounds nuw i8, ptr %tag.037, i64 16
   %3 = load i32, ptr %rawNameLength, align 8
   %conv3 = sext i32 %3 to i64
   %sub = sub nsw i64 2147483647, %conv
@@ -16286,7 +16286,7 @@ if.end:                                           ; preds = %while.body
 if.end9:                                          ; preds = %if.end
   %add11 = add i32 %3, %add
   %conv12 = sext i32 %add11 to i64
-  %bufEnd = getelementptr inbounds i8, ptr %tag.037, i64 72
+  %bufEnd = getelementptr inbounds nuw i8, ptr %tag.037, i64 72
   %4 = load ptr, ptr %bufEnd, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -16311,7 +16311,7 @@ if.then27:                                        ; preds = %if.end22
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then27, %if.end22
-  %localPart = getelementptr inbounds i8, ptr %tag.037, i64 32
+  %localPart = getelementptr inbounds nuw i8, ptr %tag.037, i64 32
   %8 = load ptr, ptr %localPart, align 8
   %tobool32.not = icmp eq ptr %8, null
   br i1 %tobool32.not, label %if.end43, label %if.then33
@@ -16354,11 +16354,11 @@ define internal fastcc range(i32 0, 44) i32 @storeAtts(ptr noundef %parser, ptr 
 entry:
   %ptr.addr.i.i = alloca ptr, align 8
   %sip_state = alloca %struct.siphash, align 8
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %elementTypes = getelementptr inbounds i8, ptr %0, i64 40
+  %elementTypes = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %tagNamePtr, align 8
-  %size.i = getelementptr inbounds i8, ptr %0, i64 56
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %2 = load i64, ptr %size.i, align 8
   %cmp.i = icmp eq i64 %2, 0
   br i1 %cmp.i, label %if.then, label %if.else.i
@@ -16378,7 +16378,7 @@ while.body.lr.ph.i:                               ; preds = %if.else.i
   %6 = load i8, ptr %1, align 1
   %not.i = sub i64 0, %3
   %and29.i = and i64 %call12.i, %not.i
-  %power30.i = getelementptr inbounds i8, ptr %0, i64 48
+  %power30.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %shr32.i = lshr i64 %sub14.i, 2
   br label %while.body.i
 
@@ -16434,10 +16434,10 @@ if.end35.i:                                       ; preds = %if.then28.i, %if.en
   br i1 %tobool17.not.i, label %if.then, label %while.body.i, !llvm.loop !14
 
 if.then:                                          ; preds = %if.end35.i, %if.else.i, %entry
-  %pool = getelementptr inbounds i8, ptr %0, i64 160
+  %pool = getelementptr inbounds nuw i8, ptr %0, i64 160
   %16 = load ptr, ptr %tagNamePtr, align 8
-  %ptr.i = getelementptr inbounds i8, ptr %0, i64 184
-  %end.i = getelementptr inbounds i8, ptr %0, i64 176
+  %ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %end.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %do.body.i
 
 do.body.i:                                        ; preds = %cond.false.i, %if.then
@@ -16468,7 +16468,7 @@ cond.false.i:                                     ; preds = %land.lhs.true.cond.
   br i1 %tobool3.not.i, label %poolCopyString.exit, label %do.body.i, !llvm.loop !12
 
 poolCopyString.exit:                              ; preds = %cond.false.i
-  %start.i = getelementptr inbounds i8, ptr %0, i64 192
+  %start.i = getelementptr inbounds nuw i8, ptr %0, i64 192
   %22 = load ptr, ptr %start.i, align 8
   %23 = load ptr, ptr %ptr.i, align 8
   store ptr %23, ptr %start.i, align 8
@@ -16481,7 +16481,7 @@ if.end:                                           ; preds = %poolCopyString.exit
   br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
+  %m_ns = getelementptr inbounds nuw i8, ptr %parser, i64 456
   %24 = load i8, ptr %m_ns, align 8
   %tobool10.not = icmp eq i8 %24, 0
   br i1 %tobool10.not, label %if.end15, label %land.lhs.true
@@ -16493,13 +16493,13 @@ land.lhs.true:                                    ; preds = %if.end9
 
 if.end15:                                         ; preds = %for.body.i.i, %if.end9, %land.lhs.true
   %elementType.0 = phi ptr [ %call6, %land.lhs.true ], [ %call6, %if.end9 ], [ %7, %for.body.i.i ]
-  %nDefaultAtts16 = getelementptr inbounds i8, ptr %elementType.0, i64 24
+  %nDefaultAtts16 = getelementptr inbounds nuw i8, ptr %elementType.0, i64 24
   %25 = load i32, ptr %nDefaultAtts16, align 8
-  %getAtts = getelementptr inbounds i8, ptr %enc, i64 72
+  %getAtts = getelementptr inbounds nuw i8, ptr %enc, i64 72
   %26 = load ptr, ptr %getAtts, align 8
-  %m_attsSize = getelementptr inbounds i8, ptr %parser, i64 720
+  %m_attsSize = getelementptr inbounds nuw i8, ptr %parser, i64 720
   %27 = load i32, ptr %m_attsSize, align 8
-  %m_atts = getelementptr inbounds i8, ptr %parser, i64 736
+  %m_atts = getelementptr inbounds nuw i8, ptr %parser, i64 736
   %28 = load ptr, ptr %m_atts, align 8
   %call17 = tail call i32 %26(ptr noundef %enc, ptr noundef %attStr, i32 noundef %27, ptr noundef %28) #25
   %sub = sub i32 2147483647, %25
@@ -16522,7 +16522,7 @@ if.then24:                                        ; preds = %if.end20
 if.end33:                                         ; preds = %if.then24
   %add35 = add i32 %add, 16
   store i32 %add35, ptr %m_attsSize, align 8
-  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
+  %realloc_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 32
   %30 = load ptr, ptr %realloc_fcn, align 8
   %31 = load ptr, ptr %m_atts, align 8
   %conv39 = sext i32 %add35 to i64
@@ -16551,14 +16551,14 @@ if.end54:                                         ; preds = %if.end45, %if.then4
   br i1 %cmp56422, label %for.body.lr.ph, label %for.end170
 
 for.body.lr.ph:                                   ; preds = %if.end54
-  %nameLength = getelementptr inbounds i8, ptr %enc, i64 56
-  %m_tempPool124 = getelementptr inbounds i8, ptr %parser, i64 784
-  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 808
-  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
-  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 800
-  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 816
+  %nameLength = getelementptr inbounds nuw i8, ptr %enc, i64 56
+  %m_tempPool124 = getelementptr inbounds nuw i8, ptr %parser, i64 784
+  %ptr1.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 808
+  %utf8Convert.i.i = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %end4.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 800
+  %start.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 816
   %cmp93420 = icmp slt i32 %25, 1
-  %defaultAtts = getelementptr inbounds i8, ptr %elementType.0, i64 32
+  %defaultAtts = getelementptr inbounds nuw i8, ptr %elementType.0, i64 32
   %wide.trip.count502 = zext nneg i32 %call17 to i64
   %wide.trip.count = zext nneg i32 %25 to i64
   br label %for.body
@@ -16586,7 +16586,7 @@ if.end66:                                         ; preds = %for.body
   br i1 %tobool69.not, label %if.end79, label %if.then70
 
 if.then70:                                        ; preds = %if.end66
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %39 = load ptr, ptr %m_encoding, align 8
   %cmp71 = icmp eq ptr %enc, %39
   br i1 %cmp71, label %if.then73, label %return
@@ -16595,7 +16595,7 @@ if.then73:                                        ; preds = %if.then70
   %40 = load ptr, ptr %m_atts, align 8
   %arrayidx76 = getelementptr %struct.ATTRIBUTE, ptr %40, i64 %indvars.iv499
   %41 = load ptr, ptr %arrayidx76, align 8
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %41, ptr %m_eventPtr, align 8
   br label %return
 
@@ -16608,13 +16608,13 @@ if.end79:                                         ; preds = %if.end66
   store ptr %42, ptr %arrayidx84, align 8
   %43 = load ptr, ptr %m_atts, align 8
   %arrayidx87 = getelementptr %struct.ATTRIBUTE, ptr %43, i64 %indvars.iv499
-  %normalized = getelementptr inbounds i8, ptr %arrayidx87, i64 24
+  %normalized = getelementptr inbounds nuw i8, ptr %arrayidx87, i64 24
   %44 = load i8, ptr %normalized, align 8
   %tobool88.not = icmp eq i8 %44, 0
   br i1 %tobool88.not, label %if.then89, label %if.else
 
 if.then89:                                        ; preds = %if.end79
-  %maybeTokenized = getelementptr inbounds i8, ptr %call63, i64 16
+  %maybeTokenized = getelementptr inbounds nuw i8, ptr %call63, i64 16
   %45 = load i8, ptr %maybeTokenized, align 8
   %tobool90.not = icmp eq i8 %45, 0
   %brmerge = select i1 %tobool90.not, i1 true, i1 %cmp93420
@@ -16637,15 +16637,15 @@ for.body95:                                       ; preds = %for.body95.lr.ph, %
   br i1 %cmp98, label %if.then100, label %for.cond92
 
 if.then100:                                       ; preds = %for.body95
-  %isCdata104 = getelementptr inbounds i8, ptr %arrayidx97, i64 8
+  %isCdata104 = getelementptr inbounds nuw i8, ptr %arrayidx97, i64 8
   %48 = load i8, ptr %isCdata104, align 8
   br label %if.end107
 
 if.end107:                                        ; preds = %for.cond92, %if.then89, %if.then100
   %isCdata.0 = phi i8 [ %48, %if.then100 ], [ 1, %if.then89 ], [ 1, %for.cond92 ]
-  %valuePtr = getelementptr inbounds i8, ptr %arrayidx87, i64 8
+  %valuePtr = getelementptr inbounds nuw i8, ptr %arrayidx87, i64 8
   %49 = load ptr, ptr %valuePtr, align 8
-  %valueEnd = getelementptr inbounds i8, ptr %arrayidx87, i64 16
+  %valueEnd = getelementptr inbounds nuw i8, ptr %arrayidx87, i64 16
   %50 = load ptr, ptr %valueEnd, align 8
   %call.i347 = call fastcc i32 @appendAttributeValue(ptr noundef %parser, ptr noundef %enc, i8 noundef zeroext %isCdata.0, ptr noundef %49, ptr noundef %50, ptr noundef nonnull %m_tempPool124, i32 noundef range(i32 0, 3) %account)
   %tobool.not.i348 = icmp eq i32 %call.i347, 0
@@ -16698,9 +16698,9 @@ if.end117:                                        ; preds = %land.lhs.true14.con
   br label %if.end146
 
 if.else:                                          ; preds = %if.end79
-  %valuePtr128 = getelementptr inbounds i8, ptr %arrayidx87, i64 8
+  %valuePtr128 = getelementptr inbounds nuw i8, ptr %arrayidx87, i64 8
   %58 = load ptr, ptr %valuePtr128, align 8
-  %valueEnd132 = getelementptr inbounds i8, ptr %arrayidx87, i64 16
+  %valueEnd132 = getelementptr inbounds nuw i8, ptr %arrayidx87, i64 16
   %59 = load ptr, ptr %valueEnd132, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.addr.i.i)
   store ptr %58, ptr %ptr.addr.i.i, align 8
@@ -16774,13 +16774,13 @@ poolStoreString.exit:                             ; preds = %if.end.i358, %land.
 if.end146:                                        ; preds = %poolStoreString.exit, %if.end117
   %storemerge = load ptr, ptr %ptr1.i.i, align 8
   store ptr %storemerge, ptr %start.i.i, align 8
-  %prefix = getelementptr inbounds i8, ptr %call63, i64 8
+  %prefix = getelementptr inbounds nuw i8, ptr %call63, i64 8
   %68 = load ptr, ptr %prefix, align 8
   %tobool147.not = icmp eq ptr %68, null
   br i1 %tobool147.not, label %if.else165, label %if.then148
 
 if.then148:                                       ; preds = %if.end146
-  %xmlns = getelementptr inbounds i8, ptr %call63, i64 17
+  %xmlns = getelementptr inbounds nuw i8, ptr %call63, i64 17
   %69 = load i8, ptr %xmlns, align 1
   %tobool149.not = icmp eq i8 %69, 0
   br i1 %tobool149.not, label %if.else159, label %if.then150
@@ -16815,9 +16815,9 @@ for.inc168:                                       ; preds = %if.then150, %if.els
 for.end170:                                       ; preds = %for.inc168, %if.end54
   %nPrefixes.0.lcssa = phi i32 [ 0, %if.end54 ], [ %nPrefixes.1, %for.inc168 ]
   %attIndex.0.lcssa = phi i32 [ 0, %if.end54 ], [ %attIndex.1, %for.inc168 ]
-  %m_nSpecifiedAtts = getelementptr inbounds i8, ptr %parser, i64 724
+  %m_nSpecifiedAtts = getelementptr inbounds nuw i8, ptr %parser, i64 724
   store i32 %attIndex.0.lcssa, ptr %m_nSpecifiedAtts, align 4
-  %idAtt = getelementptr inbounds i8, ptr %elementType.0, i64 16
+  %idAtt = getelementptr inbounds nuw i8, ptr %elementType.0, i64 16
   %72 = load ptr, ptr %idAtt, align 8
   %tobool171.not = icmp eq ptr %72, null
   br i1 %tobool171.not, label %if.end196.sink.split, label %land.lhs.true172
@@ -16848,7 +16848,7 @@ for.inc191:                                       ; preds = %for.body182
 
 if.end196.sink.split:                             ; preds = %for.body182, %for.end170, %land.lhs.true172
   %i.1428.lcssa.sink = phi i32 [ -1, %land.lhs.true172 ], [ -1, %for.end170 ], [ %i.1428, %for.body182 ]
-  %m_idAttIndex = getelementptr inbounds i8, ptr %parser, i64 728
+  %m_idAttIndex = getelementptr inbounds nuw i8, ptr %parser, i64 728
   store i32 %i.1428.lcssa.sink, ptr %m_idAttIndex, align 8
   br label %if.end196
 
@@ -16857,7 +16857,7 @@ if.end196:                                        ; preds = %for.inc191, %if.end
   br i1 %cmp198429, label %for.body200.lr.ph, label %for.end260
 
 for.body200.lr.ph:                                ; preds = %if.end196
-  %defaultAtts201 = getelementptr inbounds i8, ptr %elementType.0, i64 32
+  %defaultAtts201 = getelementptr inbounds nuw i8, ptr %elementType.0, i64 32
   %wide.trip.count507 = zext nneg i32 %25 to i64
   br label %for.body200
 
@@ -16875,19 +16875,19 @@ for.body200:                                      ; preds = %for.body200.lr.ph, 
   br i1 %tobool207.not, label %land.lhs.true208, label %for.inc258
 
 land.lhs.true208:                                 ; preds = %for.body200
-  %value = getelementptr inbounds i8, ptr %add.ptr203, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %add.ptr203, i64 16
   %80 = load ptr, ptr %value, align 8
   %tobool209.not = icmp eq ptr %80, null
   br i1 %tobool209.not, label %for.inc258, label %if.then210
 
 if.then210:                                       ; preds = %land.lhs.true208
-  %prefix212 = getelementptr inbounds i8, ptr %77, i64 8
+  %prefix212 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %81 = load ptr, ptr %prefix212, align 8
   %tobool213.not = icmp eq ptr %81, null
   br i1 %tobool213.not, label %if.else243, label %if.then214
 
 if.then214:                                       ; preds = %if.then210
-  %xmlns216 = getelementptr inbounds i8, ptr %77, i64 17
+  %xmlns216 = getelementptr inbounds nuw i8, ptr %77, i64 17
   %82 = load i8, ptr %xmlns216, align 1
   %tobool217.not = icmp eq i8 %82, 0
   br i1 %tobool217.not, label %if.else228, label %if.then218
@@ -16938,8 +16938,8 @@ for.end260:                                       ; preds = %for.inc258, %if.end
   br i1 %tobool263.not, label %if.end536, label %if.then264
 
 if.then264:                                       ; preds = %for.end260
-  %m_nsAttsVersion = getelementptr inbounds i8, ptr %parser, i64 752
-  %m_nsAttsPower = getelementptr inbounds i8, ptr %parser, i64 760
+  %m_nsAttsVersion = getelementptr inbounds nuw i8, ptr %parser, i64 752
+  %m_nsAttsPower = getelementptr inbounds nuw i8, ptr %parser, i64 760
   %86 = load i8, ptr %m_nsAttsPower, align 8
   %cmp267 = icmp ugt i8 %86, 31
   br i1 %cmp267, label %return, label %if.end270
@@ -16978,9 +16978,9 @@ if.then296:                                       ; preds = %if.end291
 
 if.end298:                                        ; preds = %if.end291.thread, %if.end291
   %87 = phi i8 [ 3, %if.end291.thread ], [ %inc281, %if.end291 ]
-  %realloc_fcn303 = getelementptr inbounds i8, ptr %parser, i64 32
+  %realloc_fcn303 = getelementptr inbounds nuw i8, ptr %parser, i64 32
   %88 = load ptr, ptr %realloc_fcn303, align 8
-  %m_nsAtts = getelementptr inbounds i8, ptr %parser, i64 744
+  %m_nsAtts = getelementptr inbounds nuw i8, ptr %parser, i64 744
   %89 = load ptr, ptr %m_nsAtts, align 8
   %90 = zext nneg i8 %87 to i64
   %mul305 = shl nuw nsw i64 24, %90
@@ -17006,7 +17006,7 @@ if.end312:                                        ; preds = %if.end270
 
 for.cond315.preheader:                            ; preds = %if.end312.thread, %if.end312
   %nsAttsSize.0522 = phi i32 [ %nsAttsSize.0519, %if.end312.thread ], [ %nsAttsSize.0, %if.end312 ]
-  %m_nsAtts319 = getelementptr inbounds i8, ptr %parser, i64 744
+  %m_nsAtts319 = getelementptr inbounds nuw i8, ptr %parser, i64 744
   br label %for.body318
 
 for.body318:                                      ; preds = %for.cond315.preheader, %for.body318
@@ -17028,24 +17028,24 @@ if.end325:                                        ; preds = %for.body318, %if.en
   br i1 %cmp329454, label %for.body331.lr.ph, label %if.end536
 
 for.body331.lr.ph:                                ; preds = %if.end325
-  %v1.i = getelementptr inbounds i8, ptr %sip_state, i64 8
-  %v2.i = getelementptr inbounds i8, ptr %sip_state, i64 16
-  %v3.i = getelementptr inbounds i8, ptr %sip_state, i64 24
-  %buf.i = getelementptr inbounds i8, ptr %sip_state, i64 32
-  %p.i = getelementptr inbounds i8, ptr %sip_state, i64 40
-  %c.i = getelementptr inbounds i8, ptr %sip_state, i64 48
-  %attributeIds = getelementptr inbounds i8, ptr %0, i64 80
-  %ptr362 = getelementptr inbounds i8, ptr %parser, i64 808
-  %end = getelementptr inbounds i8, ptr %parser, i64 800
-  %m_tempPool361 = getelementptr inbounds i8, ptr %parser, i64 784
+  %v1.i = getelementptr inbounds nuw i8, ptr %sip_state, i64 8
+  %v2.i = getelementptr inbounds nuw i8, ptr %sip_state, i64 16
+  %v3.i = getelementptr inbounds nuw i8, ptr %sip_state, i64 24
+  %buf.i = getelementptr inbounds nuw i8, ptr %sip_state, i64 32
+  %p.i = getelementptr inbounds nuw i8, ptr %sip_state, i64 40
+  %c.i = getelementptr inbounds nuw i8, ptr %sip_state, i64 48
+  %attributeIds = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %ptr362 = getelementptr inbounds nuw i8, ptr %parser, i64 808
+  %end = getelementptr inbounds nuw i8, ptr %parser, i64 800
+  %m_tempPool361 = getelementptr inbounds nuw i8, ptr %parser, i64 784
   %sub412 = add i32 %nsAttsSize.0521, -1
   %conv413 = zext nneg i32 %sub412 to i64
-  %m_nsAtts416 = getelementptr inbounds i8, ptr %parser, i64 744
-  %start430 = getelementptr inbounds i8, ptr %parser, i64 816
+  %m_nsAtts416 = getelementptr inbounds nuw i8, ptr %parser, i64 744
+  %start430 = getelementptr inbounds nuw i8, ptr %parser, i64 816
   %not = xor i64 %conv413, -1
   %shr460 = lshr i64 %conv413, 2
-  %m_ns_triplets = getelementptr inbounds i8, ptr %parser, i64 457
-  %m_namespaceSeparator = getelementptr inbounds i8, ptr %parser, i64 892
+  %m_ns_triplets = getelementptr inbounds nuw i8, ptr %parser, i64 457
+  %m_namespaceSeparator = getelementptr inbounds nuw i8, ptr %parser, i64 892
   br label %for.body331
 
 for.body331:                                      ; preds = %for.body331.lr.ph, %for.inc533
@@ -17061,13 +17061,13 @@ for.body331:                                      ; preds = %for.body331.lr.ph, 
 
 tailrecurse.i.i:                                  ; preds = %for.body331, %tailrecurse.i.i
   %parser.tr.i.i = phi ptr [ %95, %tailrecurse.i.i ], [ %parser, %for.body331 ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %parser.tr.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %parser.tr.i.i, i64 896
   %95 = load ptr, ptr %m_parentParser.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %95, null
   br i1 %cmp.not.i.i, label %copy_salt_to_sipkey.exit, label %tailrecurse.i.i
 
 copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
-  %m_hash_secret_salt.i.i = getelementptr inbounds i8, ptr %parser.tr.i.i, i64 920
+  %m_hash_secret_salt.i.i = getelementptr inbounds nuw i8, ptr %parser.tr.i.i, i64 920
   %96 = load i64, ptr %m_hash_secret_salt.i.i, align 8
   store i64 8317987319222330741, ptr %sip_state, align 8
   %xor3.i = xor i64 %96, 7237128888997146477
@@ -17083,19 +17083,19 @@ copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
   br i1 %tobool343.not, label %return, label %lor.lhs.false344
 
 lor.lhs.false344:                                 ; preds = %copy_salt_to_sipkey.exit
-  %prefix345 = getelementptr inbounds i8, ptr %call342, i64 8
+  %prefix345 = getelementptr inbounds nuw i8, ptr %call342, i64 8
   %97 = load ptr, ptr %prefix345, align 8
   %tobool346.not = icmp eq ptr %97, null
   br i1 %tobool346.not, label %return, label %if.end348
 
 if.end348:                                        ; preds = %lor.lhs.false344
-  %binding350 = getelementptr inbounds i8, ptr %97, i64 8
+  %binding350 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %98 = load ptr, ptr %binding350, align 8
   %tobool351.not = icmp eq ptr %98, null
   br i1 %tobool351.not, label %return, label %for.cond354.preheader
 
 for.cond354.preheader:                            ; preds = %if.end348
-  %uriLen = getelementptr inbounds i8, ptr %98, i64 40
+  %uriLen = getelementptr inbounds nuw i8, ptr %98, i64 40
   %99 = load i32, ptr %uriLen, align 8
   %cmp355438 = icmp sgt i32 %99, 0
   br i1 %cmp355438, label %for.body357.lr.ph, label %for.cond354.preheader.for.end376_crit_edge
@@ -17105,7 +17105,7 @@ for.cond354.preheader.for.end376_crit_edge:       ; preds = %for.cond354.prehead
   br label %for.end376
 
 for.body357.lr.ph:                                ; preds = %for.cond354.preheader
-  %uri358 = getelementptr inbounds i8, ptr %98, i64 32
+  %uri358 = getelementptr inbounds nuw i8, ptr %98, i64 32
   br label %for.body357
 
 for.body357:                                      ; preds = %for.body357.lr.ph, %cond.false
@@ -17140,7 +17140,7 @@ cond.false:                                       ; preds = %land.lhs.true366.co
 
 for.end376:                                       ; preds = %cond.false, %for.cond354.preheader.for.end376_crit_edge
   %conv379.pre-phi = phi i64 [ %.pre516, %for.cond354.preheader.for.end376_crit_edge ], [ %106, %cond.false ]
-  %uri377 = getelementptr inbounds i8, ptr %98, i64 32
+  %uri377 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %107 = load ptr, ptr %uri377, align 8
   %call381 = call fastcc ptr @sip24_update(ptr noundef %sip_state, ptr noundef %107, i64 noundef %conv379.pre-phi)
   br label %while.cond382
@@ -17217,14 +17217,14 @@ while.body422:                                    ; preds = %while.body422.lr.ph
   %arrayidx418452 = phi ptr [ %arrayidx418448, %while.body422.lr.ph ], [ %arrayidx418, %if.end463 ]
   %step.0451 = phi i8 [ 0, %while.body422.lr.ph ], [ %step.1, %if.end463 ]
   %j265.2450 = phi i32 [ %conv414, %while.body422.lr.ph ], [ %j265.3, %if.end463 ]
-  %hash = getelementptr inbounds i8, ptr %arrayidx418452, i64 8
+  %hash = getelementptr inbounds nuw i8, ptr %arrayidx418452, i64 8
   %119 = load i64, ptr %hash, align 8
   %cmp426 = icmp eq i64 %call411, %119
   br i1 %cmp426, label %if.then428, label %if.end452
 
 if.then428:                                       ; preds = %while.body422
   %120 = load ptr, ptr %start430, align 8
-  %uriName = getelementptr inbounds i8, ptr %arrayidx418452, i64 16
+  %uriName = getelementptr inbounds nuw i8, ptr %arrayidx418452, i64 16
   %121 = load ptr, ptr %uriName, align 8
   %122 = load i8, ptr %120, align 1
   %123 = load i8, ptr %121, align 1
@@ -17374,30 +17374,30 @@ for.body540:                                      ; preds = %if.end536, %for.bod
 
 for.body549:                                      ; preds = %for.cond547.preheader, %for.body549
   %binding.0462 = phi ptr [ %binding.0, %for.body549 ], [ %binding.0460, %for.cond547.preheader ]
-  %attId550 = getelementptr inbounds i8, ptr %binding.0462, i64 24
+  %attId550 = getelementptr inbounds nuw i8, ptr %binding.0462, i64 24
   %145 = load ptr, ptr %attId550, align 8
   %146 = load ptr, ptr %145, align 8
   %arrayidx552 = getelementptr i8, ptr %146, i64 -1
   store i8 0, ptr %arrayidx552, align 1
-  %nextTagBinding = getelementptr inbounds i8, ptr %binding.0462, i64 8
+  %nextTagBinding = getelementptr inbounds nuw i8, ptr %binding.0462, i64 8
   %binding.0 = load ptr, ptr %nextTagBinding, align 8
   %tobool548.not = icmp eq ptr %binding.0, null
   br i1 %tobool548.not, label %for.end554, label %for.body549, !llvm.loop !71
 
 for.end554:                                       ; preds = %for.body549, %for.cond547.preheader
-  %m_ns555 = getelementptr inbounds i8, ptr %parser, i64 456
+  %m_ns555 = getelementptr inbounds nuw i8, ptr %parser, i64 456
   %147 = load i8, ptr %m_ns555, align 8
   %tobool556.not = icmp eq i8 %147, 0
   br i1 %tobool556.not, label %return, label %if.end558
 
 if.end558:                                        ; preds = %for.end554
-  %prefix559 = getelementptr inbounds i8, ptr %elementType.0, i64 8
+  %prefix559 = getelementptr inbounds nuw i8, ptr %elementType.0, i64 8
   %148 = load ptr, ptr %prefix559, align 8
   %tobool560.not = icmp eq ptr %148, null
   br i1 %tobool560.not, label %if.else575, label %if.then561
 
 if.then561:                                       ; preds = %if.end558
-  %binding563 = getelementptr inbounds i8, ptr %148, i64 8
+  %binding563 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %149 = load ptr, ptr %binding563, align 8
   %tobool564.not = icmp eq ptr %149, null
   br i1 %tobool564.not, label %return, label %if.end566
@@ -17414,7 +17414,7 @@ while.cond568:                                    ; preds = %while.cond568, %if.
   br i1 %cmp571.not, label %if.end584, label %while.cond568, !llvm.loop !72
 
 if.else575:                                       ; preds = %if.end558
-  %binding576 = getelementptr inbounds i8, ptr %0, i64 312
+  %binding576 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %152 = load ptr, ptr %binding576, align 8
   %tobool577.not = icmp eq ptr %152, null
   br i1 %tobool577.not, label %return, label %if.then578
@@ -17426,7 +17426,7 @@ if.then578:                                       ; preds = %if.else575
 if.end584:                                        ; preds = %while.cond568, %if.then578
   %localPart.1 = phi ptr [ %153, %if.then578 ], [ %incdec.ptr569, %while.cond568 ]
   %binding.1 = phi ptr [ %152, %if.then578 ], [ %149, %while.cond568 ]
-  %m_ns_triplets585 = getelementptr inbounds i8, ptr %parser, i64 457
+  %m_ns_triplets585 = getelementptr inbounds nuw i8, ptr %parser, i64 457
   %154 = load i8, ptr %m_ns_triplets585, align 1
   %tobool587.not = icmp eq i8 %154, 0
   br i1 %tobool587.not, label %if.end602, label %land.lhs.true588
@@ -17448,17 +17448,17 @@ for.cond593:                                      ; preds = %land.lhs.true588, %
 
 if.end602:                                        ; preds = %for.cond593, %land.lhs.true588, %if.end584
   %prefixLen.0 = phi i32 [ 0, %land.lhs.true588 ], [ 0, %if.end584 ], [ %inc596, %for.cond593 ]
-  %localPart603 = getelementptr inbounds i8, ptr %tagNamePtr, i64 8
+  %localPart603 = getelementptr inbounds nuw i8, ptr %tagNamePtr, i64 8
   store ptr %localPart.1, ptr %localPart603, align 8
-  %uriLen604 = getelementptr inbounds i8, ptr %binding.1, i64 40
+  %uriLen604 = getelementptr inbounds nuw i8, ptr %binding.1, i64 40
   %158 = load i32, ptr %uriLen604, align 8
-  %uriLen605 = getelementptr inbounds i8, ptr %tagNamePtr, i64 28
+  %uriLen605 = getelementptr inbounds nuw i8, ptr %tagNamePtr, i64 28
   store i32 %158, ptr %uriLen605, align 4
   %159 = load ptr, ptr %binding.1, align 8
   %160 = load ptr, ptr %159, align 8
-  %prefix608 = getelementptr inbounds i8, ptr %tagNamePtr, i64 16
+  %prefix608 = getelementptr inbounds nuw i8, ptr %tagNamePtr, i64 16
   store ptr %160, ptr %prefix608, align 8
-  %prefixLen609 = getelementptr inbounds i8, ptr %tagNamePtr, i64 32
+  %prefixLen609 = getelementptr inbounds nuw i8, ptr %tagNamePtr, i64 32
   store i32 %prefixLen.0, ptr %prefixLen609, align 8
   br label %for.cond610
 
@@ -17486,13 +17486,13 @@ lor.lhs.false621:                                 ; preds = %for.end616
 if.end628:                                        ; preds = %lor.lhs.false621
   %add630 = add i32 %inc611, %prefixLen.0
   %add631 = add i32 %add630, %162
-  %uriAlloc = getelementptr inbounds i8, ptr %binding.1, i64 44
+  %uriAlloc = getelementptr inbounds nuw i8, ptr %binding.1, i64 44
   %164 = load i32, ptr %uriAlloc, align 4
   %cmp632 = icmp sgt i32 %add631, %164
   br i1 %cmp632, label %if.then634, label %if.end628.if.end670_crit_edge
 
 if.end628.if.end670_crit_edge:                    ; preds = %if.end628
-  %uri671.phi.trans.insert = getelementptr inbounds i8, ptr %binding.1, i64 32
+  %uri671.phi.trans.insert = getelementptr inbounds nuw i8, ptr %binding.1, i64 32
   %.pre514 = load ptr, ptr %uri671.phi.trans.insert, align 8
   br label %if.end670
 
@@ -17501,7 +17501,7 @@ if.then634:                                       ; preds = %if.end628
   br i1 %cmp635, label %return, label %if.end638
 
 if.end638:                                        ; preds = %if.then634
-  %m_mem639 = getelementptr inbounds i8, ptr %parser, i64 24
+  %m_mem639 = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %165 = load ptr, ptr %m_mem639, align 8
   %add640 = add nsw i32 %add631, 24
   %conv641 = sext i32 %add640 to i64
@@ -17511,19 +17511,19 @@ if.end638:                                        ; preds = %if.then634
 
 if.end646:                                        ; preds = %if.end638
   store i32 %add640, ptr %uriAlloc, align 4
-  %uri649 = getelementptr inbounds i8, ptr %binding.1, i64 32
+  %uri649 = getelementptr inbounds nuw i8, ptr %binding.1, i64 32
   %166 = load ptr, ptr %uri649, align 8
   %167 = load i32, ptr %uriLen604, align 8
   %conv651 = sext i32 %167 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call643, ptr align 1 %166, i64 %conv651, i1 false)
-  %m_tagStack = getelementptr inbounds i8, ptr %parser, i64 688
+  %m_tagStack = getelementptr inbounds nuw i8, ptr %parser, i64 688
   %p.0463 = load ptr, ptr %m_tagStack, align 8
   %tobool654.not464 = icmp eq ptr %p.0463, null
   br i1 %tobool654.not464, label %for.end666, label %for.body655
 
 for.body655:                                      ; preds = %if.end646, %for.inc665
   %p.0465 = phi ptr [ %p.0, %for.inc665 ], [ %p.0463, %if.end646 ]
-  %name656 = getelementptr inbounds i8, ptr %p.0465, i64 24
+  %name656 = getelementptr inbounds nuw i8, ptr %p.0465, i64 24
   %168 = load ptr, ptr %name656, align 8
   %169 = load ptr, ptr %uri649, align 8
   %cmp659 = icmp eq ptr %168, %169
@@ -17539,7 +17539,7 @@ for.inc665:                                       ; preds = %for.body655, %if.th
   br i1 %tobool654.not, label %for.end666, label %for.body655, !llvm.loop !75
 
 for.end666:                                       ; preds = %for.inc665, %if.end646
-  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
+  %free_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 40
   %170 = load ptr, ptr %free_fcn, align 8
   %171 = load ptr, ptr %uri649, align 8
   call void %170(ptr noundef %171) #25
@@ -17550,7 +17550,7 @@ for.end666:                                       ; preds = %for.inc665, %if.end
 if.end670:                                        ; preds = %if.end628.if.end670_crit_edge, %for.end666
   %172 = phi i32 [ %162, %if.end628.if.end670_crit_edge ], [ %.pre515, %for.end666 ]
   %173 = phi ptr [ %.pre514, %if.end628.if.end670_crit_edge ], [ %call643, %for.end666 ]
-  %uri671 = getelementptr inbounds i8, ptr %binding.1, i64 32
+  %uri671 = getelementptr inbounds nuw i8, ptr %binding.1, i64 32
   %idx.ext673 = sext i32 %172 to i64
   %add.ptr674 = getelementptr i8, ptr %173, i64 %idx.ext673
   %conv675 = sext i32 %inc611 to i64
@@ -17560,7 +17560,7 @@ if.end670:                                        ; preds = %if.end628.if.end670
 
 if.then678:                                       ; preds = %if.end670
   %add.ptr681 = getelementptr i8, ptr %add.ptr674, i64 %idxprom612
-  %m_namespaceSeparator682 = getelementptr inbounds i8, ptr %parser, i64 892
+  %m_namespaceSeparator682 = getelementptr inbounds nuw i8, ptr %parser, i64 892
   %174 = load i8, ptr %m_namespaceSeparator682, align 4
   store i8 %174, ptr %add.ptr681, align 1
   %add.ptr683 = getelementptr i8, ptr %add.ptr681, i64 1
@@ -17588,17 +17588,17 @@ entry:
   %s.addr.i = alloca ptr, align 8
   %dataPtr.i = alloca ptr, align 8
   %next = alloca ptr, align 8
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @epilogProcessor, ptr %m_processor, align 8
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %s, ptr %m_eventPtr, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
-  %m_defaultHandler11 = getelementptr inbounds i8, ptr %parser, i64 160
-  %m_handlerArg11.i47 = getelementptr inbounds i8, ptr %parser, i64 8
-  %m_dataBuf.i61 = getelementptr inbounds i8, ptr %parser, i64 88
-  %m_dataBufEnd.i63 = getelementptr inbounds i8, ptr %parser, i64 96
-  %m_parsingStatus42 = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
+  %m_defaultHandler11 = getelementptr inbounds nuw i8, ptr %parser, i64 160
+  %m_handlerArg11.i47 = getelementptr inbounds nuw i8, ptr %parser, i64 8
+  %m_dataBuf.i61 = getelementptr inbounds nuw i8, ptr %parser, i64 88
+  %m_dataBufEnd.i63 = getelementptr inbounds nuw i8, ptr %parser, i64 96
+  %m_parsingStatus42 = getelementptr inbounds nuw i8, ptr %parser, i64 904
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.epilog, %entry
@@ -17618,7 +17618,7 @@ for.cond:                                         ; preds = %sw.epilog, %entry
 while.cond.i.i:                                   ; preds = %for.cond, %while.cond.i.i
   %rootParser.0.i.i = phi ptr [ %3, %while.cond.i.i ], [ %parser, %for.cond ]
   %stepsTakenUpwards.0.i.i = phi i32 [ %inc.i.i, %while.cond.i.i ], [ 0, %for.cond ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %3 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   %inc.i.i = add i32 %stepsTakenUpwards.0.i.i, 1
@@ -17629,8 +17629,8 @@ getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %s.addr.0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_accounting.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
-  %countBytesIndirect.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
+  %m_accounting.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 928
+  %countBytesIndirect.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 936
   %cond.i = select i1 %cmp2.i, ptr %m_accounting.i, ptr %countBytesIndirect.i
   %4 = load i64, ptr %cond.i, align 8
   %sub.i = xor i64 %sub.ptr.sub.i, -1
@@ -17643,7 +17643,7 @@ if.end6.i:                                        ; preds = %getRootParserOf.exi
   %5 = load i64, ptr %m_accounting.i, align 8
   %6 = load i64, ptr %countBytesIndirect.i, align 8
   %add11.i = add i64 %6, %5
-  %activationThresholdBytes.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 952
+  %activationThresholdBytes.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 952
   %7 = load i64, ptr %activationThresholdBytes.i, align 8
   %cmp14.i = icmp ult i64 %add11.i, %7
   br i1 %cmp14.i, label %lor.end.i, label %lor.rhs.i
@@ -17654,14 +17654,14 @@ lor.rhs.i:                                        ; preds = %if.end6.i
   %conv6.i.i = uitofp i64 %5 to float
   %div.i.i = fdiv float %conv.i.i, %conv6.i.i
   %cond.i.i = select i1 %tobool.not.i19.i, float 1.000000e+00, float %div.i.i
-  %maximumAmplificationFactor.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 948
+  %maximumAmplificationFactor.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 948
   %8 = load float, ptr %maximumAmplificationFactor.i, align 4
   %cmp16.i = fcmp ugt float %cond.i.i, %8
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6.i
   %conv.i = phi i1 [ false, %if.end6.i ], [ %cmp16.i, %lor.rhs.i ]
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 944
   %9 = load i32, ptr %debugLevel.i, align 8
   %cmp18.i = icmp sgt i32 %9, 1
   br i1 %cmp18.i, label %if.then20.i, label %accountingDiffTolerated.exit
@@ -17683,22 +17683,22 @@ accountingDiffTolerated.exit.if.end_crit_edge:    ; preds = %accountingDiffToler
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %10, %while.cond.i.i.i ], [ %parser, %while.cond.i.i.i.preheader ]
-  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
+  %m_parentParser.i.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 896
   %10 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 944
   %11 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %11, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
+  %m_accounting.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 928
   %12 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %12, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -17740,13 +17740,13 @@ if.then4:                                         ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i)
   store ptr %s.addr.0, ptr %s.addr.i, align 8
-  %isUtf8.i = getelementptr inbounds i8, ptr %17, i64 132
+  %isUtf8.i = getelementptr inbounds nuw i8, ptr %17, i64 132
   %18 = load i8, ptr %isUtf8.i, align 4
   %tobool.not.i = icmp eq i8 %18, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.else9.i
 
 if.end.i:                                         ; preds = %if.then4
-  %utf8Convert.i = getelementptr inbounds i8, ptr %17, i64 112
+  %utf8Convert.i = getelementptr inbounds nuw i8, ptr %17, i64 112
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
@@ -17810,13 +17810,13 @@ if.then13:                                        ; preds = %sw.bb10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.addr.i41)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dataPtr.i42)
   store ptr %s.addr.0, ptr %s.addr.i41, align 8
-  %isUtf8.i43 = getelementptr inbounds i8, ptr %33, i64 132
+  %isUtf8.i43 = getelementptr inbounds nuw i8, ptr %33, i64 132
   %34 = load i8, ptr %isUtf8.i43, align 4
   %tobool.not.i44 = icmp eq i8 %34, 0
   br i1 %tobool.not.i44, label %if.end.i58, label %if.else9.i45
 
 if.end.i58:                                       ; preds = %if.then13
-  %utf8Convert.i62 = getelementptr inbounds i8, ptr %33, i64 112
+  %utf8Convert.i62 = getelementptr inbounds nuw i8, ptr %33, i64 112
   br label %do.body.i66
 
 do.body.i66:                                      ; preds = %do.body.i66, %if.end.i58
@@ -17872,7 +17872,7 @@ sw.bb28:                                          ; preds = %if.end
   br label %return
 
 sw.bb30:                                          ; preds = %if.end
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %48 = load i8, ptr %finalBuffer, align 4
   %tobool32.not = icmp eq i8 %48, 0
   br i1 %tobool32.not, label %if.then33, label %return
@@ -17882,7 +17882,7 @@ if.then33:                                        ; preds = %sw.bb30
   br label %return
 
 sw.bb35:                                          ; preds = %if.end
-  %finalBuffer37 = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer37 = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %49 = load i8, ptr %finalBuffer37, align 4
   %tobool38.not = icmp eq i8 %49, 0
   br i1 %tobool38.not, label %if.then39, label %return
@@ -17924,21 +17924,21 @@ entry:
   %dataPtr = alloca ptr, align 8
   %0 = load ptr, ptr %startPtr, align 8
   store ptr %0, ptr %s, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %1 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %enc, %1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %0, ptr %m_eventPtr, align 8
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %2 = load ptr, ptr %m_openInternalEntities, align 8
-  %internalEventEndPtr = getelementptr inbounds i8, ptr %2, i64 8
+  %internalEventEndPtr = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -17948,17 +17948,17 @@ if.end:                                           ; preds = %if.else, %if.then
   store ptr null, ptr %startPtr, align 8
   %arrayidx = getelementptr i8, ptr %enc, i64 16
   %cmp1.i = icmp eq i32 %account, 0
-  %m_characterDataHandler28 = getelementptr inbounds i8, ptr %parser, i64 120
-  %isUtf8 = getelementptr inbounds i8, ptr %enc, i64 132
-  %m_handlerArg45 = getelementptr inbounds i8, ptr %parser, i64 8
-  %m_dataBuf = getelementptr inbounds i8, ptr %parser, i64 88
-  %utf8Convert = getelementptr inbounds i8, ptr %enc, i64 112
-  %m_dataBufEnd = getelementptr inbounds i8, ptr %parser, i64 96
-  %m_defaultHandler52 = getelementptr inbounds i8, ptr %parser, i64 160
-  %m_openInternalEntities.i72 = getelementptr inbounds i8, ptr %parser, i64 568
-  %m_eventPtr.i89 = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_eventEndPtr.i90 = getelementptr inbounds i8, ptr %parser, i64 552
-  %m_parsingStatus66 = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_characterDataHandler28 = getelementptr inbounds nuw i8, ptr %parser, i64 120
+  %isUtf8 = getelementptr inbounds nuw i8, ptr %enc, i64 132
+  %m_handlerArg45 = getelementptr inbounds nuw i8, ptr %parser, i64 8
+  %m_dataBuf = getelementptr inbounds nuw i8, ptr %parser, i64 88
+  %utf8Convert = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %m_dataBufEnd = getelementptr inbounds nuw i8, ptr %parser, i64 96
+  %m_defaultHandler52 = getelementptr inbounds nuw i8, ptr %parser, i64 160
+  %m_openInternalEntities.i72 = getelementptr inbounds nuw i8, ptr %parser, i64 568
+  %m_eventPtr.i89 = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_eventEndPtr.i90 = getelementptr inbounds nuw i8, ptr %parser, i64 552
+  %m_parsingStatus66 = getelementptr inbounds nuw i8, ptr %parser, i64 904
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.epilog, %if.end
@@ -17978,7 +17978,7 @@ for.cond:                                         ; preds = %sw.epilog, %if.end
 while.cond.i.i:                                   ; preds = %for.cond, %while.cond.i.i
   %rootParser.0.i.i = phi ptr [ %7, %while.cond.i.i ], [ %parser, %for.cond ]
   %stepsTakenUpwards.0.i.i = phi i32 [ %inc.i.i, %while.cond.i.i ], [ 0, %for.cond ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %7 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
   %inc.i.i = add i32 %stepsTakenUpwards.0.i.i, 1
@@ -17990,8 +17990,8 @@ getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_accounting.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
-  %countBytesIndirect.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
+  %m_accounting.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 928
+  %countBytesIndirect.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 936
   %cond.i = select i1 %8, ptr %m_accounting.i, ptr %countBytesIndirect.i
   %9 = load i64, ptr %cond.i, align 8
   %sub.i = xor i64 %sub.ptr.sub.i, -1
@@ -18004,7 +18004,7 @@ if.end6.i:                                        ; preds = %getRootParserOf.exi
   %10 = load i64, ptr %m_accounting.i, align 8
   %11 = load i64, ptr %countBytesIndirect.i, align 8
   %add11.i = add i64 %11, %10
-  %activationThresholdBytes.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 952
+  %activationThresholdBytes.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 952
   %12 = load i64, ptr %activationThresholdBytes.i, align 8
   %cmp14.i = icmp ult i64 %add11.i, %12
   br i1 %cmp14.i, label %lor.end.i, label %lor.rhs.i
@@ -18015,14 +18015,14 @@ lor.rhs.i:                                        ; preds = %if.end6.i
   %conv6.i.i = uitofp i64 %10 to float
   %div.i.i = fdiv float %conv.i.i, %conv6.i.i
   %cond.i.i = select i1 %tobool.not.i19.i, float 1.000000e+00, float %div.i.i
-  %maximumAmplificationFactor.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 948
+  %maximumAmplificationFactor.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 948
   %13 = load float, ptr %maximumAmplificationFactor.i, align 4
   %cmp16.i = fcmp ugt float %cond.i.i, %13
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6.i
   %conv.i = phi i1 [ false, %if.end6.i ], [ %cmp16.i, %lor.rhs.i ]
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 944
   %14 = load i32, ptr %debugLevel.i, align 8
   %cmp18.i = icmp sgt i32 %14, 1
   br i1 %cmp18.i, label %if.then20.i, label %accountingDiffTolerated.exit
@@ -18044,22 +18044,22 @@ accountingDiffTolerated.exit.if.end4_crit_edge:   ; preds = %accountingDiffToler
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %15, %while.cond.i.i.i ], [ %parser, %while.cond.i.i.i.preheader ]
-  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
+  %m_parentParser.i.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 896
   %15 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 944
   %16 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %16, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
+  %m_accounting.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 928
   %17 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %17, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -18091,7 +18091,7 @@ if.end4:                                          ; preds = %accountingDiffToler
   ]
 
 sw.bb:                                            ; preds = %if.end4
-  %m_endCdataSectionHandler = getelementptr inbounds i8, ptr %parser, i64 152
+  %m_endCdataSectionHandler = getelementptr inbounds nuw i8, ptr %parser, i64 152
   %21 = load ptr, ptr %m_endCdataSectionHandler, align 8
   %tobool5.not = icmp eq ptr %21, null
   br i1 %tobool5.not, label %if.else8, label %if.then6
@@ -18152,7 +18152,7 @@ if.then.i:                                        ; preds = %if.then24
 
 if.else.i:                                        ; preds = %if.then.i
   %33 = load ptr, ptr %m_openInternalEntities.i72, align 8
-  %internalEventEndPtr.i = getelementptr inbounds i8, ptr %33, i64 8
+  %internalEventEndPtr.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.else.i
@@ -18263,7 +18263,7 @@ if.then.i68:                                      ; preds = %if.then54
 
 if.else.i71:                                      ; preds = %if.then.i68
   %62 = load ptr, ptr %m_openInternalEntities.i72, align 8
-  %internalEventEndPtr.i73 = getelementptr inbounds i8, ptr %62, i64 8
+  %internalEventEndPtr.i73 = getelementptr inbounds nuw i8, ptr %62, i64 8
   br label %if.end.i74
 
 if.end.i74:                                       ; preds = %if.then.i68, %if.else.i71
@@ -18357,9 +18357,9 @@ define internal i32 @cdataSectionProcessor(ptr noundef %parser, ptr noundef %sta
 entry:
   %start.addr = alloca ptr, align 8
   store ptr %start, ptr %start.addr, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %1 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %1, 0
   %conv = zext i1 %tobool.not to i8
@@ -18373,10 +18373,10 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
+  %m_parentParser = getelementptr inbounds nuw i8, ptr %parser, i64 896
   %3 = load ptr, ptr %m_parentParser, align 8
   %tobool4.not = icmp eq ptr %3, null
-  %m_processor7 = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor7 = getelementptr inbounds nuw i8, ptr %parser, i64 528
   br i1 %tobool4.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
@@ -18397,7 +18397,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @setElementTypePrefix(ptr nocapture noundef readonly %parser, ptr nocapture noundef nonnull %elementType) unnamed_addr #0 {
 entry:
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
   %1 = load ptr, ptr %elementType, align 8
   br label %for.cond
@@ -18415,9 +18415,9 @@ for.cond4.preheader:                              ; preds = %for.cond
   br i1 %cmp5.not28, label %for.end, label %for.body7.lr.ph
 
 for.body7.lr.ph:                                  ; preds = %for.cond4.preheader
-  %ptr = getelementptr inbounds i8, ptr %0, i64 184
-  %end = getelementptr inbounds i8, ptr %0, i64 176
-  %pool = getelementptr inbounds i8, ptr %0, i64 160
+  %ptr = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %end = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %pool = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %cond.false
@@ -18447,15 +18447,15 @@ cond.false:                                       ; preds = %land.lhs.true.cond.
   br i1 %cmp5.not, label %for.end, label %for.body7, !llvm.loop !76
 
 for.end:                                          ; preds = %cond.false, %for.cond4.preheader
-  %ptr18 = getelementptr inbounds i8, ptr %0, i64 184
+  %ptr18 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load ptr, ptr %ptr18, align 8
-  %end20 = getelementptr inbounds i8, ptr %0, i64 176
+  %end20 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %8 = load ptr, ptr %end20, align 8
   %cmp21 = icmp eq ptr %7, %8
   br i1 %cmp21, label %land.lhs.true23, label %cond.false28
 
 land.lhs.true23:                                  ; preds = %for.end
-  %pool17 = getelementptr inbounds i8, ptr %0, i64 160
+  %pool17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %call25 = tail call fastcc zeroext i8 @poolGrow(ptr noundef nonnull %pool17)
   %tobool26.not = icmp eq i8 %call25, 0
   br i1 %tobool26.not, label %return, label %land.lhs.true23.cond.false28_crit_edge
@@ -18469,8 +18469,8 @@ cond.false28:                                     ; preds = %land.lhs.true23.con
   %incdec.ptr31 = getelementptr i8, ptr %9, i64 1
   store ptr %incdec.ptr31, ptr %ptr18, align 8
   store i8 0, ptr %9, align 1
-  %prefixes = getelementptr inbounds i8, ptr %0, i64 120
-  %start = getelementptr inbounds i8, ptr %0, i64 192
+  %prefixes = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %start = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = load ptr, ptr %start, align 8
   %call35 = tail call fastcc ptr @lookup(ptr noundef %parser, ptr noundef nonnull %prefixes, ptr noundef %10, i64 noundef 16)
   %tobool36.not = icmp eq ptr %call35, null
@@ -18492,7 +18492,7 @@ if.else:                                          ; preds = %if.end38
   br label %if.end53
 
 if.end53:                                         ; preds = %if.else, %if.then44
-  %prefix54 = getelementptr inbounds i8, ptr %elementType, i64 8
+  %prefix54 = getelementptr inbounds nuw i8, ptr %elementType, i64 8
   store ptr %call35, ptr %prefix54, align 8
   br label %return
 
@@ -18558,7 +18558,7 @@ land.lhs.true33:                                  ; preds = %land.lhs.true27
   br i1 %cmp37, label %return, label %for.body.lr.ph.split
 
 for.body.lr.ph.split.us:                          ; preds = %if.then21
-  %m_ns = getelementptr inbounds i8, ptr %parser, i64 456
+  %m_ns = getelementptr inbounds nuw i8, ptr %parser, i64 456
   %8 = load i8, ptr %m_ns, align 8
   %tobool85.not = icmp eq i8 %8, 0
   br i1 %tobool85.not, label %for.body.us.us, label %for.body.lr.ph.split.us.split
@@ -18594,7 +18594,7 @@ if.end65.us.us:                                   ; preds = %if.then64.us.us, %l
   br i1 %tobool50.not.us.us, label %for.end, label %for.body.us.us, !llvm.loop !78
 
 for.body.lr.ph.split.us.split:                    ; preds = %for.body.lr.ph.split.us
-  %m_namespaceSeparator = getelementptr inbounds i8, ptr %parser, i64 892
+  %m_namespaceSeparator = getelementptr inbounds nuw i8, ptr %parser, i64 892
   %12 = load i8, ptr %m_namespaceSeparator, align 4
   br label %for.body.us
 
@@ -18722,7 +18722,7 @@ for.inc.us:                                       ; preds = %land.lhs.true93.us,
   br i1 %tobool50.not.us, label %for.end, label %for.body.us, !llvm.loop !78
 
 for.body.lr.ph.split:                             ; preds = %if.then21, %land.lhs.true27, %land.lhs.true33, %if.end, %land.lhs.true4, %land.lhs.true9, %land.lhs.true15
-  %m_ns157 = getelementptr inbounds i8, ptr %parser, i64 456
+  %m_ns157 = getelementptr inbounds nuw i8, ptr %parser, i64 456
   %16 = load i8, ptr %m_ns157, align 8
   %tobool85.not158 = icmp eq i8 %16, 0
   br i1 %tobool85.not158, label %for.body.us109, label %for.body.lr.ph.split.split
@@ -18777,7 +18777,7 @@ if.end83.us123:                                   ; preds = %if.then82.us, %lor.
   br i1 %tobool50.not.us129, label %for.end, label %for.body.us109, !llvm.loop !78
 
 for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.split
-  %m_namespaceSeparator159 = getelementptr inbounds i8, ptr %parser, i64 892
+  %m_namespaceSeparator159 = getelementptr inbounds nuw i8, ptr %parser, i64 892
   %21 = load i8, ptr %m_namespaceSeparator159, align 4
   br label %for.body
 
@@ -18943,18 +18943,18 @@ if.end119:                                        ; preds = %for.end
   br i1 %28, label %return, label %if.end122
 
 if.end122:                                        ; preds = %if.end119
-  %m_namespaceSeparator123 = getelementptr inbounds i8, ptr %parser, i64 892
+  %m_namespaceSeparator123 = getelementptr inbounds nuw i8, ptr %parser, i64 892
   %29 = load i8, ptr %m_namespaceSeparator123, align 4
   %tobool124.not = icmp ne i8 %29, 0
   %inc126 = zext i1 %tobool124.not to i32
   %spec.select = add i32 %len.0.lcssa, %inc126
-  %m_freeBindingList = getelementptr inbounds i8, ptr %parser, i64 712
+  %m_freeBindingList = getelementptr inbounds nuw i8, ptr %parser, i64 712
   %30 = load ptr, ptr %m_freeBindingList, align 8
   %tobool128.not = icmp eq ptr %30, null
   br i1 %tobool128.not, label %if.else, label %if.then129
 
 if.then129:                                       ; preds = %if.end122
-  %uriAlloc = getelementptr inbounds i8, ptr %30, i64 44
+  %uriAlloc = getelementptr inbounds nuw i8, ptr %30, i64 44
   %31 = load i32, ptr %uriAlloc, align 4
   %cmp131 = icmp sgt i32 %spec.select, %31
   br i1 %cmp131, label %if.then133, label %if.end148
@@ -18964,9 +18964,9 @@ if.then133:                                       ; preds = %if.then129
   br i1 %cmp134, label %return, label %if.end137
 
 if.end137:                                        ; preds = %if.then133
-  %realloc_fcn = getelementptr inbounds i8, ptr %parser, i64 32
+  %realloc_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 32
   %32 = load ptr, ptr %realloc_fcn, align 8
-  %uri138 = getelementptr inbounds i8, ptr %30, i64 32
+  %uri138 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %33 = load ptr, ptr %uri138, align 8
   %add = add nsw i32 %spec.select, 24
   %conv139 = sext i32 %add to i64
@@ -18980,15 +18980,15 @@ if.end144:                                        ; preds = %if.end137
   br label %if.end148
 
 if.end148:                                        ; preds = %if.end144, %if.then129
-  %nextTagBinding = getelementptr inbounds i8, ptr %30, i64 8
+  %nextTagBinding = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load ptr, ptr %nextTagBinding, align 8
   store ptr %34, ptr %m_freeBindingList, align 8
-  %uri174.phi.trans.insert = getelementptr inbounds i8, ptr %30, i64 32
+  %uri174.phi.trans.insert = getelementptr inbounds nuw i8, ptr %30, i64 32
   %.pre = load ptr, ptr %uri174.phi.trans.insert, align 8
   br label %if.end173
 
 if.else:                                          ; preds = %if.end122
-  %m_mem150 = getelementptr inbounds i8, ptr %parser, i64 24
+  %m_mem150 = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %35 = load ptr, ptr %m_mem150, align 8
   %call151 = tail call ptr %35(i64 noundef 48) #25
   %tobool152.not = icmp eq ptr %call151, null
@@ -19001,26 +19001,26 @@ if.end158:                                        ; preds = %if.else
   %add161 = add nsw i32 %spec.select, 24
   %conv162 = sext i32 %add161 to i64
   %call164 = tail call ptr %36(i64 noundef %conv162) #25
-  %uri165 = getelementptr inbounds i8, ptr %call151, i64 32
+  %uri165 = getelementptr inbounds nuw i8, ptr %call151, i64 32
   store ptr %call164, ptr %uri165, align 8
   %tobool167.not = icmp eq ptr %call164, null
   br i1 %tobool167.not, label %if.then168, label %if.end170
 
 if.then168:                                       ; preds = %if.end158
-  %free_fcn = getelementptr inbounds i8, ptr %parser, i64 40
+  %free_fcn = getelementptr inbounds nuw i8, ptr %parser, i64 40
   %37 = load ptr, ptr %free_fcn, align 8
   tail call void %37(ptr noundef nonnull %call151) #25
   br label %return
 
 if.end170:                                        ; preds = %if.end158
-  %uriAlloc172 = getelementptr inbounds i8, ptr %call151, i64 44
+  %uriAlloc172 = getelementptr inbounds nuw i8, ptr %call151, i64 44
   store i32 %add161, ptr %uriAlloc172, align 4
   br label %if.end173
 
 if.end173:                                        ; preds = %if.end170, %if.end148
   %38 = phi ptr [ %.pre, %if.end148 ], [ %call164, %if.end170 ]
   %b.0 = phi ptr [ %30, %if.end148 ], [ %call151, %if.end170 ]
-  %uriLen = getelementptr inbounds i8, ptr %b.0, i64 40
+  %uriLen = getelementptr inbounds nuw i8, ptr %b.0, i64 40
   store i32 %spec.select, ptr %uriLen, align 8
   %conv175 = sext i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr nonnull align 1 %uri, i64 %conv175, i1 false)
@@ -19029,7 +19029,7 @@ if.end173:                                        ; preds = %if.end170, %if.end1
   br i1 %tobool178.not, label %if.end184, label %if.then179
 
 if.then179:                                       ; preds = %if.end173
-  %uri174 = getelementptr inbounds i8, ptr %b.0, i64 32
+  %uri174 = getelementptr inbounds nuw i8, ptr %b.0, i64 32
   %40 = load ptr, ptr %uri174, align 8
   %sub = add i32 %spec.select, -1
   %idxprom182 = sext i32 %sub to i64
@@ -19039,20 +19039,20 @@ if.then179:                                       ; preds = %if.end173
 
 if.end184:                                        ; preds = %if.then179, %if.end173
   store ptr %prefix, ptr %b.0, align 8
-  %attId186 = getelementptr inbounds i8, ptr %b.0, i64 24
+  %attId186 = getelementptr inbounds nuw i8, ptr %b.0, i64 24
   store ptr %attId, ptr %attId186, align 8
-  %binding = getelementptr inbounds i8, ptr %prefix, i64 8
+  %binding = getelementptr inbounds nuw i8, ptr %prefix, i64 8
   %41 = load ptr, ptr %binding, align 8
-  %prevPrefixBinding = getelementptr inbounds i8, ptr %b.0, i64 16
+  %prevPrefixBinding = getelementptr inbounds nuw i8, ptr %b.0, i64 16
   store ptr %41, ptr %prevPrefixBinding, align 8
   %42 = load i8, ptr %uri, align 1
   %cmp188 = icmp eq i8 %42, 0
   br i1 %cmp188, label %land.lhs.true190, label %if.else195
 
 land.lhs.true190:                                 ; preds = %if.end184
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %43 = load ptr, ptr %m_dtd, align 8
-  %defaultPrefix = getelementptr inbounds i8, ptr %43, i64 304
+  %defaultPrefix = getelementptr inbounds nuw i8, ptr %43, i64 304
   %cmp191 = icmp eq ptr %prefix, %defaultPrefix
   br i1 %cmp191, label %if.end197, label %if.else195
 
@@ -19063,20 +19063,20 @@ if.end197:                                        ; preds = %land.lhs.true190, %
   %storemerge = phi ptr [ %b.0, %if.else195 ], [ null, %land.lhs.true190 ]
   store ptr %storemerge, ptr %binding, align 8
   %44 = load ptr, ptr %bindingsPtr, align 8
-  %nextTagBinding198 = getelementptr inbounds i8, ptr %b.0, i64 8
+  %nextTagBinding198 = getelementptr inbounds nuw i8, ptr %b.0, i64 8
   store ptr %44, ptr %nextTagBinding198, align 8
   store ptr %b.0, ptr %bindingsPtr, align 8
   %tobool199.not = icmp eq ptr %attId, null
   br i1 %tobool199.not, label %return, label %land.lhs.true200
 
 land.lhs.true200:                                 ; preds = %if.end197
-  %m_startNamespaceDeclHandler = getelementptr inbounds i8, ptr %parser, i64 200
+  %m_startNamespaceDeclHandler = getelementptr inbounds nuw i8, ptr %parser, i64 200
   %45 = load ptr, ptr %m_startNamespaceDeclHandler, align 8
   %tobool201.not = icmp eq ptr %45, null
   br i1 %tobool201.not, label %return, label %if.then202
 
 if.then202:                                       ; preds = %land.lhs.true200
-  %m_handlerArg = getelementptr inbounds i8, ptr %parser, i64 8
+  %m_handlerArg = getelementptr inbounds nuw i8, ptr %parser, i64 8
   %46 = load ptr, ptr %m_handlerArg, align 8
   %47 = load ptr, ptr %prefix, align 8
   %48 = load ptr, ptr %binding, align 8
@@ -19093,9 +19093,9 @@ return:                                           ; preds = %land.lhs.true93.us,
 ; Function Attrs: nounwind uwtable
 define internal i32 @externalEntityContentProcessor(ptr noundef %parser, ptr noundef %start, ptr noundef %end, ptr nocapture noundef writeonly %endPtr) #0 {
 entry:
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %1 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %1, 0
   %conv = zext i1 %tobool.not to i8
@@ -19104,29 +19104,29 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %m_tagStack.i = getelementptr inbounds i8, ptr %parser, i64 688
-  %realloc_fcn.i = getelementptr inbounds i8, ptr %parser, i64 32
+  %m_tagStack.i = getelementptr inbounds nuw i8, ptr %parser, i64 688
+  %realloc_fcn.i = getelementptr inbounds nuw i8, ptr %parser, i64 32
   %tag.035.i = load ptr, ptr %m_tagStack.i, align 8
   %tobool.not36.i = icmp eq ptr %tag.035.i, null
   br i1 %tobool.not36.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %if.end50.i
   %tag.037.i = phi ptr [ %tag.0.i, %if.end50.i ], [ %tag.035.i, %if.then ]
-  %name.i = getelementptr inbounds i8, ptr %tag.037.i, i64 24
-  %strLen.i = getelementptr inbounds i8, ptr %tag.037.i, i64 48
+  %name.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 24
+  %strLen.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 48
   %2 = load i32, ptr %strLen.i, align 8
   %add.i = add i32 %2, 1
   %conv.i = sext i32 %add.i to i64
-  %buf.i = getelementptr inbounds i8, ptr %tag.037.i, i64 64
+  %buf.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 64
   %3 = load ptr, ptr %buf.i, align 8
   %add.ptr.i = getelementptr i8, ptr %3, i64 %conv.i
-  %rawName.i = getelementptr inbounds i8, ptr %tag.037.i, i64 8
+  %rawName.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 8
   %4 = load ptr, ptr %rawName.i, align 8
   %cmp.i = icmp eq ptr %4, %add.ptr.i
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %rawNameLength.i = getelementptr inbounds i8, ptr %tag.037.i, i64 16
+  %rawNameLength.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 16
   %5 = load i32, ptr %rawNameLength.i, align 8
   %conv3.i = sext i32 %5 to i64
   %sub.i = sub nsw i64 2147483647, %conv.i
@@ -19136,7 +19136,7 @@ if.end.i:                                         ; preds = %while.body.i
 if.end9.i:                                        ; preds = %if.end.i
   %add11.i = add i32 %5, %add.i
   %conv12.i = sext i32 %add11.i to i64
-  %bufEnd.i = getelementptr inbounds i8, ptr %tag.037.i, i64 72
+  %bufEnd.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 72
   %6 = load ptr, ptr %bufEnd.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
@@ -19161,7 +19161,7 @@ if.then27.i:                                      ; preds = %if.end22.i
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then27.i, %if.end22.i
-  %localPart.i = getelementptr inbounds i8, ptr %tag.037.i, i64 32
+  %localPart.i = getelementptr inbounds nuw i8, ptr %tag.037.i, i64 32
   %10 = load ptr, ptr %localPart.i, align 8
   %tobool32.not.i = icmp eq ptr %10, null
   br i1 %tobool32.not.i, label %if.end43.i, label %if.then33.i
@@ -19207,33 +19207,33 @@ entry:
   %next = alloca ptr, align 8
   %buf = alloca [4 x i8], align 1
   %ch = alloca i8, align 1
-  %m_dtd = getelementptr inbounds i8, ptr %parser, i64 672
+  %m_dtd = getelementptr inbounds nuw i8, ptr %parser, i64 672
   %0 = load ptr, ptr %m_dtd, align 8
-  %literalScanners = getelementptr inbounds i8, ptr %enc, i64 32
+  %literalScanners = getelementptr inbounds nuw i8, ptr %enc, i64 32
   %cmp.i = icmp eq i32 %account, 2
   %cmp1.i = icmp eq i32 %account, 0
-  %predefinedEntityName = getelementptr inbounds i8, ptr %enc, i64 88
-  %minBytesPerChar85 = getelementptr inbounds i8, ptr %enc, i64 128
-  %add.ptr95 = getelementptr inbounds i8, ptr %ch, i64 1
-  %ptr97 = getelementptr inbounds i8, ptr %pool, i64 24
-  %end98 = getelementptr inbounds i8, ptr %pool, i64 16
-  %m_temp2Pool = getelementptr inbounds i8, ptr %parser, i64 832
-  %ptr1.i.i = getelementptr inbounds i8, ptr %parser, i64 856
-  %utf8Convert.i.i = getelementptr inbounds i8, ptr %enc, i64 112
-  %end4.i.i = getelementptr inbounds i8, ptr %parser, i64 848
-  %start.i.i = getelementptr inbounds i8, ptr %parser, i64 864
-  %size.i = getelementptr inbounds i8, ptr %0, i64 16
-  %power30.i = getelementptr inbounds i8, ptr %0, i64 8
-  %pool127 = getelementptr inbounds i8, ptr %0, i64 160
+  %predefinedEntityName = getelementptr inbounds nuw i8, ptr %enc, i64 88
+  %minBytesPerChar85 = getelementptr inbounds nuw i8, ptr %enc, i64 128
+  %add.ptr95 = getelementptr inbounds nuw i8, ptr %ch, i64 1
+  %ptr97 = getelementptr inbounds nuw i8, ptr %pool, i64 24
+  %end98 = getelementptr inbounds nuw i8, ptr %pool, i64 16
+  %m_temp2Pool = getelementptr inbounds nuw i8, ptr %parser, i64 832
+  %ptr1.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 856
+  %utf8Convert.i.i = getelementptr inbounds nuw i8, ptr %enc, i64 112
+  %end4.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 848
+  %start.i.i = getelementptr inbounds nuw i8, ptr %parser, i64 864
+  %size.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %power30.i = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %pool127 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %cmp128 = icmp eq ptr %pool, %pool127
-  %hasParamEntityRefs142 = getelementptr inbounds i8, ptr %0, i64 257
-  %standalone144 = getelementptr inbounds i8, ptr %0, i64 258
-  %documentEntity = getelementptr inbounds i8, ptr %parser, i64 516
-  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
-  %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
+  %hasParamEntityRefs142 = getelementptr inbounds nuw i8, ptr %0, i64 257
+  %standalone144 = getelementptr inbounds nuw i8, ptr %0, i64 258
+  %documentEntity = getelementptr inbounds nuw i8, ptr %parser, i64 516
+  %m_openInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 568
+  %m_internalEncoding = getelementptr inbounds nuw i8, ptr %parser, i64 440
   %tobool54.not = icmp eq i8 %isCdata, 0
-  %start57 = getelementptr inbounds i8, ptr %pool, i64 32
-  %charRefNumber = getelementptr inbounds i8, ptr %enc, i64 80
+  %start57 = getelementptr inbounds nuw i8, ptr %pool, i64 32
+  %charRefNumber = getelementptr inbounds nuw i8, ptr %enc, i64 80
   br label %for.cond
 
 for.cond:                                         ; preds = %sw.epilog, %entry
@@ -19255,7 +19255,7 @@ sw.epilog.i:                                      ; preds = %for.cond
 while.cond.i.i:                                   ; preds = %sw.epilog.i, %while.cond.i.i
   %rootParser.0.i.i = phi ptr [ %3, %while.cond.i.i ], [ %parser, %sw.epilog.i ]
   %stepsTakenUpwards.0.i.i = phi i32 [ %inc.i.i, %while.cond.i.i ], [ 0, %sw.epilog.i ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %3 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   %inc.i.i = add i32 %stepsTakenUpwards.0.i.i, 1
@@ -19267,8 +19267,8 @@ getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %ptr.addr.0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_accounting.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
-  %countBytesIndirect.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
+  %m_accounting.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 928
+  %countBytesIndirect.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 936
   %cond.i = select i1 %4, ptr %m_accounting.i, ptr %countBytesIndirect.i
   %5 = load i64, ptr %cond.i, align 8
   %sub.i = xor i64 %sub.ptr.sub.i, -1
@@ -19281,7 +19281,7 @@ if.end6.i:                                        ; preds = %getRootParserOf.exi
   %6 = load i64, ptr %m_accounting.i, align 8
   %7 = load i64, ptr %countBytesIndirect.i, align 8
   %add11.i = add i64 %7, %6
-  %activationThresholdBytes.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 952
+  %activationThresholdBytes.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 952
   %8 = load i64, ptr %activationThresholdBytes.i, align 8
   %cmp14.i = icmp ult i64 %add11.i, %8
   br i1 %cmp14.i, label %lor.end.i, label %lor.rhs.i
@@ -19292,36 +19292,36 @@ lor.rhs.i:                                        ; preds = %if.end6.i
   %conv6.i.i = uitofp i64 %6 to float
   %div.i.i = fdiv float %conv.i.i, %conv6.i.i
   %cond.i.i = select i1 %tobool.not.i19.i, float 1.000000e+00, float %div.i.i
-  %maximumAmplificationFactor.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 948
+  %maximumAmplificationFactor.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 948
   %9 = load float, ptr %maximumAmplificationFactor.i, align 4
   %cmp16.i = fcmp ugt float %cond.i.i, %9
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6.i
   %conv.i = phi i1 [ false, %if.end6.i ], [ %cmp16.i, %lor.rhs.i ]
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 944
   %10 = load i32, ptr %debugLevel.i, align 8
   %cmp18.i = icmp sgt i32 %10, 1
   br i1 %cmp18.i, label %while.cond.i.i186, label %accountingDiffTolerated.exit
 
 while.cond.i.i186:                                ; preds = %lor.end.i, %while.cond.i.i186
   %rootParser.0.i.i187 = phi ptr [ %11, %while.cond.i.i186 ], [ %rootParser.0.i.i, %lor.end.i ]
-  %m_parentParser.i.i188 = getelementptr inbounds i8, ptr %rootParser.0.i.i187, i64 896
+  %m_parentParser.i.i188 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i187, i64 896
   %11 = load ptr, ptr %m_parentParser.i.i188, align 8
   %tobool.not.i.i189 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i189, label %getRootParserOf.exit.i190, label %while.cond.i.i186, !llvm.loop !26
 
 getRootParserOf.exit.i190:                        ; preds = %while.cond.i.i186
-  %debugLevel.i191 = getelementptr inbounds i8, ptr %rootParser.0.i.i187, i64 944
+  %debugLevel.i191 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i187, i64 944
   %12 = load i32, ptr %debugLevel.i191, align 8
   %cmp.i192 = icmp slt i32 %12, 1
   br i1 %cmp.i192, label %accountingReportStats.exit, label %if.end.i193
 
 if.end.i193:                                      ; preds = %getRootParserOf.exit.i190
-  %m_accounting.i194 = getelementptr inbounds i8, ptr %rootParser.0.i.i187, i64 928
+  %m_accounting.i194 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i187, i64 928
   %13 = load i64, ptr %m_accounting.i194, align 8
   %tobool.not.i5.i = icmp eq i64 %13, 0
-  %countBytesIndirect.phi.trans.insert.i = getelementptr inbounds i8, ptr %rootParser.0.i.i187, i64 936
+  %countBytesIndirect.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i187, i64 936
   %.pre.i195 = load i64, ptr %countBytesIndirect.phi.trans.insert.i, align 8
   br i1 %tobool.not.i5.i, label %accountingGetCurrentAmplification.exit.i, label %cond.true.i.i
 
@@ -19351,22 +19351,22 @@ while.cond.i.i.i.preheader:                       ; preds = %getRootParserOf.exi
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %16, %while.cond.i.i.i ], [ %parser, %while.cond.i.i.i.preheader ]
-  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
+  %m_parentParser.i.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 896
   %16 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 944
   %17 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %17, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
+  %m_accounting.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 928
   %18 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %18, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -19398,25 +19398,25 @@ if.end:                                           ; preds = %sw.epilog.i, %accou
   ]
 
 sw.bb2:                                           ; preds = %for.cond, %if.end
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %21 = load ptr, ptr %m_encoding, align 8
   %cmp = icmp eq ptr %enc, %21
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %sw.bb2
   %22 = load ptr, ptr %next, align 8
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %22, ptr %m_eventPtr, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %for.cond, %if.end
-  %m_encoding6 = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding6 = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %23 = load ptr, ptr %m_encoding6, align 8
   %cmp7 = icmp eq ptr %enc, %23
   br i1 %cmp7, label %if.then8, label %return
 
 if.then8:                                         ; preds = %sw.bb5
-  %m_eventPtr9 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr9 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr9, align 8
   br label %return
 
@@ -19427,13 +19427,13 @@ sw.bb11:                                          ; preds = %if.end
   br i1 %cmp13, label %if.then14, label %if.end20
 
 if.then14:                                        ; preds = %sw.bb11
-  %m_encoding15 = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding15 = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %25 = load ptr, ptr %m_encoding15, align 8
   %cmp16 = icmp eq ptr %enc, %25
   br i1 %cmp16, label %if.then17, label %return
 
 if.then17:                                        ; preds = %if.then14
-  %m_eventPtr18 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr18 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr18, align 8
   br label %return
 
@@ -19588,14 +19588,14 @@ sw.bb84:                                          ; preds = %if.end
 while.cond.i.i110:                                ; preds = %sw.bb84, %while.cond.i.i110
   %rootParser.0.i.i111 = phi ptr [ %46, %while.cond.i.i110 ], [ %parser, %sw.bb84 ]
   %stepsTakenUpwards.0.i.i112 = phi i32 [ %inc.i.i115, %while.cond.i.i110 ], [ 0, %sw.bb84 ]
-  %m_parentParser.i.i113 = getelementptr inbounds i8, ptr %rootParser.0.i.i111, i64 896
+  %m_parentParser.i.i113 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i111, i64 896
   %46 = load ptr, ptr %m_parentParser.i.i113, align 8
   %tobool.not.i.i114 = icmp eq ptr %46, null
   %inc.i.i115 = add i32 %stepsTakenUpwards.0.i.i112, 1
   br i1 %tobool.not.i.i114, label %getRootParserOf.exit.i116, label %while.cond.i.i110, !llvm.loop !26
 
 getRootParserOf.exit.i116:                        ; preds = %while.cond.i.i110
-  %countBytesIndirect.i122 = getelementptr inbounds i8, ptr %rootParser.0.i.i111, i64 936
+  %countBytesIndirect.i122 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i111, i64 936
   %47 = load i64, ptr %countBytesIndirect.i122, align 8
   %cmp4.i125 = icmp eq i64 %47, -1
   br i1 %cmp4.i125, label %accountingDiffTolerated.exit145, label %if.end6.i126
@@ -19603,7 +19603,7 @@ getRootParserOf.exit.i116:                        ; preds = %while.cond.i.i110
 if.end6.i126:                                     ; preds = %getRootParserOf.exit.i116
   %add.i127 = add nuw i64 %47, 1
   store i64 %add.i127, ptr %countBytesIndirect.i122, align 8
-  %debugLevel.i141 = getelementptr inbounds i8, ptr %rootParser.0.i.i111, i64 944
+  %debugLevel.i141 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i111, i64 944
   %48 = load i32, ptr %debugLevel.i141, align 8
   %cmp18.i142 = icmp sgt i32 %48, 1
   br i1 %cmp18.i142, label %if.then20.i144, label %accountingDiffTolerated.exit145
@@ -19818,7 +19818,7 @@ if.then150:                                       ; preds = %cond.true134, %lor.
   br i1 %tobool151.not, label %return, label %if.else153
 
 if.else153:                                       ; preds = %if.then150
-  %is_internal = getelementptr inbounds i8, ptr %retval.0.i155, i64 58
+  %is_internal = getelementptr inbounds nuw i8, ptr %retval.0.i155, i64 58
   %84 = load i8, ptr %is_internal, align 2
   %tobool154.not = icmp eq i8 %84, 0
   br i1 %tobool154.not, label %return, label %if.end162
@@ -19828,58 +19828,58 @@ if.else158:                                       ; preds = %cond.true134, %lor.
   br i1 %tobool159.not, label %sw.epilog, label %if.end162
 
 if.end162:                                        ; preds = %if.else158, %if.else153
-  %open = getelementptr inbounds i8, ptr %retval.0.i155, i64 56
+  %open = getelementptr inbounds nuw i8, ptr %retval.0.i155, i64 56
   %85 = load i8, ptr %open, align 8
   %tobool163.not = icmp eq i8 %85, 0
   br i1 %tobool163.not, label %if.end171, label %if.then164
 
 if.then164:                                       ; preds = %if.end162
-  %m_encoding165 = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding165 = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %86 = load ptr, ptr %m_encoding165, align 8
   %cmp166 = icmp eq ptr %enc, %86
   br i1 %cmp166, label %if.then168, label %return
 
 if.then168:                                       ; preds = %if.then164
-  %m_eventPtr169 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr169 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr169, align 8
   br label %return
 
 if.end171:                                        ; preds = %if.end162
-  %notation = getelementptr inbounds i8, ptr %retval.0.i155, i64 48
+  %notation = getelementptr inbounds nuw i8, ptr %retval.0.i155, i64 48
   %87 = load ptr, ptr %notation, align 8
   %tobool172.not = icmp eq ptr %87, null
   br i1 %tobool172.not, label %if.end180, label %if.then173
 
 if.then173:                                       ; preds = %if.end171
-  %m_encoding174 = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding174 = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %88 = load ptr, ptr %m_encoding174, align 8
   %cmp175 = icmp eq ptr %enc, %88
   br i1 %cmp175, label %if.then177, label %return
 
 if.then177:                                       ; preds = %if.then173
-  %m_eventPtr178 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr178 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr178, align 8
   br label %return
 
 if.end180:                                        ; preds = %if.end171
-  %textPtr = getelementptr inbounds i8, ptr %retval.0.i155, i64 8
+  %textPtr = getelementptr inbounds nuw i8, ptr %retval.0.i155, i64 8
   %89 = load ptr, ptr %textPtr, align 8
   %tobool181.not = icmp eq ptr %89, null
   br i1 %tobool181.not, label %if.then182, label %if.else189
 
 if.then182:                                       ; preds = %if.end180
-  %m_encoding183 = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding183 = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %90 = load ptr, ptr %m_encoding183, align 8
   %cmp184 = icmp eq ptr %enc, %90
   br i1 %cmp184, label %if.then186, label %return
 
 if.then186:                                       ; preds = %if.then182
-  %m_eventPtr187 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr187 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr187, align 8
   br label %return
 
 if.else189:                                       ; preds = %if.end180
-  %textLen = getelementptr inbounds i8, ptr %retval.0.i155, i64 16
+  %textLen = getelementptr inbounds nuw i8, ptr %retval.0.i155, i64 16
   %91 = load i32, ptr %textLen, align 8
   %idx.ext191 = sext i32 %91 to i64
   store i8 1, ptr %open, align 8
@@ -19887,22 +19887,22 @@ if.else189:                                       ; preds = %if.end180
 
 while.cond.i.i158:                                ; preds = %while.cond.i.i158, %if.else189
   %rootParser.0.i.i159 = phi ptr [ %parser, %if.else189 ], [ %92, %while.cond.i.i158 ]
-  %m_parentParser.i.i160 = getelementptr inbounds i8, ptr %rootParser.0.i.i159, i64 896
+  %m_parentParser.i.i160 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i159, i64 896
   %92 = load ptr, ptr %m_parentParser.i.i160, align 8
   %tobool.not.i.i161 = icmp eq ptr %92, null
   br i1 %tobool.not.i.i161, label %getRootParserOf.exit.i162, label %while.cond.i.i158, !llvm.loop !26
 
 getRootParserOf.exit.i162:                        ; preds = %while.cond.i.i158
   %add.ptr192 = getelementptr i8, ptr %89, i64 %idx.ext191
-  %m_entity_stats.i = getelementptr inbounds i8, ptr %rootParser.0.i.i159, i64 960
+  %m_entity_stats.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i159, i64 960
   %93 = load i32, ptr %m_entity_stats.i, align 8
   %inc.i = add i32 %93, 1
   store i32 %inc.i, ptr %m_entity_stats.i, align 8
-  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i.i159, i64 964
+  %currentDepth.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i159, i64 964
   %94 = load i32, ptr %currentDepth.i, align 4
   %inc2.i = add i32 %94, 1
   store i32 %inc2.i, ptr %currentDepth.i, align 4
-  %maximumDepthSeen.i = getelementptr inbounds i8, ptr %rootParser.0.i.i159, i64 968
+  %maximumDepthSeen.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i159, i64 968
   %95 = load i32, ptr %maximumDepthSeen.i, align 8
   %cmp.i163 = icmp ugt i32 %inc2.i, %95
   br i1 %cmp.i163, label %if.then.i170, label %if.end.i164
@@ -19914,7 +19914,7 @@ if.then.i170:                                     ; preds = %getRootParserOf.exi
 
 if.end.i164:                                      ; preds = %if.then.i170, %getRootParserOf.exit.i162
   %96 = phi i32 [ %inc8.i, %if.then.i170 ], [ %95, %getRootParserOf.exit.i162 ]
-  %debugLevel.i.i165 = getelementptr inbounds i8, ptr %rootParser.0.i.i159, i64 972
+  %debugLevel.i.i165 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i159, i64 972
   %97 = load i32, ptr %debugLevel.i.i165, align 4
   %cmp.i.i166 = icmp slt i32 %97, 1
   br i1 %cmp.i.i166, label %entityTrackingOnOpen.exit, label %if.end.i.i167
@@ -19924,7 +19924,7 @@ if.end.i.i167:                                    ; preds = %if.end.i164
   %99 = load ptr, ptr @stderr, align 8
   %sub.i.i = shl i32 %inc2.i, 1
   %mul.i.i = add i32 %sub.i.i, -2
-  %is_param.i.i = getelementptr inbounds i8, ptr %retval.0.i155, i64 57
+  %is_param.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i155, i64 57
   %100 = load i8, ptr %is_param.i.i, align 1
   %tobool.not.i6.i = icmp eq i8 %100, 0
   %cond.i.i168 = select i1 %tobool.not.i6.i, ptr @.str.89, ptr @.str.88
@@ -19940,29 +19940,29 @@ entityTrackingOnOpen.exit:                        ; preds = %if.end.i164, %if.en
 
 while.cond.i.i171:                                ; preds = %while.cond.i.i171, %entityTrackingOnOpen.exit
   %rootParser.0.i.i172 = phi ptr [ %parser, %entityTrackingOnOpen.exit ], [ %104, %while.cond.i.i171 ]
-  %m_parentParser.i.i173 = getelementptr inbounds i8, ptr %rootParser.0.i.i172, i64 896
+  %m_parentParser.i.i173 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i172, i64 896
   %104 = load ptr, ptr %m_parentParser.i.i173, align 8
   %tobool.not.i.i174 = icmp eq ptr %104, null
   br i1 %tobool.not.i.i174, label %getRootParserOf.exit.i175, label %while.cond.i.i171, !llvm.loop !26
 
 getRootParserOf.exit.i175:                        ; preds = %while.cond.i.i171
-  %debugLevel.i.i176 = getelementptr inbounds i8, ptr %rootParser.0.i.i172, i64 972
+  %debugLevel.i.i176 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i172, i64 972
   %105 = load i32, ptr %debugLevel.i.i176, align 4
   %cmp.i.i177 = icmp slt i32 %105, 1
   br i1 %cmp.i.i177, label %entityTrackingOnClose.exit, label %if.end.i.i178
 
 if.end.i.i178:                                    ; preds = %getRootParserOf.exit.i175
-  %m_entity_stats.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i172, i64 960
+  %m_entity_stats.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i172, i64 960
   %106 = load ptr, ptr %retval.0.i155, align 8
   %107 = load ptr, ptr @stderr, align 8
   %108 = load i32, ptr %m_entity_stats.i.i, align 8
-  %currentDepth.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i172, i64 964
+  %currentDepth.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i172, i64 964
   %109 = load i32, ptr %currentDepth.i.i, align 4
-  %maximumDepthSeen.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i172, i64 968
+  %maximumDepthSeen.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i172, i64 968
   %110 = load i32, ptr %maximumDepthSeen.i.i, align 8
   %sub.i.i179 = shl i32 %109, 1
   %mul.i.i180 = add i32 %sub.i.i179, -2
-  %is_param.i.i181 = getelementptr inbounds i8, ptr %retval.0.i155, i64 57
+  %is_param.i.i181 = getelementptr inbounds nuw i8, ptr %retval.0.i155, i64 57
   %111 = load i8, ptr %is_param.i.i181, align 1
   %tobool.not.i2.i = icmp eq i8 %111, 0
   %cond.i.i182 = select i1 %tobool.not.i2.i, ptr @.str.89, ptr @.str.88
@@ -19971,7 +19971,7 @@ if.end.i.i178:                                    ; preds = %getRootParserOf.exi
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i175, %if.end.i.i178
-  %currentDepth.i185 = getelementptr inbounds i8, ptr %rootParser.0.i.i172, i64 964
+  %currentDepth.i185 = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i172, i64 964
   %113 = load i32, ptr %currentDepth.i185, align 4
   %dec.i = add i32 %113, -1
   store i32 %dec.i, ptr %currentDepth.i185, align 4
@@ -19980,13 +19980,13 @@ entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exi
   br i1 %tobool197.not, label %sw.epilog, label %return
 
 sw.default:                                       ; preds = %for.cond, %if.end
-  %m_encoding201 = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding201 = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %114 = load ptr, ptr %m_encoding201, align 8
   %cmp202 = icmp eq ptr %enc, %114
   br i1 %cmp202, label %if.then204, label %return
 
 if.then204:                                       ; preds = %sw.default
-  %m_eventPtr205 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr205 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %ptr.addr.0, ptr %m_eventPtr205, align 8
   br label %return
 
@@ -20003,32 +20003,32 @@ return:                                           ; preds = %for.cond, %land.lhs
 define internal i32 @internalEntityProcessor(ptr noundef %parser, ptr noundef %s, ptr noundef %end, ptr noundef %nextPtr) #0 {
 entry:
   %next = alloca ptr, align 8
-  %m_openInternalEntities = getelementptr inbounds i8, ptr %parser, i64 568
+  %m_openInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 568
   %0 = load ptr, ptr %m_openInternalEntities, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %entity1 = getelementptr inbounds i8, ptr %0, i64 24
+  %entity1 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %entity1, align 8
-  %textPtr = getelementptr inbounds i8, ptr %1, i64 8
+  %textPtr = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %textPtr, align 8
-  %processed = getelementptr inbounds i8, ptr %1, i64 20
+  %processed = getelementptr inbounds nuw i8, ptr %1, i64 20
   %3 = load i32, ptr %processed, align 4
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr i8, ptr %2, i64 %idx.ext
-  %textLen = getelementptr inbounds i8, ptr %1, i64 16
+  %textLen = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %textLen, align 8
   %idx.ext3 = sext i32 %4 to i64
   %add.ptr4 = getelementptr i8, ptr %2, i64 %idx.ext3
   store ptr %add.ptr, ptr %next, align 8
-  %is_param = getelementptr inbounds i8, ptr %1, i64 57
+  %is_param = getelementptr inbounds nuw i8, ptr %1, i64 57
   %5 = load i8, ptr %is_param, align 1
   %tobool5.not = icmp eq i8 %5, 0
   br i1 %tobool5.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %m_internalEncoding = getelementptr inbounds i8, ptr %parser, i64 440
+  %m_internalEncoding = getelementptr inbounds nuw i8, ptr %parser, i64 440
   %6 = load ptr, ptr %m_internalEncoding, align 8
   %7 = load ptr, ptr %6, align 8
   %call = call i32 %7(ptr noundef nonnull %6, ptr noundef %add.ptr, ptr noundef %add.ptr4, ptr noundef nonnull %next) #25
@@ -20038,9 +20038,9 @@ if.then6:                                         ; preds = %if.end
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %startTagLevel = getelementptr inbounds i8, ptr %0, i64 32
+  %startTagLevel = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %startTagLevel, align 8
-  %m_internalEncoding10 = getelementptr inbounds i8, ptr %parser, i64 440
+  %m_internalEncoding10 = getelementptr inbounds nuw i8, ptr %parser, i64 440
   %11 = load ptr, ptr %m_internalEncoding10, align 8
   %call11 = call fastcc i32 @doContent(ptr noundef nonnull %parser, i32 noundef %10, ptr noundef %11, ptr noundef %add.ptr, ptr noundef %add.ptr4, ptr noundef nonnull %next, i8 noundef zeroext 0, i32 noundef 1)
   br label %if.end12
@@ -20059,7 +20059,7 @@ while.cond.i.i.preheader:                         ; preds = %land.lhs.true, %if.
   br label %while.cond.i.i
 
 land.lhs.true:                                    ; preds = %if.end14
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %13 = load i32, ptr %m_parsingStatus, align 8
   %cmp16 = icmp eq i32 %13, 3
   br i1 %cmp16, label %if.then17, label %while.cond.i.i.preheader
@@ -20075,25 +20075,25 @@ if.then17:                                        ; preds = %land.lhs.true
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.cond.i.i
   %rootParser.0.i.i = phi ptr [ %15, %while.cond.i.i ], [ %parser, %while.cond.i.i.preheader ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %15 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i, label %getRootParserOf.exit.i, label %while.cond.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 972
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 972
   %16 = load i32, ptr %debugLevel.i.i, align 4
   %cmp.i.i = icmp slt i32 %16, 1
   br i1 %cmp.i.i, label %entityTrackingOnClose.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i
-  %m_entity_stats.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 960
+  %m_entity_stats.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 960
   %17 = load ptr, ptr %1, align 8
   %18 = load ptr, ptr @stderr, align 8
   %19 = load i32, ptr %m_entity_stats.i.i, align 8
-  %currentDepth.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 964
+  %currentDepth.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 964
   %20 = load i32, ptr %currentDepth.i.i, align 4
-  %maximumDepthSeen.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 968
+  %maximumDepthSeen.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 968
   %21 = load i32, ptr %maximumDepthSeen.i.i, align 8
   %sub.i.i = shl i32 %20, 1
   %mul.i.i = add i32 %sub.i.i, -2
@@ -20105,16 +20105,16 @@ if.end.i.i:                                       ; preds = %getRootParserOf.exi
   br label %entityTrackingOnClose.exit
 
 entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exit.i, %if.end.i.i
-  %currentDepth.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 964
+  %currentDepth.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 964
   %24 = load i32, ptr %currentDepth.i, align 4
   %dec.i = add i32 %24, -1
   store i32 %dec.i, ptr %currentDepth.i, align 4
-  %open = getelementptr inbounds i8, ptr %1, i64 56
+  %open = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 0, ptr %open, align 8
-  %next21 = getelementptr inbounds i8, ptr %0, i64 16
+  %next21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %next21, align 8
   store ptr %25, ptr %m_openInternalEntities, align 8
-  %m_freeInternalEntities = getelementptr inbounds i8, ptr %parser, i64 576
+  %m_freeInternalEntities = getelementptr inbounds nuw i8, ptr %parser, i64 576
   %26 = load ptr, ptr %m_freeInternalEntities, align 8
   store ptr %26, ptr %next21, align 8
   store ptr %0, ptr %m_freeInternalEntities, align 8
@@ -20123,7 +20123,7 @@ entityTrackingOnClose.exit:                       ; preds = %getRootParserOf.exi
   br i1 %cmp26.not, label %if.end34, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %entityTrackingOnClose.exit
-  %m_parsingStatus29 = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus29 = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %28 = load i32, ptr %m_parsingStatus29, align 8
   %cmp31 = icmp eq i32 %28, 3
   br i1 %cmp31, label %return, label %if.end34
@@ -20131,13 +20131,13 @@ land.lhs.true28:                                  ; preds = %entityTrackingOnClo
 if.end34:                                         ; preds = %land.lhs.true28, %entityTrackingOnClose.exit
   %29 = load i8, ptr %is_param, align 1
   %tobool36.not = icmp eq i8 %29, 0
-  %m_processor49 = getelementptr inbounds i8, ptr %parser, i64 528
-  %finalBuffer53 = getelementptr inbounds i8, ptr %parser, i64 908
+  %m_processor49 = getelementptr inbounds nuw i8, ptr %parser, i64 528
+  %finalBuffer53 = getelementptr inbounds nuw i8, ptr %parser, i64 908
   br i1 %tobool36.not, label %if.else48, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
   store ptr @prologProcessor, ptr %m_processor49, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %30 = load ptr, ptr %m_encoding, align 8
   %31 = load ptr, ptr %30, align 8
   %call42 = call i32 %31(ptr noundef nonnull %30, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #25
@@ -20151,11 +20151,11 @@ if.then37:                                        ; preds = %if.end34
 
 if.else48:                                        ; preds = %if.end34
   store ptr @contentProcessor, ptr %m_processor49, align 8
-  %m_parentParser = getelementptr inbounds i8, ptr %parser, i64 896
+  %m_parentParser = getelementptr inbounds nuw i8, ptr %parser, i64 896
   %35 = load ptr, ptr %m_parentParser, align 8
   %tobool50.not = icmp ne ptr %35, null
   %cond = zext i1 %tobool50.not to i32
-  %m_encoding51 = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding51 = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %36 = load ptr, ptr %m_encoding51, align 8
   %37 = load i8, ptr %finalBuffer53, align 4
   %tobool54.not = icmp eq i8 %37, 0
@@ -20199,7 +20199,7 @@ define internal i32 @externalEntityInitProcessor2(ptr noundef %parser, ptr nound
 entry:
   %next = alloca ptr, align 8
   store ptr %start, ptr %next, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
@@ -20217,7 +20217,7 @@ sw.bb:                                            ; preds = %entry
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %sw.bb
   %rootParser.0.i.i = phi ptr [ %3, %while.cond.i.i ], [ %parser, %sw.bb ]
   %stepsTakenUpwards.0.i.i = phi i32 [ %inc.i.i, %while.cond.i.i ], [ 0, %sw.bb ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %3 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   %inc.i.i = add i32 %stepsTakenUpwards.0.i.i, 1
@@ -20228,8 +20228,8 @@ getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %start to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_accounting.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
-  %countBytesIndirect.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
+  %m_accounting.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 928
+  %countBytesIndirect.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 936
   %cond.i = select i1 %cmp2.i, ptr %m_accounting.i, ptr %countBytesIndirect.i
   %4 = load i64, ptr %cond.i, align 8
   %sub.i = xor i64 %sub.ptr.sub.i, -1
@@ -20242,7 +20242,7 @@ if.end6.i:                                        ; preds = %getRootParserOf.exi
   %5 = load i64, ptr %m_accounting.i, align 8
   %6 = load i64, ptr %countBytesIndirect.i, align 8
   %add11.i = add i64 %6, %5
-  %activationThresholdBytes.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 952
+  %activationThresholdBytes.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 952
   %7 = load i64, ptr %activationThresholdBytes.i, align 8
   %cmp14.i = icmp ult i64 %add11.i, %7
   br i1 %cmp14.i, label %lor.end.i, label %lor.rhs.i
@@ -20253,14 +20253,14 @@ lor.rhs.i:                                        ; preds = %if.end6.i
   %conv6.i.i = uitofp i64 %5 to float
   %div.i.i = fdiv float %conv.i.i, %conv6.i.i
   %cond.i.i = select i1 %tobool.not.i19.i, float 1.000000e+00, float %div.i.i
-  %maximumAmplificationFactor.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 948
+  %maximumAmplificationFactor.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 948
   %8 = load float, ptr %maximumAmplificationFactor.i, align 4
   %cmp16.i = fcmp ugt float %cond.i.i, %8
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6.i
   %conv.i = phi i1 [ false, %if.end6.i ], [ %cmp16.i, %lor.rhs.i ]
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 944
   %9 = load i32, ptr %debugLevel.i, align 8
   %cmp18.i = icmp sgt i32 %9, 1
   br i1 %cmp18.i, label %if.then20.i, label %accountingDiffTolerated.exit
@@ -20278,22 +20278,22 @@ while.cond.i.i.i.preheader:                       ; preds = %getRootParserOf.exi
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %10, %while.cond.i.i.i ], [ %parser, %while.cond.i.i.i.preheader ]
-  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
+  %m_parentParser.i.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 896
   %10 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 944
   %11 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %11, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
+  %m_accounting.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 928
   %12 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %12, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -20317,7 +20317,7 @@ if.end:                                           ; preds = %accountingDiffToler
   br i1 %cmp, label %land.lhs.true, label %sw.epilog
 
 land.lhs.true:                                    ; preds = %if.end
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %16 = load i8, ptr %finalBuffer, align 4
   %tobool3.not = icmp eq i8 %16, 0
   br i1 %tobool3.not, label %if.then4, label %sw.epilog
@@ -20327,7 +20327,7 @@ if.then4:                                         ; preds = %land.lhs.true
   br label %return
 
 sw.bb6:                                           ; preds = %entry
-  %finalBuffer8 = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer8 = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %17 = load i8, ptr %finalBuffer8, align 4
   %tobool9.not = icmp eq i8 %17, 0
   br i1 %tobool9.not, label %if.then10, label %if.end11
@@ -20337,12 +20337,12 @@ if.then10:                                        ; preds = %sw.bb6
   br label %return
 
 if.end11:                                         ; preds = %sw.bb6
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %start, ptr %m_eventPtr, align 8
   br label %return
 
 sw.bb12:                                          ; preds = %entry
-  %finalBuffer14 = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer14 = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %18 = load i8, ptr %finalBuffer14, align 4
   %tobool15.not = icmp eq i8 %18, 0
   br i1 %tobool15.not, label %if.then16, label %if.end17
@@ -20352,13 +20352,13 @@ if.then16:                                        ; preds = %sw.bb12
   br label %return
 
 if.end17:                                         ; preds = %sw.bb12
-  %m_eventPtr18 = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr18 = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %start, ptr %m_eventPtr18, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %if.end, %land.lhs.true, %entry
   %start.addr.0 = phi ptr [ %start, %entry ], [ %15, %land.lhs.true ], [ %15, %if.end ]
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @externalEntityInitProcessor3, ptr %m_processor, align 8
   %call19 = call i32 @externalEntityInitProcessor3(ptr noundef %parser, ptr noundef %start.addr.0, ptr noundef %end, ptr noundef %endPtr)
   br label %return
@@ -20373,15 +20373,15 @@ define internal i32 @externalEntityInitProcessor3(ptr noundef initializes((544, 
 entry:
   %next = alloca ptr, align 8
   store ptr %start, ptr %next, align 8
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
   store ptr %start, ptr %m_eventPtr, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
   %call = call i32 %1(ptr noundef %0, ptr noundef %start, ptr noundef %end, ptr noundef nonnull %next) #25
   %2 = load ptr, ptr %next, align 8
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   store ptr %2, ptr %m_eventEndPtr, align 8
   switch i32 %call, label %sw.epilog15 [
     i32 12, label %sw.bb
@@ -20395,7 +20395,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %sw.bb
-  %m_parsingStatus = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %3 = load i32, ptr %m_parsingStatus, align 8
   switch i32 %3, label %sw.default [
     i32 3, label %sw.bb3
@@ -20412,7 +20412,7 @@ sw.default:                                       ; preds = %if.end
   br label %sw.epilog15
 
 sw.bb5:                                           ; preds = %entry
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %6 = load i8, ptr %finalBuffer, align 4
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %if.then7, label %return
@@ -20422,7 +20422,7 @@ if.then7:                                         ; preds = %sw.bb5
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %finalBuffer11 = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer11 = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %7 = load i8, ptr %finalBuffer11, align 4
   %tobool12.not = icmp eq i8 %7, 0
   br i1 %tobool12.not, label %if.then13, label %return
@@ -20433,9 +20433,9 @@ if.then13:                                        ; preds = %sw.bb9
 
 sw.epilog15:                                      ; preds = %sw.default, %entry
   %start.addr.0 = phi ptr [ %start, %entry ], [ %5, %sw.default ]
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @externalEntityContentProcessor, ptr %m_processor, align 8
-  %m_tagLevel = getelementptr inbounds i8, ptr %parser, i64 588
+  %m_tagLevel = getelementptr inbounds nuw i8, ptr %parser, i64 588
   store i32 1, ptr %m_tagLevel, align 4
   %call16 = call i32 @externalEntityContentProcessor(ptr noundef nonnull %parser, ptr noundef %start.addr.0, ptr noundef %end, ptr noundef %endPtr)
   br label %return
@@ -20451,25 +20451,25 @@ entry:
   %next.i = alloca ptr, align 8
   %next = alloca ptr, align 8
   store ptr %s, ptr %next, align 8
-  %m_eventPtr = getelementptr inbounds i8, ptr %parser, i64 544
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_eventPtr = getelementptr inbounds nuw i8, ptr %parser, i64 544
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   store ptr %s, ptr %m_eventPtr, align 8
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
   %call53 = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #25
   %2 = load ptr, ptr %next, align 8
-  %m_eventEndPtr = getelementptr inbounds i8, ptr %parser, i64 552
+  %m_eventEndPtr = getelementptr inbounds nuw i8, ptr %parser, i64 552
   store ptr %2, ptr %m_eventEndPtr, align 8
   %cmp54 = icmp slt i32 %call53, 1
   br i1 %cmp54, label %if.then, label %if.else.lr.ph
 
 if.else.lr.ph:                                    ; preds = %entry
-  %finalBuffer26 = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer26 = getelementptr inbounds nuw i8, ptr %parser, i64 908
   br label %if.else
 
 if.then:                                          ; preds = %if.end39, %entry
   %call.lcssa = phi i32 [ %call53, %entry ], [ %call, %if.end39 ]
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %3 = load i8, ptr %finalBuffer, align 4
   %tobool = icmp eq i8 %3, 0
   %cmp2 = icmp ne i32 %call.lcssa, 0
@@ -20506,7 +20506,7 @@ if.then10:                                        ; preds = %if.else
   br i1 %cmp12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then10
-  %m_parsingStatus15 = getelementptr inbounds i8, ptr %parser, i64 904
+  %m_parsingStatus15 = getelementptr inbounds nuw i8, ptr %parser, i64 904
   %7 = load i32, ptr %m_parsingStatus15, align 8
   %cmp16 = icmp eq i32 %7, 2
   br i1 %cmp16, label %return, label %if.end18
@@ -20514,7 +20514,7 @@ if.end14:                                         ; preds = %if.then10
 if.end18:                                         ; preds = %if.end14
   %8 = load ptr, ptr %next, align 8
   store ptr %8, ptr %nextPtr, align 8
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @entityValueProcessor, ptr %m_processor, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %next.i)
   store ptr %8, ptr %next.i, align 8
@@ -20573,7 +20573,7 @@ land.lhs.true24:                                  ; preds = %land.lhs.true22
 while.cond.i.i:                                   ; preds = %land.lhs.true24, %while.cond.i.i
   %rootParser.0.i.i = phi ptr [ %16, %while.cond.i.i ], [ %parser, %land.lhs.true24 ]
   %stepsTakenUpwards.0.i.i = phi i32 [ %inc.i.i, %while.cond.i.i ], [ 0, %land.lhs.true24 ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %16 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %16, null
   %inc.i.i = add i32 %stepsTakenUpwards.0.i.i, 1
@@ -20584,8 +20584,8 @@ getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %s to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_accounting.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
-  %countBytesIndirect.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
+  %m_accounting.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 928
+  %countBytesIndirect.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 936
   %cond.i = select i1 %cmp2.i, ptr %m_accounting.i, ptr %countBytesIndirect.i
   %17 = load i64, ptr %cond.i, align 8
   %sub.i = xor i64 %sub.ptr.sub.i, -1
@@ -20598,7 +20598,7 @@ if.end6.i:                                        ; preds = %getRootParserOf.exi
   %18 = load i64, ptr %m_accounting.i, align 8
   %19 = load i64, ptr %countBytesIndirect.i, align 8
   %add11.i = add i64 %19, %18
-  %activationThresholdBytes.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 952
+  %activationThresholdBytes.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 952
   %20 = load i64, ptr %activationThresholdBytes.i, align 8
   %cmp14.i = icmp ult i64 %add11.i, %20
   br i1 %cmp14.i, label %lor.end.i, label %lor.rhs.i
@@ -20609,14 +20609,14 @@ lor.rhs.i:                                        ; preds = %if.end6.i
   %conv6.i.i = uitofp i64 %18 to float
   %div.i.i = fdiv float %conv.i.i, %conv6.i.i
   %cond.i.i = select i1 %tobool.not.i19.i, float 1.000000e+00, float %div.i.i
-  %maximumAmplificationFactor.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 948
+  %maximumAmplificationFactor.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 948
   %21 = load float, ptr %maximumAmplificationFactor.i, align 4
   %cmp16.i = fcmp ugt float %cond.i.i, %21
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6.i
   %conv.i = phi i1 [ false, %if.end6.i ], [ %cmp16.i, %lor.rhs.i ]
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 944
   %22 = load i32, ptr %debugLevel.i, align 8
   %cmp18.i = icmp sgt i32 %22, 1
   br i1 %cmp18.i, label %if.then20.i, label %accountingDiffTolerated.exit
@@ -20634,22 +20634,22 @@ while.cond.i.i.i.preheader:                       ; preds = %getRootParserOf.exi
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %23, %while.cond.i.i.i ], [ %parser, %while.cond.i.i.i.preheader ]
-  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
+  %m_parentParser.i.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 896
   %23 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 944
   %24 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %24, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
+  %m_accounting.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 928
   %25 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %25, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -20700,7 +20700,7 @@ define internal i32 @externalParEntProcessor(ptr noundef %parser, ptr noundef %s
 entry:
   %next = alloca ptr, align 8
   store ptr %s, ptr %next, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
   %call = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #25
@@ -20708,7 +20708,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %2 = load i8, ptr %finalBuffer, align 4
   %tobool = icmp eq i8 %2, 0
   %cmp2 = icmp ne i32 %call, 0
@@ -20735,7 +20735,7 @@ if.then8:                                         ; preds = %if.else
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.then8
   %rootParser.0.i.i = phi ptr [ %5, %while.cond.i.i ], [ %parser, %if.then8 ]
   %stepsTakenUpwards.0.i.i = phi i32 [ %inc.i.i, %while.cond.i.i ], [ 0, %if.then8 ]
-  %m_parentParser.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 896
+  %m_parentParser.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 896
   %5 = load ptr, ptr %m_parentParser.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   %inc.i.i = add i32 %stepsTakenUpwards.0.i.i, 1
@@ -20746,8 +20746,8 @@ getRootParserOf.exit.i:                           ; preds = %while.cond.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %s to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %m_accounting.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 928
-  %countBytesIndirect.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 936
+  %m_accounting.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 928
+  %countBytesIndirect.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 936
   %cond.i = select i1 %cmp2.i, ptr %m_accounting.i, ptr %countBytesIndirect.i
   %6 = load i64, ptr %cond.i, align 8
   %sub.i = xor i64 %sub.ptr.sub.i, -1
@@ -20760,7 +20760,7 @@ if.end6.i:                                        ; preds = %getRootParserOf.exi
   %7 = load i64, ptr %m_accounting.i, align 8
   %8 = load i64, ptr %countBytesIndirect.i, align 8
   %add11.i = add i64 %8, %7
-  %activationThresholdBytes.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 952
+  %activationThresholdBytes.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 952
   %9 = load i64, ptr %activationThresholdBytes.i, align 8
   %cmp14.i = icmp ult i64 %add11.i, %9
   br i1 %cmp14.i, label %lor.end.i, label %lor.rhs.i
@@ -20771,14 +20771,14 @@ lor.rhs.i:                                        ; preds = %if.end6.i
   %conv6.i.i = uitofp i64 %7 to float
   %div.i.i = fdiv float %conv.i.i, %conv6.i.i
   %cond.i.i = select i1 %tobool.not.i19.i, float 1.000000e+00, float %div.i.i
-  %maximumAmplificationFactor.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 948
+  %maximumAmplificationFactor.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 948
   %10 = load float, ptr %maximumAmplificationFactor.i, align 4
   %cmp16.i = fcmp ugt float %cond.i.i, %10
   br label %lor.end.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.end6.i
   %conv.i = phi i1 [ false, %if.end6.i ], [ %cmp16.i, %lor.rhs.i ]
-  %debugLevel.i = getelementptr inbounds i8, ptr %rootParser.0.i.i, i64 944
+  %debugLevel.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i, i64 944
   %11 = load i32, ptr %debugLevel.i, align 8
   %cmp18.i = icmp sgt i32 %11, 1
   br i1 %cmp18.i, label %if.then20.i, label %accountingDiffTolerated.exit
@@ -20796,22 +20796,22 @@ while.cond.i.i.i.preheader:                       ; preds = %getRootParserOf.exi
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.cond.i.i.i
   %rootParser.0.i.i.i = phi ptr [ %12, %while.cond.i.i.i ], [ %parser, %while.cond.i.i.i.preheader ]
-  %m_parentParser.i.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 896
+  %m_parentParser.i.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 896
   %12 = load ptr, ptr %m_parentParser.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i, label %getRootParserOf.exit.i.i, label %while.cond.i.i.i, !llvm.loop !26
 
 getRootParserOf.exit.i.i:                         ; preds = %while.cond.i.i.i
-  %debugLevel.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 944
+  %debugLevel.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 944
   %13 = load i32, ptr %debugLevel.i.i, align 8
   %cmp.i.i = icmp slt i32 %13, 1
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %getRootParserOf.exit.i.i
-  %m_accounting.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 928
+  %m_accounting.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 928
   %14 = load i64, ptr %m_accounting.i.i, align 8
   %tobool.not.i5.i.i = icmp eq i64 %14, 0
-  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %rootParser.0.i.i.i, i64 936
+  %countBytesIndirect.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %rootParser.0.i.i.i, i64 936
   %.pre.i.i = load i64, ptr %countBytesIndirect.phi.trans.insert.i.i, align 8
   br i1 %tobool.not.i5.i.i, label %accountingGetCurrentAmplification.exit.i.i, label %cond.true.i.i.i
 
@@ -20839,11 +20839,11 @@ if.end12:                                         ; preds = %accountingDiffToler
 if.end19:                                         ; preds = %if.end, %if.else, %if.end12
   %s.addr.0 = phi ptr [ %s, %if.end ], [ %17, %if.end12 ], [ %s, %if.else ]
   %tok.0 = phi i32 [ %call, %if.end ], [ %call17, %if.end12 ], [ %call, %if.else ]
-  %m_processor = getelementptr inbounds i8, ptr %parser, i64 528
+  %m_processor = getelementptr inbounds nuw i8, ptr %parser, i64 528
   store ptr @prologProcessor, ptr %m_processor, align 8
   %20 = load ptr, ptr %m_encoding, align 8
   %21 = load ptr, ptr %next, align 8
-  %finalBuffer22 = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer22 = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %22 = load i8, ptr %finalBuffer22, align 4
   %tobool23.not = icmp eq i8 %22, 0
   %conv = zext i1 %tobool23.not to i8
@@ -20864,7 +20864,7 @@ define internal range(i32 0, 44) i32 @entityValueProcessor(ptr noundef %parser, 
 entry:
   %next = alloca ptr, align 8
   store ptr %s, ptr %next, align 8
-  %m_encoding = getelementptr inbounds i8, ptr %parser, i64 288
+  %m_encoding = getelementptr inbounds nuw i8, ptr %parser, i64 288
   %0 = load ptr, ptr %m_encoding, align 8
   %1 = load ptr, ptr %0, align 8
   %call11 = call i32 %1(ptr noundef nonnull %0, ptr noundef %s, ptr noundef %end, ptr noundef nonnull %next) #25
@@ -20873,7 +20873,7 @@ entry:
 
 if.then:                                          ; preds = %if.end7, %entry
   %call.lcssa = phi i32 [ %call11, %entry ], [ %call, %if.end7 ]
-  %finalBuffer = getelementptr inbounds i8, ptr %parser, i64 908
+  %finalBuffer = getelementptr inbounds nuw i8, ptr %parser, i64 908
   %2 = load i8, ptr %finalBuffer, align 4
   %tobool = icmp eq i8 %2, 0
   %cmp1 = icmp ne i32 %call.lcssa, 0
@@ -20917,16 +20917,16 @@ entry:
   br i1 %tobool.not.i, label %hashTableIterInit.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %size.i = getelementptr inbounds i8, ptr %oldTable, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %oldTable, i64 16
   %1 = load i64, ptr %size.i, align 8
   %add.ptr.i = getelementptr ptr, ptr %0, i64 %1
   br label %hashTableIterInit.exit
 
 hashTableIterInit.exit:                           ; preds = %entry, %cond.true.i
   %cond.i = phi ptr [ %add.ptr.i, %cond.true.i ], [ null, %entry ]
-  %ptr.i = getelementptr inbounds i8, ptr %newPool, i64 24
-  %end.i44 = getelementptr inbounds i8, ptr %newPool, i64 16
-  %start.i = getelementptr inbounds i8, ptr %newPool, i64 32
+  %ptr.i = getelementptr inbounds nuw i8, ptr %newPool, i64 24
+  %end.i44 = getelementptr inbounds nuw i8, ptr %newPool, i64 16
+  %start.i = getelementptr inbounds nuw i8, ptr %newPool, i64 32
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end59, %hashTableIterInit.exit
@@ -20990,7 +20990,7 @@ if.end5:                                          ; preds = %poolCopyString.exit
   br i1 %tobool7.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %systemId = getelementptr inbounds i8, ptr %2, i64 24
+  %systemId = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %systemId, align 8
   %tobool10.not = icmp eq ptr %11, null
   br i1 %tobool10.not, label %if.else40, label %do.body.i50
@@ -21030,9 +21030,9 @@ poolCopyString.exit65:                            ; preds = %cond.false.i53
   br i1 %tobool14.not, label %return, label %if.end16
 
 if.end16:                                         ; preds = %poolCopyString.exit65
-  %systemId17 = getelementptr inbounds i8, ptr %call6, i64 24
+  %systemId17 = getelementptr inbounds nuw i8, ptr %call6, i64 24
   store ptr %17, ptr %systemId17, align 8
-  %base = getelementptr inbounds i8, ptr %2, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %2, i64 32
   %19 = load ptr, ptr %base, align 8
   %tobool18.not = icmp eq ptr %19, null
   br i1 %tobool18.not, label %if.end30, label %if.then19
@@ -21078,14 +21078,14 @@ poolCopyString.exit83:                            ; preds = %cond.false.i71
 if.end30.sink.split:                              ; preds = %poolCopyString.exit83, %if.then19
   %cachedNewBase.0.sink = phi ptr [ %cachedNewBase.0, %if.then19 ], [ %25, %poolCopyString.exit83 ]
   %cachedOldBase.1.ph = phi ptr [ %cachedOldBase.0, %if.then19 ], [ %19, %poolCopyString.exit83 ]
-  %base22 = getelementptr inbounds i8, ptr %call6, i64 32
+  %base22 = getelementptr inbounds nuw i8, ptr %call6, i64 32
   store ptr %cachedNewBase.0.sink, ptr %base22, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end30.sink.split, %if.end16
   %cachedNewBase.1 = phi ptr [ %cachedNewBase.0, %if.end16 ], [ %cachedNewBase.0.sink, %if.end30.sink.split ]
   %cachedOldBase.1 = phi ptr [ %cachedOldBase.0, %if.end16 ], [ %cachedOldBase.1.ph, %if.end30.sink.split ]
-  %publicId = getelementptr inbounds i8, ptr %2, i64 40
+  %publicId = getelementptr inbounds nuw i8, ptr %2, i64 40
   %27 = load ptr, ptr %publicId, align 8
   %tobool31.not = icmp eq ptr %27, null
   br i1 %tobool31.not, label %if.end49, label %do.body.i86
@@ -21125,14 +21125,14 @@ poolCopyString.exit101:                           ; preds = %cond.false.i89
   br i1 %tobool35.not, label %return, label %if.end37
 
 if.end37:                                         ; preds = %poolCopyString.exit101
-  %publicId38 = getelementptr inbounds i8, ptr %call6, i64 40
+  %publicId38 = getelementptr inbounds nuw i8, ptr %call6, i64 40
   store ptr %33, ptr %publicId38, align 8
   br label %if.end49
 
 if.else40:                                        ; preds = %if.end9
-  %textPtr = getelementptr inbounds i8, ptr %2, i64 8
+  %textPtr = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load ptr, ptr %textPtr, align 8
-  %textLen = getelementptr inbounds i8, ptr %2, i64 16
+  %textLen = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = load i32, ptr %textLen, align 8
   %37 = load ptr, ptr %ptr.i, align 8
   %tobool.not.i103 = icmp eq ptr %37, null
@@ -21183,17 +21183,17 @@ poolCopyStringN.exit:                             ; preds = %cond.false.i107, %i
   br i1 %tobool43.not, label %return, label %if.end45
 
 if.end45:                                         ; preds = %poolCopyStringN.exit
-  %textPtr46 = getelementptr inbounds i8, ptr %call6, i64 8
+  %textPtr46 = getelementptr inbounds nuw i8, ptr %call6, i64 8
   store ptr %42, ptr %textPtr46, align 8
   %44 = load i32, ptr %textLen, align 8
-  %textLen48 = getelementptr inbounds i8, ptr %call6, i64 16
+  %textLen48 = getelementptr inbounds nuw i8, ptr %call6, i64 16
   store i32 %44, ptr %textLen48, align 8
   br label %if.end49
 
 if.end49:                                         ; preds = %if.end30, %if.end37, %if.end45
   %cachedNewBase.2 = phi ptr [ %cachedNewBase.1, %if.end37 ], [ %cachedNewBase.1, %if.end30 ], [ %cachedNewBase.0, %if.end45 ]
   %cachedOldBase.2 = phi ptr [ %cachedOldBase.1, %if.end37 ], [ %cachedOldBase.1, %if.end30 ], [ %cachedOldBase.0, %if.end45 ]
-  %notation = getelementptr inbounds i8, ptr %2, i64 48
+  %notation = getelementptr inbounds nuw i8, ptr %2, i64 48
   %45 = load ptr, ptr %notation, align 8
   %tobool50.not = icmp eq ptr %45, null
   br i1 %tobool50.not, label %if.end59, label %do.body.i115
@@ -21233,18 +21233,18 @@ poolCopyString.exit130:                           ; preds = %cond.false.i118
   br i1 %tobool55.not, label %return, label %if.end57
 
 if.end57:                                         ; preds = %poolCopyString.exit130
-  %notation58 = getelementptr inbounds i8, ptr %call6, i64 48
+  %notation58 = getelementptr inbounds nuw i8, ptr %call6, i64 48
   store ptr %51, ptr %notation58, align 8
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end57, %if.end49
-  %is_param = getelementptr inbounds i8, ptr %2, i64 57
+  %is_param = getelementptr inbounds nuw i8, ptr %2, i64 57
   %53 = load i8, ptr %is_param, align 1
-  %is_param60 = getelementptr inbounds i8, ptr %call6, i64 57
+  %is_param60 = getelementptr inbounds nuw i8, ptr %call6, i64 57
   store i8 %53, ptr %is_param60, align 1
-  %is_internal = getelementptr inbounds i8, ptr %2, i64 58
+  %is_internal = getelementptr inbounds nuw i8, ptr %2, i64 58
   %54 = load i8, ptr %is_internal, align 2
-  %is_internal61 = getelementptr inbounds i8, ptr %call6, i64 58
+  %is_internal61 = getelementptr inbounds nuw i8, ptr %call6, i64 58
   store i8 %54, ptr %is_internal61, align 2
   br label %for.cond
 

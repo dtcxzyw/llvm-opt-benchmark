@@ -13,16 +13,16 @@ define dso_local ptr @spg_key_orderbys_distances(i64 noundef %0, i1 noundef zero
 
 .lr.ph:                                           ; preds = %4
   %9 = inttoptr i64 %0 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
-  %11 = getelementptr inbounds i8, ptr %9, i64 24
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %1, label %point_box_distance.exit.us, label %.lr.ph.split
 
 point_box_distance.exit.us:                       ; preds = %.lr.ph, %point_box_distance.exit.us
   %.018.us = phi ptr [ %17, %point_box_distance.exit.us ], [ %2, %.lr.ph ]
   %.01417.us = phi ptr [ %18, %point_box_distance.exit.us ], [ %7, %.lr.ph ]
   %.01516.us = phi i32 [ %16, %point_box_distance.exit.us ], [ 0, %.lr.ph ]
-  %13 = getelementptr inbounds i8, ptr %.018.us, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.018.us, i64 64
   %14 = load i64, ptr %13, align 8
   %15 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %14, i64 noundef %0) #3
   store i64 %15, ptr %.01417.us, align 8
@@ -36,7 +36,7 @@ point_box_distance.exit.us:                       ; preds = %.lr.ph, %point_box_
   %.018 = phi ptr [ %56, %point_box_distance.exit ], [ %2, %.lr.ph ]
   %.01417 = phi ptr [ %57, %point_box_distance.exit ], [ %7, %.lr.ph ]
   %.01516 = phi i32 [ %55, %point_box_distance.exit ], [ 0, %.lr.ph ]
-  %19 = getelementptr inbounds i8, ptr %.018, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %.018, i64 64
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
   %22 = load double, ptr %21, align 8
@@ -49,7 +49,7 @@ point_box_distance.exit.us:                       ; preds = %.lr.ph, %point_box_
   br i1 %26, label %point_box_distance.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %29 = load double, ptr %28, align 8
   %30 = fcmp uno double %29, 0.000000e+00
   br i1 %30, label %point_box_distance.exit, label %31

@@ -758,7 +758,7 @@ define internal i32 @dissect_z21_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %13, label %864, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.292) #2
   %17 = load i32, ptr @proto_z21, align 4
@@ -825,7 +825,7 @@ switch.lookup977:                                 ; preds = %42
 .sink.split:                                      ; preds = %42, %switch.lookup977
   %switch.table.dissect_z21_pdu.1.sink = phi ptr [ @switch.table.dissect_z21_pdu.1, %switch.lookup977 ], [ @switch.table.dissect_z21_pdu, %42 ]
   %47 = zext nneg i8 %45 to i64
-  %switch.gep978 = getelementptr inbounds [4 x i32], ptr %switch.table.dissect_z21_pdu.1.sink, i64 0, i64 %47
+  %switch.gep978 = getelementptr inbounds nuw [4 x i32], ptr %switch.table.dissect_z21_pdu.1.sink, i64 0, i64 %47
   %switch.load979 = load i32, ptr %switch.gep978, align 4
   br label %48
 
@@ -906,7 +906,7 @@ update_command_field.exit:                        ; preds = %32, %48
 
 switch.lookup980:                                 ; preds = %66
   %73 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_z21_pdu.2, i64 0, i64 %73
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_z21_pdu.2, i64 0, i64 %73
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %74
 
@@ -1537,7 +1537,7 @@ switch.lookup980:                                 ; preds = %66
 549:                                              ; preds = %update_command_field.exit
   %550 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.0941, i32 noundef 0) #2
   %551 = zext i16 %550 to i32
-  %552 = getelementptr inbounds i8, ptr %1, i64 408
+  %552 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %553 = load ptr, ptr %552, align 8
   %554 = lshr i32 %551, 8
   %555 = and i32 %551, 255
@@ -1930,7 +1930,7 @@ update_command_field.exit966:                     ; preds = %14
   br i1 %810, label %811, label %856
 
 811:                                              ; preds = %808
-  %812 = getelementptr inbounds i8, ptr %1, i64 408
+  %812 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %813 = load ptr, ptr %812, align 8
   %814 = call ptr @tvb_get_stringz_enc(ptr noundef %813, ptr noundef %0, i32 noundef 4, ptr noundef null, i32 noundef 10) #2
   %815 = load i8, ptr %814, align 1
@@ -1952,7 +1952,7 @@ update_command_field.exit966:                     ; preds = %14
   br i1 %824, label %825, label %856
 
 825:                                              ; preds = %822
-  %826 = getelementptr inbounds i8, ptr %1, i64 408
+  %826 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %827 = load ptr, ptr %826, align 8
   %828 = call ptr @tvb_get_stringz_enc(ptr noundef %827, ptr noundef %0, i32 noundef 4, ptr noundef null, i32 noundef 10) #2
   %829 = load i8, ptr %828, align 1

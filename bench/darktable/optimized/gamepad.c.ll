@@ -96,7 +96,7 @@ define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr null, ptr %2, align 8, !tbaa !6
   %3 = tail call i32 @SDL_Init(i32 noundef 8192) #9
   %4 = icmp eq i32 %3, 0
@@ -147,7 +147,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
 26:                                               ; preds = %21
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4, ptr noundef %24) #9
   %27 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #10
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %22, ptr %28, align 8, !tbaa !23
   %29 = add i8 %17, 1
   store i8 %17, ptr %27, align 8, !tbaa !25
@@ -178,7 +178,7 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @g_source_remove_by_user_data(ptr noundef %0) #9
   %3 = tail call i32 @g_source_remove_by_user_data(ptr noundef %0) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   tail call void @g_slist_free_full(ptr noundef %5, ptr noundef nonnull @_gamepad_device_free) #9
   store ptr null, ptr %4, align 8, !tbaa !6
@@ -221,12 +221,12 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   br i1 %4, label %5, label %.loopexit13
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 280
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 12
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 13
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 13
   br label %12
 
 12:                                               ; preds = %172, %5
@@ -245,7 +245,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   br i1 %22, label %.loopexit11, label %.preheader9
 
 23:                                               ; preds = %.preheader9
-  %24 = getelementptr inbounds i8, ptr %27, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit11, label %.preheader9
@@ -253,7 +253,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
 .preheader9:                                      ; preds = %19, %23
   %27 = phi ptr [ %25, %23 ], [ %21, %19 ]
   %28 = load ptr, ptr %27, align 8, !tbaa !28
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !23
   %31 = icmp eq ptr %30, %20
   br i1 %31, label %.loopexit10, label %23
@@ -347,9 +347,9 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   %86 = load i16, ptr %10, align 8, !tbaa !26
   %87 = sdiv i16 %86, 10500
   %88 = sext i16 %87 to i32
-  %89 = getelementptr inbounds i8, ptr %32, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %90 = zext nneg i8 %81 to i64
-  %91 = getelementptr inbounds [6 x i32], ptr %89, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [6 x i32], ptr %89, i64 0, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !30
   %93 = icmp slt i32 %92, %88
   br i1 %93, label %94, label %106
@@ -367,7 +367,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   %102 = sext i16 %101 to i32
   %103 = load i8, ptr %9, align 4, !tbaa !26
   %104 = zext i8 %103 to i64
-  %105 = getelementptr inbounds [6 x i32], ptr %89, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [6 x i32], ptr %89, i64 0, i64 %104
   store i32 %102, ptr %105, align 4, !tbaa !30
   br label %172
 
@@ -387,27 +387,27 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   %116 = sext i16 %115 to i32
   %117 = load i8, ptr %9, align 4, !tbaa !26
   %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds [6 x i32], ptr %89, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [6 x i32], ptr %89, i64 0, i64 %118
   store i32 %116, ptr %119, align 4, !tbaa !30
   br label %172
 
 120:                                              ; preds = %80
   %121 = load i32, ptr %8, align 4, !tbaa !26
-  %122 = getelementptr inbounds i8, ptr %32, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %123 = load i32, ptr %122, align 8, !tbaa !31
   %124 = icmp ult i32 %123, %121
   br i1 %124, label %125, label %166
 
 125:                                              ; preds = %120
   %126 = sub nuw i32 %121, %123
-  %127 = getelementptr inbounds i8, ptr %32, i64 20
+  %127 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %128 = load i32, ptr %127, align 4, !tbaa !30
   %129 = call i32 @llvm.abs.i32(i32 %128, i1 true)
   %130 = icmp samesign ugt i32 %129, 4000
   br i1 %130, label %131, label %136
 
 131:                                              ; preds = %125
-  %132 = getelementptr inbounds i8, ptr %32, i64 44
+  %132 = getelementptr inbounds nuw i8, ptr %32, i64 44
   %133 = mul i32 %128, %126
   %134 = load i32, ptr %132, align 4, !tbaa !30
   %135 = add i32 %134, %133
@@ -415,7 +415,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   br label %136
 
 136:                                              ; preds = %131, %125
-  %137 = getelementptr inbounds i8, ptr %32, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %138 = load i32, ptr %137, align 4, !tbaa !30
   %139 = call i32 @llvm.abs.i32(i32 %138, i1 true)
   %140 = icmp samesign ugt i32 %139, 4000
@@ -423,14 +423,14 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
 
 141:                                              ; preds = %136
   %142 = mul i32 %138, %126
-  %143 = getelementptr inbounds i8, ptr %32, i64 48
+  %143 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %144 = load i32, ptr %143, align 4, !tbaa !30
   %145 = add i32 %144, %142
   store i32 %145, ptr %143, align 4, !tbaa !30
   br label %146
 
 146:                                              ; preds = %141, %136
-  %147 = getelementptr inbounds i8, ptr %32, i64 28
+  %147 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %148 = load i32, ptr %147, align 4, !tbaa !30
   %149 = call i32 @llvm.abs.i32(i32 %148, i1 true)
   %150 = icmp samesign ugt i32 %149, 4000
@@ -438,14 +438,14 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
 
 151:                                              ; preds = %146
   %152 = mul i32 %148, %126
-  %153 = getelementptr inbounds i8, ptr %32, i64 52
+  %153 = getelementptr inbounds nuw i8, ptr %32, i64 52
   %154 = load i32, ptr %153, align 4, !tbaa !30
   %155 = add i32 %154, %152
   store i32 %155, ptr %153, align 4, !tbaa !30
   br label %156
 
 156:                                              ; preds = %151, %146
-  %157 = getelementptr inbounds i8, ptr %32, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %158 = load i32, ptr %157, align 4, !tbaa !30
   %159 = call i32 @llvm.abs.i32(i32 %158, i1 true)
   %160 = icmp samesign ugt i32 %159, 4000
@@ -453,7 +453,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
 
 161:                                              ; preds = %156
   %162 = mul i32 %158, %126
-  %163 = getelementptr inbounds i8, ptr %32, i64 56
+  %163 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %164 = load i32, ptr %163, align 4, !tbaa !30
   %165 = add i32 %164, %162
   store i32 %165, ptr %163, align 4, !tbaa !30
@@ -463,9 +463,9 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   store i32 %121, ptr %122, align 8, !tbaa !31
   %167 = load i16, ptr %10, align 8, !tbaa !26
   %168 = sext i16 %167 to i32
-  %169 = getelementptr inbounds i8, ptr %32, i64 20
+  %169 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %170 = zext i8 %81 to i64
-  %171 = getelementptr inbounds [6 x i32], ptr %169, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw [6 x i32], ptr %169, i64 0, i64 %170
   store i32 %168, ptr %171, align 4, !tbaa !30
   br label %172
 
@@ -476,7 +476,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
 
 .loopexit13:                                      ; preds = %172, %1
   %175 = phi i32 [ 0, %1 ], [ %16, %172 ]
-  %176 = getelementptr inbounds i8, ptr %0, i64 280
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %177 = load ptr, ptr %176, align 8, !tbaa !27
   %178 = icmp eq ptr %177, null
   br i1 %178, label %.loopexit, label %.preheader
@@ -490,7 +490,7 @@ define internal noundef range(i32 0, 2) i32 @_poll_devices(ptr nocapture noundef
   %181 = load ptr, ptr %180, align 8, !tbaa !28
   %182 = call i32 @SDL_GetTicks() #9
   call fastcc void @_process_axis_and_send(ptr noundef %181, i32 noundef %182)
-  %183 = getelementptr inbounds i8, ptr %180, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %184 = load ptr, ptr %183, align 8, !tbaa !27
   %185 = icmp eq ptr %184, null
   br i1 %185, label %.loopexit, label %.preheader
@@ -527,7 +527,7 @@ define internal noalias ptr @_key_to_string(i32 noundef %0, i32 noundef %1) #1 {
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds [24 x ptr], ptr @_button_names, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [24 x ptr], ptr @_button_names, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   br label %8
 
@@ -700,7 +700,7 @@ define internal noalias ptr @_move_to_string(i32 noundef %0, i32 noundef %1) #1 
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds [9 x ptr], ptr @_move_names, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [9 x ptr], ptr @_move_names, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   br label %8
 
@@ -787,21 +787,21 @@ declare ptr @SDL_GameControllerFromInstanceID(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !31
   %5 = icmp ult i32 %4, %1
   br i1 %5, label %6, label %47
 
 6:                                                ; preds = %2
   %7 = sub nuw i32 %1, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !30
   %10 = tail call i32 @llvm.abs.i32(i32 %9, i1 true)
   %11 = icmp samesign ugt i32 %10, 4000
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = mul i32 %9, %7
   %15 = load i32, ptr %13, align 4, !tbaa !30
   %16 = add i32 %15, %14
@@ -809,7 +809,7 @@ define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i3
   br label %17
 
 17:                                               ; preds = %12, %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 4, !tbaa !30
   %20 = tail call i32 @llvm.abs.i32(i32 %19, i1 true)
   %21 = icmp samesign ugt i32 %20, 4000
@@ -817,14 +817,14 @@ define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i3
 
 22:                                               ; preds = %17
   %23 = mul i32 %19, %7
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load i32, ptr %24, align 4, !tbaa !30
   %26 = add i32 %25, %23
   store i32 %26, ptr %24, align 4, !tbaa !30
   br label %27
 
 27:                                               ; preds = %22, %17
-  %28 = getelementptr inbounds i8, ptr %0, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %29 = load i32, ptr %28, align 4, !tbaa !30
   %30 = tail call i32 @llvm.abs.i32(i32 %29, i1 true)
   %31 = icmp samesign ugt i32 %30, 4000
@@ -832,14 +832,14 @@ define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i3
 
 32:                                               ; preds = %27
   %33 = mul i32 %29, %7
-  %34 = getelementptr inbounds i8, ptr %0, i64 52
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %35 = load i32, ptr %34, align 4, !tbaa !30
   %36 = add i32 %35, %33
   store i32 %36, ptr %34, align 4, !tbaa !30
   br label %37
 
 37:                                               ; preds = %32, %27
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load i32, ptr %38, align 4, !tbaa !30
   %40 = tail call i32 @llvm.abs.i32(i32 %39, i1 true)
   %41 = icmp samesign ugt i32 %40, 4000
@@ -847,7 +847,7 @@ define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i3
 
 42:                                               ; preds = %37
   %43 = mul i32 %39, %7
-  %44 = getelementptr inbounds i8, ptr %0, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %45 = load i32, ptr %44, align 4, !tbaa !30
   %46 = add i32 %45, %43
   store i32 %46, ptr %44, align 4, !tbaa !30
@@ -855,10 +855,10 @@ define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i3
 
 47:                                               ; preds = %42, %37, %2
   store i32 %1, ptr %3, align 8, !tbaa !31
-  %48 = getelementptr inbounds i8, ptr %0, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %49 = load i32, ptr %48, align 4, !tbaa !30
   %50 = sitofp i32 %49 to double
-  %51 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load i32, ptr %51, align 4, !tbaa !30
   %53 = sitofp i32 %52 to double
   %54 = fadd reassoc nsz arcp contract afn double %53, 1.000000e-03
@@ -917,10 +917,10 @@ define internal fastcc void @_process_axis_and_send(ptr nocapture noundef %0, i3
   br label %92
 
 92:                                               ; preds = %83, %79, %69, %62
-  %93 = getelementptr inbounds i8, ptr %0, i64 52
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %94 = load i32, ptr %93, align 4, !tbaa !30
   %95 = sitofp i32 %94 to double
-  %96 = getelementptr inbounds i8, ptr %0, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %97 = load i32, ptr %96, align 4, !tbaa !30
   %98 = sitofp i32 %97 to double
   %99 = fadd reassoc nsz arcp contract afn double %98, 1.000000e-03
@@ -1007,7 +1007,7 @@ declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @_gamepad_device_free(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !23
   tail call void @SDL_GameControllerClose(ptr noundef %3) #9
   tail call void @g_free(ptr noundef %0) #9

@@ -296,7 +296,7 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 168:                                              ; preds = %163
   %169 = zext nneg i32 %158 to i64
   %170 = select i1 %40, i64 %169, i64 1
-  %171 = getelementptr inbounds double, ptr %23, i64 %170
+  %171 = getelementptr inbounds nuw double, ptr %23, i64 %170
   %172 = add i32 %19, 1
   br label %173
 
@@ -486,7 +486,7 @@ define void @dstedc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %288 = phi i64 [ %276, %284 ], [ %297, %287 ]
   %289 = phi double [ %279, %284 ], [ %296, %287 ]
   %290 = phi i32 [ %283, %284 ], [ %295, %287 ]
-  %291 = getelementptr inbounds double, ptr %17, i64 %288
+  %291 = getelementptr inbounds nuw double, ptr %17, i64 %288
   %292 = load double, ptr %291, align 8, !tbaa !9
   %293 = fcmp olt double %292, %289
   %294 = trunc i64 %288 to i32

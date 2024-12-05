@@ -23,13 +23,13 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
   %12 = shufflevector <16 x i8> %9, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %13 = xor <16 x i8> %11, %12
   %14 = bitcast <16 x i8> %13 to <2 x i64>
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = add i64 %2, -16
   %17 = icmp ugt i64 %16, 47
   br i1 %17, label %18, label %._crit_edge255
 
 ._crit_edge255:                                   ; preds = %6
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre = load <2 x i64>, ptr %.phi.trans.insert, align 1
   br label %78
 
@@ -37,17 +37,17 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
   %19 = load <16 x i8>, ptr %15, align 1
   %20 = shufflevector <16 x i8> %19, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %21 = bitcast <16 x i8> %20 to <2 x i64>
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load <16 x i8>, ptr %22, align 1
   %24 = shufflevector <16 x i8> %23, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %25 = bitcast <16 x i8> %24 to <2 x i64>
-  %26 = getelementptr inbounds i8, ptr %1, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %27 = load <16 x i8>, ptr %26, align 1
   %28 = shufflevector <16 x i8> %27, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %29 = bitcast <16 x i8> %28 to <2 x i64>
   %30 = load <2 x i64>, ptr %3, align 1
   %.1215226 = add i64 %2, -64
-  %.1227 = getelementptr inbounds i8, ptr %1, i64 64
+  %.1227 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %31 = icmp ugt i64 %.1215226, 63
   br i1 %31, label %.lr.ph, label %._crit_edge
 
@@ -70,15 +70,15 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
   %40 = load <16 x i8>, ptr %.1234, align 1
   %41 = shufflevector <16 x i8> %40, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %42 = bitcast <16 x i8> %41 to <2 x i64>
-  %43 = getelementptr inbounds i8, ptr %.pn232, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %.pn232, i64 80
   %44 = load <16 x i8>, ptr %43, align 1
   %45 = shufflevector <16 x i8> %44, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %46 = bitcast <16 x i8> %45 to <2 x i64>
-  %47 = getelementptr inbounds i8, ptr %.pn232, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %.pn232, i64 96
   %48 = load <16 x i8>, ptr %47, align 1
   %49 = shufflevector <16 x i8> %48, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %50 = bitcast <16 x i8> %49 to <2 x i64>
-  %51 = getelementptr inbounds i8, ptr %.pn232, i64 112
+  %51 = getelementptr inbounds nuw i8, ptr %.pn232, i64 112
   %52 = load <16 x i8>, ptr %51, align 1
   %53 = shufflevector <16 x i8> %52, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %54 = bitcast <16 x i8> %53 to <2 x i64>
@@ -91,7 +91,7 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
   %61 = xor <2 x i64> %57, %50
   %62 = xor <2 x i64> %58, %54
   %.1215 = add i64 %.1215233, -64
-  %.1 = getelementptr inbounds i8, ptr %.1234, i64 64
+  %.1 = getelementptr inbounds nuw i8, ptr %.1234, i64 64
   %63 = icmp ugt i64 %.1215, 63
   br i1 %63, label %.lr.ph, label %._crit_edge
 
@@ -102,7 +102,7 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
   %.1218.lcssa = phi <2 x i64> [ %14, %18 ], [ %59, %.lr.ph ]
   %.1215.lcssa = phi i64 [ %.1215226, %18 ], [ %.1215, %.lr.ph ]
   %.1.lcssa = phi ptr [ %.1227, %18 ], [ %.1, %.lr.ph ]
-  %64 = getelementptr inbounds i8, ptr %3, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %65 = load <2 x i64>, ptr %64, align 1
   %66 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1218.lcssa, <2 x i64> %65, i8 0)
   %67 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1218.lcssa, <2 x i64> %65, i8 17)
@@ -137,7 +137,7 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
   %85 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2219240, <2 x i64> %79, i8 17)
   %86 = xor <2 x i64> %84, %83
   %87 = xor <2 x i64> %86, %85
-  %88 = getelementptr inbounds i8, ptr %.2242, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.2242, i64 16
   %89 = add nsw i64 %.2216241, -16
   %90 = icmp ugt i64 %89, 15
   br i1 %90, label %.lr.ph244, label %._crit_edge245
@@ -145,7 +145,7 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
 ._crit_edge245:                                   ; preds = %.lr.ph244, %78
   %.2219.lcssa = phi <2 x i64> [ %.0217, %78 ], [ %87, %.lr.ph244 ]
   %.2216.lcssa = phi i64 [ %.0214, %78 ], [ %89, %.lr.ph244 ]
-  %91 = getelementptr inbounds i8, ptr %3, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %92 = load <2 x i64>, ptr %91, align 1
   %93 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2219.lcssa, <2 x i64> %92, i8 17)
   %94 = bitcast <2 x i64> %.2219.lcssa to <16 x i8>
@@ -155,7 +155,7 @@ define i64 @crc32_pclmul_batch(ptr nocapture noundef %0, ptr nocapture noundef r
   %98 = xor <2 x i64> %93, %97
   %99 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %98, <2 x i64> %92, i8 1)
   %100 = xor <2 x i64> %98, %99
-  %101 = getelementptr inbounds i8, ptr %3, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %102 = load <2 x i64>, ptr %101, align 1
   %103 = insertelement <2 x i64> %100, i64 0, i64 1
   %104 = bitcast <2 x i64> %103 to <16 x i8>
@@ -192,25 +192,25 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
   %9 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %8, i64 0
   %10 = bitcast <4 x i32> %9 to <2 x i64>
   %11 = xor <2 x i64> %7, %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = add i64 %2, -16
   %14 = icmp ugt i64 %13, 47
   br i1 %14, label %15, label %._crit_edge214
 
 ._crit_edge214:                                   ; preds = %6
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre = load <2 x i64>, ptr %.phi.trans.insert, align 1
   br label %61
 
 15:                                               ; preds = %6
   %16 = load <2 x i64>, ptr %12, align 1
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load <2 x i64>, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %1, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %20 = load <2 x i64>, ptr %19, align 1
   %21 = load <2 x i64>, ptr %3, align 1
   %.1174185 = add i64 %2, -64
-  %.1186 = getelementptr inbounds i8, ptr %1, i64 64
+  %.1186 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = icmp ugt i64 %.1174185, 63
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -231,11 +231,11 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
   %29 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0180188, <2 x i64> %21, i8 17)
   %30 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.0181187, <2 x i64> %21, i8 17)
   %31 = load <2 x i64>, ptr %.1193, align 1
-  %32 = getelementptr inbounds i8, ptr %.pn191, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %.pn191, i64 80
   %33 = load <2 x i64>, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %.pn191, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %.pn191, i64 96
   %35 = load <2 x i64>, ptr %34, align 1
-  %36 = getelementptr inbounds i8, ptr %.pn191, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %.pn191, i64 112
   %37 = load <2 x i64>, ptr %36, align 1
   %38 = xor <2 x i64> %27, %23
   %39 = xor <2 x i64> %28, %24
@@ -246,7 +246,7 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
   %44 = xor <2 x i64> %40, %35
   %45 = xor <2 x i64> %41, %37
   %.1174 = add i64 %.1174192, -64
-  %.1 = getelementptr inbounds i8, ptr %.1193, i64 64
+  %.1 = getelementptr inbounds nuw i8, ptr %.1193, i64 64
   %46 = icmp ugt i64 %.1174, 63
   br i1 %46, label %.lr.ph, label %._crit_edge
 
@@ -257,7 +257,7 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
   %.1177.lcssa = phi <2 x i64> [ %11, %15 ], [ %42, %.lr.ph ]
   %.1174.lcssa = phi i64 [ %.1174185, %15 ], [ %.1174, %.lr.ph ]
   %.1.lcssa = phi ptr [ %.1186, %15 ], [ %.1, %.lr.ph ]
-  %47 = getelementptr inbounds i8, ptr %3, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %48 = load <2 x i64>, ptr %47, align 1
   %49 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1177.lcssa, <2 x i64> %48, i8 0)
   %50 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.1177.lcssa, <2 x i64> %48, i8 17)
@@ -290,7 +290,7 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
   %66 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %.2178199, <2 x i64> %62, i8 17)
   %67 = xor <2 x i64> %65, %64
   %68 = xor <2 x i64> %67, %66
-  %69 = getelementptr inbounds i8, ptr %.2201, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.2201, i64 16
   %70 = add nsw i64 %.2175200, -16
   %71 = icmp ugt i64 %70, 15
   br i1 %71, label %.lr.ph203, label %._crit_edge204
@@ -306,7 +306,7 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
   %77 = bitcast <4 x i32> %76 to <2 x i64>
   %78 = shufflevector <4 x i32> %75, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 3>
   %79 = bitcast <4 x i32> %78 to <2 x i64>
-  %80 = getelementptr inbounds i8, ptr %3, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %81 = load <2 x i64>, ptr %80, align 1
   %82 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %77, <2 x i64> %81, i8 0)
   %83 = xor <2 x i64> %82, %79
@@ -316,7 +316,7 @@ define i64 @crc32_pclmul_reflected_batch(ptr nocapture noundef %0, ptr nocapture
   %87 = bitcast <2 x i64> %83 to <16 x i8>
   %88 = shufflevector <16 x i8> %87, <16 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>
   %89 = bitcast <16 x i8> %88 to <2 x i64>
-  %90 = getelementptr inbounds i8, ptr %3, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %91 = load <2 x i64>, ptr %90, align 1
   %92 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %86, <2 x i64> %91, i8 0)
   %93 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %92, <2 x i64> %91, i8 16)
@@ -339,7 +339,7 @@ define hidden i64 @crc32_sse42_pclmul_update(i32 noundef %0, ptr nocapture nound
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr inbounds [3 x %struct._crc32_pclmul_bit_consts], ptr @crc32_pclmul_consts_maps, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [3 x %struct._crc32_pclmul_bit_consts], ptr @crc32_pclmul_consts_maps, i64 0, i64 %7
   switch i32 %0, label %13 [
     i32 0, label %9
     i32 1, label %11

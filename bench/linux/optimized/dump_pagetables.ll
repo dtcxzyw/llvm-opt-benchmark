@@ -119,42 +119,42 @@ module asm ".previous\09\09\09\09\09"
 define dso_local void @ptdump_walk_pgd_level(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [3 x %struct.ptdump_range], align 16
   %4 = alloca %struct.pg_state, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %6 = load ptr, ptr %5, align 64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 0, i64 16, i1 false)
   %8 = load i32, ptr @ptrs_per_p4d, align 4
   %9 = zext i32 %8 to i64
   %10 = shl i64 %9, 47
   %11 = and i64 %10, 9223231299366420480
   store i64 %11, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load i32, ptr @pgdir_shift, align 4
   %14 = zext nneg i32 %13 to i64
   %15 = shl i64 -240, %14
   store i64 %15, ptr %12, align 16
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 -1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(16) %17, i8 0, i64 16, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #8
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %18, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @effective_prot, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 -1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  %23 = getelementptr inbounds i8, ptr %4, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %22, i8 0, i64 80, i1 false)
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %22, i8 0, i64 80, i1 false)
   store i8 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr %0, ptr %25, align 8
   call void @ptdump_walk_pgd(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %6) #8
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4) #8
@@ -166,7 +166,7 @@ define dso_local void @ptdump_walk_pgd_level(ptr noundef %0, ptr noundef %1) loc
 define dso_local void @ptdump_walk_pgd_level_debugfs(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = alloca [3 x %struct.ptdump_range], align 16
   %5 = alloca %struct.pg_state, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %7 = load ptr, ptr %6, align 64
   br i1 %2, label %8, label %16
 
@@ -185,37 +185,37 @@ define dso_local void @ptdump_walk_pgd_level_debugfs(ptr noundef %0, ptr noundef
 16:                                               ; preds = %12, %8, %3
   %17 = phi ptr [ %15, %12 ], [ %7, %8 ], [ %7, %3 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 16, i1 false)
   %19 = load i32, ptr @ptrs_per_p4d, align 4
   %20 = zext i32 %19 to i64
   %21 = shl i64 %20, 47
   %22 = and i64 %21, 9223231299366420480
   store i64 %22, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = load i32, ptr @pgdir_shift, align 4
   %25 = zext nneg i32 %24 to i64
   %26 = shl i64 -240, %25
   store i64 %26, ptr %23, align 16
-  %27 = getelementptr inbounds i8, ptr %4, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 -1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %5) #8
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %29, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @effective_prot, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 -1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 32
-  %34 = getelementptr inbounds i8, ptr %5, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i64 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(82) %33, i8 0, i64 82, i1 false)
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(82) %33, i8 0, i64 82, i1 false)
   store ptr %0, ptr %35, align 8
   call void @ptdump_walk_pgd(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %17) #8
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #8
@@ -248,38 +248,38 @@ define dso_local void @ptdump_walk_user_pgd_level_checkwx() local_unnamed_addr #
   %11 = or i64 ptrtoint (ptr @init_top_pgt to i64), 4096
   %12 = inttoptr i64 %11 to ptr
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %1, i8 0, i64 16, i1 false)
   %14 = load i32, ptr @ptrs_per_p4d, align 4
   %15 = zext i32 %14 to i64
   %16 = shl i64 %15, 47
   %17 = and i64 %16, 9223231299366420480
   store i64 %17, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i32, ptr @pgdir_shift, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = shl i64 -240, %20
   store i64 %21, ptr %18, align 16
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 -1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(16) %23, i8 0, i64 16, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #8
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %24, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @effective_prot, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 32
-  %29 = getelementptr inbounds i8, ptr %2, i64 113
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(81) %28, i8 0, i64 81, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 113
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %28, i8 0, i64 81, i1 false)
   store i8 1, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %2, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   call void @ptdump_walk_pgd(ptr noundef nonnull %2, ptr noundef nonnull @init_mm, ptr noundef nonnull %12) #8
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 0
@@ -310,38 +310,38 @@ define dso_local void @ptdump_walk_pgd_level_checkwx() local_unnamed_addr #3 ali
   %1 = alloca [3 x %struct.ptdump_range], align 16
   %2 = alloca %struct.pg_state, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %1, i8 0, i64 16, i1 false)
   %4 = load i32, ptr @ptrs_per_p4d, align 4
   %5 = zext i32 %4 to i64
   %6 = shl i64 %5, 47
   %7 = and i64 %6, 9223231299366420480
   store i64 %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr @pgdir_shift, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = shl i64 -240, %10
   store i64 %11, ptr %8, align 16
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 -1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #8
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %14, i8 0, i64 96, i1 false), !annotation !5
   store ptr @note_page, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @effective_prot, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 32
-  %19 = getelementptr inbounds i8, ptr %2, i64 113
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(81) %18, i8 0, i64 81, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 113
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %18, i8 0, i64 81, i1 false)
   store i8 1, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %2, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   call void @ptdump_walk_pgd(ptr noundef nonnull %2, ptr noundef nonnull @init_mm, ptr noundef nonnull @init_top_pgt) #8
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
@@ -381,14 +381,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = and i64 %3, -4503599627366401
   %8 = icmp eq i64 %3, 0
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = sext i32 %2 to i64
   %12 = getelementptr [5 x i64], ptr %10, i64 0, i64 %11
   %13 = load i64, ptr %12, align 8
@@ -396,10 +396,10 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
 
 14:                                               ; preds = %9, %4
   %15 = phi i64 [ %13, %9 ], [ 0, %4 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %22, label %35
@@ -408,11 +408,11 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   store i64 %7, ptr %16, align 8
   store i64 %15, ptr %17, align 8
   store i32 %2, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @address_markers, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %31, label %28
@@ -441,7 +441,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %0, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr i8, ptr %44, i64 24
   %46 = load i64, ptr %45, align 8
@@ -449,7 +449,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   br i1 %47, label %312, label %48
 
 48:                                               ; preds = %42, %35
-  %49 = getelementptr inbounds i8, ptr %0, i64 113
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 113
   %50 = load i8, ptr %49, align 1, !range !6, !noundef !7
   %51 = icmp ne i8 %50, 0
   %52 = and i64 %18, -9223372036854775806
@@ -458,11 +458,11 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   br i1 %54, label %55, label %70
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds i8, ptr %0, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %57 = load i64, ptr %56, align 8
   %58 = sub i64 %1, %57
   %59 = lshr i64 %58, 12
-  %60 = getelementptr inbounds i8, ptr %0, i64 120
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %59, %61
   store i64 %62, ptr %60, align 8
@@ -485,27 +485,27 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   br label %70
 
 70:                                               ; preds = %67, %55, %48
-  %71 = getelementptr inbounds i8, ptr %0, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load i64, ptr %73, align 8
   %75 = icmp eq i64 %74, 0
   br i1 %75, label %80, label %76
 
 76:                                               ; preds = %70
-  %77 = getelementptr inbounds i8, ptr %0, i64 104
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %78 = load i64, ptr %77, align 8
   %79 = icmp ult i64 %78, %74
   br i1 %79, label %80, label %.thread9
 
 80:                                               ; preds = %76, %70
-  %81 = getelementptr inbounds i8, ptr %0, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %82 = load i8, ptr %81, align 8, !range !6, !noundef !7
   %83 = icmp eq i8 %82, 0
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %0, i64 88
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %86 = load i64, ptr %85, align 8
   %87 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef 16, i64 noundef %86, i32 noundef 16, i64 noundef %1) #9
   br label %93
@@ -515,13 +515,13 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %0, i64 88
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %92 = load i64, ptr %91, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 16, i64 noundef %92, i32 noundef 16, i64 noundef %1) #8
   br label %93
 
 93:                                               ; preds = %90, %88, %84
-  %94 = getelementptr inbounds i8, ptr %0, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %95 = load i64, ptr %94, align 8
   %96 = sub i64 %1, %95
   %97 = and i64 %96, 1023
@@ -889,7 +889,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   br label %.thread9
 
 .thread9:                                         ; preds = %.thread16, %131, %252, %255, %264, %257, %76
-  %269 = getelementptr inbounds i8, ptr %0, i64 104
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %270 = load i64, ptr %269, align 8
   %271 = add i64 %270, 1
   store i64 %271, ptr %269, align 8
@@ -900,7 +900,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   br i1 %275, label %.thread11, label %276
 
 276:                                              ; preds = %.thread9
-  %277 = getelementptr inbounds i8, ptr %272, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %272, i64 16
   %278 = load i64, ptr %277, align 8
   %279 = icmp ne i64 %278, 0
   %280 = icmp ugt i64 %271, %278
@@ -909,7 +909,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
 
 282:                                              ; preds = %276
   %283 = sub nuw i64 %271, %278
-  %284 = getelementptr inbounds i8, ptr %0, i64 112
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %285 = load i8, ptr %284, align 8, !range !6, !noundef !7
   %286 = icmp eq i8 %285, 0
   br i1 %286, label %291, label %287
@@ -935,7 +935,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   %298 = getelementptr i8, ptr %297, i64 24
   store ptr %298, ptr %71, align 8
   store i64 0, ptr %269, align 8
-  %299 = getelementptr inbounds i8, ptr %0, i64 112
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %300 = load i8, ptr %299, align 8, !range !6, !noundef !7
   %301 = icmp eq i8 %300, 0
   br i1 %301, label %306, label %302
@@ -962,7 +962,7 @@ define internal void @note_page(ptr nocapture noundef %0, i64 noundef %1, i32 no
   br label %.thread11
 
 .thread11:                                        ; preds = %.thread10, %308, %306, %302, %.thread9
-  %311 = getelementptr inbounds i8, ptr %0, i64 88
+  %311 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %1, ptr %311, align 8
   store i64 %7, ptr %16, align 8
   store i64 %15, ptr %17, align 8
@@ -979,7 +979,7 @@ define internal void @effective_prot(ptr nocapture noundef %0, i32 noundef %1, i
   br i1 %4, label %5, label %16
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = add nsw i32 %1, -1
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr [5 x i64], ptr %6, i64 0, i64 %8
@@ -997,7 +997,7 @@ define internal void @effective_prot(ptr nocapture noundef %0, i32 noundef %1, i
 
 18:                                               ; preds = %16, %5
   %19 = phi i64 [ %15, %5 ], [ %17, %16 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = sext i32 %1 to i64
   %22 = getelementptr [5 x i64], ptr %20, i64 0, i64 %21
   store i64 %19, ptr %22, align 8

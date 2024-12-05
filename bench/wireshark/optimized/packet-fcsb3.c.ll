@@ -351,7 +351,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_fc_sbccs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.139) #3
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
@@ -368,10 +368,10 @@ define internal i32 @dissect_fc_sbccs(ptr noundef %0, ptr noundef %1, ptr nounde
   %18 = load ptr, ptr %5, align 8
   %19 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @fc_sbccs_iu_val, ptr noundef nonnull @.str.204) #3
   tail call void @col_add_str(ptr noundef %18, i32 noundef 25, ptr noundef %19) #3
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 208
-  %23 = getelementptr inbounds i8, ptr %1, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %24 = zext i16 %16 to i32
   %25 = tail call ptr @find_conversation(i32 noundef %21, ptr noundef nonnull %22, ptr noundef nonnull %23, i32 noundef 9, i32 noundef %15, i32 noundef %24, i32 noundef 0) #3
   %.not = icmp ne ptr %25, null
@@ -765,7 +765,7 @@ dissect_status.exit.i:                            ; preds = %147, %145
   br i1 %.not59.i, label %dissect_fc_sbccs_dib_data_hdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %251
-  %254 = getelementptr inbounds i8, ptr %1, i64 408
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %255
 
 255:                                              ; preds = %255, %.lr.ph.i

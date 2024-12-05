@@ -235,7 +235,7 @@ declare void @sysbus_mmio_map(ptr noundef, i32 noundef, i64 noundef) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local ptr @pflash_cfi01_get_blk(ptr nocapture noundef readonly %fl) local_unnamed_addr #3 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %fl, i64 816
+  %blk = getelementptr inbounds nuw i8, ptr %fl, i64 816
   %0 = load ptr, ptr %blk, align 16
   ret ptr %0
 }
@@ -243,7 +243,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local nonnull ptr @pflash_cfi01_get_memory(ptr noundef readnone %fl) local_unnamed_addr #4 {
 entry:
-  %mem = getelementptr inbounds i8, ptr %fl, i64 960
+  %mem = getelementptr inbounds nuw i8, ptr %fl, i64 960
   ret ptr %mem
 }
 
@@ -256,10 +256,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = call ptr @loc_push_none(ptr noundef nonnull %loc) #12
-  %opts = getelementptr inbounds i8, ptr %dinfo, i64 24
+  %opts = getelementptr inbounds nuw i8, ptr %dinfo, i64 24
   %0 = load ptr, ptr %opts, align 8
   call void @qemu_opts_loc_restore(ptr noundef %0) #12
-  %blk = getelementptr inbounds i8, ptr %fl, i64 816
+  %blk = getelementptr inbounds nuw i8, ptr %fl, i64 816
   %1 = load ptr, ptr %blk, align 16
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end3, label %if.then2
@@ -301,14 +301,14 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @pflash_cfi01_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @pflash_cfi01_system_reset, ptr %reset, align 8
-  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @pflash_cfi01_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pflash_cfi01_properties) #12
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_pflash, ptr %vmsd, align 8
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
@@ -320,7 +320,7 @@ define internal void @pflash_cfi01_system_reset(ptr noundef %dev) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.82, i32 noundef 12, ptr noundef nonnull @__func__.PFLASH_CFI01) #12
-  %name = getelementptr inbounds i8, ptr %call.i, i64 1232
+  %name = getelementptr inbounds nuw i8, ptr %call.i, i64 1232
   %0 = load ptr, ptr %name, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -345,7 +345,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %0) #12
   br label %trace_pflash_reset.exit
@@ -356,13 +356,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pflash_reset.exit:                          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %cmd = getelementptr inbounds i8, ptr %call.i, i64 850
+  %cmd = getelementptr inbounds nuw i8, ptr %call.i, i64 850
   store i8 0, ptr %cmd, align 2
-  %wcycle = getelementptr inbounds i8, ptr %call.i, i64 848
+  %wcycle = getelementptr inbounds nuw i8, ptr %call.i, i64 848
   store i8 0, ptr %wcycle, align 16
-  %mem = getelementptr inbounds i8, ptr %call.i, i64 960
+  %mem = getelementptr inbounds nuw i8, ptr %call.i, i64 960
   tail call void @memory_region_rom_device_set_romd(ptr noundef nonnull %mem, i1 noundef zeroext true) #12
-  %status = getelementptr inbounds i8, ptr %call.i, i64 851
+  %status = getelementptr inbounds nuw i8, ptr %call.i, i64 851
   store i8 -128, ptr %status, align 1
   ret void
 }
@@ -372,14 +372,14 @@ define internal void @pflash_cfi01_realize(ptr noundef %dev, ptr noundef %errp) 
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
+  %errp1 = getelementptr inbounds nuw i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.82, i32 noundef 12, ptr noundef nonnull @__func__.PFLASH_CFI01) #12
-  %sector_len = getelementptr inbounds i8, ptr %call.i, i64 832
+  %sector_len = getelementptr inbounds nuw i8, ptr %call.i, i64 832
   %0 = load i64, ptr %sector_len, align 16
   %cmp3 = icmp eq i64 %0, 0
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -389,7 +389,7 @@ if.then4:                                         ; preds = %entry
   br label %cleanup
 
 if.end5:                                          ; preds = %entry
-  %nb_blocs = getelementptr inbounds i8, ptr %call.i, i64 824
+  %nb_blocs = getelementptr inbounds nuw i8, ptr %call.i, i64 824
   %1 = load i32, ptr %nb_blocs, align 8
   %cmp6 = icmp eq i32 %1, 0
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -399,7 +399,7 @@ if.then7:                                         ; preds = %if.end5
   br label %cleanup
 
 if.end8:                                          ; preds = %if.end5
-  %name = getelementptr inbounds i8, ptr %call.i, i64 1232
+  %name = getelementptr inbounds nuw i8, ptr %call.i, i64 1232
   %2 = load ptr, ptr %name, align 16
   %cmp9 = icmp eq ptr %2, null
   br i1 %cmp9, label %if.then10, label %if.end11
@@ -411,7 +411,7 @@ if.then10:                                        ; preds = %if.end8
 if.end11:                                         ; preds = %if.end8
   %conv = zext i32 %1 to i64
   %mul = mul i64 %0, %conv
-  %mem = getelementptr inbounds i8, ptr %call.i, i64 960
+  %mem = getelementptr inbounds nuw i8, ptr %call.i, i64 960
   call void @memory_region_init_rom_device(ptr noundef nonnull %mem, ptr noundef %dev, ptr noundef nonnull @pflash_cfi01_ops, ptr noundef nonnull %call.i, ptr noundef nonnull %2, i64 noundef %mul, ptr noundef nonnull %spec.select) #12
   %3 = load ptr, ptr %spec.select, align 8
   %tobool15.not = icmp eq ptr %3, null
@@ -419,11 +419,11 @@ if.end11:                                         ; preds = %if.end8
 
 if.end17:                                         ; preds = %if.end11
   %call19 = call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mem) #12
-  %storage = getelementptr inbounds i8, ptr %call.i, i64 1240
+  %storage = getelementptr inbounds nuw i8, ptr %call.i, i64 1240
   store ptr %call19, ptr %storage, align 8
   %call.i46 = call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.81, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #12
   call void @sysbus_init_mmio(ptr noundef %call.i46, ptr noundef nonnull %mem) #12
-  %blk = getelementptr inbounds i8, ptr %call.i, i64 816
+  %blk = getelementptr inbounds nuw i8, ptr %call.i, i64 816
   %4 = load ptr, ptr %blk, align 16
   %tobool22.not = icmp eq ptr %4, null
   br i1 %tobool22.not, label %if.end37.thread, label %if.then23
@@ -431,7 +431,7 @@ if.end17:                                         ; preds = %if.end11
 if.then23:                                        ; preds = %if.end17
   %call25 = call zeroext i1 @blk_supports_write_perm(ptr noundef nonnull %4) #12
   %lnot = xor i1 %call25, true
-  %ro = getelementptr inbounds i8, ptr %call.i, i64 849
+  %ro = getelementptr inbounds nuw i8, ptr %call.i, i64 849
   %frombool = zext i1 %lnot to i8
   store i8 %frombool, ptr %ro, align 1
   %conv29 = select i1 %call25, i64 3, i64 1
@@ -441,7 +441,7 @@ if.then23:                                        ; preds = %if.end17
   br i1 %cmp32, label %cleanup, label %if.end37
 
 if.end37.thread:                                  ; preds = %if.end17
-  %ro36 = getelementptr inbounds i8, ptr %call.i, i64 849
+  %ro36 = getelementptr inbounds nuw i8, ptr %call.i, i64 849
   store i8 0, ptr %ro36, align 1
   br label %if.end48
 
@@ -461,10 +461,10 @@ if.then44:                                        ; preds = %if.then40
   br label %cleanup
 
 if.end48:                                         ; preds = %if.end37.thread, %if.then40, %if.end37
-  %max_device_width = getelementptr inbounds i8, ptr %call.i, i64 842
+  %max_device_width = getelementptr inbounds nuw i8, ptr %call.i, i64 842
   %7 = load i8, ptr %max_device_width, align 2
   %tobool49.not = icmp eq i8 %7, 0
-  %device_width = getelementptr inbounds i8, ptr %call.i, i64 841
+  %device_width = getelementptr inbounds nuw i8, ptr %call.i, i64 841
   %8 = load i8, ptr %device_width, align 1
   br i1 %tobool49.not, label %if.then50, label %if.end52
 
@@ -473,17 +473,17 @@ if.then50:                                        ; preds = %if.end48
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end48, %if.then50
-  %wcycle = getelementptr inbounds i8, ptr %call.i, i64 848
+  %wcycle = getelementptr inbounds nuw i8, ptr %call.i, i64 848
   store i8 0, ptr %wcycle, align 16
-  %cmd = getelementptr inbounds i8, ptr %call.i, i64 850
+  %cmd = getelementptr inbounds nuw i8, ptr %call.i, i64 850
   store i8 0, ptr %cmd, align 2
-  %status = getelementptr inbounds i8, ptr %call.i, i64 851
+  %status = getelementptr inbounds nuw i8, ptr %call.i, i64 851
   store i8 -128, ptr %status, align 1
   %tobool.not.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end52
-  %bank_width.i = getelementptr inbounds i8, ptr %call.i, i64 840
+  %bank_width.i = getelementptr inbounds nuw i8, ptr %call.i, i64 840
   %9 = load i8, ptr %bank_width.i, align 8
   %10 = udiv i8 %9, %8
   %div.i = zext i8 %10 to i32
@@ -491,7 +491,7 @@ cond.true.i:                                      ; preds = %if.end52
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end52
   %cond.i = phi i32 [ %div.i, %cond.true.i ], [ 1, %if.end52 ]
-  %old_multiple_chip_handling.i = getelementptr inbounds i8, ptr %call.i, i64 1256
+  %old_multiple_chip_handling.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1256
   %11 = load i8, ptr %old_multiple_chip_handling.i, align 8
   %tobool4.i = trunc i8 %11 to i1
   %12 = load i32, ptr %nb_blocs, align 8
@@ -559,7 +559,7 @@ pflash_cfi01_fill_cfi_table.exit:                 ; preds = %if.then.i, %if.else
   store i8 2, ptr %arrayidx61.i, align 4
   %arrayidx63.i = getelementptr i8, ptr %call.i, i64 901
   store i8 0, ptr %arrayidx63.i, align 1
-  %bank_width64.i = getelementptr inbounds i8, ptr %call.i, i64 840
+  %bank_width64.i = getelementptr inbounds nuw i8, ptr %call.i, i64 840
   %17 = load i8, ptr %bank_width64.i, align 8
   %cmp.i = icmp eq i8 %17, 1
   %spec.select68.i = select i1 %cmp.i, i8 8, i8 11
@@ -568,7 +568,7 @@ pflash_cfi01_fill_cfi_table.exit:                 ; preds = %if.then.i, %if.else
   %cmp79.i = icmp samesign ult i32 %cond.i, 2
   %or.cond.not.i = select i1 %tobool4.i, i1 true, i1 %cmp79.i
   %spec.select.i = select i1 %or.cond.not.i, i32 1, i32 %cond.i
-  %writeblock_size.i = getelementptr inbounds i8, ptr %call.i, i64 952
+  %writeblock_size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 952
   %conv76.i = zext nneg i8 %spec.select68.i to i32
   %storemerge.i = shl nuw nsw i32 %spec.select.i, %conv76.i
   store i32 %storemerge.i, ptr %writeblock_size.i, align 8
@@ -657,7 +657,7 @@ entry:
   %_now.i.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i76.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %features = getelementptr inbounds i8, ptr %opaque, i64 844
+  %features = getelementptr inbounds nuw i8, ptr %opaque, i64 844
   %0 = load i32, ptr %features, align 4
   %and = and i32 %0, 1
   %and3 = and i32 %0, 2
@@ -672,7 +672,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %cmd.i = getelementptr inbounds i8, ptr %opaque, i64 850
+  %cmd.i = getelementptr inbounds nuw i8, ptr %opaque, i64 850
   %2 = load i8, ptr %cmd.i, align 2
   switch i8 %2, label %sw.default.i [
     i8 0, label %sw.bb.i
@@ -689,7 +689,7 @@ if.else:                                          ; preds = %entry
   ]
 
 sw.default.i:                                     ; preds = %if.else
-  %name.i = getelementptr inbounds i8, ptr %opaque, i64 1232
+  %name.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1232
   %3 = load ptr, ptr %name.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -714,7 +714,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #12
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #12
   %8 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv11.i.i.i = zext i8 %2 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %3, i32 noundef %conv11.i.i.i) #12
@@ -727,7 +727,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_pflash_read_unknown_state.exit.i:           ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %sw.default.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %wcycle.i = getelementptr inbounds i8, ptr %opaque, i64 848
+  %wcycle.i = getelementptr inbounds nuw i8, ptr %opaque, i64 848
   store i8 0, ptr %wcycle.i, align 16
   store i8 0, ptr %cmd.i, align 2
   br label %sw.bb.i
@@ -737,10 +737,10 @@ sw.bb.i:                                          ; preds = %trace_pflash_read_u
   br label %sw.epilog135.i
 
 sw.bb3.i:                                         ; preds = %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else, %if.else
-  %status.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %10 = load i8, ptr %status.i, align 1
   %conv4.i = zext i8 %10 to i32
-  %device_width.i = getelementptr inbounds i8, ptr %opaque, i64 841
+  %device_width.i = getelementptr inbounds nuw i8, ptr %opaque, i64 841
   %11 = load i8, ptr %device_width.i, align 1
   %conv5.i = zext i8 %11 to i32
   %tobool.not.i = icmp ne i8 %11, 0
@@ -778,7 +778,7 @@ if.then28.i:                                      ; preds = %if.else.i
 
 if.end33.i:                                       ; preds = %while.body.i, %if.then28.i, %if.else.i, %if.then.i
   %ret.2.i = phi i32 [ %or32.i, %if.then28.i ], [ %conv4.i, %if.else.i ], [ %conv4.i, %if.then.i ], [ %or.i, %while.body.i ]
-  %name34.i = getelementptr inbounds i8, ptr %opaque, i64 1232
+  %name34.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1232
   %12 = load ptr, ptr %name34.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i76.i)
   %13 = load i32, ptr @trace_events_enabled_count, align 4
@@ -803,7 +803,7 @@ if.then8.i.i86.i:                                 ; preds = %if.then.i.i83.i
   %call9.i.i87.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i76.i, ptr noundef null) #12
   %call10.i.i88.i = tail call i32 @qemu_get_thread_id() #12
   %17 = load i64, ptr %_now.i.i76.i, align 8
-  %tv_usec.i.i89.i = getelementptr inbounds i8, ptr %_now.i.i76.i, i64 8
+  %tv_usec.i.i89.i = getelementptr inbounds nuw i8, ptr %_now.i.i76.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i89.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i88.i, i64 noundef %17, i64 noundef %18, ptr noundef %12, i32 noundef %ret.2.i) #12
   br label %trace_pflash_read_status.exit.i
@@ -817,7 +817,7 @@ trace_pflash_read_status.exit.i:                  ; preds = %if.else.i.i85.i, %i
   br label %sw.epilog135.i
 
 sw.bb35.i:                                        ; preds = %if.else
-  %device_width36.i = getelementptr inbounds i8, ptr %opaque, i64 841
+  %device_width36.i = getelementptr inbounds nuw i8, ptr %opaque, i64 841
   %19 = load i8, ptr %device_width36.i, align 1
   %tobool37.not.i = icmp eq i8 %19, 0
   br i1 %tobool37.not.i, label %if.then38.i, label %for.cond.preheader.i
@@ -827,20 +827,20 @@ for.cond.preheader.i:                             ; preds = %sw.bb35.i
   br i1 %cmp69183.i, label %for.body.lr.ph.i, label %sw.epilog135.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %bank_width72.i = getelementptr inbounds i8, ptr %opaque, i64 840
-  %max_device_width.i.i = getelementptr inbounds i8, ptr %opaque, i64 842
-  %ident1.i.i = getelementptr inbounds i8, ptr %opaque, i64 854
-  %name9.i.i = getelementptr inbounds i8, ptr %opaque, i64 1232
-  %tv_usec.i.i35.i.i = getelementptr inbounds i8, ptr %_now.i.i21.i.i, i64 8
-  %ident0.i.i = getelementptr inbounds i8, ptr %opaque, i64 852
-  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
-  %tv_usec.i.i50.i.i = getelementptr inbounds i8, ptr %_now.i.i37.i.i, i64 8
+  %bank_width72.i = getelementptr inbounds nuw i8, ptr %opaque, i64 840
+  %max_device_width.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 842
+  %ident1.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 854
+  %name9.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1232
+  %tv_usec.i.i35.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i21.i.i, i64 8
+  %ident0.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 852
+  %tv_usec.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i, i64 8
+  %tv_usec.i.i50.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i37.i.i, i64 8
   %.pre196.i = load i8, ptr %bank_width72.i, align 8
   br label %for.body.i
 
 if.then38.i:                                      ; preds = %sw.bb35.i
   %and.i = and i64 %addr, 255
-  %bank_width.i = getelementptr inbounds i8, ptr %opaque, i64 840
+  %bank_width.i = getelementptr inbounds nuw i8, ptr %opaque, i64 840
   %20 = load i8, ptr %bank_width.i, align 8
   switch i8 %20, label %if.end51.i [
     i8 2, label %if.then42.i
@@ -863,37 +863,37 @@ if.end51.i:                                       ; preds = %if.then48.i, %if.th
   ]
 
 sw.bb52.i:                                        ; preds = %if.end51.i
-  %ident0.i = getelementptr inbounds i8, ptr %opaque, i64 852
+  %ident0.i = getelementptr inbounds nuw i8, ptr %opaque, i64 852
   %21 = load i16, ptr %ident0.i, align 4
   %conv53.i = zext i16 %21 to i32
   %shl54.i = shl nuw nsw i32 %conv53.i, 8
-  %ident1.i = getelementptr inbounds i8, ptr %opaque, i64 854
+  %ident1.i = getelementptr inbounds nuw i8, ptr %opaque, i64 854
   %22 = load i16, ptr %ident1.i, align 2
   %conv55.i = zext i16 %22 to i32
   %or56.i = or i32 %shl54.i, %conv55.i
-  %name57.i = getelementptr inbounds i8, ptr %opaque, i64 1232
+  %name57.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1232
   %23 = load ptr, ptr %name57.i, align 16
   %conv58.i = trunc i32 %or56.i to i16
   tail call fastcc void @trace_pflash_manufacturer_id(ptr noundef %23, i16 noundef zeroext %conv58.i)
   br label %sw.epilog135.i
 
 sw.bb59.i:                                        ; preds = %if.end51.i
-  %ident2.i = getelementptr inbounds i8, ptr %opaque, i64 856
+  %ident2.i = getelementptr inbounds nuw i8, ptr %opaque, i64 856
   %24 = load i16, ptr %ident2.i, align 8
   %conv60.i = zext i16 %24 to i32
   %shl61.i = shl nuw nsw i32 %conv60.i, 8
-  %ident3.i = getelementptr inbounds i8, ptr %opaque, i64 858
+  %ident3.i = getelementptr inbounds nuw i8, ptr %opaque, i64 858
   %25 = load i16, ptr %ident3.i, align 2
   %conv62.i = zext i16 %25 to i32
   %or63.i = or i32 %shl61.i, %conv62.i
-  %name64.i = getelementptr inbounds i8, ptr %opaque, i64 1232
+  %name64.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1232
   %26 = load ptr, ptr %name64.i, align 16
   %conv65.i = trunc i32 %or63.i to i16
   tail call fastcc void @trace_pflash_device_id(ptr noundef %26, i16 noundef zeroext %conv65.i)
   br label %sw.epilog135.i
 
 sw.default66.i:                                   ; preds = %if.end51.i
-  %name67.i = getelementptr inbounds i8, ptr %opaque, i64 1232
+  %name67.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1232
   %27 = load ptr, ptr %name67.i, align 16
   tail call fastcc void @trace_pflash_device_info(ptr noundef %27, i64 noundef %boff.0.i)
   br label %sw.epilog135.i
@@ -1112,7 +1112,7 @@ deposit32.exit.i:                                 ; preds = %pflash_devid_query.
   br i1 %cmp69.i, label %for.body.i, label %sw.epilog135.i, !llvm.loop !8
 
 sw.bb86.i:                                        ; preds = %if.else
-  %device_width87.i = getelementptr inbounds i8, ptr %opaque, i64 841
+  %device_width87.i = getelementptr inbounds nuw i8, ptr %opaque, i64 841
   %60 = load i8, ptr %device_width87.i, align 1
   %tobool88.not.i = icmp eq i8 %60, 0
   br i1 %tobool88.not.i, label %if.then89.i, label %for.cond114.preheader.i
@@ -1122,17 +1122,17 @@ for.cond114.preheader.i:                          ; preds = %sw.bb86.i
   br i1 %cmp115180.i, label %for.body117.lr.ph.i, label %sw.epilog135.i
 
 for.body117.lr.ph.i:                              ; preds = %for.cond114.preheader.i
-  %bank_width119.i = getelementptr inbounds i8, ptr %opaque, i64 840
-  %max_device_width.i96.i = getelementptr inbounds i8, ptr %opaque, i64 842
-  %cfi_table.i.i = getelementptr inbounds i8, ptr %opaque, i64 860
-  %name.i119.i = getelementptr inbounds i8, ptr %opaque, i64 1232
-  %tv_usec.i.i.i132.i = getelementptr inbounds i8, ptr %_now.i.i.i93.i, i64 8
+  %bank_width119.i = getelementptr inbounds nuw i8, ptr %opaque, i64 840
+  %max_device_width.i96.i = getelementptr inbounds nuw i8, ptr %opaque, i64 842
+  %cfi_table.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 860
+  %name.i119.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1232
+  %tv_usec.i.i.i132.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i93.i, i64 8
   %.pre.i = load i8, ptr %bank_width119.i, align 8
   br label %for.body117.i
 
 if.then89.i:                                      ; preds = %sw.bb86.i
   %and90.i = and i64 %addr, 255
-  %bank_width91.i = getelementptr inbounds i8, ptr %opaque, i64 840
+  %bank_width91.i = getelementptr inbounds nuw i8, ptr %opaque, i64 840
   %61 = load i8, ptr %bank_width91.i, align 8
   switch i8 %61, label %if.end105.i [
     i8 2, label %if.then95.i
@@ -1154,7 +1154,7 @@ if.end105.i:                                      ; preds = %if.then95.i, %if.th
 
 if.then108.i:                                     ; preds = %if.end105.i, %if.end105.thread.i
   %boff.1168.i = phi i64 [ %shr103.i, %if.end105.thread.i ], [ %boff.1.i, %if.end105.i ]
-  %cfi_table.i = getelementptr inbounds i8, ptr %opaque, i64 860
+  %cfi_table.i = getelementptr inbounds nuw i8, ptr %opaque, i64 860
   %arrayidx.i = getelementptr [82 x i8], ptr %cfi_table.i, i64 0, i64 %boff.1168.i
   %62 = load i8, ptr %arrayidx.i, align 1
   %conv109.i = zext i8 %62 to i32
@@ -1336,10 +1336,10 @@ deposit32.exit149.i:                              ; preds = %pflash_cfi_query.ex
 
 sw.epilog135.i:                                   ; preds = %deposit32.exit149.i, %deposit32.exit.i, %if.then108.i, %if.end105.i, %for.cond114.preheader.i, %sw.default66.i, %sw.bb59.i, %sw.bb52.i, %for.cond.preheader.i, %trace_pflash_read_status.exit.i, %sw.bb.i
   %ret.0.i = phi i32 [ %call.i, %sw.bb.i ], [ %conv109.i, %if.then108.i ], [ 0, %sw.default66.i ], [ %or63.i, %sw.bb59.i ], [ %or56.i, %sw.bb52.i ], [ %ret.2.i, %trace_pflash_read_status.exit.i ], [ 0, %if.end105.i ], [ -1, %for.cond.preheader.i ], [ -1, %for.cond114.preheader.i ], [ %or.i.i, %deposit32.exit.i ], [ %or.i147.i, %deposit32.exit149.i ]
-  %name136.i = getelementptr inbounds i8, ptr %opaque, i64 1232
+  %name136.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1232
   %80 = load ptr, ptr %name136.i, align 16
   %81 = load i8, ptr %cmd.i, align 2
-  %wcycle138.i = getelementptr inbounds i8, ptr %opaque, i64 848
+  %wcycle138.i = getelementptr inbounds nuw i8, ptr %opaque, i64 848
   %82 = load i8, ptr %wcycle138.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i150.i)
   %83 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1364,7 +1364,7 @@ if.then8.i.i160.i:                                ; preds = %if.then.i.i157.i
   %call9.i.i161.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i150.i, ptr noundef null) #12
   %call10.i.i162.i = tail call i32 @qemu_get_thread_id() #12
   %87 = load i64, ptr %_now.i.i150.i, align 8
-  %tv_usec.i.i163.i = getelementptr inbounds i8, ptr %_now.i.i150.i, i64 8
+  %tv_usec.i.i163.i = getelementptr inbounds nuw i8, ptr %_now.i.i150.i, i64 8
   %88 = load i64, ptr %tv_usec.i.i163.i, align 8
   %conv11.i.i164.i = zext i8 %81 to i32
   %conv12.i.i165.i = zext i8 %82 to i32
@@ -1398,7 +1398,7 @@ entry:
   %_now.i.i123.i = alloca %struct.timeval, align 8
   %_now.i.i109.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %features = getelementptr inbounds i8, ptr %opaque, i64 844
+  %features = getelementptr inbounds nuw i8, ptr %opaque, i64 844
   %0 = load i32, ptr %features, align 4
   %and = and i32 %0, 1
   %and3 = and i32 %0, 2
@@ -1411,9 +1411,9 @@ entry:
 if.else:                                          ; preds = %entry
   %conv = trunc i64 %value to i32
   %conv.i = trunc i64 %value to i8
-  %name.i = getelementptr inbounds i8, ptr %opaque, i64 1232
+  %name.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1232
   %2 = load ptr, ptr %name.i, align 16
-  %wcycle.i = getelementptr inbounds i8, ptr %opaque, i64 848
+  %wcycle.i = getelementptr inbounds nuw i8, ptr %opaque, i64 848
   %3 = load i8, ptr %wcycle.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1438,7 +1438,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #12
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #12
   %8 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv11.i.i.i = zext i8 %3 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %2, i64 noundef %addr, i32 noundef %len, i32 noundef %conv, i32 noundef %conv11.i.i.i) #12
@@ -1456,7 +1456,7 @@ trace_pflash_io_write.exit.i:                     ; preds = %if.else.i.i.i, %if.
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %trace_pflash_io_write.exit.i
-  %mem.i = getelementptr inbounds i8, ptr %opaque, i64 960
+  %mem.i = getelementptr inbounds nuw i8, ptr %opaque, i64 960
   tail call void @memory_region_rom_device_set_romd(ptr noundef nonnull %mem.i, i1 noundef zeroext false) #12
   %.pr.i = load i8, ptr %wcycle.i, align 16
   br label %if.end.i
@@ -1511,7 +1511,7 @@ if.then8.i.i119.i:                                ; preds = %if.then.i.i116.i
   %call9.i.i120.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i109.i, ptr noundef null) #12
   %call10.i.i121.i = tail call i32 @qemu_get_thread_id() #12
   %17 = load i64, ptr %_now.i.i109.i, align 8
-  %tv_usec.i.i122.i = getelementptr inbounds i8, ptr %_now.i.i109.i, i64 8
+  %tv_usec.i.i122.i = getelementptr inbounds nuw i8, ptr %_now.i.i109.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i122.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i121.i, i64 noundef %17, i64 noundef %18, ptr noundef %12, ptr noundef nonnull @.str.40) #12
   br label %trace_pflash_write.exit.i
@@ -1525,15 +1525,15 @@ trace_pflash_write.exit.i:                        ; preds = %if.else.i.i118.i, %
   br label %sw.epilog.i
 
 sw.bb8.i:                                         ; preds = %sw.bb.i
-  %storage.i = getelementptr inbounds i8, ptr %opaque, i64 1240
+  %storage.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1240
   %19 = load ptr, ptr %storage.i, align 8
-  %sector_len.i = getelementptr inbounds i8, ptr %opaque, i64 832
+  %sector_len.i = getelementptr inbounds nuw i8, ptr %opaque, i64 832
   %20 = load i64, ptr %sector_len.i, align 16
   %not.i = sub i64 0, %20
   %and.i = and i64 %addr, %not.i
   %21 = load ptr, ptr %name.i, align 16
   tail call fastcc void @trace_pflash_write_block_erase(ptr noundef %21, i64 noundef %and.i, i64 noundef %20)
-  %ro.i = getelementptr inbounds i8, ptr %opaque, i64 849
+  %ro.i = getelementptr inbounds nuw i8, ptr %opaque, i64 849
   %22 = load i8, ptr %ro.i, align 1
   %tobool11.i = trunc i8 %22 to i1
   br i1 %tobool11.i, label %if.else.i, label %if.then12.i
@@ -1546,19 +1546,19 @@ if.then12.i:                                      ; preds = %sw.bb8.i
   %24 = load i64, ptr %sector_len.i, align 16
   %conv16.i = trunc i64 %24 to i32
   tail call fastcc void @pflash_update(ptr noundef nonnull %opaque, i32 noundef %conv14.i, i32 noundef %conv16.i)
-  %status20.phi.trans.insert.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status20.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %.pre209.i = load i8, ptr %status20.phi.trans.insert.i, align 1
   br label %if.end19.i
 
 if.else.i:                                        ; preds = %sw.bb8.i
-  %status.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %25 = load i8, ptr %status.i, align 1
   %26 = or i8 %25, 32
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.else.i, %if.then12.i
   %27 = phi i8 [ %26, %if.else.i ], [ %.pre209.i, %if.then12.i ]
-  %status20.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status20.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %28 = or i8 %27, -128
   store i8 %28, ptr %status20.i, align 1
   br label %sw.epilog.i
@@ -1566,7 +1566,7 @@ if.end19.i:                                       ; preds = %if.else.i, %if.then
 sw.bb24.i:                                        ; preds = %sw.bb.i
   %29 = load ptr, ptr %name.i, align 16
   tail call fastcc void @trace_pflash_write(ptr noundef %29, ptr noundef nonnull @.str.41)
-  %status26.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status26.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   store i8 0, ptr %status26.i, align 1
   br label %mode_read_array.i
 
@@ -1578,14 +1578,14 @@ sw.bb27.i:                                        ; preds = %sw.bb.i
 sw.bb29.i:                                        ; preds = %sw.bb.i
   %31 = load ptr, ptr %name.i, align 16
   tail call fastcc void @trace_pflash_write(ptr noundef %31, ptr noundef nonnull @.str.43)
-  %cmd31.i = getelementptr inbounds i8, ptr %opaque, i64 850
+  %cmd31.i = getelementptr inbounds nuw i8, ptr %opaque, i64 850
   store i8 112, ptr %cmd31.i, align 2
   br label %return
 
 sw.bb32.i:                                        ; preds = %sw.bb.i
   %32 = load ptr, ptr %name.i, align 16
   tail call fastcc void @trace_pflash_write(ptr noundef %32, ptr noundef nonnull @.str.44)
-  %cmd34.i = getelementptr inbounds i8, ptr %opaque, i64 850
+  %cmd34.i = getelementptr inbounds nuw i8, ptr %opaque, i64 850
   store i8 -112, ptr %cmd34.i, align 2
   br label %return
 
@@ -1607,7 +1607,7 @@ if.then42.i:                                      ; preds = %sw.bb37.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then42.i, %sw.bb37.i
-  %status44.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status44.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %36 = load i8, ptr %status44.i, align 1
   %37 = or i8 %36, -128
   store i8 %37, ptr %status44.i, align 1
@@ -1627,12 +1627,12 @@ sw.epilog.i:                                      ; preds = %do.end.i, %sw.bb35.
   %40 = load i8, ptr %wcycle.i, align 16
   %inc.i = add i8 %40, 1
   store i8 %inc.i, ptr %wcycle.i, align 16
-  %cmd53.i = getelementptr inbounds i8, ptr %opaque, i64 850
+  %cmd53.i = getelementptr inbounds nuw i8, ptr %opaque, i64 850
   store i8 %conv.i, ptr %cmd53.i, align 2
   br label %return
 
 sw.bb54.i:                                        ; preds = %if.end.i
-  %cmd55.i = getelementptr inbounds i8, ptr %opaque, i64 850
+  %cmd55.i = getelementptr inbounds nuw i8, ptr %opaque, i64 850
   %41 = load i8, ptr %cmd55.i, align 2
   switch i8 %41, label %do.body217.i [
     i8 16, label %sw.bb57.i
@@ -1669,7 +1669,7 @@ if.then8.i.i133.i:                                ; preds = %if.then.i.i130.i
   %call9.i.i134.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i123.i, ptr noundef null) #12
   %call10.i.i135.i = tail call i32 @qemu_get_thread_id() #12
   %47 = load i64, ptr %_now.i.i123.i, align 8
-  %tv_usec.i.i136.i = getelementptr inbounds i8, ptr %_now.i.i123.i, i64 8
+  %tv_usec.i.i136.i = getelementptr inbounds nuw i8, ptr %_now.i.i123.i, i64 8
   %48 = load i64, ptr %tv_usec.i.i136.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i135.i, i64 noundef %47, i64 noundef %48, ptr noundef %42, ptr noundef nonnull @.str.50) #12
   br label %trace_pflash_write.exit137.i
@@ -1680,14 +1680,14 @@ if.else.i.i132.i:                                 ; preds = %if.then.i.i130.i
 
 trace_pflash_write.exit137.i:                     ; preds = %if.else.i.i132.i, %if.then8.i.i133.i, %land.lhs.true5.i.i127.i, %sw.bb57.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i123.i)
-  %ro59.i = getelementptr inbounds i8, ptr %opaque, i64 849
+  %ro59.i = getelementptr inbounds nuw i8, ptr %opaque, i64 849
   %49 = load i8, ptr %ro59.i, align 1
   %tobool60.i = trunc i8 %49 to i1
   br i1 %tobool60.i, label %if.else63.i, label %if.then61.i
 
 if.then61.i:                                      ; preds = %trace_pflash_write.exit137.i
   tail call fastcc void @pflash_data_write(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %conv, i32 noundef %len, i32 noundef range(i32 0, 2) %and)
-  %blk.i.i = getelementptr inbounds i8, ptr %opaque, i64 816
+  %blk.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 816
   %50 = load ptr, ptr %blk.i.i, align 16
   %tobool.not.i.i = icmp eq ptr %50, null
   br i1 %tobool.not.i.i, label %if.end68.i, label %if.then.i.i
@@ -1701,7 +1701,7 @@ if.then.i.i:                                      ; preds = %if.then61.i
   %conv8.i.i = sext i32 %51 to i64
   %sub9.i.i = sub i32 %div410.i.i, %51
   %conv10.i.i = sext i32 %sub9.i.i to i64
-  %storage.i.i = getelementptr inbounds i8, ptr %opaque, i64 1240
+  %storage.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1240
   %52 = load ptr, ptr %storage.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %52, i64 %conv8.i.i
   %call.i.i = tail call i32 @blk_pwrite(ptr noundef nonnull %50, i64 noundef %conv8.i.i, i64 noundef %conv10.i.i, ptr noundef %add.ptr.i.i, i32 noundef 0) #12
@@ -1715,14 +1715,14 @@ if.then12.i.i:                                    ; preds = %if.then.i.i
   br label %if.end68.i
 
 if.else63.i:                                      ; preds = %trace_pflash_write.exit137.i
-  %status64.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status64.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %53 = load i8, ptr %status64.i, align 1
   %54 = or i8 %53, 16
   store i8 %54, ptr %status64.i, align 1
   br label %if.end68.i
 
 if.end68.i:                                       ; preds = %if.else63.i, %if.then12.i.i, %if.then.i.i, %if.then61.i
-  %status69.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status69.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %55 = load i8, ptr %status69.i, align 1
   %56 = or i8 %55, -128
   store i8 %56, ptr %status69.i, align 1
@@ -1737,14 +1737,14 @@ sw.bb74.i:                                        ; preds = %sw.bb54.i, %sw.bb54
 
 if.then77.i:                                      ; preds = %sw.bb74.i
   store i8 0, ptr %wcycle.i, align 16
-  %status79.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status79.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %57 = load i8, ptr %status79.i, align 1
   %58 = or i8 %57, -128
   store i8 %58, ptr %status79.i, align 1
   br label %return
 
 sw.bb90.i:                                        ; preds = %sw.bb54.i
-  %device_width.i = getelementptr inbounds i8, ptr %opaque, i64 841
+  %device_width.i = getelementptr inbounds nuw i8, ptr %opaque, i64 841
   %59 = load i8, ptr %device_width.i, align 1
   %tobool91.not.i = icmp eq i8 %59, 0
   br i1 %tobool91.not.i, label %if.else96.i, label %if.then92.i
@@ -1763,7 +1763,7 @@ extract32.exit.i:                                 ; preds = %if.then92.i
   br label %if.end100.i
 
 if.else96.i:                                      ; preds = %sw.bb90.i
-  %bank_width.i = getelementptr inbounds i8, ptr %opaque, i64 840
+  %bank_width.i = getelementptr inbounds nuw i8, ptr %opaque, i64 840
   %61 = load i8, ptr %bank_width.i, align 8
   %conv97.i = zext i8 %61 to i32
   %mul98.i = shl nuw nsw i32 %conv97.i, 3
@@ -1804,7 +1804,7 @@ if.then8.i.i156.i:                                ; preds = %if.then.i.i153.i
   %call9.i.i157.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i146.i, ptr noundef null) #12
   %call10.i.i158.i = tail call i32 @qemu_get_thread_id() #12
   %68 = load i64, ptr %_now.i.i146.i, align 8
-  %tv_usec.i.i159.i = getelementptr inbounds i8, ptr %_now.i.i146.i, i64 8
+  %tv_usec.i.i159.i = getelementptr inbounds nuw i8, ptr %_now.i.i146.i, i64 8
   %69 = load i64, ptr %tv_usec.i.i159.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i.i158.i, i64 noundef %68, i64 noundef %69, ptr noundef %63, i32 noundef %value.addr.0.i) #12
   br label %trace_pflash_write_block.exit.i
@@ -1816,7 +1816,7 @@ if.else.i.i155.i:                                 ; preds = %if.then.i.i153.i
 trace_pflash_write_block.exit.i:                  ; preds = %if.else.i.i155.i, %if.then8.i.i156.i, %land.lhs.true5.i.i150.i, %if.end100.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i146.i)
   %conv102.i = zext i32 %value.addr.0.i to i64
-  %counter.i = getelementptr inbounds i8, ptr %opaque, i64 944
+  %counter.i = getelementptr inbounds nuw i8, ptr %opaque, i64 944
   store i64 %conv102.i, ptr %counter.i, align 16
   %70 = load i8, ptr %wcycle.i, align 16
   %inc104.i = add i8 %70, 1
@@ -1832,7 +1832,7 @@ sw.bb105.i:                                       ; preds = %sw.bb54.i
 
 if.then109.i:                                     ; preds = %sw.bb105.i
   store i8 0, ptr %wcycle.i, align 16
-  %status111.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status111.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %71 = load i8, ptr %status111.i, align 1
   %72 = or i8 %71, -128
   store i8 %72, ptr %status111.i, align 1
@@ -1840,7 +1840,7 @@ if.then109.i:                                     ; preds = %sw.bb105.i
 
 if.then119.i:                                     ; preds = %sw.bb105.i
   store i8 0, ptr %wcycle.i, align 16
-  %status121.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status121.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %73 = load i8, ptr %status121.i, align 1
   %74 = or i8 %73, -128
   store i8 %74, ptr %status121.i, align 1
@@ -1862,41 +1862,41 @@ if.else139.i:                                     ; preds = %sw.bb134.i
   br label %return
 
 sw.bb144.i:                                       ; preds = %if.end.i
-  %cmd145.i = getelementptr inbounds i8, ptr %opaque, i64 850
+  %cmd145.i = getelementptr inbounds nuw i8, ptr %opaque, i64 850
   %77 = load i8, ptr %cmd145.i, align 2
   %cond1.i = icmp eq i8 %77, -24
   br i1 %cond1.i, label %sw.bb147.i, label %do.body217.i
 
 sw.bb147.i:                                       ; preds = %sw.bb144.i
-  %ro148.i = getelementptr inbounds i8, ptr %opaque, i64 849
+  %ro148.i = getelementptr inbounds nuw i8, ptr %opaque, i64 849
   %78 = load i8, ptr %ro148.i, align 1
   %tobool149.i = trunc i8 %78 to i1
   br i1 %tobool149.i, label %if.else151.i, label %if.then150.i
 
 if.then150.i:                                     ; preds = %sw.bb147.i
   tail call fastcc void @pflash_data_write(ptr noundef nonnull %opaque, i64 noundef %addr, i32 noundef %conv, i32 noundef %len, i32 noundef range(i32 0, 2) %and)
-  %status157.phi.trans.insert.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status157.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %.pre.i = load i8, ptr %status157.phi.trans.insert.i, align 1
   br label %if.end156.i
 
 if.else151.i:                                     ; preds = %sw.bb147.i
-  %status152.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status152.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %79 = load i8, ptr %status152.i, align 1
   %80 = or i8 %79, 16
   br label %if.end156.i
 
 if.end156.i:                                      ; preds = %if.else151.i, %if.then150.i
   %81 = phi i8 [ %80, %if.else151.i ], [ %.pre.i, %if.then150.i ]
-  %status157.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status157.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %82 = or i8 %81, -128
   store i8 %82, ptr %status157.i, align 1
-  %counter161.i = getelementptr inbounds i8, ptr %opaque, i64 944
+  %counter161.i = getelementptr inbounds nuw i8, ptr %opaque, i64 944
   %83 = load i64, ptr %counter161.i, align 16
   %tobool162.not.i = icmp eq i64 %83, 0
   br i1 %tobool162.not.i, label %if.then163.i, label %if.end182.i
 
 if.then163.i:                                     ; preds = %if.end156.i
-  %writeblock_size.i = getelementptr inbounds i8, ptr %opaque, i64 952
+  %writeblock_size.i = getelementptr inbounds nuw i8, ptr %opaque, i64 952
   %84 = load i32, ptr %writeblock_size.i, align 8
   %85 = load ptr, ptr %name.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i160.i)
@@ -1922,7 +1922,7 @@ if.then8.i.i170.i:                                ; preds = %if.then.i.i167.i
   %call9.i.i171.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i160.i, ptr noundef null) #12
   %call10.i.i172.i = tail call i32 @qemu_get_thread_id() #12
   %90 = load i64, ptr %_now.i.i160.i, align 8
-  %tv_usec.i.i173.i = getelementptr inbounds i8, ptr %_now.i.i160.i, i64 8
+  %tv_usec.i.i173.i = getelementptr inbounds nuw i8, ptr %_now.i.i160.i, i64 8
   %91 = load i64, ptr %tv_usec.i.i173.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i172.i, i64 noundef %90, i64 noundef %91, ptr noundef %85, ptr noundef nonnull @.str.53) #12
   br label %trace_pflash_write.exit174.i
@@ -1963,7 +1963,7 @@ if.end182.i:                                      ; preds = %if.else176.i, %if.t
   br label %return
 
 sw.bb186.i:                                       ; preds = %if.end.i
-  %cmd187.i = getelementptr inbounds i8, ptr %opaque, i64 850
+  %cmd187.i = getelementptr inbounds nuw i8, ptr %opaque, i64 850
   %98 = load i8, ptr %cmd187.i, align 2
   %cond.i = icmp eq i8 %98, -24
   br i1 %cond.i, label %sw.bb189.i, label %do.body217.i
@@ -1975,7 +1975,7 @@ sw.bb189.i:                                       ; preds = %sw.bb186.i
 
 if.then193.i:                                     ; preds = %sw.bb189.i
   store i8 0, ptr %wcycle.i, align 16
-  %status195.i = getelementptr inbounds i8, ptr %opaque, i64 851
+  %status195.i = getelementptr inbounds nuw i8, ptr %opaque, i64 851
   %99 = load i8, ptr %status195.i, align 1
   %100 = or i8 %99, -128
   store i8 %100, ptr %status195.i, align 1
@@ -2016,7 +2016,7 @@ if.then8.i.i187.i:                                ; preds = %if.then.i.i184.i
   %call9.i.i188.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i177.i, ptr noundef null) #12
   %call10.i.i189.i = tail call i32 @qemu_get_thread_id() #12
   %107 = load i64, ptr %_now.i.i177.i, align 8
-  %tv_usec.i.i190.i = getelementptr inbounds i8, ptr %_now.i.i177.i, i64 8
+  %tv_usec.i.i190.i = getelementptr inbounds nuw i8, ptr %_now.i.i177.i, i64 8
   %108 = load i64, ptr %tv_usec.i.i190.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i189.i, i64 noundef %107, i64 noundef %108, ptr noundef %102, ptr noundef nonnull @.str.55) #12
   br label %trace_pflash_write.exit191.i
@@ -2037,7 +2037,7 @@ do.body217.i:                                     ; preds = %sw.bb186.i, %sw.bb1
 
 if.then225.i:                                     ; preds = %do.body217.i
   %conv227.i = zext nneg i8 %11 to i32
-  %cmd228.i = getelementptr inbounds i8, ptr %opaque, i64 850
+  %cmd228.i = getelementptr inbounds nuw i8, ptr %opaque, i64 850
   %110 = load i8, ptr %cmd228.i, align 2
   %conv229.i = zext i8 %110 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, ptr noundef nonnull @__func__.pflash_write, i64 noundef %addr, i32 noundef %conv227.i, i32 noundef %conv229.i, i32 noundef %conv) #12
@@ -2068,7 +2068,7 @@ if.then8.i.i204.i:                                ; preds = %if.then.i.i201.i
   %call9.i.i205.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i194.i, ptr noundef null) #12
   %call10.i.i206.i = tail call i32 @qemu_get_thread_id() #12
   %116 = load i64, ptr %_now.i.i194.i, align 8
-  %tv_usec.i.i207.i = getelementptr inbounds i8, ptr %_now.i.i194.i, i64 8
+  %tv_usec.i.i207.i = getelementptr inbounds nuw i8, ptr %_now.i.i194.i, i64 8
   %117 = load i64, ptr %tv_usec.i.i207.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i206.i, i64 noundef %116, i64 noundef %117, ptr noundef %111) #12
   br label %trace_pflash_mode_read_array.exit.i
@@ -2079,10 +2079,10 @@ if.else.i.i203.i:                                 ; preds = %if.then.i.i201.i
 
 trace_pflash_mode_read_array.exit.i:              ; preds = %if.else.i.i203.i, %if.then8.i.i204.i, %land.lhs.true5.i.i198.i, %mode_read_array.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i194.i)
-  %mem233.i = getelementptr inbounds i8, ptr %opaque, i64 960
+  %mem233.i = getelementptr inbounds nuw i8, ptr %opaque, i64 960
   tail call void @memory_region_rom_device_set_romd(ptr noundef nonnull %mem233.i, i1 noundef zeroext true) #12
   store i8 0, ptr %wcycle.i, align 16
-  %cmd235.i = getelementptr inbounds i8, ptr %opaque, i64 850
+  %cmd235.i = getelementptr inbounds nuw i8, ptr %opaque, i64 850
   store i8 0, ptr %cmd235.i, align 2
   br label %return
 
@@ -2095,7 +2095,7 @@ return:                                           ; preds = %trace_pflash_mode_r
 define internal fastcc i32 @pflash_data_read(ptr nocapture noundef readonly %pfl, i64 noundef %offset, i32 noundef %width, i32 noundef range(i32 0, 2) %be) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %storage = getelementptr inbounds i8, ptr %pfl, i64 1240
+  %storage = getelementptr inbounds nuw i8, ptr %pfl, i64 1240
   %0 = load ptr, ptr %storage, align 8
   switch i32 %width, label %sw.default [
     i32 1, label %sw.bb
@@ -2164,7 +2164,7 @@ sw.default:                                       ; preds = %entry
 
 sw.epilog:                                        ; preds = %if.then15, %if.else33, %if.then, %if.else, %sw.bb
   %ret.0 = phi i32 [ %or32, %if.then15 ], [ %10, %if.else33 ], [ %or, %if.then ], [ %5, %if.else ], [ %conv, %sw.bb ]
-  %name = getelementptr inbounds i8, ptr %pfl, i64 1232
+  %name = getelementptr inbounds nuw i8, ptr %pfl, i64 1232
   %11 = load ptr, ptr %name, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %12 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2189,7 +2189,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %16 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %17 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %16, i64 noundef %17, ptr noundef %11, i64 noundef %offset, i32 noundef %width, i32 noundef %ret.0) #12
   br label %trace_pflash_data_read.exit
@@ -2233,7 +2233,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #12
   %call10.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %id to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %name, i32 noundef %conv11.i) #12
@@ -2276,7 +2276,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #12
   %call10.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i16 %id to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %name, i32 noundef %conv11.i) #12
@@ -2319,7 +2319,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #12
   %call10.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %name, i64 noundef %offset) #12
   br label %_nocheck__trace_pflash_device_info.exit
@@ -2363,7 +2363,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #12
   %call10.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %name, ptr noundef %str) #12
   br label %_nocheck__trace_pflash_write.exit
@@ -2404,7 +2404,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #12
   %call10.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %name, i64 noundef %offset, i64 noundef %len) #12
   br label %_nocheck__trace_pflash_write_block_erase.exit
@@ -2424,7 +2424,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @pflash_update(ptr nocapture noundef readonly %pfl, i32 noundef %offset, i32 noundef %size) unnamed_addr #0 {
 entry:
-  %blk = getelementptr inbounds i8, ptr %pfl, i64 816
+  %blk = getelementptr inbounds nuw i8, ptr %pfl, i64 816
   %0 = load ptr, ptr %blk, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end15, label %if.then
@@ -2437,7 +2437,7 @@ if.then:                                          ; preds = %entry
   %conv8 = sext i32 %1 to i64
   %sub9 = sub i32 %div410, %1
   %conv10 = sext i32 %sub9 to i64
-  %storage = getelementptr inbounds i8, ptr %pfl, i64 1240
+  %storage = getelementptr inbounds nuw i8, ptr %pfl, i64 1240
   %2 = load ptr, ptr %storage, align 8
   %add.ptr = getelementptr i8, ptr %2, i64 %conv8
   %call = tail call i32 @blk_pwrite(ptr noundef nonnull %0, i64 noundef %conv8, i64 noundef %conv10, ptr noundef %add.ptr, i32 noundef 0) #12
@@ -2458,11 +2458,11 @@ if.end15:                                         ; preds = %if.then, %if.then12
 define internal fastcc void @pflash_data_write(ptr nocapture noundef readonly %pfl, i64 noundef %offset, i32 noundef %value, i32 noundef %width, i32 noundef range(i32 0, 2) %be) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %storage = getelementptr inbounds i8, ptr %pfl, i64 1240
+  %storage = getelementptr inbounds nuw i8, ptr %pfl, i64 1240
   %0 = load ptr, ptr %storage, align 8
-  %name = getelementptr inbounds i8, ptr %pfl, i64 1232
+  %name = getelementptr inbounds nuw i8, ptr %pfl, i64 1232
   %1 = load ptr, ptr %name, align 16
-  %counter = getelementptr inbounds i8, ptr %pfl, i64 944
+  %counter = getelementptr inbounds nuw i8, ptr %pfl, i64 944
   %2 = load i64, ptr %counter, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2487,7 +2487,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %1, i64 noundef %offset, i32 noundef %width, i32 noundef %value, i64 noundef %2) #12
   br label %trace_pflash_data_write.exit
@@ -2586,14 +2586,14 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #10
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @pflash_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
-  %ro = getelementptr inbounds i8, ptr %opaque, i64 849
+  %ro = getelementptr inbounds nuw i8, ptr %opaque, i64 849
   %0 = load i8, ptr %ro, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @postload_update_cb, ptr noundef nonnull %opaque) #12
-  %vmstate = getelementptr inbounds i8, ptr %opaque, i64 1248
+  %vmstate = getelementptr inbounds nuw i8, ptr %opaque, i64 1248
   store ptr %call, ptr %vmstate, align 16
   br label %if.end
 
@@ -2607,11 +2607,11 @@ declare ptr @qemu_add_vm_change_state_handler(ptr noundef, ptr noundef) local_un
 define internal void @postload_update_cb(ptr nocapture noundef %opaque, i1 zeroext %running, i32 %state) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %vmstate = getelementptr inbounds i8, ptr %opaque, i64 1248
+  %vmstate = getelementptr inbounds nuw i8, ptr %opaque, i64 1248
   %0 = load ptr, ptr %vmstate, align 16
   tail call void @qemu_del_vm_change_state_handler(ptr noundef %0) #12
   store ptr null, ptr %vmstate, align 16
-  %name = getelementptr inbounds i8, ptr %opaque, i64 1232
+  %name = getelementptr inbounds nuw i8, ptr %opaque, i64 1232
   %1 = load ptr, ptr %name, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2636,7 +2636,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.79, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %1) #12
   br label %trace_pflash_postload_cb.exit
@@ -2647,22 +2647,22 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pflash_postload_cb.exit:                    ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %blk.i = getelementptr inbounds i8, ptr %opaque, i64 816
+  %blk.i = getelementptr inbounds nuw i8, ptr %opaque, i64 816
   %8 = load ptr, ptr %blk.i, align 16
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %pflash_update.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %trace_pflash_postload_cb.exit
-  %nb_blocs = getelementptr inbounds i8, ptr %opaque, i64 824
+  %nb_blocs = getelementptr inbounds nuw i8, ptr %opaque, i64 824
   %9 = load i32, ptr %nb_blocs, align 8
-  %sector_len = getelementptr inbounds i8, ptr %opaque, i64 832
+  %sector_len = getelementptr inbounds nuw i8, ptr %opaque, i64 832
   %10 = load i64, ptr %sector_len, align 16
   %11 = trunc i64 %10 to i32
   %conv2 = mul i32 %9, %11
   %sub.i = add i32 %conv2, 511
   %div410.i = and i32 %sub.i, -512
   %conv10.i = sext i32 %div410.i to i64
-  %storage.i = getelementptr inbounds i8, ptr %opaque, i64 1240
+  %storage.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1240
   %12 = load ptr, ptr %storage.i, align 8
   %call.i = tail call i32 @blk_pwrite(ptr noundef nonnull %8, i64 noundef 0, i64 noundef %conv10.i, ptr noundef %12, i32 noundef 0) #12
   %cmp.i = icmp slt i32 %call.i, 0

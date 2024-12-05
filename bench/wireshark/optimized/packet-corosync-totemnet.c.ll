@@ -204,8 +204,8 @@ define internal fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr nound
   %8 = alloca %struct._sober128_prng, align 8
   %9 = alloca [20 x i8], align 16
   %10 = alloca [256 x i8], align 16
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %.not = icmp ne i32 %3, 0
   %.neg = sext i1 %.not to i32
@@ -214,7 +214,7 @@ define internal fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr nound
   br i1 %15, label %78, label %16
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %13 to i64
   %20 = tail call ptr @tvb_memdup(ptr noundef %18, ptr noundef %0, i32 noundef 0, i64 noundef %19) #5
@@ -261,7 +261,7 @@ define internal fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr nound
   %47 = call ptr @tvb_new_real_data(ptr noundef %20, i32 noundef %14, i32 noundef %14) #5
   call void @tvb_set_child_real_data_tvbuff(ptr noundef %0, ptr noundef %47) #5
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %47, ptr noundef nonnull @.str.20) #5
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8
   call void @col_set_str(ptr noundef %49, i32 noundef 34, ptr noundef nonnull @.str.9) #5
   %50 = load ptr, ptr %48, align 8
@@ -292,13 +292,13 @@ define internal fastcc i32 @dissect_corosynec_totemnet_with_decryption(ptr nound
   br i1 %.not.i.i, label %dissect_corosync_totemnet_security_header.exit, label %67
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %66, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %69 = load ptr, ptr %68, align 8
   %.not5.i.i = icmp eq ptr %69, null
   br i1 %.not5.i.i, label %dissect_corosync_totemnet_security_header.exit, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %69, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 28
   %72 = load i32, ptr %71, align 4
   %73 = or i32 %72, 2
   store i32 %73, ptr %71, align 4

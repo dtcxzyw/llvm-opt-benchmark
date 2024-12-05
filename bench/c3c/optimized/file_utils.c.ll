@@ -190,7 +190,7 @@ define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr nocaptur
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 46
   br i1 %22, label %33, label %23
@@ -234,7 +234,7 @@ define dso_local ptr @file_expand_path(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %3, label %4, label %14
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 47
   br i1 %7, label %8, label %14
@@ -245,7 +245,7 @@ define dso_local ptr @file_expand_path(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
   br label %14
 
 12:                                               ; preds = %8
@@ -488,13 +488,13 @@ define dso_local ptr @find_rel_exe_dir(ptr noundef %0) local_unnamed_addr #5 {
   br label %17
 
 17:                                               ; preds = %12, %16, %9
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %19
 
 19:                                               ; preds = %17, %30
   %.01518 = phi i64 [ 0, %17 ], [ %31, %30 ]
   tail call void @scratch_buffer_clear() #17
-  %20 = getelementptr inbounds [5 x ptr], ptr @__const.find_rel_exe_dir.attempts, i64 0, i64 %.01518
+  %20 = getelementptr inbounds nuw [5 x ptr], ptr @__const.find_rel_exe_dir.attempts, i64 0, i64 %.01518
   %21 = load ptr, ptr %20, align 8
   tail call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.18, ptr noundef %3, ptr noundef %21, ptr noundef %0) #17
   %22 = tail call ptr @scratch_buffer_to_string() #17
@@ -648,7 +648,7 @@ define internal fastcc ptr @lib_find(ptr noundef %0, ptr noundef %1) unnamed_add
   br i1 %.not, label %6, label %25
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 61440
   %10 = icmp eq i32 %9, 16384
@@ -705,7 +705,7 @@ define dso_local void @file_find_top_dir() local_unnamed_addr #5 {
   %1 = alloca %struct.stat, align 8
   %2 = alloca [4097 x i8], align 16
   %3 = alloca [4097 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %5
 
 5:                                                ; preds = %24, %0
@@ -780,7 +780,7 @@ define dso_local noundef zeroext i1 @file_has_suffix_in_list(ptr nocapture nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %6 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
   %9 = trunc i64 %8 to i32
@@ -815,7 +815,7 @@ define dso_local zeroext i1 @file_is_dir(ptr nocapture noundef readonly %0) loca
   %2 = alloca %struct.stat, align 8
   %3 = call i32 @stat(ptr noundef %0, ptr noundef nonnull %2) #17
   %.not = icmp eq i32 %3, 0
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 61440
   %7 = icmp eq i32 %6, 16384
@@ -831,7 +831,7 @@ define dso_local zeroext i1 @file_exists(ptr nocapture noundef readonly %0) loca
   br i1 %.not, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 61440
   %8 = add nsw i32 %7, -16384
@@ -939,7 +939,7 @@ define dso_local ptr @execute_cmd(ptr noundef %0, i1 noundef zeroext %1) local_u
   ]
 
 14:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader
-  %15 = getelementptr inbounds i8, ptr %.1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %.preheader, !llvm.loop !16
 
 16:                                               ; preds = %.preheader
@@ -956,246 +956,246 @@ define dso_local void @file_add_wildcard_files(ptr nocapture noundef %0, ptr nou
   %6 = alloca %struct.stat, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %8 = icmp eq i64 %7, 0
+  %spec.select = select i1 %8, i64 2, i64 %7
   %spec.select54 = select i1 %8, ptr @.str.33, ptr %1
   %9 = tail call ptr @opendir(ptr noundef %spec.select54)
-  %10 = add i64 %7, -1
-  %11 = select i1 %8, i64 1, i64 %10
-  %12 = getelementptr inbounds i8, ptr %spec.select54, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %14 = icmp eq i8 %13, 47
+  %10 = getelementptr i8, ptr %spec.select54, i64 %spec.select
+  %11 = getelementptr i8, ptr %10, i64 -1
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp eq i8 %12, 47
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %98, label %.preheader
+  br i1 %.not, label %97, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %15 = tail call ptr @readdir(ptr noundef nonnull %9) #17
-  %.not5058 = icmp eq ptr %15, null
+  %14 = tail call ptr @readdir(ptr noundef nonnull %9) #17
+  %.not5058 = icmp eq ptr %14, null
   br i1 %.not5058, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %16 = icmp sgt i32 %4, 0
+  %15 = icmp sgt i32 %4, 0
   %wide.trip.count.i = zext nneg i32 %4 to i64
-  %17 = select i1 %14, ptr @.str.4, ptr @.str.31
-  %18 = getelementptr inbounds i8, ptr %6, i64 24
-  br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split
+  %16 = select i1 %13, ptr @.str.4, ptr @.str.31
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %19 = phi ptr [ %92, %.backedge.us ], [ %15, %.lr.ph ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 19
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #18
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %.backedge.us, label %23
+  %18 = phi ptr [ %91, %.backedge.us ], [ %14, %.lr.ph ]
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 19
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #18
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %.backedge.us, label %22
 
-23:                                               ; preds = %.lr.ph.split.us
-  %24 = load i8, ptr %20, align 1
-  %25 = icmp eq i8 %24, 46
-  br i1 %25, label %.backedge.us, label %26
+22:                                               ; preds = %.lr.ph.split.us
+  %23 = load i8, ptr %19, align 1
+  %24 = icmp eq i8 %23, 46
+  br i1 %24, label %.backedge.us, label %25
 
-26:                                               ; preds = %23
-  %27 = icmp ult i64 %21, 3
-  br i1 %27, label %file_has_suffix_in_list.exit.thread.us, label %.lr.ph.preheader.i.us
+25:                                               ; preds = %22
+  %26 = icmp ult i64 %20, 3
+  br i1 %26, label %file_has_suffix_in_list.exit.thread.us, label %.lr.ph.preheader.i.us
 
-.lr.ph.preheader.i.us:                            ; preds = %26
-  %28 = trunc i64 %21 to i32
+.lr.ph.preheader.i.us:                            ; preds = %25
+  %27 = trunc i64 %20 to i32
   br label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %40, %.lr.ph.preheader.i.us
-  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %40 ]
-  %29 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i.us
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #18
-  %32 = trunc i64 %31 to i32
-  %.not.i.us = icmp sgt i32 %28, %32
-  br i1 %.not.i.us, label %33, label %40
+.lr.ph.i.us:                                      ; preds = %39, %.lr.ph.preheader.i.us
+  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %39 ]
+  %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.us
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #18
+  %31 = trunc i64 %30 to i32
+  %.not.i.us = icmp sgt i32 %27, %31
+  br i1 %.not.i.us, label %32, label %39
 
-33:                                               ; preds = %.lr.ph.i.us
-  %34 = sub i64 %21, %31
-  %sext.us = shl i64 %34, 32
-  %35 = ashr exact i64 %sext.us, 32
-  %36 = getelementptr inbounds i8, ptr %20, i64 %35
-  %sext.i.us = shl i64 %31, 32
-  %37 = ashr exact i64 %sext.i.us, 32
-  %38 = tail call i32 @strncmp(ptr noundef nonnull readonly %36, ptr noundef %30, i64 noundef %37) #18
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %file_has_suffix_in_list.exit.us, label %40
+32:                                               ; preds = %.lr.ph.i.us
+  %33 = sub i64 %20, %30
+  %sext.us = shl i64 %33, 32
+  %34 = ashr exact i64 %sext.us, 32
+  %35 = getelementptr inbounds i8, ptr %19, i64 %34
+  %sext.i.us = shl i64 %30, 32
+  %36 = ashr exact i64 %sext.i.us, 32
+  %37 = tail call i32 @strncmp(ptr noundef nonnull readonly %35, ptr noundef %29, i64 noundef %36) #18
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %file_has_suffix_in_list.exit.us, label %39
 
-40:                                               ; preds = %33, %.lr.ph.i.us
+39:                                               ; preds = %32, %.lr.ph.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %file_has_suffix_in_list.exit.thread.us, label %.lr.ph.i.us, !llvm.loop !14
 
-file_has_suffix_in_list.exit.us:                  ; preds = %33
-  %41 = load i8, ptr @debug_log, align 1
-  %42 = trunc i8 %41 to i1
-  br i1 %42, label %43, label %46
+file_has_suffix_in_list.exit.us:                  ; preds = %32
+  %40 = load i8, ptr @debug_log, align 1
+  %41 = trunc i8 %40 to i1
+  br i1 %41, label %42, label %45
 
-43:                                               ; preds = %file_has_suffix_in_list.exit.us
-  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
-  %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %20)
+42:                                               ; preds = %file_has_suffix_in_list.exit.us
+  %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
+  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %19)
   %putchar.us = tail call i32 @putchar(i32 10)
-  br label %46
+  br label %45
 
-46:                                               ; preds = %43, %file_has_suffix_in_list.exit.us
-  %47 = load ptr, ptr %0, align 8
-  %.not.i56.us = icmp eq ptr %47, null
-  br i1 %.not.i56.us, label %50, label %48
+45:                                               ; preds = %42, %file_has_suffix_in_list.exit.us
+  %46 = load ptr, ptr %0, align 8
+  %.not.i56.us = icmp eq ptr %46, null
+  br i1 %.not.i56.us, label %49, label %47
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %47, i64 -8
-  %.phi.trans.insert.i.us = getelementptr inbounds i8, ptr %47, i64 -4
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds i8, ptr %46, i64 -8
+  %.phi.trans.insert.i.us = getelementptr inbounds i8, ptr %46, i64 -4
   %.pre.i.us = load i32, ptr %.phi.trans.insert.i.us, align 4
-  br label %53
+  br label %52
 
-50:                                               ; preds = %46
-  %51 = tail call ptr @calloc_arena(i64 noundef 72) #17
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
-  store i32 8, ptr %52, align 4
-  br label %53
+49:                                               ; preds = %45
+  %50 = tail call ptr @calloc_arena(i64 noundef 72) #17
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  store i32 8, ptr %51, align 4
+  br label %52
 
-53:                                               ; preds = %50, %48
-  %54 = phi i32 [ %.pre.i.us, %48 ], [ 8, %50 ]
-  %.0.i.us = phi ptr [ %49, %48 ], [ %51, %50 ]
-  %55 = load i32, ptr %.0.i.us, align 4
-  %56 = icmp eq i32 %55, %54
-  br i1 %56, label %57, label %expand_.exit.us
+52:                                               ; preds = %49, %47
+  %53 = phi i32 [ %.pre.i.us, %47 ], [ 8, %49 ]
+  %.0.i.us = phi ptr [ %48, %47 ], [ %50, %49 ]
+  %54 = load i32, ptr %.0.i.us, align 4
+  %55 = icmp eq i32 %54, %53
+  br i1 %55, label %56, label %expand_.exit.us
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %.0.i.us, i64 4
-  %59 = shl i32 %54, 1
-  %60 = zext i32 %59 to i64
-  %61 = shl nuw nsw i64 %60, 3
-  %62 = or disjoint i64 %61, 8
-  %63 = tail call ptr @calloc_arena(i64 noundef %62) #17
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
-  store i32 %59, ptr %64, align 4
-  %65 = load i32, ptr %58, align 4
-  %66 = zext i32 %65 to i64
-  %67 = shl nuw nsw i64 %66, 3
-  %68 = add nuw nsw i64 %67, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %63, ptr noundef nonnull align 4 dereferenceable(1) %.0.i.us, i64 %68, i1 false)
-  %69 = load i32, ptr %64, align 4
-  %70 = shl i32 %69, 1
-  store i32 %70, ptr %64, align 4
-  %.pre18.i.us = load i32, ptr %63, align 4
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.us, i64 4
+  %58 = shl i32 %53, 1
+  %59 = zext i32 %58 to i64
+  %60 = shl nuw nsw i64 %59, 3
+  %61 = or disjoint i64 %60, 8
+  %62 = tail call ptr @calloc_arena(i64 noundef %61) #17
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  store i32 %58, ptr %63, align 4
+  %64 = load i32, ptr %57, align 4
+  %65 = zext i32 %64 to i64
+  %66 = shl nuw nsw i64 %65, 3
+  %67 = add nuw nsw i64 %66, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %62, ptr noundef nonnull align 4 dereferenceable(1) %.0.i.us, i64 %67, i1 false)
+  %68 = load i32, ptr %63, align 4
+  %69 = shl i32 %68, 1
+  store i32 %69, ptr %63, align 4
+  %.pre18.i.us = load i32, ptr %62, align 4
   br label %expand_.exit.us
 
-expand_.exit.us:                                  ; preds = %57, %53
-  %71 = phi i32 [ %.pre18.i.us, %57 ], [ %55, %53 ]
-  %.1.i.us = phi ptr [ %63, %57 ], [ %.0.i.us, %53 ]
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %.1.i.us, align 4
-  %73 = getelementptr inbounds i8, ptr %.1.i.us, i64 8
-  store ptr %73, ptr %0, align 8
-  %74 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %17, ptr noundef %spec.select54, ptr noundef nonnull %20) #17
-  %75 = load ptr, ptr %0, align 8
-  %.not51.us = icmp eq ptr %75, null
-  br i1 %.not51.us, label %81, label %76
+expand_.exit.us:                                  ; preds = %56, %52
+  %70 = phi i32 [ %.pre18.i.us, %56 ], [ %54, %52 ]
+  %.1.i.us = phi ptr [ %62, %56 ], [ %.0.i.us, %52 ]
+  %71 = add i32 %70, 1
+  store i32 %71, ptr %.1.i.us, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %.1.i.us, i64 8
+  store ptr %72, ptr %0, align 8
+  %73 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef %spec.select54, ptr noundef nonnull %19) #17
+  %74 = load ptr, ptr %0, align 8
+  %.not51.us = icmp eq ptr %74, null
+  br i1 %.not51.us, label %80, label %75
 
-76:                                               ; preds = %expand_.exit.us
-  %77 = getelementptr inbounds i8, ptr %75, i64 -8
-  %78 = load i32, ptr %77, align 4
-  %79 = add i32 %78, -1
-  %80 = zext i32 %79 to i64
-  br label %81
+75:                                               ; preds = %expand_.exit.us
+  %76 = getelementptr inbounds i8, ptr %74, i64 -8
+  %77 = load i32, ptr %76, align 4
+  %78 = add i32 %77, -1
+  %79 = zext i32 %78 to i64
+  br label %80
 
-81:                                               ; preds = %76, %expand_.exit.us
-  %.0.us = phi i64 [ %80, %76 ], [ 4294967295, %expand_.exit.us ]
-  %82 = getelementptr inbounds ptr, ptr %75, i64 %.0.us
-  store ptr %74, ptr %82, align 8
+80:                                               ; preds = %75, %expand_.exit.us
+  %.0.us = phi i64 [ %79, %75 ], [ 4294967295, %expand_.exit.us ]
+  %81 = getelementptr inbounds nuw ptr, ptr %74, i64 %.0.us
+  store ptr %73, ptr %81, align 8
   br label %.backedge.us
 
-file_has_suffix_in_list.exit.thread.us:           ; preds = %40, %26
-  %83 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %17, ptr noundef %spec.select54, ptr noundef nonnull %20) #17
-  %84 = call i32 @stat(ptr noundef %83, ptr noundef nonnull %6) #17
-  %.not52.us = icmp eq i32 %84, 0
-  br i1 %.not52.us, label %85, label %.backedge.us
+file_has_suffix_in_list.exit.thread.us:           ; preds = %39, %25
+  %82 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef %spec.select54, ptr noundef nonnull %19) #17
+  %83 = call i32 @stat(ptr noundef %82, ptr noundef nonnull %6) #17
+  %.not52.us = icmp eq i32 %83, 0
+  br i1 %.not52.us, label %84, label %.backedge.us
 
-85:                                               ; preds = %file_has_suffix_in_list.exit.thread.us
-  %86 = load i32, ptr %18, align 8
-  %87 = and i32 %86, 61440
-  %88 = icmp eq i32 %87, 16384
-  br i1 %88, label %89, label %.backedge.us
+84:                                               ; preds = %file_has_suffix_in_list.exit.thread.us
+  %85 = load i32, ptr %17, align 8
+  %86 = and i32 %85, 61440
+  %87 = icmp eq i32 %86, 16384
+  br i1 %87, label %88, label %.backedge.us
 
-89:                                               ; preds = %85
-  %90 = load i8, ptr %20, align 1
-  %.not53.us = icmp ne i8 %90, 46
+88:                                               ; preds = %84
+  %89 = load i8, ptr %19, align 1
+  %.not53.us = icmp ne i8 %89, 46
   %brmerge.not.us = and i1 %2, %.not53.us
-  br i1 %brmerge.not.us, label %91, label %.backedge.us
+  br i1 %brmerge.not.us, label %90, label %.backedge.us
 
-91:                                               ; preds = %89
-  tail call void @file_add_wildcard_files(ptr noundef %0, ptr noundef %83, i1 noundef zeroext true, ptr noundef %3, i32 noundef %4)
+90:                                               ; preds = %88
+  tail call void @file_add_wildcard_files(ptr noundef %0, ptr noundef %82, i1 noundef zeroext true, ptr noundef %3, i32 noundef %4)
   br label %.backedge.us
 
-.backedge.us:                                     ; preds = %.lr.ph.split.us, %23, %85, %89, %91, %file_has_suffix_in_list.exit.thread.us, %81
-  %92 = tail call ptr @readdir(ptr noundef nonnull %9) #17
-  %.not50.us = icmp eq ptr %92, null
+.backedge.us:                                     ; preds = %.lr.ph.split.us, %22, %84, %88, %90, %file_has_suffix_in_list.exit.thread.us, %80
+  %91 = tail call ptr @readdir(ptr noundef nonnull %9) #17
+  %.not50.us = icmp eq ptr %91, null
   br i1 %.not50.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %2, label %.lr.ph.split.split, label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.backedge.us63
-  %93 = phi ptr [ %97, %.backedge.us63 ], [ %15, %.lr.ph.split ]
-  %94 = getelementptr inbounds i8, ptr %93, i64 19
-  %char0 = load i8, ptr %94, align 1
+  %92 = phi ptr [ %96, %.backedge.us63 ], [ %14, %.lr.ph.split ]
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 19
+  %char0 = load i8, ptr %93, align 1
   switch i8 %char0, label %file_has_suffix_in_list.exit.thread.us59 [
     i8 0, label %.backedge.us63
     i8 46, label %.backedge.us63
   ]
 
 file_has_suffix_in_list.exit.thread.us59:         ; preds = %.lr.ph.split.split.us
-  %95 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %17, ptr noundef %spec.select54, ptr noundef nonnull %94) #17
-  %96 = call i32 @stat(ptr noundef %95, ptr noundef nonnull %6) #17
+  %94 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef %spec.select54, ptr noundef nonnull %93) #17
+  %95 = call i32 @stat(ptr noundef %94, ptr noundef nonnull %6) #17
   br label %.backedge.us63
 
 .backedge.us63:                                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us, %file_has_suffix_in_list.exit.thread.us59
-  %97 = tail call ptr @readdir(ptr noundef nonnull %9) #17
-  %.not50.us64 = icmp eq ptr %97, null
+  %96 = tail call ptr @readdir(ptr noundef nonnull %9) #17
+  %.not50.us64 = icmp eq ptr %96, null
   br i1 %.not50.us64, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !17
 
-98:                                               ; preds = %5
-  %99 = tail call ptr @__errno_location() #19
-  %100 = load i32, ptr %99, align 4
-  %101 = tail call ptr @strerror(i32 noundef %100) #17
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.34, ptr noundef nonnull %spec.select54, ptr noundef %101) #16
+97:                                               ; preds = %5
+  %98 = tail call ptr @__errno_location() #19
+  %99 = load i32, ptr %98, align 4
+  %100 = tail call ptr @strerror(i32 noundef %99) #17
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.34, ptr noundef nonnull %spec.select54, ptr noundef %100) #16
   unreachable
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.backedge
-  %102 = phi ptr [ %104, %.backedge ], [ %15, %.lr.ph.split ]
-  %103 = getelementptr inbounds i8, ptr %102, i64 19
-  %char065 = load i8, ptr %103, align 1
+  %101 = phi ptr [ %103, %.backedge ], [ %14, %.lr.ph.split ]
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 19
+  %char065 = load i8, ptr %102, align 1
   switch i8 %char065, label %file_has_suffix_in_list.exit.thread [
     i8 0, label %.backedge
     i8 46, label %.backedge
   ]
 
-.backedge:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split, %107, %113, %111, %file_has_suffix_in_list.exit.thread
-  %104 = tail call ptr @readdir(ptr noundef nonnull %9) #17
-  %.not50 = icmp eq ptr %104, null
+.backedge:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split, %106, %112, %110, %file_has_suffix_in_list.exit.thread
+  %103 = tail call ptr @readdir(ptr noundef nonnull %9) #17
+  %.not50 = icmp eq ptr %103, null
   br i1 %.not50, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !17
 
 file_has_suffix_in_list.exit.thread:              ; preds = %.lr.ph.split.split
-  %105 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %17, ptr noundef %spec.select54, ptr noundef nonnull %103) #17
-  %106 = call i32 @stat(ptr noundef %105, ptr noundef nonnull %6) #17
-  %.not52 = icmp eq i32 %106, 0
-  br i1 %.not52, label %107, label %.backedge
+  %104 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef %spec.select54, ptr noundef nonnull %102) #17
+  %105 = call i32 @stat(ptr noundef %104, ptr noundef nonnull %6) #17
+  %.not52 = icmp eq i32 %105, 0
+  br i1 %.not52, label %106, label %.backedge
 
-107:                                              ; preds = %file_has_suffix_in_list.exit.thread
-  %108 = load i32, ptr %18, align 8
-  %109 = and i32 %108, 61440
-  %110 = icmp eq i32 %109, 16384
-  br i1 %110, label %111, label %.backedge
+106:                                              ; preds = %file_has_suffix_in_list.exit.thread
+  %107 = load i32, ptr %17, align 8
+  %108 = and i32 %107, 61440
+  %109 = icmp eq i32 %108, 16384
+  br i1 %109, label %110, label %.backedge
 
-111:                                              ; preds = %107
-  %112 = load i8, ptr %103, align 1
-  %.not53.not = icmp eq i8 %112, 46
-  br i1 %.not53.not, label %.backedge, label %113
+110:                                              ; preds = %106
+  %111 = load i8, ptr %102, align 1
+  %.not53.not = icmp eq i8 %111, 46
+  br i1 %.not53.not, label %.backedge, label %112
 
-113:                                              ; preds = %111
-  tail call void @file_add_wildcard_files(ptr noundef %0, ptr noundef %105, i1 noundef zeroext true, ptr noundef %3, i32 noundef %4)
+112:                                              ; preds = %110
+  tail call void @file_add_wildcard_files(ptr noundef %0, ptr noundef %104, i1 noundef zeroext true, ptr noundef %3, i32 noundef %4)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge.us63, %.backedge, %.backedge.us, %.preheader
-  %114 = tail call i32 @closedir(ptr noundef nonnull %9)
+  %113 = tail call i32 @closedir(ptr noundef nonnull %9)
   ret void
 }
 
@@ -1254,7 +1254,7 @@ define dso_local noundef zeroext i1 @execute_cmd_failable(ptr nocapture noundef 
   ]
 
 10:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader
-  %11 = getelementptr inbounds i8, ptr %.1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %.preheader, !llvm.loop !19
 
 12:                                               ; preds = %.preheader

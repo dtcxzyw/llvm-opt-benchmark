@@ -69,17 +69,17 @@ define noalias noundef nonnull ptr @_ZN10tokio_util4sync18cancellation_token17Ca
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !5
   store i32 0, ptr %3, align 8, !noalias !5
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %5, align 4, !noalias !5
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %6, align 8, !noalias !5
-  %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.48.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.48.0..sroa_idx.i, align 8, !noalias !5
-  %.sroa.59.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
-  %.sroa.812.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 48
+  %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sroa.812.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.59.0..sroa_idx.i, i8 0, i64 24, i1 false), !noalias !5
   store i64 1, ptr %.sroa.812.0..sroa_idx.i, align 8, !noalias !5
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 56
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i8 0, ptr %.sroa.9.0..sroa_idx.i, align 8, !noalias !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !5
   invoke void @_ZN5tokio4sync6notify6Notify3new17hace6f67ad1acbacbE(ptr noalias nocapture noundef nonnull sret({ { { { i64 } } }, { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } } }) align 8 dereferenceable(32) %2)
@@ -103,15 +103,15 @@ common.resume:                                    ; preds = %18, %7
 
 _ZN10tokio_util4sync18cancellation_token9tree_node8TreeNode3new17hb337ed5d1fb84f7fE.exit: ; preds = %0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
-  %11 = getelementptr inbounds i8, ptr %4, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2), !noalias !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !5
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %1), !noalias !8
   store i64 1, ptr %1, align 8, !noalias !8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 1, ptr %12, align 8, !noalias !8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull readonly align 8 dereferenceable(96) %4, i64 96, i1 false)
   %14 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !11
   %15 = tail call noundef align 8 dereferenceable_or_null(112) ptr @__rust_alloc(i64 noundef 112, i64 noundef 8) #14, !noalias !11
@@ -167,10 +167,10 @@ define void @_ZN10tokio_util4sync18cancellation_token17CancellationToken9cancell
   %3 = alloca { ptr, i64, { { ptr, ptr }, { ptr, ptr }, { { { { i64 } } } }, {} }, i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @_ZN5tokio4sync6notify6Notify8notified17h729b77d1c6a4b719E(ptr noalias nocapture noundef nonnull sret({ ptr, i64, { { ptr, ptr }, { ptr, ptr }, { { { { i64 } } } }, {} }, i8, [7 x i8] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 %5)
   store ptr %1, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   ret void
@@ -186,7 +186,7 @@ define void @_ZN10tokio_util4sync18cancellation_token17CancellationToken15cancel
   store ptr %1, ptr %4, align 8, !noalias !14
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !14
-  %5 = getelementptr inbounds i8, ptr %1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   invoke void @_ZN5tokio4sync6notify6Notify8notified17h729b77d1c6a4b719E(ptr noalias nocapture noundef nonnull sret({ ptr, i64, { { ptr, ptr }, { ptr, ptr }, { { { { i64 } } } }, {} }, i8, [7 x i8] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 %5)
           to label %_ZN10tokio_util4sync18cancellation_token30WaitForCancellationFutureOwned3new17h3c06231642d7e0b2E.exit unwind label %6, !noalias !14
 
@@ -208,7 +208,7 @@ define void @_ZN10tokio_util4sync18cancellation_token17CancellationToken15cancel
 _ZN10tokio_util4sync18cancellation_token30WaitForCancellationFutureOwned3new17h3c06231642d7e0b2E.exit: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !14
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.i, i64 64, i1 false)
   store ptr %1, ptr %0, align 8, !alias.scope !14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.0.i)
@@ -234,14 +234,14 @@ define noundef zeroext i1 @"_ZN100_$LT$tokio_util..sync..cancellation_token..Wai
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN112_$LT$tokio_util..sync..cancellation_token..WaitForCancellationFuture$u20$as$u20$core..future..future..Future$GT$4poll17h046e581479c75aebE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i64, { { ptr, ptr }, { ptr, ptr }, { { { { i64 } } } }, {} }, i8, [7 x i8] }, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !17, !noundef !4
   %6 = tail call noundef zeroext i1 @_ZN10tokio_util4sync18cancellation_token9tree_node12is_cancelled17hb54960db4ea65eeaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
   br i1 %6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %9
 
 9:                                                ; preds = %.lr.ph, %"_ZN4core3pin12Pin$LT$P$GT$3set17h6886b852b67b3464E.exit"
@@ -251,7 +251,7 @@ define noundef zeroext i1 @"_ZN112_$LT$tokio_util..sync..cancellation_token..Wai
 11:                                               ; preds = %9
   %12 = load ptr, ptr %0, align 8, !nonnull !4, !align !17, !noundef !4
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @_ZN5tokio4sync6notify6Notify8notified17h729b77d1c6a4b719E(ptr noalias nocapture noundef nonnull sret({ ptr, i64, { { ptr, ptr }, { ptr, ptr }, { { { { i64 } } } }, {} }, i8, [7 x i8] }) align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 %14)
   invoke void @"_ZN71_$LT$tokio..sync..notify..Notified$u20$as$u20$core..ops..drop..Drop$GT$4drop17he65f774d5e937948E"(ptr noundef nonnull align 8 %4)
@@ -270,7 +270,7 @@ define noundef zeroext i1 @"_ZN112_$LT$tokio_util..sync..cancellation_token..Wai
 19:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31), !noalias !18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34), !noalias !18
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %21 = load ptr, ptr %20, align 8, !noalias !37, !nonnull !4, !noundef !4
   %22 = load ptr, ptr %8, align 8, !alias.scope !38, !noalias !18, !noundef !4
   invoke void %21(ptr noundef %22)
@@ -287,7 +287,7 @@ define noundef zeroext i1 @"_ZN112_$LT$tokio_util..sync..cancellation_token..Wai
 26:                                               ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49), !noalias !18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52), !noalias !18
-  %27 = getelementptr inbounds i8, ptr %24, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %28 = load ptr, ptr %27, align 8, !noalias !55, !nonnull !4, !noundef !4
   %29 = load ptr, ptr %8, align 8, !alias.scope !56, !noalias !18, !noundef !4
   invoke void %28(ptr noundef %29)
@@ -334,13 +334,13 @@ define noundef zeroext i1 @"_ZN105_$LT$tokio_util..sync..cancellation_token..Wai
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN117_$LT$tokio_util..sync..cancellation_token..WaitForCancellationFutureOwned$u20$as$u20$core..future..future..Future$GT$4poll17h12cfe029dbca727aE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.017 = alloca [8 x i64], align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noundef zeroext i1 @_ZN10tokio_util4sync18cancellation_token9tree_node12is_cancelled17hb54960db4ea65eeaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %7
 
 7:                                                ; preds = %.lr.ph, %"_ZN4core3pin12Pin$LT$P$GT$3set17h4445fac9d8c0c6b3E.exit"
@@ -349,7 +349,7 @@ define noundef zeroext i1 @"_ZN117_$LT$tokio_util..sync..cancellation_token..Wai
 
 9:                                                ; preds = %7
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %.val, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.017)
   call void @_ZN5tokio4sync6notify6Notify8notified17h729b77d1c6a4b719E(ptr noalias nocapture noundef nonnull sret({ ptr, i64, { { ptr, ptr }, { ptr, ptr }, { { { { i64 } } } }, {} }, i8, [7 x i8] }) align 8 dereferenceable(64) %.sroa.017, ptr noundef nonnull align 8 %10)
   invoke void @"_ZN71_$LT$tokio..sync..notify..Notified$u20$as$u20$core..ops..drop..Drop$GT$4drop17he65f774d5e937948E"(ptr noundef nonnull align 8 %3)
@@ -368,7 +368,7 @@ define noundef zeroext i1 @"_ZN117_$LT$tokio_util..sync..cancellation_token..Wai
 15:                                               ; preds = %11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70), !noalias !57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73), !noalias !57
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8, !noalias !76, !nonnull !4, !noundef !4
   %18 = load ptr, ptr %6, align 8, !alias.scope !77, !noalias !57, !noundef !4
   invoke void %17(ptr noundef %18)
@@ -385,7 +385,7 @@ define noundef zeroext i1 @"_ZN117_$LT$tokio_util..sync..cancellation_token..Wai
 22:                                               ; preds = %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88), !noalias !57
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91), !noalias !57
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %24 = load ptr, ptr %23, align 8, !noalias !94, !nonnull !4, !noundef !4
   %25 = load ptr, ptr %6, align 8, !alias.scope !95, !noalias !57, !noundef !4
   invoke void %24(ptr noundef %25)

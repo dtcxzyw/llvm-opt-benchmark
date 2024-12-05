@@ -235,13 +235,13 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendarC2ERKN
   br i1 %.not.i, label %sub_1.i, label %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i.i.preheader
 
 sub_1.i:                                          ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %11 = load i8, ptr %10, align 1
   %.not18.i = icmp eq i8 %11, 86
   br i1 %.not18.i, label %.tail.i, label %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i.i.preheader
 
 .tail.i:                                          ; preds = %sub_1.i
-  %12 = getelementptr inbounds i8, ptr %8, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %38, label %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i.i.preheader
@@ -253,7 +253,7 @@ _ZSt7advanceIPKPKclEvRT_T0_.exit.i.i.i:           ; preds = %_ZSt7advanceIPKPKcl
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i.i ], [ %3, %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i.i.preheader ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i.i ], [ 23, %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i.i.preheader ]
   %15 = lshr i64 %.01116.i.i.i, 1
-  %16 = getelementptr inbounds ptr, ptr %.017.i.i.i, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %8) #21
   %19 = icmp slt i32 %18, 0
@@ -283,7 +283,7 @@ _ZSt7advanceIPKPKclEvRT_T0_.exit.i.i3.i:          ; preds = %_ZSt7advanceIPKPKcl
   %.017.i.i4.i = phi ptr [ %.1.i.i9.i, %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i3.i ], [ %4, %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i3.i.preheader ]
   %.01116.i.i5.i = phi i64 [ %.112.i.i8.i, %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i3.i ], [ 35, %_ZSt7advanceIPKPKclEvRT_T0_.exit.i.i3.i.preheader ]
   %27 = lshr i64 %.01116.i.i5.i, 1
-  %28 = getelementptr inbounds ptr, ptr %.017.i.i4.i, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %.017.i.i4.i, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !15
   %30 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %8) #21
   %31 = icmp slt i32 %30, 0
@@ -735,7 +735,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar9set_v
 
 29:                                               ; preds = %3
   %30 = load ptr, ptr %0, align 8, !tbaa !3
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(176) %0)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -772,7 +772,7 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar9set_v
 53:                                               ; preds = %45, %3
   %.0 = phi i32 [ %2, %3 ], [ %52, %45 ]
   %54 = load ptr, ptr %0, align 8, !tbaa !3
-  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(176) %0)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -792,11 +792,11 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar9set_v
 
 69:                                               ; preds = %3, %3, %3
   %70 = load ptr, ptr %0, align 8, !tbaa !3
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull align 8 dereferenceable(176) %0)
   %73 = load ptr, ptr %0, align 8, !tbaa !3
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   %76 = tail call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, i32 noundef 3)
   %77 = sub nsw i32 %2, %76
@@ -2179,17 +2179,17 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar12adju
 
 53:                                               ; preds = %4
   %54 = load ptr, ptr %0, align 8, !tbaa !3
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef i32 %56(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, i32 noundef 1)
   %58 = load ptr, ptr %0, align 8, !tbaa !3
-  %59 = getelementptr inbounds i8, ptr %58, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = tail call noundef i32 %60(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, i32 noundef 5)
   %62 = sub nsw i32 %61, %57
   %63 = add nsw i32 %62, 1
   %64 = load ptr, ptr %0, align 8, !tbaa !3
-  %65 = getelementptr inbounds i8, ptr %64, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = tail call noundef i32 %66(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, i32 noundef 3)
   %68 = sub i32 %3, %57
@@ -2200,14 +2200,14 @@ define linkonce_odr hidden void @_ZN5boost6locale4util18gregorian_calendar12adju
   %spec.select = add i32 %70, %57
   %73 = add i32 %spec.select, %72
   %74 = load ptr, ptr %0, align 8, !tbaa !3
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   tail call void %76(ptr noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, i32 noundef %73)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %51, %53
   %77 = load ptr, ptr %0, align 8, !tbaa !3
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
   tail call void %79(ptr noundef nonnull align 8 dereferenceable(176) %0)
   br label %80
@@ -2235,7 +2235,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEE5resetEPS3_.exit: ; pre
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(176) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
   %9 = load ptr, ptr %1, align 8, !tbaa !3
-  %10 = getelementptr inbounds i8, ptr %9, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = invoke { i64, i32 } %11(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %13 unwind label %21
@@ -2247,7 +2247,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEE5resetEPS3_.exit: ; pre
   %16 = extractvalue { i64, i32 } %12, 1
   store i32 %16, ptr %15, align 8
   %17 = load ptr, ptr %8, align 8, !tbaa !3
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %20 unwind label %21
@@ -2303,7 +2303,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEE5resetEPS3_.exit: ; pre
 
 .noexc:                                           ; preds = %31
   %35 = load ptr, ptr %34, align 8, !tbaa !3
-  %36 = getelementptr inbounds i8, ptr %35, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(176) %34, i32 noundef 2, i32 noundef 0, i32 noundef %29)
           to label %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i unwind label %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit.i
@@ -2321,7 +2321,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i: ; preds 
   %.pn.i = select i1 %38, i32 %44, i32 %46
   %.1.i = add nsw i32 %.pn.i, %29
   %47 = load ptr, ptr %34, align 8, !tbaa !3
-  %48 = getelementptr inbounds i8, ptr %47, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 120
   %49 = load ptr, ptr %48, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(176) %34) #20
   br label %_ZNK5boost6locale4util18gregorian_calendar8get_diffENS0_6period5marks11period_markEiPKS2_.exit
@@ -2330,7 +2330,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit.i: ; preds = 
   %50 = landingpad { ptr, i32 }
           cleanup
   %51 = load ptr, ptr %34, align 8, !tbaa !3
-  %52 = getelementptr inbounds i8, ptr %51, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 120
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(176) %34) #20
   br label %.body
@@ -2364,7 +2364,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit.i: ; preds = 
 
 .noexc41:                                         ; preds = %70
   %74 = load ptr, ptr %73, align 8, !tbaa !3
-  %75 = getelementptr inbounds i8, ptr %74, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
   %76 = load ptr, ptr %75, align 8
   invoke void %76(ptr noundef nonnull align 8 dereferenceable(176) %73, i32 noundef 4, i32 noundef 0, i32 noundef %68)
           to label %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i37 unwind label %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit.i36
@@ -2382,7 +2382,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i37: ; pred
   %.pn.i38 = select i1 %77, i32 %83, i32 %85
   %.1.i39 = add nsw i32 %.pn.i38, %68
   %86 = load ptr, ptr %73, align 8, !tbaa !3
-  %87 = getelementptr inbounds i8, ptr %86, i64 120
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 120
   %88 = load ptr, ptr %87, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(176) %73) #20
   br label %_ZNK5boost6locale4util18gregorian_calendar8get_diffENS0_6period5marks11period_markEiPKS2_.exit
@@ -2391,7 +2391,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit.i36: ; preds 
   %89 = landingpad { ptr, i32 }
           cleanup
   %90 = load ptr, ptr %73, align 8, !tbaa !3
-  %91 = getelementptr inbounds i8, ptr %90, i64 120
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 120
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull align 8 dereferenceable(176) %73) #20
   br label %.body
@@ -2456,7 +2456,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit.i36: ; preds 
 
 .noexc51:                                         ; preds = %121
   %125 = load ptr, ptr %124, align 8, !tbaa !3
-  %126 = getelementptr inbounds i8, ptr %125, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 72
   %127 = load ptr, ptr %126, align 8
   invoke void %127(ptr noundef nonnull align 8 dereferenceable(176) %124, i32 noundef 5, i32 noundef 0, i32 noundef %.0)
           to label %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i47 unwind label %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit.i46
@@ -2474,7 +2474,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit15.i47: ; pred
   %.pn.i48 = select i1 %128, i32 %134, i32 %136
   %.1.i49 = add nsw i32 %.pn.i48, %.0
   %137 = load ptr, ptr %124, align 8, !tbaa !3
-  %138 = getelementptr inbounds i8, ptr %137, i64 120
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 120
   %139 = load ptr, ptr %138, align 8
   call void %139(ptr noundef nonnull align 8 dereferenceable(176) %124) #20
   br label %_ZNK5boost6locale4util18gregorian_calendar8get_diffENS0_6period5marks11period_markEiPKS2_.exit54
@@ -2483,7 +2483,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit.i46: ; preds 
   %140 = landingpad { ptr, i32 }
           cleanup
   %141 = load ptr, ptr %124, align 8, !tbaa !3
-  %142 = getelementptr inbounds i8, ptr %141, i64 120
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 120
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull align 8 dereferenceable(176) %124) #20
   br label %.body
@@ -2559,7 +2559,7 @@ _ZNK5boost6locale4util18gregorian_calendar8get_diffENS0_6period5marks11period_ma
 
 184:                                              ; preds = %_ZNK5boost6locale4util18gregorian_calendar8get_diffENS0_6period5marks11period_markEiPKS2_.exit
   %185 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !3
-  %186 = getelementptr inbounds i8, ptr %185, i64 120
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 120
   %187 = load ptr, ptr %186, align 8
   call void %187(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.0.0) #20
   br label %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit
@@ -2575,7 +2575,7 @@ _ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit: ; preds = %_
 
 189:                                              ; preds = %.body
   %190 = load ptr, ptr %.sroa.0.1, align 8, !tbaa !3
-  %191 = getelementptr inbounds i8, ptr %190, i64 120
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 120
   %192 = load ptr, ptr %191, align 8
   call void %192(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.0.1) #20
   br label %_ZN5boost6locale8hold_ptrINS0_4util18gregorian_calendarEED2Ev.exit55
@@ -3022,7 +3022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit30: ; preds = %_ZN
 
 57:                                               ; preds = %51, %56
   %58 = load ptr, ptr %2, align 8, !tbaa !14
-  %59 = getelementptr inbounds i8, ptr %58, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   store ptr %59, ptr %3, align 8, !tbaa !15
   %60 = call i64 @strtol(ptr noundef nonnull %59, ptr noundef nonnull %3, i32 noundef 10) #20
@@ -3036,7 +3036,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit30: ; preds = %_ZN
   br i1 %65, label %66, label %73
 
 66:                                               ; preds = %57
-  %67 = getelementptr inbounds i8, ptr %61, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 1
   %68 = call i64 @strtol(ptr noundef nonnull %67, ptr noundef nonnull %3, i32 noundef 10) #20
   %69 = load ptr, ptr %3, align 8, !tbaa !15
   %.not24 = icmp eq ptr %69, %67

@@ -67,9 +67,9 @@ define dso_local noundef ptr @i2c_init_bus(ptr noundef %parent, ptr noundef %nam
 entry:
   %call = tail call ptr @qbus_new(ptr noundef nonnull @.str, ptr noundef %parent, ptr noundef %name) #9
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 67, ptr noundef nonnull @__func__.I2C_BUS) #9
-  %current_devs = getelementptr inbounds i8, ptr %call.i, i64 120
-  %pending_masters = getelementptr inbounds i8, ptr %call.i, i64 128
-  %sqh_last = getelementptr inbounds i8, ptr %call.i, i64 136
+  %current_devs = getelementptr inbounds nuw i8, ptr %call.i, i64 120
+  %pending_masters = getelementptr inbounds nuw i8, ptr %call.i, i64 128
+  %sqh_last = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_devs, i8 0, i64 16, i1 false)
   store ptr %pending_masters, ptr %sqh_last, align 8
   %call.i6 = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef -1, ptr noundef nonnull @vmstate_i2c_bus, ptr noundef %call.i, i32 noundef -1, i32 noundef 0, ptr noundef null) #9
@@ -81,7 +81,7 @@ declare ptr @qbus_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @i2c_slave_set_address(ptr nocapture noundef writeonly initializes((160, 161)) %dev, i8 noundef zeroext %address) local_unnamed_addr #2 {
 entry:
-  %address1 = getelementptr inbounds i8, ptr %dev, i64 160
+  %address1 = getelementptr inbounds nuw i8, ptr %dev, i64 160
   store i8 %address, ptr %address1, align 8
   ret void
 }
@@ -89,13 +89,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @i2c_bus_busy(ptr nocapture noundef readonly %bus) local_unnamed_addr #3 {
 entry:
-  %current_devs = getelementptr inbounds i8, ptr %bus, i64 120
+  %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load ptr, ptr %current_devs, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %bh = getelementptr inbounds i8, ptr %bus, i64 152
+  %bh = getelementptr inbounds nuw i8, ptr %bus, i64 152
   %1 = load ptr, ptr %bh, align 8
   %tobool = icmp ne ptr %1, null
   %2 = zext i1 %tobool to i32
@@ -109,7 +109,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @i2c_scan_bus(ptr nocapture noundef readonly %bus, i8 noundef zeroext %address, i1 noundef zeroext %broadcast, ptr noundef %current_devs) local_unnamed_addr #0 {
 entry:
-  %children = getelementptr inbounds i8, ptr %bus, i64 80
+  %children = getelementptr inbounds nuw i8, ptr %bus, i64 80
   %kid.07 = load ptr, ptr %children, align 8
   %tobool.not8 = icmp eq ptr %kid.07, null
   br i1 %tobool.not8, label %return, label %for.body.lr.ph
@@ -119,33 +119,33 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %kid.09.us = phi ptr [ %kid.0.us, %for.body.us ], [ %kid.07, %for.body.lr.ph ]
-  %child.us = getelementptr inbounds i8, ptr %kid.09.us, i64 16
+  %child.us = getelementptr inbounds nuw i8, ptr %kid.09.us, i64 16
   %0 = load ptr, ptr %child.us, align 8
   %call.i.us = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE) #9
   %call.i6.us = tail call ptr @object_get_class(ptr noundef %call.i.us) #9
   %call1.i.us = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i6.us, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_GET_CLASS) #9
-  %match_and_add.us = getelementptr inbounds i8, ptr %call1.i.us, i64 208
+  %match_and_add.us = getelementptr inbounds nuw i8, ptr %call1.i.us, i64 208
   %1 = load ptr, ptr %match_and_add.us, align 8
   %call3.us = tail call zeroext i1 %1(ptr noundef %call.i.us, i8 noundef zeroext %address, i1 noundef zeroext true, ptr noundef %current_devs) #9
-  %sibling.us = getelementptr inbounds i8, ptr %kid.09.us, i64 32
+  %sibling.us = getelementptr inbounds nuw i8, ptr %kid.09.us, i64 32
   %kid.0.us = load ptr, ptr %sibling.us, align 8
   %tobool.not.us = icmp eq ptr %kid.0.us, null
   br i1 %tobool.not.us, label %return, label %for.body.us, !llvm.loop !5
 
 for.cond:                                         ; preds = %for.body
-  %sibling = getelementptr inbounds i8, ptr %kid.09, i64 32
+  %sibling = getelementptr inbounds nuw i8, ptr %kid.09, i64 32
   %kid.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %kid.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !5
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %kid.09 = phi ptr [ %kid.0, %for.cond ], [ %kid.07, %for.body.lr.ph ]
-  %child = getelementptr inbounds i8, ptr %kid.09, i64 16
+  %child = getelementptr inbounds nuw i8, ptr %kid.09, i64 16
   %2 = load ptr, ptr %child, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE) #9
   %call.i6 = tail call ptr @object_get_class(ptr noundef %call.i) #9
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_GET_CLASS) #9
-  %match_and_add = getelementptr inbounds i8, ptr %call1.i, i64 208
+  %match_and_add = getelementptr inbounds nuw i8, ptr %call1.i, i64 208
   %3 = load ptr, ptr %match_and_add, align 8
   %call3 = tail call zeroext i1 %3(ptr noundef %call.i, i8 noundef zeroext %address, i1 noundef zeroext false, ptr noundef %current_devs) #9
   br i1 %call3, label %return, label %for.cond
@@ -172,18 +172,18 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %broadcast = getelementptr inbounds i8, ptr %bus, i64 145
+  %broadcast = getelementptr inbounds nuw i8, ptr %bus, i64 145
   store i8 1, ptr %broadcast, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %current_devs = getelementptr inbounds i8, ptr %bus, i64 120
+  %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load ptr, ptr %current_devs, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %if.end7, label %for.cond.preheader
 
 if.end7:                                          ; preds = %if.end
-  %broadcast5 = getelementptr inbounds i8, ptr %bus, i64 145
+  %broadcast5 = getelementptr inbounds nuw i8, ptr %bus, i64 145
   %1 = load i8, ptr %broadcast5, align 1
   %tobool = trunc i8 %1 to i1
   %call = tail call zeroext i1 @i2c_scan_bus(ptr noundef nonnull %bus, i8 noundef zeroext %address, i1 noundef zeroext %tobool, ptr noundef nonnull %current_devs)
@@ -195,8 +195,8 @@ for.cond.preheader:                               ; preds = %if.end, %if.end7
   %2 = phi ptr [ %.pr, %if.end7 ], [ %0, %if.end ]
   %cmp21 = icmp eq i32 %event, 1
   %cond = select i1 %cmp21, ptr @.str.10, ptr @.str.11
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %broadcast27 = getelementptr inbounds i8, ptr %bus, i64 145
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
+  %broadcast27 = getelementptr inbounds nuw i8, ptr %bus, i64 145
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -204,13 +204,13 @@ for.body:                                         ; preds = %for.cond.preheader,
   %3 = load ptr, ptr %node.017, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %3) #9
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_GET_CLASS) #9
-  %event18 = getelementptr inbounds i8, ptr %call1.i, i64 200
+  %event18 = getelementptr inbounds nuw i8, ptr %call1.i, i64 200
   %4 = load ptr, ptr %event18, align 8
   %tobool19.not = icmp eq ptr %4, null
   br i1 %tobool19.not, label %for.inc, label %if.then20
 
 if.then20:                                        ; preds = %for.body
-  %address23 = getelementptr inbounds i8, ptr %3, i64 160
+  %address23 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %5 = load i8, ptr %address23, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -265,7 +265,7 @@ if.then31:                                        ; preds = %if.then29
   br label %return
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %trace_i2c_event.exit
-  %next = getelementptr inbounds i8, ptr %node.017, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %node.017, i64 8
   %14 = load ptr, ptr %next, align 8
   %tobool16.not = icmp eq ptr %14, null
   br i1 %tobool16.not, label %return, label %for.body, !llvm.loop !7
@@ -280,9 +280,9 @@ define dso_local void @i2c_bus_master(ptr nocapture noundef %bus, ptr noundef %b
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
   store ptr %bh, ptr %call, align 8
-  %entry2 = getelementptr inbounds i8, ptr %call, i64 8
+  %entry2 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr null, ptr %entry2, align 8
-  %sqh_last = getelementptr inbounds i8, ptr %bus, i64 136
+  %sqh_last = getelementptr inbounds nuw i8, ptr %bus, i64 136
   %0 = load ptr, ptr %sqh_last, align 8
   store ptr %call, ptr %0, align 8
   store ptr %entry2, ptr %sqh_last, align 8
@@ -295,19 +295,19 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @i2c_schedule_pending_master(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
-  %current_devs.i = getelementptr inbounds i8, ptr %bus, i64 120
+  %current_devs.i = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load ptr, ptr %current_devs.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %i2c_bus_busy.exit, label %return
 
 i2c_bus_busy.exit:                                ; preds = %entry
-  %bh.i = getelementptr inbounds i8, ptr %bus, i64 152
+  %bh.i = getelementptr inbounds nuw i8, ptr %bus, i64 152
   %1 = load ptr, ptr %bh.i, align 8
   %tobool.i.not = icmp eq ptr %1, null
   br i1 %tobool.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %i2c_bus_busy.exit
-  %pending_masters = getelementptr inbounds i8, ptr %bus, i64 128
+  %pending_masters = getelementptr inbounds nuw i8, ptr %bus, i64 128
   %2 = load ptr, ptr %pending_masters, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end2
@@ -315,14 +315,14 @@ if.end:                                           ; preds = %i2c_bus_busy.exit
 if.end2:                                          ; preds = %if.end
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %bh.i, align 8
-  %entry8 = getelementptr inbounds i8, ptr %2, i64 8
+  %entry8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %entry8, align 8
   store ptr %4, ptr %pending_masters, align 8
   %cmp11 = icmp eq ptr %4, null
   br i1 %cmp11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end2
-  %sqh_last = getelementptr inbounds i8, ptr %bus, i64 136
+  %sqh_last = getelementptr inbounds nuw i8, ptr %bus, i64 136
   store ptr %pending_masters, ptr %sqh_last, align 8
   br label %if.end16
 
@@ -344,15 +344,15 @@ declare void @qemu_bh_schedule(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @i2c_bus_release(ptr noundef initializes((152, 160)) %bus) local_unnamed_addr #0 {
 entry:
-  %bh = getelementptr inbounds i8, ptr %bus, i64 152
+  %bh = getelementptr inbounds nuw i8, ptr %bus, i64 152
   store ptr null, ptr %bh, align 8
-  %current_devs.i.i = getelementptr inbounds i8, ptr %bus, i64 120
+  %current_devs.i.i = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load ptr, ptr %current_devs.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %if.end.i, label %i2c_schedule_pending_master.exit
 
 if.end.i:                                         ; preds = %entry
-  %pending_masters.i = getelementptr inbounds i8, ptr %bus, i64 128
+  %pending_masters.i = getelementptr inbounds nuw i8, ptr %bus, i64 128
   %1 = load ptr, ptr %pending_masters.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %i2c_schedule_pending_master.exit, label %if.end2.i
@@ -360,14 +360,14 @@ if.end.i:                                         ; preds = %entry
 if.end2.i:                                        ; preds = %if.end.i
   %2 = load ptr, ptr %1, align 8
   store ptr %2, ptr %bh, align 8
-  %entry8.i = getelementptr inbounds i8, ptr %1, i64 8
+  %entry8.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %entry8.i, align 8
   store ptr %3, ptr %pending_masters.i, align 8
   %cmp11.i = icmp eq ptr %3, null
   br i1 %cmp11.i, label %if.then12.i, label %if.end16.i
 
 if.then12.i:                                      ; preds = %if.end2.i
-  %sqh_last.i = getelementptr inbounds i8, ptr %bus, i64 136
+  %sqh_last.i = getelementptr inbounds nuw i8, ptr %bus, i64 136
   store ptr %pending_masters.i, ptr %sqh_last.i, align 8
   br label %if.end16.i
 
@@ -407,29 +407,29 @@ entry:
 define dso_local void @i2c_end_transfer(ptr nocapture noundef %bus) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %current_devs = getelementptr inbounds i8, ptr %bus, i64 120
+  %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load ptr, ptr %current_devs, align 8
   %tobool.not15 = icmp eq ptr %0, null
   br i1 %tobool.not15, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end13
   %node.016 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %if.end13 ]
-  %next1 = getelementptr inbounds i8, ptr %node.016, i64 8
+  %next1 = getelementptr inbounds nuw i8, ptr %node.016, i64 8
   %1 = load ptr, ptr %next1, align 8
   %2 = load ptr, ptr %node.016, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %2) #9
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_GET_CLASS) #9
-  %event = getelementptr inbounds i8, ptr %call1.i, i64 200
+  %event = getelementptr inbounds nuw i8, ptr %call1.i, i64 200
   %3 = load ptr, ptr %event, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %do.body, label %if.then
 
 if.then:                                          ; preds = %land.rhs
-  %address = getelementptr inbounds i8, ptr %2, i64 160
+  %address = getelementptr inbounds nuw i8, ptr %2, i64 160
   %4 = load i8, ptr %address, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -473,12 +473,12 @@ trace_i2c_event.exit:                             ; preds = %if.then, %land.lhs.
 do.body:                                          ; preds = %land.rhs, %trace_i2c_event.exit
   %12 = load ptr, ptr %next1, align 8
   %cmp.not = icmp eq ptr %12, null
-  %le_prev17.phi.trans.insert = getelementptr inbounds i8, ptr %node.016, i64 16
+  %le_prev17.phi.trans.insert = getelementptr inbounds nuw i8, ptr %node.016, i64 16
   %.pre17 = load ptr, ptr %le_prev17.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end13, label %if.then7
 
 if.then7:                                         ; preds = %do.body
-  %le_prev12 = getelementptr inbounds i8, ptr %12, i64 16
+  %le_prev12 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %.pre17, ptr %le_prev12, align 8
   %.pre = load ptr, ptr %next1, align 8
   br label %if.end13
@@ -492,7 +492,7 @@ if.end13:                                         ; preds = %do.body, %if.then7
   br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end13, %entry
-  %broadcast = getelementptr inbounds i8, ptr %bus, i64 145
+  %broadcast = getelementptr inbounds nuw i8, ptr %bus, i64 145
   store i8 0, ptr %broadcast, align 1
   ret void
 }
@@ -501,14 +501,14 @@ for.end:                                          ; preds = %if.end13, %entry
 define dso_local range(i32 -1, 1) i32 @i2c_send(ptr nocapture noundef readonly %bus, i8 noundef zeroext %data) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %current_devs = getelementptr inbounds i8, ptr %bus, i64 120
+  %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %node.08 = load ptr, ptr %current_devs, align 8
   %tobool.not9 = icmp eq ptr %node.08, null
   br i1 %tobool.not9, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %conv14.i.i = zext i8 %data to i32
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -517,13 +517,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %0 = load ptr, ptr %node.011, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %0) #9
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_GET_CLASS) #9
-  %send = getelementptr inbounds i8, ptr %call1.i, i64 176
+  %send = getelementptr inbounds nuw i8, ptr %call1.i, i64 176
   %1 = load ptr, ptr %send, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %address = getelementptr inbounds i8, ptr %0, i64 160
+  %address = getelementptr inbounds nuw i8, ptr %0, i64 160
   %2 = load i8, ptr %address, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -572,7 +572,7 @@ lor.rhs:                                          ; preds = %trace_i2c_send.exit
 
 for.inc:                                          ; preds = %for.body, %trace_i2c_send.exit, %lor.rhs
   %ret.1 = phi i32 [ 1, %trace_i2c_send.exit ], [ %10, %lor.rhs ], [ -1, %for.body ]
-  %next = getelementptr inbounds i8, ptr %node.011, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %node.011, i64 8
   %node.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %node.0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
@@ -591,18 +591,18 @@ for.end:                                          ; preds = %for.end.loopexit, %
 define dso_local range(i32 -1, 1) i32 @i2c_send_async(ptr nocapture noundef readonly %bus, i8 noundef zeroext %data) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %current_devs = getelementptr inbounds i8, ptr %bus, i64 120
+  %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load ptr, ptr %current_devs, align 8
   %1 = load ptr, ptr %0, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %1) #9
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_GET_CLASS) #9
-  %send_async = getelementptr inbounds i8, ptr %call1.i, i64 184
+  %send_async = getelementptr inbounds nuw i8, ptr %call1.i, i64 184
   %2 = load ptr, ptr %send_async, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %address = getelementptr inbounds i8, ptr %1, i64 160
+  %address = getelementptr inbounds nuw i8, ptr %1, i64 160
   %3 = load i8, ptr %address, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
@@ -627,7 +627,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %3 to i32
   %conv12.i.i = zext i8 %data to i32
@@ -655,13 +655,13 @@ return:                                           ; preds = %entry, %trace_i2c_s
 define dso_local zeroext i8 @i2c_recv(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %current_devs = getelementptr inbounds i8, ptr %bus, i64 120
+  %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load ptr, ptr %current_devs, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end10, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %broadcast = getelementptr inbounds i8, ptr %bus, i64 145
+  %broadcast = getelementptr inbounds nuw i8, ptr %bus, i64 145
   %1 = load i8, ptr %broadcast, align 1
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.end10, label %if.then
@@ -670,7 +670,7 @@ if.then:                                          ; preds = %land.lhs.true
   %2 = load ptr, ptr %0, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %2) #9
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_GET_CLASS) #9
-  %recv = getelementptr inbounds i8, ptr %call1.i, i64 192
+  %recv = getelementptr inbounds nuw i8, ptr %call1.i, i64 192
   %3 = load ptr, ptr %recv, align 8
   %tobool3.not = icmp eq ptr %3, null
   br i1 %tobool3.not, label %if.end10, label %if.then4
@@ -679,7 +679,7 @@ if.then4:                                         ; preds = %if.then
   %4 = load ptr, ptr %current_devs, align 8
   %5 = load ptr, ptr %4, align 8
   %call9 = tail call zeroext i8 %3(ptr noundef %5) #9
-  %address = getelementptr inbounds i8, ptr %5, i64 160
+  %address = getelementptr inbounds nuw i8, ptr %5, i64 160
   %6 = load i8, ptr %address, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
@@ -704,7 +704,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %6 to i32
   %conv12.i.i = zext i8 %call9 to i32
@@ -730,13 +730,13 @@ if.end10:                                         ; preds = %if.then, %trace_i2c
 define dso_local void @i2c_nack(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %current_devs = getelementptr inbounds i8, ptr %bus, i64 120
+  %current_devs = getelementptr inbounds nuw i8, ptr %bus, i64 120
   %0 = load ptr, ptr %current_devs, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -744,14 +744,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   %1 = load ptr, ptr %node.07, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %1) #9
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_GET_CLASS) #9
-  %event = getelementptr inbounds i8, ptr %call1.i, i64 200
+  %event = getelementptr inbounds nuw i8, ptr %call1.i, i64 200
   %2 = load ptr, ptr %event, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %for.inc, label %if.then4
 
 if.then4:                                         ; preds = %for.body
   %3 = load ptr, ptr %node.07, align 8
-  %address = getelementptr inbounds i8, ptr %3, i64 160
+  %address = getelementptr inbounds nuw i8, ptr %3, i64 160
   %4 = load i8, ptr %address, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -794,7 +794,7 @@ trace_i2c_event.exit:                             ; preds = %if.then4, %land.lhs
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %trace_i2c_event.exit
-  %next = getelementptr inbounds i8, ptr %node.07, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %node.07, i64 8
   %13 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %13, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
@@ -807,7 +807,7 @@ for.end:                                          ; preds = %for.inc, %entry
 define dso_local void @i2c_ack(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %bh = getelementptr inbounds i8, ptr %bus, i64 152
+  %bh = getelementptr inbounds nuw i8, ptr %bus, i64 152
   %0 = load ptr, ptr %bh, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -836,7 +836,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #9
   %call10.i.i = tail call i32 @qemu_get_thread_id() #9
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #9
   br label %trace_i2c_ack.exit
@@ -861,9 +861,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #9
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 67, ptr noundef nonnull @__func__.I2C_BUS) #9
-  %saved_address = getelementptr inbounds i8, ptr %call.i12, i64 144
+  %saved_address = getelementptr inbounds nuw i8, ptr %call.i12, i64 144
   %0 = load i8, ptr %saved_address, align 8
-  %address = getelementptr inbounds i8, ptr %opaque, i64 160
+  %address = getelementptr inbounds nuw i8, ptr %opaque, i64 160
   %1 = load i8, ptr %address, align 8
   %cmp = icmp eq i8 %0, %1
   %cmp7 = icmp eq i8 %0, 0
@@ -873,21 +873,21 @@ entry:
 if.then:                                          ; preds = %entry
   %call9 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #10
   store ptr %opaque, ptr %call9, align 8
-  %current_devs = getelementptr inbounds i8, ptr %call.i12, i64 120
+  %current_devs = getelementptr inbounds nuw i8, ptr %call.i12, i64 120
   %2 = load ptr, ptr %current_devs, align 8
-  %next = getelementptr inbounds i8, ptr %call9, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %call9, i64 8
   store ptr %2, ptr %next, align 8
   %cmp10.not = icmp eq ptr %2, null
   br i1 %cmp10.not, label %if.end, label %if.then12
 
 if.then12:                                        ; preds = %if.then
-  %le_prev = getelementptr inbounds i8, ptr %2, i64 16
+  %le_prev = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %next, ptr %le_prev, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then12, %if.then
   store ptr %call9, ptr %current_devs, align 8
-  %le_prev23 = getelementptr inbounds i8, ptr %call9, i64 16
+  %le_prev23 = getelementptr inbounds nuw i8, ptr %call9, i64 16
   store ptr %current_devs, ptr %le_prev23, align 8
   br label %if.end24
 
@@ -951,22 +951,22 @@ declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @i2c_bus_pre_save(ptr nocapture noundef initializes((144, 145)) %opaque) #5 {
 entry:
-  %saved_address = getelementptr inbounds i8, ptr %opaque, i64 144
+  %saved_address = getelementptr inbounds nuw i8, ptr %opaque, i64 144
   store i8 -1, ptr %saved_address, align 8
-  %current_devs = getelementptr inbounds i8, ptr %opaque, i64 120
+  %current_devs = getelementptr inbounds nuw i8, ptr %opaque, i64 120
   %0 = load ptr, ptr %current_devs, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %broadcast = getelementptr inbounds i8, ptr %opaque, i64 145
+  %broadcast = getelementptr inbounds nuw i8, ptr %opaque, i64 145
   %1 = load i8, ptr %broadcast, align 1
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.end6.sink.split, label %if.then1
 
 if.then1:                                         ; preds = %if.then
   %2 = load ptr, ptr %0, align 8
-  %address = getelementptr inbounds i8, ptr %2, i64 160
+  %address = getelementptr inbounds nuw i8, ptr %2, i64 160
   %3 = load i8, ptr %address, align 8
   br label %if.end6.sink.split
 
@@ -999,14 +999,14 @@ define internal void @i2c_slave_class_init(ptr noundef %klass, ptr nocapture rea
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_CLASS) #9
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
-  %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
+  %bus_type = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr @.str, ptr %bus_type, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @i2c_props) #9
-  %match_and_add = getelementptr inbounds i8, ptr %call.i4, i64 208
+  %match_and_add = getelementptr inbounds nuw i8, ptr %call.i4, i64 208
   store ptr @i2c_slave_match, ptr %match_and_add, align 8
   ret void
 }
@@ -1016,7 +1016,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef zeroext i1 @i2c_slave_match(ptr noundef %candidate, i8 noundef zeroext %address, i1 noundef zeroext %broadcast, ptr noundef %current_devs) #0 {
 entry:
-  %address1 = getelementptr inbounds i8, ptr %candidate, i64 160
+  %address1 = getelementptr inbounds nuw i8, ptr %candidate, i64 160
   %0 = load i8, ptr %address1, align 8
   %cmp = icmp eq i8 %0, %address
   %brmerge = or i1 %broadcast, %cmp
@@ -1026,19 +1026,19 @@ if.then:                                          ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #10
   store ptr %candidate, ptr %call, align 8
   %1 = load ptr, ptr %current_devs, align 8
-  %next = getelementptr inbounds i8, ptr %call, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %1, ptr %next, align 8
   %cmp5.not = icmp eq ptr %1, null
   br i1 %cmp5.not, label %if.end, label %if.then7
 
 if.then7:                                         ; preds = %if.then
-  %le_prev = getelementptr inbounds i8, ptr %1, i64 16
+  %le_prev = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %next, ptr %le_prev, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then
   store ptr %call, ptr %current_devs, align 8
-  %le_prev15 = getelementptr inbounds i8, ptr %call, i64 16
+  %le_prev15 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %current_devs, ptr %le_prev15, align 8
   br label %return
 

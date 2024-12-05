@@ -167,7 +167,7 @@ define internal fastcc void @add_oid(ptr noundef %0, i32 noundef range(i32 1, 0)
 6:                                                ; preds = %56, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %3 ]
   %.049 = phi ptr [ %.0, %56 ], [ @oid_root, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.049, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.049, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i32, ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
@@ -180,7 +180,7 @@ define internal fastcc void @add_oid(ptr noundef %0, i32 noundef range(i32 1, 0)
   br i1 %13, label %14, label %56
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not56 = icmp eq ptr %16, null
   br i1 %.not56, label %30, label %17
@@ -218,19 +218,19 @@ define internal fastcc void @add_oid(ptr noundef %0, i32 noundef range(i32 1, 0)
   %35 = tail call noalias ptr @wmem_alloc(ptr noundef %34, i64 noundef 72) #8
   %36 = load i32, ptr %9, align 4
   store i32 %36, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 0, ptr %37, align 8
   %38 = tail call ptr @wmem_epan_scope() #8
   %39 = tail call noalias ptr @wmem_tree_new(ptr noundef %38) #8
-  %40 = getelementptr inbounds i8, ptr %35, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %35, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 -2, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %35, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 64
   store ptr %.049, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %35, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 56
   store ptr null, ptr %44, align 8
   %45 = load ptr, ptr %7, align 8
   %46 = load i32, ptr %35, align 8
@@ -241,17 +241,17 @@ define internal fastcc void @add_oid(ptr noundef %0, i32 noundef range(i32 1, 0)
 48:                                               ; preds = %33
   %49 = tail call ptr @wmem_epan_scope() #8
   %50 = tail call noalias ptr @wmem_strdup(ptr noundef %49, ptr noundef %0) #8
-  %51 = getelementptr inbounds i8, ptr %35, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %35, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %52, align 8
   store i32 0, ptr %37, align 8
   br label %58
 
 53:                                               ; preds = %33
-  %54 = getelementptr inbounds i8, ptr %35, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr null, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %35, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr null, ptr %55, align 8
   store i32 0, ptr %37, align 8
   br label %56
@@ -1009,7 +1009,7 @@ define ptr @oid_get(i32 noundef %0, ptr noundef readonly %1, ptr nocapture nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
   %.02125 = phi ptr [ @oid_root, %.lr.ph.preheader ], [ %13, %14 ]
-  %9 = getelementptr inbounds i8, ptr %.02125, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.02125, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i32, ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
@@ -1069,7 +1069,7 @@ define ptr @oid_get_from_encoded(ptr noundef %0, ptr nocapture noundef readonly 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
   %.02125.i = phi ptr [ @oid_root, %.lr.ph.preheader.i ], [ %17, %18 ]
-  %13 = getelementptr inbounds i8, ptr %.02125.i, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.02125.i, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i32, ptr %8, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
@@ -1127,7 +1127,7 @@ define ptr @oid_get_from_string(ptr noundef %0, ptr noundef %1, ptr nocapture no
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %17 ]
   %.02125.i = phi ptr [ @oid_root, %.lr.ph.preheader.i ], [ %16, %17 ]
-  %12 = getelementptr inbounds i8, ptr %.02125.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.02125.i, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i32, ptr %7, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 4
@@ -1287,7 +1287,7 @@ define ptr @oid_resolved(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %14 ]
   %.02125.i = phi ptr [ @oid_root, %.lr.ph.preheader.i ], [ %13, %14 ]
-  %9 = getelementptr inbounds i8, ptr %.02125.i, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.02125.i, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i32, ptr %2, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4
@@ -1308,7 +1308,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
   %.021.lcssa.i = phi ptr [ @oid_root, %.preheader.i ], [ %.02125.i, %._crit_edge.loopexit.split.loop.exit33.i ], [ %13, %14 ]
   %.020.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %15, %._crit_edge.loopexit.split.loop.exit33.i ], [ %1, %14 ]
   %16 = sub i32 %1, %.020.lcssa.i
-  %17 = getelementptr inbounds i8, ptr %.021.lcssa.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.021.lcssa.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not3062 = icmp eq ptr %18, null
   br i1 %.not3062, label %.lr.ph, label %._crit_edge
@@ -1317,7 +1317,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
   %.02565 = phi ptr [ %20, %34 ], [ %.021.lcssa.i, %oid_get.exit ]
   %.05164 = phi i32 [ %35, %34 ], [ %16, %oid_get.exit ]
   %.05263 = phi i32 [ %36, %34 ], [ %.020.lcssa.i, %oid_get.exit ]
-  %19 = getelementptr inbounds i8, ptr %.02565, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %.02565, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not33 = icmp eq ptr %20, null
   br i1 %.not33, label %21, label %34
@@ -1353,7 +1353,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
 34:                                               ; preds = %.lr.ph
   %35 = add i32 %.05164, 1
   %36 = add i32 %.05263, -1
-  %37 = getelementptr inbounds i8, ptr %20, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not30 = icmp eq ptr %38, null
   br i1 %.not30, label %.lr.ph, label %._crit_edge, !llvm.loop !14
@@ -1363,7 +1363,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
   %.052.lcssa = phi i32 [ %.020.lcssa.i, %oid_get.exit ], [ %36, %34 ]
   %.051.lcssa = phi i32 [ %16, %oid_get.exit ], [ %35, %34 ]
   %.lcssa = phi ptr [ %18, %oid_get.exit ], [ %38, %34 ]
-  %39 = getelementptr inbounds i8, ptr %.025.lcssa, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.025.lcssa, i64 8
   %.not31 = icmp eq i32 %.051.lcssa, 0
   br i1 %.not31, label %71, label %40
 

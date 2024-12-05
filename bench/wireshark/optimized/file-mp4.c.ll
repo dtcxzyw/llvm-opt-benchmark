@@ -315,7 +315,7 @@ define internal noundef i32 @dissect_mp4(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.124) #5
   %14 = load ptr, ptr %12, align 8
@@ -390,7 +390,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
 11:                                               ; preds = %5
   %12 = add i32 %2, 4
   %13 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %12) #5
-  %14 = getelementptr inbounds i8, ptr %3, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @tvb_get_string_enc(ptr noundef %15, ptr noundef %1, i32 noundef %12, i32 noundef 4, i32 noundef 0) #5
   %17 = load i32, ptr @ett_mp4_box, align 4
@@ -1139,9 +1139,9 @@ define internal fastcc void @dissect_mp4_elst_body(ptr noundef %0, i32 noundef %
   %21 = add i32 %1, 8
   %22 = icmp eq i8 %11, 1
   %23 = select i1 %22, i32 8, i32 4
-  %24 = getelementptr inbounds i8, ptr %2, i64 408
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %27
 
 27:                                               ; preds = %.lr.ph, %timescaled_val_to_str.exit58

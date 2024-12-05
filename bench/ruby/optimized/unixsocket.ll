@@ -71,13 +71,13 @@ define noundef i64 @rsock_init_unixsock(i64 noundef returned %0, i64 noundef %1,
   br i1 %15, label %16, label %.critedge.i
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %unixsock_path_value.exit.thread, label %21
 
 unixsock_path_value.exit.thread:                  ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %20, i8 0, i64 108, i1 false)
   store i16 1, ptr %4, align 2
   br label %33
@@ -85,7 +85,7 @@ unixsock_path_value.exit.thread:                  ; preds = %16
 21:                                               ; preds = %16
   %22 = and i64 %13, 8192
   %.not.i.i.i = icmp eq i64 %22, 0
-  %23 = getelementptr inbounds i8, ptr %12, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %24
 
 24:                                               ; preds = %21
@@ -101,7 +101,7 @@ RSTRING_PTR.exit.i:                               ; preds = %24, %21
 .critedge.i:                                      ; preds = %RSTRING_PTR.exit.i, %11, %3
   %27 = tail call i64 @rb_get_path(i64 noundef %1) #6
   %.phi.trans.insert = inttoptr i64 %27 to ptr
-  %.phi.trans.insert38 = getelementptr inbounds i8, ptr %.phi.trans.insert, i64 16
+  %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 16
   %.pre = load i64, ptr %.phi.trans.insert38, align 8
   br label %unixsock_path_value.exit
 
@@ -109,7 +109,7 @@ unixsock_path_value.exit:                         ; preds = %RSTRING_PTR.exit.i,
   %.pre-phi = phi ptr [ %12, %RSTRING_PTR.exit.i ], [ %.phi.trans.insert, %.critedge.i ]
   %28 = phi i64 [ %18, %RSTRING_PTR.exit.i ], [ %.pre, %.critedge.i ]
   %.025.i = phi i64 [ %1, %RSTRING_PTR.exit.i ], [ %27, %.critedge.i ]
-  %29 = getelementptr inbounds i8, ptr %4, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %29, i8 0, i64 108, i1 false)
   store i16 1, ptr %4, align 2
   %30 = icmp ugt i64 %28, 108
@@ -124,11 +124,11 @@ unixsock_path_value.exit:                         ; preds = %RSTRING_PTR.exit.i,
   %.025.i42 = phi i64 [ %1, %unixsock_path_value.exit.thread ], [ %.025.i, %unixsock_path_value.exit ]
   %34 = phi i64 [ 0, %unixsock_path_value.exit.thread ], [ %28, %unixsock_path_value.exit ]
   %.pre-phi41 = phi ptr [ %12, %unixsock_path_value.exit.thread ], [ %.pre-phi, %unixsock_path_value.exit ]
-  %35 = getelementptr inbounds i8, ptr %4, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %36 = load i64, ptr %.pre-phi41, align 8, !noalias !6
   %37 = and i64 %36, 8192
   %.not.i.i = icmp eq i64 %37, 0
-  %38 = getelementptr inbounds i8, ptr %.pre-phi41, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.pre-phi41, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %39
 
 39:                                               ; preds = %33
@@ -160,9 +160,9 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit, %
 
 46:                                               ; preds = %45
   store ptr %4, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %41, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %42, ptr %48, align 4
   %49 = ptrtoint ptr %6 to i64
   %50 = call i64 @rb_protect(ptr noundef nonnull @unixsock_connect_internal, i64 noundef %49, ptr noundef nonnull %5) #6
@@ -209,11 +209,11 @@ ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit, %
   %71 = call i64 @rsock_init_sock(i64 noundef %0, i32 noundef %42) #6
   %72 = call i64 @rb_io_taint_check(i64 noundef %0) #6
   %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
   call void @rb_io_check_closed(ptr noundef %75) #6
   %76 = call i64 @rb_str_new_frozen(i64 noundef %.025.i42) #6
-  %77 = getelementptr inbounds i8, ptr %75, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 32
   store i64 %76, ptr %77, align 8
   br label %79
 
@@ -246,10 +246,10 @@ declare i64 @rb_protect(ptr noundef, i64 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -2147483648, 2147483648) i64 @unixsock_connect_internal(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @rsock_connect(i32 noundef %4, ptr noundef %5, i32 noundef %7, i32 noundef 0, ptr noundef null) #6
   %9 = sext i32 %8 to i64
@@ -318,17 +318,17 @@ define internal i64 @unix_path(i64 noundef %0) #0 {
   %3 = alloca i32, align 4
   %4 = tail call i64 @rb_io_taint_check(i64 noundef %0) #6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @rb_io_check_closed(ptr noundef %7) #6
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 4
   br i1 %10, label %11, label %26
 
 11:                                               ; preds = %1
   store i32 110, ptr %3, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = call i32 @getsockname(i32 noundef %13, ptr nonnull %2, ptr noundef nonnull %3) #6
   %15 = icmp slt i32 %14, 0
@@ -368,17 +368,17 @@ define internal i64 @unix_addr(i64 noundef %0) #0 {
   store i32 110, ptr %3, align 4
   %4 = tail call i64 @rb_io_taint_check(i64 noundef %0) #6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @rb_io_check_closed(ptr noundef %7) #6
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = call i32 @getsockname(i32 noundef %9, ptr nonnull %2, ptr noundef nonnull %3) #6
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = load i64, ptr %13, align 8
   call void @rsock_sys_fail_path(ptr noundef nonnull @.str.14, i64 noundef %14) #7
   unreachable
@@ -405,17 +405,17 @@ define internal i64 @unix_peeraddr(i64 noundef %0) #0 {
   store i32 110, ptr %3, align 4
   %4 = tail call i64 @rb_io_taint_check(i64 noundef %0) #6
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @rb_io_check_closed(ptr noundef %7) #6
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = call i32 @getpeername(i32 noundef %9, ptr nonnull %2, ptr noundef nonnull %3) #6
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %14 = load i64, ptr %13, align 8
   call void @rsock_sys_fail_path(ptr noundef nonnull @.str.15, i64 noundef %14) #7
   unreachable
@@ -455,10 +455,10 @@ define internal noundef i64 @unix_send_io(i64 noundef %0, i64 noundef %1) #0 {
 9:                                                ; preds = %2
   %10 = tail call i64 @rb_io_taint_check(i64 noundef %1) #6
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void @rb_io_check_closed(ptr noundef %13) #6
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   br label %23
 
@@ -481,37 +481,37 @@ define internal noundef i64 @unix_send_io(i64 noundef %0, i64 noundef %1) #0 {
   %storemerge = phi i32 [ %20, %18 ], [ %15, %9 ]
   %24 = tail call i64 @rb_io_taint_check(i64 noundef %0) #6
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   tail call void @rb_io_check_closed(ptr noundef %27) #6
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %29, align 8
   store i8 0, ptr %5, align 1
   store ptr %5, ptr %4, align 16
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %4, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %6, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 20, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 0, i64 24, i1 false)
   store i64 20, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %6, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %storemerge, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %27, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %3, align 8
   br label %42
@@ -530,7 +530,7 @@ define internal noundef i64 @unix_send_io(i64 noundef %0, i64 noundef %1) #0 {
   br i1 %.not7, label %50, label %42, !llvm.loop !9
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %27, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %52 = load i64, ptr %51, align 8
   call void @rsock_sys_fail_path(ptr noundef nonnull @.str.17, i64 noundef %52) #7
   unreachable
@@ -566,24 +566,24 @@ define internal i64 @unix_recv_io(i32 noundef %0, ptr noundef %1, i64 noundef %2
   br label %17
 
 17:                                               ; preds = %16, %14
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 24
-  %22 = getelementptr inbounds i8, ptr %6, i64 32
-  %23 = getelementptr inbounds i8, ptr %6, i64 40
-  %24 = getelementptr inbounds i8, ptr %6, i64 48
-  %25 = getelementptr inbounds i8, ptr %6, i64 56
-  %26 = getelementptr inbounds i8, ptr %9, i64 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 12
-  %28 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %29
 
 29:                                               ; preds = %.backedge, %17
   %.019 = phi i32 [ 0, %17 ], [ %76, %.backedge ]
   %30 = call i64 @rb_io_taint_check(i64 noundef %2) #6
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   call void @rb_io_check_closed(ptr noundef %33) #6
   store ptr null, ptr %18, align 8
@@ -599,7 +599,7 @@ define internal i64 @unix_recv_io(i32 noundef %0, ptr noundef %1, i64 noundef %2
   store i32 1, ptr %26, align 8
   store i32 1, ptr %27, align 4
   store i32 -1, ptr %28, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
   store i32 %35, ptr %6, align 8
   %36 = and i32 %.019, 1
@@ -700,7 +700,7 @@ define internal i64 @unix_recv_io(i32 noundef %0, ptr noundef %1, i64 noundef %2
 
 .split60.us:                                      ; preds = %42, %55, %66, %78
   %.us-phi61 = phi i32 [ %75, %78 ], [ %64, %66 ], [ %53, %55 ], [ %44, %42 ]
-  %81 = getelementptr inbounds i8, ptr %33, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %82 = load i64, ptr %81, align 8
   call void @rsock_syserr_fail_path(i32 noundef %.us-phi61, ptr noundef nonnull @.str.19, i64 noundef %82) #7
   unreachable
@@ -813,7 +813,7 @@ rbimpl_intern_const.exit:                         ; preds = %rbimpl_intern_const
   %128 = shl nsw i64 %127, 1
   %129 = or disjoint i64 %128, 1
   store i64 %129, ptr %10, align 16
-  %130 = getelementptr inbounds i8, ptr %10, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %124, ptr %130, align 8
   %131 = call i64 @rb_funcallv(i64 noundef %123, i64 noundef %.lcssa.i, i32 noundef %126, ptr noundef nonnull %10) #6
   br label %132
@@ -854,9 +854,9 @@ define internal i64 @unix_s_socketpair(i32 noundef %0, ptr noundef %1, i64 nound
   %13 = phi i64 [ %.pre, %._crit_edge ], [ 1, %11 ]
   store i64 3, ptr %6, align 16
   %14 = load i64, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %13, ptr %16, align 16
   %17 = call i64 @rsock_sock_s_socketpair(i32 noundef 3, ptr noundef nonnull %6, i64 noundef %2) #6
   ret i64 %17
@@ -892,7 +892,7 @@ declare i64 @rb_thread_io_blocking_region(ptr noundef, ptr noundef, i32 noundef)
 ; Function Attrs: nounwind uwtable
 define internal i64 @sendmsg_blocking(ptr noundef %0) #0 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call i64 @sendmsg(i32 noundef %2, ptr noundef nonnull %3, i32 noundef 0) #6
   ret i64 %4
 }
@@ -908,7 +908,7 @@ declare i32 @rb_scan_args(i32 noundef, ptr noundef, ptr noundef, ...) local_unna
 ; Function Attrs: nounwind uwtable
 define internal i64 @recvmsg_blocking(ptr noundef %0) #0 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call i64 @rsock_recvmsg(i32 noundef %2, ptr noundef nonnull %3, i32 noundef 0) #6
   ret i64 %4
 }

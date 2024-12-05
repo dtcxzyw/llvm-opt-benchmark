@@ -49,8 +49,8 @@ skip_line.exit.outer:                             ; preds = %vec_uint_alloc.exit
   %.016.ph = phi ptr [ %75, %vec_uint_alloc.exit ], [ null, %7 ]
   %.015.ph = phi ptr [ %84, %vec_uint_alloc.exit ], [ null, %7 ]
   %19 = icmp eq ptr %.016.ph, null
-  %20 = getelementptr inbounds i8, ptr %.016.ph, i64 4
-  %21 = getelementptr inbounds i8, ptr %.016.ph, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.016.ph, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.016.ph, i64 8
   %22 = getelementptr i8, ptr %.016.ph, i64 8
   br label %skip_line.exit
 
@@ -67,7 +67,7 @@ skip_line.exit:                                   ; preds = %skip_line.exit.back
 
 .lr.ph.i:                                         ; preds = %skip_line.exit, %.lr.ph.i
   %30 = phi ptr [ %31, %.lr.ph.i ], [ %23, %skip_line.exit ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = sext i8 %32 to i64
   %34 = getelementptr inbounds i16, ptr %24, i64 %33
@@ -99,17 +99,17 @@ skip_spaces.exit:                                 ; preds = %skip_spaces.exit.lo
   ]
 
 40:                                               ; preds = %.preheader
-  %41 = getelementptr inbounds i8, ptr %38, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %.pr = load i8, ptr %41, align 1
   br label %.preheader, !llvm.loop !6
 
 42:                                               ; preds = %.preheader, %.preheader
-  %43 = getelementptr inbounds i8, ptr %38, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %43, ptr %3, align 8
   br label %skip_line.exit.backedge
 
 44:                                               ; preds = %skip_spaces.exit
-  %45 = getelementptr inbounds i8, ptr %.promoted57, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.promoted57, i64 1
   store ptr %45, ptr %3, align 8
   %46 = load i8, ptr %45, align 1
   %47 = sext i8 %46 to i64
@@ -121,7 +121,7 @@ skip_spaces.exit:                                 ; preds = %skip_spaces.exit.lo
 
 .lr.ph.i23:                                       ; preds = %44, %.lr.ph.i23
   %51 = phi ptr [ %52, %.lr.ph.i23 ], [ %45, %44 ]
-  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i64
   %55 = getelementptr inbounds i16, ptr %24, i64 %54
@@ -146,7 +146,7 @@ skip_spaces.exit25:                               ; preds = %skip_spaces.exit25.
   %62 = load i16, ptr %61, align 2
   %63 = and i16 %62, 8192
   %.not20 = icmp eq i16 %63, 0
-  %64 = getelementptr inbounds i8, ptr %58, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 1
   br i1 %.not20, label %skip_spaces.exit25, label %65, !llvm.loop !7
 
 65:                                               ; preds = %skip_spaces.exit25
@@ -166,11 +166,11 @@ skip_spaces.exit25:                               ; preds = %skip_spaces.exit25.
   ]
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %69, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 1
   br label %68, !llvm.loop !6
 
 73:                                               ; preds = %68, %68
-  %74 = getelementptr inbounds i8, ptr %69, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 1
   br label %skip_line.exit27
 
 skip_line.exit27:                                 ; preds = %68, %73
@@ -180,7 +180,7 @@ skip_line.exit27:                                 ; preds = %68, %73
   %76 = add i32 %66, -1
   %or.cond.i = icmp ult i32 %76, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %66
-  %77 = getelementptr inbounds i8, ptr %75, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store i32 0, ptr %77, align 4
   store i32 %spec.store.select.i, ptr %75, align 8
   %.not.i28 = icmp eq i32 %spec.store.select.i, 0
@@ -194,7 +194,7 @@ skip_line.exit27:                                 ; preds = %68, %73
 
 vec_uint_alloc.exit:                              ; preds = %skip_line.exit27, %78
   %82 = phi ptr [ %81, %78 ], [ null, %skip_line.exit27 ]
-  %83 = getelementptr inbounds i8, ptr %75, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %82, ptr %83, align 8
   %84 = tail call ptr @satoko_create() #13
   br label %skip_line.exit.outer
@@ -263,7 +263,7 @@ vec_uint_push_back.exit.i:                        ; preds = %vec_uint_reserve.ex
   %111 = phi i32 [ %97, %.vec_uint_push_back.exit_crit_edge.i ], [ %97, %104 ], [ %.pre8.i, %vec_uint_reserve.exit10.sink.split.i.i ]
   %112 = phi ptr [ %.pre.i, %.vec_uint_push_back.exit_crit_edge.i ], [ %.pre7.i, %104 ], [ %110, %vec_uint_reserve.exit10.sink.split.i.i ]
   %113 = zext i32 %111 to i64
-  %114 = getelementptr inbounds i32, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw i32, ptr %112, i64 %113
   store i32 %96, ptr %114, align 4
   %115 = load i32, ptr %20, align 4
   %116 = add i32 %115, 1
@@ -280,7 +280,7 @@ vec_uint_push_back.exit.i:                        ; preds = %vec_uint_reserve.ex
 
 .lr.ph.i.i:                                       ; preds = %vec_uint_push_back.exit.i, %.lr.ph.i.i
   %124 = phi ptr [ %125, %.lr.ph.i.i ], [ %118, %vec_uint_push_back.exit.i ]
-  %125 = getelementptr inbounds i8, ptr %124, i64 1
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
   %126 = load i8, ptr %125, align 1
   %127 = sext i8 %126 to i64
   %128 = getelementptr inbounds i16, ptr %117, i64 %127
@@ -298,7 +298,7 @@ skip_spaces.exit.i:                               ; preds = %.lr.ph.i.i, %vec_ui
   ]
 
 .sink.split.i:                                    ; preds = %skip_spaces.exit.i, %skip_spaces.exit.i
-  %133 = getelementptr inbounds i8, ptr %132, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 1
   store ptr %133, ptr %3, align 8
   %.pre84 = load i8, ptr %133, align 1
   br label %134
@@ -327,7 +327,7 @@ skip_spaces.exit.i:                               ; preds = %.lr.ph.i.i, %vec_ui
   %147 = mul nsw i32 %.01319.i, 10
   %148 = add nsw i32 %146, -48
   %149 = add i32 %148, %147
-  %150 = getelementptr inbounds i8, ptr %145, i64 1
+  %150 = getelementptr inbounds nuw i8, ptr %145, i64 1
   store ptr %150, ptr %3, align 8
   %151 = load i8, ptr %150, align 1
   %152 = sext i8 %151 to i64
@@ -374,7 +374,7 @@ skip_line.exit.backedge:                          ; preds = %read_clause.exit.sk
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i31 ], [ 0, %160 ]
   %168 = load ptr, ptr @stdout, align 8
   %169 = load ptr, ptr %161, align 8
-  %170 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv.i
+  %170 = getelementptr inbounds nuw i32, ptr %169, i64 %indvars.iv.i
   %171 = load i32, ptr %170, align 4
   %172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.6, i32 noundef %171) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -393,7 +393,7 @@ skip_line.exit.loopexit:                          ; preds = %.preheader
   br label %skip_line.exit.backedge
 
 178:                                              ; preds = %skip_spaces.exit
-  %179 = getelementptr inbounds i8, ptr %.016.ph, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %.016.ph, i64 8
   %180 = load ptr, ptr %179, align 8
   %.not.i32 = icmp eq ptr %180, null
   br i1 %.not.i32, label %vec_uint_free.exit, label %181
@@ -431,7 +431,7 @@ define internal fastcc i32 @read_int(ptr nocapture noundef nonnull %0) unnamed_a
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %10 = phi ptr [ %11, %.lr.ph.i ], [ %4, %1 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %11, ptr %0, align 8
   %12 = load ptr, ptr %2, align 8
   %13 = load i8, ptr %11, align 1
@@ -451,7 +451,7 @@ skip_spaces.exit:                                 ; preds = %.lr.ph.i, %1
   ]
 
 .sink.split:                                      ; preds = %skip_spaces.exit, %skip_spaces.exit
-  %20 = getelementptr inbounds i8, ptr %19, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store ptr %20, ptr %0, align 8
   br label %21
 
@@ -480,7 +480,7 @@ skip_spaces.exit:                                 ; preds = %.lr.ph.i, %1
   %35 = mul nsw i32 %.01319, 10
   %36 = add i32 %35, -48
   %37 = add i32 %36, %34
-  %38 = getelementptr inbounds i8, ptr %33, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %38, ptr %0, align 8
   %39 = load ptr, ptr %2, align 8
   %40 = load i8, ptr %38, align 1

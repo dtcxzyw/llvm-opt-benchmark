@@ -220,13 +220,13 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux20dump_data_char_ssse3EPKvmRSo
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %18, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !16
-  %120 = getelementptr inbounds i8, ptr %.182.i38, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 1
   store i8 %119, ptr %120, align 1, !tbaa !16
   %121 = and i32 %115, 15
   %122 = zext nneg i32 %121 to i64
   %123 = getelementptr inbounds nuw i8, ptr %18, i64 %122
   %124 = load i8, ptr %123, align 1, !tbaa !16
-  %125 = getelementptr inbounds i8, ptr %.182.i38, i64 2
+  %125 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 2
   store i8 %124, ptr %125, align 1, !tbaa !16
   %126 = add i32 %.076.i40, 1
   %127 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
@@ -300,15 +300,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %43 = bitcast <16 x i8> %42 to <8 x i16>
   %44 = shufflevector <8 x i16> %43, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %44, ptr %7, align 16, !tbaa !16
-  %45 = getelementptr inbounds i8, ptr %4, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %46 = shufflevector <8 x i16> %43, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %46, ptr %45, align 16, !tbaa !16
   %47 = shufflevector <16 x i8> %39, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %48 = getelementptr inbounds i8, ptr %4, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %49 = bitcast <16 x i8> %47 to <8 x i16>
   %50 = shufflevector <8 x i16> %49, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %50, ptr %48, align 16, !tbaa !16
-  %51 = getelementptr inbounds i8, ptr %4, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %52 = shufflevector <8 x i16> %49, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %52, ptr %51, align 16, !tbaa !16
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -316,15 +316,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %55 = bitcast <16 x i8> %54 to <8 x i16>
   %56 = shufflevector <8 x i16> %55, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %56, ptr %53, align 16, !tbaa !16
-  %57 = getelementptr inbounds i8, ptr %4, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %58 = shufflevector <8 x i16> %55, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %58, ptr %57, align 16, !tbaa !16
   %59 = shufflevector <16 x i8> %40, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %60 = getelementptr inbounds i8, ptr %4, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %61 = bitcast <16 x i8> %59 to <8 x i16>
   %62 = shufflevector <8 x i16> %61, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %62, ptr %60, align 16, !tbaa !16
-  %63 = getelementptr inbounds i8, ptr %4, i64 128
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %64 = shufflevector <8 x i16> %61, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %64, ptr %63, align 16, !tbaa !16
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -332,15 +332,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %67 = bitcast <16 x i8> %66 to <8 x i16>
   %68 = shufflevector <8 x i16> %67, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %68, ptr %65, align 16, !tbaa !16
-  %69 = getelementptr inbounds i8, ptr %4, i64 160
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %70 = shufflevector <8 x i16> %67, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %70, ptr %69, align 16, !tbaa !16
   %71 = shufflevector <16 x i8> %41, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %72 = getelementptr inbounds i8, ptr %4, i64 176
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %73 = bitcast <16 x i8> %71 to <8 x i16>
   %74 = shufflevector <8 x i16> %73, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %74, ptr %72, align 16, !tbaa !16
-  %75 = getelementptr inbounds i8, ptr %4, i64 192
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %76 = shufflevector <8 x i16> %73, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %76, ptr %75, align 16, !tbaa !16
   %77 = mul nuw nsw i64 %22, 3
@@ -419,15 +419,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %115 = bitcast <16 x i8> %114 to <8 x i16>
   %116 = shufflevector <8 x i16> %115, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %116, ptr %.085.i25, align 16, !tbaa !16
-  %117 = getelementptr inbounds i8, ptr %.085.i25, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 16
   %118 = shufflevector <8 x i16> %115, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %118, ptr %117, align 16, !tbaa !16
   %119 = shufflevector <16 x i8> %111, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %120 = getelementptr inbounds i8, ptr %.085.i25, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 32
   %121 = bitcast <16 x i8> %119 to <8 x i16>
   %122 = shufflevector <8 x i16> %121, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %122, ptr %120, align 16, !tbaa !16
-  %123 = getelementptr inbounds i8, ptr %.085.i25, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 48
   %124 = shufflevector <8 x i16> %121, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %124, ptr %123, align 16, !tbaa !16
   %125 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 64
@@ -435,15 +435,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %127 = bitcast <16 x i8> %126 to <8 x i16>
   %128 = shufflevector <8 x i16> %127, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %128, ptr %125, align 16, !tbaa !16
-  %129 = getelementptr inbounds i8, ptr %.085.i25, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 80
   %130 = shufflevector <8 x i16> %127, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %130, ptr %129, align 16, !tbaa !16
   %131 = shufflevector <16 x i8> %112, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %132 = getelementptr inbounds i8, ptr %.085.i25, i64 96
+  %132 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 96
   %133 = bitcast <16 x i8> %131 to <8 x i16>
   %134 = shufflevector <8 x i16> %133, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %134, ptr %132, align 16, !tbaa !16
-  %135 = getelementptr inbounds i8, ptr %.085.i25, i64 112
+  %135 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 112
   %136 = shufflevector <8 x i16> %133, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %136, ptr %135, align 16, !tbaa !16
   %137 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 128
@@ -451,15 +451,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %139 = bitcast <16 x i8> %138 to <8 x i16>
   %140 = shufflevector <8 x i16> %139, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %140, ptr %137, align 16, !tbaa !16
-  %141 = getelementptr inbounds i8, ptr %.085.i25, i64 144
+  %141 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 144
   %142 = shufflevector <8 x i16> %139, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %142, ptr %141, align 16, !tbaa !16
   %143 = shufflevector <16 x i8> %113, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %144 = getelementptr inbounds i8, ptr %.085.i25, i64 160
+  %144 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 160
   %145 = bitcast <16 x i8> %143 to <8 x i16>
   %146 = shufflevector <8 x i16> %145, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %146, ptr %144, align 16, !tbaa !16
-  %147 = getelementptr inbounds i8, ptr %.085.i25, i64 176
+  %147 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 176
   %148 = shufflevector <8 x i16> %145, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %148, ptr %147, align 16, !tbaa !16
   %149 = add nuw nsw i32 %.084.i26, 1
@@ -504,15 +504,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %172 = bitcast <16 x i8> %171 to <8 x i16>
   %173 = shufflevector <8 x i16> %172, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %173, ptr %.081.i32, align 16, !tbaa !16
-  %174 = getelementptr inbounds i8, ptr %.081.i32, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 16
   %175 = shufflevector <8 x i16> %172, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %175, ptr %174, align 16, !tbaa !16
   %176 = shufflevector <16 x i8> %168, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %177 = getelementptr inbounds i8, ptr %.081.i32, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 32
   %178 = bitcast <16 x i8> %176 to <8 x i16>
   %179 = shufflevector <8 x i16> %178, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %179, ptr %177, align 16, !tbaa !16
-  %180 = getelementptr inbounds i8, ptr %.081.i32, i64 48
+  %180 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 48
   %181 = shufflevector <8 x i16> %178, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %181, ptr %180, align 16, !tbaa !16
   %182 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 64
@@ -520,15 +520,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %184 = bitcast <16 x i8> %183 to <8 x i16>
   %185 = shufflevector <8 x i16> %184, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %185, ptr %182, align 16, !tbaa !16
-  %186 = getelementptr inbounds i8, ptr %.081.i32, i64 80
+  %186 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 80
   %187 = shufflevector <8 x i16> %184, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %187, ptr %186, align 16, !tbaa !16
   %188 = shufflevector <16 x i8> %169, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %189 = getelementptr inbounds i8, ptr %.081.i32, i64 96
+  %189 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 96
   %190 = bitcast <16 x i8> %188 to <8 x i16>
   %191 = shufflevector <8 x i16> %190, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %191, ptr %189, align 16, !tbaa !16
-  %192 = getelementptr inbounds i8, ptr %.081.i32, i64 112
+  %192 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 112
   %193 = shufflevector <8 x i16> %190, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %193, ptr %192, align 16, !tbaa !16
   %194 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 128
@@ -536,15 +536,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %196 = bitcast <16 x i8> %195 to <8 x i16>
   %197 = shufflevector <8 x i16> %196, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %197, ptr %194, align 16, !tbaa !16
-  %198 = getelementptr inbounds i8, ptr %.081.i32, i64 144
+  %198 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 144
   %199 = shufflevector <8 x i16> %196, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %199, ptr %198, align 16, !tbaa !16
   %200 = shufflevector <16 x i8> %170, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %201 = getelementptr inbounds i8, ptr %.081.i32, i64 160
+  %201 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 160
   %202 = bitcast <16 x i8> %200 to <8 x i16>
   %203 = shufflevector <8 x i16> %202, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %203, ptr %201, align 16, !tbaa !16
-  %204 = getelementptr inbounds i8, ptr %.081.i32, i64 176
+  %204 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 176
   %205 = shufflevector <8 x i16> %202, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %205, ptr %204, align 16, !tbaa !16
   %206 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 192
@@ -574,14 +574,14 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux21dump_data_wchar_ssse3EPKvmRS
   %219 = getelementptr inbounds nuw i8, ptr %18, i64 %218
   %220 = load i8, ptr %219, align 1, !tbaa !16
   %221 = sext i8 %220 to i32
-  %222 = getelementptr inbounds i8, ptr %.182.i38, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 4
   store i32 %221, ptr %222, align 4, !tbaa !26
   %223 = and i32 %216, 15
   %224 = zext nneg i32 %223 to i64
   %225 = getelementptr inbounds nuw i8, ptr %18, i64 %224
   %226 = load i8, ptr %225, align 1, !tbaa !16
   %227 = sext i8 %226 to i32
-  %228 = getelementptr inbounds i8, ptr %.182.i38, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 8
   store i32 %227, ptr %228, align 4, !tbaa !26
   %229 = add i32 %.076.i40, 1
   %230 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
@@ -653,19 +653,19 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
   %41 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %38, <16 x i8> splat (i8 32))
   %42 = shufflevector <16 x i8> %39, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %42, ptr %7, align 16, !tbaa !16
-  %43 = getelementptr inbounds i8, ptr %4, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %44 = shufflevector <16 x i8> %39, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %44, ptr %43, align 16, !tbaa !16
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %46 = shufflevector <16 x i8> %40, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %46, ptr %45, align 16, !tbaa !16
-  %47 = getelementptr inbounds i8, ptr %4, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %48 = shufflevector <16 x i8> %40, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %48, ptr %47, align 16, !tbaa !16
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %50 = shufflevector <16 x i8> %41, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %50, ptr %49, align 16, !tbaa !16
-  %51 = getelementptr inbounds i8, ptr %4, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %52 = shufflevector <16 x i8> %41, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %52, ptr %51, align 16, !tbaa !16
   %53 = mul nuw nsw i64 %22, 3
@@ -742,19 +742,19 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
   %89 = call <16 x i8> @llvm.umax.v16i8(<16 x i8> %86, <16 x i8> splat (i8 32))
   %90 = shufflevector <16 x i8> %87, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %90, ptr %.085.i25, align 16, !tbaa !16
-  %91 = getelementptr inbounds i8, ptr %.085.i25, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 16
   %92 = shufflevector <16 x i8> %87, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %92, ptr %91, align 16, !tbaa !16
   %93 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 32
   %94 = shufflevector <16 x i8> %88, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %94, ptr %93, align 16, !tbaa !16
-  %95 = getelementptr inbounds i8, ptr %.085.i25, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 48
   %96 = shufflevector <16 x i8> %88, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %96, ptr %95, align 16, !tbaa !16
   %97 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 64
   %98 = shufflevector <16 x i8> %89, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %98, ptr %97, align 16, !tbaa !16
-  %99 = getelementptr inbounds i8, ptr %.085.i25, i64 80
+  %99 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 80
   %100 = shufflevector <16 x i8> %89, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %100, ptr %99, align 16, !tbaa !16
   %101 = add nuw nsw i32 %.084.i26, 1
@@ -797,19 +797,19 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
   %122 = call <16 x i8> @llvm.umax.v16i8(<16 x i8> %119, <16 x i8> splat (i8 32))
   %123 = shufflevector <16 x i8> %120, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %123, ptr %.081.i32, align 16, !tbaa !16
-  %124 = getelementptr inbounds i8, ptr %.081.i32, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 16
   %125 = shufflevector <16 x i8> %120, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %125, ptr %124, align 16, !tbaa !16
   %126 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 32
   %127 = shufflevector <16 x i8> %121, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %127, ptr %126, align 16, !tbaa !16
-  %128 = getelementptr inbounds i8, ptr %.081.i32, i64 48
+  %128 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 48
   %129 = shufflevector <16 x i8> %121, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %129, ptr %128, align 16, !tbaa !16
   %130 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 64
   %131 = shufflevector <16 x i8> %122, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %131, ptr %130, align 16, !tbaa !16
-  %132 = getelementptr inbounds i8, ptr %.081.i32, i64 80
+  %132 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 80
   %133 = shufflevector <16 x i8> %122, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %133, ptr %132, align 16, !tbaa !16
   %134 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 96
@@ -839,14 +839,14 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char16_ssse3EPKvmR
   %147 = getelementptr inbounds nuw i8, ptr %18, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !16
   %149 = sext i8 %148 to i16
-  %150 = getelementptr inbounds i8, ptr %.182.i38, i64 2
+  %150 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 2
   store i16 %149, ptr %150, align 2, !tbaa !32
   %151 = and i32 %144, 15
   %152 = zext nneg i32 %151 to i64
   %153 = getelementptr inbounds nuw i8, ptr %18, i64 %152
   %154 = load i8, ptr %153, align 1, !tbaa !16
   %155 = sext i8 %154 to i16
-  %156 = getelementptr inbounds i8, ptr %.182.i38, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 4
   store i16 %155, ptr %156, align 2, !tbaa !32
   %157 = add i32 %.076.i40, 1
   %158 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
@@ -920,15 +920,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %43 = bitcast <16 x i8> %42 to <8 x i16>
   %44 = shufflevector <8 x i16> %43, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %44, ptr %7, align 16, !tbaa !16
-  %45 = getelementptr inbounds i8, ptr %4, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %46 = shufflevector <8 x i16> %43, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %46, ptr %45, align 16, !tbaa !16
   %47 = shufflevector <16 x i8> %39, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %48 = getelementptr inbounds i8, ptr %4, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %49 = bitcast <16 x i8> %47 to <8 x i16>
   %50 = shufflevector <8 x i16> %49, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %50, ptr %48, align 16, !tbaa !16
-  %51 = getelementptr inbounds i8, ptr %4, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %52 = shufflevector <8 x i16> %49, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %52, ptr %51, align 16, !tbaa !16
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -936,15 +936,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %55 = bitcast <16 x i8> %54 to <8 x i16>
   %56 = shufflevector <8 x i16> %55, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %56, ptr %53, align 16, !tbaa !16
-  %57 = getelementptr inbounds i8, ptr %4, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %58 = shufflevector <8 x i16> %55, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %58, ptr %57, align 16, !tbaa !16
   %59 = shufflevector <16 x i8> %40, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %60 = getelementptr inbounds i8, ptr %4, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %61 = bitcast <16 x i8> %59 to <8 x i16>
   %62 = shufflevector <8 x i16> %61, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %62, ptr %60, align 16, !tbaa !16
-  %63 = getelementptr inbounds i8, ptr %4, i64 128
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %64 = shufflevector <8 x i16> %61, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %64, ptr %63, align 16, !tbaa !16
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -952,15 +952,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %67 = bitcast <16 x i8> %66 to <8 x i16>
   %68 = shufflevector <8 x i16> %67, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %68, ptr %65, align 16, !tbaa !16
-  %69 = getelementptr inbounds i8, ptr %4, i64 160
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %70 = shufflevector <8 x i16> %67, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %70, ptr %69, align 16, !tbaa !16
   %71 = shufflevector <16 x i8> %41, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %72 = getelementptr inbounds i8, ptr %4, i64 176
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %73 = bitcast <16 x i8> %71 to <8 x i16>
   %74 = shufflevector <8 x i16> %73, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %74, ptr %72, align 16, !tbaa !16
-  %75 = getelementptr inbounds i8, ptr %4, i64 192
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %76 = shufflevector <8 x i16> %73, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %76, ptr %75, align 16, !tbaa !16
   %77 = mul nuw nsw i64 %22, 3
@@ -1039,15 +1039,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %115 = bitcast <16 x i8> %114 to <8 x i16>
   %116 = shufflevector <8 x i16> %115, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %116, ptr %.085.i25, align 16, !tbaa !16
-  %117 = getelementptr inbounds i8, ptr %.085.i25, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 16
   %118 = shufflevector <8 x i16> %115, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %118, ptr %117, align 16, !tbaa !16
   %119 = shufflevector <16 x i8> %111, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %120 = getelementptr inbounds i8, ptr %.085.i25, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 32
   %121 = bitcast <16 x i8> %119 to <8 x i16>
   %122 = shufflevector <8 x i16> %121, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %122, ptr %120, align 16, !tbaa !16
-  %123 = getelementptr inbounds i8, ptr %.085.i25, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 48
   %124 = shufflevector <8 x i16> %121, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %124, ptr %123, align 16, !tbaa !16
   %125 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 64
@@ -1055,15 +1055,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %127 = bitcast <16 x i8> %126 to <8 x i16>
   %128 = shufflevector <8 x i16> %127, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %128, ptr %125, align 16, !tbaa !16
-  %129 = getelementptr inbounds i8, ptr %.085.i25, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 80
   %130 = shufflevector <8 x i16> %127, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %130, ptr %129, align 16, !tbaa !16
   %131 = shufflevector <16 x i8> %112, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %132 = getelementptr inbounds i8, ptr %.085.i25, i64 96
+  %132 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 96
   %133 = bitcast <16 x i8> %131 to <8 x i16>
   %134 = shufflevector <8 x i16> %133, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %134, ptr %132, align 16, !tbaa !16
-  %135 = getelementptr inbounds i8, ptr %.085.i25, i64 112
+  %135 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 112
   %136 = shufflevector <8 x i16> %133, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %136, ptr %135, align 16, !tbaa !16
   %137 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 128
@@ -1071,15 +1071,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %139 = bitcast <16 x i8> %138 to <8 x i16>
   %140 = shufflevector <8 x i16> %139, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %140, ptr %137, align 16, !tbaa !16
-  %141 = getelementptr inbounds i8, ptr %.085.i25, i64 144
+  %141 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 144
   %142 = shufflevector <8 x i16> %139, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %142, ptr %141, align 16, !tbaa !16
   %143 = shufflevector <16 x i8> %113, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %144 = getelementptr inbounds i8, ptr %.085.i25, i64 160
+  %144 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 160
   %145 = bitcast <16 x i8> %143 to <8 x i16>
   %146 = shufflevector <8 x i16> %145, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %146, ptr %144, align 16, !tbaa !16
-  %147 = getelementptr inbounds i8, ptr %.085.i25, i64 176
+  %147 = getelementptr inbounds nuw i8, ptr %.085.i25, i64 176
   %148 = shufflevector <8 x i16> %145, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %148, ptr %147, align 16, !tbaa !16
   %149 = add nuw nsw i32 %.084.i26, 1
@@ -1124,15 +1124,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %172 = bitcast <16 x i8> %171 to <8 x i16>
   %173 = shufflevector <8 x i16> %172, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %173, ptr %.081.i32, align 16, !tbaa !16
-  %174 = getelementptr inbounds i8, ptr %.081.i32, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 16
   %175 = shufflevector <8 x i16> %172, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %175, ptr %174, align 16, !tbaa !16
   %176 = shufflevector <16 x i8> %168, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %177 = getelementptr inbounds i8, ptr %.081.i32, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 32
   %178 = bitcast <16 x i8> %176 to <8 x i16>
   %179 = shufflevector <8 x i16> %178, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %179, ptr %177, align 16, !tbaa !16
-  %180 = getelementptr inbounds i8, ptr %.081.i32, i64 48
+  %180 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 48
   %181 = shufflevector <8 x i16> %178, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %181, ptr %180, align 16, !tbaa !16
   %182 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 64
@@ -1140,15 +1140,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %184 = bitcast <16 x i8> %183 to <8 x i16>
   %185 = shufflevector <8 x i16> %184, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %185, ptr %182, align 16, !tbaa !16
-  %186 = getelementptr inbounds i8, ptr %.081.i32, i64 80
+  %186 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 80
   %187 = shufflevector <8 x i16> %184, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %187, ptr %186, align 16, !tbaa !16
   %188 = shufflevector <16 x i8> %169, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %189 = getelementptr inbounds i8, ptr %.081.i32, i64 96
+  %189 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 96
   %190 = bitcast <16 x i8> %188 to <8 x i16>
   %191 = shufflevector <8 x i16> %190, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %191, ptr %189, align 16, !tbaa !16
-  %192 = getelementptr inbounds i8, ptr %.081.i32, i64 112
+  %192 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 112
   %193 = shufflevector <8 x i16> %190, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %193, ptr %192, align 16, !tbaa !16
   %194 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 128
@@ -1156,15 +1156,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %196 = bitcast <16 x i8> %195 to <8 x i16>
   %197 = shufflevector <8 x i16> %196, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %197, ptr %194, align 16, !tbaa !16
-  %198 = getelementptr inbounds i8, ptr %.081.i32, i64 144
+  %198 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 144
   %199 = shufflevector <8 x i16> %196, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %199, ptr %198, align 16, !tbaa !16
   %200 = shufflevector <16 x i8> %170, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %201 = getelementptr inbounds i8, ptr %.081.i32, i64 160
+  %201 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 160
   %202 = bitcast <16 x i8> %200 to <8 x i16>
   %203 = shufflevector <8 x i16> %202, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %203, ptr %201, align 16, !tbaa !16
-  %204 = getelementptr inbounds i8, ptr %.081.i32, i64 176
+  %204 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 176
   %205 = shufflevector <8 x i16> %202, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %205, ptr %204, align 16, !tbaa !16
   %206 = getelementptr inbounds nuw i8, ptr %.081.i32, i64 192
@@ -1194,14 +1194,14 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux22dump_data_char32_ssse3EPKvmR
   %219 = getelementptr inbounds nuw i8, ptr %18, i64 %218
   %220 = load i8, ptr %219, align 1, !tbaa !16
   %221 = sext i8 %220 to i32
-  %222 = getelementptr inbounds i8, ptr %.182.i38, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 4
   store i32 %221, ptr %222, align 4, !tbaa !38
   %223 = and i32 %216, 15
   %224 = zext nneg i32 %223 to i64
   %225 = getelementptr inbounds nuw i8, ptr %18, i64 %224
   %226 = load i8, ptr %225, align 1, !tbaa !16
   %227 = sext i8 %226 to i32
-  %228 = getelementptr inbounds i8, ptr %.182.i38, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %.182.i38, i64 8
   store i32 %227, ptr %228, align 4, !tbaa !38
   %229 = add i32 %.076.i40, 1
   %230 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
@@ -1443,13 +1443,13 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux32dump_data_char_ssse3_slow_ps
   %141 = zext nneg i32 %140 to i64
   %142 = getelementptr inbounds nuw i8, ptr %133, i64 %141
   %143 = load i8, ptr %142, align 1, !tbaa !16
-  %144 = getelementptr inbounds i8, ptr %.190.i38, i64 1
+  %144 = getelementptr inbounds nuw i8, ptr %.190.i38, i64 1
   store i8 %143, ptr %144, align 1, !tbaa !16
   %145 = and i32 %139, 15
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr inbounds nuw i8, ptr %133, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !16
-  %149 = getelementptr inbounds i8, ptr %.190.i38, i64 2
+  %149 = getelementptr inbounds nuw i8, ptr %.190.i38, i64 2
   store i8 %148, ptr %149, align 1, !tbaa !16
   %150 = add i32 %.082.i40, 1
   %151 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
@@ -1525,15 +1525,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %46 = bitcast <16 x i8> %45 to <8 x i16>
   %47 = shufflevector <8 x i16> %46, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %47, ptr %7, align 16, !tbaa !16
-  %48 = getelementptr inbounds i8, ptr %4, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %49 = shufflevector <8 x i16> %46, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %49, ptr %48, align 16, !tbaa !16
   %50 = shufflevector <16 x i8> %42, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %51 = getelementptr inbounds i8, ptr %4, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %52 = bitcast <16 x i8> %50 to <8 x i16>
   %53 = shufflevector <8 x i16> %52, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %53, ptr %51, align 16, !tbaa !16
-  %54 = getelementptr inbounds i8, ptr %4, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %55 = shufflevector <8 x i16> %52, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %55, ptr %54, align 16, !tbaa !16
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -1541,15 +1541,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %58 = bitcast <16 x i8> %57 to <8 x i16>
   %59 = shufflevector <8 x i16> %58, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %59, ptr %56, align 16, !tbaa !16
-  %60 = getelementptr inbounds i8, ptr %4, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %61 = shufflevector <8 x i16> %58, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %61, ptr %60, align 16, !tbaa !16
   %62 = shufflevector <16 x i8> %43, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %63 = getelementptr inbounds i8, ptr %4, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %64 = bitcast <16 x i8> %62 to <8 x i16>
   %65 = shufflevector <8 x i16> %64, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %65, ptr %63, align 16, !tbaa !16
-  %66 = getelementptr inbounds i8, ptr %4, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %67 = shufflevector <8 x i16> %64, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %67, ptr %66, align 16, !tbaa !16
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -1557,15 +1557,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %70 = bitcast <16 x i8> %69 to <8 x i16>
   %71 = shufflevector <8 x i16> %70, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %71, ptr %68, align 16, !tbaa !16
-  %72 = getelementptr inbounds i8, ptr %4, i64 160
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %73 = shufflevector <8 x i16> %70, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %73, ptr %72, align 16, !tbaa !16
   %74 = shufflevector <16 x i8> %44, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %75 = getelementptr inbounds i8, ptr %4, i64 176
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %76 = bitcast <16 x i8> %74 to <8 x i16>
   %77 = shufflevector <8 x i16> %76, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %77, ptr %75, align 16, !tbaa !16
-  %78 = getelementptr inbounds i8, ptr %4, i64 192
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %79 = shufflevector <8 x i16> %76, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %79, ptr %78, align 16, !tbaa !16
   %80 = mul nuw nsw i64 %19, 3
@@ -1650,15 +1650,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %124 = bitcast <16 x i8> %123 to <8 x i16>
   %125 = shufflevector <8 x i16> %124, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %125, ptr %.091.i25, align 16, !tbaa !16
-  %126 = getelementptr inbounds i8, ptr %.091.i25, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 16
   %127 = shufflevector <8 x i16> %124, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %127, ptr %126, align 16, !tbaa !16
   %128 = shufflevector <16 x i8> %120, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %129 = getelementptr inbounds i8, ptr %.091.i25, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 32
   %130 = bitcast <16 x i8> %128 to <8 x i16>
   %131 = shufflevector <8 x i16> %130, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %131, ptr %129, align 16, !tbaa !16
-  %132 = getelementptr inbounds i8, ptr %.091.i25, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 48
   %133 = shufflevector <8 x i16> %130, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %133, ptr %132, align 16, !tbaa !16
   %134 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 64
@@ -1666,15 +1666,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %136 = bitcast <16 x i8> %135 to <8 x i16>
   %137 = shufflevector <8 x i16> %136, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %137, ptr %134, align 16, !tbaa !16
-  %138 = getelementptr inbounds i8, ptr %.091.i25, i64 80
+  %138 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 80
   %139 = shufflevector <8 x i16> %136, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %139, ptr %138, align 16, !tbaa !16
   %140 = shufflevector <16 x i8> %121, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %141 = getelementptr inbounds i8, ptr %.091.i25, i64 96
+  %141 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 96
   %142 = bitcast <16 x i8> %140 to <8 x i16>
   %143 = shufflevector <8 x i16> %142, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %143, ptr %141, align 16, !tbaa !16
-  %144 = getelementptr inbounds i8, ptr %.091.i25, i64 112
+  %144 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 112
   %145 = shufflevector <8 x i16> %142, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %145, ptr %144, align 16, !tbaa !16
   %146 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 128
@@ -1682,15 +1682,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %148 = bitcast <16 x i8> %147 to <8 x i16>
   %149 = shufflevector <8 x i16> %148, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %149, ptr %146, align 16, !tbaa !16
-  %150 = getelementptr inbounds i8, ptr %.091.i25, i64 144
+  %150 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 144
   %151 = shufflevector <8 x i16> %148, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %151, ptr %150, align 16, !tbaa !16
   %152 = shufflevector <16 x i8> %122, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %153 = getelementptr inbounds i8, ptr %.091.i25, i64 160
+  %153 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 160
   %154 = bitcast <16 x i8> %152 to <8 x i16>
   %155 = shufflevector <8 x i16> %154, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %155, ptr %153, align 16, !tbaa !16
-  %156 = getelementptr inbounds i8, ptr %.091.i25, i64 176
+  %156 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 176
   %157 = shufflevector <8 x i16> %154, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %157, ptr %156, align 16, !tbaa !16
   %158 = add nuw nsw i32 %.092.i24, 1
@@ -1731,15 +1731,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %187 = bitcast <16 x i8> %186 to <8 x i16>
   %188 = shufflevector <8 x i16> %187, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %188, ptr %.089.i31, align 16, !tbaa !16
-  %189 = getelementptr inbounds i8, ptr %.089.i31, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 16
   %190 = shufflevector <8 x i16> %187, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %190, ptr %189, align 16, !tbaa !16
   %191 = shufflevector <16 x i8> %183, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %192 = getelementptr inbounds i8, ptr %.089.i31, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 32
   %193 = bitcast <16 x i8> %191 to <8 x i16>
   %194 = shufflevector <8 x i16> %193, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %194, ptr %192, align 16, !tbaa !16
-  %195 = getelementptr inbounds i8, ptr %.089.i31, i64 48
+  %195 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 48
   %196 = shufflevector <8 x i16> %193, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %196, ptr %195, align 16, !tbaa !16
   %197 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 64
@@ -1747,15 +1747,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %199 = bitcast <16 x i8> %198 to <8 x i16>
   %200 = shufflevector <8 x i16> %199, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %200, ptr %197, align 16, !tbaa !16
-  %201 = getelementptr inbounds i8, ptr %.089.i31, i64 80
+  %201 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 80
   %202 = shufflevector <8 x i16> %199, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %202, ptr %201, align 16, !tbaa !16
   %203 = shufflevector <16 x i8> %184, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %204 = getelementptr inbounds i8, ptr %.089.i31, i64 96
+  %204 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 96
   %205 = bitcast <16 x i8> %203 to <8 x i16>
   %206 = shufflevector <8 x i16> %205, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %206, ptr %204, align 16, !tbaa !16
-  %207 = getelementptr inbounds i8, ptr %.089.i31, i64 112
+  %207 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 112
   %208 = shufflevector <8 x i16> %205, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %208, ptr %207, align 16, !tbaa !16
   %209 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 128
@@ -1763,15 +1763,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %211 = bitcast <16 x i8> %210 to <8 x i16>
   %212 = shufflevector <8 x i16> %211, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %212, ptr %209, align 16, !tbaa !16
-  %213 = getelementptr inbounds i8, ptr %.089.i31, i64 144
+  %213 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 144
   %214 = shufflevector <8 x i16> %211, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %214, ptr %213, align 16, !tbaa !16
   %215 = shufflevector <16 x i8> %185, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %216 = getelementptr inbounds i8, ptr %.089.i31, i64 160
+  %216 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 160
   %217 = bitcast <16 x i8> %215 to <8 x i16>
   %218 = shufflevector <8 x i16> %217, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %218, ptr %216, align 16, !tbaa !16
-  %219 = getelementptr inbounds i8, ptr %.089.i31, i64 176
+  %219 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 176
   %220 = shufflevector <8 x i16> %217, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %220, ptr %219, align 16, !tbaa !16
   %221 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 192
@@ -1818,14 +1818,14 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux33dump_data_wchar_ssse3_slow_p
   %243 = getelementptr inbounds nuw i8, ptr %233, i64 %242
   %244 = load i8, ptr %243, align 1, !tbaa !16
   %245 = sext i8 %244 to i32
-  %246 = getelementptr inbounds i8, ptr %.190.i38, i64 4
+  %246 = getelementptr inbounds nuw i8, ptr %.190.i38, i64 4
   store i32 %245, ptr %246, align 4, !tbaa !26
   %247 = and i32 %240, 15
   %248 = zext nneg i32 %247 to i64
   %249 = getelementptr inbounds nuw i8, ptr %233, i64 %248
   %250 = load i8, ptr %249, align 1, !tbaa !16
   %251 = sext i8 %250 to i32
-  %252 = getelementptr inbounds i8, ptr %.190.i38, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %.190.i38, i64 8
   store i32 %251, ptr %252, align 4, !tbaa !26
   %253 = add i32 %.082.i40, 1
   %254 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
@@ -1899,19 +1899,19 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char16_ssse3_slow_
   %44 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %41, <16 x i8> splat (i8 32))
   %45 = shufflevector <16 x i8> %42, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %45, ptr %7, align 16, !tbaa !16
-  %46 = getelementptr inbounds i8, ptr %4, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %47 = shufflevector <16 x i8> %42, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %47, ptr %46, align 16, !tbaa !16
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %49 = shufflevector <16 x i8> %43, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %49, ptr %48, align 16, !tbaa !16
-  %50 = getelementptr inbounds i8, ptr %4, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %51 = shufflevector <16 x i8> %43, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %51, ptr %50, align 16, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %53 = shufflevector <16 x i8> %44, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %53, ptr %52, align 16, !tbaa !16
-  %54 = getelementptr inbounds i8, ptr %4, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %55 = shufflevector <16 x i8> %44, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %55, ptr %54, align 16, !tbaa !16
   %56 = mul nuw nsw i64 %19, 3
@@ -1994,19 +1994,19 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char16_ssse3_slow_
   %98 = call <16 x i8> @llvm.umax.v16i8(<16 x i8> %95, <16 x i8> splat (i8 32))
   %99 = shufflevector <16 x i8> %96, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %99, ptr %.091.i25, align 16, !tbaa !16
-  %100 = getelementptr inbounds i8, ptr %.091.i25, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 16
   %101 = shufflevector <16 x i8> %96, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %101, ptr %100, align 16, !tbaa !16
   %102 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 32
   %103 = shufflevector <16 x i8> %97, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %103, ptr %102, align 16, !tbaa !16
-  %104 = getelementptr inbounds i8, ptr %.091.i25, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 48
   %105 = shufflevector <16 x i8> %97, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %105, ptr %104, align 16, !tbaa !16
   %106 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 64
   %107 = shufflevector <16 x i8> %98, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %107, ptr %106, align 16, !tbaa !16
-  %108 = getelementptr inbounds i8, ptr %.091.i25, i64 80
+  %108 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 80
   %109 = shufflevector <16 x i8> %98, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %109, ptr %108, align 16, !tbaa !16
   %110 = add nuw nsw i32 %.092.i24, 1
@@ -2045,19 +2045,19 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char16_ssse3_slow_
   %137 = call <16 x i8> @llvm.umax.v16i8(<16 x i8> %134, <16 x i8> splat (i8 32))
   %138 = shufflevector <16 x i8> %135, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %138, ptr %.089.i31, align 16, !tbaa !16
-  %139 = getelementptr inbounds i8, ptr %.089.i31, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 16
   %140 = shufflevector <16 x i8> %135, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %140, ptr %139, align 16, !tbaa !16
   %141 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 32
   %142 = shufflevector <16 x i8> %136, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %142, ptr %141, align 16, !tbaa !16
-  %143 = getelementptr inbounds i8, ptr %.089.i31, i64 48
+  %143 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 48
   %144 = shufflevector <16 x i8> %136, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %144, ptr %143, align 16, !tbaa !16
   %145 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 64
   %146 = shufflevector <16 x i8> %137, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %146, ptr %145, align 16, !tbaa !16
-  %147 = getelementptr inbounds i8, ptr %.089.i31, i64 80
+  %147 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 80
   %148 = shufflevector <16 x i8> %137, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %148, ptr %147, align 16, !tbaa !16
   %149 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 96
@@ -2104,14 +2104,14 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char16_ssse3_slow_
   %171 = getelementptr inbounds nuw i8, ptr %161, i64 %170
   %172 = load i8, ptr %171, align 1, !tbaa !16
   %173 = sext i8 %172 to i16
-  %174 = getelementptr inbounds i8, ptr %.190.i38, i64 2
+  %174 = getelementptr inbounds nuw i8, ptr %.190.i38, i64 2
   store i16 %173, ptr %174, align 2, !tbaa !32
   %175 = and i32 %168, 15
   %176 = zext nneg i32 %175 to i64
   %177 = getelementptr inbounds nuw i8, ptr %161, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !16
   %179 = sext i8 %178 to i16
-  %180 = getelementptr inbounds i8, ptr %.190.i38, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %.190.i38, i64 4
   store i16 %179, ptr %180, align 2, !tbaa !32
   %181 = add i32 %.082.i40, 1
   %182 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
@@ -2187,15 +2187,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %46 = bitcast <16 x i8> %45 to <8 x i16>
   %47 = shufflevector <8 x i16> %46, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %47, ptr %7, align 16, !tbaa !16
-  %48 = getelementptr inbounds i8, ptr %4, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %49 = shufflevector <8 x i16> %46, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %49, ptr %48, align 16, !tbaa !16
   %50 = shufflevector <16 x i8> %42, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %51 = getelementptr inbounds i8, ptr %4, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %52 = bitcast <16 x i8> %50 to <8 x i16>
   %53 = shufflevector <8 x i16> %52, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %53, ptr %51, align 16, !tbaa !16
-  %54 = getelementptr inbounds i8, ptr %4, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %55 = shufflevector <8 x i16> %52, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %55, ptr %54, align 16, !tbaa !16
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -2203,15 +2203,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %58 = bitcast <16 x i8> %57 to <8 x i16>
   %59 = shufflevector <8 x i16> %58, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %59, ptr %56, align 16, !tbaa !16
-  %60 = getelementptr inbounds i8, ptr %4, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %61 = shufflevector <8 x i16> %58, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %61, ptr %60, align 16, !tbaa !16
   %62 = shufflevector <16 x i8> %43, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %63 = getelementptr inbounds i8, ptr %4, i64 112
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %64 = bitcast <16 x i8> %62 to <8 x i16>
   %65 = shufflevector <8 x i16> %64, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %65, ptr %63, align 16, !tbaa !16
-  %66 = getelementptr inbounds i8, ptr %4, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %67 = shufflevector <8 x i16> %64, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %67, ptr %66, align 16, !tbaa !16
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -2219,15 +2219,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %70 = bitcast <16 x i8> %69 to <8 x i16>
   %71 = shufflevector <8 x i16> %70, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %71, ptr %68, align 16, !tbaa !16
-  %72 = getelementptr inbounds i8, ptr %4, i64 160
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %73 = shufflevector <8 x i16> %70, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %73, ptr %72, align 16, !tbaa !16
   %74 = shufflevector <16 x i8> %44, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %75 = getelementptr inbounds i8, ptr %4, i64 176
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %76 = bitcast <16 x i8> %74 to <8 x i16>
   %77 = shufflevector <8 x i16> %76, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %77, ptr %75, align 16, !tbaa !16
-  %78 = getelementptr inbounds i8, ptr %4, i64 192
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %79 = shufflevector <8 x i16> %76, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %79, ptr %78, align 16, !tbaa !16
   %80 = mul nuw nsw i64 %19, 3
@@ -2312,15 +2312,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %124 = bitcast <16 x i8> %123 to <8 x i16>
   %125 = shufflevector <8 x i16> %124, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %125, ptr %.091.i25, align 16, !tbaa !16
-  %126 = getelementptr inbounds i8, ptr %.091.i25, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 16
   %127 = shufflevector <8 x i16> %124, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %127, ptr %126, align 16, !tbaa !16
   %128 = shufflevector <16 x i8> %120, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %129 = getelementptr inbounds i8, ptr %.091.i25, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 32
   %130 = bitcast <16 x i8> %128 to <8 x i16>
   %131 = shufflevector <8 x i16> %130, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %131, ptr %129, align 16, !tbaa !16
-  %132 = getelementptr inbounds i8, ptr %.091.i25, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 48
   %133 = shufflevector <8 x i16> %130, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %133, ptr %132, align 16, !tbaa !16
   %134 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 64
@@ -2328,15 +2328,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %136 = bitcast <16 x i8> %135 to <8 x i16>
   %137 = shufflevector <8 x i16> %136, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %137, ptr %134, align 16, !tbaa !16
-  %138 = getelementptr inbounds i8, ptr %.091.i25, i64 80
+  %138 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 80
   %139 = shufflevector <8 x i16> %136, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %139, ptr %138, align 16, !tbaa !16
   %140 = shufflevector <16 x i8> %121, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %141 = getelementptr inbounds i8, ptr %.091.i25, i64 96
+  %141 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 96
   %142 = bitcast <16 x i8> %140 to <8 x i16>
   %143 = shufflevector <8 x i16> %142, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %143, ptr %141, align 16, !tbaa !16
-  %144 = getelementptr inbounds i8, ptr %.091.i25, i64 112
+  %144 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 112
   %145 = shufflevector <8 x i16> %142, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %145, ptr %144, align 16, !tbaa !16
   %146 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 128
@@ -2344,15 +2344,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %148 = bitcast <16 x i8> %147 to <8 x i16>
   %149 = shufflevector <8 x i16> %148, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %149, ptr %146, align 16, !tbaa !16
-  %150 = getelementptr inbounds i8, ptr %.091.i25, i64 144
+  %150 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 144
   %151 = shufflevector <8 x i16> %148, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %151, ptr %150, align 16, !tbaa !16
   %152 = shufflevector <16 x i8> %122, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %153 = getelementptr inbounds i8, ptr %.091.i25, i64 160
+  %153 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 160
   %154 = bitcast <16 x i8> %152 to <8 x i16>
   %155 = shufflevector <8 x i16> %154, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %155, ptr %153, align 16, !tbaa !16
-  %156 = getelementptr inbounds i8, ptr %.091.i25, i64 176
+  %156 = getelementptr inbounds nuw i8, ptr %.091.i25, i64 176
   %157 = shufflevector <8 x i16> %154, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %157, ptr %156, align 16, !tbaa !16
   %158 = add nuw nsw i32 %.092.i24, 1
@@ -2393,15 +2393,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %187 = bitcast <16 x i8> %186 to <8 x i16>
   %188 = shufflevector <8 x i16> %187, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %188, ptr %.089.i31, align 16, !tbaa !16
-  %189 = getelementptr inbounds i8, ptr %.089.i31, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 16
   %190 = shufflevector <8 x i16> %187, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %190, ptr %189, align 16, !tbaa !16
   %191 = shufflevector <16 x i8> %183, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %192 = getelementptr inbounds i8, ptr %.089.i31, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 32
   %193 = bitcast <16 x i8> %191 to <8 x i16>
   %194 = shufflevector <8 x i16> %193, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %194, ptr %192, align 16, !tbaa !16
-  %195 = getelementptr inbounds i8, ptr %.089.i31, i64 48
+  %195 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 48
   %196 = shufflevector <8 x i16> %193, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %196, ptr %195, align 16, !tbaa !16
   %197 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 64
@@ -2409,15 +2409,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %199 = bitcast <16 x i8> %198 to <8 x i16>
   %200 = shufflevector <8 x i16> %199, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %200, ptr %197, align 16, !tbaa !16
-  %201 = getelementptr inbounds i8, ptr %.089.i31, i64 80
+  %201 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 80
   %202 = shufflevector <8 x i16> %199, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %202, ptr %201, align 16, !tbaa !16
   %203 = shufflevector <16 x i8> %184, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %204 = getelementptr inbounds i8, ptr %.089.i31, i64 96
+  %204 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 96
   %205 = bitcast <16 x i8> %203 to <8 x i16>
   %206 = shufflevector <8 x i16> %205, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %206, ptr %204, align 16, !tbaa !16
-  %207 = getelementptr inbounds i8, ptr %.089.i31, i64 112
+  %207 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 112
   %208 = shufflevector <8 x i16> %205, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %208, ptr %207, align 16, !tbaa !16
   %209 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 128
@@ -2425,15 +2425,15 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %211 = bitcast <16 x i8> %210 to <8 x i16>
   %212 = shufflevector <8 x i16> %211, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %212, ptr %209, align 16, !tbaa !16
-  %213 = getelementptr inbounds i8, ptr %.089.i31, i64 144
+  %213 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 144
   %214 = shufflevector <8 x i16> %211, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %214, ptr %213, align 16, !tbaa !16
   %215 = shufflevector <16 x i8> %185, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %216 = getelementptr inbounds i8, ptr %.089.i31, i64 160
+  %216 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 160
   %217 = bitcast <16 x i8> %215 to <8 x i16>
   %218 = shufflevector <8 x i16> %217, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   store <8 x i16> %218, ptr %216, align 16, !tbaa !16
-  %219 = getelementptr inbounds i8, ptr %.089.i31, i64 176
+  %219 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 176
   %220 = shufflevector <8 x i16> %217, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 0, i16 0, i16 0, i16 0>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %220, ptr %219, align 16, !tbaa !16
   %221 = getelementptr inbounds nuw i8, ptr %.089.i31, i64 192
@@ -2480,14 +2480,14 @@ define hidden void @_ZN5boost3log11v2_mt_posix3aux34dump_data_char32_ssse3_slow_
   %243 = getelementptr inbounds nuw i8, ptr %233, i64 %242
   %244 = load i8, ptr %243, align 1, !tbaa !16
   %245 = sext i8 %244 to i32
-  %246 = getelementptr inbounds i8, ptr %.190.i38, i64 4
+  %246 = getelementptr inbounds nuw i8, ptr %.190.i38, i64 4
   store i32 %245, ptr %246, align 4, !tbaa !38
   %247 = and i32 %240, 15
   %248 = zext nneg i32 %247 to i64
   %249 = getelementptr inbounds nuw i8, ptr %233, i64 %248
   %250 = load i8, ptr %249, align 1, !tbaa !16
   %251 = sext i8 %250 to i32
-  %252 = getelementptr inbounds i8, ptr %.190.i38, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %.190.i38, i64 8
   store i32 %251, ptr %252, align 4, !tbaa !38
   %253 = add i32 %.082.i40, 1
   %254 = getelementptr inbounds nuw i8, ptr %.4.i39, i64 1
@@ -2591,7 +2591,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 232
   %38 = load ptr, ptr %37, align 8, !tbaa !65
   %39 = load ptr, ptr %38, align 8, !tbaa !3
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load ptr, ptr %40, align 8
   %42 = invoke noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef %1, i64 noundef %2)
           to label %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE5sputnEPKDsl.exit unwind label %43
@@ -2716,7 +2716,7 @@ _ZNSt9basic_iosIDsSt11char_traitsIDsEE11_M_setstateESt12_Ios_Iostate.exit16..cri
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %91, align 8, !tbaa !3
-  %94 = getelementptr inbounds i8, ptr %93, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load ptr, ptr %94, align 8
   %96 = invoke noundef i32 %95(ptr noundef nonnull align 8 dereferenceable(64) %91)
           to label %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit.i unwind label %110
@@ -2813,7 +2813,7 @@ define linkonce_odr hidden void @_ZNSt13basic_ostreamIDsSt11char_traitsIDsEE6sen
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %15, align 8, !tbaa !3
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(64) %15)
           to label %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit unwind label %35
@@ -2926,7 +2926,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 232
   %39 = load ptr, ptr %38, align 8, !tbaa !65
   %40 = load ptr, ptr %39, align 8, !tbaa !3
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = invoke noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(64) %39)
           to label %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit unwind label %45
@@ -3051,7 +3051,7 @@ _ZNSt9basic_iosIDsSt11char_traitsIDsEE8setstateESt12_Ios_Iostate.exit: ; preds =
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %93, align 8, !tbaa !3
-  %96 = getelementptr inbounds i8, ptr %95, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %97 = load ptr, ptr %96, align 8
   %98 = invoke noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(64) %93)
           to label %_ZNSt15basic_streambufIDsSt11char_traitsIDsEE7pubsyncEv.exit.i unwind label %112
@@ -3174,7 +3174,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 232
   %38 = load ptr, ptr %37, align 8, !tbaa !72
   %39 = load ptr, ptr %38, align 8, !tbaa !3
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load ptr, ptr %40, align 8
   %42 = invoke noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef %1, i64 noundef %2)
           to label %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE5sputnEPKDil.exit unwind label %43
@@ -3299,7 +3299,7 @@ _ZNSt9basic_iosIDiSt11char_traitsIDiEE11_M_setstateESt12_Ios_Iostate.exit16..cri
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %91, align 8, !tbaa !3
-  %94 = getelementptr inbounds i8, ptr %93, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load ptr, ptr %94, align 8
   %96 = invoke noundef i32 %95(ptr noundef nonnull align 8 dereferenceable(64) %91)
           to label %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit.i unwind label %110
@@ -3375,7 +3375,7 @@ define linkonce_odr hidden void @_ZNSt13basic_ostreamIDiSt11char_traitsIDiEE6sen
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %15, align 8, !tbaa !3
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = invoke noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(64) %15)
           to label %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit unwind label %35
@@ -3488,7 +3488,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 232
   %39 = load ptr, ptr %38, align 8, !tbaa !72
   %40 = load ptr, ptr %39, align 8, !tbaa !3
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = invoke noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(64) %39)
           to label %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit unwind label %45
@@ -3613,7 +3613,7 @@ _ZNSt9basic_iosIDiSt11char_traitsIDiEE8setstateESt12_Ios_Iostate.exit: ; preds =
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %93, align 8, !tbaa !3
-  %96 = getelementptr inbounds i8, ptr %95, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %97 = load ptr, ptr %96, align 8
   %98 = invoke noundef i32 %97(ptr noundef nonnull align 8 dereferenceable(64) %93)
           to label %_ZNSt15basic_streambufIDiSt11char_traitsIDiEE7pubsyncEv.exit.i unwind label %112

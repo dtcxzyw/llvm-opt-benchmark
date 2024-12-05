@@ -61,19 +61,19 @@ declare void @_ZN12XStatCounterC1EPKcS1_PFv15LogTargetHandleRK12XStatSamplerRK19
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8XLiveMapC2Ej(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   store volatile i32 0, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store volatile i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = tail call i32 @llvm.umax.i32(i32 %1, i32 64)
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   tail call void @_ZN11CHeapBitMapC2Em8MEMFLAGSb(ptr noundef nonnull align 8 dereferenceable(17) %6, i64 noundef %9, i8 noundef zeroext 5, i1 noundef zeroext false) #7
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 6
   %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %13, i1 true)
@@ -107,11 +107,11 @@ define hidden void @_ZN8XLiveMap5resetEm(ptr noundef nonnull align 8 dereference
   br i1 %11, label %_ZN6BitMap5clearEv.exit10, label %16
 
 _ZN6BitMap5clearEv.exit10:                        ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store volatile i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = load i32, ptr @XGlobalSeqNum, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
@@ -123,7 +123,7 @@ _ZN6BitMap5clearEv.exit10:                        ; preds = %9
 
 17:                                               ; preds = %16
   tail call void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL33XCounterMarkSeqNumResetContention, i64 noundef 1) #7
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not13 = icmp eq ptr %18, null
   br i1 %.not13, label %25, label %19
 
@@ -168,9 +168,9 @@ declare noundef ptr @_ZN7XThread4nameEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8XLiveMap13reset_segmentEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = lshr i64 %1, 6
-  %5 = getelementptr inbounds i64, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %4
   %6 = and i64 %1, 63
   %7 = shl nuw i64 1, %6
   %8 = load volatile i64, ptr %5, align 8
@@ -184,8 +184,8 @@ define hidden void @_ZN8XLiveMap13reset_segmentEm(ptr noundef nonnull align 8 de
   br i1 %.not.not.not.i.not.not.not.i.not, label %_ZN8XLiveMap13claim_segmentEm.exit.preheader, label %18
 
 _ZN8XLiveMap13claim_segmentEm.exit.preheader:     ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i64, ptr %11, i64 %4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %4
   %13 = load volatile i64, ptr %12, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %14 = and i64 %13, %7
@@ -196,7 +196,7 @@ _ZN8XLiveMap13claim_segmentEm.exit.preheader:     ; preds = %9
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7XThread3_idE)
   %16 = ptrtoint ptr %0 to i64
   tail call void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL34XCounterMarkSegmentResetContention, i64 noundef 1) #7
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not13 = icmp eq ptr %17, null
   br i1 %.not13, label %_ZN8XLiveMap13claim_segmentEm.exit.preheader21, label %21
 
@@ -232,14 +232,14 @@ _ZN8XLiveMap13claim_segmentEm.exit:               ; preds = %_ZN8XLiveMap13claim
   br i1 %.not, label %_ZN8XLiveMap13claim_segmentEm.exit, label %_ZN8XLiveMap16set_segment_liveEm.exit, !llvm.loop !12
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i64, ptr %31, align 8
   %33 = lshr i64 %32, 6
   %34 = mul i64 %33, %1
   %35 = add i64 %1, 1
   %36 = mul i64 %33, %35
   %37 = icmp ugt i64 %32, 131071
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %37, label %39, label %40
 
 39:                                               ; preds = %30
@@ -251,8 +251,8 @@ _ZN8XLiveMap13claim_segmentEm.exit:               ; preds = %_ZN8XLiveMap13claim
   br label %41
 
 41:                                               ; preds = %40, %39
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
-  %43 = getelementptr inbounds i64, ptr %42, i64 %4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %4
   %44 = load volatile i64, ptr %43, align 8
   br label %45
 
@@ -280,18 +280,18 @@ define hidden void @_ZN8XLiveMap6resizeEj(ptr noundef nonnull align 8 dereferenc
   %3 = tail call i32 @llvm.umax.i32(i32 %1, i32 64)
   %4 = zext i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, %5
   br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN14GrowableBitMapI11CHeapBitMapE12reinitializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %5, i1 noundef zeroext false) #7
   %10 = load i64, ptr %6, align 8
   %11 = lshr i64 %10, 6
   %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %11, i1 true)
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %12, ptr %13, align 8
   br label %14
 

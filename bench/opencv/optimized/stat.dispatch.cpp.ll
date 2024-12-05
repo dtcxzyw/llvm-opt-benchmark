@@ -29,10 +29,10 @@ define hidden noundef i32 @_ZN2cv3hal12cpu_baseline11normHammingEPKhi(ptr nocapt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.08 = phi i32 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = add nuw nsw i32 %.08, %9
@@ -57,13 +57,13 @@ define hidden noundef i32 @_ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i(ptr noc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.010 = phi i32 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
-  %7 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = xor i8 %8, %6
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = add nuw nsw i32 %.010, %13
@@ -90,10 +90,10 @@ define noundef i32 @_ZN2cv3hal11normHammingEPKhi(ptr nocapture noundef readonly 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.08.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %11, %.lr.ph.i ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %.08.i, %10
@@ -103,7 +103,7 @@ define noundef i32 @_ZN2cv3hal11normHammingEPKhi(ptr nocapture noundef readonly 
 
 _ZN2cv3hal12cpu_baseline11normHammingEPKhi.exit:  ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi i32 [ 0, %2 ], [ %11, %.lr.ph.i ]
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %14
@@ -139,13 +139,13 @@ define noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr nocapture noundef readon
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.010.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %15, %.lr.ph.i ]
-  %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = xor i8 %9, %7
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [256 x i8], ptr @_ZN2cv3hal13popCountTableE, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %.010.i, %14
@@ -155,7 +155,7 @@ define noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr nocapture noundef readon
 
 _ZN2cv3hal12cpu_baseline11normHammingEPKhS3_i.exit: ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %15, %.lr.ph.i ]
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load i32, ptr %16, align 8
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %18

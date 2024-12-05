@@ -22,7 +22,7 @@ define void @ADIOI_GEN_ReadContig(ptr nocapture noundef %0, ptr nocapture nounde
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i64, ptr %18, align 8
   br label %20
 
@@ -32,7 +32,7 @@ define void @ADIOI_GEN_ReadContig(ptr nocapture noundef %0, ptr nocapture nounde
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %23
 
 23:                                               ; preds = %.lr.ph, %34
@@ -54,7 +54,7 @@ define void @ADIOI_GEN_ReadContig(ptr nocapture noundef %0, ptr nocapture nounde
   %31 = call ptr @strerror(i32 noundef %30) #6
   %32 = call i32 (i32, i32, ptr, i32, i32, ptr, ptr, ...) @MPIO_Err_create_code(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @ADIOI_GEN_ReadContig.myname, i32 noundef 78, i32 noundef 35, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %31) #6
   store i32 %32, ptr %7, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 -1, ptr %33, align 8
   br label %47
 
@@ -67,12 +67,12 @@ define void @ADIOI_GEN_ReadContig(ptr nocapture noundef %0, ptr nocapture nounde
 ._crit_edge:                                      ; preds = %34, %23, %20
   %.1.lcssa = phi i64 [ 0, %20 ], [ %35, %34 ], [ %.146, %23 ]
   %38 = add nsw i64 %.1.lcssa, %.034
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %38, ptr %39, align 8
   br i1 %16, label %40, label %44
 
 40:                                               ; preds = %._crit_edge
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i64, ptr %41, align 8
   %43 = add nsw i64 %42, %.1.lcssa
   store i64 %43, ptr %41, align 8

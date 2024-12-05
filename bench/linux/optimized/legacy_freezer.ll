@@ -39,11 +39,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local zeroext i1 @cgroup_freezing(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 2272
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2272
   %3 = load volatile ptr, ptr %2, align 32
   %4 = getelementptr i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 6
   %9 = icmp ne i32 %8, 0
@@ -71,11 +71,11 @@ define internal noundef nonnull ptr @freezer_css_alloc(ptr nocapture readnone %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @freezer_css_online(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   tail call void @cpus_read_lock() #8
   tail call void @mutex_lock(ptr noundef nonnull @freezer_mutex) #8
-  %4 = getelementptr inbounds i8, ptr %0, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load i32, ptr %4, align 8
   %6 = or i32 %5, 1
   store i32 %6, ptr %4, align 8
@@ -83,7 +83,7 @@ define internal noundef i32 @freezer_css_online(ptr nocapture noundef %0) #0 ali
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 6
   %12 = icmp eq i32 %11, 0
@@ -105,7 +105,7 @@ define internal noundef i32 @freezer_css_online(ptr nocapture noundef %0) #0 ali
 define internal void @freezer_css_offline(ptr nocapture noundef %0) #0 align 16 {
   tail call void @cpus_read_lock() #8
   tail call void @mutex_lock(ptr noundef nonnull @freezer_mutex) #8
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 6
   %5 = icmp eq i32 %4, 0
@@ -141,7 +141,7 @@ define internal void @freezer_attach(ptr noundef %0) #0 align 16 {
 .preheader4:                                      ; preds = %1, %.loopexit
   %5 = phi ptr [ %25, %.loopexit ], [ %3, %1 ]
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 6
   %10 = icmp eq i32 %9, 0
@@ -158,7 +158,7 @@ define internal void @freezer_attach(ptr noundef %0) #0 align 16 {
 
 .preheader:                                       ; preds = %12, %20
   %15 = phi ptr [ %23, %20 ], [ %6, %12 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 200
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 8
   %19 = icmp eq i32 %18, 0
@@ -167,7 +167,7 @@ define internal void @freezer_attach(ptr noundef %0) #0 align 16 {
 20:                                               ; preds = %.preheader
   %21 = and i32 %17, -9
   store i32 %21, ptr %16, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 192
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !6
@@ -185,7 +185,7 @@ define internal void @freezer_attach(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @freezer_fork(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2272
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2272
   %3 = load volatile ptr, ptr %2, align 32
   %4 = getelementptr i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -199,7 +199,7 @@ define internal void @freezer_fork(ptr noundef %0) #0 align 16 {
   %9 = load volatile ptr, ptr %2, align 32
   %10 = getelementptr i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 6
   %15 = icmp eq i32 %14, 0
@@ -263,7 +263,7 @@ declare dso_local ptr @cgroup_taskset_next(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @freezer_read(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca %struct.css_task_iter, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @of_css(ptr noundef %5) #8
   tail call void @mutex_lock(ptr noundef nonnull @freezer_mutex) #8
@@ -274,14 +274,14 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr nocapture readnone
 
 .preheader11:                                     ; preds = %2, %91
   %9 = phi ptr [ %92, %91 ], [ %7, %2 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 84
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 1
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %38
 
 14:                                               ; preds = %.preheader11
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @__rcu_read_lock() #8
   %16 = load volatile i64, ptr %15, align 8
   %17 = and i64 %16, 3
@@ -299,7 +299,7 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr nocapture readnone
   br i1 %23, label %24, label %.sink.split13
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %9, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = load volatile i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
@@ -328,7 +328,7 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr nocapture readnone
   call void @__rcu_read_unlock() #8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false), !annotation !5
-  %39 = getelementptr inbounds i8, ptr %9, i64 200
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 6
   %42 = icmp ne i32 %41, 0
@@ -345,7 +345,7 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr nocapture readnone
 
 .preheader9:                                      ; preds = %46, %55
   %49 = phi ptr [ %56, %55 ], [ %47, %46 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 200
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 200
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 9
   %53 = icmp eq i32 %52, 1
@@ -404,7 +404,7 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr nocapture readnone
   br i1 %73, label %74, label %91
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %9, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @__rcu_read_lock() #8
   %76 = load volatile i64, ptr %75, align 8
   %77 = and i64 %76, 3
@@ -417,7 +417,7 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr nocapture readnone
   br label %.sink.split13
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %9, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %83 = load ptr, ptr %82, align 8
   %84 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %83, i64 1, ptr elementtype(i64) %83) #8, !srcloc !21
   %85 = icmp ult i8 %84, 2
@@ -427,9 +427,9 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr nocapture readnone
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr %82, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
-  call void %90(ptr noundef %75) #8
+  call void %90(ptr noundef nonnull %75) #8
   br label %.sink.split13
 
 .sink.split13:                                    ; preds = %35, %21, %79, %81, %87, %24
@@ -444,7 +444,7 @@ define internal noundef i32 @freezer_read(ptr noundef %0, ptr nocapture readnone
 .loopexit12:                                      ; preds = %91, %2
   call void @__rcu_read_unlock() #8
   call void @mutex_unlock(ptr noundef nonnull @freezer_mutex) #8
-  %94 = getelementptr inbounds i8, ptr %6, i64 200
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %95 = load i32, ptr %94, align 8
   %96 = and i32 %95, 8
   %97 = icmp eq i32 %96, 0
@@ -480,16 +480,16 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
 
 .preheader:                                       ; preds = %11, %75
   %15 = phi ptr [ %76, %75 ], [ %13, %11 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 192
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 84
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 1
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %46
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
   tail call void @__rcu_read_lock() #8
   %24 = load volatile i64, ptr %23, align 8
   %25 = and i64 %24, 3
@@ -507,7 +507,7 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %31, label %32, label %.sink.split6
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %15, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = load volatile i64, ptr %34, align 8
   %36 = icmp eq i64 %35, 0
@@ -542,7 +542,7 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
   br label %54
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %17, i64 200
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 200
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 6
   %53 = icmp ne i32 %52, 0
@@ -557,7 +557,7 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %57, label %58, label %75
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %15, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 16
   tail call void @__rcu_read_lock() #8
   %60 = load volatile i64, ptr %59, align 8
   %61 = and i64 %60, 3
@@ -570,7 +570,7 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
   br label %.sink.split6
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds i8, ptr %15, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subq $2, $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %67, i64 1, ptr elementtype(i64) %67) #8, !srcloc !21
   %69 = icmp ult i8 %68, 2
@@ -580,9 +580,9 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
 
 71:                                               ; preds = %65
   %72 = load ptr, ptr %66, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef %59) #8
+  tail call void %74(ptr noundef nonnull %59) #8
   br label %.sink.split6
 
 .sink.split6:                                     ; preds = %43, %29, %63, %65, %71, %32
@@ -607,7 +607,7 @@ define internal noundef i64 @freezer_write(ptr noundef %0, ptr noundef %1, i64 n
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i64 0, 2) i64 @freezer_self_freezing_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 1
   %6 = and i32 %5, 1
@@ -617,7 +617,7 @@ define internal range(i64 0, 2) i64 @freezer_self_freezing_read(ptr nocapture no
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i64 0, 2) i64 @freezer_parent_freezing_read(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = lshr i32 %4, 2
   %6 = and i32 %5, 1
@@ -674,7 +674,7 @@ declare dso_local ptr @css_next_descendant_pre(ptr noundef, ptr noundef) local_u
 define internal fastcc void @freezer_apply_state(ptr noundef nonnull %0, i1 noundef zeroext %1, i32 noundef range(i32 2, 5) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.css_task_iter, align 8
   %5 = alloca %struct.css_task_iter, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1
   %9 = icmp eq i32 %8, 0

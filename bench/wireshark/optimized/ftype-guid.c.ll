@@ -75,17 +75,17 @@ define internal noundef zeroext i1 @guid_from_literal(ptr nocapture noundef writ
   %29 = getelementptr i8, ptr %1, i64 9
   %30 = tail call i64 @strtoul(ptr nocapture noundef readonly %29, ptr noundef null, i32 noundef 16) #9
   %31 = trunc i64 %30 to i16
-  %32 = getelementptr inbounds i8, ptr %6, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %31, ptr %32, align 4
   %33 = getelementptr i8, ptr %1, i64 14
   %34 = tail call i64 @strtoul(ptr nocapture noundef readonly %33, ptr noundef null, i32 noundef 16) #9
   %35 = trunc i64 %34 to i16
-  %36 = getelementptr inbounds i8, ptr %6, i64 6
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 %35, ptr %36, align 2
   %37 = getelementptr i8, ptr %1, i64 19
-  %38 = getelementptr inbounds i8, ptr %5, i64 1
-  %39 = getelementptr inbounds i8, ptr %5, i64 2
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %41
 
 41:                                               ; preds = %41, %26
@@ -122,7 +122,7 @@ define internal noundef zeroext i1 @guid_from_literal(ptr nocapture noundef writ
 
 54:                                               ; preds = %41
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5)
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
   br label %56
 
@@ -133,28 +133,28 @@ define internal noundef zeroext i1 @guid_from_literal(ptr nocapture noundef writ
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @guid_to_repr(ptr noundef %0, ptr noundef %1, i32 %2, i32 %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = tail call ptr @guid_to_str(ptr noundef %0, ptr noundef nonnull %5) #9
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @guid_fvalue_set_guid(ptr nocapture noundef writeonly initializes((8, 24)) %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal nonnull ptr @value_get(ptr noundef readnone %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %5, i64 noundef 16) #10
   store i32 %6, ptr %2, align 4
   ret i32 0
@@ -162,7 +162,7 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @value_hash(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call i32 @guid_hash(ptr noundef nonnull %2) #9
   ret i32 %3
 }

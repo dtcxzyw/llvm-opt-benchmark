@@ -29,7 +29,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_jack_rep
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @snd_jack_add_new_kctl(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @snd_kctl_jack_new(ptr noundef %1, ptr noundef %5) #4
   %7 = icmp eq ptr %6, null
@@ -52,20 +52,20 @@ define dso_local noundef range(i32 -12, 1) i32 @snd_jack_add_new_kctl(ptr nounde
 
 16:                                               ; preds = %11
   store ptr %6, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr %13, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store ptr @snd_jack_kctl_private_free, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   store ptr %21, ptr %22, align 8
   store ptr %0, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %23, ptr %24, align 8
   store volatile ptr %21, ptr %23, align 8
   br label %.thread
@@ -101,11 +101,11 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr
 
 18:                                               ; preds = %13
   store ptr %8, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store ptr %15, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store ptr @snd_jack_kctl_private_free, ptr %21, align 8
   br label %22
 
@@ -118,7 +118,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr
 
 27:                                               ; preds = %22
   %28 = tail call noalias ptr @kstrdup(ptr noundef %1, i32 noundef 3264) #4
-  %29 = getelementptr inbounds i8, ptr %25, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
   br i1 %30, label %31, label %32
@@ -128,21 +128,21 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr
   br label %.thread
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %25, i64 40
-  tail call void @__mutex_init(ptr noundef %33, ptr noundef nonnull @.str, ptr noundef nonnull @snd_jack_new.__key) #4
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  tail call void @__mutex_init(ptr noundef nonnull %33, ptr noundef nonnull @.str, ptr noundef nonnull @snd_jack_new.__key) #4
   br i1 %5, label %.loopexit, label %34
 
 34:                                               ; preds = %32
   %35 = tail call ptr @input_allocate_device() #4
-  %36 = getelementptr inbounds i8, ptr %25, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %35, ptr %36, align 8
   %37 = icmp eq ptr %35, null
   br i1 %37, label %.thread7, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %35, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @.str.1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %25, i64 76
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 76
   store i32 %2, ptr %40, align 4
   br label %41
 
@@ -172,26 +172,26 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr
   br i1 %55, label %.loopexit..thread7_crit_edge, label %56
 
 .loopexit..thread7_crit_edge:                     ; preds = %.loopexit
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %25, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %25, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread7
 
 56:                                               ; preds = %.loopexit
-  %57 = getelementptr inbounds i8, ptr %25, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %0, ptr %57, align 8
   store volatile ptr %25, ptr %25, align 8
-  %58 = getelementptr inbounds i8, ptr %25, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store volatile ptr %25, ptr %58, align 8
   br i1 %4, label %59, label %64
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %23, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %25, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %23, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %62 = load ptr, ptr %58, align 8
   store ptr %61, ptr %58, align 8
   store ptr %25, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %23, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %62, ptr %63, align 8
   store volatile ptr %61, ptr %62, align 8
   br label %64
@@ -216,9 +216,9 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_jack_new(ptr noundef %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @snd_jack_dev_free(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = icmp eq ptr %6, %3
@@ -228,9 +228,9 @@ define internal noundef i32 @snd_jack_dev_free(ptr nocapture noundef readonly %0
   %8 = phi ptr [ %10, %.preheader ], [ %6, %1 ]
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8
   store volatile ptr %10, ptr %12, align 8
   store volatile ptr %8, ptr %8, align 8
@@ -241,7 +241,7 @@ define internal noundef i32 @snd_jack_dev_free(ptr nocapture noundef readonly %0
   br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %1
-  %17 = getelementptr inbounds i8, ptr %3, i64 216
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %21, label %20
@@ -252,15 +252,15 @@ define internal noundef i32 @snd_jack_dev_free(ptr nocapture noundef readonly %0
 
 21:                                               ; preds = %20, %.loopexit
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
-  tail call void @mutex_lock(ptr noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  tail call void @mutex_lock(ptr noundef nonnull %23) #4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %22, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %32, label %31
@@ -278,8 +278,8 @@ define internal noundef i32 @snd_jack_dev_free(ptr nocapture noundef readonly %0
   br label %34
 
 34:                                               ; preds = %33, %21
-  tail call void @mutex_unlock(ptr noundef %23) #4
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
+  tail call void @mutex_unlock(ptr noundef nonnull %23) #4
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %36 = load ptr, ptr %35, align 8
   tail call void @kfree(ptr noundef %36) #4
   tail call void @kfree(ptr noundef %3) #4
@@ -288,18 +288,18 @@ define internal noundef i32 @snd_jack_dev_free(ptr nocapture noundef readonly %0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @snd_jack_dev_register(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 80
-  %7 = getelementptr inbounds i8, ptr %5, i64 36
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %6, i64 noundef 100, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9) #4
-  %11 = getelementptr inbounds i8, ptr %3, i64 40
-  tail call void @mutex_lock(ptr noundef %11) #4
-  %12 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.3, ptr noundef nonnull %7, ptr noundef %9) #4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  tail call void @mutex_lock(ptr noundef nonnull %11) #4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %52, label %15
@@ -307,21 +307,21 @@ define internal i32 @snd_jack_dev_register(ptr nocapture noundef readonly %0) #0
 15:                                               ; preds = %1
   store ptr %6, ptr %13, align 8
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 608
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 608
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %15
   %21 = icmp eq ptr %5, null
-  %22 = getelementptr inbounds i8, ptr %5, i64 648
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 648
   %23 = select i1 %21, ptr null, ptr %22
   store ptr %23, ptr %17, align 8
   br label %24
 
 24:                                               ; preds = %20, %15
-  %25 = getelementptr inbounds i8, ptr %3, i64 76
-  %26 = getelementptr inbounds i8, ptr %3, i64 180
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 76
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 180
   br label %27
 
 27:                                               ; preds = %43, %24
@@ -362,29 +362,29 @@ define internal i32 @snd_jack_dev_register(ptr nocapture noundef readonly %0) #0
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %3, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 1, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %50, %46, %1
   %53 = phi i32 [ 0, %1 ], [ 0, %50 ], [ %48, %46 ]
-  tail call void @mutex_unlock(ptr noundef %11) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %11) #4
   ret i32 %53
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @snd_jack_dev_disconnect(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
-  tail call void @mutex_lock(ptr noundef %4) #4
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  tail call void @mutex_lock(ptr noundef nonnull %4) #4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %13, label %12
@@ -402,7 +402,7 @@ define internal noundef i32 @snd_jack_dev_disconnect(ptr nocapture noundef reado
   br label %15
 
 15:                                               ; preds = %14, %1
-  tail call void @mutex_unlock(ptr noundef %4) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %4) #4
   ret i32 0
 }
 
@@ -429,7 +429,7 @@ declare dso_local void @input_free_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_jack_set_parent(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %7, label %6, !prof !10
@@ -441,20 +441,20 @@ define dso_local void @snd_jack_set_parent(ptr noundef %0, ptr noundef %1) #0 al
   br label %7
 
 7:                                                ; preds = %6, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @mutex_lock(ptr noundef %8) #4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @mutex_lock(ptr noundef nonnull %8) #4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %10, i64 608
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 608
   store ptr %1, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %12, %7
-  tail call void @mutex_unlock(ptr noundef %8) #4
+  tail call void @mutex_unlock(ptr noundef nonnull %8) #4
   ret void
 }
 
@@ -468,7 +468,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 define dso_local noundef range(i32 -22, 1) i32 @snd_jack_set_key(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %1, i32 -1) #6, !srcloc !14
   %5 = sub i32 14, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %10, label %9, !prof !10
@@ -487,11 +487,11 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_jack_set_key(ptr nocapture n
 
 14:                                               ; preds = %10
   %15 = zext nneg i32 %5 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %17 = load i32, ptr %16, align 4
   %18 = or i32 %17, %1
   store i32 %18, ptr %16, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 180
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %20 = getelementptr [6 x i32], ptr %19, i64 0, i64 %15
   store i32 %2, ptr %20, align 4
   br label %21
@@ -507,14 +507,14 @@ define dso_local void @snd_jack_report(ptr noundef %0, i32 noundef %1) #0 align 
   br i1 %3, label %.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 204
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store i32 %1, ptr %5, align 4
   %6 = load ptr, ptr %0, align 8
   %7 = icmp eq ptr %6, %0
   br i1 %7, label %34, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %10
 
 10:                                               ; preds = %28, %8
@@ -554,21 +554,21 @@ define dso_local void @snd_jack_report(ptr noundef %0, i32 noundef %1) #0 align 
 
 34:                                               ; preds = %32, %4
   %35 = phi i32 [ -1, %4 ], [ %33, %32 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %37, i64 544
-  %41 = tail call ptr @get_device(ptr noundef %40) #4
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 544
+  %41 = tail call ptr @get_device(ptr noundef nonnull %40) #4
   %42 = getelementptr i8, ptr %41, i64 -544
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.thread, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 76
-  %46 = getelementptr inbounds i8, ptr %0, i64 180
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %invariant.op = and i32 %35, %1
   br label %47
 
@@ -621,7 +621,7 @@ define dso_local void @snd_jack_report(ptr noundef %0, i32 noundef %1) #0 align 
 
 78:                                               ; preds = %75
   tail call void @input_event(ptr noundef nonnull %42, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
-  tail call void @put_device(ptr noundef %41) #4
+  tail call void @put_device(ptr noundef nonnull %41) #4
   br label %.thread
 
 .thread:                                          ; preds = %34, %78, %39, %2
@@ -639,17 +639,17 @@ declare dso_local i32 @snd_ctl_add(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @snd_jack_kctl_private_free(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %8, ptr %10, align 8
   store volatile ptr %9, ptr %8, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8

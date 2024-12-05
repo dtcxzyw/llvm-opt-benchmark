@@ -26,11 +26,11 @@ define hidden noundef ptr @_ZN9ParkEvent8AllocateEP6Thread(ptr noundef %0) local
   br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %6 = load ptr, ptr %5, align 8
   store volatile ptr %6, ptr @_ZN9ParkEvent8FreeListE, align 8
   tail call void @_ZN6Thread11SpinReleaseEPVi(ptr noundef nonnull @_ZN9ParkEvent8ListLockE) #6
-  %7 = getelementptr inbounds i8, ptr %3, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %26, label %10
@@ -64,23 +64,23 @@ _ZN9ParkEventnwEm.exit:                           ; preds = %.critedge, %14
 
 21:                                               ; preds = %_ZN9ParkEventnwEm.exit
   call void @_ZN13PlatformEventC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %19) #6
-  %22 = getelementptr inbounds i8, ptr %19, i64 144
-  %23 = getelementptr inbounds i8, ptr %19, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store volatile ptr null, ptr %23, align 32
-  %24 = getelementptr inbounds i8, ptr %19, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 168
   store volatile i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 172
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 172
   store volatile i32 0, ptr %25, align 4
   br label %26
 
 26:                                               ; preds = %_ZN9ParkEventnwEm.exit, %21, %4
   %.0 = phi ptr [ %3, %4 ], [ %19, %21 ], [ %19, %_ZN9ParkEventnwEm.exit ]
-  %27 = getelementptr inbounds i8, ptr %.0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store volatile i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %.0, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 152
   store ptr %0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.0, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 144
   store ptr null, ptr %29, align 8
   ret ptr %.0
 }
@@ -119,7 +119,7 @@ define hidden void @_ZN9ParkEvent7ReleaseEPS_(ptr noundef %0) local_unnamed_addr
   br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
@@ -131,7 +131,7 @@ define hidden void @_ZN9ParkEvent7ReleaseEPS_(ptr noundef %0) local_unnamed_addr
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr null, ptr %10, align 8
   tail call void @_ZN6Thread11SpinAcquireEPViPKc(ptr noundef nonnull @_ZN9ParkEvent8ListLockE, ptr noundef nonnull @.str.9) #6
   %11 = load volatile ptr, ptr @_ZN9ParkEvent8FreeListE, align 8

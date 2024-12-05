@@ -107,14 +107,14 @@ define dso_local void @_ZN18AbsRndNumGenerator15RandomHexDigitsB5cxx11Ei(ptr dea
 6:                                                ; preds = %4
   %7 = load ptr, ptr @_ZN18AbsRndNumGenerator4hex1E, align 8
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %12 unwind label %17
 
 12:                                               ; preds = %6
   %13 = and i64 %11, 15
-  %14 = getelementptr inbounds i8, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %15)
           to label %4 unwind label %17, !llvm.loop !5
@@ -153,14 +153,14 @@ define dso_local void @_ZN18AbsRndNumGenerator12RandomDigitsB5cxx11Ei(ptr dead_o
 6:                                                ; preds = %4
   %7 = load ptr, ptr @_ZN18AbsRndNumGenerator4dec1E, align 8
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %12 unwind label %17
 
 12:                                               ; preds = %6
   %13 = urem i64 %11, 10
-  %14 = getelementptr inbounds i8, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %15)
           to label %4 unwind label %17, !llvm.loop !7

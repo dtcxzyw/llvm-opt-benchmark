@@ -558,7 +558,7 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %8 = and i16 %7, 1023
   %narrow.i.i = add nuw nsw i16 %8, 4
   %9 = zext nneg i16 %narrow.i.i to i32
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.37) #3
   %12 = load ptr, ptr %10, align 8
@@ -616,7 +616,7 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %56, label %._crit_edge17.i, label %.lr.ph16.i
 
 .lr.ph16.i:                                       ; preds = %28
-  %57 = getelementptr inbounds i8, ptr %1, i64 408
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %64
 
 ._crit_edge17.i:                                  ; preds = %.loopexit.i, %28
@@ -654,14 +654,14 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
 .lr.ph.i:                                         ; preds = %64, %71
   %76 = phi ptr [ %74, %71 ], [ @ipdc_tag_types, %64 ]
   %.02146.i = phi i32 [ %72, %71 ], [ 0, %64 ]
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
   %.not224.i = icmp eq i32 %78, 0
   br i1 %.not224.i, label %.critedge.i, label %71
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %71, %64
   %.lcssa.i = phi ptr [ @ipdc_tag_types, %64 ], [ %76, %.lr.ph.i ], [ %74, %71 ]
-  %79 = getelementptr inbounds i8, ptr %.lcssa.i, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 4
   %80 = load i32, ptr %79, align 4
   switch i32 %80, label %175 [
     i32 2, label %81

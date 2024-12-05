@@ -21,11 +21,11 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %13 = alloca [17 x i8], align 16
   %14 = alloca [17 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(463) %10, i8 0, i64 463, i1 false)
-  %15 = getelementptr inbounds i8, ptr %10, i64 15
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -16
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load i8, ptr %2, align 1
   %21 = zext i8 %20 to i32
   %22 = load i8, ptr %4, align 1
@@ -72,7 +72,7 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %62 = select i1 %61, i32 0, i32 255
   %63 = select i1 %59, i32 %60, i32 %62
   %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds i8, ptr %6, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %64, ptr %65, align 1
   %66 = mul nuw nsw i32 %35, 33050
   %67 = lshr i32 %66, 8
@@ -84,7 +84,7 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %73 = select i1 %72, i32 0, i32 255
   %74 = select i1 %70, i32 %71, i32 %73
   %75 = trunc i32 %74 to i8
-  %76 = getelementptr inbounds i8, ptr %6, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %75, ptr %76, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %125, label %77
@@ -126,7 +126,7 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %110 = select i1 %109, i32 0, i32 255
   %111 = select i1 %107, i32 %108, i32 %110
   %112 = trunc i32 %111 to i8
-  %113 = getelementptr inbounds i8, ptr %7, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %112, ptr %113, align 1
   %114 = mul nuw nsw i32 %81, 33050
   %115 = lshr i32 %114, 8
@@ -138,7 +138,7 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %121 = select i1 %120, i32 0, i32 255
   %122 = select i1 %118, i32 %119, i32 %121
   %123 = trunc i32 %122 to i8
-  %124 = getelementptr inbounds i8, ptr %7, i64 2
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %123, ptr %124, align 1
   br label %125
 
@@ -147,25 +147,25 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   br i1 %.not469477, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %125
-  %126 = getelementptr inbounds i8, ptr %18, i64 16
-  %127 = getelementptr inbounds i8, ptr %18, i64 64
-  %128 = getelementptr inbounds i8, ptr %18, i64 80
-  %129 = getelementptr inbounds i8, ptr %18, i64 48
-  %130 = getelementptr inbounds i8, ptr %18, i64 96
-  %131 = getelementptr inbounds i8, ptr %18, i64 112
+  %126 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %128 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  %131 = getelementptr inbounds nuw i8, ptr %18, i64 112
   br label %132
 
 132:                                              ; preds = %.lr.ph, %235
   %indvars.iv484 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next485, %235 ]
   %indvars.iv482 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next483, %235 ]
   %indvars.iv = phi i64 [ 33, %.lr.ph ], [ %indvars.iv.next, %235 ]
-  %133 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv482
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv482
   %134 = load <2 x i64>, ptr %133, align 1
-  %135 = getelementptr inbounds i8, ptr %133, i64 1
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 1
   %136 = load <2 x i64>, ptr %135, align 1
-  %137 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv482
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv482
   %138 = load <2 x i64>, ptr %137, align 1
-  %139 = getelementptr inbounds i8, ptr %137, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %140 = load <2 x i64>, ptr %139, align 1
   %141 = bitcast <2 x i64> %134 to <16 x i8>
   %142 = bitcast <2 x i64> %140 to <16 x i8>
@@ -211,13 +211,13 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %180 = shufflevector <16 x i8> %177, <16 x i8> %178, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %179, ptr %127, align 16
   store <16 x i8> %180, ptr %128, align 16
-  %181 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv482
+  %181 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv482
   %182 = load <2 x i64>, ptr %181, align 1
-  %183 = getelementptr inbounds i8, ptr %181, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 1
   %184 = load <2 x i64>, ptr %183, align 1
-  %185 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv482
+  %185 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv482
   %186 = load <2 x i64>, ptr %185, align 1
-  %187 = getelementptr inbounds i8, ptr %185, i64 1
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 1
   %188 = load <2 x i64>, ptr %187, align 1
   %189 = bitcast <2 x i64> %182 to <16 x i8>
   %190 = bitcast <2 x i64> %188 to <16 x i8>
@@ -263,15 +263,15 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %228 = shufflevector <16 x i8> %225, <16 x i8> %226, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %227, ptr %130, align 16
   store <16 x i8> %228, ptr %131, align 16
-  %229 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv484
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv484
   %230 = mul nuw nsw i64 %indvars.iv484, 3
-  %231 = getelementptr inbounds i8, ptr %6, i64 %230
+  %231 = getelementptr inbounds nuw i8, ptr %6, i64 %230
   call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %229, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %231) #7
   br i1 %.not, label %235, label %232
 
 232:                                              ; preds = %132
-  %233 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv484
-  %234 = getelementptr inbounds i8, ptr %7, i64 %230
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv484
+  %234 = getelementptr inbounds nuw i8, ptr %7, i64 %230
   call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %233, ptr noundef nonnull %127, ptr noundef nonnull %130, ptr noundef nonnull %234) #7
   br label %235
 
@@ -300,12 +300,12 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %243 = lshr i32 %242, 1
   %244 = lshr i32 %.0465.lcssa, 1
   %245 = sub nsw i32 %243, %244
-  %246 = getelementptr inbounds i8, ptr %18, i64 128
-  %247 = getelementptr inbounds i8, ptr %18, i64 384
-  %248 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa
+  %246 = getelementptr inbounds nuw i8, ptr %18, i64 128
+  %247 = getelementptr inbounds nuw i8, ptr %18, i64 384
+  %248 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
   %249 = sext i32 %245 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %248, i64 %249, i1 false)
-  %250 = getelementptr inbounds i8, ptr %4, i64 %.0.lcssa
+  %250 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %250, i64 %249, i1 false)
   %251 = getelementptr inbounds i8, ptr %11, i64 %249
   %252 = add nsw i32 %245, -1
@@ -320,10 +320,10 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %260 = load i8, ptr %259, align 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %258, i8 %260, i64 %257, i1 false)
   %261 = load <2 x i64>, ptr %11, align 16
-  %262 = getelementptr inbounds i8, ptr %11, i64 1
+  %262 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %263 = load <2 x i64>, ptr %262, align 1
   %264 = load <2 x i64>, ptr %12, align 16
-  %265 = getelementptr inbounds i8, ptr %12, i64 1
+  %265 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %266 = load <2 x i64>, ptr %265, align 1
   %267 = bitcast <2 x i64> %261 to <16 x i8>
   %268 = bitcast <2 x i64> %266 to <16 x i8>
@@ -362,19 +362,19 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %301 = shufflevector <16 x i8> %299, <16 x i8> %300, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %302 = shufflevector <16 x i8> %299, <16 x i8> %300, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %301, ptr %18, align 16
-  %303 = getelementptr inbounds i8, ptr %18, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store <16 x i8> %302, ptr %303, align 16
   %304 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %272, <16 x i8> %298)
   %305 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %268, <16 x i8> %291)
   %306 = shufflevector <16 x i8> %304, <16 x i8> %305, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %307 = shufflevector <16 x i8> %304, <16 x i8> %305, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %308 = getelementptr inbounds i8, ptr %18, i64 64
+  %308 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store <16 x i8> %306, ptr %308, align 16
-  %309 = getelementptr inbounds i8, ptr %18, i64 80
+  %309 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store <16 x i8> %307, ptr %309, align 16
-  %310 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa
+  %310 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %310, i64 %249, i1 false)
-  %311 = getelementptr inbounds i8, ptr %5, i64 %.0.lcssa
+  %311 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 1 %311, i64 %249, i1 false)
   %312 = getelementptr inbounds i8, ptr %13, i64 %249
   %313 = getelementptr inbounds [17 x i8], ptr %13, i64 0, i64 %253
@@ -385,10 +385,10 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %317 = load i8, ptr %316, align 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %315, i8 %317, i64 %257, i1 false)
   %318 = load <2 x i64>, ptr %13, align 16
-  %319 = getelementptr inbounds i8, ptr %13, i64 1
+  %319 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %320 = load <2 x i64>, ptr %319, align 1
   %321 = load <2 x i64>, ptr %14, align 16
-  %322 = getelementptr inbounds i8, ptr %14, i64 1
+  %322 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %323 = load <2 x i64>, ptr %322, align 1
   %324 = bitcast <2 x i64> %318 to <16 x i8>
   %325 = bitcast <2 x i64> %323 to <16 x i8>
@@ -427,18 +427,18 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %358 = shufflevector <16 x i8> %356, <16 x i8> %357, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %359 = shufflevector <16 x i8> %356, <16 x i8> %357, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %358, ptr %19, align 16
-  %360 = getelementptr inbounds i8, ptr %18, i64 48
+  %360 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store <16 x i8> %359, ptr %360, align 16
   %361 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %329, <16 x i8> %355)
   %362 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %325, <16 x i8> %348)
   %363 = shufflevector <16 x i8> %361, <16 x i8> %362, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %364 = shufflevector <16 x i8> %361, <16 x i8> %362, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %365 = getelementptr inbounds i8, ptr %18, i64 96
+  %365 = getelementptr inbounds nuw i8, ptr %18, i64 96
   store <16 x i8> %363, ptr %365, align 16
-  %366 = getelementptr inbounds i8, ptr %18, i64 112
+  %366 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store <16 x i8> %364, ptr %366, align 16
   %367 = zext nneg i32 %.0465.lcssa to i64
-  %368 = getelementptr inbounds i8, ptr %0, i64 %367
+  %368 = getelementptr inbounds nuw i8, ptr %0, i64 %367
   %369 = sub nsw i32 %8, %.0465.lcssa
   %370 = sext i32 %369 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %247, ptr nonnull align 1 %368, i64 %370, i1 false)
@@ -448,26 +448,26 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %247, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %246) #7
   %371 = mul nuw nsw i32 %.0465.lcssa, 3
   %372 = zext nneg i32 %371 to i64
-  %373 = getelementptr inbounds i8, ptr %6, i64 %372
+  %373 = getelementptr inbounds nuw i8, ptr %6, i64 %372
   %374 = mul nsw i32 %369, 3
   %375 = sext i32 %374 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %373, ptr nonnull align 16 %246, i64 %375, i1 false)
   br label %386
 
 376:                                              ; preds = %241
-  %377 = getelementptr inbounds i8, ptr %18, i64 416
-  %378 = getelementptr inbounds i8, ptr %18, i64 256
-  %379 = getelementptr inbounds i8, ptr %1, i64 %367
+  %377 = getelementptr inbounds nuw i8, ptr %18, i64 416
+  %378 = getelementptr inbounds nuw i8, ptr %18, i64 256
+  %379 = getelementptr inbounds nuw i8, ptr %1, i64 %367
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %377, ptr nonnull align 1 %379, i64 %370, i1 false)
   call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %247, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %246) #7
   call void @VP8YuvToRgb32_SSE41(ptr noundef nonnull %377, ptr noundef nonnull %308, ptr noundef nonnull %365, ptr noundef nonnull %378) #7
   %380 = mul nuw nsw i32 %.0465.lcssa, 3
   %381 = zext nneg i32 %380 to i64
-  %382 = getelementptr inbounds i8, ptr %6, i64 %381
+  %382 = getelementptr inbounds nuw i8, ptr %6, i64 %381
   %383 = mul nsw i32 %369, 3
   %384 = sext i32 %383 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %382, ptr nonnull align 16 %246, i64 %384, i1 false)
-  %385 = getelementptr inbounds i8, ptr %7, i64 %381
+  %385 = getelementptr inbounds nuw i8, ptr %7, i64 %381
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %385, ptr nonnull align 16 %378, i64 %384, i1 false)
   br label %386
 
@@ -483,11 +483,11 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %13 = alloca [17 x i8], align 16
   %14 = alloca [17 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(463) %10, i8 0, i64 463, i1 false)
-  %15 = getelementptr inbounds i8, ptr %10, i64 15
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -16
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load i8, ptr %2, align 1
   %21 = zext i8 %20 to i32
   %22 = load i8, ptr %4, align 1
@@ -534,7 +534,7 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %62 = select i1 %61, i32 0, i32 255
   %63 = select i1 %59, i32 %60, i32 %62
   %64 = trunc i32 %63 to i8
-  %65 = getelementptr inbounds i8, ptr %6, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %64, ptr %65, align 1
   %66 = mul nuw nsw i32 %37, 26149
   %67 = lshr i32 %66, 8
@@ -546,7 +546,7 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %73 = select i1 %72, i32 0, i32 255
   %74 = select i1 %70, i32 %71, i32 %73
   %75 = trunc i32 %74 to i8
-  %76 = getelementptr inbounds i8, ptr %6, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %75, ptr %76, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %125, label %77
@@ -588,7 +588,7 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %110 = select i1 %109, i32 0, i32 255
   %111 = select i1 %107, i32 %108, i32 %110
   %112 = trunc i32 %111 to i8
-  %113 = getelementptr inbounds i8, ptr %7, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %112, ptr %113, align 1
   %114 = mul nuw nsw i32 %85, 26149
   %115 = lshr i32 %114, 8
@@ -600,7 +600,7 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %121 = select i1 %120, i32 0, i32 255
   %122 = select i1 %118, i32 %119, i32 %121
   %123 = trunc i32 %122 to i8
-  %124 = getelementptr inbounds i8, ptr %7, i64 2
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %123, ptr %124, align 1
   br label %125
 
@@ -609,25 +609,25 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   br i1 %.not469477, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %125
-  %126 = getelementptr inbounds i8, ptr %18, i64 16
-  %127 = getelementptr inbounds i8, ptr %18, i64 64
-  %128 = getelementptr inbounds i8, ptr %18, i64 80
-  %129 = getelementptr inbounds i8, ptr %18, i64 48
-  %130 = getelementptr inbounds i8, ptr %18, i64 96
-  %131 = getelementptr inbounds i8, ptr %18, i64 112
+  %126 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %128 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %129 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  %131 = getelementptr inbounds nuw i8, ptr %18, i64 112
   br label %132
 
 132:                                              ; preds = %.lr.ph, %235
   %indvars.iv484 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next485, %235 ]
   %indvars.iv482 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next483, %235 ]
   %indvars.iv = phi i64 [ 33, %.lr.ph ], [ %indvars.iv.next, %235 ]
-  %133 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv482
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv482
   %134 = load <2 x i64>, ptr %133, align 1
-  %135 = getelementptr inbounds i8, ptr %133, i64 1
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 1
   %136 = load <2 x i64>, ptr %135, align 1
-  %137 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv482
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv482
   %138 = load <2 x i64>, ptr %137, align 1
-  %139 = getelementptr inbounds i8, ptr %137, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %140 = load <2 x i64>, ptr %139, align 1
   %141 = bitcast <2 x i64> %134 to <16 x i8>
   %142 = bitcast <2 x i64> %140 to <16 x i8>
@@ -673,13 +673,13 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %180 = shufflevector <16 x i8> %177, <16 x i8> %178, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %179, ptr %127, align 16
   store <16 x i8> %180, ptr %128, align 16
-  %181 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv482
+  %181 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv482
   %182 = load <2 x i64>, ptr %181, align 1
-  %183 = getelementptr inbounds i8, ptr %181, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 1
   %184 = load <2 x i64>, ptr %183, align 1
-  %185 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv482
+  %185 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv482
   %186 = load <2 x i64>, ptr %185, align 1
-  %187 = getelementptr inbounds i8, ptr %185, i64 1
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 1
   %188 = load <2 x i64>, ptr %187, align 1
   %189 = bitcast <2 x i64> %182 to <16 x i8>
   %190 = bitcast <2 x i64> %188 to <16 x i8>
@@ -725,15 +725,15 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %228 = shufflevector <16 x i8> %225, <16 x i8> %226, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %227, ptr %130, align 16
   store <16 x i8> %228, ptr %131, align 16
-  %229 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv484
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv484
   %230 = mul nuw nsw i64 %indvars.iv484, 3
-  %231 = getelementptr inbounds i8, ptr %6, i64 %230
+  %231 = getelementptr inbounds nuw i8, ptr %6, i64 %230
   call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %229, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %231) #7
   br i1 %.not, label %235, label %232
 
 232:                                              ; preds = %132
-  %233 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv484
-  %234 = getelementptr inbounds i8, ptr %7, i64 %230
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv484
+  %234 = getelementptr inbounds nuw i8, ptr %7, i64 %230
   call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %233, ptr noundef nonnull %127, ptr noundef nonnull %130, ptr noundef nonnull %234) #7
   br label %235
 
@@ -762,12 +762,12 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %243 = lshr i32 %242, 1
   %244 = lshr i32 %.0465.lcssa, 1
   %245 = sub nsw i32 %243, %244
-  %246 = getelementptr inbounds i8, ptr %18, i64 128
-  %247 = getelementptr inbounds i8, ptr %18, i64 384
-  %248 = getelementptr inbounds i8, ptr %2, i64 %.0.lcssa
+  %246 = getelementptr inbounds nuw i8, ptr %18, i64 128
+  %247 = getelementptr inbounds nuw i8, ptr %18, i64 384
+  %248 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa
   %249 = sext i32 %245 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %248, i64 %249, i1 false)
-  %250 = getelementptr inbounds i8, ptr %4, i64 %.0.lcssa
+  %250 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr nonnull align 1 %250, i64 %249, i1 false)
   %251 = getelementptr inbounds i8, ptr %11, i64 %249
   %252 = add nsw i32 %245, -1
@@ -782,10 +782,10 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %260 = load i8, ptr %259, align 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %258, i8 %260, i64 %257, i1 false)
   %261 = load <2 x i64>, ptr %11, align 16
-  %262 = getelementptr inbounds i8, ptr %11, i64 1
+  %262 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %263 = load <2 x i64>, ptr %262, align 1
   %264 = load <2 x i64>, ptr %12, align 16
-  %265 = getelementptr inbounds i8, ptr %12, i64 1
+  %265 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %266 = load <2 x i64>, ptr %265, align 1
   %267 = bitcast <2 x i64> %261 to <16 x i8>
   %268 = bitcast <2 x i64> %266 to <16 x i8>
@@ -824,19 +824,19 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %301 = shufflevector <16 x i8> %299, <16 x i8> %300, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %302 = shufflevector <16 x i8> %299, <16 x i8> %300, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %301, ptr %18, align 16
-  %303 = getelementptr inbounds i8, ptr %18, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store <16 x i8> %302, ptr %303, align 16
   %304 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %272, <16 x i8> %298)
   %305 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %268, <16 x i8> %291)
   %306 = shufflevector <16 x i8> %304, <16 x i8> %305, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %307 = shufflevector <16 x i8> %304, <16 x i8> %305, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %308 = getelementptr inbounds i8, ptr %18, i64 64
+  %308 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store <16 x i8> %306, ptr %308, align 16
-  %309 = getelementptr inbounds i8, ptr %18, i64 80
+  %309 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store <16 x i8> %307, ptr %309, align 16
-  %310 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa
+  %310 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %13, ptr nonnull align 1 %310, i64 %249, i1 false)
-  %311 = getelementptr inbounds i8, ptr %5, i64 %.0.lcssa
+  %311 = getelementptr inbounds nuw i8, ptr %5, i64 %.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %14, ptr nonnull align 1 %311, i64 %249, i1 false)
   %312 = getelementptr inbounds i8, ptr %13, i64 %249
   %313 = getelementptr inbounds [17 x i8], ptr %13, i64 0, i64 %253
@@ -847,10 +847,10 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %317 = load i8, ptr %316, align 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %315, i8 %317, i64 %257, i1 false)
   %318 = load <2 x i64>, ptr %13, align 16
-  %319 = getelementptr inbounds i8, ptr %13, i64 1
+  %319 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %320 = load <2 x i64>, ptr %319, align 1
   %321 = load <2 x i64>, ptr %14, align 16
-  %322 = getelementptr inbounds i8, ptr %14, i64 1
+  %322 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %323 = load <2 x i64>, ptr %322, align 1
   %324 = bitcast <2 x i64> %318 to <16 x i8>
   %325 = bitcast <2 x i64> %323 to <16 x i8>
@@ -889,18 +889,18 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   %358 = shufflevector <16 x i8> %356, <16 x i8> %357, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %359 = shufflevector <16 x i8> %356, <16 x i8> %357, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <16 x i8> %358, ptr %19, align 16
-  %360 = getelementptr inbounds i8, ptr %18, i64 48
+  %360 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store <16 x i8> %359, ptr %360, align 16
   %361 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %329, <16 x i8> %355)
   %362 = call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %325, <16 x i8> %348)
   %363 = shufflevector <16 x i8> %361, <16 x i8> %362, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %364 = shufflevector <16 x i8> %361, <16 x i8> %362, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  %365 = getelementptr inbounds i8, ptr %18, i64 96
+  %365 = getelementptr inbounds nuw i8, ptr %18, i64 96
   store <16 x i8> %363, ptr %365, align 16
-  %366 = getelementptr inbounds i8, ptr %18, i64 112
+  %366 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store <16 x i8> %364, ptr %366, align 16
   %367 = zext nneg i32 %.0465.lcssa to i64
-  %368 = getelementptr inbounds i8, ptr %0, i64 %367
+  %368 = getelementptr inbounds nuw i8, ptr %0, i64 %367
   %369 = sub nsw i32 %8, %.0465.lcssa
   %370 = sext i32 %369 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %247, ptr nonnull align 1 %368, i64 %370, i1 false)
@@ -910,26 +910,26 @@ define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
   call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %247, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %246) #7
   %371 = mul nuw nsw i32 %.0465.lcssa, 3
   %372 = zext nneg i32 %371 to i64
-  %373 = getelementptr inbounds i8, ptr %6, i64 %372
+  %373 = getelementptr inbounds nuw i8, ptr %6, i64 %372
   %374 = mul nsw i32 %369, 3
   %375 = sext i32 %374 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %373, ptr nonnull align 16 %246, i64 %375, i1 false)
   br label %386
 
 376:                                              ; preds = %241
-  %377 = getelementptr inbounds i8, ptr %18, i64 416
-  %378 = getelementptr inbounds i8, ptr %18, i64 256
-  %379 = getelementptr inbounds i8, ptr %1, i64 %367
+  %377 = getelementptr inbounds nuw i8, ptr %18, i64 416
+  %378 = getelementptr inbounds nuw i8, ptr %18, i64 256
+  %379 = getelementptr inbounds nuw i8, ptr %1, i64 %367
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %377, ptr nonnull align 1 %379, i64 %370, i1 false)
   call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %247, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %246) #7
   call void @VP8YuvToBgr32_SSE41(ptr noundef nonnull %377, ptr noundef nonnull %308, ptr noundef nonnull %365, ptr noundef nonnull %378) #7
   %380 = mul nuw nsw i32 %.0465.lcssa, 3
   %381 = zext nneg i32 %380 to i64
-  %382 = getelementptr inbounds i8, ptr %6, i64 %381
+  %382 = getelementptr inbounds nuw i8, ptr %6, i64 %381
   %383 = mul nsw i32 %369, 3
   %384 = sext i32 %383 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %382, ptr nonnull align 16 %246, i64 %384, i1 false)
-  %385 = getelementptr inbounds i8, ptr %7, i64 %381
+  %385 = getelementptr inbounds nuw i8, ptr %7, i64 %381
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %385, ptr nonnull align 16 %378, i64 %384, i1 false)
   br label %386
 
@@ -956,11 +956,11 @@ define internal void @Yuv444ToRgb_SSE41(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %12 = mul nuw nsw i64 %indvars.iv, 3
-  %13 = getelementptr inbounds i8, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   tail call void @VP8YuvToRgb32_SSE41(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %14 = icmp samesign ult i64 %indvars.iv.next, %8
@@ -977,12 +977,12 @@ define internal void @Yuv444ToRgb_SSE41(ptr noundef %0, ptr noundef %1, ptr noun
 
 17:                                               ; preds = %._crit_edge
   %18 = zext nneg i32 %.0.lcssa to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 %18
-  %21 = getelementptr inbounds i8, ptr %2, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %18
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %18
   %22 = mul nuw nsw i32 %.0.lcssa, 3
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %3, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %23
   %25 = sub nsw i32 %4, %.0.lcssa
   tail call void @WebPYuv444ToRgb_C(ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %24, i32 noundef %25) #7
   br label %26
@@ -1003,11 +1003,11 @@ define internal void @Yuv444ToBgr_SSE41(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %12 = mul nuw nsw i64 %indvars.iv, 3
-  %13 = getelementptr inbounds i8, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   tail call void @VP8YuvToBgr32_SSE41(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
   %14 = icmp samesign ult i64 %indvars.iv.next, %8
@@ -1024,12 +1024,12 @@ define internal void @Yuv444ToBgr_SSE41(ptr noundef %0, ptr noundef %1, ptr noun
 
 17:                                               ; preds = %._crit_edge
   %18 = zext nneg i32 %.0.lcssa to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %1, i64 %18
-  %21 = getelementptr inbounds i8, ptr %2, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %18
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %18
   %22 = mul nuw nsw i32 %.0.lcssa, 3
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %3, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 %23
   %25 = sub nsw i32 %4, %.0.lcssa
   tail call void @WebPYuv444ToBgr_C(ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %24, i32 noundef %25) #7
   br label %26

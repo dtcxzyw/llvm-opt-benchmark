@@ -34,7 +34,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %choice = getelementptr inbounds i8, ptr %filter_options, i64 24
+  %choice = getelementptr inbounds nuw i8, ptr %filter_options, i64 24
   %0 = load i32, ptr %choice, align 8
   %cmp = icmp ugt i32 %0, 6
   br i1 %cmp, label %if.then1, label %if.end3
@@ -49,10 +49,10 @@ if.end3:                                          ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end3
   %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr @s_filters, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [7 x ptr], ptr @s_filters, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #11
-  %omits = getelementptr inbounds i8, ptr %call, i64 32
+  %omits = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %omitted, ptr %omits, align 8
   tail call void %1(ptr noundef nonnull %filter_options, ptr noundef %call) #11
   br label %return
@@ -81,9 +81,9 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr %filter, align 8
-  %omits = getelementptr inbounds i8, ptr %filter, i64 32
+  %omits = getelementptr inbounds nuw i8, ptr %filter, i64 32
   %2 = load ptr, ptr %omits, align 8
-  %filter_data = getelementptr inbounds i8, ptr %filter, i64 24
+  %filter_data = getelementptr inbounds nuw i8, ptr %filter, i64 24
   %3 = load ptr, ptr %filter_data, align 8
   %call = tail call i32 %1(ptr noundef %r, i32 noundef %filter_situation, ptr noundef nonnull %obj, ptr noundef %pathname, ptr noundef %filename, ptr noundef %2, ptr noundef %3) #11
   br label %return
@@ -105,27 +105,27 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %finalize_omits_fn = getelementptr inbounds i8, ptr %filter, i64 8
+  %finalize_omits_fn = getelementptr inbounds nuw i8, ptr %filter, i64 8
   %0 = load ptr, ptr %finalize_omits_fn, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %omits = getelementptr inbounds i8, ptr %filter, i64 32
+  %omits = getelementptr inbounds nuw i8, ptr %filter, i64 32
   %1 = load ptr, ptr %omits, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %land.lhs.true
-  %filter_data = getelementptr inbounds i8, ptr %filter, i64 24
+  %filter_data = getelementptr inbounds nuw i8, ptr %filter, i64 24
   %2 = load ptr, ptr %filter_data, align 8
   tail call void %0(ptr noundef nonnull %1, ptr noundef %2) #11
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then3, %land.lhs.true, %if.end
-  %free_fn = getelementptr inbounds i8, ptr %filter, i64 16
+  %free_fn = getelementptr inbounds nuw i8, ptr %filter, i64 16
   %3 = load ptr, ptr %free_fn, align 8
-  %filter_data7 = getelementptr inbounds i8, ptr %filter, i64 24
+  %filter_data7 = getelementptr inbounds nuw i8, ptr %filter, i64 24
   %4 = load ptr, ptr %filter_data7, align 8
   tail call void %3(ptr noundef %4) #11
   tail call void @free(ptr noundef nonnull %filter) #11
@@ -142,7 +142,7 @@ declare void @free(ptr allocptr nocapture noundef) #3
 define internal void @filter_blobs_none__init(ptr nocapture readnone %filter_options, ptr nocapture noundef writeonly initializes((0, 8), (16, 24)) %filter) #4 {
 entry:
   store ptr @filter_blobs_none, ptr %filter, align 8
-  %free_fn = getelementptr inbounds i8, ptr %filter, i64 16
+  %free_fn = getelementptr inbounds nuw i8, ptr %filter, i64 16
   store ptr @free, ptr %free_fn, align 8
   ret void
 }
@@ -151,13 +151,13 @@ entry:
 define internal void @filter_blobs_limit__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly initializes((0, 8), (16, 32)) %filter) #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 8) #11
-  %blob_limit_value = getelementptr inbounds i8, ptr %filter_options, i64 40
+  %blob_limit_value = getelementptr inbounds nuw i8, ptr %filter_options, i64 40
   %0 = load i64, ptr %blob_limit_value, align 8
   store i64 %0, ptr %call, align 8
-  %filter_data = getelementptr inbounds i8, ptr %filter, i64 24
+  %filter_data = getelementptr inbounds nuw i8, ptr %filter, i64 24
   store ptr %call, ptr %filter_data, align 8
   store ptr @filter_blobs_limit, ptr %filter, align 8
-  %free_fn = getelementptr inbounds i8, ptr %filter, i64 16
+  %free_fn = getelementptr inbounds nuw i8, ptr %filter, i64 16
   store ptr @free, ptr %free_fn, align 8
   ret void
 }
@@ -167,16 +167,16 @@ define internal void @filter_trees_depth__init(ptr nocapture noundef readonly %f
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #11
   tail call void @oidmap_init(ptr noundef %call, i64 noundef 0) #11
-  %tree_exclude_depth = getelementptr inbounds i8, ptr %filter_options, i64 48
+  %tree_exclude_depth = getelementptr inbounds nuw i8, ptr %filter_options, i64 48
   %0 = load i64, ptr %tree_exclude_depth, align 8
-  %exclude_depth = getelementptr inbounds i8, ptr %call, i64 48
+  %exclude_depth = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i64 %0, ptr %exclude_depth, align 8
-  %current_depth = getelementptr inbounds i8, ptr %call, i64 56
+  %current_depth = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i64 0, ptr %current_depth, align 8
-  %filter_data = getelementptr inbounds i8, ptr %filter, i64 24
+  %filter_data = getelementptr inbounds nuw i8, ptr %filter, i64 24
   store ptr %call, ptr %filter_data, align 8
   store ptr @filter_trees_depth, ptr %filter, align 8
-  %free_fn = getelementptr inbounds i8, ptr %filter, i64 16
+  %free_fn = getelementptr inbounds nuw i8, ptr %filter, i64 16
   store ptr @filter_trees_free, ptr %free_fn, align 8
   ret void
 }
@@ -188,7 +188,7 @@ entry:
   %sparse_oid = alloca %struct.object_id, align 4
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 160) #11
   %0 = load ptr, ptr @the_repository, align 8
-  %sparse_oid_name = getelementptr inbounds i8, ptr %filter_options, i64 32
+  %sparse_oid_name = getelementptr inbounds nuw i8, ptr %filter_options, i64 32
   %1 = load ptr, ptr %sparse_oid_name, align 8
   %call1 = call i32 @get_oid_with_context(ptr noundef %0, ptr noundef %1, i32 noundef 32, ptr noundef nonnull %sparse_oid, ptr noundef nonnull %oc) #11
   %tobool.not = icmp eq i32 %call1, 0
@@ -212,16 +212,16 @@ if.then5:                                         ; preds = %if.end
   unreachable
 
 do.body:                                          ; preds = %if.end
-  %nr = getelementptr inbounds i8, ptr %call, i64 136
+  %nr = getelementptr inbounds nuw i8, ptr %call, i64 136
   %3 = load i64, ptr %nr, align 8
   %add = add i64 %3, 1
-  %alloc = getelementptr inbounds i8, ptr %call, i64 144
+  %alloc = getelementptr inbounds nuw i8, ptr %call, i64 144
   %4 = load i64, ptr %alloc, align 8
   %cmp9 = icmp ugt i64 %add, %4
   br i1 %cmp9, label %if.then10, label %do.body.do.end_crit_edge
 
 do.body.do.end_crit_edge:                         ; preds = %do.body
-  %array_frame31.phi.trans.insert = getelementptr inbounds i8, ptr %call, i64 152
+  %array_frame31.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call, i64 152
   %.pre = load ptr, ptr %array_frame31.phi.trans.insert, align 8
   br label %do.end
 
@@ -239,7 +239,7 @@ if.then.i:                                        ; preds = %if.then10
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then10
-  %array_frame = getelementptr inbounds i8, ptr %call, i64 152
+  %array_frame = getelementptr inbounds nuw i8, ptr %call, i64 152
   %6 = load ptr, ptr %array_frame, align 8
   %mul.i = shl nuw i64 %add.div21, 3
   %call28 = call ptr @xrealloc(ptr noundef %6, i64 noundef %mul.i) #11
@@ -250,7 +250,7 @@ st_mult.exit:                                     ; preds = %if.then10
 do.end:                                           ; preds = %do.body.do.end_crit_edge, %st_mult.exit
   %7 = phi i64 [ %3, %do.body.do.end_crit_edge ], [ %.pre22, %st_mult.exit ]
   %8 = phi ptr [ %.pre, %do.body.do.end_crit_edge ], [ %call28, %st_mult.exit ]
-  %array_frame31 = getelementptr inbounds i8, ptr %call, i64 152
+  %array_frame31 = getelementptr inbounds nuw i8, ptr %call, i64 152
   %arrayidx = getelementptr inbounds %struct.frame, ptr %8, i64 %7
   store i32 0, ptr %arrayidx, align 4
   %9 = load ptr, ptr %array_frame31, align 8
@@ -262,10 +262,10 @@ do.end:                                           ; preds = %do.body.do.end_crit
   %11 = load i64, ptr %nr, align 8
   %inc = add i64 %11, 1
   store i64 %inc, ptr %nr, align 8
-  %filter_data = getelementptr inbounds i8, ptr %filter, i64 24
+  %filter_data = getelementptr inbounds nuw i8, ptr %filter, i64 24
   store ptr %call, ptr %filter_data, align 8
   store ptr @filter_sparse, ptr %filter, align 8
-  %free_fn = getelementptr inbounds i8, ptr %filter, i64 16
+  %free_fn = getelementptr inbounds nuw i8, ptr %filter, i64 16
   store ptr @filter_sparse_free, ptr %free_fn, align 8
   ret void
 }
@@ -274,13 +274,13 @@ do.end:                                           ; preds = %do.body.do.end_crit
 define internal void @filter_object_type__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef writeonly initializes((0, 8), (16, 32)) %filter) #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 4) #11
-  %object_type = getelementptr inbounds i8, ptr %filter_options, i64 56
+  %object_type = getelementptr inbounds nuw i8, ptr %filter_options, i64 56
   %0 = load i32, ptr %object_type, align 8
   store i32 %0, ptr %call, align 4
-  %filter_data = getelementptr inbounds i8, ptr %filter, i64 24
+  %filter_data = getelementptr inbounds nuw i8, ptr %filter, i64 24
   store ptr %call, ptr %filter_data, align 8
   store ptr @filter_object_type, ptr %filter, align 8
-  %free_fn = getelementptr inbounds i8, ptr %filter, i64 16
+  %free_fn = getelementptr inbounds nuw i8, ptr %filter, i64 16
   store ptr @free, ptr %free_fn, align 8
   ret void
 }
@@ -289,9 +289,9 @@ entry:
 define internal void @filter_combine__init(ptr nocapture noundef readonly %filter_options, ptr nocapture noundef %filter) #0 {
 entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #11
-  %sub_nr = getelementptr inbounds i8, ptr %filter_options, i64 64
+  %sub_nr = getelementptr inbounds nuw i8, ptr %filter_options, i64 64
   %0 = load i64, ptr %sub_nr, align 8
-  %nr = getelementptr inbounds i8, ptr %call, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 %0, ptr %nr, align 8
   %call2 = tail call ptr @xcalloc(i64 noundef %0, i64 noundef 128) #11
   store ptr %call2, ptr %call, align 8
@@ -300,8 +300,8 @@ entry:
   br i1 %cmp16.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %omits = getelementptr inbounds i8, ptr %filter, i64 32
-  %sub7 = getelementptr inbounds i8, ptr %filter_options, i64 80
+  %omits = getelementptr inbounds nuw i8, ptr %filter, i64 32
+  %sub7 = getelementptr inbounds nuw i8, ptr %filter_options, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %list_objects_filter__init.exit
@@ -323,7 +323,7 @@ cond.end:                                         ; preds = %for.body, %cond.tru
   br i1 %tobool.not.i, label %list_objects_filter__init.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end
-  %choice.i = getelementptr inbounds i8, ptr %arrayidx8, i64 24
+  %choice.i = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 24
   %5 = load i32, ptr %choice.i, align 8
   %cmp.i = icmp ugt i32 %5, 6
   br i1 %cmp.i, label %if.then1.i, label %if.end3.i
@@ -338,10 +338,10 @@ if.end3.i:                                        ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.end3.i
   %idxprom.i = zext nneg i32 %5 to i64
-  %arrayidx.i = getelementptr inbounds [7 x ptr], ptr @s_filters, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [7 x ptr], ptr @s_filters, i64 0, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #11
-  %omits.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %omits.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %cond, ptr %omits.i, align 8
   tail call void %6(ptr noundef nonnull %arrayidx8, ptr noundef %call.i) #11
   br label %list_objects_filter__init.exit
@@ -357,12 +357,12 @@ list_objects_filter__init.exit:                   ; preds = %cond.end, %if.end3.
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %list_objects_filter__init.exit, %entry
-  %filter_data = getelementptr inbounds i8, ptr %filter, i64 24
+  %filter_data = getelementptr inbounds nuw i8, ptr %filter, i64 24
   store ptr %call, ptr %filter_data, align 8
   store ptr @filter_combine, ptr %filter, align 8
-  %free_fn = getelementptr inbounds i8, ptr %filter, i64 16
+  %free_fn = getelementptr inbounds nuw i8, ptr %filter, i64 16
   store ptr @filter_combine__free, ptr %free_fn, align 8
-  %finalize_omits_fn = getelementptr inbounds i8, ptr %filter, i64 8
+  %finalize_omits_fn = getelementptr inbounds nuw i8, ptr %filter, i64 8
   store ptr @filter_combine__finalize_omits, ptr %finalize_omits_fn, align 8
   ret void
 }
@@ -390,7 +390,7 @@ sw.bb4:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %sw.bb4
-  %oid = getelementptr inbounds i8, ptr %obj, i64 4
+  %oid = getelementptr inbounds nuw i8, ptr %obj, i64 4
   %call = tail call i32 @oidset_insert(ptr noundef nonnull %omits, ptr noundef nonnull %oid) #11
   br label %return
 
@@ -421,7 +421,7 @@ sw.bb3:                                           ; preds = %entry
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %oid = getelementptr inbounds i8, ptr %obj, i64 4
+  %oid = getelementptr inbounds nuw i8, ptr %obj, i64 4
   %call = call i32 @oid_object_info(ptr noundef %r, ptr noundef nonnull %oid, ptr noundef nonnull %object_length) #11
   %cmp.not = icmp eq i32 %call, 3
   br i1 %cmp.not, label %if.end, label %include_it
@@ -462,9 +462,9 @@ declare void @oidmap_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 5) i32 @filter_trees_depth(ptr nocapture readnone %r, i32 noundef %filter_situation, ptr noundef %obj, ptr nocapture readnone %pathname, ptr nocapture readnone %filename, ptr noundef %omits, ptr noundef %filter_data_) #0 {
 entry:
-  %current_depth = getelementptr inbounds i8, ptr %filter_data_, i64 56
+  %current_depth = getelementptr inbounds nuw i8, ptr %filter_data_, i64 56
   %0 = load i64, ptr %current_depth, align 8
-  %exclude_depth = getelementptr inbounds i8, ptr %filter_data_, i64 48
+  %exclude_depth = getelementptr inbounds nuw i8, ptr %filter_data_, i64 48
   %1 = load i64, ptr %exclude_depth, align 8
   %cmp.not = icmp ult i64 %0, %1
   switch i32 %filter_situation, label %sw.default [
@@ -489,7 +489,7 @@ sw.bb4:                                           ; preds = %entry
   br i1 %tobool.not.i, label %filter_trees_update_omits.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb4
-  %oid3.i = getelementptr inbounds i8, ptr %obj, i64 4
+  %oid3.i = getelementptr inbounds nuw i8, ptr %obj, i64 4
   br i1 %cmp.not, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
@@ -505,28 +505,28 @@ filter_trees_update_omits.exit:                   ; preds = %sw.bb4, %if.then2.i
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %oid = getelementptr inbounds i8, ptr %obj, i64 4
+  %oid = getelementptr inbounds nuw i8, ptr %obj, i64 4
   %call6 = tail call ptr @oidmap_get(ptr noundef nonnull %filter_data_, ptr noundef nonnull %oid) #11
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %sw.bb5
   %call8 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #11
-  %oid9 = getelementptr inbounds i8, ptr %call8, i64 16
+  %oid9 = getelementptr inbounds nuw i8, ptr %call8, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %oid9, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %algo.i = getelementptr inbounds i8, ptr %obj, i64 36
+  %algo.i = getelementptr inbounds nuw i8, ptr %obj, i64 36
   %2 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds i8, ptr %call8, i64 48
+  %algo3.i = getelementptr inbounds nuw i8, ptr %call8, i64 48
   store i32 %2, ptr %algo3.i, align 4
   %3 = load i64, ptr %current_depth, align 8
-  %depth = getelementptr inbounds i8, ptr %call8, i64 56
+  %depth = getelementptr inbounds nuw i8, ptr %call8, i64 56
   store i64 %3, ptr %depth, align 8
   %call13 = tail call ptr @oidmap_put(ptr noundef nonnull %filter_data_, ptr noundef %call8) #11
   br label %if.else20
 
 if.end:                                           ; preds = %sw.bb5
   %4 = load i64, ptr %current_depth, align 8
-  %depth15 = getelementptr inbounds i8, ptr %call6, i64 56
+  %depth15 = getelementptr inbounds nuw i8, ptr %call6, i64 56
   %5 = load i64, ptr %depth15, align 8
   %cmp16.not = icmp ult i64 %4, %5
   br i1 %cmp16.not, label %if.else20, label %if.end33
@@ -537,7 +537,7 @@ if.else20:                                        ; preds = %if.end.thread, %if.
   br i1 %tobool.not.i23, label %filter_trees_update_omits.exit32, label %if.end.i24
 
 if.end.i24:                                       ; preds = %if.else20
-  %depth2337 = getelementptr inbounds i8, ptr %seen_info.035, i64 56
+  %depth2337 = getelementptr inbounds nuw i8, ptr %seen_info.035, i64 56
   br i1 %cmp.not, label %filter_trees_update_omits.exit32.thread, label %filter_trees_update_omits.exit32.thread38
 
 filter_trees_update_omits.exit32.thread:          ; preds = %if.end.i24
@@ -556,7 +556,7 @@ filter_trees_update_omits.exit32.thread38:        ; preds = %if.end.i24
 
 filter_trees_update_omits.exit32:                 ; preds = %if.else20
   %9 = load i64, ptr %current_depth, align 8
-  %depth23 = getelementptr inbounds i8, ptr %seen_info.035, i64 56
+  %depth23 = getelementptr inbounds nuw i8, ptr %seen_info.035, i64 56
   store i64 %9, ptr %depth23, align 8
   %spec.select = select i1 %cmp.not, i32 2, i32 4
   br label %if.end33
@@ -649,21 +649,21 @@ sw.bb2:                                           ; preds = %entry
   store i32 4, ptr %dtype, align 4
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pathname) #12
   %conv = trunc i64 %call to i32
-  %index = getelementptr inbounds i8, ptr %r, i64 240
+  %index = getelementptr inbounds nuw i8, ptr %r, i64 240
   %0 = load ptr, ptr %index, align 8
   %call3 = call i32 @path_matches_pattern_list(ptr noundef %pathname, i32 noundef %conv, ptr noundef %filename, ptr noundef nonnull %dtype, ptr noundef %filter_data_, ptr noundef %0) #11
   %cmp = icmp eq i32 %call3, -1
   br i1 %cmp, label %if.then, label %sw.bb2.do.body_crit_edge
 
 sw.bb2.do.body_crit_edge:                         ; preds = %sw.bb2
-  %nr5.phi.trans.insert = getelementptr inbounds i8, ptr %filter_data_, i64 136
+  %nr5.phi.trans.insert = getelementptr inbounds nuw i8, ptr %filter_data_, i64 136
   %.pre = load i64, ptr %nr5.phi.trans.insert, align 8
   br label %do.body
 
 if.then:                                          ; preds = %sw.bb2
-  %array_frame = getelementptr inbounds i8, ptr %filter_data_, i64 152
+  %array_frame = getelementptr inbounds nuw i8, ptr %filter_data_, i64 152
   %1 = load ptr, ptr %array_frame, align 8
-  %nr = getelementptr inbounds i8, ptr %filter_data_, i64 136
+  %nr = getelementptr inbounds nuw i8, ptr %filter_data_, i64 136
   %2 = load i64, ptr %nr, align 8
   %3 = getelementptr %struct.frame, ptr %1, i64 %2
   %arrayidx = getelementptr i8, ptr %3, i64 -8
@@ -673,15 +673,15 @@ if.then:                                          ; preds = %sw.bb2
 do.body:                                          ; preds = %sw.bb2.do.body_crit_edge, %if.then
   %5 = phi i64 [ %2, %if.then ], [ %.pre, %sw.bb2.do.body_crit_edge ]
   %match.0 = phi i32 [ %4, %if.then ], [ %call3, %sw.bb2.do.body_crit_edge ]
-  %nr5 = getelementptr inbounds i8, ptr %filter_data_, i64 136
+  %nr5 = getelementptr inbounds nuw i8, ptr %filter_data_, i64 136
   %add = add i64 %5, 1
-  %alloc = getelementptr inbounds i8, ptr %filter_data_, i64 144
+  %alloc = getelementptr inbounds nuw i8, ptr %filter_data_, i64 144
   %6 = load i64, ptr %alloc, align 8
   %cmp6 = icmp ugt i64 %add, %6
   br i1 %cmp6, label %if.then8, label %do.body.do.end_crit_edge
 
 do.body.do.end_crit_edge:                         ; preds = %do.body
-  %array_frame31.phi.trans.insert = getelementptr inbounds i8, ptr %filter_data_, i64 152
+  %array_frame31.phi.trans.insert = getelementptr inbounds nuw i8, ptr %filter_data_, i64 152
   %.pre47 = load ptr, ptr %array_frame31.phi.trans.insert, align 8
   br label %do.end
 
@@ -699,7 +699,7 @@ if.then.i:                                        ; preds = %if.then8
   unreachable
 
 st_mult.exit:                                     ; preds = %if.then8
-  %array_frame25 = getelementptr inbounds i8, ptr %filter_data_, i64 152
+  %array_frame25 = getelementptr inbounds nuw i8, ptr %filter_data_, i64 152
   %8 = load ptr, ptr %array_frame25, align 8
   %mul.i = shl nuw i64 %add.div46, 3
   %call28 = call ptr @xrealloc(ptr noundef %8, i64 noundef %mul.i) #11
@@ -710,7 +710,7 @@ st_mult.exit:                                     ; preds = %if.then8
 do.end:                                           ; preds = %do.body.do.end_crit_edge, %st_mult.exit
   %9 = phi i64 [ %5, %do.body.do.end_crit_edge ], [ %.pre48, %st_mult.exit ]
   %10 = phi ptr [ %.pre47, %do.body.do.end_crit_edge ], [ %call28, %st_mult.exit ]
-  %array_frame31 = getelementptr inbounds i8, ptr %filter_data_, i64 152
+  %array_frame31 = getelementptr inbounds nuw i8, ptr %filter_data_, i64 152
   %arrayidx33 = getelementptr inbounds %struct.frame, ptr %10, i64 %9
   store i32 %match.0, ptr %arrayidx33, align 4
   %11 = load ptr, ptr %array_frame31, align 8
@@ -733,9 +733,9 @@ if.end41:                                         ; preds = %do.end
   br label %return
 
 sw.bb47:                                          ; preds = %entry
-  %array_frame48 = getelementptr inbounds i8, ptr %filter_data_, i64 152
+  %array_frame48 = getelementptr inbounds nuw i8, ptr %filter_data_, i64 152
   %15 = load ptr, ptr %array_frame48, align 8
-  %nr49 = getelementptr inbounds i8, ptr %filter_data_, i64 136
+  %nr49 = getelementptr inbounds nuw i8, ptr %filter_data_, i64 136
   %16 = load i64, ptr %nr49, align 8
   %dec = add i64 %16, -1
   store i64 %dec, ptr %nr49, align 8
@@ -752,15 +752,15 @@ sw.bb47:                                          ; preds = %entry
   br label %return
 
 sw.bb74:                                          ; preds = %entry
-  %array_frame75 = getelementptr inbounds i8, ptr %filter_data_, i64 152
+  %array_frame75 = getelementptr inbounds nuw i8, ptr %filter_data_, i64 152
   %20 = load ptr, ptr %array_frame75, align 8
-  %nr76 = getelementptr inbounds i8, ptr %filter_data_, i64 136
+  %nr76 = getelementptr inbounds nuw i8, ptr %filter_data_, i64 136
   %21 = load i64, ptr %nr76, align 8
   %22 = getelementptr %struct.frame, ptr %20, i64 %21
   store i32 8, ptr %dtype, align 4
   %call79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pathname) #12
   %conv80 = trunc i64 %call79 to i32
-  %index82 = getelementptr inbounds i8, ptr %r, i64 240
+  %index82 = getelementptr inbounds nuw i8, ptr %r, i64 240
   %23 = load ptr, ptr %index82, align 8
   %call83 = call i32 @path_matches_pattern_list(ptr noundef %pathname, i32 noundef %conv80, ptr noundef %filename, ptr noundef nonnull %dtype, ptr noundef %filter_data_, ptr noundef %23) #11
   %cmp84 = icmp eq i32 %call83, -1
@@ -781,7 +781,7 @@ if.then91:                                        ; preds = %if.end88
   br i1 %tobool92.not, label %return, label %if.then93
 
 if.then93:                                        ; preds = %if.then91
-  %oid = getelementptr inbounds i8, ptr %obj, i64 4
+  %oid = getelementptr inbounds nuw i8, ptr %obj, i64 4
   %call94 = call i32 @oidset_remove(ptr noundef nonnull %omits, ptr noundef nonnull %oid) #11
   br label %return
 
@@ -789,7 +789,7 @@ if.end96:                                         ; preds = %if.end88
   br i1 %tobool92.not, label %if.end101, label %if.then98
 
 if.then98:                                        ; preds = %if.end96
-  %oid99 = getelementptr inbounds i8, ptr %obj, i64 4
+  %oid99 = getelementptr inbounds nuw i8, ptr %obj, i64 4
   %call100 = call i32 @oidset_insert(ptr noundef nonnull %omits, ptr noundef nonnull %oid99) #11
   br label %if.end101
 
@@ -809,7 +809,7 @@ return:                                           ; preds = %if.then91, %if.then
 define internal void @filter_sparse_free(ptr noundef %filter_data) #0 {
 entry:
   tail call void @clear_pattern_list(ptr noundef %filter_data) #11
-  %array_frame = getelementptr inbounds i8, ptr %filter_data, i64 152
+  %array_frame = getelementptr inbounds nuw i8, ptr %filter_data, i64 152
   %0 = load ptr, ptr %array_frame, align 8
   tail call void @free(ptr noundef %0) #11
   tail call void @free(ptr noundef %filter_data) #11
@@ -867,7 +867,7 @@ sw.bb17:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %sw.bb6
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.filter_object_type, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.filter_object_type, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -879,15 +879,15 @@ return:                                           ; preds = %sw.bb6, %switch.loo
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 8) i32 @filter_combine(ptr noundef %r, i32 noundef %filter_situation, ptr noundef %obj, ptr noundef %pathname, ptr noundef %filename, ptr nocapture readnone %omits, ptr nocapture noundef readonly %filter_data) #0 {
 entry:
-  %nr = getelementptr inbounds i8, ptr %filter_data, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %filter_data, i64 8
   %0 = load i64, ptr %nr, align 8
   %cmp10.not = icmp eq i64 %0, 0
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %cmp.i = icmp eq i32 %filter_situation, 3
-  %oid.i = getelementptr inbounds i8, ptr %obj, i64 4
-  %algo.i.i = getelementptr inbounds i8, ptr %obj, i64 36
+  %oid.i = getelementptr inbounds nuw i8, ptr %obj, i64 4
+  %algo.i.i = getelementptr inbounds nuw i8, ptr %obj, i64 36
   %..i.i = select i1 %cmp.i, i32 0, i32 3
   %.pre = load ptr, ptr %filter_data, align 8
   br label %for.body
@@ -897,7 +897,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %pr
   %combined_result.012 = phi i32 [ 7, %for.body.lr.ph ], [ %combined_result.3, %process_subfilter.exit ]
   %sub.011 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %process_subfilter.exit ]
   %arrayidx = getelementptr inbounds %struct.subfilter, ptr %1, i64 %sub.011
-  %is_skipping_tree.i = getelementptr inbounds i8, ptr %arrayidx, i64 124
+  %is_skipping_tree.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 124
   %bf.load.i = load i8, ptr %is_skipping_tree.i, align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %tobool.not.i = icmp eq i8 %bf.clear.i, 0
@@ -907,14 +907,14 @@ if.then.i:                                        ; preds = %for.body
   br i1 %cmp.i, label %land.lhs.true.i, label %process_subfilter.exit
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %skip_tree.i = getelementptr inbounds i8, ptr %arrayidx, i64 88
+  %skip_tree.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 88
   %2 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i
   %3 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds i8, ptr %3, i64 256
+  %hash_algo.i.i = getelementptr inbounds nuw i8, ptr %3, i64 256
   %4 = load ptr, ptr %hash_algo.i.i, align 8
   br label %oideq.exit.i
 
@@ -939,7 +939,7 @@ if.then2.i:                                       ; preds = %oideq.exit.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then2.i, %for.body
-  %seen.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %seen.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %call8.i = tail call i32 @oidset_contains(ptr noundef nonnull %seen.i, ptr noundef nonnull %oid.i) #11
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %if.end11.i, label %process_subfilter.exit
@@ -957,9 +957,9 @@ land.lhs.true.i.i:                                ; preds = %if.end11.i
 
 if.then.i16.i:                                    ; preds = %land.lhs.true.i.i
   %8 = load ptr, ptr %6, align 8
-  %omits.i.i = getelementptr inbounds i8, ptr %6, i64 32
+  %omits.i.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load ptr, ptr %omits.i.i, align 8
-  %filter_data.i.i = getelementptr inbounds i8, ptr %6, i64 24
+  %filter_data.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load ptr, ptr %filter_data.i.i, align 8
   %call.i.i = tail call i32 %8(ptr noundef %r, i32 noundef %filter_situation, ptr noundef nonnull %obj, ptr noundef %pathname, ptr noundef %filename, ptr noundef %9, ptr noundef %10) #11
   br label %list_objects_filter__filter_object.exit.i
@@ -983,7 +983,7 @@ if.then21.i:                                      ; preds = %if.end18.i
   %bf.load23.i = load i8, ptr %is_skipping_tree.i, align 4
   %bf.set25.i = or i8 %bf.load23.i, 1
   store i8 %bf.set25.i, ptr %is_skipping_tree.i, align 4
-  %skip_tree26.i = getelementptr inbounds i8, ptr %arrayidx, i64 88
+  %skip_tree26.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %skip_tree26.i, ptr noundef nonnull align 4 dereferenceable(36) %oid.i, i64 36, i1 false)
   br label %process_subfilter.exit
 
@@ -1017,7 +1017,7 @@ for.end:                                          ; preds = %process_subfilter.e
 ; Function Attrs: nounwind uwtable
 define internal void @filter_combine__free(ptr nocapture noundef %filter_data) #0 {
 entry:
-  %nr = getelementptr inbounds i8, ptr %filter_data, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %filter_data, i64 8
   %0 = load i64, ptr %nr, align 8
   %cmp10.not = icmp eq i64 %0, 0
   %.pre13 = load ptr, ptr %filter_data, align 8
@@ -1038,27 +1038,27 @@ for.body:                                         ; preds = %entry, %for.cond
   br i1 %tobool.not.i, label %list_objects_filter__free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %finalize_omits_fn.i = getelementptr inbounds i8, ptr %3, i64 8
+  %finalize_omits_fn.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %finalize_omits_fn.i, align 8
   %tobool1.not.i = icmp eq ptr %4, null
   br i1 %tobool1.not.i, label %if.end6.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %omits.i = getelementptr inbounds i8, ptr %3, i64 32
+  %omits.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %omits.i, align 8
   %tobool2.not.i = icmp eq ptr %5, null
   br i1 %tobool2.not.i, label %if.end6.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %land.lhs.true.i
-  %filter_data.i = getelementptr inbounds i8, ptr %3, i64 24
+  %filter_data.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %filter_data.i, align 8
   tail call void %4(ptr noundef nonnull %5, ptr noundef %6) #11
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then3.i, %land.lhs.true.i, %if.end.i
-  %free_fn.i = getelementptr inbounds i8, ptr %3, i64 16
+  %free_fn.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %free_fn.i, align 8
-  %filter_data7.i = getelementptr inbounds i8, ptr %3, i64 24
+  %filter_data7.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %filter_data7.i, align 8
   tail call void %7(ptr noundef %8) #11
   tail call void @free(ptr noundef nonnull %3) #11
@@ -1089,7 +1089,7 @@ for.end:                                          ; preds = %for.cond, %entry
 ; Function Attrs: nounwind uwtable
 define internal void @filter_combine__finalize_omits(ptr noundef %omits, ptr nocapture noundef readonly %filter_data) #0 {
 entry:
-  %nr = getelementptr inbounds i8, ptr %filter_data, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %filter_data, i64 8
   %0 = load i64, ptr %nr, align 8
   %cmp8.not = icmp eq i64 %0, 0
   br i1 %cmp8.not, label %for.end, label %for.body
@@ -1103,8 +1103,8 @@ for.body:                                         ; preds = %entry, %add_all.exi
   br i1 %cmp.not12.i6.i, label %add_all.exit, label %for.body.lr.ph.i.lr.ph.i
 
 for.body.lr.ph.i.lr.ph.i:                         ; preds = %for.body
-  %flags.i.i = getelementptr inbounds i8, ptr %omits2, i64 16
-  %keys.i.i = getelementptr inbounds i8, ptr %omits2, i64 24
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %omits2, i64 16
+  %keys.i.i = getelementptr inbounds nuw i8, ptr %omits2, i64 24
   br label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %while.body.i, %for.body.lr.ph.i.lr.ph.i
@@ -1117,7 +1117,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %5 = phi i32 [ %iter.sroa.2.07.i, %for.body.lr.ph.i.i ], [ %inc12.i.i, %for.inc.i.i ]
   %shr.i.i = lshr i32 %5, 4
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %idxprom.i.i
   %6 = load i32, ptr %arrayidx.i.i, align 4
   %and.i.i = shl i32 %5, 1
   %shl.i.i = and i32 %and.i.i, 30
@@ -1138,7 +1138,7 @@ oidset_iter_next.exit.i:                          ; preds = %for.body.i.i
 
 while.body.i:                                     ; preds = %oidset_iter_next.exit.i
   %idxprom9.i.i = zext i32 %5 to i64
-  %arrayidx10.i.i = getelementptr inbounds %struct.object_id, ptr %9, i64 %idxprom9.i.i
+  %arrayidx10.i.i = getelementptr inbounds nuw %struct.object_id, ptr %9, i64 %idxprom9.i.i
   %inc.i.i = add i32 %5, 1
   %call1.i = tail call i32 @oidset_insert(ptr noundef %omits, ptr noundef nonnull %arrayidx10.i.i) #11
   %10 = load i32, ptr %omits2, align 8

@@ -41,7 +41,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK19interaction_const_tN3gmx8ArrayRefIKNS8_11BasicVectorIfEEEERKNS8_12StepWorkloadEiNS9_IfEEPfSI_SI_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readonly %3, ptr nocapture readnone %4, ptr nocapture noundef nonnull readonly align 1 dereferenceable(20) %5, i32 noundef %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.0") align 8 %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %12 = alloca [2 x ptr], align 16
   %13 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 8
   br i1 %.not, label %21, label %16
@@ -67,7 +67,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
 
 23:                                               ; preds = %21
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.0.0.copyload.i370 = load ptr, ptr %24, align 8
   %.not384392 = icmp eq ptr %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i370
   br i1 %.not384392, label %.loopexit391, label %.lr.ph.preheader
@@ -83,7 +83,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   br label %.loopexit391
 
 .loopexit391:                                     ; preds = %.lr.ph.preheader, %23, %21
-  %29 = getelementptr inbounds i8, ptr %2, i64 68
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %.val = load i32, ptr %29, align 4
   %30 = icmp ult i32 %.val, 16
   %switch.cast = trunc i32 %.val to i16
@@ -93,55 +93,55 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %32 = and i32 %.val, -3
   %33 = icmp eq i32 %32, 4
   %34 = or i1 %33, %31
-  %35 = getelementptr inbounds i8, ptr %2, i64 76
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %36 = load float, ptr %35, align 4
   %37 = fmul float %36, %36
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %39 = load float, ptr %38, align 8
   %40 = fmul float %39, %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 76
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %42 = load float, ptr %41, align 4
   %43 = fmul float %42, %42
-  %44 = getelementptr inbounds i8, ptr %1, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 108
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %1, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 288
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 88
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %55 = load ptr, ptr %54, align 8
   %.not385451 = icmp eq ptr %53, %55
   br i1 %.not385451, label %._crit_edge458, label %.lr.ph457
 
 .lr.ph457:                                        ; preds = %.loopexit391
   %56 = load i32, ptr %1, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 120
-  %58 = getelementptr inbounds i8, ptr %1, i64 272
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %invariant.gep = getelementptr i8, ptr %51, i64 12
   %59 = fneg float %47
   %60 = fpext float %59 to double
   %61 = fmul double %60, 5.000000e-01
-  %62 = getelementptr inbounds i8, ptr %2, i64 120
-  %63 = getelementptr inbounds i8, ptr %2, i64 84
-  %64 = getelementptr inbounds i8, ptr %0, i64 152
-  %65 = getelementptr inbounds i8, ptr %1, i64 276
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %66 = shl nsw i32 %56, 1
   %67 = add nsw i32 %56, -1
-  %68 = getelementptr inbounds i8, ptr %2, i64 116
-  %69 = getelementptr inbounds i8, ptr %5, i64 5
-  %70 = getelementptr inbounds i8, ptr %2, i64 128
-  %71 = getelementptr inbounds i8, ptr %2, i64 96
-  %72 = getelementptr inbounds i8, ptr %2, i64 44
-  %73 = getelementptr inbounds i8, ptr %2, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 116
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %74 = load i64, ptr %7, align 8
   %75 = inttoptr i64 %74 to ptr
   %invariant.gep408 = getelementptr i8, ptr %75, i64 4
   %invariant.gep410 = getelementptr i8, ptr %75, i64 8
-  %76 = getelementptr inbounds i8, ptr %12, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %77
 
 77:                                               ; preds = %.lr.ph457, %370
@@ -150,19 +150,19 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %.0304454 = phi i32 [ 0, %.lr.ph457 ], [ %.1305.lcssa, %370 ]
   %.0311453 = phi i32 [ 0, %.lr.ph457 ], [ %.1312.lcssa, %370 ]
   %.sroa.0375.0452 = phi ptr [ %53, %.lr.ph457 ], [ %371, %370 ]
-  %78 = getelementptr inbounds i8, ptr %.sroa.0375.0452, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0375.0452, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = mul nsw i32 %79, 3
   %81 = sext i32 %79 to i64
   %82 = getelementptr inbounds %"class.gmx::BasicVector", ptr %3, i64 %81
   %83 = load float, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %82, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %85 = load float, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %82, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %87 = load float, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %.sroa.0375.0452, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0375.0452, i64 8
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %.sroa.0375.0452, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0375.0452, i64 12
   %91 = load i32, ptr %90, align 4
   %92 = load i32, ptr %.sroa.0375.0452, align 4
   %93 = icmp eq i32 %79, 22
@@ -277,7 +277,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %.1329433 = phi float [ %.7335, %361 ], [ %.0328440, %.preheader389 ]
   %148 = load ptr, ptr %57, align 8
   %149 = getelementptr inbounds %struct.nbnxn_cj_packed_t, ptr %148, i64 %indvars.iv486
-  %150 = getelementptr inbounds [4 x i32], ptr %149, i64 0, i64 %indvars.iv482
+  %150 = getelementptr inbounds nuw [4 x i32], ptr %149, i64 0, i64 %indvars.iv482
   %151 = load i32, ptr %150, align 4
   %152 = shl nuw nsw i64 %indvars.iv482, 3
   %153 = shl nsw i32 %151, 3
@@ -363,12 +363,12 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
 192:                                              ; preds = %188
   %193 = lshr i64 %indvars.iv472, 2
   %194 = and i64 %193, 1073741823
-  %195 = getelementptr inbounds [2 x ptr], ptr %12, i64 0, i64 %194
+  %195 = getelementptr inbounds nuw [2 x ptr], ptr %12, i64 0, i64 %194
   %196 = load ptr, ptr %195, align 8
   %197 = shl i64 %indvars.iv472, 3
   %198 = and i64 %197, 24
   %199 = or i64 %198, %indvars.iv475.masked
-  %200 = getelementptr inbounds [32 x i32], ptr %196, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [32 x i32], ptr %196, i64 0, i64 %199
   %201 = load i32, ptr %200, align 4
   %202 = lshr i32 %201, %160
   %203 = and i32 %202, 1
@@ -447,7 +447,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %257 = fptosi float %256 to i32
   %258 = sitofp i32 %257 to float
   %259 = fsub float %256, %258
-  %260 = getelementptr inbounds i8, ptr %254, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %261 = load ptr, ptr %260, align 8
   %262 = fsub float 1.000000e+00, %259
   %263 = sext i32 %257 to i64
@@ -646,7 +646,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   br label %370
 
 370:                                              ; preds = %._crit_edge, %365
-  %371 = getelementptr inbounds i8, ptr %.sroa.0375.0452, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %.sroa.0375.0452, i64 16
   %.not385 = icmp eq ptr %371, %55
   br i1 %.not385, label %._crit_edge458, label %77
 
@@ -708,7 +708,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA148_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #13
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -716,7 +716,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA148_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -767,7 +767,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4

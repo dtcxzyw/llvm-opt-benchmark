@@ -6,15 +6,15 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @MD5Init(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #0 {
   store i32 1732584193, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1732584194, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 271733878, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %6, align 4
   ret void
 }
@@ -22,18 +22,18 @@ define dso_local void @MD5Init(ptr nocapture noundef writeonly initializes((0, 2
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @MD5Update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
 ._crit_edge46:
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4
   %5 = shl i32 %2, 3
   %6 = add i32 %4, %5
   store i32 %6, ptr %3, align 4
   %7 = icmp ult i32 %6, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = zext i1 %7 to i32
   %11 = add i32 %9, %10
   %12 = lshr i32 %2, 29
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = add i32 %11, %12
   store i32 %14, ptr %13, align 4
   %15 = lshr i32 %4, 3
@@ -42,9 +42,9 @@ define dso_local void @MD5Update(ptr nocapture noundef %0, ptr nocapture noundef
   br i1 %.not, label %29, label %17
 
 17:                                               ; preds = %._crit_edge46
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = zext nneg i32 %16 to i64
-  %20 = getelementptr inbounds i8, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = sub nuw nsw i32 64, %16
   %22 = icmp ult i32 %2, %21
   br i1 %22, label %23, label %25
@@ -58,7 +58,7 @@ define dso_local void @MD5Update(ptr nocapture noundef %0, ptr nocapture noundef
   %26 = zext nneg i32 %21 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %26, i1 false)
   tail call void @MD5Transform(ptr noundef nonnull %0, ptr noundef nonnull %18)
-  %27 = getelementptr inbounds i8, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
   %28 = sub nuw i32 %2, %21
   br label %29
 
@@ -69,7 +69,7 @@ define dso_local void @MD5Update(ptr nocapture noundef %0, ptr nocapture noundef
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %32
 
 32:                                               ; preds = %.lr.ph, %32
@@ -77,7 +77,7 @@ define dso_local void @MD5Update(ptr nocapture noundef %0, ptr nocapture noundef
   %.13742 = phi i32 [ %.036, %.lr.ph ], [ %34, %32 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %31, ptr noundef nonnull align 1 dereferenceable(64) %.143, i64 64, i1 false)
   tail call void @MD5Transform(ptr noundef nonnull %0, ptr noundef nonnull %31)
-  %33 = getelementptr inbounds i8, ptr %.143, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %.143, i64 64
   %34 = add i32 %.13742, -64
   %35 = icmp ugt i32 %34, 63
   br i1 %35, label %32, label %._crit_edge, !llvm.loop !5
@@ -85,7 +85,7 @@ define dso_local void @MD5Update(ptr nocapture noundef %0, ptr nocapture noundef
 ._crit_edge:                                      ; preds = %32, %29
   %.137.lcssa = phi i32 [ %.036, %29 ], [ %34, %32 ]
   %.1.lcssa = phi ptr [ %.0, %29 ], [ %33, %32 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = zext nneg i32 %.137.lcssa to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr align 1 %.1.lcssa, i64 %37, i1 false)
   br label %38
@@ -100,11 +100,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = xor i32 %9, %7
   %11 = and i32 %10, %5
@@ -118,7 +118,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %19 = xor i32 %7, %5
   %20 = and i32 %18, %19
   %21 = xor i32 %20, %7
-  %22 = getelementptr inbounds i8, ptr %1, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %9, -389564586
   %25 = add i32 %24, %23
@@ -128,7 +128,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %29 = xor i32 %18, %5
   %30 = and i32 %28, %29
   %31 = xor i32 %30, %5
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %7, 606105819
   %35 = add i32 %34, %33
@@ -138,7 +138,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %39 = xor i32 %28, %18
   %40 = and i32 %38, %39
   %41 = xor i32 %40, %18
-  %42 = getelementptr inbounds i8, ptr %1, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %5, -1044525330
   %45 = add i32 %44, %43
@@ -148,7 +148,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %49 = xor i32 %38, %28
   %50 = and i32 %48, %49
   %51 = xor i32 %50, %28
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, -176418897
   %55 = add i32 %54, %18
@@ -158,7 +158,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %59 = xor i32 %48, %38
   %60 = and i32 %58, %59
   %61 = xor i32 %60, %38
-  %62 = getelementptr inbounds i8, ptr %1, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, 1200080426
   %65 = add i32 %64, %28
@@ -168,7 +168,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %69 = xor i32 %58, %48
   %70 = and i32 %68, %69
   %71 = xor i32 %70, %48
-  %72 = getelementptr inbounds i8, ptr %1, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %73 = load i32, ptr %72, align 4
   %74 = add i32 %73, -1473231341
   %75 = add i32 %74, %38
@@ -178,7 +178,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %79 = xor i32 %68, %58
   %80 = and i32 %78, %79
   %81 = xor i32 %80, %58
-  %82 = getelementptr inbounds i8, ptr %1, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, -45705983
   %85 = add i32 %84, %48
@@ -188,7 +188,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %89 = xor i32 %78, %68
   %90 = and i32 %88, %89
   %91 = xor i32 %90, %68
-  %92 = getelementptr inbounds i8, ptr %1, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, 1770035416
   %95 = add i32 %94, %58
@@ -198,7 +198,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %99 = xor i32 %88, %78
   %100 = and i32 %98, %99
   %101 = xor i32 %100, %78
-  %102 = getelementptr inbounds i8, ptr %1, i64 36
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, -1958414417
   %105 = add i32 %104, %68
@@ -208,7 +208,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %109 = xor i32 %98, %88
   %110 = and i32 %108, %109
   %111 = xor i32 %110, %88
-  %112 = getelementptr inbounds i8, ptr %1, i64 40
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %113 = load i32, ptr %112, align 4
   %114 = add i32 %113, -42063
   %115 = add i32 %114, %78
@@ -218,7 +218,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %119 = xor i32 %108, %98
   %120 = and i32 %118, %119
   %121 = xor i32 %120, %98
-  %122 = getelementptr inbounds i8, ptr %1, i64 44
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %123 = load i32, ptr %122, align 4
   %124 = add i32 %123, -1990404162
   %125 = add i32 %124, %88
@@ -228,7 +228,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %129 = xor i32 %118, %108
   %130 = and i32 %128, %129
   %131 = xor i32 %130, %108
-  %132 = getelementptr inbounds i8, ptr %1, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %133 = load i32, ptr %132, align 4
   %134 = add i32 %133, 1804603682
   %135 = add i32 %134, %98
@@ -238,7 +238,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %139 = xor i32 %128, %118
   %140 = and i32 %138, %139
   %141 = xor i32 %140, %118
-  %142 = getelementptr inbounds i8, ptr %1, i64 52
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %143 = load i32, ptr %142, align 4
   %144 = add i32 %143, -40341101
   %145 = add i32 %144, %108
@@ -248,7 +248,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %149 = xor i32 %138, %128
   %150 = and i32 %148, %149
   %151 = xor i32 %150, %128
-  %152 = getelementptr inbounds i8, ptr %1, i64 56
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %153 = load i32, ptr %152, align 4
   %154 = add i32 %153, -1502002290
   %155 = add i32 %154, %118
@@ -258,7 +258,7 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
   %159 = xor i32 %148, %138
   %160 = and i32 %158, %159
   %161 = xor i32 %160, %138
-  %162 = getelementptr inbounds i8, ptr %1, i64 60
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %163 = load i32, ptr %162, align 4
   %164 = add i32 %163, 1236535329
   %165 = add i32 %164, %128
@@ -645,14 +645,14 @@ define dso_local void @MD5Transform(ptr nocapture noundef %0, ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @MD5Final(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 3
   %7 = and i32 %6, 63
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %3, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 -128, ptr %9, align 1
   %11 = xor i32 %7, 63
   %12 = icmp samesign ult i32 %11, 8
@@ -663,6 +663,7 @@ define dso_local void @MD5Final(ptr nocapture noundef writeonly initializes((0, 
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %14, i1 false)
   tail call void @MD5Transform(ptr noundef nonnull %1, ptr noundef nonnull %3)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %3, i8 0, i64 56, i1 false)
+  %.pre = load i32, ptr %4, align 4
   br label %18
 
 15:                                               ; preds = %2
@@ -672,12 +673,12 @@ define dso_local void @MD5Final(ptr nocapture noundef writeonly initializes((0, 
   br label %18
 
 18:                                               ; preds = %15, %13
-  %19 = load i32, ptr %4, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = phi i32 [ %5, %15 ], [ %.pre, %13 ]
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 84
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i32 %22, ptr %23, align 4
   tail call void @MD5Transform(ptr noundef nonnull %1, ptr noundef nonnull %3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)

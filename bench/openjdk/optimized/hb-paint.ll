@@ -24,7 +24,7 @@ $_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_push_transform_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -51,7 +51,7 @@ define hidden void @hb_paint_funcs_set_push_transform_func(ptr nocapture noundef
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %24, label %15
@@ -62,7 +62,7 @@ define hidden void @hb_paint_funcs_set_push_transform_func(ptr nocapture noundef
   br i1 %.not22, label %24, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %19 = load ptr, ptr %18, align 8
   %.not23 = icmp eq ptr %19, null
   br i1 %.not23, label %22, label %20
@@ -81,7 +81,7 @@ define hidden void @hb_paint_funcs_set_push_transform_func(ptr nocapture noundef
   br i1 %.not.i26, label %30, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %27 = load ptr, ptr %26, align 8
   %.not13.i = icmp eq ptr %27, null
   br i1 %.not13.i, label %28, label %30
@@ -117,9 +117,9 @@ define hidden void @hb_paint_funcs_set_push_transform_func(ptr nocapture noundef
 
 36:                                               ; preds = %33, %31, %30
   %spec.select = select i1 %.not, ptr @_ZL27hb_paint_push_transform_nilP16hb_paint_funcs_tPvffffffS1_, ptr %1
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %spec.select, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %39 = load ptr, ptr %38, align 8
   %.not24 = icmp eq ptr %39, null
   br i1 %.not24, label %41, label %40
@@ -149,7 +149,7 @@ define internal void @_ZL27hb_paint_push_transform_nilP16hb_paint_funcs_tPvfffff
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_pop_transform_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -176,25 +176,25 @@ define hidden void @hb_paint_funcs_set_pop_transform_func(ptr nocapture noundef 
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -208,7 +208,7 @@ define hidden void @hb_paint_funcs_set_pop_transform_func(ptr nocapture noundef 
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -244,15 +244,15 @@ define hidden void @hb_paint_funcs_set_pop_transform_func(ptr nocapture noundef 
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL26hb_paint_pop_transform_nilP16hb_paint_funcs_tPvS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -262,7 +262,7 @@ define hidden void @hb_paint_funcs_set_pop_transform_func(ptr nocapture noundef 
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -278,7 +278,7 @@ define internal void @_ZL26hb_paint_pop_transform_nilP16hb_paint_funcs_tPvS1_(pt
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_color_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -305,25 +305,25 @@ define hidden void @hb_paint_funcs_set_color_glyph_func(ptr nocapture noundef %0
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -337,7 +337,7 @@ define hidden void @hb_paint_funcs_set_color_glyph_func(ptr nocapture noundef %0
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -373,15 +373,15 @@ define hidden void @hb_paint_funcs_set_color_glyph_func(ptr nocapture noundef %0
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL24hb_paint_color_glyph_nilP16hb_paint_funcs_tPvjP9hb_font_tS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -391,7 +391,7 @@ define hidden void @hb_paint_funcs_set_color_glyph_func(ptr nocapture noundef %0
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -407,7 +407,7 @@ define internal noundef i32 @_ZL24hb_paint_color_glyph_nilP16hb_paint_funcs_tPvj
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_push_clip_glyph_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -434,25 +434,25 @@ define hidden void @hb_paint_funcs_set_push_clip_glyph_func(ptr nocapture nounde
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -466,7 +466,7 @@ define hidden void @hb_paint_funcs_set_push_clip_glyph_func(ptr nocapture nounde
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -502,15 +502,15 @@ define hidden void @hb_paint_funcs_set_push_clip_glyph_func(ptr nocapture nounde
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL28hb_paint_push_clip_glyph_nilP16hb_paint_funcs_tPvjP9hb_font_tS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -520,7 +520,7 @@ define hidden void @hb_paint_funcs_set_push_clip_glyph_func(ptr nocapture nounde
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -536,7 +536,7 @@ define internal void @_ZL28hb_paint_push_clip_glyph_nilP16hb_paint_funcs_tPvjP9h
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_push_clip_rectangle_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -563,25 +563,25 @@ define hidden void @hb_paint_funcs_set_push_clip_rectangle_func(ptr nocapture no
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -595,7 +595,7 @@ define hidden void @hb_paint_funcs_set_push_clip_rectangle_func(ptr nocapture no
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -631,15 +631,15 @@ define hidden void @hb_paint_funcs_set_push_clip_rectangle_func(ptr nocapture no
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL32hb_paint_push_clip_rectangle_nilP16hb_paint_funcs_tPvffffS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -649,7 +649,7 @@ define hidden void @hb_paint_funcs_set_push_clip_rectangle_func(ptr nocapture no
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -665,7 +665,7 @@ define internal void @_ZL32hb_paint_push_clip_rectangle_nilP16hb_paint_funcs_tPv
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_pop_clip_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -692,25 +692,25 @@ define hidden void @hb_paint_funcs_set_pop_clip_func(ptr nocapture noundef %0, p
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -724,7 +724,7 @@ define hidden void @hb_paint_funcs_set_pop_clip_func(ptr nocapture noundef %0, p
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -760,15 +760,15 @@ define hidden void @hb_paint_funcs_set_pop_clip_func(ptr nocapture noundef %0, p
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL21hb_paint_pop_clip_nilP16hb_paint_funcs_tPvS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -778,7 +778,7 @@ define hidden void @hb_paint_funcs_set_pop_clip_func(ptr nocapture noundef %0, p
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -794,7 +794,7 @@ define internal void @_ZL21hb_paint_pop_clip_nilP16hb_paint_funcs_tPvS1_(ptr noc
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_color_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -821,25 +821,25 @@ define hidden void @hb_paint_funcs_set_color_func(ptr nocapture noundef %0, ptr 
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -853,7 +853,7 @@ define hidden void @hb_paint_funcs_set_color_func(ptr nocapture noundef %0, ptr 
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -889,15 +889,15 @@ define hidden void @hb_paint_funcs_set_color_func(ptr nocapture noundef %0, ptr 
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL18hb_paint_color_nilP16hb_paint_funcs_tPvijS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 48
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -907,7 +907,7 @@ define hidden void @hb_paint_funcs_set_color_func(ptr nocapture noundef %0, ptr 
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 48
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -923,7 +923,7 @@ define internal void @_ZL18hb_paint_color_nilP16hb_paint_funcs_tPvijS1_(ptr noca
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_image_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -950,25 +950,25 @@ define hidden void @hb_paint_funcs_set_image_func(ptr nocapture noundef %0, ptr 
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -982,7 +982,7 @@ define hidden void @hb_paint_funcs_set_image_func(ptr nocapture noundef %0, ptr 
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -1018,15 +1018,15 @@ define hidden void @hb_paint_funcs_set_image_func(ptr nocapture noundef %0, ptr 
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL18hb_paint_image_nilP16hb_paint_funcs_tPvP9hb_blob_tjjjfP18hb_glyph_extents_tS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 56
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -1036,7 +1036,7 @@ define hidden void @hb_paint_funcs_set_image_func(ptr nocapture noundef %0, ptr 
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 56
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -1052,7 +1052,7 @@ define internal noundef i32 @_ZL18hb_paint_image_nilP16hb_paint_funcs_tPvP9hb_bl
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_linear_gradient_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -1079,25 +1079,25 @@ define hidden void @hb_paint_funcs_set_linear_gradient_func(ptr nocapture nounde
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -1111,7 +1111,7 @@ define hidden void @hb_paint_funcs_set_linear_gradient_func(ptr nocapture nounde
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -1147,15 +1147,15 @@ define hidden void @hb_paint_funcs_set_linear_gradient_func(ptr nocapture nounde
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL28hb_paint_linear_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -1165,7 +1165,7 @@ define hidden void @hb_paint_funcs_set_linear_gradient_func(ptr nocapture nounde
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 64
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -1181,7 +1181,7 @@ define internal void @_ZL28hb_paint_linear_gradient_nilP16hb_paint_funcs_tPvP15h
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_radial_gradient_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -1208,25 +1208,25 @@ define hidden void @hb_paint_funcs_set_radial_gradient_func(ptr nocapture nounde
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -1240,7 +1240,7 @@ define hidden void @hb_paint_funcs_set_radial_gradient_func(ptr nocapture nounde
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -1276,15 +1276,15 @@ define hidden void @hb_paint_funcs_set_radial_gradient_func(ptr nocapture nounde
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL28hb_paint_radial_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 72
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -1294,7 +1294,7 @@ define hidden void @hb_paint_funcs_set_radial_gradient_func(ptr nocapture nounde
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 72
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -1310,7 +1310,7 @@ define internal void @_ZL28hb_paint_radial_gradient_nilP16hb_paint_funcs_tPvP15h
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_sweep_gradient_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -1337,25 +1337,25 @@ define hidden void @hb_paint_funcs_set_sweep_gradient_func(ptr nocapture noundef
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -1369,7 +1369,7 @@ define hidden void @hb_paint_funcs_set_sweep_gradient_func(ptr nocapture noundef
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -1405,15 +1405,15 @@ define hidden void @hb_paint_funcs_set_sweep_gradient_func(ptr nocapture noundef
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL27hb_paint_sweep_gradient_nilP16hb_paint_funcs_tPvP15hb_color_line_tffffS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 80
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -1423,7 +1423,7 @@ define hidden void @hb_paint_funcs_set_sweep_gradient_func(ptr nocapture noundef
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 80
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -1439,7 +1439,7 @@ define internal void @_ZL27hb_paint_sweep_gradient_nilP16hb_paint_funcs_tPvP15hb
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_push_group_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -1466,25 +1466,25 @@ define hidden void @hb_paint_funcs_set_push_group_func(ptr nocapture noundef %0,
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 88
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -1498,7 +1498,7 @@ define hidden void @hb_paint_funcs_set_push_group_func(ptr nocapture noundef %0,
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -1534,15 +1534,15 @@ define hidden void @hb_paint_funcs_set_push_group_func(ptr nocapture noundef %0,
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL23hb_paint_push_group_nilP16hb_paint_funcs_tPvS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 88
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -1552,7 +1552,7 @@ define hidden void @hb_paint_funcs_set_push_group_func(ptr nocapture noundef %0,
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 88
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -1568,7 +1568,7 @@ define internal void @_ZL23hb_paint_push_group_nilP16hb_paint_funcs_tPvS1_(ptr n
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_pop_group_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -1595,25 +1595,25 @@ define hidden void @hb_paint_funcs_set_pop_group_func(ptr nocapture noundef %0, 
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -1627,7 +1627,7 @@ define hidden void @hb_paint_funcs_set_pop_group_func(ptr nocapture noundef %0, 
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -1663,15 +1663,15 @@ define hidden void @hb_paint_funcs_set_pop_group_func(ptr nocapture noundef %0, 
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL22hb_paint_pop_group_nilP16hb_paint_funcs_tPv25hb_paint_composite_mode_tS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 96
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -1681,7 +1681,7 @@ define hidden void @hb_paint_funcs_set_pop_group_func(ptr nocapture noundef %0, 
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 96
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -1697,7 +1697,7 @@ define internal void @_ZL22hb_paint_pop_group_nilP16hb_paint_funcs_tPv25hb_paint
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_funcs_set_custom_palette_color_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i.i.not = icmp eq i32 %6, 0
   br i1 %.not.i.i.not, label %7, label %9
@@ -1724,25 +1724,25 @@ define hidden void @hb_paint_funcs_set_custom_palette_color_func(ptr nocapture n
 12:                                               ; preds = %10, %11, %9
   %.034.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %2, %9 ]
   %.0.ph = phi ptr [ null, %10 ], [ null, %11 ], [ %3, %9 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %26, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %17 = load ptr, ptr %16, align 8
   %.not22 = icmp eq ptr %17, null
   br i1 %.not22, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not23 = icmp eq ptr %20, null
   br i1 %.not23, label %24, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %23 = load ptr, ptr %22, align 8
   br label %24
 
@@ -1756,7 +1756,7 @@ define hidden void @hb_paint_funcs_set_custom_palette_color_func(ptr nocapture n
   br i1 %.not.i26, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %29 = load ptr, ptr %28, align 8
   %.not13.i = icmp eq ptr %29, null
   br i1 %.not13.i, label %30, label %32
@@ -1792,15 +1792,15 @@ define hidden void @hb_paint_funcs_set_custom_palette_color_func(ptr nocapture n
 
 38:                                               ; preds = %35, %33, %32
   %spec.select = select i1 %.not, ptr @_ZL33hb_paint_custom_palette_color_nilP16hb_paint_funcs_tPvjPjS1_, ptr %1
-  %39 = getelementptr inbounds i8, ptr %0, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %spec.select, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 128
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %41 = load ptr, ptr %40, align 8
   %.not24 = icmp eq ptr %41, null
   br i1 %.not24, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %41, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 104
   store ptr %.034.ph, ptr %43, align 8
   br label %44
 
@@ -1810,7 +1810,7 @@ define hidden void @hb_paint_funcs_set_custom_palette_color_func(ptr nocapture n
   br i1 %.not25, label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 104
   store ptr %.0.ph, ptr %47, align 8
   br label %_ZL28_hb_paint_funcs_set_preambleP16hb_paint_funcs_tbPPvPPFvS1_E.exit
 
@@ -1831,13 +1831,13 @@ define hidden nonnull ptr @hb_paint_funcs_create() local_unnamed_addr #2 {
 
 2:                                                ; preds = %0
   store atomic i32 1, ptr %1 monotonic, align 4
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store atomic i32 1, ptr %3 monotonic, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store atomic i64 0, ptr %4 monotonic, align 8
   %5 = load atomic i32, ptr %1 monotonic, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds (i8, ptr @_hb_Null_hb_paint_funcs_t, i64 16), i64 112, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull align 8 dereferenceable(112) getelementptr inbounds nuw (i8, ptr @_hb_Null_hb_paint_funcs_t, i64 16), i64 112, i1 false)
   br label %7
 
 7:                                                ; preds = %0, %2
@@ -1890,14 +1890,14 @@ define hidden void @hb_paint_funcs_destroy(ptr noundef %0) local_unnamed_addr #0
 
 7:                                                ; preds = %5
   store atomic i32 -57005, ptr %0 monotonic, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %.not.i9.i = icmp eq i64 %9, 0
   br i1 %.not.i9.i, label %_ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit, label %10
 
 10:                                               ; preds = %7
   %11 = inttoptr i64 %9 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(56) %11)
   %13 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(56) %11) #12
   tail call void @free(ptr noundef nonnull %11) #12
@@ -1905,7 +1905,7 @@ define hidden void @hb_paint_funcs_destroy(ptr noundef %0) local_unnamed_addr #0
   br label %_ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit
 
 _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %181, label %16
@@ -1916,7 +1916,7 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
   br i1 %.not89, label %25, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %20 = load ptr, ptr %19, align 8
   %.not90 = icmp eq ptr %20, null
   br i1 %.not90, label %23, label %21
@@ -1933,19 +1933,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 25:                                               ; preds = %23, %16
   %26 = phi ptr [ %.pre, %23 ], [ %15, %16 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not91 = icmp eq ptr %28, null
   br i1 %.not91, label %37, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %31 = load ptr, ptr %30, align 8
   %.not92 = icmp eq ptr %31, null
   br i1 %.not92, label %35, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load ptr, ptr %33, align 8
   br label %35
 
@@ -1957,19 +1957,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 37:                                               ; preds = %35, %25
   %38 = phi ptr [ %.pre118, %35 ], [ %26, %25 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not93 = icmp eq ptr %40, null
   br i1 %.not93, label %49, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 128
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = load ptr, ptr %42, align 8
   %.not94 = icmp eq ptr %43, null
   br i1 %.not94, label %47, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %46 = load ptr, ptr %45, align 8
   br label %47
 
@@ -1981,19 +1981,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 49:                                               ; preds = %47, %37
   %50 = phi ptr [ %.pre119, %47 ], [ %38, %37 ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   %.not95 = icmp eq ptr %52, null
   br i1 %.not95, label %61, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 128
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %55 = load ptr, ptr %54, align 8
   %.not96 = icmp eq ptr %55, null
   br i1 %.not96, label %59, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %55, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %58 = load ptr, ptr %57, align 8
   br label %59
 
@@ -2005,19 +2005,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 61:                                               ; preds = %59, %49
   %62 = phi ptr [ %.pre120, %59 ], [ %50, %49 ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %64 = load ptr, ptr %63, align 8
   %.not97 = icmp eq ptr %64, null
   br i1 %.not97, label %73, label %65
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %0, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %67 = load ptr, ptr %66, align 8
   %.not98 = icmp eq ptr %67, null
   br i1 %.not98, label %71, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %67, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %70 = load ptr, ptr %69, align 8
   br label %71
 
@@ -2029,19 +2029,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 73:                                               ; preds = %71, %61
   %74 = phi ptr [ %.pre121, %71 ], [ %62, %61 ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load ptr, ptr %75, align 8
   %.not99 = icmp eq ptr %76, null
   br i1 %.not99, label %85, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %0, i64 128
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %79 = load ptr, ptr %78, align 8
   %.not100 = icmp eq ptr %79, null
   br i1 %.not100, label %83, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %79, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %82 = load ptr, ptr %81, align 8
   br label %83
 
@@ -2053,19 +2053,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 85:                                               ; preds = %83, %73
   %86 = phi ptr [ %.pre122, %83 ], [ %74, %73 ]
-  %87 = getelementptr inbounds i8, ptr %86, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %88 = load ptr, ptr %87, align 8
   %.not101 = icmp eq ptr %88, null
   br i1 %.not101, label %97, label %89
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %0, i64 128
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %91 = load ptr, ptr %90, align 8
   %.not102 = icmp eq ptr %91, null
   br i1 %.not102, label %95, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %91, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %94 = load ptr, ptr %93, align 8
   br label %95
 
@@ -2077,19 +2077,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 97:                                               ; preds = %95, %85
   %98 = phi ptr [ %.pre123, %95 ], [ %86, %85 ]
-  %99 = getelementptr inbounds i8, ptr %98, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 56
   %100 = load ptr, ptr %99, align 8
   %.not103 = icmp eq ptr %100, null
   br i1 %.not103, label %109, label %101
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %0, i64 128
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %103 = load ptr, ptr %102, align 8
   %.not104 = icmp eq ptr %103, null
   br i1 %.not104, label %107, label %104
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %103, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 56
   %106 = load ptr, ptr %105, align 8
   br label %107
 
@@ -2101,19 +2101,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 109:                                              ; preds = %107, %97
   %110 = phi ptr [ %.pre124, %107 ], [ %98, %97 ]
-  %111 = getelementptr inbounds i8, ptr %110, i64 64
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 64
   %112 = load ptr, ptr %111, align 8
   %.not105 = icmp eq ptr %112, null
   br i1 %.not105, label %121, label %113
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %0, i64 128
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %115 = load ptr, ptr %114, align 8
   %.not106 = icmp eq ptr %115, null
   br i1 %.not106, label %119, label %116
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %115, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 64
   %118 = load ptr, ptr %117, align 8
   br label %119
 
@@ -2125,19 +2125,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 121:                                              ; preds = %119, %109
   %122 = phi ptr [ %.pre125, %119 ], [ %110, %109 ]
-  %123 = getelementptr inbounds i8, ptr %122, i64 72
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 72
   %124 = load ptr, ptr %123, align 8
   %.not107 = icmp eq ptr %124, null
   br i1 %.not107, label %133, label %125
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %0, i64 128
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %127 = load ptr, ptr %126, align 8
   %.not108 = icmp eq ptr %127, null
   br i1 %.not108, label %131, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %127, i64 72
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 72
   %130 = load ptr, ptr %129, align 8
   br label %131
 
@@ -2149,19 +2149,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 133:                                              ; preds = %131, %121
   %134 = phi ptr [ %.pre126, %131 ], [ %122, %121 ]
-  %135 = getelementptr inbounds i8, ptr %134, i64 80
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 80
   %136 = load ptr, ptr %135, align 8
   %.not109 = icmp eq ptr %136, null
   br i1 %.not109, label %145, label %137
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %0, i64 128
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %139 = load ptr, ptr %138, align 8
   %.not110 = icmp eq ptr %139, null
   br i1 %.not110, label %143, label %140
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %139, i64 80
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 80
   %142 = load ptr, ptr %141, align 8
   br label %143
 
@@ -2173,19 +2173,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 145:                                              ; preds = %143, %133
   %146 = phi ptr [ %.pre127, %143 ], [ %134, %133 ]
-  %147 = getelementptr inbounds i8, ptr %146, i64 88
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 88
   %148 = load ptr, ptr %147, align 8
   %.not111 = icmp eq ptr %148, null
   br i1 %.not111, label %157, label %149
 
 149:                                              ; preds = %145
-  %150 = getelementptr inbounds i8, ptr %0, i64 128
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %151 = load ptr, ptr %150, align 8
   %.not112 = icmp eq ptr %151, null
   br i1 %.not112, label %155, label %152
 
 152:                                              ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %151, i64 88
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 88
   %154 = load ptr, ptr %153, align 8
   br label %155
 
@@ -2197,19 +2197,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 157:                                              ; preds = %155, %145
   %158 = phi ptr [ %.pre128, %155 ], [ %146, %145 ]
-  %159 = getelementptr inbounds i8, ptr %158, i64 96
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 96
   %160 = load ptr, ptr %159, align 8
   %.not113 = icmp eq ptr %160, null
   br i1 %.not113, label %169, label %161
 
 161:                                              ; preds = %157
-  %162 = getelementptr inbounds i8, ptr %0, i64 128
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %163 = load ptr, ptr %162, align 8
   %.not114 = icmp eq ptr %163, null
   br i1 %.not114, label %167, label %164
 
 164:                                              ; preds = %161
-  %165 = getelementptr inbounds i8, ptr %163, i64 96
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 96
   %166 = load ptr, ptr %165, align 8
   br label %167
 
@@ -2221,19 +2221,19 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 
 169:                                              ; preds = %167, %157
   %170 = phi ptr [ %.pre129, %167 ], [ %158, %157 ]
-  %171 = getelementptr inbounds i8, ptr %170, i64 104
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 104
   %172 = load ptr, ptr %171, align 8
   %.not115 = icmp eq ptr %172, null
   br i1 %.not115, label %181, label %173
 
 173:                                              ; preds = %169
-  %174 = getelementptr inbounds i8, ptr %0, i64 128
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %175 = load ptr, ptr %174, align 8
   %.not116 = icmp eq ptr %175, null
   br i1 %.not116, label %179, label %176
 
 176:                                              ; preds = %173
-  %177 = getelementptr inbounds i8, ptr %175, i64 104
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 104
   %178 = load ptr, ptr %177, align 8
   br label %179
 
@@ -2246,7 +2246,7 @@ _ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit: ; preds = %10, %7
 181:                                              ; preds = %169, %179, %_ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit
   %182 = phi ptr [ %170, %169 ], [ %.pre130, %179 ], [ null, %_ZL17hb_object_destroyI16hb_paint_funcs_tEbPT_.exit ]
   tail call void @free(ptr noundef %182) #12
-  %183 = getelementptr inbounds i8, ptr %0, i64 128
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %184 = load ptr, ptr %183, align 8
   tail call void @free(ptr noundef %184) #12
   tail call void @free(ptr noundef nonnull %0) #12
@@ -2270,7 +2270,7 @@ define hidden range(i32 0, 2) i32 @hb_paint_funcs_set_user_data(ptr noundef %0, 
   br i1 %.not.i.i, label %_ZL23hb_object_set_user_dataI16hb_paint_funcs_tEbPT_P18hb_user_data_key_tPvPFvS5_Ei.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %.not1923.i = icmp eq i64 %9, 0
   br i1 %.not1923.i, label %.lr.ph.i, label %.split.loop.exit21.i
@@ -2282,7 +2282,7 @@ define hidden range(i32 0, 2) i32 @hb_paint_funcs_set_user_data(ptr noundef %0, 
 
 11:                                               ; preds = %.lr.ph.i
   %12 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef null) #12
-  %13 = getelementptr inbounds i8, ptr %10, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = ptrtoint ptr %10 to i64
   %15 = cmpxchg weak ptr %8, i64 0, i64 %14 acq_rel monotonic, align 8
@@ -2324,7 +2324,7 @@ define hidden ptr @hb_paint_funcs_get_user_data(ptr noundef readonly %0, ptr nou
   br i1 %.not.i.i, label %_ZL23hb_object_get_user_dataIK16hb_paint_funcs_tEPvPT_P18hb_user_data_key_t.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = inttoptr i64 %7 to ptr
   %.not9.i = icmp eq i64 %7, 0
@@ -2332,9 +2332,9 @@ define hidden ptr @hb_paint_funcs_get_user_data(ptr noundef readonly %0, ptr nou
 
 9:                                                ; preds = %5
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(56) %8) #12
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %14 = load i32, ptr %13, align 4
   %.sroa.2.8.insert.ext.i.i.i.i.i.i = zext i32 %14 to i64
   %.not24.i.i.i.i.i.i = icmp eq i32 %14, 0
@@ -2342,7 +2342,7 @@ define hidden ptr @hb_paint_funcs_get_user_data(ptr noundef readonly %0, ptr nou
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9, %17
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %17 ], [ 0, %9 ]
-  %15 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
+  %15 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
   %.val17.i.i.i.i.i.i = load ptr, ptr %15, align 8
   %16 = icmp eq ptr %.val17.i.i.i.i.i.i, %1
   br i1 %16, label %18, label %17
@@ -2354,7 +2354,7 @@ define hidden ptr @hb_paint_funcs_get_user_data(ptr noundef readonly %0, ptr nou
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19, i32 1
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19, i32 1
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
 
@@ -2370,7 +2370,7 @@ _ZL23hb_object_get_user_dataIK16hb_paint_funcs_tEPvPT_P18hb_user_data_key_t.exit
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @hb_paint_funcs_make_immutable(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %5, label %4
@@ -2385,7 +2385,7 @@ define hidden void @hb_paint_funcs_make_immutable(ptr nocapture noundef %0) loca
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @hb_paint_funcs_is_immutable(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
   %4 = zext i1 %.not.i to i32
@@ -2394,10 +2394,10 @@ define hidden range(i32 0, 2) i32 @hb_paint_funcs_is_immutable(ptr nocapture nou
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_color_line_get_color_stops(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %6(ptr noundef nonnull %0, ptr noundef %7, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %9)
   ret i32 %10
@@ -2405,10 +2405,10 @@ define hidden noundef i32 @hb_color_line_get_color_stops(ptr noundef %0, i32 nou
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @hb_color_line_get_extend(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %3(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %6)
   ret i32 %7
@@ -2416,9 +2416,9 @@ define hidden noundef i32 @hb_color_line_get_extend(ptr noundef %0) local_unname
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_push_transform(ptr noundef %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t14push_transformEPvffffff.exit, label %13
@@ -2435,15 +2435,15 @@ _ZN16hb_paint_funcs_t14push_transformEPvffffff.exit: ; preds = %8, %13
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_pop_transform(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %_ZN16hb_paint_funcs_t13pop_transformEPv.exit
 
@@ -2455,15 +2455,15 @@ _ZN16hb_paint_funcs_t13pop_transformEPv.exit:     ; preds = %2, %7
 
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @hb_paint_color_glyph(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   br label %_ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit
 
@@ -2477,15 +2477,15 @@ _ZN16hb_paint_funcs_t11color_glyphEPvjP9hb_font_t.exit: ; preds = %4, %9
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_push_clip_glyph(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   br label %_ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit
 
@@ -2497,15 +2497,15 @@ _ZN16hb_paint_funcs_t15push_clip_glyphEPvjP9hb_font_t.exit: ; preds = %4, %9
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_push_clip_rectangle(ptr noundef %0, ptr noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %10, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %13 = load ptr, ptr %12, align 8
   br label %_ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit
 
@@ -2517,15 +2517,15 @@ _ZN16hb_paint_funcs_t19push_clip_rectangleEPvffff.exit: ; preds = %6, %11
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_pop_clip(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t8pop_clipEPv.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %9 = load ptr, ptr %8, align 8
   br label %_ZN16hb_paint_funcs_t8pop_clipEPv.exit
 
@@ -2537,15 +2537,15 @@ _ZN16hb_paint_funcs_t8pop_clipEPv.exit:           ; preds = %2, %7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_color(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t5colorEPvij.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = load ptr, ptr %10, align 8
   br label %_ZN16hb_paint_funcs_t5colorEPvij.exit
 
@@ -2557,15 +2557,15 @@ _ZN16hb_paint_funcs_t5colorEPvij.exit:            ; preds = %4, %9
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_image(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6, ptr noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t5imageEPvP9hb_blob_tjjjfP18hb_glyph_extents_t.exit, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %12, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %15 = load ptr, ptr %14, align 8
   br label %_ZN16hb_paint_funcs_t5imageEPvP9hb_blob_tjjjfP18hb_glyph_extents_t.exit
 
@@ -2577,15 +2577,15 @@ _ZN16hb_paint_funcs_t5imageEPvP9hb_blob_tjjjfP18hb_glyph_extents_t.exit: ; preds
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_linear_gradient(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #0 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t15linear_gradientEPvP15hb_color_line_tffffff.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %13, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %16 = load ptr, ptr %15, align 8
   br label %_ZN16hb_paint_funcs_t15linear_gradientEPvP15hb_color_line_tffffff.exit
 
@@ -2597,15 +2597,15 @@ _ZN16hb_paint_funcs_t15linear_gradientEPvP15hb_color_line_tffffff.exit: ; preds 
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_radial_gradient(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) local_unnamed_addr #0 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t15radial_gradientEPvP15hb_color_line_tffffff.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %13, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %16 = load ptr, ptr %15, align 8
   br label %_ZN16hb_paint_funcs_t15radial_gradientEPvP15hb_color_line_tffffff.exit
 
@@ -2617,15 +2617,15 @@ _ZN16hb_paint_funcs_t15radial_gradientEPvP15hb_color_line_tffffff.exit: ; preds 
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_sweep_gradient(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t14sweep_gradientEPvP15hb_color_line_tffff.exit, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %11, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %14 = load ptr, ptr %13, align 8
   br label %_ZN16hb_paint_funcs_t14sweep_gradientEPvP15hb_color_line_tffff.exit
 
@@ -2637,15 +2637,15 @@ _ZN16hb_paint_funcs_t14sweep_gradientEPvP15hb_color_line_tffff.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_push_group(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t10push_groupEPv.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %9 = load ptr, ptr %8, align 8
   br label %_ZN16hb_paint_funcs_t10push_groupEPv.exit
 
@@ -2657,15 +2657,15 @@ _ZN16hb_paint_funcs_t10push_groupEPv.exit:        ; preds = %2, %7
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_paint_pop_group(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t9pop_groupEPv25hb_paint_composite_mode_t.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %10 = load ptr, ptr %9, align 8
   br label %_ZN16hb_paint_funcs_t9pop_groupEPv25hb_paint_composite_mode_t.exit
 
@@ -2677,15 +2677,15 @@ _ZN16hb_paint_funcs_t9pop_groupEPv25hb_paint_composite_mode_t.exit: ; preds = %3
 
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @hb_paint_custom_palette_color(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN16hb_paint_funcs_t20custom_palette_colorEPvjPj.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %11 = load ptr, ptr %10, align 8
   br label %_ZN16hb_paint_funcs_t20custom_palette_colorEPvjPj.exit
 
@@ -2705,7 +2705,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %10
@@ -2717,7 +2717,7 @@ define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t1
 
 7:                                                ; preds = %5
   store i32 0, ptr %3, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #12
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit
@@ -2733,7 +2733,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit:
   br i1 %.not510, label %._crit_edge, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph: ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.lr.ph, %_ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit
@@ -2741,10 +2741,10 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %15 = add i32 %14, -1
   %16 = load ptr, ptr %13, align 8
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %16, i64 %17
-  %.sroa.1.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %16, i64 %17
+  %.sroa.1.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..0.i.i.sroa_idx, align 8
-  %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..0.i.i.sroa_idx, align 8
   store i32 %15, ptr %3, align 4, !noalias !8
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #12
@@ -2768,7 +2768,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %_ZN11hb_v
 
 24:                                               ; preds = %._crit_edge
   store i32 0, ptr %3, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @free(ptr noundef %26) #12
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4finiEv.exit9
@@ -2809,9 +2809,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 12:                                               ; preds = %9
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #12
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4
   %.sroa.2.8.insert.ext.i.i.i.i = zext i32 %17 to i64
   %.not24.i.i.i.i = icmp eq i32 %17, 0
@@ -2819,7 +2819,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 .lr.ph.i.i.i.i:                                   ; preds = %12, %20
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %20 ], [ 0, %12 ]
-  %18 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %indvars.iv.i.i.i.i
+  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %indvars.iv.i.i.i.i
   %.val17.i.i.i.i = load ptr, ptr %18, align 8
   %19 = icmp eq ptr %.val17.i.i.i.i, %1
   br i1 %19, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i, label %20
@@ -2831,14 +2831,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i: ; preds = %.lr.ph.i.i.i.i
   %21 = and i64 %indvars.iv.i.i.i.i, 4294967295
-  %22 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %21
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 8
+  %22 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %21
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.1.0.copyload.i = load ptr, ptr %.sroa.1.0..sroa_idx.i, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %23 = add i32 %17, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   %26 = load i32, ptr %16, align 4, !noalias !12
   %.not.i.i = icmp eq i32 %26, 0
@@ -2863,11 +2863,11 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIP18h
   br label %_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE6removeIP18hb_user_data_key_tEEvT_RS2_.exit
 
 32:                                               ; preds = %9, %7
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %3, ptr %.sroa.3.0..sroa_idx, align 8
   %34 = tail call noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext %8)
   %35 = icmp ne ptr %34, null
@@ -2884,9 +2884,9 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE17replace_or_insertIS1_EEPS1_T_RS2_b(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef byval(%"struct.hb_user_data_array_t::hb_user_data_item_t") align 8 %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i1 noundef zeroext %3) local_unnamed_addr #0 comdat align 2 {
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %.sroa.2.8.insert.ext.i.i.i = zext i32 %9 to i64
   %.not24.i.i.i = icmp eq i32 %9, 0
@@ -2898,7 +2898,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 10:                                               ; preds = %13, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %13 ]
-  %11 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %indvars.iv.i.i.i
   %.val17.i.i.i = load ptr, ptr %11, align 8
   %12 = icmp eq ptr %.val.i.i.i, %.val17.i.i.i
   br i1 %12, label %14, label %13
@@ -2910,13 +2910,13 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 14:                                               ; preds = %10
   %15 = and i64 %indvars.iv.i.i.i, 4294967295
-  %16 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %15
   br i1 %3, label %17, label %20
 
 17:                                               ; preds = %14
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #12
@@ -2994,7 +2994,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exi
   %39 = add i32 %38, 1
   store i32 %39, ptr %8, align 4
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %37, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
 

@@ -656,7 +656,7 @@ define hidden void @dissect_zbee_aps_status_code(ptr noundef %0, ptr nocapture n
   %6 = zext i8 %5 to i32
   %7 = load i32, ptr @hf_zbee_aps_cmd_status, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef -2147483648) #3
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @val_to_str_const(i32 noundef %6, ptr noundef nonnull @zbee_aps_status_names, ptr noundef nonnull @.str.253) #3
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.252, ptr noundef %11) #3
@@ -751,7 +751,7 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %14, ptr noundef nonnull @.str.389) #3
   %16 = load i32, ptr @ett_zbee_aps, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #3
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.481) #3
   %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
@@ -782,7 +782,7 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   %42 = load i32, ptr @hf_zbee_aps_fcf_delivery, align 4
   %43 = and i32 %21, 12
   %44 = tail call ptr @proto_tree_add_uint(ptr noundef %38, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %43) #3
-  %45 = getelementptr inbounds i8, ptr %3, i64 26
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 26
   %46 = load i8, ptr %45, align 2
   %47 = icmp ugt i8 %46, 1
   br i1 %47, label %48, label %50
@@ -894,7 +894,7 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
 97:                                               ; preds = %.thread357
   %98 = zext nneg i8 %.2.ph to i32
   %99 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %98) #3
-  %100 = getelementptr inbounds i8, ptr %3, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i16 %99, ptr %100, align 8
   %101 = add nuw nsw i32 %98, 2
   %102 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %101) #3
@@ -942,7 +942,7 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   %125 = zext nneg i8 %.2390 to i32
   %126 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %125) #3
   %127 = zext i8 %126 to i16
-  %128 = getelementptr inbounds i8, ptr %3, i64 56
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i16 %127, ptr %128, align 8
   %129 = load i32, ptr @hf_zbee_aps_cluster, align 4
   %130 = zext i8 %126 to i32
@@ -1035,9 +1035,9 @@ define internal i32 @dissect_zbee_aps(ptr noundef %0, ptr noundef %1, ptr nounde
   store i16 %storemerge.i, ptr %7, align 2
   %.not22.i = icmp eq i8 %23, 2
   %..i = select i1 %.not22.i, i64 28, i64 30
-  %179 = getelementptr inbounds i8, ptr %3, i64 %..i
+  %179 = getelementptr inbounds nuw i8, ptr %3, i64 %..i
   %.sink.i = load i16, ptr %179, align 2
-  %180 = getelementptr inbounds i8, ptr %7, i64 2
+  %180 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 %.sink.i, ptr %180, align 2
   %181 = load ptr, ptr @zbee_table_aps_extended_counters, align 8
   %182 = call ptr @g_hash_table_lookup(ptr noundef %181, ptr noundef nonnull %7) #3
@@ -1160,9 +1160,9 @@ zbee_aps_node_packet_info.exit:                   ; preds = %169, %zbee_aps_calc
   br i1 %or.cond24, label %249, label %.thread370
 
 249:                                              ; preds = %246
-  %250 = getelementptr inbounds i8, ptr %1, i64 272
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %3, i64 30
+  %251 = getelementptr inbounds nuw i8, ptr %3, i64 30
   %252 = load i16, ptr %251, align 2
   %253 = zext i16 %252 to i32
   %254 = shl nuw i32 %253, 16
@@ -1224,7 +1224,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %169, %zbee_aps_calc
   br i1 %278, label %279, label %282
 
 279:                                              ; preds = %276
-  %280 = getelementptr inbounds i8, ptr %3, i64 64
+  %280 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr %.0266, ptr %280, align 8
   %281 = load ptr, ptr @zbee_apf_handle, align 8
   br label %294
@@ -1238,7 +1238,7 @@ zbee_aps_node_packet_info.exit:                   ; preds = %169, %zbee_aps_calc
   br i1 %285, label %.thread373, label %290
 
 .thread373:                                       ; preds = %284
-  %286 = getelementptr inbounds i8, ptr %3, i64 56
+  %286 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %287 = load i16, ptr %286, align 8
   %288 = call fastcc i32 @dissect_zbee_t2(ptr noundef %.1263, ptr noundef %17, i16 noundef zeroext %287)
   %289 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %.1263, i32 noundef %288) #3
@@ -1550,7 +1550,7 @@ define internal i32 @dissect_zbee_apf(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load ptr, ptr %6, align 8
   br label %8
 

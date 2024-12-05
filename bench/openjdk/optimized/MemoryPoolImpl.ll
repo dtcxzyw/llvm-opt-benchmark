@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_management_MemoryPoolImpl_getMemoryManagers0(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0, ptr noundef %1) #2
   %7 = icmp eq ptr %6, null
@@ -28,7 +28,7 @@ declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_management_MemoryPoolImpl_getUsage0(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0, ptr noundef %1) #2
   %7 = icmp eq ptr %6, null
@@ -45,7 +45,7 @@ define ptr @Java_sun_management_MemoryPoolImpl_getUsage0(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_management_MemoryPoolImpl_getPeakUsage0(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0, ptr noundef %1) #2
   %7 = icmp eq ptr %6, null
@@ -63,13 +63,13 @@ define ptr @Java_sun_management_MemoryPoolImpl_getPeakUsage0(ptr noundef %0, ptr
 define void @Java_sun_management_MemoryPoolImpl_setUsageThreshold0(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i64 %3, %2
   %6 = load ptr, ptr @jmm_interface, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %8 = load ptr, ptr %7, align 8
   %. = select i1 %5, i32 901, i32 902
   %.17 = select i1 %5, i32 902, i32 901
   %9 = tail call i64 %8(ptr noundef %0, ptr noundef %1, i32 noundef %., i64 noundef %3) #2
   %10 = load ptr, ptr @jmm_interface, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 %12(ptr noundef %0, ptr noundef %1, i32 noundef %.17, i64 noundef %3) #2
   ret void
@@ -79,13 +79,13 @@ define void @Java_sun_management_MemoryPoolImpl_setUsageThreshold0(ptr noundef %
 define void @Java_sun_management_MemoryPoolImpl_setCollectionThreshold0(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i64 %3, %2
   %6 = load ptr, ptr @jmm_interface, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 192
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %8 = load ptr, ptr %7, align 8
   %. = select i1 %5, i32 903, i32 904
   %.17 = select i1 %5, i32 904, i32 903
   %9 = tail call i64 %8(ptr noundef %0, ptr noundef %1, i32 noundef %., i64 noundef %3) #2
   %10 = load ptr, ptr @jmm_interface, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 192
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 %12(ptr noundef %0, ptr noundef %1, i32 noundef %.17, i64 noundef %3) #2
   ret void
@@ -95,7 +95,7 @@ define void @Java_sun_management_MemoryPoolImpl_setCollectionThreshold0(ptr noun
 define void @Java_sun_management_MemoryPoolImpl_resetPeakUsage0(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = load ptr, ptr @jmm_interface, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef %0, i64 %3, i32 noundef 805) #2
   ret void
@@ -104,7 +104,7 @@ define void @Java_sun_management_MemoryPoolImpl_resetPeakUsage0(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_management_MemoryPoolImpl_setPoolUsageSensor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %0, ptr noundef %1, i32 noundef 901, ptr noundef %2) #2
   ret void
@@ -113,7 +113,7 @@ define void @Java_sun_management_MemoryPoolImpl_setPoolUsageSensor(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_management_MemoryPoolImpl_setPoolCollectionSensor(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @jmm_interface, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %0, ptr noundef %1, i32 noundef 903, ptr noundef %2) #2
   ret void
@@ -122,7 +122,7 @@ define void @Java_sun_management_MemoryPoolImpl_setPoolCollectionSensor(ptr noun
 ; Function Attrs: nounwind uwtable
 define ptr @Java_sun_management_MemoryPoolImpl_getCollectionUsage0(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @jmm_interface, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0, ptr noundef %1) #2
   ret ptr %6

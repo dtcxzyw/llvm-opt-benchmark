@@ -107,7 +107,7 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_recv_timeout(i32 noundef 
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   store i32 %0, ptr %7, align 4
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i16 1, ptr %11, align 4
   %12 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 3) #10
   tail call void @fd_set_nonblocking(i32 noundef %0) #10
@@ -117,10 +117,10 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_recv_timeout(i32 noundef 
 
 .lr.ph.lr.ph:                                     ; preds = %5
   %.val = load i64, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.val58 = load i64, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 6
   br label %.lr.ph
 
 .outer:                                           ; preds = %102
@@ -132,7 +132,7 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_recv_timeout(i32 noundef 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %20 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %18, %.outer ]
   %.0.ph71 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %17, %.outer ]
-  %21 = getelementptr inbounds i8, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %20
   %22 = sub i64 %2, %20
   br label %.backedge
 
@@ -415,7 +415,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   store i32 %0, ptr %8, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i16 4, ptr %13, align 4
   %14 = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 3) #10
   tail call void @fd_set_nonblocking(i32 noundef %0) #10
@@ -425,16 +425,16 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef
 
 .lr.ph.lr.ph:                                     ; preds = %5
   %.val = load i64, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.val56 = load i64, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 6
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %19 = phi i64 [ 0, %.lr.ph.lr.ph ], [ %113, %.outer ]
   %.0.ph75 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %112, %.outer ]
-  %20 = getelementptr inbounds i8, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
   %21 = sub i64 %2, %19
   br label %.backedge
 
@@ -663,13 +663,13 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_send_timeout(i32 noundef
 122:                                              ; preds = %121, %.loopexit
   %123 = load i32, ptr %4, align 4
   %.val57 = load i64, ptr %9, align 8
-  %124 = getelementptr inbounds i8, ptr %9, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.val58 = load i64, ptr %124, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %125 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #10
   %126 = load i64, ptr %6, align 8
   %127 = sub nsw i64 %126, %.val57
-  %128 = getelementptr inbounds i8, ptr %6, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %129 = load i64, ptr %128, align 8
   %reass.sub78 = sub i64 %129, %.val58
   %130 = add i64 %reass.sub78, 500
@@ -693,24 +693,24 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
   store i32 %7, ptr %4, align 4
   %8 = tail call ptr @xsignal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #10
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %13, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, %11
   br label %18
 
 18:                                               ; preds = %14, %2
   %.026 = phi i32 [ %17, %14 ], [ %11, %2 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, %.026
   %24 = tail call i32 @htonl(i32 noundef %23) #9
@@ -721,9 +721,9 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
   %34 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %30, i64 noundef %33, i32 noundef 0, ptr noundef %4)
@@ -737,9 +737,9 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
   br i1 %.not34, label %49, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
   %45 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %41, i64 noundef %44, i32 noundef 0, ptr noundef %4)
@@ -753,9 +753,9 @@ define dso_local range(i64 -1, 2147483648) i64 @slurm_bufs_sendto(i32 noundef %0
 49:                                               ; preds = %47, %36
   %.1 = phi i32 [ %48, %47 ], [ %37, %36 ]
   %50 = load ptr, ptr %19, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %54 = load i32, ptr %53, align 4
   %55 = zext i32 %54 to i64
   %56 = call fastcc i32 @_send_timeout(i32 noundef %0, ptr noundef %52, i64 noundef %55, i32 noundef 0, ptr noundef %4)
@@ -907,8 +907,8 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_open_stream(ptr noundef %
   br i1 %13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %3, i64 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 6
   br label %25
 
 16:                                               ; preds = %7, %2
@@ -1240,22 +1240,22 @@ define dso_local void @slurm_set_addr(ptr noundef %0, i16 noundef zeroext %1, pt
 
 .preheader:                                       ; preds = %23, %29
   %.126 = phi ptr [ %31, %29 ], [ %12, %23 ]
-  %26 = getelementptr inbounds i8, ptr %.126, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.126, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 10
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %.126, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.126, i64 40
   %31 = load ptr, ptr %30, align 8
   %.not24 = icmp eq ptr %31, null
   br i1 %.not24, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %29, %.preheader, %22, %23
   %.0 = phi ptr [ %12, %23 ], [ %12, %22 ], [ %12, %29 ], [ %.126, %.preheader ]
-  %32 = getelementptr inbounds i8, ptr %.0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 2 %33, i64 %36, i1 false)
@@ -1302,18 +1302,18 @@ define dso_local void @slurm_pack_addr(ptr noundef %0, ptr noundef %1) local_unn
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @packmem(ptr noundef nonnull %6, i32 noundef 16, ptr noundef %1) #10
   br label %.sink.split
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   tail call void @pack32(i32 noundef %9, ptr noundef %1) #10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i16, ptr %10, align 2
   tail call void @pack16(i16 noundef zeroext %11, ptr noundef %1) #10
   br label %12
@@ -1355,22 +1355,22 @@ define dso_local range(i32 -1, 1) i32 @slurm_unpack_addr_no_alloc(ptr noundef %0
   br i1 %or.cond, label %26, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(16) %16, i64 16, i1 false)
-  %17 = getelementptr inbounds i8, ptr %0, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %18 = call i32 @unpack16(ptr noundef nonnull %17, ptr noundef %1) #10
   %.not19 = icmp eq i32 %18, 0
   br i1 %.not19, label %27, label %26
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = call i32 @unpack32(ptr noundef nonnull %20, ptr noundef %1) #10
   %.not17 = icmp eq i32 %21, 0
   br i1 %.not17, label %22, label %26
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %24 = call i32 @unpack16(ptr noundef nonnull %23, ptr noundef %1) #10
   %.not18 = icmp eq i32 %24, 0
   br i1 %.not18, label %27, label %26

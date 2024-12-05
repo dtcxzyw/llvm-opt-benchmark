@@ -64,9 +64,9 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %entry
   %.sink12 = phi i64 [ 4, %if.else ], [ 0, %entry ]
   %.sink = phi i32 [ %0, %if.else ], [ 0, %entry ]
-  %1 = getelementptr inbounds i8, ptr %reader, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %reader, i64 8
   store i64 %.sink12, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %reader, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %reader, i64 16
   store i32 %.sink, ptr %2, align 8
   ret i32 0
 }
@@ -77,21 +77,21 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 23) i32 @_ZN16duckdb_nanoarrow23ArrowMetadataReaderReadEPNS_19ArrowMetadataReaderEPNS_15ArrowStringViewES3_(ptr nocapture noundef %reader, ptr nocapture noundef writeonly %key_out, ptr nocapture noundef writeonly %value_out) local_unnamed_addr #2 {
 entry:
-  %remaining_keys = getelementptr inbounds i8, ptr %reader, i64 16
+  %remaining_keys = getelementptr inbounds nuw i8, ptr %reader, i64 16
   %0 = load i32, ptr %remaining_keys, align 8, !tbaa !10
   %cmp = icmp slt i32 %0, 1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %reader, align 8, !tbaa !3
-  %offset = getelementptr inbounds i8, ptr %reader, i64 8
+  %offset = getelementptr inbounds nuw i8, ptr %reader, i64 8
   %2 = load i64, ptr %offset, align 8, !tbaa !11
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
   %key_size.0.copyload = load i32, ptr %add.ptr, align 1
-  %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %add.ptr5 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   store ptr %add.ptr5, ptr %key_out, align 8, !tbaa !12
   %conv = sext i32 %key_size.0.copyload to i64
-  %n_bytes = getelementptr inbounds i8, ptr %key_out, i64 8
+  %n_bytes = getelementptr inbounds nuw i8, ptr %key_out, i64 8
   store i64 %conv, ptr %n_bytes, align 8, !tbaa !14
   %3 = getelementptr i8, ptr %add.ptr, i64 %conv
   %add.ptr11 = getelementptr i8, ptr %3, i64 4
@@ -100,7 +100,7 @@ if.end:                                           ; preds = %entry
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr, i64 %add12
   store ptr %add.ptr16, ptr %value_out, align 8, !tbaa !12
   %conv18 = sext i32 %value_size.0.copyload to i64
-  %n_bytes19 = getelementptr inbounds i8, ptr %value_out, i64 8
+  %n_bytes19 = getelementptr inbounds nuw i8, ptr %value_out, i64 8
   store i64 %conv18, ptr %n_bytes19, align 8, !tbaa !14
   %add21 = add i64 %add12, %2
   %add23 = add i64 %add21, %conv18
@@ -211,7 +211,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call2.sink = phi i64 [ %call2, %if.then ], [ 0, %entry ]
-  %0 = getelementptr inbounds i8, ptr %value_out, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %value_out, i64 8
   store i64 %call2.sink, ptr %0, align 8
   %cmp.i = icmp eq ptr %metadata, null
   br i1 %cmp.i, label %while.end, label %_ZN16duckdb_nanoarrow23ArrowMetadataReaderInitEPNS_19ArrowMetadataReaderEPKc.exit
@@ -239,7 +239,7 @@ while.body:                                       ; preds = %_ZN16duckdb_nanoarr
   br i1 %cmp10, label %land.rhs, label %cleanup
 
 land.rhs:                                         ; preds = %while.body
-  %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %add.ptr5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %call14 = tail call i32 @strncmp(ptr noundef %key, ptr noundef nonnull %add.ptr5.i, i64 noundef %call) #26
   %cmp15 = icmp eq i32 %call14, 0
   br i1 %cmp15, label %cleanup.thread, label %cleanup
@@ -294,7 +294,7 @@ while.body.i:                                     ; preds = %_ZN16duckdb_nanoarr
   br i1 %cmp10.i, label %land.rhs.i, label %cleanup.i
 
 land.rhs.i:                                       ; preds = %while.body.i
-  %add.ptr5.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
+  %add.ptr5.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 4
   %call14.i = tail call i32 @strncmp(ptr noundef %key, ptr noundef nonnull %add.ptr5.i.i, i64 noundef %call.i) #26
   %cmp15.i = icmp eq i32 %call14.i, 0
   br i1 %cmp15.i, label %_ZN16duckdb_nanoarrow21ArrowMetadataGetValueEPKcS1_S1_PNS_15ArrowStringViewE.exit, label %cleanup.i
@@ -320,7 +320,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %name = getelementptr inbounds i8, ptr %schema, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %schema, i64 8
   %1 = load ptr, ptr %name, align 8, !tbaa !19
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.end5, label %if.then3
@@ -330,7 +330,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %metadata = getelementptr inbounds i8, ptr %schema, i64 16
+  %metadata = getelementptr inbounds nuw i8, ptr %schema, i64 16
   %2 = load ptr, ptr %metadata, align 8, !tbaa !20
   %cmp6.not = icmp eq ptr %2, null
   br i1 %cmp6.not, label %if.end9, label %if.then7
@@ -340,13 +340,13 @@ if.then7:                                         ; preds = %if.end5
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end5
-  %children = getelementptr inbounds i8, ptr %schema, i64 40
+  %children = getelementptr inbounds nuw i8, ptr %schema, i64 40
   %3 = load ptr, ptr %children, align 8, !tbaa !21
   %cmp10.not = icmp eq ptr %3, null
   br i1 %cmp10.not, label %if.end30, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end9
-  %n_children = getelementptr inbounds i8, ptr %schema, i64 32
+  %n_children = getelementptr inbounds nuw i8, ptr %schema, i64 32
   %4 = load i64, ptr %n_children, align 8, !tbaa !22
   %cmp1282 = icmp sgt i64 %4, 0
   br i1 %cmp1282, label %for.body, label %for.cond.cleanup
@@ -364,13 +364,13 @@ for.body:                                         ; preds = %for.cond.preheader,
   %6 = phi i64 [ %11, %for.inc ], [ %4, %for.cond.preheader ]
   %i.083 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %7 = load ptr, ptr %children, align 8, !tbaa !21
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %i.083
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %7, i64 %i.083
   %8 = load ptr, ptr %arrayidx, align 8, !tbaa !23
   %cmp14.not = icmp eq ptr %8, null
   br i1 %cmp14.not, label %for.inc, label %if.then15
 
 if.then15:                                        ; preds = %for.body
-  %release = getelementptr inbounds i8, ptr %8, i64 56
+  %release = getelementptr inbounds nuw i8, ptr %8, i64 56
   %9 = load ptr, ptr %release, align 8, !tbaa !24
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %if.end25, label %if.then19
@@ -378,7 +378,7 @@ if.then15:                                        ; preds = %for.body
 if.then19:                                        ; preds = %if.then15
   tail call void %9(ptr noundef nonnull %8)
   %.pre = load ptr, ptr %children, align 8, !tbaa !21
-  %arrayidx27.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %i.083
+  %arrayidx27.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %i.083
   %.pre84 = load ptr, ptr %arrayidx27.phi.trans.insert, align 8, !tbaa !23
   br label %if.end25
 
@@ -395,13 +395,13 @@ for.inc:                                          ; preds = %if.end25, %for.body
   br i1 %cmp12, label %for.body, label %for.cond.cleanup.loopexit, !llvm.loop !25
 
 if.end30:                                         ; preds = %for.cond.cleanup, %if.end9
-  %dictionary = getelementptr inbounds i8, ptr %schema, i64 48
+  %dictionary = getelementptr inbounds nuw i8, ptr %schema, i64 48
   %12 = load ptr, ptr %dictionary, align 8, !tbaa !26
   %cmp31.not = icmp eq ptr %12, null
   br i1 %cmp31.not, label %if.end42, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
-  %release34 = getelementptr inbounds i8, ptr %12, i64 56
+  %release34 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %13 = load ptr, ptr %release34, align 8, !tbaa !24
   %cmp35.not = icmp eq ptr %13, null
   br i1 %cmp35.not, label %if.end40, label %if.then36
@@ -417,7 +417,7 @@ if.end40:                                         ; preds = %if.then36, %if.then
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end40, %if.end30
-  %private_data = getelementptr inbounds i8, ptr %schema, i64 64
+  %private_data = getelementptr inbounds nuw i8, ptr %schema, i64 64
   %15 = load ptr, ptr %private_data, align 8, !tbaa !27
   %cmp43.not = icmp eq ptr %15, null
   br i1 %cmp43.not, label %if.end46, label %if.then44
@@ -427,7 +427,7 @@ if.then44:                                        ; preds = %if.end42
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then44, %if.end42
-  %release47 = getelementptr inbounds i8, ptr %schema, i64 56
+  %release47 = getelementptr inbounds nuw i8, ptr %schema, i64 56
   store ptr null, ptr %release47, align 8, !tbaa !24
   ret void
 }
@@ -448,7 +448,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [38 x ptr], ptr @switch.table._ZN16duckdb_nanoarrow25ArrowSchemaFormatTemplateENS_9ArrowTypeE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [38 x ptr], ptr @switch.table._ZN16duckdb_nanoarrow25ArrowSchemaFormatTemplateENS_9ArrowTypeE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -460,13 +460,13 @@ return:                                           ; preds = %switch.lookup, %ent
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 23) i32 @_ZN16duckdb_nanoarrow15ArrowSchemaInitEP11ArrowSchemaNS_9ArrowTypeE(ptr nocapture noundef initializes((0, 72)) %schema, i32 noundef %data_type) local_unnamed_addr #8 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %schema, i64 24
+  %flags = getelementptr inbounds nuw i8, ptr %schema, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %schema, i8 0, i64 24, i1 false)
   store i64 2, ptr %flags, align 8, !tbaa !28
-  %n_children = getelementptr inbounds i8, ptr %schema, i64 32
-  %private_data = getelementptr inbounds i8, ptr %schema, i64 64
+  %n_children = getelementptr inbounds nuw i8, ptr %schema, i64 32
+  %private_data = getelementptr inbounds nuw i8, ptr %schema, i64 64
   store ptr null, ptr %private_data, align 8, !tbaa !27
-  %release = getelementptr inbounds i8, ptr %schema, i64 56
+  %release = getelementptr inbounds nuw i8, ptr %schema, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %n_children, i8 0, i64 24, i1 false)
   store ptr @_ZN16duckdb_nanoarrow18ArrowSchemaReleaseEP11ArrowSchema, ptr %release, align 8, !tbaa !24
   switch i32 %data_type, label %if.then [
@@ -640,13 +640,13 @@ return:                                           ; preds = %if.else, %cleanup.t
 define noundef range(i32 0, 23) i32 @_ZN16duckdb_nanoarrow24ArrowSchemaInitFixedSizeEP11ArrowSchemaNS_9ArrowTypeEi(ptr noundef initializes((0, 72)) %schema, i32 noundef %data_type, i32 noundef %fixed_size) local_unnamed_addr #8 {
 if.end:
   %buffer = alloca [64 x i8], align 16
-  %flags.i = getelementptr inbounds i8, ptr %schema, i64 24
+  %flags.i = getelementptr inbounds nuw i8, ptr %schema, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %schema, i8 0, i64 24, i1 false)
   store i64 2, ptr %flags.i, align 8, !tbaa !28
-  %n_children.i = getelementptr inbounds i8, ptr %schema, i64 32
-  %private_data.i = getelementptr inbounds i8, ptr %schema, i64 64
+  %n_children.i = getelementptr inbounds nuw i8, ptr %schema, i64 32
+  %private_data.i = getelementptr inbounds nuw i8, ptr %schema, i64 64
   store ptr null, ptr %private_data.i, align 8, !tbaa !27
-  %release.i = getelementptr inbounds i8, ptr %schema, i64 56
+  %release.i = getelementptr inbounds nuw i8, ptr %schema, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %n_children.i, i8 0, i64 24, i1 false)
   store ptr @_ZN16duckdb_nanoarrow18ArrowSchemaReleaseEP11ArrowSchema, ptr %release.i, align 8, !tbaa !24
   %cmp1 = icmp slt i32 %fixed_size, 1
@@ -718,13 +718,13 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 define noundef range(i32 0, 23) i32 @_ZN16duckdb_nanoarrow22ArrowSchemaInitDecimalEP11ArrowSchemaNS_9ArrowTypeEii(ptr noundef initializes((0, 72)) %schema, i32 noundef %data_type, i32 noundef %decimal_precision, i32 noundef %decimal_scale) local_unnamed_addr #8 {
 if.end:
   %buffer = alloca [64 x i8], align 16
-  %flags.i = getelementptr inbounds i8, ptr %schema, i64 24
+  %flags.i = getelementptr inbounds nuw i8, ptr %schema, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %schema, i8 0, i64 24, i1 false)
   store i64 2, ptr %flags.i, align 8, !tbaa !28
-  %n_children.i = getelementptr inbounds i8, ptr %schema, i64 32
-  %private_data.i = getelementptr inbounds i8, ptr %schema, i64 64
+  %n_children.i = getelementptr inbounds nuw i8, ptr %schema, i64 32
+  %private_data.i = getelementptr inbounds nuw i8, ptr %schema, i64 64
   store ptr null, ptr %private_data.i, align 8, !tbaa !27
-  %release.i = getelementptr inbounds i8, ptr %schema, i64 56
+  %release.i = getelementptr inbounds nuw i8, ptr %schema, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %n_children.i, i8 0, i64 24, i1 false)
   store ptr @_ZN16duckdb_nanoarrow18ArrowSchemaReleaseEP11ArrowSchema, ptr %release.i, align 8, !tbaa !24
   %cmp1 = icmp slt i32 %decimal_precision, 1
@@ -793,13 +793,13 @@ cleanup16:                                        ; preds = %cleanup, %if.then2
 define noundef range(i32 0, 35) i32 @_ZN16duckdb_nanoarrow23ArrowSchemaInitDateTimeEP11ArrowSchemaNS_9ArrowTypeENS_13ArrowTimeUnitEPKc(ptr noundef initializes((0, 72)) %schema, i32 noundef %data_type, i32 noundef %time_unit, ptr noundef %timezone) local_unnamed_addr #8 {
 if.end:
   %buffer = alloca [128 x i8], align 16
-  %flags.i = getelementptr inbounds i8, ptr %schema, i64 24
+  %flags.i = getelementptr inbounds nuw i8, ptr %schema, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %schema, i8 0, i64 24, i1 false)
   store i64 2, ptr %flags.i, align 8, !tbaa !28
-  %n_children.i = getelementptr inbounds i8, ptr %schema, i64 32
-  %private_data.i = getelementptr inbounds i8, ptr %schema, i64 64
+  %n_children.i = getelementptr inbounds nuw i8, ptr %schema, i64 32
+  %private_data.i = getelementptr inbounds nuw i8, ptr %schema, i64 64
   store ptr null, ptr %private_data.i, align 8, !tbaa !27
-  %release.i = getelementptr inbounds i8, ptr %schema, i64 56
+  %release.i = getelementptr inbounds nuw i8, ptr %schema, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %n_children.i, i8 0, i64 24, i1 false)
   store ptr @_ZN16duckdb_nanoarrow18ArrowSchemaReleaseEP11ArrowSchema, ptr %release.i, align 8, !tbaa !24
   %0 = icmp ult i32 %time_unit, 4
@@ -811,7 +811,7 @@ if.then3:                                         ; preds = %if.end
 
 switch.lookup:                                    ; preds = %if.end
   %1 = zext nneg i32 %time_unit to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN16duckdb_nanoarrow23ArrowSchemaInitDateTimeEP11ArrowSchemaNS_9ArrowTypeENS_13ArrowTimeUnitEPKc, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN16duckdb_nanoarrow23ArrowSchemaInitDateTimeEP11ArrowSchemaNS_9ArrowTypeENS_13ArrowTimeUnitEPKc, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %buffer) #27
   switch i32 %data_type, label %sw.default [
@@ -867,7 +867,7 @@ if.then25:                                        ; preds = %sw.epilog
 
 if.end27:                                         ; preds = %sw.epilog
   %conv = zext nneg i32 %n_chars.0 to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr %buffer, i64 0, i64 %conv
+  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr %buffer, i64 0, i64 %conv
   store i8 0, ptr %arrayidx, align 1, !tbaa !29
   %3 = load ptr, ptr %schema, align 8, !tbaa !17
   %cmp.not.i = icmp eq ptr %3, null
@@ -914,7 +914,7 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef range(i32 0, 13) i32 @_ZN16duckdb_nanoarrow18ArrowSchemaSetNameEP11ArrowSchemaPKc(ptr nocapture noundef %schema, ptr noundef readonly %name) local_unnamed_addr #11 {
 entry:
-  %name1 = getelementptr inbounds i8, ptr %schema, i64 8
+  %name1 = getelementptr inbounds nuw i8, ptr %schema, i64 8
   %0 = load ptr, ptr %name1, align 8, !tbaa !19
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -951,7 +951,7 @@ return:                                           ; preds = %if.else, %cleanup.t
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef range(i32 0, 13) i32 @_ZN16duckdb_nanoarrow22ArrowSchemaSetMetadataEP11ArrowSchemaPKc(ptr nocapture noundef %schema, ptr noundef readonly %metadata) local_unnamed_addr #14 {
 entry:
-  %metadata1 = getelementptr inbounds i8, ptr %schema, i64 16
+  %metadata1 = getelementptr inbounds nuw i8, ptr %schema, i64 16
   %0 = load ptr, ptr %metadata1, align 8, !tbaa !20
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1051,7 +1051,7 @@ return:                                           ; preds = %if.else, %cleanup.t
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef range(i32 0, 18) i32 @_ZN16duckdb_nanoarrow27ArrowSchemaAllocateChildrenEP11ArrowSchemal(ptr nocapture noundef %schema, i64 noundef %n_children) local_unnamed_addr #15 {
 entry:
-  %children = getelementptr inbounds i8, ptr %schema, i64 40
+  %children = getelementptr inbounds nuw i8, ptr %schema, i64 40
   %0 = load ptr, ptr %children, align 8, !tbaa !21
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1068,7 +1068,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp5, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then2
-  %n_children8 = getelementptr inbounds i8, ptr %schema, i64 32
+  %n_children8 = getelementptr inbounds nuw i8, ptr %schema, i64 32
   store i64 %n_children, ptr %n_children8, align 8, !tbaa !22
   br label %for.body
 
@@ -1076,16 +1076,16 @@ for.body:                                         ; preds = %if.end18, %for.body
   %1 = phi ptr [ %2, %if.end18 ], [ %calloc, %for.body.preheader ]
   %i.042 = phi i64 [ %inc, %if.end18 ], [ 0, %for.body.preheader ]
   %call.i37 = tail call noalias noundef dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #28
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i.042
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %i.042
   store ptr %call.i37, ptr %arrayidx, align 8, !tbaa !23
   %2 = load ptr, ptr %children, align 8, !tbaa !21
-  %arrayidx15 = getelementptr inbounds ptr, ptr %2, i64 %i.042
+  %arrayidx15 = getelementptr inbounds nuw ptr, ptr %2, i64 %i.042
   %3 = load ptr, ptr %arrayidx15, align 8, !tbaa !23
   %cmp16 = icmp eq ptr %3, null
   br i1 %cmp16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %for.body
-  %release = getelementptr inbounds i8, ptr %3, i64 56
+  %release = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr null, ptr %release, align 8, !tbaa !24
   %inc = add nuw nsw i64 %i.042, 1
   %exitcond.not = icmp eq i64 %inc, %n_children
@@ -1102,7 +1102,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noundef range(i32 0, 18) i32 @_ZN16duckdb_nanoarrow29ArrowSchemaAllocateDictionaryEP11ArrowSchema(ptr nocapture noundef %schema) local_unnamed_addr #17 {
 entry:
-  %dictionary = getelementptr inbounds i8, ptr %schema, i64 48
+  %dictionary = getelementptr inbounds nuw i8, ptr %schema, i64 48
   %0 = load ptr, ptr %dictionary, align 8, !tbaa !26
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1114,7 +1114,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %release = getelementptr inbounds i8, ptr %call.i, i64 56
+  %release = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store ptr null, ptr %release, align 8, !tbaa !24
   br label %return
 
@@ -1126,14 +1126,14 @@ return:                                           ; preds = %if.end5, %if.end, %
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 18) i32 @_ZN16duckdb_nanoarrow19ArrowSchemaDeepCopyEP11ArrowSchemaS1_(ptr nocapture noundef readonly %schema, ptr noundef initializes((0, 72)) %schema_out) local_unnamed_addr #8 {
 entry:
-  %flags.i = getelementptr inbounds i8, ptr %schema_out, i64 24
-  %0 = getelementptr inbounds i8, ptr %schema_out, i64 8
+  %flags.i = getelementptr inbounds nuw i8, ptr %schema_out, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %schema_out, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
   store i64 2, ptr %flags.i, align 8, !tbaa !28
-  %n_children.i = getelementptr inbounds i8, ptr %schema_out, i64 32
-  %private_data.i = getelementptr inbounds i8, ptr %schema_out, i64 64
+  %n_children.i = getelementptr inbounds nuw i8, ptr %schema_out, i64 32
+  %private_data.i = getelementptr inbounds nuw i8, ptr %schema_out, i64 64
   store ptr null, ptr %private_data.i, align 8, !tbaa !27
-  %release.i = getelementptr inbounds i8, ptr %schema_out, i64 56
+  %release.i = getelementptr inbounds nuw i8, ptr %schema_out, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %n_children.i, i8 0, i64 24, i1 false)
   store ptr @_ZN16duckdb_nanoarrow18ArrowSchemaReleaseEP11ArrowSchema, ptr %release.i, align 8, !tbaa !24
   %call.i.i.i = tail call noalias noundef dereferenceable_or_null(2) ptr @malloc(i64 noundef 2) #28
@@ -1172,7 +1172,7 @@ if.then3:                                         ; preds = %if.then4.i
   br label %cleanup44
 
 if.end.i95:                                       ; preds = %if.else.i, %cleanup.thread.i
-  %name = getelementptr inbounds i8, ptr %schema, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %schema, i64 8
   %2 = load ptr, ptr %name, align 8, !tbaa !19
   %cmp3.not.i96 = icmp eq ptr %2, null
   br i1 %cmp3.not.i96, label %if.else.i104, label %if.then4.i97
@@ -1198,9 +1198,9 @@ if.then7:                                         ; preds = %if.then4.i97
   br label %cleanup44
 
 if.end.i107:                                      ; preds = %if.else.i104, %cleanup.thread.i102
-  %metadata = getelementptr inbounds i8, ptr %schema, i64 16
+  %metadata = getelementptr inbounds nuw i8, ptr %schema, i64 16
   %3 = load ptr, ptr %metadata, align 8, !tbaa !20
-  %metadata1.i = getelementptr inbounds i8, ptr %schema_out, i64 16
+  %metadata1.i = getelementptr inbounds nuw i8, ptr %schema_out, i64 16
   %cmp3.not.i108 = icmp eq ptr %3, null
   br i1 %cmp3.not.i108, label %if.else.i113, label %_ZN16duckdb_nanoarrow23ArrowMetadataReaderInitEPNS_19ArrowMetadataReaderEPKc.exit.i.i
 
@@ -1287,9 +1287,9 @@ if.then12:                                        ; preds = %_ZN16duckdb_nanoarr
   br label %cleanup44
 
 if.end.i134:                                      ; preds = %if.else.i113, %cleanup.thread.i111
-  %n_children = getelementptr inbounds i8, ptr %schema, i64 32
+  %n_children = getelementptr inbounds nuw i8, ptr %schema, i64 32
   %9 = load i64, ptr %n_children, align 8, !tbaa !22
-  %children.i = getelementptr inbounds i8, ptr %schema_out, i64 40
+  %children.i = getelementptr inbounds nuw i8, ptr %schema_out, i64 40
   %cmp1.i = icmp sgt i64 %9, 0
   br i1 %cmp1.i, label %if.then2.i, label %for.end
 
@@ -1308,16 +1308,16 @@ for.body.i:                                       ; preds = %if.end18.i, %for.bo
   %10 = phi ptr [ %11, %if.end18.i ], [ %calloc.i, %for.body.preheader.i ]
   %i.042.i = phi i64 [ %inc.i, %if.end18.i ], [ 0, %for.body.preheader.i ]
   %call.i37.i = tail call noalias noundef dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #28
-  %arrayidx.i = getelementptr inbounds ptr, ptr %10, i64 %i.042.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %10, i64 %i.042.i
   store ptr %call.i37.i, ptr %arrayidx.i, align 8, !tbaa !23
   %11 = load ptr, ptr %children.i, align 8, !tbaa !21
-  %arrayidx15.i = getelementptr inbounds ptr, ptr %11, i64 %i.042.i
+  %arrayidx15.i = getelementptr inbounds nuw ptr, ptr %11, i64 %i.042.i
   %12 = load ptr, ptr %arrayidx15.i, align 8, !tbaa !23
   %cmp16.i = icmp eq ptr %12, null
   br i1 %cmp16.i, label %if.then17.loopexit, label %if.end18.i
 
 if.end18.i:                                       ; preds = %for.body.i
-  %release.i135 = getelementptr inbounds i8, ptr %12, i64 56
+  %release.i135 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr null, ptr %release.i135, align 8, !tbaa !24
   %inc.i = add nuw nsw i64 %i.042.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %9
@@ -1329,7 +1329,7 @@ for.cond.preheader:                               ; preds = %if.end18.i
   br i1 %13, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %children = getelementptr inbounds i8, ptr %schema, i64 40
+  %children = getelementptr inbounds nuw i8, ptr %schema, i64 40
   br label %for.body
 
 if.then17.loopexit:                               ; preds = %for.body.i
@@ -1350,10 +1350,10 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.cond, %for.body.lr.ph
   %i.0131 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
   %16 = load ptr, ptr %children, align 8, !tbaa !21
-  %arrayidx = getelementptr inbounds ptr, ptr %16, i64 %i.0131
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %16, i64 %i.0131
   %17 = load ptr, ptr %arrayidx, align 8, !tbaa !23
   %18 = load ptr, ptr %children.i, align 8, !tbaa !21
-  %arrayidx23 = getelementptr inbounds ptr, ptr %18, i64 %i.0131
+  %arrayidx23 = getelementptr inbounds nuw ptr, ptr %18, i64 %i.0131
   %19 = load ptr, ptr %arrayidx23, align 8, !tbaa !23
   %call24 = tail call noundef i32 @_ZN16duckdb_nanoarrow19ArrowSchemaDeepCopyEP11ArrowSchemaS1_(ptr noundef %17, ptr noundef %19)
   %cmp25.not = icmp eq i32 %call24, 0
@@ -1365,13 +1365,13 @@ cleanup.thread:                                   ; preds = %for.body
   br label %cleanup44
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader, %if.end.i134
-  %dictionary = getelementptr inbounds i8, ptr %schema, i64 48
+  %dictionary = getelementptr inbounds nuw i8, ptr %schema, i64 48
   %21 = load ptr, ptr %dictionary, align 8, !tbaa !26
   %cmp29.not = icmp eq ptr %21, null
   br i1 %cmp29.not, label %cleanup44, label %if.then30
 
 if.then30:                                        ; preds = %for.end
-  %dictionary.i = getelementptr inbounds i8, ptr %schema_out, i64 48
+  %dictionary.i = getelementptr inbounds nuw i8, ptr %schema_out, i64 48
   %22 = load ptr, ptr %dictionary.i, align 8, !tbaa !26
   %cmp.not.i114 = icmp eq ptr %22, null
   br i1 %cmp.not.i114, label %if.end.i115, label %if.then33
@@ -1389,7 +1389,7 @@ if.then33:                                        ; preds = %if.end.i115, %if.th
   br label %cleanup44
 
 if.end35:                                         ; preds = %if.end.i115
-  %release.i117 = getelementptr inbounds i8, ptr %call.i.i116, i64 56
+  %release.i117 = getelementptr inbounds nuw i8, ptr %call.i.i116, i64 56
   store ptr null, ptr %release.i117, align 8, !tbaa !24
   %24 = load ptr, ptr %dictionary, align 8, !tbaa !26
   %call38 = tail call noundef i32 @_ZN16duckdb_nanoarrow19ArrowSchemaDeepCopyEP11ArrowSchemaS1_(ptr noundef %24, ptr noundef nonnull %call.i.i116)
@@ -1437,14 +1437,14 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
-  %release = getelementptr inbounds i8, ptr %values, i64 64
+  %release = getelementptr inbounds nuw i8, ptr %values, i64 64
   %0 = load ptr, ptr %release, align 8, !tbaa !32
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #27
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store ptr %1, ptr %ref.tmp, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #27
   store i64 29, ptr %__dnew.i.i, align 8, !tbaa !36
@@ -1456,7 +1456,7 @@ call2.i11.i.noexc:                                ; preds = %if.then
   %2 = load i64, ptr %__dnew.i.i, align 8, !tbaa !36
   store i64 %2, ptr %1, align 8, !tbaa !29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %call2.i11.i57, ptr noundef nonnull align 1 dereferenceable(29) @.str.34, i64 29, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %2, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !39
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !37
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 %2
@@ -1512,14 +1512,14 @@ ehcleanup:                                        ; preds = %if.then.i.i60, %_ZN
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
-  %release6 = getelementptr inbounds i8, ptr %schema, i64 56
+  %release6 = getelementptr inbounds nuw i8, ptr %schema, i64 56
   %10 = load ptr, ptr %release6, align 8, !tbaa !24
   %tobool7.not = icmp eq ptr %10, null
   br i1 %tobool7.not, label %if.then8, label %if.else19
 
 if.then8:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp9) #27
-  %11 = getelementptr inbounds i8, ptr %ref.tmp9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 16
   store ptr %11, ptr %ref.tmp9, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i65) #27
   store i64 30, ptr %__dnew.i.i65, align 8, !tbaa !36
@@ -1531,7 +1531,7 @@ call2.i11.i.noexc74:                              ; preds = %if.then8
   %12 = load i64, ptr %__dnew.i.i65, align 8, !tbaa !36
   store i64 %12, ptr %11, align 8, !tbaa !29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(30) %call2.i11.i75, ptr noundef nonnull align 1 dereferenceable(30) @.str.35, i64 30, i1 false)
-  %_M_string_length.i.i.i.i69 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
+  %_M_string_length.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %ref.tmp9, i64 8
   store i64 %12, ptr %_M_string_length.i.i.i.i69, align 8, !tbaa !39
   %13 = load ptr, ptr %ref.tmp9, align 8, !tbaa !37
   %arrayidx.i.i.i70 = getelementptr inbounds i8, ptr %13, i64 %12
@@ -1587,14 +1587,14 @@ ehcleanup16:                                      ; preds = %if.then.i.i84, %_ZN
   br label %eh.resume
 
 if.else19:                                        ; preds = %if.else
-  %release20 = getelementptr inbounds i8, ptr %stream, i64 24
+  %release20 = getelementptr inbounds nuw i8, ptr %stream, i64 24
   %20 = load ptr, ptr %release20, align 8, !tbaa !40
   %tobool21.not = icmp eq ptr %20, null
   br i1 %tobool21.not, label %if.end34, label %if.then22
 
 if.then22:                                        ; preds = %if.else19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp23) #27
-  %21 = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 16
   store ptr %21, ptr %ref.tmp23, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i89) #27
   store i64 39, ptr %__dnew.i.i89, align 8, !tbaa !36
@@ -1606,7 +1606,7 @@ call2.i11.i.noexc98:                              ; preds = %if.then22
   %22 = load i64, ptr %__dnew.i.i89, align 8, !tbaa !36
   store i64 %22, ptr %21, align 8, !tbaa !29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %call2.i11.i99, ptr noundef nonnull align 1 dereferenceable(39) @.str.36, i64 39, i1 false)
-  %_M_string_length.i.i.i.i93 = getelementptr inbounds i8, ptr %ref.tmp23, i64 8
+  %_M_string_length.i.i.i.i93 = getelementptr inbounds nuw i8, ptr %ref.tmp23, i64 8
   store i64 %22, ptr %_M_string_length.i.i.i.i93, align 8, !tbaa !39
   %arrayidx.i.i.i94 = getelementptr inbounds i8, ptr %call2.i11.i99, i64 %22
   store i8 0, ptr %arrayidx.i.i.i94, align 1, !tbaa !29
@@ -1663,15 +1663,15 @@ ehcleanup30:                                      ; preds = %if.then.i.i108, %_Z
 if.end34:                                         ; preds = %if.else19
   %call = tail call noalias dereferenceable_or_null(152) ptr @malloc(i64 noundef 152) #28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call, ptr noundef nonnull align 8 dereferenceable(72) %schema, i64 72, i1 false)
-  %batch = getelementptr inbounds i8, ptr %call, i64 72
+  %batch = getelementptr inbounds nuw i8, ptr %call, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %batch, ptr noundef nonnull align 8 dereferenceable(80) %values, i64 80, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %schema, i8 0, i64 72, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %values, i8 0, i64 80, i1 false)
-  %private_data = getelementptr inbounds i8, ptr %stream, i64 32
+  %private_data = getelementptr inbounds nuw i8, ptr %stream, i64 32
   store ptr %call, ptr %private_data, align 8, !tbaa !42
-  %get_last_error = getelementptr inbounds i8, ptr %stream, i64 16
+  %get_last_error = getelementptr inbounds nuw i8, ptr %stream, i64 16
   store ptr @_ZN11duckdb_adbcL34SingleBatchArrayStreamGetLastErrorEP16ArrowArrayStream, ptr %get_last_error, align 8, !tbaa !43
-  %get_next = getelementptr inbounds i8, ptr %stream, i64 8
+  %get_next = getelementptr inbounds nuw i8, ptr %stream, i64 8
   store ptr @_ZN11duckdb_adbcL29SingleBatchArrayStreamGetNextEP16ArrowArrayStreamP10ArrowArray, ptr %get_next, align 8, !tbaa !44
   store ptr @_ZN11duckdb_adbcL31SingleBatchArrayStreamGetSchemaEP16ArrowArrayStreamP11ArrowSchema, ptr %stream, align 8, !tbaa !45
   store ptr @_ZN11duckdb_adbcL29SingleBatchArrayStreamReleaseEP16ArrowArrayStream, ptr %release20, align 8, !tbaa !40
@@ -1703,13 +1703,13 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %private_data = getelementptr inbounds i8, ptr %stream, i64 32
+  %private_data = getelementptr inbounds nuw i8, ptr %stream, i64 32
   %0 = load ptr, ptr %private_data, align 8, !tbaa !42
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %batch3 = getelementptr inbounds i8, ptr %0, i64 72
+  %batch3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %batch, ptr noundef nonnull align 8 dereferenceable(80) %batch3, i64 80, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %batch3, i8 0, i64 80, i1 false)
   br label %return
@@ -1726,7 +1726,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %private_data = getelementptr inbounds i8, ptr %stream, i64 32
+  %private_data = getelementptr inbounds nuw i8, ptr %stream, i64 32
   %0 = load ptr, ptr %private_data, align 8, !tbaa !42
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %if.end
@@ -1747,22 +1747,22 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %private_data = getelementptr inbounds i8, ptr %stream, i64 32
+  %private_data = getelementptr inbounds nuw i8, ptr %stream, i64 32
   %0 = load ptr, ptr %private_data, align 8, !tbaa !42
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %release = getelementptr inbounds i8, ptr %0, i64 56
+  %release = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %release, align 8, !tbaa !46
   tail call void %1(ptr noundef nonnull %0)
-  %release4 = getelementptr inbounds i8, ptr %0, i64 136
+  %release4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %2 = load ptr, ptr %release4, align 8, !tbaa !48
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %batch = getelementptr inbounds i8, ptr %0, i64 72
+  %batch = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void %2(ptr noundef nonnull %batch)
   br label %if.end10
 

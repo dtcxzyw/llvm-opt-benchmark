@@ -20,7 +20,7 @@ define void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   br label %12
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN120_$LT$proc_macro2..fallback..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hf266332da2d91217E"(ptr nonnull align 8 %11, ptr align 8 %1)
   br label %20
 
@@ -82,7 +82,7 @@ define void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   br label %12
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN120_$LT$proc_macro2..fallback..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hbbe93428bd5ab57cE"(ptr nonnull align 8 %11, ptr align 8 %1)
   br label %20
 
@@ -144,7 +144,7 @@ define void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   br label %12
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN120_$LT$proc_macro2..fallback..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h4d8e4e4917eff0f1E"(ptr nonnull align 8 %11, ptr align 8 %1)
   br label %20
 
@@ -206,7 +206,7 @@ define void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   br label %12
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @"_ZN120_$LT$proc_macro2..fallback..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17hed1632bfe14118baE"(ptr nonnull align 8 %11, ptr align 8 %1)
   br label %20
 
@@ -275,9 +275,9 @@ define void @"_ZN121_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha47308083fd036bcE"(ptr nonnull sret([32 x i8]) align 8 %6, ptr nonnull align 8 %5)
   call void @_ZN4core4iter6traits8iterator8Iterator3map17he551a26f8bc92eb8E(ptr nonnull sret([32 x i8]) align 8 %7, ptr nonnull align 8 %6)
   %13 = call i32 @"_ZN114_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..collect..FromIterator$LT$proc_macro..TokenTree$GT$$GT$9from_iter17h2db987980c683a59E"(ptr nonnull align 8 %7)
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %13, ptr %.sroa.2.0..sroa_idx, align 8
   br label %14
 
@@ -285,7 +285,7 @@ define void @"_ZN121_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   %.sink9 = phi i64 [ 0, %12 ], [ -9223372036854775808, %10 ]
   %.sink = phi ptr [ inttoptr (i64 4 to ptr), %12 ], [ %11, %10 ]
   store i64 %.sink9, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %15, align 8
   ret void
 
@@ -329,9 +329,9 @@ define void @"_ZN121_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h045b14617109943fE"(ptr nonnull sret([40 x i8]) align 8 %6, ptr nonnull align 8 %5)
   call void @_ZN4core4iter6traits8iterator8Iterator3map17h1230dd79fc243965E(ptr nonnull sret([40 x i8]) align 8 %7, ptr nonnull align 8 %6)
   %13 = call i32 @"_ZN114_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..collect..FromIterator$LT$proc_macro..TokenTree$GT$$GT$9from_iter17h9b186c0d4c1aa9e9E"(ptr nonnull align 8 %7)
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %13, ptr %.sroa.2.0..sroa_idx, align 8
   br label %14
 
@@ -339,7 +339,7 @@ define void @"_ZN121_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
   %.sink9 = phi i64 [ 0, %12 ], [ -9223372036854775808, %10 ]
   %.sink = phi ptr [ inttoptr (i64 4 to ptr), %12 ], [ %11, %10 ]
   store i64 %.sink9, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %15, align 8
   ret void
 
@@ -411,7 +411,7 @@ define void @"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
           to label %26 unwind label %24
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %9, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %10, i64 104, i1 false)
@@ -431,7 +431,7 @@ define void @"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
           to label %27 unwind label %24
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %8, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
   invoke void @"_ZN110_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro..TokenStream$GT$$GT$6extend17hf9966eae29ddea09E"(ptr nonnull align 4 %28, ptr nonnull align 8 %7)
           to label %29 unwind label %24
 
@@ -457,7 +457,7 @@ define void @"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tr
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %37, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %19
@@ -535,7 +535,7 @@ define ptr @"_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..tra
           to label %12 unwind label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   ret ptr %7
 
@@ -594,7 +594,7 @@ define ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnO
   unreachable
 
 "_ZN128_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..FromIterator$LT$proc_macro2..imp..TokenStream$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h5a4c9392c0ab1f09E.exit": ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   ret ptr %13
 }

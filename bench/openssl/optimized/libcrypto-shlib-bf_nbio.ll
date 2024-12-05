@@ -27,16 +27,16 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
+  %next_bio = getelementptr inbounds nuw i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %ptr = getelementptr inbounds i8, ptr %b, i64 64
+  %ptr = getelementptr inbounds nuw i8, ptr %b, i64 64
   %1 = load ptr, ptr %ptr, align 8
   tail call void @BIO_clear_flags(ptr noundef nonnull %b, i32 noundef 15) #4
-  %lwn = getelementptr inbounds i8, ptr %1, i64 4
+  %lwn = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2 = load i32, ptr %lwn, align 4
   %cmp5 = icmp sgt i32 %2, 0
   br i1 %cmp5, label %if.end12.thread, label %if.else
@@ -90,7 +90,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
+  %next_bio = getelementptr inbounds nuw i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end3
@@ -131,7 +131,7 @@ return:                                           ; preds = %if.then13, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @nbiof_puts(ptr nocapture noundef readonly %bp, ptr noundef %str) #2 {
 entry:
-  %next_bio = getelementptr inbounds i8, ptr %bp, i64 72
+  %next_bio = getelementptr inbounds nuw i8, ptr %bp, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -148,7 +148,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @nbiof_gets(ptr nocapture noundef readonly %bp, ptr noundef %buf, i32 noundef %size) #2 {
 entry:
-  %next_bio = getelementptr inbounds i8, ptr %bp, i64 72
+  %next_bio = getelementptr inbounds nuw i8, ptr %bp, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -165,7 +165,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i64 @nbiof_ctrl(ptr noundef %b, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #2 {
 entry:
-  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
+  %next_bio = getelementptr inbounds nuw i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -201,11 +201,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 -1, ptr %call, align 4
-  %lwn = getelementptr inbounds i8, ptr %call, i64 4
+  %lwn = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 -1, ptr %lwn, align 4
-  %ptr = getelementptr inbounds i8, ptr %bi, i64 64
+  %ptr = getelementptr inbounds nuw i8, ptr %bi, i64 64
   store ptr %call, ptr %ptr, align 8
-  %init = getelementptr inbounds i8, ptr %bi, i64 40
+  %init = getelementptr inbounds nuw i8, ptr %bi, i64 40
   store i32 1, ptr %init, align 8
   br label %return
 
@@ -221,13 +221,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds i8, ptr %a, i64 64
+  %ptr = getelementptr inbounds nuw i8, ptr %a, i64 64
   %0 = load ptr, ptr %ptr, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 71) #4
   store ptr null, ptr %ptr, align 8
-  %init = getelementptr inbounds i8, ptr %a, i64 40
+  %init = getelementptr inbounds nuw i8, ptr %a, i64 40
   store i32 0, ptr %init, align 8
-  %flags = getelementptr inbounds i8, ptr %a, i64 48
+  %flags = getelementptr inbounds nuw i8, ptr %a, i64 48
   store i32 0, ptr %flags, align 8
   br label %return
 
@@ -239,7 +239,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i64 @nbiof_callback_ctrl(ptr nocapture noundef readonly %b, i32 noundef %cmd, ptr noundef %fp) #2 {
 entry:
-  %next_bio = getelementptr inbounds i8, ptr %b, i64 72
+  %next_bio = getelementptr inbounds nuw i8, ptr %b, i64 72
   %0 = load ptr, ptr %next_bio, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end

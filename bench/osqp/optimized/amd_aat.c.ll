@@ -10,7 +10,7 @@ define i64 @amd_l_aat(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noc
 
 .preheader123:                                    ; preds = %6, %.preheader123
   %.0108130 = phi i64 [ %8, %.preheader123 ], [ 0, %6 ]
-  %7 = getelementptr inbounds double, ptr %5, i64 %.0108130
+  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.0108130
   store double -1.000000e+00, ptr %7, align 8
   %8 = add nuw nsw i64 %.0108130, 1
   %exitcond.not = icmp eq i64 %8, 20
@@ -32,7 +32,7 @@ define i64 @amd_l_aat(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noc
 .lr.ph146:                                        ; preds = %10
   %14 = shl nuw i64 %0, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %14, i1 false)
-  %15 = getelementptr inbounds i64, ptr %1, i64 %0
+  %15 = getelementptr inbounds nuw i64, ptr %1, i64 %0
   %16 = load i64, ptr %15, align 8
   %invariant.gep = getelementptr i8, ptr %1, i64 8
   br label %19
@@ -46,16 +46,16 @@ define i64 @amd_l_aat(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   %.0101144 = phi i64 [ 0, %.lr.ph146 ], [ %.1102128, %.loopexit122 ]
   %.0103143 = phi i64 [ 0, %.lr.ph146 ], [ %.1104, %.loopexit122 ]
   %.1106141 = phi i64 [ 0, %.lr.ph146 ], [ %22, %.loopexit122 ]
-  %20 = getelementptr inbounds i64, ptr %1, i64 %.1106141
+  %20 = getelementptr inbounds nuw i64, ptr %1, i64 %.1106141
   %21 = load i64, ptr %20, align 8
   %22 = add nuw nsw i64 %.1106141, 1
-  %23 = getelementptr inbounds i64, ptr %1, i64 %22
+  %23 = getelementptr inbounds nuw i64, ptr %1, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = icmp slt i64 %21, %24
   br i1 %25, label %.lr.ph138, label %.loopexit122
 
 .lr.ph138:                                        ; preds = %19
-  %26 = getelementptr inbounds i64, ptr %3, i64 %.1106141
+  %26 = getelementptr inbounds nuw i64, ptr %3, i64 %.1106141
   br label %27
 
 27:                                               ; preds = %.lr.ph138, %.loopexit121
@@ -130,7 +130,7 @@ define i64 @amd_l_aat(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   %.1102128 = phi i64 [ %.1102135, %44 ], [ %.1102135, %42 ], [ %.0101144, %19 ], [ %.2, %.loopexit121 ]
   %.1104 = phi i64 [ %46, %44 ], [ %.0103143, %42 ], [ %.0103143, %19 ], [ %.0103143, %.loopexit121 ]
   %.1 = phi i64 [ %45, %44 ], [ %.0100136, %42 ], [ %21, %19 ], [ %24, %.loopexit121 ]
-  %62 = getelementptr inbounds i64, ptr %4, i64 %.1106141
+  %62 = getelementptr inbounds nuw i64, ptr %4, i64 %.1106141
   store i64 %.1, ptr %62, align 8
   %exitcond173.not = icmp eq i64 %22, %0
   br i1 %exitcond173.not, label %.preheader, label %19, !llvm.loop !8
@@ -141,16 +141,16 @@ define i64 @amd_l_aat(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noc
 
 .lr.ph154:                                        ; preds = %.preheader, %.loopexit
   %.0112153 = phi i64 [ %65, %.loopexit ], [ 0, %.preheader ]
-  %63 = getelementptr inbounds i64, ptr %4, i64 %.0112153
+  %63 = getelementptr inbounds nuw i64, ptr %4, i64 %.0112153
   %64 = load i64, ptr %63, align 8
   %65 = add nuw nsw i64 %.0112153, 1
-  %66 = getelementptr inbounds i64, ptr %1, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr %1, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = icmp slt i64 %64, %67
   br i1 %68, label %.lr.ph151, label %.loopexit
 
 .lr.ph151:                                        ; preds = %.lr.ph154
-  %69 = getelementptr inbounds i64, ptr %3, i64 %.0112153
+  %69 = getelementptr inbounds nuw i64, ptr %3, i64 %.0112153
   br label %70
 
 70:                                               ; preds = %.lr.ph151, %70
@@ -183,7 +183,7 @@ define i64 @amd_l_aat(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noc
 .lr.ph159:                                        ; preds = %._crit_edge155, %.lr.ph159
   %.0157 = phi i64 [ %88, %.lr.ph159 ], [ 0, %._crit_edge155 ]
   %.2107156 = phi i64 [ %89, %.lr.ph159 ], [ 0, %._crit_edge155 ]
-  %86 = getelementptr inbounds i64, ptr %3, i64 %.2107156
+  %86 = getelementptr inbounds nuw i64, ptr %3, i64 %.2107156
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, %.0157
   %89 = add nuw nsw i64 %.2107156, 1
@@ -197,18 +197,18 @@ define i64 @amd_l_aat(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noc
 90:                                               ; preds = %._crit_edge160
   store double 0.000000e+00, ptr %5, align 8
   %91 = sitofp i64 %0 to double
-  %92 = getelementptr inbounds i8, ptr %5, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %91, ptr %92, align 8
   %93 = sitofp i64 %81 to double
-  %94 = getelementptr inbounds i8, ptr %5, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %93, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %5, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %.099, ptr %95, align 8
   %96 = sitofp i64 %.0103.lcssa178 to double
-  %97 = getelementptr inbounds i8, ptr %5, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store double %96, ptr %97, align 8
   %98 = uitofp i64 %.0.lcssa to double
-  %99 = getelementptr inbounds i8, ptr %5, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double %98, ptr %99, align 8
   br label %100
 

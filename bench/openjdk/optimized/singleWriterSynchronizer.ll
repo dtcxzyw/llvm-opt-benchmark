@@ -10,11 +10,11 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24SingleWriterSynchronizerC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   store volatile i32 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i64 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store volatile i32 1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 0) #2
   ret void
 }
@@ -24,11 +24,11 @@ define hidden void @_ZN24SingleWriterSynchronizer11synchronizeEv(ptr noundef non
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !7
   %2 = load volatile i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = and i32 %2, 1
   %5 = xor i32 %4, 1
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %6
   br label %8
 
 8:                                                ; preds = %8, %1
@@ -42,8 +42,8 @@ define hidden void @_ZN24SingleWriterSynchronizer11synchronizeEv(ptr noundef non
 11:                                               ; preds = %8
   %12 = and i32 %.0, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store volatile i32 %.0, ptr %15, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #2, !srcloc !7
@@ -53,11 +53,11 @@ define hidden void @_ZN24SingleWriterSynchronizer11synchronizeEv(ptr noundef non
   br i1 %.not1213, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %19
 
 .preheader:                                       ; preds = %19, %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %21
 
 19:                                               ; preds = %.lr.ph, %19

@@ -37,7 +37,7 @@ define dso_local range(i32 -2, 1) i32 @validate_exec(ptr nocapture noundef reado
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
   %9 = icmp eq i32 %8, 32768
@@ -89,7 +89,7 @@ define dso_local range(i32 -1, 1) i32 @find_my_exec(ptr noundef %0, ptr noundef 
   br i1 %9, label %validate_exec.exit.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 61440
   %14 = icmp eq i32 %13, 32768
@@ -142,7 +142,7 @@ validate_exec.exit:                               ; preds = %19
   br i1 %.not35, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %36
 
 36:                                               ; preds = %.preheader, %70
@@ -331,7 +331,7 @@ define dso_local range(i32 -2, 1) i32 @find_other_exec(ptr noundef %0, ptr nound
   br i1 %16, label %validate_exec.exit.thread, label %17
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %5, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 61440
   %21 = icmp eq i32 %20, 32768

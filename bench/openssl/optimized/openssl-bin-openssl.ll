@@ -83,7 +83,7 @@ sub_0.i:                                          ; preds = %if.end.i
   br i1 %.not.i, label %if.then5.tail.i, label %lor.lhs.false
 
 if.then5.tail.i:                                  ; preds = %sub_0.i
-  %1 = getelementptr inbounds i8, ptr %call4.i, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %call4.i, i64 1
   %2 = load i8, ptr %1, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %if.then8.i, label %lor.lhs.false
@@ -99,16 +99,16 @@ lor.lhs.false:                                    ; preds = %if.then8.i, %if.the
 
 if.end.i28:                                       ; preds = %lor.lhs.false
   store i1 true, ptr @prog_init.prog_inited, align 4
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @functions, i64 8), align 8
   %cmp.not7.i = icmp eq ptr %4, null
   br i1 %cmp.not7.i, label %for.end.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i28, %for.inc.i
   %i.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end.i28 ]
   %f.08.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @functions, %if.end.i28 ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %f.08.i, i64 48
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %f.08.i, i64 48
   %inc.i = add i64 %i.09.i, 1
-  %name.i = getelementptr inbounds i8, ptr %f.08.i, i64 56
+  %name.i = getelementptr inbounds nuw i8, ptr %f.08.i, i64 56
   %5 = load ptr, ptr %name.i, align 8
   %cmp.not.i29 = icmp eq ptr %5, null
   br i1 %cmp.not.i29, label %for.end.i, label %for.inc.i, !llvm.loop !5
@@ -122,7 +122,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end.
   br i1 %cmp1.i, label %if.then, label %for.cond4.preheader.i
 
 for.cond4.preheader.i:                            ; preds = %for.end.i
-  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @functions, i64 8), align 8
   %cmp6.not10.i = icmp eq ptr %6, null
   br i1 %cmp6.not10.i, label %if.end, label %for.body7.i
 
@@ -130,8 +130,8 @@ for.body7.i:                                      ; preds = %for.cond4.preheader
   %f.111.i = phi ptr [ %incdec.ptr10.i, %for.body7.i ], [ @functions, %for.cond4.preheader.i ]
   %7 = load ptr, ptr @prog_init.ret, align 8
   %call.i6.i = tail call ptr @OPENSSL_LH_insert(ptr noundef %7, ptr noundef nonnull %f.111.i) #10
-  %incdec.ptr10.i = getelementptr inbounds i8, ptr %f.111.i, i64 48
-  %name5.i = getelementptr inbounds i8, ptr %f.111.i, i64 56
+  %incdec.ptr10.i = getelementptr inbounds nuw i8, ptr %f.111.i, i64 48
+  %name5.i = getelementptr inbounds nuw i8, ptr %f.111.i, i64 56
   %8 = load ptr, ptr %name5.i, align 8
   %cmp6.not.i = icmp eq ptr %8, null
   br i1 %cmp6.not.i, label %prog_init.exit, label %for.body7.i, !llvm.loop !7
@@ -164,7 +164,7 @@ if.then11:                                        ; preds = %if.end
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end
-  %name = getelementptr inbounds i8, ptr %f, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %f, i64 8
   store ptr %call8, ptr %name, align 8
   %call.i31 = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %retval.0.i3041, ptr noundef nonnull %f) #10
   %cmp14 = icmp eq ptr %call.i31, null
@@ -175,7 +175,7 @@ if.then15:                                        ; preds = %if.end12
   br i1 %cmp16, label %land.rhs, label %land.end49
 
 land.rhs:                                         ; preds = %if.then15
-  %arrayidx17 = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %13 = load ptr, ptr %arrayidx17, align 8
   %call18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(6) @.str.4) #11
   %cmp19 = icmp eq i32 %call18, 0
@@ -192,13 +192,13 @@ sub_0:                                            ; preds = %lor.lhs.false20
   br i1 %.not, label %sub_1, label %lor.rhs
 
 sub_1:                                            ; preds = %sub_0
-  %15 = getelementptr inbounds i8, ptr %13, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %16 = load i8, ptr %15, align 1
   %.not68 = icmp eq i8 %16, 104
   br i1 %.not68, label %lor.lhs.false24.tail, label %lor.rhs
 
 lor.lhs.false24.tail:                             ; preds = %sub_1
-  %17 = getelementptr inbounds i8, ptr %13, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %land.rhs32, label %lor.rhs
@@ -225,13 +225,13 @@ sub_064:                                          ; preds = %lor.lhs.false36
   br i1 %.not69, label %sub_165, label %lor.rhs44
 
 sub_165:                                          ; preds = %sub_064
-  %21 = getelementptr inbounds i8, ptr %13, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %22 = load i8, ptr %21, align 1
   %.not70 = icmp eq i8 %22, 118
   br i1 %.not70, label %lor.lhs.false40.tail, label %lor.rhs44
 
 lor.lhs.false40.tail:                             ; preds = %sub_165
-  %23 = getelementptr inbounds i8, ptr %13, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %land.end49.thread, label %lor.rhs44
@@ -252,7 +252,7 @@ land.end49:                                       ; preds = %if.then15, %lor.rhs
   %26 = phi i1 [ %.ph, %lor.rhs44 ], [ false, %if.then15 ]
   %27 = phi i1 [ %cmp47, %lor.rhs44 ], [ false, %if.then15 ]
   %dec = add nsw i32 %argc, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %argv, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %cmp51 = icmp eq i32 %dec, 1
   %or.cond = select i1 %cmp51, i1 true, i1 %26
   %brmerge = select i1 %or.cond, i1 true, i1 %27
@@ -354,7 +354,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %f, i8 0, i64 48, i1 false)
-  %name = getelementptr inbounds i8, ptr %f, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %f, i64 8
   store ptr %0, ptr %name, align 8
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %prog, ptr noundef nonnull %f) #10
   %cmp3 = icmp eq ptr %call.i, null
@@ -376,23 +376,23 @@ if.then18.sink.split:                             ; preds = %if.else, %if.then4
   %.sink = phi i32 [ 2, %if.then4 ], [ 3, %if.else ]
   %dgst_main.sink = phi ptr [ @dgst_main, %if.then4 ], [ @enc_main, %if.else ]
   store i32 %.sink, ptr %f, align 8
-  %func = getelementptr inbounds i8, ptr %f, i64 16
+  %func = getelementptr inbounds nuw i8, ptr %f, i64 16
   store ptr %dgst_main.sink, ptr %func, align 8
   br label %if.then18
 
 if.then18:                                        ; preds = %if.then18.sink.split, %if.end
   %fp.0.ph = phi ptr [ %call.i, %if.end ], [ %f, %if.then18.sink.split ]
-  %deprecated_alternative = getelementptr inbounds i8, ptr %fp.0.ph, i64 32
+  %deprecated_alternative = getelementptr inbounds nuw i8, ptr %fp.0.ph, i64 32
   %3 = load ptr, ptr %deprecated_alternative, align 8
   %cmp19.not = icmp eq ptr %3, null
   br i1 %cmp19.not, label %if.end21, label %if.then20
 
 if.then20:                                        ; preds = %if.then18
-  %deprecated_version.i = getelementptr inbounds i8, ptr %fp.0.ph, i64 40
+  %deprecated_version.i = getelementptr inbounds nuw i8, ptr %fp.0.ph, i64 40
   %4 = load ptr, ptr %deprecated_version.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   %5 = load ptr, ptr @bio_err, align 8
-  %name2.i = getelementptr inbounds i8, ptr %fp.0.ph, i64 8
+  %name2.i = getelementptr inbounds nuw i8, ptr %fp.0.ph, i64 8
   %6 = load ptr, ptr %name2.i, align 8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -421,7 +421,7 @@ warn_deprecated.exit:                             ; preds = %if.end.i, %if.then6
   br label %if.end21
 
 if.end21:                                         ; preds = %warn_deprecated.exit, %if.then18
-  %func22 = getelementptr inbounds i8, ptr %fp.0.ph, i64 16
+  %func22 = getelementptr inbounds nuw i8, ptr %fp.0.ph, i64 16
   %10 = load ptr, ptr %func22, align 8
   %call23 = call i32 %10(i32 noundef %argc, ptr noundef nonnull %argv) #10
   br label %return
@@ -434,19 +434,19 @@ if.end24:                                         ; preds = %if.else
   br i1 %.not, label %sub_1, label %if.end41
 
 sub_1:                                            ; preds = %if.end24
-  %13 = getelementptr inbounds i8, ptr %11, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %14 = load i8, ptr %13, align 1
   %.not20 = icmp eq i8 %14, 111
   br i1 %.not20, label %if.end24.tail, label %if.end41
 
 if.end24.tail:                                    ; preds = %sub_1
-  %15 = getelementptr inbounds i8, ptr %11, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 45
   br i1 %17, label %cond.true, label %if.end41
 
 cond.true:                                        ; preds = %if.end24.tail
-  %add.ptr = getelementptr inbounds i8, ptr %11, i64 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %11, i64 3
   store ptr %add.ptr, ptr %name, align 8
   %call.i16 = call ptr @OPENSSL_LH_retrieve(ptr noundef %prog, ptr noundef nonnull %f) #10
   %cmp33 = icmp eq ptr %call.i16, null
@@ -459,7 +459,7 @@ if.then34:                                        ; preds = %cond.true
   br label %return
 
 if.end37:                                         ; preds = %cond.true
-  %add.ptr39 = getelementptr inbounds i8, ptr %19, i64 3
+  %add.ptr39 = getelementptr inbounds nuw i8, ptr %19, i64 3
   %call40 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %18, ptr noundef nonnull @.str.32, ptr noundef nonnull %add.ptr39) #10
   br label %return
 
@@ -536,9 +536,9 @@ if.then:                                          ; preds = %while.end
   %call6 = tail call ptr @opt_rest() #10
   %1 = load ptr, ptr %call6, align 8
   store ptr %1, ptr %new_argv, align 16
-  %arrayidx8 = getelementptr inbounds i8, ptr %new_argv, i64 8
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %new_argv, i64 8
   store ptr @.str.5, ptr %arrayidx8, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %new_argv, i64 16
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %new_argv, i64 16
   store ptr null, ptr %arrayidx9, align 16
   %.b.i = load i1, ptr @prog_init.prog_inited, align 4
   br i1 %.b.i, label %if.then.i, label %if.end.i
@@ -549,16 +549,16 @@ if.then.i:                                        ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then
   store i1 true, ptr @prog_init.prog_inited, align 4
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @functions, i64 8), align 8
   %cmp.not7.i = icmp eq ptr %3, null
   br i1 %cmp.not7.i, label %for.end.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.inc.i
   %i.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %if.end.i ]
   %f.08.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ @functions, %if.end.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %f.08.i, i64 48
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %f.08.i, i64 48
   %inc.i = add i64 %i.09.i, 1
-  %name.i = getelementptr inbounds i8, ptr %f.08.i, i64 56
+  %name.i = getelementptr inbounds nuw i8, ptr %f.08.i, i64 56
   %4 = load ptr, ptr %name.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %for.end.i, label %for.inc.i, !llvm.loop !5
@@ -572,7 +572,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end.
   br i1 %cmp1.i, label %prog_init.exit, label %for.cond4.preheader.i
 
 for.cond4.preheader.i:                            ; preds = %for.end.i
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @functions, i64 8), align 8
   %cmp6.not10.i = icmp eq ptr %5, null
   br i1 %cmp6.not10.i, label %prog_init.exit, label %for.body7.i
 
@@ -580,8 +580,8 @@ for.body7.i:                                      ; preds = %for.cond4.preheader
   %f.111.i = phi ptr [ %incdec.ptr10.i, %for.body7.i ], [ @functions, %for.cond4.preheader.i ]
   %6 = load ptr, ptr @prog_init.ret, align 8
   %call.i6.i = tail call ptr @OPENSSL_LH_insert(ptr noundef %6, ptr noundef nonnull %f.111.i) #10
-  %incdec.ptr10.i = getelementptr inbounds i8, ptr %f.111.i, i64 48
-  %name5.i = getelementptr inbounds i8, ptr %f.111.i, i64 56
+  %incdec.ptr10.i = getelementptr inbounds nuw i8, ptr %f.111.i, i64 48
+  %name5.i = getelementptr inbounds nuw i8, ptr %f.111.i, i64 56
   %7 = load ptr, ptr %name5.i, align 8
   %cmp6.not.i = icmp eq ptr %7, null
   br i1 %cmp6.not.i, label %for.end11.loopexit.i, label %for.body7.i, !llvm.loop !7
@@ -609,16 +609,16 @@ if.end15:                                         ; preds = %if.end
   call void @calculate_columns(ptr noundef nonnull @functions, ptr noundef nonnull %dc) #10
   %9 = load ptr, ptr @bio_err, align 8
   %call16 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.23, ptr noundef %call) #10
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @functions, i64 8), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @functions, i64 8), align 8
   %cmp17.not10 = icmp eq ptr %10, null
   br i1 %cmp17.not10, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end15
-  %width = getelementptr inbounds i8, ptr %dc, i64 4
+  %width = getelementptr inbounds nuw i8, ptr %dc, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end37
-  %name14 = phi ptr [ getelementptr inbounds (i8, ptr @functions, i64 8), %for.body.lr.ph ], [ %name, %if.end37 ]
+  %name14 = phi ptr [ getelementptr inbounds nuw (i8, ptr @functions, i64 8), %for.body.lr.ph ], [ %name, %if.end37 ]
   %fp.013 = phi ptr [ @functions, %for.body.lr.ph ], [ %incdec.ptr, %if.end37 ]
   %tp.012 = phi i32 [ 0, %for.body.lr.ph ], [ %tp.1, %if.end37 ]
   %i.011 = phi i32 [ 0, %for.body.lr.ph ], [ %i.1, %if.end37 ]
@@ -668,8 +668,8 @@ if.end37:                                         ; preds = %if.end37.sink.split
   %19 = load i32, ptr %width, align 4
   %20 = load ptr, ptr %name14, align 8
   %call39 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %18, ptr noundef nonnull @.str.27, i32 noundef %19, ptr noundef %20) #10
-  %incdec.ptr = getelementptr inbounds i8, ptr %fp.013, i64 48
-  %name = getelementptr inbounds i8, ptr %fp.013, i64 56
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %fp.013, i64 48
+  %name = getelementptr inbounds nuw i8, ptr %fp.013, i64 56
   %21 = load ptr, ptr %name, align 8
   %cmp17.not = icmp eq ptr %21, null
   br i1 %cmp17.not, label %for.end, label %for.body, !llvm.loop !8
@@ -756,9 +756,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds i8, ptr %_f1, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %_f1, i64 8
   %2 = load ptr, ptr %name, align 8
-  %name4 = getelementptr inbounds i8, ptr %_f2, i64 8
+  %name4 = getelementptr inbounds nuw i8, ptr %_f2, i64 8
   %3 = load ptr, ptr %name4, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #11
   br label %return
@@ -771,7 +771,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i64 @function_hash(ptr nocapture noundef readonly %a) #3 {
 entry:
-  %name = getelementptr inbounds i8, ptr %a, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %name, align 8
   %call = tail call i64 @OPENSSL_LH_strhash(ptr noundef %0) #10
   ret i64 %call
@@ -780,9 +780,9 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @function_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #9 {
 entry:
-  %name = getelementptr inbounds i8, ptr %a, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %name, align 8
-  %name1 = getelementptr inbounds i8, ptr %b, i64 8
+  %name1 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %1 = load ptr, ptr %name1, align 8
   %call = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 8) #11
   ret i32 %call

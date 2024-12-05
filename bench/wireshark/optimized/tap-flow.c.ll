@@ -30,13 +30,13 @@ define internal noundef zeroext i1 @flow_register(ptr nocapture readnone %0, ptr
   %7 = tail call ptr @g_string_append(ptr noundef %5, ptr noundef %6) #8
   %8 = tail call ptr @g_string_free(ptr noundef %5, i32 noundef 0) #8
   store i32 3, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @flow_init, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @register_stat_tap_ui(ptr noundef nonnull %4, ptr noundef %1) #8
   call void @g_free(ptr noundef %8) #8
@@ -75,7 +75,7 @@ flow_arg_mode.exit:                               ; preds = %2, %10
   %.sink13.i = phi i64 [ 9, %2 ], [ 8, %10 ]
   %.sink.i = phi i32 [ 1, %2 ], [ 0, %10 ]
   %14 = getelementptr i8, ptr %7, i64 %.sink13.i
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink.i, ptr %15, align 8
   %16 = load i8, ptr %14, align 1
   %17 = icmp eq i8 %16, 44

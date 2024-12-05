@@ -434,7 +434,7 @@ define internal i32 @dissect_ses(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.not = icmp eq i8 %5, 64
   %spec.select = select i1 %.not, ptr @.str.239, ptr @.str.147
   %spec.select22 = zext i1 %.not to i32
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull %spec.select) #3
   %8 = load ptr, ptr %6, align 8
@@ -596,19 +596,19 @@ define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr nou
   store i8 3, ptr %7, align 1
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #3
   store i8 %9, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 0, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %8, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 0, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %8, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %13, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %26, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i8 %9 to i32
   %18 = tail call ptr @val_to_str_ext(i32 noundef %17, ptr noundef nonnull @ses_vals_ext, ptr noundef nonnull @.str.240) #3
@@ -627,7 +627,7 @@ define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr nou
 
 26:                                               ; preds = %6
   %.not138 = icmp eq i32 %4, 0
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = zext i8 %9 to i32
   %.not139 = icmp eq ptr %3, null
@@ -774,7 +774,7 @@ get_item_len.exit:                                ; preds = %70, %73
   br i1 %.not146, label %97, label %94
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %93, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %96 = load i32, ptr %95, align 8
   br label %97
 
@@ -1268,7 +1268,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_parameter(ptr noundef %0, i3
   %52 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #3
   %53 = and i8 %52, 2
   %.not197 = icmp eq i8 %53, 0
-  %54 = getelementptr inbounds i8, ptr %9, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br i1 %.not197, label %56, label %55
 
 55:                                               ; preds = %48

@@ -22,7 +22,7 @@ define hidden void @av1_decode_palette_tokens(ptr nocapture noundef readonly %0,
   %10 = getelementptr inbounds [2 x i16], ptr %9, i64 0, i64 %5
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %12
   %.not = icmp eq i32 %1, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 10648
   %15 = load ptr, ptr %14, align 8
@@ -38,10 +38,10 @@ define hidden void @av1_decode_palette_tokens(ptr nocapture noundef readonly %0,
   %23 = zext i8 %.fr to i32
   %24 = load i8, ptr %19, align 8
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds [22 x i8], ptr @block_size_high, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = getelementptr inbounds [22 x i8], ptr @block_size_wide, i64 0, i64 %25
+  %29 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %25
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 7936
@@ -128,7 +128,7 @@ av1_read_uniform.exit.i:                          ; preds = %aom_read_literal_.e
   %87 = zext i8 %.fr to i64
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %90 = getelementptr inbounds [17 x i32], ptr @update_cdf.nsymbs2speed, i64 0, i64 %87
+  %90 = getelementptr inbounds nuw [17 x i32], ptr @update_cdf.nsymbs2speed, i64 0, i64 %87
   %91 = icmp ugt i8 %.fr, 1
   %92 = add nsw i32 %23, -1
   %wide.trip.count.i.i.i = zext nneg i32 %92 to i64
@@ -174,7 +174,7 @@ av1_read_uniform.exit.i:                          ; preds = %aom_read_literal_.e
   br i1 %.not.i.us.us.i, label %aom_read_symbol_.exit.us.us.i, label %.lr.ph.i.i71.us.us.i
 
 .lr.ph.i.i71.us.us.i:                             ; preds = %.lr.ph.us.i
-  %108 = getelementptr inbounds i16, ptr %105, i64 %87
+  %108 = getelementptr inbounds nuw i16, ptr %105, i64 %87
   %109 = load i16, ptr %108, align 2
   %110 = icmp ugt i16 %109, 15
   %111 = select i1 %110, i32 4, i32 3
@@ -194,7 +194,7 @@ av1_read_uniform.exit.i:                          ; preds = %aom_read_literal_.e
   %.034.i.i.us.us.i = phi i32 [ 32768, %.lr.ph.i.i71.us.us.i ], [ %122, %137 ]
   %121 = icmp eq i64 %indvars.iv.i.i.us.us.i, %119
   %122 = select i1 %121, i32 0, i32 %.034.i.i.us.us.i
-  %123 = getelementptr inbounds i16, ptr %105, i64 %indvars.iv.i.i.us.us.i
+  %123 = getelementptr inbounds nuw i16, ptr %105, i64 %indvars.iv.i.i.us.us.i
   %124 = load i16, ptr %123, align 2
   %125 = zext i16 %124 to i32
   %126 = icmp samesign ult i32 %122, %125
@@ -274,7 +274,7 @@ aom_read_symbol_.exit.us.us.i:                    ; preds = %._crit_edge.loopexi
   br i1 %.not.i.i, label %aom_read_symbol_.exit.i, label %update_cdf.exit.i.i
 
 update_cdf.exit.i.i:                              ; preds = %.lr.ph.i
-  %160 = getelementptr inbounds i16, ptr %157, i64 %87
+  %160 = getelementptr inbounds nuw i16, ptr %157, i64 %87
   %161 = load i16, ptr %160, align 2
   %162 = icmp ult i16 %161, 32
   %163 = zext i1 %162 to i16

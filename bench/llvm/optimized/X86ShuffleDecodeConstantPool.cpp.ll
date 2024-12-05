@@ -30,7 +30,7 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskEPKNS_8ConstantEjRNS_15SmallVec
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %6, align 8
   store i64 0, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(528) %5, ptr noundef nonnull %7, i64 noundef 64) #5
   %8 = call fastcc noundef zeroext i1 @_ZN4llvmL19extractConstantMaskEPKNS_8ConstantEjRNS_5APIntERNS_15SmallVectorImplImEE(ptr noundef %0, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   %.not20 = icmp ugt i32 %1, 7
@@ -42,7 +42,7 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskEPKNS_8ConstantEjRNS_15SmallVec
   %10 = load i32, ptr %6, align 8
   %11 = icmp ult i32 %10, 65
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = zext nneg i32 %9 to i64
   br label %15
 
@@ -53,7 +53,7 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskEPKNS_8ConstantEjRNS_15SmallVec
   %18 = shl nuw i64 1, %17
   %19 = lshr i64 %indvars.iv, 6
   %20 = and i64 %19, 67108863
-  %21 = getelementptr inbounds i64, ptr %12, i64 %20
+  %21 = getelementptr inbounds nuw i64, ptr %12, i64 %20
   %.in.i.i = select i1 %11, ptr %4, ptr %21
   %22 = load i64, ptr %.in.i.i, align 8
   %23 = and i64 %22, %18
@@ -69,7 +69,7 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskEPKNS_8ConstantEjRNS_15SmallVec
 
 28:                                               ; preds = %15
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 128
   %.not14 = icmp eq i64 %32, 0
@@ -172,7 +172,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvmL19extractConstantMaskEPKNS_8
   %.fca.0.extract = extractvalue { i64, i8 } %25, 0
   %.fca.1.extract = extractvalue { i64, i8 } %25, 1
   store i64 %.fca.0.extract, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %26 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #5
   %27 = trunc i64 %26 to i32
@@ -257,7 +257,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %42, %39, %_ZN4llvm5
   %63 = load ptr, ptr %2, align 8
   %64 = lshr i64 %indvars.iv132, 6
   %65 = and i64 %64, 67108863
-  %66 = getelementptr inbounds i64, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr %63, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = or i64 %67, %56
   store i64 %68, ptr %66, align 8
@@ -276,7 +276,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %42, %39, %_ZN4llvm5
 _ZN4llvm5APInt6setBitEj.exit:                     ; preds = %62, %59, %69
   %.0.i.sink = phi i64 [ %.0.i, %69 ], [ 0, %59 ], [ 0, %62 ]
   %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv132
+  %76 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv132
   store i64 %.0.i.sink, ptr %76, align 8
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %indvars134 = trunc i64 %indvars.iv.next133 to i32
@@ -467,7 +467,7 @@ _ZNK4llvm5APInt9isAllOnesEv.exit.thread:          ; preds = %132, %139, %_ZNK4ll
   %155 = load ptr, ptr %2, align 8
   %156 = lshr i64 %indvars.iv129, 6
   %157 = and i64 %156, 67108863
-  %158 = getelementptr inbounds i64, ptr %155, i64 %157
+  %158 = getelementptr inbounds nuw i64, ptr %155, i64 %157
   %159 = load i64, ptr %158, align 8
   %160 = or i64 %159, %148
   store i64 %160, ptr %158, align 8
@@ -475,7 +475,7 @@ _ZNK4llvm5APInt9isAllOnesEv.exit.thread:          ; preds = %132, %139, %_ZNK4ll
 
 _ZN4llvm5APInt6setBitEj.exit74:                   ; preds = %151, %154
   %161 = load ptr, ptr %3, align 8
-  %162 = getelementptr inbounds i64, ptr %161, i64 %indvars.iv129
+  %162 = getelementptr inbounds nuw i64, ptr %161, i64 %indvars.iv129
   store i64 0, ptr %162, align 8
   br label %_ZN4llvm5APIntD2Ev.exit77
 
@@ -487,7 +487,7 @@ _ZN4llvm5APInt6setBitEj.exit74:                   ; preds = %151, %154
   %.0.in.i75 = select i1 %165, ptr %10, ptr %166
   %.0.i76 = load i64, ptr %.0.in.i75, align 8
   %167 = load ptr, ptr %3, align 8
-  %168 = getelementptr inbounds i64, ptr %167, i64 %indvars.iv129
+  %168 = getelementptr inbounds nuw i64, ptr %167, i64 %indvars.iv129
   store i64 %.0.i76, ptr %168, align 8
   %169 = load i32, ptr %100, align 8
   %170 = icmp ugt i32 %169, 64
@@ -563,7 +563,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEPKNS_8ConstantEjjRNS_15Small
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %7, align 8
   store i64 0, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %8, i64 noundef 16) #5
   %9 = call fastcc noundef zeroext i1 @_ZN4llvmL19extractConstantMaskEPKNS_8ConstantEjRNS_5APIntERNS_15SmallVectorImplImEE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br i1 %9, label %10, label %.loopexit
@@ -578,7 +578,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEPKNS_8ConstantEjjRNS_15Small
   %13 = load i32, ptr %7, align 8
   %14 = icmp ult i32 %13, 65
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = sub nsw i32 0, %12
   %18 = icmp eq i32 %1, 64
   br label %19
@@ -589,7 +589,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEPKNS_8ConstantEjjRNS_15Small
   %21 = shl nuw i64 1, %20
   %22 = lshr i64 %indvars.iv, 6
   %23 = and i64 %22, 67108863
-  %24 = getelementptr inbounds i64, ptr %15, i64 %23
+  %24 = getelementptr inbounds nuw i64, ptr %15, i64 %23
   %.in.i.i = select i1 %14, ptr %5, ptr %24
   %25 = load i64, ptr %.in.i.i, align 8
   %26 = and i64 %25, %21
@@ -607,7 +607,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEPKNS_8ConstantEjjRNS_15Small
   %32 = trunc nuw i64 %indvars.iv to i32
   %33 = and i32 %32, %17
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds i64, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8
   %37 = trunc i64 %36 to i32
   %38 = lshr i32 %37, 1
@@ -680,13 +680,13 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEPKNS_8ConstantEjjjRNS_15Sma
   %.fca.0.extract = extractvalue { i64, i8 } %11, 0
   %.fca.1.extract = extractvalue { i64, i8 } %11, 1
   store i64 %.fca.0.extract, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %12 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %6) #5
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %13, align 8
   store i64 0, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull %14, i64 noundef 8) #5
   %15 = call fastcc noundef zeroext i1 @_ZN4llvmL19extractConstantMaskEPKNS_8ConstantEjRNS_5APIntERNS_15SmallVectorImplImEE(ptr noundef nonnull %0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   br i1 %15, label %16, label %.loopexit
@@ -701,7 +701,7 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEPKNS_8ConstantEjjjRNS_15Sma
   %19 = load i32, ptr %13, align 8
   %20 = icmp ult i32 %19, 65
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = and i32 %1, 2
   %.not32 = icmp eq i32 %23, 0
   %24 = sub nsw i32 0, %18
@@ -715,7 +715,7 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEPKNS_8ConstantEjjjRNS_15Sma
   %29 = shl nuw i64 1, %28
   %30 = lshr i64 %indvars.iv, 6
   %31 = and i64 %30, 67108863
-  %32 = getelementptr inbounds i64, ptr %21, i64 %31
+  %32 = getelementptr inbounds nuw i64, ptr %21, i64 %31
   %.in.i.i = select i1 %20, ptr %7, ptr %32
   %33 = load i64, ptr %.in.i.i, align 8
   %34 = and i64 %33, %29
@@ -731,7 +731,7 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEPKNS_8ConstantEjjjRNS_15Sma
 
 39:                                               ; preds = %26
   %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds i64, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
   %42 = load i64, ptr %41, align 8
   %.pre = trunc i64 %42 to i32
   br i1 %.not32, label %._crit_edge, label %43
@@ -831,13 +831,13 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskEPKNS_8ConstantEjRNS_15SmallVec
   %.fca.0.extract = extractvalue { i64, i8 } %9, 0
   %.fca.1.extract = extractvalue { i64, i8 } %9, 1
   store i64 %.fca.0.extract, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %10 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #5
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %11, align 8
   store i64 0, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %12, i64 noundef 16) #5
   %13 = call fastcc noundef zeroext i1 @_ZN4llvmL19extractConstantMaskEPKNS_8ConstantEjRNS_5APIntERNS_15SmallVectorImplImEE(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %.not24 = icmp ugt i32 %1, 7
@@ -849,7 +849,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskEPKNS_8ConstantEjRNS_15SmallVec
   %15 = load i32, ptr %11, align 8
   %16 = icmp ult i32 %15, 65
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = zext nneg i32 %14 to i64
   br label %20
 
@@ -859,7 +859,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskEPKNS_8ConstantEjRNS_15SmallVec
   %22 = shl nuw i64 1, %21
   %23 = lshr i64 %indvars.iv, 6
   %24 = and i64 %23, 67108863
-  %25 = getelementptr inbounds i64, ptr %17, i64 %24
+  %25 = getelementptr inbounds nuw i64, ptr %17, i64 %24
   %.in.i.i = select i1 %16, ptr %5, ptr %25
   %26 = load i64, ptr %.in.i.i, align 8
   %27 = and i64 %26, %22
@@ -875,7 +875,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskEPKNS_8ConstantEjRNS_15SmallVec
 
 32:                                               ; preds = %20
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds i64, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
   %36 = lshr i64 %35, 5
   %37 = and i64 %36, 7
@@ -977,7 +977,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplImE6resizeEmm(ptr noun
   br i1 %.not.i.i.i, label %15, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %16, i64 noundef %13, i64 noundef 8) #5
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.i
 
@@ -995,7 +995,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %20
   %.06.i.i.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i.i ], [ %21, %20 ]
   store i64 %2, ptr %.06.i.i.i.i.i.i.i, align 8
-  %23 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %23, %22
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplImE6appendEmm.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !12
 

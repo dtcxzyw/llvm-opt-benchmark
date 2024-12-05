@@ -21,7 +21,7 @@ define void @dlapmr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 17:                                               ; preds = %17, %14
   %18 = phi i64 [ 1, %14 ], [ %22, %17 ]
-  %19 = getelementptr inbounds i32, ptr %11, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %11, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !3
   %21 = sub nsw i32 0, %20
   store i32 %21, ptr %19, align 4, !tbaa !3
@@ -47,7 +47,7 @@ define void @dlapmr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 34:                                               ; preds = %.loopexit14, %30
   %35 = phi i64 [ 1, %30 ], [ %75, %.loopexit14 ]
-  %36 = getelementptr inbounds i32, ptr %11, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %11, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.loopexit14, label %39
@@ -56,7 +56,7 @@ define void @dlapmr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %40 = sub nsw i32 0, %37
   store i32 %40, ptr %36, align 4, !tbaa !3
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %11, i64 %41
+  %42 = getelementptr inbounds nuw i32, ptr %11, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !3
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.loopexit14, label %45
@@ -100,7 +100,7 @@ define void @dlapmr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %70 = sub nsw i32 0, %48
   store i32 %70, ptr %49, align 4, !tbaa !3
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %11, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr %11, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !3
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.loopexit14, label %47
@@ -121,7 +121,7 @@ define void @dlapmr_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 82:                                               ; preds = %.loopexit11, %78
   %83 = phi i64 [ 1, %78 ], [ %115, %.loopexit11 ]
-  %84 = getelementptr inbounds i32, ptr %11, i64 %83
+  %84 = getelementptr inbounds nuw i32, ptr %11, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !3
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.loopexit11, label %87

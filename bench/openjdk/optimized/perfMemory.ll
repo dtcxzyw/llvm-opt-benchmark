@@ -66,7 +66,7 @@ define hidden void @_ZN10PerfMemory10initializeEv() local_unnamed_addr #0 align 
   %7 = add i64 %6, %5
   %8 = sub i64 0, %5
   %9 = and i64 %7, %8
-  %10 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not2 = icmp eq ptr %10, null
   br i1 %.not2, label %12, label %11
 
@@ -86,7 +86,7 @@ define hidden void @_ZN10PerfMemory10initializeEv() local_unnamed_addr #0 align 
   br label %27
 
 17:                                               ; preds = %12
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE112ELS1_82ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not3 = icmp eq ptr %18, null
   br i1 %.not3, label %22, label %19
 
@@ -103,7 +103,7 @@ define hidden void @_ZN10PerfMemory10initializeEv() local_unnamed_addr #0 align 
   %24 = load i64, ptr @_ZN10PerfMemory9_capacityE, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 %24
   store ptr %25, ptr @_ZN10PerfMemory4_endE, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %26, ptr @_ZN10PerfMemory4_topE, align 8
   br label %27
 
@@ -111,23 +111,23 @@ define hidden void @_ZN10PerfMemory10initializeEv() local_unnamed_addr #0 align 
   %28 = phi ptr [ %23, %22 ], [ %16, %15 ]
   store i32 -1061093686, ptr %28, align 8
   %29 = load ptr, ptr @_ZN10PerfMemory9_prologueE, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i8 1, ptr %30, align 4
   %31 = load ptr, ptr @_ZN10PerfMemory9_prologueE, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 5
   store i8 2, ptr %32, align 1
   %33 = load ptr, ptr @_ZN10PerfMemory9_prologueE, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 6
   store i8 0, ptr %34, align 2
   %35 = load ptr, ptr @_ZN10PerfMemory9_prologueE, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 7
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 7
   store i8 0, ptr %36, align 1
   %37 = load ptr, ptr @_ZN10PerfMemory9_prologueE, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i32 32, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 28
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   store volatile i32 1, ptr @_ZN10PerfMemory12_initializedE, align 4
@@ -273,7 +273,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %6
 10:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %11 = trunc i64 %0 to i32
   %12 = load ptr, ptr @_ZN10PerfMemory9_prologueE, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, %11
   store i32 %15, ptr %13, align 4
@@ -287,9 +287,9 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %6
   %20 = sub i64 %18, %19
   %21 = trunc i64 %20 to i32
   %22 = load ptr, ptr @_ZN10PerfMemory9_prologueE, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %21, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -317,7 +317,7 @@ define hidden void @_ZN10PerfMemory12mark_updatedEv() local_unnamed_addr #0 alig
 3:                                                ; preds = %0
   %4 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #6
   %5 = load ptr, ptr @_ZN10PerfMemory9_prologueE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %4, ptr %6, align 8
   br label %7
 

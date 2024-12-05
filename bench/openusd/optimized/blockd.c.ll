@@ -57,9 +57,9 @@ define hidden void @av1_set_entropy_contexts(ptr nocapture noundef readonly %0, 
   %15 = sext i32 %7 to i64
   %16 = getelementptr inbounds i8, ptr %14, i64 %15
   %17 = zext i8 %4 to i64
-  %18 = getelementptr inbounds [19 x i32], ptr @tx_size_wide_unit, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide_unit, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds [19 x i32], ptr @tx_size_high_unit, i64 0, i64 %17
+  %20 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high_unit, i64 0, i64 %17
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.thread49, label %23
@@ -77,7 +77,7 @@ define hidden void @av1_set_entropy_contexts(ptr nocapture noundef readonly %0, 
 
 .thread:                                          ; preds = %23
   %27 = zext i8 %3 to i64
-  %28 = getelementptr inbounds [22 x i8], ptr @block_size_wide, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = sext i32 %2 to i64
@@ -114,7 +114,7 @@ define hidden void @av1_set_entropy_contexts(ptr nocapture noundef readonly %0, 
 
 max_block_high.exit:                              ; preds = %49
   %53 = zext i8 %3 to i64
-  %54 = getelementptr inbounds [22 x i8], ptr @block_size_high, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = sext i32 %2 to i64
@@ -170,7 +170,7 @@ define hidden void @av1_reset_entropy_context(ptr nocapture noundef readonly %0,
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds [3 x %struct.macroblockd_plane], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [3 x %struct.macroblockd_plane], ptr %10, i64 0, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -180,9 +180,9 @@ define hidden void @av1_reset_entropy_context(ptr nocapture noundef readonly %0,
   %21 = getelementptr inbounds [22 x [2 x [2 x i8]]], ptr @ss_size_lookup, i64 0, i64 %11, i64 %19, i64 %20
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds [22 x i8], ptr @mi_size_wide, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_wide, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
-  %26 = getelementptr inbounds [22 x i8], ptr @mi_size_high, i64 0, i64 %23
+  %26 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_high, i64 0, i64 %23
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %29 = load ptr, ptr %28, align 8
@@ -224,38 +224,38 @@ define hidden void @av1_reset_loop_restoration(ptr nocapture noundef writeonly %
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds %struct.WienerInfo, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %struct.WienerInfo, ptr %4, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i16 3, ptr %8, align 16
   store i16 3, ptr %7, align 16
-  %9 = getelementptr inbounds i8, ptr %7, i64 18
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 18
   store i16 -7, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %7, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 -7, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %7, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i16 15, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i16 15, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %7, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 22
   store i16 -22, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %7, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i16 -22, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i16 15, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i16 15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 26
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 26
   store i16 -7, ptr %17, align 2
-  %18 = getelementptr inbounds i8, ptr %7, i64 10
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 10
   store i16 -7, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %7, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i16 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i16 3, ptr %20, align 4
-  %21 = getelementptr inbounds %struct.SgrprojInfo, ptr %5, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.SgrprojInfo, ptr %5, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 -32, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 31, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -288,7 +288,7 @@ define hidden void @av1_setup_block_planes(ptr nocapture noundef writeonly %0, i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = icmp ne i64 %indvars.iv, 0
   %12 = zext i1 %11 to i8
-  %13 = getelementptr inbounds [3 x %struct.macroblockd_plane], ptr %6, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [3 x %struct.macroblockd_plane], ptr %6, i64 0, i64 %indvars.iv
   store i8 %12, ptr %13, align 16
   %.not = icmp eq i64 %indvars.iv, 0
   %14 = select i1 %.not, i32 0, i32 %1

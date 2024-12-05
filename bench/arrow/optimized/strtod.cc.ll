@@ -149,7 +149,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %indvars.iv.i.i = phi i64 [ 0, %while.body.preheader.i.i ], [ %indvars.iv.next.i.i, %while.body.i.i ]
   %result.07.i.i = phi i64 [ 0, %while.body.preheader.i.i ], [ %add.i.i, %while.body.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %trimmed.coerce0, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %trimmed.coerce0, i64 %indvars.iv.i.i
   %1 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i = sext i8 %1 to i64
   %mul.i.i = mul nuw i64 %result.07.i.i, 10
@@ -167,7 +167,7 @@ while.end.loopexit.i.i:                           ; preds = %while.body.i.i
 _ZN14arrow_vendored17double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i: ; preds = %while.end.loopexit.i.i, %if.then3.i
   %result.0.lcssa.i.i = phi double [ 0.000000e+00, %if.then3.i ], [ %3, %while.end.loopexit.i.i ]
   %idxprom.i = zext nneg i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds [23 x double], ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [23 x double], ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom.i
   %4 = load double, ptr %arrayidx.i, align 8
   %div.i = fdiv double %result.0.lcssa.i.i, %4
   br label %_ZN14arrow_vendored17double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit
@@ -188,7 +188,7 @@ while.body.i22.i:                                 ; preds = %while.body.i22.i, %
   %indvars.iv.i23.i = phi i64 [ 0, %while.body.preheader.i21.i ], [ %indvars.iv.next.i25.i, %while.body.i22.i ]
   %result.07.i24.i = phi i64 [ 0, %while.body.preheader.i21.i ], [ %add.i30.i, %while.body.i22.i ]
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i23.i, 1
-  %arrayidx.i.i26.i = getelementptr inbounds i8, ptr %trimmed.coerce0, i64 %indvars.iv.i23.i
+  %arrayidx.i.i26.i = getelementptr inbounds nuw i8, ptr %trimmed.coerce0, i64 %indvars.iv.i23.i
   %6 = load i8, ptr %arrayidx.i.i26.i, align 1
   %conv.i27.i = sext i8 %6 to i64
   %mul.i28.i = mul nuw i64 %result.07.i24.i, 10
@@ -206,7 +206,7 @@ while.end.loopexit.i33.i:                         ; preds = %while.body.i22.i
 _ZN14arrow_vendored17double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit34.i: ; preds = %while.end.loopexit.i33.i, %if.then9.i
   %result.0.lcssa.i20.i = phi double [ 0.000000e+00, %if.then9.i ], [ %8, %while.end.loopexit.i33.i ]
   %idxprom13.i = zext nneg i32 %exponent to i64
-  %arrayidx14.i = getelementptr inbounds [23 x double], ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom13.i
+  %arrayidx14.i = getelementptr inbounds nuw [23 x double], ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom13.i
   %9 = load double, ptr %arrayidx14.i, align 8
   %mul.i = fmul double %result.0.lcssa.i20.i, %9
   br label %_ZN14arrow_vendored17double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit
@@ -233,7 +233,7 @@ while.body.i40.i:                                 ; preds = %while.body.i40.i, %
   %indvars.iv.i41.i = phi i64 [ 0, %while.body.preheader.i39.i ], [ %indvars.iv.next.i43.i, %while.body.i40.i ]
   %result.07.i42.i = phi i64 [ 0, %while.body.preheader.i39.i ], [ %add.i48.i, %while.body.i40.i ]
   %indvars.iv.next.i43.i = add nuw nsw i64 %indvars.iv.i41.i, 1
-  %arrayidx.i.i44.i = getelementptr inbounds i8, ptr %trimmed.coerce0, i64 %indvars.iv.i41.i
+  %arrayidx.i.i44.i = getelementptr inbounds nuw i8, ptr %trimmed.coerce0, i64 %indvars.iv.i41.i
   %11 = load i8, ptr %arrayidx.i.i44.i, align 1
   %conv.i45.i = sext i8 %11 to i64
   %mul.i46.i = mul nuw i64 %result.07.i42.i, 10
@@ -279,7 +279,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %indvars.iv.i.i.i = phi i64 [ 0, %while.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %while.body.i.i.i ]
   %result.07.i.i.i = phi i64 [ 0, %while.body.preheader.i.i.i ], [ %add.i.i.i, %while.body.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %trimmed.coerce0, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %trimmed.coerce0, i64 %indvars.iv.i.i.i
   %17 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %conv.i.i.i = sext i8 %17 to i64
   %mul.i.i.i = mul nuw i64 %result.07.i.i.i, 10
@@ -356,7 +356,7 @@ _ZN14arrow_vendored17double_conversionL11DiyFpStrtodENS0_6VectorIKcEEiPd.exit.th
 
 if.end.i15:                                       ; preds = %_ZN14arrow_vendored17double_conversion5DiyFp9NormalizeEv.exit.i
   store i64 0, ptr %cached_power.i, align 8
-  %e_.i38.i = getelementptr inbounds i8, ptr %cached_power.i, i64 8
+  %e_.i38.i = getelementptr inbounds nuw i8, ptr %cached_power.i, i64 8
   store i32 0, ptr %e_.i38.i, align 8
   call void @_ZN14arrow_vendored17double_conversion16PowersOfTenCache32GetCachedPowerForDecimalExponentEiPNS0_5DiyFpEPi(i32 noundef %add123.i, ptr noundef nonnull %cached_power.i, ptr noundef nonnull %cached_decimal_exponent.i)
   %22 = load i32, ptr %cached_decimal_exponent.i, align 4
@@ -375,10 +375,10 @@ sw.default.i.i:                                   ; preds = %if.then4.i
 
 switch.lookup:                                    ; preds = %if.then4.i
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN14arrow_vendored17double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 0, i64 %24
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN14arrow_vendored17double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 0, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   %25 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep28 = getelementptr inbounds [7 x i64], ptr @switch.table._ZN14arrow_vendored17double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %25
+  %switch.gep28 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN14arrow_vendored17double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %25
   %switch.load29 = load i64, ptr %switch.gep28, align 8
   %shr.i.i = lshr i64 %significand.1.lcssa.i.i, 32
   %and.i.i = and i64 %significand.1.lcssa.i.i, 4294967295
@@ -575,10 +575,10 @@ entry:
   %buffer_bignum = alloca %"class.arrow_vendored::double_conversion::Bignum", align 4
   %diy_fp_bignum = alloca %"class.arrow_vendored::double_conversion::Bignum", align 4
   store i16 0, ptr %buffer_bignum, align 4
-  %exponent_.i = getelementptr inbounds i8, ptr %buffer_bignum, i64 2
+  %exponent_.i = getelementptr inbounds nuw i8, ptr %buffer_bignum, i64 2
   store i16 0, ptr %exponent_.i, align 2
   store i16 0, ptr %diy_fp_bignum, align 4
-  %exponent_.i3 = getelementptr inbounds i8, ptr %diy_fp_bignum, i64 2
+  %exponent_.i3 = getelementptr inbounds nuw i8, ptr %diy_fp_bignum, i64 2
   store i16 0, ptr %exponent_.i3, align 2
   call void @_ZN14arrow_vendored17double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr noundef nonnull align 4 dereferenceable(516) %buffer_bignum, ptr %buffer.coerce0, i32 %buffer.coerce1)
   call void @_ZN14arrow_vendored17double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516) %diy_fp_bignum, i64 noundef %diy_fp.coerce0)
@@ -626,13 +626,13 @@ for.body.preheader.i.i:                           ; preds = %entry
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp2.not.i.i = icmp eq i8 %0, 48
   br i1 %cmp2.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %arrayidx.i.i.i.le = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i.le = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
   %1 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %sub.i.i.i = sub nsw i32 %buffer.coerce1, %1
   br label %_ZN14arrow_vendored17double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
@@ -660,7 +660,7 @@ _ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.
 
 for.body.i10.i:                                   ; preds = %for.cond.i.i
   %4 = add nsw i64 %indvars.iv.i6.i, -1
-  %arrayidx.i.i11.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 %4
+  %arrayidx.i.i11.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 %4
   %5 = load i8, ptr %arrayidx.i.i11.i, align 1
   %cmp2.not.i12.i = icmp eq i8 %5, 48
   br i1 %cmp2.not.i12.i, label %for.cond.i.i, label %_ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !11
@@ -673,7 +673,7 @@ _ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.
 
 for.body.i15.i.preheader:                         ; preds = %_ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(779) %copy_buffer, ptr noundef nonnull align 1 dereferenceable(779) %retval.sroa.0.0.i.i, i64 779, i1 false)
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %copy_buffer, i64 779
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %copy_buffer, i64 779
   store i8 49, ptr %arrayidx1.i.i, align 1
   %sub.i.i = add nsw i32 %3, -780
   %add.i.i = add nsw i32 %sub.i.i, %add.i
@@ -778,13 +778,13 @@ for.body.preheader.i.i:                           ; preds = %entry
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp2.not.i.i = icmp eq i8 %0, 48
   br i1 %cmp2.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %arrayidx.i.i.i.le = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i.le = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %indvars.iv.i.i
   %1 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %sub.i.i.i = sub nsw i32 %buffer.coerce1, %1
   br label %_ZN14arrow_vendored17double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
@@ -812,7 +812,7 @@ _ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.
 
 for.body.i10.i:                                   ; preds = %for.cond.i.i
   %4 = add nsw i64 %indvars.iv.i6.i, -1
-  %arrayidx.i.i11.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 %4
+  %arrayidx.i.i11.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.i.i, i64 %4
   %5 = load i8, ptr %arrayidx.i.i11.i, align 1
   %cmp2.not.i12.i = icmp eq i8 %5, 48
   br i1 %cmp2.not.i12.i, label %for.cond.i.i, label %_ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !11
@@ -825,7 +825,7 @@ _ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.
 
 for.body.i15.i.preheader:                         ; preds = %_ZN14arrow_vendored17double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(779) %copy_buffer, ptr noundef nonnull align 1 dereferenceable(779) %retval.sroa.0.0.i.i, i64 779, i1 false)
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %copy_buffer, i64 779
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %copy_buffer, i64 779
   store i8 49, ptr %arrayidx1.i.i, align 1
   %sub.i.i = add nsw i32 %3, -780
   %add.i.i = add nsw i32 %sub.i.i, %add.i

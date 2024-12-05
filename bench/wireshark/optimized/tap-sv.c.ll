@@ -41,18 +41,18 @@ declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @sv_packet(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = tail call double @nstime_to_sec(ptr noundef nonnull %6) #5
   %8 = load i16, ptr %3, align 4
   %9 = zext i16 %8 to i32
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %7, i32 noundef %9)
-  %11 = getelementptr inbounds i8, ptr %3, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %12 = load i8, ptr %11, align 1
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14

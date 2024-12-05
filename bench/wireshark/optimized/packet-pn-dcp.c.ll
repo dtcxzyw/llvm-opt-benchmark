@@ -478,7 +478,7 @@ define internal range(i32 0, 2) i32 @dissect_PNDCP_Data_heur(ptr noundef %0, ptr
   br i1 %or.cond.not, label %12, label %76
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.123) #3
   %15 = load ptr, ptr %13, align 8
@@ -526,7 +526,7 @@ define internal range(i32 0, 2) i32 @dissect_PNDCP_Data_heur(ptr noundef %0, ptr
 
 switch.lookup:                                    ; preds = %12
   %43 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_PNDCP_Data_heur, i64 0, i64 %43
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_PNDCP_Data_heur, i64 0, i64 %43
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @pn_append_info(ptr noundef nonnull %1, ptr noundef %20, ptr noundef nonnull %switch.load) #3
   %44 = load i8, ptr %6, align 1
@@ -551,7 +551,7 @@ switch.lookup:                                    ; preds = %12
   %.str.215.sink.i = phi ptr [ @.str.215, %46 ], [ @.str.214, %45 ], [ @.str.213, %switch.lookup ]
   %.082.i = phi i32 [ 1, %46 ], [ 1, %45 ], [ 0, %switch.lookup ]
   call void @pn_append_info(ptr noundef nonnull %1, ptr noundef %20, ptr noundef nonnull %.str.215.sink.i) #3
-  %51 = getelementptr inbounds i8, ptr %1, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %7, align 4
   %54 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %52, ptr noundef nonnull @.str.216, i32 noundef %53) #3
@@ -651,10 +651,10 @@ define internal fastcc i32 @dissect_PNDCP_Option(ptr noundef %0, i32 noundef %1,
 
 switch.lookup:                                    ; preds = %7
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_PNDCP_Option, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dissect_PNDCP_Option, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep43 = getelementptr inbounds [9 x ptr], ptr @switch.table.dissect_PNDCP_Option.1, i64 0, i64 %14
+  %switch.gep43 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.dissect_PNDCP_Option.1, i64 0, i64 %14
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   br label %15
 
@@ -674,7 +674,7 @@ switch.lookup:                                    ; preds = %7
   br i1 %.not, label %30, label %24
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %9, align 1
   %28 = zext i8 %27 to i32
@@ -832,13 +832,13 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   %100 = load i32, ptr @hf_pn_dcp_suboption_ip_mac_address, align 4
   %101 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %.1177190.i, ptr noundef %2, ptr noundef %67, i32 noundef %100, ptr noundef nonnull %60) #3
   store i32 1, ptr %62, align 8
-  %102 = getelementptr inbounds i8, ptr %62, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 6, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %62, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %60, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %62, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr null, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %2, i64 408
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %106 = load ptr, ptr %105, align 8
   %107 = call ptr @address_to_str(ptr noundef %106, ptr noundef nonnull %62) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.225, ptr noundef %107) #3
@@ -910,13 +910,13 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   %139 = load i32, ptr @hf_pn_dcp_suboption_ip_ip, align 4
   %140 = call i32 @dissect_pn_ipv4(ptr noundef %0, i32 noundef %.4.i, ptr noundef %2, ptr noundef %67, i32 noundef %139, ptr noundef nonnull %61) #3
   store i32 2, ptr %62, align 8
-  %141 = getelementptr inbounds i8, ptr %62, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 4, ptr %141, align 4
-  %142 = getelementptr inbounds i8, ptr %62, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %61, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %62, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr null, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %2, i64 408
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %145 = load ptr, ptr %144, align 8
   %146 = call ptr @address_to_str(ptr noundef %145, ptr noundef nonnull %62) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.229, ptr noundef %146) #3
@@ -992,13 +992,13 @@ define internal fastcc i32 @dissect_PNDCP_Block(ptr noundef %0, i32 noundef %1, 
   %178 = load i32, ptr @hf_pn_dcp_suboption_ip_ip, align 4
   %179 = call i32 @dissect_pn_ipv4(ptr noundef %0, i32 noundef %.6193.i, ptr noundef %2, ptr noundef %67, i32 noundef %178, ptr noundef nonnull %61) #3
   store i32 2, ptr %62, align 8
-  %180 = getelementptr inbounds i8, ptr %62, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 4, ptr %180, align 4
-  %181 = getelementptr inbounds i8, ptr %62, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %61, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %62, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr null, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %2, i64 408
+  %183 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %184 = load ptr, ptr %183, align 8
   %185 = call ptr @address_to_str(ptr noundef %184, ptr noundef nonnull %62) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.229, ptr noundef %185) #3
@@ -1145,7 +1145,7 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
   %236 = load i32, ptr @hf_pn_dcp_suboption_device_typeofstation, align 4
   %237 = load i16, ptr %43, align 2
   %238 = zext i16 %237 to i32
-  %239 = getelementptr inbounds i8, ptr %2, i64 408
+  %239 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %240 = load ptr, ptr %239, align 8
   %241 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %67, i32 noundef %236, ptr noundef %0, i32 noundef %.1244.i, i32 noundef %238, i32 noundef 0, ptr noundef %240, ptr noundef nonnull %47) #3
   call void @pn_append_info(ptr noundef %2, ptr noundef %4, ptr noundef nonnull @.str.236) #3
@@ -1172,19 +1172,19 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
 251:                                              ; preds = %247, %246
   %252 = load ptr, ptr %47, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.238, ptr noundef %252) #3
-  %253 = getelementptr inbounds i8, ptr %2, i64 80
+  %253 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 50
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 50
   %256 = load i16, ptr %255, align 2
   %257 = and i16 %256, 8
   %258 = icmp eq i16 %257, 0
   br i1 %258, label %259, label %284
 
 259:                                              ; preds = %251
-  %260 = getelementptr inbounds i8, ptr %2, i64 20
+  %260 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %261 = load i32, ptr %260, align 4
-  %262 = getelementptr inbounds i8, ptr %2, i64 112
-  %263 = getelementptr inbounds i8, ptr %2, i64 136
+  %262 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %263 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %264 = call ptr @find_conversation(i32 noundef %261, ptr noundef nonnull %262, ptr noundef nonnull %263, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #3
   %265 = icmp eq ptr %264, null
   br i1 %265, label %266, label %272
@@ -1234,7 +1234,7 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
   %289 = load i32, ptr @hf_pn_dcp_suboption_device_nameofstation, align 4
   %290 = load i16, ptr %43, align 2
   %291 = zext i16 %290 to i32
-  %292 = getelementptr inbounds i8, ptr %2, i64 408
+  %292 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %293 = load ptr, ptr %292, align 8
   %294 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %67, i32 noundef %289, ptr noundef %0, i32 noundef %.1244.i, i32 noundef %291, i32 noundef 0, ptr noundef %293, ptr noundef nonnull %48) #3
   %295 = load ptr, ptr %292, align 8
@@ -1264,19 +1264,19 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
 307:                                              ; preds = %303, %302
   %308 = load ptr, ptr %48, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.241, ptr noundef %308) #3
-  %309 = getelementptr inbounds i8, ptr %2, i64 80
+  %309 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 50
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 50
   %312 = load i16, ptr %311, align 2
   %313 = and i16 %312, 8
   %314 = icmp eq i16 %313, 0
   br i1 %314, label %315, label %341
 
 315:                                              ; preds = %307
-  %316 = getelementptr inbounds i8, ptr %2, i64 20
+  %316 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %317 = load i32, ptr %316, align 4
-  %318 = getelementptr inbounds i8, ptr %2, i64 112
-  %319 = getelementptr inbounds i8, ptr %2, i64 136
+  %318 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %319 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %320 = call ptr @find_conversation(i32 noundef %317, ptr noundef nonnull %318, ptr noundef nonnull %319, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #3
   %321 = icmp eq ptr %320, null
   br i1 %321, label %322, label %328
@@ -1313,7 +1313,7 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
   %337 = call ptr @wmem_file_scope() #3
   %338 = load ptr, ptr %48, align 8
   %339 = call noalias ptr @wmem_strdup(ptr noundef %337, ptr noundef %338) #3
-  %340 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %339, ptr %340, align 8
   br label %341
 
@@ -1328,19 +1328,19 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
   %347 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.1244.i, ptr noundef %2, ptr noundef %67, i32 noundef %346, ptr noundef nonnull %45) #3
   %348 = load i32, ptr @hf_pn_dcp_suboption_device_id, align 4
   %349 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %347, ptr noundef %2, ptr noundef %67, i32 noundef %348, ptr noundef nonnull %46) #3
-  %350 = getelementptr inbounds i8, ptr %2, i64 80
+  %350 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 50
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 50
   %353 = load i16, ptr %352, align 2
   %354 = and i16 %353, 8
   %355 = icmp eq i16 %354, 0
   br i1 %355, label %356, label %382
 
 356:                                              ; preds = %345
-  %357 = getelementptr inbounds i8, ptr %2, i64 20
+  %357 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %358 = load i32, ptr %357, align 4
-  %359 = getelementptr inbounds i8, ptr %2, i64 112
-  %360 = getelementptr inbounds i8, ptr %2, i64 136
+  %359 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %360 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %361 = call ptr @find_conversation(i32 noundef %358, ptr noundef nonnull %359, ptr noundef nonnull %360, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #3
   %362 = icmp eq ptr %361, null
   br i1 %362, label %363, label %369
@@ -1375,10 +1375,10 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
 377:                                              ; preds = %373, %369
   %.2.i94 = phi ptr [ %375, %373 ], [ %371, %369 ]
   %378 = load i16, ptr %45, align 2
-  %379 = getelementptr inbounds i8, ptr %.2.i94, i64 16
+  %379 = getelementptr inbounds nuw i8, ptr %.2.i94, i64 16
   store i16 %378, ptr %379, align 8
   %380 = load i16, ptr %46, align 2
-  %381 = getelementptr inbounds i8, ptr %.2.i94, i64 18
+  %381 = getelementptr inbounds nuw i8, ptr %.2.i94, i64 18
   store i16 %380, ptr %381, align 2
   br label %382
 
@@ -1482,7 +1482,7 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
   br label %dissect_PNDCP_Suboption_Device.exit
 
 427:                                              ; preds = %233
-  %428 = getelementptr inbounds i8, ptr %2, i64 408
+  %428 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %429 = load ptr, ptr %428, align 8
   %430 = load i16, ptr %43, align 2
   %431 = lshr i16 %430, 1
@@ -1532,7 +1532,7 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
   %452 = load i32, ptr @hf_pn_dcp_suboption_device_aliasname, align 4
   %453 = load i16, ptr %43, align 2
   %454 = zext i16 %453 to i32
-  %455 = getelementptr inbounds i8, ptr %2, i64 408
+  %455 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %456 = load ptr, ptr %455, align 8
   %457 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %67, i32 noundef %452, ptr noundef %0, i32 noundef %.1244.i, i32 noundef %454, i32 noundef 0, ptr noundef %456, ptr noundef nonnull %49) #3
   %458 = load ptr, ptr %455, align 8
@@ -1644,19 +1644,19 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %99, %138, %177, %21
   %519 = load i32, ptr @ett_pn_dcp_rsi_properties_value, align 4
   %520 = call ptr @proto_tree_add_bitmask(ptr noundef %517, ptr noundef %0, i32 noundef %.1244.i, i32 noundef %518, i32 noundef %519, ptr noundef nonnull @dissect_PNDCP_Suboption_Device.flags, i32 noundef 0) #3
   %521 = add i32 %.1244.i, 2
-  %522 = getelementptr inbounds i8, ptr %2, i64 80
+  %522 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %523 = load ptr, ptr %522, align 8
-  %524 = getelementptr inbounds i8, ptr %523, i64 50
+  %524 = getelementptr inbounds nuw i8, ptr %523, i64 50
   %525 = load i16, ptr %524, align 2
   %526 = and i16 %525, 8
   %527 = icmp eq i16 %526, 0
   br i1 %527, label %528, label %546
 
 528:                                              ; preds = %513
-  %529 = getelementptr inbounds i8, ptr %2, i64 20
+  %529 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %530 = load i32, ptr %529, align 4
-  %531 = getelementptr inbounds i8, ptr %2, i64 112
-  %532 = getelementptr inbounds i8, ptr %2, i64 136
+  %531 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %532 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %533 = call ptr @find_conversation(i32 noundef %530, ptr noundef nonnull %531, ptr noundef nonnull %532, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #3
   %534 = icmp eq ptr %533, null
   br i1 %534, label %535, label %538
@@ -2001,7 +2001,7 @@ dissect_PNDCP_Suboption_DHCP.exit:                ; preds = %642, %644
   br label %685
 
 685:                                              ; preds = %682, %680
-  %686 = getelementptr inbounds i8, ptr %2, i64 408
+  %686 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %687 = load ptr, ptr %686, align 8
   %688 = call ptr @val_to_str_const(i32 noundef %.pre-phi.i, ptr noundef nonnull @pn_dcp_block_error, ptr noundef nonnull @.str.119) #3
   %689 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %687, ptr noundef nonnull @.str.282, ptr noundef %688) #3
@@ -2177,7 +2177,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %722, %724
   %759 = load i16, ptr %12, align 2
   %760 = zext i16 %759 to i32
   %761 = add nsw i32 %760, -16
-  %762 = getelementptr inbounds i8, ptr %2, i64 408
+  %762 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %763 = load ptr, ptr %762, align 8
   %764 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %67, i32 noundef %758, ptr noundef %0, i32 noundef %757, i32 noundef %761, i32 noundef 0, ptr noundef %763, ptr noundef nonnull %13) #3
   call void @pn_append_info(ptr noundef %2, ptr noundef %4, ptr noundef nonnull @.str.290) #3
@@ -2210,7 +2210,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %722, %724
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.241, ptr noundef %778) #3
   %779 = load i16, ptr %12, align 2
   %780 = add i32 %757, -16
-  %781 = getelementptr inbounds i8, ptr %15, i64 8
+  %781 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %782
 
 782:                                              ; preds = %782, %774
@@ -2228,11 +2228,11 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %722, %724
   %787 = add i32 %780, %786
   %788 = load i32, ptr %15, align 4
   %789 = icmp eq i32 %788, 0
-  %790 = getelementptr inbounds i8, ptr %15, i64 4
+  %790 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %791 = load i16, ptr %790, align 4
   %792 = icmp eq i16 %791, 0
   %or.cond11.i = select i1 %789, i1 %792, i1 false
-  %793 = getelementptr inbounds i8, ptr %15, i64 6
+  %793 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %794 = load i16, ptr %793, align 2
   %795 = icmp eq i16 %794, 0
   %or.cond15.i111 = select i1 %or.cond11.i, i1 %795, i1 false
@@ -2335,7 +2335,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %722, %724
   br label %837
 
 837:                                              ; preds = %833, %832
-  %838 = getelementptr inbounds i8, ptr %16, i64 8
+  %838 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %839
 
 839:                                              ; preds = %839, %837
@@ -2351,11 +2351,11 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %722, %724
 842:                                              ; preds = %839
   %843 = load i32, ptr %16, align 4
   %844 = icmp eq i32 %843, 0
-  %845 = getelementptr inbounds i8, ptr %16, i64 4
+  %845 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %846 = load i16, ptr %845, align 4
   %847 = icmp eq i16 %846, 0
   %or.cond27.i = select i1 %844, i1 %847, i1 false
-  %848 = getelementptr inbounds i8, ptr %16, i64 6
+  %848 = getelementptr inbounds nuw i8, ptr %16, i64 6
   %849 = load i16, ptr %848, align 2
   %850 = icmp eq i16 %849, 0
   %or.cond31.i = select i1 %or.cond27.i, i1 %850, i1 false
@@ -2392,7 +2392,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %722, %724
   %863 = zext i16 %862 to i32
   %864 = call ptr @rval_to_str_const(i32 noundef %863, ptr noundef nonnull @pn_dcp_block_info, ptr noundef nonnull @.str.119) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.224, ptr noundef %864) #3
-  %865 = getelementptr inbounds i8, ptr %17, i64 8
+  %865 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %866
 
 866:                                              ; preds = %866, %859
@@ -2408,11 +2408,11 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %722, %724
 869:                                              ; preds = %866
   %870 = load i32, ptr %17, align 4
   %871 = icmp eq i32 %870, 0
-  %872 = getelementptr inbounds i8, ptr %17, i64 4
+  %872 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %873 = load i16, ptr %872, align 4
   %874 = icmp eq i16 %873, 0
   %or.cond37.i = select i1 %871, i1 %874, i1 false
-  %875 = getelementptr inbounds i8, ptr %17, i64 6
+  %875 = getelementptr inbounds nuw i8, ptr %17, i64 6
   %876 = load i16, ptr %875, align 2
   %877 = icmp eq i16 %876, 0
   %or.cond41.i110 = select i1 %or.cond37.i, i1 %877, i1 false
@@ -2455,19 +2455,19 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %722, %724
   %896 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %894, ptr noundef %2, ptr noundef %67, i32 noundef %895, ptr noundef nonnull %22) #3
   %897 = load i32, ptr @hf_pn_dcp_instance_id_low, align 4
   %898 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %896, ptr noundef %2, ptr noundef %67, i32 noundef %897, ptr noundef nonnull %23) #3
-  %899 = getelementptr inbounds i8, ptr %2, i64 80
+  %899 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %900 = load ptr, ptr %899, align 8
-  %901 = getelementptr inbounds i8, ptr %900, i64 50
+  %901 = getelementptr inbounds nuw i8, ptr %900, i64 50
   %902 = load i16, ptr %901, align 2
   %903 = and i16 %902, 8
   %904 = icmp eq i16 %903, 0
   br i1 %904, label %905, label %928
 
 905:                                              ; preds = %886
-  %906 = getelementptr inbounds i8, ptr %2, i64 20
+  %906 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %907 = load i32, ptr %906, align 4
-  %908 = getelementptr inbounds i8, ptr %2, i64 112
-  %909 = getelementptr inbounds i8, ptr %2, i64 136
+  %908 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %909 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %910 = call ptr @find_conversation(i32 noundef %907, ptr noundef nonnull %908, ptr noundef nonnull %909, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #3
   %911 = icmp eq ptr %910, null
   br i1 %911, label %912, label %915
@@ -2495,10 +2495,10 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %722, %724
 923:                                              ; preds = %919, %915
   %.0196.i = phi ptr [ %921, %919 ], [ %917, %915 ]
   %924 = load i16, ptr %18, align 2
-  %925 = getelementptr inbounds i8, ptr %.0196.i, i64 16
+  %925 = getelementptr inbounds nuw i8, ptr %.0196.i, i64 16
   store i16 %924, ptr %925, align 8
   %926 = load i16, ptr %19, align 2
-  %927 = getelementptr inbounds i8, ptr %.0196.i, i64 18
+  %927 = getelementptr inbounds nuw i8, ptr %.0196.i, i64 18
   store i16 %926, ptr %927, align 2
   br label %928
 

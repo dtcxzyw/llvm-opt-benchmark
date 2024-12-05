@@ -211,21 +211,21 @@ $_ZTV11MemoryInput = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN24TypedMethodOptionMatcher5valueIlEET_v(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN24TypedMethodOptionMatcher5valueImEET_v(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN24TypedMethodOptionMatcher5valueIbEET_v(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -233,35 +233,35 @@ define hidden noundef zeroext i1 @_ZN24TypedMethodOptionMatcher5valueIbEET_v(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZN24TypedMethodOptionMatcher5valueIdEET_v(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load double, ptr %2, align 8
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN24TypedMethodOptionMatcher5valueIPKcEET_v(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIlEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN24TypedMethodOptionMatcher9set_valueImEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIdEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %0, double noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %1, ptr %3, align 8
   ret void
 }
@@ -269,7 +269,7 @@ define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIdEEvT_(ptr nocapture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIbEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 49)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = zext i1 %1 to i8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %3, ptr %4, align 8
   ret void
 }
@@ -277,7 +277,7 @@ define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIbEEvT_(ptr nocapture
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIPKcEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 9) #19
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %3, ptr %4, align 8
   ret void
 }
@@ -289,7 +289,7 @@ define hidden void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull al
   %2 = tail call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #19
   %3 = load ptr, ptr @tty, align 8
   tail call void @_ZN13MethodMatcher10print_baseEP12outputStream(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %3) #19
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %6
@@ -307,21 +307,21 @@ define hidden void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull al
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr @tty, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull @.str, ptr noundef %8, i64 noundef %14) #19
   br label %35
 
 15:                                               ; preds = %1
   %16 = load ptr, ptr @tty, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i64, ptr %17, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull @.str.4, ptr noundef %8, i64 noundef %18) #19
   br label %35
 
 19:                                               ; preds = %1
   %20 = load ptr, ptr @tty, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   %24 = select i1 %23, ptr @.str.6, ptr @.str.7
@@ -330,14 +330,14 @@ define hidden void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull al
 
 25:                                               ; preds = %1
   %26 = load ptr, ptr @tty, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load double, ptr %27, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull @.str.8, ptr noundef %8, double noundef %28) #19
   br label %35
 
 29:                                               ; preds = %1, %1
   %30 = load ptr, ptr @tty, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull @.str.9, ptr noundef %8, ptr noundef %32) #19
   br label %35
@@ -363,7 +363,7 @@ declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) loc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24TypedMethodOptionMatcher9print_allEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   tail call void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not1 = icmp eq ptr %3, null
   br i1 %.not1, label %tailrecurse._crit_edge, label %tailrecurse
@@ -374,7 +374,7 @@ tailrecurse:                                      ; preds = %1, %tailrecurse
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str.11) #19
   %6 = load ptr, ptr %4, align 8
   tail call void @_ZN24TypedMethodOptionMatcher5printEv(ptr noundef nonnull align 8 dereferenceable(56) %6)
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %tailrecurse._crit_edge, label %tailrecurse
@@ -389,29 +389,29 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 define hidden noundef ptr @_ZN24TypedMethodOptionMatcher5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 7, i32 noundef 0) #19
   tail call void @_ZN13MethodMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #19
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 40, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %7, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
   store ptr %9, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %17, ptr %18, align 8
   %19 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %19, null
@@ -447,7 +447,7 @@ declare void @_ZN6Symbol18increment_refcountEv(ptr noundef nonnull align 4 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN24TypedMethodOptionMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %4
@@ -457,7 +457,7 @@ define hidden void @_ZN24TypedMethodOptionMatcherD2Ev(ptr noundef nonnull align 
   br i1 %or.cond, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %10) #19
   br label %11
@@ -478,11 +478,11 @@ define hidden noundef ptr @_ZN24TypedMethodOptionMatcher20parse_method_patternER
   store ptr null, ptr %4, align 8
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 7, i32 noundef 0) #19
   tail call void @_ZN13MethodMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #19
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 40, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 0, ptr %8, align 8
   call void @_ZN13MethodMatcher20parse_method_patternERPcRPKcPS_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %5) #19
   %9 = load ptr, ptr %4, align 8
@@ -525,7 +525,7 @@ define hidden noundef ptr @_ZN24TypedMethodOptionMatcher5matchERK12methodHandle1
 
 4:                                                ; preds = %3, %10
   %.09 = phi ptr [ %0, %3 ], [ %12, %10 ]
-  %5 = getelementptr inbounds i8, ptr %.09, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.09, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %2
   br i1 %7, label %8, label %10
@@ -535,7 +535,7 @@ define hidden noundef ptr @_ZN24TypedMethodOptionMatcher5matchERK12methodHandle1
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %8, %4
-  %11 = getelementptr inbounds i8, ptr %.09, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.09, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %4, !llvm.loop !6
@@ -566,7 +566,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_value
 
 .preheader:                                       ; preds = %3, %14
   %.09.i = phi ptr [ %16, %14 ], [ %8, %3 ]
-  %9 = getelementptr inbounds i8, ptr %.09.i, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.09.i, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %12, label %14
@@ -576,13 +576,13 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_value
   br i1 %13, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit, label %14
 
 14:                                               ; preds = %12, %.preheader
-  %15 = getelementptr inbounds i8, ptr %.09.i, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.09.i, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.thread, label %.preheader, !llvm.loop !6
 
 _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit: ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.09.i, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %2, align 8
   br label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.thread
@@ -605,7 +605,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_value
 
 .preheader:                                       ; preds = %3, %14
   %.09.i = phi ptr [ %16, %14 ], [ %8, %3 ]
-  %9 = getelementptr inbounds i8, ptr %.09.i, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.09.i, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %12, label %14
@@ -615,13 +615,13 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_value
   br i1 %13, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit, label %14
 
 14:                                               ; preds = %12, %.preheader
-  %15 = getelementptr inbounds i8, ptr %.09.i, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.09.i, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.thread, label %.preheader, !llvm.loop !6
 
 _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit: ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.09.i, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %2, align 8
   br label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.thread
@@ -644,7 +644,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_value
 
 .preheader:                                       ; preds = %3, %14
   %.09.i = phi ptr [ %16, %14 ], [ %8, %3 ]
-  %9 = getelementptr inbounds i8, ptr %.09.i, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.09.i, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %12, label %14
@@ -654,13 +654,13 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_value
   br i1 %13, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit, label %14
 
 14:                                               ; preds = %12, %.preheader
-  %15 = getelementptr inbounds i8, ptr %.09.i, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.09.i, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.thread, label %.preheader, !llvm.loop !6
 
 _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit: ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.09.i, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, 1
   store i8 %19, ptr %2, align 1
@@ -684,7 +684,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_value
 
 .preheader:                                       ; preds = %3, %14
   %.09.i = phi ptr [ %16, %14 ], [ %8, %3 ]
-  %9 = getelementptr inbounds i8, ptr %.09.i, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.09.i, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %12, label %14
@@ -694,13 +694,13 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_value
   br i1 %13, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit, label %14
 
 14:                                               ; preds = %12, %.preheader
-  %15 = getelementptr inbounds i8, ptr %.09.i, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.09.i, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.thread, label %.preheader, !llvm.loop !6
 
 _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit: ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.09.i, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %2, align 8
   br label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.thread
@@ -723,7 +723,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_value
 
 .preheader:                                       ; preds = %3, %14
   %.09.i = phi ptr [ %16, %14 ], [ %8, %3 ]
-  %9 = getelementptr inbounds i8, ptr %.09.i, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.09.i, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %12, label %14
@@ -733,13 +733,13 @@ define weak_odr hidden noundef zeroext i1 @_ZN14CompilerOracle16has_option_value
   br i1 %13, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit, label %14
 
 14:                                               ; preds = %12, %.preheader
-  %15 = getelementptr inbounds i8, ptr %.09.i, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.09.i, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.thread, label %.preheader, !llvm.loop !6
 
 _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit: ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.09.i, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.09.i, i64 48
   %18 = load double, ptr %17, align 8
   store double %18, ptr %2, align 8
   br label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.thread
@@ -811,7 +811,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle10has_optionERK12methodHand
 
 .preheader.i:                                     ; preds = %2, %13
   %.09.i.i = phi ptr [ %15, %13 ], [ %7, %2 ]
-  %8 = getelementptr inbounds i8, ptr %.09.i.i, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %1
   br i1 %10, label %11, label %13
@@ -821,13 +821,13 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle10has_optionERK12methodHand
   br i1 %12, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i, label %13
 
 13:                                               ; preds = %11, %.preheader.i
-  %14 = getelementptr inbounds i8, ptr %.09.i.i, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit, label %.preheader.i, !llvm.loop !6
 
 _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i: ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.09.i.i, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 48
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit
@@ -839,7 +839,7 @@ _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14CompilerOracle14should_excludeERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 8), align 8
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 8), align 8
   %3 = trunc i8 %2 to i1
   %4 = load ptr, ptr @_ZL11option_list, align 8
   %.not.i8.i = icmp ne ptr %4, null
@@ -848,7 +848,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle14should_excludeERK12method
 
 .preheader.i10.i:                                 ; preds = %1, %10
   %.09.i.i.i = phi ptr [ %12, %10 ], [ %4, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 8
   br i1 %7, label %8, label %10
@@ -858,13 +858,13 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle14should_excludeERK12method
   br i1 %9, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit, label %10
 
 10:                                               ; preds = %8, %.preheader.i10.i
-  %11 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not.i.i11.i = icmp eq ptr %12, null
   br i1 %.not.i.i11.i, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread, label %.preheader.i10.i, !llvm.loop !6
 
 _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit9, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread
@@ -881,7 +881,7 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread: ; preds = 
 
 .preheader.i10.i6:                                ; preds = %18, %25
   %.09.i.i.i7 = phi ptr [ %27, %25 ], [ %19, %18 ]
-  %20 = getelementptr inbounds i8, ptr %.09.i.i.i7, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i7, i64 40
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 7
   br i1 %22, label %23, label %25
@@ -891,13 +891,13 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread: ; preds = 
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %23, %.preheader.i10.i6
-  %26 = getelementptr inbounds i8, ptr %.09.i.i.i7, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i7, i64 32
   %27 = load ptr, ptr %26, align 8
   %.not.i.i11.i8 = icmp eq ptr %27, null
   br i1 %.not.i.i11.i8, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit9, label %.preheader.i10.i6, !llvm.loop !6
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %.09.i.i.i7, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %.09.i.i.i7, i64 48
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   %32 = xor i1 %31, true
@@ -924,7 +924,7 @@ define internal fastcc noundef zeroext i1 @_ZL15check_predicate18CompileCommandE
 
 .preheader.i.i:                                   ; preds = %4, %13
   %.09.i.i.i = phi ptr [ %15, %13 ], [ %7, %4 ]
-  %8 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %11, label %13
@@ -934,13 +934,13 @@ define internal fastcc noundef zeroext i1 @_ZL15check_predicate18CompileCommandE
   br i1 %12, label %_ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i.i, label %13
 
 13:                                               ; preds = %11, %.preheader.i.i
-  %14 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i, label %.preheader.i.i, !llvm.loop !6
 
 _ZN24TypedMethodOptionMatcher5matchERK12methodHandle18CompileCommandEnum.exit.i.i: ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
   %17 = load i8, ptr %16, align 8
   br label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i
 
@@ -956,7 +956,7 @@ _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT
 
 .preheader.i24.i:                                 ; preds = %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i, %26
   %.09.i.i25.i = phi ptr [ %28, %26 ], [ %20, %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit.i ]
-  %21 = getelementptr inbounds i8, ptr %.09.i.i25.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.09.i.i25.i, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 5
   br i1 %23, label %24, label %26
@@ -966,13 +966,13 @@ _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT
   br i1 %25, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.i, label %26
 
 26:                                               ; preds = %24, %.preheader.i24.i
-  %27 = getelementptr inbounds i8, ptr %.09.i.i25.i, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.09.i.i25.i, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not.i.i26.i = icmp eq ptr %28, null
   br i1 %.not.i.i26.i, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.thread.i, label %.preheader.i24.i, !llvm.loop !6
 
 _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.i: ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.09.i.i25.i, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %.09.i.i25.i, i64 48
   %30 = load i8, ptr %29, align 8
   br i1 %.0.i.i, label %31, label %_ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT_.exit28.thread.i
 
@@ -991,7 +991,7 @@ _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %42
   %.047.i = phi ptr [ %.0.i, %42 ], [ %.045.i, %.preheader.i ]
-  %35 = getelementptr inbounds i8, ptr %.047.i, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %.047.i, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, -2
   %or.cond.i = icmp eq i32 %37, 4
@@ -1006,7 +1006,7 @@ _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT
   br label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit
 
 42:                                               ; preds = %38, %.lr.ph.i
-  %43 = getelementptr inbounds i8, ptr %.047.i, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %.047.i, i64 32
   %.0.i = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
@@ -1041,7 +1041,7 @@ _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT
 
 55:                                               ; preds = %2
   %56 = zext nneg i32 %0 to i64
-  %57 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = trunc i8 %58 to i1
   %60 = load ptr, ptr @_ZL11option_list, align 8
@@ -1051,7 +1051,7 @@ _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT
 
 .preheader.i10:                                   ; preds = %55, %66
   %.09.i.i = phi ptr [ %68, %66 ], [ %60, %55 ]
-  %61 = getelementptr inbounds i8, ptr %.09.i.i, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 40
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, %0
   br i1 %63, label %64, label %66
@@ -1061,13 +1061,13 @@ _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT
   br i1 %65, label %69, label %66
 
 66:                                               ; preds = %64, %.preheader.i10
-  %67 = getelementptr inbounds i8, ptr %.09.i.i, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 32
   %68 = load ptr, ptr %67, align 8
   %.not.i.i11 = icmp eq ptr %68, null
   br i1 %.not.i.i11, label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit, label %.preheader.i10, !llvm.loop !6
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %.09.i.i, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 48
   %71 = load i8, ptr %70, align 8
   %72 = trunc i8 %71 to i1
   br label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit
@@ -1089,7 +1089,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle17should_not_inlineERK12met
   br i1 %2, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 8), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 8), align 8
   %5 = trunc i8 %4 to i1
   %6 = load ptr, ptr @_ZL11option_list, align 8
   %.not.i8.i = icmp ne ptr %6, null
@@ -1098,7 +1098,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle17should_not_inlineERK12met
 
 .preheader.i10.i:                                 ; preds = %3, %12
   %.09.i.i.i = phi ptr [ %14, %12 ], [ %6, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 8
   br i1 %9, label %10, label %12
@@ -1108,13 +1108,13 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle17should_not_inlineERK12met
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %10, %.preheader.i10.i
-  %13 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not.i.i11.i = icmp eq ptr %14, null
   br i1 %.not.i.i11.i, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit, label %.preheader.i10.i, !llvm.loop !6
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
@@ -1126,7 +1126,7 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %12, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14CompilerOracle12should_printERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 3), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 3), align 1
   %3 = trunc i8 %2 to i1
   %4 = load ptr, ptr @_ZL11option_list, align 8
   %.not.i8.i = icmp ne ptr %4, null
@@ -1135,7 +1135,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle12should_printERK12methodHa
 
 .preheader.i10.i:                                 ; preds = %1, %10
   %.09.i.i.i = phi ptr [ %12, %10 ], [ %4, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 3
   br i1 %7, label %8, label %10
@@ -1145,13 +1145,13 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle12should_printERK12methodHa
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %8, %.preheader.i10.i
-  %11 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not.i.i11.i = icmp eq ptr %12, null
   br i1 %.not.i.i11.i, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit, label %.preheader.i10.i, !llvm.loop !6
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
@@ -1202,7 +1202,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle10should_logERK12methodHand
 
 .preheader.i10.i:                                 ; preds = %7, %14
   %.09.i.i.i = phi ptr [ %16, %14 ], [ %8, %7 ]
-  %9 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %14
@@ -1212,13 +1212,13 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle10should_logERK12methodHand
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12, %.preheader.i10.i
-  %15 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not.i.i11.i = icmp eq ptr %16, null
   br i1 %.not.i.i11.i, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit, label %.preheader.i10.i, !llvm.loop !6
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
@@ -1230,7 +1230,7 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %14, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14CompilerOracle15should_break_atERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 9), align 1
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 9), align 1
   %3 = trunc i8 %2 to i1
   %4 = load ptr, ptr @_ZL11option_list, align 8
   %.not.i8.i = icmp ne ptr %4, null
@@ -1239,7 +1239,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle15should_break_atERK12metho
 
 .preheader.i10.i:                                 ; preds = %1, %10
   %.09.i.i.i = phi ptr [ %12, %10 ], [ %4, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 9
   br i1 %7, label %8, label %10
@@ -1249,13 +1249,13 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle15should_break_atERK12metho
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %8, %.preheader.i10.i
-  %11 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not.i.i11.i = icmp eq ptr %12, null
   br i1 %.not.i.i11.i, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit, label %.preheader.i10.i, !llvm.loop !6
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit
@@ -1267,7 +1267,7 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %10, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14CompilerOracle25tag_blackhole_if_possibleERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
-  %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13option_filter, i64 6), align 2
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13option_filter, i64 6), align 2
   %3 = trunc i8 %2 to i1
   %4 = load ptr, ptr @_ZL11option_list, align 8
   %.not.i8.i = icmp ne ptr %4, null
@@ -1276,7 +1276,7 @@ define hidden void @_ZN14CompilerOracle25tag_blackhole_if_possibleERK12methodHan
 
 .preheader.i10.i:                                 ; preds = %1, %10
   %.09.i.i.i = phi ptr [ %12, %10 ], [ %4, %1 ]
-  %5 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 6
   br i1 %7, label %8, label %10
@@ -1286,13 +1286,13 @@ define hidden void @_ZN14CompilerOracle25tag_blackhole_if_possibleERK12methodHan
   br i1 %9, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit, label %10
 
 10:                                               ; preds = %8, %.preheader.i10.i
-  %11 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not.i.i11.i = icmp eq ptr %12, null
   br i1 %.not.i.i11.i, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread, label %.preheader.i10.i, !llvm.loop !6
 
 _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %.09.i.i.i, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread
@@ -1310,9 +1310,9 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %8
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load i8, ptr %25, align 8
   %.not = icmp eq i8 %26, 14
   br i1 %.not, label %29, label %27
@@ -1323,13 +1323,13 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit: ; preds = %8
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %24, i64 34
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 34
   %31 = load i16, ptr %30, align 2
   %32 = icmp eq i16 %31, 1
   br i1 %32, label %_ZNK6Method15is_empty_methodEv.exit, label %_ZNK6Method15is_empty_methodEv.exit.thread
 
 _ZNK6Method15is_empty_methodEv.exit:              ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %24, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, -79
   br i1 %35, label %37, label %_ZNK6Method15is_empty_methodEv.exit.thread
@@ -1340,7 +1340,7 @@ _ZNK6Method15is_empty_methodEv.exit.thread:       ; preds = %29, %_ZNK6Method15i
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread
 
 37:                                               ; preds = %_ZNK6Method15is_empty_methodEv.exit
-  %38 = getelementptr inbounds i8, ptr %22, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %38, align 8
   %39 = and i32 %.sroa.0.0.copyload.i.i, 8
   %.not14 = icmp eq i32 %39, 0
@@ -1352,7 +1352,7 @@ _ZNK6Method15is_empty_methodEv.exit.thread:       ; preds = %29, %_ZNK6Method15i
   br label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %22, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 52
   %44 = load i16, ptr %43, align 4
   switch i16 %44, label %45 [
     i16 220, label %_ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit.thread
@@ -1362,7 +1362,7 @@ _ZNK6Method15is_empty_methodEv.exit.thread:       ; preds = %29, %_ZNK6Method15i
 45:                                               ; preds = %42
   %46 = tail call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %22) #19
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 52
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 52
   %49 = load i16, ptr %48, align 4
   %50 = zext i16 %49 to i32
   %51 = tail call noundef ptr @_ZN12vmIntrinsics7name_atE13vmIntrinsicID(i32 noundef %50) #19
@@ -1392,7 +1392,7 @@ define hidden noundef range(i32 0, 41) i32 @_ZN14CompilerOracle17parse_option_na
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %4) #21
   %6 = icmp eq i32 %5, 0
@@ -1421,7 +1421,7 @@ define hidden noundef range(i32 0, 7) i32 @_ZN14CompilerOracle17parse_option_typ
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %4) #21
   %6 = icmp eq i32 %5, 0
@@ -1515,7 +1515,7 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle15parse_from_lineEPc(ptr no
 
 .preheader.i:                                     ; preds = %23, %29
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ 0, %23 ]
-  %25 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 @strcasecmp(ptr noundef nonnull %11, ptr noundef %26) #21
   %28 = icmp eq i32 %27, 0
@@ -1536,15 +1536,15 @@ _ZL17match_option_namePKcPiPci.exit.thread:       ; preds = %29, %19, %23
   store ptr %34, ptr %12, align 8
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 800
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 800
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %38, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %38, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %46 = load i64, ptr %45, align 8
   br label %64
 
@@ -1558,15 +1558,15 @@ _ZL17match_option_namePKcPiPci.exit:              ; preds = %.preheader.i
   store ptr %51, ptr %12, align 8
   %52 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 800
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 800
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %55, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %55, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %63 = load i64, ptr %62, align 8
   switch i32 %47, label %279 [
     i32 40, label %64
@@ -1774,7 +1774,7 @@ _ZL17match_option_namePKcPiPci.exit:              ; preds = %.preheader.i
   br i1 %164, label %165, label %_ZL10skip_commaRPc.exit
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %51, i64 1
+  %166 = getelementptr inbounds nuw i8, ptr %51, i64 1
   store ptr %166, ptr %12, align 8
   br label %_ZL10skip_commaRPc.exit
 
@@ -1813,7 +1813,7 @@ _ZL10skip_commaRPc.exit:                          ; preds = %162, %165
 
 184:                                              ; preds = %189, %.lr.ph
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i37, %189 ]
-  %185 = getelementptr inbounds [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %indvars.iv.i36
+  %185 = getelementptr inbounds nuw [6 x ptr], ptr @_ZL16optiontype_names, i64 0, i64 %indvars.iv.i36
   %186 = load ptr, ptr %185, align 8
   %187 = call i32 @strcasecmp(ptr noundef nonnull readonly %15, ptr noundef %186) #21
   %188 = icmp eq i32 %187, 0
@@ -1870,7 +1870,7 @@ _ZN14CompilerOracle17parse_option_typeEPKc.exit:  ; preds = %184
 
 .preheader.i.i:                                   ; preds = %209, %215
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %215 ], [ 0, %209 ]
-  %211 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %indvars.iv.i.i
+  %211 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %indvars.iv.i.i
   %212 = load ptr, ptr %211, align 8
   %213 = call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef %212) #21
   %214 = icmp eq i32 %213, 0
@@ -1957,7 +1957,7 @@ _ZN14CompilerOracle17parse_option_typeEPKc.exit.thread: ; preds = %189, %_ZN14Co
 
 .preheader.i43:                                   ; preds = %246, %252
   %indvars.iv.i44 = phi i64 [ %indvars.iv.next.i45, %252 ], [ 0, %246 ]
-  %248 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %indvars.iv.i44
+  %248 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %indvars.iv.i44
   %249 = load ptr, ptr %248, align 8
   %250 = call i32 @strcasecmp(ptr noundef nonnull %4, ptr noundef %249) #21
   %251 = icmp eq i32 %250, 0
@@ -2039,7 +2039,7 @@ _ZL17match_option_namePKcPiPci.exit48:            ; preds = %.preheader.i43
   br i1 %284, label %285, label %_ZL10skip_commaRPc.exit49
 
 285:                                              ; preds = %279
-  %286 = getelementptr inbounds i8, ptr %51, i64 1
+  %286 = getelementptr inbounds nuw i8, ptr %51, i64 1
   store ptr %286, ptr %12, align 8
   br label %_ZL10skip_commaRPc.exit49
 
@@ -2168,24 +2168,24 @@ define internal fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatche
 
 .split.thread:                                    ; preds = %4, %7
   %10 = load ptr, ptr @_ZL11option_list, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 2, ptr %12, align 8
   %13 = zext i1 %2 to i8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %13, ptr %14, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
 
 .split:                                           ; preds = %3
   %15 = load ptr, ptr @_ZL11option_list, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %17, align 8
   %18 = zext i1 %2 to i8
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %18, ptr %19, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   %20 = and i32 %1, -2
@@ -2209,12 +2209,12 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
 
 .split10:                                         ; preds = %24
   %27 = load ptr, ptr @_ZL11option_list, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 6, ptr %29, align 8
   %30 = zext i1 %2 to i8
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %30, ptr %31, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
@@ -2227,7 +2227,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   br i1 %33, label %53, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %37
@@ -2237,7 +2237,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   br i1 %or.cond.i, label %41, label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %43) #19
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit
@@ -2288,22 +2288,22 @@ define internal fastcc void @_ZL16register_commandImEvP24TypedMethodOptionMatche
 
 .split.thread:                                    ; preds = %4, %7
   %10 = load ptr, ptr @_ZL11option_list, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %13, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
 
 .split:                                           ; preds = %3
   %14 = load ptr, ptr @_ZL11option_list, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %17, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   %18 = and i32 %1, -2
@@ -2327,11 +2327,11 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
 
 .split10:                                         ; preds = %22
   %25 = load ptr, ptr @_ZL11option_list, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 6, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %28, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
@@ -2344,7 +2344,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   br i1 %30, label %50, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %34
@@ -2354,7 +2354,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   br i1 %or.cond.i, label %38, label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load ptr, ptr %39, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %40) #19
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit
@@ -2440,7 +2440,7 @@ define internal fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOption
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %25, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = add i8 %37, -88
   %switch.and.i.i = and i8 %38, -33
@@ -2511,7 +2511,7 @@ _Z14multiply_by_1kImEbRT_.exit19.thread.i.i:      ; preds = %54
 
 57:                                               ; preds = %56
   %58 = shl nuw i64 %.2.i.i, 10
-  %59 = getelementptr inbounds i8, ptr %46, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %46, i64 1
   br label %61
 
 60:                                               ; preds = %56, %54, %52, %50, %45, %_Z18parse_integer_implImTnNSt9enable_ifIXcvbntsr3std9is_signedIT_EE5valueEiE4typeELi0ETnNS0_IXcvbeqstS1_Li8EEiE4typeELi0EEbPKcPPciPS1_.exit.i.i, %40, %30
@@ -2591,11 +2591,11 @@ _ZL13parseMemLimitPKcRlRiPci.exit:                ; preds = %28
 
 .split.thread.i:                                  ; preds = %89, %86
   %92 = load ptr, ptr @_ZL11option_list, align 8
-  %93 = getelementptr inbounds i8, ptr %3, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %92, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %3, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 2, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %85, ptr %95, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i
@@ -2603,11 +2603,11 @@ _ZL13parseMemLimitPKcRlRiPci.exit:                ; preds = %28
 .split.i:                                         ; preds = %.thread, %81
   %96 = phi i64 [ %.0.i, %.thread ], [ %85, %81 ]
   %97 = load ptr, ptr @_ZL11option_list, align 8
-  %98 = getelementptr inbounds i8, ptr %3, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %3, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %4, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %3, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %96, ptr %100, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   %101 = and i32 %4, -2
@@ -2630,11 +2630,11 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i: ; preds = %102, %.split.i
 
 .split10.i:                                       ; preds = %104
   %107 = load ptr, ptr @_ZL11option_list, align 8
-  %108 = getelementptr inbounds i8, ptr %3, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %107, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %3, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 6, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %3, i64 48
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %85, ptr %110, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
@@ -2647,7 +2647,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i: ; preds = %102, %.split.i
   br i1 %112, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %113
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %3, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %115 = load i32, ptr %114, align 8
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %116
@@ -2657,7 +2657,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i: ; preds = %102, %.split.i
   br i1 %or.cond.i.i95, label %120, label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i
 
 120:                                              ; preds = %113
-  %121 = getelementptr inbounds i8, ptr %3, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %122 = load ptr, ptr %121, align 8
   call void @_ZN2os4freeEPv(ptr noundef %122) #19
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i
@@ -2745,15 +2745,15 @@ _ZL12parseMemStatPKcRmRiPci.exit.thread:          ; preds = %_ZL12parseMemStatPK
 150:                                              ; preds = %6
   %151 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 800
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 800
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %154, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %154, i64 40
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 40
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %154, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %162 = load i64, ptr %161, align 8
   %163 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #21
   %164 = add i64 %163, 1
@@ -2798,15 +2798,15 @@ _ZL12parseMemStatPKcRmRiPci.exit.thread:          ; preds = %_ZL12parseMemStatPK
 180:                                              ; preds = %6
   %181 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 800
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 800
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %184, i64 32
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 32
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %184, i64 40
+  %189 = getelementptr inbounds nuw i8, ptr %184, i64 40
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %184, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %192 = load i64, ptr %191, align 8
   %193 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #21
   %194 = add i64 %193, 1
@@ -2860,13 +2860,13 @@ _ZL12parseMemStatPKcRmRiPci.exit.thread:          ; preds = %_ZL12parseMemStatPK
   br i1 %223, label %228, label %224
 
 224:                                              ; preds = %220
-  %225 = getelementptr inbounds i8, ptr %12, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %226 = load ptr, ptr %225, align 8
   %227 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.125, ptr noundef %18, ptr noundef %226) #19
   br label %228
 
 228:                                              ; preds = %224, %220
-  %229 = getelementptr inbounds i8, ptr %12, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %230 = load ptr, ptr %229, align 8
   %.not.i97 = icmp eq ptr %230, null
   br i1 %.not.i97, label %_ZN25ControlIntrinsicValidatorD2Ev.exit, label %231
@@ -2953,7 +2953,7 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit:          ; preds = %231, %228, %._crit_
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 265:                                              ; preds = %6
-  %266 = getelementptr inbounds i8, ptr %14, i64 256
+  %266 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %267 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %25, ptr noundef nonnull @.str.127, ptr noundef nonnull %14, ptr noundef nonnull %266, ptr noundef nonnull %9) #19
   %268 = icmp eq i32 %267, 2
   br i1 %268, label %269, label %317
@@ -2985,22 +2985,22 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit:          ; preds = %231, %228, %._crit_
 
 .split.thread.i104:                               ; preds = %278, %275
   %281 = load ptr, ptr @_ZL11option_list, align 8
-  %282 = getelementptr inbounds i8, ptr %3, i64 32
+  %282 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %281, ptr %282, align 8
-  %283 = getelementptr inbounds i8, ptr %3, i64 40
+  %283 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 2, ptr %283, align 8
-  %284 = getelementptr inbounds i8, ptr %3, i64 48
+  %284 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store double %274, ptr %284, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit.i105
 
 .split.i106:                                      ; preds = %269
   %285 = load ptr, ptr @_ZL11option_list, align 8
-  %286 = getelementptr inbounds i8, ptr %3, i64 32
+  %286 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %285, ptr %286, align 8
-  %287 = getelementptr inbounds i8, ptr %3, i64 40
+  %287 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %4, ptr %287, align 8
-  %288 = getelementptr inbounds i8, ptr %3, i64 48
+  %288 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store double %274, ptr %288, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   %289 = and i32 %4, -2
@@ -3023,11 +3023,11 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i105: ; preds = %290, %.spli
 
 .split10.i103:                                    ; preds = %292
   %295 = load ptr, ptr @_ZL11option_list, align 8
-  %296 = getelementptr inbounds i8, ptr %3, i64 32
+  %296 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %295, ptr %296, align 8
-  %297 = getelementptr inbounds i8, ptr %3, i64 40
+  %297 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 6, ptr %297, align 8
-  %298 = getelementptr inbounds i8, ptr %3, i64 48
+  %298 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store double %274, ptr %298, align 8
   store ptr %3, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
@@ -3040,7 +3040,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i105: ; preds = %290, %.spli
   br i1 %300, label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit, label %301
 
 301:                                              ; preds = %299
-  %302 = getelementptr inbounds i8, ptr %3, i64 40
+  %302 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %303 = load i32, ptr %302, align 8
   %304 = sext i32 %303 to i64
   %305 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %304
@@ -3050,7 +3050,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit.i105: ; preds = %290, %.spli
   br i1 %or.cond.i.i101, label %308, label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i102
 
 308:                                              ; preds = %301
-  %309 = getelementptr inbounds i8, ptr %3, i64 48
+  %309 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %310 = load ptr, ptr %309, align 8
   call void @_ZN2os4freeEPv(ptr noundef %310) #19
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit.i102
@@ -3102,14 +3102,14 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle15parse_from_fileEv() local
 
 5:                                                ; preds = %0
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %7, ptr %6, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %7, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i8 1, ptr %9, align 8
   %10 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %1, ptr noundef nonnull @_ZN14CompilerOracle15parse_from_lineEPc)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
@@ -3127,23 +3127,23 @@ declare noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef, ptr noundef) local_unnamed
 define hidden noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.inputStream, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV11inputStream, i64 16), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = getelementptr inbounds i8, ptr %3, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 240, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false)
   call void @_ZN11inputStream9set_inputEPNS_5InputE(ptr noundef nonnull align 8 dereferenceable(320) %3, ptr noundef %0) #19
-  %11 = getelementptr inbounds i8, ptr %3, i64 64
-  %12 = getelementptr inbounds i8, ptr %3, i64 56
-  %13 = getelementptr inbounds i8, ptr %3, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %14
 
 14:                                               ; preds = %_ZNK11inputStream12current_lineEv.exit, %2
@@ -3209,11 +3209,11 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle17parse_from_stringEPKcPFbP
   %3 = alloca %class.MemoryInput, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #21
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV11MemoryInput, i64 16), ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %7, align 8
   %8 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %3, ptr noundef %1)
   ret i1 %8
@@ -3232,11 +3232,11 @@ define hidden noundef zeroext i1 @_Z19compilerOracle_initv() local_unnamed_addr 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV11MemoryInput, i64 16), ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %9, align 8
   %10 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %3, ptr noundef nonnull @_ZN14CompilerOracle15parse_from_lineEPc)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -3244,11 +3244,11 @@ define hidden noundef zeroext i1 @_Z19compilerOracle_initv() local_unnamed_addr 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #21
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV11MemoryInput, i64 16), ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %15, align 8
   %16 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %2, ptr noundef nonnull @_ZN14CompilerOracle18parse_compile_onlyEPc)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
@@ -3269,14 +3269,14 @@ _ZN14CompilerOracle15parse_from_fileEv.exit.thread: ; preds = %18
 
 _ZN14CompilerOracle15parse_from_fileEv.exit:      ; preds = %18
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %22, ptr %21, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %22, i1 noundef zeroext false) #19
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV10fileStream, i64 16), ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %19, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i8 1, ptr %24, align 8
   %25 = call noundef zeroext i1 @_ZN14CompilerOracle16parse_from_inputEPN11inputStream5InputEPFbPcE(ptr noundef nonnull %1, ptr noundef nonnull @_ZN14CompilerOracle15parse_from_lineEPc)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV9FileInput, i64 16), ptr %1, align 8
@@ -3330,15 +3330,15 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle18parse_compile_onlyEPc(ptr
 7:                                                ; preds = %1
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 800
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 800
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load i64, ptr %18, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %3, i8 0, i64 1024, i1 false)
   %20 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %0, i8 noundef zeroext 9) #19
@@ -3363,11 +3363,11 @@ define hidden noundef zeroext i1 @_ZN14CompilerOracle18parse_compile_onlyEPc(ptr
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr @_ZL11option_list, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store i32 7, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store i8 1, ptr %33, align 8
   store ptr %28, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
@@ -3463,7 +3463,7 @@ define hidden noundef i32 @_ZN14CompilerOracle16string_to_optionEPKc(ptr nocaptu
 
 .preheader.i:                                     ; preds = %7, %13
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %13 ], [ 0, %7 ]
-  %9 = getelementptr inbounds [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [41 x ptr], ptr @_ZL12option_names, i64 0, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = call i32 @strcasecmp(ptr noundef nonnull %2, ptr noundef %10) #21
   %12 = icmp eq i32 %11, 0
@@ -3525,24 +3525,24 @@ define internal fastcc void @_ZL16register_commandIPKcEvP24TypedMethodOptionMatc
 
 .split.thread:                                    ; preds = %4, %7
   %10 = load ptr, ptr @_ZL11option_list, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 2, ptr %12, align 8
   %13 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %2, i8 noundef zeroext 9) #19
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %13, ptr %14, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   br label %_ZL21command_set_in_filter18CompileCommandEnum.exit
 
 .split:                                           ; preds = %3
   %15 = load ptr, ptr @_ZL11option_list, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %17, align 8
   %18 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %2, i8 noundef zeroext 9) #19
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %18, ptr %19, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   %20 = and i32 %1, -2
@@ -3566,12 +3566,12 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
 
 .split10:                                         ; preds = %24
   %27 = load ptr, ptr @_ZL11option_list, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 6, ptr %29, align 8
   %30 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %2, i8 noundef zeroext 9) #19
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %30, ptr %31, align 8
   store ptr %0, ptr @_ZL11option_list, align 8
   store i1 true, ptr @_ZL7any_set, align 1
@@ -3584,7 +3584,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   br i1 %33, label %53, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds [41 x i32], ptr @_ZL12option_types, i64 0, i64 %37
@@ -3594,7 +3594,7 @@ _ZL21command_set_in_filter18CompileCommandEnum.exit: ; preds = %.split, %.split.
   br i1 %or.cond.i, label %41, label %_ZN24TypedMethodOptionMatcherD2Ev.exit
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %43 = load ptr, ptr %42, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %43) #19
   br label %_ZN24TypedMethodOptionMatcherD2Ev.exit
@@ -3628,10 +3628,10 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %34, %41
 define linkonce_odr hidden void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 comdat align 2 {
   %4 = alloca %class.ControlIntrinsicIter, align 8
   store i8 1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   call void @_ZN20ControlIntrinsicIterC1EPKcb(ptr noundef nonnull align 8 dereferenceable(33) %4, ptr noundef %1, i1 noundef zeroext %2) #19
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not4 = icmp eq ptr %7, null
   br i1 %.not4, label %.critedge, label %.lr.ph
@@ -3707,9 +3707,9 @@ declare void @_ZN10fileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(65
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9FileInput4readEPcm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN10fileStream4readEPvm.exit, label %9
@@ -3732,9 +3732,9 @@ declare noundef zeroext i1 @_ZN11inputStream11fill_bufferEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN11MemoryInput4readEPcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = sub i64 %5, %7
   %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %8)
@@ -3742,7 +3742,7 @@ define linkonce_odr hidden noundef i64 @_ZN11MemoryInput4readEPcm(ptr noundef no
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %12, i64 %spec.select, i1 false)

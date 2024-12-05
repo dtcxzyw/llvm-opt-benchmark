@@ -83,13 +83,13 @@ define dso_local void @psched_scheduler_init() local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr @pmix_output_stream_t_class, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, i8 0, i64 64, i1 false)
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_output_stream_t_class, i64 40), align 8
   %14 = load ptr, ptr %13, align 8
   %.not6.i = icmp eq ptr %14, null
   br i1 %.not6.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i
@@ -98,18 +98,18 @@ define dso_local void @psched_scheduler_init() local_unnamed_addr #0 {
   %15 = phi ptr [ %17, %.lr.ph.i ], [ %14, %9 ]
   %.07.i = phi ptr [ %16, %.lr.ph.i ], [ %13, %9 ]
   call void %15(ptr noundef nonnull %1) #10
-  %16 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !5
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
-  %18 = getelementptr inbounds i8, ptr %1, i64 154
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 154
   store i8 1, ptr %18, align 2
   %19 = call i32 @pmix_output_open(ptr noundef nonnull %1) #10
   store i32 %19, ptr getelementptr inbounds (i8, ptr @psched_globals, i64 712), align 8
   %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %.not6.i1 = icmp eq ptr %23, null
@@ -119,7 +119,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   %24 = phi ptr [ %26, %.lr.ph.i2 ], [ %23, %pmix_obj_run_constructors.exit ]
   %.07.i3 = phi ptr [ %25, %.lr.ph.i2 ], [ %22, %pmix_obj_run_constructors.exit ]
   call void %24(ptr noundef nonnull %1) #10
-  %25 = getelementptr inbounds i8, ptr %.07.i3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.07.i3, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not.i4 = icmp eq ptr %26, null
   br i1 %.not.i4, label %pmix_obj_run_destructors.exit.loopexit, label %.lr.ph.i2, !llvm.loop !7
@@ -141,7 +141,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %pmix_obj_run_destru
 
 31:                                               ; preds = %29
   %32 = zext nneg i32 %30 to i64
-  %33 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %32, i32 2
+  %33 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %32, i32 2
   %34 = load i32, ptr %33, align 4
   %35 = icmp sgt i32 %34, 1
   br i1 %35, label %36, label %38
@@ -182,7 +182,7 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
+  %9 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %8, i32 2
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 1
   br i1 %11, label %12, label %14
@@ -193,32 +193,32 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   br label %14
 
 14:                                               ; preds = %12, %7, %3
-  %15 = getelementptr inbounds i8, ptr %2, i64 544
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 544
   %16 = load i64, ptr %15, align 8
   %.not448 = icmp eq i64 %16, 0
   br i1 %.not448, label %.thread452, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %2, i64 536
-  %18 = getelementptr inbounds i8, ptr %2, i64 696
-  %19 = getelementptr inbounds i8, ptr %2, i64 688
-  %20 = getelementptr inbounds i8, ptr %2, i64 682
-  %21 = getelementptr inbounds i8, ptr %2, i64 681
-  %22 = getelementptr inbounds i8, ptr %2, i64 680
-  %23 = getelementptr inbounds i8, ptr %2, i64 672
-  %24 = getelementptr inbounds i8, ptr %2, i64 664
-  %25 = getelementptr inbounds i8, ptr %2, i64 656
-  %26 = getelementptr inbounds i8, ptr %2, i64 648
-  %27 = getelementptr inbounds i8, ptr %2, i64 640
-  %28 = getelementptr inbounds i8, ptr %2, i64 632
-  %29 = getelementptr inbounds i8, ptr %2, i64 624
-  %30 = getelementptr inbounds i8, ptr %2, i64 616
-  %31 = getelementptr inbounds i8, ptr %2, i64 608
-  %32 = getelementptr inbounds i8, ptr %2, i64 600
-  %33 = getelementptr inbounds i8, ptr %2, i64 592
-  %34 = getelementptr inbounds i8, ptr %2, i64 584
-  %35 = getelementptr inbounds i8, ptr %2, i64 576
-  %36 = getelementptr inbounds i8, ptr %2, i64 568
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 536
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 696
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 688
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 682
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 681
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 680
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 672
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 664
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 656
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 648
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 640
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 632
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 624
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 616
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 608
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 600
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 592
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 584
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 576
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 568
   br label %37
 
 37:                                               ; preds = %.lr.ph, %.thread
@@ -280,109 +280,109 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   ]
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %59, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %63 = load i64, ptr %62, align 8
   store i64 %63, ptr %34, align 8
   br label %.thread
 
 64:                                               ; preds = %58
-  %65 = getelementptr inbounds i8, ptr %59, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = sext i32 %66 to i64
   store i64 %67, ptr %34, align 8
   br label %.thread
 
 68:                                               ; preds = %58
-  %69 = getelementptr inbounds i8, ptr %59, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %70 = load i8, ptr %69, align 8
   %71 = sext i8 %70 to i64
   store i64 %71, ptr %34, align 8
   br label %.thread
 
 72:                                               ; preds = %58
-  %73 = getelementptr inbounds i8, ptr %59, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %74 = load i16, ptr %73, align 8
   %75 = sext i16 %74 to i64
   store i64 %75, ptr %34, align 8
   br label %.thread
 
 76:                                               ; preds = %58
-  %77 = getelementptr inbounds i8, ptr %59, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = sext i32 %78 to i64
   store i64 %79, ptr %34, align 8
   br label %.thread
 
 80:                                               ; preds = %58
-  %81 = getelementptr inbounds i8, ptr %59, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %82 = load i64, ptr %81, align 8
   store i64 %82, ptr %34, align 8
   br label %.thread
 
 83:                                               ; preds = %58
-  %84 = getelementptr inbounds i8, ptr %59, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %85 = load i32, ptr %84, align 8
   %86 = zext i32 %85 to i64
   store i64 %86, ptr %34, align 8
   br label %.thread
 
 87:                                               ; preds = %58
-  %88 = getelementptr inbounds i8, ptr %59, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %89 = load i8, ptr %88, align 8
   %90 = zext i8 %89 to i64
   store i64 %90, ptr %34, align 8
   br label %.thread
 
 91:                                               ; preds = %58
-  %92 = getelementptr inbounds i8, ptr %59, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %93 = load i16, ptr %92, align 8
   %94 = zext i16 %93 to i64
   store i64 %94, ptr %34, align 8
   br label %.thread
 
 95:                                               ; preds = %58
-  %96 = getelementptr inbounds i8, ptr %59, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %97 = load i32, ptr %96, align 8
   %98 = zext i32 %97 to i64
   store i64 %98, ptr %34, align 8
   br label %.thread
 
 99:                                               ; preds = %58
-  %100 = getelementptr inbounds i8, ptr %59, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %101 = load i64, ptr %100, align 8
   store i64 %101, ptr %34, align 8
   br label %.thread
 
 102:                                              ; preds = %58
-  %103 = getelementptr inbounds i8, ptr %59, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %104 = load float, ptr %103, align 8
   %105 = fptoui float %104 to i64
   store i64 %105, ptr %34, align 8
   br label %.thread
 
 106:                                              ; preds = %58
-  %107 = getelementptr inbounds i8, ptr %59, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %108 = load double, ptr %107, align 8
   %109 = fptoui double %108 to i64
   store i64 %109, ptr %34, align 8
   br label %.thread
 
 110:                                              ; preds = %58
-  %111 = getelementptr inbounds i8, ptr %59, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %112 = load i32, ptr %111, align 8
   %113 = sext i32 %112 to i64
   store i64 %113, ptr %34, align 8
   br label %.thread
 
 114:                                              ; preds = %58
-  %115 = getelementptr inbounds i8, ptr %59, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %116 = load i32, ptr %115, align 8
   %117 = zext i32 %116 to i64
   store i64 %117, ptr %34, align 8
   br label %.thread
 
 118:                                              ; preds = %58
-  %119 = getelementptr inbounds i8, ptr %59, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %120 = load i32, ptr %119, align 8
   %121 = sext i32 %120 to i64
   store i64 %121, ptr %34, align 8
@@ -450,109 +450,109 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   ]
 
 148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %146, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %150 = load i64, ptr %149, align 8
   store i64 %150, ptr %31, align 8
   br label %.thread
 
 151:                                              ; preds = %145
-  %152 = getelementptr inbounds i8, ptr %146, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %153 = load i32, ptr %152, align 8
   %154 = sext i32 %153 to i64
   store i64 %154, ptr %31, align 8
   br label %.thread
 
 155:                                              ; preds = %145
-  %156 = getelementptr inbounds i8, ptr %146, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %157 = load i8, ptr %156, align 8
   %158 = sext i8 %157 to i64
   store i64 %158, ptr %31, align 8
   br label %.thread
 
 159:                                              ; preds = %145
-  %160 = getelementptr inbounds i8, ptr %146, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %161 = load i16, ptr %160, align 8
   %162 = sext i16 %161 to i64
   store i64 %162, ptr %31, align 8
   br label %.thread
 
 163:                                              ; preds = %145
-  %164 = getelementptr inbounds i8, ptr %146, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %165 = load i32, ptr %164, align 8
   %166 = sext i32 %165 to i64
   store i64 %166, ptr %31, align 8
   br label %.thread
 
 167:                                              ; preds = %145
-  %168 = getelementptr inbounds i8, ptr %146, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %169 = load i64, ptr %168, align 8
   store i64 %169, ptr %31, align 8
   br label %.thread
 
 170:                                              ; preds = %145
-  %171 = getelementptr inbounds i8, ptr %146, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %172 = load i32, ptr %171, align 8
   %173 = zext i32 %172 to i64
   store i64 %173, ptr %31, align 8
   br label %.thread
 
 174:                                              ; preds = %145
-  %175 = getelementptr inbounds i8, ptr %146, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %176 = load i8, ptr %175, align 8
   %177 = zext i8 %176 to i64
   store i64 %177, ptr %31, align 8
   br label %.thread
 
 178:                                              ; preds = %145
-  %179 = getelementptr inbounds i8, ptr %146, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %180 = load i16, ptr %179, align 8
   %181 = zext i16 %180 to i64
   store i64 %181, ptr %31, align 8
   br label %.thread
 
 182:                                              ; preds = %145
-  %183 = getelementptr inbounds i8, ptr %146, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %184 = load i32, ptr %183, align 8
   %185 = zext i32 %184 to i64
   store i64 %185, ptr %31, align 8
   br label %.thread
 
 186:                                              ; preds = %145
-  %187 = getelementptr inbounds i8, ptr %146, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %188 = load i64, ptr %187, align 8
   store i64 %188, ptr %31, align 8
   br label %.thread
 
 189:                                              ; preds = %145
-  %190 = getelementptr inbounds i8, ptr %146, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %191 = load float, ptr %190, align 8
   %192 = fptoui float %191 to i64
   store i64 %192, ptr %31, align 8
   br label %.thread
 
 193:                                              ; preds = %145
-  %194 = getelementptr inbounds i8, ptr %146, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %195 = load double, ptr %194, align 8
   %196 = fptoui double %195 to i64
   store i64 %196, ptr %31, align 8
   br label %.thread
 
 197:                                              ; preds = %145
-  %198 = getelementptr inbounds i8, ptr %146, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %199 = load i32, ptr %198, align 8
   %200 = sext i32 %199 to i64
   store i64 %200, ptr %31, align 8
   br label %.thread
 
 201:                                              ; preds = %145
-  %202 = getelementptr inbounds i8, ptr %146, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %203 = load i32, ptr %202, align 8
   %204 = zext i32 %203 to i64
   store i64 %204, ptr %31, align 8
   br label %.thread
 
 205:                                              ; preds = %145
-  %206 = getelementptr inbounds i8, ptr %146, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %207 = load i32, ptr %206, align 8
   %208 = sext i32 %207 to i64
   store i64 %208, ptr %31, align 8
@@ -620,111 +620,111 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   ]
 
 235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %233, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %237 = load i64, ptr %236, align 8
   %238 = uitofp i64 %237 to float
   store float %238, ptr %28, align 8
   br label %.thread
 
 239:                                              ; preds = %232
-  %240 = getelementptr inbounds i8, ptr %233, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %241 = load i32, ptr %240, align 8
   %242 = sitofp i32 %241 to float
   store float %242, ptr %28, align 8
   br label %.thread
 
 243:                                              ; preds = %232
-  %244 = getelementptr inbounds i8, ptr %233, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %245 = load i8, ptr %244, align 8
   %246 = sitofp i8 %245 to float
   store float %246, ptr %28, align 8
   br label %.thread
 
 247:                                              ; preds = %232
-  %248 = getelementptr inbounds i8, ptr %233, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %249 = load i16, ptr %248, align 8
   %250 = sitofp i16 %249 to float
   store float %250, ptr %28, align 8
   br label %.thread
 
 251:                                              ; preds = %232
-  %252 = getelementptr inbounds i8, ptr %233, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %253 = load i32, ptr %252, align 8
   %254 = sitofp i32 %253 to float
   store float %254, ptr %28, align 8
   br label %.thread
 
 255:                                              ; preds = %232
-  %256 = getelementptr inbounds i8, ptr %233, i64 8
+  %256 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %257 = load i64, ptr %256, align 8
   %258 = sitofp i64 %257 to float
   store float %258, ptr %28, align 8
   br label %.thread
 
 259:                                              ; preds = %232
-  %260 = getelementptr inbounds i8, ptr %233, i64 8
+  %260 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %261 = load i32, ptr %260, align 8
   %262 = uitofp i32 %261 to float
   store float %262, ptr %28, align 8
   br label %.thread
 
 263:                                              ; preds = %232
-  %264 = getelementptr inbounds i8, ptr %233, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %265 = load i8, ptr %264, align 8
   %266 = uitofp i8 %265 to float
   store float %266, ptr %28, align 8
   br label %.thread
 
 267:                                              ; preds = %232
-  %268 = getelementptr inbounds i8, ptr %233, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %269 = load i16, ptr %268, align 8
   %270 = uitofp i16 %269 to float
   store float %270, ptr %28, align 8
   br label %.thread
 
 271:                                              ; preds = %232
-  %272 = getelementptr inbounds i8, ptr %233, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %273 = load i32, ptr %272, align 8
   %274 = uitofp i32 %273 to float
   store float %274, ptr %28, align 8
   br label %.thread
 
 275:                                              ; preds = %232
-  %276 = getelementptr inbounds i8, ptr %233, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %277 = load i64, ptr %276, align 8
   %278 = uitofp i64 %277 to float
   store float %278, ptr %28, align 8
   br label %.thread
 
 279:                                              ; preds = %232
-  %280 = getelementptr inbounds i8, ptr %233, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %281 = load float, ptr %280, align 8
   store float %281, ptr %28, align 8
   br label %.thread
 
 282:                                              ; preds = %232
-  %283 = getelementptr inbounds i8, ptr %233, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %284 = load double, ptr %283, align 8
   %285 = fptrunc double %284 to float
   store float %285, ptr %28, align 8
   br label %.thread
 
 286:                                              ; preds = %232
-  %287 = getelementptr inbounds i8, ptr %233, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %288 = load i32, ptr %287, align 8
   %289 = sitofp i32 %288 to float
   store float %289, ptr %28, align 8
   br label %.thread
 
 290:                                              ; preds = %232
-  %291 = getelementptr inbounds i8, ptr %233, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %292 = load i32, ptr %291, align 8
   %293 = uitofp i32 %292 to float
   store float %293, ptr %28, align 8
   br label %.thread
 
 294:                                              ; preds = %232
-  %295 = getelementptr inbounds i8, ptr %233, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %296 = load i32, ptr %295, align 8
   %297 = sitofp i32 %296 to float
   store float %297, ptr %28, align 8
@@ -889,13 +889,13 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   br i1 %.1, label %391, label %449
 
 391:                                              ; preds = %._crit_edge
-  %392 = getelementptr inbounds i8, ptr %2, i64 552
+  %392 = getelementptr inbounds nuw i8, ptr %2, i64 552
   %393 = load ptr, ptr %392, align 8
   %.not415 = icmp eq ptr %393, null
   br i1 %.not415, label %397, label %394
 
 394:                                              ; preds = %391
-  %395 = getelementptr inbounds i8, ptr %2, i64 560
+  %395 = getelementptr inbounds nuw i8, ptr %2, i64 560
   %396 = load ptr, ptr %395, align 8
   tail call void %393(i32 noundef %.1399, ptr noundef null, i64 noundef 0, ptr noundef %396, ptr noundef null, ptr noundef null) #10
   br label %397
@@ -913,7 +913,7 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   %403 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #10
   %404 = load i64, ptr %4, align 8
   %405 = sitofp i64 %404 to double
-  %406 = getelementptr inbounds i8, ptr %4, i64 8
+  %406 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %407 = load i64, ptr %406, align 8
   %408 = sitofp i64 %407 to double
   %409 = fdiv double %408, 1.000000e+06
@@ -924,14 +924,14 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
 
 412:                                              ; preds = %402
   %413 = zext nneg i32 %411 to i64
-  %414 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %413, i32 2
+  %414 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %413, i32 2
   %415 = load i32, ptr %414, align 4
   %416 = icmp sgt i32 %415, 0
   br i1 %416, label %417, label %423
 
 417:                                              ; preds = %412
   %418 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #10
-  %419 = getelementptr inbounds i8, ptr %2, i64 576
+  %419 = getelementptr inbounds nuw i8, ptr %2, i64 576
   %420 = load ptr, ptr %419, align 8
   %421 = icmp eq ptr %420, null
   %spec.select421 = select i1 %421, ptr @.str.30, ptr %420
@@ -956,7 +956,7 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   unreachable
 
 429:                                              ; preds = %424
-  %430 = getelementptr inbounds i8, ptr %2, i64 48
+  %430 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %431 = load i32, ptr %430, align 8
   %432 = add nsw i32 %431, -1
   store i32 %432, ptr %430, align 8
@@ -965,9 +965,9 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   br i1 %434, label %435, label %506
 
 435:                                              ; preds = %429
-  %436 = getelementptr inbounds i8, ptr %2, i64 40
+  %436 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %437 = load ptr, ptr %436, align 8
-  %438 = getelementptr inbounds i8, ptr %437, i64 48
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 48
   %439 = load ptr, ptr %438, align 8
   %440 = load ptr, ptr %439, align 8
   %.not6.i = icmp eq ptr %440, null
@@ -977,19 +977,19 @@ define dso_local void @psched_request_init(i32 noundef %0, i16 noundef signext %
   %441 = phi ptr [ %443, %.lr.ph.i ], [ %440, %435 ]
   %.07.i = phi ptr [ %442, %.lr.ph.i ], [ %439, %435 ]
   tail call void %441(ptr noundef %2) #10
-  %442 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %442 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %443 = load ptr, ptr %442, align 8
   %.not.i = icmp eq ptr %443, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
-  %444 = getelementptr inbounds i8, ptr %2, i64 96
+  %444 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %445 = load ptr, ptr %444, align 8
   %.not416 = icmp eq ptr %445, null
   br i1 %.not416, label %448, label %446
 
 446:                                              ; preds = %pmix_obj_run_destructors.exit
-  %447 = getelementptr inbounds i8, ptr %2, i64 56
+  %447 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void %445(ptr noundef nonnull %447, ptr noundef nonnull %2) #10
   br label %506
 
@@ -1010,7 +1010,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
   %454 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #10
   %455 = load i64, ptr %5, align 8
   %456 = sitofp i64 %455 to double
-  %457 = getelementptr inbounds i8, ptr %5, i64 8
+  %457 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %458 = load i64, ptr %457, align 8
   %459 = sitofp i64 %458 to double
   %460 = fdiv double %459, 1.000000e+06
@@ -1021,14 +1021,14 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
 
 463:                                              ; preds = %453
   %464 = zext nneg i32 %462 to i64
-  %465 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %464, i32 2
+  %465 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %464, i32 2
   %466 = load i32, ptr %465, align 4
   %467 = icmp sgt i32 %466, 0
   br i1 %467, label %468, label %474
 
 468:                                              ; preds = %463
   %469 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #10
-  %470 = getelementptr inbounds i8, ptr %2, i64 576
+  %470 = getelementptr inbounds nuw i8, ptr %2, i64 576
   %471 = load ptr, ptr %470, align 8
   %472 = icmp eq ptr %471, null
   %spec.select423 = select i1 %472, ptr @.str.30, ptr %471
@@ -1041,13 +1041,13 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
   br label %506
 
 475:                                              ; preds = %449
-  %476 = getelementptr inbounds i8, ptr %2, i64 552
+  %476 = getelementptr inbounds nuw i8, ptr %2, i64 552
   %477 = load ptr, ptr %476, align 8
   %.not = icmp eq ptr %477, null
   br i1 %.not, label %481, label %478
 
 478:                                              ; preds = %475
-  %479 = getelementptr inbounds i8, ptr %2, i64 560
+  %479 = getelementptr inbounds nuw i8, ptr %2, i64 560
   %480 = load ptr, ptr %479, align 8
   tail call void %477(i32 noundef %.1399, ptr noundef null, i64 noundef 0, ptr noundef %480, ptr noundef null, ptr noundef null) #10
   br label %481
@@ -1065,7 +1065,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
   unreachable
 
 486:                                              ; preds = %481
-  %487 = getelementptr inbounds i8, ptr %2, i64 48
+  %487 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %488 = load i32, ptr %487, align 8
   %489 = add nsw i32 %488, -1
   store i32 %489, ptr %487, align 8
@@ -1074,9 +1074,9 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
   br i1 %491, label %492, label %506
 
 492:                                              ; preds = %486
-  %493 = getelementptr inbounds i8, ptr %2, i64 40
+  %493 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %494 = load ptr, ptr %493, align 8
-  %495 = getelementptr inbounds i8, ptr %494, i64 48
+  %495 = getelementptr inbounds nuw i8, ptr %494, i64 48
   %496 = load ptr, ptr %495, align 8
   %497 = load ptr, ptr %496, align 8
   %.not6.i428 = icmp eq ptr %497, null
@@ -1086,19 +1086,19 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %435
   %498 = phi ptr [ %500, %.lr.ph.i429 ], [ %497, %492 ]
   %.07.i430 = phi ptr [ %499, %.lr.ph.i429 ], [ %496, %492 ]
   tail call void %498(ptr noundef %2) #10
-  %499 = getelementptr inbounds i8, ptr %.07.i430, i64 8
+  %499 = getelementptr inbounds nuw i8, ptr %.07.i430, i64 8
   %500 = load ptr, ptr %499, align 8
   %.not.i431 = icmp eq ptr %500, null
   br i1 %.not.i431, label %pmix_obj_run_destructors.exit432, label %.lr.ph.i429, !llvm.loop !7
 
 pmix_obj_run_destructors.exit432:                 ; preds = %.lr.ph.i429, %492
-  %501 = getelementptr inbounds i8, ptr %2, i64 96
+  %501 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %502 = load ptr, ptr %501, align 8
   %.not414 = icmp eq ptr %502, null
   br i1 %.not414, label %505, label %503
 
 503:                                              ; preds = %pmix_obj_run_destructors.exit432
-  %504 = getelementptr inbounds i8, ptr %2, i64 56
+  %504 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void %502(ptr noundef nonnull %504, ptr noundef nonnull %2) #10
   br label %506
 
@@ -1137,7 +1137,7 @@ define dso_local void @psched_request_queue(i32 noundef %0, i16 noundef signext 
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %6, i32 2
+  %7 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %6, i32 2
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 1
   br i1 %9, label %10, label %12
@@ -1148,13 +1148,13 @@ define dso_local void @psched_request_queue(i32 noundef %0, i16 noundef signext 
   br label %12
 
 12:                                               ; preds = %10, %5, %3
-  %13 = getelementptr inbounds i8, ptr %2, i64 552
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 552
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %2, i64 560
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 560
   %17 = load ptr, ptr %16, align 8
   tail call void %14(i32 noundef -47, ptr noundef null, i64 noundef 0, ptr noundef %17, ptr noundef null, ptr noundef null) #10
   br label %18
@@ -1172,7 +1172,7 @@ define dso_local void @psched_request_queue(i32 noundef %0, i16 noundef signext 
   unreachable
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %2, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %25 = load i32, ptr %24, align 8
   %26 = add nsw i32 %25, -1
   store i32 %26, ptr %24, align 8
@@ -1181,9 +1181,9 @@ define dso_local void @psched_request_queue(i32 noundef %0, i16 noundef signext 
   br i1 %28, label %29, label %43
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %2, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
   %.not6.i = icmp eq ptr %34, null
@@ -1193,19 +1193,19 @@ define dso_local void @psched_request_queue(i32 noundef %0, i16 noundef signext 
   %35 = phi ptr [ %37, %.lr.ph.i ], [ %34, %29 ]
   %.07.i = phi ptr [ %36, %.lr.ph.i ], [ %33, %29 ]
   tail call void %35(ptr noundef %2) #10
-  %36 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %29
-  %38 = getelementptr inbounds i8, ptr %2, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %39 = load ptr, ptr %38, align 8
   %.not19 = icmp eq ptr %39, null
   br i1 %.not19, label %42, label %40
 
 40:                                               ; preds = %pmix_obj_run_destructors.exit
-  %41 = getelementptr inbounds i8, ptr %2, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 56
   tail call void %39(ptr noundef nonnull %41, ptr noundef nonnull %2) #10
   br label %43
 
@@ -1225,7 +1225,7 @@ define dso_local void @psched_session_complete(i32 noundef %0, i16 noundef signe
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %6, i32 2
+  %7 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %6, i32 2
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 1
   br i1 %9, label %10, label %12

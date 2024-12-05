@@ -120,32 +120,32 @@ define dso_local void @CheckpointerMain() local_unnamed_addr #0 {
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr @CheckpointerShmem, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %24, i8 1, ptr nonnull elementtype(i8) %24) #13, !srcloc !5
   %.not50 = icmp eq i8 %25, 0
   br i1 %.not50, label %30, label %26
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr @CheckpointerShmem, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = call i32 @s_lock(ptr noundef nonnull %28, ptr noundef nonnull @.str.1, i32 noundef 275, ptr noundef nonnull @__func__.CheckpointerMain) #13
   br label %30
 
 30:                                               ; preds = %22, %26
   %31 = load ptr, ptr @CheckpointerShmem, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %31, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 %36, ptr %37, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !6
   %38 = load ptr, ptr @CheckpointerShmem, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i8 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %38, i64 36
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 36
   call void @ConditionVariableBroadcast(ptr noundef nonnull %40) #13
   store i1 false, ptr @ckpt_active, align 1
   br label %41
@@ -175,9 +175,9 @@ define dso_local void @CheckpointerMain() local_unnamed_addr #0 {
 
 UpdateSharedMemoryConfig.exit:                    ; preds = %44, %47
   %49 = load ptr, ptr @MyProc, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 36
   %51 = load ptr, ptr @ProcGlobal, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 120
   store ptr %50, ptr %52, align 8
   br label %.backedge
 
@@ -193,7 +193,7 @@ UpdateSharedMemoryConfig.exit:                    ; preds = %44, %47
   %58 = getelementptr i8, ptr %57, i64 2176
   %59 = call zeroext i1 @LWLockAcquire(ptr noundef %58, i32 noundef 0) #13
   %60 = load ptr, ptr @CheckpointerShmem, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %62 = load i32, ptr %61, align 8
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %64, label %70
@@ -203,7 +203,7 @@ UpdateSharedMemoryConfig.exit:                    ; preds = %44, %47
   %66 = shl nuw nsw i64 %65, 5
   %67 = call ptr @palloc(i64 noundef %66) #13
   %68 = load ptr, ptr @CheckpointerShmem, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr nonnull align 8 %69, i64 %66, i1 false)
   br label %70
 
@@ -213,7 +213,7 @@ UpdateSharedMemoryConfig.exit:                    ; preds = %44, %47
   %72 = load volatile i32, ptr @CritSectionCount, align 4
   %73 = add i32 %72, 1
   store volatile i32 %73, ptr @CritSectionCount, align 4
-  %74 = getelementptr inbounds i8, ptr %71, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store i32 0, ptr %74, align 8
   %75 = load ptr, ptr @MainLWLockArray, align 8
   %76 = getelementptr i8, ptr %75, i64 2176
@@ -223,7 +223,7 @@ UpdateSharedMemoryConfig.exit:                    ; preds = %44, %47
 .lr.ph.i:                                         ; preds = %70, %.lr.ph.i
   %.015.i = phi i32 [ %80, %.lr.ph.i ], [ %62, %70 ]
   %.01114.i = phi ptr [ %79, %.lr.ph.i ], [ %.012.i, %70 ]
-  %77 = getelementptr inbounds i8, ptr %.01114.i, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.01114.i, i64 8
   %78 = load i32, ptr %.01114.i, align 8
   call void @RememberSyncRequest(ptr noundef nonnull %77, i32 noundef %78) #13
   %79 = getelementptr i8, ptr %.01114.i, i64 32
@@ -296,7 +296,7 @@ UpdateSharedMemoryConfig.exit.i:                  ; preds = %91, %89, %87
 
 HandleCheckpointerInterrupts.exit:                ; preds = %97, %99
   %100 = load ptr, ptr @CheckpointerShmem, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 20
   %102 = load volatile i32, ptr %101, align 4
   %.not51 = icmp ne i32 %102, 0
   %103 = call i64 @time(ptr noundef null) #13
@@ -312,32 +312,32 @@ HandleCheckpointerInterrupts.exit:                ; preds = %97, %99
 108:                                              ; preds = %HandleCheckpointerInterrupts.exit
   %109 = call zeroext i1 @RecoveryInProgress() #13
   %110 = load ptr, ptr @CheckpointerShmem, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %112 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %111, i8 1, ptr nonnull elementtype(i8) %111) #13, !srcloc !5
   %.not53 = icmp eq i8 %112, 0
   br i1 %.not53, label %117, label %113
 
 113:                                              ; preds = %108
   %114 = load ptr, ptr @CheckpointerShmem, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %116 = call i32 @s_lock(ptr noundef nonnull %115, ptr noundef nonnull @.str.1, i32 noundef 391, ptr noundef nonnull @__func__.CheckpointerMain) #13
   br label %117
 
 117:                                              ; preds = %108, %113
   %118 = load ptr, ptr @CheckpointerShmem, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 20
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 20
   %120 = load i32, ptr %119, align 4
   %121 = or i32 %120, %.041
   store i32 0, ptr %119, align 4
-  %122 = getelementptr inbounds i8, ptr %118, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = add i32 %123, 1
   store i32 %124, ptr %122, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   %125 = load ptr, ptr @CheckpointerShmem, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i8 0, ptr %126, align 4
-  %127 = getelementptr inbounds i8, ptr %125, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 24
   call void @ConditionVariableBroadcast(ptr noundef nonnull %127) #13
   %128 = and i32 %120, 2
   %.not54 = icmp eq i32 %128, 0
@@ -425,28 +425,28 @@ HandleCheckpointerInterrupts.exit:                ; preds = %97, %99
   %.037 = phi i1 [ %156, %154 ], [ true, %152 ]
   call void @smgrdestroyall() #13
   %158 = load ptr, ptr @CheckpointerShmem, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
   %160 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %159, i8 1, ptr nonnull elementtype(i8) %159) #13, !srcloc !5
   %.not56 = icmp eq i8 %160, 0
   br i1 %.not56, label %165, label %161
 
 161:                                              ; preds = %157
   %162 = load ptr, ptr @CheckpointerShmem, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %164 = call i32 @s_lock(ptr noundef nonnull %163, ptr noundef nonnull @.str.1, i32 noundef 475, ptr noundef nonnull @__func__.CheckpointerMain) #13
   br label %165
 
 165:                                              ; preds = %157, %161
   %166 = load ptr, ptr @CheckpointerShmem, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load i32, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %166, i64 12
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 12
   store i32 %168, ptr %169, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
   %170 = load ptr, ptr @CheckpointerShmem, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 4
   store i8 0, ptr %171, align 4
-  %172 = getelementptr inbounds i8, ptr %170, i64 36
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 36
   call void @ConditionVariableBroadcast(ptr noundef nonnull %172) #13
   br i1 %.037, label %173, label %177
 
@@ -585,7 +585,7 @@ CheckArchiveTimeout.exit:                         ; preds = %HandleCheckpointerI
   call void @pgstat_report_checkpointer() #13
   call void @pgstat_report_wal(i1 noundef zeroext true) #13
   %232 = load ptr, ptr @CheckpointerShmem, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 20
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 20
   %234 = load volatile i32, ptr %233, align 4
   %.not57 = icmp eq i32 %234, 0
   br i1 %.not57, label %235, label %.backedge.backedge
@@ -721,7 +721,7 @@ define dso_local void @AbsorbSyncRequests() local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %4, i64 2176
   %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #13
   %7 = load ptr, ptr @CheckpointerShmem, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %17
@@ -731,7 +731,7 @@ define dso_local void @AbsorbSyncRequests() local_unnamed_addr #2 {
   %13 = shl nuw nsw i64 %12, 5
   %14 = tail call ptr @palloc(i64 noundef %13) #13
   %15 = load ptr, ptr @CheckpointerShmem, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr nonnull align 8 %16, i64 %13, i1 false)
   br label %17
 
@@ -741,7 +741,7 @@ define dso_local void @AbsorbSyncRequests() local_unnamed_addr #2 {
   %19 = load volatile i32, ptr @CritSectionCount, align 4
   %20 = add i32 %19, 1
   store volatile i32 %20, ptr @CritSectionCount, align 4
-  %21 = getelementptr inbounds i8, ptr %18, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store i32 0, ptr %21, align 8
   %22 = load ptr, ptr @MainLWLockArray, align 8
   %23 = getelementptr i8, ptr %22, i64 2176
@@ -751,7 +751,7 @@ define dso_local void @AbsorbSyncRequests() local_unnamed_addr #2 {
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %.015 = phi i32 [ %27, %.lr.ph ], [ %9, %17 ]
   %.01114 = phi ptr [ %26, %.lr.ph ], [ %.012, %17 ]
-  %24 = getelementptr inbounds i8, ptr %.01114, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.01114, i64 8
   %25 = load i32, ptr %.01114, align 8
   tail call void @RememberSyncRequest(ptr noundef nonnull %24, i32 noundef %25) #13
   %26 = getelementptr i8, ptr %.01114, i64 32
@@ -823,7 +823,7 @@ define dso_local void @CheckpointWriteDelay(i32 noundef %0, double noundef %1) l
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @CheckpointerShmem, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %14 = load volatile i32, ptr %13, align 4
   %15 = and i32 %14, 4
   %.not.i.not = icmp eq i32 %15, 0
@@ -869,7 +869,7 @@ define dso_local void @CheckpointWriteDelay(i32 noundef %0, double noundef %1) l
   %41 = load i64, ptr @ckpt_start_time, align 8
   %42 = sub i64 %40, %41
   %43 = sitofp i64 %42 to double
-  %44 = getelementptr inbounds i8, ptr %4, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = sitofp i64 %45 to double
   %47 = fdiv double %46, 1.000000e+06
@@ -1062,15 +1062,15 @@ define dso_local void @CheckpointerShmemInit() local_unnamed_addr #2 {
 .loopexit:                                        ; preds = %.loopexit.sink.split, %17
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %26 = load ptr, ptr @CheckpointerShmem, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i8 0, ptr %27, align 4
   %28 = load i32, ptr @NBuffers, align 4
-  %29 = getelementptr inbounds i8, ptr %26, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 52
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %26, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   call void @ConditionVariableInit(ptr noundef nonnull %30) #13
   %31 = load ptr, ptr @CheckpointerShmem, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
   call void @ConditionVariableInit(ptr noundef nonnull %32) #13
   br label %33
 
@@ -1099,31 +1099,31 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #2 {
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @CheckpointerShmem, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #13, !srcloc !5
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @CheckpointerShmem, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = tail call i32 @s_lock(ptr noundef nonnull %12, ptr noundef nonnull @.str.1, i32 noundef 967, ptr noundef nonnull @__func__.RequestCheckpoint) #13
   br label %14
 
 14:                                               ; preds = %6, %10
   %15 = load ptr, ptr @CheckpointerShmem, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %0, %21
   %23 = or i32 %22, 64
   store i32 %23, ptr %20, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
   %24 = load ptr, ptr @CheckpointerShmem, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i8 0, ptr %25, align 4
   %26 = and i32 %0, 32
   %.not29 = icmp eq i32 %26, 0
@@ -1196,75 +1196,75 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #2 {
 
 49:                                               ; preds = %.loopexit
   %50 = load ptr, ptr @CheckpointerShmem, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   tail call void @ConditionVariablePrepareToSleep(ptr noundef nonnull %51) #13
   br label %52
 
 52:                                               ; preds = %66, %49
   %53 = load ptr, ptr @CheckpointerShmem, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %54, i8 1, ptr nonnull elementtype(i8) %54) #13, !srcloc !5
   %.not35 = icmp eq i8 %55, 0
   br i1 %.not35, label %60, label %56
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr @CheckpointerShmem, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = tail call i32 @s_lock(ptr noundef nonnull %58, ptr noundef nonnull @.str.1, i32 noundef 1026, ptr noundef nonnull @__func__.RequestCheckpoint) #13
   br label %60
 
 60:                                               ; preds = %52, %56
   %61 = load ptr, ptr @CheckpointerShmem, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i32, ptr %62, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %64 = load ptr, ptr @CheckpointerShmem, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i8 0, ptr %65, align 4
   %.not36 = icmp eq i32 %63, %19
   br i1 %.not36, label %66, label %68
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds i8, ptr %64, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
   tail call void @ConditionVariableSleep(ptr noundef nonnull %67, i32 noundef 134217740) #13
   br label %52
 
 68:                                               ; preds = %60
   %69 = tail call zeroext i1 @ConditionVariableCancelSleep() #13
   %70 = load ptr, ptr @CheckpointerShmem, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 36
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 36
   tail call void @ConditionVariablePrepareToSleep(ptr noundef nonnull %71) #13
   br label %72
 
 72:                                               ; preds = %90, %68
   %73 = load ptr, ptr @CheckpointerShmem, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %74, i8 1, ptr nonnull elementtype(i8) %74) #13, !srcloc !5
   %.not37 = icmp eq i8 %75, 0
   br i1 %.not37, label %80, label %76
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr @CheckpointerShmem, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = tail call i32 @s_lock(ptr noundef nonnull %78, ptr noundef nonnull @.str.1, i32 noundef 1046, ptr noundef nonnull @__func__.RequestCheckpoint) #13
   br label %80
 
 80:                                               ; preds = %72, %76
   %81 = load ptr, ptr @CheckpointerShmem, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 12
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %81, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %85 = load i32, ptr %84, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !14
   %86 = load ptr, ptr @CheckpointerShmem, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store i8 0, ptr %87, align 4
   %88 = sub i32 %83, %63
   %89 = icmp sgt i32 %88, -1
   br i1 %89, label %92, label %90
 
 90:                                               ; preds = %80
-  %91 = getelementptr inbounds i8, ptr %86, i64 36
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 36
   tail call void @ConditionVariableSleep(ptr noundef nonnull %91, i32 noundef 134217739) #13
   br label %72
 
@@ -1328,9 +1328,9 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
   br i1 %19, label %88, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %17, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 52
   %24 = load i32, ptr %23, align 4
   %.not = icmp slt i32 %22, %24
   br i1 %.not, label %91, label %25
@@ -1340,20 +1340,20 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %26 = sext i32 %22 to i64
   %27 = tail call ptr @palloc0(i64 noundef %26) #13
-  %28 = getelementptr inbounds i8, ptr %3, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 32, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 40, ptr %29, align 8
   %30 = load ptr, ptr @CurrentMemoryContext, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %30, ptr %31, align 8
   %32 = load ptr, ptr @CheckpointerShmem, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
   %36 = call ptr @hash_create(ptr noundef nonnull @.str.12, i64 noundef %35, ptr noundef nonnull %3, i32 noundef 1064) #13
   %37 = load ptr, ptr @CheckpointerShmem, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.i, label %._crit_edge.thread.i
@@ -1366,7 +1366,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %25 ]
   %41 = phi ptr [ %56, %53 ], [ %37, %25 ]
   %.02527.i = phi i32 [ %.126.i, %53 ], [ 0, %25 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = getelementptr [0 x %struct.CheckpointerRequest], ptr %42, i64 0, i64 %indvars.iv.i
   %44 = call ptr @hash_search(ptr noundef %36, ptr noundef %43, i32 noundef 1, ptr noundef nonnull %4) #13
   %45 = load i8, ptr %4, align 1
@@ -1374,7 +1374,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = getelementptr inbounds i8, ptr %44, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %49 = load i32, ptr %48, align 8
   %50 = sext i32 %49 to i64
   %51 = getelementptr i8, ptr %27, i64 %50
@@ -1384,12 +1384,12 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
 
 53:                                               ; preds = %47, %.lr.ph.i
   %.126.i = phi i32 [ %52, %47 ], [ %.02527.i, %.lr.ph.i ]
-  %54 = getelementptr inbounds i8, ptr %44, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %55 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %55, ptr %54, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %56 = load ptr, ptr @CheckpointerShmem, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load i32, ptr %57, align 8
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next.i, %59
@@ -1402,13 +1402,13 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   %61 = load ptr, ptr @CheckpointerShmem, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load i32, ptr %62, align 8
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph31.i, label %._crit_edge32.i
 
 .lr.ph31.i:                                       ; preds = %.preheader.i
-  %65 = getelementptr inbounds i8, ptr %61, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 56
   br label %66
 
 66:                                               ; preds = %76, %.lr.ph31.i
@@ -1444,7 +1444,7 @@ define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef re
 
 81:                                               ; preds = %._crit_edge32.i
   %82 = load ptr, ptr @CheckpointerShmem, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %84 = load i32, ptr %83, align 8
   %85 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %84, i32 noundef %.023.lcssa.i) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1236, ptr noundef nonnull @.str.12) #13
@@ -1458,13 +1458,13 @@ CompactCheckpointerRequestQueue.exit.thread:      ; preds = %._crit_edge.thread.
 
 CompactCheckpointerRequestQueue.exit:             ; preds = %._crit_edge32.i, %81
   %86 = load ptr, ptr @CheckpointerShmem, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   store i32 %.023.lcssa.i, ptr %87, align 8
   call void @pfree(ptr noundef %27) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.pre = load ptr, ptr @CheckpointerShmem, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre9 = load i32, ptr %.phi.trans.insert, align 8
   br label %91
 
@@ -1477,17 +1477,17 @@ CompactCheckpointerRequestQueue.exit:             ; preds = %._crit_edge32.i, %8
 91:                                               ; preds = %CompactCheckpointerRequestQueue.exit, %20
   %92 = phi i32 [ %.pre9, %CompactCheckpointerRequestQueue.exit ], [ %22, %20 ]
   %93 = phi ptr [ %.pre, %CompactCheckpointerRequestQueue.exit ], [ %17, %20 ]
-  %94 = getelementptr inbounds i8, ptr %93, i64 56
-  %95 = getelementptr inbounds i8, ptr %93, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %96 = add i32 %92, 1
   store i32 %96, ptr %95, align 8
   %97 = sext i32 %92 to i64
   %98 = getelementptr [0 x %struct.CheckpointerRequest], ptr %94, i64 0, i64 %97
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   store i32 %1, ptr %98, align 8
   %100 = load i32, ptr %95, align 8
-  %101 = getelementptr inbounds i8, ptr %93, i64 52
+  %101 = getelementptr inbounds nuw i8, ptr %93, i64 52
   %102 = load i32, ptr %101, align 4
   %103 = sdiv i32 %102, 2
   %.not6 = icmp slt i32 %100, %103
@@ -1498,7 +1498,7 @@ CompactCheckpointerRequestQueue.exit:             ; preds = %._crit_edge32.i, %8
 
 106:                                              ; preds = %91
   %107 = load ptr, ptr @ProcGlobal, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 120
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 120
   %109 = load ptr, ptr %108, align 8
   %.not7 = icmp eq ptr %109, null
   br i1 %.not7, label %111, label %110
@@ -1530,24 +1530,24 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @FirstCallSinceLastCheckpoint() local_unnamed_addr #2 {
   %1 = load ptr, ptr @CheckpointerShmem, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #13, !srcloc !5
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @CheckpointerShmem, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, i32 noundef 1326, ptr noundef nonnull @__func__.FirstCallSinceLastCheckpoint) #13
   br label %8
 
 8:                                                ; preds = %0, %4
   %9 = load ptr, ptr @CheckpointerShmem, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i32, ptr %10, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %12 = load ptr, ptr @CheckpointerShmem, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i8 0, ptr %13, align 4
   %14 = load i32, ptr @FirstCallSinceLastCheckpoint.ckpt_done, align 4
   %.not3 = icmp ne i32 %11, %14

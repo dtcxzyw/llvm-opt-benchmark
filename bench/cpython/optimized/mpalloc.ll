@@ -143,7 +143,7 @@ if.end:                                           ; preds = %entry
   br i1 %2, label %mpd_alloc.exit.thread, label %mpd_alloc.exit
 
 mpd_alloc.exit.thread:                            ; preds = %if.end
-  %data15 = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %data15 = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   store ptr null, ptr %data15, align 8
   br label %if.then5
 
@@ -151,7 +151,7 @@ mpd_alloc.exit:                                   ; preds = %if.end
   %umul.value.i = shl nuw i64 %cond, 3
   %3 = load ptr, ptr @mpd_mallocfunc, align 8
   %call1.i13 = tail call ptr %3(i64 noundef %umul.value.i) #9
-  %data = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %call1.i, i64 40
   store ptr %call1.i13, ptr %data, align 8
   %cmp4 = icmp eq ptr %call1.i13, null
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -163,8 +163,8 @@ if.then5:                                         ; preds = %mpd_alloc.exit.thre
 
 if.end6:                                          ; preds = %mpd_alloc.exit
   store i8 0, ptr %call1.i, align 8
-  %exp = getelementptr inbounds i8, ptr %call1.i, i64 8
-  %alloc = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %exp = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
+  %alloc = getelementptr inbounds nuw i8, ptr %call1.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   store i64 %cond, ptr %alloc, align 8
   br label %return
@@ -188,7 +188,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %2, label %mpd_alloc.exit.thread.i, label %mpd_alloc.exit.i
 
 mpd_alloc.exit.thread.i:                          ; preds = %if.end.i
-  %data15.i = getelementptr inbounds i8, ptr %call1.i.i, i64 40
+  %data15.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 40
   store ptr null, ptr %data15.i, align 8
   br label %if.then5.i
 
@@ -196,7 +196,7 @@ mpd_alloc.exit.i:                                 ; preds = %if.end.i
   %umul.value.i.i = shl nuw i64 %0, 3
   %3 = load ptr, ptr @mpd_mallocfunc, align 8
   %call1.i13.i = tail call ptr %3(i64 noundef %umul.value.i.i) #9
-  %data.i = getelementptr inbounds i8, ptr %call1.i.i, i64 40
+  %data.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 40
   store ptr %call1.i13.i, ptr %data.i, align 8
   %cmp4.i = icmp eq ptr %call1.i13.i, null
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i
@@ -208,8 +208,8 @@ if.then5.i:                                       ; preds = %mpd_alloc.exit.i, %
 
 if.end6.i:                                        ; preds = %mpd_alloc.exit.i
   store i8 0, ptr %call1.i.i, align 8
-  %exp.i = getelementptr inbounds i8, ptr %call1.i.i, i64 8
-  %alloc.i = getelementptr inbounds i8, ptr %call1.i.i, i64 32
+  %exp.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 8
+  %alloc.i = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i, i8 0, i64 24, i1 false)
   store i64 %0, ptr %alloc.i, align 8
   br label %mpd_qnew_size.exit
@@ -233,7 +233,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %2, label %mpd_alloc.exit.thread.i.i, label %mpd_alloc.exit.i.i
 
 mpd_alloc.exit.thread.i.i:                        ; preds = %if.end.i.i
-  %data15.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 40
+  %data15.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 40
   store ptr null, ptr %data15.i.i, align 8
   br label %if.then5.i.i
 
@@ -241,7 +241,7 @@ mpd_alloc.exit.i.i:                               ; preds = %if.end.i.i
   %umul.value.i.i.i = shl nuw i64 %0, 3
   %3 = load ptr, ptr @mpd_mallocfunc, align 8
   %call1.i13.i.i = tail call ptr %3(i64 noundef %umul.value.i.i.i) #9
-  %data.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 40
+  %data.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 40
   store ptr %call1.i13.i.i, ptr %data.i.i, align 8
   %cmp4.i.i = icmp eq ptr %call1.i13.i.i, null
   br i1 %cmp4.i.i, label %if.then5.i.i, label %mpd_qnew.exit
@@ -253,8 +253,8 @@ if.then5.i.i:                                     ; preds = %mpd_alloc.exit.i.i,
 
 mpd_qnew.exit:                                    ; preds = %mpd_alloc.exit.i.i
   store i8 0, ptr %call1.i.i.i, align 8
-  %exp.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 8
-  %alloc.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 32
+  %exp.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 8
+  %alloc.i.i = getelementptr inbounds nuw i8, ptr %call1.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i.i, i8 0, i64 24, i1 false)
   store i64 %0, ptr %alloc.i.i, align 8
   br label %if.end
@@ -273,7 +273,7 @@ declare hidden void @mpd_addstatus_raise(ptr noundef, i32 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @mpd_switch_to_dyn(ptr noundef %result, i64 noundef %nwords, ptr nocapture noundef %status) local_unnamed_addr #4 {
 entry:
-  %data = getelementptr inbounds i8, ptr %result, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %result, i64 40
   %0 = load ptr, ptr %data, align 8
   %1 = icmp ugt i64 %nwords, 2305843009213693951
   br i1 %1, label %if.then, label %mpd_alloc.exit
@@ -290,7 +290,7 @@ if.then:                                          ; preds = %entry, %mpd_alloc.e
   store ptr %0, ptr %data, align 8
   tail call void @mpd_set_qnan(ptr noundef nonnull %result) #9
   tail call void @mpd_set_positive(ptr noundef nonnull %result) #9
-  %exp = getelementptr inbounds i8, ptr %result, i64 8
+  %exp = getelementptr inbounds nuw i8, ptr %result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   %3 = load i32, ptr %status, align 4
   %or = or i32 %3, 512
@@ -298,7 +298,7 @@ if.then:                                          ; preds = %entry, %mpd_alloc.e
   br label %return
 
 if.end:                                           ; preds = %mpd_alloc.exit
-  %alloc = getelementptr inbounds i8, ptr %result, i64 32
+  %alloc = getelementptr inbounds nuw i8, ptr %result, i64 32
   %4 = load i64, ptr %alloc, align 8
   %mul = shl i64 %4, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call1.i, ptr align 8 %0, i64 %mul, i1 false)
@@ -323,7 +323,7 @@ declare hidden void @mpd_set_dynamic_data(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @mpd_switch_to_dyn_zero(ptr noundef %result, i64 noundef %nwords, ptr nocapture noundef %status) local_unnamed_addr #4 {
 entry:
-  %data = getelementptr inbounds i8, ptr %result, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %result, i64 40
   %0 = load ptr, ptr %data, align 8
   %1 = icmp ugt i64 %nwords, 2305843009213693951
   br i1 %1, label %if.then, label %mpd_calloc.exit
@@ -339,7 +339,7 @@ if.then:                                          ; preds = %entry, %mpd_calloc.
   store ptr %0, ptr %data, align 8
   tail call void @mpd_set_qnan(ptr noundef nonnull %result) #9
   tail call void @mpd_set_positive(ptr noundef nonnull %result) #9
-  %exp = getelementptr inbounds i8, ptr %result, i64 8
+  %exp = getelementptr inbounds nuw i8, ptr %result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   %3 = load i32, ptr %status, align 4
   %or = or i32 %3, 512
@@ -347,7 +347,7 @@ if.then:                                          ; preds = %entry, %mpd_calloc.
   br label %return
 
 if.end:                                           ; preds = %mpd_calloc.exit
-  %alloc = getelementptr inbounds i8, ptr %result, i64 32
+  %alloc = getelementptr inbounds nuw i8, ptr %result, i64 32
   store i64 %nwords, ptr %alloc, align 8
   tail call void @mpd_set_dynamic_data(ptr noundef nonnull %result) #9
   br label %return
@@ -360,7 +360,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @mpd_realloc_dyn(ptr noundef %result, i64 noundef %nwords, ptr nocapture noundef %status) local_unnamed_addr #4 {
 entry:
-  %data = getelementptr inbounds i8, ptr %result, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %result, i64 40
   %0 = load ptr, ptr %data, align 8
   %1 = icmp ugt i64 %nwords, 2305843009213693951
   br i1 %1, label %if.else, label %if.end.i
@@ -374,13 +374,13 @@ if.end.i:                                         ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i
   store ptr %call1.i, ptr %data, align 8
-  %alloc = getelementptr inbounds i8, ptr %result, i64 32
+  %alloc = getelementptr inbounds nuw i8, ptr %result, i64 32
   store i64 %nwords, ptr %alloc, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end.i, %entry
   store ptr %0, ptr %data, align 8
-  %alloc2 = getelementptr inbounds i8, ptr %result, i64 32
+  %alloc2 = getelementptr inbounds nuw i8, ptr %result, i64 32
   %3 = load i64, ptr %alloc2, align 8
   %cmp = icmp sgt i64 %nwords, %3
   br i1 %cmp, label %if.then3, label %return
@@ -388,7 +388,7 @@ if.else:                                          ; preds = %if.end.i, %entry
 if.then3:                                         ; preds = %if.else
   tail call void @mpd_set_qnan(ptr noundef nonnull %result) #9
   tail call void @mpd_set_positive(ptr noundef nonnull %result) #9
-  %exp = getelementptr inbounds i8, ptr %result, i64 8
+  %exp = getelementptr inbounds nuw i8, ptr %result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp, i8 0, i64 24, i1 false)
   %4 = load i32, ptr %status, align 4
   %or = or i32 %4, 512
@@ -414,9 +414,9 @@ mpd_alloc.exit:                                   ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %mpd_alloc.exit
-  %data1 = getelementptr inbounds i8, ptr %result, i64 40
+  %data1 = getelementptr inbounds nuw i8, ptr %result, i64 40
   %2 = load ptr, ptr %data1, align 8
-  %alloc = getelementptr inbounds i8, ptr %result, i64 32
+  %alloc = getelementptr inbounds nuw i8, ptr %result, i64 32
   %3 = load i64, ptr %alloc, align 8
   %mul = shl i64 %3, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call1.i, ptr align 8 %2, i64 %mul, i1 false)
@@ -433,7 +433,7 @@ return:                                           ; preds = %entry, %mpd_alloc.e
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @mpd_realloc_dyn_cxx(ptr nocapture noundef %result, i64 noundef %nwords) local_unnamed_addr #4 {
 entry:
-  %data = getelementptr inbounds i8, ptr %result, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %result, i64 40
   %0 = icmp ugt i64 %nwords, 2305843009213693951
   br i1 %0, label %if.else, label %if.end.i
 
@@ -447,12 +447,12 @@ if.end.i:                                         ; preds = %entry
 
 if.then:                                          ; preds = %if.end.i
   store ptr %call1.i, ptr %data, align 8
-  %alloc = getelementptr inbounds i8, ptr %result, i64 32
+  %alloc = getelementptr inbounds nuw i8, ptr %result, i64 32
   store i64 %nwords, ptr %alloc, align 8
   br label %if.end4
 
 if.else:                                          ; preds = %if.end.i, %entry
-  %alloc2 = getelementptr inbounds i8, ptr %result, i64 32
+  %alloc2 = getelementptr inbounds nuw i8, ptr %result, i64 32
   %3 = load i64, ptr %alloc2, align 8
   %cmp = icmp sgt i64 %nwords, %3
   br i1 %cmp, label %return, label %if.end4

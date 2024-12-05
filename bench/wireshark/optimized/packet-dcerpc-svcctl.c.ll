@@ -1141,7 +1141,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @svcctl_dissect_bitmap_security_secinfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -1165,13 +1165,13 @@ declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @svcctl_dissect_struct_SERVICE_LOCK_STATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1221,14 +1221,14 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_LOCK_STATUS(ptr noundef %0, i32
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -1301,7 +1301,7 @@ define hidden i32 @svcctl_dissect_enum_ServiceType(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @svcctl_dissect_bitmap_ControlsAccepted(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -1349,7 +1349,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp ne i32 %12, 0
   %13 = and i32 %1, 3
@@ -1392,9 +1392,9 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noun
   %34 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
   %35 = sub i32 %34, %.0
   call void @proto_item_set_len(ptr noundef %.060, i32 noundef %35) #4
-  %36 = getelementptr inbounds i8, ptr %4, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not64 = icmp eq i32 %40, 0
@@ -1447,7 +1447,7 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS_PROCESS(ptr noundef %0, 
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %13 = load i32, ptr %12, align 4
   %.not = icmp ne i32 %13, 0
   %14 = and i32 %1, 3
@@ -1497,9 +1497,9 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS_PROCESS(ptr noundef %0, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %40 = sub i32 %39, %.0
   call void @proto_item_set_len(ptr noundef %.072, i32 noundef %40) #4
-  %41 = getelementptr inbounds i8, ptr %4, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 1
   %.not76 = icmp eq i32 %45, 0
@@ -1525,13 +1525,13 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS_PROCESS(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @svcctl_dissect_struct_ENUM_SERVICE_STATUSW(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1581,14 +1581,14 @@ define hidden i32 @svcctl_dissect_struct_ENUM_SERVICE_STATUSW(ptr noundef %0, i3
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -1608,13 +1608,13 @@ define hidden i32 @svcctl_dissect_struct_ENUM_SERVICE_STATUSW(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @svcctl_dissect_struct_ENUM_SERVICE_STATUSA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -1664,14 +1664,14 @@ define hidden i32 @svcctl_dissect_struct_ENUM_SERVICE_STATUSA(ptr noundef %0, i3
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -1788,7 +1788,7 @@ define hidden i32 @svcctl_dissect_enum_ServiceState(ptr noundef %0, i32 noundef 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @svcctl_dissect_bitmap_MgrAccessMask(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -1831,7 +1831,7 @@ define hidden i32 @svcctl_dissect_bitmap_MgrAccessMask(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define hidden i32 @svcctl_dissect_bitmap_ServiceAccessMask(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -1876,13 +1876,13 @@ define hidden i32 @svcctl_dissect_struct_QUERY_SERVICE_CONFIG(ptr noundef %0, i3
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1
   %.not = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %18 = load i32, ptr %17, align 4
   %.not82 = icmp ne i32 %18, 0
   br i1 %.not, label %24, label %19
@@ -1953,14 +1953,14 @@ define hidden i32 @svcctl_dissect_struct_QUERY_SERVICE_CONFIG(ptr noundef %0, i3
   %53 = sub i32 %52, %.0
   call void @proto_item_set_len(ptr noundef %.080, i32 noundef %53) #4
   %54 = load ptr, ptr %12, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 96
   %56 = load i32, ptr %55, align 8
   %57 = and i32 %56, 1
   %.not87 = icmp eq i32 %57, 0
   br i1 %.not87, label %65, label %58
 
 58:                                               ; preds = %34
-  %59 = getelementptr inbounds i8, ptr %4, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %60 = load i32, ptr %59, align 4
   %.not88 = icmp ne i32 %60, 0
   %61 = and i32 %52, 7
@@ -1980,13 +1980,13 @@ define hidden i32 @svcctl_dissect_struct_QUERY_SERVICE_CONFIG(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @svcctl_dissect_struct_ArgumentString(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2032,14 +2032,14 @@ define hidden i32 @svcctl_dissect_struct_ArgumentString(ptr noundef %0, i32 noun
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -2059,13 +2059,13 @@ define hidden i32 @svcctl_dissect_struct_ArgumentString(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @svcctl_dissect_struct_ArgumentStringA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -2111,14 +2111,14 @@ define hidden i32 @svcctl_dissect_struct_ArgumentStringA(ptr noundef %0, i32 nou
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -2330,7 +2330,7 @@ define internal i32 @svcctl_dissect_element_ArgumentStringA_string_(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_CloseServiceHandle_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.585, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_CloseServiceHandle_object_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CloseServiceHandle_object_handle_, i32 noundef 1, ptr noundef nonnull @.str.652, i32 noundef %8) #4
@@ -2341,7 +2341,7 @@ define internal i32 @svcctl_dissect_CloseServiceHandle_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_CloseServiceHandle_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.585, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CloseServiceHandle_object_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CloseServiceHandle_object_handle_, i32 noundef 1, ptr noundef nonnull @.str.652, i32 noundef %9) #4
@@ -2353,7 +2353,7 @@ define internal i32 @svcctl_dissect_CloseServiceHandle_response(ptr noundef %0, 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -2366,7 +2366,7 @@ define internal i32 @svcctl_dissect_CloseServiceHandle_response(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ControlService_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.586, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_ControlService_service_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ControlService_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %9) #4
@@ -2383,7 +2383,7 @@ define internal i32 @svcctl_dissect_ControlService_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ControlService_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.586, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_ControlService_service_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ControlService_service_status_, i32 noundef 1, ptr noundef nonnull @.str.656, i32 noundef %9) #4
@@ -2395,7 +2395,7 @@ define internal i32 @svcctl_dissect_ControlService_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -2407,7 +2407,7 @@ define internal i32 @svcctl_dissect_ControlService_response(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_DeleteService_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.587, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_DeleteService_service_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_DeleteService_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %8) #4
@@ -2418,7 +2418,7 @@ define internal i32 @svcctl_dissect_DeleteService_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_DeleteService_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.587, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -2427,7 +2427,7 @@ define internal i32 @svcctl_dissect_DeleteService_response(ptr noundef %0, i32 n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -2439,7 +2439,7 @@ define internal i32 @svcctl_dissect_DeleteService_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_LockServiceDatabase_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.588, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_LockServiceDatabase_scm_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_LockServiceDatabase_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %8) #4
@@ -2450,7 +2450,7 @@ define internal i32 @svcctl_dissect_LockServiceDatabase_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_LockServiceDatabase_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.588, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_LockServiceDatabase_lock_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_LockServiceDatabase_lock_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %9) #4
@@ -2462,7 +2462,7 @@ define internal i32 @svcctl_dissect_LockServiceDatabase_response(ptr noundef %0,
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -2475,14 +2475,14 @@ define internal i32 @svcctl_dissect_LockServiceDatabase_response(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceObjectSecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.589, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceObjectSecurity_service_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceObjectSecurity_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %9) #4
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5) #4
   %12 = load i32, ptr @hf_svcctl_svcctl_QueryServiceObjectSecurity_security_flags, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %13 = getelementptr inbounds i8, ptr %4, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %14 = load i32, ptr %13, align 4
   %.not.i.i = icmp ne i32 %14, 0
   %15 = and i32 %11, 3
@@ -2508,7 +2508,7 @@ define internal i32 @svcctl_dissect_QueryServiceObjectSecurity_request(ptr nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceObjectSecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.589, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceObjectSecurity_security_descriptor, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceObjectSecurity_security_descriptor_, i32 noundef 1, ptr noundef nonnull @.str.659, i32 noundef %9) #4
@@ -2523,7 +2523,7 @@ define internal i32 @svcctl_dissect_QueryServiceObjectSecurity_response(ptr noun
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -2536,14 +2536,14 @@ define internal i32 @svcctl_dissect_QueryServiceObjectSecurity_response(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_SetServiceObjectSecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.590, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_SetServiceObjectSecurity_service_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_SetServiceObjectSecurity_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %9) #4
   %11 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %10, ptr noundef %4, ptr noundef %5) #4
   %12 = load i32, ptr @hf_svcctl_svcctl_SetServiceObjectSecurity_security_flags, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %13 = getelementptr inbounds i8, ptr %4, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %14 = load i32, ptr %13, align 4
   %.not.i.i = icmp ne i32 %14, 0
   %15 = and i32 %11, 3
@@ -2572,7 +2572,7 @@ define internal i32 @svcctl_dissect_SetServiceObjectSecurity_request(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_SetServiceObjectSecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.590, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -2581,7 +2581,7 @@ define internal i32 @svcctl_dissect_SetServiceObjectSecurity_response(ptr nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -2593,7 +2593,7 @@ define internal i32 @svcctl_dissect_SetServiceObjectSecurity_response(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceStatus_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.591, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_QueryServiceStatus_service_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceStatus_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %8) #4
@@ -2604,7 +2604,7 @@ define internal i32 @svcctl_dissect_QueryServiceStatus_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceStatus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.591, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceStatus_service_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceStatus_service_status_, i32 noundef 1, ptr noundef nonnull @.str.656, i32 noundef %9) #4
@@ -2616,7 +2616,7 @@ define internal i32 @svcctl_dissect_QueryServiceStatus_response(ptr noundef %0, 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -2628,7 +2628,7 @@ define internal i32 @svcctl_dissect_QueryServiceStatus_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_SetServiceStatus_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.592, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_SetServiceStatus_service_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_SetServiceStatus_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %8) #4
@@ -2642,7 +2642,7 @@ define internal i32 @svcctl_dissect_SetServiceStatus_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_SetServiceStatus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.592, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -2651,7 +2651,7 @@ define internal i32 @svcctl_dissect_SetServiceStatus_response(ptr noundef %0, i3
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -2663,7 +2663,7 @@ define internal i32 @svcctl_dissect_SetServiceStatus_response(ptr noundef %0, i3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_UnlockServiceDatabase_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.593, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_UnlockServiceDatabase_lock_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_UnlockServiceDatabase_lock_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %8) #4
@@ -2674,7 +2674,7 @@ define internal i32 @svcctl_dissect_UnlockServiceDatabase_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_UnlockServiceDatabase_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.593, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_UnlockServiceDatabase_lock_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_UnlockServiceDatabase_lock_handle_, i32 noundef 1, ptr noundef nonnull @.str.658, i32 noundef %9) #4
@@ -2686,7 +2686,7 @@ define internal i32 @svcctl_dissect_UnlockServiceDatabase_response(ptr noundef %
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -2698,7 +2698,7 @@ define internal i32 @svcctl_dissect_UnlockServiceDatabase_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_NotifyBootConfigStatus_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.594, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_NotifyBootConfigStatus_machine_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_NotifyBootConfigStatus_machine_name_, i32 noundef 2, ptr noundef nonnull @.str.661, i32 noundef %8) #4
@@ -2712,7 +2712,7 @@ define internal i32 @svcctl_dissect_NotifyBootConfigStatus_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_NotifyBootConfigStatus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.594, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -2721,7 +2721,7 @@ define internal i32 @svcctl_dissect_NotifyBootConfigStatus_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -2733,7 +2733,7 @@ define internal i32 @svcctl_dissect_NotifyBootConfigStatus_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_SCSetServiceBitsW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.595, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_SCSetServiceBitsW_service_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_SCSetServiceBitsW_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %8) #4
@@ -2756,7 +2756,7 @@ define internal i32 @svcctl_dissect_SCSetServiceBitsW_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_SCSetServiceBitsW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.595, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -2765,7 +2765,7 @@ define internal i32 @svcctl_dissect_SCSetServiceBitsW_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -2780,7 +2780,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigW_request(ptr noundef %0,
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.596, ptr %10, align 8
   %11 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_service_handle, align 4
   %12 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ChangeServiceConfigW_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %11) #4
@@ -2836,7 +2836,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigW_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ChangeServiceConfigW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.596, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigW_tag_id, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ChangeServiceConfigW_tag_id_, i32 noundef 2, ptr noundef nonnull @.str.665, i32 noundef %9) #4
@@ -2848,7 +2848,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigW_response(ptr noundef %0
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -2865,7 +2865,7 @@ define internal i32 @svcctl_dissect_CreateServiceW_request(ptr noundef %0, i32 n
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.597, ptr %12, align 8
   %13 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_scm_handle, align 4
   %14 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %13) #4
@@ -2935,7 +2935,7 @@ define internal i32 @svcctl_dissect_CreateServiceW_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_CreateServiceW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.597, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CreateServiceW_tag_id, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceW_tag_id_, i32 noundef 2, ptr noundef nonnull @.str.665, i32 noundef %9) #4
@@ -2950,7 +2950,7 @@ define internal i32 @svcctl_dissect_CreateServiceW_response(ptr noundef %0, i32 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -2963,7 +2963,7 @@ define internal i32 @svcctl_dissect_CreateServiceW_response(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_EnumDependentServicesW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.598, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_EnumDependentServicesW_service_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumDependentServicesW_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %9) #4
@@ -2983,7 +2983,7 @@ define internal i32 @svcctl_dissect_EnumDependentServicesW_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_EnumDependentServicesW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.598, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_EnumDependentServicesW_service_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumDependentServicesW_service_status_, i32 noundef 1, ptr noundef nonnull @.str.673, i32 noundef %9) #4
@@ -3001,7 +3001,7 @@ define internal i32 @svcctl_dissect_EnumDependentServicesW_response(ptr noundef 
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %24) #4
@@ -3015,7 +3015,7 @@ define internal i32 @svcctl_dissect_EnumDependentServicesW_response(ptr noundef 
 define internal i32 @svcctl_dissect_EnumServicesStatusW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.599, ptr %9, align 8
   %10 = load i32, ptr @hf_svcctl_svcctl_EnumServicesStatusW_scm_handle, align 4
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServicesStatusW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %10) #4
@@ -3050,13 +3050,13 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
   %11 = alloca i64, align 8
   store i32 0, ptr %9, align 4
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1
   %.not = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %18 = load i32, ptr %17, align 4
   %.not73 = icmp ne i32 %18, 0
   br i1 %.not, label %24, label %19
@@ -3085,7 +3085,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
 
 29:                                               ; preds = %24, %26, %19, %21
   %.071 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
-  %30 = getelementptr inbounds i8, ptr %4, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.599, ptr %30, align 8
   %31 = load i32, ptr @ett_svcctl_service, align 4
   %32 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %.071, i32 noundef 0, i32 noundef %31, ptr noundef nonnull %10, ptr noundef nonnull @.str.677) #4
@@ -3097,7 +3097,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
   %38 = load ptr, ptr %10, align 8
   %39 = sub i32 %37, %1
   call void @proto_item_set_len(ptr noundef %38, i32 noundef %39) #4
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not77 = icmp ne i32 %41, 0
   %42 = and i32 %37, 3
@@ -3117,7 +3117,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
 .lr.ph:                                           ; preds = %29
   %.not66.i = icmp eq ptr %32, null
   %.pre = load ptr, ptr %12, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %.pre86 = load i32, ptr %.phi.trans.insert, align 8
   br label %50
 
@@ -3190,7 +3190,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
   %89 = sub i32 %88, %.0.i
   call void @proto_item_set_len(ptr noundef %.060.i, i32 noundef %89) #4
   %90 = load ptr, ptr %12, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 96
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 96
   %92 = load i32, ptr %91, align 8
   %93 = and i32 %92, 1
   %.not67.i = icmp eq i32 %93, 0
@@ -3232,7 +3232,7 @@ svcctl_dissect_struct_ENUM_SERVICE_STATUSW_ptr.exit: ; preds = %70, %94, %97
   br i1 %.not80, label %115, label %111
 
 111:                                              ; preds = %104
-  %112 = getelementptr inbounds i8, ptr %2, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = call ptr @val_to_str(i32 noundef %110, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %113, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %114) #4
@@ -3244,7 +3244,7 @@ svcctl_dissect_struct_ENUM_SERVICE_STATUSW_ptr.exit: ; preds = %70, %94, %97
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_OpenSCManagerW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.600, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_OpenSCManagerW_MachineName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenSCManagerW_MachineName_, i32 noundef 2, ptr noundef nonnull @.str.680, i32 noundef %8) #4
@@ -3261,7 +3261,7 @@ define internal i32 @svcctl_dissect_OpenSCManagerW_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_OpenSCManagerW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.600, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenSCManagerW_scm_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenSCManagerW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %9) #4
@@ -3273,7 +3273,7 @@ define internal i32 @svcctl_dissect_OpenSCManagerW_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -3286,7 +3286,7 @@ define internal i32 @svcctl_dissect_OpenSCManagerW_response(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_OpenServiceW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.601, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenServiceW_scm_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenServiceW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %9) #4
@@ -3307,7 +3307,7 @@ define internal i32 @svcctl_dissect_OpenServiceW_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_OpenServiceW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.601, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenServiceW_service_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenServiceW_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %9) #4
@@ -3319,7 +3319,7 @@ define internal i32 @svcctl_dissect_OpenServiceW_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -3331,7 +3331,7 @@ define internal i32 @svcctl_dissect_OpenServiceW_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfigW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.602, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfigW_service_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfigW_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %8) #4
@@ -3345,7 +3345,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigW_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfigW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.602, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfigW_service_config, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfigW_service_config_, i32 noundef 1, ptr noundef nonnull @.str.682, i32 noundef %9) #4
@@ -3360,7 +3360,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigW_response(ptr noundef %0,
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -3372,7 +3372,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigW_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceLockStatusW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.603, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_QueryServiceLockStatusW_scm_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceLockStatusW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %8) #4
@@ -3386,7 +3386,7 @@ define internal i32 @svcctl_dissect_QueryServiceLockStatusW_request(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceLockStatusW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.603, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceLockStatusW_lock_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceLockStatusW_lock_status_, i32 noundef 1, ptr noundef nonnull @.str.684, i32 noundef %9) #4
@@ -3401,7 +3401,7 @@ define internal i32 @svcctl_dissect_QueryServiceLockStatusW_response(ptr noundef
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -3413,7 +3413,7 @@ define internal i32 @svcctl_dissect_QueryServiceLockStatusW_response(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_StartServiceW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.604, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_StartServiceW_service_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_StartServiceW_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %8) #4
@@ -3430,7 +3430,7 @@ define internal i32 @svcctl_dissect_StartServiceW_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_StartServiceW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.604, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -3439,7 +3439,7 @@ define internal i32 @svcctl_dissect_StartServiceW_response(ptr noundef %0, i32 n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -3451,7 +3451,7 @@ define internal i32 @svcctl_dissect_StartServiceW_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetServiceDisplayNameW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.605, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_GetServiceDisplayNameW_scm_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_GetServiceDisplayNameW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %8) #4
@@ -3468,7 +3468,7 @@ define internal i32 @svcctl_dissect_GetServiceDisplayNameW_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetServiceDisplayNameW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.605, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_GetServiceDisplayNameW_display_name, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_GetServiceDisplayNameW_display_name_, i32 noundef 1, ptr noundef nonnull @.str.668, i32 noundef %9) #4
@@ -3483,7 +3483,7 @@ define internal i32 @svcctl_dissect_GetServiceDisplayNameW_response(ptr noundef 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -3495,7 +3495,7 @@ define internal i32 @svcctl_dissect_GetServiceDisplayNameW_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetServiceKeyNameW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.606, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_GetServiceKeyNameW_scm_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_GetServiceKeyNameW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %8) #4
@@ -3512,7 +3512,7 @@ define internal i32 @svcctl_dissect_GetServiceKeyNameW_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetServiceKeyNameW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.606, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_GetServiceKeyNameW_service_name, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_GetServiceKeyNameW_service_name_, i32 noundef 1, ptr noundef nonnull @.str.686, i32 noundef %9) #4
@@ -3527,7 +3527,7 @@ define internal i32 @svcctl_dissect_GetServiceKeyNameW_response(ptr noundef %0, 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -3539,7 +3539,7 @@ define internal i32 @svcctl_dissect_GetServiceKeyNameW_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_SCSetServiceBitsA_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.607, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_SCSetServiceBitsA_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_SCSetServiceBitsA_handle_, i32 noundef 1, ptr noundef nonnull @.str.689, i32 noundef %8) #4
@@ -3562,7 +3562,7 @@ define internal i32 @svcctl_dissect_SCSetServiceBitsA_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_SCSetServiceBitsA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.607, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -3571,7 +3571,7 @@ define internal i32 @svcctl_dissect_SCSetServiceBitsA_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -3586,7 +3586,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigA_request(ptr noundef %0,
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.608, ptr %10, align 8
   %11 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigA_service_handle, align 4
   %12 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ChangeServiceConfigA_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %11) #4
@@ -3636,7 +3636,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigA_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ChangeServiceConfigA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.608, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfigA_tag_id, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ChangeServiceConfigA_tag_id_, i32 noundef 2, ptr noundef nonnull @.str.665, i32 noundef %9) #4
@@ -3648,7 +3648,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfigA_response(ptr noundef %0
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -3665,7 +3665,7 @@ define internal i32 @svcctl_dissect_CreateServiceA_request(ptr noundef %0, i32 n
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.609, ptr %12, align 8
   %13 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_scm_handle, align 4
   %14 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceA_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %13) #4
@@ -3735,7 +3735,7 @@ define internal i32 @svcctl_dissect_CreateServiceA_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_CreateServiceA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.609, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CreateServiceA_tag_id, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceA_tag_id_, i32 noundef 2, ptr noundef nonnull @.str.665, i32 noundef %9) #4
@@ -3750,7 +3750,7 @@ define internal i32 @svcctl_dissect_CreateServiceA_response(ptr noundef %0, i32 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -3763,7 +3763,7 @@ define internal i32 @svcctl_dissect_CreateServiceA_response(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_EnumDependentServicesA_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.610, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_EnumDependentServicesA_service_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumDependentServicesA_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %9) #4
@@ -3783,7 +3783,7 @@ define internal i32 @svcctl_dissect_EnumDependentServicesA_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_EnumDependentServicesA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.610, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_EnumDependentServicesA_service_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumDependentServicesA_service_status_, i32 noundef 1, ptr noundef nonnull @.str.698, i32 noundef %9) #4
@@ -3801,7 +3801,7 @@ define internal i32 @svcctl_dissect_EnumDependentServicesA_response(ptr noundef 
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %24) #4
@@ -3815,7 +3815,7 @@ define internal i32 @svcctl_dissect_EnumDependentServicesA_response(ptr noundef 
 define internal i32 @svcctl_dissect_EnumServicesStatusA_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.611, ptr %9, align 8
   %10 = load i32, ptr @hf_svcctl_svcctl_EnumServicesStatusA_scm_handle, align 4
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServicesStatusA_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %10) #4
@@ -3844,7 +3844,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusA_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_EnumServicesStatusA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.611, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServicesStatusA_service_) #4
   %10 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %9, ptr noundef %4, ptr noundef %5) #4
@@ -3864,7 +3864,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusA_response(ptr noundef %0,
   br i1 %.not, label %27, label %23
 
 23:                                               ; preds = %6
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %22, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %26) #4
@@ -3876,7 +3876,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusA_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_OpenSCManagerA_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.612, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_OpenSCManagerA_MachineName, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenSCManagerA_MachineName_, i32 noundef 2, ptr noundef nonnull @.str.700, i32 noundef %8) #4
@@ -3893,7 +3893,7 @@ define internal i32 @svcctl_dissect_OpenSCManagerA_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_OpenSCManagerA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.612, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenSCManagerA_scm_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenSCManagerA_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %9) #4
@@ -3905,7 +3905,7 @@ define internal i32 @svcctl_dissect_OpenSCManagerA_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -3918,7 +3918,7 @@ define internal i32 @svcctl_dissect_OpenSCManagerA_response(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_OpenServiceA_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.613, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenServiceA_scm_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenServiceA_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %9) #4
@@ -3939,7 +3939,7 @@ define internal i32 @svcctl_dissect_OpenServiceA_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_OpenServiceA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.613, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenServiceA_service_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenServiceA_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %9) #4
@@ -3951,7 +3951,7 @@ define internal i32 @svcctl_dissect_OpenServiceA_response(ptr noundef %0, i32 no
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -3963,7 +3963,7 @@ define internal i32 @svcctl_dissect_OpenServiceA_response(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfigA_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.614, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfigA_service_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfigA_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %8) #4
@@ -3977,7 +3977,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigA_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfigA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.614, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfigA_query_) #4
   %10 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %9, ptr noundef %4, ptr noundef %5) #4
@@ -3991,7 +3991,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigA_response(ptr noundef %0,
   br i1 %.not, label %21, label %17
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %20) #4
@@ -4003,7 +4003,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigA_response(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceLockStatusA_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.615, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_QueryServiceLockStatusA_scm_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceLockStatusA_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %8) #4
@@ -4017,7 +4017,7 @@ define internal i32 @svcctl_dissect_QueryServiceLockStatusA_request(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceLockStatusA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.615, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceLockStatusA_lock_status, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceLockStatusA_lock_status_, i32 noundef 1, ptr noundef nonnull @.str.684, i32 noundef %9) #4
@@ -4032,7 +4032,7 @@ define internal i32 @svcctl_dissect_QueryServiceLockStatusA_response(ptr noundef
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -4044,7 +4044,7 @@ define internal i32 @svcctl_dissect_QueryServiceLockStatusA_response(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_StartServiceA_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.616, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_StartServiceA_service_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_StartServiceA_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %8) #4
@@ -4061,7 +4061,7 @@ define internal i32 @svcctl_dissect_StartServiceA_request(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_StartServiceA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.616, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4070,7 +4070,7 @@ define internal i32 @svcctl_dissect_StartServiceA_response(ptr noundef %0, i32 n
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -4082,7 +4082,7 @@ define internal i32 @svcctl_dissect_StartServiceA_response(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetServiceDisplayNameA_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.617, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_GetServiceDisplayNameA_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_GetServiceDisplayNameA_handle_, i32 noundef 1, ptr noundef nonnull @.str.689, i32 noundef %8) #4
@@ -4099,7 +4099,7 @@ define internal i32 @svcctl_dissect_GetServiceDisplayNameA_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetServiceDisplayNameA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.617, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_GetServiceDisplayNameA_display_name, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_GetServiceDisplayNameA_display_name_, i32 noundef 1, ptr noundef nonnull @.str.703, i32 noundef %9) #4
@@ -4114,7 +4114,7 @@ define internal i32 @svcctl_dissect_GetServiceDisplayNameA_response(ptr noundef 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -4126,7 +4126,7 @@ define internal i32 @svcctl_dissect_GetServiceDisplayNameA_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetServiceKeyNameA_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.618, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_GetServiceKeyNameA_scm_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_GetServiceKeyNameA_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %8) #4
@@ -4143,7 +4143,7 @@ define internal i32 @svcctl_dissect_GetServiceKeyNameA_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetServiceKeyNameA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.618, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_GetServiceKeyNameA_key_name, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_GetServiceKeyNameA_key_name_, i32 noundef 1, ptr noundef nonnull @.str.704, i32 noundef %9) #4
@@ -4158,7 +4158,7 @@ define internal i32 @svcctl_dissect_GetServiceKeyNameA_response(ptr noundef %0, 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -4170,7 +4170,7 @@ define internal i32 @svcctl_dissect_GetServiceKeyNameA_response(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetCurrentGroupeStateW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.619, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_GetCurrentGroupeStateW_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_GetCurrentGroupeStateW_handle_, i32 noundef 1, ptr noundef nonnull @.str.689, i32 noundef %8) #4
@@ -4184,7 +4184,7 @@ define internal i32 @svcctl_dissect_GetCurrentGroupeStateW_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetCurrentGroupeStateW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.619, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_GetCurrentGroupeStateW_state, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_GetCurrentGroupeStateW_state_, i32 noundef 1, ptr noundef nonnull @.str.706, i32 noundef %9) #4
@@ -4196,7 +4196,7 @@ define internal i32 @svcctl_dissect_GetCurrentGroupeStateW_response(ptr noundef 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -4210,7 +4210,7 @@ define internal i32 @svcctl_dissect_GetCurrentGroupeStateW_response(ptr noundef 
 define internal i32 @svcctl_dissect_EnumServiceGroupW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.620, ptr %9, align 8
   %10 = load i32, ptr @hf_svcctl_svcctl_EnumServiceGroupW_scm_handle, align 4
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServiceGroupW_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %10) #4
@@ -4242,7 +4242,7 @@ define internal i32 @svcctl_dissect_EnumServiceGroupW_request(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_EnumServiceGroupW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.620, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServiceGroupW_lpBuffer_) #4
   %10 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %9, ptr noundef %4, ptr noundef %5) #4
@@ -4262,7 +4262,7 @@ define internal i32 @svcctl_dissect_EnumServiceGroupW_response(ptr noundef %0, i
   br i1 %.not, label %27, label %23
 
 23:                                               ; preds = %6
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %22, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %26) #4
@@ -4274,7 +4274,7 @@ define internal i32 @svcctl_dissect_EnumServiceGroupW_response(ptr noundef %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ChangeServiceConfig2A_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.621, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfig2A_service_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ChangeServiceConfig2A_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %8) #4
@@ -4291,7 +4291,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfig2A_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ChangeServiceConfig2A_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.621, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4300,7 +4300,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfig2A_response(ptr noundef %
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -4312,7 +4312,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfig2A_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ChangeServiceConfig2W_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.622, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_ChangeServiceConfig2W_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ChangeServiceConfig2W_handle_, i32 noundef 1, ptr noundef nonnull @.str.689, i32 noundef %8) #4
@@ -4329,7 +4329,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfig2W_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ChangeServiceConfig2W_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.622, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4338,7 +4338,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfig2W_response(ptr noundef %
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -4351,7 +4351,7 @@ define internal i32 @svcctl_dissect_ChangeServiceConfig2W_response(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfig2A_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.623, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfig2A_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfig2A_handle_, i32 noundef 1, ptr noundef nonnull @.str.689, i32 noundef %9) #4
@@ -4371,7 +4371,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2A_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfig2A_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.623, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfig2A_buffer_) #4
   %10 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %9, ptr noundef %4, ptr noundef %5) #4
@@ -4385,7 +4385,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2A_response(ptr noundef %0
   br i1 %.not, label %21, label %17
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %20) #4
@@ -4398,7 +4398,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2A_response(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfig2W_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.624, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfig2W_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfig2W_handle_, i32 noundef 1, ptr noundef nonnull @.str.689, i32 noundef %9) #4
@@ -4418,7 +4418,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2W_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfig2W_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.624, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfig2W_buffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfig2W_buffer_, i32 noundef 1, ptr noundef nonnull @.str.712, i32 noundef %9) #4
@@ -4433,7 +4433,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2W_response(ptr noundef %0
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -4446,7 +4446,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfig2W_response(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceStatusEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.625, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceStatusEx_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceStatusEx_handle_, i32 noundef 1, ptr noundef nonnull @.str.689, i32 noundef %9) #4
@@ -4466,7 +4466,7 @@ define internal i32 @svcctl_dissect_QueryServiceStatusEx_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceStatusEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.625, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_QueryServiceStatusEx_buffer, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceStatusEx_buffer_, i32 noundef 1, ptr noundef nonnull @.str.712, i32 noundef %9) #4
@@ -4481,7 +4481,7 @@ define internal i32 @svcctl_dissect_QueryServiceStatusEx_response(ptr noundef %0
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -4495,7 +4495,7 @@ define internal i32 @svcctl_dissect_QueryServiceStatusEx_response(ptr noundef %0
 define internal i32 @svcctl_dissect_EnumServicesStatusExA_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.626, ptr %9, align 8
   %10 = load i32, ptr @hf_svcctl_EnumServicesStatusExA_scm_handle, align 4
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServicesStatusExA_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %10) #4
@@ -4527,7 +4527,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExA_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_EnumServicesStatusExA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.626, ptr %8, align 8
   %9 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServicesStatusExA_services_) #4
   %10 = tail call i32 @dissect_deferred_pointers(ptr noundef %2, ptr noundef %0, i32 noundef %9, ptr noundef %4, ptr noundef %5) #4
@@ -4550,7 +4550,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExA_response(ptr noundef %
   br i1 %.not, label %30, label %26
 
 26:                                               ; preds = %6
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %29) #4
@@ -4564,7 +4564,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExA_response(ptr noundef %
 define internal i32 @svcctl_dissect_EnumServicesStatusExW_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.627, ptr %9, align 8
   %10 = load i32, ptr @hf_svcctl_EnumServicesStatusExW_scmanager, align 4
   %11 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServicesStatusExW_scmanager_, i32 noundef 1, ptr noundef nonnull @.str.715, i32 noundef %10) #4
@@ -4599,7 +4599,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExW_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_EnumServicesStatusExW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.627, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_EnumServicesStatusExW_services, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_EnumServicesStatusExW_services_, i32 noundef 1, ptr noundef nonnull @.str.716, i32 noundef %9) #4
@@ -4620,7 +4620,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExW_response(ptr noundef %
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %27) #4
@@ -4632,7 +4632,7 @@ define internal i32 @svcctl_dissect_EnumServicesStatusExW_response(ptr noundef %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_ScBroadcastServiceControlMessage_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.628, ptr %7, align 8
   ret i32 %1
 }
@@ -4640,7 +4640,7 @@ define internal noundef i32 @svcctl_dissect_ScBroadcastServiceControlMessage_req
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ScBroadcastServiceControlMessage_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.628, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4649,7 +4649,7 @@ define internal i32 @svcctl_dissect_ScBroadcastServiceControlMessage_response(pt
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -4666,7 +4666,7 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64A_request(ptr noundef %0, 
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.629, ptr %12, align 8
   %13 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_scm_handle, align 4
   %14 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceWOW64A_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %13) #4
@@ -4736,7 +4736,7 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64A_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_CreateServiceWOW64A_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.629, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64A_tag_id, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceWOW64A_tag_id_, i32 noundef 2, ptr noundef nonnull @.str.665, i32 noundef %9) #4
@@ -4751,7 +4751,7 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64A_response(ptr noundef %0,
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -4768,7 +4768,7 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64W_request(ptr noundef %0, 
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.630, ptr %12, align 8
   %13 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_scm_handle, align 4
   %14 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceWOW64W_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %13) #4
@@ -4838,7 +4838,7 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64W_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_CreateServiceWOW64W_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.630, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CreateServiceWOW64W_tag_id, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateServiceWOW64W_tag_id_, i32 noundef 2, ptr noundef nonnull @.str.665, i32 noundef %9) #4
@@ -4853,7 +4853,7 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64W_response(ptr noundef %0,
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -4865,7 +4865,7 @@ define internal i32 @svcctl_dissect_CreateServiceWOW64W_response(ptr noundef %0,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_ScQueryServiceTagInfo_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.631, ptr %7, align 8
   ret i32 %1
 }
@@ -4873,7 +4873,7 @@ define internal noundef i32 @svcctl_dissect_ScQueryServiceTagInfo_request(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ScQueryServiceTagInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.631, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4882,7 +4882,7 @@ define internal i32 @svcctl_dissect_ScQueryServiceTagInfo_response(ptr noundef %
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -4894,7 +4894,7 @@ define internal i32 @svcctl_dissect_ScQueryServiceTagInfo_response(ptr noundef %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_NotifyServiceStatusChange_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.632, ptr %7, align 8
   ret i32 %1
 }
@@ -4902,7 +4902,7 @@ define internal noundef i32 @svcctl_dissect_NotifyServiceStatusChange_request(pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_NotifyServiceStatusChange_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.632, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4911,7 +4911,7 @@ define internal i32 @svcctl_dissect_NotifyServiceStatusChange_response(ptr nound
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -4923,7 +4923,7 @@ define internal i32 @svcctl_dissect_NotifyServiceStatusChange_response(ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_GetNotifyResults_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.633, ptr %7, align 8
   ret i32 %1
 }
@@ -4931,7 +4931,7 @@ define internal noundef i32 @svcctl_dissect_GetNotifyResults_request(ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetNotifyResults_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.633, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4940,7 +4940,7 @@ define internal i32 @svcctl_dissect_GetNotifyResults_response(ptr noundef %0, i3
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -4952,7 +4952,7 @@ define internal i32 @svcctl_dissect_GetNotifyResults_response(ptr noundef %0, i3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_CloseNotifyHandle_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.634, ptr %7, align 8
   ret i32 %1
 }
@@ -4960,7 +4960,7 @@ define internal noundef i32 @svcctl_dissect_CloseNotifyHandle_request(ptr nocapt
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_CloseNotifyHandle_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.634, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4969,7 +4969,7 @@ define internal i32 @svcctl_dissect_CloseNotifyHandle_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -4981,7 +4981,7 @@ define internal i32 @svcctl_dissect_CloseNotifyHandle_response(ptr noundef %0, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_ControlServiceExA_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.635, ptr %7, align 8
   ret i32 %1
 }
@@ -4989,7 +4989,7 @@ define internal noundef i32 @svcctl_dissect_ControlServiceExA_request(ptr nocapt
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ControlServiceExA_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.635, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -4998,7 +4998,7 @@ define internal i32 @svcctl_dissect_ControlServiceExA_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5010,7 +5010,7 @@ define internal i32 @svcctl_dissect_ControlServiceExA_response(ptr noundef %0, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_ControlServiceExW_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.636, ptr %7, align 8
   ret i32 %1
 }
@@ -5018,7 +5018,7 @@ define internal noundef i32 @svcctl_dissect_ControlServiceExW_request(ptr nocapt
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ControlServiceExW_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.636, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5027,7 +5027,7 @@ define internal i32 @svcctl_dissect_ControlServiceExW_response(ptr noundef %0, i
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5039,7 +5039,7 @@ define internal i32 @svcctl_dissect_ControlServiceExW_response(ptr noundef %0, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_ScSendPnPMessage_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.637, ptr %7, align 8
   ret i32 %1
 }
@@ -5047,7 +5047,7 @@ define internal noundef i32 @svcctl_dissect_ScSendPnPMessage_request(ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ScSendPnPMessage_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.637, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5056,7 +5056,7 @@ define internal i32 @svcctl_dissect_ScSendPnPMessage_response(ptr noundef %0, i3
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5068,7 +5068,7 @@ define internal i32 @svcctl_dissect_ScSendPnPMessage_response(ptr noundef %0, i3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_ScValidatePnPService_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.638, ptr %7, align 8
   ret i32 %1
 }
@@ -5076,7 +5076,7 @@ define internal noundef i32 @svcctl_dissect_ScValidatePnPService_request(ptr noc
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ScValidatePnPService_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.638, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5085,7 +5085,7 @@ define internal i32 @svcctl_dissect_ScValidatePnPService_response(ptr noundef %0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5097,7 +5097,7 @@ define internal i32 @svcctl_dissect_ScValidatePnPService_response(ptr noundef %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_ScOpenServiceStatusHandle_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.639, ptr %7, align 8
   ret i32 %1
 }
@@ -5105,7 +5105,7 @@ define internal noundef i32 @svcctl_dissect_ScOpenServiceStatusHandle_request(pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ScOpenServiceStatusHandle_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.639, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5114,7 +5114,7 @@ define internal i32 @svcctl_dissect_ScOpenServiceStatusHandle_response(ptr nound
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5126,7 +5126,7 @@ define internal i32 @svcctl_dissect_ScOpenServiceStatusHandle_response(ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_ScQueryServiceConfig_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.640, ptr %7, align 8
   ret i32 %1
 }
@@ -5134,7 +5134,7 @@ define internal noundef i32 @svcctl_dissect_ScQueryServiceConfig_request(ptr noc
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ScQueryServiceConfig_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.640, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5143,7 +5143,7 @@ define internal i32 @svcctl_dissect_ScQueryServiceConfig_response(ptr noundef %0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5155,7 +5155,7 @@ define internal i32 @svcctl_dissect_ScQueryServiceConfig_response(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfigEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.641, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_QueryServiceConfigEx_service_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QueryServiceConfigEx_service_handle_, i32 noundef 1, ptr noundef nonnull @.str.655, i32 noundef %8) #4
@@ -5169,7 +5169,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigEx_request(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryServiceConfigEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.641, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5178,7 +5178,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigEx_response(ptr noundef %0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5190,7 +5190,7 @@ define internal i32 @svcctl_dissect_QueryServiceConfigEx_response(ptr noundef %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_ScRegisterPreshutdownRestart_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.642, ptr %7, align 8
   ret i32 %1
 }
@@ -5198,7 +5198,7 @@ define internal noundef i32 @svcctl_dissect_ScRegisterPreshutdownRestart_request
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ScRegisterPreshutdownRestart_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.642, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5207,7 +5207,7 @@ define internal i32 @svcctl_dissect_ScRegisterPreshutdownRestart_response(ptr no
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5219,7 +5219,7 @@ define internal i32 @svcctl_dissect_ScRegisterPreshutdownRestart_response(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_ScReparseServiceDatabase_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.643, ptr %7, align 8
   ret i32 %1
 }
@@ -5227,7 +5227,7 @@ define internal noundef i32 @svcctl_dissect_ScReparseServiceDatabase_request(ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_ScReparseServiceDatabase_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.643, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5236,7 +5236,7 @@ define internal i32 @svcctl_dissect_ScReparseServiceDatabase_response(ptr nounde
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5248,7 +5248,7 @@ define internal i32 @svcctl_dissect_ScReparseServiceDatabase_response(ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_QueryUserServiceName_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.644, ptr %7, align 8
   ret i32 %1
 }
@@ -5256,7 +5256,7 @@ define internal noundef i32 @svcctl_dissect_QueryUserServiceName_request(ptr noc
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_QueryUserServiceName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.644, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5265,7 +5265,7 @@ define internal i32 @svcctl_dissect_QueryUserServiceName_response(ptr noundef %0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5281,7 +5281,7 @@ define internal i32 @svcctl_dissect_CreateWowService_request(ptr noundef %0, i32
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.645, ptr %11, align 8
   %12 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_scm_handle, align 4
   %13 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateWowService_scm_handle_, i32 noundef 1, ptr noundef nonnull @.str.657, i32 noundef %12) #4
@@ -5351,7 +5351,7 @@ define internal i32 @svcctl_dissect_CreateWowService_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_CreateWowService_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.645, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_CreateWowService_tag_id, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_CreateWowService_tag_id_, i32 noundef 2, ptr noundef nonnull @.str.665, i32 noundef %9) #4
@@ -5366,7 +5366,7 @@ define internal i32 @svcctl_dissect_CreateWowService_response(ptr noundef %0, i3
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %21) #4
@@ -5378,7 +5378,7 @@ define internal i32 @svcctl_dissect_CreateWowService_response(ptr noundef %0, i3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_GetServiceRegistryStateKey_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.646, ptr %7, align 8
   ret i32 %1
 }
@@ -5386,7 +5386,7 @@ define internal noundef i32 @svcctl_dissect_GetServiceRegistryStateKey_request(p
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetServiceRegistryStateKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.646, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5395,7 +5395,7 @@ define internal i32 @svcctl_dissect_GetServiceRegistryStateKey_response(ptr noun
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5407,7 +5407,7 @@ define internal i32 @svcctl_dissect_GetServiceRegistryStateKey_response(ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_GetServiceDirectory_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.647, ptr %7, align 8
   ret i32 %1
 }
@@ -5415,7 +5415,7 @@ define internal noundef i32 @svcctl_dissect_GetServiceDirectory_request(ptr noca
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetServiceDirectory_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.647, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5424,7 +5424,7 @@ define internal i32 @svcctl_dissect_GetServiceDirectory_response(ptr noundef %0,
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5436,7 +5436,7 @@ define internal i32 @svcctl_dissect_GetServiceDirectory_response(ptr noundef %0,
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_GetServiceProcessToken_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.648, ptr %7, align 8
   ret i32 %1
 }
@@ -5444,7 +5444,7 @@ define internal noundef i32 @svcctl_dissect_GetServiceProcessToken_request(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetServiceProcessToken_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.648, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5453,7 +5453,7 @@ define internal i32 @svcctl_dissect_GetServiceProcessToken_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5465,7 +5465,7 @@ define internal i32 @svcctl_dissect_GetServiceProcessToken_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_OpenSCManager2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.649, ptr %7, align 8
   %8 = load i32, ptr @hf_svcctl_svcctl_OpenSCManager2_database_name, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenSCManager2_database_name_, i32 noundef 2, ptr noundef nonnull @.str.718, i32 noundef %8) #4
@@ -5479,7 +5479,7 @@ define internal i32 @svcctl_dissect_OpenSCManager2_request(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_OpenSCManager2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.649, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_svcctl_OpenSCManager2_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_OpenSCManager2_handle_, i32 noundef 1, ptr noundef nonnull @.str.689, i32 noundef %9) #4
@@ -5491,7 +5491,7 @@ define internal i32 @svcctl_dissect_OpenSCManager2_response(ptr noundef %0, i32 
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %18) #4
@@ -5503,7 +5503,7 @@ define internal i32 @svcctl_dissect_OpenSCManager2_response(ptr noundef %0, i32 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_GetSharedServiceRegistryStateKey_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.650, ptr %7, align 8
   ret i32 %1
 }
@@ -5511,7 +5511,7 @@ define internal noundef i32 @svcctl_dissect_GetSharedServiceRegistryStateKey_req
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetSharedServiceRegistryStateKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.650, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5520,7 +5520,7 @@ define internal i32 @svcctl_dissect_GetSharedServiceRegistryStateKey_response(pt
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4
@@ -5532,7 +5532,7 @@ define internal i32 @svcctl_dissect_GetSharedServiceRegistryStateKey_response(pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @svcctl_dissect_GetSharedServiceDirectory_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.651, ptr %7, align 8
   ret i32 %1
 }
@@ -5540,7 +5540,7 @@ define internal noundef i32 @svcctl_dissect_GetSharedServiceDirectory_request(pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @svcctl_dissect_GetSharedServiceDirectory_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.651, ptr %8, align 8
   %9 = load i32, ptr @hf_svcctl_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -5549,7 +5549,7 @@ define internal i32 @svcctl_dissect_GetSharedServiceDirectory_response(ptr nound
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.654) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.653, ptr noundef %15) #4

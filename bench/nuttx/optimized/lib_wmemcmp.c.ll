@@ -23,8 +23,8 @@ define range(i32 -1, 2) i32 @wmemcmp(ptr nocapture noundef readonly %0, ptr noca
   br label %.loopexit
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.01115, i64 4
-  %11 = getelementptr inbounds i8, ptr %.01016, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.01115, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.01016, i64 4
   %12 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %12, %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6

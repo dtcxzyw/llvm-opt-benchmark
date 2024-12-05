@@ -90,7 +90,7 @@ define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef reado
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = tail call fastcc ptr @type_lowering(ptr noundef %0)
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @type_void, align 8
   %8 = icmp eq ptr %6, %7
@@ -106,7 +106,7 @@ define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef reado
   br i1 %.not, label %13, label %.critedge49
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %4, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %15 = load i32, ptr %14, align 8
   %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
   %or.cond = icmp eq i32 %16, 1
@@ -149,7 +149,7 @@ define dso_local ptr @aarch64_classify_argument_type(ptr nocapture noundef reado
   br i1 %32, label %33, label %.critedge
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %4, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 255
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
@@ -276,7 +276,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %.026 = phi ptr [ %0, %1 ], [ %.026.be, %.backedge.backedge ]
-  %3 = getelementptr inbounds i8, ptr %.026, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %.loopexit [
@@ -306,25 +306,25 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   unreachable
 
 7:                                                ; preds = %.backedge
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %9 = load ptr, ptr %8, align 8
   br label %.backedge.backedge
 
 10:                                               ; preds = %.backedge
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %.backedge.backedge
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds i8, ptr %4, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %.backedge.backedge
 
@@ -334,21 +334,21 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 26:                                               ; preds = %.backedge, %.backedge, %.backedge
   %27 = load ptr, ptr @type_iptr, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %.loopexit
 
 30:                                               ; preds = %.backedge
-  %31 = getelementptr inbounds i8, ptr %4, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   br label %.backedge.backedge
 
 37:                                               ; preds = %.backedge
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = tail call fastcc ptr @type_lowering(ptr noundef %39)
   %41 = icmp eq ptr %40, %39
@@ -359,7 +359,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 44:                                               ; preds = %.backedge, %.backedge, %.backedge, %.backedge
-  %45 = getelementptr inbounds i8, ptr %4, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = tail call fastcc ptr @type_lowering(ptr noundef %46)
   %48 = icmp eq ptr %47, %46
@@ -379,13 +379,13 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %4, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %55 = load i32, ptr %54, align 8
   %56 = tail call ptr @type_get_array(ptr noundef %47, i32 noundef %55) #4
   br label %.loopexit
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %4, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %59 = load i32, ptr %58, align 8
   %60 = tail call ptr @type_get_vector(ptr noundef %47, i32 noundef %59) #4
   br label %.loopexit
@@ -422,7 +422,7 @@ define dso_local ptr @aarch64_classify_return_type(ptr nocapture noundef readonl
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = tail call fastcc ptr @type_lowering(ptr noundef %0)
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @type_void, align 8
   %9 = icmp eq ptr %7, %8
@@ -438,7 +438,7 @@ define dso_local ptr @aarch64_classify_return_type(ptr nocapture noundef readonl
   br i1 %.not, label %14, label %.critedge51
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %5, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %16 = load i32, ptr %15, align 8
   %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
   %or.cond55 = icmp eq i32 %17, 1
@@ -492,7 +492,7 @@ define dso_local ptr @aarch64_classify_return_type(ptr nocapture noundef readonl
   br i1 %39, label %40, label %.critedge
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %5, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 255
   %44 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
@@ -594,13 +594,13 @@ declare ptr @abi_arg_new_indirect_by_val(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @c_abi_func_create_aarch64(ptr nocapture noundef initializes((56, 64)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i16, ptr %0, align 8
   %5 = and i16 %4, 16
   %6 = icmp ne i16 %5, 0
   %7 = tail call ptr @aarch64_classify_return_type(ptr noundef %3, i1 noundef zeroext %6)
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %7, ptr %8, align 8
   %9 = load i16, ptr %0, align 8
   %10 = and i16 %9, 128
@@ -608,13 +608,13 @@ define dso_local void @c_abi_func_create_aarch64(ptr nocapture noundef initializ
   br i1 %.not, label %29, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %13
 
 13:                                               ; preds = %.backedge, %11
   %.0.i.in = phi ptr [ %12, %11 ], [ %.0.i.in.be, %.backedge ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %type_flatten.exit [
@@ -624,15 +624,15 @@ define dso_local void @c_abi_func_create_aarch64(ptr nocapture noundef initializ
   ]
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %.backedge
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %15, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %23, %17
@@ -646,12 +646,12 @@ define dso_local void @c_abi_func_create_aarch64(ptr nocapture noundef initializ
 type_flatten.exit:                                ; preds = %13
   %26 = tail call ptr @type_get_ptr(ptr noundef nonnull %15) #4
   %27 = tail call ptr @aarch64_classify_argument_type(ptr noundef %26)
-  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %27, ptr %28, align 8
   br label %29
 
 29:                                               ; preds = %type_flatten.exit, %1
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not44 = icmp eq ptr %31, null
   br i1 %.not44, label %.thread, label %32
@@ -670,22 +670,22 @@ type_flatten.exit:                                ; preds = %13
 
 39:                                               ; preds = %35, %39
   %indvars.iv = phi i64 [ 0, %35 ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @aarch64_classify_argument_type(ptr noundef %41)
-  %43 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   store ptr %42, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
   br i1 %exitcond.not, label %44, label %39, !llvm.loop !7
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %38, ptr %45, align 8
   br label %.thread
 
 .thread:                                          ; preds = %29, %44, %32
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %47 = load ptr, ptr %46, align 8
   %.not46 = icmp eq ptr %47, null
   br i1 %.not46, label %.thread50, label %48
@@ -704,17 +704,17 @@ type_flatten.exit:                                ; preds = %13
 
 55:                                               ; preds = %51, %55
   %indvars.iv58 = phi i64 [ 0, %51 ], [ %indvars.iv.next59, %55 ]
-  %56 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv58
+  %56 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv58
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @aarch64_classify_argument_type(ptr noundef %57)
-  %59 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv58
+  %59 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv58
   store ptr %58, ptr %59, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %52
   br i1 %exitcond62.not, label %60, label %55, !llvm.loop !9
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %0, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %54, ptr %61, align 8
   br label %.thread50
 

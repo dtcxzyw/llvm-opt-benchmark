@@ -36,7 +36,7 @@ define hidden noundef zeroext i1 @_ZN18XBarrierSetNMethod21nmethod_entry_barrier
 6:                                                ; preds = %4
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %10 = load volatile ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %10, %8
   br i1 %.not.i.i, label %_ZN14XReentrantLock4lockEv.exit.i, label %11
@@ -47,14 +47,14 @@ define hidden noundef zeroext i1 @_ZN18XBarrierSetNMethod21nmethod_entry_barrier
   br label %_ZN14XReentrantLock4lockEv.exit.i
 
 _ZN14XReentrantLock4lockEv.exit.i:                ; preds = %11, %6
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, 1
   store i64 %15, ptr %13, align 8
   br label %_ZN7XLockerI14XReentrantLockEC2EPS0_.exit
 
 _ZN7XLockerI14XReentrantLockEC2EPS0_.exit:        ; preds = %4, %_ZN14XReentrantLock4lockEv.exit.i
-  %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE94ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE94ELS1_8ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %18, label %17
 
@@ -85,7 +85,7 @@ _ZN7XLockerI14XReentrantLockEC2EPS0_.exit:        ; preds = %4, %_ZN14XReentrant
   br i1 %.not.i, label %_ZN7XLockerI14XReentrantLockED2Ev.exit, label %25
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %5, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, -1
   store i64 %28, ptr %26, align 8
@@ -93,7 +93,7 @@ _ZN7XLockerI14XReentrantLockEC2EPS0_.exit:        ; preds = %4, %_ZN14XReentrant
   br i1 %29, label %30, label %_ZN7XLockerI14XReentrantLockED2Ev.exit
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %5, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store volatile ptr null, ptr %31, align 8
   %32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(56) %5) #8
   br label %_ZN7XLockerI14XReentrantLockED2Ev.exit

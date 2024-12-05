@@ -37,7 +37,7 @@ define dso_local zeroext i1 @Curl_cert_hostcheck(ptr noundef %0, i64 noundef %1,
   br i1 %.not49.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %0, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 46
   br i1 %24, label %28, label %.tail.thread.i

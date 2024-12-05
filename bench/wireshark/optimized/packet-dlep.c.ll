@@ -450,7 +450,7 @@ define internal i32 @dissect_dlep_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
 define internal i32 @dissect_dlep_sig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.128) #5
   %9 = load ptr, ptr %7, align 8
@@ -467,13 +467,13 @@ define internal i32 @dissect_dlep_sig(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %18, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.i, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 1
   store i32 %22, ptr %20, align 4
@@ -542,13 +542,13 @@ define internal range(i32 0, -2147483648) i32 @decode_dataitem_status(ptr nounde
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -568,7 +568,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %10, %13
   %24 = load i32, ptr @hf_dlep_dataitem_status_text, align 4
   %25 = add nsw i32 %7, -1
   %26 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef %25, i32 noundef 2) #5
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @tvb_get_string_enc(ptr noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef %25, i32 noundef 2) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.201, ptr noundef %29) #5
@@ -590,13 +590,13 @@ define internal range(i32 5, 8) i32 @decode_dataitem_v4conn(ptr noundef %0, ptr 
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -611,7 +611,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %10, %13
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %23 = load i32, ptr @hf_dlep_dataitem_v4conn_addr, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0) #5
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @tvb_address_to_str(ptr noundef %26, ptr noundef %0, i32 noundef 2, i32 noundef 1) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.202, ptr noundef %27) #5
@@ -641,13 +641,13 @@ define internal range(i32 17, 20) i32 @decode_dataitem_v6conn(ptr noundef %0, pt
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -662,7 +662,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %10, %13
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %23 = load i32, ptr @hf_dlep_dataitem_v6conn_addr, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0) #5
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @tvb_address_to_str(ptr noundef %26, ptr noundef %0, i32 noundef 3, i32 noundef 1) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.202, ptr noundef %27) #5
@@ -691,13 +691,13 @@ define internal range(i32 0, -2147483648) i32 @decode_dataitem_peertype(ptr noun
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -717,7 +717,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %9, %12
   %24 = load i32, ptr @hf_dlep_dataitem_peertype_description, align 4
   %25 = add nsw i32 %6, -1
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef %25, i32 noundef 2) #5
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @tvb_get_string_enc(ptr noundef %28, ptr noundef %0, i32 noundef 1, i32 noundef %25, i32 noundef 2) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.204, ptr noundef %29) #5
@@ -750,13 +750,13 @@ define internal range(i32 -2147483646, -2147483648) i32 @decode_dataitem_extsupp
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -795,7 +795,7 @@ define internal noundef i32 @decode_dataitem_macaddr(ptr noundef %0, ptr nocaptu
 7:                                                ; preds = %4
   %8 = load i32, ptr @hf_dlep_dataitem_macaddr_eui48, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 6, i32 noundef 0) #5
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @tvb_address_to_str(ptr noundef %11, ptr noundef %0, i32 noundef 1, i32 noundef 0) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.207, ptr noundef %12) #5
@@ -804,7 +804,7 @@ define internal noundef i32 @decode_dataitem_macaddr(ptr noundef %0, ptr nocaptu
 13:                                               ; preds = %4
   %14 = load i32, ptr @hf_dlep_dataitem_macaddr_eui64, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #5
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @tvb_address_to_str(ptr noundef %17, ptr noundef %0, i32 noundef 8, i32 noundef 0) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.207, ptr noundef %18) #5
@@ -827,13 +827,13 @@ define internal noundef i32 @decode_dataitem_v4addr(ptr noundef %0, ptr nocaptur
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not5.i = icmp eq ptr %10, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %13 = load i32, ptr %12, align 4
   %14 = or i32 %13, 1
   store i32 %14, ptr %12, align 4
@@ -853,7 +853,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.208, ptr noundef %24) #5
   %25 = load i32, ptr @hf_dlep_dataitem_v4addr_addr, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0) #5
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @tvb_address_to_str(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 1) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.209, ptr noundef %29) #5
@@ -869,13 +869,13 @@ define internal noundef i32 @decode_dataitem_v6addr(ptr noundef %0, ptr nocaptur
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not5.i = icmp eq ptr %10, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %13 = load i32, ptr %12, align 4
   %14 = or i32 %13, 1
   store i32 %14, ptr %12, align 4
@@ -895,7 +895,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %8, %11
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.208, ptr noundef %24) #5
   %25 = load i32, ptr @hf_dlep_dataitem_v6addr_addr, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0) #5
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @tvb_address_to_str(ptr noundef %28, ptr noundef %0, i32 noundef 3, i32 noundef 1) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.209, ptr noundef %29) #5
@@ -912,13 +912,13 @@ define internal noundef i32 @decode_dataitem_v4subnet(ptr noundef %0, ptr nocapt
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -938,7 +938,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %9, %12
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.208, ptr noundef %25) #5
   %26 = load i32, ptr @hf_dlep_dataitem_v4subnet_subnet, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0) #5
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @tvb_address_to_str(ptr noundef %29, ptr noundef %0, i32 noundef 2, i32 noundef 1) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.209, ptr noundef %30) #5
@@ -959,13 +959,13 @@ define internal noundef i32 @decode_dataitem_v6subnet(ptr noundef %0, ptr nocapt
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i = icmp eq ptr %11, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -985,7 +985,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %9, %12
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.208, ptr noundef %25) #5
   %26 = load i32, ptr @hf_dlep_dataitem_v6subnet_subnet, align 4
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0) #5
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @tvb_address_to_str(ptr noundef %29, ptr noundef %0, i32 noundef 3, i32 noundef 1) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.209, ptr noundef %30) #5
@@ -1103,7 +1103,7 @@ define internal noundef i32 @decode_dataitem_hop_cnt(ptr noundef %0, ptr nocaptu
   %8 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @decode_dataitem_hop_cnt.hop_cnt_flags, i32 noundef 0) #5
   %9 = load i32, ptr @hf_dlep_dataitem_hop_count, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #5
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @proto_item_get_display_repr(ptr noundef %12, ptr noundef %10) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.215, ptr noundef %13) #5
@@ -1115,7 +1115,7 @@ define internal noundef i32 @decode_dataitem_hop_cntrl(ptr noundef %0, ptr nocap
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = load i32, ptr @hf_dlep_dataitem_hop_control, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @proto_item_get_display_repr(ptr noundef %9, ptr noundef %7) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.207, ptr noundef %10) #5
@@ -1127,7 +1127,7 @@ define internal noundef i32 @decode_dataitem_li_length(ptr noundef %0, ptr nocap
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #5
   %6 = load i32, ptr @hf_dlep_dataitem_li_length, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @proto_item_get_display_repr(ptr noundef %9, ptr noundef %7) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.216, ptr noundef %10) #5
@@ -1140,7 +1140,7 @@ define internal noundef i32 @decode_dataitem_li(ptr noundef %0, ptr nocapture no
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %7 = load i32, ptr @hf_dlep_dataitem_li, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0) #5
-  %9 = getelementptr inbounds i8, ptr %1, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @tvb_bytes_to_str(ptr noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef %6) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.207, ptr noundef %11) #5
@@ -1154,7 +1154,7 @@ define internal noundef i32 @decode_dataitem_lat_range(ptr noundef %0, ptr nocap
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #5
   %8 = load i32, ptr @hf_dlep_dataitem_min_lat, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #5
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @proto_item_get_display_repr(ptr noundef %11, ptr noundef %9) #5
   %13 = load ptr, ptr %10, align 8
@@ -1201,7 +1201,7 @@ define internal range(i32 4, 65540) i32 @get_dlep_message_header_len(ptr nocaptu
 define internal i32 @dissect_dlep_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.128) #5
   %9 = load ptr, ptr %7, align 8
@@ -1218,13 +1218,13 @@ define internal i32 @dissect_dlep_msg(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not5.i.i = icmp eq ptr %18, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.i, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 1
   store i32 %22, ptr %20, align 4
@@ -1327,10 +1327,10 @@ define internal fastcc i32 @decode_dataitem(ptr noundef %0, i32 noundef %1, ptr 
   %28 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0..0..0..0.46, i32 noundef %15) #5
   store volatile i32 0, ptr %8, align 4
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @decode_dataitem.catch_spec, i64 noundef 1) #5
-  %29 = getelementptr inbounds i8, ptr %10, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %30 = call i32 @_setjmp(ptr noundef nonnull %29) #6
   %.not = icmp eq i32 %30, 0
-  %31 = getelementptr inbounds i8, ptr %10, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not, ptr null, ptr %31
   store volatile ptr %.sink, ptr %7, align 8
   %.0..0..0..0. = load volatile i32, ptr %8, align 4
@@ -1375,35 +1375,35 @@ define internal fastcc i32 @decode_dataitem(ptr noundef %0, i32 noundef %1, ptr 
 
 46:                                               ; preds = %45
   %.0..0..0..0.9 = load volatile ptr, ptr %7, align 8
-  %47 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %48 = load volatile i64, ptr %47, align 8
   %49 = icmp eq i64 %48, 1
   br i1 %49, label %66, label %50
 
 50:                                               ; preds = %46
   %.0..0..0..0.10 = load volatile ptr, ptr %7, align 8
-  %51 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %52 = load volatile i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 4
   br i1 %53, label %66, label %54
 
 54:                                               ; preds = %50
   %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
-  %55 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %56 = load volatile i64, ptr %55, align 8
   %57 = icmp eq i64 %56, 3
   br i1 %57, label %66, label %58
 
 58:                                               ; preds = %54
   %.0..0..0..0.12 = load volatile ptr, ptr %7, align 8
-  %59 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %60 = load volatile i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 2
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %58
   %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
-  %63 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %64 = load volatile i64, ptr %63, align 8
   %65 = icmp eq i64 %64, 7
   br i1 %65, label %66, label %69
@@ -1433,7 +1433,7 @@ define internal fastcc i32 @decode_dataitem(ptr noundef %0, i32 noundef %1, ptr 
   unreachable
 
 73:                                               ; preds = %71, %69
-  %74 = getelementptr inbounds i8, ptr %10, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %75 = load volatile ptr, ptr %74, align 8
   call void @except_free(ptr noundef %75) #5
   %76 = call ptr @except_pop() #5

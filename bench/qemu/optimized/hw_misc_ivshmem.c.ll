@@ -149,27 +149,27 @@ define internal void @ivshmem_common_class_init(ptr noundef %klass, ptr nocaptur
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #11
-  %realize = getelementptr inbounds i8, ptr %call.i10, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i10, i64 176
   store ptr @ivshmem_common_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds i8, ptr %call.i10, i64 184
+  %exit = getelementptr inbounds nuw i8, ptr %call.i10, i64 184
   store ptr @ivshmem_exit, ptr %exit, align 8
-  %config_write = getelementptr inbounds i8, ptr %call.i10, i64 200
+  %config_write = getelementptr inbounds nuw i8, ptr %call.i10, i64 200
   store ptr @ivshmem_write_config, ptr %config_write, align 8
-  %vendor_id = getelementptr inbounds i8, ptr %call.i10, i64 208
+  %vendor_id = getelementptr inbounds nuw i8, ptr %call.i10, i64 208
   store i16 6900, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds i8, ptr %call.i10, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call.i10, i64 210
   store i16 4368, ptr %device_id, align 2
-  %class_id = getelementptr inbounds i8, ptr %call.i10, i64 214
+  %class_id = getelementptr inbounds nuw i8, ptr %call.i10, i64 214
   store i16 1280, ptr %class_id, align 2
-  %revision = getelementptr inbounds i8, ptr %call.i10, i64 212
+  %revision = getelementptr inbounds nuw i8, ptr %call.i10, i64 212
   store i8 1, ptr %revision, align 4
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @ivshmem_reset, ptr %reset, align 8
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.3, ptr %desc, align 8
   ret void
 }
@@ -195,28 +195,28 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %2 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %2, i64 4
   store i8 3, ptr %arrayidx, align 1
-  %ivshmem_mmio = getelementptr inbounds i8, ptr %call.i, i64 2704
+  %ivshmem_mmio = getelementptr inbounds nuw i8, ptr %call.i, i64 2704
   tail call void @memory_region_init_io(ptr noundef nonnull %ivshmem_mmio, ptr noundef nonnull %call.i, ptr noundef nonnull @ivshmem_mmio_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.9, i64 noundef 256) #11
   tail call void @pci_register_bar(ptr noundef %dev, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %ivshmem_mmio) #11
-  %hostmem = getelementptr inbounds i8, ptr %call.i, i64 2616
+  %hostmem = getelementptr inbounds nuw i8, ptr %call.i, i64 2616
   %3 = load ptr, ptr %hostmem, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.else, label %do.end
 
 do.end:                                           ; preds = %if.end
   %call7 = tail call ptr @host_memory_backend_get_memory(ptr noundef nonnull %3) #11
-  %ivshmem_bar2 = getelementptr inbounds i8, ptr %call.i, i64 2976
+  %ivshmem_bar2 = getelementptr inbounds nuw i8, ptr %call.i, i64 2976
   store ptr %call7, ptr %ivshmem_bar2, align 16
   %4 = load ptr, ptr %hostmem, align 8
   tail call void @host_memory_backend_set_mapped(ptr noundef %4, i1 noundef zeroext true) #11
   br label %if.end29
 
 if.else:                                          ; preds = %if.end
-  %server_chr = getelementptr inbounds i8, ptr %call.i, i64 2624
+  %server_chr = getelementptr inbounds nuw i8, ptr %call.i, i64 2624
   %call9 = tail call ptr @qemu_chr_fe_get_driver(ptr noundef nonnull %server_chr) #11
   %tobool10.not = icmp eq ptr %call9, null
   br i1 %tobool10.not, label %if.else12, label %do.end15
@@ -226,7 +226,7 @@ if.else12:                                        ; preds = %if.else
   unreachable
 
 do.end15:                                         ; preds = %if.else
-  %nb_peers1.i = getelementptr inbounds i8, ptr %call.i, i64 3272
+  %nb_peers1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3272
   %5 = load i32, ptr %nb_peers1.i, align 8
   %cmp.i = icmp slt i32 %5, 16
   br i1 %cmp.i, label %do.end.i, label %if.else.i
@@ -236,12 +236,12 @@ if.else.i:                                        ; preds = %do.end15
   unreachable
 
 do.end.i:                                         ; preds = %do.end15
-  %peers.i = getelementptr inbounds i8, ptr %call.i, i64 3264
+  %peers.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3264
   %6 = load ptr, ptr %peers.i, align 16
   %call.i39 = tail call ptr @g_realloc_n(ptr noundef %6, i64 noundef 16, i64 noundef 16) #11
   store ptr %call.i39, ptr %peers.i, align 16
   store i32 16, ptr %nb_peers1.i, align 8
-  %vectors.i = getelementptr inbounds i8, ptr %call.i, i64 3276
+  %vectors.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3276
   %7 = sext i32 %5 to i64
   br label %for.body.i
 
@@ -387,7 +387,7 @@ if.then14.i:                                      ; preds = %if.end9.i
 
 if.end15.i:                                       ; preds = %if.end9.i
   %conv.i = trunc nuw nsw i64 %retval.0.i38.i to i32
-  %vm_id.i = getelementptr inbounds i8, ptr %call.i, i64 2688
+  %vm_id.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2688
   store i32 %conv.i, ptr %vm_id.i, align 16
   br label %do.body.i
 
@@ -455,7 +455,7 @@ do.cond.i:                                        ; preds = %if.end19.i
   br i1 %cmp23.not.i, label %do.end.i40, label %do.body.i, !llvm.loop !8
 
 do.end.i40:                                       ; preds = %do.cond.i
-  %ivshmem_bar2.i = getelementptr inbounds i8, ptr %call.i, i64 2976
+  %ivshmem_bar2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2976
   %23 = load ptr, ptr %ivshmem_bar2.i, align 16
   %tobool25.not.i = icmp eq ptr %23, null
   br i1 %tobool25.not.i, label %if.else.i41, label %ivshmem_recv_setup.exit
@@ -475,13 +475,13 @@ if.then17:                                        ; preds = %ivshmem_recv_setup.
   br label %return
 
 if.end18:                                         ; preds = %ivshmem_recv_setup.exit
-  %master = getelementptr inbounds i8, ptr %call.i, i64 3300
+  %master = getelementptr inbounds nuw i8, ptr %call.i, i64 3300
   %25 = load i32, ptr %master, align 4
   %cmp19 = icmp eq i32 %25, 1
   br i1 %cmp19, label %land.lhs.true20, label %if.end23
 
 land.lhs.true20:                                  ; preds = %if.end18
-  %vm_id = getelementptr inbounds i8, ptr %call.i, i64 2688
+  %vm_id = getelementptr inbounds nuw i8, ptr %call.i, i64 2688
   %26 = load i32, ptr %vm_id, align 16
   %cmp21.not = icmp eq i32 %26, 0
   br i1 %cmp21.not, label %if.end23, label %if.then22
@@ -495,7 +495,7 @@ if.end23:                                         ; preds = %land.lhs.true20, %i
   %27 = load i32, ptr %vectors.i, align 4
   %conv.i43 = zext i32 %27 to i64
   %call.i44 = call noalias ptr @g_malloc0_n(i64 noundef %conv.i43, i64 noundef 16) #13
-  %msi_vectors.i = getelementptr inbounds i8, ptr %call.i, i64 3280
+  %msi_vectors.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3280
   store ptr %call.i44, ptr %msi_vectors.i, align 16
   %s.val.i = load i32, ptr %0, align 16
   %and.i.i = and i32 %s.val.i, 2
@@ -529,13 +529,13 @@ if.then27:                                        ; preds = %if.then.i46
   br label %return
 
 if.end29:                                         ; preds = %for.body.i.i, %do.end.i48, %if.end23, %do.end
-  %master30 = getelementptr inbounds i8, ptr %call.i, i64 3300
+  %master30 = getelementptr inbounds nuw i8, ptr %call.i, i64 3300
   %31 = load i32, ptr %master30, align 4
   %cmp31 = icmp eq i32 %31, 0
   br i1 %cmp31, label %if.then32, label %ivshmem_is_master.exit
 
 if.then32:                                        ; preds = %if.end29
-  %vm_id33 = getelementptr inbounds i8, ptr %call.i, i64 2688
+  %vm_id33 = getelementptr inbounds nuw i8, ptr %call.i, i64 2688
   %32 = load i32, ptr %vm_id33, align 16
   %cmp34 = icmp eq i32 %32, 0
   %cond = select i1 %cmp34, i32 1, i32 2
@@ -548,14 +548,14 @@ ivshmem_is_master.exit:                           ; preds = %if.end29, %if.then3
   br i1 %cmp2.i, label %if.end44, label %if.then38
 
 if.then38:                                        ; preds = %ivshmem_is_master.exit
-  %migration_blocker = getelementptr inbounds i8, ptr %call.i, i64 3304
+  %migration_blocker = getelementptr inbounds nuw i8, ptr %call.i, i64 3304
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %migration_blocker, ptr noundef nonnull @.str.7, i32 noundef 905, ptr noundef nonnull @__func__.ivshmem_common_realize, ptr noundef nonnull @.str.13) #11
   %call40 = call i32 @migrate_add_blocker(ptr noundef nonnull %migration_blocker, ptr noundef %errp) #11
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %return, label %if.end44
 
 if.end44:                                         ; preds = %if.then38, %ivshmem_is_master.exit
-  %ivshmem_bar245 = getelementptr inbounds i8, ptr %call.i, i64 2976
+  %ivshmem_bar245 = getelementptr inbounds nuw i8, ptr %call.i, i64 2976
   %33 = load ptr, ptr %ivshmem_bar245, align 16
   %call.i53 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
   call void @vmstate_register_ram(ptr noundef %33, ptr noundef %call.i53) #11
@@ -572,15 +572,15 @@ return:                                           ; preds = %if.then38, %if.end4
 define internal void @ivshmem_exit(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 63, ptr noundef nonnull @__func__.IVSHMEM_COMMON) #11
-  %migration_blocker = getelementptr inbounds i8, ptr %call.i, i64 3304
+  %migration_blocker = getelementptr inbounds nuw i8, ptr %call.i, i64 3304
   tail call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker) #11
-  %ivshmem_bar2 = getelementptr inbounds i8, ptr %call.i, i64 2976
+  %ivshmem_bar2 = getelementptr inbounds nuw i8, ptr %call.i, i64 2976
   %0 = load ptr, ptr %ivshmem_bar2, align 16
   %call1 = tail call zeroext i1 @memory_region_is_mapped(ptr noundef %0) #11
   br i1 %call1, label %if.then, label %if.end19
 
 if.then:                                          ; preds = %entry
-  %hostmem = getelementptr inbounds i8, ptr %call.i, i64 2616
+  %hostmem = getelementptr inbounds nuw i8, ptr %call.i, i64 2616
   %1 = load ptr, ptr %hostmem, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then2, label %if.end16
@@ -616,7 +616,7 @@ if.end16:                                         ; preds = %if.end, %if.then
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end16, %entry
-  %hostmem20 = getelementptr inbounds i8, ptr %call.i, i64 2616
+  %hostmem20 = getelementptr inbounds nuw i8, ptr %call.i, i64 2616
   %7 = load ptr, ptr %hostmem20, align 8
   %tobool21.not = icmp eq ptr %7, null
   br i1 %tobool21.not, label %if.end24, label %if.then22
@@ -626,13 +626,13 @@ if.then22:                                        ; preds = %if.end19
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then22, %if.end19
-  %peers = getelementptr inbounds i8, ptr %call.i, i64 3264
+  %peers = getelementptr inbounds nuw i8, ptr %call.i, i64 3264
   %8 = load ptr, ptr %peers, align 16
   %tobool25.not = icmp eq ptr %8, null
   br i1 %tobool25.not, label %if.end30, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end24
-  %nb_peers = getelementptr inbounds i8, ptr %call.i, i64 3272
+  %nb_peers = getelementptr inbounds nuw i8, ptr %call.i, i64 3272
   %9 = load i32, ptr %nb_peers, align 8
   %cmp2720 = icmp sgt i32 %9, 0
   br i1 %cmp2720, label %for.body, label %for.end
@@ -666,7 +666,7 @@ if.then33:                                        ; preds = %if.end30
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %if.end30
-  %msi_vectors = getelementptr inbounds i8, ptr %call.i, i64 3280
+  %msi_vectors = getelementptr inbounds nuw i8, ptr %call.i, i64 3280
   %13 = load ptr, ptr %msi_vectors, align 16
   tail call void @g_free(ptr noundef %13) #11
   ret void
@@ -693,8 +693,8 @@ if.then:                                          ; preds = %entry
 if.then5:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %peers.i = getelementptr inbounds i8, ptr %call.i, i64 3264
-  %vm_id.i = getelementptr inbounds i8, ptr %call.i, i64 2688
+  %peers.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3264
+  %vm_id.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2688
   %1 = load ptr, ptr %peers.i, align 16
   %2 = load i32, ptr %vm_id.i, align 16
   %idxprom11.i = sext i32 %2 to i64
@@ -742,7 +742,7 @@ undo.i:                                           ; preds = %if.then3.i, %if.the
   br i1 %cmp516.i, label %while.body.lr.ph.i, label %ivshmem_enable_irqfd.exit
 
 while.body.lr.ph.i:                               ; preds = %undo.i
-  %msi_vectors.i.i = getelementptr inbounds i8, ptr %call.i, i64 3280
+  %msi_vectors.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3280
   %8 = zext nneg i32 %dec15.i to i64
   br label %while.body.i
 
@@ -756,7 +756,7 @@ while.body.i:                                     ; preds = %ivshmem_remove_kvm_
 
 if.end.i.i:                                       ; preds = %while.body.i
   %11 = load ptr, ptr @kvm_state, align 8
-  %virq.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %virq.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %12 = load i32, ptr %virq.i.i, align 8
   call void @kvm_irqchip_release_virq(ptr noundef %11, i32 noundef %12) #11
   %13 = load ptr, ptr %msi_vectors.i.i, align 16
@@ -790,9 +790,9 @@ define internal void @ivshmem_reset(ptr noundef %d) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 63, ptr noundef nonnull @__func__.IVSHMEM_COMMON) #11
   tail call fastcc void @ivshmem_disable_irqfd(ptr noundef %call.i)
-  %intrstatus = getelementptr inbounds i8, ptr %call.i, i64 2684
+  %intrstatus = getelementptr inbounds nuw i8, ptr %call.i, i64 2684
   store i32 0, ptr %intrstatus, align 4
-  %intrmask = getelementptr inbounds i8, ptr %call.i, i64 2680
+  %intrmask = getelementptr inbounds nuw i8, ptr %call.i, i64 2680
   store i32 0, ptr %intrmask, align 8
   %0 = getelementptr i8, ptr %call.i, i64 2608
   %call.val = load i32, ptr %0, align 16
@@ -802,7 +802,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %vectors.i = getelementptr inbounds i8, ptr %call.i, i64 3276
+  %vectors.i = getelementptr inbounds nuw i8, ptr %call.i, i64 3276
   %1 = load i32, ptr %vectors.i, align 4
   %cmp4.not.i = icmp eq i32 %1, 0
   br i1 %cmp4.not.i, label %if.end, label %for.body.i
@@ -843,7 +843,7 @@ declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 1, 9) i32 @ivshmem_can_receive(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %msg_buffered_bytes = getelementptr inbounds i8, ptr %opaque, i64 3296
+  %msg_buffered_bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 3296
   %0 = load i32, ptr %msg_buffered_bytes, align 16
   %cmp = icmp ult i32 %0, 8
   br i1 %cmp, label %if.end, label %if.else
@@ -866,7 +866,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %msg_buffered_bytes = getelementptr inbounds i8, ptr %opaque, i64 3296
+  %msg_buffered_bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 3296
   %0 = load i32, ptr %msg_buffered_bytes, align 16
   %add = add i32 %0, %size
   %cmp1 = icmp ult i32 %add, 9
@@ -877,7 +877,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
-  %msg_buf = getelementptr inbounds i8, ptr %opaque, i64 3288
+  %msg_buf = getelementptr inbounds nuw i8, ptr %opaque, i64 3288
   %idx.ext = sext i32 %0 to i64
   %add.ptr = getelementptr i8, ptr %msg_buf, i64 %idx.ext
   %conv4 = zext nneg i32 %size to i64
@@ -891,7 +891,7 @@ if.end:                                           ; preds = %land.lhs.true
 if.end12:                                         ; preds = %if.end
   %2 = load i64, ptr %msg_buf, align 8
   store i32 0, ptr %msg_buffered_bytes, align 16
-  %server_chr = getelementptr inbounds i8, ptr %opaque, i64 2624
+  %server_chr = getelementptr inbounds nuw i8, ptr %opaque, i64 2624
   %call15 = tail call i32 @qemu_chr_fe_get_msgfd(ptr noundef nonnull %server_chr) #11
   call fastcc void @process_msg(ptr noundef nonnull %opaque, i64 noundef %2, i32 noundef %call15, ptr noundef %err)
   %3 = load ptr, ptr %err, align 8
@@ -929,13 +929,13 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %intrstatus.i = getelementptr inbounds i8, ptr %opaque, i64 2684
+  %intrstatus.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2684
   %1 = load i32, ptr %intrstatus.i, align 4
   store i32 0, ptr %intrstatus.i, align 4
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %vm_id = getelementptr inbounds i8, ptr %opaque, i64 2688
+  %vm_id = getelementptr inbounds nuw i8, ptr %opaque, i64 2688
   %2 = load i32, ptr %vm_id, align 16
   br label %sw.epilog
 
@@ -960,25 +960,25 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %intrmask.i = getelementptr inbounds i8, ptr %opaque, i64 2680
+  %intrmask.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2680
   store i32 %0, ptr %intrmask.i, align 8
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %intrstatus.i = getelementptr inbounds i8, ptr %opaque, i64 2684
+  %intrstatus.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2684
   store i32 %0, ptr %intrstatus.i, align 4
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
   %2 = trunc i64 %shr to i32
   %conv7 = and i32 %2, 65535
-  %nb_peers = getelementptr inbounds i8, ptr %opaque, i64 3272
+  %nb_peers = getelementptr inbounds nuw i8, ptr %opaque, i64 3272
   %3 = load i32, ptr %nb_peers, align 8
   %cmp.not = icmp slt i32 %conv7, %3
   br i1 %cmp.not, label %if.end, label %sw.epilog
 
 if.end:                                           ; preds = %sw.bb6
-  %peers = getelementptr inbounds i8, ptr %opaque, i64 3264
+  %peers = getelementptr inbounds nuw i8, ptr %opaque, i64 3264
   %4 = load ptr, ptr %peers, align 16
   %idxprom = and i64 %shr, 65535
   %arrayidx = getelementptr %struct.Peer, ptr %4, i64 %idxprom
@@ -987,7 +987,7 @@ if.end:                                           ; preds = %sw.bb6
   br i1 %cmp12, label %do.end16, label %sw.epilog
 
 do.end16:                                         ; preds = %if.end
-  %eventfds = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %eventfds = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %6 = load ptr, ptr %eventfds, align 8
   %idxprom20 = and i64 %val, 255
   %arrayidx21 = getelementptr %struct.EventNotifier, ptr %6, i64 %idxprom20
@@ -1028,7 +1028,7 @@ if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %buf.i)
   store ptr null, ptr %local_err.i, align 8
-  %ivshmem_bar2.i = getelementptr inbounds i8, ptr %s, i64 2976
+  %ivshmem_bar2.i = getelementptr inbounds nuw i8, ptr %s, i64 2976
   %1 = load ptr, ptr %ivshmem_bar2.i, align 16
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -1051,9 +1051,9 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %process_msg_shmem.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %st_size.i = getelementptr inbounds i8, ptr %buf.i, i64 48
+  %st_size.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 48
   %3 = load i64, ptr %st_size.i, align 8
-  %server_bar2.i = getelementptr inbounds i8, ptr %s, i64 2992
+  %server_bar2.i = getelementptr inbounds nuw i8, ptr %s, i64 2992
   call void @memory_region_init_ram_from_fd(ptr noundef nonnull %server_bar2.i, ptr noundef nonnull %s, ptr noundef nonnull @.str.23, i64 noundef %3, i32 noundef 2, i32 noundef %fd, i64 noundef 0, ptr noundef nonnull %local_err.i) #11
   %4 = load ptr, ptr %local_err.i, align 8
   %tobool6.not.i = icmp eq ptr %4, null
@@ -1073,7 +1073,7 @@ process_msg_shmem.exit:                           ; preds = %if.then.i, %if.then
   br label %if.end15
 
 if.end4:                                          ; preds = %if.end
-  %nb_peers = getelementptr inbounds i8, ptr %s, i64 3272
+  %nb_peers = getelementptr inbounds nuw i8, ptr %s, i64 3272
   %5 = load i32, ptr %nb_peers, align 8
   %conv = sext i32 %5 to i64
   %cmp5.not = icmp slt i64 %msg, %conv
@@ -1090,13 +1090,13 @@ if.else.i:                                        ; preds = %if.then7
   unreachable
 
 do.end.i:                                         ; preds = %if.then7
-  %peers.i = getelementptr inbounds i8, ptr %s, i64 3264
+  %peers.i = getelementptr inbounds nuw i8, ptr %s, i64 3264
   %7 = load ptr, ptr %peers.i, align 16
   %conv.i = zext nneg i32 %conv8 to i64
   %call.i19 = tail call ptr @g_realloc_n(ptr noundef %7, i64 noundef %conv.i, i64 noundef 16) #11
   store ptr %call.i19, ptr %peers.i, align 16
   store i32 %conv8, ptr %nb_peers, align 8
-  %vectors.i = getelementptr inbounds i8, ptr %s, i64 3276
+  %vectors.i = getelementptr inbounds nuw i8, ptr %s, i64 3276
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %do.end.i
@@ -1120,12 +1120,12 @@ if.end9:                                          ; preds = %for.body.i, %if.end
   br i1 %cmp10, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end9
-  %peers.i20 = getelementptr inbounds i8, ptr %s, i64 3264
+  %peers.i20 = getelementptr inbounds nuw i8, ptr %s, i64 3264
   %11 = load ptr, ptr %peers.i20, align 16
   %idxprom.i = and i64 %msg, 65535
   %arrayidx.i = getelementptr %struct.Peer, ptr %11, i64 %idxprom.i
   %12 = load i32, ptr %arrayidx.i, align 8
-  %vectors.i21 = getelementptr inbounds i8, ptr %s, i64 3276
+  %vectors.i21 = getelementptr inbounds nuw i8, ptr %s, i64 3276
   %13 = load i32, ptr %vectors.i21, align 4
   %cmp.not.i = icmp ult i32 %12, %13
   br i1 %cmp.not.i, label %if.end.i24, label %if.then.i22
@@ -1139,14 +1139,14 @@ if.end.i24:                                       ; preds = %if.then12
   %conv13 = trunc i64 %msg to i32
   %inc.i = add nuw i32 %12, 1
   store i32 %inc.i, ptr %arrayidx.i, align 8
-  %eventfds.i25 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %eventfds.i25 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %14 = load ptr, ptr %eventfds.i25, align 8
   %idxprom3.i = sext i32 %12 to i64
   %arrayidx4.i = getelementptr %struct.EventNotifier, ptr %14, i64 %idxprom3.i
   tail call void @event_notifier_init_fd(ptr noundef %arrayidx4.i, i32 noundef range(i32 0, -2147483648) %fd) #11
   %call5.i = tail call i32 @g_unix_set_fd_nonblocking(i32 noundef range(i32 0, -2147483648) %fd, i32 noundef 1, ptr noundef null) #11
   %conv.i26 = and i32 %conv13, 65535
-  %vm_id.i = getelementptr inbounds i8, ptr %s, i64 2688
+  %vm_id.i = getelementptr inbounds nuw i8, ptr %s, i64 2688
   %15 = load i32, ptr %vm_id.i, align 16
   %cmp6.i = icmp eq i32 %15, %conv.i26
   br i1 %cmp6.i, label %if.then8.i, label %if.end9.i
@@ -1176,7 +1176,7 @@ land.end.i.i:                                     ; preds = %if.then8.i
 
 do.end7.i.i:                                      ; preds = %land.end.i.i, %land.end.thread.i.i
   %call.i13.i.i = tail call i32 @event_notifier_get_fd(ptr noundef %arrayidx2.i.i) #11
-  %msi_vectors.i.i.i = getelementptr inbounds i8, ptr %s, i64 3280
+  %msi_vectors.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 3280
   %20 = load ptr, ptr %msi_vectors.i.i.i, align 16
   %arrayidx.i.i.i = getelementptr %struct.MSIVector, ptr %20, i64 %idxprom3.i
   %21 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -1218,7 +1218,7 @@ if.end.i.i:                                       ; preds = %do.end12.i.i
 
 if.then16.i.i:                                    ; preds = %if.end.i.i
   %25 = load ptr, ptr @kvm_state, align 8
-  %msi_vectors.i.i = getelementptr inbounds i8, ptr %s, i64 3280
+  %msi_vectors.i.i = getelementptr inbounds nuw i8, ptr %s, i64 3280
   %26 = load ptr, ptr %msi_vectors.i.i, align 16
   %virq.i.i = getelementptr %struct.MSIVector, ptr %26, i64 %idxprom3.i, i32 1
   %27 = load i32, ptr %virq.i.i, align 8
@@ -1237,7 +1237,7 @@ if.end9.i:                                        ; preds = %setup_interrupt.exi
   br i1 %tobool.not.i27, label %if.end15, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end9.i
-  %ivshmem_mmio.i.i = getelementptr inbounds i8, ptr %s, i64 2704
+  %ivshmem_mmio.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2704
   %shl.i.i = shl nuw i32 %conv.i26, 16
   %or.i.i = or i32 %12, %shl.i.i
   %conv.i.i = sext i32 %or.i.i to i64
@@ -1256,7 +1256,7 @@ if.else:                                          ; preds = %if.end9
   br i1 %cmp.not.i29, label %lor.lhs.false.i, label %if.then.i30
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %vm_id.i31 = getelementptr inbounds i8, ptr %s, i64 2688
+  %vm_id.i31 = getelementptr inbounds nuw i8, ptr %s, i64 2688
   %32 = load i32, ptr %vm_id.i31, align 16
   %cmp3.i = icmp eq i32 %32, %conv.i28
   br i1 %cmp3.i, label %if.then.i30, label %if.end.i32
@@ -1300,7 +1300,7 @@ define internal fastcc void @ivshmem_add_kvm_msi_virq(ptr noundef %s, i32 nounde
 entry:
   %c = alloca %struct.KVMRouteChange, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %msi_vectors = getelementptr inbounds i8, ptr %s, i64 3280
+  %msi_vectors = getelementptr inbounds nuw i8, ptr %s, i64 3280
   %0 = load ptr, ptr %msi_vectors, align 16
   %idxprom = sext i32 %vector to i64
   %arrayidx = getelementptr %struct.MSIVector, ptr %0, i64 %idxprom
@@ -1315,7 +1315,7 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr @kvm_state, align 8
   store ptr %2, ptr %c, align 8
-  %tmp.sroa.2.0.c.sroa_idx = getelementptr inbounds i8, ptr %c, i64 8
+  %tmp.sroa.2.0.c.sroa_idx = getelementptr inbounds nuw i8, ptr %c, i64 8
   store i32 0, ptr %tmp.sroa.2.0.c.sroa_idx, align 8
   %call3 = call i32 @kvm_irqchip_add_msi_route(ptr noundef nonnull %c, i32 noundef %vector, ptr noundef %call.i) #11
   %cmp = icmp slt i32 %call3, 0
@@ -1361,16 +1361,16 @@ define internal void @ivshmem_vector_notify(ptr noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 63, ptr noundef nonnull @__func__.IVSHMEM_COMMON) #11
-  %msi_vectors = getelementptr inbounds i8, ptr %call.i, i64 3280
+  %msi_vectors = getelementptr inbounds nuw i8, ptr %call.i, i64 3280
   %1 = load ptr, ptr %msi_vectors, align 16
   %sub.ptr.lhs.cast = ptrtoint ptr %opaque to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 4
   %conv = trunc i64 %sub.ptr.div to i32
-  %peers = getelementptr inbounds i8, ptr %call.i, i64 3264
+  %peers = getelementptr inbounds nuw i8, ptr %call.i, i64 3264
   %2 = load ptr, ptr %peers, align 16
-  %vm_id = getelementptr inbounds i8, ptr %call.i, i64 2688
+  %vm_id = getelementptr inbounds nuw i8, ptr %call.i, i64 2688
   %3 = load i32, ptr %vm_id, align 16
   %idxprom = sext i32 %3 to i64
   %eventfds = getelementptr %struct.Peer, ptr %2, i64 %idxprom, i32 1
@@ -1399,7 +1399,7 @@ if.then11:                                        ; preds = %if.then8
   br label %if.end13
 
 if.else:                                          ; preds = %do.end
-  %intrstatus.i = getelementptr inbounds i8, ptr %call.i, i64 2684
+  %intrstatus.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2684
   store i32 1, ptr %intrstatus.i, align 4
   br label %if.end13
 
@@ -1427,7 +1427,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %nb_peers = getelementptr inbounds i8, ptr %s, i64 3272
+  %nb_peers = getelementptr inbounds nuw i8, ptr %s, i64 3272
   %0 = load i32, ptr %nb_peers, align 8
   %cmp1 = icmp slt i32 %posn, %0
   br i1 %cmp1, label %if.end, label %if.else
@@ -1437,7 +1437,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
-  %peers = getelementptr inbounds i8, ptr %s, i64 3264
+  %peers = getelementptr inbounds nuw i8, ptr %s, i64 3264
   %1 = load ptr, ptr %peers, align 16
   %idxprom = zext nneg i32 %posn to i64
   %arrayidx = getelementptr %struct.Peer, ptr %1, i64 %idxprom
@@ -1454,7 +1454,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp319, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then2
-  %ivshmem_mmio.i = getelementptr inbounds i8, ptr %s, i64 2704
+  %ivshmem_mmio.i = getelementptr inbounds nuw i8, ptr %s, i64 2704
   %shl.i = shl i32 %posn, 16
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %for.body
@@ -1551,15 +1551,15 @@ declare void @pci_default_write_config(ptr noundef, i32 noundef, i32 noundef, i3
 define internal fastcc void @ivshmem_disable_irqfd(ptr noundef %s) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %msix_vector_use_notifier = getelementptr inbounds i8, ptr %call.i, i64 2560
+  %msix_vector_use_notifier = getelementptr inbounds nuw i8, ptr %call.i, i64 2560
   %0 = load ptr, ptr %msix_vector_use_notifier, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
   tail call void @msix_unset_vector_notifiers(ptr noundef nonnull %call.i) #11
-  %peers = getelementptr inbounds i8, ptr %s, i64 3264
-  %vm_id = getelementptr inbounds i8, ptr %s, i64 2688
+  %peers = getelementptr inbounds nuw i8, ptr %s, i64 3264
+  %vm_id = getelementptr inbounds nuw i8, ptr %s, i64 2688
   %1 = load ptr, ptr %peers, align 16
   %2 = load i32, ptr %vm_id, align 16
   %idxprom11 = sext i32 %2 to i64
@@ -1569,7 +1569,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp13, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %msi_vectors = getelementptr inbounds i8, ptr %s, i64 3280
+  %msi_vectors = getelementptr inbounds nuw i8, ptr %s, i64 3280
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %ivshmem_remove_kvm_msi_virq.exit
@@ -1595,7 +1595,7 @@ if.end5:                                          ; preds = %if.then4, %for.body
 
 if.end.i:                                         ; preds = %if.end5
   %9 = load ptr, ptr @kvm_state, align 8
-  %virq.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %virq.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %10 = load i32, ptr %virq.i, align 8
   tail call void @kvm_irqchip_release_virq(ptr noundef %9, i32 noundef %10) #11
   %11 = load ptr, ptr %msi_vectors, align 16
@@ -1624,16 +1624,16 @@ declare i32 @msix_set_vector_notifiers(ptr noundef, ptr noundef, ptr noundef, pt
 define internal range(i32 -2147483648, 1) i32 @ivshmem_vector_unmask(ptr noundef %dev, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 63, ptr noundef nonnull @__func__.IVSHMEM_COMMON) #11
-  %peers = getelementptr inbounds i8, ptr %call.i, i64 3264
+  %peers = getelementptr inbounds nuw i8, ptr %call.i, i64 3264
   %0 = load ptr, ptr %peers, align 16
-  %vm_id = getelementptr inbounds i8, ptr %call.i, i64 2688
+  %vm_id = getelementptr inbounds nuw i8, ptr %call.i, i64 2688
   %1 = load i32, ptr %vm_id, align 16
   %idxprom = sext i32 %1 to i64
   %eventfds = getelementptr %struct.Peer, ptr %0, i64 %idxprom, i32 1
   %2 = load ptr, ptr %eventfds, align 8
   %idxprom1 = zext i32 %vector to i64
   %arrayidx2 = getelementptr %struct.EventNotifier, ptr %2, i64 %idxprom1
-  %msi_vectors = getelementptr inbounds i8, ptr %call.i, i64 3280
+  %msi_vectors = getelementptr inbounds nuw i8, ptr %call.i, i64 3280
   %3 = load ptr, ptr %msi_vectors, align 16
   %arrayidx4 = getelementptr %struct.MSIVector, ptr %3, i64 %idxprom1
   %4 = load ptr, ptr %arrayidx4, align 8
@@ -1645,7 +1645,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %unmasked = getelementptr inbounds i8, ptr %arrayidx4, i64 12
+  %unmasked = getelementptr inbounds nuw i8, ptr %arrayidx4, i64 12
   %5 = load i8, ptr %unmasked, align 4
   %tobool5 = trunc i8 %5 to i1
   br i1 %tobool5, label %if.else, label %if.end7
@@ -1656,7 +1656,7 @@ if.else:                                          ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   %6 = load ptr, ptr @kvm_state, align 8
-  %virq = getelementptr inbounds i8, ptr %arrayidx4, i64 8
+  %virq = getelementptr inbounds nuw i8, ptr %arrayidx4, i64 8
   %7 = load i32, ptr %virq, align 8
   %call8 = tail call i32 @kvm_irqchip_update_msi_route(ptr noundef %6, i32 noundef %7, i64 %msg.coerce0, i32 %msg.coerce1, ptr noundef %dev) #11
   %cmp = icmp slt i32 %call8, 0
@@ -1684,16 +1684,16 @@ return:                                           ; preds = %if.end10, %if.end7,
 define internal void @ivshmem_vector_mask(ptr noundef %dev, i32 noundef %vector) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 63, ptr noundef nonnull @__func__.IVSHMEM_COMMON) #11
-  %peers = getelementptr inbounds i8, ptr %call.i, i64 3264
+  %peers = getelementptr inbounds nuw i8, ptr %call.i, i64 3264
   %0 = load ptr, ptr %peers, align 16
-  %vm_id = getelementptr inbounds i8, ptr %call.i, i64 2688
+  %vm_id = getelementptr inbounds nuw i8, ptr %call.i, i64 2688
   %1 = load i32, ptr %vm_id, align 16
   %idxprom = sext i32 %1 to i64
   %eventfds = getelementptr %struct.Peer, ptr %0, i64 %idxprom, i32 1
   %2 = load ptr, ptr %eventfds, align 8
   %idxprom1 = zext i32 %vector to i64
   %arrayidx2 = getelementptr %struct.EventNotifier, ptr %2, i64 %idxprom1
-  %msi_vectors = getelementptr inbounds i8, ptr %call.i, i64 3280
+  %msi_vectors = getelementptr inbounds nuw i8, ptr %call.i, i64 3280
   %3 = load ptr, ptr %msi_vectors, align 16
   %arrayidx4 = getelementptr %struct.MSIVector, ptr %3, i64 %idxprom1
   %4 = load ptr, ptr %arrayidx4, align 8
@@ -1705,7 +1705,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %unmasked = getelementptr inbounds i8, ptr %arrayidx4, i64 12
+  %unmasked = getelementptr inbounds nuw i8, ptr %arrayidx4, i64 12
   %5 = load i8, ptr %unmasked, align 4
   %tobool5 = trunc i8 %5 to i1
   br i1 %tobool5, label %if.end7, label %if.else
@@ -1716,7 +1716,7 @@ if.else:                                          ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   %6 = load ptr, ptr @kvm_state, align 8
-  %virq = getelementptr inbounds i8, ptr %arrayidx4, i64 8
+  %virq = getelementptr inbounds nuw i8, ptr %arrayidx4, i64 8
   %7 = load i32, ptr %virq, align 8
   %call8 = tail call i32 @kvm_irqchip_remove_irqfd_notifier_gsi(ptr noundef %6, ptr noundef %arrayidx2, i32 noundef %7) #11
   %cmp = icmp slt i32 %call8, 0
@@ -1738,15 +1738,15 @@ return:                                           ; preds = %if.end10, %if.then9
 define internal void @ivshmem_vector_poll(ptr noundef %dev, i32 noundef %vector_start, i32 noundef %vector_end) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 63, ptr noundef nonnull @__func__.IVSHMEM_COMMON) #11
-  %vectors = getelementptr inbounds i8, ptr %call.i, i64 3276
+  %vectors = getelementptr inbounds nuw i8, ptr %call.i, i64 3276
   %0 = load i32, ptr %vectors, align 4
   %cond = tail call i32 @llvm.umin.i32(i32 %vector_end, i32 %0)
   %cmp112 = icmp ult i32 %vector_start, %cond
   br i1 %cmp112, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %peers = getelementptr inbounds i8, ptr %call.i, i64 3264
-  %vm_id = getelementptr inbounds i8, ptr %call.i, i64 2688
+  %peers = getelementptr inbounds nuw i8, ptr %call.i, i64 3264
+  %vm_id = getelementptr inbounds nuw i8, ptr %call.i, i64 2688
   %1 = zext i32 %vector_start to i64
   br label %for.body
 
@@ -1796,10 +1796,10 @@ define internal void @ivshmem_plain_class_init(ptr noundef %klass, ptr nocapture
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #11
-  %realize = getelementptr inbounds i8, ptr %call.i3, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i3, i64 176
   store ptr @ivshmem_plain_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ivshmem_plain_properties) #11
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @ivshmem_plain_vmsd, ptr %vmsd, align 8
   ret void
 }
@@ -1808,7 +1808,7 @@ entry:
 define internal void @ivshmem_plain_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 63, ptr noundef nonnull @__func__.IVSHMEM_COMMON) #11
-  %hostmem = getelementptr inbounds i8, ptr %call.i, i64 2616
+  %hostmem = getelementptr inbounds nuw i8, ptr %call.i, i64 2616
   %0 = load ptr, ptr %hostmem, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -1875,7 +1875,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
-  %vectors.i = getelementptr inbounds i8, ptr %opaque, i64 3276
+  %vectors.i = getelementptr inbounds nuw i8, ptr %opaque, i64 3276
   %1 = load i32, ptr %vectors.i, align 4
   %cmp4.not.i = icmp eq i32 %1, 0
   br i1 %cmp4.not.i, label %if.end, label %for.body.i
@@ -1896,7 +1896,7 @@ if.end:                                           ; preds = %for.body.i, %if.the
 define internal void @ivshmem_doorbell_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.7, i32 noundef 71, ptr noundef nonnull @__func__.IVSHMEM_DOORBELL) #11
-  %features = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %features = getelementptr inbounds nuw i8, ptr %call.i, i64 2608
   %0 = load i32, ptr %features, align 16
   %or = or i32 %0, 2
   store i32 %or, ptr %features, align 16
@@ -1908,10 +1908,10 @@ define internal void @ivshmem_doorbell_class_init(ptr noundef %klass, ptr nocapt
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #11
-  %realize = getelementptr inbounds i8, ptr %call.i3, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i3, i64 176
   store ptr @ivshmem_doorbell_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @ivshmem_doorbell_properties) #11
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @ivshmem_doorbell_vmsd, ptr %vmsd, align 8
   ret void
 }
@@ -1920,7 +1920,7 @@ entry:
 define internal void @ivshmem_doorbell_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 63, ptr noundef nonnull @__func__.IVSHMEM_COMMON) #11
-  %server_chr = getelementptr inbounds i8, ptr %call.i, i64 2624
+  %server_chr = getelementptr inbounds nuw i8, ptr %call.i, i64 2624
   %call1 = tail call zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef nonnull %server_chr) #11
   br i1 %call1, label %if.end, label %if.then
 

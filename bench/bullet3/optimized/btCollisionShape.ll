@@ -35,31 +35,31 @@ entry:
   %aabbMin = alloca %class.btVector3, align 4
   %aabbMax = alloca %class.btVector3, align 4
   store float 1.000000e+00, ptr %tr, align 4
-  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %tr, i64 4
-  %arrayidx3.i1.i.i.i = getelementptr inbounds i8, ptr %tr, i64 20
+  %arrayidx3.i.i.i.i = getelementptr inbounds nuw i8, ptr %tr, i64 4
+  %arrayidx3.i1.i.i.i = getelementptr inbounds nuw i8, ptr %tr, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx3.i.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx3.i1.i.i.i, align 4
-  %arrayidx5.i2.i.i.i = getelementptr inbounds i8, ptr %tr, i64 24
-  %arrayidx5.i5.i.i.i = getelementptr inbounds i8, ptr %tr, i64 40
+  %arrayidx5.i2.i.i.i = getelementptr inbounds nuw i8, ptr %tr, i64 24
+  %arrayidx5.i5.i.i.i = getelementptr inbounds nuw i8, ptr %tr, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx5.i2.i.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx5.i5.i.i.i, align 4
-  %arrayidx7.i6.i.i.i = getelementptr inbounds i8, ptr %tr, i64 44
+  %arrayidx7.i6.i.i.i = getelementptr inbounds nuw i8, ptr %tr, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %arrayidx7.i6.i.i.i, i8 0, i64 20, i1 false)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(64) %tr, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax)
   %1 = load float, ptr %aabbMax, align 4
   %2 = load float, ptr %aabbMin, align 4
   %sub.i = fsub float %1, %2
-  %arrayidx5.i = getelementptr inbounds i8, ptr %aabbMax, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %aabbMax, i64 4
   %3 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %aabbMin, i64 4
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %aabbMin, i64 4
   %4 = load float, ptr %arrayidx7.i, align 4
   %sub8.i = fsub float %3, %4
-  %arrayidx11.i = getelementptr inbounds i8, ptr %aabbMax, i64 8
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %aabbMax, i64 8
   %5 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds i8, ptr %aabbMin, i64 8
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %aabbMin, i64 8
   %6 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %5, %6
   %mul8.i.i.i = fmul float %sub8.i, %sub8.i
@@ -78,7 +78,7 @@ entry:
   %retval.sroa.0.4.vec.insert.i12 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i11, float %mul4.i, i64 1
   %retval.sroa.3.12.vec.insert.i13 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i12, ptr %center, align 4
-  %ref.tmp3.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %center, i64 8
+  %ref.tmp3.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %center, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i13, ptr %ref.tmp3.sroa.2.0..sroa_idx, align 4
   ret void
 }
@@ -87,7 +87,7 @@ entry:
 define dso_local noundef float @_ZNK16btCollisionShape27getContactBreakingThresholdEf(ptr noundef nonnull align 8 dereferenceable(32) %this, float noundef %defaultContactThreshold) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef float %0(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %mul = fmul float %defaultContactThreshold, %call
@@ -100,15 +100,15 @@ entry:
   %center = alloca %class.btVector3, align 4
   %disc = alloca float, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(16) %center, ptr noundef nonnull align 4 dereferenceable(4) %disc)
   %1 = load float, ptr %center, align 4
-  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %center, i64 4
+  %arrayidx5.i.i.i = getelementptr inbounds nuw i8, ptr %center, i64 4
   %2 = load float, ptr %arrayidx5.i.i.i, align 4
   %mul8.i.i.i = fmul float %2, %2
   %3 = call float @llvm.fmuladd.f32(float %1, float %1, float %mul8.i.i.i)
-  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %center, i64 8
+  %arrayidx10.i.i.i = getelementptr inbounds nuw i8, ptr %center, i64 8
   %4 = load float, ptr %arrayidx10.i.i.i, align 4
   %5 = call noundef float @llvm.fmuladd.f32(float %4, float %4, float %3)
   %sqrt.i = call noundef float @llvm.sqrt.f32(float %5)
@@ -121,25 +121,25 @@ entry:
 define dso_local void @_ZNK16btCollisionShape21calculateTemporalAabbERK11btTransformRK9btVector3S5_fRS3_S6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linvel, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angvel, float noundef %timeStep, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMax) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(64) %curTrans, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %temporalAabbMax)
   %1 = load float, ptr %temporalAabbMax, align 4
-  %arrayidx.i = getelementptr inbounds i8, ptr %temporalAabbMax, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %temporalAabbMax, i64 4
   %2 = load float, ptr %arrayidx.i, align 4
-  %arrayidx.i11 = getelementptr inbounds i8, ptr %temporalAabbMax, i64 8
+  %arrayidx.i11 = getelementptr inbounds nuw i8, ptr %temporalAabbMax, i64 8
   %3 = load float, ptr %arrayidx.i11, align 4
   %4 = load float, ptr %temporalAabbMin, align 4
-  %arrayidx.i12 = getelementptr inbounds i8, ptr %temporalAabbMin, i64 4
+  %arrayidx.i12 = getelementptr inbounds nuw i8, ptr %temporalAabbMin, i64 4
   %5 = load float, ptr %arrayidx.i12, align 4
-  %arrayidx.i13 = getelementptr inbounds i8, ptr %temporalAabbMin, i64 8
+  %arrayidx.i13 = getelementptr inbounds nuw i8, ptr %temporalAabbMin, i64 8
   %6 = load float, ptr %arrayidx.i13, align 4
   %7 = load float, ptr %linvel, align 4
   %mul.i = fmul float %timeStep, %7
-  %arrayidx3.i = getelementptr inbounds i8, ptr %linvel, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %linvel, i64 4
   %8 = load float, ptr %arrayidx3.i, align 4
   %mul4.i = fmul float %timeStep, %8
-  %arrayidx7.i = getelementptr inbounds i8, ptr %linvel, i64 8
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %linvel, i64 8
   %9 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %timeStep, %9
   %cmp = fcmp ogt float %mul.i, 0.000000e+00
@@ -158,16 +158,16 @@ entry:
   %temporalAabbMinz.0 = select i1 %cmp22, float %6, float %add28
   %temporalAabbMaxz.0 = select i1 %cmp22, float %add25, float %3
   %10 = load float, ptr %angvel, align 4
-  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %angvel, i64 4
+  %arrayidx5.i.i.i = getelementptr inbounds nuw i8, ptr %angvel, i64 4
   %11 = load float, ptr %arrayidx5.i.i.i, align 4
   %mul8.i.i.i = fmul float %11, %11
   %12 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %mul8.i.i.i)
-  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %angvel, i64 8
+  %arrayidx10.i.i.i = getelementptr inbounds nuw i8, ptr %angvel, i64 8
   %13 = load float, ptr %arrayidx10.i.i.i, align 4
   %14 = tail call noundef float @llvm.fmuladd.f32(float %13, float %13, float %12)
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %14)
   %vtable31 = load ptr, ptr %this, align 8
-  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 32
+  %vfn32 = getelementptr inbounds nuw i8, ptr %vtable31, i64 32
   %15 = load ptr, ptr %vfn32, align 8
   %call33 = tail call noundef float %15(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %mul = fmul float %sqrt.i, %call33
@@ -175,12 +175,12 @@ entry:
   store float %temporalAabbMinx.0, ptr %temporalAabbMin, align 4
   store float %temporalAabbMiny.0, ptr %arrayidx.i12, align 4
   store float %temporalAabbMinz.0, ptr %arrayidx.i13, align 4
-  %ref.tmp.sroa.4.0.temporalAabbMin.sroa_idx = getelementptr inbounds i8, ptr %temporalAabbMin, i64 12
+  %ref.tmp.sroa.4.0.temporalAabbMin.sroa_idx = getelementptr inbounds nuw i8, ptr %temporalAabbMin, i64 12
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.temporalAabbMin.sroa_idx, align 4
   store float %temporalAabbMaxx.0, ptr %temporalAabbMax, align 4
   store float %temporalAabbMaxy.0, ptr %arrayidx.i, align 4
   store float %temporalAabbMaxz.0, ptr %arrayidx.i11, align 4
-  %ref.tmp35.sroa.4.0.temporalAabbMax.sroa_idx = getelementptr inbounds i8, ptr %temporalAabbMax, i64 12
+  %ref.tmp35.sroa.4.0.temporalAabbMax.sroa_idx = getelementptr inbounds nuw i8, ptr %temporalAabbMax, i64 12
   store float 0.000000e+00, ptr %ref.tmp35.sroa.4.0.temporalAabbMax.sroa_idx, align 4
   %16 = load float, ptr %temporalAabbMin, align 4
   %sub.i = fsub float %16, %mul34
@@ -207,11 +207,11 @@ entry:
 define dso_local noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dataBuffer, ptr noundef %serializer) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %serializer, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef nonnull %this)
   %vtable2 = load ptr, ptr %serializer, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 56
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 56
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call)
   store ptr %call4, ptr %dataBuffer, align 8
@@ -220,17 +220,17 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable6 = load ptr, ptr %serializer, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 96
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 96
   %2 = load ptr, ptr %vfn7, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
+  %m_shapeType = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %m_shapeType, align 8
-  %m_shapeType8 = getelementptr inbounds i8, ptr %dataBuffer, i64 8
+  %m_shapeType8 = getelementptr inbounds nuw i8, ptr %dataBuffer, i64 8
   store i32 %3, ptr %m_shapeType8, align 8
-  %m_padding = getelementptr inbounds i8, ptr %dataBuffer, i64 12
+  %m_padding = getelementptr inbounds nuw i8, ptr %dataBuffer, i64 12
   store i32 0, ptr %m_padding, align 4
   ret ptr @.str
 }
@@ -242,22 +242,22 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define dso_local void @_ZNK16btCollisionShape20serializeSingleShapeEP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %serializer) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(32) %this)
   %conv = sext i32 %call to i64
   %vtable2 = load ptr, ptr %serializer, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 32
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 32
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %serializer, i64 noundef %conv, i32 noundef 1)
-  %m_oldPtr = getelementptr inbounds i8, ptr %call4, i64 8
+  %m_oldPtr = getelementptr inbounds nuw i8, ptr %call4, i64 8
   %2 = load ptr, ptr %m_oldPtr, align 8
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 112
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 112
   %3 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %2, ptr noundef nonnull %serializer)
   %vtable8 = load ptr, ptr %serializer, align 8
-  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 40
+  %vfn9 = getelementptr inbounds nuw i8, ptr %vtable8, i64 40
   %4 = load ptr, ptr %vfn9, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %call4, ptr noundef %call7, i32 noundef 1346455635, ptr noundef nonnull %this)
   ret void

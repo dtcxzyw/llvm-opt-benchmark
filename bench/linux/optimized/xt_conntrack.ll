@@ -49,12 +49,12 @@ define internal i32 @conntrack_mt_init() #0 section ".init.text" align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
 define internal zeroext i1 @conntrack_mt_v1(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 150
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 150
   %6 = load i8, ptr %5, align 2
   %7 = zext i8 %6 to i16
-  %8 = getelementptr inbounds i8, ptr %4, i64 151
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 151
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i16
   %11 = getelementptr i8, ptr %0, i64 104
@@ -66,7 +66,7 @@ define internal zeroext i1 @conntrack_mt_v1(ptr nocapture noundef readonly %0, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @conntrack_mt_check(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i8, ptr %3, align 4
   %5 = tail call i32 @nf_ct_netns_get(ptr noundef %2, i8 noundef zeroext %4) #6
   %6 = icmp slt i32 %5, 0
@@ -90,7 +90,7 @@ define internal i32 @conntrack_mt_check(ptr nocapture noundef readonly %0) #3 al
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @conntrack_mt_destroy(ptr nocapture noundef readonly %0) #3 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   tail call void @nf_ct_netns_put(ptr noundef %2, i8 noundef zeroext %4) #6
   ret void
@@ -98,11 +98,11 @@ define internal void @conntrack_mt_destroy(ptr nocapture noundef readonly %0) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
 define internal zeroext i1 @conntrack_mt_v2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 150
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 150
   %6 = load i16, ptr %5, align 2
-  %7 = getelementptr inbounds i8, ptr %4, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %8 = load i16, ptr %7, align 4
   %9 = getelementptr i8, ptr %0, i64 104
   %.val = load i64, ptr %9, align 8
@@ -112,11 +112,11 @@ define internal zeroext i1 @conntrack_mt_v2(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
 define internal zeroext i1 @conntrack_mt_v3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 150
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 150
   %6 = load i16, ptr %5, align 2
-  %7 = getelementptr inbounds i8, ptr %4, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %8 = load i16, ptr %7, align 4
   %9 = getelementptr i8, ptr %0, i64 104
   %.val = load i64, ptr %9, align 8
@@ -126,7 +126,7 @@ define internal zeroext i1 @conntrack_mt_v3(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
 define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2) unnamed_addr #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = trunc i64 %.104.val to i32
   %7 = and i32 %6, 7
@@ -138,14 +138,14 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 11:                                               ; preds = %3
   %12 = icmp eq i32 %7, 7
   %13 = select i1 %12, i32 256, i32 1
-  %14 = getelementptr inbounds i8, ptr %5, i64 146
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 146
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 1
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %.thread6, label %35
 
 .thread:                                          ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %5, i64 146
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 146
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 1
   %21 = icmp eq i16 %20, 0
@@ -156,7 +156,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   %22 = urem i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %22 to i32
   %23 = shl nuw nsw i32 2, %.zext
-  %24 = getelementptr inbounds i8, ptr %9, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %25 = load volatile i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
   %27 = shl i32 %26, 2
@@ -175,7 +175,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   %38 = zext i16 %1 to i32
   %39 = and i32 %37, %38
   %40 = icmp ne i32 %39, 0
-  %41 = getelementptr inbounds i8, ptr %5, i64 148
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %42 = load i16, ptr %41, align 4
   %43 = and i16 %42, 1
   %44 = icmp eq i16 %43, 0
@@ -192,7 +192,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 
 49:                                               ; preds = %.thread2
   %50 = icmp samesign ult i32 %7, 3
-  %51 = getelementptr inbounds i8, ptr %5, i64 148
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %52 = load i16, ptr %51, align 4
   %53 = and i16 %52, 4096
   %54 = icmp eq i16 %53, 0
@@ -205,19 +205,19 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %58, label %100, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %9, i64 32
-  %65 = getelementptr inbounds i8, ptr %5, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
   switch i8 %63, label %._crit_edge [
     i8 2, label %70
     i8 10, label %77
   ]
 
 ._crit_edge:                                      ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %5, i64 148
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %67 = load i16, ptr %66, align 4
   %68 = and i16 %67, 4
   %69 = icmp eq i16 %68, 0
@@ -252,7 +252,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 
 93:                                               ; preds = %77, %70
   %94 = phi i1 [ %76, %70 ], [ %92, %77 ]
-  %95 = getelementptr inbounds i8, ptr %5, i64 148
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %96 = load i16, ptr %95, align 4
   %97 = and i16 %96, 4
   %98 = icmp eq i16 %97, 0
@@ -265,20 +265,20 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %102, label %145, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %0, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
   %107 = load i8, ptr %106, align 1
-  %108 = getelementptr inbounds i8, ptr %9, i64 52
-  %109 = getelementptr inbounds i8, ptr %5, i64 32
-  %110 = getelementptr inbounds i8, ptr %5, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %9, i64 52
+  %109 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 48
   switch i8 %107, label %._crit_edge3 [
     i8 2, label %115
     i8 10, label %122
   ]
 
 ._crit_edge3:                                     ; preds = %103
-  %111 = getelementptr inbounds i8, ptr %5, i64 148
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %112 = load i16, ptr %111, align 4
   %113 = and i16 %112, 8
   %114 = icmp eq i16 %113, 0
@@ -313,7 +313,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 
 138:                                              ; preds = %122, %115
   %139 = phi i1 [ %121, %115 ], [ %137, %122 ]
-  %140 = getelementptr inbounds i8, ptr %5, i64 148
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %141 = load i16, ptr %140, align 4
   %142 = and i16 %141, 8
   %143 = icmp eq i16 %142, 0
@@ -326,20 +326,20 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %147, label %190, label %148
 
 148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %0, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 1
   %152 = load i8, ptr %151, align 1
   %153 = getelementptr i8, ptr %9, i64 88
-  %154 = getelementptr inbounds i8, ptr %5, i64 64
-  %155 = getelementptr inbounds i8, ptr %5, i64 80
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 80
   switch i8 %152, label %._crit_edge4 [
     i8 2, label %160
     i8 10, label %167
   ]
 
 ._crit_edge4:                                     ; preds = %148
-  %156 = getelementptr inbounds i8, ptr %5, i64 148
+  %156 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %157 = load i16, ptr %156, align 4
   %158 = and i16 %157, 16
   %159 = icmp eq i16 %158, 0
@@ -374,7 +374,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 
 183:                                              ; preds = %167, %160
   %184 = phi i1 [ %166, %160 ], [ %182, %167 ]
-  %185 = getelementptr inbounds i8, ptr %5, i64 148
+  %185 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %186 = load i16, ptr %185, align 4
   %187 = and i16 %186, 16
   %188 = icmp eq i16 %187, 0
@@ -387,20 +387,20 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %192, label %235, label %193
 
 193:                                              ; preds = %190
-  %194 = getelementptr inbounds i8, ptr %0, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 1
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 1
   %197 = load i8, ptr %196, align 1
   %198 = getelementptr i8, ptr %9, i64 108
-  %199 = getelementptr inbounds i8, ptr %5, i64 96
-  %200 = getelementptr inbounds i8, ptr %5, i64 112
+  %199 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %200 = getelementptr inbounds nuw i8, ptr %5, i64 112
   switch i8 %197, label %._crit_edge5 [
     i8 2, label %205
     i8 10, label %212
   ]
 
 ._crit_edge5:                                     ; preds = %193
-  %201 = getelementptr inbounds i8, ptr %5, i64 148
+  %201 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %202 = load i16, ptr %201, align 4
   %203 = and i16 %202, 32
   %204 = icmp eq i16 %203, 0
@@ -435,7 +435,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 
 228:                                              ; preds = %212, %205
   %229 = phi i1 [ %211, %205 ], [ %227, %212 ]
-  %230 = getelementptr inbounds i8, ptr %5, i64 148
+  %230 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %231 = load i16, ptr %230, align 4
   %232 = and i16 %231, 32
   %233 = icmp eq i16 %232, 0
@@ -444,7 +444,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 
 235:                                              ; preds = %._crit_edge5, %228, %190
   %236 = load ptr, ptr %0, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 45
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 45
   %238 = load i8, ptr %237, align 1
   %239 = icmp eq i8 %238, 3
   %240 = and i16 %46, 2
@@ -455,13 +455,13 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %241, label %255, label %243
 
 243:                                              ; preds = %242
-  %244 = getelementptr inbounds i8, ptr %9, i64 70
+  %244 = getelementptr inbounds nuw i8, ptr %9, i64 70
   %245 = load i8, ptr %244, align 2
-  %246 = getelementptr inbounds i8, ptr %5, i64 136
+  %246 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %247 = load i16, ptr %246, align 4
   %248 = zext i8 %245 to i16
   %249 = icmp eq i16 %247, %248
-  %250 = getelementptr inbounds i8, ptr %5, i64 148
+  %250 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %251 = load i16, ptr %250, align 4
   %252 = and i16 %251, 2
   %253 = icmp eq i16 %252, 0
@@ -474,12 +474,12 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %257, label %269, label %258
 
 258:                                              ; preds = %255
-  %259 = getelementptr inbounds i8, ptr %9, i64 48
+  %259 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %260 = load i16, ptr %259, align 8
-  %261 = getelementptr inbounds i8, ptr %5, i64 138
+  %261 = getelementptr inbounds nuw i8, ptr %5, i64 138
   %262 = load i16, ptr %261, align 2
   %263 = icmp eq i16 %260, %262
-  %264 = getelementptr inbounds i8, ptr %5, i64 148
+  %264 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %265 = load i16, ptr %264, align 4
   %266 = and i16 %265, 256
   %267 = icmp eq i16 %266, 0
@@ -492,12 +492,12 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %271, label %283, label %272
 
 272:                                              ; preds = %269
-  %273 = getelementptr inbounds i8, ptr %9, i64 68
+  %273 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %274 = load i16, ptr %273, align 4
-  %275 = getelementptr inbounds i8, ptr %5, i64 140
+  %275 = getelementptr inbounds nuw i8, ptr %5, i64 140
   %276 = load i16, ptr %275, align 4
   %277 = icmp eq i16 %274, %276
-  %278 = getelementptr inbounds i8, ptr %5, i64 148
+  %278 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %279 = load i16, ptr %278, align 4
   %280 = and i16 %279, 512
   %281 = icmp eq i16 %280, 0
@@ -512,10 +512,10 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 286:                                              ; preds = %283
   %287 = getelementptr i8, ptr %9, i64 104
   %288 = load i16, ptr %287, align 8
-  %289 = getelementptr inbounds i8, ptr %5, i64 142
+  %289 = getelementptr inbounds nuw i8, ptr %5, i64 142
   %290 = load i16, ptr %289, align 2
   %291 = icmp eq i16 %288, %290
-  %292 = getelementptr inbounds i8, ptr %5, i64 148
+  %292 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %293 = load i16, ptr %292, align 4
   %294 = and i16 %293, 1024
   %295 = icmp eq i16 %294, 0
@@ -530,10 +530,10 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 300:                                              ; preds = %297
   %301 = getelementptr i8, ptr %9, i64 124
   %302 = load i16, ptr %301, align 4
-  %303 = getelementptr inbounds i8, ptr %5, i64 144
+  %303 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %304 = load i16, ptr %303, align 4
   %305 = icmp eq i16 %302, %304
-  %306 = getelementptr inbounds i8, ptr %5, i64 148
+  %306 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %307 = load i16, ptr %306, align 4
   %308 = and i16 %307, 2048
   %309 = icmp eq i16 %308, 0
@@ -544,13 +544,13 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %241, label %324, label %312
 
 312:                                              ; preds = %311
-  %313 = getelementptr inbounds i8, ptr %9, i64 70
+  %313 = getelementptr inbounds nuw i8, ptr %9, i64 70
   %314 = load i8, ptr %313, align 2
-  %315 = getelementptr inbounds i8, ptr %5, i64 136
+  %315 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %316 = load i16, ptr %315, align 4
   %317 = zext i8 %314 to i16
   %318 = icmp eq i16 %316, %317
-  %319 = getelementptr inbounds i8, ptr %5, i64 148
+  %319 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %320 = load i16, ptr %319, align 4
   %321 = and i16 %320, 2
   %322 = icmp eq i16 %321, 0
@@ -563,14 +563,14 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %326, label %343, label %327
 
 327:                                              ; preds = %324
-  %328 = getelementptr inbounds i8, ptr %5, i64 138
+  %328 = getelementptr inbounds nuw i8, ptr %5, i64 138
   %329 = load i16, ptr %328, align 2
-  %330 = getelementptr inbounds i8, ptr %5, i64 154
+  %330 = getelementptr inbounds nuw i8, ptr %5, i64 154
   %331 = load i16, ptr %330, align 2
-  %332 = getelementptr inbounds i8, ptr %9, i64 48
+  %332 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %333 = load i16, ptr %332, align 8
   %334 = tail call i16 @llvm.bswap.i16(i16 %333)
-  %335 = getelementptr inbounds i8, ptr %5, i64 148
+  %335 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %336 = load i16, ptr %335, align 4
   %337 = and i16 %336, 256
   %338 = icmp ne i16 %337, 0
@@ -586,14 +586,14 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %345, label %362, label %346
 
 346:                                              ; preds = %343
-  %347 = getelementptr inbounds i8, ptr %5, i64 140
+  %347 = getelementptr inbounds nuw i8, ptr %5, i64 140
   %348 = load i16, ptr %347, align 4
-  %349 = getelementptr inbounds i8, ptr %5, i64 156
+  %349 = getelementptr inbounds nuw i8, ptr %5, i64 156
   %350 = load i16, ptr %349, align 4
-  %351 = getelementptr inbounds i8, ptr %9, i64 68
+  %351 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %352 = load i16, ptr %351, align 4
   %353 = tail call i16 @llvm.bswap.i16(i16 %352)
-  %354 = getelementptr inbounds i8, ptr %5, i64 148
+  %354 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %355 = load i16, ptr %354, align 4
   %356 = and i16 %355, 512
   %357 = icmp ne i16 %356, 0
@@ -609,14 +609,14 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %364, label %381, label %365
 
 365:                                              ; preds = %362
-  %366 = getelementptr inbounds i8, ptr %5, i64 142
+  %366 = getelementptr inbounds nuw i8, ptr %5, i64 142
   %367 = load i16, ptr %366, align 2
-  %368 = getelementptr inbounds i8, ptr %5, i64 158
+  %368 = getelementptr inbounds nuw i8, ptr %5, i64 158
   %369 = load i16, ptr %368, align 2
   %370 = getelementptr i8, ptr %9, i64 104
   %371 = load i16, ptr %370, align 8
   %372 = tail call i16 @llvm.bswap.i16(i16 %371)
-  %373 = getelementptr inbounds i8, ptr %5, i64 148
+  %373 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %374 = load i16, ptr %373, align 4
   %375 = and i16 %374, 1024
   %376 = icmp ne i16 %375, 0
@@ -632,14 +632,14 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %383, label %400, label %384
 
 384:                                              ; preds = %381
-  %385 = getelementptr inbounds i8, ptr %5, i64 144
+  %385 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %386 = load i16, ptr %385, align 4
-  %387 = getelementptr inbounds i8, ptr %5, i64 160
+  %387 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %388 = load i16, ptr %387, align 4
   %389 = getelementptr i8, ptr %9, i64 124
   %390 = load i16, ptr %389, align 4
   %391 = tail call i16 @llvm.bswap.i16(i16 %390)
-  %392 = getelementptr inbounds i8, ptr %5, i64 148
+  %392 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %393 = load i16, ptr %392, align 4
   %394 = and i16 %393, 2048
   %395 = icmp ne i16 %394, 0
@@ -656,11 +656,11 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 
 403:                                              ; preds = %400
   %404 = zext i16 %2 to i64
-  %405 = getelementptr inbounds i8, ptr %9, i64 128
+  %405 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %406 = load i64, ptr %405, align 8
   %407 = and i64 %406, %404
   %408 = icmp ne i64 %407, 0
-  %409 = getelementptr inbounds i8, ptr %5, i64 148
+  %409 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %410 = load i16, ptr %409, align 4
   %411 = and i16 %410, 64
   %412 = icmp eq i16 %411, 0
@@ -673,20 +673,20 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
   br i1 %416, label %441, label %417
 
 417:                                              ; preds = %414
-  %418 = getelementptr inbounds i8, ptr %9, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %419 = load volatile i32, ptr %418, align 8
   %420 = load volatile i64, ptr @jiffies, align 64
   %421 = trunc i64 %420 to i32
   %422 = sub i32 %419, %421
   %423 = tail call i32 @llvm.smax.i32(i32 %422, i32 0)
   %424 = udiv i32 %423, 1000
-  %425 = getelementptr inbounds i8, ptr %5, i64 128
+  %425 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %426 = load i32, ptr %425, align 4
   %427 = icmp ult i32 %424, %426
   br i1 %427, label %433, label %428
 
 428:                                              ; preds = %417
-  %429 = getelementptr inbounds i8, ptr %5, i64 132
+  %429 = getelementptr inbounds nuw i8, ptr %5, i64 132
   %430 = load i32, ptr %429, align 4
   %431 = icmp ule i32 %424, %430
   %432 = zext i1 %431 to i32
@@ -694,7 +694,7 @@ define internal fastcc zeroext i1 @conntrack_mt(i64 %.104.val, ptr nocapture nou
 
 433:                                              ; preds = %428, %417
   %434 = phi i32 [ 0, %417 ], [ %432, %428 ]
-  %435 = getelementptr inbounds i8, ptr %5, i64 148
+  %435 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %436 = load i16, ptr %435, align 4
   %437 = and i16 %436, 128
   %438 = icmp eq i16 %437, 0

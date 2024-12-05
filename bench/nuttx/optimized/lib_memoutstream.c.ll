@@ -5,18 +5,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lib_memoutstream(ptr nocapture noundef writeonly initializes((0, 4), (8, 48)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @memoutstream_putc, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @memoutstream_puts, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @lib_noflush, ptr %6, align 8
   store i32 0, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %7, align 8
   %8 = add nsw i32 %2, -1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %9, ptr %10, align 8
   store i8 0, ptr %1, align 1
   ret void
@@ -24,7 +24,7 @@ define void @lib_memoutstream(ptr nocapture noundef writeonly initializes((0, 4)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @memoutstream_putc(ptr nocapture noundef %0, i32 noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = load i32, ptr %0, align 8
   %6 = sext i32 %5 to i64
@@ -33,7 +33,7 @@ define internal void @memoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
 
 7:                                                ; preds = %2
   %8 = trunc i32 %1 to i8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 %6
   store i8 %8, ptr %11, align 1
@@ -52,7 +52,7 @@ memoutstream_puts.exit:                           ; preds = %2, %7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal i32 @memoutstream_puts(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
   %7 = sext i32 %6 to i64
@@ -65,7 +65,7 @@ define internal i32 @memoutstream_puts(ptr nocapture noundef %0, ptr nocapture n
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %7
   %17 = zext nneg i32 %11 to i64

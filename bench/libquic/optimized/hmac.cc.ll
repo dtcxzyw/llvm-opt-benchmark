@@ -22,9 +22,9 @@ $_ZN6crypto4HMAC4InitERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 define dso_local void @_ZN6crypto4HMACC2ENS0_13HashAlgorithmE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 5), (8, 32)) %this, i32 noundef %hash_alg) unnamed_addr #0 align 2 {
 entry:
   store i32 %hash_alg, ptr %this, align 8
-  %initialized_ = getelementptr inbounds i8, ptr %this, i64 4
+  %initialized_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 0, ptr %initialized_, align 4
-  %key_ = getelementptr inbounds i8, ptr %this, i64 8
+  %key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %key_, i8 0, i64 24, i1 false)
   ret void
 }
@@ -32,14 +32,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6crypto4HMACD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %key_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %key_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
@@ -62,7 +62,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i:          ; preds = %if.then.i
           to label %call5.i.i.i.i1.i.i.i.noexc unwind label %terminate.lpad
 
 call5.i.i.i.i1.i.i.i.noexc:                       ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i.i4, i64 %sub.ptr.sub.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i.i.i4, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i.i.i4, i8 0, i64 %sub.ptr.sub.i, i1 false)
   store ptr %call5.i.i.i.i1.i.i.i4, ptr %key_, align 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i, align 8
@@ -142,10 +142,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN6crypto4HMAC4InitEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((4, 5)) %this, ptr noundef %key, i64 noundef %key_length) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %initialized_ = getelementptr inbounds i8, ptr %this, i64 4
+  %initialized_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 1, ptr %initialized_, align 4
-  %key_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %1 = load ptr, ptr %key_, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %0 to i64
@@ -165,7 +165,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i: ; preds = %if.then.i.i.i
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %key_length) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i.i.i, ptr align 1 %key, i64 %key_length, i1 false)
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i.i, label %if.then.i13.i.i.i
 
@@ -175,13 +175,13 @@ if.then.i13.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i.i: ; preds = %if.then.i13.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %key_, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %key_length
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 %key_length
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZNSt6vectorIhSaIhEE6assignIPKhvEEvT_S5_.exit
 
 if.else.i.i.i:                                    ; preds = %entry
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i14.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i16.i.i.i = sub i64 %sub.ptr.lhs.cast.i14.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -291,10 +291,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6crypto4HMAC4InitERKN4base1
 entry:
   %call = tail call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %key)
   %call2 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %key)
-  %initialized_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %initialized_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 1, ptr %initialized_.i, align 4
-  %key_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %key_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %1 = load ptr, ptr %key_.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -314,7 +314,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %call2) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i.i.i.i, ptr align 1 %call, i64 %call2, i1 false)
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i.i.i, label %if.then.i13.i.i.i.i
 
@@ -324,13 +324,13 @@ if.then.i13.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i.i.i.i: ; preds = %if.then.i13.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %key_.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %call2
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %call2
   store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %_ZN6crypto4HMAC4InitEPKhm.exit
 
 if.else.i.i.i.i:                                  ; preds = %entry
-  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i14.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i16.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i14.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
@@ -401,7 +401,7 @@ define dso_local noundef zeroext i1 @_ZNK6crypto4HMAC4SignERKN4base16BasicString
 entry:
   %result = alloca %"class.crypto::ScopedOpenSSLSafeSizeBuffer", align 8
   store ptr %digest, ptr %result, align 8
-  %output_len_.i = getelementptr inbounds i8, ptr %result, i64 8
+  %output_len_.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   store i64 %digest_length, ptr %output_len_.i, align 8
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 0
@@ -417,9 +417,9 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %call, %cond.true ], [ %call3, %cond.false ]
-  %key_ = getelementptr inbounds i8, ptr %this, i64 8
+  %key_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %key_, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
@@ -433,7 +433,7 @@ invoke.cont7:                                     ; preds = %cond.end
 
 invoke.cont9:                                     ; preds = %invoke.cont7
   %cmp.i = icmp ult i64 %digest_length, 64
-  %min_sized_buffer_.i = getelementptr inbounds i8, ptr %result, i64 16
+  %min_sized_buffer_.i = getelementptr inbounds nuw i8, ptr %result, i64 16
   %cond.i = select i1 %cmp.i, ptr %min_sized_buffer_.i, ptr %digest
   %call14 = invoke ptr @HMAC(ptr noundef %cond, ptr noundef %1, i64 noundef %sub.ptr.sub.i, ptr noundef %call8, i64 noundef %call10, ptr noundef %cond.i, ptr noundef null)
           to label %invoke.cont13 unwind label %lpad
@@ -461,7 +461,7 @@ lpad:                                             ; preds = %invoke.cont9, %invo
 
 if.then.i8:                                       ; preds = %lpad
   %7 = load ptr, ptr %result, align 8
-  %min_sized_buffer_.i9 = getelementptr inbounds i8, ptr %result, i64 16
+  %min_sized_buffer_.i9 = getelementptr inbounds nuw i8, ptr %result, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull align 8 %min_sized_buffer_.i9, i64 %6, i1 false)
   br label %_ZN6crypto27ScopedOpenSSLSafeSizeBufferILi64EED2Ev.exit10
 

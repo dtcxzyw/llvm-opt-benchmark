@@ -171,7 +171,7 @@ if.else61:                                        ; preds = %lor.lhs.false28
   br i1 %cmp63, label %if.then65, label %if.else82
 
 if.then65:                                        ; preds = %if.else61
-  %crl = getelementptr inbounds i8, ptr %xi.2, i64 8
+  %crl = getelementptr inbounds nuw i8, ptr %xi.2, i64 8
   %4 = load ptr, ptr %crl, align 8
   %cmp66.not = icmp eq ptr %4, null
   br i1 %cmp66.not, label %if.then138.loopexit, label %if.then68
@@ -192,7 +192,7 @@ if.else82:                                        ; preds = %if.else61
   br i1 %cmp84.not, label %if.end170, label %if.then86
 
 if.then86:                                        ; preds = %if.else82
-  %x_pkey = getelementptr inbounds i8, ptr %xi.2, i64 16
+  %x_pkey = getelementptr inbounds nuw i8, ptr %xi.2, i64 16
   %5 = load ptr, ptr %x_pkey, align 8
   %cmp87.not = icmp eq ptr %5, null
   br i1 %cmp87.not, label %if.end101, label %if.then89
@@ -208,7 +208,7 @@ if.end95:                                         ; preds = %if.then89
   br i1 %cmp97, label %err, label %start.backedge
 
 if.end101:                                        ; preds = %if.then86
-  %x_pkey.le = getelementptr inbounds i8, ptr %xi.2, i64 16
+  %x_pkey.le = getelementptr inbounds nuw i8, ptr %xi.2, i64 16
   %cmp102 = icmp eq ptr %call83, %2
   br i1 %cmp102, label %if.end111, label %lor.lhs.false104
 
@@ -226,9 +226,9 @@ if.else109:                                       ; preds = %lor.lhs.false104
 
 if.end111:                                        ; preds = %if.end101, %lor.lhs.false104, %if.else109
   %ptype.1 = phi i32 [ %call110, %if.else109 ], [ 0, %lor.lhs.false104 ], [ 0, %if.end101 ]
-  %enc_data = getelementptr inbounds i8, ptr %xi.2, i64 56
+  %enc_data = getelementptr inbounds nuw i8, ptr %xi.2, i64 56
   store ptr null, ptr %enc_data, align 8
-  %enc_len = getelementptr inbounds i8, ptr %xi.2, i64 48
+  %enc_len = getelementptr inbounds nuw i8, ptr %xi.2, i64 48
   store i32 0, ptr %enc_len, align 8
   %call112 = call ptr @X509_PKEY_new() #3
   store ptr %call112, ptr %x_pkey.le, align 8
@@ -243,14 +243,14 @@ if.end118:                                        ; preds = %if.end111
   br i1 %cmp122, label %if.else161, label %lor.lhs.false124
 
 lor.lhs.false124:                                 ; preds = %if.end118
-  %dec_pkey = getelementptr inbounds i8, ptr %call112, i64 24
+  %dec_pkey = getelementptr inbounds nuw i8, ptr %call112, i64 24
   %8 = load ptr, ptr %name, align 8
   %call125 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(22) @.str.6) #4
   %cmp126 = icmp eq i32 %call125, 0
   br i1 %cmp126, label %if.else161, label %if.then138
 
 if.then138.loopexit:                              ; preds = %if.then65
-  %crl.le = getelementptr inbounds i8, ptr %xi.2, i64 8
+  %crl.le = getelementptr inbounds nuw i8, ptr %xi.2, i64 8
   br label %if.then138
 
 if.then138:                                       ; preds = %if.then138.loopexit, %if.end46, %lor.lhs.false124
@@ -300,7 +300,7 @@ if.then158:                                       ; preds = %if.else154
   br label %for.cond196.preheader
 
 if.else161:                                       ; preds = %lor.lhs.false124, %if.end118
-  %enc_cipher = getelementptr inbounds i8, ptr %xi.2, i64 24
+  %enc_cipher = getelementptr inbounds nuw i8, ptr %xi.2, i64 24
   %call162 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %7, ptr noundef nonnull %enc_cipher) #3
   %tobool163.not = icmp eq i32 %call162, 0
   br i1 %tobool163.not, label %err, label %if.end165
@@ -330,19 +330,19 @@ if.end170:                                        ; preds = %if.else82, %if.end1
   br i1 %cmp10, label %if.then11, label %if.end20
 
 lor.lhs.false174:                                 ; preds = %if.then16
-  %crl175 = getelementptr inbounds i8, ptr %xi.1.lcssa, i64 8
+  %crl175 = getelementptr inbounds nuw i8, ptr %xi.1.lcssa, i64 8
   %18 = load ptr, ptr %crl175, align 8
   %cmp176.not = icmp eq ptr %18, null
   br i1 %cmp176.not, label %lor.lhs.false178, label %if.then186
 
 lor.lhs.false178:                                 ; preds = %lor.lhs.false174
-  %x_pkey179 = getelementptr inbounds i8, ptr %xi.1.lcssa, i64 16
+  %x_pkey179 = getelementptr inbounds nuw i8, ptr %xi.1.lcssa, i64 16
   %19 = load ptr, ptr %x_pkey179, align 8
   %cmp180.not = icmp eq ptr %19, null
   br i1 %cmp180.not, label %lor.lhs.false182, label %if.then186
 
 lor.lhs.false182:                                 ; preds = %lor.lhs.false178
-  %enc_data183 = getelementptr inbounds i8, ptr %xi.1.lcssa, i64 56
+  %enc_data183 = getelementptr inbounds nuw i8, ptr %xi.1.lcssa, i64 56
   %20 = load ptr, ptr %enc_data183, align 8
   %cmp184.not = icmp eq ptr %20, null
   br i1 %cmp184.not, label %err.thread, label %if.then186
@@ -497,19 +497,19 @@ if.then8:                                         ; preds = %lor.lhs.false, %if.
   br label %err
 
 if.end9:                                          ; preds = %lor.lhs.false, %entry
-  %x_pkey = getelementptr inbounds i8, ptr %xi, i64 16
+  %x_pkey = getelementptr inbounds nuw i8, ptr %xi, i64 16
   %1 = load ptr, ptr %x_pkey, align 8
   %cmp10.not = icmp eq ptr %1, null
   br i1 %cmp10.not, label %if.end49, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  %enc_data = getelementptr inbounds i8, ptr %xi, i64 56
+  %enc_data = getelementptr inbounds nuw i8, ptr %xi, i64 56
   %2 = load ptr, ptr %enc_data, align 8
   %cmp13.not = icmp eq ptr %2, null
   br i1 %cmp13.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then12
-  %enc_len = getelementptr inbounds i8, ptr %xi, i64 48
+  %enc_len = getelementptr inbounds nuw i8, ptr %xi, i64 48
   %3 = load i32, ptr %enc_len, align 8
   %cmp15 = icmp sgt i32 %3, 0
   br i1 %cmp15, label %if.then17, label %if.else
@@ -524,7 +524,7 @@ if.then20:                                        ; preds = %if.then17
   br label %err
 
 if.end21:                                         ; preds = %if.then17
-  %enc_cipher = getelementptr inbounds i8, ptr %xi, i64 24
+  %enc_cipher = getelementptr inbounds nuw i8, ptr %xi, i64 24
   %4 = load ptr, ptr %enc_cipher, align 8
   %call26 = tail call ptr @EVP_CIPHER_get0_name(ptr noundef %4) #3
   %cmp27 = icmp eq ptr %call26, null
@@ -537,7 +537,7 @@ if.then29:                                        ; preds = %if.end21
   br label %err
 
 if.end30:                                         ; preds = %if.end21
-  %iv22 = getelementptr inbounds i8, ptr %xi, i64 32
+  %iv22 = getelementptr inbounds nuw i8, ptr %xi, i64 32
   store i8 0, ptr %buf, align 16
   call void @PEM_proc_type(ptr noundef nonnull %buf, i32 noundef 10) #3
   %call33 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef nonnull %enc) #3
@@ -548,7 +548,7 @@ if.end30:                                         ; preds = %if.end21
   br i1 %cmp37, label %err, label %if.end49
 
 if.else:                                          ; preds = %land.lhs.true, %if.then12
-  %dec_pkey = getelementptr inbounds i8, ptr %1, i64 24
+  %dec_pkey = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %dec_pkey, align 8
   %call42 = tail call ptr @EVP_PKEY_get0_RSA(ptr noundef %5) #3
   %call43 = tail call i32 @PEM_write_bio_RSAPrivateKey(ptr noundef %bp, ptr noundef %call42, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %cb, ptr noundef %u) #3

@@ -219,13 +219,13 @@ define hidden void @_ZN5zxing6common11StringUtils18guessEncodingZXingB5cxx11EPci
   br i1 %21, label %22, label %.critedge2.preheader
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %1, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, -69
   br i1 %25, label %26, label %.critedge2.preheader
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, -65
   br label %.critedge2.preheader
@@ -256,7 +256,7 @@ define hidden void @_ZN5zxing6common11StringUtils18guessEncodingZXingB5cxx11EPci
   %.0169276 = phi i32 [ 0, %.critedge2.preheader ], [ %.1170, %90 ]
   %.0171275 = phi i32 [ 0, %.critedge2.preheader ], [ %.1172, %90 ]
   %33 = trunc nuw i8 %.0289 to i1
-  %34 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = trunc nuw i8 %.0144287 to i1
@@ -643,7 +643,7 @@ _ZN5zxing6common11StringUtils11is_gbk_codeEPci.exit: ; preds = %.outer32._crit_e
 .lr.ph.i224:                                      ; preds = %.lr.ph.i224, %.lr.ph.preheader.i
   %indvars.iv.i225 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i226, %.lr.ph.i224 ]
   %.067.i = phi i1 [ true, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i224 ]
-  %183 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i225
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i225
   %184 = load i8, ptr %183, align 1
   %185 = icmp sgt i8 %184, -1
   %spec.select.i = select i1 %185, i1 %.067.i, i1 false
@@ -1139,7 +1139,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN5zxing6common11StringUtils13is_as
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.067 = phi i1 [ true, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = icmp sgt i8 %5, -1
   %spec.select = select i1 %6, i1 %.067, i1 false
@@ -1337,7 +1337,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils12is_utf
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils16shift_jis_to_jisEPKhPiS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #8 align 2 {
   %4 = load i8, ptr %0, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %4 to i32
   %8 = add i8 %4, 127

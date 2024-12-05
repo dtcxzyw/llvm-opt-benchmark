@@ -25,18 +25,18 @@ define noundef i32 @dtbmv_thread_TUN(i64 noundef %0, i64 noundef %1, ptr noundef
   call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %12) #7
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %13) #7
-  %14 = getelementptr inbounds i8, ptr %10, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 %0, ptr %14, align 8, !tbaa !3
-  %15 = getelementptr inbounds i8, ptr %10, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i64 %1, ptr %15, align 8, !tbaa !9
   store ptr %2, ptr %10, align 8, !tbaa !10
-  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %4, ptr %16, align 8, !tbaa !11
-  %17 = getelementptr inbounds i8, ptr %10, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %6, ptr %17, align 8, !tbaa !12
-  %18 = getelementptr inbounds i8, ptr %10, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store i64 %3, ptr %18, align 8, !tbaa !13
-  %19 = getelementptr inbounds i8, ptr %10, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i64 %5, ptr %19, align 8, !tbaa !14
   %20 = sitofp i64 %0 to double
   %21 = sitofp i32 %7 to double
@@ -45,7 +45,7 @@ define noundef i32 @dtbmv_thread_TUN(i64 noundef %0, i64 noundef %1, ptr noundef
   br i1 %23, label %24, label %78
 
 24:                                               ; preds = %8
-  %25 = getelementptr inbounds i8, ptr %12, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store i64 %0, ptr %25, align 16, !tbaa !15
   %26 = icmp sgt i64 %0, 0
   br i1 %26, label %27, label %.thread6
@@ -98,24 +98,24 @@ define noundef i32 @dtbmv_thread_TUN(i64 noundef %0, i64 noundef %1, ptr noundef
   %62 = getelementptr inbounds [17 x i64], ptr %12, i64 0, i64 %61
   store i64 %60, ptr %62, align 8, !tbaa !15
   %63 = mul nuw nsw i64 %38, %35
-  %64 = getelementptr inbounds [17 x i64], ptr %13, i64 0, i64 %38
+  %64 = getelementptr inbounds nuw [17 x i64], ptr %13, i64 0, i64 %38
   %65 = mul nuw nsw i64 %38, %0
   %66 = call i64 @llvm.smin.i64(i64 %63, i64 %65)
   store i64 %66, ptr %64, align 8, !tbaa !15
-  %67 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %38
-  %68 = getelementptr inbounds i8, ptr %67, i64 160
+  %67 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %11, i64 0, i64 %38
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 160
   store i32 3, ptr %68, align 8, !tbaa !16
   store ptr @trmv_kernel, ptr %67, align 8, !tbaa !19
-  %69 = getelementptr inbounds i8, ptr %67, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %10, ptr %69, align 8, !tbaa !20
-  %70 = getelementptr inbounds i8, ptr %67, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %62, ptr %70, align 8, !tbaa !21
-  %71 = getelementptr inbounds i8, ptr %67, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %64, ptr %71, align 8, !tbaa !22
-  %72 = getelementptr inbounds i8, ptr %67, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %73 = add nuw nsw i64 %38, 1
-  %74 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %73
-  %75 = getelementptr inbounds i8, ptr %67, i64 64
+  %74 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %11, i64 0, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
   store ptr %74, ptr %75, align 8, !tbaa !23
   %76 = add nsw i64 %56, %37
@@ -150,13 +150,13 @@ define noundef i32 @dtbmv_thread_TUN(i64 noundef %0, i64 noundef %1, ptr noundef
 
 96:                                               ; preds = %85
   %97 = zext i32 %94 to i64
-  %98 = getelementptr inbounds [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %97
+  %98 = getelementptr inbounds nuw [0 x i32], ptr @blas_quick_divide_table, i64 0, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !27
   %100 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %99, i32 %92) #7, !srcloc !28
   %101 = extractvalue { i32, i32 } %100, 0
   store volatile i32 %101, ptr %9, align 4, !tbaa !27
   %.0..0..0..0. = load volatile i32, ptr %9, align 4, !tbaa !27
-  %.phi.trans.insert = getelementptr inbounds [17 x i64], ptr %12, i64 0, i64 %88
+  %.phi.trans.insert = getelementptr inbounds nuw [17 x i64], ptr %12, i64 0, i64 %88
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !15
   br label %102
 
@@ -167,29 +167,29 @@ define noundef i32 @dtbmv_thread_TUN(i64 noundef %0, i64 noundef %1, ptr noundef
   %105 = call i32 @llvm.umax.i32(i32 %104, i32 4)
   %106 = zext i32 %105 to i64
   %107 = call i64 @llvm.umin.i64(i64 %87, i64 %106)
-  %108 = getelementptr inbounds [17 x i64], ptr %12, i64 0, i64 %88
+  %108 = getelementptr inbounds nuw [17 x i64], ptr %12, i64 0, i64 %88
   %109 = add nsw i64 %107, %103
   %110 = add nuw nsw i64 %88, 1
-  %111 = getelementptr inbounds [17 x i64], ptr %12, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw [17 x i64], ptr %12, i64 0, i64 %110
   store i64 %109, ptr %111, align 8, !tbaa !15
   %112 = mul nuw nsw i64 %88, %84
-  %113 = getelementptr inbounds [17 x i64], ptr %13, i64 0, i64 %88
+  %113 = getelementptr inbounds nuw [17 x i64], ptr %13, i64 0, i64 %88
   %114 = mul nuw nsw i64 %88, %0
   %115 = call i64 @llvm.smin.i64(i64 %112, i64 %114)
   store i64 %115, ptr %113, align 8, !tbaa !15
-  %116 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %88
-  %117 = getelementptr inbounds i8, ptr %116, i64 160
+  %116 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %11, i64 0, i64 %88
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 160
   store i32 3, ptr %117, align 8, !tbaa !16
   store ptr @trmv_kernel, ptr %116, align 8, !tbaa !19
-  %118 = getelementptr inbounds i8, ptr %116, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 24
   store ptr %10, ptr %118, align 8, !tbaa !20
-  %119 = getelementptr inbounds i8, ptr %116, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 32
   store ptr %108, ptr %119, align 8, !tbaa !21
-  %120 = getelementptr inbounds i8, ptr %116, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 40
   store ptr %113, ptr %120, align 8, !tbaa !22
-  %121 = getelementptr inbounds i8, ptr %116, i64 48
-  %122 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %110
-  %123 = getelementptr inbounds i8, ptr %116, i64 64
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 48
+  %122 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %11, i64 0, i64 %110
+  %123 = getelementptr inbounds nuw i8, ptr %116, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, i8 0, i64 16, i1 false)
   store ptr %122, ptr %123, align 8, !tbaa !23
   %124 = sub nsw i64 %87, %107
@@ -198,14 +198,14 @@ define noundef i32 @dtbmv_thread_TUN(i64 noundef %0, i64 noundef %1, ptr noundef
 
 .loopexit:                                        ; preds = %102, %55
   %126 = phi i64 [ %73, %55 ], [ %110, %102 ]
-  %127 = getelementptr inbounds i8, ptr %11, i64 48
+  %127 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr null, ptr %127, align 16, !tbaa !30
   %128 = add nsw i64 %0, 255
   %129 = and i64 %128, -256
   %130 = or disjoint i64 %129, 16
   %131 = mul nsw i64 %126, %130
   %132 = getelementptr inbounds double, ptr %6, i64 %131
-  %133 = getelementptr inbounds i8, ptr %11, i64 56
+  %133 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %132, ptr %133, align 8, !tbaa !31
   %134 = add nsw i64 %126, -1
   %135 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %134, i32 8
@@ -248,23 +248,23 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @trmv_kernel(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture readnone %3, ptr noundef %4, i64 %5) #0 {
   %7 = load ptr, ptr %0, align 8, !tbaa !10
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !11
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !12
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i64, ptr %12, align 8, !tbaa !9
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i64, ptr %15, align 8, !tbaa !13
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load i64, ptr %17, align 8, !tbaa !14
   %19 = icmp eq ptr %1, null
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %6
   %21 = load i64, ptr %1, align 8, !tbaa !15
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = mul nsw i64 %21, %16
   %24 = getelementptr inbounds double, ptr %7, i64 %23
   br label %25

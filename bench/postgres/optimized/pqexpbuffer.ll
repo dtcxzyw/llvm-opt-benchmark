@@ -29,9 +29,9 @@ define noalias noundef ptr @createPQExpBuffer() local_unnamed_addr #0 {
 
 initPQExpBuffer.exit:                             ; preds = %5, %6
   %.sink.i = phi i64 [ 0, %5 ], [ 256, %6 ]
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.sink.i, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %8, align 8
   br label %9
 
@@ -59,9 +59,9 @@ define void @initPQExpBuffer(ptr nocapture noundef writeonly initializes((0, 24)
 
 6:                                                ; preds = %5, %4
   %.sink = phi i64 [ 0, %4 ], [ 256, %5 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %8, align 8
   ret void
 }
@@ -100,7 +100,7 @@ define void @termPQExpBuffer(ptr nocapture noundef initializes((8, 24)) %0) loca
 
 4:                                                ; preds = %3, %1
   store ptr @oom_buffer, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   ret void
 }
@@ -119,7 +119,7 @@ define void @resetPQExpBuffer(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %.not5, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8
   store i8 0, ptr %3, align 1
   br label %13
@@ -140,9 +140,9 @@ define void @resetPQExpBuffer(ptr noundef %0) local_unnamed_addr #5 {
 
 initPQExpBuffer.exit:                             ; preds = %9, %10
   %.sink.i = phi i64 [ 0, %9 ], [ 256, %10 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink.i, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %12, align 8
   br label %13
 
@@ -156,13 +156,13 @@ define range(i32 0, 2) i32 @enlargePQExpBuffer(ptr noundef %0, i64 noundef %1) l
   br i1 %3, label %26, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %26, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 2147483647, %10
   %.not = icmp ult i64 %1, %11
@@ -242,10 +242,10 @@ define void @printfPQExpBuffer(ptr noundef %0, ptr noundef %1, ...) local_unname
   br i1 %.not5.i, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %9, align 8
   store i8 0, ptr %7, align 1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %17
 
@@ -265,9 +265,9 @@ define void @printfPQExpBuffer(ptr noundef %0, ptr noundef %1, ...) local_unname
 
 initPQExpBuffer.exit.i:                           ; preds = %14, %13
   %.sink.i.i = phi i64 [ 0, %13 ], [ 256, %14 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink.i.i, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %16, align 8
   br label %17
 
@@ -292,9 +292,9 @@ declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @appendPQExpBufferVA(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 16
   %9 = icmp ugt i64 %5, %8
@@ -435,7 +435,7 @@ define void @appendPQExpBuffer(ptr noundef %0, ptr noundef %1, ...) local_unname
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %.loopexit, label %.preheader
@@ -466,13 +466,13 @@ define void @appendBinaryPQExpBuffer(ptr noundef %0, ptr nocapture noundef reado
   br i1 %4, label %enlargePQExpBuffer.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %enlargePQExpBuffer.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 2147483647, %11
   %.not.i = icmp ult i64 %2, %12
@@ -561,13 +561,13 @@ define void @appendPQExpBufferChar(ptr noundef %0, i8 noundef signext %1) local_
   br i1 %3, label %enlargePQExpBuffer.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %enlargePQExpBuffer.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, -2
   %.not.i.not = icmp eq i64 %11, 2147483646

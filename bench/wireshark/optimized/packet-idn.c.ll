@@ -435,7 +435,7 @@ define internal i32 @dissect_idn(ptr noundef %0, ptr nocapture noundef readonly 
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
   %12 = load i32, ptr @ett_idn, align 4
   %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.161) #7
   %16 = load ptr, ptr %14, align 8
@@ -556,7 +556,7 @@ dissect_idn_header.exit:                          ; preds = %4, %4, %24
   br i1 %exitcond.not.i, label %dissect_idn_servicemap_response.exit, label %.lr.ph.i, !llvm.loop !4
 
 97:                                               ; preds = %dissect_idn_header.exit, %dissect_idn_header.exit, %dissect_idn_header.exit, %dissect_idn_header.exit
-  %98 = getelementptr inbounds i8, ptr %1, i64 408
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %99 = load ptr, ptr %98, align 8
   %100 = tail call noalias ptr @wmem_alloc(ptr noundef %99, i64 noundef 12) #7
   %101 = load i32, ptr @ett_idn_channel_message_header_tree, align 4
@@ -564,7 +564,7 @@ dissect_idn_header.exit:                          ; preds = %4, %4, %24
   %103 = load i32, ptr @hf_idn_total_size, align 4
   %104 = tail call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef range(i32 1, 5) %.sink.i, i32 noundef 2, i32 noundef 0) #7
   %105 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef range(i32 1, 5) %.sink.i, i32 noundef 2) #7
-  %106 = getelementptr inbounds i8, ptr %100, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i16 %105, ptr %106, align 4
   %107 = or disjoint i32 %.sink.i, 2
   %108 = load i32, ptr @hf_idn_cnl, align 4
@@ -575,19 +575,19 @@ dissect_idn_header.exit:                          ; preds = %4, %4, %24
   %113 = zext nneg i8 %112 to i32
   store i32 %113, ptr %100, align 4
   %114 = and i8 %111, 63
-  %115 = getelementptr inbounds i8, ptr %100, i64 10
+  %115 = getelementptr inbounds nuw i8, ptr %100, i64 10
   store i8 %114, ptr %115, align 2
   %116 = add nuw nsw i32 %.sink.i, 3
   %117 = load i32, ptr @hf_idn_chunk_type, align 4
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %117, ptr noundef %0, i32 noundef %116, i32 noundef 1, i32 noundef 0) #7
   %119 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %116) #7
-  %120 = getelementptr inbounds i8, ptr %100, i64 11
+  %120 = getelementptr inbounds nuw i8, ptr %100, i64 11
   store i8 %119, ptr %120, align 1
   %121 = add nuw nsw i32 %.sink.i, 4
   %122 = load i32, ptr @hf_idn_timestamp, align 4
   %123 = tail call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %122, ptr noundef %0, i32 noundef %121, i32 noundef 4, i32 noundef 0) #7
   %124 = or disjoint i32 %.sink.i, 8
-  %125 = getelementptr inbounds i8, ptr %100, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %100, i64 4
   store i32 0, ptr %125, align 4
   switch i8 %119, label %143 [
     i8 0, label %126
@@ -695,23 +695,23 @@ determine_message_type.exit.thread.i:             ; preds = %140
   %170 = load ptr, ptr %98, align 8
   %171 = tail call noalias ptr @wmem_alloc(ptr noundef %170, i64 noundef 192) #7
   store i32 1, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 8
-  %173 = getelementptr inbounds i8, ptr %1, i64 208
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %172, ptr noundef nonnull readonly align 8 dereferenceable(24) %173, i64 24, i1 false)
   %174 = getelementptr i8, ptr %171, i64 32
   store i32 2, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %1, i64 284
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %176 = load i32, ptr %175, align 4
   %177 = getelementptr i8, ptr %171, i64 40
   store i32 %176, ptr %177, align 8
   %178 = getelementptr i8, ptr %171, i64 64
   store i32 1, ptr %178, align 8
   %179 = getelementptr i8, ptr %171, i64 72
-  %180 = getelementptr inbounds i8, ptr %1, i64 232
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 232
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %179, ptr noundef nonnull readonly align 8 dereferenceable(24) %180, i64 24, i1 false)
   %181 = getelementptr i8, ptr %171, i64 96
   store i32 2, ptr %181, align 8
-  %182 = getelementptr inbounds i8, ptr %1, i64 288
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %183 = load i32, ptr %182, align 8
   %184 = getelementptr i8, ptr %171, i64 104
   store i32 %183, ptr %184, align 8
@@ -723,7 +723,7 @@ determine_message_type.exit.thread.i:             ; preds = %140
   store i32 0, ptr %187, align 8
   %188 = getelementptr i8, ptr %171, i64 168
   store i32 38, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %1, i64 20
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %190 = load i32, ptr %189, align 4
   %191 = tail call ptr @find_conversation_full(i32 noundef %190, ptr noundef nonnull %171) #7
   %.not.i.i.i = icmp eq ptr %191, null
@@ -731,7 +731,7 @@ determine_message_type.exit.thread.i:             ; preds = %140
   br i1 %.not.i.i.i, label %196, label %192
 
 192:                                              ; preds = %150
-  %193 = getelementptr inbounds i8, ptr %191, i64 28
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 28
   %194 = load i32, ptr %193, align 4
   %195 = icmp eq i32 %194, %.pre.i.i.i
   br i1 %195, label %198, label %196
@@ -762,7 +762,7 @@ determine_message_type.exit.thread.i:             ; preds = %140
   br i1 %.not83.i.i.i, label %210, label %208
 
 208:                                              ; preds = %205
-  %209 = getelementptr inbounds i8, ptr %207, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %207, i64 24
   store i32 0, ptr %209, align 8
   br label %dissect_idn_channel_configuration_header.exit.i.i
 
@@ -770,28 +770,28 @@ determine_message_type.exit.thread.i:             ; preds = %140
   %211 = tail call ptr @wmem_file_scope() #7
   %212 = tail call noalias ptr @wmem_alloc0(ptr noundef %211, i64 noundef 48) #7
   store i8 %157, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 1
   store i8 %163, ptr %213, align 1
-  %214 = getelementptr inbounds i8, ptr %212, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 24
   store i32 0, ptr %214, align 8
   %215 = tail call ptr @wmem_file_scope() #7
   %216 = tail call noalias ptr @wmem_alloc0(ptr noundef %215, i64 noundef 511) #7
-  %217 = getelementptr inbounds i8, ptr %212, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store ptr %216, ptr %217, align 8
   %218 = tail call ptr @wmem_file_scope() #7
   %219 = tail call noalias ptr @wmem_alloc0(ptr noundef %218, i64 noundef 2048) #7
-  %220 = getelementptr inbounds i8, ptr %212, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %212, i64 16
   store ptr %219, ptr %220, align 8
   %221 = tail call ptr @wmem_file_scope() #7
   %222 = zext i8 %157 to i64
   %223 = shl nuw nsw i64 %222, 2
   %224 = add nuw nsw i64 %223, 4
   %225 = tail call noalias ptr @wmem_alloc0(ptr noundef %221, i64 noundef %224) #7
-  %226 = getelementptr inbounds i8, ptr %212, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %212, i64 32
   store ptr %225, ptr %226, align 8
   %227 = tail call ptr @wmem_file_scope() #7
   %228 = tail call noalias ptr @wmem_alloc0(ptr noundef %227, i64 noundef %224) #7
-  %229 = getelementptr inbounds i8, ptr %212, i64 40
+  %229 = getelementptr inbounds nuw i8, ptr %212, i64 40
   store ptr %228, ptr %229, align 8
   %230 = load i32, ptr %189, align 4
   tail call void @wmem_tree_insert32(ptr noundef %.0.i.i.i, i32 noundef %230, ptr noundef nonnull %212) #7
@@ -819,8 +819,8 @@ dissect_idn_channel_configuration_header.exit.i.i: ; preds = %210, %208
   br i1 %.not86.i.i.i, label %dissect_idn_dmx_dictionary.exit.i.i, label %.lr.ph91.i.i.i
 
 .lr.ph91.i.i.i:                                   ; preds = %236
-  %240 = getelementptr inbounds i8, ptr %.077.i.i.i, i64 40
-  %241 = getelementptr inbounds i8, ptr %.077.i.i.i, i64 32
+  %240 = getelementptr inbounds nuw i8, ptr %.077.i.i.i, i64 40
+  %241 = getelementptr inbounds nuw i8, ptr %.077.i.i.i, i64 32
   br label %242
 
 242:                                              ; preds = %.loopexit.i.i.i, %.lr.ph91.i.i.i
@@ -969,7 +969,7 @@ dissect_idn_dmx_dictionary.exit.i.i:              ; preds = %.loopexit.i.i.i, %2
   br label %523
 
 320:                                              ; preds = %235
-  %321 = getelementptr inbounds i8, ptr %.077.i.i.i, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %.077.i.i.i, i64 16
   %322 = load ptr, ptr %321, align 8
   %323 = load i32, ptr @ett_dic_tree, align 4
   %324 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef range(i32 13, 17) %231, i32 noundef -1, i32 noundef %323, ptr noundef null, ptr noundef nonnull @.str.231) #7
@@ -979,8 +979,8 @@ dissect_idn_dmx_dictionary.exit.i.i:              ; preds = %.loopexit.i.i.i, %2
   br i1 %.not201.i.i.i, label %dissect_idn_laser_dictionary.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %320
-  %326 = getelementptr inbounds i8, ptr %.077.i.i.i, i64 24
-  %327 = getelementptr inbounds i8, ptr %.077.i.i.i, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %.077.i.i.i, i64 24
+  %327 = getelementptr inbounds nuw i8, ptr %.077.i.i.i, i64 8
   br label %328
 
 328:                                              ; preds = %.loopexit.i24.i.i, %.lr.ph.i.i.i
@@ -1306,23 +1306,23 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   %494 = load ptr, ptr %98, align 8
   %495 = tail call noalias ptr @wmem_alloc(ptr noundef %494, i64 noundef 192) #7
   store i32 1, ptr %495, align 8
-  %496 = getelementptr inbounds i8, ptr %495, i64 8
-  %497 = getelementptr inbounds i8, ptr %1, i64 208
+  %496 = getelementptr inbounds nuw i8, ptr %495, i64 8
+  %497 = getelementptr inbounds nuw i8, ptr %1, i64 208
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %496, ptr noundef nonnull readonly align 8 dereferenceable(24) %497, i64 24, i1 false)
   %498 = getelementptr i8, ptr %495, i64 32
   store i32 2, ptr %498, align 8
-  %499 = getelementptr inbounds i8, ptr %1, i64 284
+  %499 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %500 = load i32, ptr %499, align 4
   %501 = getelementptr i8, ptr %495, i64 40
   store i32 %500, ptr %501, align 8
   %502 = getelementptr i8, ptr %495, i64 64
   store i32 1, ptr %502, align 8
   %503 = getelementptr i8, ptr %495, i64 72
-  %504 = getelementptr inbounds i8, ptr %1, i64 232
+  %504 = getelementptr inbounds nuw i8, ptr %1, i64 232
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %503, ptr noundef nonnull readonly align 8 dereferenceable(24) %504, i64 24, i1 false)
   %505 = getelementptr i8, ptr %495, i64 96
   store i32 2, ptr %505, align 8
-  %506 = getelementptr inbounds i8, ptr %1, i64 288
+  %506 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %507 = load i32, ptr %506, align 8
   %508 = getelementptr i8, ptr %495, i64 104
   store i32 %507, ptr %508, align 8
@@ -1334,7 +1334,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
   store i32 0, ptr %511, align 8
   %512 = getelementptr i8, ptr %495, i64 168
   store i32 38, ptr %512, align 8
-  %513 = getelementptr inbounds i8, ptr %1, i64 20
+  %513 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %514 = load i32, ptr %513, align 4
   %515 = tail call ptr @find_conversation_full(i32 noundef %514, ptr noundef nonnull %495) #7
   %.not.i60.i = icmp eq ptr %515, null
@@ -1475,7 +1475,7 @@ dissect_idn_laser_dictionary.exit.i.i:            ; preds = %.loopexit.i24.i.i, 
 
 dissect_idn_chunk_header.exit.i:                  ; preds = %580, %564, %554, %544, %534, %531
   %.0.i61.i = phi i32 [ %.048.ph.ph.i, %531 ], [ %595, %580 ], [ %579, %564 ], [ %563, %554 ], [ %553, %544 ], [ %543, %534 ]
-  %596 = getelementptr inbounds i8, ptr %.077.ph.ph.i, i64 1
+  %596 = getelementptr inbounds nuw i8, ptr %.077.ph.ph.i, i64 1
   %597 = load i8, ptr %596, align 1
   %.not57.i = icmp eq i8 %533, %597
   br i1 %.not57.i, label %614, label %612
@@ -1496,7 +1496,7 @@ dissect_idn_chunk_header.exit.thread.i:           ; preds = %531, %.thread105.i
   %607 = load i32, ptr @hf_idn_offset, align 4
   %608 = tail call ptr @proto_tree_add_item(ptr noundef %599, i32 noundef %607, ptr noundef %0, i32 noundef %606, i32 noundef 2, i32 noundef 0) #7
   %609 = add i32 %.048.ph91102110.i, 4
-  %610 = getelementptr inbounds i8, ptr %.077.ph89104108.i, i64 1
+  %610 = getelementptr inbounds nuw i8, ptr %.077.ph89104108.i, i64 1
   %611 = load i8, ptr %610, align 1
   %.not57132.i = icmp eq i8 %.in.i, %611
   br i1 %.not57132.i, label %.thread.i, label %612
@@ -1596,9 +1596,9 @@ dissect_idn_octet_segment.exit.i:                 ; preds = %655, %._crit_edge.i
   br i1 %.not58.i, label %739, label %659
 
 659:                                              ; preds = %.thread111.i
-  %660 = getelementptr inbounds i8, ptr %.077.ph.ph.i, i64 32
+  %660 = getelementptr inbounds nuw i8, ptr %.077.ph.ph.i, i64 32
   %661 = load ptr, ptr %660, align 8
-  %662 = getelementptr inbounds i8, ptr %.077.ph.ph.i, i64 40
+  %662 = getelementptr inbounds nuw i8, ptr %.077.ph.ph.i, i64 40
   %663 = load ptr, ptr %662, align 8
   %664 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2115.i) #7
   %665 = and i32 %664, 65535
@@ -1741,7 +1741,7 @@ dissect_idn_dmx_sample_values.exit.i.i:           ; preds = %731, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5)
   store i8 0, ptr %5, align 16
   %740 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2115.i) #7
-  %741 = getelementptr inbounds i8, ptr %.077.ph.ph.i, i64 24
+  %741 = getelementptr inbounds nuw i8, ptr %.077.ph.ph.i, i64 24
   %742 = load i32, ptr %741, align 8
   %743 = icmp eq i32 %742, 0
   br i1 %743, label %dissect_idn_laser_data.exit.i, label %744
@@ -1749,14 +1749,14 @@ dissect_idn_dmx_sample_values.exit.i.i:           ; preds = %731, %._crit_edge.i
 744:                                              ; preds = %739
   %745 = sdiv i32 %740, %742
   %746 = load i32, ptr @ett_data, align 4
-  %747 = getelementptr inbounds i8, ptr %.077.ph.ph.i, i64 16
+  %747 = getelementptr inbounds nuw i8, ptr %.077.ph.ph.i, i64 16
   %748 = load ptr, ptr %747, align 8
   %749 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %13, ptr noundef %0, i32 noundef %.2115.i, i32 noundef %740, i32 noundef %746, ptr noundef null, ptr noundef nonnull @.str.264, ptr noundef %748) #7
   %.not48.i.i = icmp slt i32 %745, 1
   br i1 %.not48.i.i, label %dissect_idn_laser_data.exit.i, label %.lr.ph.i69.i
 
 .lr.ph.i69.i:                                     ; preds = %744
-  %750 = getelementptr inbounds i8, ptr %.077.ph.ph.i, i64 8
+  %750 = getelementptr inbounds nuw i8, ptr %.077.ph.ph.i, i64 8
   br label %751
 
 751:                                              ; preds = %set_laser_sample_values_string.exit.i.i, %.lr.ph.i69.i

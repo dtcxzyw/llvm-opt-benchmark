@@ -9,12 +9,12 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @list_make1_impl(i32 noundef %0, ptr %1) local_unnamed_addr #0 {
   %3 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 5, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %7, align 8
   store ptr %1, ptr %6, align 8
   ret ptr %3
@@ -27,12 +27,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local noundef ptr @list_make2_impl(i32 noundef %0, ptr %1, ptr %2) local_unnamed_addr #0 {
   %4 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %8, align 8
   store ptr %1, ptr %7, align 8
   %9 = getelementptr i8, ptr %4, i64 32
@@ -44,12 +44,12 @@ define dso_local noundef ptr @list_make2_impl(i32 noundef %0, ptr %1, ptr %2) lo
 define dso_local noundef ptr @list_make3_impl(i32 noundef %0, ptr %1, ptr %2, ptr %3) local_unnamed_addr #0 {
   %5 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 3, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   store ptr %1, ptr %8, align 8
   %10 = getelementptr i8, ptr %5, i64 32
@@ -63,12 +63,12 @@ define dso_local noundef ptr @list_make3_impl(i32 noundef %0, ptr %1, ptr %2, pt
 define dso_local noundef ptr @list_make4_impl(i32 noundef %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #0 {
   %6 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %9, ptr %10, align 8
   store ptr %1, ptr %9, align 8
   %11 = getelementptr i8, ptr %6, i64 32
@@ -84,12 +84,12 @@ define dso_local noundef ptr @list_make4_impl(i32 noundef %0, ptr %1, ptr %2, pt
 define dso_local noundef ptr @list_make5_impl(i32 noundef %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5) local_unnamed_addr #0 {
   %7 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 5, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %10, ptr %11, align 8
   store ptr %1, ptr %10, align 8
   %12 = getelementptr i8, ptr %7, i64 32
@@ -111,19 +111,19 @@ define dso_local noundef ptr @lappend(ptr noundef %0, ptr noundef %1) local_unna
 4:                                                ; preds = %2
   %5 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %42
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp slt i32 %12, %14
   br i1 %.not.i, label %new_tail_cell.exit, label %15
@@ -137,9 +137,9 @@ define dso_local noundef ptr @lappend(ptr noundef %0, ptr noundef %1) local_unna
   %21 = xor i32 %20, 31
   %22 = shl nuw i32 2, %21
   %.0.i.i.i = select i1 %19, i32 %17, i32 %22
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %27, label %35
 
@@ -193,19 +193,19 @@ define dso_local noundef ptr @lappend_int(ptr noundef %0, i32 noundef %1) local_
 4:                                                ; preds = %2
   %5 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 454, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %42
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp slt i32 %12, %14
   br i1 %.not.i, label %new_tail_cell.exit, label %15
@@ -219,9 +219,9 @@ define dso_local noundef ptr @lappend_int(ptr noundef %0, i32 noundef %1) local_
   %21 = xor i32 %20, 31
   %22 = shl nuw i32 2, %21
   %.0.i.i.i = select i1 %19, i32 %17, i32 %22
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %27, label %35
 
@@ -275,19 +275,19 @@ define dso_local noundef ptr @lappend_oid(ptr noundef %0, i32 noundef %1) local_
 4:                                                ; preds = %2
   %5 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 455, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %42
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp slt i32 %12, %14
   br i1 %.not.i, label %new_tail_cell.exit, label %15
@@ -301,9 +301,9 @@ define dso_local noundef ptr @lappend_oid(ptr noundef %0, i32 noundef %1) local_
   %21 = xor i32 %20, 31
   %22 = shl nuw i32 2, %21
   %.0.i.i.i = select i1 %19, i32 %17, i32 %22
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %27, label %35
 
@@ -357,19 +357,19 @@ define dso_local noundef ptr @lappend_xid(ptr noundef %0, i32 noundef %1) local_
 4:                                                ; preds = %2
   %5 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 456, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %42
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp slt i32 %12, %14
   br i1 %.not.i, label %new_tail_cell.exit, label %15
@@ -383,9 +383,9 @@ define dso_local noundef ptr @lappend_xid(ptr noundef %0, i32 noundef %1) local_
   %21 = xor i32 %20, 31
   %22 = shl nuw i32 2, %21
   %.0.i.i.i = select i1 %19, i32 %17, i32 %22
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %27, label %35
 
@@ -439,12 +439,12 @@ define dso_local noundef ptr @list_insert_nth(ptr noundef %0, i32 noundef %1, pt
 5:                                                ; preds = %3
   %6 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %9, ptr %10, align 8
   store ptr %2, ptr %9, align 8
   br label %13
@@ -461,9 +461,9 @@ define dso_local noundef ptr @list_insert_nth(ptr noundef %0, i32 noundef %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @insert_new_cell(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp slt i32 %4, %6
   br i1 %.not, label %31, label %7
@@ -477,9 +477,9 @@ define internal fastcc ptr @insert_new_cell(ptr noundef nonnull %0, i32 noundef 
   %13 = xor i32 %12, 31
   %14 = shl nuw i32 2, %13
   %.0.i.i = select i1 %11, i32 %9, i32 %14
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %19, label %27
 
@@ -517,7 +517,7 @@ enlarge_list.exit:                                ; preds = %19, %27
   br label %43
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = sext i32 %1 to i64
   %38 = getelementptr %union.ListCell, ptr %36, i64 %37
@@ -534,7 +534,7 @@ enlarge_list.exit:                                ; preds = %19, %27
   %44 = phi i32 [ %32, %._crit_edge ], [ %.pre16, %34 ]
   %45 = add i32 %44, 1
   store i32 %45, ptr %3, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr %union.ListCell, ptr %47, i64 %.pre-phi
   ret ptr %48
@@ -550,12 +550,12 @@ define dso_local noundef ptr @list_insert_nth_int(ptr noundef %0, i32 noundef %1
   %6 = inttoptr i64 %.sroa.0.0.insert.ext to ptr
   %7 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 454, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %10, ptr %11, align 8
   store ptr %6, ptr %10, align 8
   br label %14
@@ -580,12 +580,12 @@ define dso_local noundef ptr @list_insert_nth_oid(ptr noundef %0, i32 noundef %1
   %6 = inttoptr i64 %.sroa.0.0.insert.ext to ptr
   %7 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 455, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %10, ptr %11, align 8
   store ptr %6, ptr %10, align 8
   br label %14
@@ -608,19 +608,19 @@ define dso_local noundef ptr @lcons(ptr noundef %0, ptr noundef %1) local_unname
 4:                                                ; preds = %2
   %5 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %47
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp slt i32 %12, %14
   br i1 %.not.i, label %new_head_cell.exit, label %15
@@ -634,9 +634,9 @@ define dso_local noundef ptr @lcons(ptr noundef %0, ptr noundef %1) local_unname
   %21 = xor i32 %20, 31
   %22 = shl nuw i32 2, %21
   %.0.i.i.i = select i1 %19, i32 %17, i32 %22
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %27, label %35
 
@@ -666,7 +666,7 @@ enlarge_list.exit.i:                              ; preds = %35, %27
 
 new_head_cell.exit:                               ; preds = %10, %enlarge_list.exit.i
   %39 = phi i32 [ %.pre.i, %enlarge_list.exit.i ], [ %12, %10 ]
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 8
   %43 = sext i32 %39 to i64
@@ -693,19 +693,19 @@ define dso_local noundef ptr @lcons_int(i32 noundef %0, ptr noundef %1) local_un
 4:                                                ; preds = %2
   %5 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 454, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %47
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp slt i32 %12, %14
   br i1 %.not.i, label %new_head_cell.exit, label %15
@@ -719,9 +719,9 @@ define dso_local noundef ptr @lcons_int(i32 noundef %0, ptr noundef %1) local_un
   %21 = xor i32 %20, 31
   %22 = shl nuw i32 2, %21
   %.0.i.i.i = select i1 %19, i32 %17, i32 %22
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %27, label %35
 
@@ -751,7 +751,7 @@ enlarge_list.exit.i:                              ; preds = %35, %27
 
 new_head_cell.exit:                               ; preds = %10, %enlarge_list.exit.i
   %39 = phi i32 [ %.pre.i, %enlarge_list.exit.i ], [ %12, %10 ]
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 8
   %43 = sext i32 %39 to i64
@@ -778,19 +778,19 @@ define dso_local noundef ptr @lcons_oid(i32 noundef %0, ptr noundef %1) local_un
 4:                                                ; preds = %2
   %5 = tail call ptr @palloc(i64 noundef 64) #9
   store i32 455, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
   br label %47
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp slt i32 %12, %14
   br i1 %.not.i, label %new_head_cell.exit, label %15
@@ -804,9 +804,9 @@ define dso_local noundef ptr @lcons_oid(i32 noundef %0, ptr noundef %1) local_un
   %21 = xor i32 %20, 31
   %22 = shl nuw i32 2, %21
   %.0.i.i.i = select i1 %19, i32 %17, i32 %22
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %27, label %35
 
@@ -836,7 +836,7 @@ enlarge_list.exit.i:                              ; preds = %35, %27
 
 new_head_cell.exit:                               ; preds = %10, %enlarge_list.exit.i
   %39 = phi i32 [ %.pre.i, %enlarge_list.exit.i ], [ %12, %10 ]
-  %40 = getelementptr inbounds i8, ptr %1, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 8
   %43 = sext i32 %39 to i64
@@ -866,7 +866,7 @@ define dso_local noundef ptr @list_concat(ptr noundef %0, ptr noundef readonly %
 
 6:                                                ; preds = %5
   %7 = load i32, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 3
   %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 8)
@@ -882,14 +882,14 @@ define dso_local noundef ptr @list_concat(ptr noundef %0, ptr noundef readonly %
   %20 = add nuw nsw i64 %19, 24
   %21 = tail call ptr @palloc(i64 noundef %20) #9
   store i32 %7, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %9, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %17, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 24
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %9 to i64
   %29 = shl nsw i64 %28, 3
@@ -900,12 +900,12 @@ define dso_local noundef ptr @list_concat(ptr noundef %0, ptr noundef readonly %
   br i1 %4, label %list_copy.exit, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp sgt i32 %36, %38
   br i1 %39, label %40, label %63
@@ -918,9 +918,9 @@ define dso_local noundef ptr @list_concat(ptr noundef %0, ptr noundef readonly %
   %45 = xor i32 %44, 31
   %46 = shl nuw i32 2, %45
   %.0.i.i = select i1 %43, i32 %41, i32 %46
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = icmp eq ptr %48, %49
   br i1 %50, label %51, label %59
 
@@ -952,11 +952,11 @@ enlarge_list.exit:                                ; preds = %51, %59
 63:                                               ; preds = %enlarge_list.exit, %31
   %64 = phi i32 [ %.pre20, %enlarge_list.exit ], [ %35, %31 ]
   %65 = phi i32 [ %.pre, %enlarge_list.exit ], [ %33, %31 ]
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = sext i32 %65 to i64
   %69 = getelementptr %union.ListCell, ptr %67, i64 %68
-  %70 = getelementptr inbounds i8, ptr %1, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = sext i32 %64 to i64
   %73 = shl nsw i64 %72, 3
@@ -976,7 +976,7 @@ define dso_local noundef ptr @list_copy(ptr noundef readonly %0) local_unnamed_a
 
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 3
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 8)
@@ -992,14 +992,14 @@ define dso_local noundef ptr @list_copy(ptr noundef readonly %0) local_unnamed_a
   %17 = add nuw nsw i64 %16, 24
   %18 = tail call ptr @palloc(i64 noundef %17) #9
   store i32 %4, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %6, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %14, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
-  %22 = getelementptr inbounds i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %6 to i64
   %26 = shl nsw i64 %25, 3
@@ -1022,7 +1022,7 @@ define dso_local noundef ptr @list_concat_copy(ptr noundef readonly %0, ptr noun
 
 6:                                                ; preds = %5
   %7 = load i32, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 3
   %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 8)
@@ -1038,14 +1038,14 @@ define dso_local noundef ptr @list_concat_copy(ptr noundef readonly %0, ptr noun
   %20 = add nuw nsw i64 %19, 24
   %21 = tail call ptr @palloc(i64 noundef %20) #9
   store i32 %7, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %9, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %17, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 24
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %9 to i64
   %29 = shl nsw i64 %28, 3
@@ -1057,7 +1057,7 @@ define dso_local noundef ptr @list_concat_copy(ptr noundef readonly %0, ptr noun
 
 list_copy.exit20:                                 ; preds = %30
   %31 = load i32, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, 3
   %35 = tail call i32 @llvm.smax.i32(i32 %34, i32 8)
@@ -1073,14 +1073,14 @@ list_copy.exit20:                                 ; preds = %30
   %44 = add nuw nsw i64 %43, 24
   %45 = tail call ptr @palloc(i64 noundef %44) #9
   store i32 %31, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 %33, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %41, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 24
-  %49 = getelementptr inbounds i8, ptr %45, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = sext i32 %33 to i64
   %53 = shl nsw i64 %52, 3
@@ -1088,9 +1088,9 @@ list_copy.exit20:                                 ; preds = %30
   br label %list_copy.exit
 
 54:                                               ; preds = %30
-  %55 = getelementptr inbounds i8, ptr %0, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, %56
   %60 = load i32, ptr %0, align 8
@@ -1108,14 +1108,14 @@ list_copy.exit20:                                 ; preds = %30
   %71 = add nuw nsw i64 %70, 24
   %72 = tail call ptr @palloc(i64 noundef %71) #9
   store i32 %60, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 %59, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %72, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 %68, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 24
-  %76 = getelementptr inbounds i8, ptr %72, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = load i32, ptr %55, align 4
   %80 = sext i32 %79 to i64
@@ -1124,7 +1124,7 @@ list_copy.exit20:                                 ; preds = %30
   %82 = load i32, ptr %55, align 4
   %83 = sext i32 %82 to i64
   %84 = getelementptr %union.ListCell, ptr %75, i64 %83
-  %85 = getelementptr inbounds i8, ptr %1, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = load i32, ptr %57, align 4
   %88 = sext i32 %87 to i64
@@ -1145,7 +1145,7 @@ define dso_local noundef ptr @list_truncate(ptr noundef %0, i32 noundef %1) loca
   br i1 %or.cond, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %1, %5
   br i1 %6, label %7, label %list_length.exit.thread
@@ -1161,12 +1161,12 @@ list_length.exit.thread:                          ; preds = %list_length.exit, %
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @list_member(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph22, label %.thread
@@ -1195,12 +1195,12 @@ declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @list_member_ptr(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph22, label %.thread
@@ -1227,12 +1227,12 @@ define dso_local noundef zeroext i1 @list_member_ptr(ptr noundef readonly %0, pt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @list_member_int(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph21, label %.thread
@@ -1259,12 +1259,12 @@ define dso_local noundef zeroext i1 @list_member_int(ptr noundef readonly %0, i3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @list_member_oid(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph21, label %.thread
@@ -1291,12 +1291,12 @@ define dso_local noundef zeroext i1 @list_member_oid(ptr noundef readonly %0, i3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @list_member_xid(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph21, label %.thread
@@ -1323,15 +1323,15 @@ define dso_local noundef zeroext i1 @list_member_xid(ptr noundef readonly %0, i3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @list_delete_nth_cell(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   br i1 %5, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i.i = icmp eq ptr %7, %9
   br i1 %.not.i.i, label %list_free.exit, label %10
 
@@ -1370,9 +1370,9 @@ define dso_local void @list_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %list_free_private.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i = icmp eq ptr %5, %6
   br i1 %.not.i, label %8, label %7
 
@@ -1393,15 +1393,15 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @list_delete_cell(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i.i.i = icmp eq ptr %4, %9
   br i1 %.not.i.i.i, label %list_free.exit.i, label %10
 
@@ -1446,8 +1446,8 @@ define dso_local noundef ptr @list_delete(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not, label %list_delete_cell.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph25, label %list_delete_cell.exit
@@ -1473,7 +1473,7 @@ define dso_local noundef ptr @list_delete(ptr noundef %0, ptr noundef %1) local_
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %.split
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i.i.i.i = icmp eq ptr %15, %18
   br i1 %.not.i.i.i.i, label %list_free.exit.i.i, label %19
 
@@ -1519,13 +1519,13 @@ define dso_local noundef ptr @list_delete_ptr(ptr noundef %0, ptr noundef readno
   br i1 %.not, label %list_delete_cell.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph25, label %list_delete_cell.exit
 
 .lr.ph25:                                         ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %9
@@ -1547,7 +1547,7 @@ define dso_local noundef ptr @list_delete_ptr(ptr noundef %0, ptr noundef readno
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.split
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i.i.i.i = icmp eq ptr %7, %15
   br i1 %.not.i.i.i.i, label %list_free.exit.i.i, label %16
 
@@ -1588,13 +1588,13 @@ define dso_local noundef ptr @list_delete_int(ptr noundef %0, i32 noundef %1) lo
   br i1 %.not, label %list_delete_cell.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph24, label %list_delete_cell.exit
 
 .lr.ph24:                                         ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %9
@@ -1616,7 +1616,7 @@ define dso_local noundef ptr @list_delete_int(ptr noundef %0, i32 noundef %1) lo
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.split
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i.i.i.i = icmp eq ptr %7, %15
   br i1 %.not.i.i.i.i, label %list_free.exit.i.i, label %16
 
@@ -1657,13 +1657,13 @@ define dso_local noundef ptr @list_delete_oid(ptr noundef %0, i32 noundef %1) lo
   br i1 %.not, label %list_delete_cell.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph24, label %list_delete_cell.exit
 
 .lr.ph24:                                         ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %9
@@ -1685,7 +1685,7 @@ define dso_local noundef ptr @list_delete_oid(ptr noundef %0, i32 noundef %1) lo
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.split
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i.i.i.i = icmp eq ptr %7, %15
   br i1 %.not.i.i.i.i, label %list_free.exit.i.i, label %16
 
@@ -1726,15 +1726,15 @@ define dso_local noundef ptr @list_delete_first(ptr noundef %0) local_unnamed_ad
   br i1 %2, label %list_delete_nth_cell.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   br i1 %6, label %9, label %12
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i.i.i = icmp eq ptr %8, %10
   br i1 %.not.i.i.i, label %list_free.exit.i, label %11
 
@@ -1768,15 +1768,15 @@ define dso_local noundef ptr @list_delete_last(ptr noundef %0) local_unnamed_add
   br i1 %2, label %list_truncate.exit, label %list_length.exit
 
 list_length.exit:                                 ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 2
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %list_length.exit
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i.i = icmp eq ptr %8, %9
   br i1 %.not.i.i, label %list_free.exit, label %10
 
@@ -1808,15 +1808,15 @@ define dso_local noundef ptr @list_delete_first_n(ptr noundef %0, i32 noundef %1
   br i1 %.not.i, label %list_free.exit, label %list_length.exit
 
 list_length.exit:                                 ; preds = %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp slt i32 %1, %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %list_length.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i.i = icmp eq ptr %8, %10
   br i1 %.not.i.i, label %12, label %11
 
@@ -1852,7 +1852,7 @@ define dso_local ptr @list_union(ptr noundef readonly %0, ptr noundef readonly %
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 3
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 8)
@@ -1868,14 +1868,14 @@ define dso_local ptr @list_union(ptr noundef readonly %0, ptr noundef readonly %
   %18 = add nuw nsw i64 %17, 24
   %19 = tail call ptr @palloc(i64 noundef %18) #9
   store i32 %5, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %7, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %15, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %7 to i64
   %27 = shl nsw i64 %26, 3
@@ -1884,12 +1884,12 @@ define dso_local ptr @list_union(ptr noundef readonly %0, ptr noundef readonly %
 
 list_copy.exit:                                   ; preds = %2, %4
   %.0.i = phi ptr [ %19, %4 ], [ null, %2 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_copy.exit
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph25, label %._crit_edge
@@ -1900,12 +1900,12 @@ list_copy.exit:                                   ; preds = %2, %4
   %32 = load ptr, ptr %29, align 8
   %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %.01923, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.01923, i64 4
   %.not.i = icmp eq ptr %.01923, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph25
-  %36 = getelementptr inbounds i8, ptr %.01923, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.01923, i64 16
   %37 = load i32, ptr %35, align 4
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph22.i, label %.loopexit
@@ -1954,7 +1954,7 @@ define dso_local ptr @list_union_ptr(ptr noundef readonly %0, ptr noundef readon
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 3
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 8)
@@ -1970,14 +1970,14 @@ define dso_local ptr @list_union_ptr(ptr noundef readonly %0, ptr noundef readon
   %18 = add nuw nsw i64 %17, 24
   %19 = tail call ptr @palloc(i64 noundef %18) #9
   store i32 %5, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %7, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %15, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %7 to i64
   %27 = shl nsw i64 %26, 3
@@ -1986,12 +1986,12 @@ define dso_local ptr @list_union_ptr(ptr noundef readonly %0, ptr noundef readon
 
 list_copy.exit:                                   ; preds = %2, %4
   %.0.i = phi ptr [ %19, %4 ], [ null, %2 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_copy.exit
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph25, label %._crit_edge
@@ -2003,12 +2003,12 @@ list_copy.exit:                                   ; preds = %2, %4
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr %union.ListCell, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.01923, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.01923, i64 16
   %.not.i = icmp eq ptr %.01923, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph25
-  %37 = getelementptr inbounds i8, ptr %.01923, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.01923, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph22.i, label %.loopexit
@@ -2055,7 +2055,7 @@ define dso_local ptr @list_union_int(ptr noundef readonly %0, ptr noundef readon
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 3
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 8)
@@ -2071,14 +2071,14 @@ define dso_local ptr @list_union_int(ptr noundef readonly %0, ptr noundef readon
   %18 = add nuw nsw i64 %17, 24
   %19 = tail call ptr @palloc(i64 noundef %18) #9
   store i32 %5, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %7, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %15, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %7 to i64
   %27 = shl nsw i64 %26, 3
@@ -2087,12 +2087,12 @@ define dso_local ptr @list_union_int(ptr noundef readonly %0, ptr noundef readon
 
 list_copy.exit:                                   ; preds = %2, %4
   %.0.i = phi ptr [ %19, %4 ], [ null, %2 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_copy.exit
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph25, label %._crit_edge
@@ -2104,12 +2104,12 @@ list_copy.exit:                                   ; preds = %2, %4
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr %union.ListCell, ptr %33, i64 %indvars.iv
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.01923, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.01923, i64 16
   %.not.i = icmp eq ptr %.01923, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph25
-  %37 = getelementptr inbounds i8, ptr %.01923, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.01923, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph21.i, label %.loopexit
@@ -2156,7 +2156,7 @@ define dso_local ptr @list_union_oid(ptr noundef readonly %0, ptr noundef readon
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 3
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 8)
@@ -2172,14 +2172,14 @@ define dso_local ptr @list_union_oid(ptr noundef readonly %0, ptr noundef readon
   %18 = add nuw nsw i64 %17, 24
   %19 = tail call ptr @palloc(i64 noundef %18) #9
   store i32 %5, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %7, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %15, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 24
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %7 to i64
   %27 = shl nsw i64 %26, 3
@@ -2188,12 +2188,12 @@ define dso_local ptr @list_union_oid(ptr noundef readonly %0, ptr noundef readon
 
 list_copy.exit:                                   ; preds = %2, %4
   %.0.i = phi ptr [ %19, %4 ], [ null, %2 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_copy.exit
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph25, label %._crit_edge
@@ -2205,12 +2205,12 @@ list_copy.exit:                                   ; preds = %2, %4
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr %union.ListCell, ptr %33, i64 %indvars.iv
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.01923, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.01923, i64 16
   %.not.i = icmp eq ptr %.01923, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph25
-  %37 = getelementptr inbounds i8, ptr %.01923, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.01923, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph21.i, label %.loopexit
@@ -2258,15 +2258,15 @@ define dso_local ptr @list_intersection(ptr noundef readonly %0, ptr noundef rea
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.not21 = icmp sgt i32 %6, 0
   br i1 %.not21, label %.lr.ph.i.lr.ph, label %.loopexit
 
 .lr.ph.i.lr.ph:                                   ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %8, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph.i, label %.loopexit
@@ -2326,15 +2326,15 @@ define dso_local ptr @list_intersection_int(ptr noundef readonly %0, ptr noundef
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.not21 = icmp sgt i32 %6, 0
   br i1 %.not21, label %.lr.ph.i.lr.ph, label %.loopexit
 
 .lr.ph.i.lr.ph:                                   ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph.i, label %.loopexit
@@ -2395,14 +2395,14 @@ define dso_local ptr @list_difference(ptr noundef readonly %0, ptr noundef reado
   br i1 %3, label %10, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %list_copy.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %4, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i, label %list_copy.exit
@@ -2413,7 +2413,7 @@ define dso_local ptr @list_difference(ptr noundef readonly %0, ptr noundef reado
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 3
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 8)
@@ -2429,14 +2429,14 @@ define dso_local ptr @list_difference(ptr noundef readonly %0, ptr noundef reado
   %26 = add nuw nsw i64 %25, 24
   %27 = tail call ptr @palloc(i64 noundef %26) #9
   store i32 %13, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %15, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %23, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
-  %31 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %15 to i64
   %35 = shl nsw i64 %34, 3
@@ -2496,14 +2496,14 @@ define dso_local ptr @list_difference_ptr(ptr noundef readonly %0, ptr noundef r
   br i1 %3, label %10, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %list_copy.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %4, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i, label %list_copy.exit
@@ -2514,7 +2514,7 @@ define dso_local ptr @list_difference_ptr(ptr noundef readonly %0, ptr noundef r
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 3
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 8)
@@ -2530,14 +2530,14 @@ define dso_local ptr @list_difference_ptr(ptr noundef readonly %0, ptr noundef r
   %26 = add nuw nsw i64 %25, 24
   %27 = tail call ptr @palloc(i64 noundef %26) #9
   store i32 %13, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %15, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %23, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
-  %31 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %15 to i64
   %35 = shl nsw i64 %34, 3
@@ -2596,14 +2596,14 @@ define dso_local ptr @list_difference_int(ptr noundef readonly %0, ptr noundef r
   br i1 %3, label %10, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %list_copy.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %4, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i, label %list_copy.exit
@@ -2614,7 +2614,7 @@ define dso_local ptr @list_difference_int(ptr noundef readonly %0, ptr noundef r
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 3
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 8)
@@ -2630,14 +2630,14 @@ define dso_local ptr @list_difference_int(ptr noundef readonly %0, ptr noundef r
   %26 = add nuw nsw i64 %25, 24
   %27 = tail call ptr @palloc(i64 noundef %26) #9
   store i32 %13, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %15, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %23, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
-  %31 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %15 to i64
   %35 = shl nsw i64 %34, 3
@@ -2696,14 +2696,14 @@ define dso_local ptr @list_difference_oid(ptr noundef readonly %0, ptr noundef r
   br i1 %3, label %10, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %list_copy.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %4, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i, label %list_copy.exit
@@ -2714,7 +2714,7 @@ define dso_local ptr @list_difference_oid(ptr noundef readonly %0, ptr noundef r
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 3
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 8)
@@ -2730,14 +2730,14 @@ define dso_local ptr @list_difference_oid(ptr noundef readonly %0, ptr noundef r
   %26 = add nuw nsw i64 %25, 24
   %27 = tail call ptr @palloc(i64 noundef %26) #9
   store i32 %13, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %15, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %23, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
-  %31 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %15 to i64
   %35 = shl nsw i64 %34, 3
@@ -2792,12 +2792,12 @@ list_copy.exit:                                   ; preds = %list_member_oid.exi
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @list_append_unique(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph22.i, label %.loopexit
@@ -2828,12 +2828,12 @@ list_member.exit:                                 ; preds = %.lr.ph22.i, %.loope
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @list_append_unique_ptr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph22.i, label %.loopexit
@@ -2866,12 +2866,12 @@ list_member_ptr.exit:                             ; preds = %9, %.loopexit
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @list_append_unique_int(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph21.i, label %.loopexit
@@ -2904,12 +2904,12 @@ list_member_int.exit:                             ; preds = %9, %.loopexit
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @list_append_unique_oid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph21.i, label %.loopexit
@@ -2942,12 +2942,12 @@ list_member_oid.exit:                             ; preds = %9, %.loopexit
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @list_concat_unique(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph23, label %._crit_edge
@@ -2958,12 +2958,12 @@ define dso_local ptr @list_concat_unique(ptr noundef %0, ptr noundef readonly %1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.01721, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.01721, i64 4
   %.not.i = icmp eq ptr %.01721, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph23
-  %11 = getelementptr inbounds i8, ptr %.01721, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.01721, i64 16
   %12 = load i32, ptr %10, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph22.i, label %.loopexit
@@ -3007,12 +3007,12 @@ list_member.exit:                                 ; preds = %.lr.ph22.i, %.loope
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @list_concat_unique_ptr(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph23, label %._crit_edge
@@ -3024,12 +3024,12 @@ define dso_local ptr @list_concat_unique_ptr(ptr noundef %0, ptr noundef readonl
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.01721, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.01721, i64 16
   %.not.i = icmp eq ptr %.01721, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph23
-  %12 = getelementptr inbounds i8, ptr %.01721, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01721, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph22.i, label %.loopexit
@@ -3071,12 +3071,12 @@ list_member_ptr.exit:                             ; preds = %17, %.loopexit
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @list_concat_unique_int(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph23, label %._crit_edge
@@ -3088,12 +3088,12 @@ define dso_local ptr @list_concat_unique_int(ptr noundef %0, ptr noundef readonl
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.01721, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.01721, i64 16
   %.not.i = icmp eq ptr %.01721, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph23
-  %12 = getelementptr inbounds i8, ptr %.01721, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01721, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph21.i, label %.loopexit
@@ -3135,12 +3135,12 @@ list_member_int.exit:                             ; preds = %17, %.loopexit
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @list_concat_unique_oid(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph23, label %._crit_edge
@@ -3152,12 +3152,12 @@ define dso_local ptr @list_concat_unique_oid(ptr noundef %0, ptr noundef readonl
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.01721, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.01721, i64 16
   %.not.i = icmp eq ptr %.01721, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph23
-  %12 = getelementptr inbounds i8, ptr %.01721, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01721, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph21.i, label %.loopexit
@@ -3203,13 +3203,13 @@ define dso_local void @list_deduplicate_oid(ptr noundef %0) local_unnamed_addr #
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 1
   br i1 %4, label %5, label %list_length.exit.thread
 
 5:                                                ; preds = %list_length.exit
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %8
@@ -3253,13 +3253,13 @@ define dso_local void @list_free_deep(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %list_free_private.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %8
 
 8:                                                ; preds = %8, %.lr.ph.i
@@ -3275,9 +3275,9 @@ define dso_local void @list_free_deep(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %14, label %8, label %.loopexit.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %8, %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i = icmp eq ptr %16, %17
   br i1 %.not.i, label %19, label %18
 
@@ -3301,7 +3301,7 @@ define dso_local noundef ptr @list_copy_head(ptr noundef readonly %0, i32 nounde
   br i1 %or.cond, label %29, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %7, i32 %1)
   %8 = load i32, ptr %0, align 8
@@ -3319,14 +3319,14 @@ define dso_local noundef ptr @list_copy_head(ptr noundef readonly %0, i32 nounde
   %19 = add nuw nsw i64 %18, 24
   %20 = tail call ptr @palloc(i64 noundef %19) #9
   store i32 %8, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %., ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %16, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 24
-  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %. to i64
   %28 = shl nsw i64 %27, 3
@@ -3345,7 +3345,7 @@ define dso_local noundef ptr @list_copy_tail(ptr noundef readonly %0, i32 nounde
   br i1 %3, label %32, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %.not = icmp slt i32 %spec.store.select, %6
   br i1 %.not, label %7, label %32
@@ -3367,14 +3367,14 @@ define dso_local noundef ptr @list_copy_tail(ptr noundef readonly %0, i32 nounde
   %20 = add nuw nsw i64 %19, 24
   %21 = tail call ptr @palloc(i64 noundef %20) #9
   store i32 %8, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %9, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %17, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 24
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %spec.store.select to i64
   %29 = getelementptr %union.ListCell, ptr %27, i64 %28
@@ -3395,7 +3395,7 @@ define dso_local noundef ptr @list_copy_deep(ptr noundef readonly %0) local_unna
 
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 3
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 8)
@@ -3411,18 +3411,18 @@ define dso_local noundef ptr @list_copy_deep(ptr noundef readonly %0) local_unna
   %17 = add nuw nsw i64 %16, 24
   %18 = tail call ptr @palloc(i64 noundef %17) #9
   store i32 %4, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %6, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %14, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 24
-  %22 = getelementptr inbounds i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %21, ptr %22, align 8
   %23 = icmp sgt i32 %6, 0
   br i1 %23, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %25
 
 25:                                               ; preds = %.lr.ph, %25
@@ -3453,13 +3453,13 @@ define dso_local void @list_sort(ptr noundef readonly %0, ptr noundef %1) local_
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 1
   br i1 %5, label %6, label %list_length.exit.thread
 
 6:                                                ; preds = %list_length.exit
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = zext nneg i32 %4 to i64
   tail call void @pg_qsort(ptr noundef %8, i64 noundef %9, i64 noundef 8, ptr noundef %1) #9

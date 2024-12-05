@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define void @gvjobs_output_filename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 288
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %12
@@ -28,7 +28,7 @@ define void @gvjobs_output_filename(ptr noundef %0, ptr noundef %1) local_unname
 
 gv_alloc.exit:                                    ; preds = %5
   store ptr %6, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 296
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %6, ptr %11, align 8
   br label %23
 
@@ -38,7 +38,7 @@ gv_alloc.exit:                                    ; preds = %5
   br i1 %.not7, label %23, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not8 = icmp eq ptr %16, null
   br i1 %.not8, label %17, label %23
@@ -61,7 +61,7 @@ gv_alloc.exit9:                                   ; preds = %17
 23:                                               ; preds = %14, %gv_alloc.exit9, %12, %gv_alloc.exit
   %.sink = phi ptr [ %6, %gv_alloc.exit ], [ %4, %12 ], [ %18, %gv_alloc.exit9 ], [ %16, %14 ]
   store ptr %.sink, ptr @output_filename_job, align 8
-  %24 = getelementptr inbounds i8, ptr %.sink, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.sink, i64 64
   store ptr %1, ptr %24, align 8
   store ptr %0, ptr %.sink, align 8
   ret void
@@ -69,7 +69,7 @@ gv_alloc.exit9:                                   ; preds = %17
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @gvjobs_output_langname(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 288
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %12
@@ -87,7 +87,7 @@ define zeroext i1 @gvjobs_output_langname(ptr noundef %0, ptr noundef %1) local_
 
 gv_alloc.exit:                                    ; preds = %5
   store ptr %6, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 296
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %6, ptr %11, align 8
   br label %23
 
@@ -97,7 +97,7 @@ gv_alloc.exit:                                    ; preds = %5
   br i1 %.not11, label %23, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %17, label %23
@@ -120,7 +120,7 @@ gv_alloc.exit14:                                  ; preds = %17
 23:                                               ; preds = %14, %gv_alloc.exit14, %12, %gv_alloc.exit
   %.sink = phi ptr [ %6, %gv_alloc.exit ], [ %4, %12 ], [ %18, %gv_alloc.exit14 ], [ %16, %14 ]
   store ptr %.sink, ptr @output_langname_job, align 8
-  %24 = getelementptr inbounds i8, ptr %.sink, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %.sink, i64 96
   store ptr %1, ptr %24, align 8
   store ptr %0, ptr %.sink, align 8
   %25 = tail call ptr @gvplugin_load(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %1, ptr noundef null) #15
@@ -132,30 +132,30 @@ declare ptr @gvplugin_load(ptr noundef, i32 noundef, ptr noundef, ptr noundef) l
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @gvjobs_first(ptr nocapture noundef initializes((296, 304)) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 296
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %3, ptr %4, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @gvjobs_next(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 296
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %5, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %8 = load ptr, ptr %7, align 8
   %.not7 = icmp eq ptr %8, null
   br i1 %.not7, label %9, label %12
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %7, align 8
   br label %12
@@ -167,7 +167,7 @@ define ptr @gvjobs_next(ptr nocapture noundef %0) local_unnamed_addr #4 {
 
 ; Function Attrs: nounwind uwtable
 define void @gv_argvlist_set_item(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %.not = icmp slt i32 %1, %5
   %.pre = load ptr, ptr %0, align 8
@@ -205,27 +205,27 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @gvjobs_delete(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %.not12 = icmp eq ptr %3, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.013 = phi ptr [ %5, %.lr.ph ], [ %3, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.013, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.013, i64 744
+  %6 = getelementptr inbounds nuw i8, ptr %.013, i64 744
   %7 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %7) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %8 = getelementptr inbounds i8, ptr %.013, i64 728
+  %8 = getelementptr inbounds nuw i8, ptr %.013, i64 728
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %10 = getelementptr inbounds i8, ptr %.013, i64 712
+  %10 = getelementptr inbounds nuw i8, ptr %.013, i64 712
   %11 = load ptr, ptr %10, align 8
   tail call void @free(ptr noundef %11) #15
-  %12 = getelementptr inbounds i8, ptr %.013, i64 720
+  %12 = getelementptr inbounds nuw i8, ptr %.013, i64 720
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #15
   tail call void @free(ptr noundef nonnull %.013) #15
@@ -235,9 +235,9 @@ define void @gvjobs_delete(ptr nocapture noundef %0) local_unnamed_addr #1 {
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store ptr null, ptr @output_langname_job, align 8
   store ptr null, ptr @output_filename_job, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 352
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void

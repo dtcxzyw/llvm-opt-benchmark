@@ -39,9 +39,9 @@ declare ptr @get_compress_algorithm_name(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @AllocateCompressor(ptr noundef byval(%struct.pg_compress_specification) align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @pg_malloc0(i64 noundef 80) #9
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %2, ptr %6, align 8
   %7 = load i32, ptr %0, align 8
   switch i32 %7, label %12 [
@@ -83,7 +83,7 @@ declare void @InitCompressorZstd(ptr noundef, ptr noundef byval(%struct.pg_compr
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @EndCompressor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef %0, ptr noundef %1) #9
   tail call void @pg_free(ptr noundef %1) #9
@@ -208,7 +208,7 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
 34:                                               ; preds = %hasSuffix.exit, %22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store i32 1, ptr %3, align 8
-  %.sroa.10.0..sroa_idx35 = getelementptr inbounds i8, ptr %3, i64 4
+  %.sroa.10.0..sroa_idx35 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.0..sroa_idx35, i8 0, i64 28, i1 false)
   %35 = tail call ptr @pg_malloc0(i64 noundef 112) #9
   tail call void @InitCompressFileHandleGzip(ptr noundef %35, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #9
@@ -217,7 +217,7 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
 36:                                               ; preds = %hasSuffix.exit16, %28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store i32 2, ptr %3, align 8
-  %.sroa.10.0..sroa_idx39 = getelementptr inbounds i8, ptr %3, i64 4
+  %.sroa.10.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.0..sroa_idx39, i8 0, i64 28, i1 false)
   %37 = tail call ptr @pg_malloc0(i64 noundef 112) #9
   tail call void @InitCompressFileHandleLZ4(ptr noundef %37, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #9
@@ -226,7 +226,7 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
 select.unfold:                                    ; preds = %30, %hasSuffix.exit21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store i32 3, ptr %3, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.10.0..sroa_idx, i8 0, i64 28, i1 false)
   %38 = tail call ptr @pg_malloc0(i64 noundef 112) #9
   tail call void @InitCompressFileHandleZstd(ptr noundef %38, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %3) #9
@@ -279,13 +279,13 @@ define internal fastcc noundef zeroext i1 @check_compressed_file(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @EndCompressFileHandle(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 %6(ptr noundef nonnull %0) #9
   br label %8

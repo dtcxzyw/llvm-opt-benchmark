@@ -634,24 +634,24 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat($_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEC5Ev) align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 7, ptr %3, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEC2Em(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #3 comdat($_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEC5Em) align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 7, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %6
@@ -671,7 +671,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %2, %6
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -687,21 +687,21 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 comdat($_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEC5EOS3_) align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 7, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -722,23 +722,23 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEeqERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 7
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN7xgboost4CastIKNS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEKS2_EEPT_PT0_(ptr noundef nonnull %1)
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 2
-  %17 = getelementptr inbounds i8, ptr %7, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %8, align 8
   %20 = ptrtoint ptr %18 to i64
@@ -803,7 +803,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastIKNS_14JsonTypedArrayIfLNS_5Val
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonTypedArray", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 7
   br i1 %11, label %12, label %14
@@ -892,13 +892,13 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE, i64 16), ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %8, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EED2Ev.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %8, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %46 to i64
@@ -958,13 +958,13 @@ _ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EED2Ev.exit: ; preds = %44, %
 69:                                               ; preds = %68, %62
   %.pn.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %63, %62 ]
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE, i64 16), ptr %8, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i24 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i24, label %_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EED2Ev.exit25, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %8, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %74 = load ptr, ptr %73, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = ptrtoint ptr %71 to i64
@@ -1009,13 +1009,13 @@ _ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EED2Ev.exit25: ; preds = %72,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNKR7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EE3SetEmf(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, float noundef %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds float, ptr %5, i64 %1
   store float %2, ptr %6, align 4
@@ -1024,8 +1024,8 @@ define weak_odr void @_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EE3SetE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EE4SizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -1038,7 +1038,7 @@ define weak_odr noundef i64 @_ZNK7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EE4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -1046,19 +1046,19 @@ define weak_odr void @_ZNK7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EE4Sav
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNO7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNR7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EE9IsClassOfEPKS1_(ptr noundef %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 7
   ret i1 %4
@@ -1066,24 +1066,24 @@ define weak_odr noundef zeroext i1 @_ZN7xgboost14JsonTypedArrayIfLNS_5Value9Valu
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat($_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEC5Ev) align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 8, ptr %3, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEC2Em(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #3 comdat($_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEC5Em) align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 8, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %6
@@ -1103,7 +1103,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %2, %6
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -1117,21 +1117,21 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %7, %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 comdat($_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEC5EOS3_) align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 8, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -1140,22 +1140,22 @@ define weak_odr void @_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEC2EOS
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEeqERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 8
   br i1 %5, label %6, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES7_EbT_S8_T0_.exit
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN7xgboost4CastIKNS_14JsonTypedArrayIdLNS_5Value9ValueKindE8EEEKS2_EEPT_PT0_(ptr noundef nonnull %1)
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %8, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1174,8 +1174,8 @@ define weak_odr noundef zeroext i1 @_ZNK7xgboost14JsonTypedArrayIdLNS_5Value9Val
   %23 = load double, ptr %.0810.i.i.i.i, align 8
   %24 = load double, ptr %.011.i.i.i.i, align 8
   %25 = fcmp oeq double %23, %24
-  %26 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 8
-  %27 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp ne ptr %26, %17
   %or.cond.not = select i1 %25, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES7_EbT_S8_T0_.exit, !llvm.loop !10
@@ -1194,7 +1194,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastIKNS_14JsonTypedArrayIdLNS_5Val
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonTypedArray.0", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 8
   br i1 %11, label %12, label %14
@@ -1283,13 +1283,13 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE, i64 16), ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %8, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EED2Ev.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %8, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %46 to i64
@@ -1349,13 +1349,13 @@ _ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EED2Ev.exit: ; preds = %44, %
 69:                                               ; preds = %68, %62
   %.pn.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %63, %62 ]
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE, i64 16), ptr %8, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i24 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i24, label %_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EED2Ev.exit25, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %8, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %74 = load ptr, ptr %73, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = ptrtoint ptr %71 to i64
@@ -1400,13 +1400,13 @@ _ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EED2Ev.exit25: ; preds = %72,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNKR7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EE3SetEmd(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, double noundef %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds double, ptr %5, i64 %1
   store double %2, ptr %6, align 8
@@ -1415,8 +1415,8 @@ define weak_odr void @_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EE3SetE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EE4SizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -1429,7 +1429,7 @@ define weak_odr noundef i64 @_ZNK7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EE4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -1437,19 +1437,19 @@ define weak_odr void @_ZNK7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EE4Sav
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNO7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNR7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EE9IsClassOfEPKS1_(ptr noundef %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 8
   ret i1 %4
@@ -1457,24 +1457,24 @@ define weak_odr noundef zeroext i1 @_ZN7xgboost14JsonTypedArrayIdLNS_5Value9Valu
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat($_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEC5Ev) align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 9, ptr %3, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEC2Em(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #3 comdat($_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEC5Em) align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 9, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %1)
           to label %6 unwind label %7
@@ -1490,7 +1490,7 @@ define weak_odr void @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEC2Em(
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -1504,7 +1504,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %7, %10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -1515,7 +1515,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
@@ -1529,7 +1529,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1
-  %20 = getelementptr inbounds i8, ptr %4, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %21 = add i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
@@ -1557,14 +1557,14 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %25
   %28 = add nuw i64 %.sroa.speculated.i.i, %8
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 9223372036854775807)
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #36
-  %31 = getelementptr inbounds i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %8
   store i8 0, ptr %31, align 1
   %32 = add nsw i64 %11, -1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit31.i, label %34
 
 34:                                               ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
-  %35 = getelementptr inbounds i8, ptr %31, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %32, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit31.i
 
@@ -1589,7 +1589,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   store ptr %30, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %30, i64 %1
   store ptr %39, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %30, i64 %29
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   store ptr %40, ptr %12, align 8
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -1612,21 +1612,21 @@ _ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit:   ; preds = %45, %43, %_ZNSt12_V
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 comdat($_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEC5EOS3_) align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 9, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -1635,22 +1635,22 @@ define weak_odr void @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEC2EOS
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEeqERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 9
   br i1 %5, label %6, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEES7_EbT_S8_T0_.exit
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN7xgboost4CastIKNS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEEKS2_EEPT_PT0_(ptr noundef nonnull %1)
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %8, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -1682,7 +1682,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastIKNS_14JsonTypedArrayIhLNS_5Val
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonTypedArray.6", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 9
   br i1 %11, label %12, label %14
@@ -1771,13 +1771,13 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE, i64 16), ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %8, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EED2Ev.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %8, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %46 to i64
@@ -1837,13 +1837,13 @@ _ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EED2Ev.exit: ; preds = %44, %
 69:                                               ; preds = %68, %62
   %.pn.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %63, %62 ]
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE, i64 16), ptr %8, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i24 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i24, label %_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EED2Ev.exit25, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %8, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %74 = load ptr, ptr %73, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = ptrtoint ptr %71 to i64
@@ -1888,13 +1888,13 @@ _ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EED2Ev.exit25: ; preds = %72,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNKR7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EE3SetEmh(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 %1
   store i8 %2, ptr %6, align 1
@@ -1903,8 +1903,8 @@ define weak_odr void @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EE3SetE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EE4SizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -1916,7 +1916,7 @@ define weak_odr noundef i64 @_ZNK7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EE4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -1924,19 +1924,19 @@ define weak_odr void @_ZNK7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EE4Sav
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNO7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNR7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EE9IsClassOfEPKS1_(ptr noundef %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 9
   ret i1 %4
@@ -1944,24 +1944,24 @@ define weak_odr noundef zeroext i1 @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9Valu
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat($_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEC5Ev) align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 10, ptr %3, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEC2Em(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #3 comdat($_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEC5Em) align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 10, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %6
@@ -1981,7 +1981,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %2, %6
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -1995,21 +1995,21 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %7, %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 comdat($_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEC5EOS3_) align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 10, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -2018,22 +2018,22 @@ define weak_odr void @_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEC2EO
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEeqERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 10
   br i1 %5, label %6, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEES7_EbT_S8_T0_.exit
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN7xgboost4CastIKNS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEEKS2_EEPT_PT0_(ptr noundef nonnull %1)
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %8, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -2065,7 +2065,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastIKNS_14JsonTypedArrayIiLNS_5Val
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonTypedArray.13", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 10
   br i1 %11, label %12, label %14
@@ -2154,13 +2154,13 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE, i64 16), ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %8, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EED2Ev.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %8, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %46 to i64
@@ -2220,13 +2220,13 @@ _ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EED2Ev.exit: ; preds = %44, 
 69:                                               ; preds = %68, %62
   %.pn.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %63, %62 ]
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE, i64 16), ptr %8, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i24 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i24, label %_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EED2Ev.exit25, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %8, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %74 = load ptr, ptr %73, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = ptrtoint ptr %71 to i64
@@ -2271,13 +2271,13 @@ _ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EED2Ev.exit25: ; preds = %72
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNKR7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EE3SetEmi(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i32, ptr %5, i64 %1
   store i32 %2, ptr %6, align 4
@@ -2286,8 +2286,8 @@ define weak_odr void @_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EE3Set
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EE4SizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -2300,7 +2300,7 @@ define weak_odr noundef i64 @_ZNK7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EE4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -2308,19 +2308,19 @@ define weak_odr void @_ZNK7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EE4Sa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNO7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNR7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EE9IsClassOfEPKS1_(ptr noundef %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 10
   ret i1 %4
@@ -2328,24 +2328,24 @@ define weak_odr noundef zeroext i1 @_ZN7xgboost14JsonTypedArrayIiLNS_5Value9Valu
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat($_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEC5Ev) align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 11, ptr %3, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEC2Em(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #3 comdat($_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEC5Em) align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 11, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %6
@@ -2365,7 +2365,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %2, %6
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
@@ -2379,21 +2379,21 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %7, %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 comdat($_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEC5EOS3_) align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 11, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -2402,22 +2402,22 @@ define weak_odr void @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEC2EO
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZNK7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEeqERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 11
   br i1 %5, label %6, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEES7_EbT_S8_T0_.exit
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN7xgboost4CastIKNS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEEKS2_EEPT_PT0_(ptr noundef nonnull %1)
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %8, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -2449,7 +2449,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastIKNS_14JsonTypedArrayIlLNS_5Val
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonTypedArray.20", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 11
   br i1 %11, label %12, label %14
@@ -2538,13 +2538,13 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE, i64 16), ptr %8, align 8
-  %45 = getelementptr inbounds i8, ptr %8, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EED2Ev.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %8, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %46 to i64
@@ -2604,13 +2604,13 @@ _ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EED2Ev.exit: ; preds = %44, 
 69:                                               ; preds = %68, %62
   %.pn.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %63, %62 ]
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE, i64 16), ptr %8, align 8
-  %70 = getelementptr inbounds i8, ptr %8, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %71 = load ptr, ptr %70, align 8
   %.not.i.i.i.i24 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i24, label %_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EED2Ev.exit25, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %8, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %74 = load ptr, ptr %73, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = ptrtoint ptr %71 to i64
@@ -2655,13 +2655,13 @@ _ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EED2Ev.exit25: ; preds = %72
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNKR7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EE3SetEml(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i64, ptr %5, i64 %1
   store i64 %2, ptr %6, align 8
@@ -2670,8 +2670,8 @@ define weak_odr void @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EE3Set
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i64 @_ZNK7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EE4SizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -2684,7 +2684,7 @@ define weak_odr noundef i64 @_ZNK7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EE4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -2692,19 +2692,19 @@ define weak_odr void @_ZNK7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EE4Sa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNO7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNR7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EE8GetArrayEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef zeroext i1 @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EE9IsClassOfEPKS1_(ptr noundef %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 11
   ret i1 %4
@@ -2714,7 +2714,7 @@ define weak_odr noundef zeroext i1 @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9Valu
 define void @_ZN7xgboost10JsonWriter4SaveENS_4JsonE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %0)
   ret void
@@ -2724,11 +2724,11 @@ define void @_ZN7xgboost10JsonWriter4SaveENS_4JsonE(ptr noundef nonnull align 8 
 define void @_ZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %7, %9
   br i1 %.not.i.i, label %13, label %10
@@ -2736,7 +2736,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayE(ptr noundef nonnull 
 10:                                               ; preds = %2
   store i8 91, ptr %7, align 1
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %6, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
 
@@ -2777,7 +2777,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %24, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %30 = getelementptr inbounds i8, ptr %27, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %.not.i17.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %31
 
@@ -2788,13 +2788,13 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %26, ptr %5, align 8
   store ptr %30, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 %23
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %23
   store ptr %32, ptr %8, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, %10
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
   %.not7.i = icmp eq ptr %35, %36
@@ -2820,13 +2820,13 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   br i1 %.not.i.i.i.i.i, label %"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.exit.i", label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.val.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %47 = atomicrmw add ptr %46, i32 1 monotonic, align 4, !noalias !23
   br label %"_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.exit.i"
 
 "_ZZN7xgboost10JsonWriter5VisitEPKNS_9JsonArrayEENK3$_0clINS_4JsonEEEDaRKT_.exit.i": ; preds = %45, %42
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   invoke void %50(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
           to label %51 unwind label %90
@@ -2837,7 +2837,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   br i1 %.not.i.i.i14.i, label %_ZN7xgboost4JsonD2Ev.exit.i, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %52, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = atomicrmw sub ptr %54, i32 1 release, align 4
   %56 = icmp eq i32 %55, 1
   br i1 %56, label %57, label %_ZN7xgboost4JsonD2Ev.exit.i
@@ -2845,7 +2845,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
 57:                                               ; preds = %53
   fence acquire
   %58 = load ptr, ptr %52, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(16) %52) #14
   br label %_ZN7xgboost4JsonD2Ev.exit.i
@@ -2856,9 +2856,9 @@ _ZN7xgboost4JsonD2Ev.exit.i:                      ; preds = %57, %53, %51
 
 61:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit.i
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %62, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %66 = load ptr, ptr %65, align 8
   %.not.i15.i = icmp eq ptr %64, %66
   br i1 %.not.i15.i, label %70, label %67
@@ -2866,7 +2866,7 @@ _ZN7xgboost4JsonD2Ev.exit.i:                      ; preds = %57, %53, %51
 67:                                               ; preds = %61
   store i8 44, ptr %64, align 1
   %68 = load ptr, ptr %63, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   store ptr %69, ptr %63, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i
 
@@ -2907,7 +2907,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i19.i: ; preds = %81, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i: ; preds = %86, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i19.i
-  %87 = getelementptr inbounds i8, ptr %84, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %.not.i17.i.i21.i = icmp eq ptr %71, null
   br i1 %.not.i17.i.i21.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i22.i, label %88
 
@@ -2918,7 +2918,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i: ; preds = %86, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i22.i: ; preds = %88, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i
   store ptr %83, ptr %62, align 8
   store ptr %87, ptr %63, align 8
-  %89 = getelementptr inbounds i8, ptr %83, i64 %80
+  %89 = getelementptr inbounds nuw i8, ptr %83, i64 %80
   store ptr %89, ptr %65, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i
 
@@ -2930,7 +2930,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   br i1 %.not.i.i.i24.i, label %_ZN7xgboost4JsonD2Ev.exit25.i, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %95 = atomicrmw sub ptr %94, i32 1 release, align 4
   %96 = icmp eq i32 %95, 1
   br i1 %96, label %97, label %_ZN7xgboost4JsonD2Ev.exit25.i
@@ -2938,7 +2938,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 97:                                               ; preds = %93
   fence acquire
   %98 = load ptr, ptr %92, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull align 8 dereferenceable(16) %92) #14
   br label %_ZN7xgboost4JsonD2Ev.exit25.i
@@ -2953,9 +2953,9 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
   %102 = load ptr, ptr %4, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %102, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %106 = load ptr, ptr %105, align 8
   %.not.i26.i = icmp eq ptr %104, %106
   br i1 %.not.i26.i, label %110, label %107
@@ -2963,7 +2963,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
 107:                                              ; preds = %._crit_edge.i
   store i8 93, ptr %104, align 1
   %108 = load ptr, ptr %103, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1
   store ptr %109, ptr %103, align 8
   br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_9JsonArrayEZNS0_5VisitEPKS2_E3$_0EEvPKT_OT0_.exit"
 
@@ -3004,7 +3004,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30.i: ; preds = %121, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i: ; preds = %126, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30.i
-  %127 = getelementptr inbounds i8, ptr %124, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 1
   %.not.i17.i.i32.i = icmp eq ptr %111, null
   br i1 %.not.i17.i.i32.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i, label %128
 
@@ -3015,7 +3015,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i: ; preds = %126, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i: ; preds = %128, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i
   store ptr %123, ptr %102, align 8
   store ptr %127, ptr %103, align 8
-  %129 = getelementptr inbounds i8, ptr %123, i64 %120
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 %120
   store ptr %129, ptr %105, align 8
   br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_9JsonArrayEZNS0_5VisitEPKS2_E3$_0EEvPKT_OT0_.exit"
 
@@ -3028,11 +3028,11 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %7, %9
   br i1 %.not.i.i, label %13, label %10
@@ -3040,7 +3040,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9Val
 10:                                               ; preds = %2
   store i8 91, ptr %7, align 1
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %6, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
 
@@ -3081,7 +3081,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %24, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %30 = getelementptr inbounds i8, ptr %27, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %.not.i17.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %31
 
@@ -3092,13 +3092,13 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %26, ptr %5, align 8
   store ptr %30, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 %23
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %23
   store ptr %32, ptr %8, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, %10
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
   %.not7.i = icmp eq ptr %35, %36
@@ -3120,17 +3120,17 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   %45 = load float, ptr %44, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %46 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36, !noalias !27
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 0, ptr %47, align 4, !noalias !27
-  %48 = getelementptr inbounds i8, ptr %46, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 1, ptr %48, align 4, !noalias !27
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonNumberE, i64 16), ptr %46, align 8, !noalias !27
-  %49 = getelementptr inbounds i8, ptr %46, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store float %45, ptr %49, align 8, !noalias !27
   store ptr %46, ptr %3, align 8, !alias.scope !27
   %50 = atomicrmw add ptr %47, i32 1 monotonic, align 4, !noalias !27
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   invoke void %53(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
           to label %54 unwind label %93
@@ -3141,7 +3141,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   br i1 %.not.i.i.i14.i, label %_ZN7xgboost4JsonD2Ev.exit.i, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = atomicrmw sub ptr %57, i32 1 release, align 4
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %60, label %_ZN7xgboost4JsonD2Ev.exit.i
@@ -3149,7 +3149,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
 60:                                               ; preds = %56
   fence acquire
   %61 = load ptr, ptr %55, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(16) %55) #14
   br label %_ZN7xgboost4JsonD2Ev.exit.i
@@ -3160,9 +3160,9 @@ _ZN7xgboost4JsonD2Ev.exit.i:                      ; preds = %60, %56, %54
 
 64:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit.i
   %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %69 = load ptr, ptr %68, align 8
   %.not.i15.i = icmp eq ptr %67, %69
   br i1 %.not.i15.i, label %73, label %70
@@ -3170,7 +3170,7 @@ _ZN7xgboost4JsonD2Ev.exit.i:                      ; preds = %60, %56, %54
 70:                                               ; preds = %64
   store i8 44, ptr %67, align 1
   %71 = load ptr, ptr %66, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   store ptr %72, ptr %66, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i
 
@@ -3211,7 +3211,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i19.i: ; preds = %84, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i: ; preds = %89, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i19.i
-  %90 = getelementptr inbounds i8, ptr %87, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 1
   %.not.i17.i.i21.i = icmp eq ptr %74, null
   br i1 %.not.i17.i.i21.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i22.i, label %91
 
@@ -3222,7 +3222,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i: ; preds = %89, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i22.i: ; preds = %91, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i
   store ptr %86, ptr %65, align 8
   store ptr %90, ptr %66, align 8
-  %92 = getelementptr inbounds i8, ptr %86, i64 %83
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 %83
   store ptr %92, ptr %68, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i
 
@@ -3234,7 +3234,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   br i1 %.not.i.i.i24.i, label %_ZN7xgboost4JsonD2Ev.exit25.i, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %95, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = atomicrmw sub ptr %97, i32 1 release, align 4
   %99 = icmp eq i32 %98, 1
   br i1 %99, label %100, label %_ZN7xgboost4JsonD2Ev.exit25.i
@@ -3242,7 +3242,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 100:                                              ; preds = %96
   fence acquire
   %101 = load ptr, ptr %95, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   call void %103(ptr noundef nonnull align 8 dereferenceable(16) %95) #14
   br label %_ZN7xgboost4JsonD2Ev.exit25.i
@@ -3257,9 +3257,9 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
   %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %105, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %109 = load ptr, ptr %108, align 8
   %.not.i26.i = icmp eq ptr %107, %109
   br i1 %.not.i26.i, label %113, label %110
@@ -3267,7 +3267,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
 110:                                              ; preds = %._crit_edge.i
   store i8 93, ptr %107, align 1
   %111 = load ptr, ptr %106, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
   store ptr %112, ptr %106, align 8
   br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEZNS0_5VisitEPKS5_E3$_0EEvPKT_OT0_.exit"
 
@@ -3308,7 +3308,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30.i: ; preds = %124, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i: ; preds = %129, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30.i
-  %130 = getelementptr inbounds i8, ptr %127, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 1
   %.not.i17.i.i32.i = icmp eq ptr %114, null
   br i1 %.not.i17.i.i32.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i, label %131
 
@@ -3319,7 +3319,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i: ; preds = %129, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i: ; preds = %131, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i
   store ptr %126, ptr %105, align 8
   store ptr %130, ptr %106, align 8
-  %132 = getelementptr inbounds i8, ptr %126, i64 %123
+  %132 = getelementptr inbounds nuw i8, ptr %126, i64 %123
   store ptr %132, ptr %108, align 8
   br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEEZNS0_5VisitEPKS5_E3$_0EEvPKT_OT0_.exit"
 
@@ -3332,11 +3332,11 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %7, %9
   br i1 %.not.i.i, label %13, label %10
@@ -3344,7 +3344,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIhLNS_5Value9Val
 10:                                               ; preds = %2
   store i8 91, ptr %7, align 1
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %6, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
 
@@ -3385,7 +3385,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %24, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %30 = getelementptr inbounds i8, ptr %27, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %.not.i17.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %31
 
@@ -3396,13 +3396,13 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %26, ptr %5, align 8
   store ptr %30, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 %23
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %23
   store ptr %32, ptr %8, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, %10
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
   %.not7.i = icmp eq ptr %35, %36
@@ -3424,17 +3424,17 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %45 = zext i8 %44 to i64
   %46 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36, !noalias !31
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 0, ptr %47, align 4, !noalias !31
-  %48 = getelementptr inbounds i8, ptr %46, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 2, ptr %48, align 4, !noalias !31
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonIntegerE, i64 16), ptr %46, align 8, !noalias !31
-  %49 = getelementptr inbounds i8, ptr %46, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i64 %45, ptr %49, align 8, !noalias !31
   store ptr %46, ptr %3, align 8, !alias.scope !31
   %50 = atomicrmw add ptr %47, i32 1 monotonic, align 4, !noalias !31
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   invoke void %53(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
           to label %54 unwind label %93
@@ -3445,7 +3445,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   br i1 %.not.i.i.i14.i, label %_ZN7xgboost4JsonD2Ev.exit.i, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = atomicrmw sub ptr %57, i32 1 release, align 4
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %60, label %_ZN7xgboost4JsonD2Ev.exit.i
@@ -3453,7 +3453,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
 60:                                               ; preds = %56
   fence acquire
   %61 = load ptr, ptr %55, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(16) %55) #14
   br label %_ZN7xgboost4JsonD2Ev.exit.i
@@ -3464,9 +3464,9 @@ _ZN7xgboost4JsonD2Ev.exit.i:                      ; preds = %60, %56, %54
 
 64:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit.i
   %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %69 = load ptr, ptr %68, align 8
   %.not.i15.i = icmp eq ptr %67, %69
   br i1 %.not.i15.i, label %73, label %70
@@ -3474,7 +3474,7 @@ _ZN7xgboost4JsonD2Ev.exit.i:                      ; preds = %60, %56, %54
 70:                                               ; preds = %64
   store i8 44, ptr %67, align 1
   %71 = load ptr, ptr %66, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   store ptr %72, ptr %66, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i
 
@@ -3515,7 +3515,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i19.i: ; preds = %84, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i: ; preds = %89, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i19.i
-  %90 = getelementptr inbounds i8, ptr %87, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 1
   %.not.i17.i.i21.i = icmp eq ptr %74, null
   br i1 %.not.i17.i.i21.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i22.i, label %91
 
@@ -3526,7 +3526,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i: ; preds = %89, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i22.i: ; preds = %91, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i
   store ptr %86, ptr %65, align 8
   store ptr %90, ptr %66, align 8
-  %92 = getelementptr inbounds i8, ptr %86, i64 %83
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 %83
   store ptr %92, ptr %68, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i
 
@@ -3538,7 +3538,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   br i1 %.not.i.i.i24.i, label %_ZN7xgboost4JsonD2Ev.exit25.i, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %95, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = atomicrmw sub ptr %97, i32 1 release, align 4
   %99 = icmp eq i32 %98, 1
   br i1 %99, label %100, label %_ZN7xgboost4JsonD2Ev.exit25.i
@@ -3546,7 +3546,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 100:                                              ; preds = %96
   fence acquire
   %101 = load ptr, ptr %95, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   call void %103(ptr noundef nonnull align 8 dereferenceable(16) %95) #14
   br label %_ZN7xgboost4JsonD2Ev.exit25.i
@@ -3561,9 +3561,9 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
   %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %105, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %109 = load ptr, ptr %108, align 8
   %.not.i26.i = icmp eq ptr %107, %109
   br i1 %.not.i26.i, label %113, label %110
@@ -3571,7 +3571,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
 110:                                              ; preds = %._crit_edge.i
   store i8 93, ptr %107, align 1
   %111 = load ptr, ptr %106, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
   store ptr %112, ptr %106, align 8
   br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
@@ -3612,7 +3612,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30.i: ; preds = %124, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i: ; preds = %129, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30.i
-  %130 = getelementptr inbounds i8, ptr %127, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 1
   %.not.i17.i.i32.i = icmp eq ptr %114, null
   br i1 %.not.i17.i.i32.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i, label %131
 
@@ -3623,7 +3623,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i: ; preds = %129, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i: ; preds = %131, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i
   store ptr %126, ptr %105, align 8
   store ptr %130, ptr %106, align 8
-  %132 = getelementptr inbounds i8, ptr %126, i64 %123
+  %132 = getelementptr inbounds nuw i8, ptr %126, i64 %123
   store ptr %132, ptr %108, align 8
   br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
@@ -3636,11 +3636,11 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %7, %9
   br i1 %.not.i.i, label %13, label %10
@@ -3648,7 +3648,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIiLNS_5Value9Val
 10:                                               ; preds = %2
   store i8 91, ptr %7, align 1
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %6, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
 
@@ -3689,7 +3689,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %24, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %30 = getelementptr inbounds i8, ptr %27, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %.not.i17.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %31
 
@@ -3700,13 +3700,13 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %26, ptr %5, align 8
   store ptr %30, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 %23
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %23
   store ptr %32, ptr %8, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, %10
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
   %.not7.i = icmp eq ptr %35, %36
@@ -3729,17 +3729,17 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %46 = sext i32 %45 to i64
   %47 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36, !noalias !35
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 0, ptr %48, align 4, !noalias !35
-  %49 = getelementptr inbounds i8, ptr %47, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 2, ptr %49, align 4, !noalias !35
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonIntegerE, i64 16), ptr %47, align 8, !noalias !35
-  %50 = getelementptr inbounds i8, ptr %47, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i64 %46, ptr %50, align 8, !noalias !35
   store ptr %47, ptr %3, align 8, !alias.scope !35
   %51 = atomicrmw add ptr %48, i32 1 monotonic, align 4, !noalias !35
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
   invoke void %54(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
           to label %55 unwind label %94
@@ -3750,7 +3750,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   br i1 %.not.i.i.i14.i, label %_ZN7xgboost4JsonD2Ev.exit.i, label %57
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = atomicrmw sub ptr %58, i32 1 release, align 4
   %60 = icmp eq i32 %59, 1
   br i1 %60, label %61, label %_ZN7xgboost4JsonD2Ev.exit.i
@@ -3758,7 +3758,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
 61:                                               ; preds = %57
   fence acquire
   %62 = load ptr, ptr %56, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(16) %56) #14
   br label %_ZN7xgboost4JsonD2Ev.exit.i
@@ -3769,9 +3769,9 @@ _ZN7xgboost4JsonD2Ev.exit.i:                      ; preds = %61, %57, %55
 
 65:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit.i
   %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %66, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %70 = load ptr, ptr %69, align 8
   %.not.i15.i = icmp eq ptr %68, %70
   br i1 %.not.i15.i, label %74, label %71
@@ -3779,7 +3779,7 @@ _ZN7xgboost4JsonD2Ev.exit.i:                      ; preds = %61, %57, %55
 71:                                               ; preds = %65
   store i8 44, ptr %68, align 1
   %72 = load ptr, ptr %67, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   store ptr %73, ptr %67, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i
 
@@ -3820,7 +3820,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i19.i: ; preds = %85, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i: ; preds = %90, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i19.i
-  %91 = getelementptr inbounds i8, ptr %88, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 1
   %.not.i17.i.i21.i = icmp eq ptr %75, null
   br i1 %.not.i17.i.i21.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i22.i, label %92
 
@@ -3831,7 +3831,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i: ; preds = %90, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i22.i: ; preds = %92, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i
   store ptr %87, ptr %66, align 8
   store ptr %91, ptr %67, align 8
-  %93 = getelementptr inbounds i8, ptr %87, i64 %84
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 %84
   store ptr %93, ptr %69, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i
 
@@ -3843,7 +3843,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   br i1 %.not.i.i.i24.i, label %_ZN7xgboost4JsonD2Ev.exit25.i, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %96, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %99 = atomicrmw sub ptr %98, i32 1 release, align 4
   %100 = icmp eq i32 %99, 1
   br i1 %100, label %101, label %_ZN7xgboost4JsonD2Ev.exit25.i
@@ -3851,7 +3851,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 101:                                              ; preds = %97
   fence acquire
   %102 = load ptr, ptr %96, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
   call void %104(ptr noundef nonnull align 8 dereferenceable(16) %96) #14
   br label %_ZN7xgboost4JsonD2Ev.exit25.i
@@ -3866,9 +3866,9 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
   %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %106, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %110 = load ptr, ptr %109, align 8
   %.not.i26.i = icmp eq ptr %108, %110
   br i1 %.not.i26.i, label %114, label %111
@@ -3876,7 +3876,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
 111:                                              ; preds = %._crit_edge.i
   store i8 93, ptr %108, align 1
   %112 = load ptr, ptr %107, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1
   store ptr %113, ptr %107, align 8
   br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
@@ -3917,7 +3917,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30.i: ; preds = %125, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i: ; preds = %130, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30.i
-  %131 = getelementptr inbounds i8, ptr %128, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 1
   %.not.i17.i.i32.i = icmp eq ptr %115, null
   br i1 %.not.i17.i.i32.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i, label %132
 
@@ -3928,7 +3928,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i: ; preds = %130, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i: ; preds = %132, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i
   store ptr %127, ptr %106, align 8
   store ptr %131, ptr %107, align 8
-  %133 = getelementptr inbounds i8, ptr %127, i64 %124
+  %133 = getelementptr inbounds nuw i8, ptr %127, i64 %124
   store ptr %133, ptr %109, align 8
   br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
@@ -3941,11 +3941,11 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %7, %9
   br i1 %.not.i.i, label %13, label %10
@@ -3953,7 +3953,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_14JsonTypedArrayIlLNS_5Value9Val
 10:                                               ; preds = %2
   store i8 91, ptr %7, align 1
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %6, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
 
@@ -3994,7 +3994,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %24, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %30 = getelementptr inbounds i8, ptr %27, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %.not.i17.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %31
 
@@ -4005,13 +4005,13 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %26, ptr %5, align 8
   store ptr %30, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 %23
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %23
   store ptr %32, ptr %8, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, %10
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
   %.not7.i = icmp eq ptr %35, %36
@@ -4033,17 +4033,17 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   %45 = load i64, ptr %44, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %46 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36, !noalias !39
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 0, ptr %47, align 4, !noalias !39
-  %48 = getelementptr inbounds i8, ptr %46, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 12
   store i32 2, ptr %48, align 4, !noalias !39
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonIntegerE, i64 16), ptr %46, align 8, !noalias !39
-  %49 = getelementptr inbounds i8, ptr %46, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i64 %45, ptr %49, align 8, !noalias !39
   store ptr %46, ptr %3, align 8, !alias.scope !39
   %50 = atomicrmw add ptr %47, i32 1 monotonic, align 4, !noalias !39
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   invoke void %53(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
           to label %54 unwind label %93
@@ -4054,7 +4054,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
   br i1 %.not.i.i.i14.i, label %_ZN7xgboost4JsonD2Ev.exit.i, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = atomicrmw sub ptr %57, i32 1 release, align 4
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %60, label %_ZN7xgboost4JsonD2Ev.exit.i
@@ -4062,7 +4062,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i: ; preds = %_ZNSt6vectorI
 60:                                               ; preds = %56
   fence acquire
   %61 = load ptr, ptr %55, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(16) %55) #14
   br label %_ZN7xgboost4JsonD2Ev.exit.i
@@ -4073,9 +4073,9 @@ _ZN7xgboost4JsonD2Ev.exit.i:                      ; preds = %60, %56, %54
 
 64:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit.i
   %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %69 = load ptr, ptr %68, align 8
   %.not.i15.i = icmp eq ptr %67, %69
   br i1 %.not.i15.i, label %73, label %70
@@ -4083,7 +4083,7 @@ _ZN7xgboost4JsonD2Ev.exit.i:                      ; preds = %60, %56, %54
 70:                                               ; preds = %64
   store i8 44, ptr %67, align 1
   %71 = load ptr, ptr %66, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   store ptr %72, ptr %66, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i
 
@@ -4124,7 +4124,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i19.i: ; preds = %84, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i: ; preds = %89, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i19.i
-  %90 = getelementptr inbounds i8, ptr %87, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 1
   %.not.i17.i.i21.i = icmp eq ptr %74, null
   br i1 %.not.i17.i.i21.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i22.i, label %91
 
@@ -4135,7 +4135,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i: ; preds = %89, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i22.i: ; preds = %91, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i20.i
   store ptr %86, ptr %65, align 8
   store ptr %90, ptr %66, align 8
-  %92 = getelementptr inbounds i8, ptr %86, i64 %83
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 %83
   store ptr %92, ptr %68, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i
 
@@ -4147,7 +4147,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   br i1 %.not.i.i.i24.i, label %_ZN7xgboost4JsonD2Ev.exit25.i, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %95, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = atomicrmw sub ptr %97, i32 1 release, align 4
   %99 = icmp eq i32 %98, 1
   br i1 %99, label %100, label %_ZN7xgboost4JsonD2Ev.exit25.i
@@ -4155,7 +4155,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 100:                                              ; preds = %96
   fence acquire
   %101 = load ptr, ptr %95, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   call void %103(ptr noundef nonnull align 8 dereferenceable(16) %95) #14
   br label %_ZN7xgboost4JsonD2Ev.exit25.i
@@ -4170,9 +4170,9 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
 
 ._crit_edge.i:                                    ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit.i
   %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %105, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %109 = load ptr, ptr %108, align 8
   %.not.i26.i = icmp eq ptr %107, %109
   br i1 %.not.i26.i, label %113, label %110
@@ -4180,7 +4180,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23.i: ; preds = %_ZNSt6vecto
 110:                                              ; preds = %._crit_edge.i
   store i8 93, ptr %107, align 1
   %111 = load ptr, ptr %106, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
   store ptr %112, ptr %106, align 8
   br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
@@ -4221,7 +4221,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30.i: ; preds = %124, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i: ; preds = %129, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30.i
-  %130 = getelementptr inbounds i8, ptr %127, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 1
   %.not.i17.i.i32.i = icmp eq ptr %114, null
   br i1 %.not.i17.i.i32.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i, label %131
 
@@ -4232,7 +4232,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i: ; preds = %129, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33.i: ; preds = %131, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31.i
   store ptr %126, ptr %105, align 8
   store ptr %130, ptr %106, align 8
-  %132 = getelementptr inbounds i8, ptr %126, i64 %123
+  %132 = getelementptr inbounds nuw i8, ptr %126, i64 %123
   store ptr %132, ptr %108, align 8
   br label %"_ZN7xgboost10JsonWriter10WriteArrayINS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEERNS_12_GLOBAL__N_13$_2EEEvPKT_OT0_.exit"
 
@@ -4245,11 +4245,11 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonObjectE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::JsonString", align 8
   %4 = alloca %"class.xgboost::Json", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %8, %10
   br i1 %.not.i, label %14, label %11
@@ -4257,7 +4257,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonObjectE(ptr noundef nonnul
 11:                                               ; preds = %2
   store i8 123, ptr %8, align 1
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %13, ptr %7, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
@@ -4298,7 +4298,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i: ; preds = %25, %_ZNKSt6vect
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %30, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
-  %31 = getelementptr inbounds i8, ptr %28, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %.not.i17.i.i = icmp eq ptr %15, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i, label %32
 
@@ -4309,45 +4309,45 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %30, %_ZNSt
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
   store ptr %27, ptr %6, align 8
   store ptr %31, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 %24
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 %24
   store ptr %33, ptr %9, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit: ; preds = %11, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i
-  %34 = getelementptr inbounds i8, ptr %1, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not5862 = icmp eq ptr %35, %36
   br i1 %.not5862, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
-  %37 = getelementptr inbounds i8, ptr %1, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 12
-  %41 = getelementptr inbounds i8, ptr %3, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = add i64 %38, -1
   br label %43
 
 43:                                               ; preds = %.lr.ph, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit36
   %.01264 = phi i64 [ 0, %.lr.ph ], [ %133, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit36 ]
   %.sroa.053.063 = phi ptr [ %35, %.lr.ph ], [ %134, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit36 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.053.063, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.053.063, i64 32
   store i32 0, ptr %39, align 8
   store i32 0, ptr %40, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %44)
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 104
   %47 = load ptr, ptr %46, align 8
   invoke void %47(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
           to label %48 unwind label %.loopexit
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %53 = load ptr, ptr %52, align 8
   %.not.i14 = icmp eq ptr %51, %53
   br i1 %.not.i14, label %57, label %54
@@ -4355,7 +4355,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit: ; preds = %11, %_ZNSt6vect
 54:                                               ; preds = %48
   store i8 58, ptr %51, align 1
   %55 = load ptr, ptr %50, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store ptr %56, ptr %50, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23
 
@@ -4399,7 +4399,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i18: ; preds = %67, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i19
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i19: ; preds = %72, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i18
-  %73 = getelementptr inbounds i8, ptr %70, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 1
   %.not.i17.i.i20 = icmp eq ptr %58, null
   br i1 %.not.i17.i.i20, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i21, label %74
 
@@ -4410,25 +4410,25 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i19: ; preds = %72, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i21: ; preds = %74, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i19
   store ptr %69, ptr %49, align 8
   store ptr %73, ptr %50, align 8
-  %75 = getelementptr inbounds i8, ptr %69, i64 %66
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 %66
   store ptr %75, ptr %52, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23: ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i21, %54
-  %76 = getelementptr inbounds i8, ptr %.sroa.053.063, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.053.063, i64 64
   %77 = load ptr, ptr %76, align 8
   store ptr %77, ptr %4, align 8
   %.not.i.i.i24 = icmp eq ptr %77, null
   br i1 %.not.i.i.i24, label %_ZN7xgboost4JsonC2ERKS0_.exit, label %78
 
 78:                                               ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23
-  %79 = getelementptr inbounds i8, ptr %77, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = atomicrmw add ptr %79, i32 1 monotonic, align 4
   br label %_ZN7xgboost4JsonC2ERKS0_.exit
 
 _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %78, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit23
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   invoke void %83(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4)
           to label %84 unwind label %122
@@ -4439,7 +4439,7 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %78, %_ZNSt6vectorIc
   br i1 %.not.i.i.i25, label %_ZN7xgboost4JsonD2Ev.exit, label %86
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %85, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = atomicrmw sub ptr %87, i32 1 release, align 4
   %89 = icmp eq i32 %88, 1
   br i1 %89, label %90, label %_ZN7xgboost4JsonD2Ev.exit
@@ -4447,7 +4447,7 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %78, %_ZNSt6vectorIc
 90:                                               ; preds = %86
   fence acquire
   %91 = load ptr, ptr %85, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8
   call void %93(ptr noundef nonnull align 8 dereferenceable(16) %85) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
@@ -4458,9 +4458,9 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %84, %86, %90
 
 94:                                               ; preds = %_ZN7xgboost4JsonD2Ev.exit
   %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %95, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %99 = load ptr, ptr %98, align 8
   %.not.i26 = icmp eq ptr %97, %99
   br i1 %.not.i26, label %103, label %100
@@ -4468,7 +4468,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %84, %86, %90
 100:                                              ; preds = %94
   store i8 44, ptr %97, align 1
   %101 = load ptr, ptr %96, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
   store ptr %102, ptr %96, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit36
 
@@ -4505,7 +4505,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30: ; preds = %113, %_ZNKSt6v
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31: ; preds = %118, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i30
-  %119 = getelementptr inbounds i8, ptr %116, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 1
   %.not.i17.i.i32 = icmp eq ptr %104, null
   br i1 %.not.i17.i.i32, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33, label %120
 
@@ -4516,7 +4516,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31: ; preds = %118, %_Z
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i33: ; preds = %120, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i31
   store ptr %115, ptr %95, align 8
   store ptr %119, ptr %96, align 8
-  %121 = getelementptr inbounds i8, ptr %115, i64 %112
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 %112
   store ptr %121, ptr %98, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit36
 
@@ -4538,7 +4538,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   br i1 %.not.i.i.i37, label %_ZN7xgboost4JsonD2Ev.exit38, label %125
 
 125:                                              ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %124, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %127 = atomicrmw sub ptr %126, i32 1 release, align 4
   %128 = icmp eq i32 %127, 1
   br i1 %128, label %129, label %_ZN7xgboost4JsonD2Ev.exit38
@@ -4546,7 +4546,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 129:                                              ; preds = %125
   fence acquire
   %130 = load ptr, ptr %124, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
   call void %132(ptr noundef nonnull align 8 dereferenceable(16) %124) #14
   br label %_ZN7xgboost4JsonD2Ev.exit38
@@ -4567,9 +4567,9 @@ _ZN7xgboost4JsonD2Ev.exit38:                      ; preds = %.loopexit, %.loopex
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit36, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
   %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %135, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %139 = load ptr, ptr %138, align 8
   %.not.i39 = icmp eq ptr %137, %139
   br i1 %.not.i39, label %143, label %140
@@ -4577,7 +4577,7 @@ _ZN7xgboost4JsonD2Ev.exit38:                      ; preds = %.loopexit, %.loopex
 140:                                              ; preds = %._crit_edge
   store i8 125, ptr %137, align 1
   %141 = load ptr, ptr %136, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 1
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 1
   store ptr %142, ptr %136, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit47
 
@@ -4618,7 +4618,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i43: ; preds = %154, %_ZNKSt6v
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i44
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i44: ; preds = %159, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i43
-  %160 = getelementptr inbounds i8, ptr %157, i64 1
+  %160 = getelementptr inbounds nuw i8, ptr %157, i64 1
   %.not.i17.i.i45 = icmp eq ptr %144, null
   br i1 %.not.i17.i.i45, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i46, label %161
 
@@ -4629,7 +4629,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i44: ; preds = %159, %_Z
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i46: ; preds = %161, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i44
   store ptr %156, ptr %135, align 8
   store ptr %160, ptr %136, align 8
-  %162 = getelementptr inbounds i8, ptr %156, i64 %153
+  %162 = getelementptr inbounds nuw i8, ptr %156, i64 %153
   store ptr %162, ptr %138, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit47
 
@@ -4644,7 +4644,7 @@ define linkonce_odr void @_ZN7xgboost4JsonD2Ev(ptr noundef nonnull align 8 deref
   br i1 %.not.i.i, label %_ZN7xgboost12IntrusivePtrINS_5ValueEED2Ev.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = atomicrmw sub ptr %4, i32 1 release, align 4
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %_ZN7xgboost12IntrusivePtrINS_5ValueEED2Ev.exit
@@ -4652,7 +4652,7 @@ define linkonce_odr void @_ZN7xgboost4JsonD2Ev(ptr noundef nonnull align 8 deref
 7:                                                ; preds = %3
   fence acquire
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
   br label %_ZN7xgboost12IntrusivePtrINS_5ValueEED2Ev.exit
@@ -4664,7 +4664,7 @@ _ZN7xgboost12IntrusivePtrINS_5ValueEED2Ev.exit:   ; preds = %1, %3, %7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost10JsonStringD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   ret void
 }
@@ -4672,17 +4672,17 @@ define linkonce_odr void @_ZN7xgboost10JsonStringD2Ev(ptr noundef nonnull align 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
   %3 = alloca %"struct.std::array", align 1
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load float, ptr %5, align 4
   %7 = call noundef i32 @_ZN7xgboost6detail16ToCharsFloatImplEfPc(float noundef %6, ptr noundef nonnull %3)
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %3, i64 %8
   %10 = icmp ult ptr %9, %4
   %..i = select i1 %10, ptr %9, ptr %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -4704,7 +4704,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonNumberE(ptr nocapture noun
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -4715,7 +4715,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
 
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
@@ -4729,7 +4729,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
 
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1
-  %20 = getelementptr inbounds i8, ptr %4, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %21 = add i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %23
@@ -4757,14 +4757,14 @@ _ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i:  ; preds = %25
   %28 = add nuw i64 %.sroa.speculated.i.i, %8
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 9223372036854775807)
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #36
-  %31 = getelementptr inbounds i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %8
   store i8 0, ptr %31, align 1
   %32 = add nsw i64 %11, -1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit31.i, label %34
 
 34:                                               ; preds = %_ZNKSt6vectorIcSaIcEE12_M_check_lenEmPKc.exit.i
-  %35 = getelementptr inbounds i8, ptr %31, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %32, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit31.i
 
@@ -4789,7 +4789,7 @@ _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit34.i: ; preds = %37, %_ZNSt6v
   store ptr %30, ptr %0, align 8
   %39 = getelementptr inbounds i8, ptr %30, i64 %1
   store ptr %39, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %30, i64 %29
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   store ptr %40, ptr %12, align 8
   br label %_ZNSt6vectorIcSaIcEE17_M_default_appendEm.exit
 
@@ -4817,15 +4817,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN7xgboost10JsonWriter5VisitEPKNS_11JsonIntegerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::array.39", align 1
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 21
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 21
   %8 = icmp eq i64 %6, 0
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %2
   store i8 48, ptr %3, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %11 = insertvalue { ptr, i32 } poison, ptr %10, 0
   %12 = insertvalue { ptr, i32 } %11, i32 0, 1
   br label %_ZN7xgboost8to_charsEPcS0_l.exit
@@ -4836,7 +4836,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_11JsonIntegerE(ptr nocapture nou
 
 15:                                               ; preds = %13
   store i8 45, ptr %3, align 1
-  %16 = getelementptr inbounds i8, ptr %3, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %17 = sub i64 0, %6
   br label %18
 
@@ -4902,9 +4902,9 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   %39 = ptrtoint ptr %38 to i64
   %40 = ptrtoint ptr %3 to i64
   %41 = sub i64 %39, %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
   %47 = ptrtoint ptr %45 to i64
@@ -5017,9 +5017,9 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit4:       ; preds = %.noexc, %20
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost10JsonWriter5VisitEPKNS_8JsonNullE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -5054,7 +5054,7 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonStringE(ptr nocapture noun
           to label %5 unwind label %26
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZN7xgboost6common8EscapeU8ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS6_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %3)
           to label %7 unwind label %26
 
@@ -5063,9 +5063,9 @@ define void @_ZN7xgboost10JsonWriter5VisitEPKNS_10JsonStringE(ptr nocapture noun
           to label %9 unwind label %26
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = ptrtoint ptr %13 to i64
@@ -5111,12 +5111,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost10JsonWriter5VisitEPKNS_11JsonBooleanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -5183,7 +5183,7 @@ define void @_ZNK7xgboost5Value7TypeStrB5cxx11Ev(ptr dead_on_unwind noalias writ
   %13 = alloca %"class.std::allocator.33", align 1
   %14 = alloca %"class.std::allocator.33", align 1
   %15 = alloca %"class.std::allocator.33", align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %90 [
     i32 0, label %18
@@ -5546,9 +5546,9 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost15DummyJsonObj
           to label %7 unwind label %13
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %6, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 6, ptr %9, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %6, align 8
   store ptr %6, ptr @_ZZN7xgboost15DummyJsonObjectEvE3obj, align 8
@@ -5639,9 +5639,9 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
           to label %27 unwind label %32
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %26, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 6, ptr %29, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %26, align 8
   store ptr %26, ptr @_ZZN7xgboost15DummyJsonObjectEvE3obj, align 8
@@ -5752,9 +5752,9 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
           to label %27 unwind label %32
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %26, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 6, ptr %29, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %26, align 8
   store ptr %26, ptr @_ZZN7xgboost15DummyJsonObjectEvE3obj, align 8
@@ -5802,41 +5802,41 @@ _ZN7xgboost15DummyJsonObjectEv.exit:              ; preds = %20, %23, %27
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7xgboost10JsonObjectC2EOS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16), (24, 28), (32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 3, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonObjectE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZSt4swapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEEvRSt3mapIT_T0_T1_T2_ESK_.exit, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %5, align 8
   %16 = load ptr, ptr %10, align 8
   store ptr %16, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %5, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %9, align 8
   store ptr null, ptr %10, align 8
@@ -5851,37 +5851,37 @@ _ZSt4swapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7xgboost10JsonObjectC2EOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4JsonESt4lessIvESaISt4pairIKS7_S8_EEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16), (24, 28), (32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 3, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonObjectE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %23, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %5, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %21, ptr %22, align 8
   store ptr null, ptr %6, align 8
   store ptr %9, ptr %13, align 8
@@ -5891,13 +5891,13 @@ define void @_ZN7xgboost10JsonObjectC2EOSt3mapINSt7__cxx1112basic_stringIcSt11ch
 
 23:                                               ; preds = %2
   store i32 0, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %5, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %5, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 0, ptr %27, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEEC2EOSE_.exit
 
@@ -5907,25 +5907,25 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7xgboost10JsonObjecteqERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %6, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN7xgboost4CastIKNS_10JsonObjectEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %1)
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %9, %11
   br i1 %12, label %13, label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 @_ZNSt7__equalILb0EE5equalISt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonEEESE_EEbT_SF_T0_(ptr %15, ptr nonnull %16, ptr %18)
   br label %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEEbRKSt3mapIT_T0_T1_T2_ESL_.exit
@@ -5944,7 +5944,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastIKNS_10JsonObjectEKNS_5ValueEEE
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonObject", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %12, label %14
@@ -5995,20 +5995,20 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 
 28:                                               ; preds = %26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %27) #14
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 3, ptr %30, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonObjectE, i64 16), ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %31, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %31, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 0, ptr %35, align 8
   invoke void @_ZNK7xgboost5Value7TypeStrB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %36 unwind label %63
@@ -6044,7 +6044,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonObjectE, i64 16), ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %8, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %52 = load ptr, ptr %32, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef %52)
           to label %_ZN7xgboost10JsonObjectD2Ev.exit unwind label %53
@@ -6139,7 +6139,7 @@ _ZN7xgboost10JsonObjectD2Ev.exit:                 ; preds = %50
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7xgboost10JsonObject4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -6147,15 +6147,15 @@ define void @_ZNK7xgboost10JsonObject4SaveEPNS_10JsonWriterE(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7xgboost10JsonStringeqERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN7xgboost4CastIKNS_10JsonStringEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %1)
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
   %11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   %12 = icmp eq i64 %10, %11
@@ -6187,7 +6187,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastIKNS_10JsonStringEKNS_5ValueEEE
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonString", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %14
@@ -6238,12 +6238,12 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 
 28:                                               ; preds = %26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %27) #14
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %30, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #14
   invoke void @_ZNK7xgboost5Value7TypeStrB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %32 unwind label %54
@@ -6363,7 +6363,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7xgboost10JsonString4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -6371,24 +6371,24 @@ define void @_ZNK7xgboost10JsonString4SaveEPNS_10JsonWriterE(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7xgboost9JsonArrayC2EOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 4, ptr %4, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost9JsonArrayE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8
   store ptr null, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %10, align 8
   store ptr %7, ptr %5, align 8
@@ -6399,22 +6399,22 @@ define void @_ZN7xgboost9JsonArrayC2EOS0_(ptr nocapture noundef nonnull align 8 
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7xgboost9JsonArrayeqERKNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 4
   br i1 %5, label %6, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4JsonESt6vectorIS3_SaIS3_EEEES9_EbT_SA_T0_.exit
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN7xgboost4CastIKNS_9JsonArrayEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %1)
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %8, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -6433,11 +6433,11 @@ define noundef zeroext i1 @_ZNK7xgboost9JsonArrayeqERKNS_5ValueE(ptr nocapture n
   %23 = load ptr, ptr %.0810.i.i.i.i, align 8
   %24 = load ptr, ptr %.011.i.i.i.i, align 8
   %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24)
-  %29 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 8
-  %30 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp ne ptr %29, %17
   %or.cond.not = select i1 %28, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4JsonESt6vectorIS3_SaIS3_EEEES9_EbT_SA_T0_.exit, !llvm.loop !50
@@ -6456,7 +6456,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastIKNS_9JsonArrayEKNS_5ValueEEEPT
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonArray", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %12, label %14
@@ -6507,12 +6507,12 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 
 28:                                               ; preds = %26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %27) #14
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 4, ptr %30, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost9JsonArrayE, i64 16), ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
   invoke void @_ZNK7xgboost5Value7TypeStrB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %32 unwind label %53
@@ -6629,7 +6629,7 @@ _ZN7xgboost9JsonArrayD2Ev.exit:                   ; preds = %44
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7xgboost9JsonArray4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -6637,16 +6637,16 @@ define void @_ZNK7xgboost9JsonArray4SaveEPNS_10JsonWriterE(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7xgboost10JsonNumbereqERKNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN7xgboost4CastIKNS_10JsonNumberEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %1)
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load float, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load float, ptr %10, align 8
   %12 = tail call float @llvm.fabs.f32(float %11)
   %13 = fcmp oeq float %12, 0x7FF0000000000000
@@ -6683,7 +6683,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastIKNS_10JsonNumberEKNS_5ValueEEE
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonNumber", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %14
@@ -6734,12 +6734,12 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 
 28:                                               ; preds = %26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %27) #14
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %30, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonNumberE, i64 16), ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store float 0.000000e+00, ptr %31, align 8
   invoke void @_ZNK7xgboost5Value7TypeStrB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %32 unwind label %54
@@ -6855,7 +6855,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7xgboost10JsonNumber4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -6863,16 +6863,16 @@ define void @_ZNK7xgboost10JsonNumber4SaveEPNS_10JsonWriterE(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7xgboost11JsonIntegereqERKNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call noundef ptr @_ZN7xgboost4CastIKNS_11JsonIntegerEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %1)
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %8, %11
   br label %13
@@ -6891,7 +6891,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastIKNS_11JsonIntegerEKNS_5ValueEE
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonInteger", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %12, label %14
@@ -6942,12 +6942,12 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 
 28:                                               ; preds = %26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %27) #14
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 2, ptr %30, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonIntegerE, i64 16), ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %31, align 8
   invoke void @_ZNK7xgboost5Value7TypeStrB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %32 unwind label %54
@@ -7063,7 +7063,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7xgboost11JsonInteger4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -7071,7 +7071,7 @@ define void @_ZNK7xgboost11JsonInteger4SaveEPNS_10JsonWriterE(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK7xgboost8JsonNulleqERKNS_5ValueE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #10 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 6
   ret i1 %5
@@ -7080,7 +7080,7 @@ define noundef zeroext i1 @_ZNK7xgboost8JsonNulleqERKNS_5ValueE(ptr nocapture no
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7xgboost8JsonNull4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -7088,16 +7088,16 @@ define void @_ZNK7xgboost8JsonNull4SaveEPNS_10JsonWriterE(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7xgboost11JsonBooleaneqERKNS_5ValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 5
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = tail call noundef ptr @_ZN7xgboost4CastIKNS_11JsonBooleanEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %1)
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i8, ptr %10, align 1
   %12 = xor i8 %11, %8
   %13 = and i8 %12, 1
@@ -7118,7 +7118,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastIKNS_11JsonBooleanEKNS_5ValueEE
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonBoolean", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 5
   br i1 %11, label %12, label %14
@@ -7169,12 +7169,12 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 
 28:                                               ; preds = %26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %27) #14
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 5, ptr %30, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonBooleanE, i64 16), ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 0, ptr %31, align 8
   invoke void @_ZNK7xgboost5Value7TypeStrB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %32 unwind label %54
@@ -7290,7 +7290,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7xgboost11JsonBoolean4SaveEPNS_10JsonWriterE(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %0)
   ret void
@@ -7300,9 +7300,9 @@ define void @_ZNK7xgboost11JsonBoolean4SaveEPNS_10JsonWriterE(ptr noundef nonnul
 define void @_ZN7xgboost10JsonReader5ParseEv(ptr dead_on_unwind noalias writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.33", align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %8
 
 8:                                                ; preds = %52, %2
@@ -7350,14 +7350,14 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit:     ; preds = %_ZN7xgboost10JsonRe
 
 23:                                               ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit
   %24 = load ptr, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %61
 
 27:                                               ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %61
@@ -7380,7 +7380,7 @@ switch.early.test:                                ; preds = %31
 
 33:                                               ; preds = %switch.early.test, %switch.early.test, %31, %_ZN7xgboost10JsonReader12PeekNextCharEv.exit
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %61
@@ -7393,14 +7393,14 @@ switch.early.test:                                ; preds = %31
 
 40:                                               ; preds = %switch.early.test, %switch.early.test
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %61
 
 44:                                               ; preds = %switch.early.test
   %45 = load ptr, ptr %1, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %61
@@ -7451,9 +7451,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread: ; preds = %_ZN7xgboost10JsonReader10SkipSpacesEv.exit, %_ZN7xgboost10JsonReader12PeekNextCharEv.exit, %16
   %57 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 0, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %57, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 12
   store i32 6, ptr %59, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %57, align 8
   store ptr %57, ptr %0, align 8
@@ -7466,15 +7466,15 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread: ; preds = %_ZN7xgboost10Jso
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7xgboost10JsonReader10SkipSpacesEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #11 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %.promoted = load i64, ptr %2, align 8
   %5 = icmp ult i64 %.promoted, %4
   br i1 %5, label %.lr.ph, label %_ZN7xgboost12_GLOBAL__N_17IsSpaceEa.exit
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -7509,14 +7509,14 @@ define void @_ZNK7xgboost10JsonReader5ErrorENSt7__cxx1112basic_stringIcSt11char_
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.dmlc::LogMessageFatal", align 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = invoke { ptr, i64 } @_ZNK7xgboost10StringView6substrEmm(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef 0, i64 noundef %12)
           to label %14 unwind label %.loopexit.split-lp54
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = extractvalue { ptr, i64 } %13, 0
   %17 = extractvalue { ptr, i64 } %13, 1
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
@@ -7530,12 +7530,12 @@ define void @_ZNK7xgboost10JsonReader5ErrorENSt7__cxx1112basic_stringIcSt11char_
           to label %.noexc unwind label %.loopexit53
 
 .noexc:                                           ; preds = %.lr.ph.i
-  %21 = getelementptr inbounds i8, ptr %.010.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.010.i, i64 1
   %.not.i = icmp eq ptr %21, %18
   br i1 %.not.i, label %_ZN7xgboostlsERSoNS_10StringViewE.exit, label %.lr.ph.i
 
 _ZN7xgboostlsERSoNS_10StringViewE.exit:           ; preds = %.noexc, %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
   invoke void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i64 noundef %23)
           to label %24 unwind label %.loopexit.split-lp54
@@ -7724,7 +7724,7 @@ thread-pre-split:                                 ; preds = %51
           to label %80 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 80:                                               ; preds = %.invoke, %78
-  %81 = getelementptr inbounds i8, ptr %.02659, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.02659, i64 1
   %.not31 = icmp eq ptr %81, %73
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
@@ -7868,7 +7868,7 @@ define linkonce_odr { ptr, i64 } @_ZNK7xgboost10StringView6substrEmm(ptr noundef
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   store i64 %1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %.not = icmp ugt i64 %1, %8
   br i1 %.not, label %9, label %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
@@ -8059,16 +8059,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %31 = shl nuw nsw i64 %30, 1
   %32 = udiv i64 %.020.i, 100
   %33 = or disjoint i64 %31, 1
-  %34 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i32 %.01819.i to i64
-  %37 = getelementptr inbounds i8, ptr %24, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 %36
   store i8 %35, ptr %37, align 1
-  %38 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %31
+  %38 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %31
   %39 = load i8, ptr %38, align 2
   %40 = add i32 %.01819.i, -1
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %24, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 %41
   store i8 %39, ptr %42, align 1
   %43 = add i32 %.01819.i, -2
   %44 = icmp ugt i64 %.020.i, 9999
@@ -8082,11 +8082,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 46:                                               ; preds = %._crit_edge.i
   %47 = shl nuw nsw i64 %.0.lcssa.i, 1
   %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %24, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %47
+  %52 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 0, i64 %47
   %53 = load i8, ptr %52, align 2
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -8187,15 +8187,15 @@ define void @_ZN7xgboost10JsonReader11ParseStringEv(ptr dead_on_unwind noalias n
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.33", align 1
   %6 = alloca %"class.xgboost::JsonString", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %8, %10
   br i1 %11, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i:    ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
   %15 = load i8, ptr %14, align 1
@@ -8211,7 +8211,7 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread: ; preds = %2, %_ZN7xgboost
 
 _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit: ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.thread
 
 .thread:                                          ; preds = %.thread.backedge, %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit
@@ -8343,23 +8343,23 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.thread: ; preds = %.thread, %_ZN7xgb
           to label %.thread.backedge unwind label %30
 
 53:                                               ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit
-  %54 = getelementptr inbounds i8, ptr %6, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %55, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %6, align 8
-  %56 = getelementptr inbounds i8, ptr %6, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   %57 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #36
           to label %58 unwind label %63
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %57, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 12
   store i32 0, ptr %60, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %57, align 8
-  %61 = getelementptr inbounds i8, ptr %57, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %61) #14
   store ptr %57, ptr %0, align 8
@@ -8513,15 +8513,15 @@ define void @_ZN7xgboost10JsonReader9ParseNullEv(ptr dead_on_unwind noalias noca
   %5 = alloca %"class.std::allocator.33", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.33", align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   %.promoted.i.i = load i64, ptr %8, align 8
   %11 = icmp ult i64 %.promoted.i.i, %10
   br i1 %11, label %.lr.ph.i.i, label %_ZN7xgboost10JsonReader10SkipSpacesEv.exit.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -8548,7 +8548,7 @@ _ZN7xgboost10JsonReader10SkipSpacesEv.exit.i:     ; preds = %14, %2
   br i1 %21, label %_ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit, label %22
 
 22:                                               ; preds = %_ZN7xgboost10JsonReader10SkipSpacesEv.exit.i
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 %20
   %26 = load i8, ptr %25, align 1
@@ -8565,7 +8565,7 @@ _ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit: ; preds = %18, %_ZN7xgboost
 
 28:                                               ; preds = %_ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #14
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %30
 
 30:                                               ; preds = %28, %39
@@ -8658,9 +8658,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %58 unwind label %62
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i32 0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %57, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 12
   store i32 6, ptr %60, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %57, align 8
   store ptr %57, ptr %0, align 8
@@ -8699,15 +8699,15 @@ define void @_ZN7xgboost10JsonReader10ParseArrayEv(ptr dead_on_unwind noalias no
   %5 = alloca %"class.xgboost::Json", align 8
   %6 = alloca %"class.xgboost::JsonArray", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %8, %10
   br i1 %11, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i:    ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
   %15 = load i8, ptr %14, align 1
@@ -8722,9 +8722,9 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread: ; preds = %2, %_ZN7xgboost
           to label %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit unwind label %.loopexit.split-lp
 
 _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit: ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %20
 
 20:                                               ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit, %_ZN7xgboost4JsonD2Ev.exit21
@@ -8746,16 +8746,16 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit14: ; preds = %_ZN7xgboost10Js
   %.pre58 = load ptr, ptr %19, align 8
   %.pre57 = load ptr, ptr %18, align 8
   %.pre = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 4, ptr %30, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost9JsonArrayE, i64 16), ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.pre, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.pre57, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %.pre58, ptr %33, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %34 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #36
@@ -8764,7 +8764,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit14: ; preds = %_ZN7xgboost10Js
 35:                                               ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit14
   call void @_ZN7xgboost9JsonArrayC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %4) #14
   store ptr %34, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = atomicrmw add ptr %36, i32 1 monotonic, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost9JsonArrayE, i64 16), ptr %4, align 8
   %38 = load ptr, ptr %31, align 8
@@ -8779,7 +8779,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit14: ; preds = %_ZN7xgboost10Js
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i, label %41
 
 41:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = atomicrmw sub ptr %42, i32 1 release, align 4
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %45, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i
@@ -8787,13 +8787,13 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit14: ; preds = %_ZN7xgboost10Js
 45:                                               ; preds = %41
   fence acquire
   %46 = load ptr, ptr %40, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(16) %40) #14
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i: ; preds = %45, %41, %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %49, %39
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !72
 
@@ -8843,13 +8843,13 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread: ; preds = %20, %_ZN7xgboost
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit.i, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = atomicrmw add ptr %61, i32 1 monotonic, align 4
   br label %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit.i: ; preds = %60, %58
   %63 = load ptr, ptr %18, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %64, ptr %18, align 8
   br label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit
 
@@ -8908,7 +8908,7 @@ _ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit: ; preds = %_ZN7xgboost10Jso
   br i1 %.not.i.i.i, label %_ZN7xgboost4JsonD2Ev.exit, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %83, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = atomicrmw sub ptr %85, i32 1 release, align 4
   %87 = icmp eq i32 %86, 1
   br i1 %87, label %88, label %_ZN7xgboost4JsonD2Ev.exit
@@ -8916,7 +8916,7 @@ _ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit: ; preds = %_ZN7xgboost10Jso
 88:                                               ; preds = %84
   fence acquire
   %89 = load ptr, ptr %83, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8
   call void %91(ptr noundef nonnull align 8 dereferenceable(16) %83) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
@@ -8936,7 +8936,7 @@ _ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit.thread: ; preds = %73, %_ZN7
   br i1 %.not.i.i.i20, label %_ZN7xgboost4JsonD2Ev.exit21, label %95
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %94, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = atomicrmw sub ptr %96, i32 1 release, align 4
   %98 = icmp eq i32 %97, 1
   br i1 %98, label %99, label %_ZN7xgboost4JsonD2Ev.exit21
@@ -8944,7 +8944,7 @@ _ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit.thread: ; preds = %73, %_ZN7
 99:                                               ; preds = %95
   fence acquire
   %100 = load ptr, ptr %94, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
   call void %102(ptr noundef nonnull align 8 dereferenceable(16) %94) #14
   br label %_ZN7xgboost4JsonD2Ev.exit21
@@ -8953,18 +8953,18 @@ _ZN7xgboost4JsonD2Ev.exit21:                      ; preds = %93, %95, %99
   br i1 %switch, label %20, label %103
 
 103:                                              ; preds = %_ZN7xgboost4JsonD2Ev.exit21
-  %104 = getelementptr inbounds i8, ptr %6, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %6, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 4, ptr %105, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost9JsonArrayE, i64 16), ptr %6, align 8
-  %106 = getelementptr inbounds i8, ptr %6, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %107 = load ptr, ptr %3, align 8
   store ptr %107, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %6, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %109 = load ptr, ptr %18, align 8
   store ptr %109, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %6, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %111 = load ptr, ptr %19, align 8
   store ptr %111, ptr %110, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -8974,7 +8974,7 @@ _ZN7xgboost4JsonD2Ev.exit21:                      ; preds = %93, %95, %99
 113:                                              ; preds = %103
   call void @_ZN7xgboost9JsonArrayC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %112, ptr noundef nonnull align 8 dereferenceable(40) %6) #14
   store ptr %112, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %112, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %115 = atomicrmw add ptr %114, i32 1 monotonic, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost9JsonArrayE, i64 16), ptr %6, align 8
   %116 = load ptr, ptr %106, align 8
@@ -8989,7 +8989,7 @@ _ZN7xgboost4JsonD2Ev.exit21:                      ; preds = %93, %95, %99
   br i1 %.not.i.i.i.i.i.i.i.i.i27, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i28, label %119
 
 119:                                              ; preds = %.lr.ph.i.i.i.i.i25
-  %120 = getelementptr inbounds i8, ptr %118, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %121 = atomicrmw sub ptr %120, i32 1 release, align 4
   %122 = icmp eq i32 %121, 1
   br i1 %122, label %123, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i28
@@ -8997,13 +8997,13 @@ _ZN7xgboost4JsonD2Ev.exit21:                      ; preds = %93, %95, %99
 123:                                              ; preds = %119
   fence acquire
   %124 = load ptr, ptr %118, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   call void %126(ptr noundef nonnull align 8 dereferenceable(16) %118) #14
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i28
 
 _ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i28: ; preds = %123, %119, %.lr.ph.i.i.i.i.i25
-  %127 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i26, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i26, i64 8
   %.not.i.i.i.i.i29 = icmp eq ptr %127, %117
   br i1 %.not.i.i.i.i.i29, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i30, label %.lr.ph.i.i.i.i.i25, !llvm.loop !72
 
@@ -9048,7 +9048,7 @@ _ZN7xgboost9JsonArrayD2Ev.exit:                   ; preds = %_ZN7xgboost9JsonArr
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i, label %139
 
 139:                                              ; preds = %.lr.ph.i.i.i.i
-  %140 = getelementptr inbounds i8, ptr %138, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %141 = atomicrmw sub ptr %140, i32 1 release, align 4
   %142 = icmp eq i32 %141, 1
   br i1 %142, label %143, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i
@@ -9056,13 +9056,13 @@ _ZN7xgboost9JsonArrayD2Ev.exit:                   ; preds = %_ZN7xgboost9JsonArr
 143:                                              ; preds = %139
   fence acquire
   %144 = load ptr, ptr %138, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load ptr, ptr %145, align 8
   call void %146(ptr noundef nonnull align 8 dereferenceable(16) %138) #14
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i:  ; preds = %143, %139, %.lr.ph.i.i.i.i
-  %147 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i35 = icmp eq ptr %147, %137
   br i1 %.not.i.i.i.i35, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !72
 
@@ -9095,9 +9095,9 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %.loopexit, %.loopex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost9JsonArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost9JsonArrayE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -9109,7 +9109,7 @@ define linkonce_odr void @_ZN7xgboost9JsonArrayD2Ev(ptr noundef nonnull align 8 
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = atomicrmw sub ptr %8, i32 1 release, align 4
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i
@@ -9117,13 +9117,13 @@ define linkonce_odr void @_ZN7xgboost9JsonArrayD2Ev(ptr noundef nonnull align 8 
 11:                                               ; preds = %7
   fence acquire
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i:  ; preds = %11, %7, %.lr.ph.i.i.i.i
-  %15 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %15, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !72
 
@@ -9137,7 +9137,7 @@ _ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_Destro
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev.exit, label %17
 
 17:                                               ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -9152,7 +9152,7 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN7xg
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
@@ -9164,7 +9164,7 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev(ptr noundef n
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i, label %6
 
 6:                                                ; preds = %.lr.ph.i.i.i
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = atomicrmw sub ptr %7, i32 1 release, align 4
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i
@@ -9172,13 +9172,13 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev(ptr noundef n
 10:                                               ; preds = %6
   fence acquire
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i:    ; preds = %10, %6, %.lr.ph.i.i.i
-  %14 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %14, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !72
 
@@ -9192,7 +9192,7 @@ _ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyI
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EED2Ev.exit, label %16
 
 16:                                               ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
@@ -9215,15 +9215,15 @@ define void @_ZN7xgboost10JsonReader11ParseObjectEv(ptr dead_on_unwind noalias n
   %9 = alloca %"class.xgboost::Json", align 8
   %10 = alloca %"class.xgboost::Json", align 8
   %11 = alloca %"class.xgboost::JsonObject", align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %13, %15
   br i1 %16, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i:    ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %13
   %20 = load i8, ptr %19, align 1
@@ -9242,21 +9242,21 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread: ; preds = %2, %_ZN7xgboost
 _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit: ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread
   %.promoted.i = phi i64 [ %21, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i ], [ %.promoted.i.pre, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread ]
   %22 = phi i64 [ %15, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i ], [ %.pre, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread ]
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %23, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %23, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %27, align 8
   %28 = icmp ult i64 %.promoted.i, %22
   br i1 %28, label %.lr.ph.i, label %_ZN7xgboost10JsonReader10SkipSpacesEv.exit
 
 .lr.ph.i:                                         ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -9287,12 +9287,12 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit:     ; preds = %35, %_ZN7xgboost10J
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread, %_ZN7xgboost10JsonReader12PeekNextCharEv.exit
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
   br label %59
 
 _ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread: ; preds = %_ZN7xgboost10JsonReader10SkipSpacesEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 %37
   %44 = load i8, ptr %43, align 1
@@ -9310,11 +9310,11 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit23: ; preds = %_ZN7xgboost10Js
 48:                                               ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit23
   call void @_ZN7xgboost10JsonObjectC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %47, ptr noundef nonnull align 8 dereferenceable(64) %5) #14
   store ptr %47, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = atomicrmw add ptr %49, i32 1 monotonic, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonObjectE, i64 16), ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 16
-  %52 = getelementptr inbounds i8, ptr %5, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %53 = load ptr, ptr %52, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef %53)
           to label %_ZN7xgboost10JsonObjectD2Ev.exit unwind label %54
@@ -9579,7 +9579,7 @@ _ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit: ; preds = %_ZN7xgboost10Jso
           to label %140 unwind label %161
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %139, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %142 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %141)
           to label %143 unwind label %161
 
@@ -9643,7 +9643,7 @@ _ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit45: ; preds = %_ZN7xgboost10J
   br i1 %.not.i.i.i, label %_ZN7xgboost4JsonD2Ev.exit, label %164
 
 164:                                              ; preds = %161
-  %165 = getelementptr inbounds i8, ptr %163, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %166 = atomicrmw sub ptr %165, i32 1 release, align 4
   %167 = icmp eq i32 %166, 1
   br i1 %167, label %168, label %_ZN7xgboost4JsonD2Ev.exit
@@ -9651,7 +9651,7 @@ _ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit45: ; preds = %_ZN7xgboost10J
 168:                                              ; preds = %164
   fence acquire
   %169 = load ptr, ptr %163, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8
   call void %171(ptr noundef nonnull align 8 dereferenceable(16) %163) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
@@ -9675,7 +9675,7 @@ _ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit45: ; preds = %_ZN7xgboost10J
   br i1 %.not.i.i.i46, label %_ZN7xgboost4JsonD2Ev.exit47, label %176
 
 176:                                              ; preds = %174
-  %177 = getelementptr inbounds i8, ptr %175, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %178 = atomicrmw sub ptr %177, i32 1 release, align 4
   %179 = icmp eq i32 %178, 1
   br i1 %179, label %180, label %_ZN7xgboost4JsonD2Ev.exit47
@@ -9683,7 +9683,7 @@ _ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit45: ; preds = %_ZN7xgboost10J
 180:                                              ; preds = %176
   fence acquire
   %181 = load ptr, ptr %175, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load ptr, ptr %182, align 8
   call void %183(ptr noundef nonnull align 8 dereferenceable(16) %175) #14
   br label %_ZN7xgboost4JsonD2Ev.exit47
@@ -9694,7 +9694,7 @@ _ZN7xgboost4JsonD2Ev.exit47:                      ; preds = %174, %176, %180
   br i1 %.not.i.i.i48, label %_ZN7xgboost4JsonD2Ev.exit49, label %185
 
 185:                                              ; preds = %_ZN7xgboost4JsonD2Ev.exit47
-  %186 = getelementptr inbounds i8, ptr %184, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %187 = atomicrmw sub ptr %186, i32 1 release, align 4
   %188 = icmp eq i32 %187, 1
   br i1 %188, label %189, label %_ZN7xgboost4JsonD2Ev.exit49
@@ -9702,7 +9702,7 @@ _ZN7xgboost4JsonD2Ev.exit47:                      ; preds = %174, %176, %180
 189:                                              ; preds = %185
   fence acquire
   %190 = load ptr, ptr %184, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load ptr, ptr %191, align 8
   call void %192(ptr noundef nonnull align 8 dereferenceable(16) %184) #14
   br label %_ZN7xgboost4JsonD2Ev.exit49
@@ -9717,7 +9717,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %168, %164, %161, %1
   br i1 %.not.i.i.i50, label %_ZN7xgboost4JsonD2Ev.exit51, label %194
 
 194:                                              ; preds = %_ZN7xgboost4JsonD2Ev.exit
-  %195 = getelementptr inbounds i8, ptr %193, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %196 = atomicrmw sub ptr %195, i32 1 release, align 4
   %197 = icmp eq i32 %196, 1
   br i1 %197, label %198, label %_ZN7xgboost4JsonD2Ev.exit51
@@ -9725,7 +9725,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %168, %164, %161, %1
 198:                                              ; preds = %194
   fence acquire
   %199 = load ptr, ptr %193, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %201 = load ptr, ptr %200, align 8
   call void %201(ptr noundef nonnull align 8 dereferenceable(16) %193) #14
   br label %_ZN7xgboost4JsonD2Ev.exit51
@@ -9738,11 +9738,11 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %168, %164, %161, %1
 204:                                              ; preds = %202
   call void @_ZN7xgboost10JsonObjectC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %203, ptr noundef nonnull align 8 dereferenceable(64) %11) #14
   store ptr %203, ptr %0, align 8
-  %205 = getelementptr inbounds i8, ptr %203, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %206 = atomicrmw add ptr %205, i32 1 monotonic, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonObjectE, i64 16), ptr %11, align 8
-  %207 = getelementptr inbounds i8, ptr %11, i64 16
-  %208 = getelementptr inbounds i8, ptr %11, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %209 = load ptr, ptr %208, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %207, ptr noundef %209)
           to label %_ZN7xgboost10JsonObjectD2Ev.exit unwind label %210
@@ -9791,8 +9791,8 @@ _ZN7xgboost4JsonD2Ev.exit51:                      ; preds = %.loopexit, %198, %1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost10JsonObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonObjectE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %4)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev.exit unwind label %5
@@ -9830,16 +9830,16 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple.66", align 8
   %4 = alloca %"class.std::tuple.69", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not11.i.i.i = icmp eq ptr %6, null
   br i1 %.not11.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i
   %.013.i.i.i = phi ptr [ %.1.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i ], [ %6, %2 ]
   %.0812.i.i.i = phi ptr [ %.19.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i ], [ %7, %2 ]
-  %8 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
   %9 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i unwind label %10
 
@@ -9854,7 +9854,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   %13 = icmp slt i32 %9, 0
   %.19.i.i.i = select i1 %13, ptr %.0812.i.i.i, ptr %.013.i.i.i
   %.1.in.v.i.i.i = select i1 %13, i64 24, i64 16
-  %.1.in.i.i.i = getelementptr inbounds i8, ptr %.013.i.i.i, i64 %.1.in.v.i.i.i
+  %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEE11lower_boundERSB_.exit, label %.lr.ph.i.i.i, !llvm.loop !73
@@ -9864,7 +9864,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4
   br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEE11lower_boundERSB_.exit
-  %16 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %17 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit unwind label %18
 
@@ -9887,13 +9887,13 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 
 23:                                               ; preds = %.critedge, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit
   %.sroa.05.0 = phi ptr [ %22, %.critedge ], [ %.19.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit ]
-  %24 = getelementptr inbounds i8, ptr %.sroa.05.0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.0, i64 64
   ret ptr %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EED2Ev.exit unwind label %4
@@ -9915,9 +9915,9 @@ define void @_ZN7xgboost10JsonReader11ParseNumberEv(ptr dead_on_unwind noalias n
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.33", align 1
   %6 = alloca float, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 %10
   %12 = load i8, ptr %11, align 1
@@ -9928,7 +9928,7 @@ define void @_ZN7xgboost10JsonReader11ParseNumberEv(ptr dead_on_unwind noalias n
   ]
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %10, %15
   br i1 %16, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread
@@ -9988,12 +9988,12 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i94.thread: ; preds = %_ZN7xgboost10
 
 _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit97: ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i94, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i94.thread
   %32 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 0, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %32, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i32 1, ptr %34, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonNumberE, i64 16), ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store float 0x7FF8000000000000, ptr %35, align 8
   br label %138
 
@@ -10002,7 +10002,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit97: ; preds = %_ZN7xgboost10Js
 
 thread-pre-split:                                 ; preds = %2, %36
   %.073.ph = phi i1 [ false, %36 ], [ true, %2 ]
-  %.0.ph = getelementptr inbounds i8, ptr %11, i64 1
+  %.0.ph = getelementptr inbounds nuw i8, ptr %11, i64 1
   %.pr = load i8, ptr %.0.ph, align 1
   br label %37
 
@@ -10023,26 +10023,26 @@ thread-pre-split:                                 ; preds = %2, %36
   %44 = add i64 %43, %10
   store i64 %44, ptr %9, align 8
   store i8 73, ptr %3, align 1
-  %45 = getelementptr inbounds i8, ptr %3, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 110, ptr %45, align 1
-  %46 = getelementptr inbounds i8, ptr %3, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 102, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %3, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 105, ptr %47, align 1
-  %48 = getelementptr inbounds i8, ptr %3, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 110, ptr %48, align 1
-  %49 = getelementptr inbounds i8, ptr %3, i64 5
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 105, ptr %49, align 1
-  %50 = getelementptr inbounds i8, ptr %3, i64 6
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 116, ptr %50, align 1
-  %51 = getelementptr inbounds i8, ptr %3, i64 7
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 7
   store i8 121, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %53
 
 53:                                               ; preds = %39, %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101
   %.074.idx135 = phi i64 [ 0, %39 ], [ %.074.add, %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101 ]
-  %.074.ptr = getelementptr inbounds i8, ptr %3, i64 %.074.idx135
+  %.074.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.074.idx135
   %54 = load i8, ptr %.074.ptr, align 1
   %55 = load i64, ptr %9, align 8
   %56 = load i64, ptr %52, align 8
@@ -10074,17 +10074,17 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101: ; preds = %_ZN7xgboost10J
 64:                                               ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101
   %.072 = select i1 %.073, float 0xFFF0000000000000, float 0x7FF0000000000000
   %65 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 0, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %65, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 12
   store i32 1, ptr %67, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonNumberE, i64 16), ptr %65, align 8
-  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store float %.072, ptr %68, align 8
   br label %138
 
 69:                                               ; preds = %37
-  %70 = getelementptr inbounds i8, ptr %.0, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %.pre156 = load i8, ptr %70, align 1
   br label %71
 
@@ -10103,7 +10103,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101: ; preds = %_ZN7xgboost10J
   %narrow83 = add nsw i8 %74, -48
   %76 = zext nneg i8 %narrow83 to i64
   %77 = add nsw i64 %75, %76
-  %78 = getelementptr inbounds i8, ptr %.2138, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.2138, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = add i8 %79, -48
   %or.cond = icmp ult i8 %80, 10
@@ -10117,7 +10117,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101: ; preds = %_ZN7xgboost10J
   br i1 %81, label %.preheader133, label %.critedge2
 
 .preheader133:                                    ; preds = %.critedge
-  %.4141 = getelementptr inbounds i8, ptr %.2.lcssa, i64 1
+  %.4141 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   %82 = load i8, ptr %.4141, align 1
   %83 = add i8 %82, -48
   %or.cond87142 = icmp ult i8 %83, 10
@@ -10131,7 +10131,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101: ; preds = %_ZN7xgboost10J
   %narrow = add nsw i8 %84, -48
   %86 = zext nneg i8 %narrow to i64
   %87 = add nsw i64 %85, %86
-  %.4 = getelementptr inbounds i8, ptr %.4144, i64 1
+  %.4 = getelementptr inbounds nuw i8, ptr %.4144, i64 1
   %88 = load i8, ptr %.4, align 1
   %89 = add i8 %88, -48
   %or.cond87 = icmp ult i8 %89, 10
@@ -10147,7 +10147,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101: ; preds = %_ZN7xgboost10J
   ]
 
 91:                                               ; preds = %.critedge2, %.critedge2
-  %92 = getelementptr inbounds i8, ptr %.3, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %93 = load i8, ptr %92, align 1
   switch i8 %93, label %96 [
     i8 45, label %94
@@ -10155,7 +10155,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101: ; preds = %_ZN7xgboost10J
   ]
 
 94:                                               ; preds = %91, %91
-  %95 = getelementptr inbounds i8, ptr %.3, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   %.pre157 = load i8, ptr %95, align 1
   br label %96
 
@@ -10168,7 +10168,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit101: ; preds = %_ZN7xgboost10J
 
 .preheader:                                       ; preds = %96, %.preheader
   %.6.pn = phi ptr [ %.7, %.preheader ], [ %.6, %96 ]
-  %.7 = getelementptr inbounds i8, ptr %.6.pn, i64 1
+  %.7 = getelementptr inbounds nuw i8, ptr %.6.pn, i64 1
   %99 = load i8, ptr %.7, align 1
   %100 = add i8 %99, -48
   %or.cond89 = icmp ult i8 %100, 10
@@ -10258,12 +10258,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 126:                                              ; preds = %._crit_edge, %124
   %127 = phi float [ %.pre159, %._crit_edge ], [ %125, %124 ]
   %128 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i32 0, ptr %129, align 4
-  %130 = getelementptr inbounds i8, ptr %128, i64 12
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 12
   store i32 1, ptr %130, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonNumberE, i64 16), ptr %128, align 8
-  %131 = getelementptr inbounds i8, ptr %128, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store float %127, ptr %131, align 8
   br label %138
 
@@ -10271,12 +10271,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %133 = sub nsw i64 0, %.267
   %spec.select = select i1 %.073, i64 %133, i64 %.267
   %134 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %135 = getelementptr inbounds i8, ptr %134, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store i32 0, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %134, i64 12
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 12
   store i32 2, ptr %136, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonIntegerE, i64 16), ptr %134, align 8
-  %137 = getelementptr inbounds i8, ptr %134, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store i64 %spec.select, ptr %137, align 8
   br label %138
 
@@ -10307,15 +10307,15 @@ define void @_ZN7xgboost10JsonReader12ParseBooleanEv(ptr dead_on_unwind noalias 
   %4 = alloca %"class.std::allocator.33", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.33", align 1
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
   %.promoted.i.i = load i64, ptr %7, align 8
   %10 = icmp ult i64 %.promoted.i.i, %9
   br i1 %10, label %.lr.ph.i.i, label %_ZN7xgboost10JsonReader10SkipSpacesEv.exit.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -10342,7 +10342,7 @@ _ZN7xgboost10JsonReader10SkipSpacesEv.exit.i:     ; preds = %13, %2
   br i1 %20, label %_ZN7xgboost10JsonReader19GetNextNonSpaceCharEv.exit, label %21
 
 21:                                               ; preds = %_ZN7xgboost10JsonReader10SkipSpacesEv.exit.i
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %19
   %25 = load i8, ptr %24, align 1
@@ -10402,7 +10402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit16: ; 
   br i1 %36, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i:    ; preds = %37
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 %34
   %41 = load i8, ptr %40, align 1
@@ -10428,7 +10428,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit: ; preds = %_ZN7xgboost10Json
   br i1 %45, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i19.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i19
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i19:  ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 %44
   %49 = load i8, ptr %48, align 1
@@ -10454,7 +10454,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit23: ; preds = %_ZN7xgboost10Js
   br i1 %53, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i44.thread.invoke, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i24
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i24:  ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit23
-  %54 = getelementptr inbounds i8, ptr %1, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 %52
   %57 = load i8, ptr %56, align 1
@@ -10492,7 +10492,7 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i24:  ; preds = %_ZN7xgboost10JsonRe
   br i1 %36, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i29.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i29
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i29:  ; preds = %65
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 %34
   %69 = load i8, ptr %68, align 1
@@ -10518,7 +10518,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit33: ; preds = %_ZN7xgboost10Js
   br i1 %73, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i34.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i34
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i34:  ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit33
-  %74 = getelementptr inbounds i8, ptr %1, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 %72
   %77 = load i8, ptr %76, align 1
@@ -10544,7 +10544,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit38: ; preds = %_ZN7xgboost10Js
   br i1 %81, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i39.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i39
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i39:  ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit38
-  %82 = getelementptr inbounds i8, ptr %1, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 %80
   %85 = load i8, ptr %84, align 1
@@ -10570,7 +10570,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit43: ; preds = %_ZN7xgboost10Js
   br i1 %89, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i44.thread.invoke, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i44
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i44:  ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit43
-  %90 = getelementptr inbounds i8, ptr %1, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 %88
   %93 = load i8, ptr %92, align 1
@@ -10590,12 +10590,12 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit28: ; preds = %_ZN7xgboost10Js
 
 97:                                               ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit28
   %98 = zext i1 %.0.i.i to i8
-  %99 = getelementptr inbounds i8, ptr %96, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i32 0, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %96, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 12
   store i32 5, ptr %100, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonBooleanE, i64 16), ptr %96, align 8
-  %101 = getelementptr inbounds i8, ptr %96, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store i8 %98, ptr %101, align 8
   store ptr %96, ptr %0, align 8
   %102 = atomicrmw add ptr %99, i32 1 monotonic, align 4
@@ -10635,9 +10635,9 @@ define void @_ZN7xgboost4Json4LoadENS_10StringViewESt13_Ios_Openmode(ptr dead_on
   %7 = alloca %"class.xgboost::JsonReader", align 8
   %8 = alloca %"class.xgboost::Json", align 8
   %9 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 6, ptr %11, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %9, align 8
   store ptr %9, ptr %0, align 8
@@ -10647,11 +10647,11 @@ define void @_ZN7xgboost4Json4LoadENS_10StringViewESt13_Ios_Openmode(ptr dead_on
   br i1 %.not, label %22, label %14
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %16, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7xgboost9UBJReaderE, i64 16), ptr %5, align 8
   invoke void @_ZN7xgboost9UBJReader5ParseEv(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::Json") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -10672,11 +10672,11 @@ _ZN7xgboost9UBJReader4LoadEv.exit:                ; preds = %14
 
 22:                                               ; preds = %4
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN7xgboost10JsonReaderE, i64 16), ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %1, ptr %24, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i, align 8
   invoke void @_ZN7xgboost10JsonReader5ParseEv(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::Json") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %25 unwind label %29
@@ -10697,7 +10697,7 @@ _ZN7xgboost9UBJReader4LoadEv.exit:                ; preds = %14
 _ZN7xgboost4JsonD2Ev.exit.sink.split:             ; preds = %25, %_ZN7xgboost9UBJReader4LoadEv.exit
   fence acquire
   %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
@@ -10714,7 +10714,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %_ZN7xgboost4JsonD2E
 37:                                               ; preds = %34
   fence acquire
   %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
   br label %_ZN7xgboost4JsonD2Ev.exit12
@@ -10726,7 +10726,7 @@ _ZN7xgboost4JsonD2Ev.exit12:                      ; preds = %34, %37
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost4Json4LoadEPNS_10JsonReaderE(ptr dead_on_unwind noalias writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
@@ -10751,17 +10751,17 @@ define void @_ZN7xgboost4Json4DumpES0_PNSt7__cxx1112basic_stringIcSt11char_trait
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %7, null
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.thread, label %_ZN7xgboost4JsonC2ERKS0_.exit
 
 _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = atomicrmw add ptr %9, i32 1 monotonic, align 4
   %.pre = load ptr, ptr %8, align 8
   %11 = icmp eq ptr %.pre, null
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %11, label %_ZNSt6vectorIcSaIcEE5clearEv.exit.i, label %13
 
 13:                                               ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit
@@ -10771,7 +10771,7 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %3
 _ZNSt6vectorIcSaIcEE5clearEv.exit.i:              ; preds = %13, %_ZN7xgboost4JsonC2ERKS0_.exit
   %14 = and i32 %2, 4
   %.not.i = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %.not.i, label %34, label %19
 
 _ZNSt6vectorIcSaIcEE5clearEv.exit.i.thread:       ; preds = %3
@@ -10783,18 +10783,18 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit.i.thread:       ; preds = %3
 
 .thread22:                                        ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.thread
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost10JsonWriterE, i64 16), ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %17, align 8
   br label %_ZN7xgboost4JsonC2ERKS0_.exit16.i
 
 .thread:                                          ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i.thread
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %18, align 8
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost9UBJWriterE, i64 16), ptr %4, align 8
   br label %_ZN7xgboost4JsonC2ERKS0_.exit.i
 
 19:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %20, align 8
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost9UBJWriterE, i64 16), ptr %4, align 8
   %21 = atomicrmw add ptr %15, i32 1 monotonic, align 4
@@ -10803,13 +10803,13 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit.i.thread:       ; preds = %3
 _ZN7xgboost4JsonC2ERKS0_.exit.i:                  ; preds = %.thread, %19
   %22 = phi ptr [ %8, %.thread ], [ %12, %19 ]
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i unwind label %29
 
 _ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i:      ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit.i
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %27 = atomicrmw sub ptr %26, i32 1 release, align 4
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %_ZN7xgboost4JsonD2Ev.exit.sink.split.i, label %56
@@ -10817,14 +10817,14 @@ _ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i:      ; preds = %_ZN7xgboost4JsonC2E
 29:                                               ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit.i
   %30 = landingpad { ptr, i32 }
           cleanup
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %32 = atomicrmw sub ptr %31, i32 1 release, align 4
   %33 = icmp eq i32 %32, 1
   br i1 %33, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i, label %87
 
 34:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit.i
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost10JsonWriterE, i64 16), ptr %5, align 8
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %35, align 8
   %36 = atomicrmw add ptr %15, i32 1 monotonic, align 4
   br label %_ZN7xgboost4JsonC2ERKS0_.exit16.i
@@ -10832,13 +10832,13 @@ _ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i:      ; preds = %_ZN7xgboost4JsonC2E
 _ZN7xgboost4JsonC2ERKS0_.exit16.i:                ; preds = %.thread22, %34
   %37 = phi ptr [ %8, %.thread22 ], [ %12, %34 ]
   %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
   invoke void %40(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i unwind label %44
 
 _ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i:    ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit16.i
-  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %42 = atomicrmw sub ptr %41, i32 1 release, align 4
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %_ZN7xgboost4JsonD2Ev.exit.sink.split.i, label %56
@@ -10846,7 +10846,7 @@ _ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i:    ; preds = %_ZN7xgboost4JsonC2E
 44:                                               ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit16.i
   %45 = landingpad { ptr, i32 }
           cleanup
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %47 = atomicrmw sub ptr %46, i32 1 release, align 4
   %48 = icmp eq i32 %47, 1
   br i1 %48, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i, label %87
@@ -10855,7 +10855,7 @@ _ZN7xgboost4JsonD2Ev.exit.sink.split.i:           ; preds = %_ZN7xgboost10JsonWr
   %49 = phi ptr [ %37, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i ], [ %22, %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i ]
   fence acquire
   %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %56
@@ -10864,7 +10864,7 @@ _ZN7xgboost4JsonD2Ev.exit14.sink.split.i:         ; preds = %44, %29
   %.pn9.pn.ph.i = phi { ptr, i32 } [ %30, %29 ], [ %45, %44 ]
   fence acquire
   %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %87
@@ -10873,7 +10873,7 @@ _ZN7xgboost4JsonD2Ev.exit14.sink.split.i:         ; preds = %44, %29
   %57 = phi ptr [ %22, %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit.i ], [ %37, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit.i ], [ %49, %_ZN7xgboost4JsonD2Ev.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %58 = getelementptr inbounds i8, ptr %7, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %59 = atomicrmw sub ptr %58, i32 1 release, align 4
   %60 = icmp eq i32 %59, 1
   br i1 %60, label %61, label %_ZN7xgboost4JsonD2Ev.exit
@@ -10881,7 +10881,7 @@ _ZN7xgboost4JsonD2Ev.exit14.sink.split.i:         ; preds = %44, %29
 61:                                               ; preds = %56
   fence acquire
   %62 = load ptr, ptr %7, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
@@ -10915,7 +10915,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcNSt7__cxx1
   br i1 %.not.i.i.i11, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %79
 
 79:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEENS1_IPcNSt7__cxx1112basic_stringIcSt11char_traitsIcES5_EEEEET0_T_SG_SF_.exit
-  %80 = getelementptr inbounds i8, ptr %6, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = ptrtoint ptr %81 to i64
   %83 = ptrtoint ptr %78 to i64
@@ -10934,7 +10934,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZSt4copyIN9__gnu_c
 
 87:                                               ; preds = %29, %44, %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i
   %eh.lpad-body.ph = phi { ptr, i32 } [ %.pn9.pn.ph.i, %_ZN7xgboost4JsonD2Ev.exit14.sink.split.i ], [ %45, %44 ], [ %30, %29 ]
-  %88 = getelementptr inbounds i8, ptr %7, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %89 = atomicrmw sub ptr %88, i32 1 release, align 4
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %91, label %_ZN7xgboost4JsonD2Ev.exit13
@@ -10942,7 +10942,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %_ZSt4copyIN9__gnu_c
 91:                                               ; preds = %87
   fence acquire
   %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   call void %94(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   br label %_ZN7xgboost4JsonD2Ev.exit13
@@ -10958,7 +10958,7 @@ define void @_ZN7xgboost4Json4DumpES0_PSt6vectorIcSaIcEESt13_Ios_Openmode(ptr no
   %4 = alloca %"class.xgboost::UBJWriter", align 8
   %5 = alloca %"class.xgboost::JsonWriter", align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, %6
   br i1 %.not.i.i, label %_ZNSt6vectorIcSaIcEE5clearEv.exit, label %9
@@ -10973,7 +10973,7 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %3, %9
   br i1 %.not, label %28, label %11
 
 11:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %12, align 8
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost9UBJWriterE, i64 16), ptr %4, align 8
   %13 = load ptr, ptr %0, align 8
@@ -10981,19 +10981,19 @@ _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %3, %9
   br i1 %.not.i.i.i, label %_ZN7xgboost4JsonC2ERKS0_.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = atomicrmw add ptr %15, i32 1 monotonic, align 4
   br label %_ZN7xgboost4JsonC2ERKS0_.exit
 
 _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %14, %11
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit unwind label %23
 
 _ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit:        ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %21 = atomicrmw sub ptr %20, i32 1 release, align 4
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %_ZN7xgboost4JsonD2Ev.exit.sink.split, label %_ZN7xgboost4JsonD2Ev.exit
@@ -11001,33 +11001,33 @@ _ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit:        ; preds = %_ZN7xgboost4JsonC2E
 23:                                               ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = getelementptr inbounds i8, ptr %13, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %26 = atomicrmw sub ptr %25, i32 1 release, align 4
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split, label %_ZN7xgboost4JsonD2Ev.exit14
 
 28:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN7xgboost10JsonWriterE, i64 16), ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %29, align 8
   %30 = load ptr, ptr %0, align 8
   %.not.i.i.i15 = icmp eq ptr %30, null
   br i1 %.not.i.i.i15, label %_ZN7xgboost4JsonC2ERKS0_.exit16, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = atomicrmw add ptr %32, i32 1 monotonic, align 4
   br label %_ZN7xgboost4JsonC2ERKS0_.exit16
 
 _ZN7xgboost4JsonC2ERKS0_.exit16:                  ; preds = %31, %28
   %34 = load ptr, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   invoke void %36(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit unwind label %40
 
 _ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit:      ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit16
-  %37 = getelementptr inbounds i8, ptr %30, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %38 = atomicrmw sub ptr %37, i32 1 release, align 4
   %39 = icmp eq i32 %38, 1
   br i1 %39, label %_ZN7xgboost4JsonD2Ev.exit.sink.split, label %_ZN7xgboost4JsonD2Ev.exit
@@ -11035,7 +11035,7 @@ _ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit:      ; preds = %_ZN7xgboost4JsonC2E
 40:                                               ; preds = %_ZN7xgboost4JsonC2ERKS0_.exit16
   %41 = landingpad { ptr, i32 }
           cleanup
-  %42 = getelementptr inbounds i8, ptr %30, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %43 = atomicrmw sub ptr %42, i32 1 release, align 4
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %_ZN7xgboost4JsonD2Ev.exit14.sink.split, label %_ZN7xgboost4JsonD2Ev.exit14
@@ -11044,7 +11044,7 @@ _ZN7xgboost4JsonD2Ev.exit.sink.split:             ; preds = %_ZN7xgboost10JsonWr
   %.sink29 = phi ptr [ %13, %_ZN7xgboost9UBJWriter4SaveENS_4JsonE.exit ], [ %30, %_ZN7xgboost10JsonWriter4SaveENS_4JsonE.exit ]
   fence acquire
   %45 = load ptr, ptr %.sink29, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %.sink29) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
@@ -11057,7 +11057,7 @@ _ZN7xgboost4JsonD2Ev.exit14.sink.split:           ; preds = %40, %23
   %.pn9.pn.ph = phi { ptr, i32 } [ %24, %23 ], [ %41, %40 ]
   fence acquire
   %48 = load ptr, ptr %.sink34, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(16) %.sink34) #14
   br label %_ZN7xgboost4JsonD2Ev.exit14
@@ -11077,7 +11077,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 d
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIcSaIcEED2Ev.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %2 to i64
@@ -11094,7 +11094,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
 define void @_ZN7xgboost9UBJWriter4SaveENS_4JsonE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %0)
   ret void
@@ -11119,13 +11119,13 @@ define void @_ZN7xgboost4Json4DumpES0_PNS_10JsonWriterE(ptr nocapture noundef re
   br i1 %.not.i.i.i, label %_ZN7xgboost4JsonC2ERKS0_.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = atomicrmw add ptr %6, i32 1 monotonic, align 4
   br label %_ZN7xgboost4JsonC2ERKS0_.exit
 
 _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %2, %5
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %3)
           to label %11 unwind label %21
@@ -11136,7 +11136,7 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %2, %5
   br i1 %.not.i.i.i2, label %_ZN7xgboost4JsonD2Ev.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = atomicrmw sub ptr %14, i32 1 release, align 4
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %17, label %_ZN7xgboost4JsonD2Ev.exit
@@ -11144,7 +11144,7 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %2, %5
 17:                                               ; preds = %13
   fence acquire
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(16) %12) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
@@ -11160,7 +11160,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %11, %13, %17
   br i1 %.not.i.i.i3, label %_ZN7xgboost4JsonD2Ev.exit4, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = atomicrmw sub ptr %25, i32 1 release, align 4
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %_ZN7xgboost4JsonD2Ev.exit4
@@ -11168,7 +11168,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %11, %13, %17
 28:                                               ; preds = %24
   fence acquire
   %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(16) %23) #14
   br label %_ZN7xgboost4JsonD2Ev.exit4
@@ -11190,9 +11190,9 @@ define void @_ZN7xgboost9UBJReader10ParseArrayEv(ptr dead_on_unwind noalias writ
   %11 = alloca %"class.xgboost::Json", align 8
   %12 = alloca %"class.xgboost::Json", align 8
   %13 = alloca %"class.xgboost::JsonArray", align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %15, %17
   br i1 %18, label %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread.thread, label %_ZN7xgboost10JsonReader12PeekNextCharEv.exit
@@ -11202,7 +11202,7 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread.thread: ; preds = %2
   br label %.lr.ph
 
 _ZN7xgboost10JsonReader12PeekNextCharEv.exit:     ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %15
   %22 = load i8, ptr %21, align 1
@@ -11306,7 +11306,7 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit42:   ; preds = %_ZN7xgboost10JsonRe
   br i1 %53, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %52
-  %54 = getelementptr inbounds i8, ptr %3, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %55
 
 55:                                               ; preds = %55, %.lr.ph.i
@@ -11318,7 +11318,7 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit42:   ; preds = %_ZN7xgboost10JsonRe
   %59 = add i64 %57, 1
   store i64 %59, ptr %14, align 8, !noalias !77
   %60 = load ptr, ptr %54, align 8, !noalias !77
-  %61 = getelementptr inbounds i8, ptr %60, i64 %.010.i
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.010.i
   store i8 %.0.copyload.i.i.i, ptr %61, align 1, !noalias !77
   %62 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %62, %45
@@ -11328,13 +11328,13 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit42:   ; preds = %_ZN7xgboost10JsonRe
   %64 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE, i64 16), ptr %3, align 8, !noalias !77
-  %65 = getelementptr inbounds i8, ptr %3, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %66 = load ptr, ptr %65, align 8, !noalias !77
   %.not.i.i.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i.i.i, label %common.resume, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %3, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %69 = load ptr, ptr %68, align 8, !noalias !77
   %70 = ptrtoint ptr %69 to i64
   %71 = ptrtoint ptr %66 to i64
@@ -11353,16 +11353,16 @@ common.resume:                                    ; preds = %_ZN7xgboost4JsonD2E
 74:                                               ; preds = %._crit_edge.i
   call void @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEC1EOS3_(ptr noundef nonnull align 8 dereferenceable(40) %73, ptr noundef nonnull align 8 dereferenceable(40) %3) #14, !noalias !77
   store ptr %73, ptr %0, align 8, !alias.scope !77
-  %75 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = atomicrmw add ptr %75, i32 1 monotonic, align 4, !noalias !77
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE, i64 16), ptr %3, align 8, !noalias !77
-  %77 = getelementptr inbounds i8, ptr %3, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %78 = load ptr, ptr %77, align 8, !noalias !77
   %.not.i.i.i.i8.i = icmp eq ptr %78, null
   br i1 %.not.i.i.i.i8.i, label %_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEEEEDal.exit, label %79
 
 79:                                               ; preds = %74
-  %80 = getelementptr inbounds i8, ptr %3, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %81 = load ptr, ptr %80, align 8, !noalias !77
   %82 = ptrtoint ptr %81 to i64
   %83 = ptrtoint ptr %78 to i64
@@ -11497,9 +11497,9 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread.._crit_edge_crit_edge: ; pre
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread.thread, %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread
-  %118 = getelementptr inbounds i8, ptr %10, i64 8
-  %119 = getelementptr inbounds i8, ptr %10, i64 16
-  %120 = getelementptr inbounds i8, ptr %1, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.backedge
 
 121:                                              ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread
@@ -11519,7 +11519,7 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit46:    ; preds = %121, %125
   br i1 %128, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i47.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i47
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i47:  ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit46
-  %129 = getelementptr inbounds i8, ptr %1, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 %127
   %132 = load i8, ptr %131, align 1
@@ -11534,10 +11534,10 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i47.thread: ; preds = %_ZN7xgboost10
           to label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i47.thread._crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i47.thread._crit_edge: ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i47.thread
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre105 = load ptr, ptr %.phi.trans.insert, align 8
   %.pre106 = load i64, ptr %14, align 8
-  %.phi.trans.insert107 = getelementptr inbounds i8, ptr %10, i64 8
+  %.phi.trans.insert107 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.pre108 = load ptr, ptr %.phi.trans.insert107, align 8
   %.pre109 = load ptr, ptr %10, align 8
   br label %134
@@ -11552,7 +11552,7 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i47.thread._crit_edge: ; preds = %_Z
   %140 = add i64 %137, 8
   store i64 %140, ptr %14, align 8
   %141 = call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i52)
-  %142 = getelementptr inbounds i8, ptr %10, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %143 = ptrtoint ptr %136 to i64
   %144 = ptrtoint ptr %135 to i64
   %145 = sub i64 %143, %144
@@ -11581,7 +11581,7 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i47.thread._crit_edge: ; preds = %_Z
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i, label %155
 
 155:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %156 = getelementptr inbounds i8, ptr %154, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %157 = atomicrmw sub ptr %156, i32 1 release, align 4
   %158 = icmp eq i32 %157, 1
   br i1 %158, label %159, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i
@@ -11589,13 +11589,13 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i47.thread._crit_edge: ; preds = %_Z
 159:                                              ; preds = %155
   fence acquire
   %160 = load ptr, ptr %154, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8
   call void %162(ptr noundef nonnull align 8 dereferenceable(16) %154) #14
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i: ; preds = %159, %155, %.lr.ph.i.i.i.i.i
-  %163 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i53 = icmp eq ptr %163, %136
   br i1 %.not.i.i.i.i.i53, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !72
 
@@ -11614,7 +11614,7 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EE6resizeEm.exit: ; preds = %148, %150, %152, 
 
 165:                                              ; preds = %.lr.ph100
   %166 = load ptr, ptr %10, align 8
-  %167 = getelementptr inbounds %"class.xgboost::Json", ptr %166, i64 %.099
+  %167 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %166, i64 %.099
   %168 = load ptr, ptr %167, align 8
   %169 = load ptr, ptr %11, align 8
   store ptr %169, ptr %167, align 8
@@ -11623,7 +11623,7 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EE6resizeEm.exit: ; preds = %148, %150, %152, 
   br i1 %.not.i.i.i, label %_ZN7xgboost4JsonD2Ev.exit, label %170
 
 170:                                              ; preds = %165
-  %171 = getelementptr inbounds i8, ptr %168, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %172 = atomicrmw sub ptr %171, i32 1 release, align 4
   %173 = icmp eq i32 %172, 1
   br i1 %173, label %174, label %_ZN7xgboost4JsonD2Ev.exit
@@ -11631,7 +11631,7 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EE6resizeEm.exit: ; preds = %148, %150, %152, 
 174:                                              ; preds = %170
   fence acquire
   %175 = load ptr, ptr %168, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load ptr, ptr %176, align 8
   call void %177(ptr noundef nonnull align 8 dereferenceable(16) %168) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
@@ -11678,9 +11678,9 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %165, %170, %174
   unreachable
 
 _ZNSt6vectorIN7xgboost4JsonESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.thread: ; preds = %182
-  %187 = getelementptr inbounds i8, ptr %183, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i32 0, ptr %187, align 4
-  %188 = getelementptr inbounds i8, ptr %183, i64 12
+  %188 = getelementptr inbounds nuw i8, ptr %183, i64 12
   store i32 6, ptr %188, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %183, align 8
   store ptr %183, ptr %180, align 8
@@ -11689,7 +11689,7 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.thread:
   store ptr %190, ptr %180, align 8
   store ptr %183, ptr %12, align 8
   %191 = load ptr, ptr %118, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store ptr %192, ptr %118, align 8
   br label %194
 
@@ -11704,7 +11704,7 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; pred
 
 194:                                              ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.thread, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
   %195 = phi ptr [ %183, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.thread ], [ %.pr, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit ]
-  %196 = getelementptr inbounds i8, ptr %195, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = atomicrmw sub ptr %196, i32 1 release, align 4
   %198 = icmp eq i32 %197, 1
   br i1 %198, label %199, label %_ZN7xgboost4JsonD2Ev.exit58
@@ -11712,7 +11712,7 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit: ; pred
 199:                                              ; preds = %194
   fence acquire
   %200 = load ptr, ptr %195, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %202 = load ptr, ptr %201, align 8
   call void %202(ptr noundef nonnull align 8 dereferenceable(16) %195) #14
   br label %_ZN7xgboost4JsonD2Ev.exit58
@@ -11741,7 +11741,7 @@ _ZN7xgboost4JsonD2Ev.exit58:                      ; preds = %_ZNSt6vectorIN7xgbo
   br i1 %.not.i.i.i61, label %_ZN7xgboost4JsonD2Ev.exit62, label %214
 
 214:                                              ; preds = %211
-  %215 = getelementptr inbounds i8, ptr %213, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %216 = atomicrmw sub ptr %215, i32 1 release, align 4
   %217 = icmp eq i32 %216, 1
   br i1 %217, label %218, label %_ZN7xgboost4JsonD2Ev.exit62
@@ -11749,7 +11749,7 @@ _ZN7xgboost4JsonD2Ev.exit58:                      ; preds = %_ZNSt6vectorIN7xgbo
 218:                                              ; preds = %214
   fence acquire
   %219 = load ptr, ptr %213, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %221 = load ptr, ptr %220, align 8
   call void %221(ptr noundef nonnull align 8 dereferenceable(16) %213) #14
   br label %_ZN7xgboost4JsonD2Ev.exit62
@@ -11761,7 +11761,7 @@ _ZN7xgboost4JsonD2Ev.exit58:                      ; preds = %_ZNSt6vectorIN7xgbo
   br i1 %224, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i63.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i63
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i63:  ; preds = %._crit_edge
-  %225 = getelementptr inbounds i8, ptr %1, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds i8, ptr %226, i64 %223
   %228 = load i8, ptr %227, align 1
@@ -11776,13 +11776,13 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i63.thread: ; preds = %._crit_edge, 
           to label %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit67 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit67: ; preds = %_ZN7xgboost4JsonD2Ev.exit, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE6resizeEm.exit, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i63, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i63.thread
-  %230 = getelementptr inbounds i8, ptr %13, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %13, i64 12
+  %231 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 4, ptr %231, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost9JsonArrayE, i64 16), ptr %13, align 8
-  %232 = getelementptr inbounds i8, ptr %13, i64 16
-  %233 = getelementptr inbounds i8, ptr %10, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %234 = load ptr, ptr %233, align 8
   %235 = load ptr, ptr %10, align 8
   %236 = ptrtoint ptr %234 to i64
@@ -11793,9 +11793,9 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit67: ; preds = %_ZN7xgboost4Jso
   br i1 %.not.i.i.i.i.i68, label %.noexc3.i.thread, label %242
 
 .noexc3.i.thread:                                 ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit67
-  %239 = getelementptr inbounds i8, ptr %13, i64 24
+  %239 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %240 = getelementptr inbounds i8, ptr null, i64 %238
-  %241 = getelementptr inbounds i8, ptr %13, i64 32
+  %241 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %232, i8 0, i64 16, i1 false)
   store ptr %240, ptr %241, align 8
   br label %.loopexit
@@ -11817,10 +11817,10 @@ _ZNSt16allocator_traitsISaIN7xgboost4JsonEEE8allocateERS2_m.exit.i.i.i.i.i: ; pr
 
 .noexc3.i:                                        ; preds = %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE8allocateERS2_m.exit.i.i.i.i.i
   store ptr %244, ptr %232, align 8
-  %245 = getelementptr inbounds i8, ptr %13, i64 24
+  %245 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %244, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %244, i64 %238
-  %247 = getelementptr inbounds i8, ptr %13, i64 32
+  %246 = getelementptr inbounds nuw i8, ptr %244, i64 %238
+  %247 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %246, ptr %247, align 8
   br label %.lr.ph.i.i.i.i.i.i
 
@@ -11833,13 +11833,13 @@ _ZNSt16allocator_traitsISaIN7xgboost4JsonEEE8allocateERS2_m.exit.i.i.i.i.i: ; pr
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %249
 
 249:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %250 = getelementptr inbounds i8, ptr %248, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %251 = atomicrmw add ptr %250, i32 1 monotonic, align 4
   br label %_ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
 
 _ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %249, %.lr.ph.i.i.i.i.i.i
-  %252 = getelementptr inbounds i8, ptr %.sroa.08.012.i.i.i.i.i.i, i64 8
-  %253 = getelementptr inbounds i8, ptr %.013.i.i.i.i.i.i, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i.i, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %252, %234
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !82
 
@@ -11854,7 +11854,7 @@ _ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %
 257:                                              ; preds = %.loopexit
   call void @_ZN7xgboost9JsonArrayC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %256, ptr noundef nonnull align 8 dereferenceable(40) %13) #14
   store ptr %256, ptr %0, align 8
-  %258 = getelementptr inbounds i8, ptr %256, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %259 = atomicrmw add ptr %258, i32 1 monotonic, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost9JsonArrayE, i64 16), ptr %13, align 8
   %260 = load ptr, ptr %232, align 8
@@ -11869,7 +11869,7 @@ _ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %
   br i1 %.not.i.i.i.i.i.i.i.i.i74, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i75, label %263
 
 263:                                              ; preds = %.lr.ph.i.i.i.i.i72
-  %264 = getelementptr inbounds i8, ptr %262, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %265 = atomicrmw sub ptr %264, i32 1 release, align 4
   %266 = icmp eq i32 %265, 1
   br i1 %266, label %267, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i75
@@ -11877,13 +11877,13 @@ _ZSt10_ConstructIN7xgboost4JsonEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %
 267:                                              ; preds = %263
   fence acquire
   %268 = load ptr, ptr %262, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %270 = load ptr, ptr %269, align 8
   call void %270(ptr noundef nonnull align 8 dereferenceable(16) %262) #14
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i75
 
 _ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i75: ; preds = %267, %263, %.lr.ph.i.i.i.i.i72
-  %271 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i73, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i73, i64 8
   %.not.i.i.i.i.i76 = icmp eq ptr %271, %261
   br i1 %.not.i.i.i.i.i76, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i72, !llvm.loop !72
 
@@ -11917,7 +11917,7 @@ _ZN7xgboost9JsonArrayD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPN7xg
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i, label %281
 
 281:                                              ; preds = %.lr.ph.i.i.i.i
-  %282 = getelementptr inbounds i8, ptr %280, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %283 = atomicrmw sub ptr %282, i32 1 release, align 4
   %284 = icmp eq i32 %283, 1
   br i1 %284, label %285, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i
@@ -11925,13 +11925,13 @@ _ZN7xgboost9JsonArrayD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPN7xg
 285:                                              ; preds = %281
   fence acquire
   %286 = load ptr, ptr %280, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
   %288 = load ptr, ptr %287, align 8
   call void %288(ptr noundef nonnull align 8 dereferenceable(16) %280) #14
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i:  ; preds = %285, %281, %.lr.ph.i.i.i.i
-  %289 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i78 = icmp eq ptr %289, %279
   br i1 %.not.i.i.i.i78, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !72
 
@@ -11945,7 +11945,7 @@ _ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_Destro
   br i1 %.not.i.i.i79, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EED2Ev.exit, label %291
 
 291:                                              ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i
-  %292 = getelementptr inbounds i8, ptr %10, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %293 = load ptr, ptr %292, align 8
   %294 = ptrtoint ptr %293 to i64
   %295 = ptrtoint ptr %290 to i64
@@ -11983,9 +11983,9 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
@@ -11998,7 +11998,7 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   store i64 %13, ptr %7, align 8
   %14 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i3.i)
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds float, ptr %15, i64 %.010
+  %16 = getelementptr inbounds nuw float, ptr %15, i64 %.010
   store i32 %14, ptr %16, align 4
   %17 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %17, %2
@@ -12008,13 +12008,13 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   %19 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE, i64 16), ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EED2Ev.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
@@ -12032,16 +12032,16 @@ _ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EED2Ev.exit: ; preds = %18, %
 29:                                               ; preds = %._crit_edge
   call void @_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEC1EOS3_(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %4) #14
   store ptr %28, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = atomicrmw add ptr %30, i32 1 monotonic, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE, i64 16), ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i8 = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i8, label %_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EED2Ev.exit9, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
@@ -12061,9 +12061,9 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
@@ -12076,7 +12076,7 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   store i64 %13, ptr %7, align 8
   %14 = call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i3.i)
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds double, ptr %15, i64 %.010
+  %16 = getelementptr inbounds nuw double, ptr %15, i64 %.010
   store i64 %14, ptr %16, align 8
   %17 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %17, %2
@@ -12086,13 +12086,13 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   %19 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE, i64 16), ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EED2Ev.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
@@ -12110,16 +12110,16 @@ _ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EED2Ev.exit: ; preds = %18, %
 29:                                               ; preds = %._crit_edge
   call void @_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEC1EOS3_(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %4) #14
   store ptr %28, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = atomicrmw add ptr %30, i32 1 monotonic, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE, i64 16), ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i8 = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i8, label %_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EED2Ev.exit9, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
@@ -12139,9 +12139,9 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
@@ -12154,7 +12154,7 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   store i64 %13, ptr %7, align 8
   %14 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i)
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i32, ptr %15, i64 %.010
+  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %.010
   store i32 %14, ptr %16, align 4
   %17 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %17, %2
@@ -12164,13 +12164,13 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   %19 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE, i64 16), ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EED2Ev.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
@@ -12188,16 +12188,16 @@ _ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EED2Ev.exit: ; preds = %18, 
 29:                                               ; preds = %._crit_edge
   call void @_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEC1EOS3_(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %4) #14
   store ptr %28, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = atomicrmw add ptr %30, i32 1 monotonic, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE, i64 16), ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i8 = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i8, label %_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EED2Ev.exit9, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
@@ -12217,9 +12217,9 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
@@ -12232,7 +12232,7 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   store i64 %13, ptr %7, align 8
   %14 = call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i)
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i64, ptr %15, i64 %.010
+  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %.010
   store i64 %14, ptr %16, align 8
   %17 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %17, %2
@@ -12242,13 +12242,13 @@ define linkonce_odr void @_ZN7xgboost9UBJReader15ParseTypedArrayINS_14JsonTypedA
   %19 = landingpad { ptr, i32 }
           cleanup
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE, i64 16), ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EED2Ev.exit, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %21 to i64
@@ -12266,16 +12266,16 @@ _ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EED2Ev.exit: ; preds = %18, 
 29:                                               ; preds = %._crit_edge
   call void @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEC1EOS3_(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %4) #14
   store ptr %28, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = atomicrmw add ptr %30, i32 1 monotonic, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE, i64 16), ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %33 = load ptr, ptr %32, align 8
   %.not.i.i.i.i8 = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i8, label %_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EED2Ev.exit9, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = ptrtoint ptr %33 to i64
@@ -12294,15 +12294,15 @@ define void @_ZN7xgboost9UBJReader5ParseEv(ptr dead_on_unwind noalias writable s
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.33", align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %8, align 8
   %11 = load i64, ptr %9, align 8
   %12 = icmp eq i64 %10, %11
   br i1 %12, label %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread, label %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.lr.ph
 
 _ZN7xgboost10JsonReader12PeekNextCharEv.exit.lr.ph: ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
   br label %_ZN7xgboost10JsonReader12PeekNextCharEv.exit
 
@@ -12337,23 +12337,23 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit:      ; preds = %_ZN7xgboost10JsonRe
 
 21:                                               ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %167
 
 25:                                               ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr dead_on_unwind writable sret(%"class.xgboost::Json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %167
 
 29:                                               ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit
   %30 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %30, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 6, ptr %32, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %30, align 8
   store ptr %30, ptr %0, align 8
@@ -12362,12 +12362,12 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit:      ; preds = %_ZN7xgboost10JsonRe
 
 34:                                               ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit
   %35 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %35, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 5, ptr %37, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonBooleanE, i64 16), ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i8 1, ptr %38, align 8
   store ptr %35, ptr %0, align 8
   %39 = atomicrmw add ptr %36, i32 1 monotonic, align 4
@@ -12375,12 +12375,12 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit:      ; preds = %_ZN7xgboost10JsonRe
 
 40:                                               ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit
   %41 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 5, ptr %43, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonBooleanE, i64 16), ptr %41, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i8 0, ptr %44, align 8
   store ptr %41, ptr %0, align 8
   %45 = atomicrmw add ptr %42, i32 1 monotonic, align 4
@@ -12393,12 +12393,12 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit:      ; preds = %_ZN7xgboost10JsonRe
   store i64 %48, ptr %8, align 8
   %49 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i3.i)
   %50 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 0, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %50, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 1, ptr %52, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonNumberE, i64 16), ptr %50, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 %49, ptr %53, align 8
   store ptr %50, ptr %0, align 8
   %54 = atomicrmw add ptr %51, i32 1 monotonic, align 4
@@ -12413,12 +12413,12 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit:      ; preds = %_ZN7xgboost10JsonRe
   %59 = bitcast i64 %58 to double
   %60 = fptrunc double %59 to float
   %61 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %61, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 1, ptr %63, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonNumberE, i64 16), ptr %61, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store float %60, ptr %64, align 8
   store ptr %61, ptr %0, align 8
   %65 = atomicrmw add ptr %62, i32 1 monotonic, align 4
@@ -12426,12 +12426,12 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit:      ; preds = %_ZN7xgboost10JsonRe
 
 66:                                               ; preds = %_ZN7xgboost10JsonReader11GetNextCharEv.exit
   call void @_ZN7xgboost9UBJReader9DecodeStrB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %67 = getelementptr inbounds i8, ptr %4, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %4, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %68, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN7xgboost10JsonStringC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %76
 
@@ -12440,12 +12440,12 @@ _ZN7xgboost10JsonStringC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
           to label %71 unwind label %78
 
 71:                                               ; preds = %_ZN7xgboost10JsonStringC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 0, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %70, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 0, ptr %73, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %70, align 8
-  %74 = getelementptr inbounds i8, ptr %70, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %74) #14
   store ptr %70, ptr %0, align 8
@@ -12479,12 +12479,12 @@ _ZN7xgboost10JsonStringC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i64 %83, ptr %8, align 8
   %84 = sext i8 %.0.copyload.i.i to i64
   %85 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %86 = getelementptr inbounds i8, ptr %85, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 0, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %85, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 12
   store i32 2, ptr %87, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonIntegerE, i64 16), ptr %85, align 8
-  %88 = getelementptr inbounds i8, ptr %85, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
   store i64 %84, ptr %88, align 8
   store ptr %85, ptr %0, align 8
   %89 = atomicrmw add ptr %86, i32 1 monotonic, align 4
@@ -12497,12 +12497,12 @@ _ZN7xgboost10JsonStringC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i64 %92, ptr %8, align 8
   %93 = zext i8 %.0.copyload.i.i24 to i64
   %94 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 0, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %94, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 12
   store i32 2, ptr %96, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonIntegerE, i64 16), ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %94, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store i64 %93, ptr %97, align 8
   store ptr %94, ptr %0, align 8
   %98 = atomicrmw add ptr %95, i32 1 monotonic, align 4
@@ -12516,12 +12516,12 @@ _ZN7xgboost10JsonStringC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %102 = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i26)
   %103 = sext i16 %102 to i64
   %104 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i32 0, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %104, i64 12
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 12
   store i32 2, ptr %106, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonIntegerE, i64 16), ptr %104, align 8
-  %107 = getelementptr inbounds i8, ptr %104, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store i64 %103, ptr %107, align 8
   store ptr %104, ptr %0, align 8
   %108 = atomicrmw add ptr %105, i32 1 monotonic, align 4
@@ -12535,12 +12535,12 @@ _ZN7xgboost10JsonStringC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %112 = call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i28)
   %113 = sext i32 %112 to i64
   %114 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %115 = getelementptr inbounds i8, ptr %114, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i32 0, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %114, i64 12
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 12
   store i32 2, ptr %116, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonIntegerE, i64 16), ptr %114, align 8
-  %117 = getelementptr inbounds i8, ptr %114, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store i64 %113, ptr %117, align 8
   store ptr %114, ptr %0, align 8
   %118 = atomicrmw add ptr %115, i32 1 monotonic, align 4
@@ -12553,12 +12553,12 @@ _ZN7xgboost10JsonStringC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i64 %121, ptr %8, align 8
   %122 = call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i30)
   %123 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i32 0, ptr %124, align 4
-  %125 = getelementptr inbounds i8, ptr %123, i64 12
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 12
   store i32 2, ptr %125, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonIntegerE, i64 16), ptr %123, align 8
-  %126 = getelementptr inbounds i8, ptr %123, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store i64 %122, ptr %126, align 8
   store ptr %123, ptr %0, align 8
   %127 = atomicrmw add ptr %124, i32 1 monotonic, align 4
@@ -12571,12 +12571,12 @@ _ZN7xgboost10JsonStringC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   store i64 %130, ptr %8, align 8
   %131 = sext i8 %.0.copyload.i.i32 to i64
   %132 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store i32 0, ptr %133, align 4
-  %134 = getelementptr inbounds i8, ptr %132, i64 12
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 12
   store i32 2, ptr %134, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost11JsonIntegerE, i64 16), ptr %132, align 8
-  %135 = getelementptr inbounds i8, ptr %132, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 16
   store i64 %131, ptr %135, align 8
   store ptr %132, ptr %0, align 8
   %136 = atomicrmw add ptr %133, i32 1 monotonic, align 4
@@ -12674,9 +12674,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread: ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit, %155, %2
   %163 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-  %164 = getelementptr inbounds i8, ptr %163, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store i32 0, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %163, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 12
   store i32 6, ptr %165, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %163, align 8
   store ptr %163, ptr %0, align 8
@@ -12700,15 +12700,15 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread: ; preds = %_ZN7xgboost10Jso
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJReader9DecodeStrB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %4, %6
   br i1 %7, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i:    ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 %4
   %11 = load i8, ptr %10, align 1
@@ -12720,7 +12720,7 @@ _ZN7xgboost10JsonReader11GetNextCharEv.exit.i:    ; preds = %2
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread: ; preds = %2, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i
   %.0.i.i9 = phi i8 [ %11, %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i ], [ -1, %2 ]
   tail call void @_ZN7xgboost10JsonReader6ExpectEaa(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 76, i8 noundef signext %.0.i.i9)
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre10 = load i64, ptr %3, align 8
   br label %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit
@@ -12738,7 +12738,7 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit: ; preds = %_ZN7xgboost10Json
           to label %18 unwind label %28
 
 18:                                               ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %3, align 8
   %22 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0)
@@ -12768,48 +12768,48 @@ define void @_ZN7xgboost9UBJReader11ParseObjectEv(ptr dead_on_unwind noalias noc
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.xgboost::Json", align 8
   %6 = alloca %"class.xgboost::JsonObject", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %8, %10
   br i1 %11, label %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread, label %_ZN7xgboost10JsonReader12PeekNextCharEv.exit
 
 _ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread: ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %12, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %16, align 8
   br label %.lr.ph
 
 _ZN7xgboost10JsonReader12PeekNextCharEv.exit:     ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %8
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 125
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %22, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %22, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %26, align 8
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread, %_ZN7xgboost10JsonReader12PeekNextCharEv.exit
   %27 = phi ptr [ %13, %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread ], [ %23, %_ZN7xgboost10JsonReader12PeekNextCharEv.exit ]
   %28 = phi ptr [ %12, %_ZN7xgboost10JsonReader12PeekNextCharEv.exit.thread ], [ %22, %_ZN7xgboost10JsonReader12PeekNextCharEv.exit ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
@@ -12828,7 +12828,7 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit:     ; preds = %2
 .lr.ph.i.i.i.i:                                   ; preds = %31, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i
   %.013.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i ], [ %32, %31 ]
   %.0812.i.i.i.i = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i ], [ %28, %31 ]
-  %33 = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 32
   %34 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i.i unwind label %35
 
@@ -12843,7 +12843,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   %38 = icmp slt i32 %34, 0
   %.19.i.i.i.i = select i1 %38, ptr %.0812.i.i.i.i, ptr %.013.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %38, i64 24, i64 16
-  %.1.in.i.i.i.i = getelementptr inbounds i8, ptr %.013.i.i.i.i, i64 %.1.in.v.i.i.i.i
+  %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not.i.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEE11lower_boundERSB_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !73
@@ -12853,7 +12853,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4
   br i1 %39, label %.critedge.i, label %40
 
 40:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEE11lower_boundERSB_.exit.i
-  %.0812.i.i.i.i.sroa.gep = getelementptr inbounds i8, ptr %.0812.i.i.i.i, i64 32
+  %.0812.i.i.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %.0812.i.i.i.i, i64 32
   %.19.i.i.i.i.sroa.sel = select i1 %38, ptr %.0812.i.i.i.i.sroa.gep, ptr %33
   %41 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.19.i.i.i.i.sroa.sel)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i unwind label %42
@@ -12880,7 +12880,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br i1 %.not.i.i.i, label %_ZN7xgboost4JsonD2Ev.exit, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = atomicrmw sub ptr %50, i32 1 release, align 4
   %52 = icmp eq i32 %51, 1
   br i1 %52, label %53, label %_ZN7xgboost4JsonD2Ev.exit
@@ -12888,7 +12888,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 53:                                               ; preds = %49
   fence acquire
   %54 = load ptr, ptr %48, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull align 8 dereferenceable(16) %48) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
@@ -12937,7 +12937,7 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit9:    ; preds = %_ZN7xgboost4JsonD2E
   br i1 %.not.i.i.i10, label %_ZN7xgboost4JsonD2Ev.exit11, label %70
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = atomicrmw sub ptr %71, i32 1 release, align 4
   %73 = icmp eq i32 %72, 1
   br i1 %73, label %74, label %_ZN7xgboost4JsonD2Ev.exit11
@@ -12945,7 +12945,7 @@ _ZN7xgboost10JsonReader12PeekNextCharEv.exit9:    ; preds = %_ZN7xgboost4JsonD2E
 74:                                               ; preds = %70
   fence acquire
   %75 = load ptr, ptr %69, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(16) %69) #14
   br label %_ZN7xgboost4JsonD2Ev.exit11
@@ -12968,7 +12968,7 @@ _ZN7xgboost4JsonD2Ev.exit11:                      ; preds = %74, %70, %67, %65
   br i1 %81, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i.thread, label %_ZN7xgboost10JsonReader11GetNextCharEv.exit.i
 
 _ZN7xgboost10JsonReader11GetNextCharEv.exit.i:    ; preds = %._crit_edge
-  %82 = getelementptr inbounds i8, ptr %1, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 %80
   %85 = load i8, ptr %84, align 1
@@ -12990,11 +12990,11 @@ _ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit: ; preds = %_ZN7xgboost10Json
 88:                                               ; preds = %_ZN7xgboost10JsonReader18GetConsecutiveCharEc.exit
   call void @_ZN7xgboost10JsonObjectC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %87, ptr noundef nonnull align 8 dereferenceable(64) %6) #14
   store ptr %87, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %90 = atomicrmw add ptr %89, i32 1 monotonic, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonObjectE, i64 16), ptr %6, align 8
-  %91 = getelementptr inbounds i8, ptr %6, i64 16
-  %92 = getelementptr inbounds i8, ptr %6, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %93 = load ptr, ptr %92, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %91, ptr noundef %93)
           to label %_ZN7xgboost10JsonObjectD2Ev.exit unwind label %94
@@ -13042,11 +13042,11 @@ define void @_ZN7xgboost9UBJReader4LoadEv(ptr dead_on_unwind noalias writable sr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_9JsonArrayE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %7, %9
   br i1 %.not.i, label %13, label %10
@@ -13054,7 +13054,7 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_9JsonArrayE(ptr noundef nonnull al
 10:                                               ; preds = %2
   store i8 91, ptr %7, align 1
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %6, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
@@ -13095,7 +13095,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i: ; preds = %24, %_ZNKSt6vect
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %29, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
-  %30 = getelementptr inbounds i8, ptr %27, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %.not.i17.i.i = icmp eq ptr %14, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i, label %31
 
@@ -13106,13 +13106,13 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %29, %_ZNSt
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
   store ptr %26, ptr %5, align 8
   store ptr %30, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 %23
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %23
   store ptr %32, ptr %8, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit: ; preds = %10, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
   %37 = ptrtoint ptr %35 to i64
@@ -13120,9 +13120,9 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit: ; preds = %10, %_ZNSt6vect
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 3
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %45 = load ptr, ptr %44, align 8
   %.not.i.i = icmp eq ptr %43, %45
   br i1 %.not.i.i, label %49, label %46
@@ -13130,7 +13130,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit: ; preds = %10, %_ZNSt6vect
 46:                                               ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
   store i8 35, ptr %43, align 1
   %47 = load ptr, ptr %42, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store ptr %48, ptr %42, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -13171,7 +13171,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %60, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %65, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %66 = getelementptr inbounds i8, ptr %63, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 1
   %.not.i17.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %67
 
@@ -13182,15 +13182,15 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %65, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %67, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %62, ptr %41, align 8
   store ptr %66, ptr %42, align 8
-  %68 = getelementptr inbounds i8, ptr %62, i64 %59
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 %59
   store ptr %68, ptr %44, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %46, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i
   %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %73 = load ptr, ptr %72, align 8
   %.not.i.i9 = icmp eq ptr %71, %73
   br i1 %.not.i.i9, label %77, label %74
@@ -13198,7 +13198,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %46, %_ZNSt6vectorIc
 74:                                               ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
   store i8 76, ptr %71, align 1
   %75 = load ptr, ptr %70, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
   store ptr %76, ptr %70, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit17
 
@@ -13239,7 +13239,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i13: ; preds = %88, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i14
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i14: ; preds = %93, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i13
-  %94 = getelementptr inbounds i8, ptr %91, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 1
   %.not.i17.i.i.i15 = icmp eq ptr %78, null
   br i1 %.not.i17.i.i.i15, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i16, label %95
 
@@ -13250,14 +13250,14 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i14: ; preds = %93, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i16: ; preds = %95, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i14
   store ptr %90, ptr %69, align 8
   store ptr %94, ptr %70, align 8
-  %96 = getelementptr inbounds i8, ptr %90, i64 %87
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 %87
   store ptr %96, ptr %72, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit17
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit17:         ; preds = %74, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i16
   %97 = load ptr, ptr %4, align 8
   %98 = tail call noundef i64 @llvm.bswap.i64(i64 %40)
-  %99 = getelementptr inbounds i8, ptr %97, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = load ptr, ptr %97, align 8
   %102 = ptrtoint ptr %100 to i64
@@ -13281,13 +13281,13 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit17:         ; preds = %74, %_ZNSt6vectorIc
   br i1 %.not.i.i.i18, label %_ZN7xgboost4JsonC2ERKS0_.exit, label %111
 
 111:                                              ; preds = %.lr.ph
-  %112 = getelementptr inbounds i8, ptr %110, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %113 = atomicrmw add ptr %112, i32 1 monotonic, align 4
   br label %_ZN7xgboost4JsonC2ERKS0_.exit
 
 _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %.lr.ph, %111
   %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load ptr, ptr %115, align 8
   invoke void %116(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
           to label %117 unwind label %128
@@ -13298,7 +13298,7 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %.lr.ph, %111
   br i1 %.not.i.i.i19, label %_ZN7xgboost4JsonD2Ev.exit, label %119
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds i8, ptr %118, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %121 = atomicrmw sub ptr %120, i32 1 release, align 4
   %122 = icmp eq i32 %121, 1
   br i1 %122, label %123, label %_ZN7xgboost4JsonD2Ev.exit
@@ -13306,13 +13306,13 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %.lr.ph, %111
 123:                                              ; preds = %119
   fence acquire
   %124 = load ptr, ptr %118, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   call void %126(ptr noundef nonnull align 8 dereferenceable(16) %118) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
 
 _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %117, %119, %123
-  %127 = getelementptr inbounds i8, ptr %.sroa.022.031, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.022.031, i64 8
   %.not = icmp eq ptr %127, %109
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -13324,7 +13324,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %117, %119, %123
   br i1 %.not.i.i.i20, label %_ZN7xgboost4JsonD2Ev.exit21, label %131
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %130, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %133 = atomicrmw sub ptr %132, i32 1 release, align 4
   %134 = icmp eq i32 %133, 1
   br i1 %134, label %135, label %_ZN7xgboost4JsonD2Ev.exit21
@@ -13332,7 +13332,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %117, %119, %123
 135:                                              ; preds = %131
   fence acquire
   %136 = load ptr, ptr %130, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8
   call void %138(ptr noundef nonnull align 8 dereferenceable(16) %130) #14
   br label %_ZN7xgboost4JsonD2Ev.exit21
@@ -13346,7 +13346,7 @@ _ZN7xgboost4JsonD2Ev.exit21:                      ; preds = %128, %131, %135
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN7xgboost15WriteTypedArrayIfLNS_5Value9ValueKindE7EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %1, ptr noundef %4)
   ret void
@@ -13354,9 +13354,9 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIfLNS_5Value9Value
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost15WriteTypedArrayIfLNS_5Value9ValueKindE7EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %10, label %7
@@ -13364,7 +13364,7 @@ define linkonce_odr void @_ZN7xgboost15WriteTypedArrayIfLNS_5Value9ValueKindE7EE
 7:                                                ; preds = %2
   store i8 91, ptr %4, align 1
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %9, ptr %3, align 8
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
@@ -13406,7 +13406,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i: ; preds = %21, %_ZNKSt6vect
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
-  %27 = getelementptr inbounds i8, ptr %24, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %.not.i17.i.i = icmp eq ptr %11, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i, label %28
 
@@ -13417,7 +13417,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNSt
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %1, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 %20
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %20
   store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
@@ -13430,7 +13430,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit: ; preds = %7, %_ZNSt6vecto
 32:                                               ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
   store i8 36, ptr %31, align 1
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %34, ptr %3, align 8
   %.pre59 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
@@ -13472,7 +13472,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %46, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %51, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %52 = getelementptr inbounds i8, ptr %49, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %.not.i17.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %53
 
@@ -13483,7 +13483,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %51, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %48, ptr %1, align 8
   store ptr %52, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %48, i64 %45
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 %45
   store ptr %54, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -13496,7 +13496,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %32, %_ZNSt6vectorIc
 57:                                               ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
   store i8 100, ptr %56, align 1
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %59, ptr %3, align 8
   %.pre60 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
@@ -13538,7 +13538,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i25: ; preds = %71, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26: ; preds = %76, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i25
-  %77 = getelementptr inbounds i8, ptr %74, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %.not.i17.i.i.i27 = icmp eq ptr %61, null
   br i1 %.not.i17.i.i.i27, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i28, label %78
 
@@ -13549,7 +13549,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26: ; preds = %76, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i28: ; preds = %78, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26
   store ptr %73, ptr %1, align 8
   store ptr %77, ptr %3, align 8
-  %79 = getelementptr inbounds i8, ptr %73, i64 %70
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 %70
   store ptr %79, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
 
@@ -13562,7 +13562,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit29:         ; preds = %57, %_ZNSt6vectorIc
 82:                                               ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
   store i8 35, ptr %81, align 1
   %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   store ptr %84, ptr %3, align 8
   %.pre61 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
@@ -13604,7 +13604,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i34: ; preds = %96, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35: ; preds = %101, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i34
-  %102 = getelementptr inbounds i8, ptr %99, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %.not.i17.i.i.i36 = icmp eq ptr %86, null
   br i1 %.not.i17.i.i.i36, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i37, label %103
 
@@ -13615,7 +13615,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35: ; preds = %101, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i37: ; preds = %103, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35
   store ptr %98, ptr %1, align 8
   store ptr %102, ptr %3, align 8
-  %104 = getelementptr inbounds i8, ptr %98, i64 %95
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 %95
   store ptr %104, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
 
@@ -13628,7 +13628,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit38:         ; preds = %82, %_ZNSt6vectorIc
 107:                                              ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
   store i8 76, ptr %106, align 1
   %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1
   store ptr %109, ptr %3, align 8
   %.pre62 = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47
@@ -13670,7 +13670,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i43: ; preds = %121, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44: ; preds = %126, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i43
-  %127 = getelementptr inbounds i8, ptr %124, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 1
   %.not.i17.i.i.i45 = icmp eq ptr %111, null
   br i1 %.not.i17.i.i.i45, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46, label %128
 
@@ -13681,15 +13681,15 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44: ; preds = %126, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46: ; preds = %128, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44
   store ptr %123, ptr %1, align 8
   store ptr %127, ptr %3, align 8
-  %129 = getelementptr inbounds i8, ptr %123, i64 %120
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 %120
   store ptr %129, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46
   %130 = phi ptr [ %.pre62, %107 ], [ %123, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46 ]
   %131 = phi ptr [ %109, %107 ], [ %127, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46 ]
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
-  %133 = getelementptr inbounds i8, ptr %0, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %132, align 8
   %136 = ptrtoint ptr %134 to i64
@@ -13724,7 +13724,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
   %.058 = phi i64 [ %165, %.lr.ph ], [ %151, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47 ]
   %.02057 = phi i64 [ %166, %.lr.ph ], [ 0, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47 ]
   %159 = load ptr, ptr %132, align 8
-  %160 = getelementptr inbounds float, ptr %159, i64 %.02057
+  %160 = getelementptr inbounds nuw float, ptr %159, i64 %.02057
   %161 = load i32, ptr %160, align 4
   %162 = tail call noundef i32 @llvm.bswap.i32(i32 %161)
   %163 = load ptr, ptr %1, align 8
@@ -13741,7 +13741,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN7xgboost15WriteTypedArrayIdLNS_5Value9ValueKindE8EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %1, ptr noundef %4)
   ret void
@@ -13749,9 +13749,9 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIdLNS_5Value9Value
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost15WriteTypedArrayIdLNS_5Value9ValueKindE8EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %10, label %7
@@ -13759,7 +13759,7 @@ define linkonce_odr void @_ZN7xgboost15WriteTypedArrayIdLNS_5Value9ValueKindE8EE
 7:                                                ; preds = %2
   store i8 91, ptr %4, align 1
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %9, ptr %3, align 8
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
@@ -13801,7 +13801,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i: ; preds = %21, %_ZNKSt6vect
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
-  %27 = getelementptr inbounds i8, ptr %24, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %.not.i17.i.i = icmp eq ptr %11, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i, label %28
 
@@ -13812,7 +13812,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNSt
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %1, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 %20
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %20
   store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
@@ -13825,7 +13825,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit: ; preds = %7, %_ZNSt6vecto
 32:                                               ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
   store i8 36, ptr %31, align 1
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %34, ptr %3, align 8
   %.pre59 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
@@ -13867,7 +13867,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %46, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %51, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %52 = getelementptr inbounds i8, ptr %49, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %.not.i17.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %53
 
@@ -13878,7 +13878,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %51, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %48, ptr %1, align 8
   store ptr %52, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %48, i64 %45
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 %45
   store ptr %54, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -13891,7 +13891,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %32, %_ZNSt6vectorIc
 57:                                               ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
   store i8 68, ptr %56, align 1
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %59, ptr %3, align 8
   %.pre60 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
@@ -13933,7 +13933,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i25: ; preds = %71, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26: ; preds = %76, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i25
-  %77 = getelementptr inbounds i8, ptr %74, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %.not.i17.i.i.i27 = icmp eq ptr %61, null
   br i1 %.not.i17.i.i.i27, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i28, label %78
 
@@ -13944,7 +13944,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26: ; preds = %76, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i28: ; preds = %78, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26
   store ptr %73, ptr %1, align 8
   store ptr %77, ptr %3, align 8
-  %79 = getelementptr inbounds i8, ptr %73, i64 %70
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 %70
   store ptr %79, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
 
@@ -13957,7 +13957,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit29:         ; preds = %57, %_ZNSt6vectorIc
 82:                                               ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
   store i8 35, ptr %81, align 1
   %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   store ptr %84, ptr %3, align 8
   %.pre61 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
@@ -13999,7 +13999,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i34: ; preds = %96, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35: ; preds = %101, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i34
-  %102 = getelementptr inbounds i8, ptr %99, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %.not.i17.i.i.i36 = icmp eq ptr %86, null
   br i1 %.not.i17.i.i.i36, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i37, label %103
 
@@ -14010,7 +14010,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35: ; preds = %101, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i37: ; preds = %103, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35
   store ptr %98, ptr %1, align 8
   store ptr %102, ptr %3, align 8
-  %104 = getelementptr inbounds i8, ptr %98, i64 %95
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 %95
   store ptr %104, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
 
@@ -14023,7 +14023,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit38:         ; preds = %82, %_ZNSt6vectorIc
 107:                                              ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
   store i8 76, ptr %106, align 1
   %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1
   store ptr %109, ptr %3, align 8
   %.pre62 = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47
@@ -14065,7 +14065,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i43: ; preds = %121, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44: ; preds = %126, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i43
-  %127 = getelementptr inbounds i8, ptr %124, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 1
   %.not.i17.i.i.i45 = icmp eq ptr %111, null
   br i1 %.not.i17.i.i.i45, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46, label %128
 
@@ -14076,15 +14076,15 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44: ; preds = %126, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46: ; preds = %128, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44
   store ptr %123, ptr %1, align 8
   store ptr %127, ptr %3, align 8
-  %129 = getelementptr inbounds i8, ptr %123, i64 %120
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 %120
   store ptr %129, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46
   %130 = phi ptr [ %.pre62, %107 ], [ %123, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46 ]
   %131 = phi ptr [ %109, %107 ], [ %127, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46 ]
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
-  %133 = getelementptr inbounds i8, ptr %0, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %132, align 8
   %136 = ptrtoint ptr %134 to i64
@@ -14119,7 +14119,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
   %.058 = phi i64 [ %165, %.lr.ph ], [ %151, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47 ]
   %.02057 = phi i64 [ %166, %.lr.ph ], [ 0, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47 ]
   %159 = load ptr, ptr %132, align 8
-  %160 = getelementptr inbounds double, ptr %159, i64 %.02057
+  %160 = getelementptr inbounds nuw double, ptr %159, i64 %.02057
   %161 = load i64, ptr %160, align 8
   %162 = tail call noundef i64 @llvm.bswap.i64(i64 %161)
   %163 = load ptr, ptr %1, align 8
@@ -14136,7 +14136,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN7xgboost15WriteTypedArrayIhLNS_5Value9ValueKindE9EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %1, ptr noundef %4)
   ret void
@@ -14144,9 +14144,9 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIhLNS_5Value9Value
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost15WriteTypedArrayIhLNS_5Value9ValueKindE9EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %10, label %7
@@ -14154,7 +14154,7 @@ define linkonce_odr void @_ZN7xgboost15WriteTypedArrayIhLNS_5Value9ValueKindE9EE
 7:                                                ; preds = %2
   store i8 91, ptr %4, align 1
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %9, ptr %3, align 8
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
@@ -14196,7 +14196,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i: ; preds = %21, %_ZNKSt6vect
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
-  %27 = getelementptr inbounds i8, ptr %24, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %.not.i17.i.i = icmp eq ptr %11, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i, label %28
 
@@ -14207,7 +14207,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNSt
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %1, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 %20
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %20
   store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
@@ -14220,7 +14220,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit: ; preds = %7, %_ZNSt6vecto
 32:                                               ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
   store i8 36, ptr %31, align 1
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %34, ptr %3, align 8
   %.pre59 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
@@ -14262,7 +14262,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %46, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %51, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %52 = getelementptr inbounds i8, ptr %49, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %.not.i17.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %53
 
@@ -14273,7 +14273,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %51, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %48, ptr %1, align 8
   store ptr %52, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %48, i64 %45
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 %45
   store ptr %54, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -14286,7 +14286,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %32, %_ZNSt6vectorIc
 57:                                               ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
   store i8 85, ptr %56, align 1
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %59, ptr %3, align 8
   %.pre60 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
@@ -14328,7 +14328,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i25: ; preds = %71, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26: ; preds = %76, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i25
-  %77 = getelementptr inbounds i8, ptr %74, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %.not.i17.i.i.i27 = icmp eq ptr %61, null
   br i1 %.not.i17.i.i.i27, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i28, label %78
 
@@ -14339,7 +14339,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26: ; preds = %76, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i28: ; preds = %78, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26
   store ptr %73, ptr %1, align 8
   store ptr %77, ptr %3, align 8
-  %79 = getelementptr inbounds i8, ptr %73, i64 %70
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 %70
   store ptr %79, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
 
@@ -14352,7 +14352,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit29:         ; preds = %57, %_ZNSt6vectorIc
 82:                                               ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
   store i8 35, ptr %81, align 1
   %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   store ptr %84, ptr %3, align 8
   %.pre61 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
@@ -14394,7 +14394,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i34: ; preds = %96, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35: ; preds = %101, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i34
-  %102 = getelementptr inbounds i8, ptr %99, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %.not.i17.i.i.i36 = icmp eq ptr %86, null
   br i1 %.not.i17.i.i.i36, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i37, label %103
 
@@ -14405,7 +14405,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35: ; preds = %101, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i37: ; preds = %103, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35
   store ptr %98, ptr %1, align 8
   store ptr %102, ptr %3, align 8
-  %104 = getelementptr inbounds i8, ptr %98, i64 %95
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 %95
   store ptr %104, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
 
@@ -14418,7 +14418,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit38:         ; preds = %82, %_ZNSt6vectorIc
 107:                                              ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
   store i8 76, ptr %106, align 1
   %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1
   store ptr %109, ptr %3, align 8
   %.pre62 = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47
@@ -14460,7 +14460,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i43: ; preds = %121, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44: ; preds = %126, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i43
-  %127 = getelementptr inbounds i8, ptr %124, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 1
   %.not.i17.i.i.i45 = icmp eq ptr %111, null
   br i1 %.not.i17.i.i.i45, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46, label %128
 
@@ -14471,15 +14471,15 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44: ; preds = %126, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46: ; preds = %128, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44
   store ptr %123, ptr %1, align 8
   store ptr %127, ptr %3, align 8
-  %129 = getelementptr inbounds i8, ptr %123, i64 %120
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 %120
   store ptr %129, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46
   %130 = phi ptr [ %.pre62, %107 ], [ %123, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46 ]
   %131 = phi ptr [ %109, %107 ], [ %127, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46 ]
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
-  %133 = getelementptr inbounds i8, ptr %0, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %132, align 8
   %136 = ptrtoint ptr %134 to i64
@@ -14513,7 +14513,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
   %.058 = phi i64 [ %163, %.lr.ph ], [ %150, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47 ]
   %.02057 = phi i64 [ %164, %.lr.ph ], [ 0, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47 ]
   %158 = load ptr, ptr %132, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 %.02057
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 %.02057
   %160 = load i8, ptr %159, align 1
   %161 = load ptr, ptr %1, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 %.058
@@ -14529,7 +14529,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN7xgboost15WriteTypedArrayIiLNS_5Value9ValueKindE10EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %1, ptr noundef %4)
   ret void
@@ -14537,9 +14537,9 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIiLNS_5Value9Value
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost15WriteTypedArrayIiLNS_5Value9ValueKindE10EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %10, label %7
@@ -14547,7 +14547,7 @@ define linkonce_odr void @_ZN7xgboost15WriteTypedArrayIiLNS_5Value9ValueKindE10E
 7:                                                ; preds = %2
   store i8 91, ptr %4, align 1
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %9, ptr %3, align 8
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
@@ -14589,7 +14589,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i: ; preds = %21, %_ZNKSt6vect
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
-  %27 = getelementptr inbounds i8, ptr %24, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %.not.i17.i.i = icmp eq ptr %11, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i, label %28
 
@@ -14600,7 +14600,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNSt
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %1, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 %20
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %20
   store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
@@ -14613,7 +14613,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit: ; preds = %7, %_ZNSt6vecto
 32:                                               ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
   store i8 36, ptr %31, align 1
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %34, ptr %3, align 8
   %.pre59 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
@@ -14655,7 +14655,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %46, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %51, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %52 = getelementptr inbounds i8, ptr %49, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %.not.i17.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %53
 
@@ -14666,7 +14666,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %51, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %48, ptr %1, align 8
   store ptr %52, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %48, i64 %45
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 %45
   store ptr %54, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -14679,7 +14679,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %32, %_ZNSt6vectorIc
 57:                                               ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
   store i8 108, ptr %56, align 1
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %59, ptr %3, align 8
   %.pre60 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
@@ -14721,7 +14721,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i25: ; preds = %71, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26: ; preds = %76, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i25
-  %77 = getelementptr inbounds i8, ptr %74, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %.not.i17.i.i.i27 = icmp eq ptr %61, null
   br i1 %.not.i17.i.i.i27, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i28, label %78
 
@@ -14732,7 +14732,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26: ; preds = %76, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i28: ; preds = %78, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26
   store ptr %73, ptr %1, align 8
   store ptr %77, ptr %3, align 8
-  %79 = getelementptr inbounds i8, ptr %73, i64 %70
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 %70
   store ptr %79, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
 
@@ -14745,7 +14745,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit29:         ; preds = %57, %_ZNSt6vectorIc
 82:                                               ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
   store i8 35, ptr %81, align 1
   %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   store ptr %84, ptr %3, align 8
   %.pre61 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
@@ -14787,7 +14787,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i34: ; preds = %96, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35: ; preds = %101, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i34
-  %102 = getelementptr inbounds i8, ptr %99, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %.not.i17.i.i.i36 = icmp eq ptr %86, null
   br i1 %.not.i17.i.i.i36, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i37, label %103
 
@@ -14798,7 +14798,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35: ; preds = %101, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i37: ; preds = %103, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35
   store ptr %98, ptr %1, align 8
   store ptr %102, ptr %3, align 8
-  %104 = getelementptr inbounds i8, ptr %98, i64 %95
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 %95
   store ptr %104, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
 
@@ -14811,7 +14811,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit38:         ; preds = %82, %_ZNSt6vectorIc
 107:                                              ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
   store i8 76, ptr %106, align 1
   %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1
   store ptr %109, ptr %3, align 8
   %.pre62 = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47
@@ -14853,7 +14853,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i43: ; preds = %121, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44: ; preds = %126, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i43
-  %127 = getelementptr inbounds i8, ptr %124, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 1
   %.not.i17.i.i.i45 = icmp eq ptr %111, null
   br i1 %.not.i17.i.i.i45, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46, label %128
 
@@ -14864,15 +14864,15 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44: ; preds = %126, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46: ; preds = %128, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44
   store ptr %123, ptr %1, align 8
   store ptr %127, ptr %3, align 8
-  %129 = getelementptr inbounds i8, ptr %123, i64 %120
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 %120
   store ptr %129, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46
   %130 = phi ptr [ %.pre62, %107 ], [ %123, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46 ]
   %131 = phi ptr [ %109, %107 ], [ %127, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46 ]
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
-  %133 = getelementptr inbounds i8, ptr %0, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %132, align 8
   %136 = ptrtoint ptr %134 to i64
@@ -14907,7 +14907,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
   %.058 = phi i64 [ %165, %.lr.ph ], [ %151, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47 ]
   %.02057 = phi i64 [ %166, %.lr.ph ], [ 0, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47 ]
   %159 = load ptr, ptr %132, align 8
-  %160 = getelementptr inbounds i32, ptr %159, i64 %.02057
+  %160 = getelementptr inbounds nuw i32, ptr %159, i64 %.02057
   %161 = load i32, ptr %160, align 4
   %162 = tail call noundef i32 @llvm.bswap.i32(i32 %161)
   %163 = load ptr, ptr %1, align 8
@@ -14924,7 +14924,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN7xgboost15WriteTypedArrayIlLNS_5Value9ValueKindE11EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %1, ptr noundef %4)
   ret void
@@ -14932,9 +14932,9 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_14JsonTypedArrayIlLNS_5Value9Value
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost15WriteTypedArrayIlLNS_5Value9ValueKindE11EEEvPKNS_14JsonTypedArrayIT_XT0_EEEPSt6vectorIcSaIcEE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %10, label %7
@@ -14942,7 +14942,7 @@ define linkonce_odr void @_ZN7xgboost15WriteTypedArrayIlLNS_5Value9ValueKindE11E
 7:                                                ; preds = %2
   store i8 91, ptr %4, align 1
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %9, ptr %3, align 8
   %.pre = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
@@ -14984,7 +14984,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i: ; preds = %21, %_ZNKSt6vect
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
-  %27 = getelementptr inbounds i8, ptr %24, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %.not.i17.i.i = icmp eq ptr %11, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i, label %28
 
@@ -14995,7 +14995,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %26, %_ZNSt
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %1, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 %20
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %20
   store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
@@ -15008,7 +15008,7 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit: ; preds = %7, %_ZNSt6vecto
 32:                                               ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
   store i8 36, ptr %31, align 1
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %34, ptr %3, align 8
   %.pre59 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
@@ -15050,7 +15050,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %46, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %51, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %52 = getelementptr inbounds i8, ptr %49, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %.not.i17.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %53
 
@@ -15061,7 +15061,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %51, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %48, ptr %1, align 8
   store ptr %52, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %48, i64 %45
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 %45
   store ptr %54, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -15074,7 +15074,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %32, %_ZNSt6vectorIc
 57:                                               ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
   store i8 76, ptr %56, align 1
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %59, ptr %3, align 8
   %.pre60 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
@@ -15116,7 +15116,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i25: ; preds = %71, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26: ; preds = %76, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i25
-  %77 = getelementptr inbounds i8, ptr %74, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %.not.i17.i.i.i27 = icmp eq ptr %61, null
   br i1 %.not.i17.i.i.i27, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i28, label %78
 
@@ -15127,7 +15127,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26: ; preds = %76, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i28: ; preds = %78, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i26
   store ptr %73, ptr %1, align 8
   store ptr %77, ptr %3, align 8
-  %79 = getelementptr inbounds i8, ptr %73, i64 %70
+  %79 = getelementptr inbounds nuw i8, ptr %73, i64 %70
   store ptr %79, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
 
@@ -15140,7 +15140,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit29:         ; preds = %57, %_ZNSt6vectorIc
 82:                                               ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit29
   store i8 35, ptr %81, align 1
   %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   store ptr %84, ptr %3, align 8
   %.pre61 = load ptr, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
@@ -15182,7 +15182,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i34: ; preds = %96, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35: ; preds = %101, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i34
-  %102 = getelementptr inbounds i8, ptr %99, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %.not.i17.i.i.i36 = icmp eq ptr %86, null
   br i1 %.not.i17.i.i.i36, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i37, label %103
 
@@ -15193,7 +15193,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35: ; preds = %101, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i37: ; preds = %103, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i35
   store ptr %98, ptr %1, align 8
   store ptr %102, ptr %3, align 8
-  %104 = getelementptr inbounds i8, ptr %98, i64 %95
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 %95
   store ptr %104, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
 
@@ -15206,7 +15206,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit38:         ; preds = %82, %_ZNSt6vectorIc
 107:                                              ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit38
   store i8 76, ptr %106, align 1
   %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1
   store ptr %109, ptr %3, align 8
   %.pre62 = load ptr, ptr %1, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47
@@ -15248,7 +15248,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i43: ; preds = %121, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44: ; preds = %126, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i43
-  %127 = getelementptr inbounds i8, ptr %124, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 1
   %.not.i17.i.i.i45 = icmp eq ptr %111, null
   br i1 %.not.i17.i.i.i45, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46, label %128
 
@@ -15259,15 +15259,15 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44: ; preds = %126, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46: ; preds = %128, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i44
   store ptr %123, ptr %1, align 8
   store ptr %127, ptr %3, align 8
-  %129 = getelementptr inbounds i8, ptr %123, i64 %120
+  %129 = getelementptr inbounds nuw i8, ptr %123, i64 %120
   store ptr %129, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46
   %130 = phi ptr [ %.pre62, %107 ], [ %123, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46 ]
   %131 = phi ptr [ %109, %107 ], [ %127, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i46 ]
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
-  %133 = getelementptr inbounds i8, ptr %0, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %132, align 8
   %136 = ptrtoint ptr %134 to i64
@@ -15302,7 +15302,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
   %.058 = phi i64 [ %165, %.lr.ph ], [ %151, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47 ]
   %.02057 = phi i64 [ %166, %.lr.ph ], [ 0, %_ZNSt6vectorIcSaIcEE9push_backEOc.exit47 ]
   %159 = load ptr, ptr %132, align 8
-  %160 = getelementptr inbounds i64, ptr %159, i64 %.02057
+  %160 = getelementptr inbounds nuw i64, ptr %159, i64 %.02057
   %161 = load i64, ptr %160, align 8
   %162 = tail call noundef i64 @llvm.bswap.i64(i64 %161)
   %163 = load ptr, ptr %1, align 8
@@ -15320,11 +15320,11 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit47:         ; preds = %107, %_ZNSt6vectorI
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonObjectE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.xgboost::Json", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %7, %9
   br i1 %.not.i, label %13, label %10
@@ -15332,7 +15332,7 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonObjectE(ptr noundef nonnull 
 10:                                               ; preds = %2
   store i8 123, ptr %7, align 1
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %6, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
@@ -15373,7 +15373,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i: ; preds = %24, %_ZNKSt6vect
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %29, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i
-  %30 = getelementptr inbounds i8, ptr %27, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %.not.i17.i.i = icmp eq ptr %14, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i, label %31
 
@@ -15384,36 +15384,36 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i: ; preds = %29, %_ZNSt
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i
   store ptr %26, ptr %5, align 8
   store ptr %30, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 %23
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 %23
   store ptr %32, ptr %8, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
 
 _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit: ; preds = %10, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i
-  %33 = getelementptr inbounds i8, ptr %1, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not27 = icmp eq ptr %34, %35
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit, %_ZN7xgboost4JsonD2Ev.exit
   %.sroa.022.028 = phi ptr [ %56, %_ZN7xgboost4JsonD2Ev.exit ], [ %34, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit ]
-  %36 = getelementptr inbounds i8, ptr %.sroa.022.028, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.022.028, i64 32
   %37 = load ptr, ptr %4, align 8
   call fastcc void @_ZN7xgboost12_GLOBAL__N_19EncodeStrEPSt6vectorIcSaIcEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES2_EE(ptr noundef %37, ptr noundef nonnull align 8 dereferenceable(32) %36)
-  %38 = getelementptr inbounds i8, ptr %.sroa.022.028, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.022.028, i64 64
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %3, align 8
   %.not.i.i.i8 = icmp eq ptr %39, null
   br i1 %.not.i.i.i8, label %_ZN7xgboost4JsonC2ERKS0_.exit, label %40
 
 40:                                               ; preds = %.lr.ph
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = atomicrmw add ptr %41, i32 1 monotonic, align 4
   br label %_ZN7xgboost4JsonC2ERKS0_.exit
 
 _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %.lr.ph, %40
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
           to label %46 unwind label %57
@@ -15424,7 +15424,7 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %.lr.ph, %40
   br i1 %.not.i.i.i9, label %_ZN7xgboost4JsonD2Ev.exit, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = atomicrmw sub ptr %49, i32 1 release, align 4
   %51 = icmp eq i32 %50, 1
   br i1 %51, label %52, label %_ZN7xgboost4JsonD2Ev.exit
@@ -15432,7 +15432,7 @@ _ZN7xgboost4JsonC2ERKS0_.exit:                    ; preds = %.lr.ph, %40
 52:                                               ; preds = %48
   fence acquire
   %53 = load ptr, ptr %47, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(16) %47) #14
   br label %_ZN7xgboost4JsonD2Ev.exit
@@ -15450,7 +15450,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %46, %48, %52
   br i1 %.not.i.i.i10, label %_ZN7xgboost4JsonD2Ev.exit11, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = atomicrmw sub ptr %61, i32 1 release, align 4
   %63 = icmp eq i32 %62, 1
   br i1 %63, label %64, label %_ZN7xgboost4JsonD2Ev.exit11
@@ -15458,7 +15458,7 @@ _ZN7xgboost4JsonD2Ev.exit:                        ; preds = %46, %48, %52
 64:                                               ; preds = %60
   fence acquire
   %65 = load ptr, ptr %59, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(16) %59) #14
   br label %_ZN7xgboost4JsonD2Ev.exit11
@@ -15468,9 +15468,9 @@ _ZN7xgboost4JsonD2Ev.exit11:                      ; preds = %57, %60, %64
 
 ._crit_edge:                                      ; preds = %_ZN7xgboost4JsonD2Ev.exit, %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit
   %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %68, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %72 = load ptr, ptr %71, align 8
   %.not.i12 = icmp eq ptr %70, %72
   br i1 %.not.i12, label %76, label %73
@@ -15478,7 +15478,7 @@ _ZN7xgboost4JsonD2Ev.exit11:                      ; preds = %57, %60, %64
 73:                                               ; preds = %._crit_edge
   store i8 125, ptr %70, align 1
   %74 = load ptr, ptr %69, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
   store ptr %75, ptr %69, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit20
 
@@ -15519,7 +15519,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i16: ; preds = %87, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i17
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i17: ; preds = %92, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i16
-  %93 = getelementptr inbounds i8, ptr %90, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 1
   %.not.i17.i.i18 = icmp eq ptr %77, null
   br i1 %.not.i17.i.i18, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i19, label %94
 
@@ -15530,7 +15530,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i17: ; preds = %92, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i19: ; preds = %94, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i17
   store ptr %89, ptr %68, align 8
   store ptr %93, ptr %69, align 8
-  %95 = getelementptr inbounds i8, ptr %89, i64 %86
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 %86
   store ptr %95, ptr %71, align 8
   br label %_ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit20
 
@@ -15540,9 +15540,9 @@ _ZNSt6vectorIcSaIcEE12emplace_backIJcEEERcDpOT_.exit20: ; preds = %73, %_ZNSt6ve
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN7xgboost12_GLOBAL__N_19EncodeStrEPSt6vectorIcSaIcEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES2_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %4, %6
   br i1 %.not.i.i, label %10, label %7
@@ -15550,7 +15550,7 @@ define internal fastcc void @_ZN7xgboost12_GLOBAL__N_19EncodeStrEPSt6vectorIcSaI
 7:                                                ; preds = %2
   store i8 76, ptr %4, align 1
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %9, ptr %3, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -15591,7 +15591,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %21, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %26, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %27 = getelementptr inbounds i8, ptr %24, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %.not.i17.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %28
 
@@ -15602,7 +15602,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %26, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %28, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %23, ptr %0, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 %20
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 %20
   store ptr %29, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -15637,11 +15637,11 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %7, %_ZNSt6vectorIcS
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %6, %8
   br i1 %.not.i.i, label %12, label %9
@@ -15649,7 +15649,7 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonNumberE(ptr nocapture nounde
 9:                                                ; preds = %2
   store i8 100, ptr %6, align 1
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %11, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -15690,7 +15690,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %23, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %29 = getelementptr inbounds i8, ptr %26, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %.not.i17.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %30
 
@@ -15701,16 +15701,16 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8
   store ptr %29, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %25, i64 %22
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %22
   store ptr %31, ptr %7, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %9, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = load ptr, ptr %3, align 8
   %35 = tail call noundef i32 @llvm.bswap.i32(i32 %33)
-  %36 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %34, align 8
   %39 = ptrtoint ptr %37 to i64
@@ -15726,7 +15726,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %9, %_ZNSt6vectorIcS
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_11JsonIntegerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, -128
   br i1 %5, label %6, label %49
@@ -15736,11 +15736,11 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_11JsonIntegerE(ptr nocapture nound
   br i1 %7, label %8, label %51
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %12, %14
   br i1 %.not.i.i, label %18, label %15
@@ -15748,7 +15748,7 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_11JsonIntegerE(ptr nocapture nound
 15:                                               ; preds = %8
   store i8 105, ptr %12, align 1
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %17, ptr %11, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -15789,7 +15789,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %29, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %34, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %35 = getelementptr inbounds i8, ptr %32, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %.not.i17.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %36
 
@@ -15800,14 +15800,14 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %34, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %36, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %31, ptr %10, align 8
   store ptr %35, ptr %11, align 8
-  %37 = getelementptr inbounds i8, ptr %31, i64 %28
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 %28
   store ptr %37, ptr %13, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %15, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i
   %38 = trunc nsw i64 %4 to i8
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %39, align 8
   %43 = ptrtoint ptr %41 to i64
@@ -15829,11 +15829,11 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %15, %_ZNSt6vectorIc
   br i1 %52, label %.thread45, label %96
 
 .thread45:                                        ; preds = %49, %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %58 = load ptr, ptr %57, align 8
   %.not.i.i11 = icmp eq ptr %56, %58
   br i1 %.not.i.i11, label %62, label %59
@@ -15841,7 +15841,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %15, %_ZNSt6vectorIc
 59:                                               ; preds = %.thread45
   store i8 73, ptr %56, align 1
   %60 = load ptr, ptr %55, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store ptr %61, ptr %55, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit19
 
@@ -15882,7 +15882,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i15: ; preds = %73, %_ZNKSt6
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i16
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i16: ; preds = %78, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i15
-  %79 = getelementptr inbounds i8, ptr %76, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 1
   %.not.i17.i.i.i17 = icmp eq ptr %63, null
   br i1 %.not.i17.i.i.i17, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i18, label %80
 
@@ -15893,7 +15893,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i16: ; preds = %78, %_
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i18: ; preds = %80, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i16
   store ptr %75, ptr %54, align 8
   store ptr %79, ptr %55, align 8
-  %81 = getelementptr inbounds i8, ptr %75, i64 %72
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 %72
   store ptr %81, ptr %57, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit19
 
@@ -15901,7 +15901,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit19:         ; preds = %59, %_ZNSt6vectorIc
   %82 = trunc nsw i64 %4 to i16
   %83 = load ptr, ptr %53, align 8
   %84 = tail call noundef i16 @llvm.bswap.i16(i16 range(i16 -32767, 32767) %82)
-  %85 = getelementptr inbounds i8, ptr %83, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %83, align 8
   %88 = ptrtoint ptr %86 to i64
@@ -15923,11 +15923,11 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit19:         ; preds = %59, %_ZNSt6vectorIc
   br i1 %97, label %.thread47, label %139
 
 .thread47:                                        ; preds = %94, %96
-  %98 = getelementptr inbounds i8, ptr %0, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %99, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %103 = load ptr, ptr %102, align 8
   %.not.i.i20 = icmp eq ptr %101, %103
   br i1 %.not.i.i20, label %107, label %104
@@ -15935,7 +15935,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit19:         ; preds = %59, %_ZNSt6vectorIc
 104:                                              ; preds = %.thread47
   store i8 108, ptr %101, align 1
   %105 = load ptr, ptr %100, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1
   store ptr %106, ptr %100, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit28
 
@@ -15976,7 +15976,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i24: ; preds = %118, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i25
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i25: ; preds = %123, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i24
-  %124 = getelementptr inbounds i8, ptr %121, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 1
   %.not.i17.i.i.i26 = icmp eq ptr %108, null
   br i1 %.not.i17.i.i.i26, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i27, label %125
 
@@ -15987,7 +15987,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i25: ; preds = %123, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i27: ; preds = %125, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i25
   store ptr %120, ptr %99, align 8
   store ptr %124, ptr %100, align 8
-  %126 = getelementptr inbounds i8, ptr %120, i64 %117
+  %126 = getelementptr inbounds nuw i8, ptr %120, i64 %117
   store ptr %126, ptr %102, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit28
 
@@ -15995,7 +15995,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit28:         ; preds = %104, %_ZNSt6vectorI
   %127 = trunc nsw i64 %4 to i32
   %128 = load ptr, ptr %98, align 8
   %129 = tail call noundef i32 @llvm.bswap.i32(i32 range(i32 -2147483647, 2147483647) %127)
-  %130 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %128, align 8
   %133 = ptrtoint ptr %131 to i64
@@ -16009,11 +16009,11 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit28:         ; preds = %104, %_ZNSt6vectorI
   br label %180
 
 139:                                              ; preds = %96, %94
-  %140 = getelementptr inbounds i8, ptr %0, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %141, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %145 = load ptr, ptr %144, align 8
   %.not.i.i29 = icmp eq ptr %143, %145
   br i1 %.not.i.i29, label %149, label %146
@@ -16021,7 +16021,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit28:         ; preds = %104, %_ZNSt6vectorI
 146:                                              ; preds = %139
   store i8 76, ptr %143, align 1
   %147 = load ptr, ptr %142, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 1
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 1
   store ptr %148, ptr %142, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit37
 
@@ -16062,7 +16062,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i33: ; preds = %160, %_ZNKSt
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i34
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i34: ; preds = %165, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i33
-  %166 = getelementptr inbounds i8, ptr %163, i64 1
+  %166 = getelementptr inbounds nuw i8, ptr %163, i64 1
   %.not.i17.i.i.i35 = icmp eq ptr %150, null
   br i1 %.not.i17.i.i.i35, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i36, label %167
 
@@ -16073,14 +16073,14 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i34: ; preds = %165, %
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i36: ; preds = %167, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i34
   store ptr %162, ptr %141, align 8
   store ptr %166, ptr %142, align 8
-  %168 = getelementptr inbounds i8, ptr %162, i64 %159
+  %168 = getelementptr inbounds nuw i8, ptr %162, i64 %159
   store ptr %168, ptr %144, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit37
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit37:         ; preds = %146, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i36
   %169 = load ptr, ptr %140, align 8
   %170 = tail call noundef i64 @llvm.bswap.i64(i64 %4)
-  %171 = getelementptr inbounds i8, ptr %169, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %172 = load ptr, ptr %171, align 8
   %173 = load ptr, ptr %169, align 8
   %174 = ptrtoint ptr %172 to i64
@@ -16099,11 +16099,11 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit37:         ; preds = %146, %_ZNSt6vectorI
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_8JsonNullE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %6, %8
   br i1 %.not.i.i, label %12, label %9
@@ -16111,7 +16111,7 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_8JsonNullE(ptr nocapture noundef n
 9:                                                ; preds = %2
   store i8 90, ptr %6, align 1
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %11, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -16152,7 +16152,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %23, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %29 = getelementptr inbounds i8, ptr %26, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %.not.i17.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %30
 
@@ -16163,7 +16163,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8
   store ptr %29, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %25, i64 %22
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %22
   store ptr %31, ptr %7, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -16173,11 +16173,11 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %9, %_ZNSt6vectorIcS
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %6, %8
   br i1 %.not.i.i, label %12, label %9
@@ -16185,7 +16185,7 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_10JsonStringE(ptr nocapture nounde
 9:                                                ; preds = %2
   store i8 83, ptr %6, align 1
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %11, ptr %5, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -16226,7 +16226,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %23, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %29 = getelementptr inbounds i8, ptr %26, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %.not.i17.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %30
 
@@ -16237,28 +16237,28 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %25, ptr %4, align 8
   store ptr %29, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %25, i64 %22
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %22
   store ptr %31, ptr %7, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %9, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call fastcc void @_ZN7xgboost12_GLOBAL__N_19EncodeStrEPSt6vectorIcSaIcEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES2_EE(ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(32) %33)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7xgboost9UBJWriter5VisitEPKNS_11JsonBooleanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i8, ptr %5, align 1
   %7 = trunc i8 %6 to i1
   %8 = select i1 %7, i8 84, i8 70
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %10, %12
   br i1 %.not.i.i, label %16, label %13
@@ -16266,7 +16266,7 @@ define void @_ZN7xgboost9UBJWriter5VisitEPKNS_11JsonBooleanE(ptr nocapture nound
 13:                                               ; preds = %2
   store i8 %8, ptr %10, align 1
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %9, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -16307,7 +16307,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i: ; preds = %27, %_ZNKSt6ve
   br label %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
 
 _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %32, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.i.i.i
-  %33 = getelementptr inbounds i8, ptr %30, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %.not.i17.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i, label %34
 
@@ -16318,7 +16318,7 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %32, %_ZN
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
   store ptr %29, ptr %4, align 8
   store ptr %33, ptr %9, align 8
-  %35 = getelementptr inbounds i8, ptr %29, i64 %26
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 %26
   store ptr %35, ptr %11, align 8
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
@@ -16344,7 +16344,7 @@ declare void @__cxa_deleted_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost10JsonStringD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #33
   ret void
@@ -16353,9 +16353,9 @@ define linkonce_odr void @_ZN7xgboost10JsonStringD0Ev(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost9JsonArrayD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost9JsonArrayE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
@@ -16367,7 +16367,7 @@ define linkonce_odr void @_ZN7xgboost9JsonArrayD0Ev(ptr noundef nonnull align 8 
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = atomicrmw sub ptr %8, i32 1 release, align 4
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i
@@ -16375,13 +16375,13 @@ define linkonce_odr void @_ZN7xgboost9JsonArrayD0Ev(ptr noundef nonnull align 8 
 11:                                               ; preds = %7
   fence acquire
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i.i.i.i: ; preds = %11, %7, %.lr.ph.i.i.i.i.i
-  %15 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %15, %5
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !72
 
@@ -16395,7 +16395,7 @@ _ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_Dest
   br i1 %.not.i.i.i.i, label %_ZN7xgboost9JsonArrayD2Ev.exit, label %17
 
 17:                                               ; preds = %_ZSt8_DestroyIPN7xgboost4JsonES1_EvT_S3_RSaIT0_E.exit.i.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %16 to i64
@@ -16416,9 +16416,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost9JsonArrayixEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %3, align 8
   %8 = ptrtoint ptr %6 to i64
@@ -16440,8 +16440,8 @@ _ZNSt6vectorIN7xgboost4JsonESaIS1_EE2atEm.exit:   ; preds = %2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost10JsonObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonObjectE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %4)
           to label %_ZN7xgboost10JsonObjectD2Ev.exit unwind label %5
@@ -16460,7 +16460,7 @@ _ZN7xgboost10JsonObjectD2Ev.exit:                 ; preds = %1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN7xgboost10JsonObjectixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt4lessIvESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret ptr %4
 }
@@ -16564,13 +16564,13 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -16585,13 +16585,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -16607,13 +16607,13 @@ _ZN7xgboost14JsonTypedArrayIfLNS_5Value9ValueKindE7EED2Ev.exit: ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -16628,13 +16628,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -16650,13 +16650,13 @@ _ZN7xgboost14JsonTypedArrayIdLNS_5Value9ValueKindE8EED2Ev.exit: ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -16671,13 +16671,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -16693,13 +16693,13 @@ _ZN7xgboost14JsonTypedArrayIhLNS_5Value9ValueKindE9EED2Ev.exit: ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -16714,13 +16714,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -16736,13 +16736,13 @@ _ZN7xgboost14JsonTypedArrayIiLNS_5Value9ValueKindE10EED2Ev.exit: ; preds = %1, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -16757,13 +16757,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EEE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost14JsonTypedArrayIlLNS_5Value9ValueKindE11EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
@@ -16837,9 +16837,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %18 = call i64 @time(ptr noundef null) #14
   store i64 %18, ptr %4, align 8
   %19 = call ptr @localtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %19, align 8
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(9) %6, i64 noundef 9, ptr noundef nonnull @.str.48, i32 noundef %21, i32 noundef %23, i32 noundef %24) #14
@@ -17580,17 +17580,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %33 = udiv i32 %.020.i, 100
   %34 = or disjoint i32 %32, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i32 %.01819.i to i64
-  %39 = getelementptr inbounds i8, ptr %27, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 %38
   store i8 %37, ptr %39, align 1
   %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
   %42 = load i8, ptr %41, align 2
   %43 = add i32 %.01819.i, -1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %27, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 %44
   store i8 %42, ptr %45, align 1
   %46 = add i32 %.01819.i, -2
   %47 = icmp ugt i32 %.020.i, 9999
@@ -17605,12 +17605,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %50 = shl nuw nsw i32 %.0.lcssa.i, 1
   %51 = or disjoint i32 %50, 1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %27, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %54, ptr %55, align 1
   %56 = zext nneg i32 %50 to i64
-  %57 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
   %58 = load i8, ptr %57, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -17649,18 +17649,18 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 64
   %8 = load ptr, ptr %7, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = atomicrmw sub ptr %10, i32 1 release, align 4
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit
@@ -17668,13 +17668,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 13:                                               ; preds = %9
   fence acquire
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %.lr.ph, %9, %13
-  %17 = getelementptr inbounds i8, ptr %.07, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #33
   %.not = icmp eq ptr %6, null
@@ -17804,11 +17804,11 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, xgboost::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, xgboost::Json>>, std::less<void>>::_Auto_node", align 8
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #36
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESL_IJEEEEEvPSt13_Rb_tree_nodeISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %11 unwind label %28
 
@@ -17820,13 +17820,13 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 
 14:                                               ; preds = %11
   %.not.i.i = icmp ne ptr %12, null
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = icmp eq ptr %13, %15
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %16
   br i1 %or.cond.i.i, label %.thread, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %13, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %19 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i unwind label %20
 
@@ -17844,7 +17844,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 .thread:                                          ; preds = %14, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i
   %24 = phi i1 [ true, %14 ], [ %23, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %24, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %15) #14
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, 1
   store i64 %27, ptr %25, align 8
@@ -17857,13 +17857,13 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   resume { ptr, i32 } %29
 
 30:                                               ; preds = %11
-  %31 = getelementptr inbounds i8, ptr %8, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = atomicrmw sub ptr %34, i32 1 release, align 4
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %37, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i
@@ -17871,7 +17871,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 37:                                               ; preds = %33
   fence acquire
   %38 = load ptr, ptr %32, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %32) #14
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i
@@ -17890,20 +17890,20 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %20, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit unwind label %14
 
@@ -17923,14 +17923,14 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
 20:                                               ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit, %6
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02125.i = load ptr, ptr %21, align 8
   %.not26.i = icmp eq ptr %.02125.i, null
   br i1 %.not26.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i
   %.02127.i = phi ptr [ %.021.i, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i ], [ %.02125.i, %20 ]
-  %22 = getelementptr inbounds i8, ptr %.02127.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.02127.i, i64 32
   %23 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i unwind label %24
 
@@ -17944,7 +17944,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i: ; preds = %.lr.ph.i
   %27 = icmp slt i32 %23, 0
   %.in.v.i = select i1 %27, i64 16, i64 24
-  %.in.i = getelementptr inbounds i8, ptr %.02127.i, i64 %.in.v.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %.02127.i, i64 %.in.v.i
   %.021.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.021.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !98
@@ -17954,7 +17954,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %20
   %.020.lcssa32.i = phi ptr [ %.02127.i, %._crit_edge.i ], [ %4, %20 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %.020.lcssa32.i, %29
   br i1 %30, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE24_M_get_insert_unique_posERS7_.exit, label %31
@@ -17966,7 +17966,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 33:                                               ; preds = %31, %._crit_edge.i
   %.020.lcssa33.i = phi ptr [ %.020.lcssa32.i, %31 ], [ %.02127.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi ptr [ %32, %31 ], [ %.02127.i, %._crit_edge.i ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.06.0.i, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 32
   %35 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit5.i unwind label %36
 
@@ -17984,7 +17984,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
 40:                                               ; preds = %3
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %41)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit10 unwind label %43
 
@@ -18000,14 +18000,14 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br i1 %46, label %47, label %82
 
 47:                                               ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit10
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %1
   br i1 %50, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE24_M_get_insert_unique_posERS7_.exit, label %51
 
 51:                                               ; preds = %47
   %52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %1) #37
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit11 unwind label %55
 
@@ -18023,7 +18023,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit11
-  %60 = getelementptr inbounds i8, ptr %52, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   %spec.select = select i1 %62, ptr null, ptr %1
@@ -18031,14 +18031,14 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
 63:                                               ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit11
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02125.i12 = load ptr, ptr %64, align 8
   %.not26.i13 = icmp eq ptr %.02125.i12, null
   br i1 %.not26.i13, label %._crit_edge.thread.i31, label %.lr.ph.i14
 
 .lr.ph.i14:                                       ; preds = %63, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i16
   %.02127.i15 = phi ptr [ %.021.i19, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i16 ], [ %.02125.i12, %63 ]
-  %65 = getelementptr inbounds i8, ptr %.02127.i15, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.02127.i15, i64 32
   %66 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %65)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i16 unwind label %67
 
@@ -18052,7 +18052,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i16: ; preds = %.lr.ph.i14
   %70 = icmp slt i32 %66, 0
   %.in.v.i17 = select i1 %70, i64 16, i64 24
-  %.in.i18 = getelementptr inbounds i8, ptr %.02127.i15, i64 %.in.v.i17
+  %.in.i18 = getelementptr inbounds nuw i8, ptr %.02127.i15, i64 %.in.v.i17
   %.021.i19 = load ptr, ptr %.in.i18, align 8
   %.not.i20 = icmp eq ptr %.021.i19, null
   br i1 %.not.i20, label %._crit_edge.i21, label %.lr.ph.i14, !llvm.loop !98
@@ -18073,7 +18073,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 75:                                               ; preds = %73, %._crit_edge.i21
   %.020.lcssa33.i22 = phi ptr [ %.020.lcssa32.i32, %73 ], [ %.02127.i15, %._crit_edge.i21 ]
   %.sroa.06.0.i23 = phi ptr [ %74, %73 ], [ %.02127.i15, %._crit_edge.i21 ]
-  %76 = getelementptr inbounds i8, ptr %.sroa.06.0.i23, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i23, i64 32
   %77 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit5.i24 unwind label %78
 
@@ -18106,14 +18106,14 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br i1 %87, label %88, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
 88:                                               ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit34
-  %89 = getelementptr inbounds i8, ptr %0, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, %1
   br i1 %91, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE24_M_get_insert_unique_posERS7_.exit, label %92
 
 92:                                               ; preds = %88
   %93 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %1) #37
-  %94 = getelementptr inbounds i8, ptr %93, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %94)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit35 unwind label %96
 
@@ -18129,7 +18129,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit35
-  %101 = getelementptr inbounds i8, ptr %1, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   %spec.select80 = select i1 %103, ptr null, ptr %93
@@ -18137,14 +18137,14 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE24_M_get_insert_unique_posERS7_.exit
 
 104:                                              ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit35
-  %105 = getelementptr inbounds i8, ptr %0, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02125.i36 = load ptr, ptr %105, align 8
   %.not26.i37 = icmp eq ptr %.02125.i36, null
   br i1 %.not26.i37, label %._crit_edge.thread.i55, label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %104, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i40
   %.02127.i39 = phi ptr [ %.021.i43, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i40 ], [ %.02125.i36, %104 ]
-  %106 = getelementptr inbounds i8, ptr %.02127.i39, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %.02127.i39, i64 32
   %107 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %106)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i40 unwind label %108
 
@@ -18158,7 +18158,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i40: ; preds = %.lr.ph.i38
   %111 = icmp slt i32 %107, 0
   %.in.v.i41 = select i1 %111, i64 16, i64 24
-  %.in.i42 = getelementptr inbounds i8, ptr %.02127.i39, i64 %.in.v.i41
+  %.in.i42 = getelementptr inbounds nuw i8, ptr %.02127.i39, i64 %.in.v.i41
   %.021.i43 = load ptr, ptr %.in.i42, align 8
   %.not.i44 = icmp eq ptr %.021.i43, null
   br i1 %.not.i44, label %._crit_edge.i45, label %.lr.ph.i38, !llvm.loop !98
@@ -18168,7 +18168,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 
 ._crit_edge.thread.i55:                           ; preds = %._crit_edge.i45, %104
   %.020.lcssa32.i56 = phi ptr [ %.02127.i39, %._crit_edge.i45 ], [ %4, %104 ]
-  %112 = getelementptr inbounds i8, ptr %0, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %.020.lcssa32.i56, %113
   br i1 %114, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE24_M_get_insert_unique_posERS7_.exit, label %115
@@ -18180,7 +18180,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 117:                                              ; preds = %115, %._crit_edge.i45
   %.020.lcssa33.i46 = phi ptr [ %.020.lcssa32.i56, %115 ], [ %.02127.i39, %._crit_edge.i45 ]
   %.sroa.06.0.i47 = phi ptr [ %116, %115 ], [ %.02127.i39, %._crit_edge.i45 ]
-  %118 = getelementptr inbounds i8, ptr %.sroa.06.0.i47, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i47, i64 32
   %119 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit5.i48 unwind label %120
 
@@ -18207,19 +18207,19 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = atomicrmw sub ptr %8, i32 1 release, align 4
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit
@@ -18227,13 +18227,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 11:                                               ; preds = %7
   fence acquire
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %4, %7, %11
-  %15 = getelementptr inbounds i8, ptr %3, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #33
   br label %16
@@ -18244,14 +18244,14 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRS7_EESL_IJEEEEEvPSt13_Rb_tree_nodeISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %3, align 8
   %8 = inttoptr i64 %7 to ptr
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i64 0, ptr %9, align 8
   %10 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
           to label %19 unwind label %11
@@ -18282,9 +18282,9 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %23 unwind label %24
 
 19:                                               ; preds = %.noexc
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %10, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 6, ptr %21, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %10, align 8
   store ptr %10, ptr %9, align 8
@@ -18340,8 +18340,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt7__equalILb0EE5equalISt23_Rb_tree_c
 .lr.ph:                                           ; preds = %3, %23
   %.sroa.0.08 = phi ptr [ %25, %23 ], [ %2, %3 ]
   %.sroa.03.07 = phi ptr [ %24, %23 ], [ %0, %3 ]
-  %4 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 32
-  %5 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 32
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #14
   %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %5) #14
   %8 = icmp eq i64 %6, %7
@@ -18360,12 +18360,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %14, label %_ZSteqIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonEEbRKSt4pairIT_T0_ESE_.exit, label %_ZSteqIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonEEbRKSt4pairIT_T0_ESE_.exit.thread
 
 _ZSteqIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonEEbRKSt4pairIT_T0_ESE_.exit: ; preds = %9, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i
-  %15 = getelementptr inbounds i8, ptr %.sroa.03.07, i64 64
-  %16 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.03.07, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 64
   %17 = load ptr, ptr %15, align 8
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18)
   br i1 %22, label %23, label %_ZSteqIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonEEbRKSt4pairIT_T0_ESE_.exit.thread
@@ -18387,14 +18387,14 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -18472,7 +18472,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIf
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds float, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds float, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw float, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -18486,14 +18486,14 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -18571,7 +18571,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35: ; preds = %_ZNSt6vectorId
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds double, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds double, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw double, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -18585,14 +18585,14 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -18670,7 +18670,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i32, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -18684,14 +18684,14 @@ define linkonce_odr void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %43, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -18769,7 +18769,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35: ; preds = %_ZNSt6vectorIl
   store ptr %31, ptr %0, align 8
   %41 = getelementptr inbounds i64, ptr %32, i64 %1
   store ptr %41, ptr %4, align 8
-  %42 = getelementptr inbounds i64, ptr %31, i64 %29
+  %42 = getelementptr inbounds nuw i64, ptr %31, i64 %29
   store ptr %42, ptr %11, align 8
   br label %43
 
@@ -18779,7 +18779,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35: ; preds = %_ZNSt6vectorIl
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7xgboost4JsonESaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -18801,142 +18801,135 @@ _ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %16 = select i1 %14, i64 1152921504606846975, i64 %15
   %17 = ptrtoint ptr %1 to i64
   %18 = sub i64 %17, %8
-  %19 = ashr exact i64 %18, 3
-  %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit, label %20
+  %.not.i = icmp ne i64 %16, 0
+  tail call void @llvm.assume(i1 %.not.i)
+  %19 = shl nuw nsw i64 %16, 3
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #36
+  %21 = getelementptr inbounds i8, ptr %20, i64 %18
+  %22 = load ptr, ptr %2, align 8
+  store ptr %22, ptr %21, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit, label %23
 
-20:                                               ; preds = %_ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit
-  %21 = shl nuw nsw i64 %16, 3
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #36
-  br label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit
-
-_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit, %20
-  %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %24 = getelementptr inbounds %"class.xgboost::Json", ptr %23, i64 %19
-  %25 = load ptr, ptr %2, align 8
-  store ptr %25, ptr %24, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit, label %26
-
-26:                                               ; preds = %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
-  %28 = atomicrmw add ptr %27, i32 1 monotonic, align 4
+23:                                               ; preds = %_ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %25 = atomicrmw add ptr %24, i32 1 monotonic, align 4
   br label %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %26, %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit
+_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %23, %_ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit
   %.not11.i.i.i = icmp eq ptr %6, %1
   br i1 %.not11.i.i.i, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
-  %.013.i.i.i = phi ptr [ %45, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit ]
-  %.0912.i.i.i = phi ptr [ %44, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit ]
+  %.013.i.i.i = phi ptr [ %42, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit ]
+  %.0912.i.i.i = phi ptr [ %41, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %29 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-          to label %33 unwind label %30, !noalias !105
+  %26 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
+          to label %30 unwind label %27, !noalias !105
 
-30:                                               ; preds = %.lr.ph.i.i.i
-  %31 = landingpad { ptr, i32 }
+27:                                               ; preds = %.lr.ph.i.i.i
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #34
+  %29 = extractvalue { ptr, i32 } %28, 0
+  tail call void @__clang_call_terminate(ptr %29) #34
   unreachable
 
-33:                                               ; preds = %.lr.ph.i.i.i
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
-  store i32 0, ptr %34, align 4, !noalias !105
-  %35 = getelementptr inbounds i8, ptr %29, i64 12
-  store i32 6, ptr %35, align 4, !noalias !105
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %29, align 8, !noalias !105
-  %36 = atomicrmw add ptr %34, i32 1 monotonic, align 4, !noalias !105
-  %37 = load ptr, ptr %.0912.i.i.i, align 8, !alias.scope !103, !noalias !100
-  store ptr %37, ptr %.013.i.i.i, align 8, !alias.scope !100, !noalias !103
-  store ptr %29, ptr %.0912.i.i.i, align 8, !alias.scope !103, !noalias !100
-  %38 = atomicrmw sub ptr %34, i32 1 release, align 4, !noalias !105
-  %39 = icmp eq i32 %38, 1
-  br i1 %39, label %40, label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
+30:                                               ; preds = %.lr.ph.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i32 0, ptr %31, align 4, !noalias !105
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 12
+  store i32 6, ptr %32, align 4, !noalias !105
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %26, align 8, !noalias !105
+  %33 = atomicrmw add ptr %31, i32 1 monotonic, align 4, !noalias !105
+  %34 = load ptr, ptr %.0912.i.i.i, align 8, !alias.scope !103, !noalias !100
+  store ptr %34, ptr %.013.i.i.i, align 8, !alias.scope !100, !noalias !103
+  store ptr %26, ptr %.0912.i.i.i, align 8, !alias.scope !103, !noalias !100
+  %35 = atomicrmw sub ptr %31, i32 1 release, align 4, !noalias !105
+  %36 = icmp eq i32 %35, 1
+  br i1 %36, label %37, label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
-40:                                               ; preds = %33
+37:                                               ; preds = %30
   fence acquire
-  %41 = load ptr, ptr %29, align 8, !noalias !105
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8, !noalias !105
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %29) #14, !noalias !105
+  %38 = load ptr, ptr %26, align 8, !noalias !105
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8, !noalias !105
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %26) #14, !noalias !105
   br label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
-_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %40, %33
-  %44 = getelementptr inbounds i8, ptr %.0912.i.i.i, i64 8
-  %45 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %44, %1
+_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %37, %30
+  %41 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %41, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !106
 
 _ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit ], [ %45, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %46 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
+  %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JRS1_EEEvRS2_PT_DpOT0_.exit ], [ %42, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
+  %43 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not11.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not11.i.i.i26, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30
-  %.013.i.i.i28 = phi ptr [ %63, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30 ], [ %46, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  %.0912.i.i.i29 = phi ptr [ %62, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30 ], [ %1, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.013.i.i.i28 = phi ptr [ %60, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30 ], [ %43, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.0912.i.i.i29 = phi ptr [ %59, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30 ], [ %1, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  %47 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-          to label %51 unwind label %48, !noalias !112
+  %44 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
+          to label %48 unwind label %45, !noalias !112
 
-48:                                               ; preds = %.lr.ph.i.i.i27
-  %49 = landingpad { ptr, i32 }
+45:                                               ; preds = %.lr.ph.i.i.i27
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  tail call void @__clang_call_terminate(ptr %50) #34
+  %47 = extractvalue { ptr, i32 } %46, 0
+  tail call void @__clang_call_terminate(ptr %47) #34
   unreachable
 
-51:                                               ; preds = %.lr.ph.i.i.i27
-  %52 = getelementptr inbounds i8, ptr %47, i64 8
-  store i32 0, ptr %52, align 4, !noalias !112
-  %53 = getelementptr inbounds i8, ptr %47, i64 12
-  store i32 6, ptr %53, align 4, !noalias !112
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %47, align 8, !noalias !112
-  %54 = atomicrmw add ptr %52, i32 1 monotonic, align 4, !noalias !112
-  %55 = load ptr, ptr %.0912.i.i.i29, align 8, !alias.scope !110, !noalias !107
-  store ptr %55, ptr %.013.i.i.i28, align 8, !alias.scope !107, !noalias !110
-  store ptr %47, ptr %.0912.i.i.i29, align 8, !alias.scope !110, !noalias !107
-  %56 = atomicrmw sub ptr %52, i32 1 release, align 4, !noalias !112
-  %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30
+48:                                               ; preds = %.lr.ph.i.i.i27
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i32 0, ptr %49, align 4, !noalias !112
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 12
+  store i32 6, ptr %50, align 4, !noalias !112
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %44, align 8, !noalias !112
+  %51 = atomicrmw add ptr %49, i32 1 monotonic, align 4, !noalias !112
+  %52 = load ptr, ptr %.0912.i.i.i29, align 8, !alias.scope !110, !noalias !107
+  store ptr %52, ptr %.013.i.i.i28, align 8, !alias.scope !107, !noalias !110
+  store ptr %44, ptr %.0912.i.i.i29, align 8, !alias.scope !110, !noalias !107
+  %53 = atomicrmw sub ptr %49, i32 1 release, align 4, !noalias !112
+  %54 = icmp eq i32 %53, 1
+  br i1 %54, label %55, label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30
 
-58:                                               ; preds = %51
+55:                                               ; preds = %48
   fence acquire
-  %59 = load ptr, ptr %47, align 8, !noalias !112
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8, !noalias !112
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(16) %47) #14, !noalias !112
+  %56 = load ptr, ptr %44, align 8, !noalias !112
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8, !noalias !112
+  tail call void %58(ptr noundef nonnull align 8 dereferenceable(16) %44) #14, !noalias !112
   br label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30
 
-_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30: ; preds = %58, %51
-  %62 = getelementptr inbounds i8, ptr %.0912.i.i.i29, i64 8
-  %63 = getelementptr inbounds i8, ptr %.013.i.i.i28, i64 8
-  %.not.i.i.i31 = icmp eq ptr %62, %5
+_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30: ; preds = %55, %48
+  %59 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i29, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.013.i.i.i28, i64 8
+  %.not.i.i.i31 = icmp eq ptr %59, %5
   br i1 %.not.i.i.i31, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, label %.lr.ph.i.i.i27, !llvm.loop !106
 
 _ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33: ; preds = %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  %.0.lcssa.i.i.i32 = phi ptr [ %46, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %63, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %.0.lcssa.i.i.i32 = phi ptr [ %43, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %60, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i30 ]
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i34 = icmp eq ptr %6, null
-  br i1 %.not.i34, label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit, label %65
+  br i1 %.not.i34, label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit, label %62
 
-65:                                               ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33
-  %66 = load ptr, ptr %64, align 8
-  %67 = ptrtoint ptr %66 to i64
-  %68 = sub i64 %67, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %68) #33
+62:                                               ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33
+  %63 = load ptr, ptr %61, align 8
+  %64 = ptrtoint ptr %63 to i64
+  %65 = sub i64 %64, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %65) #33
   br label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %65
-  store ptr %23, ptr %0, align 8
+_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %62
+  store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8
-  %69 = getelementptr inbounds %"class.xgboost::Json", ptr %23, i64 %16
-  store ptr %69, ptr %64, align 8
+  %66 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %20, i64 %16
+  store ptr %66, ptr %61, align 8
   ret void
 }
 
@@ -19006,7 +18999,7 @@ define linkonce_odr noundef ptr @_ZN7xgboost4CastINS_10JsonStringENS_5ValueEEEPT
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.xgboost::JsonString", align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %14
@@ -19057,12 +19050,12 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 
 28:                                               ; preds = %26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %27) #14
-  %29 = getelementptr inbounds i8, ptr %8, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %30, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost10JsonStringE, i64 16), ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #14
   invoke void @_ZNK7xgboost5Value7TypeStrB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %32 unwind label %54
@@ -19191,14 +19184,14 @@ define linkonce_odr void @_ZNSt6vectorIN7xgboost4JsonESaIS1_EE17_M_default_appen
   br i1 %.not, label %58, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -19269,9 +19262,9 @@ _ZSt27__uninitialized_default_n_aIPN7xgboost4JsonEmS1_ET_S3_T0_RSaIT1_E.exit: ; 
   unreachable
 
 39:                                               ; preds = %.lr.ph.i.i.i
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 0, ptr %40, align 4, !noalias !121
-  %41 = getelementptr inbounds i8, ptr %35, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 6, ptr %41, align 4, !noalias !121
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %35, align 8, !noalias !121
   %42 = atomicrmw add ptr %40, i32 1 monotonic, align 4, !noalias !121
@@ -19285,14 +19278,14 @@ _ZSt27__uninitialized_default_n_aIPN7xgboost4JsonEmS1_ET_S3_T0_RSaIT1_E.exit: ; 
 46:                                               ; preds = %39
   fence acquire
   %47 = load ptr, ptr %35, align 8, !noalias !121
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8, !noalias !121
   tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %35) #14, !noalias !121
   br label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %46, %39
-  %50 = getelementptr inbounds i8, ptr %.0912.i.i.i, i64 8
-  %51 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %50, %5
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !106
 
@@ -19311,7 +19304,7 @@ _ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit31: ; preds
   store ptr %27, ptr %0, align 8
   %56 = getelementptr inbounds %"class.xgboost::Json", ptr %28, i64 %1
   store ptr %56, ptr %4, align 8
-  %57 = getelementptr inbounds %"class.xgboost::Json", ptr %27, i64 %25
+  %57 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %27, i64 %25
   store ptr %57, ptr %11, align 8
   br label %58
 
@@ -19345,15 +19338,15 @@ define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uni
           to label %4 unwind label %10
 
 4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 6, ptr %6, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %3, align 8
   store ptr %3, ptr %.014, align 8
   %7 = atomicrmw add ptr %5, i32 1 monotonic, align 4
   %8 = add i64 %.01013, -1
-  %9 = getelementptr inbounds i8, ptr %.014, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
 
@@ -19372,7 +19365,7 @@ define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uni
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i, label %15
 
 15:                                               ; preds = %.lr.ph.i.i
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = atomicrmw sub ptr %16, i32 1 release, align 4
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i
@@ -19380,13 +19373,13 @@ define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uni
 19:                                               ; preds = %15
   fence acquire
   %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
   br label %_ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i
 
 _ZSt8_DestroyIN7xgboost4JsonEEvPT_.exit.i.i:      ; preds = %19, %15, %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.05.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
   %.not.i.i = icmp eq ptr %23, %.014
   br i1 %.not.i.i, label %_ZSt8_DestroyIPN7xgboost4JsonEEvT_S3_.exit, label %.lr.ph.i.i, !llvm.loop !72
 
@@ -19420,7 +19413,7 @@ _ZSt8_DestroyIPN7xgboost4JsonEEvT_S3_.exit:       ; preds = %_ZSt8_DestroyIN7xgb
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7xgboost4JsonESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -19442,151 +19435,150 @@ _ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %16 = select i1 %14, i64 1152921504606846975, i64 %15
   %17 = ptrtoint ptr %1 to i64
   %18 = sub i64 %17, %8
-  %19 = ashr exact i64 %18, 3
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit, label %20
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit, label %19
 
-20:                                               ; preds = %_ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit
-  %21 = shl nuw nsw i64 %16, 3
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #36
+19:                                               ; preds = %_ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit
+  %20 = shl nuw nsw i64 %16, 3
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #36
   br label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit, %20
-  %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %24 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-          to label %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit unwind label %25
+_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit, %19
+  %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorIN7xgboost4JsonESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %23 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
+          to label %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit unwind label %24
 
-25:                                               ; preds = %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #34
+  %26 = extractvalue { ptr, i32 } %25, 0
+  tail call void @__clang_call_terminate(ptr %26) #34
   unreachable
 
 _ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE11_M_allocateEm.exit
-  %28 = getelementptr inbounds %"class.xgboost::Json", ptr %23, i64 %19
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
-  store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %24, i64 12
-  store i32 6, ptr %30, align 4
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %24, align 8
-  %31 = atomicrmw add ptr %29, i32 1 monotonic, align 4
-  %32 = load ptr, ptr %2, align 8
-  store ptr %32, ptr %28, align 8
-  store ptr %24, ptr %2, align 8
+  %27 = getelementptr inbounds i8, ptr %22, i64 %18
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i32 0, ptr %28, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  store i32 6, ptr %29, align 4
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %23, align 8
+  %30 = atomicrmw add ptr %28, i32 1 monotonic, align 4
+  %31 = load ptr, ptr %2, align 8
+  store ptr %31, ptr %27, align 8
+  store ptr %23, ptr %2, align 8
   %.not11.i.i.i = icmp eq ptr %6, %1
   br i1 %.not11.i.i.i, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
-  %.013.i.i.i = phi ptr [ %49, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ]
-  %.0912.i.i.i = phi ptr [ %48, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ]
+  %.013.i.i.i = phi ptr [ %48, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %22, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ]
+  %.0912.i.i.i = phi ptr [ %47, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
-  %33 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-          to label %37 unwind label %34, !noalias !128
+  %32 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
+          to label %36 unwind label %33, !noalias !128
 
-34:                                               ; preds = %.lr.ph.i.i.i
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %.lr.ph.i.i.i
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #34
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #34
   unreachable
 
-37:                                               ; preds = %.lr.ph.i.i.i
-  %38 = getelementptr inbounds i8, ptr %33, i64 8
-  store i32 0, ptr %38, align 4, !noalias !128
-  %39 = getelementptr inbounds i8, ptr %33, i64 12
-  store i32 6, ptr %39, align 4, !noalias !128
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %33, align 8, !noalias !128
-  %40 = atomicrmw add ptr %38, i32 1 monotonic, align 4, !noalias !128
-  %41 = load ptr, ptr %.0912.i.i.i, align 8, !alias.scope !126, !noalias !123
-  store ptr %41, ptr %.013.i.i.i, align 8, !alias.scope !123, !noalias !126
-  store ptr %33, ptr %.0912.i.i.i, align 8, !alias.scope !126, !noalias !123
-  %42 = atomicrmw sub ptr %38, i32 1 release, align 4, !noalias !128
-  %43 = icmp eq i32 %42, 1
-  br i1 %43, label %44, label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
+36:                                               ; preds = %.lr.ph.i.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i32 0, ptr %37, align 4, !noalias !128
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 12
+  store i32 6, ptr %38, align 4, !noalias !128
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %32, align 8, !noalias !128
+  %39 = atomicrmw add ptr %37, i32 1 monotonic, align 4, !noalias !128
+  %40 = load ptr, ptr %.0912.i.i.i, align 8, !alias.scope !126, !noalias !123
+  store ptr %40, ptr %.013.i.i.i, align 8, !alias.scope !123, !noalias !126
+  store ptr %32, ptr %.0912.i.i.i, align 8, !alias.scope !126, !noalias !123
+  %41 = atomicrmw sub ptr %37, i32 1 release, align 4, !noalias !128
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %43, label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
-44:                                               ; preds = %37
+43:                                               ; preds = %36
   fence acquire
-  %45 = load ptr, ptr %33, align 8, !noalias !128
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8, !noalias !128
-  tail call void %47(ptr noundef nonnull align 8 dereferenceable(16) %33) #14, !noalias !128
+  %44 = load ptr, ptr %32, align 8, !noalias !128
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load ptr, ptr %45, align 8, !noalias !128
+  tail call void %46(ptr noundef nonnull align 8 dereferenceable(16) %32) #14, !noalias !128
   br label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
-_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %44, %37
-  %48 = getelementptr inbounds i8, ptr %.0912.i.i.i, i64 8
-  %49 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %48, %1
+_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %43, %36
+  %47 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %47, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !106
 
 _ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ], [ %49, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %50 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 8
+  %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaIN7xgboost4JsonEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ], [ %48, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
+  %49 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 8
   %.not11.i.i.i16 = icmp eq ptr %1, %5
   br i1 %.not11.i.i.i16, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20
-  %.013.i.i.i18 = phi ptr [ %67, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20 ], [ %50, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  %.0912.i.i.i19 = phi ptr [ %66, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20 ], [ %1, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.013.i.i.i18 = phi ptr [ %66, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20 ], [ %49, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.0912.i.i.i19 = phi ptr [ %65, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20 ], [ %1, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
-  %51 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-          to label %55 unwind label %52, !noalias !134
+  %50 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
+          to label %54 unwind label %51, !noalias !134
 
-52:                                               ; preds = %.lr.ph.i.i.i17
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %.lr.ph.i.i.i17
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #34
+  %53 = extractvalue { ptr, i32 } %52, 0
+  tail call void @__clang_call_terminate(ptr %53) #34
   unreachable
 
-55:                                               ; preds = %.lr.ph.i.i.i17
-  %56 = getelementptr inbounds i8, ptr %51, i64 8
-  store i32 0, ptr %56, align 4, !noalias !134
-  %57 = getelementptr inbounds i8, ptr %51, i64 12
-  store i32 6, ptr %57, align 4, !noalias !134
-  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %51, align 8, !noalias !134
-  %58 = atomicrmw add ptr %56, i32 1 monotonic, align 4, !noalias !134
-  %59 = load ptr, ptr %.0912.i.i.i19, align 8, !alias.scope !132, !noalias !129
-  store ptr %59, ptr %.013.i.i.i18, align 8, !alias.scope !129, !noalias !132
-  store ptr %51, ptr %.0912.i.i.i19, align 8, !alias.scope !132, !noalias !129
-  %60 = atomicrmw sub ptr %56, i32 1 release, align 4, !noalias !134
-  %61 = icmp eq i32 %60, 1
-  br i1 %61, label %62, label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20
+54:                                               ; preds = %.lr.ph.i.i.i17
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i32 0, ptr %55, align 4, !noalias !134
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  store i32 6, ptr %56, align 4, !noalias !134
+  store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %50, align 8, !noalias !134
+  %57 = atomicrmw add ptr %55, i32 1 monotonic, align 4, !noalias !134
+  %58 = load ptr, ptr %.0912.i.i.i19, align 8, !alias.scope !132, !noalias !129
+  store ptr %58, ptr %.013.i.i.i18, align 8, !alias.scope !129, !noalias !132
+  store ptr %50, ptr %.0912.i.i.i19, align 8, !alias.scope !132, !noalias !129
+  %59 = atomicrmw sub ptr %55, i32 1 release, align 4, !noalias !134
+  %60 = icmp eq i32 %59, 1
+  br i1 %60, label %61, label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20
 
-62:                                               ; preds = %55
+61:                                               ; preds = %54
   fence acquire
-  %63 = load ptr, ptr %51, align 8, !noalias !134
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8, !noalias !134
-  tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %51) #14, !noalias !134
+  %62 = load ptr, ptr %50, align 8, !noalias !134
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8, !noalias !134
+  tail call void %64(ptr noundef nonnull align 8 dereferenceable(16) %50) #14, !noalias !134
   br label %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20
 
-_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20: ; preds = %62, %55
-  %66 = getelementptr inbounds i8, ptr %.0912.i.i.i19, i64 8
-  %67 = getelementptr inbounds i8, ptr %.013.i.i.i18, i64 8
-  %.not.i.i.i21 = icmp eq ptr %66, %5
+_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20: ; preds = %61, %54
+  %65 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i19, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.013.i.i.i18, i64 8
+  %.not.i.i.i21 = icmp eq ptr %65, %5
   br i1 %.not.i.i.i21, label %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, label %.lr.ph.i.i.i17, !llvm.loop !106
 
 _ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23: ; preds = %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  %.0.lcssa.i.i.i22 = phi ptr [ %50, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %67, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
+  %.0.lcssa.i.i.i22 = phi ptr [ %49, %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %66, %_ZSt19__relocate_object_aIN7xgboost4JsonES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i20 ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i24 = icmp eq ptr %6, null
-  br i1 %.not.i24, label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit, label %69
+  br i1 %.not.i24, label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit, label %68
 
-69:                                               ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23
-  %70 = load ptr, ptr %68, align 8
-  %71 = ptrtoint ptr %70 to i64
-  %72 = sub i64 %71, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %72) #33
+68:                                               ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23
+  %69 = load ptr, ptr %67, align 8
+  %70 = ptrtoint ptr %69 to i64
+  %71 = sub i64 %70, %8
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %71) #33
   br label %_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, %69
-  store ptr %23, ptr %0, align 8
+_ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7xgboost4JsonESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, %68
+  store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i22, ptr %4, align 8
-  %73 = getelementptr inbounds %"class.xgboost::Json", ptr %23, i64 %16
-  store ptr %73, ptr %68, align 8
+  %72 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %22, i64 %16
+  store ptr %72, ptr %67, align 8
   ret void
 }
 
@@ -19594,11 +19586,11 @@ _ZNSt12_Vector_baseIN7xgboost4JsonESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds =
 define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE22_M_emplace_hint_uniqueIJRS5_S9_EEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, xgboost::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, xgboost::Json>>, std::less<void>>::_Auto_node", align 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #36
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE17_M_construct_nodeIJRS5_S9_EEEvPSt13_Rb_tree_nodeISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %10 unwind label %27
 
@@ -19610,13 +19602,13 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
 
 13:                                               ; preds = %10
   %.not.i.i = icmp ne ptr %11, null
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = icmp eq ptr %12, %14
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %15
   br i1 %or.cond.i.i, label %.thread, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %12, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %18 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i unwind label %19
 
@@ -19634,7 +19626,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 .thread:                                          ; preds = %13, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i
   %23 = phi i1 [ true, %13 ], [ %22, %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %23, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %14) #14
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, 1
   store i64 %26, ptr %24, align 8
@@ -19647,13 +19639,13 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %10
-  %30 = getelementptr inbounds i8, ptr %7, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = atomicrmw sub ptr %33, i32 1 release, align 4
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %36, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i
@@ -19661,7 +19653,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 36:                                               ; preds = %32
   fence acquire
   %37 = load ptr, ptr %31, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %31) #14
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit.i
@@ -19678,7 +19670,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7xgboost4JsonEESt10_Select1stISA_ESt4lessIvESaISA_EE17_M_construct_nodeIJRS5_S9_EEEvPSt13_Rb_tree_nodeISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc unwind label %10
 
@@ -19709,10 +19701,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %22 unwind label %23
 
 16:                                               ; preds = %.noexc
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 6, ptr %19, align 4
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7xgboost8JsonNullE, i64 16), ptr %6, align 8
   store ptr %6, ptr %17, align 8

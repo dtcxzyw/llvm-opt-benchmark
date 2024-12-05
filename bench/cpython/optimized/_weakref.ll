@@ -67,7 +67,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
-  %tp_flags.i.i = getelementptr inbounds i8, ptr %object, i64 168
+  %tp_flags.i.i = getelementptr inbounds nuw i8, ptr %object, i64 168
   %3 = load i64, ptr %tp_flags.i.i, align 8
   %and.i.i = and i64 %3, 2
   %tobool1.not.i.i = icmp eq i64 %and.i.i, 0
@@ -76,10 +76,10 @@ land.lhs.true.i.i:                                ; preds = %if.end.i
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8
-  %interp.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %interp.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %interp.i.i.i, align 8
   %call3.i.i = tail call ptr @_PyStaticType_GetState(ptr noundef %6, ptr noundef nonnull %object) #3
-  %tp_weaklist.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 32
+  %tp_weaklist.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i, i64 32
   br label %_weakref_getweakrefcount_impl.exit
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.end.i
@@ -177,7 +177,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i
-  %tp_flags.i.i = getelementptr inbounds i8, ptr %object, i64 168
+  %tp_flags.i.i = getelementptr inbounds nuw i8, ptr %object, i64 168
   %3 = load i64, ptr %tp_flags.i.i, align 8
   %and.i.i = and i64 %3, 2
   %tobool1.not.i.i = icmp eq i64 %and.i.i, 0
@@ -186,10 +186,10 @@ land.lhs.true.i.i:                                ; preds = %if.end.i
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8
-  %interp.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %interp.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %interp.i.i.i, align 8
   %call3.i.i = tail call ptr @_PyStaticType_GetState(ptr noundef %6, ptr noundef nonnull %object) #3
-  %tp_weaklist.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 32
+  %tp_weaklist.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i, i64 32
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.end.i
@@ -229,7 +229,7 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %for.
   %call5.val.i = load ptr, ptr %8, align 8
   %arrayidx.i.i = getelementptr ptr, ptr %call5.val.i, i64 %i.03.i
   store ptr %current.0.i, ptr %arrayidx.i.i, align 8
-  %wr_next.i = getelementptr inbounds i8, ptr %current.0.i, i64 48
+  %wr_next.i = getelementptr inbounds nuw i8, ptr %current.0.i, i64 48
   %inc.i = add nuw nsw i64 %i.03.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %call4.i
   br i1 %exitcond.not.i, label %_weakref_getweakrefs_impl.exit, label %for.body.i, !llvm.loop !5

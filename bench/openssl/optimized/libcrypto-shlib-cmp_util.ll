@@ -67,7 +67,7 @@ cond.end:                                         ; preds = %entry
   br i1 %cmp1.not, label %if.end39, label %if.then
 
 if.then:                                          ; preds = %cond.end
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   %call2 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %incdec.ptr, i32 noundef 58) #7
   %call3 = tail call fastcc i32 @parse_level(ptr noundef nonnull %buf)
   store i32 %call3, ptr %level, align 4
@@ -78,14 +78,14 @@ if.then:                                          ; preds = %cond.end
 
 if.then6:                                         ; preds = %if.then
   store ptr %buf, ptr %p_level_tmp, align 8
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %call2, i64 1
+  %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %call2, i64 1
   %call8 = call i64 @strtol(ptr noundef nonnull %incdec.ptr7, ptr noundef nonnull %p_level_tmp, i32 noundef 10) #6
   %0 = load ptr, ptr %p_level_tmp, align 8
   %cmp9 = icmp ugt ptr %0, %incdec.ptr7
   br i1 %cmp9, label %land.lhs.true10, label %if.end39
 
 land.lhs.true10:                                  ; preds = %if.then6
-  %incdec.ptr11 = getelementptr inbounds i8, ptr %0, i64 1
+  %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %1 = load i8, ptr %0, align 1
   %cmp12 = icmp eq i8 %1, 58
   br i1 %cmp12, label %if.then14, label %if.end39
@@ -114,10 +114,10 @@ if.then18:                                        ; preds = %if.then14
   br i1 %cmp27.not, label %if.end39, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %if.then18
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %call26, i64 1
+  %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %call26, i64 1
   %2 = load i8, ptr %incdec.ptr30, align 1
   %cmp32 = icmp eq i8 %2, 32
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %call26, i64 2
+  %incdec.ptr35 = getelementptr inbounds nuw i8, ptr %call26, i64 2
   %spec.select = select i1 %cmp32, ptr %incdec.ptr35, ptr %incdec.ptr30
   br label %if.end39
 
@@ -141,7 +141,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %level, ptr noundef nonnull dereferenceable(5) @.str.14, i64 noundef 4) #7
   %cmp2 = icmp eq i32 %call1, 0
   %spec.select.idx = select i1 %cmp2, i64 4, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %level, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %level, i64 %spec.select.idx
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %spec.select to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -219,7 +219,7 @@ cond.false15:                                     ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %level to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.OSSL_CMP_print_to_bio, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.OSSL_CMP_print_to_bio, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %cond.end31
 

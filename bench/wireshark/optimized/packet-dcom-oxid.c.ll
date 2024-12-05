@@ -115,7 +115,7 @@ define internal i32 @dissect_oxid_simple_ping_rqst(ptr noundef %0, i32 noundef %
 define internal i32 @dissect_oxid_simple_ping_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #2
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %7, align 4
   %12 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.42) #2
@@ -138,7 +138,7 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
   %17 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #2
   %18 = load i32, ptr @hf_oxid_delfromset, align 4
   %19 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %9) #2
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i16, ptr %8, align 2
   %23 = zext i16 %22 to i32
@@ -207,7 +207,7 @@ define internal i32 @dissect_oxid_complex_ping_resp(ptr noundef %0, i32 noundef 
   %11 = load i32, ptr @hf_oxid_ping_backoff_factor, align 4
   %12 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull %7) #2
   %13 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %8) #2
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %8, align 4
   %17 = call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.42) #2
@@ -219,7 +219,7 @@ define internal i32 @dissect_oxid_complex_ping_resp(ptr noundef %0, i32 noundef 
 define internal i32 @dissect_oxid_server_alive_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #2
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %7, align 4
   %12 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.42) #2
@@ -285,7 +285,7 @@ define internal i32 @dissect_oxid_resolve_oxid2_resp(ptr noundef %0, i32 noundef
 25:                                               ; preds = %16, %6
   %.0 = phi i32 [ %24, %16 ], [ %14, %6 ]
   %26 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %13) #2
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %13, align 4
   %30 = call ptr @val_to_str(i32 noundef %29, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.42) #2

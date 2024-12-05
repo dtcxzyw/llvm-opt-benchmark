@@ -182,7 +182,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_pagp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.79) #2
   %7 = load ptr, ptr %5, align 8
@@ -216,7 +216,7 @@ define internal i32 @dissect_pagp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @tvb_address_to_str(ptr noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 2) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef %25) #2
@@ -245,7 +245,7 @@ define internal i32 @dissect_pagp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %43 = load i32, ptr @ett_pagp_flags, align 4
   %44 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.0119, ptr noundef %0, i32 noundef 1, i32 noundef %42, i32 noundef %43, ptr noundef nonnull @dissect_pagp.pagp_flags, i32 noundef 0) #2
   %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 408
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @tvb_address_to_str(ptr noundef %47, ptr noundef %0, i32 noundef 1, i32 noundef 2) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef %48) #2

@@ -24,7 +24,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   %10 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !7
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %15, label %13
@@ -35,7 +35,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
 
 15:                                               ; preds = %13, %9
   store ptr %2, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %16, align 8
   %17 = add nuw nsw i64 %1, 1
   %18 = call i32 @nxsched_cancel_timer() #4
@@ -44,7 +44,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %20, label %25, label %.preheader
 
 .preheader:                                       ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %.lr.ph.preheader, label %.critedge
@@ -77,7 +77,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   %31 = phi ptr [ %37, %.lr.ph ], [ %24, %.lr.ph.preheader ]
   %.06794126 = phi ptr [ %31, %.lr.ph ], [ %19, %.lr.ph.preheader ]
   %32 = phi i64 [ %35, %.lr.ph ], [ %22, %.lr.ph.preheader ]
-  %33 = getelementptr inbounds i8, ptr %31, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = add nsw i64 %34, %32
   %36 = icmp slt i64 %35, 0
@@ -96,7 +96,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %.not84101, label %.critedge.._crit_edge_crit_edge, label %.lr.ph104
 
 .critedge.._crit_edge_crit_edge:                  ; preds = %.critedge
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.067.lcssa, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.067.lcssa, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
 
@@ -108,7 +108,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %.not85, label %53, label %39
 
 39:                                               ; preds = %.lr.ph104
-  %40 = getelementptr inbounds i8, ptr %38, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %41 = load i64, ptr %40, align 8
   %42 = add nsw i64 %41, %.172102
   %.not84 = icmp sgt i64 %42, %17
@@ -119,7 +119,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   %.172.lcssa = phi i64 [ %.lcssa, %.critedge.._crit_edge_crit_edge ], [ %42, %39 ]
   %.170.lcssa = phi ptr [ %.069.lcssa, %.critedge.._crit_edge_crit_edge ], [ %.168103, %39 ]
   %.168.lcssa = phi ptr [ %.067.lcssa, %.critedge.._crit_edge_crit_edge ], [ %38, %39 ]
-  %44 = getelementptr inbounds i8, ptr %.168.lcssa, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.168.lcssa, i64 24
   %.neg = sub i64 %43, %.172.lcssa
   %45 = add i64 %.neg, %17
   %46 = sub nsw i64 %43, %45
@@ -165,7 +165,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
 
 59:                                               ; preds = %52, %51, %57, %56, %29, %28
   %.1 = phi i64 [ %17, %29 ], [ %17, %28 ], [ %45, %51 ], [ %45, %52 ], [ %54, %57 ], [ %54, %56 ]
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.1, ptr %60, align 8
   call void @nxsched_resume_timer() #4
   %61 = and i64 %10, 512
@@ -206,7 +206,7 @@ define i32 @wd_timer(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.01322 = phi ptr [ %.013, %.lr.ph ], [ %.01320, %2 ]
   %.021 = phi i32 [ %17, %.lr.ph ], [ %0, %2 ]
-  %9 = getelementptr inbounds i8, ptr %.01322, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.01322, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = zext nneg i32 %.021 to i64
   %12 = icmp slt i64 %10, %11
@@ -231,7 +231,7 @@ define i32 @wd_timer(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #
 
 .lr.ph.i:                                         ; preds = %21, %35
   %22 = phi ptr [ %40, %35 ], [ %.01320, %21 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = icmp slt i64 %24, 1
   br i1 %25, label %26, label %wd_expiration.exit.thread24
@@ -243,19 +243,19 @@ define i32 @wd_timer(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #
   br i1 %.not6.i, label %35, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = add nsw i64 %33, %31
   store i64 %34, ptr %32, align 8
   br label %35
 
 35:                                               ; preds = %29, %26
-  %36 = getelementptr inbounds i8, ptr %27, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %37 = load ptr, ptr %36, align 8
   store ptr null, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %27, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %39 = load i64, ptr %38, align 8
   tail call void %37(i64 noundef %39) #4
   %40 = load ptr, ptr @g_wdactivelist, align 8
@@ -267,7 +267,7 @@ wd_expiration.exit:                               ; preds = %._crit_edge
 
 wd_expiration.exit.thread24:                      ; preds = %.lr.ph.i, %wd_expiration.exit
   %.pr27 = phi ptr [ %.01320, %wd_expiration.exit ], [ %22, %.lr.ph.i ]
-  %41 = getelementptr inbounds i8, ptr %.pr27, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.pr27, i64 24
   %42 = load i64, ptr %41, align 8
   %spec.select19 = tail call i64 @llvm.smax.i64(i64 %42, i64 1)
   %spec.select = trunc i64 %spec.select19 to i32

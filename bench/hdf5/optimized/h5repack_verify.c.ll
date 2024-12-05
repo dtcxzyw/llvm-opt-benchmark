@@ -76,13 +76,13 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 
 .preheader345:                                    ; preds = %3
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %.not525 = icmp eq i32 %23, 0
   br i1 %.not525, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader345
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @H5Dopen2(i64 noundef %19, ptr noundef %25, i64 noundef 0) #6
   %27 = icmp slt i64 %26, 0
@@ -117,16 +117,16 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 44:                                               ; preds = %217
   %indvars.iv.next = add nuw nsw i64 %indvars.iv908, 1
   %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ult i64 %indvars.iv.next, %48
   br i1 %49, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %45, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct.pack_info_t, ptr %51, i64 %indvars.iv.next
+  %52 = getelementptr inbounds nuw %struct.pack_info_t, ptr %51, i64 %indvars.iv.next
   %53 = call i64 @H5Dopen2(i64 noundef %19, ptr noundef nonnull %52, i64 noundef 0) #6
   %54 = icmp slt i64 %53, 0
   br i1 %54, label %.lr.ph._crit_edge, label %.lr.ph912
@@ -262,13 +262,13 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   br label %775
 
 128:                                              ; preds = %109
-  %129 = getelementptr inbounds i8, ptr %71, i64 832
+  %129 = getelementptr inbounds nuw i8, ptr %71, i64 832
   %130 = load i32, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %71, i64 256
+  %131 = getelementptr inbounds nuw i8, ptr %71, i64 256
   %132 = call fastcc i32 @verify_filters(i64 noundef %91, i64 noundef %110, i32 noundef %130, ptr noundef nonnull %131)
   %.inv343 = icmp sgt i32 %132, 0
   %spec.select = select i1 %.inv343, i32 %.0157505909, i32 0
-  %133 = getelementptr inbounds i8, ptr %71, i64 836
+  %133 = getelementptr inbounds nuw i8, ptr %71, i64 836
   %134 = load i32, ptr %133, align 4
   %.not306 = icmp eq i32 %134, -1
   br i1 %.not306, label %160, label %135
@@ -308,8 +308,8 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   br i1 %150, label %.sink.split, label %151
 
 151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %71, i64 840
-  %153 = getelementptr inbounds i8, ptr %71, i64 1096
+  %152 = getelementptr inbounds nuw i8, ptr %71, i64 840
+  %153 = getelementptr inbounds nuw i8, ptr %71, i64 1096
   %154 = load i32, ptr %153, align 8
   %.not22.i = icmp eq i32 %154, %149
   br i1 %.not22.i, label %.preheader.i, label %.sink.split
@@ -329,9 +329,9 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 
 .lr.ph.i:                                         ; preds = %155, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %155 ]
-  %156 = getelementptr inbounds [64 x i64], ptr %5, i64 0, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw [64 x i64], ptr %5, i64 0, i64 %indvars.iv.i
   %157 = load i64, ptr %156, align 8
-  %158 = getelementptr inbounds [32 x i64], ptr %152, i64 0, i64 %indvars.iv.i
+  %158 = getelementptr inbounds nuw [32 x i64], ptr %152, i64 0, i64 %indvars.iv.i
   %159 = load i64, ptr %158, align 8
   %.not23.i = icmp eq i64 %157, %159
   br i1 %.not23.i, label %155, label %.sink.split
@@ -472,13 +472,13 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %.1163.lcssa = phi i64 [ -1, %.preheader345 ], [ %110, %44 ]
   %.0157.lcssa = phi i32 [ 1, %.preheader345 ], [ %.2159, %44 ]
   %.1.lcssa = phi i64 [ -1, %.preheader345 ], [ %70, %44 ]
-  %236 = getelementptr inbounds i8, ptr %2, i64 12
+  %236 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %237 = load i32, ptr %236, align 4
   %238 = icmp eq i32 %237, 1
   br i1 %238, label %243, label %239
 
 239:                                              ; preds = %._crit_edge
-  %240 = getelementptr inbounds i8, ptr %2, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %241 = load i32, ptr %240, align 8
   %242 = icmp eq i32 %241, 1
   br i1 %242, label %243, label %478
@@ -495,20 +495,20 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 
 .preheader:                                       ; preds = %243
   %249 = load ptr, ptr %6, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %251 = load i64, ptr %250, align 8
   %.not526 = icmp eq i64 %251, 0
   br i1 %.not526, label %._crit_edge518, label %.lr.ph517
 
 .lr.ph517:                                        ; preds = %.preheader
-  %252 = getelementptr inbounds i8, ptr %2, i64 592
-  %253 = getelementptr inbounds i8, ptr %2, i64 16
-  %254 = getelementptr inbounds i8, ptr %2, i64 8
-  %255 = getelementptr inbounds i8, ptr %2, i64 864
-  %256 = getelementptr inbounds i8, ptr %15, i64 836
-  %257 = getelementptr inbounds i8, ptr %15, i64 840
-  %258 = getelementptr inbounds i8, ptr %2, i64 600
-  %259 = getelementptr inbounds i8, ptr %15, i64 1096
+  %252 = getelementptr inbounds nuw i8, ptr %2, i64 592
+  %253 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %2, i64 864
+  %256 = getelementptr inbounds nuw i8, ptr %15, i64 836
+  %257 = getelementptr inbounds nuw i8, ptr %15, i64 840
+  %258 = getelementptr inbounds nuw i8, ptr %2, i64 600
+  %259 = getelementptr inbounds nuw i8, ptr %15, i64 1096
   br label %276
 
 260:                                              ; preds = %243
@@ -546,16 +546,16 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %.3165513 = phi i64 [ %.1163.lcssa, %.lr.ph517 ], [ %.4166, %471 ]
   %.3170512 = phi i64 [ %.1168.lcssa, %.lr.ph517 ], [ %.4171, %471 ]
   %.3175511 = phi i64 [ %.1173.lcssa, %.lr.ph517 ], [ %.4176, %471 ]
-  %279 = getelementptr inbounds i8, ptr %277, i64 24
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 24
   %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds %struct.trav_obj_t, ptr %280, i64 %278
-  %282 = getelementptr inbounds i8, ptr %281, i64 40
+  %281 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %280, i64 %278
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 40
   %283 = load i32, ptr %282, align 8
   %284 = icmp eq i32 %283, 1
   br i1 %284, label %285, label %471
 
 285:                                              ; preds = %276
-  %286 = getelementptr inbounds i8, ptr %281, i64 32
+  %286 = getelementptr inbounds nuw i8, ptr %281, i64 32
   %287 = load ptr, ptr %286, align 8
   %288 = call i64 @H5Dopen2(i64 noundef %19, ptr noundef %287, i64 noundef 0) #6
   %289 = icmp slt i64 %288, 0
@@ -754,9 +754,9 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
 
 .lr.ph.i334:                                      ; preds = %390, %.lr.ph.preheader.i332
   %indvars.iv.i335 = phi i64 [ 0, %.lr.ph.preheader.i332 ], [ %indvars.iv.next.i337, %390 ]
-  %391 = getelementptr inbounds [64 x i64], ptr %4, i64 0, i64 %indvars.iv.i335
+  %391 = getelementptr inbounds nuw [64 x i64], ptr %4, i64 0, i64 %indvars.iv.i335
   %392 = load i64, ptr %391, align 8
-  %393 = getelementptr inbounds [32 x i64], ptr %257, i64 0, i64 %indvars.iv.i335
+  %393 = getelementptr inbounds nuw [32 x i64], ptr %257, i64 0, i64 %indvars.iv.i335
   %394 = load i64, ptr %393, align 8
   %.not23.i336 = icmp eq i64 %392, %394
   br i1 %.not23.i336, label %390, label %.sink.split781
@@ -904,7 +904,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   %.4 = phi i64 [ %288, %._crit_edge654 ], [ %.3516, %276 ]
   %473 = add i32 %.1156515, 1
   %474 = zext i32 %473 to i64
-  %475 = getelementptr inbounds i8, ptr %472, i64 16
+  %475 = getelementptr inbounds nuw i8, ptr %472, i64 16
   %476 = load i64, ptr %475, align 8
   %477 = icmp ugt i64 %476, %474
   br i1 %477, label %276, label %._crit_edge518
@@ -1143,7 +1143,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   br label %775
 
 611:                                              ; preds = %592
-  %612 = getelementptr inbounds i8, ptr %2, i64 1000
+  %612 = getelementptr inbounds nuw i8, ptr %2, i64 1000
   %613 = load i32, ptr %612, align 8
   %.not = icmp eq i32 %613, 0
   %614 = load i32, ptr %8, align 4
@@ -1213,7 +1213,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   br label %775
 
 651:                                              ; preds = %633, %615
-  %652 = getelementptr inbounds i8, ptr %2, i64 1004
+  %652 = getelementptr inbounds nuw i8, ptr %2, i64 1004
   %653 = load i32, ptr %652, align 4
   %.not274 = icmp eq i32 %653, 0
   %654 = load i8, ptr %10, align 1
@@ -1285,7 +1285,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   br label %775
 
 695:                                              ; preds = %675, %655
-  %696 = getelementptr inbounds i8, ptr %2, i64 1008
+  %696 = getelementptr inbounds nuw i8, ptr %2, i64 1008
   %697 = load i64, ptr %696, align 8
   %.not278 = icmp eq i64 %697, 0
   %698 = load i64, ptr %12, align 8
@@ -1355,7 +1355,7 @@ define dso_local range(i32 -1, 2) i32 @h5repack_verify(ptr noundef %0, ptr nound
   br label %775
 
 735:                                              ; preds = %717, %699
-  %736 = getelementptr inbounds i8, ptr %2, i64 1016
+  %736 = getelementptr inbounds nuw i8, ptr %2, i64 1016
   %737 = load i64, ptr %736, align 8
   %.not282 = icmp eq i64 %737, 0
   %738 = load i64, ptr %14, align 8
@@ -1507,7 +1507,7 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   %8 = alloca [256 x i8], align 16
   %9 = tail call i32 @H5Pget_nfilters(i64 noundef %0) #6
   %10 = icmp slt i32 %9, 0
-  %indvars.iv.sroa.gep133 = getelementptr inbounds i8, ptr %6, i64 4
+  %indvars.iv.sroa.gep133 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br i1 %10, label %.loopexit69, label %11
 
 11:                                               ; preds = %4
@@ -1531,7 +1531,7 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   br i1 %.not104, label %.loopexit69, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %.preheader76
-  %18 = getelementptr inbounds i8, ptr %6, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %19
 
@@ -1544,7 +1544,7 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   br i1 %22, label %.loopexit69, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds %struct.filter_info_t, ptr %3, i64 %indvars.iv113
+  %24 = getelementptr inbounds nuw %struct.filter_info_t, ptr %3, i64 %indvars.iv113
   %25 = load i32, ptr %24, align 8
   %.not56 = icmp eq i32 %21, %25
   br i1 %.not56, label %26, label %.loopexit69
@@ -1561,7 +1561,7 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   ]
 
 .preheader70:                                     ; preds = %26
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br label %52
 
 28:                                               ; preds = %26
@@ -1570,7 +1570,7 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   br i1 %.not64, label %33, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %24, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %32 = load i64, ptr %31, align 8
   %.not65 = icmp eq i64 %32, 0
   br i1 %.not65, label %33, label %.loopexit69
@@ -1592,20 +1592,20 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   br i1 %.not61, label %44, label %41
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %24, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %43 = load i64, ptr %42, align 8
   %.not62 = icmp eq i64 %43, 2
   br i1 %.not62, label %44, label %.loopexit69
 
 44:                                               ; preds = %41, %39
   %45 = load i32, ptr %18, align 4
-  %46 = getelementptr inbounds i8, ptr %24, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %47 = load i32, ptr %46, align 4
   %.not63 = icmp eq i32 %45, %47
   br i1 %.not63, label %.loopexit, label %.loopexit69
 
 48:                                               ; preds = %26
-  %49 = getelementptr inbounds i8, ptr %24, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %50 = load i64, ptr %49, align 8
   %.not60 = icmp eq i64 %50, 0
   br i1 %.not60, label %.loopexit, label %.loopexit69
@@ -1618,14 +1618,14 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   %indvars.iv.sroa.phi = phi ptr [ %6, %.preheader70 ], [ %indvars.iv.sroa.gep133, %51 ]
   %indvars.iv = phi i64 [ 0, %.preheader70 ], [ 1, %51 ]
   %54 = load i32, ptr %indvars.iv.sroa.phi, align 4
-  %55 = getelementptr inbounds [20 x i32], ptr %27, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [20 x i32], ptr %27, i64 0, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   %.not59 = icmp eq i32 %54, %56
   br i1 %.not59, label %51, label %.loopexit69
 
 57:                                               ; preds = %26, %26
   %58 = load i64, ptr %7, align 8
-  %59 = getelementptr inbounds i8, ptr %24, i64 88
+  %59 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %60 = load i64, ptr %59, align 8
   %.not57 = icmp eq i64 %58, %60
   br i1 %.not57, label %.preheader73, label %.loopexit69
@@ -1635,7 +1635,7 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   br i1 %.not105, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader73
-  %61 = getelementptr inbounds i8, ptr %24, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br label %66
 
 62:                                               ; preds = %66
@@ -1647,16 +1647,16 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
 66:                                               ; preds = %.lr.ph, %62
   %67 = phi i64 [ 0, %.lr.ph ], [ %64, %62 ]
   %.178 = phi i32 [ 0, %.lr.ph ], [ %63, %62 ]
-  %68 = getelementptr inbounds [20 x i32], ptr %6, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [20 x i32], ptr %6, i64 0, i64 %67
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds [20 x i32], ptr %61, i64 0, i64 %67
+  %70 = getelementptr inbounds nuw [20 x i32], ptr %61, i64 0, i64 %67
   %71 = load i32, ptr %70, align 4
   %.not58 = icmp eq i32 %69, %71
   br i1 %.not58, label %62, label %.loopexit69
 
 72:                                               ; preds = %26
   %73 = load i64, ptr %7, align 8
-  %74 = getelementptr inbounds i8, ptr %24, i64 88
+  %74 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %75 = load i64, ptr %74, align 8
   %.not67 = icmp eq i64 %73, %75
   br i1 %.not67, label %.preheader, label %.loopexit69
@@ -1666,7 +1666,7 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
   br i1 %.not106, label %.loopexit, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.preheader
-  %76 = getelementptr inbounds i8, ptr %24, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br label %81
 
 77:                                               ; preds = %81
@@ -1678,9 +1678,9 @@ define internal fastcc range(i32 -1, 2) i32 @verify_filters(i64 noundef range(i6
 81:                                               ; preds = %.lr.ph81, %77
   %82 = phi i64 [ 0, %.lr.ph81 ], [ %79, %77 ]
   %.280 = phi i32 [ 0, %.lr.ph81 ], [ %78, %77 ]
-  %83 = getelementptr inbounds [20 x i32], ptr %6, i64 0, i64 %82
+  %83 = getelementptr inbounds nuw [20 x i32], ptr %6, i64 0, i64 %82
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds [20 x i32], ptr %76, i64 0, i64 %82
+  %85 = getelementptr inbounds nuw [20 x i32], ptr %76, i64 0, i64 %82
   %86 = load i32, ptr %85, align 4
   %.not68 = icmp eq i32 %84, %86
   br i1 %.not68, label %77, label %.loopexit69
@@ -1818,7 +1818,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
 
 .preheader:                                       ; preds = %50
   %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i64, ptr %57, align 8
   %.not473 = icmp eq i64 %58, 0
   br i1 %.not473, label %.loopexit, label %.lr.ph
@@ -1860,10 +1860,10 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %.1119461 = phi i64 [ %.2120, %554 ], [ -1, %.preheader ]
   %.1122460 = phi i64 [ %.2123, %554 ], [ -1, %.preheader ]
   %.1125459 = phi i64 [ %.2126, %554 ], [ -1, %.preheader ]
-  %77 = getelementptr inbounds i8, ptr %75, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.trav_obj_t, ptr %78, i64 %76
-  %80 = getelementptr inbounds i8, ptr %79, i64 40
+  %79 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %78, i64 %76
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load i32, ptr %80, align 8
   switch i32 %81, label %554 [
     i32 0, label %82
@@ -1871,7 +1871,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   ]
 
 82:                                               ; preds = %.lr.ph
-  %83 = getelementptr inbounds i8, ptr %79, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %84 = load ptr, ptr %83, align 8
   %85 = call i64 @H5Gopen2(i64 noundef %12, ptr noundef %84, i64 noundef 0) #6
   %86 = icmp slt i64 %85, 0
@@ -1894,9 +1894,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %96 = load i64, ptr @H5E_tools_g, align 8
   %97 = load i64, ptr @H5E_tools_min_id_g, align 8
   %98 = load ptr, ptr %7, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds %struct.trav_obj_t, ptr %100, i64 %76, i32 3
+  %101 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %100, i64 %76, i32 3
   %102 = load ptr, ptr %101, align 8
   %103 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %91, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 405, i64 noundef %93, i64 noundef %96, i64 noundef %97, ptr noundef nonnull @.str.22, ptr noundef %102) #6
   br label %.loopexit
@@ -1904,9 +1904,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
 104:                                              ; preds = %90
   %105 = load ptr, ptr @stderr, align 8
   %106 = load ptr, ptr %7, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds %struct.trav_obj_t, ptr %108, i64 %76, i32 3
+  %109 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %108, i64 %76, i32 3
   %110 = load ptr, ptr %109, align 8
   %111 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.22, ptr noundef %110) #7
   %112 = load ptr, ptr @stderr, align 8
@@ -2039,9 +2039,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
 
 189:                                              ; preds = %170
   %190 = load ptr, ptr %7, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 24
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds %struct.trav_obj_t, ptr %192, i64 %76, i32 3
+  %193 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %192, i64 %76, i32 3
   %194 = load ptr, ptr %193, align 8
   %195 = call i64 @H5Gopen2(i64 noundef %32, ptr noundef %194, i64 noundef 0) #6
   %196 = icmp slt i64 %195, 0
@@ -2064,9 +2064,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %206 = load i64, ptr @H5E_tools_g, align 8
   %207 = load i64, ptr @H5E_tools_min_id_g, align 8
   %208 = load ptr, ptr %7, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 24
   %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds %struct.trav_obj_t, ptr %210, i64 %76, i32 3
+  %211 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %210, i64 %76, i32 3
   %212 = load ptr, ptr %211, align 8
   %213 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %201, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 416, i64 noundef %203, i64 noundef %206, i64 noundef %207, ptr noundef nonnull @.str.26, ptr noundef %212) #6
   br label %.loopexit
@@ -2074,9 +2074,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
 214:                                              ; preds = %200
   %215 = load ptr, ptr @stderr, align 8
   %216 = load ptr, ptr %7, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 24
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds %struct.trav_obj_t, ptr %218, i64 %76, i32 3
+  %219 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %218, i64 %76, i32 3
   %220 = load ptr, ptr %219, align 8
   %221 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %215, ptr noundef nonnull @.str.26, ptr noundef %220) #7
   %222 = load ptr, ptr @stderr, align 8
@@ -2230,9 +2230,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %311 = load i64, ptr @H5E_tools_g, align 8
   %312 = load i64, ptr @H5E_tools_min_id_g, align 8
   %313 = load ptr, ptr %7, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 24
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 24
   %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds %struct.trav_obj_t, ptr %315, i64 %76, i32 3
+  %316 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %315, i64 %76, i32 3
   %317 = load ptr, ptr %316, align 8
   %318 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %306, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 427, i64 noundef %308, i64 noundef %311, i64 noundef %312, ptr noundef nonnull @.str.27, ptr noundef %317) #6
   br label %.loopexit
@@ -2240,9 +2240,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
 319:                                              ; preds = %305
   %320 = load ptr, ptr @stderr, align 8
   %321 = load ptr, ptr %7, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 24
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 24
   %323 = load ptr, ptr %322, align 8
-  %324 = getelementptr inbounds %struct.trav_obj_t, ptr %323, i64 %76, i32 3
+  %324 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %323, i64 %76, i32 3
   %325 = load ptr, ptr %324, align 8
   %326 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %320, ptr noundef nonnull @.str.27, ptr noundef %325) #7
   %327 = load ptr, ptr @stderr, align 8
@@ -2250,7 +2250,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   br label %.loopexit
 
 328:                                              ; preds = %.lr.ph
-  %329 = getelementptr inbounds i8, ptr %79, i64 32
+  %329 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %330 = load ptr, ptr %329, align 8
   %331 = call i64 @H5Dopen2(i64 noundef %12, ptr noundef %330, i64 noundef 0) #6
   %332 = icmp slt i64 %331, 0
@@ -2273,9 +2273,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %342 = load i64, ptr @H5E_tools_g, align 8
   %343 = load i64, ptr @H5E_tools_min_id_g, align 8
   %344 = load ptr, ptr %7, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 24
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 24
   %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds %struct.trav_obj_t, ptr %346, i64 %76, i32 3
+  %347 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %346, i64 %76, i32 3
   %348 = load ptr, ptr %347, align 8
   %349 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %337, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 431, i64 noundef %339, i64 noundef %342, i64 noundef %343, ptr noundef nonnull @.str.28, ptr noundef %348) #6
   br label %.loopexit
@@ -2283,9 +2283,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
 350:                                              ; preds = %336
   %351 = load ptr, ptr @stderr, align 8
   %352 = load ptr, ptr %7, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 24
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 24
   %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr inbounds %struct.trav_obj_t, ptr %354, i64 %76, i32 3
+  %355 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %354, i64 %76, i32 3
   %356 = load ptr, ptr %355, align 8
   %357 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %351, ptr noundef nonnull @.str.28, ptr noundef %356) #7
   %358 = load ptr, ptr @stderr, align 8
@@ -2294,9 +2294,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
 
 359:                                              ; preds = %328
   %360 = load ptr, ptr %7, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 24
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 24
   %362 = load ptr, ptr %361, align 8
-  %363 = getelementptr inbounds %struct.trav_obj_t, ptr %362, i64 %76, i32 3
+  %363 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %362, i64 %76, i32 3
   %364 = load ptr, ptr %363, align 8
   %365 = call i64 @H5Dopen2(i64 noundef %32, ptr noundef %364, i64 noundef 0) #6
   %366 = icmp slt i64 %365, 0
@@ -2319,9 +2319,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %376 = load i64, ptr @H5E_tools_g, align 8
   %377 = load i64, ptr @H5E_tools_min_id_g, align 8
   %378 = load ptr, ptr %7, align 8
-  %379 = getelementptr inbounds i8, ptr %378, i64 24
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 24
   %380 = load ptr, ptr %379, align 8
-  %381 = getelementptr inbounds %struct.trav_obj_t, ptr %380, i64 %76, i32 3
+  %381 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %380, i64 %76, i32 3
   %382 = load ptr, ptr %381, align 8
   %383 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %371, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 433, i64 noundef %373, i64 noundef %376, i64 noundef %377, ptr noundef nonnull @.str.29, ptr noundef %382) #6
   br label %.loopexit
@@ -2329,9 +2329,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
 384:                                              ; preds = %370
   %385 = load ptr, ptr @stderr, align 8
   %386 = load ptr, ptr %7, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 24
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 24
   %388 = load ptr, ptr %387, align 8
-  %389 = getelementptr inbounds %struct.trav_obj_t, ptr %388, i64 %76, i32 3
+  %389 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %388, i64 %76, i32 3
   %390 = load ptr, ptr %389, align 8
   %391 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %385, ptr noundef nonnull @.str.29, ptr noundef %390) #7
   %392 = load ptr, ptr @stderr, align 8
@@ -2452,9 +2452,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %461 = load i64, ptr @H5E_tools_g, align 8
   %462 = load i64, ptr @H5E_tools_min_id_g, align 8
   %463 = load ptr, ptr %7, align 8
-  %464 = getelementptr inbounds i8, ptr %463, i64 24
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 24
   %465 = load ptr, ptr %464, align 8
-  %466 = getelementptr inbounds %struct.trav_obj_t, ptr %465, i64 %76, i32 3
+  %466 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %465, i64 %76, i32 3
   %467 = load ptr, ptr %466, align 8
   %468 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %456, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.h5repack_cmp_pl, i32 noundef 447, i64 noundef %458, i64 noundef %461, i64 noundef %462, ptr noundef nonnull @.str.27, ptr noundef %467) #6
   br label %.loopexit
@@ -2462,9 +2462,9 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
 469:                                              ; preds = %455
   %470 = load ptr, ptr @stderr, align 8
   %471 = load ptr, ptr %7, align 8
-  %472 = getelementptr inbounds i8, ptr %471, i64 24
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 24
   %473 = load ptr, ptr %472, align 8
-  %474 = getelementptr inbounds %struct.trav_obj_t, ptr %473, i64 %76, i32 3
+  %474 = getelementptr inbounds nuw %struct.trav_obj_t, ptr %473, i64 %76, i32 3
   %475 = load ptr, ptr %474, align 8
   %476 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %470, ptr noundef nonnull @.str.27, ptr noundef %475) #7
   %477 = load ptr, ptr @stderr, align 8
@@ -2606,7 +2606,7 @@ define dso_local range(i32 -1, -2147483648) i32 @h5repack_cmp_pl(ptr noundef %0,
   %555 = add i32 %.0108465, 1
   %556 = zext i32 %555 to i64
   %557 = load ptr, ptr %7, align 8
-  %558 = getelementptr inbounds i8, ptr %557, i64 16
+  %558 = getelementptr inbounds nuw i8, ptr %557, i64 16
   %559 = load i64, ptr %558, align 8
   %560 = icmp ugt i64 %559, %556
   br i1 %560, label %.lr.ph, label %.loopexit

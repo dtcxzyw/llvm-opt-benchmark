@@ -82,12 +82,12 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML3TagC2ERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(84) %token) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %token, i64 80
+  %data = getelementptr inbounds nuw i8, ptr %token, i64 80
   %0 = load i32, ptr %data, align 8
   store i32 %0, ptr %this, align 8
-  %handle = getelementptr inbounds i8, ptr %this, i64 8
+  %handle = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %handle) #9
-  %value = getelementptr inbounds i8, ptr %this, i64 40
+  %value = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #9
   %1 = load i32, ptr %this, align 8
   switch i32 %1, label %sw.epilog [
@@ -98,7 +98,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %value3 = getelementptr inbounds i8, ptr %token, i64 24
+  %value3 = getelementptr inbounds nuw i8, ptr %token, i64 24
   br label %invoke.cont18.invoke
 
 lpad:                                             ; preds = %invoke.cont18.invoke, %sw.bb15
@@ -109,20 +109,20 @@ lpad:                                             ; preds = %invoke.cont18.invok
   resume { ptr, i32 } %2
 
 sw.bb5:                                           ; preds = %entry
-  %value6 = getelementptr inbounds i8, ptr %token, i64 24
+  %value6 = getelementptr inbounds nuw i8, ptr %token, i64 24
   br label %invoke.cont18.invoke
 
 sw.bb10:                                          ; preds = %entry
-  %value11 = getelementptr inbounds i8, ptr %token, i64 24
+  %value11 = getelementptr inbounds nuw i8, ptr %token, i64 24
   br label %invoke.cont18.invoke
 
 sw.bb15:                                          ; preds = %entry
-  %value16 = getelementptr inbounds i8, ptr %token, i64 24
+  %value16 = getelementptr inbounds nuw i8, ptr %token, i64 24
   %call19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %handle, ptr noundef nonnull align 8 dereferenceable(32) %value16)
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %sw.bb15
-  %params = getelementptr inbounds i8, ptr %token, i64 56
+  %params = getelementptr inbounds nuw i8, ptr %token, i64 56
   %3 = load ptr, ptr %params, align 8
   br label %invoke.cont18.invoke
 
@@ -163,7 +163,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %this, i64 40
+  %value = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %value)
   br label %return
 
@@ -177,7 +177,7 @@ invoke.cont:                                      ; preds = %sw.bb2
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %value7 = getelementptr inbounds i8, ptr %this, i64 40
+  %value7 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call.i13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %value7)
           to label %invoke.cont9 unwind label %lpad8
 
@@ -224,7 +224,7 @@ invoke.cont16:                                    ; preds = %sw.bb11
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont16
-  %value19 = getelementptr inbounds i8, ptr %this, i64 40
+  %value19 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call.i14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %value19)
           to label %invoke.cont21 unwind label %lpad20
 
@@ -262,7 +262,7 @@ ehcleanup24:                                      ; preds = %ehcleanup23, %lpad1
   br label %eh.resume
 
 sw.bb25:                                          ; preds = %entry
-  %handle = getelementptr inbounds i8, ptr %this, i64 8
+  %handle = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp28, ptr noundef nonnull @.str.21, ptr noundef nonnull align 8 dereferenceable(32) %handle)
   %call.i16 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull @.str.21)
           to label %invoke.cont30 unwind label %lpad29
@@ -273,7 +273,7 @@ invoke.cont30:                                    ; preds = %sw.bb25
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont30
-  %value33 = getelementptr inbounds i8, ptr %this, i64 40
+  %value33 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call.i17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26, ptr noundef nonnull align 8 dereferenceable(32) %value33)
           to label %invoke.cont35 unwind label %lpad34
 

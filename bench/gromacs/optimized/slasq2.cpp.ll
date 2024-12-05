@@ -46,13 +46,13 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %512
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %1, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %27 = load float, ptr %26, align 4
   %28 = fcmp olt float %27, 0.000000e+00
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load float, ptr %30, align 4
   %32 = fcmp olt float %31, 0.000000e+00
   br i1 %32, label %33, label %34
@@ -76,7 +76,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %40 = phi float [ %35, %34 ], [ %31, %37 ]
   %41 = fadd float %27, %40
   %42 = fadd float %41, %39
-  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store float %42, ptr %43, align 4
   %44 = fmul float %39, 0x3DE3880000000000
   %45 = fcmp ogt float %27, %44
@@ -133,14 +133,14 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %83 = phi float [ %80, %73 ], [ %39, %38 ]
   store float %83, ptr %26, align 4
   %84 = fadd float %83, %82
-  %85 = getelementptr inbounds i8, ptr %1, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store float %84, ptr %85, align 4
   br label %512
 
 86:                                               ; preds = %20
   %87 = shl nuw nsw i32 %17, 1
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds float, ptr %16, i64 %88
+  %89 = getelementptr inbounds nuw float, ptr %16, i64 %88
   store float 0.000000e+00, ptr %89, align 4
   %90 = load i32, ptr %0, align 4
   %91 = shl i32 %90, 1
@@ -153,7 +153,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %.0587 = phi float [ %108, %107 ], [ 0.000000e+00, %86 ]
   %.0517586 = phi float [ %109, %107 ], [ 0.000000e+00, %86 ]
   %93 = phi float [ %111, %107 ], [ 0.000000e+00, %86 ]
-  %94 = getelementptr inbounds float, ptr %16, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
   %95 = load float, ptr %94, align 4
   %96 = fcmp olt float %95, 0.000000e+00
   br i1 %96, label %97, label %100
@@ -165,7 +165,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %512
 
 100:                                              ; preds = %.lr.ph
-  %101 = getelementptr inbounds i8, ptr %94, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %102 = load float, ptr %101, align 4
   %103 = fcmp olt float %102, 0.000000e+00
   br i1 %103, label %104, label %107
@@ -228,7 +228,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %129 = sext i32 %128 to i64
   %gep699 = getelementptr float, ptr %invariant.gep698, i64 %129
   %130 = load float, ptr %gep699, align 4
-  %131 = getelementptr inbounds float, ptr %16, i64 %indvars.iv749
+  %131 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv749
   store float %130, ptr %131, align 4
   %indvars.iv.next750 = add nuw nsw i64 %indvars.iv749, 1
   %exitcond753.not = icmp eq i64 %indvars.iv.next750, %wide.trip.count752
@@ -268,7 +268,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %.idx = shl i64 %indvars.iv712, 3
   %145 = getelementptr i8, ptr %16, i64 %.idx
   store float 0.000000e+00, ptr %145, align 4
-  %146 = getelementptr inbounds float, ptr %16, i64 %indvars.iv712
+  %146 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv712
   %147 = load float, ptr %146, align 4
   %148 = getelementptr i8, ptr %145, i64 -4
   store float %147, ptr %148, align 4
@@ -483,7 +483,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 .lr.ph615:                                        ; preds = %.lr.ph615.preheader, %.lr.ph615
   %indvars.iv724 = phi i64 [ %251, %.lr.ph615.preheader ], [ %indvars.iv.next725, %.lr.ph615 ]
   %253 = phi float [ %248, %.lr.ph615.preheader ], [ %257, %.lr.ph615 ]
-  %254 = getelementptr inbounds float, ptr %16, i64 %indvars.iv724
+  %254 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv724
   %255 = load float, ptr %254, align 4
   %256 = fcmp ogt float %253, %255
   %257 = select i1 %256, float %253, float %255
@@ -913,7 +913,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %465 = sext i32 %464 to i64
   %gep686 = getelementptr float, ptr %invariant.gep, i64 %465
   %466 = load float, ptr %gep686, align 4
-  %467 = getelementptr inbounds float, ptr %16, i64 %indvars.iv742
+  %467 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv742
   store float %466, ptr %467, align 4
   %indvars.iv.next743 = add nuw nsw i64 %indvars.iv742, 1
   %exitcond745.not = icmp eq i64 %indvars.iv.next743, %wide.trip.count
@@ -932,7 +932,7 @@ define void @slasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 .lr.ph695:                                        ; preds = %.lr.ph695.preheader, %.lr.ph695
   %indvars.iv746 = phi i64 [ %470, %.lr.ph695.preheader ], [ %indvars.iv.next747, %.lr.ph695 ]
   %.1518693 = phi float [ 0.000000e+00, %.lr.ph695.preheader ], [ %473, %.lr.ph695 ]
-  %471 = getelementptr inbounds float, ptr %16, i64 %indvars.iv746
+  %471 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv746
   %472 = load float, ptr %471, align 4
   %473 = fadd float %.1518693, %472
   %indvars.iv.next747 = add nsw i64 %indvars.iv746, -1

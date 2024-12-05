@@ -229,7 +229,7 @@ define noundef range(i64 0, 2147483647) i64 @_ZN10open_spiel19RankActionMixedBas
 
 56:                                               ; preds = %53
   %57 = and i64 %indvars.iv.next, 2147483647
-  %58 = getelementptr inbounds i32, ptr %36, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr %36, i64 %57
   %59 = load i32, ptr %58, align 4
   store i32 %59, ptr %11, align 4
   store i32 0, ptr %12, align 4
@@ -252,7 +252,7 @@ define noundef range(i64 0, 2147483647) i64 @_ZN10open_spiel19RankActionMixedBas
 
 65:                                               ; preds = %56
   store i32 %59, ptr %15, align 4
-  %66 = getelementptr inbounds i32, ptr %29, i64 %57
+  %66 = getelementptr inbounds nuw i32, ptr %29, i64 %57
   %67 = load i32, ptr %66, align 4
   store i32 %67, ptr %16, align 4
   %68 = icmp slt i32 %59, %67
@@ -779,7 +779,7 @@ thread-pre-split:                                 ; preds = %.noexc21, %_ZSt6fil
   %.025 = phi i32 [ %.0, %47 ], [ %.023, %26 ]
   %.01824 = phi i64 [ %52, %47 ], [ %1, %26 ]
   %36 = zext nneg i32 %.025 to i64
-  %37 = getelementptr inbounds i32, ptr %14, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %36
   %38 = load i32, ptr %37, align 4
   store i32 %38, ptr %4, align 4
   store i32 1, ptr %5, align 4
@@ -813,7 +813,7 @@ thread-pre-split:                                 ; preds = %.noexc21, %_ZSt6fil
   %48 = zext nneg i32 %38 to i64
   %49 = srem i64 %.01824, %48
   %50 = trunc nsw i64 %49 to i32
-  %51 = getelementptr inbounds i32, ptr %28, i64 %36
+  %51 = getelementptr inbounds nuw i32, ptr %28, i64 %36
   store i32 %50, ptr %51, align 4
   %52 = sdiv i64 %.01824, %48
   %.0 = add nsw i32 %.025, -1
@@ -1213,7 +1213,7 @@ define void @_ZN10open_spiel9NormalizeEN4absl7debian24SpanIdEE(ptr %0, i64 %1) l
   %.068.i.i = phi ptr [ %16, %.lr.ph.i.i ], [ %0, %12 ]
   %14 = load double, ptr %.068.i.i, align 8
   %15 = fadd double %.09.i.i, %14
-  %16 = getelementptr inbounds i8, ptr %.068.i.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.068.i.i, i64 8
   %.not.i.i = icmp eq ptr %16, %13
   br i1 %.not.i.i, label %_ZN4absl7debian212c_accumulateINS0_4SpanIdEEdEENSt5decayIT0_E4typeERKT_OS5_.exit, label %.lr.ph.i.i, !llvm.loop !12
 
@@ -1244,7 +1244,7 @@ _ZN4absl7debian212c_accumulateINS0_4SpanIdEEdEENSt5decayIT0_E4typeERKT_OS5_.exit
 .lr.ph.i.i6.us:                                   ; preds = %22, %.lr.ph.i.i6.us
   %.06.i.i.us = phi ptr [ %26, %.lr.ph.i.i6.us ], [ %0, %22 ]
   store double %24, ptr %.06.i.i.us, align 8
-  %26 = getelementptr inbounds i8, ptr %.06.i.i.us, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.06.i.i.us, i64 8
   %.not.i.i7.us = icmp eq ptr %26, %13
   br i1 %.not.i.i7.us, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit", label %.lr.ph.i.i6.us, !llvm.loop !13
 
@@ -1253,7 +1253,7 @@ _ZN4absl7debian212c_accumulateINS0_4SpanIdEEdEENSt5decayIT0_E4typeERKT_OS5_.exit
   %27 = load double, ptr %.06.i.i, align 8
   %28 = fdiv double %27, %15
   store double %28, ptr %.06.i.i, align 8
-  %29 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %.not.i.i7 = icmp eq ptr %29, %13
   br i1 %.not.i.i7, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit", label %.lr.ph.i.i6, !llvm.loop !13
 
@@ -1367,7 +1367,7 @@ define void @_ZN10open_spiel9BoolToStrB5cxx11Eb(ptr dead_on_unwind noalias writa
 
 .noexc2:                                          ; preds = %.noexc
   %6 = select i1 %1, i64 4, i64 5
-  %7 = getelementptr inbounds i8, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4, ptr noundef nonnull %7)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %8
 
@@ -1554,7 +1554,7 @@ _ZNKSt8functionIFdvEEclEv.exit:                   ; preds = %3
 _ZNK4absl7debian24SpanIKdEixEm.exit:              ; preds = %_ZNKSt8functionIFdvEEclEv.exit, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %_ZNKSt8functionIFdvEEclEv.exit ]
   %.01731 = phi float [ %17, %19 ], [ 0.000000e+00, %_ZNKSt8functionIFdvEEclEv.exit ]
-  %13 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %14 = load double, ptr %13, align 8
   %15 = fpext float %.01731 to double
   %16 = fadd double %14, %15
@@ -1588,7 +1588,7 @@ _ZNK4absl7debian24SpanIKdEixEm.exit:              ; preds = %_ZNKSt8functionIFdv
   unreachable
 
 _ZNK4absl7debian24SpanIKdEixEm.exit22:            ; preds = %23
-  %27 = getelementptr inbounds double, ptr %1, i64 %24
+  %27 = getelementptr inbounds nuw double, ptr %1, i64 %24
   %28 = load double, ptr %27, align 8
   %29 = fcmp ogt double %28, 0.000000e+00
   br i1 %29, label %.loopexit, label %21, !llvm.loop !17

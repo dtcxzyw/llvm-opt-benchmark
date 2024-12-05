@@ -64,7 +64,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef ptr @jv_parser_new(i32 noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @jv_mem_alloc(i64 noundef 208) #8
   tail call fastcc void @parser_init(ptr noundef %2, i32 noundef %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %0, ptr %3, align 4
   ret ptr %2
 }
@@ -73,7 +73,7 @@ declare ptr @jv_mem_alloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parser_init(ptr noundef initializes((0, 68), (72, 128), (200, 204)) %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %1, ptr %3, align 4
   %4 = and i32 %1, 2
   %.not = icmp eq i32 %4, 0
@@ -94,46 +94,46 @@ define internal fastcc void @parser_init(ptr noundef initializes((0, 68), (72, 1
   %.pn = phi { i64, ptr } [ %8, %7 ], [ %6, %5 ]
   %.sink = extractvalue { i64, ptr } %.pn, 1
   %.sink34 = extractvalue { i64, ptr } %.pn, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sink34, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.sink, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %17 = tail call { i64, ptr } @jv_invalid() #8
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   store i64 %18, ptr %16, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %19, ptr %.sroa.22.0..sroa_idx, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = tail call { i64, ptr } @jv_invalid() #8
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
   store i64 %22, ptr %20, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %23, ptr %.sroa.2.0..sroa_idx, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = load i32, ptr %3, align 4
   %26 = and i32 %25, 1
   %.not33 = icmp eq i32 %26, 0
   %spec.select = select i1 %.not33, i32 0, i32 3
-  %27 = getelementptr inbounds i8, ptr %0, i64 200
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 %spec.select, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 204
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 204
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   %29 = load i8, ptr %28, align 4
   %30 = and i8 %29, -2
   store i8 %30, ptr %28, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 124
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @jvp_dtoa_context_init(ptr noundef nonnull %33) #8
   ret void
 }
@@ -141,23 +141,23 @@ define internal fastcc void @parser_init(ptr noundef initializes((0, 68), (72, 1
 ; Function Attrs: nounwind uwtable
 define void @jv_parser_free(ptr noundef initializes((64, 68)) %0) local_unnamed_addr #0 {
   tail call fastcc void @parser_reset(ptr noundef %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   tail call void @jv_free(i64 %3, ptr %5) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
   tail call void @jv_free(i64 %7, ptr %9) #8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void @jv_mem_free(ptr noundef %11) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8
   tail call void @jv_mem_free(ptr noundef %13) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @jvp_dtoa_context_free(ptr noundef nonnull %14) #8
   tail call void @jv_mem_free(ptr noundef %0) #8
   ret void
@@ -172,9 +172,9 @@ define i32 @jv_parser_remaining(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = sub nsw i32 %6, %8
   br label %10
@@ -186,7 +186,7 @@ define i32 @jv_parser_remaining(ptr nocapture noundef readonly %0) local_unnamed
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @jv_parser_set_buf(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = icmp sgt i32 %2, 0
   br i1 %6, label %.lr.ph, label %.critedge
 
@@ -204,7 +204,7 @@ define void @jv_parser_set_buf(ptr nocapture noundef %0, ptr noundef %1, i32 nou
 10:                                               ; preds = %7
   %11 = zext nneg i32 %8 to i64
   %12 = load i8, ptr %.020, align 1
-  %13 = getelementptr inbounds [3 x i8], ptr @UTF8_BOM, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw [3 x i8], ptr @UTF8_BOM, i64 0, i64 %11
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %12, %14
   %16 = add nuw nsw i32 %8, 1
@@ -214,7 +214,7 @@ define void @jv_parser_set_buf(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %18 = sext i1 %15 to i32
   %.117 = add nsw i32 %.01619, %18
   %.1.idx = zext i1 %15 to i64
-  %.1 = getelementptr inbounds i8, ptr %.020, i64 %.1.idx
+  %.1 = getelementptr inbounds nuw i8, ptr %.020, i64 %.1.idx
   store i32 %.sink, ptr %5, align 8
   %19 = icmp sgt i32 %.117, 0
   br i1 %19, label %7, label %.critedge, !llvm.loop !4
@@ -223,11 +223,11 @@ define void @jv_parser_set_buf(ptr nocapture noundef %0, ptr noundef %1, i32 nou
   %.016.lcssa = phi i32 [ %2, %4 ], [ %.117, %10 ], [ %.01619, %7 ]
   %.0.lcssa = phi ptr [ %1, %4 ], [ %.1, %10 ], [ %.020, %7 ]
   store ptr %.0.lcssa, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.016.lcssa, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %22, align 8
   ret void
 }
@@ -235,7 +235,7 @@ define void @jv_parser_set_buf(ptr nocapture noundef %0, ptr noundef %1, i32 nou
 ; Function Attrs: nounwind uwtable
 define { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.jv, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -254,13 +254,13 @@ define { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr #0 {
   br label %450
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 255
   br i1 %14, label %15, label %26
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 1
   %.not125 = icmp eq i32 %18, 0
@@ -274,7 +274,7 @@ define { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr #0 {
   br label %450
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 3, ptr %25, align 8
   tail call fastcc void @parser_reset(ptr noundef nonnull %0)
   br label %26
@@ -283,10 +283,10 @@ define { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr #0 {
   %27 = tail call { i64, ptr } @jv_invalid() #8
   %28 = extractvalue { i64, ptr } %27, 0
   store i64 %28, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = extractvalue { i64, ptr } %27, 1
   store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 2
   %.not126 = icmp eq i32 %33, 0
@@ -305,20 +305,20 @@ define { i64, ptr } @jv_parser_next(ptr noundef %0) local_unnamed_addr #0 {
   br label %450
 
 39:                                               ; preds = %34, %26
-  %40 = getelementptr inbounds i8, ptr %0, i64 12
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 200
-  %43 = getelementptr inbounds i8, ptr %0, i64 124
-  %44 = getelementptr inbounds i8, ptr %0, i64 88
-  %45 = getelementptr inbounds i8, ptr %0, i64 96
-  %46 = getelementptr inbounds i8, ptr %0, i64 44
-  %47 = getelementptr inbounds i8, ptr %0, i64 204
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
-  %49 = getelementptr inbounds i8, ptr %0, i64 112
-  %50 = getelementptr inbounds i8, ptr %0, i64 120
-  %51 = getelementptr inbounds i8, ptr %0, i64 116
-  %52 = getelementptr inbounds i8, ptr %0, i64 104
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 204
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %54
 
 54:                                               ; preds = %39, %.backedge
@@ -689,7 +689,7 @@ parse_check_done.exit109.i:                       ; preds = %199
 .lr.ph.i.i:                                       ; preds = %209, %294
   %.05896.i.i = phi ptr [ %.2.i.i, %294 ], [ %210, %209 ]
   %.05995.i.i = phi ptr [ %.160.i.i, %294 ], [ %210, %209 ]
-  %215 = getelementptr inbounds i8, ptr %.05896.i.i, i64 1
+  %215 = getelementptr inbounds nuw i8, ptr %.05896.i.i, i64 1
   %216 = load i8, ptr %.05896.i.i, align 1
   %217 = icmp eq i8 %216, 92
   br i1 %217, label %218, label %291
@@ -699,7 +699,7 @@ parse_check_done.exit109.i:                       ; preds = %199
   br i1 %.not71.i.i, label %219, label %.critedge
 
 219:                                              ; preds = %218
-  %220 = getelementptr inbounds i8, ptr %.05896.i.i, i64 2
+  %220 = getelementptr inbounds nuw i8, ptr %.05896.i.i, i64 2
   %221 = load i8, ptr %215, align 1
   switch i8 %221, label %.critedge [
     i8 92, label %222
@@ -714,37 +714,37 @@ parse_check_done.exit109.i:                       ; preds = %199
   ]
 
 222:                                              ; preds = %219, %219, %219
-  %223 = getelementptr inbounds i8, ptr %.05995.i.i, i64 1
+  %223 = getelementptr inbounds nuw i8, ptr %.05995.i.i, i64 1
   store i8 %221, ptr %.05995.i.i, align 1
   br label %294
 
 224:                                              ; preds = %219
-  %225 = getelementptr inbounds i8, ptr %.05995.i.i, i64 1
+  %225 = getelementptr inbounds nuw i8, ptr %.05995.i.i, i64 1
   store i8 8, ptr %.05995.i.i, align 1
   br label %294
 
 226:                                              ; preds = %219
-  %227 = getelementptr inbounds i8, ptr %.05995.i.i, i64 1
+  %227 = getelementptr inbounds nuw i8, ptr %.05995.i.i, i64 1
   store i8 12, ptr %.05995.i.i, align 1
   br label %294
 
 228:                                              ; preds = %219
-  %229 = getelementptr inbounds i8, ptr %.05995.i.i, i64 1
+  %229 = getelementptr inbounds nuw i8, ptr %.05995.i.i, i64 1
   store i8 9, ptr %.05995.i.i, align 1
   br label %294
 
 230:                                              ; preds = %219
-  %231 = getelementptr inbounds i8, ptr %.05995.i.i, i64 1
+  %231 = getelementptr inbounds nuw i8, ptr %.05995.i.i, i64 1
   store i8 10, ptr %.05995.i.i, align 1
   br label %294
 
 232:                                              ; preds = %219
-  %233 = getelementptr inbounds i8, ptr %.05995.i.i, i64 1
+  %233 = getelementptr inbounds nuw i8, ptr %.05995.i.i, i64 1
   store i8 13, ptr %.05995.i.i, align 1
   br label %294
 
 234:                                              ; preds = %219
-  %235 = getelementptr inbounds i8, ptr %.05896.i.i, i64 6
+  %235 = getelementptr inbounds nuw i8, ptr %.05896.i.i, i64 6
   %236 = icmp ugt ptr %235, %213
   br i1 %236, label %.critedge, label %.preheader.i.i
 
@@ -752,7 +752,7 @@ parse_check_done.exit109.i:                       ; preds = %199
   %.02531.i.i.i = phi i32 [ %249, %245 ], [ 0, %234 ]
   %.02630.i.i.i = phi i32 [ %248, %245 ], [ 0, %234 ]
   %.02729.i.i.i = phi ptr [ %237, %245 ], [ %220, %234 ]
-  %237 = getelementptr inbounds i8, ptr %.02729.i.i.i, i64 1
+  %237 = getelementptr inbounds nuw i8, ptr %.02729.i.i.i, i64 1
   %238 = load i8, ptr %.02729.i.i.i, align 1
   %239 = sext i8 %238 to i32
   %240 = add i8 %238, -48
@@ -789,7 +789,7 @@ unhex4.exit.i.i:                                  ; preds = %245
   br i1 %or.cond.i.i, label %254, label %284
 
 254:                                              ; preds = %251
-  %255 = getelementptr inbounds i8, ptr %.05896.i.i, i64 12
+  %255 = getelementptr inbounds nuw i8, ptr %.05896.i.i, i64 12
   %256 = icmp ugt ptr %255, %213
   br i1 %256, label %.critedge, label %257
 
@@ -799,20 +799,20 @@ unhex4.exit.i.i:                                  ; preds = %245
   br i1 %.not72.i.i, label %259, label %.critedge
 
 259:                                              ; preds = %257
-  %260 = getelementptr inbounds i8, ptr %.05896.i.i, i64 7
+  %260 = getelementptr inbounds nuw i8, ptr %.05896.i.i, i64 7
   %261 = load i8, ptr %260, align 1
   %.not73.i.i = icmp eq i8 %261, 117
   br i1 %.not73.i.i, label %262, label %.critedge
 
 262:                                              ; preds = %259
-  %263 = getelementptr inbounds i8, ptr %.05896.i.i, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %.05896.i.i, i64 8
   br label %264
 
 264:                                              ; preds = %273, %262
   %.02531.i74.i.i = phi i32 [ 0, %262 ], [ %277, %273 ]
   %.02630.i75.i.i = phi i32 [ 0, %262 ], [ %276, %273 ]
   %.02729.i76.i.i = phi ptr [ %263, %262 ], [ %265, %273 ]
-  %265 = getelementptr inbounds i8, ptr %.02729.i76.i.i, i64 1
+  %265 = getelementptr inbounds nuw i8, ptr %.02729.i76.i.i, i64 1
   %266 = load i8, ptr %.02729.i76.i.i, align 1
   %267 = sext i8 %266 to i32
   %268 = add i8 %266, -48
@@ -866,7 +866,7 @@ unhex4.exit83.i.i:                                ; preds = %273
   br i1 %or.cond6.i.i, label %.critedge, label %292
 
 292:                                              ; preds = %291
-  %293 = getelementptr inbounds i8, ptr %.05995.i.i, i64 1
+  %293 = getelementptr inbounds nuw i8, ptr %.05995.i.i, i64 1
   store i8 %216, ptr %.05995.i.i, align 1
   br label %294
 
@@ -1057,7 +1057,7 @@ tokenadd.exit121.i:                               ; preds = %337, %._crit_edge.i
   br label %450
 
 374:                                              ; preds = %54
-  %375 = getelementptr inbounds i8, ptr %0, i64 16
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %376 = load i32, ptr %375, align 8
   %.not129 = icmp eq i32 %376, 0
   br i1 %.not129, label %379, label %377
@@ -1139,9 +1139,9 @@ tokenadd.exit121.i:                               ; preds = %337, %._crit_edge.i
   %413 = tail call { i64, ptr } @jv_array() #8
   %414 = extractvalue { i64, ptr } %413, 0
   %415 = extractvalue { i64, ptr } %413, 1
-  %416 = getelementptr inbounds i8, ptr %0, i64 48
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %417 = load i64, ptr %416, align 8
-  %418 = getelementptr inbounds i8, ptr %0, i64 56
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %419 = load ptr, ptr %418, align 8
   %420 = tail call { i64, ptr } @jv_copy(i64 %417, ptr %419) #8
   %421 = extractvalue { i64, ptr } %420, 0
@@ -1218,16 +1218,16 @@ declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parser_reset(ptr nocapture noundef initializes((64, 68)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 2
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void @jv_free(i64 %7, ptr %9) #8
   %10 = tail call { i64, ptr } @jv_array() #8
@@ -1235,16 +1235,16 @@ define internal fastcc void @parser_reset(ptr nocapture noundef initializes((64,
   %12 = extractvalue { i64, ptr } %10, 1
   store i64 %11, ptr %6, align 8
   store ptr %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %13, align 4
   br label %14
 
 14:                                               ; preds = %5, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   tail call void @jv_free(i64 %17, ptr %19) #8
   %20 = tail call { i64, ptr } @jv_invalid() #8
@@ -1252,9 +1252,9 @@ define internal fastcc void @parser_reset(ptr nocapture noundef initializes((64,
   %22 = extractvalue { i64, ptr } %20, 1
   store i64 %21, ptr %16, align 8
   store ptr %22, ptr %18, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load ptr, ptr %25, align 8
   tail call void @jv_free(i64 %24, ptr %26) #8
   %27 = tail call { i64, ptr } @jv_invalid() #8
@@ -1262,21 +1262,21 @@ define internal fastcc void @parser_reset(ptr nocapture noundef initializes((64,
   %29 = extractvalue { i64, ptr } %27, 1
   store i64 %28, ptr %23, align 8
   store ptr %29, ptr %25, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %14
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %35 = load ptr, ptr %33, align 8
-  %36 = getelementptr inbounds %struct.jv, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw %struct.jv, ptr %35, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %36, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void @jv_free(i64 %37, ptr %39) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1287,24 +1287,24 @@ define internal fastcc void @parser_reset(ptr nocapture noundef initializes((64,
 
 ._crit_edge:                                      ; preds = %34, %14
   store i32 0, ptr %30, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 200
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 0, ptr %44, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @stream_check_done(ptr nocapture noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 44
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %34
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @jv_get_kind(i64 %8, ptr %10) #8
   %.not36 = icmp eq i32 %11, 0
@@ -1314,9 +1314,9 @@ define internal fastcc range(i32 0, 2) i32 @stream_check_done(ptr nocapture noun
   %13 = tail call { i64, ptr } @jv_array() #8
   %14 = extractvalue { i64, ptr } %13, 0
   %15 = extractvalue { i64, ptr } %13, 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
   %20 = tail call { i64, ptr } @jv_copy(i64 %17, ptr %19) #8
   %21 = extractvalue { i64, ptr } %20, 0
@@ -1330,7 +1330,7 @@ define internal fastcc range(i32 0, 2) i32 @stream_check_done(ptr nocapture noun
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
   store i64 %29, ptr %1, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %30, ptr %.sroa.218.0..sroa_idx, align 8
   %31 = tail call { i64, ptr } @jv_invalid() #8
   %32 = extractvalue { i64, ptr } %31, 0
@@ -1340,9 +1340,9 @@ define internal fastcc range(i32 0, 2) i32 @stream_check_done(ptr nocapture noun
   br label %63
 
 34:                                               ; preds = %6, %2
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @jv_get_kind(i64 %36, ptr %38) #8
   %.not = icmp eq i32 %39, 0
@@ -1368,7 +1368,7 @@ define internal fastcc range(i32 0, 2) i32 @stream_check_done(ptr nocapture noun
   %55 = extractvalue { i64, ptr } %54, 0
   %56 = extractvalue { i64, ptr } %54, 1
   store i64 %55, ptr %1, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %56, ptr %.sroa.26.0..sroa_idx, align 8
   %57 = load i64, ptr %35, align 8
   %58 = load ptr, ptr %37, align 8
@@ -1406,7 +1406,7 @@ define internal { i64, ptr } @make_error(ptr nocapture noundef readonly %0, ptr 
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 4
   %.not = icmp eq i32 %9, 0
@@ -1419,9 +1419,9 @@ define internal { i64, ptr } @make_error(ptr nocapture noundef readonly %0, ptr 
   %14 = call { i64, ptr } @jv_array_append(i64 %12, ptr %13, i64 %5, ptr %6) #8
   %15 = extractvalue { i64, ptr } %14, 0
   %16 = extractvalue { i64, ptr } %14, 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = call { i64, ptr } @jv_copy(i64 %18, ptr %20) #8
   %22 = extractvalue { i64, ptr } %21, 0
@@ -1440,13 +1440,13 @@ define internal { i64, ptr } @make_error(ptr nocapture noundef readonly %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @check_literal(ptr nocapture noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %value.exit.thread, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %50 [
@@ -1464,7 +1464,7 @@ define internal fastcc noundef ptr @check_literal(ptr nocapture noundef %0) unna
   br label %19
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %7, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 117
   br i1 %16, label %17, label %50
@@ -1495,21 +1495,21 @@ define internal fastcc noundef ptr @check_literal(ptr nocapture noundef %0) unna
 
 23:                                               ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %22 ]
-  %24 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %.031.ph, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %.031.ph, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1
   %.not39 = icmp eq i8 %25, %27
   br i1 %.not39, label %22, label %value.exit.thread
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 2
   %.not.i = icmp eq i32 %31, 0
-  %32 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @jv_get_kind(i64 %33, ptr %35) #8
   %.not15.i = icmp eq i32 %36, 0
@@ -1519,7 +1519,7 @@ define internal fastcc noundef ptr @check_literal(ptr nocapture noundef %0) unna
   br i1 %.not15.i, label %38, label %42
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 86
   br i1 %41, label %42, label %.sink.split.i
@@ -1529,7 +1529,7 @@ define internal fastcc noundef ptr @check_literal(ptr nocapture noundef %0) unna
   br label %value.exit.thread
 
 .sink.split.i:                                    ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %0, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %44, 0
   %..i = select i1 %45, i32 86, i32 0
@@ -1564,13 +1564,13 @@ value.exit:                                       ; preds = %.sink.split.i, %46
   br i1 %58, label %value.exit.thread, label %59
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds i8, ptr %0, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 2
   %.not.i40 = icmp eq i32 %62, 0
-  %63 = getelementptr inbounds i8, ptr %0, i64 88
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 96
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %66 = load ptr, ptr %65, align 8
   %67 = tail call i32 @jv_get_kind(i64 %64, ptr %66) #8
   %.not15.i41 = icmp eq i32 %67, 0
@@ -1580,7 +1580,7 @@ value.exit:                                       ; preds = %.sink.split.i, %46
   br i1 %.not15.i41, label %69, label %73
 
 69:                                               ; preds = %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 86
   br i1 %72, label %73, label %.sink.split.i43
@@ -1590,7 +1590,7 @@ value.exit:                                       ; preds = %.sink.split.i, %46
   br label %value.exit.thread
 
 .sink.split.i43:                                  ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %0, i64 44
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %75 = load i32, ptr %74, align 4
   %76 = icmp sgt i32 %75, 0
   %..i44 = select i1 %76, i32 86, i32 0
@@ -1633,7 +1633,7 @@ declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #1
 define { i64, ptr } @jv_parse_sized_custom_flags(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.jv_parser, align 8
   call fastcc void @parser_init(ptr noundef nonnull %4, i32 noundef %2)
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph.i, label %jv_parser_set_buf.exit
 
@@ -1651,7 +1651,7 @@ define { i64, ptr } @jv_parse_sized_custom_flags(ptr noundef %0, i32 noundef %1,
 10:                                               ; preds = %7
   %11 = zext nneg i32 %8 to i64
   %12 = load i8, ptr %.020.i, align 1
-  %13 = getelementptr inbounds [3 x i8], ptr @UTF8_BOM, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw [3 x i8], ptr @UTF8_BOM, i64 0, i64 %11
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %12, %14
   %16 = add nuw nsw i32 %8, 1
@@ -1661,7 +1661,7 @@ define { i64, ptr } @jv_parse_sized_custom_flags(ptr noundef %0, i32 noundef %1,
   %18 = sext i1 %15 to i32
   %.117.i = add nsw i32 %.01619.i, %18
   %.1.idx.i = zext i1 %15 to i64
-  %.1.i = getelementptr inbounds i8, ptr %.020.i, i64 %.1.idx.i
+  %.1.i = getelementptr inbounds nuw i8, ptr %.020.i, i64 %.1.idx.i
   store i32 %.sink.i, ptr %5, align 8
   %.not50 = icmp eq i32 %.117.i, 0
   br i1 %.not50, label %jv_parser_set_buf.exit, label %7, !llvm.loop !4
@@ -1670,11 +1670,11 @@ jv_parser_set_buf.exit:                           ; preds = %7, %10, %3
   %.016.lcssa.i = phi i32 [ %1, %3 ], [ %.01619.i, %7 ], [ 0, %10 ]
   %.0.lcssa.i = phi ptr [ %0, %3 ], [ %.020.i, %7 ], [ %.1.i, %10 ]
   store ptr %.0.lcssa.i, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.016.lcssa.i, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %21, align 8
   %22 = call { i64, ptr } @jv_parser_next(ptr noundef nonnull %4)
   %23 = extractvalue { i64, ptr } %22, 0
@@ -1740,23 +1740,23 @@ jv_parser_set_buf.exit:                           ; preds = %7, %10, %3
   %.sroa.029.0 = phi i64 [ %36, %31 ], [ %28, %43 ], [ %23, %44 ], [ %23, %45 ], [ %55, %50 ]
   %.sroa.14.0 = phi ptr [ %37, %31 ], [ %29, %43 ], [ %24, %44 ], [ %24, %45 ], [ %56, %50 ]
   call fastcc void @parser_reset(ptr noundef nonnull %4)
-  %58 = getelementptr inbounds i8, ptr %4, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %4, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %61 = load ptr, ptr %60, align 8
   call void @jv_free(i64 %59, ptr %61) #8
-  %62 = getelementptr inbounds i8, ptr %4, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %4, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %65 = load ptr, ptr %64, align 8
   call void @jv_free(i64 %63, ptr %65) #8
-  %66 = getelementptr inbounds i8, ptr %4, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %67 = load ptr, ptr %66, align 8
   call void @jv_mem_free(ptr noundef %67) #8
-  %68 = getelementptr inbounds i8, ptr %4, i64 104
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %69 = load ptr, ptr %68, align 8
   call void @jv_mem_free(ptr noundef %69) #8
-  %70 = getelementptr inbounds i8, ptr %4, i64 128
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 128
   call void @jvp_dtoa_context_free(ptr noundef nonnull %70) #8
   %71 = call i32 @jv_get_kind(i64 %.sroa.029.0, ptr %.sroa.14.0) #8
   %.not52 = icmp eq i32 %71, 0
@@ -1835,15 +1835,15 @@ declare { i64, ptr } @jv_array_slice(i64, ptr, i32 noundef, i32 noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_check_done(ptr nocapture noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %16
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @jv_get_kind(i64 %8, ptr %10) #8
   %.not5 = icmp eq i32 %11, 0
@@ -1875,16 +1875,16 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   ]
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @jv_get_kind(i64 %5, ptr %7) #8
   %.not305 = icmp eq i32 %8, 0
   br i1 %.not305, label %9, label %441
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %27 [
     i32 123, label %441
@@ -1892,14 +1892,14 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   ]
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = tail call { i64, ptr } @jv_copy(i64 %14, ptr %16) #8
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, -1
   %23 = tail call { i64, ptr } @jv_array_get(i64 %18, ptr %19, i32 noundef %22) #8
@@ -1911,12 +1911,12 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br i1 %.not300, label %27, label %441
 
 27:                                               ; preds = %9, %12
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = tail call { i64, ptr } @jv_number(double noundef 0.000000e+00) #8
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
   %32 = load i64, ptr %28, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = tail call { i64, ptr } @jv_array_append(i64 %32, ptr %34, i64 %30, ptr %31) #8
   %36 = extractvalue { i64, ptr } %35, 0
@@ -1924,14 +1924,14 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   store i64 %36, ptr %28, align 8
   store ptr %37, ptr %33, align 8
   store i32 91, ptr %10, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4
   br label %441
 
 41:                                               ; preds = %2
-  %42 = getelementptr inbounds i8, ptr %0, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = load i32, ptr %42, align 8
   switch i32 %43, label %60 [
     i32 86, label %441
@@ -1943,14 +1943,14 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br label %441
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = tail call { i64, ptr } @jv_copy(i64 %47, ptr %49) #8
   %51 = extractvalue { i64, ptr } %50, 0
   %52 = extractvalue { i64, ptr } %50, 1
-  %53 = getelementptr inbounds i8, ptr %0, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %54 = load i32, ptr %53, align 4
   %55 = add nsw i32 %54, -1
   %56 = tail call { i64, ptr } @jv_array_get(i64 %51, ptr %52, i32 noundef %55) #8
@@ -1962,12 +1962,12 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br i1 %.not298, label %60, label %441
 
 60:                                               ; preds = %41, %45
-  %61 = getelementptr inbounds i8, ptr %0, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = tail call { i64, ptr } @jv_null() #8
   %63 = extractvalue { i64, ptr } %62, 0
   %64 = extractvalue { i64, ptr } %62, 1
   %65 = load i64, ptr %61, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %67 = load ptr, ptr %66, align 8
   %68 = tail call { i64, ptr } @jv_array_append(i64 %65, ptr %67, i64 %63, ptr %64) #8
   %69 = extractvalue { i64, ptr } %68, 0
@@ -1975,7 +1975,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   store i64 %69, ptr %61, align 8
   store ptr %70, ptr %66, align 8
   store i32 123, ptr %42, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 44
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %72 = load i32, ptr %71, align 4
   %73 = add nsw i32 %72, 1
   store i32 %73, ptr %71, align 4
@@ -1985,15 +1985,15 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   %75 = tail call { i64, ptr } @jv_invalid() #8
   %76 = extractvalue { i64, ptr } %75, 0
   %77 = extractvalue { i64, ptr } %75, 1
-  %78 = getelementptr inbounds i8, ptr %0, i64 44
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %96, label %81
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %0, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %85 = load ptr, ptr %84, align 8
   %86 = tail call { i64, ptr } @jv_copy(i64 %83, ptr %85) #8
   %87 = extractvalue { i64, ptr } %86, 0
@@ -2015,16 +2015,16 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
 
 97:                                               ; preds = %81
   tail call void @jv_free(i64 %92, ptr %93) #8
-  %98 = getelementptr inbounds i8, ptr %0, i64 88
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %101 = load ptr, ptr %100, align 8
   %102 = tail call i32 @jv_get_kind(i64 %99, ptr %101) #8
   %.not304 = icmp eq i32 %102, 0
   br i1 %.not304, label %441, label %103
 
 103:                                              ; preds = %97
-  %104 = getelementptr inbounds i8, ptr %0, i64 64
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %441, label %107
@@ -2062,21 +2062,21 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br label %441
 
 126:                                              ; preds = %2
-  %127 = getelementptr inbounds i8, ptr %0, i64 64
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %128 = load i32, ptr %127, align 8
   %.not290 = icmp eq i32 %128, 86
   br i1 %.not290, label %129, label %441
 
 129:                                              ; preds = %126
-  %130 = getelementptr inbounds i8, ptr %0, i64 44
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %131 = load i32, ptr %130, align 4
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %441, label %133
 
 133:                                              ; preds = %129
-  %134 = getelementptr inbounds i8, ptr %0, i64 48
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %135 = load i64, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 56
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %137 = load ptr, ptr %136, align 8
   %138 = tail call { i64, ptr } @jv_copy(i64 %135, ptr %137) #8
   %139 = extractvalue { i64, ptr } %138, 0
@@ -2095,16 +2095,16 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
 147:                                              ; preds = %133
   %148 = tail call double @jv_number_value(i64 %144, ptr %145) #8
   %149 = fptosi double %148 to i32
-  %150 = getelementptr inbounds i8, ptr %0, i64 88
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %151 = load i64, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 96
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %153 = load ptr, ptr %152, align 8
   %154 = tail call i32 @jv_get_kind(i64 %151, ptr %153) #8
   %.not303 = icmp eq i32 %154, 0
   br i1 %.not303, label %176, label %155
 
 155:                                              ; preds = %147
-  %156 = getelementptr inbounds i8, ptr %0, i64 72
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %157 = tail call { i64, ptr } @jv_array() #8
   %158 = extractvalue { i64, ptr } %157, 0
   %159 = extractvalue { i64, ptr } %157, 1
@@ -2122,7 +2122,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   %171 = extractvalue { i64, ptr } %170, 0
   %172 = extractvalue { i64, ptr } %170, 1
   store i64 %171, ptr %156, align 8
-  %.sroa.2102.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.2102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %172, ptr %.sroa.2102.0..sroa_idx, align 8
   %173 = tail call { i64, ptr } @jv_invalid() #8
   %174 = extractvalue { i64, ptr } %173, 0
@@ -2139,16 +2139,16 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br label %212
 
 181:                                              ; preds = %133
-  %182 = getelementptr inbounds i8, ptr %0, i64 88
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %183 = load i64, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %0, i64 96
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %185 = load ptr, ptr %184, align 8
   %186 = tail call i32 @jv_get_kind(i64 %183, ptr %185) #8
   %.not302 = icmp eq i32 %186, 0
   br i1 %.not302, label %208, label %187
 
 187:                                              ; preds = %181
-  %188 = getelementptr inbounds i8, ptr %0, i64 72
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %189 = tail call { i64, ptr } @jv_array() #8
   %190 = extractvalue { i64, ptr } %189, 0
   %191 = extractvalue { i64, ptr } %189, 1
@@ -2166,7 +2166,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   %203 = extractvalue { i64, ptr } %202, 0
   %204 = extractvalue { i64, ptr } %202, 1
   store i64 %203, ptr %188, align 8
-  %.sroa.288.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.288.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %204, ptr %.sroa.288.0..sroa_idx, align 8
   %205 = tail call { i64, ptr } @jv_invalid() #8
   %206 = extractvalue { i64, ptr } %205, 0
@@ -2202,21 +2202,21 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br label %441
 
 218:                                              ; preds = %2
-  %219 = getelementptr inbounds i8, ptr %0, i64 44
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %220 = load i32, ptr %219, align 4
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %441, label %222
 
 222:                                              ; preds = %218
-  %223 = getelementptr inbounds i8, ptr %0, i64 64
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %224 = load i32, ptr %223, align 8
   %225 = icmp eq i32 %224, 44
   br i1 %225, label %441, label %226
 
 226:                                              ; preds = %222
-  %227 = getelementptr inbounds i8, ptr %0, i64 48
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %228 = load i64, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %0, i64 56
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %230 = load ptr, ptr %229, align 8
   %231 = tail call { i64, ptr } @jv_copy(i64 %228, ptr %230) #8
   %232 = extractvalue { i64, ptr } %231, 0
@@ -2232,16 +2232,16 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br i1 %.not287, label %240, label %441
 
 240:                                              ; preds = %226
-  %241 = getelementptr inbounds i8, ptr %0, i64 88
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %242 = load i64, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %0, i64 96
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %244 = load ptr, ptr %243, align 8
   %245 = tail call i32 @jv_get_kind(i64 %242, ptr %244) #8
   %.not = icmp eq i32 %245, 0
   br i1 %.not, label %273, label %246
 
 246:                                              ; preds = %240
-  %247 = getelementptr inbounds i8, ptr %0, i64 72
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %248 = tail call { i64, ptr } @jv_array() #8
   %249 = extractvalue { i64, ptr } %248, 0
   %250 = extractvalue { i64, ptr } %248, 1
@@ -2265,7 +2265,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   %268 = extractvalue { i64, ptr } %267, 0
   %269 = extractvalue { i64, ptr } %267, 1
   store i64 %268, ptr %247, align 8
-  %.sroa.270.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.270.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %269, ptr %.sroa.270.0..sroa_idx, align 8
   %270 = tail call { i64, ptr } @jv_invalid() #8
   %271 = extractvalue { i64, ptr } %270, 0
@@ -2280,7 +2280,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br i1 %.not289, label %288, label %275
 
 275:                                              ; preds = %273
-  %276 = getelementptr inbounds i8, ptr %0, i64 72
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %277 = tail call { i64, ptr } @jv_array() #8
   %278 = extractvalue { i64, ptr } %277, 0
   %279 = extractvalue { i64, ptr } %277, 1
@@ -2293,7 +2293,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   %286 = extractvalue { i64, ptr } %285, 0
   %287 = extractvalue { i64, ptr } %285, 1
   store i64 %286, ptr %276, align 8
-  %.sroa.256.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.256.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %287, ptr %.sroa.256.0..sroa_idx, align 8
   br label %288
 
@@ -2321,7 +2321,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br i1 %302, label %303, label %322
 
 303:                                              ; preds = %288
-  %304 = getelementptr inbounds i8, ptr %0, i64 72
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %305 = tail call { i64, ptr } @jv_array() #8
   %306 = extractvalue { i64, ptr } %305, 0
   %307 = extractvalue { i64, ptr } %305, 1
@@ -2340,7 +2340,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   %320 = extractvalue { i64, ptr } %319, 0
   %321 = extractvalue { i64, ptr } %319, 1
   store i64 %320, ptr %304, align 8
-  %.sroa.246.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %321, ptr %.sroa.246.0..sroa_idx, align 8
   br label %322
 
@@ -2358,21 +2358,21 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br label %441
 
 327:                                              ; preds = %2
-  %328 = getelementptr inbounds i8, ptr %0, i64 44
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %329 = load i32, ptr %328, align 4
   %330 = icmp eq i32 %329, 0
   br i1 %330, label %441, label %331
 
 331:                                              ; preds = %327
-  %332 = getelementptr inbounds i8, ptr %0, i64 64
+  %332 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %333 = load i32, ptr %332, align 8
   %334 = icmp eq i32 %333, 44
   br i1 %334, label %441, label %335
 
 335:                                              ; preds = %331
-  %336 = getelementptr inbounds i8, ptr %0, i64 48
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %337 = load i64, ptr %336, align 8
-  %338 = getelementptr inbounds i8, ptr %0, i64 56
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %339 = load ptr, ptr %338, align 8
   %340 = tail call { i64, ptr } @jv_copy(i64 %337, ptr %339) #8
   %341 = extractvalue { i64, ptr } %340, 0
@@ -2388,9 +2388,9 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br i1 %349, label %441, label %350
 
 350:                                              ; preds = %335
-  %351 = getelementptr inbounds i8, ptr %0, i64 88
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %352 = load i64, ptr %351, align 8
-  %353 = getelementptr inbounds i8, ptr %0, i64 96
+  %353 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %354 = load ptr, ptr %353, align 8
   %355 = tail call i32 @jv_get_kind(i64 %352, ptr %354) #8
   %.not301 = icmp eq i32 %355, 0
@@ -2401,7 +2401,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br i1 %.not286, label %357, label %441
 
 357:                                              ; preds = %356
-  %358 = getelementptr inbounds i8, ptr %0, i64 72
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %359 = tail call { i64, ptr } @jv_array() #8
   %360 = extractvalue { i64, ptr } %359, 0
   %361 = extractvalue { i64, ptr } %359, 1
@@ -2425,7 +2425,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   %379 = extractvalue { i64, ptr } %378, 0
   %380 = extractvalue { i64, ptr } %378, 1
   store i64 %379, ptr %358, align 8
-  %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %380, ptr %.sroa.232.0..sroa_idx, align 8
   %381 = tail call { i64, ptr } @jv_invalid() #8
   %382 = extractvalue { i64, ptr } %381, 0
@@ -2454,7 +2454,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br label %441
 
 389:                                              ; preds = %384
-  %390 = getelementptr inbounds i8, ptr %0, i64 72
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %391 = tail call { i64, ptr } @jv_array() #8
   %392 = extractvalue { i64, ptr } %391, 0
   %393 = extractvalue { i64, ptr } %391, 1
@@ -2467,7 +2467,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   %400 = extractvalue { i64, ptr } %399, 0
   %401 = extractvalue { i64, ptr } %399, 1
   store i64 %400, ptr %390, align 8
-  %.sroa.218.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %401, ptr %.sroa.218.0..sroa_idx, align 8
   br label %402
 
@@ -2495,7 +2495,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   br i1 %416, label %417, label %436
 
 417:                                              ; preds = %402
-  %418 = getelementptr inbounds i8, ptr %0, i64 72
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %419 = tail call { i64, ptr } @jv_array() #8
   %420 = extractvalue { i64, ptr } %419, 0
   %421 = extractvalue { i64, ptr } %419, 1
@@ -2514,7 +2514,7 @@ define internal fastcc noundef ptr @stream_token(ptr noundef %0, i8 noundef sign
   %434 = extractvalue { i64, ptr } %433, 0
   %435 = extractvalue { i64, ptr } %433, 1
   store i64 %434, ptr %418, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %435, ptr %.sroa.28.0..sroa_idx, align 8
   br label %436
 
@@ -2548,15 +2548,15 @@ define internal fastcc noundef ptr @parse_token(ptr noundef %0, i8 noundef signe
   ]
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 255
   br i1 %6, label %276, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @jv_get_kind(i64 %9, ptr %11) #8
   %.not122 = icmp eq i32 %12, 0
@@ -2567,13 +2567,13 @@ define internal fastcc noundef ptr @parse_token(ptr noundef %0, i8 noundef signe
   %15 = extractvalue { i64, ptr } %14, 0
   %16 = extractvalue { i64, ptr } %14, 1
   %17 = load i32, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 44
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %17, %19
   br i1 %20, label %21, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %13
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %push.exit
 
@@ -2581,7 +2581,7 @@ define internal fastcc noundef ptr @parse_token(ptr noundef %0, i8 noundef signe
   %22 = shl nsw i32 %17, 1
   %23 = add nsw i32 %22, 10
   store i32 %23, ptr %18, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %23 to i64
   %27 = shl nsw i64 %26, 4
@@ -2598,20 +2598,20 @@ push.exit:                                        ; preds = %._crit_edge.i, %21
   %32 = sext i32 %29 to i64
   %33 = getelementptr inbounds %struct.jv, ptr %30, i64 %32
   store i64 %15, ptr %33, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %16, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %276
 
 34:                                               ; preds = %2
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = icmp sgt i32 %36, 255
   br i1 %37, label %276, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %0, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @jv_get_kind(i64 %40, ptr %42) #8
   %.not121 = icmp eq i32 %43, 0
@@ -2622,13 +2622,13 @@ push.exit:                                        ; preds = %._crit_edge.i, %21
   %46 = extractvalue { i64, ptr } %45, 0
   %47 = extractvalue { i64, ptr } %45, 1
   %48 = load i32, ptr %35, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %48, %50
   br i1 %51, label %52, label %._crit_edge.i112
 
 ._crit_edge.i112:                                 ; preds = %44
-  %.phi.trans.insert.i113 = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert.i113 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre.i114 = load ptr, ptr %.phi.trans.insert.i113, align 8
   br label %push.exit117
 
@@ -2636,7 +2636,7 @@ push.exit:                                        ; preds = %._crit_edge.i, %21
   %53 = shl nsw i32 %48, 1
   %54 = add nsw i32 %53, 10
   store i32 %54, ptr %49, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %54 to i64
   %58 = shl nsw i64 %57, 4
@@ -2653,27 +2653,27 @@ push.exit117:                                     ; preds = %._crit_edge.i112, %
   %63 = sext i32 %60 to i64
   %64 = getelementptr inbounds %struct.jv, ptr %61, i64 %63
   store i64 %46, ptr %64, align 8
-  %.sroa.2.0..sroa_idx.i115 = getelementptr inbounds i8, ptr %64, i64 8
+  %.sroa.2.0..sroa_idx.i115 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr %47, ptr %.sroa.2.0..sroa_idx.i115, align 8
   br label %276
 
 65:                                               ; preds = %2
-  %66 = getelementptr inbounds i8, ptr %0, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %69 = load ptr, ptr %68, align 8
   %70 = tail call i32 @jv_get_kind(i64 %67, ptr %69) #8
   %.not120 = icmp eq i32 %70, 0
   br i1 %.not120, label %276, label %71
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %0, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = load i32, ptr %72, align 8
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %276, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %0, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %77 = load ptr, ptr %76, align 8
   %78 = sext i32 %73 to i64
   %79 = getelementptr %struct.jv, ptr %77, i64 %78
@@ -2704,22 +2704,22 @@ push.exit117:                                     ; preds = %._crit_edge.i112, %
   br label %276
 
 95:                                               ; preds = %2
-  %96 = getelementptr inbounds i8, ptr %0, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 96
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %99 = load ptr, ptr %98, align 8
   %100 = tail call i32 @jv_get_kind(i64 %97, ptr %99) #8
   %.not119 = icmp eq i32 %100, 0
   br i1 %.not119, label %276, label %101
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds i8, ptr %0, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %103 = load i32, ptr %102, align 8
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %276, label %105
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %0, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %107 = load ptr, ptr %106, align 8
   %108 = sext i32 %103 to i64
   %109 = getelementptr %struct.jv, ptr %107, i64 %108
@@ -2790,13 +2790,13 @@ push.exit117:                                     ; preds = %._crit_edge.i112, %
   br label %276
 
 159:                                              ; preds = %2
-  %160 = getelementptr inbounds i8, ptr %0, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %161 = load i32, ptr %160, align 8
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %276, label %163
 
 163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %0, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %165 = load ptr, ptr %164, align 8
   %166 = sext i32 %161 to i64
   %167 = getelementptr %struct.jv, ptr %165, i64 %166
@@ -2809,9 +2809,9 @@ push.exit117:                                     ; preds = %._crit_edge.i112, %
   br i1 %.not103, label %173, label %276
 
 173:                                              ; preds = %163
-  %174 = getelementptr inbounds i8, ptr %0, i64 88
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %175 = load i64, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %0, i64 96
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %177 = load ptr, ptr %176, align 8
   %178 = tail call i32 @jv_get_kind(i64 %175, ptr %177) #8
   %.not = icmp eq i32 %178, 0
@@ -2867,19 +2867,19 @@ push.exit117:                                     ; preds = %._crit_edge.i112, %
   br label %276
 
 209:                                              ; preds = %2
-  %210 = getelementptr inbounds i8, ptr %0, i64 40
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %211 = load i32, ptr %210, align 8
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %276, label %213
 
 213:                                              ; preds = %209
-  %214 = getelementptr inbounds i8, ptr %0, i64 88
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %215 = load i64, ptr %214, align 8
-  %216 = getelementptr inbounds i8, ptr %0, i64 96
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %217 = load ptr, ptr %216, align 8
   %218 = tail call i32 @jv_get_kind(i64 %215, ptr %217) #8
   %.not118 = icmp eq i32 %218, 0
-  %219 = getelementptr inbounds i8, ptr %0, i64 32
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %220 = load ptr, ptr %219, align 8
   %221 = load i32, ptr %210, align 8
   %222 = sext i32 %221 to i64
@@ -2954,7 +2954,7 @@ push.exit117:                                     ; preds = %._crit_edge.i112, %
   %268 = phi ptr [ %.pre123, %._crit_edge ], [ %252, %230 ]
   %269 = phi i64 [ %.pre, %._crit_edge ], [ %251, %230 ]
   tail call void @jv_free(i64 %269, ptr %268) #8
-  %270 = getelementptr inbounds i8, ptr %0, i64 32
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %271 = load ptr, ptr %270, align 8
   %272 = load i32, ptr %210, align 8
   %273 = add nsw i32 %272, -1
@@ -2987,15 +2987,15 @@ declare { i64, ptr } @jv_object() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @push(ptr nocapture noundef %0, i64 %1, ptr %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %5, %7
   br i1 %8, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %17
 
@@ -3003,7 +3003,7 @@ define internal fastcc void @push(ptr nocapture noundef %0, i64 %1, ptr %2) unna
   %10 = shl nsw i32 %5, 1
   %11 = add nsw i32 %10, 10
   store i32 %11, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
   %15 = shl nsw i64 %14, 4
@@ -3020,7 +3020,7 @@ define internal fastcc void @push(ptr nocapture noundef %0, i64 %1, ptr %2) unna
   %21 = sext i32 %18 to i64
   %22 = getelementptr inbounds %struct.jv, ptr %19, i64 %21
   store i64 %1, ptr %22, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }

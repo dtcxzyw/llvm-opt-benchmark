@@ -4042,7 +4042,7 @@ define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %7, label %119, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.541) #6
   %11 = load ptr, ptr %9, align 8
@@ -4061,20 +4061,20 @@ define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %ndps_defrag.exit
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 50
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 50
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8
   %.not81.i = icmp eq i16 %23, 0
   br i1 %.not81.i, label %24, label %54
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 208
-  %28 = getelementptr inbounds i8, ptr %1, i64 232
-  %29 = getelementptr inbounds i8, ptr %1, i64 284
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %30 = load i32, ptr %29, align 4
   %31 = tail call ptr @find_conversation(i32 noundef %26, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef 6, i32 noundef %30, i32 noundef %30, i32 noundef 0) #6
   %32 = icmp eq ptr %31, null
@@ -4091,7 +4091,7 @@ define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr nounde
   %38 = load i32, ptr %29, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %.0.i, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %38, ptr %39, align 8
   %40 = load ptr, ptr @ndps_req_hash, align 8
   %41 = call ptr @wmem_map_lookup(ptr noundef %40, ptr noundef nonnull %5) #6
@@ -4104,7 +4104,7 @@ define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr nounde
   %45 = call ptr @wmem_file_scope() #6
   %46 = call noalias ptr @wmem_alloc(ptr noundef %45, i64 noundef 16) #6
   store ptr %.0.i, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i32 %44, ptr %47, align 8
   %48 = call ptr @wmem_file_scope() #6
   %49 = call noalias ptr @wmem_alloc(ptr noundef %48, i64 noundef 20) #6
@@ -4135,7 +4135,7 @@ define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr nounde
   %.196.i = phi ptr [ %.074.i, %.thread.i ], [ %57, %54 ]
   %60 = load i32, ptr %3, align 4
   %.not83.i = icmp eq i32 %60, 0
-  %61 = getelementptr inbounds i8, ptr %.196.i, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.196.i, i64 12
   br i1 %.not83.i, label %.thread99.i, label %62
 
 .thread99.i:                                      ; preds = %59
@@ -4148,17 +4148,17 @@ define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %63, label %64, label %70
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %.196.i, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.196.i, i64 16
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %1, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %66, %68
   br i1 %69, label %70, label %117
 
 70:                                               ; preds = %64, %62, %.thread99.i
-  %71 = getelementptr inbounds i8, ptr %1, i64 284
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %1, i64 288
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %74 = load i32, ptr %73, align 8
   %75 = add i32 %74, %72
   store i32 %75, ptr @tid, align 4
@@ -4187,7 +4187,7 @@ define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not90.i, label %99, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %82, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 56
   %89 = load ptr, ptr %88, align 8
   %90 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %89) #6
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %90, ptr noundef nonnull @.str.1697) #6
@@ -4202,9 +4202,9 @@ define internal i32 @dissect_ndps_ipx(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %95
 
 95:                                               ; preds = %91, %87
-  %96 = getelementptr inbounds i8, ptr %1, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %.196.i, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.196.i, i64 16
   store i32 %97, ptr %98, align 4
   br label %110
 
@@ -4293,7 +4293,7 @@ define internal i32 @ndps_hash(ptr nocapture noundef readonly %0) #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, %4
   ret i32 %7
@@ -4307,9 +4307,9 @@ define internal range(i32 0, 2) i32 @ndps_equal(ptr nocapture noundef readonly %
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %13, label %12
@@ -4364,7 +4364,7 @@ define internal fastcc void @dissect_ndps(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond, label %5, label %11
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1699) #6
   %8 = load i32, ptr @hf_ndps_data, align 4
@@ -4384,7 +4384,7 @@ define internal fastcc void @dissect_ndps(ptr noundef %0, ptr noundef %1, ptr no
   %20 = load i32, ptr @hf_ndps_packet_type, align 4
   %21 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %19) #6
   %22 = icmp eq i32 %19, 1
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   br i1 %22, label %25, label %34
 
@@ -4526,20 +4526,20 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 50
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 50
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 8
   %.not = icmp eq i16 %14, 0
   br i1 %.not, label %15, label %30
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 208
-  %19 = getelementptr inbounds i8, ptr %1, i64 232
-  %20 = getelementptr inbounds i8, ptr %1, i64 288
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %21 = load i32, ptr %20, align 8
   %22 = tail call ptr @find_conversation(i32 noundef %17, ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef 6, i32 noundef %21, i32 noundef %21, i32 noundef 0) #6
   %.not1813 = icmp eq ptr %22, null
@@ -4549,7 +4549,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %24 = load i32, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %22, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %24, ptr %25, align 8
   %26 = load ptr, ptr @ndps_req_hash, align 8
   %27 = call ptr @wmem_map_lookup(ptr noundef %26, ptr noundef nonnull %5) #6
@@ -4572,10 +4572,10 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
 
 35:                                               ; preds = %34
   %36 = load i32, ptr %.01765, align 4
-  %37 = getelementptr inbounds i8, ptr %.01765, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.01765, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr @hf_ndps_reqframe, align 4
-  %40 = getelementptr inbounds i8, ptr %.01765, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.01765, i64 8
   %41 = load i32, ptr %40, align 4
   %42 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %41, ptr noundef nonnull @.str.1704, i32 noundef %41) #6
   br label %.thread
@@ -4595,7 +4595,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
 48:                                               ; preds = %45
   %49 = load i32, ptr @hf_ndps_error_val, align 4
   %50 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #6
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   call void @col_append_str(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.1705) #6
   br label %.loopexit1868
@@ -4624,7 +4624,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = load ptr, ptr %67, align 8
   call void @col_append_str(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.1708) #6
   br label %.loopexit1868
@@ -4638,7 +4638,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %1, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %77 = load ptr, ptr %76, align 8
   call void @col_append_str(ptr noundef %77, i32 noundef 25, ptr noundef nonnull @.str.1708) #6
   br label %.loopexit1868
@@ -4670,13 +4670,13 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %93 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %92, ptr noundef %0, i32 noundef %82, i32 noundef 4, i32 noundef 0) #6
   %94 = call ptr @val_to_str_ext(i32 noundef %91, ptr noundef nonnull @ndps_error_types_ext, ptr noundef nonnull @.str.1707) #6
   %95 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %93, ptr noundef nonnull @ei_ndps_return_code, ptr noundef nonnull @.str.1706, ptr noundef %94) #6
-  %96 = getelementptr inbounds i8, ptr %1, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %97 = load ptr, ptr %96, align 8
   call void @col_append_str(ptr noundef %97, i32 noundef 25, ptr noundef nonnull @.str.1708) #6
   br label %.loopexit1868
 
 98:                                               ; preds = %88, %85, %78
-  %99 = getelementptr inbounds i8, ptr %1, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %100 = load ptr, ptr %99, align 8
   call void @col_append_str(ptr noundef %100, i32 noundef 25, ptr noundef nonnull @.str.1705) #6
   switch i32 %.01751, label %.loopexit1868 [
@@ -6856,20 +6856,20 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 50
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 50
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
   %.not = icmp eq i16 %18, 0
   br i1 %.not, label %19, label %44
 
 19:                                               ; preds = %5
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 208
-  %23 = getelementptr inbounds i8, ptr %1, i64 232
-  %24 = getelementptr inbounds i8, ptr %1, i64 284
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %25 = load i32, ptr %24, align 4
   %26 = tail call ptr @find_conversation(i32 noundef %21, ptr noundef nonnull %22, ptr noundef nonnull %23, i32 noundef 6, i32 noundef %25, i32 noundef %25, i32 noundef 0) #6
   %27 = icmp eq ptr %26, null
@@ -6887,7 +6887,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %34 = tail call ptr @wmem_file_scope() #6
   %35 = tail call noalias ptr @wmem_alloc(ptr noundef %34, i64 noundef 16) #6
   store ptr %.03084, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %33, ptr %36, align 8
   %37 = tail call ptr @wmem_file_scope() #6
   %38 = tail call noalias ptr @wmem_alloc(ptr noundef %37, i64 noundef 20) #6
@@ -6895,10 +6895,10 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %39 = load ptr, ptr @ndps_req_hash, align 8
   %40 = tail call ptr @wmem_map_insert(ptr noundef %39, ptr noundef nonnull %35, ptr noundef nonnull %38) #6
   store i32 %3, ptr %38, align 4
-  %41 = getelementptr inbounds i8, ptr %38, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 %4, ptr %41, align 4
   %42 = load i32, ptr %20, align 4
-  %43 = getelementptr inbounds i8, ptr %38, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 %42, ptr %43, align 4
   br label %44
 
@@ -10172,7 +10172,7 @@ define internal fastcc i32 @ndps_error(ptr noundef %0, ptr noundef %1, ptr nound
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3) #6
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.1736) #6
   %10 = load i32, ptr @hf_ndps_problem_type, align 4
@@ -13216,7 +13216,7 @@ define internal fastcc noundef i32 @return_code(ptr noundef %0, ptr noundef %1, 
   br i1 %.not22, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.1736) #6
   br label %17
@@ -13711,7 +13711,7 @@ define internal range(i32 4, 65540) i32 @get_ndps_pdu_len(ptr nocapture readnone
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ndps_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.541) #6
   %7 = load ptr, ptr %5, align 8

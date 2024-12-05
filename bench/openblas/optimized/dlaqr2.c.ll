@@ -722,7 +722,7 @@ define void @dlaqr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %16, ptr noundef nonnull %17, ptr noundef nonnull %24, ptr noundef nonnull @c__1) #5
   %514 = load double, ptr %24, align 8, !tbaa !7
   store double %514, ptr %30, align 8, !tbaa !7
-  %515 = getelementptr inbounds i8, ptr %24, i64 8
+  %515 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @dlarfg_(ptr noundef nonnull %12, ptr noundef nonnull %30, ptr noundef nonnull %515, ptr noundef nonnull @c__1, ptr noundef nonnull %45) #5
   store double 1.000000e+00, ptr %24, align 8, !tbaa !7
   %516 = load i32, ptr %41, align 4, !tbaa !3

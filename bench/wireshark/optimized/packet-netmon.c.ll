@@ -1026,7 +1026,7 @@ define internal i32 @dissect_netmon_event(ptr noundef %0, ptr noundef %1, ptr no
   %11 = alloca %struct.nstime_t, align 8
   %12 = alloca %struct._guid_key, align 4
   %13 = alloca %struct.netmon_provider_id_data, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.461) #6
   %16 = load ptr, ptr %14, align 8
@@ -1041,7 +1041,7 @@ define internal i32 @dissect_netmon_event(ptr noundef %0, ptr noundef %1, ptr no
   %23 = load i32, ptr @hf_netmon_event_header_type, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #6
   %25 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4) #6
-  %26 = getelementptr inbounds i8, ptr %13, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i16 %25, ptr %26, align 4
   %27 = load i32, ptr @hf_netmon_event_flags, align 4
   %28 = load i32, ptr @ett_netmon_event_flags, align 4
@@ -1054,7 +1054,7 @@ define internal i32 @dissect_netmon_event(ptr noundef %0, ptr noundef %1, ptr no
   %35 = load i32, ptr @hf_netmon_event_process_id, align 4
   %36 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %20, i32 noundef %35, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #6
   store i64 0, ptr %11, align 8
-  %37 = getelementptr inbounds i8, ptr %11, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %37, align 8
   %38 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 16) #6
   %39 = call zeroext i1 @filetime_to_nstime(ptr noundef nonnull %11, i64 noundef %38) #6
@@ -1063,12 +1063,12 @@ define internal i32 @dissect_netmon_event(ptr noundef %0, ptr noundef %1, ptr no
   %42 = load i32, ptr @hf_netmon_event_provider_id, align 4
   %43 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %42, ptr noundef %0, i32 noundef 24, i32 noundef 16, i32 noundef -2147483648) #6
   %44 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 24, i64 noundef 16) #6
-  %45 = getelementptr inbounds i8, ptr %12, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i16 0, ptr %45, align 4
   %46 = load ptr, ptr %14, align 8
   %47 = load i32, ptr %6, align 4
   %48 = load i32, ptr %7, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 408
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr @guid_to_str(ptr noundef %50, ptr noundef nonnull %12) #6
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.498, i32 noundef %47, i32 noundef %48, ptr noundef %51) #6
@@ -1077,7 +1077,7 @@ define internal i32 @dissect_netmon_event(ptr noundef %0, ptr noundef %1, ptr no
   %54 = load i32, ptr @hf_netmon_event_event_desc_id, align 4
   %55 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef 40, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %13) #6
   %56 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 42) #6
-  %57 = getelementptr inbounds i8, ptr %13, i64 6
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 6
   store i8 %56, ptr %57, align 2
   %58 = load i32, ptr @hf_netmon_event_event_desc_version, align 4
   %59 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %58, ptr noundef %0, i32 noundef 42, i32 noundef 1, i32 noundef -2147483648) #6
@@ -1086,14 +1086,14 @@ define internal i32 @dissect_netmon_event(ptr noundef %0, ptr noundef %1, ptr no
   %62 = load i32, ptr @hf_netmon_event_event_desc_level, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %62, ptr noundef %0, i32 noundef 44, i32 noundef 1, i32 noundef -2147483648) #6
   %64 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 45) #6
-  %65 = getelementptr inbounds i8, ptr %13, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i8 %64, ptr %65, align 8
   %66 = load i32, ptr @hf_netmon_event_event_desc_opcode, align 4
   %67 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %66, ptr noundef %0, i32 noundef 45, i32 noundef 1, i32 noundef -2147483648) #6
   %68 = load i32, ptr @hf_netmon_event_event_desc_task, align 4
   %69 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %68, ptr noundef %0, i32 noundef 46, i32 noundef 2, i32 noundef -2147483648) #6
   %70 = load i32, ptr @hf_netmon_event_event_desc_keyword, align 4
-  %71 = getelementptr inbounds i8, ptr %13, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %72 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %53, i32 noundef %70, ptr noundef %0, i32 noundef 48, i32 noundef 8, i32 noundef -2147483648, ptr noundef nonnull %71) #6
   %73 = load i16, ptr %26, align 4
   %74 = and i16 %73, 18
@@ -1191,7 +1191,7 @@ define internal i32 @dissect_netmon_event(ptr noundef %0, ptr noundef %1, ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_netmon_filter(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.464) #6
   %8 = load ptr, ptr %6, align 8
@@ -1214,7 +1214,7 @@ define internal i32 @dissect_netmon_filter(ptr noundef %0, ptr nocapture noundef
   %24 = add i32 %21, 14
   %25 = tail call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef %24) #6
   %26 = load i32, ptr @hf_netmon_filter_filter, align 4
-  %27 = getelementptr inbounds i8, ptr %1, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @proto_tree_add_item_ret_string(ptr noundef %12, i32 noundef %26, ptr noundef %0, i32 noundef %24, i32 noundef %25, i32 noundef -2147483644, ptr noundef %28, ptr noundef nonnull %5) #6
   %30 = load ptr, ptr %6, align 8
@@ -1235,7 +1235,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr nocapture n
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.467) #6
   %16 = load ptr, ptr %14, align 8
@@ -1502,7 +1502,7 @@ define internal i32 @dissect_netmon_header(ptr noundef %0, ptr noundef %1, ptr n
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
   %7 = load i32, ptr @ett_netmon_header, align 4
   %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #6
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -1515,13 +1515,13 @@ define internal i32 @dissect_netmon_header(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not5.i = icmp eq ptr %17, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = or i32 %20, 2
   store i32 %21, ptr %19, align 4
@@ -1529,15 +1529,15 @@ define internal i32 @dissect_netmon_header(ptr noundef %0, ptr noundef %1, ptr n
 
 proto_item_set_generated.exit:                    ; preds = %18, %15, %12, %4
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not33 = icmp eq ptr %24, null
   br i1 %.not33, label %proto_item_set_generated.exit37, label %25
 
 25:                                               ; preds = %proto_item_set_generated.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
   %31 = tail call noalias ptr @wmem_strndup(ptr noundef %27, ptr noundef nonnull %24, i64 noundef %30) #6
@@ -1547,13 +1547,13 @@ proto_item_set_generated.exit:                    ; preds = %18, %15, %12, %4
   br i1 %.not.i35, label %proto_item_set_generated.exit37, label %34
 
 34:                                               ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %33, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not5.i36 = icmp eq ptr %36, null
   br i1 %.not5.i36, label %proto_item_set_generated.exit37, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %36, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = or i32 %39, 2
   store i32 %40, ptr %38, align 4
@@ -1561,7 +1561,7 @@ proto_item_set_generated.exit:                    ; preds = %18, %15, %12, %4
 
 proto_item_set_generated.exit37:                  ; preds = %37, %34, %25, %proto_item_set_generated.exit
   %41 = load ptr, ptr %9, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i32, ptr %42, align 8
   switch i32 %43, label %51 [
     i32 13, label %44
@@ -1570,33 +1570,33 @@ proto_item_set_generated.exit37:                  ; preds = %37, %34, %25, %prot
   ]
 
 44:                                               ; preds = %proto_item_set_generated.exit37
-  %45 = getelementptr inbounds i8, ptr %41, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %.sroa.0.sroa.0.0.copyload39 = load i32, ptr %45, align 8
-  %.sroa.0.sroa.5.0..sroa_idx42 = getelementptr inbounds i8, ptr %41, i64 36
+  %.sroa.0.sroa.5.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %41, i64 36
   store i32 %.sroa.0.sroa.0.0.copyload39, ptr %41, align 8
-  %.sroa.0.sroa.5.0..sroa_idx43 = getelementptr inbounds i8, ptr %41, i64 4
+  %.sroa.0.sroa.5.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %41, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.sroa.5.0..sroa_idx43, ptr noundef nonnull align 4 dereferenceable(24) %.sroa.0.sroa.5.0..sroa_idx42, i64 24, i1 false)
   br label %51
 
 46:                                               ; preds = %proto_item_set_generated.exit37
-  %47 = getelementptr inbounds i8, ptr %41, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %48 = load i32, ptr %47, align 8
   store i32 %48, ptr %41, align 8
   br label %51
 
 49:                                               ; preds = %proto_item_set_generated.exit37
-  %50 = getelementptr inbounds i8, ptr %41, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %.sroa.0.sroa.0.0.copyload = load i32, ptr %50, align 8
-  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 36
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 36
   store i32 %.sroa.0.sroa.0.0.copyload, ptr %41, align 8
-  %.sroa.0.sroa.5.0..sroa_idx41 = getelementptr inbounds i8, ptr %41, i64 4
+  %.sroa.0.sroa.5.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %41, i64 4
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %.sroa.0.sroa.5.0..sroa_idx41, ptr noundef nonnull align 4 dereferenceable(68) %.sroa.0.sroa.5.0..sroa_idx, i64 68, i1 false)
   br label %51
 
 51:                                               ; preds = %49, %46, %44, %proto_item_set_generated.exit37
   %52 = load ptr, ptr @wtap_encap_table, align 8
   %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i32, ptr %54, align 8
   %56 = tail call i32 @dissector_try_uint_new(ptr noundef %52, i32 noundef %55, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %53) #6
   %.not34 = icmp eq i32 %56, 0
@@ -1622,7 +1622,7 @@ define internal i32 @dissect_netmon_system_trace(ptr noundef %0, ptr nocapture n
   unreachable
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.470) #6
   %10 = load ptr, ptr %8, align 8
@@ -1631,7 +1631,7 @@ define internal i32 @dissect_netmon_system_trace(ptr noundef %0, ptr nocapture n
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %13 = load i32, ptr @ett_netmon_system_trace, align 4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #6
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load i8, ptr %15, align 8
   switch i8 %16, label %121 [
     i8 0, label %17
@@ -1654,7 +1654,7 @@ define internal i32 @dissect_netmon_system_trace(ptr noundef %0, ptr nocapture n
 
 27:                                               ; preds = %17
   store i64 0, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %28, align 8
   %29 = call zeroext i1 @filetime_to_nstime(ptr noundef nonnull %5, i64 noundef %26) #6
   %30 = load i32, ptr @hf_netmon_system_trace_end_time, align 4
@@ -1684,7 +1684,7 @@ define internal i32 @dissect_netmon_system_trace(ptr noundef %0, ptr nocapture n
   %50 = load i32, ptr @hf_netmon_system_trace_cpu_speed, align 4
   %51 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %50, ptr noundef %0, i32 noundef 52, i32 noundef 4, i32 noundef -2147483648) #6
   %52 = load i32, ptr @hf_netmon_system_trace_logger_name, align 4
-  %53 = getelementptr inbounds i8, ptr %3, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %54 = load i16, ptr %53, align 4
   %55 = and i16 %54, 64
   %.not.i = icmp eq i16 %55, 0
@@ -1725,7 +1725,7 @@ netmon_etl_field.exit90:                          ; preds = %65, %69
   %73 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %72, ptr noundef %0, i32 noundef %71, i32 noundef 176, i32 noundef 0) #6
   %74 = add nuw nsw i32 %71, 176
   store i64 0, ptr %5, align 8
-  %75 = getelementptr inbounds i8, ptr %5, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %75, align 8
   %76 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %74) #6
   %77 = call zeroext i1 @filetime_to_nstime(ptr noundef nonnull %5, i64 noundef %76) #6
@@ -1801,7 +1801,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   unreachable
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.473) #6
   %16 = load ptr, ptr %14, align 8
@@ -1810,7 +1810,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %19 = load i32, ptr @ett_netmon_system_config, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #6
-  %21 = getelementptr inbounds i8, ptr %3, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %22 = load i8, ptr %21, align 2
   switch i8 %22, label %1231 [
     i8 0, label %23
@@ -1820,7 +1820,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   ]
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load i8, ptr %24, align 8
   switch i8 %25, label %1231 [
     i8 10, label %26
@@ -1876,7 +1876,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %58 = add i32 %57, 264
   store i32 %58, ptr %5, align 4
   %59 = load i32, ptr @hf_netmon_system_config_hyper_threading_flag, align 4
-  %60 = getelementptr inbounds i8, ptr %3, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %61 = load i16, ptr %60, align 4
   call void @netmon_etl_field(ptr noundef %20, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %59, i16 noundef zeroext %61)
   br label %1231
@@ -1902,7 +1902,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %79, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef -2147483648) #6
   store i32 40, ptr %5, align 4
   %81 = load i32, ptr @hf_netmon_system_config_manufacturer, align 4
-  %82 = getelementptr inbounds i8, ptr %1, i64 408
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %83 = load ptr, ptr %82, align 8
   %84 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %81, ptr noundef %0, i32 noundef 40, i32 noundef 512, i32 noundef -2147483644, ptr noundef %83, ptr noundef nonnull %8) #6
   %85 = load i32, ptr %5, align 4
@@ -1953,7 +1953,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %121 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %120, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef -2147483648) #6
   store i32 28, ptr %5, align 4
   %122 = load i32, ptr @hf_netmon_system_config_drive_letter, align 4
-  %123 = getelementptr inbounds i8, ptr %1, i64 408
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %124 = load ptr, ptr %123, align 8
   %125 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %122, ptr noundef %0, i32 noundef 28, i32 noundef 8, i32 noundef -2147483644, ptr noundef %124, ptr noundef nonnull %8) #6
   %126 = load i32, ptr %5, align 4
@@ -2014,7 +2014,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
 
 169:                                              ; preds = %23
   %170 = load i32, ptr @hf_netmon_system_config_nic_name, align 4
-  %171 = getelementptr inbounds i8, ptr %1, i64 408
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %172 = load ptr, ptr %171, align 8
   %173 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %170, ptr noundef %0, i32 noundef 0, i32 noundef 512, i32 noundef -2147483644, ptr noundef %172, ptr noundef nonnull %8) #6
   %174 = load i32, ptr %5, align 4
@@ -2116,7 +2116,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %251 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %250, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #6
   store i32 20, ptr %5, align 4
   %252 = load i32, ptr @hf_netmon_system_config_chip_type, align 4
-  %253 = getelementptr inbounds i8, ptr %1, i64 408
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %254 = load ptr, ptr %253, align 8
   %255 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %252, ptr noundef %0, i32 noundef 20, i32 noundef 512, i32 noundef -2147483644, ptr noundef %254, ptr noundef nonnull %8) #6
   %256 = load i32, ptr %5, align 4
@@ -2159,7 +2159,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
 
 285:                                              ; preds = %23
   %286 = load i32, ptr @hf_netmon_system_config_service_name, align 4
-  %287 = getelementptr inbounds i8, ptr %1, i64 408
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %288 = load ptr, ptr %287, align 8
   %289 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %286, ptr noundef %0, i32 noundef 0, i32 noundef 68, i32 noundef -2147483644, ptr noundef %288, ptr noundef nonnull %8) #6
   %290 = load i32, ptr %5, align 4
@@ -2241,7 +2241,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   store i32 12, ptr %5, align 4
   %349 = tail call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef 12) #6
   %350 = load i32, ptr @hf_netmon_system_config_device_id, align 4
-  %351 = getelementptr inbounds i8, ptr %1, i64 408
+  %351 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %352 = load ptr, ptr %351, align 8
   %353 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %350, ptr noundef %0, i32 noundef 12, i32 noundef %349, i32 noundef -2147483644, ptr noundef %352, ptr noundef nonnull %8) #6
   %354 = load i32, ptr %5, align 4
@@ -2277,7 +2277,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   br label %1231
 
 379:                                              ; preds = %13
-  %380 = getelementptr inbounds i8, ptr %3, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %381 = load i8, ptr %380, align 8
   switch i8 %381, label %1231 [
     i8 10, label %382
@@ -2333,7 +2333,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %414 = add i32 %413, 264
   store i32 %414, ptr %5, align 4
   %415 = load i32, ptr @hf_netmon_system_config_hyper_threading_flag, align 4
-  %416 = getelementptr inbounds i8, ptr %3, i64 4
+  %416 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %417 = load i16, ptr %416, align 4
   call void @netmon_etl_field(ptr noundef %20, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %415, i16 noundef zeroext %417)
   br label %1231
@@ -2359,7 +2359,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %436 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %435, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef -2147483648) #6
   store i32 40, ptr %5, align 4
   %437 = load i32, ptr @hf_netmon_system_config_manufacturer, align 4
-  %438 = getelementptr inbounds i8, ptr %1, i64 408
+  %438 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %439 = load ptr, ptr %438, align 8
   %440 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %437, ptr noundef %0, i32 noundef 40, i32 noundef 512, i32 noundef -2147483644, ptr noundef %439, ptr noundef nonnull %8) #6
   %441 = load i32, ptr %5, align 4
@@ -2410,7 +2410,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %477 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %476, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef -2147483648) #6
   store i32 28, ptr %5, align 4
   %478 = load i32, ptr @hf_netmon_system_config_drive_letter, align 4
-  %479 = getelementptr inbounds i8, ptr %1, i64 408
+  %479 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %480 = load ptr, ptr %479, align 8
   %481 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %478, ptr noundef %0, i32 noundef 28, i32 noundef 8, i32 noundef -2147483644, ptr noundef %480, ptr noundef nonnull %8) #6
   %482 = load i32, ptr %5, align 4
@@ -2471,7 +2471,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
 
 525:                                              ; preds = %379
   %526 = load i32, ptr @hf_netmon_system_config_nic_name, align 4
-  %527 = getelementptr inbounds i8, ptr %1, i64 408
+  %527 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %528 = load ptr, ptr %527, align 8
   %529 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %526, ptr noundef %0, i32 noundef 0, i32 noundef 512, i32 noundef -2147483644, ptr noundef %528, ptr noundef nonnull %8) #6
   %530 = load i32, ptr %5, align 4
@@ -2573,7 +2573,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %607 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %606, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #6
   store i32 20, ptr %5, align 4
   %608 = load i32, ptr @hf_netmon_system_config_chip_type, align 4
-  %609 = getelementptr inbounds i8, ptr %1, i64 408
+  %609 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %610 = load ptr, ptr %609, align 8
   %611 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %608, ptr noundef %0, i32 noundef 20, i32 noundef 512, i32 noundef -2147483644, ptr noundef %610, ptr noundef nonnull %8) #6
   %612 = load i32, ptr %5, align 4
@@ -2616,7 +2616,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
 
 641:                                              ; preds = %379
   %642 = load i32, ptr @hf_netmon_system_config_service_name, align 4
-  %643 = getelementptr inbounds i8, ptr %1, i64 408
+  %643 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %644 = load ptr, ptr %643, align 8
   %645 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %642, ptr noundef %0, i32 noundef 0, i32 noundef 68, i32 noundef -2147483644, ptr noundef %644, ptr noundef nonnull %8) #6
   %646 = load i32, ptr %5, align 4
@@ -2698,7 +2698,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   store i32 12, ptr %5, align 4
   %705 = tail call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef 12) #6
   %706 = load i32, ptr @hf_netmon_system_config_device_id, align 4
-  %707 = getelementptr inbounds i8, ptr %1, i64 408
+  %707 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %708 = load ptr, ptr %707, align 8
   %709 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %706, ptr noundef %0, i32 noundef 12, i32 noundef %705, i32 noundef -2147483644, ptr noundef %708, ptr noundef nonnull %8) #6
   %710 = load i32, ptr %5, align 4
@@ -2734,7 +2734,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   br label %1231
 
 735:                                              ; preds = %13
-  %736 = getelementptr inbounds i8, ptr %3, i64 16
+  %736 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %737 = load i8, ptr %736, align 8
   switch i8 %737, label %1231 [
     i8 10, label %738
@@ -2793,7 +2793,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %770 = add i32 %769, 268
   store i32 %770, ptr %5, align 4
   %771 = load i32, ptr @hf_netmon_system_config_hyper_threading_flag, align 4
-  %772 = getelementptr inbounds i8, ptr %3, i64 4
+  %772 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %773 = load i16, ptr %772, align 4
   call void @netmon_etl_field(ptr noundef %20, ptr noundef %0, ptr noundef nonnull %5, i32 noundef %771, i16 noundef zeroext %773)
   br label %1231
@@ -2819,7 +2819,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %792 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %791, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef -2147483648) #6
   store i32 40, ptr %5, align 4
   %793 = load i32, ptr @hf_netmon_system_config_manufacturer, align 4
-  %794 = getelementptr inbounds i8, ptr %1, i64 408
+  %794 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %795 = load ptr, ptr %794, align 8
   %796 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %793, ptr noundef %0, i32 noundef 40, i32 noundef 512, i32 noundef -2147483644, ptr noundef %795, ptr noundef nonnull %8) #6
   %797 = load i32, ptr %5, align 4
@@ -2870,7 +2870,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %833 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %832, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef -2147483648) #6
   store i32 28, ptr %5, align 4
   %834 = load i32, ptr @hf_netmon_system_config_drive_letter, align 4
-  %835 = getelementptr inbounds i8, ptr %1, i64 408
+  %835 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %836 = load ptr, ptr %835, align 8
   %837 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %834, ptr noundef %0, i32 noundef 28, i32 noundef 8, i32 noundef -2147483644, ptr noundef %836, ptr noundef nonnull %8) #6
   %838 = load i32, ptr %5, align 4
@@ -2950,7 +2950,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   store i32 %897, ptr %5, align 4
   %898 = tail call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef %897) #6
   %899 = load i32, ptr @hf_netmon_system_config_ipaddresses, align 4
-  %900 = getelementptr inbounds i8, ptr %1, i64 408
+  %900 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %901 = load ptr, ptr %900, align 8
   %902 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %899, ptr noundef %0, i32 noundef %897, i32 noundef %898, i32 noundef -2147483644, ptr noundef %901, ptr noundef nonnull %8) #6
   %903 = load i32, ptr %5, align 4
@@ -2982,7 +2982,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %924 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %923, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648) #6
   store i32 20, ptr %5, align 4
   %925 = load i32, ptr @hf_netmon_system_config_chip_type, align 4
-  %926 = getelementptr inbounds i8, ptr %1, i64 408
+  %926 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %927 = load ptr, ptr %926, align 8
   %928 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %925, ptr noundef %0, i32 noundef 20, i32 noundef 512, i32 noundef -2147483644, ptr noundef %927, ptr noundef nonnull %8) #6
   %929 = load i32, ptr %5, align 4
@@ -3033,7 +3033,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   store i32 12, ptr %5, align 4
   %965 = tail call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef 12) #6
   %966 = load i32, ptr @hf_netmon_system_config_service_name, align 4
-  %967 = getelementptr inbounds i8, ptr %1, i64 408
+  %967 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %968 = load ptr, ptr %967, align 8
   %969 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %966, ptr noundef %0, i32 noundef 12, i32 noundef %965, i32 noundef -2147483644, ptr noundef %968, ptr noundef nonnull %8) #6
   %970 = load i32, ptr %5, align 4
@@ -3134,7 +3134,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   store i32 12, ptr %5, align 4
   %1043 = tail call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef 12) #6
   %1044 = load i32, ptr @hf_netmon_system_config_device_id, align 4
-  %1045 = getelementptr inbounds i8, ptr %1, i64 408
+  %1045 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1046 = load ptr, ptr %1045, align 8
   %1047 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %1044, ptr noundef %0, i32 noundef 12, i32 noundef %1043, i32 noundef -2147483644, ptr noundef %1046, ptr noundef nonnull %8) #6
   %1048 = load i32, ptr %5, align 4
@@ -3173,7 +3173,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   store i32 16, ptr %5, align 4
   %1075 = tail call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef 16) #6
   %1076 = load i32, ptr @hf_netmon_system_config_location_information, align 4
-  %1077 = getelementptr inbounds i8, ptr %1, i64 408
+  %1077 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1078 = load ptr, ptr %1077, align 8
   %1079 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %1076, ptr noundef %0, i32 noundef 16, i32 noundef %1075, i32 noundef -2147483644, ptr noundef %1078, ptr noundef nonnull %8) #6
   %1080 = load i32, ptr %5, align 4
@@ -3187,7 +3187,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
 1084:                                             ; preds = %735
   %1085 = tail call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef 0) #6
   %1086 = load i32, ptr @hf_netmon_system_config_system_manufacturer, align 4
-  %1087 = getelementptr inbounds i8, ptr %1, i64 408
+  %1087 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1088 = load ptr, ptr %1087, align 8
   %1089 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %1086, ptr noundef %0, i32 noundef 0, i32 noundef %1085, i32 noundef -2147483644, ptr noundef %1088, ptr noundef nonnull %8) #6
   %1090 = load i32, ptr %5, align 4
@@ -3226,7 +3226,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   br label %1231
 
 1118:                                             ; preds = %13
-  %1119 = getelementptr inbounds i8, ptr %3, i64 16
+  %1119 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %1120 = load i8, ptr %1119, align 8
   switch i8 %1120, label %1231 [
     i8 15, label %1121
@@ -3253,7 +3253,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   %1134 = call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef %1133) #6
   %1135 = load i32, ptr @hf_netmon_system_config_service_name, align 4
   %1136 = load i32, ptr %5, align 4
-  %1137 = getelementptr inbounds i8, ptr %1, i64 408
+  %1137 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1138 = load ptr, ptr %1137, align 8
   %1139 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %1135, ptr noundef %0, i32 noundef %1136, i32 noundef %1134, i32 noundef -2147483644, ptr noundef %1138, ptr noundef nonnull %8) #6
   %1140 = load i32, ptr %5, align 4
@@ -3335,7 +3335,7 @@ define internal i32 @dissect_netmon_system_config(ptr noundef %0, ptr noundef re
   store i32 12, ptr %5, align 4
   %1201 = tail call i32 @tvb_unicode_strsize(ptr noundef %0, i32 noundef 12) #6
   %1202 = load i32, ptr @hf_netmon_system_config_device_id, align 4
-  %1203 = getelementptr inbounds i8, ptr %1, i64 408
+  %1203 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1204 = load ptr, ptr %1203, align 8
   %1205 = call ptr @proto_tree_add_item_ret_string(ptr noundef %20, i32 noundef %1202, ptr noundef %0, i32 noundef 12, i32 noundef %1201, i32 noundef -2147483644, ptr noundef %1204, ptr noundef nonnull %8) #6
   %1206 = load i32, ptr %5, align 4
@@ -3387,7 +3387,7 @@ define internal i32 @dissect_netmon_process(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.476) #6
   %11 = load ptr, ptr %9, align 8
@@ -3396,7 +3396,7 @@ define internal i32 @dissect_netmon_process(ptr noundef %0, ptr noundef %1, ptr 
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
   %14 = load i32, ptr @ett_netmon_process, align 4
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #6
-  %16 = getelementptr inbounds i8, ptr %3, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %17 = load i8, ptr %16, align 2
   switch i8 %17, label %221 [
     i8 0, label %18
@@ -3406,7 +3406,7 @@ define internal i32 @dissect_netmon_process(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load i8, ptr %19, align 8
   %.off = add i8 %20, -1
   %switch = icmp ult i8 %.off, 4
@@ -3426,7 +3426,7 @@ define internal i32 @dissect_netmon_process(ptr noundef %0, ptr noundef %1, ptr 
   %30 = load i32, ptr %5, align 4
   %31 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %30) #6
   %32 = load i32, ptr @hf_netmon_process_image_file_name, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr @proto_tree_add_item_ret_string(ptr noundef %15, i32 noundef %32, ptr noundef %0, i32 noundef %30, i32 noundef %31, i32 noundef 0, ptr noundef %34, ptr noundef nonnull %6) #6
   %36 = load ptr, ptr %9, align 8
@@ -3435,7 +3435,7 @@ define internal i32 @dissect_netmon_process(ptr noundef %0, ptr noundef %1, ptr 
   br label %221
 
 38:                                               ; preds = %8
-  %39 = getelementptr inbounds i8, ptr %3, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %40 = load i8, ptr %39, align 8
   %.off149 = add i8 %40, -1
   %switch150 = icmp ult i8 %.off149, 4
@@ -3443,7 +3443,7 @@ define internal i32 @dissect_netmon_process(ptr noundef %0, ptr noundef %1, ptr 
 
 41:                                               ; preds = %38
   %42 = load i32, ptr @hf_netmon_process_page_directory_base, align 4
-  %43 = getelementptr inbounds i8, ptr %3, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %44 = load i16, ptr %43, align 4
   %45 = and i16 %44, 64
   %.not.i = icmp eq i16 %45, 0
@@ -3482,7 +3482,7 @@ netmon_etl_field.exit:                            ; preds = %46, %50
   %68 = load i32, ptr %5, align 4
   %69 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %68) #6
   %70 = load i32, ptr @hf_netmon_process_image_file_name, align 4
-  %71 = getelementptr inbounds i8, ptr %1, i64 408
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %72 = load ptr, ptr %71, align 8
   %73 = call ptr @proto_tree_add_item_ret_string(ptr noundef %15, i32 noundef %70, ptr noundef %0, i32 noundef %68, i32 noundef %69, i32 noundef 0, ptr noundef %72, ptr noundef nonnull %6) #6
   %74 = load ptr, ptr %9, align 8
@@ -3491,7 +3491,7 @@ netmon_etl_field.exit:                            ; preds = %46, %50
   br label %221
 
 76:                                               ; preds = %8
-  %77 = getelementptr inbounds i8, ptr %3, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %78 = load i8, ptr %77, align 8
   switch i8 %78, label %221 [
     i8 1, label %79
@@ -3506,7 +3506,7 @@ netmon_etl_field.exit:                            ; preds = %46, %50
 
 79:                                               ; preds = %76, %76, %76, %76, %76
   %80 = load i32, ptr @hf_netmon_process_unique_process_key, align 4
-  %81 = getelementptr inbounds i8, ptr %3, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %82 = load i16, ptr %81, align 4
   %83 = and i16 %82, 64
   %.not.i151 = icmp eq i16 %83, 0
@@ -3563,7 +3563,7 @@ netmon_etl_field.exit153:                         ; preds = %84, %88
   %116 = load i32, ptr %5, align 4
   %117 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %116) #6
   %118 = load i32, ptr @hf_netmon_process_image_file_name, align 4
-  %119 = getelementptr inbounds i8, ptr %1, i64 408
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %120 = load ptr, ptr %119, align 8
   %121 = call ptr @proto_tree_add_item_ret_string(ptr noundef %15, i32 noundef %118, ptr noundef %0, i32 noundef %116, i32 noundef %117, i32 noundef 0, ptr noundef %120, ptr noundef nonnull %6) #6
   %122 = load ptr, ptr %9, align 8
@@ -3616,7 +3616,7 @@ netmon_etl_field.exit153:                         ; preds = %84, %88
   br label %221
 
 164:                                              ; preds = %8
-  %165 = getelementptr inbounds i8, ptr %3, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %166 = load i8, ptr %165, align 8
   switch i8 %166, label %221 [
     i8 1, label %167
@@ -3628,7 +3628,7 @@ netmon_etl_field.exit153:                         ; preds = %84, %88
 
 167:                                              ; preds = %164, %164, %164, %164, %164
   %168 = load i32, ptr @hf_netmon_process_unique_process_key, align 4
-  %169 = getelementptr inbounds i8, ptr %3, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %170 = load i16, ptr %169, align 4
   %171 = and i16 %170, 64
   %.not.i154 = icmp eq i16 %171, 0
@@ -3694,7 +3694,7 @@ netmon_etl_field.exit159:                         ; preds = %193, %197
   %209 = load i32, ptr %5, align 4
   %210 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %209) #6
   %211 = load i32, ptr @hf_netmon_process_image_file_name, align 4
-  %212 = getelementptr inbounds i8, ptr %1, i64 408
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %213 = load ptr, ptr %212, align 8
   %214 = call ptr @proto_tree_add_item_ret_string(ptr noundef %15, i32 noundef %211, ptr noundef %0, i32 noundef %209, i32 noundef %210, i32 noundef 0, ptr noundef %213, ptr noundef nonnull %6) #6
   %215 = load ptr, ptr %9, align 8

@@ -171,7 +171,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @header_cb(ptr noundef %
   br label %36
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 59) #14
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %18
@@ -202,7 +202,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @header_cb(ptr noundef %
   br i1 %.not33, label %30, label %32
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %23, ptr %31, align 8
   br label %34
 
@@ -249,7 +249,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @write_cb(ptr nocapture 
   br i1 %.not, label %._crit_edge, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = add i32 %6, 1
@@ -342,7 +342,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   %17 = tail call ptr @get_version() #12
   %18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str.23, ptr noundef %17) #12
-  %19 = getelementptr inbounds i8, ptr %3, i64 127
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 127
   store i8 0, ptr %19, align 1
   %20 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef nonnull %12, i32 noundef 10018, ptr noundef nonnull %3) #12
   %.not = icmp eq i32 %20, 0
@@ -520,7 +520,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.thread332
 
 93:                                               ; preds = %81
-  %94 = getelementptr inbounds i8, ptr %6, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %95 = load ptr, ptr %94, align 8
   %.not256 = icmp eq ptr %95, null
   br i1 %.not256, label %123, label %96
@@ -544,7 +544,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.thread332
 
 106:                                              ; preds = %101
-  %107 = getelementptr inbounds i8, ptr %102, i64 7
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 7
   %108 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %107, i32 noundef 34) #14
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %112
@@ -577,7 +577,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 123:                                              ; preds = %121, %93
   %.1191 = phi ptr [ %117, %121 ], [ null, %93 ]
   store i32 0, ptr %6, align 8
-  %124 = getelementptr inbounds i8, ptr %7, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %127, label %129
@@ -687,7 +687,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %.thread
 
 188:                                              ; preds = %183
-  %189 = getelementptr inbounds i8, ptr %184, i64 1
+  %189 = getelementptr inbounds nuw i8, ptr %184, i64 1
   %190 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %189, i32 noundef 45) #14
   %191 = icmp eq ptr %190, null
   br i1 %191, label %192, label %194
@@ -1030,7 +1030,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 354:                                              ; preds = %353, %352
   call void @curl_global_cleanup() #12
-  %355 = getelementptr inbounds i8, ptr %6, i64 8
+  %355 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %356 = load ptr, ptr %355, align 8
   %.not275 = icmp eq ptr %356, null
   br i1 %.not275, label %358, label %357
@@ -1042,7 +1042,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %358
 
 358:                                              ; preds = %357, %354
-  %359 = getelementptr inbounds i8, ptr %7, i64 8
+  %359 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %360 = load ptr, ptr %359, align 8
   %.not276 = icmp eq ptr %360, null
   br i1 %.not276, label %362, label %361
@@ -1052,7 +1052,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %362
 
 362:                                              ; preds = %361, %358
-  %363 = getelementptr inbounds i8, ptr %8, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %364 = load ptr, ptr %363, align 8
   %.not277 = icmp eq ptr %364, null
   br i1 %.not277, label %366, label %365

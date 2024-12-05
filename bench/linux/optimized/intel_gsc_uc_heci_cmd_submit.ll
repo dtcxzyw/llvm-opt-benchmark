@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 456
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %131, label %9
@@ -35,9 +35,9 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef 
   br label %131
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 904
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 904
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %24, label %21
@@ -84,7 +84,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef 
 
 44:                                               ; preds = %.thread, %40
   %45 = load ptr, ptr %16, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 888
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 888
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 %47(ptr noundef %10, i32 noundef 0) #7
   br label %49
@@ -95,8 +95,8 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef 
   br i1 %51, label %62, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %10, i64 56
-  %54 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %53, i32 1, ptr elementtype(i32) %53) #7, !srcloc !5
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %54 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, i32 1, ptr nonnull elementtype(i32) %53) #7, !srcloc !5
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %60, label %56, !prof !6
 
@@ -108,7 +108,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef 
 
 60:                                               ; preds = %56, %52
   %61 = phi i32 [ 2, %52 ], [ 1, %56 ]
-  tail call void @refcount_warn_saturate(ptr noundef %53, i32 noundef %61) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %53, i32 noundef %61) #7
   br label %62
 
 62:                                               ; preds = %60, %56, %49
@@ -125,9 +125,9 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef 
   %67 = tail call i64 @ktime_get_raw() #7
   %68 = add i64 %67, 500000000
   %69 = tail call i32 @__SCT__might_resched() #7
-  %70 = getelementptr inbounds i8, ptr %10, i64 48
-  %71 = getelementptr inbounds i8, ptr %10, i64 448
-  %72 = getelementptr inbounds i8, ptr %10, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 448
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %73 = tail call i64 @ktime_get_raw() #7
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !8
   %74 = load volatile i64, ptr %70, align 8
@@ -183,7 +183,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef 
   br i1 %102, label %106, label %103
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %101, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %105 = load ptr, ptr %104, align 8
   br label %106
 
@@ -203,8 +203,8 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef 
   br i1 %51, label %.thread26, label %113
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %10, i64 56
-  %115 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %114, i32 -1, ptr elementtype(i32) %114) #7, !srcloc !9
+  %114 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %115 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %114, i32 -1, ptr nonnull elementtype(i32) %114) #7, !srcloc !9
   %116 = icmp eq i32 %115, 1
   br i1 %116, label %120, label %117
 
@@ -213,12 +213,12 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef 
   br i1 %118, label %.thread26, label %119, !prof !7
 
 119:                                              ; preds = %117
-  tail call void @refcount_warn_saturate(ptr noundef %114, i32 noundef 3) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %114, i32 noundef 3) #7
   br label %.thread26
 
 120:                                              ; preds = %113
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
-  tail call void @dma_fence_release(ptr noundef %114) #7
+  tail call void @dma_fence_release(ptr noundef nonnull %114) #7
   br label %.thread26
 
 .thread26:                                        ; preds = %117, %119, %120, %111
@@ -232,7 +232,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_packet(ptr nocapture noundef 
   br i1 %125, label %129, label %126
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds i8, ptr %124, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %128 = load ptr, ptr %127, align 8
   br label %129
 
@@ -285,13 +285,13 @@ define dso_local void @intel_gsc_uc_heci_cmd_emit_mtl_header(ptr nocapture nound
   %9 = or disjoint i64 %5, 1152921504606846976
   %10 = select i1 %8, i64 %9, i64 %5
   store i32 -1518827686, ptr %0, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %10, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 1, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %2, ptr %14, align 1
   ret void
 }
@@ -302,37 +302,37 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false), !annotation !11
   call void @i915_gem_ww_ctx_init(ptr noundef nonnull %6, i1 noundef zeroext false) #7
-  %7 = getelementptr inbounds i8, ptr %2, i64 40
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
-  %9 = getelementptr inbounds i8, ptr %1, i64 204
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %10 = getelementptr i8, ptr %3, i64 4
   %11 = getelementptr i8, ptr %3, i64 8
   %12 = getelementptr i8, ptr %3, i64 12
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = getelementptr i8, ptr %3, i64 16
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = getelementptr i8, ptr %3, i64 20
   %17 = getelementptr i8, ptr %3, i64 24
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = getelementptr i8, ptr %3, i64 28
   %20 = getelementptr i8, ptr %3, i64 32
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = getelementptr i8, ptr %0, i64 -48
-  %23 = getelementptr inbounds i8, ptr %1, i64 400
-  %24 = getelementptr inbounds i8, ptr %6, i64 48
-  %25 = getelementptr inbounds i8, ptr %6, i64 24
-  %26 = getelementptr inbounds i8, ptr %6, i64 32
-  %27 = getelementptr inbounds i8, ptr %6, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 400
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
   br label %28
 
 28:                                               ; preds = %284, %5
   %29 = phi i32 [ 0, %5 ], [ %285, %284 ]
   %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 184
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr %24, align 8, !range !12, !noundef !13
   %34 = icmp eq i8 %33, 0
-  %35 = getelementptr inbounds i8, ptr %32, i64 248
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 248
   %36 = load ptr, ptr %35, align 8
   br i1 %34, label %39, label %37
 
@@ -366,11 +366,11 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   br label %53
 
 53:                                               ; preds = %51, %47
-  %54 = getelementptr inbounds i8, ptr %32, i64 528
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 528
   %55 = load ptr, ptr %26, align 8
   store ptr %54, ptr %26, align 8
   store ptr %25, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %32, i64 536
+  %56 = getelementptr inbounds nuw i8, ptr %32, i64 536
   store ptr %55, ptr %56, align 8
   store volatile ptr %54, ptr %55, align 8
   br label %57
@@ -401,11 +401,11 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
 
 69:                                               ; preds = %57
   %70 = load ptr, ptr %8, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 184
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 184
   %72 = load ptr, ptr %71, align 8
   %73 = load i8, ptr %24, align 8, !range !12, !noundef !13
   %74 = icmp eq i8 %73, 0
-  %75 = getelementptr inbounds i8, ptr %72, i64 248
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 248
   %76 = load ptr, ptr %75, align 8
   br i1 %74, label %79, label %77
 
@@ -439,11 +439,11 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   br label %93
 
 93:                                               ; preds = %91, %87
-  %94 = getelementptr inbounds i8, ptr %72, i64 528
+  %94 = getelementptr inbounds nuw i8, ptr %72, i64 528
   %95 = load ptr, ptr %26, align 8
   store ptr %94, ptr %26, align 8
   store ptr %25, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %72, i64 536
+  %96 = getelementptr inbounds nuw i8, ptr %72, i64 536
   store ptr %95, ptr %96, align 8
   store volatile ptr %94, ptr %95, align 8
   br label %97
@@ -480,7 +480,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
 .lr.ph:                                           ; preds = %109, %118
   %112 = phi i32 [ %119, %118 ], [ %110, %109 ]
   %113 = add i32 %112, 1
-  %114 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 %113, ptr elementtype(i32) %9, i32 %112) #7, !srcloc !15
+  %114 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 %113, ptr nonnull elementtype(i32) %9, i32 %112) #7, !srcloc !15
   %115 = extractvalue { i8, i32 } %114, 0
   %116 = icmp ult i8 %115, 2
   call void @llvm.assume(i1 %116)
@@ -541,11 +541,11 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   br i1 %147, label %148, label %185
 
 148:                                              ; preds = %144
-  %149 = getelementptr inbounds i8, ptr %123, i64 88
+  %149 = getelementptr inbounds nuw i8, ptr %123, i64 88
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 904
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 904
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %154, null
   br i1 %155, label %159, label %156
@@ -556,12 +556,12 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   br i1 %158, label %159, label %185
 
 159:                                              ; preds = %156, %148
-  %160 = getelementptr inbounds i8, ptr %152, i64 896
+  %160 = getelementptr inbounds nuw i8, ptr %152, i64 896
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %7, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load i64, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %162, i64 248
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 248
   %166 = load i32, ptr %165, align 8
   %167 = zext i32 %166 to i64
   %168 = add i64 %164, %167
@@ -571,7 +571,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
 
 171:                                              ; preds = %159
   %172 = load ptr, ptr %21, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 888
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 888
   %174 = load ptr, ptr %173, align 8
   %175 = call i32 %174(ptr noundef %123, i32 noundef 0) #7
   %176 = icmp eq i32 %175, 0
@@ -583,7 +583,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   br i1 %179, label %183, label %180
 
 180:                                              ; preds = %177
-  %181 = getelementptr inbounds i8, ptr %178, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %182 = load ptr, ptr %181, align 8
   br label %183
 
@@ -598,8 +598,8 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   br i1 %187, label %198, label %188
 
 188:                                              ; preds = %185
-  %189 = getelementptr inbounds i8, ptr %123, i64 56
-  %190 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %189, i32 1, ptr elementtype(i32) %189) #7, !srcloc !5
+  %189 = getelementptr inbounds nuw i8, ptr %123, i64 56
+  %190 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %189, i32 1, ptr nonnull elementtype(i32) %189) #7, !srcloc !5
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %196, label %192, !prof !6
 
@@ -611,7 +611,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
 
 196:                                              ; preds = %192, %188
   %197 = phi i32 [ 2, %188 ], [ 1, %192 ]
-  call void @refcount_warn_saturate(ptr noundef %189, i32 noundef %197) #7
+  call void @refcount_warn_saturate(ptr noundef nonnull %189, i32 noundef %197) #7
   br label %198
 
 198:                                              ; preds = %196, %192, %185
@@ -628,9 +628,9 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   %203 = call i64 @ktime_get_raw() #7
   %204 = add i64 %203, 500000000
   %205 = call i32 @__SCT__might_resched() #7
-  %206 = getelementptr inbounds i8, ptr %123, i64 48
-  %207 = getelementptr inbounds i8, ptr %123, i64 448
-  %208 = getelementptr inbounds i8, ptr %123, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %123, i64 48
+  %207 = getelementptr inbounds nuw i8, ptr %123, i64 448
+  %208 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %209 = call i64 @ktime_get_raw() #7
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !20
   %210 = load volatile i64, ptr %206, align 8
@@ -685,7 +685,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   br i1 %237, label %241, label %238
 
 238:                                              ; preds = %235
-  %239 = getelementptr inbounds i8, ptr %236, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %240 = load ptr, ptr %239, align 8
   br label %241
 
@@ -706,8 +706,8 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   br i1 %187, label %.thread37, label %249
 
 249:                                              ; preds = %247
-  %250 = getelementptr inbounds i8, ptr %123, i64 56
-  %251 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %250, i32 -1, ptr elementtype(i32) %250) #7, !srcloc !9
+  %250 = getelementptr inbounds nuw i8, ptr %123, i64 56
+  %251 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %250, i32 -1, ptr nonnull elementtype(i32) %250) #7, !srcloc !9
   %252 = icmp eq i32 %251, 1
   br i1 %252, label %256, label %253
 
@@ -716,18 +716,18 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   br i1 %254, label %.thread37, label %255, !prof !7
 
 255:                                              ; preds = %253
-  call void @refcount_warn_saturate(ptr noundef %250, i32 noundef 3) #7
+  call void @refcount_warn_saturate(ptr noundef nonnull %250, i32 noundef 3) #7
   br label %.thread37
 
 256:                                              ; preds = %249
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
-  call void @dma_fence_release(ptr noundef %250) #7
+  call void @dma_fence_release(ptr noundef nonnull %250) #7
   br label %.thread37
 
 .thread37:                                        ; preds = %253, %255, %256, %247, %125
   %257 = phi i32 [ %127, %125 ], [ %248, %247 ], [ %248, %256 ], [ %248, %255 ], [ %248, %253 ]
   %258 = load ptr, ptr %23, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 88
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 88
   %260 = load ptr, ptr %259, align 8
   %261 = icmp eq ptr %260, null
   br i1 %261, label %262, label %.preheader
@@ -744,7 +744,7 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
 .lr.ph48:                                         ; preds = %.preheader, %271
   %265 = phi i32 [ %272, %271 ], [ %263, %.preheader ]
   %266 = add i32 %265, -1
-  %267 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 %266, ptr elementtype(i32) %9, i32 %265) #7, !srcloc !15
+  %267 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 %266, ptr nonnull elementtype(i32) %9, i32 %265) #7, !srcloc !15
   %268 = extractvalue { i8, i32 } %267, 0
   %269 = icmp ult i8 %268, 2
   call void @llvm.assume(i1 %269)
@@ -757,13 +757,13 @@ define dso_local i32 @intel_gsc_uc_heci_cmd_submit_nonpriv(ptr nocapture noundef
   br i1 %273, label %._crit_edge49, label %.lr.ph48, !prof !16, !llvm.loop !17
 
 ._crit_edge49:                                    ; preds = %271, %.preheader
-  %274 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %9, i32 2, i32 1, ptr elementtype(i32) %9) #7, !srcloc !21
+  %274 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 2, i32 1, ptr nonnull elementtype(i32) %9) #7, !srcloc !21
   %275 = icmp eq i32 %274, 1
   br i1 %275, label %276, label %.preheader, !llvm.loop !22
 
 276:                                              ; preds = %._crit_edge49
   %277 = load ptr, ptr %23, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 88
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 88
   %279 = load ptr, ptr %278, align 8
   call void %279(ptr noundef %1) #7
   br label %.loopexit

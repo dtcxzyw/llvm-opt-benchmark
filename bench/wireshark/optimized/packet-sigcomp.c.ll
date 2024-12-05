@@ -738,7 +738,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_sigcomp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 2
   br i1 %7, label %8, label %10
@@ -753,7 +753,7 @@ define internal i32 @dissect_sigcomp(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not, label %12, label %21
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.260) #8
   %15 = load ptr, ptr %13, align 8
@@ -800,32 +800,32 @@ define internal i32 @dissect_sigcomp_tcp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %16, label %.thread, label %12
 
 ._crit_edge:                                      ; preds = %12, %8
-  %17 = getelementptr inbounds i8, ptr %1, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %18 = load i16, ptr %17, align 8
   %.not158 = icmp eq i16 %18, 0
   br i1 %.not158, label %19, label %22
 
 19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds i8, ptr %1, i64 330
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 330
   %21 = load i16, ptr %20, align 2
   %.not159 = icmp eq i16 %21, 0
   br i1 %.not159, label %.thread, label %22
 
 22:                                               ; preds = %19, %._crit_edge
-  %23 = getelementptr inbounds i8, ptr %1, i64 332
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %., ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 336
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %24, align 8
   br label %.loopexit164
 
 .thread:                                          ; preds = %.lr.ph, %19
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @col_set_str(ptr noundef %26, i32 noundef 34, ptr noundef nonnull @.str.260) #8
   %27 = load ptr, ptr %25, align 8
   tail call void @col_clear(ptr noundef %27, i32 noundef 25) #8
   %28 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
-  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %30
 
 30:                                               ; preds = %137, %.thread
@@ -1144,7 +1144,7 @@ define internal fastcc i32 @dissect_sigcomp_common(ptr noundef %0, ptr noundef %
 17:                                               ; preds = %3
   %narrow = mul nuw nsw i8 %16, 3
   %narrow255 = add nuw nsw i8 %narrow, 3
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.403) #8
   %.not256 = icmp eq i8 %15, 0
@@ -1199,13 +1199,13 @@ define internal fastcc i32 @dissect_sigcomp_common(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %proto_item_set_generated.exit, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %52 = load ptr, ptr %51, align 8
   %.not5.i = icmp eq ptr %52, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = or i32 %55, 2
   store i32 %56, ptr %54, align 4
@@ -1218,7 +1218,7 @@ proto_item_set_generated.exit:                    ; preds = %53, %50, %47, %36
 
 58:                                               ; preds = %proto_item_set_generated.exit
   %59 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %44, i32 noundef %45) #8
-  %60 = getelementptr inbounds i8, ptr %1, i64 408
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %61 = load ptr, ptr %60, align 8
   %62 = call noalias ptr @wmem_alloc0(ptr noundef %61, i64 noundef 65536) #8
   store i16 0, ptr %6, align 2
@@ -1274,13 +1274,13 @@ proto_item_set_generated.exit:                    ; preds = %53, %50, %47, %36
   br i1 %.not.i262, label %proto_item_set_generated.exit264, label %97
 
 97:                                               ; preds = %87
-  %98 = getelementptr inbounds i8, ptr %96, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %99 = load ptr, ptr %98, align 8
   %.not5.i263 = icmp eq ptr %99, null
   br i1 %.not5.i263, label %proto_item_set_generated.exit264, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %99, i64 28
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 28
   %102 = load i32, ptr %101, align 4
   %103 = or i32 %102, 2
   store i32 %103, ptr %101, align 4
@@ -1307,7 +1307,7 @@ proto_item_set_generated.exit264:                 ; preds = %87, %97, %100
   br label %242
 
 113:                                              ; preds = %3
-  %114 = getelementptr inbounds i8, ptr %1, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %115 = load ptr, ptr %114, align 8
   tail call void @col_set_str(ptr noundef %115, i32 noundef 25, ptr noundef nonnull @.str.408) #8
   %.not248 = icmp eq i8 %15, 0
@@ -1439,13 +1439,13 @@ proto_item_set_generated.exit264:                 ; preds = %87, %97, %100
   br i1 %.not.i265, label %proto_item_set_generated.exit267, label %199
 
 199:                                              ; preds = %196
-  %200 = getelementptr inbounds i8, ptr %198, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %201 = load ptr, ptr %200, align 8
   %.not5.i266 = icmp eq ptr %201, null
   br i1 %.not5.i266, label %proto_item_set_generated.exit267, label %202
 
 202:                                              ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %201, i64 28
+  %203 = getelementptr inbounds nuw i8, ptr %201, i64 28
   %204 = load i32, ptr %203, align 4
   %205 = or i32 %204, 2
   store i32 %205, ptr %203, align 4
@@ -1482,13 +1482,13 @@ proto_item_set_generated.exit267:                 ; preds = %202, %199, %196, %1
   br i1 %.not.i268, label %proto_item_set_generated.exit270, label %226
 
 226:                                              ; preds = %216
-  %227 = getelementptr inbounds i8, ptr %225, i64 32
+  %227 = getelementptr inbounds nuw i8, ptr %225, i64 32
   %228 = load ptr, ptr %227, align 8
   %.not5.i269 = icmp eq ptr %228, null
   br i1 %.not5.i269, label %proto_item_set_generated.exit270, label %229
 
 229:                                              ; preds = %226
-  %230 = getelementptr inbounds i8, ptr %228, i64 28
+  %230 = getelementptr inbounds nuw i8, ptr %228, i64 28
   %231 = load i32, ptr %230, align 4
   %232 = or i32 %231, 2
   store i32 %232, ptr %230, align 4
@@ -1885,14 +1885,14 @@ define internal fastcc noundef ptr @decompress_sigcomp_message(ptr noundef %0, p
   store i32 0, ptr %17, align 4
   %119 = load i32, ptr @hf_sigcomp_udvm_execution_stated, align 4
   %120 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %3, i32 noundef %119, ptr noundef %0, i32 noundef %.02402.lcssa, i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.414, i32 noundef %10, i32 noundef %61) #8
-  %121 = getelementptr inbounds i8, ptr %2, i64 408
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %122 = load ptr, ptr %121, align 8
   %123 = tail call noalias ptr @wmem_alloc(ptr noundef %122, i64 noundef 65536) #8
   %124 = getelementptr i8, ptr %60, i64 66
   %125 = getelementptr i8, ptr %60, i64 67
   %126 = getelementptr i8, ptr %60, i64 64
   %127 = getelementptr i8, ptr %60, i64 65
-  %128 = getelementptr inbounds i8, ptr %16, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %129 = getelementptr i8, ptr %60, i64 69
   %130 = getelementptr i8, ptr %60, i64 68
   %131 = add i32 %61, -1
@@ -7455,13 +7455,13 @@ define internal fastcc void @dissect_udvm_bytecode(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %proto_item_set_generated.exit, label %15
 
 15:                                               ; preds = %.lr.ph909
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load ptr, ptr %16, align 8
   %.not5.i = icmp eq ptr %17, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = or i32 %20, 2
   store i32 %21, ptr %19, align 4
@@ -8547,13 +8547,13 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph909, %15, %18
   br i1 %.not.i891, label %proto_item_set_generated.exit893, label %800
 
 800:                                              ; preds = %797
-  %801 = getelementptr inbounds i8, ptr %799, i64 32
+  %801 = getelementptr inbounds nuw i8, ptr %799, i64 32
   %802 = load ptr, ptr %801, align 8
   %.not5.i892 = icmp eq ptr %802, null
   br i1 %.not5.i892, label %proto_item_set_generated.exit893, label %803
 
 803:                                              ; preds = %800
-  %804 = getelementptr inbounds i8, ptr %802, i64 28
+  %804 = getelementptr inbounds nuw i8, ptr %802, i64 28
   %805 = load i32, ptr %804, align 4
   %806 = or i32 %805, 2
   store i32 %806, ptr %804, align 4

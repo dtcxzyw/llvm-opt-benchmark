@@ -322,9 +322,9 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.json_parser_data_t, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 360
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @wmem_list_tail(ptr noundef %8) #7
   %10 = tail call ptr @wmem_list_frame_prev(ptr noundef %9) #7
@@ -338,7 +338,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %15 = tail call ptr @proto_get_protocol_filter_name(i32 noundef %14) #7
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(6) @.str.114) #8
   %.not93 = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   br i1 %.not93, label %21, label %19
 
@@ -355,7 +355,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %23
 
 23:                                               ; preds = %19, %21, %4
-  %24 = getelementptr inbounds i8, ptr %1, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %25 = load ptr, ptr %24, align 8
   %.not94 = icmp eq ptr %25, null
   br i1 %.not94, label %28, label %26
@@ -370,7 +370,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not96 = icmp eq ptr %32, null
   br i1 %.not96, label %35, label %33
@@ -403,7 +403,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
 43:                                               ; preds = %37, %42, %36
   %.085 = phi ptr [ %39, %42 ], [ %39, %37 ], [ null, %36 ]
   %.0 = phi ptr [ %41, %42 ], [ %41, %37 ], [ null, %36 ]
-  %44 = getelementptr inbounds i8, ptr %1, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr @proto_json, align 4
   tail call void @p_add_proto_data(ptr noundef %45, ptr noundef nonnull %1, i32 noundef %46, i32 noundef 0, ptr noundef %0) #7
@@ -413,7 +413,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void @wmem_list_prepend(ptr noundef %48, ptr noundef %.0) #7
   %49 = load ptr, ptr %44, align 8
   %50 = tail call noalias ptr @wmem_list_new(ptr noundef %49) #7
-  %51 = getelementptr inbounds i8, ptr %5, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %50, ptr %51, align 8
   tail call void @wmem_list_prepend(ptr noundef %50, ptr noundef nonnull @.str.111) #7
   tail call void @wmem_list_prepend(ptr noundef %50, ptr noundef nonnull @.str.111) #7
@@ -471,12 +471,12 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %72 = phi ptr [ %70, %68 ], [ %.0, %65 ]
   %73 = load ptr, ptr %44, align 8
   %74 = tail call noalias ptr @wmem_list_new(ptr noundef %73) #7
-  %75 = getelementptr inbounds i8, ptr %5, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %74, ptr %75, align 8
   tail call void @wmem_list_prepend(ptr noundef %74, ptr noundef %72) #7
   %76 = load ptr, ptr %44, align 8
   %77 = tail call noalias ptr @wmem_list_new(ptr noundef %76) #7
-  %78 = getelementptr inbounds i8, ptr %5, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %77, ptr %78, align 8
   tail call void @wmem_list_prepend(ptr noundef %77, ptr noundef nonnull inttoptr (i64 -3 to ptr)) #7
   br label %79
@@ -503,12 +503,12 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %89 = phi ptr [ %87, %85 ], [ %.0, %81 ]
   %90 = load ptr, ptr %44, align 8
   %91 = tail call noalias ptr @wmem_list_new(ptr noundef %90) #7
-  %92 = getelementptr inbounds i8, ptr %5, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %91, ptr %92, align 8
   tail call void @wmem_list_prepend(ptr noundef %91, ptr noundef %89) #7
-  %93 = getelementptr inbounds i8, ptr %5, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %5, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 0, ptr %94, align 8
   br label %95
 
@@ -543,7 +543,7 @@ define internal i32 @dissect_json(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not108, label %115, label %112
 
 112:                                              ; preds = %111
-  %113 = getelementptr inbounds i8, ptr %1, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %114 = load ptr, ptr %113, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %114, i32 noundef 25, ptr noundef nonnull @.str.119, ptr noundef nonnull @.str.120, ptr noundef nonnull %.086) #7
   br label %115
@@ -618,7 +618,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_json_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @tvb_get_string_enc(ptr noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef 0) #7
   %9 = zext i32 %5 to i64
@@ -638,7 +638,7 @@ define internal range(i32 0, 2) i32 @dissect_json_heur(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dissect_json_acdr_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_acdr, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #7
@@ -743,7 +743,7 @@ declare ptr @tvbparse_chars(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 define internal void @after_value(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4) #7
-  %6 = getelementptr inbounds i8, ptr %2, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %8
@@ -755,7 +755,7 @@ define internal void @after_value(ptr nocapture noundef %0, ptr nocapture readno
 
 10:                                               ; preds = %8
   %11 = icmp eq i32 %9, 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @wmem_stack_pop(ptr noundef %13) #7
   %15 = load ptr, ptr %12, align 8
@@ -763,7 +763,7 @@ define internal void @after_value(ptr nocapture noundef %0, ptr nocapture readno
   br i1 %11, label %17, label %21
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %2, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 1
   br i1 %20, label %22, label %21
@@ -773,12 +773,12 @@ define internal void @after_value(ptr nocapture noundef %0, ptr nocapture readno
 
 22:                                               ; preds = %17, %21
   %.sink156 = phi i32 [ 0, %21 ], [ 1, %17 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = tail call fastcc ptr @get_json_string(ptr noundef %26, ptr noundef nonnull %2, i32 noundef %.sink156)
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = icmp eq ptr %16, null
   %30 = icmp eq ptr %27, null
   %or.cond.i = or i1 %29, %30
@@ -786,7 +786,7 @@ define internal void @after_value(ptr nocapture noundef %0, ptr nocapture readno
 
 31:                                               ; preds = %22
   %32 = load ptr, ptr %28, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %34, ptr noundef nonnull %16) #7
   tail call void @wmem_strbuf_append_c(ptr noundef %35, i8 noundef signext 58) #7
@@ -802,7 +802,7 @@ join_strings.exit:                                ; preds = %22, %31
 
 38:                                               ; preds = %join_strings.exit
   %39 = load ptr, ptr %28, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %41, ptr noundef nonnull %14) #7
   tail call void @wmem_strbuf_append_c(ptr noundef %42, i8 noundef signext 58) #7
@@ -813,11 +813,11 @@ join_strings.exit:                                ; preds = %22, %31
 join_strings.exit141:                             ; preds = %join_strings.exit, %38
   %.0.i140 = phi ptr [ %43, %38 ], [ null, %join_strings.exit ]
   %44 = load i32, ptr @hf_json_path_with_value, align 4
-  %45 = getelementptr inbounds i8, ptr %2, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %50 = load i32, ptr %49, align 4
   %51 = tail call ptr @proto_tree_add_string(ptr noundef %5, i32 noundef %44, ptr noundef %46, i32 noundef %48, i32 noundef %50, ptr noundef %.0.i) #7
   %52 = load i32, ptr @hf_json_member_with_value, align 4
@@ -829,13 +829,13 @@ join_strings.exit141:                             ; preds = %join_strings.exit, 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %57
 
 57:                                               ; preds = %join_strings.exit141
-  %58 = getelementptr inbounds i8, ptr %51, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %59 = load ptr, ptr %58, align 8
   %.not5.i = icmp eq ptr %59, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %62 = load i32, ptr %61, align 4
   %63 = or i32 %62, 2
   store i32 %63, ptr %61, align 4
@@ -846,13 +846,13 @@ proto_item_set_generated.exit:                    ; preds = %join_strings.exit14
   br i1 %.not.i142, label %proto_item_set_generated.exit144, label %64
 
 64:                                               ; preds = %proto_item_set_generated.exit
-  %65 = getelementptr inbounds i8, ptr %56, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %66 = load ptr, ptr %65, align 8
   %.not5.i143 = icmp eq ptr %66, null
   br i1 %.not5.i143, label %proto_item_set_generated.exit144, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %66, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 28
   %69 = load i32, ptr %68, align 4
   %70 = or i32 %69, 2
   store i32 %70, ptr %68, align 4
@@ -867,13 +867,13 @@ proto_item_set_generated.exit144:                 ; preds = %proto_item_set_gene
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %73
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %51, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %75 = load ptr, ptr %74, align 8
   %.not5.i146 = icmp eq ptr %75, null
   br i1 %.not5.i146, label %proto_item_set_hidden.exit, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %75, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 28
   %78 = load i32, ptr %77, align 4
   %79 = or i32 %78, 1
   store i32 %79, ptr %77, align 4
@@ -883,13 +883,13 @@ proto_item_set_hidden.exit:                       ; preds = %72, %73, %76
   br i1 %.not.i142, label %proto_item_set_hidden.exit149, label %80
 
 80:                                               ; preds = %proto_item_set_hidden.exit
-  %81 = getelementptr inbounds i8, ptr %56, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %82 = load ptr, ptr %81, align 8
   %.not5.i148 = icmp eq ptr %82, null
   br i1 %.not5.i148, label %proto_item_set_hidden.exit149, label %83
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %82, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 28
   %85 = load i32, ptr %84, align 4
   %86 = or i32 %85, 1
   store i32 %86, ptr %84, align 4
@@ -984,16 +984,16 @@ default.unreachable:                              ; preds = %proto_item_set_hidd
   br i1 %.not135, label %170, label %138
 
 138:                                              ; preds = %136
-  %139 = getelementptr inbounds i8, ptr %0, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %140 = load ptr, ptr %139, align 8
   %141 = tail call ptr @wmem_stack_peek(ptr noundef %140) #7
-  %142 = getelementptr inbounds i8, ptr %0, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %143 = load ptr, ptr %142, align 8
   %144 = tail call ptr @wmem_stack_peek(ptr noundef %143) #7
   %145 = ptrtoint ptr %144 to i64
   %146 = trunc i64 %145 to i32
   %147 = load ptr, ptr %28, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 408
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 408
   %149 = load ptr, ptr %148, align 8
   %150 = load ptr, ptr %45, align 8
   %151 = load i32, ptr %47, align 8
@@ -1030,23 +1030,23 @@ default.unreachable:                              ; preds = %proto_item_set_hidd
   br i1 %.not136, label %.thread, label %172
 
 172:                                              ; preds = %170
-  %173 = getelementptr inbounds i8, ptr %0, i64 40
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %174 = load ptr, ptr %173, align 8
   %175 = tail call ptr @wmem_stack_peek(ptr noundef %174) #7
   %176 = load ptr, ptr %28, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 408
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 408
   %178 = load ptr, ptr %177, align 8
   %179 = load ptr, ptr %45, align 8
   %180 = load i32, ptr %47, align 8
   %181 = load i32, ptr %49, align 4
   %182 = tail call ptr @tvb_get_string_enc(ptr noundef %178, ptr noundef %179, i32 noundef %180, i32 noundef %181, i32 noundef 2) #7
-  %183 = getelementptr inbounds i8, ptr %0, i64 56
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %184 = load ptr, ptr %183, align 8
   %.not137 = icmp eq ptr %184, null
   br i1 %.not137, label %.thread151, label %185
 
 185:                                              ; preds = %172
-  %186 = getelementptr inbounds i8, ptr %0, i64 48
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %187 = load i32, ptr %186, align 8
   %188 = icmp eq i32 %187, 6
   br i1 %188, label %189, label %.thread154
@@ -1082,7 +1082,7 @@ thread-pre-split:                                 ; preds = %189
 200:                                              ; preds = %.thread151, %193
   %.0128 = phi ptr [ %194, %193 ], [ %199, %.thread151 ]
   store ptr %.0128, ptr %183, align 8
-  %201 = getelementptr inbounds i8, ptr %0, i64 48
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 6, ptr %201, align 8
   br label %.thread
 
@@ -1097,11 +1097,11 @@ define internal void @before_array(ptr nocapture noundef %0, ptr nocapture readn
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4) #7
   %6 = load i32, ptr @hf_json_array, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %6, ptr noundef %8, i32 noundef %10, i32 noundef %12, i32 noundef 0) #7
   %14 = load i32, ptr @auto_hide, align 4
@@ -1125,13 +1125,13 @@ define internal void @before_array(ptr nocapture noundef %0, ptr nocapture readn
   br i1 %or.cond63, label %proto_item_set_hidden.exit, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %13, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not5.i = icmp eq ptr %26, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, 1
   store i32 %30, ptr %28, align 4
@@ -1142,7 +1142,7 @@ proto_item_set_hidden.exit:                       ; preds = %27, %24, %15, %20, 
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %31) #7
   %33 = load ptr, ptr %0, align 8
   tail call void @wmem_list_prepend(ptr noundef %33, ptr noundef %32) #7
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr @wmem_stack_pop(ptr noundef %35) #7
   %37 = load ptr, ptr %34, align 8
@@ -1151,13 +1151,13 @@ proto_item_set_hidden.exit:                       ; preds = %27, %24, %15, %20, 
   tail call void @wmem_list_prepend(ptr noundef %39, ptr noundef %38) #7
   %40 = load ptr, ptr %34, align 8
   tail call void @wmem_list_prepend(ptr noundef %40, ptr noundef %36) #7
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = icmp eq ptr %38, null
   br i1 %42, label %join_strings.exit, label %43
 
 43:                                               ; preds = %proto_item_set_hidden.exit
   %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 408
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 408
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %46, ptr noundef nonnull %38) #7
   tail call void @wmem_strbuf_append_c(ptr noundef %47, i8 noundef signext 47) #7
@@ -1178,10 +1178,10 @@ join_strings.exit:                                ; preds = %proto_item_set_hidd
   br i1 %.not60, label %82, label %54
 
 54:                                               ; preds = %join_strings.exit
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr @wmem_stack_peek(ptr noundef %56) #7
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr @wmem_stack_peek(ptr noundef %59) #7
   %61 = ptrtoint ptr %60 to i64
@@ -1222,16 +1222,16 @@ join_strings.exit:                                ; preds = %proto_item_set_hidd
   br i1 %.not61, label %111, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %0, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr @wmem_stack_peek(ptr noundef %86) #7
-  %88 = getelementptr inbounds i8, ptr %0, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %89 = load ptr, ptr %88, align 8
   %.not62 = icmp eq ptr %89, null
   br i1 %.not62, label %95, label %90
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %0, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 4
   br i1 %93, label %94, label %95
@@ -1241,7 +1241,7 @@ join_strings.exit:                                ; preds = %proto_item_set_hidd
   br label %95
 
 95:                                               ; preds = %94, %90, %84
-  %96 = getelementptr inbounds i8, ptr %0, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %97 = load i32, ptr %96, align 8
   %98 = icmp eq i32 %97, 5
   br i1 %98, label %99, label %101
@@ -1277,7 +1277,7 @@ join_strings.exit:                                ; preds = %proto_item_set_hidd
 define internal void @after_array(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_pop(ptr noundef %4) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @wmem_stack_pop(ptr noundef %7) #7
   %9 = load ptr, ptr %6, align 8
@@ -1287,11 +1287,11 @@ define internal void @after_array(ptr nocapture noundef %0, ptr nocapture readno
   br i1 %.not, label %27, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @wmem_stack_peek(ptr noundef %14) #7
   %16 = tail call ptr @proto_tree_get_parent(ptr noundef %15) #7
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @wmem_stack_peek(ptr noundef %18) #7
   %20 = ptrtoint ptr %19 to i64
@@ -1311,32 +1311,32 @@ define internal void @after_array(ptr nocapture noundef %0, ptr nocapture readno
   br i1 %.not25, label %57, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @wmem_stack_peek(ptr noundef %31) #7
   %33 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %32) #7
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 3
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.140) #7
   br label %53
 
 40:                                               ; preds = %29
-  %41 = getelementptr inbounds i8, ptr %2, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr @hf_json_array_raw, align 4
-  %46 = getelementptr inbounds i8, ptr %44, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %44, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %51 = load i32, ptr %50, align 4
   %52 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %33, i32 noundef %45, ptr noundef %47, i32 noundef %49, i32 noundef %51, ptr noundef nonnull @.str.140) #7
   br label %53
@@ -1345,7 +1345,7 @@ define internal void @after_array(ptr nocapture noundef %0, ptr nocapture readno
   %.0 = phi ptr [ %39, %37 ], [ %52, %40 ]
   %54 = load ptr, ptr %30, align 8
   %55 = tail call ptr @wmem_stack_pop(ptr noundef %54) #7
-  %56 = getelementptr inbounds i8, ptr %0, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.0, ptr %56, align 8
   store i32 4, ptr %34, align 8
   br label %57
@@ -1361,26 +1361,26 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define internal void @before_member(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call fastcc ptr @get_json_string(ptr noundef %9, ptr noundef %11, i32 noundef 1)
   %13 = load i32, ptr @hf_json_member, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = tail call ptr @proto_tree_add_string(ptr noundef %5, i32 noundef %13, ptr noundef %15, i32 noundef %17, i32 noundef %19, ptr noundef %12) #7
   %21 = load i32, ptr @ett_json_member, align 4
   %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #7
   %23 = load ptr, ptr %0, align 8
   tail call void @wmem_list_prepend(ptr noundef %23, ptr noundef %22) #7
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @wmem_stack_pop(ptr noundef %25) #7
   %27 = load ptr, ptr %24, align 8
@@ -1396,7 +1396,7 @@ define internal void @before_member(ptr nocapture noundef %0, ptr nocapture read
 
 33:                                               ; preds = %3
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 408
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %36, ptr noundef nonnull %28) #7
   tail call void @wmem_strbuf_append_c(ptr noundef %37, i8 noundef signext 47) #7
@@ -1415,7 +1415,7 @@ join_strings.exit:                                ; preds = %3, %33
   br i1 %.not, label %69, label %42
 
 42:                                               ; preds = %join_strings.exit
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @wmem_stack_peek(ptr noundef %44) #7
   %46 = load ptr, ptr %10, align 8
@@ -1463,17 +1463,17 @@ join_strings.exit:                                ; preds = %3, %33
   br i1 %.not83, label %106, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %0, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = load ptr, ptr %72, align 8
   %74 = tail call ptr @wmem_stack_peek(ptr noundef %73) #7
   %75 = load ptr, ptr %10, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %77 = load ptr, ptr %76, align 8
   %.not84 = icmp eq ptr %77, null
   br i1 %.not84, label %82, label %78
 
 78:                                               ; preds = %71
-  %79 = getelementptr inbounds i8, ptr %0, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %80 = load i32, ptr %79, align 8
   switch i32 %80, label %81 [
     i32 1, label %82
@@ -1522,7 +1522,7 @@ join_strings.exit:                                ; preds = %3, %33
   %104 = load ptr, ptr %72, align 8
   tail call void @wmem_list_prepend(ptr noundef %104, ptr noundef %103) #7
   store ptr %.074, ptr %76, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 5, ptr %105, align 8
   br label %106
 
@@ -1534,7 +1534,7 @@ join_strings.exit:                                ; preds = %3, %33
 define internal void @after_member(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_pop(ptr noundef %4) #7
-  %6 = getelementptr inbounds i8, ptr %2, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %5, null
   %9 = icmp ne ptr %7, null
@@ -1547,23 +1547,23 @@ define internal void @after_member(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc ptr @get_json_string(ptr noundef %17, ptr noundef nonnull %7, i32 noundef 1)
   %19 = load i32, ptr @hf_json_key, align 4
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %5, i32 noundef %19, ptr noundef %21, i32 noundef %23, i32 noundef %25, ptr noundef %18) #7
   br label %27
 
 27:                                               ; preds = %13, %10, %3
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @wmem_stack_pop(ptr noundef %29) #7
   %31 = load ptr, ptr %28, align 8
@@ -1572,24 +1572,24 @@ define internal void @after_member(ptr nocapture noundef readonly %0, ptr nocapt
 
 33:                                               ; preds = %27
   %34 = load i32, ptr @hf_json_path, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %40 = load i32, ptr %39, align 4
   %41 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %5, i32 noundef %34, ptr noundef %36, i32 noundef %38, i32 noundef %40, ptr noundef %32) #7
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %42
 
 42:                                               ; preds = %33
-  %43 = getelementptr inbounds i8, ptr %41, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not5.i = icmp eq ptr %44, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %44, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = or i32 %47, 2
   store i32 %48, ptr %46, align 4
@@ -1606,7 +1606,7 @@ proto_item_set_generated.exit:                    ; preds = %42, %45
   br i1 %.not5.i31, label %proto_item_set_hidden.exit, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %51, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 28
   %54 = load i32, ptr %53, align 4
   %55 = or i32 %54, 1
   store i32 %55, ptr %53, align 4
@@ -1618,10 +1618,10 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
   br i1 %.not28, label %65, label %57
 
 57:                                               ; preds = %proto_item_set_hidden.exit
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr @wmem_stack_pop(ptr noundef %59) #7
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr @wmem_stack_pop(ptr noundef %62) #7
   %64 = load ptr, ptr %61, align 8
@@ -1634,7 +1634,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
   br i1 %.not29, label %71, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr @wmem_stack_pop(ptr noundef %69) #7
   br label %71
@@ -1648,11 +1648,11 @@ define internal void @before_object(ptr nocapture noundef %0, ptr nocapture read
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @wmem_stack_peek(ptr noundef %4) #7
   %6 = load i32, ptr @hf_json_object, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %6, ptr noundef %8, i32 noundef %10, i32 noundef %12, i32 noundef 2) #7
   %14 = load i32, ptr @auto_hide, align 4
@@ -1676,13 +1676,13 @@ define internal void @before_object(ptr nocapture noundef %0, ptr nocapture read
   br i1 %or.cond48, label %proto_item_set_hidden.exit, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %13, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not5.i = icmp eq ptr %26, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, 1
   store i32 %30, ptr %28, align 4
@@ -1698,10 +1698,10 @@ proto_item_set_hidden.exit:                       ; preds = %27, %24, %15, %20, 
   br i1 %.not45, label %63, label %35
 
 35:                                               ; preds = %proto_item_set_hidden.exit
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @wmem_stack_peek(ptr noundef %37) #7
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @wmem_stack_peek(ptr noundef %40) #7
   %42 = ptrtoint ptr %41 to i64
@@ -1742,16 +1742,16 @@ proto_item_set_hidden.exit:                       ; preds = %27, %24, %15, %20, 
   br i1 %.not46, label %92, label %65
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %0, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %67 = load ptr, ptr %66, align 8
   %68 = tail call ptr @wmem_stack_peek(ptr noundef %67) #7
-  %69 = getelementptr inbounds i8, ptr %0, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %70 = load ptr, ptr %69, align 8
   %.not47 = icmp eq ptr %70, null
   br i1 %.not47, label %76, label %71
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = load i32, ptr %72, align 8
   %74 = icmp eq i32 %73, 2
   br i1 %74, label %75, label %76
@@ -1761,7 +1761,7 @@ proto_item_set_hidden.exit:                       ; preds = %27, %24, %15, %20, 
   br label %76
 
 76:                                               ; preds = %75, %71, %65
-  %77 = getelementptr inbounds i8, ptr %0, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, 5
   br i1 %79, label %80, label %82
@@ -1802,11 +1802,11 @@ define internal void @after_object(ptr nocapture noundef %0, ptr nocapture readn
   br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @wmem_stack_peek(ptr noundef %9) #7
   %11 = tail call ptr @proto_tree_get_parent(ptr noundef %10) #7
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @wmem_stack_peek(ptr noundef %13) #7
   %15 = ptrtoint ptr %14 to i64
@@ -1826,32 +1826,32 @@ define internal void @after_object(ptr nocapture noundef %0, ptr nocapture readn
   br i1 %.not23, label %52, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @wmem_stack_peek(ptr noundef %26) #7
   %28 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %27) #7
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.143) #7
   br label %48
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %2, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr @hf_json_object_raw, align 4
-  %41 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %39, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %39, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %28, i32 noundef %40, ptr noundef %42, i32 noundef %44, i32 noundef %46, ptr noundef nonnull @.str.143) #7
   br label %48
@@ -1860,7 +1860,7 @@ define internal void @after_object(ptr nocapture noundef %0, ptr nocapture readn
   %.0 = phi ptr [ %34, %32 ], [ %47, %35 ]
   %49 = load ptr, ptr %25, align 8
   %50 = tail call ptr @wmem_stack_pop(ptr noundef %49) #7
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %.0, ptr %51, align 8
   store i32 2, ptr %29, align 8
   br label %52
@@ -1876,11 +1876,11 @@ declare ptr @wmem_stack_pop(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [6 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @tvb_get_string_enc(ptr noundef %0, ptr noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef 2) #7
   %12 = load i32, ptr @unescape_strings, align 4
@@ -2137,8 +2137,8 @@ json_string_unescape.exit:                        ; preds = %18, %30, %63, %70, 
   br i1 %.not12, label %121, label %112
 
 112:                                              ; preds = %111
-  %113 = add i64 %.013, -1
-  %114 = getelementptr i8, ptr %.0, i64 %113
+  %113 = getelementptr i8, ptr %.0, i64 %.013
+  %114 = getelementptr i8, ptr %113, i64 -1
   %115 = load i8, ptr %114, align 1
   %116 = icmp eq i8 %115, 34
   br i1 %116, label %117, label %118
@@ -2201,18 +2201,18 @@ define internal fastcc ptr @json_key_lookup(ptr noundef %0, ptr nocapture nounde
 23:                                               ; preds = %22
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   %25 = trunc i64 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %25, 4
   %31 = add i32 %29, %30
-  %32 = getelementptr inbounds i8, ptr %1, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %25, 5
   %35 = sub i32 %33, %34
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %27, i32 noundef %31, i32 noundef %35, i32 noundef 0) #7
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not52 = icmp eq ptr %38, null
   br i1 %.not52, label %59, label %39
@@ -2227,14 +2227,14 @@ define internal fastcc ptr @json_key_lookup(ptr noundef %0, ptr nocapture nounde
   br label %59
 
 45:                                               ; preds = %22
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %51 = load i32, ptr %50, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef 0) #7
-  %53 = getelementptr inbounds i8, ptr %7, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not51 = icmp eq ptr %54, null
   br i1 %.not51, label %59, label %55

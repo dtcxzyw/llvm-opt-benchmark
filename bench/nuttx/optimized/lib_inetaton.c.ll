@@ -54,7 +54,7 @@ define range(i32 0, 2) i32 @inet_aton(ptr nocapture noundef readonly %0, ptr nou
   %.221 = phi i32 [ %.120, %15 ], [ %.019, %5 ]
   %.118 = phi i32 [ 0, %15 ], [ %9, %5 ]
   %.1 = phi i32 [ %17, %15 ], [ %.016, %5 ]
-  %19 = getelementptr inbounds i8, ptr %.022, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.022, i64 1
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %20, label %3, !llvm.loop !6
 

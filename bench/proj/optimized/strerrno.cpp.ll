@@ -52,14 +52,14 @@ define noundef ptr @proj_context_errno_string(ptr noundef %0, i32 noundef %1) lo
 
 .preheader:                                       ; preds = %6, %8
   %.029.idx38 = phi i64 [ %.029.add, %8 ], [ 0, %6 ]
-  %.029.ptr39 = getelementptr inbounds i8, ptr @_ZL13error_strings, i64 %.029.idx38
+  %.029.ptr39 = getelementptr inbounds nuw i8, ptr @_ZL13error_strings, i64 %.029.idx38
   %9 = load i32, ptr %.029.ptr39, align 16
   %10 = icmp eq i32 %1, %9
   br i1 %10, label %11, label %8
 
 11:                                               ; preds = %.preheader
-  %.029.ptr39.le = getelementptr inbounds i8, ptr @_ZL13error_strings, i64 %.029.idx38
-  %12 = getelementptr inbounds i8, ptr %.029.ptr39.le, i64 8
+  %.029.ptr39.le = getelementptr inbounds nuw i8, ptr @_ZL13error_strings, i64 %.029.idx38
+  %12 = getelementptr inbounds nuw i8, ptr %.029.ptr39.le, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %.loopexit
 

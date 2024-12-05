@@ -13,14 +13,14 @@ target triple = "x86_64-pc-linux-gnu"
 define noalias noundef ptr @wmem_strbuf_new_sized(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #12
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %4, align 8
   %.not = icmp eq i64 %1, 0
   %5 = select i1 %.not, i64 16, i64 %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %5, ptr %6, align 8
   %7 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %5) #12
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
   store i8 0, ptr %7, align 1
   ret ptr %3
@@ -42,14 +42,14 @@ define noalias noundef ptr @wmem_strbuf_new_len(ptr noundef %0, ptr noundef read
 8:                                                ; preds = %5
   %9 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #12
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %10, align 8
   %.not.i = icmp eq i64 %.0, 0
   %11 = select i1 %.not.i, i64 16, i64 %.0
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %11, ptr %12, align 8
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %11) #12
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %13, ptr %14, align 8
   store i8 0, ptr %13, align 1
   %15 = icmp ne ptr %1, null
@@ -79,12 +79,12 @@ define noalias noundef ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef readonly
 .split4.preheader:                                ; preds = %2
   %3 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #12
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 16, ptr %5, align 8
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 16) #12
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8
   store i8 0, ptr %6, align 1
   br label %wmem_strbuf_new_len.exit6
@@ -103,14 +103,14 @@ define noalias noundef ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef readonly
 13:                                               ; preds = %10
   %14 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #12
   store ptr %0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %15, align 8
   %.not.i.i = icmp eq i64 %.0.i5, 0
   %16 = select i1 %.not.i.i, i64 16, i64 %.0.i5
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 %16, ptr %17, align 8
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %16) #12
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %18, ptr %19, align 8
   store i8 0, ptr %18, align 1
   %.not7 = icmp eq i64 %8, 0
@@ -133,23 +133,23 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @wmem_strbuf_dup(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 32) #12
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.not.i = icmp eq i64 %4, 0
   %7 = select i1 %.not.i, i64 16, i64 %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %7, ptr %8, align 8
   %9 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %7) #12
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %10, align 8
   store i8 0, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr align 1 %14, i64 %12, i1 false)
   %15 = getelementptr i8, ptr %9, i64 %12
@@ -169,9 +169,9 @@ define void @wmem_strbuf_append(ptr nocapture noundef %0, ptr noundef readonly %
 
 6:                                                ; preds = %3
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = xor i64 %11, -1
   %13 = add i64 %9, %12
@@ -195,7 +195,7 @@ define void @wmem_strbuf_append(ptr nocapture noundef %0, ptr noundef readonly %
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr @wmem_realloc(ptr noundef %23, ptr noundef %25, i64 noundef %.0.i) #12
   store ptr %26, ptr %24, align 8
@@ -205,7 +205,7 @@ define void @wmem_strbuf_append(ptr nocapture noundef %0, ptr noundef readonly %
 
 wmem_strbuf_grow.exit:                            ; preds = %6, %20, %22
   %27 = phi i64 [ %11, %6 ], [ %11, %20 ], [ %.pre, %22 ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr nonnull align 1 %1, i64 %7, i1 false)
@@ -229,9 +229,9 @@ define void @wmem_strbuf_append_len(ptr nocapture noundef %0, ptr noundef readon
   br i1 %or.cond, label %6, label %34
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = xor i64 %10, -1
   %12 = add i64 %8, %11
@@ -255,7 +255,7 @@ define void @wmem_strbuf_append_len(ptr nocapture noundef %0, ptr noundef readon
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias ptr @wmem_realloc(ptr noundef %22, ptr noundef %24, i64 noundef %.0.i) #12
   store ptr %25, ptr %23, align 8
@@ -265,7 +265,7 @@ define void @wmem_strbuf_append_len(ptr nocapture noundef %0, ptr noundef readon
 
 wmem_strbuf_grow.exit:                            ; preds = %6, %19, %21
   %26 = phi i64 [ %10, %6 ], [ %10, %19 ], [ %.pre, %21 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull align 1 %1, i64 %2, i1 false)
@@ -285,12 +285,12 @@ wmem_strbuf_grow.exit:                            ; preds = %6, %19, %21
 define void @wmem_strbuf_append_vprintf(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_copy.p0(ptr nonnull %4, ptr %2)
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %6, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %11, %8
   %13 = call i32 @vsnprintf(ptr noundef %9, i64 noundef %12, ptr noundef readonly %1, ptr noundef nonnull %4) #12
@@ -414,9 +414,9 @@ define void @wmem_strbuf_append_printf(ptr nocapture noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define void @wmem_strbuf_append_c(ptr nocapture noundef %0, i8 noundef signext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.neg = add i64 %6, 1
   %.not.i = icmp eq i64 %4, %.neg
@@ -438,7 +438,7 @@ define void @wmem_strbuf_append_c(ptr nocapture noundef %0, i8 noundef signext %
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_realloc(ptr noundef %15, ptr noundef %17, i64 noundef %.0.i) #12
   store ptr %18, ptr %16, align 8
@@ -448,7 +448,7 @@ define void @wmem_strbuf_append_c(ptr nocapture noundef %0, i8 noundef signext %
 
 wmem_strbuf_grow.exit:                            ; preds = %2, %12, %14
   %19 = phi i64 [ %6, %2 ], [ %6, %12 ], [ %.pre, %14 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 %19
   store i8 %1, ptr %22, align 1
@@ -463,9 +463,9 @@ wmem_strbuf_grow.exit:                            ; preds = %2, %12, %14
 
 ; Function Attrs: nounwind uwtable
 define void @wmem_strbuf_append_c_count(ptr nocapture noundef %0, i8 noundef signext %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = xor i64 %7, -1
   %9 = add i64 %5, %8
@@ -489,7 +489,7 @@ define void @wmem_strbuf_append_c_count(ptr nocapture noundef %0, i8 noundef sig
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noalias ptr @wmem_realloc(ptr noundef %19, ptr noundef %21, i64 noundef %.0.i) #12
   store ptr %22, ptr %20, align 8
@@ -501,7 +501,7 @@ wmem_strbuf_grow.exit:                            ; preds = %3, %16, %18
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %wmem_strbuf_grow.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
@@ -517,7 +517,7 @@ wmem_strbuf_grow.exit:                            ; preds = %3, %16, %18
   br i1 %.not, label %._crit_edge, label %24, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %24, %wmem_strbuf_grow.exit
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load i64, ptr %6, align 8
   %33 = getelementptr i8, ptr %31, i64 %32
@@ -530,9 +530,9 @@ define void @wmem_strbuf_append_unichar(ptr nocapture noundef %0, i32 noundef %1
   %3 = alloca [6 x i8], align 1
   %4 = call i32 @g_unichar_to_utf8(i32 noundef %1, ptr noundef nonnull %3) #12
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = xor i64 %9, -1
   %11 = add i64 %7, %10
@@ -556,7 +556,7 @@ define void @wmem_strbuf_append_unichar(ptr nocapture noundef %0, i32 noundef %1
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call noalias ptr @wmem_realloc(ptr noundef %21, ptr noundef %23, i64 noundef %.0.i) #12
   store ptr %24, ptr %22, align 8
@@ -566,7 +566,7 @@ define void @wmem_strbuf_append_unichar(ptr nocapture noundef %0, i32 noundef %1
 
 wmem_strbuf_grow.exit:                            ; preds = %2, %18, %20
   %25 = phi i64 [ %9, %2 ], [ %9, %18 ], [ %.pre, %20 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr nonnull align 1 %3, i64 %5, i1 false)
@@ -587,8 +587,8 @@ define void @wmem_strbuf_append_unichar_validated(ptr nocapture noundef %0, i32 
   %4 = alloca [6 x i8], align 1
   %5 = tail call i32 @g_unichar_validate(i32 noundef %1) #14
   %.not = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %.not, label %36, label %8
 
 8:                                                ; preds = %2
@@ -619,7 +619,7 @@ define void @wmem_strbuf_append_unichar_validated(ptr nocapture noundef %0, i32 
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call noalias ptr @wmem_realloc(ptr noundef %24, ptr noundef %26, i64 noundef %.0.i.i) #12
   store ptr %27, ptr %25, align 8
@@ -629,7 +629,7 @@ define void @wmem_strbuf_append_unichar_validated(ptr nocapture noundef %0, i32 
 
 wmem_strbuf_append_unichar.exit:                  ; preds = %8, %21, %23
   %28 = phi i64 [ %12, %8 ], [ %12, %21 ], [ %.pre.i, %23 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 1 %4, i64 %10, i1 false)
@@ -670,7 +670,7 @@ wmem_strbuf_append_unichar.exit:                  ; preds = %8, %21, %23
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = call noalias ptr @wmem_realloc(ptr noundef %52, ptr noundef %54, i64 noundef %.0.i.i4) #12
   store ptr %55, ptr %53, align 8
@@ -680,7 +680,7 @@ wmem_strbuf_append_unichar.exit:                  ; preds = %8, %21, %23
 
 wmem_strbuf_append_unichar.exit6:                 ; preds = %36, %49, %51
   %56 = phi i64 [ %40, %36 ], [ %40, %49 ], [ %.pre.i5, %51 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr nonnull align 1 %3, i64 %38, i1 false)
@@ -702,9 +702,9 @@ declare i32 @g_unichar_validate(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @wmem_strbuf_append_hex(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %6, %4
   %.not.i = icmp ugt i64 %7, -5
@@ -726,7 +726,7 @@ define void @wmem_strbuf_append_hex(ptr nocapture noundef %0, i8 noundef zeroext
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias ptr @wmem_realloc(ptr noundef %16, ptr noundef %18, i64 noundef %.0.i) #12
   store ptr %19, ptr %17, align 8
@@ -736,7 +736,7 @@ define void @wmem_strbuf_append_hex(ptr nocapture noundef %0, i8 noundef zeroext
 
 wmem_strbuf_grow.exit:                            ; preds = %2, %13, %15
   %20 = phi i64 [ %6, %2 ], [ %6, %13 ], [ %.pre, %15 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = add i64 %20, 1
   store i64 %23, ptr %5, align 8
@@ -782,9 +782,9 @@ define range(i64 4, 11) i64 @wmem_strbuf_append_hex_unichar(ptr nocapture nounde
   br i1 %3, label %4, label %50
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %8, %6
   %.not.i.i = icmp ugt i64 %9, -5
@@ -806,7 +806,7 @@ define range(i64 4, 11) i64 @wmem_strbuf_append_hex_unichar(ptr nocapture nounde
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noalias ptr @wmem_realloc(ptr noundef %18, ptr noundef %20, i64 noundef %.0.i.i) #12
   store ptr %21, ptr %19, align 8
@@ -816,7 +816,7 @@ define range(i64 4, 11) i64 @wmem_strbuf_append_hex_unichar(ptr nocapture nounde
 
 wmem_strbuf_append_hex.exit:                      ; preds = %4, %15, %17
   %22 = phi i64 [ %8, %4 ], [ %8, %15 ], [ %.pre.i, %17 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = add i64 %22, 1
   store i64 %25, ptr %7, align 8
@@ -856,9 +856,9 @@ wmem_strbuf_append_hex.exit:                      ; preds = %4, %15, %17
 
 50:                                               ; preds = %2
   %51 = icmp ult i32 %1, 65536
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load i64, ptr %54, align 8
   %56 = sub i64 %55, %53
   br i1 %51, label %57, label %116
@@ -883,7 +883,7 @@ wmem_strbuf_append_hex.exit:                      ; preds = %4, %15, %17
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noalias ptr @wmem_realloc(ptr noundef %66, ptr noundef %68, i64 noundef %.0.i.i10) #12
   store ptr %69, ptr %67, align 8
@@ -893,7 +893,7 @@ wmem_strbuf_append_hex.exit:                      ; preds = %4, %15, %17
 
 append_hex_bmp.exit:                              ; preds = %57, %63, %65
   %70 = phi i64 [ %55, %57 ], [ %55, %63 ], [ %.pre.i11, %65 ]
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = add i64 %70, 1
   store i64 %73, ptr %54, align 8
@@ -973,7 +973,7 @@ append_hex_bmp.exit:                              ; preds = %57, %63, %65
 
 124:                                              ; preds = %122
   %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = tail call noalias ptr @wmem_realloc(ptr noundef %125, ptr noundef %127, i64 noundef %.0.i.i13) #12
   store ptr %128, ptr %126, align 8
@@ -983,7 +983,7 @@ append_hex_bmp.exit:                              ; preds = %57, %63, %65
 
 append_hex_any.exit:                              ; preds = %116, %122, %124
   %129 = phi i64 [ %55, %116 ], [ %55, %122 ], [ %.pre.i14, %124 ]
-  %130 = getelementptr inbounds i8, ptr %0, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = add i64 %129, 1
   store i64 %132, ptr %54, align 8
@@ -1094,13 +1094,13 @@ append_hex_any.exit:                              ; preds = %116, %122, %124
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @wmem_strbuf_truncate(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %.not = icmp ult i64 %1, %4
   br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 %1
   store i8 0, ptr %8, align 1
@@ -1113,27 +1113,27 @@ define void @wmem_strbuf_truncate(ptr nocapture noundef %0, i64 noundef %1) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @wmem_strbuf_get_str(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @wmem_strbuf_get_len(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @wmem_strbuf_strcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = tail call i64 @llvm.umin.i64(i64 %6, i64 %10)
   %12 = tail call i32 @memcmp(ptr noundef readonly %4, ptr noundef readonly %8, i64 noundef %11) #13
@@ -1156,13 +1156,13 @@ _memcmp_len.exit:                                 ; preds = %2, %13, %15
 
 ; Function Attrs: nounwind uwtable
 define ptr @wmem_strbuf_strstr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = tail call ptr @ws_memmem(ptr noundef %4, i64 noundef %6, ptr noundef %8, i64 noundef %10) #12
   ret ptr %11
@@ -1177,9 +1177,9 @@ define noalias ptr @wmem_strbuf_finalize(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, 1
   %10 = tail call noalias ptr @wmem_realloc(ptr noundef %4, ptr noundef %6, i64 noundef %9) #12
@@ -1203,7 +1203,7 @@ define void @wmem_strbuf_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @wmem_free(ptr noundef %4, ptr noundef %6) #12
   %7 = load ptr, ptr %0, align 8
@@ -1216,9 +1216,9 @@ define void @wmem_strbuf_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @wmem_strbuf_utf8_validate(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = tail call fastcc zeroext i1 @string_utf8_validate(ptr noundef %4, i64 noundef %6, ptr noundef %1)
   ret i1 %7
@@ -1293,23 +1293,23 @@ define internal fastcc zeroext i1 @string_utf8_validate(ptr noundef %0, i64 noun
 ; Function Attrs: nounwind uwtable
 define void @wmem_strbuf_utf8_make_valid(ptr nocapture noundef initializes((24, 32)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = tail call ptr @ws_utf8_make_valid_strbuf(ptr noundef %2, ptr noundef %4, i64 noundef %6) #12
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %3, align 8
   tail call void @wmem_free(ptr noundef %8, ptr noundef %9) #12
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %15, ptr %16, align 8
   %17 = load ptr, ptr %0, align 8
   tail call void @wmem_free(ptr noundef %17, ptr noundef %7) #12

@@ -294,19 +294,19 @@ define void @dsptrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %190 = lshr i32 %189, 1
   %191 = add nuw nsw i32 %190, %188
   %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds double, ptr %10, i64 %192
+  %193 = getelementptr inbounds nuw double, ptr %10, i64 %192
   %194 = load double, ptr %193, align 8, !tbaa !7
   %195 = add nsw i32 %38, -2
   %196 = mul nsw i32 %195, %188
   %197 = lshr i32 %196, 1
   %198 = add nuw nsw i32 %197, %188
   %199 = zext nneg i32 %198 to i64
-  %200 = getelementptr inbounds double, ptr %10, i64 %199
+  %200 = getelementptr inbounds nuw double, ptr %10, i64 %199
   %201 = load double, ptr %200, align 8, !tbaa !7
   %202 = fdiv double %201, %194
   %203 = add nuw nsw i32 %190, %38
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds double, ptr %10, i64 %204
+  %205 = getelementptr inbounds nuw double, ptr %10, i64 %204
   %206 = load double, ptr %205, align 8, !tbaa !7
   %207 = fdiv double %206, %194
   %208 = call double @llvm.fmuladd.f64(double %207, double %202, double -1.000000e+00)
@@ -366,14 +366,14 @@ define void @dsptrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 251:                                              ; preds = %.thread28, %69, %66
   %.ph30 = phi i32 [ %38, %66 ], [ %38, %69 ], [ %178, %.thread28 ]
   %252 = zext nneg i32 %38 to i64
-  %253 = getelementptr inbounds i32, ptr %9, i64 %252
+  %253 = getelementptr inbounds nuw i32, ptr %9, i64 %252
   store i32 %.ph30, ptr %253, align 4, !tbaa !3
   br label %258
 
 .loopexit48:                                      ; preds = %248, %185
   %254 = sub nsw i32 0, %61
   %255 = zext nneg i32 %38 to i64
-  %256 = getelementptr inbounds i32, ptr %9, i64 %255
+  %256 = getelementptr inbounds nuw i32, ptr %9, i64 %255
   store i32 %254, ptr %256, align 4, !tbaa !3
   %257 = getelementptr i8, ptr %256, i64 -4
   store i32 %254, ptr %257, align 4, !tbaa !3
@@ -760,14 +760,14 @@ define void @dsptrf_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %.ph40 = phi i32 [ %275, %302 ], [ %275, %305 ], [ %427, %.thread38 ], [ %427, %430 ]
   %.ph41 = phi i32 [ %273, %302 ], [ %273, %305 ], [ %428, %.thread38 ], [ %428, %430 ]
   %525 = zext nneg i32 %275 to i64
-  %526 = getelementptr inbounds i32, ptr %9, i64 %525
+  %526 = getelementptr inbounds nuw i32, ptr %9, i64 %525
   store i32 %.ph40, ptr %526, align 4, !tbaa !3
   br label %531
 
 .loopexit:                                        ; preds = %521, %442
   %527 = sub nsw i32 0, %297
   %528 = zext nneg i32 %275 to i64
-  %529 = getelementptr inbounds i32, ptr %9, i64 %528
+  %529 = getelementptr inbounds nuw i32, ptr %9, i64 %528
   store i32 %527, ptr %529, align 4, !tbaa !3
   %530 = getelementptr i8, ptr %529, i64 4
   store i32 %527, ptr %530, align 4, !tbaa !3

@@ -51,29 +51,29 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @skl_update_scaler_crtc(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1488
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %3 = load i8, ptr %2, align 8, !range !6, !noundef !7
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %16, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1472
-  %7 = getelementptr inbounds i8, ptr %0, i64 1480
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %6, align 4
   %10 = sub i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 1484
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1484
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 1476
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1476
   %14 = load i32, ptr %13, align 4
   %15 = sub i32 %12, %14
   br label %23
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 520
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 534
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 534
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i32
   br label %23
@@ -81,22 +81,22 @@ define dso_local noundef range(i32 -22, 1) i32 @skl_update_scaler_crtc(ptr nocap
 23:                                               ; preds = %16, %5
   %24 = phi i32 [ %10, %5 ], [ %19, %16 ]
   %25 = phi i32 [ %15, %5 ], [ %22, %16 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 336
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %27 = load i8, ptr %26, align 8, !range !6, !noundef !7
   %28 = icmp eq i8 %27, 0
-  %29 = getelementptr inbounds i8, ptr %0, i64 1544
-  %30 = getelementptr inbounds i8, ptr %0, i64 840
-  %31 = getelementptr inbounds i8, ptr %0, i64 848
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1544
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr %30, align 4
   %34 = sub i32 %32, %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 852
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 844
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 844
   %38 = load i32, ptr %37, align 4
   %39 = sub i32 %36, %38
   %40 = icmp ne i8 %3, 0
-  %41 = tail call fastcc i32 @skl_update_scaler(ptr noundef %0, i1 noundef zeroext %28, i32 noundef 31, ptr noundef %29, i32 noundef %34, i32 noundef %39, i32 noundef %24, i32 noundef %25, ptr noundef null, i64 noundef 0, i1 noundef zeroext %40), !range !8
+  %41 = tail call fastcc i32 @skl_update_scaler(ptr noundef %0, i1 noundef zeroext %28, i32 noundef 31, ptr noundef nonnull %29, i32 noundef %34, i32 noundef %39, i32 noundef %24, i32 noundef %25, ptr noundef null, i64 noundef 0, i1 noundef zeroext %40), !range !8
   ret i32 %41
 }
 
@@ -105,37 +105,37 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr nocapture noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, i64 noundef %9, i1 noundef zeroext %10) unnamed_addr #0 align 16 {
-  %12 = getelementptr inbounds i8, ptr %0, i64 1524
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1524
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 840
-  %16 = getelementptr inbounds i8, ptr %0, i64 848
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %17 = load i32, ptr %16, align 4
   %18 = load i32, ptr %15, align 4
   %19 = sub i32 %17, %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 852
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 844
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 844
   %23 = load i32, ptr %22, align 4
   %24 = sub i32 %21, %23
   %25 = icmp ne i32 %4, %6
   %26 = icmp ne i32 %5, %7
   %27 = or i1 %25, %26
   %28 = or i1 %27, %10
-  %29 = getelementptr inbounds i8, ptr %14, i64 2632
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 2632
   %30 = load i16, ptr %29, align 8
   %31 = icmp ugt i16 %30, 8
   br i1 %31, label %32, label %49
 
 32:                                               ; preds = %11
-  %33 = getelementptr inbounds i8, ptr %0, i64 337
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 337
   %34 = load i8, ptr %33, align 1, !range !6, !noundef !7
   %35 = icmp ne i8 %34, 0
   %36 = and i1 %28, %35
   br i1 %36, label %37, label %49
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 632
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 16
   %41 = icmp eq i32 %40, 0
@@ -146,7 +146,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr noca
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %14, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %46 = load ptr, ptr %45, align 8
   br label %47
 
@@ -168,7 +168,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr noca
 55:                                               ; preds = %52
   %56 = shl nuw i32 1, %2
   %57 = xor i32 %56, -1
-  %58 = getelementptr inbounds i8, ptr %0, i64 1540
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1540
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, %57
   store i32 %60, ptr %58, align 4
@@ -180,13 +180,13 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr noca
   br i1 %64, label %68, label %65
 
 65:                                               ; preds = %55
-  %66 = getelementptr inbounds i8, ptr %14, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %67 = load ptr, ptr %66, align 8
   br label %68
 
 68:                                               ; preds = %65, %55
   %69 = phi ptr [ %67, %65 ], [ null, %55 ]
-  %70 = getelementptr inbounds i8, ptr %13, i64 1648
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 1648
   %71 = load i32, ptr %70, align 8
   %72 = load i32, ptr %3, align 4
   %73 = load i32, ptr %58, align 4
@@ -213,7 +213,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr noca
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %14, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %86 = load ptr, ptr %85, align 8
   br label %87
 
@@ -262,13 +262,13 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr noca
   br i1 %117, label %121, label %118
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %14, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %120 = load ptr, ptr %119, align 8
   br label %121
 
 121:                                              ; preds = %118, %116
   %122 = phi ptr [ %120, %118 ], [ null, %116 ]
-  %123 = getelementptr inbounds i8, ptr %13, i64 1648
+  %123 = getelementptr inbounds nuw i8, ptr %13, i64 1648
   %124 = load i32, ptr %123, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %122, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %124, i32 noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #7
   br label %151
@@ -284,20 +284,20 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr noca
   br i1 %130, label %134, label %131
 
 131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %14, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %133 = load ptr, ptr %132, align 8
   br label %134
 
 134:                                              ; preds = %131, %129
   %135 = phi ptr [ %133, %131 ], [ null, %129 ]
-  %136 = getelementptr inbounds i8, ptr %13, i64 1648
+  %136 = getelementptr inbounds nuw i8, ptr %13, i64 1648
   %137 = load i32, ptr %136, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %135, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %137, i32 noundef %2, i32 noundef %19, i32 noundef %24) #7
   br label %151
 
 138:                                              ; preds = %125
   %139 = shl nuw i32 1, %2
-  %140 = getelementptr inbounds i8, ptr %0, i64 1540
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 1540
   %141 = load i32, ptr %140, align 4
   %142 = or i32 %141, %139
   store i32 %142, ptr %140, align 4
@@ -305,13 +305,13 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_update_scaler(ptr noca
   br i1 %143, label %147, label %144
 
 144:                                              ; preds = %138
-  %145 = getelementptr inbounds i8, ptr %14, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %146 = load ptr, ptr %145, align 8
   br label %147
 
 147:                                              ; preds = %144, %138
   %148 = phi ptr [ %146, %144 ], [ null, %138 ]
-  %149 = getelementptr inbounds i8, ptr %13, i64 1648
+  %149 = getelementptr inbounds nuw i8, ptr %13, i64 1648
   %150 = load i32, ptr %149, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %148, i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef %150, i32 noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %142) #7
   br label %151
@@ -328,30 +328,30 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local noundef range(i32 -22, 1) i32 @skl_update_scaler_plane(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %11
 
 .thread:                                          ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 1324
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 1324
   %9 = load i32, ptr %8, align 4
   %10 = tail call zeroext i1 @icl_is_hdr_plane(ptr noundef %4, i32 noundef %9) #7
   br label %24
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 140
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %14 = icmp eq i8 %13, 0
-  %15 = getelementptr inbounds i8, ptr %3, i64 1324
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 1324
   %16 = load i32, ptr %15, align 4
   %17 = tail call zeroext i1 @icl_is_hdr_plane(ptr noundef %4, i32 noundef %16) #7
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %6, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %22 = load i64, ptr %21, align 8
   %23 = tail call zeroext i1 @intel_format_info_is_yuv_semiplanar(ptr noundef %20, i64 noundef %22) #7
   br label %24
@@ -359,44 +359,44 @@ define dso_local noundef range(i32 -22, 1) i32 @skl_update_scaler_plane(ptr noca
 24:                                               ; preds = %.thread, %18, %11
   %25 = phi i1 [ %14, %11 ], [ %14, %18 ], [ true, %.thread ]
   %26 = phi i1 [ false, %11 ], [ %23, %18 ], [ false, %.thread ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 1228
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 1228
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 392
-  %30 = getelementptr inbounds i8, ptr %1, i64 108
-  %31 = getelementptr inbounds i8, ptr %1, i64 116
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 392
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr %30, align 4
   %34 = sub i32 %32, %33
   %35 = ashr i32 %34, 16
-  %36 = getelementptr inbounds i8, ptr %1, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %39 = load i32, ptr %38, align 4
   %40 = sub i32 %37, %39
   %41 = ashr i32 %40, 16
-  %42 = getelementptr inbounds i8, ptr %1, i64 124
-  %43 = getelementptr inbounds i8, ptr %1, i64 132
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %44 = load i32, ptr %43, align 4
   %45 = load i32, ptr %42, align 4
   %46 = sub i32 %44, %45
-  %47 = getelementptr inbounds i8, ptr %1, i64 136
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 128
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %50 = load i32, ptr %49, align 4
   %51 = sub i32 %48, %50
   br i1 %7, label %.thread5, label %52
 
 52:                                               ; preds = %24
-  %53 = getelementptr inbounds i8, ptr %6, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 120
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %56 = load i64, ptr %55, align 8
   br label %.thread5
 
 .thread5:                                         ; preds = %24, %52
   %57 = phi ptr [ %54, %52 ], [ null, %24 ]
   %58 = phi i64 [ %56, %52 ], [ 0, %24 ]
-  %59 = tail call fastcc i32 @skl_update_scaler(ptr noundef %0, i1 noundef zeroext %25, i32 noundef %28, ptr noundef %29, i32 noundef %35, i32 noundef %41, i32 noundef %46, i32 noundef %51, ptr noundef %57, i64 noundef %58, i1 noundef zeroext %26), !range !8
+  %59 = tail call fastcc i32 @skl_update_scaler(ptr noundef %0, i1 noundef zeroext %25, i32 noundef %28, ptr noundef nonnull %29, i32 noundef %35, i32 noundef %41, i32 noundef %46, i32 noundef %51, ptr noundef %57, i64 noundef %58, i1 noundef zeroext %26), !range !8
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %100
 
@@ -406,7 +406,7 @@ define dso_local noundef range(i32 -22, 1) i32 @skl_update_scaler_plane(ptr noca
   br i1 %63, label %100, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %1, i64 428
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 428
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %79, label %68
@@ -416,21 +416,21 @@ define dso_local noundef range(i32 -22, 1) i32 @skl_update_scaler_plane(ptr noca
   br i1 %69, label %73, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %4, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %72 = load ptr, ptr %71, align 8
   br label %73
 
 73:                                               ; preds = %70, %68
   %74 = phi ptr [ %72, %70 ], [ null, %68 ]
-  %75 = getelementptr inbounds i8, ptr %3, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %78 = load ptr, ptr %77, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %74, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %76, ptr noundef %78) #7
   br label %100
 
 79:                                               ; preds = %64
-  %80 = getelementptr inbounds i8, ptr %6, i64 72
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %81 = load ptr, ptr %80, align 8
   %82 = load i32, ptr %81, align 4
   switch i32 %82, label %87 [
@@ -465,7 +465,7 @@ define dso_local noundef range(i32 -22, 1) i32 @skl_update_scaler_plane(ptr noca
   ]
 
 83:                                               ; preds = %79, %79, %79, %79
-  %84 = getelementptr inbounds i8, ptr %4, i64 2632
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 2632
   %85 = load i16, ptr %84, align 8
   %86 = icmp ugt i16 %85, 10
   br i1 %86, label %100, label %87
@@ -475,17 +475,17 @@ define dso_local noundef range(i32 -22, 1) i32 @skl_update_scaler_plane(ptr noca
   br i1 %88, label %92, label %89
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %4, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %91 = load ptr, ptr %90, align 8
   br label %92
 
 92:                                               ; preds = %89, %87
   %93 = phi ptr [ %91, %89 ], [ null, %87 ]
-  %94 = getelementptr inbounds i8, ptr %3, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %3, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %6, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %99 = load i32, ptr %98, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %93, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %95, ptr noundef %97, i32 noundef %99, i32 noundef %82) #7
   br label %100
@@ -506,25 +506,25 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 1524
-  %5 = getelementptr inbounds i8, ptr %2, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1524
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1540
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1540
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %8) #8, !srcloc !9
-  %10 = getelementptr inbounds i8, ptr %1, i64 2048
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %9, %11
   br i1 %12, label %22, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 2632
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %16 = icmp eq ptr %0, null
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 1648
-  %19 = getelementptr inbounds i8, ptr %1, i64 96
-  %20 = getelementptr inbounds i8, ptr %2, i64 1544
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1648
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 1544
   %21 = icmp eq i32 %9, 1
   br label %29
 
@@ -533,7 +533,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -582,7 +582,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
 
 .thread35:                                        ; preds = %50, %51
   %53 = phi ptr [ %52, %51 ], [ null, %50 ]
-  %54 = getelementptr inbounds i8, ptr %47, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %55 = load i32, ptr %54, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %53, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %55) #7
   %56 = ptrtoint ptr %48 to i64
@@ -591,7 +591,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
 
 58:                                               ; preds = %46, %38
   %59 = phi ptr [ %41, %38 ], [ %47, %46 ]
-  %60 = getelementptr inbounds i8, ptr %59, i64 1328
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1328
   %61 = load i32, ptr %60, align 8
   %62 = load i32, ptr %18, align 8
   %63 = icmp eq i32 %61, %62
@@ -602,7 +602,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
   %65 = load ptr, ptr %17, align 8
   %66 = tail call ptr @dev_driver_string(ptr noundef %65) #7
   %67 = load ptr, ptr %17, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 80
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 80
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %73
@@ -621,14 +621,14 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
   br label %.thread32
 
 75:                                               ; preds = %58
-  %76 = getelementptr inbounds i8, ptr %59, i64 88
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 88
   %77 = load ptr, ptr %14, align 8
-  %78 = getelementptr inbounds i8, ptr %59, i64 1228
+  %78 = getelementptr inbounds nuw i8, ptr %59, i64 1228
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
   %81 = getelementptr %struct.__drm_planes_state, ptr %77, i64 %80, i32 3
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 392
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 392
   br label %84
 
 84:                                               ; preds = %75, %36
@@ -678,11 +678,11 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
 
 .thread22:                                        ; preds = %93, %.loopexit
   tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #7, !srcloc !20
-  %110 = getelementptr inbounds i8, ptr %90, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = tail call ptr @dev_driver_string(ptr noundef %111) #7
   %113 = load ptr, ptr %110, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 80
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 80
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %115, null
   br i1 %116, label %117, label %119
@@ -706,46 +706,46 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
   br i1 %122, label %157, label %123
 
 123:                                              ; preds = %.thread23
-  %124 = getelementptr inbounds i8, ptr %85, i64 184
+  %124 = getelementptr inbounds nuw i8, ptr %85, i64 184
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %157, label %127
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %125, i64 72
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 72
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 21
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 21
   %131 = load i8, ptr %130, align 1, !range !6, !noundef !7
   %132 = icmp eq i8 %131, 0
   br i1 %132, label %157, label %133
 
 133:                                              ; preds = %127
-  %134 = getelementptr inbounds i8, ptr %129, i64 5
+  %134 = getelementptr inbounds nuw i8, ptr %129, i64 5
   %135 = load i8, ptr %134, align 1
   %136 = icmp ugt i8 %135, 1
   br i1 %136, label %137, label %157
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds i8, ptr %90, i64 2632
+  %138 = getelementptr inbounds nuw i8, ptr %90, i64 2632
   %139 = load i16, ptr %138, align 8
   %140 = icmp eq i16 %139, 9
   br i1 %140, label %.thread26, label %141
 
 141:                                              ; preds = %137
   %142 = load ptr, ptr %85, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 1324
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 1324
   %144 = load i32, ptr %143, align 4
   %145 = tail call zeroext i1 @icl_is_hdr_plane(ptr noundef %90, i32 noundef %144) #7
   br i1 %145, label %.thread26, label %146
 
 146:                                              ; preds = %141
-  %147 = getelementptr inbounds i8, ptr %85, i64 400
+  %147 = getelementptr inbounds nuw i8, ptr %85, i64 400
   %148 = load ptr, ptr %147, align 8
   %149 = icmp eq ptr %148, null
   br i1 %149, label %.thread26, label %150
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %148, i64 1324
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 1324
   %152 = load i32, ptr %151, align 4
   %153 = shl i32 %152, 5
   %154 = add i32 %153, 32
@@ -754,7 +754,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
   br label %.thread26
 
 157:                                              ; preds = %133, %127, %123, %.thread23
-  %158 = getelementptr inbounds i8, ptr %90, i64 2632
+  %158 = getelementptr inbounds nuw i8, ptr %90, i64 2632
   %159 = load i16, ptr %158, align 8
   %160 = icmp ult i16 %159, 10
   %161 = and i1 %21, %160
@@ -779,15 +779,15 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
 
 .thread26:                                        ; preds = %137, %141, %146, %150, %168
   %170 = phi i32 [ %169, %168 ], [ 536870912, %146 ], [ %156, %150 ], [ 0, %141 ], [ 536870912, %137 ]
-  %171 = getelementptr inbounds i8, ptr %85, i64 184
+  %171 = getelementptr inbounds nuw i8, ptr %85, i64 184
   %172 = load ptr, ptr %171, align 8
   %173 = icmp eq ptr %172, null
   br i1 %173, label %209, label %174
 
 174:                                              ; preds = %.thread26
-  %175 = getelementptr inbounds i8, ptr %85, i64 108
-  %176 = getelementptr inbounds i8, ptr %85, i64 124
-  %177 = getelementptr inbounds i8, ptr %90, i64 2632
+  %175 = getelementptr inbounds nuw i8, ptr %85, i64 108
+  %176 = getelementptr inbounds nuw i8, ptr %85, i64 124
+  %177 = getelementptr inbounds nuw i8, ptr %90, i64 2632
   %178 = load i16, ptr %177, align 8
   %179 = icmp ugt i16 %178, 13
   br i1 %179, label %180, label %184
@@ -803,9 +803,9 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
   br i1 %185, label %193, label %186
 
 186:                                              ; preds = %184
-  %187 = getelementptr inbounds i8, ptr %172, i64 72
+  %187 = getelementptr inbounds nuw i8, ptr %172, i64 72
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %172, i64 120
+  %189 = getelementptr inbounds nuw i8, ptr %172, i64 120
   %190 = load i64, ptr %189, align 8
   %191 = tail call zeroext i1 @intel_format_info_is_yuv_semiplanar(ptr noundef %188, i64 noundef %190) #7
   %192 = select i1 %191, i32 131071, i32 196607
@@ -814,8 +814,8 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
 193:                                              ; preds = %186, %184, %180
   %194 = phi i32 [ %183, %180 ], [ 196607, %184 ], [ %192, %186 ]
   %195 = phi i32 [ 196607, %180 ], [ 196607, %184 ], [ %192, %186 ]
-  %196 = tail call i32 @drm_rect_calc_hscale(ptr noundef %175, ptr noundef %176, i32 noundef 1, i32 noundef %195) #7
-  %197 = tail call i32 @drm_rect_calc_vscale(ptr noundef %175, ptr noundef %176, i32 noundef 1, i32 noundef %194) #7
+  %196 = tail call i32 @drm_rect_calc_hscale(ptr noundef nonnull %175, ptr noundef nonnull %176, i32 noundef 1, i32 noundef %195) #7
+  %197 = tail call i32 @drm_rect_calc_vscale(ptr noundef nonnull %175, ptr noundef nonnull %176, i32 noundef 1, i32 noundef %194) #7
   %198 = icmp sgt i32 %196, -1
   %199 = icmp sgt i32 %197, -1
   %200 = select i1 %198, i1 %199, i1 false
@@ -826,7 +826,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
   br i1 %202, label %206, label %203
 
 203:                                              ; preds = %201
-  %204 = getelementptr inbounds i8, ptr %90, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %205 = load ptr, ptr %204, align 8
   br label %206
 
@@ -834,8 +834,8 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
   %207 = phi ptr [ %205, %203 ], [ null, %201 ]
   %208 = load i32, ptr %86, align 4
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %207, i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %208) #7
-  tail call void @drm_rect_debug_print(ptr noundef nonnull @.str.18, ptr noundef %175, i1 noundef zeroext true) #7
-  tail call void @drm_rect_debug_print(ptr noundef nonnull @.str.19, ptr noundef %176, i1 noundef zeroext false) #7
+  tail call void @drm_rect_debug_print(ptr noundef nonnull @.str.18, ptr noundef nonnull %175, i1 noundef zeroext true) #7
+  tail call void @drm_rect_debug_print(ptr noundef nonnull @.str.19, ptr noundef nonnull %176, i1 noundef zeroext false) #7
   br label %.thread34
 
 209:                                              ; preds = %193, %.thread26, %168
@@ -844,7 +844,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr nocapture n
   br i1 %211, label %215, label %212
 
 212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %90, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %214 = load ptr, ptr %213, align 8
   br label %215
 
@@ -888,38 +888,38 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   %2 = alloca %struct.drm_rect, align 4
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1472
-  %6 = getelementptr inbounds i8, ptr %3, i64 1648
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1648
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1480
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %5, align 4
   %11 = sub i32 %9, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 1484
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1484
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 1476
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1476
   %15 = load i32, ptr %14, align 4
   %16 = sub i32 %13, %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
-  %17 = getelementptr inbounds i8, ptr %0, i64 1488
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %18 = load i8, ptr %17, align 8, !range !6, !noundef !7
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %261, label %20
 
 20:                                               ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !26
-  %21 = getelementptr inbounds i8, ptr %0, i64 1544
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1544
   %22 = load i32, ptr %21, align 4
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %36, !prof !27
 
 24:                                               ; preds = %20
   tail call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #7, !srcloc !28
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @dev_driver_string(ptr noundef %26) #7
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %34
@@ -938,24 +938,24 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   br label %261
 
 36:                                               ; preds = %20
-  %37 = getelementptr inbounds i8, ptr %0, i64 840
-  %38 = getelementptr inbounds i8, ptr %0, i64 848
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %37, align 4
   %41 = sub i32 %39, %40
   %42 = shl i32 %41, 16
-  %43 = getelementptr inbounds i8, ptr %0, i64 852
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 852
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 844
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 844
   %46 = load i32, ptr %45, align 4
   %47 = sub i32 %44, %46
   %48 = shl i32 %47, 16
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %42, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %2, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %48, ptr %50, align 4
-  %51 = call i32 @drm_rect_calc_hscale(ptr noundef nonnull %2, ptr noundef %5, i32 noundef 0, i32 noundef 2147483647) #7
-  %52 = call i32 @drm_rect_calc_vscale(ptr noundef nonnull %2, ptr noundef %5, i32 noundef 0, i32 noundef 2147483647) #7
+  %51 = call i32 @drm_rect_calc_hscale(ptr noundef nonnull %2, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 2147483647) #7
+  %52 = call i32 @drm_rect_calc_vscale(ptr noundef nonnull %2, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 2147483647) #7
   %53 = sdiv i32 %51, 2
   %54 = icmp ugt i32 %53, 131072
   br i1 %54, label %55, label %56, !prof !27
@@ -998,7 +998,7 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   %77 = getelementptr i8, ptr %0, i64 1528
   %78 = getelementptr i8, ptr %77, i64 %.idx
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %0, i64 728
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, 1
   %83 = select i1 %82, i32 8388608, i32 0
@@ -1030,7 +1030,7 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %99, label %104, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %98, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %102, i1 noundef zeroext true, i32 %89, i64 noundef %90, i32 noundef 4, i1 noundef zeroext true) #7
   br label %104
@@ -1054,14 +1054,14 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %112, label %113, label %117
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %4, i64 7404
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %115 = load i32, ptr %114, align 4
   %116 = add i32 %115, %89
   br label %117
 
 117:                                              ; preds = %113, %111
   %118 = phi i32 [ %116, %113 ], [ %89, %111 ]
-  %119 = getelementptr inbounds i8, ptr %4, i64 7368
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 7368
   %120 = load ptr, ptr %119, align 8
   %121 = zext i32 %118 to i64
   %122 = getelementptr i8, ptr %120, i64 %121
@@ -1088,7 +1088,7 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %133, label %138, label %134
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %132, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %136 = load ptr, ptr %135, align 8
   %137 = call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %136, i1 noundef zeroext true, i32 %123, i64 noundef %124, i32 noundef 4, i1 noundef zeroext true) #7
   br label %138
@@ -1112,7 +1112,7 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %146, label %147, label %151
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %4, i64 7404
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %149 = load i32, ptr %148, align 4
   %150 = add i32 %149, %123
   br label %151
@@ -1145,7 +1145,7 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %166, label %171, label %167
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %165, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %169 = load ptr, ptr %168, align 8
   %170 = call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %169, i1 noundef zeroext true, i32 %156, i64 noundef %157, i32 noundef 4, i1 noundef zeroext true) #7
   br label %171
@@ -1169,7 +1169,7 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %179, label %180, label %184
 
 180:                                              ; preds = %178
-  %181 = getelementptr inbounds i8, ptr %4, i64 7404
+  %181 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %182 = load i32, ptr %181, align 4
   %183 = add i32 %182, %156
   br label %184
@@ -1205,7 +1205,7 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %202, label %207, label %203
 
 203:                                              ; preds = %200
-  %204 = getelementptr inbounds i8, ptr %201, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %205 = load ptr, ptr %204, align 8
   %206 = call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %205, i1 noundef zeroext true, i32 %189, i64 noundef %193, i32 noundef 4, i1 noundef zeroext true) #7
   br label %207
@@ -1229,7 +1229,7 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %215, label %216, label %220
 
 216:                                              ; preds = %214
-  %217 = getelementptr inbounds i8, ptr %4, i64 7404
+  %217 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %218 = load i32, ptr %217, align 4
   %219 = add i32 %218, %189
   br label %220
@@ -1265,7 +1265,7 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %238, label %243, label %239
 
 239:                                              ; preds = %236
-  %240 = getelementptr inbounds i8, ptr %237, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %241 = load ptr, ptr %240, align 8
   %242 = call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %241, i1 noundef zeroext true, i32 %225, i64 noundef %229, i32 noundef 4, i1 noundef zeroext true) #7
   br label %243
@@ -1289,7 +1289,7 @@ define dso_local void @skl_pfit_enable(ptr noundef %0) local_unnamed_addr #0 ali
   br i1 %251, label %252, label %256
 
 252:                                              ; preds = %250
-  %253 = getelementptr inbounds i8, ptr %4, i64 7404
+  %253 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %254 = load i32, ptr %253, align 4
   %255 = add i32 %254, %225
   br label %256
@@ -1348,7 +1348,7 @@ define internal fastcc void @skl_scaler_setup_filter(ptr nocapture noundef reado
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %21, i1 noundef zeroext true, i32 %9, i64 noundef 1024, i32 noundef 4, i1 noundef zeroext true) #7
   br label %23
@@ -1372,21 +1372,21 @@ define internal fastcc void @skl_scaler_setup_filter(ptr nocapture noundef reado
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 7404
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 7404
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, %9
   br label %36
 
 36:                                               ; preds = %32, %30
   %37 = phi i32 [ %35, %32 ], [ %9, %30 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 7368
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %37 to i64
   %41 = getelementptr i8, ptr %39, i64 %40
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1024, ptr elementtype(i32) %41) #7, !srcloc !44
   %42 = add i32 %8, 426396
   %43 = icmp ult i32 %42, 262144
-  %44 = getelementptr inbounds i8, ptr %0, i64 7404
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 7404
   br label %45
 
 45:                                               ; preds = %79, %36
@@ -1421,7 +1421,7 @@ define internal fastcc void @skl_scaler_setup_filter(ptr nocapture noundef reado
   br i1 %63, label %68, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %62, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %66, i1 noundef zeroext true, i32 %42, i64 noundef %54, i32 noundef 4, i1 noundef zeroext true) #7
   br label %68
@@ -1479,7 +1479,7 @@ define internal fastcc void @skl_scaler_setup_filter(ptr nocapture noundef reado
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %94, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %98, i1 noundef zeroext true, i32 %9, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #7
   br label %100
@@ -1531,34 +1531,34 @@ define internal fastcc void @skl_scaler_setup_filter(ptr nocapture noundef reado
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1328
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 392
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 392
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 124
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 132
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 132
   %16 = load i32, ptr %15, align 4
   %17 = sub i32 %16, %12
-  %18 = getelementptr inbounds i8, ptr %2, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %19 = load i32, ptr %18, align 4
   %20 = sub i32 %19, %14
-  %21 = getelementptr inbounds i8, ptr %2, i64 108
-  %22 = tail call i32 @drm_rect_calc_hscale(ptr noundef %21, ptr noundef %11, i32 noundef 0, i32 noundef 2147483647) #7
-  %23 = tail call i32 @drm_rect_calc_vscale(ptr noundef %21, ptr noundef %11, i32 noundef 0, i32 noundef 2147483647) #7
-  %24 = getelementptr inbounds i8, ptr %6, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 108
+  %22 = tail call i32 @drm_rect_calc_hscale(ptr noundef nonnull %21, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 2147483647) #7
+  %23 = tail call i32 @drm_rect_calc_vscale(ptr noundef nonnull %21, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 2147483647) #7
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %27 = load i64, ptr %26, align 8
   %28 = tail call zeroext i1 @intel_format_info_is_yuv_semiplanar(ptr noundef %25, i64 noundef %27) #7
   br i1 %28, label %29, label %79
 
 29:                                               ; preds = %3
-  %30 = getelementptr inbounds i8, ptr %0, i64 1324
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   %31 = load i32, ptr %30, align 4
   %32 = tail call zeroext i1 @icl_is_hdr_plane(ptr noundef %4, i32 noundef %31) #7
   br i1 %32, label %79, label %33
@@ -1684,7 +1684,7 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   %105 = phi i32 [ 0, %94 ], [ %77, %69 ]
   %106 = phi i32 [ %101, %94 ], [ %76, %69 ]
   %107 = sext i32 %10 to i64
-  %108 = getelementptr inbounds i8, ptr %0, i64 1324
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   %109 = load i32, ptr %108, align 4
   %110 = shl i32 %109, 25
   %111 = add i32 %110, 33554432
@@ -1693,7 +1693,7 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   %113 = getelementptr i8, ptr %1, i64 1528
   %114 = getelementptr i8, ptr %113, i64 %.idx
   %115 = load i32, ptr %114, align 4
-  %116 = getelementptr inbounds i8, ptr %2, i64 208
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %117, 1
   %119 = select i1 %118, i32 8388608, i32 0
@@ -1726,7 +1726,7 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   br i1 %136, label %141, label %137
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %135, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %139 = load ptr, ptr %138, align 8
   %140 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %139, i1 noundef zeroext true, i32 %126, i64 noundef %127, i32 noundef 4, i1 noundef zeroext true) #7
   br label %141
@@ -1750,14 +1750,14 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   br i1 %149, label %150, label %154
 
 150:                                              ; preds = %148
-  %151 = getelementptr inbounds i8, ptr %4, i64 7404
+  %151 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %152 = load i32, ptr %151, align 4
   %153 = add i32 %152, %126
   br label %154
 
 154:                                              ; preds = %150, %148
   %155 = phi i32 [ %153, %150 ], [ %126, %148 ]
-  %156 = getelementptr inbounds i8, ptr %4, i64 7368
+  %156 = getelementptr inbounds nuw i8, ptr %4, i64 7368
   %157 = load ptr, ptr %156, align 8
   %158 = zext i32 %155 to i64
   %159 = getelementptr i8, ptr %157, i64 %158
@@ -1785,7 +1785,7 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   br i1 %171, label %176, label %172
 
 172:                                              ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %170, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %174 = load ptr, ptr %173, align 8
   %175 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %174, i1 noundef zeroext true, i32 %160, i64 noundef %162, i32 noundef 4, i1 noundef zeroext true) #7
   br label %176
@@ -1809,7 +1809,7 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   br i1 %184, label %185, label %189
 
 185:                                              ; preds = %183
-  %186 = getelementptr inbounds i8, ptr %4, i64 7404
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %187 = load i32, ptr %186, align 4
   %188 = add i32 %187, %160
   br label %189
@@ -1843,7 +1843,7 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   br i1 %205, label %210, label %206
 
 206:                                              ; preds = %203
-  %207 = getelementptr inbounds i8, ptr %204, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %208 = load ptr, ptr %207, align 8
   %209 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %208, i1 noundef zeroext true, i32 %194, i64 noundef %196, i32 noundef 4, i1 noundef zeroext true) #7
   br label %210
@@ -1867,7 +1867,7 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   br i1 %218, label %219, label %223
 
 219:                                              ; preds = %217
-  %220 = getelementptr inbounds i8, ptr %4, i64 7404
+  %220 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %221 = load i32, ptr %220, align 4
   %222 = add i32 %221, %194
   br label %223
@@ -1903,7 +1903,7 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   br i1 %241, label %246, label %242
 
 242:                                              ; preds = %239
-  %243 = getelementptr inbounds i8, ptr %240, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %244 = load ptr, ptr %243, align 8
   %245 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %244, i1 noundef zeroext true, i32 %228, i64 noundef %232, i32 noundef 4, i1 noundef zeroext true) #7
   br label %246
@@ -1927,7 +1927,7 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   br i1 %254, label %255, label %259
 
 255:                                              ; preds = %253
-  %256 = getelementptr inbounds i8, ptr %4, i64 7404
+  %256 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %257 = load i32, ptr %256, align 4
   %258 = add i32 %257, %228
   br label %259
@@ -1963,7 +1963,7 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   br i1 %277, label %282, label %278
 
 278:                                              ; preds = %275
-  %279 = getelementptr inbounds i8, ptr %276, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %276, i64 8
   %280 = load ptr, ptr %279, align 8
   %281 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %280, i1 noundef zeroext true, i32 %264, i64 noundef %268, i32 noundef 4, i1 noundef zeroext true) #7
   br label %282
@@ -1987,7 +1987,7 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
   br i1 %290, label %291, label %295
 
 291:                                              ; preds = %289
-  %292 = getelementptr inbounds i8, ptr %4, i64 7404
+  %292 = getelementptr inbounds nuw i8, ptr %4, i64 7404
   %293 = load i32, ptr %292, align 4
   %294 = add i32 %293, %264
   br label %295
@@ -2004,8 +2004,8 @@ define dso_local void @skl_program_plane_scaler(ptr nocapture noundef readonly %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @skl_detach_scalers(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1524
-  %4 = getelementptr inbounds i8, ptr %2, i64 2048
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1524
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 2048
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.preheader, label %.loopexit
@@ -2040,7 +2040,7 @@ define internal fastcc void @skl_detach_scaler(ptr nocapture noundef readonly %0
   %3 = load ptr, ptr %0, align 8
   %4 = shl i32 %1, 8
   %5 = add i32 %4, 426368
-  %6 = getelementptr inbounds i8, ptr %0, i64 1648
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %7 = load i32, ptr %6, align 8
   %8 = shl i32 %7, 11
   %9 = add i32 %5, %8
@@ -2064,7 +2064,7 @@ define internal fastcc void @skl_detach_scaler(ptr nocapture noundef readonly %0
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %21, i1 noundef zeroext true, i32 %9, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #7
   br label %23
@@ -2088,14 +2088,14 @@ define internal fastcc void @skl_detach_scaler(ptr nocapture noundef readonly %0
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %3, i64 7404
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, %9
   br label %36
 
 36:                                               ; preds = %32, %30
   %37 = phi i32 [ %35, %32 ], [ %9, %30 ]
-  %38 = getelementptr inbounds i8, ptr %3, i64 7368
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 7368
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %37 to i64
   %41 = getelementptr i8, ptr %39, i64 %40
@@ -2124,7 +2124,7 @@ define internal fastcc void @skl_detach_scaler(ptr nocapture noundef readonly %0
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %57, i1 noundef zeroext true, i32 %45, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #7
   br label %59
@@ -2148,7 +2148,7 @@ define internal fastcc void @skl_detach_scaler(ptr nocapture noundef readonly %0
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %3, i64 7404
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, %45
   br label %72
@@ -2183,7 +2183,7 @@ define internal fastcc void @skl_detach_scaler(ptr nocapture noundef readonly %0
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %88, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 @__SCT__tp_func_i915_reg_rw(ptr noundef %92, i1 noundef zeroext true, i32 %80, i64 noundef 0, i32 noundef 4, i1 noundef zeroext true) #7
   br label %94
@@ -2207,7 +2207,7 @@ define internal fastcc void @skl_detach_scaler(ptr nocapture noundef readonly %0
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %3, i64 7404
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 7404
   %105 = load i32, ptr %104, align 4
   %106 = add i32 %105, %80
   br label %107
@@ -2224,7 +2224,7 @@ define internal fastcc void @skl_detach_scaler(ptr nocapture noundef readonly %0
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @skl_scaler_disable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 2048
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2048
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.preheader, label %.loopexit
@@ -2244,22 +2244,22 @@ define dso_local void @skl_scaler_disable(ptr nocapture noundef readonly %0) loc
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @skl_scaler_get_config(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1524
-  %4 = getelementptr inbounds i8, ptr %2, i64 2048
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1524
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 2048
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 1648
-  %10 = getelementptr inbounds i8, ptr %8, i64 7368
-  %11 = getelementptr inbounds i8, ptr %8, i64 7512
-  %12 = getelementptr inbounds i8, ptr %0, i64 1472
-  %13 = getelementptr inbounds i8, ptr %0, i64 1488
-  %14 = getelementptr inbounds i8, ptr %0, i64 1476
-  %15 = getelementptr inbounds i8, ptr %0, i64 1480
-  %16 = getelementptr inbounds i8, ptr %0, i64 1484
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 1648
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 7368
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 7512
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1488
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1476
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1484
   br label %22
 
 17:                                               ; preds = %22
@@ -2278,7 +2278,7 @@ define dso_local void @skl_scaler_get_config(ptr nocapture noundef %0) local_unn
   %28 = shl i32 %27, 11
   %29 = add i32 %26, %28
   %30 = load ptr, ptr %11, align 8
-  %31 = tail call i32 %30(ptr noundef %10, i32 %29, i1 noundef zeroext true) #7
+  %31 = tail call i32 %30(ptr noundef nonnull %10, i32 %29, i1 noundef zeroext true) #7
   %32 = and i32 %31, -1912602624
   %33 = icmp eq i32 %32, -2147483648
   br i1 %33, label %.thread, label %17
@@ -2290,13 +2290,13 @@ define dso_local void @skl_scaler_get_config(ptr nocapture noundef %0) local_unn
   %36 = shl i32 %35, 11
   %37 = add i32 %34, %36
   %38 = load ptr, ptr %11, align 8
-  %39 = tail call i32 %38(ptr noundef %10, i32 %37, i1 noundef zeroext true) #7
+  %39 = tail call i32 %38(ptr noundef nonnull %10, i32 %37, i1 noundef zeroext true) #7
   %40 = add i32 %25, 426356
   %41 = load i32, ptr %9, align 8
   %42 = shl i32 %41, 11
   %43 = add i32 %40, %42
   %44 = load ptr, ptr %11, align 8
-  %45 = tail call i32 %44(ptr noundef %10, i32 %43, i1 noundef zeroext true) #7
+  %45 = tail call i32 %44(ptr noundef nonnull %10, i32 %43, i1 noundef zeroext true) #7
   %46 = lshr i32 %39, 16
   %47 = and i32 %39, 65535
   %48 = lshr i32 %45, 16
@@ -2313,9 +2313,9 @@ define dso_local void @skl_scaler_get_config(ptr nocapture noundef %0) local_unn
 
 .loopexit:                                        ; preds = %17, %.thread, %1
   %53 = phi i32 [ -1, %1 ], [ %24, %.thread ], [ -1, %17 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 1544
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1544
   store i32 %53, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 1540
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1540
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 2147483647
   %58 = and i32 %53, -2147483648

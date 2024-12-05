@@ -32,15 +32,15 @@ define noundef range(i32 0, 2) i32 @_Z23gmx_parallel_3dfft_initPP18gmx_parallel_
   %9 = alloca [2 x ptr], align 16
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %1, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %9, align 16
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = load ptr, ptr %4, align 8
   store ptr %20, ptr %19, align 8
   %21 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 69, i64 noundef 1, i64 noundef 16)
@@ -53,7 +53,7 @@ define noundef range(i32 0, 2) i32 @_Z23gmx_parallel_3dfft_initPP18gmx_parallel_
   %25 = or disjoint i32 %24, 66
   %26 = call noundef ptr @_Z13fft5d_plan_3diiiPP10tmpi_comm_iPP9t_complexS4_S4_S4_iN3gmx13PinningPolicyE(i32 noundef %16, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %9, i32 noundef %25, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %6, i32 noundef 0)
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %26, ptr %28, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = load ptr, ptr %29, align 8
@@ -61,7 +61,7 @@ define noundef range(i32 0, 2) i32 @_Z23gmx_parallel_3dfft_initPP18gmx_parallel_
   br i1 %.not, label %36, label %31
 
 31:                                               ; preds = %8
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp ne ptr %33, null
   %35 = zext i1 %34 to i32
@@ -79,38 +79,38 @@ declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_Z30gmx_parallel_3dfft_real_limitsP18gmx_parallel_3dfftPiS1_S1_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture noundef writeonly initializes((0, 12)) %2, ptr nocapture noundef writeonly initializes((0, 12)) %3) local_unnamed_addr #2 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 164
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 164
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %2, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 284
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %5, i64 140
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 140
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %1, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 304
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 6
   %or.cond.not.i = icmp eq i32 %22, 4
-  %23 = getelementptr inbounds i8, ptr %5, i64 272
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %24 = load i32, ptr %23, align 8
   %25 = zext i1 %or.cond.not.i to i32
   %.sink.i = shl nsw i32 %24, %25
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink.i, ptr %26, align 4
   %27 = load i32, ptr %15, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %27, ptr %28, align 4
   %29 = load i32, ptr %18, align 4
   store i32 %29, ptr %3, align 4
@@ -120,44 +120,44 @@ define noundef i32 @_Z30gmx_parallel_3dfft_real_limitsP18gmx_parallel_3dfftPiS1_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_Z33gmx_parallel_3dfft_complex_limitsP18gmx_parallel_3dfftPiS1_S1_S1_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture noundef initializes((0, 12)) %2, ptr nocapture noundef initializes((0, 12)) %3, ptr nocapture noundef initializes((0, 12)) %4) local_unnamed_addr #2 {
   store i32 0, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 164
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 164
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %3, align 4
-  %16 = getelementptr inbounds i8, ptr %9, i64 284
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 284
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %9, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %9, i64 140
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 140
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %2, align 4
-  %24 = getelementptr inbounds i8, ptr %9, i64 304
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 304
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 6
   %or.cond.not.i = icmp eq i32 %26, 4
-  %27 = getelementptr inbounds i8, ptr %9, i64 272
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 272
   %28 = load i32, ptr %27, align 8
   %29 = zext i1 %or.cond.not.i to i32
   %.sink.i = shl nsw i32 %28, %29
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.sink.i, ptr %30, align 4
   %31 = load i32, ptr %19, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %31, ptr %32, align 4
   %33 = load i32, ptr %22, align 4
   store i32 %33, ptr %4, align 4
@@ -186,7 +186,7 @@ define noundef i32 @_Z33gmx_parallel_3dfft_complex_limitsP18gmx_parallel_3dfftPi
 define noundef i32 @_Z26gmx_parallel_3dfft_executeP18gmx_parallel_3dfft17gmx_fft_directioniP13gmx_wallcycle(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 304
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 304
   %8 = load i32, ptr %7, align 8
   %9 = icmp ult i32 %1, 2
   %10 = and i32 %8, 4
@@ -214,7 +214,7 @@ define noundef i32 @_Z26gmx_parallel_3dfft_executeP18gmx_parallel_3dfft17gmx_fft
   br i1 %or.cond, label %21, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   br label %21
 
@@ -239,7 +239,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #9
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -247,7 +247,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #9
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -298,7 +298,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -348,7 +348,7 @@ define noundef i32 @_Z26gmx_parallel_3dfft_destroyP18gmx_parallel_3dfft(ptr noun
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_Z13fft5d_destroyP12fft5d_plan_t(ptr noundef %4)
   %5 = load ptr, ptr %0, align 8

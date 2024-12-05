@@ -372,7 +372,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [1024 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 292
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %11 [
     i32 9202, label %.sink.split
@@ -384,13 +384,13 @@ define internal i32 @dissect_wtls(ptr noundef %0, ptr nocapture noundef readonly
 
 .sink.split:                                      ; preds = %4, %8
   %.str.234.sink = phi ptr [ @.str.234, %8 ], [ @.str.233, %4 ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull %.str.234.sink) #4
   br label %11
 
 11:                                               ; preds = %.sink.split, %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.122) #4
   %.not = icmp eq ptr %2, null

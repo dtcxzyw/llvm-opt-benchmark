@@ -18,7 +18,7 @@ $_ZN4absl9Condition19CastAndCallFunctionIKSt6atomicIbEEEbPKS0_ = comdat any
 define dso_local void @_ZN4absl12Notification6NotifyEv(ptr noundef nonnull align 8 dereferenceable(9) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %notified_yet_ = getelementptr inbounds i8, ptr %this, i64 8
+  %notified_yet_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store atomic i8 1, ptr %notified_yet_ release, align 8
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4absl9MutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -80,17 +80,17 @@ declare void @_ZSt9terminatev() local_unnamed_addr #3
 define dso_local void @_ZNK4absl12Notification19WaitForNotificationEv(ptr noundef nonnull align 8 dereferenceable(9) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.absl::Condition", align 8
-  %notified_yet_ = getelementptr inbounds i8, ptr %this, i64 8
+  %notified_yet_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i8, ptr %notified_yet_ acquire, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayinit.end.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayinit.end.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %1, align 8
   store ptr @_ZN4absl9Condition19CastAndCallFunctionIKSt6atomicIbEEEbPKS0_, ptr %arrayinit.end.i, align 8
-  %arg_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %arg_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store ptr %notified_yet_, ptr %arg_.i, align 8
   store ptr @_ZN4absl12Notification23HasBeenNotifiedInternalEPKSt6atomicIbE, ptr %ref.tmp, align 8
   %call3.i = call noundef zeroext i1 @_ZN4absl5Mutex14LockWhenCommonERKNS_9ConditionENS_24synchronization_internal13KernelTimeoutEb(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 -1, i1 noundef zeroext true)
@@ -116,17 +116,17 @@ define dso_local noundef zeroext i1 @_ZNK4absl12Notification30WaitForNotificatio
 entry:
   %agg.tmp.i = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
   %ref.tmp = alloca %"class.absl::Condition", align 8
-  %notified_yet_ = getelementptr inbounds i8, ptr %this, i64 8
+  %notified_yet_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i8, ptr %notified_yet_ acquire, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayinit.end.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayinit.end.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %1, align 8
   store ptr @_ZN4absl9Condition19CastAndCallFunctionIKSt6atomicIbEEEbPKS0_, ptr %arrayinit.end.i, align 8
-  %arg_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %arg_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store ptr %notified_yet_, ptr %arg_.i, align 8
   store ptr @_ZN4absl12Notification23HasBeenNotifiedInternalEPKSt6atomicIbE, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -147,17 +147,17 @@ define dso_local noundef zeroext i1 @_ZNK4absl12Notification31WaitForNotificatio
 entry:
   %agg.tmp.i = alloca %"class.absl::synchronization_internal::KernelTimeout", align 8
   %ref.tmp = alloca %"class.absl::Condition", align 8
-  %notified_yet_ = getelementptr inbounds i8, ptr %this, i64 8
+  %notified_yet_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load atomic i8, ptr %notified_yet_ acquire, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayinit.end.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayinit.end.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %1, align 8
   store ptr @_ZN4absl9Condition19CastAndCallFunctionIKSt6atomicIbEEEbPKS0_, ptr %arrayinit.end.i, align 8
-  %arg_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %arg_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24
   store ptr %notified_yet_, ptr %arg_.i, align 8
   store ptr @_ZN4absl12Notification23HasBeenNotifiedInternalEPKSt6atomicIbE, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -186,7 +186,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl9Condition19CastAndCal
 entry:
   %0 = load i64, ptr %c, align 8
   %1 = inttoptr i64 %0 to ptr
-  %arg_ = getelementptr inbounds i8, ptr %c, i64 24
+  %arg_ = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load ptr, ptr %arg_, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef %2)
   ret i1 %call

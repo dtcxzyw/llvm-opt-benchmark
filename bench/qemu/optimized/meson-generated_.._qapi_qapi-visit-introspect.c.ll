@@ -51,7 +51,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_SchemaInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -169,7 +169,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %meta_type = getelementptr inbounds i8, ptr %obj, i64 8
+  %meta_type = getelementptr inbounds nuw i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %meta_type, align 4
   store i32 %0, ptr %value.i, align 4
@@ -180,12 +180,12 @@ if.end:                                           ; preds = %entry
   br i1 %call.i, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_features = getelementptr inbounds i8, ptr %obj, i64 12
+  %has_features = getelementptr inbounds nuw i8, ptr %obj, i64 12
   %call4 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_features) #5
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %features = getelementptr inbounds i8, ptr %obj, i64 16
+  %features = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call6 = call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %features, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
@@ -213,7 +213,7 @@ entry:
   br i1 %call.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %meta_type.i = getelementptr inbounds i8, ptr %obj, i64 8
+  %meta_type.i = getelementptr inbounds nuw i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %0 = load i32, ptr %meta_type.i, align 4
   store i32 %0, ptr %value.i.i, align 4
@@ -224,12 +224,12 @@ if.end.i:                                         ; preds = %entry
   br i1 %call.i.i, label %if.end3.i, label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %has_features.i = getelementptr inbounds i8, ptr %obj, i64 12
+  %has_features.i = getelementptr inbounds nuw i8, ptr %obj, i64 12
   %call4.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_features.i) #5
   br i1 %call4.i, label %if.then5.i, label %if.end
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %features.i = getelementptr inbounds i8, ptr %obj, i64 16
+  %features.i = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call6.i = call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %features.i, ptr noundef %errp) #5
   br i1 %call6.i, label %if.end, label %return
 
@@ -246,7 +246,7 @@ if.end:                                           ; preds = %if.then5.i, %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds i8, ptr %obj, i64 24
+  %u = getelementptr inbounds nuw i8, ptr %obj, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i23)
   %3 = load i32, ptr %u, align 4
   store i32 %3, ptr %value.i.i23, align 4
@@ -257,7 +257,7 @@ sw.bb:                                            ; preds = %if.end
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds i8, ptr %obj, i64 24
+  %u3 = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call.i25 = call zeroext i1 @visit_type_SchemaInfoEnumMemberList(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %u3, ptr noundef %errp)
   br i1 %call.i25, label %if.end.i27, label %return
 
@@ -270,7 +270,7 @@ if.end3.i28:                                      ; preds = %if.end.i27
   br i1 %call4.i29, label %if.end9.i32, label %if.then5.i30
 
 if.then5.i30:                                     ; preds = %if.end3.i28
-  %values.i = getelementptr inbounds i8, ptr %obj, i64 32
+  %values.i = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call6.i31 = call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %values.i, ptr noundef %errp) #5
   br i1 %call6.i31, label %if.end9.i32, label %return
 
@@ -278,14 +278,14 @@ if.end9.i32:                                      ; preds = %if.then5.i30, %if.e
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds i8, ptr %obj, i64 24
+  %u6 = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call.i33 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %u6, ptr noundef %errp) #5
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds i8, ptr %obj, i64 24
+  %u9 = getelementptr inbounds nuw i8, ptr %obj, i64 24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_tag.i)
-  %tag.i = getelementptr inbounds i8, ptr %obj, i64 32
+  %tag.i = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %5 = load ptr, ptr %tag.i, align 8
   %tobool.i = icmp ne ptr %5, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -302,12 +302,12 @@ if.then3.i:                                       ; preds = %if.end.i36
   br i1 %call5.i, label %if.end8.i, label %visit_type_SchemaInfoObject_members.exit
 
 if.end8.i:                                        ; preds = %if.then3.i, %if.end.i36
-  %has_variants.i = getelementptr inbounds i8, ptr %obj, i64 40
+  %has_variants.i = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %call9.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_variants.i) #5
   br i1 %call9.i, label %if.then10.i, label %if.end14.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %variants.i = getelementptr inbounds i8, ptr %obj, i64 48
+  %variants.i = getelementptr inbounds nuw i8, ptr %obj, i64 48
   %call11.i = call zeroext i1 @visit_type_SchemaInfoObjectVariantList(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %variants.i, ptr noundef %errp)
   br i1 %call11.i, label %if.end14.i, label %visit_type_SchemaInfoObject_members.exit
 
@@ -320,27 +320,27 @@ visit_type_SchemaInfoObject_members.exit:         ; preds = %sw.bb8, %if.then3.i
   br label %return
 
 sw.bb11:                                          ; preds = %if.end
-  %u12 = getelementptr inbounds i8, ptr %obj, i64 24
+  %u12 = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call.i37 = call noundef zeroext i1 @visit_type_SchemaInfoAlternateMemberList(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %u12, ptr noundef %errp)
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
-  %u15 = getelementptr inbounds i8, ptr %obj, i64 24
+  %u15 = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call.i38 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %u15, ptr noundef %errp) #5
   br i1 %call.i38, label %if.end.i40, label %return
 
 if.end.i40:                                       ; preds = %sw.bb14
-  %ret_type.i = getelementptr inbounds i8, ptr %obj, i64 32
+  %ret_type.i = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call1.i41 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %ret_type.i, ptr noundef %errp) #5
   br i1 %call1.i41, label %if.end3.i42, label %return
 
 if.end3.i42:                                      ; preds = %if.end.i40
-  %has_allow_oob.i = getelementptr inbounds i8, ptr %obj, i64 40
+  %has_allow_oob.i = getelementptr inbounds nuw i8, ptr %obj, i64 40
   %call4.i43 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_allow_oob.i) #5
   br i1 %call4.i43, label %if.then5.i45, label %if.end9.i44
 
 if.then5.i45:                                     ; preds = %if.end3.i42
-  %allow_oob.i = getelementptr inbounds i8, ptr %obj, i64 41
+  %allow_oob.i = getelementptr inbounds nuw i8, ptr %obj, i64 41
   %call6.i46 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %allow_oob.i, ptr noundef %errp) #5
   br i1 %call6.i46, label %if.end9.i44, label %return
 
@@ -348,7 +348,7 @@ if.end9.i44:                                      ; preds = %if.then5.i45, %if.e
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
-  %u18 = getelementptr inbounds i8, ptr %obj, i64 24
+  %u18 = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call.i47 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %u18, ptr noundef %errp) #5
   br label %return
 
@@ -390,7 +390,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %call4, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %values = getelementptr inbounds i8, ptr %obj, i64 8
+  %values = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call6 = tail call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %values, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
@@ -413,7 +413,7 @@ entry:
 define dso_local noundef zeroext i1 @visit_type_SchemaInfoObject_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_tag = alloca i8, align 1
-  %tag = getelementptr inbounds i8, ptr %obj, i64 8
+  %tag = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %0 = load ptr, ptr %tag, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -430,12 +430,12 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %has_variants = getelementptr inbounds i8, ptr %obj, i64 16
+  %has_variants = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_variants) #5
   br i1 %call9, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end8
-  %variants = getelementptr inbounds i8, ptr %obj, i64 24
+  %variants = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call11 = call zeroext i1 @visit_type_SchemaInfoObjectVariantList(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %variants, ptr noundef %errp)
   br i1 %call11, label %if.end14, label %return
 
@@ -461,17 +461,17 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ret_type = getelementptr inbounds i8, ptr %obj, i64 8
+  %ret_type = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %ret_type, ptr noundef %errp) #5
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_allow_oob = getelementptr inbounds i8, ptr %obj, i64 16
+  %has_allow_oob = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_allow_oob) #5
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %allow_oob = getelementptr inbounds i8, ptr %obj, i64 17
+  %allow_oob = getelementptr inbounds nuw i8, ptr %obj, i64 17
   %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %allow_oob, ptr noundef %errp) #5
   br i1 %call6, label %if.end9, label %return
 
@@ -591,7 +591,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_SchemaInfoEnumMember(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -652,12 +652,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_features.i = getelementptr inbounds i8, ptr %0, i64 8
+  %has_features.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_features.i) #5
   br i1 %call1.i, label %if.then2.i, label %out_obj
 
 if.then2.i:                                       ; preds = %if.end.i
-  %features.i = getelementptr inbounds i8, ptr %0, i64 16
+  %features.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call3.i = tail call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %features.i, ptr noundef %errp) #5
   br i1 %call3.i, label %out_obj, label %out_obj.thread16
 
@@ -727,7 +727,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %call4.i, label %out_obj, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %values.i = getelementptr inbounds i8, ptr %0, i64 8
+  %values.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call6.i = tail call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %values.i, ptr noundef %errp) #5
   br i1 %call6.i, label %out_obj, label %out_obj.thread16
 
@@ -764,12 +764,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_features = getelementptr inbounds i8, ptr %obj, i64 8
+  %has_features = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_features) #5
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %features = getelementptr inbounds i8, ptr %obj, i64 16
+  %features = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %call3 = tail call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %features, ptr noundef %errp) #5
   br i1 %call3, label %if.end6, label %return
 
@@ -849,7 +849,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_SchemaInfoObjectMember(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -948,7 +948,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_SchemaInfoObjectVariant(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1009,7 +1009,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %visit_type_SchemaInfoObjectVariant_members.exit, label %out_obj.thread
 
 visit_type_SchemaInfoObjectVariant_members.exit:  ; preds = %if.end5
-  %type.i = getelementptr inbounds i8, ptr %0, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %type.i, ptr noundef %errp) #5
   br i1 %call1.i, label %out_obj, label %out_obj.thread
 
@@ -1065,7 +1065,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_tag.i)
-  %tag.i = getelementptr inbounds i8, ptr %0, i64 8
+  %tag.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %tag.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -1082,12 +1082,12 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %call5.i, label %if.end8.i, label %out_obj.thread16
 
 if.end8.i:                                        ; preds = %if.then3.i, %if.end.i
-  %has_variants.i = getelementptr inbounds i8, ptr %0, i64 16
+  %has_variants.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call9.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %has_variants.i) #5
   br i1 %call9.i, label %if.then10.i, label %out_obj
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %variants.i = getelementptr inbounds i8, ptr %0, i64 24
+  %variants.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %call11.i = call zeroext i1 @visit_type_SchemaInfoObjectVariantList(ptr noundef %v, ptr noundef nonnull @.str.10, ptr noundef nonnull %variants.i, ptr noundef %errp)
   br i1 %call11.i, label %out_obj, label %out_obj.thread16
 
@@ -1123,7 +1123,7 @@ declare void @qapi_free_SchemaInfoObject(ptr noundef) local_unnamed_addr #1
 define dso_local noundef zeroext i1 @visit_type_SchemaInfoObjectMember_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_q_default = alloca i8, align 1
-  %q_default = getelementptr inbounds i8, ptr %obj, i64 16
+  %q_default = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %0 = load ptr, ptr %q_default, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -1132,7 +1132,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %obj, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %type, ptr noundef %errp) #5
   br i1 %call2, label %if.end4, label %return
 
@@ -1145,12 +1145,12 @@ if.then6:                                         ; preds = %if.end4
   br i1 %call8, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.then6, %if.end4
-  %has_features = getelementptr inbounds i8, ptr %obj, i64 24
+  %has_features = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %call12 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_features) #5
   br i1 %call12, label %if.then13, label %if.end17
 
 if.then13:                                        ; preds = %if.end11
-  %features = getelementptr inbounds i8, ptr %obj, i64 32
+  %features = getelementptr inbounds nuw i8, ptr %obj, i64 32
   %call14 = call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %features, ptr noundef %errp) #5
   br i1 %call14, label %if.end17, label %return
 
@@ -1173,7 +1173,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %obj, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %type, ptr noundef %errp) #5
   br label %return
 
@@ -1197,7 +1197,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_SchemaInfoAlternateMember(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1375,17 +1375,17 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %ret_type.i = getelementptr inbounds i8, ptr %0, i64 8
+  %ret_type.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %ret_type.i, ptr noundef %errp) #5
   br i1 %call1.i, label %if.end3.i, label %out_obj.thread16
 
 if.end3.i:                                        ; preds = %if.end.i
-  %has_allow_oob.i = getelementptr inbounds i8, ptr %0, i64 16
+  %has_allow_oob.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call4.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %has_allow_oob.i) #5
   br i1 %call4.i, label %if.then5.i, label %out_obj
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %allow_oob.i = getelementptr inbounds i8, ptr %0, i64 17
+  %allow_oob.i = getelementptr inbounds nuw i8, ptr %0, i64 17
   %call6.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.16, ptr noundef nonnull %allow_oob.i, ptr noundef %errp) #5
   br i1 %call6.i, label %out_obj, label %out_obj.thread16
 

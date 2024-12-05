@@ -22,9 +22,9 @@ target triple = "x86_64-pc-linux-gnu"
 define void @circo_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @setEdgeType(ptr noundef %0, i32 noundef 2) #10
   %2 = tail call ptr @agroot(ptr noundef %0) #10
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   store i16 2, ptr %5, align 8
   store i32 2, ptr @Ndim, align 4
   %6 = tail call i32 @agnnodes(ptr noundef %0) #10
@@ -34,9 +34,9 @@ define void @circo_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   %10 = add nsw i32 %9, 1
   %11 = sext i32 %10 to i64
   %12 = tail call fastcc ptr @gv_calloc(i64 noundef %11, i64 noundef 8)
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 184
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 184
   store ptr %12, ptr %15, align 8
   %16 = tail call ptr @agfstnode(ptr noundef %0) #10
   %.not27.i = icmp eq ptr %16, null
@@ -46,16 +46,16 @@ define void @circo_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %1 ]
   %.029.i = phi ptr [ %25, %.lr.ph.i ], [ %16, %1 ]
   tail call void @neato_init_node(ptr noundef nonnull %.029.i) #10
-  %17 = getelementptr inbounds %struct.ndata, ptr %8, i64 %indvars.iv.i
-  %18 = getelementptr inbounds i8, ptr %.029.i, i64 16
+  %17 = getelementptr inbounds nuw %struct.ndata, ptr %8, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i8, ptr %.029.i, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 152
   store ptr %17, ptr %20, align 8
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
   store ptr %.029.i, ptr %24, align 8
   %25 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.029.i) #10
   %.not.i = icmp eq ptr %25, null
@@ -78,9 +78,9 @@ define void @circo_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   %29 = tail call i32 @common_init_edge(ptr noundef nonnull %.02431.i) #10
   %30 = load ptr, ptr @E_weight, align 8
   %31 = tail call double @late_double(ptr noundef nonnull %.02431.i, ptr noundef %30, double noundef 1.000000e+00, double noundef 0.000000e+00) #10
-  %32 = getelementptr inbounds i8, ptr %.02431.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.02431.i, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 176
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 176
   store double %31, ptr %34, align 8
   %35 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02431.i) #10
   %.not26.i = icmp eq ptr %35, null
@@ -112,9 +112,9 @@ define void @circoLayout(ptr noundef %0) local_unnamed_addr #0 {
   %6 = load i32, ptr @Agstrictundirected, align 4
   %7 = tail call ptr @agopen(ptr noundef nonnull @.str.3, i32 %6, ptr noundef null) #10
   %8 = tail call ptr @agbindrec(ptr noundef %7, ptr noundef nonnull @.str.4, i32 noundef 408, i32 noundef 1) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
   store ptr %7, ptr %11, align 8
   %12 = tail call ptr @agfstnode(ptr noundef %0) #10
   %.not89.i = icmp eq ptr %12, null
@@ -122,9 +122,9 @@ define void @circoLayout(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %5, %56
   %.07190.i = phi ptr [ %57, %56 ], [ %12, %5 ]
-  %13 = getelementptr inbounds i8, ptr %.07190.i, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.07190.i, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 152
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
   %.not88.i = icmp eq ptr %17, null
@@ -145,40 +145,40 @@ define void @circoLayout(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 makeDerivedNode.exit.i:                           ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %20, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 152
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 152
   store ptr %22, ptr %29, align 8
   %30 = load i32, ptr @Ndim, align 4
   %31 = sext i32 %30 to i64
   %32 = tail call fastcc ptr @gv_calloc(i64 noundef %31, i64 noundef 8)
   %33 = load ptr, ptr %27, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 176
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 176
   store ptr %32, ptr %34, align 8
   %35 = load ptr, ptr %13, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 104
   %37 = load double, ptr %36, align 8
   %38 = load ptr, ptr %27, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 104
   store double %37, ptr %39, align 8
   %40 = load ptr, ptr %13, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 112
   %42 = load double, ptr %41, align 8
   %43 = load ptr, ptr %27, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 112
   store double %42, ptr %44, align 8
   %45 = load ptr, ptr %13, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load double, ptr %46, align 8
   %48 = load ptr, ptr %27, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   store double %47, ptr %49, align 8
   %50 = load ptr, ptr %27, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 152
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %52 = load ptr, ptr %51, align 8
   store ptr %.07190.i, ptr %52, align 8
   %53 = load ptr, ptr %13, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 152
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 152
   %55 = load ptr, ptr %54, align 8
   store ptr %20, ptr %55, align 8
   br label %56
@@ -205,22 +205,22 @@ makeDerivedNode.exit.i:                           ; preds = %18
   %61 = and i32 %60, 3
   %62 = icmp eq i32 %61, 3
   %.idx85.i = select i1 %62, i64 0, i64 64
-  %63 = getelementptr inbounds i8, ptr %.07392.i, i64 %.idx85.i
-  %64 = getelementptr inbounds i8, ptr %63, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %.07392.i, i64 %.idx85.i
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 152
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 152
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq i32 %61, 2
   %.idx86.i = select i1 %71, i64 0, i64 -64
   %72 = getelementptr inbounds i8, ptr %.07392.i, i64 %.idx86.i
-  %73 = getelementptr inbounds i8, ptr %72, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 152
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 152
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %78, align 8
   %.not87.i = icmp eq ptr %70, %79
@@ -257,9 +257,9 @@ makeDerivedNode.exit.i:                           ; preds = %18
 
 .lr.ph109.i:                                      ; preds = %.lr.ph113.i, %._crit_edge105.i
   %.070107.i = phi ptr [ %114, %._crit_edge105.i ], [ %90, %.lr.ph113.i ]
-  %91 = getelementptr inbounds i8, ptr %.070107.i, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.070107.i, i64 16
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 152
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 152
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %94, align 8
   %96 = call ptr @agfstout(ptr noundef %0, ptr noundef %95) #10
@@ -273,11 +273,11 @@ makeDerivedNode.exit.i:                           ; preds = %18
   %99 = icmp eq i32 %98, 2
   %.idx.i = select i1 %99, i64 0, i64 -64
   %100 = getelementptr inbounds i8, ptr %.174102.i, i64 %.idx.i
-  %101 = getelementptr inbounds i8, ptr %100, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 152
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 152
   %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %106, align 8
   %.not83.i = icmp eq ptr %.070107.i, %107
@@ -329,9 +329,9 @@ makeDerivedNode.exit.i:                           ; preds = %18
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %.lr.ph118.i
-  %125 = getelementptr inbounds i8, ptr %.2116.i, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.2116.i, i64 16
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 168
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 168
   store ptr %120, ptr %127, align 8
   %128 = call ptr @agnxtout(ptr noundef %7, ptr noundef nonnull %.2116.i) #10
   %.not80.i = icmp eq ptr %128, null
@@ -358,28 +358,28 @@ circomps.exit:                                    ; preds = %._crit_edge119.i, %
 
 .lr.ph.i23:                                       ; preds = %133, %.lr.ph.i23
   %.010.i = phi ptr [ %157, %.lr.ph.i23 ], [ %135, %133 ]
-  %136 = getelementptr inbounds i8, ptr %.010.i, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 152
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 152
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %137, i64 176
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 176
   %142 = load ptr, ptr %141, align 8
   %143 = load double, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %140, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 176
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 176
   %147 = load ptr, ptr %146, align 8
   store double %143, ptr %147, align 8
   %148 = load ptr, ptr %136, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 176
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 176
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load double, ptr %151, align 8
   %153 = load ptr, ptr %144, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 176
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 176
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store double %152, ptr %156, align 8
   %157 = call ptr @agnxtnode(ptr noundef %134, ptr noundef nonnull %.010.i) #10
   %.not.i24 = icmp eq ptr %157, null
@@ -390,7 +390,7 @@ copyPosns.exit:                                   ; preds = %.lr.ph.i23, %133
   br label %.loopexit
 
 159:                                              ; preds = %circomps.exit
-  %160 = getelementptr inbounds i8, ptr %132, i64 120
+  %160 = getelementptr inbounds nuw i8, ptr %132, i64 120
   %161 = load ptr, ptr %160, align 8
   %162 = call i32 @getPackInfo(ptr noundef %0, i32 noundef 2, i32 noundef 8, ptr noundef nonnull %3) #10
   %.not38 = icmp eq i64 %130, 0
@@ -424,28 +424,28 @@ copyPosns.exit:                                   ; preds = %.lr.ph.i23, %133
 
 .lr.ph.i27:                                       ; preds = %.lr.ph37, %.lr.ph.i27
   %.010.i28 = phi ptr [ %193, %.lr.ph.i27 ], [ %171, %.lr.ph37 ]
-  %172 = getelementptr inbounds i8, ptr %.010.i28, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %.010.i28, i64 16
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 152
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 152
   %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %173, i64 176
+  %177 = getelementptr inbounds nuw i8, ptr %173, i64 176
   %178 = load ptr, ptr %177, align 8
   %179 = load double, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %176, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 176
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 176
   %183 = load ptr, ptr %182, align 8
   store double %179, ptr %183, align 8
   %184 = load ptr, ptr %172, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 176
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 176
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %188 = load double, ptr %187, align 8
   %189 = load ptr, ptr %180, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 176
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 176
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store double %188, ptr %192, align 8
   %193 = call ptr @agnxtnode(ptr noundef %170, ptr noundef nonnull %.010.i28) #10
   %.not.i29 = icmp eq ptr %193, null
@@ -487,9 +487,9 @@ define void @circo_layout(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @circo_init_graph(ptr noundef %0)
   tail call void @circoLayout(ptr noundef %0)
   %5 = tail call ptr @agfstnode(ptr noundef %0) #10
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #10
   tail call void @spline_edges(ptr noundef %0) #10
@@ -513,9 +513,9 @@ define void @circo_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %33, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @agfstnode(ptr noundef %8) #10
   %.not17.i = icmp eq ptr %9, null
@@ -529,9 +529,9 @@ define void @circo_cleanup(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph20.i, %.lr.ph.i
   %.016.i = phi ptr [ %15, %.lr.ph.i ], [ %10, %.lr.ph20.i ]
-  %11 = getelementptr inbounds i8, ptr %.016.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.016.i, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 168
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #10
   %15 = tail call ptr @agnxtout(ptr noundef %8, ptr noundef nonnull %.016.i) #10
@@ -539,13 +539,13 @@ define void @circo_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph20.i
-  %16 = getelementptr inbounds i8, ptr %.01318.i, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %19 = load ptr, ptr %18, align 8
   tail call void @free(ptr noundef %19) #10
   %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #10
   %23 = tail call ptr @agnxtnode(ptr noundef %8, ptr noundef nonnull %.01318.i) #10
@@ -577,7 +577,7 @@ closeDerivedGraph.exit:                           ; preds = %._crit_edge.i, %4
 
 29:                                               ; preds = %._crit_edge
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 184
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
   tail call void @free(ptr noundef %32) #10
   br label %33

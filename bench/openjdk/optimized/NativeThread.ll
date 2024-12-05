@@ -15,9 +15,9 @@ define void @Java_sun_nio_ch_NativeThread_init(ptr noundef %0, ptr nocapture nou
   %3 = alloca %struct.sigaction, align 8
   %4 = alloca %struct.sigaction, align 8
   store ptr @nullHandler, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = call i32 @sigemptyset(ptr noundef nonnull %6) #6
   %8 = call i32 @__libc_current_sigrtmax() #6
   %9 = add nsw i32 %8, -2

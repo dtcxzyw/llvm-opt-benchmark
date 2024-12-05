@@ -95,10 +95,10 @@ define i32 @group_cache_lookup(i32 noundef %0, i32 noundef %1, ptr noundef %2, p
   %10 = alloca [20 x i8], align 16
   %11 = alloca i64, align 8
   %12 = alloca %struct.gids_cache_needle, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %2, ptr %13, align 8
   store i32 %0, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %1, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
@@ -133,7 +133,7 @@ define i32 @group_cache_lookup(i32 noundef %0, i32 noundef %1, ptr noundef %2, p
   br i1 %.not21.i, label %38, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = call i64 @time(ptr noundef null) #10
   %30 = icmp sgt i64 %28, %29
@@ -145,7 +145,7 @@ define i32 @group_cache_lookup(i32 noundef %0, i32 noundef %1, ptr noundef %2, p
   br i1 %32, label %34, label %.loopexit.i
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %25, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %36 = load ptr, ptr %35, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__._group_cache_lookup_internal, ptr noundef %36) #10
   br label %.loopexit.i
@@ -207,14 +207,14 @@ define i32 @group_cache_lookup(i32 noundef %0, i32 noundef %1, ptr noundef %2, p
   br i1 %.not21.i, label %92, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %25, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = call i64 @xsize(ptr noundef %62) #10
   %64 = lshr i64 %63, 2
   %65 = trunc i64 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %25, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %25, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %7, align 8
   %70 = load ptr, ptr %69, align 8
@@ -231,10 +231,10 @@ define i32 @group_cache_lookup(i32 noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %77
 
 77:                                               ; preds = %72, %60
-  %78 = getelementptr inbounds i8, ptr %25, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = load ptr, ptr %7, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 20
   %82 = load i32, ptr %81, align 4
   %.not36.i.i = icmp eq i32 %79, %82
   br i1 %.not36.i.i, label %98, label %83
@@ -248,7 +248,7 @@ define i32 @group_cache_lookup(i32 noundef %0, i32 noundef %1, ptr noundef %2, p
   %87 = load ptr, ptr %7, align 8
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %78, align 4
-  %90 = getelementptr inbounds i8, ptr %87, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 20
   %91 = load i32, ptr %90, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.12, ptr noundef %88, i32 noundef %89, i32 noundef %91) #10
   br label %98
@@ -257,21 +257,21 @@ define i32 @group_cache_lookup(i32 noundef %0, i32 noundef %1, ptr noundef %2, p
   %93 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__func__._init_or_reinit_entry) #10
   %94 = load i32, ptr %12, align 8
   store i32 %94, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %93, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store i32 64, ptr %95, align 8
   %96 = call ptr @slurm_xcalloc(i64 noundef 64, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 163, ptr noundef nonnull @__func__._init_or_reinit_entry) #10
-  %97 = getelementptr inbounds i8, ptr %93, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 24
   store ptr %96, ptr %97, align 8
   br label %98
 
 98:                                               ; preds = %92, %86, %83, %77
   %.0.i.i = phi ptr [ %25, %86 ], [ %25, %83 ], [ %25, %77 ], [ %93, %92 ]
   %99 = load ptr, ptr %7, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 20
   %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %101, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %104 = load ptr, ptr %103, align 8
   %.not37.i.i = icmp eq ptr %104, null
   br i1 %.not37.i.i, label %105, label %109
@@ -288,7 +288,7 @@ define i32 @group_cache_lookup(i32 noundef %0, i32 noundef %1, ptr noundef %2, p
   %111 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 400), align 8
   %112 = zext i16 %111 to i64
   %113 = add nsw i64 %110, %112
-  %114 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   store i64 %113, ptr %114, align 8
   br i1 %.not21.i, label %115, label %_init_or_reinit_entry.exit.i
 
@@ -302,10 +302,10 @@ _init_or_reinit_entry.exit.i:                     ; preds = %115, %109
   call void @llvm.lifetime.end.p0(i64 65536, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %117 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  %118 = getelementptr inbounds i8, ptr %.1.i, i64 4
-  %119 = getelementptr inbounds i8, ptr %.1.i, i64 24
-  %120 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.1.i, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %121 = load ptr, ptr %117, align 8
   %122 = load i32, ptr %118, align 4
   %123 = load ptr, ptr %119, align 8
@@ -346,11 +346,11 @@ _init_or_reinit_entry.exit.i:                     ; preds = %115, %109
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %_init_or_reinit_entry.exit.i, %34, %33
   %.039.i = phi ptr [ %25, %34 ], [ %25, %33 ], [ %.1.i, %_init_or_reinit_entry.exit.i ], [ %.1.i, %.lr.ph.i ]
-  %141 = getelementptr inbounds i8, ptr %.039.i, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.039.i, i64 16
   %142 = load i32, ptr %141, align 8
   call void @slurm_xfree(ptr noundef %3) #10
   %143 = load i32, ptr %141, align 8
-  %144 = getelementptr inbounds i8, ptr %.039.i, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %.039.i, i64 24
   %145 = load ptr, ptr %144, align 8
   %.not.i26.i = icmp eq i32 %143, 0
   br i1 %.not.i26.i, label %copy_gids.exit.i, label %146
@@ -446,7 +446,7 @@ declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @_cleanup_search(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %6 = icmp slt i64 %4, %5
@@ -506,10 +506,10 @@ define ptr @copy_gr_names(i32 noundef %0, ptr noundef readonly %1) local_unnamed
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @xstrdup(ptr noundef %10) #10
-  %12 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -531,9 +531,9 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #4
 define internal void @_group_cache_list_delete(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %3) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %4) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   ret void

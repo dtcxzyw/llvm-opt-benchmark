@@ -308,10 +308,10 @@ default.unreachable61:                            ; preds = %44
   unreachable
 
 15:                                               ; preds = %8, %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.108) #11
-  %18 = getelementptr inbounds i8, ptr %1, i64 360
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @proto_is_frame_protocol(ptr noundef %19, ptr noundef nonnull @.str.109) #11
   %.not53 = icmp eq i32 %20, 0
@@ -341,7 +341,7 @@ default.unreachable61:                            ; preds = %44
 
 33:                                               ; preds = %29, %23
   %.0 = phi ptr [ %28, %23 ], [ %31, %29 ]
-  %34 = getelementptr inbounds i8, ptr %.0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %35 = load i64, ptr %34, align 8
   %.not55 = icmp eq i64 %35, 0
   br i1 %.not55, label %._crit_edge, label %36
@@ -351,7 +351,7 @@ default.unreachable61:                            ; preds = %44
   br label %44
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %3, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
   %.not56 = icmp ugt i64 %35, %39
@@ -411,7 +411,7 @@ default.unreachable61:                            ; preds = %44
   %63 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %62, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #11
   %64 = load i32, ptr @ett_http3_stream_uni, align 4
   %65 = tail call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64) #11
-  %66 = getelementptr inbounds i8, ptr %3, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %83
@@ -421,7 +421,7 @@ default.unreachable61:                            ; preds = %44
   %71 = call ptr @proto_tree_add_item_ret_varint(ptr noundef %65, i32 noundef %70, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %72 = load i32, ptr %7, align 4
   %73 = load i64, ptr %6, align 8
-  %74 = getelementptr inbounds i8, ptr %.0, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i64 %73, ptr %74, align 8
   %75 = add i64 %73, -33
   %76 = urem i64 %75, 31
@@ -438,14 +438,14 @@ default.unreachable61:                            ; preds = %44
 
 80:                                               ; preds = %78, %77
   %.0.i59 = phi ptr [ @.str.135, %77 ], [ %79, %78 ]
-  %81 = getelementptr inbounds i8, ptr %3, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %82 = load i64, ptr %81, align 8
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %63, ptr noundef nonnull @.str.144, ptr noundef %.0.i59, i64 noundef %82) #11
   %.pr.i = load i64, ptr %6, align 8
   br label %86
 
 83:                                               ; preds = %61
-  %84 = getelementptr inbounds i8, ptr %.0, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %85 = load i64, ptr %84, align 8
   store i64 %85, ptr %6, align 8
   br label %86
@@ -601,9 +601,9 @@ http3_session_lookup_or_create.exit.i.i:          ; preds = %146, %http3_get_fil
 
 158:                                              ; preds = %151
   %159 = add i32 %156, %.053.i
-  %160 = getelementptr inbounds i8, ptr %1, i64 332
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %159, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %1, i64 336
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %161, align 8
   br label %dissect_http3_uni_stream.exit
 
@@ -622,9 +622,9 @@ http3_session_lookup_or_create.exit.i.i:          ; preds = %146, %http3_get_fil
   br i1 %.not59.i, label %182, label %169
 
 169:                                              ; preds = %166
-  %170 = getelementptr inbounds i8, ptr %1, i64 80
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 50
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 50
   %173 = load i16, ptr %172, align 2
   %174 = and i16 %173, 8
   %.not57.i = icmp eq i16 %174, 0
@@ -734,11 +734,11 @@ get_http3_frame_size.exit:                        ; preds = %3, %7, %try_get_qui
   br i1 %or.cond, label %37, label %42
 
 37:                                               ; preds = %get_http3_frame_size.exit
-  %38 = getelementptr inbounds i8, ptr %1, i64 332
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %2, ptr %38, align 4
   %39 = sub i32 %.0.i, %36
   %40 = select i1 %.not, i32 268435455, i32 %39
-  %41 = getelementptr inbounds i8, ptr %1, i64 336
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %40, ptr %41, align 8
   br label %42
 
@@ -811,7 +811,7 @@ define internal fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, 
 
 29:                                               ; preds = %5
   %30 = call ptr @val64_to_str(i64 noundef %25, ptr noundef nonnull @http3_frame_types, ptr noundef nonnull @.str.136) #11
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   call void @col_append_sep_str(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.137, ptr noundef %30) #11
   br label %33
@@ -856,32 +856,32 @@ define internal fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %54 = getelementptr inbounds i8, ptr %1, i64 320
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 408
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %57 = load ptr, ptr %56, align 8
   %58 = call noalias ptr @wmem_array_new(ptr noundef %57, i64 noundef 32) #11
   store i32 1, ptr %10, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 284
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %1, i64 288
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %63 = load i32, ptr %62, align 8
   %64 = icmp ult i32 %61, %63
   %.2.i.i = select i1 %64, i64 208, i64 232
-  %65 = getelementptr inbounds i8, ptr %1, i64 %.2.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 %.2.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
   call void @wmem_array_append(ptr noundef %58, ptr noundef nonnull %10, i32 noundef 1) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   store i32 2, ptr %11, align 8
-  %66 = getelementptr inbounds i8, ptr %11, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %67 = load i32, ptr %60, align 4
   %68 = load i32, ptr %62, align 8
   %..i.i = call i32 @llvm.umin.i32(i32 %67, i32 %68)
   store i32 %..i.i, ptr %66, align 8
   call void @wmem_array_append(ptr noundef %58, ptr noundef nonnull %11, i32 noundef 1) #11
   store i32 5, ptr %12, align 8
-  %69 = getelementptr inbounds i8, ptr %12, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %70 = load i64, ptr %4, align 8
   store i64 %70, ptr %69, align 8
   call void @wmem_array_append(ptr noundef %58, ptr noundef nonnull %12, i32 noundef 1) #11
@@ -894,7 +894,7 @@ define internal fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i.i, label %73, label %http3_find_inner_conversation.exit.i
 
 73:                                               ; preds = %51
-  %74 = getelementptr inbounds i8, ptr %1, i64 80
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %75 = load ptr, ptr %74, align 8
   %76 = load i32, ptr %75, align 8
   %77 = load ptr, ptr %54, align 8
@@ -1077,9 +1077,9 @@ define internal fastcc i32 @dissect_http3_qpack_encoder_stream(ptr noundef %0, p
   br i1 %.not47, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %9, i64 48
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  %13 = getelementptr inbounds i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 40
   br label %14
 
 14:                                               ; preds = %.lr.ph, %300
@@ -1638,7 +1638,7 @@ read_qpack_prefixed_integer.exit256.thread:       ; preds = %258, %read_qpack_pr
 
 290:                                              ; preds = %289
   %.0..0..0..0.30 = load volatile ptr, ptr %6, align 8
-  %291 = getelementptr inbounds i8, ptr %.0..0..0..0.30, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.30, i64 8
   %292 = load volatile i64, ptr %291, align 8
   %293 = icmp eq i64 %292, 3
   br i1 %293, label %294, label %296
@@ -1705,7 +1705,7 @@ define internal i32 @http3_conn_info_hash(ptr noundef readonly %0) #0 {
 
 3:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %0, align 8
   %narrow = tail call i8 @llvm.umin.i8(i8 %5, i8 20)
   %spec.select = zext nneg i8 %narrow to i64
@@ -1727,8 +1727,8 @@ define internal range(i32 0, 2) i32 @http3_conn_info_equal(ptr nocapture noundef
 
 6:                                                ; preds = %2
   %7 = zext i8 %3 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp = tail call i32 @bcmp(ptr nonnull %8, ptr nonnull %9, i64 %7)
   %10 = icmp eq i32 %bcmp, 0
   %11 = zext i1 %10 to i32

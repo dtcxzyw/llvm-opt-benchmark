@@ -14,9 +14,9 @@ define i32 @foreach_inode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 4:                                                ; preds = %2
   store ptr %0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 0, ptr %6, align 8
   %7 = tail call i32 @inode_lock() #7
   %8 = icmp sgt i32 %7, -1
@@ -24,7 +24,7 @@ define i32 @foreach_inode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr @g_root_inode, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call fastcc i32 @foreach_inodelevel(ptr noundef %12, ptr noundef %3)
   tail call void @inode_unlock() #7
@@ -51,8 +51,8 @@ define internal fastcc i32 @foreach_inodelevel(ptr noundef %0, ptr noundef nonnu
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %28
@@ -64,7 +64,7 @@ define internal fastcc i32 @foreach_inodelevel(ptr noundef %0, ptr noundef nonnu
   br i1 %.not26, label %9, label %._crit_edge
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %.030, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.030, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not27 = icmp eq ptr %11, null
   br i1 %.not27, label %28, label %12
@@ -72,7 +72,7 @@ define internal fastcc i32 @foreach_inodelevel(ptr noundef %0, ptr noundef nonnu
 12:                                               ; preds = %9
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
   %14 = trunc i64 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %.030, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %.030, i64 56
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #7
   %17 = trunc i64 %16 to i32
   %18 = add i32 %14, 1
@@ -93,7 +93,7 @@ define internal fastcc i32 @foreach_inodelevel(ptr noundef %0, ptr noundef nonnu
   br i1 %.not28, label %28, label %._crit_edge
 
 28:                                               ; preds = %9, %21
-  %29 = getelementptr inbounds i8, ptr %.030, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.030, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !6

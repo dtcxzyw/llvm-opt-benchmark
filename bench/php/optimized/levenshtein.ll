@@ -37,7 +37,7 @@ define hidden void @zif_levenshtein(ptr nocapture noundef readonly %0, ptr nocap
   store i64 1, ptr %5, align 8
   store i64 1, ptr %6, align 8
   store i64 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #4
   %11 = icmp eq i32 %10, -1
@@ -55,10 +55,10 @@ define hidden void @zif_levenshtein(ptr nocapture noundef readonly %0, ptr nocap
   %18 = load i64, ptr %5, align 8
   %19 = load i64, ptr %6, align 8
   %20 = load i64, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
-  %24 = getelementptr inbounds i8, ptr %17, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %25 = load i64, ptr %24, align 8
   br i1 %23, label %26, label %28
 
@@ -89,8 +89,8 @@ define hidden void @zif_levenshtein(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %.not73.i, label %._crit_edge71.i, label %.lr.ph70.i
 
 .lr.ph70.i:                                       ; preds = %.preheader.i
-  %40 = getelementptr inbounds i8, ptr %16, i64 24
-  %41 = getelementptr inbounds i8, ptr %17, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 24
   br label %46
 
 42:                                               ; preds = %42, %32
@@ -160,7 +160,7 @@ define hidden void @zif_levenshtein(ptr nocapture noundef readonly %0, ptr nocap
 reference_levdist.exit:                           ; preds = %26, %30, %._crit_edge71.i
   %.055.i = phi i64 [ %27, %26 ], [ %31, %30 ], [ %74, %._crit_edge71.i ]
   store i64 %.055.i, ptr %1, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %75, align 8
   br label %76
 

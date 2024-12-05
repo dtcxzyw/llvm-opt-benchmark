@@ -36,7 +36,7 @@ define void @Abc_NtkPrintUnate(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 13:                                               ; preds = %10
   %14 = load i64, ptr %8, align 8
   %15 = mul nsw i64 %14, 1000000
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = sdiv i64 %17, 1000
   %19 = add nsw i64 %18, %15
@@ -58,7 +58,7 @@ Abc_Clock.exit.i:                                 ; preds = %13, %10
 25:                                               ; preds = %22
   %26 = load i64, ptr %7, align 8
   %27 = mul nsw i64 %26, 1000000
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = sdiv i64 %29, 1000
   %31 = add nsw i64 %30, %27
@@ -94,7 +94,7 @@ Abc_Clock.exit67.i:                               ; preds = %25, %22
   %.05185.i = phi i32 [ 0, %.lr.ph.i ], [ %96, %91 ]
   %41 = getelementptr i8, ptr %.val88.i, i64 8
   %.val59.val.i = load ptr, ptr %41, align 8
-  %42 = getelementptr inbounds ptr, ptr %.val59.val.i, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw ptr, ptr %.val59.val.i, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8
   %.val61.i = load ptr, ptr %43, align 8
   %44 = getelementptr i8, ptr %43, i64 16
@@ -118,7 +118,7 @@ Abc_Clock.exit67.i:                               ; preds = %25, %22
   br i1 %.not.i.i.i.i, label %54, label %Vec_AttGrow.exit.i.i.i
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %.val61.val.val.val.i, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.val61.val.val.val.i, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not13.i.i.i.i = icmp eq ptr %56, null
   %57 = sext i32 %53 to i64
@@ -148,7 +148,7 @@ Abc_Clock.exit67.i:                               ; preds = %25, %22
   br label %Vec_AttGrow.exit.i.i.i
 
 Vec_AttGrow.exit.i.i.i:                           ; preds = %63, %49, %40
-  %71 = getelementptr inbounds i8, ptr %.val61.val.val.val.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.val61.val.val.val.i, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = sext i32 %.val62.i to i64
   %74 = getelementptr inbounds ptr, ptr %72, i64 %73
@@ -157,13 +157,13 @@ Vec_AttGrow.exit.i.i.i:                           ; preds = %63, %49, %40
   br i1 %76, label %77, label %Abc_ObjGlobalBdd.exit.i
 
 77:                                               ; preds = %Vec_AttGrow.exit.i.i.i
-  %78 = getelementptr inbounds i8, ptr %.val61.val.val.val.i, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.val61.val.val.val.i, i64 32
   %79 = load ptr, ptr %78, align 8
   %.not18.i.i.i = icmp eq ptr %79, null
   br i1 %.not18.i.i.i, label %Abc_ObjGlobalBdd.exit.i, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %.val61.val.val.val.i, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.val61.val.val.val.i, i64 16
   %82 = load ptr, ptr %81, align 8
   %83 = call ptr %79(ptr noundef %82) #11
   %84 = load ptr, ptr %71, align 8
@@ -188,7 +188,7 @@ Abc_ObjGlobalBdd.exit.i:                          ; preds = %80, %77, %Vec_AttGr
 91:                                               ; preds = %88, %Abc_ObjGlobalBdd.exit.i
   %92 = load i32, ptr %87, align 8
   %93 = add nsw i32 %92, %.087.i
-  %94 = getelementptr inbounds i8, ptr %87, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %95 = load i32, ptr %94, align 8
   %96 = add nsw i32 %95, %.05185.i
   call void @Extra_UnateInfoDissolve(ptr noundef nonnull %87) #11
@@ -220,7 +220,7 @@ Abc_ObjGlobalBdd.exit.i:                          ; preds = %80, %77, %Vec_AttGr
   %.25392.i = phi i32 [ 0, %.lr.ph96.i ], [ %161, %156 ]
   %106 = getelementptr i8, ptr %.val5795.i, i64 8
   %.val60.val.i = load ptr, ptr %106, align 8
-  %107 = getelementptr inbounds ptr, ptr %.val60.val.i, i64 %indvars.iv104.i
+  %107 = getelementptr inbounds nuw ptr, ptr %.val60.val.i, i64 %indvars.iv104.i
   %108 = load ptr, ptr %107, align 8
   %.val63.i = load ptr, ptr %108, align 8
   %109 = getelementptr i8, ptr %108, i64 16
@@ -244,7 +244,7 @@ Abc_ObjGlobalBdd.exit.i:                          ; preds = %80, %77, %Vec_AttGr
   br i1 %.not.i.i.i69.i, label %119, label %Vec_AttGrow.exit.i.i70.i
 
 119:                                              ; preds = %114
-  %120 = getelementptr inbounds i8, ptr %.val63.val.val.val.i, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.val63.val.val.val.i, i64 8
   %121 = load ptr, ptr %120, align 8
   %.not13.i.i.i75.i = icmp eq ptr %121, null
   %122 = sext i32 %118 to i64
@@ -274,7 +274,7 @@ Abc_ObjGlobalBdd.exit.i:                          ; preds = %80, %77, %Vec_AttGr
   br label %Vec_AttGrow.exit.i.i70.i
 
 Vec_AttGrow.exit.i.i70.i:                         ; preds = %128, %114, %105
-  %136 = getelementptr inbounds i8, ptr %.val63.val.val.val.i, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %.val63.val.val.val.i, i64 8
   %137 = load ptr, ptr %136, align 8
   %138 = sext i32 %.val64.i to i64
   %139 = getelementptr inbounds ptr, ptr %137, i64 %138
@@ -283,13 +283,13 @@ Vec_AttGrow.exit.i.i70.i:                         ; preds = %128, %114, %105
   br i1 %141, label %142, label %Abc_ObjGlobalBdd.exit77.i
 
 142:                                              ; preds = %Vec_AttGrow.exit.i.i70.i
-  %143 = getelementptr inbounds i8, ptr %.val63.val.val.val.i, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %.val63.val.val.val.i, i64 32
   %144 = load ptr, ptr %143, align 8
   %.not18.i.i71.i = icmp eq ptr %144, null
   br i1 %.not18.i.i71.i, label %Abc_ObjGlobalBdd.exit77.i, label %145
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %.val63.val.val.val.i, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %.val63.val.val.val.i, i64 16
   %147 = load ptr, ptr %146, align 8
   %148 = call ptr %144(ptr noundef %147) #11
   %149 = load ptr, ptr %136, align 8
@@ -314,7 +314,7 @@ Abc_ObjGlobalBdd.exit77.i:                        ; preds = %145, %142, %Vec_Att
 156:                                              ; preds = %153, %Abc_ObjGlobalBdd.exit77.i
   %157 = load i32, ptr %152, align 8
   %158 = add nsw i32 %157, %.294.i
-  %159 = getelementptr inbounds i8, ptr %152, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %160 = load i32, ptr %159, align 8
   %161 = add nsw i32 %160, %.25392.i
   call void @Extra_UnateInfoDissolve(ptr noundef nonnull %152) #11
@@ -337,7 +337,7 @@ Abc_ObjGlobalBdd.exit77.i:                        ; preds = %145, %142, %Vec_Att
 167:                                              ; preds = %.critedge.i
   %168 = load i64, ptr %6, align 8
   %169 = mul nsw i64 %168, 1000000
-  %170 = getelementptr inbounds i8, ptr %6, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %171 = load i64, ptr %170, align 8
   %172 = sdiv i64 %171, 1000
   %173 = add nsw i64 %172, %169
@@ -373,7 +373,7 @@ Abc_Clock.exit79.i:                               ; preds = %167, %.critedge.i
 186:                                              ; preds = %Abc_Clock.exit79.i
   %187 = load i64, ptr %5, align 8
   %188 = mul nsw i64 %187, 1000000
-  %189 = getelementptr inbounds i8, ptr %5, i64 8
+  %189 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %190 = load i64, ptr %189, align 8
   %191 = sdiv i64 %190, 1000
   %192 = add nsw i64 %191, %188

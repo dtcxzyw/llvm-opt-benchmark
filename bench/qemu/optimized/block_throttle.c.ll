@@ -76,11 +76,11 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %options = getelementptr inbounds i8, ptr %reopen_state, i64 40
+  %options = getelementptr inbounds nuw i8, ptr %reopen_state, i64 40
   %1 = load ptr, ptr %options, align 8
   %call = call fastcc i32 @throttle_parse_options(ptr noundef %1, ptr noundef %group, ptr noundef %errp)
   %2 = load ptr, ptr %group, align 8
-  %opaque = getelementptr inbounds i8, ptr %reopen_state, i64 56
+  %opaque = getelementptr inbounds nuw i8, ptr %reopen_state, i64 56
   store ptr %2, ptr %opaque, align 8
   ret i32 %call
 }
@@ -89,9 +89,9 @@ if.end4:                                          ; preds = %if.end
 define internal void @throttle_reopen_commit(ptr nocapture noundef %reopen_state) #0 {
 entry:
   %0 = load ptr, ptr %reopen_state, align 8
-  %opaque = getelementptr inbounds i8, ptr %0, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %opaque, align 8
-  %opaque2 = getelementptr inbounds i8, ptr %reopen_state, i64 56
+  %opaque2 = getelementptr inbounds nuw i8, ptr %reopen_state, i64 56
   %2 = load ptr, ptr %opaque2, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -122,7 +122,7 @@ if.end7:                                          ; preds = %if.then5, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_reopen_abort(ptr nocapture noundef %reopen_state) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %reopen_state, i64 56
+  %opaque = getelementptr inbounds nuw i8, ptr %reopen_state, i64 56
   %0 = load ptr, ptr %opaque, align 8
   tail call void @g_free(ptr noundef %0) #4
   store ptr null, ptr %opaque, align 8
@@ -133,7 +133,7 @@ entry:
 define internal range(i32 -2147483648, 1) i32 @throttle_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %group = alloca ptr, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call i32 @bdrv_open_file_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.10, ptr noundef %bs, ptr noundef %errp) #4
   %cmp = icmp slt i32 %call, 0
@@ -141,19 +141,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #4
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %2 = load ptr, ptr %1, align 8
-  %supported_write_flags = getelementptr inbounds i8, ptr %2, i64 16588
+  %supported_write_flags = getelementptr inbounds nuw i8, ptr %2, i64 16588
   %3 = load i32, ptr %supported_write_flags, align 4
   %or = or i32 %3, 64
-  %supported_write_flags3 = getelementptr inbounds i8, ptr %bs, i64 16588
+  %supported_write_flags3 = getelementptr inbounds nuw i8, ptr %bs, i64 16588
   store i32 %or, ptr %supported_write_flags3, align 4
   %4 = load ptr, ptr %1, align 8
-  %supported_zero_flags = getelementptr inbounds i8, ptr %4, i64 16592
+  %supported_zero_flags = getelementptr inbounds nuw i8, ptr %4, i64 16592
   %5 = load i32, ptr %supported_zero_flags, align 8
   %or6 = or i32 %5, 64
-  %supported_zero_flags7 = getelementptr inbounds i8, ptr %bs, i64 16592
+  %supported_zero_flags7 = getelementptr inbounds nuw i8, ptr %bs, i64 16592
   store i32 %or6, ptr %supported_zero_flags7, align 8
   %call8 = call fastcc i32 @throttle_parse_options(ptr noundef %options, ptr noundef %group, ptr noundef %errp)
   %cmp9 = icmp eq i32 %call8, 0
@@ -178,7 +178,7 @@ return:                                           ; preds = %entry, %glib_autopt
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_unregister_tgm(ptr noundef %0) #4
   ret void
@@ -187,7 +187,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_detach_aio_context(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_detach_aio_context(ptr noundef %0) #4
   ret void
@@ -196,7 +196,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_attach_aio_context(ptr nocapture noundef readonly %bs, ptr noundef %new_context) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_attach_aio_context(ptr noundef %0, ptr noundef %new_context) #4
   ret void
@@ -205,9 +205,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_drain_begin(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %io_limits_disabled = getelementptr inbounds i8, ptr %0, i64 88
+  %io_limits_disabled = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = atomicrmw add ptr %io_limits_disabled, i32 1 seq_cst, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -223,9 +223,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @throttle_drain_end(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %io_limits_disabled = getelementptr inbounds i8, ptr %0, i64 88
+  %io_limits_disabled = getelementptr inbounds nuw i8, ptr %0, i64 88
   %1 = load i32, ptr %io_limits_disabled, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -244,10 +244,10 @@ declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_co_io_limits_intercept(ptr noundef %0, i64 noundef %bytes, i32 noundef 0) #4
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_preadv(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #4
   ret i32 %call
@@ -256,10 +256,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_pwritev(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_co_io_limits_intercept(ptr noundef %0, i64 noundef %bytes, i32 noundef 1) #4
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_pwritev(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #4
   ret i32 %call
@@ -268,10 +268,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_pwrite_zeroes(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_co_io_limits_intercept(ptr noundef %0, i64 noundef %bytes, i32 noundef 1) #4
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #4
   ret i32 %call
@@ -280,10 +280,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_pdiscard(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   tail call void @throttle_group_co_io_limits_intercept(ptr noundef %0, i64 noundef %bytes, i32 noundef 1) #4
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_pdiscard(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes) #4
   ret i32 %call
@@ -292,7 +292,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_flush(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i32 @bdrv_co_flush(ptr noundef %1) #4
@@ -302,7 +302,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @throttle_co_getlength(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i64 @bdrv_co_getlength(ptr noundef %1) #4
@@ -312,10 +312,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @throttle_co_pwritev_compressed(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov) #0 {
 entry:
-  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque.i = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque.i, align 8
   tail call void @throttle_group_co_io_limits_intercept(ptr noundef %0, i64 noundef %bytes, i32 noundef 1) #4
-  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file.i = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file.i, align 8
   %call.i = tail call i32 @bdrv_co_pwritev(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef 32) #4
   ret i32 %call.i

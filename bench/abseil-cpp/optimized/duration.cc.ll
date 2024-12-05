@@ -141,7 +141,7 @@ if.then:                                          ; preds = %if.then84.i, %if.en
   %rem10295.neg.pn.sink.i = phi i64 [ 0, %if.then17.i ], [ 0, %if.then30.i ], [ 0, %if.then49.i ], [ 0, %if.then68.i ], [ %rem93.i, %if.end90.i ], [ %rem10295.neg.pn.i, %if.end96.i ], [ 0, %if.then84.i ]
   %num.coerce1.sink.i = phi i32 [ %rem19.i, %if.then17.i ], [ %rem36.i, %if.then30.i ], [ %rem55.i, %if.then49.i ], [ %rem74.i, %if.then68.i ], [ %num.coerce1, %if.end90.i ], [ %num.coerce1, %if.end96.i ], [ %num.coerce1, %if.then84.i ]
   store i64 %rem10295.neg.pn.sink.i, ptr %rem, align 4
-  %ref.tmp111.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %rem, i64 8
+  %ref.tmp111.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %rem, i64 8
   store i32 %num.coerce1.sink.i, ptr %ref.tmp111.sroa.2.0..sroa_idx.i, align 4
   br label %return
 
@@ -166,7 +166,7 @@ _ZN4abslltENS_8DurationES0_.exit:                 ; preds = %if.end, %cond.true.
 if.then24:                                        ; preds = %_ZN4abslltENS_8DurationES0_.exit
   %ref.tmp.sroa.0.0 = select i1 %cond27.i, i64 -9223372036854775808, i64 9223372036854775807
   store i64 %ref.tmp.sroa.0.0, ptr %rem, align 4
-  %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %rem, i64 8
+  %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %rem, i64 8
   store i32 -1, ptr %ref.tmp.sroa.3.0..sroa_idx, align 4
   %cond = select i1 %4, i64 -9223372036854775808, i64 9223372036854775807
   br label %return
@@ -176,7 +176,7 @@ if.end34:                                         ; preds = %_ZN4abslltENS_8Dura
 
 if.then37:                                        ; preds = %if.end34
   store i64 %num.coerce0, ptr %rem, align 4
-  %num.sroa.6.0.rem.addr.0.14.sroa_idx = getelementptr inbounds i8, ptr %rem, i64 8
+  %num.sroa.6.0.rem.addr.0.14.sroa_idx = getelementptr inbounds nuw i8, ptr %rem, i64 8
   store i32 %num.coerce1, ptr %num.sroa.6.0.rem.addr.0.14.sroa_idx, align 4
   br label %return
 
@@ -276,7 +276,7 @@ _ZN4absl12_GLOBAL__N_120MakeDurationFromU128ENS_7uint128Eb.exit: ; preds = %if.t
   %call68.fca.0.extract = extractvalue { i64, i32 } %call45.pn.i, 0
   %call68.fca.1.extract = extractvalue { i64, i32 } %call45.pn.i, 1
   store i64 %call68.fca.0.extract, ptr %rem, align 4
-  %ref.tmp65.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %rem, i64 8
+  %ref.tmp65.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %rem, i64 8
   store i32 %call68.fca.1.extract, ptr %ref.tmp65.sroa.2.0..sroa_idx, align 4
   %cmp.i111 = icmp ne i128 %coerce.sroa.0.0.insert.insert.i73, 0
   %or.cond129.not = and i1 %4, %cmp.i111
@@ -299,7 +299,7 @@ return:                                           ; preds = %if.end78, %if.then7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull returned align 4 dereferenceable(12) %this, i64 %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i32, ptr %agg.tmp.sroa.2.0.this1.sroa_idx, align 4
   %cmp.i = icmp eq i32 %agg.tmp.sroa.2.0.copyload, -1
   br i1 %cmp.i, label %return, label %if.end
@@ -313,7 +313,7 @@ if.end5:                                          ; preds = %if.end
   %add = add i64 %0, %rhs.coerce0
   %shr.i = lshr i64 %add, 32
   %conv.i = trunc nuw i64 %shr.i to i32
-  %hi_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %hi_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %conv.i, ptr %hi_.i, align 4
   %conv2.i = trunc i64 %add to i32
   store i32 %conv2.i, ptr %this, align 4
@@ -370,7 +370,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull returned align 4 dereferenceable(12) %this, i64 %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #1 align 2 {
 entry:
-  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i32, ptr %agg.tmp.sroa.2.0.this1.sroa_idx, align 4
   %cmp.i = icmp eq i32 %agg.tmp.sroa.2.0.copyload, -1
   br i1 %cmp.i, label %return, label %if.end
@@ -389,7 +389,7 @@ if.end12:                                         ; preds = %if.end
   %sub = sub i64 %0, %rhs.coerce0
   %shr.i = lshr i64 %sub, 32
   %conv.i = trunc nuw i64 %shr.i to i32
-  %hi_.i = getelementptr inbounds i8, ptr %this, i64 4
+  %hi_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %conv.i, ptr %hi_.i, align 4
   %conv2.i = trunc i64 %sub to i32
   store i32 %conv2.i, ptr %this, align 4
@@ -444,7 +444,7 @@ return:                                           ; preds = %return.sink.split, 
 define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull returned align 4 dereferenceable(12) %this, i64 noundef %r) local_unnamed_addr #2 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %this, align 4
-  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i32, ptr %agg.tmp.sroa.2.0.this1.sroa_idx, align 4
   %cmp.i = icmp eq i32 %agg.tmp.sroa.2.0.copyload, -1
   br i1 %cmp.i, label %if.then, label %if.end
@@ -595,7 +595,7 @@ define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8Durat
 entry:
   %hi_int.i = alloca double, align 8
   %lo_int.i = alloca double, align 8
-  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i32, ptr %agg.tmp.sroa.2.0.this1.sroa_idx, align 4
   %cmp.i = icmp ne i32 %agg.tmp.sroa.2.0.copyload, -1
   %0 = tail call double @llvm.fabs.f64(double %r)
@@ -696,7 +696,7 @@ return:                                           ; preds = %if.then, %_ZN4absl1
 define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationdVEl(ptr noundef nonnull returned align 4 dereferenceable(12) %this, i64 noundef %r) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %this, align 4
-  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i32, ptr %agg.tmp.sroa.2.0.this1.sroa_idx, align 4
   %cmp.i = icmp eq i32 %agg.tmp.sroa.2.0.copyload, -1
   %cmp = icmp eq i64 %r, 0
@@ -794,7 +794,7 @@ define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8Durat
 entry:
   %hi_int.i = alloca double, align 8
   %lo_int.i = alloca double, align 8
-  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i32, ptr %agg.tmp.sroa.2.0.this1.sroa_idx, align 4
   %cmp.i = icmp ne i32 %agg.tmp.sroa.2.0.copyload, -1
   %retval.0.i = fcmp one double %r, 0.000000e+00
@@ -894,7 +894,7 @@ return:                                           ; preds = %if.then, %_ZN4absl1
 define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationrMES0_(ptr noundef nonnull returned align 4 dereferenceable(12) %this, i64 %rhs.coerce0, i32 %rhs.coerce1) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %this, align 4
-  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %agg.tmp.sroa.2.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i32, ptr %agg.tmp.sroa.2.0.this1.sroa_idx, align 4
   %call = tail call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %agg.tmp.sroa.0.0.copyload, i32 %agg.tmp.sroa.2.0.copyload, i64 %rhs.coerce0, i32 %rhs.coerce1, ptr noundef nonnull %this)
   ret ptr %this
@@ -946,7 +946,7 @@ entry:
   %lhs.i = alloca %"class.absl::Duration", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i)
   store i64 %d.coerce0, ptr %lhs.i, align 8
-  %coerce.sroa.2.0.lhs.sroa_idx.i = getelementptr inbounds i8, ptr %lhs.i, i64 8
+  %coerce.sroa.2.0.lhs.sroa_idx.i = getelementptr inbounds nuw i8, ptr %lhs.i, i64 8
   store i32 %d.coerce1, ptr %coerce.sroa.2.0.lhs.sroa_idx.i, align 8
   %call.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull align 4 dereferenceable(12) %lhs.i)
   %retval.sroa.0.0.copyload.i = load i64, ptr %lhs.i, align 8
@@ -1003,7 +1003,7 @@ entry:
   %lhs.i.i = alloca %"class.absl::Duration", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i)
   store i64 %d.coerce0, ptr %lhs.i.i, align 8
-  %coerce.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds i8, ptr %lhs.i.i, i64 8
+  %coerce.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %lhs.i.i, i64 8
   store i32 %d.coerce1, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i, align 8
   %call.i.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i)
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %lhs.i.i, align 8
@@ -1173,7 +1173,7 @@ entry:
   %lhs.i.i = alloca %"class.absl::Duration", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i)
   store i64 %d.coerce0, ptr %lhs.i.i, align 8
-  %coerce.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds i8, ptr %lhs.i.i, i64 8
+  %coerce.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %lhs.i.i, i64 8
   store i32 %d.coerce1, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i, align 8
   %call.i.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i)
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %lhs.i.i, align 8
@@ -1981,7 +1981,7 @@ entry:
   %buf.i = alloca [17 x i8], align 16
   %d = alloca %"class.absl::Duration", align 8
   store i64 %d.coerce0, ptr %d, align 8
-  %coerce.sroa.2.0.d.sroa_idx = getelementptr inbounds i8, ptr %d, i64 8
+  %coerce.sroa.2.0.d.sroa_idx = getelementptr inbounds nuw i8, ptr %d, i64 8
   store i32 %d.coerce1, ptr %coerce.sroa.2.0.d.sroa_idx, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #17
   %cmp.i = icmp eq i64 %d.coerce0, -9223372036854775808
@@ -2084,8 +2084,8 @@ if.else55:                                        ; preds = %_ZN4abslltENS_8Dura
 invoke.cont70:                                    ; preds = %if.else
   %call.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext true, i64 %agg.tmp14.sroa.0.0.copyload, i32 %agg.tmp14.sroa.2.0.copyload, i64 3600, i32 0, ptr noundef nonnull %d)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %buf.i)
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 17
-  %scevgep9.i.i = getelementptr inbounds i8, ptr %buf.i, i64 15
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 17
+  %scevgep9.i.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 15
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %invoke.cont70
@@ -2132,7 +2132,7 @@ _ZN4absl12_GLOBAL__N_18Format64EPcil.exit.i:      ; preds = %while.body.preheade
   %10 = phi i8 [ %conv.i.i, %while.cond.preheader.i.i ], [ %.pre.i, %while.body.preheader.i.i ]
   %ep.addr.1.lcssa.i.i = phi ptr [ %incdec.ptr.i.i, %while.cond.preheader.i.i ], [ %scevgep12.i.i, %while.body.preheader.i.i ]
   %cmp.not.i83 = icmp eq i8 %10, 48
-  %add.ptr1.i = getelementptr inbounds i8, ptr %ep.addr.1.lcssa.i.i, i64 1
+  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %ep.addr.1.lcssa.i.i, i64 1
   %cmp2.not.i = icmp eq ptr %add.ptr1.i, %add.ptr.i
   %or.cond.i = select i1 %cmp.not.i83, i1 %cmp2.not.i, i1 false
   br i1 %or.cond.i, label %invoke.cont78, label %if.then.i84
@@ -2154,8 +2154,8 @@ invoke.cont78:                                    ; preds = %call3.i.noexc, %_ZN
   %agg.tmp74.sroa.2.0.copyload = load i32, ptr %coerce.sroa.2.0.d.sroa_idx, align 8
   %call.i88 = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext true, i64 %agg.tmp74.sroa.0.0.copyload, i32 %agg.tmp74.sroa.2.0.copyload, i64 60, i32 0, ptr noundef nonnull %d)
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %buf.i89)
-  %add.ptr.i90 = getelementptr inbounds i8, ptr %buf.i89, i64 17
-  %scevgep9.i.i91 = getelementptr inbounds i8, ptr %buf.i89, i64 15
+  %add.ptr.i90 = getelementptr inbounds nuw i8, ptr %buf.i89, i64 17
+  %scevgep9.i.i91 = getelementptr inbounds nuw i8, ptr %buf.i89, i64 15
   br label %do.body.i.i92
 
 do.body.i.i92:                                    ; preds = %do.body.i.i92, %invoke.cont78
@@ -2202,7 +2202,7 @@ _ZN4absl12_GLOBAL__N_18Format64EPcil.exit.i111:   ; preds = %while.body.preheade
   %19 = phi i8 [ %conv.i.i101, %while.cond.preheader.i.i109 ], [ %.pre.i126, %while.body.preheader.i.i122 ]
   %ep.addr.1.lcssa.i.i112 = phi ptr [ %incdec.ptr.i.i102, %while.cond.preheader.i.i109 ], [ %scevgep12.i.i125, %while.body.preheader.i.i122 ]
   %cmp.not.i113 = icmp eq i8 %19, 48
-  %add.ptr1.i114 = getelementptr inbounds i8, ptr %ep.addr.1.lcssa.i.i112, i64 1
+  %add.ptr1.i114 = getelementptr inbounds nuw i8, ptr %ep.addr.1.lcssa.i.i112, i64 1
   %cmp2.not.i115 = icmp eq ptr %add.ptr1.i114, %add.ptr.i90
   %or.cond.i116 = select i1 %cmp.not.i113, i1 %cmp2.not.i115, i1 false
   br i1 %or.cond.i116, label %invoke.cont81, label %if.then.i117
@@ -2275,13 +2275,13 @@ define internal fastcc void @_ZN4absl12_GLOBAL__N_116AppendNumberUnitEPNSt7__cxx
 entry:
   %buf = alloca [15 x i8], align 1
   %d = alloca double, align 8
-  %prec1 = getelementptr inbounds i8, ptr %unit, i64 16
+  %prec1 = getelementptr inbounds nuw i8, ptr %unit, i64 16
   %0 = load i32, ptr %prec1, align 8
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %0, i32 15)
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 15
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 15
   store double 0.000000e+00, ptr %d, align 8
   %call2 = call double @modf(double noundef %n, ptr noundef nonnull %d) #17
-  %pow10 = getelementptr inbounds i8, ptr %unit, i64 24
+  %pow10 = getelementptr inbounds nuw i8, ptr %unit, i64 24
   %1 = load double, ptr %pow10, align 8
   %mul = fmul double %call2, %1
   %2 = tail call double @llvm.round.f64(double %mul)
@@ -2294,7 +2294,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end20
 
 if.then:                                          ; preds = %entry
-  %scevgep9.i = getelementptr inbounds i8, ptr %buf, i64 13
+  %scevgep9.i = getelementptr inbounds nuw i8, ptr %buf, i64 13
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.then
@@ -2408,7 +2408,7 @@ while.end:                                        ; preds = %while.cond
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %_ZN4absl12_GLOBAL__N_18Format64EPcil.exit
-  %_M_str.i = getelementptr inbounds i8, ptr %unit, i64 8
+  %_M_str.i = getelementptr inbounds nuw i8, ptr %unit, i64 8
   %23 = load ptr, ptr %_M_str.i, align 8
   %24 = load i64, ptr %unit, align 8
   %call19 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef %23, i64 noundef %24)
@@ -2445,7 +2445,7 @@ if.end.i19:                                       ; preds = %_ZN4absl10StartsWit
 
 if.end:                                           ; preds = %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i, %if.end.i19
   %sign.0 = phi i32 [ 1, %if.end.i19 ], [ -1, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit.i ]
-  %add.ptr.i.i20 = getelementptr inbounds i8, ptr %dur_sv.coerce1, i64 1
+  %add.ptr.i.i20 = getelementptr inbounds nuw i8, ptr %dur_sv.coerce1, i64 1
   %sub.i.i21 = add i64 %dur_sv.coerce0, -1
   %cmp.i = icmp eq i64 %sub.i.i21, 0
   br i1 %cmp.i, label %return, label %if.end5
@@ -2472,7 +2472,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i31: ; preds = %if.end5
 if.then15:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i31
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %rhs.i)
   store i64 9223372036854775807, ptr %rhs.i, align 8
-  %coerce.sroa.2.0.rhs.sroa_idx.i = getelementptr inbounds i8, ptr %rhs.i, i64 8
+  %coerce.sroa.2.0.rhs.sroa_idx.i = getelementptr inbounds nuw i8, ptr %rhs.i, i64 8
   store i32 -1, ptr %coerce.sroa.2.0.rhs.sroa_idx.i, align 8
   %conv.i.i = sext i32 %sign.0198 to i64
   %call.i.i36 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmLEl(ptr noundef nonnull align 4 dereferenceable(12) %rhs.i, i64 noundef %conv.i.i)
@@ -2485,8 +2485,8 @@ for.body.i.preheader.lr.ph:                       ; preds = %_ZNSt11char_traitsI
   %add.ptr = getelementptr inbounds i8, ptr %dur_sv.sroa.9.0195, i64 %dur_sv.sroa.0.0192
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr to i64
   %conv = sext i32 %sign.0198 to i64
-  %coerce.sroa.2.0.rhs.sroa_idx.i45 = getelementptr inbounds i8, ptr %rhs.i44, i64 8
-  %coerce.sroa.2.0.rhs.sroa_idx.i62 = getelementptr inbounds i8, ptr %rhs.i61, i64 8
+  %coerce.sroa.2.0.rhs.sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %rhs.i44, i64 8
+  %coerce.sroa.2.0.rhs.sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %rhs.i61, i64 8
   br label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body.i.preheader.lr.ph, %if.end49
@@ -2522,7 +2522,7 @@ if.end5.i:                                        ; preds = %if.end.i40
 
 if.end10.i:                                       ; preds = %if.end5.i
   %add.i = add nsw i64 %mul.i, %conv6.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %start.1, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %start.1, i64 1
   %cmp.not.i = icmp eq ptr %add.ptr.i, %add.ptr
   br i1 %cmp.not.i, label %for.end.thread.i, label %for.body.i, !llvm.loop !8
 
@@ -2532,7 +2532,7 @@ lor.lhs.false14.i:                                ; preds = %for.body.i
   br i1 %cmp16.not.i, label %for.cond20.preheader.i, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit
 
 for.cond20.preheader.i:                           ; preds = %lor.lhs.false14.i
-  %storemerge36.i = getelementptr inbounds i8, ptr %start.1, i64 1
+  %storemerge36.i = getelementptr inbounds nuw i8, ptr %start.1, i64 1
   %cmp21.not37.i = icmp eq ptr %storemerge36.i, %add.ptr
   br i1 %cmp21.not37.i, label %for.end40.i.thread, label %for.body22.i
 
@@ -2560,7 +2560,7 @@ if.then32.i:                                      ; preds = %if.end30.i
 for.inc38.i:                                      ; preds = %if.then32.i, %if.end30.i
   %frac_part.1 = phi i64 [ %add35.i, %if.then32.i ], [ %frac_part.0, %if.end30.i ]
   %frac_scale.1 = phi i64 [ %mul36.i, %if.then32.i ], [ %frac_scale.0, %if.end30.i ]
-  %storemerge.i = getelementptr inbounds i8, ptr %start.3, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %start.3, i64 1
   %cmp21.not.i = icmp eq ptr %storemerge.i, %add.ptr
   br i1 %cmp21.not.i, label %for.end40.i, label %for.body22.i, !llvm.loop !9
 
@@ -2599,19 +2599,19 @@ sw.default.i:                                     ; preds = %lor.lhs.false
   ]
 
 sw.bb1.i:                                         ; preds = %sw.default.i
-  %add.ptr.i42 = getelementptr inbounds i8, ptr %start.5218, i64 1
+  %add.ptr.i42 = getelementptr inbounds nuw i8, ptr %start.5218, i64 1
   %7 = load i8, ptr %add.ptr.i42, align 1
   %cmp.i43 = icmp eq i8 %7, 115
   br i1 %cmp.i43, label %if.end28, label %return
 
 sw.bb4.i:                                         ; preds = %sw.default.i
-  %add.ptr5.i = getelementptr inbounds i8, ptr %start.5218, i64 1
+  %add.ptr5.i = getelementptr inbounds nuw i8, ptr %start.5218, i64 1
   %8 = load i8, ptr %add.ptr5.i, align 1
   %cmp7.i = icmp eq i8 %8, 115
   br i1 %cmp7.i, label %if.end28, label %return
 
 sw.bb14.i:                                        ; preds = %sw.default.i
-  %add.ptr15.i = getelementptr inbounds i8, ptr %start.5218, i64 1
+  %add.ptr15.i = getelementptr inbounds nuw i8, ptr %start.5218, i64 1
   %9 = load i8, ptr %add.ptr15.i, align 1
   %cmp17.i = icmp eq i8 %9, 115
   br i1 %cmp17.i, label %if.end28, label %sw.bb32.i
@@ -2638,7 +2638,7 @@ if.end28:                                         ; preds = %sw.bb25.i, %sw.bb14
   %.sink = phi i64 [ 1, %sw.bb37.i ], [ 1, %sw.bb32.i ], [ 2, %sw.bb1.i ], [ 2, %sw.bb4.i ], [ 2, %sw.bb14.i ], [ 1, %sw.bb25.i ]
   %unit.sroa.10.0.ph = phi i32 [ 0, %sw.bb37.i ], [ 0, %sw.bb32.i ], [ 4, %sw.bb1.i ], [ 4000, %sw.bb4.i ], [ 4000000, %sw.bb14.i ], [ 0, %sw.bb25.i ]
   %unit.sroa.0.0.ph = phi i64 [ 3600, %sw.bb37.i ], [ 60, %sw.bb32.i ], [ 0, %sw.bb1.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb14.i ], [ 1, %sw.bb25.i ]
-  %add.ptr41.i = getelementptr inbounds i8, ptr %start.5218, i64 %.sink
+  %add.ptr41.i = getelementptr inbounds nuw i8, ptr %start.5218, i64 %.sink
   %cmp29.not = icmp eq i64 %int_part.2219, 0
   br i1 %cmp29.not, label %if.end36, label %if.then30
 
@@ -2871,7 +2871,7 @@ return.sink.split:                                ; preds = %_ZNSt11char_traitsI
   %dur.sroa.0.sroa.0.0.insert.insert146.sink = phi i64 [ %dur.sroa.0.sroa.0.0.insert.insert146, %while.end ], [ %retval.sroa.0.0.copyload.i, %if.then15 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   %dur.sroa.19.2.lcssa.sink = phi i32 [ %dur.sroa.19.2, %while.end ], [ %retval.sroa.2.0.copyload.i, %if.then15 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   store i64 %dur.sroa.0.sroa.0.0.insert.insert146.sink, ptr %d, align 4
-  %dur.sroa.19.0.d.sroa_idx = getelementptr inbounds i8, ptr %d, i64 8
+  %dur.sroa.19.0.d.sroa_idx = getelementptr inbounds nuw i8, ptr %d, i64 8
   store i32 %dur.sroa.19.2.lcssa.sink, ptr %dur.sroa.19.0.d.sroa_idx, align 4
   br label %return
 

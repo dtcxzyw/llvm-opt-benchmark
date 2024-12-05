@@ -7,10 +7,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @VP8InitRandom(ptr nocapture noundef writeonly initializes((0, 232)) %0, float noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(220) %3, ptr noundef nonnull align 16 dereferenceable(220) @kRandomTable, i64 220, i1 false)
   store i32 0, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 31, ptr %4, align 4
   %5 = fcmp olt float %1, 0.000000e+00
   %6 = fcmp ogt float %1, 1.000000e+00
@@ -18,7 +18,7 @@ define hidden void @VP8InitRandom(ptr nocapture noundef writeonly initializes((0
   %8 = fptoui float %7 to i32
   %9 = select i1 %6, i32 256, i32 %8
   %10 = select i1 %5, i32 0, i32 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 228
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 %10, ptr %11, align 4
   ret void
 }

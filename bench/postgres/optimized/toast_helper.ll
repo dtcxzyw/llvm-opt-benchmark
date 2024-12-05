@@ -10,21 +10,21 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @toast_tuple_init(ptr nocapture noundef initializes((40, 41)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %6, align 8
   %7 = icmp sgt i32 %5, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %14
 
@@ -37,7 +37,7 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef initializes((40, 4
   %18 = load ptr, ptr %9, align 8
   %19 = getelementptr %struct.ToastAttrInfo, ptr %18, i64 %indvars.iv
   store ptr null, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 89
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 89
   %21 = load i8, ptr %20, align 1
   %22 = load ptr, ptr %9, align 8
   %23 = getelementptr %struct.ToastAttrInfo, ptr %22, i64 %indvars.iv, i32 3
@@ -54,7 +54,7 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef initializes((40, 4
   %30 = getelementptr i64, ptr %29, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %15, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %34 = load i16, ptr %33, align 4
   %35 = icmp eq i16 %34, -1
   br i1 %35, label %36, label %78
@@ -72,7 +72,7 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef initializes((40, 4
   br i1 %43, label %44, label %78
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %28, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 18
   br i1 %47, label %48, label %78
@@ -90,7 +90,7 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef initializes((40, 4
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %32, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 18
   br i1 %59, label %60, label %61
@@ -146,13 +146,13 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef initializes((40, 4
   br label %151
 
 90:                                               ; preds = %78
-  %91 = getelementptr inbounds i8, ptr %15, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %92 = load i16, ptr %91, align 4
   %93 = icmp eq i16 %92, -1
   br i1 %93, label %94, label %146
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %15, i64 88
+  %95 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %96 = load i8, ptr %95, align 4
   %97 = icmp eq i8 %96, 112
   br i1 %97, label %98, label %103
@@ -205,7 +205,7 @@ define dso_local void @toast_tuple_init(ptr nocapture noundef initializes((40, 4
   br i1 %125, label %126, label %.thread
 
 126:                                              ; preds = %115
-  %127 = getelementptr inbounds i8, ptr %.2, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %128 = load i8, ptr %127, align 1
   %129 = icmp eq i8 %128, 1
   %130 = and i8 %128, -2
@@ -264,7 +264,7 @@ declare ptr @detoast_external_attr(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %spec.select = select i1 %1, i32 48, i32 16
@@ -272,9 +272,9 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %invariant.gep54 = getelementptr i8, ptr %6, i64 112
   %wide.trip.count77 = zext nneg i32 %7 to i64
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
@@ -470,19 +470,19 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @toast_tuple_try_compression(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr i64, ptr %4, i64 %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr %struct.ToastAttrInfo, ptr %8, i64 %5
   %10 = load i64, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 13
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 13
   %12 = load i8, ptr %11, align 1
   %13 = tail call i64 @toast_compress_datum(i64 noundef %10, i8 noundef signext %12) #5
   %.not = icmp eq i64 %13, 0
-  %14 = getelementptr inbounds i8, ptr %9, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %15 = load i8, ptr %14, align 4
   br i1 %.not, label %32, label %16
 
@@ -506,9 +506,9 @@ define dso_local void @toast_tuple_try_compression(ptr nocapture noundef %0, i32
   %25 = inttoptr i64 %24 to ptr
   %26 = load i32, ptr %25, align 4
   %27 = lshr i32 %26, 2
-  %28 = getelementptr inbounds i8, ptr %9, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i8, ptr %29, align 8
   %31 = or i8 %30, 10
   store i8 %31, ptr %29, align 8
@@ -529,15 +529,15 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @toast_tuple_externalize(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr i64, ptr %5, i64 %6
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %6
-  %12 = getelementptr inbounds i8, ptr %11, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i8, ptr %12, align 4
   %14 = or i8 %13, 16
   store i8 %14, ptr %12, align 4
@@ -560,7 +560,7 @@ define dso_local void @toast_tuple_externalize(ptr nocapture noundef %0, i32 nou
   %23 = phi i8 [ %.pre, %20 ], [ %18, %3 ]
   %24 = or i8 %23, 2
   store i8 %24, ptr %12, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i8, ptr %25, align 8
   %27 = or i8 %26, 10
   store i8 %27, ptr %25, align 8
@@ -572,10 +572,10 @@ declare i64 @toast_save_datum(ptr noundef, i64 noundef, ptr noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define dso_local void @toast_tuple_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 2
   %.not = icmp ne i8 %8, 0
@@ -584,8 +584,8 @@ define dso_local void @toast_tuple_cleanup(ptr nocapture noundef readonly %0) lo
   br i1 %or.cond, label %.lr.ph, label %.loopexit25
 
 .lr.ph:                                           ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %12
 
@@ -623,8 +623,8 @@ define dso_local void @toast_tuple_cleanup(ptr nocapture noundef readonly %0) lo
   br i1 %or.cond29, label %.lr.ph28, label %.loopexit
 
 .lr.ph28:                                         ; preds = %.loopexit25
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count34 = zext nneg i32 %5 to i64
   br label %27
 
@@ -658,7 +658,7 @@ declare void @toast_delete_datum(ptr noundef, i64 noundef, i1 noundef zeroext) l
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @toast_delete_external(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
@@ -692,7 +692,7 @@ define dso_local void @toast_delete_external(ptr noundef %0, ptr nocapture nound
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %21, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 18
   br i1 %27, label %28, label %29

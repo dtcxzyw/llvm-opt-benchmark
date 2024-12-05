@@ -468,10 +468,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i328: ; preds = %_ZN9QtPrivate8RefCo
 _ZN7QStringD2Ev.exit333:                          ; preds = %_ZN7QStringD2Ev.exit327, %_ZN9QtPrivate8RefCount5derefEv.exit.i329, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i328
   store i8 0, ptr %15, align 1
   %195 = load ptr, ptr %6, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %197 = load i64, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr %195, i64 %197
-  %199 = getelementptr inbounds i8, ptr %195, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %200 = load i32, ptr %199, align 4
   %201 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %198, i32 noundef %200, ptr noundef nonnull @.str.7, i32 noundef -1, i32 noundef 1)
           to label %202 unwind label %251
@@ -904,10 +904,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i399: ; preds = %_ZN9QtPrivate8RefCo
 
 309:                                              ; preds = %202
   %310 = load ptr, ptr %6, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 16
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 16
   %312 = load i64, ptr %311, align 8
   %313 = getelementptr inbounds i8, ptr %310, i64 %312
-  %314 = getelementptr inbounds i8, ptr %310, i64 4
+  %314 = getelementptr inbounds nuw i8, ptr %310, i64 4
   %315 = load i32, ptr %314, align 4
   %316 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %313, i32 noundef %315, ptr noundef nonnull @.str.11, i32 noundef -1, i32 noundef 1)
           to label %317 unwind label %251
@@ -1059,10 +1059,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i425: ; preds = %_ZN9QtPrivate8RefCo
 
 354:                                              ; preds = %317
   %355 = load ptr, ptr %6, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 16
   %357 = load i64, ptr %356, align 8
   %358 = getelementptr inbounds i8, ptr %355, i64 %357
-  %359 = getelementptr inbounds i8, ptr %355, i64 4
+  %359 = getelementptr inbounds nuw i8, ptr %355, i64 4
   %360 = load i32, ptr %359, align 4
   %361 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %358, i32 noundef %360, ptr noundef nonnull @.str.12, i32 noundef -1, i32 noundef 1)
           to label %362 unwind label %251
@@ -1214,10 +1214,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i451: ; preds = %_ZN9QtPrivate8RefCo
 
 399:                                              ; preds = %362
   %400 = load ptr, ptr %6, align 8
-  %401 = getelementptr inbounds i8, ptr %400, i64 16
+  %401 = getelementptr inbounds nuw i8, ptr %400, i64 16
   %402 = load i64, ptr %401, align 8
   %403 = getelementptr inbounds i8, ptr %400, i64 %402
-  %404 = getelementptr inbounds i8, ptr %400, i64 4
+  %404 = getelementptr inbounds nuw i8, ptr %400, i64 4
   %405 = load i32, ptr %404, align 4
   %406 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %403, i32 noundef %405, ptr noundef nonnull @.str.13, i32 noundef -1, i32 noundef 1)
           to label %407 unwind label %251
@@ -1364,10 +1364,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i477: ; preds = %_ZN9QtPrivate8RefCo
 
 440:                                              ; preds = %407
   %441 = load ptr, ptr %6, align 8
-  %442 = getelementptr inbounds i8, ptr %441, i64 16
+  %442 = getelementptr inbounds nuw i8, ptr %441, i64 16
   %443 = load i64, ptr %442, align 8
   %444 = getelementptr inbounds i8, ptr %441, i64 %443
-  %445 = getelementptr inbounds i8, ptr %441, i64 4
+  %445 = getelementptr inbounds nuw i8, ptr %441, i64 4
   %446 = load i32, ptr %445, align 4
   %447 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %444, i32 noundef %446, ptr noundef nonnull @.str.14, i32 noundef -1, i32 noundef 1)
           to label %448 unwind label %251
@@ -1584,10 +1584,10 @@ _ZN7QStringD2Ev.exit502:                          ; preds = %_ZN7QStringD2Ev.exi
 
 509:                                              ; preds = %448
   %510 = load ptr, ptr %6, align 8
-  %511 = getelementptr inbounds i8, ptr %510, i64 16
+  %511 = getelementptr inbounds nuw i8, ptr %510, i64 16
   %512 = load i64, ptr %511, align 8
   %513 = getelementptr inbounds i8, ptr %510, i64 %512
-  %514 = getelementptr inbounds i8, ptr %510, i64 4
+  %514 = getelementptr inbounds nuw i8, ptr %510, i64 4
   %515 = load i32, ptr %514, align 4
   %516 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %513, i32 noundef %515, ptr noundef nonnull @.str.17, i32 noundef -1, i32 noundef 1)
           to label %517 unwind label %251
@@ -1767,7 +1767,7 @@ _ZN7QStringD2Ev.exit502:                          ; preds = %_ZN7QStringD2Ev.exi
   %spec.select.i.i = icmp ult i32 %578, 256
   %579 = zext i1 %spec.select.i.i to i32
   store i32 %579, ptr %61, align 4
-  %580 = getelementptr inbounds i8, ptr %61, i64 4
+  %580 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %581 = trunc i32 %565 to i16
   %582 = mul i16 %581, 257
   %583 = select i1 %spec.select.i.i, i16 %582, i16 0
@@ -1781,13 +1781,13 @@ _ZN7QStringD2Ev.exit502:                          ; preds = %_ZN7QStringD2Ev.exi
   %591 = mul i16 %590, 257
   %592 = select i1 %spec.select.i.i, i16 %591, i16 0
   store i16 %583, ptr %580, align 4
-  %593 = getelementptr inbounds i8, ptr %61, i64 6
+  %593 = getelementptr inbounds nuw i8, ptr %61, i64 6
   store i16 %586, ptr %593, align 2
-  %594 = getelementptr inbounds i8, ptr %61, i64 8
+  %594 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i16 %589, ptr %594, align 4
-  %595 = getelementptr inbounds i8, ptr %61, i64 10
+  %595 = getelementptr inbounds nuw i8, ptr %61, i64 10
   store i16 %592, ptr %595, align 2
-  %596 = getelementptr inbounds i8, ptr %61, i64 12
+  %596 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i16 0, ptr %596, align 4
   %597 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
           to label %598 unwind label %251
@@ -1811,10 +1811,10 @@ _ZN7QStringD2Ev.exit502:                          ; preds = %_ZN7QStringD2Ev.exi
 
 602:                                              ; preds = %517
   %603 = load ptr, ptr %6, align 8
-  %604 = getelementptr inbounds i8, ptr %603, i64 16
+  %604 = getelementptr inbounds nuw i8, ptr %603, i64 16
   %605 = load i64, ptr %604, align 8
   %606 = getelementptr inbounds i8, ptr %603, i64 %605
-  %607 = getelementptr inbounds i8, ptr %603, i64 4
+  %607 = getelementptr inbounds nuw i8, ptr %603, i64 4
   %608 = load i32, ptr %607, align 4
   %609 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %606, i32 noundef %608, ptr noundef nonnull @.str.22, i32 noundef -1, i32 noundef 1)
           to label %610 unwind label %251
@@ -2022,7 +2022,7 @@ _ZN7QStringD2Ev.exit541:                          ; preds = %_ZN7QStringD2Ev.exi
   br label %1135
 
 656:                                              ; preds = %_ZN7QStringD2Ev.exit541
-  %657 = getelementptr inbounds float, ptr %63, i64 %indvars.iv
+  %657 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv
   store float %624, ptr %657, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond652 = icmp eq i64 %indvars.iv.next, 16
@@ -2051,10 +2051,10 @@ _ZN7QStringD2Ev.exit541:                          ; preds = %_ZN7QStringD2Ev.exi
 
 664:                                              ; preds = %610
   %665 = load ptr, ptr %6, align 8
-  %666 = getelementptr inbounds i8, ptr %665, i64 16
+  %666 = getelementptr inbounds nuw i8, ptr %665, i64 16
   %667 = load i64, ptr %666, align 8
   %668 = getelementptr inbounds i8, ptr %665, i64 %667
-  %669 = getelementptr inbounds i8, ptr %665, i64 4
+  %669 = getelementptr inbounds nuw i8, ptr %665, i64 4
   %670 = load i32, ptr %669, align 4
   %671 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %668, i32 noundef %670, ptr noundef nonnull @.str.24, i32 noundef -1, i32 noundef 1)
           to label %672 unwind label %251
@@ -2380,10 +2380,10 @@ _ZN7QStringD2Ev.exit579:                          ; preds = %_ZN7QStringD2Ev.exi
 
 750:                                              ; preds = %672
   %751 = load ptr, ptr %6, align 8
-  %752 = getelementptr inbounds i8, ptr %751, i64 16
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 16
   %753 = load i64, ptr %752, align 8
   %754 = getelementptr inbounds i8, ptr %751, i64 %753
-  %755 = getelementptr inbounds i8, ptr %751, i64 4
+  %755 = getelementptr inbounds nuw i8, ptr %751, i64 4
   %756 = load i32, ptr %755, align 4
   %757 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %754, i32 noundef %756, ptr noundef nonnull @.str.27, i32 noundef -1, i32 noundef 1)
           to label %758 unwind label %251
@@ -2454,10 +2454,10 @@ _ZN7QStringD2Ev.exit579:                          ; preds = %_ZN7QStringD2Ev.exi
 
 779:                                              ; preds = %758
   %780 = load ptr, ptr %6, align 8
-  %781 = getelementptr inbounds i8, ptr %780, i64 16
+  %781 = getelementptr inbounds nuw i8, ptr %780, i64 16
   %782 = load i64, ptr %781, align 8
   %783 = getelementptr inbounds i8, ptr %780, i64 %782
-  %784 = getelementptr inbounds i8, ptr %780, i64 4
+  %784 = getelementptr inbounds nuw i8, ptr %780, i64 4
   %785 = load i32, ptr %784, align 4
   %786 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %783, i32 noundef %785, ptr noundef nonnull @.str.28, i32 noundef -1, i32 noundef 1)
           to label %787 unwind label %251
@@ -2610,10 +2610,10 @@ _ZN7QStringD2Ev.exit579:                          ; preds = %_ZN7QStringD2Ev.exi
 
 836:                                              ; preds = %787
   %837 = load ptr, ptr %6, align 8
-  %838 = getelementptr inbounds i8, ptr %837, i64 16
+  %838 = getelementptr inbounds nuw i8, ptr %837, i64 16
   %839 = load i64, ptr %838, align 8
   %840 = getelementptr inbounds i8, ptr %837, i64 %839
-  %841 = getelementptr inbounds i8, ptr %837, i64 4
+  %841 = getelementptr inbounds nuw i8, ptr %837, i64 4
   %842 = load i32, ptr %841, align 4
   %843 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %840, i32 noundef %842, ptr noundef nonnull @.str.29, i32 noundef -1, i32 noundef 1)
           to label %844 unwind label %251
@@ -2808,10 +2808,10 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
 
 892:                                              ; preds = %844
   %893 = load ptr, ptr %6, align 8
-  %894 = getelementptr inbounds i8, ptr %893, i64 16
+  %894 = getelementptr inbounds nuw i8, ptr %893, i64 16
   %895 = load i64, ptr %894, align 8
   %896 = getelementptr inbounds i8, ptr %893, i64 %895
-  %897 = getelementptr inbounds i8, ptr %893, i64 4
+  %897 = getelementptr inbounds nuw i8, ptr %893, i64 4
   %898 = load i32, ptr %897, align 4
   %899 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %896, i32 noundef %898, ptr noundef nonnull @.str.32, i32 noundef -1, i32 noundef 1)
           to label %900 unwind label %251
@@ -2903,10 +2903,10 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
 
 924:                                              ; preds = %900
   %925 = load ptr, ptr %6, align 8
-  %926 = getelementptr inbounds i8, ptr %925, i64 16
+  %926 = getelementptr inbounds nuw i8, ptr %925, i64 16
   %927 = load i64, ptr %926, align 8
   %928 = getelementptr inbounds i8, ptr %925, i64 %927
-  %929 = getelementptr inbounds i8, ptr %925, i64 4
+  %929 = getelementptr inbounds nuw i8, ptr %925, i64 4
   %930 = load i32, ptr %929, align 4
   %931 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %928, i32 noundef %930, ptr noundef nonnull @.str.34, i32 noundef -1, i32 noundef 1)
           to label %932 unwind label %251
@@ -2970,7 +2970,7 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
           to label %952 unwind label %958
 
 952:                                              ; preds = %950
-  %953 = getelementptr inbounds i8, ptr %117, i64 4
+  %953 = getelementptr inbounds nuw i8, ptr %117, i64 4
   store float %951, ptr %953, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %121) #12
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %123) #12
@@ -3011,7 +3011,7 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
           to label %966 unwind label %972
 
 966:                                              ; preds = %964
-  %967 = getelementptr inbounds i8, ptr %117, i64 8
+  %967 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store float %965, ptr %967, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %124) #12
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %126) #12
@@ -3060,10 +3060,10 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
 
 981:                                              ; preds = %932
   %982 = load ptr, ptr %6, align 8
-  %983 = getelementptr inbounds i8, ptr %982, i64 16
+  %983 = getelementptr inbounds nuw i8, ptr %982, i64 16
   %984 = load i64, ptr %983, align 8
   %985 = getelementptr inbounds i8, ptr %982, i64 %984
-  %986 = getelementptr inbounds i8, ptr %982, i64 4
+  %986 = getelementptr inbounds nuw i8, ptr %982, i64 4
   %987 = load i32, ptr %986, align 4
   %988 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %985, i32 noundef %987, ptr noundef nonnull @.str.38, i32 noundef -1, i32 noundef 1)
           to label %989 unwind label %251
@@ -3127,7 +3127,7 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
           to label %1009 unwind label %1015
 
 1009:                                             ; preds = %1007
-  %1010 = getelementptr inbounds i8, ptr %128, i64 4
+  %1010 = getelementptr inbounds nuw i8, ptr %128, i64 4
   store float %1008, ptr %1010, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %132) #12
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %134) #12
@@ -3168,7 +3168,7 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
           to label %1023 unwind label %1029
 
 1023:                                             ; preds = %1021
-  %1024 = getelementptr inbounds i8, ptr %128, i64 8
+  %1024 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store float %1022, ptr %1024, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %135) #12
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %137) #12
@@ -3217,10 +3217,10 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
 
 1038:                                             ; preds = %989
   %1039 = load ptr, ptr %6, align 8
-  %1040 = getelementptr inbounds i8, ptr %1039, i64 16
+  %1040 = getelementptr inbounds nuw i8, ptr %1039, i64 16
   %1041 = load i64, ptr %1040, align 8
   %1042 = getelementptr inbounds i8, ptr %1039, i64 %1041
-  %1043 = getelementptr inbounds i8, ptr %1039, i64 4
+  %1043 = getelementptr inbounds nuw i8, ptr %1039, i64 4
   %1044 = load i32, ptr %1043, align 4
   %1045 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %1042, i32 noundef %1044, ptr noundef nonnull @.str.39, i32 noundef -1, i32 noundef 1)
           to label %1046 unwind label %251
@@ -3284,7 +3284,7 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
           to label %1066 unwind label %1072
 
 1066:                                             ; preds = %1064
-  %1067 = getelementptr inbounds i8, ptr %139, i64 4
+  %1067 = getelementptr inbounds nuw i8, ptr %139, i64 4
   store float %1065, ptr %1067, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %143) #12
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %145) #12
@@ -3325,7 +3325,7 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
           to label %1080 unwind label %1086
 
 1080:                                             ; preds = %1078
-  %1081 = getelementptr inbounds i8, ptr %139, i64 8
+  %1081 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store float %1079, ptr %1081, align 4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %146) #12
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %148) #12
@@ -3374,10 +3374,10 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
 
 1095:                                             ; preds = %1046
   %1096 = load ptr, ptr %6, align 8
-  %1097 = getelementptr inbounds i8, ptr %1096, i64 16
+  %1097 = getelementptr inbounds nuw i8, ptr %1096, i64 16
   %1098 = load i64, ptr %1097, align 8
   %1099 = getelementptr inbounds i8, ptr %1096, i64 %1098
-  %1100 = getelementptr inbounds i8, ptr %1096, i64 4
+  %1100 = getelementptr inbounds nuw i8, ptr %1096, i64 4
   %1101 = load i32, ptr %1100, align 4
   %1102 = invoke noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef nonnull %1099, i32 noundef %1101, ptr noundef nonnull @.str.40, i32 noundef -1, i32 noundef 1)
           to label %1103 unwind label %251
@@ -3388,21 +3388,21 @@ _ZN11QStringListlsERK7QString.exit590:            ; preds = %864
 
 1105:                                             ; preds = %1103
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %150, i8 0, i64 56, i1 false)
-  %1106 = getelementptr inbounds i8, ptr %150, i64 56
-  %1107 = getelementptr inbounds i8, ptr %150, i64 60
+  %1106 = getelementptr inbounds nuw i8, ptr %150, i64 56
+  %1107 = getelementptr inbounds nuw i8, ptr %150, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1107, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %1106, align 4
-  %1108 = getelementptr inbounds i8, ptr %150, i64 76
+  %1108 = getelementptr inbounds nuw i8, ptr %150, i64 76
   store float 1.000000e+00, ptr %1108, align 4
-  %1109 = getelementptr inbounds i8, ptr %150, i64 96
+  %1109 = getelementptr inbounds nuw i8, ptr %150, i64 96
   store float 1.000000e+00, ptr %1109, align 4
-  %1110 = getelementptr inbounds i8, ptr %150, i64 116
+  %1110 = getelementptr inbounds nuw i8, ptr %150, i64 116
   store float 1.000000e+00, ptr %1110, align 4
-  %1111 = getelementptr inbounds i8, ptr %150, i64 120
+  %1111 = getelementptr inbounds nuw i8, ptr %150, i64 120
   store float 0.000000e+00, ptr %1111, align 4
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %150, i64 124
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %150, i64 124
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i.i, align 4
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %150, i64 128
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %150, i64 128
   store float 0.000000e+00, ptr %.sroa.3.0..sroa_idx.i.i, align 4
   %1112 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #13
           to label %1113 unwind label %1115
@@ -3651,12 +3651,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i, %1
   %5 = phi ptr [ %.pre.i, %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i ], [ %2, %1 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
   %.not4.i.i.i = icmp eq i32 %8, %12
   br i1 %.not4.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i, label %.lr.ph.i.preheader.i.i
@@ -3828,15 +3828,15 @@ define linkonce_odr noundef ptr @_ZN5QListI7QStringE18detach_helper_growEii(ptr 
   %4 = alloca i32, align 4
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %6, i64 %9
   %11 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, i32 noundef %2)
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %13, i64 %16
@@ -3861,14 +3861,14 @@ define linkonce_odr noundef ptr @_ZN5QListI7QStringE18detach_helper_growEii(ptr 
   br label %_ZN7QStringC2ERKS_.exit.i
 
 _ZN7QStringC2ERKS_.exit.i:                        ; preds = %24, %.lr.ph.i
-  %26 = getelementptr inbounds i8, ptr %.010.i, i64 8
-  %27 = getelementptr inbounds i8, ptr %.079.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %.not.i = icmp eq ptr %26, %20
   br i1 %.not.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit, label %.lr.ph.i, !llvm.loop !16
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit: ; preds = %_ZN7QStringC2ERKS_.exit.i
   %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre17 = load i32, ptr %.phi.trans.insert, align 8
   %.pre18 = load i32, ptr %4, align 4
   %.pre19 = sext i32 %.pre17 to i64
@@ -3879,12 +3879,12 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit: ; preds = %_ZN5QListI7QStr
   %.pre-phi = phi i64 [ %.pre19, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ %16, %3 ]
   %29 = phi i64 [ %28, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ 0, %3 ]
   %30 = phi ptr [ %.pre, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ %12, %3 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = getelementptr inbounds ptr, ptr %31, i64 %.pre-phi
   %33 = getelementptr inbounds ptr, ptr %32, i64 %29
   %34 = sext i32 %2 to i64
   %35 = getelementptr inbounds ptr, ptr %33, i64 %34
-  %36 = getelementptr inbounds i8, ptr %30, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds ptr, ptr %31, i64 %38
@@ -3910,8 +3910,8 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit: ; preds = %_ZN5QListI7QStr
   br label %_ZN7QStringC2ERKS_.exit.i11
 
 _ZN7QStringC2ERKS_.exit.i11:                      ; preds = %44, %.lr.ph.i7
-  %46 = getelementptr inbounds i8, ptr %.010.i8, i64 8
-  %47 = getelementptr inbounds i8, ptr %.079.i9, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.010.i8, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.079.i9, i64 8
   %.not.i12 = icmp eq ptr %46, %39
   br i1 %.not.i12, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, label %.lr.ph.i7, !llvm.loop !16
 
@@ -3928,12 +3928,12 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %_ZN5QListI7QStringE
   br i1 %.not, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread15, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread15:     ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, %_ZN9QtPrivate8RefCount5derefEv.exit
-  %50 = getelementptr inbounds i8, ptr %11, i64 16
-  %51 = getelementptr inbounds i8, ptr %11, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds ptr, ptr %50, i64 %53
-  %55 = getelementptr inbounds i8, ptr %11, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %56 = load i32, ptr %55, align 4
   %.not4.i.i = icmp eq i32 %52, %56
   br i1 %.not4.i.i, label %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.preheader.i
@@ -3977,8 +3977,8 @@ _ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit: ; preds = %_ZN7QStringD2Ev.
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit13, %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
-  %66 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds ptr, ptr %65, i64 %68

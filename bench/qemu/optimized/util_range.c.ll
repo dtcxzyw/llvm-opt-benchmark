@@ -118,7 +118,7 @@ land.rhs:                                         ; preds = %for.cond.preheader,
   br i1 %cmp, label %for.inc, label %lor.lhs.false
 
 for.inc:                                          ; preds = %land.rhs
-  %next = getelementptr inbounds i8, ptr %l.027, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %l.027, i64 8
   %2 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.then7, label %land.rhs, !llvm.loop !5
@@ -138,7 +138,7 @@ if.end9:                                          ; preds = %lor.lhs.false
   %4 = load ptr, ptr %l.027, align 8
   tail call fastcc void @range_extend(ptr noundef %4, ptr noundef nonnull %data)
   tail call void @g_free(ptr noundef nonnull %data) #7
-  %next11 = getelementptr inbounds i8, ptr %l.027, i64 8
+  %next11 = getelementptr inbounds nuw i8, ptr %l.027, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.end9
@@ -295,7 +295,7 @@ range_upb.exit:                                   ; preds = %range_is_empty.exit
   br i1 %cmp, label %for.inc, label %range_lob.exit
 
 for.inc:                                          ; preds = %range_upb.exit
-  %next = getelementptr inbounds i8, ptr %l.0172, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %l.0172, i64 8
   %3 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.then, label %land.rhs, !llvm.loop !8
@@ -303,7 +303,7 @@ for.inc:                                          ; preds = %range_upb.exit
 if.then:                                          ; preds = %for.inc, %entry
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
   store i64 %low, ptr %call.i, align 8
-  %upb2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %upb2.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i64 %high, ptr %upb2.i.i, align 8
   %cmp.not.i.i.i.i = icmp ule i64 %low, %high
   %add.i.i.i.i = add i64 %high, 1
@@ -336,7 +336,7 @@ range_lob.exit66:                                 ; preds = %range_lob.exit
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %high)
   %call.i67 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
   store i64 %low, ptr %call.i67, align 8
-  %upb2.i.i68 = getelementptr inbounds i8, ptr %call.i67, i64 8
+  %upb2.i.i68 = getelementptr inbounds nuw i8, ptr %call.i67, i64 8
   store i64 %cond, ptr %upb2.i.i68, align 8
   %cmp.not.i.i.i.i69 = icmp ule i64 %low, %cond
   %add.i.i.i.i70 = add nuw i64 %cond, 1
@@ -362,7 +362,7 @@ append_new_range.exit78:                          ; preds = %range_is_empty.exit
 
 if.end10:                                         ; preds = %append_new_range.exit78, %range_lob.exit
   %out.1 = phi ptr [ %call1.i76, %append_new_range.exit78 ], [ %0, %range_lob.exit ]
-  %next12173 = getelementptr inbounds i8, ptr %l.0172, i64 8
+  %next12173 = getelementptr inbounds nuw i8, ptr %l.0172, i64 8
   %4 = load ptr, ptr %next12173, align 8
   %tobool13.not174 = icmp eq ptr %4, null
   br i1 %tobool13.not174, label %for.end38, label %for.body14
@@ -452,7 +452,7 @@ range_lob.exit105:                                ; preds = %range_is_empty.exit
   %cond33 = tail call i64 @llvm.umin.i64(i64 %sub27, i64 %high)
   %call.i106 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
   store i64 %add.i.i.i89, ptr %call.i106, align 8
-  %upb2.i.i107 = getelementptr inbounds i8, ptr %call.i106, i64 8
+  %upb2.i.i107 = getelementptr inbounds nuw i8, ptr %call.i106, i64 8
   store i64 %cond33, ptr %upb2.i.i107, align 8
   %cmp.not.i.i.i.i108 = icmp ule i64 %add.i.i.i89, %cond33
   %cmp3.i.i.i.i110 = icmp eq i64 %.val37, %cond33
@@ -478,7 +478,7 @@ append_new_range.exit117:                         ; preds = %range_is_empty.exit
 for.inc36:                                        ; preds = %if.end21, %append_new_range.exit117
   %out.3 = phi ptr [ %call1.i115, %append_new_range.exit117 ], [ %out.2175, %if.end21 ]
   %10 = load ptr, ptr %next12177, align 8
-  %next12 = getelementptr inbounds i8, ptr %10, i64 8
+  %next12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %next12, align 8
   %tobool13.not = icmp eq ptr %11, null
   br i1 %tobool13.not, label %for.end38, label %for.body14, !llvm.loop !9
@@ -515,7 +515,7 @@ range_upb.exit126:                                ; preds = %range_is_empty.exit
 range_upb.exit135:                                ; preds = %range_upb.exit126
   %call.i136 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
   store i64 %add.i.i.i119, ptr %call.i136, align 8
-  %upb2.i.i137 = getelementptr inbounds i8, ptr %call.i136, i64 8
+  %upb2.i.i137 = getelementptr inbounds nuw i8, ptr %call.i136, i64 8
   store i64 %high, ptr %upb2.i.i137, align 8
   %cmp.not.i.i.i.i138.not = icmp ugt i64 %add.i.i.i119, %high
   br i1 %cmp.not.i.i.i.i138.not, label %if.else.i.i.i.i142, label %append_new_range.exit147

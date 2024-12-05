@@ -63,17 +63,17 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @sifive_e_prci_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 58, ptr noundef nonnull @__func__.SIFIVE_E_PRCI) #3
-  %mmio = getelementptr inbounds i8, ptr %call.i, i64 816
+  %mmio = getelementptr inbounds nuw i8, ptr %call.i, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %obj, ptr noundef nonnull @sifive_e_prci_ops, ptr noundef %call.i, ptr noundef nonnull @.str, i64 noundef 4096) #3
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   tail call void @sysbus_init_mmio(ptr noundef %call.i9, ptr noundef nonnull %mmio) #3
-  %hfrosccfg = getelementptr inbounds i8, ptr %call.i, i64 1088
+  %hfrosccfg = getelementptr inbounds nuw i8, ptr %call.i, i64 1088
   store i32 -1073741824, ptr %hfrosccfg, align 16
-  %hfxosccfg = getelementptr inbounds i8, ptr %call.i, i64 1092
+  %hfxosccfg = getelementptr inbounds nuw i8, ptr %call.i, i64 1092
   store i32 -1073741824, ptr %hfxosccfg, align 4
-  %pllcfg = getelementptr inbounds i8, ptr %call.i, i64 1096
+  %pllcfg = getelementptr inbounds nuw i8, ptr %call.i, i64 1096
   store i32 -2147090432, ptr %pllcfg, align 8
-  %plloutdiv = getelementptr inbounds i8, ptr %call.i, i64 1100
+  %plloutdiv = getelementptr inbounds nuw i8, ptr %call.i, i64 1100
   store i32 256, ptr %plloutdiv, align 4
   ret void
 }
@@ -96,22 +96,22 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %hfrosccfg = getelementptr inbounds i8, ptr %opaque, i64 1088
+  %hfrosccfg = getelementptr inbounds nuw i8, ptr %opaque, i64 1088
   %1 = load i32, ptr %hfrosccfg, align 16
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %hfxosccfg = getelementptr inbounds i8, ptr %opaque, i64 1092
+  %hfxosccfg = getelementptr inbounds nuw i8, ptr %opaque, i64 1092
   %2 = load i32, ptr %hfxosccfg, align 4
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %pllcfg = getelementptr inbounds i8, ptr %opaque, i64 1096
+  %pllcfg = getelementptr inbounds nuw i8, ptr %opaque, i64 1096
   %3 = load i32, ptr %pllcfg, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %plloutdiv = getelementptr inbounds i8, ptr %opaque, i64 1100
+  %plloutdiv = getelementptr inbounds nuw i8, ptr %opaque, i64 1100
   %4 = load i32, ptr %plloutdiv, align 4
   br label %return
 
@@ -145,28 +145,28 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %conv = trunc i64 %val64 to i32
-  %hfrosccfg = getelementptr inbounds i8, ptr %opaque, i64 1088
+  %hfrosccfg = getelementptr inbounds nuw i8, ptr %opaque, i64 1088
   %or = or i32 %conv, -2147483648
   store i32 %or, ptr %hfrosccfg, align 16
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
   %conv3 = trunc i64 %val64 to i32
-  %hfxosccfg = getelementptr inbounds i8, ptr %opaque, i64 1092
+  %hfxosccfg = getelementptr inbounds nuw i8, ptr %opaque, i64 1092
   %or5 = or i32 %conv3, -2147483648
   store i32 %or5, ptr %hfxosccfg, align 4
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
   %conv7 = trunc i64 %val64 to i32
-  %pllcfg = getelementptr inbounds i8, ptr %opaque, i64 1096
+  %pllcfg = getelementptr inbounds nuw i8, ptr %opaque, i64 1096
   %or9 = or i32 %conv7, -2147483648
   store i32 %or9, ptr %pllcfg, align 8
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
   %conv11 = trunc i64 %val64 to i32
-  %plloutdiv = getelementptr inbounds i8, ptr %opaque, i64 1100
+  %plloutdiv = getelementptr inbounds nuw i8, ptr %opaque, i64 1100
   store i32 %conv11, ptr %plloutdiv, align 4
   br label %sw.epilog
 

@@ -1034,7 +1034,7 @@ declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal void @asam_cmp_devices_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #5
   store ptr %7, ptr %8, align 8
@@ -1043,7 +1043,7 @@ define internal void @asam_cmp_devices_name_set_cb(ptr nocapture noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @asam_cmp_devices_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1091,7 +1091,7 @@ define internal void @asam_cmp_interfaces_id_tostr_cb(ptr nocapture noundef read
 define internal void @asam_cmp_interfaces_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #5
   store ptr %7, ptr %8, align 8
@@ -1100,7 +1100,7 @@ define internal void @asam_cmp_interfaces_name_set_cb(ptr nocapture noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @asam_cmp_interfaces_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1128,7 +1128,7 @@ define internal void @asam_cmp_interfaces_name_tostr_cb(ptr nocapture noundef re
 define internal void @asam_cmp_interfaces_bus_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #5
   tail call void @g_free(ptr noundef %7) #5
   ret void
@@ -1136,7 +1136,7 @@ define internal void @asam_cmp_interfaces_bus_id_set_cb(ptr noundef %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @asam_cmp_interfaces_bus_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.585, i32 noundef %7) #5
   store ptr %8, ptr %1, align 8
@@ -1162,10 +1162,10 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load i32, ptr %1, align 8
   store i32 %8, ptr %0, align 8
@@ -1176,7 +1176,7 @@ define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned 
 define internal noundef zeroext i1 @update_generic_one_identifier_16bit(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp ugt i32 %3, 65535
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   br i1 %4, label %7, label %9
 
@@ -1209,7 +1209,7 @@ define internal noundef zeroext i1 @update_generic_one_identifier_16bit(ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_generic_one_id_string_cb(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #5
   store ptr null, ptr %2, align 8
@@ -1246,7 +1246,7 @@ define internal void @post_update_asam_cmp_devices_cb() #0 {
   %9 = getelementptr %struct._generic_one_id_string, ptr %5, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #5
   %14 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull %8, ptr noundef %13) #5
@@ -1264,14 +1264,14 @@ declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr nounde
 define internal noundef ptr @copy_interface_config_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @g_strdup(ptr noundef %6) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %10, ptr %11, align 4
   ret ptr %0
 }
@@ -1279,7 +1279,7 @@ define internal noundef ptr @copy_interface_config_cb(ptr noundef returned write
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @update_interface_config(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
@@ -1294,7 +1294,7 @@ define internal noundef zeroext i1 @update_interface_config(ptr nocapture nounde
   br label %.sink.split
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp ugt i32 %14, 65535
   br i1 %15, label %16, label %18
@@ -1315,7 +1315,7 @@ define internal noundef zeroext i1 @update_interface_config(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_interface_config_cb(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #5
   store ptr null, ptr %2, align 8
@@ -1422,7 +1422,7 @@ define internal noundef i32 @dissect_asam_cmp(ptr noundef %0, ptr noundef %1, pt
   %40 = alloca i32, align 4
   store i32 0, ptr %39, align 4
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void @col_clear(ptr noundef %42, i32 noundef 25) #5
   %43 = load ptr, ptr %41, align 8
@@ -1479,22 +1479,22 @@ add_device_id_text.exit:                          ; preds = %4, %ht_lookup_name.
   br i1 %78, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %add_device_id_text.exit
-  %79 = getelementptr inbounds i8, ptr %9, i64 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 408
-  %81 = getelementptr inbounds i8, ptr %15, i64 2
-  %82 = getelementptr inbounds i8, ptr %15, i64 4
-  %83 = getelementptr inbounds i8, ptr %15, i64 3
-  %84 = getelementptr inbounds i8, ptr %14, i64 4
-  %85 = getelementptr inbounds i8, ptr %14, i64 6
-  %86 = getelementptr inbounds i8, ptr %13, i64 4
-  %87 = getelementptr inbounds i8, ptr %13, i64 8
-  %88 = getelementptr inbounds i8, ptr %13, i64 12
-  %89 = getelementptr inbounds i8, ptr %12, i64 4
-  %90 = getelementptr inbounds i8, ptr %12, i64 8
-  %91 = getelementptr inbounds i8, ptr %12, i64 12
-  %92 = getelementptr inbounds i8, ptr %22, i64 8
-  %93 = getelementptr inbounds i8, ptr %33, i64 8
-  %94 = getelementptr inbounds i8, ptr %38, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %81 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %15, i64 3
+  %84 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %14, i64 6
+  %86 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %38, i64 8
   br label %95
 
 95:                                               ; preds = %.lr.ph, %978
@@ -1906,7 +1906,7 @@ ht_lookup_channel_config.exit.i.i:                ; preds = %320
   br i1 %335, label %ht_interface_config_to_string.exit.thread.i, label %ht_interface_config_to_string.exit.i
 
 ht_interface_config_to_string.exit.i:             ; preds = %ht_lookup_channel_config.exit.i.i
-  %336 = getelementptr inbounds i8, ptr %333, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %333, i64 8
   %337 = load ptr, ptr %336, align 8
   %.not301.i = icmp eq ptr %337, null
   br i1 %.not301.i, label %ht_interface_config_to_string.exit.thread.i, label %338
@@ -2292,7 +2292,7 @@ ht_lookup_channel_config.exit.i.i.i:              ; preds = %522
   br i1 %549, label %add_interface_id_text.exit.i, label %ht_interface_config_to_string.exit.i.i
 
 ht_interface_config_to_string.exit.i.i:           ; preds = %ht_lookup_channel_config.exit.i.i.i
-  %550 = getelementptr inbounds i8, ptr %547, i64 8
+  %550 = getelementptr inbounds nuw i8, ptr %547, i64 8
   %551 = load ptr, ptr %550, align 8
   %.not.i.i = icmp eq ptr %551, null
   br i1 %.not.i.i, label %add_interface_id_text.exit.i, label %552
@@ -2452,7 +2452,7 @@ ht_lookup_channel_config.exit.i.i90:              ; preds = %630
   br i1 %643, label %ht_interface_config_to_bus_id.exit.i, label %644
 
 644:                                              ; preds = %ht_lookup_channel_config.exit.i.i90
-  %645 = getelementptr inbounds i8, ptr %641, i64 4
+  %645 = getelementptr inbounds nuw i8, ptr %641, i64 4
   %646 = load i32, ptr %645, align 4
   %647 = trunc i32 %646 to i16
   br label %ht_interface_config_to_bus_id.exit.i
@@ -2565,7 +2565,7 @@ ht_lookup_channel_config.exit.i464.i:             ; preds = %700
   br i1 %713, label %ht_interface_config_to_bus_id.exit466.i, label %714
 
 714:                                              ; preds = %ht_lookup_channel_config.exit.i464.i
-  %715 = getelementptr inbounds i8, ptr %711, i64 4
+  %715 = getelementptr inbounds nuw i8, ptr %711, i64 4
   %716 = load i32, ptr %715, align 4
   %717 = trunc i32 %716 to i16
   br label %ht_interface_config_to_bus_id.exit466.i
@@ -2639,7 +2639,7 @@ ht_lookup_channel_config.exit.i467.i:             ; preds = %751
   br i1 %761, label %ht_interface_config_to_bus_id.exit469.i, label %762
 
 762:                                              ; preds = %ht_lookup_channel_config.exit.i467.i
-  %763 = getelementptr inbounds i8, ptr %759, i64 4
+  %763 = getelementptr inbounds nuw i8, ptr %759, i64 4
   %764 = load i32, ptr %763, align 4
   %765 = trunc i32 %764 to i16
   br label %ht_interface_config_to_bus_id.exit469.i
@@ -2736,7 +2736,7 @@ ht_lookup_channel_config.exit.i470.i:             ; preds = %817
   br i1 %826, label %ht_interface_config_to_bus_id.exit472.i, label %827
 
 827:                                              ; preds = %ht_lookup_channel_config.exit.i470.i
-  %828 = getelementptr inbounds i8, ptr %824, i64 4
+  %828 = getelementptr inbounds nuw i8, ptr %824, i64 4
   %829 = load i32, ptr %828, align 4
   %830 = trunc i32 %829 to i16
   br label %ht_interface_config_to_bus_id.exit472.i

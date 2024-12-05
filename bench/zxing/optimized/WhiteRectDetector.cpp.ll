@@ -14,7 +14,7 @@ $__clang_call_terminate = comdat any
 define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixERNS_11ResultPointES4_S4_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %0, align 8
   %7 = sdiv i32 %6, 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = sdiv i32 %9, 2
   %11 = tail call noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11ResultPointES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 10, i32 noundef %7, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -27,7 +27,7 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
   %10 = alloca %"class.ZXing::ResultPoint", align 8
   %11 = alloca %"class.ZXing::ResultPoint", align 8
   %12 = alloca %"class.ZXing::ResultPoint", align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %0, align 8
   %16 = sdiv i32 %1, 2
@@ -46,8 +46,8 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
 
 .preheader305:                                    ; preds = %8
   %23 = add nsw i32 %14, -1
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %24, align 8
   %28 = ptrtoint ptr %26 to i64
@@ -119,7 +119,7 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
   unreachable
 
 _ZNK5ZXing9BitMatrix3getEii.exit28.i:             ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %27, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 %46
   %49 = load i8, ptr %48, align 1
   %.not49.not.i = icmp eq i8 %49, 0
   br i1 %.not49.not.i, label %43, label %.loopexit473
@@ -269,7 +269,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %67
   unreachable
 
 _ZNK5ZXing9BitMatrix3getEii.exit28.i232:          ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %27, i64 %93
+  %95 = getelementptr inbounds nuw i8, ptr %27, i64 %93
   %96 = load i8, ptr %95, align 1
   %.not49.not.i233 = icmp eq i8 %96, 0
   br i1 %.not49.not.i233, label %90, label %97
@@ -439,16 +439,16 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i246:            ; preds = %112
 
 146:                                              ; preds = %._crit_edge376
   %.val = load double, ptr %12, align 8
-  %147 = getelementptr inbounds i8, ptr %12, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.val214 = load double, ptr %147, align 8
   %.val215 = load double, ptr %9, align 8
-  %148 = getelementptr inbounds i8, ptr %9, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.val216 = load double, ptr %148, align 8
   %.val217 = load double, ptr %11, align 8
-  %149 = getelementptr inbounds i8, ptr %11, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.val218 = load double, ptr %149, align 8
   %.val219 = load double, ptr %10, align 8
-  %150 = getelementptr inbounds i8, ptr %10, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.val220 = load double, ptr %150, align 8
   tail call fastcc void @_ZN5ZXingL11CenterEdgesERKNS_11ResultPointES2_S2_S2_iRS0_S3_S3_S3_(double %.val, double %.val214, double %.val215, double %.val216, double %.val217, double %.val218, double %.val219, double %.val220, i32 noundef %15, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
   br label %.critedge382
@@ -488,11 +488,11 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXingL22GetBlackPointOnSegmentERK
 .lr.ph:                                           ; preds = %6
   %27 = load i32, ptr %0, align 8
   %28 = sitofp i32 %27 to double
-  %29 = getelementptr inbounds i8, ptr %0, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = sitofp i32 %30 to double
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %32, align 8
   %36 = ptrtoint ptr %34 to i64
@@ -546,7 +546,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit: ; preds = %45
 
 57:                                               ; preds = %_ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit
   store double %.sroa.3.039, ptr %5, align 8
-  %.sroa.2.0..sroa_idx21 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %.sroa.8.040, ptr %.sroa.2.0..sroa_idx21, align 8
   br label %.loopexit
 
@@ -594,16 +594,16 @@ define internal fastcc void @_ZN5ZXingL11CenterEdgesERKNS_11ResultPointES2_S2_S2
   %.sink32 = fpext float %.sink32.in to double
   %.sink33 = fpext float %13 to double
   store double %.sink33, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %.sink32, ptr %21, align 8
   store double %.sink31, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %.sink30, ptr %22, align 8
   store double %.sink29, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %.sink28, ptr %23, align 8
   store double %.sink27, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %.sink, ptr %24, align 8
   ret void
 }

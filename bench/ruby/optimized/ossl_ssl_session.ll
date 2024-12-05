@@ -109,7 +109,7 @@ define internal noundef i64 @ossl_ssl_session_initialize(i64 noundef returned %0
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = inttoptr i64 %0 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -197,7 +197,7 @@ RB_OBJ_FROZEN.exit.thread.i:                      ; preds = %7, %2
   unreachable
 
 rb_check_frozen_inline.exit:                      ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ssl_session_type) #4
   %.not = icmp eq ptr %16, null
@@ -527,7 +527,7 @@ define internal i64 @ossl_ssl_session_to_der(i64 noundef %0) #0 {
   %15 = load i64, ptr %14, align 8, !noalias !9
   %16 = and i64 %15, 8192
   %.not.i.i = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %18
 
 18:                                               ; preds = %11

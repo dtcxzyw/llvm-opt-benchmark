@@ -130,7 +130,7 @@ if.end64:                                         ; preds = %if.end60
   %14 = load i8, ptr %call61, align 1
   %cmp.i = icmp eq i8 %14, 126
   %idx.ext.i = zext i1 %cmp.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %call61, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call61, i64 %idx.ext.i
   %call.i = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %v.i) #5
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %handle_cpu_env.exit, label %if.end.i
@@ -146,7 +146,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %conv6.i = and i32 %16, %18
   store i32 %conv6.i, ptr @OPENSSL_ia32cap_P, align 16
   %shr.i = lshr i64 %15, 32
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %20 = trunc nuw i64 %shr.i to i32
   %21 = xor i32 %20, -1
   %conv11.i = and i32 %19, %21
@@ -161,7 +161,7 @@ if.else.i:                                        ; preds = %if.end.i
 
 handle_cpu_env.exit.sink.split:                   ; preds = %if.else.i, %if.then3.i
   %conv11.i.sink = phi i32 [ %conv11.i, %if.then3.i ], [ %conv15.i, %if.else.i ]
-  store i32 %conv11.i.sink, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
+  store i32 %conv11.i.sink, ptr getelementptr inbounds nuw (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   br label %handle_cpu_env.exit
 
 handle_cpu_env.exit:                              ; preds = %handle_cpu_env.exit.sink.split, %if.end64
@@ -171,12 +171,12 @@ handle_cpu_env.exit:                              ; preds = %handle_cpu_env.exit
   br i1 %cmp66.not, label %if.end68, label %if.then67
 
 if.then67:                                        ; preds = %handle_cpu_env.exit
-  %add.ptr = getelementptr inbounds i8, ptr %call65, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call65, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i32)
   %22 = load i8, ptr %add.ptr, align 1
   %cmp.i33 = icmp eq i8 %22, 126
   %idx.ext.i34 = zext i1 %cmp.i33 to i64
-  %add.ptr.i35 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext.i34
+  %add.ptr.i35 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %idx.ext.i34
   %call.i36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %add.ptr.i35, ptr noundef nonnull @.str.1, ptr noundef nonnull %v.i32) #5
   %tobool.not.i37 = icmp eq i32 %call.i36, 0
   br i1 %tobool.not.i37, label %handle_cpu_env.exit47, label %if.end.i38

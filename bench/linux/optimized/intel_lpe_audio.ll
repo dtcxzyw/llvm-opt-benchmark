@@ -37,13 +37,13 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_lpe_audio_irq_handler(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4472
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %20, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 4480
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4480
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @generic_handle_irq(i32 noundef %7) #8
   %9 = icmp eq i32 %8, 0
@@ -59,7 +59,7 @@ define dso_local void @intel_lpe_audio_irq_handler(ptr noundef readonly %0) loca
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -90,7 +90,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.platform_device_info, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 7184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 18874368
   %6 = icmp eq i32 %5, 0
@@ -106,7 +106,7 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -114,8 +114,8 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   %16 = phi ptr [ %14, %12 ], [ null, %10 ]
   tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %16, ptr noundef nonnull @.str.2) #9
   %17 = tail call i32 @__irq_alloc_descs(i32 noundef -1, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef null) #8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4472
-  %19 = getelementptr inbounds i8, ptr %0, i64 4480
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4472
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4480
   store i32 %17, ptr %19, align 8
   %20 = icmp slt i32 %17, 0
   br i1 %20, label %21, label %28
@@ -124,7 +124,7 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   br i1 %11, label %25, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   br label %25
 
@@ -138,7 +138,7 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   br i1 %11, label %32, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
   br label %32
 
@@ -151,11 +151,11 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
 
 36:                                               ; preds = %32
   tail call void asm sideeffect "844: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 844b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 844) #8, !srcloc !6
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @dev_driver_string(ptr noundef %38) #8
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %46
@@ -183,7 +183,7 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   br i1 %11, label %55, label %52
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
   br label %55
 
@@ -193,10 +193,10 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   br label %121
 
 57:                                               ; preds = %48
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #8
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %60, i8 0, i64 80, i1 false)
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
   %62 = tail call noalias noundef align 8 dereferenceable_or_null(456) ptr @kmalloc_trace(ptr noundef %61, i32 noundef 3520, i64 noundef 456) #10
@@ -216,12 +216,12 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
 69:                                               ; preds = %64
   %70 = load i32, ptr %19, align 8
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %66, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %71, ptr %72, align 8
   store i64 %71, ptr %66, align 8
-  %73 = getelementptr inbounds i8, ptr %66, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store i64 1024, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %66, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr @.str.12, ptr %74, align 8
   %75 = getelementptr i8, ptr %59, i64 736
   %76 = load i64, ptr %75, align 8
@@ -237,39 +237,39 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   store ptr @.str.13, ptr %82, align 8
   %83 = load ptr, ptr %58, align 8
   store ptr %83, ptr %2, align 8
-  %84 = getelementptr inbounds i8, ptr %2, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @.str.14, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %2, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %66, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %2, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 2, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %2, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %62, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %2, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i64 456, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %2, i64 72
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i64 4294967295, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 2638
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   %92 = load i8, ptr %91, align 2
   %93 = zext i8 %92 to i32
   %94 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %93) #11, !srcloc !11
-  %95 = getelementptr inbounds i8, ptr %62, i64 436
+  %95 = getelementptr inbounds nuw i8, ptr %62, i64 436
   store i32 %94, ptr %95, align 4
   %96 = load i32, ptr %3, align 4
   %97 = and i32 %96, 16777216
   %98 = icmp eq i32 %97, 0
   %99 = select i1 %98, i32 2, i32 3
-  %100 = getelementptr inbounds i8, ptr %62, i64 432
+  %100 = getelementptr inbounds nuw i8, ptr %62, i64 432
   store i32 %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %62, i64 132
+  %101 = getelementptr inbounds nuw i8, ptr %62, i64 132
   store i32 -1, ptr %101, align 4
   %102 = getelementptr i8, ptr %62, i64 276
   store i32 -1, ptr %102, align 4
   %103 = getelementptr i8, ptr %62, i64 420
   store i32 -1, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %62, i64 448
+  %104 = getelementptr inbounds nuw i8, ptr %62, i64 448
   store i32 0, ptr %104, align 8
   %105 = call ptr @platform_device_register_full(ptr noundef nonnull %2) #8
   call void @kfree(ptr noundef nonnull %66) #8
@@ -307,14 +307,14 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   br label %121
 
 .thread12:                                        ; preds = %69
-  %117 = getelementptr inbounds i8, ptr %105, i64 16
-  call void @pm_runtime_no_callbacks(ptr noundef %117) #8
+  %117 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  call void @pm_runtime_no_callbacks(ptr noundef nonnull %117) #8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #8
   store ptr %105, ptr %18, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 7368
-  %119 = getelementptr inbounds i8, ptr %0, i64 7544
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef %118, i32 1978168, i32 noundef 1, i1 noundef zeroext true) #8
+  call void %120(ptr noundef nonnull %118, i32 1978168, i32 noundef 1, i1 noundef zeroext true) #8
   br label %133
 
 121:                                              ; preds = %115, %55
@@ -334,7 +334,7 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
   br i1 %11, label %131, label %128
 
 128:                                              ; preds = %127
-  %129 = getelementptr inbounds i8, ptr %0, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %130 = load ptr, ptr %129, align 8
   br label %131
 
@@ -350,14 +350,14 @@ define dso_local i32 @intel_lpe_audio_init(ptr noundef %0) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_lpe_audio_teardown(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4472
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
   tail call void @platform_device_unregister(ptr noundef nonnull %3) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4480
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4480
   %7 = load i32, ptr %6, align 8
   tail call void @irq_free_descs(i32 noundef %7, i32 noundef 1) #8
   store i32 -1, ptr %6, align 8
@@ -371,32 +371,32 @@ define dso_local void @intel_lpe_audio_teardown(ptr nocapture noundef %0) local_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @intel_lpe_audio_notify(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 16 {
   %7 = zext i1 %5 to i8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4472
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4472
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %45, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %9, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = add i32 %2, -1
   %15 = sext i32 %14 to i64
   %16 = getelementptr [3 x %struct.intel_hdmi_lpe_audio_port_pdata], ptr %13, i64 0, i64 %15
-  %17 = getelementptr inbounds i8, ptr %13, i64 448
-  %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %17) #8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 448
+  %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %17) #8
   %19 = icmp slt i32 %14, 1
   %20 = shl i32 %2, 2
   %21 = add i32 %20, 1978152
   %22 = select i1 %19, i32 1978144, i32 %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 7368
-  %24 = getelementptr inbounds i8, ptr %0, i64 7512
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 7368
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call i32 %25(ptr noundef %23, i32 %22, i1 noundef zeroext true) #8
+  %26 = tail call i32 %25(ptr noundef nonnull %23, i32 %22, i1 noundef zeroext true) #8
   %27 = icmp eq ptr %3, null
-  %28 = getelementptr inbounds i8, ptr %16, i64 132
-  %29 = getelementptr inbounds i8, ptr %16, i64 136
-  %30 = getelementptr inbounds i8, ptr %16, i64 140
-  %31 = getelementptr inbounds i8, ptr %0, i64 7544
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 132
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 140
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 7544
   br i1 %27, label %34, label %32
 
 32:                                               ; preds = %11
@@ -418,8 +418,8 @@ define dso_local void @intel_lpe_audio_notify(ptr noundef %0, i32 noundef %1, i3
   store i32 %.sink3, ptr %29, align 4
   store i8 %.sink, ptr %30, align 4
   %38 = load ptr, ptr %31, align 8
-  tail call void %38(ptr noundef %23, i32 %22, i32 noundef %37, i1 noundef zeroext true) #8
-  %39 = getelementptr inbounds i8, ptr %13, i64 440
+  tail call void %38(ptr noundef nonnull %23, i32 %22, i32 noundef %37, i1 noundef zeroext true) #8
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 440
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %44, label %42
@@ -430,7 +430,7 @@ define dso_local void @intel_lpe_audio_notify(ptr noundef %0, i32 noundef %1, i3
   br label %44
 
 44:                                               ; preds = %42, %36
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %17, i64 noundef %18) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %17, i64 noundef %18) #8
   br label %45
 
 45:                                               ; preds = %44, %6

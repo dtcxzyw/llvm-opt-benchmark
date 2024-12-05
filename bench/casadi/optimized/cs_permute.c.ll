@@ -9,21 +9,21 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
   br i1 %.not, label %171, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %9, label %171
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %13 to i64
   %21 = getelementptr inbounds i32, ptr %15, i64 %20
@@ -41,11 +41,11 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
   br label %171
 
 30:                                               ; preds = %9
-  %31 = getelementptr inbounds i8, ptr %27, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %27, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %36 = load ptr, ptr %35, align 8
   %.fr = freeze ptr %36
   %37 = icmp sgt i32 %13, 0
@@ -64,13 +64,13 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 .lr.ph75.split.us.split.us:                       ; preds = %.lr.ph75.split.us, %._crit_edge.split.us.split.us.us.us
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %._crit_edge.split.us.split.us.us.us ], [ 0, %.lr.ph75.split.us ]
   %.05372.us.us = phi i32 [ %.1.lcssa.us.us, %._crit_edge.split.us.split.us.us.us ], [ 0, %.lr.ph75.split.us ]
-  %38 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv175
+  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv175
   store i32 %.05372.us.us, ptr %38, align 4
   %39 = trunc nuw nsw i64 %indvars.iv175 to i32
   br i1 %.not61, label %43, label %40
 
 40:                                               ; preds = %.lr.ph75.split.us.split.us
-  %41 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv175
+  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv175
   %42 = load i32, ptr %41, align 4
   br label %43
 
@@ -119,9 +119,9 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 .lr.ph75.split.us.split.split.us:                 ; preds = %.lr.ph75.split.us.split, %._crit_edge.split.us.split.us80.us
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %._crit_edge.split.us.split.us80.us ], [ 0, %.lr.ph75.split.us.split ]
   %.05372.us.us97 = phi i32 [ %.1.lcssa.us.us98, %._crit_edge.split.us.split.us80.us ], [ 0, %.lr.ph75.split.us.split ]
-  %60 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv163
+  %60 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv163
   store i32 %.05372.us.us97, ptr %60, align 4
-  %61 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv163
+  %61 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv163
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr i8, ptr %61, i64 4
   %64 = load i32, ptr %63, align 4
@@ -163,9 +163,9 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 .lr.ph75.split.us.split.split:                    ; preds = %.lr.ph75.split.us.split, %._crit_edge.split.us.split.us80
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %._crit_edge.split.us.split.us80 ], [ 0, %.lr.ph75.split.us.split ]
   %.05372.us = phi i32 [ %.1.lcssa.us, %._crit_edge.split.us.split.us80 ], [ 0, %.lr.ph75.split.us.split ]
-  %78 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv151
+  %78 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv151
   store i32 %.05372.us, ptr %78, align 4
-  %79 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv151
+  %79 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv151
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i32, ptr %15, i64 %81
@@ -213,13 +213,13 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 .lr.ph75.split.split.us:                          ; preds = %.lr.ph75.split, %._crit_edge.split.split.us.us
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %._crit_edge.split.split.us.us ], [ 0, %.lr.ph75.split ]
   %.05372.us85 = phi i32 [ %.1.lcssa.us86, %._crit_edge.split.split.us.us ], [ 0, %.lr.ph75.split ]
-  %99 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv139
+  %99 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv139
   store i32 %.05372.us85, ptr %99, align 4
   %100 = trunc nuw nsw i64 %indvars.iv139 to i32
   br i1 %.not61, label %104, label %101
 
 101:                                              ; preds = %.lr.ph75.split.split.us
-  %102 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv139
+  %102 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv139
   %103 = load i32, ptr %102, align 4
   br label %104
 
@@ -272,9 +272,9 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 .lr.ph75.split.split.split.us:                    ; preds = %.lr.ph75.split.split, %._crit_edge.split.split.us
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %._crit_edge.split.split.us ], [ 0, %.lr.ph75.split.split ]
   %.05372.us90 = phi i32 [ %.1.lcssa.us91, %._crit_edge.split.split.us ], [ 0, %.lr.ph75.split.split ]
-  %124 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv127
+  %124 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv127
   store i32 %.05372.us90, ptr %124, align 4
-  %125 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv127
+  %125 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv127
   %126 = load i32, ptr %125, align 4
   %127 = getelementptr i8, ptr %125, i64 4
   %128 = load i32, ptr %127, align 4
@@ -320,9 +320,9 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 .lr.ph75.split.split.split:                       ; preds = %.lr.ph75.split.split, %._crit_edge.split.split
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %._crit_edge.split.split ], [ 0, %.lr.ph75.split.split ]
   %.05372 = phi i32 [ %.1.lcssa, %._crit_edge.split.split ], [ 0, %.lr.ph75.split.split ]
-  %145 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv117
+  %145 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv117
   store i32 %.05372, ptr %145, align 4
-  %146 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv117
+  %146 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv117
   %147 = load i32, ptr %146, align 4
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i32, ptr %15, i64 %148

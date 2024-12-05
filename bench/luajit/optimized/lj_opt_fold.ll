@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_opt_fold(ptr noundef %J) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 268369920
   %cmp.not = icmp eq i32 %and, 67043328
@@ -29,20 +29,20 @@ if.then:                                          ; preds = %entry
   br i1 %tobool4.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %1 = load i8, ptr %o, align 1
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr inbounds [102 x i8], ptr @lj_ir_mode, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [102 x i8], ptr @lj_ir_mode, i64 0, i64 %idxprom
   %2 = load i8, ptr %arrayidx, align 1
   %3 = and i8 %2, 96
   %cmp7 = icmp eq i8 %3, 0
   br i1 %cmp7, label %if.then9, label %if.end
 
 if.then9:                                         ; preds = %land.lhs.true
-  %fold.i = getelementptr inbounds i8, ptr %J, i64 184
+  %fold.i = getelementptr inbounds nuw i8, ptr %J, i64 184
   %4 = load i16, ptr %fold.i, align 8
   %conv.i = zext i16 %4 to i32
-  %op2.i = getelementptr inbounds i8, ptr %J, i64 186
+  %op2.i = getelementptr inbounds nuw i8, ptr %J, i64 186
   %5 = load i16, ptr %op2.i, align 2
   %conv3.i = zext i16 %5 to i32
   %shl.i = shl nuw i32 %conv3.i, 16
@@ -52,29 +52,29 @@ if.then9:                                         ; preds = %land.lhs.true
   br i1 %tobool.not.i, label %if.end46.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then9
-  %chain.i = getelementptr inbounds i8, ptr %J, i64 402
-  %arrayidx.i = getelementptr inbounds [101 x i16], ptr %chain.i, i64 0, i64 %idxprom
+  %chain.i = getelementptr inbounds nuw i8, ptr %J, i64 402
+  %arrayidx.i = getelementptr inbounds nuw [101 x i16], ptr %chain.i, i64 0, i64 %idxprom
   %spec.select38.i = tail call i16 @llvm.umax.i16(i16 %5, i16 %4)
   %ref.0.in40.i = load i16, ptr %arrayidx.i, align 2
   %cmp2541.i = icmp ult i16 %spec.select38.i, %ref.0.in40.i
   br i1 %cmp2541.i, label %while.body.lr.ph.i, label %if.end46.i
 
 while.body.lr.ph.i:                               ; preds = %if.then.i
-  %ir.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %6 = load ptr, ptr %ir.i, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end40.i, %while.body.lr.ph.i
   %ref.0.in42.i = phi i16 [ %ref.0.in40.i, %while.body.lr.ph.i ], [ %ref.0.in.i, %if.end40.i ]
   %idxprom27.i = zext i16 %ref.0.in42.i to i64
-  %arrayidx28.i = getelementptr inbounds %union.IRIns, ptr %6, i64 %idxprom27.i
+  %arrayidx28.i = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %idxprom27.i
   %7 = load i32, ptr %arrayidx28.i, align 8
   %cmp30.i = icmp eq i32 %7, %add.i
   br i1 %cmp30.i, label %if.then32.i, label %if.end40.i
 
 if.then32.i:                                      ; preds = %while.body.i
   %ref.0.le.i = zext i16 %ref.0.in42.i to i32
-  %t.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 4
+  %t.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 4
   %8 = load i8, ptr %t.i, align 4
   %conv37.i = zext i8 %8 to i32
   %shl38.i = shl nuw i32 %conv37.i, 24
@@ -82,15 +82,15 @@ if.then32.i:                                      ; preds = %while.body.i
   br label %return
 
 if.end40.i:                                       ; preds = %while.body.i
-  %prev.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 6
+  %prev.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 6
   %ref.0.in.i = load i16, ptr %prev.i, align 2
   %cmp25.i = icmp ult i16 %spec.select38.i, %ref.0.in.i
   br i1 %cmp25.i, label %while.body.i, label %if.end46.i, !llvm.loop !4
 
 if.end46.i:                                       ; preds = %if.end40.i, %if.then.i, %if.then9
-  %nins.i.i = getelementptr inbounds i8, ptr %J, i64 12
+  %nins.i.i = getelementptr inbounds nuw i8, ptr %J, i64 12
   %9 = load i32, ptr %nins.i.i, align 4
-  %irtoplim.i.i = getelementptr inbounds i8, ptr %J, i64 336
+  %irtoplim.i.i = getelementptr inbounds nuw i8, ptr %J, i64 336
   %10 = load i32, ptr %irtoplim.i.i, align 8
   %cmp.i.not.i = icmp ult i32 %9, %10
   br i1 %cmp.i.not.i, label %lj_ir_nextins.exit.i, label %if.then.i.i
@@ -102,28 +102,28 @@ if.then.i.i:                                      ; preds = %if.end46.i
 lj_ir_nextins.exit.i:                             ; preds = %if.then.i.i, %if.end46.i
   %add.i.i = add i32 %9, 1
   store i32 %add.i.i, ptr %nins.i.i, align 4
-  %ir50.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir50.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %11 = load ptr, ptr %ir50.i, align 8
   %idxprom51.i = zext i32 %9 to i64
-  %arrayidx52.i = getelementptr inbounds %union.IRIns, ptr %11, i64 %idxprom51.i
-  %chain53.i = getelementptr inbounds i8, ptr %J, i64 402
-  %arrayidx55.i = getelementptr inbounds [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom
+  %arrayidx52.i = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %idxprom51.i
+  %chain53.i = getelementptr inbounds nuw i8, ptr %J, i64 402
+  %arrayidx55.i = getelementptr inbounds nuw [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom
   %12 = load i16, ptr %arrayidx55.i, align 2
-  %prev56.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 6
+  %prev56.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 6
   store i16 %12, ptr %prev56.i, align 2
   store i32 %add.i, ptr %arrayidx52.i, align 8
   %conv58.i = trunc i32 %9 to i16
   store i16 %conv58.i, ptr %arrayidx55.i, align 2
   %13 = load i8, ptr %o, align 1
-  %o65.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 5
+  %o65.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 5
   store i8 %13, ptr %o65.i, align 1
-  %t68.i = getelementptr inbounds i8, ptr %J, i64 188
+  %t68.i = getelementptr inbounds nuw i8, ptr %J, i64 188
   %14 = load i8, ptr %t68.i, align 4
-  %guardemit.i = getelementptr inbounds i8, ptr %J, i64 182
+  %guardemit.i = getelementptr inbounds nuw i8, ptr %J, i64 182
   %15 = load i8, ptr %guardemit.i, align 2
   %or37.i = or i8 %15, %14
   store i8 %or37.i, ptr %guardemit.i, align 2
-  %t74.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 4
+  %t74.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 4
   store i8 %14, ptr %t74.i, align 4
   %conv79.i = zext i8 %14 to i32
   %shl80.i = shl nuw i32 %conv79.i, 24
@@ -136,10 +136,10 @@ if.end:                                           ; preds = %land.lhs.true, %if.
   br i1 %cmp12.not, label %if.end33, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.end
-  %o17 = getelementptr inbounds i8, ptr %J, i64 189
+  %o17 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %16 = load i8, ptr %o17, align 1
   %idxprom18 = zext i8 %16 to i64
-  %arrayidx19 = getelementptr inbounds [102 x i8], ptr @lj_ir_mode, i64 0, i64 %idxprom18
+  %arrayidx19 = getelementptr inbounds nuw [102 x i8], ptr @lj_ir_mode, i64 0, i64 %idxprom18
   %17 = load i8, ptr %arrayidx19, align 1
   %18 = and i8 %17, 96
   %cmp22 = icmp ne i8 %18, 64
@@ -157,10 +157,10 @@ if.end33:                                         ; preds = %land.lhs.true14, %i
   br i1 %cmp36.not, label %if.end51, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %if.end33
-  %o41 = getelementptr inbounds i8, ptr %J, i64 189
+  %o41 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %19 = load i8, ptr %o41, align 1
   %idxprom42 = zext i8 %19 to i64
-  %arrayidx43 = getelementptr inbounds [102 x i8], ptr @lj_ir_mode, i64 0, i64 %idxprom42
+  %arrayidx43 = getelementptr inbounds nuw [102 x i8], ptr @lj_ir_mode, i64 0, i64 %idxprom42
   %20 = load i8, ptr %arrayidx43, align 1
   %21 = and i8 %20, 96
   %cmp46 = icmp eq i8 %21, 96
@@ -171,15 +171,15 @@ if.then48:                                        ; preds = %land.lhs.true38
   br label %return
 
 if.end51:                                         ; preds = %if.end33, %land.lhs.true38, %entry
-  %fold52 = getelementptr inbounds i8, ptr %J, i64 184
-  %o54 = getelementptr inbounds i8, ptr %J, i64 189
-  %nk = getelementptr inbounds i8, ptr %J, i64 40
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %arrayidx88 = getelementptr inbounds i8, ptr %J, i64 200
-  %right = getelementptr inbounds i8, ptr %J, i64 208
-  %arrayidx135 = getelementptr inbounds i8, ptr %J, i64 216
+  %fold52 = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o54 = getelementptr inbounds nuw i8, ptr %J, i64 189
+  %nk = getelementptr inbounds nuw i8, ptr %J, i64 40
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %arrayidx88 = getelementptr inbounds nuw i8, ptr %J, i64 200
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
+  %arrayidx135 = getelementptr inbounds nuw i8, ptr %J, i64 216
   br label %retry
 
 retry:                                            ; preds = %if.end208, %if.end51
@@ -195,8 +195,8 @@ retry:                                            ; preds = %if.end208, %if.end5
 if.then61:                                        ; preds = %retry
   %25 = load ptr, ptr %ir, align 8
   %idxprom66 = zext i16 %23 to i64
-  %arrayidx67 = getelementptr inbounds %union.IRIns, ptr %25, i64 %idxprom66
-  %o68 = getelementptr inbounds i8, ptr %arrayidx67, i64 5
+  %arrayidx67 = getelementptr inbounds nuw %union.IRIns, ptr %25, i64 %idxprom66
+  %o68 = getelementptr inbounds nuw i8, ptr %arrayidx67, i64 5
   %26 = load i8, ptr %o68, align 1
   %conv69 = zext i8 %26 to i32
   %shl70 = shl nuw nsw i32 %conv69, 10
@@ -207,7 +207,7 @@ if.then61:                                        ; preds = %retry
   br i1 %cmp83, label %if.then85, label %if.end98
 
 if.then85:                                        ; preds = %if.then61
-  %arrayidx96 = getelementptr inbounds i8, ptr %arrayidx67, i64 8
+  %arrayidx96 = getelementptr inbounds nuw i8, ptr %arrayidx67, i64 8
   %28 = load i64, ptr %arrayidx96, align 8
   store i64 %28, ptr %arrayidx88, align 8
   br label %if.end98
@@ -222,8 +222,8 @@ if.end98:                                         ; preds = %if.then61, %if.then
 if.then106:                                       ; preds = %if.end98
   %30 = load ptr, ptr %ir, align 8
   %idxprom112 = zext i16 %29 to i64
-  %arrayidx113 = getelementptr inbounds %union.IRIns, ptr %30, i64 %idxprom112
-  %o114 = getelementptr inbounds i8, ptr %arrayidx113, i64 5
+  %arrayidx113 = getelementptr inbounds nuw %union.IRIns, ptr %30, i64 %idxprom112
+  %o114 = getelementptr inbounds nuw i8, ptr %arrayidx113, i64 5
   %31 = load i8, ptr %o114, align 1
   %conv115 = zext i8 %31 to i32
   %32 = load i64, ptr %arrayidx113, align 8
@@ -232,7 +232,7 @@ if.then106:                                       ; preds = %if.end98
   br i1 %cmp130, label %if.then132, label %if.end151
 
 if.then132:                                       ; preds = %if.then106
-  %arrayidx143 = getelementptr inbounds i8, ptr %arrayidx113, i64 8
+  %arrayidx143 = getelementptr inbounds nuw i8, ptr %arrayidx113, i64 8
   %33 = load i64, ptr %arrayidx143, align 8
   store i64 %33, ptr %arrayidx135, align 8
   br label %if.end151
@@ -255,7 +255,7 @@ for.cond:                                         ; preds = %if.end189, %if.end1
   %or161 = tail call i32 @llvm.fshl.i32(i32 %sub, i32 %sub, i32 14)
   %rem = urem i32 %or161, 1001
   %idxprom162 = zext nneg i32 %rem to i64
-  %arrayidx163 = getelementptr inbounds [1002 x i32], ptr @fold_hash, i64 0, i64 %idxprom162
+  %arrayidx163 = getelementptr inbounds nuw [1002 x i32], ptr @fold_hash, i64 0, i64 %idxprom162
   %34 = load i32, ptr %arrayidx163, align 4
   %and164 = and i32 %34, 16777215
   %cmp165 = icmp eq i32 %and164, %or
@@ -264,7 +264,7 @@ for.cond:                                         ; preds = %if.end189, %if.end1
 lor.lhs.false:                                    ; preds = %for.cond
   %add167 = add nuw nsw i32 %rem, 1
   %idxprom168 = zext nneg i32 %add167 to i64
-  %arrayidx169 = getelementptr inbounds [1002 x i32], ptr @fold_hash, i64 0, i64 %idxprom168
+  %arrayidx169 = getelementptr inbounds nuw [1002 x i32], ptr @fold_hash, i64 0, i64 %idxprom168
   %35 = load i32, ptr %arrayidx169, align 4
   %and170 = and i32 %35, 16777215
   %cmp171 = icmp eq i32 %and170, %or
@@ -274,7 +274,7 @@ if.then173:                                       ; preds = %lor.lhs.false, %for
   %fh.0 = phi i32 [ %34, %for.cond ], [ %35, %lor.lhs.false ]
   %shr174 = lshr i32 %fh.0, 24
   %idxprom175 = zext nneg i32 %shr174 to i64
-  %arrayidx176 = getelementptr inbounds [159 x ptr], ptr @fold_func, i64 0, i64 %idxprom175
+  %arrayidx176 = getelementptr inbounds nuw [159 x ptr], ptr @fold_func, i64 0, i64 %idxprom175
   %36 = load ptr, ptr %arrayidx176, align 8
   %call177 = tail call i32 %36(ptr noundef %J) #11
   %conv179 = and i32 %call177, 65535
@@ -299,9 +299,9 @@ if.then187:                                       ; preds = %if.end184
   br i1 %tobool.not.i72, label %if.end46.i80, label %if.then.i73
 
 if.then.i73:                                      ; preds = %if.then187
-  %chain.i74 = getelementptr inbounds i8, ptr %J, i64 402
+  %chain.i74 = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom.i75 = zext i8 %39 to i64
-  %arrayidx.i76 = getelementptr inbounds [101 x i16], ptr %chain.i74, i64 0, i64 %idxprom.i75
+  %arrayidx.i76 = getelementptr inbounds nuw [101 x i16], ptr %chain.i74, i64 0, i64 %idxprom.i75
   %spec.select38.i77 = tail call i16 @llvm.umax.i16(i16 %38, i16 %37)
   %ref.0.in40.i78 = load i16, ptr %arrayidx.i76, align 2
   %cmp2541.i79 = icmp ult i16 %spec.select38.i77, %ref.0.in40.i78
@@ -314,14 +314,14 @@ while.body.lr.ph.i104:                            ; preds = %if.then.i73
 while.body.i106:                                  ; preds = %if.end40.i111, %while.body.lr.ph.i104
   %ref.0.in42.i107 = phi i16 [ %ref.0.in40.i78, %while.body.lr.ph.i104 ], [ %ref.0.in.i113, %if.end40.i111 ]
   %idxprom27.i108 = zext i16 %ref.0.in42.i107 to i64
-  %arrayidx28.i109 = getelementptr inbounds %union.IRIns, ptr %41, i64 %idxprom27.i108
+  %arrayidx28.i109 = getelementptr inbounds nuw %union.IRIns, ptr %41, i64 %idxprom27.i108
   %42 = load i32, ptr %arrayidx28.i109, align 8
   %cmp30.i110 = icmp eq i32 %42, %add.i68
   br i1 %cmp30.i110, label %if.then32.i115, label %if.end40.i111
 
 if.then32.i115:                                   ; preds = %while.body.i106
   %ref.0.le.i116 = zext i16 %ref.0.in42.i107 to i32
-  %t.i117 = getelementptr inbounds i8, ptr %arrayidx28.i109, i64 4
+  %t.i117 = getelementptr inbounds nuw i8, ptr %arrayidx28.i109, i64 4
   %43 = load i8, ptr %t.i117, align 4
   %conv37.i118 = zext i8 %43 to i32
   %shl38.i119 = shl nuw i32 %conv37.i118, 24
@@ -329,15 +329,15 @@ if.then32.i115:                                   ; preds = %while.body.i106
   br label %return
 
 if.end40.i111:                                    ; preds = %while.body.i106
-  %prev.i112 = getelementptr inbounds i8, ptr %arrayidx28.i109, i64 6
+  %prev.i112 = getelementptr inbounds nuw i8, ptr %arrayidx28.i109, i64 6
   %ref.0.in.i113 = load i16, ptr %prev.i112, align 2
   %cmp25.i114 = icmp ult i16 %spec.select38.i77, %ref.0.in.i113
   br i1 %cmp25.i114, label %while.body.i106, label %if.end46.i80, !llvm.loop !4
 
 if.end46.i80:                                     ; preds = %if.end40.i111, %if.then.i73, %if.then187
-  %nins.i.i81 = getelementptr inbounds i8, ptr %J, i64 12
+  %nins.i.i81 = getelementptr inbounds nuw i8, ptr %J, i64 12
   %44 = load i32, ptr %nins.i.i81, align 4
-  %irtoplim.i.i82 = getelementptr inbounds i8, ptr %J, i64 336
+  %irtoplim.i.i82 = getelementptr inbounds nuw i8, ptr %J, i64 336
   %45 = load i32, ptr %irtoplim.i.i82, align 8
   %cmp.i.not.i83 = icmp ult i32 %44, %45
   br i1 %cmp.i.not.i83, label %lj_ir_nextins.exit.i85, label %if.then.i.i84
@@ -351,26 +351,26 @@ lj_ir_nextins.exit.i85:                           ; preds = %if.then.i.i84, %if.
   store i32 %add.i.i86, ptr %nins.i.i81, align 4
   %46 = load ptr, ptr %ir, align 8
   %idxprom51.i88 = zext i32 %44 to i64
-  %arrayidx52.i89 = getelementptr inbounds %union.IRIns, ptr %46, i64 %idxprom51.i88
-  %chain53.i90 = getelementptr inbounds i8, ptr %J, i64 402
+  %arrayidx52.i89 = getelementptr inbounds nuw %union.IRIns, ptr %46, i64 %idxprom51.i88
+  %chain53.i90 = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom54.i91 = zext i8 %39 to i64
-  %arrayidx55.i92 = getelementptr inbounds [101 x i16], ptr %chain53.i90, i64 0, i64 %idxprom54.i91
+  %arrayidx55.i92 = getelementptr inbounds nuw [101 x i16], ptr %chain53.i90, i64 0, i64 %idxprom54.i91
   %47 = load i16, ptr %arrayidx55.i92, align 2
-  %prev56.i93 = getelementptr inbounds i8, ptr %arrayidx52.i89, i64 6
+  %prev56.i93 = getelementptr inbounds nuw i8, ptr %arrayidx52.i89, i64 6
   store i16 %47, ptr %prev56.i93, align 2
   store i32 %add.i68, ptr %arrayidx52.i89, align 8
   %conv58.i94 = trunc i32 %44 to i16
   store i16 %conv58.i94, ptr %arrayidx55.i92, align 2
   %48 = load i8, ptr %o54, align 1
-  %o65.i95 = getelementptr inbounds i8, ptr %arrayidx52.i89, i64 5
+  %o65.i95 = getelementptr inbounds nuw i8, ptr %arrayidx52.i89, i64 5
   store i8 %48, ptr %o65.i95, align 1
-  %t68.i96 = getelementptr inbounds i8, ptr %J, i64 188
+  %t68.i96 = getelementptr inbounds nuw i8, ptr %J, i64 188
   %49 = load i8, ptr %t68.i96, align 4
-  %guardemit.i97 = getelementptr inbounds i8, ptr %J, i64 182
+  %guardemit.i97 = getelementptr inbounds nuw i8, ptr %J, i64 182
   %50 = load i8, ptr %guardemit.i97, align 2
   %or37.i98 = or i8 %50, %49
   store i8 %or37.i98, ptr %guardemit.i97, align 2
-  %t74.i99 = getelementptr inbounds i8, ptr %arrayidx52.i89, i64 4
+  %t74.i99 = getelementptr inbounds nuw i8, ptr %arrayidx52.i89, i64 4
   store i8 %49, ptr %t74.i99, align 4
   %conv79.i100 = zext i8 %49 to i32
   %shl80.i101 = shl nuw i32 %conv79.i100, 24
@@ -390,8 +390,8 @@ for.end:                                          ; preds = %if.then173
 if.then200:                                       ; preds = %for.end
   %51 = load ptr, ptr %ir, align 8
   %idxprom203 = zext nneg i32 %conv179 to i64
-  %arrayidx204 = getelementptr inbounds %union.IRIns, ptr %51, i64 %idxprom203
-  %t = getelementptr inbounds i8, ptr %arrayidx204, i64 4
+  %arrayidx204 = getelementptr inbounds nuw %union.IRIns, ptr %51, i64 %idxprom203
+  %t = getelementptr inbounds nuw i8, ptr %arrayidx204, i64 4
   %52 = load i8, ptr %t, align 4
   %conv205 = zext i8 %52 to i32
   %shl206 = shl nuw i32 %conv205, 24
@@ -422,47 +422,47 @@ return:                                           ; preds = %if.end208, %lj_ir_n
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_opt_cse(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
   %conv = zext i16 %0 to i32
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %conv3 = zext i16 %1 to i32
   %shl = shl nuw i32 %conv3, 16
   %add = or disjoint i32 %shl, %conv
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o, align 1
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %3 = load i32, ptr %flags, align 8
   %and = and i32 %3, 131072
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end46, label %if.then
 
 if.then:                                          ; preds = %entry
-  %chain = getelementptr inbounds i8, ptr %J, i64 402
+  %chain = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom = zext i8 %2 to i64
-  %arrayidx = getelementptr inbounds [101 x i16], ptr %chain, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [101 x i16], ptr %chain, i64 0, i64 %idxprom
   %spec.select38 = tail call i16 @llvm.umax.i16(i16 %1, i16 %0)
   %ref.0.in40 = load i16, ptr %arrayidx, align 2
   %cmp2541 = icmp ult i16 %spec.select38, %ref.0.in40
   br i1 %cmp2541, label %while.body.lr.ph, label %if.end46
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %4 = load ptr, ptr %ir, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end40
   %ref.0.in42 = phi i16 [ %ref.0.in40, %while.body.lr.ph ], [ %ref.0.in, %if.end40 ]
   %idxprom27 = zext i16 %ref.0.in42 to i64
-  %arrayidx28 = getelementptr inbounds %union.IRIns, ptr %4, i64 %idxprom27
+  %arrayidx28 = getelementptr inbounds nuw %union.IRIns, ptr %4, i64 %idxprom27
   %5 = load i32, ptr %arrayidx28, align 8
   %cmp30 = icmp eq i32 %5, %add
   br i1 %cmp30, label %if.then32, label %if.end40
 
 if.then32:                                        ; preds = %while.body
   %ref.0.le = zext i16 %ref.0.in42 to i32
-  %t = getelementptr inbounds i8, ptr %arrayidx28, i64 4
+  %t = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 4
   %6 = load i8, ptr %t, align 4
   %conv37 = zext i8 %6 to i32
   %shl38 = shl nuw i32 %conv37, 24
@@ -470,15 +470,15 @@ if.then32:                                        ; preds = %while.body
   br label %return
 
 if.end40:                                         ; preds = %while.body
-  %prev = getelementptr inbounds i8, ptr %arrayidx28, i64 6
+  %prev = getelementptr inbounds nuw i8, ptr %arrayidx28, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %cmp25 = icmp ult i16 %spec.select38, %ref.0.in
   br i1 %cmp25, label %while.body, label %if.end46, !llvm.loop !4
 
 if.end46:                                         ; preds = %if.end40, %if.then, %entry
-  %nins.i = getelementptr inbounds i8, ptr %J, i64 12
+  %nins.i = getelementptr inbounds nuw i8, ptr %J, i64 12
   %7 = load i32, ptr %nins.i, align 4
-  %irtoplim.i = getelementptr inbounds i8, ptr %J, i64 336
+  %irtoplim.i = getelementptr inbounds nuw i8, ptr %J, i64 336
   %8 = load i32, ptr %irtoplim.i, align 8
   %cmp.i.not = icmp ult i32 %7, %8
   br i1 %cmp.i.not, label %lj_ir_nextins.exit, label %if.then.i
@@ -490,29 +490,29 @@ if.then.i:                                        ; preds = %if.end46
 lj_ir_nextins.exit:                               ; preds = %if.then.i, %if.end46
   %add.i = add i32 %7, 1
   store i32 %add.i, ptr %nins.i, align 4
-  %ir50 = getelementptr inbounds i8, ptr %J, i64 32
+  %ir50 = getelementptr inbounds nuw i8, ptr %J, i64 32
   %9 = load ptr, ptr %ir50, align 8
   %idxprom51 = zext i32 %7 to i64
-  %arrayidx52 = getelementptr inbounds %union.IRIns, ptr %9, i64 %idxprom51
-  %chain53 = getelementptr inbounds i8, ptr %J, i64 402
+  %arrayidx52 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %idxprom51
+  %chain53 = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom54 = zext i8 %2 to i64
-  %arrayidx55 = getelementptr inbounds [101 x i16], ptr %chain53, i64 0, i64 %idxprom54
+  %arrayidx55 = getelementptr inbounds nuw [101 x i16], ptr %chain53, i64 0, i64 %idxprom54
   %10 = load i16, ptr %arrayidx55, align 2
-  %prev56 = getelementptr inbounds i8, ptr %arrayidx52, i64 6
+  %prev56 = getelementptr inbounds nuw i8, ptr %arrayidx52, i64 6
   store i16 %10, ptr %prev56, align 2
   store i32 %add, ptr %arrayidx52, align 8
   %conv58 = trunc i32 %7 to i16
   store i16 %conv58, ptr %arrayidx55, align 2
   %11 = load i8, ptr %o, align 1
-  %o65 = getelementptr inbounds i8, ptr %arrayidx52, i64 5
+  %o65 = getelementptr inbounds nuw i8, ptr %arrayidx52, i64 5
   store i8 %11, ptr %o65, align 1
-  %t68 = getelementptr inbounds i8, ptr %J, i64 188
+  %t68 = getelementptr inbounds nuw i8, ptr %J, i64 188
   %12 = load i8, ptr %t68, align 4
-  %guardemit = getelementptr inbounds i8, ptr %J, i64 182
+  %guardemit = getelementptr inbounds nuw i8, ptr %J, i64 182
   %13 = load i8, ptr %guardemit, align 2
   %or37 = or i8 %13, %12
   store i8 %or37, ptr %guardemit, align 2
-  %t74 = getelementptr inbounds i8, ptr %arrayidx52, i64 4
+  %t74 = getelementptr inbounds nuw i8, ptr %arrayidx52, i64 4
   store i8 %12, ptr %t74, align 4
   %conv79 = zext i8 %12 to i32
   %shl80 = shl nuw i32 %conv79, 24
@@ -534,12 +534,12 @@ declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_opt_cselim(ptr noundef %J, i32 noundef %lim) local_unnamed_addr #0 {
 entry:
-  %chain = getelementptr inbounds i8, ptr %J, i64 402
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %chain = getelementptr inbounds nuw i8, ptr %J, i64 402
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %0 = load i8, ptr %o, align 1
   %idxprom = zext i8 %0 to i64
-  %arrayidx = getelementptr inbounds [101 x i16], ptr %chain, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [101 x i16], ptr %chain, i64 0, i64 %idxprom
   %1 = load i32, ptr %fold, align 8
   %ref.0.in11 = load i16, ptr %arrayidx, align 2
   %ref.012 = zext i16 %ref.0.in11 to i32
@@ -547,10 +547,10 @@ entry:
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %2 = load ptr, ptr %ir, align 8
   %idxprom819 = zext i16 %ref.0.in11 to i64
-  %arrayidx920 = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom819
+  %arrayidx920 = getelementptr inbounds nuw %union.IRIns, ptr %2, i64 %idxprom819
   %3 = load i32, ptr %arrayidx920, align 8
   %cmp1121 = icmp eq i32 %3, %1
   br i1 %cmp1121, label %return, label %while.cond.preheader
@@ -569,7 +569,7 @@ while.cond:                                       ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.cond
   %idxprom8 = zext i16 %ref.0.in to i64
-  %arrayidx9 = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds nuw %union.IRIns, ptr %2, i64 %idxprom8
   %5 = load i32, ptr %arrayidx9, align 8
   %cmp11 = icmp eq i32 %5, %1
   br i1 %cmp11, label %return, label %while.cond, !llvm.loop !6
@@ -586,11 +586,11 @@ return:                                           ; preds = %while.body, %while.
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_numarith(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load double, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %J, i64 216
   %1 = load double, ptr %arrayidx2, align 8
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o, align 1
   %conv = zext i8 %2 to i32
   %sub = add nsw i32 %conv, -41
@@ -603,9 +603,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_numabsneg(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load double, ptr %arrayidx, align 8
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %1 = load i8, ptr %o, align 1
   %conv = zext i8 %1 to i32
   %sub = add nsw i32 %conv, -41
@@ -624,9 +624,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_fpmath(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load double, ptr %arrayidx, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %conv = zext i16 %1 to i32
   %call = tail call double @lj_vm_foldfpm(double noundef %0, i32 noundef %conv) #11
@@ -638,11 +638,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_fpcall1(ptr noundef %J) #0 {
 entry:
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %0 = load i16, ptr %op2, align 2
   %idxprom = zext i16 %0 to i64
-  %arrayidx = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 %idxprom
-  %flags = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 %idxprom
+  %flags = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %flags, align 8
   %2 = and i32 %1, 2031616
   %cmp = icmp eq i32 %2, 917504
@@ -650,7 +650,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %arrayidx, align 16
-  %arrayidx2 = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %J, i64 200
   %4 = load double, ptr %arrayidx2, align 8
   %call = tail call double %3(double noundef %4) #11
   %5 = bitcast double %call to i64
@@ -665,31 +665,31 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_fpcall2(ptr noundef %J) #0 {
 entry:
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %0 = load i16, ptr %left, align 8
   %cmp = icmp sgt i16 %0, -1
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %cmp6 = icmp sgt i16 %1, -1
   br i1 %cmp6, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
-  %op29 = getelementptr inbounds i8, ptr %J, i64 186
+  %op29 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %2 = load i16, ptr %op29, align 2
   %idxprom = zext i16 %2 to i64
-  %arrayidx = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 %idxprom
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %arrayidx = getelementptr inbounds nuw [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 %idxprom
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %3 = load ptr, ptr %ir, align 8
   %idxprom14 = zext nneg i16 %0 to i64
-  %arrayidx15 = getelementptr inbounds %union.IRIns, ptr %3, i64 %idxprom14
-  %arrayidx16 = getelementptr inbounds i8, ptr %arrayidx15, i64 8
+  %arrayidx15 = getelementptr inbounds nuw %union.IRIns, ptr %3, i64 %idxprom14
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 8
   %4 = load double, ptr %arrayidx16, align 8
   %idxprom23 = zext nneg i16 %1 to i64
-  %arrayidx24 = getelementptr inbounds %union.IRIns, ptr %3, i64 %idxprom23
-  %arrayidx25 = getelementptr inbounds i8, ptr %arrayidx24, i64 8
+  %arrayidx24 = getelementptr inbounds nuw %union.IRIns, ptr %3, i64 %idxprom23
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %arrayidx24, i64 8
   %5 = load double, ptr %arrayidx25, align 8
   %6 = load ptr, ptr %arrayidx, align 16
   %call = tail call double %6(double noundef %4, double noundef %5) #11
@@ -705,9 +705,9 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_numpow(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load double, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %J, i64 216
   %1 = load double, ptr %arrayidx2, align 8
   %call = tail call double @lj_vm_foldarith(double noundef %0, double noundef %1, i32 noundef 5) #11
   %2 = bitcast double %call to i64
@@ -718,11 +718,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_numcomp(ptr nocapture noundef readonly %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load double, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %J, i64 216
   %1 = load double, ptr %arrayidx2, align 8
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o, align 1
   %conv = zext i8 %2 to i32
   %call = tail call i32 @lj_ir_numcmp(double noundef %0, double noundef %1, i32 noundef %conv) #11
@@ -733,11 +733,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @fold_kfold_intarith(ptr nocapture noundef initializes((184, 188)) %J) #0 {
 entry:
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %1 = load i32, ptr %right, align 8
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o, align 1
   switch i8 %2, label %kfold_intop.exit [
     i8 41, label %sw.bb.i
@@ -822,7 +822,7 @@ sw.bb36.i:                                        ; preds = %entry
 
 kfold_intop.exit:                                 ; preds = %entry, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb11.i, %sw.bb13.i, %sw.bb16.i, %sw.bb24.i, %sw.bb34.i, %sw.bb36.i
   %k1.addr.0.i = phi i32 [ %0, %entry ], [ %cond42.i, %sw.bb36.i ], [ %cond.i, %sw.bb34.i ], [ %or33.i, %sw.bb24.i ], [ %or23.i, %sw.bb16.i ], [ %shr15.i, %sw.bb13.i ], [ %shr.i, %sw.bb11.i ], [ %shl.i, %sw.bb9.i ], [ %xor.i, %sw.bb8.i ], [ %or.i, %sw.bb7.i ], [ %and.i, %sw.bb6.i ], [ %add5.i, %sw.bb4.i ], [ %call.i, %sw.bb3.i ], [ %mul.i, %sw.bb2.i ], [ %sub.i, %sw.bb1.i ], [ %add.i, %sw.bb.i ]
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   store i32 %k1.addr.0.i, ptr %fold, align 8
   ret i32 2
 }
@@ -830,13 +830,13 @@ kfold_intop.exit:                                 ; preds = %entry, %sw.bb.i, %s
 ; Function Attrs: nounwind uwtable
 define internal range(i32 2, 4) i32 @fold_kfold_intovarith(ptr nocapture noundef %J) #0 {
 entry:
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
   %conv = sitofp i32 %0 to double
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %1 = load i32, ptr %right, align 8
   %conv3 = sitofp i32 %1 to double
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o, align 1
   %conv5 = zext i8 %2 to i32
   %sub = add nsw i32 %conv5, -53
@@ -847,7 +847,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   store i32 %conv6, ptr %fold, align 8
   br label %return
 
@@ -859,8 +859,8 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @fold_kfold_bnot(ptr nocapture noundef initializes((184, 188)) %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
   %not = xor i32 %0, -1
   store i32 %not, ptr %fold, align 8
@@ -870,8 +870,8 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @fold_kfold_bswap(ptr nocapture noundef initializes((184, 188)) %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
   %1 = tail call i32 @llvm.bswap.i32(i32 %0)
   store i32 %1, ptr %fold, align 8
@@ -881,11 +881,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 3, 5) i32 @fold_kfold_intcomp(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %1 = load i32, ptr %right, align 8
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o, align 1
   switch i8 %2, label %return [
     i8 0, label %sw.bb
@@ -947,7 +947,7 @@ return:                                           ; preds = %entry, %sw.bb29, %s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 5) i32 @fold_kfold_intcomp0(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
   %cmp = icmp eq i32 %0, 0
   %. = select i1 %cmp, i32 4, i32 0
@@ -957,11 +957,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_int64arith(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %J, i64 216
   %1 = load i64, ptr %arrayidx2, align 8
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o, align 1
   switch i8 %2, label %kfold_int64arith.exit [
     i8 41, label %sw.bb.i
@@ -1033,15 +1033,15 @@ kfold_int64arith.exit:                            ; preds = %entry, %sw.bb.i, %s
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_int64arith2(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %J, i64 216
   %1 = load i64, ptr %arrayidx2, align 8
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %2 = load i8, ptr %t, align 4
   %3 = and i8 %2, 31
   %cmp = icmp eq i8 %3, 21
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %4 = load i8, ptr %o, align 1
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1090,12 +1090,12 @@ if.end:                                           ; preds = %cond.true28, %cond.
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_int64shift(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %1 = load i32, ptr %right, align 8
   %and = and i32 %1, 63
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o, align 1
   %conv = zext i8 %2 to i32
   %sub = add nsw i32 %conv, -36
@@ -1107,7 +1107,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_bnot64(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
   %not = xor i64 %0, -1
   %call = tail call i32 @lj_ir_kint64(ptr noundef %J, i64 noundef %not) #11
@@ -1117,7 +1117,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_bswap64(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
   %1 = tail call i64 @llvm.bswap.i64(i64 %0)
   %call1 = tail call i32 @lj_ir_kint64(ptr noundef %J, i64 noundef %1) #11
@@ -1127,11 +1127,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 3, 5) i32 @fold_kfold_int64comp(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %J, i64 216
   %1 = load i64, ptr %arrayidx2, align 8
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o, align 1
   switch i8 %2, label %return [
     i8 0, label %sw.bb
@@ -1192,7 +1192,7 @@ return:                                           ; preds = %entry, %sw.bb29, %s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 5) i32 @fold_kfold_int64comp0(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %0 = load i64, ptr %arrayidx, align 8
   %cmp = icmp eq i64 %0, 0
   %. = select i1 %cmp, i32 4, i32 0
@@ -1202,12 +1202,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_snew_kptr(ptr noundef %J) #0 {
 entry:
-  %L = getelementptr inbounds i8, ptr %J, i64 128
+  %L = getelementptr inbounds nuw i8, ptr %J, i64 128
   %0 = load ptr, ptr %L, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %1 = load i64, ptr %arrayidx, align 8
   %2 = inttoptr i64 %1 to ptr
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %3 = load i32, ptr %right, align 8
   %conv = sext i32 %3 to i64
   %call = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef %2, i64 noundef %conv) #11
@@ -1218,7 +1218,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_snew_empty(ptr noundef %J) #0 {
 entry:
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %return
@@ -1236,11 +1236,11 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_strref(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
   %1 = inttoptr i64 %0 to ptr
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 24
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %2 = load i32, ptr %right, align 8
   %idx.ext = sext i32 %2 to i64
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
@@ -1251,22 +1251,22 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 65536) i32 @fold_kfold_strref_snew(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %2 = load i16, ptr %op2, align 2
   %cmp = icmp sgt i16 %2, -1
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %3 = load i32, ptr %right, align 8
   %cmp6 = icmp eq i32 %3, 0
   br i1 %cmp6, label %if.then8, label %if.else
@@ -1277,18 +1277,18 @@ if.then8:                                         ; preds = %land.lhs.true
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  %ir13 = getelementptr inbounds i8, ptr %J, i64 32
+  %ir13 = getelementptr inbounds nuw i8, ptr %J, i64 32
   %5 = load ptr, ptr %ir13, align 8
   %6 = load i16, ptr %left, align 8
   %idxprom = zext i16 %6 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %5, i64 %idxprom
-  %o = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %idxprom
+  %o = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %7 = load i8, ptr %o, align 1
   %cmp19 = icmp eq i8 %7, 64
   br i1 %cmp19, label %if.then21, label %return
 
 if.then21:                                        ; preds = %if.else
-  %t23 = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %t23 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %8 = load i8, ptr %t23, align 4
   %9 = and i8 %8, 64
   %tobool27.not = icmp eq i8 %9, 0
@@ -1296,9 +1296,9 @@ if.then21:                                        ; preds = %if.else
 
 if.end29:                                         ; preds = %if.then21
   %10 = load i16, ptr %arrayidx, align 8
-  %op230 = getelementptr inbounds i8, ptr %arrayidx, i64 2
+  %op230 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
   %11 = load i16, ptr %op230, align 2
-  %ot1.i = getelementptr inbounds i8, ptr %J, i64 188
+  %ot1.i = getelementptr inbounds nuw i8, ptr %J, i64 188
   store i16 10515, ptr %ot1.i, align 4
   store i16 %11, ptr %fold, align 8
   %call = tail call i32 @lj_opt_fold(ptr noundef nonnull %J)
@@ -1316,29 +1316,29 @@ return:                                           ; preds = %if.else, %if.then21
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @fold_kfold_strcmp(ptr nocapture noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %0 = load i16, ptr %left, align 8
   %cmp = icmp sgt i16 %0, -1
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %cmp6 = icmp sgt i16 %1, -1
   br i1 %cmp6, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %2 = load ptr, ptr %ir, align 8
   %idxprom = zext nneg i16 %0 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom
-  %arrayidx12 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %2, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %arrayidx12, align 8
   %4 = inttoptr i64 %3 to ptr
   %idxprom19 = zext nneg i16 %1 to i64
-  %arrayidx20 = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom19
-  %arrayidx21 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
+  %arrayidx20 = getelementptr inbounds nuw %union.IRIns, ptr %2, i64 %idxprom19
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 8
   %5 = load i64, ptr %arrayidx21, align 8
   %6 = inttoptr i64 %5 to ptr
   %call = tail call i32 @lj_str_cmp(ptr noundef %4, ptr noundef %6) #11
@@ -1353,49 +1353,49 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_bufhdr_merge(ptr noundef %J) #0 {
 entry:
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %0 = load i16, ptr %op2, align 2
   %cmp = icmp eq i16 %0, 2
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %fold.i = getelementptr inbounds i8, ptr %J, i64 184
+  %fold.i = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold.i, align 8
   %conv.i = zext i16 %1 to i32
   %add.i = or disjoint i32 %conv.i, 131072
-  %o.i = getelementptr inbounds i8, ptr %J, i64 189
+  %o.i = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o.i, align 1
-  %flags.i = getelementptr inbounds i8, ptr %J, i64 168
+  %flags.i = getelementptr inbounds nuw i8, ptr %J, i64 168
   %3 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %3, 131072
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end46.i, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.true
-  %chain.i = getelementptr inbounds i8, ptr %J, i64 402
+  %chain.i = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom.i = zext i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
   %spec.select38.i = tail call i16 @llvm.umax.i16(i16 %1, i16 2)
   %ref.0.in40.i = load i16, ptr %arrayidx.i, align 2
   %cmp2541.i = icmp ult i16 %spec.select38.i, %ref.0.in40.i
   br i1 %cmp2541.i, label %while.body.lr.ph.i, label %if.end46.i
 
 while.body.lr.ph.i:                               ; preds = %if.then.i
-  %ir.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %4 = load ptr, ptr %ir.i, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end40.i, %while.body.lr.ph.i
   %ref.0.in42.i = phi i16 [ %ref.0.in40.i, %while.body.lr.ph.i ], [ %ref.0.in.i, %if.end40.i ]
   %idxprom27.i = zext i16 %ref.0.in42.i to i64
-  %arrayidx28.i = getelementptr inbounds %union.IRIns, ptr %4, i64 %idxprom27.i
+  %arrayidx28.i = getelementptr inbounds nuw %union.IRIns, ptr %4, i64 %idxprom27.i
   %5 = load i32, ptr %arrayidx28.i, align 8
   %cmp30.i = icmp eq i32 %5, %add.i
   br i1 %cmp30.i, label %if.then32.i, label %if.end40.i
 
 if.then32.i:                                      ; preds = %while.body.i
   %ref.0.le.i = zext i16 %ref.0.in42.i to i32
-  %t.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 4
+  %t.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 4
   %6 = load i8, ptr %t.i, align 4
   %conv37.i = zext i8 %6 to i32
   %shl38.i = shl nuw i32 %conv37.i, 24
@@ -1403,15 +1403,15 @@ if.then32.i:                                      ; preds = %while.body.i
   br label %cond.end
 
 if.end40.i:                                       ; preds = %while.body.i
-  %prev.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 6
+  %prev.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 6
   %ref.0.in.i = load i16, ptr %prev.i, align 2
   %cmp25.i = icmp ult i16 %spec.select38.i, %ref.0.in.i
   br i1 %cmp25.i, label %while.body.i, label %if.end46.i, !llvm.loop !4
 
 if.end46.i:                                       ; preds = %if.end40.i, %if.then.i, %cond.true
-  %nins.i.i = getelementptr inbounds i8, ptr %J, i64 12
+  %nins.i.i = getelementptr inbounds nuw i8, ptr %J, i64 12
   %7 = load i32, ptr %nins.i.i, align 4
-  %irtoplim.i.i = getelementptr inbounds i8, ptr %J, i64 336
+  %irtoplim.i.i = getelementptr inbounds nuw i8, ptr %J, i64 336
   %8 = load i32, ptr %irtoplim.i.i, align 8
   %cmp.i.not.i = icmp ult i32 %7, %8
   br i1 %cmp.i.not.i, label %lj_ir_nextins.exit.i, label %if.then.i.i
@@ -1423,29 +1423,29 @@ if.then.i.i:                                      ; preds = %if.end46.i
 lj_ir_nextins.exit.i:                             ; preds = %if.then.i.i, %if.end46.i
   %add.i.i = add i32 %7, 1
   store i32 %add.i.i, ptr %nins.i.i, align 4
-  %ir50.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir50.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %9 = load ptr, ptr %ir50.i, align 8
   %idxprom51.i = zext i32 %7 to i64
-  %arrayidx52.i = getelementptr inbounds %union.IRIns, ptr %9, i64 %idxprom51.i
-  %chain53.i = getelementptr inbounds i8, ptr %J, i64 402
+  %arrayidx52.i = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %idxprom51.i
+  %chain53.i = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom54.i = zext i8 %2 to i64
-  %arrayidx55.i = getelementptr inbounds [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom54.i
+  %arrayidx55.i = getelementptr inbounds nuw [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom54.i
   %10 = load i16, ptr %arrayidx55.i, align 2
-  %prev56.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 6
+  %prev56.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 6
   store i16 %10, ptr %prev56.i, align 2
   store i32 %add.i, ptr %arrayidx52.i, align 8
   %conv58.i = trunc i32 %7 to i16
   store i16 %conv58.i, ptr %arrayidx55.i, align 2
   %11 = load i8, ptr %o.i, align 1
-  %o65.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 5
+  %o65.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 5
   store i8 %11, ptr %o65.i, align 1
-  %t68.i = getelementptr inbounds i8, ptr %J, i64 188
+  %t68.i = getelementptr inbounds nuw i8, ptr %J, i64 188
   %12 = load i8, ptr %t68.i, align 4
-  %guardemit.i = getelementptr inbounds i8, ptr %J, i64 182
+  %guardemit.i = getelementptr inbounds nuw i8, ptr %J, i64 182
   %13 = load i8, ptr %guardemit.i, align 2
   %or37.i = or i8 %13, %12
   store i8 %or37.i, ptr %guardemit.i, align 2
-  %t74.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 4
+  %t74.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 4
   store i8 %12, ptr %t74.i, align 4
   %conv79.i = zext i8 %12 to i32
   %shl80.i = shl nuw i32 %conv79.i, 24
@@ -1464,60 +1464,60 @@ cond.end:                                         ; preds = %lj_ir_nextins.exit.
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_bufput_bufstr(ptr noundef %J) #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 524288
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end157, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %right = getelementptr inbounds i8, ptr %J, i64 208
-  %op2 = getelementptr inbounds i8, ptr %J, i64 210
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 210
   %1 = load i16, ptr %op2, align 2
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %o = getelementptr inbounds i8, ptr %J, i64 197
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 197
   %2 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %2, 85
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %if.then
-  %op28 = getelementptr inbounds i8, ptr %J, i64 194
+  %op28 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %3 = load i16, ptr %op28, align 2
   %cmp10 = icmp eq i16 %3, 0
   br i1 %cmp10, label %land.lhs.true12, label %if.end
 
 land.lhs.true12:                                  ; preds = %land.lhs.true
-  %prev = getelementptr inbounds i8, ptr %J, i64 198
+  %prev = getelementptr inbounds nuw i8, ptr %J, i64 198
   %4 = load i16, ptr %prev, align 2
   %cmp17 = icmp eq i16 %4, %1
   br i1 %cmp17, label %land.lhs.true19, label %if.end
 
 land.lhs.true19:                                  ; preds = %land.lhs.true12
   %5 = load i16, ptr %left, align 8
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %6 = load ptr, ptr %ir, align 8
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %idxprom
   %7 = load i16, ptr %arrayidx, align 8
   %cmp26 = icmp eq i16 %5, %7
   br i1 %cmp26, label %land.lhs.true28, label %if.end
 
 land.lhs.true28:                                  ; preds = %land.lhs.true19
-  %t = getelementptr inbounds i8, ptr %J, i64 212
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 212
   %8 = load i8, ptr %t, align 4
   %9 = and i8 %8, 64
   %tobool34.not = icmp eq i8 %9, 0
   br i1 %tobool34.not, label %land.lhs.true43, label %land.lhs.true35
 
 land.lhs.true35:                                  ; preds = %land.lhs.true28
-  %prev40 = getelementptr inbounds i8, ptr %arrayidx, i64 6
+  %prev40 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 6
   %10 = load i16, ptr %prev40, align 2
   %tobool42.not = icmp eq i16 %10, 0
   br i1 %tobool42.not, label %land.lhs.true43, label %if.end
 
 land.lhs.true43:                                  ; preds = %land.lhs.true35, %land.lhs.true28
-  %arrayidx44 = getelementptr inbounds i8, ptr %J, i64 594
+  %arrayidx44 = getelementptr inbounds nuw i8, ptr %J, i64 594
   %11 = load i16, ptr %arrayidx44, align 2
   %cmp46 = icmp ult i16 %11, %1
   br i1 %cmp46, label %if.then48, label %if.end
@@ -1526,27 +1526,27 @@ if.then48:                                        ; preds = %land.lhs.true43
   %12 = load i16, ptr %fold, align 8
   %conv51 = zext i16 %12 to i32
   %idxprom54 = zext i16 %12 to i64
-  %arrayidx55 = getelementptr inbounds %union.IRIns, ptr %6, i64 %idxprom54
-  %op256 = getelementptr inbounds i8, ptr %arrayidx55, i64 2
+  %arrayidx55 = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %idxprom54
+  %op256 = getelementptr inbounds nuw i8, ptr %arrayidx55, i64 2
   store i16 1, ptr %op256, align 2
   %13 = load i16, ptr %right, align 8
   %14 = load ptr, ptr %ir, align 8
-  %arrayidx64 = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom54
+  %arrayidx64 = getelementptr inbounds nuw %union.IRIns, ptr %14, i64 %idxprom54
   store i16 %13, ptr %arrayidx64, align 8
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true43, %land.lhs.true35, %land.lhs.true19, %land.lhs.true12, %land.lhs.true, %if.then
-  %ir67 = getelementptr inbounds i8, ptr %J, i64 32
+  %ir67 = getelementptr inbounds nuw i8, ptr %J, i64 32
   %15 = load ptr, ptr %ir67, align 8
   %idxprom68 = zext i16 %1 to i64
-  %arrayidx69 = getelementptr inbounds %union.IRIns, ptr %15, i64 %idxprom68
-  %op270 = getelementptr inbounds i8, ptr %arrayidx69, i64 2
+  %arrayidx69 = getelementptr inbounds nuw %union.IRIns, ptr %15, i64 %idxprom68
+  %op270 = getelementptr inbounds nuw i8, ptr %arrayidx69, i64 2
   %16 = load i16, ptr %op270, align 2
   %cmp72 = icmp eq i16 %16, 0
   br i1 %cmp72, label %land.lhs.true74, label %if.end157
 
 land.lhs.true74:                                  ; preds = %if.end
-  %t78 = getelementptr inbounds i8, ptr %J, i64 212
+  %t78 = getelementptr inbounds nuw i8, ptr %J, i64 212
   %17 = load i8, ptr %t78, align 4
   %18 = and i8 %17, 64
   %tobool82.not = icmp eq i8 %18, 0
@@ -1555,14 +1555,14 @@ land.lhs.true74:                                  ; preds = %if.end
 if.then83:                                        ; preds = %land.lhs.true74
   %19 = load i16, ptr %right, align 8
   %idxprom91 = zext i16 %19 to i64
-  %arrayidx92 = getelementptr inbounds %union.IRIns, ptr %15, i64 %idxprom91
-  %o93 = getelementptr inbounds i8, ptr %arrayidx92, i64 5
+  %arrayidx92 = getelementptr inbounds nuw %union.IRIns, ptr %15, i64 %idxprom91
+  %o93 = getelementptr inbounds nuw i8, ptr %arrayidx92, i64 5
   %20 = load i8, ptr %o93, align 1
   %cmp95 = icmp eq i8 %20, 97
   br i1 %cmp95, label %land.lhs.true97, label %if.end157
 
 land.lhs.true97:                                  ; preds = %if.then83
-  %op298 = getelementptr inbounds i8, ptr %arrayidx92, i64 2
+  %op298 = getelementptr inbounds nuw i8, ptr %arrayidx92, i64 2
   %21 = load i16, ptr %op298, align 2
   %conv99 = zext i16 %21 to i32
   %22 = add i16 %21, -19
@@ -1572,14 +1572,14 @@ land.lhs.true97:                                  ; preds = %if.then83
 if.then107:                                       ; preds = %land.lhs.true97
   %23 = load i16, ptr %arrayidx92, align 8
   %idxprom111 = zext i16 %23 to i64
-  %arrayidx112 = getelementptr inbounds %union.IRIns, ptr %15, i64 %idxprom111
+  %arrayidx112 = getelementptr inbounds nuw %union.IRIns, ptr %15, i64 %idxprom111
   %cmp115 = icmp eq i16 %21, 22
   %24 = load i16, ptr %arrayidx112, align 8
   br i1 %cmp115, label %if.then117, label %if.else
 
 if.then117:                                       ; preds = %if.then107
   %idxprom121 = zext i16 %24 to i64
-  %arrayidx122 = getelementptr inbounds %union.IRIns, ptr %15, i64 %idxprom121
+  %arrayidx122 = getelementptr inbounds nuw %union.IRIns, ptr %15, i64 %idxprom121
   %25 = load i16, ptr %arrayidx122, align 8
   %cmp125 = icmp eq i16 %25, %1
   br i1 %cmp125, label %if.then127, label %if.end157
@@ -1587,10 +1587,10 @@ if.then117:                                       ; preds = %if.then107
 if.then127:                                       ; preds = %if.then117
   %26 = load i16, ptr %fold, align 8
   %conv133 = zext i16 %26 to i32
-  %op2134 = getelementptr inbounds i8, ptr %arrayidx122, i64 2
+  %op2134 = getelementptr inbounds nuw i8, ptr %arrayidx122, i64 2
   %27 = load i16, ptr %op2134, align 2
   %conv135 = zext i16 %27 to i32
-  %op2136 = getelementptr inbounds i8, ptr %arrayidx112, i64 2
+  %op2136 = getelementptr inbounds nuw i8, ptr %arrayidx112, i64 2
   %28 = load i16, ptr %op2136, align 2
   %conv137 = zext i16 %28 to i32
   %call = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %J, i32 noundef 22, i32 noundef %conv133, i32 noundef %conv135, i32 noundef %conv137) #11
@@ -1603,7 +1603,7 @@ if.else:                                          ; preds = %if.then107
 if.then143:                                       ; preds = %if.else
   %29 = load i16, ptr %fold, align 8
   %conv149 = zext i16 %29 to i32
-  %op2150 = getelementptr inbounds i8, ptr %arrayidx112, i64 2
+  %op2150 = getelementptr inbounds nuw i8, ptr %arrayidx112, i64 2
   %30 = load i16, ptr %op2150, align 2
   %conv151 = zext i16 %30 to i32
   %call152 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %J, i32 noundef %conv99, i32 noundef %conv149, i32 noundef %conv151) #11
@@ -1621,24 +1621,24 @@ return:                                           ; preds = %if.end157, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_bufput_kgc(ptr noundef %J) #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end55, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %o = getelementptr inbounds i8, ptr %J, i64 213
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 213
   %1 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %1, 24
   br i1 %cmp, label %if.then, label %if.end55
 
 if.then:                                          ; preds = %land.lhs.true
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %2 = load i64, ptr %arrayidx, align 8
   %3 = inttoptr i64 %2 to ptr
-  %len = getelementptr inbounds i8, ptr %3, i64 20
+  %len = getelementptr inbounds nuw i8, ptr %3, i64 20
   %4 = load i32, ptr %len, align 4
   %cmp7 = icmp eq i32 %4, 0
   br i1 %cmp7, label %if.then9, label %if.else
@@ -1649,33 +1649,33 @@ if.then9:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %o14 = getelementptr inbounds i8, ptr %J, i64 197
+  %o14 = getelementptr inbounds nuw i8, ptr %J, i64 197
   %6 = load i8, ptr %o14, align 1
   %cmp16 = icmp eq i8 %6, 86
   br i1 %cmp16, label %land.lhs.true18, label %if.end55
 
 land.lhs.true18:                                  ; preds = %if.else
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %7 = load i16, ptr %op2, align 2
   %cmp23 = icmp sgt i16 %7, -1
   br i1 %cmp23, label %land.lhs.true25, label %if.end55
 
 land.lhs.true25:                                  ; preds = %land.lhs.true18
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %8 = load i8, ptr %t, align 4
   %9 = and i8 %8, 64
   %tobool31.not = icmp eq i8 %9, 0
   br i1 %tobool31.not, label %if.then32, label %if.end55
 
 if.then32:                                        ; preds = %land.lhs.true25
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %10 = load ptr, ptr %ir, align 8
   %idxprom = zext nneg i16 %7 to i64
-  %arrayidx37 = getelementptr inbounds %union.IRIns, ptr %10, i64 %idxprom
-  %arrayidx38 = getelementptr inbounds i8, ptr %arrayidx37, i64 8
+  %arrayidx37 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %idxprom
+  %arrayidx38 = getelementptr inbounds nuw i8, ptr %arrayidx37, i64 8
   %11 = load i64, ptr %arrayidx38, align 8
   %12 = inttoptr i64 %11 to ptr
-  %L = getelementptr inbounds i8, ptr %J, i64 128
+  %L = getelementptr inbounds nuw i8, ptr %J, i64 128
   %13 = load ptr, ptr %L, align 8
   %call = tail call ptr @lj_buf_cat2str(ptr noundef %13, ptr noundef %12, ptr noundef nonnull %3) #11
   %call40 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %J, ptr noundef %call, i32 noundef 4) #11
@@ -1683,8 +1683,8 @@ if.then32:                                        ; preds = %land.lhs.true25
   %14 = load ptr, ptr %ir, align 8
   %15 = load i16, ptr %fold, align 8
   %idxprom47 = zext i16 %15 to i64
-  %arrayidx48 = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom47
-  %op249 = getelementptr inbounds i8, ptr %arrayidx48, i64 2
+  %arrayidx48 = getelementptr inbounds nuw %union.IRIns, ptr %14, i64 %idxprom47
+  %op249 = getelementptr inbounds nuw i8, ptr %arrayidx48, i64 2
   store i16 %conv41, ptr %op249, align 2
   %16 = load i16, ptr %fold, align 8
   %conv53 = zext i16 %16 to i32
@@ -1702,16 +1702,16 @@ return:                                           ; preds = %if.end55, %if.then3
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_bufstr_kfold_cse(ptr noundef %J) #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end54, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %o = getelementptr inbounds i8, ptr %J, i64 197
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 197
   %1 = load i8, ptr %o, align 1
   switch i8 %1, label %if.end54 [
     i8 85, label %if.then5
@@ -1719,7 +1719,7 @@ if.then:                                          ; preds = %entry
   ]
 
 if.then5:                                         ; preds = %if.then
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %2 = load i16, ptr %op2, align 2
   %cmp10 = icmp eq i16 %2, 0
   br i1 %cmp10, label %if.then12, label %if.end
@@ -1732,45 +1732,45 @@ if.then12:                                        ; preds = %if.then5
 if.end:                                           ; preds = %if.then5
   %3 = load i16, ptr %left, align 8
   store i16 %3, ptr %fold, align 8
-  %prev = getelementptr inbounds i8, ptr %J, i64 198
+  %prev = getelementptr inbounds nuw i8, ptr %J, i64 198
   %4 = load i16, ptr %prev, align 2
-  %op223 = getelementptr inbounds i8, ptr %J, i64 186
+  %op223 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %4, ptr %op223, align 2
   %conv.i = zext i16 %3 to i32
   %conv3.i = zext i16 %4 to i32
   %shl.i = shl nuw i32 %conv3.i, 16
   %add.i = or disjoint i32 %shl.i, %conv.i
-  %o.i = getelementptr inbounds i8, ptr %J, i64 189
+  %o.i = getelementptr inbounds nuw i8, ptr %J, i64 189
   %5 = load i8, ptr %o.i, align 1
   %and.i = and i32 %0, 131072
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end46.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %chain.i = getelementptr inbounds i8, ptr %J, i64 402
+  %chain.i = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom.i = zext i8 %5 to i64
-  %arrayidx.i = getelementptr inbounds [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
   %spec.select38.i = tail call i16 @llvm.umax.i16(i16 %4, i16 %3)
   %ref.0.in40.i = load i16, ptr %arrayidx.i, align 2
   %cmp2541.i = icmp ult i16 %spec.select38.i, %ref.0.in40.i
   br i1 %cmp2541.i, label %while.body.lr.ph.i, label %if.end46.i
 
 while.body.lr.ph.i:                               ; preds = %if.then.i
-  %ir.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %6 = load ptr, ptr %ir.i, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end40.i, %while.body.lr.ph.i
   %ref.0.in42.i = phi i16 [ %ref.0.in40.i, %while.body.lr.ph.i ], [ %ref.0.in.i, %if.end40.i ]
   %idxprom27.i = zext i16 %ref.0.in42.i to i64
-  %arrayidx28.i = getelementptr inbounds %union.IRIns, ptr %6, i64 %idxprom27.i
+  %arrayidx28.i = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %idxprom27.i
   %7 = load i32, ptr %arrayidx28.i, align 8
   %cmp30.i = icmp eq i32 %7, %add.i
   br i1 %cmp30.i, label %if.then32.i, label %if.end40.i
 
 if.then32.i:                                      ; preds = %while.body.i
   %ref.0.le.i = zext i16 %ref.0.in42.i to i32
-  %t.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 4
+  %t.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 4
   %8 = load i8, ptr %t.i, align 4
   %conv37.i = zext i8 %8 to i32
   %shl38.i = shl nuw i32 %conv37.i, 24
@@ -1778,15 +1778,15 @@ if.then32.i:                                      ; preds = %while.body.i
   br label %return
 
 if.end40.i:                                       ; preds = %while.body.i
-  %prev.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 6
+  %prev.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 6
   %ref.0.in.i = load i16, ptr %prev.i, align 2
   %cmp25.i = icmp ult i16 %spec.select38.i, %ref.0.in.i
   br i1 %cmp25.i, label %while.body.i, label %if.end46.i, !llvm.loop !4
 
 if.end46.i:                                       ; preds = %if.end40.i, %if.then.i, %if.end
-  %nins.i.i = getelementptr inbounds i8, ptr %J, i64 12
+  %nins.i.i = getelementptr inbounds nuw i8, ptr %J, i64 12
   %9 = load i32, ptr %nins.i.i, align 4
-  %irtoplim.i.i = getelementptr inbounds i8, ptr %J, i64 336
+  %irtoplim.i.i = getelementptr inbounds nuw i8, ptr %J, i64 336
   %10 = load i32, ptr %irtoplim.i.i, align 8
   %cmp.i.not.i = icmp ult i32 %9, %10
   br i1 %cmp.i.not.i, label %lj_ir_nextins.exit.i, label %if.then.i.i
@@ -1798,29 +1798,29 @@ if.then.i.i:                                      ; preds = %if.end46.i
 lj_ir_nextins.exit.i:                             ; preds = %if.then.i.i, %if.end46.i
   %add.i.i = add i32 %9, 1
   store i32 %add.i.i, ptr %nins.i.i, align 4
-  %ir50.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir50.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %11 = load ptr, ptr %ir50.i, align 8
   %idxprom51.i = zext i32 %9 to i64
-  %arrayidx52.i = getelementptr inbounds %union.IRIns, ptr %11, i64 %idxprom51.i
-  %chain53.i = getelementptr inbounds i8, ptr %J, i64 402
+  %arrayidx52.i = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %idxprom51.i
+  %chain53.i = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom54.i = zext i8 %5 to i64
-  %arrayidx55.i = getelementptr inbounds [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom54.i
+  %arrayidx55.i = getelementptr inbounds nuw [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom54.i
   %12 = load i16, ptr %arrayidx55.i, align 2
-  %prev56.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 6
+  %prev56.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 6
   store i16 %12, ptr %prev56.i, align 2
   store i32 %add.i, ptr %arrayidx52.i, align 8
   %conv58.i = trunc i32 %9 to i16
   store i16 %conv58.i, ptr %arrayidx55.i, align 2
   %13 = load i8, ptr %o.i, align 1
-  %o65.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 5
+  %o65.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 5
   store i8 %13, ptr %o65.i, align 1
-  %t68.i = getelementptr inbounds i8, ptr %J, i64 188
+  %t68.i = getelementptr inbounds nuw i8, ptr %J, i64 188
   %14 = load i8, ptr %t68.i, align 4
-  %guardemit.i = getelementptr inbounds i8, ptr %J, i64 182
+  %guardemit.i = getelementptr inbounds nuw i8, ptr %J, i64 182
   %15 = load i8, ptr %guardemit.i, align 2
   %or37.i = or i8 %15, %14
   store i8 %or37.i, ptr %guardemit.i, align 2
-  %t74.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 4
+  %t74.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 4
   store i8 %14, ptr %t74.i, align 4
   %conv79.i = zext i8 %14 to i32
   %shl80.i = shl nuw i32 %conv79.i, 24
@@ -1828,24 +1828,24 @@ lj_ir_nextins.exit.i:                             ; preds = %if.then.i.i, %if.en
   br label %return
 
 if.then32:                                        ; preds = %if.then
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %16 = load ptr, ptr %ir, align 8
   %17 = load i16, ptr %left, align 8
   %idxprom = zext i16 %17 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %16, i64 %idxprom
-  %o37 = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %16, i64 %idxprom
+  %o37 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %18 = load i8, ptr %o37, align 1
   %cmp39 = icmp eq i8 %18, 85
   br i1 %cmp39, label %land.lhs.true, label %if.end54
 
 land.lhs.true:                                    ; preds = %if.then32
-  %op241 = getelementptr inbounds i8, ptr %arrayidx, i64 2
+  %op241 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
   %19 = load i16, ptr %op241, align 2
   %cmp43 = icmp eq i16 %19, 0
   br i1 %cmp43, label %if.then45, label %if.end54
 
 if.then45:                                        ; preds = %land.lhs.true
-  %op249 = getelementptr inbounds i8, ptr %J, i64 194
+  %op249 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %20 = load i16, ptr %op249, align 2
   %conv50 = zext i16 %20 to i32
   br label %return
@@ -1856,27 +1856,27 @@ if.end54:                                         ; preds = %if.then, %if.then32
   br i1 %tobool57.not, label %if.end130, label %if.then64
 
 if.then64:                                        ; preds = %if.end54
-  %arrayidx65 = getelementptr inbounds i8, ptr %J, i64 576
+  %arrayidx65 = getelementptr inbounds nuw i8, ptr %J, i64 576
   %ref.0.in46 = load i16, ptr %arrayidx65, align 2
   %tobool67.not47 = icmp eq i16 %ref.0.in46, 0
   br i1 %tobool67.not47, label %if.end130, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then64
-  %ir69 = getelementptr inbounds i8, ptr %J, i64 32
+  %ir69 = getelementptr inbounds nuw i8, ptr %J, i64 32
   %21 = load ptr, ptr %ir69, align 8
-  %left73 = getelementptr inbounds i8, ptr %J, i64 192
-  %o8241 = getelementptr inbounds i8, ptr %J, i64 197
+  %left73 = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %o8241 = getelementptr inbounds nuw i8, ptr %J, i64 197
   %22 = load i8, ptr %o8241, align 1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
   %ref.0.in48 = phi i16 [ %ref.0.in46, %while.body.lr.ph ], [ %ref.0.in, %while.end ]
   %idxprom70 = zext i16 %ref.0.in48 to i64
-  %arrayidx71 = getelementptr inbounds %union.IRIns, ptr %21, i64 %idxprom70
+  %arrayidx71 = getelementptr inbounds nuw %union.IRIns, ptr %21, i64 %idxprom70
   %idxprom79.pn.in38 = load i16, ptr %arrayidx71, align 8
   %idxprom79.pn39 = zext i16 %idxprom79.pn.in38 to i64
-  %irb75.040 = getelementptr inbounds %union.IRIns, ptr %21, i64 %idxprom79.pn39
-  %o8442 = getelementptr inbounds i8, ptr %irb75.040, i64 5
+  %irb75.040 = getelementptr inbounds nuw %union.IRIns, ptr %21, i64 %idxprom79.pn39
+  %o8442 = getelementptr inbounds nuw i8, ptr %irb75.040, i64 5
   %23 = load i8, ptr %o8442, align 1
   %cmp8643 = icmp eq i8 %22, %23
   br i1 %cmp8643, label %land.rhs, label %while.end
@@ -1885,9 +1885,9 @@ land.rhs:                                         ; preds = %while.body, %if.end
   %24 = phi i8 [ %28, %if.end116 ], [ %22, %while.body ]
   %irb75.045 = phi ptr [ %irb75.0, %if.end116 ], [ %irb75.040, %while.body ]
   %ira.044 = phi ptr [ %arrayidx121, %if.end116 ], [ %left73, %while.body ]
-  %op288 = getelementptr inbounds i8, ptr %ira.044, i64 2
+  %op288 = getelementptr inbounds nuw i8, ptr %ira.044, i64 2
   %25 = load i16, ptr %op288, align 2
-  %op290 = getelementptr inbounds i8, ptr %irb75.045, i64 2
+  %op290 = getelementptr inbounds nuw i8, ptr %irb75.045, i64 2
   %26 = load i16, ptr %op290, align 2
   %cmp92 = icmp eq i16 %25, %26
   br i1 %cmp92, label %while.body94, label %while.end
@@ -1907,19 +1907,19 @@ if.end105:                                        ; preds = %while.body94
 if.end116:                                        ; preds = %if.end105
   %27 = load i16, ptr %ira.044, align 8
   %idxprom120 = zext i16 %27 to i64
-  %arrayidx121 = getelementptr inbounds %union.IRIns, ptr %21, i64 %idxprom120
+  %arrayidx121 = getelementptr inbounds nuw %union.IRIns, ptr %21, i64 %idxprom120
   %idxprom79.pn.in = load i16, ptr %irb75.045, align 8
   %idxprom79.pn = zext i16 %idxprom79.pn.in to i64
-  %irb75.0 = getelementptr inbounds %union.IRIns, ptr %21, i64 %idxprom79.pn
-  %o82 = getelementptr inbounds i8, ptr %arrayidx121, i64 5
+  %irb75.0 = getelementptr inbounds nuw %union.IRIns, ptr %21, i64 %idxprom79.pn
+  %o82 = getelementptr inbounds nuw i8, ptr %arrayidx121, i64 5
   %28 = load i8, ptr %o82, align 1
-  %o84 = getelementptr inbounds i8, ptr %irb75.0, i64 5
+  %o84 = getelementptr inbounds nuw i8, ptr %irb75.0, i64 5
   %29 = load i8, ptr %o84, align 1
   %cmp86 = icmp eq i8 %28, %29
   br i1 %cmp86, label %land.rhs, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %land.rhs, %if.end116, %if.end105, %while.body
-  %prev127 = getelementptr inbounds i8, ptr %arrayidx71, i64 6
+  %prev127 = getelementptr inbounds nuw i8, ptr %arrayidx71, i64 6
   %ref.0.in = load i16, ptr %prev127, align 2
   %tobool67.not = icmp eq i16 %ref.0.in, 0
   br i1 %tobool67.not, label %if.end130, label %while.body, !llvm.loop !8
@@ -1940,41 +1940,41 @@ return:                                           ; preds = %return.loopexit, %l
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_bufput_kfold_op(ptr noundef %J) #0 {
 entry:
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %0 = load i16, ptr %op2, align 2
   %cmp = icmp sgt i16 %0, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %op23 = getelementptr inbounds i8, ptr %J, i64 186
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %op23 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op23, align 2
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 %idxprom
-  %L = getelementptr inbounds i8, ptr %J, i64 128
+  %arrayidx = getelementptr inbounds nuw [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 %idxprom
+  %L = getelementptr inbounds nuw i8, ptr %J, i64 128
   %2 = load ptr, ptr %L, align 8
-  %glref.i = getelementptr inbounds i8, ptr %2, i64 16
+  %glref.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load i64, ptr %glref.i, align 8
   %4 = inttoptr i64 %3 to ptr
-  %tmpbuf.i = getelementptr inbounds i8, ptr %4, i64 200
+  %tmpbuf.i = getelementptr inbounds nuw i8, ptr %4, i64 200
   %5 = ptrtoint ptr %2 to i64
-  %L1.i = getelementptr inbounds i8, ptr %4, i64 224
+  %L1.i = getelementptr inbounds nuw i8, ptr %4, i64 224
   store i64 %5, ptr %L1.i, align 8
-  %b.i = getelementptr inbounds i8, ptr %4, i64 216
+  %b.i = getelementptr inbounds nuw i8, ptr %4, i64 216
   %6 = load ptr, ptr %b.i, align 8
   store ptr %6, ptr %tmpbuf.i, align 8
   %7 = load ptr, ptr %arrayidx, align 16
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %8 = load ptr, ptr %ir, align 8
   %9 = load i16, ptr %op2, align 2
   %idxprom8 = zext i16 %9 to i64
-  %arrayidx9 = getelementptr inbounds %union.IRIns, ptr %8, i64 %idxprom8
-  %arrayidx10 = getelementptr inbounds i8, ptr %arrayidx9, i64 8
+  %arrayidx9 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %idxprom8
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %arrayidx9, i64 8
   %10 = load i64, ptr %arrayidx10, align 8
   %11 = inttoptr i64 %10 to ptr
   %call11 = tail call ptr %7(ptr noundef nonnull %tmpbuf.i, ptr noundef %11) #11
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 86, ptr %o, align 1
   %12 = load i16, ptr %left, align 8
   store i16 %12, ptr %fold, align 8
@@ -1996,57 +1996,57 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_bufput_kfold_rep(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %0 = load i16, ptr %op2, align 2
   %cmp = icmp sgt i16 %0, -1
   br i1 %cmp, label %if.then, label %if.end36
 
 if.then:                                          ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %1 = load ptr, ptr %ir, align 8
   %2 = load i16, ptr %left, align 8
   %idxprom = zext i16 %2 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %1, i64 %idxprom
-  %op25 = getelementptr inbounds i8, ptr %arrayidx, i64 2
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %1, i64 %idxprom
+  %op25 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
   %3 = load i16, ptr %op25, align 2
   %cmp7 = icmp sgt i16 %3, -1
   br i1 %cmp7, label %if.then9, label %if.end36
 
 if.then9:                                         ; preds = %if.then
-  %L = getelementptr inbounds i8, ptr %J, i64 128
+  %L = getelementptr inbounds nuw i8, ptr %J, i64 128
   %4 = load ptr, ptr %L, align 8
-  %glref.i = getelementptr inbounds i8, ptr %4, i64 16
+  %glref.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load i64, ptr %glref.i, align 8
   %6 = inttoptr i64 %5 to ptr
-  %tmpbuf.i = getelementptr inbounds i8, ptr %6, i64 200
+  %tmpbuf.i = getelementptr inbounds nuw i8, ptr %6, i64 200
   %7 = ptrtoint ptr %4 to i64
-  %L1.i = getelementptr inbounds i8, ptr %6, i64 224
+  %L1.i = getelementptr inbounds nuw i8, ptr %6, i64 224
   store i64 %7, ptr %L1.i, align 8
-  %b.i = getelementptr inbounds i8, ptr %6, i64 216
+  %b.i = getelementptr inbounds nuw i8, ptr %6, i64 216
   %8 = load ptr, ptr %b.i, align 8
   store ptr %8, ptr %tmpbuf.i, align 8
   %9 = load ptr, ptr %ir, align 8
   %10 = load i16, ptr %op25, align 2
   %idxprom13 = zext i16 %10 to i64
-  %arrayidx14 = getelementptr inbounds %union.IRIns, ptr %9, i64 %idxprom13
-  %arrayidx15 = getelementptr inbounds i8, ptr %arrayidx14, i64 8
+  %arrayidx14 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %idxprom13
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 8
   %11 = load i64, ptr %arrayidx15, align 8
   %12 = inttoptr i64 %11 to ptr
   %13 = load i16, ptr %op2, align 2
   %idxprom22 = zext i16 %13 to i64
-  %arrayidx23 = getelementptr inbounds %union.IRIns, ptr %9, i64 %idxprom22
+  %arrayidx23 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %idxprom22
   %14 = load i32, ptr %arrayidx23, align 8
   %call24 = tail call ptr @lj_buf_putstr_rep(ptr noundef nonnull %tmpbuf.i, ptr noundef %12, i32 noundef %14) #11
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 86, ptr %o, align 1
   %15 = load i16, ptr %arrayidx, align 8
   store i16 %15, ptr %fold, align 8
   %call30 = tail call ptr @lj_buf_tostr(ptr noundef %call24) #11
   %call31 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %J, ptr noundef %call30, i32 noundef 4) #11
   %conv32 = trunc i32 %call31 to i16
-  %op235 = getelementptr inbounds i8, ptr %J, i64 186
+  %op235 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv32, ptr %op235, align 2
   br label %return
 
@@ -2062,39 +2062,39 @@ return:                                           ; preds = %if.end36, %if.then9
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_bufput_kfold_fmt(ptr noundef %J) #0 {
 entry:
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %1 = load i16, ptr %left, align 8
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %2 = load i16, ptr %op2, align 2
   %cmp = icmp sgt i16 %2, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %op27 = getelementptr inbounds i8, ptr %arrayidx, i64 2
+  %op27 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
   %3 = load i16, ptr %op27, align 2
   %idxprom8 = zext i16 %3 to i64
-  %arrayidx9 = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom8
   %4 = load i32, ptr %arrayidx9, align 8
   %idxprom16 = zext nneg i16 %2 to i64
-  %arrayidx17 = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom16
-  %L = getelementptr inbounds i8, ptr %J, i64 128
+  %arrayidx17 = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom16
+  %L = getelementptr inbounds nuw i8, ptr %J, i64 128
   %5 = load ptr, ptr %L, align 8
-  %glref.i = getelementptr inbounds i8, ptr %5, i64 16
+  %glref.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load i64, ptr %glref.i, align 8
   %7 = inttoptr i64 %6 to ptr
-  %tmpbuf.i = getelementptr inbounds i8, ptr %7, i64 200
+  %tmpbuf.i = getelementptr inbounds nuw i8, ptr %7, i64 200
   %8 = ptrtoint ptr %5 to i64
-  %L1.i = getelementptr inbounds i8, ptr %7, i64 224
+  %L1.i = getelementptr inbounds nuw i8, ptr %7, i64 224
   store i64 %8, ptr %L1.i, align 8
-  %b.i = getelementptr inbounds i8, ptr %7, i64 216
+  %b.i = getelementptr inbounds nuw i8, ptr %7, i64 216
   %9 = load ptr, ptr %b.i, align 8
   store ptr %9, ptr %tmpbuf.i, align 8
-  %op219 = getelementptr inbounds i8, ptr %J, i64 186
+  %op219 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %10 = load i16, ptr %op219, align 2
   switch i16 %10, label %sw.default [
     i16 10, label %sw.bb
@@ -2103,13 +2103,13 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.then
-  %arrayidx21 = getelementptr inbounds i8, ptr %arrayidx17, i64 8
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 8
   %11 = load i64, ptr %arrayidx21, align 8
   %call22 = tail call ptr @lj_strfmt_putfxint(ptr noundef nonnull %tmpbuf.i, i32 noundef %4, i64 noundef %11) #11
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.then
-  %arrayidx24 = getelementptr inbounds i8, ptr %arrayidx17, i64 8
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 8
   %12 = load i64, ptr %arrayidx24, align 8
   %13 = inttoptr i64 %12 to ptr
   %call25 = tail call ptr @lj_strfmt_putfstr(ptr noundef nonnull %tmpbuf.i, i32 noundef %4, ptr noundef %13) #11
@@ -2122,16 +2122,16 @@ sw.bb26:                                          ; preds = %if.then
 
 sw.default:                                       ; preds = %if.then
   %idxprom32 = zext i16 %10 to i64
-  %arrayidx33 = getelementptr inbounds [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 %idxprom32
+  %arrayidx33 = getelementptr inbounds nuw [114 x %struct.CCallInfo], ptr @lj_ir_callinfo, i64 0, i64 %idxprom32
   %15 = load ptr, ptr %arrayidx33, align 16
-  %arrayidx34 = getelementptr inbounds i8, ptr %arrayidx17, i64 8
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 8
   %16 = load double, ptr %arrayidx34, align 8
   %call35 = tail call ptr %15(ptr noundef nonnull %tmpbuf.i, i32 noundef %4, double noundef %16) #11
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb26, %sw.bb23, %sw.bb
   %sb.0 = phi ptr [ %call35, %sw.default ], [ %call27, %sw.bb26 ], [ %call25, %sw.bb23 ], [ %call22, %sw.bb ]
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 86, ptr %o, align 1
   %17 = load i16, ptr %arrayidx, align 8
   store i16 %17, ptr %fold, align 8
@@ -2153,12 +2153,12 @@ return:                                           ; preds = %if.end, %sw.epilog
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_add_kgc(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
   %1 = inttoptr i64 %0 to ptr
-  %arrayidx2 = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %J, i64 216
   %2 = load i64, ptr %arrayidx2, align 8
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %3 = load i8, ptr %t, align 4
   %4 = and i8 %3, 31
   %cmp = icmp eq i8 %4, 10
@@ -2168,7 +2168,7 @@ if.then:                                          ; preds = %entry
   %ctype_state = getelementptr inbounds i8, ptr %J, i64 -344
   %5 = load i64, ptr %ctype_state, align 8
   %6 = inttoptr i64 %5 to ptr
-  %ctypeid = getelementptr inbounds i8, ptr %1, i64 10
+  %ctypeid = getelementptr inbounds nuw i8, ptr %1, i64 10
   %7 = load i16, ptr %ctypeid, align 2
   %8 = load ptr, ptr %6, align 8
   %idxprom.i = zext i16 %7 to i64
@@ -2176,7 +2176,7 @@ if.then:                                          ; preds = %entry
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then
   %idxprom.i.pn = phi i64 [ %idxprom.i, %if.then ], [ %idxprom.i.i, %while.cond.i ]
-  %ct.i.0 = getelementptr inbounds %struct.CType, ptr %8, i64 %idxprom.i.pn
+  %ct.i.0 = getelementptr inbounds nuw %struct.CType, ptr %8, i64 %idxprom.i.pn
   %9 = load i32, ptr %ct.i.0, align 8
   %shr.i = lshr i32 %9, 28
   %cmp.i = icmp eq i32 %shr.i, 8
@@ -2212,12 +2212,12 @@ return:                                           ; preds = %ctype_raw.exit, %if
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_add_kptr(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
   %1 = inttoptr i64 %0 to ptr
-  %arrayidx2 = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %J, i64 216
   %2 = load i64, ptr %arrayidx2, align 8
-  %o = getelementptr inbounds i8, ptr %J, i64 197
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 197
   %3 = load i8, ptr %o, align 1
   %conv = zext i8 %3 to i32
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %2
@@ -2228,7 +2228,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @fold_kfold_add_kright(ptr nocapture noundef %J) #4 {
 entry:
-  %o = getelementptr inbounds i8, ptr %J, i64 197
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 197
   %0 = load i8, ptr %o, align 1
   switch i8 %0, label %return [
     i8 23, label %if.then
@@ -2236,9 +2236,9 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry, %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %2 = load i16, ptr %op2, align 2
   store i16 %2, ptr %fold, align 8
   store i16 %1, ptr %op2, align 2
@@ -2252,8 +2252,8 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @fold_kfold_tobit(ptr nocapture noundef initializes((184, 188)) %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load double, ptr %arrayidx, align 8
   %add.i = fadd double %0, 0x4338000000000000
   %1 = bitcast double %add.i to i64
@@ -2265,7 +2265,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_conv_kint_num(ptr noundef %J) #0 {
 entry:
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
   %conv = sitofp i32 %0 to double
   %1 = bitcast double %conv to i64
@@ -2276,7 +2276,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_conv_kintu32_num(ptr noundef %J) #0 {
 entry:
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
   %conv = uitofp i32 %0 to double
   %1 = bitcast double %conv to i64
@@ -2287,9 +2287,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @fold_kfold_conv_kint_ext(ptr nocapture noundef initializes((184, 186)) %J) #4 {
 entry:
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %2 = and i16 %1, 31
   switch i16 %2, label %if.else26 [
@@ -2318,7 +2318,7 @@ if.else26:                                        ; preds = %entry
 
 if.end30:                                         ; preds = %if.then12, %if.else26, %if.then23, %if.then
   %k.0 = phi i32 [ %conv4, %if.then ], [ %conv14, %if.then12 ], [ %conv25, %if.then23 ], [ %conv28, %if.else26 ]
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   store i32 %k.0, ptr %fold, align 8
   ret i32 2
 }
@@ -2326,11 +2326,11 @@ if.end30:                                         ; preds = %if.then12, %if.else
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_conv_kint_i64(ptr noundef %J) #0 {
 entry:
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %0 = load i16, ptr %op2, align 2
   %1 = and i16 %0, 2048
   %tobool.not = icmp eq i16 %1, 0
-  %left4 = getelementptr inbounds i8, ptr %J, i64 192
+  %left4 = getelementptr inbounds nuw i8, ptr %J, i64 192
   %2 = load i32, ptr %left4, align 8
   %conv6 = zext i32 %2 to i64
   %conv2 = sext i32 %2 to i64
@@ -2342,7 +2342,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_conv_kint64_num_i64(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
   %conv = sitofp i64 %0 to double
   %1 = bitcast double %conv to i64
@@ -2353,7 +2353,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_conv_kint64_num_u64(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
   %conv = uitofp i64 %0 to double
   %1 = bitcast double %conv to i64
@@ -2364,8 +2364,8 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @fold_kfold_conv_kint64_int_i64(ptr nocapture noundef initializes((184, 188)) %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
   %conv = trunc i64 %0 to i32
   store i32 %conv, ptr %fold, align 8
@@ -2375,10 +2375,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 2, 4) i32 @fold_kfold_conv_knum_int_num(ptr nocapture noundef %J) #4 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load double, ptr %arrayidx, align 8
   %conv = fptosi double %0 to i32
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %1 = load i8, ptr %t, align 4
   %tobool.not = icmp slt i8 %1, 0
   %conv3 = sitofp i32 %conv to double
@@ -2387,7 +2387,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   store i32 %conv, ptr %fold, align 8
   br label %return
 
@@ -2399,8 +2399,8 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @fold_kfold_conv_knum_u32_num(ptr nocapture noundef initializes((184, 188)) %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load double, ptr %arrayidx, align 8
   %conv = fptoui double %0 to i32
   store i32 %conv, ptr %fold, align 8
@@ -2410,7 +2410,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_conv_knum_i64_num(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load double, ptr %arrayidx, align 8
   %conv = fptosi double %0 to i64
   %call = tail call i32 @lj_ir_kint64(ptr noundef %J, i64 noundef %conv) #11
@@ -2420,7 +2420,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_conv_knum_u64_num(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load double, ptr %arrayidx, align 8
   %conv.i = fptosi double %0 to i64
   %cmp.i = icmp slt i64 %conv.i, 0
@@ -2434,9 +2434,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_tostr_knum(ptr noundef %J) #0 {
 entry:
-  %L = getelementptr inbounds i8, ptr %J, i64 128
+  %L = getelementptr inbounds nuw i8, ptr %J, i64 128
   %0 = load ptr, ptr %L, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %call = tail call ptr @lj_strfmt_num(ptr noundef %0, ptr noundef nonnull %arrayidx) #11
   %call1 = tail call i32 @lj_ir_kgc(ptr noundef %J, ptr noundef %call, i32 noundef 4) #11
   ret i32 %call1
@@ -2445,12 +2445,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_kfold_tostr_kint(ptr noundef %J) #0 {
 entry:
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %0 = load i16, ptr %op2, align 2
   %cmp = icmp eq i16 %0, 0
-  %L = getelementptr inbounds i8, ptr %J, i64 128
+  %L = getelementptr inbounds nuw i8, ptr %J, i64 128
   %1 = load ptr, ptr %L, align 8
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %2 = load i32, ptr %left, align 8
   br i1 %cmp, label %cond.true, label %cond.false
 
@@ -2472,7 +2472,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 define internal i32 @fold_kfold_strto(ptr noundef %J) #0 {
 entry:
   %n = alloca %union.TValue, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
   %1 = inttoptr i64 %0 to ptr
   %call = call i32 @lj_strscan_num(ptr noundef %1, ptr noundef nonnull %n) #11
@@ -2492,12 +2492,12 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 3, 5) i32 @fold_kfold_kref(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %cmp = icmp eq i16 %0, %1
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o, align 1
   %cmp8 = icmp eq i8 %2, 9
   %xor3 = xor i1 %cmp, %cmp8
@@ -2508,13 +2508,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_shortcut_round(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %0 = load i16, ptr %op2, align 2
   %or.cond1 = icmp ult i16 %0, 3
   br i1 %or.cond1, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
   %conv8 = zext i16 %1 to i32
   br label %return
@@ -2527,7 +2527,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_shortcut_left(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
   %conv = zext i16 %0 to i32
   ret i32 %conv
@@ -2536,15 +2536,15 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @fold_shortcut_dropleft(ptr nocapture noundef %J) #4 {
 entry:
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %2 = load i16, ptr %left, align 8
   store i16 %2, ptr %fold, align 8
   br label %return
@@ -2557,14 +2557,14 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_shortcut_leftleft(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %2 = load i16, ptr %left, align 8
   %conv4 = zext i16 %2 to i32
   br label %return
@@ -2577,18 +2577,18 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_numadd_negx(ptr nocapture noundef %J) #4 {
 entry:
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 42, ptr %o, align 1
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %2 = load i16, ptr %op2, align 2
   store i16 %2, ptr %fold, align 8
   %3 = load i16, ptr %left, align 8
@@ -2603,18 +2603,18 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_numadd_xneg(ptr nocapture noundef %J) #4 {
 entry:
-  %t = getelementptr inbounds i8, ptr %J, i64 212
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 212
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %right = getelementptr inbounds i8, ptr %J, i64 208
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 42, ptr %o, align 1
   %2 = load i16, ptr %right, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %2, ptr %op2, align 2
   br label %return
 
@@ -2626,13 +2626,13 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_numsub_k(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %0 = load i64, ptr %arrayidx, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
   %conv = zext i16 %1 to i32
   br label %return
@@ -2645,19 +2645,19 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_numsub_negk(ptr noundef %J) #0 {
 entry:
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %2 = load i16, ptr %left, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %2, ptr %op2, align 2
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %3 = load double, ptr %arrayidx, align 8
   %fneg = fneg double %3
   %4 = bitcast double %fneg to i64
@@ -2674,18 +2674,18 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_numsub_xneg(ptr nocapture noundef %J) #4 {
 entry:
-  %t = getelementptr inbounds i8, ptr %J, i64 212
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 212
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %right = getelementptr inbounds i8, ptr %J, i64 208
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 41, ptr %o, align 1
   %2 = load i16, ptr %right, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %2, ptr %op2, align 2
   br label %return
 
@@ -2697,8 +2697,8 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_nummuldiv_k(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %0 = load double, ptr %arrayidx, align 8
   %cmp = fcmp oeq double %0, 1.000000e+00
   %1 = bitcast double %0 to i64
@@ -2715,7 +2715,7 @@ if.else:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.else
   %3 = load i16, ptr %fold, align 8
-  %arrayidx10 = getelementptr inbounds i8, ptr %J, i64 280
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %J, i64 280
   %4 = ptrtoint ptr %arrayidx10 to i64
   %add = add nsw i64 %4, 15
   %and = and i64 %add, -16
@@ -2724,15 +2724,15 @@ if.then4:                                         ; preds = %if.else
   %sub = sub i64 %and, %5
   %call = tail call i32 @lj_ir_ggfload(ptr noundef nonnull %J, i32 noundef 14, i64 noundef %sub) #11
   %conv11 = trunc i32 %call to i16
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv11, ptr %op2, align 2
   store i16 %3, ptr %fold, align 8
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 47, ptr %o, align 1
   br label %return
 
 if.else20:                                        ; preds = %if.else
-  %o23 = getelementptr inbounds i8, ptr %J, i64 189
+  %o23 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %6 = load i8, ptr %o23, align 1
   %cmp25 = icmp eq i8 %6, 43
   %cmp27 = fcmp oeq double %0, 2.000000e+00
@@ -2742,7 +2742,7 @@ if.else20:                                        ; preds = %if.else
 if.then29:                                        ; preds = %if.else20
   store i8 41, ptr %o23, align 1
   %7 = load i16, ptr %fold, align 8
-  %op238 = getelementptr inbounds i8, ptr %J, i64 186
+  %op238 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %7, ptr %op238, align 2
   br label %return
 
@@ -2770,7 +2770,7 @@ if.then59:                                        ; preds = %if.then46
   store i8 43, ptr %o23, align 1
   %call66 = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %J, i64 noundef %or) #11
   %conv67 = trunc i32 %call66 to i16
-  %op270 = getelementptr inbounds i8, ptr %J, i64 186
+  %op270 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv67, ptr %op270, align 2
   br label %return
 
@@ -2782,24 +2782,24 @@ return:                                           ; preds = %if.then46, %if.else
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_nummuldiv_negk(ptr noundef %J) #0 {
 entry:
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %2 = load i16, ptr %left, align 8
   store i16 %2, ptr %fold, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %3 = load double, ptr %arrayidx, align 8
   %fneg = fneg double %3
   %4 = bitcast double %fneg to i64
   %call.i = tail call i32 @lj_ir_knum_u64(ptr noundef nonnull %J, i64 noundef %4) #11
   %conv7 = trunc i32 %call.i to i16
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv7, ptr %op2, align 2
   br label %return
 
@@ -2811,27 +2811,27 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_nummuldiv_negneg(ptr nocapture noundef %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %t3 = getelementptr inbounds i8, ptr %J, i64 212
+  %t3 = getelementptr inbounds nuw i8, ptr %J, i64 212
   %2 = load i8, ptr %t3, align 4
   %3 = and i8 %2, 64
   %tobool7.not = icmp eq i8 %3, 0
   br i1 %tobool7.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %4 = load i16, ptr %left, align 8
   store i16 %4, ptr %fold, align 8
   %5 = load i16, ptr %right, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %5, ptr %op2, align 2
   br label %return
 
@@ -2843,8 +2843,8 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_simplify_numpow_k(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %0 = load double, ptr %arrayidx, align 8
   %cmp = fcmp oeq double %0, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.else
@@ -2868,9 +2868,9 @@ if.else7:                                         ; preds = %if.else
 
 if.then13:                                        ; preds = %if.else7
   %2 = load i16, ptr %fold, align 8
-  %ot1.i = getelementptr inbounds i8, ptr %J, i64 188
+  %ot1.i = getelementptr inbounds nuw i8, ptr %J, i64 188
   store i16 11022, ptr %ot1.i, align 4
-  %op2.i = getelementptr inbounds i8, ptr %J, i64 186
+  %op2.i = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %2, ptr %op2.i, align 2
   %call20 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J)
   br label %return
@@ -2883,15 +2883,15 @@ return:                                           ; preds = %if.else7, %if.then1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_shortcut_conv_num_int(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %2 = load i16, ptr %op2, align 2
   %3 = and i16 %2, 31
   %cmp = icmp ne i16 %3, 14
@@ -2912,9 +2912,9 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_conv_int_num(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %0 = load i16, ptr %op2, align 2
-  %op22 = getelementptr inbounds i8, ptr %J, i64 186
+  %op22 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op22, align 2
   %2 = lshr i16 %1, 5
   %3 = xor i16 %2, %0
@@ -2923,7 +2923,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %5 = load i16, ptr %left, align 8
   %conv9 = zext i16 %5 to i32
   br label %return
@@ -2936,16 +2936,16 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_conv_i64_num(ptr nocapture noundef %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %2 = load i16, ptr %op2, align 2
   %3 = and i16 %2, 31
   switch i16 %3, label %return [
@@ -2956,7 +2956,7 @@ if.end:                                           ; preds = %entry
 if.then7:                                         ; preds = %if.end
   %4 = load i16, ptr %left, align 8
   store i16 %4, ptr %fold, align 8
-  %op215 = getelementptr inbounds i8, ptr %J, i64 186
+  %op215 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 2739, ptr %op215, align 2
   br label %return
 
@@ -2973,16 +2973,16 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_conv_int_i64(ptr nocapture noundef %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %2 = load i16, ptr %op2, align 2
   %3 = and i16 %2, 31
   %4 = add nsw i16 %3, -19
@@ -2990,7 +2990,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.end
-  %op211 = getelementptr inbounds i8, ptr %J, i64 186
+  %op211 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %5 = load i16, ptr %op211, align 2
   %6 = and i16 %5, 992
   %7 = lshr exact i16 %6, 5
@@ -3017,15 +3017,15 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_conv_flt_num(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %2 = load i16, ptr %op2, align 2
   %3 = and i16 %2, 31
   %cmp = icmp eq i16 %3, 13
@@ -3044,8 +3044,8 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_tobit_conv(ptr nocapture noundef %J) #4 {
 entry:
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %0 = load i16, ptr %op2, align 2
   %1 = and i16 %0, 31
   switch i16 %1, label %return [
@@ -3059,12 +3059,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.then14:                                        ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 91, ptr %o, align 1
   %3 = load i16, ptr %left, align 8
   store i16 %3, ptr %fold, align 8
-  %op225 = getelementptr inbounds i8, ptr %J, i64 186
+  %op225 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 628, ptr %op225, align 2
   br label %return
 
@@ -3076,7 +3076,7 @@ return:                                           ; preds = %entry, %if.then14, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_floor_conv(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %0 = load i16, ptr %op2, align 2
   %1 = and i16 %0, 31
   %.off = add nsw i16 %1, -19
@@ -3084,7 +3084,7 @@ entry:
   br i1 %switch, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %2 = load i16, ptr %fold, align 8
   %conv11 = zext i16 %2 to i32
   br label %return
@@ -3097,17 +3097,17 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_conv_sext(ptr nocapture noundef readonly %J) #6 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %2 = and i16 %1, 2048
   %tobool.not = icmp eq i16 %2, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %3 = load i8, ptr %t, align 4
   %conv5 = zext i8 %3 to i32
   %and6 = and i32 %conv5, 64
@@ -3115,7 +3115,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool7.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end
-  %o = getelementptr inbounds i8, ptr %J, i64 197
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 197
   %4 = load i8, ptr %o, align 1
   switch i8 %4, label %if.end61 [
     i8 70, label %land.lhs.true
@@ -3130,16 +3130,16 @@ land.lhs.true:                                    ; preds = %if.end9
   ]
 
 land.lhs.true42:                                  ; preds = %if.end9
-  %op246 = getelementptr inbounds i8, ptr %J, i64 194
+  %op246 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %5 = load i16, ptr %op246, align 2
   %cmp48 = icmp sgt i16 %5, -1
   br i1 %cmp48, label %if.then50, label %if.end61
 
 if.then50:                                        ; preds = %land.lhs.true42
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %6 = load ptr, ptr %ir, align 8
   %idxprom = zext nneg i16 %5 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %6, i64 %idxprom
   %7 = load i32, ptr %arrayidx, align 8
   %conv55 = sext i32 %7 to i64
   %8 = load i16, ptr %left, align 8
@@ -3148,27 +3148,27 @@ if.then50:                                        ; preds = %land.lhs.true42
 if.end61:                                         ; preds = %if.end9, %land.lhs.true, %if.then50, %land.lhs.true42
   %ref.0.in = phi i16 [ %8, %if.then50 ], [ %0, %land.lhs.true42 ], [ %0, %land.lhs.true ], [ %0, %if.end9 ]
   %ofs.0 = phi i64 [ %conv55, %if.then50 ], [ 0, %land.lhs.true42 ], [ 0, %land.lhs.true ], [ 0, %if.end9 ]
-  %idx = getelementptr inbounds i8, ptr %J, i64 2992
+  %idx = getelementptr inbounds nuw i8, ptr %J, i64 2992
   %9 = load i16, ptr %idx, align 8
   %cmp63 = icmp eq i16 %ref.0.in, %9
   br i1 %cmp63, label %if.then65, label %return
 
 if.then65:                                        ; preds = %if.end61
-  %dir = getelementptr inbounds i8, ptr %J, i64 3001
+  %dir = getelementptr inbounds nuw i8, ptr %J, i64 3001
   %10 = load i8, ptr %dir, align 1
   %tobool68.not = icmp eq i8 %10, 0
   %cond.in.in.v = select i1 %tobool68.not, i64 2996, i64 2994
-  %cond.in.in = getelementptr inbounds i8, ptr %J, i64 %cond.in.in.v
+  %cond.in.in = getelementptr inbounds nuw i8, ptr %J, i64 %cond.in.in.v
   %cond.in = load i16, ptr %cond.in.in, align 2
   %tobool73.not = icmp eq i16 %cond.in, 0
   br i1 %tobool73.not, label %return, label %land.lhs.true74
 
 land.lhs.true74:                                  ; preds = %if.then65
-  %ir76 = getelementptr inbounds i8, ptr %J, i64 32
+  %ir76 = getelementptr inbounds nuw i8, ptr %J, i64 32
   %11 = load ptr, ptr %ir76, align 8
   %idxprom77 = zext i16 %cond.in to i64
-  %arrayidx78 = getelementptr inbounds %union.IRIns, ptr %11, i64 %idxprom77
-  %o79 = getelementptr inbounds i8, ptr %arrayidx78, i64 5
+  %arrayidx78 = getelementptr inbounds nuw %union.IRIns, ptr %11, i64 %idxprom77
+  %o79 = getelementptr inbounds nuw i8, ptr %arrayidx78, i64 5
   %12 = load i8, ptr %o79, align 1
   %cmp81 = icmp eq i8 %12, 23
   br i1 %cmp81, label %land.lhs.true83, label %return
@@ -3198,40 +3198,40 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_cse_conv(ptr noundef %J) #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 131072
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end38, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
-  %op27 = getelementptr inbounds i8, ptr %J, i64 186
+  %op27 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %2 = load i16, ptr %op27, align 2
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %3 = load i8, ptr %t, align 4
   %4 = and i8 %3, -128
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 584
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 584
   %ref.0.in14 = load i16, ptr %arrayidx, align 2
   %cmp15 = icmp ugt i16 %ref.0.in14, %1
   br i1 %cmp15, label %while.body.lr.ph, label %if.end38
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %ir17 = getelementptr inbounds i8, ptr %J, i64 32
+  %ir17 = getelementptr inbounds nuw i8, ptr %J, i64 32
   %5 = load ptr, ptr %ir17, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %ref.0.in16 = phi i16 [ %ref.0.in14, %while.body.lr.ph ], [ %ref.0.in, %if.end ]
   %idxprom = zext i16 %ref.0.in16 to i64
-  %arrayidx18 = getelementptr inbounds %union.IRIns, ptr %5, i64 %idxprom
+  %arrayidx18 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %idxprom
   %6 = load i16, ptr %arrayidx18, align 8
   %cmp21 = icmp eq i16 %6, %1
   br i1 %cmp21, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %while.body
-  %op223 = getelementptr inbounds i8, ptr %arrayidx18, i64 2
+  %op223 = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 2
   %7 = load i16, ptr %op223, align 2
   %8 = xor i16 %7, %2
   %9 = and i16 %8, 4095
@@ -3239,14 +3239,14 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %cmp26, label %land.lhs.true28, label %if.end
 
 land.lhs.true28:                                  ; preds = %land.lhs.true
-  %t29 = getelementptr inbounds i8, ptr %arrayidx18, i64 4
+  %t29 = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 4
   %10 = load i8, ptr %t29, align 4
   %11 = and i8 %10, -128
   %cmp34.not = icmp ult i8 %11, %4
   br i1 %cmp34.not, label %if.end, label %return.loopexit
 
 if.end:                                           ; preds = %land.lhs.true28, %land.lhs.true, %while.body
-  %prev = getelementptr inbounds i8, ptr %arrayidx18, i64 6
+  %prev = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %cmp = icmp ugt i16 %ref.0.in, %1
   br i1 %cmp, label %while.body, label %if.end38, !llvm.loop !10
@@ -3267,14 +3267,14 @@ return:                                           ; preds = %return.loopexit, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_narrow_convert(ptr noundef %J) #0 {
 entry:
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 436
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 436
   %2 = load i16, ptr %arrayidx, align 2
   %tobool1.not = icmp eq i16 %2, 0
   br i1 %tobool1.not, label %if.end3, label %return
@@ -3291,13 +3291,13 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_intadd_k(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
   %conv = zext i16 %1 to i32
   br label %return
@@ -3310,8 +3310,8 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_intmul_k(ptr nocapture noundef %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
   switch i32 %0, label %return [
     i32 0, label %if.then
@@ -3320,7 +3320,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   br label %return
 
@@ -3329,10 +3329,10 @@ if.then7:                                         ; preds = %entry
   br label %return
 
 if.then17:                                        ; preds = %entry
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 53, ptr %o, align 1
   %3 = load i16, ptr %fold, align 8
-  %op225 = getelementptr inbounds i8, ptr %J, i64 186
+  %op225 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %3, ptr %op225, align 2
   br label %return
 
@@ -3345,24 +3345,24 @@ return:                                           ; preds = %entry, %if.then17, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_intsub_k(ptr noundef %J) #0 {
 entry:
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
   %conv = zext i16 %1 to i32
   br label %return
 
 if.end:                                           ; preds = %entry
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 41, ptr %o, align 1
   %add = sub i32 0, %0
   %call = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %add) #11
   %conv7 = trunc i32 %call to i16
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv7, ptr %op2, align 2
   br label %return
 
@@ -3374,28 +3374,28 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_intsub_kleft(ptr nocapture noundef %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %o = getelementptr inbounds i8, ptr %J, i64 197
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 197
   %0 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %0, 23
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %1 = load i32, ptr %left, align 8
   %cmp5 = icmp eq i32 %1, 0
   br i1 %cmp5, label %if.then, label %return
 
 cond.false:                                       ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %2 = load i64, ptr %arrayidx, align 8
   %cmp9 = icmp eq i64 %2, 0
   br i1 %cmp9, label %if.then, label %return
 
 if.then:                                          ; preds = %cond.false, %cond.true
-  %o12 = getelementptr inbounds i8, ptr %J, i64 189
+  %o12 = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 47, ptr %o12, align 1
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %3 = load i16, ptr %op2, align 2
   store i16 %3, ptr %fold, align 8
   br label %return
@@ -3408,13 +3408,13 @@ return:                                           ; preds = %cond.true, %cond.fa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_intadd_k64(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %0 = load i64, ptr %arrayidx, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
   %conv = zext i16 %1 to i32
   br label %return
@@ -3427,24 +3427,24 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_intsub_k64(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %0 = load i64, ptr %arrayidx, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
   %conv = zext i16 %1 to i32
   br label %return
 
 if.end:                                           ; preds = %entry
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 41, ptr %o, align 1
   %add = sub i64 0, %0
   %call = tail call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef %add) #11
   %conv4 = trunc i32 %call to i16
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv4, ptr %op2, align 2
   br label %return
 
@@ -3456,7 +3456,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_intmul_k32(ptr noundef %J) #0 {
 entry:
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %if.then, label %return
@@ -3468,12 +3468,12 @@ if.then:                                          ; preds = %entry
   ]
 
 if.then.i:                                        ; preds = %if.then
-  %op2.i = getelementptr inbounds i8, ptr %J, i64 186
+  %op2.i = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2.i, align 2
   br label %simplify_intmul_k.exit
 
 if.then3.i:                                       ; preds = %if.then
-  %fold4.i = getelementptr inbounds i8, ptr %J, i64 184
+  %fold4.i = getelementptr inbounds nuw i8, ptr %J, i64 184
   %2 = load i16, ptr %fold4.i, align 8
   br label %simplify_intmul_k.exit
 
@@ -3483,13 +3483,13 @@ if.else7.i:                                       ; preds = %if.then
   br i1 %cmp8.i, label %if.then10.i, label %simplify_intmul_k.exit
 
 if.then10.i:                                      ; preds = %if.else7.i
-  %o.i = getelementptr inbounds i8, ptr %J, i64 189
+  %o.i = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 36, ptr %o.i, align 1
   %4 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 0, -2147483648) %0, i1 true)
   %xor.i = xor i32 %4, 31
   %call.i = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %xor.i) #11
   %conv13.i = trunc i32 %call.i to i16
-  %op216.i = getelementptr inbounds i8, ptr %J, i64 186
+  %op216.i = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv13.i, ptr %op216.i, align 2
   br label %simplify_intmul_k.exit
 
@@ -3506,7 +3506,7 @@ return:                                           ; preds = %entry, %simplify_in
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_intmul_k64(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %0 = load i64, ptr %arrayidx, align 8
   %cmp = icmp ult i64 %0, 2147483648
   br i1 %cmp, label %if.then, label %return
@@ -3519,12 +3519,12 @@ if.then:                                          ; preds = %entry
   ]
 
 if.then.i:                                        ; preds = %if.then
-  %op2.i = getelementptr inbounds i8, ptr %J, i64 186
+  %op2.i = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2.i, align 2
   br label %simplify_intmul_k.exit
 
 if.then3.i:                                       ; preds = %if.then
-  %fold4.i = getelementptr inbounds i8, ptr %J, i64 184
+  %fold4.i = getelementptr inbounds nuw i8, ptr %J, i64 184
   %2 = load i16, ptr %fold4.i, align 8
   br label %simplify_intmul_k.exit
 
@@ -3534,13 +3534,13 @@ if.else7.i:                                       ; preds = %if.then
   br i1 %cmp8.i, label %if.then10.i, label %simplify_intmul_k.exit
 
 if.then10.i:                                      ; preds = %if.else7.i
-  %o.i = getelementptr inbounds i8, ptr %J, i64 189
+  %o.i = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 36, ptr %o.i, align 1
   %4 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 range(i32 0, -2147483648) %conv, i1 true)
   %xor.i = xor i32 %4, 31
   %call.i = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %xor.i) #11
   %conv13.i = trunc i32 %call.i to i16
-  %op216.i = getelementptr inbounds i8, ptr %J, i64 186
+  %op216.i = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv13.i, ptr %op216.i, align 2
   br label %simplify_intmul_k.exit
 
@@ -3557,7 +3557,7 @@ return:                                           ; preds = %entry, %simplify_in
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_intmod_k(ptr noundef %J) #0 {
 entry:
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
   %cmp = icmp sgt i32 %0, 0
   %1 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
@@ -3567,11 +3567,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = add nsw i32 %0, -1
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 33, ptr %o, align 1
   %call = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %sub) #11
   %conv = trunc i32 %call to i16
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv, ptr %op2, align 2
   br label %return
 
@@ -3583,13 +3583,13 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 3) i32 @fold_simplify_intmod_kleft(ptr nocapture noundef %J) #4 {
 entry:
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %0 = load i32, ptr %left, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   store i32 0, ptr %fold, align 8
   br label %return
 
@@ -3601,15 +3601,15 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_simplify_intsub(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %cmp = icmp eq i16 %0, %1
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %2 = load i8, ptr %t, align 4
   %3 = and i8 %2, 31
   %cmp8 = icmp eq i8 %3, 14
@@ -3638,26 +3638,26 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_intsubadd_leftcancel(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 31
   %cmp = icmp eq i8 %1, 14
   br i1 %cmp, label %if.end42, label %if.then
 
 if.then:                                          ; preds = %entry
-  %t3 = getelementptr inbounds i8, ptr %J, i64 196
+  %t3 = getelementptr inbounds nuw i8, ptr %J, i64 196
   %2 = load i8, ptr %t3, align 4
   %3 = and i8 %2, 64
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %4 = load i16, ptr %op2, align 2
   %5 = load i16, ptr %left, align 8
   %cmp15 = icmp eq i16 %4, %5
-  %op221 = getelementptr inbounds i8, ptr %J, i64 194
+  %op221 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %6 = load i16, ptr %op221, align 2
   br i1 %cmp15, label %return, label %if.end23
 
@@ -3677,23 +3677,23 @@ return:                                           ; preds = %if.end, %if.end23, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_intsubsub_leftcancel(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 31
   %cmp = icmp eq i8 %1, 14
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %t3 = getelementptr inbounds i8, ptr %J, i64 196
+  %t3 = getelementptr inbounds nuw i8, ptr %J, i64 196
   %2 = load i8, ptr %t3, align 4
   %3 = and i8 %2, 64
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %4 = load i16, ptr %op2, align 2
   %5 = load i16, ptr %left, align 8
   %cmp15 = icmp eq i16 %4, %5
@@ -3703,7 +3703,7 @@ if.then17:                                        ; preds = %if.end
   %call = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef 0) #11
   %conv18 = trunc i32 %call to i16
   store i16 %conv18, ptr %fold, align 8
-  %op225 = getelementptr inbounds i8, ptr %J, i64 194
+  %op225 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %6 = load i16, ptr %op225, align 2
   store i16 %6, ptr %op2, align 2
   br label %return
@@ -3716,29 +3716,29 @@ return:                                           ; preds = %entry, %if.end, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_intsubsub_rightcancel(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 31
   %cmp = icmp eq i8 %1, 14
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %t3 = getelementptr inbounds i8, ptr %J, i64 212
+  %t3 = getelementptr inbounds nuw i8, ptr %J, i64 212
   %2 = load i8, ptr %t3, align 4
   %3 = and i8 %2, 64
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %4 = load i16, ptr %fold, align 8
   %5 = load i16, ptr %right, align 8
   %cmp16 = icmp eq i16 %4, %5
   br i1 %cmp16, label %if.then18, label %return
 
 if.then18:                                        ; preds = %if.end
-  %op2 = getelementptr inbounds i8, ptr %J, i64 210
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 210
   %6 = load i16, ptr %op2, align 2
   %conv22 = zext i16 %6 to i32
   br label %return
@@ -3751,26 +3751,26 @@ return:                                           ; preds = %entry, %if.end, %if
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_intsubadd_rightcancel(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 31
   %cmp = icmp eq i8 %1, 14
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %t3 = getelementptr inbounds i8, ptr %J, i64 212
+  %t3 = getelementptr inbounds nuw i8, ptr %J, i64 212
   %2 = load i8, ptr %t3, align 4
   %3 = and i8 %2, 64
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %4 = load i16, ptr %fold, align 8
   %5 = load i16, ptr %right, align 8
   %cmp16 = icmp eq i16 %4, %5
-  %op2 = getelementptr inbounds i8, ptr %J, i64 210
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 210
   %6 = load i16, ptr %op2, align 2
   br i1 %cmp16, label %return.sink.split, label %if.end29
 
@@ -3780,7 +3780,7 @@ if.end29:                                         ; preds = %if.end
 
 return.sink.split:                                ; preds = %if.end29, %if.end
   %.sink = phi i16 [ %6, %if.end ], [ %5, %if.end29 ]
-  %op248 = getelementptr inbounds i8, ptr %J, i64 186
+  %op248 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %.sink, ptr %op248, align 2
   %call49 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef 0) #11
   %conv50 = trunc i32 %call49 to i16
@@ -3795,48 +3795,48 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_intsubaddadd_cancel(ptr nocapture noundef %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 31
   %cmp = icmp eq i8 %1, 14
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %t3 = getelementptr inbounds i8, ptr %J, i64 196
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %t3 = getelementptr inbounds nuw i8, ptr %J, i64 196
   %2 = load i8, ptr %t3, align 4
   %3 = and i8 %2, 64
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %t10 = getelementptr inbounds i8, ptr %J, i64 212
+  %t10 = getelementptr inbounds nuw i8, ptr %J, i64 212
   %4 = load i8, ptr %t10, align 4
   %5 = and i8 %4, 64
   %tobool14.not = icmp eq i8 %5, 0
   br i1 %tobool14.not, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %6 = load i16, ptr %left, align 8
   %7 = load i16, ptr %right, align 8
   %cmp26 = icmp eq i16 %6, %7
   br i1 %cmp26, label %if.then28, label %if.end42
 
 if.then28:                                        ; preds = %if.end16
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %8 = load i16, ptr %op2, align 2
   store i16 %8, ptr %fold, align 8
-  %op238 = getelementptr inbounds i8, ptr %J, i64 210
+  %op238 = getelementptr inbounds nuw i8, ptr %J, i64 210
   %9 = load i16, ptr %op238, align 2
   br label %return.sink.split
 
 if.end42:                                         ; preds = %if.end16
-  %op251 = getelementptr inbounds i8, ptr %J, i64 210
+  %op251 = getelementptr inbounds nuw i8, ptr %J, i64 210
   %10 = load i16, ptr %op251, align 2
   %cmp53 = icmp eq i16 %6, %10
-  %op259 = getelementptr inbounds i8, ptr %J, i64 194
+  %op259 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %11 = load i16, ptr %op259, align 2
   br i1 %cmp53, label %if.then55, label %if.end70
 
@@ -3862,7 +3862,7 @@ if.then111:                                       ; preds = %if.end98
 
 return.sink.split:                                ; preds = %if.then28, %if.then55, %if.then83, %if.then111
   %.sink = phi i16 [ %7, %if.then111 ], [ %10, %if.then83 ], [ %7, %if.then55 ], [ %9, %if.then28 ]
-  %op2125 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2125 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %.sink, ptr %op2125, align 2
   br label %return
 
@@ -3874,20 +3874,20 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_band_k(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %o = getelementptr inbounds i8, ptr %J, i64 213
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 213
   %0 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %0, 23
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %1 = load i32, ptr %right, align 8
   %conv5 = sext i32 %1 to i64
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %2 = load i64, ptr %arrayidx, align 8
   br label %cond.end
 
@@ -3899,7 +3899,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   ]
 
 if.then:                                          ; preds = %cond.end
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %3 = load i16, ptr %op2, align 2
   br label %return
 
@@ -3916,20 +3916,20 @@ return:                                           ; preds = %cond.end, %if.then1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_bor_k(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %o = getelementptr inbounds i8, ptr %J, i64 213
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 213
   %0 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %0, 23
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %1 = load i32, ptr %right, align 8
   %conv5 = sext i32 %1 to i64
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %2 = load i64, ptr %arrayidx, align 8
   br label %cond.end
 
@@ -3945,7 +3945,7 @@ if.then:                                          ; preds = %cond.end
   br label %return
 
 if.then14:                                        ; preds = %cond.end
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %4 = load i16, ptr %op2, align 2
   br label %return
 
@@ -3958,20 +3958,20 @@ return:                                           ; preds = %cond.end, %if.then1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_bxor_k(ptr nocapture noundef %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %o = getelementptr inbounds i8, ptr %J, i64 213
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 213
   %0 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %0, 23
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %1 = load i32, ptr %right, align 8
   %conv5 = sext i32 %1 to i64
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %2 = load i64, ptr %arrayidx, align 8
   br label %cond.end
 
@@ -3988,9 +3988,9 @@ if.then:                                          ; preds = %cond.end
   br label %return
 
 if.then14:                                        ; preds = %cond.end
-  %o17 = getelementptr inbounds i8, ptr %J, i64 189
+  %o17 = getelementptr inbounds nuw i8, ptr %J, i64 189
   store i8 31, ptr %o17, align 1
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 0, ptr %op2, align 2
   br label %return
 
@@ -4002,8 +4002,8 @@ return:                                           ; preds = %cond.end, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_shift_ik(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 31
   %and = zext nneg i8 %1 to i32
@@ -4011,7 +4011,7 @@ entry:
   %3 = and i32 %2, 6315993
   %tobool.not = icmp eq i32 %3, 0
   %cond = select i1 %tobool.not, i32 31, i32 63
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %4 = load i32, ptr %right, align 8
   %and3 = and i32 %cond, %4
   switch i32 %and3, label %if.end24 [
@@ -4025,7 +4025,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 land.lhs.true:                                    ; preds = %entry
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %6 = load i8, ptr %o, align 1
   %cmp13 = icmp eq i8 %6, 36
   br i1 %cmp13, label %if.then15, label %if.end24
@@ -4033,7 +4033,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then15:                                        ; preds = %land.lhs.true
   store i8 41, ptr %o, align 1
   %7 = load i16, ptr %fold, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %7, ptr %op2, align 2
   br label %return
 
@@ -4044,12 +4044,12 @@ if.end24:                                         ; preds = %entry, %land.lhs.tr
 if.then30:                                        ; preds = %if.end24
   %call = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %and3) #11
   %conv31 = trunc i32 %call to i16
-  %op234 = getelementptr inbounds i8, ptr %J, i64 186
+  %op234 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv31, ptr %op234, align 2
   br label %return
 
 if.end35:                                         ; preds = %if.end24
-  %o38 = getelementptr inbounds i8, ptr %J, i64 189
+  %o38 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %8 = load i8, ptr %o38, align 1
   %cmp40 = icmp eq i8 %8, 40
   br i1 %cmp40, label %if.then42, label %return
@@ -4060,7 +4060,7 @@ if.then42:                                        ; preds = %if.end35
   %and46 = and i32 %cond, %sub
   %call47 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %and46) #11
   %conv48 = trunc i32 %call47 to i16
-  %op251 = getelementptr inbounds i8, ptr %J, i64 186
+  %op251 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv48, ptr %op251, align 2
   br label %return
 
@@ -4072,27 +4072,27 @@ return:                                           ; preds = %if.end35, %if.then4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_shift_andk(ptr nocapture noundef %J) #7 {
 entry:
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
-  %right = getelementptr inbounds i8, ptr %J, i64 208
-  %op2 = getelementptr inbounds i8, ptr %J, i64 210
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 210
   %1 = load i16, ptr %op2, align 2
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom
-  %t = getelementptr inbounds i8, ptr %J, i64 212
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 212
   %2 = load i8, ptr %t, align 4
   %3 = and i8 %2, 64
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
-  %o7 = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %o7 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %4 = load i8, ptr %o7, align 1
   %cmp9 = icmp eq i8 %4, 23
   br i1 %cmp9, label %if.then11, label %return
 
 if.then11:                                        ; preds = %land.lhs.true
-  %t14 = getelementptr inbounds i8, ptr %J, i64 188
+  %t14 = getelementptr inbounds nuw i8, ptr %J, i64 188
   %5 = load i8, ptr %t14, align 4
   %6 = and i8 %5, 31
   %and17 = zext nneg i8 %6 to i32
@@ -4107,7 +4107,7 @@ if.then11:                                        ; preds = %land.lhs.true
 
 if.then23:                                        ; preds = %if.then11
   %12 = load i16, ptr %right, align 8
-  %op229 = getelementptr inbounds i8, ptr %J, i64 186
+  %op229 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %12, ptr %op229, align 2
   br label %return
 
@@ -4119,20 +4119,20 @@ return:                                           ; preds = %land.lhs.true, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_shift1_ki(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %o = getelementptr inbounds i8, ptr %J, i64 197
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 197
   %0 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %0, 23
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %1 = load i32, ptr %left, align 8
   %conv5 = sext i32 %1 to i64
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %2 = load i64, ptr %arrayidx, align 8
   br label %cond.end
 
@@ -4154,20 +4154,20 @@ return:                                           ; preds = %cond.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_shift2_ki(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %o = getelementptr inbounds i8, ptr %J, i64 197
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 197
   %0 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %0, 23
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %1 = load i32, ptr %left, align 8
   %conv5 = sext i32 %1 to i64
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %2 = load i64, ptr %arrayidx, align 8
   br label %cond.end
 
@@ -4190,22 +4190,22 @@ return:                                           ; preds = %cond.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_shiftk_andk(ptr noundef %J) #0 {
 entry:
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %2 = load i8, ptr %t, align 4
   %3 = and i8 %2, 64
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %o = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %o = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %4 = load i8, ptr %o, align 1
   switch i8 %4, label %return [
     i8 23, label %if.then6
@@ -4214,9 +4214,9 @@ if.end:                                           ; preds = %entry
 
 if.then6:                                         ; preds = %if.end
   %5 = load i32, ptr %arrayidx, align 8
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %6 = load i32, ptr %right, align 8
-  %o10 = getelementptr inbounds i8, ptr %J, i64 189
+  %o10 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %7 = load i8, ptr %o10, align 1
   switch i8 %7, label %kfold_intop.exit [
     i8 41, label %sw.bb.i
@@ -4310,12 +4310,12 @@ kfold_intop.exit:                                 ; preds = %if.then6, %sw.bb.i,
   br label %return.sink.split
 
 if.then34:                                        ; preds = %if.end
-  %arrayidx36 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %9 = load i64, ptr %arrayidx36, align 8
-  %right38 = getelementptr inbounds i8, ptr %J, i64 208
+  %right38 = getelementptr inbounds nuw i8, ptr %J, i64 208
   %10 = load i32, ptr %right38, align 8
   %conv40 = sext i32 %10 to i64
-  %o43 = getelementptr inbounds i8, ptr %J, i64 189
+  %o43 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %11 = load i8, ptr %o43, align 1
   switch i8 %11, label %kfold_int64arith.exit [
     i8 41, label %sw.bb.i41
@@ -4393,9 +4393,9 @@ return.sink.split:                                ; preds = %kfold_intop.exit, %
   %call63.sink = phi i32 [ %call63, %kfold_int64arith.exit ], [ %call23, %kfold_intop.exit ]
   %.sink = phi i16 [ %12, %kfold_int64arith.exit ], [ 8467, %kfold_intop.exit ]
   %conv64 = trunc i32 %call63.sink to i16
-  %op267 = getelementptr inbounds i8, ptr %J, i64 186
+  %op267 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv64, ptr %op267, align 2
-  %ot70 = getelementptr inbounds i8, ptr %J, i64 188
+  %ot70 = getelementptr inbounds nuw i8, ptr %J, i64 188
   store i16 %.sink, ptr %ot70, align 4
   br label %return
 
@@ -4407,21 +4407,21 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 65536) i32 @fold_simplify_andk_shiftk(ptr nocapture noundef readonly %J) #0 {
 entry:
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom
-  %o = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom
+  %o = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %2 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %2, 23
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
   %3 = load i32, ptr %arrayidx, align 8
-  %o5 = getelementptr inbounds i8, ptr %J, i64 197
+  %o5 = getelementptr inbounds nuw i8, ptr %J, i64 197
   %4 = load i8, ptr %o5, align 1
   switch i8 %4, label %kfold_intop.exit [
     i8 41, label %sw.bb.i
@@ -4483,7 +4483,7 @@ sw.bb36.i:                                        ; preds = %land.lhs.true
 
 kfold_intop.exit:                                 ; preds = %land.lhs.true, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb6.i, %sw.bb8.i, %sw.bb9.i, %sw.bb11.i, %sw.bb34.i, %sw.bb36.i
   %k1.addr.0.i = phi i32 [ %cond42.i, %sw.bb36.i ], [ %cond.i, %sw.bb34.i ], [ %shr.i, %sw.bb11.i ], [ %shl.i, %sw.bb9.i ], [ %xor.i, %sw.bb8.i ], [ %3, %sw.bb6.i ], [ 1, %sw.bb4.i ], [ %call.i, %sw.bb3.i ], [ %mul.i, %sw.bb2.i ], [ %sub.i, %sw.bb1.i ], [ %add.i, %sw.bb.i ], [ -1, %land.lhs.true ]
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %5 = load i32, ptr %right, align 8
   %cmp9 = icmp eq i32 %k1.addr.0.i, %5
   br i1 %cmp9, label %if.then, label %return
@@ -4501,31 +4501,31 @@ return:                                           ; preds = %entry, %kfold_intop
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_andor_k(ptr nocapture noundef %J) #0 {
 entry:
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %2 = load i8, ptr %t, align 4
   %3 = and i8 %2, 64
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %o = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %o = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %4 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %4, 23
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
   %5 = load i32, ptr %arrayidx, align 8
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %6 = load i32, ptr %right, align 8
-  %o10 = getelementptr inbounds i8, ptr %J, i64 189
+  %o10 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %7 = load i8, ptr %o10, align 1
   switch i8 %7, label %kfold_intop.exit [
     i8 41, label %sw.bb.i
@@ -4630,32 +4630,32 @@ return:                                           ; preds = %if.end, %kfold_into
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @fold_simplify_andor_k64(ptr nocapture noundef %J) #7 {
 entry:
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %2 = load i8, ptr %t, align 4
   %3 = and i8 %2, 64
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %o = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %o = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %4 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %4, 29
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
-  %arrayidx7 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %5 = load i64, ptr %arrayidx7, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %J, i64 216
   %6 = load i64, ptr %arrayidx9, align 8
-  %o11 = getelementptr inbounds i8, ptr %J, i64 189
+  %o11 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %7 = load i8, ptr %o11, align 1
   switch i8 %7, label %kfold_int64arith.exit [
     i8 41, label %sw.bb.i
@@ -4738,24 +4738,24 @@ return:                                           ; preds = %if.end, %kfold_int6
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 65536) i32 @fold_reassoc_intarith_k(ptr noundef %J) #0 {
 entry:
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom
-  %o = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom
+  %o = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %2 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %2, 23
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %3 = load i32, ptr %arrayidx, align 8
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %4 = load i32, ptr %right, align 8
-  %o5 = getelementptr inbounds i8, ptr %J, i64 189
+  %o5 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %5 = load i8, ptr %o5, align 1
   switch i8 %5, label %if.then9 [
     i8 41, label %sw.bb.i
@@ -4851,7 +4851,7 @@ if.then9:                                         ; preds = %if.then, %kfold_int
   br label %return
 
 if.end:                                           ; preds = %kfold_intop.exit
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %8 = load i8, ptr %t, align 4
   %9 = and i8 %8, 64
   %tobool.not = icmp eq i8 %9, 0
@@ -4862,7 +4862,7 @@ if.end18:                                         ; preds = %if.end
   store i16 %10, ptr %fold, align 8
   %call26 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %k1.addr.0.i) #11
   %conv27 = trunc i32 %call26 to i16
-  %op230 = getelementptr inbounds i8, ptr %J, i64 186
+  %op230 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv27, ptr %op230, align 2
   br label %return
 
@@ -4874,25 +4874,25 @@ return:                                           ; preds = %entry, %if.end, %if
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @fold_reassoc_intarith_k64(ptr noundef %J) #0 {
 entry:
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom
-  %o = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom
+  %o = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %2 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %2, 29
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %arrayidx2 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr inbounds i8, ptr %J, i64 216
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %J, i64 216
   %4 = load i64, ptr %arrayidx4, align 8
-  %o6 = getelementptr inbounds i8, ptr %J, i64 189
+  %o6 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %5 = load i8, ptr %o6, align 1
   switch i8 %5, label %kfold_int64arith.exit [
     i8 41, label %sw.bb.i
@@ -4957,7 +4957,7 @@ sw.bb22.i:                                        ; preds = %if.then
 
 kfold_int64arith.exit:                            ; preds = %if.then, %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb8.i, %sw.bb10.i, %sw.bb13.i, %sw.bb22.i
   %k1.addr.0.i = phi i64 [ %3, %if.then ], [ %or31.i, %sw.bb22.i ], [ %or21.i, %sw.bb13.i ], [ %shr12.i, %sw.bb10.i ], [ %shr.i, %sw.bb8.i ], [ %shl.i, %sw.bb6.i ], [ %xor.i, %sw.bb5.i ], [ %or.i, %sw.bb4.i ], [ %and.i, %sw.bb3.i ], [ %mul.i, %sw.bb2.i ], [ %sub.i, %sw.bb1.i ], [ %add.i, %sw.bb.i ]
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %6 = load i8, ptr %t, align 4
   %7 = and i8 %6, 64
   %tobool.not = icmp eq i8 %7, 0
@@ -4968,7 +4968,7 @@ if.end:                                           ; preds = %kfold_int64arith.ex
   store i16 %8, ptr %fold, align 8
   %call19 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %J, i64 noundef %k1.addr.0.i) #11
   %conv20 = trunc i32 %call19 to i16
-  %op223 = getelementptr inbounds i8, ptr %J, i64 186
+  %op223 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv20, ptr %op223, align 2
   br label %return
 
@@ -4980,16 +4980,16 @@ return:                                           ; preds = %entry, %kfold_int64
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_reassoc_dup(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %0 = load i16, ptr %op2, align 2
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %1 = load i16, ptr %left, align 8
   %cmp = icmp eq i16 %0, %1
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %op211 = getelementptr inbounds i8, ptr %J, i64 194
+  %op211 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %2 = load i16, ptr %op211, align 2
   %cmp13 = icmp eq i16 %0, %2
   br i1 %cmp13, label %if.then, label %return
@@ -5007,15 +5007,15 @@ return:                                           ; preds = %lor.lhs.false, %if.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_reassoc_dup_minmax(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %0 = load i16, ptr %op2, align 2
-  %op22 = getelementptr inbounds i8, ptr %J, i64 194
+  %op22 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op22, align 2
   %cmp = icmp eq i16 %0, %1
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %2 = load i16, ptr %fold, align 8
   %conv7 = zext i16 %2 to i32
   br label %return
@@ -5028,19 +5028,19 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_reassoc_bxor(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %2 = load i16, ptr %op2, align 2
   %3 = load i16, ptr %left, align 8
   %cmp = icmp eq i16 %2, %3
-  %op212 = getelementptr inbounds i8, ptr %J, i64 194
+  %op212 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %4 = load i16, ptr %op212, align 2
   br i1 %cmp, label %return, label %if.end14
 
@@ -5058,28 +5058,28 @@ return:                                           ; preds = %if.end, %if.end14, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_reassoc_shift(ptr noundef %J) #0 {
 entry:
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %2 = load i8, ptr %t, align 4
   %3 = and i8 %2, 64
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %o = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %o = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %4 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %4, 23
   br i1 %cmp, label %if.then6, label %return
 
 if.then6:                                         ; preds = %if.end
-  %t8 = getelementptr inbounds i8, ptr %J, i64 188
+  %t8 = getelementptr inbounds nuw i8, ptr %J, i64 188
   %5 = load i8, ptr %t8, align 4
   %6 = and i8 %5, 31
   %and11 = zext nneg i8 %6 to i32
@@ -5089,7 +5089,7 @@ if.then6:                                         ; preds = %if.end
   %cond = select i1 %tobool13.not, i32 31, i32 63
   %9 = load i32, ptr %arrayidx, align 8
   %and14 = and i32 %cond, %9
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %10 = load i32, ptr %right, align 8
   %and17 = and i32 %cond, %10
   %add = add nuw nsw i32 %and14, %and17
@@ -5097,7 +5097,7 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp18, label %if.then20, label %if.end50
 
 if.then20:                                        ; preds = %if.then6
-  %o23 = getelementptr inbounds i8, ptr %J, i64 189
+  %o23 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %11 = load i8, ptr %o23, align 1
   switch i8 %11, label %if.else46 [
     i8 36, label %if.then33
@@ -5126,7 +5126,7 @@ if.end50:                                         ; preds = %if.then20, %if.else
   store i16 %12, ptr %fold, align 8
   %call57 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %k.0) #11
   %conv58 = trunc i32 %call57 to i16
-  %op261 = getelementptr inbounds i8, ptr %J, i64 186
+  %op261 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv58, ptr %op261, align 2
   br label %return
 
@@ -5138,24 +5138,24 @@ return:                                           ; preds = %if.end, %cond.true,
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 65536) i32 @fold_reassoc_minmax_k(ptr noundef %J) #0 {
 entry:
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %0 = load ptr, ptr %ir, align 8
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %idxprom = zext i16 %1 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %0, i64 %idxprom
-  %o = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %0, i64 %idxprom
+  %o = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %2 = load i8, ptr %o, align 1
   %cmp = icmp eq i8 %2, 23
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %3 = load i32, ptr %arrayidx, align 8
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %4 = load i32, ptr %right, align 8
-  %o5 = getelementptr inbounds i8, ptr %J, i64 189
+  %o5 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %5 = load i8, ptr %o5, align 1
   switch i8 %5, label %if.then9 [
     i8 41, label %sw.bb.i
@@ -5249,7 +5249,7 @@ if.then9:                                         ; preds = %if.then, %kfold_int
   br label %return
 
 if.end:                                           ; preds = %kfold_intop.exit
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %7 = load i8, ptr %t, align 4
   %8 = and i8 %7, 64
   %tobool.not = icmp eq i8 %8, 0
@@ -5260,7 +5260,7 @@ if.end18:                                         ; preds = %if.end
   store i16 %9, ptr %fold, align 8
   %call26 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %k1.addr.0.i) #11
   %conv27 = trunc i32 %call26 to i16
-  %op230 = getelementptr inbounds i8, ptr %J, i64 186
+  %op230 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv27, ptr %op230, align 2
   br label %return
 
@@ -5272,50 +5272,50 @@ return:                                           ; preds = %entry, %if.end, %if
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 5) i32 @fold_abc_fwd(ptr nocapture noundef readonly %J) #8 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 8388608
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %op2 = getelementptr inbounds i8, ptr %J, i64 210
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 210
   %1 = load i16, ptr %op2, align 2
   %cmp = icmp sgt i16 %1, -1
   br i1 %cmp, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.then
-  %right = getelementptr inbounds i8, ptr %J, i64 208
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %2 = load ptr, ptr %ir, align 8
   %3 = load i16, ptr %right, align 8
   %idxprom = zext i16 %3 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom
-  %o = getelementptr inbounds i8, ptr %arrayidx, i64 5
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %2, i64 %idxprom
+  %o = getelementptr inbounds nuw i8, ptr %arrayidx, i64 5
   %4 = load i8, ptr %o, align 1
   %cmp10 = icmp eq i8 %4, 41
   br i1 %cmp10, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.then5
-  %op212 = getelementptr inbounds i8, ptr %arrayidx, i64 2
+  %op212 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
   %5 = load i16, ptr %op212, align 2
   %cmp14 = icmp sgt i16 %5, -1
   br i1 %cmp14, label %land.lhs.true16, label %return
 
 land.lhs.true16:                                  ; preds = %land.lhs.true
   %idxprom23 = zext nneg i16 %1 to i64
-  %arrayidx24 = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom23
+  %arrayidx24 = getelementptr inbounds nuw %union.IRIns, ptr %2, i64 %idxprom23
   %6 = load i32, ptr %arrayidx24, align 8
   %idxprom28 = zext nneg i16 %5 to i64
-  %arrayidx29 = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom28
+  %arrayidx29 = getelementptr inbounds nuw %union.IRIns, ptr %2, i64 %idxprom28
   %7 = load i32, ptr %arrayidx29, align 8
   %sub = sub nsw i32 0, %7
   %cmp30 = icmp eq i32 %6, %sub
   br i1 %cmp30, label %if.then32, label %return
 
 if.then32:                                        ; preds = %land.lhs.true16
-  %arrayidx33 = getelementptr inbounds i8, ptr %J, i64 422
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr %J, i64 422
   %8 = load i16, ptr %arrayidx, align 8
   %9 = load i16, ptr %fold, align 8
   %spec.select = tail call i16 @llvm.umax.i16(i16 %9, i16 %8)
@@ -5326,19 +5326,19 @@ if.then32:                                        ; preds = %land.lhs.true16
 while.body:                                       ; preds = %if.then32, %if.end70
   %ref.0.in22 = phi i16 [ %ref.0.in, %if.end70 ], [ %ref.0.in20, %if.then32 ]
   %idxprom52 = zext i16 %ref.0.in22 to i64
-  %arrayidx53 = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom52
+  %arrayidx53 = getelementptr inbounds nuw %union.IRIns, ptr %2, i64 %idxprom52
   %10 = load i16, ptr %arrayidx53, align 8
   %cmp60 = icmp eq i16 %10, %9
   br i1 %cmp60, label %land.lhs.true62, label %if.end70
 
 land.lhs.true62:                                  ; preds = %while.body
-  %op263 = getelementptr inbounds i8, ptr %arrayidx53, i64 2
+  %op263 = getelementptr inbounds nuw i8, ptr %arrayidx53, i64 2
   %11 = load i16, ptr %op263, align 2
   %cmp67 = icmp eq i16 %11, %8
   br i1 %cmp67, label %return, label %if.end70
 
 if.end70:                                         ; preds = %land.lhs.true62, %while.body
-  %prev = getelementptr inbounds i8, ptr %arrayidx53, i64 6
+  %prev = getelementptr inbounds nuw i8, ptr %arrayidx53, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %cmp47 = icmp ugt i16 %ref.0.in, %spec.select
   br i1 %cmp47, label %while.body, label %return, !llvm.loop !11
@@ -5351,64 +5351,64 @@ return:                                           ; preds = %land.lhs.true62, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_abc_k(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 64
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %2 = load i32, ptr %flags, align 8
   %and1 = and i32 %2, 8388608
   %tobool2.not = icmp eq i32 %and1, 0
   br i1 %tobool2.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 422
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 422
   %3 = load i16, ptr %fold, align 8
   %ref.0.in16 = load i16, ptr %arrayidx, align 2
   %cmp17 = icmp ugt i16 %ref.0.in16, %3
   br i1 %cmp17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.then6
-  %ir11 = getelementptr inbounds i8, ptr %J, i64 32
+  %ir11 = getelementptr inbounds nuw i8, ptr %J, i64 32
   %4 = load ptr, ptr %ir11, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end36
   %ref.0.in18 = phi i16 [ %ref.0.in16, %while.body.lr.ph ], [ %ref.0.in, %if.end36 ]
   %idxprom = zext i16 %ref.0.in18 to i64
-  %arrayidx12 = getelementptr inbounds %union.IRIns, ptr %4, i64 %idxprom
+  %arrayidx12 = getelementptr inbounds nuw %union.IRIns, ptr %4, i64 %idxprom
   %5 = load i16, ptr %arrayidx12, align 8
   %cmp15 = icmp eq i16 %5, %3
   br i1 %cmp15, label %land.lhs.true, label %if.end36
 
 land.lhs.true:                                    ; preds = %while.body
-  %op2 = getelementptr inbounds i8, ptr %arrayidx12, i64 2
+  %op2 = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 2
   %6 = load i16, ptr %op2, align 2
   %cmp18 = icmp sgt i16 %6, -1
   br i1 %cmp18, label %if.then20, label %if.end36
 
 if.then20:                                        ; preds = %land.lhs.true
   %idxprom24 = zext nneg i16 %6 to i64
-  %arrayidx25 = getelementptr inbounds %union.IRIns, ptr %4, i64 %idxprom24
+  %arrayidx25 = getelementptr inbounds nuw %union.IRIns, ptr %4, i64 %idxprom24
   %7 = load i32, ptr %arrayidx25, align 8
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   %8 = load i32, ptr %right, align 8
   %cmp28 = icmp ugt i32 %8, %7
   br i1 %cmp28, label %if.then30, label %return
 
 if.then30:                                        ; preds = %if.then20
-  %op2.le = getelementptr inbounds i8, ptr %arrayidx12, i64 2
-  %op233 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2.le = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 2
+  %op233 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %9 = load i16, ptr %op233, align 2
   store i16 %9, ptr %op2.le, align 2
   br label %return
 
 if.end36:                                         ; preds = %land.lhs.true, %while.body
-  %prev = getelementptr inbounds i8, ptr %arrayidx12, i64 6
+  %prev = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %cmp = icmp ugt i16 %ref.0.in, %3
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !12
@@ -5425,26 +5425,26 @@ return:                                           ; preds = %if.end, %if.then20,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 5) i32 @fold_abc_invar(ptr nocapture noundef readonly %J) #6 {
 entry:
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %0 = load i8, ptr %t, align 4
   %1 = and i8 %0, 31
   %cmp = icmp eq i8 %1, 19
   br i1 %cmp, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %2 = load i16, ptr %fold, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 436
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 436
   %3 = load i16, ptr %arrayidx, align 2
   %cmp6 = icmp ult i16 %2, %3
   br i1 %cmp6, label %land.lhs.true8, label %if.end
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %4 = load ptr, ptr %ir, align 8
   %idxprom = zext i16 %2 to i64
-  %arrayidx12 = getelementptr inbounds %union.IRIns, ptr %4, i64 %idxprom
-  %t13 = getelementptr inbounds i8, ptr %arrayidx12, i64 4
+  %arrayidx12 = getelementptr inbounds nuw %union.IRIns, ptr %4, i64 %idxprom
+  %t13 = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 4
   %5 = load i8, ptr %t13, align 4
   %6 = and i8 %5, 64
   %tobool.not = icmp eq i8 %6, 0
@@ -5461,9 +5461,9 @@ return:                                           ; preds = %land.lhs.true8, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 2) i32 @fold_comm_swap(ptr nocapture noundef %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %cmp = icmp ult i16 %0, %1
   br i1 %cmp, label %if.then, label %return
@@ -5481,28 +5481,28 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 5) i32 @fold_comm_equal(ptr nocapture noundef %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %cmp = icmp eq i16 %0, %1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %2 = load i8, ptr %t, align 4
   %3 = and i8 %2, 31
   %cmp8 = icmp eq i8 %3, 14
   br i1 %cmp8, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %o = getelementptr inbounds i8, ptr %J, i64 197
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 197
   %4 = load i8, ptr %o, align 1
   %cmp12 = icmp eq i8 %4, 91
   br i1 %cmp12, label %land.lhs.true14, label %if.end
 
 land.lhs.true14:                                  ; preds = %lor.lhs.false
-  %op218 = getelementptr inbounds i8, ptr %J, i64 194
+  %op218 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %5 = load i16, ptr %op218, align 2
   %6 = and i16 %5, 31
   %7 = add nsw i16 %6, -15
@@ -5510,7 +5510,7 @@ land.lhs.true14:                                  ; preds = %lor.lhs.false
   br i1 %cmp21, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true14, %land.lhs.true
-  %o25 = getelementptr inbounds i8, ptr %J, i64 189
+  %o25 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %8 = load i8, ptr %o25, align 1
   %cmp27 = icmp eq i8 %8, 8
   %add = select i1 %cmp27, i32 4, i32 3
@@ -5533,22 +5533,22 @@ return:                                           ; preds = %if.then.i, %if.end,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 5) i32 @fold_comm_comp(ptr nocapture noundef %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %cmp = icmp eq i16 %0, %1
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %2 = load i8, ptr %t, align 4
   %3 = and i8 %2, 31
   %cmp8 = icmp eq i8 %3, 14
   br i1 %cmp8, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %4 = load i8, ptr %o, align 1
   %conv12 = zext i8 %4 to i32
   %shr = lshr i32 %conv12, 1
@@ -5564,7 +5564,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 if.then28:                                        ; preds = %if.end
   store i16 %1, ptr %fold, align 8
   store i16 %0, ptr %op2, align 2
-  %o43 = getelementptr inbounds i8, ptr %J, i64 189
+  %o43 = getelementptr inbounds nuw i8, ptr %J, i64 189
   %5 = load i8, ptr %o43, align 1
   %6 = xor i8 %5, 3
   store i8 %6, ptr %o43, align 1
@@ -5578,9 +5578,9 @@ return:                                           ; preds = %if.end, %if.then28,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 65536) i32 @fold_comm_dup(ptr nocapture noundef %J) #4 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %cmp = icmp eq i16 %0, %1
   br i1 %cmp, label %if.then, label %if.end
@@ -5606,9 +5606,9 @@ return:                                           ; preds = %if.then.i, %if.end,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_comm_dup_minmax(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %cmp = icmp eq i16 %0, %1
   %narrow = select i1 %cmp, i16 %0, i16 0
@@ -5619,15 +5619,15 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_comm_bxor(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2, align 2
   %cmp = icmp eq i16 %0, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %2 = load i8, ptr %t, align 4
   %3 = and i8 %2, 31
   %and = zext nneg i8 %3 to i32
@@ -5661,13 +5661,13 @@ return:                                           ; preds = %if.then.i, %if.end,
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 5) i32 @fold_merge_eqne_snew_kgc(ptr noundef %J) #0 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 216
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 216
   %0 = load i64, ptr %arrayidx, align 8
   %1 = inttoptr i64 %0 to ptr
-  %len1 = getelementptr inbounds i8, ptr %1, i64 20
+  %len1 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %2 = load i32, ptr %len1, align 4
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %3 = load i8, ptr %t, align 4
   %4 = and i8 %3, 64
   %tobool.not = icmp eq i8 %4, 0
@@ -5676,33 +5676,33 @@ entry:
   br i1 %or.cond, label %if.then4, label %return
 
 if.then4:                                         ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %5 = load i8, ptr %o, align 1
   %conv6 = zext i8 %5 to i16
   %6 = load i16, ptr %left, align 8
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %7 = load ptr, ptr %ir, align 8
   %idxprom = zext i16 %6 to i64
-  %arrayidx11 = getelementptr inbounds %union.IRIns, ptr %7, i64 %idxprom
-  %o12 = getelementptr inbounds i8, ptr %arrayidx11, i64 5
+  %arrayidx11 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %idxprom
+  %o12 = getelementptr inbounds nuw i8, ptr %arrayidx11, i64 5
   %8 = load i8, ptr %o12, align 1
   %cmp14.not = icmp eq i8 %8, 64
   br i1 %cmp14.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then4
   %cmp18 = icmp eq i8 %5, 8
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %9 = load i16, ptr %op2, align 2
   br i1 %cmp18, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end17
   %call = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %2) #11
   %conv24 = trunc i32 %call to i16
-  %ot1.i106 = getelementptr inbounds i8, ptr %J, i64 188
+  %ot1.i106 = getelementptr inbounds nuw i8, ptr %J, i64 188
   store i16 2195, ptr %ot1.i106, align 4
   store i16 %9, ptr %fold, align 8
-  %op2.i109 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2.i109 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv24, ptr %op2.i109, align 2
   %call25 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J)
   %cmp48.old = icmp sgt i32 %2, 0
@@ -5714,7 +5714,7 @@ if.else:                                          ; preds = %if.end17
 
 if.end34:                                         ; preds = %if.else
   %idxprom41 = zext nneg i16 %9 to i64
-  %arrayidx42 = getelementptr inbounds %union.IRIns, ptr %7, i64 %idxprom41
+  %arrayidx42 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %idxprom41
   %10 = load i32, ptr %arrayidx42, align 8
   %cmp43.not = icmp eq i32 %10, %2
   %cmp48 = icmp sgt i32 %2, 0
@@ -5727,17 +5727,17 @@ if.then50:                                        ; preds = %if.end34, %if.then2
   %11 = select i1 %cmp53, i16 17938, i16 17939
   %conv56 = select i1 %cmp51, i16 17935, i16 %11
   %conv61 = select i1 %cmp51, i16 1, i16 5
-  %ot1.i97 = getelementptr inbounds i8, ptr %J, i64 188
+  %ot1.i97 = getelementptr inbounds nuw i8, ptr %J, i64 188
   store i16 %conv56, ptr %ot1.i97, align 4
   store i16 %6, ptr %fold, align 8
-  %op2.i100 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2.i100 = getelementptr inbounds nuw i8, ptr %J, i64 186
   store i16 %conv61, ptr %op2.i100, align 2
   %call62 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J)
   %12 = load ptr, ptr %ir, align 8
   %conv65.mask = and i32 %call62, 65535
   %idxprom66 = zext nneg i32 %conv65.mask to i64
-  %arrayidx67 = getelementptr inbounds %union.IRIns, ptr %12, i64 %idxprom66
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 24
+  %arrayidx67 = getelementptr inbounds nuw %union.IRIns, ptr %12, i64 %idxprom66
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = getelementptr i8, ptr %arrayidx67, i64 4
   %arrayidx67.val = load i8, ptr %13, align 4
   %14 = and i8 %arrayidx67.val, 31
@@ -5840,130 +5840,130 @@ declare hidden i32 @lj_opt_fwd_alen(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_cse_uref(ptr noundef %J) #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 131072
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end39, label %if.then
 
 if.then:                                          ; preds = %entry
-  %chain = getelementptr inbounds i8, ptr %J, i64 402
-  %o = getelementptr inbounds i8, ptr %J, i64 189
+  %chain = getelementptr inbounds nuw i8, ptr %J, i64 402
+  %o = getelementptr inbounds nuw i8, ptr %J, i64 189
   %1 = load i8, ptr %o, align 1
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr inbounds [101 x i16], ptr %chain, i64 0, i64 %idxprom
-  %arrayidx5 = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw [101 x i16], ptr %chain, i64 0, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %J, i64 200
   %2 = load i64, ptr %arrayidx5, align 8
   %3 = inttoptr i64 %2 to ptr
-  %uvptr = getelementptr inbounds i8, ptr %3, i64 40
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %uvptr = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %4 = load i16, ptr %op2, align 2
   %5 = lshr i16 %4, 8
   %idxprom9 = zext nneg i16 %5 to i64
-  %arrayidx10 = getelementptr inbounds [1 x %struct.GCRef], ptr %uvptr, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw [1 x %struct.GCRef], ptr %uvptr, i64 0, i64 %idxprom9
   %6 = load i64, ptr %arrayidx10, align 8
   %ref.0.in17 = load i16, ptr %arrayidx, align 2
   %cmp.not18 = icmp eq i16 %ref.0.in17, 0
   br i1 %cmp.not18, label %if.end39, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %ir13 = getelementptr inbounds i8, ptr %J, i64 32
+  %ir13 = getelementptr inbounds nuw i8, ptr %J, i64 32
   %7 = load ptr, ptr %ir13, align 8
-  %invariant.gep = getelementptr inbounds i8, ptr %7, i64 8
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end37
   %ref.0.in19 = phi i16 [ %ref.0.in17, %while.body.lr.ph ], [ %ref.0.in, %if.end37 ]
   %idxprom14 = zext i16 %ref.0.in19 to i64
-  %arrayidx15 = getelementptr inbounds %union.IRIns, ptr %7, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %idxprom14
   %8 = load i16, ptr %arrayidx15, align 8
   %cmp17 = icmp sgt i16 %8, -1
   br i1 %cmp17, label %if.then19, label %if.end37
 
 if.then19:                                        ; preds = %while.body
   %idxprom23 = zext nneg i16 %8 to i64
-  %gep = getelementptr inbounds %union.IRIns, ptr %invariant.gep, i64 %idxprom23
+  %gep = getelementptr inbounds nuw %union.IRIns, ptr %invariant.gep, i64 %idxprom23
   %9 = load i64, ptr %gep, align 8
   %10 = inttoptr i64 %9 to ptr
-  %uvptr27 = getelementptr inbounds i8, ptr %10, i64 40
-  %op228 = getelementptr inbounds i8, ptr %arrayidx15, i64 2
+  %uvptr27 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %op228 = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 2
   %11 = load i16, ptr %op228, align 2
   %12 = lshr i16 %11, 8
   %idxprom31 = zext nneg i16 %12 to i64
-  %arrayidx32 = getelementptr inbounds [1 x %struct.GCRef], ptr %uvptr27, i64 0, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw [1 x %struct.GCRef], ptr %uvptr27, i64 0, i64 %idxprom31
   %13 = load i64, ptr %arrayidx32, align 8
   %cmp34 = icmp eq i64 %13, %6
   br i1 %cmp34, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %if.then19
   %ref.0.le = zext i16 %ref.0.in19 to i32
-  %o.i = getelementptr inbounds i8, ptr %arrayidx15, i64 5
+  %o.i = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 5
   %14 = load i8, ptr %o.i, align 1
   %cmp.i = icmp eq i8 %14, 60
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.then36
-  %t.i = getelementptr inbounds i8, ptr %arrayidx15, i64 4
+  %t.i = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 4
   %15 = load i8, ptr %t.i, align 4
   %tobool.not.i = icmp sgt i8 %15, -1
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %J, i64 436
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %J, i64 436
   %16 = load i16, ptr %arrayidx.i, align 2
   %cmp4.i = icmp ult i16 %ref.0.in19, %16
   br i1 %cmp4.i, label %land.lhs.true6.i, label %if.end.i
 
 land.lhs.true6.i:                                 ; preds = %if.then.i
-  %arrayidx8.i = getelementptr inbounds i8, ptr %J, i64 560
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %J, i64 560
   %17 = load i16, ptr %arrayidx8.i, align 2
   %tobool10.not.i = icmp eq i16 %17, 0
   br i1 %tobool10.not.i, label %lor.lhs.false.i, label %if.then50.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true6.i
-  %arrayidx12.i = getelementptr inbounds i8, ptr %J, i64 562
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %J, i64 562
   %18 = load i16, ptr %arrayidx12.i, align 2
   %tobool14.not.i = icmp eq i16 %18, 0
   br i1 %tobool14.not.i, label %lor.lhs.false15.i, label %if.then50.i
 
 lor.lhs.false15.i:                                ; preds = %lor.lhs.false.i
-  %arrayidx17.i = getelementptr inbounds i8, ptr %J, i64 564
+  %arrayidx17.i = getelementptr inbounds nuw i8, ptr %J, i64 564
   %19 = load i16, ptr %arrayidx17.i, align 2
   %tobool19.not.i = icmp eq i16 %19, 0
   br i1 %tobool19.not.i, label %lor.lhs.false20.i, label %if.then50.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false15.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %J, i64 566
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %J, i64 566
   %20 = load i16, ptr %arrayidx22.i, align 2
   %tobool24.not.i = icmp eq i16 %20, 0
   br i1 %tobool24.not.i, label %lor.lhs.false25.i, label %if.then50.i
 
 lor.lhs.false25.i:                                ; preds = %lor.lhs.false20.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %J, i64 568
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %J, i64 568
   %21 = load i16, ptr %arrayidx27.i, align 2
   %tobool29.not.i = icmp eq i16 %21, 0
   br i1 %tobool29.not.i, label %lor.lhs.false30.i, label %if.then50.i
 
 lor.lhs.false30.i:                                ; preds = %lor.lhs.false25.i
-  %arrayidx32.i = getelementptr inbounds i8, ptr %J, i64 570
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %J, i64 570
   %22 = load i16, ptr %arrayidx32.i, align 2
   %tobool34.not.i = icmp eq i16 %22, 0
   br i1 %tobool34.not.i, label %lor.lhs.false35.i, label %if.then50.i
 
 lor.lhs.false35.i:                                ; preds = %lor.lhs.false30.i
-  %arrayidx37.i = getelementptr inbounds i8, ptr %J, i64 576
+  %arrayidx37.i = getelementptr inbounds nuw i8, ptr %J, i64 576
   %23 = load i16, ptr %arrayidx37.i, align 2
   %tobool39.not.i = icmp eq i16 %23, 0
   br i1 %tobool39.not.i, label %lor.lhs.false40.i, label %if.then50.i
 
 lor.lhs.false40.i:                                ; preds = %lor.lhs.false35.i
-  %arrayidx42.i = getelementptr inbounds i8, ptr %J, i64 588
+  %arrayidx42.i = getelementptr inbounds nuw i8, ptr %J, i64 588
   %24 = load i16, ptr %arrayidx42.i, align 2
   %tobool44.not.i = icmp eq i16 %24, 0
   br i1 %tobool44.not.i, label %lor.lhs.false45.i, label %if.then50.i
 
 lor.lhs.false45.i:                                ; preds = %lor.lhs.false40.i
-  %arrayidx47.i = getelementptr inbounds i8, ptr %J, i64 594
+  %arrayidx47.i = getelementptr inbounds nuw i8, ptr %J, i64 594
   %25 = load i16, ptr %arrayidx47.i, align 2
   %tobool49.not.i = icmp eq i16 %25, 0
   br i1 %tobool49.not.i, label %if.end.i, label %if.then50.i
@@ -5973,7 +5973,7 @@ if.then50.i:                                      ; preds = %lor.lhs.false45.i, 
   br label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false45.i, %if.then.i
-  %t51.i = getelementptr inbounds i8, ptr %J, i64 188
+  %t51.i = getelementptr inbounds nuw i8, ptr %J, i64 188
   %26 = load i8, ptr %t51.i, align 4
   %27 = and i8 %26, -97
   %cmp55.i = icmp eq i8 %27, -119
@@ -5988,7 +5988,7 @@ if.then64.i:                                      ; preds = %if.end.i
   br label %return
 
 if.end37:                                         ; preds = %if.then19, %while.body
-  %prev = getelementptr inbounds i8, ptr %arrayidx15, i64 6
+  %prev = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %cmp.not = icmp eq i16 %ref.0.in, 0
   br i1 %cmp.not, label %if.end39, label %while.body, !llvm.loop !13
@@ -6005,15 +6005,15 @@ return:                                           ; preds = %if.then64.i, %if.en
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_cse_urefo(ptr noundef %J) #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 131072
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end20, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 522
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 522
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i32, ptr %fold, align 8
   %2 = trunc i32 %1 to i16
   %ref.0.in14 = load i16, ptr %arrayidx, align 2
@@ -6021,87 +6021,87 @@ if.then:                                          ; preds = %entry
   br i1 %cmp15, label %while.body.lr.ph, label %if.end20
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %ir13 = getelementptr inbounds i8, ptr %J, i64 32
+  %ir13 = getelementptr inbounds nuw i8, ptr %J, i64 32
   %3 = load ptr, ptr %ir13, align 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %ref.0.in16 = phi i16 [ %ref.0.in14, %while.body.lr.ph ], [ %ref.0.in, %if.end ]
   %idxprom = zext i16 %ref.0.in16 to i64
-  %arrayidx14 = getelementptr inbounds %union.IRIns, ptr %3, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds nuw %union.IRIns, ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx14, align 8
   %cmp16 = icmp eq i32 %4, %1
   br i1 %cmp16, label %if.then18, label %if.end
 
 if.then18:                                        ; preds = %while.body
   %ref.0.le = zext i16 %ref.0.in16 to i32
-  %o.i = getelementptr inbounds i8, ptr %arrayidx14, i64 5
+  %o.i = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 5
   %5 = load i8, ptr %o.i, align 1
   %cmp.i = icmp eq i8 %5, 60
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.then18
-  %t.i = getelementptr inbounds i8, ptr %arrayidx14, i64 4
+  %t.i = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 4
   %6 = load i8, ptr %t.i, align 4
   %tobool.not.i = icmp sgt i8 %6, -1
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %J, i64 436
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %J, i64 436
   %7 = load i16, ptr %arrayidx.i, align 2
   %cmp4.i = icmp ult i16 %ref.0.in16, %7
   br i1 %cmp4.i, label %land.lhs.true6.i, label %if.end.i
 
 land.lhs.true6.i:                                 ; preds = %if.then.i
-  %arrayidx8.i = getelementptr inbounds i8, ptr %J, i64 560
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %J, i64 560
   %8 = load i16, ptr %arrayidx8.i, align 2
   %tobool10.not.i = icmp eq i16 %8, 0
   br i1 %tobool10.not.i, label %lor.lhs.false.i, label %if.then50.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true6.i
-  %arrayidx12.i = getelementptr inbounds i8, ptr %J, i64 562
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %J, i64 562
   %9 = load i16, ptr %arrayidx12.i, align 2
   %tobool14.not.i = icmp eq i16 %9, 0
   br i1 %tobool14.not.i, label %lor.lhs.false15.i, label %if.then50.i
 
 lor.lhs.false15.i:                                ; preds = %lor.lhs.false.i
-  %arrayidx17.i = getelementptr inbounds i8, ptr %J, i64 564
+  %arrayidx17.i = getelementptr inbounds nuw i8, ptr %J, i64 564
   %10 = load i16, ptr %arrayidx17.i, align 2
   %tobool19.not.i = icmp eq i16 %10, 0
   br i1 %tobool19.not.i, label %lor.lhs.false20.i, label %if.then50.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false15.i
-  %arrayidx22.i = getelementptr inbounds i8, ptr %J, i64 566
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %J, i64 566
   %11 = load i16, ptr %arrayidx22.i, align 2
   %tobool24.not.i = icmp eq i16 %11, 0
   br i1 %tobool24.not.i, label %lor.lhs.false25.i, label %if.then50.i
 
 lor.lhs.false25.i:                                ; preds = %lor.lhs.false20.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %J, i64 568
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %J, i64 568
   %12 = load i16, ptr %arrayidx27.i, align 2
   %tobool29.not.i = icmp eq i16 %12, 0
   br i1 %tobool29.not.i, label %lor.lhs.false30.i, label %if.then50.i
 
 lor.lhs.false30.i:                                ; preds = %lor.lhs.false25.i
-  %arrayidx32.i = getelementptr inbounds i8, ptr %J, i64 570
+  %arrayidx32.i = getelementptr inbounds nuw i8, ptr %J, i64 570
   %13 = load i16, ptr %arrayidx32.i, align 2
   %tobool34.not.i = icmp eq i16 %13, 0
   br i1 %tobool34.not.i, label %lor.lhs.false35.i, label %if.then50.i
 
 lor.lhs.false35.i:                                ; preds = %lor.lhs.false30.i
-  %arrayidx37.i = getelementptr inbounds i8, ptr %J, i64 576
+  %arrayidx37.i = getelementptr inbounds nuw i8, ptr %J, i64 576
   %14 = load i16, ptr %arrayidx37.i, align 2
   %tobool39.not.i = icmp eq i16 %14, 0
   br i1 %tobool39.not.i, label %lor.lhs.false40.i, label %if.then50.i
 
 lor.lhs.false40.i:                                ; preds = %lor.lhs.false35.i
-  %arrayidx42.i = getelementptr inbounds i8, ptr %J, i64 588
+  %arrayidx42.i = getelementptr inbounds nuw i8, ptr %J, i64 588
   %15 = load i16, ptr %arrayidx42.i, align 2
   %tobool44.not.i = icmp eq i16 %15, 0
   br i1 %tobool44.not.i, label %lor.lhs.false45.i, label %if.then50.i
 
 lor.lhs.false45.i:                                ; preds = %lor.lhs.false40.i
-  %arrayidx47.i = getelementptr inbounds i8, ptr %J, i64 594
+  %arrayidx47.i = getelementptr inbounds nuw i8, ptr %J, i64 594
   %16 = load i16, ptr %arrayidx47.i, align 2
   %tobool49.not.i = icmp eq i16 %16, 0
   br i1 %tobool49.not.i, label %if.end.i, label %if.then50.i
@@ -6111,7 +6111,7 @@ if.then50.i:                                      ; preds = %lor.lhs.false45.i, 
   br label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false45.i, %if.then.i
-  %t51.i = getelementptr inbounds i8, ptr %J, i64 188
+  %t51.i = getelementptr inbounds nuw i8, ptr %J, i64 188
   %17 = load i8, ptr %t51.i, align 4
   %18 = and i8 %17, -97
   %cmp55.i = icmp eq i8 %18, -119
@@ -6126,7 +6126,7 @@ if.then64.i:                                      ; preds = %if.end.i
   br label %return
 
 if.end:                                           ; preds = %while.body
-  %prev = getelementptr inbounds i8, ptr %arrayidx14, i64 6
+  %prev = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 6
   %ref.0.in = load i16, ptr %prev, align 2
   %cmp = icmp ugt i16 %ref.0.in, %2
   br i1 %cmp, label %while.body, label %if.end20, !llvm.loop !14
@@ -6163,18 +6163,18 @@ return:                                           ; preds = %entry, %if.then
 define internal i32 @fold_fwd_href_tdup(ptr noundef %J) #0 {
 entry:
   %keyv = alloca %union.TValue, align 8
-  %L = getelementptr inbounds i8, ptr %J, i64 128
+  %L = getelementptr inbounds nuw i8, ptr %J, i64 128
   %0 = load ptr, ptr %L, align 8
-  %right = getelementptr inbounds i8, ptr %J, i64 208
+  %right = getelementptr inbounds nuw i8, ptr %J, i64 208
   call void @lj_ir_kvalue(ptr noundef %0, ptr noundef nonnull %keyv, ptr noundef nonnull %right) #11
   %1 = load ptr, ptr %L, align 8
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %2 = load ptr, ptr %ir, align 8
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %3 = load i16, ptr %left, align 8
   %idxprom = zext i16 %3 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom
-  %arrayidx4 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %2, i64 %idxprom
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %arrayidx4, align 8
   %5 = inttoptr i64 %4 to ptr
   %call = call ptr @lj_tab_get(ptr noundef %1, ptr noundef %5, ptr noundef nonnull %keyv) #11
@@ -6199,14 +6199,14 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @fold_fload_tab_tnew_asize(ptr noundef %J) #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
   %conv3 = zext i16 %1 to i32
   %call = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %J, i32 noundef %conv3) #11
@@ -6214,7 +6214,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %2 = load i16, ptr %left, align 8
   %conv7 = zext i16 %2 to i32
   store i32 %conv7, ptr %fold, align 8
@@ -6228,14 +6228,14 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @fold_fload_tab_tnew_hmask(ptr noundef %J) #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
   %conv3 = zext i16 %1 to i32
   %call = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %J, i32 noundef %conv3) #11
@@ -6243,7 +6243,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %2 = load i16, ptr %op2, align 2
   %conv6 = zext nneg i16 %2 to i32
   %notmask = shl nsw i32 -1, %conv6
@@ -6259,14 +6259,14 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @fold_fload_tab_tdup_asize(ptr noundef %J) #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
   %conv3 = zext i16 %1 to i32
   %call = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %J, i32 noundef %conv3) #11
@@ -6274,16 +6274,16 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %2 = load ptr, ptr %ir, align 8
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %3 = load i16, ptr %left, align 8
   %idxprom = zext i16 %3 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom
-  %arrayidx7 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %2, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %arrayidx7, align 8
   %5 = inttoptr i64 %4 to ptr
-  %asize = getelementptr inbounds i8, ptr %5, i64 48
+  %asize = getelementptr inbounds nuw i8, ptr %5, i64 48
   %6 = load i32, ptr %asize, align 8
   store i32 %6, ptr %fold, align 8
   br label %return
@@ -6296,14 +6296,14 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @fold_fload_tab_tdup_hmask(ptr noundef %J) #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %1 = load i16, ptr %fold, align 8
   %conv3 = zext i16 %1 to i32
   %call = tail call i32 @lj_opt_fwd_tptr(ptr noundef nonnull %J, i32 noundef %conv3) #11
@@ -6311,16 +6311,16 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %ir = getelementptr inbounds i8, ptr %J, i64 32
+  %ir = getelementptr inbounds nuw i8, ptr %J, i64 32
   %2 = load ptr, ptr %ir, align 8
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %3 = load i16, ptr %left, align 8
   %idxprom = zext i16 %3 to i64
-  %arrayidx = getelementptr inbounds %union.IRIns, ptr %2, i64 %idxprom
-  %arrayidx7 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %union.IRIns, ptr %2, i64 %idxprom
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %arrayidx7, align 8
   %5 = inttoptr i64 %4 to ptr
-  %hmask = getelementptr inbounds i8, ptr %5, i64 52
+  %hmask = getelementptr inbounds nuw i8, ptr %5, i64 52
   %6 = load i32, ptr %hmask, align 4
   store i32 %6, ptr %fold, align 8
   br label %return
@@ -6333,47 +6333,47 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_fload_tab_ah(ptr noundef %J) #0 {
 entry:
-  %fold.i = getelementptr inbounds i8, ptr %J, i64 184
+  %fold.i = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold.i, align 8
   %conv.i = zext i16 %0 to i32
-  %op2.i = getelementptr inbounds i8, ptr %J, i64 186
+  %op2.i = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2.i, align 2
   %conv3.i = zext i16 %1 to i32
   %shl.i = shl nuw i32 %conv3.i, 16
   %add.i = or disjoint i32 %shl.i, %conv.i
-  %o.i = getelementptr inbounds i8, ptr %J, i64 189
+  %o.i = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o.i, align 1
-  %flags.i = getelementptr inbounds i8, ptr %J, i64 168
+  %flags.i = getelementptr inbounds nuw i8, ptr %J, i64 168
   %3 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %3, 131072
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end46.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %chain.i = getelementptr inbounds i8, ptr %J, i64 402
+  %chain.i = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom.i = zext i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
   %spec.select38.i = tail call i16 @llvm.umax.i16(i16 %1, i16 %0)
   %ref.0.in40.i = load i16, ptr %arrayidx.i, align 2
   %cmp2541.i = icmp ult i16 %spec.select38.i, %ref.0.in40.i
   br i1 %cmp2541.i, label %while.body.lr.ph.i, label %if.end46.i
 
 while.body.lr.ph.i:                               ; preds = %if.then.i
-  %ir.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %4 = load ptr, ptr %ir.i, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end40.i, %while.body.lr.ph.i
   %ref.0.in42.i = phi i16 [ %ref.0.in40.i, %while.body.lr.ph.i ], [ %ref.0.in.i, %if.end40.i ]
   %idxprom27.i = zext i16 %ref.0.in42.i to i64
-  %arrayidx28.i = getelementptr inbounds %union.IRIns, ptr %4, i64 %idxprom27.i
+  %arrayidx28.i = getelementptr inbounds nuw %union.IRIns, ptr %4, i64 %idxprom27.i
   %5 = load i32, ptr %arrayidx28.i, align 8
   %cmp30.i = icmp eq i32 %5, %add.i
   br i1 %cmp30.i, label %if.then32.i, label %if.end40.i
 
 if.then32.i:                                      ; preds = %while.body.i
   %ref.0.le.i = zext i16 %ref.0.in42.i to i32
-  %t.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 4
+  %t.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 4
   %6 = load i8, ptr %t.i, align 4
   %conv37.i = zext i8 %6 to i32
   %shl38.i = shl nuw i32 %conv37.i, 24
@@ -6381,15 +6381,15 @@ if.then32.i:                                      ; preds = %while.body.i
   br label %lj_opt_cse.exit
 
 if.end40.i:                                       ; preds = %while.body.i
-  %prev.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 6
+  %prev.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 6
   %ref.0.in.i = load i16, ptr %prev.i, align 2
   %cmp25.i = icmp ult i16 %spec.select38.i, %ref.0.in.i
   br i1 %cmp25.i, label %while.body.i, label %if.end46.i, !llvm.loop !4
 
 if.end46.i:                                       ; preds = %if.end40.i, %if.then.i, %entry
-  %nins.i.i = getelementptr inbounds i8, ptr %J, i64 12
+  %nins.i.i = getelementptr inbounds nuw i8, ptr %J, i64 12
   %7 = load i32, ptr %nins.i.i, align 4
-  %irtoplim.i.i = getelementptr inbounds i8, ptr %J, i64 336
+  %irtoplim.i.i = getelementptr inbounds nuw i8, ptr %J, i64 336
   %8 = load i32, ptr %irtoplim.i.i, align 8
   %cmp.i.not.i = icmp ult i32 %7, %8
   br i1 %cmp.i.not.i, label %lj_ir_nextins.exit.i, label %if.then.i.i
@@ -6401,29 +6401,29 @@ if.then.i.i:                                      ; preds = %if.end46.i
 lj_ir_nextins.exit.i:                             ; preds = %if.then.i.i, %if.end46.i
   %add.i.i = add i32 %7, 1
   store i32 %add.i.i, ptr %nins.i.i, align 4
-  %ir50.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir50.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %9 = load ptr, ptr %ir50.i, align 8
   %idxprom51.i = zext i32 %7 to i64
-  %arrayidx52.i = getelementptr inbounds %union.IRIns, ptr %9, i64 %idxprom51.i
-  %chain53.i = getelementptr inbounds i8, ptr %J, i64 402
+  %arrayidx52.i = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %idxprom51.i
+  %chain53.i = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom54.i = zext i8 %2 to i64
-  %arrayidx55.i = getelementptr inbounds [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom54.i
+  %arrayidx55.i = getelementptr inbounds nuw [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom54.i
   %10 = load i16, ptr %arrayidx55.i, align 2
-  %prev56.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 6
+  %prev56.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 6
   store i16 %10, ptr %prev56.i, align 2
   store i32 %add.i, ptr %arrayidx52.i, align 8
   %conv58.i = trunc i32 %7 to i16
   store i16 %conv58.i, ptr %arrayidx55.i, align 2
   %11 = load i8, ptr %o.i, align 1
-  %o65.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 5
+  %o65.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 5
   store i8 %11, ptr %o65.i, align 1
-  %t68.i = getelementptr inbounds i8, ptr %J, i64 188
+  %t68.i = getelementptr inbounds nuw i8, ptr %J, i64 188
   %12 = load i8, ptr %t68.i, align 4
-  %guardemit.i = getelementptr inbounds i8, ptr %J, i64 182
+  %guardemit.i = getelementptr inbounds nuw i8, ptr %J, i64 182
   %13 = load i8, ptr %guardemit.i, align 2
   %or37.i = or i8 %13, %12
   store i8 %or37.i, ptr %guardemit.i, align 2
-  %t74.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 4
+  %t74.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 4
   store i8 %12, ptr %t74.i, align 4
   %conv79.i = zext i8 %12 to i32
   %shl80.i = shl nuw i32 %conv79.i, 24
@@ -6449,18 +6449,18 @@ cond.end:                                         ; preds = %lj_opt_cse.exit, %c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 3) i32 @fold_fload_str_len_kgc(ptr nocapture noundef %J) #7 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %1 = load i64, ptr %arrayidx, align 8
   %2 = inttoptr i64 %1 to ptr
-  %len = getelementptr inbounds i8, ptr %2, i64 20
+  %len = getelementptr inbounds nuw i8, ptr %2, i64 20
   %3 = load i32, ptr %len, align 4
   store i32 %3, ptr %fold, align 8
   br label %return
@@ -6473,21 +6473,21 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_fload_str_len_snew(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %t = getelementptr inbounds i8, ptr %J, i64 196
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 196
   %1 = load i8, ptr %t, align 4
   %2 = and i8 %1, 64
   %tobool5.not = icmp eq i8 %2, 0
   br i1 %tobool5.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %3 = load i16, ptr %op2, align 2
   %conv10 = zext i16 %3 to i32
   br label %return
@@ -6500,20 +6500,20 @@ return:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal range(i32 0, 3) i32 @fold_fload_str_len_tostr(ptr nocapture noundef %J) #4 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %cmp = icmp eq i16 %1, 2
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   store i32 1, ptr %fold, align 8
   br label %return
 
@@ -6543,18 +6543,18 @@ cond.end:                                         ; preds = %entry, %cond.false
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 3) i32 @fold_fload_func_ffid_kgc(ptr nocapture noundef %J) #7 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %1 = load i64, ptr %arrayidx, align 8
   %2 = inttoptr i64 %1 to ptr
-  %ffid = getelementptr inbounds i8, ptr %2, i64 10
+  %ffid = getelementptr inbounds nuw i8, ptr %2, i64 10
   %3 = load i8, ptr %ffid, align 2
   %conv3 = zext i8 %3 to i32
   store i32 %conv3, ptr %fold, align 8
@@ -6568,18 +6568,18 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 3) i32 @fold_fload_cdata_typeid_kgc(ptr nocapture noundef %J) #7 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %1 = load i64, ptr %arrayidx, align 8
   %2 = inttoptr i64 %1 to ptr
-  %ctypeid = getelementptr inbounds i8, ptr %2, i64 10
+  %ctypeid = getelementptr inbounds nuw i8, ptr %2, i64 10
   %3 = load i16, ptr %ctypeid, align 2
   %conv3 = zext i16 %3 to i32
   store i32 %conv3, ptr %fold, align 8
@@ -6593,18 +6593,18 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_fload_cdata_int64_kgc(ptr noundef %J) #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %1 = load i64, ptr %arrayidx, align 8
   %2 = inttoptr i64 %1 to ptr
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 16
-  %t = getelementptr inbounds i8, ptr %J, i64 188
+  %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %t = getelementptr inbounds nuw i8, ptr %J, i64 188
   %3 = load i8, ptr %t, align 4
   %4 = and i8 %3, 31
   %and5 = zext nneg i8 %4 to i32
@@ -6619,7 +6619,7 @@ if.then8:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %8 = load i32, ptr %add.ptr, align 4
   store i32 %8, ptr %fold, align 8
   br label %return
@@ -6632,14 +6632,14 @@ return:                                           ; preds = %entry, %if.else, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_fload_cdata_typeid_cnew(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %left = getelementptr inbounds i8, ptr %J, i64 192
+  %left = getelementptr inbounds nuw i8, ptr %J, i64 192
   %1 = load i16, ptr %left, align 8
   %conv3 = zext i16 %1 to i32
   br label %return
@@ -6652,14 +6652,14 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @fold_fload_cdata_ptr_int64_cnew(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %J, i64 168
+  %flags = getelementptr inbounds nuw i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 65536
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %op2 = getelementptr inbounds i8, ptr %J, i64 194
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 194
   %1 = load i16, ptr %op2, align 2
   %conv3 = zext i16 %1 to i32
   br label %return
@@ -6674,11 +6674,11 @@ declare hidden i32 @lj_opt_fwd_fload(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_fwd_sload(ptr noundef %J) #0 {
 entry:
-  %op2 = getelementptr inbounds i8, ptr %J, i64 186
+  %op2 = getelementptr inbounds nuw i8, ptr %J, i64 186
   %0 = load i16, ptr %op2, align 2
   %1 = and i16 %0, 2
   %tobool.not = icmp eq i16 %1, 0
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -6687,39 +6687,39 @@ if.then:                                          ; preds = %entry
   %conv3.i = zext i16 %0 to i32
   %shl.i = shl nuw i32 %conv3.i, 16
   %add.i = or disjoint i32 %shl.i, %conv.i
-  %o.i = getelementptr inbounds i8, ptr %J, i64 189
+  %o.i = getelementptr inbounds nuw i8, ptr %J, i64 189
   %3 = load i8, ptr %o.i, align 1
-  %flags.i = getelementptr inbounds i8, ptr %J, i64 168
+  %flags.i = getelementptr inbounds nuw i8, ptr %J, i64 168
   %4 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %4, 131072
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end46.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %chain.i = getelementptr inbounds i8, ptr %J, i64 402
+  %chain.i = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom.i = zext i8 %3 to i64
-  %arrayidx.i = getelementptr inbounds [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
   %spec.select38.i = tail call i16 @llvm.umax.i16(i16 %0, i16 %2)
   %ref.0.in40.i = load i16, ptr %arrayidx.i, align 2
   %cmp2541.i = icmp ult i16 %spec.select38.i, %ref.0.in40.i
   br i1 %cmp2541.i, label %while.body.lr.ph.i, label %if.end46.i
 
 while.body.lr.ph.i:                               ; preds = %if.then.i
-  %ir.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %5 = load ptr, ptr %ir.i, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end40.i, %while.body.lr.ph.i
   %ref.0.in42.i = phi i16 [ %ref.0.in40.i, %while.body.lr.ph.i ], [ %ref.0.in.i, %if.end40.i ]
   %idxprom27.i = zext i16 %ref.0.in42.i to i64
-  %arrayidx28.i = getelementptr inbounds %union.IRIns, ptr %5, i64 %idxprom27.i
+  %arrayidx28.i = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %idxprom27.i
   %6 = load i32, ptr %arrayidx28.i, align 8
   %cmp30.i = icmp eq i32 %6, %add.i
   br i1 %cmp30.i, label %if.then32.i, label %if.end40.i
 
 if.then32.i:                                      ; preds = %while.body.i
   %ref.0.le.i = zext i16 %ref.0.in42.i to i32
-  %t.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 4
+  %t.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 4
   %7 = load i8, ptr %t.i, align 4
   %conv37.i = zext i8 %7 to i32
   %shl38.i = shl nuw i32 %conv37.i, 24
@@ -6727,15 +6727,15 @@ if.then32.i:                                      ; preds = %while.body.i
   br label %lj_opt_cse.exit
 
 if.end40.i:                                       ; preds = %while.body.i
-  %prev.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 6
+  %prev.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 6
   %ref.0.in.i = load i16, ptr %prev.i, align 2
   %cmp25.i = icmp ult i16 %spec.select38.i, %ref.0.in.i
   br i1 %cmp25.i, label %while.body.i, label %if.end46.i, !llvm.loop !4
 
 if.end46.i:                                       ; preds = %if.end40.i, %if.then.i, %if.then
-  %nins.i.i = getelementptr inbounds i8, ptr %J, i64 12
+  %nins.i.i = getelementptr inbounds nuw i8, ptr %J, i64 12
   %8 = load i32, ptr %nins.i.i, align 4
-  %irtoplim.i.i = getelementptr inbounds i8, ptr %J, i64 336
+  %irtoplim.i.i = getelementptr inbounds nuw i8, ptr %J, i64 336
   %9 = load i32, ptr %irtoplim.i.i, align 8
   %cmp.i.not.i = icmp ult i32 %8, %9
   br i1 %cmp.i.not.i, label %lj_ir_nextins.exit.i, label %if.then.i.i
@@ -6747,29 +6747,29 @@ if.then.i.i:                                      ; preds = %if.end46.i
 lj_ir_nextins.exit.i:                             ; preds = %if.then.i.i, %if.end46.i
   %add.i.i = add i32 %8, 1
   store i32 %add.i.i, ptr %nins.i.i, align 4
-  %ir50.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir50.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %10 = load ptr, ptr %ir50.i, align 8
   %idxprom51.i = zext i32 %8 to i64
-  %arrayidx52.i = getelementptr inbounds %union.IRIns, ptr %10, i64 %idxprom51.i
-  %chain53.i = getelementptr inbounds i8, ptr %J, i64 402
+  %arrayidx52.i = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %idxprom51.i
+  %chain53.i = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom54.i = zext i8 %3 to i64
-  %arrayidx55.i = getelementptr inbounds [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom54.i
+  %arrayidx55.i = getelementptr inbounds nuw [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom54.i
   %11 = load i16, ptr %arrayidx55.i, align 2
-  %prev56.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 6
+  %prev56.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 6
   store i16 %11, ptr %prev56.i, align 2
   store i32 %add.i, ptr %arrayidx52.i, align 8
   %conv58.i = trunc i32 %8 to i16
   store i16 %conv58.i, ptr %arrayidx55.i, align 2
   %12 = load i8, ptr %o.i, align 1
-  %o65.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 5
+  %o65.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 5
   store i8 %12, ptr %o65.i, align 1
-  %t68.i = getelementptr inbounds i8, ptr %J, i64 188
+  %t68.i = getelementptr inbounds nuw i8, ptr %J, i64 188
   %13 = load i8, ptr %t68.i, align 4
-  %guardemit.i = getelementptr inbounds i8, ptr %J, i64 182
+  %guardemit.i = getelementptr inbounds nuw i8, ptr %J, i64 182
   %14 = load i8, ptr %guardemit.i, align 2
   %or37.i = or i8 %14, %13
   store i8 %or37.i, ptr %guardemit.i, align 2
-  %t74.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 4
+  %t74.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 4
   store i8 %13, ptr %t74.i, align 4
   %conv79.i = zext i8 %13 to i32
   %shl80.i = shl nuw i32 %conv79.i, 24
@@ -6779,7 +6779,7 @@ lj_ir_nextins.exit.i:                             ; preds = %if.then.i.i, %if.en
 lj_opt_cse.exit:                                  ; preds = %if.then32.i, %lj_ir_nextins.exit.i
   %retval.0.i = phi i32 [ %add39.i, %if.then32.i ], [ %add81.i, %lj_ir_nextins.exit.i ]
   %conv2 = and i32 %retval.0.i, 65535
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 424
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 424
   %15 = load i16, ptr %arrayidx, align 2
   %conv3 = zext i16 %15 to i32
   %cmp = icmp samesign ult i32 %conv2, %conv3
@@ -6790,10 +6790,10 @@ cond.true:                                        ; preds = %lj_opt_cse.exit
   br label %return
 
 if.else:                                          ; preds = %entry
-  %slot = getelementptr inbounds i8, ptr %J, i64 604
+  %slot = getelementptr inbounds nuw i8, ptr %J, i64 604
   %16 = load i16, ptr %fold, align 8
   %idxprom = zext i16 %16 to i64
-  %arrayidx8 = getelementptr inbounds [258 x i32], ptr %slot, i64 0, i64 %idxprom
+  %arrayidx8 = getelementptr inbounds nuw [258 x i32], ptr %slot, i64 0, i64 %idxprom
   %17 = load i32, ptr %arrayidx8, align 4
   br label %return
 
@@ -6805,7 +6805,7 @@ return:                                           ; preds = %cond.true, %lj_opt_
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_xload_kptr(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 200
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 200
   %0 = load i64, ptr %arrayidx, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = getelementptr i8, ptr %J, i64 188
@@ -6872,26 +6872,26 @@ declare hidden i32 @lj_opt_fwd_xload(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_fold_base(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 424
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 424
   %0 = load i16, ptr %arrayidx, align 2
-  %chain.i = getelementptr inbounds i8, ptr %J, i64 402
-  %fold.i = getelementptr inbounds i8, ptr %J, i64 184
-  %o.i = getelementptr inbounds i8, ptr %J, i64 189
+  %chain.i = getelementptr inbounds nuw i8, ptr %J, i64 402
+  %fold.i = getelementptr inbounds nuw i8, ptr %J, i64 184
+  %o.i = getelementptr inbounds nuw i8, ptr %J, i64 189
   %1 = load i8, ptr %o.i, align 1
   %idxprom.i = zext i8 %1 to i64
-  %arrayidx.i = getelementptr inbounds [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
   %2 = load i32, ptr %fold.i, align 8
   %ref.0.in11.i = load i16, ptr %arrayidx.i, align 2
   %cmp13.i = icmp ult i16 %0, %ref.0.in11.i
   br i1 %cmp13.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %ir.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %3 = load ptr, ptr %ir.i, align 8
   br label %while.body.i
 
 while.cond.i:                                     ; preds = %while.body.i
-  %prev.i = getelementptr inbounds i8, ptr %arrayidx9.i, i64 6
+  %prev.i = getelementptr inbounds nuw i8, ptr %arrayidx9.i, i64 6
   %ref.0.in.i = load i16, ptr %prev.i, align 2
   %cmp.i = icmp ult i16 %0, %ref.0.in.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !6
@@ -6899,7 +6899,7 @@ while.cond.i:                                     ; preds = %while.body.i
 while.body.i:                                     ; preds = %while.cond.i, %while.body.lr.ph.i
   %ref.0.in14.i = phi i16 [ %ref.0.in11.i, %while.body.lr.ph.i ], [ %ref.0.in.i, %while.cond.i ]
   %idxprom8.i = zext i16 %ref.0.in14.i to i64
-  %arrayidx9.i = getelementptr inbounds %union.IRIns, ptr %3, i64 %idxprom8.i
+  %arrayidx9.i = getelementptr inbounds nuw %union.IRIns, ptr %3, i64 %idxprom8.i
   %4 = load i32, ptr %arrayidx9.i, align 8
   %cmp11.i = icmp eq i32 %4, %2
   br i1 %cmp11.i, label %lj_opt_cselim.exit.loopexit, label %while.cond.i
@@ -6920,47 +6920,47 @@ lj_opt_cselim.exit:                               ; preds = %lj_opt_cselim.exit.
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_barrier_tab(ptr noundef %J) #0 {
 entry:
-  %fold.i = getelementptr inbounds i8, ptr %J, i64 184
+  %fold.i = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold.i, align 8
   %conv.i = zext i16 %0 to i32
-  %op2.i = getelementptr inbounds i8, ptr %J, i64 186
+  %op2.i = getelementptr inbounds nuw i8, ptr %J, i64 186
   %1 = load i16, ptr %op2.i, align 2
   %conv3.i = zext i16 %1 to i32
   %shl.i = shl nuw i32 %conv3.i, 16
   %add.i = or disjoint i32 %shl.i, %conv.i
-  %o.i = getelementptr inbounds i8, ptr %J, i64 189
+  %o.i = getelementptr inbounds nuw i8, ptr %J, i64 189
   %2 = load i8, ptr %o.i, align 1
-  %flags.i = getelementptr inbounds i8, ptr %J, i64 168
+  %flags.i = getelementptr inbounds nuw i8, ptr %J, i64 168
   %3 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %3, 131072
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end46.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %chain.i = getelementptr inbounds i8, ptr %J, i64 402
+  %chain.i = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom.i = zext i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [101 x i16], ptr %chain.i, i64 0, i64 %idxprom.i
   %spec.select38.i = tail call i16 @llvm.umax.i16(i16 %1, i16 %0)
   %ref.0.in40.i = load i16, ptr %arrayidx.i, align 2
   %cmp2541.i = icmp ult i16 %spec.select38.i, %ref.0.in40.i
   br i1 %cmp2541.i, label %while.body.lr.ph.i, label %if.end46.i
 
 while.body.lr.ph.i:                               ; preds = %if.then.i
-  %ir.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %4 = load ptr, ptr %ir.i, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end40.i, %while.body.lr.ph.i
   %ref.0.in42.i = phi i16 [ %ref.0.in40.i, %while.body.lr.ph.i ], [ %ref.0.in.i, %if.end40.i ]
   %idxprom27.i = zext i16 %ref.0.in42.i to i64
-  %arrayidx28.i = getelementptr inbounds %union.IRIns, ptr %4, i64 %idxprom27.i
+  %arrayidx28.i = getelementptr inbounds nuw %union.IRIns, ptr %4, i64 %idxprom27.i
   %5 = load i32, ptr %arrayidx28.i, align 8
   %cmp30.i = icmp eq i32 %5, %add.i
   br i1 %cmp30.i, label %if.then32.i, label %if.end40.i
 
 if.then32.i:                                      ; preds = %while.body.i
   %ref.0.le.i = zext i16 %ref.0.in42.i to i32
-  %t.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 4
+  %t.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 4
   %6 = load i8, ptr %t.i, align 4
   %conv37.i = zext i8 %6 to i32
   %shl38.i = shl nuw i32 %conv37.i, 24
@@ -6968,15 +6968,15 @@ if.then32.i:                                      ; preds = %while.body.i
   br label %lj_opt_cse.exit
 
 if.end40.i:                                       ; preds = %while.body.i
-  %prev.i = getelementptr inbounds i8, ptr %arrayidx28.i, i64 6
+  %prev.i = getelementptr inbounds nuw i8, ptr %arrayidx28.i, i64 6
   %ref.0.in.i = load i16, ptr %prev.i, align 2
   %cmp25.i = icmp ult i16 %spec.select38.i, %ref.0.in.i
   br i1 %cmp25.i, label %while.body.i, label %if.end46.i, !llvm.loop !4
 
 if.end46.i:                                       ; preds = %if.end40.i, %if.then.i, %entry
-  %nins.i.i = getelementptr inbounds i8, ptr %J, i64 12
+  %nins.i.i = getelementptr inbounds nuw i8, ptr %J, i64 12
   %7 = load i32, ptr %nins.i.i, align 4
-  %irtoplim.i.i = getelementptr inbounds i8, ptr %J, i64 336
+  %irtoplim.i.i = getelementptr inbounds nuw i8, ptr %J, i64 336
   %8 = load i32, ptr %irtoplim.i.i, align 8
   %cmp.i.not.i = icmp ult i32 %7, %8
   br i1 %cmp.i.not.i, label %lj_ir_nextins.exit.i, label %if.then.i.i
@@ -6988,29 +6988,29 @@ if.then.i.i:                                      ; preds = %if.end46.i
 lj_ir_nextins.exit.i:                             ; preds = %if.then.i.i, %if.end46.i
   %add.i.i = add i32 %7, 1
   store i32 %add.i.i, ptr %nins.i.i, align 4
-  %ir50.i = getelementptr inbounds i8, ptr %J, i64 32
+  %ir50.i = getelementptr inbounds nuw i8, ptr %J, i64 32
   %9 = load ptr, ptr %ir50.i, align 8
   %idxprom51.i = zext i32 %7 to i64
-  %arrayidx52.i = getelementptr inbounds %union.IRIns, ptr %9, i64 %idxprom51.i
-  %chain53.i = getelementptr inbounds i8, ptr %J, i64 402
+  %arrayidx52.i = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %idxprom51.i
+  %chain53.i = getelementptr inbounds nuw i8, ptr %J, i64 402
   %idxprom54.i = zext i8 %2 to i64
-  %arrayidx55.i = getelementptr inbounds [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom54.i
+  %arrayidx55.i = getelementptr inbounds nuw [101 x i16], ptr %chain53.i, i64 0, i64 %idxprom54.i
   %10 = load i16, ptr %arrayidx55.i, align 2
-  %prev56.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 6
+  %prev56.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 6
   store i16 %10, ptr %prev56.i, align 2
   store i32 %add.i, ptr %arrayidx52.i, align 8
   %conv58.i = trunc i32 %7 to i16
   store i16 %conv58.i, ptr %arrayidx55.i, align 2
   %11 = load i8, ptr %o.i, align 1
-  %o65.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 5
+  %o65.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 5
   store i8 %11, ptr %o65.i, align 1
-  %t68.i = getelementptr inbounds i8, ptr %J, i64 188
+  %t68.i = getelementptr inbounds nuw i8, ptr %J, i64 188
   %12 = load i8, ptr %t68.i, align 4
-  %guardemit.i = getelementptr inbounds i8, ptr %J, i64 182
+  %guardemit.i = getelementptr inbounds nuw i8, ptr %J, i64 182
   %13 = load i8, ptr %guardemit.i, align 2
   %or37.i = or i8 %13, %12
   store i8 %or37.i, ptr %guardemit.i, align 2
-  %t74.i = getelementptr inbounds i8, ptr %arrayidx52.i, i64 4
+  %t74.i = getelementptr inbounds nuw i8, ptr %arrayidx52.i, i64 4
   store i8 %12, ptr %t74.i, align 4
   %conv79.i = zext i8 %12 to i32
   %shl80.i = shl nuw i32 %conv79.i, 24
@@ -7020,62 +7020,62 @@ lj_ir_nextins.exit.i:                             ; preds = %if.then.i.i, %if.en
 lj_opt_cse.exit:                                  ; preds = %if.then32.i, %lj_ir_nextins.exit.i
   %retval.0.i = phi i32 [ %add39.i, %if.then32.i ], [ %add81.i, %lj_ir_nextins.exit.i ]
   %conv1 = and i32 %retval.0.i, 65535
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 436
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 436
   %14 = load i16, ptr %arrayidx, align 2
   %conv2 = zext i16 %14 to i32
   %cmp = icmp samesign ult i32 %conv1, %conv2
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %lj_opt_cse.exit
-  %arrayidx5 = getelementptr inbounds i8, ptr %J, i64 560
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %J, i64 560
   %15 = load i16, ptr %arrayidx5, align 2
   %tobool.not = icmp eq i16 %15, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %arrayidx8 = getelementptr inbounds i8, ptr %J, i64 562
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %J, i64 562
   %16 = load i16, ptr %arrayidx8, align 2
   %tobool10.not = icmp eq i16 %16, 0
   br i1 %tobool10.not, label %lor.lhs.false11, label %if.then
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false
-  %arrayidx13 = getelementptr inbounds i8, ptr %J, i64 564
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %J, i64 564
   %17 = load i16, ptr %arrayidx13, align 2
   %tobool15.not = icmp eq i16 %17, 0
   br i1 %tobool15.not, label %lor.lhs.false16, label %if.then
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false11
-  %arrayidx18 = getelementptr inbounds i8, ptr %J, i64 566
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %J, i64 566
   %18 = load i16, ptr %arrayidx18, align 2
   %tobool20.not = icmp eq i16 %18, 0
   br i1 %tobool20.not, label %lor.lhs.false21, label %if.then
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false16
-  %arrayidx23 = getelementptr inbounds i8, ptr %J, i64 568
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %J, i64 568
   %19 = load i16, ptr %arrayidx23, align 2
   %tobool25.not = icmp eq i16 %19, 0
   br i1 %tobool25.not, label %lor.lhs.false26, label %if.then
 
 lor.lhs.false26:                                  ; preds = %lor.lhs.false21
-  %arrayidx28 = getelementptr inbounds i8, ptr %J, i64 570
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %J, i64 570
   %20 = load i16, ptr %arrayidx28, align 2
   %tobool30.not = icmp eq i16 %20, 0
   br i1 %tobool30.not, label %lor.lhs.false31, label %if.then
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false26
-  %arrayidx33 = getelementptr inbounds i8, ptr %J, i64 576
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr %J, i64 576
   %21 = load i16, ptr %arrayidx33, align 2
   %tobool35.not = icmp eq i16 %21, 0
   br i1 %tobool35.not, label %lor.lhs.false36, label %if.then
 
 lor.lhs.false36:                                  ; preds = %lor.lhs.false31
-  %arrayidx38 = getelementptr inbounds i8, ptr %J, i64 588
+  %arrayidx38 = getelementptr inbounds nuw i8, ptr %J, i64 588
   %22 = load i16, ptr %arrayidx38, align 2
   %tobool40.not = icmp eq i16 %22, 0
   br i1 %tobool40.not, label %lor.lhs.false41, label %if.then
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false36
-  %arrayidx43 = getelementptr inbounds i8, ptr %J, i64 594
+  %arrayidx43 = getelementptr inbounds nuw i8, ptr %J, i64 594
   %23 = load i16, ptr %arrayidx43, align 2
   %tobool45.not = icmp eq i16 %23, 0
   br i1 %tobool45.not, label %return, label %if.then
@@ -7092,9 +7092,9 @@ return:                                           ; preds = %lj_opt_cse.exit, %l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 5) i32 @fold_barrier_tnew_tdup(ptr nocapture noundef readonly %J) #5 {
 entry:
-  %fold = getelementptr inbounds i8, ptr %J, i64 184
+  %fold = getelementptr inbounds nuw i8, ptr %J, i64 184
   %0 = load i16, ptr %fold, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 436
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 436
   %1 = load i16, ptr %arrayidx, align 2
   %cmp = icmp ult i16 %0, %1
   %. = select i1 %cmp, i32 0, i32 4
@@ -7104,11 +7104,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @fold_prof(ptr noundef %J) #0 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %J, i64 444
+  %arrayidx = getelementptr inbounds nuw i8, ptr %J, i64 444
   %0 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %0 to i32
   %add = add nuw nsw i32 %conv, 1
-  %nins = getelementptr inbounds i8, ptr %J, i64 12
+  %nins = getelementptr inbounds nuw i8, ptr %J, i64 12
   %1 = load i32, ptr %nins, align 4
   %cmp = icmp eq i32 %add, %1
   br i1 %cmp, label %return, label %if.end

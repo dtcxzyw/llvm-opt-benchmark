@@ -33,8 +33,8 @@ define hidden range(i32 0, 3) i32 @get_stats_for_preview(ptr noundef %0, ptr noc
   br i1 %.not49.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %14
 
 14:                                               ; preds = %.lr.ph, %35
@@ -98,13 +98,13 @@ define hidden range(i32 0, 3) i32 @get_stats_for_preview(ptr noundef %0, ptr noc
   %.130 = phi double [ 0.000000e+00, %4 ], [ %.231, %28 ], [ %.231, %35 ]
   %.1 = phi i32 [ 0, %4 ], [ %.2, %28 ], [ %.2, %35 ]
   store i32 %.1, ptr %1, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %.134, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %.130, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %.141, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %.138, ptr %40, align 4
   call void @wtap_rec_cleanup(ptr noundef nonnull %6) #3
   call void @ws_buffer_free(ptr noundef nonnull %7) #3

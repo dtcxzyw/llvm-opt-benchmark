@@ -501,7 +501,7 @@ define internal i32 @dissect_erldp_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.173) #5
   %15 = load i32, ptr @proto_erldp, align 4
@@ -567,7 +567,7 @@ is_handshake.exit:                                ; preds = %22
   %.078.i = phi i32 [ 13, %40 ], [ 9, %38 ], [ 9, %31 ]
   %44 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.078.i) #5
   %45 = load i32, ptr @hf_erldp_name, align 4
-  %46 = getelementptr inbounds i8, ptr %1, i64 408
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr @proto_tree_add_item_ret_string(ptr noundef %18, i32 noundef %45, ptr noundef %0, i32 noundef %.078.i, i32 noundef %44, i32 noundef 0, ptr noundef %47, ptr noundef nonnull %11) #5
   %49 = load ptr, ptr %13, align 8
@@ -604,7 +604,7 @@ is_handshake.exit:                                ; preds = %22
   %67 = add nuw nsw i32 %.179.i, 6
   %68 = load i32, ptr @hf_erldp_name, align 4
   %69 = load i32, ptr %10, align 4
-  %70 = getelementptr inbounds i8, ptr %1, i64 408
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr @proto_tree_add_item_ret_string(ptr noundef %18, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef %69, i32 noundef 0, ptr noundef %71, ptr noundef nonnull %11) #5
   %73 = load ptr, ptr %13, align 8
@@ -631,7 +631,7 @@ is_handshake.exit:                                ; preds = %22
 85:                                               ; preds = %25
   %86 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
   %87 = load i32, ptr @hf_erldp_status, align 4
-  %88 = getelementptr inbounds i8, ptr %1, i64 408
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %89 = load ptr, ptr %88, align 8
   %90 = call ptr @proto_tree_add_item_ret_string(ptr noundef %18, i32 noundef %87, ptr noundef %0, i32 noundef 3, i32 noundef %86, i32 noundef 0, ptr noundef %89, ptr noundef nonnull %11) #5
   %91 = load ptr, ptr %13, align 8
@@ -743,7 +743,7 @@ dissect_etf_versioned_type.exit:                  ; preds = %106, %110
   %140 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %129, i32 noundef %139, ptr noundef %125, i32 noundef 2, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %7) #5
   %141 = load i32, ptr @hf_erldp_fragment_id, align 4
   %142 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %129, i32 noundef %141, ptr noundef %125, i32 noundef 10, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %8) #5
-  %143 = getelementptr inbounds i8, ptr %1, i64 272
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %144 = load i32, ptr %143, align 8
   %145 = call i32 @tvb_reported_length_remaining(ptr noundef %125, i32 noundef 18) #5
   %146 = icmp slt i32 %145, 1
@@ -906,7 +906,7 @@ define internal fastcc i32 @dissect_etf_type(ptr noundef %0, ptr noundef %1, ptr
   %31 = load i32, ptr @hf_erldp_atom_cache_ref, align 4
   %32 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %31, ptr noundef %2, i32 noundef %22, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #5
   %33 = add i32 %3, 2
-  %34 = getelementptr inbounds i8, ptr %1, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %10, align 4
   %37 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %35, ptr noundef nonnull @.str.224, i32 noundef %36) #5
@@ -917,7 +917,7 @@ define internal fastcc i32 @dissect_etf_type(ptr noundef %0, ptr noundef %1, ptr
   %39 = load i32, ptr @hf_erldp_small_int_ext, align 4
   %40 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %39, ptr noundef %2, i32 noundef %22, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #5
   %41 = add i32 %3, 2
-  %42 = getelementptr inbounds i8, ptr %1, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %10, align 4
   %45 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %43, ptr noundef nonnull @.str.225, i32 noundef %44) #5
@@ -928,7 +928,7 @@ define internal fastcc i32 @dissect_etf_type(ptr noundef %0, ptr noundef %1, ptr
   %47 = load i32, ptr @hf_erldp_int_ext, align 4
   %48 = call ptr @proto_tree_add_item_ret_int(ptr noundef %19, i32 noundef %47, ptr noundef %2, i32 noundef %22, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #5
   %49 = add i32 %3, 5
-  %50 = getelementptr inbounds i8, ptr %1, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %8, align 4
   %53 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %51, ptr noundef nonnull @.str.224, i32 noundef %52) #5
@@ -953,7 +953,7 @@ define internal fastcc i32 @dissect_etf_type(ptr noundef %0, ptr noundef %1, ptr
 
 66:                                               ; preds = %27
   %67 = load i32, ptr @hf_erldp_float_ext, align 4
-  %68 = getelementptr inbounds i8, ptr %1, i64 408
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %69 = load ptr, ptr %68, align 8
   %70 = call ptr @proto_tree_add_item_ret_string(ptr noundef %19, i32 noundef %67, ptr noundef %2, i32 noundef %22, i32 noundef 31, i32 noundef 2, ptr noundef %69, ptr noundef nonnull %11) #5
   %71 = add i32 %3, 32
@@ -965,7 +965,7 @@ define internal fastcc i32 @dissect_etf_type(ptr noundef %0, ptr noundef %1, ptr
   %74 = load i32, ptr @hf_erldp_new_float_ext, align 4
   %75 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %74, ptr noundef %2, i32 noundef %22, i32 noundef 8, i32 noundef 0) #5
   %76 = call double @tvb_get_ntohieee_double(ptr noundef %2, i32 noundef %22) #5
-  %77 = getelementptr inbounds i8, ptr %1, i64 408
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %78 = load ptr, ptr %77, align 8
   %79 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %78, ptr noundef nonnull @.str.226, double noundef %76) #5
   store ptr %79, ptr %16, align 8
@@ -978,7 +978,7 @@ define internal fastcc i32 @dissect_etf_type(ptr noundef %0, ptr noundef %1, ptr
   %84 = add i32 %3, 3
   %85 = load i32, ptr @hf_erldp_atom_text, align 4
   %86 = load i32, ptr %9, align 4
-  %87 = getelementptr inbounds i8, ptr %1, i64 408
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %88 = load ptr, ptr %87, align 8
   %89 = call ptr @proto_tree_add_item_ret_string(ptr noundef %19, i32 noundef %85, ptr noundef %2, i32 noundef %84, i32 noundef %86, i32 noundef 2, ptr noundef %88, ptr noundef nonnull %11) #5
   %90 = load i32, ptr %9, align 4
@@ -993,7 +993,7 @@ define internal fastcc i32 @dissect_etf_type(ptr noundef %0, ptr noundef %1, ptr
   %96 = add i32 %3, 2
   %97 = load i32, ptr @hf_erldp_atom_text, align 4
   %98 = load i32, ptr %9, align 4
-  %99 = getelementptr inbounds i8, ptr %1, i64 408
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %100 = load ptr, ptr %99, align 8
   %101 = call ptr @proto_tree_add_item_ret_string(ptr noundef %19, i32 noundef %97, ptr noundef %2, i32 noundef %96, i32 noundef %98, i32 noundef 2, ptr noundef %100, ptr noundef nonnull %11) #5
   %102 = load i32, ptr %9, align 4
@@ -1333,7 +1333,7 @@ define internal fastcc noundef i32 @dissect_etf_big_ext(ptr noundef %0, ptr noca
   %.not = icmp eq i8 %7, 0
   %32 = select i1 %.not, ptr @.str.238, ptr @.str.237
   %33 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format_value(ptr noundef %4, i32 noundef %31, ptr noundef %0, i32 noundef %8, i32 noundef %3, i64 noundef %.059, ptr noundef nonnull @.str.236, ptr noundef nonnull %32, i64 noundef %.059) #5
-  %34 = getelementptr inbounds i8, ptr %1, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %35, ptr noundef nonnull @.str.236, ptr noundef nonnull %32, i64 noundef %.059) #5
   store ptr %36, ptr %5, align 8
@@ -1344,7 +1344,7 @@ define internal fastcc noundef i32 @dissect_etf_big_ext(ptr noundef %0, ptr noca
   br i1 %38, label %39, label %52
 
 39:                                               ; preds = %.thread, %37
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = add nuw nsw i32 %3, 4
   %43 = zext nneg i32 %42 to i64
@@ -1501,7 +1501,7 @@ define internal fastcc i32 @dissect_etf_dist_header(ptr nocapture noundef readon
   %67 = shl nuw nsw i32 1, %66
   %68 = and i32 %67, %53
   %.not90 = icmp eq i32 %68, 0
-  %69 = getelementptr inbounds i8, ptr %0, i64 408
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %. = select i1 %.not90, i32 1, i32 2
   %.105 = select i1 %.not90, i32 2, i32 3
   br label %70
@@ -1584,7 +1584,7 @@ define internal fastcc void @dissect_etf_pdu_data(ptr noundef %0, ptr noundef %1
 11:                                               ; preds = %7
   %12 = add i32 %2, 3
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %12) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i8 %13 to i32
   %17 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @erldp_ctlmsg_vals, ptr noundef nonnull @.str.252) #5

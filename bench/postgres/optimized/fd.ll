@@ -247,7 +247,7 @@ define dso_local zeroext i1 @pg_file_exists(ptr noundef %0) local_unnamed_addr #
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 61440
   %9 = icmp ne i32 %8, 16384
@@ -470,7 +470,7 @@ pg_fsync.exit.thread74._crit_edge:                ; preds = %pg_fsync.exit.threa
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %40, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, %phi.call708689
   br i1 %46, label %47, label %49
@@ -521,7 +521,7 @@ pg_fsync.exit.thread:                             ; preds = %.preheader.i.i, %.t
   br i1 %65, label %66, label %72
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %63, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, %phi.call708689
   br i1 %69, label %70, label %72
@@ -642,7 +642,7 @@ pg_fsync.exit.thread73:                           ; preds = %22, %.preheader.i.i
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %33, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, %8
   br i1 %39, label %40, label %42
@@ -699,7 +699,7 @@ pg_fsync.exit.thread:                             ; preds = %.preheader.i.i, %18
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %59, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, %8
   br i1 %65, label %66, label %68
@@ -812,7 +812,7 @@ define dso_local i32 @CloseTransientFile(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, %0
   br i1 %14, label %15, label %17
@@ -922,7 +922,7 @@ define dso_local void @InitFileAccess() local_unnamed_addr #0 {
   br label %.loopexit
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %15, i8 0, i64 52, i1 false)
   br label %.loopexit
 
@@ -1189,7 +1189,7 @@ define dso_local range(i32 -1, -2147483648) i32 @BasicOpenFilePerm(ptr nocapture
 
 ReleaseLruFile.exit:                              ; preds = %14
   %17 = load ptr, ptr @VfdCache, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i32, ptr %18, align 4
   tail call fastcc void @LruDelete(i32 noundef %19)
   %20 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef %1, i32 noundef %2) #25
@@ -1228,7 +1228,7 @@ define dso_local noundef zeroext i1 @AcquireExternalFD() local_unnamed_addr #0 {
 
 ReleaseLruFile.exit.i.i:                          ; preds = %5, %ReleaseLruFile.exit.i.i
   %11 = load ptr, ptr @VfdCache, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %13 = load i32, ptr %12, align 4
   tail call fastcc void @LruDelete(i32 noundef %13)
   %14 = load i32, ptr @nfile, align 4
@@ -1272,7 +1272,7 @@ define dso_local void @ReserveExternalFD() local_unnamed_addr #0 {
 
 ReleaseLruFile.exit.i:                            ; preds = %0, %ReleaseLruFile.exit.i
   %8 = load ptr, ptr @VfdCache, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %10 = load i32, ptr %9, align 4
   tail call fastcc void @LruDelete(i32 noundef %10)
   %11 = load i32, ptr @nfile, align 4
@@ -1324,7 +1324,7 @@ define dso_local i32 @PathNameOpenFilePerm(ptr nocapture noundef readonly %0, i3
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr @VfdCache, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %AllocateVfd.exit
@@ -1388,7 +1388,7 @@ define dso_local i32 @PathNameOpenFilePerm(ptr nocapture noundef readonly %0, i3
   br label %.loopexit.i
 
 48:                                               ; preds = %.lr.ph35.i
-  %49 = getelementptr inbounds i8, ptr %41, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %49, i8 0, i64 52, i1 false)
   br label %.loopexit.i
 
@@ -1405,7 +1405,7 @@ define dso_local i32 @PathNameOpenFilePerm(ptr nocapture noundef readonly %0, i3
   %54 = getelementptr %struct.vfd, ptr %19, i64 %spec.store.select.i
   %55 = getelementptr i8, ptr %54, i64 -40
   store i32 0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %19, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %27, ptr %56, align 8
   store i64 %spec.store.select.i, ptr @SizeVfdCache, align 8
   br label %AllocateVfd.exit
@@ -1413,7 +1413,7 @@ define dso_local i32 @PathNameOpenFilePerm(ptr nocapture noundef readonly %0, i3
 AllocateVfd.exit:                                 ; preds = %10, %._crit_edge.i
   %57 = phi i32 [ %27, %._crit_edge.i ], [ %13, %10 ]
   %58 = phi ptr [ %19, %._crit_edge.i ], [ %11, %10 ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = sext i32 %57 to i64
   %61 = getelementptr %struct.vfd, ptr %58, i64 %60, i32 3
   %62 = load i32, ptr %61, align 8
@@ -1432,7 +1432,7 @@ AllocateVfd.exit:                                 ; preds = %10, %._crit_edge.i
 
 ReleaseLruFile.exit.i:                            ; preds = %AllocateVfd.exit, %ReleaseLruFile.exit.i
   %71 = load ptr, ptr @VfdCache, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 20
   %73 = load i32, ptr %72, align 4
   tail call fastcc void @LruDelete(i32 noundef %73)
   %74 = load i32, ptr @nfile, align 4
@@ -1458,7 +1458,7 @@ ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit
   %86 = load i32, ptr %85, align 4
   %87 = load ptr, ptr @VfdCache, align 8
   %88 = getelementptr %struct.vfd, ptr %87, i64 %60
-  %89 = getelementptr inbounds i8, ptr %88, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = load ptr, ptr %89, align 8
   %.not.i24 = icmp eq ptr %90, null
   br i1 %.not.i24, label %FreeVfd.exit, label %91
@@ -1469,11 +1469,11 @@ ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit
   br label %FreeVfd.exit
 
 FreeVfd.exit:                                     ; preds = %84, %91
-  %92 = getelementptr inbounds i8, ptr %88, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store i16 0, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %87, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %94 = load i32, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %88, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store i32 %94, ptr %95, align 8
   store i32 %57, ptr %93, align 8
   tail call void @free(ptr noundef %4) #25
@@ -1484,26 +1484,26 @@ FreeVfd.exit:                                     ; preds = %84, %91
   %97 = load i32, ptr @nfile, align 4
   %98 = add i32 %97, 1
   store i32 %98, ptr @nfile, align 4
-  %99 = getelementptr inbounds i8, ptr %63, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %63, i64 40
   store ptr %4, ptr %99, align 8
   %100 = and i32 %81, -705
-  %101 = getelementptr inbounds i8, ptr %63, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %63, i64 48
   store i32 %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %63, i64 52
+  %102 = getelementptr inbounds nuw i8, ptr %63, i64 52
   store i32 %2, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %63, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store i64 0, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %63, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i16 0, ptr %104, align 4
-  %105 = getelementptr inbounds i8, ptr %63, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr null, ptr %105, align 8
   %106 = load ptr, ptr @VfdCache, align 8
   %107 = getelementptr %struct.vfd, ptr %106, i64 %60
-  %108 = getelementptr inbounds i8, ptr %107, i64 20
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 20
   store i32 0, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %106, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %110 = load i32, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %107, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store i32 %110, ptr %111, align 8
   store i32 %57, ptr %109, align 8
   %112 = load i32, ptr %111, align 8
@@ -1625,25 +1625,25 @@ define internal fastcc void @walkdir(ptr noundef %0, ptr nocapture noundef reado
   br label %sub_0
 
 sub_0:                                            ; preds = %.lr.ph, %10
-  %11 = getelementptr inbounds i8, ptr %8, i64 19
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 19
   %12 = load i8, ptr %11, align 1
   %.not27 = icmp eq i8 %12, 46
   br i1 %.not27, label %.tail, label %.tail21.thread
 
 .tail:                                            ; preds = %sub_0
-  %13 = getelementptr inbounds i8, ptr %8, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %.backedge, label %sub_123
 
 sub_123:                                          ; preds = %.tail
-  %16 = getelementptr inbounds i8, ptr %8, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %17 = load i8, ptr %16, align 1
   %.not29 = icmp eq i8 %17, 46
   br i1 %.not29, label %.tail21, label %.tail21.thread
 
 .tail21:                                          ; preds = %sub_123
-  %18 = getelementptr inbounds i8, ptr %8, i64 21
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 21
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.backedge, label %.tail21.thread
@@ -1692,7 +1692,7 @@ sub_123:                                          ; preds = %.tail
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %6
   br i1 %40, label %41, label %43
@@ -2064,7 +2064,7 @@ define dso_local noundef zeroext i1 @PathNameDeleteTemporaryFile(ptr noundef %0,
   br i1 %23, label %.thread23, label %34
 
 .thread23:                                        ; preds = %.thread20, %22
-  %24 = getelementptr inbounds i8, ptr %3, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %25 = load i64, ptr %24, align 8
   tail call void @pgstat_report_tempfile(i64 noundef %25) #25
   %26 = load i32, ptr @log_temp_files, align 4
@@ -2116,7 +2116,7 @@ define dso_local void @FileClose(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %12 = load i16, ptr %11, align 4
   %13 = and i16 %12, 4
   %.not24 = icmp eq i16 %13, 0
@@ -2128,7 +2128,7 @@ define dso_local void @FileClose(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %5, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %21) #25
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1999, ptr noundef nonnull @__func__.FileClose) #25
@@ -2141,9 +2141,9 @@ define dso_local void @FileClose(i32 noundef %0) local_unnamed_addr #0 {
   store i32 -1, ptr %5, align 8
   %26 = load ptr, ptr @VfdCache, align 8
   %27 = getelementptr %struct.vfd, ptr %26, i64 %4
-  %28 = getelementptr inbounds i8, ptr %27, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
   %33 = getelementptr %struct.vfd, ptr %26, i64 %32, i32 4
@@ -2154,14 +2154,14 @@ define dso_local void @FileClose(i32 noundef %0) local_unnamed_addr #0 {
   br label %36
 
 36:                                               ; preds = %23, %1
-  %37 = getelementptr inbounds i8, ptr %5, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %38 = load i16, ptr %37, align 4
   %39 = and i16 %38, 4
   %.not25 = icmp eq i16 %39, 0
   br i1 %.not25, label %45, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %5, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr @temporary_files_size, align 8
   %44 = sub i64 %43, %42
@@ -2177,7 +2177,7 @@ define dso_local void @FileClose(i32 noundef %0) local_unnamed_addr #0 {
 47:                                               ; preds = %45
   %48 = and i16 %38, -2
   store i16 %48, ptr %37, align 4
-  %49 = getelementptr inbounds i8, ptr %5, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = call i32 @stat(ptr noundef %50, ptr noundef nonnull %2) #25
   %.not27 = icmp eq i32 %51, 0
@@ -2212,7 +2212,7 @@ define dso_local void @FileClose(i32 noundef %0) local_unnamed_addr #0 {
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr %49, align 8
-  %68 = getelementptr inbounds i8, ptr %2, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %69 = load i64, ptr %68, align 8
   tail call void @pgstat_report_tempfile(i64 noundef %69) #25
   %70 = load i32, ptr @log_temp_files, align 4
@@ -2246,7 +2246,7 @@ define dso_local void @FileClose(i32 noundef %0) local_unnamed_addr #0 {
   br label %ReportTemporaryFileUsage.exit
 
 ReportTemporaryFileUsage.exit:                    ; preds = %76, %74, %66, %78, %81, %45
-  %85 = getelementptr inbounds i8, ptr %5, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not29 = icmp eq ptr %86, null
   br i1 %.not29, label %88, label %87
@@ -2258,7 +2258,7 @@ ReportTemporaryFileUsage.exit:                    ; preds = %76, %74, %66, %78, 
 88:                                               ; preds = %87, %ReportTemporaryFileUsage.exit
   %89 = load ptr, ptr @VfdCache, align 8
   %90 = getelementptr %struct.vfd, ptr %89, i64 %4
-  %91 = getelementptr inbounds i8, ptr %90, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %92 = load ptr, ptr %91, align 8
   %.not.i30 = icmp eq ptr %92, null
   br i1 %.not.i30, label %FreeVfd.exit, label %93
@@ -2269,11 +2269,11 @@ ReportTemporaryFileUsage.exit:                    ; preds = %76, %74, %66, %78, 
   br label %FreeVfd.exit
 
 FreeVfd.exit:                                     ; preds = %88, %93
-  %94 = getelementptr inbounds i8, ptr %90, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i16 0, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %89, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %96 = load i32, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %90, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i32 %96, ptr %97, align 8
   store i32 %0, ptr %95, align 8
   ret void
@@ -2331,7 +2331,7 @@ define internal fastcc range(i32 -1, 1) i32 @FileAccess(i32 noundef %0) unnamed_
 
 ReleaseLruFile.exit.i.i:                          ; preds = %7, %ReleaseLruFile.exit.i.i
   %15 = load ptr, ptr @VfdCache, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i32, ptr %16, align 4
   tail call fastcc void @LruDelete(i32 noundef %17)
   %18 = load i32, ptr @nfile, align 4
@@ -2346,11 +2346,11 @@ ReleaseLruFile.exit.i.i:                          ; preds = %7, %ReleaseLruFile.
   br i1 %or.cond.i.i, label %ReleaseLruFile.exit.i.i, label %ReleaseLruFiles.exit.i, !llvm.loop !8
 
 ReleaseLruFiles.exit.i:                           ; preds = %ReleaseLruFile.exit.i.i, %7
-  %25 = getelementptr inbounds i8, ptr %4, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @BasicOpenFilePerm(ptr noundef %26, i32 noundef %28, i32 noundef %30)
   store i32 %31, ptr %4, align 8
@@ -2363,25 +2363,25 @@ LruInsert.exit.thread:                            ; preds = %ReleaseLruFiles.exi
   store i32 %34, ptr @nfile, align 4
   %.pre.i = load ptr, ptr @VfdCache, align 8
   %35 = getelementptr %struct.vfd, ptr %.pre.i, i64 %3
-  %36 = getelementptr inbounds i8, ptr %35, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %.pre.i, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 24
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i32 %38, ptr %39, align 8
   store i32 %0, ptr %37, align 8
   br label %LruInsert.exit.sink.split
 
 40:                                               ; preds = %1
-  %41 = getelementptr inbounds i8, ptr %2, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %42 = load i32, ptr %41, align 8
   %.not = icmp eq i32 %42, %0
   br i1 %.not, label %LruInsert.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %4, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %4, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = sext i32 %47 to i64
   %49 = getelementptr %struct.vfd, ptr %2, i64 %48, i32 4
@@ -2457,7 +2457,7 @@ define dso_local i64 @FileReadV(i32 noundef %0, ptr noundef %1, i32 noundef %2, 
   %10 = sext i32 %0 to i64
   %11 = getelementptr %struct.vfd, ptr %9, i64 %10
   %12 = icmp eq i32 %2, 1
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %12, label %pg_preadv.exit.us, label %pg_preadv.exit
 
 pg_preadv.exit.us:                                ; preds = %8, %21
@@ -2514,7 +2514,7 @@ define dso_local i64 @FileWriteV(i32 noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %13, label %14, label %37
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %11, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %16 = load i16, ptr %15, align 4
   %17 = and i16 %16, 4
   %.not = icmp eq i16 %17, 0
@@ -2540,7 +2540,7 @@ define dso_local i64 @FileWriteV(i32 noundef %0, ptr noundef %1, i32 noundef %2,
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.035.lcssa = phi i64 [ %3, %.preheader ], [ %21, %.lr.ph ]
-  %22 = getelementptr inbounds i8, ptr %11, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %23 = load i64, ptr %22, align 8
   %24 = icmp sgt i64 %.035.lcssa, %23
   br i1 %24, label %25, label %37
@@ -2565,7 +2565,7 @@ define dso_local i64 @FileWriteV(i32 noundef %0, ptr noundef %1, i32 noundef %2,
 
 37:                                               ; preds = %._crit_edge, %25, %14, %8
   %38 = icmp eq i32 %2, 1
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %38, label %pg_pwritev.exit.us, label %pg_pwritev.exit
 
 pg_pwritev.exit.us:                               ; preds = %37, %47
@@ -2600,7 +2600,7 @@ pg_pwritev.exit:                                  ; preds = %37, %69
   %.us-phi = phi i64 [ %44, %pg_pwritev.exit.us ], [ %53, %pg_pwritev.exit ]
   %56 = tail call ptr @__errno_location() #26
   store i32 28, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %11, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %58 = load i16, ptr %57, align 4
   %59 = and i16 %58, 4
   %.not41 = icmp eq i16 %59, 0
@@ -2608,7 +2608,7 @@ pg_pwritev.exit:                                  ; preds = %37, %69
 
 60:                                               ; preds = %.split47.us
   %61 = add i64 %.us-phi, %3
-  %62 = getelementptr inbounds i8, ptr %11, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %63 = load i64, ptr %62, align 8
   %64 = icmp sgt i64 %61, %63
   br i1 %64, label %65, label %.loopexit
@@ -2934,7 +2934,7 @@ define dso_local ptr @AllocateFile(ptr noundef %0, ptr nocapture noundef readonl
 
 ReleaseLruFile.exit.i:                            ; preds = %9, %ReleaseLruFile.exit.i
   %17 = load ptr, ptr @VfdCache, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i32, ptr %18, align 4
   tail call fastcc void @LruDelete(i32 noundef %19)
   %20 = load i32, ptr @nfile, align 4
@@ -2964,10 +2964,10 @@ ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit
   %31 = sext i32 %30 to i64
   %32 = getelementptr %struct.AllocateDesc, ptr %29, i64 %31
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %.lcssa, ptr %33, align 8
   %34 = tail call i32 @GetCurrentSubTransactionId() #25
-  %35 = getelementptr inbounds i8, ptr %32, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %34, ptr %35, align 4
   %36 = load i32, ptr @numAllocatedDescs, align 4
   %37 = add i32 %36, 1
@@ -2999,7 +2999,7 @@ ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit
 
 ReleaseLruFile.exit:                              ; preds = %46
   %49 = load ptr, ptr @VfdCache, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %51 = load i32, ptr %50, align 4
   tail call fastcc void @LruDelete(i32 noundef %51)
   %52 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef %1)
@@ -3098,7 +3098,7 @@ define dso_local range(i32 -1, -2147483648) i32 @OpenTransientFilePerm(ptr nound
 
 ReleaseLruFile.exit.i:                            ; preds = %10, %ReleaseLruFile.exit.i
   %18 = load ptr, ptr @VfdCache, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %20 = load i32, ptr %19, align 4
   tail call fastcc void @LruDelete(i32 noundef %20)
   %21 = load i32, ptr @nfile, align 4
@@ -3123,10 +3123,10 @@ ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit
   %33 = sext i32 %32 to i64
   %34 = getelementptr %struct.AllocateDesc, ptr %31, i64 %33
   store i32 3, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 %28, ptr %35, align 8
   %36 = tail call i32 @GetCurrentSubTransactionId() #25
-  %37 = getelementptr inbounds i8, ptr %34, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %36, ptr %37, align 4
   %38 = load i32, ptr @numAllocatedDescs, align 4
   %39 = add i32 %38, 1
@@ -3165,7 +3165,7 @@ define dso_local ptr @OpenPipeStream(ptr noundef %0, ptr nocapture noundef reado
 
 ReleaseLruFile.exit.i:                            ; preds = %9, %ReleaseLruFile.exit.i
   %17 = load ptr, ptr @VfdCache, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i32, ptr %18, align 4
   tail call fastcc void @LruDelete(i32 noundef %19)
   %20 = load i32, ptr @nfile, align 4
@@ -3200,10 +3200,10 @@ ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFiles.exi
   %36 = sext i32 %35 to i64
   %37 = getelementptr %struct.AllocateDesc, ptr %34, i64 %36
   store i32 1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %30, ptr %38, align 8
   %39 = tail call i32 @GetCurrentSubTransactionId() #25
-  %40 = getelementptr inbounds i8, ptr %37, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %39, ptr %40, align 4
   %41 = load i32, ptr @numAllocatedDescs, align 4
   %42 = add i32 %41, 1
@@ -3233,7 +3233,7 @@ ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFiles.exi
 
 ReleaseLruFile.exit:                              ; preds = %50
   %53 = load ptr, ptr @VfdCache, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %55 = load i32, ptr %54, align 4
   tail call fastcc void @LruDelete(i32 noundef %55)
   br label %ReleaseLruFiles.exit
@@ -3275,7 +3275,7 @@ define dso_local i32 @FreeFile(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %0
   br i1 %14, label %15, label %17
@@ -3318,25 +3318,25 @@ define internal fastcc i32 @FreeDesc(ptr nocapture noundef %0) unnamed_addr #0 {
   ]
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @fclose(ptr noundef %5)
   br label %22
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @pclose(ptr noundef %9)
   br label %22
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @closedir(ptr noundef %13)
   br label %22
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @close(i32 noundef %17) #25
   br label %22
@@ -3391,7 +3391,7 @@ define dso_local ptr @AllocateDir(ptr noundef %0) local_unnamed_addr #0 {
 
 ReleaseLruFile.exit.i:                            ; preds = %8, %ReleaseLruFile.exit.i
   %16 = load ptr, ptr @VfdCache, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %18 = load i32, ptr %17, align 4
   tail call fastcc void @LruDelete(i32 noundef %18)
   %19 = load i32, ptr @nfile, align 4
@@ -3421,10 +3421,10 @@ ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit
   %30 = sext i32 %29 to i64
   %31 = getelementptr %struct.AllocateDesc, ptr %28, i64 %30
   store i32 2, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %.lcssa, ptr %32, align 8
   %33 = tail call i32 @GetCurrentSubTransactionId() #25
-  %34 = getelementptr inbounds i8, ptr %31, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %33, ptr %34, align 4
   %35 = load i32, ptr @numAllocatedDescs, align 4
   %36 = add i32 %35, 1
@@ -3456,7 +3456,7 @@ ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit
 
 ReleaseLruFile.exit:                              ; preds = %45
   %48 = load ptr, ptr @VfdCache, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %50 = load i32, ptr %49, align 4
   tail call fastcc void @LruDelete(i32 noundef %50)
   %51 = tail call ptr @opendir(ptr noundef %0)
@@ -3545,7 +3545,7 @@ define dso_local i32 @FreeDir(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
   br i1 %16, label %17, label %19
@@ -3600,7 +3600,7 @@ define dso_local i32 @ClosePipeStream(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %0
   br i1 %14, label %15, label %17
@@ -3684,7 +3684,7 @@ define internal fastcc void @LruDelete(i32 noundef %0) unnamed_addr #0 {
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 4
   %.not5 = icmp eq i16 %10, 0
@@ -3696,7 +3696,7 @@ define internal fastcc void @LruDelete(i32 noundef %0) unnamed_addr #0 {
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds i8, ptr %4, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %18) #25
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1304, ptr noundef nonnull @__func__.LruDelete) #25
@@ -3709,9 +3709,9 @@ define internal fastcc void @LruDelete(i32 noundef %0) unnamed_addr #0 {
   store i32 %22, ptr @nfile, align 4
   %23 = load ptr, ptr @VfdCache, align 8
   %24 = getelementptr %struct.vfd, ptr %23, i64 %3
-  %25 = getelementptr inbounds i8, ptr %24, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %24, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %28 to i64
   %30 = getelementptr %struct.vfd, ptr %23, i64 %29, i32 4
@@ -3815,7 +3815,7 @@ define dso_local void @AtEOSubXact_Files(i1 noundef zeroext %0, i32 noundef %1, 
   %.08 = phi i32 [ %24, %21 ], [ 0, %.lr.ph ]
   %13 = zext i32 %.08 to i64
   %14 = getelementptr %struct.AllocateDesc, ptr %12, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %1
   br i1 %17, label %18, label %21
@@ -4001,25 +4001,25 @@ define dso_local void @RemovePgTempFiles() local_unnamed_addr #0 {
 
 sub_0:                                            ; preds = %0, %.backedge
   %5 = phi ptr [ %16, %.backedge ], [ %4, %0 ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 19
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 19
   %7 = load i8, ptr %6, align 1
   %.not12 = icmp eq i8 %7, 46
   br i1 %.not12, label %.tail, label %.tail6.thread
 
 .tail:                                            ; preds = %sub_0
-  %8 = getelementptr inbounds i8, ptr %5, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %.backedge, label %sub_18
 
 sub_18:                                           ; preds = %.tail
-  %11 = getelementptr inbounds i8, ptr %5, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %12 = load i8, ptr %11, align 1
   %.not14 = icmp eq i8 %12, 46
   br i1 %.not14, label %.tail6, label %.tail6.thread
 
 .tail6:                                           ; preds = %sub_18
-  %13 = getelementptr inbounds i8, ptr %5, i64 21
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 21
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %.backedge, label %.tail6.thread
@@ -4059,7 +4059,7 @@ sub_18:                                           ; preds = %.tail
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %3
   br i1 %33, label %34, label %36
@@ -4111,25 +4111,25 @@ define dso_local void @RemovePgTempFilesInDir(ptr noundef %0, i1 noundef zeroext
 
 sub_0:                                            ; preds = %11, %.backedge
   %13 = phi ptr [ %26, %.backedge ], [ %12, %11 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 19
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %15 = load i8, ptr %14, align 1
   %.not24 = icmp eq i8 %15, 46
   br i1 %.not24, label %.tail, label %.tail18.thread
 
 .tail:                                            ; preds = %sub_0
-  %16 = getelementptr inbounds i8, ptr %13, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.backedge, label %sub_120
 
 sub_120:                                          ; preds = %.tail
-  %19 = getelementptr inbounds i8, ptr %13, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %20 = load i8, ptr %19, align 1
   %.not26 = icmp eq i8 %20, 46
   br i1 %.not26, label %.tail18, label %.tail18.thread
 
 .tail18:                                          ; preds = %sub_120
-  %21 = getelementptr inbounds i8, ptr %13, i64 21
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 21
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %.backedge, label %.tail18.thread
@@ -4213,7 +4213,7 @@ sub_120:                                          ; preds = %.tail
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %52, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, %5
   br i1 %58, label %59, label %61
@@ -4255,7 +4255,7 @@ define internal fastcc void @RemovePgTempRelationFiles(ptr noundef %0) unnamed_a
 
 .lr.ph:                                           ; preds = %1, %.backedge
   %6 = phi ptr [ %112, %.backedge ], [ %5, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 19
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 19
   %8 = call i64 @strspn(ptr noundef nonnull %7, ptr noundef nonnull @.str.60) #30
   %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
   %.not8 = icmp eq i64 %8, %9
@@ -4272,7 +4272,7 @@ define internal fastcc void @RemovePgTempRelationFiles(ptr noundef %0) unnamed_a
 
 .lr.ph.i:                                         ; preds = %10, %80
   %15 = phi ptr [ %82, %80 ], [ %13, %10 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 19
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 19
   %17 = load i8, ptr %16, align 1
   %.not.i13 = icmp eq i8 %17, 116
   br i1 %.not.i13, label %.preheader39.i, label %.backedge.i
@@ -4442,7 +4442,7 @@ looks_like_temp_rel_name.exit:                    ; preds = %50, %63
   br i1 %98, label %99, label %105
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %96, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, %12
   br i1 %102, label %103, label %105
@@ -4501,7 +4501,7 @@ RemovePgTempRelationFilesInDbspace.exit:          ; preds = %75, %77, %._crit_ed
   br i1 %123, label %124, label %130
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %121, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, %4
   br i1 %127, label %128, label %130
@@ -4672,7 +4672,7 @@ define dso_local void @SyncDataDirectory() local_unnamed_addr #0 {
   br label %18
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 61440
   %17 = icmp eq i32 %16, 40960
@@ -4694,25 +4694,25 @@ define dso_local void @SyncDataDirectory() local_unnamed_addr #0 {
 
 sub_0:                                            ; preds = %21, %.backedge
   %24 = phi ptr [ %35, %.backedge ], [ %23, %21 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 19
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 19
   %26 = load i8, ptr %25, align 1
   %.not14 = icmp eq i8 %26, 46
   br i1 %.not14, label %.tail, label %.tail8.thread
 
 .tail:                                            ; preds = %sub_0
-  %27 = getelementptr inbounds i8, ptr %24, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %.backedge, label %sub_110
 
 sub_110:                                          ; preds = %.tail
-  %30 = getelementptr inbounds i8, ptr %24, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %31 = load i8, ptr %30, align 1
   %.not16 = icmp eq i8 %31, 46
   br i1 %.not16, label %.tail8, label %.tail8.thread
 
 .tail8:                                           ; preds = %sub_110
-  %32 = getelementptr inbounds i8, ptr %24, i64 21
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 21
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %.backedge, label %.tail8.thread
@@ -4750,7 +4750,7 @@ sub_110:                                          ; preds = %.tail
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %45, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %22
   br i1 %51, label %52, label %54
@@ -4884,7 +4884,7 @@ define internal fastcc void @do_syncfs(ptr noundef %0) unnamed_addr #0 {
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, %14
   br i1 %42, label %43, label %45
@@ -4973,7 +4973,7 @@ define internal void @pre_sync_fname(ptr noundef %0, i1 noundef zeroext %1, i32 
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %32, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, %17
   br i1 %38, label %39, label %41
@@ -5073,8 +5073,8 @@ define dso_local noundef zeroext i1 @check_debug_io_direct(ptr nocapture noundef
   br i1 %.not, label %._crit_edge32, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i32, ptr %15, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph38, label %._crit_edge32

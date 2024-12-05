@@ -499,7 +499,7 @@ thread-pre-split:                                 ; preds = %21, %34
   %378 = load i32, ptr %1, align 4, !tbaa !3
   store i32 %378, ptr %16, align 4, !tbaa !3
   %379 = load i32, ptr %2, align 4, !tbaa !3
-  %380 = getelementptr inbounds i8, ptr %16, i64 4
+  %380 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 %379, ptr %380, align 4, !tbaa !3
   %381 = load i32, ptr %15, align 4, !tbaa !3
   %382 = sext i32 %381 to i64

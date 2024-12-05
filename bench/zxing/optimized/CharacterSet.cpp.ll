@@ -107,7 +107,7 @@ define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_vi
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %.noexc.i.i.i
-  %12 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 24
   %.val.i.i.i.i = load i64, ptr %12, align 8
   %13 = getelementptr i8, ptr %.02950.i.i.i.i, i64 32
   %.val31.i.i.i.i = load ptr, ptr %13, align 8
@@ -118,7 +118,7 @@ define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_vi
   br i1 %14, label %.loopexit.loopexit.split.loop.exit, label %15
 
 15:                                               ; preds = %.noexc2.i.i.i
-  %16 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 48
   %.val32.i.i.i.i = load i64, ptr %16, align 8
   %17 = getelementptr i8, ptr %.02950.i.i.i.i, i64 56
   %.val33.i.i.i.i = load ptr, ptr %17, align 8
@@ -129,7 +129,7 @@ define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_vi
   br i1 %18, label %.loopexit.loopexit.split.loop.exit22, label %19
 
 19:                                               ; preds = %.noexc3.i.i.i
-  %20 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 72
   %.val34.i.i.i.i = load i64, ptr %20, align 8
   %21 = getelementptr i8, ptr %.02950.i.i.i.i, i64 80
   %.val35.i.i.i.i = load ptr, ptr %21, align 8
@@ -140,14 +140,14 @@ define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_vi
   br i1 %22, label %.loopexit.loopexit.split.loop.exit24, label %23
 
 23:                                               ; preds = %.noexc4.i.i.i
-  %24 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 96
   %25 = add nsw i64 %.051.i.i.i.i, -1
   %26 = icmp ugt i64 %.051.i.i.i.i, 1
   br i1 %26, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !7
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %23
   %.pre.i.i.i.i = ptrtoint ptr %24 to i64
-  %.pre56.i.i.i.i = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1008) to i64), %.pre.i.i.i.i
+  %.pre56.i.i.i.i = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1008) to i64), %.pre.i.i.i.i
   %27 = sdiv exact i64 %.pre56.i.i.i.i, 24
   switch i64 %27, label %41 [
     i64 3, label %28
@@ -166,7 +166,7 @@ define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_vi
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %.noexc5.i.i.i
-  %32 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 120
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge.loopexit.i.i.i.i
@@ -181,7 +181,7 @@ define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_vi
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %.noexc6.i.i.i
-  %37 = getelementptr inbounds i8, ptr %.1.i.i.i.i, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 24
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge.loopexit.i.i.i.i
@@ -235,19 +235,19 @@ define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_vi
   br label %.body
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.noexc2.i.i.i
-  %47 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 24
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit22:             ; preds = %.noexc3.i.i.i
-  %48 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 48
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit24:             ; preds = %.noexc4.i.i.i
-  %49 = getelementptr inbounds i8, ptr %.02950.i.i.i.i, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i, i64 72
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc.i.i.i, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit22, %.loopexit.loopexit.split.loop.exit24, %41, %.noexc7.i.i.i, %.noexc6.i.i.i, %.noexc5.i.i.i
-  %.028.i.i.i.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1008), %41 ], [ %24, %.noexc5.i.i.i ], [ %.1.i.i.i.i, %.noexc6.i.i.i ], [ %.2.i.i.i.i, %.noexc7.i.i.i ], [ %47, %.loopexit.loopexit.split.loop.exit ], [ %48, %.loopexit.loopexit.split.loop.exit22 ], [ %49, %.loopexit.loopexit.split.loop.exit24 ], [ %.02950.i.i.i.i, %.noexc.i.i.i ]
+  %.028.i.i.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1008), %41 ], [ %24, %.noexc5.i.i.i ], [ %.1.i.i.i.i, %.noexc6.i.i.i ], [ %.2.i.i.i.i, %.noexc7.i.i.i ], [ %47, %.loopexit.loopexit.split.loop.exit ], [ %48, %.loopexit.loopexit.split.loop.exit22 ], [ %49, %.loopexit.loopexit.split.loop.exit24 ], [ %.02950.i.i.i.i, %.noexc.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #9
@@ -257,11 +257,11 @@ define noundef zeroext i8 @_ZN5ZXing22CharacterSetFromStringESt17basic_string_vi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #9
-  %50 = icmp eq ptr %.028.i.i.i.i, getelementptr inbounds (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1008)
+  %50 = icmp eq ptr %.028.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 1008)
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %.loopexit
-  %52 = getelementptr inbounds i8, ptr %.028.i.i.i.i, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i, i64 16
   %53 = load i8, ptr %52, align 8
   br label %54
 
@@ -291,7 +291,7 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
   %8 = extractvalue { i64, ptr } %6, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %7, ptr %8) #9
   %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %9, ptr %11, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %12 unwind label %73
@@ -313,8 +313,8 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
   %18 = call i32 @tolower(i32 noundef %17) #10
   %19 = trunc i32 %18 to i8
   store i8 %19, ptr %.sroa.0.08.i, align 1
-  %20 = getelementptr inbounds i8, ptr %.sroa.03.07.i, i64 1
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.08.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 1
   %.not.i = icmp eq ptr %20, %14
   br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_0ET0_T_SF_SE_T1_.exit", label %.lr.ph.i, !llvm.loop !9
 
@@ -343,7 +343,7 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
   br i1 %.not42.i.i.i.i, label %32, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i"
 
 32:                                               ; preds = %.lr.ph.i.i.i.i
-  %33 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = sext i8 %34 to i32
   %memchr.i.i16.i.i.i.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.44, i32 %35, i64 6)
@@ -351,7 +351,7 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
   br i1 %.not43.i.i.i.i, label %36, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit"
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i, i64 2
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
   %memchr.i.i17.i.i.i.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.44, i32 %39, i64 6)
@@ -359,7 +359,7 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
   br i1 %.not44.i.i.i.i, label %40, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit26"
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i, i64 3
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i32
   %memchr.i.i18.i.i.i.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.44, i32 %43, i64 6)
@@ -367,7 +367,7 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
   br i1 %.not45.i.i.i.i, label %44, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit28"
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i, i64 4
   %46 = add nsw i64 %.057.i.i.i.i, -1
   %47 = icmp sgt i64 %.057.i.i.i.i, 1
   br i1 %47, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !10
@@ -394,7 +394,7 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
   br i1 %.not.i.i.i.i, label %52, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i"
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa.i.i.i.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa.i.i.i.i, i64 1
   br label %54
 
 54:                                               ; preds = %52, %._crit_edge.i.i.i.i
@@ -406,7 +406,7 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
   br i1 %.not40.i.i.i.i, label %57, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i"
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %.sroa.031.1.i.i.i.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.031.1.i.i.i.i, i64 1
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge.i.i.i.i
@@ -419,21 +419,21 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit": ; preds = %32
-  %62 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i, i64 1
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit26": ; preds = %36
-  %63 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i, i64 2
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit28": ; preds = %40
-  %64 = getelementptr inbounds i8, ptr %.sroa.031.056.i.i.i.i, i64 3
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.031.056.i.i.i.i, i64 3
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit26", %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit28", %59, %54, %49
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.031.0.lcssa.i.i.i.i, %49 ], [ %.sroa.031.1.i.i.i.i, %54 ], [ %spec.select.i.i.i.i, %59 ], [ %62, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %63, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit26" ], [ %64, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1EEET_SH_SH_T0_.exit.i.i.loopexit.split.loop.exit28" ], [ %.sroa.031.056.i.i.i.i, %.lr.ph.i.i.i.i ]
   %65 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %23
-  %.sroa.06.026.i.i = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 1
+  %.sroa.06.026.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 1
   %.not27.i.i = icmp eq ptr %.sroa.06.026.i.i, %23
   %or.cond.i.i = select i1 %65, i1 true, i1 %.not27.i.i
   br i1 %or.cond.i.i, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1ET_SE_SE_T0_.exit", label %.lr.ph.i.i
@@ -449,12 +449,12 @@ define internal fastcc void @_ZN5ZXingL13NormalizeNameB5cxx11ESt17basic_string_v
 
 68:                                               ; preds = %.lr.ph.i.i
   store i8 %66, ptr %.sroa.012.128.i.i, align 1
-  %69 = getelementptr inbounds i8, ptr %.sroa.012.128.i.i, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.012.128.i.i, i64 1
   br label %70
 
 70:                                               ; preds = %68, %.lr.ph.i.i
   %.sroa.012.2.i.i = phi ptr [ %.sroa.012.128.i.i, %.lr.ph.i.i ], [ %69, %68 ]
-  %.sroa.06.0.i.i = getelementptr inbounds i8, ptr %.sroa.06.029.i.i, i64 1
+  %.sroa.06.0.i.i = getelementptr inbounds nuw i8, ptr %.sroa.06.029.i.i, i64 1
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, %23
   br i1 %.not.i.i, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN5ZXingL13NormalizeNameESt17basic_string_viewIcS6_EE3$_1ET_SE_SE_T0_.exit", label %.lr.ph.i.i, !llvm.loop !11
 
@@ -496,7 +496,7 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_12CharacterSetE(ptr dead_on_unwind noa
 .lr.ph.i.i.i.i:                                   ; preds = %17, %2
   %.057.i.i.i.i = phi i64 [ %18, %17 ], [ 10, %2 ]
   %.02956.i.i.i.i.idx = phi i64 [ %.02956.i.i.i.i.add32, %17 ], [ 0, %2 ]
-  %.02956.i.i.i.i.ptr = getelementptr inbounds i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 %.02956.i.i.i.i.idx
+  %.02956.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 %.02956.i.i.i.i.idx
   %6 = getelementptr i8, ptr %.02956.i.i.i.i.ptr, i64 16
   %.029.val.i.i.i.i = load i8, ptr %6, align 16
   %7 = icmp eq i8 %.029.val.i.i.i.i, %1
@@ -546,12 +546,12 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_12CharacterSetE(ptr dead_on_unwind noa
 
 "_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread44": ; preds = %.lr.ph.i.i.i.i, %.loopexit.split.loop.exit47.i.i.i.i, %.loopexit.split.loop.exit51.i.i.i.i
   %.028.i.i.i.i.idx.ph = phi i64 [ %.02956.i.i.i.i.add, %.loopexit.split.loop.exit51.i.i.i.i ], [ %.02956.i.i.i.i.add31, %.loopexit.split.loop.exit47.i.i.i.i ], [ %.02956.i.i.i.i.idx, %.lr.ph.i.i.i.i ]
-  %.028.i.i.i.i.ptr46 = getelementptr inbounds i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 %.028.i.i.i.i.idx.ph
+  %.028.i.i.i.i.ptr46 = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 %.028.i.i.i.i.idx.ph
   br label %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread"
 
 "_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit": ; preds = %11
   %.02956.i.i.i.i.add30 = add nuw nsw i64 %.02956.i.i.i.i.idx, 48
-  %.028.i.i.i.i.ptr = getelementptr inbounds i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 %.02956.i.i.i.i.add30
+  %.028.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr @_ZN5ZXingL15NAME_TO_CHARSETE, i64 %.02956.i.i.i.i.add30
   %.not = icmp eq i64 %.02956.i.i.i.i.add30, 1008
   br i1 %.not, label %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread21", label %"_ZN5ZXing6FindIfIA42_NS_16CharacterSetNameEZNS_8ToStringB5cxx11ENS_12CharacterSetEE3$_0EEDTclsr3stdE5beginfp_EERT_T0_.exit.thread"
 
@@ -579,14 +579,14 @@ define void @_ZN5ZXing8ToStringB5cxx11ENS_12CharacterSetE(ptr dead_on_unwind noa
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %.sroa.0.0.copyload.i = load i64, ptr %.028.i.i.i.i17, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.028.i.i.i.i17, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i17, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %26 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.0.0.copyload.i, ptr %.sroa.2.0.copyload.i) #9
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 %27, ptr %28) #9
   %29 = load i64, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %31 = load ptr, ptr %30, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %29, ptr %31, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %32 unwind label %.body

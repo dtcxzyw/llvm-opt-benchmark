@@ -135,13 +135,13 @@ common.ret9:                                      ; preds = %if.else, %if.then13
 if.then:                                          ; preds = %entry
   %sub = add i64 %n, -1
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %sub)
   %sub2 = fsub double %x, %call
   %call4 = tail call noundef double @_ZNK8QuantLib28GaussianOrthogonalPolynomial5valueEmd(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %sub, double noundef %x)
   %vtable6 = load ptr, ptr %this, align 8, !tbaa !3
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 32
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 32
   %1 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %sub)
   %sub9 = add i64 %n, -2
@@ -157,7 +157,7 @@ if.else:                                          ; preds = %entry
 
 if.then13:                                        ; preds = %if.else
   %vtable14 = load ptr, ptr %this, align 8, !tbaa !3
-  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 24
+  %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 24
   %4 = load ptr, ptr %vfn15, align 8
   %call16 = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef 0)
   %sub17 = fsub double %x, %call16
@@ -171,7 +171,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 define noundef double @_ZNK8QuantLib28GaussianOrthogonalPolynomial13weightedValueEmd(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %n, double noundef %x) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(8) %this, double noundef %x)
   %call2 = tail call double @sqrt(double noundef %call) #22, !tbaa !6
@@ -447,7 +447,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -460,7 +460,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i

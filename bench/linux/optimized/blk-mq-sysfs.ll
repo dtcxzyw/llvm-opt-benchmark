@@ -34,8 +34,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @blk_mq_hctx_kobj_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 384
-  tail call void @kobject_init(ptr noundef %2, ptr noundef nonnull @blk_mq_hw_ktype) #5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  tail call void @kobject_init(ptr noundef nonnull %2, ptr noundef nonnull @blk_mq_hw_ktype) #5
   ret void
 }
 
@@ -44,7 +44,7 @@ declare dso_local void @kobject_init(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @blk_mq_sysfs_deinit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %3
 
 3:                                                ; preds = %1, %13
@@ -69,15 +69,15 @@ define dso_local void @blk_mq_sysfs_deinit(ptr nocapture noundef readonly %0) lo
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %15
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 120
-  tail call void @kobject_put(ptr noundef %21) #5
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 120
+  tail call void @kobject_put(ptr noundef nonnull %21) #5
   %22 = add nuw nsw i64 %10, 1
   %23 = and i64 %22, 127
   %24 = icmp samesign ugt i64 %23, 63
   br i1 %24, label %.thread, label %3, !prof !6, !llvm.loop !7
 
 .thread:                                          ; preds = %3, %13, %9
-  %25 = getelementptr inbounds i8, ptr %0, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load ptr, ptr %25, align 8
   tail call void @kobject_put(ptr noundef %26) #5
   ret void
@@ -94,10 +94,10 @@ declare dso_local void @kobject_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @blk_mq_sysfs_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   tail call void @kobject_init(ptr noundef %3, ptr noundef nonnull @blk_mq_ktype) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %5
 
 5:                                                ; preds = %1, %15
@@ -124,8 +124,8 @@ define dso_local void @blk_mq_sysfs_init(ptr nocapture noundef readonly %0) loca
   %22 = inttoptr i64 %21 to ptr
   %23 = load ptr, ptr %2, align 8
   %24 = tail call ptr @kobject_get(ptr noundef %23) #5
-  %25 = getelementptr inbounds i8, ptr %22, i64 120
-  tail call void @kobject_init(ptr noundef %25, ptr noundef nonnull @blk_mq_ctx_ktype) #5
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 120
+  tail call void @kobject_init(ptr noundef nonnull %25, ptr noundef nonnull @blk_mq_ctx_ktype) #5
   %26 = add nuw nsw i64 %12, 1
   %27 = and i64 %26, 127
   %28 = icmp samesign ugt i64 %27, 63
@@ -142,16 +142,16 @@ declare dso_local ptr @kobject_get(ptr noundef) local_unnamed_addr #1
 define dso_local i32 @blk_mq_sysfs_register(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  %6 = getelementptr inbounds i8, ptr %5, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 200
-  %11 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef %7, ptr noundef %10, ptr noundef nonnull @.str) #5
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %11 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef %7, ptr noundef nonnull %10, ptr noundef nonnull @.str) #5
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %58, label %13
 
@@ -159,8 +159,8 @@ define dso_local i32 @blk_mq_sysfs_register(ptr nocapture noundef readonly %0) l
   %14 = load ptr, ptr %6, align 8
   %15 = tail call i32 @kobject_uevent(ptr noundef %14, i32 noundef 0) #5
   store i64 0, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 56
-  %17 = call ptr @xa_find(ptr noundef %16, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %17 = call ptr @xa_find(ptr noundef nonnull %16, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit7, label %.preheader6
 
@@ -171,19 +171,19 @@ define dso_local i32 @blk_mq_sysfs_register(ptr nocapture noundef readonly %0) l
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %.preheader6
-  %23 = call ptr @xa_find_after(ptr noundef %16, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
+  %23 = call ptr @xa_find_after(ptr noundef nonnull %16, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.loopexit7, label %.preheader6, !llvm.loop !11
 
 .loopexit7:                                       ; preds = %22, %13
   %25 = phi i32 [ %11, %13 ], [ 0, %22 ]
-  %26 = getelementptr inbounds i8, ptr %5, i64 872
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 872
   store i8 1, ptr %26, align 8
   br label %58
 
 27:                                               ; preds = %.preheader6
   store i64 0, ptr %3, align 8
-  %28 = call ptr @xa_find(ptr noundef %16, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #5
+  %28 = call ptr @xa_find(ptr noundef nonnull %16, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #5
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.loopexit, label %.preheader
 
@@ -195,13 +195,13 @@ define dso_local i32 @blk_mq_sysfs_register(ptr nocapture noundef readonly %0) l
   br i1 %33, label %34, label %52
 
 34:                                               ; preds = %.preheader
-  %35 = getelementptr inbounds i8, ptr %30, i64 254
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 254
   %36 = load i16, ptr %35, align 2
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %52, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %30, i64 256
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 256
   br label %40
 
 40:                                               ; preds = %40, %38
@@ -209,8 +209,8 @@ define dso_local i32 @blk_mq_sysfs_register(ptr nocapture noundef readonly %0) l
   %42 = load ptr, ptr %39, align 64
   %43 = getelementptr ptr, ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 120
-  call void @kobject_del(ptr noundef %45) #5
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 120
+  call void @kobject_del(ptr noundef nonnull %45) #5
   %46 = add nuw nsw i64 %41, 1
   %47 = load i16, ptr %35, align 2
   %48 = zext i16 %47 to i64
@@ -218,12 +218,12 @@ define dso_local i32 @blk_mq_sysfs_register(ptr nocapture noundef readonly %0) l
   br i1 %49, label %40, label %50, !llvm.loop !12
 
 50:                                               ; preds = %40
-  %51 = getelementptr inbounds i8, ptr %30, i64 384
-  call void @kobject_del(ptr noundef %51) #5
+  %51 = getelementptr inbounds nuw i8, ptr %30, i64 384
+  call void @kobject_del(ptr noundef nonnull %51) #5
   br label %52
 
 52:                                               ; preds = %50, %34, %.preheader
-  %53 = call ptr @xa_find_after(ptr noundef %16, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #5
+  %53 = call ptr @xa_find_after(ptr noundef nonnull %16, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #5
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.loopexit, label %.preheader, !llvm.loop !13
 
@@ -252,20 +252,20 @@ declare dso_local ptr @xa_find(ptr noundef, ptr noundef, i64 noundef, i32 nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @blk_mq_register_hctx(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 254
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 254
   %3 = load i16, ptr %2, align 2
   %4 = icmp eq i16 %3, 0
   br i1 %4, label %.loopexit5, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 384
-  %9 = getelementptr inbounds i8, ptr %7, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 340
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %12 = load i32, ptr %11, align 4
-  %13 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef %8, ptr noundef %10, ptr noundef nonnull @.str.5, i32 noundef %12) #5
+  %13 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef nonnull %8, ptr noundef %10, ptr noundef nonnull @.str.5, i32 noundef %12) #5
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %.loopexit5
 
@@ -275,7 +275,7 @@ define internal fastcc i32 @blk_mq_register_hctx(ptr noundef nonnull %0) unnamed
   br i1 %17, label %.loopexit5, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 256
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %20
 
 20:                                               ; preds = %33, %18
@@ -283,10 +283,10 @@ define internal fastcc i32 @blk_mq_register_hctx(ptr noundef nonnull %0) unnamed
   %22 = load ptr, ptr %19, align 64
   %23 = getelementptr ptr, ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 120
-  %26 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %27 = load i32, ptr %26, align 64
-  %28 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef %25, ptr noundef %8, ptr noundef nonnull @.str.8, i32 noundef %27) #5
+  %28 = tail call i32 (ptr, ptr, ptr, ...) @kobject_add(ptr noundef nonnull %25, ptr noundef nonnull %8, ptr noundef nonnull @.str.8, i32 noundef %27) #5
   %29 = icmp eq i32 %28, 0
   %30 = load i16, ptr %2, align 2
   br i1 %29, label %33, label %31
@@ -311,8 +311,8 @@ define internal fastcc i32 @blk_mq_register_hctx(ptr noundef nonnull %0) unnamed
   %41 = load ptr, ptr %19, align 64
   %42 = getelementptr ptr, ptr %41, i64 %38
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 120
-  tail call void @kobject_del(ptr noundef %44) #5
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 120
+  tail call void @kobject_del(ptr noundef nonnull %44) #5
   %.pre = load i16, ptr %2, align 2
   br label %45
 
@@ -324,7 +324,7 @@ define internal fastcc i32 @blk_mq_register_hctx(ptr noundef nonnull %0) unnamed
   br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %45, %31
-  tail call void @kobject_del(ptr noundef %8) #5
+  tail call void @kobject_del(ptr noundef nonnull %8) #5
   br label %.loopexit5
 
 .loopexit5:                                       ; preds = %33, %.loopexit, %15, %5, %1
@@ -341,24 +341,24 @@ declare dso_local void @kobject_del(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @blk_mq_sysfs_unregister(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   store i64 0, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
-  %6 = call ptr @xa_find(ptr noundef %5, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %6 = call ptr @xa_find(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %26
   %8 = phi ptr [ %27, %26 ], [ %6, %1 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 254
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 254
   %10 = load i16, ptr %9, align 2
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %26, label %12
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %8, i64 256
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 256
   br label %14
 
 14:                                               ; preds = %14, %12
@@ -366,8 +366,8 @@ define dso_local void @blk_mq_sysfs_unregister(ptr nocapture noundef readonly %0
   %16 = load ptr, ptr %13, align 64
   %17 = getelementptr ptr, ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 120
-  call void @kobject_del(ptr noundef %19) #5
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
+  call void @kobject_del(ptr noundef nonnull %19) #5
   %20 = add nuw nsw i64 %15, 1
   %21 = load i16, ptr %9, align 2
   %22 = zext i16 %21 to i64
@@ -375,22 +375,22 @@ define dso_local void @blk_mq_sysfs_unregister(ptr nocapture noundef readonly %0
   br i1 %23, label %14, label %24, !llvm.loop !12
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %8, i64 384
-  call void @kobject_del(ptr noundef %25) #5
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 384
+  call void @kobject_del(ptr noundef nonnull %25) #5
   br label %26
 
 26:                                               ; preds = %24, %.preheader
-  %27 = call ptr @xa_find_after(ptr noundef %5, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
+  %27 = call ptr @xa_find_after(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %26, %1
-  %29 = getelementptr inbounds i8, ptr %4, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 @kobject_uevent(ptr noundef %30, i32 noundef 1) #5
   %32 = load ptr, ptr %29, align 8
   call void @kobject_del(ptr noundef %32) #5
-  %33 = getelementptr inbounds i8, ptr %4, i64 872
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 872
   store i8 0, ptr %33, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   ret void
@@ -401,29 +401,29 @@ define dso_local void @blk_mq_sysfs_unregister_hctxs(ptr noundef %0) local_unnam
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   store i64 0, ptr %2, align 8, !annotation !17
-  %3 = getelementptr inbounds i8, ptr %0, i64 664
-  tail call void @mutex_lock(ptr noundef %3) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 872
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  tail call void @mutex_lock(ptr noundef nonnull %3) #5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %5 = load i8, ptr %4, align 8, !range !18, !noundef !19
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
   store i64 0, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
-  %9 = call ptr @xa_find(ptr noundef %8, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %9 = call ptr @xa_find(ptr noundef nonnull %8, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %7, %29
   %11 = phi ptr [ %30, %29 ], [ %9, %7 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 254
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 254
   %13 = load i16, ptr %12, align 2
   %14 = icmp eq i16 %13, 0
   br i1 %14, label %29, label %15
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %11, i64 256
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 256
   br label %17
 
 17:                                               ; preds = %17, %15
@@ -431,8 +431,8 @@ define dso_local void @blk_mq_sysfs_unregister_hctxs(ptr noundef %0) local_unnam
   %19 = load ptr, ptr %16, align 64
   %20 = getelementptr ptr, ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 120
-  call void @kobject_del(ptr noundef %22) #5
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 120
+  call void @kobject_del(ptr noundef nonnull %22) #5
   %23 = add nuw nsw i64 %18, 1
   %24 = load i16, ptr %12, align 2
   %25 = zext i16 %24 to i64
@@ -440,17 +440,17 @@ define dso_local void @blk_mq_sysfs_unregister_hctxs(ptr noundef %0) local_unnam
   br i1 %26, label %17, label %27, !llvm.loop !12
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %11, i64 384
-  call void @kobject_del(ptr noundef %28) #5
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 384
+  call void @kobject_del(ptr noundef nonnull %28) #5
   br label %29
 
 29:                                               ; preds = %27, %.preheader
-  %30 = call ptr @xa_find_after(ptr noundef %8, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
+  %30 = call ptr @xa_find_after(ptr noundef nonnull %8, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %29, %7, %1
-  call void @mutex_unlock(ptr noundef %3) #5
+  call void @mutex_unlock(ptr noundef nonnull %3) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   ret void
 }
@@ -466,17 +466,17 @@ define dso_local i32 @blk_mq_sysfs_register_hctxs(ptr noundef %0) local_unnamed_
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   store i64 0, ptr %2, align 8, !annotation !17
-  %3 = getelementptr inbounds i8, ptr %0, i64 664
-  tail call void @mutex_lock(ptr noundef %3) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 872
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  tail call void @mutex_lock(ptr noundef nonnull %3) #5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %5 = load i8, ptr %4, align 8, !range !18, !noundef !19
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
   store i64 0, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
-  %9 = call ptr @xa_find(ptr noundef %8, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %9 = call ptr @xa_find(ptr noundef nonnull %8, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %.preheader
 
@@ -487,13 +487,13 @@ define dso_local i32 @blk_mq_sysfs_register_hctxs(ptr noundef %0) local_unnamed_
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %.preheader
-  %15 = call ptr @xa_find_after(ptr noundef %8, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
+  %15 = call ptr @xa_find_after(ptr noundef nonnull %8, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #5
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %14, %.preheader, %7, %1
   %17 = phi i32 [ 0, %1 ], [ 0, %7 ], [ %12, %.preheader ], [ 0, %14 ]
-  call void @mutex_unlock(ptr noundef %3) #5
+  call void @mutex_unlock(ptr noundef nonnull %3) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   ret i32 %17
 }
@@ -532,7 +532,7 @@ declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @blk_mq_hw_sysfs_show(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
@@ -541,11 +541,11 @@ define internal i64 @blk_mq_hw_sysfs_show(ptr noundef %0, ptr nocapture noundef 
   %8 = getelementptr i8, ptr %0, i64 -200
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 -384
-  %11 = getelementptr inbounds i8, ptr %9, i64 632
-  tail call void @mutex_lock(ptr noundef %11) #5
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 632
+  tail call void @mutex_lock(ptr noundef nonnull %11) #5
   %12 = load ptr, ptr %4, align 8
   %13 = tail call i64 %12(ptr noundef %10, ptr noundef %2) #5
-  tail call void @mutex_unlock(ptr noundef %11) #5
+  tail call void @mutex_unlock(ptr noundef nonnull %11) #5
   br label %14
 
 14:                                               ; preds = %7, %3
@@ -555,7 +555,7 @@ define internal i64 @blk_mq_hw_sysfs_show(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_nr_tags_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 320
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 64
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %5) #5
@@ -568,9 +568,9 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_nr_reserved_tags_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 320
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 64
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %6) #5
   %8 = sext i32 %7 to i64
@@ -579,7 +579,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 2147483648) i64 @blk_mq_hw_sysfs_cpus_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %4
 
 4:                                                ; preds = %2, %23
@@ -630,7 +630,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @blk_mq_sysfs_release(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   tail call void @free_percpu(ptr noundef %3) #5
   tail call void @kfree(ptr noundef %0) #5

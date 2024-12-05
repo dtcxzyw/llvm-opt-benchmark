@@ -34,9 +34,9 @@ define noalias ptr @H5WB_wrap(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 
 9:                                                ; preds = %2
   store ptr %0, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   br label %12
 
@@ -52,7 +52,7 @@ declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @H5WB_actual(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
@@ -63,7 +63,7 @@ define ptr @H5WB_actual(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_
   br i1 %.not24, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %.not25 = icmp ugt i64 %1, %9
   br i1 %.not25, label %10, label %.thread30
@@ -74,7 +74,7 @@ define ptr @H5WB_actual(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_
   br label %12
 
 12:                                               ; preds = %10, %5, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %1, %14
   br i1 %15, label %16, label %23
@@ -92,21 +92,21 @@ define ptr @H5WB_actual(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_
   br label %27
 
 .thread34:                                        ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %22, align 8
   br label %.thread30
 
 23:                                               ; preds = %12
   %24 = load ptr, ptr %0, align 8
   store ptr %24, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %25, align 8
   %.not26 = icmp eq ptr %24, null
   br i1 %.not26, label %27, label %.thread30
 
 .thread30:                                        ; preds = %7, %.thread34, %23
   %.033 = phi ptr [ %24, %23 ], [ %17, %.thread34 ], [ %4, %7 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %26, align 8
   br label %27
 
@@ -121,7 +121,7 @@ declare noalias ptr @H5FL_blk_malloc(ptr noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define ptr @H5WB_actual_clear(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %12, label %5
@@ -132,7 +132,7 @@ define ptr @H5WB_actual_clear(ptr nocapture noundef %0, i64 noundef %1) local_un
   br i1 %.not24.i, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %.not25.i = icmp ugt i64 %1, %9
   br i1 %.not25.i, label %10, label %30
@@ -143,7 +143,7 @@ define ptr @H5WB_actual_clear(ptr nocapture noundef %0, i64 noundef %1) local_un
   br label %12
 
 12:                                               ; preds = %10, %5, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %1, %14
   br i1 %15, label %16, label %23
@@ -161,14 +161,14 @@ define ptr @H5WB_actual_clear(ptr nocapture noundef %0, i64 noundef %1) local_un
   br label %26
 
 .thread34.i:                                      ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %22, align 8
   br label %30
 
 23:                                               ; preds = %12
   %24 = load ptr, ptr %0, align 8
   store ptr %24, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %25, align 8
   %.not26.i = icmp eq ptr %24, null
   br i1 %.not26.i, label %26, label %30
@@ -181,7 +181,7 @@ define ptr @H5WB_actual_clear(ptr nocapture noundef %0, i64 noundef %1) local_un
 
 30:                                               ; preds = %23, %.thread34.i, %7
   %.033.i = phi ptr [ %24, %23 ], [ %17, %.thread34.i ], [ %4, %7 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.033.i, i8 0, i64 %1, i1 false)
   br label %32
@@ -196,7 +196,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @H5WB_unwrap(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4

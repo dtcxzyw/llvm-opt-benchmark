@@ -23,7 +23,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XDesktopPeer_init(ptr noundef
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @gtk, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %11(ptr noundef %0) #2
   %.not6 = icmp eq i32 %12, 0
@@ -51,7 +51,7 @@ declare i32 @gnome_load(...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XDesktopPeer_gnome_1url_1show(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1472
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1472
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #2
   %8 = icmp eq ptr %7, null
@@ -59,7 +59,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XDesktopPeer_gnome_1url_1show
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1824
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1824
   %12 = load ptr, ptr %11, align 8
   %13 = tail call zeroext i8 %12(ptr noundef nonnull %0) #2
   %.not17 = icmp eq i8 %13, 0
@@ -75,15 +75,15 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XDesktopPeer_gnome_1url_1show
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr @gtk, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 248
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 248
   %19 = load ptr, ptr %18, align 8
   tail call void %19() #2
   %20 = load ptr, ptr @gtk, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 264
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 264
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef null, ptr noundef nonnull %7, i32 noundef 0, ptr noundef null) #2
   %24 = load ptr, ptr @gtk, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 256
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 256
   %26 = load ptr, ptr %25, align 8
   tail call void %26() #2
   br label %31
@@ -100,7 +100,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XDesktopPeer_gnome_1url_1show
 31:                                               ; preds = %27, %28, %16
   %.014 = phi i32 [ %23, %16 ], [ %30, %28 ], [ 0, %27 ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1536
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1536
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %7, i32 noundef 0) #2
   %.not = icmp ne i32 %.014, 0

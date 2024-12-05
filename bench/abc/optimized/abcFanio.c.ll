@@ -16,17 +16,17 @@ define void @Abc_ObjAddFanin(ptr nocapture noundef %0, ptr noundef %1) local_unn
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 248
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load i32, ptr %10, align 8
   tail call fastcc void @Vec_IntPushMem(ptr noundef %8, ptr noundef nonnull %9, i32 noundef %11)
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 40
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
   tail call fastcc void @Vec_IntPushMem(ptr noundef %14, ptr noundef nonnull %15, i32 noundef %17)
   %18 = and i64 %3, 1
@@ -37,7 +37,7 @@ define void @Abc_ObjAddFanin(ptr nocapture noundef %0, ptr noundef %1) local_unn
   %20 = getelementptr i8, ptr %0, i64 28
   %.val = load i32, ptr %20, align 4
   %.not.i = icmp eq i32 %.val, 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4
   %..i = select i1 %.not.i, i32 1024, i32 2048
   %23 = or i32 %..i, %22
@@ -50,14 +50,14 @@ define void @Abc_ObjAddFanin(ptr nocapture noundef %0, ptr noundef %1) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Vec_IntPushMem(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %1, align 8
   %7 = icmp eq i32 %5, %6
   br i1 %7, label %8, label %._crit_edge36
 
 ._crit_edge36:                                    ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %42
 
@@ -88,7 +88,7 @@ define internal fastcc void @Vec_IntPushMem(ptr noundef %0, ptr nocapture nounde
 
 21:                                               ; preds = %16, %13
   %.028 = phi ptr [ %15, %13 ], [ %20, %16 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not32 = icmp eq ptr %23, null
   br i1 %.not32, label %39, label %.preheader
@@ -101,9 +101,9 @@ define internal fastcc void @Vec_IntPushMem(ptr noundef %0, ptr nocapture nounde
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %26 = load ptr, ptr %22, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i32, ptr %.028, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %.028, i64 %indvars.iv
   store i32 %28, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %4, align 4
@@ -150,22 +150,22 @@ define internal fastcc void @Vec_IntPushMem(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %10
 
 10:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %11 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %4
   br i1 %13, label %._crit_edge.loopexit.i, label %14
@@ -190,7 +190,7 @@ define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %17, label %.lr.ph29.i, label %.loopexit31
 
 .lr.ph29.i:                                       ; preds = %.preheader.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = zext i32 %.126.i to i64
   br label %20
 
@@ -198,10 +198,10 @@ define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef 
   %indvars.iv34.i = phi i64 [ %19, %.lr.ph29.i ], [ %indvars.iv.next35.i, %20 ]
   %.1.in27.i = phi i32 [ %.0.lcssa.i, %.lr.ph29.i ], [ %29, %20 ]
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv34.i
+  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv34.i
   %23 = load i32, ptr %22, align 4
   %24 = zext nneg i32 %.1.in27.i to i64
-  %25 = getelementptr inbounds i32, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %21, i64 %24
   store i32 %23, ptr %25, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %26 = load i32, ptr %5, align 4
@@ -211,7 +211,7 @@ define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %28, label %20, label %.loopexit31, !llvm.loop !7
 
 .loopexit32:                                      ; preds = %14, %._crit_edge.i
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %4, i32 noundef %31)
   br label %64
@@ -220,22 +220,22 @@ define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef 
   %.lcssa.i = phi i32 [ %6, %.preheader.i ], [ %26, %20 ]
   %33 = add nsw i32 %.lcssa.i, -1
   store i32 %33, ptr %5, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 44
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph.i20, label %._crit_edge.i9
 
 .lr.ph.i20:                                       ; preds = %.loopexit31
-  %39 = getelementptr inbounds i8, ptr %1, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %40 = load ptr, ptr %39, align 8
   %wide.trip.count.i21 = zext nneg i32 %37 to i64
   br label %41
 
 41:                                               ; preds = %45, %.lr.ph.i20
   %indvars.iv.i22 = phi i64 [ 0, %.lr.ph.i20 ], [ %indvars.iv.next.i23, %45 ]
-  %42 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv.i22
+  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i22
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, %35
   br i1 %44, label %._crit_edge.loopexit.i25, label %45
@@ -260,7 +260,7 @@ define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %48, label %.lr.ph29.i16, label %Vec_IntRemove.exit26
 
 .lr.ph29.i16:                                     ; preds = %.preheader.i11
-  %49 = getelementptr inbounds i8, ptr %1, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %50 = zext i32 %.126.i12 to i64
   br label %51
 
@@ -268,10 +268,10 @@ define void @Abc_ObjDeleteFanin(ptr nocapture noundef %0, ptr nocapture noundef 
   %indvars.iv34.i17 = phi i64 [ %50, %.lr.ph29.i16 ], [ %indvars.iv.next35.i19, %51 ]
   %.1.in27.i18 = phi i32 [ %.0.lcssa.i10, %.lr.ph29.i16 ], [ %60, %51 ]
   %52 = load ptr, ptr %49, align 8
-  %53 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv34.i17
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv34.i17
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %.1.in27.i18 to i64
-  %56 = getelementptr inbounds i32, ptr %52, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %52, i64 %55
   store i32 %54, ptr %56, align 4
   %indvars.iv.next35.i19 = add nuw nsw i64 %indvars.iv34.i17, 1
   %57 = load i32, ptr %36, align 4
@@ -300,13 +300,13 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Abc_ObjRemoveFanins(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = zext nneg i32 %3 to i64
   br label %7
 
@@ -315,7 +315,7 @@ define void @Abc_ObjRemoveFanins(ptr nocapture noundef %0) local_unnamed_addr #1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr i8, ptr %8, i64 32
   %.val = load ptr, ptr %12, align 8
@@ -329,7 +329,7 @@ define void @Abc_ObjRemoveFanins(ptr nocapture noundef %0) local_unnamed_addr #1
   br i1 %17, label %7, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %7, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, -3073
   store i32 %20, ptr %18, align 4
@@ -341,9 +341,9 @@ define void @Abc_ObjPatchFanin(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %4 = ptrtoint ptr %2 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph.i, label %Vec_IntFind.exit.thread
@@ -356,7 +356,7 @@ define void @Abc_ObjPatchFanin(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 14:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
-  %15 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %8
   br i1 %17, label %Vec_IntFind.exit, label %18
@@ -374,7 +374,7 @@ Vec_IntFind.exit.thread:                          ; preds = %18, %3
   br label %71
 
 Vec_IntFind.exit:                                 ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %24 = load i32, ptr %23, align 8
   %sext = shl i64 %indvars.iv.i, 32
   %25 = ashr exact i64 %sext, 30
@@ -386,7 +386,7 @@ Vec_IntFind.exit:                                 ; preds = %14
 
 28:                                               ; preds = %Vec_IntFind.exit
   %.not.i = icmp eq i64 %indvars.iv.i, 0
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4
   %..i = select i1 %.not.i, i32 1024, i32 2048
   %31 = xor i32 %30, %..i
@@ -394,22 +394,22 @@ Vec_IntFind.exit:                                 ; preds = %14
   br label %32
 
 32:                                               ; preds = %28, %Vec_IntFind.exit
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph.i18, label %._crit_edge.i
 
 .lr.ph.i18:                                       ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %1, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %39 = load ptr, ptr %38, align 8
   %wide.trip.count.i19 = zext nneg i32 %36 to i64
   br label %40
 
 40:                                               ; preds = %44, %.lr.ph.i18
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i18 ], [ %indvars.iv.next.i21, %44 ]
-  %41 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv.i20
+  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i20
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, %34
   br i1 %43, label %._crit_edge.loopexit.i, label %44
@@ -434,7 +434,7 @@ Vec_IntFind.exit:                                 ; preds = %14
   br i1 %47, label %.lr.ph29.i, label %Vec_IntRemove.exit
 
 .lr.ph29.i:                                       ; preds = %.preheader.i
-  %48 = getelementptr inbounds i8, ptr %1, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %49 = zext i32 %.126.i to i64
   br label %50
 
@@ -442,10 +442,10 @@ Vec_IntFind.exit:                                 ; preds = %14
   %indvars.iv34.i = phi i64 [ %49, %.lr.ph29.i ], [ %indvars.iv.next35.i, %50 ]
   %.1.in27.i = phi i32 [ %.0.lcssa.i, %.lr.ph29.i ], [ %59, %50 ]
   %51 = load ptr, ptr %48, align 8
-  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv34.i
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv34.i
   %53 = load i32, ptr %52, align 4
   %54 = zext nneg i32 %.1.in27.i to i64
-  %55 = getelementptr inbounds i32, ptr %51, i64 %54
+  %55 = getelementptr inbounds nuw i32, ptr %51, i64 %54
   store i32 %53, ptr %55, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %56 = load i32, ptr %35, align 4
@@ -469,9 +469,9 @@ Vec_IntRemove.exit:                               ; preds = %50, %.preheader.i
 
 65:                                               ; preds = %Vec_IntRemove.exit, %.loopexit
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 248
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 248
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %70 = load i32, ptr %33, align 8
   tail call fastcc void @Vec_IntPushMem(ptr noundef %68, ptr noundef nonnull %69, i32 noundef %70)
   br label %71
@@ -503,7 +503,7 @@ define void @Abc_ObjPatchFanoutFanin(ptr nocapture noundef readonly %0, i32 noun
   %.val18.val = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val18.val, i64 8
   %.val18.val.val = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i32, ptr %.val19, i64 %indvars.iv30
+  %10 = getelementptr inbounds nuw i32, ptr %.val19, i64 %indvars.iv30
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %.val18.val.val, i64 %12
@@ -527,13 +527,13 @@ define void @Abc_ObjPatchFanoutFanin(ptr nocapture noundef readonly %0, i32 noun
 
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %20 = getelementptr inbounds i32, ptr %.val21, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %.val21, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, %.val22
   br i1 %22, label %23, label %18
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i32, ptr %.val21, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %.val21, i64 %indvars.iv
   store i32 %1, ptr %24, align 4
   %.val17.pre = load i32, ptr %3, align 4
   br label %.critedge2
@@ -551,9 +551,9 @@ define void @Abc_ObjPatchFanoutFanin(ptr nocapture noundef readonly %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Abc_ObjInsertBetween(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %Vec_IntFind.exit.thread
@@ -566,7 +566,7 @@ define noundef ptr @Abc_ObjInsertBetween(ptr noundef %0, ptr noundef %1, i32 nou
 
 11:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %12 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %5
   br i1 %14, label %Vec_IntFind.exit, label %15
@@ -584,9 +584,9 @@ Vec_IntFind.exit.thread:                          ; preds = %15, %3
   br label %54
 
 Vec_IntFind.exit:                                 ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph.i27, label %Vec_IntFind.exit33.thread
@@ -599,7 +599,7 @@ Vec_IntFind.exit:                                 ; preds = %11
 
 27:                                               ; preds = %31, %.lr.ph.i27
   %indvars.iv.i29 = phi i64 [ 0, %.lr.ph.i27 ], [ %indvars.iv.next.i30, %31 ]
-  %28 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv.i29
+  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i29
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, %21
   br i1 %30, label %Vec_IntFind.exit33, label %31
@@ -620,18 +620,18 @@ Vec_IntFind.exit33:                               ; preds = %27
   %36 = load ptr, ptr %0, align 8
   %37 = tail call ptr @Abc_NtkCreateObj(ptr noundef %36, i32 noundef %2) #8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 248
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 248
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %42 = load i32, ptr %20, align 8
   tail call fastcc void @Vec_IntPushMem(ptr noundef %40, ptr noundef nonnull %41, i32 noundef %42)
   %43 = load ptr, ptr %37, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 248
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 248
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %37, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %47 = load i32, ptr %4, align 8
   tail call fastcc void @Vec_IntPushMem(ptr noundef %45, ptr noundef nonnull %46, i32 noundef %47)
-  %48 = getelementptr inbounds i8, ptr %37, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %49 = load i32, ptr %48, align 8
   %.val25 = load ptr, ptr %9, align 8
   %sext = shl i64 %indvars.iv.i, 32
@@ -660,7 +660,7 @@ define void @Abc_ObjTransferFanout(ptr noundef %0, ptr noundef %1) local_unnamed
   %5 = add i32 %.val, -1
   %or.cond.i = icmp ult i32 %5, 7
   %spec.store.select.i = select i1 %or.cond.i, i32 8, i32 %.val
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
   store i32 %spec.store.select.i, ptr %4, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -674,7 +674,7 @@ define void @Abc_ObjTransferFanout(ptr noundef %0, ptr noundef %1) local_unnamed
 
 Vec_PtrAlloc.exit:                                ; preds = %2, %7
   %11 = phi ptr [ %10, %7 ], [ null, %2 ]
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
   tail call void @Abc_NodeCollectFanouts(ptr noundef %0, ptr noundef nonnull %4) #8
   %13 = load i32, ptr %6, align 4
@@ -684,7 +684,7 @@ Vec_PtrAlloc.exit:                                ; preds = %2, %7
 .lr.ph:                                           ; preds = %Vec_PtrAlloc.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %Vec_PtrAlloc.exit ]
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   tail call void @Abc_ObjPatchFanin(ptr noundef %17, ptr noundef %0, ptr noundef %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -773,7 +773,7 @@ define range(i32 -2147483648, 2147483647) i32 @Abc_ObjFanoutFaninNum(ptr nocaptu
 
 8:                                                ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %9 = getelementptr inbounds i32, ptr %.val10, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %.val10, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr %.val9.val.val, i64 %11

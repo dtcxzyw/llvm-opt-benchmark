@@ -76,7 +76,7 @@ for.body.i.i.i.i.i:                               ; preds = %call.i.i.i.i.i.i.no
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i.i.i.i.i
-  %i.04.i.ptr.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i.i, i64 %i.04.i.idx.i.i.i.i
+  %i.04.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i.i, i64 %i.04.i.idx.i.i.i.i
   store i32 %call.i.i.i.i.i.i10, ptr %i.04.i.ptr.i.i.i.i, align 4
   %i.04.i.add.i.i.i.i = add nuw nsw i64 %i.04.i.idx.i.i.i.i, 4
   %cmp.not.i.i.i.i.i = icmp eq i64 %i.04.i.add.i.i.i.i, 16
@@ -92,7 +92,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %shift.08.i.i.i.i.i.i = phi i64 [ 0, %for.cond.preheader.i.i.i.i.i.i ], [ %add.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %value.07.i.i.i.i.i.i = phi i64 [ 0, %for.cond.preheader.i.i.i.i.i.i ], [ %or.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %src_first.addr.16.i.i.i.i.i.i = phi ptr [ %src_first.addr.012.i.i.i.i.i.i, %for.cond.preheader.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %src_first.addr.16.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %src_first.addr.16.i.i.i.i.i.i, i64 4
   %0 = load i32, ptr %src_first.addr.16.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i = zext i32 %0 to i64
   %sh_prom.i.i.i.i.i.i = and i64 %shift.08.i.i.i.i.i.i, 4294967295
@@ -102,7 +102,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp1.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i, !llvm.loop !7
 
 for.end.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
-  %dest_first.addr.011.i.i.ptr.i.i.i.i = getelementptr inbounds i8, ptr %seeddata.i.i, i64 %dest_first.addr.011.i.i.idx.i.i.i.i
+  %dest_first.addr.011.i.i.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %seeddata.i.i, i64 %dest_first.addr.011.i.i.idx.i.i.i.i
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %src_first.addr.012.i.i.i.i.i.i, i64 8
   %dest_first.addr.011.i.i.add.i.i.i.i = add nuw nsw i64 %dest_first.addr.011.i.i.idx.i.i.i.i, 8
   store i64 %or.i.i.i.i.i.i, ptr %dest_first.addr.011.i.i.ptr.i.i.i.i, align 8
@@ -111,19 +111,19 @@ for.end.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
 
 _ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEC2IRN10pcg_extras13seed_seq_fromISt13random_deviceEEEEOT_NSt9enable_ifIXaaaaL_ZNS4_18can_specify_streamEEntsr3std14is_convertibleISE_mEE5valuentsr3std14is_convertibleISE_S7_EE5valueENS7_22can_specify_stream_tagEE4typeE.exit.i: ; preds = %for.end.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %buffer.i.i.i.i)
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %seeddata.i.i, i64 8
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %seeddata.i.i, i64 8
   %1 = load i64, ptr %arrayidx.i.i, align 8
   %2 = load i64, ptr %seeddata.i.i, align 16
   %shl.i.i.i.i.i = shl i64 %2, 1
   %or.i.i.i.i.i = or disjoint i64 %shl.i.i.i.i.i, 1
   store i64 %or.i.i.i.i.i, ptr %rng, align 8
-  %state_.i.i.i.i = getelementptr inbounds i8, ptr %rng, i64 8
+  %state_.i.i.i.i = getelementptr inbounds nuw i8, ptr %rng, i64 8
   %add.i.i.i.i = add i64 %or.i.i.i.i.i, %1
   %mul.i.i.i.i.i = mul i64 %add.i.i.i.i, 6364136223846793005
   %add.i.i.i.i.i = add i64 %mul.i.i.i.i.i, %or.i.i.i.i.i
   store i64 %add.i.i.i.i.i, ptr %state_.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %seeddata.i.i)
-  %data_.i = getelementptr inbounds i8, ptr %rng, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %rng, i64 16
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %call.i.i.i.i.i.noexc, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEC2IRN10pcg_extras13seed_seq_fromISt13random_deviceEEEEOT_NSt9enable_ifIXaaaaL_ZNS4_18can_specify_streamEEntsr3std14is_convertibleISE_mEE5valuentsr3std14is_convertibleISE_S7_EE5valueENS7_22can_specify_stream_tagEE4typeE.exit.i
@@ -132,7 +132,7 @@ for.body.i.i.i.i:                                 ; preds = %call.i.i.i.i.i.noex
           to label %call.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.i.noexc:                             ; preds = %for.body.i.i.i.i
-  %i.04.i.ptr.i.i.i = getelementptr inbounds i8, ptr %data_.i, i64 %i.04.i.idx.i.i.i
+  %i.04.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %data_.i, i64 %i.04.i.idx.i.i.i
   store i32 %call.i.i.i.i.i11, ptr %i.04.i.ptr.i.i.i, align 4
   %i.04.i.add.i.i.i = add nuw nsw i64 %i.04.i.idx.i.i.i, 4
   %cmp.not.i.i.i.i = icmp eq i64 %i.04.i.add.i.i.i, 256
@@ -151,9 +151,9 @@ terminate.lpad.i.i:                               ; preds = %invoke.cont
 
 for.body:                                         ; preds = %invoke.cont, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %invoke.cont ]
-  %arrayidx = getelementptr inbounds [257 x i8], ptr @desired, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [257 x i8], ptr @desired, i64 0, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
-  %arrayidx2 = getelementptr inbounds [257 x i8], ptr @breaks, i64 0, i64 %indvars.iv
+  %arrayidx2 = getelementptr inbounds nuw [257 x i8], ptr @breaks, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx2, align 1
   %conv = sext i8 %6 to i32
   %sub = shl nsw i32 %conv, 6
@@ -217,7 +217,7 @@ if.then.i:                                        ; preds = %if.end9
 _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE18get_extended_valueEv.exit: ; preds = %if.end9, %if.then.i
   %10 = phi i64 [ %9, %if.end9 ], [ %.pre, %if.then.i ]
   %and.i = and i64 %9, 63
-  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %data_.i, i64 0, i64 %and.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i32], ptr %data_.i, i64 0, i64 %and.i
   %11 = load i32, ptr %arrayidx.i, align 4
   %mul.i.i.i = mul i64 %10, 6364136223846793005
   %12 = load i64, ptr %rng, align 8
@@ -254,7 +254,7 @@ if.then.i.i:                                      ; preds = %_ZN10pcg_detail8ext
 _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE3setEj.exit: ; preds = %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE18get_extended_valueEv.exit, %if.then.i.i
   %17 = phi i64 [ %16, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE18get_extended_valueEv.exit ], [ %.pre.i, %if.then.i.i ]
   %and.i.i = and i64 %16, 63
-  %arrayidx.i.i16 = getelementptr inbounds [64 x i32], ptr %data_.i, i64 0, i64 %and.i.i
+  %arrayidx.i.i16 = getelementptr inbounds nuw [64 x i32], ptr %data_.i, i64 0, i64 %and.i.i
   %mul.i.i.i.i = mul i64 %17, 6364136223846793005
   %18 = load i64, ptr %rng, align 8
   %add.i.i.i.i17 = add i64 %18, %mul.i.i.i.i
@@ -294,7 +294,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr dso_local void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE7advanceEmb(ptr noundef nonnull align 8 dereferenceable(272) %this, i64 noundef %distance, i1 noundef zeroext %forwards) local_unnamed_addr #4 comdat align 2 {
 entry:
   %shr = lshr i64 %distance, 16
-  %state_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %state_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %state_.i, align 8
   %1 = load i64, ptr %this, align 8
   %cmp.i.i = icmp eq i64 %1, 0
@@ -342,7 +342,7 @@ _ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_1
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %_ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmm.exit
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %data_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then6
@@ -351,7 +351,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %add.i = add nuw nsw i64 %carry.07.i, %ticks.0
   %conv.i = trunc i64 %add.i to i32
   %shr.i = lshr i64 %add.i, 32
-  %arrayidx.i = getelementptr inbounds [64 x i32], ptr %data_.i, i64 0, i64 %i.06.i
+  %arrayidx.i = getelementptr inbounds nuw [64 x i32], ptr %data_.i, i64 0, i64 %i.06.i
   %add2.i = add nuw nsw i64 %i.06.i, 1
   %call.i = tail call noundef zeroext i1 @_ZN10pcg_detail10inside_outINS_6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEEEE16external_advanceERjmjb(ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i, i64 noundef %add2.i, i32 noundef %conv.i, i1 noundef zeroext %forwards)
   %conv3.i = zext i1 %call.i to i64
@@ -449,7 +449,7 @@ entry:
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %vbase.offset
-  %_M_flags.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   store i32 34, ptr %_M_flags.i, align 8
   %vtable2 = load ptr, ptr %out, align 8
@@ -467,14 +467,14 @@ entry:
   %1 = load i64, ptr %rng, align 8
   %call16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call14, i64 noundef %1)
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call16, i8 noundef signext %call6)
-  %state_ = getelementptr inbounds i8, ptr %rng, i64 8
+  %state_ = getelementptr inbounds nuw i8, ptr %rng, i64 8
   %2 = load i64, ptr %state_, align 8
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call17, i64 noundef %2)
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %__begin0.0.idx16 = phi i64 [ 16, %entry ], [ %__begin0.0.add, %for.body ]
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %rng, i64 %__begin0.0.idx16
+  %__begin0.0.ptr = getelementptr inbounds nuw i8, ptr %rng, i64 %__begin0.0.idx16
   %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %out, i8 noundef signext %call6)
   %3 = load i32, ptr %__begin0.0.ptr, align 4
   %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call21, i32 noundef %3)
@@ -487,7 +487,7 @@ for.end:                                          ; preds = %for.body
   %vbase.offset.ptr24 = getelementptr i8, ptr %vtable23, i64 -24
   %vbase.offset25 = load i64, ptr %vbase.offset.ptr24, align 8
   %add.ptr26 = getelementptr inbounds i8, ptr %out, i64 %vbase.offset25
-  %_M_flags.i15 = getelementptr inbounds i8, ptr %add.ptr26, i64 24
+  %_M_flags.i15 = getelementptr inbounds nuw i8, ptr %add.ptr26, i64 24
   store i32 %0, ptr %_M_flags.i15, align 8
   %vtable28 = load ptr, ptr %out, align 8
   %vbase.offset.ptr29 = getelementptr i8, ptr %vtable28, i64 -24
@@ -793,13 +793,13 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE13advance_tableEv(ptr noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #4 comdat align 2 {
 entry:
-  %data_ = getelementptr inbounds i8, ptr %this, i64 16
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end
   %carry.027 = phi i1 [ false, %entry ], [ %5, %if.end ]
   %i.026 = phi i64 [ 0, %entry ], [ %add4, %if.end ]
-  %arrayidx = getelementptr inbounds [64 x i32], ptr %data_, i64 0, i64 %i.026
+  %arrayidx = getelementptr inbounds nuw [64 x i32], ptr %data_, i64 0, i64 %i.026
   %0 = load i32, ptr %arrayidx, align 4
   br i1 %carry.027, label %if.then, label %if.end
 
@@ -830,7 +830,7 @@ if.then:                                          ; preds = %for.body
 if.end:                                           ; preds = %for.body, %if.then
   %tobool7.pre-phi = phi i1 [ %cmp.i, %if.then ], [ false, %for.body ]
   %3 = phi i32 [ %xor7.i.i, %if.then ], [ %0, %for.body ]
-  %arrayidx3 = getelementptr inbounds [64 x i32], ptr %data_, i64 0, i64 %i.026
+  %arrayidx3 = getelementptr inbounds nuw [64 x i32], ptr %data_, i64 0, i64 %i.026
   %add4 = add nuw nsw i64 %i.026, 1
   %shr.i.i.i7 = lshr i32 %3, 22
   %xor.i.i.i8 = xor i32 %shr.i.i.i7, %3

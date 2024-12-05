@@ -17,7 +17,7 @@ define noundef ptr @strchr(ptr noundef readonly %0, i32 noundef %1) local_unname
   br i1 %7, label %._crit_edge, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.057, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.057, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = sext i8 %10 to i32
   %12 = icmp eq i32 %1, %11

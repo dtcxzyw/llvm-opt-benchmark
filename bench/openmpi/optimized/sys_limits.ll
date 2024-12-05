@@ -47,7 +47,7 @@ define range(i32 -2, 1) i32 @prte_util_init_sys_limits(ptr nocapture noundef wri
   br i1 %12, label %sub_0, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load ptr, ptr %14, align 8
   br label %sub_0
 
@@ -61,7 +61,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   ]
 
 .tail:                                            ; preds = %sub_0
-  %18 = getelementptr inbounds i8, ptr %16, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %.tail71.thread
@@ -105,7 +105,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   br label %.thread68
 
 .tail71:                                          ; preds = %sub_0
-  %39 = getelementptr inbounds i8, ptr %16, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %.thread68, label %.tail71.thread
@@ -218,7 +218,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
 93:                                               ; preds = %55, %71, %77, %88, %60, %44
   tail call void @PMIx_Argv_free(ptr noundef nonnull %10) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %94 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next
+  %94 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next
   %95 = load ptr, ptr %94, align 8
   %.not = icmp eq ptr %95, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -285,11 +285,11 @@ define internal fastcc range(i32 -1, 1) i32 @prte_setlimit(i32 noundef range(i32
   br i1 %16, label %17, label %30
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load i64, ptr %18, align 8
   %spec.select = call i64 @llvm.umin.i64(i64 %19, i64 %.0)
   store i64 %spec.select, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %spec.select, ptr %20, align 8
   %21 = call i32 @setrlimit(i32 noundef %0, ptr noundef nonnull %5) #6
   %22 = icmp sgt i32 %21, -1

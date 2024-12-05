@@ -11,10 +11,10 @@ define dso_local range(i32 -2, 1) i32 @set_max_field(ptr noundef %0, i32 noundef
   br i1 %or.cond, label %39, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = add nsw i32 %10, %8
   %12 = icmp eq i32 %11, 1
@@ -25,24 +25,24 @@ define dso_local range(i32 -2, 1) i32 @set_max_field(ptr noundef %0, i32 noundef
   br i1 %12, label %14, label %.critedge
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %1, %16
   br i1 %17, label %39, label %21
 
 .critedge:                                        ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp slt i32 %1, %19
   br i1 %20, label %39, label %21
 
 21:                                               ; preds = %14, %.critedge, %5
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %1, ptr %22, align 4
   %23 = load i16, ptr %0, align 8
   %24 = and i16 %23, -9
   store i16 %24, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 512
   %.not = icmp eq i32 %27, 0
@@ -55,13 +55,13 @@ define dso_local range(i32 -2, 1) i32 @set_max_field(ptr noundef %0, i32 noundef
   br i1 %12, label %30, label %.critedge27
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i32, ptr %31, align 8
   %33 = icmp slt i32 %32, %1
   br i1 %33, label %37, label %39
 
 .critedge27:                                      ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %35, %1
   br i1 %36, label %37, label %39

@@ -15,9 +15,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tweak, ptr noundef nonnull align 1 dereferenceable(16) %iv, i64 16, i1 false)
-  %block2 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %block2 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %block2, align 8
-  %key2 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %key2 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %key2, align 8
   call void %0(ptr noundef nonnull %tweak, ptr noundef nonnull %tweak, ptr noundef %1) #3
   %tobool.not = icmp ne i32 %enc, 0
@@ -30,10 +30,10 @@ if.end:                                           ; preds = %entry
   br i1 %cmp689, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %arrayidx10 = getelementptr inbounds i8, ptr %tweak, i64 8
-  %arrayidx12 = getelementptr inbounds i8, ptr %scratch, i64 8
-  %block1 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %arrayidx39 = getelementptr inbounds i8, ptr %tweak, i64 15
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %tweak, i64 8
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %scratch, i64 8
+  %block1 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
+  %arrayidx39 = getelementptr inbounds nuw i8, ptr %tweak, i64 15
   %.pre = load i64, ptr %tweak, align 8
   %.pre109 = load i64, ptr %arrayidx10, align 8
   br label %while.body
@@ -47,7 +47,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %4 = load i64, ptr %inp.addr.092, align 1
   %xor = xor i64 %3, %4
   store i64 %xor, ptr %scratch, align 8
-  %arrayidx9 = getelementptr inbounds i8, ptr %inp.addr.092, i64 8
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %inp.addr.092, i64 8
   %5 = load i64, ptr %arrayidx9, align 1
   %xor11 = xor i64 %2, %5
   store i64 %xor11, ptr %arrayidx12, align 8
@@ -63,10 +63,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %11 = load i64, ptr %arrayidx12, align 8
   %xor21 = xor i64 %11, %10
   store i64 %xor21, ptr %arrayidx12, align 8
-  %arrayidx22 = getelementptr inbounds i8, ptr %out.addr.091, i64 8
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %out.addr.091, i64 8
   store i64 %xor21, ptr %arrayidx22, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %inp.addr.092, i64 16
-  %add.ptr23 = getelementptr inbounds i8, ptr %out.addr.091, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %inp.addr.092, i64 16
+  %add.ptr23 = getelementptr inbounds nuw i8, ptr %out.addr.091, i64 16
   %sub24 = add i64 %len.addr.190, -16
   %cmp25 = icmp eq i64 %sub24, 0
   br i1 %cmp25, label %return, label %if.end27
@@ -112,11 +112,11 @@ for.cond.preheader:                               ; preds = %while.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx57 = getelementptr inbounds i8, ptr %inp.addr.0.lcssa, i64 %indvars.iv105
+  %arrayidx57 = getelementptr inbounds nuw i8, ptr %inp.addr.0.lcssa, i64 %indvars.iv105
   %22 = load i8, ptr %arrayidx57, align 1
-  %arrayidx59 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 %indvars.iv105
+  %arrayidx59 = getelementptr inbounds nuw [16 x i8], ptr %scratch, i64 0, i64 %indvars.iv105
   %23 = load i8, ptr %arrayidx59, align 1
-  %arrayidx61 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 %indvars.iv105
+  %arrayidx61 = getelementptr inbounds nuw i8, ptr %out.addr.0.lcssa, i64 %indvars.iv105
   store i8 %23, ptr %arrayidx61, align 1
   store i8 %22, ptr %arrayidx59, align 1
   %indvars.iv.next106 = add nuw i64 %indvars.iv105, 1
@@ -125,7 +125,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre113 = load i64, ptr %scratch, align 8
-  %arrayidx68.phi.trans.insert = getelementptr inbounds i8, ptr %scratch, i64 8
+  %arrayidx68.phi.trans.insert = getelementptr inbounds nuw i8, ptr %scratch, i64 8
   %.pre114 = load i64, ptr %arrayidx68.phi.trans.insert, align 8
   br label %for.end
 
@@ -135,12 +135,12 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %26 = load i64, ptr %tweak, align 8
   %xor66 = xor i64 %25, %26
   store i64 %xor66, ptr %scratch, align 8
-  %arrayidx67 = getelementptr inbounds i8, ptr %tweak, i64 8
+  %arrayidx67 = getelementptr inbounds nuw i8, ptr %tweak, i64 8
   %27 = load i64, ptr %arrayidx67, align 8
-  %arrayidx68 = getelementptr inbounds i8, ptr %scratch, i64 8
+  %arrayidx68 = getelementptr inbounds nuw i8, ptr %scratch, i64 8
   %xor69 = xor i64 %24, %27
   store i64 %xor69, ptr %arrayidx68, align 8
-  %block170 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %block170 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %28 = load ptr, ptr %block170, align 8
   %29 = load ptr, ptr %ctx, align 8
   call void %28(ptr noundef nonnull %scratch, ptr noundef nonnull %scratch, ptr noundef %29) #3
@@ -159,7 +159,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 if.else:                                          ; preds = %while.end
   %34 = load i64, ptr %tweak, align 8
   %35 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %34) #4, !srcloc !11
-  %arrayidx89 = getelementptr inbounds i8, ptr %tweak, i64 8
+  %arrayidx89 = getelementptr inbounds nuw i8, ptr %tweak, i64 8
   %36 = load i64, ptr %arrayidx89, align 8
   %37 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %36) #4, !srcloc !12
   %or97 = call i64 @llvm.fshl.i64(i64 %35, i64 %37, i64 63)
@@ -176,12 +176,12 @@ if.else:                                          ; preds = %while.end
   %42 = load i64, ptr %inp.addr.0.lcssa, align 1
   %xor118 = xor i64 %42, %41
   store i64 %xor118, ptr %scratch, align 8
-  %arrayidx120 = getelementptr inbounds i8, ptr %inp.addr.0.lcssa, i64 8
+  %arrayidx120 = getelementptr inbounds nuw i8, ptr %inp.addr.0.lcssa, i64 8
   %43 = load i64, ptr %arrayidx120, align 1
   %xor122 = xor i64 %43, %38
-  %arrayidx123 = getelementptr inbounds i8, ptr %scratch, i64 8
+  %arrayidx123 = getelementptr inbounds nuw i8, ptr %scratch, i64 8
   store i64 %xor122, ptr %arrayidx123, align 8
-  %block1124 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %block1124 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %44 = load ptr, ptr %block1124, align 8
   %45 = load ptr, ptr %ctx, align 8
   call void %44(ptr noundef nonnull %scratch, ptr noundef nonnull %scratch, ptr noundef %45) #3
@@ -198,11 +198,11 @@ for.body138:                                      ; preds = %if.else, %for.body1
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body138 ], [ 0, %if.else ]
   %add = add i64 %indvars.iv, 16
   %idxprom140 = and i64 %add, 4294967295
-  %arrayidx141 = getelementptr inbounds i8, ptr %inp.addr.0.lcssa, i64 %idxprom140
+  %arrayidx141 = getelementptr inbounds nuw i8, ptr %inp.addr.0.lcssa, i64 %idxprom140
   %48 = load i8, ptr %arrayidx141, align 1
-  %arrayidx143 = getelementptr inbounds [16 x i8], ptr %scratch, i64 0, i64 %indvars.iv
+  %arrayidx143 = getelementptr inbounds nuw [16 x i8], ptr %scratch, i64 0, i64 %indvars.iv
   %49 = load i8, ptr %arrayidx143, align 1
-  %arrayidx146 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 %idxprom140
+  %arrayidx146 = getelementptr inbounds nuw i8, ptr %out.addr.0.lcssa, i64 %idxprom140
   store i8 %49, ptr %arrayidx146, align 1
   store i8 %48, ptr %arrayidx143, align 1
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
@@ -233,7 +233,7 @@ for.end151:                                       ; preds = %for.end151.loopexit
   %58 = load i64, ptr %arrayidx123, align 8
   %59 = load i64, ptr %arrayidx89, align 8
   %xor168 = xor i64 %59, %58
-  %arrayidx169 = getelementptr inbounds i8, ptr %out.addr.0.lcssa, i64 8
+  %arrayidx169 = getelementptr inbounds nuw i8, ptr %out.addr.0.lcssa, i64 8
   store i64 %xor168, ptr %arrayidx169, align 1
   br label %return
 

@@ -26,7 +26,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %output.i = getelementptr inbounds i8, ptr %call.i, i64 264
+  %output.i = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   %0 = load ptr, ptr %output.i, align 8
   %call7.i = tail call ptr @evbuffer_add_cb(ptr noundef %0, ptr noundef nonnull @be_pair_outbuf_cb, ptr noundef nonnull %call.i) #3
   %tobool8.not.i = icmp eq ptr %call7.i, null
@@ -53,7 +53,7 @@ if.then3.i24:                                     ; preds = %if.end.i21
   br label %if.then3
 
 if.end4.i26:                                      ; preds = %if.end.i21
-  %output.i27 = getelementptr inbounds i8, ptr %call.i19, i64 264
+  %output.i27 = getelementptr inbounds nuw i8, ptr %call.i19, i64 264
   %1 = load ptr, ptr %output.i27, align 8
   %call7.i28 = tail call ptr @evbuffer_add_cb(ptr noundef %1, ptr noundef nonnull @be_pair_outbuf_cb, ptr noundef nonnull %call.i19) #3
   %tobool8.not.i29 = icmp eq ptr %call7.i28, null
@@ -74,28 +74,28 @@ if.end5:                                          ; preds = %if.end4.i26
   br i1 %tobool7.not, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
-  %lock = getelementptr inbounds i8, ptr %call.i, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %call.i, i64 448
   %2 = load ptr, ptr %lock, align 8
   %call12 = tail call i32 @bufferevent_enable_locking_(ptr noundef nonnull %call.i19, ptr noundef %2) #3
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then8, %if.end5
-  %partner = getelementptr inbounds i8, ptr %call.i, i64 520
+  %partner = getelementptr inbounds nuw i8, ptr %call.i, i64 520
   store ptr %call.i19, ptr %partner, align 8
-  %partner14 = getelementptr inbounds i8, ptr %call.i19, i64 520
+  %partner14 = getelementptr inbounds nuw i8, ptr %call.i19, i64 520
   store ptr %call.i, ptr %partner14, align 8
-  %input = getelementptr inbounds i8, ptr %call.i, i64 256
+  %input = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   %3 = load ptr, ptr %input, align 8
   %call17 = tail call i32 @evbuffer_freeze(ptr noundef %3, i32 noundef 0) #3
   %4 = load ptr, ptr %output.i, align 8
   %call20 = tail call i32 @evbuffer_freeze(ptr noundef %4, i32 noundef 1) #3
-  %input23 = getelementptr inbounds i8, ptr %call.i19, i64 256
+  %input23 = getelementptr inbounds nuw i8, ptr %call.i19, i64 256
   %5 = load ptr, ptr %input23, align 8
   %call24 = tail call i32 @evbuffer_freeze(ptr noundef %5, i32 noundef 0) #3
   %6 = load ptr, ptr %output.i27, align 8
   %call28 = tail call i32 @evbuffer_freeze(ptr noundef %6, i32 noundef 1) #3
   store ptr %call.i, ptr %pair, align 8
-  %arrayidx33 = getelementptr inbounds i8, ptr %pair, i64 8
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr %pair, i64 8
   store ptr %call.i19, ptr %arrayidx33, align 8
   br label %return
 
@@ -113,7 +113,7 @@ declare i32 @evbuffer_freeze(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @bufferevent_pair_get_partner(ptr noundef %bev) local_unnamed_addr #0 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %cmp.i = icmp ne ptr %0, @bufferevent_ops_pair
   %tobool.not11 = icmp eq ptr %bev, null
@@ -125,7 +125,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %be_ops.i, align 8
   %cmp.i.i = icmp eq ptr %1, @bufferevent_ops_pair
   %bev..i.i = select i1 %cmp.i.i, ptr %bev, ptr null
-  %partner.i = getelementptr inbounds i8, ptr %bev..i.i, i64 520
+  %partner.i = getelementptr inbounds nuw i8, ptr %bev..i.i, i64 520
   %2 = load ptr, ptr %partner.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %incref_and_lock.exit, label %if.then.i
@@ -137,11 +137,11 @@ if.then.i:                                        ; preds = %if.end
 
 incref_and_lock.exit:                             ; preds = %if.end, %if.then.i
   %3 = phi ptr [ %1, %if.end ], [ %.pre, %if.then.i ]
-  %partner1 = getelementptr inbounds i8, ptr %bev, i64 520
+  %partner1 = getelementptr inbounds nuw i8, ptr %bev, i64 520
   %4 = load ptr, ptr %partner1, align 8
   %cmp.i.i6 = icmp eq ptr %3, @bufferevent_ops_pair
   %bev..i.i7 = select i1 %cmp.i.i6, ptr %bev, ptr null
-  %partner.i8 = getelementptr inbounds i8, ptr %bev..i.i7, i64 520
+  %partner.i8 = getelementptr inbounds nuw i8, ptr %bev..i.i7, i64 520
   %5 = load ptr, ptr %partner.i8, align 8
   %tobool.not.i9 = icmp eq ptr %5, null
   br i1 %tobool.not.i9, label %decref_and_unlock.exit, label %if.then.i10
@@ -162,17 +162,17 @@ return:                                           ; preds = %entry, %decref_and_
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @be_pair_enable(ptr noundef %bufev, i16 noundef signext %events) #0 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %cmp.i = icmp eq ptr %0, @bufferevent_ops_pair
   %bev..i = select i1 %cmp.i, ptr %bufev, ptr null
-  %partner1 = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %partner1 = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %1 = load ptr, ptr %partner1, align 8
   tail call void @bufferevent_incref_and_lock_(ptr noundef %bufev) #3
   %2 = load ptr, ptr %be_ops.i, align 8
   %cmp.i.i = icmp eq ptr %2, @bufferevent_ops_pair
   %bev..i.i = select i1 %cmp.i.i, ptr %bufev, ptr null
-  %partner.i = getelementptr inbounds i8, ptr %bev..i.i, i64 520
+  %partner.i = getelementptr inbounds nuw i8, ptr %bev..i.i, i64 520
   %3 = load ptr, ptr %partner.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %incref_and_lock.exit, label %if.then.i
@@ -187,19 +187,19 @@ incref_and_lock.exit:                             ; preds = %entry, %if.then.i
   br i1 %tobool, label %do.body, label %if.end8
 
 do.body:                                          ; preds = %incref_and_lock.exit
-  %timeout_read = getelementptr inbounds i8, ptr %bufev, i64 336
+  %timeout_read = getelementptr inbounds nuw i8, ptr %bufev, i64 336
   %5 = load i64, ptr %timeout_read, align 8
   %tobool2.not = icmp eq i64 %5, 0
   br i1 %tobool2.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %do.body
-  %tv_usec = getelementptr inbounds i8, ptr %bufev, i64 344
+  %tv_usec = getelementptr inbounds nuw i8, ptr %bufev, i64 344
   %6 = load i64, ptr %tv_usec, align 8
   %tobool4.not = icmp eq i64 %6, 0
   br i1 %tobool4.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %lor.lhs.false, %do.body
-  %ev_read = getelementptr inbounds i8, ptr %bufev, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bufev, i64 16
   %call7 = tail call i32 @event_add(ptr noundef nonnull %ev_read, ptr noundef nonnull %timeout_read) #3
   br label %if.end8
 
@@ -209,26 +209,26 @@ if.end8:                                          ; preds = %if.then5, %lor.lhs.
   br i1 %tobool11, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %if.end8
-  %output = getelementptr inbounds i8, ptr %bufev, i64 264
+  %output = getelementptr inbounds nuw i8, ptr %bufev, i64 264
   %8 = load ptr, ptr %output, align 8
   %call12 = tail call i64 @evbuffer_get_length(ptr noundef %8) #3
   %tobool13.not = icmp eq i64 %call12, 0
   br i1 %tobool13.not, label %if.end27, label %do.body15
 
 do.body15:                                        ; preds = %land.lhs.true
-  %timeout_write = getelementptr inbounds i8, ptr %bufev, i64 352
+  %timeout_write = getelementptr inbounds nuw i8, ptr %bufev, i64 352
   %9 = load i64, ptr %timeout_write, align 8
   %tobool17.not = icmp eq i64 %9, 0
   br i1 %tobool17.not, label %lor.lhs.false18, label %if.then22
 
 lor.lhs.false18:                                  ; preds = %do.body15
-  %tv_usec20 = getelementptr inbounds i8, ptr %bufev, i64 360
+  %tv_usec20 = getelementptr inbounds nuw i8, ptr %bufev, i64 360
   %10 = load i64, ptr %tv_usec20, align 8
   %tobool21.not = icmp eq i64 %10, 0
   br i1 %tobool21.not, label %if.end27, label %if.then22
 
 if.then22:                                        ; preds = %lor.lhs.false18, %do.body15
-  %ev_write = getelementptr inbounds i8, ptr %bufev, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bufev, i64 136
   %call24 = tail call i32 @event_add(ptr noundef nonnull %ev_write, ptr noundef nonnull %timeout_write) #3
   br label %if.end27
 
@@ -238,27 +238,27 @@ if.end27:                                         ; preds = %if.then22, %lor.lhs
   br i1 %or.cond, label %land.lhs.true33, label %if.end38
 
 land.lhs.true33:                                  ; preds = %if.end27
-  %enabled.i = getelementptr inbounds i8, ptr %1, i64 368
+  %enabled.i = getelementptr inbounds nuw i8, ptr %1, i64 368
   %11 = load i16, ptr %enabled.i, align 8
   %12 = and i16 %11, 4
   %tobool.not.i25 = icmp eq i16 %12, 0
   br i1 %tobool.not.i25, label %if.end38, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true33
-  %enabled4.i = getelementptr inbounds i8, ptr %bev..i, i64 368
+  %enabled4.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 368
   %13 = load i16, ptr %enabled4.i, align 8
   %14 = and i16 %13, 2
   %tobool7.not.i = icmp eq i16 %14, 0
   br i1 %tobool7.not.i, label %if.end38, label %land.lhs.true8.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
-  %read_suspended.i = getelementptr inbounds i8, ptr %bev..i, i64 388
+  %read_suspended.i = getelementptr inbounds nuw i8, ptr %bev..i, i64 388
   %15 = load i16, ptr %read_suspended.i, align 4
   %tobool10.not.i = icmp eq i16 %15, 0
   br i1 %tobool10.not.i, label %be_pair_wants_to_talk.exit, label %if.end38
 
 be_pair_wants_to_talk.exit:                       ; preds = %land.lhs.true8.i
-  %output.i = getelementptr inbounds i8, ptr %1, i64 264
+  %output.i = getelementptr inbounds nuw i8, ptr %1, i64 264
   %16 = load ptr, ptr %output.i, align 8
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %16) #3
   %tobool13.i.not = icmp eq i64 %call.i, 0
@@ -273,27 +273,27 @@ if.end38:                                         ; preds = %land.lhs.true33, %l
   br i1 %or.cond1, label %land.lhs.true44, label %if.end50
 
 land.lhs.true44:                                  ; preds = %if.end38
-  %enabled.i26 = getelementptr inbounds i8, ptr %bev..i, i64 368
+  %enabled.i26 = getelementptr inbounds nuw i8, ptr %bev..i, i64 368
   %17 = load i16, ptr %enabled.i26, align 8
   %18 = and i16 %17, 4
   %tobool.not.i27 = icmp eq i16 %18, 0
   br i1 %tobool.not.i27, label %if.end50, label %land.lhs.true.i28
 
 land.lhs.true.i28:                                ; preds = %land.lhs.true44
-  %enabled4.i29 = getelementptr inbounds i8, ptr %1, i64 368
+  %enabled4.i29 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %19 = load i16, ptr %enabled4.i29, align 8
   %20 = and i16 %19, 2
   %tobool7.not.i30 = icmp eq i16 %20, 0
   br i1 %tobool7.not.i30, label %if.end50, label %land.lhs.true8.i31
 
 land.lhs.true8.i31:                               ; preds = %land.lhs.true.i28
-  %read_suspended.i32 = getelementptr inbounds i8, ptr %1, i64 388
+  %read_suspended.i32 = getelementptr inbounds nuw i8, ptr %1, i64 388
   %21 = load i16, ptr %read_suspended.i32, align 4
   %tobool10.not.i33 = icmp eq i16 %21, 0
   br i1 %tobool10.not.i33, label %be_pair_wants_to_talk.exit39, label %if.end50
 
 be_pair_wants_to_talk.exit39:                     ; preds = %land.lhs.true8.i31
-  %output.i36 = getelementptr inbounds i8, ptr %bev..i, i64 264
+  %output.i36 = getelementptr inbounds nuw i8, ptr %bev..i, i64 264
   %22 = load ptr, ptr %output.i36, align 8
   %call.i37 = tail call i64 @evbuffer_get_length(ptr noundef %22) #3
   %tobool13.i38.not = icmp eq i64 %call.i37, 0
@@ -307,7 +307,7 @@ if.end50:                                         ; preds = %land.lhs.true44, %l
   %23 = load ptr, ptr %be_ops.i, align 8
   %cmp.i.i41 = icmp eq ptr %23, @bufferevent_ops_pair
   %bev..i.i42 = select i1 %cmp.i.i41, ptr %bufev, ptr null
-  %partner.i43 = getelementptr inbounds i8, ptr %bev..i.i42, i64 520
+  %partner.i43 = getelementptr inbounds nuw i8, ptr %bev..i.i42, i64 520
   %24 = load ptr, ptr %partner.i43, align 8
   %tobool.not.i44 = icmp eq ptr %24, null
   br i1 %tobool.not.i44, label %decref_and_unlock.exit, label %if.then.i45
@@ -329,7 +329,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ev_read = getelementptr inbounds i8, ptr %bev, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev, i64 16
   %call = tail call i32 @event_del(ptr noundef nonnull %ev_read) #3
   br label %if.end
 
@@ -339,7 +339,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %ev_write = getelementptr inbounds i8, ptr %bev, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bev, i64 136
   %call5 = tail call i32 @event_del(ptr noundef nonnull %ev_write) #3
   br label %if.end6
 
@@ -350,19 +350,19 @@ if.end6:                                          ; preds = %if.then4, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @be_pair_unlink(ptr nocapture noundef %bev) #2 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %cmp.i = icmp eq ptr %0, @bufferevent_ops_pair
   %bev..i = select i1 %cmp.i, ptr %bev, ptr null
-  %partner = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %partner = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %1 = load ptr, ptr %partner, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %unlinked_partner = getelementptr inbounds i8, ptr %bev..i, i64 528
+  %unlinked_partner = getelementptr inbounds nuw i8, ptr %bev..i, i64 528
   store ptr %1, ptr %unlinked_partner, align 8
-  %partner3 = getelementptr inbounds i8, ptr %1, i64 520
+  %partner3 = getelementptr inbounds nuw i8, ptr %1, i64 520
   store ptr null, ptr %partner3, align 8
   store ptr null, ptr %partner, align 8
   br label %if.end
@@ -374,24 +374,24 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @be_pair_destruct(ptr nocapture noundef %bev) #2 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %cmp.i = icmp eq ptr %0, @bufferevent_ops_pair
   %bev..i = select i1 %cmp.i, ptr %bev, ptr null
-  %unlinked_partner = getelementptr inbounds i8, ptr %bev..i, i64 528
+  %unlinked_partner = getelementptr inbounds nuw i8, ptr %bev..i, i64 528
   %1 = load ptr, ptr %unlinked_partner, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %own_lock = getelementptr inbounds i8, ptr %bev..i, i64 384
+  %own_lock = getelementptr inbounds nuw i8, ptr %bev..i, i64 384
   %bf.load = load i8, ptr %own_lock, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool2.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %own_lock5 = getelementptr inbounds i8, ptr %1, i64 384
+  %own_lock5 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %bf.load6 = load i8, ptr %own_lock5, align 8
   %bf.set = or i8 %bf.load6, 1
   store i8 %bf.set, ptr %own_lock5, align 8
@@ -410,11 +410,11 @@ declare i32 @bufferevent_generic_adj_timeouts_(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @be_pair_flush(ptr noundef %bev, i16 noundef signext %iotype, i32 noundef %mode) #0 {
 entry:
-  %be_ops.i = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
   %cmp.i = icmp eq ptr %0, @bufferevent_ops_pair
   %bev..i = select i1 %cmp.i, ptr %bev, ptr null
-  %partner1 = getelementptr inbounds i8, ptr %bev..i, i64 520
+  %partner1 = getelementptr inbounds nuw i8, ptr %bev..i, i64 520
   %1 = load ptr, ptr %partner1, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -428,7 +428,7 @@ if.end3:                                          ; preds = %if.end
   %2 = load ptr, ptr %be_ops.i, align 8
   %cmp.i.i = icmp eq ptr %2, @bufferevent_ops_pair
   %bev..i.i = select i1 %cmp.i.i, ptr %bev, ptr null
-  %partner.i = getelementptr inbounds i8, ptr %bev..i.i, i64 520
+  %partner.i = getelementptr inbounds nuw i8, ptr %bev..i.i, i64 520
   %3 = load ptr, ptr %partner.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %incref_and_lock.exit, label %if.then.i
@@ -470,7 +470,7 @@ if.end35:                                         ; preds = %if.then19, %if.end1
   %7 = load ptr, ptr %be_ops.i, align 8
   %cmp.i.i15 = icmp eq ptr %7, @bufferevent_ops_pair
   %bev..i.i16 = select i1 %cmp.i.i15, ptr %bev, ptr null
-  %partner.i17 = getelementptr inbounds i8, ptr %bev..i.i16, i64 520
+  %partner.i17 = getelementptr inbounds nuw i8, ptr %bev..i.i16, i64 520
   %8 = load ptr, ptr %partner.i17, align 8
   %tobool.not.i18 = icmp eq ptr %8, null
   br i1 %tobool.not.i18, label %decref_and_unlock.exit, label %if.then.i19
@@ -499,14 +499,14 @@ declare ptr @evbuffer_add_cb(ptr noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal void @be_pair_outbuf_cb(ptr nocapture readnone %outbuf, ptr nocapture noundef readonly %info, ptr noundef %arg) #0 {
 entry:
-  %partner1 = getelementptr inbounds i8, ptr %arg, i64 520
+  %partner1 = getelementptr inbounds nuw i8, ptr %arg, i64 520
   %0 = load ptr, ptr %partner1, align 8
   tail call void @bufferevent_incref_and_lock_(ptr noundef %arg) #3
-  %be_ops.i.i = getelementptr inbounds i8, ptr %arg, i64 8
+  %be_ops.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %1 = load ptr, ptr %be_ops.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, @bufferevent_ops_pair
   %bev..i.i = select i1 %cmp.i.i, ptr %arg, ptr null
-  %partner.i = getelementptr inbounds i8, ptr %bev..i.i, i64 520
+  %partner.i = getelementptr inbounds nuw i8, ptr %bev..i.i, i64 520
   %2 = load ptr, ptr %partner.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %incref_and_lock.exit, label %if.then.i
@@ -516,9 +516,9 @@ if.then.i:                                        ; preds = %entry
   br label %incref_and_lock.exit
 
 incref_and_lock.exit:                             ; preds = %entry, %if.then.i
-  %n_added = getelementptr inbounds i8, ptr %info, i64 8
+  %n_added = getelementptr inbounds nuw i8, ptr %info, i64 8
   %3 = load i64, ptr %n_added, align 8
-  %n_deleted = getelementptr inbounds i8, ptr %info, i64 16
+  %n_deleted = getelementptr inbounds nuw i8, ptr %info, i64 16
   %4 = load i64, ptr %n_deleted, align 8
   %cmp = icmp ugt i64 %3, %4
   %tobool = icmp ne ptr %0, null
@@ -526,27 +526,27 @@ incref_and_lock.exit:                             ; preds = %entry, %if.then.i
   br i1 %or.cond, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %incref_and_lock.exit
-  %enabled.i = getelementptr inbounds i8, ptr %arg, i64 368
+  %enabled.i = getelementptr inbounds nuw i8, ptr %arg, i64 368
   %5 = load i16, ptr %enabled.i, align 8
   %6 = and i16 %5, 4
   %tobool.not.i8 = icmp eq i16 %6, 0
   br i1 %tobool.not.i8, label %if.end9, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %enabled4.i = getelementptr inbounds i8, ptr %0, i64 368
+  %enabled4.i = getelementptr inbounds nuw i8, ptr %0, i64 368
   %7 = load i16, ptr %enabled4.i, align 8
   %8 = and i16 %7, 2
   %tobool7.not.i = icmp eq i16 %8, 0
   br i1 %tobool7.not.i, label %if.end9, label %land.lhs.true8.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
-  %read_suspended.i = getelementptr inbounds i8, ptr %0, i64 388
+  %read_suspended.i = getelementptr inbounds nuw i8, ptr %0, i64 388
   %9 = load i16, ptr %read_suspended.i, align 4
   %tobool10.not.i = icmp eq i16 %9, 0
   br i1 %tobool10.not.i, label %be_pair_wants_to_talk.exit, label %if.end9
 
 be_pair_wants_to_talk.exit:                       ; preds = %land.lhs.true8.i
-  %output.i = getelementptr inbounds i8, ptr %arg, i64 264
+  %output.i = getelementptr inbounds nuw i8, ptr %arg, i64 264
   %10 = load ptr, ptr %output.i, align 8
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %10) #3
   %tobool13.i.not = icmp eq i64 %call.i, 0
@@ -560,7 +560,7 @@ if.end9:                                          ; preds = %if.then, %land.lhs.
   %11 = load ptr, ptr %be_ops.i.i, align 8
   %cmp.i.i10 = icmp eq ptr %11, @bufferevent_ops_pair
   %bev..i.i11 = select i1 %cmp.i.i10, ptr %arg, ptr null
-  %partner.i12 = getelementptr inbounds i8, ptr %bev..i.i11, i64 520
+  %partner.i12 = getelementptr inbounds nuw i8, ptr %bev..i.i11, i64 520
   %12 = load ptr, ptr %partner.i12, align 8
   %tobool.not.i13 = icmp eq ptr %12, null
   br i1 %tobool.not.i13, label %decref_and_unlock.exit, label %if.then.i14
@@ -579,13 +579,13 @@ declare void @bufferevent_init_generic_timeout_cbs_(ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @be_pair_transfer(ptr noundef %src, ptr noundef %dst, i32 noundef range(i32 0, 2) %ignore_wm) unnamed_addr #0 {
 entry:
-  %output = getelementptr inbounds i8, ptr %src, i64 264
+  %output = getelementptr inbounds nuw i8, ptr %src, i64 264
   %0 = load ptr, ptr %output, align 8
   %call = tail call i32 @evbuffer_unfreeze(ptr noundef %0, i32 noundef 1) #3
-  %input = getelementptr inbounds i8, ptr %dst, i64 256
+  %input = getelementptr inbounds nuw i8, ptr %dst, i64 256
   %1 = load ptr, ptr %input, align 8
   %call1 = tail call i32 @evbuffer_unfreeze(ptr noundef %1, i32 noundef 0) #3
-  %high = getelementptr inbounds i8, ptr %dst, i64 280
+  %high = getelementptr inbounds nuw i8, ptr %dst, i64 280
   %2 = load i64, ptr %high, align 8
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %if.else20, label %if.then
@@ -630,55 +630,55 @@ if.end26:                                         ; preds = %if.then6, %if.end, 
   br i1 %tobool27.not, label %if.end56, label %do.body
 
 do.body:                                          ; preds = %if.end26
-  %timeout_read = getelementptr inbounds i8, ptr %dst, i64 336
+  %timeout_read = getelementptr inbounds nuw i8, ptr %dst, i64 336
   %13 = load i64, ptr %timeout_read, align 8
   %tobool29.not = icmp eq i64 %13, 0
   br i1 %tobool29.not, label %lor.lhs.false, label %if.then32
 
 lor.lhs.false:                                    ; preds = %do.body
-  %tv_usec = getelementptr inbounds i8, ptr %dst, i64 344
+  %tv_usec = getelementptr inbounds nuw i8, ptr %dst, i64 344
   %14 = load i64, ptr %tv_usec, align 8
   %tobool31.not = icmp eq i64 %14, 0
   br i1 %tobool31.not, label %do.end, label %if.then32
 
 if.then32:                                        ; preds = %lor.lhs.false, %do.body
-  %ev_read = getelementptr inbounds i8, ptr %dst, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %dst, i64 16
   %call34 = tail call i32 @event_add(ptr noundef nonnull %ev_read, ptr noundef nonnull %timeout_read) #3
   br label %do.end
 
 do.end:                                           ; preds = %lor.lhs.false, %if.then32
-  %output36 = getelementptr inbounds i8, ptr %dst, i64 264
+  %output36 = getelementptr inbounds nuw i8, ptr %dst, i64 264
   %15 = load ptr, ptr %output36, align 8
   %call37 = tail call i64 @evbuffer_get_length(ptr noundef %15) #3
   %tobool38.not = icmp eq i64 %call37, 0
   br i1 %tobool38.not, label %if.else52, label %do.body40
 
 do.body40:                                        ; preds = %do.end
-  %timeout_write = getelementptr inbounds i8, ptr %dst, i64 352
+  %timeout_write = getelementptr inbounds nuw i8, ptr %dst, i64 352
   %16 = load i64, ptr %timeout_write, align 8
   %tobool42.not = icmp eq i64 %16, 0
   br i1 %tobool42.not, label %lor.lhs.false43, label %if.then47
 
 lor.lhs.false43:                                  ; preds = %do.body40
-  %tv_usec45 = getelementptr inbounds i8, ptr %dst, i64 360
+  %tv_usec45 = getelementptr inbounds nuw i8, ptr %dst, i64 360
   %17 = load i64, ptr %tv_usec45, align 8
   %tobool46.not = icmp eq i64 %17, 0
   br i1 %tobool46.not, label %if.end56, label %if.then47
 
 if.then47:                                        ; preds = %lor.lhs.false43, %do.body40
-  %ev_write = getelementptr inbounds i8, ptr %dst, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %dst, i64 136
   %call49 = tail call i32 @event_add(ptr noundef nonnull %ev_write, ptr noundef nonnull %timeout_write) #3
   br label %if.end56
 
 if.else52:                                        ; preds = %do.end
-  %ev_write53 = getelementptr inbounds i8, ptr %dst, i64 136
+  %ev_write53 = getelementptr inbounds nuw i8, ptr %dst, i64 136
   %call54 = tail call i32 @event_del(ptr noundef nonnull %ev_write53) #3
   br label %if.end56
 
 if.end56:                                         ; preds = %if.else52, %lor.lhs.false43, %if.then47, %if.end26
   %18 = load ptr, ptr %input, align 8
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %18) #3
-  %wm_read.i = getelementptr inbounds i8, ptr %dst, i64 272
+  %wm_read.i = getelementptr inbounds nuw i8, ptr %dst, i64 272
   %19 = load i64, ptr %wm_read.i, align 8
   %cmp.not.i = icmp ult i64 %call.i, %19
   br i1 %cmp.not.i, label %bufferevent_trigger_nolock_.exit, label %if.then.i
@@ -690,7 +690,7 @@ if.then.i:                                        ; preds = %if.end56
 bufferevent_trigger_nolock_.exit:                 ; preds = %if.end56, %if.then.i
   %20 = load ptr, ptr %output, align 8
   %call11.i = tail call i64 @evbuffer_get_length(ptr noundef %20) #3
-  %wm_write.i = getelementptr inbounds i8, ptr %src, i64 288
+  %wm_write.i = getelementptr inbounds nuw i8, ptr %src, i64 288
   %21 = load i64, ptr %wm_write.i, align 8
   %cmp13.not.i = icmp ugt i64 %call11.i, %21
   br i1 %cmp13.not.i, label %done, label %if.then15.i

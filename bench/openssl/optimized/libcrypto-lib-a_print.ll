@@ -29,7 +29,7 @@ while.body:                                       ; preds = %if.end3, %while.bod
   %len.addr.17 = phi i32 [ %dec, %while.body ], [ %len.addr.0, %if.end3 ]
   %s.addr.06 = phi ptr [ %incdec.ptr, %while.body ], [ %s, %if.end3 ]
   %dec = add nsw i32 %len.addr.17, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.06, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.addr.06, i64 1
   %0 = load i8, ptr %s.addr.06, align 1
   %conv6 = zext i8 %0 to i32
   %call7 = tail call i32 @ossl_ctype_check(i32 noundef %conv6, i32 noundef 2048) #4
@@ -60,7 +60,7 @@ declare i32 @ossl_ctype_check(i32 noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %s, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %s, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %0, 28
   br i1 %cmp.not, label %if.end, label %return
@@ -72,7 +72,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %data = getelementptr inbounds i8, ptr %s, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %s, i64 8
   %3 = load ptr, ptr %data, align 8
   %cmp522 = icmp sgt i32 %1, 0
   br i1 %cmp522, label %for.body, label %for.end34
@@ -89,19 +89,19 @@ for.body:                                         ; preds = %if.end3, %if.else
   br i1 %cmp6.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %for.body
-  %arrayidx8 = getelementptr inbounds i8, ptr %p.024, i64 1
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %p.024, i64 1
   %5 = load i8, ptr %arrayidx8, align 1
   %cmp10.not = icmp eq i8 %5, 0
   br i1 %cmp10.not, label %lor.lhs.false12, label %return
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false
-  %arrayidx13 = getelementptr inbounds i8, ptr %p.024, i64 2
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %p.024, i64 2
   %6 = load i8, ptr %arrayidx13, align 1
   %cmp15.not = icmp eq i8 %6, 0
   br i1 %cmp15.not, label %if.else, label %return
 
 if.else:                                          ; preds = %lor.lhs.false12
-  %add.ptr = getelementptr inbounds i8, ptr %p.024, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %p.024, i64 4
   %add = add nuw nsw i32 %i.023, 4
   %cmp5 = icmp slt i32 %add, %1
   br i1 %cmp5, label %for.body, label %for.cond25.preheader, !llvm.loop !6
@@ -110,9 +110,9 @@ for.body29:                                       ; preds = %for.cond25.preheade
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body29 ], [ 3, %for.cond25.preheader ]
   %p.127 = phi ptr [ %incdec.ptr, %for.body29 ], [ %3, %for.cond25.preheader ]
   %7 = load ptr, ptr %data, align 8
-  %arrayidx31 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv
+  %arrayidx31 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %8 = load i8, ptr %arrayidx31, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.127, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.127, i64 1
   store i8 %8, ptr %p.127, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %9 = load i32, ptr %s, align 8
@@ -150,7 +150,7 @@ while.body.i:                                     ; preds = %if.end3.i, %while.b
   %len.addr.17.i = phi i32 [ %dec.i, %while.body.i ], [ %len.addr.0.i, %if.end3.i ]
   %s.addr.06.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %12, %if.end3.i ]
   %dec.i = add nsw i32 %len.addr.17.i, -1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.06.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.addr.06.i, i64 1
   %13 = load i8, ptr %s.addr.06.i, align 1
   %conv6.i = zext i8 %13 to i32
   %call7.i = tail call i32 @ossl_ctype_check(i32 noundef %conv6.i, i32 noundef 2048) #4
@@ -186,7 +186,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %v, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %v, i64 8
   %0 = load ptr, ptr %data, align 8
   %1 = load i32, ptr %v, align 8
   %cmp122 = icmp sgt i32 %1, 0
@@ -196,7 +196,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %2 = phi i32 [ %4, %for.inc ], [ %1, %if.end ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
   %n.024 = phi i32 [ %n.1, %for.inc ], [ 0, %if.end ]
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx, align 1
   %.fr = freeze i8 %3
   %cmp2 = icmp eq i8 %.fr, 127

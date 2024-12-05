@@ -48,7 +48,7 @@ declare dso_local i32 @acpi_walk_namespace(i32 noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @acpi_ns_init_one_object(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 4
@@ -77,11 +77,11 @@ define internal noundef i32 @acpi_ns_init_one_object(ptr noundef %0, i32 %1, ptr
 
 15:                                               ; preds = %14, %13, %12, %11
   %16 = phi i64 [ 40, %14 ], [ 36, %13 ], [ 32, %12 ], [ 28, %11 ]
-  %17 = getelementptr inbounds i8, ptr %2, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %9, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %21 = load i8, ptr %20, align 4
   %22 = and i8 %21, 4
   %23 = icmp eq i8 %22, 0
@@ -95,7 +95,7 @@ define internal noundef i32 @acpi_ns_init_one_object(ptr noundef %0, i32 %1, ptr
   ]
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %2, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4
@@ -104,7 +104,7 @@ define internal noundef i32 @acpi_ns_init_one_object(ptr noundef %0, i32 %1, ptr
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %29, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %33 = load i8, ptr %32, align 4
   %34 = and i8 %33, 4
   %35 = icmp eq i8 %34, 0
@@ -133,7 +133,7 @@ define internal noundef i32 @acpi_ns_init_one_object(ptr noundef %0, i32 %1, ptr
   br label %53
 
 47:                                               ; preds = %24
-  %48 = getelementptr inbounds i8, ptr %2, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %49, 1
   store i32 %50, ptr %48, align 4
@@ -176,11 +176,11 @@ define dso_local i32 @acpi_ns_initialize_devices(i32 noundef %0) local_unnamed_a
   br i1 %6, label %7, label %49
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 0, ptr %10, align 8
   %11 = call i32 @acpi_ns_walk_namespace(i32 noundef 0, ptr noundef nonnull inttoptr (i64 -1 to ptr), i32 noundef -1, i32 noundef 0, ptr noundef nonnull @acpi_ns_find_ini_methods, ptr noundef null, ptr noundef nonnull %3, ptr noundef null) #6
   %12 = icmp eq i32 %11, 0
@@ -197,7 +197,7 @@ define dso_local i32 @acpi_ns_initialize_devices(i32 noundef %0) local_unnamed_a
   %17 = select i1 %16, i32 2336, i32 3520
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %19 = call noalias noundef align 8 dereferenceable_or_null(88) ptr @kmalloc_trace(ptr noundef %18, i32 noundef %17, i64 noundef 88) #7
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %20, align 8
   %21 = icmp eq ptr %19, null
   br i1 %21, label %67, label %22
@@ -205,11 +205,11 @@ define dso_local i32 @acpi_ns_initialize_devices(i32 noundef %0) local_unnamed_a
 22:                                               ; preds = %13
   %23 = load ptr, ptr @acpi_gbl_root_node, align 8
   store ptr %23, ptr %19, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @.str.1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr null, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 86
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 86
   store i8 1, ptr %26, align 2
   %27 = call i32 @acpi_ns_evaluate(ptr noundef nonnull %19) #6
   %28 = icmp eq i32 %27, 0
@@ -228,17 +228,17 @@ define dso_local i32 @acpi_ns_initialize_devices(i32 noundef %0) local_unnamed_a
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(88) %37, i8 0, i64 80, i1 false)
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %37, i8 0, i64 80, i1 false)
   %38 = load ptr, ptr %4, align 8
   store ptr %38, ptr %36, align 8
   %39 = load ptr, ptr %20, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr @.str.1, ptr %40, align 8
   %41 = load ptr, ptr %20, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 86
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 86
   store i8 1, ptr %43, align 2
   %44 = call i32 @acpi_ns_evaluate(ptr noundef %41) #6
   %45 = icmp eq i32 %44, 0
@@ -276,7 +276,7 @@ define dso_local i32 @acpi_ns_initialize_devices(i32 noundef %0) local_unnamed_a
   br label %63
 
 63:                                               ; preds = %62, %58
-  %64 = getelementptr inbounds i8, ptr %3, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %65 = load ptr, ptr %64, align 8
   call void @kfree(ptr noundef %65) #6
   %66 = icmp eq i32 %59, 0
@@ -299,7 +299,7 @@ declare dso_local i32 @acpi_ns_walk_namespace(i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define internal noundef i32 @acpi_ns_find_ini_methods(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #4 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %6 = load i8, ptr %5, align 1
   switch i8 %6, label %11 [
     i8 6, label %7
@@ -308,22 +308,22 @@ define internal noundef i32 @acpi_ns_find_ini_methods(ptr nocapture noundef read
   ]
 
 7:                                                ; preds = %4, %4, %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 8
   br label %.loopexit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 1229867359
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 9
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 9
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %.loopexit [
     i8 6, label %20
@@ -337,11 +337,11 @@ define internal noundef i32 @acpi_ns_find_ini_methods(ptr nocapture noundef read
 
 .preheader:                                       ; preds = %20, %.preheader
   %22 = phi ptr [ %27, %.preheader ], [ %17, %20 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 10
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 10
   %24 = load i16, ptr %23, align 2
   %25 = or i16 %24, 16
   store i16 %25, ptr %23, align 2
-  %26 = getelementptr inbounds i8, ptr %22, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !7
@@ -362,10 +362,10 @@ declare dso_local i32 @acpi_ev_initialize_op_regions() local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @acpi_ns_init_one_device(ptr noundef %0, i32 %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #0 align 16 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %55 [
     i8 6, label %10
@@ -374,7 +374,7 @@ define internal i32 @acpi_ns_init_one_device(ptr noundef %0, i32 %1, ptr nocaptu
   ]
 
 10:                                               ; preds = %4, %4, %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 16
   %14 = icmp eq i16 %13, 0
@@ -392,7 +392,7 @@ define internal i32 @acpi_ns_init_one_device(ptr noundef %0, i32 %1, ptr nocaptu
   br i1 %20, label %.thread, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %2, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 4
@@ -407,34 +407,34 @@ define internal i32 @acpi_ns_init_one_device(ptr noundef %0, i32 %1, ptr nocaptu
   br label %55
 
 .thread:                                          ; preds = %18, %21
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 1598182239
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %.thread
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr @acpi_gbl_root_node, align 8
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %50, label %39
 
 39:                                               ; preds = %34, %.thread
-  %40 = getelementptr inbounds i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(88) %40, i8 0, i64 64, i1 false)
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %40, i8 0, i64 64, i1 false)
   store ptr %0, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %7, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 86
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 86
   store i8 1, ptr %43, align 2
   %44 = call i32 @acpi_ns_evaluate(ptr noundef %7) #6
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 8
@@ -462,7 +462,7 @@ define dso_local noundef i32 @acpi_ns_init_one_package(ptr noundef %0, i32 nound
   br i1 %6, label %21, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %9 = load i8, ptr %8, align 4
   %10 = and i8 %9, 4
   %11 = icmp eq i8 %10, 0

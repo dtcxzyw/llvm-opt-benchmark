@@ -23,7 +23,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %__len.08.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i.i, %entry ]
   %__first.sroa.0.07.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %0, %entry ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds double, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
   %2 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !7
   %cmp.i.i.i = fcmp olt double %2, %paymentTime
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -65,7 +65,7 @@ define noundef double @_ZNK8QuantLib21MarketModelDiscounter14numeraireBondsERKNS
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !14
   %vtable = load ptr, ptr %curveState, align 8, !tbaa !15
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(64) %curveState, i64 noundef %0, i64 noundef %numeraire)
   %beforeWeight_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -77,7 +77,7 @@ if.end:                                           ; preds = %entry
   %3 = load i64, ptr %this, align 8, !tbaa !14
   %add = add i64 %3, 1
   %vtable3 = load ptr, ptr %curveState, align 8, !tbaa !15
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 16
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 16
   %4 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef double %4(ptr noundef nonnull align 8 dereferenceable(64) %curveState, i64 noundef %add, i64 noundef %numeraire)
   %5 = load double, ptr %beforeWeight_, align 8, !tbaa !11

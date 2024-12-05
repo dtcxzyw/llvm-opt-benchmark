@@ -31,7 +31,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_task_cls_sta
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
 define dso_local ptr @task_cls_state(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2272
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2272
   %3 = load volatile ptr, ptr %2, align 32
   %4 = getelementptr i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -55,15 +55,15 @@ define internal noundef nonnull ptr @cgrp_css_alloc(ptr nocapture readnone %0) #
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal noundef i32 @cgrp_css_online(ptr nocapture noundef %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 %7, ptr %8, align 8
   br label %9
 
@@ -88,33 +88,33 @@ define internal void @cgrp_attach(ptr noundef %0) #2 align 16 {
   br i1 %5, label %.loopexit3, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %8
 
 8:                                                ; preds = %.loopexit, %6
   %9 = phi ptr [ %4, %6 ], [ %25, %.loopexit ]
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 200
   %12 = load i32, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   store i32 %12, ptr %2, align 8
   store i32 1000, ptr %7, align 4
-  %13 = getelementptr inbounds i8, ptr %9, i64 1376
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1376
   %14 = load ptr, ptr %13, align 32
   %15 = icmp eq ptr %14, %9
   br i1 %15, label %16, label %.loopexit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %9, i64 2056
-  %18 = getelementptr inbounds i8, ptr %9, i64 1856
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 2056
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 1856
   br label %19
 
 19:                                               ; preds = %19, %16
   %20 = phi i32 [ %22, %19 ], [ 0, %16 ]
-  call void @_raw_spin_lock(ptr noundef %17) #9
+  call void @_raw_spin_lock(ptr noundef nonnull %17) #9
   %21 = load ptr, ptr %18, align 64
   %22 = call i32 @iterate_fd(ptr noundef %21, i32 noundef %20, ptr noundef nonnull @update_classid_sock, ptr noundef nonnull %2) #9
-  call void @_raw_spin_unlock(ptr noundef %17) #9
+  call void @_raw_spin_unlock(ptr noundef nonnull %17) #9
   %23 = call i32 @__SCT__cond_resched() #9
   %24 = icmp eq i32 %22, 0
   br i1 %24, label %.loopexit, label %19, !llvm.loop !6
@@ -155,15 +155,15 @@ define internal noundef i32 @update_classid_sock(ptr nocapture noundef %0, ptr n
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %0, align 4
-  %10 = getelementptr inbounds i8, ptr %8, i64 656
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 656
   store volatile i32 %9, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %6, %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, -1
   store i32 %14, ptr %12, align 4
@@ -194,7 +194,7 @@ declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i64 0, 4294967296) i64 @read_classid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   ret i64 %5
@@ -207,7 +207,7 @@ define internal noundef i32 @write_classid(ptr noundef initializes((200, 204)) %
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, i8 0, i64 104, i1 false), !annotation !5
   %6 = trunc i64 %2 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 %6, ptr %7, align 8
   call void @css_task_iter_start(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5) #9
   %8 = call ptr @css_task_iter_next(ptr noundef nonnull %5) #9
@@ -215,7 +215,7 @@ define internal noundef i32 @write_classid(ptr noundef initializes((200, 204)) %
   br i1 %9, label %.loopexit3, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %12
 
 12:                                               ; preds = %.loopexit, %10
@@ -224,22 +224,22 @@ define internal noundef i32 @write_classid(ptr noundef initializes((200, 204)) %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   store i32 %14, ptr %4, align 8
   store i32 1000, ptr %11, align 4
-  %15 = getelementptr inbounds i8, ptr %13, i64 1376
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 1376
   %16 = load ptr, ptr %15, align 32
   %17 = icmp eq ptr %16, %13
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %13, i64 2056
-  %20 = getelementptr inbounds i8, ptr %13, i64 1856
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 2056
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 1856
   br label %21
 
 21:                                               ; preds = %21, %18
   %22 = phi i32 [ %24, %21 ], [ 0, %18 ]
-  call void @_raw_spin_lock(ptr noundef %19) #9
+  call void @_raw_spin_lock(ptr noundef nonnull %19) #9
   %23 = load ptr, ptr %20, align 64
   %24 = call i32 @iterate_fd(ptr noundef %23, i32 noundef %22, ptr noundef nonnull @update_classid_sock, ptr noundef nonnull %4) #9
-  call void @_raw_spin_unlock(ptr noundef %19) #9
+  call void @_raw_spin_unlock(ptr noundef nonnull %19) #9
   %25 = call i32 @__SCT__cond_resched() #9
   %26 = icmp eq i32 %24, 0
   br i1 %26, label %.loopexit, label %21, !llvm.loop !6

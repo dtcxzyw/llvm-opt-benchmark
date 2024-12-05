@@ -76,14 +76,14 @@ entry:
   %_iex_throw_s25 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   %vtable.i.i.i = load ptr, ptr %is, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i, i32 noundef 4)
   %1 = load i32, ptr %b.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %b.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i10)
   %vtable.i.i.i11 = load ptr, ptr %is, align 8
-  %vfn.i.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i.i11, i64 24
+  %vfn.i.i.i12 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i11, i64 24
   %2 = load ptr, ptr %vfn.i.i.i12, align 8
   %call.i.i.i13 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull %b.i10, i32 noundef 4)
   %3 = load i32, ptr %b.i10, align 4
@@ -115,7 +115,7 @@ if.end:                                           ; preds = %entry
 do.body:                                          ; preds = %if.end
   call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s)
-  %add.ptr = getelementptr inbounds i8, ptr %_iex_throw_s, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %_iex_throw_s, i64 16
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str.1)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -170,7 +170,7 @@ if.end20:                                         ; preds = %if.end
 do.body24:                                        ; preds = %if.end20
   call void @_Z13iex_debugTrapv()
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s25)
-  %add.ptr26 = getelementptr inbounds i8, ptr %_iex_throw_s25, i64 16
+  %add.ptr26 = getelementptr inbounds nuw i8, ptr %_iex_throw_s25, i64 16
   %call29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr26, ptr noundef nonnull @.str.4)
           to label %invoke.cont28 unwind label %lpad27
 

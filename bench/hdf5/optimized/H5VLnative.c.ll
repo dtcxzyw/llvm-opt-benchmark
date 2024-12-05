@@ -501,7 +501,7 @@ define range(i32 -1, 1) i32 @H5VL_native_token_to_addr(ptr noundef %0, i32 nound
   %7 = alloca %struct.H5O_token_t, align 8
   %8 = alloca ptr, align 8
   store i64 %2, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8

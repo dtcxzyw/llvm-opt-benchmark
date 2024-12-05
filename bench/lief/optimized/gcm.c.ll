@@ -45,7 +45,7 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
   br i1 %8, label %125, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 16
   br i1 %.not, label %12, label %125
@@ -74,83 +74,83 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
   %19 = load i8, ptr %5, align 16
   %20 = zext i8 %19 to i64
   %21 = shl nuw nsw i64 %20, 24
-  %22 = getelementptr inbounds i8, ptr %5, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
   %25 = shl nuw nsw i64 %24, 16
   %26 = or disjoint i64 %25, %21
-  %27 = getelementptr inbounds i8, ptr %5, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %28 = load i8, ptr %27, align 2
   %29 = zext i8 %28 to i64
   %30 = shl nuw nsw i64 %29, 8
   %31 = or disjoint i64 %26, %30
-  %32 = getelementptr inbounds i8, ptr %5, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i64
   %35 = or disjoint i64 %31, %34
-  %36 = getelementptr inbounds i8, ptr %5, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %37 = load i8, ptr %36, align 4
   %38 = zext i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 24
-  %40 = getelementptr inbounds i8, ptr %5, i64 5
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = shl nuw nsw i64 %42, 16
   %44 = or disjoint i64 %43, %39
-  %45 = getelementptr inbounds i8, ptr %5, i64 6
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %46 = load i8, ptr %45, align 2
   %47 = zext i8 %46 to i64
   %48 = shl nuw nsw i64 %47, 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 7
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
   %52 = shl nuw i64 %35, 32
   %53 = or disjoint i64 %44, %52
   %54 = or disjoint i64 %53, %48
   %55 = or disjoint i64 %54, %51
-  %56 = getelementptr inbounds i8, ptr %5, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %57 = load i8, ptr %56, align 8
   %58 = zext i8 %57 to i64
   %59 = shl nuw nsw i64 %58, 24
-  %60 = getelementptr inbounds i8, ptr %5, i64 9
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i64
   %63 = shl nuw nsw i64 %62, 16
   %64 = or disjoint i64 %63, %59
-  %65 = getelementptr inbounds i8, ptr %5, i64 10
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %66 = load i8, ptr %65, align 2
   %67 = zext i8 %66 to i64
   %68 = shl nuw nsw i64 %67, 8
   %69 = or disjoint i64 %64, %68
-  %70 = getelementptr inbounds i8, ptr %5, i64 11
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 11
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i64
   %73 = or disjoint i64 %69, %72
-  %74 = getelementptr inbounds i8, ptr %5, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %75 = load i8, ptr %74, align 4
   %76 = zext i8 %75 to i64
   %77 = shl nuw nsw i64 %76, 24
-  %78 = getelementptr inbounds i8, ptr %5, i64 13
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i64
   %81 = shl nuw nsw i64 %80, 16
   %82 = or disjoint i64 %81, %77
-  %83 = getelementptr inbounds i8, ptr %5, i64 14
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 14
   %84 = load i8, ptr %83, align 2
   %85 = zext i8 %84 to i64
   %86 = shl nuw nsw i64 %85, 8
-  %87 = getelementptr inbounds i8, ptr %5, i64 15
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 15
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i64
   %90 = shl nuw i64 %73, 32
   %91 = or disjoint i64 %82, %90
   %92 = or disjoint i64 %91, %86
   %93 = or disjoint i64 %92, %89
-  %94 = getelementptr inbounds i8, ptr %0, i64 96
-  %95 = getelementptr inbounds i8, ptr %0, i64 160
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i64 %93, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 224
-  %97 = getelementptr inbounds i8, ptr %0, i64 288
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 %55, ptr %97, align 8
   %98 = call i32 @mbedtls_aesni_has_support(i32 noundef 2) #10
   %.not51.i = icmp eq i32 %98, 0
@@ -171,9 +171,9 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
   %104 = select i1 %101, i64 -2233785415175766016, i64 0
   %105 = xor i64 %104, %103
   %106 = zext nneg i32 %.04655.i to i64
-  %107 = getelementptr inbounds [16 x i64], ptr %94, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i64], ptr %94, i64 0, i64 %106
   store i64 %102, ptr %107, align 8
-  %108 = getelementptr inbounds [16 x i64], ptr %96, i64 0, i64 %106
+  %108 = getelementptr inbounds nuw [16 x i64], ptr %96, i64 0, i64 %106
   store i64 %105, ptr %108, align 8
   %109 = lshr i32 %.04655.i, 1
   %.not52.i = icmp samesign ult i32 %.04655.i, 2
@@ -182,23 +182,23 @@ define hidden i32 @mbedtls_gcm_setkey(ptr noundef %0, i32 noundef %1, ptr nounde
 .lr.ph.preheader.i:                               ; preds = %100, %._crit_edge.i
   %.157.i = phi i32 [ %123, %._crit_edge.i ], [ 2, %100 ]
   %110 = zext i32 %.157.i to i64
-  %111 = getelementptr inbounds i64, ptr %94, i64 %110
-  %112 = getelementptr inbounds i64, ptr %96, i64 %110
+  %111 = getelementptr inbounds nuw i64, ptr %94, i64 %110
+  %112 = getelementptr inbounds nuw i64, ptr %96, i64 %110
   %113 = load i64, ptr %112, align 8
   %114 = load i64, ptr %111, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %115 = getelementptr inbounds [16 x i64], ptr %96, i64 0, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw [16 x i64], ptr %96, i64 0, i64 %indvars.iv.i
   %116 = load i64, ptr %115, align 8
   %117 = xor i64 %116, %113
-  %118 = getelementptr inbounds i64, ptr %112, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw i64, ptr %112, i64 %indvars.iv.i
   store i64 %117, ptr %118, align 8
-  %119 = getelementptr inbounds [16 x i64], ptr %94, i64 0, i64 %indvars.iv.i
+  %119 = getelementptr inbounds nuw [16 x i64], ptr %94, i64 0, i64 %indvars.iv.i
   %120 = load i64, ptr %119, align 8
   %121 = xor i64 %120, %114
-  %122 = getelementptr inbounds i64, ptr %111, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv.i
   store i64 %121, ptr %122, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %110
@@ -238,18 +238,18 @@ define hidden i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef %1, ptr nocapt
   br i1 %or.cond, label %8, label %59
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 384
-  %10 = getelementptr inbounds i8, ptr %0, i64 416
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 416
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i32 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 352
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %12 = icmp eq i64 %3, 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   br i1 %12, label %13, label %.lr.ph.preheader
 
 13:                                               ; preds = %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 1 dereferenceable(12) %2, i64 12, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 399
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 399
   store i8 1, ptr %14, align 1
   br label %56
 
@@ -257,35 +257,35 @@ define hidden i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef %1, ptr nocapt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %15 = lshr i64 %3, 53
   %16 = trunc nuw i64 %15 to i8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %16, ptr %17, align 8
   %18 = lshr i64 %3, 45
   %19 = trunc i64 %18 to i8
-  %20 = getelementptr inbounds i8, ptr %5, i64 9
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 9
   store i8 %19, ptr %20, align 1
   %21 = lshr i64 %3, 37
   %22 = trunc i64 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %5, i64 10
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 10
   store i8 %22, ptr %23, align 2
   %24 = lshr i64 %3, 29
   %25 = trunc i64 %24 to i8
-  %26 = getelementptr inbounds i8, ptr %5, i64 11
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 11
   store i8 %25, ptr %26, align 1
   %27 = lshr i64 %3, 21
   %28 = trunc i64 %27 to i8
-  %29 = getelementptr inbounds i8, ptr %5, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %28, ptr %29, align 4
   %30 = lshr i64 %3, 13
   %31 = trunc i64 %30 to i8
-  %32 = getelementptr inbounds i8, ptr %5, i64 13
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 13
   store i8 %31, ptr %32, align 1
   %33 = lshr i64 %3, 5
   %34 = trunc i64 %33 to i8
-  %35 = getelementptr inbounds i8, ptr %5, i64 14
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 14
   store i8 %34, ptr %35, align 2
   %.tr = trunc i64 %3 to i8
   %36 = shl i8 %.tr, 3
-  %37 = getelementptr inbounds i8, ptr %5, i64 15
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 15
   store i8 %36, ptr %37, align 1
   br label %.lr.ph
 
@@ -297,9 +297,9 @@ define hidden i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef %1, ptr nocapt
 
 39:                                               ; preds = %.lr.ph, %39
   %.05460 = phi i64 [ 0, %.lr.ph ], [ %45, %39 ]
-  %40 = getelementptr inbounds i8, ptr %.05362, i64 %.05460
+  %40 = getelementptr inbounds nuw i8, ptr %.05362, i64 %.05460
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 %.05460
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %.05460
   %43 = load i8, ptr %42, align 1
   %44 = xor i8 %43, %41
   store i8 %44, ptr %42, align 1
@@ -310,15 +310,15 @@ define hidden i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef %1, ptr nocapt
 46:                                               ; preds = %39
   tail call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %9)
   %47 = sub i64 %.05263, %38
-  %48 = getelementptr inbounds i8, ptr %.05362, i64 %38
+  %48 = getelementptr inbounds nuw i8, ptr %.05362, i64 %38
   %.not58 = icmp eq i64 %47, 0
   br i1 %.not58, label %.preheader, label %.lr.ph, !llvm.loop !9
 
 .preheader:                                       ; preds = %46, %.preheader
   %.164 = phi i64 [ %54, %.preheader ], [ 0, %46 ]
-  %49 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %.164
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.164
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 %.164
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %.164
   %52 = load i8, ptr %51, align 1
   %53 = xor i8 %52, %50
   store i8 %53, ptr %51, align 1
@@ -331,7 +331,7 @@ define hidden i32 @mbedtls_gcm_starts(ptr noundef %0, i32 noundef %1, ptr nocapt
   br label %56
 
 56:                                               ; preds = %55, %13
-  %57 = getelementptr inbounds i8, ptr %0, i64 368
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %58 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 16, ptr noundef nonnull %57, ptr noundef nonnull %6) #10
   br label %59
 
@@ -351,84 +351,84 @@ define internal fastcc void @gcm_mult(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not, label %56, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 288
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %8 = load i64, ptr %7, align 8
   %9 = lshr i64 %8, 56
   %10 = trunc nuw i64 %9 to i8
   store i8 %10, ptr %4, align 16
   %11 = lshr i64 %8, 48
   %12 = trunc i64 %11 to i8
-  %13 = getelementptr inbounds i8, ptr %4, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %12, ptr %13, align 1
   %14 = lshr i64 %8, 40
   %15 = trunc i64 %14 to i8
-  %16 = getelementptr inbounds i8, ptr %4, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %15, ptr %16, align 2
   %17 = lshr i64 %8, 32
   %18 = trunc i64 %17 to i8
-  %19 = getelementptr inbounds i8, ptr %4, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %18, ptr %19, align 1
   %20 = lshr i64 %8, 24
   %21 = trunc i64 %20 to i8
-  %22 = getelementptr inbounds i8, ptr %4, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %21, ptr %22, align 4
   %23 = lshr i64 %8, 16
   %24 = trunc i64 %23 to i8
-  %25 = getelementptr inbounds i8, ptr %4, i64 5
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 %24, ptr %25, align 1
   %26 = lshr i64 %8, 8
   %27 = trunc i64 %26 to i8
-  %28 = getelementptr inbounds i8, ptr %4, i64 6
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i8 %27, ptr %28, align 2
   %29 = trunc i64 %8 to i8
-  %30 = getelementptr inbounds i8, ptr %4, i64 7
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 7
   store i8 %29, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %0, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %32 = load i64, ptr %31, align 8
   %33 = lshr i64 %32, 56
   %34 = trunc nuw i64 %33 to i8
-  %35 = getelementptr inbounds i8, ptr %4, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %34, ptr %35, align 8
   %36 = lshr i64 %32, 48
   %37 = trunc i64 %36 to i8
-  %38 = getelementptr inbounds i8, ptr %4, i64 9
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 %37, ptr %38, align 1
   %39 = lshr i64 %32, 40
   %40 = trunc i64 %39 to i8
-  %41 = getelementptr inbounds i8, ptr %4, i64 10
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i8 %40, ptr %41, align 2
   %42 = lshr i64 %32, 32
   %43 = trunc i64 %42 to i8
-  %44 = getelementptr inbounds i8, ptr %4, i64 11
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 11
   store i8 %43, ptr %44, align 1
   %45 = lshr i64 %32, 24
   %46 = trunc i64 %45 to i8
-  %47 = getelementptr inbounds i8, ptr %4, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i8 %46, ptr %47, align 4
   %48 = lshr i64 %32, 16
   %49 = trunc i64 %48 to i8
-  %50 = getelementptr inbounds i8, ptr %4, i64 13
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 13
   store i8 %49, ptr %50, align 1
   %51 = lshr i64 %32, 8
   %52 = trunc i64 %51 to i8
-  %53 = getelementptr inbounds i8, ptr %4, i64 14
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 14
   store i8 %52, ptr %53, align 2
   %54 = trunc i64 %32 to i8
-  %55 = getelementptr inbounds i8, ptr %4, i64 15
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 %54, ptr %55, align 1
   call void @mbedtls_aesni_gcm_mult(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #10
   br label %148
 
 56:                                               ; preds = %3
-  %57 = getelementptr inbounds i8, ptr %1, i64 15
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 15
   %58 = load i8, ptr %57, align 1
   %59 = and i8 %58, 15
-  %60 = getelementptr inbounds i8, ptr %0, i64 224
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %61 = zext nneg i8 %59 to i64
-  %62 = getelementptr inbounds [16 x i64], ptr %60, i64 0, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i64], ptr %60, i64 0, i64 %61
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 96
-  %65 = getelementptr inbounds [16 x i64], ptr %64, i64 0, i64 %61
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %65 = getelementptr inbounds nuw [16 x i64], ptr %64, i64 0, i64 %61
   %66 = load i64, ptr %65, align 8
   br label %67
 
@@ -436,7 +436,7 @@ define internal fastcc void @gcm_mult(ptr nocapture noundef readonly %0, ptr nou
   %indvars.iv = phi i64 [ 15, %56 ], [ %indvars.iv.next, %87 ]
   %.091 = phi i64 [ %66, %56 ], [ %101, %87 ]
   %.08590 = phi i64 [ %63, %56 ], [ %98, %87 ]
-  %68 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %69 = load i8, ptr %68, align 1
   %70 = lshr i8 %69, 4
   %.not88 = icmp eq i64 %indvars.iv, 15
@@ -447,15 +447,15 @@ define internal fastcc void @gcm_mult(ptr nocapture noundef readonly %0, ptr nou
   %73 = and i64 %.091, 15
   %74 = tail call i64 @llvm.fshl.i64(i64 %.08590, i64 %.091, i64 60)
   %75 = lshr i64 %.08590, 4
-  %76 = getelementptr inbounds [16 x i64], ptr @last4, i64 0, i64 %73
+  %76 = getelementptr inbounds nuw [16 x i64], ptr @last4, i64 0, i64 %73
   %77 = load i64, ptr %76, align 8
   %78 = shl i64 %77, 48
   %79 = xor i64 %78, %75
   %80 = zext nneg i8 %72 to i64
-  %81 = getelementptr inbounds [16 x i64], ptr %60, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i64], ptr %60, i64 0, i64 %80
   %82 = load i64, ptr %81, align 8
   %83 = xor i64 %79, %82
-  %84 = getelementptr inbounds [16 x i64], ptr %64, i64 0, i64 %80
+  %84 = getelementptr inbounds nuw [16 x i64], ptr %64, i64 0, i64 %80
   %85 = load i64, ptr %84, align 8
   %86 = xor i64 %85, %74
   br label %87
@@ -466,15 +466,15 @@ define internal fastcc void @gcm_mult(ptr nocapture noundef readonly %0, ptr nou
   %88 = and i64 %.1, 15
   %89 = tail call i64 @llvm.fshl.i64(i64 %.186, i64 %.1, i64 60)
   %90 = lshr i64 %.186, 4
-  %91 = getelementptr inbounds [16 x i64], ptr @last4, i64 0, i64 %88
+  %91 = getelementptr inbounds nuw [16 x i64], ptr @last4, i64 0, i64 %88
   %92 = load i64, ptr %91, align 8
   %93 = shl i64 %92, 48
   %94 = xor i64 %93, %90
   %95 = zext nneg i8 %70 to i64
-  %96 = getelementptr inbounds [16 x i64], ptr %60, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [16 x i64], ptr %60, i64 0, i64 %95
   %97 = load i64, ptr %96, align 8
   %98 = xor i64 %94, %97
-  %99 = getelementptr inbounds [16 x i64], ptr %64, i64 0, i64 %95
+  %99 = getelementptr inbounds nuw [16 x i64], ptr %64, i64 0, i64 %95
   %100 = load i64, ptr %99, align 8
   %101 = xor i64 %100, %89
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -488,60 +488,60 @@ define internal fastcc void @gcm_mult(ptr nocapture noundef readonly %0, ptr nou
   store i8 %105, ptr %2, align 1
   %106 = lshr i64 %98, 48
   %107 = trunc i64 %106 to i8
-  %108 = getelementptr inbounds i8, ptr %2, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %107, ptr %108, align 1
   %109 = lshr i64 %98, 40
   %110 = trunc i64 %109 to i8
-  %111 = getelementptr inbounds i8, ptr %2, i64 2
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %110, ptr %111, align 1
   %112 = trunc i64 %103 to i8
-  %113 = getelementptr inbounds i8, ptr %2, i64 3
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %112, ptr %113, align 1
   %114 = lshr i64 %98, 24
   %115 = trunc i64 %114 to i8
-  %116 = getelementptr inbounds i8, ptr %2, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 %115, ptr %116, align 1
   %117 = lshr i64 %98, 16
   %118 = trunc i64 %117 to i8
-  %119 = getelementptr inbounds i8, ptr %2, i64 5
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 %118, ptr %119, align 1
   %120 = lshr i64 %98, 8
   %121 = trunc i64 %120 to i8
-  %122 = getelementptr inbounds i8, ptr %2, i64 6
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 %121, ptr %122, align 1
   %123 = trunc i64 %98 to i8
-  %124 = getelementptr inbounds i8, ptr %2, i64 7
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 7
   store i8 %123, ptr %124, align 1
   %125 = lshr i64 %101, 32
   %126 = lshr i64 %101, 56
   %127 = trunc nuw i64 %126 to i8
-  %128 = getelementptr inbounds i8, ptr %2, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %127, ptr %128, align 1
   %129 = lshr i64 %101, 48
   %130 = trunc i64 %129 to i8
-  %131 = getelementptr inbounds i8, ptr %2, i64 9
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %130, ptr %131, align 1
   %132 = lshr i64 %101, 40
   %133 = trunc i64 %132 to i8
-  %134 = getelementptr inbounds i8, ptr %2, i64 10
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %133, ptr %134, align 1
   %135 = trunc i64 %125 to i8
-  %136 = getelementptr inbounds i8, ptr %2, i64 11
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 11
   store i8 %135, ptr %136, align 1
   %137 = lshr i64 %101, 24
   %138 = trunc i64 %137 to i8
-  %139 = getelementptr inbounds i8, ptr %2, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 %138, ptr %139, align 1
   %140 = lshr i64 %101, 16
   %141 = trunc i64 %140 to i8
-  %142 = getelementptr inbounds i8, ptr %2, i64 13
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 13
   store i8 %141, ptr %142, align 1
   %143 = lshr i64 %101, 8
   %144 = trunc i64 %143 to i8
-  %145 = getelementptr inbounds i8, ptr %2, i64 14
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 14
   store i8 %144, ptr %145, align 1
   %146 = trunc i64 %101 to i8
-  %147 = getelementptr inbounds i8, ptr %2, i64 15
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store i8 %146, ptr %147, align 1
   br label %148
 
@@ -557,7 +557,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
   br i1 %.not, label %4, label %.loopexit
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 360
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 15
   %.not58 = icmp eq i64 %7, 0
@@ -570,15 +570,15 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
   br i1 %.not68, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 400
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
   %.04961 = phi i64 [ 0, %.lr.ph ], [ %18, %11 ]
-  %12 = getelementptr inbounds i8, ptr %1, i64 %.04961
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.04961
   %13 = load i8, ptr %12, align 1
   %14 = add nuw nsw i64 %.04961, %7
-  %15 = getelementptr inbounds [16 x i8], ptr %10, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = xor i8 %16, %13
   store i8 %17, ptr %15, align 1
@@ -592,7 +592,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %._crit_edge
-  %22 = getelementptr inbounds i8, ptr %0, i64 400
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 400
   tail call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %22)
   %.pre = load i64, ptr %5, align 8
   br label %23
@@ -601,7 +601,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
   %24 = phi i64 [ %.pre, %21 ], [ %6, %._crit_edge ]
   %25 = add i64 %24, %spec.select
   %26 = sub nsw i64 %2, %spec.select
-  %27 = getelementptr inbounds i8, ptr %1, i64 %spec.select
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
   br label %28
 
 28:                                               ; preds = %23, %4
@@ -614,7 +614,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
   br i1 %31, label %.preheader60.lr.ph, label %._crit_edge65
 
 .preheader60.lr.ph:                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 400
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %.preheader60
 
 .preheader60:                                     ; preds = %.preheader60.lr.ph, %40
@@ -624,9 +624,9 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
 
 33:                                               ; preds = %.preheader60, %33
   %.162 = phi i64 [ 0, %.preheader60 ], [ %39, %33 ]
-  %34 = getelementptr inbounds i8, ptr %.15264, i64 %.162
+  %34 = getelementptr inbounds nuw i8, ptr %.15264, i64 %.162
   %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds [16 x i8], ptr %32, i64 0, i64 %.162
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 0, i64 %.162
   %37 = load i8, ptr %36, align 1
   %38 = xor i8 %37, %35
   store i8 %38, ptr %36, align 1
@@ -637,7 +637,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
 40:                                               ; preds = %33
   tail call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull %32)
   %41 = add i64 %.15463, -16
-  %42 = getelementptr inbounds i8, ptr %.15264, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.15264, i64 16
   %43 = icmp ugt i64 %41, 15
   br i1 %43, label %.preheader60, label %._crit_edge65, !llvm.loop !14
 
@@ -648,14 +648,14 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_update_ad(ptr noundef %0, ptr n
   br i1 %.not59, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge65
-  %44 = getelementptr inbounds i8, ptr %0, i64 400
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %45
 
 45:                                               ; preds = %.preheader, %45
   %.267 = phi i64 [ 0, %.preheader ], [ %51, %45 ]
-  %46 = getelementptr inbounds i8, ptr %.152.lcssa, i64 %.267
+  %46 = getelementptr inbounds nuw i8, ptr %.152.lcssa, i64 %.267
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds [16 x i8], ptr %44, i64 0, i64 %.267
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 0, i64 %.267
   %49 = load i8, ptr %48, align 1
   %50 = xor i8 %49, %47
   store i8 %50, ptr %48, align 1
@@ -692,7 +692,7 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %or.cond, label %125, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 352
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %2
   %23 = icmp ult i64 %22, %21
@@ -705,14 +705,14 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 360
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 15
   %.not = icmp eq i64 %30, 0
   br i1 %.not, label %.thread, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 400
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 400
   tail call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %32, ptr noundef nonnull %32)
   %.pre = load i64, ptr %20, align 8
   br label %33
@@ -728,14 +728,14 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   %spec.select = tail call i64 @llvm.umin.i64(i64 %37, i64 %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store i64 0, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 384
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %39 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %38, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %8) #10
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %.preheader.i, label %gcm_mask.exit
 
 .preheader.i:                                     ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 416
-  %41 = getelementptr inbounds i8, ptr %0, i64 400
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %42
 
 42:                                               ; preds = %65, %.preheader.i
@@ -749,10 +749,10 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %52
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %1, i64 %.029.i
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %.029.i
   %47 = load i8, ptr %46, align 1
   %48 = add nuw nsw i64 %.029.i, %35
-  %49 = getelementptr inbounds [16 x i8], ptr %41, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = xor i8 %50, %47
   store i8 %51, ptr %49, align 1
@@ -760,19 +760,19 @@ define hidden i32 @mbedtls_gcm_update(ptr noundef %0, ptr noundef %1, i64 nounde
 
 52:                                               ; preds = %45, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %48, %45 ]
-  %53 = getelementptr inbounds i8, ptr %9, i64 %.pre-phi.i
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 %.pre-phi.i
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %1, i64 %.029.i
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %.029.i
   %56 = load i8, ptr %55, align 1
   %57 = xor i8 %56, %54
-  %58 = getelementptr inbounds i8, ptr %3, i64 %.029.i
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 %.029.i
   store i8 %57, ptr %58, align 1
   %59 = load i32, ptr %40, align 8
   %60 = icmp eq i32 %59, 1
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %52
-  %62 = getelementptr inbounds [16 x i8], ptr %41, i64 0, i64 %.pre-phi.i
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 0, i64 %.pre-phi.i
   %63 = load i8, ptr %62, align 1
   %64 = xor i8 %63, %57
   store i8 %64, ptr %62, align 1
@@ -802,8 +802,8 @@ gcm_mask.exit:                                    ; preds = %36
   %72 = load i64, ptr %20, align 8
   %73 = add i64 %72, %spec.select
   %74 = sub i64 %2, %spec.select
-  %75 = getelementptr inbounds i8, ptr %1, i64 %spec.select
-  %76 = getelementptr inbounds i8, ptr %3, i64 %spec.select
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 %spec.select
   br label %.thread
 
 .thread:                                          ; preds = %27, %71, %33
@@ -817,10 +817,10 @@ gcm_mask.exit:                                    ; preds = %36
   br i1 %79, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.thread
-  %80 = getelementptr inbounds i8, ptr %0, i64 384
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %invariant.gep.i = getelementptr i8, ptr %0, i64 383
-  %81 = getelementptr inbounds i8, ptr %0, i64 416
-  %82 = getelementptr inbounds i8, ptr %0, i64 400
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %83
 
 83:                                               ; preds = %.lr.ph, %112
@@ -855,28 +855,28 @@ gcm_incr.exit:                                    ; preds = %84
   br i1 %91, label %92, label %._crit_edge.i98
 
 92:                                               ; preds = %.preheader.i96
-  %93 = getelementptr inbounds i8, ptr %.171117, i64 %.029.i97
+  %93 = getelementptr inbounds nuw i8, ptr %.171117, i64 %.029.i97
   %94 = load i8, ptr %93, align 1
-  %95 = getelementptr inbounds [16 x i8], ptr %82, i64 0, i64 %.029.i97
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 0, i64 %.029.i97
   %96 = load i8, ptr %95, align 1
   %97 = xor i8 %96, %94
   store i8 %97, ptr %95, align 1
   br label %._crit_edge.i98
 
 ._crit_edge.i98:                                  ; preds = %.preheader.i96, %92
-  %98 = getelementptr inbounds i8, ptr %9, i64 %.029.i97
+  %98 = getelementptr inbounds nuw i8, ptr %9, i64 %.029.i97
   %99 = load i8, ptr %98, align 1
-  %100 = getelementptr inbounds i8, ptr %.171117, i64 %.029.i97
+  %100 = getelementptr inbounds nuw i8, ptr %.171117, i64 %.029.i97
   %101 = load i8, ptr %100, align 1
   %102 = xor i8 %101, %99
-  %103 = getelementptr inbounds i8, ptr %.1118, i64 %.029.i97
+  %103 = getelementptr inbounds nuw i8, ptr %.1118, i64 %.029.i97
   store i8 %102, ptr %103, align 1
   %104 = load i32, ptr %81, align 8
   %105 = icmp eq i32 %104, 1
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %._crit_edge.i98
-  %107 = getelementptr inbounds [16 x i8], ptr %82, i64 0, i64 %.029.i97
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 0, i64 %.029.i97
   %108 = load i8, ptr %107, align 1
   %109 = xor i8 %108, %102
   store i8 %109, ptr %107, align 1
@@ -896,8 +896,8 @@ gcm_mask.exit102:                                 ; preds = %gcm_incr.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %82, ptr noundef nonnull %82)
   %113 = add i64 %.173116, -16
-  %114 = getelementptr inbounds i8, ptr %.171117, i64 16
-  %115 = getelementptr inbounds i8, ptr %.1118, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.171117, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %.1118, i64 16
   %116 = icmp ugt i64 %113, 15
   br i1 %116, label %83, label %._crit_edge, !llvm.loop !18
 
@@ -942,14 +942,14 @@ gcm_incr.exit108:                                 ; preds = %118
 define internal fastcc i32 @gcm_mask(ptr noundef %0, ptr noundef nonnull %1, i64 noundef range(i64 0, 16) %2, i64 noundef range(i64 1, 17) %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 {
   %7 = alloca i64, align 8
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 384
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %9 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 16, ptr noundef nonnull %1, ptr noundef nonnull %7) #10
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.preheader, label %12
 
 .preheader:                                       ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 416
-  %11 = getelementptr inbounds i8, ptr %0, i64 400
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %13
 
 12:                                               ; preds = %6
@@ -967,10 +967,10 @@ define internal fastcc i32 @gcm_mask(ptr noundef %0, ptr noundef nonnull %1, i64
   br label %23
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %4, i64 %.029
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.029
   %18 = load i8, ptr %17, align 1
   %19 = add nuw nsw i64 %.029, %2
-  %20 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = xor i8 %21, %18
   store i8 %22, ptr %20, align 1
@@ -978,19 +978,19 @@ define internal fastcc i32 @gcm_mask(ptr noundef %0, ptr noundef nonnull %1, i64
 
 23:                                               ; preds = %._crit_edge, %16
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %19, %16 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 %.pre-phi
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.pre-phi
   %25 = load i8, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %4, i64 %.029
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 %.029
   %27 = load i8, ptr %26, align 1
   %28 = xor i8 %27, %25
-  %29 = getelementptr inbounds i8, ptr %5, i64 %.029
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 %.029
   store i8 %28, ptr %29, align 1
   %30 = load i32, ptr %10, align 8
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %23
-  %33 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 %.pre-phi
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 0, i64 %.pre-phi
   %34 = load i8, ptr %33, align 1
   %35 = xor i8 %34, %28
   store i8 %35, ptr %33, align 1
@@ -1012,10 +1012,10 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_a
 define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #2 {
   %7 = alloca [16 x i8], align 16
   store i64 0, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 352
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %9 = load i64, ptr %8, align 8
   %10 = shl i64 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 360
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %12 = load i64, ptr %11, align 8
   %13 = shl i64 %12, 3
   %14 = icmp ne i64 %9, 0
@@ -1025,7 +1025,7 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef %0, ptr noca
   br i1 %or.cond56, label %18, label %16
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 400
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 400
   tail call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %17)
   br label %18
 
@@ -1041,12 +1041,12 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef %0, ptr noca
   br i1 %.not55, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 400
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 400
   tail call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull %24)
   br label %25
 
 25:                                               ; preds = %23, %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 368
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 368
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 8 %26, i64 %5, i1 false)
   %27 = icmp ne i64 %10, 0
   %28 = icmp ne i64 %13, 0
@@ -1060,69 +1060,69 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef %0, ptr noca
   store i8 %32, ptr %7, align 16
   %33 = lshr i64 %13, 48
   %34 = trunc i64 %33 to i8
-  %35 = getelementptr inbounds i8, ptr %7, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %34, ptr %35, align 1
   %36 = lshr i64 %13, 40
   %37 = trunc i64 %36 to i8
-  %38 = getelementptr inbounds i8, ptr %7, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %37, ptr %38, align 2
   %39 = trunc i64 %30 to i8
-  %40 = getelementptr inbounds i8, ptr %7, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 %39, ptr %40, align 1
   %41 = lshr i64 %13, 24
   %42 = trunc i64 %41 to i8
-  %43 = getelementptr inbounds i8, ptr %7, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 %42, ptr %43, align 4
   %44 = lshr i64 %13, 16
   %45 = trunc i64 %44 to i8
-  %46 = getelementptr inbounds i8, ptr %7, i64 5
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 5
   store i8 %45, ptr %46, align 1
   %47 = lshr i64 %13, 8
   %48 = trunc i64 %47 to i8
-  %49 = getelementptr inbounds i8, ptr %7, i64 6
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 6
   store i8 %48, ptr %49, align 2
   %50 = trunc i64 %13 to i8
-  %51 = getelementptr inbounds i8, ptr %7, i64 7
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 7
   store i8 %50, ptr %51, align 1
   %52 = lshr i64 %10, 32
   %53 = lshr i64 %10, 56
   %54 = trunc nuw i64 %53 to i8
-  %55 = getelementptr inbounds i8, ptr %7, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 %54, ptr %55, align 8
   %56 = lshr i64 %10, 48
   %57 = trunc i64 %56 to i8
-  %58 = getelementptr inbounds i8, ptr %7, i64 9
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 9
   store i8 %57, ptr %58, align 1
   %59 = lshr i64 %10, 40
   %60 = trunc i64 %59 to i8
-  %61 = getelementptr inbounds i8, ptr %7, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 10
   store i8 %60, ptr %61, align 2
   %62 = trunc i64 %52 to i8
-  %63 = getelementptr inbounds i8, ptr %7, i64 11
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 11
   store i8 %62, ptr %63, align 1
   %64 = lshr i64 %10, 24
   %65 = trunc i64 %64 to i8
-  %66 = getelementptr inbounds i8, ptr %7, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 %65, ptr %66, align 4
   %67 = lshr i64 %10, 16
   %68 = trunc i64 %67 to i8
-  %69 = getelementptr inbounds i8, ptr %7, i64 13
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 13
   store i8 %68, ptr %69, align 1
   %70 = lshr i64 %10, 8
   %71 = trunc i64 %70 to i8
-  %72 = getelementptr inbounds i8, ptr %7, i64 14
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 14
   store i8 %71, ptr %72, align 2
   %73 = trunc i64 %10 to i8
-  %74 = getelementptr inbounds i8, ptr %7, i64 15
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 15
   store i8 %73, ptr %74, align 1
-  %75 = getelementptr inbounds i8, ptr %0, i64 400
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %76
 
 76:                                               ; preds = %29, %76
   %.05357 = phi i64 [ 0, %29 ], [ %82, %76 ]
-  %77 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %.05357
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %.05357
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds [16 x i8], ptr %75, i64 0, i64 %.05357
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 0, i64 %.05357
   %80 = load i8, ptr %79, align 1
   %81 = xor i8 %80, %78
   store i8 %81, ptr %79, align 1
@@ -1137,9 +1137,9 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef %0, ptr noca
 
 .lr.ph:                                           ; preds = %83, %.lr.ph
   %.158 = phi i64 [ %89, %.lr.ph ], [ 0, %83 ]
-  %84 = getelementptr inbounds [16 x i8], ptr %75, i64 0, i64 %.158
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 0, i64 %.158
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %4, i64 %.158
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 %.158
   %87 = load i8, ptr %86, align 1
   %88 = xor i8 %87, %85
   store i8 %88, ptr %86, align 1
@@ -1262,7 +1262,7 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca i64, align 8
   %.not147 = icmp eq i32 %0, 0
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %9
 
 9:                                                ; preds = %1, %.loopexit
@@ -1287,7 +1287,7 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
 
 ._crit_edge:                                      ; preds = %15, %16
   %.pre-phi = phi i32 [ %14, %16 ], [ %.pre, %15 ]
-  %19 = getelementptr inbounds [6 x i32], ptr @pt_index_test_data, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [6 x i32], ptr @pt_index_test_data, i64 0, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds [6 x [32 x i8]], ptr @key_test_data, i64 0, i64 %21
@@ -1305,21 +1305,21 @@ define hidden i32 @mbedtls_gcm_self_test(i32 noundef %0) local_unnamed_addr #2 {
   br i1 %.not148, label %27, label %.thread
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds [6 x i64], ptr @pt_len_test_data, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [6 x i64], ptr @pt_len_test_data, i64 0, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds [6 x i32], ptr @iv_index_test_data, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [6 x i32], ptr @iv_index_test_data, i64 0, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds [6 x [64 x i8]], ptr @iv_test_data, i64 0, i64 %32
-  %34 = getelementptr inbounds [6 x i64], ptr @iv_len_test_data, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [6 x i64], ptr @iv_len_test_data, i64 0, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds [6 x i32], ptr @add_index_test_data, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [6 x i32], ptr @add_index_test_data, i64 0, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds [6 x [64 x i8]], ptr @additional_test_data, i64 0, i64 %38
-  %40 = getelementptr inbounds [6 x i64], ptr @add_len_test_data, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [6 x i64], ptr @add_len_test_data, i64 0, i64 %indvars.iv
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds [6 x i32], ptr @pt_index_test_data, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [6 x i32], ptr @pt_index_test_data, i64 0, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds [6 x [64 x i8]], ptr @pt_test_data, i64 0, i64 %44
@@ -1351,13 +1351,13 @@ mbedtls_gcm_crypt_and_tag.exit:                   ; preds = %49
 
 52:                                               ; preds = %mbedtls_gcm_crypt_and_tag.exit
   %53 = add nuw nsw i64 %indvars.iv, %13
-  %54 = getelementptr inbounds [18 x [64 x i8]], ptr @ct_test_data, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [18 x [64 x i8]], ptr @ct_test_data, i64 0, i64 %53
   %bcmp = call i32 @bcmp(ptr nonnull %5, ptr nonnull %54, i64 %29)
   %.not150 = icmp eq i32 %bcmp, 0
   br i1 %.not150, label %55, label %.thread
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds [18 x [16 x i8]], ptr @tag_test_data, i64 0, i64 %53
+  %56 = getelementptr inbounds nuw [18 x [16 x i8]], ptr @tag_test_data, i64 0, i64 %53
   %bcmp151 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %6, ptr noundef nonnull dereferenceable(16) %56, i64 16)
   %.not152 = icmp eq i32 %bcmp151, 0
   br i1 %.not152, label %57, label %.thread
@@ -1544,7 +1544,7 @@ mbedtls_gcm_crypt_and_tag.exit198:                ; preds = %67
   br i1 %or.cond5, label %138, label %120
 
 120:                                              ; preds = %114
-  %121 = getelementptr inbounds i8, ptr %54, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %122 = call i32 @mbedtls_gcm_update(ptr noundef nonnull %4, ptr noundef nonnull %121, i64 noundef %115, ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull %7)
   %.not178 = icmp eq i32 %122, 0
   br i1 %.not178, label %123, label %.thread

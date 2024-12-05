@@ -233,9 +233,9 @@ invoke.cont5:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #9
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler3cpp12CppGeneratorE, i64 16), ptr %cpp_generator, align 8
-  %opensource_runtime_.i = getelementptr inbounds i8, ptr %cpp_generator, i64 8
+  %opensource_runtime_.i = getelementptr inbounds nuw i8, ptr %cpp_generator, i64 8
   store i8 1, ptr %opensource_runtime_.i, align 8
-  %runtime_include_base_.i = getelementptr inbounds i8, ptr %cpp_generator, i64 16
+  %runtime_include_base_.i = getelementptr inbounds nuw i8, ptr %cpp_generator, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %runtime_include_base_.i) #9
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #9
   %call.i57 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6)

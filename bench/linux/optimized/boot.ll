@@ -583,11 +583,11 @@ define dso_local i32 @acpi_register_ioapic(ptr noundef %0, i64 noundef %1, i32 n
   store i64 0, ptr %4, align 8, !annotation !7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18
   store i32 3, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @mp_ioapic_irqdomain_ops, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %9, align 8
   %10 = call i32 @acpi_get_ioapic_id(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %4) #18
   %11 = icmp slt i32 %10, 0
@@ -782,7 +782,7 @@ declare dso_local i32 @acpi_table_parse(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
 define internal noundef i32 @acpi_parse_sbf(ptr nocapture noundef readonly %0) #8 section ".init.text" align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
   store i32 %4, ptr @sbf_port, align 4
@@ -1007,7 +1007,7 @@ define internal fastcc void @acpi_process_madt() unnamed_addr #0 section ".init.
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef range(i32 -1, 1) i32 @acpi_parse_hpet(ptr nocapture noundef readonly %0) #0 section ".init.text" align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %7, label %5
@@ -1017,10 +1017,10 @@ define internal noundef range(i32 -1, 1) i32 @acpi_parse_hpet(ptr nocapture noun
   br label %46
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i64, ptr %8, align 1
   store i64 %9, ptr @hpet_address, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %11 = load i8, ptr %10, align 1
   store i8 %11, ptr @hpet_blockid, align 1
   switch i64 %9, label %27 [
@@ -1029,7 +1029,7 @@ define internal noundef range(i32 -1, 1) i32 @acpi_parse_hpet(ptr nocapture noun
   ]
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %14 = load i32, ptr %13, align 1
   %15 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.56, i32 noundef %14, i64 noundef 0) #19
   br label %46
@@ -1037,7 +1037,7 @@ define internal noundef range(i32 -1, 1) i32 @acpi_parse_hpet(ptr nocapture noun
 16:                                               ; preds = %7
   %17 = load i8, ptr @hpet_force_user, align 1, !range !9, !noundef !10
   %18 = icmp eq i8 %17, 0
-  %19 = getelementptr inbounds i8, ptr %0, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %20 = load i32, ptr %19, align 1
   br i1 %18, label %21, label %23
 
@@ -1055,7 +1055,7 @@ define internal noundef range(i32 -1, 1) i32 @acpi_parse_hpet(ptr nocapture noun
 
 27:                                               ; preds = %23, %7
   %28 = phi i64 [ %26, %23 ], [ %9, %7 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %30 = load i32, ptr %29, align 1
   %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.59, i32 noundef %30, i64 noundef %28) #19
   %32 = tail call ptr @memblock_alloc_try_nid(i64 noundef 73, i64 noundef 64, i64 noundef 0, i64 noundef 0, i32 noundef -1) #18
@@ -1069,9 +1069,9 @@ define internal noundef range(i32 -1, 1) i32 @acpi_parse_hpet(ptr nocapture noun
 
 35:                                               ; preds = %27
   %36 = getelementptr i8, ptr %32, i64 64
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %32, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i64 512, ptr %38, align 8
   %39 = load i8, ptr %10, align 1
   %40 = zext i8 %39 to i32
@@ -1080,7 +1080,7 @@ define internal noundef range(i32 -1, 1) i32 @acpi_parse_hpet(ptr nocapture noun
   %43 = load ptr, ptr @hpet_res, align 8
   store i64 %42, ptr %43, align 8
   %44 = add i64 %42, 1023
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %44, ptr %45, align 8
   br label %46
 
@@ -1386,7 +1386,7 @@ define internal noundef i32 @dmi_disable_acpi(ptr nocapture noundef readonly %0)
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.19, ptr noundef %5) #19
   store i32 1, ptr @acpi_disabled, align 4
@@ -1408,7 +1408,7 @@ define internal noundef i32 @disable_acpi_irq(ptr nocapture noundef readonly %0)
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.21, ptr noundef %5) #19
   store i32 1, ptr @acpi_noirq, align 4
@@ -1424,7 +1424,7 @@ define internal noundef i32 @disable_acpi_pci(ptr nocapture noundef readonly %0)
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, ptr noundef %5) #19
   store i32 1, ptr @acpi_pci_disabled, align 4
@@ -1441,7 +1441,7 @@ define internal noundef i32 @disable_acpi_xsdt(ptr nocapture noundef readonly %0
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, ptr noundef %5) #19
   store i8 1, ptr @acpi_gbl_do_not_use_xsdt, align 1
@@ -1471,7 +1471,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_madt(ptr noundef %0) #
   br label %34
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 1
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %15, label %13
@@ -1482,7 +1482,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_madt(ptr noundef %0) #
   br label %15
 
 15:                                               ; preds = %13, %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 1
   %18 = and i32 %17, 1
   %19 = icmp eq i32 %18, 0
@@ -1509,9 +1509,9 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_madt(ptr noundef %0) #
   br label %30
 
 30:                                               ; preds = %29, %24
-  %31 = getelementptr inbounds i8, ptr %0, i64 10
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = tail call i32 @default_acpi_madt_oem_check(ptr noundef %31, ptr noundef %32) #18
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = tail call i32 @default_acpi_madt_oem_check(ptr noundef nonnull %31, ptr noundef nonnull %32) #18
   br label %34
 
 34:                                               ; preds = %30, %7, %1
@@ -1564,14 +1564,14 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_lapic_addr_ovr(ptr nou
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 12
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %8
   tail call void @acpi_table_print_madt_entry(ptr noundef nonnull %0) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i64, ptr %13, align 1
   store i64 %14, ptr @acpi_lapic_addr, align 8
   br label %15
@@ -1594,7 +1594,7 @@ define internal noundef i32 @dmi_ignore_irq0_timer_override(ptr nocapture nounde
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34, ptr noundef %6) #19
   store i32 1, ptr @acpi_skip_timer_override, align 4
@@ -1729,19 +1729,19 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_mp_wake(ptr noundef %0
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 16
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %8
   tail call void @acpi_table_print_madt_entry(ptr noundef nonnull %0) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 1
   store i64 %14, ptr @acpi_mp_wake_mailbox_paddr, align 8
   store ptr @acpi_wakeup_cpu, ptr getelementptr inbounds (i8, ptr @__x86_apic_override, i64 104), align 8
   %15 = load ptr, ptr @apic, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 224
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 224
   store ptr @acpi_wakeup_cpu, ptr %16, align 8
   tail call void @__static_call_update(ptr noundef nonnull @__SCK__apic_call_wakeup_secondary_cpu_64, ptr noundef nonnull @__SCT__apic_call_wakeup_secondary_cpu_64, ptr noundef nonnull @acpi_wakeup_cpu) #18
   %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @acpi_wakeup_cpu) #19
@@ -1762,25 +1762,25 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_sapic(ptr noundef %0, 
   br i1 %7, label %28, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 16
   br i1 %11, label %28, label %12
 
 12:                                               ; preds = %8
   tail call void @acpi_table_print_madt_entry(ptr noundef nonnull %0) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = shl nuw nsw i32 %15, 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = or disjoint i32 %16, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i32, ptr %24, align 1
   %26 = trunc i32 %25 to i8
   %27 = and i8 %26, 1
@@ -1802,20 +1802,20 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_lapic(ptr noundef %0, 
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 8
   br i1 %11, label %33, label %12
 
 12:                                               ; preds = %8
   tail call void @acpi_table_print_madt_entry(ptr noundef nonnull %0) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, -1
   br i1 %15, label %33, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 1
   %19 = and i32 %18, 1
   %20 = icmp eq i32 %19, 0
@@ -1830,7 +1830,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_lapic(ptr noundef %0, 
 
 26:                                               ; preds = %21, %16
   %27 = zext i8 %14 to i32
-  %28 = getelementptr inbounds i8, ptr %0, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = trunc i32 %18 to i8
@@ -1853,7 +1853,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_x2apic(ptr noundef %0,
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 16
   br i1 %11, label %14, label %12
@@ -1878,14 +1878,14 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_x2apic_nmi(ptr noundef
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 12
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %8
   tail call void @acpi_table_print_madt_entry(ptr noundef nonnull %0) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 1
   br i1 %15, label %18, label %16
@@ -1909,14 +1909,14 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_lapic_nmi(ptr noundef 
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 6
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %8
   tail call void @acpi_table_print_madt_entry(ptr noundef nonnull %0) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 5
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 1
   br i1 %15, label %18, label %16
@@ -1935,11 +1935,11 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_ioapic(ptr noundef %0,
   %3 = alloca %struct.ioapic_domain_cfg, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #18
   store i32 3, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @mp_ioapic_irqdomain_ops, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %6, align 8
   %7 = icmp eq ptr %0, null
   %8 = ptrtoint ptr %0 to i64
@@ -1949,14 +1949,14 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_ioapic(ptr noundef %0,
   br i1 %11, label %30, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp ult i8 %14, 12
   br i1 %15, label %30, label %16
 
 16:                                               ; preds = %12
   tail call void @acpi_table_print_madt_entry(ptr noundef nonnull %0) #18
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 1
   %19 = load ptr, ptr @legacy_pic, align 8
   %20 = load i32, ptr %19, align 8
@@ -1968,10 +1968,10 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_ioapic(ptr noundef %0,
   br label %23
 
 23:                                               ; preds = %22, %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 1
   %29 = call i32 @mp_register_ioapic(i32 noundef %26, i32 noundef %28, i32 noundef %18, ptr noundef nonnull %3) #18
   br label %30
@@ -1992,14 +1992,14 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_int_src_ovr(ptr nounde
   br i1 %7, label %64, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 10
   br i1 %11, label %64, label %12
 
 12:                                               ; preds = %8
   tail call void @acpi_table_print_madt_entry(ptr noundef nonnull %0) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %14 = load i8, ptr %13, align 1
   %15 = icmp ult i8 %14, 16
   br i1 %15, label %16, label %19
@@ -2019,12 +2019,12 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_int_src_ovr(ptr nounde
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i16, ptr %25, align 1
   %27 = and i16 %26, 3
   %28 = lshr i16 %26, 2
   %29 = and i16 %28, 3
-  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %31 = load i32, ptr %30, align 1
   tail call fastcc void @acpi_sci_ioapic_setup(i8 noundef zeroext %20, i16 noundef zeroext %27, i16 noundef zeroext %29, i32 noundef %31) #20
   br label %64
@@ -2043,7 +2043,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_int_src_ovr(ptr nounde
   br label %64
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %41 = load i32, ptr %40, align 1
   %42 = icmp eq i32 %41, 2
   %43 = load i32, ptr @acpi_fix_pin2_polarity, align 4
@@ -2052,7 +2052,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_int_src_ovr(ptr nounde
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i16, ptr %47, align 1
   %49 = and i16 %48, 3
   %50 = icmp eq i16 %49, 0
@@ -2067,13 +2067,13 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_int_src_ovr(ptr nounde
 
 54:                                               ; preds = %51, %46, %39, %32
   %55 = phi i8 [ %.pre, %51 ], [ 0, %46 ], [ 0, %39 ], [ %20, %32 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load i16, ptr %56, align 1
   %58 = trunc i16 %57 to i8
   %59 = and i8 %58, 3
   %60 = lshr i8 %58, 2
   %61 = and i8 %60, 3
-  %62 = getelementptr inbounds i8, ptr %0, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %63 = load i32, ptr %62, align 1
   tail call fastcc void @mp_override_legacy_irq(i8 noundef zeroext %55, i8 noundef zeroext %59, i8 noundef zeroext %61, i32 noundef %63) #20
   br label %64
@@ -2133,12 +2133,12 @@ define internal fastcc void @mp_config_acpi_legacy_irqs() unnamed_addr #0 sectio
   br i1 %4, label %5, label %.loopexit
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 6
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 5
-  %11 = getelementptr inbounds i8, ptr %1, i64 7
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 5
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 7
   br label %12
 
 12:                                               ; preds = %.thread, %5
@@ -2173,27 +2173,27 @@ define internal fastcc void @mp_config_acpi_legacy_irqs() unnamed_addr #0 sectio
 30:                                               ; preds = %51, %28
   %31 = phi i64 [ 0, %28 ], [ %52, %51 ]
   %32 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i8, ptr %33, align 4
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %32, i64 5
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 5
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i64
   %40 = icmp eq i64 %13, %39
   br i1 %40, label %54, label %41
 
 41:                                               ; preds = %36, %30
-  %42 = getelementptr inbounds i8, ptr %32, i64 6
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 6
   %43 = load i8, ptr %42, align 2
   %44 = zext i8 %43 to i32
   %45 = icmp eq i32 %25, %44
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %32, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %32, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = icmp eq i32 %24, %49
@@ -2254,7 +2254,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_parse_nmi_src(ptr noundef %0
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp ult i8 %10, 8
   br i1 %11, label %13, label %12
@@ -2332,16 +2332,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mp_register_ioapic_irq(i8 
   %12 = shl nuw nsw i8 %2, 2
   %13 = or disjoint i8 %12, %1
   %14 = zext nneg i8 %13 to i16
-  %15 = getelementptr inbounds i8, ptr %5, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %14, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %5, i64 5
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 %0, ptr %16, align 1
   %17 = tail call i32 @mpc_ioapic_id(i32 noundef %6) #18
   %18 = trunc i32 %17 to i8
-  %19 = getelementptr inbounds i8, ptr %5, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i8 %18, ptr %19, align 2
   %20 = trunc i32 %11 to i8
-  %21 = getelementptr inbounds i8, ptr %5, i64 7
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 7
   store i8 %20, ptr %21, align 1
   call void @mp_save_irq(ptr noundef nonnull %5) #18
   br label %22
@@ -2376,7 +2376,7 @@ define internal i32 @acpi_register_gsi_ioapic(ptr noundef readonly %0, i32 nound
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 640
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %10 = load i32, ptr %9, align 8
   br label %11
 
@@ -2409,7 +2409,7 @@ define internal i32 @acpi_register_gsi_ioapic(ptr noundef readonly %0, i32 nound
   br i1 %29, label %62, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, @pci_bus_type
   br i1 %33, label %34, label %62
@@ -2417,7 +2417,7 @@ define internal i32 @acpi_register_gsi_ioapic(ptr noundef readonly %0, i32 nound
 34:                                               ; preds = %30
   %35 = getelementptr i8, ptr %0, i64 -168
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 216
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 216
   %38 = load i8, ptr %37, align 8
   %39 = getelementptr i8, ptr %0, i64 -128
   %40 = load i32, ptr %39, align 8
@@ -2426,9 +2426,9 @@ define internal i32 @acpi_register_gsi_ioapic(ptr noundef readonly %0, i32 nound
   %43 = select i1 %13, i16 4, i16 12
   %44 = select i1 %15, i16 3, i16 1
   %45 = or disjoint i16 %44, %43
-  %46 = getelementptr inbounds i8, ptr %5, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %45, ptr %46, align 2
-  %47 = getelementptr inbounds i8, ptr %5, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 %38, ptr %47, align 4
   %48 = add i8 %42, 3
   %49 = and i8 %48, 3
@@ -2436,16 +2436,16 @@ define internal i32 @acpi_register_gsi_ioapic(ptr noundef readonly %0, i32 nound
   %51 = lshr i8 %50, 1
   %52 = and i8 %51, 124
   %53 = or disjoint i8 %52, %49
-  %54 = getelementptr inbounds i8, ptr %5, i64 5
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 %53, ptr %54, align 1
   %55 = call i32 @mp_find_ioapic(i32 noundef %1) #18
   %56 = call i32 @mpc_ioapic_id(i32 noundef %55) #18
   %57 = trunc i32 %56 to i8
-  %58 = getelementptr inbounds i8, ptr %5, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i8 %57, ptr %58, align 2
   %59 = call i32 @mp_find_ioapic_pin(i32 noundef %55, i32 noundef %1) #18
   %60 = trunc i32 %59 to i8
-  %61 = getelementptr inbounds i8, ptr %5, i64 7
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 7
   store i8 %60, ptr %61, align 1
   call void @mp_save_irq(ptr noundef nonnull %5) #18
   br label %62
@@ -2499,9 +2499,9 @@ define internal noundef i32 @acpi_wakeup_cpu(i32 noundef %0, i64 noundef %1) #4 
 
 8:                                                ; preds = %5, %2
   %9 = phi ptr [ %7, %5 ], [ %3, %2 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %0, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %1, ptr %11, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !23
   %12 = load ptr, ptr @acpi_mp_wake_mailbox, align 8

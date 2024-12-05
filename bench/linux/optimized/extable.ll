@@ -43,22 +43,22 @@ define internal void @swap_ex(ptr noundef %0, ptr noundef %1, i32 %2) #3 align 1
   %6 = sub i64 %4, %5
   %7 = trunc i64 %6 to i32
   %8 = load i32, ptr %0, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %1, align 4
   %14 = add i32 %13, %7
   store i32 %14, ptr %0, align 4
   %15 = sub i32 %8, %7
   store i32 %15, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, %7
   store i32 %18, ptr %9, align 4
   %19 = sub i32 %10, %7
   store i32 %19, ptr %16, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i32, ptr %20, align 4
   store i32 %21, ptr %11, align 4
   store i32 %12, ptr %20, align 4
@@ -67,14 +67,14 @@ define internal void @swap_ex(ptr noundef %0, ptr noundef %1, i32 %2) #3 align 1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
 define dso_local void @trim_init_extable(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 300
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 304
-  %7 = getelementptr inbounds i8, ptr %0, i64 320
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %8 = load ptr, ptr %6, align 16
   br label %9
 
@@ -100,7 +100,7 @@ define dso_local void @trim_init_extable(ptr nocapture noundef %0) local_unnamed
   %23 = getelementptr [7 x %struct.module_memory], ptr %7, i64 0, i64 %16
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
   %29 = sub i64 %14, %25
@@ -154,7 +154,7 @@ define dso_local void @trim_init_extable(ptr nocapture noundef %0) local_unnamed
   %61 = getelementptr [7 x %struct.module_memory], ptr %7, i64 0, i64 %54
   %62 = load ptr, ptr %61, align 8
   %63 = ptrtoint ptr %62 to i64
-  %64 = getelementptr inbounds i8, ptr %61, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
   %67 = sub i64 %52, %63

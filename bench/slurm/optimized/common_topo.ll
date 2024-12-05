@@ -89,13 +89,13 @@ common_topo_route_part.exit:                      ; preds = %14, %.sink.split.i
   %30 = load ptr, ptr %5, align 8
   %31 = load ptr, ptr %1, align 8
   store ptr %2, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %29, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 24
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %30, ptr %.sroa.46.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %31, ptr %.sroa.5.0..sroa_idx.i, align 8
   %32 = load ptr, ptr @part_list, align 8
   %33 = call i32 @slurm_list_for_each_ro(ptr noundef %32, ptr noundef nonnull @_part_split_hostlist, ptr noundef nonnull %6) #6
@@ -169,7 +169,7 @@ common_topo_route_part.exit:                      ; preds = %14, %.sink.split.i
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds ptr, ptr %67, i64 %69
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %61, i64 256
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 256
   %73 = load ptr, ptr %72, align 8
   %74 = call i32 @slurm_hostlist_push_host(ptr noundef %71, ptr noundef %73) #6
   %75 = load i32, ptr %2, align 4
@@ -215,7 +215,7 @@ common_topo_route_part.exit:                      ; preds = %14, %.sink.split.i
 .lr.ph39.i:                                       ; preds = %91, %106
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %106 ], [ 0, %91 ]
   %94 = load ptr, ptr %1, align 8
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i
   %96 = load ptr, ptr %95, align 8
   %97 = call ptr @slurm_hostlist_ranged_string_xmalloc(ptr noundef %96) #6
   store ptr %97, ptr %10, align 8
@@ -300,7 +300,7 @@ _route_part_split_hostlist.exit:                  ; preds = %112, %114
 
 125:                                              ; preds = %.preheader.us.i
   %126 = and i64 %indvars.iv.i46, 4294967295
-  %127 = getelementptr inbounds i32, ptr %122, i64 %126
+  %127 = getelementptr inbounds nuw i32, ptr %122, i64 %126
   %128 = load i32, ptr %127, align 4
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %_set_span.exit, label %130
@@ -316,7 +316,7 @@ _route_part_split_hostlist.exit:                  ; preds = %112, %114
 
 133:                                              ; preds = %132
   %134 = and i64 %indvars.iv.i46, 4294967295
-  %135 = getelementptr inbounds i32, ptr %122, i64 %134
+  %135 = getelementptr inbounds nuw i32, ptr %122, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = icmp eq i32 %136, 0
   %138 = sext i1 %137 to i32
@@ -330,7 +330,7 @@ _route_part_split_hostlist.exit:                  ; preds = %112, %114
   br i1 %140, label %.preheader.us.i.backedge, label %_set_span.exit
 
 141:                                              ; preds = %132
-  %142 = getelementptr inbounds i32, ptr %122, i64 %indvars.iv.i46
+  %142 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.i46
   %143 = load i32, ptr %142, align 4
   %144 = icmp eq i32 %143, 0
   %145 = sext i1 %144 to i32
@@ -371,7 +371,7 @@ _set_span.exit:                                   ; preds = %..loopexit_crit_edg
   %155 = phi ptr [ %153, %.lr.ph59.preheader ], [ %186, %185 ]
   %156 = call ptr @slurm_hostlist_create(ptr noundef nonnull %155) #6
   %157 = load ptr, ptr %1, align 8
-  %158 = getelementptr inbounds ptr, ptr %157, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv
   store ptr %156, ptr %158, align 8
   call void @free(ptr noundef nonnull %155) #6
   %.not4153 = icmp eq ptr %154, null
@@ -380,7 +380,7 @@ _set_span.exit:                                   ; preds = %..loopexit_crit_edg
 .lr.ph:                                           ; preds = %.lr.ph59, %165
   %159 = phi ptr [ %148, %165 ], [ %154, %.lr.ph59 ]
   %.054 = phi i32 [ %170, %165 ], [ 0, %.lr.ph59 ]
-  %160 = getelementptr inbounds i32, ptr %159, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw i32, ptr %159, i64 %indvars.iv
   %161 = load i32, ptr %160, align 4
   %162 = icmp slt i32 %.054, %161
   br i1 %162, label %163, label %.critedge
@@ -392,7 +392,7 @@ _set_span.exit:                                   ; preds = %..loopexit_crit_edg
 
 165:                                              ; preds = %163
   %166 = load ptr, ptr %1, align 8
-  %167 = getelementptr inbounds ptr, ptr %166, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv
   %168 = load ptr, ptr %167, align 8
   %169 = call i32 @slurm_hostlist_push_host(ptr noundef %168, ptr noundef nonnull %164) #6
   call void @free(ptr noundef nonnull %164) #6
@@ -408,7 +408,7 @@ _set_span.exit:                                   ; preds = %..loopexit_crit_edg
 
 174:                                              ; preds = %.critedge
   %175 = load ptr, ptr %1, align 8
-  %176 = getelementptr inbounds ptr, ptr %175, i64 %indvars.iv
+  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv
   %177 = load ptr, ptr %176, align 8
   %178 = call ptr @slurm_hostlist_ranged_string_xmalloc(ptr noundef %177) #6
   store ptr %178, ptr %12, align 8
@@ -538,17 +538,17 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 216
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 360
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 360
   %12 = load ptr, ptr %11, align 8
   %.fr = freeze ptr %12
   %.not = icmp eq ptr %.fr, null
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %2, align 4
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @next_node_bitmap(ptr noundef %14, ptr noundef nonnull %2) #6
@@ -557,7 +557,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %1, %46
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 464
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 464
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 1
   br i1 %19, label %20, label %.lr.ph._crit_edge
@@ -567,7 +567,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br label %30
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %16, i64 232
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 232
   %22 = load i32, ptr %21, align 8
   %.not130 = icmp eq i32 %22, -2
   %.pre189 = load i32, ptr %2, align 4
@@ -624,25 +624,25 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %46, %1
   %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 296
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 296
   %53 = load i32, ptr %52, align 8
   %.not109 = icmp eq i32 %53, 0
   br i1 %.not109, label %64, label %54
 
 54:                                               ; preds = %._crit_edge
-  %55 = getelementptr inbounds i8, ptr %51, i64 292
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 292
   %56 = load i16, ptr %55, align 4
   %.not110 = icmp eq i16 %56, 0
   br i1 %.not110, label %57, label %64
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %0, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = load i32, ptr %58, align 8
   %60 = icmp ugt i32 %59, %53
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %0, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %63 = load i32, ptr %62, align 8
   %. = call i32 @llvm.umax.i32(i32 %53, i32 %63)
   store i32 %., ptr %58, align 8
@@ -655,7 +655,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %67 = load ptr, ptr %0, align 8
   %68 = call ptr @copy_core_array(ptr noundef %67) #6
   store ptr %68, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %69, align 8
   %70 = call i32 @eval_nodes(ptr noundef nonnull %0) #6
   %71 = icmp eq i32 %70, 0
@@ -669,7 +669,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   call void @core_array_or(ptr noundef %74, ptr noundef %68) #6
   %75 = load ptr, ptr %13, align 8
   %76 = call i32 @slurm_bit_set_count(ptr noundef %75) #6
-  %77 = getelementptr inbounds i8, ptr %0, i64 72
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %78 = load i32, ptr %77, align 8
   %.not111 = icmp ugt i32 %76, %78
   br i1 %.not111, label %.preheader146, label %80
@@ -698,7 +698,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not122, label %91, label %87
 
 87:                                               ; preds = %.lr.ph159
-  %88 = getelementptr inbounds i8, ptr %86, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %89 = load i16, ptr %88, align 4
   %90 = zext i16 %89 to i32
   %.083. = call i32 @llvm.smax.i32(i32 %.083158, i32 %90)
@@ -738,7 +738,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds ptr, ptr %6, i64 %101
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = load i16, ptr %104, align 4
   %.not116.us = icmp eq i16 %105, 0
   %106 = zext i16 %105 to i32
@@ -779,7 +779,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds ptr, ptr %6, i64 %119
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %123 = load i16, ptr %122, align 4
   %.not116 = icmp eq i16 %123, 0
   %124 = zext i16 %123 to i32
@@ -853,7 +853,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %148, label %.thread140, label %.thread142
 
 .thread140:                                       ; preds = %.thread, %64, %.loopexit
-  %149 = getelementptr inbounds i8, ptr %8, i64 296
+  %149 = getelementptr inbounds nuw i8, ptr %8, i64 296
   %150 = load ptr, ptr %149, align 8
   %151 = icmp ne ptr %150, null
   %152 = load ptr, ptr %4, align 8
@@ -892,7 +892,7 @@ define i32 @common_topo_choose_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %169 = sext i32 %168 to i64
   %170 = getelementptr inbounds ptr, ptr %167, i64 %169
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 512
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 512
   %173 = load i16, ptr %172, align 8
   %174 = zext i16 %173 to i32
   %175 = mul nsw i32 %166, %174
@@ -1002,16 +1002,16 @@ declare i32 @slurm_list_for_each_ro(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_part_split_hostlist(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 232
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @slurm_bit_overlap_any(ptr noundef %4, ptr noundef %6) #6
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %37, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not22 = icmp eq ptr %10, null
   %11 = load ptr, ptr %3, align 8
@@ -1033,7 +1033,7 @@ define internal range(i32 -1, 1) i32 @_part_split_hostlist(ptr nocapture noundef
   tail call void @slurm_bit_and(ptr noundef %16, ptr noundef %17) #6
   %18 = load ptr, ptr %9, align 8
   %19 = tail call ptr @bitmap2hostlist(ptr noundef %18) #6
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %1, align 8
   %23 = load i32, ptr %22, align 4
@@ -1049,7 +1049,7 @@ define internal range(i32 -1, 1) i32 @_part_split_hostlist(ptr nocapture noundef
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %30, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = sub nsw i32 %34, %29
   store i32 %35, ptr %33, align 8

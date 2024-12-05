@@ -15,15 +15,15 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN14ElfStringTableC2EP8_IO_FILER10Elf64_Shdri(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 12)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN10ElfSectionC1EP8_IO_FILERK10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(76) %6, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) #3
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %9, ptr %10, align 8
   ret void
 }
@@ -42,7 +42,7 @@ define hidden void @_ZN14ElfStringTableD2Ev(ptr noundef nonnull align 8 derefere
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN10ElfSectionD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %5) #3
   ret void
 }
@@ -53,17 +53,17 @@ declare void @_ZN10ElfSectionD1Ev(ptr noundef nonnull align 8 dereferenceable(76
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN14ElfStringTable9string_atEmPci(ptr nocapture noundef nonnull align 8 dereferenceable(108) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.MarkedFileReader, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %.not = icmp ult i64 %1, %10
   %or.cond = select i1 %8, i1 %.not, i1 false
   br i1 %or.cond, label %11, label %37
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %18, label %14
@@ -75,16 +75,16 @@ define hidden noundef zeroext i1 @_ZN14ElfStringTable9string_atEmPci(ptr nocaptu
   br label %37
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %20 = load ptr, ptr %19, align 8
   call void @_ZN16MarkedFileReaderC1EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %20) #3
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = icmp sgt i64 %22, -1
   br i1 %23, label %24, label %35
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %1
   %28 = call noundef zeroext i1 @_ZN10FileReader12set_positionEl(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %27) #3

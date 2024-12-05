@@ -576,7 +576,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %398 = fneg double %393
   %399 = fmul double %397, %398
   %400 = call double @llvm.fmuladd.f64(double %388, double %381, double %399)
-  %401 = getelementptr inbounds double, ptr %39, i64 %353
+  %401 = getelementptr inbounds nuw double, ptr %39, i64 %353
   store double %400, ptr %401, align 8, !tbaa !7
   %402 = load double, ptr %392, align 8, !tbaa !7
   %403 = load double, ptr %387, align 8, !tbaa !7
@@ -1789,7 +1789,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %1243 = fneg double %1236
   %1244 = fmul double %1242, %1243
   %1245 = call double @llvm.fmuladd.f64(double %1231, double %1224, double %1244)
-  %1246 = getelementptr inbounds double, ptr %39, i64 %1195
+  %1246 = getelementptr inbounds nuw double, ptr %39, i64 %1195
   store double %1245, ptr %1246, align 8, !tbaa !7
   %1247 = load double, ptr %1235, align 8, !tbaa !7
   %1248 = load double, ptr %1230, align 8, !tbaa !7
@@ -3842,7 +3842,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   store double %2665, ptr %2666, align 8, !tbaa !7
   %2667 = getelementptr double, ptr %2660, i64 %2662
   %2668 = load double, ptr %2667, align 8, !tbaa !7
-  %2669 = getelementptr inbounds double, ptr %39, i64 %2662
+  %2669 = getelementptr inbounds nuw double, ptr %39, i64 %2662
   store double %2668, ptr %2669, align 8, !tbaa !7
   %2670 = add nuw nsw i64 %2662, 1
   %2671 = icmp eq i64 %2670, %2659
@@ -5166,7 +5166,7 @@ define void @dsbgst_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   store double %3580, ptr %3581, align 8, !tbaa !7
   %3582 = getelementptr double, ptr %3575, i64 %3577
   %3583 = load double, ptr %3582, align 8, !tbaa !7
-  %3584 = getelementptr inbounds double, ptr %39, i64 %3577
+  %3584 = getelementptr inbounds nuw double, ptr %39, i64 %3577
   store double %3583, ptr %3584, align 8, !tbaa !7
   %3585 = add nuw nsw i64 %3577, 1
   %3586 = icmp eq i64 %3585, %3574

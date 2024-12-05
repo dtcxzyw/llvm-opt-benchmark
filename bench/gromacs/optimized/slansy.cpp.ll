@@ -148,7 +148,7 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %52 = load float, ptr %gep311, align 4
   %53 = tail call noundef float @llvm.fabs.f32(float %52)
   %54 = fadd float %51, %53
-  %55 = getelementptr inbounds float, ptr %15, i64 %indvars.iv247
+  %55 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv247
   %56 = load float, ptr %55, align 4
   %57 = fadd float %53, %56
   store float %57, ptr %55, align 4
@@ -165,7 +165,7 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %62 = load float, ptr %61, align 4
   %63 = tail call noundef float @llvm.fabs.f32(float %62)
   %64 = fadd float %.lcssa, %63
-  %65 = getelementptr inbounds float, ptr %15, i64 %indvars.iv250
+  %65 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv250
   store float %64, ptr %65, align 4
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next251, %wide.trip.count253
@@ -184,7 +184,7 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 .lr.ph187:                                        ; preds = %.lr.ph187.preheader, %.lr.ph187
   %indvars.iv255 = phi i64 [ 1, %.lr.ph187.preheader ], [ %indvars.iv.next256, %.lr.ph187 ]
   %.5185 = phi float [ 0.000000e+00, %.lr.ph187.preheader ], [ %71, %.lr.ph187 ]
-  %68 = getelementptr inbounds float, ptr %15, i64 %indvars.iv255
+  %68 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv255
   %69 = load float, ptr %68, align 4
   %70 = fcmp ogt float %.5185, %69
   %71 = select i1 %70, float %.5185, float %69
@@ -215,7 +215,7 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %indvars.iv262 = phi i32 [ 2, %.lr.ph210.preheader ], [ %indvars.iv.next263, %._crit_edge200 ]
   %.6208 = phi float [ 0.000000e+00, %.lr.ph210.preheader ], [ %.7, %._crit_edge200 ]
   %indvars270 = trunc i64 %indvars.iv268 to i32
-  %77 = getelementptr inbounds float, ptr %15, i64 %indvars.iv268
+  %77 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv268
   %78 = load float, ptr %77, align 4
   %79 = mul nsw i32 %12, %indvars270
   %80 = sext i32 %79 to i64
@@ -244,7 +244,7 @@ define float @slansy_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %92 = load float, ptr %gep313, align 4
   %93 = tail call noundef float @llvm.fabs.f32(float %92)
   %94 = fadd float %91, %93
-  %95 = getelementptr inbounds float, ptr %15, i64 %indvars.iv264
+  %95 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv264
   %96 = load float, ptr %95, align 4
   %97 = fadd float %93, %96
   store float %97, ptr %95, align 4

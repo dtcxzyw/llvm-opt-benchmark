@@ -61,7 +61,7 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   ]
 
 .critedge.i:                                      ; preds = %.preheader72.i, %.preheader72.i, %.preheader72.i
-  %13 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   br label %.preheader72.i.backedge
 
 .preheader72.i.backedge:                          ; preds = %.critedge.i, %14
@@ -97,7 +97,7 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
 27:                                               ; preds = %22
   %28 = call i32 @fclose(ptr noundef nonnull %23)
   %29 = call ptr @Mio_LibraryRead(ptr noundef %16, ptr noundef null, ptr noundef null, i32 noundef 0) #12
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %29, ptr %30, align 8
   %31 = icmp eq ptr %29, null
   br i1 %31, label %32, label %34
@@ -107,7 +107,7 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   br label %Map_LibraryReadFile.exit
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, ptr noundef nonnull %35) #12
   %37 = load i32, ptr %35, align 8
   %38 = add i32 %37, -11
@@ -137,10 +137,10 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not677985.i, label %.outer._crit_edge.i, label %.preheader.lr.ph.lr.ph.i
 
 .preheader.lr.ph.lr.ph.i:                         ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %0, i64 160
-  %52 = getelementptr inbounds i8, ptr %0, i64 176
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.not.i71.i = icmp eq ptr %49, null
   br label %.preheader.lr.ph.i
 
@@ -164,7 +164,7 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   ]
 
 .critedge3.i:                                     ; preds = %.preheader.i, %.preheader.i, %.preheader.i
-  %57 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   br label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %.critedge3.i, %.loopexit.i
@@ -186,14 +186,14 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
 
 67:                                               ; preds = %58
   %68 = call i32 @Extra_ReadBinary(ptr noundef %64) #12
-  %69 = getelementptr inbounds i8, ptr %61, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 72
   store i32 %68, ptr %69, align 8
   br label %75
 
 70:                                               ; preds = %58
-  %71 = getelementptr inbounds i8, ptr %64, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %72 = call i32 @Extra_ReadBinary(ptr noundef nonnull %71) #12
-  %73 = getelementptr inbounds i8, ptr %61, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 72
   store i32 %72, ptr %73, align 8
   store i8 0, ptr %71, align 1
   %74 = call i32 @Extra_ReadBinary(ptr noundef %64) #12
@@ -201,20 +201,20 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
 
 75:                                               ; preds = %70, %67
   %.sink.i.i = phi i32 [ 0, %67 ], [ %74, %70 ]
-  %76 = getelementptr inbounds i8, ptr %61, i64 76
+  %76 = getelementptr inbounds nuw i8, ptr %61, i64 76
   store i32 %.sink.i.i, ptr %76, align 4
   %77 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.17) #12
   %78 = call double @atof(ptr noundef %77) #13
   %79 = fptrunc double %78 to float
-  %80 = getelementptr inbounds i8, ptr %61, i64 224
+  %80 = getelementptr inbounds nuw i8, ptr %61, i64 224
   store float %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %61, i64 228
+  %81 = getelementptr inbounds nuw i8, ptr %61, i64 228
   store float %79, ptr %81, align 4
   %82 = icmp sgt i32 %59, 0
   br i1 %82, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %75
-  %83 = getelementptr inbounds i8, ptr %61, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %61, i64 80
   %84 = getelementptr i8, ptr %61, i64 156
   %wide.trip.count.i.i = zext nneg i32 %59 to i64
   br label %85
@@ -224,7 +224,7 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   %86 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.17) #12
   %87 = call double @atof(ptr noundef %86) #13
   %88 = fptrunc double %87 to float
-  %89 = getelementptr inbounds [6 x %struct.Map_TimeStruct_t_], ptr %83, i64 0, i64 %indvars.iv.i.i
+  %89 = getelementptr inbounds nuw [6 x %struct.Map_TimeStruct_t_], ptr %83, i64 0, i64 %indvars.iv.i.i
   store float %88, ptr %89, align 4
   %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 12
   %90 = getelementptr i8, ptr %84, i64 %.idx.i.i
@@ -237,7 +237,7 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   %91 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.17) #12
   %92 = call double @atof(ptr noundef %91) #13
   %93 = fptrunc double %92 to float
-  %94 = getelementptr inbounds i8, ptr %61, i64 236
+  %94 = getelementptr inbounds nuw i8, ptr %61, i64 236
   store float %93, ptr %94, align 4
   %95 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.18) #12
   %char0.i.i = load i8, ptr %95, align 1
@@ -254,7 +254,7 @@ define range(i32 0, 2) i32 @Map_LibraryRead(ptr noundef %0, ptr noundef %1) loca
   %101 = trunc i64 %100 to i32
   %102 = add i32 %101, 1
   %103 = call ptr @Extra_MmFlexEntryFetch(ptr noundef %99, i32 noundef %102) #12
-  %104 = getelementptr inbounds i8, ptr %61, i64 240
+  %104 = getelementptr inbounds nuw i8, ptr %61, i64 240
   store ptr %103, ptr %104, align 8
   %105 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(1) %95) #12
   %106 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.20) #12
@@ -272,7 +272,7 @@ Map_LibraryReadGate.exit.i:                       ; preds = %107, %98
   br i1 %.not6982.i, label %._crit_edge84.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %Map_LibraryReadGate.exit.i
-  %111 = getelementptr inbounds i8, ptr %61, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %.promoted.i = load i32, ptr %111, align 4
   br label %112
 
@@ -287,17 +287,17 @@ Map_LibraryReadGate.exit.i:                       ; preds = %107, %98
   %119 = and i32 %113, -225
   %120 = or disjoint i32 %118, %119
   store i32 %120, ptr %111, align 4
-  %121 = getelementptr inbounds i8, ptr %.483.i, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %.483.i, i64 1
   %122 = load i8, ptr %121, align 1
   %.not69.i = icmp eq i8 %122, 0
   br i1 %.not69.i, label %._crit_edge84.i, label %112, !llvm.loop !8
 
 ._crit_edge84.i:                                  ; preds = %112, %Map_LibraryReadGate.exit.i
   %123 = load i32, ptr %35, align 8
-  %124 = getelementptr inbounds i8, ptr %61, i64 72
-  %125 = getelementptr inbounds i8, ptr %61, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %61, i64 72
+  %125 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %126 = call i32 @Map_CanonComputeSlow(ptr noundef nonnull %53, i32 noundef %123, i32 noundef %123, ptr noundef nonnull %124, ptr noundef nonnull %125, ptr noundef nonnull %5) #12
-  %127 = getelementptr inbounds i8, ptr %61, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %128 = load i32, ptr %127, align 4
   %129 = shl i32 %126, 28
   %130 = and i32 %128, 268435455
@@ -325,7 +325,7 @@ Extra_ProgressBarUpdate.exit.i:                   ; preds = %138, %135
 .outer._crit_edge.i:                              ; preds = %Extra_ProgressBarUpdate.exit.i, %.loopexit.i, %47
   %.0.ph.lcssa.i = phi i32 [ 0, %47 ], [ %.0.ph86.i, %.loopexit.i ], [ %134, %Extra_ProgressBarUpdate.exit.i ]
   call void @Extra_ProgressBarStop(ptr noundef %49) #12
-  %140 = getelementptr inbounds i8, ptr %0, i64 20
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.0.ph.lcssa.i, ptr %140, align 4
   %141 = load i32, ptr %4, align 4
   %.not68.i = icmp eq i32 %.0.ph.lcssa.i, %141
@@ -365,7 +365,7 @@ define noundef ptr @Map_LibraryReadFormulaStep(ptr noundef %0, ptr nocapture nou
   %.051 = phi ptr [ %0, %3 ], [ %6, %4 ]
   %5 = load i8, ptr %.051, align 1
   %cond = icmp eq i8 %5, 32
-  %6 = getelementptr inbounds i8, ptr %.051, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.051, i64 1
   br i1 %cond, label %4, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %4, %8
@@ -377,13 +377,13 @@ define noundef ptr @Map_LibraryReadFormulaStep(ptr noundef %0, ptr nocapture nou
   ]
 
 8:                                                ; preds = %.critedge
-  %9 = getelementptr inbounds i8, ptr %.050, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.050, i64 1
   %.pr = load i8, ptr %9, align 1
   br label %.critedge, !llvm.loop !11
 
 10:                                               ; preds = %.critedge
   store i8 0, ptr %.050, align 1
-  %11 = getelementptr inbounds i8, ptr %.050, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.050, i64 1
   %12 = load i8, ptr %11, align 1
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -407,7 +407,7 @@ define noundef ptr @Map_LibraryReadFormulaStep(ptr noundef %0, ptr nocapture nou
 
 18:                                               ; preds = %.lr.ph, %14, %16
   %.1 = phi i32 [ %15, %14 ], [ %17, %16 ], [ %.068, %.lr.ph ]
-  %19 = getelementptr inbounds i8, ptr %.04967, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.04967, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp ne i8 %20, 0
   %22 = icmp ne i32 %.1, 0
@@ -453,16 +453,16 @@ define noundef ptr @Map_LibraryReadFormulaStep(ptr noundef %0, ptr nocapture nou
 
 33:                                               ; preds = %.critedge6, %29, %31
   %.3 = phi i32 [ %30, %29 ], [ %32, %31 ], [ %.271, %.critedge6 ]
-  %34 = getelementptr inbounds i8, ptr %.14870, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.14870, i64 1
   %35 = load i8, ptr %34, align 1
   %.not60 = icmp eq i8 %35, 0
   br i1 %.not60, label %.critedge4.thread.loopexit, label %27, !llvm.loop !13
 
 .critedge4:                                       ; preds = %27
   store i8 0, ptr %.14870, align 1
-  %36 = getelementptr inbounds i8, ptr %.14870, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.14870, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store ptr %36, ptr %37, align 8
   %38 = load i8, ptr %36, align 1
   %.not6069 = icmp eq i8 %38, 0
@@ -484,26 +484,26 @@ define noundef ptr @Map_LibraryReadFormulaStep(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Map_LibraryPrintSupergate(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %3)
   %5 = load i32, ptr %0, align 8
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %5)
-  %7 = getelementptr inbounds i8, ptr %0, i64 236
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %9)
-  %11 = getelementptr inbounds i8, ptr %0, i64 224
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %12 = load float, ptr %11, align 8
   %13 = fpext float %12 to double
-  %14 = getelementptr inbounds i8, ptr %0, i64 228
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %15 = load float, ptr %14, align 4
   %16 = fpext float %15 to double
-  %17 = getelementptr inbounds i8, ptr %0, i64 232
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %18 = load float, ptr %17, align 8
   %19 = fpext float %18 to double
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %13, double noundef %16, double noundef %19)
-  %21 = getelementptr inbounds i8, ptr %0, i64 240
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %22)
   %putchar = tail call i32 @putchar(i32 10)

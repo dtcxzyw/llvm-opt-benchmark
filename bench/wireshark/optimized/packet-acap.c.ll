@@ -71,19 +71,19 @@ define internal i32 @dissect_acap(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not, label %73, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.13) #2
   %16 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #2
   %17 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %16) #2
-  %18 = getelementptr inbounds i8, ptr %1, i64 292
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 288
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %21 = load i32, ptr %20, align 8
   %.not79 = icmp eq i32 %19, %21
   %.str.3..str = select i1 %.not79, ptr @.str.3, ptr @.str
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %16 to i64
   %26 = call ptr @format_text(ptr noundef %24, ptr noundef %17, i64 noundef %25) #2
@@ -105,7 +105,7 @@ define internal i32 @dissect_acap(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %34, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %37 = load ptr, ptr %36, align 8
   %.not5.i = icmp eq ptr %37, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
@@ -117,14 +117,14 @@ define internal i32 @dissect_acap(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not.i83, label %proto_item_set_hidden.exit, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %40, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %43 = load ptr, ptr %42, align 8
   %.not5.i84 = icmp eq ptr %43, null
   br i1 %.not5.i84, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %41, %35
   %.sink88 = phi ptr [ %37, %35 ], [ %43, %41 ]
-  %44 = getelementptr inbounds i8, ptr %.sink88, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %.sink88, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, 1
   store i32 %46, ptr %44, align 4

@@ -51,14 +51,14 @@ define dso_local noundef zeroext i1 @_ZN29cmCTestReadCustomFilesCommand11Initial
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %6, %8
   br i1 %9, label %.preheader, label %12
 
 .preheader:                                       ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %21
 
 12:                                               ; preds = %3
@@ -110,7 +110,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %11, align 8
   %24 = tail call noundef i32 @_ZN7cmCTest31ReadCustomConfigurationFileTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.015, ptr noundef %23)
-  %25 = getelementptr inbounds i8, ptr %.sroa.012.015, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.012.015, i64 32
   %.not = icmp eq ptr %25, %8
   br i1 %.not, label %.loopexit, label %21
 
@@ -148,12 +148,12 @@ define linkonce_odr dso_local void @_ZN29cmCTestReadCustomFilesCommandD0Ev(ptr n
 define linkonce_odr dso_local void @_ZN29cmCTestReadCustomFilesCommand5CloneEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.5") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrI29cmCTestReadCustomFilesCommandSt14default_deleteIS0_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #11, !noalias !5
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTV29cmCTestReadCustomFilesCommand, i64 16), ptr %2, align 8, !noalias !5
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %5, ptr %6, align 8
   store ptr %2, ptr %0, align 8
   ret void

@@ -35,7 +35,7 @@ define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %15, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -69,13 +69,13 @@ define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef re
 22:                                               ; preds = %19
   %23 = or disjoint i32 %20, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %9, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %9, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds %struct.iovec, ptr %0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = zext nneg i32 %.0109133 to i64
-  %31 = getelementptr inbounds i32, ptr %9, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %struct.iovec, ptr %0, i64 %33
@@ -93,13 +93,13 @@ define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef re
 
 39:                                               ; preds = %38
   %40 = zext nneg i32 %21 to i64
-  %41 = getelementptr inbounds i32, ptr %9, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %9, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds %struct.iovec, ptr %0, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = zext nneg i32 %.0105 to i64
-  %47 = getelementptr inbounds i32, ptr %9, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %9, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds %struct.iovec, ptr %0, i64 %49
@@ -115,10 +115,10 @@ define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef re
 
 54:                                               ; preds = %53
   %55 = zext nneg i32 %.1106 to i64
-  %56 = getelementptr inbounds i32, ptr %9, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %9, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = zext nneg i32 %.0109133 to i64
-  %59 = getelementptr inbounds i32, ptr %9, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %9, i64 %58
   %60 = load i32, ptr %59, align 4
   store i32 %60, ptr %56, align 4
   store i32 %57, ptr %59, align 4
@@ -128,7 +128,7 @@ define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef re
   %indvars.iv142 = phi i64 [ %18, %.lr.ph139.preheader ], [ %indvars.iv.next143, %106 ]
   %indvars144 = trunc i64 %indvars.iv142 to i32
   %61 = load i32, ptr %9, align 4
-  %62 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv142
+  %62 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv142
   %63 = load i32, ptr %62, align 4
   store i32 %63, ptr %9, align 4
   store i32 %61, ptr %62, align 4
@@ -203,7 +203,7 @@ define range(i32 -2, 1) i32 @ompi_fcoll_base_sort_iovec(ptr nocapture noundef re
 
 106:                                              ; preds = %98
   %107 = load i32, ptr %62, align 4
-  %108 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv142
+  %108 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv142
   store i32 %107, ptr %108, align 4
   %109 = icmp sgt i64 %indvars.iv142, 1
   br i1 %109, label %.lr.ph139, label %._crit_edge140, !llvm.loop !7

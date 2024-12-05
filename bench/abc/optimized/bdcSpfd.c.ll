@@ -53,7 +53,7 @@ define i32 @Bdc_SpfdAdjCost(i64 noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %.012 = phi i32 [ 0, %1 ], [ %39, %2 ]
-  %3 = getelementptr inbounds [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
   %4 = load i64, ptr %3, align 8
   %5 = xor i64 %4, -1
   %6 = and i64 %0, %5
@@ -129,11 +129,11 @@ define void @Bdc_SpfdPrint_rec(ptr nocapture noundef readonly %0, i32 %1, ptr no
   %17 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %17, align 8
   %18 = and i64 %8, 255
-  %19 = getelementptr inbounds ptr, ptr %.val, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %.val, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = lshr i64 %8, 8
   %22 = and i64 %21, 4095
-  %23 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %20, i64 %22
   tail call void @Bdc_SpfdPrint_rec(ptr noundef %23, i32 poison, ptr noundef %2)
   br label %24
 
@@ -172,11 +172,11 @@ define void @Bdc_SpfdPrint_rec(ptr nocapture noundef readonly %0, i32 %1, ptr no
   %41 = getelementptr i8, ptr %2, i64 8
   %.val29 = load ptr, ptr %41, align 8
   %42 = and i64 %40, 255
-  %43 = getelementptr inbounds ptr, ptr %.val29, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr %.val29, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = lshr i64 %31, 40
   %46 = and i64 %45, 4095
-  %47 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %44, i64 %46
   tail call void @Bdc_SpfdPrint_rec(ptr noundef %47, i32 poison, ptr noundef %2)
   br label %48
 
@@ -191,7 +191,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define void @Bdc_SpfdPrint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = xor i64 %7, %3
   store i64 %8, ptr %5, align 8
@@ -297,7 +297,7 @@ define void @Bdc_SpfdDecompose(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
-  %70 = getelementptr inbounds [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
   %71 = load i64, ptr %70, align 8
   %72 = icmp eq i64 %0, %71
   %73 = xor i64 %71, %0
@@ -311,23 +311,23 @@ define void @Bdc_SpfdDecompose(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
 
 ._crit_edge:                                      ; preds = %69, %.preheader553
   %76 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store i32 100, ptr %76, align 8
   %78 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #22
-  %79 = getelementptr inbounds i8, ptr %76, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %78, ptr %79, align 8
   %80 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 100, ptr %80, align 8
   %82 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #22
-  %83 = getelementptr inbounds i8, ptr %80, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %82, ptr %83, align 8
   %84 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   store i32 0, ptr %85, align 4
   store i32 100, ptr %84, align 8
   %86 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #22
-  %87 = getelementptr inbounds i8, ptr %84, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %86, ptr %87, align 8
   %88 = and i32 %1, 255
   %89 = zext nneg i32 %88 to i64
@@ -344,9 +344,9 @@ define void @Bdc_SpfdDecompose(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
 
 .lr.ph561:                                        ; preds = %.lr.ph561.preheader, %.lr.ph561
   %indvars.iv644 = phi i64 [ 0, %.lr.ph561.preheader ], [ %indvars.iv.next645, %.lr.ph561 ]
-  %91 = getelementptr inbounds [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv644
+  %91 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv644
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %90, i64 %indvars.iv644, i32 1
+  %93 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %90, i64 %indvars.iv644, i32 1
   store i64 %92, ptr %93, align 8
   %indvars.iv.next645 = add nuw nsw i64 %indvars.iv644, 1
   %exitcond648.not = icmp eq i64 %indvars.iv.next645, %wide.trip.count647
@@ -354,8 +354,8 @@ define void @Bdc_SpfdDecompose(i64 noundef %0, i32 noundef %1, i32 noundef %2, i
 
 .lr.ph563:                                        ; preds = %.lr.ph563.preheader, %.lr.ph563
   %indvars.iv649 = phi i64 [ 0, %.lr.ph563.preheader ], [ %indvars.iv.next650, %.lr.ph563 ]
-  %94 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %90, i64 %indvars.iv649
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %94 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %90, i64 %indvars.iv649
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i64, ptr %95, align 8
   %97 = tail call fastcc i32 @Bdc_CountSpfd(i64 noundef %96, i64 noundef %0)
   %98 = load i64, ptr %94, align 8
@@ -382,7 +382,7 @@ Vec_IntPush.exit:                                 ; preds = %.lr.ph563, %._crit_
 106:                                              ; preds = %Vec_IntPush.exit
   %107 = load i64, ptr %11, align 8
   %.neg545 = mul i64 %107, -1000000
-  %108 = getelementptr inbounds i8, ptr %11, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %109 = load i64, ptr %108, align 8
   %.neg = sdiv i64 %109, -1000
   %.neg546 = add i64 %.neg, %.neg545
@@ -423,7 +423,7 @@ Abc_Clock.exit:                                   ; preds = %Vec_IntPush.exit, %
   br i1 %118, label %.lr.ph568, label %.loopexit551
 
 .lr.ph568:                                        ; preds = %.lr.ph577
-  %119 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %90, i64 %indvars.iv665, i32 1
+  %119 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %90, i64 %indvars.iv665, i32 1
   %120 = load i64, ptr %119, align 8
   %121 = shl i64 %indvars.iv665, 8
   %122 = and i64 %121, 1048320
@@ -434,11 +434,11 @@ Abc_Clock.exit:                                   ; preds = %Vec_IntPush.exit, %
 125:                                              ; preds = %.lr.ph568, %125
   %indvars.iv658 = phi i64 [ %indvars.iv656, %.lr.ph568 ], [ %indvars.iv.next659, %125 ]
   %indvars.iv654 = phi i64 [ %124, %.lr.ph568 ], [ %indvars.iv.next655, %125 ]
-  %126 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %90, i64 %indvars.iv658, i32 1
+  %126 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %90, i64 %indvars.iv658, i32 1
   %127 = load i64, ptr %126, align 8
   %128 = and i64 %127, %120
   %129 = getelementptr %struct.Bdc_Nod_t_, ptr %115, i64 %indvars.iv654
-  %130 = getelementptr inbounds i8, ptr %129, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i64 %128, ptr %130, align 8
   %131 = load i64, ptr %129, align 8
   %132 = and i64 %131, -4502504410709761
@@ -633,8 +633,8 @@ Vec_IntPush.exit503:                              ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph581:                                        ; preds = %.lr.ph581.preheader, %222
   %indvars.iv670 = phi i64 [ 0, %.lr.ph581.preheader ], [ %indvars.iv.next671, %222 ]
-  %223 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %115, i64 %indvars.iv670
-  %224 = getelementptr inbounds i8, ptr %223, i64 8
+  %223 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %115, i64 %indvars.iv670
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %225 = load i64, ptr %224, align 8
   %226 = call fastcc i32 @Bdc_CountSpfd(i64 noundef %225, i64 noundef %0)
   %227 = load i64, ptr %223, align 8
@@ -664,7 +664,7 @@ Vec_IntPush.exit503:                              ; preds = %.Vec_IntGrow.exit10
 239:                                              ; preds = %._crit_edge582
   %240 = load i64, ptr %10, align 8
   %241 = mul nsw i64 %240, 1000000
-  %242 = getelementptr inbounds i8, ptr %10, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %243 = load i64, ptr %242, align 8
   %244 = sdiv i64 %243, 1000
   %245 = add nsw i64 %244, %241
@@ -684,9 +684,9 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge582, %23
   br i1 %.not625, label %._crit_edge628, label %.lr.ph627
 
 .lr.ph627:                                        ; preds = %Abc_Clock.exit505
-  %251 = getelementptr inbounds i8, ptr %9, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %252 = sext i32 %2 to i64
-  %253 = getelementptr inbounds i8, ptr %6, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %254 = zext i32 %2 to i64
   %wide.trip.count737 = zext i32 %12 to i64
   br label %255
@@ -742,9 +742,9 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge582, %23
 273:                                              ; preds = %.lr.ph594, %._crit_edge590
   %indvars.iv689 = phi i64 [ 0, %.lr.ph594 ], [ %indvars.iv.next690, %._crit_edge590 ]
   %.2593 = phi i32 [ 0, %.lr.ph594 ], [ %.3.lcssa, %._crit_edge590 ]
-  %274 = getelementptr inbounds ptr, ptr %.val481, i64 %indvars.iv689
+  %274 = getelementptr inbounds nuw ptr, ptr %.val481, i64 %indvars.iv689
   %275 = load ptr, ptr %274, align 8
-  %276 = getelementptr inbounds i32, ptr %.val482, i64 %indvars.iv689
+  %276 = getelementptr inbounds nuw i32, ptr %.val482, i64 %indvars.iv689
   %277 = load i32, ptr %276, align 4
   %278 = icmp slt i32 %277, 1
   %brmerge = select i1 %278, i1 true, i1 %266
@@ -763,7 +763,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge582, %23
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge586.us
   %indvars.iv684 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next685, %._crit_edge586.us ]
   %.3589.us = phi i32 [ %.2593, %.preheader.us.preheader ], [ %334, %._crit_edge586.us ]
-  %280 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %275, i64 %indvars.iv684, i32 1
+  %280 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %275, i64 %indvars.iv684, i32 1
   %281 = shl i64 %indvars.iv684, 8
   %282 = and i64 %281, 1048320
   %283 = sext i32 %.3589.us to i64
@@ -778,11 +778,11 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge582, %23
   %indvars.iv677 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next678, %284 ]
   %indvars.iv675 = phi i64 [ %283, %.preheader.us ], [ %indvars.iv.next676, %284 ]
   %285 = load i64, ptr %280, align 8
-  %286 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %263, i64 %indvars.iv677, i32 1
+  %286 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %263, i64 %indvars.iv677, i32 1
   %287 = load i64, ptr %286, align 8
   %288 = and i64 %287, %285
   %289 = getelementptr %struct.Bdc_Nod_t_, ptr %250, i64 %indvars.iv675
-  %290 = getelementptr inbounds i8, ptr %289, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 8
   store i64 %288, ptr %290, align 8
   %291 = load i64, ptr %289, align 8
   %292 = and i64 %291, -4503599627370496
@@ -878,7 +878,7 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge582, %23
   br i1 %337, label %.lr.ph607, label %.loopexit
 
 .lr.ph607:                                        ; preds = %336
-  %338 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %263, i64 %indvars.iv707, i32 1
+  %338 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %263, i64 %indvars.iv707, i32 1
   %339 = shl i64 %indvars.iv707, 8
   %340 = and i64 %339, 1048320
   %341 = sext i32 %.5610 to i64
@@ -893,11 +893,11 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge582, %23
   %indvars.iv700 = phi i64 [ %indvars.iv698, %.lr.ph607 ], [ %indvars.iv.next701, %342 ]
   %indvars.iv696 = phi i64 [ %341, %.lr.ph607 ], [ %indvars.iv.next697, %342 ]
   %343 = load i64, ptr %338, align 8
-  %344 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %263, i64 %indvars.iv700, i32 1
+  %344 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %263, i64 %indvars.iv700, i32 1
   %345 = load i64, ptr %344, align 8
   %346 = and i64 %345, %343
   %347 = getelementptr %struct.Bdc_Nod_t_, ptr %250, i64 %indvars.iv696
-  %348 = getelementptr inbounds i8, ptr %347, i64 8
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
   store i64 %346, ptr %348, align 8
   %349 = load i64, ptr %347, align 8
   %350 = and i64 %349, -4503599627370496
@@ -979,8 +979,8 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge582, %23
 
 .lr.ph616:                                        ; preds = %.lr.ph616.preheader, %393
   %indvars.iv712 = phi i64 [ 0, %.lr.ph616.preheader ], [ %indvars.iv.next713, %393 ]
-  %394 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %250, i64 %indvars.iv712
-  %395 = getelementptr inbounds i8, ptr %394, i64 8
+  %394 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %250, i64 %indvars.iv712
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
   %396 = load i64, ptr %395, align 8
   %397 = call fastcc i32 @Bdc_CountSpfd(i64 noundef %396, i64 noundef %0)
   %398 = load i64, ptr %394, align 8
@@ -1133,8 +1133,8 @@ Vec_IntPush.exit514:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv719 = phi i64 [ %472, %.lr.ph621.preheader ], [ %indvars.iv.next720, %473 ]
   %indvars.iv717 = phi i64 [ 0, %.lr.ph621.preheader ], [ %indvars.iv.next718, %473 ]
   %indvars.iv.next718 = add nuw nsw i64 %indvars.iv717, 1
-  %474 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %471, i64 %indvars.iv717
-  %475 = getelementptr inbounds i32, ptr %462, i64 %indvars.iv719
+  %474 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %471, i64 %indvars.iv717
+  %475 = getelementptr inbounds nuw i32, ptr %462, i64 %indvars.iv719
   %476 = load i32, ptr %475, align 4
   %477 = sext i32 %476 to i64
   %478 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %250, i64 %477
@@ -1295,9 +1295,9 @@ Abc_Clock.exit530:                                ; preds = %Vec_IntPush.exit528
 
 548:                                              ; preds = %Abc_Clock.exit530, %548
   %indvars.iv726 = phi i64 [ 0, %Abc_Clock.exit530 ], [ %indvars.iv.next727, %548 ]
-  %549 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %471, i64 %indvars.iv726
+  %549 = getelementptr inbounds nuw %struct.Bdc_Nod_t_, ptr %471, i64 %indvars.iv726
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %550 = getelementptr inbounds i8, ptr %549, i64 8
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 8
   %551 = load i64, ptr %550, align 8
   %552 = xor i64 %551, %0
   store i64 %552, ptr %5, align 8
@@ -1340,7 +1340,7 @@ Abc_Clock.exit530:                                ; preds = %Vec_IntPush.exit528
   %.val486742 = phi i32 [ %.val486, %568 ], [ %.val486629, %563 ]
   %indvars.iv739 = phi i64 [ %indvars.iv.next740, %568 ], [ 0, %563 ]
   %.val = load ptr, ptr %79, align 8
-  %565 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv739
+  %565 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv739
   %566 = load ptr, ptr %565, align 8
   %.not470 = icmp eq ptr %566, null
   br i1 %.not470, label %568, label %567
@@ -1535,12 +1535,12 @@ tailrecurse:                                      ; preds = %2, %tailrecurse
   store i64 %9, ptr %.tr1014, align 8
   %10 = lshr i64 %8, 63
   %11 = trunc nuw nsw i64 %10 to i32
-  %12 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %0, i64 %7
+  %12 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %0, i64 %7
   %13 = tail call i32 @Bdc_SpfdMark0(ptr noundef %0, ptr noundef %12)
   %14 = load i64, ptr %.tr1014, align 8
   %15 = lshr i64 %14, 32
   %16 = and i64 %15, 536870911
-  %17 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %0, i64 %16
   %18 = add i32 %accumulator.tr13, %11
   %19 = add i32 %18, %13
   %20 = load i64, ptr %17, align 8
@@ -1574,12 +1574,12 @@ tailrecurse:                                      ; preds = %2, %tailrecurse
   store i64 %8, ptr %.tr1014, align 8
   %9 = trunc i64 %7 to i32
   %10 = lshr i32 %9, 31
-  %11 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %0, i64 %6
+  %11 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %0, i64 %6
   %12 = tail call i32 @Bdc_SpfdMark1(ptr noundef %0, ptr noundef %11)
   %13 = load i64, ptr %.tr1014, align 8
   %14 = lshr i64 %13, 32
   %15 = and i64 %14, 536870911
-  %16 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %0, i64 %15
   %17 = add i32 %10, %accumulator.tr13
   %18 = add i32 %17, %12
   %19 = load i64, ptr %16, align 8
@@ -1607,12 +1607,12 @@ tailrecurse:                                      ; preds = %2, %tailrecurse
   %.tr89 = phi ptr [ %13, %tailrecurse ], [ %1, %2 ]
   %8 = and i64 %7, -2147483649
   store i64 %8, ptr %.tr89, align 8
-  %9 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %0, i64 %6
+  %9 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %0, i64 %6
   tail call void @Bdc_SpfdUnmark0(ptr noundef %0, ptr noundef %9)
   %10 = load i64, ptr %.tr89, align 8
   %11 = lshr i64 %10, 32
   %12 = and i64 %11, 536870911
-  %13 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 536870911
   %16 = icmp eq i64 %15, 536870911
@@ -1635,12 +1635,12 @@ tailrecurse:                                      ; preds = %2, %tailrecurse
   %.tr89 = phi ptr [ %13, %tailrecurse ], [ %1, %2 ]
   %8 = and i64 %7, 9223372036854775807
   store i64 %8, ptr %.tr89, align 8
-  %9 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %0, i64 %6
+  %9 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %0, i64 %6
   tail call void @Bdc_SpfdUnmark1(ptr noundef %0, ptr noundef %9)
   %10 = load i64, ptr %.tr89, align 8
   %11 = lshr i64 %10, 32
   %12 = and i64 %11, 536870911
-  %13 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 536870911
   %16 = icmp eq i64 %15, 536870911
@@ -1668,9 +1668,9 @@ define range(i32 0, -1) i32 @Bdc_SpfdHashValue(i64 noundef %0, i32 noundef %1) l
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
   %.09 = phi i32 [ 0, %2 ], [ %11, %4 ]
-  %5 = getelementptr inbounds [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = mul i32 %6, %9
@@ -1694,9 +1694,9 @@ define ptr @Bdc_SpfdHashLookup(ptr noundef readonly %0, i32 noundef %1, i64 noun
 5:                                                ; preds = %5, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
   %.09.i = phi i32 [ 0, %3 ], [ %12, %5 ]
-  %6 = getelementptr inbounds [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = mul i32 %7, %10
@@ -1718,19 +1718,19 @@ Bdc_SpfdHashValue.exit:                           ; preds = %5
   %.pn.in = phi i32 [ %23, %21 ], [ %16, %Bdc_SpfdHashValue.exit ]
   %.pn = sext i32 %.pn.in to i64
   %.0 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %0, i64 %.pn
-  %18 = getelementptr inbounds i8, ptr %.0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, %2
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds i8, ptr %.0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.loopexit.loopexit.split.loop.exit, label %.preheader
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %.0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit.split.loop.exit, %Bdc_SpfdHashValue.exit
@@ -1754,7 +1754,7 @@ define noalias noundef ptr @Bdc_SpfdDecomposeTest__(ptr nocapture noundef writeo
 10:                                               ; preds = %1
   %11 = load i64, ptr %7, align 8
   %.neg237 = mul i64 %11, -1000000
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i64, ptr %12, align 8
   %.neg = sdiv i64 %13, -1000
   %.neg238 = add i64 %.neg, %.neg237
@@ -1766,13 +1766,13 @@ Abc_Clock.exit:                                   ; preds = %1, %10
   %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, double noundef 0x40B65A0BC0000000)
   %15 = call noalias dereferenceable_or_null(6000000000) ptr @calloc(i64 noundef 250000000, i64 noundef 24) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 -1, i64 24, i1 false)
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 0, ptr %16, align 4
   br label %17
 
 17:                                               ; preds = %Abc_Clock.exit, %17
   %.0158.idx254 = phi i64 [ 0, %Abc_Clock.exit ], [ %.0158.add, %17 ]
-  %gep = getelementptr inbounds i8, ptr %16, i64 %.0158.idx254
+  %gep = getelementptr inbounds nuw i8, ptr %16, i64 %.0158.idx254
   store i32 0, ptr %gep, align 4
   %.0158.add = add nuw nsw i64 %.0158.idx254, 24
   %18 = icmp samesign ult i64 %.0158.idx254, 5999999976
@@ -1782,28 +1782,28 @@ Vec_IntPush.exit:                                 ; preds = %17
   %19 = ptrtoint ptr %15 to i64
   %20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %21 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 250000000, ptr %21, align 8
   %calloc.i = call dereferenceable_or_null(2000000000) ptr @calloc(i64 1, i64 2000000000)
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %calloc.i, ptr %23, align 8
   %24 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 250000000, ptr %24, align 8
   %calloc.i176 = call dereferenceable_or_null(1000000000) ptr @calloc(i64 1, i64 1000000000)
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %calloc.i176, ptr %26, align 8
   store i32 0, ptr %22, align 4
   store i32 0, ptr %25, align 4
   %27 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 16, ptr %27, align 8
   %29 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #22
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %29, ptr %30, align 8
   store i32 1, ptr %28, align 4
   store i32 1, ptr %29, align 4
-  %.1255 = getelementptr inbounds i8, ptr %15, i64 24
+  %.1255 = getelementptr inbounds nuw i8, ptr %15, i64 24
   br label %31
 
 31:                                               ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit188
@@ -1816,9 +1816,9 @@ Vec_IntPush.exit:                                 ; preds = %17
   %35 = add nuw nsw i64 %34, %33
   %36 = or disjoint i64 %35, 536870911
   store i64 %36, ptr %.1258, align 8
-  %37 = getelementptr inbounds [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %.pn256, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.pn256, i64 40
   store i64 %38, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %38, ptr %6, align 8
@@ -1827,9 +1827,9 @@ Vec_IntPush.exit:                                 ; preds = %17
 40:                                               ; preds = %40, %31
   %indvars.iv.i.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i.i, %40 ]
   %.09.i.i = phi i32 [ 0, %31 ], [ %47, %40 ]
-  %41 = getelementptr inbounds [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv.i.i
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = mul i32 %42, %45
@@ -1842,7 +1842,7 @@ Bdc_SpfdHashValue.exit.i:                         ; preds = %40
   %48 = urem i32 %47, 201326611
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %15, i64 %49, i32 2
+  %50 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %15, i64 %49, i32 2
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %Bdc_SpfdHashLookup.exit, label %.preheader.i
@@ -1851,17 +1851,17 @@ Bdc_SpfdHashValue.exit.i:                         ; preds = %40
   %.pn.in.i = phi i32 [ %57, %.preheader.i ], [ %51, %Bdc_SpfdHashValue.exit.i ]
   %.pn.i = sext i32 %.pn.in.i to i64
   %.0.i177 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %15, i64 %.pn.i
-  %53 = getelementptr inbounds i8, ptr %.0.i177, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i177, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = icmp ne i64 %54, %38
   call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds i8, ptr %.0.i177, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i177, i64 8
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %Bdc_SpfdHashLookup.exit.loopexit, label %.preheader.i
 
 Bdc_SpfdHashLookup.exit.loopexit:                 ; preds = %.preheader.i
-  %59 = getelementptr inbounds i8, ptr %.0.i177, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i177, i64 8
   br label %Bdc_SpfdHashLookup.exit
 
 Bdc_SpfdHashLookup.exit:                          ; preds = %Bdc_SpfdHashLookup.exit.loopexit, %Bdc_SpfdHashValue.exit.i
@@ -1994,7 +1994,7 @@ Vec_IntPush.exit188:                              ; preds = %.Vec_IntGrow.exit10
   %117 = getelementptr inbounds i32, ptr %114, i64 %116
   store i32 0, ptr %117, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.1 = getelementptr inbounds i8, ptr %.1258, i64 24
+  %.1 = getelementptr inbounds nuw i8, ptr %.1258, i64 24
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %118, label %31, !llvm.loop !24
 
@@ -2065,8 +2065,8 @@ Vec_IntPush.exit195:                              ; preds = %.Vec_IntGrow.exit10
   %148 = sdiv exact i64 %147, 24
   %149 = trunc i64 %148 to i32
   %150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %149)
-  %151 = getelementptr inbounds i8, ptr %5, i64 8
-  %152 = getelementptr inbounds i8, ptr %3, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %.preheader245
 
 .preheader245:                                    ; preds = %Vec_IntPush.exit195, %Vec_IntPush.exit232
@@ -2094,22 +2094,22 @@ Vec_IntPush.exit195:                              ; preds = %.Vec_IntGrow.exit10
 
 159:                                              ; preds = %156
   %.val171 = load ptr, ptr %30, align 8
-  %160 = getelementptr inbounds i32, ptr %.val171, i64 %indvars.iv282
+  %160 = getelementptr inbounds nuw i32, ptr %.val171, i64 %indvars.iv282
   %161 = load i32, ptr %160, align 4
   %162 = sext i32 %161 to i64
   %.idx160 = mul nsw i64 %162, 24
   %163 = getelementptr inbounds i8, ptr %15, i64 %.idx160
-  %164 = getelementptr inbounds i8, ptr %160, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %165 = load i32, ptr %164, align 4
   %166 = sext i32 %165 to i64
   %.idx = mul nsw i64 %166, 24
   %167 = getelementptr inbounds i8, ptr %15, i64 %.idx
-  %168 = getelementptr inbounds i32, ptr %.val171, i64 %indvars.iv278
+  %168 = getelementptr inbounds nuw i32, ptr %.val171, i64 %indvars.iv278
   %169 = load i32, ptr %168, align 4
   %170 = sext i32 %169 to i64
   %.idx162 = mul nsw i64 %170, 24
   %171 = getelementptr inbounds i8, ptr %15, i64 %.idx162
-  %172 = getelementptr inbounds i8, ptr %168, i64 4
+  %172 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %173 = load i32, ptr %172, align 4
   %174 = sext i32 %173 to i64
   %.idx161 = mul nsw i64 %174, 24
@@ -2148,7 +2148,7 @@ Abc_Clock.exit197:                                ; preds = %159, %178
 .preheader243.us:                                 ; preds = %.preheader243.lr.ph, %._crit_edge.us
   %.0155264.us = phi ptr [ %324, %._crit_edge.us ], [ %163, %.preheader243.lr.ph ]
   %.6263.us = phi ptr [ %.10.us, %._crit_edge.us ], [ %.4267, %.preheader243.lr.ph ]
-  %189 = getelementptr inbounds i8, ptr %.0155264.us, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %.0155264.us, i64 16
   %190 = ptrtoint ptr %.0155264.us to i64
   %191 = sub i64 %190, %19
   %192 = sdiv exact i64 %191, 24
@@ -2164,7 +2164,7 @@ Abc_Clock.exit197:                                ; preds = %159, %178
 
 .loopexit242.us:                                  ; preds = %Bdc_SpfdHashLookup.exit209.us, %194
   %.10.us = phi ptr [ %.7261.us, %194 ], [ %.9.us, %Bdc_SpfdHashLookup.exit209.us ]
-  %196 = getelementptr inbounds i8, ptr %.0154262.us, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %.0154262.us, i64 24
   %197 = icmp ult ptr %196, %175
   br i1 %197, label %194, label %._crit_edge.us, !llvm.loop !25
 
@@ -2201,9 +2201,9 @@ Abc_Clock.exit197:                                ; preds = %159, %178
 215:                                              ; preds = %215, %214
   %indvars.iv.i.i198.us = phi i64 [ 0, %214 ], [ %indvars.iv.next.i.i200.us, %215 ]
   %.09.i.i199.us = phi i32 [ 0, %214 ], [ %222, %215 ]
-  %216 = getelementptr inbounds [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv.i.i198.us
+  %216 = getelementptr inbounds nuw [8 x i32], ptr @Bdc_SpfdHashValue.BigPrimes, i64 0, i64 %indvars.iv.i.i198.us
   %217 = load i32, ptr %216, align 4
-  %218 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i.i198.us
+  %218 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i.i198.us
   %219 = load i8, ptr %218, align 1
   %220 = zext i8 %219 to i32
   %221 = mul i32 %217, %220
@@ -2216,7 +2216,7 @@ Bdc_SpfdHashValue.exit.i202.us:                   ; preds = %215
   %223 = urem i32 %222, 201326611
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %15, i64 %224, i32 2
+  %225 = getelementptr inbounds nuw %struct.Bdc_Ent_t_, ptr %15, i64 %224, i32 2
   %226 = load i32, ptr %225, align 4
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %.loopexit.us, label %.preheader.i203.us
@@ -2225,19 +2225,19 @@ Bdc_SpfdHashValue.exit.i202.us:                   ; preds = %215
   %.pn.in.i204.us = phi i32 [ %233, %231 ], [ %226, %Bdc_SpfdHashValue.exit.i202.us ]
   %.pn.i205.us = sext i32 %.pn.in.i204.us to i64
   %.0.i206.us = getelementptr inbounds %struct.Bdc_Ent_t_, ptr %15, i64 %.pn.i205.us
-  %228 = getelementptr inbounds i8, ptr %.0.i206.us, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %.0.i206.us, i64 16
   %229 = load i64, ptr %228, align 8
   %230 = icmp eq i64 %229, %.0151.us
   br i1 %230, label %Bdc_SpfdHashLookup.exit209.us, label %231
 
 231:                                              ; preds = %.preheader.i203.us
-  %232 = getelementptr inbounds i8, ptr %.0.i206.us, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %.0.i206.us, i64 8
   %233 = load i32, ptr %232, align 8
   %234 = icmp eq i32 %233, 0
   br i1 %234, label %.loopexit.us.loopexit, label %.preheader.i203.us
 
 .loopexit.us.loopexit:                            ; preds = %231
-  %235 = getelementptr inbounds i8, ptr %.0.i206.us, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %.0.i206.us, i64 8
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.loopexit.us.loopexit, %Bdc_SpfdHashValue.exit.i202.us
@@ -2256,7 +2256,7 @@ Bdc_SpfdHashValue.exit.i202.us:                   ; preds = %215
   %247 = or disjoint i64 %323, %241
   %248 = or disjoint i64 %247, %246
   %249 = or disjoint i64 %248, %244
-  %250 = getelementptr inbounds i8, ptr %.8259.us, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %.8259.us, i64 16
   store i64 %.0151.us, ptr %250, align 8
   %251 = shl i64 %211, 30
   %252 = and i64 %251, 1073741824
@@ -2268,7 +2268,7 @@ Bdc_SpfdHashValue.exit.i202.us:                   ; preds = %215
   %257 = sdiv exact i64 %256, 24
   %258 = trunc i64 %257 to i32
   store i32 %258, ptr %.013.i208.ph.us, align 4
-  %259 = getelementptr inbounds i8, ptr %.8259.us, i64 24
+  %259 = getelementptr inbounds nuw i8, ptr %.8259.us, i64 24
   %260 = load i32, ptr %22, align 4
   %261 = load i32, ptr %21, align 8
   %262 = icmp eq i32 %260, %261
@@ -2403,7 +2403,7 @@ Bdc_SpfdHashLookup.exit209.us:                    ; preds = %.preheader.i203.us,
   br i1 %exitcond277.not, label %.loopexit242.us, label %198, !llvm.loop !26
 
 .preheader.us:                                    ; preds = %194
-  %318 = getelementptr inbounds i8, ptr %.0154262.us, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %.0154262.us, i64 16
   %319 = ptrtoint ptr %.0154262.us to i64
   %320 = sub i64 %319, %19
   %321 = sdiv exact i64 %320, 24
@@ -2412,7 +2412,7 @@ Bdc_SpfdHashLookup.exit209.us:                    ; preds = %.preheader.i203.us,
   br label %198
 
 ._crit_edge.us:                                   ; preds = %.loopexit242.us
-  %324 = getelementptr inbounds i8, ptr %.0155264.us, i64 24
+  %324 = getelementptr inbounds nuw i8, ptr %.0155264.us, i64 24
   %325 = icmp ult ptr %324, %167
   br i1 %325, label %.preheader243.us, label %._crit_edge265, !llvm.loop !27
 
@@ -2540,7 +2540,7 @@ Vec_IntPush.exit232:                              ; preds = %.Vec_IntGrow.exit10
 381:                                              ; preds = %378
   %382 = load i64, ptr %2, align 8
   %383 = mul nsw i64 %382, 1000000
-  %384 = getelementptr inbounds i8, ptr %2, i64 8
+  %384 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %385 = load i64, ptr %384, align 8
   %386 = sdiv i64 %385, 1000
   %387 = add nsw i64 %386, %383
@@ -2599,20 +2599,20 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @Bdc_SpfdReadFiles5(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 3863759, ptr %2, align 8
   %calloc.i = tail call dereferenceable_or_null(30910072) ptr @calloc(i64 1, i64 30910072)
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %calloc.i, ptr %4, align 8
   store i32 3863759, ptr %3, align 4
   %5 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27)
   %6 = tail call i64 @fread(ptr noundef %calloc.i, i64 noundef 8, i64 noundef 3863759, ptr noundef %5)
   %7 = tail call i32 @fclose(ptr noundef %5)
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 3863759, ptr %8, align 8
   %calloc.i14 = tail call dereferenceable_or_null(15455036) ptr @calloc(i64 1, i64 15455036)
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %calloc.i14, ptr %10, align 8
   store i32 3863759, ptr %9, align 4
   %11 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.27)
@@ -2628,20 +2628,20 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @Bdc_SpfdReadFiles6(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 12776759, ptr %2, align 8
   %calloc.i = tail call dereferenceable_or_null(102214072) ptr @calloc(i64 1, i64 102214072)
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %calloc.i, ptr %4, align 8
   store i32 12776759, ptr %3, align 4
   %5 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.27)
   %6 = tail call i64 @fread(ptr noundef %calloc.i, i64 noundef 8, i64 noundef 12776759, ptr noundef %5)
   %7 = tail call i32 @fclose(ptr noundef %5)
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 12776759, ptr %8, align 8
   %calloc.i14 = tail call dereferenceable_or_null(51107036) ptr @calloc(i64 1, i64 51107036)
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %calloc.i14, ptr %10, align 8
   store i32 12776759, ptr %9, align 4
   %11 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.27)
@@ -2716,7 +2716,7 @@ define i64 @Bdc_SpfdFindBest(ptr nocapture noundef readonly %0, ptr nocapture no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %162 ]
   %.080 = phi i32 [ -1, %.lr.ph ], [ %.4, %162 ]
   %.05479 = phi i32 [ -1, %.lr.ph ], [ %.458, %162 ]
-  %12 = getelementptr inbounds i64, ptr %.val66, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %.val66, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, %2
   %15 = icmp eq i64 %14, 0
@@ -2753,7 +2753,7 @@ define i64 @Bdc_SpfdFindBest(ptr nocapture noundef readonly %0, ptr nocapture no
 41:                                               ; preds = %17
   %42 = mul nuw nsw i32 %39, 7
   %.val.i = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds i32, ptr %.val.i, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = sub nsw i32 8, %44
   %46 = mul nsw i32 %45, 10
@@ -2806,7 +2806,7 @@ Bdc_SpfdComputeCost.exit:                         ; preds = %17, %41
 77:                                               ; preds = %52
   %78 = mul nuw nsw i32 %75, 7
   %.val.i67 = load ptr, ptr %10, align 8
-  %79 = getelementptr inbounds i32, ptr %.val.i67, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw i32, ptr %.val.i67, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4
   %81 = sub nsw i32 8, %80
   %82 = mul nsw i32 %81, 10
@@ -2862,7 +2862,7 @@ Bdc_SpfdComputeCost.exit69:                       ; preds = %52, %77
 116:                                              ; preds = %92
   %117 = mul nuw nsw i32 %114, 7
   %.val.i70 = load ptr, ptr %10, align 8
-  %118 = getelementptr inbounds i32, ptr %.val.i70, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw i32, ptr %.val.i70, i64 %indvars.iv
   %119 = load i32, ptr %118, align 4
   %120 = sub nsw i32 8, %119
   %121 = mul nsw i32 %120, 10
@@ -2915,7 +2915,7 @@ Bdc_SpfdComputeCost.exit72:                       ; preds = %92, %116
 152:                                              ; preds = %127
   %153 = mul nuw nsw i32 %150, 7
   %.val.i73 = load ptr, ptr %10, align 8
-  %154 = getelementptr inbounds i32, ptr %.val.i73, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw i32, ptr %.val.i73, i64 %indvars.iv
   %155 = load i32, ptr %154, align 4
   %156 = sub nsw i32 8, %155
   %157 = mul nsw i32 %156, 10
@@ -3006,7 +3006,7 @@ define i32 @Bdc_SpfdDecomposeTestOne(i64 noundef %0, ptr nocapture noundef reado
 23:                                               ; preds = %23, %._crit_edge
   %indvars.iv.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i, %23 ]
   %.012.i = phi i32 [ 0, %._crit_edge ], [ %60, %23 ]
-  %24 = getelementptr inbounds [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv.i
   %25 = load i64, ptr %24, align 8
   %26 = xor i64 %25, -1
   %27 = and i64 %22, %26
@@ -3070,11 +3070,11 @@ define void @Bdc_SpfdDecomposeTest3() local_unnamed_addr #3 {
   %4 = alloca %struct.timespec, align 8
   %5 = tail call i64 @Aig_ManRandom64(i32 noundef 1) #21
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4
   store i32 67108864, ptr %6, align 8
   %8 = tail call noalias dereferenceable_or_null(536870912) ptr @malloc(i64 noundef 536870912) #22
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
   br label %10
 
@@ -3148,11 +3148,11 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
 
 40:                                               ; preds = %Vec_WrdPush.exit
   %41 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 0, ptr %42, align 4
   store i32 16, ptr %41, align 8
   %43 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #22
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %43, ptr %44, align 8
   br label %45
 
@@ -3233,7 +3233,7 @@ Vec_WrdPush.exit51:                               ; preds = %.Vec_WrdGrow.exit10
 78:                                               ; preds = %75
   %79 = load i64, ptr %4, align 8
   %.neg58 = mul i64 %79, -1000000
-  %80 = getelementptr inbounds i8, ptr %4, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %81 = load i64, ptr %80, align 8
   %.neg = sdiv i64 %81, -1000
   %.neg59 = add i64 %.neg, %.neg58
@@ -3249,14 +3249,14 @@ Abc_Clock.exit:                                   ; preds = %75, %78
 .preheader63:                                     ; preds = %Abc_Clock.exit, %93
   %indvars.iv78 = phi i64 [ 0, %Abc_Clock.exit ], [ %indvars.iv.next79, %93 ]
   %.069 = phi i32 [ 0, %Abc_Clock.exit ], [ %92, %93 ]
-  %84 = getelementptr inbounds i64, ptr %82, i64 %indvars.iv78
+  %84 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv78
   %85 = load i64, ptr %84, align 8
   br label %86
 
 86:                                               ; preds = %.preheader63, %86
   %indvars.iv = phi i64 [ 0, %.preheader63 ], [ %indvars.iv.next, %86 ]
   %.167 = phi i32 [ %.069, %.preheader63 ], [ %92, %86 ]
-  %87 = getelementptr inbounds i64, ptr %83, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv
   %88 = load i64, ptr %87, align 8
   %89 = and i64 %88, %85
   %90 = icmp eq i64 %89, %88
@@ -3281,7 +3281,7 @@ Abc_Clock.exit:                                   ; preds = %75, %78
 98:                                               ; preds = %94
   %99 = load i64, ptr %3, align 8
   %100 = mul nsw i64 %99, 1000000
-  %101 = getelementptr inbounds i8, ptr %3, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %102 = load i64, ptr %101, align 8
   %103 = sdiv i64 %102, 1000
   %104 = add nsw i64 %103, %100
@@ -3303,7 +3303,7 @@ Abc_Clock.exit53:                                 ; preds = %94, %98
 110:                                              ; preds = %Abc_Clock.exit53
   %111 = load i64, ptr %2, align 8
   %.neg61 = mul i64 %111, -1000000
-  %112 = getelementptr inbounds i8, ptr %2, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %113 = load i64, ptr %112, align 8
   %.neg60 = sdiv i64 %113, -1000
   %.neg62 = add i64 %.neg60, %.neg61
@@ -3317,14 +3317,14 @@ Abc_Clock.exit55:                                 ; preds = %Abc_Clock.exit53, %
 .preheader:                                       ; preds = %Abc_Clock.exit55, %123
   %indvars.iv86 = phi i64 [ 0, %Abc_Clock.exit55 ], [ %indvars.iv.next87, %123 ]
   %.273 = phi i32 [ 0, %Abc_Clock.exit55 ], [ %122, %123 ]
-  %114 = getelementptr inbounds i64, ptr %83, i64 %indvars.iv86
+  %114 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv86
   %115 = load i64, ptr %114, align 8
   br label %116
 
 116:                                              ; preds = %.preheader, %116
   %indvars.iv82 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next83, %116 ]
   %.371 = phi i32 [ %.273, %.preheader ], [ %122, %116 ]
-  %117 = getelementptr inbounds i64, ptr %82, i64 %indvars.iv82
+  %117 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv82
   %118 = load i64, ptr %117, align 8
   %119 = and i64 %115, %118
   %120 = icmp eq i64 %119, %115
@@ -3349,7 +3349,7 @@ Abc_Clock.exit55:                                 ; preds = %Abc_Clock.exit53, %
 128:                                              ; preds = %124
   %129 = load i64, ptr %1, align 8
   %130 = mul nsw i64 %129, 1000000
-  %131 = getelementptr inbounds i8, ptr %1, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %132 = load i64, ptr %131, align 8
   %133 = sdiv i64 %132, 1000
   %134 = add nsw i64 %133, %130
@@ -3385,7 +3385,7 @@ define void @Bdc_SpfdDecomposeTest8() local_unnamed_addr #3 {
 9:                                                ; preds = %0
   %10 = load i64, ptr %3, align 8
   %11 = mul nsw i64 %10, 1000000
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = sdiv i64 %13, 1000
   %15 = add nsw i64 %14, %11
@@ -3400,7 +3400,7 @@ Abc_Clock.exit:                                   ; preds = %0, %9
 17:                                               ; preds = %17, %Abc_Clock.exit
   %indvars.iv.i = phi i64 [ 0, %Abc_Clock.exit ], [ %indvars.iv.next.i, %17 ]
   %.012.i = phi i32 [ 0, %Abc_Clock.exit ], [ %54, %17 ]
-  %18 = getelementptr inbounds [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv.i
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 5853367888539878671
   %21 = xor i64 %20, 5853367888539878671
@@ -3453,7 +3453,7 @@ Bdc_SpfdAdjCost.exit:                             ; preds = %17
 59:                                               ; preds = %Bdc_SpfdAdjCost.exit
   %60 = load i64, ptr %2, align 8
   %61 = mul nsw i64 %60, 1000000
-  %62 = getelementptr inbounds i8, ptr %2, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = sdiv i64 %63, 1000
   %65 = add nsw i64 %64, %61
@@ -3482,7 +3482,7 @@ Abc_Clock.exit16:                                 ; preds = %Bdc_SpfdAdjCost.exi
 73:                                               ; preds = %.lr.ph, %117
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %117 ]
   %.026 = phi i32 [ 1000000000, %.lr.ph ], [ %.1, %117 ]
-  %74 = getelementptr inbounds i64, ptr %.val14, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw i64, ptr %.val14, i64 %indvars.iv
   %75 = load i64, ptr %74, align 8
   %76 = xor i64 %72, %75
   br label %77
@@ -3490,7 +3490,7 @@ Abc_Clock.exit16:                                 ; preds = %Bdc_SpfdAdjCost.exi
 77:                                               ; preds = %77, %73
   %indvars.iv.i17 = phi i64 [ 0, %73 ], [ %indvars.iv.next.i19, %77 ]
   %.012.i18 = phi i32 [ 0, %73 ], [ %114, %77 ]
-  %78 = getelementptr inbounds [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv.i17
+  %78 = getelementptr inbounds nuw [6 x i64], ptr @Truths, i64 0, i64 %indvars.iv.i17
   %79 = load i64, ptr %78, align 8
   %80 = xor i64 %79, -1
   %81 = and i64 %76, %80
@@ -3558,7 +3558,7 @@ Bdc_SpfdAdjCost.exit21:                           ; preds = %77
 122:                                              ; preds = %.critedge
   %123 = load i64, ptr %1, align 8
   %124 = mul nsw i64 %123, 1000000
-  %125 = getelementptr inbounds i8, ptr %1, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %126 = load i64, ptr %125, align 8
   %127 = sdiv i64 %126, 1000
   %128 = add nsw i64 %127, %124
@@ -3600,11 +3600,11 @@ define void @Bdc_SpfdDecomposeTest() local_unnamed_addr #3 {
   %4 = alloca %struct.timespec, align 8
   %5 = tail call i64 @Aig_ManRandom64(i32 noundef 1) #21
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4
   store i32 67108864, ptr %6, align 8
   %8 = tail call noalias dereferenceable_or_null(536870912) ptr @malloc(i64 noundef 536870912) #22
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
   br label %10
 
@@ -3678,11 +3678,11 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
 
 40:                                               ; preds = %Vec_WrdPush.exit
   %41 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 0, ptr %42, align 4
   store i32 16, ptr %41, align 8
   %43 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #22
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %43, ptr %44, align 8
   br label %45
 
@@ -3763,7 +3763,7 @@ Vec_WrdPush.exit66:                               ; preds = %.Vec_WrdGrow.exit10
 78:                                               ; preds = %75
   %79 = load i64, ptr %4, align 8
   %.neg73 = mul i64 %79, -1000000
-  %80 = getelementptr inbounds i8, ptr %4, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %81 = load i64, ptr %80, align 8
   %.neg = sdiv i64 %81, -1000
   %.neg74 = add i64 %.neg, %.neg73
@@ -3791,14 +3791,14 @@ Abc_Clock.exit:                                   ; preds = %75, %78
 .lr.ph.us:                                        ; preds = %..critedge2_crit_edge.us, %.lr.ph84.split.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %..critedge2_crit_edge.us ], [ 0, %.lr.ph84.split.us ]
   %.083.us = phi i32 [ %94, %..critedge2_crit_edge.us ], [ 0, %.lr.ph84.split.us ]
-  %84 = getelementptr inbounds i64, ptr %.val59, i64 %indvars.iv103
+  %84 = getelementptr inbounds nuw i64, ptr %.val59, i64 %indvars.iv103
   %85 = load i64, ptr %84, align 8
   br label %86
 
 86:                                               ; preds = %.lr.ph.us, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %86 ]
   %.181.us = phi i32 [ %.083.us, %.lr.ph.us ], [ %94, %86 ]
-  %87 = getelementptr inbounds i64, ptr %.val58.us, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i64, ptr %.val58.us, i64 %indvars.iv
   %88 = load i64, ptr %87, align 8
   %89 = trunc i64 %88 to i32
   %90 = and i64 %88, %85
@@ -3826,7 +3826,7 @@ Abc_Clock.exit:                                   ; preds = %75, %78
 98:                                               ; preds = %.critedge
   %99 = load i64, ptr %3, align 8
   %100 = mul nsw i64 %99, 1000000
-  %101 = getelementptr inbounds i8, ptr %3, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %102 = load i64, ptr %101, align 8
   %103 = sdiv i64 %102, 1000
   %104 = add nsw i64 %103, %100
@@ -3848,7 +3848,7 @@ Abc_Clock.exit68:                                 ; preds = %.critedge, %98
 110:                                              ; preds = %Abc_Clock.exit68
   %111 = load i64, ptr %2, align 8
   %.neg76 = mul i64 %111, -1000000
-  %112 = getelementptr inbounds i8, ptr %2, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %113 = load i64, ptr %112, align 8
   %.neg75 = sdiv i64 %113, -1000
   %.neg77 = add i64 %.neg75, %.neg76
@@ -3874,7 +3874,7 @@ Abc_Clock.exit70:                                 ; preds = %Abc_Clock.exit68, %
 .lr.ph.us94:                                      ; preds = %..critedge6_crit_edge.us, %.lr.ph92.split.us
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %..critedge6_crit_edge.us ], [ 0, %.lr.ph92.split.us ]
   %.291.us = phi i32 [ %125, %..critedge6_crit_edge.us ], [ 0, %.lr.ph92.split.us ]
-  %115 = getelementptr inbounds i64, ptr %.val57, i64 %indvars.iv113
+  %115 = getelementptr inbounds nuw i64, ptr %.val57, i64 %indvars.iv113
   %116 = load i64, ptr %115, align 8
   %117 = trunc i64 %116 to i32
   br label %118
@@ -3882,7 +3882,7 @@ Abc_Clock.exit70:                                 ; preds = %Abc_Clock.exit68, %
 118:                                              ; preds = %.lr.ph.us94, %118
   %indvars.iv108 = phi i64 [ 0, %.lr.ph.us94 ], [ %indvars.iv.next109, %118 ]
   %.389.us = phi i32 [ %.291.us, %.lr.ph.us94 ], [ %125, %118 ]
-  %119 = getelementptr inbounds i64, ptr %.val56.us, i64 %indvars.iv108
+  %119 = getelementptr inbounds nuw i64, ptr %.val56.us, i64 %indvars.iv108
   %120 = load i64, ptr %119, align 8
   %121 = and i64 %120, %116
   %122 = trunc i64 %121 to i32
@@ -3909,7 +3909,7 @@ Abc_Clock.exit70:                                 ; preds = %Abc_Clock.exit68, %
 129:                                              ; preds = %.critedge4
   %130 = load i64, ptr %1, align 8
   %131 = mul nsw i64 %130, 1000000
-  %132 = getelementptr inbounds i8, ptr %1, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %133 = load i64, ptr %132, align 8
   %134 = sdiv i64 %133, 1000
   %135 = add nsw i64 %134, %131

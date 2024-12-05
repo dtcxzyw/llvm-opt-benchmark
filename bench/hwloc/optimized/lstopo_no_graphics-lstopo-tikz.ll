@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @output_tikz(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %4) #12
   %.not = icmp eq ptr %5, null
@@ -95,17 +95,17 @@ tikz_get_font_family.exit:                        ; preds = %20
 
 select.unfold:                                    ; preds = %20, %14, %12, %16, %18
   %.0.i.ph = phi ptr [ @.str.18, %18 ], [ @.str.16, %16 ], [ @.str.14, %12 ], [ @.str.14, %14 ], [ @.str.20, %20 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 1600
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store ptr @tikz_draw_methods, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 1584
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store ptr %5, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1592
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %31 = load i64, ptr %30, align 8
   %32 = or i64 %31, 2
   store i64 %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 1608
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   store i32 0, ptr %33, align 8
   tail call void @output_draw(ptr noundef nonnull %0) #12
   store i32 1, ptr %33, align 8
@@ -117,15 +117,15 @@ select.unfold:                                    ; preds = %20, %14, %12, %16, 
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #12
   %38 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 17, i64 1, ptr nonnull %5)
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.8) #12
-  %40 = getelementptr inbounds i8, ptr %0, i64 936
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 940
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 940
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, %41
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.9, i32 noundef %41, i32 noundef %44, ptr noundef nonnull %.0.i.ph, i32 noundef %41, i32 noundef %44, ptr noundef nonnull %.0.i.ph) #12
-  %46 = getelementptr inbounds i8, ptr %0, i64 1612
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1612
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 1616
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %49 = load i32, ptr %48, align 8
   %50 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, i32 noundef %47, i32 noundef %49) #12
   tail call void @output_draw(ptr noundef nonnull %0) #12
@@ -180,11 +180,11 @@ declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unna
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @tikz_declare_color(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load i32, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1584
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.21, i32 noundef %3, i32 noundef %5, i32 noundef %7, i32 noundef %3, i32 noundef %5, i32 noundef %7) #12
   ret i32 0
@@ -194,12 +194,12 @@ define internal noundef i32 @tikz_declare_color(ptr nocapture noundef readonly %
 define internal void @tikz_box(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, i32 %8) #7 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [20 x i8], align 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = getelementptr i8, ptr %0, i64 1304
   %.val = load i32, ptr %19, align 8
@@ -209,13 +209,13 @@ define internal void @tikz_box(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %or.cond.i, label %22, label %lstopo_obj_cpukind_style.exit
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %7, i64 232
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 68
   %27 = load i32, ptr %26, align 4
   br label %lstopo_obj_cpukind_style.exit
 
@@ -223,15 +223,15 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %22, %25
   %.0.i = phi i32 [ %27, %25 ], [ 0, %22 ], [ 0, %9 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %10, i8 0, i64 64, i1 false)
   store i8 115, ptr %10, align 16
-  %28 = getelementptr inbounds i8, ptr %10, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 111, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %10, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 108, ptr %29, align 2
-  %30 = getelementptr inbounds i8, ptr %10, i64 3
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store i8 105, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %10, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 100, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 944
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %33 = load i32, ptr %32, align 8
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %45, label %34
@@ -263,9 +263,9 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %22, %25
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @tikz_line(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture readnone %6, i32 %7) #7 {
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 944
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.25, i32 noundef %12, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #12
   ret void
@@ -273,12 +273,12 @@ define internal void @tikz_line(ptr nocapture noundef readonly %0, i32 %1, i32 n
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @tikz_text(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly %7, i32 %8) #7 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr i8, ptr %0, i64 1304
   %.val = load i32, ptr %17, align 8
@@ -288,13 +288,13 @@ define internal void @tikz_text(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %or.cond.i, label %20, label %lstopo_obj_cpukind_style.exit
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %7, i64 232
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 68
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 1
   %27 = icmp eq i32 %26, 0
@@ -333,7 +333,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %20, %23
   %.134 = phi ptr [ %42, %.lr.ph ], [ %33, %.lr.ph39 ]
   %40 = sext i8 %39 to i32
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.30, i32 noundef %40) #12
-  %42 = getelementptr inbounds i8, ptr %.134, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.134, i64 1
   %43 = add i64 %.035, -1
   %44 = load i8, ptr %42, align 1
   %45 = icmp ne i8 %44, 0

@@ -82,9 +82,9 @@ define ptr @slurm_xcalloc(i64 noundef %0, i64 noundef %1, i1 noundef zeroext %2,
 
 27:                                               ; preds = %25
   store i64 66, ptr %.0, align 8
-  %28 = getelementptr inbounds i8, ptr %.0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i64 %18, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   br label %30
 
 30:                                               ; preds = %24, %15, %7, %27
@@ -141,7 +141,7 @@ define ptr @slurm_xrecalloc(ptr nocapture noundef %0, i64 noundef %1, i64 nounde
   br i1 %brmerge.not, label %28, label %40
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = getelementptr inbounds i8, ptr %29, i64 %23
   %31 = sub nuw i64 %17, %23
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %30, i8 0, i64 %31, i1 false)
@@ -169,9 +169,9 @@ define ptr @slurm_xrecalloc(ptr nocapture noundef %0, i64 noundef %1, i64 nounde
 
 40:                                               ; preds = %26, %28, %39
   %.037 = phi ptr [ %24, %28 ], [ %24, %26 ], [ %.1, %39 ]
-  %41 = getelementptr inbounds i8, ptr %.037, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.037, i64 8
   store i64 %17, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %.037, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   store ptr %42, ptr %0, align 8
   br label %45
 
@@ -235,7 +235,7 @@ slurm_xfree.exit:                                 ; preds = %3, %slurm_xfree.exi
   store ptr null, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %slurm_xfree.exit11, label %slurm_xfree.exit, !llvm.loop !6

@@ -52,15 +52,15 @@ define hidden noundef ptr @pj_horner(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZL10des_horner, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 380
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 380
   store i32 4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 384
   store i32 1, ptr %12, align 8
   br label %13
 
@@ -71,16 +71,16 @@ define hidden noundef ptr @pj_horner(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr noundef initializes((104, 136), (152, 160), (380, 388)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
-  %3 = getelementptr inbounds i8, ptr %0, i64 384
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 380
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   store ptr @_ZL13horner_freeupP8PJconstsi, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %6, ptr noundef %8, ptr noundef nonnull @.str.1)
   %10 = and i64 %9, 4294967295
@@ -134,14 +134,14 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr
 33:                                               ; preds = %.critedge
   %34 = shl i64 %14, 1
   %35 = add nuw nsw i64 %34, 2
-  %36 = getelementptr inbounds i8, ptr %29, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 %.sroa.020.0.extract.trunc, ptr %36, align 8
   %37 = and i64 %35, 65534
   %38 = tail call noalias ptr @calloc(i64 noundef %37, i64 noundef 8) #8
-  %39 = getelementptr inbounds i8, ptr %29, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 72
   store ptr %38, ptr %39, align 8
   %40 = tail call noalias ptr @calloc(i64 noundef %37, i64 noundef 8) #8
-  %41 = getelementptr inbounds i8, ptr %29, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 80
   store ptr %40, ptr %41, align 8
   %.not37.i = icmp ne ptr %38, null
   %.not38.i = icmp ne ptr %40, null
@@ -153,20 +153,20 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr
   %44 = add nuw nsw i64 %14, 2
   %45 = mul i64 %43, %44
   %46 = lshr i64 %45, 1
-  %47 = getelementptr inbounds i8, ptr %31, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %.sroa.020.0.extract.trunc, ptr %47, align 8
   %48 = and i64 %46, 2147483647
   %49 = tail call noalias ptr @calloc(i64 noundef %48, i64 noundef 8) #8
-  %50 = getelementptr inbounds i8, ptr %31, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store ptr %49, ptr %50, align 8
   %51 = tail call noalias ptr @calloc(i64 noundef %48, i64 noundef 8) #8
-  %52 = getelementptr inbounds i8, ptr %31, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store ptr %51, ptr %52, align 8
   %53 = tail call noalias ptr @calloc(i64 noundef %48, i64 noundef 8) #8
-  %54 = getelementptr inbounds i8, ptr %31, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store ptr %53, ptr %54, align 8
   %55 = tail call noalias ptr @calloc(i64 noundef %48, i64 noundef 8) #8
-  %56 = getelementptr inbounds i8, ptr %31, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store ptr %55, ptr %56, align 8
   %.not.i = icmp eq ptr %49, null
   %.not34.i = icmp eq ptr %51, null
@@ -190,10 +190,10 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr
   %65 = phi ptr [ %55, %42 ], [ null, %33 ], [ %55, %57 ]
   %.032.i = phi i1 [ false, %42 ], [ %or.cond.not.i, %33 ], [ %or.cond41.not.i, %57 ]
   %66 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #8
-  %67 = getelementptr inbounds i8, ptr %59, i64 88
+  %67 = getelementptr inbounds nuw i8, ptr %59, i64 88
   store ptr %66, ptr %67, align 8
   %68 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #8
-  %69 = getelementptr inbounds i8, ptr %59, i64 96
+  %69 = getelementptr inbounds nuw i8, ptr %59, i64 96
   store ptr %68, ptr %69, align 8
   br i1 %.032.i, label %70, label %71
 
@@ -220,7 +220,7 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_hornerP8PJconsts(ptr
   br label %181
 
 _ZL12horner_allocjb.exit:                         ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %0, i64 88
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %59, ptr %74, align 8
   %75 = load ptr, ptr %7, align 8
   br i1 %.0107119123, label %81, label %76
@@ -250,9 +250,9 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   br label %.thread131
 
 .thread136:                                       ; preds = %76, %78
-  %88 = getelementptr inbounds i8, ptr %59, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i8 1, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 136
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts, ptr %89, align 8
   br label %124
 
@@ -260,10 +260,10 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   %91 = load ptr, ptr %7, align 8
   %92 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %91, ptr noundef nonnull @.str.9)
   %93 = icmp ne ptr %92, null
-  %94 = getelementptr inbounds i8, ptr %59, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %95 = zext i1 %93 to i8
   store i8 %95, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 136
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts, ptr %96, align 8
   %spec.select146 = select i1 %93, ptr @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, ptr @_ZL27horner_iterative_inverse_4dR8PJ_COORDP8PJconsts
   br label %124
@@ -272,11 +272,11 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   %.sink = phi i8 [ %87, %83 ], [ 1, %81 ]
   %.0106133 = phi i1 [ %86, %83 ], [ true, %81 ]
   %97 = phi ptr [ %spec.select144, %83 ], [ @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts, %81 ]
-  %98 = getelementptr inbounds i8, ptr %59, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %59, i64 24
   store i8 %.sink, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 136
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @_ZL25complex_horner_forward_4dR8PJ_COORDP8PJconsts, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 144
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %97, ptr %100, align 8
   %101 = load ptr, ptr %7, align 8
   %102 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %101, ptr noundef nonnull @.str.11)
@@ -287,11 +287,11 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   %105 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %104, ptr noundef nonnull @.str.12)
   %.not115 = icmp ne ptr %105, null
   %106 = zext i1 %.not115 to i32
-  %107 = getelementptr inbounds i8, ptr %59, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 %106, ptr %107, align 4
   %108 = shl nuw nsw i32 %.sroa.020.0.extract.trunc, 1
   %109 = add nuw nsw i32 %108, 2
-  %110 = getelementptr inbounds i8, ptr %59, i64 72
+  %110 = getelementptr inbounds nuw i8, ptr %59, i64 72
   %111 = load ptr, ptr %110, align 8
   %112 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %111, ptr noundef nonnull @.str.13, i32 noundef %109)
   %113 = icmp eq i32 %112, 0
@@ -306,7 +306,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   br i1 %.0106133, label %117, label %.critedge117
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds i8, ptr %59, i64 80
+  %118 = getelementptr inbounds nuw i8, ptr %59, i64 80
   %119 = load ptr, ptr %118, align 8
   %120 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %119, ptr noundef nonnull @.str.10, i32 noundef %109)
   %121 = icmp eq i32 %120, 0
@@ -320,13 +320,13 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
 124:                                              ; preds = %90, %.thread136
   %.0106.ph138 = phi i1 [ true, %.thread136 ], [ %93, %90 ]
   %125 = phi ptr [ @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts, %.thread136 ], [ %spec.select146, %90 ]
-  %126 = getelementptr inbounds i8, ptr %0, i64 144
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %125, ptr %126, align 8
   %127 = add nuw nsw i32 %.sroa.020.0.extract.trunc, 1
   %128 = add nuw nsw i32 %.sroa.020.0.extract.trunc, 2
   %129 = mul nuw nsw i32 %127, %128
   %130 = lshr i32 %129, 1
-  %131 = getelementptr inbounds i8, ptr %59, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %132 = load ptr, ptr %131, align 8
   %133 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %132, ptr noundef nonnull @.str.16, i32 noundef %130)
   %134 = icmp eq i32 %133, 0
@@ -338,7 +338,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   br label %181
 
 137:                                              ; preds = %124
-  %138 = getelementptr inbounds i8, ptr %59, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %139 = load ptr, ptr %138, align 8
   %140 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %139, ptr noundef nonnull @.str.18, i32 noundef %130)
   %141 = icmp eq i32 %140, 0
@@ -353,7 +353,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   br i1 %.0106.ph138, label %145, label %.critedge117
 
 145:                                              ; preds = %144
-  %146 = getelementptr inbounds i8, ptr %59, i64 56
+  %146 = getelementptr inbounds nuw i8, ptr %59, i64 56
   %147 = load ptr, ptr %146, align 8
   %148 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %147, ptr noundef nonnull @.str.7, i32 noundef %130)
   %149 = icmp eq i32 %148, 0
@@ -365,7 +365,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   br label %181
 
 152:                                              ; preds = %145
-  %153 = getelementptr inbounds i8, ptr %59, i64 64
+  %153 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %154 = load ptr, ptr %153, align 8
   %155 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef %154, ptr noundef nonnull @.str.8, i32 noundef %130)
   %156 = icmp eq i32 %155, 0
@@ -403,7 +403,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   br label %181
 
 171:                                              ; preds = %165, %164
-  %172 = getelementptr inbounds i8, ptr %59, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %173 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %172, ptr noundef nonnull @.str.25, i32 noundef 1)
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %175, label %176
@@ -413,7 +413,7 @@ _ZL12horner_allocjb.exit:                         ; preds = %70
   br label %176
 
 176:                                              ; preds = %175, %171
-  %177 = getelementptr inbounds i8, ptr %59, i64 32
+  %177 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %178 = tail call fastcc noundef i32 @_ZL11parse_coefsP8PJconstsPdPKci(ptr noundef nonnull %0, ptr noundef nonnull %177, ptr noundef nonnull @.str.26, i32 noundef 1)
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %181
@@ -435,34 +435,34 @@ define internal noundef ptr @_ZL13horner_freeupP8PJconstsi(ptr noundef %0, i32 n
   br i1 %3, label %26, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #9
-  %11 = getelementptr inbounds i8, ptr %6, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %12 = load ptr, ptr %11, align 8
   tail call void @free(ptr noundef %12) #9
-  %13 = getelementptr inbounds i8, ptr %6, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #9
-  %15 = getelementptr inbounds i8, ptr %6, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #9
-  %17 = getelementptr inbounds i8, ptr %6, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %18 = load ptr, ptr %17, align 8
   tail call void @free(ptr noundef %18) #9
-  %19 = getelementptr inbounds i8, ptr %6, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %20 = load ptr, ptr %19, align 8
   tail call void @free(ptr noundef %20) #9
-  %21 = getelementptr inbounds i8, ptr %6, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #9
-  %23 = getelementptr inbounds i8, ptr %6, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %24 = load ptr, ptr %23, align 8
   tail call void @free(ptr noundef %24) #9
   tail call void @free(ptr noundef nonnull %6) #9
@@ -486,14 +486,14 @@ declare noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef, ptr noundef) 
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL25complex_horner_forward_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %.sroa.0.0.copyload = load double, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
-  %.pn.in.in.i = getelementptr inbounds i8, ptr %4, i64 88
+  %.pn.in.in.i = getelementptr inbounds nuw i8, ptr %4, i64 88
   %.pn.in.i = load ptr, ptr %.pn.in.in.i, align 8
-  %.pn29.in.i = getelementptr inbounds i8, ptr %.pn.in.i, i64 8
+  %.pn29.in.i = getelementptr inbounds nuw i8, ptr %.pn.in.i, i64 8
   %.pn29.i = load double, ptr %.pn29.in.i, align 8
   %.0.i = fsub double %.sroa.2.0.copyload, %.pn29.i
   %.pn.i = load double, ptr %.pn.in.i, align 8
@@ -502,7 +502,7 @@ define internal void @_ZL25complex_horner_forward_4dR8PJ_COORDP8PJconsts(ptr noc
   %.not.i = icmp eq i32 %5, 0
   %6 = fneg double %.027.i
   %.128.i = select i1 %.not.i, double %.027.i, double %6
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
   %.not31.i = icmp eq i32 %8, 0
   %9 = fneg double %.0.i
@@ -521,14 +521,14 @@ define internal void @_ZL25complex_horner_forward_4dR8PJ_COORDP8PJconsts(ptr noc
   br label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
 _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
-  %.in.i = getelementptr inbounds i8, ptr %4, i64 72
+  %.in.i = getelementptr inbounds nuw i8, ptr %4, i64 72
   %17 = load ptr, ptr %.in.i, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = shl i32 %19, 1
   %21 = add i32 %20, 2
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds double, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw double, ptr %17, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = load double, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 -16
@@ -564,14 +564,14 @@ _ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %.sroa.0.0.copyload = load double, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
-  %.pn.in.in.i = getelementptr inbounds i8, ptr %4, i64 96
+  %.pn.in.in.i = getelementptr inbounds nuw i8, ptr %4, i64 96
   %.pn.in.i = load ptr, ptr %.pn.in.in.i, align 8
-  %.pn29.in.i = getelementptr inbounds i8, ptr %.pn.in.i, i64 8
+  %.pn29.in.i = getelementptr inbounds nuw i8, ptr %.pn.in.i, i64 8
   %.pn29.i = load double, ptr %.pn29.in.i, align 8
   %.0.i = fsub double %.sroa.2.0.copyload, %.pn29.i
   %.pn.i = load double, ptr %.pn.in.i, align 8
@@ -580,7 +580,7 @@ define internal void @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts(ptr noc
   %.not.i = icmp eq i32 %5, 0
   %6 = fneg double %.027.i
   %.128.i = select i1 %.not.i, double %.027.i, double %6
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
   %.not31.i = icmp eq i32 %8, 0
   %9 = fneg double %.0.i
@@ -599,14 +599,14 @@ define internal void @_ZL25complex_horner_inverse_4dR8PJ_COORDP8PJconsts(ptr noc
   br label %_ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
 _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
-  %.in.i = getelementptr inbounds i8, ptr %4, i64 80
+  %.in.i = getelementptr inbounds nuw i8, ptr %4, i64 80
   %17 = load ptr, ptr %.in.i, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = shl i32 %19, 1
   %21 = add i32 %20, 2
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds double, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw double, ptr %17, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = load double, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 -16
@@ -642,10 +642,10 @@ _ZL20complex_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL35complex_horner_iterative_inverse_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %.sroa.0.0.copyload = load double, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = getelementptr i8, ptr %4, i64 16
   %.val.i = load double, ptr %5, align 8
@@ -661,16 +661,16 @@ define internal void @_ZL35complex_horner_iterative_inverse_4dR8PJ_COORDP8PJcons
   br label %_ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
 _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %15 = load ptr, ptr %14, align 8
   %16 = load double, ptr %15, align 8
   %17 = fsub double %.sroa.2.0.copyload, %16
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load double, ptr %18, align 8
   %20 = fsub double %.sroa.0.0.copyload, %19
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %22
 
 22:                                               ; preds = %_ZL19complex_horner_evaljPKd5PJ_UVj.exit.i, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
@@ -681,7 +681,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   %25 = load i32, ptr %21, align 8
   %26 = shl i32 %25, 1
   %27 = add i32 %26, 2
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %29 = zext i32 %27 to i64
   %.idx.i = shl nuw nsw i64 %29, 3
   %.ptr.i = getelementptr i8, ptr %24, i64 %.idx.i
@@ -740,16 +740,16 @@ _ZL19complex_horner_evaljPKd5PJ_UVj.exit.i:       ; preds = %.lr.ph.i.i, %22
   %.not.i = icmp eq i32 %62, 0
   %63 = fneg double %48
   %.032.i = select i1 %.not.i, double %48, double %63
-  %64 = getelementptr inbounds i8, ptr %4, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %65 = load i32, ptr %64, align 4
   %.not37.i = icmp eq i32 %65, 0
   %66 = fneg double %47
   %.0.i = select i1 %.not37.i, double %47, double %66
-  %67 = getelementptr inbounds i8, ptr %4, i64 88
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %68 = load ptr, ptr %67, align 8
   %69 = load double, ptr %68, align 8
   %70 = fadd double %.032.i, %69
-  %71 = getelementptr inbounds i8, ptr %68, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %72 = load double, ptr %71, align 8
   %73 = fadd double %.0.i, %72
   br label %_ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
@@ -764,14 +764,14 @@ _ZL30complex_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exi
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %.sroa.0.0.copyload = load double, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
-  %.pn.in.in.i = getelementptr inbounds i8, ptr %4, i64 88
+  %.pn.in.in.i = getelementptr inbounds nuw i8, ptr %4, i64 88
   %.pn.in.i = load ptr, ptr %.pn.in.in.i, align 8
-  %.pn28.in.i = getelementptr inbounds i8, ptr %.pn.in.i, i64 8
+  %.pn28.in.i = getelementptr inbounds nuw i8, ptr %.pn.in.i, i64 8
   %.pn28.i = load double, ptr %.pn28.in.i, align 8
   %.0.i = fsub double %.sroa.2.0.copyload, %.pn28.i
   %.pn.i = load double, ptr %.pn.in.i, align 8
@@ -790,19 +790,19 @@ define internal void @_ZL17horner_forward_4dR8PJ_COORDP8PJconsts(ptr nocapture n
   br label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
 _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
-  %.in.i = getelementptr inbounds i8, ptr %4, i64 40
+  %.in.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %.in.i, align 8
-  %.in30.i = getelementptr inbounds i8, ptr %4, i64 48
+  %.in30.i = getelementptr inbounds nuw i8, ptr %4, i64 48
   %13 = load ptr, ptr %.in30.i, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, 1
   %17 = add i32 %15, 2
   %18 = mul i32 %16, %17
   %19 = lshr i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds double, ptr %12, i64 %20
-  %22 = getelementptr inbounds double, ptr %13, i64 %20
+  %21 = getelementptr inbounds nuw double, ptr %12, i64 %20
+  %22 = getelementptr inbounds nuw double, ptr %13, i64 %20
   %23 = getelementptr inbounds i8, ptr %22, i64 -8
   %24 = load double, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %21, i64 -8
@@ -860,14 +860,14 @@ _ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.ex
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %.sroa.0.0.copyload = load double, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
-  %.pn.in.in.i = getelementptr inbounds i8, ptr %4, i64 96
+  %.pn.in.in.i = getelementptr inbounds nuw i8, ptr %4, i64 96
   %.pn.in.i = load ptr, ptr %.pn.in.in.i, align 8
-  %.pn28.in.i = getelementptr inbounds i8, ptr %.pn.in.i, i64 8
+  %.pn28.in.i = getelementptr inbounds nuw i8, ptr %.pn.in.i, i64 8
   %.pn28.i = load double, ptr %.pn28.in.i, align 8
   %.0.i = fsub double %.sroa.2.0.copyload, %.pn28.i
   %.pn.i = load double, ptr %.pn.in.i, align 8
@@ -886,19 +886,19 @@ define internal void @_ZL17horner_inverse_4dR8PJ_COORDP8PJconsts(ptr nocapture n
   br label %_ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.exit
 
 _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
-  %.in.i = getelementptr inbounds i8, ptr %4, i64 56
+  %.in.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   %12 = load ptr, ptr %.in.i, align 8
-  %.in30.i = getelementptr inbounds i8, ptr %4, i64 64
+  %.in30.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   %13 = load ptr, ptr %.in30.i, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, 1
   %17 = add i32 %15, 2
   %18 = mul i32 %16, %17
   %19 = lshr i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds double, ptr %12, i64 %20
-  %22 = getelementptr inbounds double, ptr %13, i64 %20
+  %21 = getelementptr inbounds nuw double, ptr %12, i64 %20
+  %22 = getelementptr inbounds nuw double, ptr %13, i64 %20
   %23 = getelementptr inbounds i8, ptr %22, i64 -8
   %24 = load double, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %21, i64 -8
@@ -956,10 +956,10 @@ _ZL17real_default_implP8PJconstsPKN12_GLOBAL__N_16hornerE12PJ_DIRECTION5PJ_UV.ex
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL27horner_iterative_inverse_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %.sroa.0.0.copyload = load double, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %5 = getelementptr i8, ptr %4, i64 16
   %.val.i = load double, ptr %5, align 8
@@ -975,15 +975,15 @@ define internal void @_ZL27horner_iterative_inverse_4dR8PJ_COORDP8PJconsts(ptr n
   br label %_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
 _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = load double, ptr %17, align 8
   %19 = fsub double %.sroa.0.0.copyload, %18
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = load double, ptr %21, align 8
   %23 = fsub double %.sroa.2.0.copyload, %22
@@ -1139,11 +1139,11 @@ _ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i: ; preds = %_ZL23double
   br label %_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
 104:                                              ; preds = %.split.us.i
-  %105 = getelementptr inbounds i8, ptr %4, i64 88
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %106 = load ptr, ptr %105, align 8
   %107 = load double, ptr %106, align 8
   %108 = fadd double %.us-phi105.i, %107
-  %109 = getelementptr inbounds i8, ptr %106, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %110 = load double, ptr %109, align 8
   %111 = fadd double %.us-phi104.i, %110
   br label %_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
@@ -1173,7 +1173,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL11parse_coefsP8PJconstsPd
 11:                                               ; preds = %4
   %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %8, i64 noundef %7, ptr noundef nonnull @.str.28, ptr noundef %2) #9
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %13, ptr noundef %15, ptr noundef nonnull %8)
   %17 = and i64 %16, 4294967295
@@ -1219,14 +1219,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL11parse_coefsP8PJconstsPd
   br label %.loopexit
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %27, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %33, ptr %5, align 8
   br label %34
 
 34:                                               ; preds = %32, %.lr.ph
   %.1 = phi ptr [ %33, %32 ], [ %.02936, %.lr.ph ]
   %35 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef %.1, ptr noundef nonnull %5)
-  %36 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   store double %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

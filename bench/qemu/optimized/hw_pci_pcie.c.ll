@@ -71,16 +71,16 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %conv = trunc i32 %call1 to i8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   store i8 %conv, ptr %exp, align 8
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext nneg i32 %call1 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
   %conv.mask = and i32 %call1, 255
   %idx.ext.i = zext nneg i32 %conv.mask to i64
   %add.ptr.i = getelementptr i8, ptr %1, i64 %idx.ext.i
-  %cmask2.i = getelementptr inbounds i8, ptr %dev, i64 176
+  %cmask2.i = getelementptr inbounds nuw i8, ptr %dev, i64 176
   %2 = load ptr, ptr %cmask2.i, align 16
   %add.ptr7.i = getelementptr i8, ptr %2, i64 %idx.ext.i
   %add.ptr8.i = getelementptr i8, ptr %add.ptr.i, i64 2
@@ -113,10 +113,10 @@ if.end.i:                                         ; preds = %if.end3
   %config.val.i.i = load i32, ptr %add.ptr2.i, align 1
   %and.i.i = and i32 %config.val.i.i, -1024
   store i32 %and.i.i, ptr %add.ptr2.i, align 1
-  %width.i = getelementptr inbounds i8, ptr %call.i, i64 7160
+  %width.i = getelementptr inbounds nuw i8, ptr %call.i, i64 7160
   %5 = load i32, ptr %width.i, align 8
   %shl.i19 = shl i32 %5, 4
-  %speed.i = getelementptr inbounds i8, ptr %call.i, i64 7156
+  %speed.i = getelementptr inbounds nuw i8, ptr %call.i, i64 7156
   %6 = load i32, ptr %speed.i, align 4
   %7 = or i32 %shl.i19, %6
   %or.i.i = or i32 %7, %and.i.i
@@ -165,7 +165,7 @@ if.then32.i:                                      ; preds = %if.end28.i
 pcie_cap_fill_slot_lnk.exit:                      ; preds = %if.end3, %lor.lhs.false.i, %if.end15.i, %if.end28.i, %if.then32.i
   %add.ptr5 = getelementptr i8, ptr %add.ptr, i64 36
   store i32 3145728, ptr %add.ptr5, align 1
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %13 = load ptr, ptr %wmask, align 8
   %add.ptr7 = getelementptr i8, ptr %13, i64 %idx.ext
   %add.ptr8 = getelementptr i8, ptr %add.ptr7, i64 40
@@ -217,14 +217,14 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %conv = trunc i32 %call1 to i8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   store i8 %conv, ptr %exp, align 8
-  %config.i = getelementptr inbounds i8, ptr %dev, i64 168
+  %config.i = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %2 = load ptr, ptr %config.i, align 8
   %conv.mask = and i32 %call1, 255
   %idx.ext.i = zext nneg i32 %conv.mask to i64
   %add.ptr.i = getelementptr i8, ptr %2, i64 %idx.ext.i
-  %cmask2.i = getelementptr inbounds i8, ptr %dev, i64 176
+  %cmask2.i = getelementptr inbounds nuw i8, ptr %dev, i64 176
   %3 = load ptr, ptr %cmask2.i, align 16
   %add.ptr7.i = getelementptr i8, ptr %3, i64 %idx.ext.i
   %add.ptr8.i = getelementptr i8, ptr %add.ptr.i, i64 2
@@ -312,14 +312,14 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %conv.i = trunc i32 %call1.i10 to i8
-  %exp.i = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp.i = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   store i8 %conv.i, ptr %exp.i, align 8
-  %config.i.i = getelementptr inbounds i8, ptr %dev, i64 168
+  %config.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %3 = load ptr, ptr %config.i.i, align 8
   %conv.mask.i = and i32 %call1.i10, 255
   %idx.ext.i.i = zext nneg i32 %conv.mask.i to i64
   %add.ptr.i.i = getelementptr i8, ptr %3, i64 %idx.ext.i.i
-  %cmask2.i.i = getelementptr inbounds i8, ptr %dev, i64 176
+  %cmask2.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 176
   %4 = load ptr, ptr %cmask2.i.i, align 16
   %add.ptr7.i.i = getelementptr i8, ptr %4, i64 %idx.ext.i.i
   %add.ptr8.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 2
@@ -382,7 +382,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext range(i8 0, 16) i8 @pcie_cap_get_type(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
   %cmp.not = icmp eq i8 %0, 0
   br i1 %cmp.not, label %if.else, label %if.end
@@ -392,7 +392,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext i8 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -406,7 +406,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext range(i8 0, 16) i8 @pcie_cap_get_version(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
   %cmp.not = icmp eq i8 %0, 0
   br i1 %cmp.not, label %if.else, label %if.end
@@ -416,7 +416,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext i8 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -439,9 +439,9 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv2 = zext nneg i8 %vector to i16
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -457,9 +457,9 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local zeroext range(i8 0, 32) i8 @pcie_cap_flags_get_vector(ptr nocapture noundef readonly %dev) local_unnamed_addr #3 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -474,9 +474,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_cap_deverr_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext i8 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -484,14 +484,14 @@ entry:
   %config.val.i = load i32, ptr %add.ptr1, align 1
   %or.i = or i32 %config.val.i, 32768
   store i32 %or.i, ptr %add.ptr1, align 1
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %2 = load ptr, ptr %wmask, align 8
   %add.ptr3 = getelementptr i8, ptr %2, i64 %idx.ext
   %add.ptr4 = getelementptr i8, ptr %add.ptr3, i64 8
   %config.val.i6 = load i32, ptr %add.ptr4, align 1
   %or.i7 = or i32 %config.val.i6, 15
   store i32 %or.i7, ptr %add.ptr4, align 1
-  %w1cmask = getelementptr inbounds i8, ptr %dev, i64 192
+  %w1cmask = getelementptr inbounds nuw i8, ptr %dev, i64 192
   %3 = load ptr, ptr %w1cmask, align 16
   %add.ptr7 = getelementptr i8, ptr %3, i64 %idx.ext
   %add.ptr8 = getelementptr i8, ptr %add.ptr7, i64 10
@@ -504,9 +504,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_cap_deverr_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -520,9 +520,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_cap_lnkctl_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %1 = load ptr, ptr %wmask, align 8
   %idx.ext = zext i8 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -536,9 +536,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_cap_lnkctl_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -552,9 +552,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_cap_slot_enable_power(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -579,15 +579,15 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local void @pcie_cap_slot_pre_plug_cb(ptr noundef %hotplug_dev, ptr nocapture noundef readonly %dev, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hotplug_dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #10
-  %config = getelementptr inbounds i8, ptr %call.i, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %call.i, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %call.i, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
   %add.ptr2 = getelementptr i8, ptr %add.ptr, i64 20
   %add.ptr2.val = load i16, ptr %add.ptr2, align 1
-  %hotplugged = getelementptr inbounds i8, ptr %dev, i64 80
+  %hotplugged = getelementptr inbounds nuw i8, ptr %dev, i64 80
   %2 = load i32, ptr %hotplugged, align 8
   %tobool.not = icmp ne i32 %2, 0
   %3 = and i16 %add.ptr2.val, 64
@@ -597,7 +597,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %id = getelementptr inbounds i8, ptr %call.i7, i64 40
+  %id = getelementptr inbounds nuw i8, ptr %call.i7, i64 40
   %4 = load ptr, ptr %id, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 459, ptr noundef nonnull @__func__.pcie_cap_slot_pre_plug_cb, ptr noundef nonnull @.str.4, ptr noundef %4) #10
   br label %return
@@ -632,9 +632,9 @@ entry:
   %power.i31 = alloca i8, align 1
   %power.i = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hotplug_dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #10
-  %config = getelementptr inbounds i8, ptr %call.i, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %call.i, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %call.i, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -647,7 +647,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.end33
 
 if.end:                                           ; preds = %entry
-  %hotplugged = getelementptr inbounds i8, ptr %dev, i64 80
+  %hotplugged = getelementptr inbounds nuw i8, ptr %dev, i64 80
   %3 = load i32, ptr %hotplugged, align 8
   %tobool6.not = icmp eq i32 %3, 0
   br i1 %tobool6.not, label %if.then7, label %if.end17
@@ -657,7 +657,7 @@ if.then7:                                         ; preds = %if.end
   %config.val.i = load i16, ptr %add.ptr8, align 1
   %or.i = or i16 %config.val.i, 64
   store i16 %or.i, ptr %add.ptr8, align 1
-  %cap_present = getelementptr inbounds i8, ptr %call.i15, i64 1260
+  %cap_present = getelementptr inbounds nuw i8, ptr %call.i15, i64 1260
   %4 = load i32, ptr %cap_present, align 4
   %and = and i32 %4, 256
   %tobool10.not = icmp eq i32 %and, 0
@@ -707,7 +707,7 @@ if.then20:                                        ; preds = %if.end17
   %config.val.i20 = load i16, ptr %add.ptr21, align 1
   %or.i21 = or i16 %config.val.i20, 64
   store i16 %or.i21, ptr %add.ptr21, align 1
-  %cap_present23 = getelementptr inbounds i8, ptr %call.i15, i64 1260
+  %cap_present23 = getelementptr inbounds nuw i8, ptr %call.i15, i64 1260
   %8 = load i32, ptr %cap_present23, align 4
   %and24 = and i32 %8, 256
   %tobool25.not = icmp eq i32 %and24, 0
@@ -789,9 +789,9 @@ entry:
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #10
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #10
   %call.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %hotplug_dev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #10
-  %config = getelementptr inbounds i8, ptr %call.i19, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %call.i19, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %call.i19, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %call.i19, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -805,7 +805,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i19, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %id = getelementptr inbounds i8, ptr %call.i20, i64 40
+  %id = getelementptr inbounds nuw i8, ptr %call.i20, i64 40
   %3 = load ptr, ptr %id, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 564, ptr noundef nonnull @__func__.pcie_cap_slot_unplug_request_cb, ptr noundef nonnull @.str.5, ptr noundef %3) #10
   br label %return
@@ -837,20 +837,20 @@ if.then17:                                        ; preds = %if.end12
   br label %return
 
 if.end18:                                         ; preds = %if.end12
-  %pending_deleted_event = getelementptr inbounds i8, ptr %dev, i64 57
+  %pending_deleted_event = getelementptr inbounds nuw i8, ptr %dev, i64 57
   store i8 1, ptr %pending_deleted_event, align 1
   %call.i21 = call i64 @qemu_clock_get_ns(i32 noundef 1) #10
   %div.i = sdiv i64 %call.i21, 1000000
   %add = add nsw i64 %div.i, 5000
-  %pending_deleted_expires_ms = getelementptr inbounds i8, ptr %dev, i64 64
+  %pending_deleted_expires_ms = getelementptr inbounds nuw i8, ptr %dev, i64 64
   store i64 %add, ptr %pending_deleted_expires_ms, align 8
-  %devfn = getelementptr inbounds i8, ptr %call.i, i64 208
+  %devfn = getelementptr inbounds nuw i8, ptr %call.i, i64 208
   %6 = load i32, ptr %devfn, align 16
   %tobool20.not = icmp eq i32 %6, 0
   br i1 %tobool20.not, label %if.end23, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end18
-  %devices = getelementptr inbounds i8, ptr %call.i1.i, i64 184
+  %devices = getelementptr inbounds nuw i8, ptr %call.i1.i, i64 184
   %7 = load ptr, ptr %devices, align 8
   %tobool21.not = icmp eq ptr %7, null
   br i1 %tobool21.not, label %if.then22, label %if.end23
@@ -858,13 +858,13 @@ land.lhs.true:                                    ; preds = %if.end18
 if.then22:                                        ; preds = %land.lhs.true
   %call.i.i22 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   %call1.i23 = call ptr @qdev_get_hotplug_handler(ptr noundef %call.i.i22) #10
-  %partially_hotplugged.i = getelementptr inbounds i8, ptr %call.i, i64 160
+  %partially_hotplugged.i = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %8 = load i8, ptr %partially_hotplugged.i, align 16
   %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %if.then.i24, label %if.end.i
 
 if.then.i24:                                      ; preds = %if.then22
-  %pending_deleted_event.i = getelementptr inbounds i8, ptr %call.i, i64 57
+  %pending_deleted_event.i = getelementptr inbounds nuw i8, ptr %call.i, i64 57
   store i8 0, ptr %pending_deleted_event.i, align 1
   br label %return
 
@@ -893,7 +893,7 @@ if.then25:                                        ; preds = %if.end23
   %config.val.i.i = load i16, ptr %add.ptr5.i, align 1
   %and.i.i = and i16 %config.val.i.i, -65
   store i16 %and.i.i, ptr %add.ptr5.i, align 1
-  %cap_present.i = getelementptr inbounds i8, ptr %call.i19, i64 1260
+  %cap_present.i = getelementptr inbounds nuw i8, ptr %call.i19, i64 1260
   %13 = load i32, ptr %cap_present.i, align 4
   %and.i = and i32 %13, 256
   %tobool.not.i29 = icmp eq i32 %and.i, 0
@@ -946,13 +946,13 @@ define internal void @pcie_unplug_device(ptr nocapture readnone %bus, ptr nounde
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   %call1 = tail call ptr @qdev_get_hotplug_handler(ptr noundef %call.i) #10
-  %partially_hotplugged = getelementptr inbounds i8, ptr %dev, i64 160
+  %partially_hotplugged = getelementptr inbounds nuw i8, ptr %dev, i64 160
   %0 = load i8, ptr %partially_hotplugged, align 16
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pending_deleted_event = getelementptr inbounds i8, ptr %dev, i64 57
+  %pending_deleted_event = getelementptr inbounds nuw i8, ptr %dev, i64 57
   store i8 0, ptr %pending_deleted_event, align 1
   br label %return
 
@@ -969,11 +969,11 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @hotplug_event_notify(ptr noundef %dev) unnamed_addr #0 {
 entry:
-  %hpev_notified = getelementptr inbounds i8, ptr %dev, i64 2170
+  %hpev_notified = getelementptr inbounds nuw i8, ptr %dev, i64 2170
   %0 = load i8, ptr %hpev_notified, align 2
-  %exp.i = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp.i = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp.i, align 8
-  %config.i = getelementptr inbounds i8, ptr %dev, i64 168
+  %config.i = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %2 = load ptr, ptr %config.i, align 8
   %idx.ext.i = zext i8 %1 to i64
   %add.ptr.i = getelementptr i8, ptr %2, i64 %idx.ext.i
@@ -1048,9 +1048,9 @@ if.end26:                                         ; preds = %if.then12, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_cap_slot_push_attention_button(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
-  %config.i = getelementptr inbounds i8, ptr %dev, i64 168
+  %config.i = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config.i, align 8
-  %exp.i = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp.i = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp.i, align 8
   %idx.ext.i = zext i8 %1 to i64
   %add.ptr.i = getelementptr i8, ptr %0, i64 %idx.ext.i
@@ -1073,9 +1073,9 @@ pcie_cap_slot_event.exit:                         ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_cap_slot_init(ptr noundef %dev, ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext i8 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -1092,7 +1092,7 @@ entry:
   %3 = load ptr, ptr %config, align 8
   %add.ptr9 = getelementptr i8, ptr %3, i64 %idx.ext
   %add.ptr10 = getelementptr i8, ptr %add.ptr9, i64 20
-  %slot = getelementptr inbounds i8, ptr %s, i64 7154
+  %slot = getelementptr inbounds nuw i8, ptr %s, i64 7154
   %4 = load i16, ptr %slot, align 2
   %conv11 = zext i16 %4 to i32
   %shl = shl i32 %conv11, 19
@@ -1100,20 +1100,20 @@ entry:
   %or15 = or i32 %shl, %config.val.i34
   %or.i35 = or i32 %or15, 131097
   store i32 %or.i35, ptr %add.ptr10, align 1
-  %hotplug = getelementptr inbounds i8, ptr %s, i64 7165
+  %hotplug = getelementptr inbounds nuw i8, ptr %s, i64 7165
   %5 = load i8, ptr %hotplug, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %hide_native_hotplug_cap = getelementptr inbounds i8, ptr %s, i64 7166
+  %hide_native_hotplug_cap = getelementptr inbounds nuw i8, ptr %s, i64 7166
   %6 = load i8, ptr %hide_native_hotplug_cap, align 2
   %tobool18 = trunc i8 %6 to i1
   br i1 %tobool18, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
-  %hotplugged = getelementptr inbounds i8, ptr %call.i, i64 80
+  %hotplugged = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   %7 = load i32, ptr %hotplugged, align 8
   %tobool20.not = icmp eq i32 %7, 0
   br i1 %tobool20.not, label %if.end, label %if.then
@@ -1128,7 +1128,7 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false, %entry
-  %cap_present = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %9 = load i32, ptr %cap_present, align 4
   %and = and i32 %9, 128
   %tobool26.not = icmp eq i32 %and, 0
@@ -1147,7 +1147,7 @@ if.then27:                                        ; preds = %if.end
   %config.val.i43 = load i16, ptr %add.ptr36, align 1
   %and.i44 = and i16 %config.val.i43, -1025
   store i16 %and.i44, ptr %add.ptr36, align 1
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %12 = load ptr, ptr %wmask, align 8
   %add.ptr39 = getelementptr i8, ptr %12, i64 %idx.ext
   %add.ptr40 = getelementptr i8, ptr %add.ptr39, i64 24
@@ -1169,7 +1169,7 @@ if.end42:                                         ; preds = %if.then27, %if.end
   %config.val.i51 = load i16, ptr %add.ptr51, align 1
   %or.i52 = or i16 %config.val.i51, 960
   store i16 %or.i52, ptr %add.ptr51, align 1
-  %wmask53 = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask53 = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %15 = load ptr, ptr %wmask53, align 8
   %add.ptr55 = getelementptr i8, ptr %15, i64 %idx.ext
   %add.ptr56 = getelementptr i8, ptr %add.ptr55, i64 24
@@ -1182,21 +1182,21 @@ if.end42:                                         ; preds = %if.then27, %if.end
   %config.val.i57 = load i16, ptr %add.ptr61, align 1
   %or.i58 = or i16 %config.val.i57, 2048
   store i16 %or.i58, ptr %add.ptr61, align 1
-  %w1cmask = getelementptr inbounds i8, ptr %dev, i64 192
+  %w1cmask = getelementptr inbounds nuw i8, ptr %dev, i64 192
   %17 = load ptr, ptr %w1cmask, align 16
   %add.ptr64 = getelementptr i8, ptr %17, i64 %idx.ext
   %add.ptr65 = getelementptr i8, ptr %add.ptr64, i64 26
   %config.val.i60 = load i16, ptr %add.ptr65, align 1
   %or.i61 = or i16 %config.val.i60, 25
   store i16 %or.i61, ptr %add.ptr65, align 1
-  %cmask = getelementptr inbounds i8, ptr %dev, i64 176
+  %cmask = getelementptr inbounds nuw i8, ptr %dev, i64 176
   %18 = load ptr, ptr %cmask, align 16
   %add.ptr68 = getelementptr i8, ptr %18, i64 %idx.ext
   %add.ptr69 = getelementptr i8, ptr %add.ptr68, i64 26
   %config.val.i63 = load i16, ptr %add.ptr69, align 1
   %and.i64 = and i16 %config.val.i63, -65
   store i16 %and.i64, ptr %add.ptr69, align 1
-  %hpev_notified = getelementptr inbounds i8, ptr %dev, i64 2170
+  %hpev_notified = getelementptr inbounds nuw i8, ptr %dev, i64 2170
   store i8 0, ptr %hpev_notified, align 2
   %call.i66 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #10
   %call73 = tail call ptr @pci_bridge_get_sec_bus(ptr noundef %call.i66) #10
@@ -1213,9 +1213,9 @@ declare ptr @pci_bridge_get_sec_bus(ptr noundef) local_unnamed_addr #2
 define dso_local void @pcie_cap_slot_reset(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
   %power.i = alloca i8, align 1
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -1243,7 +1243,7 @@ do.end:                                           ; preds = %pcie_cap_get_type.e
   %and.i = and i16 %config.val.i, -3066
   %or.i = or disjoint i16 %and.i, 960
   store i16 %or.i, ptr %add.ptr7, align 1
-  %cap_present = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %3 = load i32, ptr %cap_present, align 4
   %and = and i32 %3, 128
   %tobool.not = icmp eq i32 %and, 0
@@ -1252,7 +1252,7 @@ do.end:                                           ; preds = %pcie_cap_get_type.e
 if.then11:                                        ; preds = %do.end
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #10
   %call13 = tail call ptr @pci_bridge_get_sec_bus(ptr noundef %call.i) #10
-  %devices = getelementptr inbounds i8, ptr %call13, i64 184
+  %devices = getelementptr inbounds nuw i8, ptr %call13, i64 184
   %4 = load ptr, ptr %devices, align 8
   %tobool14.not = icmp eq ptr %4, null
   %config.val.i18 = load i16, ptr %add.ptr7, align 1
@@ -1305,7 +1305,7 @@ if.end28:                                         ; preds = %if.then11, %do.end
   %tobool10.i = icmp ne i16 %11, 0
   %narrow.i41 = select i1 %tobool.not.i40, i1 %tobool10.i, i1 false
   %frombool.i = zext i1 %narrow.i41 to i8
-  %hpev_notified.i = getelementptr inbounds i8, ptr %dev, i64 2170
+  %hpev_notified.i = getelementptr inbounds nuw i8, ptr %dev, i64 2170
   store i8 %frombool.i, ptr %hpev_notified.i, align 2
   ret void
 }
@@ -1313,9 +1313,9 @@ if.end28:                                         ; preds = %if.then11, %do.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_cap_slot_get(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly initializes((0, 2)) %slt_ctl, ptr nocapture noundef writeonly initializes((0, 2)) %slt_sta) local_unnamed_addr #5 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext i8 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -1332,10 +1332,10 @@ entry:
 define dso_local void @pcie_cap_slot_write_config(ptr noundef %dev, i16 noundef zeroext %old_slt_ctl, i16 noundef zeroext %old_slt_sta, i32 noundef %addr, i32 noundef %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %power.i = alloca i8, align 1
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
   %conv = zext i8 %0 to i32
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext i8 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -1388,7 +1388,7 @@ if.end:                                           ; preds = %if.then10, %if.then
   %tobool10.i.i = icmp ne i16 %7, 0
   %narrow.i.i = select i1 %tobool.not.i.i, i1 %tobool10.i.i, i1 false
   %frombool.i.i = zext i1 %narrow.i.i to i8
-  %hpev_notified.i.i = getelementptr inbounds i8, ptr %dev, i64 2170
+  %hpev_notified.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 2170
   store i8 %frombool.i.i, ptr %hpev_notified.i.i, align 2
   %call.i = tail call i32 @msix_enabled(ptr noundef nonnull %dev) #10
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -1464,7 +1464,7 @@ if.then42:                                        ; preds = %if.end33
   %config.val.i.i = load i16, ptr %add.ptr5.i, align 1
   %and.i.i = and i16 %config.val.i.i, -65
   store i16 %and.i.i, ptr %add.ptr5.i, align 1
-  %cap_present.i = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present.i = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %18 = load i32, ptr %cap_present.i, align 4
   %and.i28 = and i32 %18, 256
   %tobool.not.i29 = icmp eq i32 %and.i28, 0
@@ -1532,9 +1532,9 @@ return:                                           ; preds = %if.end.i, %if.end43
 define dso_local noundef i32 @pcie_cap_slot_post_load(ptr noundef initializes((2170, 2171)) %opaque, i32 noundef %version_id) local_unnamed_addr #0 {
 entry:
   %power.i = alloca i8, align 1
-  %exp.i = getelementptr inbounds i8, ptr %opaque, i64 2168
+  %exp.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2168
   %0 = load i8, ptr %exp.i, align 8
-  %config.i = getelementptr inbounds i8, ptr %opaque, i64 168
+  %config.i = getelementptr inbounds nuw i8, ptr %opaque, i64 168
   %1 = load ptr, ptr %config.i, align 8
   %idx.ext.i = zext i8 %0 to i64
   %add.ptr.i = getelementptr i8, ptr %1, i64 %idx.ext.i
@@ -1549,7 +1549,7 @@ entry:
   %tobool10.i = icmp ne i16 %3, 0
   %narrow.i = select i1 %tobool.not.i, i1 %tobool10.i, i1 false
   %frombool.i = zext i1 %narrow.i to i8
-  %hpev_notified.i = getelementptr inbounds i8, ptr %opaque, i64 2170
+  %hpev_notified.i = getelementptr inbounds nuw i8, ptr %opaque, i64 2170
   store i8 %frombool.i, ptr %hpev_notified.i, align 2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %power.i)
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #10
@@ -1573,9 +1573,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_cap_root_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #6 {
 entry:
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %0 = load ptr, ptr %wmask, align 8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -1587,9 +1587,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_cap_root_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #6 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -1601,9 +1601,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_cap_flr_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -1611,7 +1611,7 @@ entry:
   %config.val.i = load i32, ptr %add.ptr1, align 1
   %or.i = or i32 %config.val.i, 268435456
   store i32 %or.i, ptr %add.ptr1, align 1
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %2 = load ptr, ptr %wmask, align 8
   %3 = load i8, ptr %exp, align 8
   %idx.ext5 = zext i8 %3 to i64
@@ -1626,9 +1626,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_cap_flr_write_config(ptr noundef %dev, i32 noundef %addr, i32 noundef %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -1653,9 +1653,9 @@ declare void @pci_device_reset(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_cap_arifwd_init(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
 entry:
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext i8 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -1663,7 +1663,7 @@ entry:
   %config.val.i = load i32, ptr %add.ptr1, align 1
   %or.i = or i32 %config.val.i, 32
   store i32 %or.i, ptr %add.ptr1, align 1
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %2 = load ptr, ptr %wmask, align 8
   %add.ptr3 = getelementptr i8, ptr %2, i64 %idx.ext
   %add.ptr4 = getelementptr i8, ptr %add.ptr3, i64 40
@@ -1676,9 +1676,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_cap_arifwd_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -1699,13 +1699,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %exp = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp, align 8
   %tobool1.not = icmp eq i8 %1, 0
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %2 = load ptr, ptr %config, align 8
   %idx.ext = zext i8 %1 to i64
   %add.ptr = getelementptr i8, ptr %2, i64 %idx.ext
@@ -1875,7 +1875,7 @@ pcie_ext_cap_set_next.exit:                       ; preds = %if.end41
   br label %if.end42
 
 if.end42:                                         ; preds = %pcie_ext_cap_set_next.exit, %if.end30
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %3 = load ptr, ptr %config, align 8
   %idx.ext = zext i16 %offset to i64
   %add.ptr = getelementptr i8, ptr %3, i64 %idx.ext
@@ -1884,16 +1884,16 @@ if.end42:                                         ; preds = %pcie_ext_cap_set_ne
   %shl = shl nuw nsw i32 %conv45, 16
   %or = or disjoint i32 %shl, %conv44
   store i32 %or, ptr %add.ptr, align 1
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %4 = load ptr, ptr %wmask, align 8
   %add.ptr49 = getelementptr i8, ptr %4, i64 %idx.ext
   %conv50 = zext i16 %size to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr49, i8 0, i64 %conv50, i1 false)
-  %w1cmask = getelementptr inbounds i8, ptr %dev, i64 192
+  %w1cmask = getelementptr inbounds nuw i8, ptr %dev, i64 192
   %5 = load ptr, ptr %w1cmask, align 16
   %add.ptr53 = getelementptr i8, ptr %5, i64 %idx.ext
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr53, i8 0, i64 %conv50, i1 false)
-  %cmask = getelementptr inbounds i8, ptr %dev, i64 176
+  %cmask = getelementptr inbounds nuw i8, ptr %dev, i64 176
   %6 = load ptr, ptr %cmask, align 16
   %add.ptr57 = getelementptr i8, ptr %6, i64 %idx.ext
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr57, i8 -1, i64 %conv50, i1 false)
@@ -1908,11 +1908,11 @@ define dso_local void @pcie_sync_bridge_lnk(ptr noundef %bridge_dev) local_unnam
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bridge_dev, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 55, ptr noundef nonnull @__func__.PCI_BRIDGE) #10
   %call1 = tail call ptr @pci_bridge_get_sec_bus(ptr noundef %call.i) #10
-  %devices = getelementptr inbounds i8, ptr %call1, i64 184
+  %devices = getelementptr inbounds nuw i8, ptr %call1, i64 184
   %0 = load ptr, ptr %devices, align 8
-  %config = getelementptr inbounds i8, ptr %bridge_dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %bridge_dev, i64 168
   %1 = load ptr, ptr %config, align 8
-  %exp = getelementptr inbounds i8, ptr %bridge_dev, i64 2168
+  %exp = getelementptr inbounds nuw i8, ptr %bridge_dev, i64 2168
   %2 = load i8, ptr %exp, align 8
   %idx.ext = zext i8 %2 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -1922,13 +1922,13 @@ entry:
   br i1 %tobool.not, label %if.end60, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %exp5 = getelementptr inbounds i8, ptr %0, i64 2168
+  %exp5 = getelementptr inbounds nuw i8, ptr %0, i64 2168
   %3 = load i8, ptr %exp5, align 8
   %tobool7.not = icmp eq i8 %3, 0
   br i1 %tobool7.not, label %if.end60, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
-  %config_read = getelementptr inbounds i8, ptr %0, i64 1216
+  %config_read = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %4 = load ptr, ptr %config_read, align 16
   %conv10 = zext i8 %3 to i32
   %add = add nuw nsw i32 %conv10, 18
@@ -1984,10 +1984,10 @@ if.end60:                                         ; preds = %if.else50, %entry, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pcie_ari_init(ptr nocapture noundef readonly %dev, i16 noundef zeroext %offset) local_unnamed_addr #0 {
 entry:
-  %cap_present = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present, align 4
   tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 14, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 8)
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext i16 %offset to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext
@@ -2002,7 +2002,7 @@ entry:
 define dso_local void @pcie_dev_ser_num_init(ptr nocapture noundef readonly %dev, i16 noundef zeroext %offset, i64 noundef %ser_num) local_unnamed_addr #0 {
 entry:
   tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 3, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 12)
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %idx.ext = zext i16 %offset to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -2015,7 +2015,7 @@ entry:
 define dso_local void @pcie_ats_init(ptr nocapture noundef %dev, i16 noundef zeroext %offset, i1 noundef zeroext %aligned) local_unnamed_addr #0 {
 entry:
   tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 15, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 8)
-  %ats_cap = getelementptr inbounds i8, ptr %dev, i64 2192
+  %ats_cap = getelementptr inbounds nuw i8, ptr %dev, i64 2192
   store i16 %offset, ptr %ats_cap, align 8
   br i1 %aligned, label %if.then, label %entry.if.end_crit_edge
 
@@ -2024,7 +2024,7 @@ entry.if.end_crit_edge:                           ; preds = %entry
   br label %if.end
 
 if.then:                                          ; preds = %entry
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %idx.ext = zext i16 %offset to i64
   %add.ptr = getelementptr i8, ptr %0, i64 %idx.ext
@@ -2034,12 +2034,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
   %idx.ext4.pre-phi = phi i64 [ %.pre, %entry.if.end_crit_edge ], [ %idx.ext, %if.then ]
-  %config2 = getelementptr inbounds i8, ptr %dev, i64 168
+  %config2 = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config2, align 8
   %add.ptr5 = getelementptr i8, ptr %1, i64 %idx.ext4.pre-phi
   %add.ptr6 = getelementptr i8, ptr %add.ptr5, i64 6
   store i16 0, ptr %add.ptr6, align 1
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %2 = load ptr, ptr %wmask, align 8
   %3 = load i16, ptr %ats_cap, align 8
   %idx.ext10 = zext i16 %3 to i64
@@ -2059,13 +2059,13 @@ entry:
   br i1 %tobool.not.i, label %lor.lhs.false, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %exp.i = getelementptr inbounds i8, ptr %dev, i64 2168
+  %exp.i = getelementptr inbounds nuw i8, ptr %dev, i64 2168
   %1 = load i8, ptr %exp.i, align 8
   %tobool1.not.i = icmp eq i8 %1, 0
   br i1 %tobool1.not.i, label %lor.lhs.false, label %pci_is_express_downstream_port.exit
 
 pci_is_express_downstream_port.exit:              ; preds = %lor.lhs.false.i
-  %config.i.i = getelementptr inbounds i8, ptr %dev, i64 168
+  %config.i.i = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %2 = load ptr, ptr %config.i.i, align 8
   %idx.ext.i.i = zext i8 %1 to i64
   %add.ptr.i.i = getelementptr i8, ptr %2, i64 %idx.ext.i.i
@@ -2081,7 +2081,7 @@ lor.lhs.false:                                    ; preds = %entry, %lor.lhs.fal
   br i1 %tobool2.not, label %lor.lhs.false3, label %if.end
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %devfn = getelementptr inbounds i8, ptr %dev, i64 208
+  %devfn = getelementptr inbounds nuw i8, ptr %dev, i64 208
   %4 = load i32, ptr %devfn, align 16
   %and4 = and i32 %4, 7
   %tobool5.not = icmp eq i32 %and4, 0
@@ -2094,15 +2094,15 @@ if.else:                                          ; preds = %lor.lhs.false3
 if.end:                                           ; preds = %pci_is_express_downstream_port.exit, %lor.lhs.false, %lor.lhs.false3
   %tobool.not14 = phi i16 [ 95, %pci_is_express_downstream_port.exit ], [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false3 ]
   tail call void @pcie_add_capability(ptr noundef nonnull %dev, i16 noundef zeroext 13, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 8)
-  %acs_cap = getelementptr inbounds i8, ptr %dev, i64 2194
+  %acs_cap = getelementptr inbounds nuw i8, ptr %dev, i64 2194
   store i16 %offset, ptr %acs_cap, align 2
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %5 = load ptr, ptr %config, align 8
   %idx.ext = zext i16 %offset to i64
   %add.ptr = getelementptr i8, ptr %5, i64 %idx.ext
   %add.ptr9 = getelementptr i8, ptr %add.ptr, i64 4
   store i16 %tobool.not14, ptr %add.ptr9, align 1
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %6 = load ptr, ptr %wmask, align 8
   %add.ptr12 = getelementptr i8, ptr %6, i64 %idx.ext
   %add.ptr13 = getelementptr i8, ptr %add.ptr12, i64 6
@@ -2113,13 +2113,13 @@ if.end:                                           ; preds = %pci_is_express_down
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @pcie_acs_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #6 {
 entry:
-  %acs_cap = getelementptr inbounds i8, ptr %dev, i64 2194
+  %acs_cap = getelementptr inbounds nuw i8, ptr %dev, i64 2194
   %0 = load i16, ptr %acs_cap, align 2
   %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %idx.ext = zext i16 %0 to i64
   %add.ptr = getelementptr i8, ptr %1, i64 %idx.ext

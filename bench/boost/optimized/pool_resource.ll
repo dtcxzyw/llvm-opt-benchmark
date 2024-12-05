@@ -120,7 +120,7 @@ define hidden void @_ZN5boost9container3pmr13pool_resource15priv_init_poolsEv(pt
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = mul nuw nsw i64 %5, 24
   %9 = load ptr, ptr %7, align 8, !tbaa !14
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %8, i64 noundef 16)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -348,7 +348,7 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i: ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !29
   %10 = load ptr, ptr %4, align 8, !tbaa !14
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.0.i.i, i64 noundef %9, i64 noundef 16)
           to label %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i unwind label %13
@@ -393,7 +393,7 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i.i: ; preds = 
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !31
   %30 = load ptr, ptr %23, align 8, !tbaa !14
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %.0.i.i.i, i64 noundef %29, i64 noundef 16)
           to label %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i.i unwind label %33
@@ -428,7 +428,7 @@ _ZN5boost9container3pmr13pool_resource7releaseEv.exit: ; preds = %_ZN5boost9cont
 42:                                               ; preds = %_ZN5boost9container3pmr13pool_resource7releaseEv.exit
   %43 = load ptr, ptr %3, align 8, !tbaa !13
   %44 = load ptr, ptr %43, align 8, !tbaa !14
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
   invoke void %46(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %41, i64 noundef %39, i64 noundef 16)
           to label %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit unwind label %47
@@ -462,7 +462,7 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i: ; preds = %6, 
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !29
   %10 = load ptr, ptr %4, align 8, !tbaa !14
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.0.i, i64 noundef %9, i64 noundef 16)
           to label %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i unwind label %13
@@ -510,7 +510,7 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i: ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !31
   %30 = load ptr, ptr %23, align 8, !tbaa !14
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %.0.i.i, i64 noundef %29, i64 noundef 16)
           to label %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i unwind label %33
@@ -541,7 +541,7 @@ define hidden noundef ptr @_ZNK5boost9container3pmr13pool_resource17upstream_res
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden { i64, i64 } @_ZNK5boost9container3pmr13pool_resource7optionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #9 align 2 {
   %.sroa.0.0.copyload = load i64, ptr %0, align 8, !tbaa !3
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !3
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.2.0.copyload, 1
@@ -566,7 +566,7 @@ define hidden noundef ptr @_ZN5boost9container3pmr13pool_resource11do_allocateEm
   %13 = load ptr, ptr %12, align 8, !tbaa !13
   %14 = mul nuw nsw i64 %11, 24
   %15 = load ptr, ptr %13, align 8, !tbaa !14
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %14, i64 noundef 16)
   store ptr %18, ptr %4, align 8, !tbaa !16
@@ -610,7 +610,7 @@ _ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE8allocateEmRNS
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = add nuw i64 %1, 32
   %36 = load ptr, ptr %33, align 8, !tbaa !14
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(8) %33, i64 noundef %35, i64 noundef 16)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -665,7 +665,7 @@ _ZN5boost9container3pmr16block_slist_baseINS1_18block_slist_headerEE8allocateEmR
   %66 = load ptr, ptr %65, align 8, !tbaa !13
   %67 = add nuw i64 %62, 16
   %68 = load ptr, ptr %66, align 8, !tbaa !14
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = tail call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef %67, i64 noundef 16)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -738,7 +738,7 @@ define hidden void @_ZN5boost9container3pmr13pool_resource13do_deallocateEPvmm(p
   %16 = getelementptr inbounds i8, ptr %1, i64 -16
   %17 = load i64, ptr %16, align 8, !tbaa !29
   %18 = load ptr, ptr %10, align 8, !tbaa !14
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %11, i64 noundef %17, i64 noundef 16)
           to label %_ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE10deallocateEPvRNS1_15memory_resourceE.exit unwind label %21

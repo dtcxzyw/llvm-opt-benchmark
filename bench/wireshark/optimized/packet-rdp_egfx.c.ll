@@ -242,7 +242,7 @@ define internal i32 @dissect_rdp_egfx(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %24, ptr %22, align 8
   %25 = tail call ptr @wmem_file_scope() #5
   %26 = tail call noalias ptr @wmem_map_new(ptr noundef %25, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #5
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %26, ptr %27, align 8
   %28 = load i32, ptr @proto_rdp_egfx, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %12, i32 noundef %28, ptr noundef nonnull %22) #5
@@ -250,7 +250,7 @@ define internal i32 @dissect_rdp_egfx(ptr noundef %0, ptr noundef %1, ptr nounde
 
 egfx_get_conversation_data.exit:                  ; preds = %4, %17, %.thread.i
   %.1.i = phi ptr [ %22, %.thread.i ], [ %19, %17 ], [ %14, %4 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void @col_set_str(ptr noundef %30, i32 noundef 34, ptr noundef nonnull @.str.59) #5
   %31 = load ptr, ptr %29, align 8
@@ -282,9 +282,9 @@ egfx_get_conversation_data.exit:                  ; preds = %4, %17, %.thread.i
 
 47:                                               ; preds = %40, %34
   %.0 = phi ptr [ %39, %34 ], [ %42, %40 ]
-  %48 = getelementptr inbounds i8, ptr %1, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 50
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 50
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, 8
   %.not41 = icmp eq i16 %52, 0
@@ -340,9 +340,9 @@ egfx_get_conversation_data.exit:                  ; preds = %4, %17, %.thread.i
   br i1 %70, label %.lr.ph15.i, label %dissect_rdp_egfx_payload.exit
 
 .lr.ph15.i:                                       ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %.1.i, i64 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 20
-  %73 = getelementptr inbounds i8, ptr %1, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %74
 
 74:                                               ; preds = %proto_item_set_generated.exit.i, %.lr.ph15.i
@@ -534,9 +534,9 @@ find_egfx_version.exit.i:                         ; preds = %113, %.lr.ph8.i, %.
   %189 = call noalias ptr @wmem_alloc0(ptr noundef %188, i64 noundef 12) #5
   %190 = load i32, ptr %72, align 4
   store i32 %190, ptr %189, align 4
-  %191 = getelementptr inbounds i8, ptr %189, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store i32 -1, ptr %191, align 4
-  %192 = getelementptr inbounds i8, ptr %189, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i32 -1, ptr %192, align 4
   %193 = load ptr, ptr %71, align 8
   %194 = load i32, ptr %8, align 4
@@ -548,14 +548,14 @@ find_egfx_version.exit.i:                         ; preds = %113, %.lr.ph8.i, %.
 198:                                              ; preds = %187, %175
   %.0269.i = phi ptr [ %186, %175 ], [ %189, %187 ]
   %199 = load ptr, ptr %73, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 50
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 50
   %201 = load i16, ptr %200, align 2
   %202 = and i16 %201, 8
   %.not299.i = icmp eq i16 %202, 0
   br i1 %.not299.i, label %proto_item_set_generated.exit.i, label %203
 
 203:                                              ; preds = %198
-  %204 = getelementptr inbounds i8, ptr %.0269.i, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %.0269.i, i64 8
   %205 = load i32, ptr %204, align 4
   %.not300.i = icmp eq i32 %205, -1
   br i1 %.not300.i, label %proto_item_set_generated.exit.i, label %206
@@ -567,13 +567,13 @@ find_egfx_version.exit.i:                         ; preds = %113, %.lr.ph8.i, %.
   br i1 %.not.i301.i, label %proto_item_set_generated.exit.i, label %209
 
 209:                                              ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %208, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %208, i64 32
   %211 = load ptr, ptr %210, align 8
   %.not5.i.i = icmp eq ptr %211, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %212
 
 212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %211, i64 28
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 28
   %214 = load i32, ptr %213, align 4
   %215 = or i32 %214, 2
   store i32 %215, ptr %213, align 4
@@ -596,7 +596,7 @@ find_egfx_version.exit.i:                         ; preds = %113, %.lr.ph8.i, %.
   %226 = call ptr @wmem_file_scope() #5
   %227 = call noalias ptr @wmem_alloc0(ptr noundef %226, i64 noundef 12) #5
   store i32 -1, ptr %227, align 4
-  %228 = getelementptr inbounds i8, ptr %227, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   store i32 -1, ptr %228, align 4
   %229 = load ptr, ptr %71, align 8
   %230 = load i32, ptr %9, align 4
@@ -608,17 +608,17 @@ find_egfx_version.exit.i:                         ; preds = %113, %.lr.ph8.i, %.
 234:                                              ; preds = %225, %216
   %.0268.i = phi ptr [ %224, %216 ], [ %227, %225 ]
   %235 = load i32, ptr %72, align 4
-  %236 = getelementptr inbounds i8, ptr %.0268.i, i64 4
+  %236 = getelementptr inbounds nuw i8, ptr %.0268.i, i64 4
   store i32 %235, ptr %236, align 4
   %237 = load ptr, ptr %73, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 50
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 50
   %239 = load i16, ptr %238, align 2
   %240 = and i16 %239, 8
   %.not296.i = icmp eq i16 %240, 0
   br i1 %.not296.i, label %proto_item_set_generated.exit.i, label %241
 
 241:                                              ; preds = %234
-  %242 = getelementptr inbounds i8, ptr %.0268.i, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %.0268.i, i64 8
   %243 = load i32, ptr %242, align 4
   %.not297.i = icmp eq i32 %243, -1
   br i1 %.not297.i, label %proto_item_set_generated.exit.i, label %244
@@ -630,13 +630,13 @@ find_egfx_version.exit.i:                         ; preds = %113, %.lr.ph8.i, %.
   br i1 %.not.i302.i, label %proto_item_set_generated.exit.i, label %247
 
 247:                                              ; preds = %244
-  %248 = getelementptr inbounds i8, ptr %246, i64 32
+  %248 = getelementptr inbounds nuw i8, ptr %246, i64 32
   %249 = load ptr, ptr %248, align 8
   %.not5.i303.i = icmp eq ptr %249, null
   br i1 %.not5.i303.i, label %proto_item_set_generated.exit.i, label %250
 
 250:                                              ; preds = %247
-  %251 = getelementptr inbounds i8, ptr %249, i64 28
+  %251 = getelementptr inbounds nuw i8, ptr %249, i64 28
   %252 = load i32, ptr %251, align 4
   %253 = or i32 %252, 2
   store i32 %253, ptr %251, align 4
@@ -667,10 +667,10 @@ find_egfx_version.exit.i:                         ; preds = %113, %.lr.ph8.i, %.
   %272 = call ptr @wmem_file_scope() #5
   %273 = call noalias ptr @wmem_alloc0(ptr noundef %272, i64 noundef 12) #5
   store i32 -1, ptr %273, align 4
-  %274 = getelementptr inbounds i8, ptr %273, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 4
   store i32 -1, ptr %274, align 4
   %275 = load i32, ptr %10, align 4
-  %276 = getelementptr inbounds i8, ptr %273, i64 8
+  %276 = getelementptr inbounds nuw i8, ptr %273, i64 8
   store i32 %275, ptr %276, align 4
   %277 = load ptr, ptr %71, align 8
   %278 = zext i32 %275 to i64
@@ -681,10 +681,10 @@ find_egfx_version.exit.i:                         ; preds = %113, %.lr.ph8.i, %.
 281:                                              ; preds = %271, %254
   %.0267.i = phi ptr [ %270, %254 ], [ %273, %271 ]
   %282 = load i32, ptr %72, align 4
-  %283 = getelementptr inbounds i8, ptr %.0267.i, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %.0267.i, i64 8
   store i32 %282, ptr %283, align 4
   %284 = load ptr, ptr %73, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 50
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 50
   %286 = load i16, ptr %285, align 2
   %287 = and i16 %286, 8
   %.not291.i = icmp eq i16 %287, 0
@@ -702,13 +702,13 @@ find_egfx_version.exit.i:                         ; preds = %113, %.lr.ph8.i, %.
   br i1 %.not.i305.i, label %proto_item_set_generated.exit307.i, label %293
 
 293:                                              ; preds = %290
-  %294 = getelementptr inbounds i8, ptr %292, i64 32
+  %294 = getelementptr inbounds nuw i8, ptr %292, i64 32
   %295 = load ptr, ptr %294, align 8
   %.not5.i306.i = icmp eq ptr %295, null
   br i1 %.not5.i306.i, label %proto_item_set_generated.exit307.i, label %296
 
 296:                                              ; preds = %293
-  %297 = getelementptr inbounds i8, ptr %295, i64 28
+  %297 = getelementptr inbounds nuw i8, ptr %295, i64 28
   %298 = load i32, ptr %297, align 4
   %299 = or i32 %298, 2
   store i32 %299, ptr %297, align 4
@@ -716,14 +716,14 @@ find_egfx_version.exit.i:                         ; preds = %113, %.lr.ph8.i, %.
 
 proto_item_set_generated.exit307.i:               ; preds = %296, %293, %290, %288, %281
   %300 = load ptr, ptr %73, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 50
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 50
   %302 = load i16, ptr %301, align 2
   %303 = and i16 %302, 8
   %.not293.i = icmp eq i16 %303, 0
   br i1 %.not293.i, label %proto_item_set_generated.exit.i, label %304
 
 304:                                              ; preds = %proto_item_set_generated.exit307.i
-  %305 = getelementptr inbounds i8, ptr %.0267.i, i64 4
+  %305 = getelementptr inbounds nuw i8, ptr %.0267.i, i64 4
   %306 = load i32, ptr %305, align 4
   %.not294.i = icmp eq i32 %306, -1
   br i1 %.not294.i, label %proto_item_set_generated.exit.i, label %307
@@ -735,13 +735,13 @@ proto_item_set_generated.exit307.i:               ; preds = %296, %293, %290, %2
   br i1 %.not.i308.i, label %proto_item_set_generated.exit.i, label %310
 
 310:                                              ; preds = %307
-  %311 = getelementptr inbounds i8, ptr %309, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %309, i64 32
   %312 = load ptr, ptr %311, align 8
   %.not5.i309.i = icmp eq ptr %312, null
   br i1 %.not5.i309.i, label %proto_item_set_generated.exit.i, label %313
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %312, i64 28
+  %314 = getelementptr inbounds nuw i8, ptr %312, i64 28
   %315 = load i32, ptr %314, align 4
   %316 = or i32 %315, 2
   store i32 %316, ptr %314, align 4
@@ -775,10 +775,10 @@ proto_item_set_generated.exit307.i:               ; preds = %296, %293, %290, %2
   %338 = call ptr @wmem_file_scope() #5
   %339 = call noalias ptr @wmem_alloc0(ptr noundef %338, i64 noundef 12) #5
   store i32 -1, ptr %339, align 4
-  %340 = getelementptr inbounds i8, ptr %339, i64 4
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 4
   store i32 -1, ptr %340, align 4
   %341 = load i32, ptr %11, align 4
-  %342 = getelementptr inbounds i8, ptr %339, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %339, i64 8
   store i32 %341, ptr %342, align 4
   %343 = load ptr, ptr %71, align 8
   %344 = zext i32 %341 to i64
@@ -789,10 +789,10 @@ proto_item_set_generated.exit307.i:               ; preds = %296, %293, %290, %2
 347:                                              ; preds = %337, %317
   %.0.i = phi ptr [ %336, %317 ], [ %339, %337 ]
   %348 = load i32, ptr %72, align 4
-  %349 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %349 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 %348, ptr %349, align 4
   %350 = load ptr, ptr %73, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 50
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 50
   %352 = load i16, ptr %351, align 2
   %353 = and i16 %352, 8
   %.not286.i = icmp eq i16 %353, 0
@@ -810,13 +810,13 @@ proto_item_set_generated.exit307.i:               ; preds = %296, %293, %290, %2
   br i1 %.not.i311.i, label %proto_item_set_generated.exit313.i, label %359
 
 359:                                              ; preds = %356
-  %360 = getelementptr inbounds i8, ptr %358, i64 32
+  %360 = getelementptr inbounds nuw i8, ptr %358, i64 32
   %361 = load ptr, ptr %360, align 8
   %.not5.i312.i = icmp eq ptr %361, null
   br i1 %.not5.i312.i, label %proto_item_set_generated.exit313.i, label %362
 
 362:                                              ; preds = %359
-  %363 = getelementptr inbounds i8, ptr %361, i64 28
+  %363 = getelementptr inbounds nuw i8, ptr %361, i64 28
   %364 = load i32, ptr %363, align 4
   %365 = or i32 %364, 2
   store i32 %365, ptr %363, align 4
@@ -824,14 +824,14 @@ proto_item_set_generated.exit307.i:               ; preds = %296, %293, %290, %2
 
 proto_item_set_generated.exit313.i:               ; preds = %362, %359, %356, %354, %347
   %366 = load ptr, ptr %73, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 50
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 50
   %368 = load i16, ptr %367, align 2
   %369 = and i16 %368, 8
   %.not288.i = icmp eq i16 %369, 0
   br i1 %.not288.i, label %proto_item_set_generated.exit.i, label %370
 
 370:                                              ; preds = %proto_item_set_generated.exit313.i
-  %371 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %371 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %372 = load i32, ptr %371, align 4
   %.not289.i = icmp eq i32 %372, -1
   br i1 %.not289.i, label %proto_item_set_generated.exit.i, label %373
@@ -843,13 +843,13 @@ proto_item_set_generated.exit313.i:               ; preds = %362, %359, %356, %3
   br i1 %.not.i314.i, label %proto_item_set_generated.exit.i, label %376
 
 376:                                              ; preds = %373
-  %377 = getelementptr inbounds i8, ptr %375, i64 32
+  %377 = getelementptr inbounds nuw i8, ptr %375, i64 32
   %378 = load ptr, ptr %377, align 8
   %.not5.i315.i = icmp eq ptr %378, null
   br i1 %.not5.i315.i, label %proto_item_set_generated.exit.i, label %379
 
 379:                                              ; preds = %376
-  %380 = getelementptr inbounds i8, ptr %378, i64 28
+  %380 = getelementptr inbounds nuw i8, ptr %378, i64 28
   %381 = load i32, ptr %380, align 4
   %382 = or i32 %381, 2
   store i32 %382, ptr %380, align 4
@@ -955,7 +955,7 @@ dissect_rdp_egfx_payload.exit:                    ; preds = %proto_item_set_gene
   br i1 %.not45, label %421, label %417
 
 417:                                              ; preds = %.thread53
-  %418 = getelementptr inbounds i8, ptr %32, i64 8
+  %418 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %419 = load ptr, ptr %418, align 8
   %420 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %419, ptr noundef nonnull @ei_egfx_invalid_compression, ptr noundef nonnull @.str.98) #5
   br label %421

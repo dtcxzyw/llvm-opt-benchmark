@@ -44,7 +44,7 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_warc(ptr nounde
   br i1 %3, label %28, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -65,31 +65,31 @@ define dso_local range(i32 -30, 1) i32 @archive_write_set_format_warc(ptr nounde
 13:                                               ; preds = %9
   store i8 0, ptr %10, align 8
   %14 = tail call i64 @time(ptr noundef null) #14
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %16, align 8
   %17 = trunc i64 %14 to i32
-  %18 = getelementptr inbounds i8, ptr %10, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 248
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %10, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 256
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr @.str.2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 272
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr @_warc_options, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 288
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr @_warc_header, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 296
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr @_warc_data, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 304
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr @_warc_close, ptr %24, align 8
   store ptr @_warc_free, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 280
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr @_warc_finish_entry, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 983040, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @.str.2, ptr %27, align 8
   br label %28
 
@@ -110,7 +110,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -20, 1) i32 @_warc_options(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.3) #16
   %7 = icmp eq i32 %6, 0
@@ -141,7 +141,7 @@ define internal range(i32 -25, 1) i32 @_warc_header(ptr noundef %0, ptr noundef 
   %3 = alloca %struct.archive_string, align 8
   %4 = alloca %struct.warc_essential_hdr_t, align 8
   %5 = alloca %struct.warc_essential_hdr_t, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 1
@@ -150,11 +150,11 @@ define internal range(i32 -25, 1) i32 @_warc_header(ptr noundef %0, ptr noundef 
 
 10:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) @__const._warc_header.wi, i64 56, i1 false)
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 %12, ptr %14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %15 = call fastcc i64 @_popul_ehdr(ptr noundef %3, ptr noundef nonnull byval(%struct.warc_essential_hdr_t) align 8 %4)
@@ -162,7 +162,7 @@ define internal range(i32 -25, 1) i32 @_warc_header(ptr noundef %0, ptr noundef 
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = call ptr @archive_strncat(ptr noundef nonnull %3, ptr noundef nonnull @warcinfo, i64 noundef 59) #14
   %20 = call ptr @archive_strncat(ptr noundef nonnull %3, ptr noundef nonnull @.str.6, i64 noundef 4) #14
   %21 = load ptr, ptr %3, align 8
@@ -188,9 +188,9 @@ define internal range(i32 -25, 1) i32 @_warc_header(ptr noundef %0, ptr noundef 
 
 31:                                               ; preds = %27
   %32 = call i32 @archive_entry_filetype(ptr noundef %1) #14
-  %33 = getelementptr inbounds i8, ptr %7, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %34, align 8
   %35 = icmp eq i32 %32, 32768
   br i1 %35, label %36, label %52
@@ -199,17 +199,17 @@ define internal range(i32 -25, 1) i32 @_warc_header(ptr noundef %0, ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 48, i1 false)
   store i32 3, ptr %5, align 8
   %37 = call ptr @archive_entry_pathname(ptr noundef %1) #14
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %7, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %40, ptr %41, align 8
   %42 = call i64 @archive_entry_mtime(ptr noundef %1) #14
-  %43 = getelementptr inbounds i8, ptr %5, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %42, ptr %43, align 8
   %44 = call i64 @archive_entry_size(ptr noundef %1) #14
-  %45 = getelementptr inbounds i8, ptr %5, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %44, ptr %45, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %46 = call fastcc i64 @_popul_ehdr(ptr noundef %3, ptr noundef nonnull byval(%struct.warc_essential_hdr_t) align 8 %5)
@@ -238,15 +238,15 @@ define internal range(i32 -25, 1) i32 @_warc_header(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @_warc_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 32768
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load i64, ptr %10, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %11)
   %12 = tail call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %spec.select) #14
@@ -267,7 +267,7 @@ define internal noundef i32 @_warc_close(ptr nocapture readnone %0) #5 {
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @_warc_free(ptr nocapture noundef %0) #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14
   store ptr null, ptr %2, align 8
@@ -276,9 +276,9 @@ define internal noundef i32 @_warc_free(ptr nocapture noundef %0) #6 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @_warc_finish_entry(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 32768
   br i1 %6, label %7, label %9
@@ -319,14 +319,14 @@ define internal fastcc range(i64 -1, 512) i64 @_popul_ehdr(ptr noundef nonnull %
   br i1 %or.cond, label %78, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %14, align 8
   %15 = tail call ptr @archive_strncat(ptr noundef nonnull %0, ptr noundef nonnull @_popul_ehdr._ver, i64 noundef 10) #14
   %16 = zext nneg i32 %11 to i64
-  %17 = getelementptr inbounds [9 x ptr], ptr @_popul_ehdr._typ, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [9 x ptr], ptr @_popul_ehdr._typ, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   tail call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef %18) #14
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %33, label %21
@@ -337,13 +337,13 @@ define internal fastcc range(i64 -1, 512) i64 @_popul_ehdr(ptr noundef nonnull %
   br i1 %.not24, label %31, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %22, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 47
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %22, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 47
   br i1 %30, label %32, label %31
@@ -357,7 +357,7 @@ define internal fastcc range(i64 -1, 512) i64 @_popul_ehdr(ptr noundef nonnull %
   br label %33
 
 33:                                               ; preds = %32, %13
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i64, ptr %34, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
@@ -376,7 +376,7 @@ xstrftime.exit:                                   ; preds = %33, %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %8)
-  %40 = getelementptr inbounds i8, ptr %1, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %41 = load i64, ptr %40, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
@@ -395,19 +395,19 @@ xstrftime.exit27:                                 ; preds = %xstrftime.exit, %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %5)
-  %46 = getelementptr inbounds i8, ptr %1, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %67
 
 49:                                               ; preds = %xstrftime.exit27
   %50 = call i32 @archive_random(ptr noundef nonnull %10, i64 noundef 16) #14
-  %51 = getelementptr inbounds i8, ptr %10, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, -61441
   %54 = or disjoint i32 %53, 16384
   store i32 %54, ptr %51, align 4
-  %55 = getelementptr inbounds i8, ptr %10, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 1073741823
   %58 = or disjoint i32 %57, -2147483648
@@ -417,7 +417,7 @@ xstrftime.exit27:                                 ; preds = %xstrftime.exit, %43
   %61 = and i32 %54, 20479
   %62 = lshr i32 %58, 16
   %63 = and i32 %56, 65535
-  %64 = getelementptr inbounds i8, ptr %10, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %65 = load i32, ptr %64, align 4
   %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 48, ptr noundef nonnull @.str.17, i32 noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef %62, i32 noundef %63, i32 noundef %65) #14
   br label %67
@@ -425,7 +425,7 @@ xstrftime.exit27:                                 ; preds = %xstrftime.exit, %43
 67:                                               ; preds = %49, %xstrftime.exit27
   %68 = phi ptr [ %9, %49 ], [ %47, %xstrftime.exit27 ]
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %68) #14
-  %69 = getelementptr inbounds i8, ptr %1, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %70 = load ptr, ptr %69, align 8
   %.not25 = icmp eq ptr %70, null
   br i1 %.not25, label %72, label %71
@@ -435,7 +435,7 @@ xstrftime.exit27:                                 ; preds = %xstrftime.exit, %43
   br label %72
 
 72:                                               ; preds = %71, %67
-  %73 = getelementptr inbounds i8, ptr %1, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %74 = load i64, ptr %73, align 8
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i64 noundef %74) #14
   %75 = call ptr @archive_strncat(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, i64 noundef 2) #14

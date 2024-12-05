@@ -225,7 +225,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 84:                                               ; preds = %84, %83
   %.idx = phi i64 [ 0, %83 ], [ %.add, %84 ]
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr) #6
   %.add = add nuw nsw i64 %.idx, 96
   %85 = icmp eq i64 %.add, 192
@@ -238,15 +238,15 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 87:                                               ; preds = %87, %86
   %.idx39 = phi i64 [ 0, %86 ], [ %.add40, %87 ]
-  %.ptr41 = getelementptr inbounds i8, ptr %21, i64 %.idx39
+  %.ptr41 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx39
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr41) #6
   %.add40 = add nuw nsw i64 %.idx39, 96
   %88 = icmp eq i64 %.add40, 288
   br i1 %88, label %89, label %87
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %18, i64 192
-  %91 = getelementptr inbounds i8, ptr %21, i64 288
+  %90 = getelementptr inbounds nuw i8, ptr %18, i64 192
+  %91 = getelementptr inbounds nuw i8, ptr %21, i64 288
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #6
   invoke void @_ZN2cv14DISOpticalFlow6createEi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.8") align 8 %24, i32 noundef 2)
           to label %_ZN2cv3PtrINS_14DISOpticalFlowEED2Ev.exit unwind label %156
@@ -254,67 +254,67 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 _ZN2cv3PtrINS_14DISOpticalFlowEED2Ev.exit:        ; preds = %89
   %92 = load ptr, ptr %24, align 8
   store ptr %92, ptr %23, align 8
-  %93 = getelementptr inbounds i8, ptr %23, i64 8
-  %94 = getelementptr inbounds i8, ptr %24, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %95 = load ptr, ptr %94, align 8
   store ptr null, ptr %94, align 8
   store ptr %95, ptr %93, align 8
   store ptr null, ptr %24, align 8
-  %96 = getelementptr inbounds i8, ptr %25, i64 16
-  %97 = getelementptr inbounds i8, ptr %25, i64 20
-  %98 = getelementptr inbounds i8, ptr %25, i64 8
-  %99 = getelementptr inbounds i8, ptr %26, i64 8
-  %100 = getelementptr inbounds i8, ptr %26, i64 16
-  %101 = getelementptr inbounds i8, ptr %27, i64 16
-  %102 = getelementptr inbounds i8, ptr %27, i64 20
-  %103 = getelementptr inbounds i8, ptr %27, i64 8
-  %104 = getelementptr inbounds i8, ptr %28, i64 16
-  %105 = getelementptr inbounds i8, ptr %28, i64 20
-  %106 = getelementptr inbounds i8, ptr %28, i64 8
-  %107 = getelementptr inbounds i8, ptr %29, i64 8
-  %108 = getelementptr inbounds i8, ptr %29, i64 16
-  %109 = getelementptr inbounds i8, ptr %18, i64 96
-  %110 = getelementptr inbounds i8, ptr %30, i64 16
-  %111 = getelementptr inbounds i8, ptr %30, i64 20
-  %112 = getelementptr inbounds i8, ptr %30, i64 8
-  %113 = getelementptr inbounds i8, ptr %31, i64 16
-  %114 = getelementptr inbounds i8, ptr %31, i64 8
-  %115 = getelementptr inbounds i8, ptr %33, i64 8
-  %116 = getelementptr inbounds i8, ptr %33, i64 16
-  %117 = getelementptr inbounds i8, ptr %34, i64 16
-  %118 = getelementptr inbounds i8, ptr %34, i64 20
-  %119 = getelementptr inbounds i8, ptr %34, i64 8
-  %120 = getelementptr inbounds i8, ptr %35, i64 16
-  %121 = getelementptr inbounds i8, ptr %35, i64 20
-  %122 = getelementptr inbounds i8, ptr %35, i64 8
-  %123 = getelementptr inbounds i8, ptr %36, i64 8
-  %124 = getelementptr inbounds i8, ptr %36, i64 16
-  %125 = getelementptr inbounds i8, ptr %37, i64 8
-  %126 = getelementptr inbounds i8, ptr %37, i64 16
-  %127 = getelementptr inbounds i8, ptr %38, i64 16
-  %128 = getelementptr inbounds i8, ptr %38, i64 20
-  %129 = getelementptr inbounds i8, ptr %38, i64 8
-  %130 = getelementptr inbounds i8, ptr %39, i64 8
-  %131 = getelementptr inbounds i8, ptr %39, i64 16
-  %132 = getelementptr inbounds i8, ptr %21, i64 96
-  %133 = getelementptr inbounds i8, ptr %20, i64 64
-  %134 = getelementptr inbounds i8, ptr %21, i64 192
-  %135 = getelementptr inbounds i8, ptr %40, i64 208
-  %136 = getelementptr inbounds i8, ptr %40, i64 112
-  %137 = getelementptr inbounds i8, ptr %40, i64 16
-  %138 = getelementptr inbounds i8, ptr %41, i64 8
-  %139 = getelementptr inbounds i8, ptr %41, i64 16
-  %140 = getelementptr inbounds i8, ptr %42, i64 16
-  %141 = getelementptr inbounds i8, ptr %42, i64 20
-  %142 = getelementptr inbounds i8, ptr %42, i64 8
-  %143 = getelementptr inbounds i8, ptr %43, i64 8
-  %144 = getelementptr inbounds i8, ptr %43, i64 16
-  %145 = getelementptr inbounds i8, ptr %46, i64 16
-  %146 = getelementptr inbounds i8, ptr %46, i64 20
-  %147 = getelementptr inbounds i8, ptr %46, i64 8
-  %148 = getelementptr inbounds i8, ptr %49, i64 16
-  %149 = getelementptr inbounds i8, ptr %49, i64 20
-  %150 = getelementptr inbounds i8, ptr %49, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %27, i64 20
+  %103 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %28, i64 20
+  %106 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  %110 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %30, i64 20
+  %112 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %34, i64 20
+  %119 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %38, i64 20
+  %129 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %21, i64 96
+  %133 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  %134 = getelementptr inbounds nuw i8, ptr %21, i64 192
+  %135 = getelementptr inbounds nuw i8, ptr %40, i64 208
+  %136 = getelementptr inbounds nuw i8, ptr %40, i64 112
+  %137 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %42, i64 20
+  %142 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %46, i64 20
+  %147 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %49, i64 20
+  %150 = getelementptr inbounds nuw i8, ptr %49, i64 8
   br label %151
 
 151:                                              ; preds = %_ZSt4swapIN2cv3MatEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_.exit, %_ZN2cv3PtrINS_14DISOpticalFlowEED2Ev.exit
@@ -369,7 +369,7 @@ _ZN2cv3PtrINS_14DISOpticalFlowEED2Ev.exit:        ; preds = %89
   store i32 50397184, ptr %29, align 8
   store ptr %17, ptr %107, align 8
   %165 = load ptr, ptr %92, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 64
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 64
   %167 = load ptr, ptr %166, align 8
   invoke void %167(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29)
           to label %168 unwind label %199
@@ -436,7 +436,7 @@ _ZN2cv3PtrINS_14DISOpticalFlowEED2Ev.exit:        ; preds = %89
 
 178:                                              ; preds = %176
   %179 = load ptr, ptr %133, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
   %181 = load i32, ptr %180, align 4
   %182 = load i32, ptr %179, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %182 to i64
@@ -451,7 +451,7 @@ _ZN2cv3PtrINS_14DISOpticalFlowEED2Ev.exit:        ; preds = %89
 185:                                              ; preds = %178
   %186 = load ptr, ptr %40, align 8
   %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %189 = load ptr, ptr %188, align 8
   invoke void %189(ptr noundef nonnull align 8 dereferenceable(8) %186, ptr noundef nonnull align 8 dereferenceable(352) %40, ptr noundef nonnull align 8 dereferenceable(96) %134, i32 noundef -1)
           to label %190 unwind label %207
@@ -618,7 +618,7 @@ _ZSt4swapIN2cv3MatEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EES
   br i1 %.not.i.i.i.i77, label %_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit, label %235
 
 235:                                              ; preds = %234
-  %236 = getelementptr inbounds i8, ptr %95, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %237 = load atomic i64, ptr %236 acquire, align 8
   %238 = icmp eq i64 %237, 4294967297
   %239 = trunc i64 %237 to i32
@@ -626,10 +626,10 @@ _ZSt4swapIN2cv3MatEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EES
 
 240:                                              ; preds = %235
   store i32 0, ptr %236, align 8
-  %241 = getelementptr inbounds i8, ptr %95, i64 12
+  %241 = getelementptr inbounds nuw i8, ptr %95, i64 12
   store i32 0, ptr %241, align 4
   %242 = load ptr, ptr %95, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %244 = load ptr, ptr %243, align 8
   call void %244(ptr noundef nonnull align 8 dereferenceable(16) %95) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i82
@@ -655,10 +655,10 @@ _ZSt4swapIN2cv3MatEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EES
 
 253:                                              ; preds = %251
   %254 = load ptr, ptr %95, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8
   call void %256(ptr noundef nonnull align 8 dereferenceable(16) %95) #6
-  %257 = getelementptr inbounds i8, ptr %95, i64 12
+  %257 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %258 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i80 = icmp eq i8 %258, 0
   br i1 %.not.i.i.i.i.i.i.i80, label %262, label %259
@@ -680,7 +680,7 @@ _ZSt4swapIN2cv3MatEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EES
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i82: ; preds = %264, %240
   %266 = load ptr, ptr %95, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 24
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 24
   %268 = load ptr, ptr %267, align 8
   call void %268(ptr noundef nonnull align 8 dereferenceable(16) %95) #6
   br label %_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev.exit
@@ -836,11 +836,11 @@ declare void @_ZN2cv3Mat4onesENS_5Size_IiEEi(ptr dead_on_unwind writable sret(%"
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #6
   ret void
 }
@@ -853,13 +853,13 @@ declare noundef i32 @_ZN2cv7waitKeyEi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv16DenseOpticalFlowEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -867,10 +867,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev(ptr noun
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -896,10 +896,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev(ptr noun
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i, label %31, label %28
@@ -921,7 +921,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_16DenseOpticalFlowEED2Ev(ptr noun
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #6
   br label %_ZNSt10shared_ptrIN2cv16DenseOpticalFlowEED2Ev.exit

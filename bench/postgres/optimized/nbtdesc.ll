@@ -39,11 +39,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %8 = load i8, ptr %7, align 8
   %9 = lshr i8 %8, 4
   switch i8 %9, label %default.unreachable [
@@ -73,13 +73,13 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 13:                                               ; preds = %2, %2
   %14 = load i32, ptr %6, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %16 = load i16, ptr %15, align 4
   %17 = zext i16 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %6, i64 6
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load i16, ptr %21, align 4
   %23 = zext i16 %22 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %14, i32 noundef %17, i32 noundef %20, i32 noundef %23) #3
@@ -94,12 +94,12 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
 27:                                               ; preds = %2
   %28 = load i16, ptr %6, align 2
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %6, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %29, i32 noundef %32) #3
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 135
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 135
   %35 = load i8, ptr %34, align 1
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %109
@@ -113,19 +113,19 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 41:                                               ; preds = %2
   %42 = load i32, ptr %6, align 4
-  %43 = getelementptr inbounds i8, ptr %6, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %44 = load i16, ptr %43, align 4
   %45 = zext i16 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %6, i64 6
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %6, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %50 = load i8, ptr %49, align 4
   %51 = trunc i8 %50 to i1
   %52 = select i1 %51, i32 84, i32 70
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %52) #3
   %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 135
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 135
   %55 = load i8, ptr %54, align 1
   %56 = trunc i8 %55 to i1
   br i1 %56, label %57, label %109
@@ -138,56 +138,56 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %109
 
 61:                                               ; preds = %2
-  %62 = getelementptr inbounds i8, ptr %6, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %6, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %6, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %69 = load i32, ptr %68, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %63, i32 noundef %65, i32 noundef %67, i32 noundef %69) #3
   br label %109
 
 70:                                               ; preds = %2, %2
   %71 = load i32, ptr %6, align 8
-  %72 = getelementptr inbounds i8, ptr %6, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %6, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %75 = load i32, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %6, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %77 = load i64, ptr %76, align 8
   %78 = lshr i64 %77, 32
   %79 = trunc nuw i64 %78 to i32
   %80 = trunc i64 %77 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %71, i32 noundef %73, i32 noundef %75, i32 noundef %79, i32 noundef %80) #3
-  %81 = getelementptr inbounds i8, ptr %6, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %6, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %6, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %86 = load i32, ptr %85, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %82, i32 noundef %84, i32 noundef %86) #3
   br label %109
 
 87:                                               ; preds = %2
-  %88 = getelementptr inbounds i8, ptr %6, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %89 = load i32, ptr %88, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %89) #3
   br label %109
 
 90:                                               ; preds = %2
   %91 = load i32, ptr %6, align 8
-  %92 = getelementptr inbounds i8, ptr %6, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %6, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %6, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %97 = load i64, ptr %96, align 8
   %98 = lshr i64 %97, 32
   %99 = trunc nuw i64 %98 to i32
   %100 = trunc i64 %97 to i32
-  %101 = getelementptr inbounds i8, ptr %6, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %102 = load i8, ptr %101, align 8
   %103 = trunc i8 %102 to i1
   %104 = select i1 %103, i32 84, i32 70
@@ -196,7 +196,7 @@ define dso_local void @btree_desc(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 105:                                              ; preds = %2
   %106 = tail call ptr @XLogRecGetBlockData(ptr noundef nonnull %1, i8 noundef zeroext 0, ptr noundef null) #3
-  %107 = getelementptr inbounds i8, ptr %106, i64 20
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 20
   %108 = load i32, ptr %107, align 4
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %108) #3
   br label %109
@@ -306,7 +306,7 @@ define dso_local noundef ptr @btree_identify(i8 noundef zeroext %0) local_unname
 switch.lookup:
   %1 = lshr i8 %0, 4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.btree_identify, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.btree_identify, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

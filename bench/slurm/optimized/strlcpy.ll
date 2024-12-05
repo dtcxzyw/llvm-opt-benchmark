@@ -19,9 +19,9 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @strlcpy(ptr noc
   br i1 %.not20, label %10, label %5
 
 5:                                                ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %.113, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.113, i64 1
   %7 = load i8, ptr %.113, align 1
-  %8 = getelementptr inbounds i8, ptr %.115, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.115, i64 1
   store i8 %7, ptr %.115, align 1
   %9 = icmp eq i8 %7, 0
   br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !6
@@ -36,7 +36,7 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @strlcpy(ptr noc
 
 .thread26:                                        ; preds = %.thread26.preheader, %.thread26
   %.3 = phi ptr [ %11, %.thread26 ], [ %.3.ph, %.thread26.preheader ]
-  %11 = getelementptr inbounds i8, ptr %.3, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %12 = load i8, ptr %.3, align 1
   %.not21 = icmp eq i8 %12, 0
   br i1 %.not21, label %.loopexit, label %.thread26, !llvm.loop !8

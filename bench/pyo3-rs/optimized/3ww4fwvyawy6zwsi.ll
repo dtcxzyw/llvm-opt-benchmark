@@ -66,7 +66,7 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction27PyFunctionArgPyO3Attr
   %17 = alloca [32 x i8], align 8
   call void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h20d3b702e089cf28E(ptr nonnull sret([32 x i8]) align 8 %17, ptr align 8 %2)
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   switch i64 %18, label %21 [
     i64 -9223372036854775807, label %20
     i64 -9223372036854775808, label %23
@@ -78,19 +78,19 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction27PyFunctionArgPyO3Attr
 
 21:                                               ; preds = %3
   store i64 %18, ptr %16, align 8
-  %.sroa.229.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.229.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.229.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   call void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h645d4d709937db8aE"(ptr nonnull sret([32 x i8]) align 8 %15, ptr nonnull align 8 %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
-  %.sroa.36.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 12
-  %.sroa.36.0..sroa_idx7 = getelementptr inbounds i8, ptr %12, i64 8
-  %.sroa.4.0..sroa_idx9 = getelementptr inbounds i8, ptr %12, i64 12
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %.sroa.36.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sroa.4.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.backedge
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %24, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %32
@@ -121,7 +121,7 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction27PyFunctionArgPyO3Attr
 
 29:                                               ; preds = %26
   call void @"_ZN4core3ptr113drop_in_place$LT$syn..punctuated..IntoIter$LT$pyo3_macros_backend..pyfunction..PyFunctionArgPyO3Attribute$GT$$GT$17hed8b62baf539011eE"(ptr nonnull align 8 %14)
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %30, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %32
@@ -219,7 +219,7 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction27PyFunctionArgPyO3Attr
 
 59:                                               ; preds = %36
   store i32 1, ptr %37, align 4
-  %60 = getelementptr inbounds i8, ptr %37, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %.sroa.36.0.copyload, ptr %60, align 4
   br label %51
 
@@ -238,7 +238,7 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction27PyFunctionArgPyO3Attr
   br i1 %67, label %68, label %.backedge.backedge
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %65, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %70 = load i32, ptr %69, align 4
   store i32 %70, ptr %7, align 4
   invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h3c61c4bce6b808a6E(ptr nonnull sret([32 x i8]) align 8 %4, ptr nonnull align 4 %7)
@@ -282,15 +282,15 @@ define void @_ZN19pyo3_macros_backend10pyfunction17PyFunctionOptions14add_attrib
   %25 = alloca [32 x i8], align 8
   call void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hce6b4480fe880859E"(ptr nonnull sret([32 x i8]) align 8 %25, ptr align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 32, i1 false)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
-  %27 = getelementptr inbounds i8, ptr %1, i64 152
-  %28 = getelementptr inbounds i8, ptr %1, i64 168
-  %29 = getelementptr inbounds i8, ptr %1, i64 112
-  %30 = getelementptr inbounds i8, ptr %1, i64 116
-  %31 = getelementptr inbounds i8, ptr %1, i64 120
-  %32 = getelementptr inbounds i8, ptr %1, i64 136
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 136
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %3
@@ -584,15 +584,15 @@ define void @_ZN19pyo3_macros_backend10pyfunction17PyFunctionOptions14add_attrib
   %25 = alloca [64 x i8], align 8
   call void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he8bc172dcf61a0a6E"(ptr nonnull sret([64 x i8]) align 8 %25, ptr align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %25, i64 64, i1 false)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
-  %27 = getelementptr inbounds i8, ptr %1, i64 152
-  %28 = getelementptr inbounds i8, ptr %1, i64 168
-  %29 = getelementptr inbounds i8, ptr %1, i64 112
-  %30 = getelementptr inbounds i8, ptr %1, i64 116
-  %31 = getelementptr inbounds i8, ptr %1, i64 120
-  %32 = getelementptr inbounds i8, ptr %1, i64 136
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 136
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %3

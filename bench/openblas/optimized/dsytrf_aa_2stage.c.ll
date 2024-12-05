@@ -182,7 +182,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 105:                                              ; preds = %105, %102
   %106 = phi i64 [ 1, %102 ], [ %109, %105 ]
-  %107 = getelementptr inbounds i32, ptr %25, i64 %106
+  %107 = getelementptr inbounds nuw i32, ptr %25, i64 %106
   %108 = trunc i64 %106 to i32
   store i32 %108, ptr %107, align 4, !tbaa !3
   %109 = add nuw nsw i64 %106, 1

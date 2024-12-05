@@ -182,7 +182,7 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
   br i1 %cmp.i.not, label %PyFloat_AS_DOUBLE.exit, label %if.else
 
 PyFloat_AS_DOUBLE.exit:                           ; preds = %if.end8
-  %ob_fval.i = getelementptr inbounds i8, ptr %1, i64 16
+  %ob_fval.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load double, ptr %ob_fval.i, align 8
   br label %if.end23
 

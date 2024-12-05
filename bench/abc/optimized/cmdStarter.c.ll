@@ -87,7 +87,7 @@ define void @Cmd_RunStarter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
 10:                                               ; preds = %5
   %11 = load i64, ptr %7, align 8
   %.neg134 = mul i64 %11, -1000000
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i64, ptr %12, align 8
   %.neg = sdiv i64 %13, -1000
   %.neg135 = add i64 %.neg, %.neg134
@@ -187,7 +187,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ %56, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %57 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv
   %58 = load i8, ptr %57, align 1
   switch i8 %58, label %._crit_edge [
     i8 10, label %59
@@ -269,7 +269,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %86
   %indvars.iv154 = phi i64 [ %83, %.lr.ph145.preheader ], [ %indvars.iv.next155, %86 ]
-  %84 = getelementptr inbounds i8, ptr %47, i64 %indvars.iv154
+  %84 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv154
   %85 = load i8, ptr %84, align 1
   switch i8 %85, label %._crit_edge146 [
     i8 10, label %86
@@ -338,7 +338,7 @@ Abc_UtilStrsav.exit:                              ; preds = %89
   %112 = add nsw i32 %111, 1
   store volatile i32 %112, ptr @nThreadsRunning, align 4
   %113 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #15
-  %114 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv157
+  %114 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv157
   %115 = call i32 @pthread_create(ptr noundef %114, ptr noundef null, ptr noundef nonnull @Abc_RunThread, ptr noundef %.0) #15
   br label %116
 
@@ -386,7 +386,7 @@ Abc_UtilStrsav.exit:                              ; preds = %89
 133:                                              ; preds = %128
   %134 = load i64, ptr %6, align 8
   %135 = mul nsw i64 %134, 1000000
-  %136 = getelementptr inbounds i8, ptr %6, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %137 = load i64, ptr %136, align 8
   %138 = sdiv i64 %137, 1000
   %139 = add nsw i64 %138, %135

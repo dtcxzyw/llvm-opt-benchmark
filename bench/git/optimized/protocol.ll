@@ -36,7 +36,7 @@ if.then:                                          ; preds = %entry
 
 switch.lookup:                                    ; preds = %if.then
   %switch.idx.cast = zext nneg i8 %switch.tableidx to i32
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %return, label %if.then2
@@ -67,7 +67,7 @@ sub_17.i7:                                        ; preds = %land.lhs.true
 
 return.sink.split.i8:                             ; preds = %land.lhs.true, %sub_17.i7, %if.else.tail.i12
   %.sink18.i9 = phi i32 [ 1, %if.else.tail.i12 ], [ 2, %sub_17.i7 ], [ 0, %land.lhs.true ]
-  %7 = getelementptr inbounds i8, ptr %call4, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %call4, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %return, label %if.then11
@@ -99,7 +99,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %list, i8 0, i64 40, i1 false)
-  %0 = getelementptr inbounds i8, ptr %list, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %list, i64 24
   store i8 1, ptr %0, align 8
   %call1 = call i32 @string_list_split(ptr noundef nonnull %list, ptr noundef nonnull %call, i32 noundef 58, i32 noundef -1) #6
   %1 = load ptr, ptr %list, align 8
@@ -107,7 +107,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not12, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then
-  %nr = getelementptr inbounds i8, ptr %list, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %list, i64 8
   %2 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %1, i64 %2
   %cmp17 = icmp sgt i64 %2, 0
@@ -127,9 +127,9 @@ do.body.i:                                        ; preds = %do.cond.i, %for.bod
   br i1 %exitcond, label %if.then5, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
-  %prefix.addr.0.i.ptr = getelementptr inbounds i8, ptr @.str.5, i64 %prefix.addr.0.i.idx
+  %prefix.addr.0.i.ptr = getelementptr inbounds nuw i8, ptr @.str.5, i64 %prefix.addr.0.i.idx
   %4 = load i8, ptr %prefix.addr.0.i.ptr, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i, i64 1
   %5 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.i.add = add nuw nsw i64 %prefix.addr.0.i.idx, 1
   %cmp.i = icmp eq i8 %5, %4
@@ -156,7 +156,7 @@ parse_protocol_version.exit:                      ; preds = %if.then5, %switch.l
 
 for.inc:                                          ; preds = %do.cond.i, %parse_protocol_version.exit
   %version.2 = phi i32 [ %spec.select, %parse_protocol_version.exit ], [ %version.11418, %do.cond.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %item.01319, i64 16
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %item.01319, i64 16
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.end
 
@@ -194,9 +194,9 @@ do.body.i:                                        ; preds = %do.cond.i, %entry
   br i1 %exitcond, label %if.then, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
-  %prefix.addr.0.i.ptr = getelementptr inbounds i8, ptr @.str.9, i64 %prefix.addr.0.i.idx
+  %prefix.addr.0.i.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %prefix.addr.0.i.idx
   %0 = load i8, ptr %prefix.addr.0.i.ptr, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i, i64 1
   %1 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.i.add = add nuw nsw i64 %prefix.addr.0.i.idx, 1
   %cmp.i = icmp eq i8 %1, %0

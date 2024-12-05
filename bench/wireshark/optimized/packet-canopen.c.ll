@@ -520,7 +520,7 @@ define internal i32 @dissect_canopen(ptr noundef %0, ptr nocapture noundef reado
   br i1 %.not129, label %9, label %357
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.124) #3
   %12 = load ptr, ptr %10, align 8
@@ -622,13 +622,13 @@ canopen_detect_msg_type.exit.thread.thread147:    ; preds = %16, %canopen_detect
   br i1 %.not.i, label %proto_item_set_generated.exit, label %44
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not5.i = icmp eq ptr %46, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %49, 2
   store i32 %50, ptr %48, align 4
@@ -641,13 +641,13 @@ proto_item_set_generated.exit:                    ; preds = %32, %44, %47
   br i1 %.not.i133, label %proto_item_set_generated.exit135, label %53
 
 53:                                               ; preds = %proto_item_set_generated.exit
-  %54 = getelementptr inbounds i8, ptr %52, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %55 = load ptr, ptr %54, align 8
   %.not5.i134 = icmp eq ptr %55, null
   br i1 %.not5.i134, label %proto_item_set_generated.exit135, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %55, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = or i32 %58, 2
   store i32 %59, ptr %57, align 4
@@ -745,7 +745,7 @@ proto_item_set_generated.exit135:                 ; preds = %proto_item_set_gene
   store i64 %109, ptr %5, align 8
   %110 = urem i32 %102, 1000
   %111 = mul nuw nsw i32 %110, 1000000
-  %112 = getelementptr inbounds i8, ptr %5, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %111, ptr %112, align 8
   %113 = load i32, ptr @hf_canopen_time_stamp, align 4
   %114 = call ptr @proto_tree_add_time(ptr noundef %62, i32 noundef %113, ptr noundef %0, i32 noundef 0, i32 noundef 6, ptr noundef nonnull %5) #3

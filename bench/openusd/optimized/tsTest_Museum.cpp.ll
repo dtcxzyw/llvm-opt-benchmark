@@ -146,7 +146,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13TsTest_Museum7GetDataENS0_6D
           to label %50 unwind label %60
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %38, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %38, i64 80
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %51, ptr noundef nonnull align 8 dereferenceable(74) %36)
           to label %52 unwind label %60
 
@@ -159,7 +159,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13TsTest_Museum7GetDataENS0_6D
           to label %54 unwind label %64
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %37, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %56 = load ptr, ptr %55, align 8, !noalias !4
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef %56)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L14_TwoKnotBezierEv.exit unwind label %57
@@ -225,7 +225,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_TwoKnotBezierEv.exit: ; preds = %54
           to label %71 unwind label %81
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %32, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %32, i64 80
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %72, ptr noundef nonnull align 8 dereferenceable(74) %30)
           to label %73 unwind label %81
 
@@ -238,7 +238,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_TwoKnotBezierEv.exit: ; preds = %54
           to label %75 unwind label %85
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %31, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %77 = load ptr, ptr %76, align 8, !noalias !7
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %31, ptr noundef %77)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L14_TwoKnotLinearEv.exit unwind label %78
@@ -365,22 +365,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_TwoKnotLinearEv.exit: ; preds = %75
           to label %119 unwind label %135
 
 119:                                              ; preds = %87
-  %120 = getelementptr inbounds i8, ptr %26, i64 80
+  %120 = getelementptr inbounds nuw i8, ptr %26, i64 80
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %120, ptr noundef nonnull align 8 dereferenceable(74) %20)
           to label %121 unwind label %135
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %26, i64 160
+  %122 = getelementptr inbounds nuw i8, ptr %26, i64 160
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %122, ptr noundef nonnull align 8 dereferenceable(74) %21)
           to label %123 unwind label %135
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %26, i64 240
+  %124 = getelementptr inbounds nuw i8, ptr %26, i64 240
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %124, ptr noundef nonnull align 8 dereferenceable(74) %22)
           to label %125 unwind label %135
 
 125:                                              ; preds = %123
-  %126 = getelementptr inbounds i8, ptr %26, i64 320
+  %126 = getelementptr inbounds nuw i8, ptr %26, i64 320
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %126, ptr noundef nonnull align 8 dereferenceable(74) %23)
           to label %127 unwind label %135
 
@@ -393,7 +393,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14_TwoKnotLinearEv.exit: ; preds = %75
           to label %129 unwind label %139
 
 129:                                              ; preds = %128
-  %130 = getelementptr inbounds i8, ptr %25, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %131 = load ptr, ptr %130, align 8, !noalias !10
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef %131)
           to label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotESt4lessIS2_ESaIS2_EED2Ev.exit.i unwind label %132
@@ -500,17 +500,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_SimpleInnerLoopEv.exit: ; preds = %_ZNS
           to label %162 unwind label %176
 
 162:                                              ; preds = %141
-  %163 = getelementptr inbounds i8, ptr %16, i64 80
+  %163 = getelementptr inbounds nuw i8, ptr %16, i64 80
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %163, ptr noundef nonnull align 8 dereferenceable(74) %12)
           to label %164 unwind label %176
 
 164:                                              ; preds = %162
-  %165 = getelementptr inbounds i8, ptr %16, i64 160
+  %165 = getelementptr inbounds nuw i8, ptr %16, i64 160
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %165, ptr noundef nonnull align 8 dereferenceable(74) %13)
           to label %166 unwind label %176
 
 166:                                              ; preds = %164
-  %167 = getelementptr inbounds i8, ptr %16, i64 240
+  %167 = getelementptr inbounds nuw i8, ptr %16, i64 240
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %167, ptr noundef nonnull align 8 dereferenceable(74) %14)
           to label %168 unwind label %176
 
@@ -523,7 +523,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16_SimpleInnerLoopEv.exit: ; preds = %_ZNS
           to label %170 unwind label %180
 
 170:                                              ; preds = %169
-  %171 = getelementptr inbounds i8, ptr %15, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %172 = load ptr, ptr %171, align 8, !noalias !13
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %172)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L8_RecurveEv.exit unwind label %173
@@ -624,17 +624,17 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_RecurveEv.exit: ; preds = %170
           to label %203 unwind label %217
 
 203:                                              ; preds = %182
-  %204 = getelementptr inbounds i8, ptr %8, i64 80
+  %204 = getelementptr inbounds nuw i8, ptr %8, i64 80
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %204, ptr noundef nonnull align 8 dereferenceable(74) %4)
           to label %205 unwind label %217
 
 205:                                              ; preds = %203
-  %206 = getelementptr inbounds i8, ptr %8, i64 160
+  %206 = getelementptr inbounds nuw i8, ptr %8, i64 160
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %206, ptr noundef nonnull align 8 dereferenceable(74) %5)
           to label %207 unwind label %217
 
 207:                                              ; preds = %205
-  %208 = getelementptr inbounds i8, ptr %8, i64 240
+  %208 = getelementptr inbounds nuw i8, ptr %8, i64 240
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(74) %208, ptr noundef nonnull align 8 dereferenceable(74) %6)
           to label %209 unwind label %217
 
@@ -647,7 +647,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_RecurveEv.exit: ; preds = %170
           to label %211 unwind label %221
 
 211:                                              ; preds = %210
-  %212 = getelementptr inbounds i8, ptr %7, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %213 = load ptr, ptr %212, align 8, !noalias !16
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %213)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__L10_CrossoverEv.exit unwind label %214
@@ -735,15 +735,15 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotESt4lessIS2_ESaIS2_EEC2ESt16initializer_listIS2_ERKS4_RKS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::TsTest_SplineData::Knot, pxrInternal_v0_24__pxrReserved__::TsTest_SplineData::Knot, std::_Identity<pxrInternal_v0_24__pxrReserved__::TsTest_SplineData::Knot>, std::less<pxrInternal_v0_24__pxrReserved__::TsTest_SplineData::Knot>>::_Alloc_node", align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::TsTest_SplineData::Knot", ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -818,7 +818,7 @@ define linkonce_odr void @_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__17TsTest_
           to label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE17_M_insert_unique_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_.exit.i unwind label %.loopexit.split-lp
 
 _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE17_M_insert_unique_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_.exit.i: ; preds = %.noexc11, %.noexc.thread, %.noexc
-  %30 = getelementptr inbounds i8, ptr %.07.i, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %.07.i, i64 80
   %.not.i = icmp eq ptr %30, %12
   br i1 %.not.i, label %.loopexit26, label %.lr.ph.i, !llvm.loop !21
 
@@ -844,7 +844,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotESt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EED2Ev.exit unwind label %4
@@ -863,7 +863,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %4)
           to label %_ZNSt3setIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotESt4lessIS2_ESaIS2_EED2Ev.exit unwind label %5
@@ -881,7 +881,7 @@ _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotESt4lessIS2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %4 unwind label %5
@@ -912,7 +912,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSG_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(74) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp ne ptr %1, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = icmp eq ptr %2, %6
   %or.cond = select i1 %.not, i1 true, i1 %7
   br i1 %or.cond, label %11, label %8
@@ -959,7 +959,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsT
 
 _ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE11_Alloc_nodeclIRKS2_EEPSt13_Rb_tree_nodeIS2_EOT_.exit: ; preds = %11
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %12, ptr noundef nonnull %13, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %6) #14
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8

@@ -98,7 +98,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #11
   %7 = icmp eq ptr %6, null
@@ -106,7 +106,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
   store ptr %12, ptr @attrs_st_mode, align 8
@@ -115,7 +115,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 752
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #11
   store ptr %18, ptr @attrs_st_ino, align 8
@@ -124,7 +124,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 752
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4) #11
   store ptr %24, ptr @attrs_st_dev, align 8
@@ -133,7 +133,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 752
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4) #11
   store ptr %30, ptr @attrs_st_rdev, align 8
@@ -142,7 +142,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 752
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 752
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2) #11
   store ptr %36, ptr @attrs_st_nlink, align 8
@@ -151,7 +151,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 752
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 752
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2) #11
   store ptr %42, ptr @attrs_st_uid, align 8
@@ -160,7 +160,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 44:                                               ; preds = %38
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 752
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 752
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.2) #11
   store ptr %48, ptr @attrs_st_gid, align 8
@@ -169,7 +169,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 752
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 752
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.4) #11
   store ptr %54, ptr @attrs_st_size, align 8
@@ -178,7 +178,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 752
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 752
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.4) #11
   store ptr %60, ptr @attrs_st_atime_sec, align 8
@@ -187,7 +187,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 62:                                               ; preds = %56
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 752
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 752
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.4) #11
   store ptr %66, ptr @attrs_st_atime_nsec, align 8
@@ -196,7 +196,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 752
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 752
   %71 = load ptr, ptr %70, align 8
   %72 = tail call ptr %71(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.4) #11
   store ptr %72, ptr @attrs_st_mtime_sec, align 8
@@ -205,7 +205,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 74:                                               ; preds = %68
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 752
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 752
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.4) #11
   store ptr %78, ptr @attrs_st_mtime_nsec, align 8
@@ -214,7 +214,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 80:                                               ; preds = %74
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 752
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 752
   %83 = load ptr, ptr %82, align 8
   %84 = tail call ptr %83(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.4) #11
   store ptr %84, ptr @attrs_st_ctime_sec, align 8
@@ -223,7 +223,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 86:                                               ; preds = %80
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 752
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 752
   %89 = load ptr, ptr %88, align 8
   %90 = tail call ptr %89(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4) #11
   store ptr %90, ptr @attrs_st_ctime_nsec, align 8
@@ -232,7 +232,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 92:                                               ; preds = %86
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 752
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 752
   %95 = load ptr, ptr %94, align 8
   %96 = tail call ptr %95(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.4) #11
   store ptr %96, ptr @attrs_st_birthtime_sec, align 8
@@ -241,7 +241,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 98:                                               ; preds = %92
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 752
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 752
   %101 = load ptr, ptr %100, align 8
   %102 = tail call ptr %101(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.4) #11
   store ptr %102, ptr @attrs_st_birthtime_nsec, align 8
@@ -250,7 +250,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 104:                                              ; preds = %98
   %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 48
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 48
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr %107(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #11
   %109 = icmp eq ptr %108, null
@@ -258,7 +258,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 110:                                              ; preds = %104
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 752
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 752
   %113 = load ptr, ptr %112, align 8
   %114 = tail call ptr %113(ptr noundef nonnull %0, ptr noundef nonnull %108, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.4) #11
   store ptr %114, ptr @attrs_f_frsize, align 8
@@ -267,7 +267,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 116:                                              ; preds = %110
   %117 = load ptr, ptr %0, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 752
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 752
   %119 = load ptr, ptr %118, align 8
   %120 = tail call ptr %119(ptr noundef nonnull %0, ptr noundef nonnull %108, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.4) #11
   store ptr %120, ptr @attrs_f_blocks, align 8
@@ -276,7 +276,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 122:                                              ; preds = %116
   %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 752
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 752
   %125 = load ptr, ptr %124, align 8
   %126 = tail call ptr %125(ptr noundef nonnull %0, ptr noundef nonnull %108, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.4) #11
   store ptr %126, ptr @attrs_f_bfree, align 8
@@ -285,7 +285,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 128:                                              ; preds = %122
   %129 = load ptr, ptr %0, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 752
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 752
   %131 = load ptr, ptr %130, align 8
   %132 = tail call ptr %131(ptr noundef nonnull %0, ptr noundef nonnull %108, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.4) #11
   store ptr %132, ptr @attrs_f_bavail, align 8
@@ -294,7 +294,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 134:                                              ; preds = %128
   %135 = load ptr, ptr %0, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
   %137 = load ptr, ptr %136, align 8
   %138 = tail call ptr %137(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #11
   %139 = icmp eq ptr %138, null
@@ -302,7 +302,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 140:                                              ; preds = %134
   %141 = load ptr, ptr %0, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 752
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 752
   %143 = load ptr, ptr %142, align 8
   %144 = tail call ptr %143(ptr noundef nonnull %0, ptr noundef nonnull %138, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #11
   store ptr %144, ptr @entry_name, align 8
@@ -311,7 +311,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 146:                                              ; preds = %140
   %147 = load ptr, ptr %0, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 752
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 752
   %149 = load ptr, ptr %148, align 8
   %150 = tail call ptr %149(ptr noundef nonnull %0, ptr noundef nonnull %138, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.26) #11
   store ptr %150, ptr @entry_dir, align 8
@@ -320,7 +320,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 152:                                              ; preds = %146
   %153 = load ptr, ptr %0, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 752
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 752
   %155 = load ptr, ptr %154, align 8
   %156 = tail call ptr %155(ptr noundef nonnull %0, ptr noundef nonnull %138, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.26) #11
   store ptr %156, ptr @entry_fstype, align 8
@@ -329,7 +329,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 158:                                              ; preds = %152
   %159 = load ptr, ptr %0, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 752
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 752
   %161 = load ptr, ptr %160, align 8
   %162 = tail call ptr %161(ptr noundef nonnull %0, ptr noundef nonnull %138, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.26) #11
   store ptr %162, ptr @entry_options, align 8
@@ -338,7 +338,7 @@ define range(i32 0, 131072) i32 @Java_sun_nio_fs_UnixNativeDispatcher_init(ptr n
 
 164:                                              ; preds = %158
   %165 = load ptr, ptr %0, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 752
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 752
   %167 = load ptr, ptr %166, align 8
   %168 = tail call ptr %167(ptr noundef nonnull %0, ptr noundef nonnull %138, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.4) #11
   store ptr %168, ptr @entry_dev, align 8
@@ -435,7 +435,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getcwd(ptr noundef %0, ptr noca
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %9) #11
   br label %throwUnixException.exit
@@ -444,7 +444,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getcwd(ptr noundef %0, ptr noca
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
   %17 = trunc i64 %16 to i32
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1408
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1408
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr %20(ptr noundef nonnull %0, i32 noundef %17) #11
   %.not = icmp eq ptr %21, null
@@ -452,7 +452,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_getcwd(ptr noundef %0, ptr noca
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1664
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1664
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull %0, ptr noundef nonnull %21, i32 noundef 0, i32 noundef %17, ptr noundef nonnull %3) #11
   br label %throwUnixException.exit
@@ -480,7 +480,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_strerror(ptr noundef %0, ptr no
   %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
   %9 = trunc i64 %8 to i32
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1408
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr %12(ptr noundef nonnull %0, i32 noundef %9) #11
   %.not = icmp eq ptr %13, null
@@ -488,7 +488,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_strerror(ptr noundef %0, ptr no
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1664
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1664
   %17 = load ptr, ptr %16, align 8
   call void %17(ptr noundef nonnull %0, ptr noundef nonnull %13, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %4) #11
   br label %18
@@ -521,7 +521,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_dup(ptr noundef %0, ptr nocaptu
 
 12:                                               ; preds = %.critedge
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %11) #11
   br label %.critedge4
@@ -551,7 +551,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_rewind(ptr noundef %0, ptr noc
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %9) #11
   br label %throwUnixException.exit
@@ -610,7 +610,7 @@ throwUnixException.exit:                          ; preds = %14
 throwUnixException.exit12.sink.split:             ; preds = %19, %16
   %.sink = phi ptr [ %17, %16 ], [ %20, %19 ]
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #11
   br label %throwUnixException.exit12
@@ -655,7 +655,7 @@ define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_open0(ptr noundef %0, p
 
 15:                                               ; preds = %.critedge
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef nonnull %14) #11
   br label %.critedge7
@@ -697,7 +697,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_openat0(ptr noundef %0, ptr noc
 
 19:                                               ; preds = %.critedge
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %18) #11
   br label %.critedge10
@@ -728,7 +728,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_close0(ptr noundef %0, ptr noc
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %10) #11
   br label %throwUnixException.exit
@@ -763,7 +763,7 @@ define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_read0(ptr noundef %0, p
 
 16:                                               ; preds = %.critedge
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %15) #11
   br label %.critedge7
@@ -804,7 +804,7 @@ define noundef i32 @Java_sun_nio_fs_UnixNativeDispatcher_write0(ptr noundef %0, 
 
 16:                                               ; preds = %.critedge
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %15) #11
   br label %.critedge7
@@ -891,125 +891,125 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_stat0(ptr noundef %0, ptr nocap
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @copy_statx_attributes(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 872
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @attrs_st_mode, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i32
   tail call void %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %7, i32 noundef %10) #11
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 880
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 880
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @attrs_st_ino, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i64, ptr %15, align 8
   tail call void %13(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %14, i64 noundef %16) #11
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 872
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 872
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @attrs_st_nlink, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8
   tail call void %19(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %20, i32 noundef %22) #11
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 872
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 872
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr @attrs_st_uid, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load i32, ptr %27, align 4
   tail call void %25(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %26, i32 noundef %28) #11
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 872
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 872
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @attrs_st_gid, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i32, ptr %33, align 8
   tail call void %31(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %32, i32 noundef %34) #11
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 880
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 880
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @attrs_st_size, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %40 = load i64, ptr %39, align 8
   tail call void %37(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %38, i64 noundef %40) #11
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 880
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 880
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr @attrs_st_atime_sec, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %46 = load i64, ptr %45, align 8
   tail call void %43(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %44, i64 noundef %46) #11
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 880
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 880
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr @attrs_st_mtime_sec, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 112
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %52 = load i64, ptr %51, align 8
   tail call void %49(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %50, i64 noundef %52) #11
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 880
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 880
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr @attrs_st_ctime_sec, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %58 = load i64, ptr %57, align 8
   tail call void %55(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %56, i64 noundef %58) #11
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 880
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 880
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr @attrs_st_birthtime_sec, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %64 = load i64, ptr %63, align 8
   tail call void %61(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %62, i64 noundef %64) #11
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 880
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 880
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr @attrs_st_birthtime_nsec, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 88
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %70 = load i32, ptr %69, align 8
   %71 = zext i32 %70 to i64
   tail call void %67(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %68, i64 noundef %71) #11
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 880
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 880
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr @attrs_st_atime_nsec, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %77 = load i32, ptr %76, align 8
   %78 = zext i32 %77 to i64
   tail call void %74(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %75, i64 noundef %78) #11
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 880
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 880
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr @attrs_st_mtime_nsec, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 120
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %84 = load i32, ptr %83, align 8
   %85 = zext i32 %84 to i64
   tail call void %81(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %82, i64 noundef %85) #11
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 880
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 880
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr @attrs_st_ctime_nsec, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %91 = load i32, ptr %90, align 8
   %92 = zext i32 %91 to i64
   tail call void %88(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %89, i64 noundef %92) #11
-  %93 = getelementptr inbounds i8, ptr %1, i64 136
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %94 = load i32, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %1, i64 140
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %96 = load i32, ptr %95, align 4
   %97 = tail call i64 @gnu_dev_makedev(i32 noundef %94, i32 noundef %96) #12
-  %98 = getelementptr inbounds i8, ptr %1, i64 128
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 132
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %101 = load i32, ptr %100, align 4
   %102 = tail call i64 @gnu_dev_makedev(i32 noundef %99, i32 noundef %101) #12
   %103 = load ptr, ptr %0, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 880
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 880
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr @attrs_st_dev, align 8
   tail call void %105(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %106, i64 noundef %97) #11
   %107 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 880
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 880
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr @attrs_st_rdev, align 8
   tail call void %109(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %110, i64 noundef %102) #11
@@ -1022,101 +1022,101 @@ declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @copy_stat_attributes(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 872
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @attrs_st_mode, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8
   tail call void %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %7, i32 noundef %9) #11
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 880
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 880
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @attrs_st_ino, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8
   tail call void %12(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %13, i64 noundef %15) #11
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 880
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 880
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @attrs_st_dev, align 8
   %20 = load i64, ptr %1, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %19, i64 noundef %20) #11
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 880
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 880
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @attrs_st_rdev, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load i64, ptr %25, align 8
   tail call void %23(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %24, i64 noundef %26) #11
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 872
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 872
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @attrs_st_nlink, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = trunc i64 %32 to i32
   tail call void %29(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %30, i32 noundef %33) #11
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 872
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 872
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr @attrs_st_uid, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %39 = load i32, ptr %38, align 4
   tail call void %36(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %37, i32 noundef %39) #11
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 872
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 872
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr @attrs_st_gid, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %45 = load i32, ptr %44, align 8
   tail call void %42(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %43, i32 noundef %45) #11
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 880
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 880
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @attrs_st_size, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %51 = load i64, ptr %50, align 8
   tail call void %48(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %49, i64 noundef %51) #11
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 880
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 880
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr @attrs_st_atime_sec, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %57 = load i64, ptr %56, align 8
   tail call void %54(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %55, i64 noundef %57) #11
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 880
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 880
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr @attrs_st_mtime_sec, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 88
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %63 = load i64, ptr %62, align 8
   tail call void %60(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %61, i64 noundef %63) #11
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 880
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 880
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr @attrs_st_ctime_sec, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 104
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %69 = load i64, ptr %68, align 8
   tail call void %66(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %67, i64 noundef %69) #11
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 880
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 880
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr @attrs_st_atime_nsec, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 80
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %75 = load i64, ptr %74, align 8
   tail call void %72(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %73, i64 noundef %75) #11
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 880
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 880
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr @attrs_st_mtime_nsec, align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %81 = load i64, ptr %80, align 8
   tail call void %78(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %79, i64 noundef %81) #11
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 880
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 880
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr @attrs_st_ctime_nsec, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 112
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %87 = load i64, ptr %86, align 8
   tail call void %84(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %85, i64 noundef %87) #11
   ret void
@@ -1162,7 +1162,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lstat0(ptr noundef %0, ptr noc
 
 18:                                               ; preds = %.critedge
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %17) #11
   br label %throwUnixException.exit
@@ -1185,7 +1185,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lstat0(ptr noundef %0, ptr noc
 
 30:                                               ; preds = %.critedge2
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %33(ptr noundef nonnull %0, ptr noundef nonnull %29) #11
   br label %throwUnixException.exit
@@ -1240,7 +1240,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstat0(ptr noundef %0, ptr noc
 
 17:                                               ; preds = %.critedge
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 %20(ptr noundef nonnull %0, ptr noundef nonnull %16) #11
   br label %throwUnixException.exit
@@ -1263,7 +1263,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstat0(ptr noundef %0, ptr noc
 
 29:                                               ; preds = %.critedge2
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 %32(ptr noundef nonnull %0, ptr noundef nonnull %28) #11
   br label %throwUnixException.exit
@@ -1323,7 +1323,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstatat0(ptr noundef %0, ptr n
 
 23:                                               ; preds = %.critedge
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %22) #11
   br label %throwUnixException.exit
@@ -1356,7 +1356,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fstatat0(ptr noundef %0, ptr n
 
 40:                                               ; preds = %.critedge2
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 104
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 %43(ptr noundef nonnull %0, ptr noundef nonnull %39) #11
   br label %throwUnixException.exit
@@ -1392,7 +1392,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_chmod0(ptr noundef %0, ptr noc
 
 14:                                               ; preds = %.critedge
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %13) #11
   br label %.critedge5
@@ -1426,7 +1426,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fchmod0(ptr noundef %0, ptr no
 
 13:                                               ; preds = %.critedge
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %12) #11
   br label %.critedge4
@@ -1461,7 +1461,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_chown0(ptr noundef %0, ptr noc
 
 15:                                               ; preds = %.critedge
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef nonnull %14) #11
   br label %.critedge6
@@ -1496,7 +1496,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lchown0(ptr noundef %0, ptr no
 
 15:                                               ; preds = %.critedge
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef nonnull %14) #11
   br label %.critedge6
@@ -1530,7 +1530,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fchown0(ptr noundef %0, ptr no
 
 14:                                               ; preds = %.critedge
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %13) #11
   br label %.critedge5
@@ -1549,13 +1549,13 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_utimes0(ptr noundef %0, ptr no
   %8 = sdiv i64 %3, 1000000
   store i64 %8, ptr %6, align 16
   %9 = srem i64 %3, 1000000
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %9, ptr %10, align 8
   %11 = sdiv i64 %4, 1000000
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %11, ptr %12, align 16
   %13 = srem i64 %4, 1000000
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %13, ptr %14, align 8
   br label %15
 
@@ -1577,7 +1577,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_utimes0(ptr noundef %0, ptr no
 
 23:                                               ; preds = %.critedge
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %22) #11
   br label %.critedge8
@@ -1595,13 +1595,13 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_futimes0(ptr noundef %0, ptr n
   %7 = sdiv i64 %3, 1000000
   store i64 %7, ptr %6, align 16
   %8 = srem i64 %3, 1000000
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %8, ptr %9, align 8
   %10 = sdiv i64 %4, 1000000
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %10, ptr %11, align 16
   %12 = srem i64 %4, 1000000
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %12, ptr %13, align 8
   %14 = load ptr, ptr @my_futimesat_func, align 8
   %15 = icmp eq ptr %14, null
@@ -1630,7 +1630,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_futimes0(ptr noundef %0, ptr n
 
 25:                                               ; preds = %.critedge
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %24) #11
   br label %.critedge8
@@ -1645,13 +1645,13 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_futimens0(ptr noundef %0, ptr 
   %7 = sdiv i64 %3, 1000000000
   store i64 %7, ptr %6, align 16
   %8 = srem i64 %3, 1000000000
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %8, ptr %9, align 8
   %10 = sdiv i64 %4, 1000000000
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %10, ptr %11, align 16
   %12 = srem i64 %4, 1000000000
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %12, ptr %13, align 8
   %14 = load ptr, ptr @my_futimens_func, align 8
   %15 = icmp eq ptr %14, null
@@ -1680,7 +1680,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_futimens0(ptr noundef %0, ptr 
 
 25:                                               ; preds = %.critedge
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %24) #11
   br label %.critedge8
@@ -1696,13 +1696,13 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lutimes0(ptr noundef %0, ptr n
   %8 = sdiv i64 %3, 1000000
   store i64 %8, ptr %6, align 16
   %9 = srem i64 %3, 1000000
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %9, ptr %10, align 8
   %11 = sdiv i64 %4, 1000000
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %11, ptr %12, align 16
   %13 = srem i64 %4, 1000000
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %13, ptr %14, align 8
   %15 = load ptr, ptr @my_lutimes_func, align 8
   %16 = icmp eq ptr %15, null
@@ -1731,7 +1731,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_lutimes0(ptr noundef %0, ptr n
 
 26:                                               ; preds = %.critedge
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 104
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %25) #11
   br label %.critedge9
@@ -1756,7 +1756,7 @@ define noundef i64 @Java_sun_nio_fs_UnixNativeDispatcher_opendir0(ptr noundef %0
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %10) #11
   br label %throwUnixException.exit
@@ -1793,7 +1793,7 @@ define i64 @Java_sun_nio_fs_UnixNativeDispatcher_fdopendir(ptr noundef %0, ptr n
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %13) #11
   br label %throwUnixException.exit
@@ -1827,7 +1827,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_closedir(ptr noundef %0, ptr n
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %11) #11
   br label %throwUnixException.exit
@@ -1860,17 +1860,17 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readdir0(ptr noundef %0, ptr no
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %11) #11
   br label %throwUnixException.exit
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %6, i64 19
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 19
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #13
   %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1408
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, i32 noundef %20) #11
   %.not = icmp eq ptr %24, null
@@ -1878,7 +1878,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readdir0(ptr noundef %0, ptr no
 
 25:                                               ; preds = %17
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1664
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1664
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %0, ptr noundef nonnull %24, i32 noundef 0, i32 noundef %20, ptr noundef nonnull %18) #11
   br label %throwUnixException.exit
@@ -1906,7 +1906,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_mkdir0(ptr noundef %0, ptr noc
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %11) #11
   br label %throwUnixException.exit
@@ -1934,7 +1934,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_rmdir0(ptr noundef %0, ptr noc
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %10) #11
   br label %throwUnixException.exit
@@ -1970,7 +1970,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_link0(ptr noundef %0, ptr noca
 
 15:                                               ; preds = %.critedge
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef nonnull %14) #11
   br label %.critedge6
@@ -1998,7 +1998,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_unlink0(ptr noundef %0, ptr no
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %10) #11
   br label %throwUnixException.exit
@@ -2035,7 +2035,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_unlinkat0(ptr noundef %0, ptr 
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef nonnull %0, ptr noundef nonnull %16) #11
   br label %throwUnixException.exit
@@ -2061,7 +2061,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_rename0(ptr noundef %0, ptr no
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %12) #11
   br label %throwUnixException.exit
@@ -2099,7 +2099,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_renameat0(ptr noundef %0, ptr 
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 104
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %18) #11
   br label %throwUnixException.exit
@@ -2125,7 +2125,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_symlink0(ptr noundef %0, ptr n
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %12) #11
   br label %throwUnixException.exit
@@ -2155,7 +2155,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readlink0(ptr noundef %0, ptr n
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %12) #11
   br label %throwUnixException.exit
@@ -2172,7 +2172,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readlink0(ptr noundef %0, ptr n
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef nonnull %0, ptr noundef nonnull %21) #11
   br label %throwUnixException.exit
@@ -2184,7 +2184,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readlink0(ptr noundef %0, ptr n
   %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
   %31 = trunc i64 %30 to i32
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1408
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1408
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %0, i32 noundef %31) #11
   %.not = icmp eq ptr %35, null
@@ -2192,7 +2192,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_readlink0(ptr noundef %0, ptr n
 
 36:                                               ; preds = %27
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1664
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1664
   %39 = load ptr, ptr %38, align 8
   call void %39(ptr noundef nonnull %0, ptr noundef nonnull %35, i32 noundef 0, i32 noundef %31, ptr noundef nonnull %4) #11
   br label %throwUnixException.exit
@@ -2222,7 +2222,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_realpath0(ptr noundef %0, ptr n
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %11) #11
   br label %throwUnixException.exit
@@ -2231,7 +2231,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_realpath0(ptr noundef %0, ptr n
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #13
   %19 = trunc i64 %18 to i32
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1408
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1408
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr %22(ptr noundef nonnull %0, i32 noundef %19) #11
   %.not = icmp eq ptr %23, null
@@ -2239,7 +2239,7 @@ define ptr @Java_sun_nio_fs_UnixNativeDispatcher_realpath0(ptr noundef %0, ptr n
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1664
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1664
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef nonnull %0, ptr noundef nonnull %23, i32 noundef 0, i32 noundef %19, ptr noundef nonnull %4) #11
   br label %throwUnixException.exit
@@ -2300,38 +2300,38 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_statvfs0(ptr noundef %0, ptr n
 
 15:                                               ; preds = %.critedge
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef nonnull %14) #11
   br label %throwUnixException.exit
 
 .critedge16:                                      ; preds = %7
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 880
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 880
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @attrs_f_frsize, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i64, ptr %24, align 8
   tail call void %22(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %23, i64 noundef %25) #11
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 880
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 880
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @attrs_f_blocks, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %31 = load i64, ptr %30, align 8
   tail call void %28(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %29, i64 noundef %31) #11
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 880
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 880
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @attrs_f_bfree, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %37 = load i64, ptr %36, align 8
   tail call void %34(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %35, i64 noundef %37) #11
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 880
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 880
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr @attrs_f_bavail, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %43 = load i64, ptr %42, align 8
   tail call void %40(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %41, i64 noundef %43) #11
   br label %throwUnixException.exit
@@ -2366,7 +2366,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_mknod0(ptr noundef %0, ptr noc
 
 15:                                               ; preds = %.critedge
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef nonnull %14) #11
   br label %.critedge6
@@ -2450,7 +2450,7 @@ thread-pre-split:                                 ; preds = %.critedge, %26, %29
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 104
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 %41(ptr noundef nonnull %0, ptr noundef nonnull %37) #11
   br label %throwUnixException.exit
@@ -2459,7 +2459,7 @@ thread-pre-split:                                 ; preds = %.critedge, %26, %29
   %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #13
   %45 = trunc i64 %44 to i32
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1408
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1408
   %48 = load ptr, ptr %47, align 8
   %49 = call ptr %48(ptr noundef nonnull %0, i32 noundef %45) #11
   %.not = icmp eq ptr %49, null
@@ -2467,7 +2467,7 @@ thread-pre-split:                                 ; preds = %.critedge, %26, %29
 
 50:                                               ; preds = %43
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1664
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1664
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %5, align 8
   %55 = load ptr, ptr %54, align 8
@@ -2573,7 +2573,7 @@ thread-pre-split:                                 ; preds = %.critedge, %26, %29
 
 36:                                               ; preds = %.loopexit
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %35) #11
   br label %throwUnixException.exit.thread
@@ -2582,7 +2582,7 @@ thread-pre-split:                                 ; preds = %.critedge, %26, %29
   %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #13
   %43 = trunc i64 %42 to i32
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1408
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1408
   %46 = load ptr, ptr %45, align 8
   %47 = call ptr %46(ptr noundef nonnull %0, i32 noundef %43) #11
   %.not = icmp eq ptr %47, null
@@ -2590,7 +2590,7 @@ thread-pre-split:                                 ; preds = %.critedge, %26, %29
 
 48:                                               ; preds = %41
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1664
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1664
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %5, align 8
   %53 = load ptr, ptr %52, align 8
@@ -2685,13 +2685,13 @@ thread-pre-split:                                 ; preds = %.critedge, %27, %30
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 %40(ptr noundef nonnull %0, ptr noundef nonnull %36) #11
   br label %throwUnixException.exit
 
 42:                                               ; preds = %30
-  %43 = getelementptr inbounds i8, ptr %25, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %44 = load i32, ptr %43, align 8
   br label %throwUnixException.exit
 
@@ -2792,13 +2792,13 @@ thread-pre-split:                                 ; preds = %.critedge, %27, %30
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 %39(ptr noundef nonnull %0, ptr noundef nonnull %35) #11
   br label %throwUnixException.exit.thread
 
 41:                                               ; preds = %30
-  %42 = getelementptr inbounds i8, ptr %25, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %43 = load i32, ptr %42, align 8
   br label %throwUnixException.exit.thread
 
@@ -2840,7 +2840,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_fgetxattr0(ptr noundef %0, ptr 
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %15) #11
   br label %throwUnixException.exit
@@ -2871,7 +2871,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fsetxattr0(ptr noundef %0, ptr
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %15) #11
   br label %throwUnixException.exit
@@ -2899,7 +2899,7 @@ define void @Java_sun_nio_fs_UnixNativeDispatcher_fremovexattr0(ptr noundef %0, 
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %11) #11
   br label %throwUnixException.exit
@@ -2928,7 +2928,7 @@ define i32 @Java_sun_nio_fs_UnixNativeDispatcher_flistxattr(ptr noundef %0, ptr 
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %0, ptr noundef nonnull %13) #11
   br label %throwUnixException.exit

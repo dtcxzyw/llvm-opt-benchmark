@@ -109,7 +109,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dm_put_target_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   tail call void @down_read(ptr noundef nonnull @_lock) #10
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @module_put(ptr noundef %3) #10
   tail call void @up_read(ptr noundef nonnull @_lock) #10
@@ -148,7 +148,7 @@ define dso_local noundef i32 @dm_target_iterate(ptr nocapture noundef readonly %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -17, 1) i32 @dm_register_target(ptr noundef %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @_lock) #10
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   br label %4
 
@@ -175,12 +175,12 @@ define dso_local noundef range(i32 -17, 1) i32 @dm_register_target(ptr noundef %
   br label %22
 
 .loopexit:                                        ; preds = %4, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 216
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %19 = load ptr, ptr @_targets, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %18, ptr %20, align 8
   store ptr %19, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @_targets, ptr %21, align 8
   store volatile ptr %18, ptr @_targets, align 8
   br label %22
@@ -203,7 +203,7 @@ declare dso_local void @up_write(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dm_unregister_target(ptr nocapture noundef %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @_lock) #10
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   br label %4
 
@@ -232,11 +232,11 @@ define dso_local void @dm_unregister_target(ptr nocapture noundef %0) #0 align 1
   unreachable
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 216
-  %19 = getelementptr inbounds i8, ptr %0, i64 224
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8
   store volatile ptr %21, ptr %20, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %18, align 8
@@ -254,7 +254,7 @@ define dso_local noundef range(i32 -17, 1) i32 @dm_target_init() local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dm_target_exit() local_unnamed_addr #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @_lock) #10
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @error_target, i64 8), align 8
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @error_target, i64 8), align 8
   br label %2
 
 2:                                                ; preds = %6, %0
@@ -282,13 +282,13 @@ define dso_local void @dm_target_exit() local_unnamed_addr #0 align 16 {
   unreachable
 
 dm_unregister_target.exit:                        ; preds = %11
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @error_target, i64 224), align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @error_target, i64 216), align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @error_target, i64 224), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @error_target, i64 216), align 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %15, ptr %17, align 8
   store volatile ptr %16, ptr %15, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr getelementptr inbounds (i8, ptr @error_target, i64 216), align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr getelementptr inbounds (i8, ptr @error_target, i64 224), align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr getelementptr inbounds nuw (i8, ptr @error_target, i64 216), align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr getelementptr inbounds nuw (i8, ptr @error_target, i64 224), align 8
   tail call void @up_write(ptr noundef nonnull @_lock) #10
   ret void
 }
@@ -320,7 +320,7 @@ define internal i32 @io_err_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @.str.5, ptr %12, align 8
   br label %.thread
 
@@ -333,7 +333,7 @@ define internal i32 @io_err_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 
 18:                                               ; preds = %13
   %19 = load i64, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %19, ptr %20, align 8
   %21 = load ptr, ptr %2, align 8
   %22 = load ptr, ptr %0, align 8
@@ -345,7 +345,7 @@ define internal i32 @io_err_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 26:                                               ; preds = %18, %13
   %27 = phi ptr [ @.str.7, %13 ], [ @.str.8, %18 ]
   %28 = phi i32 [ -22, %13 ], [ %24, %18 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %27, ptr %29, align 8
   call void @kfree(ptr noundef nonnull %9) #10
   br label %.thread
@@ -357,16 +357,16 @@ define internal i32 @io_err_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   br label %37
 
 30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %9, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   br label %32
 
 32:                                               ; preds = %30, %3
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load i16, ptr %34, align 8
   %36 = or i16 %35, 2
   store i16 %36, ptr %34, align 8
@@ -379,7 +379,7 @@ define internal i32 @io_err_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @io_err_dtr(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -411,16 +411,16 @@ define internal void @io_err_release_clone_rq(ptr nocapture readnone %0, ptr noc
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @io_err_iterate_devices(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = tail call i32 %1(ptr noundef %0, ptr noundef %8, i64 noundef %10, i64 noundef %12, ptr noundef %2) #10
   br label %14
@@ -432,11 +432,11 @@ define internal i32 @io_err_iterate_devices(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal void @io_err_io_hints(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((68, 76), (88, 92)) %1) #7 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 68
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 -1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 512, ptr %5, align 8
   ret void
 }

@@ -78,15 +78,15 @@ define hidden ptr @VP8New() local_unnamed_addr #3 {
 
 2:                                                ; preds = %0
   store i32 0, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @.str.1, ptr %3, align 8
   %4 = tail call ptr @WebPGetWorkerInterface() #13
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 152
   tail call void %5(ptr noundef nonnull %6) #13
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 432
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 432
   store i32 0, ptr %8, align 8
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @InitGetCoeffs.InitGetCoeffs_body_lock) #13
   %.not.i = icmp eq i32 %9, 0
@@ -150,7 +150,7 @@ define hidden nonnull ptr @VP8StatusMessage(ptr noundef readonly %0) local_unnam
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   %.str.1. = select i1 %.not, ptr @.str.1, ptr %5
@@ -168,17 +168,17 @@ define hidden void @VP8Delete(ptr noundef %0) local_unnamed_addr #3 {
 
 VP8Clear.exit:                                    ; preds = %1
   %2 = tail call ptr @WebPGetWorkerInterface() #13
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void %4(ptr noundef nonnull %5) #13
   tail call void @WebPDeallocateAlphaMemory(ptr noundef nonnull %0) #13
-  %6 = getelementptr inbounds i8, ptr %0, i64 2888
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %7 = load ptr, ptr %6, align 8
   tail call void @WebPSafeFree(ptr noundef %7) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %9, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @WebPSafeFree(ptr noundef nonnull %0) #13
@@ -195,17 +195,17 @@ define hidden void @VP8Clear(ptr noundef %0) local_unnamed_addr #3 {
 
 3:                                                ; preds = %1
   %4 = tail call ptr @WebPGetWorkerInterface() #13
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void %6(ptr noundef nonnull %7) #13
   tail call void @WebPDeallocateAlphaMemory(ptr noundef nonnull %0) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 2888
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %9 = load ptr, ptr %8, align 8
   tail call void @WebPSafeFree(ptr noundef %9) #13
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %11, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   br label %12
@@ -224,9 +224,9 @@ define hidden noundef i32 @VP8SetError(ptr nocapture noundef %0, i32 noundef %1,
 
 6:                                                ; preds = %3
   store i32 %1, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %8, align 4
   br label %9
 
@@ -245,13 +245,13 @@ define range(i32 0, 2) i32 @VP8CheckSignature(ptr nocapture noundef readonly %0,
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 1
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 42
   %15 = zext i1 %14 to i32
@@ -270,19 +270,19 @@ define range(i32 0, 2) i32 @VP8GetInfo(ptr noundef readonly %0, i64 noundef %1, 
   br i1 %or.cond, label %VP8CheckSignature.exit.thread, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, -99
   br i1 %11, label %12, label %VP8CheckSignature.exit.thread
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 1
   br i1 %15, label %VP8CheckSignature.exit, label %VP8CheckSignature.exit.thread
 
 VP8CheckSignature.exit:                           ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 5
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %17 = load i8, ptr %16, align 1
   %.not = icmp eq i8 %17, 42
   br i1 %.not, label %18, label %VP8CheckSignature.exit.thread
@@ -290,25 +290,25 @@ VP8CheckSignature.exit:                           ; preds = %12
 18:                                               ; preds = %VP8CheckSignature.exit
   %19 = load i8, ptr %0, align 1
   %20 = zext i8 %19 to i32
-  %21 = getelementptr inbounds i8, ptr %0, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %22 = load i16, ptr %21, align 1
   %23 = zext i16 %22 to i32
   %24 = shl nuw nsw i32 %23, 8
   %25 = or disjoint i32 %24, %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 7
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = shl nuw nsw i32 %28, 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 6
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %.masked = and i32 %29, 16128
   %33 = or disjoint i32 %.masked, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 9
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = shl nuw nsw i32 %36, 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %.masked35 = and i32 %37, 16128
@@ -355,7 +355,7 @@ define hidden range(i32 0, 2) i32 @VP8GetHeaders(ptr noundef %0, ptr noundef %1)
 
 4:                                                ; preds = %2
   store i32 0, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.1, ptr %5, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %VP8SetError.exit, label %7
@@ -366,9 +366,9 @@ VP8SetError.exit:                                 ; preds = %4
   br label %VP8SetError.exit128.sink.split
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %11 = load i64, ptr %10, align 8
   %12 = icmp ult i64 %11, 4
   br i1 %12, label %VP8SetError.exit123, label %13
@@ -381,25 +381,25 @@ VP8SetError.exit123:                              ; preds = %7
 13:                                               ; preds = %7
   %14 = load i8, ptr %9, align 1
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %9, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %17 = load i16, ptr %16, align 1
   %18 = zext i16 %17 to i32
   %19 = shl nuw nsw i32 %18, 8
   %20 = or disjoint i32 %19, %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %22 = and i8 %14, 1
   %23 = xor i8 %22, 1
   store i8 %23, ptr %21, align 4
   %24 = lshr i8 %14, 1
   %25 = and i8 %24, 7
-  %26 = getelementptr inbounds i8, ptr %0, i64 69
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 69
   store i8 %25, ptr %26, align 1
   %27 = lshr i8 %14, 4
   %28 = and i8 %27, 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 70
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 70
   store i8 %28, ptr %29, align 2
   %30 = lshr i32 %20, 5
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %30, ptr %31, align 4
   %32 = icmp samesign ugt i8 %25, 3
   br i1 %32, label %VP8SetError.exit124, label %33
@@ -419,9 +419,9 @@ VP8SetError.exit125:                              ; preds = %33
   br label %VP8SetError.exit128.sink.split
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %9, i64 3
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 3
   %36 = add i64 %11, -3
-  %37 = getelementptr inbounds i8, ptr %0, i64 76
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %.not115.not = icmp eq i8 %22, 0
   br i1 %.not115.not, label %38, label %101
 
@@ -440,13 +440,13 @@ VP8SetError.exit126:                              ; preds = %38
   br i1 %42, label %43, label %VP8SetError.exit127
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %9, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 1
   br i1 %46, label %VP8CheckSignature.exit, label %VP8SetError.exit127
 
 VP8CheckSignature.exit:                           ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %9, i64 5
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %48 = load i8, ptr %47, align 1
   %.not134 = icmp eq i8 %48, 42
   br i1 %.not134, label %49, label %VP8SetError.exit127
@@ -457,11 +457,11 @@ VP8SetError.exit127:                              ; preds = %40, %43, %VP8CheckS
   br label %VP8SetError.exit128.sink.split
 
 49:                                               ; preds = %VP8CheckSignature.exit
-  %50 = getelementptr inbounds i8, ptr %9, i64 7
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 7
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i16
   %53 = shl nuw i16 %52, 8
-  %54 = getelementptr inbounds i8, ptr %9, i64 6
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i16
   %.masked = and i16 %53, 16128
@@ -469,71 +469,71 @@ VP8SetError.exit127:                              ; preds = %40, %43, %VP8CheckS
   store i16 %57, ptr %37, align 2
   %58 = load i8, ptr %50, align 1
   %59 = lshr i8 %58, 6
-  %60 = getelementptr inbounds i8, ptr %0, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 %59, ptr %60, align 2
-  %61 = getelementptr inbounds i8, ptr %9, i64 9
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i16
   %64 = shl nuw i16 %63, 8
-  %65 = getelementptr inbounds i8, ptr %9, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i16
   %.masked117 = and i16 %64, 16128
   %68 = or disjoint i16 %.masked117, %67
-  %69 = getelementptr inbounds i8, ptr %0, i64 78
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 78
   store i16 %68, ptr %69, align 2
   %70 = load i8, ptr %61, align 1
   %71 = lshr i8 %70, 6
-  %72 = getelementptr inbounds i8, ptr %0, i64 81
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 81
   store i8 %71, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %9, i64 10
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %74 = add i64 %11, -10
   %75 = zext nneg i16 %57 to i32
   %76 = add nuw nsw i32 %75, 15
   %77 = lshr i32 %76, 4
-  %78 = getelementptr inbounds i8, ptr %0, i64 408
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i32 %77, ptr %78, align 8
   %narrow = add nuw nsw i16 %68, 15
   %79 = lshr i16 %narrow, 4
   %80 = zext nneg i16 %79 to i32
-  %81 = getelementptr inbounds i8, ptr %0, i64 412
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 412
   store i32 %80, ptr %81, align 4
   store i32 %75, ptr %1, align 8
   %82 = load i16, ptr %69, align 2
   %83 = zext i16 %82 to i32
-  %84 = getelementptr inbounds i8, ptr %1, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %83, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %1, i64 116
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store i32 0, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %1, i64 128
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 0, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 120
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 0, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 124
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %75, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %1, i64 132
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 132
   store i32 %83, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %1, i64 136
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %1, i64 140
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 140
   store i32 %75, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %1, i64 144
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i32 %83, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %1, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %75, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %1, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %83, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 1192
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   tail call void @VP8ResetProba(ptr noundef nonnull %95) #13
-  %96 = getelementptr inbounds i8, ptr %0, i64 132
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 0, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %0, i64 136
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 140
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 1, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %0, i64 144
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 0, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %0, i64 148
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 0, ptr %100, align 4
   %.pre = load i32, ptr %31, align 4
   br label %101
@@ -557,11 +557,11 @@ VP8SetError.exit127:                              ; preds = %40, %43, %VP8CheckS
   br label %VP8SetError.exit128.sink.split
 
 109:                                              ; preds = %101
-  %110 = getelementptr inbounds i8, ptr %0, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @VP8InitBitReader(ptr noundef nonnull %110, ptr noundef nonnull %.0107, i64 noundef %103) #13
   %111 = load i32, ptr %31, align 4
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds i8, ptr %.0107, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %.0107, i64 %112
   %114 = sub i64 %.0108, %112
   %115 = load i8, ptr %21, align 4
   %.not118 = icmp eq i8 %115, 0
@@ -570,17 +570,17 @@ VP8SetError.exit127:                              ; preds = %40, %43, %VP8CheckS
 116:                                              ; preds = %109
   %117 = tail call i32 @VP8GetValue(ptr noundef nonnull %110, i32 noundef 1) #13
   %118 = trunc i32 %117 to i8
-  %119 = getelementptr inbounds i8, ptr %0, i64 82
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 82
   store i8 %118, ptr %119, align 2
   %120 = tail call i32 @VP8GetValue(ptr noundef nonnull %110, i32 noundef 1) #13
   %121 = trunc i32 %120 to i8
-  %122 = getelementptr inbounds i8, ptr %0, i64 83
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 83
   store i8 %121, ptr %122, align 1
   br label %123
 
 123:                                              ; preds = %116, %109
-  %124 = getelementptr inbounds i8, ptr %0, i64 132
-  %125 = getelementptr inbounds i8, ptr %0, i64 1192
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %126 = tail call fastcc i32 @ParseSegmentHeader(ptr noundef %110, ptr noundef %124, ptr noundef %125)
   %.not119 = icmp eq i32 %126, 0
   br i1 %.not119, label %127, label %131
@@ -648,7 +648,7 @@ VP8SetError.exit127:                              ; preds = %40, %43, %VP8CheckS
 
 VP8SetError.exit128.sink.split:                   ; preds = %VP8SetError.exit, %VP8SetError.exit123, %VP8SetError.exit124, %VP8SetError.exit125, %VP8SetError.exit126, %VP8SetError.exit127, %149, %108, %130, %136, %142, %148
   %.sink = phi i32 [ 0, %148 ], [ 0, %142 ], [ 0, %136 ], [ 0, %130 ], [ 0, %108 ], [ 1, %149 ], [ 0, %VP8SetError.exit127 ], [ 0, %VP8SetError.exit126 ], [ 0, %VP8SetError.exit125 ], [ 0, %VP8SetError.exit124 ], [ 0, %VP8SetError.exit123 ], [ 0, %VP8SetError.exit ]
-  %151 = getelementptr inbounds i8, ptr %0, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %151, align 4
   br label %VP8SetError.exit128
 
@@ -672,7 +672,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 5:                                                ; preds = %3
   %6 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %6, ptr %7, align 4
   %8 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   %.not29 = icmp eq i32 %8, 0
@@ -680,13 +680,13 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 9:                                                ; preds = %5
   %10 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
   br label %14
 
 .preheader35:                                     ; preds = %19
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %22
 
 14:                                               ; preds = %9, %19
@@ -702,7 +702,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 19:                                               ; preds = %14, %16
   %20 = phi i8 [ %18, %16 ], [ 0, %14 ]
-  %21 = getelementptr inbounds [4 x i8], ptr %12, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 0, i64 %indvars.iv
   store i8 %20, ptr %21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -721,7 +721,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 27:                                               ; preds = %22, %24
   %28 = phi i8 [ %26, %24 ], [ 0, %22 ]
-  %29 = getelementptr inbounds [4 x i8], ptr %13, i64 0, i64 %indvars.iv41
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 0, i64 %indvars.iv41
   store i8 %28, ptr %29, align 1
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 4
@@ -745,19 +745,19 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 35:                                               ; preds = %.preheader, %32
   %36 = phi i8 [ %34, %32 ], [ -1, %.preheader ]
-  %37 = getelementptr inbounds [3 x i8], ptr %2, i64 0, i64 %indvars.iv45
+  %37 = getelementptr inbounds nuw [3 x i8], ptr %2, i64 0, i64 %indvars.iv45
   store i8 %36, ptr %37, align 1
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 3
   br i1 %exitcond48.not, label %.loopexit, label %.preheader, !llvm.loop !7
 
 38:                                               ; preds = %3
-  %39 = getelementptr inbounds i8, ptr %1, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %39, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.loopexit36, %38
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load i32, ptr %40, align 8
   %.not31 = icmp eq i32 %41, 0
   %42 = zext i1 %.not31 to i32
@@ -766,17 +766,17 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnu
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnull %0, ptr nocapture noundef nonnull initializes((84, 100)) %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 84
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   store i32 %4, ptr %3, align 4
   %5 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 6) #13
-  %6 = getelementptr inbounds i8, ptr %1, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 %5, ptr %6, align 4
   %7 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 3) #13
-  %8 = getelementptr inbounds i8, ptr %1, i64 92
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 92
   store i32 %7, ptr %8, align 4
   %9 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
-  %10 = getelementptr inbounds i8, ptr %1, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 %9, ptr %10, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.loopexit, label %11
@@ -787,11 +787,11 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
   br i1 %.not26, label %.loopexit, label %.preheader31
 
 .preheader31:                                     ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 100
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 100
   br label %15
 
 .preheader:                                       ; preds = %20
-  %14 = getelementptr inbounds i8, ptr %1, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 116
   br label %21
 
 15:                                               ; preds = %.preheader31, %20
@@ -802,7 +802,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
 
 17:                                               ; preds = %15
   %18 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #13
-  %19 = getelementptr inbounds [4 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i32], ptr %13, i64 0, i64 %indvars.iv
   store i32 %18, ptr %19, align 4
   br label %20
 
@@ -819,7 +819,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
 
 23:                                               ; preds = %21
   %24 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #13
-  %25 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 %indvars.iv35
+  %25 = getelementptr inbounds nuw [4 x i32], ptr %14, i64 0, i64 %indvars.iv35
   store i32 %24, ptr %25, align 4
   br label %26
 
@@ -841,9 +841,9 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
 
 32:                                               ; preds = %.loopexit, %29
   %33 = phi i32 [ %31, %29 ], [ 0, %.loopexit ]
-  %34 = getelementptr inbounds i8, ptr %1, i64 2920
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 2920
   store i32 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i32, ptr %35, align 8
   %.not28 = icmp eq i32 %36, 0
   %37 = zext i1 %.not28 to i32
@@ -852,12 +852,12 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnul
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = tail call i32 @VP8GetValue(ptr noundef nonnull %4, i32 noundef 2) #13
   %notmask = shl nsw i32 -1, %6
   %7 = xor i32 %notmask, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 432
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i32 %7, ptr %8, align 8
   %9 = zext nneg i32 %7 to i64
   %10 = mul nuw nsw i64 %9, 3
@@ -865,13 +865,13 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef nonnull 
   br i1 %11, label %36, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %10
   %14 = sub nuw i64 %2, %10
   %.not53 = icmp eq i32 %6, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 440
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %umax = tail call i64 @llvm.umax.i64(i64 %9, i64 1)
   br label %16
 
@@ -882,17 +882,17 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef nonnull 
   %.04348 = phi ptr [ %1, %.lr.ph ], [ %27, %16 ]
   %17 = load i16, ptr %.04348, align 1
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %.04348, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.04348, i64 2
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 16
   %23 = or disjoint i64 %22, %18
   %spec.select = tail call i64 @llvm.umin.i64(i64 %23, i64 %.04150)
-  %24 = getelementptr inbounds %struct.VP8BitReader, ptr %15, i64 %.03951
+  %24 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %15, i64 %.03951
   tail call void @VP8InitBitReader(ptr noundef nonnull %24, ptr noundef %.04249, i64 noundef %spec.select) #13
-  %25 = getelementptr inbounds i8, ptr %.04249, i64 %spec.select
+  %25 = getelementptr inbounds nuw i8, ptr %.04249, i64 %spec.select
   %26 = sub i64 %.04150, %spec.select
-  %27 = getelementptr inbounds i8, ptr %.04348, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %.04348, i64 3
   %28 = add nuw nsw i64 %.03951, 1
   %exitcond.not = icmp eq i64 %28, %umax
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !10
@@ -900,14 +900,14 @@ define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef nonnull 
 ._crit_edge:                                      ; preds = %16, %12
   %.042.lcssa = phi ptr [ %13, %12 ], [ %25, %16 ]
   %.041.lcssa = phi i64 [ %14, %12 ], [ %26, %16 ]
-  %29 = getelementptr inbounds i8, ptr %0, i64 440
-  %30 = getelementptr inbounds %struct.VP8BitReader, ptr %29, i64 %9
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %30 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %29, i64 %9
   tail call void @VP8InitBitReader(ptr noundef nonnull %30, ptr noundef %.042.lcssa, i64 noundef %.041.lcssa) #13
   %31 = icmp ult ptr %.042.lcssa, %5
   br i1 %31, label %36, label %32
 
 32:                                               ; preds = %._crit_edge
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load i32, ptr %33, align 8
   %.not = icmp eq i32 %34, 0
   %35 = select i1 %.not, i32 7, i32 5
@@ -925,44 +925,44 @@ declare void @VP8ParseProba(ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [16 x i16], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 2832
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -2
-  %7 = getelementptr inbounds i8, ptr %0, i64 2904
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds %struct.VP8MB, ptr %5, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 2912
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2912
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds %struct.VP8MBData, ptr %12, i64 %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 2800
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2800
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.critedge, label %16
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %13, i64 797
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 797
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.critedge, label %160
 
 .critedge:                                        ; preds = %2, %16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %20 = getelementptr inbounds i8, ptr %0, i64 2256
-  %21 = getelementptr inbounds i8, ptr %0, i64 1060
-  %22 = getelementptr inbounds i8, ptr %13, i64 798
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 2256
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1060
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 798
   %23 = load i8, ptr %22, align 2
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds [4 x %struct.VP8QuantMatrix], ptr %21, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [4 x %struct.VP8QuantMatrix], ptr %21, i64 0, i64 %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(768) %13, i8 0, i64 768, i1 false)
-  %26 = getelementptr inbounds i8, ptr %13, i64 768
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 768
   %27 = load i8, ptr %26, align 4
   %.not.i = icmp eq i8 %27, 0
   br i1 %.not.i, label %28, label %54
 
 28:                                               ; preds = %.critedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %29 = getelementptr inbounds i8, ptr %10, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = getelementptr inbounds i8, ptr %5, i64 -1
@@ -970,8 +970,8 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %34 = zext i8 %33 to i32
   %35 = add nuw nsw i32 %34, %31
   %36 = load volatile ptr, ptr @GetCoeffs, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 2392
-  %38 = getelementptr inbounds i8, ptr %25, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 2392
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %39 = call i32 %36(ptr noundef %1, ptr noundef nonnull %37, i32 noundef %35, ptr noundef nonnull %38, i32 noundef 0, ptr noundef nonnull %3) #13
   %40 = icmp sgt i32 %39, 0
   %41 = zext i1 %40 to i8
@@ -995,14 +995,14 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
 
 51:                                               ; preds = %51, %45
   %indvars.iv.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds i16, ptr %13, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv.i
   store i16 %50, ptr %52, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
   %53 = icmp samesign ult i64 %indvars.iv.i, 240
   br i1 %53, label %51, label %.loopexit.i, !llvm.loop !11
 
 54:                                               ; preds = %.critedge
-  %55 = getelementptr inbounds i8, ptr %0, i64 2664
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %51, %54, %43
@@ -1049,7 +1049,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %79 = select i1 %.inv.i.i, i32 %76, i32 2
   %80 = select i1 %78, i32 3, i32 %79
   %81 = or disjoint i32 %80, %77
-  %82 = getelementptr inbounds i8, ptr %.1137.i, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %.1137.i, i64 32
   %83 = add nuw nsw i32 %.0121133.i, 1
   %exitcond.not.i = icmp eq i32 %83, 4
   br i1 %exitcond.not.i, label %84, label %63, !llvm.loop !12
@@ -1068,8 +1068,8 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %92 = zext nneg i8 %85 to i32
   %93 = lshr i8 %87, 4
   %94 = zext nneg i8 %93 to i32
-  %95 = getelementptr inbounds i8, ptr %0, i64 2528
-  %96 = getelementptr inbounds i8, ptr %25, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 2528
+  %96 = getelementptr inbounds nuw i8, ptr %25, i64 16
   br label %97
 
 97:                                               ; preds = %136, %91
@@ -1122,7 +1122,7 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   %126 = select i1 %.inv.i131.i, i32 %123, i32 2
   %127 = select i1 %125, i32 3, i32 %126
   %128 = or disjoint i32 %127, %124
-  %129 = getelementptr inbounds i8, ptr %.4147.i, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %.4147.i, i64 32
   br i1 %110, label %109, label %130, !llvm.loop !14
 
 130:                                              ; preds = %109
@@ -1150,23 +1150,23 @@ define hidden range(i32 0, 2) i32 @VP8DecodeMB(ptr noundef %0, ptr noundef %1) l
   store i8 %147, ptr %10, align 1
   %148 = trunc nuw i32 %145 to i8
   store i8 %148, ptr %6, align 1
-  %149 = getelementptr inbounds i8, ptr %13, i64 788
+  %149 = getelementptr inbounds nuw i8, ptr %13, i64 788
   store i32 %89, ptr %149, align 4
-  %150 = getelementptr inbounds i8, ptr %13, i64 792
+  %150 = getelementptr inbounds nuw i8, ptr %13, i64 792
   store i32 %139, ptr %150, align 4
   %151 = and i32 %139, 43690
   %.not129.i = icmp eq i32 %151, 0
   br i1 %.not129.i, label %152, label %ParseResiduals.exit
 
 152:                                              ; preds = %146
-  %153 = getelementptr inbounds i8, ptr %25, i64 28
+  %153 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %154 = load i32, ptr %153, align 4
   %155 = trunc i32 %154 to i8
   br label %ParseResiduals.exit
 
 ParseResiduals.exit:                              ; preds = %146, %152
   %156 = phi i8 [ %155, %152 ], [ 0, %146 ]
-  %157 = getelementptr inbounds i8, ptr %13, i64 796
+  %157 = getelementptr inbounds nuw i8, ptr %13, i64 796
   store i8 %156, ptr %157, align 4
   %158 = or i32 %139, %89
   %.not130.i = icmp ne i32 %158, 0
@@ -1177,47 +1177,47 @@ ParseResiduals.exit:                              ; preds = %146, %152
 160:                                              ; preds = %16
   store i8 0, ptr %10, align 1
   store i8 0, ptr %6, align 1
-  %161 = getelementptr inbounds i8, ptr %13, i64 768
+  %161 = getelementptr inbounds nuw i8, ptr %13, i64 768
   %162 = load i8, ptr %161, align 4
   %.not30 = icmp eq i8 %162, 0
   br i1 %.not30, label %163, label %166
 
 163:                                              ; preds = %160
-  %164 = getelementptr inbounds i8, ptr %10, i64 1
+  %164 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 0, ptr %164, align 1
   %165 = getelementptr inbounds i8, ptr %5, i64 -1
   store i8 0, ptr %165, align 1
   br label %166
 
 166:                                              ; preds = %163, %160
-  %167 = getelementptr inbounds i8, ptr %13, i64 788
+  %167 = getelementptr inbounds nuw i8, ptr %13, i64 788
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %167, i8 0, i64 9, i1 false)
   br label %168
 
 168:                                              ; preds = %166, %ParseResiduals.exit
   %.0 = phi i8 [ 0, %166 ], [ %159, %ParseResiduals.exit ]
-  %169 = getelementptr inbounds i8, ptr %0, i64 2920
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 2920
   %170 = load i32, ptr %169, align 8
   %171 = icmp sgt i32 %170, 0
   br i1 %171, label %172, label %191
 
 172:                                              ; preds = %168
-  %173 = getelementptr inbounds i8, ptr %0, i64 2840
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 2840
   %174 = load ptr, ptr %173, align 8
   %175 = load i32, ptr %7, align 8
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds %struct.VP8FInfo, ptr %174, i64 %176
-  %178 = getelementptr inbounds i8, ptr %0, i64 2924
-  %179 = getelementptr inbounds i8, ptr %13, i64 798
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 2924
+  %179 = getelementptr inbounds nuw i8, ptr %13, i64 798
   %180 = load i8, ptr %179, align 2
   %181 = zext i8 %180 to i64
-  %182 = getelementptr inbounds i8, ptr %13, i64 768
+  %182 = getelementptr inbounds nuw i8, ptr %13, i64 768
   %183 = load i8, ptr %182, align 4
   %184 = zext i8 %183 to i64
-  %185 = getelementptr inbounds [4 x [2 x %struct.VP8FInfo]], ptr %178, i64 0, i64 %181, i64 %184
+  %185 = getelementptr inbounds nuw [4 x [2 x %struct.VP8FInfo]], ptr %178, i64 0, i64 %181, i64 %184
   %186 = load i32, ptr %185, align 4
   store i32 %186, ptr %177, align 1
-  %187 = getelementptr inbounds i8, ptr %177, i64 2
+  %187 = getelementptr inbounds nuw i8, ptr %177, i64 2
   %188 = lshr i32 %186, 16
   %189 = trunc i32 %188 to i8
   %190 = or i8 %.0, %189
@@ -1225,7 +1225,7 @@ ParseResiduals.exit:                              ; preds = %146, %152
   br label %191
 
 191:                                              ; preds = %172, %168
-  %192 = getelementptr inbounds i8, ptr %1, i64 40
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %193 = load i32, ptr %192, align 8
   %.not32 = icmp eq i32 %193, 0
   %194 = zext i1 %.not32 to i32
@@ -1234,15 +1234,15 @@ ParseResiduals.exit:                              ; preds = %146, %152
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @VP8InitScanline(ptr nocapture noundef initializes((2816, 2820), (2904, 2908)) %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2832
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2832
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -2
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds i8, ptr %3, i64 -1
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 2816
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2816
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 2904
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2904
   store i32 0, ptr %7, align 8
   ret void
 }
@@ -1263,14 +1263,14 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
 
 9:                                                ; preds = %6
   store i32 2, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.13, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %11, align 4
   br label %VP8SetError.exit
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %17
@@ -1291,21 +1291,21 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not27, label %83, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 2908
-  %24 = getelementptr inbounds i8, ptr %0, i64 428
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 2908
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 428
   store i32 0, ptr %23, align 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph31.i, label %._crit_edge32.i
 
 .lr.ph31.i:                                       ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 440
-  %28 = getelementptr inbounds i8, ptr %0, i64 432
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  %30 = getelementptr inbounds i8, ptr %0, i64 2904
-  %31 = getelementptr inbounds i8, ptr %0, i64 408
-  %32 = getelementptr inbounds i8, ptr %0, i64 2832
-  %33 = getelementptr inbounds i8, ptr %0, i64 2816
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2904
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2832
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2816
   br label %34
 
 34:                                               ; preds = %68, %.lr.ph31.i
@@ -1313,7 +1313,7 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
   %35 = load i32, ptr %28, align 8
   %36 = and i32 %35, %storemerge29.i
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds [8 x %struct.VP8BitReader], ptr %27, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [8 x %struct.VP8BitReader], ptr %27, i64 0, i64 %37
   %39 = tail call i32 @VP8ParseIntraModeRow(ptr noundef nonnull %29, ptr noundef nonnull %0) #13
   %.not23.i = icmp eq i32 %39, 0
   br i1 %.not23.i, label %43, label %.preheader.i
@@ -1331,7 +1331,7 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
 
 46:                                               ; preds = %43
   store i32 7, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.14, ptr %47, align 8
   store i32 0, ptr %13, align 4
   br label %83
@@ -1348,7 +1348,7 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
 
 52:                                               ; preds = %49
   store i32 7, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.15, ptr %53, align 8
   store i32 0, ptr %13, align 4
   br label %83
@@ -1380,7 +1380,7 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
 
 66:                                               ; preds = %63
   store i32 6, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.16, ptr %67, align 8
   store i32 0, ptr %13, align 4
   br label %83
@@ -1394,16 +1394,16 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
   br i1 %72, label %34, label %._crit_edge32.i, !llvm.loop !18
 
 ._crit_edge32.i:                                  ; preds = %68, %22
-  %73 = getelementptr inbounds i8, ptr %0, i64 200
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %74 = load i32, ptr %73, align 8
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %76, label %82
 
 76:                                               ; preds = %._crit_edge32.i
   %77 = tail call ptr @WebPGetWorkerInterface() #13
-  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 152
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %81 = tail call i32 %79(ptr noundef nonnull %80) #13
   %.not.i = icmp eq i32 %81, 0
   br i1 %.not.i, label %83, label %82
@@ -1420,15 +1420,15 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
 
 VP8Clear.exit:                                    ; preds = %17, %83
   %86 = tail call ptr @WebPGetWorkerInterface() #13
-  %87 = getelementptr inbounds i8, ptr %86, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 152
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void %88(ptr noundef nonnull %89) #13
   tail call void @WebPDeallocateAlphaMemory(ptr noundef nonnull %0) #13
-  %90 = getelementptr inbounds i8, ptr %0, i64 2888
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %91 = load ptr, ptr %90, align 8
   tail call void @WebPSafeFree(ptr noundef %91) #13
-  %92 = getelementptr inbounds i8, ptr %0, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %92, i8 0, i64 48, i1 false)
   store i32 0, ptr %13, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
@@ -1470,10 +1470,10 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsAlt(ptr noundef %0, ptr
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds [3 x [11 x i8]], ptr %10, i64 0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %17
 
 17:                                               ; preds = %.lr.ph, %VP8GetSigned.exit
@@ -1496,7 +1496,7 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsAlt(ptr noundef %0, ptr
 
 27:                                               ; preds = %23
   %.0.copyload.i.i = load i64, ptr %24, align 1, !noalias !25
-  %28 = getelementptr inbounds i8, ptr %24, i64 7
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 7
   store ptr %28, ptr %15, align 8, !alias.scope !25
   %29 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i)
   %30 = load i64, ptr %0, align 8, !alias.scope !25
@@ -1539,10 +1539,10 @@ VP8LoadNewBytes.exit.i:                           ; preds = %33, %27, %17
 
 50:                                               ; preds = %47
   %51 = zext nneg i32 %.0.i to i64
-  %52 = getelementptr inbounds [128 x i8], ptr @kVP8Log2Range, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [128 x i8], ptr @kVP8Log2Range, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1, !noalias !19
   %54 = zext i8 %53 to i32
-  %55 = getelementptr inbounds [128 x i8], ptr @kVP8NewRange, i64 0, i64 %51
+  %55 = getelementptr inbounds nuw [128 x i8], ptr @kVP8NewRange, i64 0, i64 %51
   %56 = load i8, ptr %55, align 1, !noalias !19
   %57 = zext i8 %56 to i32
   %58 = sub nsw i32 %34, %54
@@ -1565,7 +1565,7 @@ VP8GetBitAlt.exit:                                ; preds = %47, %50
   %63 = phi i32 [ %.1.i, %.preheader.preheader ], [ %.1.i37, %104 ]
   %indvars.iv = phi i64 [ %60, %.preheader.preheader ], [ %indvars.iv.next, %104 ]
   %.1 = phi ptr [ %.02858, %.preheader.preheader ], [ %106, %104 ]
-  %64 = getelementptr inbounds i8, ptr %.1, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -1581,7 +1581,7 @@ VP8GetBitAlt.exit:                                ; preds = %47, %50
 
 72:                                               ; preds = %68
   %.0.copyload.i.i39 = load i64, ptr %69, align 1, !noalias !32
-  %73 = getelementptr inbounds i8, ptr %69, i64 7
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 7
   store ptr %73, ptr %15, align 8, !alias.scope !32
   %74 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i39)
   %75 = tail call i64 @llvm.fshl.i64(i64 %61, i64 %74, i64 56)
@@ -1624,10 +1624,10 @@ VP8LoadNewBytes.exit.i34:                         ; preds = %77, %72, %.preheade
 
 94:                                               ; preds = %91
   %95 = zext nneg i32 %.0.i36 to i64
-  %96 = getelementptr inbounds [128 x i8], ptr @kVP8Log2Range, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [128 x i8], ptr @kVP8Log2Range, i64 0, i64 %95
   %97 = load i8, ptr %96, align 1, !noalias !26
   %98 = zext i8 %97 to i32
-  %99 = getelementptr inbounds [128 x i8], ptr @kVP8NewRange, i64 0, i64 %95
+  %99 = getelementptr inbounds nuw [128 x i8], ptr @kVP8NewRange, i64 0, i64 %95
   %100 = load i8, ptr %99, align 1, !noalias !26
   %101 = zext i8 %100 to i32
   %102 = sub nsw i32 %79, %98
@@ -1653,7 +1653,7 @@ VP8GetBitAlt.exit40:                              ; preds = %91, %94
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds ptr, ptr %1, i64 %111
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %.1, i64 2
+  %114 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
@@ -1669,7 +1669,7 @@ VP8GetBitAlt.exit40:                              ; preds = %91, %94
 
 122:                                              ; preds = %118
   %.0.copyload.i.i46 = load i64, ptr %119, align 1, !noalias !40
-  %123 = getelementptr inbounds i8, ptr %119, i64 7
+  %123 = getelementptr inbounds nuw i8, ptr %119, i64 7
   store ptr %123, ptr %15, align 8, !alias.scope !40
   %124 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i46)
   %125 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %124, i64 56)
@@ -1711,10 +1711,10 @@ VP8LoadNewBytes.exit.i41:                         ; preds = %127, %122, %108
 
 143:                                              ; preds = %141
   %144 = zext nneg i32 %.0.i43 to i64
-  %145 = getelementptr inbounds [128 x i8], ptr @kVP8Log2Range, i64 0, i64 %144
+  %145 = getelementptr inbounds nuw [128 x i8], ptr @kVP8Log2Range, i64 0, i64 %144
   %146 = load i8, ptr %145, align 1, !noalias !34
   %147 = zext i8 %146 to i32
-  %148 = getelementptr inbounds [128 x i8], ptr @kVP8NewRange, i64 0, i64 %144
+  %148 = getelementptr inbounds nuw [128 x i8], ptr @kVP8NewRange, i64 0, i64 %144
   %149 = load i8, ptr %148, align 1, !noalias !34
   %150 = zext i8 %149 to i32
   %151 = sub nsw i32 %129, %147
@@ -1728,12 +1728,12 @@ VP8GetBitAlt.exit47:                              ; preds = %141, %143
   br i1 %.not52, label %155, label %153
 
 153:                                              ; preds = %VP8GetBitAlt.exit47
-  %154 = getelementptr inbounds i8, ptr %113, i64 11
+  %154 = getelementptr inbounds nuw i8, ptr %113, i64 11
   br label %158
 
 155:                                              ; preds = %VP8GetBitAlt.exit47
   %156 = tail call fastcc i32 @GetLargeValue(ptr noundef nonnull %0, ptr noundef nonnull %.1)
-  %157 = getelementptr inbounds i8, ptr %113, i64 22
+  %157 = getelementptr inbounds nuw i8, ptr %113, i64 22
   %.pre66 = load i32, ptr %14, align 4, !alias.scope !41
   br label %158
 
@@ -1754,7 +1754,7 @@ VP8GetBitAlt.exit47:                              ; preds = %141, %143
 
 165:                                              ; preds = %161
   %.0.copyload.i.i50 = load i64, ptr %162, align 1, !noalias !47
-  %166 = getelementptr inbounds i8, ptr %162, i64 7
+  %166 = getelementptr inbounds nuw i8, ptr %162, i64 7
   store ptr %166, ptr %15, align 8, !alias.scope !47
   %167 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i50)
   %168 = load i64, ptr %0, align 8, !alias.scope !47
@@ -1793,7 +1793,7 @@ VP8GetSigned.exit:                                ; preds = %158, %165, %171
   %190 = sub nsw i32 %189, %180
   %191 = icmp sgt i64 %indvars.iv, 0
   %192 = zext i1 %191 to i64
-  %193 = getelementptr inbounds i32, ptr %3, i64 %192
+  %193 = getelementptr inbounds nuw i32, ptr %3, i64 %192
   %194 = load i32, ptr %193, align 4
   %195 = mul nsw i32 %190, %194
   %196 = trunc i32 %195 to i16
@@ -1802,7 +1802,7 @@ VP8GetSigned.exit:                                ; preds = %158, %165, %171
   %198 = getelementptr inbounds [16 x i8], ptr @kZigzag, i64 0, i64 %197
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i64
-  %201 = getelementptr inbounds i16, ptr %5, i64 %200
+  %201 = getelementptr inbounds nuw i16, ptr %5, i64 %200
   store i16 %196, ptr %201, align 2
   %202 = icmp slt i64 %indvars.iv, 15
   br i1 %202, label %17, label %.loopexit, !llvm.loop !48
@@ -1823,10 +1823,10 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsFast(ptr noundef %0, pt
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
   %12 = getelementptr inbounds [3 x [11 x i8]], ptr %10, i64 0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %17
 
 17:                                               ; preds = %.lr.ph, %VP8GetSigned.exit
@@ -1849,7 +1849,7 @@ define internal range(i32 -2147483648, 17) i32 @GetCoeffsFast(ptr noundef %0, pt
 
 27:                                               ; preds = %23
   %.0.copyload.i.i = load i64, ptr %24, align 1, !noalias !55
-  %28 = getelementptr inbounds i8, ptr %24, i64 7
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 7
   store ptr %28, ptr %15, align 8, !alias.scope !55
   %29 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i)
   %30 = load i64, ptr %0, align 8, !alias.scope !55
@@ -1909,7 +1909,7 @@ VP8GetBit.exit:                                   ; preds = %41, %47
   %58 = phi i32 [ %54, %.preheader.preheader ], [ %93, %94 ]
   %indvars.iv = phi i64 [ %55, %.preheader.preheader ], [ %indvars.iv.next, %94 ]
   %.1 = phi ptr [ %.02856, %.preheader.preheader ], [ %96, %94 ]
-  %59 = getelementptr inbounds i8, ptr %.1, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
@@ -1925,7 +1925,7 @@ VP8GetBit.exit:                                   ; preds = %41, %47
 
 67:                                               ; preds = %63
   %.0.copyload.i.i37 = load i64, ptr %64, align 1, !noalias !62
-  %68 = getelementptr inbounds i8, ptr %64, i64 7
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 7
   store ptr %68, ptr %15, align 8, !alias.scope !62
   %69 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i37)
   %70 = tail call i64 @llvm.fshl.i64(i64 %56, i64 %69, i64 56)
@@ -1988,7 +1988,7 @@ VP8GetBit.exit38:                                 ; preds = %80, %86
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds ptr, ptr %1, i64 %101
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %.1, i64 2
+  %104 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
@@ -2004,7 +2004,7 @@ VP8GetBit.exit38:                                 ; preds = %80, %86
 
 112:                                              ; preds = %108
   %.0.copyload.i.i42 = load i64, ptr %109, align 1, !noalias !70
-  %113 = getelementptr inbounds i8, ptr %109, i64 7
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 7
   store ptr %113, ptr %15, align 8, !alias.scope !70
   %114 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i42)
   %115 = tail call i64 @llvm.fshl.i64(i64 %88, i64 %114, i64 56)
@@ -2054,12 +2054,12 @@ VP8GetBit.exit43:                                 ; preds = %125, %131
   br i1 %.not48, label %140, label %138
 
 138:                                              ; preds = %VP8GetBit.exit43
-  %139 = getelementptr inbounds i8, ptr %103, i64 11
+  %139 = getelementptr inbounds nuw i8, ptr %103, i64 11
   br label %143
 
 140:                                              ; preds = %VP8GetBit.exit43
   %141 = tail call fastcc i32 @GetLargeValue(ptr noundef nonnull %0, ptr noundef nonnull %.1)
-  %142 = getelementptr inbounds i8, ptr %103, i64 22
+  %142 = getelementptr inbounds nuw i8, ptr %103, i64 22
   %.pre66 = load i32, ptr %14, align 4, !alias.scope !71
   br label %143
 
@@ -2080,7 +2080,7 @@ VP8GetBit.exit43:                                 ; preds = %125, %131
 
 150:                                              ; preds = %146
   %.0.copyload.i.i46 = load i64, ptr %147, align 1, !noalias !77
-  %151 = getelementptr inbounds i8, ptr %147, i64 7
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 7
   store ptr %151, ptr %15, align 8, !alias.scope !77
   %152 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i46)
   %153 = load i64, ptr %0, align 8, !alias.scope !77
@@ -2119,7 +2119,7 @@ VP8GetSigned.exit:                                ; preds = %143, %150, %156
   %175 = sub nsw i32 %174, %165
   %176 = icmp sgt i64 %indvars.iv, 0
   %177 = zext i1 %176 to i64
-  %178 = getelementptr inbounds i32, ptr %3, i64 %177
+  %178 = getelementptr inbounds nuw i32, ptr %3, i64 %177
   %179 = load i32, ptr %178, align 4
   %180 = mul nsw i32 %175, %179
   %181 = trunc i32 %180 to i16
@@ -2128,7 +2128,7 @@ VP8GetSigned.exit:                                ; preds = %143, %150, %156
   %183 = getelementptr inbounds [16 x i8], ptr @kZigzag, i64 0, i64 %182
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i64
-  %186 = getelementptr inbounds i16, ptr %5, i64 %185
+  %186 = getelementptr inbounds nuw i16, ptr %5, i64 %185
   store i16 %181, ptr %186, align 2
   %187 = icmp slt i64 %indvars.iv, 15
   br i1 %187, label %17, label %.loopexit, !llvm.loop !78
@@ -2140,29 +2140,29 @@ VP8GetSigned.exit:                                ; preds = %143, %150, %156
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483640, -2147483648) i32 @GetLargeValue(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 3
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !alias.scope !79
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4, !alias.scope !79
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %VP8LoadNewBytes.exit.i
 
 11:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !alias.scope !85
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8, !alias.scope !85
   %16 = icmp ult ptr %13, %15
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %11
   %.0.copyload.i.i = load i64, ptr %13, align 1, !noalias !85
-  %18 = getelementptr inbounds i8, ptr %13, i64 7
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 7
   store ptr %18, ptr %12, align 8, !alias.scope !85
   %19 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i)
   %20 = load i64, ptr %0, align 8, !alias.scope !85
@@ -2214,7 +2214,7 @@ VP8GetBit.exit:                                   ; preds = %31, %37
   br i1 %.not, label %122, label %46
 
 46:                                               ; preds = %VP8GetBit.exit
-  %47 = getelementptr inbounds i8, ptr %1, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
@@ -2222,16 +2222,16 @@ VP8GetBit.exit:                                   ; preds = %31, %37
 
 50:                                               ; preds = %46
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !alias.scope !92
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8, !alias.scope !92
   %55 = icmp ult ptr %52, %54
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %50
   %.0.copyload.i.i39 = load i64, ptr %52, align 1, !noalias !92
-  %57 = getelementptr inbounds i8, ptr %52, i64 7
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 7
   store ptr %57, ptr %51, align 8, !alias.scope !92
   %58 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i39)
   %59 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %58, i64 56)
@@ -2282,7 +2282,7 @@ VP8GetBit.exit40:                                 ; preds = %69, %75
   br i1 %.not88, label %83, label %438
 
 83:                                               ; preds = %VP8GetBit.exit40
-  %84 = getelementptr inbounds i8, ptr %1, i64 5
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
@@ -2291,16 +2291,16 @@ VP8GetBit.exit40:                                 ; preds = %69, %75
 
 88:                                               ; preds = %83
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  %89 = getelementptr inbounds i8, ptr %0, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load ptr, ptr %89, align 8, !alias.scope !99
-  %91 = getelementptr inbounds i8, ptr %0, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %92 = load ptr, ptr %91, align 8, !alias.scope !99
   %93 = icmp ult ptr %90, %92
   br i1 %93, label %94, label %99
 
 94:                                               ; preds = %88
   %.0.copyload.i.i44 = load i64, ptr %90, align 1, !noalias !99
-  %95 = getelementptr inbounds i8, ptr %90, i64 7
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 7
   store ptr %95, ptr %89, align 8, !alias.scope !99
   %96 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i44)
   %97 = tail call i64 @llvm.fshl.i64(i64 %77, i64 %96, i64 56)
@@ -2351,7 +2351,7 @@ VP8GetBit.exit45:                                 ; preds = %108, %114
   br label %438
 
 122:                                              ; preds = %VP8GetBit.exit
-  %123 = getelementptr inbounds i8, ptr %1, i64 6
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
@@ -2359,16 +2359,16 @@ VP8GetBit.exit45:                                 ; preds = %108, %114
 
 126:                                              ; preds = %122
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %127 = getelementptr inbounds i8, ptr %0, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %128 = load ptr, ptr %127, align 8, !alias.scope !106
-  %129 = getelementptr inbounds i8, ptr %0, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %130 = load ptr, ptr %129, align 8, !alias.scope !106
   %131 = icmp ult ptr %128, %130
   br i1 %131, label %132, label %137
 
 132:                                              ; preds = %126
   %.0.copyload.i.i49 = load i64, ptr %128, align 1, !noalias !106
-  %133 = getelementptr inbounds i8, ptr %128, i64 7
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 7
   store ptr %133, ptr %127, align 8, !alias.scope !106
   %134 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i49)
   %135 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %134, i64 56)
@@ -2420,7 +2420,7 @@ VP8GetBit.exit50:                                 ; preds = %145, %151
   br i1 %.not86, label %305, label %160
 
 160:                                              ; preds = %VP8GetBit.exit50
-  %161 = getelementptr inbounds i8, ptr %1, i64 7
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
@@ -2428,16 +2428,16 @@ VP8GetBit.exit50:                                 ; preds = %145, %151
 
 164:                                              ; preds = %160
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  %165 = getelementptr inbounds i8, ptr %0, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %166 = load ptr, ptr %165, align 8, !alias.scope !113
-  %167 = getelementptr inbounds i8, ptr %0, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %168 = load ptr, ptr %167, align 8, !alias.scope !113
   %169 = icmp ult ptr %166, %168
   br i1 %169, label %170, label %175
 
 170:                                              ; preds = %164
   %.0.copyload.i.i54 = load i64, ptr %166, align 1, !noalias !113
-  %171 = getelementptr inbounds i8, ptr %166, i64 7
+  %171 = getelementptr inbounds nuw i8, ptr %166, i64 7
   store ptr %171, ptr %165, align 8, !alias.scope !113
   %172 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i54)
   %173 = tail call i64 @llvm.fshl.i64(i64 %153, i64 %172, i64 56)
@@ -2494,16 +2494,16 @@ VP8GetBit.exit55:                                 ; preds = %183, %189
 
 199:                                              ; preds = %198
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
-  %200 = getelementptr inbounds i8, ptr %0, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %201 = load ptr, ptr %200, align 8, !alias.scope !120
-  %202 = getelementptr inbounds i8, ptr %0, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %203 = load ptr, ptr %202, align 8, !alias.scope !120
   %204 = icmp ult ptr %201, %203
   br i1 %204, label %205, label %210
 
 205:                                              ; preds = %199
   %.0.copyload.i.i59 = load i64, ptr %201, align 1, !noalias !120
-  %206 = getelementptr inbounds i8, ptr %201, i64 7
+  %206 = getelementptr inbounds nuw i8, ptr %201, i64 7
   store ptr %206, ptr %200, align 8, !alias.scope !120
   %207 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i59)
   %208 = tail call i64 @llvm.fshl.i64(i64 %191, i64 %207, i64 56)
@@ -2559,16 +2559,16 @@ VP8GetBit.exit60:                                 ; preds = %219, %225
 
 234:                                              ; preds = %233
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
-  %235 = getelementptr inbounds i8, ptr %0, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %236 = load ptr, ptr %235, align 8, !alias.scope !127
-  %237 = getelementptr inbounds i8, ptr %0, i64 32
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %238 = load ptr, ptr %237, align 8, !alias.scope !127
   %239 = icmp ult ptr %236, %238
   br i1 %239, label %240, label %245
 
 240:                                              ; preds = %234
   %.0.copyload.i.i64 = load i64, ptr %236, align 1, !noalias !127
-  %241 = getelementptr inbounds i8, ptr %236, i64 7
+  %241 = getelementptr inbounds nuw i8, ptr %236, i64 7
   store ptr %241, ptr %235, align 8, !alias.scope !127
   %242 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i64)
   %243 = tail call i64 @llvm.fshl.i64(i64 %191, i64 %242, i64 56)
@@ -2623,16 +2623,16 @@ VP8GetBit.exit65:                                 ; preds = %254, %260
 
 270:                                              ; preds = %VP8GetBit.exit65
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  %271 = getelementptr inbounds i8, ptr %0, i64 16
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %272 = load ptr, ptr %271, align 8, !alias.scope !134
-  %273 = getelementptr inbounds i8, ptr %0, i64 32
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %274 = load ptr, ptr %273, align 8, !alias.scope !134
   %275 = icmp ult ptr %272, %274
   br i1 %275, label %276, label %281
 
 276:                                              ; preds = %270
   %.0.copyload.i.i69 = load i64, ptr %272, align 1, !noalias !134
-  %277 = getelementptr inbounds i8, ptr %272, i64 7
+  %277 = getelementptr inbounds nuw i8, ptr %272, i64 7
   store ptr %277, ptr %271, align 8, !alias.scope !134
   %278 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i69)
   %279 = tail call i64 @llvm.fshl.i64(i64 %262, i64 %278, i64 56)
@@ -2684,7 +2684,7 @@ VP8GetBit.exit70:                                 ; preds = %290, %296
   br label %438
 
 305:                                              ; preds = %VP8GetBit.exit50
-  %306 = getelementptr inbounds i8, ptr %1, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %307 = load i8, ptr %306, align 1
   %308 = zext i8 %307 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
@@ -2692,16 +2692,16 @@ VP8GetBit.exit70:                                 ; preds = %290, %296
 
 309:                                              ; preds = %305
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
-  %310 = getelementptr inbounds i8, ptr %0, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %311 = load ptr, ptr %310, align 8, !alias.scope !141
-  %312 = getelementptr inbounds i8, ptr %0, i64 32
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %313 = load ptr, ptr %312, align 8, !alias.scope !141
   %314 = icmp ult ptr %311, %313
   br i1 %314, label %315, label %320
 
 315:                                              ; preds = %309
   %.0.copyload.i.i74 = load i64, ptr %311, align 1, !noalias !141
-  %316 = getelementptr inbounds i8, ptr %311, i64 7
+  %316 = getelementptr inbounds nuw i8, ptr %311, i64 7
   store ptr %316, ptr %310, align 8, !alias.scope !141
   %317 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i74)
   %318 = tail call i64 @llvm.fshl.i64(i64 %153, i64 %317, i64 56)
@@ -2750,8 +2750,8 @@ VP8GetBit.exit75:                                 ; preds = %329, %335
   %342 = add i32 %340, -1
   store i32 %342, ptr %6, align 8, !alias.scope !135
   %343 = zext i1 %328 to i64
-  %344 = getelementptr inbounds i8, ptr %1, i64 %343
-  %345 = getelementptr inbounds i8, ptr %344, i64 9
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 %343
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 9
   %346 = load i8, ptr %345, align 1
   %347 = zext i8 %346 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
@@ -2760,16 +2760,16 @@ VP8GetBit.exit75:                                 ; preds = %329, %335
 
 349:                                              ; preds = %VP8GetBit.exit75
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  %350 = getelementptr inbounds i8, ptr %0, i64 16
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %351 = load ptr, ptr %350, align 8, !alias.scope !148
-  %352 = getelementptr inbounds i8, ptr %0, i64 32
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %353 = load ptr, ptr %352, align 8, !alias.scope !148
   %354 = icmp ult ptr %351, %353
   br i1 %354, label %355, label %360
 
 355:                                              ; preds = %349
   %.0.copyload.i.i79 = load i64, ptr %351, align 1, !noalias !148
-  %356 = getelementptr inbounds i8, ptr %351, i64 7
+  %356 = getelementptr inbounds nuw i8, ptr %351, i64 7
   store ptr %356, ptr %350, align 8, !alias.scope !148
   %357 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i79)
   %358 = tail call i64 @llvm.fshl.i64(i64 %337, i64 %357, i64 56)
@@ -2821,15 +2821,15 @@ VP8GetBit.exit80:                                 ; preds = %369, %375
   %384 = select i1 %328, i32 2, i32 0
   %385 = or disjoint i32 %384, %378
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds [4 x ptr], ptr @kCat3456, i64 0, i64 %386
+  %387 = getelementptr inbounds nuw [4 x ptr], ptr @kCat3456, i64 0, i64 %386
   %388 = load ptr, ptr %387, align 8
   %389 = load i8, ptr %388, align 1
   %.not3589 = icmp eq i8 %389, 0
   br i1 %.not3589, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %VP8GetBit.exit80
-  %390 = getelementptr inbounds i8, ptr %0, i64 16
-  %391 = getelementptr inbounds i8, ptr %0, i64 32
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %392
 
 392:                                              ; preds = %.lr.ph, %VP8GetBit.exit85
@@ -2853,7 +2853,7 @@ VP8GetBit.exit80:                                 ; preds = %369, %375
 
 403:                                              ; preds = %399
   %.0.copyload.i.i84 = load i64, ptr %400, align 1, !noalias !155
-  %404 = getelementptr inbounds i8, ptr %400, i64 7
+  %404 = getelementptr inbounds nuw i8, ptr %400, i64 7
   store ptr %404, ptr %390, align 8, !alias.scope !155
   %405 = tail call noundef i64 @llvm.bswap.i64(i64 %.0.copyload.i.i84)
   %406 = tail call i64 @llvm.fshl.i64(i64 %393, i64 %405, i64 56)
@@ -2904,7 +2904,7 @@ VP8GetBit.exit85:                                 ; preds = %417, %423
   store i32 %431, ptr %6, align 8, !alias.scope !149
   %reass.add = shl i32 %.191, 1
   %432 = or disjoint i32 %reass.add, %426
-  %433 = getelementptr inbounds i8, ptr %.03090, i64 1
+  %433 = getelementptr inbounds nuw i8, ptr %.03090, i64 1
   %434 = load i8, ptr %433, align 1
   %.not35 = icmp eq i8 %434, 0
   br i1 %.not35, label %._crit_edge, label %392, !llvm.loop !156

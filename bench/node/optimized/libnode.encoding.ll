@@ -72,7 +72,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry
-  %arrayidx1 = getelementptr inbounds i8, ptr %encoding, i64 1
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %encoding, i64 1
   %1 = load i8, ptr %arrayidx1, align 1
   switch i8 %1, label %while.cond.i.preheader [
     i8 116, label %land.lhs.true
@@ -80,23 +80,23 @@ sw.bb:                                            ; preds = %entry, %entry
   ]
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %arrayidx3 = getelementptr inbounds i8, ptr %encoding, i64 2
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %encoding, i64 2
   %2 = load i8, ptr %arrayidx3, align 1
   %cmp5 = icmp eq i8 %2, 102
   br i1 %cmp5, label %if.then, label %while.cond.i.preheader
 
 if.then:                                          ; preds = %land.lhs.true
-  %arrayidx6 = getelementptr inbounds i8, ptr %encoding, i64 3
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %encoding, i64 3
   %3 = load i8, ptr %arrayidx6, align 1
   %cmp8 = icmp eq i8 %3, 45
   %conv9 = select i1 %cmp8, i64 4, i64 3
-  %arrayidx10 = getelementptr inbounds i8, ptr %encoding, i64 %conv9
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %encoding, i64 %conv9
   %4 = load i8, ptr %arrayidx10, align 1
   %cmp12 = icmp eq i8 %4, 56
   br i1 %cmp12, label %land.lhs.true13, label %if.end
 
 land.lhs.true13:                                  ; preds = %if.then
-  %arrayidx14 = getelementptr inbounds i8, ptr %arrayidx10, i64 1
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %arrayidx10, i64 1
   %5 = load i8, ptr %arrayidx14, align 1
   %cmp16 = icmp eq i8 %5, 0
   br i1 %cmp16, label %return, label %if.end
@@ -107,23 +107,23 @@ if.end:                                           ; preds = %land.lhs.true13, %i
   br i1 %cmp18, label %return, label %while.cond.i.preheader
 
 land.lhs.true24:                                  ; preds = %sw.bb
-  %arrayidx25 = getelementptr inbounds i8, ptr %encoding, i64 2
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %encoding, i64 2
   %6 = load i8, ptr %arrayidx25, align 1
   %cmp27 = icmp eq i8 %6, 115
   br i1 %cmp27, label %if.then28, label %while.cond.i.preheader
 
 if.then28:                                        ; preds = %land.lhs.true24
-  %arrayidx30 = getelementptr inbounds i8, ptr %encoding, i64 3
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %encoding, i64 3
   %7 = load i8, ptr %arrayidx30, align 1
   %cmp32 = icmp eq i8 %7, 45
   %conv34 = select i1 %cmp32, i64 4, i64 3
-  %arrayidx35 = getelementptr inbounds i8, ptr %encoding, i64 %conv34
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %encoding, i64 %conv34
   %8 = load i8, ptr %arrayidx35, align 1
   %cmp37 = icmp eq i8 %8, 50
   br i1 %cmp37, label %land.lhs.true38, label %while.cond.i.preheader
 
 land.lhs.true38:                                  ; preds = %if.then28
-  %arrayidx40 = getelementptr inbounds i8, ptr %arrayidx35, i64 1
+  %arrayidx40 = getelementptr inbounds nuw i8, ptr %arrayidx35, i64 1
   %9 = load i8, ptr %arrayidx40, align 1
   %cmp42 = icmp eq i8 %9, 0
   br i1 %cmp42, label %return, label %while.cond.i.preheader
@@ -138,22 +138,22 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i) #9
   %vtable.i.i.i.i = load ptr, ptr %call.i.i.i, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 32
   %11 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = tail call noundef signext i8 %11(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i, i8 noundef signext %10) #9
   %12 = load i8, ptr %b.addr.0.i, align 1
   %call.i2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i3.i = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i2.i) #9
   %vtable.i.i.i4.i = load ptr, ptr %call.i.i3.i, align 8
-  %vfn.i.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i.i4.i, i64 32
+  %vfn.i.i.i5.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i, i64 32
   %13 = load ptr, ptr %vfn.i.i.i5.i, align 8
   %call.i.i.i6.i = tail call noundef signext i8 %13(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3.i, i8 noundef signext %12) #9
   %cmp.i = icmp eq i8 %call.i.i.i.i, %call.i.i.i6.i
   br i1 %cmp.i, label %while.body.i, label %while.cond.i42
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %b.addr.0.i, i64 1
-  %incdec.ptr3.i = getelementptr inbounds i8, ptr %a.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %b.addr.0.i, i64 1
+  %incdec.ptr3.i = getelementptr inbounds nuw i8, ptr %a.addr.0.i, i64 1
   %14 = load i8, ptr %a.addr.0.i, align 1
   %cmp5.i = icmp eq i8 %14, 0
   br i1 %cmp5.i, label %return, label %while.cond.i, !llvm.loop !5
@@ -165,22 +165,22 @@ while.cond.i42:                                   ; preds = %while.cond.i, %whil
   %call.i.i45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i.i46 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i45) #9
   %vtable.i.i.i.i47 = load ptr, ptr %call.i.i.i46, align 8
-  %vfn.i.i.i.i48 = getelementptr inbounds i8, ptr %vtable.i.i.i.i47, i64 32
+  %vfn.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i47, i64 32
   %16 = load ptr, ptr %vfn.i.i.i.i48, align 8
   %call.i.i.i.i49 = tail call noundef signext i8 %16(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i46, i8 noundef signext %15) #9
   %17 = load i8, ptr %b.addr.0.i44, align 1
   %call.i2.i50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i3.i51 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i2.i50) #9
   %vtable.i.i.i4.i52 = load ptr, ptr %call.i.i3.i51, align 8
-  %vfn.i.i.i5.i53 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i52, i64 32
+  %vfn.i.i.i5.i53 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i52, i64 32
   %18 = load ptr, ptr %vfn.i.i.i5.i53, align 8
   %call.i.i.i6.i54 = tail call noundef signext i8 %18(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3.i51, i8 noundef signext %17) #9
   %cmp.i55 = icmp eq i8 %call.i.i.i.i49, %call.i.i.i6.i54
   br i1 %cmp.i55, label %while.body.i56, label %while.cond.i61
 
 while.body.i56:                                   ; preds = %while.cond.i42
-  %incdec.ptr.i57 = getelementptr inbounds i8, ptr %b.addr.0.i44, i64 1
-  %incdec.ptr3.i58 = getelementptr inbounds i8, ptr %a.addr.0.i43, i64 1
+  %incdec.ptr.i57 = getelementptr inbounds nuw i8, ptr %b.addr.0.i44, i64 1
+  %incdec.ptr3.i58 = getelementptr inbounds nuw i8, ptr %a.addr.0.i43, i64 1
   %19 = load i8, ptr %a.addr.0.i43, align 1
   %cmp5.i59 = icmp eq i8 %19, 0
   br i1 %cmp5.i59, label %return, label %while.cond.i42, !llvm.loop !5
@@ -192,22 +192,22 @@ while.cond.i61:                                   ; preds = %while.cond.i42, %wh
   %call.i.i64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i.i65 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i64) #9
   %vtable.i.i.i.i66 = load ptr, ptr %call.i.i.i65, align 8
-  %vfn.i.i.i.i67 = getelementptr inbounds i8, ptr %vtable.i.i.i.i66, i64 32
+  %vfn.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i66, i64 32
   %21 = load ptr, ptr %vfn.i.i.i.i67, align 8
   %call.i.i.i.i68 = tail call noundef signext i8 %21(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i65, i8 noundef signext %20) #9
   %22 = load i8, ptr %b.addr.0.i63, align 1
   %call.i2.i69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i3.i70 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i2.i69) #9
   %vtable.i.i.i4.i71 = load ptr, ptr %call.i.i3.i70, align 8
-  %vfn.i.i.i5.i72 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i71, i64 32
+  %vfn.i.i.i5.i72 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i71, i64 32
   %23 = load ptr, ptr %vfn.i.i.i5.i72, align 8
   %call.i.i.i6.i73 = tail call noundef signext i8 %23(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3.i70, i8 noundef signext %22) #9
   %cmp.i74 = icmp eq i8 %call.i.i.i.i68, %call.i.i.i6.i73
   br i1 %cmp.i74, label %while.body.i75, label %if.end55
 
 while.body.i75:                                   ; preds = %while.cond.i61
-  %incdec.ptr.i76 = getelementptr inbounds i8, ptr %b.addr.0.i63, i64 1
-  %incdec.ptr3.i77 = getelementptr inbounds i8, ptr %a.addr.0.i62, i64 1
+  %incdec.ptr.i76 = getelementptr inbounds nuw i8, ptr %b.addr.0.i63, i64 1
+  %incdec.ptr3.i77 = getelementptr inbounds nuw i8, ptr %a.addr.0.i62, i64 1
   %24 = load i8, ptr %a.addr.0.i62, align 1
   %cmp5.i78 = icmp eq i8 %24, 0
   br i1 %cmp5.i78, label %return, label %while.cond.i61, !llvm.loop !5
@@ -225,13 +225,13 @@ if.end61:                                         ; preds = %if.end58
   br i1 %call62, label %return, label %sw.epilog
 
 sw.bb65:                                          ; preds = %entry, %entry
-  %arrayidx66 = getelementptr inbounds i8, ptr %encoding, i64 1
+  %arrayidx66 = getelementptr inbounds nuw i8, ptr %encoding, i64 1
   %25 = load i8, ptr %arrayidx66, align 1
   %cmp68 = icmp eq i8 %25, 97
   br i1 %cmp68, label %if.then69, label %while.cond.i80.preheader
 
 if.then69:                                        ; preds = %sw.bb65
-  %add.ptr70 = getelementptr inbounds i8, ptr %encoding, i64 2
+  %add.ptr70 = getelementptr inbounds nuw i8, ptr %encoding, i64 2
   %call71 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr70, ptr noundef nonnull dereferenceable(5) @.str.7, i64 noundef 5) #8
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %return, label %while.cond.i80.preheader
@@ -246,28 +246,28 @@ while.cond.i80:                                   ; preds = %while.cond.i80.preh
   %call.i.i83 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i.i84 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i83) #9
   %vtable.i.i.i.i85 = load ptr, ptr %call.i.i.i84, align 8
-  %vfn.i.i.i.i86 = getelementptr inbounds i8, ptr %vtable.i.i.i.i85, i64 32
+  %vfn.i.i.i.i86 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i85, i64 32
   %27 = load ptr, ptr %vfn.i.i.i.i86, align 8
   %call.i.i.i.i87 = tail call noundef signext i8 %27(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i84, i8 noundef signext %26) #9
   %28 = load i8, ptr %b.addr.0.i82, align 1
   %call.i2.i88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i3.i89 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i2.i88) #9
   %vtable.i.i.i4.i90 = load ptr, ptr %call.i.i3.i89, align 8
-  %vfn.i.i.i5.i91 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i90, i64 32
+  %vfn.i.i.i5.i91 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i90, i64 32
   %29 = load ptr, ptr %vfn.i.i.i5.i91, align 8
   %call.i.i.i6.i92 = tail call noundef signext i8 %29(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3.i89, i8 noundef signext %28) #9
   %cmp.i93 = icmp eq i8 %call.i.i.i.i87, %call.i.i.i6.i92
   br i1 %cmp.i93, label %while.body.i94, label %sw.epilog
 
 while.body.i94:                                   ; preds = %while.cond.i80
-  %incdec.ptr.i95 = getelementptr inbounds i8, ptr %b.addr.0.i82, i64 1
-  %incdec.ptr3.i96 = getelementptr inbounds i8, ptr %a.addr.0.i81, i64 1
+  %incdec.ptr.i95 = getelementptr inbounds nuw i8, ptr %b.addr.0.i82, i64 1
+  %incdec.ptr3.i96 = getelementptr inbounds nuw i8, ptr %a.addr.0.i81, i64 1
   %30 = load i8, ptr %a.addr.0.i81, align 1
   %cmp5.i97 = icmp eq i8 %30, 0
   br i1 %cmp5.i97, label %return, label %while.cond.i80, !llvm.loop !5
 
 sw.bb79:                                          ; preds = %entry, %entry
-  %arrayidx80 = getelementptr inbounds i8, ptr %encoding, i64 1
+  %arrayidx80 = getelementptr inbounds nuw i8, ptr %encoding, i64 1
   %31 = load i8, ptr %arrayidx80, align 1
   switch i8 %31, label %while.cond.i99.preheader [
     i8 105, label %if.then83
@@ -276,19 +276,19 @@ sw.bb79:                                          ; preds = %entry, %entry
   ]
 
 if.then83:                                        ; preds = %sw.bb79
-  %add.ptr84 = getelementptr inbounds i8, ptr %encoding, i64 2
+  %add.ptr84 = getelementptr inbounds nuw i8, ptr %encoding, i64 2
   %call85 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr84, ptr noundef nonnull dereferenceable(5) @.str.9, i64 noundef 5) #8
   %cmp86 = icmp eq i32 %call85, 0
   br i1 %cmp86, label %return, label %while.cond.i99.preheader
 
 if.then93:                                        ; preds = %sw.bb79
-  %add.ptr94 = getelementptr inbounds i8, ptr %encoding, i64 2
+  %add.ptr94 = getelementptr inbounds nuw i8, ptr %encoding, i64 2
   %call95 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr94, ptr noundef nonnull dereferenceable(5) @.str.10, i64 noundef 5) #8
   %cmp96 = icmp eq i32 %call95, 0
   br i1 %cmp96, label %return, label %while.cond.i99.preheader
 
 if.then103:                                       ; preds = %sw.bb79
-  %add.ptr104 = getelementptr inbounds i8, ptr %encoding, i64 2
+  %add.ptr104 = getelementptr inbounds nuw i8, ptr %encoding, i64 2
   %call105 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr104, ptr noundef nonnull dereferenceable(5) @.str.11, i64 noundef 5) #8
   %cmp106 = icmp eq i32 %call105, 0
   br i1 %cmp106, label %return, label %if.end108
@@ -308,22 +308,22 @@ while.cond.i99:                                   ; preds = %while.cond.i99.preh
   %call.i.i102 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i.i103 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i102) #9
   %vtable.i.i.i.i104 = load ptr, ptr %call.i.i.i103, align 8
-  %vfn.i.i.i.i105 = getelementptr inbounds i8, ptr %vtable.i.i.i.i104, i64 32
+  %vfn.i.i.i.i105 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i104, i64 32
   %33 = load ptr, ptr %vfn.i.i.i.i105, align 8
   %call.i.i.i.i106 = tail call noundef signext i8 %33(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i103, i8 noundef signext %32) #9
   %34 = load i8, ptr %b.addr.0.i101, align 1
   %call.i2.i107 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i3.i108 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i2.i107) #9
   %vtable.i.i.i4.i109 = load ptr, ptr %call.i.i3.i108, align 8
-  %vfn.i.i.i5.i110 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i109, i64 32
+  %vfn.i.i.i5.i110 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i109, i64 32
   %35 = load ptr, ptr %vfn.i.i.i5.i110, align 8
   %call.i.i.i6.i111 = tail call noundef signext i8 %35(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3.i108, i8 noundef signext %34) #9
   %cmp.i112 = icmp eq i8 %call.i.i.i.i106, %call.i.i.i6.i111
   br i1 %cmp.i112, label %while.body.i113, label %while.cond.i118
 
 while.body.i113:                                  ; preds = %while.cond.i99
-  %incdec.ptr.i114 = getelementptr inbounds i8, ptr %b.addr.0.i101, i64 1
-  %incdec.ptr3.i115 = getelementptr inbounds i8, ptr %a.addr.0.i100, i64 1
+  %incdec.ptr.i114 = getelementptr inbounds nuw i8, ptr %b.addr.0.i101, i64 1
+  %incdec.ptr3.i115 = getelementptr inbounds nuw i8, ptr %a.addr.0.i100, i64 1
   %36 = load i8, ptr %a.addr.0.i100, align 1
   %cmp5.i116 = icmp eq i8 %36, 0
   br i1 %cmp5.i116, label %return, label %while.cond.i99, !llvm.loop !5
@@ -335,22 +335,22 @@ while.cond.i118:                                  ; preds = %while.cond.i99, %wh
   %call.i.i121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i.i122 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i121) #9
   %vtable.i.i.i.i123 = load ptr, ptr %call.i.i.i122, align 8
-  %vfn.i.i.i.i124 = getelementptr inbounds i8, ptr %vtable.i.i.i.i123, i64 32
+  %vfn.i.i.i.i124 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i123, i64 32
   %38 = load ptr, ptr %vfn.i.i.i.i124, align 8
   %call.i.i.i.i125 = tail call noundef signext i8 %38(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i122, i8 noundef signext %37) #9
   %39 = load i8, ptr %b.addr.0.i120, align 1
   %call.i2.i126 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i3.i127 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i2.i126) #9
   %vtable.i.i.i4.i128 = load ptr, ptr %call.i.i3.i127, align 8
-  %vfn.i.i.i5.i129 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i128, i64 32
+  %vfn.i.i.i5.i129 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i128, i64 32
   %40 = load ptr, ptr %vfn.i.i.i5.i129, align 8
   %call.i.i.i6.i130 = tail call noundef signext i8 %40(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3.i127, i8 noundef signext %39) #9
   %cmp.i131 = icmp eq i8 %call.i.i.i.i125, %call.i.i.i6.i130
   br i1 %cmp.i131, label %while.body.i132, label %while.cond.i137
 
 while.body.i132:                                  ; preds = %while.cond.i118
-  %incdec.ptr.i133 = getelementptr inbounds i8, ptr %b.addr.0.i120, i64 1
-  %incdec.ptr3.i134 = getelementptr inbounds i8, ptr %a.addr.0.i119, i64 1
+  %incdec.ptr.i133 = getelementptr inbounds nuw i8, ptr %b.addr.0.i120, i64 1
+  %incdec.ptr3.i134 = getelementptr inbounds nuw i8, ptr %a.addr.0.i119, i64 1
   %41 = load i8, ptr %a.addr.0.i119, align 1
   %cmp5.i135 = icmp eq i8 %41, 0
   br i1 %cmp5.i135, label %return, label %while.cond.i118, !llvm.loop !5
@@ -362,22 +362,22 @@ while.cond.i137:                                  ; preds = %while.cond.i118, %w
   %call.i.i140 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i.i141 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i140) #9
   %vtable.i.i.i.i142 = load ptr, ptr %call.i.i.i141, align 8
-  %vfn.i.i.i.i143 = getelementptr inbounds i8, ptr %vtable.i.i.i.i142, i64 32
+  %vfn.i.i.i.i143 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i142, i64 32
   %43 = load ptr, ptr %vfn.i.i.i.i143, align 8
   %call.i.i.i.i144 = tail call noundef signext i8 %43(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i141, i8 noundef signext %42) #9
   %44 = load i8, ptr %b.addr.0.i139, align 1
   %call.i2.i145 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i3.i146 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i2.i145) #9
   %vtable.i.i.i4.i147 = load ptr, ptr %call.i.i3.i146, align 8
-  %vfn.i.i.i5.i148 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i147, i64 32
+  %vfn.i.i.i5.i148 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i147, i64 32
   %45 = load ptr, ptr %vfn.i.i.i5.i148, align 8
   %call.i.i.i6.i149 = tail call noundef signext i8 %45(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3.i146, i8 noundef signext %44) #9
   %cmp.i150 = icmp eq i8 %call.i.i.i.i144, %call.i.i.i6.i149
   br i1 %cmp.i150, label %while.body.i151, label %if.end125
 
 while.body.i151:                                  ; preds = %while.cond.i137
-  %incdec.ptr.i152 = getelementptr inbounds i8, ptr %b.addr.0.i139, i64 1
-  %incdec.ptr3.i153 = getelementptr inbounds i8, ptr %a.addr.0.i138, i64 1
+  %incdec.ptr.i152 = getelementptr inbounds nuw i8, ptr %b.addr.0.i139, i64 1
+  %incdec.ptr3.i153 = getelementptr inbounds nuw i8, ptr %a.addr.0.i138, i64 1
   %46 = load i8, ptr %a.addr.0.i138, align 1
   %cmp5.i154 = icmp eq i8 %46, 0
   br i1 %cmp5.i154, label %return, label %while.cond.i137, !llvm.loop !5
@@ -387,13 +387,13 @@ if.end125:                                        ; preds = %while.cond.i137
   br i1 %call126, label %return, label %sw.epilog
 
 sw.bb129:                                         ; preds = %entry, %entry
-  %arrayidx130 = getelementptr inbounds i8, ptr %encoding, i64 1
+  %arrayidx130 = getelementptr inbounds nuw i8, ptr %encoding, i64 1
   %47 = load i8, ptr %arrayidx130, align 1
   %cmp132 = icmp eq i8 %47, 115
   br i1 %cmp132, label %if.then133, label %while.cond.i156.preheader
 
 if.then133:                                       ; preds = %sw.bb129
-  %add.ptr134 = getelementptr inbounds i8, ptr %encoding, i64 2
+  %add.ptr134 = getelementptr inbounds nuw i8, ptr %encoding, i64 2
   %call135 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr134, ptr noundef nonnull dereferenceable(4) @.str.17, i64 noundef 4) #8
   %cmp136 = icmp eq i32 %call135, 0
   br i1 %cmp136, label %return, label %while.cond.i156.preheader
@@ -408,40 +408,40 @@ while.cond.i156:                                  ; preds = %while.cond.i156.pre
   %call.i.i159 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i.i160 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i159) #9
   %vtable.i.i.i.i161 = load ptr, ptr %call.i.i.i160, align 8
-  %vfn.i.i.i.i162 = getelementptr inbounds i8, ptr %vtable.i.i.i.i161, i64 32
+  %vfn.i.i.i.i162 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i161, i64 32
   %49 = load ptr, ptr %vfn.i.i.i.i162, align 8
   %call.i.i.i.i163 = tail call noundef signext i8 %49(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i160, i8 noundef signext %48) #9
   %50 = load i8, ptr %b.addr.0.i158, align 1
   %call.i2.i164 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i3.i165 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i2.i164) #9
   %vtable.i.i.i4.i166 = load ptr, ptr %call.i.i3.i165, align 8
-  %vfn.i.i.i5.i167 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i166, i64 32
+  %vfn.i.i.i5.i167 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i166, i64 32
   %51 = load ptr, ptr %vfn.i.i.i5.i167, align 8
   %call.i.i.i6.i168 = tail call noundef signext i8 %51(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3.i165, i8 noundef signext %50) #9
   %cmp.i169 = icmp eq i8 %call.i.i.i.i163, %call.i.i.i6.i168
   br i1 %cmp.i169, label %while.body.i170, label %sw.epilog
 
 while.body.i170:                                  ; preds = %while.cond.i156
-  %incdec.ptr.i171 = getelementptr inbounds i8, ptr %b.addr.0.i158, i64 1
-  %incdec.ptr3.i172 = getelementptr inbounds i8, ptr %a.addr.0.i157, i64 1
+  %incdec.ptr.i171 = getelementptr inbounds nuw i8, ptr %b.addr.0.i158, i64 1
+  %incdec.ptr3.i172 = getelementptr inbounds nuw i8, ptr %a.addr.0.i157, i64 1
   %52 = load i8, ptr %a.addr.0.i157, align 1
   %cmp5.i173 = icmp eq i8 %52, 0
   br i1 %cmp5.i173, label %return, label %while.cond.i156, !llvm.loop !5
 
 sw.bb143:                                         ; preds = %entry, %entry
-  %arrayidx144 = getelementptr inbounds i8, ptr %encoding, i64 1
+  %arrayidx144 = getelementptr inbounds nuw i8, ptr %encoding, i64 1
   %53 = load i8, ptr %arrayidx144, align 1
   %cmp146 = icmp eq i8 %53, 101
   br i1 %cmp146, label %if.then147, label %while.cond.i175.preheader
 
 if.then147:                                       ; preds = %sw.bb143
-  %arrayidx148 = getelementptr inbounds i8, ptr %encoding, i64 2
+  %arrayidx148 = getelementptr inbounds nuw i8, ptr %encoding, i64 2
   %54 = load i8, ptr %arrayidx148, align 1
   %cmp150 = icmp eq i8 %54, 120
   br i1 %cmp150, label %land.lhs.true151, label %while.cond.i175.preheader
 
 land.lhs.true151:                                 ; preds = %if.then147
-  %arrayidx152 = getelementptr inbounds i8, ptr %encoding, i64 3
+  %arrayidx152 = getelementptr inbounds nuw i8, ptr %encoding, i64 3
   %55 = load i8, ptr %arrayidx152, align 1
   %cmp154 = icmp eq i8 %55, 0
   br i1 %cmp154, label %return, label %while.cond.i175.preheader
@@ -456,22 +456,22 @@ while.cond.i175:                                  ; preds = %while.cond.i175.pre
   %call.i.i178 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i.i179 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i178) #9
   %vtable.i.i.i.i180 = load ptr, ptr %call.i.i.i179, align 8
-  %vfn.i.i.i.i181 = getelementptr inbounds i8, ptr %vtable.i.i.i.i180, i64 32
+  %vfn.i.i.i.i181 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i180, i64 32
   %57 = load ptr, ptr %vfn.i.i.i.i181, align 8
   %call.i.i.i.i182 = tail call noundef signext i8 %57(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i.i179, i8 noundef signext %56) #9
   %58 = load i8, ptr %b.addr.0.i177, align 1
   %call.i2.i183 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i3.i184 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i2.i183) #9
   %vtable.i.i.i4.i185 = load ptr, ptr %call.i.i3.i184, align 8
-  %vfn.i.i.i5.i186 = getelementptr inbounds i8, ptr %vtable.i.i.i4.i185, i64 32
+  %vfn.i.i.i5.i186 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i185, i64 32
   %59 = load ptr, ptr %vfn.i.i.i5.i186, align 8
   %call.i.i.i6.i187 = tail call noundef signext i8 %59(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3.i184, i8 noundef signext %58) #9
   %cmp.i188 = icmp eq i8 %call.i.i.i.i182, %call.i.i.i6.i187
   br i1 %cmp.i188, label %while.body.i189, label %sw.epilog
 
 while.body.i189:                                  ; preds = %while.cond.i175
-  %incdec.ptr.i190 = getelementptr inbounds i8, ptr %b.addr.0.i177, i64 1
-  %incdec.ptr3.i191 = getelementptr inbounds i8, ptr %a.addr.0.i176, i64 1
+  %incdec.ptr.i190 = getelementptr inbounds nuw i8, ptr %b.addr.0.i177, i64 1
+  %incdec.ptr3.i191 = getelementptr inbounds nuw i8, ptr %a.addr.0.i176, i64 1
   %60 = load i8, ptr %a.addr.0.i176, align 1
   %cmp5.i192 = icmp eq i8 %60, 0
   br i1 %cmp5.i192, label %return, label %while.cond.i175, !llvm.loop !5
@@ -499,22 +499,22 @@ while.cond:                                       ; preds = %while.body, %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i) #9
   %vtable.i.i.i = load ptr, ptr %call.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i, i8 noundef signext %0) #9
   %2 = load i8, ptr %b.addr.0, align 1
   %call.i2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv() #9
   %call.i.i3 = tail call noundef nonnull align 8 dereferenceable(570) ptr @_ZSt9use_facetISt5ctypeIcEERKT_RKSt6locale(ptr noundef nonnull align 8 dereferenceable(8) %call.i2) #9
   %vtable.i.i.i4 = load ptr, ptr %call.i.i3, align 8
-  %vfn.i.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i.i4, i64 32
+  %vfn.i.i.i5 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4, i64 32
   %3 = load ptr, ptr %vfn.i.i.i5, align 8
   %call.i.i.i6 = tail call noundef signext i8 %3(ptr noundef nonnull align 8 dereferenceable(570) %call.i.i3, i8 noundef signext %2) #9
   %cmp = icmp eq i8 %call.i.i.i, %call.i.i.i6
   br i1 %cmp, label %while.body, label %return
 
 while.body:                                       ; preds = %while.cond
-  %incdec.ptr = getelementptr inbounds i8, ptr %b.addr.0, i64 1
-  %incdec.ptr3 = getelementptr inbounds i8, ptr %a.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %b.addr.0, i64 1
+  %incdec.ptr3 = getelementptr inbounds nuw i8, ptr %a.addr.0, i64 1
   %4 = load i8, ptr %a.addr.0, align 1
   %cmp5 = icmp eq i8 %4, 0
   br i1 %cmp5, label %return, label %while.cond, !llvm.loop !5
@@ -553,12 +553,12 @@ if.end.i:                                         ; preds = %do.end7
 
 if.end11:                                         ; preds = %if.end.i
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %encoding, ptr noundef %isolate, ptr nonnull %encoding_v.coerce) #9
-  %buf_.i = getelementptr inbounds i8, ptr %encoding, i64 16
+  %buf_.i = getelementptr inbounds nuw i8, ptr %encoding, i64 16
   %5 = load ptr, ptr %buf_.i, align 8
   %call16 = call noundef i32 @_ZN4node13ParseEncodingEPKcNS_8encodingE(ptr noundef %5, i32 noundef %default_encoding)
   %6 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %6, null
-  %buf_st_.i.i.i = getelementptr inbounds i8, ptr %encoding, i64 24
+  %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %encoding, i64 24
   %cmp.i.i.i = icmp ne ptr %6, %buf_st_.i.i.i
   %7 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i, i1 false
   br i1 %7, label %if.then.i.i, label %return

@@ -107,9 +107,9 @@ define noundef i32 @ossl_verify_cb_call(i64 noundef %0, i32 noundef %1, ptr noun
   store i64 %0, ptr %4, align 8
   %.not14 = icmp eq i32 %1, 0
   %12 = select i1 %.not14, i64 0, i64 20
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %9, ptr %14, align 8
   %15 = ptrtoint ptr %4 to i64
   %16 = call i64 @rb_protect(ptr noundef nonnull @call_verify_cb_proc, i64 noundef %15, ptr noundef nonnull %5) #4
@@ -124,7 +124,7 @@ define noundef i32 @ossl_verify_cb_call(i64 noundef %0, i32 noundef %1, ptr noun
 
 19:                                               ; preds = %18, %11
   %20 = inttoptr i64 %9 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %21, align 8
   %22 = icmp eq i64 %16, 20
   br i1 %22, label %.sink.split, label %23
@@ -162,7 +162,7 @@ define internal i64 @ossl_x509stctx_new_i(i64 noundef %0) #0 {
 ossl_x509stctx_new.exit:                          ; preds = %1
   %6 = inttoptr i64 %0 to ptr
   %7 = inttoptr i64 %3 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %6, ptr %8, align 8
   ret i64 %3
 }
@@ -188,9 +188,9 @@ define internal i64 @call_verify_cb_proc(i64 noundef %0) #0 {
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
   %.lcssa.i = phi i64 [ %.pr.i, %1 ], [ %4, %.lr.ph.i ]
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef %.lcssa.i, i32 noundef 2, i64 noundef %6, i64 noundef %8) #4
   ret i64 %9
@@ -351,7 +351,7 @@ define internal i64 @ossl_x509store_alloc(i64 noundef %0) #0 {
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %2 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %3, ptr %9, align 8
   ret i64 %2
 }
@@ -790,7 +790,7 @@ define internal i64 @ossl_x509stctx_alloc(i64 noundef %0) #0 {
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %2 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %3, ptr %9, align 8
   ret i64 %2
 }

@@ -28,10 +28,10 @@ define noundef ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %1, i32 noun
   %13 = call noalias ptr @wmem_array_sized_new(ptr noundef %11, i64 noundef 1, i32 noundef %12) #7
   store volatile i32 0, ptr %8, align 4
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @tvb_uncompress_lz77.catch_spec, i64 noundef 1) #7
-  %14 = getelementptr inbounds i8, ptr %10, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %15 = call i32 @_setjmp(ptr noundef nonnull %14) #8
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not, ptr null, ptr %16
   store volatile ptr %.sink, ptr %7, align 8
   %.0..0..0..0.5 = load volatile i32, ptr %8, align 4
@@ -264,7 +264,7 @@ do_uncompress.exit:                               ; preds = %43, %79, %89, %91, 
   unreachable
 
 106:                                              ; preds = %104, %102
-  %107 = getelementptr inbounds i8, ptr %10, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %108 = load volatile ptr, ptr %107, align 8
   call void @except_free(ptr noundef %108) #7
   %109 = call ptr @except_pop() #7

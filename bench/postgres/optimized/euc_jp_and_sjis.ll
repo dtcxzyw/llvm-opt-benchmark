@@ -53,7 +53,7 @@ define noundef nonnull ptr @pg_finfo_mic_to_sjis() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -170,7 +170,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr nocapture noun
   %60 = add i32 %.06890.i18, 1
   %61 = sext i32 %60 to i64
   %62 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %61
-  %63 = getelementptr inbounds i8, ptr %62, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 65535
   %66 = icmp eq i32 %65, 65535
@@ -189,7 +189,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr nocapture noun
 
 .preheader.i._crit_edge:                          ; preds = %.preheader.i, %.preheader.i.preheader
   %.lcssa = phi ptr [ @ibmkanji, %.preheader.i.preheader ], [ %62, %.preheader.i ]
-  %71 = getelementptr inbounds i8, ptr %.lcssa, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 2
   %72 = load i16, ptr %71, align 2
   %73 = lshr i16 %72, 8
   %74 = trunc nuw i16 %73 to i8
@@ -260,7 +260,7 @@ declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -362,7 +362,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %.preheader126.i
-  %53 = getelementptr inbounds i8, ptr %49, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i32
   %56 = lshr i32 %55, 8
@@ -492,7 +492,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   br i1 %132, label %133, label %154
 
 133:                                              ; preds = %.preheader.i
-  %134 = getelementptr inbounds i8, ptr %130, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = icmp sgt i32 %135, 9371647
   br i1 %136, label %137, label %146
@@ -529,7 +529,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noun
   %155 = add i32 %.1107142.i, 1
   %156 = sext i32 %155 to i64
   %157 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %156
-  %158 = getelementptr inbounds i8, ptr %157, i64 2
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 2
   %159 = load i16, ptr %158, align 2
   %160 = icmp eq i16 %159, -1
   br i1 %160, label %.loopexit.i, label %.preheader.i
@@ -554,7 +554,7 @@ sjis2euc_jp.exit:                                 ; preds = %.backedge.i, %1, %2
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -678,7 +678,7 @@ euc_jp2mic.exit:                                  ; preds = %.backedge.i, %1, %2
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_jp(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -812,7 +812,7 @@ mic2euc_jp.exit:                                  ; preds = %.backedge.i, %1, %2
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -904,7 +904,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %.preheader148.i
-  %49 = getelementptr inbounds i8, ptr %45, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 2
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = lshr i32 %51, 8
@@ -1040,7 +1040,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
   br i1 %131, label %.sink.split.i, label %143
 
 .sink.split.i:                                    ; preds = %.preheader.i
-  %132 = getelementptr inbounds i8, ptr %129, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = icmp sgt i32 %133, 9371647
   %135 = getelementptr i8, ptr %.3132163.i, i64 1
@@ -1063,7 +1063,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef
   %144 = add i32 %.1120164.i, 1
   %145 = sext i32 %144 to i64
   %146 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %145
-  %147 = getelementptr inbounds i8, ptr %146, i64 2
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 2
   %148 = load i16, ptr %147, align 2
   %149 = icmp eq i16 %148, -1
   br i1 %149, label %.loopexit.i, label %.preheader.i
@@ -1106,7 +1106,7 @@ sjis2mic.exit:                                    ; preds = %.loopexit.i, %1, %3
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -1268,7 +1268,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr nocapture noundef
   %87 = add i32 %.07398.i21, 1
   %88 = sext i32 %87 to i64
   %89 = getelementptr [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %88
-  %90 = getelementptr inbounds i8, ptr %89, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = and i32 %91, 65535
   %93 = icmp eq i32 %92, 65535
@@ -1287,7 +1287,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr nocapture noundef
 
 .preheader.i._crit_edge:                          ; preds = %.preheader.i, %.preheader.i.preheader
   %.lcssa = phi ptr [ @ibmkanji, %.preheader.i.preheader ], [ %89, %.preheader.i ]
-  %98 = getelementptr inbounds i8, ptr %.lcssa, i64 2
+  %98 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 2
   %99 = load i16, ptr %98, align 2
   %100 = lshr i16 %99, 8
   %101 = trunc nuw i16 %100 to i8

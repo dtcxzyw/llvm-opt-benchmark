@@ -26,35 +26,35 @@ define internal fastcc i32 @exec_internal(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not40, label %30, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %6, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %17 = load i8, ptr %16, align 1
   %.not41 = icmp eq i8 %17, 0
   br i1 %.not41, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %10, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i8 %17, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %22 = load i64, ptr %21, align 8
   %.not42 = icmp eq i64 %22, 0
   br i1 %.not42, label %25, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %10, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i64 %22, ptr %24, align 8
   br label %25
 
 25:                                               ; preds = %23, %20
-  %26 = getelementptr inbounds i8, ptr %6, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not43 = icmp eq ptr %27, null
   br i1 %.not43, label %30, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %10, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 72
   store ptr %27, ptr %29, align 8
   br label %30
 

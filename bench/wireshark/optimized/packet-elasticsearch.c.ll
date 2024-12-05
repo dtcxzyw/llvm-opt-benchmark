@@ -212,7 +212,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_elasticsearch_binary(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.70) #7
   %7 = load ptr, ptr %5, align 8
@@ -252,7 +252,7 @@ define internal noundef i32 @dissect_elasticsearch_zen_ping(ptr noundef %0, ptr 
   %7 = alloca ptr, align 8
   %8 = alloca %struct.version_t, align 4
   %9 = alloca %struct.version_t, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.70) #7
   %12 = load ptr, ptr %10, align 8
@@ -271,9 +271,9 @@ define internal noundef i32 @dissect_elasticsearch_zen_ping(ptr noundef %0, ptr 
   %.sroa.2.0.extract.shift.i = lshr i64 %20, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   store i32 %.sroa.01.0.extract.trunc.i, ptr %8, align 4, !alias.scope !4
-  %21 = getelementptr inbounds i8, ptr %8, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %.sroa.2.0.extract.trunc.i, ptr %21, align 4, !alias.scope !4
-  %22 = getelementptr inbounds i8, ptr %8, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %23 = sdiv i32 %.sroa.2.0.extract.trunc.i, 1000000
   %.lhs.trunc.i = trunc nsw i32 %23 to i16
   %24 = srem i16 %.lhs.trunc.i, 100
@@ -286,14 +286,14 @@ define internal noundef i32 @dissect_elasticsearch_zen_ping(ptr noundef %0, ptr 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
   %30 = load i32, ptr @hf_elasticsearch_version, align 4
   %31 = load i32, ptr %6, align 4
-  %32 = getelementptr inbounds i8, ptr %6, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %30, ptr noundef %0, i32 noundef 4, i32 noundef %31, i32 noundef %33) #7
   %35 = add i32 %31, 4
   %36 = load i32, ptr @hf_elasticsearch_ping_request_id, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0) #7
   %38 = add i32 %31, 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 408
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %40 = load ptr, ptr %39, align 8
   %41 = tail call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %38), !noalias !7
   %42 = trunc i64 %41 to i32
@@ -323,7 +323,7 @@ define internal noundef i32 @dissect_elasticsearch_zen_ping(ptr noundef %0, ptr 
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.98, ptr noundef %60) #7
   %65 = add i32 %61, %51
   %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.99, ptr noundef nonnull %67) #7
   %68 = load ptr, ptr %39, align 8
   %69 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %65), !noalias !13
@@ -450,9 +450,9 @@ elasticsearch_partial_dissect_address.exit:       ; preds = %107, %145
   %.sroa.2.0.extract.shift.i109 = lshr i64 %156, 32
   %.sroa.2.0.extract.trunc.i110 = trunc nuw i64 %.sroa.2.0.extract.shift.i109 to i32
   store i32 %.sroa.01.0.extract.trunc.i108, ptr %9, align 4, !alias.scope !25
-  %157 = getelementptr inbounds i8, ptr %9, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %.sroa.2.0.extract.trunc.i110, ptr %157, align 4, !alias.scope !25
-  %158 = getelementptr inbounds i8, ptr %9, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %159 = sdiv i32 %.sroa.2.0.extract.trunc.i110, 1000000
   %.lhs.trunc.i111 = trunc nsw i32 %159 to i16
   %160 = srem i16 %.lhs.trunc.i111, 100
@@ -520,7 +520,7 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #7
   %19 = and i8 %13, 1
   %.not = icmp eq i8 %19, 0
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   %.str.85..str.84 = select i1 %.not, ptr @.str.85, ptr @.str.84
   tail call void @col_append_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull %.str.85..str.84) #7
@@ -558,7 +558,7 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %1, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %43
 
 43:                                               ; preds = %.lr.ph, %43
@@ -607,7 +607,7 @@ define internal i32 @elasticsearch_dissect_valid_binary_packet(ptr noundef %0, p
   br i1 %74, label %.lr.ph180, label %.loopexit
 
 .lr.ph180:                                        ; preds = %._crit_edge
-  %75 = getelementptr inbounds i8, ptr %1, i64 408
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %76
 
 76:                                               ; preds = %.lr.ph180, %._crit_edge175
@@ -720,7 +720,7 @@ read_vint.exit:                                   ; preds = %.lr.ph174, %100, %1
 141:                                              ; preds = %139
   %142 = load i32, ptr @hf_elasticsearch_data_compressed, align 4
   %143 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %142, ptr noundef %0, i32 noundef %.1156, i32 noundef -1, i32 noundef 0) #7
-  %144 = getelementptr inbounds i8, ptr %1, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %145 = load ptr, ptr %144, align 8
   call void @col_append_str(ptr noundef %145, i32 noundef 25, ptr noundef nonnull @.str.91) #7
   br label %elasticsearch_decode_binary_request.exit
@@ -740,7 +740,7 @@ read_vint.exit:                                   ; preds = %.lr.ph174, %100, %1
   br i1 %152, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %149
-  %153 = getelementptr inbounds i8, ptr %1, i64 408
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %154
 
 154:                                              ; preds = %154, %.lr.ph.i
@@ -763,7 +763,7 @@ read_vint.exit:                                   ; preds = %.lr.ph174, %100, %1
 
 .loopexit.i:                                      ; preds = %154, %149, %146
   %.0.i = phi i32 [ %.1156, %146 ], [ %151, %149 ], [ %165, %154 ]
-  %167 = getelementptr inbounds i8, ptr %1, i64 408
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %168 = load ptr, ptr %167, align 8
   %169 = call fastcc i64 @read_vint(ptr noundef %0, i32 noundef %.0.i), !noalias !48
   %170 = trunc i64 %169 to i32
@@ -774,7 +774,7 @@ read_vint.exit:                                   ; preds = %.lr.ph174, %100, %1
   %175 = add i32 %173, %170
   %176 = load i32, ptr @hf_elasticsearch_action, align 4
   %177 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %176, ptr noundef %0, i32 noundef %.0.i, i32 noundef %175, ptr noundef %174) #7
-  %178 = getelementptr inbounds i8, ptr %1, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %179 = load ptr, ptr %178, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %179, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef %174) #7
   %180 = add i32 %175, %.0.i
@@ -785,7 +785,7 @@ read_vint.exit:                                   ; preds = %.lr.ph174, %100, %1
 183:                                              ; preds = %.loopexit
   %184 = and i8 %13, 2
   %.not.i.i = icmp eq i8 %184, 0
-  %185 = getelementptr inbounds i8, ptr %1, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %186 = load ptr, ptr %185, align 8
   %.str.94..str.93.i.i = select i1 %.not.i.i, ptr @.str.94, ptr @.str.93
   call void @col_append_str(ptr noundef %186, i32 noundef 25, ptr noundef nonnull %.str.94..str.93.i.i) #7
@@ -807,7 +807,7 @@ read_vint.exit:                                   ; preds = %.lr.ph174, %100, %1
   br label %elasticsearch_decode_binary_request.exit
 
 elasticsearch_decode_binary_request.exit:         ; preds = %192, %188, %.loopexit.i, %141
-  %196 = getelementptr inbounds i8, ptr %1, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %197 = load ptr, ptr %196, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %197, i32 noundef 25, ptr noundef nonnull @.str.90, i64 noundef %12) #7
   %198 = call i32 @tvb_captured_length(ptr noundef %0) #7

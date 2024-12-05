@@ -49,48 +49,48 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base4File4Info8FromStatERK6stat64(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 10), (16, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %stat_info) local_unnamed_addr #0 align 2 {
 entry:
-  %st_mode = getelementptr inbounds i8, ptr %stat_info, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %stat_info, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp = icmp eq i32 %and, 16384
-  %is_directory = getelementptr inbounds i8, ptr %this, i64 8
+  %is_directory = getelementptr inbounds nuw i8, ptr %this, i64 8
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %is_directory, align 8
   %1 = load i32, ptr %st_mode, align 8
   %and3 = and i32 %1, 61440
   %cmp4 = icmp eq i32 %and3, 40960
-  %is_symbolic_link = getelementptr inbounds i8, ptr %this, i64 9
+  %is_symbolic_link = getelementptr inbounds nuw i8, ptr %this, i64 9
   %frombool5 = zext i1 %cmp4 to i8
   store i8 %frombool5, ptr %is_symbolic_link, align 1
-  %st_size = getelementptr inbounds i8, ptr %stat_info, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %stat_info, i64 48
   %2 = load i64, ptr %st_size, align 8
   store i64 %2, ptr %this, align 8
-  %st_mtim = getelementptr inbounds i8, ptr %stat_info, i64 88
+  %st_mtim = getelementptr inbounds nuw i8, ptr %stat_info, i64 88
   %3 = load i64, ptr %st_mtim, align 8
-  %tv_nsec = getelementptr inbounds i8, ptr %stat_info, i64 96
+  %tv_nsec = getelementptr inbounds nuw i8, ptr %stat_info, i64 96
   %4 = load i64, ptr %tv_nsec, align 8
-  %st_atim = getelementptr inbounds i8, ptr %stat_info, i64 72
+  %st_atim = getelementptr inbounds nuw i8, ptr %stat_info, i64 72
   %5 = load i64, ptr %st_atim, align 8
-  %tv_nsec9 = getelementptr inbounds i8, ptr %stat_info, i64 80
+  %tv_nsec9 = getelementptr inbounds nuw i8, ptr %stat_info, i64 80
   %6 = load i64, ptr %tv_nsec9, align 8
-  %st_ctim = getelementptr inbounds i8, ptr %stat_info, i64 104
+  %st_ctim = getelementptr inbounds nuw i8, ptr %stat_info, i64 104
   %7 = load i64, ptr %st_ctim, align 8
-  %tv_nsec12 = getelementptr inbounds i8, ptr %stat_info, i64 112
+  %tv_nsec12 = getelementptr inbounds nuw i8, ptr %stat_info, i64 112
   %8 = load i64, ptr %tv_nsec12, align 8
   %call = tail call i64 @_ZN4base4Time9FromTimeTEl(i64 noundef %3)
   %div = sdiv i64 %4, 1000
   %call.i = tail call noundef i64 @_ZN4base13time_internal12SaturatedAddENS_9TimeDeltaEl(i64 %div, i64 noundef %call)
-  %last_modified = getelementptr inbounds i8, ptr %this, i64 16
+  %last_modified = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %call.i, ptr %last_modified, align 8
   %call23 = tail call i64 @_ZN4base4Time9FromTimeTEl(i64 noundef %5)
   %div27 = sdiv i64 %6, 1000
   %call.i9 = tail call noundef i64 @_ZN4base13time_internal12SaturatedAddENS_9TimeDeltaEl(i64 %div27, i64 noundef %call23)
-  %last_accessed = getelementptr inbounds i8, ptr %this, i64 24
+  %last_accessed = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %call.i9, ptr %last_accessed, align 8
   %call36 = tail call i64 @_ZN4base4Time9FromTimeTEl(i64 noundef %7)
   %div40 = sdiv i64 %8, 1000
   %call.i10 = tail call noundef i64 @_ZN4base13time_internal12SaturatedAddENS_9TimeDeltaEl(i64 %div40, i64 noundef %call36)
-  %creation_time = getelementptr inbounds i8, ptr %this, i64 32
+  %creation_time = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %call.i10, ptr %creation_time, align 8
   ret void
 }
@@ -251,7 +251,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 do.body:                                          ; preds = %do.body.preheader, %if.end18
   %bytes_read.0 = phi i32 [ %add19, %if.end18 ], [ 0, %do.body.preheader ]
   %idx.ext = zext nneg i32 %bytes_read.0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %data, i64 %idx.ext
   %sub = sub nsw i32 %size, %bytes_read.0
   %conv8 = sext i32 %sub to i64
   %add = add nsw i64 %offset, %idx.ext
@@ -342,7 +342,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 do.body:                                          ; preds = %do.body.preheader, %if.end17
   %bytes_read.0 = phi i32 [ %add, %if.end17 ], [ 0, %do.body.preheader ]
   %idx.ext = zext nneg i32 %bytes_read.0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %data, i64 %idx.ext
   %sub = sub nsw i32 %size, %bytes_read.0
   %conv8 = sext i32 %sub to i64
   br label %do.body5
@@ -558,7 +558,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 do.body:                                          ; preds = %do.body.preheader, %if.end24
   %bytes_written.0 = phi i32 [ %add25, %if.end24 ], [ 0, %do.body.preheader ]
   %idx.ext = zext nneg i32 %bytes_written.0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %data, i64 %idx.ext
   %sub = sub nsw i32 %size, %bytes_written.0
   %conv14 = sext i32 %sub to i64
   %add = add nsw i64 %offset, %idx.ext
@@ -643,7 +643,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 do.body:                                          ; preds = %do.body.preheader, %if.end17
   %bytes_written.0 = phi i32 [ %add, %if.end17 ], [ 0, %do.body.preheader ]
   %idx.ext = zext nneg i32 %bytes_written.0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %data, i64 %idx.ext
   %sub = sub nsw i32 %size, %bytes_written.0
   %conv8 = sext i32 %sub to i64
   br label %do.body5
@@ -781,7 +781,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %1 = load i32, ptr %this, align 8
   %call.i = call noundef i32 @fstat64(i32 noundef %1, ptr noundef nonnull %file_info) #14
   %tobool.not = icmp eq i32 %call.i, 0
-  %st_size = getelementptr inbounds i8, ptr %file_info, i64 48
+  %st_size = getelementptr inbounds nuw i8, ptr %file_info, i64 48
   %2 = load i64, ptr %st_size, align 8
   %retval.0 = select i1 %tobool.not, i64 %2, i64 0
   call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %scoped_file_trace) #14
@@ -873,12 +873,12 @@ invoke.cont9:                                     ; preds = %invoke.cont6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ts_times.i)
   store i64 %2, ptr %ts_times.i, align 16
   %mul.i = mul nsw i64 %1, 1000
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts_times.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts_times.i, i64 8
   store i64 %mul.i, ptr %tv_nsec.i, align 8
-  %arrayidx7.i = getelementptr inbounds i8, ptr %ts_times.i, i64 16
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %ts_times.i, i64 16
   store i64 %3, ptr %arrayidx7.i, align 16
   %mul11.i = mul nsw i64 %4, 1000
-  %tv_nsec13.i = getelementptr inbounds i8, ptr %ts_times.i, i64 24
+  %tv_nsec13.i = getelementptr inbounds nuw i8, ptr %ts_times.i, i64 24
   store i64 %mul11.i, ptr %tv_nsec13.i, align 8
   %call.i = call noundef i32 @futimens(i32 noundef %5, ptr noundef nonnull %ts_times.i) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ts_times.i)
@@ -918,31 +918,31 @@ if.end:                                           ; preds = %if.then, %invoke.co
   br i1 %tobool.not, label %if.end8, label %cleanup
 
 if.end8:                                          ; preds = %if.end
-  %st_mode.i = getelementptr inbounds i8, ptr %file_info, i64 24
+  %st_mode.i = getelementptr inbounds nuw i8, ptr %file_info, i64 24
   %2 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %2, 61440
   %cmp.i = icmp eq i32 %and.i, 16384
-  %is_directory.i = getelementptr inbounds i8, ptr %info, i64 8
+  %is_directory.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %frombool.i = zext i1 %cmp.i to i8
   store i8 %frombool.i, ptr %is_directory.i, align 8
   %cmp4.i = icmp eq i32 %and.i, 40960
-  %is_symbolic_link.i = getelementptr inbounds i8, ptr %info, i64 9
+  %is_symbolic_link.i = getelementptr inbounds nuw i8, ptr %info, i64 9
   %frombool5.i = zext i1 %cmp4.i to i8
   store i8 %frombool5.i, ptr %is_symbolic_link.i, align 1
-  %st_size.i = getelementptr inbounds i8, ptr %file_info, i64 48
+  %st_size.i = getelementptr inbounds nuw i8, ptr %file_info, i64 48
   %3 = load i64, ptr %st_size.i, align 8
   store i64 %3, ptr %info, align 8
-  %st_mtim.i = getelementptr inbounds i8, ptr %file_info, i64 88
+  %st_mtim.i = getelementptr inbounds nuw i8, ptr %file_info, i64 88
   %4 = load i64, ptr %st_mtim.i, align 8
-  %tv_nsec.i = getelementptr inbounds i8, ptr %file_info, i64 96
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %file_info, i64 96
   %5 = load i64, ptr %tv_nsec.i, align 8
-  %st_atim.i = getelementptr inbounds i8, ptr %file_info, i64 72
+  %st_atim.i = getelementptr inbounds nuw i8, ptr %file_info, i64 72
   %6 = load i64, ptr %st_atim.i, align 8
-  %tv_nsec9.i = getelementptr inbounds i8, ptr %file_info, i64 80
+  %tv_nsec9.i = getelementptr inbounds nuw i8, ptr %file_info, i64 80
   %7 = load i64, ptr %tv_nsec9.i, align 8
-  %st_ctim.i = getelementptr inbounds i8, ptr %file_info, i64 104
+  %st_ctim.i = getelementptr inbounds nuw i8, ptr %file_info, i64 104
   %8 = load i64, ptr %st_ctim.i, align 8
-  %tv_nsec12.i = getelementptr inbounds i8, ptr %file_info, i64 112
+  %tv_nsec12.i = getelementptr inbounds nuw i8, ptr %file_info, i64 112
   %9 = load i64, ptr %tv_nsec12.i, align 8
   %call.i12 = invoke i64 @_ZN4base4Time9FromTimeTEl(i64 noundef %4)
           to label %call.i1.noexc unwind label %lpad
@@ -953,7 +953,7 @@ call.i1.noexc:                                    ; preds = %if.end8
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %call.i1.noexc
-  %last_modified.i = getelementptr inbounds i8, ptr %info, i64 16
+  %last_modified.i = getelementptr inbounds nuw i8, ptr %info, i64 16
   store i64 %call.i.i3, ptr %last_modified.i, align 8
   %call23.i4 = invoke i64 @_ZN4base4Time9FromTimeTEl(i64 noundef %6)
           to label %call23.i.noexc unwind label %lpad
@@ -964,7 +964,7 @@ call23.i.noexc:                                   ; preds = %call.i.i.noexc
           to label %call.i9.i.noexc unwind label %lpad
 
 call.i9.i.noexc:                                  ; preds = %call23.i.noexc
-  %last_accessed.i = getelementptr inbounds i8, ptr %info, i64 24
+  %last_accessed.i = getelementptr inbounds nuw i8, ptr %info, i64 24
   store i64 %call.i9.i5, ptr %last_accessed.i, align 8
   %call36.i6 = invoke i64 @_ZN4base4Time9FromTimeTEl(i64 noundef %8)
           to label %call36.i.noexc unwind label %lpad
@@ -975,7 +975,7 @@ call36.i.noexc:                                   ; preds = %call.i9.i.noexc
           to label %_ZN4base4File4Info8FromStatERK6stat64.exit unwind label %lpad
 
 _ZN4base4File4Info8FromStatERK6stat64.exit:       ; preds = %call36.i.noexc
-  %creation_time.i = getelementptr inbounds i8, ptr %info, i64 32
+  %creation_time.i = getelementptr inbounds nuw i8, ptr %info, i64 32
   store i64 %call.i10.i7, ptr %creation_time.i, align 8
   br label %cleanup
 
@@ -1019,9 +1019,9 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %0 = load i32, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %lock.i)
   store i16 1, ptr %lock.i, align 8
-  %l_whence.i = getelementptr inbounds i8, ptr %lock.i, i64 2
+  %l_whence.i = getelementptr inbounds nuw i8, ptr %lock.i, i64 2
   store i16 0, ptr %l_whence.i, align 2
-  %l_start.i = getelementptr inbounds i8, ptr %lock.i, i64 8
+  %l_start.i = getelementptr inbounds nuw i8, ptr %lock.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %l_start.i, i8 0, i64 16, i1 false)
   br label %do.body.i
 
@@ -1085,9 +1085,9 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %0 = load i32, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %lock.i)
   store i16 2, ptr %lock.i, align 8
-  %l_whence.i = getelementptr inbounds i8, ptr %lock.i, i64 2
+  %l_whence.i = getelementptr inbounds nuw i8, ptr %lock.i, i64 2
   store i16 0, ptr %l_whence.i, align 2
-  %l_start.i = getelementptr inbounds i8, ptr %lock.i, i64 8
+  %l_start.i = getelementptr inbounds nuw i8, ptr %lock.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %l_start.i, i8 0, i64 16, i1 false)
   br label %do.body.i
 
@@ -1167,13 +1167,13 @@ if.end14:                                         ; preds = %invoke.cont6
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %if.end14
-  %async_.i = getelementptr inbounds i8, ptr %this, i64 49
+  %async_.i = getelementptr inbounds nuw i8, ptr %this, i64 49
   %4 = load i8, ptr %async_.i, align 1
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %if.then19, label %cleanup
 
 if.then19:                                        ; preds = %invoke.cont15
-  %async_ = getelementptr inbounds i8, ptr %agg.result, i64 49
+  %async_ = getelementptr inbounds nuw i8, ptr %agg.result, i64 49
   store i8 1, ptr %async_, align 1
   br label %cleanup
 
@@ -1226,7 +1226,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #14
   %vtable = load ptr, ptr %call, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(44) %call, i32 noundef %saved_errno)
   br label %return
@@ -1254,7 +1254,7 @@ switch.hole_check:                                ; preds = %entry
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [30 x i32], ptr @switch.table._ZN4base4File18OSErrorToFileErrorEi, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [30 x i32], ptr @switch.table._ZN4base4File18OSErrorToFileErrorEi, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -1284,7 +1284,7 @@ entry:
   %and = and i32 %flags, 2
   %tobool.not = icmp eq i32 %and, 0
   %spec.store.select = select i1 %tobool.not, i32 0, i32 192
-  %created_ = getelementptr inbounds i8, ptr %this, i64 48
+  %created_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 0, ptr %created_, align 8
   %and2 = and i32 %flags, 8
   %tobool3.not = icmp eq i32 %and2, 0
@@ -1301,7 +1301,7 @@ entry:
 if.then16:                                        ; preds = %entry
   %call = tail call ptr @__errno_location() #15
   store i32 95, ptr %call, align 4
-  %error_details_ = getelementptr inbounds i8, ptr %this, i64 44
+  %error_details_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 -1, ptr %error_details_, align 4
   br label %return
 
@@ -1390,7 +1390,7 @@ if.then101:                                       ; preds = %land.rhs88, %do.end
   %call102 = tail call ptr @__errno_location() #15
   %7 = load i32, ptr %call102, align 4
   %call103 = tail call noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %7)
-  %error_details_104 = getelementptr inbounds i8, ptr %this, i64 44
+  %error_details_104 = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 %call103, ptr %error_details_104, align 4
   br label %return
 
@@ -1415,12 +1415,12 @@ if.then113:                                       ; preds = %if.end110
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then113, %if.end110
-  %async_ = getelementptr inbounds i8, ptr %this, i64 49
+  %async_ = getelementptr inbounds nuw i8, ptr %this, i64 49
   %and118 = lshr i32 %flags, 10
   %8 = trunc i32 %and118 to i8
   %frombool = and i8 %8, 1
   store i8 %frombool, ptr %async_, align 1
-  %error_details_120 = getelementptr inbounds i8, ptr %this, i64 44
+  %error_details_120 = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 0, ptr %error_details_120, align 4
   %9 = load i32, ptr %this, align 8
   %cmp.not.i = icmp eq i32 %9, -1

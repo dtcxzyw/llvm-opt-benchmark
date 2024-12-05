@@ -60,7 +60,7 @@ define internal noundef i32 @open_component() #0 {
 4:                                                ; preds = %3, %0
   store ptr @opal_mutex_t_class, ptr @mca_io_romio341_mutex, align 8
   store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_io_romio341_mutex, i64 8), align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 40), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_mutex_t_class, i64 40), align 8
   %6 = load ptr, ptr %5, align 8
   %.not6.i = icmp eq ptr %6, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -69,7 +69,7 @@ define internal noundef i32 @open_component() #0 {
   %7 = phi ptr [ %9, %.lr.ph.i ], [ %6, %4 ]
   %.07.i = phi ptr [ %8, %.lr.ph.i ], [ %5, %4 ]
   tail call void %7(ptr noundef nonnull @mca_io_romio341_mutex) #9
-  %8 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -81,7 +81,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %4
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @close_component() #0 {
   %1 = load ptr, ptr @mca_io_romio341_mutex, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %.not6.i = icmp eq ptr %4, null
@@ -91,7 +91,7 @@ define internal noundef i32 @close_component() #0 {
   %5 = phi ptr [ %7, %.lr.ph.i ], [ %4, %0 ]
   %.07.i = phi ptr [ %6, %.lr.ph.i ], [ %3, %0 ]
   tail call void %5(ptr noundef nonnull @mca_io_romio341_mutex) #9
-  %6 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
@@ -175,9 +175,9 @@ define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr nocapture
 
 9:                                                ; preds = %8, %3
   store ptr @ompi_info_t_class, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile i32 1, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_info_t_class, i64 40), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_info_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -186,7 +186,7 @@ define internal i32 @delete_select(ptr noundef %0, ptr noundef %1, ptr nocapture
   %13 = phi ptr [ %15, %.lr.ph.i ], [ %12, %9 ]
   %.07.i = phi ptr [ %14, %.lr.ph.i ], [ %11, %9 ]
   call void %13(ptr noundef nonnull %4) #9
-  %14 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -214,7 +214,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
 
 27:                                               ; preds = %25, %21
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
   %.not6.i2 = icmp eq ptr %31, null
@@ -224,7 +224,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   %32 = phi ptr [ %34, %.lr.ph.i3 ], [ %31, %27 ]
   %.07.i4 = phi ptr [ %33, %.lr.ph.i3 ], [ %30, %27 ]
   call void %32(ptr noundef nonnull %4) #9
-  %33 = getelementptr inbounds i8, ptr %.07.i4, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.07.i4, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not.i5 = icmp eq ptr %34, null
   br i1 %.not.i5, label %opal_obj_run_destructors.exit, label %.lr.ph.i3, !llvm.loop !6

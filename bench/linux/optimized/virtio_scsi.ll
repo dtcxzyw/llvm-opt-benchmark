@@ -146,15 +146,15 @@ define internal i32 @virtscsi_probe(ptr noundef %0) #2 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 752
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %13, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.virtscsi_probe) #13
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %13, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.virtscsi_probe) #13
   br label %110
 
 14:                                               ; preds = %1
@@ -196,17 +196,17 @@ define internal i32 @virtscsi_probe(ptr noundef %0) #2 align 16 {
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   %37 = call i32 @llvm.umax.i32(i32 %36, i32 1)
   %38 = trunc i32 %37 to i16
-  %39 = getelementptr inbounds i8, ptr %30, i64 458
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 458
   store i16 %38, ptr %39, align 2
-  %40 = getelementptr inbounds i8, ptr %30, i64 500
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 500
   store i32 1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %30, i64 2064
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 2064
   store ptr %0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %30, i64 2520
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 2520
   store i32 %21, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 792
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store ptr %30, ptr %43, align 8
-  %44 = call fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef %41)
+  %44 = call fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef nonnull %41)
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %108
 
@@ -221,10 +221,10 @@ define internal i32 @virtscsi_probe(ptr noundef %0) #2 align 16 {
   br label %51
 
 51:                                               ; preds = %50, %46
-  %52 = getelementptr inbounds i8, ptr %30, i64 2600
+  %52 = getelementptr inbounds nuw i8, ptr %30, i64 2600
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 @virtqueue_get_vring_size(ptr noundef %53) #12
-  %55 = getelementptr inbounds i8, ptr %30, i64 452
+  %55 = getelementptr inbounds nuw i8, ptr %30, i64 452
   store i32 %54, ptr %55, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
   store i32 0, ptr %5, align 4, !annotation !5
@@ -238,7 +238,7 @@ define internal i32 @virtscsi_probe(ptr noundef %0) #2 align 16 {
   %61 = load i32, ptr %55, align 4
   %62 = call i32 @llvm.umin.i32(i32 %60, i32 %61)
   %63 = trunc i32 %62 to i16
-  %64 = getelementptr inbounds i8, ptr %30, i64 456
+  %64 = getelementptr inbounds nuw i8, ptr %30, i64 456
   store i16 %63, ptr %64, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
   store i32 0, ptr %6, align 4, !annotation !5
@@ -250,7 +250,7 @@ define internal i32 @virtscsi_probe(ptr noundef %0) #2 align 16 {
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   %69 = icmp eq i32 %68, 0
   %70 = select i1 %69, i32 65535, i32 %68
-  %71 = getelementptr inbounds i8, ptr %30, i64 464
+  %71 = getelementptr inbounds nuw i8, ptr %30, i64 464
   store i32 %70, ptr %71, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
   store i32 0, ptr %7, align 4, !annotation !5
@@ -262,24 +262,24 @@ define internal i32 @virtscsi_probe(ptr noundef %0) #2 align 16 {
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
   %76 = add i32 %75, 16385
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %30, i64 432
+  %78 = getelementptr inbounds nuw i8, ptr %30, i64 432
   store i64 %77, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %30, i64 428
+  %79 = getelementptr inbounds nuw i8, ptr %30, i64 428
   store i32 %27, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %30, i64 424
+  %80 = getelementptr inbounds nuw i8, ptr %30, i64 424
   store i32 0, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %30, i64 444
+  %81 = getelementptr inbounds nuw i8, ptr %30, i64 444
   store i16 32, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %30, i64 496
+  %82 = getelementptr inbounds nuw i8, ptr %30, i64 496
   store i32 %21, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 16
-  %84 = call i32 @scsi_add_host_with_dma(ptr noundef nonnull %30, ptr noundef %83, ptr noundef %83) #12
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %84 = call i32 @scsi_add_host_with_dma(ptr noundef nonnull %30, ptr noundef nonnull %83, ptr noundef nonnull %83) #12
   %85 = icmp eq i32 %84, 0
   %86 = load ptr, ptr %8, align 8
   br i1 %85, label %87, label %105
 
 87:                                               ; preds = %51
-  %88 = getelementptr inbounds i8, ptr %86, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %89 = load ptr, ptr %88, align 8
   %90 = call zeroext i8 %89(ptr noundef %0) #12
   %91 = and i8 %90, 4
@@ -294,19 +294,19 @@ define internal i32 @virtscsi_probe(ptr noundef %0) #2 align 16 {
 
 94:                                               ; preds = %93, %87
   %95 = load ptr, ptr %8, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load ptr, ptr %96, align 8
   %98 = or i8 %90, 4
   call void %97(ptr noundef %0, i8 noundef zeroext %98) #12
   call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 1) #12
-  %99 = getelementptr inbounds i8, ptr %0, i64 784
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %100 = load i64, ptr %99, align 8
   %101 = and i64 %100, 2
   %102 = icmp eq i64 %101, 0
   br i1 %102, label %104, label %103
 
 103:                                              ; preds = %94
-  call fastcc void @virtscsi_kick_event_all(ptr noundef %41)
+  call fastcc void @virtscsi_kick_event_all(ptr noundef nonnull %41)
   br label %104
 
 104:                                              ; preds = %103, %94
@@ -314,7 +314,7 @@ define internal i32 @virtscsi_probe(ptr noundef %0) #2 align 16 {
   br label %110
 
 105:                                              ; preds = %51
-  %106 = getelementptr inbounds i8, ptr %86, i64 56
+  %106 = getelementptr inbounds nuw i8, ptr %86, i64 56
   %107 = load ptr, ptr %106, align 8
   call void %107(ptr noundef %0) #12
   br label %108
@@ -331,21 +331,21 @@ define internal i32 @virtscsi_probe(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtscsi_remove(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 792
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %3 = load ptr, ptr %2, align 8
   tail call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 1) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 784
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 2576
-  tail call void @_raw_spin_lock_irq(ptr noundef %9) #12
-  %10 = getelementptr inbounds i8, ptr %3, i64 2552
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 2576
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %9) #12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2552
   store i8 1, ptr %10, align 8
-  tail call void @_raw_spin_unlock_irq(ptr noundef %9) #12
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %9) #12
   %11 = getelementptr i8, ptr %3, i64 2096
   br label %12
 
@@ -361,9 +361,9 @@ define internal void @virtscsi_remove(ptr noundef %0) #2 align 16 {
 .loopexit:                                        ; preds = %12, %1
   tail call void @scsi_remove_host(ptr noundef %3) #12
   tail call void @virtio_reset_device(ptr noundef %0) #12
-  %18 = getelementptr inbounds i8, ptr %0, i64 752
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef %0) #12
   tail call void @scsi_host_put(ptr noundef %3) #12
@@ -373,9 +373,9 @@ define internal void @virtscsi_remove(ptr noundef %0) #2 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @virtscsi_freeze(ptr noundef %0) #2 align 16 {
   tail call void @virtio_reset_device(ptr noundef %0) #12
-  %2 = getelementptr inbounds i8, ptr %0, i64 752
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef %0) #12
   ret i32 0
@@ -383,17 +383,17 @@ define internal noundef i32 @virtscsi_freeze(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @virtscsi_restore(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 792
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 2064
-  %5 = tail call fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef %4)
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2064
+  %5 = tail call fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef nonnull %4)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %26
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 752
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i8 %11(ptr noundef %0) #12
   %13 = and i8 %12, 4
@@ -408,19 +408,19 @@ define internal i32 @virtscsi_restore(ptr noundef %0) #2 align 16 {
 
 16:                                               ; preds = %15, %7
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = or i8 %12, 4
   tail call void %19(ptr noundef %0, i8 noundef zeroext %20) #12
   tail call void @virtio_check_driver_offered_feature(ptr noundef %0, i32 noundef 1) #12
-  %21 = getelementptr inbounds i8, ptr %0, i64 784
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 2
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %16
-  tail call fastcc void @virtscsi_kick_event_all(ptr noundef %4)
+  tail call fastcc void @virtscsi_kick_event_all(ptr noundef nonnull %4)
   br label %26
 
 26:                                               ; preds = %25, %16, %1
@@ -447,7 +447,7 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr nocapture noundef 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   store i32 2, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 456
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 456
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 2
   %9 = zext i32 %8 to i64
@@ -467,14 +467,14 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr nocapture noundef 
   %21 = add i32 %7, -1
   %22 = tail call i32 @llvm.umin.i32(i32 %20, i32 %21)
   %23 = sub i32 %7, %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 460
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 460
   store i32 %23, ptr %24, align 4
   %25 = getelementptr i8, ptr %1, i64 464
   store i32 0, ptr %25, align 4
   %26 = getelementptr i8, ptr %1, i64 468
   store i32 %22, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %27, ptr noundef nonnull @.str.9, i32 noundef %23, i32 noundef 0, i32 noundef %22) #13
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %27, ptr noundef nonnull @.str.9, i32 noundef %23, i32 noundef 0, i32 noundef %22) #13
   store ptr @virtscsi_ctrl_done, ptr %12, align 8
   %28 = getelementptr i8, ptr %12, i64 8
   store ptr @virtscsi_event_done, ptr %28, align 8
@@ -525,31 +525,31 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr nocapture noundef 
   br i1 %55, label %.loopexit7, label %51, !llvm.loop !14
 
 .loopexit7:                                       ; preds = %51, %.loopexit8
-  %56 = getelementptr inbounds i8, ptr %0, i64 752
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 %59(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %3) #12
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %90
 
 62:                                               ; preds = %.loopexit7
-  %63 = getelementptr inbounds i8, ptr %1, i64 496
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %64 = load ptr, ptr %11, align 8
   store i32 0, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 504
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 504
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 512
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %67 = getelementptr i8, ptr %11, i64 8
   %68 = load ptr, ptr %67, align 8
   store i32 0, ptr %66, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 520
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 520
   store ptr %68, ptr %69, align 8
   %70 = icmp ugt i32 %8, 2
   br i1 %70, label %71, label %.loopexit
 
 71:                                               ; preds = %62
-  %72 = getelementptr inbounds i8, ptr %1, i64 528
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 528
   br label %73
 
 73:                                               ; preds = %73, %71
@@ -559,7 +559,7 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr nocapture noundef 
   %77 = getelementptr ptr, ptr %11, i64 %74
   %78 = load ptr, ptr %77, align 8
   store i32 0, ptr %76, align 8
-  %79 = getelementptr inbounds i8, ptr %76, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %78, ptr %79, align 8
   %80 = add nuw nsw i64 %74, 1
   %81 = icmp eq i64 %80, %9
@@ -570,7 +570,7 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr nocapture noundef 
   store i32 32, ptr %4, align 4
   %82 = call i32 @__SCT__might_resched() #12
   %83 = load ptr, ptr %56, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
   call void %85(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %4, i32 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
@@ -578,7 +578,7 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr nocapture noundef 
   store i32 96, ptr %5, align 4
   %86 = call i32 @__SCT__might_resched() #12
   %87 = load ptr, ptr %56, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
   call void %89(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %5, i32 noundef 4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
@@ -594,9 +594,9 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr nocapture noundef 
 
 93:                                               ; preds = %90
   call void @virtio_reset_device(ptr noundef %0) #12
-  %94 = getelementptr inbounds i8, ptr %0, i64 752
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr noundef %0) #12
   br label %98
@@ -612,9 +612,9 @@ declare dso_local i32 @virtqueue_get_vring_size(ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @virtscsi_kick_event_all(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca %struct.scatterlist, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 512
-  %5 = getelementptr inbounds i8, ptr %0, i64 520
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 520
   br label %6
 
 6:                                                ; preds = %21, %1
@@ -623,17 +623,17 @@ define internal fastcc void @virtscsi_kick_event_all(ptr noundef %0) unnamed_add
   store ptr %0, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 68719476704, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store volatile ptr %10, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store volatile ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @virtscsi_handle_event, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
-  call void @sg_init_one(ptr noundef nonnull %2, ptr noundef %13, i32 noundef 16) #12
-  %14 = call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #12
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @sg_init_one(ptr noundef nonnull %2, ptr noundef nonnull %13, i32 noundef 16) #12
+  %14 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %4) #12
   %15 = load ptr, ptr %5, align 8
   %16 = call i32 @virtqueue_add_inbuf(ptr noundef %15, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %8, i32 noundef 2080) #12
   %17 = icmp eq i32 %16, 0
@@ -645,7 +645,7 @@ define internal fastcc void @virtscsi_kick_event_all(ptr noundef %0) unnamed_add
   br label %21
 
 21:                                               ; preds = %18, %6
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %4, i64 noundef %14) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %14) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
   %22 = add nuw nsw i64 %7, 1
   %23 = icmp eq i64 %22, 8
@@ -670,12 +670,12 @@ define internal noundef range(i32 0, 4182) i32 @virtscsi_queuecommand(ptr nounde
   %4 = tail call i32 @blk_mq_unique_tag(ptr noundef %3) #12
   %5 = lshr i32 %4, 16
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 2592
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   %8 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %7, i64 0, i64 %6
   %9 = getelementptr i8, ptr %1, i64 296
-  %10 = getelementptr inbounds i8, ptr %1, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 458
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 458
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = icmp ugt i32 %11, %14
@@ -687,7 +687,7 @@ define internal noundef range(i32 0, 4182) i32 @virtscsi_queuecommand(ptr nounde
   unreachable
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %1, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %22, !prof !17
@@ -699,7 +699,7 @@ define internal noundef range(i32 0, 4182) i32 @virtscsi_queuecommand(ptr nounde
 
 22:                                               ; preds = %17
   store ptr %1, ptr %9, align 64
-  %23 = getelementptr inbounds i8, ptr %1, i64 156
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %24 = load i16, ptr %23, align 4
   %25 = icmp ugt i16 %24, 32
   br i1 %25, label %26, label %27, !prof !17
@@ -713,12 +713,12 @@ define internal noundef range(i32 0, 4182) i32 @virtscsi_queuecommand(ptr nounde
   %28 = getelementptr i8, ptr %1, i64 312
   store i8 1, ptr %28, align 1
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 144
   %31 = load i32, ptr %30, align 8
   %32 = trunc i32 %31 to i8
   %33 = getelementptr i8, ptr %1, i64 313
   store i8 %32, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %29, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 152
   %35 = load i64, ptr %34, align 8
   %36 = lshr i64 %35, 8
   %37 = trunc i64 %36 to i8
@@ -739,10 +739,10 @@ define internal noundef range(i32 0, 4182) i32 @virtscsi_queuecommand(ptr nounde
   %47 = getelementptr i8, ptr %1, i64 330
   store i8 0, ptr %47, align 1
   %48 = getelementptr i8, ptr %1, i64 331
-  %49 = getelementptr inbounds i8, ptr %1, i64 164
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %50 = zext nneg i16 %24 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 4 %49, i64 %50, i1 false)
-  %51 = getelementptr inbounds i8, ptr %1, i64 256
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull align 4 %49, i64 %50, i1 false)
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 4
   %54 = icmp ne i32 %53, 0
@@ -770,11 +770,11 @@ define internal noundef range(i32 0, 4182) i32 @virtscsi_queuecommand(ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtscsi_commit_rqs(ptr noundef %0, i16 noundef zeroext %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2592
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   %4 = zext i16 %1 to i64
   %5 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %3, i64 0, i64 %4
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #12
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i1 @virtqueue_kick_prepare(ptr noundef %8) #12
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #12
@@ -803,54 +803,54 @@ define internal range(i32 8194, 8196) i32 @virtscsi_abort(ptr noundef %0) #2 ali
 8:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i8
   %13 = lshr i64 %11, 8
   %14 = trunc i64 %13 to i8
   %15 = or i8 %14, 64
-  %16 = getelementptr inbounds i8, ptr %9, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %17 = load i32, ptr %16, align 8
   %18 = trunc i32 %17 to i8
   %19 = ptrtoint ptr %0 to i64
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 25
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 25
   store i8 %18, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %6, i64 26
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 26
   store i8 %15, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %6, i64 27
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 27
   store i8 %12, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %6, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %19, ptr %24, align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #12
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 16, i1 false)
   store ptr %25, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 2560
-  %29 = call fastcc i32 @virtscsi_add_cmd(ptr noundef %28, ptr noundef nonnull %6, i64 noundef 24, i64 noundef 1, i1 noundef zeroext true)
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 2560
+  %29 = call fastcc i32 @virtscsi_add_cmd(ptr noundef nonnull %28, ptr noundef nonnull %6, i64 noundef 24, i64 noundef 1, i1 noundef zeroext true)
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %virtscsi_tmf.exit, label %31
 
 31:                                               ; preds = %8
   call void @wait_for_completion(ptr noundef nonnull %2) #12
-  %32 = getelementptr inbounds i8, ptr %6, i64 75
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 75
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   %35 = icmp eq i8 %33, 10
   %36 = or i1 %34, %35
   %37 = select i1 %36, i32 8194, i32 8195
-  %38 = getelementptr inbounds i8, ptr %4, i64 2520
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 2520
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %virtscsi_tmf.exit
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 2592
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 2592
   %43 = zext nneg i32 %39 to i64
   br label %44
 
@@ -888,55 +888,55 @@ define internal range(i32 8194, 8196) i32 @virtscsi_device_reset(ptr nocapture n
 8:                                                ; preds = %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(192) %6, i8 0, i64 192, i1 false)
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i8
   %13 = lshr i64 %11, 8
   %14 = trunc i64 %13 to i8
   %15 = or i8 %14, 64
-  %16 = getelementptr inbounds i8, ptr %9, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %17 = load i32, ptr %16, align 8
   %18 = trunc i32 %17 to i8
-  %19 = getelementptr inbounds i8, ptr %6, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 5, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 25
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 25
   store i8 %18, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %6, i64 26
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 26
   store i8 %15, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %6, i64 27
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 27
   store i8 %12, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %6, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 0, ptr %24, align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #12
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 16, i1 false)
   store ptr %25, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 2560
-  %29 = call fastcc i32 @virtscsi_add_cmd(ptr noundef %28, ptr noundef nonnull %6, i64 noundef 24, i64 noundef 1, i1 noundef zeroext true)
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 2560
+  %29 = call fastcc i32 @virtscsi_add_cmd(ptr noundef nonnull %28, ptr noundef nonnull %6, i64 noundef 24, i64 noundef 1, i1 noundef zeroext true)
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %virtscsi_tmf.exit, label %31
 
 31:                                               ; preds = %8
   call void @wait_for_completion(ptr noundef nonnull %2) #12
-  %32 = getelementptr inbounds i8, ptr %6, i64 75
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 75
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   %35 = icmp eq i8 %33, 10
   %36 = or i1 %34, %35
   %37 = select i1 %36, i32 8194, i32 8195
-  %38 = getelementptr inbounds i8, ptr %4, i64 2520
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 2520
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %virtscsi_tmf.exit
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 2592
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 2592
   %43 = zext nneg i32 %39 to i64
   br label %44
 
@@ -962,7 +962,7 @@ virtscsi_tmf.exit:                                ; preds = %44, %8, %31
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal noundef i32 @virtscsi_device_alloc(ptr nocapture noundef writeonly initializes((320, 328)) %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i64 268435456, ptr %2, align 8
   ret i32 0
 }
@@ -970,7 +970,7 @@ define internal noundef i32 @virtscsi_device_alloc(ptr nocapture noundef writeon
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @virtscsi_change_queue_depth(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 456
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 456
   %5 = load i16, ptr %4, align 8
   %6 = sext i16 %5 to i32
   %7 = tail call i32 @llvm.smin.i32(i32 %6, i32 %1)
@@ -980,15 +980,15 @@ define internal i32 @virtscsi_change_queue_depth(ptr noundef %0, i32 noundef %1)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtscsi_map_queues(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2064
-  %3 = getelementptr inbounds i8, ptr %0, i64 500
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2064
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 232
-  %8 = getelementptr inbounds i8, ptr %0, i64 2524
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2524
   br label %9
 
 9:                                                ; preds = %25, %6
@@ -998,9 +998,9 @@ define internal void @virtscsi_map_queues(ptr noundef %0) #2 align 16 {
   %13 = getelementptr [3 x %struct.blk_mq_queue_map], ptr %7, i64 0, i64 %12
   %14 = getelementptr [3 x i32], ptr %8, i64 0, i64 %12
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %13, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %10, ptr %17, align 4
   %18 = add i32 %15, %10
   %19 = icmp eq i32 %15, 0
@@ -1032,13 +1032,13 @@ define internal void @virtscsi_map_queues(ptr noundef %0) #2 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @virtscsi_mq_poll(ptr noundef %0, i32 noundef %1) #2 align 16 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 2592
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   %5 = zext i32 %1 to i64
   %6 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %4, i64 0, i64 %5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
   store i32 0, ptr %3, align 4, !annotation !5
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #12
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @virtqueue_get_buf(ptr noundef %9, ptr noundef nonnull %3) #12
   %11 = icmp eq ptr %10, null
@@ -1075,7 +1075,7 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
   %7 = alloca %struct.scatterlist, align 8
   %8 = alloca %struct.scatterlist, align 8
   %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %1, align 64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #12
@@ -1088,7 +1088,7 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
   br i1 %13, label %.thread5, label %14
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %12, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %17 [
     i32 3, label %.thread5
@@ -1096,129 +1096,127 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
   ]
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 200
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 200
   br label %24
 
 .thread5:                                         ; preds = %5, %14
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = trunc nuw nsw i64 %2 to i32
-  call void @sg_init_one(ptr noundef nonnull %7, ptr noundef %19, i32 noundef %20) #12
+  call void @sg_init_one(ptr noundef nonnull %7, ptr noundef nonnull %19, i32 noundef %20) #12
   store ptr %7, ptr %6, align 16
-  %21 = getelementptr inbounds i8, ptr %1, i64 75
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 75
   %22 = trunc nuw nsw i64 %3 to i32
-  call void @sg_init_one(ptr noundef nonnull %8, ptr noundef %21, i32 noundef %22) #12
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  call void @sg_init_one(ptr noundef nonnull %8, ptr noundef nonnull %21, i32 noundef %22) #12
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %23, align 8
-  br label %76
+  br label %74
 
 24:                                               ; preds = %14, %17
   %25 = phi ptr [ %18, %17 ], [ null, %14 ]
   %26 = icmp eq i32 %16, 1
-  %27 = getelementptr inbounds i8, ptr %12, i64 200
-  %28 = select i1 %26, ptr null, ptr %27
-  %29 = getelementptr inbounds i8, ptr %1, i64 16
-  %30 = trunc nuw nsw i64 %2 to i32
-  call void @sg_init_one(ptr noundef nonnull %7, ptr noundef %29, i32 noundef %30) #12
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 200
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %29 = trunc nuw nsw i64 %2 to i32
+  call void @sg_init_one(ptr noundef nonnull %7, ptr noundef nonnull %28, i32 noundef %29) #12
   store ptr %7, ptr %6, align 16
-  %31 = icmp eq ptr %25, null
-  br i1 %31, label %49, label %32
+  %30 = icmp eq ptr %25, null
+  br i1 %30, label %48, label %31
 
-32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %12, i64 224
-  %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %43, label %36
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 224
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %42, label %35
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %43, label %40
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %42, label %39
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %34, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %41, ptr %42, align 8
-  br label %43
+39:                                               ; preds = %35
+  %40 = load ptr, ptr %33, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %40, ptr %41, align 8
+  br label %42
 
-43:                                               ; preds = %40, %36, %32
-  %44 = phi i32 [ 2, %40 ], [ 1, %36 ], [ 1, %32 ]
-  %45 = load ptr, ptr %25, align 8
-  %46 = add nuw nsw i32 %44, 1
-  %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %47
-  store ptr %45, ptr %48, align 8
-  br label %49
+42:                                               ; preds = %39, %35, %31
+  %43 = phi i32 [ 2, %39 ], [ 1, %35 ], [ 1, %31 ]
+  %44 = load ptr, ptr %25, align 8
+  %45 = add nuw nsw i32 %43, 1
+  %46 = zext nneg i32 %43 to i64
+  %47 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %46
+  store ptr %44, ptr %47, align 8
+  br label %48
 
-49:                                               ; preds = %43, %24
-  %50 = phi i32 [ %46, %43 ], [ 1, %24 ]
-  %51 = getelementptr inbounds i8, ptr %1, i64 75
-  %52 = trunc nuw nsw i64 %3 to i32
-  call void @sg_init_one(ptr noundef nonnull %8, ptr noundef %51, i32 noundef %52) #12
-  %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %53
-  store ptr %8, ptr %54, align 8
-  %55 = icmp eq ptr %28, null
-  br i1 %55, label %76, label %56
+48:                                               ; preds = %42, %24
+  %49 = phi i32 [ %45, %42 ], [ 1, %24 ]
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 75
+  %51 = trunc nuw nsw i64 %3 to i32
+  call void @sg_init_one(ptr noundef nonnull %8, ptr noundef nonnull %50, i32 noundef %51) #12
+  %52 = zext nneg i32 %49 to i64
+  %53 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %52
+  store ptr %8, ptr %53, align 8
+  br i1 %26, label %74, label %54
 
-56:                                               ; preds = %49
-  %57 = getelementptr inbounds i8, ptr %12, i64 224
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %69, label %60
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 224
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %67, label %58
 
-60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %58, i64 8
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %69, label %64
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %67, label %62
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %58, align 8
-  %66 = add nuw nsw i32 %50, 1
-  %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %67
-  store ptr %65, ptr %68, align 8
-  br label %69
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %56, align 8
+  %64 = add nuw nsw i32 %49, 1
+  %65 = zext nneg i32 %64 to i64
+  %66 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %65
+  store ptr %63, ptr %66, align 8
+  br label %67
 
-69:                                               ; preds = %64, %60, %56
-  %70 = phi i32 [ 2, %64 ], [ 1, %60 ], [ 1, %56 ]
-  %71 = load ptr, ptr %28, align 8
-  %72 = add nuw nsw i32 %70, 1
-  %73 = add nuw nsw i32 %70, %50
-  %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %74
-  store ptr %71, ptr %75, align 8
-  br label %76
+67:                                               ; preds = %62, %58, %54
+  %68 = phi i32 [ 2, %62 ], [ 1, %58 ], [ 1, %54 ]
+  %69 = load ptr, ptr %27, align 8
+  %70 = add nuw nsw i32 %68, 1
+  %71 = add nuw nsw i32 %68, %49
+  %72 = zext nneg i32 %71 to i64
+  %73 = getelementptr [6 x ptr], ptr %6, i64 0, i64 %72
+  store ptr %69, ptr %73, align 8
+  br label %74
 
-76:                                               ; preds = %.thread5, %69, %49
-  %77 = phi i32 [ %50, %69 ], [ %50, %49 ], [ 1, %.thread5 ]
-  %78 = phi i32 [ %72, %69 ], [ 1, %49 ], [ 1, %.thread5 ]
-  %79 = call i32 @virtqueue_add_sgs(ptr noundef %11, ptr noundef nonnull %6, i32 noundef %77, i32 noundef %78, ptr noundef %1, i32 noundef 2080) #12
+74:                                               ; preds = %.thread5, %67, %48
+  %75 = phi i32 [ %49, %67 ], [ %49, %48 ], [ 1, %.thread5 ]
+  %76 = phi i32 [ %70, %67 ], [ 1, %48 ], [ 1, %.thread5 ]
+  %77 = call i32 @virtqueue_add_sgs(ptr noundef %11, ptr noundef nonnull %6, i32 noundef %75, i32 noundef %76, ptr noundef %1, i32 noundef 2080) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #12
-  %80 = icmp eq i32 %79, 0
-  %81 = and i1 %4, %80
-  br i1 %81, label %82, label %88
+  %78 = icmp eq i32 %77, 0
+  %79 = and i1 %4, %78
+  br i1 %79, label %80, label %86
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr %10, align 8
-  %84 = call zeroext i1 @virtqueue_kick_prepare(ptr noundef %83) #12
+80:                                               ; preds = %74
+  %81 = load ptr, ptr %10, align 8
+  %82 = call zeroext i1 @virtqueue_kick_prepare(ptr noundef %81) #12
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %9) #12
-  br i1 %84, label %85, label %89
+  br i1 %82, label %83, label %87
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr %10, align 8
-  %87 = call zeroext i1 @virtqueue_notify(ptr noundef %86) #12
-  br label %89
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %10, align 8
+  %85 = call zeroext i1 @virtqueue_notify(ptr noundef %84) #12
+  br label %87
 
-88:                                               ; preds = %76
+86:                                               ; preds = %74
   call void @_raw_spin_unlock_irqrestore(ptr noundef %0, i64 noundef %9) #12
-  br label %89
+  br label %87
 
-89:                                               ; preds = %88, %85, %82
-  ret i32 %79
+87:                                               ; preds = %86, %83, %80
+  ret i32 %77
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1227,27 +1225,27 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @virtscsi_complete_cmd(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 64
-  %3 = getelementptr inbounds i8, ptr %0, i64 75
-  %4 = getelementptr inbounds i8, ptr %0, i64 85
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 75
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 85
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %2, i64 288
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 288
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 79
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %9 = load i32, ptr %8, align 1
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %2, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %13 = load i32, ptr %12, align 8
   %14 = tail call i32 @llvm.umin.i32(i32 %13, i32 %9)
-  %15 = getelementptr inbounds i8, ptr %2, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 240
   store i32 %14, ptr %15, align 8
   br label %16
 
 16:                                               ; preds = %11, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 86
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 86
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %34 [
     i8 0, label %40
@@ -1325,12 +1323,12 @@ define internal fastcc void @virtscsi_complete_cmd(ptr nocapture noundef readonl
   br i1 %47, label %54, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %2, i64 248
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 87
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 87
   %52 = tail call i32 @llvm.umin.i32(i32 %46, i32 96)
   %53 = zext nneg i32 %52 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %51, i64 %53, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %51, i64 %53, i1 false)
   br label %54
 
 54:                                               ; preds = %48, %45
@@ -1379,7 +1377,7 @@ define internal fastcc void @virtscsi_vq_done(ptr noundef %0) unnamed_addr #2 al
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
   store i32 0, ptr %2, align 4, !annotation !5
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #12
   br label %6
@@ -1393,27 +1391,27 @@ define internal fastcc void @virtscsi_vq_done(ptr noundef %0) unnamed_addr #2 al
 .preheader:                                       ; preds = %6, %virtscsi_complete_cmd.exit
   %9 = phi ptr [ %62, %virtscsi_complete_cmd.exit ], [ %7, %6 ]
   %10 = load ptr, ptr %9, align 64
-  %11 = getelementptr inbounds i8, ptr %9, i64 75
-  %12 = getelementptr inbounds i8, ptr %9, i64 85
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 75
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 85
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %10, i64 288
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 288
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 79
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 79
   %17 = load i32, ptr %16, align 1
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %10, i64 216
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 216
   %21 = load i32, ptr %20, align 8
   %22 = call i32 @llvm.umin.i32(i32 %21, i32 %17)
-  %23 = getelementptr inbounds i8, ptr %10, i64 240
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 240
   store i32 %22, ptr %23, align 8
   br label %24
 
 24:                                               ; preds = %19, %.preheader
-  %25 = getelementptr inbounds i8, ptr %9, i64 86
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 86
   %26 = load i8, ptr %25, align 1
   switch i8 %26, label %42 [
     i8 0, label %48
@@ -1491,12 +1489,12 @@ define internal fastcc void @virtscsi_vq_done(ptr noundef %0) unnamed_addr #2 al
   br i1 %55, label %virtscsi_complete_cmd.exit, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %10, i64 248
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %9, i64 87
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 87
   %60 = call i32 @llvm.umin.i32(i32 %54, i32 96)
   %61 = zext nneg i32 %60 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr readonly align 1 %59, i64 %61, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr nonnull readonly align 1 %59, i64 %61, i1 false)
   br label %virtscsi_complete_cmd.exit
 
 virtscsi_complete_cmd.exit:                       ; preds = %53, %56
@@ -1542,16 +1540,16 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtscsi_ctrl_done(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 792
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 792
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 2560
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2560
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
   store i32 0, ptr %2, align 4, !annotation !5
-  %8 = getelementptr inbounds i8, ptr %6, i64 2568
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2568
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #12
+  %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %7) #12
   br label %11
 
 11:                                               ; preds = %.loopexit, %1
@@ -1562,7 +1560,7 @@ define internal void @virtscsi_ctrl_done(ptr nocapture noundef readonly %0) #2 a
 
 .preheader:                                       ; preds = %11, %19
   %14 = phi ptr [ %20, %19 ], [ %12, %11 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %19, label %18
@@ -1581,7 +1579,7 @@ define internal void @virtscsi_ctrl_done(ptr nocapture noundef readonly %0) #2 a
   br i1 %22, label %23, label %11, !llvm.loop !31
 
 23:                                               ; preds = %.loopexit
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %10) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %10) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   ret void
 }
@@ -1589,17 +1587,17 @@ define internal void @virtscsi_ctrl_done(ptr nocapture noundef readonly %0) #2 a
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtscsi_event_done(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 792
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 792
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 2576
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2576
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
   store i32 0, ptr %2, align 4, !annotation !5
-  %8 = getelementptr inbounds i8, ptr %6, i64 2584
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2584
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #12
-  %11 = getelementptr inbounds i8, ptr %6, i64 2552
+  %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %7) #12
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 2552
   br label %12
 
 12:                                               ; preds = %.loopexit, %1
@@ -1616,8 +1614,8 @@ define internal void @virtscsi_event_done(ptr nocapture noundef readonly %0) #2 
 
 18:                                               ; preds = %.preheader
   %19 = load ptr, ptr @system_freezable_wq, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
-  %21 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %19, ptr noundef %20) #12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %21 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %19, ptr noundef nonnull %20) #12
   br label %22
 
 22:                                               ; preds = %18, %.preheader
@@ -1630,21 +1628,21 @@ define internal void @virtscsi_event_done(ptr nocapture noundef readonly %0) #2 
   br i1 %25, label %26, label %12, !llvm.loop !31
 
 26:                                               ; preds = %.loopexit
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %7, i64 noundef %10) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %7, i64 noundef %10) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtscsi_req_done(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 792
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 792
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, -2
-  %9 = getelementptr inbounds i8, ptr %5, i64 2592
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 2592
   %10 = sext i32 %8 to i64
   %11 = getelementptr [0 x %struct.virtio_scsi_vq], ptr %9, i64 0, i64 %10
   tail call fastcc void @virtscsi_vq_done(ptr noundef %11)
@@ -1690,7 +1688,7 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
   %10 = and i32 %7, 2147483647
   store i32 %10, ptr %6, align 1
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 792
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 792
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !5
@@ -1705,12 +1703,12 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %3, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %22
 
 22:                                               ; preds = %.thread, %20
   %23 = phi ptr [ %18, %20 ], [ %40, %.thread ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 216
   %25 = load i8, ptr %24, align 8
   %26 = icmp eq i8 %25, 0
   %27 = select i1 %26, i8 36, i8 %25
@@ -1748,7 +1746,7 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
   call void @kfree(ptr noundef nonnull %15) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 792
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 792
   %44 = load ptr, ptr %43, align 8
   call void @scsi_scan_host(ptr noundef %44) #12
   %.pr = load i32, ptr %6, align 1
@@ -1764,7 +1762,7 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 792
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 792
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %0, i64 -11
   %52 = load i8, ptr %51, align 1
@@ -1789,8 +1787,8 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %50, i64 592
-  call void @scsi_scan_target(ptr noundef %67, i32 noundef 0, i32 noundef %53, i64 noundef -1, i32 noundef 0) #12
+  %67 = getelementptr inbounds nuw i8, ptr %50, i64 592
+  call void @scsi_scan_target(ptr noundef nonnull %67, i32 noundef 0, i32 noundef %53, i64 noundef -1, i32 noundef 0) #12
   br label %117
 
 68:                                               ; preds = %64
@@ -1810,7 +1808,7 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
   br label %117
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %50, i64 404
+  %77 = getelementptr inbounds nuw i8, ptr %50, i64 404
   %78 = load i32, ptr %77, align 4
   %79 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %78, i32 noundef %53, i32 noundef %61) #13
   br label %117
@@ -1821,7 +1819,7 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
 
 82:                                               ; preds = %45
   %83 = load ptr, ptr %5, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 792
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 792
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr i8, ptr %0, i64 -11
   %87 = load i8, ptr %86, align 1
@@ -1843,7 +1841,7 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %82
-  %104 = getelementptr inbounds i8, ptr %85, i64 404
+  %104 = getelementptr inbounds nuw i8, ptr %85, i64 404
   %105 = load i32, ptr %104, align 4
   %106 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %105, i32 noundef %88, i32 noundef %96) #13
   br label %117
@@ -1884,9 +1882,9 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
   %120 = getelementptr i8, ptr %0, i64 24
   store ptr @virtscsi_handle_event, ptr %120, align 8
   call void @sg_init_one(ptr noundef nonnull %2, ptr noundef %6, i32 noundef 16) #12
-  %121 = getelementptr inbounds i8, ptr %5, i64 512
-  %122 = call i64 @_raw_spin_lock_irqsave(ptr noundef %121) #12
-  %123 = getelementptr inbounds i8, ptr %5, i64 520
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 512
+  %122 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %121) #12
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 520
   %124 = load ptr, ptr %123, align 8
   %125 = call i32 @virtqueue_add_inbuf(ptr noundef %124, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %4, i32 noundef 2080) #12
   %126 = icmp eq i32 %125, 0
@@ -1898,7 +1896,7 @@ define internal void @virtscsi_handle_event(ptr noundef %0) #2 align 16 {
   br label %130
 
 130:                                              ; preds = %127, %117
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %121, i64 noundef %122) #12
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %121, i64 noundef %122) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #12
   br label %132
 

@@ -128,7 +128,7 @@ if.then2:                                         ; preds = %if.then
 if.then.i:                                        ; preds = %if.then2
   %1 = load i32, ptr %buf, align 4
   %2 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %xor, i32 %1)
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then2
@@ -141,7 +141,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 if.then3.i:                                       ; preds = %if.end.i
   %3 = load i16, ptr %next.2, align 2
   %4 = tail call noundef i32 @llvm.x86.sse42.crc32.32.16(i32 %crc32bit.0.i, i16 %3)
-  %add.ptr5.i = getelementptr inbounds i8, ptr %next.2, i64 2
+  %add.ptr5.i = getelementptr inbounds nuw i8, ptr %next.2, i64 2
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then3.i, %if.end.i
@@ -154,7 +154,7 @@ if.end6.i:                                        ; preds = %if.then3.i, %if.end
 if.then9.i:                                       ; preds = %if.end6.i
   %5 = load i8, ptr %next.3, align 1
   %6 = tail call noundef i32 @llvm.x86.sse42.crc32.32.8(i32 %crc32bit.1.i, i8 %5)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %next.3, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %next.3, i64 1
   br label %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit
 
 _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %if.end6.i, %if.then9.i
@@ -169,9 +169,9 @@ _ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit:      ; preds = %if.end6.i, %if.then
   %inc = zext i1 %cmp5 to i64
   %n.0 = add nuw nsw i64 %shr, %inc
   %block_size.0 = select i1 %cmp5, i64 %and4, i64 128
-  %add.ptr = getelementptr inbounds i64, ptr %next.4, i64 %block_size.0
-  %add.ptr7 = getelementptr inbounds i64, ptr %add.ptr, i64 %block_size.0
-  %add.ptr8 = getelementptr inbounds i64, ptr %add.ptr7, i64 %block_size.0
+  %add.ptr = getelementptr inbounds nuw i64, ptr %next.4, i64 %block_size.0
+  %add.ptr7 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %block_size.0
+  %add.ptr8 = getelementptr inbounds nuw i64, ptr %add.ptr7, i64 %block_size.0
   %trunc = trunc nuw i64 %block_size.0 to i8
   switch i8 %trunc, label %if.end910 [
     i8 -128, label %do.body
@@ -2874,9 +2874,9 @@ sw.bb896:                                         ; preds = %sw.bb889, %_ZN7rock
   br i1 %cmp902.not, label %if.end910, label %do.cond
 
 do.cond:                                          ; preds = %sw.bb896
-  %add.ptr904 = getelementptr inbounds i8, ptr %next2.127, i64 1024
-  %add.ptr905 = getelementptr inbounds i8, ptr %next2.127, i64 2048
-  %add.ptr906 = getelementptr inbounds i8, ptr %next2.127, i64 3072
+  %add.ptr904 = getelementptr inbounds nuw i8, ptr %next2.127, i64 1024
+  %add.ptr905 = getelementptr inbounds nuw i8, ptr %next2.127, i64 2048
+  %add.ptr906 = getelementptr inbounds nuw i8, ptr %next2.127, i64 3072
   br label %do.body, !llvm.loop !4
 
 if.end910:                                        ; preds = %sw.bb896, %_ZN7rocksdb6crc32c10align_to_8EmRmRPKh.exit, %if.then
@@ -2886,7 +2886,7 @@ if.end910:                                        ; preds = %sw.bb896, %_ZN7rock
   %shr911 = lshr i64 %len.addr.1, 3
   %and912 = and i64 %len.addr.1, 7
   %mul = and i64 %len.addr.1, 248
-  %add.ptr913 = getelementptr inbounds i8, ptr %next.1, i64 %mul
+  %add.ptr913 = getelementptr inbounds nuw i8, ptr %next.1, i64 %mul
   switch i64 %shr911, label %if.end997 [
     i64 27, label %sw.bb914
     i64 26, label %sw.bb917
@@ -3116,7 +3116,7 @@ if.end997:                                        ; preds = %if.end910, %sw.bb99
 if.then.i665:                                     ; preds = %if.end997
   %832 = load i32, ptr %next.0, align 4
   %833 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %conv.i662, i32 %832)
-  %add.ptr.i666 = getelementptr inbounds i8, ptr %next.0, i64 4
+  %add.ptr.i666 = getelementptr inbounds nuw i8, ptr %next.0, i64 4
   br label %if.end.i667
 
 if.end.i667:                                      ; preds = %if.then.i665, %if.end997
@@ -3129,7 +3129,7 @@ if.end.i667:                                      ; preds = %if.then.i665, %if.e
 if.then3.i671:                                    ; preds = %if.end.i667
   %834 = load i16, ptr %next.5, align 2
   %835 = tail call noundef i32 @llvm.x86.sse42.crc32.32.16(i32 %crc32bit.0.i668, i16 %834)
-  %add.ptr5.i672 = getelementptr inbounds i8, ptr %next.5, i64 2
+  %add.ptr5.i672 = getelementptr inbounds nuw i8, ptr %next.5, i64 2
   br label %if.end6.i673
 
 if.end6.i673:                                     ; preds = %if.then3.i671, %if.end.i667
@@ -3186,7 +3186,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %len_bits.03.i = phi i64 [ %shr3.i, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ %div4, %while.body.i.preheader ]
   %powers.02.i = phi ptr [ %incdec.ptr.i, %_ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i ], [ @_ZN7rocksdb6crc32cL13crc32c_powersE, %while.body.i.preheader ]
   %0 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %len_bits.03.i, i1 true)
-  %add.ptr.i = getelementptr inbounds i32, ptr %powers.02.i, i64 %0
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %powers.02.i, i64 %0
   %1 = load i32, ptr %add.ptr.i, align 4
   br label %cond.false.i.i.i
 
@@ -3211,7 +3211,7 @@ cond.false.i.i.i:                                 ; preds = %cond.false.i.i.i, %
 _ZN7rocksdb6crc32cL14gf_multiply_swEjjj.exit.i:   ; preds = %cond.false.i.i.i
   %shr.i = lshr i64 %len_bits.03.i, %0
   %shr3.i = lshr i64 %shr.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %tobool.not.i = icmp samesign ult i64 %shr.i, 2
   br i1 %tobool.not.i, label %_ZN7rocksdb6crc32cL17Crc32AppendZeroesEjmjRKSt5arrayIjLm62EE.exit, label %while.body.i, !llvm.loop !7
 

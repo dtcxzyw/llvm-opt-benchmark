@@ -48,7 +48,7 @@ define hidden noundef nonnull ptr @_ZN7GCCause9to_stringENS_5CauseE(i32 noundef 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [35 x ptr], ptr @switch.table._ZN7GCCause9to_stringENS_5CauseE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [35 x ptr], ptr @switch.table._ZN7GCCause9to_stringENS_5CauseE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

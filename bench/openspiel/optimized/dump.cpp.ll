@@ -152,14 +152,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 11:                                               ; preds = %10, %21
   %indvars.iv = phi i64 [ 14, %10 ], [ %indvars.iv.next, %21 ]
-  %12 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, %1
   %.not11 = icmp eq i16 %14, 0
   br i1 %.not11, label %21, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %17)
           to label %21 unwind label %19
@@ -246,7 +246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 14:                                               ; preds = %11, %27
   %indvars.iv = phi i64 [ 14, %11 ], [ %indvars.iv.next, %27 ]
-  %15 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %indvars.iv
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, %1
   %.not13 = icmp eq i16 %17, 0
@@ -257,7 +257,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not14, label %25, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr @cardRank, i64 0, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1
   %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %21)
           to label %27 unwind label %23
@@ -296,14 +296,14 @@ define void @_Z9PrintDealB5cxx11PA4_Kti(ptr dead_on_unwind noalias writable sret
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %15
 
 .preheader32:                                     ; preds = %32
   %11 = shl nsw i32 %2, 1
   %12 = add nsw i32 %11, -2
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %36
 
 15:                                               ; preds = %3, %32
@@ -316,7 +316,7 @@ define void @_Z9PrintDealB5cxx11PA4_Kti(ptr dead_on_unwind noalias writable sret
           to label %19 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %18, i8 noundef zeroext %21)
           to label %23 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -326,7 +326,7 @@ define void @_Z9PrintDealB5cxx11PA4_Kti(ptr dead_on_unwind noalias writable sret
           to label %25 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds [4 x i16], ptr %1, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i16], ptr %1, i64 0, i64 %indvars.iv
   %27 = load i16, ptr %26, align 2
   invoke void @_Z9PrintSuitB5cxx11t(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i16 noundef zeroext %27)
           to label %28 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -372,12 +372,12 @@ define void @_Z9PrintDealB5cxx11PA4_Kti(ptr dead_on_unwind noalias writable sret
   br label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %63
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %69
 
 36:                                               ; preds = %.preheader32, %63
   %indvars.iv42 = phi i64 [ 0, %.preheader32 ], [ %indvars.iv.next43, %63 ]
-  %37 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv42
+  %37 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv42
   %38 = load i8, ptr %37, align 1
   %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %10, i8 noundef zeroext %38)
           to label %40 unwind label %.loopexit.split-lp.loopexit
@@ -395,7 +395,7 @@ define void @_Z9PrintDealB5cxx11PA4_Kti(ptr dead_on_unwind noalias writable sret
           to label %46 unwind label %.loopexit.split-lp.loopexit
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds [4 x i16], ptr %13, i64 0, i64 %indvars.iv42
+  %47 = getelementptr inbounds nuw [4 x i16], ptr %13, i64 0, i64 %indvars.iv42
   %48 = load i16, ptr %47, align 2
   invoke void @_Z9PrintSuitB5cxx11t(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i16 noundef zeroext %48)
           to label %49 unwind label %.loopexit.split-lp.loopexit
@@ -414,7 +414,7 @@ define void @_Z9PrintDealB5cxx11PA4_Kti(ptr dead_on_unwind noalias writable sret
           to label %56 unwind label %64
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds [4 x i16], ptr %14, i64 0, i64 %indvars.iv42
+  %57 = getelementptr inbounds nuw [4 x i16], ptr %14, i64 0, i64 %indvars.iv42
   %58 = load i16, ptr %57, align 2
   invoke void @_Z9PrintSuitB5cxx11t(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, i16 noundef zeroext %58)
           to label %59 unwind label %64
@@ -460,7 +460,7 @@ define void @_Z9PrintDealB5cxx11PA4_Kti(ptr dead_on_unwind noalias writable sret
           to label %73 unwind label %.loopexit
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv46
+  %74 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv46
   %75 = load i8, ptr %74, align 1
   %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %72, i8 noundef zeroext %75)
           to label %77 unwind label %.loopexit
@@ -470,7 +470,7 @@ define void @_Z9PrintDealB5cxx11PA4_Kti(ptr dead_on_unwind noalias writable sret
           to label %79 unwind label %.loopexit
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds [4 x i16], ptr %35, i64 0, i64 %indvars.iv46
+  %80 = getelementptr inbounds nuw [4 x i16], ptr %35, i64 0, i64 %indvars.iv46
   %81 = load i16, ptr %80, align 2
   invoke void @_Z9PrintSuitB5cxx11t(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, i16 noundef zeroext %81)
           to label %82 unwind label %.loopexit
@@ -560,13 +560,13 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %17
 
 .preheader66:                                     ; preds = %58
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %64
 
 17:                                               ; preds = %3, %58
@@ -585,7 +585,7 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
           to label %25 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1
   %28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %24, i8 noundef zeroext %27)
           to label %29 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -599,7 +599,7 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
           to label %33 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds [4 x i16], ptr %1, i64 0, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i16], ptr %1, i64 0, i64 %indvars.iv
   %35 = load i16, ptr %34, align 2
   invoke void @_Z9PrintSuitB5cxx11t(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i16 noundef zeroext %35)
           to label %36 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -632,7 +632,7 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
 
 50:                                               ; preds = %48
   %51 = load i16, ptr %34, align 2
-  %52 = getelementptr inbounds [4 x i8], ptr %14, i64 0, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 0, i64 %indvars.iv
   %53 = load i8, ptr %52, align 1
   invoke void @_Z9PrintSuitB5cxx11tc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i16 noundef zeroext %51, i8 noundef signext %53)
           to label %54 unwind label %59
@@ -690,7 +690,7 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
 
 64:                                               ; preds = %.preheader66, %118
   %indvars.iv76 = phi i64 [ 0, %.preheader66 ], [ %indvars.iv.next77, %118 ]
-  %65 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv76
+  %65 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv76
   %66 = load i8, ptr %65, align 1
   %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %13, i8 noundef zeroext %66)
           to label %68 unwind label %.loopexit.split-lp.loopexit
@@ -708,7 +708,7 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
           to label %74 unwind label %.loopexit.split-lp.loopexit
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds [4 x i16], ptr %15, i64 0, i64 %indvars.iv76
+  %75 = getelementptr inbounds nuw [4 x i16], ptr %15, i64 0, i64 %indvars.iv76
   %76 = load i16, ptr %75, align 2
   invoke void @_Z9PrintSuitB5cxx11t(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, i16 noundef zeroext %76)
           to label %77 unwind label %.loopexit.split-lp.loopexit
@@ -731,7 +731,7 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
           to label %86 unwind label %119
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds [4 x i16], ptr %16, i64 0, i64 %indvars.iv76
+  %87 = getelementptr inbounds nuw [4 x i16], ptr %16, i64 0, i64 %indvars.iv76
   %88 = load i16, ptr %87, align 2
   invoke void @_Z9PrintSuitB5cxx11t(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, i16 noundef zeroext %88)
           to label %89 unwind label %119
@@ -759,7 +759,7 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
 
 100:                                              ; preds = %98
   %101 = load i16, ptr %75, align 2
-  %102 = getelementptr inbounds [4 x i8], ptr %14, i64 0, i64 %indvars.iv76
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 0, i64 %indvars.iv76
   %103 = load i8, ptr %102, align 1
   invoke void @_Z9PrintSuitB5cxx11tc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, i16 noundef zeroext %101, i8 noundef signext %103)
           to label %104 unwind label %121
@@ -850,7 +850,7 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
           to label %135 unwind label %.loopexit
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv80
+  %136 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv80
   %137 = load i8, ptr %136, align 1
   %138 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %134, i8 noundef zeroext %137)
           to label %139 unwind label %.loopexit
@@ -864,7 +864,7 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
           to label %143 unwind label %.loopexit
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds [4 x i16], ptr %1, i64 0, i64 %indvars.iv80
+  %144 = getelementptr inbounds nuw [4 x i16], ptr %1, i64 0, i64 %indvars.iv80
   %145 = load i16, ptr %144, align 2
   invoke void @_Z9PrintSuitB5cxx11t(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, i16 noundef zeroext %145)
           to label %146 unwind label %.loopexit
@@ -896,7 +896,7 @@ define void @_Z14RankToDiagramsB5cxx11PA4_KtRK13nodeCardsType(ptr dead_on_unwind
 
 159:                                              ; preds = %157
   %160 = load i16, ptr %144, align 2
-  %161 = getelementptr inbounds [4 x i8], ptr %14, i64 0, i64 %indvars.iv80
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 0, i64 %indvars.iv80
   %162 = load i8, ptr %161, align 1
   invoke void @_Z9PrintSuitB5cxx11tc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, i16 noundef zeroext %160, i8 noundef signext %162)
           to label %163 unwind label %168
@@ -951,12 +951,12 @@ define void @_Z13WinnersToTextB5cxx11PKt(ptr dead_on_unwind noalias writable sre
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %6
 
 6:                                                ; preds = %2, %19
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %19 ]
-  %7 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [5 x i8], ptr @cardSuit, i64 0, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext %8)
           to label %10 unwind label %.loopexit
@@ -966,7 +966,7 @@ define void @_Z13WinnersToTextB5cxx11PKt(ptr dead_on_unwind noalias writable sre
           to label %12 unwind label %.loopexit
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %14 = load i16, ptr %13, align 2
   invoke void @_Z9PrintSuitB5cxx11t(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i16 noundef zeroext %14)
           to label %15 unwind label %.loopexit
@@ -1019,7 +1019,7 @@ define void @_Z13WinnersToTextB5cxx11PKt(ptr dead_on_unwind noalias writable sre
 define void @_Z10NodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 1 dereferenceable(8) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 16)
           to label %6 unwind label %57
 
@@ -1135,18 +1135,18 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
           to label %7 unwind label %16
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   br label %10
 
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds [4 x i8], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 0, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
   %14 = sub nsw i32 15, %13
-  %15 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   store i32 %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1158,7 +1158,7 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
   br label %92
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 16)
           to label %21 unwind label %85
 
@@ -1210,7 +1210,7 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
           to label %50 unwind label %85
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %53
@@ -1228,7 +1228,7 @@ define void @_Z14FullNodeToTextB5cxx11RK13nodeCardsType(ptr dead_on_unwind noali
           to label %62 unwind label %85
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %6, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds [16 x i8], ptr @cardRank, i64 0, i64 %65
@@ -1314,7 +1314,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %91, %85
 define void @_Z9PosToTextB5cxx11RK3posii(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1544) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 16)
           to label %8 unwind label %66
 
@@ -2026,17 +2026,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %33 = udiv i32 %.020.i, 100
   %34 = or disjoint i32 %32, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i32 %.01819.i to i64
-  %39 = getelementptr inbounds i8, ptr %27, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 %38
   store i8 %37, ptr %39, align 1
   %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %40
   %42 = load i8, ptr %41, align 2
   %43 = add i32 %.01819.i, -1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %27, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 %44
   store i8 %42, ptr %45, align 1
   %46 = add i32 %.01819.i, -2
   %47 = icmp ugt i32 %.020.i, 9999
@@ -2051,12 +2051,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %50 = shl nuw nsw i32 %.0.lcssa.i, 1
   %51 = or disjoint i32 %50, 1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %27, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %54, ptr %55, align 1
   %56 = zext nneg i32 %50 to i64
-  %57 = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %56
   %58 = load i8, ptr %57, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -2093,7 +2093,7 @@ define void @_Z7TopMoveB5cxx11bRK8moveType(ptr dead_on_unwind noalias writable s
 
 6:                                                ; preds = %3
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.26)
           to label %9 unwind label %24
 
@@ -2262,7 +2262,7 @@ define noundef i32 @_Z9DumpInputiRK4dealiii(i32 noundef %0, ptr nocapture nounde
 
 44:                                               ; preds = %.preheader38, %71
   %indvars.iv = phi i64 [ 0, %.preheader38 ], [ %indvars.iv.next, %71 ]
-  %45 = getelementptr inbounds [3 x i32], ptr %41, i64 0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [3 x i32], ptr %41, i64 0, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4
   %.not = icmp eq i32 %46, 0
   br i1 %.not, label %71, label %47
@@ -2281,7 +2281,7 @@ define noundef i32 @_Z9DumpInputiRK4dealiii(i32 noundef %0, ptr nocapture nounde
           to label %54 unwind label %.loopexit.split-lp.loopexit
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds [3 x i32], ptr %42, i64 0, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [3 x i32], ptr %42, i64 0, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds [5 x i8], ptr @cardSuit, i64 0, i64 %57
@@ -2338,7 +2338,7 @@ define noundef i32 @_Z9DumpInputiRK4dealiii(i32 noundef %0, ptr nocapture nounde
           to label %84 unwind label %.loopexit
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds [4 x [4 x i32]], ptr %43, i64 0, i64 %indvars.iv50, i64 %indvars.iv46
+  %85 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %43, i64 0, i64 %indvars.iv50, i64 %indvars.iv46
   %86 = load i32, ptr %85, align 4
   %87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %83, i32 noundef %86)
           to label %88 unwind label %.loopexit
@@ -2351,7 +2351,7 @@ define noundef i32 @_Z9DumpInputiRK4dealiii(i32 noundef %0, ptr nocapture nounde
   %91 = load i32, ptr %85, align 4
   %92 = lshr i32 %91, 2
   %93 = trunc i32 %92 to i16
-  %94 = getelementptr inbounds [4 x [4 x i16]], ptr %7, i64 0, i64 %indvars.iv50, i64 %indvars.iv46
+  %94 = getelementptr inbounds nuw [4 x [4 x i16]], ptr %7, i64 0, i64 %indvars.iv50, i64 %indvars.iv46
   store i16 %93, ptr %94, align 2
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 4

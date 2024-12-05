@@ -74,9 +74,9 @@ declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define ptr @Nwk_ManStrashNode(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
@@ -87,8 +87,8 @@ define ptr @Nwk_ManStrashNode(ptr noundef %0, ptr nocapture noundef readonly %1)
   br i1 %12, label %17, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %1, i64 72
-  %14 = getelementptr inbounds i8, ptr %1, i64 60
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph, label %.critedge
@@ -100,13 +100,13 @@ define ptr @Nwk_ManStrashNode(ptr noundef %0, ptr nocapture noundef readonly %1)
 .lr.ph:                                           ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %.critedge, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call ptr @Hop_IthVar(ptr noundef %5, i32 noundef %25) #6
@@ -154,7 +154,7 @@ define ptr @Nwk_ManStrash(ptr noundef %0) local_unnamed_addr #0 {
 Abc_UtilStrsav.exit:                              ; preds = %1, %5
   %10 = phi ptr [ %8, %5 ], [ null, %1 ]
   store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i58 = icmp eq ptr %12, null
   br i1 %.not.i58, label %Abc_UtilStrsav.exit59, label %13
@@ -168,15 +168,15 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %5
 
 Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit, %13
   %18 = phi ptr [ %16, %13 ], [ null, %Abc_UtilStrsav.exit ]
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @Tim_ManDup(ptr noundef %21, i32 noundef 1) #6
-  %23 = getelementptr inbounds i8, ptr %3, i64 352
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 352
   store ptr %22, ptr %23, align 8
   tail call void @Tim_ManIncrementTravId(ptr noundef %22) #6
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 4
   %.val64 = load i32, ptr %26, align 4
@@ -188,13 +188,13 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %Abc_UtilStrsav.exit59 ]
   %29 = getelementptr i8, ptr %28, i64 8
   %.val51 = load ptr, ptr %29, align 8
-  %30 = getelementptr inbounds ptr, ptr %.val51, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %.val51, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds i8, ptr %31, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr null, ptr %34, align 8
   %.pre = load ptr, ptr %24, align 8
   br label %35
@@ -224,7 +224,7 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   %indvars.iv71 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next72, %112 ]
   %.04567 = phi ptr [ null, %.lr.ph69 ], [ %.146, %112 ]
   %.val52 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds ptr, ptr %.val52, i64 %indvars.iv71
+  %46 = getelementptr inbounds nuw ptr, ptr %.val52, i64 %indvars.iv71
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 32
   %.val53 = load i32, ptr %48, align 8
@@ -242,7 +242,7 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   %54 = lshr i32 %53, 7
   %55 = tail call float @Tim_ManGetCiArrival(ptr noundef %52, i32 noundef %54) #6
   %56 = fptosi float %55 to i32
-  %57 = getelementptr inbounds i8, ptr %51, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = and i32 %56, 16777215
   %60 = zext nneg i32 %59 to i64
@@ -256,7 +256,7 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   %65 = getelementptr i8, ptr %47, i64 72
   %.val55 = load ptr, ptr %65, align 8
   %.val55.val = load ptr, ptr %.val55, align 8
-  %66 = getelementptr inbounds i8, ptr %.val55.val, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.val55.val, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = lshr i32 %.val53, 3
   %69 = and i32 %68, 1
@@ -279,9 +279,9 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
 
 83:                                               ; preds = %45
   %84 = load ptr, ptr %47, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 64
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %47, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = ptrtoint ptr %88 to i64
   %90 = and i64 %89, -2
@@ -292,8 +292,8 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   br i1 %93, label %Nwk_ManStrashNode.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %83
-  %94 = getelementptr inbounds i8, ptr %47, i64 72
-  %95 = getelementptr inbounds i8, ptr %47, i64 60
+  %94 = getelementptr inbounds nuw i8, ptr %47, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %47, i64 60
   %96 = load i32, ptr %95, align 4
   %97 = icmp sgt i32 %96, 0
   br i1 %97, label %.lr.ph.i, label %.critedge.i
@@ -301,13 +301,13 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
 .lr.ph.i:                                         ; preds = %.preheader.i, %101
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %101 ], [ 0, %.preheader.i ]
   %98 = load ptr, ptr %94, align 8
-  %99 = getelementptr inbounds ptr, ptr %98, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv.i
   %100 = load ptr, ptr %99, align 8
   %.not.i60 = icmp eq ptr %100, null
   br i1 %.not.i60, label %.critedge.i, label %101
 
 101:                                              ; preds = %.lr.ph.i
-  %102 = getelementptr inbounds i8, ptr %100, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = trunc nuw nsw i64 %indvars.iv.i to i32
   %105 = tail call ptr @Hop_IthVar(ptr noundef %86, i32 noundef %104) #6
@@ -334,7 +334,7 @@ Nwk_ManStrashNode.exit:                           ; preds = %83, %.critedge.i
 
 112:                                              ; preds = %45, %64, %Nwk_ManStrashNode.exit, %50
   %.146 = phi ptr [ %51, %50 ], [ %74, %64 ], [ %.019.i, %Nwk_ManStrashNode.exit ], [ %.04567, %45 ]
-  %113 = getelementptr inbounds i8, ptr %47, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store ptr %.146, ptr %113, align 8
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %.val50 = load i32, ptr %41, align 4
@@ -343,7 +343,7 @@ Nwk_ManStrashNode.exit:                           ; preds = %83, %.critedge.i
   br i1 %115, label %45, label %.critedge2, !llvm.loop !7
 
 .critedge2:                                       ; preds = %112, %.critedge
-  %116 = getelementptr inbounds i8, ptr %40, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %117 = load ptr, ptr %116, align 8
   %.not.i61 = icmp eq ptr %117, null
   br i1 %.not.i61, label %Vec_PtrFree.exit, label %118

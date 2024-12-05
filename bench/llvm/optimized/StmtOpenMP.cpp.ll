@@ -44,7 +44,7 @@ define dso_local void @_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9O
 
 4:                                                ; preds = %3
   %.idx.i = shl nsw i64 %2, 3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %5, ptr align 8 %1, i64 %.idx.i, i1 false)
   br label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang9OMPClauseEEEPS4_EET0_OT_S8_.exit
 
@@ -54,10 +54,10 @@ _ZN4llvm4copyIRNS_8ArrayRefIPN5clang9OMPClauseEEEPS4_EET0_OT_S8_.exit: ; preds =
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { ptr, i64 } @_ZN5clang11OMPChildren11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %0, align 8
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds ptr, ptr %2, i64 %4
+  %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
@@ -79,7 +79,7 @@ define dso_local noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPN
 
 7:                                                ; preds = %3
   %.idx.i.i = shl nsw i64 %2, 3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %8, ptr readonly align 8 %1, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit
 
@@ -116,7 +116,7 @@ define dso_local noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPN
 
 11:                                               ; preds = %5
   %.idx.i.i = shl nsw i64 %2, 3
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %12, ptr readonly align 8 %1, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit
 
@@ -124,11 +124,11 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit: ; pre
   br i1 %7, label %13, label %19
 
 13:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = and i64 %2, 4294967295
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = zext i32 %4 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   store ptr %3, ptr %18, align 8
   br label %19
 
@@ -211,14 +211,14 @@ _ZN4llvm8dyn_castIN5clang16OMPLoopDirectiveENS1_22OMPExecutableDirectiveEEEDcPT0
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %6, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr %15, align 8
   %.not.i.i = icmp eq i8 %16, -20
@@ -226,11 +226,11 @@ _ZN4llvm8dyn_castIN5clang16OMPLoopDirectiveENS1_22OMPExecutableDirectiveEEEDcPT0
 
 .preheader.i.i:                                   ; preds = %4, %.preheader.i.i
   %.0.i.i5 = phi ptr [ %22, %.preheader.i.i ], [ %15, %4 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i.i5, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %22, align 8
   %.not13.i.i = icmp eq i8 %23, -20
@@ -245,14 +245,14 @@ _ZN5clang22OMPExecutableDirective10getRawStmtEv.exit: ; preds = %.preheader.i.i,
 define dso_local noundef ptr @_ZN5clang16OMPLoopDirective7getBodyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %3, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr %12, align 8
   %.not.i = icmp eq i8 %13, -20
@@ -260,11 +260,11 @@ define dso_local noundef ptr @_ZN5clang16OMPLoopDirective7getBodyEv(ptr nocaptur
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
   %.0.i = phi ptr [ %19, %.preheader.i ], [ %12, %1 ]
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = load i8, ptr %19, align 8
   %.not13.i = icmp eq i8 %20, -20
@@ -294,11 +294,11 @@ _ZN5clang11OMPChildren10getRawStmtEv.exit:        ; preds = %.preheader.i, %1
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %29, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %30, i64 %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.0.i.i.i.i = load ptr, ptr %34, align 8
   %.not29.i.i.i = icmp eq ptr %.0.i.i.i.i, null
   br i1 %.not29.i.i.i, label %35, label %24, !llvm.loop !6
@@ -324,7 +324,7 @@ _ZN5clang11OMPChildren10getRawStmtEv.exit:        ; preds = %.preheader.i, %1
   %.2.i.i.i = phi ptr [ %41, %39 ], [ %.1.i.i.i, %.loopexit.i.i.i ], [ %.1.i.i.i, %35 ]
   %.not.i.i8.i = icmp eq i8 %42, -27
   %.0.in.v.i.i.i = select i1 %.not.i.i8.i, i64 40, i64 72
-  %.0.in.i.i.i = getelementptr inbounds i8, ptr %.2.i.i.i, i64 %.0.in.v.i.i.i
+  %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.2.i.i.i, i64 %.0.in.v.i.i.i
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %43 = load i8, ptr %.0.i.i.i, align 8
   %.not3.i.i.i = icmp eq i8 %43, -33
@@ -360,10 +360,10 @@ define dso_local noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInn
   br i1 %.not, label %8, label %_ZN4llvm11SmallVectorIPN5clang12CompoundStmtELj4EED2Ev.exit33
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %9, i64 noundef 4) #12
   call void @_ZN4llvm15SmallVectorImplIPN5clang12CompoundStmtEE6assignEmS3_(ptr noundef nonnull align 8 dereferenceable(48) %3, i64 noundef 1, ptr noundef nonnull %5)
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %10, i64 noundef 4) #12
   br label %.outer
 
@@ -392,13 +392,13 @@ define dso_local noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInn
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %.idx = shl nuw nsw i64 %24, 3
-  %25 = getelementptr inbounds i8, ptr %18, i64 %.idx
-  %.ptr53 = getelementptr inbounds i8, ptr %25, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
+  %.ptr53 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.not2549 = icmp eq i32 %23, 0
   br i1 %.not2549, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %21
-  %.ptr = getelementptr inbounds i8, ptr %18, i64 16
+  %.ptr = getelementptr inbounds nuw i8, ptr %18, i64 16
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread
@@ -516,7 +516,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exi
 
 _ZN4llvm16dyn_cast_or_nullIN5clang12CompoundStmtENS1_4StmtEEEDaPT0_.exit.thread: ; preds = %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread, %42, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit, %.lr.ph
   %.5 = phi ptr [ %.351, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE9push_backES3_.exit ], [ %.351, %.lr.ph ], [ %.040, %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit ], [ %.351, %42 ], [ %.351, %_ZN4llvm3isaIN5clang21OMPLoopBasedDirectiveEPNS1_4StmtEEEbRKT0_.exit.thread ]
-  %55 = getelementptr inbounds i8, ptr %.01950, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.01950, i64 8
   %.not25 = icmp eq ptr %55, %.ptr53
   br i1 %.not25, label %_ZN4llvm3isaIN5clang16OMPLoopDirectiveEPNS1_4StmtEEEbRKT0_.exit._crit_edge, label %.lr.ph
 
@@ -575,13 +575,13 @@ define linkonce_odr void @_ZN4llvm15SmallVectorImplIPN5clang12CompoundStmtEE4swa
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %21, label %12
 
@@ -619,7 +619,7 @@ _ZN4llvm15SmallVectorImplIPN5clang12CompoundStmtEE7reserveEm.exit: ; preds = %21
   br i1 %28, label %29, label %_ZN4llvm15SmallVectorImplIPN5clang12CompoundStmtEE7reserveEm.exit40
 
 29:                                               ; preds = %_ZN4llvm15SmallVectorImplIPN5clang12CompoundStmtEE7reserveEm.exit
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %30, i64 noundef %26, i64 noundef 8) #12
   br label %_ZN4llvm15SmallVectorImplIPN5clang12CompoundStmtEE7reserveEm.exit40
 
@@ -752,11 +752,11 @@ define dso_local noundef zeroext i1 @_ZN5clang21OMPLoopBasedDirective13doForAllL
   tail call void %13(i64 noundef %14, ptr noundef nonnull %.1) #12
   %15 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %16, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.0.i = load ptr, ptr %21, align 8
   %.not29 = icmp eq ptr %.0.i, null
   br i1 %.not29, label %22, label %9, !llvm.loop !6
@@ -790,7 +790,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21OMPLoopBasedDirective13doForAllL
   %33 = load i8, ptr %.2, align 8
   %.not37 = icmp eq i8 %33, -27
   %.3.in.v = select i1 %.not37, i64 40, i64 72
-  %.3.in = getelementptr inbounds i8, ptr %.2, i64 %.3.in.v
+  %.3.in = getelementptr inbounds nuw i8, ptr %.2, i64 %.3.in.v
   %.3 = load ptr, ptr %.3.in, align 8
   %34 = tail call noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInnerLoopEPNS_4StmtEb(ptr noundef %.3, i1 noundef zeroext %1)
   %35 = add nuw i32 %.02540, 1
@@ -806,11 +806,11 @@ define dso_local noundef zeroext i1 @_ZN5clang21OMPLoopBasedDirective13doForAllL
 define dso_local noundef ptr @_ZNK5clang30OMPLoopTransformationDirective18getTransformedStmtEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %3, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.0 = load ptr, ptr %8, align 8
   ret ptr %.0
 }
@@ -836,11 +836,11 @@ define dso_local void @_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %12, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %13, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.0.i.i.i = load ptr, ptr %17, align 8
   %.not29.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not29.i.i, label %18, label %7, !llvm.loop !6
@@ -866,7 +866,7 @@ define dso_local void @_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS
   %.2.i.i = phi ptr [ %24, %22 ], [ %.1.i.i, %.loopexit.i.i ], [ %.1.i.i, %18 ]
   %.not.i.i8 = icmp eq i8 %25, -27
   %.0.in.v.i.i = select i1 %.not.i.i8, i64 40, i64 72
-  %.0.in.i.i = getelementptr inbounds i8, ptr %.2.i.i, i64 %.0.in.v.i.i
+  %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %.0.in.v.i.i
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %26 = load i8, ptr %.0.i.i, align 8
   %.not3.i.i = icmp eq i8 %26, -33
@@ -883,7 +883,7 @@ define dso_local void @_ZN5clang21OMPLoopBasedDirective19doForAllLoopsBodiesEPNS
   %31 = load i8, ptr %.2.i.i, align 8
   %.not37.i.i = icmp eq i8 %31, -27
   %.3.in.v.i.i = select i1 %.not37.i.i, i64 40, i64 72
-  %.3.in.i.i = getelementptr inbounds i8, ptr %.2.i.i, i64 %.3.in.v.i.i
+  %.3.in.i.i = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %.3.in.v.i.i
   %.3.i.i = load ptr, ptr %.3.in.i.i, align 8
   %32 = tail call noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInnerLoopEPNS_4StmtEb(ptr noundef %.3.i.i, i1 noundef zeroext %1)
   %33 = add nuw i32 %.02540.i.i, 1
@@ -928,10 +928,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit:  ; preds = %3, %10, %12, %14, %
 
 19:                                               ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit
   %.idx.i = shl nsw i64 %2, 3
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %21 = zext i32 %6 to i64
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %.0.i.i
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.0.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %1, i64 %.idx.i, i1 false)
   br label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit
 
@@ -973,14 +973,14 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit: ; preds = %3, %10, %12, 
 
 18:                                               ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit
   %.idx.i = shl nsw i64 %2, 3
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = zext i32 %6 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, %.0.i.i
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %21, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %21, i64 %25
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %26, ptr align 8 %1, i64 %.idx.i, i1 false)
   br label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit
 
@@ -1022,15 +1022,15 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit:      ; preds = %3, %10, %12, %14, %
 
 18:                                               ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit
   %.idx.i = shl nsw i64 %2, 3
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = zext i32 %6 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = shl i32 %23, 1
   %25 = add i32 %24, %.0.i.i
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %1, i64 %.idx.i, i1 false)
   br label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit
 
@@ -1072,15 +1072,15 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit:   ; preds = %3, %10, %12, %14, %
 
 18:                                               ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit
   %.idx.i = shl nsw i64 %2, 3
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = zext i32 %6 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = mul i32 %23, 3
   %25 = add i32 %24, %.0.i.i
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %1, i64 %.idx.i, i1 false)
   br label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit
 
@@ -1122,15 +1122,15 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit:     ; preds = %3, %10, %12, %14, %
 
 18:                                               ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit
   %.idx.i = shl nsw i64 %2, 3
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = zext i32 %6 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = shl i32 %23, 2
   %25 = add i32 %24, %.0.i.i
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %1, i64 %.idx.i, i1 false)
   br label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit
 
@@ -1172,15 +1172,15 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit: ; preds = %3, %10, %12
 
 18:                                               ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit
   %.idx.i = shl nsw i64 %2, 3
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = zext i32 %6 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = mul i32 %23, 5
   %25 = add i32 %24, %.0.i.i
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %1, i64 %.idx.i, i1 false)
   br label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit
 
@@ -1222,15 +1222,15 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit: ; preds = %3, %10, %12, %
 
 18:                                               ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit
   %.idx.i = shl nsw i64 %2, 3
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = zext i32 %6 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = mul i32 %23, 6
   %25 = add i32 %24, %.0.i.i
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %1, i64 %.idx.i, i1 false)
   br label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit
 
@@ -1272,15 +1272,15 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit: ; preds = %3, %10, %12,
 
 18:                                               ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit
   %.idx.i = shl nsw i64 %2, 3
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = zext i32 %6 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = mul i32 %23, 7
   %25 = add i32 %24, %.0.i.i
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %26
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %1, i64 %.idx.i, i1 false)
   br label %_ZN4llvm4copyIRNS_8ArrayRefIPN5clang4ExprEEEPS4_EET0_OT_S8_.exit
 
@@ -1327,19 +1327,19 @@ define dso_local noundef ptr @_ZN5clang16OMPMetaDirective6CreateERKNS_10ASTConte
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %26
   %.0.i.i.i.i = phi ptr [ %28, %26 ], [ %29, %.critedge.i.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %31 = zext i1 %9 to i8
   store i32 %8, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %31, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %34
 
 34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -1347,9 +1347,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %9, label %36, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 36:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %10
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %10
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %5, ptr %39, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -1412,11 +1412,11 @@ define dso_local noundef ptr @_ZN5clang16OMPMetaDirective11CreateEmptyERKNS_10AS
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -1480,19 +1480,19 @@ define dso_local noundef ptr @_ZN5clang20OMPParallelDirective6CreateERKNS_10ASTC
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %27
   %.0.i.i.i.i = phi ptr [ %29, %27 ], [ %30, %.critedge.i.i.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %32 = zext i1 %10 to i8
   store i32 %9, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 1, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %32, ptr %34, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %35
 
 35:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -1500,9 +1500,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %10, label %37, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 37:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %11
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %11
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %5, ptr %40, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -1528,9 +1528,9 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_20OMPParallelDirectiveEJRN
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store ptr %31, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %51 = zext i32 %44 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   store ptr %6, ptr %52, align 8
   %53 = zext i1 %7 to i8
   store i8 %53, ptr %49, align 8
@@ -1572,11 +1572,11 @@ define dso_local noundef ptr @_ZN5clang20OMPParallelDirective11CreateEmptyERKNS_
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -1668,19 +1668,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -1688,10 +1688,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -1719,33 +1719,33 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_16OMPSimdDirectiveEJRNS_14
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %87 = load ptr, ptr %86, align 8
@@ -1780,10 +1780,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %99, %97, %95, %93,
 
 102:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %88, 3
-  %103 = getelementptr inbounds i8, ptr %89, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %104 = zext i32 %90 to i64
-  %105 = getelementptr inbounds ptr, ptr %103, i64 %104
-  %106 = getelementptr inbounds ptr, ptr %105, i64 %.0.i.i.i
+  %105 = getelementptr inbounds nuw ptr, ptr %103, i64 %104
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %106, ptr readonly align 8 %87, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -1821,13 +1821,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %120, %118, 
 
 122:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i39 = shl nsw i64 %109, 3
-  %123 = getelementptr inbounds i8, ptr %110, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %124 = zext i32 %111 to i64
-  %125 = getelementptr inbounds ptr, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %124
   %126 = load i32, ptr %63, align 8
   %127 = add i32 %126, %.0.i.i.i37
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds ptr, ptr %125, i64 %128
+  %129 = getelementptr inbounds nuw ptr, ptr %125, i64 %128
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %129, ptr readonly align 8 %108, i64 %.idx.i.i39, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -1865,14 +1865,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %143, %141, %139, %1
 
 145:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i43 = shl nsw i64 %132, 3
-  %146 = getelementptr inbounds i8, ptr %133, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %147 = zext i32 %134 to i64
-  %148 = getelementptr inbounds ptr, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw ptr, ptr %146, i64 %147
   %149 = load i32, ptr %63, align 8
   %150 = shl i32 %149, 1
   %151 = add i32 %150, %.0.i.i.i41
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %148, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %148, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %131, i64 %.idx.i.i43, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -1910,14 +1910,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i47 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = mul i32 %173, 3
   %175 = add i32 %174, %.0.i.i.i45
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i47, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -1955,14 +1955,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i51 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = shl i32 %197, 2
   %199 = add i32 %198, %.0.i.i.i49
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i51, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2000,14 +2000,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %215, %213
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = mul i32 %221, 5
   %223 = add i32 %222, %.0.i.i.i53
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2045,14 +2045,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %239, %237, %
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 6
   %247 = add i32 %246, %.0.i.i.i57
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2090,14 +2090,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %263, %261,
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i63 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 7
   %271 = add i32 %270, %.0.i.i.i61
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2105,11 +2105,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %274 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %275 = load ptr, ptr %274, align 8
   %276 = load ptr, ptr %62, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 16
   %278 = load i32, ptr %276, align 8
   %279 = zext i32 %278 to i64
-  %280 = getelementptr inbounds ptr, ptr %277, i64 %279
-  %281 = getelementptr inbounds i8, ptr %280, i64 56
+  %280 = getelementptr inbounds nuw ptr, ptr %277, i64 %279
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 56
   store ptr %275, ptr %281, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -2176,11 +2176,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -2273,19 +2273,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %43
   %.0.i.i.i.i = phi ptr [ %45, %43 ], [ %46, %.critedge.i.i.i.i ]
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %48 = zext i1 %24 to i8
   store i32 %23, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %22, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %48, ptr %50, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %51
 
 51:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -2293,10 +2293,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %24, label %53, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 53:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %25
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %25
   %56 = zext i32 %22 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
   store ptr %6, ptr %57, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -2326,65 +2326,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_15OMPForDirectiveEJRNS_14S
   store i8 0, ptr %67, align 4
   store ptr %47, ptr %65, align 8
   %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %70 = zext i32 %61 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
   store ptr %68, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %73, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %71, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %71, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %71, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store ptr %85, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %71, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store ptr %88, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %71, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %71, i64 64
   store ptr %91, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %71, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %71, i64 72
   store ptr %94, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %71, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %71, i64 80
   store ptr %97, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %71, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %71, i64 88
   store ptr %100, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %71, i64 96
+  %104 = getelementptr inbounds nuw i8, ptr %71, i64 96
   store ptr %103, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %71, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %71, i64 104
   store ptr %106, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %71, i64 112
+  %110 = getelementptr inbounds nuw i8, ptr %71, i64 112
   store ptr %109, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %71, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %71, i64 120
   store ptr %112, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %115 = load ptr, ptr %114, align 8
@@ -2419,10 +2419,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %127, %125, %123, %
 
 130:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %116, 3
-  %131 = getelementptr inbounds i8, ptr %117, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %132 = zext i32 %118 to i64
-  %133 = getelementptr inbounds ptr, ptr %131, i64 %132
-  %134 = getelementptr inbounds ptr, ptr %133, i64 %.0.i.i.i
+  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %132
+  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %134, ptr readonly align 8 %115, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2460,13 +2460,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %148, %146, 
 
 150:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i58 = shl nsw i64 %137, 3
-  %151 = getelementptr inbounds i8, ptr %138, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %152 = zext i32 %139 to i64
-  %153 = getelementptr inbounds ptr, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %151, i64 %152
   %154 = load i32, ptr %66, align 8
   %155 = add i32 %154, %.0.i.i.i56
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds ptr, ptr %153, i64 %156
+  %157 = getelementptr inbounds nuw ptr, ptr %153, i64 %156
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %157, ptr readonly align 8 %136, i64 %.idx.i.i58, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2504,14 +2504,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %171, %169, %167, %1
 
 173:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i62 = shl nsw i64 %160, 3
-  %174 = getelementptr inbounds i8, ptr %161, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %175 = zext i32 %162 to i64
-  %176 = getelementptr inbounds ptr, ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw ptr, ptr %174, i64 %175
   %177 = load i32, ptr %66, align 8
   %178 = shl i32 %177, 1
   %179 = add i32 %178, %.0.i.i.i60
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds ptr, ptr %176, i64 %180
+  %181 = getelementptr inbounds nuw ptr, ptr %176, i64 %180
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr readonly align 8 %159, i64 %.idx.i.i62, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2549,14 +2549,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %195, %193, %191, %1
 
 197:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i66 = shl nsw i64 %184, 3
-  %198 = getelementptr inbounds i8, ptr %185, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %199 = zext i32 %186 to i64
-  %200 = getelementptr inbounds ptr, ptr %198, i64 %199
+  %200 = getelementptr inbounds nuw ptr, ptr %198, i64 %199
   %201 = load i32, ptr %66, align 8
   %202 = mul i32 %201, 3
   %203 = add i32 %202, %.0.i.i.i64
   %204 = zext i32 %203 to i64
-  %205 = getelementptr inbounds ptr, ptr %200, i64 %204
+  %205 = getelementptr inbounds nuw ptr, ptr %200, i64 %204
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %205, ptr readonly align 8 %183, i64 %.idx.i.i66, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2594,14 +2594,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %219, %217, %215, %2
 
 221:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i70 = shl nsw i64 %208, 3
-  %222 = getelementptr inbounds i8, ptr %209, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %223 = zext i32 %210 to i64
-  %224 = getelementptr inbounds ptr, ptr %222, i64 %223
+  %224 = getelementptr inbounds nuw ptr, ptr %222, i64 %223
   %225 = load i32, ptr %66, align 8
   %226 = shl i32 %225, 2
   %227 = add i32 %226, %.0.i.i.i68
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds ptr, ptr %224, i64 %228
+  %229 = getelementptr inbounds nuw ptr, ptr %224, i64 %228
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %229, ptr readonly align 8 %207, i64 %.idx.i.i70, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2639,14 +2639,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %243, %241
 
 245:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i74 = shl nsw i64 %232, 3
-  %246 = getelementptr inbounds i8, ptr %233, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %247 = zext i32 %234 to i64
-  %248 = getelementptr inbounds ptr, ptr %246, i64 %247
+  %248 = getelementptr inbounds nuw ptr, ptr %246, i64 %247
   %249 = load i32, ptr %66, align 8
   %250 = mul i32 %249, 5
   %251 = add i32 %250, %.0.i.i.i72
   %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds ptr, ptr %248, i64 %252
+  %253 = getelementptr inbounds nuw ptr, ptr %248, i64 %252
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %253, ptr readonly align 8 %231, i64 %.idx.i.i74, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2684,14 +2684,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %267, %265, %
 
 269:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i78 = shl nsw i64 %256, 3
-  %270 = getelementptr inbounds i8, ptr %257, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %271 = zext i32 %258 to i64
-  %272 = getelementptr inbounds ptr, ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw ptr, ptr %270, i64 %271
   %273 = load i32, ptr %66, align 8
   %274 = mul i32 %273, 6
   %275 = add i32 %274, %.0.i.i.i76
   %276 = zext i32 %275 to i64
-  %277 = getelementptr inbounds ptr, ptr %272, i64 %276
+  %277 = getelementptr inbounds nuw ptr, ptr %272, i64 %276
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %277, ptr readonly align 8 %255, i64 %.idx.i.i78, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2729,14 +2729,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %291, %289,
 
 293:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i82 = shl nsw i64 %280, 3
-  %294 = getelementptr inbounds i8, ptr %281, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %281, i64 16
   %295 = zext i32 %282 to i64
-  %296 = getelementptr inbounds ptr, ptr %294, i64 %295
+  %296 = getelementptr inbounds nuw ptr, ptr %294, i64 %295
   %297 = load i32, ptr %66, align 8
   %298 = mul i32 %297, 7
   %299 = add i32 %298, %.0.i.i.i80
   %300 = zext i32 %299 to i64
-  %301 = getelementptr inbounds ptr, ptr %296, i64 %300
+  %301 = getelementptr inbounds nuw ptr, ptr %296, i64 %300
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %301, ptr readonly align 8 %279, i64 %.idx.i.i82, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -2744,11 +2744,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %302 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %303 = load ptr, ptr %302, align 8
   %304 = load ptr, ptr %65, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 16
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 16
   %306 = load i32, ptr %304, align 8
   %307 = zext i32 %306 to i64
-  %308 = getelementptr inbounds ptr, ptr %305, i64 %307
-  %309 = getelementptr inbounds i8, ptr %308, i64 56
+  %308 = getelementptr inbounds nuw ptr, ptr %305, i64 %307
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 56
   store ptr %303, ptr %309, align 8
   %310 = load ptr, ptr %65, align 8
   %311 = load i32, ptr %310, align 8
@@ -2775,13 +2775,13 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
 
 _ZN5clang15OMPForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %314, %316, %318, %320
   %.0.i.i.i84 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %318 ], [ 16, %316 ], [ 16, %314 ], [ %spec.select.i.i.i83, %320 ]
-  %322 = getelementptr inbounds i8, ptr %310, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %310, i64 16
   %323 = zext i32 %311 to i64
-  %324 = getelementptr inbounds ptr, ptr %322, i64 %323
+  %324 = getelementptr inbounds nuw ptr, ptr %322, i64 %323
   %325 = shl i32 %312, 3
   %326 = add i32 %.0.i.i.i84, %325
   %327 = zext i32 %326 to i64
-  %328 = getelementptr inbounds ptr, ptr %324, i64 %327
+  %328 = getelementptr inbounds nuw ptr, ptr %324, i64 %327
   store ptr %8, ptr %328, align 8
   %329 = zext i1 %9 to i8
   store i8 %329, ptr %67, align 4
@@ -2792,10 +2792,10 @@ _ZN5clang15OMPForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %
 define dso_local noundef ptr @_ZNK5clang30OMPLoopTransformationDirective11getPreInitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %3, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
   %.0 = load ptr, ptr %7, align 8
   ret ptr %.0
 }
@@ -2863,11 +2863,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %33
   %.0.i.i.i.i = phi ptr [ %35, %33 ], [ %36, %.critedge.i.i.i.i ]
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %15, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %39, align 8
   %40 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %40)
@@ -2935,19 +2935,19 @@ define dso_local noundef ptr @_ZN5clang16OMPTileDirective6CreateERKNS_10ASTConte
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %28
   %.0.i.i.i.i = phi ptr [ %30, %28 ], [ %31, %.critedge.i.i.i.i ]
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %33 = zext i1 %11 to i8
   store i32 %10, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %33, ptr %35, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %36
 
 36:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %37, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -2955,9 +2955,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %11, label %38, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 38:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %12
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %12
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %6, ptr %41, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -2987,10 +2987,10 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_16OMPTileDirectiveEJRNS_14
   %52 = mul i32 %5, 3
   store i32 %52, ptr %51, align 4
   store ptr %32, ptr %49, align 8
-  %53 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %54 = zext i32 %45 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %7, ptr %56, align 8
   store ptr %8, ptr %55, align 8
   ret ptr %.0.i.i.i.i
@@ -3031,11 +3031,11 @@ define dso_local noundef ptr @_ZN5clang16OMPTileDirective11CreateEmptyERKNS_10AS
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %18
   %.0.i.i.i.i = phi ptr [ %20, %18 ], [ %21, %.critedge.i.i.i.i ]
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %24, align 8
   %25 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %25)
@@ -3107,19 +3107,19 @@ define dso_local noundef ptr @_ZN5clang18OMPUnrollDirective6CreateERKNS_10ASTCon
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %28
   %.0.i.i.i.i = phi ptr [ %30, %28 ], [ %31, %.critedge.i.i.i.i ]
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %33 = zext i1 %11 to i8
   store i32 %10, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %33, ptr %35, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %36
 
 36:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %37, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -3127,9 +3127,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %11, label %38, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 38:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %12
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %12
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %5, ptr %41, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -3158,10 +3158,10 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_18OMPUnrollDirectiveEJRNS_
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store ptr %32, ptr %49, align 8
   store i32 %6, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %53 = zext i32 %45 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %7, ptr %55, align 8
   store ptr %8, ptr %54, align 8
   ret ptr %.0.i.i.i.i
@@ -3202,11 +3202,11 @@ define dso_local noundef ptr @_ZN5clang18OMPUnrollDirective11CreateEmptyERKNS_10
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -3269,17 +3269,17 @@ define dso_local noundef ptr @_ZN5clang19OMPReverseDirective6CreateERKNS_10ASTCo
 
 _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ; preds = %21, %.critedge.i.i.i.i
   %.0.i.i.i.i = phi ptr [ %23, %21 ], [ %24, %.critedge.i.i.i.i ]
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %26 = zext i1 %7 to i8
   store i32 0, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %26, ptr %28, align 8
   br i1 %7, label %29, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 29:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 72
   store ptr %3, ptr %30, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -3309,9 +3309,9 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_19OMPReverseDirectiveEJRNS
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %41, align 4
   store ptr %25, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %35
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %35
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %4, ptr %44, align 8
   store ptr %5, ptr %43, align 8
   ret ptr %.0.i.i.i.i
@@ -3349,18 +3349,18 @@ define dso_local noundef ptr @_ZN5clang19OMPReverseDirective11CreateEmptyERKNS_1
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   br label %_ZNK5clang10ASTContext8AllocateEmj.exit.i
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %14
   %.sink = phi ptr [ %22, %.critedge.i.i.i.i ], [ %15, %14 ]
   %.0.i.i.i.i = phi ptr [ %21, %.critedge.i.i.i.i ], [ %16, %14 ]
   store ptr %.sink, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %25, align 8
   %26 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %26)
@@ -3428,19 +3428,19 @@ define dso_local noundef ptr @_ZN5clang23OMPInterchangeDirective6CreateERKNS_10A
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %28
   %.0.i.i.i.i = phi ptr [ %30, %28 ], [ %31, %.critedge.i.i.i.i ]
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %33 = zext i1 %11 to i8
   store i32 %10, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %33, ptr %35, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %36
 
 36:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %37, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -3448,9 +3448,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %11, label %38, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 38:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %12
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %12
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %6, ptr %41, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -3480,10 +3480,10 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_23OMPInterchangeDirectiveE
   %52 = mul i32 %5, 3
   store i32 %52, ptr %51, align 4
   store ptr %32, ptr %49, align 8
-  %53 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %54 = zext i32 %45 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %7, ptr %56, align 8
   store ptr %8, ptr %55, align 8
   ret ptr %.0.i.i.i.i
@@ -3524,11 +3524,11 @@ define dso_local noundef ptr @_ZN5clang23OMPInterchangeDirective11CreateEmptyERK
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %18
   %.0.i.i.i.i = phi ptr [ %20, %18 ], [ %21, %.critedge.i.i.i.i ]
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 2, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %24, align 8
   %25 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %25)
@@ -3623,19 +3623,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -3643,10 +3643,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -3674,65 +3674,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_19OMPForSimdDirectiveEJRNS
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -3767,10 +3767,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -3808,13 +3808,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -3852,14 +3852,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -3897,14 +3897,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -3942,14 +3942,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -3987,14 +3987,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -4032,14 +4032,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -4077,14 +4077,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -4092,11 +4092,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -4163,11 +4163,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -4233,19 +4233,19 @@ define dso_local noundef ptr @_ZN5clang20OMPSectionsDirective6CreateERKNS_10ASTC
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %27
   %.0.i.i.i.i = phi ptr [ %29, %27 ], [ %30, %.critedge.i.i.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %32 = zext i1 %10 to i8
   store i32 %9, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 1, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %32, ptr %34, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %35
 
 35:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -4253,9 +4253,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %10, label %37, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 37:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %11
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %11
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %5, ptr %40, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -4281,9 +4281,9 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_20OMPSectionsDirectiveEJRN
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store ptr %31, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %51 = zext i32 %44 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   store ptr %6, ptr %52, align 8
   %53 = zext i1 %7 to i8
   store i8 %53, ptr %49, align 8
@@ -4325,11 +4325,11 @@ define dso_local noundef ptr @_ZN5clang20OMPSectionsDirective11CreateEmptyERKNS_
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -4390,17 +4390,17 @@ define dso_local noundef ptr @_ZN5clang19OMPSectionDirective6CreateERKNS_10ASTCo
 
 _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ; preds = %20, %.critedge.i.i.i.i
   %.0.i.i.i.i = phi ptr [ %22, %20 ], [ %23, %.critedge.i.i.i.i ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %25 = zext i1 %6 to i8
   store i32 0, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %25, ptr %27, align 8
   br i1 %6, label %28, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 28:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store ptr %3, ptr %29, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -4461,18 +4461,18 @@ define dso_local noundef ptr @_ZN5clang19OMPSectionDirective11CreateEmptyERKNS_1
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   br label %_ZNK5clang10ASTContext8AllocateEmj.exit.i
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %14
   %.sink = phi ptr [ %22, %.critedge.i.i.i.i ], [ %15, %14 ]
   %.0.i.i.i.i = phi ptr [ %21, %.critedge.i.i.i.i ], [ %16, %14 ]
   store ptr %.sink, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %25, align 8
   %26 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %26)
@@ -4538,19 +4538,19 @@ define dso_local noundef ptr @_ZN5clang17OMPScopeDirective6CreateERKNS_10ASTCont
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -4558,8 +4558,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -4620,11 +4620,11 @@ define dso_local noundef ptr @_ZN5clang17OMPScopeDirective11CreateEmptyERKNS_10A
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -4688,19 +4688,19 @@ define dso_local noundef ptr @_ZN5clang18OMPSingleDirective6CreateERKNS_10ASTCon
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -4708,8 +4708,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -4770,11 +4770,11 @@ define dso_local noundef ptr @_ZN5clang18OMPSingleDirective11CreateEmptyERKNS_10
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -4833,17 +4833,17 @@ define dso_local noundef ptr @_ZN5clang18OMPMasterDirective6CreateERKNS_10ASTCon
 
 _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ; preds = %19, %.critedge.i.i.i.i
   %.0.i.i.i.i = phi ptr [ %21, %19 ], [ %22, %.critedge.i.i.i.i ]
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %24 = zext i1 %5 to i8
   store i32 0, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %24, ptr %26, align 8
   br i1 %5, label %27, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 27:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store ptr %3, ptr %28, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -4901,18 +4901,18 @@ define dso_local noundef ptr @_ZN5clang18OMPMasterDirective11CreateEmptyERKNS_10
   %19 = add i64 %18, 7
   %20 = and i64 %19, -8
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   br label %_ZNK5clang10ASTContext8AllocateEmj.exit.i
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %14
   %.sink = phi ptr [ %22, %.critedge.i.i.i.i ], [ %15, %14 ]
   %.0.i.i.i.i = phi ptr [ %21, %.critedge.i.i.i.i ], [ %16, %14 ]
   store ptr %.sink, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %25, align 8
   %26 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %26)
@@ -4976,19 +4976,19 @@ define dso_local noundef ptr @_ZN5clang20OMPCriticalDirective6CreateERKNS_10ASTC
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %26
   %.0.i.i.i.i = phi ptr [ %28, %26 ], [ %29, %.critedge.i.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %31 = zext i1 %9 to i8
   store i32 %8, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 60
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 60
   store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store i8 %31, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %34
 
 34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 72
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -4996,8 +4996,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %9, label %36, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 36:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 72
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %10
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 72
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %10
   store ptr %6, ptr %38, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -5061,11 +5061,11 @@ define dso_local noundef ptr @_ZN5clang20OMPCriticalDirective11CreateEmptyERKNS_
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 60
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 60
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -5088,7 +5088,7 @@ _ZN5clang22OMPExecutableDirective20createEmptyDirectiveINS_20OMPCriticalDirectiv
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i64 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %33, i8 0, i64 12, i1 false)
   store ptr %21, ptr %31, align 8
   ret ptr %.0.i.i.i.i
@@ -5160,19 +5160,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %43
   %.0.i.i.i.i = phi ptr [ %45, %43 ], [ %46, %.critedge.i.i.i.i ]
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %48 = zext i1 %24 to i8
   store i32 %23, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %22, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %48, ptr %50, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %51
 
 51:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -5180,10 +5180,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %24, label %53, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 53:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %25
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %25
   %56 = zext i32 %22 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
   store ptr %6, ptr %57, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -5213,65 +5213,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_23OMPParallelForDirectiveE
   store i8 0, ptr %67, align 4
   store ptr %47, ptr %65, align 8
   %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %70 = zext i32 %61 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
   store ptr %68, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %73, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %71, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %71, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %71, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store ptr %85, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %71, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store ptr %88, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %71, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %71, i64 64
   store ptr %91, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %71, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %71, i64 72
   store ptr %94, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %71, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %71, i64 80
   store ptr %97, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %71, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %71, i64 88
   store ptr %100, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %71, i64 96
+  %104 = getelementptr inbounds nuw i8, ptr %71, i64 96
   store ptr %103, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %71, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %71, i64 104
   store ptr %106, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %71, i64 112
+  %110 = getelementptr inbounds nuw i8, ptr %71, i64 112
   store ptr %109, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %71, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %71, i64 120
   store ptr %112, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %115 = load ptr, ptr %114, align 8
@@ -5306,10 +5306,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %127, %125, %123, %
 
 130:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %116, 3
-  %131 = getelementptr inbounds i8, ptr %117, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %132 = zext i32 %118 to i64
-  %133 = getelementptr inbounds ptr, ptr %131, i64 %132
-  %134 = getelementptr inbounds ptr, ptr %133, i64 %.0.i.i.i
+  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %132
+  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %134, ptr readonly align 8 %115, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -5347,13 +5347,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %148, %146, 
 
 150:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i58 = shl nsw i64 %137, 3
-  %151 = getelementptr inbounds i8, ptr %138, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %152 = zext i32 %139 to i64
-  %153 = getelementptr inbounds ptr, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %151, i64 %152
   %154 = load i32, ptr %66, align 8
   %155 = add i32 %154, %.0.i.i.i56
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds ptr, ptr %153, i64 %156
+  %157 = getelementptr inbounds nuw ptr, ptr %153, i64 %156
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %157, ptr readonly align 8 %136, i64 %.idx.i.i58, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -5391,14 +5391,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %171, %169, %167, %1
 
 173:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i62 = shl nsw i64 %160, 3
-  %174 = getelementptr inbounds i8, ptr %161, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %175 = zext i32 %162 to i64
-  %176 = getelementptr inbounds ptr, ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw ptr, ptr %174, i64 %175
   %177 = load i32, ptr %66, align 8
   %178 = shl i32 %177, 1
   %179 = add i32 %178, %.0.i.i.i60
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds ptr, ptr %176, i64 %180
+  %181 = getelementptr inbounds nuw ptr, ptr %176, i64 %180
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr readonly align 8 %159, i64 %.idx.i.i62, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -5436,14 +5436,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %195, %193, %191, %1
 
 197:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i66 = shl nsw i64 %184, 3
-  %198 = getelementptr inbounds i8, ptr %185, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %199 = zext i32 %186 to i64
-  %200 = getelementptr inbounds ptr, ptr %198, i64 %199
+  %200 = getelementptr inbounds nuw ptr, ptr %198, i64 %199
   %201 = load i32, ptr %66, align 8
   %202 = mul i32 %201, 3
   %203 = add i32 %202, %.0.i.i.i64
   %204 = zext i32 %203 to i64
-  %205 = getelementptr inbounds ptr, ptr %200, i64 %204
+  %205 = getelementptr inbounds nuw ptr, ptr %200, i64 %204
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %205, ptr readonly align 8 %183, i64 %.idx.i.i66, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -5481,14 +5481,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %219, %217, %215, %2
 
 221:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i70 = shl nsw i64 %208, 3
-  %222 = getelementptr inbounds i8, ptr %209, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %223 = zext i32 %210 to i64
-  %224 = getelementptr inbounds ptr, ptr %222, i64 %223
+  %224 = getelementptr inbounds nuw ptr, ptr %222, i64 %223
   %225 = load i32, ptr %66, align 8
   %226 = shl i32 %225, 2
   %227 = add i32 %226, %.0.i.i.i68
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds ptr, ptr %224, i64 %228
+  %229 = getelementptr inbounds nuw ptr, ptr %224, i64 %228
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %229, ptr readonly align 8 %207, i64 %.idx.i.i70, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -5526,14 +5526,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %243, %241
 
 245:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i74 = shl nsw i64 %232, 3
-  %246 = getelementptr inbounds i8, ptr %233, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %247 = zext i32 %234 to i64
-  %248 = getelementptr inbounds ptr, ptr %246, i64 %247
+  %248 = getelementptr inbounds nuw ptr, ptr %246, i64 %247
   %249 = load i32, ptr %66, align 8
   %250 = mul i32 %249, 5
   %251 = add i32 %250, %.0.i.i.i72
   %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds ptr, ptr %248, i64 %252
+  %253 = getelementptr inbounds nuw ptr, ptr %248, i64 %252
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %253, ptr readonly align 8 %231, i64 %.idx.i.i74, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -5571,14 +5571,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %267, %265, %
 
 269:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i78 = shl nsw i64 %256, 3
-  %270 = getelementptr inbounds i8, ptr %257, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %271 = zext i32 %258 to i64
-  %272 = getelementptr inbounds ptr, ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw ptr, ptr %270, i64 %271
   %273 = load i32, ptr %66, align 8
   %274 = mul i32 %273, 6
   %275 = add i32 %274, %.0.i.i.i76
   %276 = zext i32 %275 to i64
-  %277 = getelementptr inbounds ptr, ptr %272, i64 %276
+  %277 = getelementptr inbounds nuw ptr, ptr %272, i64 %276
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %277, ptr readonly align 8 %255, i64 %.idx.i.i78, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -5616,14 +5616,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %291, %289,
 
 293:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i82 = shl nsw i64 %280, 3
-  %294 = getelementptr inbounds i8, ptr %281, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %281, i64 16
   %295 = zext i32 %282 to i64
-  %296 = getelementptr inbounds ptr, ptr %294, i64 %295
+  %296 = getelementptr inbounds nuw ptr, ptr %294, i64 %295
   %297 = load i32, ptr %66, align 8
   %298 = mul i32 %297, 7
   %299 = add i32 %298, %.0.i.i.i80
   %300 = zext i32 %299 to i64
-  %301 = getelementptr inbounds ptr, ptr %296, i64 %300
+  %301 = getelementptr inbounds nuw ptr, ptr %296, i64 %300
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %301, ptr readonly align 8 %279, i64 %.idx.i.i82, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -5631,11 +5631,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %302 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %303 = load ptr, ptr %302, align 8
   %304 = load ptr, ptr %65, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 16
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 16
   %306 = load i32, ptr %304, align 8
   %307 = zext i32 %306 to i64
-  %308 = getelementptr inbounds ptr, ptr %305, i64 %307
-  %309 = getelementptr inbounds i8, ptr %308, i64 56
+  %308 = getelementptr inbounds nuw ptr, ptr %305, i64 %307
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 56
   store ptr %303, ptr %309, align 8
   %310 = load ptr, ptr %65, align 8
   %311 = load i32, ptr %310, align 8
@@ -5662,13 +5662,13 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
 
 _ZN5clang23OMPParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %314, %316, %318, %320
   %.0.i.i.i84 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %318 ], [ 16, %316 ], [ 16, %314 ], [ %spec.select.i.i.i83, %320 ]
-  %322 = getelementptr inbounds i8, ptr %310, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %310, i64 16
   %323 = zext i32 %311 to i64
-  %324 = getelementptr inbounds ptr, ptr %322, i64 %323
+  %324 = getelementptr inbounds nuw ptr, ptr %322, i64 %323
   %325 = shl i32 %312, 3
   %326 = add i32 %.0.i.i.i84, %325
   %327 = zext i32 %326 to i64
-  %328 = getelementptr inbounds ptr, ptr %324, i64 %327
+  %328 = getelementptr inbounds nuw ptr, ptr %324, i64 %327
   store ptr %8, ptr %328, align 8
   %329 = zext i1 %9 to i8
   store i8 %329, ptr %67, align 4
@@ -5738,11 +5738,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %33
   %.0.i.i.i.i = phi ptr [ %35, %33 ], [ %36, %.critedge.i.i.i.i ]
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %15, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %39, align 8
   %40 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %40)
@@ -5836,19 +5836,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -5856,10 +5856,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -5887,65 +5887,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_27OMPParallelForSimdDirect
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -5980,10 +5980,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -6021,13 +6021,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -6065,14 +6065,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -6110,14 +6110,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -6155,14 +6155,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -6200,14 +6200,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -6245,14 +6245,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -6290,14 +6290,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -6305,11 +6305,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -6376,11 +6376,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -6446,19 +6446,19 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMasterDirective6CreateERKNS_
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %26
   %.0.i.i.i.i = phi ptr [ %28, %26 ], [ %29, %.critedge.i.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %31 = zext i1 %9 to i8
   store i32 %8, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %31, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %34
 
 34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -6466,9 +6466,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %9, label %36, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 36:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %10
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %10
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %5, ptr %39, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -6493,9 +6493,9 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPParallelMasterDirecti
   store i32 %2, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %30, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   %49 = zext i32 %43 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
   store ptr %6, ptr %50, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -6535,11 +6535,11 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMasterDirective11CreateEmpty
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -6603,19 +6603,19 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMaskedDirective6CreateERKNS_
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %26
   %.0.i.i.i.i = phi ptr [ %28, %26 ], [ %29, %.critedge.i.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %31 = zext i1 %9 to i8
   store i32 %8, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %31, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %34
 
 34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -6623,9 +6623,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %9, label %36, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 36:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %10
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %10
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %5, ptr %39, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -6650,9 +6650,9 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPParallelMaskedDirecti
   store i32 %2, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %30, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   %49 = zext i32 %43 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
   store ptr %6, ptr %50, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -6692,11 +6692,11 @@ define dso_local noundef ptr @_ZN5clang26OMPParallelMaskedDirective11CreateEmpty
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -6760,19 +6760,19 @@ define dso_local noundef ptr @_ZN5clang28OMPParallelSectionsDirective6CreateERKN
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %27
   %.0.i.i.i.i = phi ptr [ %29, %27 ], [ %30, %.critedge.i.i.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %32 = zext i1 %10 to i8
   store i32 %9, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 1, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %32, ptr %34, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %35
 
 35:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -6780,9 +6780,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %10, label %37, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 37:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %11
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %11
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %5, ptr %40, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -6808,9 +6808,9 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_28OMPParallelSectionsDirec
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store ptr %31, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %51 = zext i32 %44 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   store ptr %6, ptr %52, align 8
   %53 = zext i1 %7 to i8
   store i8 %53, ptr %49, align 8
@@ -6852,11 +6852,11 @@ define dso_local noundef ptr @_ZN5clang28OMPParallelSectionsDirective11CreateEmp
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -6922,19 +6922,19 @@ define dso_local noundef ptr @_ZN5clang16OMPTaskDirective6CreateERKNS_10ASTConte
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %26
   %.0.i.i.i.i = phi ptr [ %28, %26 ], [ %29, %.critedge.i.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %31 = zext i1 %9 to i8
   store i32 %8, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %31, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %34
 
 34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -6942,8 +6942,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %9, label %36, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 36:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %10
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %10
   store ptr %5, ptr %38, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -7007,11 +7007,11 @@ define dso_local noundef ptr @_ZN5clang16OMPTaskDirective11CreateEmptyERKNS_10AS
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -7127,19 +7127,19 @@ define dso_local noundef ptr @_ZN5clang18OMPAssumeDirective6CreateERKNS_10ASTCon
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -7147,8 +7147,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -7209,11 +7209,11 @@ define dso_local noundef ptr @_ZN5clang18OMPAssumeDirective11CreateEmptyERKNS_10
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -7274,17 +7274,17 @@ define dso_local noundef ptr @_ZN5clang17OMPErrorDirective6CreateERKNS_10ASTCont
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %22
   %.0.i.i.i.i = phi ptr [ %24, %22 ], [ %25, %.critedge.i.i.i.i ]
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %28, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %29
 
 29:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %30, ptr readonly align 8 %3, i64 %7, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -7345,11 +7345,11 @@ define dso_local noundef ptr @_ZN5clang17OMPErrorDirective11CreateEmptyERKNS_10A
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %18
   %.0.i.i.i.i = phi ptr [ %20, %18 ], [ %21, %.critedge.i.i.i.i ]
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %24, align 8
   %25 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %25)
@@ -7458,17 +7458,17 @@ define dso_local noundef ptr @_ZN5clang20OMPTaskwaitDirective6CreateERKNS_10ASTC
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %22
   %.0.i.i.i.i = phi ptr [ %24, %22 ], [ %25, %.critedge.i.i.i.i ]
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %28, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %29
 
 29:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %30, ptr readonly align 8 %3, i64 %7, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -7529,11 +7529,11 @@ define dso_local noundef ptr @_ZN5clang20OMPTaskwaitDirective11CreateEmptyERKNS_
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %18
   %.0.i.i.i.i = phi ptr [ %20, %18 ], [ %21, %.critedge.i.i.i.i ]
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %24, align 8
   %25 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %25)
@@ -7597,19 +7597,19 @@ define dso_local noundef ptr @_ZN5clang21OMPTaskgroupDirective6CreateERKNS_10AST
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %26
   %.0.i.i.i.i = phi ptr [ %28, %26 ], [ %29, %.critedge.i.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %31 = zext i1 %9 to i8
   store i32 %8, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %31, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %34
 
 34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -7617,9 +7617,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %9, label %36, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 36:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %10
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %10
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %5, ptr %39, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -7644,9 +7644,9 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_21OMPTaskgroupDirectiveEJR
   store i32 %2, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %30, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   %49 = zext i32 %43 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
   store ptr %6, ptr %50, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -7686,11 +7686,11 @@ define dso_local noundef ptr @_ZN5clang21OMPTaskgroupDirective11CreateEmptyERKNS
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -7803,17 +7803,17 @@ define dso_local noundef ptr @_ZN5clang18OMPCancelDirective6CreateERKNS_10ASTCon
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %23
   %.0.i.i.i.i = phi ptr [ %25, %23 ], [ %26, %.critedge.i.i.i.i ]
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %7, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 0, ptr %29, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %30
 
 30:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr readonly align 8 %3, i64 %8, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -7876,11 +7876,11 @@ define dso_local noundef ptr @_ZN5clang18OMPCancelDirective11CreateEmptyERKNS_10
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %18
   %.0.i.i.i.i = phi ptr [ %20, %18 ], [ %21, %.critedge.i.i.i.i ]
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 0, ptr %24, align 8
   %25 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %25)
@@ -7943,17 +7943,17 @@ define dso_local noundef ptr @_ZN5clang17OMPFlushDirective6CreateERKNS_10ASTCont
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %22
   %.0.i.i.i.i = phi ptr [ %24, %22 ], [ %25, %.critedge.i.i.i.i ]
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %28, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %29
 
 29:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %30, ptr readonly align 8 %3, i64 %7, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -8014,11 +8014,11 @@ define dso_local noundef ptr @_ZN5clang17OMPFlushDirective11CreateEmptyERKNS_10A
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %18
   %.0.i.i.i.i = phi ptr [ %20, %18 ], [ %21, %.critedge.i.i.i.i ]
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %24, align 8
   %25 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %25)
@@ -8079,17 +8079,17 @@ define dso_local noundef ptr @_ZN5clang18OMPDepobjDirective6CreateERKNS_10ASTCon
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %22
   %.0.i.i.i.i = phi ptr [ %24, %22 ], [ %25, %.critedge.i.i.i.i ]
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %28, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %29
 
 29:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %30, ptr readonly align 8 %3, i64 %7, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -8150,11 +8150,11 @@ define dso_local noundef ptr @_ZN5clang18OMPDepobjDirective11CreateEmptyERKNS_10
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %18
   %.0.i.i.i.i = phi ptr [ %20, %18 ], [ %21, %.critedge.i.i.i.i ]
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %24, align 8
   %25 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %25)
@@ -8215,17 +8215,17 @@ define dso_local noundef ptr @_ZN5clang16OMPScanDirective6CreateERKNS_10ASTConte
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %22
   %.0.i.i.i.i = phi ptr [ %24, %22 ], [ %25, %.critedge.i.i.i.i ]
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %28, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %29
 
 29:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %30, ptr readonly align 8 %3, i64 %7, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -8286,11 +8286,11 @@ define dso_local noundef ptr @_ZN5clang16OMPScanDirective11CreateEmptyERKNS_10AS
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %18
   %.0.i.i.i.i = phi ptr [ %20, %18 ], [ %21, %.critedge.i.i.i.i ]
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %24, align 8
   %25 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %25)
@@ -8354,19 +8354,19 @@ define dso_local noundef ptr @_ZN5clang19OMPOrderedDirective6CreateERKNS_10ASTCo
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -8374,8 +8374,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -8439,12 +8439,12 @@ define dso_local noundef ptr @_ZN5clang19OMPOrderedDirective11CreateEmptyERKNS_1
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %21
   %.0.i.i.i.i = phi ptr [ %23, %21 ], [ %24, %.critedge.i.i.i.i ]
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %26 = zext i1 %4 to i8
   store i32 %1, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %26, ptr %28, align 8
   %29 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %29)
@@ -8508,19 +8508,19 @@ define dso_local noundef ptr @_ZN5clang18OMPAtomicDirective6CreateERKNS_10ASTCon
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %26
   %.0.i.i.i.i = phi ptr [ %28, %26 ], [ %29, %.critedge.i.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %31 = zext i1 %9 to i8
   store i32 %8, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 7, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %31, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %34
 
 34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -8528,9 +8528,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %9, label %36, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 36:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %10
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %10
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   store ptr %5, ptr %39, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -8556,33 +8556,33 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_18OMPAtomicDirectiveEJRNS_
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   store ptr %30, ptr %47, align 8
   %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %50 = zext i32 %43 to i64
-  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
   store ptr %48, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %53, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %51, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 48
   store ptr %56, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %51, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %59, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %51, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store ptr %62, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %51, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr %65, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %51, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %51, i64 40
   store ptr %68, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %71 = load i8, ptr %70, align 8
@@ -8640,11 +8640,11 @@ define dso_local noundef ptr @_ZN5clang18OMPAtomicDirective11CreateEmptyERKNS_10
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 7, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -8708,19 +8708,19 @@ define dso_local noundef ptr @_ZN5clang18OMPTargetDirective6CreateERKNS_10ASTCon
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -8728,8 +8728,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -8790,11 +8790,11 @@ define dso_local noundef ptr @_ZN5clang18OMPTargetDirective11CreateEmptyERKNS_10
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -8858,19 +8858,19 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetParallelDirective6CreateERKNS_
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %27
   %.0.i.i.i.i = phi ptr [ %29, %27 ], [ %30, %.critedge.i.i.i.i ]
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %32 = zext i1 %10 to i8
   store i32 %9, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 1, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %32, ptr %34, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %35
 
 35:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %36, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -8878,9 +8878,9 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %10, label %37, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 37:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %11
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %11
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %5, ptr %40, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -8906,9 +8906,9 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPTargetParallelDirecti
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store ptr %31, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %51 = zext i32 %44 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   store ptr %6, ptr %52, align 8
   %53 = zext i1 %7 to i8
   store i8 %53, ptr %49, align 8
@@ -8950,11 +8950,11 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetParallelDirective11CreateEmpty
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -9047,19 +9047,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %43
   %.0.i.i.i.i = phi ptr [ %45, %43 ], [ %46, %.critedge.i.i.i.i ]
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %48 = zext i1 %24 to i8
   store i32 %23, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %22, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %48, ptr %50, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %51
 
 51:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -9067,10 +9067,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %24, label %53, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 53:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %25
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %25
   %56 = zext i32 %22 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
   store ptr %6, ptr %57, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -9100,65 +9100,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_29OMPTargetParallelForDire
   store i8 0, ptr %67, align 4
   store ptr %47, ptr %65, align 8
   %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %70 = zext i32 %61 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
   store ptr %68, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %73, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %71, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %71, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %71, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store ptr %85, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %71, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store ptr %88, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %71, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %71, i64 64
   store ptr %91, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %71, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %71, i64 72
   store ptr %94, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %71, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %71, i64 80
   store ptr %97, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %71, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %71, i64 88
   store ptr %100, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %71, i64 96
+  %104 = getelementptr inbounds nuw i8, ptr %71, i64 96
   store ptr %103, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %71, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %71, i64 104
   store ptr %106, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %71, i64 112
+  %110 = getelementptr inbounds nuw i8, ptr %71, i64 112
   store ptr %109, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %71, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %71, i64 120
   store ptr %112, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %115 = load ptr, ptr %114, align 8
@@ -9193,10 +9193,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %127, %125, %123, %
 
 130:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %116, 3
-  %131 = getelementptr inbounds i8, ptr %117, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %132 = zext i32 %118 to i64
-  %133 = getelementptr inbounds ptr, ptr %131, i64 %132
-  %134 = getelementptr inbounds ptr, ptr %133, i64 %.0.i.i.i
+  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %132
+  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %134, ptr readonly align 8 %115, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -9234,13 +9234,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %148, %146, 
 
 150:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i58 = shl nsw i64 %137, 3
-  %151 = getelementptr inbounds i8, ptr %138, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %152 = zext i32 %139 to i64
-  %153 = getelementptr inbounds ptr, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %151, i64 %152
   %154 = load i32, ptr %66, align 8
   %155 = add i32 %154, %.0.i.i.i56
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds ptr, ptr %153, i64 %156
+  %157 = getelementptr inbounds nuw ptr, ptr %153, i64 %156
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %157, ptr readonly align 8 %136, i64 %.idx.i.i58, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -9278,14 +9278,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %171, %169, %167, %1
 
 173:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i62 = shl nsw i64 %160, 3
-  %174 = getelementptr inbounds i8, ptr %161, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %175 = zext i32 %162 to i64
-  %176 = getelementptr inbounds ptr, ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw ptr, ptr %174, i64 %175
   %177 = load i32, ptr %66, align 8
   %178 = shl i32 %177, 1
   %179 = add i32 %178, %.0.i.i.i60
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds ptr, ptr %176, i64 %180
+  %181 = getelementptr inbounds nuw ptr, ptr %176, i64 %180
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr readonly align 8 %159, i64 %.idx.i.i62, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -9323,14 +9323,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %195, %193, %191, %1
 
 197:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i66 = shl nsw i64 %184, 3
-  %198 = getelementptr inbounds i8, ptr %185, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %199 = zext i32 %186 to i64
-  %200 = getelementptr inbounds ptr, ptr %198, i64 %199
+  %200 = getelementptr inbounds nuw ptr, ptr %198, i64 %199
   %201 = load i32, ptr %66, align 8
   %202 = mul i32 %201, 3
   %203 = add i32 %202, %.0.i.i.i64
   %204 = zext i32 %203 to i64
-  %205 = getelementptr inbounds ptr, ptr %200, i64 %204
+  %205 = getelementptr inbounds nuw ptr, ptr %200, i64 %204
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %205, ptr readonly align 8 %183, i64 %.idx.i.i66, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -9368,14 +9368,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %219, %217, %215, %2
 
 221:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i70 = shl nsw i64 %208, 3
-  %222 = getelementptr inbounds i8, ptr %209, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %223 = zext i32 %210 to i64
-  %224 = getelementptr inbounds ptr, ptr %222, i64 %223
+  %224 = getelementptr inbounds nuw ptr, ptr %222, i64 %223
   %225 = load i32, ptr %66, align 8
   %226 = shl i32 %225, 2
   %227 = add i32 %226, %.0.i.i.i68
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds ptr, ptr %224, i64 %228
+  %229 = getelementptr inbounds nuw ptr, ptr %224, i64 %228
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %229, ptr readonly align 8 %207, i64 %.idx.i.i70, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -9413,14 +9413,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %243, %241
 
 245:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i74 = shl nsw i64 %232, 3
-  %246 = getelementptr inbounds i8, ptr %233, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %247 = zext i32 %234 to i64
-  %248 = getelementptr inbounds ptr, ptr %246, i64 %247
+  %248 = getelementptr inbounds nuw ptr, ptr %246, i64 %247
   %249 = load i32, ptr %66, align 8
   %250 = mul i32 %249, 5
   %251 = add i32 %250, %.0.i.i.i72
   %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds ptr, ptr %248, i64 %252
+  %253 = getelementptr inbounds nuw ptr, ptr %248, i64 %252
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %253, ptr readonly align 8 %231, i64 %.idx.i.i74, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -9458,14 +9458,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %267, %265, %
 
 269:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i78 = shl nsw i64 %256, 3
-  %270 = getelementptr inbounds i8, ptr %257, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %271 = zext i32 %258 to i64
-  %272 = getelementptr inbounds ptr, ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw ptr, ptr %270, i64 %271
   %273 = load i32, ptr %66, align 8
   %274 = mul i32 %273, 6
   %275 = add i32 %274, %.0.i.i.i76
   %276 = zext i32 %275 to i64
-  %277 = getelementptr inbounds ptr, ptr %272, i64 %276
+  %277 = getelementptr inbounds nuw ptr, ptr %272, i64 %276
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %277, ptr readonly align 8 %255, i64 %.idx.i.i78, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -9503,14 +9503,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %291, %289,
 
 293:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i82 = shl nsw i64 %280, 3
-  %294 = getelementptr inbounds i8, ptr %281, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %281, i64 16
   %295 = zext i32 %282 to i64
-  %296 = getelementptr inbounds ptr, ptr %294, i64 %295
+  %296 = getelementptr inbounds nuw ptr, ptr %294, i64 %295
   %297 = load i32, ptr %66, align 8
   %298 = mul i32 %297, 7
   %299 = add i32 %298, %.0.i.i.i80
   %300 = zext i32 %299 to i64
-  %301 = getelementptr inbounds ptr, ptr %296, i64 %300
+  %301 = getelementptr inbounds nuw ptr, ptr %296, i64 %300
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %301, ptr readonly align 8 %279, i64 %.idx.i.i82, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -9518,11 +9518,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %302 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %303 = load ptr, ptr %302, align 8
   %304 = load ptr, ptr %65, align 8
-  %305 = getelementptr inbounds i8, ptr %304, i64 16
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 16
   %306 = load i32, ptr %304, align 8
   %307 = zext i32 %306 to i64
-  %308 = getelementptr inbounds ptr, ptr %305, i64 %307
-  %309 = getelementptr inbounds i8, ptr %308, i64 56
+  %308 = getelementptr inbounds nuw ptr, ptr %305, i64 %307
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 56
   store ptr %303, ptr %309, align 8
   %310 = load ptr, ptr %65, align 8
   %311 = load i32, ptr %310, align 8
@@ -9549,13 +9549,13 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
 
 _ZN5clang29OMPTargetParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %314, %316, %318, %320
   %.0.i.i.i84 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %318 ], [ 16, %316 ], [ 16, %314 ], [ %spec.select.i.i.i83, %320 ]
-  %322 = getelementptr inbounds i8, ptr %310, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %310, i64 16
   %323 = zext i32 %311 to i64
-  %324 = getelementptr inbounds ptr, ptr %322, i64 %323
+  %324 = getelementptr inbounds nuw ptr, ptr %322, i64 %323
   %325 = shl i32 %312, 3
   %326 = add i32 %.0.i.i.i84, %325
   %327 = zext i32 %326 to i64
-  %328 = getelementptr inbounds ptr, ptr %324, i64 %327
+  %328 = getelementptr inbounds nuw ptr, ptr %324, i64 %327
   store ptr %8, ptr %328, align 8
   %329 = zext i1 %9 to i8
   store i8 %329, ptr %67, align 4
@@ -9625,11 +9625,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %33
   %.0.i.i.i.i = phi ptr [ %35, %33 ], [ %36, %.critedge.i.i.i.i ]
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %15, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %39, align 8
   %40 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %40)
@@ -9697,19 +9697,19 @@ define dso_local noundef ptr @_ZN5clang22OMPTargetDataDirective6CreateERKNS_10AS
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -9717,8 +9717,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -9779,11 +9779,11 @@ define dso_local noundef ptr @_ZN5clang22OMPTargetDataDirective11CreateEmptyERKN
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -9847,19 +9847,19 @@ define dso_local noundef ptr @_ZN5clang27OMPTargetEnterDataDirective6CreateERKNS
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -9867,8 +9867,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -9929,11 +9929,11 @@ define dso_local noundef ptr @_ZN5clang27OMPTargetEnterDataDirective11CreateEmpt
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -9997,19 +9997,19 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetExitDataDirective6CreateERKNS_
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -10017,8 +10017,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -10079,11 +10079,11 @@ define dso_local noundef ptr @_ZN5clang26OMPTargetExitDataDirective11CreateEmpty
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -10147,19 +10147,19 @@ define dso_local noundef ptr @_ZN5clang17OMPTeamsDirective6CreateERKNS_10ASTCont
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -10167,8 +10167,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -10229,11 +10229,11 @@ define dso_local noundef ptr @_ZN5clang17OMPTeamsDirective11CreateEmptyERKNS_10A
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -10323,19 +10323,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %41
   %.0.i.i.i.i = phi ptr [ %43, %41 ], [ %44, %.critedge.i.i.i.i ]
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %46 = zext i1 %22 to i8
   store i32 %21, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %20, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %46, ptr %48, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %49
 
 49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -10343,10 +10343,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %22, label %51, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 51:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %23
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %23
   %54 = zext i32 %20 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   store ptr %6, ptr %55, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -10376,65 +10376,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_20OMPTaskLoopDirectiveEJRN
   store i8 0, ptr %65, align 4
   store ptr %45, ptr %63, align 8
   %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %68 = zext i32 %59 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
   store ptr %66, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %71, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %69, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %74, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %69, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %69, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %69, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store ptr %83, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %69, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store ptr %86, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %69, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store ptr %89, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %69, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %69, i64 72
   store ptr %92, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %69, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %69, i64 80
   store ptr %95, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %69, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %69, i64 88
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %69, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %69, i64 96
   store ptr %101, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %69, i64 104
+  %105 = getelementptr inbounds nuw i8, ptr %69, i64 104
   store ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %69, i64 112
+  %108 = getelementptr inbounds nuw i8, ptr %69, i64 112
   store ptr %107, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %69, i64 120
+  %111 = getelementptr inbounds nuw i8, ptr %69, i64 120
   store ptr %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %113 = load ptr, ptr %112, align 8
@@ -10469,10 +10469,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %125, %123, %121, %
 
 128:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %114, 3
-  %129 = getelementptr inbounds i8, ptr %115, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %130 = zext i32 %116 to i64
-  %131 = getelementptr inbounds ptr, ptr %129, i64 %130
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %.0.i.i.i
+  %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %130
+  %132 = getelementptr inbounds nuw ptr, ptr %131, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %132, ptr readonly align 8 %113, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -10510,13 +10510,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %146, %144, 
 
 148:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i56 = shl nsw i64 %135, 3
-  %149 = getelementptr inbounds i8, ptr %136, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %150 = zext i32 %137 to i64
-  %151 = getelementptr inbounds ptr, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw ptr, ptr %149, i64 %150
   %152 = load i32, ptr %64, align 8
   %153 = add i32 %152, %.0.i.i.i54
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr %151, i64 %154
+  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %154
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %155, ptr readonly align 8 %134, i64 %.idx.i.i56, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -10554,14 +10554,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %169, %167, %165, %1
 
 171:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i60 = shl nsw i64 %158, 3
-  %172 = getelementptr inbounds i8, ptr %159, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %173 = zext i32 %160 to i64
-  %174 = getelementptr inbounds ptr, ptr %172, i64 %173
+  %174 = getelementptr inbounds nuw ptr, ptr %172, i64 %173
   %175 = load i32, ptr %64, align 8
   %176 = shl i32 %175, 1
   %177 = add i32 %176, %.0.i.i.i58
   %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds ptr, ptr %174, i64 %178
+  %179 = getelementptr inbounds nuw ptr, ptr %174, i64 %178
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr readonly align 8 %157, i64 %.idx.i.i60, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -10599,14 +10599,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %193, %191, %189, %1
 
 195:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i64 = shl nsw i64 %182, 3
-  %196 = getelementptr inbounds i8, ptr %183, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %197 = zext i32 %184 to i64
-  %198 = getelementptr inbounds ptr, ptr %196, i64 %197
+  %198 = getelementptr inbounds nuw ptr, ptr %196, i64 %197
   %199 = load i32, ptr %64, align 8
   %200 = mul i32 %199, 3
   %201 = add i32 %200, %.0.i.i.i62
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds ptr, ptr %198, i64 %202
+  %203 = getelementptr inbounds nuw ptr, ptr %198, i64 %202
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %203, ptr readonly align 8 %181, i64 %.idx.i.i64, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -10644,14 +10644,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %217, %215, %213, %2
 
 219:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i68 = shl nsw i64 %206, 3
-  %220 = getelementptr inbounds i8, ptr %207, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %221 = zext i32 %208 to i64
-  %222 = getelementptr inbounds ptr, ptr %220, i64 %221
+  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %221
   %223 = load i32, ptr %64, align 8
   %224 = shl i32 %223, 2
   %225 = add i32 %224, %.0.i.i.i66
   %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds ptr, ptr %222, i64 %226
+  %227 = getelementptr inbounds nuw ptr, ptr %222, i64 %226
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %227, ptr readonly align 8 %205, i64 %.idx.i.i68, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -10689,14 +10689,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %241, %239
 
 243:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i72 = shl nsw i64 %230, 3
-  %244 = getelementptr inbounds i8, ptr %231, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %245 = zext i32 %232 to i64
-  %246 = getelementptr inbounds ptr, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw ptr, ptr %244, i64 %245
   %247 = load i32, ptr %64, align 8
   %248 = mul i32 %247, 5
   %249 = add i32 %248, %.0.i.i.i70
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds ptr, ptr %246, i64 %250
+  %251 = getelementptr inbounds nuw ptr, ptr %246, i64 %250
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr readonly align 8 %229, i64 %.idx.i.i72, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -10734,14 +10734,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %265, %263, %
 
 267:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i76 = shl nsw i64 %254, 3
-  %268 = getelementptr inbounds i8, ptr %255, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %255, i64 16
   %269 = zext i32 %256 to i64
-  %270 = getelementptr inbounds ptr, ptr %268, i64 %269
+  %270 = getelementptr inbounds nuw ptr, ptr %268, i64 %269
   %271 = load i32, ptr %64, align 8
   %272 = mul i32 %271, 6
   %273 = add i32 %272, %.0.i.i.i74
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds ptr, ptr %270, i64 %274
+  %275 = getelementptr inbounds nuw ptr, ptr %270, i64 %274
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %275, ptr readonly align 8 %253, i64 %.idx.i.i76, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -10779,14 +10779,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %289, %287,
 
 291:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i80 = shl nsw i64 %278, 3
-  %292 = getelementptr inbounds i8, ptr %279, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %293 = zext i32 %280 to i64
-  %294 = getelementptr inbounds ptr, ptr %292, i64 %293
+  %294 = getelementptr inbounds nuw ptr, ptr %292, i64 %293
   %295 = load i32, ptr %64, align 8
   %296 = mul i32 %295, 7
   %297 = add i32 %296, %.0.i.i.i78
   %298 = zext i32 %297 to i64
-  %299 = getelementptr inbounds ptr, ptr %294, i64 %298
+  %299 = getelementptr inbounds nuw ptr, ptr %294, i64 %298
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %299, ptr readonly align 8 %277, i64 %.idx.i.i80, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -10794,11 +10794,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %300 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %301 = load ptr, ptr %300, align 8
   %302 = load ptr, ptr %63, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %304 = load i32, ptr %302, align 8
   %305 = zext i32 %304 to i64
-  %306 = getelementptr inbounds ptr, ptr %303, i64 %305
-  %307 = getelementptr inbounds i8, ptr %306, i64 56
+  %306 = getelementptr inbounds nuw ptr, ptr %303, i64 %305
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 56
   store ptr %301, ptr %307, align 8
   %308 = zext i1 %8 to i8
   store i8 %308, ptr %65, align 4
@@ -10867,11 +10867,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -10965,19 +10965,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -10985,10 +10985,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -11016,65 +11016,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_24OMPTaskLoopSimdDirective
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -11109,10 +11109,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11150,13 +11150,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11194,14 +11194,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11239,14 +11239,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11284,14 +11284,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11329,14 +11329,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11374,14 +11374,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11419,14 +11419,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11434,11 +11434,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -11505,11 +11505,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -11601,19 +11601,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %41
   %.0.i.i.i.i = phi ptr [ %43, %41 ], [ %44, %.critedge.i.i.i.i ]
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %46 = zext i1 %22 to i8
   store i32 %21, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %20, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %46, ptr %48, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %49
 
 49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -11621,10 +11621,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %22, label %51, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 51:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %23
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %23
   %54 = zext i32 %20 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   store ptr %6, ptr %55, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -11654,65 +11654,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPMasterTaskLoopDirecti
   store i8 0, ptr %65, align 4
   store ptr %45, ptr %63, align 8
   %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %68 = zext i32 %59 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
   store ptr %66, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %71, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %69, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %74, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %69, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %69, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %69, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store ptr %83, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %69, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store ptr %86, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %69, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store ptr %89, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %69, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %69, i64 72
   store ptr %92, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %69, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %69, i64 80
   store ptr %95, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %69, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %69, i64 88
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %69, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %69, i64 96
   store ptr %101, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %69, i64 104
+  %105 = getelementptr inbounds nuw i8, ptr %69, i64 104
   store ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %69, i64 112
+  %108 = getelementptr inbounds nuw i8, ptr %69, i64 112
   store ptr %107, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %69, i64 120
+  %111 = getelementptr inbounds nuw i8, ptr %69, i64 120
   store ptr %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %113 = load ptr, ptr %112, align 8
@@ -11747,10 +11747,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %125, %123, %121, %
 
 128:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %114, 3
-  %129 = getelementptr inbounds i8, ptr %115, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %130 = zext i32 %116 to i64
-  %131 = getelementptr inbounds ptr, ptr %129, i64 %130
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %.0.i.i.i
+  %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %130
+  %132 = getelementptr inbounds nuw ptr, ptr %131, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %132, ptr readonly align 8 %113, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11788,13 +11788,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %146, %144, 
 
 148:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i56 = shl nsw i64 %135, 3
-  %149 = getelementptr inbounds i8, ptr %136, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %150 = zext i32 %137 to i64
-  %151 = getelementptr inbounds ptr, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw ptr, ptr %149, i64 %150
   %152 = load i32, ptr %64, align 8
   %153 = add i32 %152, %.0.i.i.i54
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr %151, i64 %154
+  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %154
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %155, ptr readonly align 8 %134, i64 %.idx.i.i56, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11832,14 +11832,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %169, %167, %165, %1
 
 171:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i60 = shl nsw i64 %158, 3
-  %172 = getelementptr inbounds i8, ptr %159, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %173 = zext i32 %160 to i64
-  %174 = getelementptr inbounds ptr, ptr %172, i64 %173
+  %174 = getelementptr inbounds nuw ptr, ptr %172, i64 %173
   %175 = load i32, ptr %64, align 8
   %176 = shl i32 %175, 1
   %177 = add i32 %176, %.0.i.i.i58
   %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds ptr, ptr %174, i64 %178
+  %179 = getelementptr inbounds nuw ptr, ptr %174, i64 %178
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr readonly align 8 %157, i64 %.idx.i.i60, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11877,14 +11877,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %193, %191, %189, %1
 
 195:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i64 = shl nsw i64 %182, 3
-  %196 = getelementptr inbounds i8, ptr %183, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %197 = zext i32 %184 to i64
-  %198 = getelementptr inbounds ptr, ptr %196, i64 %197
+  %198 = getelementptr inbounds nuw ptr, ptr %196, i64 %197
   %199 = load i32, ptr %64, align 8
   %200 = mul i32 %199, 3
   %201 = add i32 %200, %.0.i.i.i62
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds ptr, ptr %198, i64 %202
+  %203 = getelementptr inbounds nuw ptr, ptr %198, i64 %202
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %203, ptr readonly align 8 %181, i64 %.idx.i.i64, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11922,14 +11922,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %217, %215, %213, %2
 
 219:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i68 = shl nsw i64 %206, 3
-  %220 = getelementptr inbounds i8, ptr %207, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %221 = zext i32 %208 to i64
-  %222 = getelementptr inbounds ptr, ptr %220, i64 %221
+  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %221
   %223 = load i32, ptr %64, align 8
   %224 = shl i32 %223, 2
   %225 = add i32 %224, %.0.i.i.i66
   %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds ptr, ptr %222, i64 %226
+  %227 = getelementptr inbounds nuw ptr, ptr %222, i64 %226
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %227, ptr readonly align 8 %205, i64 %.idx.i.i68, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -11967,14 +11967,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %241, %239
 
 243:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i72 = shl nsw i64 %230, 3
-  %244 = getelementptr inbounds i8, ptr %231, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %245 = zext i32 %232 to i64
-  %246 = getelementptr inbounds ptr, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw ptr, ptr %244, i64 %245
   %247 = load i32, ptr %64, align 8
   %248 = mul i32 %247, 5
   %249 = add i32 %248, %.0.i.i.i70
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds ptr, ptr %246, i64 %250
+  %251 = getelementptr inbounds nuw ptr, ptr %246, i64 %250
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr readonly align 8 %229, i64 %.idx.i.i72, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -12012,14 +12012,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %265, %263, %
 
 267:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i76 = shl nsw i64 %254, 3
-  %268 = getelementptr inbounds i8, ptr %255, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %255, i64 16
   %269 = zext i32 %256 to i64
-  %270 = getelementptr inbounds ptr, ptr %268, i64 %269
+  %270 = getelementptr inbounds nuw ptr, ptr %268, i64 %269
   %271 = load i32, ptr %64, align 8
   %272 = mul i32 %271, 6
   %273 = add i32 %272, %.0.i.i.i74
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds ptr, ptr %270, i64 %274
+  %275 = getelementptr inbounds nuw ptr, ptr %270, i64 %274
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %275, ptr readonly align 8 %253, i64 %.idx.i.i76, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -12057,14 +12057,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %289, %287,
 
 291:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i80 = shl nsw i64 %278, 3
-  %292 = getelementptr inbounds i8, ptr %279, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %293 = zext i32 %280 to i64
-  %294 = getelementptr inbounds ptr, ptr %292, i64 %293
+  %294 = getelementptr inbounds nuw ptr, ptr %292, i64 %293
   %295 = load i32, ptr %64, align 8
   %296 = mul i32 %295, 7
   %297 = add i32 %296, %.0.i.i.i78
   %298 = zext i32 %297 to i64
-  %299 = getelementptr inbounds ptr, ptr %294, i64 %298
+  %299 = getelementptr inbounds nuw ptr, ptr %294, i64 %298
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %299, ptr readonly align 8 %277, i64 %.idx.i.i80, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -12072,11 +12072,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %300 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %301 = load ptr, ptr %300, align 8
   %302 = load ptr, ptr %63, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %304 = load i32, ptr %302, align 8
   %305 = zext i32 %304 to i64
-  %306 = getelementptr inbounds ptr, ptr %303, i64 %305
-  %307 = getelementptr inbounds i8, ptr %306, i64 56
+  %306 = getelementptr inbounds nuw ptr, ptr %303, i64 %305
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 56
   store ptr %301, ptr %307, align 8
   %308 = zext i1 %8 to i8
   store i8 %308, ptr %65, align 4
@@ -12145,11 +12145,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -12243,19 +12243,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %41
   %.0.i.i.i.i = phi ptr [ %43, %41 ], [ %44, %.critedge.i.i.i.i ]
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %46 = zext i1 %22 to i8
   store i32 %21, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %20, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %46, ptr %48, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %49
 
 49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -12263,10 +12263,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %22, label %51, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 51:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %23
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %23
   %54 = zext i32 %20 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   store ptr %6, ptr %55, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -12296,65 +12296,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPMaskedTaskLoopDirecti
   store i8 0, ptr %65, align 4
   store ptr %45, ptr %63, align 8
   %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %68 = zext i32 %59 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
   store ptr %66, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %71, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %69, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %74, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %69, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %69, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %69, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store ptr %83, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %69, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store ptr %86, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %69, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store ptr %89, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %69, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %69, i64 72
   store ptr %92, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %69, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %69, i64 80
   store ptr %95, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %69, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %69, i64 88
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %69, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %69, i64 96
   store ptr %101, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %69, i64 104
+  %105 = getelementptr inbounds nuw i8, ptr %69, i64 104
   store ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %69, i64 112
+  %108 = getelementptr inbounds nuw i8, ptr %69, i64 112
   store ptr %107, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %69, i64 120
+  %111 = getelementptr inbounds nuw i8, ptr %69, i64 120
   store ptr %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %113 = load ptr, ptr %112, align 8
@@ -12389,10 +12389,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %125, %123, %121, %
 
 128:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %114, 3
-  %129 = getelementptr inbounds i8, ptr %115, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %130 = zext i32 %116 to i64
-  %131 = getelementptr inbounds ptr, ptr %129, i64 %130
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %.0.i.i.i
+  %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %130
+  %132 = getelementptr inbounds nuw ptr, ptr %131, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %132, ptr readonly align 8 %113, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -12430,13 +12430,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %146, %144, 
 
 148:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i56 = shl nsw i64 %135, 3
-  %149 = getelementptr inbounds i8, ptr %136, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %150 = zext i32 %137 to i64
-  %151 = getelementptr inbounds ptr, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw ptr, ptr %149, i64 %150
   %152 = load i32, ptr %64, align 8
   %153 = add i32 %152, %.0.i.i.i54
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr %151, i64 %154
+  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %154
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %155, ptr readonly align 8 %134, i64 %.idx.i.i56, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -12474,14 +12474,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %169, %167, %165, %1
 
 171:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i60 = shl nsw i64 %158, 3
-  %172 = getelementptr inbounds i8, ptr %159, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %173 = zext i32 %160 to i64
-  %174 = getelementptr inbounds ptr, ptr %172, i64 %173
+  %174 = getelementptr inbounds nuw ptr, ptr %172, i64 %173
   %175 = load i32, ptr %64, align 8
   %176 = shl i32 %175, 1
   %177 = add i32 %176, %.0.i.i.i58
   %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds ptr, ptr %174, i64 %178
+  %179 = getelementptr inbounds nuw ptr, ptr %174, i64 %178
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr readonly align 8 %157, i64 %.idx.i.i60, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -12519,14 +12519,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %193, %191, %189, %1
 
 195:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i64 = shl nsw i64 %182, 3
-  %196 = getelementptr inbounds i8, ptr %183, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %197 = zext i32 %184 to i64
-  %198 = getelementptr inbounds ptr, ptr %196, i64 %197
+  %198 = getelementptr inbounds nuw ptr, ptr %196, i64 %197
   %199 = load i32, ptr %64, align 8
   %200 = mul i32 %199, 3
   %201 = add i32 %200, %.0.i.i.i62
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds ptr, ptr %198, i64 %202
+  %203 = getelementptr inbounds nuw ptr, ptr %198, i64 %202
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %203, ptr readonly align 8 %181, i64 %.idx.i.i64, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -12564,14 +12564,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %217, %215, %213, %2
 
 219:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i68 = shl nsw i64 %206, 3
-  %220 = getelementptr inbounds i8, ptr %207, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %221 = zext i32 %208 to i64
-  %222 = getelementptr inbounds ptr, ptr %220, i64 %221
+  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %221
   %223 = load i32, ptr %64, align 8
   %224 = shl i32 %223, 2
   %225 = add i32 %224, %.0.i.i.i66
   %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds ptr, ptr %222, i64 %226
+  %227 = getelementptr inbounds nuw ptr, ptr %222, i64 %226
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %227, ptr readonly align 8 %205, i64 %.idx.i.i68, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -12609,14 +12609,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %241, %239
 
 243:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i72 = shl nsw i64 %230, 3
-  %244 = getelementptr inbounds i8, ptr %231, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %245 = zext i32 %232 to i64
-  %246 = getelementptr inbounds ptr, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw ptr, ptr %244, i64 %245
   %247 = load i32, ptr %64, align 8
   %248 = mul i32 %247, 5
   %249 = add i32 %248, %.0.i.i.i70
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds ptr, ptr %246, i64 %250
+  %251 = getelementptr inbounds nuw ptr, ptr %246, i64 %250
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr readonly align 8 %229, i64 %.idx.i.i72, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -12654,14 +12654,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %265, %263, %
 
 267:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i76 = shl nsw i64 %254, 3
-  %268 = getelementptr inbounds i8, ptr %255, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %255, i64 16
   %269 = zext i32 %256 to i64
-  %270 = getelementptr inbounds ptr, ptr %268, i64 %269
+  %270 = getelementptr inbounds nuw ptr, ptr %268, i64 %269
   %271 = load i32, ptr %64, align 8
   %272 = mul i32 %271, 6
   %273 = add i32 %272, %.0.i.i.i74
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds ptr, ptr %270, i64 %274
+  %275 = getelementptr inbounds nuw ptr, ptr %270, i64 %274
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %275, ptr readonly align 8 %253, i64 %.idx.i.i76, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -12699,14 +12699,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %289, %287,
 
 291:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i80 = shl nsw i64 %278, 3
-  %292 = getelementptr inbounds i8, ptr %279, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %293 = zext i32 %280 to i64
-  %294 = getelementptr inbounds ptr, ptr %292, i64 %293
+  %294 = getelementptr inbounds nuw ptr, ptr %292, i64 %293
   %295 = load i32, ptr %64, align 8
   %296 = mul i32 %295, 7
   %297 = add i32 %296, %.0.i.i.i78
   %298 = zext i32 %297 to i64
-  %299 = getelementptr inbounds ptr, ptr %294, i64 %298
+  %299 = getelementptr inbounds nuw ptr, ptr %294, i64 %298
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %299, ptr readonly align 8 %277, i64 %.idx.i.i80, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -12714,11 +12714,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %300 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %301 = load ptr, ptr %300, align 8
   %302 = load ptr, ptr %63, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %304 = load i32, ptr %302, align 8
   %305 = zext i32 %304 to i64
-  %306 = getelementptr inbounds ptr, ptr %303, i64 %305
-  %307 = getelementptr inbounds i8, ptr %306, i64 56
+  %306 = getelementptr inbounds nuw ptr, ptr %303, i64 %305
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 56
   store ptr %301, ptr %307, align 8
   %308 = zext i1 %8 to i8
   store i8 %308, ptr %65, align 4
@@ -12787,11 +12787,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -12885,19 +12885,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -12905,10 +12905,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -12936,65 +12936,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_30OMPMasterTaskLoopSimdDir
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -13029,10 +13029,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13070,13 +13070,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13114,14 +13114,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13159,14 +13159,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13204,14 +13204,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13249,14 +13249,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13294,14 +13294,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13339,14 +13339,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13354,11 +13354,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -13425,11 +13425,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -13521,19 +13521,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -13541,10 +13541,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -13572,65 +13572,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_30OMPMaskedTaskLoopSimdDir
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -13665,10 +13665,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13706,13 +13706,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13750,14 +13750,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13795,14 +13795,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13840,14 +13840,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13885,14 +13885,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13930,14 +13930,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13975,14 +13975,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -13990,11 +13990,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -14061,11 +14061,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -14157,19 +14157,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %41
   %.0.i.i.i.i = phi ptr [ %43, %41 ], [ %44, %.critedge.i.i.i.i ]
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %46 = zext i1 %22 to i8
   store i32 %21, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %20, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %46, ptr %48, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %49
 
 49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -14177,10 +14177,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %22, label %51, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 51:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %23
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %23
   %54 = zext i32 %20 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   store ptr %6, ptr %55, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -14210,65 +14210,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPParallelMasterTaskLoo
   store i8 0, ptr %65, align 4
   store ptr %45, ptr %63, align 8
   %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %68 = zext i32 %59 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
   store ptr %66, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %71, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %69, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %74, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %69, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %69, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %69, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store ptr %83, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %69, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store ptr %86, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %69, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store ptr %89, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %69, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %69, i64 72
   store ptr %92, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %69, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %69, i64 80
   store ptr %95, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %69, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %69, i64 88
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %69, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %69, i64 96
   store ptr %101, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %69, i64 104
+  %105 = getelementptr inbounds nuw i8, ptr %69, i64 104
   store ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %69, i64 112
+  %108 = getelementptr inbounds nuw i8, ptr %69, i64 112
   store ptr %107, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %69, i64 120
+  %111 = getelementptr inbounds nuw i8, ptr %69, i64 120
   store ptr %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %113 = load ptr, ptr %112, align 8
@@ -14303,10 +14303,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %125, %123, %121, %
 
 128:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %114, 3
-  %129 = getelementptr inbounds i8, ptr %115, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %130 = zext i32 %116 to i64
-  %131 = getelementptr inbounds ptr, ptr %129, i64 %130
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %.0.i.i.i
+  %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %130
+  %132 = getelementptr inbounds nuw ptr, ptr %131, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %132, ptr readonly align 8 %113, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -14344,13 +14344,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %146, %144, 
 
 148:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i56 = shl nsw i64 %135, 3
-  %149 = getelementptr inbounds i8, ptr %136, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %150 = zext i32 %137 to i64
-  %151 = getelementptr inbounds ptr, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw ptr, ptr %149, i64 %150
   %152 = load i32, ptr %64, align 8
   %153 = add i32 %152, %.0.i.i.i54
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr %151, i64 %154
+  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %154
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %155, ptr readonly align 8 %134, i64 %.idx.i.i56, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -14388,14 +14388,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %169, %167, %165, %1
 
 171:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i60 = shl nsw i64 %158, 3
-  %172 = getelementptr inbounds i8, ptr %159, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %173 = zext i32 %160 to i64
-  %174 = getelementptr inbounds ptr, ptr %172, i64 %173
+  %174 = getelementptr inbounds nuw ptr, ptr %172, i64 %173
   %175 = load i32, ptr %64, align 8
   %176 = shl i32 %175, 1
   %177 = add i32 %176, %.0.i.i.i58
   %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds ptr, ptr %174, i64 %178
+  %179 = getelementptr inbounds nuw ptr, ptr %174, i64 %178
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr readonly align 8 %157, i64 %.idx.i.i60, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -14433,14 +14433,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %193, %191, %189, %1
 
 195:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i64 = shl nsw i64 %182, 3
-  %196 = getelementptr inbounds i8, ptr %183, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %197 = zext i32 %184 to i64
-  %198 = getelementptr inbounds ptr, ptr %196, i64 %197
+  %198 = getelementptr inbounds nuw ptr, ptr %196, i64 %197
   %199 = load i32, ptr %64, align 8
   %200 = mul i32 %199, 3
   %201 = add i32 %200, %.0.i.i.i62
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds ptr, ptr %198, i64 %202
+  %203 = getelementptr inbounds nuw ptr, ptr %198, i64 %202
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %203, ptr readonly align 8 %181, i64 %.idx.i.i64, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -14478,14 +14478,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %217, %215, %213, %2
 
 219:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i68 = shl nsw i64 %206, 3
-  %220 = getelementptr inbounds i8, ptr %207, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %221 = zext i32 %208 to i64
-  %222 = getelementptr inbounds ptr, ptr %220, i64 %221
+  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %221
   %223 = load i32, ptr %64, align 8
   %224 = shl i32 %223, 2
   %225 = add i32 %224, %.0.i.i.i66
   %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds ptr, ptr %222, i64 %226
+  %227 = getelementptr inbounds nuw ptr, ptr %222, i64 %226
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %227, ptr readonly align 8 %205, i64 %.idx.i.i68, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -14523,14 +14523,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %241, %239
 
 243:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i72 = shl nsw i64 %230, 3
-  %244 = getelementptr inbounds i8, ptr %231, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %245 = zext i32 %232 to i64
-  %246 = getelementptr inbounds ptr, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw ptr, ptr %244, i64 %245
   %247 = load i32, ptr %64, align 8
   %248 = mul i32 %247, 5
   %249 = add i32 %248, %.0.i.i.i70
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds ptr, ptr %246, i64 %250
+  %251 = getelementptr inbounds nuw ptr, ptr %246, i64 %250
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr readonly align 8 %229, i64 %.idx.i.i72, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -14568,14 +14568,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %265, %263, %
 
 267:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i76 = shl nsw i64 %254, 3
-  %268 = getelementptr inbounds i8, ptr %255, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %255, i64 16
   %269 = zext i32 %256 to i64
-  %270 = getelementptr inbounds ptr, ptr %268, i64 %269
+  %270 = getelementptr inbounds nuw ptr, ptr %268, i64 %269
   %271 = load i32, ptr %64, align 8
   %272 = mul i32 %271, 6
   %273 = add i32 %272, %.0.i.i.i74
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds ptr, ptr %270, i64 %274
+  %275 = getelementptr inbounds nuw ptr, ptr %270, i64 %274
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %275, ptr readonly align 8 %253, i64 %.idx.i.i76, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -14613,14 +14613,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %289, %287,
 
 291:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i80 = shl nsw i64 %278, 3
-  %292 = getelementptr inbounds i8, ptr %279, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %293 = zext i32 %280 to i64
-  %294 = getelementptr inbounds ptr, ptr %292, i64 %293
+  %294 = getelementptr inbounds nuw ptr, ptr %292, i64 %293
   %295 = load i32, ptr %64, align 8
   %296 = mul i32 %295, 7
   %297 = add i32 %296, %.0.i.i.i78
   %298 = zext i32 %297 to i64
-  %299 = getelementptr inbounds ptr, ptr %294, i64 %298
+  %299 = getelementptr inbounds nuw ptr, ptr %294, i64 %298
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %299, ptr readonly align 8 %277, i64 %.idx.i.i80, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -14628,11 +14628,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %300 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %301 = load ptr, ptr %300, align 8
   %302 = load ptr, ptr %63, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %304 = load i32, ptr %302, align 8
   %305 = zext i32 %304 to i64
-  %306 = getelementptr inbounds ptr, ptr %303, i64 %305
-  %307 = getelementptr inbounds i8, ptr %306, i64 56
+  %306 = getelementptr inbounds nuw ptr, ptr %303, i64 %305
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 56
   store ptr %301, ptr %307, align 8
   %308 = zext i1 %8 to i8
   store i8 %308, ptr %65, align 4
@@ -14701,11 +14701,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -14799,19 +14799,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %41
   %.0.i.i.i.i = phi ptr [ %43, %41 ], [ %44, %.critedge.i.i.i.i ]
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %46 = zext i1 %22 to i8
   store i32 %21, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %20, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %46, ptr %48, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %49
 
 49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -14819,10 +14819,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %22, label %51, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 51:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %23
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %23
   %54 = zext i32 %20 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   store ptr %6, ptr %55, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -14852,65 +14852,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPParallelMaskedTaskLoo
   store i8 0, ptr %65, align 4
   store ptr %45, ptr %63, align 8
   %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %68 = zext i32 %59 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
   store ptr %66, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %71, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %69, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %74, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %69, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %69, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %69, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store ptr %83, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %69, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store ptr %86, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %69, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store ptr %89, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %69, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %69, i64 72
   store ptr %92, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %69, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %69, i64 80
   store ptr %95, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %69, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %69, i64 88
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %69, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %69, i64 96
   store ptr %101, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %69, i64 104
+  %105 = getelementptr inbounds nuw i8, ptr %69, i64 104
   store ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %69, i64 112
+  %108 = getelementptr inbounds nuw i8, ptr %69, i64 112
   store ptr %107, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %69, i64 120
+  %111 = getelementptr inbounds nuw i8, ptr %69, i64 120
   store ptr %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %113 = load ptr, ptr %112, align 8
@@ -14945,10 +14945,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %125, %123, %121, %
 
 128:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %114, 3
-  %129 = getelementptr inbounds i8, ptr %115, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %130 = zext i32 %116 to i64
-  %131 = getelementptr inbounds ptr, ptr %129, i64 %130
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %.0.i.i.i
+  %131 = getelementptr inbounds nuw ptr, ptr %129, i64 %130
+  %132 = getelementptr inbounds nuw ptr, ptr %131, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %132, ptr readonly align 8 %113, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -14986,13 +14986,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %146, %144, 
 
 148:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i56 = shl nsw i64 %135, 3
-  %149 = getelementptr inbounds i8, ptr %136, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %150 = zext i32 %137 to i64
-  %151 = getelementptr inbounds ptr, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw ptr, ptr %149, i64 %150
   %152 = load i32, ptr %64, align 8
   %153 = add i32 %152, %.0.i.i.i54
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr %151, i64 %154
+  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %154
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %155, ptr readonly align 8 %134, i64 %.idx.i.i56, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15030,14 +15030,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %169, %167, %165, %1
 
 171:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i60 = shl nsw i64 %158, 3
-  %172 = getelementptr inbounds i8, ptr %159, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %173 = zext i32 %160 to i64
-  %174 = getelementptr inbounds ptr, ptr %172, i64 %173
+  %174 = getelementptr inbounds nuw ptr, ptr %172, i64 %173
   %175 = load i32, ptr %64, align 8
   %176 = shl i32 %175, 1
   %177 = add i32 %176, %.0.i.i.i58
   %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds ptr, ptr %174, i64 %178
+  %179 = getelementptr inbounds nuw ptr, ptr %174, i64 %178
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr readonly align 8 %157, i64 %.idx.i.i60, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15075,14 +15075,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %193, %191, %189, %1
 
 195:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i64 = shl nsw i64 %182, 3
-  %196 = getelementptr inbounds i8, ptr %183, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %197 = zext i32 %184 to i64
-  %198 = getelementptr inbounds ptr, ptr %196, i64 %197
+  %198 = getelementptr inbounds nuw ptr, ptr %196, i64 %197
   %199 = load i32, ptr %64, align 8
   %200 = mul i32 %199, 3
   %201 = add i32 %200, %.0.i.i.i62
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds ptr, ptr %198, i64 %202
+  %203 = getelementptr inbounds nuw ptr, ptr %198, i64 %202
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %203, ptr readonly align 8 %181, i64 %.idx.i.i64, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15120,14 +15120,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %217, %215, %213, %2
 
 219:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i68 = shl nsw i64 %206, 3
-  %220 = getelementptr inbounds i8, ptr %207, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %221 = zext i32 %208 to i64
-  %222 = getelementptr inbounds ptr, ptr %220, i64 %221
+  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %221
   %223 = load i32, ptr %64, align 8
   %224 = shl i32 %223, 2
   %225 = add i32 %224, %.0.i.i.i66
   %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds ptr, ptr %222, i64 %226
+  %227 = getelementptr inbounds nuw ptr, ptr %222, i64 %226
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %227, ptr readonly align 8 %205, i64 %.idx.i.i68, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15165,14 +15165,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %241, %239
 
 243:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i72 = shl nsw i64 %230, 3
-  %244 = getelementptr inbounds i8, ptr %231, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %245 = zext i32 %232 to i64
-  %246 = getelementptr inbounds ptr, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw ptr, ptr %244, i64 %245
   %247 = load i32, ptr %64, align 8
   %248 = mul i32 %247, 5
   %249 = add i32 %248, %.0.i.i.i70
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds ptr, ptr %246, i64 %250
+  %251 = getelementptr inbounds nuw ptr, ptr %246, i64 %250
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %251, ptr readonly align 8 %229, i64 %.idx.i.i72, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15210,14 +15210,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %265, %263, %
 
 267:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i76 = shl nsw i64 %254, 3
-  %268 = getelementptr inbounds i8, ptr %255, i64 16
+  %268 = getelementptr inbounds nuw i8, ptr %255, i64 16
   %269 = zext i32 %256 to i64
-  %270 = getelementptr inbounds ptr, ptr %268, i64 %269
+  %270 = getelementptr inbounds nuw ptr, ptr %268, i64 %269
   %271 = load i32, ptr %64, align 8
   %272 = mul i32 %271, 6
   %273 = add i32 %272, %.0.i.i.i74
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds ptr, ptr %270, i64 %274
+  %275 = getelementptr inbounds nuw ptr, ptr %270, i64 %274
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %275, ptr readonly align 8 %253, i64 %.idx.i.i76, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15255,14 +15255,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %289, %287,
 
 291:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i80 = shl nsw i64 %278, 3
-  %292 = getelementptr inbounds i8, ptr %279, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %293 = zext i32 %280 to i64
-  %294 = getelementptr inbounds ptr, ptr %292, i64 %293
+  %294 = getelementptr inbounds nuw ptr, ptr %292, i64 %293
   %295 = load i32, ptr %64, align 8
   %296 = mul i32 %295, 7
   %297 = add i32 %296, %.0.i.i.i78
   %298 = zext i32 %297 to i64
-  %299 = getelementptr inbounds ptr, ptr %294, i64 %298
+  %299 = getelementptr inbounds nuw ptr, ptr %294, i64 %298
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %299, ptr readonly align 8 %277, i64 %.idx.i.i80, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15270,11 +15270,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %300 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %301 = load ptr, ptr %300, align 8
   %302 = load ptr, ptr %63, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 16
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %304 = load i32, ptr %302, align 8
   %305 = zext i32 %304 to i64
-  %306 = getelementptr inbounds ptr, ptr %303, i64 %305
-  %307 = getelementptr inbounds i8, ptr %306, i64 56
+  %306 = getelementptr inbounds nuw ptr, ptr %303, i64 %305
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 56
   store ptr %301, ptr %307, align 8
   %308 = zext i1 %8 to i8
   store i8 %308, ptr %65, align 4
@@ -15343,11 +15343,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -15441,19 +15441,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -15461,10 +15461,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -15492,65 +15492,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPParallelMasterTaskLoo
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -15585,10 +15585,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15626,13 +15626,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15670,14 +15670,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15715,14 +15715,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15760,14 +15760,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15805,14 +15805,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15850,14 +15850,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15895,14 +15895,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -15910,11 +15910,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -15981,11 +15981,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -16077,19 +16077,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -16097,10 +16097,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -16128,65 +16128,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPParallelMaskedTaskLoo
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -16221,10 +16221,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -16262,13 +16262,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -16306,14 +16306,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -16351,14 +16351,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -16396,14 +16396,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -16441,14 +16441,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -16486,14 +16486,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -16531,14 +16531,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -16546,11 +16546,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -16617,11 +16617,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -16713,19 +16713,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -16733,10 +16733,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -16764,65 +16764,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_22OMPDistributeDirectiveEJ
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -16857,10 +16857,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -16898,13 +16898,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -16942,14 +16942,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -16987,14 +16987,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17032,14 +17032,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17077,14 +17077,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17122,14 +17122,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17167,14 +17167,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17182,11 +17182,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -17253,11 +17253,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -17323,19 +17323,19 @@ define dso_local noundef ptr @_ZN5clang24OMPTargetUpdateDirective6CreateERKNS_10
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -17343,8 +17343,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -17405,11 +17405,11 @@ define dso_local noundef ptr @_ZN5clang24OMPTargetUpdateDirective11CreateEmptyER
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -17500,19 +17500,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %43
   %.0.i.i.i.i = phi ptr [ %45, %43 ], [ %46, %.critedge.i.i.i.i ]
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %48 = zext i1 %24 to i8
   store i32 %23, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %22, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %48, ptr %50, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %51
 
 51:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -17520,10 +17520,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %24, label %53, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 53:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %25
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %25
   %56 = zext i32 %22 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
   store ptr %6, ptr %57, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -17553,81 +17553,81 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPDistributeParallelFor
   store i8 0, ptr %67, align 4
   store ptr %47, ptr %65, align 8
   %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %70 = zext i32 %61 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
   store ptr %68, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %73, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %71, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %71, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %71, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store ptr %85, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %71, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store ptr %88, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %71, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %71, i64 64
   store ptr %91, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %71, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %71, i64 72
   store ptr %94, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %71, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %71, i64 80
   store ptr %97, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %71, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %71, i64 88
   store ptr %100, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %71, i64 96
+  %104 = getelementptr inbounds nuw i8, ptr %71, i64 96
   store ptr %103, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %71, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %71, i64 104
   store ptr %106, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %71, i64 112
+  %110 = getelementptr inbounds nuw i8, ptr %71, i64 112
   store ptr %109, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %71, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %71, i64 120
   store ptr %112, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %71, i64 128
+  %116 = getelementptr inbounds nuw i8, ptr %71, i64 128
   store ptr %115, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %71, i64 136
+  %119 = getelementptr inbounds nuw i8, ptr %71, i64 136
   store ptr %118, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %71, i64 144
+  %122 = getelementptr inbounds nuw i8, ptr %71, i64 144
   store ptr %121, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %71, i64 152
+  %125 = getelementptr inbounds nuw i8, ptr %71, i64 152
   store ptr %124, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %127 = load ptr, ptr %126, align 8
@@ -17662,10 +17662,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %139, %137, %135, %
 
 142:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %128, 3
-  %143 = getelementptr inbounds i8, ptr %129, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %144 = zext i32 %130 to i64
-  %145 = getelementptr inbounds ptr, ptr %143, i64 %144
-  %146 = getelementptr inbounds ptr, ptr %145, i64 %.0.i.i.i
+  %145 = getelementptr inbounds nuw ptr, ptr %143, i64 %144
+  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %146, ptr readonly align 8 %127, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17703,13 +17703,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %160, %158, 
 
 162:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i84 = shl nsw i64 %149, 3
-  %163 = getelementptr inbounds i8, ptr %150, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %164 = zext i32 %151 to i64
-  %165 = getelementptr inbounds ptr, ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw ptr, ptr %163, i64 %164
   %166 = load i32, ptr %66, align 8
   %167 = add i32 %166, %.0.i.i.i82
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds ptr, ptr %165, i64 %168
+  %169 = getelementptr inbounds nuw ptr, ptr %165, i64 %168
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %169, ptr readonly align 8 %148, i64 %.idx.i.i84, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17747,14 +17747,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %183, %181, %179, %1
 
 185:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i88 = shl nsw i64 %172, 3
-  %186 = getelementptr inbounds i8, ptr %173, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %187 = zext i32 %174 to i64
-  %188 = getelementptr inbounds ptr, ptr %186, i64 %187
+  %188 = getelementptr inbounds nuw ptr, ptr %186, i64 %187
   %189 = load i32, ptr %66, align 8
   %190 = shl i32 %189, 1
   %191 = add i32 %190, %.0.i.i.i86
   %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds ptr, ptr %188, i64 %192
+  %193 = getelementptr inbounds nuw ptr, ptr %188, i64 %192
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %193, ptr readonly align 8 %171, i64 %.idx.i.i88, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17792,14 +17792,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %207, %205, %203, %2
 
 209:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i92 = shl nsw i64 %196, 3
-  %210 = getelementptr inbounds i8, ptr %197, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %211 = zext i32 %198 to i64
-  %212 = getelementptr inbounds ptr, ptr %210, i64 %211
+  %212 = getelementptr inbounds nuw ptr, ptr %210, i64 %211
   %213 = load i32, ptr %66, align 8
   %214 = mul i32 %213, 3
   %215 = add i32 %214, %.0.i.i.i90
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds ptr, ptr %212, i64 %216
+  %217 = getelementptr inbounds nuw ptr, ptr %212, i64 %216
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %217, ptr readonly align 8 %195, i64 %.idx.i.i92, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17837,14 +17837,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %231, %229, %227, %2
 
 233:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i96 = shl nsw i64 %220, 3
-  %234 = getelementptr inbounds i8, ptr %221, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %235 = zext i32 %222 to i64
-  %236 = getelementptr inbounds ptr, ptr %234, i64 %235
+  %236 = getelementptr inbounds nuw ptr, ptr %234, i64 %235
   %237 = load i32, ptr %66, align 8
   %238 = shl i32 %237, 2
   %239 = add i32 %238, %.0.i.i.i94
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds ptr, ptr %236, i64 %240
+  %241 = getelementptr inbounds nuw ptr, ptr %236, i64 %240
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %241, ptr readonly align 8 %219, i64 %.idx.i.i96, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17882,14 +17882,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %255, %253
 
 257:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i100 = shl nsw i64 %244, 3
-  %258 = getelementptr inbounds i8, ptr %245, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %259 = zext i32 %246 to i64
-  %260 = getelementptr inbounds ptr, ptr %258, i64 %259
+  %260 = getelementptr inbounds nuw ptr, ptr %258, i64 %259
   %261 = load i32, ptr %66, align 8
   %262 = mul i32 %261, 5
   %263 = add i32 %262, %.0.i.i.i98
   %264 = zext i32 %263 to i64
-  %265 = getelementptr inbounds ptr, ptr %260, i64 %264
+  %265 = getelementptr inbounds nuw ptr, ptr %260, i64 %264
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %265, ptr readonly align 8 %243, i64 %.idx.i.i100, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17927,14 +17927,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %
 
 281:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i104 = shl nsw i64 %268, 3
-  %282 = getelementptr inbounds i8, ptr %269, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %269, i64 16
   %283 = zext i32 %270 to i64
-  %284 = getelementptr inbounds ptr, ptr %282, i64 %283
+  %284 = getelementptr inbounds nuw ptr, ptr %282, i64 %283
   %285 = load i32, ptr %66, align 8
   %286 = mul i32 %285, 6
   %287 = add i32 %286, %.0.i.i.i102
   %288 = zext i32 %287 to i64
-  %289 = getelementptr inbounds ptr, ptr %284, i64 %288
+  %289 = getelementptr inbounds nuw ptr, ptr %284, i64 %288
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %289, ptr readonly align 8 %267, i64 %.idx.i.i104, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17972,14 +17972,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %303, %301,
 
 305:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i108 = shl nsw i64 %292, 3
-  %306 = getelementptr inbounds i8, ptr %293, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %307 = zext i32 %294 to i64
-  %308 = getelementptr inbounds ptr, ptr %306, i64 %307
+  %308 = getelementptr inbounds nuw ptr, ptr %306, i64 %307
   %309 = load i32, ptr %66, align 8
   %310 = mul i32 %309, 7
   %311 = add i32 %310, %.0.i.i.i106
   %312 = zext i32 %311 to i64
-  %313 = getelementptr inbounds ptr, ptr %308, i64 %312
+  %313 = getelementptr inbounds nuw ptr, ptr %308, i64 %312
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %313, ptr readonly align 8 %291, i64 %.idx.i.i108, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -17987,92 +17987,92 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %314 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %315 = load ptr, ptr %314, align 8
   %316 = load ptr, ptr %65, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 16
   %318 = load i32, ptr %316, align 8
   %319 = zext i32 %318 to i64
-  %320 = getelementptr inbounds ptr, ptr %317, i64 %319
-  %321 = getelementptr inbounds i8, ptr %320, i64 56
+  %320 = getelementptr inbounds nuw ptr, ptr %317, i64 %319
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 56
   store ptr %315, ptr %321, align 8
   %322 = getelementptr inbounds nuw i8, ptr %7, i64 544
   %323 = load ptr, ptr %322, align 8
   %324 = load ptr, ptr %65, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 16
   %326 = load i32, ptr %324, align 8
   %327 = zext i32 %326 to i64
-  %328 = getelementptr inbounds ptr, ptr %325, i64 %327
-  %329 = getelementptr inbounds i8, ptr %328, i64 160
+  %328 = getelementptr inbounds nuw ptr, ptr %325, i64 %327
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 160
   store ptr %323, ptr %329, align 8
   %330 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %331 = load ptr, ptr %330, align 8
   %332 = load ptr, ptr %65, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %334 = load i32, ptr %332, align 8
   %335 = zext i32 %334 to i64
-  %336 = getelementptr inbounds ptr, ptr %333, i64 %335
-  %337 = getelementptr inbounds i8, ptr %336, i64 168
+  %336 = getelementptr inbounds nuw ptr, ptr %333, i64 %335
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 168
   store ptr %331, ptr %337, align 8
   %338 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %339 = load ptr, ptr %338, align 8
   %340 = load ptr, ptr %65, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 16
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %342 = load i32, ptr %340, align 8
   %343 = zext i32 %342 to i64
-  %344 = getelementptr inbounds ptr, ptr %341, i64 %343
-  %345 = getelementptr inbounds i8, ptr %344, i64 176
+  %344 = getelementptr inbounds nuw ptr, ptr %341, i64 %343
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 176
   store ptr %339, ptr %345, align 8
   %346 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %347 = load ptr, ptr %346, align 8
   %348 = load ptr, ptr %65, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 16
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
   %350 = load i32, ptr %348, align 8
   %351 = zext i32 %350 to i64
-  %352 = getelementptr inbounds ptr, ptr %349, i64 %351
-  %353 = getelementptr inbounds i8, ptr %352, i64 184
+  %352 = getelementptr inbounds nuw ptr, ptr %349, i64 %351
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 184
   store ptr %347, ptr %353, align 8
   %354 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %355 = load ptr, ptr %354, align 8
   %356 = load ptr, ptr %65, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 16
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 16
   %358 = load i32, ptr %356, align 8
   %359 = zext i32 %358 to i64
-  %360 = getelementptr inbounds ptr, ptr %357, i64 %359
-  %361 = getelementptr inbounds i8, ptr %360, i64 192
+  %360 = getelementptr inbounds nuw ptr, ptr %357, i64 %359
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 192
   store ptr %355, ptr %361, align 8
   %362 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %363 = load ptr, ptr %362, align 8
   %364 = load ptr, ptr %65, align 8
-  %365 = getelementptr inbounds i8, ptr %364, i64 16
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 16
   %366 = load i32, ptr %364, align 8
   %367 = zext i32 %366 to i64
-  %368 = getelementptr inbounds ptr, ptr %365, i64 %367
-  %369 = getelementptr inbounds i8, ptr %368, i64 200
+  %368 = getelementptr inbounds nuw ptr, ptr %365, i64 %367
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 200
   store ptr %363, ptr %369, align 8
   %370 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %371 = load ptr, ptr %370, align 8
   %372 = load ptr, ptr %65, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 16
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 16
   %374 = load i32, ptr %372, align 8
   %375 = zext i32 %374 to i64
-  %376 = getelementptr inbounds ptr, ptr %373, i64 %375
-  %377 = getelementptr inbounds i8, ptr %376, i64 208
+  %376 = getelementptr inbounds nuw ptr, ptr %373, i64 %375
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 208
   store ptr %371, ptr %377, align 8
   %378 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %379 = load ptr, ptr %378, align 8
   %380 = load ptr, ptr %65, align 8
-  %381 = getelementptr inbounds i8, ptr %380, i64 16
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 16
   %382 = load i32, ptr %380, align 8
   %383 = zext i32 %382 to i64
-  %384 = getelementptr inbounds ptr, ptr %381, i64 %383
-  %385 = getelementptr inbounds i8, ptr %384, i64 216
+  %384 = getelementptr inbounds nuw ptr, ptr %381, i64 %383
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 216
   store ptr %379, ptr %385, align 8
   %386 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %387 = load ptr, ptr %386, align 8
   %388 = load ptr, ptr %65, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 16
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 16
   %390 = load i32, ptr %388, align 8
   %391 = zext i32 %390 to i64
-  %392 = getelementptr inbounds ptr, ptr %389, i64 %391
-  %393 = getelementptr inbounds i8, ptr %392, i64 224
+  %392 = getelementptr inbounds nuw ptr, ptr %389, i64 %391
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 224
   store ptr %387, ptr %393, align 8
   %394 = load ptr, ptr %65, align 8
   %395 = load i32, ptr %394, align 8
@@ -18100,13 +18100,13 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
 _ZN5clang33OMPDistributeParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %398, %400, %402, %404
   %.0.i.i.i110 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %402 ], [ 16, %400 ], [ 16, %398 ], [ %spec.select.i.i.i109, %404 ]
   %406 = zext i1 %9 to i8
-  %407 = getelementptr inbounds i8, ptr %394, i64 16
+  %407 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %408 = zext i32 %395 to i64
-  %409 = getelementptr inbounds ptr, ptr %407, i64 %408
+  %409 = getelementptr inbounds nuw ptr, ptr %407, i64 %408
   %410 = shl i32 %396, 3
   %411 = add i32 %.0.i.i.i110, %410
   %412 = zext i32 %411 to i64
-  %413 = getelementptr inbounds ptr, ptr %409, i64 %412
+  %413 = getelementptr inbounds nuw ptr, ptr %409, i64 %412
   store ptr %8, ptr %413, align 8
   store i8 %406, ptr %67, align 4
   ret ptr %.0.i.i.i.i
@@ -18175,11 +18175,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %33
   %.0.i.i.i.i = phi ptr [ %35, %33 ], [ %36, %.critedge.i.i.i.i ]
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %15, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %39, align 8
   %40 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %40)
@@ -18273,19 +18273,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -18293,10 +18293,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -18324,81 +18324,81 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPDistributeParallelFor
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %67, i64 128
+  %112 = getelementptr inbounds nuw i8, ptr %67, i64 128
   store ptr %111, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %67, i64 136
+  %115 = getelementptr inbounds nuw i8, ptr %67, i64 136
   store ptr %114, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %67, i64 144
+  %118 = getelementptr inbounds nuw i8, ptr %67, i64 144
   store ptr %117, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %67, i64 152
+  %121 = getelementptr inbounds nuw i8, ptr %67, i64 152
   store ptr %120, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %123 = load ptr, ptr %122, align 8
@@ -18433,10 +18433,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %135, %133, %131, %
 
 138:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %124, 3
-  %139 = getelementptr inbounds i8, ptr %125, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %140 = zext i32 %126 to i64
-  %141 = getelementptr inbounds ptr, ptr %139, i64 %140
-  %142 = getelementptr inbounds ptr, ptr %141, i64 %.0.i.i.i
+  %141 = getelementptr inbounds nuw ptr, ptr %139, i64 %140
+  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %142, ptr readonly align 8 %123, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -18474,13 +18474,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %156, %154, 
 
 158:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i81 = shl nsw i64 %145, 3
-  %159 = getelementptr inbounds i8, ptr %146, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %160 = zext i32 %147 to i64
-  %161 = getelementptr inbounds ptr, ptr %159, i64 %160
+  %161 = getelementptr inbounds nuw ptr, ptr %159, i64 %160
   %162 = load i32, ptr %63, align 8
   %163 = add i32 %162, %.0.i.i.i79
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds ptr, ptr %161, i64 %164
+  %165 = getelementptr inbounds nuw ptr, ptr %161, i64 %164
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %165, ptr readonly align 8 %144, i64 %.idx.i.i81, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -18518,14 +18518,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %179, %177, %175, %1
 
 181:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i85 = shl nsw i64 %168, 3
-  %182 = getelementptr inbounds i8, ptr %169, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %183 = zext i32 %170 to i64
-  %184 = getelementptr inbounds ptr, ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw ptr, ptr %182, i64 %183
   %185 = load i32, ptr %63, align 8
   %186 = shl i32 %185, 1
   %187 = add i32 %186, %.0.i.i.i83
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds ptr, ptr %184, i64 %188
+  %189 = getelementptr inbounds nuw ptr, ptr %184, i64 %188
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %189, ptr readonly align 8 %167, i64 %.idx.i.i85, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -18563,14 +18563,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %203, %201, %199, %1
 
 205:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i89 = shl nsw i64 %192, 3
-  %206 = getelementptr inbounds i8, ptr %193, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %207 = zext i32 %194 to i64
-  %208 = getelementptr inbounds ptr, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw ptr, ptr %206, i64 %207
   %209 = load i32, ptr %63, align 8
   %210 = mul i32 %209, 3
   %211 = add i32 %210, %.0.i.i.i87
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds ptr, ptr %208, i64 %212
+  %213 = getelementptr inbounds nuw ptr, ptr %208, i64 %212
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %213, ptr readonly align 8 %191, i64 %.idx.i.i89, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -18608,14 +18608,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %2
 
 229:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i93 = shl nsw i64 %216, 3
-  %230 = getelementptr inbounds i8, ptr %217, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %231 = zext i32 %218 to i64
-  %232 = getelementptr inbounds ptr, ptr %230, i64 %231
+  %232 = getelementptr inbounds nuw ptr, ptr %230, i64 %231
   %233 = load i32, ptr %63, align 8
   %234 = shl i32 %233, 2
   %235 = add i32 %234, %.0.i.i.i91
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds ptr, ptr %232, i64 %236
+  %237 = getelementptr inbounds nuw ptr, ptr %232, i64 %236
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %237, ptr readonly align 8 %215, i64 %.idx.i.i93, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -18653,14 +18653,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %251, %249
 
 253:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i97 = shl nsw i64 %240, 3
-  %254 = getelementptr inbounds i8, ptr %241, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %241, i64 16
   %255 = zext i32 %242 to i64
-  %256 = getelementptr inbounds ptr, ptr %254, i64 %255
+  %256 = getelementptr inbounds nuw ptr, ptr %254, i64 %255
   %257 = load i32, ptr %63, align 8
   %258 = mul i32 %257, 5
   %259 = add i32 %258, %.0.i.i.i95
   %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds ptr, ptr %256, i64 %260
+  %261 = getelementptr inbounds nuw ptr, ptr %256, i64 %260
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %261, ptr readonly align 8 %239, i64 %.idx.i.i97, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -18698,14 +18698,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %275, %273, %
 
 277:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i101 = shl nsw i64 %264, 3
-  %278 = getelementptr inbounds i8, ptr %265, i64 16
+  %278 = getelementptr inbounds nuw i8, ptr %265, i64 16
   %279 = zext i32 %266 to i64
-  %280 = getelementptr inbounds ptr, ptr %278, i64 %279
+  %280 = getelementptr inbounds nuw ptr, ptr %278, i64 %279
   %281 = load i32, ptr %63, align 8
   %282 = mul i32 %281, 6
   %283 = add i32 %282, %.0.i.i.i99
   %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds ptr, ptr %280, i64 %284
+  %285 = getelementptr inbounds nuw ptr, ptr %280, i64 %284
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %285, ptr readonly align 8 %263, i64 %.idx.i.i101, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -18743,14 +18743,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %299, %297,
 
 301:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i105 = shl nsw i64 %288, 3
-  %302 = getelementptr inbounds i8, ptr %289, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %289, i64 16
   %303 = zext i32 %290 to i64
-  %304 = getelementptr inbounds ptr, ptr %302, i64 %303
+  %304 = getelementptr inbounds nuw ptr, ptr %302, i64 %303
   %305 = load i32, ptr %63, align 8
   %306 = mul i32 %305, 7
   %307 = add i32 %306, %.0.i.i.i103
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds ptr, ptr %304, i64 %308
+  %309 = getelementptr inbounds nuw ptr, ptr %304, i64 %308
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %309, ptr readonly align 8 %287, i64 %.idx.i.i105, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -18758,92 +18758,92 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %310 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %311 = load ptr, ptr %310, align 8
   %312 = load ptr, ptr %62, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 16
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
   %314 = load i32, ptr %312, align 8
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds ptr, ptr %313, i64 %315
-  %317 = getelementptr inbounds i8, ptr %316, i64 56
+  %316 = getelementptr inbounds nuw ptr, ptr %313, i64 %315
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 56
   store ptr %311, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %7, i64 544
   %319 = load ptr, ptr %318, align 8
   %320 = load ptr, ptr %62, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %322 = load i32, ptr %320, align 8
   %323 = zext i32 %322 to i64
-  %324 = getelementptr inbounds ptr, ptr %321, i64 %323
-  %325 = getelementptr inbounds i8, ptr %324, i64 160
+  %324 = getelementptr inbounds nuw ptr, ptr %321, i64 %323
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 160
   store ptr %319, ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %327 = load ptr, ptr %326, align 8
   %328 = load ptr, ptr %62, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 16
   %330 = load i32, ptr %328, align 8
   %331 = zext i32 %330 to i64
-  %332 = getelementptr inbounds ptr, ptr %329, i64 %331
-  %333 = getelementptr inbounds i8, ptr %332, i64 168
+  %332 = getelementptr inbounds nuw ptr, ptr %329, i64 %331
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 168
   store ptr %327, ptr %333, align 8
   %334 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %335 = load ptr, ptr %334, align 8
   %336 = load ptr, ptr %62, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %338 = load i32, ptr %336, align 8
   %339 = zext i32 %338 to i64
-  %340 = getelementptr inbounds ptr, ptr %337, i64 %339
-  %341 = getelementptr inbounds i8, ptr %340, i64 176
+  %340 = getelementptr inbounds nuw ptr, ptr %337, i64 %339
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 176
   store ptr %335, ptr %341, align 8
   %342 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %343 = load ptr, ptr %342, align 8
   %344 = load ptr, ptr %62, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %346 = load i32, ptr %344, align 8
   %347 = zext i32 %346 to i64
-  %348 = getelementptr inbounds ptr, ptr %345, i64 %347
-  %349 = getelementptr inbounds i8, ptr %348, i64 184
+  %348 = getelementptr inbounds nuw ptr, ptr %345, i64 %347
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 184
   store ptr %343, ptr %349, align 8
   %350 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %351 = load ptr, ptr %350, align 8
   %352 = load ptr, ptr %62, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
   %354 = load i32, ptr %352, align 8
   %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds ptr, ptr %353, i64 %355
-  %357 = getelementptr inbounds i8, ptr %356, i64 192
+  %356 = getelementptr inbounds nuw ptr, ptr %353, i64 %355
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 192
   store ptr %351, ptr %357, align 8
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %359 = load ptr, ptr %358, align 8
   %360 = load ptr, ptr %62, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
   %362 = load i32, ptr %360, align 8
   %363 = zext i32 %362 to i64
-  %364 = getelementptr inbounds ptr, ptr %361, i64 %363
-  %365 = getelementptr inbounds i8, ptr %364, i64 200
+  %364 = getelementptr inbounds nuw ptr, ptr %361, i64 %363
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 200
   store ptr %359, ptr %365, align 8
   %366 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %367 = load ptr, ptr %366, align 8
   %368 = load ptr, ptr %62, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
   %370 = load i32, ptr %368, align 8
   %371 = zext i32 %370 to i64
-  %372 = getelementptr inbounds ptr, ptr %369, i64 %371
-  %373 = getelementptr inbounds i8, ptr %372, i64 208
+  %372 = getelementptr inbounds nuw ptr, ptr %369, i64 %371
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 208
   store ptr %367, ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %375 = load ptr, ptr %374, align 8
   %376 = load ptr, ptr %62, align 8
-  %377 = getelementptr inbounds i8, ptr %376, i64 16
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
   %378 = load i32, ptr %376, align 8
   %379 = zext i32 %378 to i64
-  %380 = getelementptr inbounds ptr, ptr %377, i64 %379
-  %381 = getelementptr inbounds i8, ptr %380, i64 216
+  %380 = getelementptr inbounds nuw ptr, ptr %377, i64 %379
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 216
   store ptr %375, ptr %381, align 8
   %382 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %383 = load ptr, ptr %382, align 8
   %384 = load ptr, ptr %62, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %386 = load i32, ptr %384, align 8
   %387 = zext i32 %386 to i64
-  %388 = getelementptr inbounds ptr, ptr %385, i64 %387
-  %389 = getelementptr inbounds i8, ptr %388, i64 224
+  %388 = getelementptr inbounds nuw ptr, ptr %385, i64 %387
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 224
   store ptr %383, ptr %389, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -18910,11 +18910,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -19006,19 +19006,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -19026,10 +19026,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -19057,65 +19057,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_26OMPDistributeSimdDirecti
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -19150,10 +19150,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19191,13 +19191,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19235,14 +19235,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19280,14 +19280,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19325,14 +19325,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19370,14 +19370,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19415,14 +19415,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19460,14 +19460,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19475,11 +19475,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -19546,11 +19546,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -19642,19 +19642,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -19662,10 +19662,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -19693,65 +19693,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPTargetParallelForSimd
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -19786,10 +19786,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19827,13 +19827,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19871,14 +19871,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19916,14 +19916,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -19961,14 +19961,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20006,14 +20006,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20051,14 +20051,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20096,14 +20096,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20111,11 +20111,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -20182,11 +20182,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -20278,19 +20278,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -20298,10 +20298,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -20329,33 +20329,33 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_22OMPTargetSimdDirectiveEJ
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %87 = load ptr, ptr %86, align 8
@@ -20390,10 +20390,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %99, %97, %95, %93,
 
 102:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %88, 3
-  %103 = getelementptr inbounds i8, ptr %89, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %104 = zext i32 %90 to i64
-  %105 = getelementptr inbounds ptr, ptr %103, i64 %104
-  %106 = getelementptr inbounds ptr, ptr %105, i64 %.0.i.i.i
+  %105 = getelementptr inbounds nuw ptr, ptr %103, i64 %104
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %106, ptr readonly align 8 %87, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20431,13 +20431,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %120, %118, 
 
 122:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i39 = shl nsw i64 %109, 3
-  %123 = getelementptr inbounds i8, ptr %110, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %124 = zext i32 %111 to i64
-  %125 = getelementptr inbounds ptr, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %124
   %126 = load i32, ptr %63, align 8
   %127 = add i32 %126, %.0.i.i.i37
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds ptr, ptr %125, i64 %128
+  %129 = getelementptr inbounds nuw ptr, ptr %125, i64 %128
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %129, ptr readonly align 8 %108, i64 %.idx.i.i39, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20475,14 +20475,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %143, %141, %139, %1
 
 145:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i43 = shl nsw i64 %132, 3
-  %146 = getelementptr inbounds i8, ptr %133, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %147 = zext i32 %134 to i64
-  %148 = getelementptr inbounds ptr, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw ptr, ptr %146, i64 %147
   %149 = load i32, ptr %63, align 8
   %150 = shl i32 %149, 1
   %151 = add i32 %150, %.0.i.i.i41
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %148, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %148, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %131, i64 %.idx.i.i43, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20520,14 +20520,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i47 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = mul i32 %173, 3
   %175 = add i32 %174, %.0.i.i.i45
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i47, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20565,14 +20565,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i51 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = shl i32 %197, 2
   %199 = add i32 %198, %.0.i.i.i49
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i51, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20610,14 +20610,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %215, %213
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = mul i32 %221, 5
   %223 = add i32 %222, %.0.i.i.i53
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20655,14 +20655,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %239, %237, %
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 6
   %247 = add i32 %246, %.0.i.i.i57
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20700,14 +20700,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %263, %261,
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i63 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 7
   %271 = add i32 %270, %.0.i.i.i61
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -20715,11 +20715,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %274 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %275 = load ptr, ptr %274, align 8
   %276 = load ptr, ptr %62, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 16
   %278 = load i32, ptr %276, align 8
   %279 = zext i32 %278 to i64
-  %280 = getelementptr inbounds ptr, ptr %277, i64 %279
-  %281 = getelementptr inbounds i8, ptr %280, i64 56
+  %280 = getelementptr inbounds nuw ptr, ptr %277, i64 %279
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 56
   store ptr %275, ptr %281, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -20786,11 +20786,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -20882,19 +20882,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -20902,10 +20902,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -20933,65 +20933,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_27OMPTeamsDistributeDirect
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -21026,10 +21026,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21067,13 +21067,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21111,14 +21111,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21156,14 +21156,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21201,14 +21201,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21246,14 +21246,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21291,14 +21291,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21336,14 +21336,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21351,11 +21351,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -21422,11 +21422,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -21518,19 +21518,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -21538,10 +21538,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -21569,65 +21569,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_31OMPTeamsDistributeSimdDi
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -21662,10 +21662,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21703,13 +21703,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21747,14 +21747,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21792,14 +21792,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21837,14 +21837,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21882,14 +21882,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21927,14 +21927,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21972,14 +21972,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -21987,11 +21987,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -22058,11 +22058,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -22154,19 +22154,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -22174,10 +22174,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -22205,81 +22205,81 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_42OMPTeamsDistributeParall
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %67, i64 128
+  %112 = getelementptr inbounds nuw i8, ptr %67, i64 128
   store ptr %111, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %67, i64 136
+  %115 = getelementptr inbounds nuw i8, ptr %67, i64 136
   store ptr %114, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %67, i64 144
+  %118 = getelementptr inbounds nuw i8, ptr %67, i64 144
   store ptr %117, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %67, i64 152
+  %121 = getelementptr inbounds nuw i8, ptr %67, i64 152
   store ptr %120, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %123 = load ptr, ptr %122, align 8
@@ -22314,10 +22314,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %135, %133, %131, %
 
 138:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %124, 3
-  %139 = getelementptr inbounds i8, ptr %125, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %140 = zext i32 %126 to i64
-  %141 = getelementptr inbounds ptr, ptr %139, i64 %140
-  %142 = getelementptr inbounds ptr, ptr %141, i64 %.0.i.i.i
+  %141 = getelementptr inbounds nuw ptr, ptr %139, i64 %140
+  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %142, ptr readonly align 8 %123, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -22355,13 +22355,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %156, %154, 
 
 158:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i81 = shl nsw i64 %145, 3
-  %159 = getelementptr inbounds i8, ptr %146, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %160 = zext i32 %147 to i64
-  %161 = getelementptr inbounds ptr, ptr %159, i64 %160
+  %161 = getelementptr inbounds nuw ptr, ptr %159, i64 %160
   %162 = load i32, ptr %63, align 8
   %163 = add i32 %162, %.0.i.i.i79
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds ptr, ptr %161, i64 %164
+  %165 = getelementptr inbounds nuw ptr, ptr %161, i64 %164
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %165, ptr readonly align 8 %144, i64 %.idx.i.i81, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -22399,14 +22399,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %179, %177, %175, %1
 
 181:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i85 = shl nsw i64 %168, 3
-  %182 = getelementptr inbounds i8, ptr %169, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %183 = zext i32 %170 to i64
-  %184 = getelementptr inbounds ptr, ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw ptr, ptr %182, i64 %183
   %185 = load i32, ptr %63, align 8
   %186 = shl i32 %185, 1
   %187 = add i32 %186, %.0.i.i.i83
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds ptr, ptr %184, i64 %188
+  %189 = getelementptr inbounds nuw ptr, ptr %184, i64 %188
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %189, ptr readonly align 8 %167, i64 %.idx.i.i85, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -22444,14 +22444,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %203, %201, %199, %1
 
 205:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i89 = shl nsw i64 %192, 3
-  %206 = getelementptr inbounds i8, ptr %193, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %207 = zext i32 %194 to i64
-  %208 = getelementptr inbounds ptr, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw ptr, ptr %206, i64 %207
   %209 = load i32, ptr %63, align 8
   %210 = mul i32 %209, 3
   %211 = add i32 %210, %.0.i.i.i87
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds ptr, ptr %208, i64 %212
+  %213 = getelementptr inbounds nuw ptr, ptr %208, i64 %212
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %213, ptr readonly align 8 %191, i64 %.idx.i.i89, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -22489,14 +22489,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %2
 
 229:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i93 = shl nsw i64 %216, 3
-  %230 = getelementptr inbounds i8, ptr %217, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %231 = zext i32 %218 to i64
-  %232 = getelementptr inbounds ptr, ptr %230, i64 %231
+  %232 = getelementptr inbounds nuw ptr, ptr %230, i64 %231
   %233 = load i32, ptr %63, align 8
   %234 = shl i32 %233, 2
   %235 = add i32 %234, %.0.i.i.i91
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds ptr, ptr %232, i64 %236
+  %237 = getelementptr inbounds nuw ptr, ptr %232, i64 %236
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %237, ptr readonly align 8 %215, i64 %.idx.i.i93, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -22534,14 +22534,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %251, %249
 
 253:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i97 = shl nsw i64 %240, 3
-  %254 = getelementptr inbounds i8, ptr %241, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %241, i64 16
   %255 = zext i32 %242 to i64
-  %256 = getelementptr inbounds ptr, ptr %254, i64 %255
+  %256 = getelementptr inbounds nuw ptr, ptr %254, i64 %255
   %257 = load i32, ptr %63, align 8
   %258 = mul i32 %257, 5
   %259 = add i32 %258, %.0.i.i.i95
   %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds ptr, ptr %256, i64 %260
+  %261 = getelementptr inbounds nuw ptr, ptr %256, i64 %260
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %261, ptr readonly align 8 %239, i64 %.idx.i.i97, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -22579,14 +22579,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %275, %273, %
 
 277:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i101 = shl nsw i64 %264, 3
-  %278 = getelementptr inbounds i8, ptr %265, i64 16
+  %278 = getelementptr inbounds nuw i8, ptr %265, i64 16
   %279 = zext i32 %266 to i64
-  %280 = getelementptr inbounds ptr, ptr %278, i64 %279
+  %280 = getelementptr inbounds nuw ptr, ptr %278, i64 %279
   %281 = load i32, ptr %63, align 8
   %282 = mul i32 %281, 6
   %283 = add i32 %282, %.0.i.i.i99
   %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds ptr, ptr %280, i64 %284
+  %285 = getelementptr inbounds nuw ptr, ptr %280, i64 %284
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %285, ptr readonly align 8 %263, i64 %.idx.i.i101, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -22624,14 +22624,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %299, %297,
 
 301:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i105 = shl nsw i64 %288, 3
-  %302 = getelementptr inbounds i8, ptr %289, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %289, i64 16
   %303 = zext i32 %290 to i64
-  %304 = getelementptr inbounds ptr, ptr %302, i64 %303
+  %304 = getelementptr inbounds nuw ptr, ptr %302, i64 %303
   %305 = load i32, ptr %63, align 8
   %306 = mul i32 %305, 7
   %307 = add i32 %306, %.0.i.i.i103
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds ptr, ptr %304, i64 %308
+  %309 = getelementptr inbounds nuw ptr, ptr %304, i64 %308
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %309, ptr readonly align 8 %287, i64 %.idx.i.i105, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -22639,92 +22639,92 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %310 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %311 = load ptr, ptr %310, align 8
   %312 = load ptr, ptr %62, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 16
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
   %314 = load i32, ptr %312, align 8
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds ptr, ptr %313, i64 %315
-  %317 = getelementptr inbounds i8, ptr %316, i64 56
+  %316 = getelementptr inbounds nuw ptr, ptr %313, i64 %315
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 56
   store ptr %311, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %7, i64 544
   %319 = load ptr, ptr %318, align 8
   %320 = load ptr, ptr %62, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %322 = load i32, ptr %320, align 8
   %323 = zext i32 %322 to i64
-  %324 = getelementptr inbounds ptr, ptr %321, i64 %323
-  %325 = getelementptr inbounds i8, ptr %324, i64 160
+  %324 = getelementptr inbounds nuw ptr, ptr %321, i64 %323
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 160
   store ptr %319, ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %327 = load ptr, ptr %326, align 8
   %328 = load ptr, ptr %62, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 16
   %330 = load i32, ptr %328, align 8
   %331 = zext i32 %330 to i64
-  %332 = getelementptr inbounds ptr, ptr %329, i64 %331
-  %333 = getelementptr inbounds i8, ptr %332, i64 168
+  %332 = getelementptr inbounds nuw ptr, ptr %329, i64 %331
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 168
   store ptr %327, ptr %333, align 8
   %334 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %335 = load ptr, ptr %334, align 8
   %336 = load ptr, ptr %62, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %338 = load i32, ptr %336, align 8
   %339 = zext i32 %338 to i64
-  %340 = getelementptr inbounds ptr, ptr %337, i64 %339
-  %341 = getelementptr inbounds i8, ptr %340, i64 176
+  %340 = getelementptr inbounds nuw ptr, ptr %337, i64 %339
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 176
   store ptr %335, ptr %341, align 8
   %342 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %343 = load ptr, ptr %342, align 8
   %344 = load ptr, ptr %62, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %346 = load i32, ptr %344, align 8
   %347 = zext i32 %346 to i64
-  %348 = getelementptr inbounds ptr, ptr %345, i64 %347
-  %349 = getelementptr inbounds i8, ptr %348, i64 184
+  %348 = getelementptr inbounds nuw ptr, ptr %345, i64 %347
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 184
   store ptr %343, ptr %349, align 8
   %350 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %351 = load ptr, ptr %350, align 8
   %352 = load ptr, ptr %62, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
   %354 = load i32, ptr %352, align 8
   %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds ptr, ptr %353, i64 %355
-  %357 = getelementptr inbounds i8, ptr %356, i64 192
+  %356 = getelementptr inbounds nuw ptr, ptr %353, i64 %355
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 192
   store ptr %351, ptr %357, align 8
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %359 = load ptr, ptr %358, align 8
   %360 = load ptr, ptr %62, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
   %362 = load i32, ptr %360, align 8
   %363 = zext i32 %362 to i64
-  %364 = getelementptr inbounds ptr, ptr %361, i64 %363
-  %365 = getelementptr inbounds i8, ptr %364, i64 200
+  %364 = getelementptr inbounds nuw ptr, ptr %361, i64 %363
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 200
   store ptr %359, ptr %365, align 8
   %366 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %367 = load ptr, ptr %366, align 8
   %368 = load ptr, ptr %62, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
   %370 = load i32, ptr %368, align 8
   %371 = zext i32 %370 to i64
-  %372 = getelementptr inbounds ptr, ptr %369, i64 %371
-  %373 = getelementptr inbounds i8, ptr %372, i64 208
+  %372 = getelementptr inbounds nuw ptr, ptr %369, i64 %371
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 208
   store ptr %367, ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %375 = load ptr, ptr %374, align 8
   %376 = load ptr, ptr %62, align 8
-  %377 = getelementptr inbounds i8, ptr %376, i64 16
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
   %378 = load i32, ptr %376, align 8
   %379 = zext i32 %378 to i64
-  %380 = getelementptr inbounds ptr, ptr %377, i64 %379
-  %381 = getelementptr inbounds i8, ptr %380, i64 216
+  %380 = getelementptr inbounds nuw ptr, ptr %377, i64 %379
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 216
   store ptr %375, ptr %381, align 8
   %382 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %383 = load ptr, ptr %382, align 8
   %384 = load ptr, ptr %62, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %386 = load i32, ptr %384, align 8
   %387 = zext i32 %386 to i64
-  %388 = getelementptr inbounds ptr, ptr %385, i64 %387
-  %389 = getelementptr inbounds i8, ptr %388, i64 224
+  %388 = getelementptr inbounds nuw ptr, ptr %385, i64 %387
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 224
   store ptr %383, ptr %389, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -22791,11 +22791,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -22888,19 +22888,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %43
   %.0.i.i.i.i = phi ptr [ %45, %43 ], [ %46, %.critedge.i.i.i.i ]
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %48 = zext i1 %24 to i8
   store i32 %23, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %22, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %48, ptr %50, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %51
 
 51:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -22908,10 +22908,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %24, label %53, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 53:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %25
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %25
   %56 = zext i32 %22 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
   store ptr %6, ptr %57, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -22941,81 +22941,81 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_38OMPTeamsDistributeParall
   store i8 0, ptr %67, align 4
   store ptr %47, ptr %65, align 8
   %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %70 = zext i32 %61 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
   store ptr %68, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %73, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %71, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %71, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %71, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store ptr %85, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %71, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store ptr %88, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %71, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %71, i64 64
   store ptr %91, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %71, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %71, i64 72
   store ptr %94, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %71, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %71, i64 80
   store ptr %97, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %71, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %71, i64 88
   store ptr %100, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %71, i64 96
+  %104 = getelementptr inbounds nuw i8, ptr %71, i64 96
   store ptr %103, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %71, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %71, i64 104
   store ptr %106, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %71, i64 112
+  %110 = getelementptr inbounds nuw i8, ptr %71, i64 112
   store ptr %109, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %71, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %71, i64 120
   store ptr %112, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %71, i64 128
+  %116 = getelementptr inbounds nuw i8, ptr %71, i64 128
   store ptr %115, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %71, i64 136
+  %119 = getelementptr inbounds nuw i8, ptr %71, i64 136
   store ptr %118, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %71, i64 144
+  %122 = getelementptr inbounds nuw i8, ptr %71, i64 144
   store ptr %121, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %71, i64 152
+  %125 = getelementptr inbounds nuw i8, ptr %71, i64 152
   store ptr %124, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %127 = load ptr, ptr %126, align 8
@@ -23050,10 +23050,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %139, %137, %135, %
 
 142:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %128, 3
-  %143 = getelementptr inbounds i8, ptr %129, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %144 = zext i32 %130 to i64
-  %145 = getelementptr inbounds ptr, ptr %143, i64 %144
-  %146 = getelementptr inbounds ptr, ptr %145, i64 %.0.i.i.i
+  %145 = getelementptr inbounds nuw ptr, ptr %143, i64 %144
+  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %146, ptr readonly align 8 %127, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -23091,13 +23091,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %160, %158, 
 
 162:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i84 = shl nsw i64 %149, 3
-  %163 = getelementptr inbounds i8, ptr %150, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %164 = zext i32 %151 to i64
-  %165 = getelementptr inbounds ptr, ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw ptr, ptr %163, i64 %164
   %166 = load i32, ptr %66, align 8
   %167 = add i32 %166, %.0.i.i.i82
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds ptr, ptr %165, i64 %168
+  %169 = getelementptr inbounds nuw ptr, ptr %165, i64 %168
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %169, ptr readonly align 8 %148, i64 %.idx.i.i84, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -23135,14 +23135,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %183, %181, %179, %1
 
 185:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i88 = shl nsw i64 %172, 3
-  %186 = getelementptr inbounds i8, ptr %173, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %187 = zext i32 %174 to i64
-  %188 = getelementptr inbounds ptr, ptr %186, i64 %187
+  %188 = getelementptr inbounds nuw ptr, ptr %186, i64 %187
   %189 = load i32, ptr %66, align 8
   %190 = shl i32 %189, 1
   %191 = add i32 %190, %.0.i.i.i86
   %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds ptr, ptr %188, i64 %192
+  %193 = getelementptr inbounds nuw ptr, ptr %188, i64 %192
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %193, ptr readonly align 8 %171, i64 %.idx.i.i88, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -23180,14 +23180,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %207, %205, %203, %2
 
 209:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i92 = shl nsw i64 %196, 3
-  %210 = getelementptr inbounds i8, ptr %197, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %211 = zext i32 %198 to i64
-  %212 = getelementptr inbounds ptr, ptr %210, i64 %211
+  %212 = getelementptr inbounds nuw ptr, ptr %210, i64 %211
   %213 = load i32, ptr %66, align 8
   %214 = mul i32 %213, 3
   %215 = add i32 %214, %.0.i.i.i90
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds ptr, ptr %212, i64 %216
+  %217 = getelementptr inbounds nuw ptr, ptr %212, i64 %216
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %217, ptr readonly align 8 %195, i64 %.idx.i.i92, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -23225,14 +23225,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %231, %229, %227, %2
 
 233:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i96 = shl nsw i64 %220, 3
-  %234 = getelementptr inbounds i8, ptr %221, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %235 = zext i32 %222 to i64
-  %236 = getelementptr inbounds ptr, ptr %234, i64 %235
+  %236 = getelementptr inbounds nuw ptr, ptr %234, i64 %235
   %237 = load i32, ptr %66, align 8
   %238 = shl i32 %237, 2
   %239 = add i32 %238, %.0.i.i.i94
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds ptr, ptr %236, i64 %240
+  %241 = getelementptr inbounds nuw ptr, ptr %236, i64 %240
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %241, ptr readonly align 8 %219, i64 %.idx.i.i96, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -23270,14 +23270,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %255, %253
 
 257:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i100 = shl nsw i64 %244, 3
-  %258 = getelementptr inbounds i8, ptr %245, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %259 = zext i32 %246 to i64
-  %260 = getelementptr inbounds ptr, ptr %258, i64 %259
+  %260 = getelementptr inbounds nuw ptr, ptr %258, i64 %259
   %261 = load i32, ptr %66, align 8
   %262 = mul i32 %261, 5
   %263 = add i32 %262, %.0.i.i.i98
   %264 = zext i32 %263 to i64
-  %265 = getelementptr inbounds ptr, ptr %260, i64 %264
+  %265 = getelementptr inbounds nuw ptr, ptr %260, i64 %264
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %265, ptr readonly align 8 %243, i64 %.idx.i.i100, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -23315,14 +23315,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %
 
 281:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i104 = shl nsw i64 %268, 3
-  %282 = getelementptr inbounds i8, ptr %269, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %269, i64 16
   %283 = zext i32 %270 to i64
-  %284 = getelementptr inbounds ptr, ptr %282, i64 %283
+  %284 = getelementptr inbounds nuw ptr, ptr %282, i64 %283
   %285 = load i32, ptr %66, align 8
   %286 = mul i32 %285, 6
   %287 = add i32 %286, %.0.i.i.i102
   %288 = zext i32 %287 to i64
-  %289 = getelementptr inbounds ptr, ptr %284, i64 %288
+  %289 = getelementptr inbounds nuw ptr, ptr %284, i64 %288
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %289, ptr readonly align 8 %267, i64 %.idx.i.i104, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -23360,14 +23360,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %303, %301,
 
 305:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i108 = shl nsw i64 %292, 3
-  %306 = getelementptr inbounds i8, ptr %293, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %307 = zext i32 %294 to i64
-  %308 = getelementptr inbounds ptr, ptr %306, i64 %307
+  %308 = getelementptr inbounds nuw ptr, ptr %306, i64 %307
   %309 = load i32, ptr %66, align 8
   %310 = mul i32 %309, 7
   %311 = add i32 %310, %.0.i.i.i106
   %312 = zext i32 %311 to i64
-  %313 = getelementptr inbounds ptr, ptr %308, i64 %312
+  %313 = getelementptr inbounds nuw ptr, ptr %308, i64 %312
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %313, ptr readonly align 8 %291, i64 %.idx.i.i108, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -23375,92 +23375,92 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %314 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %315 = load ptr, ptr %314, align 8
   %316 = load ptr, ptr %65, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 16
   %318 = load i32, ptr %316, align 8
   %319 = zext i32 %318 to i64
-  %320 = getelementptr inbounds ptr, ptr %317, i64 %319
-  %321 = getelementptr inbounds i8, ptr %320, i64 56
+  %320 = getelementptr inbounds nuw ptr, ptr %317, i64 %319
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 56
   store ptr %315, ptr %321, align 8
   %322 = getelementptr inbounds nuw i8, ptr %7, i64 544
   %323 = load ptr, ptr %322, align 8
   %324 = load ptr, ptr %65, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 16
   %326 = load i32, ptr %324, align 8
   %327 = zext i32 %326 to i64
-  %328 = getelementptr inbounds ptr, ptr %325, i64 %327
-  %329 = getelementptr inbounds i8, ptr %328, i64 160
+  %328 = getelementptr inbounds nuw ptr, ptr %325, i64 %327
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 160
   store ptr %323, ptr %329, align 8
   %330 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %331 = load ptr, ptr %330, align 8
   %332 = load ptr, ptr %65, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %334 = load i32, ptr %332, align 8
   %335 = zext i32 %334 to i64
-  %336 = getelementptr inbounds ptr, ptr %333, i64 %335
-  %337 = getelementptr inbounds i8, ptr %336, i64 168
+  %336 = getelementptr inbounds nuw ptr, ptr %333, i64 %335
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 168
   store ptr %331, ptr %337, align 8
   %338 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %339 = load ptr, ptr %338, align 8
   %340 = load ptr, ptr %65, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 16
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %342 = load i32, ptr %340, align 8
   %343 = zext i32 %342 to i64
-  %344 = getelementptr inbounds ptr, ptr %341, i64 %343
-  %345 = getelementptr inbounds i8, ptr %344, i64 176
+  %344 = getelementptr inbounds nuw ptr, ptr %341, i64 %343
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 176
   store ptr %339, ptr %345, align 8
   %346 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %347 = load ptr, ptr %346, align 8
   %348 = load ptr, ptr %65, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 16
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
   %350 = load i32, ptr %348, align 8
   %351 = zext i32 %350 to i64
-  %352 = getelementptr inbounds ptr, ptr %349, i64 %351
-  %353 = getelementptr inbounds i8, ptr %352, i64 184
+  %352 = getelementptr inbounds nuw ptr, ptr %349, i64 %351
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 184
   store ptr %347, ptr %353, align 8
   %354 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %355 = load ptr, ptr %354, align 8
   %356 = load ptr, ptr %65, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 16
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 16
   %358 = load i32, ptr %356, align 8
   %359 = zext i32 %358 to i64
-  %360 = getelementptr inbounds ptr, ptr %357, i64 %359
-  %361 = getelementptr inbounds i8, ptr %360, i64 192
+  %360 = getelementptr inbounds nuw ptr, ptr %357, i64 %359
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 192
   store ptr %355, ptr %361, align 8
   %362 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %363 = load ptr, ptr %362, align 8
   %364 = load ptr, ptr %65, align 8
-  %365 = getelementptr inbounds i8, ptr %364, i64 16
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 16
   %366 = load i32, ptr %364, align 8
   %367 = zext i32 %366 to i64
-  %368 = getelementptr inbounds ptr, ptr %365, i64 %367
-  %369 = getelementptr inbounds i8, ptr %368, i64 200
+  %368 = getelementptr inbounds nuw ptr, ptr %365, i64 %367
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 200
   store ptr %363, ptr %369, align 8
   %370 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %371 = load ptr, ptr %370, align 8
   %372 = load ptr, ptr %65, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 16
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 16
   %374 = load i32, ptr %372, align 8
   %375 = zext i32 %374 to i64
-  %376 = getelementptr inbounds ptr, ptr %373, i64 %375
-  %377 = getelementptr inbounds i8, ptr %376, i64 208
+  %376 = getelementptr inbounds nuw ptr, ptr %373, i64 %375
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 208
   store ptr %371, ptr %377, align 8
   %378 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %379 = load ptr, ptr %378, align 8
   %380 = load ptr, ptr %65, align 8
-  %381 = getelementptr inbounds i8, ptr %380, i64 16
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 16
   %382 = load i32, ptr %380, align 8
   %383 = zext i32 %382 to i64
-  %384 = getelementptr inbounds ptr, ptr %381, i64 %383
-  %385 = getelementptr inbounds i8, ptr %384, i64 216
+  %384 = getelementptr inbounds nuw ptr, ptr %381, i64 %383
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 216
   store ptr %379, ptr %385, align 8
   %386 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %387 = load ptr, ptr %386, align 8
   %388 = load ptr, ptr %65, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 16
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 16
   %390 = load i32, ptr %388, align 8
   %391 = zext i32 %390 to i64
-  %392 = getelementptr inbounds ptr, ptr %389, i64 %391
-  %393 = getelementptr inbounds i8, ptr %392, i64 224
+  %392 = getelementptr inbounds nuw ptr, ptr %389, i64 %391
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 224
   store ptr %387, ptr %393, align 8
   %394 = load ptr, ptr %65, align 8
   %395 = load i32, ptr %394, align 8
@@ -23488,13 +23488,13 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
 _ZN5clang38OMPTeamsDistributeParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %398, %400, %402, %404
   %.0.i.i.i110 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %402 ], [ 16, %400 ], [ 16, %398 ], [ %spec.select.i.i.i109, %404 ]
   %406 = zext i1 %9 to i8
-  %407 = getelementptr inbounds i8, ptr %394, i64 16
+  %407 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %408 = zext i32 %395 to i64
-  %409 = getelementptr inbounds ptr, ptr %407, i64 %408
+  %409 = getelementptr inbounds nuw ptr, ptr %407, i64 %408
   %410 = shl i32 %396, 3
   %411 = add i32 %.0.i.i.i110, %410
   %412 = zext i32 %411 to i64
-  %413 = getelementptr inbounds ptr, ptr %409, i64 %412
+  %413 = getelementptr inbounds nuw ptr, ptr %409, i64 %412
   store ptr %8, ptr %413, align 8
   store i8 %406, ptr %67, align 4
   ret ptr %.0.i.i.i.i
@@ -23563,11 +23563,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %33
   %.0.i.i.i.i = phi ptr [ %35, %33 ], [ %36, %.critedge.i.i.i.i ]
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %15, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %39, align 8
   %40 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %40)
@@ -23635,19 +23635,19 @@ define dso_local noundef ptr @_ZN5clang23OMPTargetTeamsDirective6CreateERKNS_10A
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -23655,8 +23655,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -23717,11 +23717,11 @@ define dso_local noundef ptr @_ZN5clang23OMPTargetTeamsDirective11CreateEmptyERK
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -23811,19 +23811,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -23831,10 +23831,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -23862,65 +23862,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_33OMPTargetTeamsDistribute
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -23955,10 +23955,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -23996,13 +23996,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24040,14 +24040,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24085,14 +24085,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24130,14 +24130,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24175,14 +24175,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24220,14 +24220,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24265,14 +24265,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24280,11 +24280,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -24351,11 +24351,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -24448,19 +24448,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %43
   %.0.i.i.i.i = phi ptr [ %45, %43 ], [ %46, %.critedge.i.i.i.i ]
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %48 = zext i1 %24 to i8
   store i32 %23, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %22, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %48, ptr %50, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %51
 
 51:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -24468,10 +24468,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %24, label %53, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 53:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %25
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %25
   %56 = zext i32 %22 to i64
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
   store ptr %6, ptr %57, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -24501,81 +24501,81 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_44OMPTargetTeamsDistribute
   store i8 0, ptr %67, align 4
   store ptr %47, ptr %65, align 8
   %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %70 = zext i32 %61 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %70
   store ptr %68, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %73, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %71, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %76, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %71, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %71, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 32
   store ptr %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %71, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store ptr %85, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %71, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %71, i64 48
   store ptr %88, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %71, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %71, i64 64
   store ptr %91, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %71, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %71, i64 72
   store ptr %94, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %71, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %71, i64 80
   store ptr %97, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %71, i64 88
+  %101 = getelementptr inbounds nuw i8, ptr %71, i64 88
   store ptr %100, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %71, i64 96
+  %104 = getelementptr inbounds nuw i8, ptr %71, i64 96
   store ptr %103, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %71, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %71, i64 104
   store ptr %106, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %71, i64 112
+  %110 = getelementptr inbounds nuw i8, ptr %71, i64 112
   store ptr %109, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %71, i64 120
+  %113 = getelementptr inbounds nuw i8, ptr %71, i64 120
   store ptr %112, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %71, i64 128
+  %116 = getelementptr inbounds nuw i8, ptr %71, i64 128
   store ptr %115, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %71, i64 136
+  %119 = getelementptr inbounds nuw i8, ptr %71, i64 136
   store ptr %118, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %71, i64 144
+  %122 = getelementptr inbounds nuw i8, ptr %71, i64 144
   store ptr %121, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %71, i64 152
+  %125 = getelementptr inbounds nuw i8, ptr %71, i64 152
   store ptr %124, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %127 = load ptr, ptr %126, align 8
@@ -24610,10 +24610,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %139, %137, %135, %
 
 142:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %128, 3
-  %143 = getelementptr inbounds i8, ptr %129, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %144 = zext i32 %130 to i64
-  %145 = getelementptr inbounds ptr, ptr %143, i64 %144
-  %146 = getelementptr inbounds ptr, ptr %145, i64 %.0.i.i.i
+  %145 = getelementptr inbounds nuw ptr, ptr %143, i64 %144
+  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %146, ptr readonly align 8 %127, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24651,13 +24651,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %160, %158, 
 
 162:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i84 = shl nsw i64 %149, 3
-  %163 = getelementptr inbounds i8, ptr %150, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %164 = zext i32 %151 to i64
-  %165 = getelementptr inbounds ptr, ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw ptr, ptr %163, i64 %164
   %166 = load i32, ptr %66, align 8
   %167 = add i32 %166, %.0.i.i.i82
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds ptr, ptr %165, i64 %168
+  %169 = getelementptr inbounds nuw ptr, ptr %165, i64 %168
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %169, ptr readonly align 8 %148, i64 %.idx.i.i84, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24695,14 +24695,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %183, %181, %179, %1
 
 185:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i88 = shl nsw i64 %172, 3
-  %186 = getelementptr inbounds i8, ptr %173, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %187 = zext i32 %174 to i64
-  %188 = getelementptr inbounds ptr, ptr %186, i64 %187
+  %188 = getelementptr inbounds nuw ptr, ptr %186, i64 %187
   %189 = load i32, ptr %66, align 8
   %190 = shl i32 %189, 1
   %191 = add i32 %190, %.0.i.i.i86
   %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds ptr, ptr %188, i64 %192
+  %193 = getelementptr inbounds nuw ptr, ptr %188, i64 %192
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %193, ptr readonly align 8 %171, i64 %.idx.i.i88, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24740,14 +24740,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %207, %205, %203, %2
 
 209:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i92 = shl nsw i64 %196, 3
-  %210 = getelementptr inbounds i8, ptr %197, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %211 = zext i32 %198 to i64
-  %212 = getelementptr inbounds ptr, ptr %210, i64 %211
+  %212 = getelementptr inbounds nuw ptr, ptr %210, i64 %211
   %213 = load i32, ptr %66, align 8
   %214 = mul i32 %213, 3
   %215 = add i32 %214, %.0.i.i.i90
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds ptr, ptr %212, i64 %216
+  %217 = getelementptr inbounds nuw ptr, ptr %212, i64 %216
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %217, ptr readonly align 8 %195, i64 %.idx.i.i92, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24785,14 +24785,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %231, %229, %227, %2
 
 233:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i96 = shl nsw i64 %220, 3
-  %234 = getelementptr inbounds i8, ptr %221, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %235 = zext i32 %222 to i64
-  %236 = getelementptr inbounds ptr, ptr %234, i64 %235
+  %236 = getelementptr inbounds nuw ptr, ptr %234, i64 %235
   %237 = load i32, ptr %66, align 8
   %238 = shl i32 %237, 2
   %239 = add i32 %238, %.0.i.i.i94
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds ptr, ptr %236, i64 %240
+  %241 = getelementptr inbounds nuw ptr, ptr %236, i64 %240
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %241, ptr readonly align 8 %219, i64 %.idx.i.i96, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24830,14 +24830,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %255, %253
 
 257:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i100 = shl nsw i64 %244, 3
-  %258 = getelementptr inbounds i8, ptr %245, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %259 = zext i32 %246 to i64
-  %260 = getelementptr inbounds ptr, ptr %258, i64 %259
+  %260 = getelementptr inbounds nuw ptr, ptr %258, i64 %259
   %261 = load i32, ptr %66, align 8
   %262 = mul i32 %261, 5
   %263 = add i32 %262, %.0.i.i.i98
   %264 = zext i32 %263 to i64
-  %265 = getelementptr inbounds ptr, ptr %260, i64 %264
+  %265 = getelementptr inbounds nuw ptr, ptr %260, i64 %264
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %265, ptr readonly align 8 %243, i64 %.idx.i.i100, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24875,14 +24875,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %279, %277, %
 
 281:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i104 = shl nsw i64 %268, 3
-  %282 = getelementptr inbounds i8, ptr %269, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %269, i64 16
   %283 = zext i32 %270 to i64
-  %284 = getelementptr inbounds ptr, ptr %282, i64 %283
+  %284 = getelementptr inbounds nuw ptr, ptr %282, i64 %283
   %285 = load i32, ptr %66, align 8
   %286 = mul i32 %285, 6
   %287 = add i32 %286, %.0.i.i.i102
   %288 = zext i32 %287 to i64
-  %289 = getelementptr inbounds ptr, ptr %284, i64 %288
+  %289 = getelementptr inbounds nuw ptr, ptr %284, i64 %288
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %289, ptr readonly align 8 %267, i64 %.idx.i.i104, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24920,14 +24920,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %303, %301,
 
 305:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i108 = shl nsw i64 %292, 3
-  %306 = getelementptr inbounds i8, ptr %293, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %307 = zext i32 %294 to i64
-  %308 = getelementptr inbounds ptr, ptr %306, i64 %307
+  %308 = getelementptr inbounds nuw ptr, ptr %306, i64 %307
   %309 = load i32, ptr %66, align 8
   %310 = mul i32 %309, 7
   %311 = add i32 %310, %.0.i.i.i106
   %312 = zext i32 %311 to i64
-  %313 = getelementptr inbounds ptr, ptr %308, i64 %312
+  %313 = getelementptr inbounds nuw ptr, ptr %308, i64 %312
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %313, ptr readonly align 8 %291, i64 %.idx.i.i108, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -24935,92 +24935,92 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %314 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %315 = load ptr, ptr %314, align 8
   %316 = load ptr, ptr %65, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 16
   %318 = load i32, ptr %316, align 8
   %319 = zext i32 %318 to i64
-  %320 = getelementptr inbounds ptr, ptr %317, i64 %319
-  %321 = getelementptr inbounds i8, ptr %320, i64 56
+  %320 = getelementptr inbounds nuw ptr, ptr %317, i64 %319
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 56
   store ptr %315, ptr %321, align 8
   %322 = getelementptr inbounds nuw i8, ptr %7, i64 544
   %323 = load ptr, ptr %322, align 8
   %324 = load ptr, ptr %65, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 16
   %326 = load i32, ptr %324, align 8
   %327 = zext i32 %326 to i64
-  %328 = getelementptr inbounds ptr, ptr %325, i64 %327
-  %329 = getelementptr inbounds i8, ptr %328, i64 160
+  %328 = getelementptr inbounds nuw ptr, ptr %325, i64 %327
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 160
   store ptr %323, ptr %329, align 8
   %330 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %331 = load ptr, ptr %330, align 8
   %332 = load ptr, ptr %65, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %334 = load i32, ptr %332, align 8
   %335 = zext i32 %334 to i64
-  %336 = getelementptr inbounds ptr, ptr %333, i64 %335
-  %337 = getelementptr inbounds i8, ptr %336, i64 168
+  %336 = getelementptr inbounds nuw ptr, ptr %333, i64 %335
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 168
   store ptr %331, ptr %337, align 8
   %338 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %339 = load ptr, ptr %338, align 8
   %340 = load ptr, ptr %65, align 8
-  %341 = getelementptr inbounds i8, ptr %340, i64 16
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %342 = load i32, ptr %340, align 8
   %343 = zext i32 %342 to i64
-  %344 = getelementptr inbounds ptr, ptr %341, i64 %343
-  %345 = getelementptr inbounds i8, ptr %344, i64 176
+  %344 = getelementptr inbounds nuw ptr, ptr %341, i64 %343
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 176
   store ptr %339, ptr %345, align 8
   %346 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %347 = load ptr, ptr %346, align 8
   %348 = load ptr, ptr %65, align 8
-  %349 = getelementptr inbounds i8, ptr %348, i64 16
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
   %350 = load i32, ptr %348, align 8
   %351 = zext i32 %350 to i64
-  %352 = getelementptr inbounds ptr, ptr %349, i64 %351
-  %353 = getelementptr inbounds i8, ptr %352, i64 184
+  %352 = getelementptr inbounds nuw ptr, ptr %349, i64 %351
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 184
   store ptr %347, ptr %353, align 8
   %354 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %355 = load ptr, ptr %354, align 8
   %356 = load ptr, ptr %65, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 16
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 16
   %358 = load i32, ptr %356, align 8
   %359 = zext i32 %358 to i64
-  %360 = getelementptr inbounds ptr, ptr %357, i64 %359
-  %361 = getelementptr inbounds i8, ptr %360, i64 192
+  %360 = getelementptr inbounds nuw ptr, ptr %357, i64 %359
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 192
   store ptr %355, ptr %361, align 8
   %362 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %363 = load ptr, ptr %362, align 8
   %364 = load ptr, ptr %65, align 8
-  %365 = getelementptr inbounds i8, ptr %364, i64 16
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 16
   %366 = load i32, ptr %364, align 8
   %367 = zext i32 %366 to i64
-  %368 = getelementptr inbounds ptr, ptr %365, i64 %367
-  %369 = getelementptr inbounds i8, ptr %368, i64 200
+  %368 = getelementptr inbounds nuw ptr, ptr %365, i64 %367
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 200
   store ptr %363, ptr %369, align 8
   %370 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %371 = load ptr, ptr %370, align 8
   %372 = load ptr, ptr %65, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 16
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 16
   %374 = load i32, ptr %372, align 8
   %375 = zext i32 %374 to i64
-  %376 = getelementptr inbounds ptr, ptr %373, i64 %375
-  %377 = getelementptr inbounds i8, ptr %376, i64 208
+  %376 = getelementptr inbounds nuw ptr, ptr %373, i64 %375
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 208
   store ptr %371, ptr %377, align 8
   %378 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %379 = load ptr, ptr %378, align 8
   %380 = load ptr, ptr %65, align 8
-  %381 = getelementptr inbounds i8, ptr %380, i64 16
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 16
   %382 = load i32, ptr %380, align 8
   %383 = zext i32 %382 to i64
-  %384 = getelementptr inbounds ptr, ptr %381, i64 %383
-  %385 = getelementptr inbounds i8, ptr %384, i64 216
+  %384 = getelementptr inbounds nuw ptr, ptr %381, i64 %383
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 216
   store ptr %379, ptr %385, align 8
   %386 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %387 = load ptr, ptr %386, align 8
   %388 = load ptr, ptr %65, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 16
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 16
   %390 = load i32, ptr %388, align 8
   %391 = zext i32 %390 to i64
-  %392 = getelementptr inbounds ptr, ptr %389, i64 %391
-  %393 = getelementptr inbounds i8, ptr %392, i64 224
+  %392 = getelementptr inbounds nuw ptr, ptr %389, i64 %391
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 224
   store ptr %387, ptr %393, align 8
   %394 = load ptr, ptr %65, align 8
   %395 = load i32, ptr %394, align 8
@@ -25048,13 +25048,13 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
 _ZN5clang44OMPTargetTeamsDistributeParallelForDirective23setTaskReductionRefExprEPNS_4ExprE.exit: ; preds = %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit, %398, %400, %402, %404
   %.0.i.i.i110 = phi i32 [ 29, %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ 16, %402 ], [ 16, %400 ], [ 16, %398 ], [ %spec.select.i.i.i109, %404 ]
   %406 = zext i1 %9 to i8
-  %407 = getelementptr inbounds i8, ptr %394, i64 16
+  %407 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %408 = zext i32 %395 to i64
-  %409 = getelementptr inbounds ptr, ptr %407, i64 %408
+  %409 = getelementptr inbounds nuw ptr, ptr %407, i64 %408
   %410 = shl i32 %396, 3
   %411 = add i32 %.0.i.i.i110, %410
   %412 = zext i32 %411 to i64
-  %413 = getelementptr inbounds ptr, ptr %409, i64 %412
+  %413 = getelementptr inbounds nuw ptr, ptr %409, i64 %412
   store ptr %8, ptr %413, align 8
   store i8 %406, ptr %67, align 4
   ret ptr %.0.i.i.i.i
@@ -25123,11 +25123,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %33
   %.0.i.i.i.i = phi ptr [ %35, %33 ], [ %36, %.critedge.i.i.i.i ]
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %15, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %39, align 8
   %40 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %40)
@@ -25221,19 +25221,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -25241,10 +25241,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -25272,81 +25272,81 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_48OMPTargetTeamsDistribute
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %67, i64 128
+  %112 = getelementptr inbounds nuw i8, ptr %67, i64 128
   store ptr %111, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %67, i64 136
+  %115 = getelementptr inbounds nuw i8, ptr %67, i64 136
   store ptr %114, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %67, i64 144
+  %118 = getelementptr inbounds nuw i8, ptr %67, i64 144
   store ptr %117, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %67, i64 152
+  %121 = getelementptr inbounds nuw i8, ptr %67, i64 152
   store ptr %120, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %123 = load ptr, ptr %122, align 8
@@ -25381,10 +25381,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %135, %133, %131, %
 
 138:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %124, 3
-  %139 = getelementptr inbounds i8, ptr %125, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %140 = zext i32 %126 to i64
-  %141 = getelementptr inbounds ptr, ptr %139, i64 %140
-  %142 = getelementptr inbounds ptr, ptr %141, i64 %.0.i.i.i
+  %141 = getelementptr inbounds nuw ptr, ptr %139, i64 %140
+  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %142, ptr readonly align 8 %123, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -25422,13 +25422,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %156, %154, 
 
 158:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i81 = shl nsw i64 %145, 3
-  %159 = getelementptr inbounds i8, ptr %146, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %160 = zext i32 %147 to i64
-  %161 = getelementptr inbounds ptr, ptr %159, i64 %160
+  %161 = getelementptr inbounds nuw ptr, ptr %159, i64 %160
   %162 = load i32, ptr %63, align 8
   %163 = add i32 %162, %.0.i.i.i79
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds ptr, ptr %161, i64 %164
+  %165 = getelementptr inbounds nuw ptr, ptr %161, i64 %164
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %165, ptr readonly align 8 %144, i64 %.idx.i.i81, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -25466,14 +25466,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %179, %177, %175, %1
 
 181:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i85 = shl nsw i64 %168, 3
-  %182 = getelementptr inbounds i8, ptr %169, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %183 = zext i32 %170 to i64
-  %184 = getelementptr inbounds ptr, ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw ptr, ptr %182, i64 %183
   %185 = load i32, ptr %63, align 8
   %186 = shl i32 %185, 1
   %187 = add i32 %186, %.0.i.i.i83
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds ptr, ptr %184, i64 %188
+  %189 = getelementptr inbounds nuw ptr, ptr %184, i64 %188
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %189, ptr readonly align 8 %167, i64 %.idx.i.i85, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -25511,14 +25511,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %203, %201, %199, %1
 
 205:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i89 = shl nsw i64 %192, 3
-  %206 = getelementptr inbounds i8, ptr %193, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %207 = zext i32 %194 to i64
-  %208 = getelementptr inbounds ptr, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw ptr, ptr %206, i64 %207
   %209 = load i32, ptr %63, align 8
   %210 = mul i32 %209, 3
   %211 = add i32 %210, %.0.i.i.i87
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds ptr, ptr %208, i64 %212
+  %213 = getelementptr inbounds nuw ptr, ptr %208, i64 %212
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %213, ptr readonly align 8 %191, i64 %.idx.i.i89, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -25556,14 +25556,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %2
 
 229:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i93 = shl nsw i64 %216, 3
-  %230 = getelementptr inbounds i8, ptr %217, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %231 = zext i32 %218 to i64
-  %232 = getelementptr inbounds ptr, ptr %230, i64 %231
+  %232 = getelementptr inbounds nuw ptr, ptr %230, i64 %231
   %233 = load i32, ptr %63, align 8
   %234 = shl i32 %233, 2
   %235 = add i32 %234, %.0.i.i.i91
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds ptr, ptr %232, i64 %236
+  %237 = getelementptr inbounds nuw ptr, ptr %232, i64 %236
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %237, ptr readonly align 8 %215, i64 %.idx.i.i93, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -25601,14 +25601,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %251, %249
 
 253:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i97 = shl nsw i64 %240, 3
-  %254 = getelementptr inbounds i8, ptr %241, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %241, i64 16
   %255 = zext i32 %242 to i64
-  %256 = getelementptr inbounds ptr, ptr %254, i64 %255
+  %256 = getelementptr inbounds nuw ptr, ptr %254, i64 %255
   %257 = load i32, ptr %63, align 8
   %258 = mul i32 %257, 5
   %259 = add i32 %258, %.0.i.i.i95
   %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds ptr, ptr %256, i64 %260
+  %261 = getelementptr inbounds nuw ptr, ptr %256, i64 %260
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %261, ptr readonly align 8 %239, i64 %.idx.i.i97, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -25646,14 +25646,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %275, %273, %
 
 277:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i101 = shl nsw i64 %264, 3
-  %278 = getelementptr inbounds i8, ptr %265, i64 16
+  %278 = getelementptr inbounds nuw i8, ptr %265, i64 16
   %279 = zext i32 %266 to i64
-  %280 = getelementptr inbounds ptr, ptr %278, i64 %279
+  %280 = getelementptr inbounds nuw ptr, ptr %278, i64 %279
   %281 = load i32, ptr %63, align 8
   %282 = mul i32 %281, 6
   %283 = add i32 %282, %.0.i.i.i99
   %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds ptr, ptr %280, i64 %284
+  %285 = getelementptr inbounds nuw ptr, ptr %280, i64 %284
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %285, ptr readonly align 8 %263, i64 %.idx.i.i101, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -25691,14 +25691,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %299, %297,
 
 301:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i105 = shl nsw i64 %288, 3
-  %302 = getelementptr inbounds i8, ptr %289, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %289, i64 16
   %303 = zext i32 %290 to i64
-  %304 = getelementptr inbounds ptr, ptr %302, i64 %303
+  %304 = getelementptr inbounds nuw ptr, ptr %302, i64 %303
   %305 = load i32, ptr %63, align 8
   %306 = mul i32 %305, 7
   %307 = add i32 %306, %.0.i.i.i103
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds ptr, ptr %304, i64 %308
+  %309 = getelementptr inbounds nuw ptr, ptr %304, i64 %308
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %309, ptr readonly align 8 %287, i64 %.idx.i.i105, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -25706,92 +25706,92 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %310 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %311 = load ptr, ptr %310, align 8
   %312 = load ptr, ptr %62, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 16
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
   %314 = load i32, ptr %312, align 8
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds ptr, ptr %313, i64 %315
-  %317 = getelementptr inbounds i8, ptr %316, i64 56
+  %316 = getelementptr inbounds nuw ptr, ptr %313, i64 %315
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 56
   store ptr %311, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %7, i64 544
   %319 = load ptr, ptr %318, align 8
   %320 = load ptr, ptr %62, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %322 = load i32, ptr %320, align 8
   %323 = zext i32 %322 to i64
-  %324 = getelementptr inbounds ptr, ptr %321, i64 %323
-  %325 = getelementptr inbounds i8, ptr %324, i64 160
+  %324 = getelementptr inbounds nuw ptr, ptr %321, i64 %323
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 160
   store ptr %319, ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %327 = load ptr, ptr %326, align 8
   %328 = load ptr, ptr %62, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 16
   %330 = load i32, ptr %328, align 8
   %331 = zext i32 %330 to i64
-  %332 = getelementptr inbounds ptr, ptr %329, i64 %331
-  %333 = getelementptr inbounds i8, ptr %332, i64 168
+  %332 = getelementptr inbounds nuw ptr, ptr %329, i64 %331
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 168
   store ptr %327, ptr %333, align 8
   %334 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %335 = load ptr, ptr %334, align 8
   %336 = load ptr, ptr %62, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %338 = load i32, ptr %336, align 8
   %339 = zext i32 %338 to i64
-  %340 = getelementptr inbounds ptr, ptr %337, i64 %339
-  %341 = getelementptr inbounds i8, ptr %340, i64 176
+  %340 = getelementptr inbounds nuw ptr, ptr %337, i64 %339
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 176
   store ptr %335, ptr %341, align 8
   %342 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %343 = load ptr, ptr %342, align 8
   %344 = load ptr, ptr %62, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %346 = load i32, ptr %344, align 8
   %347 = zext i32 %346 to i64
-  %348 = getelementptr inbounds ptr, ptr %345, i64 %347
-  %349 = getelementptr inbounds i8, ptr %348, i64 184
+  %348 = getelementptr inbounds nuw ptr, ptr %345, i64 %347
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 184
   store ptr %343, ptr %349, align 8
   %350 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %351 = load ptr, ptr %350, align 8
   %352 = load ptr, ptr %62, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
   %354 = load i32, ptr %352, align 8
   %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds ptr, ptr %353, i64 %355
-  %357 = getelementptr inbounds i8, ptr %356, i64 192
+  %356 = getelementptr inbounds nuw ptr, ptr %353, i64 %355
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 192
   store ptr %351, ptr %357, align 8
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %359 = load ptr, ptr %358, align 8
   %360 = load ptr, ptr %62, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
   %362 = load i32, ptr %360, align 8
   %363 = zext i32 %362 to i64
-  %364 = getelementptr inbounds ptr, ptr %361, i64 %363
-  %365 = getelementptr inbounds i8, ptr %364, i64 200
+  %364 = getelementptr inbounds nuw ptr, ptr %361, i64 %363
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 200
   store ptr %359, ptr %365, align 8
   %366 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %367 = load ptr, ptr %366, align 8
   %368 = load ptr, ptr %62, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
   %370 = load i32, ptr %368, align 8
   %371 = zext i32 %370 to i64
-  %372 = getelementptr inbounds ptr, ptr %369, i64 %371
-  %373 = getelementptr inbounds i8, ptr %372, i64 208
+  %372 = getelementptr inbounds nuw ptr, ptr %369, i64 %371
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 208
   store ptr %367, ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %375 = load ptr, ptr %374, align 8
   %376 = load ptr, ptr %62, align 8
-  %377 = getelementptr inbounds i8, ptr %376, i64 16
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
   %378 = load i32, ptr %376, align 8
   %379 = zext i32 %378 to i64
-  %380 = getelementptr inbounds ptr, ptr %377, i64 %379
-  %381 = getelementptr inbounds i8, ptr %380, i64 216
+  %380 = getelementptr inbounds nuw ptr, ptr %377, i64 %379
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 216
   store ptr %375, ptr %381, align 8
   %382 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %383 = load ptr, ptr %382, align 8
   %384 = load ptr, ptr %62, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %386 = load i32, ptr %384, align 8
   %387 = zext i32 %386 to i64
-  %388 = getelementptr inbounds ptr, ptr %385, i64 %387
-  %389 = getelementptr inbounds i8, ptr %388, i64 224
+  %388 = getelementptr inbounds nuw ptr, ptr %385, i64 %387
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 224
   store ptr %383, ptr %389, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -25858,11 +25858,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -25954,19 +25954,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -25974,10 +25974,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -26005,65 +26005,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPTargetTeamsDistribute
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -26098,10 +26098,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -26139,13 +26139,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -26183,14 +26183,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -26228,14 +26228,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -26273,14 +26273,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -26318,14 +26318,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -26363,14 +26363,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -26408,14 +26408,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -26423,11 +26423,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -26494,11 +26494,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -26561,17 +26561,17 @@ define dso_local noundef ptr @_ZN5clang19OMPInteropDirective6CreateERKNS_10ASTCo
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %22
   %.0.i.i.i.i = phi ptr [ %24, %22 ], [ %25, %.critedge.i.i.i.i ]
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %6, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %28, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %29
 
 29:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %30, ptr readonly align 8 %3, i64 %7, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -26632,11 +26632,11 @@ define dso_local noundef ptr @_ZN5clang19OMPInteropDirective11CreateEmptyERKNS_1
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %18
   %.0.i.i.i.i = phi ptr [ %20, %18 ], [ %21, %.critedge.i.i.i.i ]
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 0, ptr %24, align 8
   %25 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %25)
@@ -26700,19 +26700,19 @@ define dso_local noundef ptr @_ZN5clang20OMPDispatchDirective6CreateERKNS_10ASTC
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %26
   %.0.i.i.i.i = phi ptr [ %28, %26 ], [ %29, %.critedge.i.i.i.i ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %31 = zext i1 %9 to i8
   store i32 %8, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %31, ptr %33, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %34
 
 34:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -26720,8 +26720,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %9, label %36, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 36:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %10
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %10
   store ptr %5, ptr %38, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -26784,11 +26784,11 @@ define dso_local noundef ptr @_ZN5clang20OMPDispatchDirective11CreateEmptyERKNS_
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -26854,19 +26854,19 @@ define dso_local noundef ptr @_ZN5clang18OMPMaskedDirective6CreateERKNS_10ASTCon
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %25
   %.0.i.i.i.i = phi ptr [ %27, %25 ], [ %28, %.critedge.i.i.i.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   %30 = zext i1 %8 to i8
   store i32 %7, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 %30, ptr %32, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %33
 
 33:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %4, 3
-  %34 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr readonly align 8 %3, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -26874,8 +26874,8 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %8, label %35, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 35:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %9
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %9
   store ptr %5, ptr %37, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -26936,11 +26936,11 @@ define dso_local noundef ptr @_ZN5clang18OMPMaskedDirective11CreateEmptyERKNS_10
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %17
   %.0.i.i.i.i = phi ptr [ %19, %17 ], [ %20, %.critedge.i.i.i.i ]
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i8 1, ptr %23, align 8
   %24 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %24)
@@ -27030,19 +27030,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -27050,10 +27050,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -27081,65 +27081,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_23OMPGenericLoopDirectiveE
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -27174,10 +27174,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -27215,13 +27215,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -27259,14 +27259,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -27304,14 +27304,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -27349,14 +27349,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -27394,14 +27394,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -27439,14 +27439,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -27484,14 +27484,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -27499,11 +27499,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -27570,11 +27570,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -27666,19 +27666,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -27686,10 +27686,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -27717,81 +27717,81 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_28OMPTeamsGenericLoopDirec
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %67, i64 128
+  %112 = getelementptr inbounds nuw i8, ptr %67, i64 128
   store ptr %111, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %67, i64 136
+  %115 = getelementptr inbounds nuw i8, ptr %67, i64 136
   store ptr %114, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %67, i64 144
+  %118 = getelementptr inbounds nuw i8, ptr %67, i64 144
   store ptr %117, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %67, i64 152
+  %121 = getelementptr inbounds nuw i8, ptr %67, i64 152
   store ptr %120, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %123 = load ptr, ptr %122, align 8
@@ -27826,10 +27826,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %135, %133, %131, %
 
 138:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %124, 3
-  %139 = getelementptr inbounds i8, ptr %125, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %140 = zext i32 %126 to i64
-  %141 = getelementptr inbounds ptr, ptr %139, i64 %140
-  %142 = getelementptr inbounds ptr, ptr %141, i64 %.0.i.i.i
+  %141 = getelementptr inbounds nuw ptr, ptr %139, i64 %140
+  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %142, ptr readonly align 8 %123, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -27867,13 +27867,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %156, %154, 
 
 158:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i81 = shl nsw i64 %145, 3
-  %159 = getelementptr inbounds i8, ptr %146, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %160 = zext i32 %147 to i64
-  %161 = getelementptr inbounds ptr, ptr %159, i64 %160
+  %161 = getelementptr inbounds nuw ptr, ptr %159, i64 %160
   %162 = load i32, ptr %63, align 8
   %163 = add i32 %162, %.0.i.i.i79
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds ptr, ptr %161, i64 %164
+  %165 = getelementptr inbounds nuw ptr, ptr %161, i64 %164
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %165, ptr readonly align 8 %144, i64 %.idx.i.i81, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -27911,14 +27911,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %179, %177, %175, %1
 
 181:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i85 = shl nsw i64 %168, 3
-  %182 = getelementptr inbounds i8, ptr %169, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %183 = zext i32 %170 to i64
-  %184 = getelementptr inbounds ptr, ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw ptr, ptr %182, i64 %183
   %185 = load i32, ptr %63, align 8
   %186 = shl i32 %185, 1
   %187 = add i32 %186, %.0.i.i.i83
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds ptr, ptr %184, i64 %188
+  %189 = getelementptr inbounds nuw ptr, ptr %184, i64 %188
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %189, ptr readonly align 8 %167, i64 %.idx.i.i85, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -27956,14 +27956,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %203, %201, %199, %1
 
 205:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i89 = shl nsw i64 %192, 3
-  %206 = getelementptr inbounds i8, ptr %193, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %207 = zext i32 %194 to i64
-  %208 = getelementptr inbounds ptr, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw ptr, ptr %206, i64 %207
   %209 = load i32, ptr %63, align 8
   %210 = mul i32 %209, 3
   %211 = add i32 %210, %.0.i.i.i87
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds ptr, ptr %208, i64 %212
+  %213 = getelementptr inbounds nuw ptr, ptr %208, i64 %212
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %213, ptr readonly align 8 %191, i64 %.idx.i.i89, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28001,14 +28001,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %227, %225, %223, %2
 
 229:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i93 = shl nsw i64 %216, 3
-  %230 = getelementptr inbounds i8, ptr %217, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %231 = zext i32 %218 to i64
-  %232 = getelementptr inbounds ptr, ptr %230, i64 %231
+  %232 = getelementptr inbounds nuw ptr, ptr %230, i64 %231
   %233 = load i32, ptr %63, align 8
   %234 = shl i32 %233, 2
   %235 = add i32 %234, %.0.i.i.i91
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds ptr, ptr %232, i64 %236
+  %237 = getelementptr inbounds nuw ptr, ptr %232, i64 %236
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %237, ptr readonly align 8 %215, i64 %.idx.i.i93, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28046,14 +28046,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %251, %249
 
 253:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i97 = shl nsw i64 %240, 3
-  %254 = getelementptr inbounds i8, ptr %241, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %241, i64 16
   %255 = zext i32 %242 to i64
-  %256 = getelementptr inbounds ptr, ptr %254, i64 %255
+  %256 = getelementptr inbounds nuw ptr, ptr %254, i64 %255
   %257 = load i32, ptr %63, align 8
   %258 = mul i32 %257, 5
   %259 = add i32 %258, %.0.i.i.i95
   %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds ptr, ptr %256, i64 %260
+  %261 = getelementptr inbounds nuw ptr, ptr %256, i64 %260
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %261, ptr readonly align 8 %239, i64 %.idx.i.i97, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28091,14 +28091,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %275, %273, %
 
 277:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i101 = shl nsw i64 %264, 3
-  %278 = getelementptr inbounds i8, ptr %265, i64 16
+  %278 = getelementptr inbounds nuw i8, ptr %265, i64 16
   %279 = zext i32 %266 to i64
-  %280 = getelementptr inbounds ptr, ptr %278, i64 %279
+  %280 = getelementptr inbounds nuw ptr, ptr %278, i64 %279
   %281 = load i32, ptr %63, align 8
   %282 = mul i32 %281, 6
   %283 = add i32 %282, %.0.i.i.i99
   %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds ptr, ptr %280, i64 %284
+  %285 = getelementptr inbounds nuw ptr, ptr %280, i64 %284
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %285, ptr readonly align 8 %263, i64 %.idx.i.i101, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28136,14 +28136,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %299, %297,
 
 301:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i105 = shl nsw i64 %288, 3
-  %302 = getelementptr inbounds i8, ptr %289, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %289, i64 16
   %303 = zext i32 %290 to i64
-  %304 = getelementptr inbounds ptr, ptr %302, i64 %303
+  %304 = getelementptr inbounds nuw ptr, ptr %302, i64 %303
   %305 = load i32, ptr %63, align 8
   %306 = mul i32 %305, 7
   %307 = add i32 %306, %.0.i.i.i103
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds ptr, ptr %304, i64 %308
+  %309 = getelementptr inbounds nuw ptr, ptr %304, i64 %308
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %309, ptr readonly align 8 %287, i64 %.idx.i.i105, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28151,92 +28151,92 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %310 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %311 = load ptr, ptr %310, align 8
   %312 = load ptr, ptr %62, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 16
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 16
   %314 = load i32, ptr %312, align 8
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds ptr, ptr %313, i64 %315
-  %317 = getelementptr inbounds i8, ptr %316, i64 56
+  %316 = getelementptr inbounds nuw ptr, ptr %313, i64 %315
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 56
   store ptr %311, ptr %317, align 8
   %318 = getelementptr inbounds nuw i8, ptr %7, i64 544
   %319 = load ptr, ptr %318, align 8
   %320 = load ptr, ptr %62, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %322 = load i32, ptr %320, align 8
   %323 = zext i32 %322 to i64
-  %324 = getelementptr inbounds ptr, ptr %321, i64 %323
-  %325 = getelementptr inbounds i8, ptr %324, i64 160
+  %324 = getelementptr inbounds nuw ptr, ptr %321, i64 %323
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 160
   store ptr %319, ptr %325, align 8
   %326 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %327 = load ptr, ptr %326, align 8
   %328 = load ptr, ptr %62, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 16
   %330 = load i32, ptr %328, align 8
   %331 = zext i32 %330 to i64
-  %332 = getelementptr inbounds ptr, ptr %329, i64 %331
-  %333 = getelementptr inbounds i8, ptr %332, i64 168
+  %332 = getelementptr inbounds nuw ptr, ptr %329, i64 %331
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 168
   store ptr %327, ptr %333, align 8
   %334 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %335 = load ptr, ptr %334, align 8
   %336 = load ptr, ptr %62, align 8
-  %337 = getelementptr inbounds i8, ptr %336, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %338 = load i32, ptr %336, align 8
   %339 = zext i32 %338 to i64
-  %340 = getelementptr inbounds ptr, ptr %337, i64 %339
-  %341 = getelementptr inbounds i8, ptr %340, i64 176
+  %340 = getelementptr inbounds nuw ptr, ptr %337, i64 %339
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 176
   store ptr %335, ptr %341, align 8
   %342 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %343 = load ptr, ptr %342, align 8
   %344 = load ptr, ptr %62, align 8
-  %345 = getelementptr inbounds i8, ptr %344, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
   %346 = load i32, ptr %344, align 8
   %347 = zext i32 %346 to i64
-  %348 = getelementptr inbounds ptr, ptr %345, i64 %347
-  %349 = getelementptr inbounds i8, ptr %348, i64 184
+  %348 = getelementptr inbounds nuw ptr, ptr %345, i64 %347
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 184
   store ptr %343, ptr %349, align 8
   %350 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %351 = load ptr, ptr %350, align 8
   %352 = load ptr, ptr %62, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 16
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
   %354 = load i32, ptr %352, align 8
   %355 = zext i32 %354 to i64
-  %356 = getelementptr inbounds ptr, ptr %353, i64 %355
-  %357 = getelementptr inbounds i8, ptr %356, i64 192
+  %356 = getelementptr inbounds nuw ptr, ptr %353, i64 %355
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 192
   store ptr %351, ptr %357, align 8
   %358 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %359 = load ptr, ptr %358, align 8
   %360 = load ptr, ptr %62, align 8
-  %361 = getelementptr inbounds i8, ptr %360, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
   %362 = load i32, ptr %360, align 8
   %363 = zext i32 %362 to i64
-  %364 = getelementptr inbounds ptr, ptr %361, i64 %363
-  %365 = getelementptr inbounds i8, ptr %364, i64 200
+  %364 = getelementptr inbounds nuw ptr, ptr %361, i64 %363
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 200
   store ptr %359, ptr %365, align 8
   %366 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %367 = load ptr, ptr %366, align 8
   %368 = load ptr, ptr %62, align 8
-  %369 = getelementptr inbounds i8, ptr %368, i64 16
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
   %370 = load i32, ptr %368, align 8
   %371 = zext i32 %370 to i64
-  %372 = getelementptr inbounds ptr, ptr %369, i64 %371
-  %373 = getelementptr inbounds i8, ptr %372, i64 208
+  %372 = getelementptr inbounds nuw ptr, ptr %369, i64 %371
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 208
   store ptr %367, ptr %373, align 8
   %374 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %375 = load ptr, ptr %374, align 8
   %376 = load ptr, ptr %62, align 8
-  %377 = getelementptr inbounds i8, ptr %376, i64 16
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
   %378 = load i32, ptr %376, align 8
   %379 = zext i32 %378 to i64
-  %380 = getelementptr inbounds ptr, ptr %377, i64 %379
-  %381 = getelementptr inbounds i8, ptr %380, i64 216
+  %380 = getelementptr inbounds nuw ptr, ptr %377, i64 %379
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 216
   store ptr %375, ptr %381, align 8
   %382 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %383 = load ptr, ptr %382, align 8
   %384 = load ptr, ptr %62, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 16
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %386 = load i32, ptr %384, align 8
   %387 = zext i32 %386 to i64
-  %388 = getelementptr inbounds ptr, ptr %385, i64 %387
-  %389 = getelementptr inbounds i8, ptr %388, i64 224
+  %388 = getelementptr inbounds nuw ptr, ptr %385, i64 %387
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 224
   store ptr %383, ptr %389, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -28303,11 +28303,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -28399,19 +28399,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %41
   %.0.i.i.i.i = phi ptr [ %43, %41 ], [ %44, %.critedge.i.i.i.i ]
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %46 = zext i1 %22 to i8
   store i32 %21, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %20, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %46, ptr %48, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %49
 
 49:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -28419,10 +28419,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %22, label %51, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 51:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %23
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %23
   %54 = zext i32 %20 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
   store ptr %6, ptr %55, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -28452,81 +28452,81 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_34OMPTargetTeamsGenericLoo
   store i8 0, ptr %65, align 4
   store ptr %45, ptr %63, align 8
   %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %68 = zext i32 %59 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
   store ptr %66, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %71, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %69, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store ptr %74, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %69, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %69, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %69, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store ptr %83, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %69, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %69, i64 48
   store ptr %86, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %69, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %69, i64 64
   store ptr %89, ptr %90, align 8
   %91 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %69, i64 72
+  %93 = getelementptr inbounds nuw i8, ptr %69, i64 72
   store ptr %92, ptr %93, align 8
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %69, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %69, i64 80
   store ptr %95, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %69, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %69, i64 88
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %69, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %69, i64 96
   store ptr %101, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %69, i64 104
+  %105 = getelementptr inbounds nuw i8, ptr %69, i64 104
   store ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %69, i64 112
+  %108 = getelementptr inbounds nuw i8, ptr %69, i64 112
   store ptr %107, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %69, i64 120
+  %111 = getelementptr inbounds nuw i8, ptr %69, i64 120
   store ptr %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %69, i64 128
+  %114 = getelementptr inbounds nuw i8, ptr %69, i64 128
   store ptr %113, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %69, i64 136
+  %117 = getelementptr inbounds nuw i8, ptr %69, i64 136
   store ptr %116, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %69, i64 144
+  %120 = getelementptr inbounds nuw i8, ptr %69, i64 144
   store ptr %119, ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %69, i64 152
+  %123 = getelementptr inbounds nuw i8, ptr %69, i64 152
   store ptr %122, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %125 = load ptr, ptr %124, align 8
@@ -28561,10 +28561,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %137, %135, %133, %
 
 140:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %126, 3
-  %141 = getelementptr inbounds i8, ptr %127, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %142 = zext i32 %128 to i64
-  %143 = getelementptr inbounds ptr, ptr %141, i64 %142
-  %144 = getelementptr inbounds ptr, ptr %143, i64 %.0.i.i.i
+  %143 = getelementptr inbounds nuw ptr, ptr %141, i64 %142
+  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %144, ptr readonly align 8 %125, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28602,13 +28602,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %158, %156, 
 
 160:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i82 = shl nsw i64 %147, 3
-  %161 = getelementptr inbounds i8, ptr %148, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %162 = zext i32 %149 to i64
-  %163 = getelementptr inbounds ptr, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw ptr, ptr %161, i64 %162
   %164 = load i32, ptr %64, align 8
   %165 = add i32 %164, %.0.i.i.i80
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds ptr, ptr %163, i64 %166
+  %167 = getelementptr inbounds nuw ptr, ptr %163, i64 %166
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %167, ptr readonly align 8 %146, i64 %.idx.i.i82, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28646,14 +28646,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %181, %179, %177, %1
 
 183:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i86 = shl nsw i64 %170, 3
-  %184 = getelementptr inbounds i8, ptr %171, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %185 = zext i32 %172 to i64
-  %186 = getelementptr inbounds ptr, ptr %184, i64 %185
+  %186 = getelementptr inbounds nuw ptr, ptr %184, i64 %185
   %187 = load i32, ptr %64, align 8
   %188 = shl i32 %187, 1
   %189 = add i32 %188, %.0.i.i.i84
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds ptr, ptr %186, i64 %190
+  %191 = getelementptr inbounds nuw ptr, ptr %186, i64 %190
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %191, ptr readonly align 8 %169, i64 %.idx.i.i86, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28691,14 +28691,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %205, %203, %201, %1
 
 207:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i90 = shl nsw i64 %194, 3
-  %208 = getelementptr inbounds i8, ptr %195, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %209 = zext i32 %196 to i64
-  %210 = getelementptr inbounds ptr, ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw ptr, ptr %208, i64 %209
   %211 = load i32, ptr %64, align 8
   %212 = mul i32 %211, 3
   %213 = add i32 %212, %.0.i.i.i88
   %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds ptr, ptr %210, i64 %214
+  %215 = getelementptr inbounds nuw ptr, ptr %210, i64 %214
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %215, ptr readonly align 8 %193, i64 %.idx.i.i90, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28736,14 +28736,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %229, %227, %225, %2
 
 231:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i94 = shl nsw i64 %218, 3
-  %232 = getelementptr inbounds i8, ptr %219, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %233 = zext i32 %220 to i64
-  %234 = getelementptr inbounds ptr, ptr %232, i64 %233
+  %234 = getelementptr inbounds nuw ptr, ptr %232, i64 %233
   %235 = load i32, ptr %64, align 8
   %236 = shl i32 %235, 2
   %237 = add i32 %236, %.0.i.i.i92
   %238 = zext i32 %237 to i64
-  %239 = getelementptr inbounds ptr, ptr %234, i64 %238
+  %239 = getelementptr inbounds nuw ptr, ptr %234, i64 %238
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %239, ptr readonly align 8 %217, i64 %.idx.i.i94, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28781,14 +28781,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %253, %251
 
 255:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i98 = shl nsw i64 %242, 3
-  %256 = getelementptr inbounds i8, ptr %243, i64 16
+  %256 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %257 = zext i32 %244 to i64
-  %258 = getelementptr inbounds ptr, ptr %256, i64 %257
+  %258 = getelementptr inbounds nuw ptr, ptr %256, i64 %257
   %259 = load i32, ptr %64, align 8
   %260 = mul i32 %259, 5
   %261 = add i32 %260, %.0.i.i.i96
   %262 = zext i32 %261 to i64
-  %263 = getelementptr inbounds ptr, ptr %258, i64 %262
+  %263 = getelementptr inbounds nuw ptr, ptr %258, i64 %262
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %263, ptr readonly align 8 %241, i64 %.idx.i.i98, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28826,14 +28826,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %277, %275, %
 
 279:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i102 = shl nsw i64 %266, 3
-  %280 = getelementptr inbounds i8, ptr %267, i64 16
+  %280 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %281 = zext i32 %268 to i64
-  %282 = getelementptr inbounds ptr, ptr %280, i64 %281
+  %282 = getelementptr inbounds nuw ptr, ptr %280, i64 %281
   %283 = load i32, ptr %64, align 8
   %284 = mul i32 %283, 6
   %285 = add i32 %284, %.0.i.i.i100
   %286 = zext i32 %285 to i64
-  %287 = getelementptr inbounds ptr, ptr %282, i64 %286
+  %287 = getelementptr inbounds nuw ptr, ptr %282, i64 %286
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %287, ptr readonly align 8 %265, i64 %.idx.i.i102, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28871,14 +28871,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %301, %299,
 
 303:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i106 = shl nsw i64 %290, 3
-  %304 = getelementptr inbounds i8, ptr %291, i64 16
+  %304 = getelementptr inbounds nuw i8, ptr %291, i64 16
   %305 = zext i32 %292 to i64
-  %306 = getelementptr inbounds ptr, ptr %304, i64 %305
+  %306 = getelementptr inbounds nuw ptr, ptr %304, i64 %305
   %307 = load i32, ptr %64, align 8
   %308 = mul i32 %307, 7
   %309 = add i32 %308, %.0.i.i.i104
   %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds ptr, ptr %306, i64 %310
+  %311 = getelementptr inbounds nuw ptr, ptr %306, i64 %310
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %311, ptr readonly align 8 %289, i64 %.idx.i.i106, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -28886,92 +28886,92 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %312 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %313 = load ptr, ptr %312, align 8
   %314 = load ptr, ptr %63, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 16
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %316 = load i32, ptr %314, align 8
   %317 = zext i32 %316 to i64
-  %318 = getelementptr inbounds ptr, ptr %315, i64 %317
-  %319 = getelementptr inbounds i8, ptr %318, i64 56
+  %318 = getelementptr inbounds nuw ptr, ptr %315, i64 %317
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 56
   store ptr %313, ptr %319, align 8
   %320 = getelementptr inbounds nuw i8, ptr %7, i64 544
   %321 = load ptr, ptr %320, align 8
   %322 = load ptr, ptr %63, align 8
-  %323 = getelementptr inbounds i8, ptr %322, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 16
   %324 = load i32, ptr %322, align 8
   %325 = zext i32 %324 to i64
-  %326 = getelementptr inbounds ptr, ptr %323, i64 %325
-  %327 = getelementptr inbounds i8, ptr %326, i64 160
+  %326 = getelementptr inbounds nuw ptr, ptr %323, i64 %325
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 160
   store ptr %321, ptr %327, align 8
   %328 = getelementptr inbounds nuw i8, ptr %7, i64 552
   %329 = load ptr, ptr %328, align 8
   %330 = load ptr, ptr %63, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 16
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 16
   %332 = load i32, ptr %330, align 8
   %333 = zext i32 %332 to i64
-  %334 = getelementptr inbounds ptr, ptr %331, i64 %333
-  %335 = getelementptr inbounds i8, ptr %334, i64 168
+  %334 = getelementptr inbounds nuw ptr, ptr %331, i64 %333
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 168
   store ptr %329, ptr %335, align 8
   %336 = getelementptr inbounds nuw i8, ptr %7, i64 560
   %337 = load ptr, ptr %336, align 8
   %338 = load ptr, ptr %63, align 8
-  %339 = getelementptr inbounds i8, ptr %338, i64 16
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 16
   %340 = load i32, ptr %338, align 8
   %341 = zext i32 %340 to i64
-  %342 = getelementptr inbounds ptr, ptr %339, i64 %341
-  %343 = getelementptr inbounds i8, ptr %342, i64 176
+  %342 = getelementptr inbounds nuw ptr, ptr %339, i64 %341
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 176
   store ptr %337, ptr %343, align 8
   %344 = getelementptr inbounds nuw i8, ptr %7, i64 568
   %345 = load ptr, ptr %344, align 8
   %346 = load ptr, ptr %63, align 8
-  %347 = getelementptr inbounds i8, ptr %346, i64 16
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 16
   %348 = load i32, ptr %346, align 8
   %349 = zext i32 %348 to i64
-  %350 = getelementptr inbounds ptr, ptr %347, i64 %349
-  %351 = getelementptr inbounds i8, ptr %350, i64 184
+  %350 = getelementptr inbounds nuw ptr, ptr %347, i64 %349
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 184
   store ptr %345, ptr %351, align 8
   %352 = getelementptr inbounds nuw i8, ptr %7, i64 576
   %353 = load ptr, ptr %352, align 8
   %354 = load ptr, ptr %63, align 8
-  %355 = getelementptr inbounds i8, ptr %354, i64 16
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 16
   %356 = load i32, ptr %354, align 8
   %357 = zext i32 %356 to i64
-  %358 = getelementptr inbounds ptr, ptr %355, i64 %357
-  %359 = getelementptr inbounds i8, ptr %358, i64 192
+  %358 = getelementptr inbounds nuw ptr, ptr %355, i64 %357
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 192
   store ptr %353, ptr %359, align 8
   %360 = getelementptr inbounds nuw i8, ptr %7, i64 584
   %361 = load ptr, ptr %360, align 8
   %362 = load ptr, ptr %63, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 16
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 16
   %364 = load i32, ptr %362, align 8
   %365 = zext i32 %364 to i64
-  %366 = getelementptr inbounds ptr, ptr %363, i64 %365
-  %367 = getelementptr inbounds i8, ptr %366, i64 200
+  %366 = getelementptr inbounds nuw ptr, ptr %363, i64 %365
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 200
   store ptr %361, ptr %367, align 8
   %368 = getelementptr inbounds nuw i8, ptr %7, i64 592
   %369 = load ptr, ptr %368, align 8
   %370 = load ptr, ptr %63, align 8
-  %371 = getelementptr inbounds i8, ptr %370, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 16
   %372 = load i32, ptr %370, align 8
   %373 = zext i32 %372 to i64
-  %374 = getelementptr inbounds ptr, ptr %371, i64 %373
-  %375 = getelementptr inbounds i8, ptr %374, i64 208
+  %374 = getelementptr inbounds nuw ptr, ptr %371, i64 %373
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 208
   store ptr %369, ptr %375, align 8
   %376 = getelementptr inbounds nuw i8, ptr %7, i64 600
   %377 = load ptr, ptr %376, align 8
   %378 = load ptr, ptr %63, align 8
-  %379 = getelementptr inbounds i8, ptr %378, i64 16
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 16
   %380 = load i32, ptr %378, align 8
   %381 = zext i32 %380 to i64
-  %382 = getelementptr inbounds ptr, ptr %379, i64 %381
-  %383 = getelementptr inbounds i8, ptr %382, i64 216
+  %382 = getelementptr inbounds nuw ptr, ptr %379, i64 %381
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 216
   store ptr %377, ptr %383, align 8
   %384 = getelementptr inbounds nuw i8, ptr %7, i64 608
   %385 = load ptr, ptr %384, align 8
   %386 = load ptr, ptr %63, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 16
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %388 = load i32, ptr %386, align 8
   %389 = zext i32 %388 to i64
-  %390 = getelementptr inbounds ptr, ptr %387, i64 %389
-  %391 = getelementptr inbounds i8, ptr %390, i64 224
+  %390 = getelementptr inbounds nuw ptr, ptr %387, i64 %389
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 224
   store ptr %385, ptr %391, align 8
   %392 = zext i1 %8 to i8
   store i8 %392, ptr %65, align 4
@@ -29040,11 +29040,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -29138,19 +29138,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -29158,10 +29158,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -29189,65 +29189,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_31OMPParallelGenericLoopDi
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -29282,10 +29282,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -29323,13 +29323,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -29367,14 +29367,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -29412,14 +29412,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -29457,14 +29457,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -29502,14 +29502,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -29547,14 +29547,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -29592,14 +29592,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -29607,11 +29607,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -29678,11 +29678,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -29774,19 +29774,19 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %40
   %.0.i.i.i.i = phi ptr [ %42, %40 ], [ %43, %.critedge.i.i.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   %45 = zext i1 %21 to i8
   store i32 %20, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %19, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 %45, ptr %47, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i, label %48
 
 48:                                               ; preds = %_ZNK5clang10ASTContext8AllocateEmj.exit.i
   %.idx.i.i.i.i = shl nsw i64 %5, 3
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %49, ptr readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false)
   br label %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
 
@@ -29794,10 +29794,10 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i: ;
   br i1 %21, label %50, label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
 50:                                               ; preds = %_ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit.i.i
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %22
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %22
   %53 = zext i32 %19 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %6, ptr %54, align 8
   br label %_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj.exit.i
 
@@ -29825,65 +29825,65 @@ _ZN5clang22OMPExecutableDirective15createDirectiveINS_37OMPTargetParallelGeneric
   store i32 %3, ptr %63, align 8
   store ptr %44, ptr %62, align 8
   %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   %66 = zext i32 %58 to i64
-  %67 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
   store ptr %64, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %67, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 16
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %67, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 24
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %67, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %67, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 40
   store ptr %81, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %67, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
   store ptr %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %67, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 72
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %67, i64 80
+  %94 = getelementptr inbounds nuw i8, ptr %67, i64 80
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %67, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %67, i64 88
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %67, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %67, i64 96
   store ptr %99, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %67, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %67, i64 104
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %67, i64 112
+  %106 = getelementptr inbounds nuw i8, ptr %67, i64 112
   store ptr %105, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %67, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %67, i64 120
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %111 = load ptr, ptr %110, align 8
@@ -29918,10 +29918,10 @@ _ZN5clang16OMPLoopDirective11getCountersEv.exit.i: ; preds = %123, %121, %119, %
 
 126:                                              ; preds = %_ZN5clang16OMPLoopDirective11getCountersEv.exit.i
   %.idx.i.i = shl nsw i64 %112, 3
-  %127 = getelementptr inbounds i8, ptr %113, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %128 = zext i32 %114 to i64
-  %129 = getelementptr inbounds ptr, ptr %127, i64 %128
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %.0.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %.0.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %130, ptr readonly align 8 %111, i64 %.idx.i.i, i1 false)
   br label %_ZN5clang16OMPLoopDirective11setCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -29959,13 +29959,13 @@ _ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i: ; preds = %144, %142, 
 
 146:                                              ; preds = %_ZN5clang16OMPLoopDirective18getPrivateCountersEv.exit.i
   %.idx.i.i55 = shl nsw i64 %133, 3
-  %147 = getelementptr inbounds i8, ptr %134, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %148 = zext i32 %135 to i64
-  %149 = getelementptr inbounds ptr, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %148
   %150 = load i32, ptr %63, align 8
   %151 = add i32 %150, %.0.i.i.i53
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %152
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %153, ptr readonly align 8 %132, i64 %.idx.i.i55, i1 false)
   br label %_ZN5clang16OMPLoopDirective18setPrivateCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -30003,14 +30003,14 @@ _ZN5clang16OMPLoopDirective8getInitsEv.exit.i:    ; preds = %167, %165, %163, %1
 
 169:                                              ; preds = %_ZN5clang16OMPLoopDirective8getInitsEv.exit.i
   %.idx.i.i59 = shl nsw i64 %156, 3
-  %170 = getelementptr inbounds i8, ptr %157, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %171 = zext i32 %158 to i64
-  %172 = getelementptr inbounds ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
   %173 = load i32, ptr %63, align 8
   %174 = shl i32 %173, 1
   %175 = add i32 %174, %.0.i.i.i57
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %172, i64 %176
+  %177 = getelementptr inbounds nuw ptr, ptr %172, i64 %176
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %177, ptr readonly align 8 %155, i64 %.idx.i.i59, i1 false)
   br label %_ZN5clang16OMPLoopDirective8setInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -30048,14 +30048,14 @@ _ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i: ; preds = %191, %189, %187, %1
 
 193:                                              ; preds = %_ZN5clang16OMPLoopDirective10getUpdatesEv.exit.i
   %.idx.i.i63 = shl nsw i64 %180, 3
-  %194 = getelementptr inbounds i8, ptr %181, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %195 = zext i32 %182 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw ptr, ptr %194, i64 %195
   %197 = load i32, ptr %63, align 8
   %198 = mul i32 %197, 3
   %199 = add i32 %198, %.0.i.i.i61
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %196, i64 %200
+  %201 = getelementptr inbounds nuw ptr, ptr %196, i64 %200
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %201, ptr readonly align 8 %179, i64 %.idx.i.i63, i1 false)
   br label %_ZN5clang16OMPLoopDirective10setUpdatesEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -30093,14 +30093,14 @@ _ZN5clang16OMPLoopDirective9getFinalsEv.exit.i:   ; preds = %215, %213, %211, %2
 
 217:                                              ; preds = %_ZN5clang16OMPLoopDirective9getFinalsEv.exit.i
   %.idx.i.i67 = shl nsw i64 %204, 3
-  %218 = getelementptr inbounds i8, ptr %205, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %219 = zext i32 %206 to i64
-  %220 = getelementptr inbounds ptr, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw ptr, ptr %218, i64 %219
   %221 = load i32, ptr %63, align 8
   %222 = shl i32 %221, 2
   %223 = add i32 %222, %.0.i.i.i65
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr %220, i64 %224
+  %225 = getelementptr inbounds nuw ptr, ptr %220, i64 %224
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %225, ptr readonly align 8 %203, i64 %.idx.i.i67, i1 false)
   br label %_ZN5clang16OMPLoopDirective9setFinalsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -30138,14 +30138,14 @@ _ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i: ; preds = %239, %237
 
 241:                                              ; preds = %_ZN5clang16OMPLoopDirective20getDependentCountersEv.exit.i
   %.idx.i.i71 = shl nsw i64 %228, 3
-  %242 = getelementptr inbounds i8, ptr %229, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %243 = zext i32 %230 to i64
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds nuw ptr, ptr %242, i64 %243
   %245 = load i32, ptr %63, align 8
   %246 = mul i32 %245, 5
   %247 = add i32 %246, %.0.i.i.i69
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds ptr, ptr %244, i64 %248
+  %249 = getelementptr inbounds nuw ptr, ptr %244, i64 %248
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr readonly align 8 %227, i64 %.idx.i.i71, i1 false)
   br label %_ZN5clang16OMPLoopDirective20setDependentCountersEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -30183,14 +30183,14 @@ _ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i: ; preds = %263, %261, %
 
 265:                                              ; preds = %_ZN5clang16OMPLoopDirective17getDependentInitsEv.exit.i
   %.idx.i.i75 = shl nsw i64 %252, 3
-  %266 = getelementptr inbounds i8, ptr %253, i64 16
+  %266 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %267 = zext i32 %254 to i64
-  %268 = getelementptr inbounds ptr, ptr %266, i64 %267
+  %268 = getelementptr inbounds nuw ptr, ptr %266, i64 %267
   %269 = load i32, ptr %63, align 8
   %270 = mul i32 %269, 6
   %271 = add i32 %270, %.0.i.i.i73
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds ptr, ptr %268, i64 %272
+  %273 = getelementptr inbounds nuw ptr, ptr %268, i64 %272
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %273, ptr readonly align 8 %251, i64 %.idx.i.i75, i1 false)
   br label %_ZN5clang16OMPLoopDirective17setDependentInitsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -30228,14 +30228,14 @@ _ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i: ; preds = %287, %285,
 
 289:                                              ; preds = %_ZN5clang16OMPLoopDirective19getFinalsConditionsEv.exit.i
   %.idx.i.i79 = shl nsw i64 %276, 3
-  %290 = getelementptr inbounds i8, ptr %277, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %291 = zext i32 %278 to i64
-  %292 = getelementptr inbounds ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
   %293 = load i32, ptr %63, align 8
   %294 = mul i32 %293, 7
   %295 = add i32 %294, %.0.i.i.i77
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds ptr, ptr %292, i64 %296
+  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %296
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %297, ptr readonly align 8 %275, i64 %.idx.i.i79, i1 false)
   br label %_ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.exit
 
@@ -30243,11 +30243,11 @@ _ZN5clang16OMPLoopDirective19setFinalsConditionsEN4llvm8ArrayRefIPNS_4ExprEEE.ex
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 536
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %62, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %302 = load i32, ptr %300, align 8
   %303 = zext i32 %302 to i64
-  %304 = getelementptr inbounds ptr, ptr %301, i64 %303
-  %305 = getelementptr inbounds i8, ptr %304, i64 56
+  %304 = getelementptr inbounds nuw ptr, ptr %301, i64 %303
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
   store ptr %299, ptr %305, align 8
   ret ptr %.0.i.i.i.i
 }
@@ -30314,11 +30314,11 @@ _ZN5clang16OMPLoopDirective15numLoopChildrenEjN4llvm3omp9DirectiveE.exit: ; pred
 
 _ZNK5clang10ASTContext8AllocateEmj.exit.i:        ; preds = %.critedge.i.i.i.i, %32
   %.0.i.i.i.i = phi ptr [ %34, %32 ], [ %35, %.critedge.i.i.i.i ]
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
   store i32 %1, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 44
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 44
   store i32 %14, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   store i8 1, ptr %38, align 8
   %39 = icmp ne ptr %.0.i.i.i.i, null
   tail call void @llvm.assume(i1 %39)
@@ -30368,7 +30368,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIPN5clang12CompoundStm
 
 6:                                                ; preds = %3
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 0) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %7, i64 noundef %1, i64 noundef 8) #12
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %1
@@ -30377,7 +30377,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIPN5clang12CompoundStm
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %6
   %.07.i.i.i.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i.i.i.i ], [ %8, %6 ]
   store ptr %2, ptr %.07.i.i.i.i.i.i.i, align 8
-  %10 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %10, %9
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE13growAndAssignEmS3_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !10
 
@@ -30395,7 +30395,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIPN5clang12CompoundStm
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %15
   %.07.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i ], [ %12, %15 ]
   store ptr %2, ptr %.07.i.i.i.i, align 8
-  %17 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %17, %16
   br i1 %.not.i.i.i.i, label %_ZSt6fill_nIPPN5clang12CompoundStmtEmS2_ET_S4_T0_RKT1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
@@ -30420,7 +30420,7 @@ _ZSt6fill_nIPPN5clang12CompoundStmtEmS2_ET_S4_T0_RKT1_.exit: ; preds = %.lr.ph.i
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %25
   %.07.i.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i ], [ %27, %25 ]
   store ptr %2, ptr %.07.i.i.i.i.i.i, align 8
-  %29 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %29, %28
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang12CompoundStmtELb1EE13growAndAssignEmS3_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
@@ -30472,7 +30472,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   br i1 %.not.i.i.i, label %16, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %17, i64 noundef %14, i64 noundef 16) #12
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
@@ -30481,7 +30481,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #12
   %20 = getelementptr inbounds %"struct.std::pair", ptr %18, i64 %19
   store ptr %11, ptr %20, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #12
   %22 = add i64 %21, 1
@@ -30527,7 +30527,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   br i1 %.not.i.i.i, label %12, label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %13, i64 noundef %10, i64 noundef 8) #12
   br label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
@@ -30541,7 +30541,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit: ; preds = %1, %12
   %19 = add i64 %18, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %19) #12
   store ptr %8, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 %7
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   ret void

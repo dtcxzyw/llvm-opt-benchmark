@@ -65,7 +65,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   %.0199 = phi ptr [ %0, %40 ], [ %38, %34 ]
   call void @Ptngc_comp_make_dict_hist(ptr noundef %.0199, i32 noundef %.0200, ptr noundef %23, ptr noundef nonnull %9, ptr noundef %24) #4
   %42 = load i32, ptr %9, align 4
-  %43 = getelementptr inbounds i8, ptr %2, i64 14
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 14
   call void @Ptngc_comp_conv_to_huffman(ptr noundef %.0199, i32 noundef %.0200, ptr noundef %23, i32 noundef %42, ptr noundef %24, ptr noundef nonnull %43, ptr noundef nonnull %12, ptr noundef %25, ptr noundef nonnull %13, ptr noundef %26, ptr noundef nonnull %14) #4
   %44 = load i32, ptr %12, align 4
   store i32 %44, ptr %4, align 4
@@ -84,7 +84,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   %54 = add i32 %51, 29
   %55 = add i32 %54, %52
   %56 = add i32 %55, %53
-  %57 = getelementptr inbounds i8, ptr %5, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %56, ptr %57, align 4
   %58 = load i32, ptr %14, align 4
   call void @Ptngc_comp_conv_to_rle(ptr noundef %26, i32 noundef %58, ptr noundef %30, ptr noundef nonnull %18, i32 noundef 1) #4
@@ -99,7 +99,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   %65 = add i32 %62, 32
   %66 = add i32 %65, %63
   %67 = add i32 %66, %64
-  %68 = getelementptr inbounds i8, ptr %5, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %67, ptr %68, align 4
   %69 = load i32, ptr %6, align 4
   switch i32 %69, label %236 [
@@ -122,53 +122,53 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   store i32 %76, ptr %3, align 4
   %77 = trunc i32 %7 to i8
   store i8 %77, ptr %2, align 1
-  %78 = getelementptr inbounds i8, ptr %2, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %78, align 1
   %79 = load i32, ptr %22, align 4
   %80 = trunc i32 %79 to i8
-  %81 = getelementptr inbounds i8, ptr %2, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %80, ptr %81, align 1
   %82 = lshr i32 %79, 8
   %83 = trunc i32 %82 to i8
-  %84 = getelementptr inbounds i8, ptr %2, i64 3
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %83, ptr %84, align 1
   %85 = lshr i32 %79, 16
   %86 = trunc i32 %85 to i8
-  %87 = getelementptr inbounds i8, ptr %2, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 %86, ptr %87, align 1
   %88 = lshr i32 %79, 24
   %89 = trunc nuw i32 %88 to i8
-  %90 = getelementptr inbounds i8, ptr %2, i64 5
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 %89, ptr %90, align 1
   %91 = trunc i32 %.0200 to i8
-  %92 = getelementptr inbounds i8, ptr %2, i64 6
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 %91, ptr %92, align 1
   %93 = lshr i32 %.0200, 8
   %94 = trunc i32 %93 to i8
-  %95 = getelementptr inbounds i8, ptr %2, i64 7
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 7
   store i8 %94, ptr %95, align 1
   %96 = lshr i32 %.0200, 16
   %97 = trunc i32 %96 to i8
-  %98 = getelementptr inbounds i8, ptr %2, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %97, ptr %98, align 1
   %99 = lshr i32 %.0200, 24
   %100 = trunc nuw i32 %99 to i8
-  %101 = getelementptr inbounds i8, ptr %2, i64 9
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %100, ptr %101, align 1
   %102 = trunc i32 %62 to i8
-  %103 = getelementptr inbounds i8, ptr %2, i64 10
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %102, ptr %103, align 1
   %104 = lshr i32 %62, 8
   %105 = trunc i32 %104 to i8
-  %106 = getelementptr inbounds i8, ptr %2, i64 11
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 11
   store i8 %105, ptr %106, align 1
   %107 = lshr i32 %62, 16
   %108 = trunc i32 %107 to i8
-  %109 = getelementptr inbounds i8, ptr %2, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 %108, ptr %109, align 1
   %110 = lshr i32 %62, 24
   %111 = trunc nuw i32 %110 to i8
-  %112 = getelementptr inbounds i8, ptr %2, i64 13
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 13
   store i8 %111, ptr %112, align 1
   %113 = load i32, ptr %13, align 4
   %114 = trunc i32 %113 to i8
@@ -208,7 +208,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
 
 135:                                              ; preds = %.lr.ph212, %135
   %indvars.iv225 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next226, %135 ]
-  %136 = getelementptr inbounds i8, ptr %25, i64 %indvars.iv225
+  %136 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv225
   %137 = load i8, ptr %136, align 1
   %gep248 = getelementptr i8, ptr %invariant.gep247, i64 %indvars.iv225
   store i8 %137, ptr %gep248, align 1
@@ -226,53 +226,53 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   store i32 %140, ptr %3, align 4
   %141 = trunc i32 %7 to i8
   store i8 %141, ptr %2, align 1
-  %142 = getelementptr inbounds i8, ptr %2, i64 1
+  %142 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 1, ptr %142, align 1
   %143 = load i32, ptr %22, align 4
   %144 = trunc i32 %143 to i8
-  %145 = getelementptr inbounds i8, ptr %2, i64 2
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %144, ptr %145, align 1
   %146 = lshr i32 %143, 8
   %147 = trunc i32 %146 to i8
-  %148 = getelementptr inbounds i8, ptr %2, i64 3
+  %148 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %147, ptr %148, align 1
   %149 = lshr i32 %143, 16
   %150 = trunc i32 %149 to i8
-  %151 = getelementptr inbounds i8, ptr %2, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 %150, ptr %151, align 1
   %152 = lshr i32 %143, 24
   %153 = trunc nuw i32 %152 to i8
-  %154 = getelementptr inbounds i8, ptr %2, i64 5
+  %154 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 %153, ptr %154, align 1
   %155 = trunc i32 %.0200 to i8
-  %156 = getelementptr inbounds i8, ptr %2, i64 6
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 %155, ptr %156, align 1
   %157 = lshr i32 %.0200, 8
   %158 = trunc i32 %157 to i8
-  %159 = getelementptr inbounds i8, ptr %2, i64 7
+  %159 = getelementptr inbounds nuw i8, ptr %2, i64 7
   store i8 %158, ptr %159, align 1
   %160 = lshr i32 %.0200, 16
   %161 = trunc i32 %160 to i8
-  %162 = getelementptr inbounds i8, ptr %2, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %161, ptr %162, align 1
   %163 = lshr i32 %.0200, 24
   %164 = trunc nuw i32 %163 to i8
-  %165 = getelementptr inbounds i8, ptr %2, i64 9
+  %165 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %164, ptr %165, align 1
   %166 = trunc i32 %62 to i8
-  %167 = getelementptr inbounds i8, ptr %2, i64 10
+  %167 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %166, ptr %167, align 1
   %168 = lshr i32 %62, 8
   %169 = trunc i32 %168 to i8
-  %170 = getelementptr inbounds i8, ptr %2, i64 11
+  %170 = getelementptr inbounds nuw i8, ptr %2, i64 11
   store i8 %169, ptr %170, align 1
   %171 = lshr i32 %62, 16
   %172 = trunc i32 %171 to i8
-  %173 = getelementptr inbounds i8, ptr %2, i64 12
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 %172, ptr %173, align 1
   %174 = lshr i32 %62, 24
   %175 = trunc nuw i32 %174 to i8
-  %176 = getelementptr inbounds i8, ptr %2, i64 13
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 13
   store i8 %175, ptr %176, align 1
   %177 = load i32, ptr %14, align 4
   %178 = trunc i32 %177 to i8
@@ -360,7 +360,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
 
 230:                                              ; preds = %.lr.ph, %230
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %230 ]
-  %231 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv
+  %231 = getelementptr inbounds nuw i8, ptr %27, i64 %indvars.iv
   %232 = load i8, ptr %231, align 1
   %gep243 = getelementptr i8, ptr %invariant.gep242, i64 %indvars.iv
   store i8 %232, ptr %gep243, align 1
@@ -370,7 +370,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
 
 233:                                              ; preds = %.lr.ph210, %233
   %indvars.iv220 = phi i64 [ 0, %.lr.ph210 ], [ %indvars.iv.next221, %233 ]
-  %234 = getelementptr inbounds i8, ptr %28, i64 %indvars.iv220
+  %234 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv220
   %235 = load i8, ptr %234, align 1
   %gep = getelementptr i8, ptr %invariant.gep244, i64 %indvars.iv220
   store i8 %235, ptr %gep, align 1
@@ -384,53 +384,53 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   store i32 %237, ptr %3, align 4
   %238 = trunc i32 %7 to i8
   store i8 %238, ptr %2, align 1
-  %239 = getelementptr inbounds i8, ptr %2, i64 1
+  %239 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 2, ptr %239, align 1
   %240 = load i32, ptr %22, align 4
   %241 = trunc i32 %240 to i8
-  %242 = getelementptr inbounds i8, ptr %2, i64 2
+  %242 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %241, ptr %242, align 1
   %243 = lshr i32 %240, 8
   %244 = trunc i32 %243 to i8
-  %245 = getelementptr inbounds i8, ptr %2, i64 3
+  %245 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %244, ptr %245, align 1
   %246 = lshr i32 %240, 16
   %247 = trunc i32 %246 to i8
-  %248 = getelementptr inbounds i8, ptr %2, i64 4
+  %248 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 %247, ptr %248, align 1
   %249 = lshr i32 %240, 24
   %250 = trunc nuw i32 %249 to i8
-  %251 = getelementptr inbounds i8, ptr %2, i64 5
+  %251 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 %250, ptr %251, align 1
   %252 = trunc i32 %.0200 to i8
-  %253 = getelementptr inbounds i8, ptr %2, i64 6
+  %253 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i8 %252, ptr %253, align 1
   %254 = lshr i32 %.0200, 8
   %255 = trunc i32 %254 to i8
-  %256 = getelementptr inbounds i8, ptr %2, i64 7
+  %256 = getelementptr inbounds nuw i8, ptr %2, i64 7
   store i8 %255, ptr %256, align 1
   %257 = lshr i32 %.0200, 16
   %258 = trunc i32 %257 to i8
-  %259 = getelementptr inbounds i8, ptr %2, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %258, ptr %259, align 1
   %260 = lshr i32 %.0200, 24
   %261 = trunc nuw i32 %260 to i8
-  %262 = getelementptr inbounds i8, ptr %2, i64 9
+  %262 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %261, ptr %262, align 1
   %263 = trunc i32 %62 to i8
-  %264 = getelementptr inbounds i8, ptr %2, i64 10
+  %264 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %263, ptr %264, align 1
   %265 = lshr i32 %62, 8
   %266 = trunc i32 %265 to i8
-  %267 = getelementptr inbounds i8, ptr %2, i64 11
+  %267 = getelementptr inbounds nuw i8, ptr %2, i64 11
   store i8 %266, ptr %267, align 1
   %268 = lshr i32 %62, 16
   %269 = trunc i32 %268 to i8
-  %270 = getelementptr inbounds i8, ptr %2, i64 12
+  %270 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 %269, ptr %270, align 1
   %271 = lshr i32 %62, 24
   %272 = trunc nuw i32 %271 to i8
-  %273 = getelementptr inbounds i8, ptr %2, i64 13
+  %273 = getelementptr inbounds nuw i8, ptr %2, i64 13
   store i8 %272, ptr %273, align 1
   %274 = load i32, ptr %14, align 4
   %275 = trunc i32 %274 to i8
@@ -525,7 +525,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
 
 332:                                              ; preds = %.lr.ph214, %332
   %indvars.iv230 = phi i64 [ 0, %.lr.ph214 ], [ %indvars.iv.next231, %332 ]
-  %333 = getelementptr inbounds i8, ptr %31, i64 %indvars.iv230
+  %333 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv230
   %334 = load i8, ptr %333, align 1
   %gep250 = getelementptr i8, ptr %invariant.gep249, i64 %indvars.iv230
   store i8 %334, ptr %gep250, align 1
@@ -535,7 +535,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
 
 335:                                              ; preds = %.lr.ph216, %335
   %indvars.iv235 = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next236, %335 ]
-  %336 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv235
+  %336 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv235
   %337 = load i8, ptr %336, align 1
   %gep252 = getelementptr i8, ptr %invariant.gep251, i64 %indvars.iv235
   store i8 %337, ptr %gep252, align 1
@@ -592,9 +592,9 @@ define void @Ptngc_comp_huff_compress(ptr noundef %0, i32 noundef %1, ptr nounde
 define void @Ptngc_comp_huff_decompress(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = load i8, ptr %0, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %9 = load i32, ptr %8, align 1
   %10 = sext i32 %9 to i64
   %11 = getelementptr i8, ptr %0, i64 %10
@@ -613,12 +613,12 @@ define void @Ptngc_comp_huff_decompress(ptr noundef %0, i32 noundef %1, ptr noun
   %21 = getelementptr i8, ptr %0, i64 2
   %22 = load i16, ptr %21, align 1
   %23 = zext i16 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 16
   %28 = or disjoint i32 %27, %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 5
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = shl nuw i32 %31, 24
@@ -651,8 +651,8 @@ define void @Ptngc_comp_huff_decompress(ptr noundef %0, i32 noundef %1, ptr noun
   %47 = zext i8 %46 to i32
   %48 = shl nuw nsw i32 %47, 16
   %49 = or disjoint i32 %48, %44
-  %50 = getelementptr inbounds i8, ptr %0, i64 14
-  %51 = getelementptr inbounds i8, ptr %0, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = getelementptr inbounds i8, ptr %51, i64 %10
   tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %50, ptr noundef %.0, i32 noundef %.0134, i32 noundef %19, ptr noundef nonnull %52, i32 noundef %49, ptr noundef null, i32 noundef 0) #4
   br label %138
@@ -691,11 +691,11 @@ define void @Ptngc_comp_huff_decompress(ptr noundef %0, i32 noundef %1, ptr noun
   %84 = zext i8 %83 to i32
   %85 = shl nuw nsw i32 %84, 16
   %86 = or disjoint i32 %85, %81
-  %87 = getelementptr inbounds i8, ptr %0, i64 29
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %88 = getelementptr inbounds i8, ptr %87, i64 %10
-  %89 = getelementptr inbounds i8, ptr %88, i64 %70
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %70
   tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %88, ptr noundef %54, i32 noundef %62, i32 noundef %86, ptr noundef nonnull %89, i32 noundef %78, ptr noundef null, i32 noundef 0) #4
-  %90 = getelementptr inbounds i8, ptr %0, i64 14
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 14
   tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %90, ptr noundef %.0, i32 noundef %.0134, i32 noundef %19, ptr noundef null, i32 noundef 0, ptr noundef %54, i32 noundef %62) #4
   tail call void @free(ptr noundef %54) #4
   br label %138
@@ -743,12 +743,12 @@ define void @Ptngc_comp_huff_decompress(ptr noundef %0, i32 noundef %1, ptr noun
   %131 = zext i8 %130 to i32
   %132 = shl nuw nsw i32 %131, 16
   %133 = or disjoint i32 %132, %128
-  %134 = getelementptr inbounds i8, ptr %0, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %135 = getelementptr inbounds i8, ptr %134, i64 %10
-  %136 = getelementptr inbounds i8, ptr %135, i64 %117
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 %117
   tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %135, ptr noundef %93, i32 noundef %109, i32 noundef %133, ptr noundef nonnull %136, i32 noundef %125, ptr noundef null, i32 noundef 0) #4
   tail call void @Ptngc_comp_conv_from_rle(ptr noundef %93, ptr noundef %92, i32 noundef %101) #4
-  %137 = getelementptr inbounds i8, ptr %0, i64 14
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 14
   tail call void @Ptngc_comp_conv_from_huffman(ptr noundef nonnull %137, ptr noundef %.0, i32 noundef %.0134, i32 noundef %19, ptr noundef null, i32 noundef 0, ptr noundef %92, i32 noundef %101) #4
   tail call void @free(ptr noundef %93) #4
   tail call void @free(ptr noundef %92) #4
@@ -779,7 +779,7 @@ define ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %0) local_unnamed_addr #0 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds [3 x ptr], ptr @huff_algo_names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [3 x ptr], ptr @huff_algo_names, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 

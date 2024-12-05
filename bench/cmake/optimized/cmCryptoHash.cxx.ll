@@ -56,7 +56,7 @@ $_ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEEENSt8__detail9_MakeUniqIT_E15__sing
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12cmCryptoHashC2ENS_4AlgoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds [10 x i32], ptr @_ZL20cmCryptoHashAlgoToId, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [10 x i32], ptr @_ZL20cmCryptoHashAlgoToId, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %0, align 8
   %.b.i = load i1, ptr @_ZL38cmCryptoHash_rhash_library_initialized, align 4
@@ -68,7 +68,7 @@ define dso_local void @_ZN12cmCryptoHashC2ENS_4AlgoE(ptr nocapture noundef nonnu
   br label %_ZL23cmCryptoHash_rhash_initj.exit
 
 _ZL23cmCryptoHash_rhash_initj.exit:               ; preds = %2, %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call noundef ptr @rhash_init(i32 noundef %5)
   store ptr %8, ptr %7, align 8
   ret void
@@ -76,7 +76,7 @@ _ZL23cmCryptoHash_rhash_initj.exit:               ; preds = %2, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12cmCryptoHashD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   invoke void @rhash_free(ptr noundef %3)
           to label %4 unwind label %5
@@ -155,7 +155,7 @@ common.resume:                                    ; preds = %41, %34, %27, %20, 
   br label %common.resume
 
 _ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %_ZL23cmCryptoHash_rhash_initj.exit.i.i
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %15, align 8, !noalias !5
   store ptr %10, ptr %0, align 8, !alias.scope !5
   br label %50
@@ -187,7 +187,7 @@ _ZL23cmCryptoHash_rhash_initj.exit.i.i34:         ; preds = %18, %_ZSteqIcSt11ch
   br label %common.resume
 
 _ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit35: ; preds = %_ZL23cmCryptoHash_rhash_initj.exit.i.i34
-  %22 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %19, ptr %22, align 8, !noalias !9
   store ptr %17, ptr %0, align 8, !alias.scope !9
   br label %50
@@ -219,7 +219,7 @@ _ZL23cmCryptoHash_rhash_initj.exit.i.i41:         ; preds = %25, %_ZSteqIcSt11ch
   br label %common.resume
 
 _ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit42: ; preds = %_ZL23cmCryptoHash_rhash_initj.exit.i.i41
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %26, ptr %29, align 8, !noalias !12
   store ptr %24, ptr %0, align 8, !alias.scope !12
   br label %50
@@ -251,7 +251,7 @@ _ZL23cmCryptoHash_rhash_initj.exit.i.i48:         ; preds = %32, %_ZSteqIcSt11ch
   br label %common.resume
 
 _ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit49: ; preds = %_ZL23cmCryptoHash_rhash_initj.exit.i.i48
-  %36 = getelementptr inbounds i8, ptr %31, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %33, ptr %36, align 8, !noalias !15
   store ptr %31, ptr %0, align 8, !alias.scope !15
   br label %50
@@ -283,7 +283,7 @@ _ZL23cmCryptoHash_rhash_initj.exit.i.i55:         ; preds = %39, %_ZSteqIcSt11ch
   br label %common.resume
 
 _ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit56: ; preds = %_ZL23cmCryptoHash_rhash_initj.exit.i.i55
-  %43 = getelementptr inbounds i8, ptr %38, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %40, ptr %43, align 8, !noalias !18
   store ptr %38, ptr %0, align 8, !alias.scope !18
   br label %50
@@ -351,7 +351,7 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEE
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
   %4 = load i32, ptr %1, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds [10 x i32], ptr @_ZL20cmCryptoHashAlgoToId, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [10 x i32], ptr @_ZL20cmCryptoHashAlgoToId, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
   store i32 %7, ptr %3, align 8
   %.b.i.i = load i1, ptr @_ZL38cmCryptoHash_rhash_library_initialized, align 4
@@ -367,7 +367,7 @@ _ZL23cmCryptoHash_rhash_initj.exit.i:             ; preds = %8, %2
           to label %10 unwind label %12
 
 10:                                               ; preds = %_ZL23cmCryptoHash_rhash_initj.exit.i
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %11, align 8
   store ptr %3, ptr %0, align 8
   ret void
@@ -416,7 +416,7 @@ define dso_local noundef zeroext i1 @_ZN12cmCryptoHash15IntFromHexDigitEcRc(i8 n
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -438,7 +438,7 @@ define dso_local void @_ZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhS
   %14 = zext i8 %13 to i32
   %15 = lshr i32 %14, 4
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %18)
           to label %19 unwind label %.loopexit
@@ -446,13 +446,13 @@ define dso_local void @_ZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhS
 19:                                               ; preds = %.lr.ph
   %20 = and i32 %14, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %23)
           to label %24 unwind label %.loopexit
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %.sroa.08.012, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 1
   %.not = icmp eq ptr %25, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -487,7 +487,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12cmCryptoHash14ByteHashStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 %2, ptr %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @rhash_reset(ptr noundef %6)
   %7 = load ptr, ptr %5, align 8
@@ -508,17 +508,17 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %4
   br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i, label %.noexc5.i
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !21
   br label %18
 
 .noexc5.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #15, !noalias !21
   store ptr %14, ptr %0, align 8, !alias.scope !21
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8, !alias.scope !21
-  %16 = getelementptr inbounds i8, ptr %14, i64 %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %17, align 8, !alias.scope !21
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %14, i8 0, i64 %11, i1 false), !noalias !21
   br label %18
@@ -551,7 +551,7 @@ _ZN12cmCryptoHash8FinalizeEv.exit:                ; preds = %18
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12cmCryptoHash10InitializeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @rhash_reset(ptr noundef %3)
   ret void
@@ -559,7 +559,7 @@ define dso_local void @_ZN12cmCryptoHash10InitializeEv(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12cmCryptoHash6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 %1, ptr %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @rhash_update(ptr noundef %5, ptr noundef %2, i64 noundef %1)
   ret void
@@ -582,17 +582,17 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i, label %.noexc5
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %12
 
 .noexc5:                                          ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #15
   store ptr %8, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %8, i8 0, i64 %5, i1 false)
   br label %12
@@ -602,7 +602,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   %14 = phi ptr [ %9, %.noexc5 ], [ %7, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
   %.0.i.i.i.i.i.i.i = phi ptr [ %10, %.noexc5 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
   store ptr %.0.i.i.i.i.i.i.i, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = invoke i32 @rhash_final(ptr noundef %16, ptr noundef %13)
           to label %21 unwind label %18
@@ -641,7 +641,7 @@ define dso_local void @_ZN12cmCryptoHash12ByteHashFileERKNSt7__cxx1112basic_stri
   br i1 %11, label %13, label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   invoke void @rhash_reset(ptr noundef %15)
           to label %_ZN12cmCryptoHash10InitializeEv.exit unwind label %.loopexit.split-lp
@@ -729,7 +729,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.noexc
   br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i, label %.noexc5.i
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !26
   br label %49
 
@@ -739,10 +739,10 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhS
 
 .noexc8:                                          ; preds = %.noexc5.i
   store ptr %45, ptr %0, align 8, !alias.scope !26
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %45, ptr %46, align 8, !alias.scope !26
-  %47 = getelementptr inbounds i8, ptr %45, i64 %42
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %42
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %47, ptr %48, align 8, !alias.scope !26
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %45, i8 0, i64 %42, i1 false), !noalias !26
   br label %49
@@ -834,7 +834,7 @@ declare noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12cmCryptoHash6AppendEPKvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @rhash_update(ptr noundef %5, ptr noundef %1, i64 noundef %2)
   ret void
@@ -853,7 +853,7 @@ define dso_local void @_ZN12cmCryptoHash10HashStringB5cxx11ESt17basic_string_vie
   %5 = alloca %"class.std::vector", align 8
   call void @_ZN12cmCryptoHash14ByteHashStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, ptr %3)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !noalias !32
   %8 = load ptr, ptr %5, align 8, !noalias !32
   %9 = ptrtoint ptr %7 to i64
@@ -873,7 +873,7 @@ define dso_local void @_ZN12cmCryptoHash10HashStringB5cxx11ESt17basic_string_vie
   %15 = zext i8 %14 to i32
   %16 = lshr i32 %15, 4
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1, !noalias !32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %19)
           to label %20 unwind label %.loopexit.i
@@ -881,13 +881,13 @@ define dso_local void @_ZN12cmCryptoHash10HashStringB5cxx11ESt17basic_string_vie
 20:                                               ; preds = %.lr.ph.i
   %21 = and i32 %15, 15
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1, !noalias !32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %24)
           to label %25 unwind label %.loopexit.i
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %.sroa.08.012.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i, i64 1
   %.not.i = icmp eq ptr %26, %7
   br i1 %.not.i, label %_ZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEE.exit, label %.lr.ph.i
 
@@ -931,7 +931,7 @@ define dso_local void @_ZN12cmCryptoHash8HashFileERKNSt7__cxx1112basic_stringIcS
   %4 = alloca %"class.std::vector", align 8
   call void @_ZN12cmCryptoHash12ByteHashFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #14
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !35
   %7 = load ptr, ptr %4, align 8, !noalias !35
   %8 = ptrtoint ptr %6 to i64
@@ -951,7 +951,7 @@ define dso_local void @_ZN12cmCryptoHash8HashFileERKNSt7__cxx1112basic_stringIcS
   %14 = zext i8 %13 to i32
   %15 = lshr i32 %14, 4
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1, !noalias !35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %18)
           to label %19 unwind label %.loopexit.i
@@ -959,13 +959,13 @@ define dso_local void @_ZN12cmCryptoHash8HashFileERKNSt7__cxx1112basic_stringIcS
 19:                                               ; preds = %.lr.ph.i
   %20 = and i32 %14, 15
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %21
   %23 = load i8, ptr %22, align 1, !noalias !35
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %23)
           to label %24 unwind label %.loopexit.i
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %.sroa.08.012.i, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i, i64 1
   %.not.i = icmp eq ptr %25, %6
   br i1 %.not.i, label %_ZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEE.exit, label %.lr.ph.i
 
@@ -1030,14 +1030,14 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %2
 
 .noexc5.i:                                        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %5) #15, !noalias !38
-  %8 = getelementptr inbounds i8, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %5
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %7, i8 0, i64 %5, i1 false), !noalias !38
   br label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i, %.noexc5.i
   %.sroa.0.0 = phi ptr [ %7, %.noexc5.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %.0.i.i.i.i.i.i.i.i = phi ptr [ %8, %.noexc5.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !38
   %11 = invoke i32 @rhash_final(ptr noundef %10, ptr noundef %.sroa.0.0)
           to label %_ZN12cmCryptoHash8FinalizeEv.exit unwind label %12, !noalias !38
@@ -1076,7 +1076,7 @@ _ZN12cmCryptoHash8FinalizeEv.exit:                ; preds = %_ZNSt12_Vector_base
   %20 = zext i8 %19 to i32
   %21 = lshr i32 %20, 4
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %22
   %24 = load i8, ptr %23, align 1, !noalias !41
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %24)
           to label %25 unwind label %.loopexit.i
@@ -1084,13 +1084,13 @@ _ZN12cmCryptoHash8FinalizeEv.exit:                ; preds = %_ZNSt12_Vector_base
 25:                                               ; preds = %.lr.ph.i
   %26 = and i32 %20, 15
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEEE3hex, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1, !noalias !41
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %29)
           to label %30 unwind label %.loopexit.i
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %.sroa.08.012.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i, i64 1
   %.not.i = icmp eq ptr %31, %.0.i.i.i.i.i.i.i.i
   br i1 %.not.i, label %_ZN12cmCryptoHash16ByteHashToStringB5cxx11ERKSt6vectorIhSaIhEE.exit, label %.lr.ph.i
 

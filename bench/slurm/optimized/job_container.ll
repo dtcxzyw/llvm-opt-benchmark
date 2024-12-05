@@ -91,7 +91,7 @@ define range(i32 -1, 1) i32 @job_container_init() local_unnamed_addr #0 {
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.pre, i64 14
+  %29 = getelementptr inbounds nuw i8, ptr %.pre, i64 14
   store ptr %29, ptr %3, align 8
   br label %30
 
@@ -212,7 +212,7 @@ define range(i32 -1, 1) i32 @job_container_fini() local_unnamed_addr #0 {
   %9 = phi ptr [ %16, %14 ], [ %5, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.preheader ]
   %.0917 = phi i32 [ %.1, %14 ], [ 0, %.preheader ]
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not15 = icmp eq ptr %11, null
   br i1 %.not15, label %14, label %12
@@ -268,7 +268,7 @@ define i32 @container_g_join(i32 noundef %0, i32 noundef %1) local_unnamed_addr 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %5 = load ptr, ptr @ops, align 8
-  %6 = getelementptr inbounds %struct.job_container_ops, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.job_container_ops, ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(i32 noundef %0, i32 noundef %1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -293,7 +293,7 @@ define i32 @container_g_join_external(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 1
+  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(i32 noundef %0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -318,7 +318,7 @@ define i32 @container_g_restore(ptr noundef %0, i1 noundef zeroext %1) local_unn
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %5 = load ptr, ptr @ops, align 8
-  %6 = getelementptr inbounds %struct.job_container_ops, ptr %5, i64 %indvars.iv, i32 2
+  %6 = getelementptr inbounds nuw %struct.job_container_ops, ptr %5, i64 %indvars.iv, i32 2
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0, i1 noundef zeroext %1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -343,7 +343,7 @@ define i32 @container_g_stepd_create(i32 noundef %0, ptr noundef %1) local_unnam
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %5 = load ptr, ptr @ops, align 8
-  %6 = getelementptr inbounds %struct.job_container_ops, ptr %5, i64 %indvars.iv, i32 3
+  %6 = getelementptr inbounds nuw %struct.job_container_ops, ptr %5, i64 %indvars.iv, i32 3
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(i32 noundef %0, ptr noundef %1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -368,7 +368,7 @@ define i32 @container_g_stepd_delete(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 4
+  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 4
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(i32 noundef %0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -393,7 +393,7 @@ define i32 @container_g_send_stepd(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 5
+  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 5
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(i32 noundef %0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -418,7 +418,7 @@ define i32 @container_g_recv_stepd(i32 noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = load ptr, ptr @ops, align 8
-  %5 = getelementptr inbounds %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 6
+  %5 = getelementptr inbounds nuw %struct.job_container_ops, ptr %4, i64 %indvars.iv, i32 6
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(i32 noundef %0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

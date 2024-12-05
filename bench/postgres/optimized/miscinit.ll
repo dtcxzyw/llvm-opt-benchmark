@@ -289,7 +289,7 @@ declare void @get_pkglib_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @SwitchToSharedLatch() local_unnamed_addr #0 {
   %1 = load ptr, ptr @MyProc, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store ptr %2, ptr @MyLatch, align 8
   %3 = load ptr, ptr @FeBeWaitSet, align 8
   %.not = icmp eq ptr %3, null
@@ -337,7 +337,7 @@ define dso_local noundef nonnull ptr @GetBackendTypeDesc(i32 noundef %0) local_u
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.GetBackendTypeDesc, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.GetBackendTypeDesc, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -385,7 +385,7 @@ define dso_local void @checkDataDir() local_unnamed_addr #0 {
   unreachable
 
 15:                                               ; preds = %0
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 61440
   %19 = icmp eq i32 %18, 16384
@@ -401,7 +401,7 @@ define dso_local void @checkDataDir() local_unnamed_addr #0 {
   unreachable
 
 25:                                               ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %1, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %27 = load i32, ptr %26, align 4
   %28 = tail call i32 @geteuid() #21
   %.not1 = icmp eq i32 %27, %28
@@ -691,13 +691,13 @@ define dso_local zeroext i1 @has_rolreplication(i32 noundef %0) local_unnamed_ad
   br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 22
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 22
   %10 = load i8, ptr %9, align 2
   %11 = zext i8 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 73
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 73
   %14 = load i8, ptr %13, align 1
   tail call void @ReleaseSysCache(ptr noundef nonnull %5) #21
   %15 = trunc i8 %14 to i1
@@ -750,16 +750,16 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
 
 18:                                               ; preds = %11, %4
   %.0 = phi ptr [ %6, %4 ], [ %13, %11 ]
-  %19 = getelementptr inbounds i8, ptr %.0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 22
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 22
   %22 = load i8, ptr %21, align 2
   %23 = zext i8 %22 to i64
   %24 = getelementptr i8, ptr %20, i64 %23
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %25, ptr @AuthenticatedUserId, align 4
-  %27 = getelementptr inbounds i8, ptr %24, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 68
   %28 = load i8, ptr %27, align 4
   %29 = trunc i8 %28 to i1
   %30 = and i8 %28, 1
@@ -769,7 +769,7 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
   store i32 %25, ptr @OuterUserId, align 4
   store i32 %25, ptr @CurrentUserId, align 4
   %31 = load ptr, ptr @MyProc, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   store i32 %25, ptr %32, align 8
   %33 = load i8, ptr @IsUnderPostmaster, align 1
   %34 = trunc i8 %33 to i1
@@ -779,7 +779,7 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
   br i1 %2, label %44, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %24, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %38 = load i8, ptr %37, align 4
   %39 = trunc i8 %38 to i1
   br i1 %39, label %44, label %40
@@ -793,7 +793,7 @@ define dso_local void @InitializeSessionUserId(ptr noundef %0, i32 noundef %1, i
   unreachable
 
 44:                                               ; preds = %36, %35
-  %45 = getelementptr inbounds i8, ptr %24, i64 76
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 76
   %46 = load i32, ptr %45, align 4
   %47 = icmp slt i32 %46, 0
   %brmerge = or i1 %47, %29
@@ -865,7 +865,7 @@ define dso_local i64 @system_user(ptr nocapture noundef writeonly %0) local_unna
   br label %8
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %7, align 4
   br label %8
 
@@ -945,13 +945,13 @@ define dso_local ptr @GetUserNameFromId(i32 noundef %0, i1 noundef zeroext %1) l
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = tail call ptr @pstrdup(ptr noundef nonnull %17) #21
   tail call void @ReleaseSysCache(ptr noundef nonnull %4) #21
   br label %19
@@ -995,7 +995,7 @@ define dso_local void @SerializeClientConnectionInfo(i64 noundef %0, ptr nocaptu
 
 .thread:                                          ; preds = %2
   store i32 -1, ptr %1, align 1
-  %.sroa.6.0..sroa_idx7 = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.6.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %3, ptr %.sroa.6.0..sroa_idx7, align 1
   br label %14
 
@@ -1003,7 +1003,7 @@ define dso_local void @SerializeClientConnectionInfo(i64 noundef %0, ptr nocaptu
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #24
   %7 = trunc i64 %6 to i32
   store i32 %7, ptr %1, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %3, ptr %.sroa.6.0..sroa_idx, align 1
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %14
@@ -1027,7 +1027,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define dso_local void @RestoreClientConnectionInfo(ptr noundef %0) local_unnamed_addr #0 {
   %.sroa.0.0.copyload = load i32, ptr %0, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
   store ptr null, ptr @MyClientConnectionInfo, align 8
   store i32 %.sroa.2.0.copyload, ptr getelementptr inbounds (i8, ptr @MyClientConnectionInfo, i64 8), align 8
@@ -1375,12 +1375,12 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @TouchSocketLockFiles() local_unnamed_addr #14 {
   %1 = load ptr, ptr @lock_files, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %2, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph14, label %._crit_edge
@@ -1499,7 +1499,7 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
   br i1 %41, label %.lr.ph53, label %._crit_edge54
 
 .lr.ph53:                                         ; preds = %._crit_edge
-  %42 = getelementptr inbounds i8, ptr %4, i64 8192
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8192
   br label %43
 
 43:                                               ; preds = %.lr.ph53, %47
@@ -1522,7 +1522,7 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
 ._crit_edge54:                                    ; preds = %47, %._crit_edge.thread, %._crit_edge
   %.033.lcssa59 = phi ptr [ %.033.lcssa, %._crit_edge ], [ %31, %._crit_edge.thread ], [ %.033.lcssa, %47 ]
   %.0.lcssa = phi ptr [ %40, %._crit_edge ], [ %36, %._crit_edge.thread ], [ %.1, %47 ]
-  %49 = getelementptr inbounds i8, ptr %4, i64 8192
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 8192
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %.0.lcssa to i64
   %52 = sub i64 %50, %51
@@ -1772,12 +1772,12 @@ define internal fastcc void @load_libraries(ptr noundef %0, ptr noundef %1, i1 n
   br label %51
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %12, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %12, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %21 = load i32, ptr %19, align 4
   %22 = icmp sgt i32 %21, 0
   br i1 %2, label %.lr.ph.split.us.split, label %.lr.ph.split.split
@@ -1920,12 +1920,12 @@ declare void @on_proc_exit(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @UnlinkLockFiles(i32 %0, i64 %1) #0 {
   %3 = load ptr, ptr @lock_files, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph13, label %._crit_edge

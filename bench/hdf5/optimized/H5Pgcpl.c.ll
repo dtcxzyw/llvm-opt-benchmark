@@ -347,13 +347,13 @@ define range(i32 -1, 1) i32 @H5Pset_link_phase_change(i64 noundef %0, i32 nounde
   %54 = icmp ne i32 %2, 6
   %or.cond = or i1 %53, %54
   %spec.select = zext i1 %or.cond to i8
-  %55 = getelementptr inbounds i8, ptr %4, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %spec.select, ptr %55, align 4
   %56 = trunc nuw i32 %1 to i16
-  %57 = getelementptr inbounds i8, ptr %4, i64 6
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i16 %56, ptr %57, align 2
   %58 = trunc nuw i32 %2 to i16
-  %59 = getelementptr inbounds i8, ptr %4, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i16 %58, ptr %59, align 4
   %60 = call i32 @H5P_set(ptr noundef nonnull %39, ptr noundef nonnull @.str.5, ptr noundef nonnull %4) #5
   %61 = icmp slt i32 %60, 0
@@ -448,7 +448,7 @@ define range(i32 -1, 1) i32 @H5Pget_link_phase_change(i64 noundef %0, ptr nounde
   br i1 %26, label %44, label %48
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %4, i64 6
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
   store i32 %47, ptr %1, align 4
@@ -458,7 +458,7 @@ define range(i32 -1, 1) i32 @H5Pget_link_phase_change(i64 noundef %0, ptr nounde
   br i1 %27, label %49, label %.thread34
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %51 = load i16, ptr %50, align 4
   %52 = zext i16 %51 to i32
   store i32 %52, ptr %2, align 4
@@ -562,13 +562,13 @@ define range(i32 -1, 1) i32 @H5Pset_est_link_info(i64 noundef %0, i32 noundef %1
   %54 = icmp ne i32 %2, 8
   %or.cond = or i1 %53, %54
   %spec.select = zext i1 %or.cond to i8
-  %55 = getelementptr inbounds i8, ptr %4, i64 10
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i8 %spec.select, ptr %55, align 2
   %56 = trunc nuw i32 %1 to i16
-  %57 = getelementptr inbounds i8, ptr %4, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i16 %56, ptr %57, align 4
   %58 = trunc nuw i32 %2 to i16
-  %59 = getelementptr inbounds i8, ptr %4, i64 14
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 14
   store i16 %58, ptr %59, align 2
   %60 = call i32 @H5P_set(ptr noundef nonnull %39, ptr noundef nonnull @.str.5, ptr noundef nonnull %4) #5
   %61 = icmp slt i32 %60, 0
@@ -663,7 +663,7 @@ define range(i32 -1, 1) i32 @H5Pget_est_link_info(i64 noundef %0, ptr noundef wr
   br i1 %26, label %44, label %48
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %4, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %46 = load i16, ptr %45, align 4
   %47 = zext i16 %46 to i32
   store i32 %47, ptr %1, align 4
@@ -673,7 +673,7 @@ define range(i32 -1, 1) i32 @H5Pget_est_link_info(i64 noundef %0, ptr noundef wr
   br i1 %27, label %49, label %.thread34
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %4, i64 14
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 14
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i32
   store i32 %52, ptr %2, align 4
@@ -767,7 +767,7 @@ define range(i32 -1, 1) i32 @H5Pset_link_creation_order(i64 noundef %0, i32 noun
   %46 = trunc i32 %1 to i8
   %47 = and i8 %46, 1
   store i8 %47, ptr %3, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %49 = lshr i8 %46, 1
   %50 = and i8 %49, 1
   store i8 %50, ptr %48, align 1
@@ -865,7 +865,7 @@ define range(i32 -1, 1) i32 @H5Pget_link_creation_order(i64 noundef %0, ptr noun
   %43 = zext nneg i8 %42 to i32
   %44 = load i32, ptr %1, align 4
   %45 = or i32 %44, %43
-  %46 = getelementptr inbounds i8, ptr %3, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = trunc i8 %47 to i1
   %49 = select i1 %48, i32 2, i32 0
@@ -903,84 +903,84 @@ define internal noundef i32 @H5P__gcrt_group_info_enc(ptr nocapture noundef read
   %7 = trunc i32 %6 to i8
   store i8 %7, ptr %4, align 1
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8
   %10 = load i32, ptr %0, align 4
   %11 = lshr i32 %10, 8
   %12 = trunc i32 %11 to i8
   store i8 %12, ptr %9, align 1
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %14, ptr %1, align 8
   %15 = load i32, ptr %0, align 4
   %16 = lshr i32 %15, 16
   %17 = trunc i32 %16 to i8
   store i8 %17, ptr %14, align 1
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %19, ptr %1, align 8
   %20 = load i32, ptr %0, align 4
   %21 = lshr i32 %20, 24
   %22 = trunc nuw i32 %21 to i8
   store i8 %22, ptr %19, align 1
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store ptr %24, ptr %1, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %26 = load i16, ptr %25, align 2
   %27 = trunc i16 %26 to i8
   store i8 %27, ptr %24, align 1
   %28 = load ptr, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %29, ptr %1, align 8
   %30 = load i16, ptr %25, align 2
   %31 = lshr i16 %30, 8
   %32 = trunc nuw i16 %31 to i8
   store i8 %32, ptr %29, align 1
   %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %34, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i16, ptr %35, align 4
   %37 = trunc i16 %36 to i8
   store i8 %37, ptr %34, align 1
   %38 = load ptr, ptr %1, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store ptr %39, ptr %1, align 8
   %40 = load i16, ptr %35, align 4
   %41 = lshr i16 %40, 8
   %42 = trunc nuw i16 %41 to i8
   store i8 %42, ptr %39, align 1
   %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store ptr %44, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %46 = load i16, ptr %45, align 4
   %47 = trunc i16 %46 to i8
   store i8 %47, ptr %44, align 1
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
   store ptr %49, ptr %1, align 8
   %50 = load i16, ptr %45, align 4
   %51 = lshr i16 %50, 8
   %52 = trunc nuw i16 %51 to i8
   store i8 %52, ptr %49, align 1
   %53 = load ptr, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   store ptr %54, ptr %1, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 14
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %56 = load i16, ptr %55, align 2
   %57 = trunc i16 %56 to i8
   store i8 %57, ptr %54, align 1
   %58 = load ptr, ptr %1, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store ptr %59, ptr %1, align 8
   %60 = load i16, ptr %55, align 2
   %61 = lshr i16 %60, 8
   %62 = trunc nuw i16 %61 to i8
   store i8 %62, ptr %59, align 1
   %63 = load ptr, ptr %1, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store ptr %64, ptr %1, align 8
   br label %65
 
@@ -999,7 +999,7 @@ define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, 
   %5 = zext i8 %4 to i32
   store i32 %5, ptr %1, align 4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %7, ptr %0, align 8
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
@@ -1008,7 +1008,7 @@ define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, 
   %12 = or i32 %10, %11
   store i32 %12, ptr %1, align 4
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %14, ptr %0, align 8
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
@@ -1017,7 +1017,7 @@ define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, 
   %19 = or i32 %17, %18
   store i32 %19, ptr %1, align 4
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %21, ptr %0, align 8
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
@@ -1026,14 +1026,14 @@ define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, 
   %26 = or i32 %24, %25
   store i32 %26, ptr %1, align 4
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %28, ptr %0, align 8
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i16
-  %31 = getelementptr inbounds i8, ptr %1, i64 6
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %30, ptr %31, align 2
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %33, ptr %0, align 8
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i16
@@ -1042,14 +1042,14 @@ define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, 
   %38 = or i16 %36, %37
   store i16 %38, ptr %31, align 2
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %40, ptr %0, align 8
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i16
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 %42, ptr %43, align 4
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %45, ptr %0, align 8
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i16
@@ -1058,14 +1058,14 @@ define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, 
   %50 = or i16 %48, %49
   store i16 %50, ptr %43, align 4
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
   store ptr %52, ptr %0, align 8
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i16
-  %55 = getelementptr inbounds i8, ptr %1, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i16 %54, ptr %55, align 4
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store ptr %57, ptr %0, align 8
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i16
@@ -1074,14 +1074,14 @@ define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, 
   %62 = or i16 %60, %61
   store i16 %62, ptr %55, align 4
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
   store ptr %64, ptr %0, align 8
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i16
-  %67 = getelementptr inbounds i8, ptr %1, i64 14
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 14
   store i16 %66, ptr %67, align 2
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   store ptr %69, ptr %0, align 8
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i16
@@ -1090,7 +1090,7 @@ define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, 
   %74 = or i16 %72, %73
   store i16 %74, ptr %67, align 2
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
   store ptr %76, ptr %0, align 8
   %77 = load i16, ptr %31, align 2
   %.not = icmp eq i16 %77, 8
@@ -1104,7 +1104,7 @@ define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, 
 
 80:                                               ; preds = %78, %2
   %.sink = phi i8 [ 1, %2 ], [ %spec.select, %78 ]
-  %81 = getelementptr inbounds i8, ptr %1, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i8 %.sink, ptr %81, align 4
   %82 = load i16, ptr %55, align 4
   %.not49 = icmp eq i16 %82, 4
@@ -1118,7 +1118,7 @@ define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, 
 
 85:                                               ; preds = %83, %80
   %.sink52 = phi i8 [ 1, %80 ], [ %spec.select54, %83 ]
-  %86 = getelementptr inbounds i8, ptr %1, i64 10
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 %.sink52, ptr %86, align 2
   ret i32 0
 }
@@ -1132,30 +1132,30 @@ define internal noundef i32 @H5P__gcrt_link_info_enc(ptr nocapture noundef reado
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 8
   %7 = and i8 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = trunc i8 %9 to i1
   %11 = select i1 %10, i8 2, i8 0
   %12 = or disjoint i8 %11, %7
-  %13 = getelementptr inbounds i8, ptr %4, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %13, ptr %1, align 8
   store i8 4, ptr %4, align 1
   %14 = load ptr, ptr %1, align 8
   store i8 %12, ptr %14, align 1
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %16, ptr %1, align 8
   store i8 0, ptr %16, align 1
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %18, ptr %1, align 8
   store i8 0, ptr %18, align 1
   %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store ptr %20, ptr %1, align 8
   store i8 0, ptr %20, align 1
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8
   br label %23
 
@@ -1169,7 +1169,7 @@ define internal noundef i32 @H5P__gcrt_link_info_enc(ptr nocapture noundef reado
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5P__gcrt_link_info_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %5, 4
@@ -1185,11 +1185,11 @@ define internal range(i32 -1, 1) i32 @H5P__gcrt_link_info_dec(ptr nocapture noun
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) @H5G_def_linfo_g, i64 48, i1 false)
   %11 = load ptr, ptr %0, align 8
   %12 = load i8, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store ptr %13, ptr %0, align 8
   %14 = and i8 %12, 1
   store i8 %14, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %16 = lshr i8 %12, 1
   %.lobit = and i8 %16, 1
   store i8 %.lobit, ptr %15, align 1

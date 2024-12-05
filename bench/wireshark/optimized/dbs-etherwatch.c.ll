@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 2) i32 @dbs_etherwatch_open(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [240 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %4, i64 239
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 239
   store i8 0, ptr %5, align 1
   br label %6
 
@@ -103,18 +103,18 @@ define hidden range(i32 -1, 2) i32 @dbs_etherwatch_open(ptr noundef %0, ptr noca
 
 32:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %4)
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 1, ptr %33, align 8
   %34 = load i32, ptr @dbs_etherwatch_file_type_subtype, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @dbs_etherwatch_read, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @dbs_etherwatch_seek_read, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 148
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 2, ptr %39, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #10
   br label %40
@@ -189,7 +189,7 @@ dbs_etherwatch_seek_next_packet.exit.thread:      ; preds = %._crit_edge.i, %22,
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @dbs_etherwatch_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = add i64 %1, -1
   %10 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %9, i32 noundef 0, ptr noundef %4) #10
@@ -237,7 +237,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_dbs_etherwatch_packet(ptr noun
   store i32 7895160, ptr %10, align 4
   tail call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef 1514) #10
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr i8, ptr %11, i64 %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
@@ -494,11 +494,11 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   br label %.loopexit
 
 139:                                              ; preds = %134
-  %140 = getelementptr inbounds i8, ptr %6, i64 33
-  %141 = getelementptr inbounds i8, ptr %9, i64 12
-  %142 = getelementptr inbounds i8, ptr %9, i64 20
-  %143 = getelementptr inbounds i8, ptr %9, i64 8
-  %144 = getelementptr inbounds i8, ptr %9, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %6, i64 33
+  %141 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %142 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %143 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %145 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %140, ptr noundef nonnull @.str.6, ptr noundef nonnull %7, ptr noundef nonnull %141, ptr noundef nonnull %10, ptr noundef nonnull %142, ptr noundef nonnull %143, ptr noundef nonnull %144, ptr noundef nonnull %9, ptr noundef nonnull %8) #10
   %.not127 = icmp eq i32 %145, 8
   br i1 %.not127, label %148, label %146
@@ -521,10 +521,10 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   br label %.loopexit
 
 153:                                              ; preds = %148
-  %154 = getelementptr inbounds i8, ptr %6, i64 15
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %154, ptr noundef nonnull dereferenceable(18) @.str.9, i64 18)
   %155 = icmp eq i32 %bcmp, 0
-  %156 = getelementptr inbounds i8, ptr %6, i64 9
+  %156 = getelementptr inbounds nuw i8, ptr %6, i64 9
   br i1 %155, label %157, label %162
 
 157:                                              ; preds = %153
@@ -570,7 +570,7 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   br i1 %.not130, label %181, label %175
 
 175:                                              ; preds = %172
-  %176 = getelementptr inbounds i8, ptr %6, i64 18
+  %176 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %177 = getelementptr i8, ptr %14, i64 17
   %178 = call fastcc i32 @parse_hex_dump(ptr noundef nonnull %176, ptr noundef %177, i8 noundef signext 32, i8 noundef signext 45)
   %.not131 = icmp eq i32 %178, 1
@@ -589,7 +589,7 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   br i1 %182, label %183, label %192
 
 183:                                              ; preds = %181
-  %184 = getelementptr inbounds i8, ptr %6, i64 18
+  %184 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %185 = zext nneg i32 %.1 to i64
   %186 = getelementptr i8, ptr %14, i64 %185
   %187 = call fastcc i32 @parse_hex_dump(ptr noundef nonnull %184, ptr noundef %186, i8 noundef signext 45, i8 noundef signext 44)
@@ -623,9 +623,9 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   %.0118 = phi i32 [ %.2, %192 ], [ 14, %157 ]
   store i32 0, ptr %1, align 8
   %201 = call ptr @wtap_block_create(i32 noundef 5) #10
-  %202 = getelementptr inbounds i8, ptr %1, i64 232
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %201, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %1, i64 4
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 3, ptr %203, align 4
   %204 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) @parse_dbs_etherwatch_packet.months, ptr noundef nonnull dereferenceable(1) %10) #11
   %.not135 = icmp eq ptr %204, null
@@ -636,7 +636,7 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   %207 = trunc i64 %206 to i32
   %208 = sub i32 %207, ptrtoint (ptr @parse_dbs_etherwatch_packet.months to i32)
   %209 = sdiv i32 %208, 3
-  %210 = getelementptr inbounds i8, ptr %9, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %209, ptr %210, align 8
   br label %211
 
@@ -644,20 +644,20 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   %212 = load i32, ptr %142, align 4
   %213 = add i32 %212, -1900
   store i32 %213, ptr %142, align 4
-  %214 = getelementptr inbounds i8, ptr %9, i64 32
+  %214 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 -1, ptr %214, align 8
   %215 = call i64 @mktime(ptr noundef nonnull %9) #10
-  %216 = getelementptr inbounds i8, ptr %1, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %215, ptr %216, align 8
   %217 = load i32, ptr %8, align 4
   %218 = mul i32 %217, 10000000
-  %219 = getelementptr inbounds i8, ptr %1, i64 24
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %218, ptr %219, align 8
   %220 = load i32, ptr %7, align 4
   %221 = add i32 %220, %.0118
-  %222 = getelementptr inbounds i8, ptr %1, i64 64
+  %222 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %221, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %1, i64 68
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %221, ptr %223, align 4
   %224 = icmp ugt i32 %221, 262144
   br i1 %224, label %225, label %228
@@ -675,7 +675,7 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   %230 = load ptr, ptr %2, align 8
   %231 = load i64, ptr %12, align 8
   %232 = getelementptr i8, ptr %230, i64 %231
-  %233 = getelementptr inbounds i8, ptr %1, i64 80
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 0, ptr %233, align 8
   %.pre = load i32, ptr %7, align 4
   br label %234

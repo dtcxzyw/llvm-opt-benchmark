@@ -53,7 +53,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
   br i1 %.not9, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 14
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 14
   %8 = tail call i32 @atoi(ptr nocapture noundef nonnull %7) #8
   store i32 %8, ptr @table_size, align 4
   br label %9
@@ -65,7 +65,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
   br i1 %.not10, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 15
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 15
   %14 = tail call i32 @atoi(ptr nocapture noundef nonnull %13) #8
   store i32 %14, ptr @bucket_size, align 4
   br label %15
@@ -77,7 +77,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
   br i1 %.not11, label %21, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %17, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %20 = tail call i32 @atoi(ptr nocapture noundef nonnull %19) #8
   store i32 %20, ptr @log_freq, align 4
   br label %21
@@ -89,7 +89,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
   br i1 %.not12, label %27, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %23, i64 15
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 15
   %26 = tail call i32 @atoi(ptr nocapture noundef nonnull %25) #8
   store i32 %26, ptr @refill_rate, align 4
   br label %27
@@ -101,7 +101,7 @@ define dso_local void @rate_limit_init() local_unnamed_addr #0 {
   br i1 %.not13, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 17
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 17
   %32 = tail call i32 @atoi(ptr nocapture noundef nonnull %31) #8
   store i32 %32, ptr @refill_period, align 4
   br label %33
@@ -163,7 +163,7 @@ define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly 
   br i1 %.b60, label %3, label %105
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 140
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %5 = load i32, ptr %4, align 4
   %6 = tail call zeroext i1 @validate_slurm_user(i32 noundef %5) #7
   br i1 %6, label %105, label %7
@@ -213,7 +213,7 @@ define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly 
   br i1 %.not61, label %27, label %42
 
 27:                                               ; preds = %.critedge
-  %28 = getelementptr inbounds i8, ptr %26, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i32 %13, ptr %28, align 4
   %29 = load i32, ptr @refill_period, align 4
   %30 = sext i32 %29 to i64
@@ -321,7 +321,7 @@ define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly 
   br i1 %.not67, label %105, label %91
 
 91:                                               ; preds = %84
-  %92 = getelementptr inbounds i8, ptr %0, i64 184
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %93 = load i32, ptr %92, align 8
   %94 = call i32 @slurm_get_peer_addr(i32 noundef %93, ptr noundef nonnull %2) #7
   %95 = call i32 @get_log_level() #7
@@ -330,7 +330,7 @@ define dso_local zeroext i1 @rate_limit_exceeded(ptr nocapture noundef readonly 
 
 97:                                               ; preds = %91
   %98 = load i32, ptr %4, align 4
-  %99 = getelementptr inbounds i8, ptr %0, i64 204
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %100 = load i16, ptr %99, align 4
   %101 = call ptr @rpc_num2string(i16 noundef zeroext %100) #7
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.16, i32 noundef %98, ptr noundef %101, ptr noundef nonnull %2) #7

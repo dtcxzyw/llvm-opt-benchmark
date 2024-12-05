@@ -24,20 +24,20 @@ define range(i32 0, 73) i32 @PMPI_T_cvar_write(ptr nocapture noundef readonly %0
 8:                                                ; preds = %4
   tail call void @ompi_mpit_lock() #2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 108
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 108
   %11 = load i32, ptr %10, align 4
   %switch = icmp ult i32 %11, 2
   br i1 %switch, label %20, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 4
   %.not11 = icmp eq i32 %15, 0
   br i1 %.not11, label %20, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %9, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = tail call i32 @mca_base_var_set_value(i32 noundef %18, ptr noundef %1, i64 noundef 8, i32 noundef 4, ptr noundef null) #2
   %.not12 = icmp eq i32 %19, 0

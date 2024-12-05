@@ -103,13 +103,13 @@ define internal void @sifive_gpio_class_init(ptr noundef %klass, ptr nocapture r
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sifive_gpio_properties) #7
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_sifive_gpio, ptr %vmsd, align 8
-  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @sifive_gpio_realize, ptr %realize, align 8
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @sifive_gpio_reset, ptr %reset, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
   ret void
 }
@@ -120,17 +120,17 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @sifive_gpio_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, i32 noundef 23, ptr noundef nonnull @__func__.SIFIVE_GPIO) #7
-  %mmio = getelementptr inbounds i8, ptr %call.i, i64 816
+  %mmio = getelementptr inbounds nuw i8, ptr %call.i, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @gpio_ops, ptr noundef %call.i, ptr noundef nonnull @.str, i64 noundef 256) #7
   %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.36, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #7
   tail call void @sysbus_init_mmio(ptr noundef %call.i15, ptr noundef nonnull %mmio) #7
-  %ngpio = getelementptr inbounds i8, ptr %call.i, i64 1676
+  %ngpio = getelementptr inbounds nuw i8, ptr %call.i, i64 1676
   %0 = load i32, ptr %ngpio, align 4
   %cmp19.not = icmp eq i32 %0, 0
   br i1 %cmp19.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %irq = getelementptr inbounds i8, ptr %call.i, i64 1088
+  %irq = getelementptr inbounds nuw i8, ptr %call.i, i64 1088
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -149,7 +149,7 @@ for.end:                                          ; preds = %for.body, %entry
   %2 = load i32, ptr %ngpio, align 4
   tail call void @qdev_init_gpio_in(ptr noundef %call.i17, ptr noundef nonnull @sifive_gpio_set, i32 noundef %2) #7
   %call.i18 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #7
-  %output = getelementptr inbounds i8, ptr %call.i, i64 1344
+  %output = getelementptr inbounds nuw i8, ptr %call.i, i64 1344
   %3 = load i32, ptr %ngpio, align 4
   tail call void @qdev_init_gpio_out(ptr noundef %call.i18, ptr noundef nonnull %output, i32 noundef %3) #7
   ret void
@@ -159,7 +159,7 @@ for.end:                                          ; preds = %for.body, %entry
 define internal void @sifive_gpio_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, i32 noundef 23, ptr noundef nonnull @__func__.SIFIVE_GPIO) #7
-  %value = getelementptr inbounds i8, ptr %call.i, i64 1600
+  %value = getelementptr inbounds nuw i8, ptr %call.i, i64 1600
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(76) %value, i8 0, i64 76, i1 false)
   ret void
 }
@@ -204,7 +204,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef range(i64 -2147483648, 2147483648) %conv, i64 noundef range(i64 -2147483648, 2147483648) %conv1) #7
   br label %trace_sifive_gpio_set.exit
@@ -223,7 +223,7 @@ if.else:                                          ; preds = %trace_sifive_gpio_s
   unreachable
 
 deposit32.exit:                                   ; preds = %trace_sifive_gpio_set.exit
-  %in_mask = getelementptr inbounds i8, ptr %call.i, i64 1672
+  %in_mask = getelementptr inbounds nuw i8, ptr %call.i, i64 1672
   %6 = load i32, ptr %in_mask, align 8
   %cmp5 = icmp sgt i32 %value, -1
   %conv6 = zext i1 %cmp5 to i32
@@ -236,7 +236,7 @@ deposit32.exit:                                   ; preds = %trace_sifive_gpio_s
   br i1 %cmp5, label %deposit32.exit19, label %if.end16
 
 deposit32.exit19:                                 ; preds = %deposit32.exit
-  %in = getelementptr inbounds i8, ptr %call.i, i64 1668
+  %in = getelementptr inbounds nuw i8, ptr %call.i, i64 1668
   %7 = load i32, ptr %in, align 4
   %cmp12 = icmp ne i32 %value, 0
   %conv13 = zext i1 %cmp12 to i32
@@ -282,87 +282,87 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %call.i, i64 1600
+  %value = getelementptr inbounds nuw i8, ptr %call.i, i64 1600
   %1 = load i32, ptr %value, align 16
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %input_en = getelementptr inbounds i8, ptr %call.i, i64 1604
+  %input_en = getelementptr inbounds nuw i8, ptr %call.i, i64 1604
   %2 = load i32, ptr %input_en, align 4
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %output_en = getelementptr inbounds i8, ptr %call.i, i64 1608
+  %output_en = getelementptr inbounds nuw i8, ptr %call.i, i64 1608
   %3 = load i32, ptr %output_en, align 8
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %port = getelementptr inbounds i8, ptr %call.i, i64 1612
+  %port = getelementptr inbounds nuw i8, ptr %call.i, i64 1612
   %4 = load i32, ptr %port, align 4
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %pue = getelementptr inbounds i8, ptr %call.i, i64 1616
+  %pue = getelementptr inbounds nuw i8, ptr %call.i, i64 1616
   %5 = load i32, ptr %pue, align 16
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
-  %ds = getelementptr inbounds i8, ptr %call.i, i64 1620
+  %ds = getelementptr inbounds nuw i8, ptr %call.i, i64 1620
   %6 = load i32, ptr %ds, align 4
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %rise_ie = getelementptr inbounds i8, ptr %call.i, i64 1624
+  %rise_ie = getelementptr inbounds nuw i8, ptr %call.i, i64 1624
   %7 = load i32, ptr %rise_ie, align 8
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
-  %rise_ip = getelementptr inbounds i8, ptr %call.i, i64 1628
+  %rise_ip = getelementptr inbounds nuw i8, ptr %call.i, i64 1628
   %8 = load i32, ptr %rise_ip, align 4
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
-  %fall_ie = getelementptr inbounds i8, ptr %call.i, i64 1632
+  %fall_ie = getelementptr inbounds nuw i8, ptr %call.i, i64 1632
   %9 = load i32, ptr %fall_ie, align 16
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry
-  %fall_ip = getelementptr inbounds i8, ptr %call.i, i64 1636
+  %fall_ip = getelementptr inbounds nuw i8, ptr %call.i, i64 1636
   %10 = load i32, ptr %fall_ip, align 4
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
-  %high_ie = getelementptr inbounds i8, ptr %call.i, i64 1640
+  %high_ie = getelementptr inbounds nuw i8, ptr %call.i, i64 1640
   %11 = load i32, ptr %high_ie, align 8
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %entry
-  %high_ip = getelementptr inbounds i8, ptr %call.i, i64 1644
+  %high_ip = getelementptr inbounds nuw i8, ptr %call.i, i64 1644
   %12 = load i32, ptr %high_ip, align 4
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %entry
-  %low_ie = getelementptr inbounds i8, ptr %call.i, i64 1648
+  %low_ie = getelementptr inbounds nuw i8, ptr %call.i, i64 1648
   %13 = load i32, ptr %low_ie, align 16
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
-  %low_ip = getelementptr inbounds i8, ptr %call.i, i64 1652
+  %low_ip = getelementptr inbounds nuw i8, ptr %call.i, i64 1652
   %14 = load i32, ptr %low_ip, align 4
   br label %sw.epilog
 
 sw.bb27:                                          ; preds = %entry
-  %iof_en = getelementptr inbounds i8, ptr %call.i, i64 1656
+  %iof_en = getelementptr inbounds nuw i8, ptr %call.i, i64 1656
   %15 = load i32, ptr %iof_en, align 8
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %entry
-  %iof_sel = getelementptr inbounds i8, ptr %call.i, i64 1660
+  %iof_sel = getelementptr inbounds nuw i8, ptr %call.i, i64 1660
   %16 = load i32, ptr %iof_sel, align 4
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %entry
-  %out_xor = getelementptr inbounds i8, ptr %call.i, i64 1664
+  %out_xor = getelementptr inbounds nuw i8, ptr %call.i, i64 1664
   %17 = load i32, ptr %out_xor, align 16
   br label %sw.epilog
 
@@ -402,7 +402,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %23 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %24 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i, i64 noundef %23, i64 noundef %24, i64 noundef %offset, i64 noundef range(i64 0, 4294967296) %r.0) #7
   br label %trace_sifive_gpio_read.exit
@@ -444,7 +444,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i64 noundef %offset, i64 noundef %value) #7
   br label %trace_sifive_gpio_write.exit
@@ -478,42 +478,42 @@ trace_sifive_gpio_write.exit:                     ; preds = %entry, %land.lhs.tr
 
 sw.bb:                                            ; preds = %trace_sifive_gpio_write.exit
   %conv = trunc i64 %value to i32
-  %input_en = getelementptr inbounds i8, ptr %call.i, i64 1604
+  %input_en = getelementptr inbounds nuw i8, ptr %call.i, i64 1604
   store i32 %conv, ptr %input_en, align 4
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %trace_sifive_gpio_write.exit
   %conv2 = trunc i64 %value to i32
-  %output_en = getelementptr inbounds i8, ptr %call.i, i64 1608
+  %output_en = getelementptr inbounds nuw i8, ptr %call.i, i64 1608
   store i32 %conv2, ptr %output_en, align 8
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %trace_sifive_gpio_write.exit
   %conv4 = trunc i64 %value to i32
-  %port = getelementptr inbounds i8, ptr %call.i, i64 1612
+  %port = getelementptr inbounds nuw i8, ptr %call.i, i64 1612
   store i32 %conv4, ptr %port, align 4
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %trace_sifive_gpio_write.exit
   %conv6 = trunc i64 %value to i32
-  %pue = getelementptr inbounds i8, ptr %call.i, i64 1616
+  %pue = getelementptr inbounds nuw i8, ptr %call.i, i64 1616
   store i32 %conv6, ptr %pue, align 16
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %trace_sifive_gpio_write.exit
   %conv8 = trunc i64 %value to i32
-  %ds = getelementptr inbounds i8, ptr %call.i, i64 1620
+  %ds = getelementptr inbounds nuw i8, ptr %call.i, i64 1620
   store i32 %conv8, ptr %ds, align 4
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %trace_sifive_gpio_write.exit
   %conv10 = trunc i64 %value to i32
-  %rise_ie = getelementptr inbounds i8, ptr %call.i, i64 1624
+  %rise_ie = getelementptr inbounds nuw i8, ptr %call.i, i64 1624
   store i32 %conv10, ptr %rise_ie, align 8
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %trace_sifive_gpio_write.exit
-  %rise_ip = getelementptr inbounds i8, ptr %call.i, i64 1628
+  %rise_ip = getelementptr inbounds nuw i8, ptr %call.i, i64 1628
   %8 = load i32, ptr %rise_ip, align 4
   %9 = trunc i64 %value to i32
   %10 = xor i32 %9, -1
@@ -523,12 +523,12 @@ sw.bb11:                                          ; preds = %trace_sifive_gpio_w
 
 sw.bb14:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv15 = trunc i64 %value to i32
-  %fall_ie = getelementptr inbounds i8, ptr %call.i, i64 1632
+  %fall_ie = getelementptr inbounds nuw i8, ptr %call.i, i64 1632
   store i32 %conv15, ptr %fall_ie, align 16
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %trace_sifive_gpio_write.exit
-  %fall_ip = getelementptr inbounds i8, ptr %call.i, i64 1636
+  %fall_ip = getelementptr inbounds nuw i8, ptr %call.i, i64 1636
   %11 = load i32, ptr %fall_ip, align 4
   %12 = trunc i64 %value to i32
   %13 = xor i32 %12, -1
@@ -538,12 +538,12 @@ sw.bb16:                                          ; preds = %trace_sifive_gpio_w
 
 sw.bb21:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv22 = trunc i64 %value to i32
-  %high_ie = getelementptr inbounds i8, ptr %call.i, i64 1640
+  %high_ie = getelementptr inbounds nuw i8, ptr %call.i, i64 1640
   store i32 %conv22, ptr %high_ie, align 8
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %trace_sifive_gpio_write.exit
-  %high_ip = getelementptr inbounds i8, ptr %call.i, i64 1644
+  %high_ip = getelementptr inbounds nuw i8, ptr %call.i, i64 1644
   %14 = load i32, ptr %high_ip, align 4
   %15 = trunc i64 %value to i32
   %16 = xor i32 %15, -1
@@ -553,12 +553,12 @@ sw.bb23:                                          ; preds = %trace_sifive_gpio_w
 
 sw.bb28:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv29 = trunc i64 %value to i32
-  %low_ie = getelementptr inbounds i8, ptr %call.i, i64 1648
+  %low_ie = getelementptr inbounds nuw i8, ptr %call.i, i64 1648
   store i32 %conv29, ptr %low_ie, align 16
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %trace_sifive_gpio_write.exit
-  %low_ip = getelementptr inbounds i8, ptr %call.i, i64 1652
+  %low_ip = getelementptr inbounds nuw i8, ptr %call.i, i64 1652
   %17 = load i32, ptr %low_ip, align 4
   %18 = trunc i64 %value to i32
   %19 = xor i32 %18, -1
@@ -568,19 +568,19 @@ sw.bb30:                                          ; preds = %trace_sifive_gpio_w
 
 sw.bb35:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv36 = trunc i64 %value to i32
-  %iof_en = getelementptr inbounds i8, ptr %call.i, i64 1656
+  %iof_en = getelementptr inbounds nuw i8, ptr %call.i, i64 1656
   store i32 %conv36, ptr %iof_en, align 8
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv38 = trunc i64 %value to i32
-  %iof_sel = getelementptr inbounds i8, ptr %call.i, i64 1660
+  %iof_sel = getelementptr inbounds nuw i8, ptr %call.i, i64 1660
   store i32 %conv38, ptr %iof_sel, align 4
   br label %sw.epilog
 
 sw.bb39:                                          ; preds = %trace_sifive_gpio_write.exit
   %conv40 = trunc i64 %value to i32
-  %out_xor = getelementptr inbounds i8, ptr %call.i, i64 1664
+  %out_xor = getelementptr inbounds nuw i8, ptr %call.i, i64 1664
   store i32 %conv40, ptr %out_xor, align 16
   br label %sw.epilog
 
@@ -610,36 +610,36 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 define internal fastcc void @update_state(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %ngpio = getelementptr inbounds i8, ptr %s, i64 1676
+  %ngpio = getelementptr inbounds nuw i8, ptr %s, i64 1676
   %0 = load i32, ptr %ngpio, align 4
   %cmp162.not = icmp eq i32 %0, 0
   br i1 %cmp162.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
 
 entry.for.end_crit_edge:                          ; preds = %entry
-  %high_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1644
+  %high_ip.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %s, i64 1644
   %.pre172 = load i32, ptr %high_ip.i.phi.trans.insert, align 4
-  %low_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1652
+  %low_ip.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %s, i64 1652
   %.pre173 = load i32, ptr %low_ip.i.phi.trans.insert, align 4
-  %rise_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1628
+  %rise_ip.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %s, i64 1628
   %.pre174 = load i32, ptr %rise_ip.i.phi.trans.insert, align 4
-  %fall_ip.i.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1636
+  %fall_ip.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %s, i64 1636
   %.pre175 = load i32, ptr %fall_ip.i.phi.trans.insert, align 4
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %s, i64 1600
-  %in3 = getelementptr inbounds i8, ptr %s, i64 1668
-  %in_mask8 = getelementptr inbounds i8, ptr %s, i64 1672
-  %port13 = getelementptr inbounds i8, ptr %s, i64 1612
-  %out_xor18 = getelementptr inbounds i8, ptr %s, i64 1664
-  %output_en27 = getelementptr inbounds i8, ptr %s, i64 1608
-  %input_en32 = getelementptr inbounds i8, ptr %s, i64 1604
-  %rise_ip37 = getelementptr inbounds i8, ptr %s, i64 1628
-  %fall_ip42 = getelementptr inbounds i8, ptr %s, i64 1636
-  %low_ip47 = getelementptr inbounds i8, ptr %s, i64 1652
-  %high_ip52 = getelementptr inbounds i8, ptr %s, i64 1644
-  %pue = getelementptr inbounds i8, ptr %s, i64 1616
-  %output = getelementptr inbounds i8, ptr %s, i64 1344
+  %value = getelementptr inbounds nuw i8, ptr %s, i64 1600
+  %in3 = getelementptr inbounds nuw i8, ptr %s, i64 1668
+  %in_mask8 = getelementptr inbounds nuw i8, ptr %s, i64 1672
+  %port13 = getelementptr inbounds nuw i8, ptr %s, i64 1612
+  %out_xor18 = getelementptr inbounds nuw i8, ptr %s, i64 1664
+  %output_en27 = getelementptr inbounds nuw i8, ptr %s, i64 1608
+  %input_en32 = getelementptr inbounds nuw i8, ptr %s, i64 1604
+  %rise_ip37 = getelementptr inbounds nuw i8, ptr %s, i64 1628
+  %fall_ip42 = getelementptr inbounds nuw i8, ptr %s, i64 1636
+  %low_ip47 = getelementptr inbounds nuw i8, ptr %s, i64 1652
+  %high_ip52 = getelementptr inbounds nuw i8, ptr %s, i64 1644
+  %pue = getelementptr inbounds nuw i8, ptr %s, i64 1616
+  %output = getelementptr inbounds nuw i8, ptr %s, i64 1344
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %deposit32.exit149
@@ -781,26 +781,26 @@ for.end:                                          ; preds = %entry.for.end_crit_
   %40 = phi i32 [ %.pre173, %entry.for.end_crit_edge ], [ %or.i124, %for.end.loopexit ]
   %41 = phi i32 [ %.pre172, %entry.for.end_crit_edge ], [ %or.i, %for.end.loopexit ]
   %.lcssa = phi i1 [ true, %entry.for.end_crit_edge ], [ %37, %for.end.loopexit ]
-  %high_ie.i = getelementptr inbounds i8, ptr %s, i64 1640
+  %high_ie.i = getelementptr inbounds nuw i8, ptr %s, i64 1640
   %42 = load i32, ptr %high_ie.i, align 8
   %and.i150 = and i32 %42, %41
-  %low_ie.i = getelementptr inbounds i8, ptr %s, i64 1648
+  %low_ie.i = getelementptr inbounds nuw i8, ptr %s, i64 1648
   %43 = load i32, ptr %low_ie.i, align 16
   %and1.i = and i32 %43, %40
   %or.i151 = or i32 %and1.i, %and.i150
-  %rise_ie.i = getelementptr inbounds i8, ptr %s, i64 1624
+  %rise_ie.i = getelementptr inbounds nuw i8, ptr %s, i64 1624
   %44 = load i32, ptr %rise_ie.i, align 8
   %and2.i = and i32 %44, %39
   %or3.i = or i32 %or.i151, %and2.i
-  %fall_ie.i = getelementptr inbounds i8, ptr %s, i64 1632
+  %fall_ie.i = getelementptr inbounds nuw i8, ptr %s, i64 1632
   %45 = load i32, ptr %fall_ie.i, align 16
   %and4.i = and i32 %45, %38
   %or5.i = or i32 %or3.i, %and4.i
   br i1 %.lcssa, label %update_output_irq.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %irq.i = getelementptr inbounds i8, ptr %s, i64 1088
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %irq.i = getelementptr inbounds nuw i8, ptr %s, i64 1088
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %trace_sifive_gpio_update_output_irq.exit.i, %for.body.lr.ph.i

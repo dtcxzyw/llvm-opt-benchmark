@@ -74,7 +74,7 @@ jdwpTag.exit.thread:                              ; preds = %19
   br label %isReferenceTag.exit
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %22, i64 17
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 17
   %26 = load i8, ptr %25, align 1
   %.not13.i = icmp eq i8 %26, 0
   %.pr2850 = load i8, ptr %21, align 1
@@ -105,7 +105,7 @@ jdwpTag.exit:                                     ; preds = %27
 jdwpTag.exit.thread44:                            ; preds = %24, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %27, %jdwpTag.exit
   %28 = phi i8 [ %.pr28, %jdwpTag.exit ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %27 ], [ %.pr2850, %24 ]
   %.pr47 = phi ptr [ %.pr.pre.pre, %jdwpTag.exit ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %27 ], [ %22, %24 ]
-  %29 = getelementptr inbounds i8, ptr %.pr47, i64 17
+  %29 = getelementptr inbounds nuw i8, ptr %.pr47, i64 17
   %30 = load i8, ptr %29, align 1
   %.fr.i = freeze i8 %30
   %31 = icmp eq i8 %.fr.i, 0
@@ -128,7 +128,7 @@ switch.hole_check:                                ; preds = %switch.early.test.i
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %34 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [26 x i8], ptr @switch.table.newInstance, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.newInstance, i64 0, i64 %34
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %isReferenceTag.exit
 
@@ -168,7 +168,7 @@ isReferenceTag.exit:                              ; preds = %switch.lookup, %jdw
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %61 ], [ 0, %.preheader.i.i ]
   store ptr null, ptr %6, align 8
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i.i
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 @classSignature(ptr noundef %46, ptr noundef nonnull %6, ptr noundef null) #4
   %.not37.i.i = icmp eq i32 %47, 0
@@ -258,7 +258,7 @@ getComponentClass.exit.i:                         ; preds = %getComponentClass.e
 
 74:                                               ; preds = %getComponentClass.exit.i
   %75 = load ptr, ptr @gdata, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 528
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 528
   %77 = load i32, ptr %76, align 8
   %78 = and i32 %77, 2
   %.not23.i = icmp eq i32 %78, 0
@@ -271,11 +271,11 @@ getComponentClass.exit.i:                         ; preds = %getComponentClass.e
 
 80:                                               ; preds = %79, %74
   %81 = load ptr, ptr %9, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 1376
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1376
   %83 = load ptr, ptr %82, align 8
   %84 = call ptr %83(ptr noundef nonnull %9, i32 noundef %13, ptr noundef %.1.i, ptr noundef null) #4
   %85 = load ptr, ptr @gdata, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 528
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 528
   %87 = load i32, ptr %86, align 8
   %88 = and i32 %87, 2
   %.not24.i = icmp eq i32 %88, 0
@@ -288,7 +288,7 @@ getComponentClass.exit.i:                         ; preds = %getComponentClass.e
 
 90:                                               ; preds = %89, %80
   %91 = load ptr, ptr %9, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 120
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 120
   %93 = load ptr, ptr %92, align 8
   %94 = call ptr %93(ptr noundef nonnull %9) #4
   %.not25.i = icmp eq ptr %94, null
@@ -296,7 +296,7 @@ getComponentClass.exit.i:                         ; preds = %getComponentClass.e
 
 95:                                               ; preds = %90
   %96 = load ptr, ptr @gdata, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 528
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 528
   %98 = load i32, ptr %97, align 8
   %99 = and i32 %98, 2
   %.not26.i = icmp eq i32 %99, 0
@@ -309,7 +309,7 @@ getComponentClass.exit.i:                         ; preds = %getComponentClass.e
 
 .thread.i:                                        ; preds = %100, %95
   %101 = load ptr, ptr %9, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 136
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 136
   %103 = load ptr, ptr %102, align 8
   call void %103(ptr noundef nonnull %9) #4
   br label %106
@@ -330,7 +330,7 @@ getComponentClass.exit.i:                         ; preds = %getComponentClass.e
 
 111:                                              ; preds = %107, %106, %73
   %112 = load ptr, ptr @gdata, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 528
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 528
   %114 = load i32, ptr %113, align 8
   %115 = and i32 %114, 2
   %.not27.i = icmp eq i32 %115, 0
@@ -343,7 +343,7 @@ getComponentClass.exit.i:                         ; preds = %getComponentClass.e
 
 writeNewObjectArray.exit:                         ; preds = %111, %116
   %117 = load ptr, ptr %9, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 160
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 160
   %119 = load ptr, ptr %118, align 8
   %120 = call ptr %119(ptr noundef nonnull %9, ptr noundef null) #4
   br label %122
@@ -385,7 +385,7 @@ define internal fastcc void @writeNewPrimitiveArray(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %jdwpTag.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %8 = load i8, ptr %7, align 1
   %.not13.i = icmp eq i8 %8, 0
   br i1 %.not13.i, label %jdwpTag.exit, label %9
@@ -408,7 +408,7 @@ switch.hole_check:                                ; preds = %9
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %13 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [26 x i8], ptr @switch.table.writeNewPrimitiveArray, i64 0, i64 %13
+  %switch.gep = getelementptr inbounds nuw [26 x i8], ptr @switch.table.writeNewPrimitiveArray, i64 0, i64 %13
   br label %jdwpTag.exit
 
 jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch.lookup
@@ -427,7 +427,7 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 15:                                               ; preds = %jdwpTag.exit
   %16 = load ptr, ptr @gdata, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 528
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 528
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 2
   %.not46 = icmp eq i32 %19, 0
@@ -440,14 +440,14 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 21:                                               ; preds = %15, %20
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1408
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1408
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, i32 noundef %2) #4
   br label %104
 
 26:                                               ; preds = %jdwpTag.exit
   %27 = load ptr, ptr @gdata, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 528
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 528
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 2
   %.not45 = icmp eq i32 %30, 0
@@ -460,14 +460,14 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 32:                                               ; preds = %26, %31
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1416
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1416
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, i32 noundef %2) #4
   br label %104
 
 37:                                               ; preds = %jdwpTag.exit
   %38 = load ptr, ptr @gdata, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 528
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 528
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 2
   %.not44 = icmp eq i32 %41, 0
@@ -480,14 +480,14 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 43:                                               ; preds = %37, %42
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1448
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1448
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr %46(ptr noundef nonnull %0, i32 noundef %2) #4
   br label %104
 
 48:                                               ; preds = %jdwpTag.exit
   %49 = load ptr, ptr @gdata, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 528
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 528
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 2
   %.not43 = icmp eq i32 %52, 0
@@ -500,14 +500,14 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 54:                                               ; preds = %48, %53
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1456
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1456
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr %57(ptr noundef nonnull %0, i32 noundef %2) #4
   br label %104
 
 59:                                               ; preds = %jdwpTag.exit
   %60 = load ptr, ptr @gdata, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 528
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 528
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 2
   %.not42 = icmp eq i32 %63, 0
@@ -520,14 +520,14 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 65:                                               ; preds = %59, %64
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1432
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1432
   %68 = load ptr, ptr %67, align 8
   %69 = tail call ptr %68(ptr noundef nonnull %0, i32 noundef %2) #4
   br label %104
 
 70:                                               ; preds = %jdwpTag.exit
   %71 = load ptr, ptr @gdata, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 528
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 528
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 2
   %.not41 = icmp eq i32 %74, 0
@@ -540,14 +540,14 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 76:                                               ; preds = %70, %75
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 1440
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1440
   %79 = load ptr, ptr %78, align 8
   %80 = tail call ptr %79(ptr noundef nonnull %0, i32 noundef %2) #4
   br label %104
 
 81:                                               ; preds = %jdwpTag.exit
   %82 = load ptr, ptr @gdata, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 528
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 528
   %84 = load i32, ptr %83, align 8
   %85 = and i32 %84, 2
   %.not40 = icmp eq i32 %85, 0
@@ -560,14 +560,14 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 87:                                               ; preds = %81, %86
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1424
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1424
   %90 = load ptr, ptr %89, align 8
   %91 = tail call ptr %90(ptr noundef nonnull %0, i32 noundef %2) #4
   br label %104
 
 92:                                               ; preds = %jdwpTag.exit
   %93 = load ptr, ptr @gdata, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 528
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 528
   %95 = load i32, ptr %94, align 8
   %96 = and i32 %95, 2
   %.not = icmp eq i32 %96, 0
@@ -580,7 +580,7 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 98:                                               ; preds = %92, %97
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 1400
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1400
   %101 = load ptr, ptr %100, align 8
   %102 = tail call ptr %101(ptr noundef nonnull %0, i32 noundef %2) #4
   br label %104
@@ -592,7 +592,7 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 104:                                              ; preds = %103, %98, %87, %76, %65, %54, %43, %32, %21
   %.0 = phi ptr [ null, %103 ], [ %102, %98 ], [ %91, %87 ], [ %80, %76 ], [ %69, %65 ], [ %58, %54 ], [ %47, %43 ], [ %36, %32 ], [ %25, %21 ]
   %105 = load ptr, ptr @gdata, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 528
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 528
   %107 = load i32, ptr %106, align 8
   %108 = and i32 %107, 2
   %.not47 = icmp eq i32 %108, 0
@@ -605,7 +605,7 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 110:                                              ; preds = %104, %109
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 120
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 120
   %113 = load ptr, ptr %112, align 8
   %114 = tail call ptr %113(ptr noundef nonnull %0) #4
   %.not48 = icmp eq ptr %114, null
@@ -613,7 +613,7 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 115:                                              ; preds = %110
   %116 = load ptr, ptr @gdata, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 528
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 528
   %118 = load i32, ptr %117, align 8
   %119 = and i32 %118, 2
   %.not49 = icmp eq i32 %119, 0
@@ -626,7 +626,7 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 .thread:                                          ; preds = %120, %115
   %121 = load ptr, ptr %0, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 136
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 136
   %123 = load ptr, ptr %122, align 8
   tail call void %123(ptr noundef nonnull %0) #4
   br label %126
@@ -647,7 +647,7 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 131:                                              ; preds = %127, %126
   %132 = load ptr, ptr @gdata, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 528
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 528
   %134 = load i32, ptr %133, align 8
   %135 = and i32 %134, 2
   %.not50 = icmp eq i32 %135, 0
@@ -660,7 +660,7 @@ jdwpTag.exit:                                     ; preds = %4, %6, %12, %switch
 
 137:                                              ; preds = %131, %136
   %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 160
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 160
   %140 = load ptr, ptr %139, align 8
   %141 = tail call ptr %140(ptr noundef nonnull %0, ptr noundef null) #4
   ret void

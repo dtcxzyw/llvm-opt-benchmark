@@ -97,228 +97,228 @@ entry:
   store i32 0, ptr %not_new, align 4
   store i32 0, ptr %index_opt, align 4
   store i32 9, ptr %builtin_checkout_index_options, align 16
-  %short_name = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 4
+  %short_name = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 4
   store i32 97, ptr %short_name, align 4
-  %long_name = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 8
+  %long_name = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 8
   store ptr @.str, ptr %long_name, align 8
-  %value = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 16
   store ptr %all, ptr %value, align 16
-  %argh = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 24
+  %argh = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 32
+  %help = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 32
   store ptr @.str.1, ptr %help, align 16
-  %flags = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 40
+  %flags = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 40
   store i32 2, ptr %flags, align 8
-  %callback = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 48
+  %callback = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 48
   store ptr null, ptr %callback, align 16
-  %defval = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 56
+  %defval = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 56
   store i64 1, ptr %defval, align 8
-  %ll_callback = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 64
-  %arrayinit.element = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 88
+  %ll_callback = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 64
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 92
+  %short_name2 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 92
   store i32 0, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 96
+  %long_name3 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 96
   store ptr @.str.2, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 104
+  %value4 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 104
   store ptr @ignore_skip_worktree, ptr %value4, align 8
-  %argh5 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 112
+  %argh5 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 112
   store ptr null, ptr %argh5, align 16
-  %help6 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 120
+  %help6 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 120
   store ptr @.str.3, ptr %help6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 128
+  %flags7 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 128
   store i32 2, ptr %flags7, align 16
-  %callback8 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 136
+  %callback8 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 136
   store ptr null, ptr %callback8, align 8
-  %defval9 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 144
+  %defval9 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 144
   store i64 1, ptr %defval9, align 16
-  %ll_callback10 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 152
-  %arrayinit.element13 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 176
+  %ll_callback10 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 152
+  %arrayinit.element13 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback10, i8 0, i64 24, i1 false)
   store i32 8, ptr %arrayinit.element13, align 16
-  %short_name15 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 180
+  %short_name15 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 180
   store i32 102, ptr %short_name15, align 4
-  %long_name16 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 184
+  %long_name16 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 184
   store ptr @.str.4, ptr %long_name16, align 8
-  %value17 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 192
+  %value17 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 192
   store ptr %force, ptr %value17, align 16
-  %argh18 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 200
+  %argh18 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 200
   store ptr null, ptr %argh18, align 8
-  %help19 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 208
+  %help19 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 208
   store ptr @.str.5, ptr %help19, align 16
-  %flags20 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 216
+  %flags20 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 216
   store i32 2, ptr %flags20, align 8
-  %callback21 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 224
-  %arrayinit.element26 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 264
+  %callback21 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 224
+  %arrayinit.element26 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback21, i8 0, i64 40, i1 false)
   store i32 8, ptr %arrayinit.element26, align 8
-  %short_name28 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 268
+  %short_name28 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 268
   store i32 113, ptr %short_name28, align 4
-  %long_name29 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 272
+  %long_name29 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 272
   store ptr @.str.6, ptr %long_name29, align 16
-  %value30 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 280
+  %value30 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 280
   store ptr %quiet, ptr %value30, align 8
-  %argh31 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 288
+  %argh31 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 288
   store ptr null, ptr %argh31, align 16
-  %help32 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 296
+  %help32 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 296
   store ptr @.str.7, ptr %help32, align 8
-  %flags33 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 304
+  %flags33 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 304
   store i32 2, ptr %flags33, align 16
-  %callback34 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 312
-  %arrayinit.element39 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 352
+  %callback34 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 312
+  %arrayinit.element39 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %callback34, i8 0, i64 40, i1 false)
   store i32 9, ptr %arrayinit.element39, align 16
-  %short_name41 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 356
+  %short_name41 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 356
   store i32 110, ptr %short_name41, align 4
-  %long_name42 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 360
+  %long_name42 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 360
   store ptr @.str.8, ptr %long_name42, align 8
-  %value43 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 368
+  %value43 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 368
   store ptr %not_new, ptr %value43, align 16
-  %argh44 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 376
+  %argh44 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 376
   store ptr null, ptr %argh44, align 8
-  %help45 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 384
+  %help45 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 384
   store ptr @.str.9, ptr %help45, align 16
-  %flags46 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 392
+  %flags46 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 392
   store i32 2, ptr %flags46, align 8
-  %callback47 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 400
+  %callback47 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 400
   store ptr null, ptr %callback47, align 16
-  %defval48 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 408
+  %defval48 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 408
   store i64 1, ptr %defval48, align 8
-  %ll_callback49 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 416
-  %arrayinit.element52 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 440
+  %ll_callback49 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 416
+  %arrayinit.element52 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback49, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element52, align 8
-  %short_name54 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 444
+  %short_name54 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 444
   store i32 117, ptr %short_name54, align 4
-  %long_name55 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 448
+  %long_name55 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 448
   store ptr @.str.10, ptr %long_name55, align 16
-  %value56 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 456
+  %value56 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 456
   store ptr %index_opt, ptr %value56, align 8
-  %argh57 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 464
+  %argh57 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 464
   store ptr null, ptr %argh57, align 16
-  %help58 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 472
+  %help58 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 472
   store ptr @.str.11, ptr %help58, align 8
-  %flags59 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 480
+  %flags59 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 480
   store i32 2, ptr %flags59, align 16
-  %callback60 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 488
+  %callback60 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 488
   store ptr null, ptr %callback60, align 8
-  %defval61 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 496
+  %defval61 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 496
   store i64 1, ptr %defval61, align 16
-  %ll_callback62 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 504
-  %arrayinit.element65 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 528
+  %ll_callback62 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 504
+  %arrayinit.element65 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback62, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element65, align 16
-  %short_name67 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 532
+  %short_name67 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 532
   store i32 122, ptr %short_name67, align 4
-  %long_name68 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 536
+  %long_name68 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 536
   store ptr null, ptr %long_name68, align 8
-  %value69 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 544
+  %value69 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 544
   store ptr @nul_term_line, ptr %value69, align 16
-  %argh70 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 552
+  %argh70 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 552
   store ptr null, ptr %argh70, align 8
-  %help71 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 560
+  %help71 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 560
   store ptr @.str.12, ptr %help71, align 16
-  %flags72 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 568
+  %flags72 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 568
   store i32 2, ptr %flags72, align 8
-  %callback73 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 576
+  %callback73 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 576
   store ptr null, ptr %callback73, align 16
-  %defval74 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 584
+  %defval74 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 584
   store i64 1, ptr %defval74, align 8
-  %ll_callback75 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 592
-  %arrayinit.element78 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 616
+  %ll_callback75 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 592
+  %arrayinit.element78 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 616
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback75, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element78, align 8
-  %short_name80 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 620
+  %short_name80 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 620
   store i32 0, ptr %short_name80, align 4
-  %long_name81 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 624
+  %long_name81 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 624
   store ptr @.str.13, ptr %long_name81, align 16
-  %value82 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 632
+  %value82 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 632
   store ptr %read_from_stdin, ptr %value82, align 8
-  %argh83 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 640
+  %argh83 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 640
   store ptr null, ptr %argh83, align 16
-  %help84 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 648
+  %help84 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 648
   store ptr @.str.14, ptr %help84, align 8
-  %flags85 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 656
+  %flags85 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 656
   store i32 2, ptr %flags85, align 16
-  %callback86 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 664
+  %callback86 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 664
   store ptr null, ptr %callback86, align 8
-  %defval87 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 672
+  %defval87 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 672
   store i64 1, ptr %defval87, align 16
-  %ll_callback88 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 680
-  %arrayinit.element91 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 704
+  %ll_callback88 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 680
+  %arrayinit.element91 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 704
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback88, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element91, align 16
-  %short_name93 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 708
+  %short_name93 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 708
   store i32 0, ptr %short_name93, align 4
-  %long_name94 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 712
+  %long_name94 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 712
   store ptr @.str.15, ptr %long_name94, align 8
-  %value95 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 720
+  %value95 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 720
   store ptr @to_tempfile, ptr %value95, align 16
-  %argh96 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 728
+  %argh96 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 728
   store ptr null, ptr %argh96, align 8
-  %help97 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 736
+  %help97 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 736
   store ptr @.str.16, ptr %help97, align 16
-  %flags98 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 744
+  %flags98 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 744
   store i32 2, ptr %flags98, align 8
-  %callback99 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 752
+  %callback99 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 752
   store ptr null, ptr %callback99, align 16
-  %defval100 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 760
+  %defval100 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 760
   store i64 1, ptr %defval100, align 8
-  %ll_callback101 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 768
-  %arrayinit.element104 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 792
+  %ll_callback101 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 768
+  %arrayinit.element104 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 792
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback101, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element104, align 8
-  %short_name106 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 796
+  %short_name106 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 796
   store i32 0, ptr %short_name106, align 4
-  %long_name107 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 800
+  %long_name107 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 800
   store ptr @.str.17, ptr %long_name107, align 16
-  %value108 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 808
+  %value108 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 808
   store ptr getelementptr inbounds (i8, ptr @state, i64 8), ptr %value108, align 8
-  %argh109 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 816
+  %argh109 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 816
   store ptr @.str.18, ptr %argh109, align 16
-  %help110 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 824
+  %help110 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 824
   store ptr @.str.19, ptr %help110, align 8
-  %flags111 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 832
+  %flags111 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 832
   store i32 0, ptr %flags111, align 16
-  %callback112 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 840
-  %arrayinit.element117 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 880
+  %callback112 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 840
+  %arrayinit.element117 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 880
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %callback112, i8 0, i64 40, i1 false)
   store i32 13, ptr %arrayinit.element117, align 16
-  %short_name119 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 884
+  %short_name119 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 884
   store i32 0, ptr %short_name119, align 4
-  %long_name120 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 888
+  %long_name120 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 888
   store ptr @.str.20, ptr %long_name120, align 8
-  %value121 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 896
+  %value121 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 896
   store ptr @checkout_stage, ptr %value121, align 16
-  %argh122 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 904
+  %argh122 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 904
   store ptr @.str.21, ptr %argh122, align 8
-  %help123 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 912
+  %help123 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 912
   store ptr @.str.22, ptr %help123, align 16
-  %flags124 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 920
+  %flags124 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 920
   store i32 4, ptr %flags124, align 8
-  %callback125 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 928
+  %callback125 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 928
   store ptr @option_parse_stage, ptr %callback125, align 16
-  %defval126 = getelementptr inbounds i8, ptr %builtin_checkout_index_options, i64 936
+  %defval126 = getelementptr inbounds nuw i8, ptr %builtin_checkout_index_options, i64 936
   %cmp = icmp eq i32 %argc, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %defval126, i8 0, i64 120, i1 false)
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %1, 45
   br i1 %.not, label %sub_1, label %if.end
 
 sub_1:                                            ; preds = %land.lhs.true
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %.not37 = icmp eq i8 %3, 104
   br i1 %.not37, label %land.lhs.true.tail, label %if.end
 
 land.lhs.true.tail:                               ; preds = %sub_1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %if.then, label %if.end
@@ -342,7 +342,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
   %8 = load ptr, ptr @the_repository, align 8
   call void @prepare_repo_settings(ptr noundef %8) #13
   %9 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds i8, ptr %9, i64 168
+  %command_requires_full_index = getelementptr inbounds nuw i8, ptr %9, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
   %call145 = call i32 @repo_read_index(ptr noundef %9) #13
   %cmp146 = icmp slt i32 %call145, 0
@@ -445,7 +445,7 @@ for.body.preheader:                               ; preds = %if.end195
 for.body:                                         ; preds = %for.body.preheader, %if.end204
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end204 ]
   %err.031 = phi i32 [ 0, %for.body.preheader ], [ %or, %if.end204 ]
-  %arrayidx198 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx198 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %25 = load ptr, ptr %arrayidx198, align 8
   %26 = load i32, ptr %all, align 4
   %tobool199.not = icmp eq i32 %26, 0
@@ -500,9 +500,9 @@ if.end211:                                        ; preds = %if.then208
   br i1 %cmp215.not34, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end211
-  %buf220 = getelementptr inbounds i8, ptr %buf, i64 16
-  %len2.i = getelementptr inbounds i8, ptr %unquoted, i64 8
-  %buf.i = getelementptr inbounds i8, ptr %unquoted, i64 16
+  %buf220 = getelementptr inbounds nuw i8, ptr %buf, i64 16
+  %len2.i = getelementptr inbounds nuw i8, ptr %unquoted, i64 8
+  %buf.i = getelementptr inbounds nuw i8, ptr %unquoted, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end231
@@ -585,22 +585,22 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %last_ce.042.i = phi ptr [ null, %for.body.lr.ph.i ], [ %last_ce.1.i, %for.inc.i ]
   %errs.041.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %errs.1.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
   %41 = load ptr, ptr %arrayidx.i, align 8
-  %ce_mode.i = getelementptr inbounds i8, ptr %41, i64 52
+  %ce_mode.i = getelementptr inbounds nuw i8, ptr %41, i64 52
   %42 = load i32, ptr %ce_mode.i, align 4
   %cmp1.i = icmp eq i32 %42, 16384
   br i1 %cmp1.i, label %if.then.i, label %if.end8.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %ce_flags.i = getelementptr inbounds i8, ptr %41, i64 56
+  %ce_flags.i = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = load i32, ptr %ce_flags.i, align 8
   %and.i = and i32 %43, 1073741824
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then2.i, label %if.end.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %name.i = getelementptr inbounds i8, ptr %41, i64 108
+  %name.i = getelementptr inbounds nuw i8, ptr %41, i64 108
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.34, i32 noundef 148, ptr noundef nonnull @.str.46, ptr noundef nonnull %name.i) #12
   unreachable
 
@@ -612,7 +612,7 @@ if.end.i:                                         ; preds = %if.then.i
 if.then4.i25:                                     ; preds = %if.end.i
   call void @ensure_full_index(ptr noundef nonnull @the_index) #13
   %45 = load ptr, ptr @the_index, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv.i
+  %arrayidx6.i = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
   %46 = load ptr, ptr %arrayidx6.i, align 8
   br label %if.end8.i
 
@@ -621,7 +621,7 @@ if.end8.i:                                        ; preds = %if.then4.i25, %for.
   %ce.0.ph.i = phi ptr [ %41, %for.body.i ], [ %46, %if.then4.i25 ]
   %.pr.i = load i32, ptr @ignore_skip_worktree, align 4
   %tobool9.not.i = icmp ne i32 %.pr.i, 0
-  %ce_flags10.phi.trans.insert.i = getelementptr inbounds i8, ptr %ce.0.ph.i, i64 56
+  %ce_flags10.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %ce.0.ph.i, i64 56
   %.pre47.i = load i32, ptr %ce_flags10.phi.trans.insert.i, align 8
   %.pre50.i = and i32 %.pre47.i, 1073741824
   %48 = icmp eq i32 %.pre50.i, 0
@@ -650,13 +650,13 @@ land.lhs.true27.i:                                ; preds = %if.end25.i
   br i1 %tobool28.not.i, label %if.end38.i, label %land.lhs.true29.i
 
 land.lhs.true29.i:                                ; preds = %land.lhs.true27.i
-  %ce_namelen.i = getelementptr inbounds i8, ptr %ce.0.ph.i, i64 64
+  %ce_namelen.i = getelementptr inbounds nuw i8, ptr %ce.0.ph.i, i64 64
   %51 = load i32, ptr %ce_namelen.i, align 8
   %cmp30.not.i = icmp ugt i32 %51, %cond
   br i1 %cmp30.not.i, label %lor.lhs.false32.i, label %for.inc.i
 
 lor.lhs.false32.i:                                ; preds = %land.lhs.true29.i
-  %name33.i = getelementptr inbounds i8, ptr %ce.0.ph.i, i64 108
+  %name33.i = getelementptr inbounds nuw i8, ptr %ce.0.ph.i, i64 108
   %bcmp.i = call i32 @bcmp(ptr nonnull %prefix, ptr nonnull %name33.i, i64 %conv35.i)
   %tobool36.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %tobool36.not.i, label %if.end38.i, label %for.inc.i
@@ -669,23 +669,23 @@ if.end38.i:                                       ; preds = %lor.lhs.false32.i, 
   br i1 %or.cond.i, label %if.then42.i, label %if.end60.i
 
 if.then42.i:                                      ; preds = %if.end38.i
-  %ce_namelen43.i = getelementptr inbounds i8, ptr %last_ce.042.i, i64 64
+  %ce_namelen43.i = getelementptr inbounds nuw i8, ptr %last_ce.042.i, i64 64
   %53 = load i32, ptr %ce_namelen43.i, align 8
-  %ce_namelen44.i = getelementptr inbounds i8, ptr %ce.0.ph.i, i64 64
+  %ce_namelen44.i = getelementptr inbounds nuw i8, ptr %ce.0.ph.i, i64 64
   %54 = load i32, ptr %ce_namelen44.i, align 8
   %cmp45.not.i = icmp eq i32 %53, %54
   br i1 %cmp45.not.i, label %lor.lhs.false47.i, label %if.then56.i
 
 lor.lhs.false47.i:                                ; preds = %if.then42.i
-  %name48.i = getelementptr inbounds i8, ptr %last_ce.042.i, i64 108
-  %name50.i = getelementptr inbounds i8, ptr %ce.0.ph.i, i64 108
+  %name48.i = getelementptr inbounds nuw i8, ptr %last_ce.042.i, i64 108
+  %name50.i = getelementptr inbounds nuw i8, ptr %ce.0.ph.i, i64 108
   %conv53.i = zext i32 %53 to i64
   %bcmp30.i = call i32 @bcmp(ptr nonnull %name48.i, ptr nonnull %name50.i, i64 %conv53.i)
   %tobool55.not.i = icmp eq i32 %bcmp30.i, 0
   br i1 %tobool55.not.i, label %cond.true.i, label %if.then56.i
 
 if.then56.i:                                      ; preds = %lor.lhs.false47.i, %if.then42.i
-  %name57.i = getelementptr inbounds i8, ptr %last_ce.042.i, i64 108
+  %name57.i = getelementptr inbounds nuw i8, ptr %last_ce.042.i, i64 108
   call fastcc void @write_tempfile_record(ptr noundef nonnull %name57.i, ptr noundef %prefix)
   %.pr36.pre.i = load i32, ptr @to_tempfile, align 4
   br label %if.end60.i
@@ -704,7 +704,7 @@ if.end60.i.cond.true.i_crit_edge:                 ; preds = %if.end60.i
 cond.true.i:                                      ; preds = %if.end60.i.cond.true.i_crit_edge, %lor.lhs.false47.i
   %shr64.i.pre-phi = phi i32 [ %.pre45, %if.end60.i.cond.true.i_crit_edge ], [ %shr.i, %lor.lhs.false47.i ]
   %idxprom65.i = zext nneg i32 %shr64.i.pre-phi to i64
-  %arrayidx66.i = getelementptr inbounds [4 x [26 x i8]], ptr @topath, i64 0, i64 %idxprom65.i
+  %arrayidx66.i = getelementptr inbounds nuw [4 x [26 x i8]], ptr @topath, i64 0, i64 %idxprom65.i
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end60.i
@@ -734,7 +734,7 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %or.cond1.i, label %if.then77.i, label %checkout_all.exit
 
 if.then77.i:                                      ; preds = %for.end.i
-  %name78.i = getelementptr inbounds i8, ptr %last_ce.1.i, i64 108
+  %name78.i = getelementptr inbounds nuw i8, ptr %last_ce.1.i, i64 108
   call fastcc void @write_tempfile_record(ptr noundef nonnull %name78.i, ptr noundef %prefix)
   br label %checkout_all.exit
 
@@ -786,7 +786,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @option_parse_stage(ptr nocapture noundef readonly %opt, ptr nocapture noundef readonly %arg, i32 noundef %unset) #0 {
 entry:
-  %value = getelementptr inbounds i8, ptr %opt, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %do.end, label %if.then
@@ -906,9 +906,9 @@ while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr
   %cmp26.not.not = icmp eq i32 %.fr201, 4
   %5 = zext i32 %pos.1.ph186 to i64
   %6 = zext i32 %1 to i64
-  %arrayidx.us417 = getelementptr inbounds ptr, ptr %2, i64 %5
+  %arrayidx.us417 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
   %7 = load ptr, ptr %arrayidx.us417, align 8
-  %ce_namelen.us418 = getelementptr inbounds i8, ptr %7, i64 64
+  %ce_namelen.us418 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %8 = load i32, ptr %ce_namelen.us418, align 8
   %cmp6.not.us419 = icmp eq i32 %8, %conv
   br i1 %tobool17.not, label %while.body.lr.ph.split.us, label %while.body.lr.ph.split
@@ -923,9 +923,9 @@ while.body.us.preheader:                          ; preds = %while.body.lr.ph.sp
   br i1 %cmp6.not.us419, label %lor.lhs.false.us, label %while.end
 
 while.body.us.us:                                 ; preds = %land.lhs.true25.us.us
-  %arrayidx.us.us = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next233
+  %arrayidx.us.us = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next233
   %9 = load ptr, ptr %arrayidx.us.us, align 8
-  %ce_namelen.us.us = getelementptr inbounds i8, ptr %9, i64 64
+  %ce_namelen.us.us = getelementptr inbounds nuw i8, ptr %9, i64 64
   %10 = load i32, ptr %ce_namelen.us.us, align 8
   %cmp6.not.us.us = icmp eq i32 %10, %conv
   br i1 %cmp6.not.us.us, label %lor.lhs.false.us.us, label %while.end, !llvm.loop !10
@@ -935,20 +935,20 @@ lor.lhs.false.us.us:                              ; preds = %while.body.us.us.pr
   %is_file.026.us.us386 = phi i32 [ 1, %while.body.us.us ], [ %did_checkout.0.ph189, %while.body.us.us.preheader ]
   %tobool73.not27.us.us385 = phi i1 [ true, %while.body.us.us ], [ %tobool73.not.ph188, %while.body.us.us.preheader ]
   %indvars.iv232384 = phi i64 [ %indvars.iv.next233, %while.body.us.us ], [ %5, %while.body.us.us.preheader ]
-  %name8.us.us = getelementptr inbounds i8, ptr %11, i64 108
+  %name8.us.us = getelementptr inbounds nuw i8, ptr %11, i64 108
   %bcmp.us.us = tail call i32 @bcmp(ptr nonnull %name8.us.us, ptr %name, i64 %conv9)
   %tobool.not.us.us = icmp eq i32 %bcmp.us.us, 0
   br i1 %tobool.not.us.us, label %if.end12.us.us, label %while.end
 
 if.end12.us.us:                                   ; preds = %lor.lhs.false.us.us
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232384, 1
-  %ce_mode.us.us = getelementptr inbounds i8, ptr %11, i64 52
+  %ce_mode.us.us = getelementptr inbounds nuw i8, ptr %11, i64 52
   %12 = load i32, ptr %ce_mode.us.us, align 4
   %cmp13.us.us = icmp eq i32 %12, 16384
   br i1 %cmp13.us.us, label %while.end, label %if.end16.us.us
 
 if.end16.us.us:                                   ; preds = %if.end12.us.us
-  %ce_flags.us.us = getelementptr inbounds i8, ptr %11, i64 56
+  %ce_flags.us.us = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i32, ptr %ce_flags.us.us, align 8
   %and.us.us = and i32 %13, 1073741824
   %tobool18.not.us.us = icmp eq i32 %and.us.us, 0
@@ -965,9 +965,9 @@ land.lhs.true25.us.us:                            ; preds = %if.end20.us.us
   br i1 %cmp4.us.us, label %while.body.us.us, label %while.end, !llvm.loop !10
 
 while.body.us:                                    ; preds = %while.cond.us
-  %arrayidx.us = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next235
+  %arrayidx.us = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next235
   %14 = load ptr, ptr %arrayidx.us, align 8
-  %ce_namelen.us = getelementptr inbounds i8, ptr %14, i64 64
+  %ce_namelen.us = getelementptr inbounds nuw i8, ptr %14, i64 64
   %15 = load i32, ptr %ce_namelen.us, align 8
   %cmp6.not.us = icmp eq i32 %15, %conv
   br i1 %cmp6.not.us, label %lor.lhs.false.us, label %while.end, !llvm.loop !10
@@ -981,20 +981,20 @@ lor.lhs.false.us:                                 ; preds = %while.body.us.prehe
   %is_file.026.us422 = phi i32 [ 1, %while.body.us ], [ %did_checkout.0.ph189, %while.body.us.preheader ]
   %tobool73.not27.us421 = phi i1 [ true, %while.body.us ], [ %tobool73.not.ph188, %while.body.us.preheader ]
   %indvars.iv234420 = phi i64 [ %indvars.iv.next235, %while.body.us ], [ %5, %while.body.us.preheader ]
-  %name8.us = getelementptr inbounds i8, ptr %16, i64 108
+  %name8.us = getelementptr inbounds nuw i8, ptr %16, i64 108
   %bcmp.us = tail call i32 @bcmp(ptr nonnull %name8.us, ptr %name, i64 %conv9)
   %tobool.not.us = icmp eq i32 %bcmp.us, 0
   br i1 %tobool.not.us, label %if.end12.us, label %while.end
 
 if.end12.us:                                      ; preds = %lor.lhs.false.us
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234420, 1
-  %ce_mode.us = getelementptr inbounds i8, ptr %16, i64 52
+  %ce_mode.us = getelementptr inbounds nuw i8, ptr %16, i64 52
   %17 = load i32, ptr %ce_mode.us, align 4
   %cmp13.us = icmp eq i32 %17, 16384
   br i1 %cmp13.us, label %while.end, label %if.end16.us
 
 if.end16.us:                                      ; preds = %if.end12.us
-  %ce_flags.us = getelementptr inbounds i8, ptr %16, i64 56
+  %ce_flags.us = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load i32, ptr %ce_flags.us, align 8
   %and.us = and i32 %18, 1073741824
   %tobool18.not.us = icmp eq i32 %and.us, 0
@@ -1016,9 +1016,9 @@ while.body.preheader:                             ; preds = %while.body.lr.ph.sp
   br i1 %cmp6.not.us419, label %lor.lhs.false, label %while.end
 
 while.body.us84:                                  ; preds = %land.lhs.true25.us107
-  %arrayidx.us89 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next
+  %arrayidx.us89 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
   %19 = load ptr, ptr %arrayidx.us89, align 8
-  %ce_namelen.us90 = getelementptr inbounds i8, ptr %19, i64 64
+  %ce_namelen.us90 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %20 = load i32, ptr %ce_namelen.us90, align 8
   %cmp6.not.us91 = icmp eq i32 %20, %conv
   br i1 %cmp6.not.us91, label %lor.lhs.false.us94, label %while.end, !llvm.loop !10
@@ -1028,20 +1028,20 @@ lor.lhs.false.us94:                               ; preds = %while.body.us84.pre
   %is_file.026.us86325 = phi i32 [ 1, %while.body.us84 ], [ %did_checkout.0.ph189, %while.body.us84.preheader ]
   %tobool73.not27.us85324 = phi i1 [ true, %while.body.us84 ], [ %tobool73.not.ph188, %while.body.us84.preheader ]
   %indvars.iv323 = phi i64 [ %indvars.iv.next, %while.body.us84 ], [ %5, %while.body.us84.preheader ]
-  %name8.us95 = getelementptr inbounds i8, ptr %21, i64 108
+  %name8.us95 = getelementptr inbounds nuw i8, ptr %21, i64 108
   %bcmp.us96 = tail call i32 @bcmp(ptr nonnull %name8.us95, ptr %name, i64 %conv9)
   %tobool.not.us97 = icmp eq i32 %bcmp.us96, 0
   br i1 %tobool.not.us97, label %if.end12.us98, label %while.end
 
 if.end12.us98:                                    ; preds = %lor.lhs.false.us94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv323, 1
-  %ce_mode.us100 = getelementptr inbounds i8, ptr %21, i64 52
+  %ce_mode.us100 = getelementptr inbounds nuw i8, ptr %21, i64 52
   %22 = load i32, ptr %ce_mode.us100, align 4
   %cmp13.us101 = icmp eq i32 %22, 16384
   br i1 %cmp13.us101, label %while.end, label %if.end16.us102
 
 if.end16.us102:                                   ; preds = %if.end12.us98
-  %ce_flags21.us103 = getelementptr inbounds i8, ptr %21, i64 56
+  %ce_flags21.us103 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load i32, ptr %ce_flags21.us103, align 8
   %and22.us104 = lshr i32 %23, 12
   %shr.us105 = and i32 %and22.us104, 3
@@ -1057,9 +1057,9 @@ while.cond:                                       ; preds = %if.end16
   br i1 %cmp4, label %while.body, label %while.end, !llvm.loop !10
 
 while.body:                                       ; preds = %while.cond
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next231
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next231
   %24 = load ptr, ptr %arrayidx, align 8
-  %ce_namelen = getelementptr inbounds i8, ptr %24, i64 64
+  %ce_namelen = getelementptr inbounds nuw i8, ptr %24, i64 64
   %25 = load i32, ptr %ce_namelen, align 8
   %cmp6.not = icmp eq i32 %25, %conv
   br i1 %cmp6.not, label %lor.lhs.false, label %while.end, !llvm.loop !10
@@ -1069,20 +1069,20 @@ lor.lhs.false:                                    ; preds = %while.body.preheade
   %is_file.026355 = phi i32 [ 1, %while.body ], [ %did_checkout.0.ph189, %while.body.preheader ]
   %tobool73.not27354 = phi i1 [ true, %while.body ], [ %tobool73.not.ph188, %while.body.preheader ]
   %indvars.iv230353 = phi i64 [ %indvars.iv.next231, %while.body ], [ %5, %while.body.preheader ]
-  %name8 = getelementptr inbounds i8, ptr %26, i64 108
+  %name8 = getelementptr inbounds nuw i8, ptr %26, i64 108
   %bcmp = tail call i32 @bcmp(ptr nonnull %name8, ptr %name, i64 %conv9)
   %tobool.not = icmp eq i32 %bcmp, 0
   br i1 %tobool.not, label %if.end12, label %while.end
 
 if.end12:                                         ; preds = %lor.lhs.false
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230353, 1
-  %ce_mode = getelementptr inbounds i8, ptr %26, i64 52
+  %ce_mode = getelementptr inbounds nuw i8, ptr %26, i64 52
   %27 = load i32, ptr %ce_mode, align 4
   %cmp13 = icmp eq i32 %27, 16384
   br i1 %cmp13, label %while.end, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
-  %ce_flags21 = getelementptr inbounds i8, ptr %26, i64 56
+  %ce_flags21 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %28 = load i32, ptr %ce_flags21, align 8
   %and22 = lshr i32 %28, 12
   %shr = and i32 %and22, 3
@@ -1097,7 +1097,7 @@ if.end34:                                         ; preds = %if.end16.us102, %if
   %29 = load i32, ptr @to_tempfile, align 4
   %tobool35.not = icmp eq i32 %29, 0
   %idxprom39 = zext nneg i32 %.us-phi81 to i64
-  %arrayidx40 = getelementptr inbounds [4 x [26 x i8]], ptr @topath, i64 0, i64 %idxprom39
+  %arrayidx40 = getelementptr inbounds nuw [4 x [26 x i8]], ptr @topath, i64 0, i64 %idxprom39
   %cond = select i1 %tobool35.not, ptr null, ptr %arrayidx40
   %call.i = tail call i32 @checkout_entry_ca(ptr noundef nonnull %.us-phi83, ptr noundef null, ptr noundef nonnull @state, ptr noundef %cond, ptr noundef null) #13
   %30 = lshr i32 %call.i, 31
@@ -1234,7 +1234,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 1, %entry ]
-  %arrayidx = getelementptr inbounds [4 x [26 x i8]], ptr @topath, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x [26 x i8]], ptr @topath, i64 0, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx, align 2
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %for.cond, label %for.body8
@@ -1249,7 +1249,7 @@ if.then10:                                        ; preds = %for.body8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %for.body8
-  %arrayidx13 = getelementptr inbounds [4 x [26 x i8]], ptr @topath, i64 0, i64 %indvars.iv16
+  %arrayidx13 = getelementptr inbounds nuw [4 x [26 x i8]], ptr @topath, i64 0, i64 %indvars.iv16
   %2 = load i8, ptr %arrayidx13, align 2
   %tobool15.not = icmp eq i8 %2, 0
   br i1 %tobool15.not, label %if.else, label %if.then16
@@ -1294,7 +1294,7 @@ for.body45.preheader:                             ; preds = %for.cond, %if.else2
 
 for.body45:                                       ; preds = %for.body45.preheader, %for.body45
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %for.body45 ], [ 0, %for.body45.preheader ]
-  %arrayidx47 = getelementptr inbounds [4 x [26 x i8]], ptr @topath, i64 0, i64 %indvars.iv20
+  %arrayidx47 = getelementptr inbounds nuw [4 x [26 x i8]], ptr @topath, i64 0, i64 %indvars.iv20
   store i8 0, ptr %arrayidx47, align 2
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 4

@@ -104,13 +104,13 @@ define i32 @PMPI_Type_create_subarray(i32 noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   %42 = icmp slt i32 %41, 1
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = icmp sgt i32 %41, %45
   br i1 %46, label %47, label %49
@@ -120,7 +120,7 @@ define i32 @PMPI_Type_create_subarray(i32 noundef %0, ptr noundef %1, ptr nounde
   br label %97
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4
   %52 = icmp slt i32 %51, 0
   %53 = sub nsw i32 %45, %41
@@ -139,13 +139,13 @@ define i32 @PMPI_Type_create_subarray(i32 noundef %0, ptr noundef %1, ptr nounde
 
 58:                                               ; preds = %.loopexit
   store ptr %8, ptr %11, align 16
-  %59 = getelementptr inbounds i8, ptr %11, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %1, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %11, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %2, ptr %60, align 16
-  %61 = getelementptr inbounds i8, ptr %11, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %3, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %11, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %9, ptr %62, align 16
   %63 = load ptr, ptr %6, align 8
   %64 = mul nsw i32 %0, 3
@@ -191,7 +191,7 @@ define i32 @PMPI_Type_create_subarray(i32 noundef %0, ptr noundef %1, ptr nounde
 81:                                               ; preds = %79, %.lr.ph.i
   %82 = phi i8 [ %75, %.lr.ph.i ], [ %.pre.i.i, %79 ]
   %83 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %84 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv.i
   %85 = load ptr, ptr %84, align 8
   %86 = trunc i8 %82 to i1
   br i1 %86, label %87, label %opal_pointer_array_get_item.exit.i
@@ -203,13 +203,13 @@ define i32 @PMPI_Type_create_subarray(i32 noundef %0, ptr noundef %1, ptr nounde
 
 opal_pointer_array_get_item.exit.i:               ; preds = %87, %81
   %89 = phi i8 [ %82, %81 ], [ %.pre.i, %87 ]
-  %90 = getelementptr inbounds i8, ptr %85, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, %57
   br i1 %92, label %93, label %71
 
 93:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %94 = getelementptr inbounds i8, ptr %85, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %85, i64 20
   %95 = load i32, ptr %94, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

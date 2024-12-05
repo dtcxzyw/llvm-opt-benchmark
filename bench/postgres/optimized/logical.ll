@@ -217,7 +217,7 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noca
   unreachable
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %12, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %30
@@ -236,7 +236,7 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noca
   br i1 %.not, label %37, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %12, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %34)
   %35 = tail call i32 @errcode(i32 noundef 325) #10
@@ -272,7 +272,7 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noca
   br label %49
 
 49:                                               ; preds = %45, %47
-  %50 = getelementptr inbounds i8, ptr %12, i64 137
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %50, ptr noundef nonnull align 1 dereferenceable(64) %11, i64 64, i1 false)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   store i8 0, ptr %12, align 8
@@ -293,7 +293,7 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noca
   br label %57
 
 57:                                               ; preds = %53, %55
-  %58 = getelementptr inbounds i8, ptr %12, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 104
   store i64 %3, ptr %58, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   store i8 0, ptr %12, align 8
@@ -314,14 +314,14 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noca
   br label %68
 
 68:                                               ; preds = %59, %66
-  %69 = getelementptr inbounds i8, ptr %12, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %64, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %12, i64 100
+  %70 = getelementptr inbounds nuw i8, ptr %12, i64 100
   store i32 %64, ptr %70, align 4
   br i1 %2, label %71, label %73
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %12, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %64, ptr %72, align 4
   br label %73
 
@@ -338,30 +338,30 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noca
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %77, ptr @CurrentMemoryContext, align 8
-  %79 = getelementptr inbounds i8, ptr %76, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %80 = load ptr, ptr %79, align 8
   %.not50 = icmp eq ptr %80, null
   br i1 %.not50, label %91, label %81
 
 81:                                               ; preds = %73
-  %82 = getelementptr inbounds i8, ptr %76, i64 216
+  %82 = getelementptr inbounds nuw i8, ptr %76, i64 216
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store ptr %76, ptr %9, align 8
-  %83 = getelementptr inbounds i8, ptr %9, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @.str.70, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %9, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %10, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @output_plugin_error_callback, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %10, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %9, ptr %86, align 8
   %87 = load ptr, ptr @error_context_stack, align 8
   store ptr %87, ptr %10, align 8
   store ptr %10, ptr @error_context_stack, align 8
-  %88 = getelementptr inbounds i8, ptr %76, i64 283
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 283
   store i8 0, ptr %88, align 1
-  %89 = getelementptr inbounds i8, ptr %76, i64 300
+  %89 = getelementptr inbounds nuw i8, ptr %76, i64 300
   store i8 0, ptr %89, align 4
   call void %80(ptr noundef nonnull %76, ptr noundef nonnull %82, i1 noundef zeroext true) #10
   %90 = load ptr, ptr %10, align 8
@@ -372,18 +372,18 @@ define dso_local noundef ptr @CreateInitDecodingContext(ptr noundef %0, ptr noca
 
 91:                                               ; preds = %81, %73
   store ptr %78, ptr @CurrentMemoryContext, align 8
-  %92 = getelementptr inbounds i8, ptr %12, i64 136
+  %92 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %93 = load i8, ptr %92, align 8
   %94 = and i8 %93, 1
-  %95 = getelementptr inbounds i8, ptr %76, i64 281
+  %95 = getelementptr inbounds nuw i8, ptr %76, i64 281
   %96 = load i8, ptr %95, align 1
   %97 = and i8 %94, %96
   store i8 %97, ptr %95, align 1
-  %98 = getelementptr inbounds i8, ptr %76, i64 220
+  %98 = getelementptr inbounds nuw i8, ptr %76, i64 220
   %99 = load i8, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %76, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 232
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 232
   %103 = and i8 %99, 1
   store i8 %103, ptr %102, align 8
   ret ptr %76
@@ -428,7 +428,7 @@ define internal fastcc noundef ptr @StartupDecodingContext(ptr noundef %0, i64 n
   br i1 %4, label %LoadOutputPlugin.exit, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %10, i64 137
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 137
   %17 = tail call ptr @load_external_function(ptr noundef nonnull %16, ptr noundef nonnull @.str.34, i1 noundef zeroext false, ptr noundef null) #10
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %22
@@ -441,9 +441,9 @@ define internal fastcc noundef ptr @StartupDecodingContext(ptr noundef %0, i64 n
   unreachable
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %14, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 48
   tail call void %17(ptr noundef nonnull %23) #10
-  %24 = getelementptr inbounds i8, ptr %14, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %30
@@ -456,7 +456,7 @@ define internal fastcc noundef ptr @StartupDecodingContext(ptr noundef %0, i64 n
   unreachable
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %14, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %37
@@ -469,7 +469,7 @@ define internal fastcc noundef ptr @StartupDecodingContext(ptr noundef %0, i64 n
   unreachable
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds i8, ptr %14, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %LoadOutputPlugin.exit
@@ -490,14 +490,14 @@ LoadOutputPlugin.exit:                            ; preds = %37, %9
   %47 = getelementptr i8, ptr %46, i64 512
   %48 = tail call zeroext i1 @LWLockAcquire(ptr noundef %47, i32 noundef 0) #10
   %49 = load ptr, ptr @MyProc, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 148
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 148
   %51 = load i8, ptr %50, align 4
   %52 = or i8 %51, 16
   store i8 %52, ptr %50, align 4
   %53 = load ptr, ptr @ProcGlobal, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %49, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %57 = load i32, ptr %56, align 8
   %58 = sext i32 %57 to i64
   %59 = getelementptr i8, ptr %55, i64 %58
@@ -508,11 +508,11 @@ LoadOutputPlugin.exit:                            ; preds = %37, %9
   br label %62
 
 62:                                               ; preds = %45, %LoadOutputPlugin.exit
-  %63 = getelementptr inbounds i8, ptr %14, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %10, ptr %63, align 8
   %64 = load i32, ptr @wal_segment_size, align 4
   %65 = tail call ptr @XLogReaderAllocate(i32 noundef %64, ptr noundef null, ptr noundef %5, ptr noundef nonnull %14) #10
-  %66 = getelementptr inbounds i8, ptr %14, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %65, ptr %66, align 8
   %.not = icmp eq ptr %65, null
   br i1 %.not, label %67, label %72
@@ -528,68 +528,68 @@ LoadOutputPlugin.exit:                            ; preds = %37, %9
 
 72:                                               ; preds = %62
   %73 = tail call ptr @ReorderBufferAllocate() #10
-  %74 = getelementptr inbounds i8, ptr %14, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %10, i64 128
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %76 = load i64, ptr %75, align 8
   %77 = tail call ptr @AllocateSnapshotBuilder(ptr noundef %73, i32 noundef %2, i64 noundef %1, i1 noundef zeroext %3, i64 noundef %76) #10
-  %78 = getelementptr inbounds i8, ptr %14, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %77, ptr %78, align 8
   %79 = load ptr, ptr %74, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 224
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 224
   store ptr %14, ptr %80, align 8
   %81 = load ptr, ptr %74, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 80
   store ptr @begin_cb_wrapper, ptr %82, align 8
   %83 = load ptr, ptr %74, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 88
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 88
   store ptr @change_cb_wrapper, ptr %84, align 8
   %85 = load ptr, ptr %74, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 96
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 96
   store ptr @truncate_cb_wrapper, ptr %86, align 8
   %87 = load ptr, ptr %74, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 104
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 104
   store ptr @commit_cb_wrapper, ptr %88, align 8
   %89 = load ptr, ptr %74, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 112
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 112
   store ptr @message_cb_wrapper, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %14, i64 152
+  %91 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %92 = load ptr, ptr %91, align 8
   %.not66 = icmp eq ptr %92, null
   br i1 %.not66, label %93, label %113
 
 93:                                               ; preds = %72
-  %94 = getelementptr inbounds i8, ptr %14, i64 160
+  %94 = getelementptr inbounds nuw i8, ptr %14, i64 160
   %95 = load ptr, ptr %94, align 8
   %.not67 = icmp eq ptr %95, null
   br i1 %.not67, label %96, label %113
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %14, i64 168
+  %97 = getelementptr inbounds nuw i8, ptr %14, i64 168
   %98 = load ptr, ptr %97, align 8
   %.not68 = icmp eq ptr %98, null
   br i1 %.not68, label %99, label %113
 
 99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %14, i64 184
+  %100 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %101 = load ptr, ptr %100, align 8
   %.not69 = icmp eq ptr %101, null
   br i1 %.not69, label %102, label %113
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %14, i64 192
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 192
   %104 = load ptr, ptr %103, align 8
   %.not70 = icmp eq ptr %104, null
   br i1 %.not70, label %105, label %113
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %14, i64 200
+  %106 = getelementptr inbounds nuw i8, ptr %14, i64 200
   %107 = load ptr, ptr %106, align 8
   %.not71 = icmp eq ptr %107, null
   br i1 %.not71, label %108, label %113
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %14, i64 208
+  %109 = getelementptr inbounds nuw i8, ptr %14, i64 208
   %110 = load ptr, ptr %109, align 8
   %111 = icmp ne ptr %110, null
   %112 = zext i1 %111 to i8
@@ -597,63 +597,63 @@ LoadOutputPlugin.exit:                            ; preds = %37, %9
 
 113:                                              ; preds = %108, %105, %102, %99, %96, %93, %72
   %114 = phi i8 [ 1, %105 ], [ 1, %102 ], [ 1, %99 ], [ 1, %96 ], [ 1, %93 ], [ 1, %72 ], [ %112, %108 ]
-  %115 = getelementptr inbounds i8, ptr %14, i64 280
+  %115 = getelementptr inbounds nuw i8, ptr %14, i64 280
   store i8 %114, ptr %115, align 8
   %116 = load ptr, ptr %74, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 152
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 152
   store ptr @stream_start_cb_wrapper, ptr %117, align 8
   %118 = load ptr, ptr %74, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 160
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 160
   store ptr @stream_stop_cb_wrapper, ptr %119, align 8
   %120 = load ptr, ptr %74, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 168
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 168
   store ptr @stream_abort_cb_wrapper, ptr %121, align 8
   %122 = load ptr, ptr %74, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 176
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 176
   store ptr @stream_prepare_cb_wrapper, ptr %123, align 8
   %124 = load ptr, ptr %74, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 184
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 184
   store ptr @stream_commit_cb_wrapper, ptr %125, align 8
   %126 = load ptr, ptr %74, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 192
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 192
   store ptr @stream_change_cb_wrapper, ptr %127, align 8
   %128 = load ptr, ptr %74, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 200
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 200
   store ptr @stream_message_cb_wrapper, ptr %129, align 8
   %130 = load ptr, ptr %74, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 208
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 208
   store ptr @stream_truncate_cb_wrapper, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %14, i64 120
+  %132 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %133 = load ptr, ptr %132, align 8
   %.not72 = icmp eq ptr %133, null
   br i1 %.not72, label %134, label %151
 
 134:                                              ; preds = %113
-  %135 = getelementptr inbounds i8, ptr %14, i64 128
+  %135 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %136 = load ptr, ptr %135, align 8
   %.not73 = icmp eq ptr %136, null
   br i1 %.not73, label %137, label %151
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %14, i64 136
+  %138 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %139 = load ptr, ptr %138, align 8
   %.not74 = icmp eq ptr %139, null
   br i1 %.not74, label %140, label %151
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %14, i64 144
+  %141 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %142 = load ptr, ptr %141, align 8
   %.not75 = icmp eq ptr %142, null
   br i1 %.not75, label %143, label %151
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %14, i64 176
+  %144 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %145 = load ptr, ptr %144, align 8
   %.not76 = icmp eq ptr %145, null
   br i1 %.not76, label %146, label %151
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %14, i64 112
+  %147 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %148 = load ptr, ptr %147, align 8
   %149 = icmp ne ptr %148, null
   %150 = zext i1 %149 to i8
@@ -662,35 +662,35 @@ LoadOutputPlugin.exit:                            ; preds = %37, %9
 151:                                              ; preds = %146, %143, %140, %137, %134, %113
   %152 = phi i8 [ 1, %143 ], [ 1, %140 ], [ 1, %137 ], [ 1, %134 ], [ 1, %113 ], [ %150, %146 ]
   %153 = zext i1 %4 to i8
-  %154 = getelementptr inbounds i8, ptr %14, i64 281
+  %154 = getelementptr inbounds nuw i8, ptr %14, i64 281
   store i8 %152, ptr %154, align 1
   %155 = load ptr, ptr %74, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 120
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 120
   store ptr @begin_prepare_cb_wrapper, ptr %156, align 8
   %157 = load ptr, ptr %74, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 128
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 128
   store ptr @prepare_cb_wrapper, ptr %158, align 8
   %159 = load ptr, ptr %74, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 136
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 136
   store ptr @commit_prepared_cb_wrapper, ptr %160, align 8
   %161 = load ptr, ptr %74, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 144
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 144
   store ptr @rollback_prepared_cb_wrapper, ptr %162, align 8
   %163 = load ptr, ptr %74, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 216
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 216
   store ptr @update_progress_txn_cb_wrapper, ptr %164, align 8
   %165 = tail call ptr @makeStringInfo() #10
-  %166 = getelementptr inbounds i8, ptr %14, i64 256
+  %166 = getelementptr inbounds nuw i8, ptr %14, i64 256
   store ptr %165, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %14, i64 232
+  %167 = getelementptr inbounds nuw i8, ptr %14, i64 232
   store ptr %6, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %14, i64 240
+  %168 = getelementptr inbounds nuw i8, ptr %14, i64 240
   store ptr %7, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %14, i64 248
+  %169 = getelementptr inbounds nuw i8, ptr %14, i64 248
   store ptr %8, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %14, i64 224
+  %170 = getelementptr inbounds nuw i8, ptr %14, i64 224
   store ptr %0, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %14, i64 40
+  %171 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i8 %153, ptr %171, align 8
   store ptr %13, ptr @CurrentMemoryContext, align 8
   ret ptr %14
@@ -712,8 +712,8 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   unreachable
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
-  %17 = getelementptr inbounds i8, ptr %10, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %24
@@ -744,7 +744,7 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   br i1 %31, label %32, label %41
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %10, i64 201
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 201
   %34 = load i8, ptr %33, align 1
   %.not51 = icmp eq i8 %34, 0
   br i1 %.not51, label %41, label %35
@@ -761,7 +761,7 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
 
 41:                                               ; preds = %32, %30
   %42 = load ptr, ptr @MyReplicationSlot, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %44 = load i32, ptr %43, align 8
   switch i32 %44, label %52 [
     i32 1, label %45
@@ -773,7 +773,7 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   tail call void @llvm.assume(i1 %46)
   %47 = tail call i32 @errcode(i32 noundef 325) #10
   %48 = load ptr, ptr @MyReplicationSlot, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %49) #10
   %51 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.13) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 550, ptr noundef nonnull @__func__.CreateDecodingContext) #10
@@ -784,7 +784,7 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   tail call void @llvm.assume(i1 %53)
   %54 = tail call i32 @errcode(i32 noundef 325) #10
   %55 = load ptr, ptr @MyReplicationSlot, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %56) #10
   %58 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.14) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 557, ptr noundef nonnull @__func__.CreateDecodingContext) #10
@@ -792,7 +792,7 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
 
 59:                                               ; preds = %41
   %60 = icmp eq i64 %0, 0
-  %61 = getelementptr inbounds i8, ptr %10, i64 120
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %62 = load i64, ptr %61, align 8
   br i1 %60, label %78, label %63
 
@@ -826,30 +826,30 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %80, ptr @CurrentMemoryContext, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %83 = load ptr, ptr %82, align 8
   %.not53 = icmp eq ptr %83, null
   br i1 %.not53, label %94, label %84
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %79, i64 216
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 216
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store ptr %79, ptr %8, align 8
-  %86 = getelementptr inbounds i8, ptr %8, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str.70, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %8, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %9, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @output_plugin_error_callback, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %9, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %8, ptr %89, align 8
   %90 = load ptr, ptr @error_context_stack, align 8
   store ptr %90, ptr %9, align 8
   store ptr %9, ptr @error_context_stack, align 8
-  %91 = getelementptr inbounds i8, ptr %79, i64 283
+  %91 = getelementptr inbounds nuw i8, ptr %79, i64 283
   store i8 0, ptr %91, align 1
-  %92 = getelementptr inbounds i8, ptr %79, i64 300
+  %92 = getelementptr inbounds nuw i8, ptr %79, i64 300
   store i8 0, ptr %92, align 4
   call void %83(ptr noundef nonnull %79, ptr noundef nonnull %85, i1 noundef zeroext false) #10
   %93 = load ptr, ptr %9, align 8
@@ -860,20 +860,20 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
 
 94:                                               ; preds = %84, %78
   store ptr %81, ptr @CurrentMemoryContext, align 8
-  %95 = getelementptr inbounds i8, ptr %10, i64 136
+  %95 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %96 = load i8, ptr %95, align 8
   %97 = trunc i8 %96 to i1
   br i1 %97, label %102, label %98
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %79, i64 282
+  %99 = getelementptr inbounds nuw i8, ptr %79, i64 282
   %100 = load i8, ptr %99, align 2
   %101 = zext i8 %100 to i32
   br label %102
 
 102:                                              ; preds = %98, %94
   %103 = phi i32 [ 1, %94 ], [ %101, %98 ]
-  %104 = getelementptr inbounds i8, ptr %79, i64 281
+  %104 = getelementptr inbounds nuw i8, ptr %79, i64 281
   %105 = load i8, ptr %104, align 1
   %106 = and i8 %105, 1
   %107 = zext nneg i8 %106 to i32
@@ -899,23 +899,23 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
 
 117:                                              ; preds = %113, %115
   store i8 1, ptr %95, align 8
-  %118 = getelementptr inbounds i8, ptr %10, i64 128
+  %118 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store i64 %.0, ptr %118, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   store i8 0, ptr %10, align 8
   call void @ReplicationSlotMarkDirty() #10
   call void @ReplicationSlotSave() #10
-  %119 = getelementptr inbounds i8, ptr %79, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %120 = load ptr, ptr %119, align 8
   call void @SnapBuildSetTwoPhaseAt(ptr noundef %120, i64 noundef %.0) #10
   br label %121
 
 121:                                              ; preds = %117, %110, %102
-  %122 = getelementptr inbounds i8, ptr %79, i64 220
+  %122 = getelementptr inbounds nuw i8, ptr %79, i64 220
   %123 = load i8, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %79, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 232
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 232
   %127 = and i8 %123, 1
   store i8 %127, ptr %126, align 8
   %128 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
@@ -923,12 +923,12 @@ define dso_local noundef ptr @CreateDecodingContext(i64 noundef %0, ptr noundef 
 
 129:                                              ; preds = %121
   %130 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %16) #10
-  %131 = getelementptr inbounds i8, ptr %10, i64 120
+  %131 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %132 = load i64, ptr %131, align 8
   %133 = lshr i64 %132, 32
   %134 = trunc nuw i64 %133 to i32
   %135 = trunc i64 %132 to i32
-  %136 = getelementptr inbounds i8, ptr %10, i64 104
+  %136 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %137 = load i64, ptr %136, align 8
   %138 = lshr i64 %137, 32
   %139 = trunc nuw i64 %138 to i32
@@ -949,7 +949,7 @@ declare void @SnapBuildSetTwoPhaseAt(ptr noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @DecodingContextReady(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @SnapBuildCurrentState(ptr noundef %3) #10
   %5 = icmp eq i32 %4, 2
@@ -961,11 +961,11 @@ declare i32 @SnapBuildCurrentState(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %8 = load i64, ptr %7, align 8
   tail call void @XLogBeginRead(ptr noundef %6, i64 noundef %8) #10
   %9 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
@@ -989,7 +989,7 @@ define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnam
   br i1 %.not21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %24
 
 ._crit_edge:                                      ; preds = %37, %16
@@ -1048,20 +1048,20 @@ define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnam
 
 45:                                               ; preds = %41, %43
   %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store i64 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %4, i64 136
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 128
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store i64 %56, ptr %57, align 8
   br label %58
 
@@ -1083,7 +1083,7 @@ declare void @ProcessInterrupts() local_unnamed_addr #1
 define dso_local void @FreeDecodingContext(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.LogicalErrorCallbackState, align 8
   %3 = alloca %struct.ErrorContextCallback, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %15, label %6
@@ -1092,20 +1092,20 @@ define dso_local void @FreeDecodingContext(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr %0, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.71, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @output_plugin_error_callback, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %10, align 8
   %11 = load ptr, ptr @error_context_stack, align 8
   store ptr %11, ptr %3, align 8
   store ptr %3, ptr @error_context_stack, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 283
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 283
   store i8 0, ptr %12, align 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 300
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 0, ptr %13, align 4
   call void %5(ptr noundef nonnull %0) #10
   %14 = load ptr, ptr %3, align 8
@@ -1115,13 +1115,13 @@ define dso_local void @FreeDecodingContext(ptr noundef %0) local_unnamed_addr #0
   br label %15
 
 15:                                               ; preds = %6, %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   call void @ReorderBufferFree(ptr noundef %17) #10
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   call void @FreeSnapshotBuilder(ptr noundef %19) #10
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   call void @XLogReaderFree(ptr noundef %21) #10
   %22 = load ptr, ptr %0, align 8
@@ -1139,7 +1139,7 @@ declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @OutputPluginPrepareWrite(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 283
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 283
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %9, label %6
@@ -1152,21 +1152,21 @@ define dso_local void @OutputPluginPrepareWrite(ptr noundef %0, i1 noundef zeroe
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %15 = load i32, ptr %14, align 8
   tail call void %11(ptr noundef nonnull %0, i64 noundef %13, i32 noundef %15, i1 noundef zeroext %1) #10
-  %16 = getelementptr inbounds i8, ptr %0, i64 284
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i8 1, ptr %16, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @OutputPluginWrite(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 284
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   br i1 %5, label %9, label %6
@@ -1179,11 +1179,11 @@ define dso_local void @OutputPluginWrite(ptr noundef %0, i1 noundef zeroext %1) 
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 296
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %15 = load i32, ptr %14, align 8
   tail call void %11(ptr noundef nonnull %0, i64 noundef %13, i32 noundef %15, i1 noundef zeroext %1) #10
   store i8 0, ptr %3, align 4
@@ -1192,15 +1192,15 @@ define dso_local void @OutputPluginWrite(ptr noundef %0, i1 noundef zeroext %1) 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @OutputPluginUpdateProgress(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 248
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 288
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %9 = load i32, ptr %8, align 8
   tail call void %4(ptr noundef nonnull %0, i64 noundef %7, i32 noundef %9, i1 noundef zeroext %1) #10
   br label %10
@@ -1214,22 +1214,22 @@ define dso_local zeroext i1 @filter_prepare_cb_wrapper(ptr noundef %0, i32 nound
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
   store ptr %0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.23, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @output_plugin_error_callback, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %9, align 8
   %10 = load ptr, ptr @error_context_stack, align 8
   store ptr %10, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 283
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 283
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 300
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8
   %15 = call zeroext i1 %14(ptr noundef %0, i32 noundef %1, ptr noundef %2) #10
   %16 = load ptr, ptr %5, align 8
@@ -1239,16 +1239,16 @@ define dso_local zeroext i1 @filter_prepare_cb_wrapper(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @output_plugin_error_callback(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
   %4 = tail call i32 @set_errcontext_domain(ptr noundef null) #10
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
-  %9 = getelementptr inbounds i8, ptr %7, i64 137
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 137
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   br i1 %.not, label %18, label %12
 
@@ -1273,22 +1273,22 @@ define dso_local zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef %0, i16 nou
   %3 = alloca %struct.LogicalErrorCallbackState, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   store ptr %0, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.24, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @output_plugin_error_callback, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr @error_context_stack, align 8
   store ptr %9, ptr %4, align 8
   store ptr %4, ptr @error_context_stack, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 283
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 283
   store i8 0, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 300
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8
   %14 = call zeroext i1 %13(ptr noundef %0, i16 noundef zeroext %1) #10
   %15 = load ptr, ptr %4, align 8
@@ -1308,25 +1308,25 @@ define dso_local void @LogicalIncreaseXminForSlot(i64 noundef %0, i32 noundef %1
   br label %7
 
 7:                                                ; preds = %2, %5
-  %8 = getelementptr inbounds i8, ptr %3, i64 100
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 100
   %9 = load i32, ptr %8, align 4
   %10 = tail call zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef %1, i32 noundef %9) #10
   br i1 %10, label %.thread31, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %3, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %13 = load i64, ptr %12, align 8
   %.not23 = icmp ugt i64 %0, %13
   br i1 %.not23, label %14, label %26
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %3, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %18, label %.thread31
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %3, i64 236
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 236
   store i32 %1, ptr %19, align 4
   store i64 %0, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
@@ -1348,9 +1348,9 @@ define dso_local void @LogicalIncreaseXminForSlot(i64 noundef %0, i32 noundef %1
   br label %.thread28
 
 26:                                               ; preds = %11
-  %27 = getelementptr inbounds i8, ptr %3, i64 236
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 236
   store i32 %1, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 240
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 240
   store i64 %0, ptr %28, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   store i8 0, ptr %3, align 8
@@ -1367,13 +1367,13 @@ declare zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef, i32 noundef) loca
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @MyReplicationSlot, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %7 = load i64, ptr %6, align 8
   %.not13 = icmp eq i64 %7, 0
   br i1 %.not13, label %55, label %8
@@ -1390,22 +1390,22 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
 
 13:                                               ; preds = %8, %10
   %14 = load ptr, ptr @MyReplicationSlot, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 120
   store i64 %0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 240
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 240
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, -1
   %or.cond.not = icmp ult i64 %18, %0
   br i1 %or.cond.not, label %19, label %26
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %14, i64 236
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 236
   %21 = load i32, ptr %20, align 4
   %.not18 = icmp eq i32 %21, 0
   br i1 %.not18, label %26, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %14, i64 100
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 100
   %24 = load i32, ptr %23, align 4
   %.not19 = icmp eq i32 %24, %21
   br i1 %.not19, label %26, label %25
@@ -1418,16 +1418,16 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
 
 26:                                               ; preds = %19, %22, %25, %13
   %.09 = phi i1 [ true, %25 ], [ false, %22 ], [ false, %19 ], [ false, %13 ]
-  %27 = getelementptr inbounds i8, ptr %14, i64 248
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 248
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, -1
   %or.cond23.not = icmp ult i64 %29, %0
   br i1 %or.cond23.not, label %30, label %34
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %14, i64 256
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %14, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 104
   store i64 %32, ptr %33, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   br label %34
@@ -1468,9 +1468,9 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
 
 49:                                               ; preds = %43, %46
   %50 = load ptr, ptr @MyReplicationSlot, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 100
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 100
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %50, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 %52, ptr %53, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %54 = load ptr, ptr @MyReplicationSlot, align 8
@@ -1491,7 +1491,7 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
 
 60:                                               ; preds = %55, %57
   %61 = load ptr, ptr @MyReplicationSlot, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 120
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 120
   store i64 %0, ptr %62, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   %63 = load ptr, ptr @MyReplicationSlot, align 8
@@ -1514,34 +1514,34 @@ define dso_local void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %0, i64
   br label %7
 
 7:                                                ; preds = %2, %5
-  %8 = getelementptr inbounds i8, ptr %3, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %9 = load i64, ptr %8, align 8
   %.not38 = icmp ugt i64 %1, %9
   br i1 %.not38, label %10, label %16
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %12 = load i64, ptr %11, align 8
   %.not39 = icmp ugt i64 %0, %12
   br i1 %.not39, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 248
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 248
   store i64 %0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 256
   store i64 %1, ptr %15, align 8
   br label %16
 
 16:                                               ; preds = %10, %13, %7
   %.0 = phi i1 [ false, %7 ], [ true, %13 ], [ false, %10 ]
-  %17 = getelementptr inbounds i8, ptr %3, i64 248
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %16
   store i64 %0, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 256
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 256
   store i64 %1, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
   store i8 0, ptr %3, align 8
@@ -1559,9 +1559,9 @@ define dso_local void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %0, i64
   br label %.sink.split
 
 31:                                               ; preds = %16
-  %32 = getelementptr inbounds i8, ptr %3, i64 256
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %35 = load i64, ptr %34, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !16
   store i8 0, ptr %3, align 8
@@ -1596,7 +1596,7 @@ define dso_local void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %0, i64
   br i1 %.0, label %55, label %58
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %3, i64 120
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %57 = load i64, ptr %56, align 8
   tail call void @LogicalConfirmReceivedLocation(i64 noundef %57)
   br label %58
@@ -1617,21 +1617,21 @@ define dso_local void @ResetLogicalStreamingState() local_unnamed_addr #4 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @UpdateDecodingStats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.PgStat_StatReplSlotEntry, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 320
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 320
   %6 = load i64, ptr %5, align 8
   %7 = icmp slt i64 %6, 1
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %4, i64 344
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %10 = load i64, ptr %9, align 8
   %11 = icmp slt i64 %10, 1
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 360
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %14 = load i64, ptr %13, align 8
   %15 = icmp slt i64 %14, 1
   br i1 %15, label %60, label %16
@@ -1641,57 +1641,57 @@ define dso_local void @UpdateDecodingStats(ptr nocapture noundef readonly %0) lo
   br i1 %17, label %18, label %35
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %4, i64 304
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 312
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %22 = load i64, ptr %21, align 8
   %23 = load i64, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 328
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 336
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 336
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 344
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 352
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 352
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 360
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %33 = load i64, ptr %32, align 8
   %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, ptr noundef nonnull %4, i64 noundef %20, i64 noundef %22, i64 noundef %23, i64 noundef %25, i64 noundef %27, i64 noundef %29, i64 noundef %31, i64 noundef %33) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1944, ptr noundef nonnull @__func__.UpdateDecodingStats) #10
   br label %35
 
 35:                                               ; preds = %16, %18
-  %36 = getelementptr inbounds i8, ptr %4, i64 304
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %37 = load i64, ptr %36, align 8
   store i64 %37, ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 312
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %39, ptr %40, align 8
   %41 = load i64, ptr %5, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 328
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 336
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 336
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 344
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 352
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 352
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %4, i64 360
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store i64 %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
   call void @pgstat_report_replslot(ptr noundef %59, ptr noundef nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, i8 0, i64 64, i1 false)
@@ -1719,24 +1719,24 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
 11:                                               ; preds = %1
   store ptr %4, ptr @PG_exception_stack, align 8
   store ptr @read_local_xlog_page, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @wal_segment_open, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @wal_segment_close, ptr %13, align 8
   %14 = call ptr @CreateDecodingContext(i64 noundef 0, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null)
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @MyReplicationSlot, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %19 = load i64, ptr %18, align 8
   call void @XLogBeginRead(ptr noundef %16, i64 noundef %19) #10
   call void @InvalidateSystemCaches() #10
-  %20 = getelementptr inbounds i8, ptr %14, i64 301
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 301
   br label %21
 
 21:                                               ; preds = %11, %41
   %22 = load ptr, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load i64, ptr %23, align 8
   %25 = icmp ult i64 %24, %0
   br i1 %25, label %26, label %.critedge
@@ -1780,7 +1780,7 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
   br i1 %38, label %.critedge, label %21, !llvm.loop !17
 
 .critedge:                                        ; preds = %41, %21
-  %42 = getelementptr inbounds i8, ptr %14, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %FreeDecodingContext.exit, label %44
@@ -1789,20 +1789,20 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   store ptr %14, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.71, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %3, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @output_plugin_error_callback, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %3, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %2, ptr %48, align 8
   %49 = load ptr, ptr @error_context_stack, align 8
   store ptr %49, ptr %3, align 8
   store ptr %3, ptr @error_context_stack, align 8
-  %50 = getelementptr inbounds i8, ptr %14, i64 283
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 283
   store i8 0, ptr %50, align 1
-  %51 = getelementptr inbounds i8, ptr %14, i64 300
+  %51 = getelementptr inbounds nuw i8, ptr %14, i64 300
   store i8 0, ptr %51, align 4
   call void %43(ptr noundef nonnull %14) #10
   %52 = load ptr, ptr %3, align 8
@@ -1812,10 +1812,10 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
   br label %FreeDecodingContext.exit
 
 FreeDecodingContext.exit:                         ; preds = %.critedge, %44
-  %53 = getelementptr inbounds i8, ptr %14, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %54 = load ptr, ptr %53, align 8
   call void @ReorderBufferFree(ptr noundef %54) #10
-  %55 = getelementptr inbounds i8, ptr %14, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %56 = load ptr, ptr %55, align 8
   call void @FreeSnapshotBuilder(ptr noundef %56) #10
   %57 = load ptr, ptr %15, align 8
@@ -1865,34 +1865,34 @@ declare ptr @AllocateSnapshotBuilder(ptr noundef, i32 noundef, i64 noundef, i1 n
 define internal void @begin_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca %struct.LogicalErrorCallbackState, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.39, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @output_plugin_error_callback, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %12, align 8
   %13 = load ptr, ptr @error_context_stack, align 8
   store ptr %13, ptr %4, align 8
   store ptr %4, ptr @error_context_stack, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 283
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 283
   store i8 1, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 296
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store i32 %16, ptr %17, align 8
   %18 = load i64, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 300
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 300
   store i8 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %6, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %22 = load ptr, ptr %21, align 8
   call void %22(ptr noundef %6, ptr noundef %1) #10
   %23 = load ptr, ptr %4, align 8
@@ -1904,33 +1904,33 @@ define internal void @begin_cb_wrapper(ptr nocapture noundef readonly %0, ptr no
 define internal void @change_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.LogicalErrorCallbackState, align 8
   %6 = alloca %struct.ErrorContextCallback, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.40, ptr %9, align 8
   %10 = load i64, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @output_plugin_error_callback, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %13, align 8
   %14 = load ptr, ptr @error_context_stack, align 8
   store ptr %14, ptr %6, align 8
   store ptr %6, ptr @error_context_stack, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 283
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 283
   store i8 1, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 296
   store i32 %17, ptr %18, align 8
   %19 = load i64, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 288
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 288
   store i64 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 300
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 300
   store i8 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %8, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #10
   %24 = load ptr, ptr %6, align 8
@@ -1942,37 +1942,37 @@ define internal void @change_cb_wrapper(ptr nocapture noundef readonly %0, ptr n
 define internal void @truncate_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct.LogicalErrorCallbackState, align 8
   %7 = alloca %struct.ErrorContextCallback, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %27, label %12
 
 12:                                               ; preds = %5
   store ptr %9, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.41, ptr %13, align 8
   %14 = load i64, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @output_plugin_error_callback, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %17, align 8
   %18 = load ptr, ptr @error_context_stack, align 8
   store ptr %18, ptr %7, align 8
   store ptr %7, ptr @error_context_stack, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 283
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 283
   store i8 1, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %9, i64 296
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 296
   store i32 %21, ptr %22, align 8
   %23 = load i64, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 288
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 288
   store i64 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 300
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 300
   store i8 0, ptr %25, align 4
   call void %11(ptr noundef nonnull %9, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) #10
   %26 = load ptr, ptr %7, align 8
@@ -1987,35 +1987,35 @@ define internal void @truncate_cb_wrapper(ptr nocapture noundef readonly %0, ptr
 define internal void @commit_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.42, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @output_plugin_error_callback, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %13, align 8
   %14 = load ptr, ptr @error_context_stack, align 8
   store ptr %14, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 283
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 283
   store i8 1, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 300
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 300
   store i8 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef %7, ptr noundef %1, i64 noundef %2) #10
   %25 = load ptr, ptr %5, align 8
@@ -2027,43 +2027,43 @@ define internal void @commit_cb_wrapper(ptr nocapture noundef readonly %0, ptr n
 define internal void @message_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.LogicalErrorCallbackState, align 8
   %9 = alloca %struct.ErrorContextCallback, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %31, label %15
 
 15:                                               ; preds = %7
   store ptr %11, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str.43, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @output_plugin_error_callback, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %8, ptr %19, align 8
   %20 = load ptr, ptr @error_context_stack, align 8
   store ptr %20, ptr %9, align 8
   store ptr %9, ptr @error_context_stack, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 283
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 283
   store i8 1, ptr %21, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i32, ptr %23, align 4
   br label %25
 
 25:                                               ; preds = %15, %22
   %26 = phi i32 [ %24, %22 ], [ 0, %15 ]
-  %27 = getelementptr inbounds i8, ptr %11, i64 296
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 296
   store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 288
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 288
   store i64 %2, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %11, i64 300
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 300
   store i8 0, ptr %29, align 4
   call void %13(ptr noundef nonnull %11, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #10
   %30 = load ptr, ptr %9, align 8
@@ -2078,31 +2078,31 @@ define internal void @message_cb_wrapper(ptr nocapture noundef readonly %0, ptr 
 define internal void @stream_start_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.44, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @output_plugin_error_callback, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %11, align 8
   %12 = load ptr, ptr @error_context_stack, align 8
   store ptr %12, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 283
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 283
   store i8 1, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %7, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store i64 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 300
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 300
   store i8 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %26
@@ -2126,31 +2126,31 @@ define internal void @stream_start_cb_wrapper(ptr nocapture noundef readonly %0,
 define internal void @stream_stop_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.47, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @output_plugin_error_callback, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %11, align 8
   %12 = load ptr, ptr @error_context_stack, align 8
   store ptr %12, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 283
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 283
   store i8 1, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %7, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store i64 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 300
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 300
   store i8 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %26
@@ -2174,31 +2174,31 @@ define internal void @stream_stop_cb_wrapper(ptr nocapture noundef readonly %0, 
 define internal void @stream_abort_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.49, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @output_plugin_error_callback, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %11, align 8
   %12 = load ptr, ptr @error_context_stack, align 8
   store ptr %12, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 283
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 283
   store i8 1, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %7, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store i64 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 300
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 300
   store i8 1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %26
@@ -2222,35 +2222,35 @@ define internal void @stream_abort_cb_wrapper(ptr nocapture noundef readonly %0,
 define internal void @stream_prepare_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.51, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @output_plugin_error_callback, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %13, align 8
   %14 = load ptr, ptr @error_context_stack, align 8
   store ptr %14, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 283
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 283
   store i8 1, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 300
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 300
   store i8 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %30
@@ -2274,35 +2274,35 @@ define internal void @stream_prepare_cb_wrapper(ptr nocapture noundef readonly %
 define internal void @stream_commit_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.54, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @output_plugin_error_callback, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %13, align 8
   %14 = load ptr, ptr @error_context_stack, align 8
   store ptr %14, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 283
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 283
   store i8 1, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 300
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 300
   store i8 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 184
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %30
@@ -2326,33 +2326,33 @@ define internal void @stream_commit_cb_wrapper(ptr nocapture noundef readonly %0
 define internal void @stream_change_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.LogicalErrorCallbackState, align 8
   %6 = alloca %struct.ErrorContextCallback, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.56, ptr %9, align 8
   %10 = load i64, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @output_plugin_error_callback, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %13, align 8
   %14 = load ptr, ptr @error_context_stack, align 8
   store ptr %14, ptr %6, align 8
   store ptr %6, ptr @error_context_stack, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 283
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 283
   store i8 1, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %8, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 296
   store i32 %17, ptr %18, align 8
   %19 = load i64, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 288
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 288
   store i64 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 300
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 300
   store i8 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %8, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %29
@@ -2376,43 +2376,43 @@ define internal void @stream_change_cb_wrapper(ptr nocapture noundef readonly %0
 define internal void @stream_message_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.LogicalErrorCallbackState, align 8
   %9 = alloca %struct.ErrorContextCallback, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %31, label %15
 
 15:                                               ; preds = %7
   store ptr %11, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str.58, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @output_plugin_error_callback, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %8, ptr %19, align 8
   %20 = load ptr, ptr @error_context_stack, align 8
   store ptr %20, ptr %9, align 8
   store ptr %9, ptr @error_context_stack, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 283
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 283
   store i8 1, ptr %21, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i32, ptr %23, align 4
   br label %25
 
 25:                                               ; preds = %15, %22
   %26 = phi i32 [ %24, %22 ], [ 0, %15 ]
-  %27 = getelementptr inbounds i8, ptr %11, i64 296
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 296
   store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 288
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 288
   store i64 %2, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %11, i64 300
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 300
   store i8 0, ptr %29, align 4
   call void %13(ptr noundef nonnull %11, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) #10
   %30 = load ptr, ptr %9, align 8
@@ -2427,37 +2427,37 @@ define internal void @stream_message_cb_wrapper(ptr nocapture noundef readonly %
 define internal void @stream_truncate_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct.LogicalErrorCallbackState, align 8
   %7 = alloca %struct.ErrorContextCallback, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 208
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %27, label %12
 
 12:                                               ; preds = %5
   store ptr %9, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.59, ptr %13, align 8
   %14 = load i64, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @output_plugin_error_callback, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %17, align 8
   %18 = load ptr, ptr @error_context_stack, align 8
   store ptr %18, ptr %7, align 8
   store ptr %7, ptr @error_context_stack, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 283
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 283
   store i8 1, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %9, i64 296
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 296
   store i32 %21, ptr %22, align 8
   %23 = load i64, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 288
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 288
   store i64 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 300
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 300
   store i8 0, ptr %25, align 4
   call void %11(ptr noundef nonnull %9, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) #10
   %26 = load ptr, ptr %7, align 8
@@ -2472,34 +2472,34 @@ define internal void @stream_truncate_cb_wrapper(ptr nocapture noundef readonly 
 define internal void @begin_prepare_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca %struct.LogicalErrorCallbackState, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @.str.60, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @output_plugin_error_callback, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %12, align 8
   %13 = load ptr, ptr @error_context_stack, align 8
   store ptr %13, ptr %4, align 8
   store ptr %4, ptr @error_context_stack, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 283
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 283
   store i8 1, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 296
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store i32 %16, ptr %17, align 8
   %18 = load i64, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 288
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 300
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 300
   store i8 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %6, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %28
@@ -2523,35 +2523,35 @@ define internal void @begin_prepare_cb_wrapper(ptr nocapture noundef readonly %0
 define internal void @prepare_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.63, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @output_plugin_error_callback, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %13, align 8
   %14 = load ptr, ptr @error_context_stack, align 8
   store ptr %14, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 283
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 283
   store i8 1, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 300
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 300
   store i8 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %30
@@ -2575,35 +2575,35 @@ define internal void @prepare_cb_wrapper(ptr nocapture noundef readonly %0, ptr 
 define internal void @commit_prepared_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.65, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @output_plugin_error_callback, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %13, align 8
   %14 = load ptr, ptr @error_context_stack, align 8
   store ptr %14, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 283
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 283
   store i8 1, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i32 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 300
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 300
   store i8 1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %30
@@ -2627,35 +2627,35 @@ define internal void @commit_prepared_cb_wrapper(ptr nocapture noundef readonly 
 define internal void @rollback_prepared_cb_wrapper(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
   %5 = alloca %struct.LogicalErrorCallbackState, align 8
   %6 = alloca %struct.ErrorContextCallback, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str.67, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @output_plugin_error_callback, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %14, align 8
   %15 = load ptr, ptr @error_context_stack, align 8
   store ptr %15, ptr %6, align 8
   store ptr %6, ptr @error_context_stack, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 283
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 283
   store i8 1, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %1, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %8, i64 296
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 296
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %8, i64 288
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 288
   store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 300
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 300
   store i8 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %8, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %31
@@ -2679,31 +2679,31 @@ define internal void @rollback_prepared_cb_wrapper(ptr nocapture noundef readonl
 define internal void @update_progress_txn_cb_wrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %4 = alloca %struct.LogicalErrorCallbackState, align 8
   %5 = alloca %struct.ErrorContextCallback, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.69, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @output_plugin_error_callback, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %11, align 8
   %12 = load ptr, ptr @error_context_stack, align 8
   store ptr %12, ptr %5, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 283
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 283
   store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %7, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 296
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 288
   store i64 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 300
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 300
   store i8 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 248
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %OutputPluginUpdateProgress.exit, label %21

@@ -710,7 +710,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 
 310:                                              ; preds = %.lr.ph400, %326
   %indvars.iv418 = phi i64 [ %309, %.lr.ph400 ], [ %indvars.iv.next419, %326 ]
-  %311 = getelementptr inbounds %struct.lv_area_t, ptr %304, i64 %indvars.iv418
+  %311 = getelementptr inbounds nuw %struct.lv_area_t, ptr %304, i64 %indvars.iv418
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 4
   %313 = load i32, ptr %312, align 4, !tbaa !28
   %314 = icmp slt i32 %313, %307
@@ -730,7 +730,7 @@ has_popovers_in_top_row.exit.thread:              ; preds = %29, %20, %.lr.ph.i,
 
 321:                                              ; preds = %318
   %322 = load ptr, ptr %308, align 8, !tbaa !15
-  %323 = getelementptr inbounds i32, ptr %322, i64 %indvars.iv418
+  %323 = getelementptr inbounds nuw i32, ptr %322, i64 %indvars.iv418
   %324 = load i32, ptr %323, align 4, !tbaa !21
   %325 = and i32 %324, 80
   %or.cond377.not = icmp eq i32 %325, 0

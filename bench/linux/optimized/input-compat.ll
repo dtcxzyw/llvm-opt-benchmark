@@ -23,7 +23,7 @@ define dso_local noundef range(i32 -14, 1) i32 @input_event_from_user(ptr nounde
   %3 = alloca %struct.input_event_compat, align 4
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2
   %9 = icmp eq i32 %8, 0
@@ -40,22 +40,22 @@ define dso_local noundef range(i32 -14, 1) i32 @input_event_from_user(ptr nounde
   %14 = load i32, ptr %3, align 4
   %15 = zext i32 %14 to i64
   store i64 %15, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i16, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i16 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 10
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %24 = load i16, ptr %23, align 2
-  %25 = getelementptr inbounds i8, ptr %1, i64 18
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 18
   store i16 %24, ptr %25, align 2
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %27, ptr %28, align 4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #5
   br label %32
@@ -91,7 +91,7 @@ define dso_local noundef range(i32 -14, 1) i32 @input_event_to_user(ptr noundef 
   %3 = alloca %struct.input_event_compat, align 4
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2
   %9 = icmp eq i32 %8, 0
@@ -102,22 +102,22 @@ define dso_local noundef range(i32 -14, 1) i32 @input_event_to_user(ptr noundef 
   %11 = load i64, ptr %1, align 8
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %3, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i16, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 18
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %21 = load i16, ptr %20, align 2
-  %22 = getelementptr inbounds i8, ptr %3, i64 10
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 10
   store i16 %21, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %1, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %3, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %24, ptr %25, align 4
   %26 = call i64 @_copy_to_user(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 16) #5
   %27 = icmp eq i64 %26, 0
@@ -141,7 +141,7 @@ define dso_local noundef range(i32 -14, 1) i32 @input_event_to_user(ptr noundef 
 define dso_local range(i32 -22, 1) i32 @input_ff_effect_from_user(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 2
   %9 = icmp eq i32 %8, 0
@@ -162,13 +162,13 @@ define dso_local range(i32 -22, 1) i32 @input_ff_effect_from_user(ptr noundef %0
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i16, ptr %19, align 4
   %21 = icmp eq i16 %20, 93
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %2, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %26 = inttoptr i64 %25 to ptr

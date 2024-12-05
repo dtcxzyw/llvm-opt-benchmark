@@ -27,9 +27,9 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   %21 = shl nsw i64 %19, 2
   %22 = select i1 %20, i64 -1, i64 %21
   %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #8
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %2, ptr %25, align 8
   %26 = sext i32 %2 to i64
   %27 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %26, i64 20)
@@ -46,10 +46,10 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %68
   %indvars.iv98 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next99, %68 ]
-  %.idx = mul i64 %indvars.iv98, 12
-  %33 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  %34 = getelementptr inbounds %struct.BoundsItem, ptr %31, i64 %indvars.iv98
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %.idx = mul nuw i64 %indvars.iv98, 12
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %34 = getelementptr inbounds nuw %struct.BoundsItem, ptr %31, i64 %indvars.iv98
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = trunc nuw nsw i64 %indvars.iv98 to i32
   store i32 %36, ptr %35, align 4
   %37 = load i32, ptr %33, align 4
@@ -57,11 +57,11 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds float, ptr %0, i64 %39
   %41 = load float, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %34, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %43 = getelementptr i8, ptr %40, i64 8
   %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %34, i64 12
-  %46 = getelementptr inbounds i8, ptr %34, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 4
   br label %47
 
 47:                                               ; preds = %.lr.ph, %47
@@ -70,7 +70,7 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   %49 = phi float [ %44, %.lr.ph ], [ %63, %47 ]
   %50 = phi float [ %41, %.lr.ph ], [ %65, %47 ]
   %51 = phi float [ %44, %.lr.ph ], [ %67, %47 ]
-  %52 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4
   %54 = mul nsw i32 %53, 3
   %55 = sext i32 %54 to i64
@@ -78,7 +78,7 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   %57 = load float, ptr %56, align 4
   %58 = fcmp olt float %57, %48
   %59 = select i1 %58, float %57, float %48
-  %60 = getelementptr inbounds i8, ptr %56, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %61 = load float, ptr %60, align 4
   %62 = fcmp olt float %61, %49
   %63 = select i1 %62, float %61, float %49
@@ -105,9 +105,9 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
   call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %31, i32 noundef 0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %17, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull %23, ptr noundef %1)
   call void @_ZdaPv(ptr noundef nonnull %31) #9
   %69 = load i32, ptr %7, align 4
-  %70 = getelementptr inbounds i8, ptr %4, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %4, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %71, align 4
   %72 = icmp sgt i32 %69, 0
   br i1 %72, label %.lr.ph92, label %._crit_edge93
@@ -120,14 +120,14 @@ define dso_local noundef zeroext i1 @_Z21rcCreateChunkyTriMeshPKfPKiiiP15rcChunk
 74:                                               ; preds = %.lr.ph92, %85
   %75 = phi i32 [ 0, %.lr.ph92 ], [ %86, %85 ]
   %indvars.iv102 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next103, %85 ]
-  %76 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %73, i64 %indvars.iv102
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %76 = getelementptr inbounds nuw %struct.rcChunkyTriMeshNode, ptr %73, i64 %indvars.iv102
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i32, ptr %77, align 4
   %79 = icmp sgt i32 %78, -1
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %76, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 20
   %82 = load i32, ptr %81, align 4
   %83 = icmp sgt i32 %82, %75
   br i1 %83, label %84, label %85
@@ -165,21 +165,21 @@ define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshN
   %15 = sext i32 %12 to i64
   %16 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %5, i64 %15
   %.not85 = icmp sgt i32 %11, %3
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = sext i32 %1 to i64
   %19 = getelementptr inbounds %struct.BoundsItem, ptr %0, i64 %18
   %20 = load float, ptr %19, align 4
   store float %20, ptr %16, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load float, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %16, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store float %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = load float, ptr %24, align 4
   store float %25, ptr %17, align 4
-  %26 = getelementptr inbounds i8, ptr %19, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %27 = load float, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %16, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store float %27, ptr %28, align 4
   %.037.i86 = add nsw i32 %1, 1
   %29 = icmp slt i32 %.037.i86, %2
@@ -209,7 +209,7 @@ define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshN
 
 40:                                               ; preds = %39, %.lr.ph.i
   %41 = phi float [ %37, %39 ], [ %35, %.lr.ph.i ]
-  %42 = getelementptr inbounds i8, ptr %36, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %43 = load float, ptr %42, align 4
   %44 = fcmp olt float %43, %34
   br i1 %44, label %45, label %46
@@ -220,7 +220,7 @@ define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshN
 
 46:                                               ; preds = %45, %40
   %47 = phi float [ %43, %45 ], [ %34, %40 ]
-  %48 = getelementptr inbounds i8, ptr %36, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %49 = load float, ptr %48, align 4
   %50 = fcmp ogt float %49, %33
   br i1 %50, label %51, label %52
@@ -231,7 +231,7 @@ define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshN
 
 52:                                               ; preds = %51, %46
   %53 = phi float [ %49, %51 ], [ %33, %46 ]
-  %54 = getelementptr inbounds i8, ptr %36, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %55 = load float, ptr %54, align 4
   %56 = fcmp ogt float %55, %32
   br i1 %56, label %57, label %58
@@ -249,9 +249,9 @@ define internal fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshN
 
 _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
   %60 = load i32, ptr %7, align 4
-  %61 = getelementptr inbounds i8, ptr %16, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %16, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 %11, ptr %62, align 4
   %63 = icmp slt i32 %1, %2
   br i1 %63, label %.lr.ph.preheader, label %common.ret10
@@ -275,13 +275,13 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
   store i32 %73, ptr %7, align 4
   %74 = load i32, ptr %68, align 4
   store i32 %74, ptr %72, align 4
-  %75 = getelementptr inbounds i8, ptr %68, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %72, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 %76, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %68, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %72, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 %79, ptr %80, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -311,7 +311,7 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
 
 91:                                               ; preds = %90, %.lr.ph.i88
   %92 = phi float [ %88, %90 ], [ %86, %.lr.ph.i88 ]
-  %93 = getelementptr inbounds i8, ptr %87, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %94 = load float, ptr %93, align 4
   %95 = fcmp olt float %94, %85
   br i1 %95, label %96, label %97
@@ -322,7 +322,7 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
 
 97:                                               ; preds = %96, %91
   %98 = phi float [ %94, %96 ], [ %85, %91 ]
-  %99 = getelementptr inbounds i8, ptr %87, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %100 = load float, ptr %99, align 4
   %101 = fcmp ogt float %100, %84
   br i1 %101, label %102, label %103
@@ -333,7 +333,7 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit:      ; preds = %58, %30
 
 103:                                              ; preds = %102, %97
   %104 = phi float [ %100, %102 ], [ %84, %97 ]
-  %105 = getelementptr inbounds i8, ptr %87, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %87, i64 12
   %106 = load float, ptr %105, align 4
   %107 = fcmp ogt float %106, %83
   br i1 %107, label %108, label %109
@@ -369,7 +369,7 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93:    ; preds = %109, %81
   tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %0, i32 noundef %120, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)
   %121 = load i32, ptr %4, align 4
   %.neg = sub nsw i32 %12, %121
-  %122 = getelementptr inbounds i8, ptr %16, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %.neg, ptr %122, align 4
   br label %common.ret10
 }
@@ -379,14 +379,14 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_Z26rcGetChunksOverlappingRectPK15rcChunkyTriMeshPfS2_Pii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #5 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %11
 
 11:                                               ; preds = %.lr.ph, %54
@@ -397,7 +397,7 @@ define dso_local noundef i32 @_Z26rcGetChunksOverlappingRectPK15rcChunkyTriMeshP
   %13 = load ptr, ptr %0, align 8
   %14 = sext i32 %.032 to i64
   %15 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %13, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load float, ptr %1, align 4
   %18 = load float, ptr %16, align 4
   %19 = fcmp ogt float %17, %18
@@ -415,26 +415,26 @@ define dso_local noundef i32 @_Z26rcGetChunksOverlappingRectPK15rcChunkyTriMeshP
 25:                                               ; preds = %24, %20, %11
   %26 = phi i1 [ true, %24 ], [ false, %20 ], [ false, %11 ]
   %27 = load float, ptr %9, align 4
-  %28 = getelementptr inbounds i8, ptr %15, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %29 = load float, ptr %28, align 4
   %30 = fcmp ogt float %27, %29
   br i1 %30, label %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread, label %31
 
 31:                                               ; preds = %25
   %32 = load float, ptr %10, align 4
-  %33 = getelementptr inbounds i8, ptr %15, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %34 = load float, ptr %33, align 4
   %35 = fcmp olt float %32, %34
   br i1 %35, label %_Z16checkOverlapRectPKfS0_S0_S0_.exit.thread, label %_Z16checkOverlapRectPKfS0_S0_S0_.exit
 
 _Z16checkOverlapRectPKfS0_S0_S0_.exit.thread:     ; preds = %31, %25
-  %36 = getelementptr inbounds i8, ptr %15, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, -1
   br label %46
 
 _Z16checkOverlapRectPKfS0_S0_S0_.exit:            ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %15, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, -1
   %brmerge.demorgan = and i1 %26, %41
@@ -482,14 +482,14 @@ _Z16checkOverlapRectPKfS0_S0_S0_.exit:            ; preds = %31
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_Z29rcGetChunksOverlappingSegmentPK15rcChunkyTriMeshPfS2_Pii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #5 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
   %9 = getelementptr i8, ptr %2, i64 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %11
 
 11:                                               ; preds = %.lr.ph, %65
@@ -500,7 +500,7 @@ define dso_local noundef i32 @_Z29rcGetChunksOverlappingSegmentPK15rcChunkyTriMe
   %13 = load ptr, ptr %0, align 8
   %14 = sext i32 %.035 to i64
   %15 = getelementptr inbounds %struct.rcChunkyTriMeshNode, ptr %13, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.val = load float, ptr %2, align 4
   %.val27 = load float, ptr %9, align 4
   %17 = load float, ptr %1, align 4
@@ -520,28 +520,28 @@ define dso_local noundef i32 @_Z29rcGetChunksOverlappingSegmentPK15rcChunkyTriMe
   br i1 %23, label %24, label %34
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i
   %28 = load float, ptr %27, align 4
   %29 = fcmp olt float %26, %28
   br i1 %29, label %58, label %30
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds float, ptr %16, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
   %32 = load float, ptr %31, align 4
   %33 = fcmp ogt float %26, %32
   br i1 %33, label %58, label %50
 
 34:                                               ; preds = %21
   %35 = fdiv float 1.000000e+00, %indvars.iv.i.sroa.phi.sroa.speculated
-  %36 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i
   %37 = load float, ptr %36, align 4
-  %38 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
   %39 = load float, ptr %38, align 4
   %40 = fsub float %37, %39
   %41 = fmul float %35, %40
-  %42 = getelementptr inbounds float, ptr %16, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
   %43 = load float, ptr %42, align 4
   %44 = fsub float %43, %39
   %45 = fmul float %35, %44
@@ -561,7 +561,7 @@ define dso_local noundef i32 @_Z29rcGetChunksOverlappingSegmentPK15rcChunkyTriMe
   br i1 %.not.i, label %21, label %_ZL19checkOverlapSegmentPKfS0_S0_S0_.exit, !llvm.loop !12
 
 _ZL19checkOverlapSegmentPKfS0_S0_S0_.exit:        ; preds = %50
-  %51 = getelementptr inbounds i8, ptr %15, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %52 = load i32, ptr %51, align 4
   %53 = icmp sgt i32 %52, -1
   %54 = icmp slt i32 %.02334, %4
@@ -577,7 +577,7 @@ _ZL19checkOverlapSegmentPKfS0_S0_S0_.exit:        ; preds = %50
   br label %.thread43
 
 58:                                               ; preds = %34, %24, %30
-  %59 = getelementptr inbounds i8, ptr %15, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %60 = load i32, ptr %59, align 4
   %61 = icmp sgt i32 %60, -1
   br i1 %61, label %.thread43, label %63
@@ -621,9 +621,9 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12compareItemXPKvS0_(ptr nocapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL12compareItemYPKvS0_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load float, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load float, ptr %5, align 4
   %7 = fcmp olt float %4, %6
   %8 = fcmp ogt float %4, %6

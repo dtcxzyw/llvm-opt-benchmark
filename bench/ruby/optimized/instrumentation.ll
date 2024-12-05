@@ -101,10 +101,10 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
 .lr.ph:                                           ; preds = %5, %event_symbol.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %event_symbol.exit ], [ 0, %5 ]
   %10 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #6
-  %11 = getelementptr inbounds [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %11, align 16
   %13 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %12) #6
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %26 [
     i32 1, label %16
@@ -198,14 +198,14 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %4 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 2, ptr noundef null) #6
-  %5 = getelementptr inbounds [5 x ptr], ptr %2, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [5 x ptr], ptr %2, i64 0, i64 %indvars.iv
   store ptr %4, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %6, label %3, !llvm.loop !9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load ptr, ptr %7, align 16
   %9 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %8) #6
   br i1 %9, label %10, label %25
@@ -216,19 +216,19 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %15) #6
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load ptr, ptr %18, align 16
   %20 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %19) #6
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call zeroext i1 @rb_internal_thread_remove_event_hook(ptr noundef %23) #6
   %. = select i1 %24, i64 20, i64 0
@@ -247,7 +247,7 @@ define internal void @event_timeline_gc_mark(ptr nocapture readnone %0) #0 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %3 = getelementptr inbounds [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %indvars.iv
   %4 = load i64, ptr %3, align 16
   tail call void @rb_gc_mark(i64 noundef %4) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -274,7 +274,7 @@ define internal void @ex_callback(i32 noundef %0, ptr nocapture noundef readonly
 .preheader.i:                                     ; preds = %3, %10
   %.0.i = phi i32 [ %11, %10 ], [ %5, %3 ]
   %6 = zext i32 %.0.i to i64
-  %7 = getelementptr inbounds [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %6
   %8 = load i64, ptr %7, align 16
   %9 = icmp eq i64 %8, %4
   br i1 %9, label %find_last_event.exit, label %10
@@ -285,7 +285,7 @@ define internal void @ex_callback(i32 noundef %0, ptr nocapture noundef readonly
   br i1 %.not10.i, label %find_last_event.exit.thread, label %.preheader.i, !llvm.loop !11
 
 find_last_event.exit:                             ; preds = %.preheader.i
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i32, ptr %12, align 8
   %.not53 = icmp eq ptr %2, null
   %.not = icmp eq i32 %13, 0
@@ -484,9 +484,9 @@ find_last_event.exit.thread:                      ; preds = %10, %find_last_even
 58:                                               ; preds = %find_last_event.exit.thread
   %59 = load i64, ptr %1, align 8
   %60 = zext nneg i32 %55 to i64
-  %61 = getelementptr inbounds [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [1024 x %struct.thread_event], ptr @event_timeline, i64 0, i64 %60
   store i64 %59, ptr %61, align 16
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 %0, ptr %62, align 8
   ret void
 }

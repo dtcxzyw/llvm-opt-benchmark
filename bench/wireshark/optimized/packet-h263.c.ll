@@ -238,7 +238,7 @@ define hidden noundef range(i32 0, 536870912) i32 @dissect_h263_picture_layer(pt
 40:                                               ; preds = %23
   %41 = load i32, ptr @hf_h263_payload_picture_coding_type, align 4
   %42 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef %38, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 0) #2
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load i64, ptr %9, align 8
   %46 = trunc i64 %45 to i32
@@ -396,7 +396,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_h263_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.106) #2
   %7 = load i32, ptr @proto_h263_data, align 4

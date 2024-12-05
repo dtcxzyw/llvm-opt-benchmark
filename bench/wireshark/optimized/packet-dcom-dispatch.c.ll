@@ -151,7 +151,7 @@ define i32 @dissect_IDispatch_GetTypeInfoCount_resp(ptr noundef %0, i32 noundef 
   %10 = load i32, ptr @hf_dispatch_tinfo, align 4
   %11 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull %7) #3
   %12 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %8) #3
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %8, align 4
   %16 = call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.1) #3
@@ -201,7 +201,7 @@ define i32 @dissect_IDispatch_GetTypeInfo_resp(ptr noundef %0, i32 noundef %1, p
 15:                                               ; preds = %12, %6
   %.0 = phi i32 [ %14, %12 ], [ %10, %6 ]
   %16 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7) #3
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %7, align 4
   %20 = call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.1) #3
@@ -233,7 +233,7 @@ define i32 @dissect_IDispatch_GetIDsOfNames_rqst(ptr noundef %0, i32 noundef %1,
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %21
 
 21:                                               ; preds = %.lr.ph, %29
@@ -288,7 +288,7 @@ define i32 @dissect_IDispatch_GetIDsOfNames_resp(ptr noundef %0, i32 noundef %1,
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
@@ -306,7 +306,7 @@ define i32 @dissect_IDispatch_GetIDsOfNames_resp(ptr noundef %0, i32 noundef %1,
 ._crit_edge:                                      ; preds = %14, %6
   %.027.lcssa = phi i32 [ %11, %6 ], [ %17, %14 ]
   %20 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.027.lcssa, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %9) #3
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %9, align 4
   %24 = call ptr @val_to_str(i32 noundef %23, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.1) #3
@@ -330,7 +330,7 @@ define i32 @dissect_IDispatch_Invoke_rqst(ptr noundef %0, i32 noundef %1, ptr no
   %18 = tail call i32 @dissect_dcom_this(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3
   %19 = load i32, ptr @hf_dispatch_id, align 4
   %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %7) #3
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.3, i32 noundef %23) #3
@@ -663,7 +663,7 @@ define i32 @dissect_IDispatch_Invoke_resp(ptr noundef %0, i32 noundef %1, ptr no
 ._crit_edge:                                      ; preds = %76, %60
   %.0133.lcssa = phi i32 [ %69, %60 ], [ %.1134, %76 ]
   %78 = call i32 @dissect_dcom_HRESULT(ptr noundef %0, i32 noundef %.0133.lcssa, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %17) #3
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = load i32, ptr %18, align 4
   %82 = call ptr @val_to_str(i32 noundef %81, ptr noundef nonnull @dcom_hresult_vals, ptr noundef nonnull @.str.1) #3

@@ -20,23 +20,23 @@ $_ZN6hermes7AuditorD0Ev = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN6hermes7Auditor13runOnFunctionEPNS_8FunctionE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
 entry:
-  %Next.i.i.i.i.i.i = getelementptr inbounds i8, ptr %F, i64 88
-  %BasicBlockList.i.i = getelementptr inbounds i8, ptr %F, i64 80
+  %Next.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 88
+  %BasicBlockList.i.i = getelementptr inbounds nuw i8, ptr %F, i64 80
   %__begin1.sroa.0.016.i = load ptr, ptr %Next.i.i.i.i.i.i, align 8
   %cmp.i.not17.i = icmp eq ptr %__begin1.sroa.0.016.i, %BasicBlockList.i.i
   br i1 %cmp.i.not17.i, label %_ZL21auditCallInstructionsPN6hermes8FunctionE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc40.i
   %__begin1.sroa.0.018.i = phi ptr [ %__begin1.sroa.0.0.i, %for.inc40.i ], [ %__begin1.sroa.0.016.i, %entry ]
-  %Next.i.i.i.i.i5.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018.i, i64 64
-  %InstList.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018.i, i64 56
+  %Next.i.i.i.i.i5.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.018.i, i64 64
+  %InstList.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.018.i, i64 56
   %__begin2.sroa.0.013.i = load ptr, ptr %Next.i.i.i.i.i5.i, align 8
   %cmp.i6.not14.i = icmp eq ptr %__begin2.sroa.0.013.i, %InstList.i.i
   br i1 %cmp.i6.not14.i, label %for.inc40.i, label %for.body11.i
 
 for.body11.i:                                     ; preds = %for.body.i, %for.inc.i
   %__begin2.sroa.0.015.i = phi ptr [ %__begin2.sroa.0.0.i, %for.inc.i ], [ %__begin2.sroa.0.013.i, %for.body.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015.i, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.015.i, i64 16
   %0 = load i8, ptr %add.ptr.i, align 8
   %cmp.i = icmp eq i8 %0, 91
   br i1 %cmp.i, label %if.then.i, label %for.inc.i
@@ -50,19 +50,19 @@ if.then.i:                                        ; preds = %for.body11.i
 sw.bb21.i:                                        ; preds = %if.then.i
   %sub.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -16
   %call.i7.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %sub.ptr.i.i.i, i32 noundef 0) #4
-  %parent.i.i = getelementptr inbounds i8, ptr %call.i7.i, i64 56
+  %parent.i.i = getelementptr inbounds nuw i8, ptr %call.i7.i, i64 56
   %2 = load ptr, ptr %parent.i.i, align 8
   %call25.i = tail call noundef zeroext i1 @_ZNK6hermes9ScopeDesc13isGlobalScopeEv(ptr noundef nonnull align 8 dereferenceable(233) %2) #4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb21.i, %if.then.i, %for.body11.i
-  %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015.i, i64 8
+  %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.015.i, i64 8
   %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i6.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %InstList.i.i
   br i1 %cmp.i6.not.i, label %for.inc40.i, label %for.body11.i
 
 for.inc40.i:                                      ; preds = %for.inc.i, %for.body.i
-  %Next.i.i.i8.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018.i, i64 8
+  %Next.i.i.i8.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.018.i, i64 8
   %__begin1.sroa.0.0.i = load ptr, ptr %Next.i.i.i8.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin1.sroa.0.0.i, %BasicBlockList.i.i
   br i1 %cmp.i.not.i, label %_ZL21auditCallInstructionsPN6hermes8FunctionE.exit, label %for.body.i
@@ -75,11 +75,11 @@ _ZL21auditCallInstructionsPN6hermes8FunctionE.exit: ; preds = %for.inc40.i, %ent
 define hidden void @_ZN6hermes13createAuditorEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes7AuditorESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #5, !noalias !4
-  %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 0, ptr %kind.i.i.i.i, align 8, !noalias !4
-  %name2.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %name2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !4
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 7, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes7AuditorE, i64 16), ptr %call.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.result, align 8

@@ -81,159 +81,159 @@ define hidden void @_ZN11StringDedup4Stat3addEPKS0_(ptr nocapture noundef nonnul
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %3
   store i64 %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %7
   store i64 %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %12
   store i64 %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %17
   store i64 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %22
   store i64 %25, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, %27
   store i64 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, %32
   store i64 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, %37
   store i64 %40, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, %42
   store i64 %45, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, %47
   store i64 %50, ptr %48, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %52
   store i64 %55, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 88
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %57
   store i64 %60, ptr %58, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 96
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %64 = load i64, ptr %63, align 8
   %65 = add i64 %64, %62
   store i64 %65, ptr %63, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 104
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, %67
   store i64 %70, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 112
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 112
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %74 = load i64, ptr %73, align 8
   %75 = add i64 %74, %72
   store i64 %75, ptr %73, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 120
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 120
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, %77
   store i64 %80, ptr %78, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 128
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %0, i64 128
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %84, %82
   store i64 %85, ptr %83, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 152
-  %87 = getelementptr inbounds i8, ptr %0, i64 152
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %88 = load i64, ptr %86, align 8
   %89 = load i64, ptr %87, align 8
   %90 = add nsw i64 %89, %88
   store i64 %90, ptr %87, align 8
-  %91 = getelementptr inbounds i8, ptr %1, i64 160
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 160
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %94 = load i64, ptr %93, align 8
   %95 = add nsw i64 %94, %92
   store i64 %95, ptr %93, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 184
-  %97 = getelementptr inbounds i8, ptr %0, i64 184
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %98 = load i64, ptr %96, align 8
   %99 = load i64, ptr %97, align 8
   %100 = add nsw i64 %99, %98
   store i64 %100, ptr %97, align 8
-  %101 = getelementptr inbounds i8, ptr %1, i64 192
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 192
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %104 = load i64, ptr %103, align 8
   %105 = add nsw i64 %104, %102
   store i64 %105, ptr %103, align 8
-  %106 = getelementptr inbounds i8, ptr %1, i64 200
-  %107 = getelementptr inbounds i8, ptr %0, i64 200
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %108 = load i64, ptr %106, align 8
   %109 = load i64, ptr %107, align 8
   %110 = add nsw i64 %109, %108
   store i64 %110, ptr %107, align 8
-  %111 = getelementptr inbounds i8, ptr %1, i64 208
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %112 = load i64, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 208
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %114 = load i64, ptr %113, align 8
   %115 = add nsw i64 %114, %112
   store i64 %115, ptr %113, align 8
-  %116 = getelementptr inbounds i8, ptr %1, i64 216
-  %117 = getelementptr inbounds i8, ptr %0, i64 216
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %118 = load i64, ptr %116, align 8
   %119 = load i64, ptr %117, align 8
   %120 = add nsw i64 %119, %118
   store i64 %120, ptr %117, align 8
-  %121 = getelementptr inbounds i8, ptr %1, i64 224
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 224
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %124 = load i64, ptr %123, align 8
   %125 = add nsw i64 %124, %122
   store i64 %125, ptr %123, align 8
-  %126 = getelementptr inbounds i8, ptr %1, i64 232
-  %127 = getelementptr inbounds i8, ptr %0, i64 232
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %128 = load i64, ptr %126, align 8
   %129 = load i64, ptr %127, align 8
   %130 = add nsw i64 %129, %128
   store i64 %130, ptr %127, align 8
-  %131 = getelementptr inbounds i8, ptr %1, i64 240
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %132 = load i64, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 240
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %134 = load i64, ptr %133, align 8
   %135 = add nsw i64 %134, %132
   store i64 %135, ptr %133, align 8
@@ -242,13 +242,13 @@ define hidden void @_ZN11StringDedup4Stat3addEPKS0_(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup4Stat11log_summaryEPKS0_S2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = uitofp i64 %7 to double
   %9 = uitofp i64 %4 to double
@@ -258,14 +258,14 @@ define hidden void @_ZN11StringDedup4Stat11log_summaryEPKS0_S2_(ptr nocapture no
 
 12:                                               ; preds = %5, %2
   %.0 = phi double [ %11, %5 ], [ 0.000000e+00, %2 ]
-  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %13 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not21 = icmp eq ptr %13, null
   br i1 %.not21, label %51, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = uitofp i64 %18 to double
   %20 = icmp ult i64 %18, 107374182400
@@ -294,9 +294,9 @@ _Z24byte_size_in_proper_unitIdET_S0_.exit:        ; preds = %14
 _Z25proper_unit_for_byte_sizem.exit:              ; preds = %28, %_Z24byte_size_in_proper_unitIdET_S0_.exit, %23
   %.0.i24 = phi double [ %27, %_Z24byte_size_in_proper_unitIdET_S0_.exit ], [ %29, %28 ], [ %.0.i.ph.ph, %23 ]
   %.0.i15 = phi ptr [ @.str.32, %_Z24byte_size_in_proper_unitIdET_S0_.exit ], [ @.str.33, %28 ], [ %.str.34..str.35.i, %23 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i64, ptr %32, align 8
   %34 = uitofp i64 %33 to double
   %35 = icmp ult i64 %33, 107374182400
@@ -325,15 +325,15 @@ _Z24byte_size_in_proper_unitIdET_S0_.exit17:      ; preds = %_Z25proper_unit_for
 _Z25proper_unit_for_byte_sizem.exit20:            ; preds = %43, %_Z24byte_size_in_proper_unitIdET_S0_.exit17, %38
   %.0.i1629 = phi double [ %42, %_Z24byte_size_in_proper_unitIdET_S0_.exit17 ], [ %44, %43 ], [ %.0.i16.ph.ph, %38 ]
   %.0.i19 = phi ptr [ @.str.32, %_Z24byte_size_in_proper_unitIdET_S0_.exit17 ], [ @.str.33, %43 ], [ %.str.34..str.35.i18, %38 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 200
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %.sroa.01.0.copyload = load i64, ptr %45, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 208
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   %46 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #7
   %47 = fmul double %46, 1.000000e+03
-  %48 = getelementptr inbounds i8, ptr %0, i64 152
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.sroa.0.0.copyload = load i64, ptr %48, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 160
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %49 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #7
   %50 = fmul double %49, 1.000000e+03
@@ -355,7 +355,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE148ELS1_0ELS1_0ELS1_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup4Stat19report_active_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((136, 152)) %0) local_unnamed_addr #2 align 2 {
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -367,11 +367,11 @@ define hidden void @_ZN11StringDedup4Stat19report_active_startEv(ptr nocapture n
   %5 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %6, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 144
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %7, ptr %.sroa.2.0..sroa_idx, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 1
   store i64 %11, ptr %9, align 8
@@ -392,21 +392,21 @@ define hidden void @_ZN11StringDedup4Stat17report_active_endEv(ptr nocapture nou
   %2 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8
   %7 = sub nsw i64 %3, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = load i64, ptr %8, align 8
   %10 = sub i64 %4, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %12, %7
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 160
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %15 = load i64, ptr %14, align 8
   %16 = add nsw i64 %10, %15
   store i64 %16, ptr %14, align 8
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %21, label %18
 
@@ -431,7 +431,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE148ELS1_114ELS1_0ELS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup4Stat18report_phase_startEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((168, 184)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -443,9 +443,9 @@ define hidden void @_ZN11StringDedup4Stat18report_phase_startEPKc(ptr nocapture 
   %6 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %7 = extractvalue { i64, i64 } %6, 0
   %8 = extractvalue { i64, i64 } %6, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %7, ptr %9, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 176
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %8, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
@@ -455,20 +455,20 @@ define hidden void @_ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI3
   %4 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load i64, ptr %7, align 8
   %9 = sub nsw i64 %5, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 176
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %11 = load i64, ptr %10, align 8
   %12 = sub nsw i64 %6, %11
   %13 = load i64, ptr %2, align 8
   %14 = add nsw i64 %13, %9
   store i64 %14, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = add nsw i64 %16, %12
   store i64 %17, ptr %15, align 8
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %22, label %19
 
@@ -484,7 +484,7 @@ define hidden void @_ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup4Stat17report_idle_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((168, 184)) %0) local_unnamed_addr #2 align 2 {
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN11StringDedup4Stat18report_phase_startEPKc.exit, label %3
 
@@ -496,11 +496,11 @@ _ZN11StringDedup4Stat18report_phase_startEPKc.exit: ; preds = %1, %3
   %4 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %5, ptr %7, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 176
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %6, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 1
   store i64 %10, ptr %8, align 8
@@ -509,24 +509,24 @@ _ZN11StringDedup4Stat18report_phase_startEPKc.exit: ; preds = %1, %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup4Stat15report_idle_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load i64, ptr %6, align 8
   %8 = sub nsw i64 %4, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = load i64, ptr %9, align 8
   %11 = sub nsw i64 %5, %10
   %12 = load i64, ptr %2, align 8
   %13 = add nsw i64 %12, %8
   store i64 %13, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load i64, ptr %14, align 8
   %16 = add nsw i64 %15, %11
   store i64 %16, ptr %14, align 8
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit, label %18
 
@@ -542,7 +542,7 @@ _ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRep
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup4Stat20report_process_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((168, 184)) %0) local_unnamed_addr #2 align 2 {
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN11StringDedup4Stat18report_phase_startEPKc.exit, label %3
 
@@ -554,11 +554,11 @@ _ZN11StringDedup4Stat18report_phase_startEPKc.exit: ; preds = %1, %3
   %4 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %5, ptr %7, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 176
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %6, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, 1
   store i64 %10, ptr %8, align 8
@@ -570,21 +570,21 @@ define hidden void @_ZN11StringDedup4Stat20report_process_pauseEv(ptr nocapture 
   %2 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %3, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load i64, ptr %8, align 8
   %10 = sub i64 %4, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %7, %12
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %15 = load i64, ptr %14, align 8
   %16 = add nsw i64 %10, %15
   store i64 %16, ptr %14, align 8
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %19, label %18
 
@@ -598,7 +598,7 @@ define hidden void @_ZN11StringDedup4Stat20report_process_pauseEv(ptr nocapture 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup4Stat21report_process_resumeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((168, 184)) %0) local_unnamed_addr #2 align 2 {
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -610,33 +610,33 @@ define hidden void @_ZN11StringDedup4Stat21report_process_resumeEv(ptr nocapture
   %5 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %6, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 176
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %7, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup4Stat18report_process_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load i64, ptr %6, align 8
   %8 = sub nsw i64 %4, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = load i64, ptr %9, align 8
   %11 = sub nsw i64 %5, %10
   %12 = load i64, ptr %2, align 8
   %13 = add nsw i64 %12, %8
   store i64 %13, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 208
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %15 = load i64, ptr %14, align 8
   %16 = add nsw i64 %15, %11
   store i64 %16, ptr %14, align 8
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit, label %18
 
@@ -655,15 +655,15 @@ define hidden void @_ZN11StringDedup4Stat25report_resize_table_startEmmm(ptr noc
   %5 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = extractvalue { i64, i64 } %5, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %6, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 176
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %7, ptr %.sroa.2.0..sroa_idx, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 1
   store i64 %11, ptr %9, align 8
-  %12 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %12 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %14, label %13
 
@@ -677,24 +677,24 @@ define hidden void @_ZN11StringDedup4Stat25report_resize_table_startEmmm(ptr noc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup4Stat23report_resize_table_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load i64, ptr %6, align 8
   %8 = sub nsw i64 %4, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = load i64, ptr %9, align 8
   %11 = sub nsw i64 %5, %10
   %12 = load i64, ptr %2, align 8
   %13 = add nsw i64 %12, %8
   store i64 %13, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %15 = load i64, ptr %14, align 8
   %16 = add nsw i64 %15, %11
   store i64 %16, ptr %14, align 8
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit, label %18
 
@@ -710,7 +710,7 @@ _ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRep
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup4Stat26report_cleanup_table_startEmm(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((168, 184)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
@@ -723,11 +723,11 @@ define hidden void @_ZN11StringDedup4Stat26report_cleanup_table_startEmm(ptr noc
   %8 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %9 = extractvalue { i64, i64 } %8, 0
   %10 = extractvalue { i64, i64 } %8, 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i64 %9, ptr %11, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 176
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i64 %10, ptr %.sroa.2.0..sroa_idx, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8
@@ -736,24 +736,24 @@ define hidden void @_ZN11StringDedup4Stat26report_cleanup_table_startEmm(ptr noc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11StringDedup4Stat24report_cleanup_table_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 232
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load i64, ptr %6, align 8
   %8 = sub nsw i64 %4, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = load i64, ptr %9, align 8
   %11 = sub nsw i64 %5, %10
   %12 = load i64, ptr %2, align 8
   %13 = add nsw i64 %12, %8
   store i64 %13, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 240
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %15 = load i64, ptr %14, align 8
   %16 = add nsw i64 %15, %11
   store i64 %16, ptr %14, align 8
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit, label %18
 
@@ -769,24 +769,24 @@ _ZN11StringDedup4Stat16report_phase_endEPKcP12TimeIntervalI30CompositeCounterRep
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK11StringDedup4Stat9log_timesEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not11 = icmp eq ptr %3, null
   br i1 %.not11, label %15, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %.sroa.05.0.copyload = load i64, ptr %7, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 208
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.sroa.26.0.copyload = load i64, ptr %.sroa.26.0..sroa_idx, align 8
   %8 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.05.0.copyload, i64 %.sroa.26.0.copyload) #7
   %9 = fmul double %8, 1.000000e+03
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %.sroa.03.0.copyload = load i64, ptr %12, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 192
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
   %13 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload) #7
   %14 = fmul double %13, 1.000000e+03
@@ -794,20 +794,20 @@ define hidden void @_ZNK11StringDedup4Stat9log_timesEPKc(ptr nocapture noundef n
   br label %15
 
 15:                                               ; preds = %2, %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %17 = load i64, ptr %16, align 8
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %24, label %18
 
 18:                                               ; preds = %15
-  %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not12 = icmp eq ptr %19, null
   br i1 %.not12, label %24, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %.sroa.01.0.copyload = load i64, ptr %21, align 8
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
   %22 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #7
   %23 = fmul double %22, 1.000000e+03
@@ -815,20 +815,20 @@ define hidden void @_ZNK11StringDedup4Stat9log_timesEPKc(ptr nocapture noundef n
   br label %24
 
 24:                                               ; preds = %20, %18, %15
-  %25 = getelementptr inbounds i8, ptr %0, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %26 = load i64, ptr %25, align 8
   %.not10 = icmp eq i64 %26, 0
   br i1 %.not10, label %33, label %27
 
 27:                                               ; preds = %24
-  %28 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not13 = icmp eq ptr %28, null
   br i1 %.not13, label %33, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 232
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %.sroa.0.0.copyload = load i64, ptr %30, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 240
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 240
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %31 = tail call noundef double @_ZN29CompositeElapsedCounterSource7secondsE7PairRepIllE(i64 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #7
   %32 = fmul double %31, 1.000000e+03
@@ -850,7 +850,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE148ELS1_0ELS1_0ELS1_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK11StringDedup4Stat14log_statisticsEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %0, align 8
   %.not.i = icmp eq i64 %5, 0
@@ -859,27 +859,27 @@ define hidden void @_ZNK11StringDedup4Stat14log_statisticsEb(ptr nocapture nound
   %8 = fdiv double %6, %7
   %9 = fmul double %8, 1.000000e+02
   %10 = select i1 %.not.i, double 0.000000e+00, double %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = uitofp i64 %12 to double
   %14 = fdiv double %13, %7
   %15 = fmul double %14, 1.000000e+02
   %16 = select i1 %.not.i, double 0.000000e+00, double %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = uitofp i64 %18 to double
   %20 = fdiv double %19, %7
   %21 = fmul double %20, 1.000000e+02
   %22 = select i1 %.not.i, double 0.000000e+00, double %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i64, ptr %23, align 8
   %25 = uitofp i64 %24 to double
   %26 = fdiv double %25, %7
   %27 = fmul double %26, 1.000000e+02
   %28 = select i1 %.not.i, double 0.000000e+00, double %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i64, ptr %31, align 8
   %.not.i11 = icmp eq i64 %32, 0
   %33 = uitofp i64 %30 to double
@@ -887,14 +887,14 @@ define hidden void @_ZNK11StringDedup4Stat14log_statisticsEb(ptr nocapture nound
   %35 = fdiv double %33, %34
   %36 = fmul double %35, 1.000000e+02
   %37 = select i1 %.not.i11, double 0.000000e+00, double %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i64, ptr %38, align 8
   %.not.i12 = icmp eq i64 %18, 0
   %40 = uitofp i64 %39 to double
   %41 = fdiv double %40, %19
   %42 = fmul double %41, 1.000000e+02
   %43 = select i1 %.not.i12, double 0.000000e+00, double %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load i64, ptr %44, align 8
   %46 = uitofp i64 %45 to double
   %47 = fdiv double %46, %19
@@ -902,7 +902,7 @@ define hidden void @_ZNK11StringDedup4Stat14log_statisticsEb(ptr nocapture nound
   %49 = select i1 %.not.i12, double 0.000000e+00, double %48
   %50 = select i1 %1, ptr @.str.19, ptr @.str.20
   tail call void @_ZNK11StringDedup4Stat9log_timesEPKc(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull %50)
-  %51 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %51 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %54, label %52
 
@@ -912,7 +912,7 @@ define hidden void @_ZNK11StringDedup4Stat14log_statisticsEb(ptr nocapture nound
   br label %54
 
 54:                                               ; preds = %2, %52
-  %55 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %55 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not20 = icmp eq ptr %55, null
   br i1 %.not20, label %58, label %56
 
@@ -922,7 +922,7 @@ define hidden void @_ZNK11StringDedup4Stat14log_statisticsEb(ptr nocapture nound
   br label %58
 
 58:                                               ; preds = %54, %56
-  %59 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %59 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not21 = icmp eq ptr %59, null
   br i1 %.not21, label %62, label %60
 
@@ -932,7 +932,7 @@ define hidden void @_ZNK11StringDedup4Stat14log_statisticsEb(ptr nocapture nound
   br label %62
 
 62:                                               ; preds = %58, %60
-  %63 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %63 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not22 = icmp eq ptr %63, null
   br i1 %.not22, label %78, label %64
 
@@ -970,7 +970,7 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %76, %_Z24byte_size_
   br label %78
 
 78:                                               ; preds = %62, %_Z25proper_unit_for_byte_sizem.exit
-  %79 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %79 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not23 = icmp eq ptr %79, null
   br i1 %.not23, label %82, label %80
 
@@ -980,7 +980,7 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %76, %_Z24byte_size_
   br label %82
 
 82:                                               ; preds = %78, %80
-  %83 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %83 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not24 = icmp eq ptr %83, null
   br i1 %.not24, label %86, label %84
 
@@ -990,7 +990,7 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %76, %_Z24byte_size_
   br label %86
 
 86:                                               ; preds = %82, %84
-  %87 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %87 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not25 = icmp eq ptr %87, null
   br i1 %.not25, label %102, label %88
 
@@ -1028,16 +1028,16 @@ _Z25proper_unit_for_byte_sizem.exit19:            ; preds = %100, %_Z24byte_size
   br label %102
 
 102:                                              ; preds = %86, %_Z25proper_unit_for_byte_sizem.exit19
-  %103 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %103 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not26 = icmp eq ptr %103, null
   br i1 %.not26, label %111, label %104
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %0, i64 72
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %0, i64 80
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %108 = load i64, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 88
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %110 = load i64, ptr %109, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE148ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.28, i64 noundef %106, i64 noundef %108, i64 noundef %110)
   br label %111

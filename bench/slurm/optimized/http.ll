@@ -124,7 +124,7 @@ switch.early.test.i:                              ; preds = %.lr.ph
 
 15:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph
   call void @_xstrcatchar(ptr noundef nonnull %4, i8 noundef signext %9) #4
-  %16 = getelementptr inbounds i8, ptr %.0325172, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0325172, i64 1
   br label %.backedge
 
 17:                                               ; preds = %switch.early.test.i
@@ -164,7 +164,7 @@ switch.early.test.i:                              ; preds = %.lr.ph
   br label %86
 
 34:                                               ; preds = %switch.early.test.i
-  %35 = getelementptr inbounds i8, ptr %.0325172, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.0325172, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = sext i8 %36 to i64
   %38 = getelementptr inbounds i16, ptr %10, i64 %37
@@ -174,7 +174,7 @@ switch.early.test.i:                              ; preds = %.lr.ph
   br i1 %.not.i, label %65, label %41
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.0325172, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %.0325172, i64 2
   %43 = load i8, ptr %42, align 1
   %44 = sext i8 %43 to i64
   %45 = getelementptr inbounds i16, ptr %10, i64 %44
@@ -244,7 +244,7 @@ _decode_seq.exit:                                 ; preds = %64, %61
 75:                                               ; preds = %73
   %76 = call fastcc i32 @_add_path(ptr noundef %6, ptr noundef %4, i1 noundef zeroext %1)
   %77 = icmp eq i32 %76, 0
-  %78 = getelementptr inbounds i8, ptr %.0325172, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.0325172, i64 1
   br i1 %77, label %.backedge, label %.thread47
 
 .backedge:                                        ; preds = %75, %86, %15
@@ -266,7 +266,7 @@ _decode_seq.exit:                                 ; preds = %64, %61
 
 86:                                               ; preds = %30, %_decode_seq.exit, %73
   %.133 = phi ptr [ %.0325172, %73 ], [ %42, %_decode_seq.exit ], [ %25, %30 ]
-  %87 = getelementptr inbounds i8, ptr %.133, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.133, i64 1
   br label %.backedge
 
 .critedge:                                        ; preds = %.backedge, %3
@@ -369,13 +369,13 @@ define ptr @get_http_status_code_string(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds [44 x %struct.http_status_code_txt_t], ptr @http_status_codes, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [44 x %struct.http_status_code_txt_t], ptr @http_status_codes, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 16
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %.loopexit
 
@@ -395,13 +395,13 @@ define ptr @get_http_method_string(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds [8 x %struct.anon], ptr @method_strings, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x %struct.anon], ptr @method_strings, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %.loopexit
 
@@ -421,13 +421,13 @@ define ptr @get_http_method_string_lc(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds [8 x %struct.anon], ptr @method_strings, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x %struct.anon], ptr @method_strings, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
   br label %.loopexit
 

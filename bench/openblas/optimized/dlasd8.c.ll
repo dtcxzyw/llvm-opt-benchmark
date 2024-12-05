@@ -69,7 +69,7 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %46, label %47, label %.loopexit19
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %6, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double 1.000000e+00, ptr %48, align 8, !tbaa !7
   %49 = shl i32 %21, 1
   %50 = or disjoint i32 %49, 1
@@ -85,7 +85,7 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 54:                                               ; preds = %.preheader, %54
   %55 = phi i64 [ %60, %54 ], [ 1, %.preheader ]
-  %56 = getelementptr inbounds double, ptr %25, i64 %55
+  %56 = getelementptr inbounds nuw double, ptr %25, i64 %55
   %57 = tail call double @dlamc3_(ptr noundef nonnull %56, ptr noundef nonnull %56) #4
   %58 = load double, ptr %56, align 8, !tbaa !7
   %59 = fsub double %57, %58
@@ -162,7 +162,7 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %108, label %109, label %.loopexit18
 
 109:                                              ; preds = %84
-  %110 = getelementptr inbounds double, ptr %25, i64 %90
+  %110 = getelementptr inbounds nuw double, ptr %25, i64 %90
   %111 = zext nneg i32 %85 to i64
   br label %112
 
@@ -170,13 +170,13 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %113 = phi i64 [ 1, %109 ], [ %129, %112 ]
   %114 = getelementptr double, ptr %76, i64 %113
   %115 = load double, ptr %114, align 8, !tbaa !7
-  %116 = getelementptr inbounds double, ptr %26, i64 %113
+  %116 = getelementptr inbounds nuw double, ptr %26, i64 %113
   %117 = load double, ptr %116, align 8, !tbaa !7
   %118 = fmul double %115, %117
   %119 = getelementptr double, ptr %77, i64 %113
   %120 = load double, ptr %119, align 8, !tbaa !7
   %121 = fmul double %118, %120
-  %122 = getelementptr inbounds double, ptr %25, i64 %113
+  %122 = getelementptr inbounds nuw double, ptr %25, i64 %113
   %123 = load double, ptr %122, align 8, !tbaa !7
   %124 = load double, ptr %110, align 8, !tbaa !7
   %125 = fsub double %123, %124
@@ -246,7 +246,7 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %166 = fneg double %164
   %167 = select i1 %165, double %164, double %166
   %168 = call double @sqrt(double noundef %167) #4
-  %169 = getelementptr inbounds double, ptr %19, i64 %162
+  %169 = getelementptr inbounds nuw double, ptr %19, i64 %162
   %170 = load double, ptr %169, align 8, !tbaa !7
   %171 = fcmp ult double %170, 0.000000e+00
   %172 = fcmp oge double %168, 0.000000e+00
@@ -315,16 +315,16 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 215:                                              ; preds = %215, %213
   %216 = phi i64 [ 1, %213 ], [ %227, %215 ]
-  %217 = getelementptr inbounds double, ptr %19, i64 %216
+  %217 = getelementptr inbounds nuw double, ptr %19, i64 %216
   %218 = load double, ptr %217, align 8, !tbaa !7
-  %219 = getelementptr inbounds double, ptr %25, i64 %216
+  %219 = getelementptr inbounds nuw double, ptr %25, i64 %216
   %220 = call double @dlamc3_(ptr noundef nonnull %219, ptr noundef nonnull %15) #4
   %221 = fsub double %220, %186
   %222 = fdiv double %218, %221
   %223 = load double, ptr %219, align 8, !tbaa !7
   %224 = fadd double %188, %223
   %225 = fdiv double %222, %224
-  %226 = getelementptr inbounds double, ptr %26, i64 %216
+  %226 = getelementptr inbounds nuw double, ptr %26, i64 %216
   store double %225, ptr %226, align 8, !tbaa !7
   %227 = add nuw nsw i64 %216, 1
   %228 = icmp eq i64 %227, %214

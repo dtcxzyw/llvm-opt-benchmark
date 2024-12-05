@@ -94,7 +94,7 @@ while.body:                                       ; preds = %while.body.preheade
   %rem = urem i64 %i.118, 10
   %1 = trunc nuw nsw i64 %rem to i8
   %conv = or disjoint i8 %1, 48
-  %arrayidx = getelementptr inbounds [20 x i8], ptr %buf, i64 0, i64 %idx.017
+  %arrayidx = getelementptr inbounds nuw [20 x i8], ptr %buf, i64 0, i64 %idx.017
   store i8 %conv, ptr %arrayidx, align 1
   %div = udiv i64 %i.118, 10
   %dec = add nsw i64 %idx.017, -1
@@ -106,7 +106,7 @@ while.body:                                       ; preds = %while.body.preheade
 while.end:                                        ; preds = %while.body
   %sub6 = sub i64 20, %idx.017
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %dec
-  %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %call = call i64 @write(i32 noundef %fd, ptr noundef nonnull %add.ptr7, i64 noundef %sub6)
   %cmp8.not = icmp eq i64 %call, %sub6
   br i1 %cmp8.not, label %if.end10, label %if.then9
@@ -153,7 +153,7 @@ while.body:                                       ; preds = %entry, %while.body
   %rem = urem i64 %i.011, 10
   %1 = trunc nuw nsw i64 %rem to i8
   %conv = or disjoint i8 %1, 48
-  %arrayidx = getelementptr inbounds [20 x i8], ptr %buf, i64 0, i64 %idx.010
+  %arrayidx = getelementptr inbounds nuw [20 x i8], ptr %buf, i64 0, i64 %idx.010
   store i8 %conv, ptr %arrayidx, align 1
   %div = udiv i64 %i.011, 10
   %dec = add nsw i64 %idx.010, -1
@@ -165,7 +165,7 @@ while.body:                                       ; preds = %entry, %while.body
 while.end:                                        ; preds = %while.body
   %sub3 = sub i64 20, %idx.010
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %dec
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %add.ptr4 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %call = call i64 @write(i32 noundef %fd, ptr noundef nonnull %add.ptr4, i64 noundef %sub3)
   %cmp5.not = icmp eq i64 %call, %sub3
   br i1 %cmp5.not, label %if.end7, label %if.then6
@@ -206,7 +206,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %rem.i = urem i64 %i.011.i, 10
   %1 = trunc nuw nsw i64 %rem.i to i8
   %conv.i = or disjoint i8 %1, 48
-  %arrayidx.i = getelementptr inbounds [20 x i8], ptr %buf.i, i64 0, i64 %idx.010.i
+  %arrayidx.i = getelementptr inbounds nuw [20 x i8], ptr %buf.i, i64 0, i64 %idx.010.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %div.i = udiv i64 %i.011.i, 10
   %dec.i = add nsw i64 %idx.010.i, -1
@@ -218,7 +218,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
 while.end.i:                                      ; preds = %while.body.i
   %sub3.i = sub i64 20, %idx.010.i
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %dec.i
-  %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %call.i = call i64 @write(i32 noundef %fd, ptr noundef nonnull %add.ptr4.i, i64 noundef %sub3.i)
   %cmp5.not.i = icmp eq i64 %call.i, %sub3.i
   br i1 %cmp5.not.i, label %_ZN4cvc58internal10safe_printImEEviRKT_.exit, label %if.then6.i
@@ -273,7 +273,7 @@ while.body:                                       ; preds = %while.cond, %lor.rh
   %mul5 = fmul double %d.1, 1.000000e+01
   %conv6 = fptosi double %mul5 to i8
   %add = add i8 %conv6, 48
-  %arrayidx = getelementptr inbounds [20 x i8], ptr %buf, i64 0, i64 %i.0
+  %arrayidx = getelementptr inbounds nuw [20 x i8], ptr %buf, i64 0, i64 %i.0
   store i8 %add, ptr %arrayidx, align 1
   %conv10 = sitofp i8 %conv6 to double
   %sub11 = fsub double %mul5, %conv10
@@ -377,7 +377,7 @@ while.body:                                       ; preds = %_ZN4cvc58internal10
   %conv7 = or disjoint i8 %1, 48
   %conv10 = add nuw nsw i8 %1, 87
   %conv10.sink = select i1 %cmp4, i8 %conv7, i8 %conv10
-  %2 = getelementptr inbounds [20 x i8], ptr %buf, i64 0, i64 %idx.018
+  %2 = getelementptr inbounds nuw [20 x i8], ptr %buf, i64 0, i64 %idx.018
   store i8 %conv10.sink, ptr %2, align 1
   %div14 = lshr i64 %i.addr.019, 4
   %dec = add nsw i64 %idx.018, -1
@@ -389,7 +389,7 @@ while.body:                                       ; preds = %_ZN4cvc58internal10
 while.end:                                        ; preds = %while.body
   %sub14 = sub i64 20, %idx.018
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %dec
-  %add.ptr15 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %add.ptr15 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %call = call i64 @write(i32 noundef %fd, ptr noundef nonnull %add.ptr15, i64 noundef %sub14)
   %cmp16.not = icmp eq i64 %call, %sub14
   br i1 %cmp16.not, label %if.end18, label %if.then17
@@ -427,7 +427,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %rem.i = urem i64 %i.011.i, 10
   %1 = trunc nuw nsw i64 %rem.i to i8
   %conv.i = or disjoint i8 %1, 48
-  %arrayidx.i = getelementptr inbounds [20 x i8], ptr %buf.i, i64 0, i64 %idx.010.i
+  %arrayidx.i = getelementptr inbounds nuw [20 x i8], ptr %buf.i, i64 0, i64 %idx.010.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %div.i = udiv i64 %i.011.i, 10
   %dec.i = add nsw i64 %idx.010.i, -1
@@ -439,7 +439,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
 while.end.i:                                      ; preds = %while.body.i
   %sub3.i = sub i64 20, %idx.010.i
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %dec.i
-  %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %call.i = call i64 @write(i32 noundef %fd, ptr noundef nonnull %add.ptr4.i, i64 noundef %sub3.i)
   %cmp5.not.i = icmp eq i64 %call.i, %sub3.i
   br i1 %cmp5.not.i, label %_ZN4cvc58internal10safe_printImEEviRKT_.exit, label %if.then6.i
@@ -459,7 +459,7 @@ if.then.i5:                                       ; preds = %_ZN4cvc58internal10
   unreachable
 
 _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal10safe_printImEEviRKT_.exit
-  %tv_nsec = getelementptr inbounds i8, ptr %t, i64 8
+  %tv_nsec = getelementptr inbounds nuw i8, ptr %t, i64 8
   %3 = load i64, ptr %tv_nsec, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buf.i6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %buf.i6, i8 48, i64 9, i1 false)

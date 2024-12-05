@@ -17,11 +17,11 @@ define void @png_init_filter_functions_sse2(ptr nocapture noundef writeonly %0, 
   %png_read_filter_row_sub4_sse2.sink = phi ptr [ @png_read_filter_row_sub4_sse2, %3 ], [ @png_read_filter_row_sub3_sse2, %2 ]
   %png_read_filter_row_avg4_sse2.sink = phi ptr [ @png_read_filter_row_avg4_sse2, %3 ], [ @png_read_filter_row_avg3_sse2, %2 ]
   %png_read_filter_row_paeth4_sse2.sink = phi ptr [ @png_read_filter_row_paeth4_sse2, %3 ], [ @png_read_filter_row_paeth3_sse2, %2 ]
-  %4 = getelementptr inbounds i8, ptr %0, i64 1152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store ptr %png_read_filter_row_sub4_sse2.sink, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   store ptr %png_read_filter_row_avg4_sse2.sink, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   store ptr %png_read_filter_row_paeth4_sse2.sink, ptr %6, align 8
   br label %7
 

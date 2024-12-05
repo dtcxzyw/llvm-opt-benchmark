@@ -151,7 +151,7 @@ _ZN5ZXingL19Utf8CountCodePointsESt17basic_string_viewIhSt11char_traitsIhEE.exit.
   %.01721.i = phi i32 [ %46, %.noexc4 ], [ 0, %.lr.ph.preheader.i ]
   %32 = load i8, ptr %.023.i, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds [364 x i8], ptr @_ZZN5ZXing10Utf8DecodeEhRhRDiE9kUtf8Data, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [364 x i8], ptr @_ZZN5ZXing10Utf8DecodeEhRhRDiE9kUtf8Data, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %.not.i10.i = icmp eq i8 %.01622.i, 0
   br i1 %.not.i10.i, label %41, label %36
@@ -176,7 +176,7 @@ _ZN5ZXing10Utf8DecodeEhRhRDi.exit.i:              ; preds = %41, %36
   %48 = zext i8 %35 to i64
   %49 = or disjoint i64 %47, 256
   %50 = add nuw nsw i64 %49, %48
-  %51 = getelementptr inbounds [364 x i8], ptr @_ZZN5ZXing10Utf8DecodeEhRhRDiE9kUtf8Data, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [364 x i8], ptr @_ZZN5ZXing10Utf8DecodeEhRhRDiE9kUtf8Data, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
   %.not9.i = icmp eq i8 %52, 0
   br i1 %.not9.i, label %53, label %.noexc4
@@ -186,7 +186,7 @@ _ZN5ZXing10Utf8DecodeEhRhRDi.exit.i:              ; preds = %41, %36
           to label %.noexc4 unwind label %.loopexit
 
 .noexc4:                                          ; preds = %53, %_ZN5ZXing10Utf8DecodeEhRhRDi.exit.i
-  %54 = getelementptr inbounds i8, ptr %.023.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
   %.not.i = icmp eq ptr %54, %31
   br i1 %.not.i, label %_ZN5ZXingL14AppendFromUtf8ESt17basic_string_viewIhSt11char_traitsIhEERNSt7__cxx1112basic_stringIwS1_IwESaIwEEE.exit, label %.lr.ph.i
 
@@ -250,7 +250,7 @@ _ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.threa
 12:                                               ; preds = %10, %8, %.lr.ph.i.i
   %.sink.i.i = phi i32 [ 1, %.lr.ph.i.i ], [ 2, %8 ], [ %..i.i, %10 ]
   %13 = add nuw nsw i32 %.sink.i.i, %.012.i.i
-  %14 = getelementptr inbounds i8, ptr %.sroa.4.010.i.i, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.4.010.i.i, i64 4
   %15 = add i64 %.sroa.0.011.i.i, -1
   %.not.i.i = icmp eq i64 %15, 0
   br i1 %.not.i.i, label %_ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.i, label %.lr.ph.i.i, !llvm.loop !7
@@ -262,9 +262,9 @@ _ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.i: ; 
           to label %.noexc4 unwind label %.loopexit.split-lp
 
 .noexc4:                                          ; preds = %_ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.i
-  %18 = getelementptr inbounds i8, ptr %4, i64 1
-  %19 = getelementptr inbounds i8, ptr %4, i64 2
-  %20 = getelementptr inbounds i8, ptr %4, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 3
   br label %21
 
 21:                                               ; preds = %.noexc5, %.noexc4
@@ -341,7 +341,7 @@ _ZN5ZXingL11Utf32ToUtf8EDiPc.exit.i:              ; preds = %48, %37, %28, %24
           to label %.noexc5 unwind label %.loopexit
 
 .noexc5:                                          ; preds = %_ZN5ZXingL11Utf32ToUtf8EDiPc.exit.i
-  %64 = getelementptr inbounds i8, ptr %.sroa.9.016.i, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.9.016.i, i64 4
   %65 = add i64 %.sroa.0.017.i, -1
   %.not.i = icmp eq i64 %65, 0
   br i1 %.not.i, label %.loopexit6, label %21, !llvm.loop !8
@@ -493,7 +493,7 @@ switch.early.test:                                ; preds = %35, %31, %_ZN5ZXing
           to label %.invoke unwind label %.loopexit
 
 52:                                               ; preds = %.invoke39, %.invoke
-  %53 = getelementptr inbounds i8, ptr %.sroa.7.037, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.7.037, i64 4
   %54 = add i64 %.sroa.0.038, -1
   %.not = icmp eq i64 %54, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -521,7 +521,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt9uppercaseRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #0 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 16384
   store i32 %4, ptr %2, align 8
@@ -530,7 +530,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt9upper
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #0 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -75
   %5 = or disjoint i32 %4, 8

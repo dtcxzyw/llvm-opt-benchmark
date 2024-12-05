@@ -228,7 +228,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %big_endian_fb = getelementptr inbounds i8, ptr %ptr, i64 2730
+  %big_endian_fb = getelementptr inbounds nuw i8, ptr %ptr, i64 2730
   %0 = load i8, ptr %big_endian_fb, align 2
   %tobool = trunc i8 %0 to i1
   %conv = select i1 %tobool, i64 3200171710, i64 505290270
@@ -259,7 +259,7 @@ if.then2:                                         ; preds = %sw.bb
 
 sw.epilog.sink.split:                             ; preds = %sw.bb, %if.then2
   %.sink = phi i8 [ 0, %if.then2 ], [ 1, %sw.bb ]
-  %big_endian_fb = getelementptr inbounds i8, ptr %ptr, i64 2730
+  %big_endian_fb = getelementptr inbounds nuw i8, ptr %ptr, i64 2730
   store i8 %.sink, ptr %big_endian_fb, align 2
   br label %sw.epilog
 
@@ -275,17 +275,17 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #4
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @__func__.ACPI_DEV_AML_IF_CLASS) #4
-  %vendor_id = getelementptr inbounds i8, ptr %call.i5, i64 208
+  %vendor_id = getelementptr inbounds nuw i8, ptr %call.i5, i64 208
   store i16 4660, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds i8, ptr %call.i5, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call.i5, i64 210
   store i16 4369, ptr %device_id, align 2
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_vga_pci, ptr %vmsd, align 8
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 32
   store i64 %or.i, ptr %categories, align 8
-  %build_dev_aml = getelementptr inbounds i8, ptr %call.i6, i64 112
+  %build_dev_aml = getelementptr inbounds nuw i8, ptr %call.i6, i64 112
   store ptr @build_vga_aml, ptr %build_dev_aml, align 8
   ret void
 }
@@ -299,14 +299,14 @@ define internal void @vga_class_init(ptr noundef %klass, ptr nocapture readnone 
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #4
-  %realize = getelementptr inbounds i8, ptr %call.i6, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i6, i64 176
   store ptr @pci_std_vga_realize, ptr %realize, align 8
-  %romfile = getelementptr inbounds i8, ptr %call.i6, i64 224
+  %romfile = getelementptr inbounds nuw i8, ptr %call.i6, i64 224
   store ptr @.str.15, ptr %romfile, align 8
-  %class_id = getelementptr inbounds i8, ptr %call.i6, i64 214
+  %class_id = getelementptr inbounds nuw i8, ptr %call.i6, i64 214
   store i16 768, ptr %class_id, align 2
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @vga_pci_properties) #4
-  %hotpluggable = getelementptr inbounds i8, ptr %call.i, i64 129
+  %hotpluggable = getelementptr inbounds nuw i8, ptr %call.i, i64 129
   store i8 0, ptr %hotpluggable, align 1
   %call2 = tail call ptr @object_class_property_add_bool(ptr noundef %klass, ptr noundef nonnull @.str.16, ptr noundef nonnull @vga_get_big_endian_fb, ptr noundef nonnull @vga_set_big_endian_fb) #4
   ret void
@@ -316,7 +316,7 @@ entry:
 define internal void @pci_std_vga_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.18, i32 noundef 58, ptr noundef nonnull @__func__.PCI_VGA) #4
-  %vga = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %vga = getelementptr inbounds nuw i8, ptr %call.i, i64 2608
   %call1 = tail call zeroext i1 @vga_common_init(ptr noundef nonnull %vga, ptr noundef %dev, ptr noundef %errp) #4
   br i1 %call1, label %if.end, label %if.end24
 
@@ -325,21 +325,21 @@ if.end:                                           ; preds = %entry
   %call3 = tail call ptr @pci_address_space_io(ptr noundef %dev) #4
   tail call void @vga_init(ptr noundef nonnull %vga, ptr noundef %dev, ptr noundef %call2, ptr noundef %call3, i1 noundef zeroext true) #4
   %call.i24 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
-  %hw_ops = getelementptr inbounds i8, ptr %call.i, i64 5328
+  %hw_ops = getelementptr inbounds nuw i8, ptr %call.i, i64 5328
   %0 = load ptr, ptr %hw_ops, align 16
   %call5 = tail call ptr @graphic_console_init(ptr noundef %call.i24, i32 noundef 0, ptr noundef %0, ptr noundef nonnull %vga) #4
-  %con = getelementptr inbounds i8, ptr %call.i, i64 5232
+  %con = getelementptr inbounds nuw i8, ptr %call.i, i64 5232
   store ptr %call5, ptr %con, align 16
-  %vram = getelementptr inbounds i8, ptr %call.i, i64 2624
+  %vram = getelementptr inbounds nuw i8, ptr %call.i, i64 2624
   tail call void @pci_register_bar(ptr noundef %call.i, i32 noundef 0, i8 noundef zeroext 8, ptr noundef nonnull %vram) #4
-  %flags = getelementptr inbounds i8, ptr %call.i, i64 70720
+  %flags = getelementptr inbounds nuw i8, ptr %call.i, i64 70720
   %1 = load i32, ptr %flags, align 16
   %and = and i32 %1, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end24, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %mmio = getelementptr inbounds i8, ptr %call.i, i64 70784
+  %mmio = getelementptr inbounds nuw i8, ptr %call.i, i64 70784
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @unassigned_io_ops, ptr noundef null, ptr noundef nonnull @.str.17, i64 noundef 4096) #4
   %2 = load i32, ptr %flags, align 16
   %and9 = and i32 %2, 4
@@ -347,7 +347,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %tobool10.not, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.then7
-  %config = getelementptr inbounds i8, ptr %call.i, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %3 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %3, i64 8
   store i8 2, ptr %arrayidx, align 1
@@ -358,7 +358,7 @@ if.end13:                                         ; preds = %if.then11, %if.then
   %4 = phi i32 [ %.pre, %if.then11 ], [ %2, %if.then7 ]
   %and15 = and i32 %4, 8
   %tobool16.not = icmp ne i32 %and15, 0
-  %mrs = getelementptr inbounds i8, ptr %call.i, i64 71056
+  %mrs = getelementptr inbounds nuw i8, ptr %call.i, i64 71056
   tail call void @pci_std_vga_mmio_region_init(ptr noundef nonnull %vga, ptr noundef %dev, ptr noundef nonnull %mmio, ptr noundef nonnull %mrs, i1 noundef zeroext %tobool10.not, i1 noundef zeroext %tobool16.not)
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 2, i8 noundef zeroext 0, ptr noundef nonnull %mmio) #4
   br label %if.end24
@@ -376,7 +376,7 @@ define internal zeroext i1 @vga_get_big_endian_fb(ptr noundef %obj, ptr nocaptur
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #4
   %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.18, i32 noundef 58, ptr noundef nonnull @__func__.PCI_VGA) #4
-  %big_endian_fb = getelementptr inbounds i8, ptr %call.i1, i64 5338
+  %big_endian_fb = getelementptr inbounds nuw i8, ptr %call.i1, i64 5338
   %0 = load i8, ptr %big_endian_fb, align 2
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -388,7 +388,7 @@ entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #4
   %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.18, i32 noundef 58, ptr noundef nonnull @__func__.PCI_VGA) #4
-  %big_endian_fb = getelementptr inbounds i8, ptr %call.i1, i64 5338
+  %big_endian_fb = getelementptr inbounds nuw i8, ptr %call.i1, i64 5338
   store i8 %frombool, ptr %big_endian_fb, align 2
   ret void
 }
@@ -419,14 +419,14 @@ define internal void @secondary_class_init(ptr noundef %klass, ptr nocapture rea
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #4
-  %realize = getelementptr inbounds i8, ptr %call.i5, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i5, i64 176
   store ptr @pci_secondary_vga_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds i8, ptr %call.i5, i64 184
+  %exit = getelementptr inbounds nuw i8, ptr %call.i5, i64 184
   store ptr @pci_secondary_vga_exit, ptr %exit, align 8
-  %class_id = getelementptr inbounds i8, ptr %call.i5, i64 214
+  %class_id = getelementptr inbounds nuw i8, ptr %call.i5, i64 214
   store i16 896, ptr %class_id, align 2
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @secondary_pci_properties) #4
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @pci_secondary_vga_reset, ptr %reset, align 8
   ret void
 }
@@ -437,27 +437,27 @@ declare ptr @object_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr
 define internal void @pci_secondary_vga_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.18, i32 noundef 58, ptr noundef nonnull @__func__.PCI_VGA) #4
-  %vga = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %vga = getelementptr inbounds nuw i8, ptr %call.i, i64 2608
   %call1 = tail call zeroext i1 @vga_common_init(ptr noundef nonnull %vga, ptr noundef %dev, ptr noundef %errp) #4
   br i1 %call1, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #4
-  %hw_ops = getelementptr inbounds i8, ptr %call.i, i64 5328
+  %hw_ops = getelementptr inbounds nuw i8, ptr %call.i, i64 5328
   %0 = load ptr, ptr %hw_ops, align 16
   %call3 = tail call ptr @graphic_console_init(ptr noundef %call.i19, i32 noundef 0, ptr noundef %0, ptr noundef nonnull %vga) #4
-  %con = getelementptr inbounds i8, ptr %call.i, i64 5232
+  %con = getelementptr inbounds nuw i8, ptr %call.i, i64 5232
   store ptr %call3, ptr %con, align 16
-  %mmio = getelementptr inbounds i8, ptr %call.i, i64 70784
+  %mmio = getelementptr inbounds nuw i8, ptr %call.i, i64 70784
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %dev, ptr noundef nonnull @unassigned_io_ops, ptr noundef null, ptr noundef nonnull @.str.17, i64 noundef 4096) #4
-  %flags = getelementptr inbounds i8, ptr %call.i, i64 70720
+  %flags = getelementptr inbounds nuw i8, ptr %call.i, i64 70720
   %1 = load i32, ptr %flags, align 16
   %and = and i32 %1, 4
   %tobool.not = icmp ne i32 %and, 0
   br i1 %tobool.not, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %config = getelementptr inbounds i8, ptr %call.i, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %2 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %2, i64 8
   store i8 2, ptr %arrayidx, align 1
@@ -468,9 +468,9 @@ if.end6:                                          ; preds = %if.then4, %if.end
   %3 = phi i32 [ %.pre, %if.then4 ], [ %1, %if.end ]
   %and8 = and i32 %3, 8
   %tobool9.not = icmp ne i32 %and8, 0
-  %mrs = getelementptr inbounds i8, ptr %call.i, i64 71056
+  %mrs = getelementptr inbounds nuw i8, ptr %call.i, i64 71056
   tail call void @pci_std_vga_mmio_region_init(ptr noundef nonnull %vga, ptr noundef %dev, ptr noundef nonnull %mmio, ptr noundef nonnull %mrs, i1 noundef zeroext %tobool.not, i1 noundef zeroext %tobool9.not)
-  %vram = getelementptr inbounds i8, ptr %call.i, i64 2624
+  %vram = getelementptr inbounds nuw i8, ptr %call.i, i64 2624
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 8, ptr noundef nonnull %vram) #4
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 2, i8 noundef zeroext 0, ptr noundef nonnull %mmio) #4
   br label %return
@@ -483,15 +483,15 @@ return:                                           ; preds = %entry, %if.end6
 define internal void @pci_secondary_vga_exit(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.18, i32 noundef 58, ptr noundef nonnull @__func__.PCI_VGA) #4
-  %con = getelementptr inbounds i8, ptr %call.i, i64 5232
+  %con = getelementptr inbounds nuw i8, ptr %call.i, i64 5232
   %0 = load ptr, ptr %con, align 16
   tail call void @graphic_console_close(ptr noundef %0) #4
-  %mmio = getelementptr inbounds i8, ptr %call.i, i64 70784
-  %mrs = getelementptr inbounds i8, ptr %call.i, i64 71056
+  %mmio = getelementptr inbounds nuw i8, ptr %call.i, i64 70784
+  %mrs = getelementptr inbounds nuw i8, ptr %call.i, i64 71056
   tail call void @memory_region_del_subregion(ptr noundef nonnull %mmio, ptr noundef nonnull %mrs) #4
   %arrayidx3 = getelementptr i8, ptr %call.i, i64 71328
   tail call void @memory_region_del_subregion(ptr noundef nonnull %mmio, ptr noundef %arrayidx3) #4
-  %flags = getelementptr inbounds i8, ptr %call.i, i64 70720
+  %flags = getelementptr inbounds nuw i8, ptr %call.i, i64 70720
   %1 = load i32, ptr %flags, align 16
   %and = and i32 %1, 4
   %tobool.not = icmp eq i32 %and, 0
@@ -523,7 +523,7 @@ define internal void @pci_secondary_vga_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #4
   %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.18, i32 noundef 58, ptr noundef nonnull @__func__.PCI_VGA) #4
-  %vga = getelementptr inbounds i8, ptr %call.i1, i64 2608
+  %vga = getelementptr inbounds nuw i8, ptr %call.i1, i64 2608
   tail call void @vga_common_reset(ptr noundef nonnull %vga) #4
   ret void
 }

@@ -47,20 +47,20 @@ if.then9.i:                                       ; preds = %lor.lhs.false4.i, %
   br label %if.then7
 
 uscript_setRunText_75.exit:                       ; preds = %lor.lhs.false4.i
-  %textArray.i = getelementptr inbounds i8, ptr %call1, i64 8
+  %textArray.i = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %src, ptr %textArray.i, align 8
   store i32 %length, ptr %call1, align 8
-  %scriptStart.i.i = getelementptr inbounds i8, ptr %call1, i64 16
+  %scriptStart.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store i32 0, ptr %scriptStart.i.i, align 8
-  %scriptLimit.i.i = getelementptr inbounds i8, ptr %call1, i64 20
+  %scriptLimit.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 20
   store i32 0, ptr %scriptLimit.i.i, align 4
-  %scriptCode.i.i = getelementptr inbounds i8, ptr %call1, i64 24
+  %scriptCode.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store i32 -1, ptr %scriptCode.i.i, align 8
-  %parenSP.i.i = getelementptr inbounds i8, ptr %call1, i64 284
+  %parenSP.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 284
   store i32 -1, ptr %parenSP.i.i, align 4
-  %pushCount.i.i = getelementptr inbounds i8, ptr %call1, i64 288
+  %pushCount.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 288
   store i32 0, ptr %pushCount.i.i, align 8
-  %fixupCount.i.i = getelementptr inbounds i8, ptr %call1, i64 292
+  %fixupCount.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 292
   store i32 0, ptr %fixupCount.i.i, align 4
   br label %return
 
@@ -104,20 +104,20 @@ if.then9:                                         ; preds = %lor.lhs.false4, %if
   br label %return
 
 uscript_resetRun_75.exit:                         ; preds = %lor.lhs.false4
-  %textArray = getelementptr inbounds i8, ptr %scriptRun, i64 8
+  %textArray = getelementptr inbounds nuw i8, ptr %scriptRun, i64 8
   store ptr %src, ptr %textArray, align 8
   store i32 %length, ptr %scriptRun, align 8
-  %scriptStart.i = getelementptr inbounds i8, ptr %scriptRun, i64 16
+  %scriptStart.i = getelementptr inbounds nuw i8, ptr %scriptRun, i64 16
   store i32 0, ptr %scriptStart.i, align 8
-  %scriptLimit.i = getelementptr inbounds i8, ptr %scriptRun, i64 20
+  %scriptLimit.i = getelementptr inbounds nuw i8, ptr %scriptRun, i64 20
   store i32 0, ptr %scriptLimit.i, align 4
-  %scriptCode.i = getelementptr inbounds i8, ptr %scriptRun, i64 24
+  %scriptCode.i = getelementptr inbounds nuw i8, ptr %scriptRun, i64 24
   store i32 -1, ptr %scriptCode.i, align 8
-  %parenSP.i = getelementptr inbounds i8, ptr %scriptRun, i64 284
+  %parenSP.i = getelementptr inbounds nuw i8, ptr %scriptRun, i64 284
   store i32 -1, ptr %parenSP.i, align 4
-  %pushCount.i = getelementptr inbounds i8, ptr %scriptRun, i64 288
+  %pushCount.i = getelementptr inbounds nuw i8, ptr %scriptRun, i64 288
   store i32 0, ptr %pushCount.i, align 8
-  %fixupCount.i = getelementptr inbounds i8, ptr %scriptRun, i64 292
+  %fixupCount.i = getelementptr inbounds nuw i8, ptr %scriptRun, i64 292
   store i32 0, ptr %fixupCount.i, align 4
   br label %return
 
@@ -148,17 +148,17 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %scriptStart = getelementptr inbounds i8, ptr %scriptRun, i64 16
+  %scriptStart = getelementptr inbounds nuw i8, ptr %scriptRun, i64 16
   store i32 0, ptr %scriptStart, align 8
-  %scriptLimit = getelementptr inbounds i8, ptr %scriptRun, i64 20
+  %scriptLimit = getelementptr inbounds nuw i8, ptr %scriptRun, i64 20
   store i32 0, ptr %scriptLimit, align 4
-  %scriptCode = getelementptr inbounds i8, ptr %scriptRun, i64 24
+  %scriptCode = getelementptr inbounds nuw i8, ptr %scriptRun, i64 24
   store i32 -1, ptr %scriptCode, align 8
-  %parenSP = getelementptr inbounds i8, ptr %scriptRun, i64 284
+  %parenSP = getelementptr inbounds nuw i8, ptr %scriptRun, i64 284
   store i32 -1, ptr %parenSP, align 4
-  %pushCount = getelementptr inbounds i8, ptr %scriptRun, i64 288
+  %pushCount = getelementptr inbounds nuw i8, ptr %scriptRun, i64 288
   store i32 0, ptr %pushCount, align 8
-  %fixupCount = getelementptr inbounds i8, ptr %scriptRun, i64 292
+  %fixupCount = getelementptr inbounds nuw i8, ptr %scriptRun, i64 292
   store i32 0, ptr %fixupCount, align 4
   br label %if.end
 
@@ -175,23 +175,23 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %scriptLimit = getelementptr inbounds i8, ptr %scriptRun, i64 20
+  %scriptLimit = getelementptr inbounds nuw i8, ptr %scriptRun, i64 20
   %0 = load i32, ptr %scriptLimit, align 4
   %1 = load i32, ptr %scriptRun, align 8
   %cmp1.not = icmp slt i32 %0, %1
   br i1 %cmp1.not, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %lor.lhs.false
-  %fixupCount = getelementptr inbounds i8, ptr %scriptRun, i64 292
+  %fixupCount = getelementptr inbounds nuw i8, ptr %scriptRun, i64 292
   store i32 0, ptr %fixupCount, align 4
-  %scriptCode = getelementptr inbounds i8, ptr %scriptRun, i64 24
+  %scriptCode = getelementptr inbounds nuw i8, ptr %scriptRun, i64 24
   store i32 0, ptr %scriptCode, align 8
-  %scriptStart = getelementptr inbounds i8, ptr %scriptRun, i64 16
+  %scriptStart = getelementptr inbounds nuw i8, ptr %scriptRun, i64 16
   store i32 %0, ptr %scriptStart, align 8
-  %textArray = getelementptr inbounds i8, ptr %scriptRun, i64 8
-  %pushCount = getelementptr inbounds i8, ptr %scriptRun, i64 288
-  %parenStack = getelementptr inbounds i8, ptr %scriptRun, i64 28
-  %parenSP = getelementptr inbounds i8, ptr %scriptRun, i64 284
+  %textArray = getelementptr inbounds nuw i8, ptr %scriptRun, i64 8
+  %pushCount = getelementptr inbounds nuw i8, ptr %scriptRun, i64 288
+  %parenStack = getelementptr inbounds nuw i8, ptr %scriptRun, i64 28
+  %parenSP = getelementptr inbounds nuw i8, ptr %scriptRun, i64 284
   %2 = getelementptr i8, ptr %scriptRun, i64 32
   br label %for.body
 

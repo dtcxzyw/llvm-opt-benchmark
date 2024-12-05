@@ -52,13 +52,13 @@ define dso_local void @intel_detect_pch(ptr noundef %0) local_unnamed_addr #0 al
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #3
-  %4 = getelementptr inbounds i8, ptr %0, i64 2632
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %5 = load i16, ptr %4, align 8
   %6 = icmp ugt i16 %5, 19
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   store i32 1026, ptr %8, align 8
   br label %95
 
@@ -71,7 +71,7 @@ define dso_local void @intel_detect_pch(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 8112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   store i32 1025, ptr %16, align 8
   br label %95
 
@@ -88,14 +88,14 @@ define dso_local void @intel_detect_pch(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %22, label %74, label %.preheader
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 8112
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   store i32 1024, ptr %24, align 8
   br label %95
 
 .preheader:                                       ; preds = %20, %30
   %25 = phi i16 [ %31, %30 ], [ 0, %20 ]
   %26 = phi ptr [ %32, %30 ], [ %21, %20 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 60
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 60
   %28 = load i16, ptr %27, align 4
   %29 = icmp eq i16 %28, -32634
   br i1 %29, label %34, label %30
@@ -107,7 +107,7 @@ define dso_local void @intel_detect_pch(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %33, label %73, label %.preheader, !llvm.loop !6
 
 34:                                               ; preds = %.preheader
-  %35 = getelementptr inbounds i8, ptr %26, i64 62
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 62
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, -128
   %38 = tail call fastcc i32 @intel_pch_type(ptr noundef %0, i16 noundef zeroext %37), !range !9
@@ -115,7 +115,7 @@ define dso_local void @intel_detect_pch(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %39, label %42, label %40
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 8112
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   store i32 %38, ptr %41, align 8
   br label %59
 
@@ -125,9 +125,9 @@ define dso_local void @intel_detect_pch(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %44, label %55, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %26, i64 66
+  %46 = getelementptr inbounds nuw i8, ptr %26, i64 66
   %47 = load i16, ptr %46, align 2
-  %48 = getelementptr inbounds i8, ptr %26, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %49 = load i16, ptr %48, align 8
   %50 = icmp eq i16 %37, 10496
   %51 = icmp eq i16 %49, 6900
@@ -141,16 +141,16 @@ define dso_local void @intel_detect_pch(ptr noundef %0) local_unnamed_addr #0 al
   store i32 0, ptr %3, align 4
   call fastcc void @intel_virt_detect_pch(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %56 = load i32, ptr %3, align 4
-  %57 = getelementptr inbounds i8, ptr %0, i64 8112
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   store i32 %56, ptr %57, align 8
   %58 = load i16, ptr %2, align 2
   br label %59
 
 59:                                               ; preds = %55, %40
   %60 = phi i16 [ %37, %40 ], [ %58, %55 ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 8116
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8116
   store i16 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %0, i64 2638
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   %63 = load i8, ptr %62, align 2
   %64 = icmp eq i8 %63, 0
   br i1 %64, label %65, label %93
@@ -160,14 +160,14 @@ define dso_local void @intel_detect_pch(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8
   br label %70
 
 70:                                               ; preds = %67, %65
   %71 = phi ptr [ %69, %67 ], [ null, %65 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %71, i32 noundef 2, ptr noundef nonnull @.str) #3
-  %72 = getelementptr inbounds i8, ptr %0, i64 8112
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   store i32 -1, ptr %72, align 8
   store i16 0, ptr %61, align 4
   br label %93
@@ -183,7 +183,7 @@ define dso_local void @intel_detect_pch(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %0, i64 2638
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 2638
   %79 = load i8, ptr %78, align 2
   %80 = icmp eq i8 %79, 0
   br i1 %80, label %86, label %81
@@ -191,10 +191,10 @@ define dso_local void @intel_detect_pch(ptr noundef %0) local_unnamed_addr #0 al
 81:                                               ; preds = %77
   call fastcc void @intel_virt_detect_pch(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %82 = load i32, ptr %3, align 4
-  %83 = getelementptr inbounds i8, ptr %0, i64 8112
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   store i32 %82, ptr %83, align 8
   %84 = load i16, ptr %2, align 2
-  %85 = getelementptr inbounds i8, ptr %0, i64 8116
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8116
   store i16 %84, ptr %85, align 4
   br label %93
 
@@ -203,7 +203,7 @@ define dso_local void @intel_detect_pch(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %87, label %91, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %90 = load ptr, ptr %89, align 8
   br label %91
 
@@ -266,25 +266,25 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   br label %8
 
 8:                                                ; preds = %5, %3
   %9 = phi ptr [ %7, %5 ], [ null, %3 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %9, i32 noundef 2, ptr noundef nonnull @.str.2) #3
-  %10 = getelementptr inbounds i8, ptr %0, i64 7176
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 5
   br i1 %12, label %573, label %13, !prof !10
 
 13:                                               ; preds = %8
   tail call void asm sideeffect "534: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 534b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 534) #3, !srcloc !11
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @dev_driver_string(ptr noundef %15) #3
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %23
@@ -307,20 +307,20 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %26, label %30, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %30
 
 30:                                               ; preds = %27, %25
   %31 = phi ptr [ %29, %27 ], [ null, %25 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %31, i32 noundef 2, ptr noundef nonnull @.str.6) #3
-  %32 = getelementptr inbounds i8, ptr %0, i64 7176
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %33 = load i8, ptr %32, align 8
   %34 = icmp eq i8 %33, 6
   br i1 %34, label %573, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 7184
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 1048576
   %39 = icmp eq i32 %38, 0
@@ -328,11 +328,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 40:                                               ; preds = %35
   tail call void asm sideeffect "538: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 538b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 538) #3, !srcloc !17
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @dev_driver_string(ptr noundef %42) #3
   %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %50
@@ -355,20 +355,20 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %53, label %57, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8
   br label %57
 
 57:                                               ; preds = %54, %52
   %58 = phi ptr [ %56, %54 ], [ null, %52 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %58, i32 noundef 2, ptr noundef nonnull @.str.8) #3
-  %59 = getelementptr inbounds i8, ptr %0, i64 7176
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %60 = load i8, ptr %59, align 8
   %61 = icmp eq i8 %60, 6
   br i1 %61, label %573, label %62
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %0, i64 7184
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 1048576
   %66 = icmp eq i32 %65, 0
@@ -376,11 +376,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 67:                                               ; preds = %62
   tail call void asm sideeffect "542: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 542b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 542) #3, !srcloc !22
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr @dev_driver_string(ptr noundef %69) #3
   %71 = load ptr, ptr %68, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 80
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %77
@@ -403,14 +403,14 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %80, label %84, label %81
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load ptr, ptr %82, align 8
   br label %84
 
 84:                                               ; preds = %81, %79
   %85 = phi ptr [ %83, %81 ], [ null, %79 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %85, i32 noundef 2, ptr noundef nonnull @.str.9) #3
-  %86 = getelementptr inbounds i8, ptr %0, i64 7184
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 12582912
   %89 = icmp eq i32 %88, 0
@@ -418,11 +418,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 90:                                               ; preds = %84
   tail call void asm sideeffect "546: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 546b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 546) #3, !srcloc !28
-  %91 = getelementptr inbounds i8, ptr %0, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = tail call ptr @dev_driver_string(ptr noundef %92) #3
   %94 = load ptr, ptr %91, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 80
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 80
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %100
@@ -457,11 +457,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 112:                                              ; preds = %108, %102
   tail call void asm sideeffect "550: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 550b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 550) #3, !srcloc !33
-  %113 = getelementptr inbounds i8, ptr %0, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = tail call ptr @dev_driver_string(ptr noundef %114) #3
   %116 = load ptr, ptr %113, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 80
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 80
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
   br i1 %119, label %120, label %122
@@ -484,14 +484,14 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %125, label %129, label %126
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds i8, ptr %0, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %128 = load ptr, ptr %127, align 8
   br label %129
 
 129:                                              ; preds = %126, %124
   %130 = phi ptr [ %128, %126 ], [ null, %124 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %130, i32 noundef 2, ptr noundef nonnull @.str.12) #3
-  %131 = getelementptr inbounds i8, ptr %0, i64 7184
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %132 = load i32, ptr %131, align 4
   %133 = and i32 %132, 12582912
   %134 = icmp eq i32 %133, 0
@@ -499,11 +499,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 135:                                              ; preds = %129
   tail call void asm sideeffect "554: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 554b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 554) #3, !srcloc !38
-  %136 = getelementptr inbounds i8, ptr %0, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %137 = load ptr, ptr %136, align 8
   %138 = tail call ptr @dev_driver_string(ptr noundef %137) #3
   %139 = load ptr, ptr %136, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 80
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 80
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
   br i1 %142, label %143, label %145
@@ -538,11 +538,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 157:                                              ; preds = %153
   tail call void asm sideeffect "558: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 558b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 558) #3, !srcloc !43
-  %158 = getelementptr inbounds i8, ptr %0, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %159 = load ptr, ptr %158, align 8
   %160 = tail call ptr @dev_driver_string(ptr noundef %159) #3
   %161 = load ptr, ptr %158, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 80
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 80
   %163 = load ptr, ptr %162, align 8
   %164 = icmp eq ptr %163, null
   br i1 %164, label %165, label %167
@@ -565,14 +565,14 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %170, label %174, label %171
 
 171:                                              ; preds = %169
-  %172 = getelementptr inbounds i8, ptr %0, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %173 = load ptr, ptr %172, align 8
   br label %174
 
 174:                                              ; preds = %171, %169
   %175 = phi ptr [ %173, %171 ], [ null, %169 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %175, i32 noundef 2, ptr noundef nonnull @.str.14) #3
-  %176 = getelementptr inbounds i8, ptr %0, i64 7184
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %177 = load i32, ptr %176, align 4
   %178 = and i32 %177, 12582912
   %179 = icmp eq i32 %178, 0
@@ -580,11 +580,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 180:                                              ; preds = %174
   tail call void asm sideeffect "562: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 562b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 562) #3, !srcloc !48
-  %181 = getelementptr inbounds i8, ptr %0, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %182 = load ptr, ptr %181, align 8
   %183 = tail call ptr @dev_driver_string(ptr noundef %182) #3
   %184 = load ptr, ptr %181, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 80
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 80
   %186 = load ptr, ptr %185, align 8
   %187 = icmp eq ptr %186, null
   br i1 %187, label %188, label %190
@@ -619,11 +619,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 202:                                              ; preds = %198, %192
   tail call void asm sideeffect "566: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 566b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 566) #3, !srcloc !53
-  %203 = getelementptr inbounds i8, ptr %0, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %204 = load ptr, ptr %203, align 8
   %205 = tail call ptr @dev_driver_string(ptr noundef %204) #3
   %206 = load ptr, ptr %203, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 80
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 80
   %208 = load ptr, ptr %207, align 8
   %209 = icmp eq ptr %208, null
   br i1 %209, label %210, label %212
@@ -646,14 +646,14 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %215, label %219, label %216
 
 216:                                              ; preds = %214
-  %217 = getelementptr inbounds i8, ptr %0, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %218 = load ptr, ptr %217, align 8
   br label %219
 
 219:                                              ; preds = %216, %214
   %220 = phi ptr [ %218, %216 ], [ null, %214 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %220, i32 noundef 2, ptr noundef nonnull @.str.15) #3
-  %221 = getelementptr inbounds i8, ptr %0, i64 7184
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %222 = load i32, ptr %221, align 4
   %223 = and i32 %222, 12582912
   %224 = icmp eq i32 %223, 0
@@ -661,11 +661,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 225:                                              ; preds = %219
   tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #3, !srcloc !58
-  %226 = getelementptr inbounds i8, ptr %0, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %227 = load ptr, ptr %226, align 8
   %228 = tail call ptr @dev_driver_string(ptr noundef %227) #3
   %229 = load ptr, ptr %226, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 80
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 80
   %231 = load ptr, ptr %230, align 8
   %232 = icmp eq ptr %231, null
   br i1 %232, label %233, label %235
@@ -700,11 +700,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 247:                                              ; preds = %243
   tail call void asm sideeffect "574: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 574b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 574) #3, !srcloc !63
-  %248 = getelementptr inbounds i8, ptr %0, i64 8
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %249 = load ptr, ptr %248, align 8
   %250 = tail call ptr @dev_driver_string(ptr noundef %249) #3
   %251 = load ptr, ptr %248, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 80
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 80
   %253 = load ptr, ptr %252, align 8
   %254 = icmp eq ptr %253, null
   br i1 %254, label %255, label %257
@@ -727,14 +727,14 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %260, label %264, label %261
 
 261:                                              ; preds = %259
-  %262 = getelementptr inbounds i8, ptr %0, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %263 = load ptr, ptr %262, align 8
   br label %264
 
 264:                                              ; preds = %261, %259
   %265 = phi ptr [ %263, %261 ], [ null, %259 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %265, i32 noundef 2, ptr noundef nonnull @.str.16) #3
-  %266 = getelementptr inbounds i8, ptr %0, i64 7184
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %267 = load i32, ptr %266, align 4
   %268 = and i32 %267, 167772160
   %269 = icmp eq i32 %268, 0
@@ -742,11 +742,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 270:                                              ; preds = %264
   tail call void asm sideeffect "578: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 578b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 578) #3, !srcloc !68
-  %271 = getelementptr inbounds i8, ptr %0, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = tail call ptr @dev_driver_string(ptr noundef %272) #3
   %274 = load ptr, ptr %271, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 80
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 80
   %276 = load ptr, ptr %275, align 8
   %277 = icmp eq ptr %276, null
   br i1 %277, label %278, label %280
@@ -769,14 +769,14 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %283, label %287, label %284
 
 284:                                              ; preds = %282
-  %285 = getelementptr inbounds i8, ptr %0, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %286 = load ptr, ptr %285, align 8
   br label %287
 
 287:                                              ; preds = %284, %282
   %288 = phi ptr [ %286, %284 ], [ null, %282 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %288, i32 noundef 2, ptr noundef nonnull @.str.18) #3
-  %289 = getelementptr inbounds i8, ptr %0, i64 7184
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %290 = load i32, ptr %289, align 4
   %291 = and i32 %290, 1778384896
   %292 = icmp eq i32 %291, 0
@@ -784,11 +784,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 293:                                              ; preds = %287
   tail call void asm sideeffect "582: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 582b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 582) #3, !srcloc !73
-  %294 = getelementptr inbounds i8, ptr %0, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %295 = load ptr, ptr %294, align 8
   %296 = tail call ptr @dev_driver_string(ptr noundef %295) #3
   %297 = load ptr, ptr %294, align 8
-  %298 = getelementptr inbounds i8, ptr %297, i64 80
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 80
   %299 = load ptr, ptr %298, align 8
   %300 = icmp eq ptr %299, null
   br i1 %300, label %301, label %303
@@ -811,14 +811,14 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %306, label %310, label %307
 
 307:                                              ; preds = %305
-  %308 = getelementptr inbounds i8, ptr %0, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %309 = load ptr, ptr %308, align 8
   br label %310
 
 310:                                              ; preds = %307, %305
   %311 = phi ptr [ %309, %307 ], [ null, %305 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %311, i32 noundef 2, ptr noundef nonnull @.str.20) #3
-  %312 = getelementptr inbounds i8, ptr %0, i64 7184
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %313 = load i32, ptr %312, align 4
   %314 = and i32 %313, 1778384896
   %315 = icmp eq i32 %314, 0
@@ -826,11 +826,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 316:                                              ; preds = %310
   tail call void asm sideeffect "586: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 586b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 586) #3, !srcloc !78
-  %317 = getelementptr inbounds i8, ptr %0, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %318 = load ptr, ptr %317, align 8
   %319 = tail call ptr @dev_driver_string(ptr noundef %318) #3
   %320 = load ptr, ptr %317, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 80
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 80
   %322 = load ptr, ptr %321, align 8
   %323 = icmp eq ptr %322, null
   br i1 %323, label %324, label %326
@@ -853,14 +853,14 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %329, label %333, label %330
 
 330:                                              ; preds = %328
-  %331 = getelementptr inbounds i8, ptr %0, i64 8
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %332 = load ptr, ptr %331, align 8
   br label %333
 
 333:                                              ; preds = %330, %328
   %334 = phi ptr [ %332, %330 ], [ null, %328 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %334, i32 noundef 2, ptr noundef nonnull @.str.21) #3
-  %335 = getelementptr inbounds i8, ptr %0, i64 7184
+  %335 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %336 = load i32, ptr %335, align 4
   %337 = and i32 %336, 1610612736
   %338 = icmp eq i32 %337, 0
@@ -868,11 +868,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 339:                                              ; preds = %333
   tail call void asm sideeffect "590: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 590b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 590) #3, !srcloc !83
-  %340 = getelementptr inbounds i8, ptr %0, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %341 = load ptr, ptr %340, align 8
   %342 = tail call ptr @dev_driver_string(ptr noundef %341) #3
   %343 = load ptr, ptr %340, align 8
-  %344 = getelementptr inbounds i8, ptr %343, i64 80
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 80
   %345 = load ptr, ptr %344, align 8
   %346 = icmp eq ptr %345, null
   br i1 %346, label %347, label %349
@@ -895,14 +895,14 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %352, label %356, label %353
 
 353:                                              ; preds = %351
-  %354 = getelementptr inbounds i8, ptr %0, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %355 = load ptr, ptr %354, align 8
   br label %356
 
 356:                                              ; preds = %353, %351
   %357 = phi ptr [ %355, %353 ], [ null, %351 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %357, i32 noundef 2, ptr noundef nonnull @.str.23) #3
-  %358 = getelementptr inbounds i8, ptr %0, i64 7184
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %359 = load i32, ptr %358, align 4
   %360 = and i32 %359, 1610612736
   %361 = icmp eq i32 %360, 0
@@ -910,11 +910,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 362:                                              ; preds = %356
   tail call void asm sideeffect "594: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 594b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 594) #3, !srcloc !88
-  %363 = getelementptr inbounds i8, ptr %0, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %364 = load ptr, ptr %363, align 8
   %365 = tail call ptr @dev_driver_string(ptr noundef %364) #3
   %366 = load ptr, ptr %363, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 80
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 80
   %368 = load ptr, ptr %367, align 8
   %369 = icmp eq ptr %368, null
   br i1 %369, label %370, label %372
@@ -937,14 +937,14 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %375, label %379, label %376
 
 376:                                              ; preds = %374
-  %377 = getelementptr inbounds i8, ptr %0, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %378 = load ptr, ptr %377, align 8
   br label %379
 
 379:                                              ; preds = %376, %374
   %380 = phi ptr [ %378, %376 ], [ null, %374 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %380, i32 noundef 2, ptr noundef nonnull @.str.24) #3
-  %381 = getelementptr inbounds i8, ptr %0, i64 7184
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %382 = load i32, ptr %381, align 4
   %383 = and i32 %382, 1610612736
   %384 = icmp eq i32 %383, 0
@@ -959,11 +959,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 390:                                              ; preds = %385
   tail call void asm sideeffect "598: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 598b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 598) #3, !srcloc !93
-  %391 = getelementptr inbounds i8, ptr %0, i64 8
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %392 = load ptr, ptr %391, align 8
   %393 = tail call ptr @dev_driver_string(ptr noundef %392) #3
   %394 = load ptr, ptr %391, align 8
-  %395 = getelementptr inbounds i8, ptr %394, i64 80
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 80
   %396 = load ptr, ptr %395, align 8
   %397 = icmp eq ptr %396, null
   br i1 %397, label %398, label %400
@@ -986,14 +986,14 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %403, label %407, label %404
 
 404:                                              ; preds = %402
-  %405 = getelementptr inbounds i8, ptr %0, i64 8
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %406 = load ptr, ptr %405, align 8
   br label %407
 
 407:                                              ; preds = %404, %402
   %408 = phi ptr [ %406, %404 ], [ null, %402 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %408, i32 noundef 2, ptr noundef nonnull @.str.26) #3
-  %409 = getelementptr inbounds i8, ptr %0, i64 7184
+  %409 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %410 = load i32, ptr %409, align 4
   %411 = and i32 %410, 1610612736
   %412 = icmp eq i32 %411, 0
@@ -1001,11 +1001,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 413:                                              ; preds = %407
   tail call void asm sideeffect "602: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 602b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 602) #3, !srcloc !98
-  %414 = getelementptr inbounds i8, ptr %0, i64 8
+  %414 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %415 = load ptr, ptr %414, align 8
   %416 = tail call ptr @dev_driver_string(ptr noundef %415) #3
   %417 = load ptr, ptr %414, align 8
-  %418 = getelementptr inbounds i8, ptr %417, i64 80
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 80
   %419 = load ptr, ptr %418, align 8
   %420 = icmp eq ptr %419, null
   br i1 %420, label %421, label %423
@@ -1028,25 +1028,25 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %426, label %430, label %427
 
 427:                                              ; preds = %425
-  %428 = getelementptr inbounds i8, ptr %0, i64 8
+  %428 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %429 = load ptr, ptr %428, align 8
   br label %430
 
 430:                                              ; preds = %427, %425
   %431 = phi ptr [ %429, %427 ], [ null, %425 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %431, i32 noundef 2, ptr noundef nonnull @.str.27) #3
-  %432 = getelementptr inbounds i8, ptr %0, i64 7184
+  %432 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %433 = load i32, ptr %432, align 4
   %434 = icmp sgt i32 %433, -1
   br i1 %434, label %435, label %573, !prof !16
 
 435:                                              ; preds = %430
   tail call void asm sideeffect "606: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 606b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 606) #3, !srcloc !103
-  %436 = getelementptr inbounds i8, ptr %0, i64 8
+  %436 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %437 = load ptr, ptr %436, align 8
   %438 = tail call ptr @dev_driver_string(ptr noundef %437) #3
   %439 = load ptr, ptr %436, align 8
-  %440 = getelementptr inbounds i8, ptr %439, i64 80
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 80
   %441 = load ptr, ptr %440, align 8
   %442 = icmp eq ptr %441, null
   br i1 %442, label %443, label %445
@@ -1069,7 +1069,7 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %448, label %452, label %449
 
 449:                                              ; preds = %447
-  %450 = getelementptr inbounds i8, ptr %0, i64 8
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %451 = load ptr, ptr %450, align 8
   br label %452
 
@@ -1084,11 +1084,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 458:                                              ; preds = %452
   tail call void asm sideeffect "610: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 610b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 610) #3, !srcloc !108
-  %459 = getelementptr inbounds i8, ptr %0, i64 8
+  %459 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %460 = load ptr, ptr %459, align 8
   %461 = tail call ptr @dev_driver_string(ptr noundef %460) #3
   %462 = load ptr, ptr %459, align 8
-  %463 = getelementptr inbounds i8, ptr %462, i64 80
+  %463 = getelementptr inbounds nuw i8, ptr %462, i64 80
   %464 = load ptr, ptr %463, align 8
   %465 = icmp eq ptr %464, null
   br i1 %465, label %466, label %468
@@ -1111,7 +1111,7 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %471, label %475, label %472
 
 472:                                              ; preds = %470
-  %473 = getelementptr inbounds i8, ptr %0, i64 8
+  %473 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %474 = load ptr, ptr %473, align 8
   br label %475
 
@@ -1125,15 +1125,15 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %480, label %481, label %573
 
 481:                                              ; preds = %475
-  %482 = getelementptr inbounds i8, ptr %0, i64 7176
+  %482 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %483 = load i8, ptr %482, align 8
   %484 = icmp eq i8 %483, 9
   br i1 %484, label %485, label %492
 
 485:                                              ; preds = %481
-  %486 = getelementptr inbounds i8, ptr %0, i64 7168
+  %486 = getelementptr inbounds nuw i8, ptr %0, i64 7168
   %487 = load ptr, ptr %486, align 8
-  %488 = getelementptr inbounds i8, ptr %487, i64 28
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 28
   %489 = load i64, ptr %488, align 4
   %490 = and i64 %489, 2
   %491 = icmp eq i64 %490, 0
@@ -1141,11 +1141,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 492:                                              ; preds = %485, %481
   tail call void asm sideeffect "614: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 614b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 614) #3, !srcloc !113
-  %493 = getelementptr inbounds i8, ptr %0, i64 8
+  %493 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %494 = load ptr, ptr %493, align 8
   %495 = tail call ptr @dev_driver_string(ptr noundef %494) #3
   %496 = load ptr, ptr %493, align 8
-  %497 = getelementptr inbounds i8, ptr %496, i64 80
+  %497 = getelementptr inbounds nuw i8, ptr %496, i64 80
   %498 = load ptr, ptr %497, align 8
   %499 = icmp eq ptr %498, null
   br i1 %499, label %500, label %502
@@ -1168,7 +1168,7 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %505, label %509, label %506
 
 506:                                              ; preds = %504
-  %507 = getelementptr inbounds i8, ptr %0, i64 8
+  %507 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %508 = load ptr, ptr %507, align 8
   br label %509
 
@@ -1183,11 +1183,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 515:                                              ; preds = %509
   tail call void asm sideeffect "618: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 618b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 618) #3, !srcloc !118
-  %516 = getelementptr inbounds i8, ptr %0, i64 8
+  %516 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %517 = load ptr, ptr %516, align 8
   %518 = tail call ptr @dev_driver_string(ptr noundef %517) #3
   %519 = load ptr, ptr %516, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 80
+  %520 = getelementptr inbounds nuw i8, ptr %519, i64 80
   %521 = load ptr, ptr %520, align 8
   %522 = icmp eq ptr %521, null
   br i1 %522, label %523, label %525
@@ -1210,7 +1210,7 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %528, label %532, label %529
 
 529:                                              ; preds = %527
-  %530 = getelementptr inbounds i8, ptr %0, i64 8
+  %530 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %531 = load ptr, ptr %530, align 8
   br label %532
 
@@ -1225,11 +1225,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 538:                                              ; preds = %532
   tail call void asm sideeffect "622: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 622b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 622) #3, !srcloc !123
-  %539 = getelementptr inbounds i8, ptr %0, i64 8
+  %539 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %540 = load ptr, ptr %539, align 8
   %541 = tail call ptr @dev_driver_string(ptr noundef %540) #3
   %542 = load ptr, ptr %539, align 8
-  %543 = getelementptr inbounds i8, ptr %542, i64 80
+  %543 = getelementptr inbounds nuw i8, ptr %542, i64 80
   %544 = load ptr, ptr %543, align 8
   %545 = icmp eq ptr %544, null
   br i1 %545, label %546, label %548
@@ -1252,7 +1252,7 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
   br i1 %551, label %555, label %552
 
 552:                                              ; preds = %550
-  %553 = getelementptr inbounds i8, ptr %0, i64 8
+  %553 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %554 = load ptr, ptr %553, align 8
   br label %555
 
@@ -1267,11 +1267,11 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 561:                                              ; preds = %555
   tail call void asm sideeffect "626: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 626b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 626) #3, !srcloc !128
-  %562 = getelementptr inbounds i8, ptr %0, i64 8
+  %562 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %563 = load ptr, ptr %562, align 8
   %564 = tail call ptr @dev_driver_string(ptr noundef %563) #3
   %565 = load ptr, ptr %562, align 8
-  %566 = getelementptr inbounds i8, ptr %565, i64 80
+  %566 = getelementptr inbounds nuw i8, ptr %565, i64 80
   %567 = load ptr, ptr %566, align 8
   %568 = icmp eq ptr %567, null
   br i1 %568, label %569, label %571
@@ -1296,7 +1296,7 @@ define internal fastcc noundef range(i32 0, 10) i32 @intel_pch_type(ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @intel_virt_detect_pch(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 7184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %5 = getelementptr i8, ptr %0, i64 7188
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
@@ -1356,7 +1356,7 @@ define internal fastcc void @intel_virt_detect_pch(ptr noundef %0, ptr nocapture
   br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 7176
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 7176
   %45 = load i8, ptr %44, align 8
   %46 = icmp eq i8 %45, 6
   %47 = and i64 %21, 1048576
@@ -1379,7 +1379,7 @@ define internal fastcc void @intel_virt_detect_pch(ptr noundef %0, ptr nocapture
 
 54:                                               ; preds = %.thread, %53
   %55 = phi i16 [ %.ph, %.thread ], [ 15104, %53 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
   br label %58
 
@@ -1394,7 +1394,7 @@ define internal fastcc void @intel_virt_detect_pch(ptr noundef %0, ptr nocapture
   br i1 %52, label %66, label %63
 
 63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8
   br label %66
 
@@ -1414,11 +1414,11 @@ define internal fastcc void @intel_virt_detect_pch(ptr noundef %0, ptr nocapture
 
 74:                                               ; preds = %68
   tail call void asm sideeffect "630: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 630b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 630) #3, !srcloc !133
-  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = tail call ptr @dev_driver_string(ptr noundef %76) #3
   %78 = load ptr, ptr %75, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 80
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %84

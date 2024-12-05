@@ -667,7 +667,7 @@ define void @lv_textarea_add_char(ptr noundef %0, i32 noundef %1) local_unnamed_
 10:                                               ; preds = %9, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   store i32 %1, ptr %4, align 4, !tbaa !21
-  %11 = getelementptr inbounds i8, ptr %4, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %11, align 4, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
   store i32 %1, ptr %5, align 4, !tbaa !21

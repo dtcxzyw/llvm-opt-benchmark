@@ -90,7 +90,7 @@ define internal i32 @dissect_sir(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %.not = icmp eq ptr %2, null
   br label %8
 
@@ -106,15 +106,15 @@ define internal i32 @dissect_sir(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %13, label %.thread, label %19
 
 .thread:                                          ; preds = %8, %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 328
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %15 = load i16, ptr %14, align 8
   %.not66 = icmp eq i16 %15, 0
   br i1 %.not66, label %._crit_edge, label %16
 
 16:                                               ; preds = %.thread
-  %17 = getelementptr inbounds i8, ptr %1, i64 332
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.05972, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 336
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 1, ptr %18, align 8
   br label %._crit_edge
 

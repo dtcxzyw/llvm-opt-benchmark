@@ -37,7 +37,7 @@ define dso_local noundef zeroext i1 @_Z33cmIncludeRegularExpressionCommandRKSt6v
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %5, %7
   %9 = ptrtoint ptr %7 to i64
@@ -67,7 +67,7 @@ define dso_local noundef zeroext i1 @_Z33cmIncludeRegularExpressionCommandRKSt6v
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc14
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %21
 
@@ -104,8 +104,8 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %26, i64 32
-  %33 = getelementptr inbounds i8, ptr %24, i64 584
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 584
   %34 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %32)
   br label %35
 

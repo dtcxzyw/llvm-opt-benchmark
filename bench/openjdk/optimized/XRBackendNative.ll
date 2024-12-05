@@ -64,7 +64,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
 
 19:                                               ; preds = %4
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %23, 0
@@ -72,20 +72,20 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0) #14
   br label %28
 
 28:                                               ; preds = %24, %19
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1128
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1128
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @tkClass, align 8
   %33 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %31(ptr noundef nonnull %0, ptr noundef %32, ptr noundef %33) #14
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1824
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1824
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i8 %36(ptr noundef nonnull %0) #14
   %.not25 = icmp eq i8 %37, 0
@@ -93,7 +93,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %0) #14
   br label %42
@@ -150,17 +150,17 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
 
 57:                                               ; preds = %.critedge.i
   %58 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %48, i64 noundef %.04667.i) #14
-  %59 = getelementptr inbounds i8, ptr %9, i64 %.04667.i
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 %.04667.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %59, ptr noundef nonnull align 1 dereferenceable(22) @.str.8, i64 22, i1 false) #14
   %60 = add nuw nsw i64 %.04667.i, 21
-  %61 = getelementptr inbounds [4096 x i8], ptr %9, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %60
   store i8 0, ptr %61, align 1
   %62 = call i32 @stat64(ptr noundef nonnull %9, ptr noundef nonnull %10) #14
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %.critedge63.i
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %10, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = and i32 %66, 61440
   %68 = icmp eq i32 %67, 32768
@@ -196,7 +196,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
   store i32 0, ptr %12, align 4
   store i32 0, ptr %13, align 4
   store i32 0, ptr %14, align 4
-  %80 = getelementptr inbounds i8, ptr %11, i64 9
+  %80 = getelementptr inbounds nuw i8, ptr %11, i64 9
   %81 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %80, ptr noundef nonnull @.str.11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #14
   %82 = icmp eq i32 %81, 3
   br i1 %82, label %83, label %.critedge4.i
@@ -273,7 +273,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
   br i1 %114, label %115, label %IsXRenderAvailable.exit
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %15, i64 130
+  %116 = getelementptr inbounds nuw i8, ptr %15, i64 130
   %117 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %116, ptr noundef nonnull @.str.15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18) #14
   %118 = icmp eq i32 %117, 3
   br i1 %118, label %119, label %IsXRenderAvailable.exit
@@ -321,7 +321,7 @@ IsXRenderAvailable.exit:                          ; preds = %42, %112, %115, %12
   store i8 %.0.i, ptr @Java_sun_awt_X11GraphicsEnvironment_initXRender.xrenderAvailable, align 1
   call void (...) @awt_output_flush() #14
   %130 = load ptr, ptr %0, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 120
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 120
   %132 = load ptr, ptr %131, align 8
   %133 = call ptr %132(ptr noundef nonnull %0) #14
   %.not26 = icmp eq ptr %133, null
@@ -329,20 +329,20 @@ IsXRenderAvailable.exit:                          ; preds = %42, %112, %115, %12
 
 134:                                              ; preds = %IsXRenderAvailable.exit
   %135 = load ptr, ptr %0, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 136
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 136
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef nonnull %0) #14
   br label %138
 
 138:                                              ; preds = %134, %IsXRenderAvailable.exit
   %139 = load ptr, ptr %0, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 1128
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 1128
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr @tkClass, align 8
   %143 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %141(ptr noundef nonnull %0, ptr noundef %142, ptr noundef %143) #14
   %144 = load ptr, ptr %0, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 1824
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 1824
   %146 = load ptr, ptr %145, align 8
   %147 = call zeroext i8 %146(ptr noundef nonnull %0) #14
   %.not27 = icmp eq i8 %147, 0
@@ -350,7 +350,7 @@ IsXRenderAvailable.exit:                          ; preds = %42, %112, %115, %12
 
 148:                                              ; preds = %138
   %149 = load ptr, ptr %0, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 136
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 136
   %151 = load ptr, ptr %150, align 8
   call void %151(ptr noundef nonnull %0) #14
   br label %152
@@ -360,7 +360,7 @@ IsXRenderAvailable.exit:                          ; preds = %42, %112, %115, %12
 
 153:                                              ; preds = %152
   %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 104
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 104
   %156 = load ptr, ptr %155, align 8
   %157 = call i32 %156(ptr noundef nonnull %0, ptr noundef nonnull %133) #14
   br label %158
@@ -379,7 +379,7 @@ declare void @awt_output_flush(...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_xr_XRBackendNative_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1152
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #14
   %7 = icmp eq ptr %6, null
@@ -387,7 +387,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_initIDs(ptr noundef %0, ptr noun
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1152
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1152
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #14
   %13 = icmp eq ptr %12, null
@@ -403,11 +403,11 @@ define void @Java_sun_java2d_xr_XRBackendNative_initIDs(ptr noundef %0, ptr noun
   %20 = tail call ptr @XRenderFindStandardFormat(ptr noundef %19, i32 noundef 0) #14
   %21 = ptrtoint ptr %20 to i64
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1280
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1280
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %6, i64 noundef %18) #14
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1280
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1280
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %12, i64 noundef %21) #14
   %28 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #16
@@ -417,10 +417,10 @@ define void @Java_sun_java2d_xr_XRBackendNative_initIDs(ptr noundef %0, ptr noun
 30:                                               ; preds = %16
   %31 = load ptr, ptr @awt_display, align 8
   %32 = tail call ptr @XCreateImage(ptr noundef %31, ptr noundef null, i32 noundef 8, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %28, i32 noundef 32, i32 noundef 32, i32 noundef 8, i32 noundef 0) #14
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %28, ptr %33, align 8
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1152
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1152
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1) #14
   %38 = icmp eq ptr %37, null
@@ -428,7 +428,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_initIDs(ptr noundef %0, ptr noun
 
 39:                                               ; preds = %30
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1280
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1280
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %32 to i64
   tail call void %42(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %37, i64 noundef %43) #14
@@ -573,12 +573,12 @@ declare void @XRenderComposite(ptr noundef, i32 noundef, i64 noundef, i64 nounde
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_xr_XRBackendNative_renderRectangle(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef signext %3, i16 noundef signext %4, i16 noundef signext %5, i16 noundef signext %6, i16 noundef signext %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = alloca %struct.XRenderColor, align 2
-  %14 = getelementptr inbounds i8, ptr %13, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 6
   store i16 %7, ptr %14, align 2
   store i16 %4, ptr %13, align 2
-  %15 = getelementptr inbounds i8, ptr %13, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 2
   store i16 %5, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %13, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i16 %6, ptr %16, align 2
   %17 = load ptr, ptr @awt_display, align 8
   %18 = sext i8 %3 to i32
@@ -593,12 +593,12 @@ declare void @XRenderFillRectangle(ptr noundef, i32 noundef, i64 noundef, ptr no
 define void @Java_sun_java2d_xr_XRBackendNative_XRenderRectanglesNative(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef signext %3, i16 noundef signext %4, i16 noundef signext %5, i16 noundef signext %6, i16 noundef signext %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = alloca [256 x %struct.XRectangle], align 16
   %12 = alloca %struct.XRenderColor, align 2
-  %13 = getelementptr inbounds i8, ptr %12, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 6
   store i16 %7, ptr %13, align 2
   store i16 %4, ptr %12, align 2
-  %14 = getelementptr inbounds i8, ptr %12, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i16 %5, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i16 %6, ptr %15, align 2
   %16 = icmp slt i32 %9, 257
   br i1 %16, label %24, label %17
@@ -617,7 +617,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderRectanglesNative(ptr noun
 24:                                               ; preds = %10, %19
   %.0 = phi ptr [ %22, %19 ], [ %11, %10 ]
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1776
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1776
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null) #14
   %29 = icmp eq ptr %28, null
@@ -638,28 +638,28 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderRectanglesNative(ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %32 = shl nsw i64 %indvars.iv, 2
-  %33 = getelementptr inbounds i32, ptr %28, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %28, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = trunc i32 %34 to i16
-  %36 = getelementptr inbounds %struct.XRectangle, ptr %.0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0, i64 %indvars.iv
   store i16 %35, ptr %36, align 2
   %37 = or disjoint i64 %32, 1
-  %38 = getelementptr inbounds i32, ptr %28, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %28, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = trunc i32 %39 to i16
-  %41 = getelementptr inbounds i8, ptr %36, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 2
   store i16 %40, ptr %41, align 2
   %42 = or disjoint i64 %32, 2
-  %43 = getelementptr inbounds i32, ptr %28, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = trunc i32 %44 to i16
-  %46 = getelementptr inbounds i8, ptr %36, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i16 %45, ptr %46, align 2
   %47 = or disjoint i64 %32, 3
-  %48 = getelementptr inbounds i32, ptr %28, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %28, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = trunc i32 %49 to i16
-  %51 = getelementptr inbounds i8, ptr %36, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 6
   store i16 %50, ptr %51, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -671,7 +671,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderRectanglesNative(ptr noun
   %54 = sext i32 %2 to i64
   call void @XRenderFillRectangles(ptr noundef %52, i32 noundef %53, i64 noundef %54, ptr noundef nonnull %12, ptr noundef nonnull %.0, i32 noundef %9) #14
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1784
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1784
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %28, i32 noundef 2) #14
   %.not = icmp eq ptr %.0, %11
@@ -694,21 +694,21 @@ declare void @XRenderFillRectangles(ptr noundef, i32 noundef, i64 noundef, ptr n
 define void @Java_sun_java2d_xr_XRBackendNative_XRSetTransformNative(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct._XTransform, align 4
   store i32 %3, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %5, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %6, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %7, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %10, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %8, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %10, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %10, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 65536, ptr %18, align 4
   %19 = load ptr, ptr @awt_display, align 8
   %20 = sext i32 %2 to i64
@@ -727,7 +727,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateLinearGradientPaintNative
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1776
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1776
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #14
   %19 = icmp eq ptr %18, null
@@ -735,7 +735,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateLinearGradientPaintNative
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1776
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1776
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #14
   %25 = icmp eq ptr %24, null
@@ -743,18 +743,18 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateLinearGradientPaintNative
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1784
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1784
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %18, i32 noundef 2) #14
   br label %85
 
 30:                                               ; preds = %20
   store i32 %4, ptr %12, align 4
-  %31 = getelementptr inbounds i8, ptr %12, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %5, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %12, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %6, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %12, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %7, ptr %33, align 4
   %34 = zext nneg i32 %8 to i64
   %35 = shl nuw nsw i64 %34, 3
@@ -786,42 +786,42 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateLinearGradientPaintNative
 
 45:                                               ; preds = %44, %43
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1784
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1784
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %18, i32 noundef 2) #14
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1784
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1784
   %51 = load ptr, ptr %50, align 8
   tail call void %51(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %24, i32 noundef 2) #14
   br label %85
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %52 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
   %53 = load float, ptr %52, align 4
   %54 = fmul float %53, 6.553600e+04
   %55 = fptosi float %54 to i32
-  %56 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   store i32 %55, ptr %56, align 4
   %57 = shl nsw i64 %indvars.iv, 2
-  %58 = getelementptr inbounds i16, ptr %18, i64 %57
+  %58 = getelementptr inbounds nuw i16, ptr %18, i64 %57
   %59 = load i16, ptr %58, align 2
-  %60 = getelementptr inbounds %struct.XRenderColor, ptr %36, i64 %indvars.iv
-  %61 = getelementptr inbounds i8, ptr %60, i64 6
+  %60 = getelementptr inbounds nuw %struct.XRenderColor, ptr %36, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 6
   store i16 %59, ptr %61, align 2
   %62 = or disjoint i64 %57, 1
-  %63 = getelementptr inbounds i16, ptr %18, i64 %62
+  %63 = getelementptr inbounds nuw i16, ptr %18, i64 %62
   %64 = load i16, ptr %63, align 2
   store i16 %64, ptr %60, align 2
   %65 = or disjoint i64 %57, 2
-  %66 = getelementptr inbounds i16, ptr %18, i64 %65
+  %66 = getelementptr inbounds nuw i16, ptr %18, i64 %65
   %67 = load i16, ptr %66, align 2
-  %68 = getelementptr inbounds i8, ptr %60, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 2
   store i16 %67, ptr %68, align 2
   %69 = or disjoint i64 %57, 3
-  %70 = getelementptr inbounds i16, ptr %18, i64 %69
+  %70 = getelementptr inbounds nuw i16, ptr %18, i64 %69
   %71 = load i16, ptr %70, align 2
-  %72 = getelementptr inbounds i8, ptr %60, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i16 %71, ptr %72, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %34
@@ -833,11 +833,11 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateLinearGradientPaintNative
   call void @free(ptr noundef nonnull %36) #14
   call void @free(ptr noundef nonnull %38) #14
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 1784
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1784
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %18, i32 noundef 2) #14
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1784
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1784
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %24, i32 noundef 2) #14
   %.not = icmp eq i64 %74, 0
@@ -869,7 +869,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateRadialGradientPaintNative
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1776
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1776
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #14
   %19 = icmp eq ptr %18, null
@@ -877,7 +877,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateRadialGradientPaintNative
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1776
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1776
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %2, ptr noundef null) #14
   %25 = icmp eq ptr %24, null
@@ -885,22 +885,22 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateRadialGradientPaintNative
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1784
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1784
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %18, i32 noundef 2) #14
   br label %87
 
 30:                                               ; preds = %20
   store i32 %5, ptr %12, align 4
-  %31 = getelementptr inbounds i8, ptr %12, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %6, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %12, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %7, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %12, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %5, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %12, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %6, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %12, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 %8, ptr %35, align 4
   %36 = zext nneg i32 %4 to i64
   %37 = shl nuw nsw i64 %36, 3
@@ -932,42 +932,42 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateRadialGradientPaintNative
 
 47:                                               ; preds = %46, %45
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1784
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1784
   %50 = load ptr, ptr %49, align 8
   tail call void %50(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %18, i32 noundef 2) #14
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1784
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1784
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %24, i32 noundef 2) #14
   br label %87
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %54 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
   %55 = load float, ptr %54, align 4
   %56 = fmul float %55, 6.553600e+04
   %57 = fptosi float %56 to i32
-  %58 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
   store i32 %57, ptr %58, align 4
   %59 = shl nsw i64 %indvars.iv, 2
-  %60 = getelementptr inbounds i16, ptr %18, i64 %59
+  %60 = getelementptr inbounds nuw i16, ptr %18, i64 %59
   %61 = load i16, ptr %60, align 2
-  %62 = getelementptr inbounds %struct.XRenderColor, ptr %38, i64 %indvars.iv
-  %63 = getelementptr inbounds i8, ptr %62, i64 6
+  %62 = getelementptr inbounds nuw %struct.XRenderColor, ptr %38, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 6
   store i16 %61, ptr %63, align 2
   %64 = or disjoint i64 %59, 1
-  %65 = getelementptr inbounds i16, ptr %18, i64 %64
+  %65 = getelementptr inbounds nuw i16, ptr %18, i64 %64
   %66 = load i16, ptr %65, align 2
   store i16 %66, ptr %62, align 2
   %67 = or disjoint i64 %59, 2
-  %68 = getelementptr inbounds i16, ptr %18, i64 %67
+  %68 = getelementptr inbounds nuw i16, ptr %18, i64 %67
   %69 = load i16, ptr %68, align 2
-  %70 = getelementptr inbounds i8, ptr %62, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 2
   store i16 %69, ptr %70, align 2
   %71 = or disjoint i64 %59, 3
-  %72 = getelementptr inbounds i16, ptr %18, i64 %71
+  %72 = getelementptr inbounds nuw i16, ptr %18, i64 %71
   %73 = load i16, ptr %72, align 2
-  %74 = getelementptr inbounds i8, ptr %62, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i16 %73, ptr %74, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
@@ -981,11 +981,11 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateRadialGradientPaintNative
   call void @free(ptr noundef nonnull %38) #14
   call void @free(ptr noundef nonnull %40) #14
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1784
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1784
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %18, i32 noundef 2) #14
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 1784
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1784
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %24, i32 noundef 2) #14
   %.not = icmp eq i64 %sext, 0
@@ -1067,7 +1067,7 @@ declare void @XRenderSetPictureClipRectangles(ptr noundef, i64 noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, float noundef %13, i64 noundef %14) local_unnamed_addr #0 {
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1776
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1776
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #14
   %20 = icmp eq ptr %19, null
@@ -1116,26 +1116,26 @@ define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, pt
   br i1 %exitcond98.not, label %.loopexit80, label %.preheader78.us, !llvm.loop !13
 
 .loopexit80:                                      ; preds = %._crit_edge.us, %.preheader78.lr.ph, %21
-  %34 = getelementptr inbounds i8, ptr %22, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %22, align 8
   %.not = icmp slt i32 %36, %9
   br i1 %.not, label %.critedge, label %37
 
 37:                                               ; preds = %.loopexit80
-  %38 = getelementptr inbounds i8, ptr %22, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %39 = load i32, ptr %38, align 4
   %.not75 = icmp slt i32 %39, %10
   br i1 %.not75, label %.critedge, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %22, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %11, %42
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %22, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %12, %46
   br i1 %47, label %48, label %49
@@ -1152,7 +1152,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, pt
   %51 = sext i32 %12 to i64
   %52 = sext i32 %11 to i64
   %invariant.gep87 = getelementptr i8, ptr %19, i64 %52
-  %53 = getelementptr inbounds i8, ptr %22, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %22, i64 44
   br i1 %50, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -1198,16 +1198,16 @@ define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, pt
   %67 = inttoptr i64 %3 to ptr
   %68 = tail call i32 @XPutImage(ptr noundef %65, i64 noundef %66, ptr noundef %67, ptr noundef %.070, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %9, i32 noundef %10) #14
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 1784
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1784
   %71 = load ptr, ptr %70, align 8
   tail call void %71(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %19, i32 noundef 2) #14
   %.not76 = icmp eq ptr %.070, %22
   br i1 %.not76, label %77, label %72
 
 72:                                               ; preds = %.loopexit
-  %73 = getelementptr inbounds i8, ptr %.070, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.070, i64 16
   store ptr null, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %.070, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %.070, i64 96
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 %75(ptr noundef %.070) #14
   br label %77
@@ -1250,7 +1250,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRAddGlyphsNative(ptr noundef %0
 
 20:                                               ; preds = %9
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1776
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1776
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #14
   %25 = icmp eq ptr %24, null
@@ -1258,7 +1258,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRAddGlyphsNative(ptr noundef %0
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1776
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1776
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %5, ptr noundef null) #14
   %31 = icmp eq ptr %30, null
@@ -1270,51 +1270,51 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRAddGlyphsNative(ptr noundef %0
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1784
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1784
   %35 = load ptr, ptr %34, align 8
   tail call void %35(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %24, i32 noundef 2) #14
   br label %.sink.split.sink.split
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %36 = getelementptr inbounds i64, ptr %24, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
-  %42 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
   store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %38, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %44 = load float, ptr %43, align 8
   %45 = fneg float %44
   %46 = fptosi float %45 to i16
-  %47 = getelementptr inbounds %struct._XGlyphInfo, ptr %12, i64 %indvars.iv
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %47 = getelementptr inbounds nuw %struct._XGlyphInfo, ptr %12, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i16 %46, ptr %48, align 2
-  %49 = getelementptr inbounds i8, ptr %38, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %50 = load float, ptr %49, align 4
   %51 = fneg float %50
   %52 = fptosi float %51 to i16
-  %53 = getelementptr inbounds i8, ptr %47, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 6
   store i16 %52, ptr %53, align 2
-  %54 = getelementptr inbounds i8, ptr %38, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %55 = load i16, ptr %54, align 8
   store i16 %55, ptr %47, align 2
-  %56 = getelementptr inbounds i8, ptr %38, i64 10
+  %56 = getelementptr inbounds nuw i8, ptr %38, i64 10
   %57 = load i16, ptr %56, align 2
-  %58 = getelementptr inbounds i8, ptr %47, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %47, i64 2
   store i16 %57, ptr %58, align 2
   %59 = load float, ptr %38, align 8
   %60 = tail call float @llvm.round.f32(float %59)
   %61 = fptosi float %60 to i16
-  %62 = getelementptr inbounds i8, ptr %47, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i16 %61, ptr %62, align 2
-  %63 = getelementptr inbounds i8, ptr %38, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %64 = load float, ptr %63, align 4
   %65 = tail call float @llvm.round.f32(float %64)
   %66 = fptosi float %65 to i16
-  %67 = getelementptr inbounds i8, ptr %47, i64 10
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 10
   store i16 %66, ptr %67, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
@@ -1325,11 +1325,11 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRAddGlyphsNative(ptr noundef %0
   %69 = sext i32 %2 to i64
   tail call void @XRenderAddGlyphs(ptr noundef %68, i64 noundef %69, ptr noundef nonnull %14, ptr noundef nonnull %12, i32 noundef %4, ptr noundef nonnull %30, i32 noundef %6) #14
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1784
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1784
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %24, i32 noundef 2) #14
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 1784
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1784
   %75 = load ptr, ptr %74, align 8
   tail call void %75(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %30, i32 noundef 2) #14
   br label %.sink.split.sink.split
@@ -1368,7 +1368,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRFreeGlyphsNative(ptr noundef %
 15:                                               ; preds = %8, %10
   %.025 = phi ptr [ %13, %10 ], [ %6, %8 ]
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1776
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1776
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #14
   %20 = icmp eq ptr %19, null
@@ -1388,10 +1388,10 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRFreeGlyphsNative(ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i64, ptr %.025, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw i64, ptr %.025, i64 %indvars.iv
   store i64 %24, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1402,7 +1402,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRFreeGlyphsNative(ptr noundef %
   %27 = sext i32 %2 to i64
   call void @XRenderFreeGlyphs(ptr noundef %26, i64 noundef %27, ptr noundef nonnull %.025, i32 noundef %4) #14
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1784
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1784
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %19, i32 noundef 2) #14
   %.not = icmp eq ptr %.025, %6
@@ -1475,7 +1475,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 37:                                               ; preds = %29, %31
   %.084 = phi ptr [ %34, %31 ], [ %14, %29 ]
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1776
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1776
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef %9, ptr noundef null) #14
   %42 = icmp eq ptr %41, null
@@ -1495,7 +1495,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 
 46:                                               ; preds = %37
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 1776
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1776
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr %49(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null) #14
   %51 = icmp eq ptr %50, null
@@ -1507,7 +1507,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 
 52:                                               ; preds = %46
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1784
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1784
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %41, i32 noundef 2) #14
   %.not98 = icmp eq ptr %.085, %13
@@ -1531,9 +1531,9 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 
 .lr.ph:                                           ; preds = %.preheader102, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader102 ]
-  %59 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i32, ptr %.084, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i32, ptr %.084, i64 %indvars.iv
   store i32 %60, ptr %61, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %18
@@ -1543,29 +1543,29 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   %indvars.iv108 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next109, %.lr.ph106 ]
   %.0105 = phi i32 [ 0, %.lr.ph106.preheader ], [ %82, %.lr.ph106 ]
   %62 = shl nsw i64 %indvars.iv108, 2
-  %63 = getelementptr inbounds i32, ptr %50, i64 %62
+  %63 = getelementptr inbounds nuw i32, ptr %50, i64 %62
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds %struct._XGlyphElt32, ptr %.085, i64 %indvars.iv108
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %65 = getelementptr inbounds nuw %struct._XGlyphElt32, ptr %.085, i64 %indvars.iv108
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i32 %64, ptr %66, align 8
   %67 = or disjoint i64 %62, 1
-  %68 = getelementptr inbounds i32, ptr %50, i64 %67
+  %68 = getelementptr inbounds nuw i32, ptr %50, i64 %67
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %65, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 20
   store i32 %69, ptr %70, align 4
   %71 = or disjoint i64 %62, 2
-  %72 = getelementptr inbounds i32, ptr %50, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr %50, i64 %71
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %65, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i32 %73, ptr %74, align 8
   %75 = or disjoint i64 %62, 3
-  %76 = getelementptr inbounds i32, ptr %50, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr %50, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = sext i32 %77 to i64
   store i64 %78, ptr %65, align 8
   %79 = sext i32 %.0105 to i64
   %80 = getelementptr inbounds i32, ptr %.084, i64 %79
-  %81 = getelementptr inbounds i8, ptr %65, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %80, ptr %81, align 8
   %82 = add nsw i32 %64, %.0105
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
@@ -1579,11 +1579,11 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   %86 = inttoptr i64 %7 to ptr
   call void @XRenderCompositeText32(ptr noundef %83, i32 noundef %2, i64 noundef %84, i64 noundef %85, ptr noundef %86, i32 noundef %5, i32 noundef %6, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.085, i32 noundef %10) #14
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1784
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1784
   %89 = load ptr, ptr %88, align 8
   call void %89(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %41, i32 noundef 2) #14
   %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 1784
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1784
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %50, i32 noundef 2) #14
   %.not96 = icmp eq ptr %.085, %13
@@ -1640,7 +1640,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_GCRectanglesNative(ptr noundef %
 16:                                               ; preds = %6, %11
   %.0 = phi ptr [ %14, %11 ], [ %7, %6 ]
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1776
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1776
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef %4, ptr noundef null) #14
   %21 = icmp eq ptr %20, null
@@ -1661,28 +1661,28 @@ define void @Java_sun_java2d_xr_XRBackendNative_GCRectanglesNative(ptr noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %24 = shl nsw i64 %indvars.iv, 2
-  %25 = getelementptr inbounds i32, ptr %20, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %20, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = trunc i32 %26 to i16
-  %28 = getelementptr inbounds %struct.XRectangle, ptr %.0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0, i64 %indvars.iv
   store i16 %27, ptr %28, align 2
   %29 = or disjoint i64 %24, 1
-  %30 = getelementptr inbounds i32, ptr %20, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %20, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = trunc i32 %31 to i16
-  %33 = getelementptr inbounds i8, ptr %28, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 2
   store i16 %32, ptr %33, align 2
   %34 = or disjoint i64 %24, 2
-  %35 = getelementptr inbounds i32, ptr %20, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %20, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = trunc i32 %36 to i16
-  %38 = getelementptr inbounds i8, ptr %28, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i16 %37, ptr %38, align 2
   %39 = or disjoint i64 %24, 3
-  %40 = getelementptr inbounds i32, ptr %20, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %20, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = trunc i32 %41 to i16
-  %43 = getelementptr inbounds i8, ptr %28, i64 6
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 6
   store i16 %42, ptr %43, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1694,7 +1694,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_GCRectanglesNative(ptr noundef %
   %46 = inttoptr i64 %3 to ptr
   %47 = call i32 @XFillRectangles(ptr noundef %44, i64 noundef %45, ptr noundef %46, ptr noundef nonnull %.0, i32 noundef %5) #14
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1784
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1784
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %20, i32 noundef 2) #14
   %.not = icmp eq ptr %.0, %7

@@ -238,22 +238,22 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #3 personal
 
 76:                                               ; preds = %72
   %77 = fsub double 1.000000e+00, %.018
-  %78 = getelementptr inbounds i8, ptr %13, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %13, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %79, align 4
   store i32 16842752, ptr %13, align 8
-  %80 = getelementptr inbounds i8, ptr %13, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %2, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %14, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %14, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %82, align 4
   store i32 16842752, ptr %14, align 8
-  %83 = getelementptr inbounds i8, ptr %14, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %3, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %15, i64 8
-  %85 = getelementptr inbounds i8, ptr %15, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %85, align 8
   store i32 33619968, ptr %15, align 8
   store ptr %4, ptr %84, align 8
@@ -266,12 +266,12 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #3 personal
           to label %87 unwind label %95
 
 87:                                               ; preds = %86
-  %88 = getelementptr inbounds i8, ptr %18, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %18, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 0, ptr %89, align 4
   store i32 16842752, ptr %18, align 8
-  %90 = getelementptr inbounds i8, ptr %18, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %4, ptr %90, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %91 unwind label %97

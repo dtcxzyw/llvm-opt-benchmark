@@ -86,11 +86,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm7msgpack6ReaderC2ENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr %1, i64 %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @.str, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 7, ptr %.sroa.8.0..sroa_idx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
@@ -124,7 +124,7 @@ define dso_local void @_ZN4llvm7msgpack6Reader4readERNS0_6ObjectE(ptr dead_on_un
   br label %148
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %11, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %20, ptr %10, align 8
   %21 = load i8, ptr %11, align 1
   %22 = zext i8 %21 to i32
@@ -267,7 +267,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %45
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %61, ptr %62, align 8
   %63 = load ptr, ptr %10, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store ptr %64, ptr %10, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load i8, ptr %65, align 8
@@ -308,7 +308,7 @@ _ZN4llvm5ErrorD2Ev.exit87:                        ; preds = %68
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %82, ptr %83, align 8
   %84 = load ptr, ptr %10, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %85, ptr %10, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %87 = load i8, ptr %86, align 8
@@ -536,7 +536,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %18, ptr %19, align 8
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %21, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i8, ptr %22, align 8
@@ -588,7 +588,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %21, ptr %22, align 8
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store ptr %24, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i8, ptr %25, align 8
@@ -640,7 +640,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %22, ptr %23, align 8
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store ptr %25, ptr %7, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i8, ptr %26, align 8
@@ -691,7 +691,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %21, ptr %22, align 8
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %24, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i8, ptr %25, align 8
@@ -739,7 +739,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %18, ptr %19, align 8
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store ptr %21, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i8, ptr %22, align 8
@@ -791,7 +791,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %21, ptr %22, align 8
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store ptr %24, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i8, ptr %25, align 8
@@ -843,7 +843,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %22, ptr %23, align 8
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store ptr %25, ptr %7, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i8, ptr %26, align 8
@@ -894,7 +894,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %21, ptr %22, align 8
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %24, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i8, ptr %25, align 8
@@ -927,7 +927,7 @@ _ZNSt10unique_ptrIN4llvm11StringErrorESt14default_deleteIS1_EED2Ev.exit: ; preds
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 %storemerge.i.i, ptr %9, align 8, !noalias !85
   %.sroa.0.0.copyload.i = load i32, ptr %2, align 8, !noalias !85
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !noalias !85
   call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %5, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 %.sroa.0.0.copyload.i, ptr %.sroa.21.0.copyload.i) #14, !noalias !85
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
@@ -968,7 +968,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %19 = ptrtoint ptr %7 to i64
   call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   %.0.copyload.i.i.i.i = load i8, ptr %9, align 1
-  %20 = getelementptr inbounds i8, ptr %9, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %20, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %21 = zext i8 %.0.copyload.i.i.i.i to i64
@@ -998,10 +998,10 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %18
 32:                                               ; preds = %18
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %20, ptr %33, align 8, !noalias !97
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %21, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !97
   %34 = load ptr, ptr %8, align 8, !noalias !97
-  %35 = getelementptr inbounds i8, ptr %34, i64 %21
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %21
   store ptr %35, ptr %8, align 8, !noalias !97
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i8, ptr %36, align 8, !alias.scope !97
@@ -1050,7 +1050,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %9, align 1
   %rev.i.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i)
-  %22 = getelementptr inbounds i8, ptr %9, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store ptr %22, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %23 = zext i16 %rev.i.i.i.i.i.i.i.i to i64
@@ -1080,10 +1080,10 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %21
 34:                                               ; preds = %21
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %22, ptr %35, align 8, !noalias !118
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %23, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !118
   %36 = load ptr, ptr %8, align 8, !noalias !118
-  %37 = getelementptr inbounds i8, ptr %36, i64 %23
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %23
   store ptr %37, ptr %8, align 8, !noalias !118
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i8, ptr %38, align 8, !alias.scope !118
@@ -1132,7 +1132,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %9, align 1
   %22 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i)
-  %23 = getelementptr inbounds i8, ptr %9, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store ptr %23, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %24 = zext i32 %22 to i64
@@ -1162,10 +1162,10 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %21
 35:                                               ; preds = %21
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %23, ptr %36, align 8, !noalias !139
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %24, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !139
   %37 = load ptr, ptr %8, align 8, !noalias !139
-  %38 = getelementptr inbounds i8, ptr %37, i64 %24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %24
   store ptr %38, ptr %8, align 8, !noalias !139
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i8, ptr %39, align 8, !alias.scope !139
@@ -1217,7 +1217,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %21, ptr %22, align 8
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store ptr %24, ptr %7, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i8, ptr %25, align 8
@@ -1269,7 +1269,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %22, ptr %23, align 8
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store ptr %25, ptr %7, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i8, ptr %26, align 8
@@ -1312,7 +1312,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
   br label %44
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %8, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %20, ptr %7, align 8
   %21 = load i8, ptr %8, align 1
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1347,10 +1347,10 @@ _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %19
 37:                                               ; preds = %19
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %25, ptr %38, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %23, ptr %.sroa.2.0..sroa_idx, align 8
   %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 %23
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %23
   store ptr %40, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i8, ptr %41, align 8
@@ -1394,7 +1394,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
 17:                                               ; preds = %3
   call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i.i = load i8, ptr %8, align 1
-  %18 = getelementptr inbounds i8, ptr %8, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %18, ptr %7, align 8
   %19 = zext i8 %.0.copyload.i.i.i.i to i32
   tail call void @_ZN4llvm7msgpack6Reader9createExtERNS0_6ObjectEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %19)
@@ -1439,7 +1439,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i.i = load i16, ptr %8, align 1
   %rev.i.i.i.i.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i)
-  %21 = getelementptr inbounds i8, ptr %8, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store ptr %21, ptr %7, align 8
   %22 = zext i16 %rev.i.i.i.i.i.i.i.i to i32
   tail call void @_ZN4llvm7msgpack6Reader9createExtERNS0_6ObjectEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %22)
@@ -1484,7 +1484,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3
   call void @llvm.assume(i1 true) [ "align"(ptr %8, i64 1) ]
   %.0.copyload.i.i.i.i = load i32, ptr %8, align 1
   %21 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i.i.i.i)
-  %22 = getelementptr inbounds i8, ptr %8, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store ptr %22, ptr %7, align 8
   tail call void @_ZN4llvm7msgpack6Reader9createExtERNS0_6ObjectEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %21)
   br label %23
@@ -1528,10 +1528,10 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
 22:                                               ; preds = %4
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %10, ptr %23, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %6, ptr %.sroa.2.0..sroa_idx, align 8
   %24 = load ptr, ptr %9, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 %6
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %6
   store ptr %25, ptr %9, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i8, ptr %26, align 8
@@ -1564,7 +1564,7 @@ _ZNSt10unique_ptrIN4llvm11StringErrorESt14default_deleteIS1_EED2Ev.exit: ; preds
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 %storemerge.i.i, ptr %9, align 8, !noalias !223
   %.sroa.0.0.copyload.i = load i32, ptr %2, align 8, !noalias !223
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !noalias !223
   call void @_ZN4llvm11StringErrorC1ERKNS_5TwineESt10error_code(ptr noundef nonnull align 8 dereferenceable(57) %5, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 %.sroa.0.0.copyload.i, ptr %.sroa.21.0.copyload.i) #14, !noalias !223
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)

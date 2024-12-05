@@ -20,17 +20,17 @@ define void @_ZN3zmq5rep_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferen
 entry:
   tail call void @_ZN3zmq8router_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(2180) %this, ptr noundef %parent_, i32 noundef %tid_, i32 noundef %sid_)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5rep_tE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1448
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5rep_tE, i64 392), ptr %add.ptr, align 8
-  %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 1464
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %this, i64 1464
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5rep_tE, i64 424), ptr %add.ptr2, align 8
-  %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 1472
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %this, i64 1472
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5rep_tE, i64 480), ptr %add.ptr3, align 8
-  %_sending_reply = getelementptr inbounds i8, ptr %this, i64 2180
+  %_sending_reply = getelementptr inbounds nuw i8, ptr %this, i64 2180
   store i8 0, ptr %_sending_reply, align 4
-  %_request_begins = getelementptr inbounds i8, ptr %this, i64 2181
+  %_request_begins = getelementptr inbounds nuw i8, ptr %this, i64 2181
   store i8 1, ptr %_request_begins, align 1
-  %type = getelementptr inbounds i8, ptr %this, i64 332
+  %type = getelementptr inbounds nuw i8, ptr %this, i64 332
   store i8 4, ptr %type, align 4
   ret void
 }
@@ -112,7 +112,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq5rep_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(2184) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
-  %_sending_reply = getelementptr inbounds i8, ptr %this, i64 2180
+  %_sending_reply = getelementptr inbounds nuw i8, ptr %this, i64 2180
   %0 = load i8, ptr %_sending_reply, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -152,7 +152,7 @@ declare noundef i32 @_ZN3zmq8router_t5xsendEPNS_5msg_tE(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq5rep_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(2184) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
-  %_sending_reply = getelementptr inbounds i8, ptr %this, i64 2180
+  %_sending_reply = getelementptr inbounds nuw i8, ptr %this, i64 2180
   %0 = load i8, ptr %_sending_reply, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -163,7 +163,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %_request_begins = getelementptr inbounds i8, ptr %this, i64 2181
+  %_request_begins = getelementptr inbounds nuw i8, ptr %this, i64 2181
   %1 = load i8, ptr %_request_begins, align 1
   %tobool2 = trunc i8 %1 to i1
   br i1 %tobool2, label %while.body.preheader, label %if.end39
@@ -266,7 +266,7 @@ declare noundef i32 @_ZN3zmq8router_t8rollbackEv(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3zmq5rep_t7xhas_inEv(ptr noundef nonnull align 8 dereferenceable(2184) %this) unnamed_addr #0 align 2 {
 entry:
-  %_sending_reply = getelementptr inbounds i8, ptr %this, i64 2180
+  %_sending_reply = getelementptr inbounds nuw i8, ptr %this, i64 2180
   %0 = load i8, ptr %_sending_reply, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %return, label %if.end
@@ -285,7 +285,7 @@ declare noundef zeroext i1 @_ZN3zmq8router_t7xhas_inEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3zmq5rep_t8xhas_outEv(ptr noundef nonnull align 8 dereferenceable(2184) %this) unnamed_addr #0 align 2 {
 entry:
-  %_sending_reply = getelementptr inbounds i8, ptr %this, i64 2180
+  %_sending_reply = getelementptr inbounds nuw i8, ptr %this, i64 2180
   %0 = load i8, ptr %_sending_reply, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.end, label %return

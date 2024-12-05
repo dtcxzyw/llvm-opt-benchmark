@@ -516,7 +516,7 @@ define weak_odr void @_ZN5boost7archive21basic_text_oprimitiveISt13basic_ostream
 
 _ZNKSt9basic_iosIwSt11char_traitsIwEE5widenEc.exit.i: ; preds = %4
   %13 = load ptr, ptr %11, align 8, !tbaa !19
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = invoke noundef signext i32 %15(ptr noundef nonnull align 8 dereferenceable(12) %11, i8 noundef signext 10)
           to label %.noexc1 unwind label %44

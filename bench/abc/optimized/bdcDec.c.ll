@@ -13,7 +13,7 @@ define void @Bdc_SuppMinimize2(ptr nocapture noundef %0, ptr nocapture noundef i
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %15, label %8
@@ -27,7 +27,7 @@ define void @Bdc_SuppMinimize2(ptr nocapture noundef %0, ptr nocapture noundef i
 11:                                               ; preds = %8
   %12 = load i64, ptr %4, align 8
   %.neg49 = mul i64 %12, -1000000
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i64, ptr %13, align 8
   %.neg = sdiv i64 %14, -1000
   %.neg50 = add i64 %.neg, %.neg49
@@ -40,12 +40,12 @@ Abc_Clock.exit:                                   ; preds = %8, %11
 
 15:                                               ; preds = %Abc_Clock.exit, %2
   %.0.neg = phi i64 [ %.0.i.neg, %Abc_Clock.exit ], [ 0, %2 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = call i32 @Kit_TruthSupport(ptr noundef %17, i32 noundef %19) #7
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %18, align 8
   %24 = call i32 @Kit_TruthSupport(ptr noundef %22, i32 noundef %23) #7
@@ -56,8 +56,8 @@ Abc_Clock.exit:                                   ; preds = %8, %11
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15
-  %28 = getelementptr inbounds i8, ptr %0, i64 88
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %30
 
 30:                                               ; preds = %.lr.ph, %Kit_TruthIsDisjoint.exit.thread
@@ -95,9 +95,9 @@ select.unfold.i:                                  ; preds = %51, %36
 
 51:                                               ; preds = %select.unfold.i
   %52 = add nsw i64 %indvars.iv.i, -1
-  %53 = getelementptr inbounds i32, ptr %42, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr %42, i64 %52
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i32, ptr %43, i64 %52
+  %55 = getelementptr inbounds nuw i32, ptr %43, i64 %52
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, %54
   %.not.i = icmp eq i32 %57, 0
@@ -111,9 +111,9 @@ Kit_TruthIsDisjoint.exit:                         ; preds = %select.unfold.i
 select.unfold.i37:                                ; preds = %Kit_TruthIsDisjoint.exit, %select.unfold.i37
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i, %select.unfold.i37 ], [ %48, %Kit_TruthIsDisjoint.exit ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i38, -1
-  %60 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv.next.i
+  %60 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.next.i
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv.next.i
+  %62 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.next.i
   store i32 %61, ptr %62, align 4
   %63 = icmp samesign ugt i64 %indvars.iv.i38, 1
   br i1 %63, label %select.unfold.i37, label %Kit_TruthCopy.exit.loopexit, !llvm.loop !6
@@ -142,9 +142,9 @@ select.unfold.preheader.i40:                      ; preds = %Kit_TruthCopy.exit
 select.unfold.i41:                                ; preds = %select.unfold.i41, %select.unfold.preheader.i40
   %indvars.iv.i42 = phi i64 [ %69, %select.unfold.preheader.i40 ], [ %indvars.iv.next.i43, %select.unfold.i41 ]
   %indvars.iv.next.i43 = add nsw i64 %indvars.iv.i42, -1
-  %70 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv.next.i43
+  %70 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.next.i43
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv.next.i43
+  %72 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.next.i43
   store i32 %71, ptr %72, align 4
   %73 = icmp samesign ugt i64 %indvars.iv.i42, 1
   br i1 %73, label %select.unfold.i41, label %Kit_TruthCopy.exit44, !llvm.loop !6
@@ -165,7 +165,7 @@ Kit_TruthIsDisjoint.exit.thread:                  ; preds = %51, %30, %Kit_Truth
 
 ._crit_edge:                                      ; preds = %Kit_TruthIsDisjoint.exit.thread, %15
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %.not34 = icmp eq i32 %82, 0
   br i1 %.not34, label %97, label %83
@@ -179,7 +179,7 @@ Kit_TruthIsDisjoint.exit.thread:                  ; preds = %51, %30, %Kit_Truth
 86:                                               ; preds = %83
   %87 = load i64, ptr %3, align 8
   %88 = mul nsw i64 %87, 1000000
-  %89 = getelementptr inbounds i8, ptr %3, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %90 = load i64, ptr %89, align 8
   %91 = sdiv i64 %90, 1000
   %92 = add nsw i64 %91, %88
@@ -189,7 +189,7 @@ Abc_Clock.exit46:                                 ; preds = %83, %86
   %.0.i45 = phi i64 [ %92, %86 ], [ -1, %83 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %93 = add i64 %.0.i45, %.0.neg
-  %94 = getelementptr inbounds i8, ptr %0, i64 312
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %95 = load i64, ptr %94, align 8
   %96 = add nsw i64 %93, %95
   store i64 %96, ptr %94, align 8
@@ -208,7 +208,7 @@ define void @Bdc_SuppMinimize(ptr nocapture noundef %0, ptr nocapture noundef in
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %15, label %8
@@ -222,7 +222,7 @@ define void @Bdc_SuppMinimize(ptr nocapture noundef %0, ptr nocapture noundef in
 11:                                               ; preds = %8
   %12 = load i64, ptr %4, align 8
   %.neg33 = mul i64 %12, -1000000
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i64, ptr %13, align 8
   %.neg = sdiv i64 %14, -1000
   %.neg34 = add i64 %.neg, %.neg33
@@ -236,14 +236,14 @@ Abc_Clock.exit:                                   ; preds = %8, %11
 15:                                               ; preds = %Abc_Clock.exit, %2
   %.0.neg = phi i64 [ %.0.i.neg, %Abc_Clock.exit ], [ 0, %2 ]
   store i32 0, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %21
 
 21:                                               ; preds = %.lr.ph, %43
@@ -293,7 +293,7 @@ Abc_Clock.exit:                                   ; preds = %8, %11
 
 ._crit_edge:                                      ; preds = %43, %15
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %.not27 = icmp eq i32 %49, 0
   br i1 %.not27, label %64, label %50
@@ -307,7 +307,7 @@ Abc_Clock.exit:                                   ; preds = %8, %11
 53:                                               ; preds = %50
   %54 = load i64, ptr %3, align 8
   %55 = mul nsw i64 %54, 1000000
-  %56 = getelementptr inbounds i8, ptr %3, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = sdiv i64 %57, 1000
   %59 = add nsw i64 %58, %55
@@ -317,7 +317,7 @@ Abc_Clock.exit32:                                 ; preds = %50, %53
   %.0.i31 = phi i64 [ %59, %53 ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %60 = add i64 %.0.i31, %.0.neg
-  %61 = getelementptr inbounds i8, ptr %0, i64 312
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %62 = load i64, ptr %61, align 8
   %63 = add nsw i64 %60, %62
   store i64 %63, ptr %61, align 8
@@ -335,7 +335,7 @@ declare void @Kit_TruthExist(ptr noundef, i32 noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Bdc_DecomposeUpdateRight(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %4 to i64
   %10 = and i64 %9, 1
@@ -345,9 +345,9 @@ define range(i32 0, 2) i32 @Bdc_DecomposeUpdateRight(ptr nocapture noundef reado
 11:                                               ; preds = %6
   %12 = and i64 %9, -2
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp slt i32 %17, 6
   %19 = add nsw i32 %17, -5
@@ -363,18 +363,18 @@ select.unfold.preheader.i:                        ; preds = %11
 select.unfold.i:                                  ; preds = %select.unfold.i, %select.unfold.preheader.i
   %indvars.iv.i = phi i64 [ %22, %select.unfold.preheader.i ], [ %indvars.iv.next.i, %select.unfold.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %23 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.next.i
+  %23 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next.i
   %24 = load i32, ptr %23, align 4
   %25 = xor i32 %24, -1
-  %26 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next.i
+  %26 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i
   store i32 %25, ptr %26, align 4
   %27 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %27, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !9
 
 28:                                               ; preds = %6
-  %29 = getelementptr inbounds i8, ptr %4, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp slt i32 %32, 6
   %34 = add nsw i32 %32, -5
@@ -390,9 +390,9 @@ select.unfold.preheader.i40:                      ; preds = %28
 select.unfold.i41:                                ; preds = %select.unfold.i41, %select.unfold.preheader.i40
   %indvars.iv.i42 = phi i64 [ %37, %select.unfold.preheader.i40 ], [ %indvars.iv.next.i43, %select.unfold.i41 ]
   %indvars.iv.next.i43 = add nsw i64 %indvars.iv.i42, -1
-  %38 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv.next.i43
+  %38 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.next.i43
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next.i43
+  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i43
   store i32 %39, ptr %40, align 4
   %41 = icmp samesign ugt i64 %indvars.iv.i42, 1
   br i1 %41, label %select.unfold.i41, label %Kit_TruthNot.exit, !llvm.loop !6
@@ -404,11 +404,11 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %s
   ]
 
 42:                                               ; preds = %Kit_TruthNot.exit
-  %43 = getelementptr inbounds i8, ptr %3, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = icmp slt i32 %48, 6
   %50 = add nsw i32 %48, -5
@@ -424,13 +424,13 @@ select.unfold.preheader.i45:                      ; preds = %42
 select.unfold.i46:                                ; preds = %select.unfold.i46, %select.unfold.preheader.i45
   %indvars.iv.i47 = phi i64 [ %53, %select.unfold.preheader.i45 ], [ %indvars.iv.next.i48, %select.unfold.i46 ]
   %indvars.iv.next.i48 = add nsw i64 %indvars.iv.i47, -1
-  %54 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv.next.i48
+  %54 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.next.i48
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next.i48
+  %56 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i48
   %57 = load i32, ptr %56, align 4
   %58 = xor i32 %57, -1
   %59 = and i32 %55, %58
-  %60 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv.next.i48
+  %60 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.next.i48
   store i32 %59, ptr %60, align 4
   %61 = icmp samesign ugt i64 %indvars.iv.i47, 1
   br i1 %61, label %select.unfold.i46, label %Kit_TruthSharp.exit.loopexit, !llvm.loop !10
@@ -443,12 +443,12 @@ Kit_TruthSharp.exit.loopexit:                     ; preds = %select.unfold.i46
 Kit_TruthSharp.exit:                              ; preds = %Kit_TruthSharp.exit.loopexit, %42
   %62 = phi i32 [ %.pre71, %Kit_TruthSharp.exit.loopexit ], [ %48, %42 ]
   %63 = phi ptr [ %.pre70, %Kit_TruthSharp.exit.loopexit ], [ %44, %42 ]
-  %64 = getelementptr inbounds i8, ptr %2, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %65 = load i32, ptr %64, align 4
   tail call void @Kit_TruthExistSet(ptr noundef %63, ptr noundef %63, i32 noundef %62, i32 noundef %65) #7
-  %66 = getelementptr inbounds i8, ptr %3, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = load ptr, ptr %68, align 8
   %70 = load i32, ptr %47, align 8
   %71 = load i32, ptr %64, align 4
@@ -470,17 +470,17 @@ select.unfold.i50:                                ; preds = %80, %Kit_TruthSharp
 
 80:                                               ; preds = %select.unfold.i50
   %81 = add nsw i64 %indvars.iv.i51, -1
-  %82 = getelementptr inbounds i32, ptr %72, i64 %81
+  %82 = getelementptr inbounds nuw i32, ptr %72, i64 %81
   %83 = load i32, ptr %82, align 4
   %.not.i = icmp eq i32 %83, 0
   br i1 %.not.i, label %select.unfold.i50, label %Kit_TruthIsConst0.exit, !llvm.loop !11
 
 84:                                               ; preds = %Kit_TruthNot.exit
-  %85 = getelementptr inbounds i8, ptr %3, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %90 = load i32, ptr %89, align 8
   %91 = icmp slt i32 %90, 6
   %92 = add nsw i32 %90, -5
@@ -496,12 +496,12 @@ select.unfold.preheader.i53:                      ; preds = %84
 select.unfold.i54:                                ; preds = %select.unfold.i54, %select.unfold.preheader.i53
   %indvars.iv.i55 = phi i64 [ %95, %select.unfold.preheader.i53 ], [ %indvars.iv.next.i56, %select.unfold.i54 ]
   %indvars.iv.next.i56 = add nsw i64 %indvars.iv.i55, -1
-  %96 = getelementptr inbounds i32, ptr %88, i64 %indvars.iv.next.i56
+  %96 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv.next.i56
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next.i56
+  %98 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i56
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, %97
-  %101 = getelementptr inbounds i32, ptr %86, i64 %indvars.iv.next.i56
+  %101 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.next.i56
   store i32 %100, ptr %101, align 4
   %102 = icmp samesign ugt i64 %indvars.iv.i55, 1
   br i1 %102, label %select.unfold.i54, label %Kit_TruthAnd.exit.loopexit, !llvm.loop !12
@@ -514,12 +514,12 @@ Kit_TruthAnd.exit.loopexit:                       ; preds = %select.unfold.i54
 Kit_TruthAnd.exit:                                ; preds = %Kit_TruthAnd.exit.loopexit, %84
   %103 = phi i32 [ %.pre69, %Kit_TruthAnd.exit.loopexit ], [ %90, %84 ]
   %104 = phi ptr [ %.pre, %Kit_TruthAnd.exit.loopexit ], [ %86, %84 ]
-  %105 = getelementptr inbounds i8, ptr %2, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %106 = load i32, ptr %105, align 4
   tail call void @Kit_TruthExistSet(ptr noundef %104, ptr noundef %104, i32 noundef %103, i32 noundef %106) #7
-  %107 = getelementptr inbounds i8, ptr %3, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %1, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = load i32, ptr %89, align 8
   %112 = load i32, ptr %105, align 4
@@ -541,7 +541,7 @@ select.unfold.i58:                                ; preds = %121, %Kit_TruthAnd.
 
 121:                                              ; preds = %select.unfold.i58
   %122 = add nsw i64 %indvars.iv.i59, -1
-  %123 = getelementptr inbounds i32, ptr %113, i64 %122
+  %123 = getelementptr inbounds nuw i32, ptr %113, i64 %122
   %124 = load i32, ptr %123, align 4
   %.not.i61 = icmp eq i32 %124, 0
   br i1 %.not.i61, label %select.unfold.i58, label %Kit_TruthIsConst0.exit, !llvm.loop !11
@@ -556,7 +556,7 @@ declare void @Kit_TruthExistSet(ptr noundef, ptr noundef, i32 noundef, i32 nound
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Bdc_DecomposeFindInitialVarSet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.loopexit
@@ -570,11 +570,11 @@ define range(i32 0, 2) i32 @Bdc_DecomposeFindInitialVarSet(ptr nocapture noundef
   br i1 %10, label %.lr.ph45, label %.loopexit
 
 .lr.ph45:                                         ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.041 = add nsw i32 %.1, -1
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = zext nneg i32 %.1 to i64
   %16 = add nsw i64 %15, -1
   %17 = zext nneg i32 %.041 to i64
@@ -608,7 +608,7 @@ define range(i32 0, 2) i32 @Bdc_DecomposeFindInitialVarSet(ptr nocapture noundef
   %29 = load ptr, ptr %11, align 8
   %30 = load ptr, ptr %12, align 8
   %31 = load i32, ptr %6, align 8
-  %32 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %indvars.iv50
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv50
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
   tail call void @Kit_TruthExistNew(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %34) #7
@@ -648,12 +648,12 @@ select.unfold.i:                                  ; preds = %52, %.lr.ph43
 
 52:                                               ; preds = %select.unfold.i
   %53 = add nsw i64 %indvars.iv.i, -1
-  %54 = getelementptr inbounds i32, ptr %42, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %42, i64 %53
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i32, ptr %43, i64 %53
+  %56 = getelementptr inbounds nuw i32, ptr %43, i64 %53
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, %55
-  %59 = getelementptr inbounds i32, ptr %44, i64 %53
+  %59 = getelementptr inbounds nuw i32, ptr %44, i64 %53
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %58, %60
   %.not.i = icmp eq i32 %61, 0
@@ -667,11 +667,11 @@ Kit_TruthIsDisjoint3.exit:                        ; preds = %52
 63:                                               ; preds = %select.unfold.i
   %64 = zext nneg i8 %33 to i32
   %65 = shl nuw i32 1, %64
-  %66 = getelementptr inbounds i8, ptr %2, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %65, ptr %66, align 4
   %67 = zext nneg i8 %40 to i32
   %68 = shl nuw i32 1, %67
-  %69 = getelementptr inbounds i8, ptr %3, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %68, ptr %69, align 4
   br label %.loopexit
 
@@ -687,16 +687,16 @@ Kit_TruthIsDisjoint3.exit:                        ; preds = %52
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483647, -2147483648) i32 @Bdc_DecomposeWeakOr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 88
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %12
 
 12:                                               ; preds = %.lr.ph, %Kit_TruthIsImply.exit
@@ -732,9 +732,9 @@ select.unfold.i:                                  ; preds = %30, %18
 
 30:                                               ; preds = %select.unfold.i
   %31 = add nsw i64 %indvars.iv.i, -1
-  %32 = getelementptr inbounds i32, ptr %21, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %21, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i32, ptr %22, i64 %31
+  %34 = getelementptr inbounds nuw i32, ptr %22, i64 %31
   %35 = load i32, ptr %34, align 4
   %36 = xor i32 %35, -1
   %37 = and i32 %33, %36
@@ -761,7 +761,7 @@ select.unfold.i52:                                ; preds = %select.unfold.i52, 
   %indvars.iv.i53 = phi i64 [ %46, %select.unfold.preheader.i ], [ %indvars.iv.next.i, %select.unfold.i52 ]
   %.08.i = phi i32 [ 0, %select.unfold.preheader.i ], [ %68, %select.unfold.i52 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i53, -1
-  %47 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv.next.i
+  %47 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.next.i
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 1431655765
   %50 = lshr i32 %48, 1
@@ -807,14 +807,14 @@ Kit_TruthIsImply.exit:                            ; preds = %select.unfold.i, %K
   br i1 %.not, label %._crit_edge.thread, label %74
 
 74:                                               ; preds = %._crit_edge
-  %75 = getelementptr inbounds i8, ptr %0, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %78 = load ptr, ptr %77, align 8
   tail call void @Kit_TruthExistNew(ptr noundef %76, ptr noundef %78, i32 noundef %71, i32 noundef %.145) #7
-  %79 = getelementptr inbounds i8, ptr %2, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = load ptr, ptr %75, align 8
   %84 = load i32, ptr %5, align 8
@@ -832,12 +832,12 @@ select.unfold.preheader.i55:                      ; preds = %74
 select.unfold.i56:                                ; preds = %select.unfold.i56, %select.unfold.preheader.i55
   %indvars.iv.i57 = phi i64 [ %89, %select.unfold.preheader.i55 ], [ %indvars.iv.next.i58, %select.unfold.i56 ]
   %indvars.iv.next.i58 = add nsw i64 %indvars.iv.i57, -1
-  %90 = getelementptr inbounds i32, ptr %82, i64 %indvars.iv.next.i58
+  %90 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.next.i58
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv.next.i58
+  %92 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.next.i58
   %93 = load i32, ptr %92, align 4
   %94 = and i32 %93, %91
-  %95 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv.next.i58
+  %95 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.next.i58
   store i32 %94, ptr %95, align 4
   %96 = icmp samesign ugt i64 %indvars.iv.i57, 1
   br i1 %96, label %select.unfold.i56, label %Kit_TruthAnd.exit.loopexit, !llvm.loop !12
@@ -851,7 +851,7 @@ Kit_TruthAnd.exit.loopexit:                       ; preds = %select.unfold.i56
 Kit_TruthAnd.exit:                                ; preds = %Kit_TruthAnd.exit.loopexit, %74
   %.pre-phi77 = phi i32 [ %.pre76, %Kit_TruthAnd.exit.loopexit ], [ %87, %74 ]
   %97 = phi i32 [ %.pre, %Kit_TruthAnd.exit.loopexit ], [ %84, %74 ]
-  %98 = getelementptr inbounds i8, ptr %2, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %77, align 8
   %101 = icmp slt i32 %97, 6
@@ -866,18 +866,18 @@ select.unfold.preheader.i60:                      ; preds = %Kit_TruthAnd.exit
 select.unfold.i61:                                ; preds = %select.unfold.i61, %select.unfold.preheader.i60
   %indvars.iv.i62 = phi i64 [ %103, %select.unfold.preheader.i60 ], [ %indvars.iv.next.i63, %select.unfold.i61 ]
   %indvars.iv.next.i63 = add nsw i64 %indvars.iv.i62, -1
-  %104 = getelementptr inbounds i32, ptr %100, i64 %indvars.iv.next.i63
+  %104 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv.next.i63
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv.next.i63
+  %106 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv.next.i63
   store i32 %105, ptr %106, align 4
   %107 = icmp samesign ugt i64 %indvars.iv.i62, 1
   br i1 %107, label %select.unfold.i61, label %Kit_TruthCopy.exit, !llvm.loop !6
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i61, %Kit_TruthAnd.exit
   %108 = shl nuw i32 1, %.145
-  %109 = getelementptr inbounds i8, ptr %2, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %108, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %3, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %110, align 4
   %111 = mul nsw i32 %.1, 1000
   %112 = load i32, ptr %5, align 8
@@ -896,17 +896,17 @@ declare void @Kit_TruthForallNew(ptr noundef, ptr noundef, i32 noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define i32 @Bdc_DecomposeOr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 24)) %2, ptr nocapture noundef initializes((0, 24)) %3) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %Vec_IntFetch.exit.i, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %7, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = add nsw i32 %13, %9
   store i32 %14, ptr %12, align 4
@@ -915,7 +915,7 @@ define i32 @Bdc_DecomposeOr(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %16, label %Vec_IntFetch.exit.i, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %14 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
@@ -926,7 +926,7 @@ define i32 @Bdc_DecomposeOr(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 Vec_IntFetch.exit.i:                              ; preds = %17, %11, %4
   %.0.i.i = phi ptr [ %24, %17 ], [ null, %4 ], [ null, %11 ]
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.0.i.i, ptr %25, align 8
   %26 = load ptr, ptr %6, align 8
   %27 = load i32, ptr %8, align 4
@@ -934,7 +934,7 @@ Vec_IntFetch.exit.i:                              ; preds = %17, %11, %4
   br i1 %28, label %Bdc_IsfStart.exit, label %29
 
 29:                                               ; preds = %Vec_IntFetch.exit.i
-  %30 = getelementptr inbounds i8, ptr %26, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = add nsw i32 %31, %27
   store i32 %32, ptr %30, align 4
@@ -943,7 +943,7 @@ Vec_IntFetch.exit.i:                              ; preds = %17, %11, %4
   br i1 %34, label %Bdc_IsfStart.exit, label %35
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %26, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %32 to i64
   %39 = getelementptr inbounds i32, ptr %37, i64 %38
@@ -954,10 +954,10 @@ Vec_IntFetch.exit.i:                              ; preds = %17, %11, %4
 
 Bdc_IsfStart.exit:                                ; preds = %Vec_IntFetch.exit.i, %29, %35
   %.0.i8.i = phi ptr [ %42, %35 ], [ null, %Vec_IntFetch.exit.i ], [ null, %29 ]
-  %43 = getelementptr inbounds i8, ptr %2, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %.0.i8.i, ptr %43, align 8
   store i32 0, ptr %3, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %44, align 4
   %45 = load ptr, ptr %6, align 8
   %46 = load i32, ptr %8, align 4
@@ -965,7 +965,7 @@ Bdc_IsfStart.exit:                                ; preds = %Vec_IntFetch.exit.i
   br i1 %47, label %Vec_IntFetch.exit.i113, label %48
 
 48:                                               ; preds = %Bdc_IsfStart.exit
-  %49 = getelementptr inbounds i8, ptr %45, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, %46
   store i32 %51, ptr %49, align 4
@@ -974,7 +974,7 @@ Bdc_IsfStart.exit:                                ; preds = %Vec_IntFetch.exit.i
   br i1 %53, label %Vec_IntFetch.exit.i113, label %54
 
 54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %45, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %51 to i64
   %58 = getelementptr inbounds i32, ptr %56, i64 %57
@@ -985,7 +985,7 @@ Bdc_IsfStart.exit:                                ; preds = %Vec_IntFetch.exit.i
 
 Vec_IntFetch.exit.i113:                           ; preds = %54, %48, %Bdc_IsfStart.exit
   %.0.i.i114 = phi ptr [ %61, %54 ], [ null, %Bdc_IsfStart.exit ], [ null, %48 ]
-  %62 = getelementptr inbounds i8, ptr %3, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0.i.i114, ptr %62, align 8
   %63 = load ptr, ptr %6, align 8
   %64 = load i32, ptr %8, align 4
@@ -993,7 +993,7 @@ Vec_IntFetch.exit.i113:                           ; preds = %54, %48, %Bdc_IsfSt
   br i1 %65, label %Bdc_IsfStart.exit116, label %66
 
 66:                                               ; preds = %Vec_IntFetch.exit.i113
-  %67 = getelementptr inbounds i8, ptr %63, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = add nsw i32 %68, %64
   store i32 %69, ptr %67, align 4
@@ -1002,7 +1002,7 @@ Vec_IntFetch.exit.i113:                           ; preds = %54, %48, %Bdc_IsfSt
   br i1 %71, label %Bdc_IsfStart.exit116, label %72
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %63, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = sext i32 %69 to i64
   %76 = getelementptr inbounds i32, ptr %74, i64 %75
@@ -1013,7 +1013,7 @@ Vec_IntFetch.exit.i113:                           ; preds = %54, %48, %Bdc_IsfSt
 
 Bdc_IsfStart.exit116:                             ; preds = %Vec_IntFetch.exit.i113, %66, %72
   %.0.i8.i115 = phi ptr [ %79, %72 ], [ null, %Vec_IntFetch.exit.i113 ], [ null, %66 ]
-  %80 = getelementptr inbounds i8, ptr %3, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.0.i8.i115, ptr %80, align 8
   %81 = tail call i32 @Bdc_DecomposeFindInitialVarSet(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.not = icmp eq i32 %81, 0
@@ -1024,15 +1024,15 @@ Bdc_IsfStart.exit116:                             ; preds = %Vec_IntFetch.exit.i
   br label %312
 
 84:                                               ; preds = %Bdc_IsfStart.exit116
-  %85 = getelementptr inbounds i8, ptr %0, i64 88
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %1, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %90 = load i32, ptr %89, align 8
   %91 = load i32, ptr %5, align 4
   tail call void @Kit_TruthExistSet(ptr noundef %86, ptr noundef %88, i32 noundef %90, i32 noundef %91) #7
-  %92 = getelementptr inbounds i8, ptr %0, i64 96
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %87, align 8
   %95 = load i32, ptr %89, align 8
@@ -1049,9 +1049,9 @@ Bdc_IsfStart.exit116:                             ; preds = %Vec_IntFetch.exit.i
   br i1 %104, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %84
-  %105 = getelementptr inbounds i8, ptr %0, i64 104
-  %106 = getelementptr inbounds i8, ptr %0, i64 112
-  %107 = getelementptr inbounds i8, ptr %1, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %108
 
 108:                                              ; preds = %.lr.ph, %Kit_TruthCopy.exit
@@ -1095,12 +1095,12 @@ select.unfold.i:                                  ; preds = %131, %126
 
 131:                                              ; preds = %select.unfold.i
   %132 = add nsw i64 %indvars.iv.i, -1
-  %133 = getelementptr inbounds i32, ptr %120, i64 %132
+  %133 = getelementptr inbounds nuw i32, ptr %120, i64 %132
   %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds i32, ptr %127, i64 %132
+  %135 = getelementptr inbounds nuw i32, ptr %127, i64 %132
   %136 = load i32, ptr %135, align 4
   %137 = and i32 %136, %134
-  %138 = getelementptr inbounds i32, ptr %128, i64 %132
+  %138 = getelementptr inbounds nuw i32, ptr %128, i64 %132
   %139 = load i32, ptr %138, align 4
   %140 = and i32 %137, %139
   %.not.i = icmp eq i32 %140, 0
@@ -1128,9 +1128,9 @@ select.unfold.preheader.i:                        ; preds = %Kit_TruthIsDisjoint
 select.unfold.i118:                               ; preds = %select.unfold.i118, %select.unfold.preheader.i
   %indvars.iv.i119 = phi i64 [ %151, %select.unfold.preheader.i ], [ %indvars.iv.next.i, %select.unfold.i118 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i119, -1
-  %152 = getelementptr inbounds i32, ptr %145, i64 %indvars.iv.next.i
+  %152 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.next.i
   %153 = load i32, ptr %152, align 4
-  %154 = getelementptr inbounds i32, ptr %144, i64 %indvars.iv.next.i
+  %154 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv.next.i
   store i32 %153, ptr %154, align 4
   %155 = icmp samesign ugt i64 %indvars.iv.i119, 1
   br i1 %155, label %select.unfold.i118, label %Kit_TruthCopy.exit, !llvm.loop !6
@@ -1148,12 +1148,12 @@ select.unfold.i121:                               ; preds = %161, %156
 
 161:                                              ; preds = %select.unfold.i121
   %162 = add nsw i64 %indvars.iv.i122, -1
-  %163 = getelementptr inbounds i32, ptr %120, i64 %162
+  %163 = getelementptr inbounds nuw i32, ptr %120, i64 %162
   %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds i32, ptr %157, i64 %162
+  %165 = getelementptr inbounds nuw i32, ptr %157, i64 %162
   %166 = load i32, ptr %165, align 4
   %167 = and i32 %166, %164
-  %168 = getelementptr inbounds i32, ptr %158, i64 %162
+  %168 = getelementptr inbounds nuw i32, ptr %158, i64 %162
   %169 = load i32, ptr %168, align 4
   %170 = and i32 %167, %169
   %.not.i124 = icmp eq i32 %170, 0
@@ -1181,9 +1181,9 @@ select.unfold.preheader.i127:                     ; preds = %Kit_TruthIsDisjoint
 select.unfold.i128:                               ; preds = %select.unfold.i128, %select.unfold.preheader.i127
   %indvars.iv.i129 = phi i64 [ %181, %select.unfold.preheader.i127 ], [ %indvars.iv.next.i130, %select.unfold.i128 ]
   %indvars.iv.next.i130 = add nsw i64 %indvars.iv.i129, -1
-  %182 = getelementptr inbounds i32, ptr %175, i64 %indvars.iv.next.i130
+  %182 = getelementptr inbounds nuw i32, ptr %175, i64 %indvars.iv.next.i130
   %183 = load i32, ptr %182, align 4
-  %184 = getelementptr inbounds i32, ptr %174, i64 %indvars.iv.next.i130
+  %184 = getelementptr inbounds nuw i32, ptr %174, i64 %indvars.iv.next.i130
   store i32 %183, ptr %184, align 4
   %185 = icmp samesign ugt i64 %indvars.iv.i129, 1
   br i1 %185, label %select.unfold.i128, label %Kit_TruthCopy.exit, !llvm.loop !6
@@ -1201,12 +1201,12 @@ select.unfold.i133:                               ; preds = %191, %186
 
 191:                                              ; preds = %select.unfold.i133
   %192 = add nsw i64 %indvars.iv.i134, -1
-  %193 = getelementptr inbounds i32, ptr %120, i64 %192
+  %193 = getelementptr inbounds nuw i32, ptr %120, i64 %192
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds i32, ptr %187, i64 %192
+  %195 = getelementptr inbounds nuw i32, ptr %187, i64 %192
   %196 = load i32, ptr %195, align 4
   %197 = and i32 %196, %194
-  %198 = getelementptr inbounds i32, ptr %188, i64 %192
+  %198 = getelementptr inbounds nuw i32, ptr %188, i64 %192
   %199 = load i32, ptr %198, align 4
   %200 = and i32 %197, %199
   %.not.i136 = icmp eq i32 %200, 0
@@ -1234,9 +1234,9 @@ select.unfold.preheader.i139:                     ; preds = %Kit_TruthIsDisjoint
 select.unfold.i140:                               ; preds = %select.unfold.i140, %select.unfold.preheader.i139
   %indvars.iv.i141 = phi i64 [ %211, %select.unfold.preheader.i139 ], [ %indvars.iv.next.i142, %select.unfold.i140 ]
   %indvars.iv.next.i142 = add nsw i64 %indvars.iv.i141, -1
-  %212 = getelementptr inbounds i32, ptr %205, i64 %indvars.iv.next.i142
+  %212 = getelementptr inbounds nuw i32, ptr %205, i64 %indvars.iv.next.i142
   %213 = load i32, ptr %212, align 4
-  %214 = getelementptr inbounds i32, ptr %204, i64 %indvars.iv.next.i142
+  %214 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.next.i142
   store i32 %213, ptr %214, align 4
   %215 = icmp samesign ugt i64 %indvars.iv.i141, 1
   br i1 %215, label %select.unfold.i140, label %Kit_TruthCopy.exit, !llvm.loop !6
@@ -1254,12 +1254,12 @@ select.unfold.i145:                               ; preds = %221, %216
 
 221:                                              ; preds = %select.unfold.i145
   %222 = add nsw i64 %indvars.iv.i146, -1
-  %223 = getelementptr inbounds i32, ptr %120, i64 %222
+  %223 = getelementptr inbounds nuw i32, ptr %120, i64 %222
   %224 = load i32, ptr %223, align 4
-  %225 = getelementptr inbounds i32, ptr %217, i64 %222
+  %225 = getelementptr inbounds nuw i32, ptr %217, i64 %222
   %226 = load i32, ptr %225, align 4
   %227 = and i32 %226, %224
-  %228 = getelementptr inbounds i32, ptr %218, i64 %222
+  %228 = getelementptr inbounds nuw i32, ptr %218, i64 %222
   %229 = load i32, ptr %228, align 4
   %230 = and i32 %227, %229
   %.not.i148 = icmp eq i32 %230, 0
@@ -1287,9 +1287,9 @@ select.unfold.preheader.i151:                     ; preds = %Kit_TruthIsDisjoint
 select.unfold.i152:                               ; preds = %select.unfold.i152, %select.unfold.preheader.i151
   %indvars.iv.i153 = phi i64 [ %241, %select.unfold.preheader.i151 ], [ %indvars.iv.next.i154, %select.unfold.i152 ]
   %indvars.iv.next.i154 = add nsw i64 %indvars.iv.i153, -1
-  %242 = getelementptr inbounds i32, ptr %235, i64 %indvars.iv.next.i154
+  %242 = getelementptr inbounds nuw i32, ptr %235, i64 %indvars.iv.next.i154
   %243 = load i32, ptr %242, align 4
-  %244 = getelementptr inbounds i32, ptr %234, i64 %indvars.iv.next.i154
+  %244 = getelementptr inbounds nuw i32, ptr %234, i64 %indvars.iv.next.i154
   store i32 %243, ptr %244, align 4
   %245 = icmp samesign ugt i64 %indvars.iv.i153, 1
   br i1 %245, label %select.unfold.i152, label %Kit_TruthCopy.exit, !llvm.loop !6
@@ -1307,7 +1307,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i140,
   %.0.lcssa = phi i32 [ 1, %84 ], [ %.1, %Kit_TruthCopy.exit ]
   %.lcssa = phi i32 [ %103, %84 ], [ %247, %Kit_TruthCopy.exit ]
   %249 = load ptr, ptr %25, align 8
-  %250 = getelementptr inbounds i8, ptr %1, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %251 = load ptr, ptr %250, align 8
   %252 = load ptr, ptr %85, align 8
   %253 = icmp slt i32 %.lcssa, 6
@@ -1324,12 +1324,12 @@ select.unfold.preheader.i157:                     ; preds = %._crit_edge
 select.unfold.i158:                               ; preds = %select.unfold.i158, %select.unfold.preheader.i157
   %indvars.iv.i159 = phi i64 [ %257, %select.unfold.preheader.i157 ], [ %indvars.iv.next.i160, %select.unfold.i158 ]
   %indvars.iv.next.i160 = add nsw i64 %indvars.iv.i159, -1
-  %258 = getelementptr inbounds i32, ptr %251, i64 %indvars.iv.next.i160
+  %258 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv.next.i160
   %259 = load i32, ptr %258, align 4
-  %260 = getelementptr inbounds i32, ptr %252, i64 %indvars.iv.next.i160
+  %260 = getelementptr inbounds nuw i32, ptr %252, i64 %indvars.iv.next.i160
   %261 = load i32, ptr %260, align 4
   %262 = and i32 %261, %259
-  %263 = getelementptr inbounds i32, ptr %249, i64 %indvars.iv.next.i160
+  %263 = getelementptr inbounds nuw i32, ptr %249, i64 %indvars.iv.next.i160
   store i32 %262, ptr %263, align 4
   %264 = icmp samesign ugt i64 %indvars.iv.i159, 1
   br i1 %264, label %select.unfold.i158, label %Kit_TruthAnd.exit.loopexit, !llvm.loop !12
@@ -1361,9 +1361,9 @@ select.unfold.preheader.i162:                     ; preds = %Kit_TruthAnd.exit
 select.unfold.i163:                               ; preds = %select.unfold.i163, %select.unfold.preheader.i162
   %indvars.iv.i164 = phi i64 [ %275, %select.unfold.preheader.i162 ], [ %indvars.iv.next.i165, %select.unfold.i163 ]
   %indvars.iv.next.i165 = add nsw i64 %indvars.iv.i164, -1
-  %276 = getelementptr inbounds i32, ptr %269, i64 %indvars.iv.next.i165
+  %276 = getelementptr inbounds nuw i32, ptr %269, i64 %indvars.iv.next.i165
   %277 = load i32, ptr %276, align 4
-  %278 = getelementptr inbounds i32, ptr %268, i64 %indvars.iv.next.i165
+  %278 = getelementptr inbounds nuw i32, ptr %268, i64 %indvars.iv.next.i165
   store i32 %277, ptr %278, align 4
   %279 = icmp samesign ugt i64 %indvars.iv.i164, 1
   br i1 %279, label %select.unfold.i163, label %Kit_TruthCopy.exit166.loopexit, !llvm.loop !6
@@ -1393,12 +1393,12 @@ select.unfold.preheader.i168:                     ; preds = %Kit_TruthCopy.exit1
 select.unfold.i169:                               ; preds = %select.unfold.i169, %select.unfold.preheader.i168
   %indvars.iv.i170 = phi i64 [ %286, %select.unfold.preheader.i168 ], [ %indvars.iv.next.i171, %select.unfold.i169 ]
   %indvars.iv.next.i171 = add nsw i64 %indvars.iv.i170, -1
-  %287 = getelementptr inbounds i32, ptr %283, i64 %indvars.iv.next.i171
+  %287 = getelementptr inbounds nuw i32, ptr %283, i64 %indvars.iv.next.i171
   %288 = load i32, ptr %287, align 4
-  %289 = getelementptr inbounds i32, ptr %281, i64 %indvars.iv.next.i171
+  %289 = getelementptr inbounds nuw i32, ptr %281, i64 %indvars.iv.next.i171
   %290 = load i32, ptr %289, align 4
   %291 = and i32 %290, %288
-  %292 = getelementptr inbounds i32, ptr %282, i64 %indvars.iv.next.i171
+  %292 = getelementptr inbounds nuw i32, ptr %282, i64 %indvars.iv.next.i171
   store i32 %291, ptr %292, align 4
   %293 = icmp samesign ugt i64 %indvars.iv.i170, 1
   br i1 %293, label %select.unfold.i169, label %Kit_TruthAnd.exit172.loopexit, !llvm.loop !12
@@ -1430,9 +1430,9 @@ select.unfold.preheader.i174:                     ; preds = %Kit_TruthAnd.exit17
 select.unfold.i175:                               ; preds = %select.unfold.i175, %select.unfold.preheader.i174
   %indvars.iv.i176 = phi i64 [ %304, %select.unfold.preheader.i174 ], [ %indvars.iv.next.i177, %select.unfold.i175 ]
   %indvars.iv.next.i177 = add nsw i64 %indvars.iv.i176, -1
-  %305 = getelementptr inbounds i32, ptr %298, i64 %indvars.iv.next.i177
+  %305 = getelementptr inbounds nuw i32, ptr %298, i64 %indvars.iv.next.i177
   %306 = load i32, ptr %305, align 4
-  %307 = getelementptr inbounds i32, ptr %297, i64 %indvars.iv.next.i177
+  %307 = getelementptr inbounds nuw i32, ptr %297, i64 %indvars.iv.next.i177
   store i32 %306, ptr %307, align 4
   %308 = icmp samesign ugt i64 %indvars.iv.i176, 1
   br i1 %308, label %select.unfold.i175, label %Kit_TruthCopy.exit178.loopexit, !llvm.loop !6
@@ -1467,32 +1467,32 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
   %12 = alloca %struct.Bdc_Isf_t_, align 8
   %13 = alloca %struct.Bdc_Isf_t_, align 8
   %14 = alloca %struct.Bdc_Isf_t_, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load ptr, ptr %15, align 8
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = load ptr, ptr %18, align 8
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %22 = load ptr, ptr %21, align 8
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %25 = load ptr, ptr %24, align 8
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 0, ptr %26, align 4
   %27 = load ptr, ptr %15, align 8
   %28 = load ptr, ptr %18, align 8
   %29 = tail call i32 @Bdc_DecomposeOr(ptr noundef %0, ptr noundef %1, ptr noundef %27, ptr noundef %28)
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %30, align 8
   store ptr %31, ptr %32, align 8
@@ -1504,16 +1504,16 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
   store ptr %38, ptr %30, align 8
   store ptr %37, ptr %32, align 8
   %39 = load ptr, ptr %21, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %40, align 8
   store ptr %41, ptr %42, align 8
   %44 = load ptr, ptr %24, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %45, align 8
   store ptr %46, ptr %47, align 8
@@ -1542,7 +1542,7 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
 
 55:                                               ; preds = %54
   %56 = load ptr, ptr %15, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
   %.not90 = icmp eq i32 %58, 0
   br i1 %.not90, label %64, label %59
@@ -1558,7 +1558,7 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
 64:                                               ; preds = %59, %55
   %.184 = phi i32 [ %63, %59 ], [ 0, %55 ]
   %65 = load ptr, ptr %18, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
   %.not91 = icmp eq i32 %67, 0
   br i1 %.not91, label %73, label %68
@@ -1578,7 +1578,7 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
 
 74:                                               ; preds = %73
   %75 = load ptr, ptr %21, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4
   %.not93 = icmp eq i32 %77, 0
   br i1 %.not93, label %83, label %78
@@ -1594,7 +1594,7 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
 83:                                               ; preds = %78, %74
   %.1 = phi i32 [ %82, %78 ], [ 0, %74 ]
   %84 = load ptr, ptr %24, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i32, ptr %85, align 4
   %.not94 = icmp eq i32 %86, 0
   br i1 %.not94, label %92, label %87
@@ -1616,11 +1616,11 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
   br i1 %95, label %96, label %105
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %0, i64 280
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %98 = load i32, ptr %97, align 8
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %97, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 272
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %101 = load i32, ptr %100, align 8
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %100, align 8
@@ -1643,11 +1643,11 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
   br i1 %106, label %107, label %116
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %0, i64 280
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %109 = load i32, ptr %108, align 8
   %110 = add nsw i32 %109, 1
   store i32 %110, ptr %108, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 268
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %112 = load i32, ptr %111, align 4
   %113 = add nsw i32 %112, 1
   store i32 %113, ptr %111, align 4
@@ -1674,14 +1674,14 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
   br i1 %119, label %120, label %124
 
 120:                                              ; preds = %118
-  %121 = getelementptr inbounds i8, ptr %0, i64 276
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %122 = load i32, ptr %121, align 4
   %123 = add nsw i32 %122, 1
   store i32 %123, ptr %121, align 4
   br label %124
 
 124:                                              ; preds = %120, %118
-  %125 = getelementptr inbounds i8, ptr %0, i64 272
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %126 = load i32, ptr %125, align 8
   %127 = add nsw i32 %126, 1
   store i32 %127, ptr %125, align 8
@@ -1704,14 +1704,14 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %0, i64 276
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %134 = load i32, ptr %133, align 4
   %135 = add nsw i32 %134, 1
   store i32 %135, ptr %133, align 4
   br label %136
 
 136:                                              ; preds = %132, %130
-  %137 = getelementptr inbounds i8, ptr %0, i64 268
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %138 = load i32, ptr %137, align 4
   %139 = add nsw i32 %138, 1
   store i32 %139, ptr %137, align 4
@@ -1741,7 +1741,7 @@ define range(i32 -2147483648, 2147483647) i32 @Bdc_DecomposeStepMux(ptr nocaptur
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %17, label %10
@@ -1755,7 +1755,7 @@ define range(i32 -2147483648, 2147483647) i32 @Bdc_DecomposeStepMux(ptr nocaptur
 13:                                               ; preds = %10
   %14 = load i64, ptr %6, align 8
   %.neg68 = mul i64 %14, -1000000
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load i64, ptr %15, align 8
   %.neg = sdiv i64 %16, -1000
   %.neg69 = add i64 %.neg, %.neg68
@@ -1768,7 +1768,7 @@ Abc_Clock.exit:                                   ; preds = %10, %13
 
 17:                                               ; preds = %Abc_Clock.exit, %4
   %.0.neg = phi i64 [ %.0.i.neg, %Abc_Clock.exit ], [ 0, %4 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %.thread
@@ -1785,23 +1785,23 @@ Abc_Clock.exit:                                   ; preds = %10, %13
   br i1 %25, label %68, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   call void @Kit_TruthCofactor0New(ptr noundef %28, ptr noundef %30, i32 noundef %19, i32 noundef %.06074) #7
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %18, align 8
   call void @Kit_TruthCofactor0New(ptr noundef %32, ptr noundef %34, i32 noundef %35, i32 noundef %.06074) #7
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %29, align 8
   %39 = load i32, ptr %18, align 8
   call void @Kit_TruthCofactor1New(ptr noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef %.06074) #7
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %33, align 8
   %43 = load i32, ptr %18, align 8
@@ -1846,7 +1846,7 @@ Abc_Clock.exit:                                   ; preds = %10, %13
 .thread:                                          ; preds = %68, %17, %26
   %.06167 = phi i32 [ %.06074, %26 ], [ -1, %17 ], [ -1, %68 ]
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
   %.not63 = icmp eq i32 %72, 0
   br i1 %.not63, label %87, label %73
@@ -1860,7 +1860,7 @@ Abc_Clock.exit:                                   ; preds = %10, %13
 76:                                               ; preds = %73
   %77 = load i64, ptr %5, align 8
   %78 = mul nsw i64 %77, 1000000
-  %79 = getelementptr inbounds i8, ptr %5, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %80 = load i64, ptr %79, align 8
   %81 = sdiv i64 %80, 1000
   %82 = add nsw i64 %81, %78
@@ -1870,7 +1870,7 @@ Abc_Clock.exit65:                                 ; preds = %73, %76
   %.0.i64 = phi i64 [ %82, %76 ], [ -1, %73 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %83 = add i64 %.0.i64, %.0.neg
-  %84 = getelementptr inbounds i8, ptr %0, i64 304
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %85 = load i64, ptr %84, align 8
   %86 = add nsw i64 %83, %85
   store i64 %86, ptr %84, align 8
@@ -1886,7 +1886,7 @@ declare void @Kit_TruthCofactor1New(ptr noundef, ptr noundef, i32 noundef, i32 n
 
 ; Function Attrs: nounwind uwtable
 define i32 @Bdc_ManNodeVerify(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %2 to i64
   %7 = and i64 %6, 1
@@ -1896,9 +1896,9 @@ define i32 @Bdc_ManNodeVerify(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 8:                                                ; preds = %3
   %9 = and i64 %6, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp slt i32 %14, 6
   %16 = add nsw i32 %14, -5
@@ -1914,18 +1914,18 @@ select.unfold.preheader.i:                        ; preds = %8
 select.unfold.i:                                  ; preds = %select.unfold.i, %select.unfold.preheader.i
   %indvars.iv.i = phi i64 [ %19, %select.unfold.preheader.i ], [ %indvars.iv.next.i, %select.unfold.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %20 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.next.i
+  %20 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next.i
   %21 = load i32, ptr %20, align 4
   %22 = xor i32 %21, -1
-  %23 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next.i
+  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i
   store i32 %22, ptr %23, align 4
   %24 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %24, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !9
 
 25:                                               ; preds = %3
-  %26 = getelementptr inbounds i8, ptr %2, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = icmp slt i32 %29, 6
   %31 = add nsw i32 %29, -5
@@ -1941,9 +1941,9 @@ select.unfold.preheader.i12:                      ; preds = %25
 select.unfold.i13:                                ; preds = %select.unfold.i13, %select.unfold.preheader.i12
   %indvars.iv.i14 = phi i64 [ %34, %select.unfold.preheader.i12 ], [ %indvars.iv.next.i15, %select.unfold.i13 ]
   %indvars.iv.next.i15 = add nsw i64 %indvars.iv.i14, -1
-  %35 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.next.i15
+  %35 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.next.i15
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next.i15
+  %37 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i15
   store i32 %36, ptr %37, align 4
   %38 = icmp samesign ugt i64 %indvars.iv.i14, 1
   br i1 %38, label %select.unfold.i13, label %Kit_TruthNot.exit, !llvm.loop !6
@@ -1957,23 +1957,23 @@ declare i32 @Bdc_TableCheckContainment(ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Bdc_ManCreateGate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp slt i32 %6, %8
   br i1 %.not.i, label %9, label %Bdc_FunNew.exit.thread
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
   %.not11.i = icmp slt i32 %11, %13
   br i1 %.not11.i, label %14, label %Bdc_FunNew.exit.thread
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = add nsw i32 %6, 1
   store i32 %17, ptr %5, align 4
@@ -1983,19 +1983,19 @@ define noundef ptr @Bdc_ManCreateGate(ptr noundef %0, ptr noundef %1, ptr nounde
   store i32 %20, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, i8 0, i64 56, i1 false)
   store i32 %3, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %2, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 248
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %Vec_IntFetch.exit, label %28
 
 28:                                               ; preds = %14
-  %29 = getelementptr inbounds i8, ptr %24, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %30, %26
   store i32 %31, ptr %29, align 4
@@ -2004,7 +2004,7 @@ define noundef ptr @Bdc_ManCreateGate(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %33, label %Vec_IntFetch.exit, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %24, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = sext i32 %31 to i64
   %38 = getelementptr inbounds i32, ptr %36, i64 %37
@@ -2015,21 +2015,21 @@ define noundef ptr @Bdc_ManCreateGate(ptr noundef %0, ptr noundef %1, ptr nounde
 
 Vec_IntFetch.exit:                                ; preds = %14, %28, %34
   %.0.i54 = phi ptr [ %41, %34 ], [ null, %14 ], [ null, %28 ]
-  %42 = getelementptr inbounds i8, ptr %19, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %.0.i54, ptr %42, align 8
   %43 = ptrtoint ptr %1 to i64
   %44 = and i64 %43, 1
   %.not = icmp eq i64 %44, 0
-  %45 = getelementptr inbounds i8, ptr %0, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load ptr, ptr %45, align 8
   br i1 %.not, label %64, label %47
 
 47:                                               ; preds = %Vec_IntFetch.exit
   %48 = and i64 %43, -2
   %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i32, ptr %52, align 8
   %54 = icmp slt i32 %53, 6
   %55 = add nsw i32 %53, -5
@@ -2045,18 +2045,18 @@ select.unfold.preheader.i:                        ; preds = %47
 select.unfold.i:                                  ; preds = %select.unfold.i, %select.unfold.preheader.i
   %indvars.iv.i = phi i64 [ %58, %select.unfold.preheader.i ], [ %indvars.iv.next.i, %select.unfold.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %59 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next.i
+  %59 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.next.i
   %60 = load i32, ptr %59, align 4
   %61 = xor i32 %60, -1
-  %62 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv.next.i
+  %62 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.next.i
   store i32 %61, ptr %62, align 4
   %63 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %63, label %select.unfold.i, label %Kit_TruthNot.exit, !llvm.loop !9
 
 64:                                               ; preds = %Vec_IntFetch.exit
-  %65 = getelementptr inbounds i8, ptr %1, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = icmp slt i32 %68, 6
   %70 = add nsw i32 %68, -5
@@ -2072,9 +2072,9 @@ select.unfold.preheader.i56:                      ; preds = %64
 select.unfold.i57:                                ; preds = %select.unfold.i57, %select.unfold.preheader.i56
   %indvars.iv.i58 = phi i64 [ %73, %select.unfold.preheader.i56 ], [ %indvars.iv.next.i59, %select.unfold.i57 ]
   %indvars.iv.next.i59 = add nsw i64 %indvars.iv.i58, -1
-  %74 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv.next.i59
+  %74 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.next.i59
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv.next.i59
+  %76 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.next.i59
   store i32 %75, ptr %76, align 4
   %77 = icmp samesign ugt i64 %indvars.iv.i58, 1
   br i1 %77, label %select.unfold.i57, label %Kit_TruthNot.exit, !llvm.loop !6
@@ -2083,16 +2083,16 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %s
   %78 = ptrtoint ptr %2 to i64
   %79 = and i64 %78, 1
   %.not53 = icmp eq i64 %79, 0
-  %80 = getelementptr inbounds i8, ptr %0, i64 96
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %81 = load ptr, ptr %80, align 8
   br i1 %.not53, label %99, label %82
 
 82:                                               ; preds = %Kit_TruthNot.exit
   %83 = and i64 %78, -2
   %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr inbounds i8, ptr %84, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %88 = load i32, ptr %87, align 8
   %89 = icmp slt i32 %88, 6
   %90 = add nsw i32 %88, -5
@@ -2108,18 +2108,18 @@ select.unfold.preheader.i61:                      ; preds = %82
 select.unfold.i62:                                ; preds = %select.unfold.i62, %select.unfold.preheader.i61
   %indvars.iv.i63 = phi i64 [ %93, %select.unfold.preheader.i61 ], [ %indvars.iv.next.i64, %select.unfold.i62 ]
   %indvars.iv.next.i64 = add nsw i64 %indvars.iv.i63, -1
-  %94 = getelementptr inbounds i32, ptr %86, i64 %indvars.iv.next.i64
+  %94 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.next.i64
   %95 = load i32, ptr %94, align 4
   %96 = xor i32 %95, -1
-  %97 = getelementptr inbounds i32, ptr %81, i64 %indvars.iv.next.i64
+  %97 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.next.i64
   store i32 %96, ptr %97, align 4
   %98 = icmp samesign ugt i64 %indvars.iv.i63, 1
   br i1 %98, label %select.unfold.i62, label %Kit_TruthNot.exit65, !llvm.loop !9
 
 99:                                               ; preds = %Kit_TruthNot.exit
-  %100 = getelementptr inbounds i8, ptr %2, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = icmp slt i32 %103, 6
   %105 = add nsw i32 %103, -5
@@ -2135,9 +2135,9 @@ select.unfold.preheader.i67:                      ; preds = %99
 select.unfold.i68:                                ; preds = %select.unfold.i68, %select.unfold.preheader.i67
   %indvars.iv.i69 = phi i64 [ %108, %select.unfold.preheader.i67 ], [ %indvars.iv.next.i70, %select.unfold.i68 ]
   %indvars.iv.next.i70 = add nsw i64 %indvars.iv.i69, -1
-  %109 = getelementptr inbounds i32, ptr %101, i64 %indvars.iv.next.i70
+  %109 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv.next.i70
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i32, ptr %81, i64 %indvars.iv.next.i70
+  %111 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.next.i70
   store i32 %110, ptr %111, align 4
   %112 = icmp samesign ugt i64 %indvars.iv.i69, 1
   br i1 %112, label %select.unfold.i68, label %Kit_TruthNot.exit65, !llvm.loop !6
@@ -2151,11 +2151,11 @@ Kit_TruthNot.exit65:                              ; preds = %select.unfold.i62, 
 
 114:                                              ; preds = %Kit_TruthNot.exit65
   %115 = load ptr, ptr %42, align 8
-  %116 = getelementptr inbounds i8, ptr %0, i64 88
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 96
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %121 = load i32, ptr %120, align 8
   %122 = icmp slt i32 %121, 6
   %123 = add nsw i32 %121, -5
@@ -2171,23 +2171,23 @@ select.unfold.preheader.i73:                      ; preds = %114
 select.unfold.i74:                                ; preds = %select.unfold.i74, %select.unfold.preheader.i73
   %indvars.iv.i75 = phi i64 [ %126, %select.unfold.preheader.i73 ], [ %indvars.iv.next.i76, %select.unfold.i74 ]
   %indvars.iv.next.i76 = add nsw i64 %indvars.iv.i75, -1
-  %127 = getelementptr inbounds i32, ptr %117, i64 %indvars.iv.next.i76
+  %127 = getelementptr inbounds nuw i32, ptr %117, i64 %indvars.iv.next.i76
   %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds i32, ptr %119, i64 %indvars.iv.next.i76
+  %129 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv.next.i76
   %130 = load i32, ptr %129, align 4
   %131 = and i32 %130, %128
-  %132 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv.next.i76
+  %132 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.next.i76
   store i32 %131, ptr %132, align 4
   %133 = icmp samesign ugt i64 %indvars.iv.i75, 1
   br i1 %133, label %select.unfold.i74, label %Kit_TruthAnd.exit, !llvm.loop !12
 
 134:                                              ; preds = %Kit_TruthNot.exit65
   %135 = load ptr, ptr %42, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 88
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %0, i64 96
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %141 = load i32, ptr %140, align 8
   %142 = icmp slt i32 %141, 6
   %143 = add nsw i32 %141, -5
@@ -2203,12 +2203,12 @@ select.unfold.preheader.i78:                      ; preds = %134
 select.unfold.i79:                                ; preds = %select.unfold.i79, %select.unfold.preheader.i78
   %indvars.iv.i80 = phi i64 [ %146, %select.unfold.preheader.i78 ], [ %indvars.iv.next.i81, %select.unfold.i79 ]
   %indvars.iv.next.i81 = add nsw i64 %indvars.iv.i80, -1
-  %147 = getelementptr inbounds i32, ptr %137, i64 %indvars.iv.next.i81
+  %147 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv.next.i81
   %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds i32, ptr %139, i64 %indvars.iv.next.i81
+  %149 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv.next.i81
   %150 = load i32, ptr %149, align 4
   %151 = or i32 %150, %148
-  %152 = getelementptr inbounds i32, ptr %135, i64 %indvars.iv.next.i81
+  %152 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv.next.i81
   store i32 %151, ptr %152, align 4
   %153 = icmp samesign ugt i64 %indvars.iv.i80, 1
   br i1 %153, label %select.unfold.i79, label %Kit_TruthOr.exit.loopexit, !llvm.loop !22
@@ -2245,7 +2245,7 @@ select.unfold.preheader.i83:                      ; preds = %Kit_TruthOr.exit
 select.unfold.i84:                                ; preds = %select.unfold.i84, %select.unfold.preheader.i83
   %indvars.iv.i85 = phi i64 [ %168, %select.unfold.preheader.i83 ], [ %indvars.iv.next.i86, %select.unfold.i84 ]
   %indvars.iv.next.i86 = add nsw i64 %indvars.iv.i85, -1
-  %169 = getelementptr inbounds i32, ptr %154, i64 %indvars.iv.next.i86
+  %169 = getelementptr inbounds nuw i32, ptr %154, i64 %indvars.iv.next.i86
   %170 = load i32, ptr %169, align 4
   %171 = xor i32 %170, -1
   store i32 %171, ptr %169, align 4
@@ -2263,12 +2263,12 @@ Kit_TruthAnd.exit:                                ; preds = %select.unfold.i74, 
   %176 = ptrtoint ptr %.0 to i64
   %177 = and i64 %176, -2
   %178 = inttoptr i64 %177 to ptr
-  %179 = getelementptr inbounds i8, ptr %178, i64 32
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 32
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %0, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %182 = load i32, ptr %181, align 8
   %183 = tail call i32 @Kit_TruthSupport(ptr noundef %180, i32 noundef %182) #7
-  %184 = getelementptr inbounds i8, ptr %178, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %178, i64 24
   store i32 %183, ptr %184, align 8
   tail call void @Bdc_TableAdd(ptr noundef %0, ptr noundef %178) #7
   br label %Bdc_FunNew.exit.thread
@@ -2291,7 +2291,7 @@ define ptr @Bdc_ManDecompose_rec(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %9 = alloca %struct.Bdc_Isf_t_, align 8
   %10 = alloca %struct.Bdc_Isf_t_, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %24, label %14
@@ -2305,7 +2305,7 @@ define ptr @Bdc_ManDecompose_rec(ptr noundef %0, ptr noundef %1) local_unnamed_a
 17:                                               ; preds = %14
   %18 = load i64, ptr %8, align 8
   %19 = mul nsw i64 %18, 1000000
-  %20 = getelementptr inbounds i8, ptr %8, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = sdiv i64 %21, 1000
   %23 = add nsw i64 %22, %19
@@ -2320,7 +2320,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   %.0 = phi i64 [ %.0.i, %Abc_Clock.exit ], [ 0, %2 ]
   %25 = call ptr @Bdc_TableLookup(ptr noundef nonnull %0, ptr noundef %1) #7
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4
   %.not79 = icmp eq i32 %28, 0
   br i1 %.not79, label %43, label %29
@@ -2334,7 +2334,7 @@ Abc_Clock.exit:                                   ; preds = %14, %17
 32:                                               ; preds = %29
   %33 = load i64, ptr %7, align 8
   %34 = mul nsw i64 %33, 1000000
-  %35 = getelementptr inbounds i8, ptr %7, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = sdiv i64 %36, 1000
   %38 = add nsw i64 %37, %34
@@ -2344,7 +2344,7 @@ Abc_Clock.exit87:                                 ; preds = %29, %32
   %.0.i86 = phi i64 [ %38, %32 ], [ -1, %29 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %39 = sub i64 %.0.i86, %.0
-  %40 = getelementptr inbounds i8, ptr %0, i64 288
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %41 = load i64, ptr %40, align 8
   %42 = add nsw i64 %39, %41
   store i64 %42, ptr %40, align 8
@@ -2356,7 +2356,7 @@ Abc_Clock.exit87:                                 ; preds = %29, %32
 
 44:                                               ; preds = %43
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
   %.not81 = icmp eq i32 %47, 0
   br i1 %.not81, label %58, label %48
@@ -2370,7 +2370,7 @@ Abc_Clock.exit87:                                 ; preds = %29, %32
 51:                                               ; preds = %48
   %52 = load i64, ptr %6, align 8
   %53 = mul nsw i64 %52, 1000000
-  %54 = getelementptr inbounds i8, ptr %6, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %55 = load i64, ptr %54, align 8
   %56 = sdiv i64 %55, 1000
   %57 = add nsw i64 %56, %53
@@ -2385,7 +2385,7 @@ Abc_Clock.exit89:                                 ; preds = %48, %51
   %.1 = phi i64 [ %.0.i88, %Abc_Clock.exit89 ], [ %.0, %44 ]
   %59 = call i32 @Bdc_DecomposeStep(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4
   %.not82 = icmp eq i32 %62, 0
   br i1 %.not82, label %77, label %63
@@ -2399,7 +2399,7 @@ Abc_Clock.exit89:                                 ; preds = %48, %51
 66:                                               ; preds = %63
   %67 = load i64, ptr %5, align 8
   %68 = mul nsw i64 %67, 1000000
-  %69 = getelementptr inbounds i8, ptr %5, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %70 = load i64, ptr %69, align 8
   %71 = sdiv i64 %70, 1000
   %72 = add nsw i64 %71, %68
@@ -2409,7 +2409,7 @@ Abc_Clock.exit91:                                 ; preds = %63, %66
   %.0.i90 = phi i64 [ %72, %66 ], [ -1, %63 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %73 = sub i64 %.0.i90, %.1
-  %74 = getelementptr inbounds i8, ptr %0, i64 296
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %75 = load i64, ptr %74, align 8
   %76 = add nsw i64 %73, %75
   store i64 %76, ptr %74, align 8
@@ -2421,7 +2421,7 @@ Abc_Clock.exit91:                                 ; preds = %63, %66
 
 79:                                               ; preds = %77
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %.not84 = icmp eq i32 %82, 0
   br i1 %.not84, label %93, label %83
@@ -2435,7 +2435,7 @@ Abc_Clock.exit91:                                 ; preds = %63, %66
 86:                                               ; preds = %83
   %87 = load i64, ptr %4, align 8
   %88 = mul nsw i64 %87, 1000000
-  %89 = getelementptr inbounds i8, ptr %4, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %90 = load i64, ptr %89, align 8
   %91 = sdiv i64 %90, 1000
   %92 = add nsw i64 %91, %88
@@ -2450,7 +2450,7 @@ Abc_Clock.exit93:                                 ; preds = %83, %86
   %.2 = phi i64 [ %.0.i92, %Abc_Clock.exit93 ], [ %.1, %79 ]
   %94 = call i32 @Bdc_DecomposeStepMux(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4
   %.not85 = icmp eq i32 %97, 0
   br i1 %.not85, label %112, label %98
@@ -2464,7 +2464,7 @@ Abc_Clock.exit93:                                 ; preds = %83, %86
 101:                                              ; preds = %98
   %102 = load i64, ptr %3, align 8
   %103 = mul nsw i64 %102, 1000000
-  %104 = getelementptr inbounds i8, ptr %3, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %105 = load i64, ptr %104, align 8
   %106 = sdiv i64 %105, 1000
   %107 = add nsw i64 %106, %103
@@ -2474,14 +2474,14 @@ Abc_Clock.exit95:                                 ; preds = %98, %101
   %.0.i94 = phi i64 [ %107, %101 ], [ -1, %98 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %108 = sub i64 %.0.i94, %.2
-  %109 = getelementptr inbounds i8, ptr %0, i64 304
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %110 = load i64, ptr %109, align 8
   %111 = add nsw i64 %108, %110
   store i64 %111, ptr %109, align 8
   br label %112
 
 112:                                              ; preds = %Abc_Clock.exit95, %93
-  %113 = getelementptr inbounds i8, ptr %0, i64 264
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %114 = load i32, ptr %113, align 8
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr %113, align 8
@@ -2523,7 +2523,7 @@ Abc_Clock.exit95:                                 ; preds = %98, %101
   br i1 %.not83, label %143, label %139
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds i8, ptr %0, i64 40
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %141 = load i32, ptr %140, align 8
   %142 = add nsw i32 %141, -1
   store i32 %142, ptr %140, align 8

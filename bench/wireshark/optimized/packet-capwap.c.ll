@@ -1764,7 +1764,7 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.1051) #2
   %14 = load ptr, ptr %12, align 8
@@ -1787,7 +1787,7 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
 26:                                               ; preds = %4
   %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %28 = add nsw i32 %27, %19
-  %29 = getelementptr inbounds i8, ptr %1, i64 272
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %30 = load i32, ptr %29, align 8
   %31 = load i32, ptr @global_capwap_reassemble, align 4
   %32 = icmp ne i32 %31, 0
@@ -1895,7 +1895,7 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.1131) #2
   %14 = load ptr, ptr %12, align 8
@@ -1918,7 +1918,7 @@ define internal i32 @dissect_capwap_data(ptr noundef %0, ptr noundef %1, ptr nou
 26:                                               ; preds = %4
   %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %28 = add nsw i32 %27, %19
-  %29 = getelementptr inbounds i8, ptr %1, i64 272
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %30 = load i32, ptr %29, align 8
   %31 = load i32, ptr @global_capwap_reassemble, align 4
   %32 = icmp ne i32 %31, 0
@@ -2160,7 +2160,7 @@ define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr nounde
   br i1 %.not, label %56, label %53
 
 53:                                               ; preds = %10
-  %54 = getelementptr inbounds i8, ptr %3, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %55 = load ptr, ptr %54, align 8
   tail call void @col_append_str(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.1056) #2
   br label %58
@@ -2349,7 +2349,7 @@ define internal fastcc void @dissect_capwap_control_header(ptr noundef %0, ptr n
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %2, i32 noundef 3, i32 noundef 0) #2
   %15 = load i32, ptr @hf_capwap_control_header_msg_type_enterprise_specific, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0) #2
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2) #2
   %20 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @message_type, ptr noundef nonnull @.str.1060) #2
@@ -3144,7 +3144,7 @@ dissect_capwap_board_data.exit:                   ; preds = %.lr.ph1008, %.sink.
 
 switch.lookup:                                    ; preds = %.lr.ph1005
   %412 = zext nneg i16 %391 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_capwap_message_element_type, i64 0, i64 %412
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_capwap_message_element_type, i64 0, i64 %412
   %switch.load = load ptr, ptr %switch.gep, align 8
   %413 = load i32, ptr %switch.load, align 4
   %414 = tail call ptr @proto_tree_add_item(ptr noundef %401, i32 noundef %413, ptr noundef %0, i32 noundef %409, i32 noundef %395, i32 noundef 0) #2

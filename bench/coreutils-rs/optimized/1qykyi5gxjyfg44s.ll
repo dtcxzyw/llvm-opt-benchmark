@@ -25,9 +25,9 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
   call void @_ZN3nix3sys4stat5fstat17hdfb1d0de2803e090E(ptr noalias nocapture noundef nonnull sret({ i32, [37 x i32] }) align 8 dereferenceable(152) %11, i32 noundef 1)
   %12 = load i32, ptr %11, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i32 %12 to i1
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4, !range !6
-  %.sroa.432.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 32
+  %.sroa.432.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.sroa.432.0.copyload = load i32, ptr %.sroa.432.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %11)
   br i1 %trunc, label %21, label %15
@@ -39,8 +39,8 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
 
 .preheader125:                                    ; preds = %15
   %18 = icmp eq i64 %1, 0
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br i1 %18, label %.loopexit124.us, label %.lr.ph
 
 .loopexit124.us:                                  ; preds = %.preheader125, %.loopexit124.us
@@ -63,10 +63,10 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
 
 .preheader:                                       ; preds = %26
   %29 = icmp eq i64 %1, 0
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 8
-  %32 = getelementptr inbounds i8, ptr %6, i64 4
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %29, label %.loopexit120.us, label %.lr.ph145
 
 .loopexit120.us:                                  ; preds = %.preheader, %.loopexit120.us
@@ -122,7 +122,7 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
   br i1 %trunc.i, label %42, label %50
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %9, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %44 = load i32, ptr %43, align 4, !range !6, !alias.scope !12, !noalias !15, !noundef !5
   %trunc.i.i = trunc nuw i32 %44 to i8
   switch i8 %trunc.i.i, label %45 [
@@ -167,11 +167,11 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
 58:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !17
   store ptr @anon.36b2d1bcd16c154c863694636a29dc30.1.llvm.1966342284610798123, ptr %5, align 8, !noalias !17
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !17
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @anon.36b2d1bcd16c154c863694636a29dc30.2.llvm.1966342284610798123, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !17
-  %.sroa.66.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.66.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.66.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !17
   invoke void @_ZN4core9panicking13assert_failed17hc16184d854a9c291E(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.36b2d1bcd16c154c863694636a29dc30.4.llvm.1966342284610798123, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.36b2d1bcd16c154c863694636a29dc30.6.llvm.1966342284610798123) #6
           to label %.noexc75 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -270,7 +270,7 @@ define hidden { i64, ptr } @_ZN6uu_yes6splice11splice_data17hd1b9d08603eff842E(p
   br i1 %trunc.i82, label %87, label %95
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %10, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %89 = load i32, ptr %88, align 4, !range !6, !alias.scope !35, !noalias !38, !noundef !5
   %trunc.i.i84 = trunc nuw i32 %89 to i8
   switch i8 %trunc.i.i84, label %90 [

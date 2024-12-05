@@ -178,9 +178,9 @@ define dso_local range(i32 0, 23) i32 @trigger_pull(ptr noundef %0) local_unname
   br i1 %.not, label %8, label %76
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i16, ptr %11, align 8
   %.off = add i16 %12, -3
   %switch = icmp ult i16 %.off, 3
@@ -194,20 +194,20 @@ define dso_local range(i32 0, 23) i32 @trigger_pull(ptr noundef %0) local_unname
   br i1 %.not2457, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %10, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 28
   br label %18
 
 18:                                               ; preds = %.lr.ph, %trigger_primary_ctld_acct_full.exit
   %19 = phi ptr [ %16, %.lr.ph ], [ %75, %trigger_primary_ctld_acct_full.exit ]
   %.01758 = phi i32 [ 0, %.lr.ph ], [ %.1, %trigger_primary_ctld_acct_full.exit ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %21 = load i16, ptr %20, align 4
   %22 = load i16, ptr %11, align 8
   %23 = icmp eq i16 %21, %22
   br i1 %23, label %24, label %trigger_primary_ctld_acct_full.exit
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %19, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %17, align 4
   %28 = icmp eq i32 %26, %27
@@ -381,13 +381,13 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 define internal void @_trig_del(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %3) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @slurm_xfree(ptr noundef nonnull %4) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @slurm_xfree(ptr noundef nonnull %5) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -398,7 +398,7 @@ define internal void @_trig_del(ptr noundef %0) #0 {
 
 9:                                                ; preds = %8, %1
   store ptr null, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not1 = icmp eq ptr %11, null
   br i1 %.not1, label %13, label %12
@@ -462,7 +462,7 @@ define internal fastcc void @_dump_trigger_msg(ptr noundef %0, ptr noundef reado
   br i1 %.not22, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %54
@@ -473,28 +473,28 @@ define internal fastcc void @_dump_trigger_msg(ptr noundef %0, ptr noundef reado
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds %struct.trigger_info, ptr %29, i64 %indvars.iv
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %30 = getelementptr inbounds nuw %struct.trigger_info, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load i16, ptr %33, align 8
   %35 = tail call ptr @trigger_res_type(i16 noundef zeroext %34) #14
   %36 = load ptr, ptr %24, align 8
-  %37 = getelementptr inbounds %struct.trigger_info, ptr %36, i64 %indvars.iv
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %37 = getelementptr inbounds nuw %struct.trigger_info, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = tail call ptr @trigger_type(i32 noundef %41) #14
   %43 = load ptr, ptr %24, align 8
-  %44 = getelementptr inbounds %struct.trigger_info, ptr %43, i64 %indvars.iv, i32 6
+  %44 = getelementptr inbounds nuw %struct.trigger_info, ptr %43, i64 %indvars.iv, i32 6
   %45 = load i16, ptr %44, align 8
   %46 = zext i16 %45 to i32
   %47 = add nsw i32 %46, -32768
-  %48 = getelementptr inbounds %struct.trigger_info, ptr %43, i64 %indvars.iv
-  %49 = getelementptr inbounds i8, ptr %48, i64 36
+  %48 = getelementptr inbounds nuw %struct.trigger_info, ptr %43, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %48, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.27, i32 noundef %53, i32 noundef %32, ptr noundef %35, ptr noundef %39, ptr noundef %42, i32 noundef %47, i32 noundef %50, ptr noundef %52) #14
@@ -802,15 +802,15 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not36, label %13, label %127
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i16, ptr %16, align 8
   %18 = icmp eq i16 %17, 1
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i64 @atol(ptr nocapture noundef %21) #17
   %23 = trunc i64 %22 to i32
@@ -818,13 +818,13 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %24, label %127, label %33
 
 25:                                               ; preds = %13
-  %26 = getelementptr inbounds i8, ptr %15, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %15, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, -2
   br i1 %32, label %127, label %33
@@ -839,9 +839,9 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not374649, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %15, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.not40 = icmp eq i32 %.029.fr, 0
-  %38 = getelementptr inbounds i8, ptr %15, i64 36
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %.not64 = icmp eq i32 %0, 0
   br i1 %.not40, label %.lr.ph.lr.ph.split.us, label %.lr.ph.lr.ph.split
 
@@ -860,7 +860,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not38.us.us.us, label %46, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load i32, ptr %44, align 8
   %.not39.us.us.us = icmp eq i32 %42, %45
   br i1 %.not39.us.us.us, label %46, label %.backedge.us.us.us
@@ -871,13 +871,13 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not42.us.us.us, label %51, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %41, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %50 = load i32, ptr %49, align 8
   %.not43.us.us.us = icmp eq i32 %47, %50
   br i1 %.not43.us.us.us, label %51, label %.backedge.us.us.us
 
 51:                                               ; preds = %48, %46
-  %52 = getelementptr inbounds i8, ptr %41, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %53 = load i8, ptr %52, align 8
   %54 = icmp eq i8 %53, 2
   br i1 %54, label %.backedge.us.us.us, label %.split.us.us.us
@@ -915,7 +915,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not38.us.us, label %68, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %67 = load i32, ptr %66, align 8
   %.not39.us.us = icmp eq i32 %64, %67
   br i1 %.not39.us.us, label %68, label %.backedge.us.us
@@ -926,13 +926,13 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not42.us.us, label %73, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %63, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %72 = load i32, ptr %71, align 8
   %.not43.us.us = icmp eq i32 %69, %72
   br i1 %.not43.us.us, label %73, label %.backedge.us.us
 
 73:                                               ; preds = %70, %68
-  %74 = getelementptr inbounds i8, ptr %63, i64 64
+  %74 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %75 = load i8, ptr %74, align 8
   %76 = icmp eq i8 %75, 2
   br i1 %76, label %.backedge.us.us, label %.split.us.us
@@ -943,7 +943,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not37.us.us, label %.outer._crit_edge, label %62, !llvm.loop !10
 
 .split.us.us:                                     ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %63, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %79 = load i32, ptr %78, align 8
   %.not66 = icmp eq i32 %79, %0
   br i1 %.not66, label %59, label %.outer.backedge.us
@@ -963,13 +963,13 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not38.us, label %87, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %82, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %86 = load i32, ptr %85, align 8
   %.not39.us = icmp eq i32 %83, %86
   br i1 %.not39.us, label %87, label %.backedge.us
 
 87:                                               ; preds = %84, %81
-  %88 = getelementptr inbounds i8, ptr %82, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %89 = load i32, ptr %88, align 8
   %.not41.us = icmp eq i32 %.029.fr, %89
   br i1 %.not41.us, label %90, label %.backedge.us
@@ -980,13 +980,13 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not42.us, label %95, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %82, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %94 = load i32, ptr %93, align 8
   %.not43.us = icmp eq i32 %91, %94
   br i1 %.not43.us, label %95, label %.backedge.us
 
 95:                                               ; preds = %92, %90
-  %96 = getelementptr inbounds i8, ptr %82, i64 64
+  %96 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %97 = load i8, ptr %96, align 8
   %98 = icmp eq i8 %97, 2
   br i1 %98, label %.backedge.us, label %.split.us
@@ -1014,7 +1014,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not38, label %110, label %106
 
 106:                                              ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %104, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %108 = load i32, ptr %107, align 8
   %.not39 = icmp eq i32 %105, %108
   br i1 %.not39, label %110, label %.backedge
@@ -1025,7 +1025,7 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not37, label %.outer._crit_edge, label %103, !llvm.loop !10
 
 110:                                              ; preds = %106, %103
-  %111 = getelementptr inbounds i8, ptr %104, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %112 = load i32, ptr %111, align 8
   %.not41 = icmp eq i32 %.029.fr, %112
   br i1 %.not41, label %113, label %.backedge
@@ -1036,19 +1036,19 @@ define dso_local range(i32 0, 2018) i32 @trigger_clear(i32 noundef %0, ptr nound
   br i1 %.not42, label %118, label %115
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %104, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %104, i64 48
   %117 = load i32, ptr %116, align 8
   %.not43 = icmp eq i32 %114, %117
   br i1 %.not43, label %118, label %.backedge
 
 118:                                              ; preds = %115, %113
-  %119 = getelementptr inbounds i8, ptr %104, i64 64
+  %119 = getelementptr inbounds nuw i8, ptr %104, i64 64
   %120 = load i8, ptr %119, align 8
   %121 = icmp eq i8 %120, 2
   br i1 %121, label %.backedge, label %.split
 
 .split:                                           ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %104, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %104, i64 48
   %123 = load i32, ptr %122, align 8
   %.not65 = icmp eq i32 %123, %0
   br i1 %.not65, label %124, label %.outer.backedge
@@ -1157,7 +1157,7 @@ _dump_trigger_msg.exit:                           ; preds = %11, %18, %21
   store i32 %24, ptr %22, align 8
   %25 = zext i32 %24 to i64
   %26 = tail call ptr @slurm_xcalloc(i64 noundef %25, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 349, ptr noundef nonnull @__func__.trigger_get) #14
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %26, ptr %27, align 8
   %28 = load ptr, ptr @trigger_list, align 8
   %29 = tail call ptr @list_iterator_create(ptr noundef %28) #14
@@ -1175,7 +1175,7 @@ _dump_trigger_msg.exit:                           ; preds = %11, %18, %21
   br i1 %.not37, label %69, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %32, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %35 = load i8, ptr %34, align 8
   %.not39 = icmp eq i8 %35, 0
   br i1 %.not39, label %40, label %36
@@ -1187,41 +1187,41 @@ _dump_trigger_msg.exit:                           ; preds = %11, %18, %21
   br i1 %39, label %31, label %40, !llvm.loop !11
 
 40:                                               ; preds = %36, %33
-  %41 = getelementptr inbounds i8, ptr %32, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %42 = load i16, ptr %41, align 4
   store i16 %42, ptr %.0.ph, align 8
-  %43 = getelementptr inbounds i8, ptr %32, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %.0.ph, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 4
   store i32 %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %32, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %47 = load i16, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %.0.ph, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 8
   store i16 %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %32, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr @xstrdup(ptr noundef %50) #14
-  %52 = getelementptr inbounds i8, ptr %.0.ph, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %32, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %32, i64 36
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %.0.ph, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 28
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %32, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %57 = load i64, ptr %56, align 8
   %58 = trunc i64 %57 to i16
-  %59 = getelementptr inbounds i8, ptr %.0.ph, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 32
   store i16 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %32, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.0.ph, i64 36
+  %62 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 36
   store i32 %61, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %32, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @xstrdup(ptr noundef %64) #14
-  %66 = getelementptr inbounds i8, ptr %.0.ph, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 40
   store ptr %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %.0.ph, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 48
   %68 = add nuw nsw i32 %.033.ph, 1
   br label %.outer, !llvm.loop !11
 
@@ -1308,18 +1308,18 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   br i1 %.not84, label %.loopexit81, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %27
 
 27:                                               ; preds = %.lr.ph, %195
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %195 ]
   %.05582 = phi i32 [ 0, %.lr.ph ], [ %.1, %195 ]
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds %struct.trigger_info, ptr %28, i64 %indvars.iv
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %29 = getelementptr inbounds nuw %struct.trigger_info, ptr %28, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i16, ptr %30, align 8
   %32 = icmp eq i16 %31, 1
-  %33 = getelementptr inbounds i8, ptr %29, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %34 = load ptr, ptr %33, align 8
   br i1 %32, label %35, label %45
 
@@ -1331,7 +1331,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   br i1 %39, label %195, label %40
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %38, i64 448
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 448
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 255
   %44 = icmp samesign ugt i32 %43, 2
@@ -1367,43 +1367,43 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
 54:                                               ; preds = %45, %46, %48, %40
   %.056 = phi i32 [ %37, %40 ], [ 0, %48 ], [ 0, %46 ], [ 0, %45 ]
   %55 = load ptr, ptr %26, align 8
-  %56 = getelementptr inbounds %struct.trigger_info, ptr %55, i64 %indvars.iv, i32 7
+  %56 = getelementptr inbounds nuw %struct.trigger_info, ptr %55, i64 %indvars.iv, i32 7
   store i32 %0, ptr %56, align 4
   %57 = load ptr, ptr %26, align 8
-  %58 = getelementptr inbounds %struct.trigger_info, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw %struct.trigger_info, ptr %57, i64 %indvars.iv
   %59 = load ptr, ptr @trigger_list, align 8
   %60 = call ptr @list_iterator_create(ptr noundef %59) #14
-  %61 = getelementptr inbounds i8, ptr %58, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %62 = call ptr @list_next(ptr noundef %60) #14
   %.not19.not.i = icmp eq ptr %62, null
   br i1 %.not19.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %58, i64 8
-  %64 = getelementptr inbounds i8, ptr %58, i64 28
-  %65 = getelementptr inbounds i8, ptr %58, i64 32
-  %66 = getelementptr inbounds i8, ptr %58, i64 36
-  %67 = getelementptr inbounds i8, ptr %58, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 36
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 40
   br label %68
 
 68:                                               ; preds = %105, %.lr.ph.i
   %69 = phi ptr [ %62, %.lr.ph.i ], [ %106, %105 ]
   %70 = load i16, ptr %58, align 8
-  %71 = getelementptr inbounds i8, ptr %69, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %72 = load i16, ptr %71, align 4
   %73 = icmp eq i16 %70, %72
   br i1 %73, label %74, label %105
 
 74:                                               ; preds = %68
   %75 = load i16, ptr %63, align 8
-  %76 = getelementptr inbounds i8, ptr %69, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %77 = load i16, ptr %76, align 4
   %78 = icmp eq i16 %75, %77
   br i1 %78, label %79, label %105
 
 79:                                               ; preds = %74
   %80 = load i32, ptr %64, align 4
-  %81 = getelementptr inbounds i8, ptr %69, i64 36
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 36
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %80, %82
   br i1 %83, label %84, label %105
@@ -1411,21 +1411,21 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
 84:                                               ; preds = %79
   %85 = load i16, ptr %65, align 8
   %86 = zext i16 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %69, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %88 = load i64, ptr %87, align 8
   %89 = icmp eq i64 %88, %86
   br i1 %89, label %90, label %105
 
 90:                                               ; preds = %84
   %91 = load i32, ptr %66, align 4
-  %92 = getelementptr inbounds i8, ptr %69, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %93 = load i32, ptr %92, align 8
   %94 = icmp eq i32 %91, %93
   br i1 %94, label %95, label %105
 
 95:                                               ; preds = %90
   %96 = load ptr, ptr %67, align 8
-  %97 = getelementptr inbounds i8, ptr %69, i64 56
+  %97 = getelementptr inbounds nuw i8, ptr %69, i64 56
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 @xstrcmp(ptr noundef %96, ptr noundef %98) #14
   %.not17.i = icmp eq i32 %99, 0
@@ -1433,7 +1433,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
 
 100:                                              ; preds = %95
   %101 = load ptr, ptr %61, align 8
-  %102 = getelementptr inbounds i8, ptr %69, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = call i32 @xstrcmp(ptr noundef %101, ptr noundef %103) #14
   %.not18.i = icmp eq i32 %104, 0
@@ -1464,57 +1464,57 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
   store ptr %111, ptr %5, align 8
   %112 = load i32, ptr @next_trigger_id, align 4
   %113 = load ptr, ptr %26, align 8
-  %114 = getelementptr inbounds %struct.trigger_info, ptr %113, i64 %indvars.iv, i32 1
+  %114 = getelementptr inbounds nuw %struct.trigger_info, ptr %113, i64 %indvars.iv, i32 1
   store i32 %112, ptr %114, align 4
   %115 = load ptr, ptr %5, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i32 %112, ptr %116, align 8
   %117 = add i32 %112, 1
   store i32 %117, ptr @next_trigger_id, align 4
   %118 = load ptr, ptr %26, align 8
-  %119 = getelementptr inbounds %struct.trigger_info, ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw %struct.trigger_info, ptr %118, i64 %indvars.iv
   %120 = load i16, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %115, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i16 %120, ptr %121, align 4
   %122 = load ptr, ptr %26, align 8
-  %123 = getelementptr inbounds %struct.trigger_info, ptr %122, i64 %indvars.iv, i32 2
+  %123 = getelementptr inbounds nuw %struct.trigger_info, ptr %122, i64 %indvars.iv, i32 2
   %124 = load i16, ptr %123, align 8
   %125 = load ptr, ptr %5, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 12
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 12
   store i16 %124, ptr %126, align 4
   %127 = load ptr, ptr %4, align 8
   %.not74 = icmp eq ptr %127, null
   br i1 %.not74, label %133, label %128
 
 128:                                              ; preds = %.loopexit
-  %129 = getelementptr inbounds i8, ptr %125, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 24
   store ptr %127, ptr %129, align 8
   %130 = call ptr @bit_copy(ptr noundef nonnull %127) #14
   %131 = load ptr, ptr %5, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 72
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 72
   store ptr %130, ptr %132, align 8
   store ptr null, ptr %4, align 8
   br label %133
 
 133:                                              ; preds = %128, %.loopexit
   %134 = phi ptr [ %131, %128 ], [ %125, %.loopexit ]
-  %135 = getelementptr inbounds i8, ptr %134, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
   store i32 %.056, ptr %135, align 8
   %136 = load ptr, ptr %26, align 8
-  %137 = getelementptr inbounds %struct.trigger_info, ptr %136, i64 %indvars.iv, i32 3
+  %137 = getelementptr inbounds nuw %struct.trigger_info, ptr %136, i64 %indvars.iv, i32 3
   %138 = load ptr, ptr %137, align 8
   %.not75 = icmp eq ptr %138, null
   br i1 %.not75, label %146, label %139
 
 139:                                              ; preds = %133
-  %140 = getelementptr inbounds i8, ptr %134, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store ptr %138, ptr %140, align 8
   %141 = call ptr @xstrdup(ptr noundef nonnull %138) #14
   %142 = load ptr, ptr %5, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 80
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 80
   store ptr %141, ptr %143, align 8
   %144 = load ptr, ptr %26, align 8
-  %145 = getelementptr inbounds %struct.trigger_info, ptr %144, i64 %indvars.iv, i32 3
+  %145 = getelementptr inbounds nuw %struct.trigger_info, ptr %144, i64 %indvars.iv, i32 3
   store ptr null, ptr %145, align 8
   %.pre = load ptr, ptr %26, align 8
   %.pre86 = load ptr, ptr %5, align 8
@@ -1523,36 +1523,36 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
 146:                                              ; preds = %139, %133
   %147 = phi ptr [ %.pre86, %139 ], [ %134, %133 ]
   %148 = phi ptr [ %.pre, %139 ], [ %136, %133 ]
-  %149 = getelementptr inbounds %struct.trigger_info, ptr %148, i64 %indvars.iv, i32 5
+  %149 = getelementptr inbounds nuw %struct.trigger_info, ptr %148, i64 %indvars.iv, i32 5
   %150 = load i32, ptr %149, align 4
-  %151 = getelementptr inbounds i8, ptr %147, i64 36
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 36
   store i32 %150, ptr %151, align 4
   %152 = load ptr, ptr %26, align 8
-  %153 = getelementptr inbounds %struct.trigger_info, ptr %152, i64 %indvars.iv, i32 6
+  %153 = getelementptr inbounds nuw %struct.trigger_info, ptr %152, i64 %indvars.iv, i32 6
   %154 = load i16, ptr %153, align 8
   %155 = zext i16 %154 to i64
-  %156 = getelementptr inbounds i8, ptr %147, i64 40
+  %156 = getelementptr inbounds nuw i8, ptr %147, i64 40
   store i64 %155, ptr %156, align 8
   %157 = load ptr, ptr %26, align 8
-  %158 = getelementptr inbounds %struct.trigger_info, ptr %157, i64 %indvars.iv, i32 6
+  %158 = getelementptr inbounds nuw %struct.trigger_info, ptr %157, i64 %indvars.iv, i32 6
   %159 = load i16, ptr %158, align 8
   %160 = zext i16 %159 to i64
-  %161 = getelementptr inbounds i8, ptr %147, i64 88
+  %161 = getelementptr inbounds nuw i8, ptr %147, i64 88
   store i64 %160, ptr %161, align 8
   %162 = load ptr, ptr %26, align 8
-  %163 = getelementptr inbounds %struct.trigger_info, ptr %162, i64 %indvars.iv, i32 7
+  %163 = getelementptr inbounds nuw %struct.trigger_info, ptr %162, i64 %indvars.iv, i32 7
   %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds i8, ptr %147, i64 48
+  %165 = getelementptr inbounds nuw i8, ptr %147, i64 48
   store i32 %164, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %147, i64 52
+  %166 = getelementptr inbounds nuw i8, ptr %147, i64 52
   store i32 %1, ptr %166, align 4
   %167 = load ptr, ptr %26, align 8
-  %168 = getelementptr inbounds %struct.trigger_info, ptr %167, i64 %indvars.iv, i32 8
+  %168 = getelementptr inbounds nuw %struct.trigger_info, ptr %167, i64 %indvars.iv, i32 8
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %147, i64 56
+  %170 = getelementptr inbounds nuw i8, ptr %147, i64 56
   store ptr %169, ptr %170, align 8
   %171 = load ptr, ptr %26, align 8
-  %172 = getelementptr inbounds %struct.trigger_info, ptr %171, i64 %indvars.iv, i32 8
+  %172 = getelementptr inbounds nuw %struct.trigger_info, ptr %171, i64 %indvars.iv, i32 8
   store ptr null, ptr %172, align 8
   %173 = load ptr, ptr %5, align 8
   %174 = call fastcc zeroext i1 @_validate_trigger(ptr noundef %173)
@@ -1560,7 +1560,7 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
 
 175:                                              ; preds = %146
   %176 = load ptr, ptr %5, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %178 = load ptr, ptr %177, align 8
   %.not76 = icmp eq ptr %178, null
   br i1 %.not76, label %180, label %179
@@ -1572,9 +1572,9 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
 
 180:                                              ; preds = %179, %175
   %181 = phi ptr [ %.pre87, %179 ], [ %176, %175 ]
-  %182 = getelementptr inbounds i8, ptr %181, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 24
   store ptr null, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %181, i64 72
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 72
   %184 = load ptr, ptr %183, align 8
   %.not77 = icmp eq ptr %184, null
   br i1 %.not77, label %186, label %185
@@ -1586,12 +1586,12 @@ define dso_local range(i32 0, 2090) i32 @trigger_set(i32 noundef %0, i32 noundef
 
 186:                                              ; preds = %185, %180
   %187 = phi ptr [ %.pre88, %185 ], [ %181, %180 ]
-  %188 = getelementptr inbounds i8, ptr %187, i64 72
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 72
   store ptr null, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %187, i64 56
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 56
   call void @slurm_xfree(ptr noundef nonnull %189) #14
   %190 = load ptr, ptr %5, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
   call void @slurm_xfree(ptr noundef nonnull %191) #14
   call void @slurm_xfree(ptr noundef nonnull %5) #14
   br label %195
@@ -1646,7 +1646,7 @@ declare ptr @bit_copy(ptr noundef) local_unnamed_addr #1
 define internal fastcc noundef zeroext i1 @_validate_trigger(ptr nocapture noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @xstrdup(ptr noundef %5) #14
   store ptr %6, ptr %3, align 8
@@ -1661,7 +1661,7 @@ define internal fastcc noundef zeroext i1 @_validate_trigger(ptr nocapture nound
 
 10:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.next
   %12 = load i8, ptr %11, align 1
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %.loopexit, label %13, !llvm.loop !14
@@ -1677,7 +1677,7 @@ define internal fastcc noundef zeroext i1 @_validate_trigger(ptr nocapture nound
   br i1 %.not14, label %10, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   store i8 0, ptr %20, align 1
   br label %.loopexit
 
@@ -1702,7 +1702,7 @@ define internal fastcc noundef zeroext i1 @_validate_trigger(ptr nocapture nound
 
 28:                                               ; preds = %.loopexit
   call void @slurm_xfree(ptr noundef nonnull %3) #14
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 61440
   %32 = icmp eq i32 %31, 32768
@@ -1719,9 +1719,9 @@ define internal fastcc noundef zeroext i1 @_validate_trigger(ptr nocapture nound
   br label %60
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds i8, ptr %2, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %40, %42
   br i1 %43, label %44, label %46
@@ -1731,9 +1731,9 @@ define internal fastcc noundef zeroext i1 @_validate_trigger(ptr nocapture nound
   br label %53
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %2, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %48, %50
   %52 = lshr i32 %30, 3
@@ -1893,7 +1893,7 @@ define dso_local void @trigger_node_down(ptr nocapture noundef readonly %0) loca
 
 12:                                               ; preds = %8, %5
   %13 = phi ptr [ %11, %8 ], [ %6, %5 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   tail call void @bit_set(ptr noundef %13, i64 noundef %16) #14
@@ -1937,7 +1937,7 @@ define dso_local void @trigger_node_drained(ptr nocapture noundef readonly %0) l
 
 12:                                               ; preds = %8, %5
   %13 = phi ptr [ %11, %8 ], [ %6, %5 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   tail call void @bit_set(ptr noundef %13, i64 noundef %16) #14
@@ -1981,7 +1981,7 @@ define dso_local void @trigger_node_failing(ptr nocapture noundef readonly %0) l
 
 12:                                               ; preds = %8, %5
   %13 = phi ptr [ %11, %8 ], [ %6, %5 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   tail call void @bit_set(ptr noundef %13, i64 noundef %16) #14
@@ -2025,7 +2025,7 @@ define dso_local void @trigger_node_up(ptr nocapture noundef readonly %0) local_
 
 12:                                               ; preds = %8, %5
   %13 = phi ptr [ %11, %8 ], [ %6, %5 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   tail call void @bit_set(ptr noundef %13, i64 noundef %16) #14
@@ -2069,7 +2069,7 @@ define dso_local void @trigger_node_draining(ptr nocapture noundef readonly %0) 
 
 11:                                               ; preds = %7, %5
   %12 = phi ptr [ %10, %7 ], [ %6, %5 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   tail call void @bit_set(ptr noundef %12, i64 noundef %15) #14
@@ -2113,7 +2113,7 @@ define dso_local void @trigger_node_resume(ptr nocapture noundef readonly %0) lo
 
 11:                                               ; preds = %7, %5
   %12 = phi ptr [ %10, %7 ], [ %6, %5 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   tail call void @bit_set(ptr noundef %12, i64 noundef %15) #14
@@ -2423,16 +2423,16 @@ define dso_local i32 @trigger_state_save() local_unnamed_addr #0 {
   tail call void @pack8(i8 noundef zeroext %22, ptr noundef %5) #14
   %23 = load i8, ptr @db_failure, align 1
   tail call void @pack8(i8 noundef zeroext %23, ptr noundef %5) #14
-  %24 = getelementptr inbounds i8, ptr %19, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %25 = load i16, ptr %24, align 4
   tail call void @pack16(i16 noundef zeroext %25, ptr noundef %5) #14
-  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %27 = load i32, ptr %26, align 8
   tail call void @pack32(i32 noundef %27, ptr noundef %5) #14
-  %28 = getelementptr inbounds i8, ptr %19, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %29 = load i16, ptr %28, align 4
   tail call void @pack16(i16 noundef zeroext %29, ptr noundef %5) #14
-  %30 = getelementptr inbounds i8, ptr %19, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %36, label %32
@@ -2446,19 +2446,19 @@ define dso_local i32 @trigger_state_save() local_unnamed_addr #0 {
 36:                                               ; preds = %32, %.lr.ph
   %.029.i = phi i32 [ %35, %32 ], [ 0, %.lr.ph ]
   tail call void @packmem(ptr noundef %31, i32 noundef %.029.i, ptr noundef %5) #14
-  %37 = getelementptr inbounds i8, ptr %19, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %38 = load i32, ptr %37, align 4
   tail call void @pack32(i32 noundef %38, ptr noundef %5) #14
-  %39 = getelementptr inbounds i8, ptr %19, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %40 = load i64, ptr %39, align 8
   tail call void @pack_time(i64 noundef %40, ptr noundef %5) #14
-  %41 = getelementptr inbounds i8, ptr %19, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %42 = load i32, ptr %41, align 8
   tail call void @pack32(i32 noundef %42, ptr noundef %5) #14
-  %43 = getelementptr inbounds i8, ptr %19, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 52
   %44 = load i32, ptr %43, align 4
   tail call void @pack32(i32 noundef %44, ptr noundef %5) #14
-  %45 = getelementptr inbounds i8, ptr %19, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %46 = load ptr, ptr %45, align 8
   %.not32.i = icmp eq ptr %46, null
   br i1 %.not32.i, label %_dump_trigger_state.exit, label %47
@@ -2472,7 +2472,7 @@ define dso_local i32 @trigger_state_save() local_unnamed_addr #0 {
 _dump_trigger_state.exit:                         ; preds = %36, %47
   %.0.i = phi i32 [ %50, %47 ], [ 0, %36 ]
   tail call void @packmem(ptr noundef %46, i32 noundef %.0.i, ptr noundef %5) #14
-  %51 = getelementptr inbounds i8, ptr %19, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %52 = load i8, ptr %51, align 8
   tail call void @pack8(i8 noundef zeroext %52, ptr noundef %5) #14
   %53 = tail call ptr @list_next(ptr noundef %17) #14
@@ -2520,9 +2520,9 @@ _dump_trigger_state.exit:                         ; preds = %36, %47
   br label %100
 
 72:                                               ; preds = %57
-  %73 = getelementptr inbounds i8, ptr %5, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %5, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = load i32, ptr @trigger_state_save.high_buffer_size, align 4
   %78 = call i32 @llvm.smax.i32(i32 %74, i32 %77)
@@ -2769,8 +2769,8 @@ _open_trigger_state_file.exit.thread:             ; preds = %0, %_open_trigger_s
   br label %46
 
 46:                                               ; preds = %44, %42
-  %47 = getelementptr inbounds i8, ptr %.0.i26, i64 16
-  %48 = getelementptr inbounds i8, ptr %.0.i26, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 20
   %49 = load i32, ptr %47, align 8
   %50 = load i32, ptr %48, align 4
   %.not2046 = icmp eq i32 %49, %50
@@ -2808,61 +2808,61 @@ _open_trigger_state_file.exit.thread:             ; preds = %0, %_open_trigger_s
   br i1 %.not33.i, label %62, label %.loopexit30
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %52, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %64 = call i32 @unpack16(ptr noundef nonnull %63, ptr noundef nonnull %.0.i26) #14
   %.not34.i = icmp eq i32 %64, 0
   br i1 %.not34.i, label %65, label %.loopexit30
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %52, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %67 = call i32 @unpack32(ptr noundef nonnull %66, ptr noundef nonnull %.0.i26) #14
   %.not35.i = icmp eq i32 %67, 0
   br i1 %.not35.i, label %68, label %.loopexit30
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %52, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %70 = call i32 @unpack16(ptr noundef nonnull %69, ptr noundef nonnull %.0.i26) #14
   %.not36.i = icmp eq i32 %70, 0
   br i1 %.not36.i, label %71, label %.loopexit30
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %52, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %73 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %72, ptr noundef nonnull %2, ptr noundef nonnull %.0.i26) #14
   %.not37.i = icmp eq i32 %73, 0
   br i1 %.not37.i, label %74, label %.loopexit30
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %52, i64 36
+  %75 = getelementptr inbounds nuw i8, ptr %52, i64 36
   %76 = call i32 @unpack32(ptr noundef nonnull %75, ptr noundef nonnull %.0.i26) #14
   %.not38.i = icmp eq i32 %76, 0
   br i1 %.not38.i, label %77, label %.loopexit30
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %52, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %79 = call i32 @unpack_time(ptr noundef nonnull %78, ptr noundef nonnull %.0.i26) #14
   %.not39.i = icmp eq i32 %79, 0
   br i1 %.not39.i, label %80, label %.loopexit30
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %52, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %82 = call i32 @unpack32(ptr noundef nonnull %81, ptr noundef nonnull %.0.i26) #14
   %.not40.i = icmp eq i32 %82, 0
   br i1 %.not40.i, label %83, label %.loopexit30
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %52, i64 52
+  %84 = getelementptr inbounds nuw i8, ptr %52, i64 52
   %85 = call i32 @unpack32(ptr noundef nonnull %84, ptr noundef nonnull %.0.i26) #14
   %.not41.i = icmp eq i32 %85, 0
   br i1 %.not41.i, label %86, label %.loopexit30
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %52, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %88 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %87, ptr noundef nonnull %3, ptr noundef nonnull %.0.i26) #14
   %.not42.i = icmp eq i32 %88, 0
   br i1 %.not42.i, label %89, label %.loopexit30
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %52, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %91 = call i32 @unpack8(ptr noundef nonnull %90, ptr noundef nonnull %.0.i26) #14
   %.not43.i = icmp eq i32 %91, 0
   br i1 %.not43.i, label %95, label %.loopexit30
@@ -2893,7 +2893,7 @@ _open_trigger_state_file.exit.thread:             ; preds = %0, %_open_trigger_s
   %103 = load ptr, ptr %72, align 8
   %104 = call i64 @atol(ptr nocapture noundef %103) #17
   %105 = trunc i64 %104 to i32
-  %106 = getelementptr inbounds i8, ptr %52, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store i32 %105, ptr %106, align 8
   %107 = call ptr @find_job_record(i32 noundef %105) #14
   %108 = load i32, ptr %106, align 8
@@ -2908,7 +2908,7 @@ _open_trigger_state_file.exit.thread:             ; preds = %0, %_open_trigger_s
   br i1 %.not47.i, label %121, label %.loopexit30
 
 113:                                              ; preds = %101
-  %114 = getelementptr inbounds i8, ptr %52, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store i32 0, ptr %114, align 8
   %115 = load ptr, ptr %72, align 8
   %.not44.i = icmp eq ptr %115, null
@@ -2920,20 +2920,20 @@ _open_trigger_state_file.exit.thread:             ; preds = %0, %_open_trigger_s
   br i1 %.not45.i, label %121, label %118
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %52, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %120 = call i32 @node_name2bitmap(ptr noundef nonnull %115, i1 noundef zeroext false, ptr noundef nonnull %119) #14
   %.not46.i = icmp eq i32 %120, 0
   br i1 %.not46.i, label %121, label %.loopexit30
 
 121:                                              ; preds = %118, %116, %113, %111, %102, %101
-  %122 = getelementptr inbounds i8, ptr %52, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %123 = load ptr, ptr %122, align 8
   %.not48.i = icmp eq ptr %123, null
   br i1 %.not48.i, label %127, label %124
 
 124:                                              ; preds = %121
   %125 = call ptr @bit_copy(ptr noundef nonnull %123) #14
-  %126 = getelementptr inbounds i8, ptr %52, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %52, i64 72
   store ptr %125, ptr %126, align 8
   br label %127
 
@@ -2944,13 +2944,13 @@ _open_trigger_state_file.exit.thread:             ; preds = %0, %_open_trigger_s
 
 129:                                              ; preds = %127
   %130 = call ptr @xstrdup(ptr noundef nonnull %128) #14
-  %131 = getelementptr inbounds i8, ptr %52, i64 80
+  %131 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store ptr %130, ptr %131, align 8
   br label %132
 
 132:                                              ; preds = %129, %127
   %133 = load i64, ptr %78, align 8
-  %134 = getelementptr inbounds i8, ptr %52, i64 88
+  %134 = getelementptr inbounds nuw i8, ptr %52, i64 88
   store i64 %133, ptr %134, align 8
   %135 = call i32 @pthread_mutex_lock(ptr noundef nonnull @trigger_mutex) #14
   %.not50.i = icmp eq i32 %135, 0
@@ -2992,11 +2992,11 @@ _open_trigger_state_file.exit.thread:             ; preds = %0, %_open_trigger_s
 
 .loopexit30:                                      ; preds = %118, %111, %98, %95, %89, %86, %83, %80, %77, %74, %71, %68, %65, %62, %60, %58, %56, %54, %92
   %151 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.35) #14
-  %152 = getelementptr inbounds i8, ptr %52, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %52, i64 16
   call void @slurm_xfree(ptr noundef nonnull %152) #14
-  %153 = getelementptr inbounds i8, ptr %52, i64 56
+  %153 = getelementptr inbounds nuw i8, ptr %52, i64 56
   call void @slurm_xfree(ptr noundef nonnull %153) #14
-  %154 = getelementptr inbounds i8, ptr %52, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %155 = load ptr, ptr %154, align 8
   %.not52.i = icmp eq ptr %155, null
   br i1 %.not52.i, label %_load_trigger_state.exit, label %156
@@ -3099,7 +3099,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
 18:                                               ; preds = %16, %13
   %19 = phi ptr [ %17, %16 ], [ %14, %13 ]
   %20 = tail call ptr @list_iterator_create(ptr noundef %19) #14
-  %invariant.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = tail call ptr @list_next(ptr noundef %20) #14
   %.not80137 = icmp eq ptr %21, null
   br i1 %.not80137, label %._crit_edge, label %.lr.ph
@@ -3112,13 +3112,13 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
 23:                                               ; preds = %.lr.ph, %.thread129
   %24 = phi ptr [ %21, %.lr.ph ], [ %954, %.thread129 ]
   %.0138 = phi i1 [ false, %.lr.ph ], [ %.1, %.thread129 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %28, label %_trigger_other_event.exit
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %24, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %30 = load i16, ptr %29, align 4
   switch i16 %30, label %.thread129 [
     i16 7, label %31
@@ -3131,7 +3131,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   ]
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %24, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 1048576
   %.not.i = icmp eq i32 %34, 0
@@ -3143,7 +3143,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
 
 36:                                               ; preds = %35
   store i8 1, ptr %25, align 8
-  %37 = getelementptr inbounds i8, ptr %24, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i64 %9, ptr %37, align 8
   %38 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %39 = and i64 %38, 4
@@ -3156,16 +3156,16 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   br i1 %42, label %43, label %_trigger_other_event.exitthread-pre-split
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %24, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %45 = load i32, ptr %44, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.36, i32 noundef %45) #14
   br label %_trigger_other_event.exitthread-pre-split
 
 46:                                               ; preds = %28
-  %47 = getelementptr inbounds i8, ptr %24, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %48 = load i32, ptr %47, align 8
   %49 = call ptr @find_job_record(i32 noundef %48) #14
-  %50 = getelementptr inbounds i8, ptr %24, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %51 = load i32, ptr %50, align 4
   %52 = and i32 %51, 16
   %.not.i87 = icmp eq i32 %52, 0
@@ -3176,7 +3176,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   br i1 %53, label %62, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %49, i64 448
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 448
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 255
   %59 = icmp samesign ugt i32 %58, 2
@@ -3187,7 +3187,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
 
 62:                                               ; preds = %55, %54
   store i8 1, ptr %25, align 8
-  %63 = getelementptr inbounds i8, ptr %24, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %64 = load i64, ptr %63, align 8
   %65 = add i64 %22, %64
   store i64 %65, ptr %63, align 8
@@ -3202,7 +3202,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   br i1 %70, label %71, label %_trigger_other_event.exitthread-pre-split
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %24, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %73 = load i32, ptr %72, align 8
   %74 = load i32, ptr %47, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.37, i32 noundef %73, i32 noundef %74) #14
@@ -3212,7 +3212,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   br i1 %53, label %76, label %..thread_crit_edge.i
 
 ..thread_crit_edge.i:                             ; preds = %75
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %49, i64 448
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %49, i64 448
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   %.pre85.i = and i32 %.pre.i, 255
   br label %.thread.i
@@ -3229,7 +3229,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
   br i1 %81, label %82, label %_trigger_other_event.exit.thread.thread
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %24, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %84 = load i32, ptr %83, align 8
   %85 = load i32, ptr %47, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.38, i32 noundef %84, i32 noundef %85) #14
@@ -3237,7 +3237,7 @@ define dso_local void @trigger_process() local_unnamed_addr #0 {
 
 _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   store i8 2, ptr %25, align 8
-  %86 = getelementptr inbounds i8, ptr %24, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i64 %9, ptr %86, align 8
   br label %873
 
@@ -3250,10 +3250,10 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %or.cond81.i, label %106, label %89
 
 89:                                               ; preds = %.thread.i
-  %90 = getelementptr inbounds i8, ptr %49, i64 232
+  %90 = getelementptr inbounds nuw i8, ptr %49, i64 232
   %91 = load i64, ptr %90, align 8
   %92 = sub nsw i64 %91, %9
-  %93 = getelementptr inbounds i8, ptr %24, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %94 = load i64, ptr %93, align 8
   %95 = sub nsw i64 32768, %94
   %.not68.i = icmp sgt i64 %92, %95
@@ -3273,7 +3273,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %101, label %102, label %_trigger_other_event.exitthread-pre-split
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %24, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %104 = load i32, ptr %103, align 8
   %105 = load i32, ptr %47, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.39, i32 noundef %104, i32 noundef %105) #14
@@ -3288,7 +3288,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %or.cond.i, label %111, label %129
 
 111:                                              ; preds = %106
-  %112 = getelementptr inbounds i8, ptr %49, i64 576
+  %112 = getelementptr inbounds nuw i8, ptr %49, i64 576
   %113 = load ptr, ptr %112, align 8
   %114 = call i32 @bit_overlap_any(ptr noundef %113, ptr noundef nonnull %109) #14
   %.not71.i = icmp eq i32 %114, 0
@@ -3310,7 +3310,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %120, label %121, label %125
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %24, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = load i32, ptr %47, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.40, i32 noundef %123, i32 noundef %124) #14
@@ -3318,7 +3318,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 
 125:                                              ; preds = %121, %118, %115
   store i8 1, ptr %25, align 8
-  %126 = getelementptr inbounds i8, ptr %24, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %127 = load i64, ptr %126, align 8
   %128 = add i64 %22, %127
   store i64 %128, ptr %126, align 8
@@ -3334,7 +3334,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %or.cond3.i, label %135, label %153
 
 135:                                              ; preds = %129
-  %136 = getelementptr inbounds i8, ptr %49, i64 576
+  %136 = getelementptr inbounds nuw i8, ptr %49, i64 576
   %137 = load ptr, ptr %136, align 8
   %138 = call i32 @bit_overlap_any(ptr noundef %137, ptr noundef nonnull %133) #14
   %.not72.i = icmp eq i32 %138, 0
@@ -3356,7 +3356,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %144, label %145, label %149
 
 145:                                              ; preds = %142
-  %146 = getelementptr inbounds i8, ptr %24, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %147 = load i32, ptr %146, align 8
   %148 = load i32, ptr %47, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.41, i32 noundef %147, i32 noundef %148) #14
@@ -3364,7 +3364,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 
 149:                                              ; preds = %145, %142, %139
   store i8 1, ptr %25, align 8
-  %150 = getelementptr inbounds i8, ptr %24, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %151 = load i64, ptr %150, align 8
   %152 = add i64 %22, %151
   store i64 %152, ptr %150, align 8
@@ -3380,7 +3380,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %or.cond5.i, label %159, label %_trigger_other_event.exitthread-pre-split
 
 159:                                              ; preds = %153
-  %160 = getelementptr inbounds i8, ptr %49, i64 576
+  %160 = getelementptr inbounds nuw i8, ptr %49, i64 576
   %161 = load ptr, ptr %160, align 8
   %162 = call i32 @bit_overlap_any(ptr noundef %161, ptr noundef nonnull %157) #14
   %.not73.i = icmp eq i32 %162, 0
@@ -3388,7 +3388,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 
 163:                                              ; preds = %159
   store i8 1, ptr %25, align 8
-  %164 = getelementptr inbounds i8, ptr %24, i64 40
+  %164 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %165 = load i64, ptr %164, align 8
   %166 = sub i64 %.neg182.i, %165
   store i64 %166, ptr %164, align 8
@@ -3403,7 +3403,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %171, label %172, label %_trigger_other_event.exitthread-pre-split
 
 172:                                              ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %24, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %174 = load i32, ptr %173, align 8
   %175 = load i32, ptr %47, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.42, i32 noundef %174, i32 noundef %175) #14
@@ -3412,7 +3412,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 176:                                              ; preds = %28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %177 = getelementptr inbounds i8, ptr %24, i64 36
+  %177 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %178 = load i32, ptr %177, align 4
   %179 = and i32 %178, 2
   %180 = icmp ne i32 %179, 0
@@ -3427,13 +3427,13 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %.not.i92, label %217, label %185
 
 185:                                              ; preds = %183
-  %186 = getelementptr inbounds i8, ptr %24, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %187 = load ptr, ptr %186, align 8
   %188 = icmp eq ptr %187, null
   br i1 %188, label %189, label %193
 
 189:                                              ; preds = %185
-  %190 = getelementptr inbounds i8, ptr %24, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %190) #14
   %191 = load ptr, ptr @trigger_down_nodes_bitmap, align 8
   %192 = call ptr @bitmap2node_name(ptr noundef %191) #14
@@ -3450,7 +3450,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %197 = load ptr, ptr %186, align 8
   %198 = load ptr, ptr @trigger_down_nodes_bitmap, align 8
   call void @bit_and(ptr noundef %197, ptr noundef %198) #14
-  %199 = getelementptr inbounds i8, ptr %24, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %199) #14
   %200 = load ptr, ptr %186, align 8
   %201 = call ptr @bitmap2node_name(ptr noundef %200) #14
@@ -3467,7 +3467,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br label %.thread.i93
 
 .thread.i93:                                      ; preds = %.thread.sink.split.i, %202
-  %204 = getelementptr inbounds i8, ptr %24, i64 40
+  %204 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %205 = load i64, ptr %204, align 8
   %206 = add i64 %22, %205
   store i64 %206, ptr %204, align 8
@@ -3482,9 +3482,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %211, label %212, label %_trigger_node_event.exit
 
 212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %24, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %214 = load i32, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %24, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %216 = load ptr, ptr %215, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.43, i32 noundef %214, ptr noundef %216) #14
   br label %_trigger_node_event.exit
@@ -3504,13 +3504,13 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %.not156.i, label %257, label %225
 
 225:                                              ; preds = %223
-  %226 = getelementptr inbounds i8, ptr %24, i64 24
+  %226 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %227 = load ptr, ptr %226, align 8
   %228 = icmp eq ptr %227, null
   br i1 %228, label %229, label %233
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds i8, ptr %24, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %230) #14
   %231 = load ptr, ptr @trigger_drained_nodes_bitmap, align 8
   %232 = call ptr @bitmap2node_name(ptr noundef %231) #14
@@ -3527,7 +3527,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %237 = load ptr, ptr %226, align 8
   %238 = load ptr, ptr @trigger_drained_nodes_bitmap, align 8
   call void @bit_and(ptr noundef %237, ptr noundef %238) #14
-  %239 = getelementptr inbounds i8, ptr %24, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %239) #14
   %240 = load ptr, ptr %226, align 8
   %241 = call ptr @bitmap2node_name(ptr noundef %240) #14
@@ -3544,7 +3544,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br label %.thread203.i
 
 .thread203.i:                                     ; preds = %.thread203.sink.split.i, %242
-  %244 = getelementptr inbounds i8, ptr %24, i64 40
+  %244 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %245 = load i64, ptr %244, align 8
   %246 = add i64 %22, %245
   store i64 %246, ptr %244, align 8
@@ -3559,9 +3559,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %251, label %252, label %_trigger_node_event.exit
 
 252:                                              ; preds = %249
-  %253 = getelementptr inbounds i8, ptr %24, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %254 = load i32, ptr %253, align 8
-  %255 = getelementptr inbounds i8, ptr %24, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %256 = load ptr, ptr %255, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.44, i32 noundef %254, ptr noundef %256) #14
   br label %_trigger_node_event.exit
@@ -3581,13 +3581,13 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %.not158.i, label %297, label %265
 
 265:                                              ; preds = %263
-  %266 = getelementptr inbounds i8, ptr %24, i64 24
+  %266 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %267 = load ptr, ptr %266, align 8
   %268 = icmp eq ptr %267, null
   br i1 %268, label %269, label %273
 
 269:                                              ; preds = %265
-  %270 = getelementptr inbounds i8, ptr %24, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %270) #14
   %271 = load ptr, ptr @trigger_fail_nodes_bitmap, align 8
   %272 = call ptr @bitmap2node_name(ptr noundef %271) #14
@@ -3604,7 +3604,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %277 = load ptr, ptr %266, align 8
   %278 = load ptr, ptr @trigger_fail_nodes_bitmap, align 8
   call void @bit_and(ptr noundef %277, ptr noundef %278) #14
-  %279 = getelementptr inbounds i8, ptr %24, i64 16
+  %279 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %279) #14
   %280 = load ptr, ptr %266, align 8
   %281 = call ptr @bitmap2node_name(ptr noundef %280) #14
@@ -3621,7 +3621,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br label %.thread205.i
 
 .thread205.i:                                     ; preds = %.thread205.sink.split.i, %282
-  %284 = getelementptr inbounds i8, ptr %24, i64 40
+  %284 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %285 = load i64, ptr %284, align 8
   %286 = add i64 %22, %285
   store i64 %286, ptr %284, align 8
@@ -3636,9 +3636,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %291, label %292, label %_trigger_node_event.exit
 
 292:                                              ; preds = %289
-  %293 = getelementptr inbounds i8, ptr %24, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %294 = load i32, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %24, i64 16
+  %295 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %296 = load ptr, ptr %295, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.45, i32 noundef %294, ptr noundef %296) #14
   br label %_trigger_node_event.exit
@@ -3650,7 +3650,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %.not160.i, label %359, label %300
 
 300:                                              ; preds = %297
-  %301 = getelementptr inbounds i8, ptr %24, i64 40
+  %301 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %302 = load i64, ptr %301, align 8
   %303 = sub i64 %.neg182.i, %302
   %304 = load i32, ptr @node_record_count, align 4
@@ -3664,21 +3664,21 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 
 .lr.ph.i:                                         ; preds = %300, %322
   %308 = phi ptr [ %325, %322 ], [ %307, %300 ]
-  %309 = getelementptr inbounds i8, ptr %308, i64 304
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 304
   %310 = load i32, ptr %309, align 8
   %311 = and i32 %310, 15
   %312 = icmp eq i32 %311, 2
   br i1 %312, label %313, label %322
 
 313:                                              ; preds = %.lr.ph.i
-  %314 = getelementptr inbounds i8, ptr %308, i64 216
+  %314 = getelementptr inbounds nuw i8, ptr %308, i64 216
   %315 = load i64, ptr %314, align 8
   %316 = icmp sgt i64 %315, %303
   br i1 %316, label %322, label %317
 
 317:                                              ; preds = %313
   %318 = load ptr, ptr %7, align 8
-  %319 = getelementptr inbounds i8, ptr %308, i64 192
+  %319 = getelementptr inbounds nuw i8, ptr %308, i64 192
   %320 = load i32, ptr %319, align 8
   %321 = zext i32 %320 to i64
   call void @bit_set(ptr noundef %318, i64 noundef %321) #14
@@ -3693,13 +3693,13 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %.not161.i, label %._crit_edge.i91, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.i91:                                  ; preds = %322, %300
-  %326 = getelementptr inbounds i8, ptr %24, i64 24
+  %326 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %327 = load ptr, ptr %326, align 8
   %328 = icmp eq ptr %327, null
   br i1 %328, label %329, label %333
 
 329:                                              ; preds = %._crit_edge.i91
-  %330 = getelementptr inbounds i8, ptr %24, i64 16
+  %330 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %330) #14
   %331 = load ptr, ptr %7, align 8
   %332 = call ptr @bitmap2node_name(ptr noundef %331) #14
@@ -3716,7 +3716,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %337 = load ptr, ptr %326, align 8
   %338 = load ptr, ptr %7, align 8
   call void @bit_and(ptr noundef %337, ptr noundef %338) #14
-  %339 = getelementptr inbounds i8, ptr %24, i64 16
+  %339 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %339) #14
   %340 = load ptr, ptr %326, align 8
   %341 = call ptr @bitmap2node_name(ptr noundef %340) #14
@@ -3759,9 +3759,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %353, label %354, label %_trigger_node_event.exit
 
 354:                                              ; preds = %351
-  %355 = getelementptr inbounds i8, ptr %24, i64 8
+  %355 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %356 = load i32, ptr %355, align 8
-  %357 = getelementptr inbounds i8, ptr %24, i64 16
+  %357 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %358 = load ptr, ptr %357, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.46, i32 noundef %356, ptr noundef %358) #14
   br label %_trigger_node_event.exit
@@ -3781,13 +3781,13 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %.not164.i, label %399, label %367
 
 367:                                              ; preds = %365
-  %368 = getelementptr inbounds i8, ptr %24, i64 24
+  %368 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %369 = load ptr, ptr %368, align 8
   %370 = icmp eq ptr %369, null
   br i1 %370, label %371, label %375
 
 371:                                              ; preds = %367
-  %372 = getelementptr inbounds i8, ptr %24, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %372) #14
   %373 = load ptr, ptr @trigger_up_nodes_bitmap, align 8
   %374 = call ptr @bitmap2node_name(ptr noundef %373) #14
@@ -3804,7 +3804,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %379 = load ptr, ptr %368, align 8
   %380 = load ptr, ptr @trigger_up_nodes_bitmap, align 8
   call void @bit_and(ptr noundef %379, ptr noundef %380) #14
-  %381 = getelementptr inbounds i8, ptr %24, i64 16
+  %381 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %381) #14
   %382 = load ptr, ptr %368, align 8
   %383 = call ptr @bitmap2node_name(ptr noundef %382) #14
@@ -3821,7 +3821,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br label %.thread207.i
 
 .thread207.i:                                     ; preds = %.thread207.sink.split.i, %384
-  %386 = getelementptr inbounds i8, ptr %24, i64 40
+  %386 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %387 = load i64, ptr %386, align 8
   %388 = add i64 %22, %387
   store i64 %388, ptr %386, align 8
@@ -3836,9 +3836,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %393, label %394, label %_trigger_node_event.exit
 
 394:                                              ; preds = %391
-  %395 = getelementptr inbounds i8, ptr %24, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %396 = load i32, ptr %395, align 8
-  %397 = getelementptr inbounds i8, ptr %24, i64 16
+  %397 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %398 = load ptr, ptr %397, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.47, i32 noundef %396, ptr noundef %398) #14
   br label %_trigger_node_event.exit
@@ -3858,13 +3858,13 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %.not166.i, label %438, label %407
 
 407:                                              ; preds = %405
-  %408 = getelementptr inbounds i8, ptr %24, i64 24
+  %408 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %409 = load ptr, ptr %408, align 8
   %.not167.i = icmp eq ptr %409, null
   br i1 %.not167.i, label %410, label %414
 
 410:                                              ; preds = %407
-  %411 = getelementptr inbounds i8, ptr %24, i64 16
+  %411 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %411) #14
   %412 = load ptr, ptr @trigger_draining_nodes_bitmap, align 8
   %413 = call ptr @bitmap2node_name(ptr noundef %412) #14
@@ -3881,7 +3881,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %418 = load ptr, ptr %408, align 8
   %419 = load ptr, ptr @trigger_draining_nodes_bitmap, align 8
   call void @bit_and(ptr noundef %418, ptr noundef %419) #14
-  %420 = getelementptr inbounds i8, ptr %24, i64 16
+  %420 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %420) #14
   %421 = load ptr, ptr %408, align 8
   %422 = call ptr @bitmap2node_name(ptr noundef %421) #14
@@ -3898,7 +3898,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br label %.thread209.i
 
 .thread209.i:                                     ; preds = %.thread209.sink.split.i, %423
-  %425 = getelementptr inbounds i8, ptr %24, i64 40
+  %425 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %426 = load i64, ptr %425, align 8
   %427 = add i64 %22, %426
   store i64 %427, ptr %425, align 8
@@ -3913,9 +3913,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %432, label %433, label %_trigger_node_event.exit
 
 433:                                              ; preds = %430
-  %434 = getelementptr inbounds i8, ptr %24, i64 8
+  %434 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %435 = load i32, ptr %434, align 8
-  %436 = getelementptr inbounds i8, ptr %24, i64 16
+  %436 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %437 = load ptr, ptr %436, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.48, i32 noundef %435, ptr noundef %437) #14
   br label %_trigger_node_event.exit
@@ -3935,13 +3935,13 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %.not169.i, label %477, label %446
 
 446:                                              ; preds = %444
-  %447 = getelementptr inbounds i8, ptr %24, i64 24
+  %447 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %448 = load ptr, ptr %447, align 8
   %.not170.i = icmp eq ptr %448, null
   br i1 %.not170.i, label %449, label %453
 
 449:                                              ; preds = %446
-  %450 = getelementptr inbounds i8, ptr %24, i64 16
+  %450 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %450) #14
   %451 = load ptr, ptr @trigger_resume_nodes_bitmap, align 8
   %452 = call ptr @bitmap2node_name(ptr noundef %451) #14
@@ -3958,7 +3958,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   %457 = load ptr, ptr %447, align 8
   %458 = load ptr, ptr @trigger_resume_nodes_bitmap, align 8
   call void @bit_and(ptr noundef %457, ptr noundef %458) #14
-  %459 = getelementptr inbounds i8, ptr %24, i64 16
+  %459 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %459) #14
   %460 = load ptr, ptr %447, align 8
   %461 = call ptr @bitmap2node_name(ptr noundef %460) #14
@@ -3975,7 +3975,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br label %.thread211.i
 
 .thread211.i:                                     ; preds = %.thread211.sink.split.i, %462
-  %464 = getelementptr inbounds i8, ptr %24, i64 40
+  %464 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %465 = load i64, ptr %464, align 8
   %466 = add i64 %22, %465
   store i64 %466, ptr %464, align 8
@@ -3990,9 +3990,9 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %471, label %472, label %_trigger_node_event.exit
 
 472:                                              ; preds = %469
-  %473 = getelementptr inbounds i8, ptr %24, i64 8
+  %473 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %474 = load i32, ptr %473, align 8
-  %475 = getelementptr inbounds i8, ptr %24, i64 16
+  %475 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %476 = load ptr, ptr %475, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.49, i32 noundef %474, ptr noundef %476) #14
   br label %_trigger_node_event.exit
@@ -4009,11 +4009,11 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
 
 481:                                              ; preds = %480
   store i8 1, ptr %25, align 8
-  %482 = getelementptr inbounds i8, ptr %24, i64 40
+  %482 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %483 = load i64, ptr %482, align 8
   %484 = add i64 %22, %483
   store i64 %484, ptr %482, align 8
-  %485 = getelementptr inbounds i8, ptr %24, i64 16
+  %485 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %485) #14
   %486 = call ptr @xstrdup(ptr noundef nonnull @.str.50) #14
   store ptr %486, ptr %485, align 8
@@ -4028,7 +4028,7 @@ _trigger_other_event.exit.thread.thread:          ; preds = %76, %79, %82
   br i1 %491, label %492, label %_trigger_node_event.exit
 
 492:                                              ; preds = %489
-  %493 = getelementptr inbounds i8, ptr %24, i64 8
+  %493 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %494 = load i32, ptr %493, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.51, i32 noundef %494) #14
   br label %_trigger_node_event.exit
@@ -4039,7 +4039,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   br label %_trigger_other_event.exitthread-pre-split
 
 495:                                              ; preds = %28
-  %496 = getelementptr inbounds i8, ptr %24, i64 36
+  %496 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %497 = load i32, ptr %496, align 4
   %498 = and i32 %497, 512
   %.not.i96 = icmp eq i32 %498, 0
@@ -4051,11 +4051,11 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 500:                                              ; preds = %499
   store i8 1, ptr %25, align 8
-  %501 = getelementptr inbounds i8, ptr %24, i64 40
+  %501 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %502 = load i64, ptr %501, align 8
   %503 = add i64 %22, %502
   store i64 %503, ptr %501, align 8
-  %504 = getelementptr inbounds i8, ptr %24, i64 16
+  %504 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %504) #14
   %505 = call ptr @xstrdup(ptr noundef nonnull @.str.52) #14
   store ptr %505, ptr %504, align 8
@@ -4080,11 +4080,11 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 514:                                              ; preds = %513
   store i8 1, ptr %25, align 8
-  %515 = getelementptr inbounds i8, ptr %24, i64 40
+  %515 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %516 = load i64, ptr %515, align 8
   %517 = add i64 %22, %516
   store i64 %517, ptr %515, align 8
-  %518 = getelementptr inbounds i8, ptr %24, i64 16
+  %518 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %518) #14
   %519 = call ptr @xstrdup(ptr noundef nonnull @.str.54) #14
   store ptr %519, ptr %518, align 8
@@ -4109,11 +4109,11 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 528:                                              ; preds = %527
   store i8 1, ptr %25, align 8
-  %529 = getelementptr inbounds i8, ptr %24, i64 40
+  %529 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %530 = load i64, ptr %529, align 8
   %531 = add i64 %22, %530
   store i64 %531, ptr %529, align 8
-  %532 = getelementptr inbounds i8, ptr %24, i64 16
+  %532 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %532) #14
   %533 = call ptr @xstrdup(ptr noundef nonnull @.str.56) #14
   store ptr %533, ptr %532, align 8
@@ -4138,11 +4138,11 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 542:                                              ; preds = %541
   store i8 1, ptr %25, align 8
-  %543 = getelementptr inbounds i8, ptr %24, i64 40
+  %543 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %544 = load i64, ptr %543, align 8
   %545 = add i64 %22, %544
   store i64 %545, ptr %543, align 8
-  %546 = getelementptr inbounds i8, ptr %24, i64 16
+  %546 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %546) #14
   %547 = call ptr @xstrdup(ptr noundef nonnull @.str.58) #14
   store ptr %547, ptr %546, align 8
@@ -4167,11 +4167,11 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 556:                                              ; preds = %555
   store i8 1, ptr %25, align 8
-  %557 = getelementptr inbounds i8, ptr %24, i64 40
+  %557 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %558 = load i64, ptr %557, align 8
   %559 = add i64 %22, %558
   store i64 %559, ptr %557, align 8
-  %560 = getelementptr inbounds i8, ptr %24, i64 16
+  %560 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %560) #14
   %561 = call ptr @xstrdup(ptr noundef nonnull @.str.60) #14
   store ptr %561, ptr %560, align 8
@@ -4196,11 +4196,11 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 570:                                              ; preds = %569
   store i8 1, ptr %25, align 8
-  %571 = getelementptr inbounds i8, ptr %24, i64 40
+  %571 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %572 = load i64, ptr %571, align 8
   %573 = add i64 %22, %572
   store i64 %573, ptr %571, align 8
-  %574 = getelementptr inbounds i8, ptr %24, i64 16
+  %574 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %574) #14
   %575 = call ptr @xstrdup(ptr noundef nonnull @.str.62) #14
   store ptr %575, ptr %574, align 8
@@ -4225,11 +4225,11 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 584:                                              ; preds = %583
   store i8 1, ptr %25, align 8
-  %585 = getelementptr inbounds i8, ptr %24, i64 40
+  %585 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %586 = load i64, ptr %585, align 8
   %587 = add i64 %22, %586
   store i64 %587, ptr %585, align 8
-  %588 = getelementptr inbounds i8, ptr %24, i64 16
+  %588 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %588) #14
   %589 = call ptr @xstrdup(ptr noundef nonnull @.str.64) #14
   store ptr %589, ptr %588, align 8
@@ -4245,13 +4245,13 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 .sink.split.i100:                                 ; preds = %592, %578, %564, %550, %536, %522, %508
   %.str.65.sink.i = phi ptr [ @.str.53, %508 ], [ @.str.55, %522 ], [ @.str.57, %536 ], [ @.str.59, %550 ], [ @.str.61, %564 ], [ @.str.63, %578 ], [ @.str.65, %592 ]
-  %595 = getelementptr inbounds i8, ptr %24, i64 8
+  %595 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %596 = load i32, ptr %595, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull %.str.65.sink.i, i32 noundef %596) #14
   br label %_trigger_other_event.exitthread-pre-split
 
 597:                                              ; preds = %28
-  %598 = getelementptr inbounds i8, ptr %24, i64 36
+  %598 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %599 = load i32, ptr %598, align 4
   %600 = and i32 %599, 65536
   %.not.i105 = icmp eq i32 %600, 0
@@ -4263,11 +4263,11 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 602:                                              ; preds = %601
   store i8 1, ptr %25, align 8
-  %603 = getelementptr inbounds i8, ptr %24, i64 40
+  %603 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %604 = load i64, ptr %603, align 8
   %605 = add i64 %22, %604
   store i64 %605, ptr %603, align 8
-  %606 = getelementptr inbounds i8, ptr %24, i64 16
+  %606 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %606) #14
   %607 = call ptr @xstrdup(ptr noundef nonnull @.str.66) #14
   store ptr %607, ptr %606, align 8
@@ -4282,7 +4282,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   br i1 %612, label %613, label %616
 
 613:                                              ; preds = %610
-  %614 = getelementptr inbounds i8, ptr %24, i64 8
+  %614 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %615 = load i32, ptr %614, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.67, i32 noundef %615) #14
   br label %616
@@ -4299,11 +4299,11 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 620:                                              ; preds = %619
   store i8 1, ptr %25, align 8
-  %621 = getelementptr inbounds i8, ptr %24, i64 40
+  %621 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %622 = load i64, ptr %621, align 8
   %623 = add i64 %22, %622
   store i64 %623, ptr %621, align 8
-  %624 = getelementptr inbounds i8, ptr %24, i64 16
+  %624 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %624) #14
   %625 = call ptr @xstrdup(ptr noundef nonnull @.str.68) #14
   store ptr %625, ptr %624, align 8
@@ -4318,13 +4318,13 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   br i1 %630, label %631, label %_trigger_other_event.exitthread-pre-split
 
 631:                                              ; preds = %628
-  %632 = getelementptr inbounds i8, ptr %24, i64 8
+  %632 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %633 = load i32, ptr %632, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.69, i32 noundef %633) #14
   br label %_trigger_other_event.exitthread-pre-split
 
 634:                                              ; preds = %28
-  %635 = getelementptr inbounds i8, ptr %24, i64 36
+  %635 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %636 = load i32, ptr %635, align 4
   %637 = and i32 %636, 262144
   %.not.i106 = icmp eq i32 %637, 0
@@ -4336,11 +4336,11 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 639:                                              ; preds = %638
   store i8 1, ptr %25, align 8
-  %640 = getelementptr inbounds i8, ptr %24, i64 40
+  %640 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %641 = load i64, ptr %640, align 8
   %642 = add i64 %22, %641
   store i64 %642, ptr %640, align 8
-  %643 = getelementptr inbounds i8, ptr %24, i64 16
+  %643 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %643) #14
   %644 = call ptr @xstrdup(ptr noundef nonnull @.str.70) #14
   store ptr %644, ptr %643, align 8
@@ -4365,11 +4365,11 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 653:                                              ; preds = %652
   store i8 1, ptr %25, align 8
-  %654 = getelementptr inbounds i8, ptr %24, i64 40
+  %654 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %655 = load i64, ptr %654, align 8
   %656 = add i64 %22, %655
   store i64 %656, ptr %654, align 8
-  %657 = getelementptr inbounds i8, ptr %24, i64 16
+  %657 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %657) #14
   %658 = call ptr @xstrdup(ptr noundef nonnull @.str.72) #14
   store ptr %658, ptr %657, align 8
@@ -4385,13 +4385,13 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 .sink.split.i109:                                 ; preds = %661, %647
   %.str.73.sink.i = phi ptr [ @.str.71, %647 ], [ @.str.73, %661 ]
-  %664 = getelementptr inbounds i8, ptr %24, i64 8
+  %664 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %665 = load i32, ptr %664, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull %.str.73.sink.i, i32 noundef %665) #14
   br label %_trigger_other_event.exitthread-pre-split
 
 666:                                              ; preds = %28
-  %667 = getelementptr inbounds i8, ptr %24, i64 36
+  %667 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %668 = load i32, ptr %667, align 4
   %669 = and i32 %668, 2
   %670 = icmp ne i32 %669, 0
@@ -4411,7 +4411,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   br label %704
 
 676:                                              ; preds = %673
-  %677 = getelementptr inbounds i8, ptr %24, i64 16
+  %677 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %677) #14
   %678 = load i16, ptr @front_end_node_cnt, align 2
   %.not46.i = icmp eq i16 %678, 0
@@ -4435,7 +4435,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 684:                                              ; preds = %683, %681
   %685 = load ptr, ptr @front_end_nodes, align 8
-  %686 = getelementptr inbounds %struct.front_end_record_t, ptr %685, i64 %indvars.iv.i, i32 14
+  %686 = getelementptr inbounds nuw %struct.front_end_record_t, ptr %685, i64 %indvars.iv.i, i32 14
   %687 = load ptr, ptr %686, align 8
   call void @_xstrcat(ptr noundef nonnull %677, ptr noundef %687) #14
   br label %688
@@ -4449,7 +4449,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 ._crit_edge.i115:                                 ; preds = %688, %676
   store i8 1, ptr %25, align 8
-  %692 = getelementptr inbounds i8, ptr %24, i64 40
+  %692 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %693 = load i64, ptr %692, align 8
   %694 = add i64 %22, %693
   store i64 %694, ptr %692, align 8
@@ -4464,7 +4464,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   br i1 %699, label %700, label %_trigger_other_event.exitthread-pre-split
 
 700:                                              ; preds = %697
-  %701 = getelementptr inbounds i8, ptr %24, i64 8
+  %701 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %702 = load i32, ptr %701, align 8
   %703 = load ptr, ptr %677, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.43, i32 noundef %702, ptr noundef %703) #14
@@ -4486,7 +4486,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   br i1 %.not34.i, label %_trigger_other_event.exitthread-pre-split, label %713
 
 713:                                              ; preds = %710
-  %714 = getelementptr inbounds i8, ptr %24, i64 16
+  %714 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @slurm_xfree(ptr noundef nonnull %714) #14
   %715 = load i16, ptr @front_end_node_cnt, align 2
   %.not47.i = icmp eq i16 %715, 0
@@ -4510,7 +4510,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 721:                                              ; preds = %720, %718
   %722 = load ptr, ptr @front_end_nodes, align 8
-  %723 = getelementptr inbounds %struct.front_end_record_t, ptr %722, i64 %indvars.iv49.i, i32 14
+  %723 = getelementptr inbounds nuw %struct.front_end_record_t, ptr %722, i64 %indvars.iv49.i, i32 14
   %724 = load ptr, ptr %723, align 8
   call void @_xstrcat(ptr noundef nonnull %714, ptr noundef %724) #14
   br label %725
@@ -4524,7 +4524,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
 
 ._crit_edge45.i:                                  ; preds = %725, %713
   store i8 1, ptr %25, align 8
-  %729 = getelementptr inbounds i8, ptr %24, i64 40
+  %729 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %730 = load i64, ptr %729, align 8
   %731 = add i64 %22, %730
   store i64 %731, ptr %729, align 8
@@ -4539,7 +4539,7 @@ _trigger_node_event.exit:                         ; preds = %.thread.i93, %209, 
   br i1 %736, label %737, label %_trigger_other_event.exitthread-pre-split
 
 737:                                              ; preds = %734
-  %738 = getelementptr inbounds i8, ptr %24, i64 8
+  %738 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %739 = load i32, ptr %738, align 8
   %740 = load ptr, ptr %714, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.47, i32 noundef %739, ptr noundef %740) #14
@@ -4557,18 +4557,18 @@ _trigger_other_event.exit:                        ; preds = %_trigger_other_even
   ]
 
 _trigger_other_event.exit._crit_edge:             ; preds = %_trigger_other_event.exit
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %24, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %24, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %873
 
 _trigger_other_event.exit.thread123:              ; preds = %_trigger_other_event.exit
-  %.phi.trans.insert143 = getelementptr inbounds i8, ptr %24, i64 40
+  %.phi.trans.insert143 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %.pre144 = load i64, ptr %.phi.trans.insert143, align 8
   %.not82 = icmp sgt i64 %.pre144, %9
   br i1 %.not82, label %.thread129, label %_trigger_other_event.exit.thread123.thread
 
 _trigger_other_event.exit.thread123.thread:       ; preds = %96, %_trigger_other_event.exit.thread123
-  %742 = getelementptr inbounds i8, ptr %24, i64 40
+  %742 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %743 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %744 = and i64 %743, 4
   %.not85 = icmp eq i64 %744, 0
@@ -4580,21 +4580,21 @@ _trigger_other_event.exit.thread123.thread:       ; preds = %96, %_trigger_other
   br i1 %747, label %748, label %759
 
 748:                                              ; preds = %745
-  %749 = getelementptr inbounds i8, ptr %24, i64 8
+  %749 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %750 = load i32, ptr %749, align 8
-  %751 = getelementptr inbounds i8, ptr %24, i64 48
+  %751 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %752 = load i32, ptr %751, align 8
-  %753 = getelementptr inbounds i8, ptr %24, i64 52
+  %753 = getelementptr inbounds nuw i8, ptr %24, i64 52
   %754 = load i32, ptr %753, align 4
-  %755 = getelementptr inbounds i8, ptr %24, i64 56
+  %755 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %756 = load ptr, ptr %755, align 8
-  %757 = getelementptr inbounds i8, ptr %24, i64 16
+  %757 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %758 = load ptr, ptr %757, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.21, i32 noundef %750, i32 noundef %752, i32 noundef %754, ptr noundef %756, ptr noundef %758) #14
   br label %759
 
 759:                                              ; preds = %_trigger_other_event.exit.thread123.thread, %745, %748
-  %760 = getelementptr inbounds i8, ptr %24, i64 4
+  %760 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %761 = load i16, ptr %760, align 4
   %762 = and i16 %761, 1
   %.not86 = icmp eq i16 %762, 0
@@ -4603,74 +4603,74 @@ _trigger_other_event.exit.thread123.thread:       ; preds = %96, %_trigger_other
 763:                                              ; preds = %759
   %764 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 96, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 1603, ptr noundef nonnull @__func__._trigger_clone) #14
   %765 = load i16, ptr %760, align 4
-  %766 = getelementptr inbounds i8, ptr %764, i64 4
+  %766 = getelementptr inbounds nuw i8, ptr %764, i64 4
   store i16 %765, ptr %766, align 4
-  %767 = getelementptr inbounds i8, ptr %24, i64 8
+  %767 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %768 = load i32, ptr %767, align 8
-  %769 = getelementptr inbounds i8, ptr %764, i64 8
+  %769 = getelementptr inbounds nuw i8, ptr %764, i64 8
   store i32 %768, ptr %769, align 8
-  %770 = getelementptr inbounds i8, ptr %24, i64 12
+  %770 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %771 = load i16, ptr %770, align 4
-  %772 = getelementptr inbounds i8, ptr %764, i64 12
+  %772 = getelementptr inbounds nuw i8, ptr %764, i64 12
   store i16 %771, ptr %772, align 4
-  %773 = getelementptr inbounds i8, ptr %24, i64 80
+  %773 = getelementptr inbounds nuw i8, ptr %24, i64 80
   %774 = load ptr, ptr %773, align 8
   %.not.i117 = icmp eq ptr %774, null
   br i1 %.not.i117, label %781, label %775
 
 775:                                              ; preds = %763
   %776 = call ptr @xstrdup(ptr noundef nonnull %774) #14
-  %777 = getelementptr inbounds i8, ptr %764, i64 16
+  %777 = getelementptr inbounds nuw i8, ptr %764, i64 16
   store ptr %776, ptr %777, align 8
   %778 = load ptr, ptr %773, align 8
   %779 = call ptr @xstrdup(ptr noundef %778) #14
-  %780 = getelementptr inbounds i8, ptr %764, i64 80
+  %780 = getelementptr inbounds nuw i8, ptr %764, i64 80
   store ptr %779, ptr %780, align 8
   br label %781
 
 781:                                              ; preds = %775, %763
-  %782 = getelementptr inbounds i8, ptr %24, i64 72
+  %782 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %783 = load ptr, ptr %782, align 8
   %.not32.i = icmp eq ptr %783, null
   br i1 %.not32.i, label %_trigger_clone.exit, label %784
 
 784:                                              ; preds = %781
   %785 = call ptr @bit_copy(ptr noundef nonnull %783) #14
-  %786 = getelementptr inbounds i8, ptr %764, i64 24
+  %786 = getelementptr inbounds nuw i8, ptr %764, i64 24
   store ptr %785, ptr %786, align 8
   %787 = load ptr, ptr %782, align 8
   %788 = call ptr @bit_copy(ptr noundef %787) #14
-  %789 = getelementptr inbounds i8, ptr %764, i64 72
+  %789 = getelementptr inbounds nuw i8, ptr %764, i64 72
   store ptr %788, ptr %789, align 8
   br label %_trigger_clone.exit
 
 _trigger_clone.exit:                              ; preds = %781, %784
-  %790 = getelementptr inbounds i8, ptr %24, i64 32
+  %790 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %791 = load i32, ptr %790, align 8
-  %792 = getelementptr inbounds i8, ptr %764, i64 32
+  %792 = getelementptr inbounds nuw i8, ptr %764, i64 32
   store i32 %791, ptr %792, align 8
-  %793 = getelementptr inbounds i8, ptr %24, i64 36
+  %793 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %794 = load i32, ptr %793, align 4
-  %795 = getelementptr inbounds i8, ptr %764, i64 36
+  %795 = getelementptr inbounds nuw i8, ptr %764, i64 36
   store i32 %794, ptr %795, align 4
-  %796 = getelementptr inbounds i8, ptr %24, i64 88
+  %796 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %797 = load i64, ptr %796, align 8
-  %798 = getelementptr inbounds i8, ptr %764, i64 40
+  %798 = getelementptr inbounds nuw i8, ptr %764, i64 40
   store i64 %797, ptr %798, align 8
-  %799 = getelementptr inbounds i8, ptr %764, i64 88
+  %799 = getelementptr inbounds nuw i8, ptr %764, i64 88
   store i64 %797, ptr %799, align 8
-  %800 = getelementptr inbounds i8, ptr %24, i64 48
+  %800 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %801 = load i32, ptr %800, align 8
-  %802 = getelementptr inbounds i8, ptr %764, i64 48
+  %802 = getelementptr inbounds nuw i8, ptr %764, i64 48
   store i32 %801, ptr %802, align 8
-  %803 = getelementptr inbounds i8, ptr %24, i64 52
+  %803 = getelementptr inbounds nuw i8, ptr %24, i64 52
   %804 = load i32, ptr %803, align 4
-  %805 = getelementptr inbounds i8, ptr %764, i64 52
+  %805 = getelementptr inbounds nuw i8, ptr %764, i64 52
   store i32 %804, ptr %805, align 4
-  %806 = getelementptr inbounds i8, ptr %24, i64 56
+  %806 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %807 = load ptr, ptr %806, align 8
   %808 = call ptr @xstrdup(ptr noundef %807) #14
-  %809 = getelementptr inbounds i8, ptr %764, i64 56
+  %809 = getelementptr inbounds nuw i8, ptr %764, i64 56
   store ptr %808, ptr %809, align 8
   %810 = load ptr, ptr @trigger_list, align 8
   call void @list_prepend(ptr noundef %810, ptr noundef nonnull %764) #14
@@ -4689,7 +4689,7 @@ _trigger_clone.exit:                              ; preds = %781, %784
   br i1 %812, label %813, label %_trigger_run_program.exit
 
 813:                                              ; preds = %811
-  %814 = getelementptr inbounds i8, ptr %24, i64 56
+  %814 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %815 = load ptr, ptr %814, align 8
   %816 = call ptr @xstrdup(ptr noundef %815) #14
   store ptr %816, ptr %1, align 8
@@ -4699,7 +4699,7 @@ _trigger_clone.exit:                              ; preds = %781, %784
   store ptr %819, ptr %3, align 8
   %820 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %819, i32 noundef 47) #17
   %821 = icmp eq ptr %820, null
-  %822 = getelementptr inbounds i8, ptr %820, i64 1
+  %822 = getelementptr inbounds nuw i8, ptr %820, i64 1
   %.035.i = select i1 %821, ptr %819, ptr %822
   %823 = call ptr @xstrdup(ptr noundef %.035.i) #14
   store ptr %823, ptr %4, align 16
@@ -4713,18 +4713,18 @@ _trigger_clone.exit:                              ; preds = %781, %784
 
 826:                                              ; preds = %824
   %827 = call ptr @xstrdup(ptr noundef nonnull %825) #14
-  %828 = getelementptr inbounds [64 x ptr], ptr %4, i64 0, i64 %indvars.iv.i118
+  %828 = getelementptr inbounds nuw [64 x ptr], ptr %4, i64 0, i64 %indvars.iv.i118
   store ptr %827, ptr %828, align 8
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i118, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i120, 63
   br i1 %exitcond.not.i, label %._crit_edge.i121, label %824, !llvm.loop !21
 
 .loopexit45.i:                                    ; preds = %824
-  %829 = getelementptr inbounds i8, ptr %24, i64 16
+  %829 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %830 = load ptr, ptr %829, align 8
   %831 = call ptr @xstrdup(ptr noundef %830) #14
   %832 = and i64 %indvars.iv.i118, 4294967295
-  %833 = getelementptr inbounds [64 x ptr], ptr %4, i64 0, i64 %832
+  %833 = getelementptr inbounds nuw [64 x ptr], ptr %4, i64 0, i64 %832
   store ptr %831, ptr %833, align 8
   %834 = icmp samesign ult i64 %indvars.iv.i118, 63
   br i1 %834, label %.lr.ph.preheader.i, label %._crit_edge.i121
@@ -4738,9 +4738,9 @@ _trigger_clone.exit:                              ; preds = %781, %784
 
 ._crit_edge.i121:                                 ; preds = %826, %.lr.ph.preheader.i, %.loopexit45.i
   call void @slurm_xfree(ptr noundef nonnull %1) #14
-  %837 = getelementptr inbounds i8, ptr %24, i64 48
+  %837 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %838 = load i32, ptr %837, align 8
-  %839 = getelementptr inbounds i8, ptr %24, i64 52
+  %839 = getelementptr inbounds nuw i8, ptr %24, i64 52
   %840 = load i32, ptr %839, align 4
   %841 = call ptr @uid_to_string(i32 noundef %838) #14
   store ptr %841, ptr %5, align 8
@@ -4810,7 +4810,7 @@ _trigger_clone.exit:                              ; preds = %781, %784
 
 871:                                              ; preds = %871, %870
   %indvars.iv56.i = phi i64 [ 0, %870 ], [ %indvars.iv.next57.i, %871 ]
-  %872 = getelementptr inbounds [64 x ptr], ptr %4, i64 0, i64 %indvars.iv56.i
+  %872 = getelementptr inbounds nuw [64 x ptr], ptr %4, i64 0, i64 %indvars.iv56.i
   call void @slurm_xfree(ptr noundef nonnull %872) #14
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next57.i, 64
@@ -4851,12 +4851,12 @@ _trigger_run_program.exit:                        ; preds = %871, %811
   br i1 %888, label %889, label %902
 
 889:                                              ; preds = %886
-  %890 = getelementptr inbounds i8, ptr %24, i64 48
+  %890 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %891 = load i32, ptr %890, align 8
-  %892 = getelementptr inbounds i8, ptr %24, i64 12
+  %892 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %893 = load i16, ptr %892, align 4
   %894 = call ptr @trigger_res_type(i16 noundef zeroext %893) #14
-  %895 = getelementptr inbounds i8, ptr %24, i64 36
+  %895 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %896 = load i32, ptr %895, align 4
   %897 = call ptr @trigger_type(i32 noundef %896) #14
   %898 = load i32, ptr %8, align 4
@@ -4901,7 +4901,7 @@ thread-pre-split:                                 ; preds = %907, %905
   br i1 %917, label %918, label %921
 
 918:                                              ; preds = %915
-  %919 = getelementptr inbounds i8, ptr %24, i64 8
+  %919 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %920 = load i32, ptr %919, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.23, i32 noundef %920) #14
   br label %921
@@ -4924,12 +4924,12 @@ thread-pre-split:                                 ; preds = %907, %905
   br i1 %930, label %931, label %944
 
 931:                                              ; preds = %928
-  %932 = getelementptr inbounds i8, ptr %24, i64 48
+  %932 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %933 = load i32, ptr %932, align 8
-  %934 = getelementptr inbounds i8, ptr %24, i64 12
+  %934 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %935 = load i16, ptr %934, align 4
   %936 = call ptr @trigger_res_type(i16 noundef zeroext %935) #14
-  %937 = getelementptr inbounds i8, ptr %24, i64 36
+  %937 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %938 = load i32, ptr %937, align 4
   %939 = call ptr @trigger_type(i32 noundef %938) #14
   %940 = load i32, ptr %8, align 4

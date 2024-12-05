@@ -24,10 +24,10 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body, %entry
   %call1 = call i32 @clock_gettime(i32 noundef 2, ptr noundef nonnull %end) #6
   %start.val = load i64, ptr %start, align 8
-  %0 = getelementptr inbounds i8, ptr %start, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %start, i64 8
   %start.val3 = load i64, ptr %0, align 8
   %end.val = load i64, ptr %end, align 8
-  %1 = getelementptr inbounds i8, ptr %end, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %end, i64 8
   %end.val4 = load i64, ptr %1, align 8
   %sub.i = sub i64 %end.val4, %start.val3
   %cmp.i = icmp slt i64 %sub.i, 0
@@ -53,7 +53,7 @@ define dso_local void @benchmark_stats(ptr nocapture noundef %stats) local_unnam
 entry:
   %start.i = alloca %struct.timespec, align 8
   %end.i = alloca %struct.timespec, align 8
-  %run_count = getelementptr inbounds i8, ptr %stats, i64 8
+  %run_count = getelementptr inbounds nuw i8, ptr %stats, i64 8
   %0 = load i32, ptr %run_count, align 8
   %1 = zext i32 %0 to i64
   %vla = alloca double, i64 %1, align 16
@@ -61,9 +61,9 @@ entry:
   br i1 %cmp40.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %loop_count = getelementptr inbounds i8, ptr %stats, i64 12
-  %2 = getelementptr inbounds i8, ptr %start.i, i64 8
-  %3 = getelementptr inbounds i8, ptr %end.i, i64 8
+  %loop_count = getelementptr inbounds nuw i8, ptr %stats, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %start.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %end.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %benchmark_function.exit
@@ -104,7 +104,7 @@ benchmark_function.exit:                          ; preds = %for.body.i, %for.bo
   %div.i = fdiv double %8, %conv.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %start.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %end.i)
-  %arrayidx = getelementptr inbounds double, ptr %vla, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw double, ptr %vla, i64 %indvars.iv
   store double %div.i, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %run_count, align 8
@@ -120,9 +120,9 @@ for.end:                                          ; preds = %entry, %for.end.loo
   %.lcssa39 = phi i64 [ %11, %for.end.loopexit ], [ 0, %entry ]
   call void @qsort(ptr noundef nonnull %vla, i64 noundef %.lcssa39, i64 noundef 8, ptr noundef nonnull @double_cmp) #6
   %12 = load double, ptr %vla, align 16
-  %max_time = getelementptr inbounds i8, ptr %stats, i64 40
+  %max_time = getelementptr inbounds nuw i8, ptr %stats, i64 40
   store double %12, ptr %max_time, align 8
-  %min_time = getelementptr inbounds i8, ptr %stats, i64 16
+  %min_time = getelementptr inbounds nuw i8, ptr %stats, i64 16
   store double %12, ptr %min_time, align 8
   %13 = load i32, ptr %run_count, align 8
   %cmp642.not = icmp eq i32 %13, 0
@@ -131,7 +131,7 @@ for.end:                                          ; preds = %entry, %for.end.loo
 for.end35.thread:                                 ; preds = %for.end
   %conv3752 = uitofp nneg i32 %13 to double
   %div53 = fdiv double 0.000000e+00, %conv3752
-  %mean_time54 = getelementptr inbounds i8, ptr %stats, i64 24
+  %mean_time54 = getelementptr inbounds nuw i8, ptr %stats, i64 24
   store double %div53, ptr %mean_time54, align 8
   br label %if.else
 
@@ -144,7 +144,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %14 = phi double [ %12, %for.body8.lr.ph ], [ %cond29, %for.body8 ]
   %15 = phi double [ %12, %for.body8.lr.ph ], [ %., %for.body8 ]
   %sum.043 = phi double [ 0.000000e+00, %for.body8.lr.ph ], [ %add, %for.body8 ]
-  %arrayidx11 = getelementptr inbounds double, ptr %vla, i64 %indvars.iv48
+  %arrayidx11 = getelementptr inbounds nuw double, ptr %vla, i64 %indvars.iv48
   %16 = load double, ptr %arrayidx11, align 8
   %cmp12 = fcmp olt double %15, %16
   %. = select i1 %cmp12, double %15, double %16
@@ -160,7 +160,7 @@ for.end35:                                        ; preds = %for.body8
   store double %cond29, ptr %max_time, align 8
   %conv37 = uitofp i32 %13 to double
   %div = fdiv double %add, %conv37
-  %mean_time = getelementptr inbounds i8, ptr %stats, i64 24
+  %mean_time = getelementptr inbounds nuw i8, ptr %stats, i64 24
   store double %div, ptr %mean_time, align 8
   %and = and i32 %13, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -170,18 +170,18 @@ if.then:                                          ; preds = %for.end35
   %add40 = add i32 %13, 1
   %div4138 = lshr exact i32 %add40, 1
   %idxprom42 = zext nneg i32 %div4138 to i64
-  %arrayidx43 = getelementptr inbounds double, ptr %vla, i64 %idxprom42
+  %arrayidx43 = getelementptr inbounds nuw double, ptr %vla, i64 %idxprom42
   %17 = load double, ptr %arrayidx43, align 8
   br label %if.end
 
 if.else:                                          ; preds = %for.end35.thread, %for.end35
   %div4537 = lshr exact i32 %13, 1
   %idxprom46 = zext nneg i32 %div4537 to i64
-  %arrayidx47 = getelementptr inbounds double, ptr %vla, i64 %idxprom46
+  %arrayidx47 = getelementptr inbounds nuw double, ptr %vla, i64 %idxprom46
   %18 = load double, ptr %arrayidx47, align 8
   %add50 = add nuw i32 %div4537, 1
   %idxprom51 = zext i32 %add50 to i64
-  %arrayidx52 = getelementptr inbounds double, ptr %vla, i64 %idxprom51
+  %arrayidx52 = getelementptr inbounds nuw double, ptr %vla, i64 %idxprom51
   %19 = load double, ptr %arrayidx52, align 8
   %add53 = fadd double %18, %19
   %mul = fmul double %add53, 5.000000e-01
@@ -189,7 +189,7 @@ if.else:                                          ; preds = %for.end35.thread, %
 
 if.end:                                           ; preds = %if.else, %if.then
   %.sink = phi double [ %mul, %if.else ], [ %17, %if.then ]
-  %20 = getelementptr inbounds i8, ptr %stats, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %stats, i64 32
   store double %.sink, ptr %20, align 8
   ret void
 }

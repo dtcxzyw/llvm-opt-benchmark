@@ -69,10 +69,10 @@ define void @_ZN5boost6fibers4algo11shared_work8awakenedEPNS0_7contextE(ptr noun
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !49
-  %12 = getelementptr inbounds i8, ptr %1, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %11, ptr %12, align 8, !tbaa !49
   store ptr %8, ptr %9, align 8, !tbaa !50
   store ptr %9, ptr %10, align 8, !tbaa !49
@@ -182,11 +182,11 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6fibers4algo11shared_work7rqueue_E, i64 24), align 8, !tbaa !57
   tail call void @_ZdlPvm(ptr noundef %14, i64 noundef 512) #19
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6fibers4algo11shared_work7rqueue_E, i64 40), align 8, !tbaa !58
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6fibers4algo11shared_work7rqueue_E, i64 40), align 8, !tbaa !59
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6fibers4algo11shared_work7rqueue_E, i64 24), align 8, !tbaa !60
-  %18 = getelementptr inbounds i8, ptr %17, i64 512
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 512
   store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6fibers4algo11shared_work7rqueue_E, i64 32), align 8, !tbaa !61
   br label %19
 
@@ -265,7 +265,7 @@ define void @_ZN5boost6fibers4algo11shared_work13suspend_untilERKNSt6chrono10tim
 14:                                               ; preds = %10
   store i8 1, ptr %12, align 8, !tbaa !80
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %16 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.val.val2.i = load i8, ptr %16, align 8, !tbaa !81, !range !75, !noundef !76
   %17 = trunc nuw i8 %.val.val2.i to i1
   br i1 %17, label %"_ZNSt18condition_variable4waitIZN5boost6fibers4algo11shared_work13suspend_untilERKNSt6chrono10time_pointINS5_3_V212steady_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", label %.lr.ph.i
@@ -318,7 +318,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_v
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit7:        ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %31
 
@@ -431,7 +431,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIPN5boost6fibers7contextESaIS3_EED2E
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !58
   %7 = load ptr, ptr %4, align 8, !tbaa !89
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = icmp ult ptr %6, %8
   br i1 %9, label %.lr.ph.i.i, label %_ZNSt11_Deque_baseIPN5boost6fibers7contextESaIS3_EE16_M_destroy_nodesEPPS3_S7_.exit.i
 
@@ -635,7 +635,7 @@ _ZNSt11_Deque_baseIPN5boost6fibers7contextESaIS3_EE15_M_create_nodesEPPS3_S7_.ex
   %39 = load ptr, ptr %10, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %39, ptr %40, align 8, !tbaa !60
-  %41 = getelementptr inbounds i8, ptr %39, i64 512
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 512
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %41, ptr %42, align 8, !tbaa !61
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -645,7 +645,7 @@ _ZNSt11_Deque_baseIPN5boost6fibers7contextESaIS3_EE15_M_create_nodesEPPS3_S7_.ex
   %46 = load ptr, ptr %44, align 8, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %46, ptr %47, align 8, !tbaa !60
-  %48 = getelementptr inbounds i8, ptr %46, i64 512
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 512
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %48, ptr %49, align 8, !tbaa !61
   store ptr %39, ptr %37, align 8, !tbaa !62
@@ -748,17 +748,17 @@ define linkonce_odr void @_ZNSt5dequeIPN5boost6fibers7contextESaIS3_EE16_M_push_
 _ZNSt5dequeIPN5boost6fibers7contextESaIS3_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
   %44 = phi ptr [ %6, %34 ], [ %.pre, %43 ]
   %45 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !3
   %47 = load ptr, ptr %3, align 8, !tbaa !51
   %48 = load ptr, ptr %1, align 8, !tbaa !3
   store ptr %48, ptr %47, align 8, !tbaa !3
   %49 = load ptr, ptr %5, align 8, !tbaa !89
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %50, ptr %5, align 8, !tbaa !59
   %51 = load ptr, ptr %50, align 8, !tbaa !3
   store ptr %51, ptr %17, align 8, !tbaa !60
-  %52 = getelementptr inbounds i8, ptr %51, i64 512
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 512
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %52, ptr %53, align 8, !tbaa !61
   store ptr %51, ptr %3, align 8, !tbaa !51
@@ -794,7 +794,7 @@ define linkonce_odr void @_ZNSt5dequeIPN5boost6fibers7contextESaIS3_EE17_M_reall
   %23 = select i1 %2, i64 %1, i64 0
   %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
   br i1 %25, label %27, label %31
 
@@ -847,7 +847,7 @@ _ZNSt11_Deque_baseIPN5boost6fibers7contextESaIS3_EE15_M_allocate_mapEm.exit: ; p
   %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
   %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN5boost6fibers7contextES5_ET0_T_S7_S6_.exit26, label %53
 
@@ -871,7 +871,7 @@ _ZSt4copyIPPPN5boost6fibers7contextES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %2
   %58 = load ptr, ptr %.0, align 8, !tbaa !3
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %58, ptr %59, align 8, !tbaa !60
-  %60 = getelementptr inbounds i8, ptr %58, i64 512
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !61
   %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
@@ -880,7 +880,7 @@ _ZSt4copyIPPPN5boost6fibers7contextES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %2
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %64, ptr %65, align 8, !tbaa !60
-  %66 = getelementptr inbounds i8, ptr %64, i64 512
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 512
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %66, ptr %67, align 8, !tbaa !61
   ret void

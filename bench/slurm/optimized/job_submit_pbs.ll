@@ -81,7 +81,7 @@ define noundef i32 @job_submit(ptr noundef %0, i32 noundef %1) local_unnamed_add
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %10 = load ptr, ptr %9, align 8
   %.not42 = icmp eq ptr %10, null
   br i1 %.not42, label %_add_env2.exit, label %11
@@ -96,7 +96,7 @@ define noundef i32 @job_submit(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %or.cond.i.i, label %16, label %_add_env.exit.i
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 276
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 2
   %20 = zext i32 %19 to i64
@@ -106,7 +106,7 @@ define noundef i32 @job_submit(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %24 = load ptr, ptr %9, align 8
   %25 = load i32, ptr %17, align 4
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
   store ptr %23, ptr %27, align 8
   %28 = load i32, ptr %17, align 4
   %29 = add i32 %28, 1
@@ -122,7 +122,7 @@ _add_env2.exit:                                   ; preds = %8, %_add_env.exit.i
   br label %30
 
 30:                                               ; preds = %2, %_add_env2.exit
-  %31 = getelementptr inbounds i8, ptr %0, i64 480
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %32 = load ptr, ptr %31, align 8
   %.not33 = icmp eq ptr %32, null
   br i1 %.not33, label %55, label %33
@@ -130,7 +130,7 @@ _add_env2.exit:                                   ; preds = %8, %_add_env.exit.i
 33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 232
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %35 = load ptr, ptr %34, align 8
   %.not43 = icmp eq ptr %35, null
   br i1 %.not43, label %_add_env2.exit41, label %36
@@ -145,7 +145,7 @@ _add_env2.exit:                                   ; preds = %8, %_add_env.exit.i
   br i1 %or.cond.i.i39, label %41, label %_add_env.exit.i40
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 276
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 2
   %45 = zext i32 %44 to i64
@@ -155,7 +155,7 @@ _add_env2.exit:                                   ; preds = %8, %_add_env.exit.i
   %49 = load ptr, ptr %34, align 8
   %50 = load i32, ptr %42, align 4
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
   store ptr %48, ptr %52, align 8
   %53 = load i32, ptr %42, align 4
   %54 = add i32 %53, 1
@@ -171,11 +171,11 @@ _add_env2.exit41:                                 ; preds = %33, %_add_env.exit.
   br label %55
 
 55:                                               ; preds = %_add_env2.exit41, %30
-  %56 = getelementptr inbounds i8, ptr %0, i64 840
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %57 = load ptr, ptr %56, align 8
   %.not34 = icmp eq ptr %57, null
   %.str.2. = select i1 %.not34, ptr @.str.2, ptr %57
-  %58 = getelementptr inbounds i8, ptr %0, i64 120
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %59 = load ptr, ptr %58, align 8
   %.not35 = icmp eq ptr %59, null
   br i1 %.not35, label %61, label %60
@@ -191,7 +191,7 @@ _add_env2.exit41:                                 ; preds = %33, %_add_env.exit.
   br i1 %.not36, label %67, label %63
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 728
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %65 = load ptr, ptr %64, align 8
   %.not37 = icmp eq ptr %65, null
   br i1 %.not37, label %67, label %66
@@ -212,7 +212,7 @@ _add_env2.exit41:                                 ; preds = %33, %_add_env.exit.
   %71 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) @.str.6) #14
   store i8 0, ptr %71, align 1
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.7, i32 noundef %6) #13
-  %72 = getelementptr inbounds i8, ptr %68, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 2
   call void @slurm_xstrcat(ptr noundef nonnull %5, ptr noundef nonnull %72) #13
   %73 = load ptr, ptr %5, align 8
   call void @slurm_xstrcat(ptr noundef nonnull %58, ptr noundef %73) #13
@@ -241,7 +241,7 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   %11 = alloca ptr, align 8
   store ptr null, ptr %10, align 8
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 216
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %156, label %14
@@ -252,8 +252,8 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   br i1 %.not2039, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 504
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %18
 
 18:                                               ; preds = %.lr.ph, %153
@@ -379,7 +379,7 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   br label %144
 
 61:                                               ; preds = %.lr.ph.i
-  %62 = getelementptr inbounds i8, ptr %56, i64 1064
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 1064
   %63 = load i32, ptr %62, align 8
   %.not63.i = icmp eq i32 %1, %63
   br i1 %.not63.i, label %71, label %64
@@ -389,21 +389,21 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   br i1 %65, label %71, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %56, i64 392
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 392
   %68 = load i32, ptr %67, align 8
   %69 = load i32, ptr %62, align 8
   %70 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.25, ptr noundef nonnull @plugin_type, i32 noundef %1, i32 noundef %68, i32 noundef %69) #13
   br label %144
 
 71:                                               ; preds = %64, %61
-  %72 = getelementptr inbounds i8, ptr %56, i64 448
+  %72 = getelementptr inbounds nuw i8, ptr %56, i64 448
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 255
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %56, i64 216
+  %77 = getelementptr inbounds nuw i8, ptr %56, i64 216
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %86
@@ -414,13 +414,13 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   br i1 %82, label %83, label %144
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %56, i64 392
+  %84 = getelementptr inbounds nuw i8, ptr %56, i64 392
   %85 = load i32, ptr %84, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.26, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._xlate_before, ptr noundef nonnull @plugin_type, i32 noundef %85) #13
   br label %144
 
 86:                                               ; preds = %76
-  %87 = getelementptr inbounds i8, ptr %78, i64 128
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 128
   %88 = load ptr, ptr %87, align 8
   %.not64.i = icmp eq ptr %88, null
   br i1 %.not64.i, label %90, label %89
@@ -433,17 +433,17 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
 90:                                               ; preds = %89, %86
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.27, ptr noundef nonnull %.043.i, i32 noundef %2) #13
   %91 = load ptr, ptr %77, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 128
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 128
   call void @slurm_xfree(ptr noundef nonnull %92) #13
   %93 = load ptr, ptr %7, align 8
   %94 = load ptr, ptr %77, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 128
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 128
   store ptr %93, ptr %95, align 8
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %96 = getelementptr inbounds i8, ptr %56, i64 144
+  %96 = getelementptr inbounds nuw i8, ptr %56, i64 144
   %97 = load ptr, ptr %96, align 8
   %.not.i.i = icmp eq ptr %97, null
   br i1 %.not.i.i, label %.thread.i.i, label %98
@@ -459,13 +459,13 @@ define internal fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %1, i
   br i1 %101, label %102, label %_decr_depend_cnt.exit.i
 
 102:                                              ; preds = %.thread.i.i
-  %103 = getelementptr inbounds i8, ptr %56, i64 392
+  %103 = getelementptr inbounds nuw i8, ptr %56, i64 392
   %104 = load i32, ptr %103, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.35, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._decr_depend_cnt, ptr noundef nonnull @plugin_type, i32 noundef %104) #13
   br label %_decr_depend_cnt.exit.i
 
 105:                                              ; preds = %98
-  %106 = getelementptr inbounds i8, ptr %99, i64 3
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 3
   %107 = call i64 @strtol(ptr noundef nonnull %106, ptr noundef nonnull %5, i32 noundef 10) #13
   %108 = trunc i64 %107 to i32
   %109 = icmp sgt i32 %108, 0
@@ -611,16 +611,16 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define noundef i32 @job_modify(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %7 = load i32, ptr %6, align 8
   tail call fastcc void @_xlate_dependency(ptr noundef %0, i32 noundef %2, i32 noundef %7)
-  %8 = getelementptr inbounds i8, ptr %0, i64 840
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %35, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %12 = load ptr, ptr %11, align 8
   %.not24 = icmp eq ptr %12, null
   br i1 %.not24, label %14, label %13
@@ -637,13 +637,13 @@ define noundef i32 @job_modify(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %.not25, label %24, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 216
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %19 = load ptr, ptr %18, align 8
   %.not26 = icmp eq ptr %19, null
   br i1 %.not26, label %24, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 472
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 472
   %22 = load ptr, ptr %21, align 8
   %.not27 = icmp eq ptr %22, null
   br i1 %.not27, label %24, label %23
@@ -667,7 +667,7 @@ define noundef i32 @job_modify(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   store i8 0, ptr %29, align 1
   %30 = load i32, ptr %6, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.7, i32 noundef %30) #13
-  %31 = getelementptr inbounds i8, ptr %26, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 2
   call void @slurm_xstrcat(ptr noundef nonnull %5, ptr noundef nonnull %31) #13
   %32 = load ptr, ptr %5, align 8
   call void @slurm_xstrcat(ptr noundef nonnull %11, ptr noundef %32) #13
@@ -741,7 +741,7 @@ define internal noalias noundef ptr @_dep_agent(ptr noundef %0) #1 {
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load ptr, ptr %6, align 8
   %.not15 = icmp eq ptr %7, null
   br i1 %.not15, label %.critedge, label %8
@@ -752,7 +752,7 @@ define internal noalias noundef ptr @_dep_agent(ptr noundef %0) #1 {
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load ptr, ptr %12, align 8
   %.not16 = icmp eq ptr %13, null
   br i1 %.not16, label %.critedge, label %14
@@ -763,7 +763,7 @@ define internal noalias noundef ptr @_dep_agent(ptr noundef %0) #1 {
   br i1 %.not17, label %.critedge, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %7, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %3, align 8
   store ptr null, ptr %17, align 8
@@ -771,7 +771,7 @@ define internal noalias noundef ptr @_dep_agent(ptr noundef %0) #1 {
   call void @slurm_xfree(ptr noundef nonnull %3) #13
   %20 = load ptr, ptr %12, align 8
   %21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.11) #14
-  %22 = getelementptr inbounds i8, ptr %21, i64 3
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 3
   %23 = call i64 @strtol(ptr noundef nonnull %22, ptr noundef nonnull %2, i32 noundef 10) #13
   %24 = and i64 %23, 4294967295
   %25 = icmp eq i64 %24, 0

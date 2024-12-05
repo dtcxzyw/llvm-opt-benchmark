@@ -31,19 +31,19 @@ $_ZN5ZXing9BitMatrixC2Eii = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonnull writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8
   tail call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %5, i32 noundef %7)
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
-  %9 = getelementptr inbounds i8, ptr %1, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i32, ptr %13, align 8
   %15 = load i32, ptr %4, align 4
   %16 = icmp eq i32 %14, %15
@@ -59,7 +59,7 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   br i1 %.not52, label %.loopexit, label %.lr.ph55.preheader
 
 .lr.ph55.preheader:                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   br label %.lr.ph55
 
@@ -70,21 +70,21 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   %.not22 = icmp ule i8 %25, %2
   %26 = sext i1 %.not22 to i8
   store i8 %26, ptr %.02054, align 1
-  %27 = getelementptr inbounds i8, ptr %.02153, i64 1
-  %28 = getelementptr inbounds i8, ptr %.02054, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.02153, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.02054, i64 1
   %.not = icmp eq ptr %27, %22
   br i1 %.not, label %.loopexit, label %.lr.ph55, !llvm.loop !4
 
 29:                                               ; preds = %12, %3
-  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
-  %34 = getelementptr inbounds i8, ptr %1, i64 32
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %36
 
 36:                                               ; preds = %.lr.ph, %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit"
@@ -98,7 +98,7 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   %43 = lshr i32 %42, 8
   %44 = and i32 %43, 255
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %41, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 %45
   %47 = load i32, ptr %9, align 4
   %.val26.val = load i32, ptr %0, align 8
   %.val26.val28 = load ptr, ptr %35, align 8
@@ -128,8 +128,8 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   %.not12.i = icmp ule i8 %57, %2
   %58 = sext i1 %.not12.i to i8
   store i8 %58, ptr %.0112.i, align 1
-  %59 = getelementptr inbounds i8, ptr %.03.i, i64 1
-  %60 = getelementptr inbounds i8, ptr %.0112.i, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.03.i, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.0112.i, i64 1
   %.not.i = icmp eq ptr %60, %51
   br i1 %.not.i, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %56
 
@@ -149,8 +149,8 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   %.not12.i35 = icmp ule i8 %66, %2
   %67 = sext i1 %.not12.i35 to i8
   store i8 %67, ptr %.0112.i34, align 1
-  %68 = getelementptr inbounds i8, ptr %.03.i33, i64 4
-  %69 = getelementptr inbounds i8, ptr %.0112.i34, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.03.i33, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.0112.i34, i64 1
   %.not.i36 = icmp eq ptr %69, %51
   br i1 %.not.i36, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %65
 
@@ -172,7 +172,7 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   %77 = sext i1 %.not12.i42 to i8
   store i8 %77, ptr %.0112.i41, align 1
   %78 = getelementptr inbounds i8, ptr %.03.i40, i64 %74
-  %79 = getelementptr inbounds i8, ptr %.0112.i41, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.0112.i41, i64 1
   %.not.i43 = icmp eq ptr %79, %51
   br i1 %.not.i43, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %75
 
@@ -188,9 +188,9 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = mul nsw i32 %2, %1
   %7 = sext i32 %6 to i64
   %8 = icmp slt i32 %6, 0
@@ -206,16 +206,16 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i, label %.noexc15
 
 _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %15
 
 .noexc15:                                         ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #16
   store ptr %10, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %12, ptr %13, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %7, i1 false)
   %14 = ptrtoint ptr %10 to i64
@@ -282,17 +282,17 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ZXing12BinaryBitmapC2ERKNS_9ImageViewE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 18), (24, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ZXing12BinaryBitmapE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #16
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr %4, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
@@ -306,19 +306,19 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5ZXing12BinaryBitmapD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ZXing12BinaryBitmapE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load atomic i64, ptr %8 acquire, align 8
   %10 = icmp eq i64 %9, 4294967297
   %11 = trunc i64 %9 to i32
@@ -326,10 +326,10 @@ define void @_ZN5ZXing12BinaryBitmapD2Ev(ptr nocapture noundef nonnull align 8 d
 
 12:                                               ; preds = %7
   store i32 0, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -355,10 +355,10 @@ define void @_ZN5ZXing12BinaryBitmapD2Ev(ptr nocapture noundef nonnull align 8 d
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
-  %29 = getelementptr inbounds i8, ptr %6, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %30, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %34, label %31
@@ -380,7 +380,7 @@ define void @_ZN5ZXing12BinaryBitmapD2Ev(ptr nocapture noundef nonnull align 8 d
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %36, %12
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
   br label %_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i
@@ -407,7 +407,7 @@ declare void @llvm.trap() #5
 define noundef ptr @_ZNK5ZXing12BinaryBitmap12getBitMatrixEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon.7, align 8
   %3 = alloca %class.anon.2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %0, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -442,24 +442,24 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %1
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5ZXing12BinaryBitmap6invertEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_ZN5ZXing9BitMatrix7flipAllEv.exit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not89.i = icmp eq ptr %8, %10
   br i1 %.not89.i, label %_ZN5ZXing9BitMatrix7flipAllEv.exit, label %.lr.ph.i
@@ -470,12 +470,12 @@ define void @_ZN5ZXing12BinaryBitmap6invertEv(ptr nocapture noundef nonnull alig
   %.not.i = icmp eq i8 %11, 0
   %12 = sext i1 %.not.i to i8
   store i8 %12, ptr %.sroa.05.010.i, align 1
-  %13 = getelementptr inbounds i8, ptr %.sroa.05.010.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i, i64 1
   %.not8.i = icmp eq ptr %13, %10
   br i1 %.not8.i, label %_ZN5ZXing9BitMatrix7flipAllEv.exit, label %.lr.ph.i
 
 _ZN5ZXing9BitMatrix7flipAllEv.exit:               ; preds = %.lr.ph.i, %6, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %14, align 8
   ret void
 }
@@ -483,32 +483,32 @@ _ZN5ZXing9BitMatrix7flipAllEv.exit:               ; preds = %.lr.ph.i, %6, %1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.ZXing::BitMatrix", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %_ZN5ZXing9BitMatrixD2Ev.exit, label %7
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
   call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %8, i32 noundef %10)
   %11 = getelementptr i8, ptr %6, i64 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %2, align 8
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %13, i64 %15
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, -1
   %20 = mul nsw i32 %19, %14
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %13, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -1
-  %.02412.i = getelementptr inbounds i8, ptr %16, i64 1
+  %.02412.i = getelementptr inbounds nuw i8, ptr %16, i64 1
   %.not13.i = icmp eq ptr %.02412.i, %23
   br i1 %.not13.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit", label %.preheader.preheader.i
 
@@ -532,13 +532,13 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
 29:                                               ; preds = %29, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %29 ]
   %.02210.i = phi i32 [ 0, %.preheader.i ], [ %41, %29 ]
-  %30 = getelementptr inbounds i8, ptr %.02316.i, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw i8, ptr %.02316.i, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %.02614.i, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw i8, ptr %.02614.i, i64 %indvars.iv.i
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %.02515.i, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw i8, ptr %.02515.i, i64 %indvars.iv.i
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = add nuw nsw i32 %.02210.i, %32
@@ -552,10 +552,10 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
   %.not9.i = icmp ne i32 %41, 0
   %43 = sext i1 %.not9.i to i8
   store i8 %43, ptr %.02417.i, align 1
-  %44 = getelementptr inbounds i8, ptr %.02316.i, i64 1
-  %45 = getelementptr inbounds i8, ptr %.02614.i, i64 1
-  %46 = getelementptr inbounds i8, ptr %.02515.i, i64 1
-  %.024.i = getelementptr inbounds i8, ptr %.02417.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.02316.i, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.02614.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.02515.i, i64 1
+  %.024.i = getelementptr inbounds nuw i8, ptr %.02417.i, i64 1
   %.not.i = icmp eq ptr %.024.i, %23
   br i1 %.not.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", label %.preheader.i, !llvm.loop !8
 
@@ -575,7 +575,7 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i8, ptr %47, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 -1
-  %.02411.i = getelementptr inbounds i8, ptr %50, i64 1
+  %.02411.i = getelementptr inbounds nuw i8, ptr %50, i64 1
   %.not12.i = icmp eq ptr %.02411.i, %56
   br i1 %.not12.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit", label %.preheader.preheader.i9
 
@@ -598,13 +598,13 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
 62:                                               ; preds = %62, %.preheader.i10
   %indvars.iv.i11 = phi i64 [ 0, %.preheader.i10 ], [ %indvars.iv.next.i12, %62 ]
   %.0229.i = phi i32 [ 0, %.preheader.i10 ], [ %74, %62 ]
-  %63 = getelementptr inbounds i8, ptr %.02315.i, i64 %indvars.iv.i11
+  %63 = getelementptr inbounds nuw i8, ptr %.02315.i, i64 %indvars.iv.i11
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %.02613.i, i64 %indvars.iv.i11
+  %66 = getelementptr inbounds nuw i8, ptr %.02613.i, i64 %indvars.iv.i11
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %.02514.i, i64 %indvars.iv.i11
+  %69 = getelementptr inbounds nuw i8, ptr %.02514.i, i64 %indvars.iv.i11
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = add nuw nsw i32 %.0229.i, %65
@@ -618,10 +618,10 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
   %76 = icmp eq i32 %74, 2295
   %77 = sext i1 %76 to i8
   store i8 %77, ptr %.02416.i, align 1
-  %78 = getelementptr inbounds i8, ptr %.02315.i, i64 1
-  %79 = getelementptr inbounds i8, ptr %.02613.i, i64 1
-  %80 = getelementptr inbounds i8, ptr %.02514.i, i64 1
-  %.024.i14 = getelementptr inbounds i8, ptr %.02416.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.02315.i, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.02613.i, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.02514.i, i64 1
+  %.024.i14 = getelementptr inbounds nuw i8, ptr %.02416.i, i64 1
   %.not.i15 = icmp eq ptr %.024.i14, %56
   br i1 %.not.i15, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", label %.preheader.i10, !llvm.loop !10
 
@@ -639,7 +639,7 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
   br label %_ZN5ZXing9BitMatrixD2Ev.exit
 
 _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %82, %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit", %1
-  %83 = getelementptr inbounds i8, ptr %0, i64 17
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 1, ptr %83, align 1
   ret void
 }
@@ -686,22 +686,22 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5
   %4 = load ptr, ptr %.val.val.i, align 8
   %5 = load ptr, ptr %4, align 8
   call void %5(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %1, ptr noundef nonnull align 8 dereferenceable(56) %.val.val.i)
-  %6 = getelementptr inbounds i8, ptr %.val.val.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.val.val.i, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store ptr %9, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load ptr, ptr %12, align 8
   store ptr %11, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i, label %14
 
 14:                                               ; preds = %0
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load atomic i64, ptr %15 acquire, align 8
   %17 = icmp eq i64 %16, 4294967297
   %18 = trunc i64 %16 to i32
@@ -709,10 +709,10 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5
 
 19:                                               ; preds = %14
   store i32 0, ptr %15, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %20, align 4
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(16) %13) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i
@@ -738,10 +738,10 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %13, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(16) %13) #17
-  %36 = getelementptr inbounds i8, ptr %13, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %37 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %37, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %41, label %38
@@ -763,7 +763,7 @@ define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i: ; preds = %43, %19
   %45 = load ptr, ptr %13, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %13) #17
   br label %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i
@@ -774,7 +774,7 @@ _ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i: ; preds = %_ZNSt16
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit", label %49
 
 49:                                               ; preds = %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load atomic i64, ptr %50 acquire, align 8
   %52 = icmp eq i64 %51, 4294967297
   %53 = trunc i64 %51 to i32
@@ -782,10 +782,10 @@ _ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i: ; preds = %_ZNSt16
 
 54:                                               ; preds = %49
   store i32 0, ptr %50, align 8
-  %55 = getelementptr inbounds i8, ptr %48, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 12
   store i32 0, ptr %55, align 4
   %56 = load ptr, ptr %48, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %48) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
@@ -811,10 +811,10 @@ _ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i: ; preds = %_ZNSt16
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr %48, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(16) %48) #17
-  %71 = getelementptr inbounds i8, ptr %48, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %72 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %72, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %76, label %73
@@ -836,7 +836,7 @@ _ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i: ; preds = %_ZNSt16
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i: ; preds = %78, %54
   %80 = load ptr, ptr %48, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = load ptr, ptr %81, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(16) %48) #17
   br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"

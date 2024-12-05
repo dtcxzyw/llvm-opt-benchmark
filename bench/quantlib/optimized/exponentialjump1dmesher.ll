@@ -723,7 +723,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -736,7 +736,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -870,7 +870,7 @@ entry:
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 24
   store ptr %this, ptr %ref.tmp5, align 8, !tbaa !27
-  %ref.tmp6.sroa.5.0.ref.tmp5.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  %ref.tmp6.sroa.5.0.ref.tmp5.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
   store ptr %t.addr, ptr %ref.tmp6.sroa.5.0.ref.tmp5.sroa_idx, align 8, !tbaa !27
   store ptr @"_ZNSt17_Function_handlerIFddEZNK8QuantLib23ExponentialJump1dMesher20jumpSizeDistributionEddE3$_0E9_M_invokeERKSt9_Any_dataOd", ptr %_M_invoker.i, align 8, !tbaa !38
   store ptr @"_ZNSt17_Function_handlerIFddEZNK8QuantLib23ExponentialJump1dMesher20jumpSizeDistributionEddE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation", ptr %_M_manager.i.i, align 8, !tbaa !41
@@ -954,7 +954,7 @@ entry:
   %2 = ptrtoint ptr %this to i64
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp18, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp18, i64 24
-  %3 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp18, i64 8
   store i64 0, ptr %3, align 8
   store i64 %2, ptr %ref.tmp18, align 8, !tbaa !27
   store ptr @"_ZNSt17_Function_handlerIFddEZNK8QuantLib23ExponentialJump1dMesher20jumpSizeDistributionEdE3$_0E9_M_invokeERKSt9_Any_dataOd", ptr %_M_invoker.i, align 8, !tbaa !38
@@ -1220,7 +1220,7 @@ define internal noundef double @"_ZNSt17_Function_handlerIFddEZNK8QuantLib23Expo
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.QuantLib::GammaFunction", align 1
   %call.val = load ptr, ptr %__functor, align 8, !tbaa !42
-  %0 = getelementptr inbounds i8, ptr %__functor, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %__functor, i64 8
   %call.val1 = load ptr, ptr %0, align 8, !tbaa !44
   %__args.val = load double, ptr %__args, align 8, !tbaa !28
   %call.val1.val = load double, ptr %call.val1, align 8, !tbaa !28

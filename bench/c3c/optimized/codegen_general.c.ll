@@ -49,7 +49,7 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   br label %8
@@ -61,16 +61,16 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
   br i1 %10, label %11, label %.loopexit54
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 65536
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %17, label %.loopexit54
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %13, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %19 = load ptr, ptr %18, align 8
   %.not46 = icmp eq ptr %19, null
   br i1 %.not46, label %.loopexit54, label %20
@@ -88,9 +88,9 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread52
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread52 ]
   %.03861 = phi i1 [ true, %.lr.ph.preheader ], [ false, %.thread52 ]
-  %23 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = tail call fastcc ptr @type_lowering(ptr noundef %26)
   br i1 %.03861, label %.preheader, label %.loopexit54
@@ -104,18 +104,18 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
   ]
 
 29:                                               ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %.0, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   %31 = load i32, ptr %30, align 8
   %.not50 = icmp eq i32 %31, 1
   br i1 %.not50, label %32, label %.thread52
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %34 = load ptr, ptr %33, align 8
   br label %.preheader, !llvm.loop !7
 
 35:                                               ; preds = %.preheader
-  %36 = getelementptr inbounds i8, ptr %.0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 8
   br label %.loopexit
@@ -156,7 +156,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
   %.026 = phi ptr [ %0, %1 ], [ %.026.be, %.backedge.backedge ]
-  %3 = getelementptr inbounds i8, ptr %.026, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.026, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %.loopexit [
@@ -186,25 +186,25 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   unreachable
 
 7:                                                ; preds = %.backedge
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %9 = load ptr, ptr %8, align 8
   br label %.backedge.backedge
 
 10:                                               ; preds = %.backedge
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %.backedge.backedge
 
 17:                                               ; preds = %.backedge
-  %18 = getelementptr inbounds i8, ptr %4, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %.backedge.backedge
 
@@ -214,21 +214,21 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 
 26:                                               ; preds = %.backedge, %.backedge, %.backedge
   %27 = load ptr, ptr @type_iptr, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %.loopexit
 
 30:                                               ; preds = %.backedge
-  %31 = getelementptr inbounds i8, ptr %4, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   br label %.backedge.backedge
 
 37:                                               ; preds = %.backedge
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = tail call fastcc ptr @type_lowering(ptr noundef %39)
   %41 = icmp eq ptr %40, %39
@@ -239,7 +239,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 44:                                               ; preds = %.backedge, %.backedge, %.backedge, %.backedge
-  %45 = getelementptr inbounds i8, ptr %4, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = tail call fastcc ptr @type_lowering(ptr noundef %46)
   %48 = icmp eq ptr %47, %46
@@ -259,13 +259,13 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
   br label %.loopexit
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %4, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %55 = load i32, ptr %54, align 8
   %56 = tail call ptr @type_get_array(ptr noundef %47, i32 noundef %55) #4
   br label %.loopexit
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %4, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %59 = load i32, ptr %58, align 8
   %60 = tail call ptr @type_get_vector(ptr noundef %47, i32 noundef %59) #4
   br label %.loopexit
@@ -287,7 +287,7 @@ declare i32 @type_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @type_is_homogenous_base_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 56), align 8
   switch i32 %4, label %35 [
@@ -507,16 +507,16 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @type_iptr, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %1, align 8
   store i32 2, ptr %2, align 4
   br label %type_homogenous_aggregate_small_enough.exit
 
 11:                                               ; preds = %3, %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 65536
   %.not = icmp eq i64 %16, 0
@@ -524,7 +524,7 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %20 = load ptr, ptr %19, align 8
   %.not70 = icmp eq ptr %20, null
   br i1 %.not70, label %._crit_edge82, label %21
@@ -541,9 +541,9 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph81.preheader ], [ %indvars.iv.next, %40 ]
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = tail call fastcc ptr @type_lowering(ptr noundef %27)
   %29 = load i32, ptr %28, align 8
@@ -553,8 +553,8 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph81, %.lr.ph
   %.06577 = phi ptr [ %35, %.lr.ph ], [ %28, %.lr.ph81 ]
   %.06676 = phi i32 [ %34, %.lr.ph ], [ 1, %.lr.ph81 ]
-  %31 = getelementptr inbounds i8, ptr %.06577, i64 56
-  %32 = getelementptr inbounds i8, ptr %.06577, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.06577, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %.06577, i64 64
   %33 = load i32, ptr %32, align 8
   %34 = mul i32 %33, %.06676
   %35 = load ptr, ptr %31, align 8
@@ -599,13 +599,13 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
   br i1 %.not72, label %thread-pre-split, label %type_homogenous_aggregate_small_enough.exit
 
 54:                                               ; preds = %3
-  %55 = getelementptr inbounds i8, ptr %0, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %type_homogenous_aggregate_small_enough.exit, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %60 = load ptr, ptr %59, align 8
   %61 = tail call fastcc ptr @type_lowering(ptr noundef %60)
   %62 = tail call zeroext i1 @type_is_homogenous_aggregate(ptr noundef %61, ptr noundef %1, ptr noundef nonnull %2)
@@ -623,7 +623,7 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
   br label %77
 
 69:                                               ; preds = %3, %3, %3, %3, %3
-  %70 = getelementptr inbounds i8, ptr %0, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 255
   %73 = zext nneg i32 %72 to i64
@@ -653,7 +653,7 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
 
 84:                                               ; preds = %81
   %85 = tail call i32 @type_size(ptr noundef nonnull %.063) #4
-  %86 = getelementptr inbounds i8, ptr %.063, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %.063, i64 56
   %87 = load ptr, ptr %86, align 8
   %88 = tail call i32 @type_size(ptr noundef %87) #4
   %89 = udiv i32 %85, %88

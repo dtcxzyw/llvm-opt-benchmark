@@ -415,7 +415,7 @@ define internal i32 @dissect_gdsdb(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.277) #3
   %13 = load ptr, ptr %11, align 8
@@ -551,9 +551,9 @@ add_uint_string.exit:                             ; preds = %19, %36
   %39 = load i32, ptr @hf_gdsdb_connect_count, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #3
   %41 = add i32 %.0.i, 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = add i32 %.0.i, 8
   %47 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %41) #3
@@ -786,9 +786,9 @@ define internal i32 @gdsdb_attach(ptr noundef %0, ptr nocapture noundef readonly
 19:                                               ; preds = %12
   %20 = load i32, ptr @hf_gdsdb_attach_database_object_id, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #3
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 408
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
   %26 = add i32 %3, 8
   %27 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %8) #3
@@ -1347,9 +1347,9 @@ define internal noundef i32 @gdsdb_prepare(ptr noundef %0, ptr nocapture noundef
   %18 = add i32 %3, 8
   %19 = load i32, ptr @hf_gdsdb_prepare_dialect, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef 0) #3
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = add i32 %3, 16
   %26 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %8) #3

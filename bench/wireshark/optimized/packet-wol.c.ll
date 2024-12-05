@@ -96,7 +96,7 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @tvb_memdup(ptr noundef %11, ptr noundef %0, i32 noundef 6, i64 noundef 6) #2
   br label %16
@@ -133,15 +133,15 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
   %.062 = phi ptr [ null, %20 ], [ %23, %.sink.split ]
   %25 = phi i1 [ false, %20 ], [ %.ph, %.sink.split ]
   %.060 = phi i32 [ 102, %20 ], [ %.060.ph, %.sink.split ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @col_set_str(ptr noundef %27, i32 noundef 34, ptr noundef nonnull @.str.7) #2
   store i32 1, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 6, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %12, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %30, align 8
   %31 = load ptr, ptr %26, align 8
   %32 = load ptr, ptr %10, align 8

@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm22EmitAnyX86InstCommentsEPKNS_6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallVector", align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %5, i64 noundef 8) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #6
@@ -945,7 +945,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm22EmitAnyX86InstCommentsEPKNS_6MCIn
 
 11:                                               ; preds = %9, %9, %9
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %14) #6
   br label %16
@@ -955,7 +955,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm22EmitAnyX86InstCommentsEPKNS_6MCIn
   %17 = add i64 %7, 4294967295
   %18 = and i64 %17, 4294967295
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %"class.llvm::MCOperand", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %19, i64 %18
   %21 = load i8, ptr %20, align 8
   %22 = icmp eq i8 %21, 2
   br i1 %22, label %23, label %41
@@ -995,7 +995,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit: ; preds = %23, %27, %32
 
 41:                                               ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit, %16
   %42 = phi ptr [ %.pre933, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit ], [ %19, %16 ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i32, ptr %43, align 8
   %45 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %44) #6
   %46 = load ptr, ptr %6, align 8
@@ -1006,7 +1006,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit: ; preds = %23, %27, %32
 
 50:                                               ; preds = %9, %9, %9
   %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i32, ptr %52, align 8
   %54 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %53) #6
   br label %55
@@ -1016,7 +1016,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit: ; preds = %23, %27, %32
   %56 = add i64 %7, 4294967295
   %57 = and i64 %56, 4294967295
   %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %"class.llvm::MCOperand", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %58, i64 %57
   %60 = load i8, ptr %59, align 8
   %61 = icmp eq i8 %60, 2
   br i1 %61, label %62, label %80
@@ -1056,7 +1056,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678: ; preds = %62, %66, %71
 
 80:                                               ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678, %55
   %81 = phi ptr [ %.pre932, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678 ], [ %58, %55 ]
-  %82 = getelementptr inbounds i8, ptr %81, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load i32, ptr %82, align 8
   %84 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %83) #6
   %85 = load ptr, ptr %6, align 8
@@ -1067,7 +1067,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678: ; preds = %62, %66, %71
 
 89:                                               ; preds = %9, %9, %9
   %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %92 = load i32, ptr %91, align 8
   %93 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %92) #6
   br label %94
@@ -1077,7 +1077,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit678: ; preds = %62, %66, %71
   %95 = add i64 %7, 4294967295
   %96 = and i64 %95, 4294967295
   %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %"class.llvm::MCOperand", ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %97, i64 %96
   %99 = load i8, ptr %98, align 8
   %100 = icmp eq i8 %99, 2
   br i1 %100, label %101, label %119
@@ -1117,7 +1117,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683: ; preds = %101, %105, %110
 
 119:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683, %94
   %120 = phi ptr [ %.pre931, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683 ], [ %97, %94 ]
-  %121 = getelementptr inbounds i8, ptr %120, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i32, ptr %121, align 8
   %123 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %122) #6
   %124 = load ptr, ptr %6, align 8
@@ -1128,7 +1128,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683: ; preds = %101, %105, %110
 
 128:                                              ; preds = %9, %9
   %129 = load ptr, ptr %6, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 40
   %131 = load i32, ptr %130, align 8
   %132 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %131) #6
   br label %133
@@ -1138,7 +1138,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit683: ; preds = %101, %105, %110
   %134 = add i64 %7, 4294967295
   %135 = and i64 %134, 4294967295
   %136 = load ptr, ptr %6, align 8
-  %137 = getelementptr inbounds %"class.llvm::MCOperand", ptr %136, i64 %135
+  %137 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %136, i64 %135
   %138 = load i8, ptr %137, align 8
   %139 = icmp eq i8 %138, 2
   br i1 %139, label %140, label %158
@@ -1178,7 +1178,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
 
 158:                                              ; preds = %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688, %133
   %159 = phi ptr [ %.pre930, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688 ], [ %136, %133 ]
-  %160 = getelementptr inbounds i8, ptr %159, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %161 = load i32, ptr %160, align 8
   %162 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %161) #6
   %163 = load ptr, ptr %6, align 8
@@ -1189,7 +1189,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
 
 167:                                              ; preds = %9, %9, %9
   %168 = load ptr, ptr %6, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 40
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 40
   %170 = load i32, ptr %169, align 8
   %171 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %170) #6
   br label %172
@@ -1201,13 +1201,13 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
   %175 = load i32, ptr %174, align 8
   %176 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %175) #6
   %177 = load ptr, ptr %6, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
   %179 = load i32, ptr %178, align 8
   %180 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %179) #6
   %181 = add i64 %7, 4294967295
   %182 = and i64 %181, 4294967295
   %183 = load ptr, ptr %6, align 8
-  %184 = getelementptr inbounds %"class.llvm::MCOperand", ptr %183, i64 %182
+  %184 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %183, i64 %182
   %185 = load i8, ptr %184, align 8
   %186 = icmp eq i8 %185, 2
   br i1 %186, label %187, label %1685
@@ -1221,11 +1221,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
 
 191:                                              ; preds = %9, %9, %9
   %192 = load ptr, ptr %6, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 40
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 40
   %194 = load i32, ptr %193, align 8
   %195 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %194) #6
   %196 = load ptr, ptr %6, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 24
   %198 = load i32, ptr %197, align 8
   %199 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %198) #6
   %200 = load ptr, ptr %6, align 8
@@ -1237,11 +1237,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
 
 204:                                              ; preds = %9, %9, %9
   %205 = load ptr, ptr %6, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 40
   %207 = load i32, ptr %206, align 8
   %208 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %207) #6
   %209 = load ptr, ptr %6, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 24
   %211 = load i32, ptr %210, align 8
   %212 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %211) #6
   %213 = load ptr, ptr %6, align 8
@@ -1253,7 +1253,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
 
 217:                                              ; preds = %9, %9, %9
   %218 = load ptr, ptr %6, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 24
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %220 = load i32, ptr %219, align 8
   %221 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %220) #6
   %222 = load ptr, ptr %6, align 8
@@ -1265,7 +1265,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
 
 226:                                              ; preds = %9, %9, %9
   %227 = load ptr, ptr %6, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 24
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 24
   %229 = load i32, ptr %228, align 8
   %230 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %229) #6
   %231 = load ptr, ptr %6, align 8
@@ -1277,7 +1277,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
 
 235:                                              ; preds = %9, %9, %9
   %236 = load ptr, ptr %6, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 24
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 24
   %238 = load i32, ptr %237, align 8
   %239 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %238) #6
   %240 = load ptr, ptr %6, align 8
@@ -1289,7 +1289,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
 
 244:                                              ; preds = %9, %9, %9
   %245 = load ptr, ptr %6, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 24
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
   %247 = load i32, ptr %246, align 8
   %248 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %247) #6
   %249 = load ptr, ptr %6, align 8
@@ -1303,7 +1303,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit688: ; preds = %140, %144, %149
   %254 = add i64 %7, 4294967295
   %255 = and i64 %254, 4294967295
   %256 = load ptr, ptr %6, align 8
-  %257 = getelementptr inbounds %"class.llvm::MCOperand", ptr %256, i64 %255, i32 1
+  %257 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %256, i64 %255, i32 1
   %258 = load i32, ptr %257, align 8
   %259 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %258) #6
   br label %260
@@ -1347,7 +1347,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit693: ; preds = %260, %268, %273
   %280 = add i64 %7, 4294967295
   %281 = and i64 %280, 4294967295
   %282 = load ptr, ptr %6, align 8
-  %283 = getelementptr inbounds %"class.llvm::MCOperand", ptr %282, i64 %281, i32 1
+  %283 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %282, i64 %281, i32 1
   %284 = load i32, ptr %283, align 8
   %285 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %284) #6
   br label %286
@@ -1391,7 +1391,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit698: ; preds = %286, %294, %299
   %306 = add i64 %7, 4294967295
   %307 = and i64 %306, 4294967295
   %308 = load ptr, ptr %6, align 8
-  %309 = getelementptr inbounds %"class.llvm::MCOperand", ptr %308, i64 %307, i32 1
+  %309 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %308, i64 %307, i32 1
   %310 = load i32, ptr %309, align 8
   %311 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %310) #6
   br label %312
@@ -1433,7 +1433,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703: ; preds = %312, %320, %325
 
 331:                                              ; preds = %9, %9, %9, %9, %9, %9
   %332 = load ptr, ptr %6, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 24
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 24
   %334 = load i32, ptr %333, align 8
   %335 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %334) #6
   br label %336
@@ -1447,7 +1447,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit703: ; preds = %312, %320, %325
   %341 = add i64 %7, 4294967295
   %342 = and i64 %341, 4294967295
   %343 = load ptr, ptr %6, align 8
-  %344 = getelementptr inbounds %"class.llvm::MCOperand", ptr %343, i64 %342
+  %344 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %343, i64 %342
   %345 = load i8, ptr %344, align 8
   %346 = icmp eq i8 %345, 2
   br i1 %346, label %347, label %1685
@@ -1486,7 +1486,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708: ; preds = %347, %351, %356
 
 365:                                              ; preds = %9, %9, %9, %9, %9, %9
   %366 = load ptr, ptr %6, align 8
-  %367 = getelementptr inbounds i8, ptr %366, i64 24
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 24
   %368 = load i32, ptr %367, align 8
   %369 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %368) #6
   br label %370
@@ -1500,7 +1500,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit708: ; preds = %347, %351, %356
   %375 = add i64 %7, 4294967295
   %376 = and i64 %375, 4294967295
   %377 = load ptr, ptr %6, align 8
-  %378 = getelementptr inbounds %"class.llvm::MCOperand", ptr %377, i64 %376
+  %378 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %377, i64 %376
   %379 = load i8, ptr %378, align 8
   %380 = icmp eq i8 %379, 2
   br i1 %380, label %381, label %1685
@@ -1541,7 +1541,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713: ; preds = %381, %385, %390
   %400 = add i64 %7, 4294967294
   %401 = and i64 %400, 4294967295
   %402 = load ptr, ptr %6, align 8
-  %403 = getelementptr inbounds %"class.llvm::MCOperand", ptr %402, i64 %401, i32 1
+  %403 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %402, i64 %401, i32 1
   %404 = load i32, ptr %403, align 8
   %405 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %404) #6
   br label %406
@@ -1552,7 +1552,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713: ; preds = %381, %385, %390
   %407 = add i64 %.0604.neg, %7
   %408 = and i64 %407, 4294967295
   %409 = load ptr, ptr %6, align 8
-  %410 = getelementptr inbounds %"class.llvm::MCOperand", ptr %409, i64 %408, i32 1
+  %410 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %409, i64 %408, i32 1
   %411 = load i32, ptr %410, align 8
   %412 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %411) #6
   %413 = load ptr, ptr %6, align 8
@@ -1562,7 +1562,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit713: ; preds = %381, %385, %390
   %417 = add i64 %7, 4294967295
   %418 = and i64 %417, 4294967295
   %419 = load ptr, ptr %6, align 8
-  %420 = getelementptr inbounds %"class.llvm::MCOperand", ptr %419, i64 %418
+  %420 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %419, i64 %418
   %421 = load i8, ptr %420, align 8
   %422 = icmp eq i8 %421, 2
   br i1 %422, label %423, label %1685
@@ -1603,7 +1603,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718: ; preds = %423, %427, %432
   %442 = add i64 %7, 4294967294
   %443 = and i64 %442, 4294967295
   %444 = load ptr, ptr %6, align 8
-  %445 = getelementptr inbounds %"class.llvm::MCOperand", ptr %444, i64 %443, i32 1
+  %445 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %444, i64 %443, i32 1
   %446 = load i32, ptr %445, align 8
   %447 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %446) #6
   br label %448
@@ -1614,7 +1614,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718: ; preds = %423, %427, %432
   %449 = add i64 %.1605.neg, %7
   %450 = and i64 %449, 4294967295
   %451 = load ptr, ptr %6, align 8
-  %452 = getelementptr inbounds %"class.llvm::MCOperand", ptr %451, i64 %450, i32 1
+  %452 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %451, i64 %450, i32 1
   %453 = load i32, ptr %452, align 8
   %454 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %453) #6
   %455 = load ptr, ptr %6, align 8
@@ -1624,7 +1624,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit718: ; preds = %423, %427, %432
   %459 = add i64 %7, 4294967295
   %460 = and i64 %459, 4294967295
   %461 = load ptr, ptr %6, align 8
-  %462 = getelementptr inbounds %"class.llvm::MCOperand", ptr %461, i64 %460
+  %462 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %461, i64 %460
   %463 = load i8, ptr %462, align 8
   %464 = icmp eq i8 %463, 2
   br i1 %464, label %465, label %1685
@@ -1665,7 +1665,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723: ; preds = %465, %469, %474
   %484 = add i64 %7, 4294967294
   %485 = and i64 %484, 4294967295
   %486 = load ptr, ptr %6, align 8
-  %487 = getelementptr inbounds %"class.llvm::MCOperand", ptr %486, i64 %485, i32 1
+  %487 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %486, i64 %485, i32 1
   %488 = load i32, ptr %487, align 8
   %489 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %488) #6
   br label %490
@@ -1676,7 +1676,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723: ; preds = %465, %469, %474
   %491 = add i64 %.2606.neg, %7
   %492 = and i64 %491, 4294967295
   %493 = load ptr, ptr %6, align 8
-  %494 = getelementptr inbounds %"class.llvm::MCOperand", ptr %493, i64 %492, i32 1
+  %494 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %493, i64 %492, i32 1
   %495 = load i32, ptr %494, align 8
   %496 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %495) #6
   %497 = load ptr, ptr %6, align 8
@@ -1686,7 +1686,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit723: ; preds = %465, %469, %474
   %501 = add i64 %7, 4294967295
   %502 = and i64 %501, 4294967295
   %503 = load ptr, ptr %6, align 8
-  %504 = getelementptr inbounds %"class.llvm::MCOperand", ptr %503, i64 %502
+  %504 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %503, i64 %502
   %505 = load i8, ptr %504, align 8
   %506 = icmp eq i8 %505, 2
   br i1 %506, label %507, label %1685
@@ -1727,7 +1727,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728: ; preds = %507, %511, %516
   %526 = add i64 %7, 4294967294
   %527 = and i64 %526, 4294967295
   %528 = load ptr, ptr %6, align 8
-  %529 = getelementptr inbounds %"class.llvm::MCOperand", ptr %528, i64 %527, i32 1
+  %529 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %528, i64 %527, i32 1
   %530 = load i32, ptr %529, align 8
   %531 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %530) #6
   br label %532
@@ -1741,7 +1741,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit728: ; preds = %507, %511, %516
   %537 = add i64 %7, 4294967295
   %538 = and i64 %537, 4294967295
   %539 = load ptr, ptr %6, align 8
-  %540 = getelementptr inbounds %"class.llvm::MCOperand", ptr %539, i64 %538
+  %540 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %539, i64 %538
   %541 = load i8, ptr %540, align 8
   %542 = icmp eq i8 %541, 2
   br i1 %542, label %543, label %1685
@@ -1782,7 +1782,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733: ; preds = %543, %547, %552
   %562 = add i64 %7, 4294967294
   %563 = and i64 %562, 4294967295
   %564 = load ptr, ptr %6, align 8
-  %565 = getelementptr inbounds %"class.llvm::MCOperand", ptr %564, i64 %563, i32 1
+  %565 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %564, i64 %563, i32 1
   %566 = load i32, ptr %565, align 8
   %567 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %566) #6
   br label %568
@@ -1796,7 +1796,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit733: ; preds = %543, %547, %552
   %573 = add i64 %7, 4294967295
   %574 = and i64 %573, 4294967295
   %575 = load ptr, ptr %6, align 8
-  %576 = getelementptr inbounds %"class.llvm::MCOperand", ptr %575, i64 %574
+  %576 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %575, i64 %574
   %577 = load i8, ptr %576, align 8
   %578 = icmp eq i8 %577, 2
   br i1 %578, label %579, label %1685
@@ -1837,7 +1837,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738: ; preds = %579, %583, %588
   %598 = add i64 %7, 4294967294
   %599 = and i64 %598, 4294967295
   %600 = load ptr, ptr %6, align 8
-  %601 = getelementptr inbounds %"class.llvm::MCOperand", ptr %600, i64 %599, i32 1
+  %601 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %600, i64 %599, i32 1
   %602 = load i32, ptr %601, align 8
   %603 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %602) #6
   br label %604
@@ -1851,7 +1851,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit738: ; preds = %579, %583, %588
   %609 = add i64 %7, 4294967295
   %610 = and i64 %609, 4294967295
   %611 = load ptr, ptr %6, align 8
-  %612 = getelementptr inbounds %"class.llvm::MCOperand", ptr %611, i64 %610
+  %612 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %611, i64 %610
   %613 = load i8, ptr %612, align 8
   %614 = icmp eq i8 %613, 2
   br i1 %614, label %615, label %1685
@@ -1890,7 +1890,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743: ; preds = %615, %619, %624
 
 633:                                              ; preds = %9
   %634 = load ptr, ptr %6, align 8
-  %635 = getelementptr inbounds i8, ptr %634, i64 24
+  %635 = getelementptr inbounds nuw i8, ptr %634, i64 24
   %636 = load i32, ptr %635, align 8
   %637 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %636) #6
   br label %638
@@ -1904,7 +1904,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743: ; preds = %615, %619, %624
   %643 = add i64 %7, 4294967295
   %644 = and i64 %643, 4294967295
   %645 = load ptr, ptr %6, align 8
-  %646 = getelementptr inbounds %"class.llvm::MCOperand", ptr %645, i64 %644
+  %646 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %645, i64 %644
   %647 = load i8, ptr %646, align 8
   %648 = icmp eq i8 %647, 2
   br i1 %648, label %649, label %1685
@@ -1918,7 +1918,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743: ; preds = %615, %619, %624
 
 653:                                              ; preds = %9
   %654 = load ptr, ptr %6, align 8
-  %655 = getelementptr inbounds i8, ptr %654, i64 24
+  %655 = getelementptr inbounds nuw i8, ptr %654, i64 24
   %656 = load i32, ptr %655, align 8
   %657 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %656) #6
   br label %658
@@ -1936,7 +1936,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743: ; preds = %615, %619, %624
   %664 = add i64 %7, 4294967295
   %665 = and i64 %664, 4294967295
   %666 = load ptr, ptr %6, align 8
-  %667 = getelementptr inbounds %"class.llvm::MCOperand", ptr %666, i64 %665, i32 1
+  %667 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %666, i64 %665, i32 1
   %668 = load i32, ptr %667, align 8
   %669 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %668) #6
   br label %670
@@ -1947,7 +1947,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit743: ; preds = %615, %619, %624
   %671 = add i64 %.3607.neg, %7
   %672 = and i64 %671, 4294967295
   %673 = load ptr, ptr %6, align 8
-  %674 = getelementptr inbounds %"class.llvm::MCOperand", ptr %673, i64 %672, i32 1
+  %674 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %673, i64 %672, i32 1
   %675 = load i32, ptr %674, align 8
   %676 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %675) #6
   %677 = load ptr, ptr %6, align 8
@@ -1987,7 +1987,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748: ; preds = %670, %684, %689
   %696 = add i64 %7, 4294967295
   %697 = and i64 %696, 4294967295
   %698 = load ptr, ptr %6, align 8
-  %699 = getelementptr inbounds %"class.llvm::MCOperand", ptr %698, i64 %697, i32 1
+  %699 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %698, i64 %697, i32 1
   %700 = load i32, ptr %699, align 8
   %701 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %700) #6
   br label %702
@@ -1998,7 +1998,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit748: ; preds = %670, %684, %689
   %703 = add i64 %.4608.neg, %7
   %704 = and i64 %703, 4294967295
   %705 = load ptr, ptr %6, align 8
-  %706 = getelementptr inbounds %"class.llvm::MCOperand", ptr %705, i64 %704, i32 1
+  %706 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %705, i64 %704, i32 1
   %707 = load i32, ptr %706, align 8
   %708 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %707) #6
   %709 = load ptr, ptr %6, align 8
@@ -2038,7 +2038,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753: ; preds = %702, %716, %721
   %728 = add i64 %7, 4294967295
   %729 = and i64 %728, 4294967295
   %730 = load ptr, ptr %6, align 8
-  %731 = getelementptr inbounds %"class.llvm::MCOperand", ptr %730, i64 %729, i32 1
+  %731 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %730, i64 %729, i32 1
   %732 = load i32, ptr %731, align 8
   %733 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %732) #6
   br label %734
@@ -2049,7 +2049,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit753: ; preds = %702, %716, %721
   %735 = add i64 %.5609.neg, %7
   %736 = and i64 %735, 4294967295
   %737 = load ptr, ptr %6, align 8
-  %738 = getelementptr inbounds %"class.llvm::MCOperand", ptr %737, i64 %736, i32 1
+  %738 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %737, i64 %736, i32 1
   %739 = load i32, ptr %738, align 8
   %740 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %739) #6
   %741 = load ptr, ptr %6, align 8
@@ -2089,7 +2089,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758: ; preds = %734, %748, %753
   %760 = add i64 %7, 4294967295
   %761 = and i64 %760, 4294967295
   %762 = load ptr, ptr %6, align 8
-  %763 = getelementptr inbounds %"class.llvm::MCOperand", ptr %762, i64 %761, i32 1
+  %763 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %762, i64 %761, i32 1
   %764 = load i32, ptr %763, align 8
   %765 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %764) #6
   br label %766
@@ -2100,7 +2100,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit758: ; preds = %734, %748, %753
   %767 = add i64 %.6610.neg, %7
   %768 = and i64 %767, 4294967295
   %769 = load ptr, ptr %6, align 8
-  %770 = getelementptr inbounds %"class.llvm::MCOperand", ptr %769, i64 %768, i32 1
+  %770 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %769, i64 %768, i32 1
   %771 = load i32, ptr %770, align 8
   %772 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %771) #6
   %773 = load ptr, ptr %6, align 8
@@ -2140,7 +2140,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763: ; preds = %766, %780, %785
   %792 = add i64 %7, 4294967295
   %793 = and i64 %792, 4294967295
   %794 = load ptr, ptr %6, align 8
-  %795 = getelementptr inbounds %"class.llvm::MCOperand", ptr %794, i64 %793, i32 1
+  %795 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %794, i64 %793, i32 1
   %796 = load i32, ptr %795, align 8
   %797 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %796) #6
   br label %798
@@ -2151,7 +2151,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit763: ; preds = %766, %780, %785
   %799 = add i64 %.7611.neg, %7
   %800 = and i64 %799, 4294967295
   %801 = load ptr, ptr %6, align 8
-  %802 = getelementptr inbounds %"class.llvm::MCOperand", ptr %801, i64 %800, i32 1
+  %802 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %801, i64 %800, i32 1
   %803 = load i32, ptr %802, align 8
   %804 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %803) #6
   %805 = load ptr, ptr %6, align 8
@@ -2191,7 +2191,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768: ; preds = %798, %812, %817
   %824 = add i64 %7, 4294967295
   %825 = and i64 %824, 4294967295
   %826 = load ptr, ptr %6, align 8
-  %827 = getelementptr inbounds %"class.llvm::MCOperand", ptr %826, i64 %825, i32 1
+  %827 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %826, i64 %825, i32 1
   %828 = load i32, ptr %827, align 8
   %829 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %828) #6
   br label %830
@@ -2202,7 +2202,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit768: ; preds = %798, %812, %817
   %831 = add i64 %.8612.neg, %7
   %832 = and i64 %831, 4294967295
   %833 = load ptr, ptr %6, align 8
-  %834 = getelementptr inbounds %"class.llvm::MCOperand", ptr %833, i64 %832, i32 1
+  %834 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %833, i64 %832, i32 1
   %835 = load i32, ptr %834, align 8
   %836 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %835) #6
   %837 = load ptr, ptr %6, align 8
@@ -2242,7 +2242,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773: ; preds = %830, %844, %849
   %856 = add i64 %7, 4294967295
   %857 = and i64 %856, 4294967295
   %858 = load ptr, ptr %6, align 8
-  %859 = getelementptr inbounds %"class.llvm::MCOperand", ptr %858, i64 %857, i32 1
+  %859 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %858, i64 %857, i32 1
   %860 = load i32, ptr %859, align 8
   %861 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %860) #6
   br label %862
@@ -2253,7 +2253,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit773: ; preds = %830, %844, %849
   %863 = add i64 %.9613.neg, %7
   %864 = and i64 %863, 4294967295
   %865 = load ptr, ptr %6, align 8
-  %866 = getelementptr inbounds %"class.llvm::MCOperand", ptr %865, i64 %864, i32 1
+  %866 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %865, i64 %864, i32 1
   %867 = load i32, ptr %866, align 8
   %868 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %867) #6
   %869 = load ptr, ptr %6, align 8
@@ -2293,7 +2293,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778: ; preds = %862, %876, %881
   %888 = add i64 %7, 4294967295
   %889 = and i64 %888, 4294967295
   %890 = load ptr, ptr %6, align 8
-  %891 = getelementptr inbounds %"class.llvm::MCOperand", ptr %890, i64 %889, i32 1
+  %891 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %890, i64 %889, i32 1
   %892 = load i32, ptr %891, align 8
   %893 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %892) #6
   br label %894
@@ -2304,7 +2304,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit778: ; preds = %862, %876, %881
   %895 = add i64 %.10614.neg, %7
   %896 = and i64 %895, 4294967295
   %897 = load ptr, ptr %6, align 8
-  %898 = getelementptr inbounds %"class.llvm::MCOperand", ptr %897, i64 %896, i32 1
+  %898 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %897, i64 %896, i32 1
   %899 = load i32, ptr %898, align 8
   %900 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %899) #6
   %901 = load ptr, ptr %6, align 8
@@ -2344,7 +2344,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783: ; preds = %894, %908, %913
   %920 = add i64 %7, 4294967294
   %921 = and i64 %920, 4294967295
   %922 = load ptr, ptr %6, align 8
-  %923 = getelementptr inbounds %"class.llvm::MCOperand", ptr %922, i64 %921, i32 1
+  %923 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %922, i64 %921, i32 1
   %924 = load i32, ptr %923, align 8
   %925 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %924) #6
   br label %926
@@ -2355,7 +2355,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit783: ; preds = %894, %908, %913
   %927 = add i64 %7, 4294967295
   %928 = and i64 %927, 4294967295
   %929 = load ptr, ptr %6, align 8
-  %930 = getelementptr inbounds %"class.llvm::MCOperand", ptr %929, i64 %928
+  %930 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %929, i64 %928
   %931 = load i8, ptr %930, align 8
   %932 = icmp eq i8 %931, 2
   br i1 %932, label %933, label %951
@@ -2397,7 +2397,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788: ; preds = %933, %937, %942
   %952 = phi ptr [ %.pre929, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788 ], [ %929, %926 ]
   %953 = add i64 %.11615.neg, %7
   %954 = and i64 %953, 4294967295
-  %955 = getelementptr inbounds %"class.llvm::MCOperand", ptr %952, i64 %954, i32 1
+  %955 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %952, i64 %954, i32 1
   %956 = load i32, ptr %955, align 8
   %957 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %956) #6
   %958 = load ptr, ptr %6, align 8
@@ -2410,7 +2410,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788: ; preds = %933, %937, %942
   %963 = add i64 %7, 4294967294
   %964 = and i64 %963, 4294967295
   %965 = load ptr, ptr %6, align 8
-  %966 = getelementptr inbounds %"class.llvm::MCOperand", ptr %965, i64 %964, i32 1
+  %966 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %965, i64 %964, i32 1
   %967 = load i32, ptr %966, align 8
   %968 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %967) #6
   br label %969
@@ -2421,7 +2421,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit788: ; preds = %933, %937, %942
   %970 = add i64 %7, 4294967295
   %971 = and i64 %970, 4294967295
   %972 = load ptr, ptr %6, align 8
-  %973 = getelementptr inbounds %"class.llvm::MCOperand", ptr %972, i64 %971
+  %973 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %972, i64 %971
   %974 = load i8, ptr %973, align 8
   %975 = icmp eq i8 %974, 2
   br i1 %975, label %976, label %994
@@ -2463,7 +2463,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793: ; preds = %976, %980, %985
   %995 = phi ptr [ %.pre928, %_ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793 ], [ %972, %969 ]
   %996 = add i64 %.12616.neg, %7
   %997 = and i64 %996, 4294967295
-  %998 = getelementptr inbounds %"class.llvm::MCOperand", ptr %995, i64 %997, i32 1
+  %998 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %995, i64 %997, i32 1
   %999 = load i32, ptr %998, align 8
   %1000 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %999) #6
   %1001 = load ptr, ptr %6, align 8
@@ -2476,7 +2476,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit793: ; preds = %976, %980, %985
   %1006 = add i64 %7, 4294967294
   %1007 = and i64 %1006, 4294967295
   %1008 = load ptr, ptr %6, align 8
-  %1009 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1008, i64 %1007, i32 1
+  %1009 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1008, i64 %1007, i32 1
   %1010 = load i32, ptr %1009, align 8
   %1011 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1010) #6
   br label %1012
@@ -2512,14 +2512,14 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798: ; preds = %1012, %1016, %10
   %.0.i.i796 = phi i32 [ 8, %1012 ], [ 4, %1016 ], [ %1026, %1021 ]
   %1027 = add i64 %7, 4294967295
   %1028 = and i64 %1027, 4294967295
-  %1029 = getelementptr inbounds %"class.llvm::MCOperand", ptr %.val658, i64 %1028, i32 1
+  %1029 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.val658, i64 %1028, i32 1
   %1030 = load i64, ptr %1029, align 8
   %1031 = trunc i64 %1030 to i32
   call void @_ZN4llvm25decodeVSHUF64x2FamilyMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i796, i32 noundef 64, i32 noundef %1031, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1032 = add i64 %.13617.neg, %7
   %1033 = and i64 %1032, 4294967295
   %1034 = load ptr, ptr %6, align 8
-  %1035 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1034, i64 %1033, i32 1
+  %1035 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1034, i64 %1033, i32 1
   %1036 = load i32, ptr %1035, align 8
   %1037 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1036) #6
   %1038 = load ptr, ptr %6, align 8
@@ -2532,7 +2532,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit798: ; preds = %1012, %1016, %10
   %1043 = add i64 %7, 4294967294
   %1044 = and i64 %1043, 4294967295
   %1045 = load ptr, ptr %6, align 8
-  %1046 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1045, i64 %1044, i32 1
+  %1046 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1045, i64 %1044, i32 1
   %1047 = load i32, ptr %1046, align 8
   %1048 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1047) #6
   br label %1049
@@ -2568,14 +2568,14 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803: ; preds = %1049, %1053, %10
   %.0.i.i801 = phi i32 [ 16, %1049 ], [ 8, %1053 ], [ %1063, %1058 ]
   %1064 = add i64 %7, 4294967295
   %1065 = and i64 %1064, 4294967295
-  %1066 = getelementptr inbounds %"class.llvm::MCOperand", ptr %.val659, i64 %1065, i32 1
+  %1066 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %.val659, i64 %1065, i32 1
   %1067 = load i64, ptr %1066, align 8
   %1068 = trunc i64 %1067 to i32
   call void @_ZN4llvm25decodeVSHUF64x2FamilyMaskEjjjRNS_15SmallVectorImplIiEE(i32 noundef %.0.i.i801, i32 noundef 32, i32 noundef %1068, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
   %1069 = add i64 %.14618.neg, %7
   %1070 = and i64 %1069, 4294967295
   %1071 = load ptr, ptr %6, align 8
-  %1072 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1071, i64 %1070, i32 1
+  %1072 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1071, i64 %1070, i32 1
   %1073 = load i32, ptr %1072, align 8
   %1074 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1073) #6
   %1075 = load ptr, ptr %6, align 8
@@ -2588,7 +2588,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit803: ; preds = %1049, %1053, %10
   %1080 = add i64 %7, 4294967295
   %1081 = and i64 %1080, 4294967295
   %1082 = load ptr, ptr %6, align 8
-  %1083 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1082, i64 %1081, i32 1
+  %1083 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1082, i64 %1081, i32 1
   %1084 = load i32, ptr %1083, align 8
   %1085 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1084) #6
   br label %1086
@@ -2626,7 +2626,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808: ; preds = %1086, %1090, %10
   %1101 = add i64 %.15619.neg, %7
   %1102 = and i64 %1101, 4294967295
   %1103 = load ptr, ptr %6, align 8
-  %1104 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1103, i64 %1102, i32 1
+  %1104 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1103, i64 %1102, i32 1
   %1105 = load i32, ptr %1104, align 8
   %1106 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1105) #6
   %1107 = load ptr, ptr %6, align 8
@@ -2639,7 +2639,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit808: ; preds = %1086, %1090, %10
   %1112 = add i64 %7, 4294967295
   %1113 = and i64 %1112, 4294967295
   %1114 = load ptr, ptr %6, align 8
-  %1115 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1114, i64 %1113, i32 1
+  %1115 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1114, i64 %1113, i32 1
   %1116 = load i32, ptr %1115, align 8
   %1117 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1116) #6
   br label %1118
@@ -2677,7 +2677,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813: ; preds = %1118, %1122, %11
   %1133 = add i64 %.16620.neg, %7
   %1134 = and i64 %1133, 4294967295
   %1135 = load ptr, ptr %6, align 8
-  %1136 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1135, i64 %1134, i32 1
+  %1136 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1135, i64 %1134, i32 1
   %1137 = load i32, ptr %1136, align 8
   %1138 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1137) #6
   %1139 = load ptr, ptr %6, align 8
@@ -2690,7 +2690,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit813: ; preds = %1118, %1122, %11
   %1144 = add i64 %7, 4294967295
   %1145 = and i64 %1144, 4294967295
   %1146 = load ptr, ptr %6, align 8
-  %1147 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1146, i64 %1145, i32 1
+  %1147 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1146, i64 %1145, i32 1
   %1148 = load i32, ptr %1147, align 8
   %1149 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1148) #6
   br label %1150
@@ -2728,7 +2728,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818: ; preds = %1150, %1154, %11
   %1165 = add i64 %.17621.neg, %7
   %1166 = and i64 %1165, 4294967295
   %1167 = load ptr, ptr %6, align 8
-  %1168 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1167, i64 %1166, i32 1
+  %1168 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1167, i64 %1166, i32 1
   %1169 = load i32, ptr %1168, align 8
   %1170 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1169) #6
   %1171 = load ptr, ptr %6, align 8
@@ -2741,7 +2741,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit818: ; preds = %1150, %1154, %11
   %1176 = add i64 %7, 4294967295
   %1177 = and i64 %1176, 4294967295
   %1178 = load ptr, ptr %6, align 8
-  %1179 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1178, i64 %1177, i32 1
+  %1179 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1178, i64 %1177, i32 1
   %1180 = load i32, ptr %1179, align 8
   %1181 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1180) #6
   br label %1182
@@ -2779,7 +2779,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823: ; preds = %1182, %1186, %11
   %1197 = add i64 %.18622.neg, %7
   %1198 = and i64 %1197, 4294967295
   %1199 = load ptr, ptr %6, align 8
-  %1200 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1199, i64 %1198, i32 1
+  %1200 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1199, i64 %1198, i32 1
   %1201 = load i32, ptr %1200, align 8
   %1202 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1201) #6
   %1203 = load ptr, ptr %6, align 8
@@ -2792,7 +2792,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823: ; preds = %1182, %1186, %11
   %1208 = add i64 %7, 4294967294
   %1209 = and i64 %1208, 4294967295
   %1210 = load ptr, ptr %6, align 8
-  %1211 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1210, i64 %1209, i32 1
+  %1211 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1210, i64 %1209, i32 1
   %1212 = load i32, ptr %1211, align 8
   %1213 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1212) #6
   br label %1214
@@ -2802,7 +2802,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit823: ; preds = %1182, %1186, %11
   %1215 = add i64 %7, 4294967295
   %1216 = and i64 %1215, 4294967295
   %1217 = load ptr, ptr %6, align 8
-  %1218 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1217, i64 %1216
+  %1218 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1217, i64 %1216
   %1219 = load i8, ptr %1218, align 8
   %1220 = icmp eq i8 %1219, 2
   br i1 %1220, label %1221, label %1239
@@ -2851,7 +2851,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828: ; preds = %1221, %1225, %12
   %1245 = add i64 %7, 4294967294
   %1246 = and i64 %1245, 4294967295
   %1247 = load ptr, ptr %6, align 8
-  %1248 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1247, i64 %1246, i32 1
+  %1248 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1247, i64 %1246, i32 1
   %1249 = load i32, ptr %1248, align 8
   %1250 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1249) #6
   br label %1251
@@ -2861,7 +2861,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit828: ; preds = %1221, %1225, %12
   %1252 = add i64 %7, 4294967295
   %1253 = and i64 %1252, 4294967295
   %1254 = load ptr, ptr %6, align 8
-  %1255 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1254, i64 %1253
+  %1255 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1254, i64 %1253
   %1256 = load i8, ptr %1255, align 8
   %1257 = icmp eq i8 %1256, 2
   br i1 %1257, label %1258, label %1276
@@ -2908,7 +2908,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833: ; preds = %1258, %1262, %12
 
 1281:                                             ; preds = %9, %9
   %1282 = load ptr, ptr %6, align 8
-  %1283 = getelementptr inbounds i8, ptr %1282, i64 40
+  %1283 = getelementptr inbounds nuw i8, ptr %1282, i64 40
   %1284 = load i32, ptr %1283, align 8
   %1285 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1284) #6
   br label %1286
@@ -2918,7 +2918,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833: ; preds = %1258, %1262, %12
   %1287 = add i64 %7, 4294967295
   %1288 = and i64 %1287, 4294967295
   %1289 = load ptr, ptr %6, align 8
-  %1290 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1289, i64 %1288
+  %1290 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1289, i64 %1288
   %1291 = load i8, ptr %1290, align 8
   %1292 = icmp eq i8 %1291, 2
   br i1 %1292, label %1293, label %1297
@@ -2933,7 +2933,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833: ; preds = %1258, %1262, %12
 
 1297:                                             ; preds = %1293, %1286
   %1298 = phi ptr [ %.pre925, %1293 ], [ %1289, %1286 ]
-  %1299 = getelementptr inbounds i8, ptr %1298, i64 24
+  %1299 = getelementptr inbounds nuw i8, ptr %1298, i64 24
   %1300 = load i32, ptr %1299, align 8
   %1301 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1300) #6
   %1302 = load ptr, ptr %6, align 8
@@ -2946,7 +2946,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833: ; preds = %1258, %1262, %12
   %1307 = add i64 %7, 4294967294
   %1308 = and i64 %1307, 4294967295
   %1309 = load ptr, ptr %6, align 8
-  %1310 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1309, i64 %1308, i32 1
+  %1310 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1309, i64 %1308, i32 1
   %1311 = load i32, ptr %1310, align 8
   %1312 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1311) #6
   br label %1313
@@ -2956,7 +2956,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit833: ; preds = %1258, %1262, %12
   %1314 = add i64 %7, 4294967295
   %1315 = and i64 %1314, 4294967295
   %1316 = load ptr, ptr %6, align 8
-  %1317 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1316, i64 %1315
+  %1317 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1316, i64 %1315
   %1318 = load i8, ptr %1317, align 8
   %1319 = icmp eq i8 %1318, 2
   br i1 %1319, label %1320, label %1338
@@ -3005,7 +3005,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838: ; preds = %1320, %1324, %13
   %1344 = add i64 %7, 4294967294
   %1345 = and i64 %1344, 4294967295
   %1346 = load ptr, ptr %6, align 8
-  %1347 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1346, i64 %1345, i32 1
+  %1347 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1346, i64 %1345, i32 1
   %1348 = load i32, ptr %1347, align 8
   %1349 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1348) #6
   br label %1350
@@ -3015,7 +3015,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit838: ; preds = %1320, %1324, %13
   %1351 = add i64 %7, 4294967295
   %1352 = and i64 %1351, 4294967295
   %1353 = load ptr, ptr %6, align 8
-  %1354 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1353, i64 %1352
+  %1354 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1353, i64 %1352
   %1355 = load i8, ptr %1354, align 8
   %1356 = icmp eq i8 %1355, 2
   br i1 %1356, label %1357, label %1375
@@ -3062,11 +3062,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
 
 1380:                                             ; preds = %9, %9, %9
   %1381 = load ptr, ptr %6, align 8
-  %1382 = getelementptr inbounds i8, ptr %1381, i64 40
+  %1382 = getelementptr inbounds nuw i8, ptr %1381, i64 40
   %1383 = load i32, ptr %1382, align 8
   %1384 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1383) #6
   %1385 = load ptr, ptr %6, align 8
-  %1386 = getelementptr inbounds i8, ptr %1385, i64 24
+  %1386 = getelementptr inbounds nuw i8, ptr %1385, i64 24
   %1387 = load i32, ptr %1386, align 8
   %1388 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1387) #6
   call void @_ZN4llvm20DecodeScalarMoveMaskEjbRNS_15SmallVectorImplIiEE(i32 noundef 2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
@@ -3078,11 +3078,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
 
 1393:                                             ; preds = %9, %9, %9
   %1394 = load ptr, ptr %6, align 8
-  %1395 = getelementptr inbounds i8, ptr %1394, i64 40
+  %1395 = getelementptr inbounds nuw i8, ptr %1394, i64 40
   %1396 = load i32, ptr %1395, align 8
   %1397 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1396) #6
   %1398 = load ptr, ptr %6, align 8
-  %1399 = getelementptr inbounds i8, ptr %1398, i64 24
+  %1399 = getelementptr inbounds nuw i8, ptr %1398, i64 24
   %1400 = load i32, ptr %1399, align 8
   %1401 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1400) #6
   call void @_ZN4llvm20DecodeScalarMoveMaskEjbRNS_15SmallVectorImplIiEE(i32 noundef 4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
@@ -3094,7 +3094,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
 
 1406:                                             ; preds = %9, %9, %9, %9, %9, %9
   %1407 = load ptr, ptr %6, align 8
-  %1408 = getelementptr inbounds i8, ptr %1407, i64 24
+  %1408 = getelementptr inbounds nuw i8, ptr %1407, i64 24
   %1409 = load i32, ptr %1408, align 8
   %1410 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1409) #6
   call void @_ZN4llvm21DecodeZeroMoveLowMaskEjRNS_15SmallVectorImplIiEE(i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
@@ -3106,22 +3106,22 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
 
 1415:                                             ; preds = %9
   %1416 = load ptr, ptr %6, align 8
-  %1417 = getelementptr inbounds i8, ptr %1416, i64 32
+  %1417 = getelementptr inbounds nuw i8, ptr %1416, i64 32
   %1418 = load i8, ptr %1417, align 8
   %1419 = icmp eq i8 %1418, 2
   br i1 %1419, label %1420, label %1431
 
 1420:                                             ; preds = %1415
-  %1421 = getelementptr inbounds i8, ptr %1416, i64 48
+  %1421 = getelementptr inbounds nuw i8, ptr %1416, i64 48
   %1422 = load i8, ptr %1421, align 8
   %1423 = icmp eq i8 %1422, 2
   br i1 %1423, label %1424, label %1431
 
 1424:                                             ; preds = %1420
-  %1425 = getelementptr inbounds i8, ptr %1416, i64 40
+  %1425 = getelementptr inbounds nuw i8, ptr %1416, i64 40
   %1426 = load i64, ptr %1425, align 8
   %1427 = trunc i64 %1426 to i32
-  %1428 = getelementptr inbounds i8, ptr %1416, i64 56
+  %1428 = getelementptr inbounds nuw i8, ptr %1416, i64 56
   %1429 = load i64, ptr %1428, align 8
   %1430 = trunc i64 %1429 to i32
   call void @_ZN4llvm16DecodeEXTRQIMaskEjjiiRNS_15SmallVectorImplIiEE(i32 noundef 16, i32 noundef 8, i32 noundef %1427, i32 noundef %1430, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
@@ -3134,29 +3134,29 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
   %1434 = load i32, ptr %1433, align 8
   %1435 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1434) #6
   %1436 = load ptr, ptr %6, align 8
-  %1437 = getelementptr inbounds i8, ptr %1436, i64 24
+  %1437 = getelementptr inbounds nuw i8, ptr %1436, i64 24
   %1438 = load i32, ptr %1437, align 8
   %1439 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1438) #6
   br label %1685
 
 1440:                                             ; preds = %9
   %1441 = load ptr, ptr %6, align 8
-  %1442 = getelementptr inbounds i8, ptr %1441, i64 48
+  %1442 = getelementptr inbounds nuw i8, ptr %1441, i64 48
   %1443 = load i8, ptr %1442, align 8
   %1444 = icmp eq i8 %1443, 2
   br i1 %1444, label %1445, label %1456
 
 1445:                                             ; preds = %1440
-  %1446 = getelementptr inbounds i8, ptr %1441, i64 64
+  %1446 = getelementptr inbounds nuw i8, ptr %1441, i64 64
   %1447 = load i8, ptr %1446, align 8
   %1448 = icmp eq i8 %1447, 2
   br i1 %1448, label %1449, label %1456
 
 1449:                                             ; preds = %1445
-  %1450 = getelementptr inbounds i8, ptr %1441, i64 56
+  %1450 = getelementptr inbounds nuw i8, ptr %1441, i64 56
   %1451 = load i64, ptr %1450, align 8
   %1452 = trunc i64 %1451 to i32
-  %1453 = getelementptr inbounds i8, ptr %1441, i64 72
+  %1453 = getelementptr inbounds nuw i8, ptr %1441, i64 72
   %1454 = load i64, ptr %1453, align 8
   %1455 = trunc i64 %1454 to i32
   call void @_ZN4llvm18DecodeINSERTQIMaskEjjiiRNS_15SmallVectorImplIiEE(i32 noundef 16, i32 noundef 8, i32 noundef %1452, i32 noundef %1455, ptr noundef nonnull align 8 dereferenceable(16) %4) #6
@@ -3169,11 +3169,11 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
   %1459 = load i32, ptr %1458, align 8
   %1460 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1459) #6
   %1461 = load ptr, ptr %6, align 8
-  %1462 = getelementptr inbounds i8, ptr %1461, i64 24
+  %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 24
   %1463 = load i32, ptr %1462, align 8
   %1464 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1463) #6
   %1465 = load ptr, ptr %6, align 8
-  %1466 = getelementptr inbounds i8, ptr %1465, i64 40
+  %1466 = getelementptr inbounds nuw i8, ptr %1465, i64 40
   %1467 = load i32, ptr %1466, align 8
   %1468 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1467) #6
   br label %1685
@@ -3230,7 +3230,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
   %1500 = add i64 %7, 4294967295
   %1501 = and i64 %1500, 4294967295
   %1502 = load ptr, ptr %6, align 8
-  %1503 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1502, i64 %1501, i32 1
+  %1503 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1502, i64 %1501, i32 1
   %1504 = load i32, ptr %1503, align 8
   %1505 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1504) #6
   br label %1506
@@ -3248,7 +3248,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
   %1512 = add i64 %7, 4294967295
   %1513 = and i64 %1512, 4294967295
   %1514 = load ptr, ptr %6, align 8
-  %1515 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1514, i64 %1513, i32 1
+  %1515 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1514, i64 %1513, i32 1
   %1516 = load i32, ptr %1515, align 8
   %1517 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1516) #6
   br label %1518
@@ -3266,7 +3266,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
   %1524 = add i64 %7, 4294967295
   %1525 = and i64 %1524, 4294967295
   %1526 = load ptr, ptr %6, align 8
-  %1527 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1526, i64 %1525, i32 1
+  %1527 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1526, i64 %1525, i32 1
   %1528 = load i32, ptr %1527, align 8
   %1529 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1528) #6
   br label %1530
@@ -3284,7 +3284,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit843: ; preds = %1357, %1361, %13
   %1536 = add i64 %7, 4294967295
   %1537 = and i64 %1536, 4294967295
   %1538 = load ptr, ptr %6, align 8
-  %1539 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1538, i64 %1537, i32 1
+  %1539 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1538, i64 %1537, i32 1
   %1540 = load i32, ptr %1539, align 8
   %1541 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1540) #6
   %.val668 = load ptr, ptr %6, align 8
@@ -3324,7 +3324,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit848: ; preds = %1535, %1545, %15
   %1561 = add i64 %7, 4294967295
   %1562 = and i64 %1561, 4294967295
   %1563 = load ptr, ptr %6, align 8
-  %1564 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1563, i64 %1562, i32 1
+  %1564 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1563, i64 %1562, i32 1
   %1565 = load i32, ptr %1564, align 8
   %1566 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1565) #6
   %.val669 = load ptr, ptr %6, align 8
@@ -3364,7 +3364,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit853: ; preds = %1560, %1570, %15
   %1586 = add i64 %7, 4294967295
   %1587 = and i64 %1586, 4294967295
   %1588 = load ptr, ptr %6, align 8
-  %1589 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1588, i64 %1587, i32 1
+  %1589 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1588, i64 %1587, i32 1
   %1590 = load i32, ptr %1589, align 8
   %1591 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1590) #6
   %.val670 = load ptr, ptr %6, align 8
@@ -3404,7 +3404,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit858: ; preds = %1585, %1595, %16
   %1611 = add i64 %7, 4294967295
   %1612 = and i64 %1611, 4294967295
   %1613 = load ptr, ptr %6, align 8
-  %1614 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1613, i64 %1612, i32 1
+  %1614 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1613, i64 %1612, i32 1
   %1615 = load i32, ptr %1614, align 8
   %1616 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1615) #6
   %.val671 = load ptr, ptr %6, align 8
@@ -3444,7 +3444,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit863: ; preds = %1610, %1620, %16
   %1636 = add i64 %7, 4294967295
   %1637 = and i64 %1636, 4294967295
   %1638 = load ptr, ptr %6, align 8
-  %1639 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1638, i64 %1637, i32 1
+  %1639 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1638, i64 %1637, i32 1
   %1640 = load i32, ptr %1639, align 8
   %1641 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1640) #6
   %.val672 = load ptr, ptr %6, align 8
@@ -3484,7 +3484,7 @@ _ZL20getRegOperandNumEltsPKN4llvm6MCInstEjj.exit868: ; preds = %1635, %1645, %16
   %1661 = add i64 %7, 4294967295
   %1662 = and i64 %1661, 4294967295
   %1663 = load ptr, ptr %6, align 8
-  %1664 = getelementptr inbounds %"class.llvm::MCOperand", ptr %1663, i64 %1662, i32 1
+  %1664 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1663, i64 %1662, i32 1
   %1665 = load i32, ptr %1664, align 8
   %1666 = call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %1665) #6
   %.val673 = load ptr, ptr %6, align 8
@@ -3583,7 +3583,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %1697, %1699, %1700
 1714:                                             ; preds = %1703
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1707, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
   %1715 = load ptr, ptr %1706, align 8
-  %1716 = getelementptr inbounds i8, ptr %1715, i64 3
+  %1716 = getelementptr inbounds nuw i8, ptr %1715, i64 3
   store ptr %1716, ptr %1706, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit878
 
@@ -3605,7 +3605,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit878:              ; preds = %1714, %1712, %_ZN4l
 1727:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit878
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1720, ptr noundef nonnull align 1 dereferenceable(3) @.str.1, i64 3, i1 false)
   %1728 = load ptr, ptr %1719, align 8
-  %1729 = getelementptr inbounds i8, ptr %1728, i64 3
+  %1729 = getelementptr inbounds nuw i8, ptr %1728, i64 3
   store ptr %1729, ptr %1719, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit882
 
@@ -3627,7 +3627,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit882:              ; preds = %1725, %1727
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %1740
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %1740 ]
   %1735 = load ptr, ptr %4, align 8
-  %1736 = getelementptr inbounds i32, ptr %1735, i64 %indvars.iv
+  %1736 = getelementptr inbounds nuw i32, ptr %1735, i64 %indvars.iv
   %1737 = load i32, ptr %1736, align 4
   %or.cond = icmp slt i32 %1737, %invariant.smax
   br i1 %or.cond, label %1740, label %1738
@@ -3664,7 +3664,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit882:              ; preds = %1725, %1727
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 1748:                                             ; preds = %1743
-  %1749 = getelementptr inbounds i8, ptr %1744, i64 1
+  %1749 = getelementptr inbounds nuw i8, ptr %1744, i64 1
   store ptr %1749, ptr %1719, align 8
   store i8 44, ptr %1744, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -3672,7 +3672,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit882:              ; preds = %1725, %1727
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %1748, %1746, %.lr.ph920
   %1750 = zext i32 %.0579919 to i64
   %1751 = load ptr, ptr %4, align 8
-  %1752 = getelementptr inbounds i32, ptr %1751, i64 %1750
+  %1752 = getelementptr inbounds nuw i32, ptr %1751, i64 %1750
   %1753 = load i32, ptr %1752, align 4
   %1754 = icmp eq i32 %1753, -2
   br i1 %1754, label %1755, label %1768
@@ -3693,7 +3693,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %1748, %1746, %.lr.p
 1764:                                             ; preds = %1755
   store i32 1869768058, ptr %1757, align 1
   %1765 = load ptr, ptr %1719, align 8
-  %1766 = getelementptr inbounds i8, ptr %1765, i64 4
+  %1766 = getelementptr inbounds nuw i8, ptr %1765, i64 4
   store ptr %1766, ptr %1719, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit886
 
@@ -3748,7 +3748,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit891:              ; preds = %1781, %1783, %1784
 
 1792:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit891
   %1793 = getelementptr inbounds nuw i8, ptr %.0.i.i890, i64 32
-  %1794 = getelementptr inbounds i8, ptr %1787, i64 1
+  %1794 = getelementptr inbounds nuw i8, ptr %1787, i64 1
   store ptr %1794, ptr %1793, align 8
   store i8 91, ptr %1787, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit894
@@ -3762,7 +3762,7 @@ _ZN4llvm11raw_ostreamlsEc.exit894:                ; preds = %1790, %1792
   %.2581911 = phi i32 [ %1830, %_ZN4llvm11raw_ostreamlsEPKc.exit901 ], [ %.0579919, %_ZN4llvm11raw_ostreamlsEc.exit894 ]
   %1795 = zext i32 %.2581911 to i64
   %1796 = load ptr, ptr %4, align 8
-  %1797 = getelementptr inbounds i32, ptr %1796, i64 %1795
+  %1797 = getelementptr inbounds nuw i32, ptr %1796, i64 %1795
   %1798 = load i32, ptr %1797, align 4
   %.not631 = icmp eq i32 %1798, -2
   br i1 %.not631, label %.critedge, label %1799
@@ -3788,14 +3788,14 @@ _ZN4llvm11raw_ostreamlsEc.exit894:                ; preds = %1790, %1792
   br label %_ZN4llvm11raw_ostreamlsEc.exit897
 
 1810:                                             ; preds = %1805
-  %1811 = getelementptr inbounds i8, ptr %1806, i64 1
+  %1811 = getelementptr inbounds nuw i8, ptr %1806, i64 1
   store ptr %1811, ptr %1719, align 8
   store i8 44, ptr %1806, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit897
 
 _ZN4llvm11raw_ostreamlsEc.exit897:                ; preds = %1810, %1808, %1804
   %1812 = load ptr, ptr %4, align 8
-  %1813 = getelementptr inbounds i32, ptr %1812, i64 %1795
+  %1813 = getelementptr inbounds nuw i32, ptr %1812, i64 %1795
   %1814 = load i32, ptr %1813, align 4
   %1815 = icmp eq i32 %1814, -1
   br i1 %1815, label %1816, label %1825
@@ -3813,7 +3813,7 @@ _ZN4llvm11raw_ostreamlsEc.exit897:                ; preds = %1810, %1808, %1804
 1822:                                             ; preds = %1816
   store i8 117, ptr %1818, align 1
   %1823 = load ptr, ptr %1719, align 8
-  %1824 = getelementptr inbounds i8, ptr %1823, i64 1
+  %1824 = getelementptr inbounds nuw i8, ptr %1823, i64 1
   store ptr %1824, ptr %1719, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit901
 
@@ -3841,7 +3841,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit901:              ; preds = %1822, %1820, %1825
   br label %_ZN4llvm11raw_ostreamlsEc.exit904
 
 1835:                                             ; preds = %.critedge
-  %1836 = getelementptr inbounds i8, ptr %1831, i64 1
+  %1836 = getelementptr inbounds nuw i8, ptr %1831, i64 1
   store ptr %1836, ptr %1719, align 8
   store i8 93, ptr %1831, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit904
@@ -3862,7 +3862,7 @@ _ZN4llvm11raw_ostreamlsEc.exit904:                ; preds = %1835, %1833, %_ZN4l
   br label %_ZN4llvm11raw_ostreamlsEc.exit907
 
 1841:                                             ; preds = %._crit_edge
-  %1842 = getelementptr inbounds i8, ptr %1837, i64 1
+  %1842 = getelementptr inbounds nuw i8, ptr %1837, i64 1
   store ptr %1842, ptr %1719, align 8
   store i8 10, ptr %1837, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit907
@@ -5418,7 +5418,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %8 = add i64 %5, 4294967295
   %9 = and i64 %8, 4294967295
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %"class.llvm::MCOperand", ptr %10, i64 %9, i32 1
+  %11 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %10, i64 %9, i32 1
   %12 = load i32, ptr %11, align 8
   %13 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %12) #6
   br label %14
@@ -5426,11 +5426,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
 14:                                               ; preds = %7, %3, %3, %3, %3, %3, %3, %3, %3
   %.0257 = phi ptr [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ %13, %7 ]
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %17) #6
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %21) #6
   br label %493
@@ -5439,11 +5439,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %24 = add i64 %5, 4294967295
   %25 = and i64 %24, 4294967295
   %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds %"class.llvm::MCOperand", ptr %26, i64 %25, i32 1
+  %27 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %26, i64 %25, i32 1
   %28 = load i32, ptr %27, align 8
   %29 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %28) #6
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %32) #6
   br label %493
@@ -5452,7 +5452,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %35 = add i64 %5, 4294967295
   %36 = and i64 %35, 4294967295
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds %"class.llvm::MCOperand", ptr %37, i64 %36, i32 1
+  %38 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %37, i64 %36, i32 1
   %39 = load i32, ptr %38, align 8
   %40 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %39) #6
   br label %41
@@ -5460,11 +5460,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
 41:                                               ; preds = %34, %3, %3, %3, %3, %3, %3, %3, %3
   %.1258 = phi ptr [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ %40, %34 ]
   %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load i32, ptr %43, align 8
   %45 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %44) #6
   %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %48) #6
   br label %493
@@ -5473,11 +5473,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %51 = add i64 %5, 4294967295
   %52 = and i64 %51, 4294967295
   %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %"class.llvm::MCOperand", ptr %53, i64 %52, i32 1
+  %54 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %53, i64 %52, i32 1
   %55 = load i32, ptr %54, align 8
   %56 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %55) #6
   %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %59) #6
   br label %493
@@ -5486,7 +5486,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %62 = add i64 %5, 4294967295
   %63 = and i64 %62, 4294967295
   %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %"class.llvm::MCOperand", ptr %64, i64 %63, i32 1
+  %65 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %64, i64 %63, i32 1
   %66 = load i32, ptr %65, align 8
   %67 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %66) #6
   br label %68
@@ -5494,11 +5494,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
 68:                                               ; preds = %61, %3, %3, %3, %3, %3, %3, %3, %3
   %.2259 = phi ptr [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ %67, %61 ]
   %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i32, ptr %70, align 8
   %72 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %71) #6
   %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load i32, ptr %74, align 8
   %76 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %75) #6
   br label %493
@@ -5507,11 +5507,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %78 = add i64 %5, 4294967295
   %79 = and i64 %78, 4294967295
   %80 = load ptr, ptr %4, align 8
-  %81 = getelementptr inbounds %"class.llvm::MCOperand", ptr %80, i64 %79, i32 1
+  %81 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %80, i64 %79, i32 1
   %82 = load i32, ptr %81, align 8
   %83 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %82) #6
   %84 = load ptr, ptr %4, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = load i32, ptr %85, align 8
   %87 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %86) #6
   br label %493
@@ -5520,7 +5520,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %89 = add i64 %5, 4294967295
   %90 = and i64 %89, 4294967295
   %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds %"class.llvm::MCOperand", ptr %91, i64 %90, i32 1
+  %92 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %91, i64 %90, i32 1
   %93 = load i32, ptr %92, align 8
   %94 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %93) #6
   br label %95
@@ -5528,11 +5528,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
 95:                                               ; preds = %88, %3, %3, %3, %3, %3, %3, %3, %3
   %.3260 = phi ptr [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ %94, %88 ]
   %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %98 = load i32, ptr %97, align 8
   %99 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %98) #6
   %100 = load ptr, ptr %4, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %102 = load i32, ptr %101, align 8
   %103 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %102) #6
   br label %493
@@ -5541,11 +5541,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %105 = add i64 %5, 4294967295
   %106 = and i64 %105, 4294967295
   %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds %"class.llvm::MCOperand", ptr %107, i64 %106, i32 1
+  %108 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %107, i64 %106, i32 1
   %109 = load i32, ptr %108, align 8
   %110 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %109) #6
   %111 = load ptr, ptr %4, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = load i32, ptr %112, align 8
   %114 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %113) #6
   br label %493
@@ -5554,7 +5554,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %116 = add i64 %5, 4294967295
   %117 = and i64 %116, 4294967295
   %118 = load ptr, ptr %4, align 8
-  %119 = getelementptr inbounds %"class.llvm::MCOperand", ptr %118, i64 %117, i32 1
+  %119 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %118, i64 %117, i32 1
   %120 = load i32, ptr %119, align 8
   %121 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %120) #6
   br label %122
@@ -5562,11 +5562,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
 122:                                              ; preds = %115, %3, %3, %3, %3
   %.4261 = phi ptr [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ %121, %115 ]
   %123 = load ptr, ptr %4, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %125 = load i32, ptr %124, align 8
   %126 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %125) #6
   %127 = load ptr, ptr %4, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %129 = load i32, ptr %128, align 8
   %130 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %129) #6
   br label %493
@@ -5575,11 +5575,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %132 = add i64 %5, 4294967295
   %133 = and i64 %132, 4294967295
   %134 = load ptr, ptr %4, align 8
-  %135 = getelementptr inbounds %"class.llvm::MCOperand", ptr %134, i64 %133, i32 1
+  %135 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %134, i64 %133, i32 1
   %136 = load i32, ptr %135, align 8
   %137 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %136) #6
   %138 = load ptr, ptr %4, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %140 = load i32, ptr %139, align 8
   %141 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %140) #6
   br label %493
@@ -5588,7 +5588,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %143 = add i64 %5, 4294967295
   %144 = and i64 %143, 4294967295
   %145 = load ptr, ptr %4, align 8
-  %146 = getelementptr inbounds %"class.llvm::MCOperand", ptr %145, i64 %144, i32 1
+  %146 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %145, i64 %144, i32 1
   %147 = load i32, ptr %146, align 8
   %148 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %147) #6
   br label %149
@@ -5596,11 +5596,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
 149:                                              ; preds = %142, %3, %3, %3, %3
   %.5262 = phi ptr [ null, %3 ], [ null, %3 ], [ null, %3 ], [ null, %3 ], [ %148, %142 ]
   %150 = load ptr, ptr %4, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %152 = load i32, ptr %151, align 8
   %153 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %152) #6
   %154 = load ptr, ptr %4, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
   %156 = load i32, ptr %155, align 8
   %157 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %156) #6
   br label %493
@@ -5609,11 +5609,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %159 = add i64 %5, 4294967295
   %160 = and i64 %159, 4294967295
   %161 = load ptr, ptr %4, align 8
-  %162 = getelementptr inbounds %"class.llvm::MCOperand", ptr %161, i64 %160, i32 1
+  %162 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %161, i64 %160, i32 1
   %163 = load i32, ptr %162, align 8
   %164 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %163) #6
   %165 = load ptr, ptr %4, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 24
   %167 = load i32, ptr %166, align 8
   %168 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %167) #6
   br label %493
@@ -5622,7 +5622,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %170 = add i64 %5, 4294967295
   %171 = and i64 %170, 4294967295
   %172 = load ptr, ptr %4, align 8
-  %173 = getelementptr inbounds %"class.llvm::MCOperand", ptr %172, i64 %171, i32 1
+  %173 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %172, i64 %171, i32 1
   %174 = load i32, ptr %173, align 8
   %175 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %174) #6
   br label %176
@@ -5633,11 +5633,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %177 = add i64 %.0270.neg, %5
   %178 = and i64 %177, 4294967295
   %179 = load ptr, ptr %4, align 8
-  %180 = getelementptr inbounds %"class.llvm::MCOperand", ptr %179, i64 %178, i32 1
+  %180 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %179, i64 %178, i32 1
   %181 = load i32, ptr %180, align 8
   %182 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %181) #6
   %183 = load ptr, ptr %4, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %185 = load i32, ptr %184, align 8
   %186 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %185) #6
   br label %493
@@ -5646,7 +5646,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %188 = add i64 %5, 4294967295
   %189 = and i64 %188, 4294967295
   %190 = load ptr, ptr %4, align 8
-  %191 = getelementptr inbounds %"class.llvm::MCOperand", ptr %190, i64 %189, i32 1
+  %191 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %190, i64 %189, i32 1
   %192 = load i32, ptr %191, align 8
   %193 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %192) #6
   br label %194
@@ -5657,11 +5657,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %195 = add i64 %.1271.neg, %5
   %196 = and i64 %195, 4294967295
   %197 = load ptr, ptr %4, align 8
-  %198 = getelementptr inbounds %"class.llvm::MCOperand", ptr %197, i64 %196, i32 1
+  %198 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %197, i64 %196, i32 1
   %199 = load i32, ptr %198, align 8
   %200 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %199) #6
   %201 = load ptr, ptr %4, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
   %203 = load i32, ptr %202, align 8
   %204 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %203) #6
   br label %493
@@ -5670,7 +5670,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %206 = add i64 %5, 4294967295
   %207 = and i64 %206, 4294967295
   %208 = load ptr, ptr %4, align 8
-  %209 = getelementptr inbounds %"class.llvm::MCOperand", ptr %208, i64 %207, i32 1
+  %209 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %208, i64 %207, i32 1
   %210 = load i32, ptr %209, align 8
   %211 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %210) #6
   br label %212
@@ -5681,11 +5681,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %213 = add i64 %.2272.neg, %5
   %214 = and i64 %213, 4294967295
   %215 = load ptr, ptr %4, align 8
-  %216 = getelementptr inbounds %"class.llvm::MCOperand", ptr %215, i64 %214, i32 1
+  %216 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %215, i64 %214, i32 1
   %217 = load i32, ptr %216, align 8
   %218 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %217) #6
   %219 = load ptr, ptr %4, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 24
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 24
   %221 = load i32, ptr %220, align 8
   %222 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %221) #6
   br label %493
@@ -5694,7 +5694,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %224 = add i64 %5, 4294967295
   %225 = and i64 %224, 4294967295
   %226 = load ptr, ptr %4, align 8
-  %227 = getelementptr inbounds %"class.llvm::MCOperand", ptr %226, i64 %225, i32 1
+  %227 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %226, i64 %225, i32 1
   %228 = load i32, ptr %227, align 8
   %229 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %228) #6
   br label %230
@@ -5705,11 +5705,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %231 = add i64 %.3273.neg, %5
   %232 = and i64 %231, 4294967295
   %233 = load ptr, ptr %4, align 8
-  %234 = getelementptr inbounds %"class.llvm::MCOperand", ptr %233, i64 %232, i32 1
+  %234 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %233, i64 %232, i32 1
   %235 = load i32, ptr %234, align 8
   %236 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %235) #6
   %237 = load ptr, ptr %4, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
   %239 = load i32, ptr %238, align 8
   %240 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %239) #6
   br label %493
@@ -5718,7 +5718,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %242 = add i64 %5, 4294967295
   %243 = and i64 %242, 4294967295
   %244 = load ptr, ptr %4, align 8
-  %245 = getelementptr inbounds %"class.llvm::MCOperand", ptr %244, i64 %243, i32 1
+  %245 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %244, i64 %243, i32 1
   %246 = load i32, ptr %245, align 8
   %247 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %246) #6
   br label %248
@@ -5729,11 +5729,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %249 = add i64 %.4274.neg, %5
   %250 = and i64 %249, 4294967295
   %251 = load ptr, ptr %4, align 8
-  %252 = getelementptr inbounds %"class.llvm::MCOperand", ptr %251, i64 %250, i32 1
+  %252 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %251, i64 %250, i32 1
   %253 = load i32, ptr %252, align 8
   %254 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %253) #6
   %255 = load ptr, ptr %4, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 24
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 24
   %257 = load i32, ptr %256, align 8
   %258 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %257) #6
   br label %493
@@ -5742,7 +5742,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %260 = add i64 %5, 4294967295
   %261 = and i64 %260, 4294967295
   %262 = load ptr, ptr %4, align 8
-  %263 = getelementptr inbounds %"class.llvm::MCOperand", ptr %262, i64 %261, i32 1
+  %263 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %262, i64 %261, i32 1
   %264 = load i32, ptr %263, align 8
   %265 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %264) #6
   br label %266
@@ -5753,11 +5753,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %267 = add i64 %.5275.neg, %5
   %268 = and i64 %267, 4294967295
   %269 = load ptr, ptr %4, align 8
-  %270 = getelementptr inbounds %"class.llvm::MCOperand", ptr %269, i64 %268, i32 1
+  %270 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %269, i64 %268, i32 1
   %271 = load i32, ptr %270, align 8
   %272 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %271) #6
   %273 = load ptr, ptr %4, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 24
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %275 = load i32, ptr %274, align 8
   %276 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %275) #6
   br label %493
@@ -5766,7 +5766,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %278 = add i64 %5, 4294967295
   %279 = and i64 %278, 4294967295
   %280 = load ptr, ptr %4, align 8
-  %281 = getelementptr inbounds %"class.llvm::MCOperand", ptr %280, i64 %279, i32 1
+  %281 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %280, i64 %279, i32 1
   %282 = load i32, ptr %281, align 8
   %283 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %282) #6
   br label %284
@@ -5777,11 +5777,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %285 = add i64 %.6276.neg, %5
   %286 = and i64 %285, 4294967295
   %287 = load ptr, ptr %4, align 8
-  %288 = getelementptr inbounds %"class.llvm::MCOperand", ptr %287, i64 %286, i32 1
+  %288 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %287, i64 %286, i32 1
   %289 = load i32, ptr %288, align 8
   %290 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %289) #6
   %291 = load ptr, ptr %4, align 8
-  %292 = getelementptr inbounds i8, ptr %291, i64 24
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 24
   %293 = load i32, ptr %292, align 8
   %294 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %293) #6
   br label %493
@@ -5790,7 +5790,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %296 = add i64 %5, 4294967295
   %297 = and i64 %296, 4294967295
   %298 = load ptr, ptr %4, align 8
-  %299 = getelementptr inbounds %"class.llvm::MCOperand", ptr %298, i64 %297, i32 1
+  %299 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %298, i64 %297, i32 1
   %300 = load i32, ptr %299, align 8
   %301 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %300) #6
   br label %302
@@ -5801,11 +5801,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %303 = add i64 %.7277.neg, %5
   %304 = and i64 %303, 4294967295
   %305 = load ptr, ptr %4, align 8
-  %306 = getelementptr inbounds %"class.llvm::MCOperand", ptr %305, i64 %304, i32 1
+  %306 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %305, i64 %304, i32 1
   %307 = load i32, ptr %306, align 8
   %308 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %307) #6
   %309 = load ptr, ptr %4, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 24
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 24
   %311 = load i32, ptr %310, align 8
   %312 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %311) #6
   br label %493
@@ -5814,7 +5814,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %314 = add i64 %5, 4294967295
   %315 = and i64 %314, 4294967295
   %316 = load ptr, ptr %4, align 8
-  %317 = getelementptr inbounds %"class.llvm::MCOperand", ptr %316, i64 %315, i32 1
+  %317 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %316, i64 %315, i32 1
   %318 = load i32, ptr %317, align 8
   %319 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %318) #6
   br label %320
@@ -5825,11 +5825,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %321 = add i64 %.8278.neg, %5
   %322 = and i64 %321, 4294967295
   %323 = load ptr, ptr %4, align 8
-  %324 = getelementptr inbounds %"class.llvm::MCOperand", ptr %323, i64 %322, i32 1
+  %324 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %323, i64 %322, i32 1
   %325 = load i32, ptr %324, align 8
   %326 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %325) #6
   %327 = load ptr, ptr %4, align 8
-  %328 = getelementptr inbounds i8, ptr %327, i64 24
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 24
   %329 = load i32, ptr %328, align 8
   %330 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %329) #6
   br label %493
@@ -5838,7 +5838,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %332 = add i64 %5, 4294967295
   %333 = and i64 %332, 4294967295
   %334 = load ptr, ptr %4, align 8
-  %335 = getelementptr inbounds %"class.llvm::MCOperand", ptr %334, i64 %333, i32 1
+  %335 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %334, i64 %333, i32 1
   %336 = load i32, ptr %335, align 8
   %337 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %336) #6
   br label %338
@@ -5849,11 +5849,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %339 = add i64 %.9279.neg, %5
   %340 = and i64 %339, 4294967295
   %341 = load ptr, ptr %4, align 8
-  %342 = getelementptr inbounds %"class.llvm::MCOperand", ptr %341, i64 %340, i32 1
+  %342 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %341, i64 %340, i32 1
   %343 = load i32, ptr %342, align 8
   %344 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %343) #6
   %345 = load ptr, ptr %4, align 8
-  %346 = getelementptr inbounds i8, ptr %345, i64 24
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 24
   %347 = load i32, ptr %346, align 8
   %348 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %347) #6
   br label %493
@@ -5862,7 +5862,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %350 = add i64 %5, 4294967295
   %351 = and i64 %350, 4294967295
   %352 = load ptr, ptr %4, align 8
-  %353 = getelementptr inbounds %"class.llvm::MCOperand", ptr %352, i64 %351, i32 1
+  %353 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %352, i64 %351, i32 1
   %354 = load i32, ptr %353, align 8
   %355 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %354) #6
   br label %356
@@ -5873,11 +5873,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %357 = add i64 %.10280.neg, %5
   %358 = and i64 %357, 4294967295
   %359 = load ptr, ptr %4, align 8
-  %360 = getelementptr inbounds %"class.llvm::MCOperand", ptr %359, i64 %358, i32 1
+  %360 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %359, i64 %358, i32 1
   %361 = load i32, ptr %360, align 8
   %362 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %361) #6
   %363 = load ptr, ptr %4, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 24
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 24
   %365 = load i32, ptr %364, align 8
   %366 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %365) #6
   br label %493
@@ -5886,7 +5886,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %368 = add i64 %5, 4294967295
   %369 = and i64 %368, 4294967295
   %370 = load ptr, ptr %4, align 8
-  %371 = getelementptr inbounds %"class.llvm::MCOperand", ptr %370, i64 %369, i32 1
+  %371 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %370, i64 %369, i32 1
   %372 = load i32, ptr %371, align 8
   %373 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %372) #6
   br label %374
@@ -5897,11 +5897,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %375 = add i64 %.11281.neg, %5
   %376 = and i64 %375, 4294967295
   %377 = load ptr, ptr %4, align 8
-  %378 = getelementptr inbounds %"class.llvm::MCOperand", ptr %377, i64 %376, i32 1
+  %378 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %377, i64 %376, i32 1
   %379 = load i32, ptr %378, align 8
   %380 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %379) #6
   %381 = load ptr, ptr %4, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 24
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 24
   %383 = load i32, ptr %382, align 8
   %384 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %383) #6
   br label %493
@@ -5910,7 +5910,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %386 = add i64 %5, 4294967295
   %387 = and i64 %386, 4294967295
   %388 = load ptr, ptr %4, align 8
-  %389 = getelementptr inbounds %"class.llvm::MCOperand", ptr %388, i64 %387, i32 1
+  %389 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %388, i64 %387, i32 1
   %390 = load i32, ptr %389, align 8
   %391 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %390) #6
   br label %392
@@ -5921,11 +5921,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %393 = add i64 %.12282.neg, %5
   %394 = and i64 %393, 4294967295
   %395 = load ptr, ptr %4, align 8
-  %396 = getelementptr inbounds %"class.llvm::MCOperand", ptr %395, i64 %394, i32 1
+  %396 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %395, i64 %394, i32 1
   %397 = load i32, ptr %396, align 8
   %398 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %397) #6
   %399 = load ptr, ptr %4, align 8
-  %400 = getelementptr inbounds i8, ptr %399, i64 24
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 24
   %401 = load i32, ptr %400, align 8
   %402 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %401) #6
   br label %493
@@ -5934,7 +5934,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %404 = add i64 %5, 4294967295
   %405 = and i64 %404, 4294967295
   %406 = load ptr, ptr %4, align 8
-  %407 = getelementptr inbounds %"class.llvm::MCOperand", ptr %406, i64 %405, i32 1
+  %407 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %406, i64 %405, i32 1
   %408 = load i32, ptr %407, align 8
   %409 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %408) #6
   br label %410
@@ -5945,11 +5945,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %411 = add i64 %.13.neg, %5
   %412 = and i64 %411, 4294967295
   %413 = load ptr, ptr %4, align 8
-  %414 = getelementptr inbounds %"class.llvm::MCOperand", ptr %413, i64 %412, i32 1
+  %414 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %413, i64 %412, i32 1
   %415 = load i32, ptr %414, align 8
   %416 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %415) #6
   %417 = load ptr, ptr %4, align 8
-  %418 = getelementptr inbounds i8, ptr %417, i64 24
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 24
   %419 = load i32, ptr %418, align 8
   %420 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %419) #6
   br label %493
@@ -5958,7 +5958,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %422 = add i64 %5, 4294967295
   %423 = and i64 %422, 4294967295
   %424 = load ptr, ptr %4, align 8
-  %425 = getelementptr inbounds %"class.llvm::MCOperand", ptr %424, i64 %423, i32 1
+  %425 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %424, i64 %423, i32 1
   %426 = load i32, ptr %425, align 8
   %427 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %426) #6
   br label %428
@@ -5969,11 +5969,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %429 = add i64 %.14.neg, %5
   %430 = and i64 %429, 4294967295
   %431 = load ptr, ptr %4, align 8
-  %432 = getelementptr inbounds %"class.llvm::MCOperand", ptr %431, i64 %430, i32 1
+  %432 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %431, i64 %430, i32 1
   %433 = load i32, ptr %432, align 8
   %434 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %433) #6
   %435 = load ptr, ptr %4, align 8
-  %436 = getelementptr inbounds i8, ptr %435, i64 24
+  %436 = getelementptr inbounds nuw i8, ptr %435, i64 24
   %437 = load i32, ptr %436, align 8
   %438 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %437) #6
   br label %493
@@ -5982,7 +5982,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %440 = add i64 %5, 4294967295
   %441 = and i64 %440, 4294967295
   %442 = load ptr, ptr %4, align 8
-  %443 = getelementptr inbounds %"class.llvm::MCOperand", ptr %442, i64 %441, i32 1
+  %443 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %442, i64 %441, i32 1
   %444 = load i32, ptr %443, align 8
   %445 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %444) #6
   br label %446
@@ -5993,11 +5993,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %447 = add i64 %.15.neg, %5
   %448 = and i64 %447, 4294967295
   %449 = load ptr, ptr %4, align 8
-  %450 = getelementptr inbounds %"class.llvm::MCOperand", ptr %449, i64 %448, i32 1
+  %450 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %449, i64 %448, i32 1
   %451 = load i32, ptr %450, align 8
   %452 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %451) #6
   %453 = load ptr, ptr %4, align 8
-  %454 = getelementptr inbounds i8, ptr %453, i64 24
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 24
   %455 = load i32, ptr %454, align 8
   %456 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %455) #6
   br label %493
@@ -6006,7 +6006,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %458 = add i64 %5, 4294967295
   %459 = and i64 %458, 4294967295
   %460 = load ptr, ptr %4, align 8
-  %461 = getelementptr inbounds %"class.llvm::MCOperand", ptr %460, i64 %459, i32 1
+  %461 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %460, i64 %459, i32 1
   %462 = load i32, ptr %461, align 8
   %463 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %462) #6
   br label %464
@@ -6017,11 +6017,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %465 = add i64 %.16.neg, %5
   %466 = and i64 %465, 4294967295
   %467 = load ptr, ptr %4, align 8
-  %468 = getelementptr inbounds %"class.llvm::MCOperand", ptr %467, i64 %466, i32 1
+  %468 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %467, i64 %466, i32 1
   %469 = load i32, ptr %468, align 8
   %470 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %469) #6
   %471 = load ptr, ptr %4, align 8
-  %472 = getelementptr inbounds i8, ptr %471, i64 24
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 24
   %473 = load i32, ptr %472, align 8
   %474 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %473) #6
   br label %493
@@ -6030,7 +6030,7 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %476 = add i64 %5, 4294967295
   %477 = and i64 %476, 4294967295
   %478 = load ptr, ptr %4, align 8
-  %479 = getelementptr inbounds %"class.llvm::MCOperand", ptr %478, i64 %477, i32 1
+  %479 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %478, i64 %477, i32 1
   %480 = load i32, ptr %479, align 8
   %481 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %480) #6
   br label %482
@@ -6041,11 +6041,11 @@ define internal fastcc noundef zeroext i1 @_ZL16printFMACommentsPKN4llvm6MCInstE
   %483 = add i64 %.17.neg, %5
   %484 = and i64 %483, 4294967295
   %485 = load ptr, ptr %4, align 8
-  %486 = getelementptr inbounds %"class.llvm::MCOperand", ptr %485, i64 %484, i32 1
+  %486 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %485, i64 %484, i32 1
   %487 = load i32, ptr %486, align 8
   %488 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %487) #6
   %489 = load ptr, ptr %4, align 8
-  %490 = getelementptr inbounds i8, ptr %489, i64 24
+  %490 = getelementptr inbounds nuw i8, ptr %489, i64 24
   %491 = load i32, ptr %490, align 8
   %492 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %491) #6
   br label %493
@@ -6117,7 +6117,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %493, %507, %509, %5
 523:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %516, ptr noundef nonnull align 1 dereferenceable(3) @.str.1, i64 3, i1 false)
   %524 = load ptr, ptr %515, align 8
-  %525 = getelementptr inbounds i8, ptr %524, i64 3
+  %525 = getelementptr inbounds nuw i8, ptr %524, i64 3
   store ptr %525, ptr %515, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit289
 
@@ -6135,7 +6135,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit289:              ; preds = %521, %523
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 531:                                              ; preds = %526
-  %532 = getelementptr inbounds i8, ptr %527, i64 1
+  %532 = getelementptr inbounds nuw i8, ptr %527, i64 1
   store ptr %532, ptr %515, align 8
   store i8 45, ptr %527, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -6151,7 +6151,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %531, %529, %_ZN4llv
   br label %_ZN4llvm11raw_ostreamlsEc.exit292
 
 537:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %538 = getelementptr inbounds i8, ptr %533, i64 1
+  %538 = getelementptr inbounds nuw i8, ptr %533, i64 1
   store ptr %538, ptr %515, align 8
   store i8 40, ptr %533, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit292
@@ -6207,7 +6207,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit297:              ; preds = %548, %550, %551
   %564 = getelementptr inbounds nuw i8, ptr %.0.i.i296, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %554, ptr noundef nonnull align 1 dereferenceable(3) @.str.8, i64 3, i1 false)
   %565 = load ptr, ptr %564, align 8
-  %566 = getelementptr inbounds i8, ptr %565, i64 3
+  %566 = getelementptr inbounds nuw i8, ptr %565, i64 3
   store ptr %566, ptr %564, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit301
 
@@ -6262,7 +6262,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit306:              ; preds = %576, %578, %579
   %592 = getelementptr inbounds nuw i8, ptr %.0.i.i305, i64 32
   store i16 8233, ptr %582, align 1
   %593 = load ptr, ptr %592, align 8
-  %594 = getelementptr inbounds i8, ptr %593, i64 2
+  %594 = getelementptr inbounds nuw i8, ptr %593, i64 2
   store ptr %594, ptr %592, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit310
 
@@ -6287,7 +6287,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit310:              ; preds = %589, %591
   %605 = getelementptr inbounds nuw i8, ptr %.0.i.i309, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %595, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0365.0, i64 %.sroa.22.0, i1 false)
   %606 = load ptr, ptr %605, align 8
-  %607 = getelementptr inbounds i8, ptr %606, i64 %.sroa.22.0
+  %607 = getelementptr inbounds nuw i8, ptr %606, i64 %.sroa.22.0
   store ptr %607, ptr %605, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
@@ -6305,7 +6305,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %602, %604
 
 613:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
   %614 = getelementptr inbounds nuw i8, ptr %.0.i312, i64 32
-  %615 = getelementptr inbounds i8, ptr %608, i64 1
+  %615 = getelementptr inbounds nuw i8, ptr %608, i64 1
   store ptr %615, ptr %614, align 8
   store i8 32, ptr %608, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit315
@@ -6354,7 +6354,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit320:              ; preds = %625, %627, %628
 
 636:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit320
   %637 = getelementptr inbounds nuw i8, ptr %.0.i.i319, i64 32
-  %638 = getelementptr inbounds i8, ptr %631, i64 1
+  %638 = getelementptr inbounds nuw i8, ptr %631, i64 1
   store ptr %638, ptr %637, align 8
   store i8 10, ptr %631, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit323
@@ -6449,14 +6449,14 @@ define internal fastcc void @_ZL12printMaskingRN4llvm11raw_ostreamEPKNS_6MCInstE
 19:                                               ; preds = %10
   %20 = load i16, ptr %6, align 8
   %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %6, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %22 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %6, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %25 = load i16, ptr %24, align 4
   %26 = zext i16 %25 to i64
-  %27 = getelementptr inbounds %"class.llvm::MCOperandInfo", ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %23, i64 %26
   %28 = zext i8 %13 to i64
-  %29 = getelementptr inbounds %"class.llvm::MCOperandInfo", ptr %27, i64 %28, i32 3
+  %29 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %27, i64 %28, i32 3
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 1
   %32 = zext nneg i16 %31 to i32
@@ -6468,7 +6468,7 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = zext nneg i32 %33 to i64
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds %"class.llvm::MCOperand", ptr %36, i64 %35, i32 1
+  %37 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %36, i64 %35, i32 1
   %38 = load i32, ptr %37, align 8
   %39 = tail call noundef ptr @_ZN4llvm17X86ATTInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %38) #6
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6488,7 +6488,7 @@ _ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.
 50:                                               ; preds = %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %43, ptr noundef nonnull align 1 dereferenceable(3) @.str.10, i64 3, i1 false)
   %51 = load ptr, ptr %42, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 3
   store ptr %52, ptr %42, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -6540,7 +6540,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %_ZN4llvm11raw_ostre
 75:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit18
   store i8 125, ptr %71, align 1
   %76 = load ptr, ptr %70, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
   store ptr %77, ptr %70, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit22
 
@@ -6563,7 +6563,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %73, %75
 87:                                               ; preds = %78
   store i32 2105178912, ptr %80, align 1
   %88 = load ptr, ptr %42, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store ptr %89, ptr %42, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit26
 

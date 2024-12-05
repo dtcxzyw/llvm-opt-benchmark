@@ -12,7 +12,7 @@ define void @jpeg_mem_dest_tj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 23, ptr %9, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = load ptr, ptr %10, align 8
@@ -20,30 +20,30 @@ define void @jpeg_mem_dest_tj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %12
 
 12:                                               ; preds = %4, %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, i32 noundef 0, i64 noundef 88) #7
   store ptr %20, ptr %13, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   br label %30
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %14, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, @init_mem_destination
   br i1 %.not, label %30, label %25
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i32 23, ptr %27, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = load ptr, ptr %28, align 8
@@ -52,13 +52,13 @@ define void @jpeg_mem_dest_tj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 30:                                               ; preds = %22, %25, %16
   %31 = load ptr, ptr %13, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr @init_mem_destination, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr @empty_mem_output_buffer, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store ptr @term_mem_destination, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %1, align 8
   %38 = icmp eq ptr %36, %37
@@ -72,11 +72,11 @@ define void @jpeg_mem_dest_tj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 42:                                               ; preds = %39, %30
   %.not57 = phi i1 [ true, %30 ], [ %or.cond3.not, %39 ]
-  %43 = getelementptr inbounds i8, ptr %31, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store ptr %1, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %31, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store ptr %2, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %31, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %31, i64 80
   store i32 %3, ptr %45, align 8
   %46 = load ptr, ptr %1, align 8
   %47 = icmp eq ptr %46, null
@@ -94,17 +94,17 @@ define void @jpeg_mem_dest_tj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 52:                                               ; preds = %51
   %53 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #8
   store ptr %53, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %31, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store ptr %53, ptr %54, align 8
   %55 = icmp eq ptr %53, null
   br i1 %55, label %56, label %63
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   store i32 54, ptr %58, align 8
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 44
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 44
   store i32 10, ptr %60, align 4
   %61 = load ptr, ptr %0, align 8
   %62 = load ptr, ptr %61, align 8
@@ -117,7 +117,7 @@ define void @jpeg_mem_dest_tj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 64:                                               ; preds = %51
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
   store i32 23, ptr %66, align 8
   %67 = load ptr, ptr %0, align 8
   %68 = load ptr, ptr %67, align 8
@@ -131,19 +131,19 @@ define void @jpeg_mem_dest_tj(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %.not57, label %71, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %69
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %31, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %31, i64 72
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %74
 
 71:                                               ; preds = %69
   %72 = load i64, ptr %2, align 8
-  %73 = getelementptr inbounds i8, ptr %31, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %31, i64 72
   store i64 %72, ptr %73, align 8
   br label %74
 
 74:                                               ; preds = %._crit_edge, %71
   %75 = phi i64 [ %.pre, %._crit_edge ], [ %72, %71 ]
-  %76 = getelementptr inbounds i8, ptr %31, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %75, ptr %76, align 8
   ret void
 }
@@ -155,16 +155,16 @@ define internal void @init_mem_destination(ptr nocapture readnone %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @empty_mem_output_buffer(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %11
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 23, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %9, align 8
@@ -172,7 +172,7 @@ define internal noundef i32 @empty_mem_output_buffer(ptr noundef %0) #0 {
   br label %11
 
 11:                                               ; preds = %6, %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %13 = load i64, ptr %12, align 8
   %14 = shl i64 %13, 1
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #8
@@ -181,10 +181,10 @@ define internal noundef i32 @empty_mem_output_buffer(ptr noundef %0) #0 {
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 54, ptr %19, align 8
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 44
   store i32 10, ptr %21, align 4
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %22, align 8
@@ -194,17 +194,17 @@ define internal noundef i32 @empty_mem_output_buffer(ptr noundef %0) #0 {
 
 24:                                               ; preds = %17, %11
   %25 = phi i64 [ %.pre, %17 ], [ %13, %11 ]
-  %26 = getelementptr inbounds i8, ptr %3, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %27 = load ptr, ptr %26, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %27, i64 %25, i1 false)
-  %28 = getelementptr inbounds i8, ptr %3, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %29 = load ptr, ptr %28, align 8
   tail call void @free(ptr noundef %29) #7
   store ptr %15, ptr %28, align 8
   %30 = load i64, ptr %12, align 8
   %31 = getelementptr inbounds i8, ptr %15, i64 %30
   store ptr %31, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %30, ptr %32, align 8
   store ptr %15, ptr %26, align 8
   store i64 %14, ptr %12, align 8
@@ -213,28 +213,28 @@ define internal noundef i32 @empty_mem_output_buffer(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @term_mem_destination(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %10 = load ptr, ptr %9, align 8
   store ptr %8, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %6, %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = sub i64 %13, %15
-  %17 = getelementptr inbounds i8, ptr %3, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %18 = load ptr, ptr %17, align 8
   store i64 %16, ptr %18, align 8
   ret void

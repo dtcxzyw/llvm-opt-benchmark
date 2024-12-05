@@ -185,7 +185,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %10 = zext i8 %8 to i32
   %11 = and i32 %10, 3
   %12 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.74, i32 noundef %11) #6
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_append_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.75) #6
   %15 = load i32, ptr @ett_cbch_msg, align 4
@@ -219,7 +219,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 34:                                               ; preds = %31, %31
-  %35 = getelementptr inbounds i8, ptr %1, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %35, align 8
   %36 = and i32 %33, 3
   %37 = xor i8 %28, 1
@@ -229,7 +229,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %53
 
 41:                                               ; preds = %31, %31, %31
-  %42 = getelementptr inbounds i8, ptr %1, i64 272
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %42, align 8
   %43 = xor i8 %28, 1
   %44 = zext nneg i8 %43 to i32

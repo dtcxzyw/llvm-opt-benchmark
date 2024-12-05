@@ -59,7 +59,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Bias10load_modelERKNS_8Mo
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %5, i32 noundef 1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -96,7 +96,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Bias10load_modelERKNS_8Mo
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %23)
           to label %30 unwind label %88
@@ -171,7 +171,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Bias10load_modelERKNS_8Mo
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %66, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
   invoke void %71(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %67)
           to label %74 unwind label %77
@@ -228,7 +228,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn4Bias10load_modelERKNS_8Mo
 
 98:                                               ; preds = %94
   %99 = load ptr, ptr %96, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load ptr, ptr %100, align 8
   invoke void %101(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef %97)
           to label %104 unwind label %105
@@ -292,13 +292,13 @@ define hidden noundef i32 @_ZNK4ncnn4Bias15forward_inplaceERNS_3MatERKNS_6Option
   %23 = mul i64 %21, %22
   %24 = getelementptr inbounds i8, ptr %19, i64 %23
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr inbounds float, ptr %25, i64 %indvars.iv69
+  %26 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv69
   %27 = load float, ptr %26, align 4
   br label %28
 
 28:                                               ; preds = %.lr.ph.us, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds float, ptr %24, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
   %30 = load float, ptr %29, align 4
   %31 = fadd fast float %30, %27
   store float %31, ptr %29, align 4
@@ -338,7 +338,7 @@ define linkonce_odr hidden void @_ZN4ncnn4BiasD2Ev(ptr noundef nonnull align 8 d
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %21
@@ -391,7 +391,7 @@ define linkonce_odr hidden void @_ZN4ncnn4BiasD0Ev(ptr noundef nonnull align 8 d
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %_ZN4ncnn4BiasD2Ev.exit unwind label %18

@@ -73,23 +73,23 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   store ptr null, ptr %12, align 8
   store ptr null, ptr %13, align 8
   store ptr null, ptr %16, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 216
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %17, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 92
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %31 = load i32, ptr %30, align 4
   store ptr null, ptr %18, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %25, i64 268
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 268
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %23, i64 296
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 296
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i1 @gres_sched_init(ptr noundef %36) #8
   %.fr670 = freeze i1 %37
@@ -128,13 +128,13 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %65 = add i32 %42, %64
   %66 = sdiv i32 %65, %64
   %67 = load ptr, ptr %24, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 360
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 360
   %69 = load ptr, ptr %68, align 8
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %111, label %70
 
 70:                                               ; preds = %56
-  %71 = getelementptr inbounds i8, ptr %0, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i32 @bit_super_set(ptr noundef nonnull %69, ptr noundef %72) #8
   %.not435 = icmp eq i32 %73, 0
@@ -151,7 +151,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
 
 78:                                               ; preds = %70
   %79 = load ptr, ptr %24, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 360
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 360
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr @blocks_nodes_bitmap, align 8
   %83 = tail call i32 @bit_super_set(ptr noundef %81, ptr noundef %82) #8
@@ -169,7 +169,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
 
 88:                                               ; preds = %78
   %89 = load ptr, ptr %24, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 360
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 360
   %91 = load ptr, ptr %90, align 8
   %92 = tail call i32 @bit_set_count(ptr noundef %91) #8
   %93 = icmp eq i32 %92, 0
@@ -185,7 +185,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   br label %.loopexit
 
 98:                                               ; preds = %88
-  %99 = getelementptr inbounds i8, ptr %0, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %100 = load i32, ptr %99, align 8
   %101 = icmp ugt i32 %92, %100
   br i1 %101, label %102, label %107
@@ -202,13 +202,13 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
 
 107:                                              ; preds = %98
   %108 = load ptr, ptr %24, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 360
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 360
   %110 = load ptr, ptr %109, align 8
   br label %111
 
 111:                                              ; preds = %107, %56
   %.0 = phi ptr [ %110, %107 ], [ null, %56 ]
-  %112 = getelementptr inbounds i8, ptr %0, i64 80
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %113 = load ptr, ptr %112, align 8
   %114 = tail call i32 @bit_set_count(ptr noundef %113) #8
   %.not437 = icmp eq i32 %114, 0
@@ -237,8 +237,8 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
 
 .lr.ph:                                           ; preds = %119
   %.not497 = icmp eq ptr %.0, null
-  %126 = getelementptr inbounds i8, ptr %0, i64 56
-  %127 = getelementptr inbounds i8, ptr %19, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %127 = getelementptr inbounds nuw i8, ptr %19, i64 16
   br label %128
 
 128:                                              ; preds = %.lr.ph, %176
@@ -269,7 +269,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds ptr, ptr %27, i64 %140
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %144 = load ptr, ptr %143, align 8
   call void @gres_sched_add(ptr noundef %138, ptr noundef %144, ptr noundef nonnull %32) #8
   br label %145
@@ -310,7 +310,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %.1379 = phi i32 [ %156, %152 ], [ %.0378589, %130 ], [ %.0378589, %128 ]
   %.1367 = phi i32 [ %162, %152 ], [ %.0366590, %130 ], [ %.0366590, %128 ]
   %.1347 = phi i64 [ %164, %152 ], [ %.0346591, %130 ], [ %.0346591, %128 ]
-  %166 = getelementptr inbounds i8, ptr %129, i64 424
+  %166 = getelementptr inbounds nuw i8, ptr %129, i64 424
   %167 = load i64, ptr %166, align 8
   store i64 %167, ptr %127, align 8
   %168 = call ptr @list_find_first(ptr noundef %123, ptr noundef nonnull @eval_nodes_topo_weight_find, ptr noundef nonnull %19) #8
@@ -324,7 +324,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %173 = call ptr @bit_alloc(i64 noundef %172) #8
   store ptr %173, ptr %170, align 8
   %174 = load i64, ptr %166, align 8
-  %175 = getelementptr inbounds i8, ptr %170, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %170, i64 16
   store i64 %174, ptr %175, align 8
   call void @list_append(ptr noundef %123, ptr noundef nonnull %170) #8
   br label %176
@@ -335,7 +335,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %178 = load i32, ptr %14, align 4
   %179 = sext i32 %178 to i64
   call void @bit_set(ptr noundef %177, i64 noundef %179) #8
-  %180 = getelementptr inbounds i8, ptr %.0345, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.0345, i64 8
   %181 = load i32, ptr %180, align 8
   %182 = add nsw i32 %181, 1
   store i32 %182, ptr %180, align 8
@@ -458,7 +458,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %240 = getelementptr inbounds ptr, ptr %222, i64 %239
   %241 = load ptr, ptr %240, align 8
   %.not495 = icmp eq ptr %241, null
-  %242 = getelementptr inbounds i8, ptr %.0338595, i64 16
+  %242 = getelementptr inbounds nuw i8, ptr %.0338595, i64 16
   %243 = load ptr, ptr %242, align 8
   br i1 %.not495, label %245, label %244
 
@@ -483,7 +483,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
 252:                                              ; preds = %248
   %253 = load i32, ptr %14, align 4
   %254 = sdiv i32 %253, %61
-  %255 = getelementptr inbounds i8, ptr %.0338595, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %.0338595, i64 16
   %256 = load ptr, ptr %255, align 8
   %257 = load ptr, ptr %112, align 8
   %258 = call i32 @bit_overlap(ptr noundef %256, ptr noundef %257) #8
@@ -499,7 +499,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %265 = load i32, ptr %14, align 4
   %266 = add nsw i32 %265, 1
   store i32 %266, ptr %14, align 4
-  %267 = getelementptr inbounds i8, ptr %.0338595, i64 40
+  %267 = getelementptr inbounds nuw i8, ptr %.0338595, i64 40
   %268 = load i32, ptr @block_record_cnt, align 4
   %269 = icmp slt i32 %266, %268
   br i1 %269, label %.lr.ph597, label %.preheader563, !llvm.loop !8
@@ -650,7 +650,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
 
 355:                                              ; preds = %351
   %356 = icmp eq i32 %.0360608, -1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %354, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %354, i64 16
   %.pre741 = load i64, ptr %.phi.trans.insert, align 8
   br i1 %356, label %._crit_edge740, label %357
 
@@ -819,13 +819,13 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
 
 429:                                              ; preds = %426
   %430 = load ptr, ptr %35, align 8
-  %431 = getelementptr inbounds i8, ptr %23, i64 392
+  %431 = getelementptr inbounds nuw i8, ptr %23, i64 392
   %432 = load i32, ptr %431, align 8
   %433 = call zeroext i1 @gres_sched_test(ptr noundef %430, i32 noundef %432) #8
   br i1 %433, label %.loopexit, label %434
 
 434:                                              ; preds = %429, %426
-  %435 = getelementptr inbounds i8, ptr %0, i64 56
+  %435 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %436 = load i32, ptr %435, align 8
   %437 = icmp eq i32 %436, 0
   br i1 %437, label %438, label %.critedge514
@@ -959,7 +959,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %496 = sext i32 %495 to i64
   %497 = getelementptr inbounds ptr, ptr %27, i64 %496
   %498 = load ptr, ptr %497, align 8
-  %499 = getelementptr inbounds i8, ptr %498, i64 32
+  %499 = getelementptr inbounds nuw i8, ptr %498, i64 32
   %500 = load ptr, ptr %499, align 8
   call void @gres_sched_consec(ptr noundef nonnull %16, ptr noundef %494, ptr noundef %500) #8
   br label %501
@@ -1103,7 +1103,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   br i1 %.not464, label %.loopexit559, label %.preheader560
 
 .preheader560:                                    ; preds = %551
-  %553 = getelementptr inbounds i8, ptr %0, i64 56
+  %553 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %14, align 4
   %554 = call ptr @next_node_bitmap(ptr noundef nonnull %552, ptr noundef nonnull %14) #8
   %.not466635 = icmp eq ptr %554, null
@@ -1134,7 +1134,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %565 = sext i32 %564 to i64
   %566 = getelementptr inbounds ptr, ptr %27, i64 %565
   %567 = load ptr, ptr %566, align 8
-  %568 = getelementptr inbounds i8, ptr %567, i64 32
+  %568 = getelementptr inbounds nuw i8, ptr %567, i64 32
   %569 = load ptr, ptr %568, align 8
   call void @gres_sched_add(ptr noundef %563, ptr noundef %569, ptr noundef nonnull %32) #8
   br label %570
@@ -1174,7 +1174,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
 
 587:                                              ; preds = %586
   %588 = load ptr, ptr %35, align 8
-  %589 = getelementptr inbounds i8, ptr %23, i64 392
+  %589 = getelementptr inbounds nuw i8, ptr %23, i64 392
   %590 = load i32, ptr %589, align 8
   %591 = call zeroext i1 @gres_sched_test(ptr noundef %588, i32 noundef %590) #8
   br i1 %591, label %592, label %594
@@ -1290,8 +1290,8 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   br i1 %637, label %.lr.ph676, label %.loopexit557
 
 .lr.ph676:                                        ; preds = %.preheader556
-  %638 = getelementptr inbounds i8, ptr %0, i64 56
-  %639 = getelementptr inbounds i8, ptr %23, i64 392
+  %638 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %639 = getelementptr inbounds nuw i8, ptr %23, i64 392
   %.pre750 = load ptr, ptr %13, align 8
   br label %640
 
@@ -1364,7 +1364,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %668 = sext i32 %667 to i64
   %669 = getelementptr inbounds ptr, ptr %27, i64 %668
   %670 = load ptr, ptr %669, align 8
-  %671 = getelementptr inbounds i8, ptr %670, i64 32
+  %671 = getelementptr inbounds nuw i8, ptr %670, i64 32
   %672 = load ptr, ptr %671, align 8
   call void @gres_sched_add(ptr noundef %666, ptr noundef %672, ptr noundef nonnull %32) #8
   %673 = add nsw i32 %.7385657.us, -1
@@ -1586,8 +1586,8 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef initializes((8, 10)) %
   %795 = phi ptr [ %725, %733 ], [ %787, %785 ]
   %796 = shl nsw i32 -1, %.0341
   %797 = xor i32 %796, -1
-  %798 = getelementptr inbounds i8, ptr %0, i64 56
-  %799 = getelementptr inbounds i8, ptr %23, i64 392
+  %798 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %799 = getelementptr inbounds nuw i8, ptr %23, i64 392
   %.not.i = icmp eq ptr %794, null
   br label %.preheader552
 
@@ -1829,7 +1829,7 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
   %901 = sext i32 %900 to i64
   %902 = getelementptr inbounds ptr, ptr %27, i64 %901
   %903 = load ptr, ptr %902, align 8
-  %904 = getelementptr inbounds i8, ptr %903, i64 32
+  %904 = getelementptr inbounds nuw i8, ptr %903, i64 32
   %905 = load ptr, ptr %904, align 8
   call void @gres_sched_add(ptr noundef %899, ptr noundef %905, ptr noundef nonnull %32) #8
   br label %906

@@ -41,11 +41,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
 15:                                               ; preds = %.preheader, %24
   %.0223264 = phi i32 [ %.0221266, %.preheader ], [ %19, %24 ]
   %16 = zext nneg i32 %.0223264 to i64
-  %17 = getelementptr inbounds i32, ptr %7, i64 %16
+  %17 = getelementptr inbounds nuw i32, ptr %7, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %.0223264, -1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %7, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %18, %22
   br i1 %23, label %24, label %29
@@ -53,9 +53,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
 24:                                               ; preds = %15
   store i32 %22, ptr %17, align 4
   store i32 %18, ptr %21, align 4
-  %25 = getelementptr inbounds i32, ptr %6, i64 %16
+  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %16
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i32, ptr %6, i64 %20
+  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %20
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %25, align 4
   store i32 %26, ptr %27, align 4
@@ -74,11 +74,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
 30:                                               ; preds = %.preheader258, %39
   %.1224261 = phi i32 [ %.1222263, %.preheader258 ], [ %34, %39 ]
   %31 = zext nneg i32 %.1224261 to i64
-  %32 = getelementptr inbounds i32, ptr %7, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %7, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %.1224261, -1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %7, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %7, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %33, %37
   br i1 %38, label %39, label %44
@@ -86,9 +86,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
 39:                                               ; preds = %30
   store i32 %37, ptr %32, align 4
   store i32 %33, ptr %36, align 4
-  %40 = getelementptr inbounds i32, ptr %6, i64 %31
+  %40 = getelementptr inbounds nuw i32, ptr %6, i64 %31
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i32, ptr %6, i64 %35
+  %42 = getelementptr inbounds nuw i32, ptr %6, i64 %35
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %40, align 4
   store i32 %41, ptr %42, align 4

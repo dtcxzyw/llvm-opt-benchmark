@@ -33,7 +33,7 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dnotify_flush(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, -4096
@@ -41,17 +41,17 @@ define dso_local void @dnotify_flush(ptr noundef readonly %0, ptr noundef readno
   br i1 %7, label %8, label %105
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 584
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 584
   %10 = load ptr, ptr @dnotify_group, align 8
-  %11 = tail call ptr @fsnotify_find_mark(ptr noundef %9, ptr noundef %10) #6
+  %11 = tail call ptr @fsnotify_find_mark(ptr noundef nonnull %9, ptr noundef %10) #6
   %12 = icmp eq ptr %11, null
   br i1 %12, label %105, label %13
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr @dnotify_group, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 80
-  tail call void @mutex_lock(ptr noundef %15) #6
-  %16 = getelementptr inbounds i8, ptr %14, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  tail call void @mutex_lock(ptr noundef nonnull %15) #6
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 4
   %19 = icmp eq i32 %18, 0
@@ -60,19 +60,19 @@ define dso_local void @dnotify_flush(ptr noundef readonly %0, ptr noundef readno
 20:                                               ; preds = %13
   %21 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 44
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 262144
   %26 = or i32 %24, 262144
   store i32 %26, ptr %23, align 4
-  %27 = getelementptr inbounds i8, ptr %14, i64 76
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 76
   store i32 %25, ptr %27, align 4
   br label %28
 
 28:                                               ; preds = %20, %13
-  %29 = getelementptr inbounds i8, ptr %11, i64 32
-  tail call void @_raw_spin_lock(ptr noundef %29) #6
-  %30 = getelementptr inbounds i8, ptr %11, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  tail call void @_raw_spin_lock(ptr noundef nonnull %29) #6
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.loopexit6, label %.preheader5
@@ -80,13 +80,13 @@ define dso_local void @dnotify_flush(ptr noundef readonly %0, ptr noundef readno
 .preheader5:                                      ; preds = %28, %65
   %33 = phi ptr [ %66, %65 ], [ %31, %28 ]
   %34 = phi ptr [ %33, %65 ], [ %30, %28 ]
-  %35 = getelementptr inbounds i8, ptr %33, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %1
   br i1 %37, label %38, label %65
 
 38:                                               ; preds = %.preheader5
-  %39 = getelementptr inbounds i8, ptr %33, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %0
   br i1 %41, label %42, label %65
@@ -113,7 +113,7 @@ define dso_local void @dnotify_flush(ptr noundef readonly %0, ptr noundef readno
 .preheader:                                       ; preds = %48, %.preheader
   %51 = phi ptr [ %57, %.preheader ], [ %49, %48 ]
   %52 = phi i32 [ %56, %.preheader ], [ 0, %48 ]
-  %53 = getelementptr inbounds i8, ptr %51, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, -536870913
   %56 = or i32 %55, %52
@@ -129,7 +129,7 @@ define dso_local void @dnotify_flush(ptr noundef readonly %0, ptr noundef readno
 
 62:                                               ; preds = %.loopexit
   store i32 %59, ptr %11, align 8
-  %63 = getelementptr inbounds i8, ptr %11, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %64 = load ptr, ptr %63, align 8
   tail call void @fsnotify_recalc_mask(ptr noundef %64) #6
   br label %.loopexit6
@@ -140,7 +140,7 @@ define dso_local void @dnotify_flush(ptr noundef readonly %0, ptr noundef readno
   br i1 %67, label %.loopexit6, label %.preheader5, !llvm.loop !12
 
 .loopexit6:                                       ; preds = %65, %62, %.loopexit, %28
-  tail call void @_raw_spin_unlock(ptr noundef %29) #6
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %29) #6
   %68 = load ptr, ptr %30, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %87
@@ -148,18 +148,18 @@ define dso_local void @dnotify_flush(ptr noundef readonly %0, ptr noundef readno
 70:                                               ; preds = %.loopexit6
   tail call void @fsnotify_detach_mark(ptr noundef nonnull %11) #6
   %71 = load ptr, ptr @dnotify_group, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 72
   %73 = load i32, ptr %72, align 8
   %74 = and i32 %73, 4
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %85, label %76
 
 76:                                               ; preds = %70
-  %77 = getelementptr inbounds i8, ptr %71, i64 76
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 76
   %78 = load i32, ptr %77, align 4
   %79 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds i8, ptr %80, i64 44
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 44
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, -262145
   %84 = or i32 %83, %78
@@ -167,25 +167,25 @@ define dso_local void @dnotify_flush(ptr noundef readonly %0, ptr noundef readno
   br label %85
 
 85:                                               ; preds = %76, %70
-  %86 = getelementptr inbounds i8, ptr %71, i64 80
-  tail call void @mutex_unlock(ptr noundef %86) #6
+  %86 = getelementptr inbounds nuw i8, ptr %71, i64 80
+  tail call void @mutex_unlock(ptr noundef nonnull %86) #6
   tail call void @fsnotify_free_mark(ptr noundef nonnull %11) #6
   br label %104
 
 87:                                               ; preds = %.loopexit6
   %88 = load ptr, ptr @dnotify_group, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %90 = load i32, ptr %89, align 8
   %91 = and i32 %90, 4
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %102, label %93
 
 93:                                               ; preds = %87
-  %94 = getelementptr inbounds i8, ptr %88, i64 76
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 76
   %95 = load i32, ptr %94, align 4
   %96 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %97 = inttoptr i64 %96 to ptr
-  %98 = getelementptr inbounds i8, ptr %97, i64 44
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 44
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, -262145
   %101 = or i32 %100, %95
@@ -193,8 +193,8 @@ define dso_local void @dnotify_flush(ptr noundef readonly %0, ptr noundef readno
   br label %102
 
 102:                                              ; preds = %93, %87
-  %103 = getelementptr inbounds i8, ptr %88, i64 80
-  tail call void @mutex_unlock(ptr noundef %103) #6
+  %103 = getelementptr inbounds nuw i8, ptr %88, i64 80
+  tail call void @mutex_unlock(ptr noundef nonnull %103) #6
   br label %104
 
 104:                                              ; preds = %102, %85
@@ -213,7 +213,7 @@ declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @dnotify_recalc_inode_mask(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %6, !prof !6
@@ -224,7 +224,7 @@ define internal fastcc void @dnotify_recalc_inode_mask(ptr noundef nonnull %0) u
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
@@ -232,7 +232,7 @@ define internal fastcc void @dnotify_recalc_inode_mask(ptr noundef nonnull %0) u
 .preheader:                                       ; preds = %6, %.preheader
   %10 = phi ptr [ %16, %.preheader ], [ %8, %6 ]
   %11 = phi i32 [ %15, %.preheader ], [ 0, %6 ]
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, -536870913
   %15 = or i32 %14, %11
@@ -248,7 +248,7 @@ define internal fastcc void @dnotify_recalc_inode_mask(ptr noundef nonnull %0) u
 
 21:                                               ; preds = %.loopexit
   store i32 %18, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
   tail call void @fsnotify_recalc_mask(ptr noundef %23) #6
   br label %24
@@ -262,18 +262,18 @@ declare dso_local void @fsnotify_detach_mark(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @fsnotify_group_unlock(ptr noundef %0) unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 76
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %8 = load i32, ptr %7, align 4
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, -262145
   %14 = or i32 %13, %8
@@ -281,8 +281,8 @@ define internal fastcc void @fsnotify_group_unlock(ptr noundef %0) unnamed_addr 
   br label %15
 
 15:                                               ; preds = %6, %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @mutex_unlock(ptr noundef %16) #6
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  tail call void @mutex_unlock(ptr noundef nonnull %16) #6
   ret void
 }
 
@@ -296,7 +296,7 @@ declare dso_local void @fsnotify_put_mark(ptr noundef) local_unnamed_addr #1
 define dso_local i32 @fcntl_dirnotify(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1856
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1856
   %7 = load ptr, ptr %6, align 64
   %8 = load i32, ptr @dir_notify_enable, align 4
   %9 = icmp eq i32 %8, 0
@@ -312,7 +312,7 @@ define dso_local i32 @fcntl_dirnotify(i32 noundef %0, ptr noundef %1, i32 nounde
   br label %.thread13
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %16 = load ptr, ptr %15, align 8
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, -4096
@@ -338,9 +338,9 @@ define dso_local i32 @fcntl_dirnotify(i32 noundef %0, ptr noundef %1, i32 nounde
   %36 = icmp eq i32 %35, 0
   %37 = or disjoint i32 %34, 384
   %38 = select i1 %36, i32 %34, i32 %37
-  %39 = getelementptr inbounds i8, ptr %1, i64 152
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %40 = zext nneg i32 %38 to i64
-  %41 = tail call i32 @security_path_notify(ptr noundef %39, i64 noundef %40, i32 noundef 0) #6
+  %41 = tail call i32 @security_path_notify(ptr noundef nonnull %39, i64 noundef %40, i32 noundef 0) #6
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %.thread13
 
@@ -360,36 +360,36 @@ define dso_local i32 @fcntl_dirnotify(i32 noundef %0, ptr noundef %1, i32 nounde
   %52 = load ptr, ptr @dnotify_group, align 8
   tail call void @fsnotify_init_mark(ptr noundef nonnull %49, ptr noundef %52) #6
   store i32 %38, ptr %49, align 8
-  %53 = getelementptr inbounds i8, ptr %49, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 72
   store ptr null, ptr %53, align 8
   %54 = load ptr, ptr @dnotify_group, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 80
-  tail call void @mutex_lock(ptr noundef %55) #6
-  %56 = getelementptr inbounds i8, ptr %54, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 80
+  tail call void @mutex_lock(ptr noundef nonnull %55) #6
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 72
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 4
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %66, label %60
 
 60:                                               ; preds = %51
-  %61 = getelementptr inbounds i8, ptr %5, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 262144
   %64 = or i32 %62, 262144
   store i32 %64, ptr %61, align 4
-  %65 = getelementptr inbounds i8, ptr %54, i64 76
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 76
   store i32 %63, ptr %65, align 4
   br label %66
 
 66:                                               ; preds = %60, %51
-  %67 = getelementptr inbounds i8, ptr %16, i64 584
+  %67 = getelementptr inbounds nuw i8, ptr %16, i64 584
   %68 = load ptr, ptr @dnotify_group, align 8
-  %69 = tail call ptr @fsnotify_find_mark(ptr noundef %67, ptr noundef %68) #6
+  %69 = tail call ptr @fsnotify_find_mark(ptr noundef nonnull %67, ptr noundef %68) #6
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %66
-  %72 = tail call i32 @fsnotify_add_mark_locked(ptr noundef nonnull %49, ptr noundef %67, i32 noundef 0, i32 noundef 0) #6
+  %72 = tail call i32 @fsnotify_add_mark_locked(ptr noundef nonnull %49, ptr noundef nonnull %67, i32 noundef 0, i32 noundef 0) #6
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %75, label %.thread11
 
@@ -401,8 +401,8 @@ define dso_local i32 @fcntl_dirnotify(i32 noundef %0, ptr noundef %1, i32 nounde
 75:                                               ; preds = %71, %66
   %76 = phi ptr [ %69, %66 ], [ %49, %71 ]
   %77 = phi ptr [ %49, %66 ], [ null, %71 ]
-  %78 = getelementptr inbounds i8, ptr %76, i64 32
-  tail call void @_raw_spin_lock(ptr noundef %78) #6
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  tail call void @_raw_spin_lock(ptr noundef nonnull %78) #6
   tail call void @__rcu_read_lock() #6
   %79 = tail call ptr @lookup_fdget_rcu(i32 noundef %0) #6
   tail call void @__rcu_read_unlock() #6
@@ -410,7 +410,7 @@ define dso_local i32 @fcntl_dirnotify(i32 noundef %0, ptr noundef %1, i32 nounde
   br i1 %80, label %.thread, label %88
 
 .thread:                                          ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %5, i64 1416
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 1416
   %82 = load ptr, ptr %81, align 8
   tail call void @__f_setown(ptr noundef %1, ptr noundef %82, i32 noundef 1, i32 noundef 0) #6
   %83 = tail call fastcc i32 @attach_dn(ptr noundef nonnull %45, ptr noundef nonnull %76, ptr noundef %7, i32 noundef %0, ptr noundef %1, i32 noundef %38), !range !13
@@ -419,12 +419,12 @@ define dso_local i32 @fcntl_dirnotify(i32 noundef %0, ptr noundef %1, i32 nounde
   %86 = select i1 %85, i32 0, i32 %83
   %87 = select i1 %84, ptr null, ptr %45
   tail call fastcc void @dnotify_recalc_inode_mask(ptr noundef nonnull %76)
-  tail call void @_raw_spin_unlock(ptr noundef %78) #6
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %78) #6
   br label %91
 
 88:                                               ; preds = %75
   %.not = icmp eq ptr %76, %49
-  tail call void @_raw_spin_unlock(ptr noundef %78) #6
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %78) #6
   br i1 %.not, label %89, label %91
 
 89:                                               ; preds = %88
@@ -503,28 +503,28 @@ declare dso_local void @__f_setown(ptr noundef, ptr noundef, i32 noundef, i32 no
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define internal fastcc noundef range(i32 -17, 1) i32 @attach_dn(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 134217728, 1073741824) %5) unnamed_addr #3 align 16 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %6, %23
   %10 = phi ptr [ %24, %23 ], [ %8, %6 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %2
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %4
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %10, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = or i32 %21, %5
   store i32 %22, ptr %20, align 8
@@ -536,13 +536,13 @@ define internal fastcc noundef range(i32 -17, 1) i32 @attach_dn(ptr noundef nonn
   br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %23, %6
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %3, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %29, align 8
   %30 = load ptr, ptr %7, align 8
   store ptr %30, ptr %0, align 8
@@ -620,33 +620,33 @@ define internal noundef i32 @dnotify_handle_event(ptr noundef %0, i32 noundef %1
   br i1 %11, label %61, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @_raw_spin_lock(ptr noundef %13) #6
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_raw_spin_lock(ptr noundef nonnull %13) #6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit4, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %19
 
 19:                                               ; preds = %57, %17
   %20 = phi ptr [ %15, %17 ], [ %59, %57 ]
   %21 = phi ptr [ %14, %17 ], [ %58, %57 ]
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %7, %23
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %57, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %20, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 80
-  %30 = getelementptr inbounds i8, ptr %20, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %31 = load i32, ptr %30, align 4
-  tail call void @send_sigio(ptr noundef %29, i32 noundef %31, i32 noundef 3) #6
+  tail call void @send_sigio(ptr noundef nonnull %29, i32 noundef %31, i32 noundef 3) #6
   %32 = load i32, ptr %22, align 8
   %33 = and i32 %32, 536870912
   %34 = icmp eq i32 %33, 0
@@ -674,7 +674,7 @@ define internal noundef i32 @dnotify_handle_event(ptr noundef %0, i32 noundef %1
 .preheader:                                       ; preds = %41, %.preheader
   %44 = phi ptr [ %50, %.preheader ], [ %42, %41 ]
   %45 = phi i32 [ %49, %.preheader ], [ 0, %41 ]
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, -536870913
   %49 = or i32 %48, %45
@@ -701,7 +701,7 @@ define internal noundef i32 @dnotify_handle_event(ptr noundef %0, i32 noundef %1
   br i1 %60, label %.loopexit4, label %19, !llvm.loop !15
 
 .loopexit4:                                       ; preds = %57, %12
-  tail call void @_raw_spin_unlock(ptr noundef %13) #6
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %13) #6
   br label %61
 
 61:                                               ; preds = %.loopexit4, %6
@@ -710,7 +710,7 @@ define internal noundef i32 @dnotify_handle_event(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @dnotify_free_mark(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5, !prof !16

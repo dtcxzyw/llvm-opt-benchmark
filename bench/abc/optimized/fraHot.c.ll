@@ -19,15 +19,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Fra_OneHotNodeIsConst(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = mul nsw i32 %7, %4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i32, ptr %5, i64 %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = icmp slt i32 %12, %7
   br i1 %13, label %.lr.ph.preheader, label %._crit_edge
@@ -56,20 +56,20 @@ define range(i32 0, 2) i32 @Fra_OneHotNodeIsConst(ptr nocapture noundef readonly
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Fra_OneHotNodesAreEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = mul nsw i32 %8, %5
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i32, ptr %6, i64 %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = mul nsw i32 %13, %8
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i32, ptr %6, i64 %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = icmp slt i32 %18, %8
   br i1 %19, label %.lr.ph.preheader, label %._crit_edge
@@ -100,15 +100,15 @@ define range(i32 0, 2) i32 @Fra_OneHotNodesAreEqual(ptr nocapture noundef readon
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Fra_OneHotNodesAreClause(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = mul nsw i32 %10, %7
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i32, ptr %8, i64 %12
-  %14 = getelementptr inbounds i8, ptr %2, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %15 = load i32, ptr %14, align 4
   %16 = mul nsw i32 %15, %10
   %17 = sext i32 %16 to i64
@@ -119,7 +119,7 @@ define range(i32 0, 2) i32 @Fra_OneHotNodesAreClause(ptr nocapture noundef reado
   br i1 %or.cond, label %21, label %32
 
 21:                                               ; preds = %5
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %23, %10
   br i1 %24, label %.lr.ph49.preheader, label %.loopexit
@@ -148,7 +148,7 @@ define range(i32 0, 2) i32 @Fra_OneHotNodesAreClause(ptr nocapture noundef reado
   br i1 %19, label %33, label %45
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp slt i32 %35, %10
   br i1 %36, label %.lr.ph44.preheader, label %.loopexit
@@ -178,7 +178,7 @@ define range(i32 0, 2) i32 @Fra_OneHotNodesAreClause(ptr nocapture noundef reado
   br i1 %20, label %46, label %.loopexit
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = icmp slt i32 %48, %10
   br i1 %49, label %.lr.ph.preheader, label %.loopexit
@@ -218,13 +218,13 @@ define noalias noundef ptr @Fra_OneHotCompute(ptr nocapture noundef readnone %0,
   %.val61 = load i32, ptr %5, align 8
   %6 = sub nsw i32 %.val, %.val61
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %8, align 4
   store i32 100, ptr %7, align 8
   %9 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #16
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 4
   %.val63150 = load i32, ptr %13, align 4
@@ -232,9 +232,9 @@ define noalias noundef ptr @Fra_OneHotCompute(ptr nocapture noundef readnone %0,
   br i1 %14, label %.lr.ph153, label %.critedge
 
 .lr.ph153:                                        ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %reass.sub = add i32 %6, -2
   %18 = load i32, ptr %17, align 8
   %19 = load i32, ptr %16, align 4
@@ -256,7 +256,7 @@ define noalias noundef ptr @Fra_OneHotCompute(ptr nocapture noundef readnone %0,
   %.val65 = load ptr, ptr %24, align 8
   %25 = getelementptr inbounds ptr, ptr %.val65, i64 %indvars.iv164
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %16, align 4
   %30 = mul nsw i32 %29, %28
@@ -305,7 +305,7 @@ Fra_OneHotNodeIsConst.exit.preheader:             ; preds = %.lr.ph.i
   %.val66 = load ptr, ptr %47, align 8
   %48 = getelementptr inbounds ptr, ptr %.val66, i64 %indvars.iv161
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 36
   %51 = load i32, ptr %50, align 4
   %52 = load i32, ptr %16, align 4
   %53 = mul nsw i32 %52, %51
@@ -771,7 +771,7 @@ Fra_OneHotNodesAreClause.exit114.sink.split:      ; preds = %246, %Vec_IntGrow.e
 Fra_OneHotNodesAreClause.exit114:                 ; preds = %59, %66, %.lr.ph44.i, %Fra_OneHotNodesAreClause.exit114.sink.split, %.lr.ph.split
   %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
   %251 = load ptr, ptr %1, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr i8, ptr %253, i64 4
   %.val64 = load i32, ptr %254, align 4
@@ -783,7 +783,7 @@ Fra_OneHotNodesAreClause.exit114:                 ; preds = %59, %66, %.lr.ph44.
 .critedge2:                                       ; preds = %36, %Fra_OneHotNodesAreClause.exit114, %Fra_OneHotNodeIsConst.exit.preheader, %.lr.ph153.split
   %258 = phi ptr [ %22, %Fra_OneHotNodeIsConst.exit.preheader ], [ %22, %.lr.ph153.split ], [ %251, %Fra_OneHotNodesAreClause.exit114 ], [ %22, %36 ]
   %indvars.iv.next165 = add nsw i64 %indvars.iv164, 1
-  %259 = getelementptr inbounds i8, ptr %258, i64 16
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 16
   %260 = load ptr, ptr %259, align 8
   %261 = getelementptr i8, ptr %260, i64 4
   %.val63 = load i32, ptr %261, align 4
@@ -798,7 +798,7 @@ Fra_OneHotNodesAreClause.exit114:                 ; preds = %59, %66, %.lr.ph44.
 ; Function Attrs: nounwind uwtable
 define void @Fra_OneHotAssume(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = alloca [2 x i32], align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 136
   %.val = load i32, ptr %6, align 8
@@ -812,19 +812,19 @@ define void @Fra_OneHotAssume(ptr nocapture noundef %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %2
   %11 = getelementptr i8, ptr %1, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %15
 
 15:                                               ; preds = %.lr.ph, %61
   %.val2538 = phi i32 [ %.val2535, %.lr.ph ], [ %.val25, %61 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %.val26 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds i32, ptr %.val26, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %.val26, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = or disjoint i64 %indvars.iv, 1
-  %19 = getelementptr inbounds i32, ptr %.val26, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %.val26, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %17, 0
   %22 = icmp eq i32 %20, 0
@@ -911,7 +911,7 @@ declare void @sat_solver_delete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @Fra_OneHotCheck(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 140
   %.val34 = load i32, ptr %5, align 4
@@ -925,16 +925,16 @@ define void @Fra_OneHotCheck(ptr noundef %0, ptr nocapture noundef readonly %1) 
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr i8, ptr %1, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %12
 
 12:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %.val33 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i32, ptr %.val33, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %.val33, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = or disjoint i64 %indvars.iv, 1
-  %16 = getelementptr inbounds i32, ptr %.val33, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %.val33, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %14, 0
   %19 = icmp eq i32 %17, 0
@@ -971,7 +971,7 @@ define void @Fra_OneHotCheck(ptr noundef %0, ptr nocapture noundef readonly %1) 
 
 41:                                               ; preds = %20
   %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 76
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 76
   store i32 1, ptr %43, align 4
   %44 = icmp eq i32 %40, 0
   br i1 %44, label %45, label %46
@@ -982,7 +982,7 @@ define void @Fra_OneHotCheck(ptr noundef %0, ptr nocapture noundef readonly %1) 
 
 46:                                               ; preds = %45, %41
   %.val31 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds i32, ptr %.val31, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i32, ptr %.val31, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %.not29 = icmp eq i32 %48, 0
   br i1 %.not29, label %50, label %49
@@ -1008,7 +1008,7 @@ declare void @Fra_SmlResimulate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Fra_OneHotRefineUsingCex(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 136
   %.val = load i32, ptr %5, align 8
@@ -1022,7 +1022,7 @@ define range(i32 0, 2) i32 @Fra_OneHotRefineUsingCex(ptr nocapture noundef reado
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr i8, ptr %1, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %12
 
 12:                                               ; preds = %.lr.ph, %Fra_OneHotNodesAreClause.exit.thread
@@ -1030,10 +1030,10 @@ define range(i32 0, 2) i32 @Fra_OneHotRefineUsingCex(ptr nocapture noundef reado
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Fra_OneHotNodesAreClause.exit.thread ]
   %.02744 = phi i32 [ 0, %.lr.ph ], [ %.1, %Fra_OneHotNodesAreClause.exit.thread ]
   %.val31 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i32, ptr %.val31, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %.val31, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = or disjoint i64 %indvars.iv, 1
-  %16 = getelementptr inbounds i32, ptr %.val31, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %.val31, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %14, 0
   %19 = icmp eq i32 %17, 0
@@ -1063,15 +1063,15 @@ define range(i32 0, 2) i32 @Fra_OneHotRefineUsingCex(ptr nocapture noundef reado
   %38 = getelementptr inbounds ptr, ptr %.val33.val, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %11, align 8
-  %41 = getelementptr inbounds i8, ptr %31, i64 36
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 36
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %40, i64 40
-  %44 = getelementptr inbounds i8, ptr %40, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %45 = load i32, ptr %44, align 4
   %46 = mul nsw i32 %45, %42
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i32, ptr %43, i64 %47
-  %49 = getelementptr inbounds i8, ptr %39, i64 36
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 36
   %50 = load i32, ptr %49, align 4
   %51 = mul nsw i32 %50, %45
   %52 = sext i32 %51 to i64
@@ -1082,7 +1082,7 @@ define range(i32 0, 2) i32 @Fra_OneHotRefineUsingCex(ptr nocapture noundef reado
   br i1 %or.cond.i.not, label %67, label %56
 
 56:                                               ; preds = %20
-  %57 = getelementptr inbounds i8, ptr %40, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %58 = load i32, ptr %57, align 8
   %59 = icmp slt i32 %58, %45
   br i1 %59, label %.lr.ph49.preheader.i, label %Fra_OneHotNodesAreClause.exit.thread
@@ -1112,7 +1112,7 @@ define range(i32 0, 2) i32 @Fra_OneHotRefineUsingCex(ptr nocapture noundef reado
   br i1 %68, label %69, label %81
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %40, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %71 = load i32, ptr %70, align 8
   %72 = icmp slt i32 %71, %45
   br i1 %72, label %.lr.ph44.preheader.i, label %Fra_OneHotNodesAreClause.exit.thread
@@ -1142,7 +1142,7 @@ define range(i32 0, 2) i32 @Fra_OneHotRefineUsingCex(ptr nocapture noundef reado
   br i1 %54, label %82, label %Fra_OneHotNodesAreClause.exit.thread
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds i8, ptr %40, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %84 = load i32, ptr %83, align 8
   %85 = icmp slt i32 %84, %45
   br i1 %85, label %.lr.ph.preheader.i, label %Fra_OneHotNodesAreClause.exit.thread
@@ -1171,7 +1171,7 @@ define range(i32 0, 2) i32 @Fra_OneHotRefineUsingCex(ptr nocapture noundef reado
 Fra_OneHotNodesAreClause.exit:                    ; preds = %.lr.ph49.i, %.lr.ph.i, %.lr.ph44.i
   store i32 0, ptr %13, align 4
   %.val35 = load ptr, ptr %10, align 8
-  %94 = getelementptr inbounds i32, ptr %.val35, i64 %15
+  %94 = getelementptr inbounds nuw i32, ptr %.val35, i64 %15
   store i32 0, ptr %94, align 4
   %.val29.pre = load i32, ptr %8, align 4
   br label %Fra_OneHotNodesAreClause.exit.thread
@@ -1205,10 +1205,10 @@ define i32 @Fra_OneHotCount(ptr nocapture noundef readnone %0, ptr nocapture nou
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.016 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %7 ]
-  %8 = getelementptr inbounds i32, ptr %.val13, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %.val13, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = or disjoint i64 %indvars.iv, 1
-  %11 = getelementptr inbounds i32, ptr %.val13, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %.val13, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp ne i32 %9, 0
   %14 = icmp ne i32 %12, 0
@@ -1228,7 +1228,7 @@ define i32 @Fra_OneHotCount(ptr nocapture noundef readnone %0, ptr nocapture nou
 define void @Fra_OneHotEstimateCoverage(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 104
   %.val = load i32, ptr %7, align 8
@@ -1240,7 +1240,7 @@ define void @Fra_OneHotEstimateCoverage(ptr nocapture noundef readonly %0, ptr n
 10:                                               ; preds = %2
   %11 = load i64, ptr %4, align 8
   %.neg97 = mul i64 %11, -1000000
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i64, ptr %12, align 8
   %.neg = sdiv i64 %13, -1000
   %.neg98 = add i64 %.neg, %.neg97
@@ -1268,8 +1268,8 @@ Vec_PtrAllocSimInfo.exit.thread:                  ; preds = %Abc_Clock.exit
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.idx.i = shl nsw i64 %indvars.iv.i, 16
-  %21 = getelementptr inbounds i8, ptr %18, i64 %.idx.i
-  %22 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
+  %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
   store ptr %21, ptr %22, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1286,14 +1286,14 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv119 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next120, %29 ]
-  %24 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv119
+  %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv119
   %25 = load ptr, ptr %24, align 8
   br label %26
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %27 = call i32 @Aig_ManRandom(i32 noundef 0) #18
-  %28 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
   store i32 %27, ptr %28, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
@@ -1321,10 +1321,10 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
 36:                                               ; preds = %.lr.ph113, %.loopexit
   %indvars.iv135 = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next136, %.loopexit ]
   %.val91 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i32, ptr %.val91, i64 %indvars.iv135
+  %37 = getelementptr inbounds nuw i32, ptr %.val91, i64 %indvars.iv135
   %38 = load i32, ptr %37, align 4
   %39 = or disjoint i64 %indvars.iv135, 1
-  %40 = getelementptr inbounds i32, ptr %.val91, i64 %39
+  %40 = getelementptr inbounds nuw i32, ptr %.val91, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %38, 0
   %43 = icmp eq i32 %41, 0
@@ -1355,12 +1355,12 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
 
 .preheader102:                                    ; preds = %59, %.preheader102
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.preheader102 ], [ 0, %59 ]
-  %60 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv123
+  %60 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv123
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv123
+  %62 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv123
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, %61
-  %65 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv123
+  %65 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv123
   %66 = load i32, ptr %65, align 4
   %67 = or i32 %66, %64
   store i32 %67, ptr %65, align 4
@@ -1370,13 +1370,13 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
 
 .preheader100:                                    ; preds = %59, %.preheader100
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.preheader100 ], [ 0, %59 ]
-  %68 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv127
+  %68 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv127
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv127
+  %70 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv127
   %71 = load i32, ptr %70, align 4
   %72 = xor i32 %71, -1
   %73 = and i32 %69, %72
-  %74 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv127
+  %74 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv127
   %75 = load i32, ptr %74, align 4
   %76 = or i32 %75, %73
   store i32 %76, ptr %74, align 4
@@ -1389,13 +1389,13 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
 
 .preheader99:                                     ; preds = %77, %.preheader99
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.preheader99 ], [ 0, %77 ]
-  %78 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv131
+  %78 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv131
   %79 = load i32, ptr %78, align 4
   %80 = xor i32 %79, -1
-  %81 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv131
+  %81 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv131
   %82 = load i32, ptr %81, align 4
   %83 = and i32 %82, %80
-  %84 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv131
+  %84 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv131
   %85 = load i32, ptr %84, align 4
   %86 = or i32 %85, %83
   store i32 %86, ptr %84, align 4
@@ -1416,7 +1416,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %.preheader ], [ 0, %.preheader.preheader ]
   %.076115 = phi i32 [ %110, %.preheader ], [ 0, %.preheader.preheader ]
-  %89 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv138
+  %89 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv138
   %90 = load i32, ptr %89, align 4
   %91 = and i32 %90, 1431655765
   %92 = lshr i32 %90, 1
@@ -1465,7 +1465,7 @@ Vec_PtrFree.exit:                                 ; preds = %111, %112
 120:                                              ; preds = %Vec_PtrFree.exit
   %121 = load i64, ptr %3, align 8
   %122 = mul nsw i64 %121, 1000000
-  %123 = getelementptr inbounds i8, ptr %3, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %124 = load i64, ptr %123, align 8
   %125 = sdiv i64 %124, 1000
   %126 = add nsw i64 %125, %122
@@ -1527,9 +1527,9 @@ define ptr @Fra_OneHotCreateExdc(ptr nocapture noundef readonly %0, ptr nocaptur
   %.val39 = load i32, ptr %3, align 4
   %4 = sdiv i32 %.val39, 2
   %5 = tail call ptr @Aig_ManStart(i32 noundef %4) #18
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
   %.val3645 = load i32, ptr %10, align 4
@@ -1541,7 +1541,7 @@ define ptr @Fra_OneHotCreateExdc(ptr nocapture noundef readonly %0, ptr nocaptur
   %12 = tail call ptr @Aig_ObjCreateCi(ptr noundef %5) #18
   %13 = add nuw nsw i32 %.046, 1
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 4
   %.val36 = load i32, ptr %17, align 4
@@ -1568,10 +1568,10 @@ define ptr @Fra_OneHotCreateExdc(ptr nocapture noundef readonly %0, ptr nocaptur
   %.val3852 = phi i32 [ %.val3847, %.lr.ph49 ], [ %.val38, %61 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next, %61 ]
   %.val41 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds i32, ptr %.val41, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %.val41, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = or disjoint i64 %indvars.iv, 1
-  %29 = getelementptr inbounds i32, ptr %.val41, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %.val41, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %27, 0
   %32 = icmp eq i32 %30, 0
@@ -1645,17 +1645,17 @@ define void @Fra_OneHotAddKnownConstraint(ptr nocapture noundef %0, ptr nocaptur
 
 .lr.ph48:                                         ; preds = %2
   %6 = getelementptr i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph48, %.critedge2
   %.val61 = phi i32 [ %.val46, %.lr.ph48 ], [ %.val, %.critedge2 ]
   %indvars.iv55 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next56, %.critedge2 ]
   %.val30 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds ptr, ptr %.val30, i64 %indvars.iv55
+  %12 = getelementptr inbounds nuw ptr, ptr %.val30, i64 %indvars.iv55
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 4
   %.val3243 = load i32, ptr %14, align 4
@@ -1688,7 +1688,7 @@ define void @Fra_OneHotAddKnownConstraint(ptr nocapture noundef %0, ptr nocaptur
 
 .lr.ph:                                           ; preds = %18
   %.val34 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds i32, ptr %.val34, i64 %indvars.iv52
+  %21 = getelementptr inbounds nuw i32, ptr %.val34, i64 %indvars.iv52
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
   br label %27
@@ -1703,7 +1703,7 @@ define void @Fra_OneHotAddKnownConstraint(ptr nocapture noundef %0, ptr nocaptur
 27:                                               ; preds = %.lr.ph, %24
   %indvars.iv49 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next50, %24 ]
   %.val33 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds i32, ptr %.val33, i64 %indvars.iv49
+  %28 = getelementptr inbounds nuw i32, ptr %.val33, i64 %indvars.iv49
   %29 = load i32, ptr %28, align 4
   %30 = load ptr, ptr %7, align 8
   %31 = getelementptr i8, ptr %30, i64 16

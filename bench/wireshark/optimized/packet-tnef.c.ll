@@ -347,7 +347,7 @@ define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %26
 
 26:                                               ; preds = %.lr.ph, %239
@@ -715,7 +715,7 @@ dissect_mapiprops.exit:                           ; preds = %185, %64
   br label %239
 
 switch.lookup:                                    ; preds = %50
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.dissect_tnef, i64 0, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.dissect_tnef, i64 0, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %239
 
@@ -770,7 +770,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_tnef_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.113) #4
   %7 = load ptr, ptr %5, align 8

@@ -134,7 +134,7 @@ _ZN4Luau7CodeGen3X64L19emitBuiltinMathModfERNS1_13IrRegAllocX64ERNS1_18AssemblyB
           to label %34 unwind label %58
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %7, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.022.0.copyload.i = load i8, ptr %35, align 8
   %36 = shl i32 %4, 4
   %.sroa.21.0.insert.ext.i.i.i23 = zext i32 %36 to i64
@@ -147,7 +147,7 @@ _ZN4Luau7CodeGen3X64L19emitBuiltinMathModfERNS1_13IrRegAllocX64ERNS1_18AssemblyB
           to label %37 unwind label %60
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %8, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.020.0.copyload.i = load i8, ptr %38, align 8
   %.sroa.3120.0.insert.ext.i = zext i8 %.sroa.020.0.copyload.i to i64
   %.sroa.3120.0.insert.shift.i = shl nuw nsw i64 %.sroa.3120.0.insert.ext.i, 16
@@ -156,7 +156,7 @@ _ZN4Luau7CodeGen3X64L19emitBuiltinMathModfERNS1_13IrRegAllocX64ERNS1_18AssemblyB
           to label %39 unwind label %60
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %9, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.017.0.copyload.i = load i8, ptr %40, align 8
   %.sroa.016.0.copyload.i = load i8, ptr %35, align 8
   %.sroa.015.0.copyload.i = load i8, ptr %38, align 8
@@ -173,7 +173,7 @@ _ZN4Luau7CodeGen3X64L19emitBuiltinMathModfERNS1_13IrRegAllocX64ERNS1_18AssemblyB
           to label %41 unwind label %60
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %10, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.014.0.copyload.i = load i8, ptr %42, align 8
   %43 = invoke i64 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643f64Ed(ptr noundef nonnull align 8 dereferenceable(252) %1, double noundef -1.000000e+00)
           to label %44 unwind label %60

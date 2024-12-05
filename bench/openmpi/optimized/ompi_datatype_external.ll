@@ -30,9 +30,9 @@ define range(i32 0, 16) i32 @ompi_datatype_pack_external(ptr nocapture noundef r
 
 15:                                               ; preds = %14, %7
   store ptr @opal_convertor_t_class, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store volatile i32 1, ptr %16, align 8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i = icmp eq ptr %18, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -41,7 +41,7 @@ define range(i32 0, 16) i32 @ompi_datatype_pack_external(ptr nocapture noundef r
   %19 = phi ptr [ %21, %.lr.ph.i ], [ %18, %15 ]
   %.07.i = phi ptr [ %20, %.lr.ph.i ], [ %17, %15 ]
   call void %19(ptr noundef nonnull %8) #2
-  %20 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -49,21 +49,21 @@ define range(i32 0, 16) i32 @ompi_datatype_pack_external(ptr nocapture noundef r
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
   %22 = load ptr, ptr @ompi_mpi_external32_convertor, align 8
   %23 = sext i32 %2 to i64
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %28 = load i32, ptr %27, align 4
   %29 = or i32 %28, 65536
-  %30 = getelementptr inbounds i8, ptr %8, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %22, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %32, ptr %33, align 8
   %34 = call i32 @opal_convertor_prepare_for_send(ptr noundef nonnull %8, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %23, ptr noundef %1) #2
-  %35 = getelementptr inbounds i8, ptr %8, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %36 = load i64, ptr %35, align 8
   store i64 %36, ptr %11, align 8
   %37 = load i32, ptr %30, align 4
@@ -87,7 +87,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
   br label %46
 
 46:                                               ; preds = %44, %41
-  %47 = getelementptr inbounds i8, ptr %8, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %48 = load i64, ptr %47, align 8
   store i64 %48, ptr %11, align 8
   br label %opal_convertor_get_packed_size.exit
@@ -101,7 +101,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
 
 53:                                               ; preds = %opal_convertor_get_packed_size.exit
   %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %56, align 8
   %.not6.i10 = icmp eq ptr %57, null
@@ -111,7 +111,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
   %58 = phi ptr [ %60, %.lr.ph.i11 ], [ %57, %53 ]
   %.07.i12 = phi ptr [ %59, %.lr.ph.i11 ], [ %56, %53 ]
   call void %58(ptr noundef nonnull %8) #2
-  %59 = getelementptr inbounds i8, ptr %.07.i12, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.07.i12, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not.i13 = icmp eq ptr %60, null
   br i1 %.not.i13, label %opal_obj_run_destructors.exit, label %.lr.ph.i11, !llvm.loop !6
@@ -119,7 +119,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
 61:                                               ; preds = %opal_convertor_get_packed_size.exit
   %62 = getelementptr inbounds i8, ptr %4, i64 %50
   store ptr %62, ptr %9, align 8
-  %63 = getelementptr inbounds i8, ptr %9, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %49, ptr %63, align 8
   store i32 1, ptr %10, align 4
   %64 = call i32 @opal_convertor_pack(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #2
@@ -128,7 +128,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
   %67 = add i64 %66, %65
   store i64 %67, ptr %6, align 8
   %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %70, align 8
   %.not6.i14 = icmp eq ptr %71, null
@@ -138,7 +138,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
   %72 = phi ptr [ %74, %.lr.ph.i15 ], [ %71, %61 ]
   %.07.i16 = phi ptr [ %73, %.lr.ph.i15 ], [ %70, %61 ]
   call void %72(ptr noundef nonnull %8) #2
-  %73 = getelementptr inbounds i8, ptr %.07.i16, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.07.i16, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not.i17 = icmp eq ptr %74, null
   br i1 %.not.i17, label %opal_obj_run_destructors.exit18, label %.lr.ph.i15, !llvm.loop !6
@@ -174,9 +174,9 @@ define range(i32 0, 16) i32 @ompi_datatype_unpack_external(ptr nocapture noundef
 
 15:                                               ; preds = %14, %7
   store ptr @opal_convertor_t_class, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store volatile i32 1, ptr %16, align 8
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %18 = load ptr, ptr %17, align 8
   %.not6.i = icmp eq ptr %18, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -185,7 +185,7 @@ define range(i32 0, 16) i32 @ompi_datatype_unpack_external(ptr nocapture noundef
   %19 = phi ptr [ %21, %.lr.ph.i ], [ %18, %15 ]
   %.07.i = phi ptr [ %20, %.lr.ph.i ], [ %17, %15 ]
   call void %19(ptr noundef nonnull %8) #2
-  %20 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -193,20 +193,20 @@ define range(i32 0, 16) i32 @ompi_datatype_unpack_external(ptr nocapture noundef
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
   %22 = load ptr, ptr @ompi_mpi_external32_convertor, align 8
   %23 = sext i32 %5 to i64
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %8, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %22, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 96
   store ptr %31, ptr %32, align 8
   %33 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %8, ptr noundef %6, i64 noundef range(i64 -2147483648, 2147483648) %23, ptr noundef %4) #2
-  %34 = getelementptr inbounds i8, ptr %8, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %35 = load i64, ptr %34, align 8
   store i64 %35, ptr %11, align 8
   %36 = load i32, ptr %29, align 4
@@ -230,7 +230,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %15
   br label %45
 
 45:                                               ; preds = %43, %40
-  %46 = getelementptr inbounds i8, ptr %8, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %47 = load i64, ptr %46, align 8
   store i64 %47, ptr %11, align 8
   br label %opal_convertor_get_packed_size.exit
@@ -245,7 +245,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
 
 53:                                               ; preds = %opal_convertor_get_packed_size.exit
   %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %56, align 8
   %.not6.i10 = icmp eq ptr %57, null
@@ -255,7 +255,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
   %58 = phi ptr [ %60, %.lr.ph.i11 ], [ %57, %53 ]
   %.07.i12 = phi ptr [ %59, %.lr.ph.i11 ], [ %56, %53 ]
   call void %58(ptr noundef nonnull %8) #2
-  %59 = getelementptr inbounds i8, ptr %.07.i12, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.07.i12, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not.i13 = icmp eq ptr %60, null
   br i1 %.not.i13, label %opal_obj_run_destructors.exit, label %.lr.ph.i11, !llvm.loop !6
@@ -263,7 +263,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
 61:                                               ; preds = %opal_convertor_get_packed_size.exit
   %62 = getelementptr inbounds i8, ptr %1, i64 %49
   store ptr %62, ptr %9, align 8
-  %63 = getelementptr inbounds i8, ptr %9, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %48, ptr %63, align 8
   store i32 1, ptr %10, align 4
   %64 = call i32 @opal_convertor_unpack(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #2
@@ -272,7 +272,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
   %67 = add i64 %66, %65
   store i64 %67, ptr %3, align 8
   %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %70, align 8
   %.not6.i14 = icmp eq ptr %71, null
@@ -282,7 +282,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
   %72 = phi ptr [ %74, %.lr.ph.i15 ], [ %71, %61 ]
   %.07.i16 = phi ptr [ %73, %.lr.ph.i15 ], [ %70, %61 ]
   call void %72(ptr noundef nonnull %8) #2
-  %73 = getelementptr inbounds i8, ptr %.07.i16, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.07.i16, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not.i17 = icmp eq ptr %74, null
   br i1 %.not.i17, label %opal_obj_run_destructors.exit18, label %.lr.ph.i15, !llvm.loop !6
@@ -313,9 +313,9 @@ define noundef i32 @ompi_datatype_pack_external_size(ptr nocapture noundef readn
 
 9:                                                ; preds = %8, %4
   store ptr @opal_convertor_t_class, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store volatile i32 1, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_convertor_t_class, i64 40), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_convertor_t_class, i64 40), align 8
   %12 = load ptr, ptr %11, align 8
   %.not6.i = icmp eq ptr %12, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -324,7 +324,7 @@ define noundef i32 @ompi_datatype_pack_external_size(ptr nocapture noundef readn
   %13 = phi ptr [ %15, %.lr.ph.i ], [ %12, %9 ]
   %.07.i = phi ptr [ %14, %.lr.ph.i ], [ %11, %9 ]
   call void %13(ptr noundef nonnull %5) #2
-  %14 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -332,21 +332,21 @@ define noundef i32 @ompi_datatype_pack_external_size(ptr nocapture noundef readn
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   %16 = load ptr, ptr @ompi_mpi_external32_convertor, align 8
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = or i32 %22, 65536
-  %24 = getelementptr inbounds i8, ptr %5, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %16, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %26, ptr %27, align 8
   %28 = call i32 @opal_convertor_prepare_for_recv(ptr noundef nonnull %5, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %17, ptr noundef null) #2
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = load i32, ptr %24, align 4
   %32 = and i32 %31, 524288
@@ -369,7 +369,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %9
   br label %40
 
 40:                                               ; preds = %38, %35
-  %41 = getelementptr inbounds i8, ptr %5, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %42 = load i64, ptr %41, align 8
   br label %opal_convertor_get_packed_size.exit
 
@@ -377,7 +377,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
   %.0 = phi i64 [ %30, %opal_obj_run_constructors.exit ], [ %42, %40 ]
   store i64 %.0, ptr %3, align 8
   %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %45, align 8
   %.not6.i3 = icmp eq ptr %46, null
@@ -387,7 +387,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
   %47 = phi ptr [ %49, %.lr.ph.i4 ], [ %46, %opal_convertor_get_packed_size.exit ]
   %.07.i5 = phi ptr [ %48, %.lr.ph.i4 ], [ %45, %opal_convertor_get_packed_size.exit ]
   call void %47(ptr noundef nonnull %5) #2
-  %48 = getelementptr inbounds i8, ptr %.07.i5, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.07.i5, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not.i6 = icmp eq ptr %49, null
   br i1 %.not.i6, label %opal_obj_run_destructors.exit, label %.lr.ph.i4, !llvm.loop !6

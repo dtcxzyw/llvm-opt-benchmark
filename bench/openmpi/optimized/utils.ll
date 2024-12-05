@@ -23,9 +23,9 @@ define i32 @ADIOI_Type_create_hindexed_x(i32 noundef %0, ptr nocapture noundef r
   br i1 %18, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %11, i64 4
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.outer
 
@@ -36,26 +36,26 @@ define i32 @ADIOI_Type_create_hindexed_x(i32 noundef %0, ptr nocapture noundef r
 
 23:                                               ; preds = %.outer, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ %indvars.iv.ph, %.outer ]
-  %24 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
   %26 = icmp sgt i64 %25, 2147483647
-  %27 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   br i1 %26, label %.thread, label %28
 
 28:                                               ; preds = %23
   %29 = trunc i64 %25 to i32
   store i32 %29, ptr %27, align 4
-  %30 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   store ptr %3, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !4
 
 .thread:                                          ; preds = %23
-  %31 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i32 1, ptr %27, align 4
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -107,7 +107,7 @@ define i32 @ADIOI_Type_create_hindexed_x(i32 noundef %0, ptr nocapture noundef r
 
 .lr.ph52:                                         ; preds = %._crit_edge.thread64, %55
   %indvars.iv54 = phi i64 [ 0, %._crit_edge.thread64 ], [ %indvars.iv.next55, %55 ]
-  %51 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv54
+  %51 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv54
   %52 = load ptr, ptr %51, align 8
   %.not47 = icmp eq ptr %52, %3
   br i1 %.not47, label %55, label %53

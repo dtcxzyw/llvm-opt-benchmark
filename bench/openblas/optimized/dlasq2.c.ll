@@ -100,7 +100,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %.loopexit46
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load double, ptr %45, align 8, !tbaa !7
   %47 = fcmp olt double %46, 0.000000e+00
   br i1 %47, label %48, label %50
@@ -111,7 +111,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   br label %.loopexit46
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %1, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %52 = load double, ptr %51, align 8, !tbaa !7
   %53 = fcmp olt double %52, 0.000000e+00
   br i1 %53, label %54, label %56
@@ -135,7 +135,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %61 = phi double [ %52, %58 ], [ %40, %56 ]
   %62 = fadd double %46, %61
   %63 = fadd double %62, %60
-  %64 = getelementptr inbounds i8, ptr %1, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store double %63, ptr %64, align 8, !tbaa !7
   %65 = fmul double %28, %60
   %66 = fcmp ogt double %46, %65
@@ -185,14 +185,14 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %98 = phi double [ %95, %85 ], [ %60, %59 ]
   store double %98, ptr %45, align 8, !tbaa !7
   %99 = fadd double %98, %97
-  %100 = getelementptr inbounds i8, ptr %1, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store double %99, ptr %100, align 8, !tbaa !7
   br label %.loopexit46
 
 101:                                              ; preds = %33
   %102 = shl nuw nsw i32 %29, 1
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds double, ptr %24, i64 %103
+  %104 = getelementptr inbounds nuw double, ptr %24, i64 %103
   store double 0.000000e+00, ptr %104, align 8, !tbaa !7
   %105 = add nsw i32 %102, -2
   br label %106
@@ -202,7 +202,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %108 = phi double [ %128, %126 ], [ 0.000000e+00, %101 ]
   %109 = phi double [ %127, %126 ], [ 0.000000e+00, %101 ]
   %110 = phi double [ %130, %126 ], [ 0.000000e+00, %101 ]
-  %111 = getelementptr inbounds double, ptr %24, i64 %107
+  %111 = getelementptr inbounds nuw double, ptr %24, i64 %107
   %112 = load double, ptr %111, align 8, !tbaa !7
   %113 = fcmp olt double %112, 0.000000e+00
   br i1 %113, label %114, label %118
@@ -274,7 +274,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %156 = sext i32 %155 to i64
   %157 = getelementptr double, ptr %147, i64 %156
   %158 = load double, ptr %157, align 8, !tbaa !7
-  %159 = getelementptr inbounds double, ptr %24, i64 %153
+  %159 = getelementptr inbounds nuw double, ptr %24, i64 %153
   store double %158, ptr %159, align 8, !tbaa !7
   %160 = add nuw nsw i64 %153, 1
   %161 = icmp eq i64 %160, %151
@@ -326,7 +326,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %186 = phi i64 [ %184, %183 ], [ %197, %185 ]
   %187 = shl nuw i64 %186, 1
   %188 = and i64 %187, 4294967292
-  %189 = getelementptr inbounds double, ptr %24, i64 %188
+  %189 = getelementptr inbounds nuw double, ptr %24, i64 %188
   store double 0.000000e+00, ptr %189, align 8, !tbaa !7
   %190 = getelementptr inbounds double, ptr %24, i64 %186
   %191 = load double, ptr %190, align 8, !tbaa !7
@@ -532,7 +532,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
 326:                                              ; preds = %326, %323
   %327 = phi i64 [ %324, %323 ], [ %333, %326 ]
   %328 = phi double [ %319, %323 ], [ %332, %326 ]
-  %329 = getelementptr inbounds double, ptr %24, i64 %327
+  %329 = getelementptr inbounds nuw double, ptr %24, i64 %327
   %330 = load double, ptr %329, align 8, !tbaa !7
   %331 = fcmp oge double %328, %330
   %332 = select i1 %331, double %328, double %330
@@ -685,7 +685,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %413 = phi double [ %405, %408 ], [ %422, %411 ]
   %414 = phi double [ %405, %408 ], [ %428, %411 ]
   %415 = phi i32 [ %398, %408 ], [ %427, %411 ]
-  %416 = getelementptr inbounds double, ptr %24, i64 %412
+  %416 = getelementptr inbounds nuw double, ptr %24, i64 %412
   %417 = load double, ptr %416, align 8, !tbaa !7
   %418 = getelementptr i8, ptr %416, i64 -16
   %419 = load double, ptr %418, align 8, !tbaa !7
@@ -1074,7 +1074,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef write
   %676 = sext i32 %675 to i64
   %677 = getelementptr double, ptr %229, i64 %676
   %678 = load double, ptr %677, align 8, !tbaa !7
-  %679 = getelementptr inbounds double, ptr %24, i64 %673
+  %679 = getelementptr inbounds nuw double, ptr %24, i64 %673
   store double %678, ptr %679, align 8, !tbaa !7
   %680 = add nuw nsw i64 %673, 1
   %681 = icmp eq i64 %680, %671

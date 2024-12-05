@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @InitShmemAccess(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %0, ptr @ShmemSegHdr, align 8
   store ptr %0, ptr @ShmemBase, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 %3
   store ptr %4, ptr @ShmemEnd, align 8
@@ -42,10 +42,10 @@ define dso_local void @InitShmemAccess(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @InitShmemAllocation() local_unnamed_addr #1 {
   %1 = load ptr, ptr @ShmemSegHdr, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %4, %6
   br i1 %7, label %8, label %ShmemAllocUnlocked.exit
@@ -74,7 +74,7 @@ ShmemAllocUnlocked.exit:                          ; preds = %0
   %20 = ptrtoint ptr %1 to i64
   %21 = sub i64 %19, %20
   store i64 %21, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr null, ptr %22, align 8
   store ptr null, ptr @ShmemIndex, align 8
   ret void
@@ -85,10 +85,10 @@ define dso_local ptr @ShmemAllocUnlocked(i64 noundef %0) local_unnamed_addr #1 {
   %2 = add i64 %0, 7
   %3 = and i64 %2, -8
   %4 = load ptr, ptr @ShmemSegHdr, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %7, %9
   br i1 %10, label %11, label %15
@@ -124,10 +124,10 @@ define dso_local nonnull ptr @ShmemAlloc(i64 noundef %0) local_unnamed_addr #1 {
 
 9:                                                ; preds = %6, %1
   %10 = load ptr, ptr @ShmemSegHdr, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %3
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load i64, ptr %14, align 8
   %.not9.i = icmp ugt i64 %13, %15
   br i1 %.not9.i, label %ShmemAllocRaw.exit, label %16
@@ -183,10 +183,10 @@ define dso_local ptr @ShmemAllocNoError(i64 noundef %0) #1 {
 
 9:                                                ; preds = %6, %1
   %10 = load ptr, ptr @ShmemSegHdr, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %3
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load i64, ptr %14, align 8
   %.not9.i = icmp ugt i64 %13, %15
   br i1 %.not9.i, label %ShmemAllocRaw.exit, label %16
@@ -219,24 +219,24 @@ define dso_local zeroext i1 @ShmemAddrIsValid(ptr noundef readnone %0) local_unn
 define dso_local void @InitShmemIndex() local_unnamed_addr #1 {
   %1 = alloca i8, align 1
   %2 = alloca %struct.HASHCTL, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 48, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 72, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
   %5 = tail call i64 @hash_select_dirsize(i64 noundef 64) #9
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr @ShmemAllocNoError, ptr %8, align 8
   %9 = call i64 @hash_get_shared_size(ptr noundef nonnull %2, i32 noundef 2588) #9
   %10 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.2, i64 noundef %9, ptr noundef nonnull %1)
   %11 = load i8, ptr %1, align 1
   %12 = trunc i8 %11 to i1
   %spec.select.i = select i1 %12, i32 6684, i32 2588
-  %13 = getelementptr inbounds i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %10, ptr %13, align 8
   %14 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef 64, ptr noundef nonnull %2, i32 noundef %spec.select.i) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1)
@@ -248,11 +248,11 @@ define dso_local void @InitShmemIndex() local_unnamed_addr #1 {
 define dso_local ptr @ShmemInitHash(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef initializes((16, 32), (72, 80)) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i8, align 1
   %7 = tail call i64 @hash_select_dirsize(i64 noundef %2) #9
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr @ShmemAllocNoError, ptr %10, align 8
   %11 = or i32 %4, 2564
   %12 = tail call i64 @hash_get_shared_size(ptr noundef %3, i32 noundef %11) #9
@@ -261,7 +261,7 @@ define dso_local ptr @ShmemInitHash(ptr noundef %0, i64 noundef %1, i64 noundef 
   %15 = trunc i8 %14 to i1
   %16 = or i32 %4, 6660
   %spec.select = select i1 %15, i32 %16, i32 %11
-  %17 = getelementptr inbounds i8, ptr %3, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store ptr %13, ptr %17, align 8
   %18 = call ptr @hash_create(ptr noundef %0, i64 noundef %1, ptr noundef %3, i32 noundef %spec.select) #9
   ret ptr %18
@@ -285,13 +285,13 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %14 = load ptr, ptr %13, align 8
   br label %18
 
 15:                                               ; preds = %8
   %16 = tail call ptr @ShmemAlloc(i64 noundef %1)
-  %17 = getelementptr inbounds i8, ptr %9, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %16, ptr %17, align 8
   br label %18
 
@@ -323,7 +323,7 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
   br i1 %29, label %30, label %42
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %20, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %32 = load i64, ptr %31, align 8
   %.not35 = icmp eq i64 %32, %1
   br i1 %.not35, label %39, label %33
@@ -340,7 +340,7 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
   unreachable
 
 39:                                               ; preds = %30
-  %40 = getelementptr inbounds i8, ptr %20, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %41 = load ptr, ptr %40, align 8
   br label %74
 
@@ -359,10 +359,10 @@ define dso_local ptr @ShmemInitStruct(ptr noundef %0, i64 noundef %1, ptr nounde
 
 50:                                               ; preds = %47, %42
   %51 = load ptr, ptr @ShmemSegHdr, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, %44
-  %55 = getelementptr inbounds i8, ptr %51, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %56 = load i64, ptr %55, align 8
   %.not9.i = icmp ugt i64 %54, %56
   br i1 %.not9.i, label %ShmemAllocRaw.exit, label %57
@@ -395,11 +395,11 @@ ShmemAllocRaw.exit:                               ; preds = %50, %57
   unreachable
 
 70:                                               ; preds = %ShmemAllocRaw.exit
-  %71 = getelementptr inbounds i8, ptr %20, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store i64 %1, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %20, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store i64 %44, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %20, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store ptr %.0.i, ptr %73, align 8
   br label %74
 
@@ -473,7 +473,7 @@ define dso_local noundef i64 @pg_get_shmem_allocations(ptr noundef %0) local_unn
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
   %3 = alloca [4 x i64], align 16
   %4 = alloca [4 x i8], align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #9
   %7 = load ptr, ptr @MainLWLockArray, align 8
@@ -487,11 +487,11 @@ define dso_local noundef i64 @pg_get_shmem_allocations(ptr noundef %0) local_unn
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  %15 = getelementptr inbounds i8, ptr %6, i64 40
-  %16 = getelementptr inbounds i8, ptr %6, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
@@ -500,17 +500,17 @@ define dso_local noundef i64 @pg_get_shmem_allocations(ptr noundef %0) local_unn
   %19 = call ptr @cstring_to_text(ptr noundef nonnull %18) #9
   %20 = ptrtoint ptr %19 to i64
   store i64 %20, ptr %3, align 16
-  %21 = getelementptr inbounds i8, ptr %18, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @ShmemSegHdr, align 8
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   store i64 %26, ptr %12, align 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %28 = load i64, ptr %27, align 8
   store i64 %28, ptr %13, align 16
-  %29 = getelementptr inbounds i8, ptr %18, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %30 = load i64, ptr %29, align 8
   store i64 %30, ptr %14, align 8
   %31 = add i64 %30, %.016
@@ -526,29 +526,29 @@ define dso_local noundef i64 @pg_get_shmem_allocations(ptr noundef %0) local_unn
   %35 = call ptr @cstring_to_text(ptr noundef nonnull @.str.7) #9
   %36 = ptrtoint ptr %35 to i64
   store i64 %36, ptr %3, align 16
-  %37 = getelementptr inbounds i8, ptr %4, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 1, ptr %37, align 1
   %38 = load ptr, ptr @ShmemSegHdr, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = sub i64 %40, %.0.lcssa
-  %42 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %41, ptr %42, align 16
-  %43 = getelementptr inbounds i8, ptr %3, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %41, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %47 = load ptr, ptr %46, align 8
   call void @tuplestore_putvalues(ptr noundef %45, ptr noundef %47, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   store i8 1, ptr %4, align 4
   %48 = load ptr, ptr @ShmemSegHdr, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %50, ptr %51, align 8
   store i8 0, ptr %37, align 1
-  %52 = getelementptr inbounds i8, ptr %48, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = sub i64 %53, %50
   store i64 %54, ptr %42, align 16

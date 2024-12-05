@@ -173,7 +173,7 @@ define hidden noundef nonnull ptr @_ZN7NMTUtil24tracking_level_to_stringE17NMT_T
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN7NMTUtil24tracking_level_to_stringE17NMT_TrackingLevel, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN7NMTUtil24tracking_level_to_stringE17NMT_TrackingLevel, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -219,8 +219,8 @@ define hidden noundef zeroext range(i8 0, 28) i8 @_ZN7NMTUtil14string_to_flagEPK
 
 2:                                                ; preds = %1, %18
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %18 ]
-  %3 = getelementptr inbounds [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %indvars.iv
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %3 = getelementptr inbounds nuw [28 x %"struct.NMTUtil::S"], ptr @_ZN7NMTUtil8_stringsE, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcasecmp(ptr noundef %5, ptr noundef %0) #8
   %7 = icmp eq i32 %6, 0
@@ -233,7 +233,7 @@ define hidden noundef zeroext range(i8 0, 28) i8 @_ZN7NMTUtil14string_to_flagEPK
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %14 = tail call i32 @strcasecmp(ptr noundef nonnull %13, ptr noundef %0) #8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %18

@@ -907,7 +907,7 @@ if.then198:                                       ; preds = %sw.bb194
   br label %opthelp
 
 if.end200:                                        ; preds = %sw.bb194
-  %incdec.ptr = getelementptr inbounds i8, ptr %call196, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call196, i64 1
   store i8 0, ptr %call196, align 1
   %call201 = call i32 @X509V3_add_value(ptr noundef %call195, ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %headers) #9
   %tobool202.not = icmp eq i32 %call201, 0
@@ -1796,33 +1796,33 @@ entry:
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %dbfname = getelementptr inbounds i8, ptr %rdb, i64 16
+  %dbfname = getelementptr inbounds nuw i8, ptr %rdb, i64 16
   %0 = load ptr, ptr %dbfname, align 8
   %call = call i32 @stat(ptr noundef %0, ptr noundef nonnull %sb) #9
   %cmp1.not = icmp eq i32 %call, -1
   br i1 %cmp1.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %dbst = getelementptr inbounds i8, ptr %rdb, i64 24
-  %st_mtim = getelementptr inbounds i8, ptr %rdb, i64 112
+  %dbst = getelementptr inbounds nuw i8, ptr %rdb, i64 24
+  %st_mtim = getelementptr inbounds nuw i8, ptr %rdb, i64 112
   %1 = load i64, ptr %st_mtim, align 8
-  %st_mtim2 = getelementptr inbounds i8, ptr %sb, i64 88
+  %st_mtim2 = getelementptr inbounds nuw i8, ptr %sb, i64 88
   %2 = load i64, ptr %st_mtim2, align 8
   %cmp4.not = icmp eq i64 %1, %2
   br i1 %cmp4.not, label %lor.lhs.false, label %if.then18
 
 lor.lhs.false:                                    ; preds = %if.then
-  %st_ctim = getelementptr inbounds i8, ptr %rdb, i64 128
+  %st_ctim = getelementptr inbounds nuw i8, ptr %rdb, i64 128
   %3 = load i64, ptr %st_ctim, align 8
-  %st_ctim7 = getelementptr inbounds i8, ptr %sb, i64 104
+  %st_ctim7 = getelementptr inbounds nuw i8, ptr %sb, i64 104
   %4 = load i64, ptr %st_ctim7, align 8
   %cmp9.not = icmp eq i64 %3, %4
   br i1 %cmp9.not, label %lor.lhs.false10, label %if.then18
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false
-  %st_ino = getelementptr inbounds i8, ptr %rdb, i64 32
+  %st_ino = getelementptr inbounds nuw i8, ptr %rdb, i64 32
   %5 = load i64, ptr %st_ino, align 8
-  %st_ino12 = getelementptr inbounds i8, ptr %sb, i64 8
+  %st_ino12 = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %6 = load i64, ptr %st_ino12, align 8
   %cmp13.not = icmp eq i64 %5, %6
   br i1 %cmp13.not, label %lor.lhs.false14, label %if.then18
@@ -1909,8 +1909,8 @@ if.then5:                                         ; preds = %if.end
 for.body.lr.ph:                                   ; preds = %if.end, %if.then5
   %nextupd.1 = phi ptr [ %call6, %if.then5 ], [ null, %if.end ]
   %cmp34.not = icmp eq ptr %resp_md, null
-  %arrayidx10.i = getelementptr inbounds i8, ptr %row.i, i64 24
-  %db11.i = getelementptr inbounds i8, ptr %db, i64 8
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %row.i, i64 24
+  %db11.i = getelementptr inbounds nuw i8, ptr %db, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc87
@@ -2046,7 +2046,7 @@ if.then64:                                        ; preds = %if.else
   store ptr null, ptr %revtm, align 8
   store ptr null, ptr %invtm, align 8
   store i32 -1, ptr %reason, align 4
-  %arrayidx65 = getelementptr inbounds i8, ptr %call12.i, i64 16
+  %arrayidx65 = getelementptr inbounds nuw i8, ptr %call12.i, i64 16
   %7 = load ptr, ptr %arrayidx65, align 8
   %call66 = call i32 @unpack_revinfo(ptr noundef nonnull %revtm, ptr noundef nonnull %reason, ptr noundef nonnull %inst, ptr noundef nonnull %invtm, ptr noundef %7) #9
   %8 = load i32, ptr %reason, align 4

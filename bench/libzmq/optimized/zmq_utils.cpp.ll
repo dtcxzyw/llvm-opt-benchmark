@@ -91,24 +91,24 @@ entry:
   br i1 %new.isnull, label %if.then, label %new.cont
 
 new.cont:                                         ; preds = %entry
-  %_started.i = getelementptr inbounds i8, ptr %call, i64 32
+  %_started.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i8 0, ptr %_started.i, align 8
-  %_thread_priority.i = getelementptr inbounds i8, ptr %call, i64 48
+  %_thread_priority.i = getelementptr inbounds nuw i8, ptr %call, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call, i8 0, i64 16, i1 false)
   store i32 -1, ptr %_thread_priority.i, align 8
-  %_thread_sched_policy.i = getelementptr inbounds i8, ptr %call, i64 52
+  %_thread_sched_policy.i = getelementptr inbounds nuw i8, ptr %call, i64 52
   store i32 -1, ptr %_thread_sched_policy.i, align 4
-  %0 = getelementptr inbounds i8, ptr %call, i64 64
+  %0 = getelementptr inbounds nuw i8, ptr %call, i64 64
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 72
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   store ptr %0, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 88
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store ptr %0, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 96
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 96
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  %_name.i = getelementptr inbounds i8, ptr %call, i64 16
+  %_name.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_name.i, i8 0, i64 16, i1 false)
   br label %do.end
 
@@ -136,8 +136,8 @@ declare void @_ZN3zmq8thread_t5startEPFvPvES1_PKc(ptr noundef nonnull align 8 de
 define void @zmq_threadclose(ptr noundef nonnull %thread_) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3zmq8thread_t4stopEv(ptr noundef nonnull align 8 dereferenceable(104) %thread_)
-  %_thread_affinity_cpus.i = getelementptr inbounds i8, ptr %thread_, i64 56
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %thread_, i64 72
+  %_thread_affinity_cpus.i = getelementptr inbounds nuw i8, ptr %thread_, i64 56
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %thread_, i64 72
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %_thread_affinity_cpus.i, ptr noundef %0)
           to label %_ZN3zmq8thread_tD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -182,7 +182,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %char_nbr.013 = phi i32 [ %char_nbr.1, %if.end15 ], [ 0, %while.cond.preheader ]
   %mul = shl i32 %value.015, 8
   %inc = add i32 %byte_nbr.014, 1
-  %arrayidx = getelementptr inbounds i8, ptr %data_, i64 %conv16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %data_, i64 %conv16
   %0 = load i8, ptr %arrayidx, align 1
   %conv2 = zext i8 %0 to i32
   %add = or disjoint i32 %mul, %conv2
@@ -200,11 +200,11 @@ while.body7:                                      ; preds = %while.body7.prehead
   %div = udiv i32 %add, %divisor.011
   %rem8 = urem i32 %div, 85
   %idxprom9 = zext nneg i32 %rem8 to i64
-  %arrayidx10 = getelementptr inbounds [86 x i8], ptr @_ZL7encoder, i64 0, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds nuw [86 x i8], ptr @_ZL7encoder, i64 0, i64 %idxprom9
   %2 = load i8, ptr %arrayidx10, align 1
   %inc11 = add i32 %char_nbr.210, 1
   %idxprom12 = zext i32 %char_nbr.210 to i64
-  %arrayidx13 = getelementptr inbounds i8, ptr %dest_, i64 %idxprom12
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %dest_, i64 %idxprom12
   store i8 %2, ptr %arrayidx13, align 1
   %div14 = udiv i32 %divisor.011, 85
   %exitcond = icmp eq i32 %inc11, %1
@@ -223,7 +223,7 @@ while.end16.loopexit:                             ; preds = %if.end15
 
 while.end16:                                      ; preds = %while.end16.loopexit, %while.cond.preheader
   %char_nbr.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %3, %while.end16.loopexit ]
-  %arrayidx18 = getelementptr inbounds i8, ptr %dest_, i64 %char_nbr.0.lcssa
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %dest_, i64 %char_nbr.0.lcssa
   store i8 0, ptr %arrayidx18, align 1
   br label %return
 
@@ -267,7 +267,7 @@ if.end4:                                          ; preds = %while.body
 if.end11:                                         ; preds = %if.end4
   %sub = add nsw i8 %1, -32
   %conv8 = zext nneg i8 %sub to i64
-  %arrayidx13 = getelementptr inbounds [96 x i8], ptr @_ZL7decoder, i64 0, i64 %conv8
+  %arrayidx13 = getelementptr inbounds nuw [96 x i8], ptr @_ZL7decoder, i64 0, i64 %conv8
   %2 = load i8, ptr %arrayidx13, align 1
   %conv14 = zext i8 %2 to i32
   %cmp15 = icmp eq i8 %2, -1
@@ -293,7 +293,7 @@ while.body26:                                     ; preds = %while.body26.prehea
   %conv28 = trunc i32 %div to i8
   %inc29 = add i32 %byte_nbr.220, 1
   %idxprom30 = zext i32 %byte_nbr.220 to i64
-  %arrayidx31 = getelementptr inbounds i8, ptr %dest_, i64 %idxprom30
+  %arrayidx31 = getelementptr inbounds nuw i8, ptr %dest_, i64 %idxprom30
   store i8 %conv28, ptr %arrayidx31, align 1
   %div3217 = lshr i32 %divisor.021, 8
   %exitcond = icmp eq i32 %inc29, %3
@@ -303,7 +303,7 @@ if.end33:                                         ; preds = %while.body26, %if.e
   %value.1 = phi i32 [ %add, %if.end20 ], [ 0, %while.body26 ]
   %byte_nbr.1 = phi i32 [ %byte_nbr.025, %if.end20 ], [ %3, %while.body26 ]
   %idxprom = zext i32 %inc to i64
-  %arrayidx = getelementptr inbounds i8, ptr %string_, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %string_, i64 %idxprom
   %4 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %while.end34, label %while.body, !llvm.loop !8
@@ -434,10 +434,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #22
   %cmp.not = icmp eq ptr %1, null

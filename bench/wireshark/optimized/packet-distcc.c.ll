@@ -127,7 +127,7 @@ define internal i32 @dissect_distcc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = alloca ptr, align 8
   %8 = alloca [13 x i8], align 1
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.32) #4
   %12 = load ptr, ptr %10, align 8
@@ -145,17 +145,17 @@ define internal i32 @dissect_distcc(ptr noundef %0, ptr noundef %1, ptr noundef 
 18:                                               ; preds = %13, %4
   %.0 = phi ptr [ %17, %13 ], [ null, %4 ]
   %19 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 0, i64 noundef 12) #4
-  %20 = getelementptr inbounds i8, ptr %8, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 0, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %8, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %22 = call zeroext i1 @ws_hexstrtou32(ptr noundef nonnull %21, ptr noundef null, ptr noundef nonnull %9) #4
   br i1 %22, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 328
-  %24 = getelementptr inbounds i8, ptr %1, i64 332
-  %25 = getelementptr inbounds i8, ptr %1, i64 336
-  %26 = getelementptr inbounds i8, ptr %1, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 332
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %27
 
 27:                                               ; preds = %.lr.ph, %206

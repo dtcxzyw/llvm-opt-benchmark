@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %6 = zext i8 %5 to i32
@@ -34,15 +34,15 @@ define dso_local range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr nocapture noun
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %3, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store ptr %17, ptr %0, align 8
   %18 = load i8, ptr %4, align 1
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %3, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store ptr %20, ptr %0, align 8
   %21 = load i8, ptr %17, align 1
   %22 = zext i8 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store ptr %23, ptr %0, align 8
   %24 = shl nuw nsw i32 %6, 18
   %25 = and i32 %24, 1835008
@@ -54,11 +54,11 @@ define dso_local range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr nocapture noun
 
 28:                                               ; preds = %26
   %29 = and i32 %6, 143
-  %30 = getelementptr inbounds i8, ptr %3, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store ptr %30, ptr %0, align 8
   %31 = load i8, ptr %4, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %3, i64 3
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store ptr %33, ptr %0, align 8
   br label %39
 
@@ -68,7 +68,7 @@ define dso_local range(i32 -1, 2097152) i32 @uv__utf8_decode1(ptr nocapture noun
 
 36:                                               ; preds = %34
   %37 = and i32 %6, 159
-  %38 = getelementptr inbounds i8, ptr %3, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store ptr %38, ptr %0, align 8
   br label %39
 
@@ -130,7 +130,7 @@ define dso_local i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %9, label %10, label %73
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %.038, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   %12 = load i8, ptr %.038, align 1
   %13 = zext i8 %12 to i32
   %14 = icmp sgt i8 %12, -1
@@ -154,13 +154,13 @@ define dso_local i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.038, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.038, i64 2
   %24 = load i8, ptr %11, align 1
   %25 = zext i8 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %.038, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %.038, i64 3
   %27 = load i8, ptr %23, align 1
   %28 = zext i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %.038, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.038, i64 4
   %30 = shl nuw nsw i32 %13, 18
   %31 = and i32 %30, 1835008
   br label %45
@@ -171,10 +171,10 @@ define dso_local i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr nound
 
 34:                                               ; preds = %32
   %35 = and i32 %13, 143
-  %36 = getelementptr inbounds i8, ptr %.038, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.038, i64 2
   %37 = load i8, ptr %11, align 1
   %38 = zext i8 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %.038, i64 3
+  %39 = getelementptr inbounds nuw i8, ptr %.038, i64 3
   br label %45
 
 40:                                               ; preds = %32, %17
@@ -183,7 +183,7 @@ define dso_local i64 @uv__idna_toascii(ptr noundef %0, ptr noundef %1, ptr nound
 
 42:                                               ; preds = %40
   %43 = and i32 %13, 159
-  %44 = getelementptr inbounds i8, ptr %.038, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.038, i64 2
   br label %45
 
 45:                                               ; preds = %42, %34, %22
@@ -246,7 +246,7 @@ uv__utf8_decode1.exit:                            ; preds = %60, %10
   br i1 %70, label %71, label %.outer.backedge
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %69, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 1
   store ptr %72, ptr %5, align 8
   store i8 46, ptr %69, align 1
   br label %.outer.backedge
@@ -278,7 +278,7 @@ uv__utf8_decode1.exit:                            ; preds = %60, %10
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %81, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 1
   store ptr %84, ptr %5, align 8
   store i8 0, ptr %81, align 1
   %.pre49 = load ptr, ptr %5, align 8
@@ -309,7 +309,7 @@ define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %
   %.0103217 = phi i32 [ 0, %.lr.ph ], [ %.1104, %uv__utf8_decode1.exit ]
   %.0120216 = phi i32 [ 0, %.lr.ph ], [ %.1121, %uv__utf8_decode1.exit ]
   %.0192215 = phi ptr [ %0, %.lr.ph ], [ %.5, %uv__utf8_decode1.exit ]
-  %8 = getelementptr inbounds i8, ptr %.0192215, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.0192215, i64 1
   %9 = load i8, ptr %.0192215, align 1
   %10 = zext i8 %9 to i32
   %11 = icmp sgt i8 %9, -1
@@ -333,13 +333,13 @@ define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %.0192215, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.0192215, i64 2
   %21 = load i8, ptr %8, align 1
   %22 = zext i8 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %.0192215, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %.0192215, i64 3
   %24 = load i8, ptr %20, align 1
   %25 = zext i8 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %.0192215, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.0192215, i64 4
   %27 = shl nuw nsw i32 %10, 18
   %28 = and i32 %27, 1835008
   br label %42
@@ -350,10 +350,10 @@ define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %
 
 31:                                               ; preds = %29
   %32 = and i32 %10, 143
-  %33 = getelementptr inbounds i8, ptr %.0192215, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.0192215, i64 2
   %34 = load i8, ptr %8, align 1
   %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %.0192215, i64 3
+  %36 = getelementptr inbounds nuw i8, ptr %.0192215, i64 3
   br label %42
 
 37:                                               ; preds = %29, %14
@@ -362,7 +362,7 @@ define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %
 
 39:                                               ; preds = %37
   %40 = and i32 %10, 159
-  %41 = getelementptr inbounds i8, ptr %.0192215, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %.0192215, i64 2
   br label %42
 
 42:                                               ; preds = %39, %31, %19
@@ -422,7 +422,7 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %65, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 1
   store ptr %68, ptr %2, align 8
   store i8 120, ptr %65, align 1
   %.pre = load ptr, ptr %2, align 8
@@ -434,7 +434,7 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %70, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 1
   store ptr %73, ptr %2, align 8
   store i8 110, ptr %70, align 1
   %.pre255 = load ptr, ptr %2, align 8
@@ -446,7 +446,7 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %75, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 1
   store ptr %78, ptr %2, align 8
   store i8 45, ptr %75, align 1
   %.pre256 = load ptr, ptr %2, align 8
@@ -458,7 +458,7 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br i1 %81, label %82, label %._crit_edge.thread
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %80, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 1
   store ptr %83, ptr %2, align 8
   store i8 45, ptr %80, align 1
   br label %._crit_edge.thread
@@ -481,7 +481,7 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br i1 %86, label %87, label %.loopexit
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %.1193, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.1193, i64 1
   %89 = load i8, ptr %.1193, align 1
   %90 = zext i8 %89 to i32
   %91 = icmp sgt i8 %89, -1
@@ -505,13 +505,13 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br i1 %98, label %99, label %109
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %.1193, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %.1193, i64 2
   %101 = load i8, ptr %88, align 1
   %102 = zext i8 %101 to i32
-  %103 = getelementptr inbounds i8, ptr %.1193, i64 3
+  %103 = getelementptr inbounds nuw i8, ptr %.1193, i64 3
   %104 = load i8, ptr %100, align 1
   %105 = zext i8 %104 to i32
-  %106 = getelementptr inbounds i8, ptr %.1193, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %.1193, i64 4
   %107 = shl nuw nsw i32 %90, 18
   %108 = and i32 %107, 1835008
   br label %122
@@ -522,10 +522,10 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
 
 111:                                              ; preds = %109
   %112 = and i32 %90, 143
-  %113 = getelementptr inbounds i8, ptr %.1193, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %.1193, i64 2
   %114 = load i8, ptr %88, align 1
   %115 = zext i8 %114 to i32
-  %116 = getelementptr inbounds i8, ptr %.1193, i64 3
+  %116 = getelementptr inbounds nuw i8, ptr %.1193, i64 3
   br label %122
 
 117:                                              ; preds = %109, %94
@@ -534,7 +534,7 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
 
 119:                                              ; preds = %117
   %120 = and i32 %90, 159
-  %121 = getelementptr inbounds i8, ptr %.1193, i64 2
+  %121 = getelementptr inbounds nuw i8, ptr %.1193, i64 2
   br label %122
 
 122:                                              ; preds = %119, %111, %99
@@ -586,7 +586,7 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
 
 144:                                              ; preds = %141
   %145 = trunc nuw nsw i32 %.0.i146 to i8
-  %146 = getelementptr inbounds i8, ptr %142, i64 1
+  %146 = getelementptr inbounds nuw i8, ptr %142, i64 1
   store ptr %146, ptr %2, align 8
   store i8 %145, ptr %142, align 1
   br label %147
@@ -609,7 +609,7 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
   br i1 %153, label %154, label %.preheader202.preheader
 
 154:                                              ; preds = %151
-  %155 = getelementptr inbounds i8, ptr %152, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 1
   store ptr %155, ptr %2, align 8
   store i8 45, ptr %152, align 1
   br label %.preheader202.preheader
@@ -629,7 +629,7 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
 .lr.ph221:                                        ; preds = %.preheader202, %uv__utf8_decode1.exit171
   %.0116220 = phi i32 [ %.1117, %uv__utf8_decode1.exit171 ], [ -1, %.preheader202 ]
   %.2219 = phi ptr [ %.9, %uv__utf8_decode1.exit171 ], [ %0, %.preheader202 ]
-  %156 = getelementptr inbounds i8, ptr %.2219, i64 1
+  %156 = getelementptr inbounds nuw i8, ptr %.2219, i64 1
   %157 = load i8, ptr %.2219, align 1
   %158 = zext i8 %157 to i32
   %159 = icmp sgt i8 %157, -1
@@ -653,13 +653,13 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
   br i1 %166, label %167, label %177
 
 167:                                              ; preds = %165
-  %168 = getelementptr inbounds i8, ptr %.2219, i64 2
+  %168 = getelementptr inbounds nuw i8, ptr %.2219, i64 2
   %169 = load i8, ptr %156, align 1
   %170 = zext i8 %169 to i32
-  %171 = getelementptr inbounds i8, ptr %.2219, i64 3
+  %171 = getelementptr inbounds nuw i8, ptr %.2219, i64 3
   %172 = load i8, ptr %168, align 1
   %173 = zext i8 %172 to i32
-  %174 = getelementptr inbounds i8, ptr %.2219, i64 4
+  %174 = getelementptr inbounds nuw i8, ptr %.2219, i64 4
   %175 = shl nuw nsw i32 %158, 18
   %176 = and i32 %175, 1835008
   br label %190
@@ -670,10 +670,10 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
 
 179:                                              ; preds = %177
   %180 = and i32 %158, 143
-  %181 = getelementptr inbounds i8, ptr %.2219, i64 2
+  %181 = getelementptr inbounds nuw i8, ptr %.2219, i64 2
   %182 = load i8, ptr %156, align 1
   %183 = zext i8 %182 to i32
-  %184 = getelementptr inbounds i8, ptr %.2219, i64 3
+  %184 = getelementptr inbounds nuw i8, ptr %.2219, i64 3
   br label %190
 
 185:                                              ; preds = %177, %162
@@ -682,7 +682,7 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
 
 187:                                              ; preds = %185
   %188 = and i32 %158, 159
-  %189 = getelementptr inbounds i8, ptr %.2219, i64 2
+  %189 = getelementptr inbounds nuw i8, ptr %.2219, i64 2
   br label %190
 
 190:                                              ; preds = %187, %179, %167
@@ -760,7 +760,7 @@ uv__utf8_decode1.exit171:                         ; preds = %.lr.ph221, %160, %1
   br i1 %219, label %220, label %320
 
 220:                                              ; preds = %218
-  %221 = getelementptr inbounds i8, ptr %.3194, i64 1
+  %221 = getelementptr inbounds nuw i8, ptr %.3194, i64 1
   %222 = load i8, ptr %.3194, align 1
   %223 = zext i8 %222 to i32
   %224 = icmp sgt i8 %222, -1
@@ -784,13 +784,13 @@ uv__utf8_decode1.exit171:                         ; preds = %.lr.ph221, %160, %1
   br i1 %231, label %232, label %242
 
 232:                                              ; preds = %230
-  %233 = getelementptr inbounds i8, ptr %.3194, i64 2
+  %233 = getelementptr inbounds nuw i8, ptr %.3194, i64 2
   %234 = load i8, ptr %221, align 1
   %235 = zext i8 %234 to i32
-  %236 = getelementptr inbounds i8, ptr %.3194, i64 3
+  %236 = getelementptr inbounds nuw i8, ptr %.3194, i64 3
   %237 = load i8, ptr %233, align 1
   %238 = zext i8 %237 to i32
-  %239 = getelementptr inbounds i8, ptr %.3194, i64 4
+  %239 = getelementptr inbounds nuw i8, ptr %.3194, i64 4
   %240 = shl nuw nsw i32 %223, 18
   %241 = and i32 %240, 1835008
   br label %255
@@ -801,10 +801,10 @@ uv__utf8_decode1.exit171:                         ; preds = %.lr.ph221, %160, %1
 
 244:                                              ; preds = %242
   %245 = and i32 %223, 143
-  %246 = getelementptr inbounds i8, ptr %.3194, i64 2
+  %246 = getelementptr inbounds nuw i8, ptr %.3194, i64 2
   %247 = load i8, ptr %221, align 1
   %248 = zext i8 %247 to i32
-  %249 = getelementptr inbounds i8, ptr %.3194, i64 3
+  %249 = getelementptr inbounds nuw i8, ptr %.3194, i64 3
   br label %255
 
 250:                                              ; preds = %242, %227
@@ -813,7 +813,7 @@ uv__utf8_decode1.exit171:                         ; preds = %.lr.ph221, %160, %1
 
 252:                                              ; preds = %250
   %253 = and i32 %223, 159
-  %254 = getelementptr inbounds i8, ptr %.3194, i64 2
+  %254 = getelementptr inbounds nuw i8, ptr %.3194, i64 2
   br label %255
 
 255:                                              ; preds = %252, %244, %232
@@ -893,9 +893,9 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
 287:                                              ; preds = %.lr.ph228
   %288 = add nuw nsw i32 %284, %spec.store.select227
   %289 = zext nneg i32 %288 to i64
-  %290 = getelementptr inbounds [37 x i8], ptr @uv__idna_toascii_label.alphabet, i64 0, i64 %289
+  %290 = getelementptr inbounds nuw [37 x i8], ptr @uv__idna_toascii_label.alphabet, i64 0, i64 %289
   %291 = load i8, ptr %290, align 1
-  %292 = getelementptr inbounds i8, ptr %285, i64 1
+  %292 = getelementptr inbounds nuw i8, ptr %285, i64 1
   store ptr %292, ptr %2, align 8
   store i8 %291, ptr %285, align 1
   br label %293
@@ -917,9 +917,9 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
 
 301:                                              ; preds = %._crit_edge229
   %302 = zext nneg i32 %.0115.lcssa to i64
-  %303 = getelementptr inbounds [37 x i8], ptr @uv__idna_toascii_label.alphabet, i64 0, i64 %302
+  %303 = getelementptr inbounds nuw [37 x i8], ptr @uv__idna_toascii_label.alphabet, i64 0, i64 %302
   %304 = load i8, ptr %303, align 1
-  %305 = getelementptr inbounds i8, ptr %299, i64 1
+  %305 = getelementptr inbounds nuw i8, ptr %299, i64 1
   store ptr %305, ptr %2, align 8
   store i8 %304, ptr %299, align 1
   br label %306

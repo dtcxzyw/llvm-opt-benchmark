@@ -82,9 +82,9 @@ define range(i32 -1, 1) i32 @KINSetErrHandlerFn(ptr noundef writeonly %0, ptr no
   br label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 584
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 592
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr %2, ptr %8, align 8
   br label %9
 
@@ -105,7 +105,7 @@ define range(i32 -1, 1) i32 @KINSetErrFile(ptr noundef writeonly %0, ptr noundef
   br label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 600
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store ptr %1, ptr %6, align 8
   br label %7
 
@@ -132,7 +132,7 @@ define range(i32 -2, 1) i32 @KINSetPrintLevel(ptr noundef writeonly %0, i32 noun
   br label %9
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %1, ptr %8, align 4
   br label %9
 
@@ -151,9 +151,9 @@ define range(i32 -1, 1) i32 @KINSetInfoHandlerFn(ptr noundef writeonly %0, ptr n
   br label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 608
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 616
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 616
   store ptr %2, ptr %8, align 8
   br label %9
 
@@ -172,7 +172,7 @@ define range(i32 -1, 1) i32 @KINSetInfoFile(ptr noundef writeonly %0, ptr nounde
   br label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 624
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store ptr %1, ptr %6, align 8
   br label %7
 
@@ -191,7 +191,7 @@ define range(i32 -1, 1) i32 @KINSetUserData(ptr noundef writeonly %0, ptr nounde
   br label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %6, align 8
   br label %7
 
@@ -218,14 +218,14 @@ define range(i32 -2, 1) i32 @KINSetMAA(ptr noundef %0, i64 noundef %1) local_unn
   br label %15
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %spec.select = tail call i64 @llvm.smin.i64(i64 %1, i64 %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i64 %spec.select, ptr %11, align 8
   %12 = icmp ne i64 %spec.select, 0
   %13 = zext i1 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %0, i64 416
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store i32 %13, ptr %14, align 8
   br label %15
 
@@ -253,7 +253,7 @@ define range(i32 -2, 1) i32 @KINSetNumMaxIters(ptr noundef writeonly %0, i64 nou
 
 8:                                                ; preds = %5
   %9 = icmp eq i64 %1, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %9, label %11, label %12
 
 11:                                               ; preds = %8
@@ -279,7 +279,7 @@ define range(i32 -1, 1) i32 @KINSetNoInitSetup(ptr noundef writeonly %0, i32 nou
   br label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %1, ptr %6, align 8
   br label %7
 
@@ -298,7 +298,7 @@ define range(i32 -1, 1) i32 @KINSetNoResMon(ptr noundef writeonly %0, i32 nounde
   br label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %1, ptr %6, align 8
   br label %7
 
@@ -326,7 +326,7 @@ define range(i32 -2, 1) i32 @KINSetMaxSetupCalls(ptr noundef writeonly %0, i64 n
 
 8:                                                ; preds = %5
   %9 = icmp eq i64 %1, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br i1 %9, label %11, label %12
 
 11:                                               ; preds = %8
@@ -361,7 +361,7 @@ define range(i32 -2, 1) i32 @KINSetMaxSubSetupCalls(ptr noundef writeonly %0, i6
 
 8:                                                ; preds = %5
   %9 = icmp eq i64 %1, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br i1 %9, label %11, label %12
 
 11:                                               ; preds = %8
@@ -396,7 +396,7 @@ define range(i32 -2, 1) i32 @KINSetEtaForm(ptr noundef writeonly %0, i32 noundef
   br label %9
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %1, ptr %8, align 8
   br label %9
 
@@ -426,7 +426,7 @@ define range(i32 -2, 1) i32 @KINSetEtaConstValue(ptr noundef writeonly %0, doubl
 
 9:                                                ; preds = %5
   %10 = fcmp oeq double %1, 0.000000e+00
-  %11 = getelementptr inbounds i8, ptr %0, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br i1 %10, label %12, label %13
 
 12:                                               ; preds = %9
@@ -466,7 +466,7 @@ define range(i32 -2, 1) i32 @KINSetEtaParams(ptr noundef writeonly %0, double no
 11:                                               ; preds = %6
   %12 = fcmp oeq double %2, 0.000000e+00
   %.sink = select i1 %12, double 2.000000e+00, double %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double %.sink, ptr %13, align 8
   %14 = fcmp ole double %1, 0.000000e+00
   %15 = fcmp ogt double %1, 1.000000e+00
@@ -481,7 +481,7 @@ define range(i32 -2, 1) i32 @KINSetEtaParams(ptr noundef writeonly %0, double no
 
 18:                                               ; preds = %11
   %19 = fcmp oeq double %1, 0.000000e+00
-  %20 = getelementptr inbounds i8, ptr %0, i64 176
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
   br i1 %19, label %21, label %22
 
 21:                                               ; preds = %18
@@ -517,7 +517,7 @@ define range(i32 -2, 1) i32 @KINSetResMonParams(ptr noundef writeonly %0, double
 9:                                                ; preds = %6
   %10 = fcmp oeq double %1, 0.000000e+00
   %11 = select i1 %10, double 1.000000e-05, double %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 560
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store double %11, ptr %12, align 8
   %13 = fcmp olt double %2, 0.000000e+00
   br i1 %13, label %14, label %15
@@ -539,7 +539,7 @@ define range(i32 -2, 1) i32 @KINSetResMonParams(ptr noundef writeonly %0, double
   br label %27
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 568
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store double 9.000000e-01, ptr %21, align 8
   br label %27
 
@@ -552,7 +552,7 @@ define range(i32 -2, 1) i32 @KINSetResMonParams(ptr noundef writeonly %0, double
   br label %27
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 568
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store double %2, ptr %26, align 8
   br label %27
 
@@ -579,7 +579,7 @@ define range(i32 -2, 1) i32 @KINSetResMonConstValue(ptr noundef writeonly %0, do
   br label %10
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 552
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store double %1, ptr %9, align 8
   br label %10
 
@@ -598,7 +598,7 @@ define range(i32 -1, 1) i32 @KINSetNoMinEps(ptr noundef writeonly %0, i32 nounde
   br label %7
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 84
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %1, ptr %6, align 4
   br label %7
 
@@ -625,7 +625,7 @@ define range(i32 -2, 1) i32 @KINSetMaxNewtonStep(ptr noundef writeonly %0, doubl
   br label %10
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double %1, ptr %9, align 8
   br label %10
 
@@ -653,7 +653,7 @@ define range(i32 -2, 1) i32 @KINSetMaxBetaFails(ptr noundef writeonly %0, i64 no
 
 8:                                                ; preds = %5
   %9 = icmp eq i64 %1, 0
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br i1 %9, label %11, label %12
 
 11:                                               ; preds = %8
@@ -693,13 +693,13 @@ define range(i32 -2, 1) i32 @KINSetRelErrFunc(ptr noundef %0, double noundef %1)
 10:                                               ; preds = %8
   %11 = load double, ptr %0, align 8
   %12 = tail call double @SUNRsqrt(double noundef %11) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double %12, ptr %13, align 8
   br label %17
 
 14:                                               ; preds = %8
   %15 = tail call double @SUNRsqrt(double noundef %1) #6
-  %16 = getelementptr inbounds i8, ptr %0, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double %15, ptr %16, align 8
   br label %17
 
@@ -734,12 +734,12 @@ define range(i32 -2, 1) i32 @KINSetFuncNormTol(ptr noundef %0, double noundef %1
 10:                                               ; preds = %8
   %11 = load double, ptr %0, align 8
   %12 = tail call double @SUNRpowerR(double noundef %11, double noundef 0x3FD5555555555555) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %12, ptr %13, align 8
   br label %16
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %1, ptr %15, align 8
   br label %16
 
@@ -774,12 +774,12 @@ define range(i32 -2, 1) i32 @KINSetScaledStepTol(ptr noundef %0, double noundef 
 10:                                               ; preds = %8
   %11 = load double, ptr %0, align 8
   %12 = tail call double @SUNRpowerR(double noundef %11, double noundef 0x3FE5555555555556) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %12, ptr %13, align 8
   br label %16
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %1, ptr %15, align 8
   br label %16
 
@@ -802,24 +802,24 @@ define range(i32 -2, 1) i32 @KINSetConstraints(ptr noundef %0, ptr noundef %1) l
   br i1 %6, label %7, label %24
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %9 = load i32, ptr %8, align 4
   %.not24 = icmp eq i32 %9, 0
   br i1 %.not24, label %23, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 320
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %12 = load ptr, ptr %11, align 8
   tail call void @N_VDestroy(ptr noundef %12) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 424
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 440
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %16 = load i64, ptr %15, align 8
   %17 = sub nsw i64 %16, %14
   store i64 %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 432
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 448
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %21 = load i64, ptr %20, align 8
   %22 = sub nsw i64 %21, %19
   store i64 %22, ptr %20, align 8
@@ -839,29 +839,29 @@ define range(i32 -2, 1) i32 @KINSetConstraints(ptr noundef %0, ptr noundef %1) l
   br label %46
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 92
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %30 = load i32, ptr %29, align 4
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %28
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 320
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 320
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %44
 
 31:                                               ; preds = %28
   %32 = tail call ptr @N_VClone(ptr noundef nonnull %1) #6
-  %33 = getelementptr inbounds i8, ptr %0, i64 320
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 424
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 440
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %37 = load i64, ptr %36, align 8
   %38 = add nsw i64 %37, %35
   store i64 %38, ptr %36, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 432
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 448
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %42 = load i64, ptr %41, align 8
   %43 = add nsw i64 %42, %40
   store i64 %43, ptr %41, align 8
@@ -904,7 +904,7 @@ define range(i32 -2, 1) i32 @KINSetSysFunc(ptr noundef writeonly %0, ptr noundef
   br label %10
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %9, align 8
   br label %10
 
@@ -923,10 +923,10 @@ define range(i32 -1, 1) i32 @KINGetWorkSpace(ptr noundef readonly %0, ptr nocapt
   br label %11
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 440
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 448
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %2, align 8
   br label %11
@@ -946,7 +946,7 @@ define range(i32 -1, 1) i32 @KINGetNumNonlinSolvIters(ptr noundef readonly %0, p
   br label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %1, align 8
   br label %8
@@ -966,7 +966,7 @@ define range(i32 -1, 1) i32 @KINGetNumFuncEvals(ptr noundef readonly %0, ptr noc
   br label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %1, align 8
   br label %8
@@ -986,7 +986,7 @@ define range(i32 -1, 1) i32 @KINGetNumBetaCondFails(ptr noundef readonly %0, ptr
   br label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %1, align 8
   br label %8
@@ -1006,7 +1006,7 @@ define range(i32 -1, 1) i32 @KINGetNumBacktrackOps(ptr noundef readonly %0, ptr 
   br label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %1, align 8
   br label %8
@@ -1026,7 +1026,7 @@ define range(i32 -1, 1) i32 @KINGetFuncNorm(ptr noundef readonly %0, ptr nocaptu
   br label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 504
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %7 = load double, ptr %6, align 8
   store double %7, ptr %1, align 8
   br label %8
@@ -1046,7 +1046,7 @@ define range(i32 -1, 1) i32 @KINGetStepLength(ptr noundef readonly %0, ptr nocap
   br label %8
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load double, ptr %6, align 8
   store double %7, ptr %1, align 8
   br label %8

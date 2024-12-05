@@ -110,7 +110,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp3, label %parse_err, label %if.end5
 
 if.end5:                                          ; preds = %if.else
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 3
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 3
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %if.end5
@@ -118,7 +118,7 @@ if.end6:                                          ; preds = %if.end, %if.end5
   %p.0 = phi ptr [ %add.ptr, %if.end5 ], [ %url, %if.end ]
   %call7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.0, i32 noundef 64) #5
   %cmp8.not = icmp eq ptr %call7, null
-  %incdec.ptr = getelementptr inbounds i8, ptr %call7, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call7, i64 1
   %user_end.0 = select i1 %cmp8.not, ptr %p.0, ptr %call7
   %host.0 = select i1 %cmp8.not, ptr %p.0, ptr %incdec.ptr
   %0 = load i8, ptr %host.0, align 1
@@ -126,13 +126,13 @@ if.end6:                                          ; preds = %if.end, %if.end5
   br i1 %cmp12, label %if.then14, label %if.else22
 
 if.then14:                                        ; preds = %if.end6
-  %add.ptr15 = getelementptr inbounds i8, ptr %host.0, i64 1
+  %add.ptr15 = getelementptr inbounds nuw i8, ptr %host.0, i64 1
   %call16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr15, i32 noundef 93) #5
   %cmp17 = icmp eq ptr %call16, null
   br i1 %cmp17, label %parse_err, label %if.end20
 
 if.end20:                                         ; preds = %if.then14
-  %incdec.ptr21 = getelementptr inbounds i8, ptr %call16, i64 1
+  %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %call16, i64 1
   br label %if.end45
 
 if.else22:                                        ; preds = %if.end6
@@ -164,7 +164,7 @@ if.end45:                                         ; preds = %if.else22, %if.end2
   %p.1 = phi ptr [ %incdec.ptr21, %if.end20 ], [ %add.ptr43, %if.then41 ], [ %call37, %if.end38 ], [ %call32, %if.end33 ], [ %call27, %if.end28 ], [ %call23, %if.else22 ]
   %1 = load i8, ptr %p.1, align 1
   %cmp47 = icmp eq i8 %1, 58
-  %incdec.ptr50 = getelementptr inbounds i8, ptr %p.1, i64 1
+  %incdec.ptr50 = getelementptr inbounds nuw i8, ptr %p.1, i64 1
   %spec.select = select i1 %cmp47, ptr %incdec.ptr50, ptr @.str.2
   %spec.select84 = select i1 %cmp47, ptr %incdec.ptr50, ptr %p.1
   %call52 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.3, ptr noundef nonnull %portnum) #4
@@ -185,7 +185,7 @@ for.cond:                                         ; preds = %if.end45, %for.cond
   %3 = load i8, ptr %port_end.0, align 1
   %4 = add i8 %3, -48
   %or.cond85 = icmp ult i8 %4, 10
-  %incdec.ptr65 = getelementptr inbounds i8, ptr %port_end.0, i64 1
+  %incdec.ptr65 = getelementptr inbounds nuw i8, ptr %port_end.0, i64 1
   br i1 %or.cond85, label %for.cond, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
@@ -214,7 +214,7 @@ if.end86:                                         ; preds = %for.end, %for.end, 
   %add.ptr88 = getelementptr inbounds i8, ptr %p.3, i64 %call87
   %call89 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.3, i32 noundef 63) #5
   %cmp90.not = icmp eq ptr %call89, null
-  %add.ptr96 = getelementptr inbounds i8, ptr %call89, i64 1
+  %add.ptr96 = getelementptr inbounds nuw i8, ptr %call89, i64 1
   %6 = or i1 %cmp.not.i106, %cmp90.not
   %path_end.0 = select i1 %6, ptr %add.ptr88, ptr %call89
   %query.0 = select i1 %6, ptr %add.ptr88, ptr %add.ptr96
@@ -223,7 +223,7 @@ if.end86:                                         ; preds = %for.end, %for.end, 
   %cmp100.not = icmp eq ptr %call99, null
   %cmp103 = icmp eq ptr %query.0, %path_end.0
   %spec.select88 = select i1 %cmp103, ptr %call99, ptr %path_end.0
-  %add.ptr107 = getelementptr inbounds i8, ptr %call99, i64 1
+  %add.ptr107 = getelementptr inbounds nuw i8, ptr %call99, i64 1
   %path_end.1 = select i1 %cmp100.not, ptr %path_end.0, ptr %spec.select88
   %query_end.0 = select i1 %cmp100.not, ptr %add.ptr88, ptr %call99
   %frag.0 = select i1 %cmp100.not, ptr %add.ptr88, ptr %add.ptr107
@@ -324,7 +324,7 @@ if.else139:                                       ; preds = %if.end130
   br i1 %cmp.not.i100, label %return, label %if.then142
 
 if.then142:                                       ; preds = %if.else139
-  %add.ptr143 = getelementptr inbounds i8, ptr %path_end.1, i64 1
+  %add.ptr143 = getelementptr inbounds nuw i8, ptr %path_end.1, i64 1
   %sub.ptr.lhs.cast144 = ptrtoint ptr %add.ptr143 to i64
   %sub.ptr.rhs.cast145 = ptrtoint ptr %p.3 to i64
   %sub.ptr.sub146 = sub i64 %sub.ptr.lhs.cast144, %sub.ptr.rhs.cast145
@@ -505,7 +505,7 @@ if.end16:                                         ; preds = %if.else, %land.lhs.
   br i1 %.not, label %if.end16.tail, label %if.else45
 
 if.end16.tail:                                    ; preds = %if.end16
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %if.then20, label %if.else45
@@ -681,7 +681,7 @@ lor.rhs.i:                                        ; preds = %land.lhs.true.i, %l
   ]
 
 while.body.i:                                     ; preds = %lor.rhs.i, %land.lhs.true.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %found.125.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %found.125.i, i64 1
   %call47.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly dereferenceable(1) %server) #5
   %cmp20.not.i = icmp eq ptr %call47.i, null
   br i1 %cmp20.not.i, label %return, label %land.rhs.i, !llvm.loop !6

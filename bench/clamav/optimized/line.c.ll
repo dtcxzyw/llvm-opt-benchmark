@@ -23,7 +23,7 @@ define ptr @lineCreate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 
 7:                                                ; preds = %1
   store i8 1, ptr %4, align 1
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %0, i64 %2, i1 false)
   %9 = getelementptr i8, ptr %4, i64 %2
   %10 = getelementptr i8, ptr %9, i64 1
@@ -59,7 +59,7 @@ define ptr @lineLink(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #9
   %8 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #8
   %9 = add i64 %8, 2
@@ -73,7 +73,7 @@ define ptr @lineLink(ptr noundef %0) local_unnamed_addr #0 {
 
 13:                                               ; preds = %6
   store i8 1, ptr %10, align 1
-  %14 = getelementptr inbounds i8, ptr %10, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull readonly align 1 %7, i64 %8, i1 false)
   %15 = getelementptr i8, ptr %10, i64 %8
   %16 = getelementptr i8, ptr %15, i64 1
@@ -98,7 +98,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define ptr @lineGetData(ptr noundef readnone %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = select i1 %.not, ptr null, ptr %2
   ret ptr %3
 }

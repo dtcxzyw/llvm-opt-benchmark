@@ -23,19 +23,19 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_ev_system_memory_region_setup
   br i1 %9, label %39, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %10, %.preheader
   %14 = phi ptr [ %21, %.preheader ], [ %12, %10 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load i64, ptr %19, align 8
   tail call void @acpi_os_unmap_memory(ptr noundef %18, i64 noundef %20) #6
   tail call void @kfree(ptr noundef nonnull %14) #6
@@ -62,12 +62,12 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_ev_system_memory_region_setup
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %29, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %35, ptr %36, align 8
   br label %37
 
@@ -104,7 +104,7 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr nocapture noundef read
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %90, label %11
@@ -123,8 +123,8 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr nocapture noundef read
   br label %90
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = getelementptr inbounds i8, ptr %9, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @acpi_gbl_root_node, align 8
   %21 = icmp eq ptr %19, %20
@@ -136,7 +136,7 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr nocapture noundef read
 
 24:                                               ; preds = %30, %22
   %25 = phi ptr [ %23, %22 ], [ %27, %30 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr @acpi_gbl_root_node, align 8
   %29 = icmp eq ptr %27, %28
@@ -161,7 +161,7 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr nocapture noundef read
 
 .loopexit8:                                       ; preds = %24, %35, %33, %33, %16
   %37 = phi ptr [ %27, %33 ], [ %27, %35 ], [ %27, %33 ], [ %19, %16 ], [ %27, %24 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, 32
   %41 = icmp eq i8 %40, 0
@@ -189,13 +189,13 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr nocapture noundef read
 
 .preheader:                                       ; preds = %50, %57
   %53 = phi ptr [ %59, %57 ], [ %51, %50 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 9
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 9
   %55 = load i8, ptr %54, align 1
   %56 = icmp eq i8 %55, 6
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %.preheader
-  %58 = getelementptr inbounds i8, ptr %53, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !12
@@ -213,10 +213,10 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr nocapture noundef read
   %65 = load i64, ptr %6, align 8
   %66 = lshr i64 %65, 16
   %67 = trunc i64 %66 to i16
-  %68 = getelementptr inbounds i8, ptr %48, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i16 %67, ptr %68, align 4
   %69 = trunc i64 %65 to i16
-  %70 = getelementptr inbounds i8, ptr %48, i64 6
+  %70 = getelementptr inbounds nuw i8, ptr %48, i64 6
   store i16 %69, ptr %70, align 2
   br label %71
 
@@ -239,7 +239,7 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr nocapture noundef read
 80:                                               ; preds = %77
   %81 = load i64, ptr %6, align 8
   %82 = trunc i64 %81 to i16
-  %83 = getelementptr inbounds i8, ptr %48, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store i16 %82, ptr %83, align 2
   br label %84
 
@@ -277,7 +277,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ev_is_pci_root_bridge(p
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = call zeroext i8 @acpi_ut_is_pci_root_bridge(ptr noundef %9) #6
   %11 = load ptr, ptr %2, align 8
@@ -396,7 +396,7 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_ev_data_table_region_setup(pt
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %17, align 8
   br label %22
@@ -425,7 +425,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ev_initialize_region(ptr n
   br i1 %2, label %.loopexit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 8
   %7 = icmp eq i8 %6, 0
@@ -434,11 +434,11 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ev_initialize_region(ptr n
 8:                                                ; preds = %3
   %9 = or disjoint i8 %5, 8
   store i8 %9, ptr %4, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 13
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %13 = load i8, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %.preheader
@@ -450,7 +450,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ev_initialize_region(ptr n
   br i1 %19, label %33, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %17, i64 9
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 9
   %22 = load i8, ptr %21, align 1
   switch i8 %22, label %26 [
     i8 6, label %23
@@ -459,7 +459,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ev_initialize_region(ptr n
   ]
 
 23:                                               ; preds = %20, %20, %20
-  %24 = getelementptr inbounds i8, ptr %18, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -477,7 +477,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ev_initialize_region(ptr n
   br label %.loopexit
 
 33:                                               ; preds = %26, %.preheader
-  %34 = getelementptr inbounds i8, ptr %17, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !14

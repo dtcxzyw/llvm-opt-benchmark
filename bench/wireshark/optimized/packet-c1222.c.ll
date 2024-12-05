@@ -520,24 +520,24 @@ define internal void @c1222_users_key_set_cb(ptr nocapture noundef initializes((
 
 9:                                                ; preds = %5, %6
   %10 = phi ptr [ %8, %6 ], [ null, %5 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #6
   store ptr %10, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %13, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @c1222_users_key_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
   %12 = tail call ptr @g_memdup2(ptr noundef nonnull %7, i64 noundef %11) #8
@@ -550,7 +550,7 @@ define internal void @c1222_users_key_tostr_cb(ptr nocapture noundef readonly %0
 15:                                               ; preds = %13, %8
   %16 = phi ptr [ %12, %8 ], [ %14, %13 ]
   store ptr %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
   store i32 %18, ptr %2, align 4
   ret void
@@ -579,7 +579,7 @@ define internal i32 @dissect_c1222(ptr noundef %0, ptr noundef %1, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_c1222_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.163) #6
   %8 = load i32, ptr @proto_c1222, align 4
@@ -594,7 +594,7 @@ define internal i32 @dissect_c1222_common(ptr noundef %0, ptr noundef %1, ptr no
 13:                                               ; preds = %13, %4
   %14 = phi ptr [ @aSO_context, %4 ], [ %19, %13 ]
   %.04.i.i.i = phi ptr [ @canonifyTable, %4 ], [ %17, %13 ]
-  %15 = getelementptr inbounds i8, ptr %.04.i.i.i, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.04.i.i.i, i64 24
   %16 = load ptr, ptr %15, align 8
   store i32 0, ptr %16, align 4
   store ptr null, ptr %14, align 8
@@ -684,15 +684,15 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 define internal noundef ptr @c1222_uat_data_copy_cb(ptr noundef returned writeonly initializes((0, 4), (8, 20)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %6 to i64
   %11 = tail call ptr @g_memdup2(ptr noundef %9, i64 noundef %10) #8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %12, align 8
   ret ptr %0
 }
@@ -704,7 +704,7 @@ define internal noundef zeroext i1 @c1222_uat_data_update_cb(ptr nocapture nound
   br i1 %4, label %.sink.split, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 16
   br i1 %.not, label %9, label %.sink.split
@@ -722,7 +722,7 @@ define internal noundef zeroext i1 @c1222_uat_data_update_cb(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @c1222_uat_data_free_cb(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #6
   ret void
@@ -800,9 +800,9 @@ declare i32 @dissect_ber_sequence(i1 noundef zeroext, ptr noundef, ptr noundef, 
 define internal i32 @dissect_c1222_ASO_qualifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_object_identifier(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #6
   %8 = sub i32 %7, %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %8 to i64
   %14 = tail call ptr @tvb_memdup(ptr noundef %12, ptr noundef %1, i32 noundef %2, i64 noundef %13) #6
@@ -826,9 +826,9 @@ define internal i32 @dissect_c1222_Called_AP_title(i1 zeroext %0, ptr noundef %1
   %12 = load i32, ptr @c1222_baseoid_len, align 4
   %13 = add i32 %12, %9
   store i32 %13, ptr @called_AP_title_len, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %13 to i64
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %18) #6
@@ -855,9 +855,9 @@ define internal i32 @dissect_c1222_Called_AP_title(i1 zeroext %0, ptr noundef %1
   br label %42
 
 35:                                               ; preds = %6
-  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %9 to i64
   %41 = tail call ptr @tvb_memdup(ptr noundef %39, ptr noundef %1, i32 noundef %2, i64 noundef %40) #6
@@ -874,9 +874,9 @@ define internal i32 @dissect_c1222_Called_AP_title(i1 zeroext %0, ptr noundef %1
 define internal i32 @dissect_c1222_Called_AP_invocation_id(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #6
   %8 = sub i32 %7, %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %8 to i64
   %14 = tail call ptr @tvb_memdup(ptr noundef %12, ptr noundef %1, i32 noundef %2, i64 noundef %13) #6
@@ -900,9 +900,9 @@ define internal i32 @dissect_c1222_Calling_AP_title(i1 zeroext %0, ptr noundef %
   %12 = load i32, ptr @c1222_baseoid_len, align 4
   %13 = add i32 %12, %9
   store i32 %13, ptr @calling_AP_title_len, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %13 to i64
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef %18) #6
@@ -929,9 +929,9 @@ define internal i32 @dissect_c1222_Calling_AP_title(i1 zeroext %0, ptr noundef %
   br label %42
 
 35:                                               ; preds = %6
-  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %9 to i64
   %41 = tail call ptr @tvb_memdup(ptr noundef %39, ptr noundef %1, i32 noundef %2, i64 noundef %40) #6
@@ -948,9 +948,9 @@ define internal i32 @dissect_c1222_Calling_AP_title(i1 zeroext %0, ptr noundef %
 define internal i32 @dissect_c1222_Calling_AE_qualifier(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #6
   %8 = sub i32 %7, %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %8 to i64
   %14 = tail call ptr @tvb_memdup(ptr noundef %12, ptr noundef %1, i32 noundef %2, i64 noundef %13) #6
@@ -964,9 +964,9 @@ define internal i32 @dissect_c1222_Calling_AE_qualifier(i1 noundef zeroext %0, p
 define internal i32 @dissect_c1222_Calling_AP_invocation_id(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_integer(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #6
   %8 = sub i32 %7, %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %8 to i64
   %14 = tail call ptr @tvb_memdup(ptr noundef %12, ptr noundef %1, i32 noundef %2, i64 noundef %13) #6
@@ -980,9 +980,9 @@ define internal i32 @dissect_c1222_Calling_AP_invocation_id(i1 noundef zeroext %
 define internal i32 @dissect_c1222_Mechanism_name(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_object_identifier(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #6
   %8 = sub i32 %7, %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %8 to i64
   %14 = tail call ptr @tvb_memdup(ptr noundef %12, ptr noundef %1, i32 noundef %2, i64 noundef %13) #6
@@ -996,9 +996,9 @@ define internal i32 @dissect_c1222_Mechanism_name(i1 noundef zeroext %0, ptr nou
 define internal i32 @dissect_c1222_Calling_authentication_value(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 2, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull @dissect_c1222_Calling_authentication_value_U) #6
   %8 = sub i32 %7, %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %8 to i64
   %14 = tail call ptr @tvb_memdup(ptr noundef %12, ptr noundef %1, i32 noundef %2, i64 noundef %13) #6
@@ -1019,7 +1019,7 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
   %13 = alloca i8, align 1
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @dissect_ber_identifier(ptr noundef %17, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %14) #6
   %19 = load ptr, ptr %16, align 8
@@ -1028,7 +1028,7 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
   %22 = shl i32 %21, 1
   %23 = or disjoint i32 %22, 1
   %24 = load ptr, ptr %16, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %23 to i64
   %28 = call ptr @tvb_memdup(ptr noundef %26, ptr noundef %1, i32 noundef %2, i64 noundef %27) #6
@@ -1095,7 +1095,7 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
   br i1 %.not100.i, label %.thread225.i, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %47, i64 408
+  %67 = getelementptr inbounds nuw i8, ptr %47, i64 408
   %68 = load ptr, ptr %67, align 8
   %69 = zext nneg i32 %62 to i64
   %70 = call ptr @tvb_memdup(ptr noundef %68, ptr noundef %1, i32 noundef %57, i64 noundef %69) #6
@@ -1117,7 +1117,7 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
 
 77:                                               ; preds = %74
   %78 = call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %57) #6
-  %79 = getelementptr inbounds i8, ptr %47, i64 408
+  %79 = getelementptr inbounds nuw i8, ptr %47, i64 408
   %80 = load ptr, ptr %79, align 8
   %81 = zext nneg i32 %75 to i64
   %82 = call ptr @tvb_memdup(ptr noundef %80, ptr noundef %1, i32 noundef %57, i64 noundef %81) #6
@@ -1179,7 +1179,7 @@ define internal i32 @dissect_c1222_User_information(i1 zeroext %0, ptr noundef %
   br i1 %.not106240.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %47, i64 408
+  %107 = getelementptr inbounds nuw i8, ptr %47, i64 408
   br label %108
 
 108:                                              ; preds = %parse_c1222_detailed.exit.i, %.lr.ph.i
@@ -1809,13 +1809,13 @@ parse_c1222_detailed.exit.i:                      ; preds = %462, %459, %457, %4
   br i1 %.not.i112.i, label %proto_item_set_generated.exit.i, label %481
 
 481:                                              ; preds = %474
-  %482 = getelementptr inbounds i8, ptr %480, i64 32
+  %482 = getelementptr inbounds nuw i8, ptr %480, i64 32
   %483 = load ptr, ptr %482, align 8
   %.not5.i.i = icmp eq ptr %483, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %484
 
 484:                                              ; preds = %481
-  %485 = getelementptr inbounds i8, ptr %483, i64 28
+  %485 = getelementptr inbounds nuw i8, ptr %483, i64 28
   %486 = load i32, ptr %485, align 4
   %487 = or i32 %486, 2
   store i32 %487, ptr %485, align 4
@@ -1828,13 +1828,13 @@ proto_item_set_generated.exit.i:                  ; preds = %484, %481, %474
   br i1 %.not.i113.i, label %dissect_epsem.exit, label %490
 
 490:                                              ; preds = %proto_item_set_generated.exit.i
-  %491 = getelementptr inbounds i8, ptr %489, i64 32
+  %491 = getelementptr inbounds nuw i8, ptr %489, i64 32
   %492 = load ptr, ptr %491, align 8
   %.not5.i114.i = icmp eq ptr %492, null
   br i1 %.not5.i114.i, label %dissect_epsem.exit, label %493
 
 493:                                              ; preds = %490
-  %494 = getelementptr inbounds i8, ptr %492, i64 28
+  %494 = getelementptr inbounds nuw i8, ptr %492, i64 28
   %495 = load i32, ptr %494, align 4
   %496 = or i32 %495, 2
   store i32 %496, ptr %494, align 4
@@ -1942,9 +1942,9 @@ define internal i32 @dissect_c1222_Calling_authentication_value_c1222_U(i1 nound
 define internal i32 @dissect_c1222_Key_id_element(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #6
   %8 = sub i32 %7, %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %8 to i64
   %14 = tail call ptr @tvb_memdup(ptr noundef %12, ptr noundef %1, i32 noundef %2, i64 noundef %13) #6
@@ -1958,9 +1958,9 @@ define internal i32 @dissect_c1222_Key_id_element(i1 noundef zeroext %0, ptr nou
 define internal i32 @dissect_c1222_Iv_element(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = tail call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef null) #6
   %8 = sub i32 %7, %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %8 to i64
   %14 = tail call ptr @tvb_memdup(ptr noundef %12, ptr noundef %1, i32 noundef %2, i64 noundef %13) #6
@@ -2030,10 +2030,10 @@ define internal fastcc range(i32 0, 2) i32 @decrypt_packet(ptr noundef %0, i32 n
   %.0 = phi i32 [ 0, %12 ], [ %.2, %79 ]
   %14 = phi ptr [ @aSO_context, %12 ], [ %82, %79 ]
   %.03139.i = phi ptr [ @canonifyTable, %12 ], [ %80, %79 ]
-  %15 = getelementptr inbounds i8, ptr %.03139.i, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.03139.i, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %.03139.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %.03139.i, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %.03139.i, align 8
@@ -2049,13 +2049,13 @@ define internal fastcc range(i32 0, 2) i32 @decrypt_packet(ptr noundef %0, i32 n
   br i1 %.not34.i, label %79, label %.thread.i
 
 .thread.i:                                        ; preds = %23, %22
-  %24 = getelementptr inbounds i8, ptr %.03139.i, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %.03139.i, i64 12
   %25 = load i32, ptr %24, align 4
   %.not35.i = icmp eq i32 %25, 0
   br i1 %.not35.i, label %57, label %26
 
 26:                                               ; preds = %.thread.i
-  %27 = getelementptr inbounds i8, ptr %.03139.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.03139.i, i64 8
   %28 = load i8, ptr %27, align 8
   %29 = add i32 %.0, 1
   %30 = zext i32 %.0 to i64
@@ -2117,7 +2117,7 @@ encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %47, %4
 
 57:                                               ; preds = %encode_ber_len.exit.i, %.thread.i
   %.1 = phi i32 [ %.0, %.thread.i ], [ %56, %encode_ber_len.exit.i ]
-  %58 = getelementptr inbounds i8, ptr %.03139.i, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.03139.i, i64 4
   %59 = load i32, ptr %58, align 4
   %.not36.i = icmp eq i32 %59, 0
   br i1 %.not36.i, label %70, label %60
@@ -2196,7 +2196,7 @@ canonify_unencrypted_header.exit:                 ; preds = %79
   br i1 %91, label %92, label %87
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %89, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %94 = load ptr, ptr %93, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %94, i64 16, i1 false)
   %95 = add i32 %1, -4

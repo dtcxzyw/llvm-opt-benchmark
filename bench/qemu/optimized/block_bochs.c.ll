@@ -65,11 +65,11 @@ declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 define internal range(i32 -2147483648, 1) i32 @bochs_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %bochs = alloca %struct.bochs_header, align 1
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #10
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %bochs, i64 88
-  %.sink.sroa.gep56 = getelementptr inbounds i8, ptr %bochs, i64 84
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %bochs, i64 88
+  %.sink.sroa.gep56 = getelementptr inbounds nuw i8, ptr %bochs, i64 84
   br i1 %call, label %do.end, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -90,7 +90,7 @@ if.end3:                                          ; preds = %do.end
 
 if.end7:                                          ; preds = %if.end3
   tail call void @bdrv_graph_rdlock_main_loop() #10
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %1 = load ptr, ptr %file, align 8
   %call9 = call i32 @bdrv_pread(ptr noundef %1, i64 noundef 0, i64 noundef 512, ptr noundef nonnull %bochs, i32 noundef 0) #10
   %cmp10 = icmp slt i32 %call9, 0
@@ -102,19 +102,19 @@ if.end12:                                         ; preds = %if.end7
   br i1 %tobool.not, label %lor.lhs.false, label %if.then27
 
 lor.lhs.false:                                    ; preds = %if.end12
-  %type = getelementptr inbounds i8, ptr %bochs, i64 32
+  %type = getelementptr inbounds nuw i8, ptr %bochs, i64 32
   %bcmp49 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %type, ptr noundef nonnull dereferenceable(8) @.str.5, i64 8)
   %tobool16.not = icmp eq i32 %bcmp49, 0
   br i1 %tobool16.not, label %lor.lhs.false17, label %if.then27
 
 lor.lhs.false17:                                  ; preds = %lor.lhs.false
-  %subtype = getelementptr inbounds i8, ptr %bochs, i64 48
+  %subtype = getelementptr inbounds nuw i8, ptr %bochs, i64 48
   %bcmp50 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %subtype, ptr noundef nonnull dereferenceable(8) @.str.6, i64 8)
   %tobool20.not = icmp eq i32 %bcmp50, 0
   br i1 %tobool20.not, label %lor.lhs.false21, label %if.then27
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false17
-  %version = getelementptr inbounds i8, ptr %bochs, i64 64
+  %version = getelementptr inbounds nuw i8, ptr %bochs, i64 64
   %2 = load i32, ptr %version, align 1
   switch i32 %2, label %if.then27 [
     i32 131072, label %if.else34
@@ -132,11 +132,11 @@ if.end40:                                         ; preds = %lor.lhs.false21, %i
   %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %if.else34 ], [ %.sink.sroa.gep56, %lor.lhs.false21 ]
   %3 = load i64, ptr %.sink.sroa.phi, align 1
   %div3851 = lshr i64 %3, 9
-  %total_sectors39 = getelementptr inbounds i8, ptr %bs, i64 16888
+  %total_sectors39 = getelementptr inbounds nuw i8, ptr %bs, i64 16888
   store i64 %div3851, ptr %total_sectors39, align 8
-  %catalog = getelementptr inbounds i8, ptr %bochs, i64 72
+  %catalog = getelementptr inbounds nuw i8, ptr %bochs, i64 72
   %4 = load i32, ptr %catalog, align 1
-  %catalog_size = getelementptr inbounds i8, ptr %0, i64 56
+  %catalog_size = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %4, ptr %catalog_size, align 8
   %cmp43 = icmp ugt i32 %4, 1048576
   br i1 %cmp43, label %if.then44, label %if.end45
@@ -148,7 +148,7 @@ if.then44:                                        ; preds = %if.end40
 if.end45:                                         ; preds = %if.end40
   %conv = zext nneg i32 %4 to i64
   %call47 = call noalias ptr @g_try_malloc_n(i64 noundef %conv, i64 noundef 4) #12
-  %catalog_bitmap = getelementptr inbounds i8, ptr %0, i64 48
+  %catalog_bitmap = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %call47, ptr %catalog_bitmap, align 8
   %5 = load i32, ptr %catalog_size, align 8
   %tobool49.not = icmp ne i32 %5, 0
@@ -162,7 +162,7 @@ if.then54:                                        ; preds = %if.end45
 
 if.end55:                                         ; preds = %if.end45
   %6 = load ptr, ptr %file, align 8
-  %header = getelementptr inbounds i8, ptr %bochs, i64 68
+  %header = getelementptr inbounds nuw i8, ptr %bochs, i64 68
   %7 = load i32, ptr %header, align 1
   %conv58 = zext i32 %7 to i64
   %mul = shl i32 %5, 2
@@ -176,23 +176,23 @@ for.cond.preheader:                               ; preds = %if.end55
   %9 = load i32, ptr %header, align 1
   %mul74 = shl i32 %8, 2
   %add = add i32 %9, %mul74
-  %data_offset = getelementptr inbounds i8, ptr %0, i64 60
+  %data_offset = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %add, ptr %data_offset, align 4
-  %bitmap = getelementptr inbounds i8, ptr %bochs, i64 76
+  %bitmap = getelementptr inbounds nuw i8, ptr %bochs, i64 76
   %10 = load i32, ptr %bitmap, align 1
   %sub = add i32 %10, -1
   %div7653 = lshr i32 %sub, 9
   %add77 = add nuw nsw i32 %div7653, 1
-  %bitmap_blocks = getelementptr inbounds i8, ptr %0, i64 64
+  %bitmap_blocks = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %add77, ptr %bitmap_blocks, align 8
-  %extent = getelementptr inbounds i8, ptr %bochs, i64 80
+  %extent = getelementptr inbounds nuw i8, ptr %bochs, i64 80
   %11 = load i32, ptr %extent, align 1
   %sub79 = add i32 %11, -1
   %div8054 = lshr i32 %sub79, 9
   %add81 = add nuw nsw i32 %div8054, 1
-  %extent_blocks = getelementptr inbounds i8, ptr %0, i64 68
+  %extent_blocks = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %add81, ptr %extent_blocks, align 4
-  %extent_size = getelementptr inbounds i8, ptr %0, i64 72
+  %extent_size = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %11, ptr %extent_size, align 8
   %cmp86 = icmp ult i32 %11, 512
   br i1 %cmp86, label %if.then88, label %if.else89
@@ -220,7 +220,7 @@ if.then99:                                        ; preds = %if.else95
 
 if.end103:                                        ; preds = %if.else95
   %conv105 = zext i32 %8 to i64
-  %total_sectors106 = getelementptr inbounds i8, ptr %bs, i64 16888
+  %total_sectors106 = getelementptr inbounds nuw i8, ptr %bs, i64 16888
   %13 = load i64, ptr %total_sectors106, align 8
   %14 = lshr i32 %11, 9
   %div109 = zext nneg i32 %14 to i64
@@ -257,9 +257,9 @@ return:                                           ; preds = %if.end3, %do.end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bochs_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %catalog_bitmap = getelementptr inbounds i8, ptr %0, i64 48
+  %catalog_bitmap = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %catalog_bitmap, align 8
   tail call void @g_free(ptr noundef %1) #10
   ret void
@@ -268,7 +268,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @bochs_refresh_limits(ptr nocapture noundef writeonly initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #2 {
 entry:
-  %bl = getelementptr inbounds i8, ptr %bs, i64 16464
+  %bl = getelementptr inbounds nuw i8, ptr %bs, i64 16464
   store i32 512, ptr %bl, align 8
   ret void
 }
@@ -287,19 +287,19 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %type = getelementptr inbounds i8, ptr %buf, i64 32
+  %type = getelementptr inbounds nuw i8, ptr %buf, i64 32
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %type, ptr noundef nonnull dereferenceable(8) @.str.5) #13
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %land.lhs.true4, label %return
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %subtype = getelementptr inbounds i8, ptr %buf, i64 48
+  %subtype = getelementptr inbounds nuw i8, ptr %buf, i64 48
   %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %subtype, ptr noundef nonnull dereferenceable(8) @.str.6) #13
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %land.lhs.true8, label %return
 
 land.lhs.true8:                                   ; preds = %land.lhs.true4
-  %version = getelementptr inbounds i8, ptr %buf, i64 64
+  %version = getelementptr inbounds nuw i8, ptr %buf, i64 64
   %0 = load i32, ptr %version, align 1
   %1 = add i32 %0, -65536
   %switch.and = and i32 %1, -65537
@@ -318,7 +318,7 @@ entry:
   %qiov.i.i = alloca %struct.QEMUIOVector, align 8
   %bitmap_entry.i = alloca i8, align 1
   %local_qiov = alloca %struct.QEMUIOVector, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %shr = ashr i64 %offset, 9
   %shr1 = lshr i64 %bytes, 9
@@ -341,7 +341,7 @@ if.else7:                                         ; preds = %if.end
   unreachable
 
 if.end8:                                          ; preds = %if.end
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   %1 = load i32, ptr %niov, align 8
   call void @qemu_iovec_init(ptr noundef nonnull %local_qiov, i32 noundef %1) #10
   call void @qemu_co_mutex_lock(ptr noundef %0) #10
@@ -349,11 +349,11 @@ if.end8:                                          ; preds = %if.end
   br i1 %cmp922, label %while.body.lr.ph, label %fail
 
 while.body.lr.ph:                                 ; preds = %if.end8
-  %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
-  %2 = getelementptr inbounds i8, ptr %qiov.i.i, i64 16
-  %local_iov.i.i = getelementptr inbounds i8, ptr %qiov.i.i, i64 24
-  %niov.i.i = getelementptr inbounds i8, ptr %qiov.i.i, i64 8
-  %iov_len.i.i = getelementptr inbounds i8, ptr %qiov.i.i, i64 32
+  %file.i = getelementptr inbounds nuw i8, ptr %bs, i64 16840
+  %2 = getelementptr inbounds nuw i8, ptr %qiov.i.i, i64 16
+  %local_iov.i.i = getelementptr inbounds nuw i8, ptr %qiov.i.i, i64 24
+  %niov.i.i = getelementptr inbounds nuw i8, ptr %qiov.i.i, i64 8
+  %iov_len.i.i = getelementptr inbounds nuw i8, ptr %qiov.i.i, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end26
@@ -363,13 +363,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %bitmap_entry.i)
   %3 = load ptr, ptr %opaque, align 8
   %mul.i = shl i64 %sector_num.025, 9
-  %extent_size.i = getelementptr inbounds i8, ptr %3, i64 72
+  %extent_size.i = getelementptr inbounds nuw i8, ptr %3, i64 72
   %4 = load i32, ptr %extent_size.i, align 8
   %conv.i = zext i32 %4 to i64
   %div.i = udiv i64 %mul.i, %conv.i
   %rem.i = urem i64 %mul.i, %conv.i
   %div315.i = lshr i64 %rem.i, 9
-  %catalog_bitmap.i = getelementptr inbounds i8, ptr %3, i64 48
+  %catalog_bitmap.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %catalog_bitmap.i, align 8
   %arrayidx.i = getelementptr i32, ptr %5, i64 %div.i
   %6 = load i32, ptr %arrayidx.i, align 4
@@ -377,14 +377,14 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i, label %seek_to_sector.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
-  %data_offset.i = getelementptr inbounds i8, ptr %3, i64 60
+  %data_offset.i = getelementptr inbounds nuw i8, ptr %3, i64 60
   %7 = load i32, ptr %data_offset.i, align 4
   %conv5.i = zext i32 %7 to i64
   %conv8.i = zext i32 %6 to i64
   %mul9.i = shl nuw nsw i64 %conv8.i, 9
-  %extent_blocks.i = getelementptr inbounds i8, ptr %3, i64 68
+  %extent_blocks.i = getelementptr inbounds nuw i8, ptr %3, i64 68
   %8 = load i32, ptr %extent_blocks.i, align 4
-  %bitmap_blocks.i = getelementptr inbounds i8, ptr %3, i64 64
+  %bitmap_blocks.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   %9 = load i32, ptr %bitmap_blocks.i, align 8
   %add.i = add i32 %9, %8
   %conv10.i = zext i32 %add.i to i64
@@ -504,16 +504,16 @@ define internal i64 @seek_to_sector(ptr nocapture noundef readonly %bs, i64 noun
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %bitmap_entry = alloca i8, align 1
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %mul = shl i64 %sector_num, 9
-  %extent_size = getelementptr inbounds i8, ptr %0, i64 72
+  %extent_size = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load i32, ptr %extent_size, align 8
   %conv = zext i32 %1 to i64
   %div = udiv i64 %mul, %conv
   %rem = urem i64 %mul, %conv
   %div315 = lshr i64 %rem, 9
-  %catalog_bitmap = getelementptr inbounds i8, ptr %0, i64 48
+  %catalog_bitmap = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2 = load ptr, ptr %catalog_bitmap, align 8
   %arrayidx = getelementptr i32, ptr %2, i64 %div
   %3 = load i32, ptr %arrayidx, align 4
@@ -521,32 +521,32 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data_offset = getelementptr inbounds i8, ptr %0, i64 60
+  %data_offset = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %data_offset, align 4
   %conv5 = zext i32 %4 to i64
   %conv8 = zext i32 %3 to i64
   %mul9 = shl nuw nsw i64 %conv8, 9
-  %extent_blocks = getelementptr inbounds i8, ptr %0, i64 68
+  %extent_blocks = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %extent_blocks, align 4
-  %bitmap_blocks = getelementptr inbounds i8, ptr %0, i64 64
+  %bitmap_blocks = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %bitmap_blocks, align 8
   %add = add i32 %6, %5
   %conv10 = zext i32 %add to i64
   %mul11 = mul i64 %mul9, %conv10
   %add12 = add i64 %mul11, %conv5
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %7 = load ptr, ptr %file, align 8
   %div1316 = lshr i64 %rem, 12
   %add14 = add i64 %add12, %div1316
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
-  %8 = getelementptr inbounds i8, ptr %qiov.i, i64 16
-  %local_iov.i = getelementptr inbounds i8, ptr %qiov.i, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %qiov.i, i64 16
+  %local_iov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 24
   store ptr %local_iov.i, ptr %qiov.i, align 8
-  %niov.i = getelementptr inbounds i8, ptr %qiov.i, i64 8
+  %niov.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %8, align 8
   store ptr %bitmap_entry, ptr %local_iov.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %qiov.i, i64 32
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %qiov.i, i64 32
   store i64 1, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #10
   %call.i = call i32 @bdrv_co_preadv(ptr noundef %7, i64 noundef %add14, i64 noundef 1, ptr noundef nonnull %qiov.i, i32 noundef 0) #10
@@ -597,14 +597,14 @@ declare void @qemu_iovec_destroy(ptr noundef) local_unnamed_addr #1
 define internal i32 @bdrv_co_pread(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %buf, i32 noundef %flags) #0 {
 entry:
   %qiov = alloca %struct.QEMUIOVector, align 8
-  %0 = getelementptr inbounds i8, ptr %qiov, i64 16
-  %local_iov = getelementptr inbounds i8, ptr %qiov, i64 24
+  %0 = getelementptr inbounds nuw i8, ptr %qiov, i64 16
+  %local_iov = getelementptr inbounds nuw i8, ptr %qiov, i64 24
   store ptr %local_iov, ptr %qiov, align 8
-  %niov = getelementptr inbounds i8, ptr %qiov, i64 8
+  %niov = getelementptr inbounds nuw i8, ptr %qiov, i64 8
   store i32 1, ptr %niov, align 8
   store i32 -1, ptr %0, align 8
   store ptr %buf, ptr %local_iov, align 8
-  %iov_len = getelementptr inbounds i8, ptr %qiov, i64 32
+  %iov_len = getelementptr inbounds nuw i8, ptr %qiov, i64 32
   store i64 %bytes, ptr %iov_len, align 8
   call void @assert_bdrv_graph_readable() #10
   %call = call i32 @bdrv_co_preadv(ptr noundef %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov, i32 noundef %flags) #10

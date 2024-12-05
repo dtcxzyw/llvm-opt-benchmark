@@ -29,11 +29,11 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx512(ptr noundef %0, ptr no
   %.1115162 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader160 ]
   %.1122161 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader160 ]
   %11 = load <64 x i8>, ptr %.1115162, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115162, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115162, i64 64
   %13 = load <64 x i8>, ptr %.1122161, align 1
   %14 = tail call <64 x i8> @llvm.smax.v64i8(<64 x i8> %11, <64 x i8> %13)
   store <64 x i8> %14, ptr %.1122161, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -64
   %17 = icmp samesign ugt i32 %.1163, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !4
@@ -67,11 +67,11 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx512(ptr noundef %0, ptr no
   %.3117167 = phi ptr [ %25, %.lr.ph169 ], [ %.0114, %.preheader159 ]
   %.3124166 = phi ptr [ %28, %.lr.ph169 ], [ %.0121, %.preheader159 ]
   %24 = load <32 x i8>, ptr %.3117167, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117167, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117167, i64 32
   %26 = load <32 x i8>, ptr %.3124166, align 1
   %27 = tail call <32 x i8> @llvm.smax.v32i8(<32 x i8> %24, <32 x i8> %26)
   store <32 x i8> %27, ptr %.3124166, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -32
   %30 = icmp samesign ugt i32 %.3168, 63
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !6
@@ -103,11 +103,11 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx512(ptr noundef %0, ptr no
   %.5119175 = phi ptr [ %38, %.lr.ph177 ], [ %.2116, %32 ]
   %.5126174 = phi ptr [ %41, %.lr.ph177 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119175)
-  %38 = getelementptr inbounds i8, ptr %.5119175, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119175, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126174)
   %40 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %37, <16 x i8> %39)
   store <16 x i8> %40, ptr %.5126174, align 1
-  %41 = getelementptr inbounds i8, ptr %.5126174, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5126174, i64 16
   %42 = add nsw i32 %.5176, -16
   %43 = icmp samesign ugt i32 %.5176, 31
   br i1 %43, label %.lr.ph177, label %.loopexit158, !llvm.loop !7
@@ -136,63 +136,63 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx512(ptr noundef %0, ptr no
   ]
 
 46:                                               ; preds = %.lr.ph185
-  %47 = getelementptr inbounds i8, ptr %.6127181, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6127181, i64 7
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %.6120182, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6120182, i64 7
   %50 = load i8, ptr %49, align 1
   %. = tail call i8 @llvm.smax.i8(i8 %48, i8 %50)
   store i8 %., ptr %47, align 1
   br label %51
 
 51:                                               ; preds = %46, %.lr.ph185
-  %52 = getelementptr inbounds i8, ptr %.6127181, i64 6
+  %52 = getelementptr inbounds nuw i8, ptr %.6127181, i64 6
   %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %.6120182, i64 6
+  %54 = getelementptr inbounds nuw i8, ptr %.6120182, i64 6
   %55 = load i8, ptr %54, align 1
   %.151 = tail call i8 @llvm.smax.i8(i8 %53, i8 %55)
   store i8 %.151, ptr %52, align 1
   br label %56
 
 56:                                               ; preds = %51, %.lr.ph185
-  %57 = getelementptr inbounds i8, ptr %.6127181, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %.6127181, i64 5
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6120182, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6120182, i64 5
   %60 = load i8, ptr %59, align 1
   %.152 = tail call i8 @llvm.smax.i8(i8 %58, i8 %60)
   store i8 %.152, ptr %57, align 1
   br label %61
 
 61:                                               ; preds = %56, %.lr.ph185
-  %62 = getelementptr inbounds i8, ptr %.6127181, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.6127181, i64 4
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.6120182, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.6120182, i64 4
   %65 = load i8, ptr %64, align 1
   %.153 = tail call i8 @llvm.smax.i8(i8 %63, i8 %65)
   store i8 %.153, ptr %62, align 1
   br label %66
 
 66:                                               ; preds = %61, %.lr.ph185
-  %67 = getelementptr inbounds i8, ptr %.6127181, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %.6127181, i64 3
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %.6120182, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %.6120182, i64 3
   %70 = load i8, ptr %69, align 1
   %.154 = tail call i8 @llvm.smax.i8(i8 %68, i8 %70)
   store i8 %.154, ptr %67, align 1
   br label %71
 
 71:                                               ; preds = %66, %.lr.ph185
-  %72 = getelementptr inbounds i8, ptr %.6127181, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.6127181, i64 2
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %.6120182, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %.6120182, i64 2
   %75 = load i8, ptr %74, align 1
   %.155 = tail call i8 @llvm.smax.i8(i8 %73, i8 %75)
   store i8 %.155, ptr %72, align 1
   br label %76
 
 76:                                               ; preds = %71, %.lr.ph185
-  %77 = getelementptr inbounds i8, ptr %.6127181, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.6127181, i64 1
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6120182, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.6120182, i64 1
   %80 = load i8, ptr %79, align 1
   %.156 = tail call i8 @llvm.smax.i8(i8 %78, i8 %80)
   store i8 %.156, ptr %77, align 1
@@ -205,8 +205,8 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx512(ptr noundef %0, ptr no
   store i8 %.157, ptr %.6127181, align 1
   %84 = sub nsw i32 %.6183, %45
   %85 = zext nneg i32 %45 to i64
-  %86 = getelementptr inbounds i8, ptr %.6127181, i64 %85
-  %87 = getelementptr inbounds i8, ptr %.6120182, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %.6127181, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %.6120182, i64 %85
   %88 = icmp sgt i32 %84, 0
   br i1 %88, label %.lr.ph185, label %.loopexit, !llvm.loop !8
 
@@ -234,11 +234,11 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx512(ptr noundef %0, ptr n
   %.1115162 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader160 ]
   %.1122161 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader160 ]
   %11 = load <64 x i8>, ptr %.1115162, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115162, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115162, i64 64
   %13 = load <64 x i8>, ptr %.1122161, align 1
   %14 = tail call <64 x i8> @llvm.umax.v64i8(<64 x i8> %11, <64 x i8> %13)
   store <64 x i8> %14, ptr %.1122161, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -64
   %17 = icmp samesign ugt i32 %.1163, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !9
@@ -272,11 +272,11 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx512(ptr noundef %0, ptr n
   %.3117167 = phi ptr [ %25, %.lr.ph169 ], [ %.0114, %.preheader159 ]
   %.3124166 = phi ptr [ %28, %.lr.ph169 ], [ %.0121, %.preheader159 ]
   %24 = load <32 x i8>, ptr %.3117167, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117167, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117167, i64 32
   %26 = load <32 x i8>, ptr %.3124166, align 1
   %27 = tail call <32 x i8> @llvm.umax.v32i8(<32 x i8> %24, <32 x i8> %26)
   store <32 x i8> %27, ptr %.3124166, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -32
   %30 = icmp samesign ugt i32 %.3168, 63
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !10
@@ -308,11 +308,11 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx512(ptr noundef %0, ptr n
   %.5119175 = phi ptr [ %38, %.lr.ph177 ], [ %.2116, %32 ]
   %.5126174 = phi ptr [ %41, %.lr.ph177 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119175)
-  %38 = getelementptr inbounds i8, ptr %.5119175, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119175, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126174)
   %40 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %37, <16 x i8> %39)
   store <16 x i8> %40, ptr %.5126174, align 1
-  %41 = getelementptr inbounds i8, ptr %.5126174, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5126174, i64 16
   %42 = add nsw i32 %.5176, -16
   %43 = icmp samesign ugt i32 %.5176, 31
   br i1 %43, label %.lr.ph177, label %.loopexit158, !llvm.loop !11
@@ -341,63 +341,63 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx512(ptr noundef %0, ptr n
   ]
 
 46:                                               ; preds = %.lr.ph185
-  %47 = getelementptr inbounds i8, ptr %.6127181, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6127181, i64 7
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %.6120182, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6120182, i64 7
   %50 = load i8, ptr %49, align 1
   %. = tail call i8 @llvm.umax.i8(i8 %48, i8 %50)
   store i8 %., ptr %47, align 1
   br label %51
 
 51:                                               ; preds = %46, %.lr.ph185
-  %52 = getelementptr inbounds i8, ptr %.6127181, i64 6
+  %52 = getelementptr inbounds nuw i8, ptr %.6127181, i64 6
   %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %.6120182, i64 6
+  %54 = getelementptr inbounds nuw i8, ptr %.6120182, i64 6
   %55 = load i8, ptr %54, align 1
   %.151 = tail call i8 @llvm.umax.i8(i8 %53, i8 %55)
   store i8 %.151, ptr %52, align 1
   br label %56
 
 56:                                               ; preds = %51, %.lr.ph185
-  %57 = getelementptr inbounds i8, ptr %.6127181, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %.6127181, i64 5
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6120182, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6120182, i64 5
   %60 = load i8, ptr %59, align 1
   %.152 = tail call i8 @llvm.umax.i8(i8 %58, i8 %60)
   store i8 %.152, ptr %57, align 1
   br label %61
 
 61:                                               ; preds = %56, %.lr.ph185
-  %62 = getelementptr inbounds i8, ptr %.6127181, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.6127181, i64 4
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.6120182, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.6120182, i64 4
   %65 = load i8, ptr %64, align 1
   %.153 = tail call i8 @llvm.umax.i8(i8 %63, i8 %65)
   store i8 %.153, ptr %62, align 1
   br label %66
 
 66:                                               ; preds = %61, %.lr.ph185
-  %67 = getelementptr inbounds i8, ptr %.6127181, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %.6127181, i64 3
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %.6120182, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %.6120182, i64 3
   %70 = load i8, ptr %69, align 1
   %.154 = tail call i8 @llvm.umax.i8(i8 %68, i8 %70)
   store i8 %.154, ptr %67, align 1
   br label %71
 
 71:                                               ; preds = %66, %.lr.ph185
-  %72 = getelementptr inbounds i8, ptr %.6127181, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.6127181, i64 2
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %.6120182, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %.6120182, i64 2
   %75 = load i8, ptr %74, align 1
   %.155 = tail call i8 @llvm.umax.i8(i8 %73, i8 %75)
   store i8 %.155, ptr %72, align 1
   br label %76
 
 76:                                               ; preds = %71, %.lr.ph185
-  %77 = getelementptr inbounds i8, ptr %.6127181, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.6127181, i64 1
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6120182, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.6120182, i64 1
   %80 = load i8, ptr %79, align 1
   %.156 = tail call i8 @llvm.umax.i8(i8 %78, i8 %80)
   store i8 %.156, ptr %77, align 1
@@ -410,8 +410,8 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx512(ptr noundef %0, ptr n
   store i8 %.157, ptr %.6127181, align 1
   %84 = sub nsw i32 %.6183, %45
   %85 = zext nneg i32 %45 to i64
-  %86 = getelementptr inbounds i8, ptr %.6127181, i64 %85
-  %87 = getelementptr inbounds i8, ptr %.6120182, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %.6127181, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %.6120182, i64 %85
   %88 = icmp sgt i32 %84, 0
   br i1 %88, label %.lr.ph185, label %.loopexit, !llvm.loop !12
 
@@ -439,11 +439,11 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx512(ptr noundef %0, ptr n
   %.1115162 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader160 ]
   %.1122161 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader160 ]
   %11 = load <32 x i16>, ptr %.1115162, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115162, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115162, i64 64
   %13 = load <32 x i16>, ptr %.1122161, align 1
   %14 = tail call <32 x i16> @llvm.smax.v32i16(<32 x i16> %11, <32 x i16> %13)
   store <32 x i16> %14, ptr %.1122161, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -32
   %17 = icmp samesign ugt i32 %.1163, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !13
@@ -477,11 +477,11 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx512(ptr noundef %0, ptr n
   %.3117167 = phi ptr [ %25, %.lr.ph169 ], [ %.0114, %.preheader159 ]
   %.3124166 = phi ptr [ %28, %.lr.ph169 ], [ %.0121, %.preheader159 ]
   %24 = load <16 x i16>, ptr %.3117167, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117167, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117167, i64 32
   %26 = load <16 x i16>, ptr %.3124166, align 1
   %27 = tail call <16 x i16> @llvm.smax.v16i16(<16 x i16> %24, <16 x i16> %26)
   store <16 x i16> %27, ptr %.3124166, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -16
   %30 = icmp samesign ugt i32 %.3168, 31
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !14
@@ -513,13 +513,13 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx512(ptr noundef %0, ptr n
   %.5119175 = phi ptr [ %38, %.lr.ph177 ], [ %.2116, %32 ]
   %.5126174 = phi ptr [ %43, %.lr.ph177 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119175)
-  %38 = getelementptr inbounds i8, ptr %.5119175, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119175, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126174)
   %40 = bitcast <16 x i8> %37 to <8 x i16>
   %41 = bitcast <16 x i8> %39 to <8 x i16>
   %42 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %40, <8 x i16> %41)
   store <8 x i16> %42, ptr %.5126174, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126174, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126174, i64 16
   %44 = add nsw i32 %.5176, -8
   %45 = icmp samesign ugt i32 %.5176, 15
   br i1 %45, label %.lr.ph177, label %.loopexit158, !llvm.loop !15
@@ -548,63 +548,63 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph185
-  %49 = getelementptr inbounds i8, ptr %.6127181, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6127181, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6120182, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6120182, i64 14
   %52 = load i16, ptr %51, align 2
   %. = tail call i16 @llvm.smax.i16(i16 %50, i16 %52)
   store i16 %., ptr %49, align 2
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph185
-  %54 = getelementptr inbounds i8, ptr %.6127181, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.6127181, i64 12
   %55 = load i16, ptr %54, align 2
-  %56 = getelementptr inbounds i8, ptr %.6120182, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.6120182, i64 12
   %57 = load i16, ptr %56, align 2
   %.151 = tail call i16 @llvm.smax.i16(i16 %55, i16 %57)
   store i16 %.151, ptr %54, align 2
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph185
-  %59 = getelementptr inbounds i8, ptr %.6127181, i64 10
+  %59 = getelementptr inbounds nuw i8, ptr %.6127181, i64 10
   %60 = load i16, ptr %59, align 2
-  %61 = getelementptr inbounds i8, ptr %.6120182, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %.6120182, i64 10
   %62 = load i16, ptr %61, align 2
   %.152 = tail call i16 @llvm.smax.i16(i16 %60, i16 %62)
   store i16 %.152, ptr %59, align 2
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph185
-  %64 = getelementptr inbounds i8, ptr %.6127181, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.6127181, i64 8
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr inbounds i8, ptr %.6120182, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.6120182, i64 8
   %67 = load i16, ptr %66, align 2
   %.153 = tail call i16 @llvm.smax.i16(i16 %65, i16 %67)
   store i16 %.153, ptr %64, align 2
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph185
-  %69 = getelementptr inbounds i8, ptr %.6127181, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %.6127181, i64 6
   %70 = load i16, ptr %69, align 2
-  %71 = getelementptr inbounds i8, ptr %.6120182, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %.6120182, i64 6
   %72 = load i16, ptr %71, align 2
   %.154 = tail call i16 @llvm.smax.i16(i16 %70, i16 %72)
   store i16 %.154, ptr %69, align 2
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph185
-  %74 = getelementptr inbounds i8, ptr %.6127181, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.6127181, i64 4
   %75 = load i16, ptr %74, align 2
-  %76 = getelementptr inbounds i8, ptr %.6120182, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.6120182, i64 4
   %77 = load i16, ptr %76, align 2
   %.155 = tail call i16 @llvm.smax.i16(i16 %75, i16 %77)
   store i16 %.155, ptr %74, align 2
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph185
-  %79 = getelementptr inbounds i8, ptr %.6127181, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %.6127181, i64 2
   %80 = load i16, ptr %79, align 2
-  %81 = getelementptr inbounds i8, ptr %.6120182, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.6120182, i64 2
   %82 = load i16, ptr %81, align 2
   %.156 = tail call i16 @llvm.smax.i16(i16 %80, i16 %82)
   store i16 %.156, ptr %79, align 2
@@ -617,8 +617,8 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx512(ptr noundef %0, ptr n
   store i16 %.157, ptr %.6127181, align 2
   %86 = sub nsw i32 %.6183, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i16, ptr %.6127181, i64 %87
-  %89 = getelementptr inbounds i16, ptr %.6120182, i64 %87
+  %88 = getelementptr inbounds nuw i16, ptr %.6127181, i64 %87
+  %89 = getelementptr inbounds nuw i16, ptr %.6120182, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph185, label %.loopexit, !llvm.loop !16
 
@@ -646,11 +646,11 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx512(ptr noundef %0, ptr 
   %.1115162 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader160 ]
   %.1122161 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader160 ]
   %11 = load <32 x i16>, ptr %.1115162, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115162, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115162, i64 64
   %13 = load <32 x i16>, ptr %.1122161, align 1
   %14 = tail call <32 x i16> @llvm.umax.v32i16(<32 x i16> %11, <32 x i16> %13)
   store <32 x i16> %14, ptr %.1122161, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -32
   %17 = icmp samesign ugt i32 %.1163, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !17
@@ -684,11 +684,11 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx512(ptr noundef %0, ptr 
   %.3117167 = phi ptr [ %25, %.lr.ph169 ], [ %.0114, %.preheader159 ]
   %.3124166 = phi ptr [ %28, %.lr.ph169 ], [ %.0121, %.preheader159 ]
   %24 = load <16 x i16>, ptr %.3117167, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117167, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117167, i64 32
   %26 = load <16 x i16>, ptr %.3124166, align 1
   %27 = tail call <16 x i16> @llvm.umax.v16i16(<16 x i16> %24, <16 x i16> %26)
   store <16 x i16> %27, ptr %.3124166, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -16
   %30 = icmp samesign ugt i32 %.3168, 31
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !18
@@ -720,13 +720,13 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx512(ptr noundef %0, ptr 
   %.5119175 = phi ptr [ %38, %.lr.ph177 ], [ %.2116, %32 ]
   %.5126174 = phi ptr [ %43, %.lr.ph177 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119175)
-  %38 = getelementptr inbounds i8, ptr %.5119175, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119175, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126174)
   %40 = bitcast <16 x i8> %37 to <8 x i16>
   %41 = bitcast <16 x i8> %39 to <8 x i16>
   %42 = tail call <8 x i16> @llvm.umax.v8i16(<8 x i16> %40, <8 x i16> %41)
   store <8 x i16> %42, ptr %.5126174, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126174, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126174, i64 16
   %44 = add nsw i32 %.5176, -8
   %45 = icmp samesign ugt i32 %.5176, 15
   br i1 %45, label %.lr.ph177, label %.loopexit158, !llvm.loop !19
@@ -755,63 +755,63 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph185
-  %49 = getelementptr inbounds i8, ptr %.6127181, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6127181, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6120182, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6120182, i64 14
   %52 = load i16, ptr %51, align 2
   %. = tail call i16 @llvm.umax.i16(i16 %50, i16 %52)
   store i16 %., ptr %49, align 2
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph185
-  %54 = getelementptr inbounds i8, ptr %.6127181, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.6127181, i64 12
   %55 = load i16, ptr %54, align 2
-  %56 = getelementptr inbounds i8, ptr %.6120182, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.6120182, i64 12
   %57 = load i16, ptr %56, align 2
   %.151 = tail call i16 @llvm.umax.i16(i16 %55, i16 %57)
   store i16 %.151, ptr %54, align 2
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph185
-  %59 = getelementptr inbounds i8, ptr %.6127181, i64 10
+  %59 = getelementptr inbounds nuw i8, ptr %.6127181, i64 10
   %60 = load i16, ptr %59, align 2
-  %61 = getelementptr inbounds i8, ptr %.6120182, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %.6120182, i64 10
   %62 = load i16, ptr %61, align 2
   %.152 = tail call i16 @llvm.umax.i16(i16 %60, i16 %62)
   store i16 %.152, ptr %59, align 2
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph185
-  %64 = getelementptr inbounds i8, ptr %.6127181, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.6127181, i64 8
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr inbounds i8, ptr %.6120182, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.6120182, i64 8
   %67 = load i16, ptr %66, align 2
   %.153 = tail call i16 @llvm.umax.i16(i16 %65, i16 %67)
   store i16 %.153, ptr %64, align 2
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph185
-  %69 = getelementptr inbounds i8, ptr %.6127181, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %.6127181, i64 6
   %70 = load i16, ptr %69, align 2
-  %71 = getelementptr inbounds i8, ptr %.6120182, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %.6120182, i64 6
   %72 = load i16, ptr %71, align 2
   %.154 = tail call i16 @llvm.umax.i16(i16 %70, i16 %72)
   store i16 %.154, ptr %69, align 2
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph185
-  %74 = getelementptr inbounds i8, ptr %.6127181, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.6127181, i64 4
   %75 = load i16, ptr %74, align 2
-  %76 = getelementptr inbounds i8, ptr %.6120182, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.6120182, i64 4
   %77 = load i16, ptr %76, align 2
   %.155 = tail call i16 @llvm.umax.i16(i16 %75, i16 %77)
   store i16 %.155, ptr %74, align 2
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph185
-  %79 = getelementptr inbounds i8, ptr %.6127181, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %.6127181, i64 2
   %80 = load i16, ptr %79, align 2
-  %81 = getelementptr inbounds i8, ptr %.6120182, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.6120182, i64 2
   %82 = load i16, ptr %81, align 2
   %.156 = tail call i16 @llvm.umax.i16(i16 %80, i16 %82)
   store i16 %.156, ptr %79, align 2
@@ -824,8 +824,8 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx512(ptr noundef %0, ptr 
   store i16 %.157, ptr %.6127181, align 2
   %86 = sub nsw i32 %.6183, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i16, ptr %.6127181, i64 %87
-  %89 = getelementptr inbounds i16, ptr %.6120182, i64 %87
+  %88 = getelementptr inbounds nuw i16, ptr %.6127181, i64 %87
+  %89 = getelementptr inbounds nuw i16, ptr %.6120182, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph185, label %.loopexit, !llvm.loop !20
 
@@ -853,11 +853,11 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx512(ptr noundef %0, ptr n
   %.1115155 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader153 ]
   %.1122154 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader153 ]
   %11 = load <16 x i32>, ptr %.1115155, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115155, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115155, i64 64
   %13 = load <16 x i32>, ptr %.1122154, align 1
   %14 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %11, <16 x i32> %13)
   store <16 x i32> %14, ptr %.1122154, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -16
   %17 = icmp samesign ugt i32 %.1156, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !21
@@ -891,11 +891,11 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx512(ptr noundef %0, ptr n
   %.3117160 = phi ptr [ %25, %.lr.ph162 ], [ %.0114, %.preheader152 ]
   %.3124159 = phi ptr [ %28, %.lr.ph162 ], [ %.0121, %.preheader152 ]
   %24 = load <8 x i32>, ptr %.3117160, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117160, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117160, i64 32
   %26 = load <8 x i32>, ptr %.3124159, align 1
   %27 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %24, <8 x i32> %26)
   store <8 x i32> %27, ptr %.3124159, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -8
   %30 = icmp samesign ugt i32 %.3161, 15
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !22
@@ -927,13 +927,13 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx512(ptr noundef %0, ptr n
   %.5119168 = phi ptr [ %38, %.lr.ph170 ], [ %.2116, %32 ]
   %.5126167 = phi ptr [ %43, %.lr.ph170 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119168)
-  %38 = getelementptr inbounds i8, ptr %.5119168, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119168, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126167)
   %40 = bitcast <16 x i8> %37 to <4 x i32>
   %41 = bitcast <16 x i8> %39 to <4 x i32>
   %42 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %40, <4 x i32> %41)
   store <4 x i32> %42, ptr %.5126167, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -4
   %45 = icmp samesign ugt i32 %.5169, 7
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !23
@@ -962,63 +962,63 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph178
-  %49 = getelementptr inbounds i8, ptr %.6127174, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6127174, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6120175, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6120175, i64 28
   %52 = load i32, ptr %51, align 4
   %. = tail call i32 @llvm.smax.i32(i32 %50, i32 %52)
   store i32 %., ptr %49, align 4
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph178
-  %54 = getelementptr inbounds i8, ptr %.6127174, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.6127174, i64 24
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %.6120175, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.6120175, i64 24
   %57 = load i32, ptr %56, align 4
   %.144 = tail call i32 @llvm.smax.i32(i32 %55, i32 %57)
   store i32 %.144, ptr %54, align 4
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph178
-  %59 = getelementptr inbounds i8, ptr %.6127174, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.6127174, i64 20
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %.6120175, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %.6120175, i64 20
   %62 = load i32, ptr %61, align 4
   %.145 = tail call i32 @llvm.smax.i32(i32 %60, i32 %62)
   store i32 %.145, ptr %59, align 4
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph178
-  %64 = getelementptr inbounds i8, ptr %.6127174, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.6127174, i64 16
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.6120175, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.6120175, i64 16
   %67 = load i32, ptr %66, align 4
   %.146 = tail call i32 @llvm.smax.i32(i32 %65, i32 %67)
   store i32 %.146, ptr %64, align 4
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph178
-  %69 = getelementptr inbounds i8, ptr %.6127174, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.6127174, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6120175, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.6120175, i64 12
   %72 = load i32, ptr %71, align 4
   %.147 = tail call i32 @llvm.smax.i32(i32 %70, i32 %72)
   store i32 %.147, ptr %69, align 4
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph178
-  %74 = getelementptr inbounds i8, ptr %.6127174, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6127174, i64 8
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %.6120175, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.6120175, i64 8
   %77 = load i32, ptr %76, align 4
   %.148 = tail call i32 @llvm.smax.i32(i32 %75, i32 %77)
   store i32 %.148, ptr %74, align 4
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph178
-  %79 = getelementptr inbounds i8, ptr %.6127174, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.6127174, i64 4
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %.6120175, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6120175, i64 4
   %82 = load i32, ptr %81, align 4
   %.149 = tail call i32 @llvm.smax.i32(i32 %80, i32 %82)
   store i32 %.149, ptr %79, align 4
@@ -1031,8 +1031,8 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx512(ptr noundef %0, ptr n
   store i32 %.150, ptr %.6127174, align 4
   %86 = sub nsw i32 %.6176, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i32, ptr %.6127174, i64 %87
-  %89 = getelementptr inbounds i32, ptr %.6120175, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr %.6127174, i64 %87
+  %89 = getelementptr inbounds nuw i32, ptr %.6120175, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph178, label %.loopexit, !llvm.loop !24
 
@@ -1060,11 +1060,11 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx512(ptr noundef %0, ptr 
   %.1115155 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader153 ]
   %.1122154 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader153 ]
   %11 = load <16 x i32>, ptr %.1115155, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115155, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115155, i64 64
   %13 = load <16 x i32>, ptr %.1122154, align 1
   %14 = tail call <16 x i32> @llvm.umax.v16i32(<16 x i32> %11, <16 x i32> %13)
   store <16 x i32> %14, ptr %.1122154, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -16
   %17 = icmp samesign ugt i32 %.1156, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !25
@@ -1098,11 +1098,11 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx512(ptr noundef %0, ptr 
   %.3117160 = phi ptr [ %25, %.lr.ph162 ], [ %.0114, %.preheader152 ]
   %.3124159 = phi ptr [ %28, %.lr.ph162 ], [ %.0121, %.preheader152 ]
   %24 = load <8 x i32>, ptr %.3117160, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117160, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117160, i64 32
   %26 = load <8 x i32>, ptr %.3124159, align 1
   %27 = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %24, <8 x i32> %26)
   store <8 x i32> %27, ptr %.3124159, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -8
   %30 = icmp samesign ugt i32 %.3161, 15
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !26
@@ -1134,13 +1134,13 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx512(ptr noundef %0, ptr 
   %.5119168 = phi ptr [ %38, %.lr.ph170 ], [ %.2116, %32 ]
   %.5126167 = phi ptr [ %43, %.lr.ph170 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119168)
-  %38 = getelementptr inbounds i8, ptr %.5119168, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119168, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126167)
   %40 = bitcast <16 x i8> %37 to <4 x i32>
   %41 = bitcast <16 x i8> %39 to <4 x i32>
   %42 = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %40, <4 x i32> %41)
   store <4 x i32> %42, ptr %.5126167, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -4
   %45 = icmp samesign ugt i32 %.5169, 7
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !27
@@ -1169,63 +1169,63 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph178
-  %49 = getelementptr inbounds i8, ptr %.6127174, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6127174, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6120175, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6120175, i64 28
   %52 = load i32, ptr %51, align 4
   %. = tail call i32 @llvm.umax.i32(i32 %50, i32 %52)
   store i32 %., ptr %49, align 4
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph178
-  %54 = getelementptr inbounds i8, ptr %.6127174, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.6127174, i64 24
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %.6120175, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.6120175, i64 24
   %57 = load i32, ptr %56, align 4
   %.144 = tail call i32 @llvm.umax.i32(i32 %55, i32 %57)
   store i32 %.144, ptr %54, align 4
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph178
-  %59 = getelementptr inbounds i8, ptr %.6127174, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.6127174, i64 20
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %.6120175, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %.6120175, i64 20
   %62 = load i32, ptr %61, align 4
   %.145 = tail call i32 @llvm.umax.i32(i32 %60, i32 %62)
   store i32 %.145, ptr %59, align 4
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph178
-  %64 = getelementptr inbounds i8, ptr %.6127174, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.6127174, i64 16
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.6120175, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.6120175, i64 16
   %67 = load i32, ptr %66, align 4
   %.146 = tail call i32 @llvm.umax.i32(i32 %65, i32 %67)
   store i32 %.146, ptr %64, align 4
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph178
-  %69 = getelementptr inbounds i8, ptr %.6127174, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.6127174, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6120175, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.6120175, i64 12
   %72 = load i32, ptr %71, align 4
   %.147 = tail call i32 @llvm.umax.i32(i32 %70, i32 %72)
   store i32 %.147, ptr %69, align 4
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph178
-  %74 = getelementptr inbounds i8, ptr %.6127174, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6127174, i64 8
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %.6120175, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.6120175, i64 8
   %77 = load i32, ptr %76, align 4
   %.148 = tail call i32 @llvm.umax.i32(i32 %75, i32 %77)
   store i32 %.148, ptr %74, align 4
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph178
-  %79 = getelementptr inbounds i8, ptr %.6127174, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.6127174, i64 4
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %.6120175, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6120175, i64 4
   %82 = load i32, ptr %81, align 4
   %.149 = tail call i32 @llvm.umax.i32(i32 %80, i32 %82)
   store i32 %.149, ptr %79, align 4
@@ -1238,8 +1238,8 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx512(ptr noundef %0, ptr 
   store i32 %.150, ptr %.6127174, align 4
   %86 = sub nsw i32 %.6176, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i32, ptr %.6127174, i64 %87
-  %89 = getelementptr inbounds i32, ptr %.6120175, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr %.6127174, i64 %87
+  %89 = getelementptr inbounds nuw i32, ptr %.6120175, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph178, label %.loopexit, !llvm.loop !28
 
@@ -1267,11 +1267,11 @@ define internal void @ompi_op_avx_2buff_max_int64_t_avx512(ptr noundef %0, ptr n
   %.1115155 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader153 ]
   %.1122154 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader153 ]
   %11 = load <8 x i64>, ptr %.1115155, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115155, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115155, i64 64
   %13 = load <8 x i64>, ptr %.1122154, align 1
   %14 = tail call <8 x i64> @llvm.smax.v8i64(<8 x i64> %11, <8 x i64> %13)
   store <8 x i64> %14, ptr %.1122154, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -8
   %17 = icmp samesign ugt i32 %.1156, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !29
@@ -1305,11 +1305,11 @@ define internal void @ompi_op_avx_2buff_max_int64_t_avx512(ptr noundef %0, ptr n
   %.3117160 = phi ptr [ %25, %.lr.ph162 ], [ %.0114, %.preheader152 ]
   %.3124159 = phi ptr [ %28, %.lr.ph162 ], [ %.0121, %.preheader152 ]
   %24 = load <4 x i64>, ptr %.3117160, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117160, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117160, i64 32
   %26 = load <4 x i64>, ptr %.3124159, align 1
   %27 = tail call <4 x i64> @llvm.smax.v4i64(<4 x i64> %24, <4 x i64> %26)
   store <4 x i64> %27, ptr %.3124159, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -4
   %30 = icmp samesign ugt i32 %.3161, 7
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !30
@@ -1342,12 +1342,12 @@ define internal void @ompi_op_avx_2buff_max_int64_t_avx512(ptr noundef %0, ptr n
   %.5126167 = phi ptr [ %43, %.lr.ph170 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119168)
   %38 = bitcast <16 x i8> %37 to <2 x i64>
-  %39 = getelementptr inbounds i8, ptr %.5119168, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5119168, i64 16
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126167)
   %41 = bitcast <16 x i8> %40 to <2 x i64>
   %42 = tail call <2 x i64> @llvm.smax.v2i64(<2 x i64> %38, <2 x i64> %41)
   store <2 x i64> %42, ptr %.5126167, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -2
   %45 = icmp samesign ugt i32 %.5169, 3
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !31
@@ -1376,63 +1376,63 @@ define internal void @ompi_op_avx_2buff_max_int64_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph178
-  %49 = getelementptr inbounds i8, ptr %.6127174, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6127174, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6120175, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6120175, i64 56
   %52 = load i64, ptr %51, align 8
   %. = tail call i64 @llvm.smax.i64(i64 %50, i64 %52)
   store i64 %., ptr %49, align 8
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph178
-  %54 = getelementptr inbounds i8, ptr %.6127174, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %.6127174, i64 48
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.6120175, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.6120175, i64 48
   %57 = load i64, ptr %56, align 8
   %.144 = tail call i64 @llvm.smax.i64(i64 %55, i64 %57)
   store i64 %.144, ptr %54, align 8
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph178
-  %59 = getelementptr inbounds i8, ptr %.6127174, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.6127174, i64 40
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.6120175, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.6120175, i64 40
   %62 = load i64, ptr %61, align 8
   %.145 = tail call i64 @llvm.smax.i64(i64 %60, i64 %62)
   store i64 %.145, ptr %59, align 8
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph178
-  %64 = getelementptr inbounds i8, ptr %.6127174, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.6127174, i64 32
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.6120175, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.6120175, i64 32
   %67 = load i64, ptr %66, align 8
   %.146 = tail call i64 @llvm.smax.i64(i64 %65, i64 %67)
   store i64 %.146, ptr %64, align 8
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph178
-  %69 = getelementptr inbounds i8, ptr %.6127174, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.6127174, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6120175, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.6120175, i64 24
   %72 = load i64, ptr %71, align 8
   %.147 = tail call i64 @llvm.smax.i64(i64 %70, i64 %72)
   store i64 %.147, ptr %69, align 8
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph178
-  %74 = getelementptr inbounds i8, ptr %.6127174, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6127174, i64 16
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.6120175, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.6120175, i64 16
   %77 = load i64, ptr %76, align 8
   %.148 = tail call i64 @llvm.smax.i64(i64 %75, i64 %77)
   store i64 %.148, ptr %74, align 8
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph178
-  %79 = getelementptr inbounds i8, ptr %.6127174, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.6127174, i64 8
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.6120175, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6120175, i64 8
   %82 = load i64, ptr %81, align 8
   %.149 = tail call i64 @llvm.smax.i64(i64 %80, i64 %82)
   store i64 %.149, ptr %79, align 8
@@ -1445,8 +1445,8 @@ define internal void @ompi_op_avx_2buff_max_int64_t_avx512(ptr noundef %0, ptr n
   store i64 %.150, ptr %.6127174, align 8
   %86 = sub nsw i32 %.6176, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i64, ptr %.6127174, i64 %87
-  %89 = getelementptr inbounds i64, ptr %.6120175, i64 %87
+  %88 = getelementptr inbounds nuw i64, ptr %.6127174, i64 %87
+  %89 = getelementptr inbounds nuw i64, ptr %.6120175, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph178, label %.loopexit, !llvm.loop !32
 
@@ -1474,11 +1474,11 @@ define internal void @ompi_op_avx_2buff_max_uint64_t_avx512(ptr noundef %0, ptr 
   %.1115155 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader153 ]
   %.1122154 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader153 ]
   %11 = load <8 x i64>, ptr %.1115155, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115155, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115155, i64 64
   %13 = load <8 x i64>, ptr %.1122154, align 1
   %14 = tail call <8 x i64> @llvm.umax.v8i64(<8 x i64> %11, <8 x i64> %13)
   store <8 x i64> %14, ptr %.1122154, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -8
   %17 = icmp samesign ugt i32 %.1156, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !33
@@ -1512,11 +1512,11 @@ define internal void @ompi_op_avx_2buff_max_uint64_t_avx512(ptr noundef %0, ptr 
   %.3117160 = phi ptr [ %25, %.lr.ph162 ], [ %.0114, %.preheader152 ]
   %.3124159 = phi ptr [ %28, %.lr.ph162 ], [ %.0121, %.preheader152 ]
   %24 = load <4 x i64>, ptr %.3117160, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117160, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117160, i64 32
   %26 = load <4 x i64>, ptr %.3124159, align 1
   %27 = tail call <4 x i64> @llvm.umax.v4i64(<4 x i64> %24, <4 x i64> %26)
   store <4 x i64> %27, ptr %.3124159, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -4
   %30 = icmp samesign ugt i32 %.3161, 7
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !34
@@ -1549,12 +1549,12 @@ define internal void @ompi_op_avx_2buff_max_uint64_t_avx512(ptr noundef %0, ptr 
   %.5126167 = phi ptr [ %43, %.lr.ph170 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119168)
   %38 = bitcast <16 x i8> %37 to <2 x i64>
-  %39 = getelementptr inbounds i8, ptr %.5119168, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5119168, i64 16
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126167)
   %41 = bitcast <16 x i8> %40 to <2 x i64>
   %42 = tail call <2 x i64> @llvm.umax.v2i64(<2 x i64> %38, <2 x i64> %41)
   store <2 x i64> %42, ptr %.5126167, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -2
   %45 = icmp samesign ugt i32 %.5169, 3
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !35
@@ -1583,63 +1583,63 @@ define internal void @ompi_op_avx_2buff_max_uint64_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph178
-  %49 = getelementptr inbounds i8, ptr %.6127174, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6127174, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6120175, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6120175, i64 56
   %52 = load i64, ptr %51, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %50, i64 %52)
   store i64 %., ptr %49, align 8
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph178
-  %54 = getelementptr inbounds i8, ptr %.6127174, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %.6127174, i64 48
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.6120175, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.6120175, i64 48
   %57 = load i64, ptr %56, align 8
   %.144 = tail call i64 @llvm.umax.i64(i64 %55, i64 %57)
   store i64 %.144, ptr %54, align 8
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph178
-  %59 = getelementptr inbounds i8, ptr %.6127174, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.6127174, i64 40
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.6120175, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.6120175, i64 40
   %62 = load i64, ptr %61, align 8
   %.145 = tail call i64 @llvm.umax.i64(i64 %60, i64 %62)
   store i64 %.145, ptr %59, align 8
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph178
-  %64 = getelementptr inbounds i8, ptr %.6127174, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.6127174, i64 32
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.6120175, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.6120175, i64 32
   %67 = load i64, ptr %66, align 8
   %.146 = tail call i64 @llvm.umax.i64(i64 %65, i64 %67)
   store i64 %.146, ptr %64, align 8
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph178
-  %69 = getelementptr inbounds i8, ptr %.6127174, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.6127174, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6120175, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.6120175, i64 24
   %72 = load i64, ptr %71, align 8
   %.147 = tail call i64 @llvm.umax.i64(i64 %70, i64 %72)
   store i64 %.147, ptr %69, align 8
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph178
-  %74 = getelementptr inbounds i8, ptr %.6127174, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6127174, i64 16
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.6120175, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.6120175, i64 16
   %77 = load i64, ptr %76, align 8
   %.148 = tail call i64 @llvm.umax.i64(i64 %75, i64 %77)
   store i64 %.148, ptr %74, align 8
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph178
-  %79 = getelementptr inbounds i8, ptr %.6127174, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.6127174, i64 8
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.6120175, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6120175, i64 8
   %82 = load i64, ptr %81, align 8
   %.149 = tail call i64 @llvm.umax.i64(i64 %80, i64 %82)
   store i64 %.149, ptr %79, align 8
@@ -1652,8 +1652,8 @@ define internal void @ompi_op_avx_2buff_max_uint64_t_avx512(ptr noundef %0, ptr 
   store i64 %.150, ptr %.6127174, align 8
   %86 = sub nsw i32 %.6176, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i64, ptr %.6127174, i64 %87
-  %89 = getelementptr inbounds i64, ptr %.6120175, i64 %87
+  %88 = getelementptr inbounds nuw i64, ptr %.6127174, i64 %87
+  %89 = getelementptr inbounds nuw i64, ptr %.6120175, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph178, label %.loopexit, !llvm.loop !36
 
@@ -1682,10 +1682,10 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   %.1122156 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader155 ]
   %10 = load <16 x float>, ptr %.1115157, align 1
   %11 = load <16 x float>, ptr %.1122156, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115157, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115157, i64 64
   %13 = tail call <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %10, <16 x float> %11, i32 4)
   store <16 x float> %13, ptr %.1122156, align 1
-  %14 = getelementptr inbounds i8, ptr %.1122156, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1122156, i64 64
   %15 = add nsw i32 %.1158, -16
   %16 = icmp samesign ugt i32 %.1158, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !37
@@ -1719,11 +1719,11 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   %.3117162 = phi ptr [ %23, %.lr.ph164 ], [ %.0114, %.preheader154 ]
   %.3124161 = phi ptr [ %26, %.lr.ph164 ], [ %.0121, %.preheader154 ]
   %22 = load <8 x float>, ptr %.3117162, align 1
-  %23 = getelementptr inbounds i8, ptr %.3117162, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.3117162, i64 32
   %24 = load <8 x float>, ptr %.3124161, align 1
   %25 = tail call <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %22, <8 x float> %24)
   store <8 x float> %25, ptr %.3124161, align 1
-  %26 = getelementptr inbounds i8, ptr %.3124161, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3124161, i64 32
   %27 = add nsw i32 %.3163, -8
   %28 = icmp samesign ugt i32 %.3163, 15
   br i1 %28, label %.lr.ph164, label %._crit_edge165, !llvm.loop !38
@@ -1755,11 +1755,11 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   %.5119170 = phi ptr [ %35, %.lr.ph172 ], [ %.2116, %30 ]
   %.5126169 = phi ptr [ %38, %.lr.ph172 ], [ %.2123, %30 ]
   %34 = load <4 x float>, ptr %.5119170, align 1
-  %35 = getelementptr inbounds i8, ptr %.5119170, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.5119170, i64 16
   %36 = load <4 x float>, ptr %.5126169, align 1
   %37 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %34, <4 x float> %36)
   store <4 x float> %37, ptr %.5126169, align 1
-  %38 = getelementptr inbounds i8, ptr %.5126169, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5126169, i64 16
   %39 = add nsw i32 %.5171, -4
   %40 = icmp samesign ugt i32 %.5171, 7
   br i1 %40, label %.lr.ph172, label %.loopexit153, !llvm.loop !39
@@ -1788,9 +1788,9 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   ]
 
 43:                                               ; preds = %.lr.ph180
-  %44 = getelementptr inbounds i8, ptr %.6127176, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %.6127176, i64 28
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %.6120177, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %.6120177, i64 28
   %47 = load float, ptr %46, align 4
   %48 = fcmp ogt float %45, %47
   %. = select i1 %48, float %45, float %47
@@ -1798,9 +1798,9 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   br label %49
 
 49:                                               ; preds = %43, %.lr.ph180
-  %50 = getelementptr inbounds i8, ptr %.6127176, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.6127176, i64 24
   %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %.6120177, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.6120177, i64 24
   %53 = load float, ptr %52, align 4
   %54 = fcmp ogt float %51, %53
   %.146 = select i1 %54, float %51, float %53
@@ -1808,9 +1808,9 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph180
-  %56 = getelementptr inbounds i8, ptr %.6127176, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %.6127176, i64 20
   %57 = load float, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.6120177, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %.6120177, i64 20
   %59 = load float, ptr %58, align 4
   %60 = fcmp ogt float %57, %59
   %.147 = select i1 %60, float %57, float %59
@@ -1818,9 +1818,9 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph180
-  %62 = getelementptr inbounds i8, ptr %.6127176, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.6127176, i64 16
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.6120177, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.6120177, i64 16
   %65 = load float, ptr %64, align 4
   %66 = fcmp ogt float %63, %65
   %.148 = select i1 %66, float %63, float %65
@@ -1828,9 +1828,9 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph180
-  %68 = getelementptr inbounds i8, ptr %.6127176, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %.6127176, i64 12
   %69 = load float, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %.6120177, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %.6120177, i64 12
   %71 = load float, ptr %70, align 4
   %72 = fcmp ogt float %69, %71
   %.149 = select i1 %72, float %69, float %71
@@ -1838,9 +1838,9 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph180
-  %74 = getelementptr inbounds i8, ptr %.6127176, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6127176, i64 8
   %75 = load float, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %.6120177, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.6120177, i64 8
   %77 = load float, ptr %76, align 4
   %78 = fcmp ogt float %75, %77
   %.150 = select i1 %78, float %75, float %77
@@ -1848,9 +1848,9 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph180
-  %80 = getelementptr inbounds i8, ptr %.6127176, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.6127176, i64 4
   %81 = load float, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %.6120177, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.6120177, i64 4
   %83 = load float, ptr %82, align 4
   %84 = fcmp ogt float %81, %83
   %.151 = select i1 %84, float %81, float %83
@@ -1865,8 +1865,8 @@ define internal void @ompi_op_avx_2buff_max_float_avx512(ptr nocapture noundef r
   store float %.152, ptr %.6127176, align 4
   %89 = sub nsw i32 %.6178, %42
   %90 = zext nneg i32 %42 to i64
-  %91 = getelementptr inbounds float, ptr %.6127176, i64 %90
-  %92 = getelementptr inbounds float, ptr %.6120177, i64 %90
+  %91 = getelementptr inbounds nuw float, ptr %.6127176, i64 %90
+  %92 = getelementptr inbounds nuw float, ptr %.6120177, i64 %90
   %93 = icmp sgt i32 %89, 0
   br i1 %93, label %.lr.ph180, label %.loopexit, !llvm.loop !40
 
@@ -1894,11 +1894,11 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   %.1115157 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader155 ]
   %.1122156 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader155 ]
   %10 = load <8 x double>, ptr %.1115157, align 1
-  %11 = getelementptr inbounds i8, ptr %.1115157, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.1115157, i64 64
   %12 = load <8 x double>, ptr %.1122156, align 1
   %13 = tail call <8 x double> @llvm.x86.avx512.max.pd.512(<8 x double> %10, <8 x double> %12, i32 4)
   store <8 x double> %13, ptr %.1122156, align 1
-  %14 = getelementptr inbounds i8, ptr %.1122156, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1122156, i64 64
   %15 = add nsw i32 %.1158, -8
   %16 = icmp samesign ugt i32 %.1158, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !41
@@ -1932,11 +1932,11 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   %.3117162 = phi ptr [ %23, %.lr.ph164 ], [ %.0114, %.preheader154 ]
   %.3124161 = phi ptr [ %26, %.lr.ph164 ], [ %.0121, %.preheader154 ]
   %22 = load <4 x double>, ptr %.3117162, align 1
-  %23 = getelementptr inbounds i8, ptr %.3117162, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.3117162, i64 32
   %24 = load <4 x double>, ptr %.3124161, align 1
   %25 = tail call <4 x double> @llvm.x86.avx.max.pd.256(<4 x double> %22, <4 x double> %24)
   store <4 x double> %25, ptr %.3124161, align 1
-  %26 = getelementptr inbounds i8, ptr %.3124161, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3124161, i64 32
   %27 = add nsw i32 %.3163, -4
   %28 = icmp samesign ugt i32 %.3163, 7
   br i1 %28, label %.lr.ph164, label %._crit_edge165, !llvm.loop !42
@@ -1968,11 +1968,11 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   %.5119170 = phi ptr [ %35, %.lr.ph172 ], [ %.2116, %30 ]
   %.5126169 = phi ptr [ %38, %.lr.ph172 ], [ %.2123, %30 ]
   %34 = load <2 x double>, ptr %.5119170, align 1
-  %35 = getelementptr inbounds i8, ptr %.5119170, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.5119170, i64 16
   %36 = load <2 x double>, ptr %.5126169, align 1
   %37 = tail call <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %34, <2 x double> %36)
   store <2 x double> %37, ptr %.5126169, align 1
-  %38 = getelementptr inbounds i8, ptr %.5126169, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5126169, i64 16
   %39 = add nsw i32 %.5171, -2
   %40 = icmp samesign ugt i32 %.5171, 3
   br i1 %40, label %.lr.ph172, label %.loopexit153, !llvm.loop !43
@@ -2001,9 +2001,9 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   ]
 
 43:                                               ; preds = %.lr.ph180
-  %44 = getelementptr inbounds i8, ptr %.6127176, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %.6127176, i64 56
   %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.6120177, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %.6120177, i64 56
   %47 = load double, ptr %46, align 8
   %48 = fcmp ogt double %45, %47
   %. = select i1 %48, double %45, double %47
@@ -2011,9 +2011,9 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   br label %49
 
 49:                                               ; preds = %43, %.lr.ph180
-  %50 = getelementptr inbounds i8, ptr %.6127176, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.6127176, i64 48
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.6120177, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %.6120177, i64 48
   %53 = load double, ptr %52, align 8
   %54 = fcmp ogt double %51, %53
   %.146 = select i1 %54, double %51, double %53
@@ -2021,9 +2021,9 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph180
-  %56 = getelementptr inbounds i8, ptr %.6127176, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %.6127176, i64 40
   %57 = load double, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %.6120177, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %.6120177, i64 40
   %59 = load double, ptr %58, align 8
   %60 = fcmp ogt double %57, %59
   %.147 = select i1 %60, double %57, double %59
@@ -2031,9 +2031,9 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph180
-  %62 = getelementptr inbounds i8, ptr %.6127176, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.6127176, i64 32
   %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.6120177, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.6120177, i64 32
   %65 = load double, ptr %64, align 8
   %66 = fcmp ogt double %63, %65
   %.148 = select i1 %66, double %63, double %65
@@ -2041,9 +2041,9 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph180
-  %68 = getelementptr inbounds i8, ptr %.6127176, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %.6127176, i64 24
   %69 = load double, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %.6120177, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.6120177, i64 24
   %71 = load double, ptr %70, align 8
   %72 = fcmp ogt double %69, %71
   %.149 = select i1 %72, double %69, double %71
@@ -2051,9 +2051,9 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph180
-  %74 = getelementptr inbounds i8, ptr %.6127176, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6127176, i64 16
   %75 = load double, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.6120177, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.6120177, i64 16
   %77 = load double, ptr %76, align 8
   %78 = fcmp ogt double %75, %77
   %.150 = select i1 %78, double %75, double %77
@@ -2061,9 +2061,9 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph180
-  %80 = getelementptr inbounds i8, ptr %.6127176, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.6127176, i64 8
   %81 = load double, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.6120177, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.6120177, i64 8
   %83 = load double, ptr %82, align 8
   %84 = fcmp ogt double %81, %83
   %.151 = select i1 %84, double %81, double %83
@@ -2078,8 +2078,8 @@ define internal void @ompi_op_avx_2buff_max_double_avx512(ptr nocapture noundef 
   store double %.152, ptr %.6127176, align 8
   %89 = sub nsw i32 %.6178, %42
   %90 = zext nneg i32 %42 to i64
-  %91 = getelementptr inbounds double, ptr %.6127176, i64 %90
-  %92 = getelementptr inbounds double, ptr %.6120177, i64 %90
+  %91 = getelementptr inbounds nuw double, ptr %.6127176, i64 %90
+  %92 = getelementptr inbounds nuw double, ptr %.6120177, i64 %90
   %93 = icmp sgt i32 %89, 0
   br i1 %93, label %.lr.ph180, label %.loopexit, !llvm.loop !44
 
@@ -2107,11 +2107,11 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx512(ptr noundef %0, ptr no
   %.1115162 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader160 ]
   %.1122161 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader160 ]
   %11 = load <64 x i8>, ptr %.1115162, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115162, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115162, i64 64
   %13 = load <64 x i8>, ptr %.1122161, align 1
   %14 = tail call <64 x i8> @llvm.smin.v64i8(<64 x i8> %11, <64 x i8> %13)
   store <64 x i8> %14, ptr %.1122161, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -64
   %17 = icmp samesign ugt i32 %.1163, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !45
@@ -2145,11 +2145,11 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx512(ptr noundef %0, ptr no
   %.3117167 = phi ptr [ %25, %.lr.ph169 ], [ %.0114, %.preheader159 ]
   %.3124166 = phi ptr [ %28, %.lr.ph169 ], [ %.0121, %.preheader159 ]
   %24 = load <32 x i8>, ptr %.3117167, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117167, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117167, i64 32
   %26 = load <32 x i8>, ptr %.3124166, align 1
   %27 = tail call <32 x i8> @llvm.smin.v32i8(<32 x i8> %24, <32 x i8> %26)
   store <32 x i8> %27, ptr %.3124166, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -32
   %30 = icmp samesign ugt i32 %.3168, 63
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !46
@@ -2181,11 +2181,11 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx512(ptr noundef %0, ptr no
   %.5119175 = phi ptr [ %38, %.lr.ph177 ], [ %.2116, %32 ]
   %.5126174 = phi ptr [ %41, %.lr.ph177 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119175)
-  %38 = getelementptr inbounds i8, ptr %.5119175, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119175, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126174)
   %40 = tail call <16 x i8> @llvm.smin.v16i8(<16 x i8> %37, <16 x i8> %39)
   store <16 x i8> %40, ptr %.5126174, align 1
-  %41 = getelementptr inbounds i8, ptr %.5126174, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5126174, i64 16
   %42 = add nsw i32 %.5176, -16
   %43 = icmp samesign ugt i32 %.5176, 31
   br i1 %43, label %.lr.ph177, label %.loopexit158, !llvm.loop !47
@@ -2214,63 +2214,63 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx512(ptr noundef %0, ptr no
   ]
 
 46:                                               ; preds = %.lr.ph185
-  %47 = getelementptr inbounds i8, ptr %.6127181, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6127181, i64 7
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %.6120182, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6120182, i64 7
   %50 = load i8, ptr %49, align 1
   %. = tail call i8 @llvm.smin.i8(i8 %48, i8 %50)
   store i8 %., ptr %47, align 1
   br label %51
 
 51:                                               ; preds = %46, %.lr.ph185
-  %52 = getelementptr inbounds i8, ptr %.6127181, i64 6
+  %52 = getelementptr inbounds nuw i8, ptr %.6127181, i64 6
   %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %.6120182, i64 6
+  %54 = getelementptr inbounds nuw i8, ptr %.6120182, i64 6
   %55 = load i8, ptr %54, align 1
   %.151 = tail call i8 @llvm.smin.i8(i8 %53, i8 %55)
   store i8 %.151, ptr %52, align 1
   br label %56
 
 56:                                               ; preds = %51, %.lr.ph185
-  %57 = getelementptr inbounds i8, ptr %.6127181, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %.6127181, i64 5
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6120182, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6120182, i64 5
   %60 = load i8, ptr %59, align 1
   %.152 = tail call i8 @llvm.smin.i8(i8 %58, i8 %60)
   store i8 %.152, ptr %57, align 1
   br label %61
 
 61:                                               ; preds = %56, %.lr.ph185
-  %62 = getelementptr inbounds i8, ptr %.6127181, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.6127181, i64 4
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.6120182, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.6120182, i64 4
   %65 = load i8, ptr %64, align 1
   %.153 = tail call i8 @llvm.smin.i8(i8 %63, i8 %65)
   store i8 %.153, ptr %62, align 1
   br label %66
 
 66:                                               ; preds = %61, %.lr.ph185
-  %67 = getelementptr inbounds i8, ptr %.6127181, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %.6127181, i64 3
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %.6120182, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %.6120182, i64 3
   %70 = load i8, ptr %69, align 1
   %.154 = tail call i8 @llvm.smin.i8(i8 %68, i8 %70)
   store i8 %.154, ptr %67, align 1
   br label %71
 
 71:                                               ; preds = %66, %.lr.ph185
-  %72 = getelementptr inbounds i8, ptr %.6127181, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.6127181, i64 2
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %.6120182, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %.6120182, i64 2
   %75 = load i8, ptr %74, align 1
   %.155 = tail call i8 @llvm.smin.i8(i8 %73, i8 %75)
   store i8 %.155, ptr %72, align 1
   br label %76
 
 76:                                               ; preds = %71, %.lr.ph185
-  %77 = getelementptr inbounds i8, ptr %.6127181, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.6127181, i64 1
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6120182, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.6120182, i64 1
   %80 = load i8, ptr %79, align 1
   %.156 = tail call i8 @llvm.smin.i8(i8 %78, i8 %80)
   store i8 %.156, ptr %77, align 1
@@ -2283,8 +2283,8 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx512(ptr noundef %0, ptr no
   store i8 %.157, ptr %.6127181, align 1
   %84 = sub nsw i32 %.6183, %45
   %85 = zext nneg i32 %45 to i64
-  %86 = getelementptr inbounds i8, ptr %.6127181, i64 %85
-  %87 = getelementptr inbounds i8, ptr %.6120182, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %.6127181, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %.6120182, i64 %85
   %88 = icmp sgt i32 %84, 0
   br i1 %88, label %.lr.ph185, label %.loopexit, !llvm.loop !48
 
@@ -2312,11 +2312,11 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx512(ptr noundef %0, ptr n
   %.1115162 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader160 ]
   %.1122161 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader160 ]
   %11 = load <64 x i8>, ptr %.1115162, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115162, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115162, i64 64
   %13 = load <64 x i8>, ptr %.1122161, align 1
   %14 = tail call <64 x i8> @llvm.umin.v64i8(<64 x i8> %11, <64 x i8> %13)
   store <64 x i8> %14, ptr %.1122161, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -64
   %17 = icmp samesign ugt i32 %.1163, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !49
@@ -2350,11 +2350,11 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx512(ptr noundef %0, ptr n
   %.3117167 = phi ptr [ %25, %.lr.ph169 ], [ %.0114, %.preheader159 ]
   %.3124166 = phi ptr [ %28, %.lr.ph169 ], [ %.0121, %.preheader159 ]
   %24 = load <32 x i8>, ptr %.3117167, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117167, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117167, i64 32
   %26 = load <32 x i8>, ptr %.3124166, align 1
   %27 = tail call <32 x i8> @llvm.umin.v32i8(<32 x i8> %24, <32 x i8> %26)
   store <32 x i8> %27, ptr %.3124166, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -32
   %30 = icmp samesign ugt i32 %.3168, 63
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !50
@@ -2386,11 +2386,11 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx512(ptr noundef %0, ptr n
   %.5119175 = phi ptr [ %38, %.lr.ph177 ], [ %.2116, %32 ]
   %.5126174 = phi ptr [ %41, %.lr.ph177 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119175)
-  %38 = getelementptr inbounds i8, ptr %.5119175, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119175, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126174)
   %40 = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %37, <16 x i8> %39)
   store <16 x i8> %40, ptr %.5126174, align 1
-  %41 = getelementptr inbounds i8, ptr %.5126174, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5126174, i64 16
   %42 = add nsw i32 %.5176, -16
   %43 = icmp samesign ugt i32 %.5176, 31
   br i1 %43, label %.lr.ph177, label %.loopexit158, !llvm.loop !51
@@ -2419,63 +2419,63 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx512(ptr noundef %0, ptr n
   ]
 
 46:                                               ; preds = %.lr.ph185
-  %47 = getelementptr inbounds i8, ptr %.6127181, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6127181, i64 7
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %.6120182, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6120182, i64 7
   %50 = load i8, ptr %49, align 1
   %. = tail call i8 @llvm.umin.i8(i8 %48, i8 %50)
   store i8 %., ptr %47, align 1
   br label %51
 
 51:                                               ; preds = %46, %.lr.ph185
-  %52 = getelementptr inbounds i8, ptr %.6127181, i64 6
+  %52 = getelementptr inbounds nuw i8, ptr %.6127181, i64 6
   %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %.6120182, i64 6
+  %54 = getelementptr inbounds nuw i8, ptr %.6120182, i64 6
   %55 = load i8, ptr %54, align 1
   %.151 = tail call i8 @llvm.umin.i8(i8 %53, i8 %55)
   store i8 %.151, ptr %52, align 1
   br label %56
 
 56:                                               ; preds = %51, %.lr.ph185
-  %57 = getelementptr inbounds i8, ptr %.6127181, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %.6127181, i64 5
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6120182, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6120182, i64 5
   %60 = load i8, ptr %59, align 1
   %.152 = tail call i8 @llvm.umin.i8(i8 %58, i8 %60)
   store i8 %.152, ptr %57, align 1
   br label %61
 
 61:                                               ; preds = %56, %.lr.ph185
-  %62 = getelementptr inbounds i8, ptr %.6127181, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.6127181, i64 4
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.6120182, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.6120182, i64 4
   %65 = load i8, ptr %64, align 1
   %.153 = tail call i8 @llvm.umin.i8(i8 %63, i8 %65)
   store i8 %.153, ptr %62, align 1
   br label %66
 
 66:                                               ; preds = %61, %.lr.ph185
-  %67 = getelementptr inbounds i8, ptr %.6127181, i64 3
+  %67 = getelementptr inbounds nuw i8, ptr %.6127181, i64 3
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %.6120182, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %.6120182, i64 3
   %70 = load i8, ptr %69, align 1
   %.154 = tail call i8 @llvm.umin.i8(i8 %68, i8 %70)
   store i8 %.154, ptr %67, align 1
   br label %71
 
 71:                                               ; preds = %66, %.lr.ph185
-  %72 = getelementptr inbounds i8, ptr %.6127181, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.6127181, i64 2
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %.6120182, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %.6120182, i64 2
   %75 = load i8, ptr %74, align 1
   %.155 = tail call i8 @llvm.umin.i8(i8 %73, i8 %75)
   store i8 %.155, ptr %72, align 1
   br label %76
 
 76:                                               ; preds = %71, %.lr.ph185
-  %77 = getelementptr inbounds i8, ptr %.6127181, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.6127181, i64 1
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6120182, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.6120182, i64 1
   %80 = load i8, ptr %79, align 1
   %.156 = tail call i8 @llvm.umin.i8(i8 %78, i8 %80)
   store i8 %.156, ptr %77, align 1
@@ -2488,8 +2488,8 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx512(ptr noundef %0, ptr n
   store i8 %.157, ptr %.6127181, align 1
   %84 = sub nsw i32 %.6183, %45
   %85 = zext nneg i32 %45 to i64
-  %86 = getelementptr inbounds i8, ptr %.6127181, i64 %85
-  %87 = getelementptr inbounds i8, ptr %.6120182, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %.6127181, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %.6120182, i64 %85
   %88 = icmp sgt i32 %84, 0
   br i1 %88, label %.lr.ph185, label %.loopexit, !llvm.loop !52
 
@@ -2517,11 +2517,11 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx512(ptr noundef %0, ptr n
   %.1115162 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader160 ]
   %.1122161 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader160 ]
   %11 = load <32 x i16>, ptr %.1115162, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115162, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115162, i64 64
   %13 = load <32 x i16>, ptr %.1122161, align 1
   %14 = tail call <32 x i16> @llvm.smin.v32i16(<32 x i16> %11, <32 x i16> %13)
   store <32 x i16> %14, ptr %.1122161, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -32
   %17 = icmp samesign ugt i32 %.1163, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !53
@@ -2555,11 +2555,11 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx512(ptr noundef %0, ptr n
   %.3117167 = phi ptr [ %25, %.lr.ph169 ], [ %.0114, %.preheader159 ]
   %.3124166 = phi ptr [ %28, %.lr.ph169 ], [ %.0121, %.preheader159 ]
   %24 = load <16 x i16>, ptr %.3117167, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117167, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117167, i64 32
   %26 = load <16 x i16>, ptr %.3124166, align 1
   %27 = tail call <16 x i16> @llvm.smin.v16i16(<16 x i16> %24, <16 x i16> %26)
   store <16 x i16> %27, ptr %.3124166, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -16
   %30 = icmp samesign ugt i32 %.3168, 31
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !54
@@ -2591,13 +2591,13 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx512(ptr noundef %0, ptr n
   %.5119175 = phi ptr [ %38, %.lr.ph177 ], [ %.2116, %32 ]
   %.5126174 = phi ptr [ %43, %.lr.ph177 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119175)
-  %38 = getelementptr inbounds i8, ptr %.5119175, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119175, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126174)
   %40 = bitcast <16 x i8> %37 to <8 x i16>
   %41 = bitcast <16 x i8> %39 to <8 x i16>
   %42 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %40, <8 x i16> %41)
   store <8 x i16> %42, ptr %.5126174, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126174, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126174, i64 16
   %44 = add nsw i32 %.5176, -8
   %45 = icmp samesign ugt i32 %.5176, 15
   br i1 %45, label %.lr.ph177, label %.loopexit158, !llvm.loop !55
@@ -2626,63 +2626,63 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph185
-  %49 = getelementptr inbounds i8, ptr %.6127181, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6127181, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6120182, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6120182, i64 14
   %52 = load i16, ptr %51, align 2
   %. = tail call i16 @llvm.smin.i16(i16 %50, i16 %52)
   store i16 %., ptr %49, align 2
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph185
-  %54 = getelementptr inbounds i8, ptr %.6127181, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.6127181, i64 12
   %55 = load i16, ptr %54, align 2
-  %56 = getelementptr inbounds i8, ptr %.6120182, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.6120182, i64 12
   %57 = load i16, ptr %56, align 2
   %.151 = tail call i16 @llvm.smin.i16(i16 %55, i16 %57)
   store i16 %.151, ptr %54, align 2
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph185
-  %59 = getelementptr inbounds i8, ptr %.6127181, i64 10
+  %59 = getelementptr inbounds nuw i8, ptr %.6127181, i64 10
   %60 = load i16, ptr %59, align 2
-  %61 = getelementptr inbounds i8, ptr %.6120182, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %.6120182, i64 10
   %62 = load i16, ptr %61, align 2
   %.152 = tail call i16 @llvm.smin.i16(i16 %60, i16 %62)
   store i16 %.152, ptr %59, align 2
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph185
-  %64 = getelementptr inbounds i8, ptr %.6127181, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.6127181, i64 8
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr inbounds i8, ptr %.6120182, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.6120182, i64 8
   %67 = load i16, ptr %66, align 2
   %.153 = tail call i16 @llvm.smin.i16(i16 %65, i16 %67)
   store i16 %.153, ptr %64, align 2
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph185
-  %69 = getelementptr inbounds i8, ptr %.6127181, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %.6127181, i64 6
   %70 = load i16, ptr %69, align 2
-  %71 = getelementptr inbounds i8, ptr %.6120182, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %.6120182, i64 6
   %72 = load i16, ptr %71, align 2
   %.154 = tail call i16 @llvm.smin.i16(i16 %70, i16 %72)
   store i16 %.154, ptr %69, align 2
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph185
-  %74 = getelementptr inbounds i8, ptr %.6127181, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.6127181, i64 4
   %75 = load i16, ptr %74, align 2
-  %76 = getelementptr inbounds i8, ptr %.6120182, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.6120182, i64 4
   %77 = load i16, ptr %76, align 2
   %.155 = tail call i16 @llvm.smin.i16(i16 %75, i16 %77)
   store i16 %.155, ptr %74, align 2
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph185
-  %79 = getelementptr inbounds i8, ptr %.6127181, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %.6127181, i64 2
   %80 = load i16, ptr %79, align 2
-  %81 = getelementptr inbounds i8, ptr %.6120182, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.6120182, i64 2
   %82 = load i16, ptr %81, align 2
   %.156 = tail call i16 @llvm.smin.i16(i16 %80, i16 %82)
   store i16 %.156, ptr %79, align 2
@@ -2695,8 +2695,8 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx512(ptr noundef %0, ptr n
   store i16 %.157, ptr %.6127181, align 2
   %86 = sub nsw i32 %.6183, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i16, ptr %.6127181, i64 %87
-  %89 = getelementptr inbounds i16, ptr %.6120182, i64 %87
+  %88 = getelementptr inbounds nuw i16, ptr %.6127181, i64 %87
+  %89 = getelementptr inbounds nuw i16, ptr %.6120182, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph185, label %.loopexit, !llvm.loop !56
 
@@ -2724,11 +2724,11 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx512(ptr noundef %0, ptr 
   %.1115162 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader160 ]
   %.1122161 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader160 ]
   %11 = load <32 x i16>, ptr %.1115162, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115162, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115162, i64 64
   %13 = load <32 x i16>, ptr %.1122161, align 1
   %14 = tail call <32 x i16> @llvm.umin.v32i16(<32 x i16> %11, <32 x i16> %13)
   store <32 x i16> %14, ptr %.1122161, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122161, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122161, i64 64
   %16 = add nsw i32 %.1163, -32
   %17 = icmp samesign ugt i32 %.1163, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !57
@@ -2762,11 +2762,11 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx512(ptr noundef %0, ptr 
   %.3117167 = phi ptr [ %25, %.lr.ph169 ], [ %.0114, %.preheader159 ]
   %.3124166 = phi ptr [ %28, %.lr.ph169 ], [ %.0121, %.preheader159 ]
   %24 = load <16 x i16>, ptr %.3117167, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117167, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117167, i64 32
   %26 = load <16 x i16>, ptr %.3124166, align 1
   %27 = tail call <16 x i16> @llvm.umin.v16i16(<16 x i16> %24, <16 x i16> %26)
   store <16 x i16> %27, ptr %.3124166, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124166, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124166, i64 32
   %29 = add nsw i32 %.3168, -16
   %30 = icmp samesign ugt i32 %.3168, 31
   br i1 %30, label %.lr.ph169, label %._crit_edge170, !llvm.loop !58
@@ -2798,13 +2798,13 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx512(ptr noundef %0, ptr 
   %.5119175 = phi ptr [ %38, %.lr.ph177 ], [ %.2116, %32 ]
   %.5126174 = phi ptr [ %43, %.lr.ph177 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119175)
-  %38 = getelementptr inbounds i8, ptr %.5119175, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119175, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126174)
   %40 = bitcast <16 x i8> %37 to <8 x i16>
   %41 = bitcast <16 x i8> %39 to <8 x i16>
   %42 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %40, <8 x i16> %41)
   store <8 x i16> %42, ptr %.5126174, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126174, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126174, i64 16
   %44 = add nsw i32 %.5176, -8
   %45 = icmp samesign ugt i32 %.5176, 15
   br i1 %45, label %.lr.ph177, label %.loopexit158, !llvm.loop !59
@@ -2833,63 +2833,63 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph185
-  %49 = getelementptr inbounds i8, ptr %.6127181, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6127181, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6120182, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6120182, i64 14
   %52 = load i16, ptr %51, align 2
   %. = tail call i16 @llvm.umin.i16(i16 %50, i16 %52)
   store i16 %., ptr %49, align 2
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph185
-  %54 = getelementptr inbounds i8, ptr %.6127181, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.6127181, i64 12
   %55 = load i16, ptr %54, align 2
-  %56 = getelementptr inbounds i8, ptr %.6120182, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.6120182, i64 12
   %57 = load i16, ptr %56, align 2
   %.151 = tail call i16 @llvm.umin.i16(i16 %55, i16 %57)
   store i16 %.151, ptr %54, align 2
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph185
-  %59 = getelementptr inbounds i8, ptr %.6127181, i64 10
+  %59 = getelementptr inbounds nuw i8, ptr %.6127181, i64 10
   %60 = load i16, ptr %59, align 2
-  %61 = getelementptr inbounds i8, ptr %.6120182, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %.6120182, i64 10
   %62 = load i16, ptr %61, align 2
   %.152 = tail call i16 @llvm.umin.i16(i16 %60, i16 %62)
   store i16 %.152, ptr %59, align 2
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph185
-  %64 = getelementptr inbounds i8, ptr %.6127181, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.6127181, i64 8
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr inbounds i8, ptr %.6120182, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.6120182, i64 8
   %67 = load i16, ptr %66, align 2
   %.153 = tail call i16 @llvm.umin.i16(i16 %65, i16 %67)
   store i16 %.153, ptr %64, align 2
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph185
-  %69 = getelementptr inbounds i8, ptr %.6127181, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %.6127181, i64 6
   %70 = load i16, ptr %69, align 2
-  %71 = getelementptr inbounds i8, ptr %.6120182, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %.6120182, i64 6
   %72 = load i16, ptr %71, align 2
   %.154 = tail call i16 @llvm.umin.i16(i16 %70, i16 %72)
   store i16 %.154, ptr %69, align 2
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph185
-  %74 = getelementptr inbounds i8, ptr %.6127181, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.6127181, i64 4
   %75 = load i16, ptr %74, align 2
-  %76 = getelementptr inbounds i8, ptr %.6120182, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.6120182, i64 4
   %77 = load i16, ptr %76, align 2
   %.155 = tail call i16 @llvm.umin.i16(i16 %75, i16 %77)
   store i16 %.155, ptr %74, align 2
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph185
-  %79 = getelementptr inbounds i8, ptr %.6127181, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %.6127181, i64 2
   %80 = load i16, ptr %79, align 2
-  %81 = getelementptr inbounds i8, ptr %.6120182, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.6120182, i64 2
   %82 = load i16, ptr %81, align 2
   %.156 = tail call i16 @llvm.umin.i16(i16 %80, i16 %82)
   store i16 %.156, ptr %79, align 2
@@ -2902,8 +2902,8 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx512(ptr noundef %0, ptr 
   store i16 %.157, ptr %.6127181, align 2
   %86 = sub nsw i32 %.6183, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i16, ptr %.6127181, i64 %87
-  %89 = getelementptr inbounds i16, ptr %.6120182, i64 %87
+  %88 = getelementptr inbounds nuw i16, ptr %.6127181, i64 %87
+  %89 = getelementptr inbounds nuw i16, ptr %.6120182, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph185, label %.loopexit, !llvm.loop !60
 
@@ -2931,11 +2931,11 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx512(ptr noundef %0, ptr n
   %.1115155 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader153 ]
   %.1122154 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader153 ]
   %11 = load <16 x i32>, ptr %.1115155, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115155, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115155, i64 64
   %13 = load <16 x i32>, ptr %.1122154, align 1
   %14 = tail call <16 x i32> @llvm.smin.v16i32(<16 x i32> %11, <16 x i32> %13)
   store <16 x i32> %14, ptr %.1122154, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -16
   %17 = icmp samesign ugt i32 %.1156, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !61
@@ -2969,11 +2969,11 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx512(ptr noundef %0, ptr n
   %.3117160 = phi ptr [ %25, %.lr.ph162 ], [ %.0114, %.preheader152 ]
   %.3124159 = phi ptr [ %28, %.lr.ph162 ], [ %.0121, %.preheader152 ]
   %24 = load <8 x i32>, ptr %.3117160, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117160, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117160, i64 32
   %26 = load <8 x i32>, ptr %.3124159, align 1
   %27 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %24, <8 x i32> %26)
   store <8 x i32> %27, ptr %.3124159, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -8
   %30 = icmp samesign ugt i32 %.3161, 15
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !62
@@ -3005,13 +3005,13 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx512(ptr noundef %0, ptr n
   %.5119168 = phi ptr [ %38, %.lr.ph170 ], [ %.2116, %32 ]
   %.5126167 = phi ptr [ %43, %.lr.ph170 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119168)
-  %38 = getelementptr inbounds i8, ptr %.5119168, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119168, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126167)
   %40 = bitcast <16 x i8> %37 to <4 x i32>
   %41 = bitcast <16 x i8> %39 to <4 x i32>
   %42 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %40, <4 x i32> %41)
   store <4 x i32> %42, ptr %.5126167, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -4
   %45 = icmp samesign ugt i32 %.5169, 7
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !63
@@ -3040,63 +3040,63 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph178
-  %49 = getelementptr inbounds i8, ptr %.6127174, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6127174, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6120175, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6120175, i64 28
   %52 = load i32, ptr %51, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %50, i32 %52)
   store i32 %., ptr %49, align 4
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph178
-  %54 = getelementptr inbounds i8, ptr %.6127174, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.6127174, i64 24
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %.6120175, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.6120175, i64 24
   %57 = load i32, ptr %56, align 4
   %.144 = tail call i32 @llvm.smin.i32(i32 %55, i32 %57)
   store i32 %.144, ptr %54, align 4
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph178
-  %59 = getelementptr inbounds i8, ptr %.6127174, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.6127174, i64 20
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %.6120175, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %.6120175, i64 20
   %62 = load i32, ptr %61, align 4
   %.145 = tail call i32 @llvm.smin.i32(i32 %60, i32 %62)
   store i32 %.145, ptr %59, align 4
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph178
-  %64 = getelementptr inbounds i8, ptr %.6127174, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.6127174, i64 16
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.6120175, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.6120175, i64 16
   %67 = load i32, ptr %66, align 4
   %.146 = tail call i32 @llvm.smin.i32(i32 %65, i32 %67)
   store i32 %.146, ptr %64, align 4
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph178
-  %69 = getelementptr inbounds i8, ptr %.6127174, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.6127174, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6120175, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.6120175, i64 12
   %72 = load i32, ptr %71, align 4
   %.147 = tail call i32 @llvm.smin.i32(i32 %70, i32 %72)
   store i32 %.147, ptr %69, align 4
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph178
-  %74 = getelementptr inbounds i8, ptr %.6127174, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6127174, i64 8
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %.6120175, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.6120175, i64 8
   %77 = load i32, ptr %76, align 4
   %.148 = tail call i32 @llvm.smin.i32(i32 %75, i32 %77)
   store i32 %.148, ptr %74, align 4
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph178
-  %79 = getelementptr inbounds i8, ptr %.6127174, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.6127174, i64 4
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %.6120175, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6120175, i64 4
   %82 = load i32, ptr %81, align 4
   %.149 = tail call i32 @llvm.smin.i32(i32 %80, i32 %82)
   store i32 %.149, ptr %79, align 4
@@ -3109,8 +3109,8 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx512(ptr noundef %0, ptr n
   store i32 %.150, ptr %.6127174, align 4
   %86 = sub nsw i32 %.6176, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i32, ptr %.6127174, i64 %87
-  %89 = getelementptr inbounds i32, ptr %.6120175, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr %.6127174, i64 %87
+  %89 = getelementptr inbounds nuw i32, ptr %.6120175, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph178, label %.loopexit, !llvm.loop !64
 
@@ -3138,11 +3138,11 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx512(ptr noundef %0, ptr 
   %.1115155 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader153 ]
   %.1122154 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader153 ]
   %11 = load <16 x i32>, ptr %.1115155, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115155, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115155, i64 64
   %13 = load <16 x i32>, ptr %.1122154, align 1
   %14 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %11, <16 x i32> %13)
   store <16 x i32> %14, ptr %.1122154, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -16
   %17 = icmp samesign ugt i32 %.1156, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !65
@@ -3176,11 +3176,11 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx512(ptr noundef %0, ptr 
   %.3117160 = phi ptr [ %25, %.lr.ph162 ], [ %.0114, %.preheader152 ]
   %.3124159 = phi ptr [ %28, %.lr.ph162 ], [ %.0121, %.preheader152 ]
   %24 = load <8 x i32>, ptr %.3117160, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117160, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117160, i64 32
   %26 = load <8 x i32>, ptr %.3124159, align 1
   %27 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %24, <8 x i32> %26)
   store <8 x i32> %27, ptr %.3124159, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -8
   %30 = icmp samesign ugt i32 %.3161, 15
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !66
@@ -3212,13 +3212,13 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx512(ptr noundef %0, ptr 
   %.5119168 = phi ptr [ %38, %.lr.ph170 ], [ %.2116, %32 ]
   %.5126167 = phi ptr [ %43, %.lr.ph170 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119168)
-  %38 = getelementptr inbounds i8, ptr %.5119168, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5119168, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126167)
   %40 = bitcast <16 x i8> %37 to <4 x i32>
   %41 = bitcast <16 x i8> %39 to <4 x i32>
   %42 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %40, <4 x i32> %41)
   store <4 x i32> %42, ptr %.5126167, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -4
   %45 = icmp samesign ugt i32 %.5169, 7
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !67
@@ -3247,63 +3247,63 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph178
-  %49 = getelementptr inbounds i8, ptr %.6127174, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6127174, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6120175, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6120175, i64 28
   %52 = load i32, ptr %51, align 4
   %. = tail call i32 @llvm.umin.i32(i32 %50, i32 %52)
   store i32 %., ptr %49, align 4
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph178
-  %54 = getelementptr inbounds i8, ptr %.6127174, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.6127174, i64 24
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %.6120175, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.6120175, i64 24
   %57 = load i32, ptr %56, align 4
   %.144 = tail call i32 @llvm.umin.i32(i32 %55, i32 %57)
   store i32 %.144, ptr %54, align 4
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph178
-  %59 = getelementptr inbounds i8, ptr %.6127174, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.6127174, i64 20
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %.6120175, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %.6120175, i64 20
   %62 = load i32, ptr %61, align 4
   %.145 = tail call i32 @llvm.umin.i32(i32 %60, i32 %62)
   store i32 %.145, ptr %59, align 4
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph178
-  %64 = getelementptr inbounds i8, ptr %.6127174, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.6127174, i64 16
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.6120175, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.6120175, i64 16
   %67 = load i32, ptr %66, align 4
   %.146 = tail call i32 @llvm.umin.i32(i32 %65, i32 %67)
   store i32 %.146, ptr %64, align 4
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph178
-  %69 = getelementptr inbounds i8, ptr %.6127174, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.6127174, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6120175, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.6120175, i64 12
   %72 = load i32, ptr %71, align 4
   %.147 = tail call i32 @llvm.umin.i32(i32 %70, i32 %72)
   store i32 %.147, ptr %69, align 4
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph178
-  %74 = getelementptr inbounds i8, ptr %.6127174, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6127174, i64 8
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %.6120175, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.6120175, i64 8
   %77 = load i32, ptr %76, align 4
   %.148 = tail call i32 @llvm.umin.i32(i32 %75, i32 %77)
   store i32 %.148, ptr %74, align 4
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph178
-  %79 = getelementptr inbounds i8, ptr %.6127174, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.6127174, i64 4
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %.6120175, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6120175, i64 4
   %82 = load i32, ptr %81, align 4
   %.149 = tail call i32 @llvm.umin.i32(i32 %80, i32 %82)
   store i32 %.149, ptr %79, align 4
@@ -3316,8 +3316,8 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx512(ptr noundef %0, ptr 
   store i32 %.150, ptr %.6127174, align 4
   %86 = sub nsw i32 %.6176, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i32, ptr %.6127174, i64 %87
-  %89 = getelementptr inbounds i32, ptr %.6120175, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr %.6127174, i64 %87
+  %89 = getelementptr inbounds nuw i32, ptr %.6120175, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph178, label %.loopexit, !llvm.loop !68
 
@@ -3345,11 +3345,11 @@ define internal void @ompi_op_avx_2buff_min_int64_t_avx512(ptr noundef %0, ptr n
   %.1115155 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader153 ]
   %.1122154 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader153 ]
   %11 = load <8 x i64>, ptr %.1115155, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115155, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115155, i64 64
   %13 = load <8 x i64>, ptr %.1122154, align 1
   %14 = tail call <8 x i64> @llvm.smin.v8i64(<8 x i64> %11, <8 x i64> %13)
   store <8 x i64> %14, ptr %.1122154, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -8
   %17 = icmp samesign ugt i32 %.1156, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !69
@@ -3383,11 +3383,11 @@ define internal void @ompi_op_avx_2buff_min_int64_t_avx512(ptr noundef %0, ptr n
   %.3117160 = phi ptr [ %25, %.lr.ph162 ], [ %.0114, %.preheader152 ]
   %.3124159 = phi ptr [ %28, %.lr.ph162 ], [ %.0121, %.preheader152 ]
   %24 = load <4 x i64>, ptr %.3117160, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117160, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117160, i64 32
   %26 = load <4 x i64>, ptr %.3124159, align 1
   %27 = tail call <4 x i64> @llvm.smin.v4i64(<4 x i64> %24, <4 x i64> %26)
   store <4 x i64> %27, ptr %.3124159, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -4
   %30 = icmp samesign ugt i32 %.3161, 7
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !70
@@ -3420,12 +3420,12 @@ define internal void @ompi_op_avx_2buff_min_int64_t_avx512(ptr noundef %0, ptr n
   %.5126167 = phi ptr [ %43, %.lr.ph170 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119168)
   %38 = bitcast <16 x i8> %37 to <2 x i64>
-  %39 = getelementptr inbounds i8, ptr %.5119168, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5119168, i64 16
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126167)
   %41 = bitcast <16 x i8> %40 to <2 x i64>
   %42 = tail call <2 x i64> @llvm.smin.v2i64(<2 x i64> %38, <2 x i64> %41)
   store <2 x i64> %42, ptr %.5126167, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -2
   %45 = icmp samesign ugt i32 %.5169, 3
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !71
@@ -3454,63 +3454,63 @@ define internal void @ompi_op_avx_2buff_min_int64_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph178
-  %49 = getelementptr inbounds i8, ptr %.6127174, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6127174, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6120175, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6120175, i64 56
   %52 = load i64, ptr %51, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %50, i64 %52)
   store i64 %., ptr %49, align 8
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph178
-  %54 = getelementptr inbounds i8, ptr %.6127174, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %.6127174, i64 48
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.6120175, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.6120175, i64 48
   %57 = load i64, ptr %56, align 8
   %.144 = tail call i64 @llvm.smin.i64(i64 %55, i64 %57)
   store i64 %.144, ptr %54, align 8
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph178
-  %59 = getelementptr inbounds i8, ptr %.6127174, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.6127174, i64 40
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.6120175, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.6120175, i64 40
   %62 = load i64, ptr %61, align 8
   %.145 = tail call i64 @llvm.smin.i64(i64 %60, i64 %62)
   store i64 %.145, ptr %59, align 8
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph178
-  %64 = getelementptr inbounds i8, ptr %.6127174, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.6127174, i64 32
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.6120175, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.6120175, i64 32
   %67 = load i64, ptr %66, align 8
   %.146 = tail call i64 @llvm.smin.i64(i64 %65, i64 %67)
   store i64 %.146, ptr %64, align 8
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph178
-  %69 = getelementptr inbounds i8, ptr %.6127174, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.6127174, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6120175, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.6120175, i64 24
   %72 = load i64, ptr %71, align 8
   %.147 = tail call i64 @llvm.smin.i64(i64 %70, i64 %72)
   store i64 %.147, ptr %69, align 8
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph178
-  %74 = getelementptr inbounds i8, ptr %.6127174, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6127174, i64 16
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.6120175, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.6120175, i64 16
   %77 = load i64, ptr %76, align 8
   %.148 = tail call i64 @llvm.smin.i64(i64 %75, i64 %77)
   store i64 %.148, ptr %74, align 8
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph178
-  %79 = getelementptr inbounds i8, ptr %.6127174, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.6127174, i64 8
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.6120175, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6120175, i64 8
   %82 = load i64, ptr %81, align 8
   %.149 = tail call i64 @llvm.smin.i64(i64 %80, i64 %82)
   store i64 %.149, ptr %79, align 8
@@ -3523,8 +3523,8 @@ define internal void @ompi_op_avx_2buff_min_int64_t_avx512(ptr noundef %0, ptr n
   store i64 %.150, ptr %.6127174, align 8
   %86 = sub nsw i32 %.6176, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i64, ptr %.6127174, i64 %87
-  %89 = getelementptr inbounds i64, ptr %.6120175, i64 %87
+  %88 = getelementptr inbounds nuw i64, ptr %.6127174, i64 %87
+  %89 = getelementptr inbounds nuw i64, ptr %.6120175, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph178, label %.loopexit, !llvm.loop !72
 
@@ -3552,11 +3552,11 @@ define internal void @ompi_op_avx_2buff_min_uint64_t_avx512(ptr noundef %0, ptr 
   %.1115155 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader153 ]
   %.1122154 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader153 ]
   %11 = load <8 x i64>, ptr %.1115155, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115155, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115155, i64 64
   %13 = load <8 x i64>, ptr %.1122154, align 1
   %14 = tail call <8 x i64> @llvm.umin.v8i64(<8 x i64> %11, <8 x i64> %13)
   store <8 x i64> %14, ptr %.1122154, align 1
-  %15 = getelementptr inbounds i8, ptr %.1122154, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1122154, i64 64
   %16 = add nsw i32 %.1156, -8
   %17 = icmp samesign ugt i32 %.1156, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !73
@@ -3590,11 +3590,11 @@ define internal void @ompi_op_avx_2buff_min_uint64_t_avx512(ptr noundef %0, ptr 
   %.3117160 = phi ptr [ %25, %.lr.ph162 ], [ %.0114, %.preheader152 ]
   %.3124159 = phi ptr [ %28, %.lr.ph162 ], [ %.0121, %.preheader152 ]
   %24 = load <4 x i64>, ptr %.3117160, align 1
-  %25 = getelementptr inbounds i8, ptr %.3117160, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3117160, i64 32
   %26 = load <4 x i64>, ptr %.3124159, align 1
   %27 = tail call <4 x i64> @llvm.umin.v4i64(<4 x i64> %24, <4 x i64> %26)
   store <4 x i64> %27, ptr %.3124159, align 1
-  %28 = getelementptr inbounds i8, ptr %.3124159, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3124159, i64 32
   %29 = add nsw i32 %.3161, -4
   %30 = icmp samesign ugt i32 %.3161, 7
   br i1 %30, label %.lr.ph162, label %._crit_edge163, !llvm.loop !74
@@ -3627,12 +3627,12 @@ define internal void @ompi_op_avx_2buff_min_uint64_t_avx512(ptr noundef %0, ptr 
   %.5126167 = phi ptr [ %43, %.lr.ph170 ], [ %.2123, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119168)
   %38 = bitcast <16 x i8> %37 to <2 x i64>
-  %39 = getelementptr inbounds i8, ptr %.5119168, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5119168, i64 16
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5126167)
   %41 = bitcast <16 x i8> %40 to <2 x i64>
   %42 = tail call <2 x i64> @llvm.umin.v2i64(<2 x i64> %38, <2 x i64> %41)
   store <2 x i64> %42, ptr %.5126167, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126167, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126167, i64 16
   %44 = add nsw i32 %.5169, -2
   %45 = icmp samesign ugt i32 %.5169, 3
   br i1 %45, label %.lr.ph170, label %.loopexit151, !llvm.loop !75
@@ -3661,63 +3661,63 @@ define internal void @ompi_op_avx_2buff_min_uint64_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph178
-  %49 = getelementptr inbounds i8, ptr %.6127174, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6127174, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6120175, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6120175, i64 56
   %52 = load i64, ptr %51, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %50, i64 %52)
   store i64 %., ptr %49, align 8
   br label %53
 
 53:                                               ; preds = %48, %.lr.ph178
-  %54 = getelementptr inbounds i8, ptr %.6127174, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %.6127174, i64 48
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.6120175, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.6120175, i64 48
   %57 = load i64, ptr %56, align 8
   %.144 = tail call i64 @llvm.umin.i64(i64 %55, i64 %57)
   store i64 %.144, ptr %54, align 8
   br label %58
 
 58:                                               ; preds = %53, %.lr.ph178
-  %59 = getelementptr inbounds i8, ptr %.6127174, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.6127174, i64 40
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.6120175, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.6120175, i64 40
   %62 = load i64, ptr %61, align 8
   %.145 = tail call i64 @llvm.umin.i64(i64 %60, i64 %62)
   store i64 %.145, ptr %59, align 8
   br label %63
 
 63:                                               ; preds = %58, %.lr.ph178
-  %64 = getelementptr inbounds i8, ptr %.6127174, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.6127174, i64 32
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.6120175, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.6120175, i64 32
   %67 = load i64, ptr %66, align 8
   %.146 = tail call i64 @llvm.umin.i64(i64 %65, i64 %67)
   store i64 %.146, ptr %64, align 8
   br label %68
 
 68:                                               ; preds = %63, %.lr.ph178
-  %69 = getelementptr inbounds i8, ptr %.6127174, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.6127174, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6120175, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.6120175, i64 24
   %72 = load i64, ptr %71, align 8
   %.147 = tail call i64 @llvm.umin.i64(i64 %70, i64 %72)
   store i64 %.147, ptr %69, align 8
   br label %73
 
 73:                                               ; preds = %68, %.lr.ph178
-  %74 = getelementptr inbounds i8, ptr %.6127174, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6127174, i64 16
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.6120175, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.6120175, i64 16
   %77 = load i64, ptr %76, align 8
   %.148 = tail call i64 @llvm.umin.i64(i64 %75, i64 %77)
   store i64 %.148, ptr %74, align 8
   br label %78
 
 78:                                               ; preds = %73, %.lr.ph178
-  %79 = getelementptr inbounds i8, ptr %.6127174, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.6127174, i64 8
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.6120175, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6120175, i64 8
   %82 = load i64, ptr %81, align 8
   %.149 = tail call i64 @llvm.umin.i64(i64 %80, i64 %82)
   store i64 %.149, ptr %79, align 8
@@ -3730,8 +3730,8 @@ define internal void @ompi_op_avx_2buff_min_uint64_t_avx512(ptr noundef %0, ptr 
   store i64 %.150, ptr %.6127174, align 8
   %86 = sub nsw i32 %.6176, %47
   %87 = zext nneg i32 %47 to i64
-  %88 = getelementptr inbounds i64, ptr %.6127174, i64 %87
-  %89 = getelementptr inbounds i64, ptr %.6120175, i64 %87
+  %88 = getelementptr inbounds nuw i64, ptr %.6127174, i64 %87
+  %89 = getelementptr inbounds nuw i64, ptr %.6120175, i64 %87
   %90 = icmp sgt i32 %86, 0
   br i1 %90, label %.lr.ph178, label %.loopexit, !llvm.loop !76
 
@@ -3760,10 +3760,10 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   %.1122156 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader155 ]
   %10 = load <16 x float>, ptr %.1115157, align 1
   %11 = load <16 x float>, ptr %.1122156, align 1
-  %12 = getelementptr inbounds i8, ptr %.1115157, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.1115157, i64 64
   %13 = tail call <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %10, <16 x float> %11, i32 4)
   store <16 x float> %13, ptr %.1122156, align 1
-  %14 = getelementptr inbounds i8, ptr %.1122156, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1122156, i64 64
   %15 = add nsw i32 %.1158, -16
   %16 = icmp samesign ugt i32 %.1158, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !77
@@ -3797,11 +3797,11 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   %.3117162 = phi ptr [ %23, %.lr.ph164 ], [ %.0114, %.preheader154 ]
   %.3124161 = phi ptr [ %26, %.lr.ph164 ], [ %.0121, %.preheader154 ]
   %22 = load <8 x float>, ptr %.3117162, align 1
-  %23 = getelementptr inbounds i8, ptr %.3117162, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.3117162, i64 32
   %24 = load <8 x float>, ptr %.3124161, align 1
   %25 = tail call <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %22, <8 x float> %24)
   store <8 x float> %25, ptr %.3124161, align 1
-  %26 = getelementptr inbounds i8, ptr %.3124161, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3124161, i64 32
   %27 = add nsw i32 %.3163, -8
   %28 = icmp samesign ugt i32 %.3163, 15
   br i1 %28, label %.lr.ph164, label %._crit_edge165, !llvm.loop !78
@@ -3833,11 +3833,11 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   %.5119170 = phi ptr [ %35, %.lr.ph172 ], [ %.2116, %30 ]
   %.5126169 = phi ptr [ %38, %.lr.ph172 ], [ %.2123, %30 ]
   %34 = load <4 x float>, ptr %.5119170, align 1
-  %35 = getelementptr inbounds i8, ptr %.5119170, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.5119170, i64 16
   %36 = load <4 x float>, ptr %.5126169, align 1
   %37 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %34, <4 x float> %36)
   store <4 x float> %37, ptr %.5126169, align 1
-  %38 = getelementptr inbounds i8, ptr %.5126169, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5126169, i64 16
   %39 = add nsw i32 %.5171, -4
   %40 = icmp samesign ugt i32 %.5171, 7
   br i1 %40, label %.lr.ph172, label %.loopexit153, !llvm.loop !79
@@ -3866,9 +3866,9 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   ]
 
 43:                                               ; preds = %.lr.ph180
-  %44 = getelementptr inbounds i8, ptr %.6127176, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %.6127176, i64 28
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %.6120177, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %.6120177, i64 28
   %47 = load float, ptr %46, align 4
   %48 = fcmp olt float %45, %47
   %. = select i1 %48, float %45, float %47
@@ -3876,9 +3876,9 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   br label %49
 
 49:                                               ; preds = %43, %.lr.ph180
-  %50 = getelementptr inbounds i8, ptr %.6127176, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.6127176, i64 24
   %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %.6120177, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.6120177, i64 24
   %53 = load float, ptr %52, align 4
   %54 = fcmp olt float %51, %53
   %.146 = select i1 %54, float %51, float %53
@@ -3886,9 +3886,9 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph180
-  %56 = getelementptr inbounds i8, ptr %.6127176, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %.6127176, i64 20
   %57 = load float, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.6120177, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %.6120177, i64 20
   %59 = load float, ptr %58, align 4
   %60 = fcmp olt float %57, %59
   %.147 = select i1 %60, float %57, float %59
@@ -3896,9 +3896,9 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph180
-  %62 = getelementptr inbounds i8, ptr %.6127176, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.6127176, i64 16
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.6120177, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.6120177, i64 16
   %65 = load float, ptr %64, align 4
   %66 = fcmp olt float %63, %65
   %.148 = select i1 %66, float %63, float %65
@@ -3906,9 +3906,9 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph180
-  %68 = getelementptr inbounds i8, ptr %.6127176, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %.6127176, i64 12
   %69 = load float, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %.6120177, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %.6120177, i64 12
   %71 = load float, ptr %70, align 4
   %72 = fcmp olt float %69, %71
   %.149 = select i1 %72, float %69, float %71
@@ -3916,9 +3916,9 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph180
-  %74 = getelementptr inbounds i8, ptr %.6127176, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6127176, i64 8
   %75 = load float, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %.6120177, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.6120177, i64 8
   %77 = load float, ptr %76, align 4
   %78 = fcmp olt float %75, %77
   %.150 = select i1 %78, float %75, float %77
@@ -3926,9 +3926,9 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph180
-  %80 = getelementptr inbounds i8, ptr %.6127176, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.6127176, i64 4
   %81 = load float, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %.6120177, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.6120177, i64 4
   %83 = load float, ptr %82, align 4
   %84 = fcmp olt float %81, %83
   %.151 = select i1 %84, float %81, float %83
@@ -3943,8 +3943,8 @@ define internal void @ompi_op_avx_2buff_min_float_avx512(ptr nocapture noundef r
   store float %.152, ptr %.6127176, align 4
   %89 = sub nsw i32 %.6178, %42
   %90 = zext nneg i32 %42 to i64
-  %91 = getelementptr inbounds float, ptr %.6127176, i64 %90
-  %92 = getelementptr inbounds float, ptr %.6120177, i64 %90
+  %91 = getelementptr inbounds nuw float, ptr %.6127176, i64 %90
+  %92 = getelementptr inbounds nuw float, ptr %.6120177, i64 %90
   %93 = icmp sgt i32 %89, 0
   br i1 %93, label %.lr.ph180, label %.loopexit, !llvm.loop !80
 
@@ -3972,11 +3972,11 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   %.1115157 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader155 ]
   %.1122156 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader155 ]
   %10 = load <8 x double>, ptr %.1115157, align 1
-  %11 = getelementptr inbounds i8, ptr %.1115157, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.1115157, i64 64
   %12 = load <8 x double>, ptr %.1122156, align 1
   %13 = tail call <8 x double> @llvm.x86.avx512.min.pd.512(<8 x double> %10, <8 x double> %12, i32 4)
   store <8 x double> %13, ptr %.1122156, align 1
-  %14 = getelementptr inbounds i8, ptr %.1122156, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1122156, i64 64
   %15 = add nsw i32 %.1158, -8
   %16 = icmp samesign ugt i32 %.1158, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !81
@@ -4010,11 +4010,11 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   %.3117162 = phi ptr [ %23, %.lr.ph164 ], [ %.0114, %.preheader154 ]
   %.3124161 = phi ptr [ %26, %.lr.ph164 ], [ %.0121, %.preheader154 ]
   %22 = load <4 x double>, ptr %.3117162, align 1
-  %23 = getelementptr inbounds i8, ptr %.3117162, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.3117162, i64 32
   %24 = load <4 x double>, ptr %.3124161, align 1
   %25 = tail call <4 x double> @llvm.x86.avx.min.pd.256(<4 x double> %22, <4 x double> %24)
   store <4 x double> %25, ptr %.3124161, align 1
-  %26 = getelementptr inbounds i8, ptr %.3124161, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3124161, i64 32
   %27 = add nsw i32 %.3163, -4
   %28 = icmp samesign ugt i32 %.3163, 7
   br i1 %28, label %.lr.ph164, label %._crit_edge165, !llvm.loop !82
@@ -4046,11 +4046,11 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   %.5119170 = phi ptr [ %35, %.lr.ph172 ], [ %.2116, %30 ]
   %.5126169 = phi ptr [ %38, %.lr.ph172 ], [ %.2123, %30 ]
   %34 = load <2 x double>, ptr %.5119170, align 1
-  %35 = getelementptr inbounds i8, ptr %.5119170, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.5119170, i64 16
   %36 = load <2 x double>, ptr %.5126169, align 1
   %37 = tail call <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %34, <2 x double> %36)
   store <2 x double> %37, ptr %.5126169, align 1
-  %38 = getelementptr inbounds i8, ptr %.5126169, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5126169, i64 16
   %39 = add nsw i32 %.5171, -2
   %40 = icmp samesign ugt i32 %.5171, 3
   br i1 %40, label %.lr.ph172, label %.loopexit153, !llvm.loop !83
@@ -4079,9 +4079,9 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   ]
 
 43:                                               ; preds = %.lr.ph180
-  %44 = getelementptr inbounds i8, ptr %.6127176, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %.6127176, i64 56
   %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.6120177, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %.6120177, i64 56
   %47 = load double, ptr %46, align 8
   %48 = fcmp olt double %45, %47
   %. = select i1 %48, double %45, double %47
@@ -4089,9 +4089,9 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   br label %49
 
 49:                                               ; preds = %43, %.lr.ph180
-  %50 = getelementptr inbounds i8, ptr %.6127176, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.6127176, i64 48
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.6120177, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %.6120177, i64 48
   %53 = load double, ptr %52, align 8
   %54 = fcmp olt double %51, %53
   %.146 = select i1 %54, double %51, double %53
@@ -4099,9 +4099,9 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph180
-  %56 = getelementptr inbounds i8, ptr %.6127176, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %.6127176, i64 40
   %57 = load double, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %.6120177, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %.6120177, i64 40
   %59 = load double, ptr %58, align 8
   %60 = fcmp olt double %57, %59
   %.147 = select i1 %60, double %57, double %59
@@ -4109,9 +4109,9 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph180
-  %62 = getelementptr inbounds i8, ptr %.6127176, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.6127176, i64 32
   %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.6120177, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.6120177, i64 32
   %65 = load double, ptr %64, align 8
   %66 = fcmp olt double %63, %65
   %.148 = select i1 %66, double %63, double %65
@@ -4119,9 +4119,9 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph180
-  %68 = getelementptr inbounds i8, ptr %.6127176, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %.6127176, i64 24
   %69 = load double, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %.6120177, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.6120177, i64 24
   %71 = load double, ptr %70, align 8
   %72 = fcmp olt double %69, %71
   %.149 = select i1 %72, double %69, double %71
@@ -4129,9 +4129,9 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph180
-  %74 = getelementptr inbounds i8, ptr %.6127176, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6127176, i64 16
   %75 = load double, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.6120177, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.6120177, i64 16
   %77 = load double, ptr %76, align 8
   %78 = fcmp olt double %75, %77
   %.150 = select i1 %78, double %75, double %77
@@ -4139,9 +4139,9 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph180
-  %80 = getelementptr inbounds i8, ptr %.6127176, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.6127176, i64 8
   %81 = load double, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.6120177, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.6120177, i64 8
   %83 = load double, ptr %82, align 8
   %84 = fcmp olt double %81, %83
   %.151 = select i1 %84, double %81, double %83
@@ -4156,8 +4156,8 @@ define internal void @ompi_op_avx_2buff_min_double_avx512(ptr nocapture noundef 
   store double %.152, ptr %.6127176, align 8
   %89 = sub nsw i32 %.6178, %42
   %90 = zext nneg i32 %42 to i64
-  %91 = getelementptr inbounds double, ptr %.6127176, i64 %90
-  %92 = getelementptr inbounds double, ptr %.6120177, i64 %90
+  %91 = getelementptr inbounds nuw double, ptr %.6127176, i64 %90
+  %92 = getelementptr inbounds nuw double, ptr %.6120177, i64 %90
   %93 = icmp sgt i32 %89, 0
   br i1 %93, label %.lr.ph180, label %.loopexit, !llvm.loop !84
 
@@ -4185,11 +4185,11 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx512(ptr noundef %0, ptr no
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <64 x i8>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <64 x i8>, ptr %.1106115, align 1
   %14 = tail call <64 x i8> @llvm.sadd.sat.v64i8(<64 x i8> %11, <64 x i8> %13)
   store <64 x i8> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -64
   %17 = icmp samesign ugt i32 %.1117, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !85
@@ -4223,11 +4223,11 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx512(ptr noundef %0, ptr no
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <32 x i8>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <32 x i8>, ptr %.3108120, align 1
   %27 = tail call <32 x i8> @llvm.sadd.sat.v32i8(<32 x i8> %24, <32 x i8> %26)
   store <32 x i8> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -32
   %30 = icmp samesign ugt i32 %.3122, 63
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !86
@@ -4259,11 +4259,11 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx512(ptr noundef %0, ptr no
   %.5103129 = phi ptr [ %38, %.lr.ph131 ], [ %.2100, %32 ]
   %.5110128 = phi ptr [ %41, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
-  %38 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %40 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %37, <16 x i8> %39)
   store <16 x i8> %40, ptr %.5110128, align 1
-  %41 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %42 = add nsw i32 %.5130, -16
   %43 = icmp samesign ugt i32 %.5130, 31
   br i1 %43, label %.lr.ph131, label %.loopexit112, !llvm.loop !87
@@ -4292,63 +4292,63 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx512(ptr noundef %0, ptr no
   ]
 
 46:                                               ; preds = %.lr.ph139
-  %47 = getelementptr inbounds i8, ptr %.6111135, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6111135, i64 7
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %.6104136, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6104136, i64 7
   %50 = load i8, ptr %49, align 1
   %51 = add i8 %50, %48
   store i8 %51, ptr %47, align 1
   br label %52
 
 52:                                               ; preds = %46, %.lr.ph139
-  %53 = getelementptr inbounds i8, ptr %.6111135, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %.6111135, i64 6
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %.6104136, i64 6
+  %55 = getelementptr inbounds nuw i8, ptr %.6104136, i64 6
   %56 = load i8, ptr %55, align 1
   %57 = add i8 %56, %54
   store i8 %57, ptr %53, align 1
   br label %58
 
 58:                                               ; preds = %52, %.lr.ph139
-  %59 = getelementptr inbounds i8, ptr %.6111135, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6111135, i64 5
   %60 = load i8, ptr %59, align 1
-  %61 = getelementptr inbounds i8, ptr %.6104136, i64 5
+  %61 = getelementptr inbounds nuw i8, ptr %.6104136, i64 5
   %62 = load i8, ptr %61, align 1
   %63 = add i8 %62, %60
   store i8 %63, ptr %59, align 1
   br label %64
 
 64:                                               ; preds = %58, %.lr.ph139
-  %65 = getelementptr inbounds i8, ptr %.6111135, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.6111135, i64 4
   %66 = load i8, ptr %65, align 1
-  %67 = getelementptr inbounds i8, ptr %.6104136, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.6104136, i64 4
   %68 = load i8, ptr %67, align 1
   %69 = add i8 %68, %66
   store i8 %69, ptr %65, align 1
   br label %70
 
 70:                                               ; preds = %64, %.lr.ph139
-  %71 = getelementptr inbounds i8, ptr %.6111135, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %.6111135, i64 3
   %72 = load i8, ptr %71, align 1
-  %73 = getelementptr inbounds i8, ptr %.6104136, i64 3
+  %73 = getelementptr inbounds nuw i8, ptr %.6104136, i64 3
   %74 = load i8, ptr %73, align 1
   %75 = add i8 %74, %72
   store i8 %75, ptr %71, align 1
   br label %76
 
 76:                                               ; preds = %70, %.lr.ph139
-  %77 = getelementptr inbounds i8, ptr %.6111135, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.6111135, i64 2
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6104136, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %.6104136, i64 2
   %80 = load i8, ptr %79, align 1
   %81 = add i8 %80, %78
   store i8 %81, ptr %77, align 1
   br label %82
 
 82:                                               ; preds = %76, %.lr.ph139
-  %83 = getelementptr inbounds i8, ptr %.6111135, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.6111135, i64 1
   %84 = load i8, ptr %83, align 1
-  %85 = getelementptr inbounds i8, ptr %.6104136, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.6104136, i64 1
   %86 = load i8, ptr %85, align 1
   %87 = add i8 %86, %84
   store i8 %87, ptr %83, align 1
@@ -4361,8 +4361,8 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx512(ptr noundef %0, ptr no
   store i8 %91, ptr %.6111135, align 1
   %92 = sub nsw i32 %.6137, %45
   %93 = zext nneg i32 %45 to i64
-  %94 = getelementptr inbounds i8, ptr %.6111135, i64 %93
-  %95 = getelementptr inbounds i8, ptr %.6104136, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %.6111135, i64 %93
+  %95 = getelementptr inbounds nuw i8, ptr %.6104136, i64 %93
   %96 = icmp sgt i32 %92, 0
   br i1 %96, label %.lr.ph139, label %.loopexit, !llvm.loop !88
 
@@ -4390,11 +4390,11 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx512(ptr noundef %0, ptr n
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <64 x i8>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <64 x i8>, ptr %.1106115, align 1
   %14 = tail call <64 x i8> @llvm.uadd.sat.v64i8(<64 x i8> %11, <64 x i8> %13)
   store <64 x i8> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -64
   %17 = icmp samesign ugt i32 %.1117, 127
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !89
@@ -4428,11 +4428,11 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx512(ptr noundef %0, ptr n
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <32 x i8>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <32 x i8>, ptr %.3108120, align 1
   %27 = tail call <32 x i8> @llvm.uadd.sat.v32i8(<32 x i8> %24, <32 x i8> %26)
   store <32 x i8> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -32
   %30 = icmp samesign ugt i32 %.3122, 63
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !90
@@ -4464,11 +4464,11 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx512(ptr noundef %0, ptr n
   %.5103129 = phi ptr [ %38, %.lr.ph131 ], [ %.2100, %32 ]
   %.5110128 = phi ptr [ %41, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
-  %38 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %40 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %37, <16 x i8> %39)
   store <16 x i8> %40, ptr %.5110128, align 1
-  %41 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %42 = add nsw i32 %.5130, -16
   %43 = icmp samesign ugt i32 %.5130, 31
   br i1 %43, label %.lr.ph131, label %.loopexit112, !llvm.loop !91
@@ -4497,63 +4497,63 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx512(ptr noundef %0, ptr n
   ]
 
 46:                                               ; preds = %.lr.ph139
-  %47 = getelementptr inbounds i8, ptr %.6111135, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6111135, i64 7
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %.6104136, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6104136, i64 7
   %50 = load i8, ptr %49, align 1
   %51 = add i8 %50, %48
   store i8 %51, ptr %47, align 1
   br label %52
 
 52:                                               ; preds = %46, %.lr.ph139
-  %53 = getelementptr inbounds i8, ptr %.6111135, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %.6111135, i64 6
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %.6104136, i64 6
+  %55 = getelementptr inbounds nuw i8, ptr %.6104136, i64 6
   %56 = load i8, ptr %55, align 1
   %57 = add i8 %56, %54
   store i8 %57, ptr %53, align 1
   br label %58
 
 58:                                               ; preds = %52, %.lr.ph139
-  %59 = getelementptr inbounds i8, ptr %.6111135, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6111135, i64 5
   %60 = load i8, ptr %59, align 1
-  %61 = getelementptr inbounds i8, ptr %.6104136, i64 5
+  %61 = getelementptr inbounds nuw i8, ptr %.6104136, i64 5
   %62 = load i8, ptr %61, align 1
   %63 = add i8 %62, %60
   store i8 %63, ptr %59, align 1
   br label %64
 
 64:                                               ; preds = %58, %.lr.ph139
-  %65 = getelementptr inbounds i8, ptr %.6111135, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.6111135, i64 4
   %66 = load i8, ptr %65, align 1
-  %67 = getelementptr inbounds i8, ptr %.6104136, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.6104136, i64 4
   %68 = load i8, ptr %67, align 1
   %69 = add i8 %68, %66
   store i8 %69, ptr %65, align 1
   br label %70
 
 70:                                               ; preds = %64, %.lr.ph139
-  %71 = getelementptr inbounds i8, ptr %.6111135, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %.6111135, i64 3
   %72 = load i8, ptr %71, align 1
-  %73 = getelementptr inbounds i8, ptr %.6104136, i64 3
+  %73 = getelementptr inbounds nuw i8, ptr %.6104136, i64 3
   %74 = load i8, ptr %73, align 1
   %75 = add i8 %74, %72
   store i8 %75, ptr %71, align 1
   br label %76
 
 76:                                               ; preds = %70, %.lr.ph139
-  %77 = getelementptr inbounds i8, ptr %.6111135, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.6111135, i64 2
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6104136, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %.6104136, i64 2
   %80 = load i8, ptr %79, align 1
   %81 = add i8 %80, %78
   store i8 %81, ptr %77, align 1
   br label %82
 
 82:                                               ; preds = %76, %.lr.ph139
-  %83 = getelementptr inbounds i8, ptr %.6111135, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.6111135, i64 1
   %84 = load i8, ptr %83, align 1
-  %85 = getelementptr inbounds i8, ptr %.6104136, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.6104136, i64 1
   %86 = load i8, ptr %85, align 1
   %87 = add i8 %86, %84
   store i8 %87, ptr %83, align 1
@@ -4566,8 +4566,8 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx512(ptr noundef %0, ptr n
   store i8 %91, ptr %.6111135, align 1
   %92 = sub nsw i32 %.6137, %45
   %93 = zext nneg i32 %45 to i64
-  %94 = getelementptr inbounds i8, ptr %.6111135, i64 %93
-  %95 = getelementptr inbounds i8, ptr %.6104136, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %.6111135, i64 %93
+  %95 = getelementptr inbounds nuw i8, ptr %.6104136, i64 %93
   %96 = icmp sgt i32 %92, 0
   br i1 %96, label %.lr.ph139, label %.loopexit, !llvm.loop !92
 
@@ -4595,11 +4595,11 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx512(ptr noundef %0, ptr n
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <32 x i16>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <32 x i16>, ptr %.1106115, align 1
   %14 = tail call <32 x i16> @llvm.sadd.sat.v32i16(<32 x i16> %11, <32 x i16> %13)
   store <32 x i16> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -32
   %17 = icmp samesign ugt i32 %.1117, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !93
@@ -4633,11 +4633,11 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx512(ptr noundef %0, ptr n
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <16 x i16>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <16 x i16>, ptr %.3108120, align 1
   %27 = tail call <16 x i16> @llvm.sadd.sat.v16i16(<16 x i16> %24, <16 x i16> %26)
   store <16 x i16> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -16
   %30 = icmp samesign ugt i32 %.3122, 31
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !94
@@ -4669,13 +4669,13 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx512(ptr noundef %0, ptr n
   %.5103129 = phi ptr [ %38, %.lr.ph131 ], [ %.2100, %32 ]
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
-  %38 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %40 = bitcast <16 x i8> %37 to <8 x i16>
   %41 = bitcast <16 x i8> %39 to <8 x i16>
   %42 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %40, <8 x i16> %41)
   store <8 x i16> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -8
   %45 = icmp samesign ugt i32 %.5130, 15
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !95
@@ -4704,63 +4704,63 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 14
   %52 = load i16, ptr %51, align 2
   %53 = add i16 %52, %50
   store i16 %53, ptr %49, align 2
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 12
   %56 = load i16, ptr %55, align 2
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 12
   %58 = load i16, ptr %57, align 2
   %59 = add i16 %58, %56
   store i16 %59, ptr %55, align 2
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 10
   %62 = load i16, ptr %61, align 2
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 10
   %64 = load i16, ptr %63, align 2
   %65 = add i16 %64, %62
   store i16 %65, ptr %61, align 2
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %68 = load i16, ptr %67, align 2
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %70 = load i16, ptr %69, align 2
   %71 = add i16 %70, %68
   store i16 %71, ptr %67, align 2
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 6
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 6
   %74 = load i16, ptr %73, align 2
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 6
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 6
   %76 = load i16, ptr %75, align 2
   %77 = add i16 %76, %74
   store i16 %77, ptr %73, align 2
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 4
   %80 = load i16, ptr %79, align 2
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 4
   %82 = load i16, ptr %81, align 2
   %83 = add i16 %82, %80
   store i16 %83, ptr %79, align 2
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 2
   %86 = load i16, ptr %85, align 2
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 2
   %88 = load i16, ptr %87, align 2
   %89 = add i16 %88, %86
   store i16 %89, ptr %85, align 2
@@ -4773,8 +4773,8 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx512(ptr noundef %0, ptr n
   store i16 %93, ptr %.6111135, align 2
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i16, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i16, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i16, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i16, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !96
 
@@ -4802,11 +4802,11 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx512(ptr noundef %0, ptr 
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <32 x i16>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <32 x i16>, ptr %.1106115, align 1
   %14 = tail call <32 x i16> @llvm.uadd.sat.v32i16(<32 x i16> %11, <32 x i16> %13)
   store <32 x i16> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -32
   %17 = icmp samesign ugt i32 %.1117, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !97
@@ -4840,11 +4840,11 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx512(ptr noundef %0, ptr 
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <16 x i16>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <16 x i16>, ptr %.3108120, align 1
   %27 = tail call <16 x i16> @llvm.uadd.sat.v16i16(<16 x i16> %24, <16 x i16> %26)
   store <16 x i16> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -16
   %30 = icmp samesign ugt i32 %.3122, 31
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !98
@@ -4876,13 +4876,13 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx512(ptr noundef %0, ptr 
   %.5103129 = phi ptr [ %38, %.lr.ph131 ], [ %.2100, %32 ]
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
-  %38 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %40 = bitcast <16 x i8> %37 to <8 x i16>
   %41 = bitcast <16 x i8> %39 to <8 x i16>
   %42 = tail call <8 x i16> @llvm.uadd.sat.v8i16(<8 x i16> %40, <8 x i16> %41)
   store <8 x i16> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -8
   %45 = icmp samesign ugt i32 %.5130, 15
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !99
@@ -4911,63 +4911,63 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 14
   %52 = load i16, ptr %51, align 2
   %53 = add i16 %52, %50
   store i16 %53, ptr %49, align 2
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 12
   %56 = load i16, ptr %55, align 2
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 12
   %58 = load i16, ptr %57, align 2
   %59 = add i16 %58, %56
   store i16 %59, ptr %55, align 2
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 10
   %62 = load i16, ptr %61, align 2
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 10
   %64 = load i16, ptr %63, align 2
   %65 = add i16 %64, %62
   store i16 %65, ptr %61, align 2
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %68 = load i16, ptr %67, align 2
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %70 = load i16, ptr %69, align 2
   %71 = add i16 %70, %68
   store i16 %71, ptr %67, align 2
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 6
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 6
   %74 = load i16, ptr %73, align 2
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 6
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 6
   %76 = load i16, ptr %75, align 2
   %77 = add i16 %76, %74
   store i16 %77, ptr %73, align 2
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 4
   %80 = load i16, ptr %79, align 2
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 4
   %82 = load i16, ptr %81, align 2
   %83 = add i16 %82, %80
   store i16 %83, ptr %79, align 2
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 2
   %86 = load i16, ptr %85, align 2
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 2
   %88 = load i16, ptr %87, align 2
   %89 = add i16 %88, %86
   store i16 %89, ptr %85, align 2
@@ -4980,8 +4980,8 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx512(ptr noundef %0, ptr 
   store i16 %93, ptr %.6111135, align 2
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i16, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i16, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i16, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i16, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !100
 
@@ -5009,11 +5009,11 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx512(ptr noundef %0, ptr n
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <16 x i32>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <16 x i32>, ptr %.1106115, align 1
   %14 = add <16 x i32> %13, %11
   store <16 x i32> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -16
   %17 = icmp samesign ugt i32 %.1117, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !101
@@ -5047,11 +5047,11 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx512(ptr noundef %0, ptr n
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <8 x i32>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <8 x i32>, ptr %.3108120, align 1
   %27 = add <8 x i32> %26, %24
   store <8 x i32> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -8
   %30 = icmp samesign ugt i32 %.3122, 15
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !102
@@ -5083,13 +5083,13 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx512(ptr noundef %0, ptr n
   %.5103129 = phi ptr [ %38, %.lr.ph131 ], [ %.2100, %32 ]
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
-  %38 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %40 = bitcast <16 x i8> %37 to <4 x i32>
   %41 = bitcast <16 x i8> %39 to <4 x i32>
   %42 = add <4 x i32> %41, %40
   store <4 x i32> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -4
   %45 = icmp samesign ugt i32 %.5130, 7
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !103
@@ -5118,63 +5118,63 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = add nsw i32 %52, %50
   store i32 %53, ptr %49, align 4
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 24
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 24
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i32 %58, %56
   store i32 %59, ptr %55, align 4
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 20
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 20
   %64 = load i32, ptr %63, align 4
   %65 = add nsw i32 %64, %62
   store i32 %65, ptr %61, align 4
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 16
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 16
   %70 = load i32, ptr %69, align 4
   %71 = add nsw i32 %70, %68
   store i32 %71, ptr %67, align 4
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 12
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = add nsw i32 %76, %74
   store i32 %77, ptr %73, align 4
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %82 = load i32, ptr %81, align 4
   %83 = add nsw i32 %82, %80
   store i32 %83, ptr %79, align 4
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 4
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = add nsw i32 %88, %86
   store i32 %89, ptr %85, align 4
@@ -5187,8 +5187,8 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx512(ptr noundef %0, ptr n
   store i32 %93, ptr %.6111135, align 4
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i32, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i32, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i32, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !104
 
@@ -5216,11 +5216,11 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx512(ptr noundef %0, ptr 
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <16 x i32>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <16 x i32>, ptr %.1106115, align 1
   %14 = add <16 x i32> %13, %11
   store <16 x i32> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -16
   %17 = icmp samesign ugt i32 %.1117, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !105
@@ -5254,11 +5254,11 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx512(ptr noundef %0, ptr 
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <8 x i32>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <8 x i32>, ptr %.3108120, align 1
   %27 = add <8 x i32> %26, %24
   store <8 x i32> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -8
   %30 = icmp samesign ugt i32 %.3122, 15
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !106
@@ -5290,13 +5290,13 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx512(ptr noundef %0, ptr 
   %.5103129 = phi ptr [ %38, %.lr.ph131 ], [ %.2100, %32 ]
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
-  %38 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %40 = bitcast <16 x i8> %37 to <4 x i32>
   %41 = bitcast <16 x i8> %39 to <4 x i32>
   %42 = add <4 x i32> %41, %40
   store <4 x i32> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -4
   %45 = icmp samesign ugt i32 %.5130, 7
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !107
@@ -5325,63 +5325,63 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %52, %50
   store i32 %53, ptr %49, align 4
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 24
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 24
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, %56
   store i32 %59, ptr %55, align 4
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 20
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 20
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, %62
   store i32 %65, ptr %61, align 4
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 16
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 16
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, %68
   store i32 %71, ptr %67, align 4
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 12
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, %74
   store i32 %77, ptr %73, align 4
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %82, %80
   store i32 %83, ptr %79, align 4
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 4
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, %86
   store i32 %89, ptr %85, align 4
@@ -5394,8 +5394,8 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx512(ptr noundef %0, ptr 
   store i32 %93, ptr %.6111135, align 4
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i32, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i32, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i32, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !108
 
@@ -5423,11 +5423,11 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx512(ptr noundef %0, ptr n
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <8 x i64>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <8 x i64>, ptr %.1106115, align 1
   %14 = add <8 x i64> %13, %11
   store <8 x i64> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -8
   %17 = icmp samesign ugt i32 %.1117, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !109
@@ -5461,11 +5461,11 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx512(ptr noundef %0, ptr n
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <4 x i64>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <4 x i64>, ptr %.3108120, align 1
   %27 = add <4 x i64> %26, %24
   store <4 x i64> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -4
   %30 = icmp samesign ugt i32 %.3122, 7
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !110
@@ -5498,12 +5498,12 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx512(ptr noundef %0, ptr n
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
   %38 = bitcast <16 x i8> %37 to <2 x i64>
-  %39 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %41 = bitcast <16 x i8> %40 to <2 x i64>
   %42 = add <2 x i64> %41, %38
   store <2 x i64> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -2
   %45 = icmp samesign ugt i32 %.5130, 3
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !111
@@ -5532,63 +5532,63 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = add nsw i64 %52, %50
   store i64 %53, ptr %49, align 8
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 48
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 48
   %58 = load i64, ptr %57, align 8
   %59 = add nsw i64 %58, %56
   store i64 %59, ptr %55, align 8
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 40
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 40
   %64 = load i64, ptr %63, align 8
   %65 = add nsw i64 %64, %62
   store i64 %65, ptr %61, align 8
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 32
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 32
   %70 = load i64, ptr %69, align 8
   %71 = add nsw i64 %70, %68
   store i64 %71, ptr %67, align 8
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 24
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 24
   %76 = load i64, ptr %75, align 8
   %77 = add nsw i64 %76, %74
   store i64 %77, ptr %73, align 8
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 16
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 16
   %82 = load i64, ptr %81, align 8
   %83 = add nsw i64 %82, %80
   store i64 %83, ptr %79, align 8
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = add nsw i64 %88, %86
   store i64 %89, ptr %85, align 8
@@ -5601,8 +5601,8 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx512(ptr noundef %0, ptr n
   store i64 %93, ptr %.6111135, align 8
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i64, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i64, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i64, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !112
 
@@ -5630,11 +5630,11 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx512(ptr noundef %0, ptr 
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <8 x i64>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <8 x i64>, ptr %.1106115, align 1
   %14 = add <8 x i64> %13, %11
   store <8 x i64> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -8
   %17 = icmp samesign ugt i32 %.1117, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !113
@@ -5668,11 +5668,11 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx512(ptr noundef %0, ptr 
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <4 x i64>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <4 x i64>, ptr %.3108120, align 1
   %27 = add <4 x i64> %26, %24
   store <4 x i64> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -4
   %30 = icmp samesign ugt i32 %.3122, 7
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !114
@@ -5705,12 +5705,12 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx512(ptr noundef %0, ptr 
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
   %38 = bitcast <16 x i8> %37 to <2 x i64>
-  %39 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %41 = bitcast <16 x i8> %40 to <2 x i64>
   %42 = add <2 x i64> %41, %38
   store <2 x i64> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -2
   %45 = icmp samesign ugt i32 %.5130, 3
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !115
@@ -5739,63 +5739,63 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, %50
   store i64 %53, ptr %49, align 8
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 48
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 48
   %58 = load i64, ptr %57, align 8
   %59 = add i64 %58, %56
   store i64 %59, ptr %55, align 8
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 40
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 40
   %64 = load i64, ptr %63, align 8
   %65 = add i64 %64, %62
   store i64 %65, ptr %61, align 8
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 32
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 32
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, %68
   store i64 %71, ptr %67, align 8
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 24
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 24
   %76 = load i64, ptr %75, align 8
   %77 = add i64 %76, %74
   store i64 %77, ptr %73, align 8
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 16
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 16
   %82 = load i64, ptr %81, align 8
   %83 = add i64 %82, %80
   store i64 %83, ptr %79, align 8
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, %86
   store i64 %89, ptr %85, align 8
@@ -5808,8 +5808,8 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx512(ptr noundef %0, ptr 
   store i64 %93, ptr %.6111135, align 8
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i64, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i64, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i64, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !116
 
@@ -5838,10 +5838,10 @@ define internal void @ompi_op_avx_2buff_add_float_avx512(ptr nocapture noundef r
   %.1106117 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader116 ]
   %10 = load <16 x float>, ptr %.199118, align 1
   %11 = load <16 x float>, ptr %.1106117, align 1
-  %12 = getelementptr inbounds i8, ptr %.199118, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199118, i64 64
   %13 = fadd <16 x float> %10, %11
   store <16 x float> %13, ptr %.1106117, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106117, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106117, i64 64
   %15 = add nsw i32 %.1119, -16
   %16 = icmp samesign ugt i32 %.1119, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !117
@@ -5875,11 +5875,11 @@ define internal void @ompi_op_avx_2buff_add_float_avx512(ptr nocapture noundef r
   %.3101123 = phi ptr [ %23, %.lr.ph125 ], [ %.098, %.preheader115 ]
   %.3108122 = phi ptr [ %26, %.lr.ph125 ], [ %.0105, %.preheader115 ]
   %22 = load <8 x float>, ptr %.3101123, align 1
-  %23 = getelementptr inbounds i8, ptr %.3101123, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.3101123, i64 32
   %24 = load <8 x float>, ptr %.3108122, align 1
   %25 = fadd <8 x float> %22, %24
   store <8 x float> %25, ptr %.3108122, align 1
-  %26 = getelementptr inbounds i8, ptr %.3108122, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3108122, i64 32
   %27 = add nsw i32 %.3124, -8
   %28 = icmp samesign ugt i32 %.3124, 15
   br i1 %28, label %.lr.ph125, label %._crit_edge126, !llvm.loop !118
@@ -5911,11 +5911,11 @@ define internal void @ompi_op_avx_2buff_add_float_avx512(ptr nocapture noundef r
   %.5103131 = phi ptr [ %35, %.lr.ph133 ], [ %.2100, %30 ]
   %.5110130 = phi ptr [ %38, %.lr.ph133 ], [ %.2107, %30 ]
   %34 = load <4 x float>, ptr %.5103131, align 1
-  %35 = getelementptr inbounds i8, ptr %.5103131, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.5103131, i64 16
   %36 = load <4 x float>, ptr %.5110130, align 1
   %37 = fadd <4 x float> %34, %36
   store <4 x float> %37, ptr %.5110130, align 1
-  %38 = getelementptr inbounds i8, ptr %.5110130, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5110130, i64 16
   %39 = add nsw i32 %.5132, -4
   %40 = icmp samesign ugt i32 %.5132, 7
   br i1 %40, label %.lr.ph133, label %.loopexit114, !llvm.loop !119
@@ -5944,63 +5944,63 @@ define internal void @ompi_op_avx_2buff_add_float_avx512(ptr nocapture noundef r
   ]
 
 43:                                               ; preds = %.lr.ph141
-  %44 = getelementptr inbounds i8, ptr %.6111137, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %.6111137, i64 28
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %.6104138, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %.6104138, i64 28
   %47 = load float, ptr %46, align 4
   %48 = fadd float %45, %47
   store float %48, ptr %44, align 4
   br label %49
 
 49:                                               ; preds = %43, %.lr.ph141
-  %50 = getelementptr inbounds i8, ptr %.6111137, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.6111137, i64 24
   %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %.6104138, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.6104138, i64 24
   %53 = load float, ptr %52, align 4
   %54 = fadd float %51, %53
   store float %54, ptr %50, align 4
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph141
-  %56 = getelementptr inbounds i8, ptr %.6111137, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %.6111137, i64 20
   %57 = load float, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.6104138, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %.6104138, i64 20
   %59 = load float, ptr %58, align 4
   %60 = fadd float %57, %59
   store float %60, ptr %56, align 4
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph141
-  %62 = getelementptr inbounds i8, ptr %.6111137, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.6111137, i64 16
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.6104138, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.6104138, i64 16
   %65 = load float, ptr %64, align 4
   %66 = fadd float %63, %65
   store float %66, ptr %62, align 4
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph141
-  %68 = getelementptr inbounds i8, ptr %.6111137, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %.6111137, i64 12
   %69 = load float, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %.6104138, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %.6104138, i64 12
   %71 = load float, ptr %70, align 4
   %72 = fadd float %69, %71
   store float %72, ptr %68, align 4
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph141
-  %74 = getelementptr inbounds i8, ptr %.6111137, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6111137, i64 8
   %75 = load float, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %.6104138, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.6104138, i64 8
   %77 = load float, ptr %76, align 4
   %78 = fadd float %75, %77
   store float %78, ptr %74, align 4
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph141
-  %80 = getelementptr inbounds i8, ptr %.6111137, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.6111137, i64 4
   %81 = load float, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %.6104138, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.6104138, i64 4
   %83 = load float, ptr %82, align 4
   %84 = fadd float %81, %83
   store float %84, ptr %80, align 4
@@ -6013,8 +6013,8 @@ define internal void @ompi_op_avx_2buff_add_float_avx512(ptr nocapture noundef r
   store float %88, ptr %.6111137, align 4
   %89 = sub nsw i32 %.6139, %42
   %90 = zext nneg i32 %42 to i64
-  %91 = getelementptr inbounds float, ptr %.6111137, i64 %90
-  %92 = getelementptr inbounds float, ptr %.6104138, i64 %90
+  %91 = getelementptr inbounds nuw float, ptr %.6111137, i64 %90
+  %92 = getelementptr inbounds nuw float, ptr %.6104138, i64 %90
   %93 = icmp sgt i32 %89, 0
   br i1 %93, label %.lr.ph141, label %.loopexit, !llvm.loop !120
 
@@ -6042,11 +6042,11 @@ define internal void @ompi_op_avx_2buff_add_double_avx512(ptr nocapture noundef 
   %.199118 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader116 ]
   %.1106117 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader116 ]
   %10 = load <8 x double>, ptr %.199118, align 1
-  %11 = getelementptr inbounds i8, ptr %.199118, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199118, i64 64
   %12 = load <8 x double>, ptr %.1106117, align 1
   %13 = fadd <8 x double> %10, %12
   store <8 x double> %13, ptr %.1106117, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106117, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106117, i64 64
   %15 = add nsw i32 %.1119, -8
   %16 = icmp samesign ugt i32 %.1119, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !121
@@ -6080,11 +6080,11 @@ define internal void @ompi_op_avx_2buff_add_double_avx512(ptr nocapture noundef 
   %.3101123 = phi ptr [ %23, %.lr.ph125 ], [ %.098, %.preheader115 ]
   %.3108122 = phi ptr [ %26, %.lr.ph125 ], [ %.0105, %.preheader115 ]
   %22 = load <4 x double>, ptr %.3101123, align 1
-  %23 = getelementptr inbounds i8, ptr %.3101123, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.3101123, i64 32
   %24 = load <4 x double>, ptr %.3108122, align 1
   %25 = fadd <4 x double> %22, %24
   store <4 x double> %25, ptr %.3108122, align 1
-  %26 = getelementptr inbounds i8, ptr %.3108122, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3108122, i64 32
   %27 = add nsw i32 %.3124, -4
   %28 = icmp samesign ugt i32 %.3124, 7
   br i1 %28, label %.lr.ph125, label %._crit_edge126, !llvm.loop !122
@@ -6116,11 +6116,11 @@ define internal void @ompi_op_avx_2buff_add_double_avx512(ptr nocapture noundef 
   %.5103131 = phi ptr [ %35, %.lr.ph133 ], [ %.2100, %30 ]
   %.5110130 = phi ptr [ %38, %.lr.ph133 ], [ %.2107, %30 ]
   %34 = load <2 x double>, ptr %.5103131, align 1
-  %35 = getelementptr inbounds i8, ptr %.5103131, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.5103131, i64 16
   %36 = load <2 x double>, ptr %.5110130, align 1
   %37 = fadd <2 x double> %34, %36
   store <2 x double> %37, ptr %.5110130, align 1
-  %38 = getelementptr inbounds i8, ptr %.5110130, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5110130, i64 16
   %39 = add nsw i32 %.5132, -2
   %40 = icmp samesign ugt i32 %.5132, 3
   br i1 %40, label %.lr.ph133, label %.loopexit114, !llvm.loop !123
@@ -6149,63 +6149,63 @@ define internal void @ompi_op_avx_2buff_add_double_avx512(ptr nocapture noundef 
   ]
 
 43:                                               ; preds = %.lr.ph141
-  %44 = getelementptr inbounds i8, ptr %.6111137, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %.6111137, i64 56
   %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.6104138, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %.6104138, i64 56
   %47 = load double, ptr %46, align 8
   %48 = fadd double %45, %47
   store double %48, ptr %44, align 8
   br label %49
 
 49:                                               ; preds = %43, %.lr.ph141
-  %50 = getelementptr inbounds i8, ptr %.6111137, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.6111137, i64 48
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.6104138, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %.6104138, i64 48
   %53 = load double, ptr %52, align 8
   %54 = fadd double %51, %53
   store double %54, ptr %50, align 8
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph141
-  %56 = getelementptr inbounds i8, ptr %.6111137, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %.6111137, i64 40
   %57 = load double, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %.6104138, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %.6104138, i64 40
   %59 = load double, ptr %58, align 8
   %60 = fadd double %57, %59
   store double %60, ptr %56, align 8
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph141
-  %62 = getelementptr inbounds i8, ptr %.6111137, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.6111137, i64 32
   %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.6104138, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.6104138, i64 32
   %65 = load double, ptr %64, align 8
   %66 = fadd double %63, %65
   store double %66, ptr %62, align 8
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph141
-  %68 = getelementptr inbounds i8, ptr %.6111137, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %.6111137, i64 24
   %69 = load double, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %.6104138, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.6104138, i64 24
   %71 = load double, ptr %70, align 8
   %72 = fadd double %69, %71
   store double %72, ptr %68, align 8
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph141
-  %74 = getelementptr inbounds i8, ptr %.6111137, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6111137, i64 16
   %75 = load double, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.6104138, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.6104138, i64 16
   %77 = load double, ptr %76, align 8
   %78 = fadd double %75, %77
   store double %78, ptr %74, align 8
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph141
-  %80 = getelementptr inbounds i8, ptr %.6111137, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.6111137, i64 8
   %81 = load double, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.6104138, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.6104138, i64 8
   %83 = load double, ptr %82, align 8
   %84 = fadd double %81, %83
   store double %84, ptr %80, align 8
@@ -6218,8 +6218,8 @@ define internal void @ompi_op_avx_2buff_add_double_avx512(ptr nocapture noundef 
   store double %88, ptr %.6111137, align 8
   %89 = sub nsw i32 %.6139, %42
   %90 = zext nneg i32 %42 to i64
-  %91 = getelementptr inbounds double, ptr %.6111137, i64 %90
-  %92 = getelementptr inbounds double, ptr %.6104138, i64 %90
+  %91 = getelementptr inbounds nuw double, ptr %.6111137, i64 %90
+  %92 = getelementptr inbounds nuw double, ptr %.6104138, i64 %90
   %93 = icmp sgt i32 %89, 0
   br i1 %93, label %.lr.ph141, label %.loopexit, !llvm.loop !124
 
@@ -6248,10 +6248,10 @@ define internal void @ompi_op_avx_2buff_prod_int8_t_avx512(ptr nocapture noundef
   %.16769 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader ]
   %11 = load <32 x i8>, ptr %.16470, align 1
   %12 = load <32 x i8>, ptr %.16769, align 1
-  %13 = getelementptr inbounds i8, ptr %.16470, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.16470, i64 32
   %14 = mul <32 x i8> %12, %11
   store <32 x i8> %14, ptr %.16769, align 1
-  %15 = getelementptr inbounds i8, ptr %.16769, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.16769, i64 32
   %16 = add nsw i32 %.171, -32
   %17 = icmp samesign ugt i32 %.171, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !125
@@ -6287,63 +6287,63 @@ define internal void @ompi_op_avx_2buff_prod_int8_t_avx512(ptr nocapture noundef
   ]
 
 22:                                               ; preds = %.lr.ph78
-  %23 = getelementptr inbounds i8, ptr %.26874, i64 7
+  %23 = getelementptr inbounds nuw i8, ptr %.26874, i64 7
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %.26575, i64 7
+  %25 = getelementptr inbounds nuw i8, ptr %.26575, i64 7
   %26 = load i8, ptr %25, align 1
   %27 = mul i8 %26, %24
   store i8 %27, ptr %23, align 1
   br label %28
 
 28:                                               ; preds = %22, %.lr.ph78
-  %29 = getelementptr inbounds i8, ptr %.26874, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %.26874, i64 6
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %.26575, i64 6
+  %31 = getelementptr inbounds nuw i8, ptr %.26575, i64 6
   %32 = load i8, ptr %31, align 1
   %33 = mul i8 %32, %30
   store i8 %33, ptr %29, align 1
   br label %34
 
 34:                                               ; preds = %28, %.lr.ph78
-  %35 = getelementptr inbounds i8, ptr %.26874, i64 5
+  %35 = getelementptr inbounds nuw i8, ptr %.26874, i64 5
   %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %.26575, i64 5
+  %37 = getelementptr inbounds nuw i8, ptr %.26575, i64 5
   %38 = load i8, ptr %37, align 1
   %39 = mul i8 %38, %36
   store i8 %39, ptr %35, align 1
   br label %40
 
 40:                                               ; preds = %34, %.lr.ph78
-  %41 = getelementptr inbounds i8, ptr %.26874, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.26874, i64 4
   %42 = load i8, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %.26575, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.26575, i64 4
   %44 = load i8, ptr %43, align 1
   %45 = mul i8 %44, %42
   store i8 %45, ptr %41, align 1
   br label %46
 
 46:                                               ; preds = %40, %.lr.ph78
-  %47 = getelementptr inbounds i8, ptr %.26874, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %.26874, i64 3
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %.26575, i64 3
+  %49 = getelementptr inbounds nuw i8, ptr %.26575, i64 3
   %50 = load i8, ptr %49, align 1
   %51 = mul i8 %50, %48
   store i8 %51, ptr %47, align 1
   br label %52
 
 52:                                               ; preds = %46, %.lr.ph78
-  %53 = getelementptr inbounds i8, ptr %.26874, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %.26874, i64 2
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %.26575, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %.26575, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = mul i8 %56, %54
   store i8 %57, ptr %53, align 1
   br label %58
 
 58:                                               ; preds = %52, %.lr.ph78
-  %59 = getelementptr inbounds i8, ptr %.26874, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.26874, i64 1
   %60 = load i8, ptr %59, align 1
-  %61 = getelementptr inbounds i8, ptr %.26575, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.26575, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = mul i8 %62, %60
   store i8 %63, ptr %59, align 1
@@ -6356,8 +6356,8 @@ define internal void @ompi_op_avx_2buff_prod_int8_t_avx512(ptr nocapture noundef
   store i8 %67, ptr %.26874, align 1
   %68 = sub nsw i32 %.276, %21
   %69 = zext nneg i32 %21 to i64
-  %70 = getelementptr inbounds i8, ptr %.26874, i64 %69
-  %71 = getelementptr inbounds i8, ptr %.26575, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %.26874, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %.26575, i64 %69
   %72 = icmp sgt i32 %68, 0
   br i1 %72, label %.lr.ph78, label %.loopexit, !llvm.loop !126
 
@@ -6386,10 +6386,10 @@ define internal void @ompi_op_avx_2buff_prod_uint8_t_avx512(ptr nocapture nounde
   %.16769 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader ]
   %11 = load <32 x i8>, ptr %.16470, align 1
   %12 = load <32 x i8>, ptr %.16769, align 1
-  %13 = getelementptr inbounds i8, ptr %.16470, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.16470, i64 32
   %14 = mul <32 x i8> %12, %11
   store <32 x i8> %14, ptr %.16769, align 1
-  %15 = getelementptr inbounds i8, ptr %.16769, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.16769, i64 32
   %16 = add nsw i32 %.171, -32
   %17 = icmp samesign ugt i32 %.171, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !127
@@ -6425,63 +6425,63 @@ define internal void @ompi_op_avx_2buff_prod_uint8_t_avx512(ptr nocapture nounde
   ]
 
 22:                                               ; preds = %.lr.ph78
-  %23 = getelementptr inbounds i8, ptr %.26874, i64 7
+  %23 = getelementptr inbounds nuw i8, ptr %.26874, i64 7
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %.26575, i64 7
+  %25 = getelementptr inbounds nuw i8, ptr %.26575, i64 7
   %26 = load i8, ptr %25, align 1
   %27 = mul i8 %26, %24
   store i8 %27, ptr %23, align 1
   br label %28
 
 28:                                               ; preds = %22, %.lr.ph78
-  %29 = getelementptr inbounds i8, ptr %.26874, i64 6
+  %29 = getelementptr inbounds nuw i8, ptr %.26874, i64 6
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %.26575, i64 6
+  %31 = getelementptr inbounds nuw i8, ptr %.26575, i64 6
   %32 = load i8, ptr %31, align 1
   %33 = mul i8 %32, %30
   store i8 %33, ptr %29, align 1
   br label %34
 
 34:                                               ; preds = %28, %.lr.ph78
-  %35 = getelementptr inbounds i8, ptr %.26874, i64 5
+  %35 = getelementptr inbounds nuw i8, ptr %.26874, i64 5
   %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %.26575, i64 5
+  %37 = getelementptr inbounds nuw i8, ptr %.26575, i64 5
   %38 = load i8, ptr %37, align 1
   %39 = mul i8 %38, %36
   store i8 %39, ptr %35, align 1
   br label %40
 
 40:                                               ; preds = %34, %.lr.ph78
-  %41 = getelementptr inbounds i8, ptr %.26874, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.26874, i64 4
   %42 = load i8, ptr %41, align 1
-  %43 = getelementptr inbounds i8, ptr %.26575, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.26575, i64 4
   %44 = load i8, ptr %43, align 1
   %45 = mul i8 %44, %42
   store i8 %45, ptr %41, align 1
   br label %46
 
 46:                                               ; preds = %40, %.lr.ph78
-  %47 = getelementptr inbounds i8, ptr %.26874, i64 3
+  %47 = getelementptr inbounds nuw i8, ptr %.26874, i64 3
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds i8, ptr %.26575, i64 3
+  %49 = getelementptr inbounds nuw i8, ptr %.26575, i64 3
   %50 = load i8, ptr %49, align 1
   %51 = mul i8 %50, %48
   store i8 %51, ptr %47, align 1
   br label %52
 
 52:                                               ; preds = %46, %.lr.ph78
-  %53 = getelementptr inbounds i8, ptr %.26874, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %.26874, i64 2
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %.26575, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %.26575, i64 2
   %56 = load i8, ptr %55, align 1
   %57 = mul i8 %56, %54
   store i8 %57, ptr %53, align 1
   br label %58
 
 58:                                               ; preds = %52, %.lr.ph78
-  %59 = getelementptr inbounds i8, ptr %.26874, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.26874, i64 1
   %60 = load i8, ptr %59, align 1
-  %61 = getelementptr inbounds i8, ptr %.26575, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.26575, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = mul i8 %62, %60
   store i8 %63, ptr %59, align 1
@@ -6494,8 +6494,8 @@ define internal void @ompi_op_avx_2buff_prod_uint8_t_avx512(ptr nocapture nounde
   store i8 %67, ptr %.26874, align 1
   %68 = sub nsw i32 %.276, %21
   %69 = zext nneg i32 %21 to i64
-  %70 = getelementptr inbounds i8, ptr %.26874, i64 %69
-  %71 = getelementptr inbounds i8, ptr %.26575, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %.26874, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %.26575, i64 %69
   %72 = icmp sgt i32 %68, 0
   br i1 %72, label %.lr.ph78, label %.loopexit, !llvm.loop !128
 
@@ -6523,11 +6523,11 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx512(ptr noundef %0, ptr 
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <32 x i16>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <32 x i16>, ptr %.1106115, align 1
   %14 = mul <32 x i16> %13, %11
   store <32 x i16> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -32
   %17 = icmp samesign ugt i32 %.1117, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !129
@@ -6561,11 +6561,11 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx512(ptr noundef %0, ptr 
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <16 x i16>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <16 x i16>, ptr %.3108120, align 1
   %27 = mul <16 x i16> %26, %24
   store <16 x i16> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -16
   %30 = icmp samesign ugt i32 %.3122, 31
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !130
@@ -6597,13 +6597,13 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx512(ptr noundef %0, ptr 
   %.5103129 = phi ptr [ %38, %.lr.ph131 ], [ %.2100, %32 ]
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
-  %38 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %40 = bitcast <16 x i8> %37 to <8 x i16>
   %41 = bitcast <16 x i8> %39 to <8 x i16>
   %42 = mul <8 x i16> %41, %40
   store <8 x i16> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -8
   %45 = icmp samesign ugt i32 %.5130, 15
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !131
@@ -6632,63 +6632,63 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 14
   %52 = load i16, ptr %51, align 2
   %53 = mul i16 %52, %50
   store i16 %53, ptr %49, align 2
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 12
   %56 = load i16, ptr %55, align 2
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 12
   %58 = load i16, ptr %57, align 2
   %59 = mul i16 %58, %56
   store i16 %59, ptr %55, align 2
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 10
   %62 = load i16, ptr %61, align 2
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 10
   %64 = load i16, ptr %63, align 2
   %65 = mul i16 %64, %62
   store i16 %65, ptr %61, align 2
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %68 = load i16, ptr %67, align 2
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %70 = load i16, ptr %69, align 2
   %71 = mul i16 %70, %68
   store i16 %71, ptr %67, align 2
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 6
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 6
   %74 = load i16, ptr %73, align 2
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 6
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 6
   %76 = load i16, ptr %75, align 2
   %77 = mul i16 %76, %74
   store i16 %77, ptr %73, align 2
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 4
   %80 = load i16, ptr %79, align 2
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 4
   %82 = load i16, ptr %81, align 2
   %83 = mul i16 %82, %80
   store i16 %83, ptr %79, align 2
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 2
   %86 = load i16, ptr %85, align 2
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 2
   %88 = load i16, ptr %87, align 2
   %89 = mul i16 %88, %86
   store i16 %89, ptr %85, align 2
@@ -6701,8 +6701,8 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx512(ptr noundef %0, ptr 
   store i16 %93, ptr %.6111135, align 2
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i16, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i16, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i16, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i16, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !132
 
@@ -6730,11 +6730,11 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx512(ptr noundef %0, ptr
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <32 x i16>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <32 x i16>, ptr %.1106115, align 1
   %14 = mul <32 x i16> %13, %11
   store <32 x i16> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -32
   %17 = icmp samesign ugt i32 %.1117, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !133
@@ -6768,11 +6768,11 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx512(ptr noundef %0, ptr
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <16 x i16>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <16 x i16>, ptr %.3108120, align 1
   %27 = mul <16 x i16> %26, %24
   store <16 x i16> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -16
   %30 = icmp samesign ugt i32 %.3122, 31
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !134
@@ -6804,13 +6804,13 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx512(ptr noundef %0, ptr
   %.5103129 = phi ptr [ %38, %.lr.ph131 ], [ %.2100, %32 ]
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
-  %38 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %40 = bitcast <16 x i8> %37 to <8 x i16>
   %41 = bitcast <16 x i8> %39 to <8 x i16>
   %42 = mul <8 x i16> %41, %40
   store <8 x i16> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -8
   %45 = icmp samesign ugt i32 %.5130, 15
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !135
@@ -6839,63 +6839,63 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx512(ptr noundef %0, ptr
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 14
   %52 = load i16, ptr %51, align 2
   %53 = mul i16 %52, %50
   store i16 %53, ptr %49, align 2
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 12
   %56 = load i16, ptr %55, align 2
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 12
   %58 = load i16, ptr %57, align 2
   %59 = mul i16 %58, %56
   store i16 %59, ptr %55, align 2
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 10
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 10
   %62 = load i16, ptr %61, align 2
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 10
   %64 = load i16, ptr %63, align 2
   %65 = mul i16 %64, %62
   store i16 %65, ptr %61, align 2
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %68 = load i16, ptr %67, align 2
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %70 = load i16, ptr %69, align 2
   %71 = mul i16 %70, %68
   store i16 %71, ptr %67, align 2
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 6
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 6
   %74 = load i16, ptr %73, align 2
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 6
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 6
   %76 = load i16, ptr %75, align 2
   %77 = mul i16 %76, %74
   store i16 %77, ptr %73, align 2
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 4
   %80 = load i16, ptr %79, align 2
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 4
   %82 = load i16, ptr %81, align 2
   %83 = mul i16 %82, %80
   store i16 %83, ptr %79, align 2
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 2
   %86 = load i16, ptr %85, align 2
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 2
   %88 = load i16, ptr %87, align 2
   %89 = mul i16 %88, %86
   store i16 %89, ptr %85, align 2
@@ -6908,8 +6908,8 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx512(ptr noundef %0, ptr
   store i16 %93, ptr %.6111135, align 2
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i16, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i16, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i16, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i16, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !136
 
@@ -6937,11 +6937,11 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx512(ptr noundef %0, ptr 
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <16 x i32>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <16 x i32>, ptr %.1106115, align 1
   %14 = mul <16 x i32> %13, %11
   store <16 x i32> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -16
   %17 = icmp samesign ugt i32 %.1117, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !137
@@ -6975,11 +6975,11 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx512(ptr noundef %0, ptr 
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <8 x i32>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <8 x i32>, ptr %.3108120, align 1
   %27 = mul <8 x i32> %26, %24
   store <8 x i32> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -8
   %30 = icmp samesign ugt i32 %.3122, 15
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !138
@@ -7011,13 +7011,13 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx512(ptr noundef %0, ptr 
   %.5103129 = phi ptr [ %38, %.lr.ph131 ], [ %.2100, %32 ]
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
-  %38 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %40 = bitcast <16 x i8> %37 to <4 x i32>
   %41 = bitcast <16 x i8> %39 to <4 x i32>
   %42 = mul <4 x i32> %41, %40
   store <4 x i32> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -4
   %45 = icmp samesign ugt i32 %.5130, 7
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !139
@@ -7046,63 +7046,63 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = mul nsw i32 %52, %50
   store i32 %53, ptr %49, align 4
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 24
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 24
   %58 = load i32, ptr %57, align 4
   %59 = mul nsw i32 %58, %56
   store i32 %59, ptr %55, align 4
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 20
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 20
   %64 = load i32, ptr %63, align 4
   %65 = mul nsw i32 %64, %62
   store i32 %65, ptr %61, align 4
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 16
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 16
   %70 = load i32, ptr %69, align 4
   %71 = mul nsw i32 %70, %68
   store i32 %71, ptr %67, align 4
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 12
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = mul nsw i32 %76, %74
   store i32 %77, ptr %73, align 4
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %82 = load i32, ptr %81, align 4
   %83 = mul nsw i32 %82, %80
   store i32 %83, ptr %79, align 4
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 4
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = mul nsw i32 %88, %86
   store i32 %89, ptr %85, align 4
@@ -7115,8 +7115,8 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx512(ptr noundef %0, ptr 
   store i32 %93, ptr %.6111135, align 4
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i32, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i32, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i32, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !140
 
@@ -7144,11 +7144,11 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx512(ptr noundef %0, ptr
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <16 x i32>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <16 x i32>, ptr %.1106115, align 1
   %14 = mul <16 x i32> %13, %11
   store <16 x i32> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -16
   %17 = icmp samesign ugt i32 %.1117, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !141
@@ -7182,11 +7182,11 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx512(ptr noundef %0, ptr
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <8 x i32>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <8 x i32>, ptr %.3108120, align 1
   %27 = mul <8 x i32> %26, %24
   store <8 x i32> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -8
   %30 = icmp samesign ugt i32 %.3122, 15
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !142
@@ -7218,13 +7218,13 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx512(ptr noundef %0, ptr
   %.5103129 = phi ptr [ %38, %.lr.ph131 ], [ %.2100, %32 ]
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
-  %38 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %40 = bitcast <16 x i8> %37 to <4 x i32>
   %41 = bitcast <16 x i8> %39 to <4 x i32>
   %42 = mul <4 x i32> %41, %40
   store <4 x i32> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -4
   %45 = icmp samesign ugt i32 %.5130, 7
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !143
@@ -7253,63 +7253,63 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx512(ptr noundef %0, ptr
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = mul i32 %52, %50
   store i32 %53, ptr %49, align 4
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 24
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 24
   %58 = load i32, ptr %57, align 4
   %59 = mul i32 %58, %56
   store i32 %59, ptr %55, align 4
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 20
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 20
   %64 = load i32, ptr %63, align 4
   %65 = mul i32 %64, %62
   store i32 %65, ptr %61, align 4
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 16
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 16
   %70 = load i32, ptr %69, align 4
   %71 = mul i32 %70, %68
   store i32 %71, ptr %67, align 4
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 12
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = mul i32 %76, %74
   store i32 %77, ptr %73, align 4
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %82 = load i32, ptr %81, align 4
   %83 = mul i32 %82, %80
   store i32 %83, ptr %79, align 4
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 4
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = mul i32 %88, %86
   store i32 %89, ptr %85, align 4
@@ -7322,8 +7322,8 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx512(ptr noundef %0, ptr
   store i32 %93, ptr %.6111135, align 4
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i32, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i32, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i32, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !144
 
@@ -7351,11 +7351,11 @@ define internal void @ompi_op_avx_2buff_prod_int64_t_avx512(ptr noundef %0, ptr 
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <8 x i64>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <8 x i64>, ptr %.1106115, align 1
   %14 = mul <8 x i64> %13, %11
   store <8 x i64> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -8
   %17 = icmp samesign ugt i32 %.1117, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !145
@@ -7389,11 +7389,11 @@ define internal void @ompi_op_avx_2buff_prod_int64_t_avx512(ptr noundef %0, ptr 
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <4 x i64>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <4 x i64>, ptr %.3108120, align 1
   %27 = mul <4 x i64> %26, %24
   store <4 x i64> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -4
   %30 = icmp samesign ugt i32 %.3122, 7
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !146
@@ -7426,12 +7426,12 @@ define internal void @ompi_op_avx_2buff_prod_int64_t_avx512(ptr noundef %0, ptr 
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
   %38 = bitcast <16 x i8> %37 to <2 x i64>
-  %39 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %41 = bitcast <16 x i8> %40 to <2 x i64>
   %42 = mul <2 x i64> %41, %38
   store <2 x i64> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -2
   %45 = icmp samesign ugt i32 %.5130, 3
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !147
@@ -7460,63 +7460,63 @@ define internal void @ompi_op_avx_2buff_prod_int64_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = mul nsw i64 %52, %50
   store i64 %53, ptr %49, align 8
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 48
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 48
   %58 = load i64, ptr %57, align 8
   %59 = mul nsw i64 %58, %56
   store i64 %59, ptr %55, align 8
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 40
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 40
   %64 = load i64, ptr %63, align 8
   %65 = mul nsw i64 %64, %62
   store i64 %65, ptr %61, align 8
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 32
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 32
   %70 = load i64, ptr %69, align 8
   %71 = mul nsw i64 %70, %68
   store i64 %71, ptr %67, align 8
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 24
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 24
   %76 = load i64, ptr %75, align 8
   %77 = mul nsw i64 %76, %74
   store i64 %77, ptr %73, align 8
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 16
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 16
   %82 = load i64, ptr %81, align 8
   %83 = mul nsw i64 %82, %80
   store i64 %83, ptr %79, align 8
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = mul nsw i64 %88, %86
   store i64 %89, ptr %85, align 8
@@ -7529,8 +7529,8 @@ define internal void @ompi_op_avx_2buff_prod_int64_t_avx512(ptr noundef %0, ptr 
   store i64 %93, ptr %.6111135, align 8
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i64, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i64, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i64, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !148
 
@@ -7558,11 +7558,11 @@ define internal void @ompi_op_avx_2buff_prod_uint64_t_avx512(ptr noundef %0, ptr
   %.199116 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader114 ]
   %.1106115 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader114 ]
   %11 = load <8 x i64>, ptr %.199116, align 1
-  %12 = getelementptr inbounds i8, ptr %.199116, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199116, i64 64
   %13 = load <8 x i64>, ptr %.1106115, align 1
   %14 = mul <8 x i64> %13, %11
   store <8 x i64> %14, ptr %.1106115, align 1
-  %15 = getelementptr inbounds i8, ptr %.1106115, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1106115, i64 64
   %16 = add nsw i32 %.1117, -8
   %17 = icmp samesign ugt i32 %.1117, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !149
@@ -7596,11 +7596,11 @@ define internal void @ompi_op_avx_2buff_prod_uint64_t_avx512(ptr noundef %0, ptr
   %.3101121 = phi ptr [ %25, %.lr.ph123 ], [ %.098, %.preheader113 ]
   %.3108120 = phi ptr [ %28, %.lr.ph123 ], [ %.0105, %.preheader113 ]
   %24 = load <4 x i64>, ptr %.3101121, align 1
-  %25 = getelementptr inbounds i8, ptr %.3101121, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.3101121, i64 32
   %26 = load <4 x i64>, ptr %.3108120, align 1
   %27 = mul <4 x i64> %26, %24
   store <4 x i64> %27, ptr %.3108120, align 1
-  %28 = getelementptr inbounds i8, ptr %.3108120, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3108120, i64 32
   %29 = add nsw i32 %.3122, -4
   %30 = icmp samesign ugt i32 %.3122, 7
   br i1 %30, label %.lr.ph123, label %._crit_edge124, !llvm.loop !150
@@ -7633,12 +7633,12 @@ define internal void @ompi_op_avx_2buff_prod_uint64_t_avx512(ptr noundef %0, ptr
   %.5110128 = phi ptr [ %43, %.lr.ph131 ], [ %.2107, %32 ]
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103129)
   %38 = bitcast <16 x i8> %37 to <2 x i64>
-  %39 = getelementptr inbounds i8, ptr %.5103129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5103129, i64 16
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110128)
   %41 = bitcast <16 x i8> %40 to <2 x i64>
   %42 = mul <2 x i64> %41, %38
   store <2 x i64> %42, ptr %.5110128, align 1
-  %43 = getelementptr inbounds i8, ptr %.5110128, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5110128, i64 16
   %44 = add nsw i32 %.5130, -2
   %45 = icmp samesign ugt i32 %.5130, 3
   br i1 %45, label %.lr.ph131, label %.loopexit112, !llvm.loop !151
@@ -7667,63 +7667,63 @@ define internal void @ompi_op_avx_2buff_prod_uint64_t_avx512(ptr noundef %0, ptr
   ]
 
 48:                                               ; preds = %.lr.ph139
-  %49 = getelementptr inbounds i8, ptr %.6111135, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6111135, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6104136, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6104136, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = mul i64 %52, %50
   store i64 %53, ptr %49, align 8
   br label %54
 
 54:                                               ; preds = %48, %.lr.ph139
-  %55 = getelementptr inbounds i8, ptr %.6111135, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.6111135, i64 48
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.6104136, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.6104136, i64 48
   %58 = load i64, ptr %57, align 8
   %59 = mul i64 %58, %56
   store i64 %59, ptr %55, align 8
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph139
-  %61 = getelementptr inbounds i8, ptr %.6111135, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %.6111135, i64 40
   %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %.6104136, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.6104136, i64 40
   %64 = load i64, ptr %63, align 8
   %65 = mul i64 %64, %62
   store i64 %65, ptr %61, align 8
   br label %66
 
 66:                                               ; preds = %60, %.lr.ph139
-  %67 = getelementptr inbounds i8, ptr %.6111135, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %.6111135, i64 32
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.6104136, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.6104136, i64 32
   %70 = load i64, ptr %69, align 8
   %71 = mul i64 %70, %68
   store i64 %71, ptr %67, align 8
   br label %72
 
 72:                                               ; preds = %66, %.lr.ph139
-  %73 = getelementptr inbounds i8, ptr %.6111135, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.6111135, i64 24
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.6104136, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %.6104136, i64 24
   %76 = load i64, ptr %75, align 8
   %77 = mul i64 %76, %74
   store i64 %77, ptr %73, align 8
   br label %78
 
 78:                                               ; preds = %72, %.lr.ph139
-  %79 = getelementptr inbounds i8, ptr %.6111135, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.6111135, i64 16
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.6104136, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.6104136, i64 16
   %82 = load i64, ptr %81, align 8
   %83 = mul i64 %82, %80
   store i64 %83, ptr %79, align 8
   br label %84
 
 84:                                               ; preds = %78, %.lr.ph139
-  %85 = getelementptr inbounds i8, ptr %.6111135, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.6111135, i64 8
   %86 = load i64, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %.6104136, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.6104136, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = mul i64 %88, %86
   store i64 %89, ptr %85, align 8
@@ -7736,8 +7736,8 @@ define internal void @ompi_op_avx_2buff_prod_uint64_t_avx512(ptr noundef %0, ptr
   store i64 %93, ptr %.6111135, align 8
   %94 = sub nsw i32 %.6137, %47
   %95 = zext nneg i32 %47 to i64
-  %96 = getelementptr inbounds i64, ptr %.6111135, i64 %95
-  %97 = getelementptr inbounds i64, ptr %.6104136, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr %.6111135, i64 %95
+  %97 = getelementptr inbounds nuw i64, ptr %.6104136, i64 %95
   %98 = icmp sgt i32 %94, 0
   br i1 %98, label %.lr.ph139, label %.loopexit, !llvm.loop !152
 
@@ -7766,10 +7766,10 @@ define internal void @ompi_op_avx_2buff_mul_float_avx512(ptr nocapture noundef r
   %.1106117 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader116 ]
   %10 = load <16 x float>, ptr %.199118, align 1
   %11 = load <16 x float>, ptr %.1106117, align 1
-  %12 = getelementptr inbounds i8, ptr %.199118, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.199118, i64 64
   %13 = fmul <16 x float> %10, %11
   store <16 x float> %13, ptr %.1106117, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106117, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106117, i64 64
   %15 = add nsw i32 %.1119, -16
   %16 = icmp samesign ugt i32 %.1119, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !153
@@ -7803,11 +7803,11 @@ define internal void @ompi_op_avx_2buff_mul_float_avx512(ptr nocapture noundef r
   %.3101123 = phi ptr [ %23, %.lr.ph125 ], [ %.098, %.preheader115 ]
   %.3108122 = phi ptr [ %26, %.lr.ph125 ], [ %.0105, %.preheader115 ]
   %22 = load <8 x float>, ptr %.3101123, align 1
-  %23 = getelementptr inbounds i8, ptr %.3101123, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.3101123, i64 32
   %24 = load <8 x float>, ptr %.3108122, align 1
   %25 = fmul <8 x float> %22, %24
   store <8 x float> %25, ptr %.3108122, align 1
-  %26 = getelementptr inbounds i8, ptr %.3108122, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3108122, i64 32
   %27 = add nsw i32 %.3124, -8
   %28 = icmp samesign ugt i32 %.3124, 15
   br i1 %28, label %.lr.ph125, label %._crit_edge126, !llvm.loop !154
@@ -7839,11 +7839,11 @@ define internal void @ompi_op_avx_2buff_mul_float_avx512(ptr nocapture noundef r
   %.5103131 = phi ptr [ %35, %.lr.ph133 ], [ %.2100, %30 ]
   %.5110130 = phi ptr [ %38, %.lr.ph133 ], [ %.2107, %30 ]
   %34 = load <4 x float>, ptr %.5103131, align 1
-  %35 = getelementptr inbounds i8, ptr %.5103131, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.5103131, i64 16
   %36 = load <4 x float>, ptr %.5110130, align 1
   %37 = fmul <4 x float> %34, %36
   store <4 x float> %37, ptr %.5110130, align 1
-  %38 = getelementptr inbounds i8, ptr %.5110130, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5110130, i64 16
   %39 = add nsw i32 %.5132, -4
   %40 = icmp samesign ugt i32 %.5132, 7
   br i1 %40, label %.lr.ph133, label %.loopexit114, !llvm.loop !155
@@ -7872,63 +7872,63 @@ define internal void @ompi_op_avx_2buff_mul_float_avx512(ptr nocapture noundef r
   ]
 
 43:                                               ; preds = %.lr.ph141
-  %44 = getelementptr inbounds i8, ptr %.6111137, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %.6111137, i64 28
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %.6104138, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %.6104138, i64 28
   %47 = load float, ptr %46, align 4
   %48 = fmul float %45, %47
   store float %48, ptr %44, align 4
   br label %49
 
 49:                                               ; preds = %43, %.lr.ph141
-  %50 = getelementptr inbounds i8, ptr %.6111137, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.6111137, i64 24
   %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %.6104138, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.6104138, i64 24
   %53 = load float, ptr %52, align 4
   %54 = fmul float %51, %53
   store float %54, ptr %50, align 4
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph141
-  %56 = getelementptr inbounds i8, ptr %.6111137, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %.6111137, i64 20
   %57 = load float, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.6104138, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %.6104138, i64 20
   %59 = load float, ptr %58, align 4
   %60 = fmul float %57, %59
   store float %60, ptr %56, align 4
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph141
-  %62 = getelementptr inbounds i8, ptr %.6111137, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.6111137, i64 16
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.6104138, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.6104138, i64 16
   %65 = load float, ptr %64, align 4
   %66 = fmul float %63, %65
   store float %66, ptr %62, align 4
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph141
-  %68 = getelementptr inbounds i8, ptr %.6111137, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %.6111137, i64 12
   %69 = load float, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %.6104138, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %.6104138, i64 12
   %71 = load float, ptr %70, align 4
   %72 = fmul float %69, %71
   store float %72, ptr %68, align 4
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph141
-  %74 = getelementptr inbounds i8, ptr %.6111137, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6111137, i64 8
   %75 = load float, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %.6104138, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.6104138, i64 8
   %77 = load float, ptr %76, align 4
   %78 = fmul float %75, %77
   store float %78, ptr %74, align 4
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph141
-  %80 = getelementptr inbounds i8, ptr %.6111137, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.6111137, i64 4
   %81 = load float, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %.6104138, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.6104138, i64 4
   %83 = load float, ptr %82, align 4
   %84 = fmul float %81, %83
   store float %84, ptr %80, align 4
@@ -7941,8 +7941,8 @@ define internal void @ompi_op_avx_2buff_mul_float_avx512(ptr nocapture noundef r
   store float %88, ptr %.6111137, align 4
   %89 = sub nsw i32 %.6139, %42
   %90 = zext nneg i32 %42 to i64
-  %91 = getelementptr inbounds float, ptr %.6111137, i64 %90
-  %92 = getelementptr inbounds float, ptr %.6104138, i64 %90
+  %91 = getelementptr inbounds nuw float, ptr %.6111137, i64 %90
+  %92 = getelementptr inbounds nuw float, ptr %.6104138, i64 %90
   %93 = icmp sgt i32 %89, 0
   br i1 %93, label %.lr.ph141, label %.loopexit, !llvm.loop !156
 
@@ -7970,11 +7970,11 @@ define internal void @ompi_op_avx_2buff_mul_double_avx512(ptr nocapture noundef 
   %.199118 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader116 ]
   %.1106117 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader116 ]
   %10 = load <8 x double>, ptr %.199118, align 1
-  %11 = getelementptr inbounds i8, ptr %.199118, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199118, i64 64
   %12 = load <8 x double>, ptr %.1106117, align 1
   %13 = fmul <8 x double> %10, %12
   store <8 x double> %13, ptr %.1106117, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106117, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106117, i64 64
   %15 = add nsw i32 %.1119, -8
   %16 = icmp samesign ugt i32 %.1119, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !157
@@ -8008,11 +8008,11 @@ define internal void @ompi_op_avx_2buff_mul_double_avx512(ptr nocapture noundef 
   %.3101123 = phi ptr [ %23, %.lr.ph125 ], [ %.098, %.preheader115 ]
   %.3108122 = phi ptr [ %26, %.lr.ph125 ], [ %.0105, %.preheader115 ]
   %22 = load <4 x double>, ptr %.3101123, align 1
-  %23 = getelementptr inbounds i8, ptr %.3101123, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.3101123, i64 32
   %24 = load <4 x double>, ptr %.3108122, align 1
   %25 = fmul <4 x double> %22, %24
   store <4 x double> %25, ptr %.3108122, align 1
-  %26 = getelementptr inbounds i8, ptr %.3108122, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3108122, i64 32
   %27 = add nsw i32 %.3124, -4
   %28 = icmp samesign ugt i32 %.3124, 7
   br i1 %28, label %.lr.ph125, label %._crit_edge126, !llvm.loop !158
@@ -8044,11 +8044,11 @@ define internal void @ompi_op_avx_2buff_mul_double_avx512(ptr nocapture noundef 
   %.5103131 = phi ptr [ %35, %.lr.ph133 ], [ %.2100, %30 ]
   %.5110130 = phi ptr [ %38, %.lr.ph133 ], [ %.2107, %30 ]
   %34 = load <2 x double>, ptr %.5103131, align 1
-  %35 = getelementptr inbounds i8, ptr %.5103131, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.5103131, i64 16
   %36 = load <2 x double>, ptr %.5110130, align 1
   %37 = fmul <2 x double> %34, %36
   store <2 x double> %37, ptr %.5110130, align 1
-  %38 = getelementptr inbounds i8, ptr %.5110130, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.5110130, i64 16
   %39 = add nsw i32 %.5132, -2
   %40 = icmp samesign ugt i32 %.5132, 3
   br i1 %40, label %.lr.ph133, label %.loopexit114, !llvm.loop !159
@@ -8077,63 +8077,63 @@ define internal void @ompi_op_avx_2buff_mul_double_avx512(ptr nocapture noundef 
   ]
 
 43:                                               ; preds = %.lr.ph141
-  %44 = getelementptr inbounds i8, ptr %.6111137, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %.6111137, i64 56
   %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.6104138, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %.6104138, i64 56
   %47 = load double, ptr %46, align 8
   %48 = fmul double %45, %47
   store double %48, ptr %44, align 8
   br label %49
 
 49:                                               ; preds = %43, %.lr.ph141
-  %50 = getelementptr inbounds i8, ptr %.6111137, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.6111137, i64 48
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.6104138, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %.6104138, i64 48
   %53 = load double, ptr %52, align 8
   %54 = fmul double %51, %53
   store double %54, ptr %50, align 8
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph141
-  %56 = getelementptr inbounds i8, ptr %.6111137, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %.6111137, i64 40
   %57 = load double, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %.6104138, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %.6104138, i64 40
   %59 = load double, ptr %58, align 8
   %60 = fmul double %57, %59
   store double %60, ptr %56, align 8
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph141
-  %62 = getelementptr inbounds i8, ptr %.6111137, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.6111137, i64 32
   %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.6104138, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.6104138, i64 32
   %65 = load double, ptr %64, align 8
   %66 = fmul double %63, %65
   store double %66, ptr %62, align 8
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph141
-  %68 = getelementptr inbounds i8, ptr %.6111137, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %.6111137, i64 24
   %69 = load double, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %.6104138, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.6104138, i64 24
   %71 = load double, ptr %70, align 8
   %72 = fmul double %69, %71
   store double %72, ptr %68, align 8
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph141
-  %74 = getelementptr inbounds i8, ptr %.6111137, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6111137, i64 16
   %75 = load double, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.6104138, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.6104138, i64 16
   %77 = load double, ptr %76, align 8
   %78 = fmul double %75, %77
   store double %78, ptr %74, align 8
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph141
-  %80 = getelementptr inbounds i8, ptr %.6111137, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.6111137, i64 8
   %81 = load double, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.6104138, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.6104138, i64 8
   %83 = load double, ptr %82, align 8
   %84 = fmul double %81, %83
   store double %84, ptr %80, align 8
@@ -8146,8 +8146,8 @@ define internal void @ompi_op_avx_2buff_mul_double_avx512(ptr nocapture noundef 
   store double %88, ptr %.6111137, align 8
   %89 = sub nsw i32 %.6139, %42
   %90 = zext nneg i32 %42 to i64
-  %91 = getelementptr inbounds double, ptr %.6111137, i64 %90
-  %92 = getelementptr inbounds double, ptr %.6104138, i64 %90
+  %91 = getelementptr inbounds nuw double, ptr %.6111137, i64 %90
+  %92 = getelementptr inbounds nuw double, ptr %.6104138, i64 %90
   %93 = icmp sgt i32 %89, 0
   br i1 %93, label %.lr.ph141, label %.loopexit, !llvm.loop !160
 
@@ -8175,11 +8175,11 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx512(ptr noundef %0, ptr n
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = and <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
   %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !161
@@ -8213,11 +8213,11 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx512(ptr noundef %0, ptr n
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = and <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
   %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !162
@@ -8249,11 +8249,11 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx512(ptr noundef %0, ptr n
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = and <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
   %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !163
@@ -8282,63 +8282,63 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx512(ptr noundef %0, ptr n
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 7
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, %46
   store i8 %49, ptr %45, align 1
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %54 = load i8, ptr %53, align 1
   %55 = and i8 %54, %52
   store i8 %55, ptr %51, align 1
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 5
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 5
   %60 = load i8, ptr %59, align 1
   %61 = and i8 %60, %58
   store i8 %61, ptr %57, align 1
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %66 = load i8, ptr %65, align 1
   %67 = and i8 %66, %64
   store i8 %67, ptr %63, align 1
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 3
   %70 = load i8, ptr %69, align 1
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 3
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, %70
   store i8 %73, ptr %69, align 1
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %76 = load i8, ptr %75, align 1
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = and i8 %78, %76
   store i8 %79, ptr %75, align 1
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 1
   %82 = load i8, ptr %81, align 1
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = and i8 %84, %82
   store i8 %85, ptr %81, align 1
@@ -8351,8 +8351,8 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx512(ptr noundef %0, ptr n
   store i8 %89, ptr %.6111136, align 1
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i8, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i8, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !164
 
@@ -8380,11 +8380,11 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx512(ptr noundef %0, ptr 
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = and <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
   %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !165
@@ -8418,11 +8418,11 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx512(ptr noundef %0, ptr 
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = and <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
   %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !166
@@ -8454,11 +8454,11 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx512(ptr noundef %0, ptr 
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = and <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
   %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !167
@@ -8487,63 +8487,63 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx512(ptr noundef %0, ptr 
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 7
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, %46
   store i8 %49, ptr %45, align 1
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %54 = load i8, ptr %53, align 1
   %55 = and i8 %54, %52
   store i8 %55, ptr %51, align 1
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 5
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 5
   %60 = load i8, ptr %59, align 1
   %61 = and i8 %60, %58
   store i8 %61, ptr %57, align 1
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %66 = load i8, ptr %65, align 1
   %67 = and i8 %66, %64
   store i8 %67, ptr %63, align 1
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 3
   %70 = load i8, ptr %69, align 1
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 3
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, %70
   store i8 %73, ptr %69, align 1
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %76 = load i8, ptr %75, align 1
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = and i8 %78, %76
   store i8 %79, ptr %75, align 1
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 1
   %82 = load i8, ptr %81, align 1
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = and i8 %84, %82
   store i8 %85, ptr %81, align 1
@@ -8556,8 +8556,8 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx512(ptr noundef %0, ptr 
   store i8 %89, ptr %.6111136, align 1
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i8, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i8, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !168
 
@@ -8585,11 +8585,11 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx512(ptr noundef %0, ptr 
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = and <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
   %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !169
@@ -8623,11 +8623,11 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx512(ptr noundef %0, ptr 
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = and <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
   %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !170
@@ -8659,11 +8659,11 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx512(ptr noundef %0, ptr 
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = and <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
   %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !171
@@ -8692,63 +8692,63 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx512(ptr noundef %0, ptr 
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 14
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 14
   %46 = load i16, ptr %45, align 2
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 14
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, %46
   store i16 %49, ptr %45, align 2
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, %52
   store i16 %55, ptr %51, align 2
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 10
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 10
   %58 = load i16, ptr %57, align 2
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 10
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 10
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, %58
   store i16 %61, ptr %57, align 2
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, %64
   store i16 %67, ptr %63, align 2
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %70 = load i16, ptr %69, align 2
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %72 = load i16, ptr %71, align 2
   %73 = and i16 %72, %70
   store i16 %73, ptr %69, align 2
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %76 = load i16, ptr %75, align 2
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %78 = load i16, ptr %77, align 2
   %79 = and i16 %78, %76
   store i16 %79, ptr %75, align 2
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %82 = load i16, ptr %81, align 2
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %84 = load i16, ptr %83, align 2
   %85 = and i16 %84, %82
   store i16 %85, ptr %81, align 2
@@ -8761,8 +8761,8 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx512(ptr noundef %0, ptr 
   store i16 %89, ptr %.6111136, align 2
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i16, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i16, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i16, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i16, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !172
 
@@ -8790,11 +8790,11 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx512(ptr noundef %0, ptr
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = and <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
   %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !173
@@ -8828,11 +8828,11 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx512(ptr noundef %0, ptr
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = and <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
   %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !174
@@ -8864,11 +8864,11 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx512(ptr noundef %0, ptr
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = and <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
   %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !175
@@ -8897,63 +8897,63 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx512(ptr noundef %0, ptr
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 14
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 14
   %46 = load i16, ptr %45, align 2
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 14
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, %46
   store i16 %49, ptr %45, align 2
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, %52
   store i16 %55, ptr %51, align 2
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 10
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 10
   %58 = load i16, ptr %57, align 2
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 10
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 10
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, %58
   store i16 %61, ptr %57, align 2
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, %64
   store i16 %67, ptr %63, align 2
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %70 = load i16, ptr %69, align 2
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %72 = load i16, ptr %71, align 2
   %73 = and i16 %72, %70
   store i16 %73, ptr %69, align 2
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %76 = load i16, ptr %75, align 2
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %78 = load i16, ptr %77, align 2
   %79 = and i16 %78, %76
   store i16 %79, ptr %75, align 2
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %82 = load i16, ptr %81, align 2
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %84 = load i16, ptr %83, align 2
   %85 = and i16 %84, %82
   store i16 %85, ptr %81, align 2
@@ -8966,8 +8966,8 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx512(ptr noundef %0, ptr
   store i16 %89, ptr %.6111136, align 2
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i16, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i16, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i16, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i16, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !176
 
@@ -8995,11 +8995,11 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx512(ptr noundef %0, ptr 
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = and <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
   %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !177
@@ -9033,11 +9033,11 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx512(ptr noundef %0, ptr 
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = and <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
   %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !178
@@ -9069,11 +9069,11 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx512(ptr noundef %0, ptr 
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = and <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
   %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !179
@@ -9102,63 +9102,63 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx512(ptr noundef %0, ptr 
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, %46
   store i32 %49, ptr %45, align 4
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, %52
   store i32 %55, ptr %51, align 4
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 20
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 20
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, %58
   store i32 %61, ptr %57, align 4
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, %64
   store i32 %67, ptr %63, align 4
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = and i32 %72, %70
   store i32 %73, ptr %69, align 4
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, %76
   store i32 %79, ptr %75, align 4
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = and i32 %84, %82
   store i32 %85, ptr %81, align 4
@@ -9171,8 +9171,8 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx512(ptr noundef %0, ptr 
   store i32 %89, ptr %.6111136, align 4
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i32, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i32, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i32, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !180
 
@@ -9200,11 +9200,11 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx512(ptr noundef %0, ptr
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = and <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
   %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !181
@@ -9238,11 +9238,11 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx512(ptr noundef %0, ptr
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = and <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
   %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !182
@@ -9274,11 +9274,11 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx512(ptr noundef %0, ptr
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = and <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
   %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !183
@@ -9307,63 +9307,63 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx512(ptr noundef %0, ptr
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, %46
   store i32 %49, ptr %45, align 4
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, %52
   store i32 %55, ptr %51, align 4
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 20
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 20
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, %58
   store i32 %61, ptr %57, align 4
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, %64
   store i32 %67, ptr %63, align 4
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = and i32 %72, %70
   store i32 %73, ptr %69, align 4
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %78, %76
   store i32 %79, ptr %75, align 4
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = and i32 %84, %82
   store i32 %85, ptr %81, align 4
@@ -9376,8 +9376,8 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx512(ptr noundef %0, ptr
   store i32 %89, ptr %.6111136, align 4
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i32, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i32, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i32, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !184
 
@@ -9405,11 +9405,11 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx512(ptr noundef %0, ptr 
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = and <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
   %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !185
@@ -9443,11 +9443,11 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx512(ptr noundef %0, ptr 
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = and <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
   %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !186
@@ -9479,11 +9479,11 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx512(ptr noundef %0, ptr 
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = and <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
   %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !187
@@ -9512,63 +9512,63 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx512(ptr noundef %0, ptr 
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 56
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 56
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, %46
   store i64 %49, ptr %45, align 8
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 48
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, %52
   store i64 %55, ptr %51, align 8
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 40
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 40
   %60 = load i64, ptr %59, align 8
   %61 = and i64 %60, %58
   store i64 %61, ptr %57, align 8
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 32
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, %64
   store i64 %67, ptr %63, align 8
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %72 = load i64, ptr %71, align 8
   %73 = and i64 %72, %70
   store i64 %73, ptr %69, align 8
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, %76
   store i64 %79, ptr %75, align 8
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = and i64 %84, %82
   store i64 %85, ptr %81, align 8
@@ -9581,8 +9581,8 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx512(ptr noundef %0, ptr 
   store i64 %89, ptr %.6111136, align 8
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i64, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i64, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i64, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !188
 
@@ -9610,11 +9610,11 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx512(ptr noundef %0, ptr
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = and <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
   %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !189
@@ -9648,11 +9648,11 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx512(ptr noundef %0, ptr
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = and <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
   %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !190
@@ -9684,11 +9684,11 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx512(ptr noundef %0, ptr
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = and <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
   %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !191
@@ -9717,63 +9717,63 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx512(ptr noundef %0, ptr
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 56
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 56
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, %46
   store i64 %49, ptr %45, align 8
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 48
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, %52
   store i64 %55, ptr %51, align 8
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 40
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 40
   %60 = load i64, ptr %59, align 8
   %61 = and i64 %60, %58
   store i64 %61, ptr %57, align 8
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 32
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, %64
   store i64 %67, ptr %63, align 8
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %72 = load i64, ptr %71, align 8
   %73 = and i64 %72, %70
   store i64 %73, ptr %69, align 8
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = and i64 %78, %76
   store i64 %79, ptr %75, align 8
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = and i64 %84, %82
   store i64 %85, ptr %81, align 8
@@ -9786,8 +9786,8 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx512(ptr noundef %0, ptr
   store i64 %89, ptr %.6111136, align 8
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i64, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i64, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i64, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !192
 
@@ -9815,11 +9815,11 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx512(ptr noundef %0, ptr no
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = or <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
   %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !193
@@ -9853,11 +9853,11 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx512(ptr noundef %0, ptr no
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = or <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
   %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !194
@@ -9889,11 +9889,11 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx512(ptr noundef %0, ptr no
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = or <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
   %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !195
@@ -9922,63 +9922,63 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx512(ptr noundef %0, ptr no
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 7
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = or i8 %48, %46
   store i8 %49, ptr %45, align 1
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %54 = load i8, ptr %53, align 1
   %55 = or i8 %54, %52
   store i8 %55, ptr %51, align 1
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 5
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 5
   %60 = load i8, ptr %59, align 1
   %61 = or i8 %60, %58
   store i8 %61, ptr %57, align 1
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %66 = load i8, ptr %65, align 1
   %67 = or i8 %66, %64
   store i8 %67, ptr %63, align 1
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 3
   %70 = load i8, ptr %69, align 1
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 3
   %72 = load i8, ptr %71, align 1
   %73 = or i8 %72, %70
   store i8 %73, ptr %69, align 1
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %76 = load i8, ptr %75, align 1
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = or i8 %78, %76
   store i8 %79, ptr %75, align 1
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 1
   %82 = load i8, ptr %81, align 1
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = or i8 %84, %82
   store i8 %85, ptr %81, align 1
@@ -9991,8 +9991,8 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx512(ptr noundef %0, ptr no
   store i8 %89, ptr %.6111136, align 1
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i8, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i8, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !196
 
@@ -10020,11 +10020,11 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx512(ptr noundef %0, ptr n
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = or <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
   %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !197
@@ -10058,11 +10058,11 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx512(ptr noundef %0, ptr n
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = or <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
   %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !198
@@ -10094,11 +10094,11 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx512(ptr noundef %0, ptr n
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = or <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
   %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !199
@@ -10127,63 +10127,63 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx512(ptr noundef %0, ptr n
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 7
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = or i8 %48, %46
   store i8 %49, ptr %45, align 1
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %54 = load i8, ptr %53, align 1
   %55 = or i8 %54, %52
   store i8 %55, ptr %51, align 1
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 5
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 5
   %60 = load i8, ptr %59, align 1
   %61 = or i8 %60, %58
   store i8 %61, ptr %57, align 1
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %66 = load i8, ptr %65, align 1
   %67 = or i8 %66, %64
   store i8 %67, ptr %63, align 1
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 3
   %70 = load i8, ptr %69, align 1
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 3
   %72 = load i8, ptr %71, align 1
   %73 = or i8 %72, %70
   store i8 %73, ptr %69, align 1
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %76 = load i8, ptr %75, align 1
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = or i8 %78, %76
   store i8 %79, ptr %75, align 1
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 1
   %82 = load i8, ptr %81, align 1
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = or i8 %84, %82
   store i8 %85, ptr %81, align 1
@@ -10196,8 +10196,8 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx512(ptr noundef %0, ptr n
   store i8 %89, ptr %.6111136, align 1
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i8, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i8, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !200
 
@@ -10225,11 +10225,11 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx512(ptr noundef %0, ptr n
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = or <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
   %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !201
@@ -10263,11 +10263,11 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx512(ptr noundef %0, ptr n
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = or <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
   %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !202
@@ -10299,11 +10299,11 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx512(ptr noundef %0, ptr n
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = or <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
   %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !203
@@ -10332,63 +10332,63 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx512(ptr noundef %0, ptr n
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 14
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 14
   %46 = load i16, ptr %45, align 2
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 14
   %48 = load i16, ptr %47, align 2
   %49 = or i16 %48, %46
   store i16 %49, ptr %45, align 2
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %54 = load i16, ptr %53, align 2
   %55 = or i16 %54, %52
   store i16 %55, ptr %51, align 2
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 10
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 10
   %58 = load i16, ptr %57, align 2
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 10
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 10
   %60 = load i16, ptr %59, align 2
   %61 = or i16 %60, %58
   store i16 %61, ptr %57, align 2
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %66 = load i16, ptr %65, align 2
   %67 = or i16 %66, %64
   store i16 %67, ptr %63, align 2
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %70 = load i16, ptr %69, align 2
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %72 = load i16, ptr %71, align 2
   %73 = or i16 %72, %70
   store i16 %73, ptr %69, align 2
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %76 = load i16, ptr %75, align 2
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %78 = load i16, ptr %77, align 2
   %79 = or i16 %78, %76
   store i16 %79, ptr %75, align 2
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %82 = load i16, ptr %81, align 2
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %84 = load i16, ptr %83, align 2
   %85 = or i16 %84, %82
   store i16 %85, ptr %81, align 2
@@ -10401,8 +10401,8 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx512(ptr noundef %0, ptr n
   store i16 %89, ptr %.6111136, align 2
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i16, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i16, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i16, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i16, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !204
 
@@ -10430,11 +10430,11 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx512(ptr noundef %0, ptr 
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = or <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
   %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !205
@@ -10468,11 +10468,11 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx512(ptr noundef %0, ptr 
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = or <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
   %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !206
@@ -10504,11 +10504,11 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx512(ptr noundef %0, ptr 
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = or <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
   %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !207
@@ -10537,63 +10537,63 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx512(ptr noundef %0, ptr 
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 14
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 14
   %46 = load i16, ptr %45, align 2
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 14
   %48 = load i16, ptr %47, align 2
   %49 = or i16 %48, %46
   store i16 %49, ptr %45, align 2
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %54 = load i16, ptr %53, align 2
   %55 = or i16 %54, %52
   store i16 %55, ptr %51, align 2
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 10
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 10
   %58 = load i16, ptr %57, align 2
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 10
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 10
   %60 = load i16, ptr %59, align 2
   %61 = or i16 %60, %58
   store i16 %61, ptr %57, align 2
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %66 = load i16, ptr %65, align 2
   %67 = or i16 %66, %64
   store i16 %67, ptr %63, align 2
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %70 = load i16, ptr %69, align 2
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %72 = load i16, ptr %71, align 2
   %73 = or i16 %72, %70
   store i16 %73, ptr %69, align 2
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %76 = load i16, ptr %75, align 2
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %78 = load i16, ptr %77, align 2
   %79 = or i16 %78, %76
   store i16 %79, ptr %75, align 2
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %82 = load i16, ptr %81, align 2
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %84 = load i16, ptr %83, align 2
   %85 = or i16 %84, %82
   store i16 %85, ptr %81, align 2
@@ -10606,8 +10606,8 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx512(ptr noundef %0, ptr 
   store i16 %89, ptr %.6111136, align 2
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i16, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i16, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i16, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i16, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !208
 
@@ -10635,11 +10635,11 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx512(ptr noundef %0, ptr n
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = or <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
   %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !209
@@ -10673,11 +10673,11 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx512(ptr noundef %0, ptr n
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = or <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
   %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !210
@@ -10709,11 +10709,11 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx512(ptr noundef %0, ptr n
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = or <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
   %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !211
@@ -10742,63 +10742,63 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx512(ptr noundef %0, ptr n
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, %46
   store i32 %49, ptr %45, align 4
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %54 = load i32, ptr %53, align 4
   %55 = or i32 %54, %52
   store i32 %55, ptr %51, align 4
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 20
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 20
   %60 = load i32, ptr %59, align 4
   %61 = or i32 %60, %58
   store i32 %61, ptr %57, align 4
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %66 = load i32, ptr %65, align 4
   %67 = or i32 %66, %64
   store i32 %67, ptr %63, align 4
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = or i32 %72, %70
   store i32 %73, ptr %69, align 4
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %78 = load i32, ptr %77, align 4
   %79 = or i32 %78, %76
   store i32 %79, ptr %75, align 4
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = or i32 %84, %82
   store i32 %85, ptr %81, align 4
@@ -10811,8 +10811,8 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx512(ptr noundef %0, ptr n
   store i32 %89, ptr %.6111136, align 4
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i32, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i32, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i32, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !212
 
@@ -10840,11 +10840,11 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx512(ptr noundef %0, ptr 
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = or <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
   %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !213
@@ -10878,11 +10878,11 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx512(ptr noundef %0, ptr 
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = or <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
   %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !214
@@ -10914,11 +10914,11 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx512(ptr noundef %0, ptr 
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = or <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
   %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !215
@@ -10947,63 +10947,63 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx512(ptr noundef %0, ptr 
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, %46
   store i32 %49, ptr %45, align 4
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %54 = load i32, ptr %53, align 4
   %55 = or i32 %54, %52
   store i32 %55, ptr %51, align 4
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 20
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 20
   %60 = load i32, ptr %59, align 4
   %61 = or i32 %60, %58
   store i32 %61, ptr %57, align 4
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %66 = load i32, ptr %65, align 4
   %67 = or i32 %66, %64
   store i32 %67, ptr %63, align 4
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = or i32 %72, %70
   store i32 %73, ptr %69, align 4
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %78 = load i32, ptr %77, align 4
   %79 = or i32 %78, %76
   store i32 %79, ptr %75, align 4
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = or i32 %84, %82
   store i32 %85, ptr %81, align 4
@@ -11016,8 +11016,8 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx512(ptr noundef %0, ptr 
   store i32 %89, ptr %.6111136, align 4
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i32, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i32, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i32, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !216
 
@@ -11045,11 +11045,11 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx512(ptr noundef %0, ptr n
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = or <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
   %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !217
@@ -11083,11 +11083,11 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx512(ptr noundef %0, ptr n
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = or <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
   %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !218
@@ -11119,11 +11119,11 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx512(ptr noundef %0, ptr n
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = or <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
   %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !219
@@ -11152,63 +11152,63 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx512(ptr noundef %0, ptr n
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 56
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 56
   %48 = load i64, ptr %47, align 8
   %49 = or i64 %48, %46
   store i64 %49, ptr %45, align 8
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 48
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = or i64 %54, %52
   store i64 %55, ptr %51, align 8
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 40
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 40
   %60 = load i64, ptr %59, align 8
   %61 = or i64 %60, %58
   store i64 %61, ptr %57, align 8
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 32
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = or i64 %66, %64
   store i64 %67, ptr %63, align 8
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %72 = load i64, ptr %71, align 8
   %73 = or i64 %72, %70
   store i64 %73, ptr %69, align 8
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = or i64 %78, %76
   store i64 %79, ptr %75, align 8
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = or i64 %84, %82
   store i64 %85, ptr %81, align 8
@@ -11221,8 +11221,8 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx512(ptr noundef %0, ptr n
   store i64 %89, ptr %.6111136, align 8
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i64, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i64, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i64, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !220
 
@@ -11250,11 +11250,11 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx512(ptr noundef %0, ptr 
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = or <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
   %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !221
@@ -11288,11 +11288,11 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx512(ptr noundef %0, ptr 
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = or <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
   %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !222
@@ -11324,11 +11324,11 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx512(ptr noundef %0, ptr 
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = or <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
   %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !223
@@ -11357,63 +11357,63 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx512(ptr noundef %0, ptr 
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 56
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 56
   %48 = load i64, ptr %47, align 8
   %49 = or i64 %48, %46
   store i64 %49, ptr %45, align 8
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 48
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = or i64 %54, %52
   store i64 %55, ptr %51, align 8
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 40
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 40
   %60 = load i64, ptr %59, align 8
   %61 = or i64 %60, %58
   store i64 %61, ptr %57, align 8
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 32
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = or i64 %66, %64
   store i64 %67, ptr %63, align 8
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %72 = load i64, ptr %71, align 8
   %73 = or i64 %72, %70
   store i64 %73, ptr %69, align 8
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = or i64 %78, %76
   store i64 %79, ptr %75, align 8
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = or i64 %84, %82
   store i64 %85, ptr %81, align 8
@@ -11426,8 +11426,8 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx512(ptr noundef %0, ptr 
   store i64 %89, ptr %.6111136, align 8
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i64, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i64, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i64, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !224
 
@@ -11455,11 +11455,11 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx512(ptr noundef %0, ptr n
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = xor <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
   %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !225
@@ -11493,11 +11493,11 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx512(ptr noundef %0, ptr n
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = xor <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
   %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !226
@@ -11529,11 +11529,11 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx512(ptr noundef %0, ptr n
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = xor <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
   %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !227
@@ -11562,63 +11562,63 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx512(ptr noundef %0, ptr n
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 7
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = xor i8 %48, %46
   store i8 %49, ptr %45, align 1
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %54 = load i8, ptr %53, align 1
   %55 = xor i8 %54, %52
   store i8 %55, ptr %51, align 1
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 5
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 5
   %60 = load i8, ptr %59, align 1
   %61 = xor i8 %60, %58
   store i8 %61, ptr %57, align 1
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %66 = load i8, ptr %65, align 1
   %67 = xor i8 %66, %64
   store i8 %67, ptr %63, align 1
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 3
   %70 = load i8, ptr %69, align 1
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 3
   %72 = load i8, ptr %71, align 1
   %73 = xor i8 %72, %70
   store i8 %73, ptr %69, align 1
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %76 = load i8, ptr %75, align 1
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = xor i8 %78, %76
   store i8 %79, ptr %75, align 1
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 1
   %82 = load i8, ptr %81, align 1
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = xor i8 %84, %82
   store i8 %85, ptr %81, align 1
@@ -11631,8 +11631,8 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx512(ptr noundef %0, ptr n
   store i8 %89, ptr %.6111136, align 1
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i8, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i8, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !228
 
@@ -11660,11 +11660,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx512(ptr noundef %0, ptr 
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = xor <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -64
   %16 = icmp samesign ugt i32 %.1118, 127
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !229
@@ -11698,11 +11698,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx512(ptr noundef %0, ptr 
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = xor <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -32
   %29 = icmp samesign ugt i32 %.3123, 63
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !230
@@ -11734,11 +11734,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx512(ptr noundef %0, ptr 
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = xor <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -16
   %41 = icmp samesign ugt i32 %.5131, 31
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !231
@@ -11767,63 +11767,63 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx512(ptr noundef %0, ptr 
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 7
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 7
   %46 = load i8, ptr %45, align 1
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 7
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 7
   %48 = load i8, ptr %47, align 1
   %49 = xor i8 %48, %46
   store i8 %49, ptr %45, align 1
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %54 = load i8, ptr %53, align 1
   %55 = xor i8 %54, %52
   store i8 %55, ptr %51, align 1
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 5
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 5
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 5
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 5
   %60 = load i8, ptr %59, align 1
   %61 = xor i8 %60, %58
   store i8 %61, ptr %57, align 1
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %66 = load i8, ptr %65, align 1
   %67 = xor i8 %66, %64
   store i8 %67, ptr %63, align 1
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 3
   %70 = load i8, ptr %69, align 1
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 3
   %72 = load i8, ptr %71, align 1
   %73 = xor i8 %72, %70
   store i8 %73, ptr %69, align 1
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %76 = load i8, ptr %75, align 1
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = xor i8 %78, %76
   store i8 %79, ptr %75, align 1
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 1
   %82 = load i8, ptr %81, align 1
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = xor i8 %84, %82
   store i8 %85, ptr %81, align 1
@@ -11836,8 +11836,8 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx512(ptr noundef %0, ptr 
   store i8 %89, ptr %.6111136, align 1
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i8, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i8, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !232
 
@@ -11865,11 +11865,11 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx512(ptr noundef %0, ptr 
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = xor <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
   %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !233
@@ -11903,11 +11903,11 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx512(ptr noundef %0, ptr 
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = xor <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
   %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !234
@@ -11939,11 +11939,11 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx512(ptr noundef %0, ptr 
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = xor <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
   %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !235
@@ -11972,63 +11972,63 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx512(ptr noundef %0, ptr 
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 14
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 14
   %46 = load i16, ptr %45, align 2
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 14
   %48 = load i16, ptr %47, align 2
   %49 = xor i16 %48, %46
   store i16 %49, ptr %45, align 2
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %54 = load i16, ptr %53, align 2
   %55 = xor i16 %54, %52
   store i16 %55, ptr %51, align 2
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 10
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 10
   %58 = load i16, ptr %57, align 2
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 10
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 10
   %60 = load i16, ptr %59, align 2
   %61 = xor i16 %60, %58
   store i16 %61, ptr %57, align 2
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %66 = load i16, ptr %65, align 2
   %67 = xor i16 %66, %64
   store i16 %67, ptr %63, align 2
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %70 = load i16, ptr %69, align 2
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %72 = load i16, ptr %71, align 2
   %73 = xor i16 %72, %70
   store i16 %73, ptr %69, align 2
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %76 = load i16, ptr %75, align 2
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %78 = load i16, ptr %77, align 2
   %79 = xor i16 %78, %76
   store i16 %79, ptr %75, align 2
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %82 = load i16, ptr %81, align 2
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %84 = load i16, ptr %83, align 2
   %85 = xor i16 %84, %82
   store i16 %85, ptr %81, align 2
@@ -12041,8 +12041,8 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx512(ptr noundef %0, ptr 
   store i16 %89, ptr %.6111136, align 2
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i16, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i16, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i16, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i16, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !236
 
@@ -12070,11 +12070,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx512(ptr noundef %0, ptr
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = xor <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -32
   %16 = icmp samesign ugt i32 %.1118, 63
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !237
@@ -12108,11 +12108,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx512(ptr noundef %0, ptr
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = xor <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -16
   %29 = icmp samesign ugt i32 %.3123, 31
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !238
@@ -12144,11 +12144,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx512(ptr noundef %0, ptr
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = xor <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -8
   %41 = icmp samesign ugt i32 %.5131, 15
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !239
@@ -12177,63 +12177,63 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx512(ptr noundef %0, ptr
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 14
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 14
   %46 = load i16, ptr %45, align 2
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 14
   %48 = load i16, ptr %47, align 2
   %49 = xor i16 %48, %46
   store i16 %49, ptr %45, align 2
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %54 = load i16, ptr %53, align 2
   %55 = xor i16 %54, %52
   store i16 %55, ptr %51, align 2
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 10
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 10
   %58 = load i16, ptr %57, align 2
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 10
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 10
   %60 = load i16, ptr %59, align 2
   %61 = xor i16 %60, %58
   store i16 %61, ptr %57, align 2
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %66 = load i16, ptr %65, align 2
   %67 = xor i16 %66, %64
   store i16 %67, ptr %63, align 2
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 6
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 6
   %70 = load i16, ptr %69, align 2
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 6
   %72 = load i16, ptr %71, align 2
   %73 = xor i16 %72, %70
   store i16 %73, ptr %69, align 2
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %76 = load i16, ptr %75, align 2
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %78 = load i16, ptr %77, align 2
   %79 = xor i16 %78, %76
   store i16 %79, ptr %75, align 2
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 2
   %82 = load i16, ptr %81, align 2
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 2
   %84 = load i16, ptr %83, align 2
   %85 = xor i16 %84, %82
   store i16 %85, ptr %81, align 2
@@ -12246,8 +12246,8 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx512(ptr noundef %0, ptr
   store i16 %89, ptr %.6111136, align 2
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i16, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i16, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i16, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i16, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !240
 
@@ -12275,11 +12275,11 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx512(ptr noundef %0, ptr 
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = xor <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
   %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !241
@@ -12313,11 +12313,11 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx512(ptr noundef %0, ptr 
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = xor <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
   %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !242
@@ -12349,11 +12349,11 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx512(ptr noundef %0, ptr 
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = xor <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
   %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !243
@@ -12382,63 +12382,63 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx512(ptr noundef %0, ptr 
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = xor i32 %48, %46
   store i32 %49, ptr %45, align 4
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %54 = load i32, ptr %53, align 4
   %55 = xor i32 %54, %52
   store i32 %55, ptr %51, align 4
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 20
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 20
   %60 = load i32, ptr %59, align 4
   %61 = xor i32 %60, %58
   store i32 %61, ptr %57, align 4
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %66 = load i32, ptr %65, align 4
   %67 = xor i32 %66, %64
   store i32 %67, ptr %63, align 4
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = xor i32 %72, %70
   store i32 %73, ptr %69, align 4
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %78 = load i32, ptr %77, align 4
   %79 = xor i32 %78, %76
   store i32 %79, ptr %75, align 4
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = xor i32 %84, %82
   store i32 %85, ptr %81, align 4
@@ -12451,8 +12451,8 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx512(ptr noundef %0, ptr 
   store i32 %89, ptr %.6111136, align 4
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i32, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i32, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i32, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !244
 
@@ -12480,11 +12480,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx512(ptr noundef %0, ptr
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = xor <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -16
   %16 = icmp samesign ugt i32 %.1118, 31
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !245
@@ -12518,11 +12518,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx512(ptr noundef %0, ptr
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = xor <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -8
   %29 = icmp samesign ugt i32 %.3123, 15
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !246
@@ -12554,11 +12554,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx512(ptr noundef %0, ptr
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = xor <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -4
   %41 = icmp samesign ugt i32 %.5131, 7
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !247
@@ -12587,63 +12587,63 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx512(ptr noundef %0, ptr
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = xor i32 %48, %46
   store i32 %49, ptr %45, align 4
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %54 = load i32, ptr %53, align 4
   %55 = xor i32 %54, %52
   store i32 %55, ptr %51, align 4
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 20
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 20
   %60 = load i32, ptr %59, align 4
   %61 = xor i32 %60, %58
   store i32 %61, ptr %57, align 4
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %66 = load i32, ptr %65, align 4
   %67 = xor i32 %66, %64
   store i32 %67, ptr %63, align 4
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = xor i32 %72, %70
   store i32 %73, ptr %69, align 4
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %78 = load i32, ptr %77, align 4
   %79 = xor i32 %78, %76
   store i32 %79, ptr %75, align 4
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 4
   %82 = load i32, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = xor i32 %84, %82
   store i32 %85, ptr %81, align 4
@@ -12656,8 +12656,8 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx512(ptr noundef %0, ptr
   store i32 %89, ptr %.6111136, align 4
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i32, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i32, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i32, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i32, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !248
 
@@ -12685,11 +12685,11 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx512(ptr noundef %0, ptr 
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = xor <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
   %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !249
@@ -12723,11 +12723,11 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx512(ptr noundef %0, ptr 
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = xor <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
   %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !250
@@ -12759,11 +12759,11 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx512(ptr noundef %0, ptr 
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = xor <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
   %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !251
@@ -12792,63 +12792,63 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx512(ptr noundef %0, ptr 
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 56
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 56
   %48 = load i64, ptr %47, align 8
   %49 = xor i64 %48, %46
   store i64 %49, ptr %45, align 8
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 48
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = xor i64 %54, %52
   store i64 %55, ptr %51, align 8
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 40
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 40
   %60 = load i64, ptr %59, align 8
   %61 = xor i64 %60, %58
   store i64 %61, ptr %57, align 8
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 32
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = xor i64 %66, %64
   store i64 %67, ptr %63, align 8
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %72 = load i64, ptr %71, align 8
   %73 = xor i64 %72, %70
   store i64 %73, ptr %69, align 8
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = xor i64 %78, %76
   store i64 %79, ptr %75, align 8
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = xor i64 %84, %82
   store i64 %85, ptr %81, align 8
@@ -12861,8 +12861,8 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx512(ptr noundef %0, ptr 
   store i64 %89, ptr %.6111136, align 8
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i64, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i64, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i64, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !252
 
@@ -12890,11 +12890,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx512(ptr noundef %0, ptr
   %.199117 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader115 ]
   %.1106116 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader115 ]
   %10 = load <8 x i64>, ptr %.199117, align 1
-  %11 = getelementptr inbounds i8, ptr %.199117, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.199117, i64 64
   %12 = load <8 x i64>, ptr %.1106116, align 1
   %13 = xor <8 x i64> %12, %10
   store <8 x i64> %13, ptr %.1106116, align 1
-  %14 = getelementptr inbounds i8, ptr %.1106116, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1106116, i64 64
   %15 = add nsw i32 %.1118, -8
   %16 = icmp samesign ugt i32 %.1118, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !253
@@ -12928,11 +12928,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx512(ptr noundef %0, ptr
   %.3101122 = phi ptr [ %24, %.lr.ph124 ], [ %.098, %.preheader114 ]
   %.3108121 = phi ptr [ %27, %.lr.ph124 ], [ %.0105, %.preheader114 ]
   %23 = load <4 x i64>, ptr %.3101122, align 1
-  %24 = getelementptr inbounds i8, ptr %.3101122, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.3101122, i64 32
   %25 = load <4 x i64>, ptr %.3108121, align 1
   %26 = xor <4 x i64> %25, %23
   store <4 x i64> %26, ptr %.3108121, align 1
-  %27 = getelementptr inbounds i8, ptr %.3108121, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3108121, i64 32
   %28 = add nsw i32 %.3123, -4
   %29 = icmp samesign ugt i32 %.3123, 7
   br i1 %29, label %.lr.ph124, label %._crit_edge125, !llvm.loop !254
@@ -12964,11 +12964,11 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx512(ptr noundef %0, ptr
   %.5103130 = phi ptr [ %36, %.lr.ph132 ], [ %.2100, %31 ]
   %.5110129 = phi ptr [ %39, %.lr.ph132 ], [ %.2107, %31 ]
   %35 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5103130)
-  %36 = getelementptr inbounds i8, ptr %.5103130, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.5103130, i64 16
   %37 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5110129)
   %38 = xor <16 x i8> %37, %35
   store <16 x i8> %38, ptr %.5110129, align 1
-  %39 = getelementptr inbounds i8, ptr %.5110129, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5110129, i64 16
   %40 = add nsw i32 %.5131, -2
   %41 = icmp samesign ugt i32 %.5131, 3
   br i1 %41, label %.lr.ph132, label %.loopexit113, !llvm.loop !255
@@ -12997,63 +12997,63 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx512(ptr noundef %0, ptr
   ]
 
 44:                                               ; preds = %.lr.ph140
-  %45 = getelementptr inbounds i8, ptr %.6111136, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %.6111136, i64 56
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.6104137, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %.6104137, i64 56
   %48 = load i64, ptr %47, align 8
   %49 = xor i64 %48, %46
   store i64 %49, ptr %45, align 8
   br label %50
 
 50:                                               ; preds = %44, %.lr.ph140
-  %51 = getelementptr inbounds i8, ptr %.6111136, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %.6111136, i64 48
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.6104137, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.6104137, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = xor i64 %54, %52
   store i64 %55, ptr %51, align 8
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph140
-  %57 = getelementptr inbounds i8, ptr %.6111136, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %.6111136, i64 40
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.6104137, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %.6104137, i64 40
   %60 = load i64, ptr %59, align 8
   %61 = xor i64 %60, %58
   store i64 %61, ptr %57, align 8
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph140
-  %63 = getelementptr inbounds i8, ptr %.6111136, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.6111136, i64 32
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6104137, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.6104137, i64 32
   %66 = load i64, ptr %65, align 8
   %67 = xor i64 %66, %64
   store i64 %67, ptr %63, align 8
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph140
-  %69 = getelementptr inbounds i8, ptr %.6111136, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %.6111136, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6104137, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.6104137, i64 24
   %72 = load i64, ptr %71, align 8
   %73 = xor i64 %72, %70
   store i64 %73, ptr %69, align 8
   br label %74
 
 74:                                               ; preds = %68, %.lr.ph140
-  %75 = getelementptr inbounds i8, ptr %.6111136, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6111136, i64 16
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.6104137, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.6104137, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = xor i64 %78, %76
   store i64 %79, ptr %75, align 8
   br label %80
 
 80:                                               ; preds = %74, %.lr.ph140
-  %81 = getelementptr inbounds i8, ptr %.6111136, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.6111136, i64 8
   %82 = load i64, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.6104137, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.6104137, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = xor i64 %84, %82
   store i64 %85, ptr %81, align 8
@@ -13066,8 +13066,8 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx512(ptr noundef %0, ptr
   store i64 %89, ptr %.6111136, align 8
   %90 = sub nsw i32 %.6138, %43
   %91 = zext nneg i32 %43 to i64
-  %92 = getelementptr inbounds i64, ptr %.6111136, i64 %91
-  %93 = getelementptr inbounds i64, ptr %.6104137, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %.6111136, i64 %91
+  %93 = getelementptr inbounds nuw i64, ptr %.6104137, i64 %91
   %94 = icmp sgt i32 %90, 0
   br i1 %94, label %.lr.ph140, label %.loopexit, !llvm.loop !256
 
@@ -13097,11 +13097,11 @@ define internal void @ompi_op_avx_3buff_max_int8_t_avx512(ptr noalias noundef %0
   %.1138177 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader176 ]
   %12 = load <64 x i8>, ptr %.1180, align 1
   %13 = load <64 x i8>, ptr %.1124179, align 1
-  %14 = getelementptr inbounds i8, ptr %.1180, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124179, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1180, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124179, i64 64
   %16 = tail call <64 x i8> @llvm.smax.v64i8(<64 x i8> %12, <64 x i8> %13)
   store <64 x i8> %16, ptr %.1131178, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -64
   %19 = icmp samesign ugt i32 %.1138177, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !257
@@ -13134,11 +13134,11 @@ define internal void @ompi_op_avx_3buff_max_int8_t_avx512(ptr noalias noundef %0
   %.3140184 = phi i32 [ %31, %.lr.ph188 ], [ %.0137, %.preheader175 ]
   %25 = load <32 x i8>, ptr %.3187, align 1
   %26 = load <32 x i8>, ptr %.3126186, align 1
-  %27 = getelementptr inbounds i8, ptr %.3187, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126186, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3187, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126186, i64 32
   %29 = tail call <32 x i8> @llvm.smax.v32i8(<32 x i8> %25, <32 x i8> %26)
   store <32 x i8> %29, ptr %.3133185, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -32
   %32 = icmp samesign ugt i32 %.3140184, 63
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !258
@@ -13174,11 +13174,11 @@ define internal void @ompi_op_avx_3buff_max_int8_t_avx512(ptr noalias noundef %0
   %.5142194 = phi i32 [ %45, %.lr.ph198 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5197)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128196)
-  %41 = getelementptr inbounds i8, ptr %.5197, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128196, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5197, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128196, i64 16
   %43 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %39, <16 x i8> %40)
   store <16 x i8> %43, ptr %.5135195, align 1
-  %44 = getelementptr inbounds i8, ptr %.5135195, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5135195, i64 16
   %45 = add nsw i32 %.5142194, -16
   %46 = icmp samesign ugt i32 %.5142194, 31
   br i1 %46, label %.lr.ph198, label %.loopexit174, !llvm.loop !259
@@ -13209,72 +13209,72 @@ define internal void @ompi_op_avx_3buff_max_int8_t_avx512(ptr noalias noundef %0
   ]
 
 49:                                               ; preds = %.lr.ph208
-  %50 = getelementptr inbounds i8, ptr %.6206, i64 7
+  %50 = getelementptr inbounds nuw i8, ptr %.6206, i64 7
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %.6129205, i64 7
+  %52 = getelementptr inbounds nuw i8, ptr %.6129205, i64 7
   %53 = load i8, ptr %52, align 1
   %. = tail call i8 @llvm.smax.i8(i8 %51, i8 %53)
-  %54 = getelementptr inbounds i8, ptr %.6136204, i64 7
+  %54 = getelementptr inbounds nuw i8, ptr %.6136204, i64 7
   store i8 %., ptr %54, align 1
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph208
-  %56 = getelementptr inbounds i8, ptr %.6206, i64 6
+  %56 = getelementptr inbounds nuw i8, ptr %.6206, i64 6
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.6129205, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %.6129205, i64 6
   %59 = load i8, ptr %58, align 1
   %.167 = tail call i8 @llvm.smax.i8(i8 %57, i8 %59)
-  %60 = getelementptr inbounds i8, ptr %.6136204, i64 6
+  %60 = getelementptr inbounds nuw i8, ptr %.6136204, i64 6
   store i8 %.167, ptr %60, align 1
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph208
-  %62 = getelementptr inbounds i8, ptr %.6206, i64 5
+  %62 = getelementptr inbounds nuw i8, ptr %.6206, i64 5
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.6129205, i64 5
+  %64 = getelementptr inbounds nuw i8, ptr %.6129205, i64 5
   %65 = load i8, ptr %64, align 1
   %.168 = tail call i8 @llvm.smax.i8(i8 %63, i8 %65)
-  %66 = getelementptr inbounds i8, ptr %.6136204, i64 5
+  %66 = getelementptr inbounds nuw i8, ptr %.6136204, i64 5
   store i8 %.168, ptr %66, align 1
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph208
-  %68 = getelementptr inbounds i8, ptr %.6206, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.6206, i64 4
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %.6129205, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.6129205, i64 4
   %71 = load i8, ptr %70, align 1
   %.169 = tail call i8 @llvm.smax.i8(i8 %69, i8 %71)
-  %72 = getelementptr inbounds i8, ptr %.6136204, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.6136204, i64 4
   store i8 %.169, ptr %72, align 1
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph208
-  %74 = getelementptr inbounds i8, ptr %.6206, i64 3
+  %74 = getelementptr inbounds nuw i8, ptr %.6206, i64 3
   %75 = load i8, ptr %74, align 1
-  %76 = getelementptr inbounds i8, ptr %.6129205, i64 3
+  %76 = getelementptr inbounds nuw i8, ptr %.6129205, i64 3
   %77 = load i8, ptr %76, align 1
   %.170 = tail call i8 @llvm.smax.i8(i8 %75, i8 %77)
-  %78 = getelementptr inbounds i8, ptr %.6136204, i64 3
+  %78 = getelementptr inbounds nuw i8, ptr %.6136204, i64 3
   store i8 %.170, ptr %78, align 1
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph208
-  %80 = getelementptr inbounds i8, ptr %.6206, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %.6206, i64 2
   %81 = load i8, ptr %80, align 1
-  %82 = getelementptr inbounds i8, ptr %.6129205, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.6129205, i64 2
   %83 = load i8, ptr %82, align 1
   %.171 = tail call i8 @llvm.smax.i8(i8 %81, i8 %83)
-  %84 = getelementptr inbounds i8, ptr %.6136204, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.6136204, i64 2
   store i8 %.171, ptr %84, align 1
   br label %85
 
 85:                                               ; preds = %79, %.lr.ph208
-  %86 = getelementptr inbounds i8, ptr %.6206, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.6206, i64 1
   %87 = load i8, ptr %86, align 1
-  %88 = getelementptr inbounds i8, ptr %.6129205, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.6129205, i64 1
   %89 = load i8, ptr %88, align 1
   %.172 = tail call i8 @llvm.smax.i8(i8 %87, i8 %89)
-  %90 = getelementptr inbounds i8, ptr %.6136204, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.6136204, i64 1
   store i8 %.172, ptr %90, align 1
   br label %91
 
@@ -13285,9 +13285,9 @@ define internal void @ompi_op_avx_3buff_max_int8_t_avx512(ptr noalias noundef %0
   store i8 %.173, ptr %.6136204, align 1
   %94 = sub nsw i32 %.6143203, %48
   %95 = zext nneg i32 %48 to i64
-  %96 = getelementptr inbounds i8, ptr %.6136204, i64 %95
-  %97 = getelementptr inbounds i8, ptr %.6206, i64 %95
-  %98 = getelementptr inbounds i8, ptr %.6129205, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %.6136204, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %.6206, i64 %95
+  %98 = getelementptr inbounds nuw i8, ptr %.6129205, i64 %95
   %99 = icmp sgt i32 %94, 0
   br i1 %99, label %.lr.ph208, label %.loopexit, !llvm.loop !260
 
@@ -13317,11 +13317,11 @@ define internal void @ompi_op_avx_3buff_max_uint8_t_avx512(ptr noalias noundef %
   %.1138177 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader176 ]
   %12 = load <64 x i8>, ptr %.1180, align 1
   %13 = load <64 x i8>, ptr %.1124179, align 1
-  %14 = getelementptr inbounds i8, ptr %.1180, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124179, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1180, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124179, i64 64
   %16 = tail call <64 x i8> @llvm.umax.v64i8(<64 x i8> %12, <64 x i8> %13)
   store <64 x i8> %16, ptr %.1131178, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -64
   %19 = icmp samesign ugt i32 %.1138177, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !261
@@ -13354,11 +13354,11 @@ define internal void @ompi_op_avx_3buff_max_uint8_t_avx512(ptr noalias noundef %
   %.3140184 = phi i32 [ %31, %.lr.ph188 ], [ %.0137, %.preheader175 ]
   %25 = load <32 x i8>, ptr %.3187, align 1
   %26 = load <32 x i8>, ptr %.3126186, align 1
-  %27 = getelementptr inbounds i8, ptr %.3187, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126186, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3187, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126186, i64 32
   %29 = tail call <32 x i8> @llvm.umax.v32i8(<32 x i8> %25, <32 x i8> %26)
   store <32 x i8> %29, ptr %.3133185, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -32
   %32 = icmp samesign ugt i32 %.3140184, 63
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !262
@@ -13394,11 +13394,11 @@ define internal void @ompi_op_avx_3buff_max_uint8_t_avx512(ptr noalias noundef %
   %.5142194 = phi i32 [ %45, %.lr.ph198 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5197)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128196)
-  %41 = getelementptr inbounds i8, ptr %.5197, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128196, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5197, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128196, i64 16
   %43 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %39, <16 x i8> %40)
   store <16 x i8> %43, ptr %.5135195, align 1
-  %44 = getelementptr inbounds i8, ptr %.5135195, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5135195, i64 16
   %45 = add nsw i32 %.5142194, -16
   %46 = icmp samesign ugt i32 %.5142194, 31
   br i1 %46, label %.lr.ph198, label %.loopexit174, !llvm.loop !263
@@ -13429,72 +13429,72 @@ define internal void @ompi_op_avx_3buff_max_uint8_t_avx512(ptr noalias noundef %
   ]
 
 49:                                               ; preds = %.lr.ph208
-  %50 = getelementptr inbounds i8, ptr %.6206, i64 7
+  %50 = getelementptr inbounds nuw i8, ptr %.6206, i64 7
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %.6129205, i64 7
+  %52 = getelementptr inbounds nuw i8, ptr %.6129205, i64 7
   %53 = load i8, ptr %52, align 1
   %. = tail call i8 @llvm.umax.i8(i8 %51, i8 %53)
-  %54 = getelementptr inbounds i8, ptr %.6136204, i64 7
+  %54 = getelementptr inbounds nuw i8, ptr %.6136204, i64 7
   store i8 %., ptr %54, align 1
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph208
-  %56 = getelementptr inbounds i8, ptr %.6206, i64 6
+  %56 = getelementptr inbounds nuw i8, ptr %.6206, i64 6
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.6129205, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %.6129205, i64 6
   %59 = load i8, ptr %58, align 1
   %.167 = tail call i8 @llvm.umax.i8(i8 %57, i8 %59)
-  %60 = getelementptr inbounds i8, ptr %.6136204, i64 6
+  %60 = getelementptr inbounds nuw i8, ptr %.6136204, i64 6
   store i8 %.167, ptr %60, align 1
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph208
-  %62 = getelementptr inbounds i8, ptr %.6206, i64 5
+  %62 = getelementptr inbounds nuw i8, ptr %.6206, i64 5
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.6129205, i64 5
+  %64 = getelementptr inbounds nuw i8, ptr %.6129205, i64 5
   %65 = load i8, ptr %64, align 1
   %.168 = tail call i8 @llvm.umax.i8(i8 %63, i8 %65)
-  %66 = getelementptr inbounds i8, ptr %.6136204, i64 5
+  %66 = getelementptr inbounds nuw i8, ptr %.6136204, i64 5
   store i8 %.168, ptr %66, align 1
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph208
-  %68 = getelementptr inbounds i8, ptr %.6206, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.6206, i64 4
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %.6129205, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.6129205, i64 4
   %71 = load i8, ptr %70, align 1
   %.169 = tail call i8 @llvm.umax.i8(i8 %69, i8 %71)
-  %72 = getelementptr inbounds i8, ptr %.6136204, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.6136204, i64 4
   store i8 %.169, ptr %72, align 1
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph208
-  %74 = getelementptr inbounds i8, ptr %.6206, i64 3
+  %74 = getelementptr inbounds nuw i8, ptr %.6206, i64 3
   %75 = load i8, ptr %74, align 1
-  %76 = getelementptr inbounds i8, ptr %.6129205, i64 3
+  %76 = getelementptr inbounds nuw i8, ptr %.6129205, i64 3
   %77 = load i8, ptr %76, align 1
   %.170 = tail call i8 @llvm.umax.i8(i8 %75, i8 %77)
-  %78 = getelementptr inbounds i8, ptr %.6136204, i64 3
+  %78 = getelementptr inbounds nuw i8, ptr %.6136204, i64 3
   store i8 %.170, ptr %78, align 1
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph208
-  %80 = getelementptr inbounds i8, ptr %.6206, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %.6206, i64 2
   %81 = load i8, ptr %80, align 1
-  %82 = getelementptr inbounds i8, ptr %.6129205, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.6129205, i64 2
   %83 = load i8, ptr %82, align 1
   %.171 = tail call i8 @llvm.umax.i8(i8 %81, i8 %83)
-  %84 = getelementptr inbounds i8, ptr %.6136204, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.6136204, i64 2
   store i8 %.171, ptr %84, align 1
   br label %85
 
 85:                                               ; preds = %79, %.lr.ph208
-  %86 = getelementptr inbounds i8, ptr %.6206, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.6206, i64 1
   %87 = load i8, ptr %86, align 1
-  %88 = getelementptr inbounds i8, ptr %.6129205, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.6129205, i64 1
   %89 = load i8, ptr %88, align 1
   %.172 = tail call i8 @llvm.umax.i8(i8 %87, i8 %89)
-  %90 = getelementptr inbounds i8, ptr %.6136204, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.6136204, i64 1
   store i8 %.172, ptr %90, align 1
   br label %91
 
@@ -13505,9 +13505,9 @@ define internal void @ompi_op_avx_3buff_max_uint8_t_avx512(ptr noalias noundef %
   store i8 %.173, ptr %.6136204, align 1
   %94 = sub nsw i32 %.6143203, %48
   %95 = zext nneg i32 %48 to i64
-  %96 = getelementptr inbounds i8, ptr %.6136204, i64 %95
-  %97 = getelementptr inbounds i8, ptr %.6206, i64 %95
-  %98 = getelementptr inbounds i8, ptr %.6129205, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %.6136204, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %.6206, i64 %95
+  %98 = getelementptr inbounds nuw i8, ptr %.6129205, i64 %95
   %99 = icmp sgt i32 %94, 0
   br i1 %99, label %.lr.ph208, label %.loopexit, !llvm.loop !264
 
@@ -13537,11 +13537,11 @@ define internal void @ompi_op_avx_3buff_max_int16_t_avx512(ptr noalias noundef %
   %.1138177 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader176 ]
   %12 = load <32 x i16>, ptr %.1180, align 1
   %13 = load <32 x i16>, ptr %.1124179, align 1
-  %14 = getelementptr inbounds i8, ptr %.1180, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124179, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1180, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124179, i64 64
   %16 = tail call <32 x i16> @llvm.smax.v32i16(<32 x i16> %12, <32 x i16> %13)
   store <32 x i16> %16, ptr %.1131178, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -32
   %19 = icmp samesign ugt i32 %.1138177, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !265
@@ -13574,11 +13574,11 @@ define internal void @ompi_op_avx_3buff_max_int16_t_avx512(ptr noalias noundef %
   %.3140184 = phi i32 [ %31, %.lr.ph188 ], [ %.0137, %.preheader175 ]
   %25 = load <16 x i16>, ptr %.3187, align 1
   %26 = load <16 x i16>, ptr %.3126186, align 1
-  %27 = getelementptr inbounds i8, ptr %.3187, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126186, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3187, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126186, i64 32
   %29 = tail call <16 x i16> @llvm.smax.v16i16(<16 x i16> %25, <16 x i16> %26)
   store <16 x i16> %29, ptr %.3133185, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -16
   %32 = icmp samesign ugt i32 %.3140184, 31
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !266
@@ -13614,13 +13614,13 @@ define internal void @ompi_op_avx_3buff_max_int16_t_avx512(ptr noalias noundef %
   %.5142194 = phi i32 [ %47, %.lr.ph198 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5197)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128196)
-  %41 = getelementptr inbounds i8, ptr %.5197, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128196, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5197, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128196, i64 16
   %43 = bitcast <16 x i8> %39 to <8 x i16>
   %44 = bitcast <16 x i8> %40 to <8 x i16>
   %45 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %43, <8 x i16> %44)
   store <8 x i16> %45, ptr %.5135195, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135195, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135195, i64 16
   %47 = add nsw i32 %.5142194, -8
   %48 = icmp samesign ugt i32 %.5142194, 15
   br i1 %48, label %.lr.ph198, label %.loopexit174, !llvm.loop !267
@@ -13651,72 +13651,72 @@ define internal void @ompi_op_avx_3buff_max_int16_t_avx512(ptr noalias noundef %
   ]
 
 51:                                               ; preds = %.lr.ph208
-  %52 = getelementptr inbounds i8, ptr %.6206, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %.6206, i64 14
   %53 = load i16, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %.6129205, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6129205, i64 14
   %55 = load i16, ptr %54, align 2
   %. = tail call i16 @llvm.smax.i16(i16 %53, i16 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136204, i64 14
+  %56 = getelementptr inbounds nuw i8, ptr %.6136204, i64 14
   store i16 %., ptr %56, align 2
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph208
-  %58 = getelementptr inbounds i8, ptr %.6206, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.6206, i64 12
   %59 = load i16, ptr %58, align 2
-  %60 = getelementptr inbounds i8, ptr %.6129205, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %.6129205, i64 12
   %61 = load i16, ptr %60, align 2
   %.167 = tail call i16 @llvm.smax.i16(i16 %59, i16 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136204, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %.6136204, i64 12
   store i16 %.167, ptr %62, align 2
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph208
-  %64 = getelementptr inbounds i8, ptr %.6206, i64 10
+  %64 = getelementptr inbounds nuw i8, ptr %.6206, i64 10
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr inbounds i8, ptr %.6129205, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %.6129205, i64 10
   %67 = load i16, ptr %66, align 2
   %.168 = tail call i16 @llvm.smax.i16(i16 %65, i16 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136204, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6136204, i64 10
   store i16 %.168, ptr %68, align 2
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph208
-  %70 = getelementptr inbounds i8, ptr %.6206, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.6206, i64 8
   %71 = load i16, ptr %70, align 2
-  %72 = getelementptr inbounds i8, ptr %.6129205, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.6129205, i64 8
   %73 = load i16, ptr %72, align 2
   %.169 = tail call i16 @llvm.smax.i16(i16 %71, i16 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136204, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6136204, i64 8
   store i16 %.169, ptr %74, align 2
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph208
-  %76 = getelementptr inbounds i8, ptr %.6206, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %.6206, i64 6
   %77 = load i16, ptr %76, align 2
-  %78 = getelementptr inbounds i8, ptr %.6129205, i64 6
+  %78 = getelementptr inbounds nuw i8, ptr %.6129205, i64 6
   %79 = load i16, ptr %78, align 2
   %.170 = tail call i16 @llvm.smax.i16(i16 %77, i16 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136204, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %.6136204, i64 6
   store i16 %.170, ptr %80, align 2
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph208
-  %82 = getelementptr inbounds i8, ptr %.6206, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.6206, i64 4
   %83 = load i16, ptr %82, align 2
-  %84 = getelementptr inbounds i8, ptr %.6129205, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.6129205, i64 4
   %85 = load i16, ptr %84, align 2
   %.171 = tail call i16 @llvm.smax.i16(i16 %83, i16 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136204, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.6136204, i64 4
   store i16 %.171, ptr %86, align 2
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph208
-  %88 = getelementptr inbounds i8, ptr %.6206, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.6206, i64 2
   %89 = load i16, ptr %88, align 2
-  %90 = getelementptr inbounds i8, ptr %.6129205, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.6129205, i64 2
   %91 = load i16, ptr %90, align 2
   %.172 = tail call i16 @llvm.smax.i16(i16 %89, i16 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136204, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %.6136204, i64 2
   store i16 %.172, ptr %92, align 2
   br label %93
 
@@ -13727,9 +13727,9 @@ define internal void @ompi_op_avx_3buff_max_int16_t_avx512(ptr noalias noundef %
   store i16 %.173, ptr %.6136204, align 2
   %96 = sub nsw i32 %.6143203, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i16, ptr %.6136204, i64 %97
-  %99 = getelementptr inbounds i16, ptr %.6206, i64 %97
-  %100 = getelementptr inbounds i16, ptr %.6129205, i64 %97
+  %98 = getelementptr inbounds nuw i16, ptr %.6136204, i64 %97
+  %99 = getelementptr inbounds nuw i16, ptr %.6206, i64 %97
+  %100 = getelementptr inbounds nuw i16, ptr %.6129205, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph208, label %.loopexit, !llvm.loop !268
 
@@ -13759,11 +13759,11 @@ define internal void @ompi_op_avx_3buff_max_uint16_t_avx512(ptr noalias noundef 
   %.1138177 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader176 ]
   %12 = load <32 x i16>, ptr %.1180, align 1
   %13 = load <32 x i16>, ptr %.1124179, align 1
-  %14 = getelementptr inbounds i8, ptr %.1180, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124179, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1180, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124179, i64 64
   %16 = tail call <32 x i16> @llvm.umax.v32i16(<32 x i16> %12, <32 x i16> %13)
   store <32 x i16> %16, ptr %.1131178, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -32
   %19 = icmp samesign ugt i32 %.1138177, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !269
@@ -13796,11 +13796,11 @@ define internal void @ompi_op_avx_3buff_max_uint16_t_avx512(ptr noalias noundef 
   %.3140184 = phi i32 [ %31, %.lr.ph188 ], [ %.0137, %.preheader175 ]
   %25 = load <16 x i16>, ptr %.3187, align 1
   %26 = load <16 x i16>, ptr %.3126186, align 1
-  %27 = getelementptr inbounds i8, ptr %.3187, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126186, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3187, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126186, i64 32
   %29 = tail call <16 x i16> @llvm.umax.v16i16(<16 x i16> %25, <16 x i16> %26)
   store <16 x i16> %29, ptr %.3133185, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -16
   %32 = icmp samesign ugt i32 %.3140184, 31
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !270
@@ -13836,13 +13836,13 @@ define internal void @ompi_op_avx_3buff_max_uint16_t_avx512(ptr noalias noundef 
   %.5142194 = phi i32 [ %47, %.lr.ph198 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5197)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128196)
-  %41 = getelementptr inbounds i8, ptr %.5197, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128196, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5197, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128196, i64 16
   %43 = bitcast <16 x i8> %39 to <8 x i16>
   %44 = bitcast <16 x i8> %40 to <8 x i16>
   %45 = tail call <8 x i16> @llvm.umax.v8i16(<8 x i16> %43, <8 x i16> %44)
   store <8 x i16> %45, ptr %.5135195, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135195, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135195, i64 16
   %47 = add nsw i32 %.5142194, -8
   %48 = icmp samesign ugt i32 %.5142194, 15
   br i1 %48, label %.lr.ph198, label %.loopexit174, !llvm.loop !271
@@ -13873,72 +13873,72 @@ define internal void @ompi_op_avx_3buff_max_uint16_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph208
-  %52 = getelementptr inbounds i8, ptr %.6206, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %.6206, i64 14
   %53 = load i16, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %.6129205, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6129205, i64 14
   %55 = load i16, ptr %54, align 2
   %. = tail call i16 @llvm.umax.i16(i16 %53, i16 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136204, i64 14
+  %56 = getelementptr inbounds nuw i8, ptr %.6136204, i64 14
   store i16 %., ptr %56, align 2
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph208
-  %58 = getelementptr inbounds i8, ptr %.6206, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.6206, i64 12
   %59 = load i16, ptr %58, align 2
-  %60 = getelementptr inbounds i8, ptr %.6129205, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %.6129205, i64 12
   %61 = load i16, ptr %60, align 2
   %.167 = tail call i16 @llvm.umax.i16(i16 %59, i16 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136204, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %.6136204, i64 12
   store i16 %.167, ptr %62, align 2
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph208
-  %64 = getelementptr inbounds i8, ptr %.6206, i64 10
+  %64 = getelementptr inbounds nuw i8, ptr %.6206, i64 10
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr inbounds i8, ptr %.6129205, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %.6129205, i64 10
   %67 = load i16, ptr %66, align 2
   %.168 = tail call i16 @llvm.umax.i16(i16 %65, i16 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136204, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6136204, i64 10
   store i16 %.168, ptr %68, align 2
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph208
-  %70 = getelementptr inbounds i8, ptr %.6206, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.6206, i64 8
   %71 = load i16, ptr %70, align 2
-  %72 = getelementptr inbounds i8, ptr %.6129205, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.6129205, i64 8
   %73 = load i16, ptr %72, align 2
   %.169 = tail call i16 @llvm.umax.i16(i16 %71, i16 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136204, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6136204, i64 8
   store i16 %.169, ptr %74, align 2
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph208
-  %76 = getelementptr inbounds i8, ptr %.6206, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %.6206, i64 6
   %77 = load i16, ptr %76, align 2
-  %78 = getelementptr inbounds i8, ptr %.6129205, i64 6
+  %78 = getelementptr inbounds nuw i8, ptr %.6129205, i64 6
   %79 = load i16, ptr %78, align 2
   %.170 = tail call i16 @llvm.umax.i16(i16 %77, i16 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136204, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %.6136204, i64 6
   store i16 %.170, ptr %80, align 2
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph208
-  %82 = getelementptr inbounds i8, ptr %.6206, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.6206, i64 4
   %83 = load i16, ptr %82, align 2
-  %84 = getelementptr inbounds i8, ptr %.6129205, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.6129205, i64 4
   %85 = load i16, ptr %84, align 2
   %.171 = tail call i16 @llvm.umax.i16(i16 %83, i16 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136204, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.6136204, i64 4
   store i16 %.171, ptr %86, align 2
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph208
-  %88 = getelementptr inbounds i8, ptr %.6206, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.6206, i64 2
   %89 = load i16, ptr %88, align 2
-  %90 = getelementptr inbounds i8, ptr %.6129205, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.6129205, i64 2
   %91 = load i16, ptr %90, align 2
   %.172 = tail call i16 @llvm.umax.i16(i16 %89, i16 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136204, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %.6136204, i64 2
   store i16 %.172, ptr %92, align 2
   br label %93
 
@@ -13949,9 +13949,9 @@ define internal void @ompi_op_avx_3buff_max_uint16_t_avx512(ptr noalias noundef 
   store i16 %.173, ptr %.6136204, align 2
   %96 = sub nsw i32 %.6143203, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i16, ptr %.6136204, i64 %97
-  %99 = getelementptr inbounds i16, ptr %.6206, i64 %97
-  %100 = getelementptr inbounds i16, ptr %.6129205, i64 %97
+  %98 = getelementptr inbounds nuw i16, ptr %.6136204, i64 %97
+  %99 = getelementptr inbounds nuw i16, ptr %.6206, i64 %97
+  %100 = getelementptr inbounds nuw i16, ptr %.6129205, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph208, label %.loopexit, !llvm.loop !272
 
@@ -13981,11 +13981,11 @@ define internal void @ompi_op_avx_3buff_max_int32_t_avx512(ptr noalias noundef %
   %.1138170 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader169 ]
   %12 = load <16 x i32>, ptr %.1173, align 1
   %13 = load <16 x i32>, ptr %.1124172, align 1
-  %14 = getelementptr inbounds i8, ptr %.1173, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124172, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1173, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124172, i64 64
   %16 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %12, <16 x i32> %13)
   store <16 x i32> %16, ptr %.1131171, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -16
   %19 = icmp samesign ugt i32 %.1138170, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !273
@@ -14018,11 +14018,11 @@ define internal void @ompi_op_avx_3buff_max_int32_t_avx512(ptr noalias noundef %
   %.3140177 = phi i32 [ %31, %.lr.ph181 ], [ %.0137, %.preheader168 ]
   %25 = load <8 x i32>, ptr %.3180, align 1
   %26 = load <8 x i32>, ptr %.3126179, align 1
-  %27 = getelementptr inbounds i8, ptr %.3180, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126179, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3180, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126179, i64 32
   %29 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %25, <8 x i32> %26)
   store <8 x i32> %29, ptr %.3133178, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -8
   %32 = icmp samesign ugt i32 %.3140177, 15
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !274
@@ -14058,13 +14058,13 @@ define internal void @ompi_op_avx_3buff_max_int32_t_avx512(ptr noalias noundef %
   %.5142187 = phi i32 [ %47, %.lr.ph191 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5190)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128189)
-  %41 = getelementptr inbounds i8, ptr %.5190, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128189, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5190, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128189, i64 16
   %43 = bitcast <16 x i8> %39 to <4 x i32>
   %44 = bitcast <16 x i8> %40 to <4 x i32>
   %45 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %43, <4 x i32> %44)
   store <4 x i32> %45, ptr %.5135188, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -4
   %48 = icmp samesign ugt i32 %.5142187, 7
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !275
@@ -14095,72 +14095,72 @@ define internal void @ompi_op_avx_3buff_max_int32_t_avx512(ptr noalias noundef %
   ]
 
 51:                                               ; preds = %.lr.ph201
-  %52 = getelementptr inbounds i8, ptr %.6199, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.6199, i64 28
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.6129198, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6129198, i64 28
   %55 = load i32, ptr %54, align 4
   %. = tail call i32 @llvm.smax.i32(i32 %53, i32 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136197, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %.6136197, i64 28
   store i32 %., ptr %56, align 4
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph201
-  %58 = getelementptr inbounds i8, ptr %.6199, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.6199, i64 24
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %.6129198, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.6129198, i64 24
   %61 = load i32, ptr %60, align 4
   %.160 = tail call i32 @llvm.smax.i32(i32 %59, i32 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136197, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.6136197, i64 24
   store i32 %.160, ptr %62, align 4
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph201
-  %64 = getelementptr inbounds i8, ptr %.6199, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %.6199, i64 20
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.6129198, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.6129198, i64 20
   %67 = load i32, ptr %66, align 4
   %.161 = tail call i32 @llvm.smax.i32(i32 %65, i32 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136197, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6136197, i64 20
   store i32 %.161, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph201
-  %70 = getelementptr inbounds i8, ptr %.6199, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.6199, i64 16
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %.6129198, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.6129198, i64 16
   %73 = load i32, ptr %72, align 4
   %.162 = tail call i32 @llvm.smax.i32(i32 %71, i32 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136197, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6136197, i64 16
   store i32 %.162, ptr %74, align 4
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph201
-  %76 = getelementptr inbounds i8, ptr %.6199, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %.6199, i64 12
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %.6129198, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %.6129198, i64 12
   %79 = load i32, ptr %78, align 4
   %.163 = tail call i32 @llvm.smax.i32(i32 %77, i32 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136197, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %.6136197, i64 12
   store i32 %.163, ptr %80, align 4
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph201
-  %82 = getelementptr inbounds i8, ptr %.6199, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.6199, i64 8
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %.6129198, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.6129198, i64 8
   %85 = load i32, ptr %84, align 4
   %.164 = tail call i32 @llvm.smax.i32(i32 %83, i32 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136197, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.6136197, i64 8
   store i32 %.164, ptr %86, align 4
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph201
-  %88 = getelementptr inbounds i8, ptr %.6199, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %.6199, i64 4
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %.6129198, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.6129198, i64 4
   %91 = load i32, ptr %90, align 4
   %.165 = tail call i32 @llvm.smax.i32(i32 %89, i32 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136197, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6136197, i64 4
   store i32 %.165, ptr %92, align 4
   br label %93
 
@@ -14171,9 +14171,9 @@ define internal void @ompi_op_avx_3buff_max_int32_t_avx512(ptr noalias noundef %
   store i32 %.166, ptr %.6136197, align 4
   %96 = sub nsw i32 %.6143196, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i32, ptr %.6136197, i64 %97
-  %99 = getelementptr inbounds i32, ptr %.6199, i64 %97
-  %100 = getelementptr inbounds i32, ptr %.6129198, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr %.6136197, i64 %97
+  %99 = getelementptr inbounds nuw i32, ptr %.6199, i64 %97
+  %100 = getelementptr inbounds nuw i32, ptr %.6129198, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph201, label %.loopexit, !llvm.loop !276
 
@@ -14203,11 +14203,11 @@ define internal void @ompi_op_avx_3buff_max_uint32_t_avx512(ptr noalias noundef 
   %.1138170 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader169 ]
   %12 = load <16 x i32>, ptr %.1173, align 1
   %13 = load <16 x i32>, ptr %.1124172, align 1
-  %14 = getelementptr inbounds i8, ptr %.1173, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124172, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1173, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124172, i64 64
   %16 = tail call <16 x i32> @llvm.umax.v16i32(<16 x i32> %12, <16 x i32> %13)
   store <16 x i32> %16, ptr %.1131171, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -16
   %19 = icmp samesign ugt i32 %.1138170, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !277
@@ -14240,11 +14240,11 @@ define internal void @ompi_op_avx_3buff_max_uint32_t_avx512(ptr noalias noundef 
   %.3140177 = phi i32 [ %31, %.lr.ph181 ], [ %.0137, %.preheader168 ]
   %25 = load <8 x i32>, ptr %.3180, align 1
   %26 = load <8 x i32>, ptr %.3126179, align 1
-  %27 = getelementptr inbounds i8, ptr %.3180, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126179, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3180, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126179, i64 32
   %29 = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %25, <8 x i32> %26)
   store <8 x i32> %29, ptr %.3133178, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -8
   %32 = icmp samesign ugt i32 %.3140177, 15
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !278
@@ -14280,13 +14280,13 @@ define internal void @ompi_op_avx_3buff_max_uint32_t_avx512(ptr noalias noundef 
   %.5142187 = phi i32 [ %47, %.lr.ph191 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5190)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128189)
-  %41 = getelementptr inbounds i8, ptr %.5190, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128189, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5190, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128189, i64 16
   %43 = bitcast <16 x i8> %39 to <4 x i32>
   %44 = bitcast <16 x i8> %40 to <4 x i32>
   %45 = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %43, <4 x i32> %44)
   store <4 x i32> %45, ptr %.5135188, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -4
   %48 = icmp samesign ugt i32 %.5142187, 7
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !279
@@ -14317,72 +14317,72 @@ define internal void @ompi_op_avx_3buff_max_uint32_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph201
-  %52 = getelementptr inbounds i8, ptr %.6199, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.6199, i64 28
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.6129198, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6129198, i64 28
   %55 = load i32, ptr %54, align 4
   %. = tail call i32 @llvm.umax.i32(i32 %53, i32 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136197, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %.6136197, i64 28
   store i32 %., ptr %56, align 4
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph201
-  %58 = getelementptr inbounds i8, ptr %.6199, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.6199, i64 24
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %.6129198, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.6129198, i64 24
   %61 = load i32, ptr %60, align 4
   %.160 = tail call i32 @llvm.umax.i32(i32 %59, i32 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136197, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.6136197, i64 24
   store i32 %.160, ptr %62, align 4
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph201
-  %64 = getelementptr inbounds i8, ptr %.6199, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %.6199, i64 20
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.6129198, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.6129198, i64 20
   %67 = load i32, ptr %66, align 4
   %.161 = tail call i32 @llvm.umax.i32(i32 %65, i32 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136197, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6136197, i64 20
   store i32 %.161, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph201
-  %70 = getelementptr inbounds i8, ptr %.6199, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.6199, i64 16
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %.6129198, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.6129198, i64 16
   %73 = load i32, ptr %72, align 4
   %.162 = tail call i32 @llvm.umax.i32(i32 %71, i32 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136197, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6136197, i64 16
   store i32 %.162, ptr %74, align 4
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph201
-  %76 = getelementptr inbounds i8, ptr %.6199, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %.6199, i64 12
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %.6129198, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %.6129198, i64 12
   %79 = load i32, ptr %78, align 4
   %.163 = tail call i32 @llvm.umax.i32(i32 %77, i32 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136197, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %.6136197, i64 12
   store i32 %.163, ptr %80, align 4
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph201
-  %82 = getelementptr inbounds i8, ptr %.6199, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.6199, i64 8
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %.6129198, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.6129198, i64 8
   %85 = load i32, ptr %84, align 4
   %.164 = tail call i32 @llvm.umax.i32(i32 %83, i32 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136197, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.6136197, i64 8
   store i32 %.164, ptr %86, align 4
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph201
-  %88 = getelementptr inbounds i8, ptr %.6199, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %.6199, i64 4
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %.6129198, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.6129198, i64 4
   %91 = load i32, ptr %90, align 4
   %.165 = tail call i32 @llvm.umax.i32(i32 %89, i32 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136197, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6136197, i64 4
   store i32 %.165, ptr %92, align 4
   br label %93
 
@@ -14393,9 +14393,9 @@ define internal void @ompi_op_avx_3buff_max_uint32_t_avx512(ptr noalias noundef 
   store i32 %.166, ptr %.6136197, align 4
   %96 = sub nsw i32 %.6143196, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i32, ptr %.6136197, i64 %97
-  %99 = getelementptr inbounds i32, ptr %.6199, i64 %97
-  %100 = getelementptr inbounds i32, ptr %.6129198, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr %.6136197, i64 %97
+  %99 = getelementptr inbounds nuw i32, ptr %.6199, i64 %97
+  %100 = getelementptr inbounds nuw i32, ptr %.6129198, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph201, label %.loopexit, !llvm.loop !280
 
@@ -14425,11 +14425,11 @@ define internal void @ompi_op_avx_3buff_max_int64_t_avx512(ptr noalias noundef %
   %.1138170 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader169 ]
   %12 = load <8 x i64>, ptr %.1173, align 1
   %13 = load <8 x i64>, ptr %.1124172, align 1
-  %14 = getelementptr inbounds i8, ptr %.1173, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124172, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1173, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124172, i64 64
   %16 = tail call <8 x i64> @llvm.smax.v8i64(<8 x i64> %12, <8 x i64> %13)
   store <8 x i64> %16, ptr %.1131171, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -8
   %19 = icmp samesign ugt i32 %.1138170, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !281
@@ -14462,11 +14462,11 @@ define internal void @ompi_op_avx_3buff_max_int64_t_avx512(ptr noalias noundef %
   %.3140177 = phi i32 [ %31, %.lr.ph181 ], [ %.0137, %.preheader168 ]
   %25 = load <4 x i64>, ptr %.3180, align 1
   %26 = load <4 x i64>, ptr %.3126179, align 1
-  %27 = getelementptr inbounds i8, ptr %.3180, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126179, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3180, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126179, i64 32
   %29 = tail call <4 x i64> @llvm.smax.v4i64(<4 x i64> %25, <4 x i64> %26)
   store <4 x i64> %29, ptr %.3133178, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -4
   %32 = icmp samesign ugt i32 %.3140177, 7
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !282
@@ -14504,11 +14504,11 @@ define internal void @ompi_op_avx_3buff_max_int64_t_avx512(ptr noalias noundef %
   %40 = bitcast <16 x i8> %39 to <2 x i64>
   %41 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128189)
   %42 = bitcast <16 x i8> %41 to <2 x i64>
-  %43 = getelementptr inbounds i8, ptr %.5190, i64 16
-  %44 = getelementptr inbounds i8, ptr %.5128189, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5190, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5128189, i64 16
   %45 = tail call <2 x i64> @llvm.smax.v2i64(<2 x i64> %40, <2 x i64> %42)
   store <2 x i64> %45, ptr %.5135188, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -2
   %48 = icmp samesign ugt i32 %.5142187, 3
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !283
@@ -14539,72 +14539,72 @@ define internal void @ompi_op_avx_3buff_max_int64_t_avx512(ptr noalias noundef %
   ]
 
 51:                                               ; preds = %.lr.ph201
-  %52 = getelementptr inbounds i8, ptr %.6199, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.6199, i64 56
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.6129198, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6129198, i64 56
   %55 = load i64, ptr %54, align 8
   %. = tail call i64 @llvm.smax.i64(i64 %53, i64 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136197, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %.6136197, i64 56
   store i64 %., ptr %56, align 8
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph201
-  %58 = getelementptr inbounds i8, ptr %.6199, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.6199, i64 48
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %.6129198, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %.6129198, i64 48
   %61 = load i64, ptr %60, align 8
   %.160 = tail call i64 @llvm.smax.i64(i64 %59, i64 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136197, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %.6136197, i64 48
   store i64 %.160, ptr %62, align 8
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph201
-  %64 = getelementptr inbounds i8, ptr %.6199, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.6199, i64 40
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.6129198, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %.6129198, i64 40
   %67 = load i64, ptr %66, align 8
   %.161 = tail call i64 @llvm.smax.i64(i64 %65, i64 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136197, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6136197, i64 40
   store i64 %.161, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph201
-  %70 = getelementptr inbounds i8, ptr %.6199, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.6199, i64 32
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.6129198, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.6129198, i64 32
   %73 = load i64, ptr %72, align 8
   %.162 = tail call i64 @llvm.smax.i64(i64 %71, i64 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136197, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.6136197, i64 32
   store i64 %.162, ptr %74, align 8
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph201
-  %76 = getelementptr inbounds i8, ptr %.6199, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.6199, i64 24
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.6129198, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.6129198, i64 24
   %79 = load i64, ptr %78, align 8
   %.163 = tail call i64 @llvm.smax.i64(i64 %77, i64 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136197, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.6136197, i64 24
   store i64 %.163, ptr %80, align 8
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph201
-  %82 = getelementptr inbounds i8, ptr %.6199, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.6199, i64 16
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.6129198, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.6129198, i64 16
   %85 = load i64, ptr %84, align 8
   %.164 = tail call i64 @llvm.smax.i64(i64 %83, i64 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136197, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.6136197, i64 16
   store i64 %.164, ptr %86, align 8
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph201
-  %88 = getelementptr inbounds i8, ptr %.6199, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.6199, i64 8
   %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %.6129198, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.6129198, i64 8
   %91 = load i64, ptr %90, align 8
   %.165 = tail call i64 @llvm.smax.i64(i64 %89, i64 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136197, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6136197, i64 8
   store i64 %.165, ptr %92, align 8
   br label %93
 
@@ -14615,9 +14615,9 @@ define internal void @ompi_op_avx_3buff_max_int64_t_avx512(ptr noalias noundef %
   store i64 %.166, ptr %.6136197, align 8
   %96 = sub nsw i32 %.6143196, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i64, ptr %.6136197, i64 %97
-  %99 = getelementptr inbounds i64, ptr %.6199, i64 %97
-  %100 = getelementptr inbounds i64, ptr %.6129198, i64 %97
+  %98 = getelementptr inbounds nuw i64, ptr %.6136197, i64 %97
+  %99 = getelementptr inbounds nuw i64, ptr %.6199, i64 %97
+  %100 = getelementptr inbounds nuw i64, ptr %.6129198, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph201, label %.loopexit, !llvm.loop !284
 
@@ -14647,11 +14647,11 @@ define internal void @ompi_op_avx_3buff_max_uint64_t_avx512(ptr noalias noundef 
   %.1138170 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader169 ]
   %12 = load <8 x i64>, ptr %.1173, align 1
   %13 = load <8 x i64>, ptr %.1124172, align 1
-  %14 = getelementptr inbounds i8, ptr %.1173, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124172, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1173, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124172, i64 64
   %16 = tail call <8 x i64> @llvm.umax.v8i64(<8 x i64> %12, <8 x i64> %13)
   store <8 x i64> %16, ptr %.1131171, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -8
   %19 = icmp samesign ugt i32 %.1138170, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !285
@@ -14684,11 +14684,11 @@ define internal void @ompi_op_avx_3buff_max_uint64_t_avx512(ptr noalias noundef 
   %.3140177 = phi i32 [ %31, %.lr.ph181 ], [ %.0137, %.preheader168 ]
   %25 = load <4 x i64>, ptr %.3180, align 1
   %26 = load <4 x i64>, ptr %.3126179, align 1
-  %27 = getelementptr inbounds i8, ptr %.3180, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126179, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3180, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126179, i64 32
   %29 = tail call <4 x i64> @llvm.umax.v4i64(<4 x i64> %25, <4 x i64> %26)
   store <4 x i64> %29, ptr %.3133178, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -4
   %32 = icmp samesign ugt i32 %.3140177, 7
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !286
@@ -14726,11 +14726,11 @@ define internal void @ompi_op_avx_3buff_max_uint64_t_avx512(ptr noalias noundef 
   %40 = bitcast <16 x i8> %39 to <2 x i64>
   %41 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128189)
   %42 = bitcast <16 x i8> %41 to <2 x i64>
-  %43 = getelementptr inbounds i8, ptr %.5190, i64 16
-  %44 = getelementptr inbounds i8, ptr %.5128189, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5190, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5128189, i64 16
   %45 = tail call <2 x i64> @llvm.umax.v2i64(<2 x i64> %40, <2 x i64> %42)
   store <2 x i64> %45, ptr %.5135188, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -2
   %48 = icmp samesign ugt i32 %.5142187, 3
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !287
@@ -14761,72 +14761,72 @@ define internal void @ompi_op_avx_3buff_max_uint64_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph201
-  %52 = getelementptr inbounds i8, ptr %.6199, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.6199, i64 56
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.6129198, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6129198, i64 56
   %55 = load i64, ptr %54, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %53, i64 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136197, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %.6136197, i64 56
   store i64 %., ptr %56, align 8
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph201
-  %58 = getelementptr inbounds i8, ptr %.6199, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.6199, i64 48
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %.6129198, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %.6129198, i64 48
   %61 = load i64, ptr %60, align 8
   %.160 = tail call i64 @llvm.umax.i64(i64 %59, i64 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136197, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %.6136197, i64 48
   store i64 %.160, ptr %62, align 8
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph201
-  %64 = getelementptr inbounds i8, ptr %.6199, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.6199, i64 40
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.6129198, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %.6129198, i64 40
   %67 = load i64, ptr %66, align 8
   %.161 = tail call i64 @llvm.umax.i64(i64 %65, i64 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136197, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6136197, i64 40
   store i64 %.161, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph201
-  %70 = getelementptr inbounds i8, ptr %.6199, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.6199, i64 32
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.6129198, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.6129198, i64 32
   %73 = load i64, ptr %72, align 8
   %.162 = tail call i64 @llvm.umax.i64(i64 %71, i64 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136197, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.6136197, i64 32
   store i64 %.162, ptr %74, align 8
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph201
-  %76 = getelementptr inbounds i8, ptr %.6199, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.6199, i64 24
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.6129198, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.6129198, i64 24
   %79 = load i64, ptr %78, align 8
   %.163 = tail call i64 @llvm.umax.i64(i64 %77, i64 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136197, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.6136197, i64 24
   store i64 %.163, ptr %80, align 8
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph201
-  %82 = getelementptr inbounds i8, ptr %.6199, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.6199, i64 16
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.6129198, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.6129198, i64 16
   %85 = load i64, ptr %84, align 8
   %.164 = tail call i64 @llvm.umax.i64(i64 %83, i64 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136197, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.6136197, i64 16
   store i64 %.164, ptr %86, align 8
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph201
-  %88 = getelementptr inbounds i8, ptr %.6199, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.6199, i64 8
   %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %.6129198, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.6129198, i64 8
   %91 = load i64, ptr %90, align 8
   %.165 = tail call i64 @llvm.umax.i64(i64 %89, i64 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136197, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6136197, i64 8
   store i64 %.165, ptr %92, align 8
   br label %93
 
@@ -14837,9 +14837,9 @@ define internal void @ompi_op_avx_3buff_max_uint64_t_avx512(ptr noalias noundef 
   store i64 %.166, ptr %.6136197, align 8
   %96 = sub nsw i32 %.6143196, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i64, ptr %.6136197, i64 %97
-  %99 = getelementptr inbounds i64, ptr %.6199, i64 %97
-  %100 = getelementptr inbounds i64, ptr %.6129198, i64 %97
+  %98 = getelementptr inbounds nuw i64, ptr %.6136197, i64 %97
+  %99 = getelementptr inbounds nuw i64, ptr %.6199, i64 %97
+  %100 = getelementptr inbounds nuw i64, ptr %.6129198, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph201, label %.loopexit, !llvm.loop !288
 
@@ -14869,11 +14869,11 @@ define internal void @ompi_op_avx_3buff_max_float_avx512(ptr nocapture noundef r
   %.1138172 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader171 ]
   %11 = load <16 x float>, ptr %.1124174, align 1
   %12 = load <16 x float>, ptr %.1131173, align 1
-  %13 = getelementptr inbounds i8, ptr %.1124174, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1131173, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1124174, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1131173, i64 64
   %15 = tail call <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %11, <16 x float> %12, i32 4)
   store <16 x float> %15, ptr %.1138172, align 1
-  %16 = getelementptr inbounds i8, ptr %.1138172, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1138172, i64 64
   %17 = add nsw i32 %.1175, -16
   %18 = icmp samesign ugt i32 %.1175, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !289
@@ -14911,11 +14911,11 @@ define internal void @ompi_op_avx_3buff_max_float_avx512(ptr nocapture noundef r
   %.3140179 = phi ptr [ %29, %.lr.ph183 ], [ %.0137, %.preheader170 ]
   %24 = load <8 x float>, ptr %.3126181, align 1
   %25 = load <8 x float>, ptr %.3133180, align 1
-  %26 = getelementptr inbounds i8, ptr %.3126181, i64 32
-  %27 = getelementptr inbounds i8, ptr %.3133180, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3126181, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3133180, i64 32
   %28 = tail call <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %24, <8 x float> %25)
   store <8 x float> %28, ptr %.3140179, align 1
-  %29 = getelementptr inbounds i8, ptr %.3140179, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.3140179, i64 32
   %30 = add nsw i32 %.3182, -8
   %31 = icmp samesign ugt i32 %.3182, 15
   br i1 %31, label %.lr.ph183, label %._crit_edge184, !llvm.loop !290
@@ -14951,11 +14951,11 @@ define internal void @ompi_op_avx_3buff_max_float_avx512(ptr nocapture noundef r
   %.5142189 = phi ptr [ %42, %.lr.ph193 ], [ %.2139, %33 ]
   %37 = load <4 x float>, ptr %.5128191, align 1
   %38 = load <4 x float>, ptr %.5135190, align 1
-  %39 = getelementptr inbounds i8, ptr %.5128191, i64 16
-  %40 = getelementptr inbounds i8, ptr %.5135190, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5128191, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5135190, i64 16
   %41 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %37, <4 x float> %38)
   store <4 x float> %41, ptr %.5142189, align 1
-  %42 = getelementptr inbounds i8, ptr %.5142189, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5142189, i64 16
   %43 = add nsw i32 %.5192, -4
   %44 = icmp samesign ugt i32 %.5192, 7
   br i1 %44, label %.lr.ph193, label %.loopexit169, !llvm.loop !291
@@ -14986,79 +14986,79 @@ define internal void @ompi_op_avx_3buff_max_float_avx512(ptr nocapture noundef r
   ]
 
 47:                                               ; preds = %.lr.ph203
-  %48 = getelementptr inbounds i8, ptr %.6129200, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %.6129200, i64 28
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %.6136199, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %.6136199, i64 28
   %51 = load float, ptr %50, align 4
   %52 = fcmp ogt float %49, %51
   %. = select i1 %52, float %49, float %51
-  %53 = getelementptr inbounds i8, ptr %.6143198, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %.6143198, i64 28
   store float %., ptr %53, align 4
   br label %54
 
 54:                                               ; preds = %47, %.lr.ph203
-  %55 = getelementptr inbounds i8, ptr %.6129200, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.6129200, i64 24
   %56 = load float, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.6136199, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.6136199, i64 24
   %58 = load float, ptr %57, align 4
   %59 = fcmp ogt float %56, %58
   %.162 = select i1 %59, float %56, float %58
-  %60 = getelementptr inbounds i8, ptr %.6143198, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.6143198, i64 24
   store float %.162, ptr %60, align 4
   br label %61
 
 61:                                               ; preds = %54, %.lr.ph203
-  %62 = getelementptr inbounds i8, ptr %.6129200, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %.6129200, i64 20
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.6136199, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %.6136199, i64 20
   %65 = load float, ptr %64, align 4
   %66 = fcmp ogt float %63, %65
   %.163 = select i1 %66, float %63, float %65
-  %67 = getelementptr inbounds i8, ptr %.6143198, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %.6143198, i64 20
   store float %.163, ptr %67, align 4
   br label %68
 
 68:                                               ; preds = %61, %.lr.ph203
-  %69 = getelementptr inbounds i8, ptr %.6129200, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.6129200, i64 16
   %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6136199, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.6136199, i64 16
   %72 = load float, ptr %71, align 4
   %73 = fcmp ogt float %70, %72
   %.164 = select i1 %73, float %70, float %72
-  %74 = getelementptr inbounds i8, ptr %.6143198, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6143198, i64 16
   store float %.164, ptr %74, align 4
   br label %75
 
 75:                                               ; preds = %68, %.lr.ph203
-  %76 = getelementptr inbounds i8, ptr %.6129200, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %.6129200, i64 12
   %77 = load float, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %.6136199, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %.6136199, i64 12
   %79 = load float, ptr %78, align 4
   %80 = fcmp ogt float %77, %79
   %.165 = select i1 %80, float %77, float %79
-  %81 = getelementptr inbounds i8, ptr %.6143198, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %.6143198, i64 12
   store float %.165, ptr %81, align 4
   br label %82
 
 82:                                               ; preds = %75, %.lr.ph203
-  %83 = getelementptr inbounds i8, ptr %.6129200, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.6129200, i64 8
   %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %.6136199, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.6136199, i64 8
   %86 = load float, ptr %85, align 4
   %87 = fcmp ogt float %84, %86
   %.166 = select i1 %87, float %84, float %86
-  %88 = getelementptr inbounds i8, ptr %.6143198, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.6143198, i64 8
   store float %.166, ptr %88, align 4
   br label %89
 
 89:                                               ; preds = %82, %.lr.ph203
-  %90 = getelementptr inbounds i8, ptr %.6129200, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.6129200, i64 4
   %91 = load float, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %.6136199, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6136199, i64 4
   %93 = load float, ptr %92, align 4
   %94 = fcmp ogt float %91, %93
   %.167 = select i1 %94, float %91, float %93
-  %95 = getelementptr inbounds i8, ptr %.6143198, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %.6143198, i64 4
   store float %.167, ptr %95, align 4
   br label %96
 
@@ -15070,9 +15070,9 @@ define internal void @ompi_op_avx_3buff_max_float_avx512(ptr nocapture noundef r
   store float %.168, ptr %.6143198, align 4
   %100 = sub nsw i32 %.6201, %46
   %101 = zext nneg i32 %46 to i64
-  %102 = getelementptr inbounds float, ptr %.6143198, i64 %101
-  %103 = getelementptr inbounds float, ptr %.6129200, i64 %101
-  %104 = getelementptr inbounds float, ptr %.6136199, i64 %101
+  %102 = getelementptr inbounds nuw float, ptr %.6143198, i64 %101
+  %103 = getelementptr inbounds nuw float, ptr %.6129200, i64 %101
+  %104 = getelementptr inbounds nuw float, ptr %.6136199, i64 %101
   %105 = icmp sgt i32 %100, 0
   br i1 %105, label %.lr.ph203, label %.loopexit, !llvm.loop !292
 
@@ -15102,11 +15102,11 @@ define internal void @ompi_op_avx_3buff_max_double_avx512(ptr nocapture noundef 
   %.1138172 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader171 ]
   %11 = load <8 x double>, ptr %.1124174, align 1
   %12 = load <8 x double>, ptr %.1131173, align 1
-  %13 = getelementptr inbounds i8, ptr %.1124174, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1131173, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1124174, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1131173, i64 64
   %15 = tail call <8 x double> @llvm.x86.avx512.max.pd.512(<8 x double> %11, <8 x double> %12, i32 4)
   store <8 x double> %15, ptr %.1138172, align 1
-  %16 = getelementptr inbounds i8, ptr %.1138172, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1138172, i64 64
   %17 = add nsw i32 %.1175, -8
   %18 = icmp samesign ugt i32 %.1175, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !293
@@ -15144,11 +15144,11 @@ define internal void @ompi_op_avx_3buff_max_double_avx512(ptr nocapture noundef 
   %.3140179 = phi ptr [ %29, %.lr.ph183 ], [ %.0137, %.preheader170 ]
   %24 = load <4 x double>, ptr %.3126181, align 1
   %25 = load <4 x double>, ptr %.3133180, align 1
-  %26 = getelementptr inbounds i8, ptr %.3126181, i64 32
-  %27 = getelementptr inbounds i8, ptr %.3133180, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3126181, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3133180, i64 32
   %28 = tail call <4 x double> @llvm.x86.avx.max.pd.256(<4 x double> %24, <4 x double> %25)
   store <4 x double> %28, ptr %.3140179, align 1
-  %29 = getelementptr inbounds i8, ptr %.3140179, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.3140179, i64 32
   %30 = add nsw i32 %.3182, -4
   %31 = icmp samesign ugt i32 %.3182, 7
   br i1 %31, label %.lr.ph183, label %._crit_edge184, !llvm.loop !294
@@ -15184,11 +15184,11 @@ define internal void @ompi_op_avx_3buff_max_double_avx512(ptr nocapture noundef 
   %.5142189 = phi ptr [ %42, %.lr.ph193 ], [ %.2139, %33 ]
   %37 = load <2 x double>, ptr %.5128191, align 1
   %38 = load <2 x double>, ptr %.5135190, align 1
-  %39 = getelementptr inbounds i8, ptr %.5128191, i64 16
-  %40 = getelementptr inbounds i8, ptr %.5135190, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5128191, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5135190, i64 16
   %41 = tail call <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %37, <2 x double> %38)
   store <2 x double> %41, ptr %.5142189, align 1
-  %42 = getelementptr inbounds i8, ptr %.5142189, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5142189, i64 16
   %43 = add nsw i32 %.5192, -2
   %44 = icmp samesign ugt i32 %.5192, 3
   br i1 %44, label %.lr.ph193, label %.loopexit169, !llvm.loop !295
@@ -15219,79 +15219,79 @@ define internal void @ompi_op_avx_3buff_max_double_avx512(ptr nocapture noundef 
   ]
 
 47:                                               ; preds = %.lr.ph203
-  %48 = getelementptr inbounds i8, ptr %.6129200, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %.6129200, i64 56
   %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.6136199, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.6136199, i64 56
   %51 = load double, ptr %50, align 8
   %52 = fcmp ogt double %49, %51
   %. = select i1 %52, double %49, double %51
-  %53 = getelementptr inbounds i8, ptr %.6143198, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %.6143198, i64 56
   store double %., ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %47, %.lr.ph203
-  %55 = getelementptr inbounds i8, ptr %.6129200, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.6129200, i64 48
   %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.6136199, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.6136199, i64 48
   %58 = load double, ptr %57, align 8
   %59 = fcmp ogt double %56, %58
   %.162 = select i1 %59, double %56, double %58
-  %60 = getelementptr inbounds i8, ptr %.6143198, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %.6143198, i64 48
   store double %.162, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %54, %.lr.ph203
-  %62 = getelementptr inbounds i8, ptr %.6129200, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %.6129200, i64 40
   %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.6136199, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.6136199, i64 40
   %65 = load double, ptr %64, align 8
   %66 = fcmp ogt double %63, %65
   %.163 = select i1 %66, double %63, double %65
-  %67 = getelementptr inbounds i8, ptr %.6143198, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.6143198, i64 40
   store double %.163, ptr %67, align 8
   br label %68
 
 68:                                               ; preds = %61, %.lr.ph203
-  %69 = getelementptr inbounds i8, ptr %.6129200, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.6129200, i64 32
   %70 = load double, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6136199, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %.6136199, i64 32
   %72 = load double, ptr %71, align 8
   %73 = fcmp ogt double %70, %72
   %.164 = select i1 %73, double %70, double %72
-  %74 = getelementptr inbounds i8, ptr %.6143198, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.6143198, i64 32
   store double %.164, ptr %74, align 8
   br label %75
 
 75:                                               ; preds = %68, %.lr.ph203
-  %76 = getelementptr inbounds i8, ptr %.6129200, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.6129200, i64 24
   %77 = load double, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.6136199, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.6136199, i64 24
   %79 = load double, ptr %78, align 8
   %80 = fcmp ogt double %77, %79
   %.165 = select i1 %80, double %77, double %79
-  %81 = getelementptr inbounds i8, ptr %.6143198, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.6143198, i64 24
   store double %.165, ptr %81, align 8
   br label %82
 
 82:                                               ; preds = %75, %.lr.ph203
-  %83 = getelementptr inbounds i8, ptr %.6129200, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.6129200, i64 16
   %84 = load double, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.6136199, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.6136199, i64 16
   %86 = load double, ptr %85, align 8
   %87 = fcmp ogt double %84, %86
   %.166 = select i1 %87, double %84, double %86
-  %88 = getelementptr inbounds i8, ptr %.6143198, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.6143198, i64 16
   store double %.166, ptr %88, align 8
   br label %89
 
 89:                                               ; preds = %82, %.lr.ph203
-  %90 = getelementptr inbounds i8, ptr %.6129200, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.6129200, i64 8
   %91 = load double, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %.6136199, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6136199, i64 8
   %93 = load double, ptr %92, align 8
   %94 = fcmp ogt double %91, %93
   %.167 = select i1 %94, double %91, double %93
-  %95 = getelementptr inbounds i8, ptr %.6143198, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.6143198, i64 8
   store double %.167, ptr %95, align 8
   br label %96
 
@@ -15303,9 +15303,9 @@ define internal void @ompi_op_avx_3buff_max_double_avx512(ptr nocapture noundef 
   store double %.168, ptr %.6143198, align 8
   %100 = sub nsw i32 %.6201, %46
   %101 = zext nneg i32 %46 to i64
-  %102 = getelementptr inbounds double, ptr %.6143198, i64 %101
-  %103 = getelementptr inbounds double, ptr %.6129200, i64 %101
-  %104 = getelementptr inbounds double, ptr %.6136199, i64 %101
+  %102 = getelementptr inbounds nuw double, ptr %.6143198, i64 %101
+  %103 = getelementptr inbounds nuw double, ptr %.6129200, i64 %101
+  %104 = getelementptr inbounds nuw double, ptr %.6136199, i64 %101
   %105 = icmp sgt i32 %100, 0
   br i1 %105, label %.lr.ph203, label %.loopexit, !llvm.loop !296
 
@@ -15335,11 +15335,11 @@ define internal void @ompi_op_avx_3buff_min_int8_t_avx512(ptr noalias noundef %0
   %.1138177 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader176 ]
   %12 = load <64 x i8>, ptr %.1180, align 1
   %13 = load <64 x i8>, ptr %.1124179, align 1
-  %14 = getelementptr inbounds i8, ptr %.1180, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124179, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1180, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124179, i64 64
   %16 = tail call <64 x i8> @llvm.smin.v64i8(<64 x i8> %12, <64 x i8> %13)
   store <64 x i8> %16, ptr %.1131178, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -64
   %19 = icmp samesign ugt i32 %.1138177, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !297
@@ -15372,11 +15372,11 @@ define internal void @ompi_op_avx_3buff_min_int8_t_avx512(ptr noalias noundef %0
   %.3140184 = phi i32 [ %31, %.lr.ph188 ], [ %.0137, %.preheader175 ]
   %25 = load <32 x i8>, ptr %.3187, align 1
   %26 = load <32 x i8>, ptr %.3126186, align 1
-  %27 = getelementptr inbounds i8, ptr %.3187, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126186, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3187, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126186, i64 32
   %29 = tail call <32 x i8> @llvm.smin.v32i8(<32 x i8> %25, <32 x i8> %26)
   store <32 x i8> %29, ptr %.3133185, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -32
   %32 = icmp samesign ugt i32 %.3140184, 63
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !298
@@ -15412,11 +15412,11 @@ define internal void @ompi_op_avx_3buff_min_int8_t_avx512(ptr noalias noundef %0
   %.5142194 = phi i32 [ %45, %.lr.ph198 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5197)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128196)
-  %41 = getelementptr inbounds i8, ptr %.5197, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128196, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5197, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128196, i64 16
   %43 = tail call <16 x i8> @llvm.smin.v16i8(<16 x i8> %39, <16 x i8> %40)
   store <16 x i8> %43, ptr %.5135195, align 1
-  %44 = getelementptr inbounds i8, ptr %.5135195, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5135195, i64 16
   %45 = add nsw i32 %.5142194, -16
   %46 = icmp samesign ugt i32 %.5142194, 31
   br i1 %46, label %.lr.ph198, label %.loopexit174, !llvm.loop !299
@@ -15447,72 +15447,72 @@ define internal void @ompi_op_avx_3buff_min_int8_t_avx512(ptr noalias noundef %0
   ]
 
 49:                                               ; preds = %.lr.ph208
-  %50 = getelementptr inbounds i8, ptr %.6206, i64 7
+  %50 = getelementptr inbounds nuw i8, ptr %.6206, i64 7
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %.6129205, i64 7
+  %52 = getelementptr inbounds nuw i8, ptr %.6129205, i64 7
   %53 = load i8, ptr %52, align 1
   %. = tail call i8 @llvm.smin.i8(i8 %51, i8 %53)
-  %54 = getelementptr inbounds i8, ptr %.6136204, i64 7
+  %54 = getelementptr inbounds nuw i8, ptr %.6136204, i64 7
   store i8 %., ptr %54, align 1
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph208
-  %56 = getelementptr inbounds i8, ptr %.6206, i64 6
+  %56 = getelementptr inbounds nuw i8, ptr %.6206, i64 6
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.6129205, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %.6129205, i64 6
   %59 = load i8, ptr %58, align 1
   %.167 = tail call i8 @llvm.smin.i8(i8 %57, i8 %59)
-  %60 = getelementptr inbounds i8, ptr %.6136204, i64 6
+  %60 = getelementptr inbounds nuw i8, ptr %.6136204, i64 6
   store i8 %.167, ptr %60, align 1
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph208
-  %62 = getelementptr inbounds i8, ptr %.6206, i64 5
+  %62 = getelementptr inbounds nuw i8, ptr %.6206, i64 5
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.6129205, i64 5
+  %64 = getelementptr inbounds nuw i8, ptr %.6129205, i64 5
   %65 = load i8, ptr %64, align 1
   %.168 = tail call i8 @llvm.smin.i8(i8 %63, i8 %65)
-  %66 = getelementptr inbounds i8, ptr %.6136204, i64 5
+  %66 = getelementptr inbounds nuw i8, ptr %.6136204, i64 5
   store i8 %.168, ptr %66, align 1
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph208
-  %68 = getelementptr inbounds i8, ptr %.6206, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.6206, i64 4
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %.6129205, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.6129205, i64 4
   %71 = load i8, ptr %70, align 1
   %.169 = tail call i8 @llvm.smin.i8(i8 %69, i8 %71)
-  %72 = getelementptr inbounds i8, ptr %.6136204, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.6136204, i64 4
   store i8 %.169, ptr %72, align 1
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph208
-  %74 = getelementptr inbounds i8, ptr %.6206, i64 3
+  %74 = getelementptr inbounds nuw i8, ptr %.6206, i64 3
   %75 = load i8, ptr %74, align 1
-  %76 = getelementptr inbounds i8, ptr %.6129205, i64 3
+  %76 = getelementptr inbounds nuw i8, ptr %.6129205, i64 3
   %77 = load i8, ptr %76, align 1
   %.170 = tail call i8 @llvm.smin.i8(i8 %75, i8 %77)
-  %78 = getelementptr inbounds i8, ptr %.6136204, i64 3
+  %78 = getelementptr inbounds nuw i8, ptr %.6136204, i64 3
   store i8 %.170, ptr %78, align 1
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph208
-  %80 = getelementptr inbounds i8, ptr %.6206, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %.6206, i64 2
   %81 = load i8, ptr %80, align 1
-  %82 = getelementptr inbounds i8, ptr %.6129205, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.6129205, i64 2
   %83 = load i8, ptr %82, align 1
   %.171 = tail call i8 @llvm.smin.i8(i8 %81, i8 %83)
-  %84 = getelementptr inbounds i8, ptr %.6136204, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.6136204, i64 2
   store i8 %.171, ptr %84, align 1
   br label %85
 
 85:                                               ; preds = %79, %.lr.ph208
-  %86 = getelementptr inbounds i8, ptr %.6206, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.6206, i64 1
   %87 = load i8, ptr %86, align 1
-  %88 = getelementptr inbounds i8, ptr %.6129205, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.6129205, i64 1
   %89 = load i8, ptr %88, align 1
   %.172 = tail call i8 @llvm.smin.i8(i8 %87, i8 %89)
-  %90 = getelementptr inbounds i8, ptr %.6136204, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.6136204, i64 1
   store i8 %.172, ptr %90, align 1
   br label %91
 
@@ -15523,9 +15523,9 @@ define internal void @ompi_op_avx_3buff_min_int8_t_avx512(ptr noalias noundef %0
   store i8 %.173, ptr %.6136204, align 1
   %94 = sub nsw i32 %.6143203, %48
   %95 = zext nneg i32 %48 to i64
-  %96 = getelementptr inbounds i8, ptr %.6136204, i64 %95
-  %97 = getelementptr inbounds i8, ptr %.6206, i64 %95
-  %98 = getelementptr inbounds i8, ptr %.6129205, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %.6136204, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %.6206, i64 %95
+  %98 = getelementptr inbounds nuw i8, ptr %.6129205, i64 %95
   %99 = icmp sgt i32 %94, 0
   br i1 %99, label %.lr.ph208, label %.loopexit, !llvm.loop !300
 
@@ -15555,11 +15555,11 @@ define internal void @ompi_op_avx_3buff_min_uint8_t_avx512(ptr noalias noundef %
   %.1138177 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader176 ]
   %12 = load <64 x i8>, ptr %.1180, align 1
   %13 = load <64 x i8>, ptr %.1124179, align 1
-  %14 = getelementptr inbounds i8, ptr %.1180, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124179, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1180, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124179, i64 64
   %16 = tail call <64 x i8> @llvm.umin.v64i8(<64 x i8> %12, <64 x i8> %13)
   store <64 x i8> %16, ptr %.1131178, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -64
   %19 = icmp samesign ugt i32 %.1138177, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !301
@@ -15592,11 +15592,11 @@ define internal void @ompi_op_avx_3buff_min_uint8_t_avx512(ptr noalias noundef %
   %.3140184 = phi i32 [ %31, %.lr.ph188 ], [ %.0137, %.preheader175 ]
   %25 = load <32 x i8>, ptr %.3187, align 1
   %26 = load <32 x i8>, ptr %.3126186, align 1
-  %27 = getelementptr inbounds i8, ptr %.3187, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126186, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3187, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126186, i64 32
   %29 = tail call <32 x i8> @llvm.umin.v32i8(<32 x i8> %25, <32 x i8> %26)
   store <32 x i8> %29, ptr %.3133185, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -32
   %32 = icmp samesign ugt i32 %.3140184, 63
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !302
@@ -15632,11 +15632,11 @@ define internal void @ompi_op_avx_3buff_min_uint8_t_avx512(ptr noalias noundef %
   %.5142194 = phi i32 [ %45, %.lr.ph198 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5197)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128196)
-  %41 = getelementptr inbounds i8, ptr %.5197, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128196, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5197, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128196, i64 16
   %43 = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %39, <16 x i8> %40)
   store <16 x i8> %43, ptr %.5135195, align 1
-  %44 = getelementptr inbounds i8, ptr %.5135195, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5135195, i64 16
   %45 = add nsw i32 %.5142194, -16
   %46 = icmp samesign ugt i32 %.5142194, 31
   br i1 %46, label %.lr.ph198, label %.loopexit174, !llvm.loop !303
@@ -15667,72 +15667,72 @@ define internal void @ompi_op_avx_3buff_min_uint8_t_avx512(ptr noalias noundef %
   ]
 
 49:                                               ; preds = %.lr.ph208
-  %50 = getelementptr inbounds i8, ptr %.6206, i64 7
+  %50 = getelementptr inbounds nuw i8, ptr %.6206, i64 7
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %.6129205, i64 7
+  %52 = getelementptr inbounds nuw i8, ptr %.6129205, i64 7
   %53 = load i8, ptr %52, align 1
   %. = tail call i8 @llvm.umin.i8(i8 %51, i8 %53)
-  %54 = getelementptr inbounds i8, ptr %.6136204, i64 7
+  %54 = getelementptr inbounds nuw i8, ptr %.6136204, i64 7
   store i8 %., ptr %54, align 1
   br label %55
 
 55:                                               ; preds = %49, %.lr.ph208
-  %56 = getelementptr inbounds i8, ptr %.6206, i64 6
+  %56 = getelementptr inbounds nuw i8, ptr %.6206, i64 6
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.6129205, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %.6129205, i64 6
   %59 = load i8, ptr %58, align 1
   %.167 = tail call i8 @llvm.umin.i8(i8 %57, i8 %59)
-  %60 = getelementptr inbounds i8, ptr %.6136204, i64 6
+  %60 = getelementptr inbounds nuw i8, ptr %.6136204, i64 6
   store i8 %.167, ptr %60, align 1
   br label %61
 
 61:                                               ; preds = %55, %.lr.ph208
-  %62 = getelementptr inbounds i8, ptr %.6206, i64 5
+  %62 = getelementptr inbounds nuw i8, ptr %.6206, i64 5
   %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.6129205, i64 5
+  %64 = getelementptr inbounds nuw i8, ptr %.6129205, i64 5
   %65 = load i8, ptr %64, align 1
   %.168 = tail call i8 @llvm.umin.i8(i8 %63, i8 %65)
-  %66 = getelementptr inbounds i8, ptr %.6136204, i64 5
+  %66 = getelementptr inbounds nuw i8, ptr %.6136204, i64 5
   store i8 %.168, ptr %66, align 1
   br label %67
 
 67:                                               ; preds = %61, %.lr.ph208
-  %68 = getelementptr inbounds i8, ptr %.6206, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %.6206, i64 4
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %.6129205, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.6129205, i64 4
   %71 = load i8, ptr %70, align 1
   %.169 = tail call i8 @llvm.umin.i8(i8 %69, i8 %71)
-  %72 = getelementptr inbounds i8, ptr %.6136204, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.6136204, i64 4
   store i8 %.169, ptr %72, align 1
   br label %73
 
 73:                                               ; preds = %67, %.lr.ph208
-  %74 = getelementptr inbounds i8, ptr %.6206, i64 3
+  %74 = getelementptr inbounds nuw i8, ptr %.6206, i64 3
   %75 = load i8, ptr %74, align 1
-  %76 = getelementptr inbounds i8, ptr %.6129205, i64 3
+  %76 = getelementptr inbounds nuw i8, ptr %.6129205, i64 3
   %77 = load i8, ptr %76, align 1
   %.170 = tail call i8 @llvm.umin.i8(i8 %75, i8 %77)
-  %78 = getelementptr inbounds i8, ptr %.6136204, i64 3
+  %78 = getelementptr inbounds nuw i8, ptr %.6136204, i64 3
   store i8 %.170, ptr %78, align 1
   br label %79
 
 79:                                               ; preds = %73, %.lr.ph208
-  %80 = getelementptr inbounds i8, ptr %.6206, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %.6206, i64 2
   %81 = load i8, ptr %80, align 1
-  %82 = getelementptr inbounds i8, ptr %.6129205, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.6129205, i64 2
   %83 = load i8, ptr %82, align 1
   %.171 = tail call i8 @llvm.umin.i8(i8 %81, i8 %83)
-  %84 = getelementptr inbounds i8, ptr %.6136204, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.6136204, i64 2
   store i8 %.171, ptr %84, align 1
   br label %85
 
 85:                                               ; preds = %79, %.lr.ph208
-  %86 = getelementptr inbounds i8, ptr %.6206, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.6206, i64 1
   %87 = load i8, ptr %86, align 1
-  %88 = getelementptr inbounds i8, ptr %.6129205, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.6129205, i64 1
   %89 = load i8, ptr %88, align 1
   %.172 = tail call i8 @llvm.umin.i8(i8 %87, i8 %89)
-  %90 = getelementptr inbounds i8, ptr %.6136204, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.6136204, i64 1
   store i8 %.172, ptr %90, align 1
   br label %91
 
@@ -15743,9 +15743,9 @@ define internal void @ompi_op_avx_3buff_min_uint8_t_avx512(ptr noalias noundef %
   store i8 %.173, ptr %.6136204, align 1
   %94 = sub nsw i32 %.6143203, %48
   %95 = zext nneg i32 %48 to i64
-  %96 = getelementptr inbounds i8, ptr %.6136204, i64 %95
-  %97 = getelementptr inbounds i8, ptr %.6206, i64 %95
-  %98 = getelementptr inbounds i8, ptr %.6129205, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %.6136204, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %.6206, i64 %95
+  %98 = getelementptr inbounds nuw i8, ptr %.6129205, i64 %95
   %99 = icmp sgt i32 %94, 0
   br i1 %99, label %.lr.ph208, label %.loopexit, !llvm.loop !304
 
@@ -15775,11 +15775,11 @@ define internal void @ompi_op_avx_3buff_min_int16_t_avx512(ptr noalias noundef %
   %.1138177 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader176 ]
   %12 = load <32 x i16>, ptr %.1180, align 1
   %13 = load <32 x i16>, ptr %.1124179, align 1
-  %14 = getelementptr inbounds i8, ptr %.1180, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124179, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1180, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124179, i64 64
   %16 = tail call <32 x i16> @llvm.smin.v32i16(<32 x i16> %12, <32 x i16> %13)
   store <32 x i16> %16, ptr %.1131178, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -32
   %19 = icmp samesign ugt i32 %.1138177, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !305
@@ -15812,11 +15812,11 @@ define internal void @ompi_op_avx_3buff_min_int16_t_avx512(ptr noalias noundef %
   %.3140184 = phi i32 [ %31, %.lr.ph188 ], [ %.0137, %.preheader175 ]
   %25 = load <16 x i16>, ptr %.3187, align 1
   %26 = load <16 x i16>, ptr %.3126186, align 1
-  %27 = getelementptr inbounds i8, ptr %.3187, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126186, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3187, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126186, i64 32
   %29 = tail call <16 x i16> @llvm.smin.v16i16(<16 x i16> %25, <16 x i16> %26)
   store <16 x i16> %29, ptr %.3133185, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -16
   %32 = icmp samesign ugt i32 %.3140184, 31
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !306
@@ -15852,13 +15852,13 @@ define internal void @ompi_op_avx_3buff_min_int16_t_avx512(ptr noalias noundef %
   %.5142194 = phi i32 [ %47, %.lr.ph198 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5197)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128196)
-  %41 = getelementptr inbounds i8, ptr %.5197, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128196, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5197, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128196, i64 16
   %43 = bitcast <16 x i8> %39 to <8 x i16>
   %44 = bitcast <16 x i8> %40 to <8 x i16>
   %45 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %43, <8 x i16> %44)
   store <8 x i16> %45, ptr %.5135195, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135195, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135195, i64 16
   %47 = add nsw i32 %.5142194, -8
   %48 = icmp samesign ugt i32 %.5142194, 15
   br i1 %48, label %.lr.ph198, label %.loopexit174, !llvm.loop !307
@@ -15889,72 +15889,72 @@ define internal void @ompi_op_avx_3buff_min_int16_t_avx512(ptr noalias noundef %
   ]
 
 51:                                               ; preds = %.lr.ph208
-  %52 = getelementptr inbounds i8, ptr %.6206, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %.6206, i64 14
   %53 = load i16, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %.6129205, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6129205, i64 14
   %55 = load i16, ptr %54, align 2
   %. = tail call i16 @llvm.smin.i16(i16 %53, i16 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136204, i64 14
+  %56 = getelementptr inbounds nuw i8, ptr %.6136204, i64 14
   store i16 %., ptr %56, align 2
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph208
-  %58 = getelementptr inbounds i8, ptr %.6206, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.6206, i64 12
   %59 = load i16, ptr %58, align 2
-  %60 = getelementptr inbounds i8, ptr %.6129205, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %.6129205, i64 12
   %61 = load i16, ptr %60, align 2
   %.167 = tail call i16 @llvm.smin.i16(i16 %59, i16 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136204, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %.6136204, i64 12
   store i16 %.167, ptr %62, align 2
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph208
-  %64 = getelementptr inbounds i8, ptr %.6206, i64 10
+  %64 = getelementptr inbounds nuw i8, ptr %.6206, i64 10
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr inbounds i8, ptr %.6129205, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %.6129205, i64 10
   %67 = load i16, ptr %66, align 2
   %.168 = tail call i16 @llvm.smin.i16(i16 %65, i16 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136204, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6136204, i64 10
   store i16 %.168, ptr %68, align 2
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph208
-  %70 = getelementptr inbounds i8, ptr %.6206, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.6206, i64 8
   %71 = load i16, ptr %70, align 2
-  %72 = getelementptr inbounds i8, ptr %.6129205, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.6129205, i64 8
   %73 = load i16, ptr %72, align 2
   %.169 = tail call i16 @llvm.smin.i16(i16 %71, i16 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136204, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6136204, i64 8
   store i16 %.169, ptr %74, align 2
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph208
-  %76 = getelementptr inbounds i8, ptr %.6206, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %.6206, i64 6
   %77 = load i16, ptr %76, align 2
-  %78 = getelementptr inbounds i8, ptr %.6129205, i64 6
+  %78 = getelementptr inbounds nuw i8, ptr %.6129205, i64 6
   %79 = load i16, ptr %78, align 2
   %.170 = tail call i16 @llvm.smin.i16(i16 %77, i16 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136204, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %.6136204, i64 6
   store i16 %.170, ptr %80, align 2
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph208
-  %82 = getelementptr inbounds i8, ptr %.6206, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.6206, i64 4
   %83 = load i16, ptr %82, align 2
-  %84 = getelementptr inbounds i8, ptr %.6129205, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.6129205, i64 4
   %85 = load i16, ptr %84, align 2
   %.171 = tail call i16 @llvm.smin.i16(i16 %83, i16 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136204, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.6136204, i64 4
   store i16 %.171, ptr %86, align 2
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph208
-  %88 = getelementptr inbounds i8, ptr %.6206, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.6206, i64 2
   %89 = load i16, ptr %88, align 2
-  %90 = getelementptr inbounds i8, ptr %.6129205, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.6129205, i64 2
   %91 = load i16, ptr %90, align 2
   %.172 = tail call i16 @llvm.smin.i16(i16 %89, i16 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136204, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %.6136204, i64 2
   store i16 %.172, ptr %92, align 2
   br label %93
 
@@ -15965,9 +15965,9 @@ define internal void @ompi_op_avx_3buff_min_int16_t_avx512(ptr noalias noundef %
   store i16 %.173, ptr %.6136204, align 2
   %96 = sub nsw i32 %.6143203, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i16, ptr %.6136204, i64 %97
-  %99 = getelementptr inbounds i16, ptr %.6206, i64 %97
-  %100 = getelementptr inbounds i16, ptr %.6129205, i64 %97
+  %98 = getelementptr inbounds nuw i16, ptr %.6136204, i64 %97
+  %99 = getelementptr inbounds nuw i16, ptr %.6206, i64 %97
+  %100 = getelementptr inbounds nuw i16, ptr %.6129205, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph208, label %.loopexit, !llvm.loop !308
 
@@ -15997,11 +15997,11 @@ define internal void @ompi_op_avx_3buff_min_uint16_t_avx512(ptr noalias noundef 
   %.1138177 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader176 ]
   %12 = load <32 x i16>, ptr %.1180, align 1
   %13 = load <32 x i16>, ptr %.1124179, align 1
-  %14 = getelementptr inbounds i8, ptr %.1180, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124179, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1180, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124179, i64 64
   %16 = tail call <32 x i16> @llvm.umin.v32i16(<32 x i16> %12, <32 x i16> %13)
   store <32 x i16> %16, ptr %.1131178, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131178, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131178, i64 64
   %18 = add nsw i32 %.1138177, -32
   %19 = icmp samesign ugt i32 %.1138177, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !309
@@ -16034,11 +16034,11 @@ define internal void @ompi_op_avx_3buff_min_uint16_t_avx512(ptr noalias noundef 
   %.3140184 = phi i32 [ %31, %.lr.ph188 ], [ %.0137, %.preheader175 ]
   %25 = load <16 x i16>, ptr %.3187, align 1
   %26 = load <16 x i16>, ptr %.3126186, align 1
-  %27 = getelementptr inbounds i8, ptr %.3187, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126186, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3187, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126186, i64 32
   %29 = tail call <16 x i16> @llvm.umin.v16i16(<16 x i16> %25, <16 x i16> %26)
   store <16 x i16> %29, ptr %.3133185, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133185, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133185, i64 32
   %31 = add nsw i32 %.3140184, -16
   %32 = icmp samesign ugt i32 %.3140184, 31
   br i1 %32, label %.lr.ph188, label %._crit_edge189, !llvm.loop !310
@@ -16074,13 +16074,13 @@ define internal void @ompi_op_avx_3buff_min_uint16_t_avx512(ptr noalias noundef 
   %.5142194 = phi i32 [ %47, %.lr.ph198 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5197)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128196)
-  %41 = getelementptr inbounds i8, ptr %.5197, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128196, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5197, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128196, i64 16
   %43 = bitcast <16 x i8> %39 to <8 x i16>
   %44 = bitcast <16 x i8> %40 to <8 x i16>
   %45 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %43, <8 x i16> %44)
   store <8 x i16> %45, ptr %.5135195, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135195, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135195, i64 16
   %47 = add nsw i32 %.5142194, -8
   %48 = icmp samesign ugt i32 %.5142194, 15
   br i1 %48, label %.lr.ph198, label %.loopexit174, !llvm.loop !311
@@ -16111,72 +16111,72 @@ define internal void @ompi_op_avx_3buff_min_uint16_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph208
-  %52 = getelementptr inbounds i8, ptr %.6206, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %.6206, i64 14
   %53 = load i16, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %.6129205, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6129205, i64 14
   %55 = load i16, ptr %54, align 2
   %. = tail call i16 @llvm.umin.i16(i16 %53, i16 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136204, i64 14
+  %56 = getelementptr inbounds nuw i8, ptr %.6136204, i64 14
   store i16 %., ptr %56, align 2
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph208
-  %58 = getelementptr inbounds i8, ptr %.6206, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.6206, i64 12
   %59 = load i16, ptr %58, align 2
-  %60 = getelementptr inbounds i8, ptr %.6129205, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %.6129205, i64 12
   %61 = load i16, ptr %60, align 2
   %.167 = tail call i16 @llvm.umin.i16(i16 %59, i16 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136204, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %.6136204, i64 12
   store i16 %.167, ptr %62, align 2
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph208
-  %64 = getelementptr inbounds i8, ptr %.6206, i64 10
+  %64 = getelementptr inbounds nuw i8, ptr %.6206, i64 10
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr inbounds i8, ptr %.6129205, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %.6129205, i64 10
   %67 = load i16, ptr %66, align 2
   %.168 = tail call i16 @llvm.umin.i16(i16 %65, i16 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136204, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6136204, i64 10
   store i16 %.168, ptr %68, align 2
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph208
-  %70 = getelementptr inbounds i8, ptr %.6206, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.6206, i64 8
   %71 = load i16, ptr %70, align 2
-  %72 = getelementptr inbounds i8, ptr %.6129205, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.6129205, i64 8
   %73 = load i16, ptr %72, align 2
   %.169 = tail call i16 @llvm.umin.i16(i16 %71, i16 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136204, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.6136204, i64 8
   store i16 %.169, ptr %74, align 2
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph208
-  %76 = getelementptr inbounds i8, ptr %.6206, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %.6206, i64 6
   %77 = load i16, ptr %76, align 2
-  %78 = getelementptr inbounds i8, ptr %.6129205, i64 6
+  %78 = getelementptr inbounds nuw i8, ptr %.6129205, i64 6
   %79 = load i16, ptr %78, align 2
   %.170 = tail call i16 @llvm.umin.i16(i16 %77, i16 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136204, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %.6136204, i64 6
   store i16 %.170, ptr %80, align 2
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph208
-  %82 = getelementptr inbounds i8, ptr %.6206, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.6206, i64 4
   %83 = load i16, ptr %82, align 2
-  %84 = getelementptr inbounds i8, ptr %.6129205, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.6129205, i64 4
   %85 = load i16, ptr %84, align 2
   %.171 = tail call i16 @llvm.umin.i16(i16 %83, i16 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136204, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.6136204, i64 4
   store i16 %.171, ptr %86, align 2
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph208
-  %88 = getelementptr inbounds i8, ptr %.6206, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %.6206, i64 2
   %89 = load i16, ptr %88, align 2
-  %90 = getelementptr inbounds i8, ptr %.6129205, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.6129205, i64 2
   %91 = load i16, ptr %90, align 2
   %.172 = tail call i16 @llvm.umin.i16(i16 %89, i16 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136204, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %.6136204, i64 2
   store i16 %.172, ptr %92, align 2
   br label %93
 
@@ -16187,9 +16187,9 @@ define internal void @ompi_op_avx_3buff_min_uint16_t_avx512(ptr noalias noundef 
   store i16 %.173, ptr %.6136204, align 2
   %96 = sub nsw i32 %.6143203, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i16, ptr %.6136204, i64 %97
-  %99 = getelementptr inbounds i16, ptr %.6206, i64 %97
-  %100 = getelementptr inbounds i16, ptr %.6129205, i64 %97
+  %98 = getelementptr inbounds nuw i16, ptr %.6136204, i64 %97
+  %99 = getelementptr inbounds nuw i16, ptr %.6206, i64 %97
+  %100 = getelementptr inbounds nuw i16, ptr %.6129205, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph208, label %.loopexit, !llvm.loop !312
 
@@ -16219,11 +16219,11 @@ define internal void @ompi_op_avx_3buff_min_int32_t_avx512(ptr noalias noundef %
   %.1138170 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader169 ]
   %12 = load <16 x i32>, ptr %.1173, align 1
   %13 = load <16 x i32>, ptr %.1124172, align 1
-  %14 = getelementptr inbounds i8, ptr %.1173, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124172, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1173, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124172, i64 64
   %16 = tail call <16 x i32> @llvm.smin.v16i32(<16 x i32> %12, <16 x i32> %13)
   store <16 x i32> %16, ptr %.1131171, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -16
   %19 = icmp samesign ugt i32 %.1138170, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !313
@@ -16256,11 +16256,11 @@ define internal void @ompi_op_avx_3buff_min_int32_t_avx512(ptr noalias noundef %
   %.3140177 = phi i32 [ %31, %.lr.ph181 ], [ %.0137, %.preheader168 ]
   %25 = load <8 x i32>, ptr %.3180, align 1
   %26 = load <8 x i32>, ptr %.3126179, align 1
-  %27 = getelementptr inbounds i8, ptr %.3180, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126179, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3180, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126179, i64 32
   %29 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %25, <8 x i32> %26)
   store <8 x i32> %29, ptr %.3133178, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -8
   %32 = icmp samesign ugt i32 %.3140177, 15
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !314
@@ -16296,13 +16296,13 @@ define internal void @ompi_op_avx_3buff_min_int32_t_avx512(ptr noalias noundef %
   %.5142187 = phi i32 [ %47, %.lr.ph191 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5190)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128189)
-  %41 = getelementptr inbounds i8, ptr %.5190, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128189, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5190, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128189, i64 16
   %43 = bitcast <16 x i8> %39 to <4 x i32>
   %44 = bitcast <16 x i8> %40 to <4 x i32>
   %45 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %43, <4 x i32> %44)
   store <4 x i32> %45, ptr %.5135188, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -4
   %48 = icmp samesign ugt i32 %.5142187, 7
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !315
@@ -16333,72 +16333,72 @@ define internal void @ompi_op_avx_3buff_min_int32_t_avx512(ptr noalias noundef %
   ]
 
 51:                                               ; preds = %.lr.ph201
-  %52 = getelementptr inbounds i8, ptr %.6199, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.6199, i64 28
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.6129198, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6129198, i64 28
   %55 = load i32, ptr %54, align 4
   %. = tail call i32 @llvm.smin.i32(i32 %53, i32 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136197, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %.6136197, i64 28
   store i32 %., ptr %56, align 4
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph201
-  %58 = getelementptr inbounds i8, ptr %.6199, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.6199, i64 24
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %.6129198, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.6129198, i64 24
   %61 = load i32, ptr %60, align 4
   %.160 = tail call i32 @llvm.smin.i32(i32 %59, i32 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136197, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.6136197, i64 24
   store i32 %.160, ptr %62, align 4
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph201
-  %64 = getelementptr inbounds i8, ptr %.6199, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %.6199, i64 20
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.6129198, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.6129198, i64 20
   %67 = load i32, ptr %66, align 4
   %.161 = tail call i32 @llvm.smin.i32(i32 %65, i32 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136197, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6136197, i64 20
   store i32 %.161, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph201
-  %70 = getelementptr inbounds i8, ptr %.6199, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.6199, i64 16
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %.6129198, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.6129198, i64 16
   %73 = load i32, ptr %72, align 4
   %.162 = tail call i32 @llvm.smin.i32(i32 %71, i32 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136197, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6136197, i64 16
   store i32 %.162, ptr %74, align 4
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph201
-  %76 = getelementptr inbounds i8, ptr %.6199, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %.6199, i64 12
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %.6129198, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %.6129198, i64 12
   %79 = load i32, ptr %78, align 4
   %.163 = tail call i32 @llvm.smin.i32(i32 %77, i32 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136197, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %.6136197, i64 12
   store i32 %.163, ptr %80, align 4
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph201
-  %82 = getelementptr inbounds i8, ptr %.6199, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.6199, i64 8
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %.6129198, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.6129198, i64 8
   %85 = load i32, ptr %84, align 4
   %.164 = tail call i32 @llvm.smin.i32(i32 %83, i32 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136197, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.6136197, i64 8
   store i32 %.164, ptr %86, align 4
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph201
-  %88 = getelementptr inbounds i8, ptr %.6199, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %.6199, i64 4
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %.6129198, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.6129198, i64 4
   %91 = load i32, ptr %90, align 4
   %.165 = tail call i32 @llvm.smin.i32(i32 %89, i32 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136197, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6136197, i64 4
   store i32 %.165, ptr %92, align 4
   br label %93
 
@@ -16409,9 +16409,9 @@ define internal void @ompi_op_avx_3buff_min_int32_t_avx512(ptr noalias noundef %
   store i32 %.166, ptr %.6136197, align 4
   %96 = sub nsw i32 %.6143196, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i32, ptr %.6136197, i64 %97
-  %99 = getelementptr inbounds i32, ptr %.6199, i64 %97
-  %100 = getelementptr inbounds i32, ptr %.6129198, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr %.6136197, i64 %97
+  %99 = getelementptr inbounds nuw i32, ptr %.6199, i64 %97
+  %100 = getelementptr inbounds nuw i32, ptr %.6129198, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph201, label %.loopexit, !llvm.loop !316
 
@@ -16441,11 +16441,11 @@ define internal void @ompi_op_avx_3buff_min_uint32_t_avx512(ptr noalias noundef 
   %.1138170 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader169 ]
   %12 = load <16 x i32>, ptr %.1173, align 1
   %13 = load <16 x i32>, ptr %.1124172, align 1
-  %14 = getelementptr inbounds i8, ptr %.1173, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124172, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1173, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124172, i64 64
   %16 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %12, <16 x i32> %13)
   store <16 x i32> %16, ptr %.1131171, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -16
   %19 = icmp samesign ugt i32 %.1138170, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !317
@@ -16478,11 +16478,11 @@ define internal void @ompi_op_avx_3buff_min_uint32_t_avx512(ptr noalias noundef 
   %.3140177 = phi i32 [ %31, %.lr.ph181 ], [ %.0137, %.preheader168 ]
   %25 = load <8 x i32>, ptr %.3180, align 1
   %26 = load <8 x i32>, ptr %.3126179, align 1
-  %27 = getelementptr inbounds i8, ptr %.3180, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126179, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3180, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126179, i64 32
   %29 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %25, <8 x i32> %26)
   store <8 x i32> %29, ptr %.3133178, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -8
   %32 = icmp samesign ugt i32 %.3140177, 15
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !318
@@ -16518,13 +16518,13 @@ define internal void @ompi_op_avx_3buff_min_uint32_t_avx512(ptr noalias noundef 
   %.5142187 = phi i32 [ %47, %.lr.ph191 ], [ %.2139, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5190)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128189)
-  %41 = getelementptr inbounds i8, ptr %.5190, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5128189, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5190, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5128189, i64 16
   %43 = bitcast <16 x i8> %39 to <4 x i32>
   %44 = bitcast <16 x i8> %40 to <4 x i32>
   %45 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %43, <4 x i32> %44)
   store <4 x i32> %45, ptr %.5135188, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -4
   %48 = icmp samesign ugt i32 %.5142187, 7
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !319
@@ -16555,72 +16555,72 @@ define internal void @ompi_op_avx_3buff_min_uint32_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph201
-  %52 = getelementptr inbounds i8, ptr %.6199, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.6199, i64 28
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.6129198, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6129198, i64 28
   %55 = load i32, ptr %54, align 4
   %. = tail call i32 @llvm.umin.i32(i32 %53, i32 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136197, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %.6136197, i64 28
   store i32 %., ptr %56, align 4
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph201
-  %58 = getelementptr inbounds i8, ptr %.6199, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.6199, i64 24
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %.6129198, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.6129198, i64 24
   %61 = load i32, ptr %60, align 4
   %.160 = tail call i32 @llvm.umin.i32(i32 %59, i32 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136197, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %.6136197, i64 24
   store i32 %.160, ptr %62, align 4
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph201
-  %64 = getelementptr inbounds i8, ptr %.6199, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %.6199, i64 20
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.6129198, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.6129198, i64 20
   %67 = load i32, ptr %66, align 4
   %.161 = tail call i32 @llvm.umin.i32(i32 %65, i32 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136197, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6136197, i64 20
   store i32 %.161, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph201
-  %70 = getelementptr inbounds i8, ptr %.6199, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.6199, i64 16
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %.6129198, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.6129198, i64 16
   %73 = load i32, ptr %72, align 4
   %.162 = tail call i32 @llvm.umin.i32(i32 %71, i32 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136197, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6136197, i64 16
   store i32 %.162, ptr %74, align 4
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph201
-  %76 = getelementptr inbounds i8, ptr %.6199, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %.6199, i64 12
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %.6129198, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %.6129198, i64 12
   %79 = load i32, ptr %78, align 4
   %.163 = tail call i32 @llvm.umin.i32(i32 %77, i32 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136197, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %.6136197, i64 12
   store i32 %.163, ptr %80, align 4
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph201
-  %82 = getelementptr inbounds i8, ptr %.6199, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.6199, i64 8
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %.6129198, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.6129198, i64 8
   %85 = load i32, ptr %84, align 4
   %.164 = tail call i32 @llvm.umin.i32(i32 %83, i32 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136197, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.6136197, i64 8
   store i32 %.164, ptr %86, align 4
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph201
-  %88 = getelementptr inbounds i8, ptr %.6199, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %.6199, i64 4
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %.6129198, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.6129198, i64 4
   %91 = load i32, ptr %90, align 4
   %.165 = tail call i32 @llvm.umin.i32(i32 %89, i32 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136197, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6136197, i64 4
   store i32 %.165, ptr %92, align 4
   br label %93
 
@@ -16631,9 +16631,9 @@ define internal void @ompi_op_avx_3buff_min_uint32_t_avx512(ptr noalias noundef 
   store i32 %.166, ptr %.6136197, align 4
   %96 = sub nsw i32 %.6143196, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i32, ptr %.6136197, i64 %97
-  %99 = getelementptr inbounds i32, ptr %.6199, i64 %97
-  %100 = getelementptr inbounds i32, ptr %.6129198, i64 %97
+  %98 = getelementptr inbounds nuw i32, ptr %.6136197, i64 %97
+  %99 = getelementptr inbounds nuw i32, ptr %.6199, i64 %97
+  %100 = getelementptr inbounds nuw i32, ptr %.6129198, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph201, label %.loopexit, !llvm.loop !320
 
@@ -16663,11 +16663,11 @@ define internal void @ompi_op_avx_3buff_min_int64_t_avx512(ptr noalias noundef %
   %.1138170 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader169 ]
   %12 = load <8 x i64>, ptr %.1173, align 1
   %13 = load <8 x i64>, ptr %.1124172, align 1
-  %14 = getelementptr inbounds i8, ptr %.1173, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124172, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1173, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124172, i64 64
   %16 = tail call <8 x i64> @llvm.smin.v8i64(<8 x i64> %12, <8 x i64> %13)
   store <8 x i64> %16, ptr %.1131171, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -8
   %19 = icmp samesign ugt i32 %.1138170, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !321
@@ -16700,11 +16700,11 @@ define internal void @ompi_op_avx_3buff_min_int64_t_avx512(ptr noalias noundef %
   %.3140177 = phi i32 [ %31, %.lr.ph181 ], [ %.0137, %.preheader168 ]
   %25 = load <4 x i64>, ptr %.3180, align 1
   %26 = load <4 x i64>, ptr %.3126179, align 1
-  %27 = getelementptr inbounds i8, ptr %.3180, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126179, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3180, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126179, i64 32
   %29 = tail call <4 x i64> @llvm.smin.v4i64(<4 x i64> %25, <4 x i64> %26)
   store <4 x i64> %29, ptr %.3133178, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -4
   %32 = icmp samesign ugt i32 %.3140177, 7
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !322
@@ -16742,11 +16742,11 @@ define internal void @ompi_op_avx_3buff_min_int64_t_avx512(ptr noalias noundef %
   %40 = bitcast <16 x i8> %39 to <2 x i64>
   %41 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128189)
   %42 = bitcast <16 x i8> %41 to <2 x i64>
-  %43 = getelementptr inbounds i8, ptr %.5190, i64 16
-  %44 = getelementptr inbounds i8, ptr %.5128189, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5190, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5128189, i64 16
   %45 = tail call <2 x i64> @llvm.smin.v2i64(<2 x i64> %40, <2 x i64> %42)
   store <2 x i64> %45, ptr %.5135188, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -2
   %48 = icmp samesign ugt i32 %.5142187, 3
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !323
@@ -16777,72 +16777,72 @@ define internal void @ompi_op_avx_3buff_min_int64_t_avx512(ptr noalias noundef %
   ]
 
 51:                                               ; preds = %.lr.ph201
-  %52 = getelementptr inbounds i8, ptr %.6199, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.6199, i64 56
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.6129198, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6129198, i64 56
   %55 = load i64, ptr %54, align 8
   %. = tail call i64 @llvm.smin.i64(i64 %53, i64 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136197, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %.6136197, i64 56
   store i64 %., ptr %56, align 8
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph201
-  %58 = getelementptr inbounds i8, ptr %.6199, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.6199, i64 48
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %.6129198, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %.6129198, i64 48
   %61 = load i64, ptr %60, align 8
   %.160 = tail call i64 @llvm.smin.i64(i64 %59, i64 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136197, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %.6136197, i64 48
   store i64 %.160, ptr %62, align 8
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph201
-  %64 = getelementptr inbounds i8, ptr %.6199, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.6199, i64 40
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.6129198, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %.6129198, i64 40
   %67 = load i64, ptr %66, align 8
   %.161 = tail call i64 @llvm.smin.i64(i64 %65, i64 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136197, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6136197, i64 40
   store i64 %.161, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph201
-  %70 = getelementptr inbounds i8, ptr %.6199, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.6199, i64 32
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.6129198, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.6129198, i64 32
   %73 = load i64, ptr %72, align 8
   %.162 = tail call i64 @llvm.smin.i64(i64 %71, i64 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136197, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.6136197, i64 32
   store i64 %.162, ptr %74, align 8
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph201
-  %76 = getelementptr inbounds i8, ptr %.6199, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.6199, i64 24
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.6129198, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.6129198, i64 24
   %79 = load i64, ptr %78, align 8
   %.163 = tail call i64 @llvm.smin.i64(i64 %77, i64 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136197, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.6136197, i64 24
   store i64 %.163, ptr %80, align 8
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph201
-  %82 = getelementptr inbounds i8, ptr %.6199, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.6199, i64 16
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.6129198, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.6129198, i64 16
   %85 = load i64, ptr %84, align 8
   %.164 = tail call i64 @llvm.smin.i64(i64 %83, i64 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136197, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.6136197, i64 16
   store i64 %.164, ptr %86, align 8
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph201
-  %88 = getelementptr inbounds i8, ptr %.6199, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.6199, i64 8
   %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %.6129198, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.6129198, i64 8
   %91 = load i64, ptr %90, align 8
   %.165 = tail call i64 @llvm.smin.i64(i64 %89, i64 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136197, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6136197, i64 8
   store i64 %.165, ptr %92, align 8
   br label %93
 
@@ -16853,9 +16853,9 @@ define internal void @ompi_op_avx_3buff_min_int64_t_avx512(ptr noalias noundef %
   store i64 %.166, ptr %.6136197, align 8
   %96 = sub nsw i32 %.6143196, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i64, ptr %.6136197, i64 %97
-  %99 = getelementptr inbounds i64, ptr %.6199, i64 %97
-  %100 = getelementptr inbounds i64, ptr %.6129198, i64 %97
+  %98 = getelementptr inbounds nuw i64, ptr %.6136197, i64 %97
+  %99 = getelementptr inbounds nuw i64, ptr %.6199, i64 %97
+  %100 = getelementptr inbounds nuw i64, ptr %.6129198, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph201, label %.loopexit, !llvm.loop !324
 
@@ -16885,11 +16885,11 @@ define internal void @ompi_op_avx_3buff_min_uint64_t_avx512(ptr noalias noundef 
   %.1138170 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader169 ]
   %12 = load <8 x i64>, ptr %.1173, align 1
   %13 = load <8 x i64>, ptr %.1124172, align 1
-  %14 = getelementptr inbounds i8, ptr %.1173, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1124172, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1173, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1124172, i64 64
   %16 = tail call <8 x i64> @llvm.umin.v8i64(<8 x i64> %12, <8 x i64> %13)
   store <8 x i64> %16, ptr %.1131171, align 1
-  %17 = getelementptr inbounds i8, ptr %.1131171, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1131171, i64 64
   %18 = add nsw i32 %.1138170, -8
   %19 = icmp samesign ugt i32 %.1138170, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !325
@@ -16922,11 +16922,11 @@ define internal void @ompi_op_avx_3buff_min_uint64_t_avx512(ptr noalias noundef 
   %.3140177 = phi i32 [ %31, %.lr.ph181 ], [ %.0137, %.preheader168 ]
   %25 = load <4 x i64>, ptr %.3180, align 1
   %26 = load <4 x i64>, ptr %.3126179, align 1
-  %27 = getelementptr inbounds i8, ptr %.3180, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3126179, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3180, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3126179, i64 32
   %29 = tail call <4 x i64> @llvm.umin.v4i64(<4 x i64> %25, <4 x i64> %26)
   store <4 x i64> %29, ptr %.3133178, align 1
-  %30 = getelementptr inbounds i8, ptr %.3133178, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3133178, i64 32
   %31 = add nsw i32 %.3140177, -4
   %32 = icmp samesign ugt i32 %.3140177, 7
   br i1 %32, label %.lr.ph181, label %._crit_edge182, !llvm.loop !326
@@ -16964,11 +16964,11 @@ define internal void @ompi_op_avx_3buff_min_uint64_t_avx512(ptr noalias noundef 
   %40 = bitcast <16 x i8> %39 to <2 x i64>
   %41 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5128189)
   %42 = bitcast <16 x i8> %41 to <2 x i64>
-  %43 = getelementptr inbounds i8, ptr %.5190, i64 16
-  %44 = getelementptr inbounds i8, ptr %.5128189, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5190, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5128189, i64 16
   %45 = tail call <2 x i64> @llvm.umin.v2i64(<2 x i64> %40, <2 x i64> %42)
   store <2 x i64> %45, ptr %.5135188, align 1
-  %46 = getelementptr inbounds i8, ptr %.5135188, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5135188, i64 16
   %47 = add nsw i32 %.5142187, -2
   %48 = icmp samesign ugt i32 %.5142187, 3
   br i1 %48, label %.lr.ph191, label %.loopexit167, !llvm.loop !327
@@ -16999,72 +16999,72 @@ define internal void @ompi_op_avx_3buff_min_uint64_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph201
-  %52 = getelementptr inbounds i8, ptr %.6199, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.6199, i64 56
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.6129198, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6129198, i64 56
   %55 = load i64, ptr %54, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %53, i64 %55)
-  %56 = getelementptr inbounds i8, ptr %.6136197, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %.6136197, i64 56
   store i64 %., ptr %56, align 8
   br label %57
 
 57:                                               ; preds = %51, %.lr.ph201
-  %58 = getelementptr inbounds i8, ptr %.6199, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.6199, i64 48
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %.6129198, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %.6129198, i64 48
   %61 = load i64, ptr %60, align 8
   %.160 = tail call i64 @llvm.umin.i64(i64 %59, i64 %61)
-  %62 = getelementptr inbounds i8, ptr %.6136197, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %.6136197, i64 48
   store i64 %.160, ptr %62, align 8
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph201
-  %64 = getelementptr inbounds i8, ptr %.6199, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.6199, i64 40
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %.6129198, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %.6129198, i64 40
   %67 = load i64, ptr %66, align 8
   %.161 = tail call i64 @llvm.umin.i64(i64 %65, i64 %67)
-  %68 = getelementptr inbounds i8, ptr %.6136197, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6136197, i64 40
   store i64 %.161, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %63, %.lr.ph201
-  %70 = getelementptr inbounds i8, ptr %.6199, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.6199, i64 32
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.6129198, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.6129198, i64 32
   %73 = load i64, ptr %72, align 8
   %.162 = tail call i64 @llvm.umin.i64(i64 %71, i64 %73)
-  %74 = getelementptr inbounds i8, ptr %.6136197, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.6136197, i64 32
   store i64 %.162, ptr %74, align 8
   br label %75
 
 75:                                               ; preds = %69, %.lr.ph201
-  %76 = getelementptr inbounds i8, ptr %.6199, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.6199, i64 24
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.6129198, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.6129198, i64 24
   %79 = load i64, ptr %78, align 8
   %.163 = tail call i64 @llvm.umin.i64(i64 %77, i64 %79)
-  %80 = getelementptr inbounds i8, ptr %.6136197, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.6136197, i64 24
   store i64 %.163, ptr %80, align 8
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph201
-  %82 = getelementptr inbounds i8, ptr %.6199, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.6199, i64 16
   %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %.6129198, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.6129198, i64 16
   %85 = load i64, ptr %84, align 8
   %.164 = tail call i64 @llvm.umin.i64(i64 %83, i64 %85)
-  %86 = getelementptr inbounds i8, ptr %.6136197, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.6136197, i64 16
   store i64 %.164, ptr %86, align 8
   br label %87
 
 87:                                               ; preds = %81, %.lr.ph201
-  %88 = getelementptr inbounds i8, ptr %.6199, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.6199, i64 8
   %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %.6129198, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.6129198, i64 8
   %91 = load i64, ptr %90, align 8
   %.165 = tail call i64 @llvm.umin.i64(i64 %89, i64 %91)
-  %92 = getelementptr inbounds i8, ptr %.6136197, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6136197, i64 8
   store i64 %.165, ptr %92, align 8
   br label %93
 
@@ -17075,9 +17075,9 @@ define internal void @ompi_op_avx_3buff_min_uint64_t_avx512(ptr noalias noundef 
   store i64 %.166, ptr %.6136197, align 8
   %96 = sub nsw i32 %.6143196, %50
   %97 = zext nneg i32 %50 to i64
-  %98 = getelementptr inbounds i64, ptr %.6136197, i64 %97
-  %99 = getelementptr inbounds i64, ptr %.6199, i64 %97
-  %100 = getelementptr inbounds i64, ptr %.6129198, i64 %97
+  %98 = getelementptr inbounds nuw i64, ptr %.6136197, i64 %97
+  %99 = getelementptr inbounds nuw i64, ptr %.6199, i64 %97
+  %100 = getelementptr inbounds nuw i64, ptr %.6129198, i64 %97
   %101 = icmp sgt i32 %96, 0
   br i1 %101, label %.lr.ph201, label %.loopexit, !llvm.loop !328
 
@@ -17107,11 +17107,11 @@ define internal void @ompi_op_avx_3buff_min_float_avx512(ptr nocapture noundef r
   %.1138172 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader171 ]
   %11 = load <16 x float>, ptr %.1124174, align 1
   %12 = load <16 x float>, ptr %.1131173, align 1
-  %13 = getelementptr inbounds i8, ptr %.1124174, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1131173, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1124174, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1131173, i64 64
   %15 = tail call <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %11, <16 x float> %12, i32 4)
   store <16 x float> %15, ptr %.1138172, align 1
-  %16 = getelementptr inbounds i8, ptr %.1138172, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1138172, i64 64
   %17 = add nsw i32 %.1175, -16
   %18 = icmp samesign ugt i32 %.1175, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !329
@@ -17149,11 +17149,11 @@ define internal void @ompi_op_avx_3buff_min_float_avx512(ptr nocapture noundef r
   %.3140179 = phi ptr [ %29, %.lr.ph183 ], [ %.0137, %.preheader170 ]
   %24 = load <8 x float>, ptr %.3126181, align 1
   %25 = load <8 x float>, ptr %.3133180, align 1
-  %26 = getelementptr inbounds i8, ptr %.3126181, i64 32
-  %27 = getelementptr inbounds i8, ptr %.3133180, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3126181, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3133180, i64 32
   %28 = tail call <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %24, <8 x float> %25)
   store <8 x float> %28, ptr %.3140179, align 1
-  %29 = getelementptr inbounds i8, ptr %.3140179, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.3140179, i64 32
   %30 = add nsw i32 %.3182, -8
   %31 = icmp samesign ugt i32 %.3182, 15
   br i1 %31, label %.lr.ph183, label %._crit_edge184, !llvm.loop !330
@@ -17189,11 +17189,11 @@ define internal void @ompi_op_avx_3buff_min_float_avx512(ptr nocapture noundef r
   %.5142189 = phi ptr [ %42, %.lr.ph193 ], [ %.2139, %33 ]
   %37 = load <4 x float>, ptr %.5128191, align 1
   %38 = load <4 x float>, ptr %.5135190, align 1
-  %39 = getelementptr inbounds i8, ptr %.5128191, i64 16
-  %40 = getelementptr inbounds i8, ptr %.5135190, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5128191, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5135190, i64 16
   %41 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %37, <4 x float> %38)
   store <4 x float> %41, ptr %.5142189, align 1
-  %42 = getelementptr inbounds i8, ptr %.5142189, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5142189, i64 16
   %43 = add nsw i32 %.5192, -4
   %44 = icmp samesign ugt i32 %.5192, 7
   br i1 %44, label %.lr.ph193, label %.loopexit169, !llvm.loop !331
@@ -17224,79 +17224,79 @@ define internal void @ompi_op_avx_3buff_min_float_avx512(ptr nocapture noundef r
   ]
 
 47:                                               ; preds = %.lr.ph203
-  %48 = getelementptr inbounds i8, ptr %.6129200, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %.6129200, i64 28
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %.6136199, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %.6136199, i64 28
   %51 = load float, ptr %50, align 4
   %52 = fcmp olt float %49, %51
   %. = select i1 %52, float %49, float %51
-  %53 = getelementptr inbounds i8, ptr %.6143198, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %.6143198, i64 28
   store float %., ptr %53, align 4
   br label %54
 
 54:                                               ; preds = %47, %.lr.ph203
-  %55 = getelementptr inbounds i8, ptr %.6129200, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.6129200, i64 24
   %56 = load float, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.6136199, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.6136199, i64 24
   %58 = load float, ptr %57, align 4
   %59 = fcmp olt float %56, %58
   %.162 = select i1 %59, float %56, float %58
-  %60 = getelementptr inbounds i8, ptr %.6143198, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.6143198, i64 24
   store float %.162, ptr %60, align 4
   br label %61
 
 61:                                               ; preds = %54, %.lr.ph203
-  %62 = getelementptr inbounds i8, ptr %.6129200, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %.6129200, i64 20
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.6136199, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %.6136199, i64 20
   %65 = load float, ptr %64, align 4
   %66 = fcmp olt float %63, %65
   %.163 = select i1 %66, float %63, float %65
-  %67 = getelementptr inbounds i8, ptr %.6143198, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %.6143198, i64 20
   store float %.163, ptr %67, align 4
   br label %68
 
 68:                                               ; preds = %61, %.lr.ph203
-  %69 = getelementptr inbounds i8, ptr %.6129200, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.6129200, i64 16
   %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6136199, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.6136199, i64 16
   %72 = load float, ptr %71, align 4
   %73 = fcmp olt float %70, %72
   %.164 = select i1 %73, float %70, float %72
-  %74 = getelementptr inbounds i8, ptr %.6143198, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6143198, i64 16
   store float %.164, ptr %74, align 4
   br label %75
 
 75:                                               ; preds = %68, %.lr.ph203
-  %76 = getelementptr inbounds i8, ptr %.6129200, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %.6129200, i64 12
   %77 = load float, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %.6136199, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %.6136199, i64 12
   %79 = load float, ptr %78, align 4
   %80 = fcmp olt float %77, %79
   %.165 = select i1 %80, float %77, float %79
-  %81 = getelementptr inbounds i8, ptr %.6143198, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %.6143198, i64 12
   store float %.165, ptr %81, align 4
   br label %82
 
 82:                                               ; preds = %75, %.lr.ph203
-  %83 = getelementptr inbounds i8, ptr %.6129200, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.6129200, i64 8
   %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %.6136199, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.6136199, i64 8
   %86 = load float, ptr %85, align 4
   %87 = fcmp olt float %84, %86
   %.166 = select i1 %87, float %84, float %86
-  %88 = getelementptr inbounds i8, ptr %.6143198, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.6143198, i64 8
   store float %.166, ptr %88, align 4
   br label %89
 
 89:                                               ; preds = %82, %.lr.ph203
-  %90 = getelementptr inbounds i8, ptr %.6129200, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.6129200, i64 4
   %91 = load float, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %.6136199, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6136199, i64 4
   %93 = load float, ptr %92, align 4
   %94 = fcmp olt float %91, %93
   %.167 = select i1 %94, float %91, float %93
-  %95 = getelementptr inbounds i8, ptr %.6143198, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %.6143198, i64 4
   store float %.167, ptr %95, align 4
   br label %96
 
@@ -17308,9 +17308,9 @@ define internal void @ompi_op_avx_3buff_min_float_avx512(ptr nocapture noundef r
   store float %.168, ptr %.6143198, align 4
   %100 = sub nsw i32 %.6201, %46
   %101 = zext nneg i32 %46 to i64
-  %102 = getelementptr inbounds float, ptr %.6143198, i64 %101
-  %103 = getelementptr inbounds float, ptr %.6129200, i64 %101
-  %104 = getelementptr inbounds float, ptr %.6136199, i64 %101
+  %102 = getelementptr inbounds nuw float, ptr %.6143198, i64 %101
+  %103 = getelementptr inbounds nuw float, ptr %.6129200, i64 %101
+  %104 = getelementptr inbounds nuw float, ptr %.6136199, i64 %101
   %105 = icmp sgt i32 %100, 0
   br i1 %105, label %.lr.ph203, label %.loopexit, !llvm.loop !332
 
@@ -17340,11 +17340,11 @@ define internal void @ompi_op_avx_3buff_min_double_avx512(ptr nocapture noundef 
   %.1138172 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader171 ]
   %11 = load <8 x double>, ptr %.1124174, align 1
   %12 = load <8 x double>, ptr %.1131173, align 1
-  %13 = getelementptr inbounds i8, ptr %.1124174, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1131173, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1124174, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1131173, i64 64
   %15 = tail call <8 x double> @llvm.x86.avx512.min.pd.512(<8 x double> %11, <8 x double> %12, i32 4)
   store <8 x double> %15, ptr %.1138172, align 1
-  %16 = getelementptr inbounds i8, ptr %.1138172, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1138172, i64 64
   %17 = add nsw i32 %.1175, -8
   %18 = icmp samesign ugt i32 %.1175, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !333
@@ -17382,11 +17382,11 @@ define internal void @ompi_op_avx_3buff_min_double_avx512(ptr nocapture noundef 
   %.3140179 = phi ptr [ %29, %.lr.ph183 ], [ %.0137, %.preheader170 ]
   %24 = load <4 x double>, ptr %.3126181, align 1
   %25 = load <4 x double>, ptr %.3133180, align 1
-  %26 = getelementptr inbounds i8, ptr %.3126181, i64 32
-  %27 = getelementptr inbounds i8, ptr %.3133180, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3126181, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3133180, i64 32
   %28 = tail call <4 x double> @llvm.x86.avx.min.pd.256(<4 x double> %24, <4 x double> %25)
   store <4 x double> %28, ptr %.3140179, align 1
-  %29 = getelementptr inbounds i8, ptr %.3140179, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.3140179, i64 32
   %30 = add nsw i32 %.3182, -4
   %31 = icmp samesign ugt i32 %.3182, 7
   br i1 %31, label %.lr.ph183, label %._crit_edge184, !llvm.loop !334
@@ -17422,11 +17422,11 @@ define internal void @ompi_op_avx_3buff_min_double_avx512(ptr nocapture noundef 
   %.5142189 = phi ptr [ %42, %.lr.ph193 ], [ %.2139, %33 ]
   %37 = load <2 x double>, ptr %.5128191, align 1
   %38 = load <2 x double>, ptr %.5135190, align 1
-  %39 = getelementptr inbounds i8, ptr %.5128191, i64 16
-  %40 = getelementptr inbounds i8, ptr %.5135190, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5128191, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5135190, i64 16
   %41 = tail call <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %37, <2 x double> %38)
   store <2 x double> %41, ptr %.5142189, align 1
-  %42 = getelementptr inbounds i8, ptr %.5142189, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5142189, i64 16
   %43 = add nsw i32 %.5192, -2
   %44 = icmp samesign ugt i32 %.5192, 3
   br i1 %44, label %.lr.ph193, label %.loopexit169, !llvm.loop !335
@@ -17457,79 +17457,79 @@ define internal void @ompi_op_avx_3buff_min_double_avx512(ptr nocapture noundef 
   ]
 
 47:                                               ; preds = %.lr.ph203
-  %48 = getelementptr inbounds i8, ptr %.6129200, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %.6129200, i64 56
   %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.6136199, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.6136199, i64 56
   %51 = load double, ptr %50, align 8
   %52 = fcmp olt double %49, %51
   %. = select i1 %52, double %49, double %51
-  %53 = getelementptr inbounds i8, ptr %.6143198, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %.6143198, i64 56
   store double %., ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %47, %.lr.ph203
-  %55 = getelementptr inbounds i8, ptr %.6129200, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.6129200, i64 48
   %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.6136199, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.6136199, i64 48
   %58 = load double, ptr %57, align 8
   %59 = fcmp olt double %56, %58
   %.162 = select i1 %59, double %56, double %58
-  %60 = getelementptr inbounds i8, ptr %.6143198, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %.6143198, i64 48
   store double %.162, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %54, %.lr.ph203
-  %62 = getelementptr inbounds i8, ptr %.6129200, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %.6129200, i64 40
   %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.6136199, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.6136199, i64 40
   %65 = load double, ptr %64, align 8
   %66 = fcmp olt double %63, %65
   %.163 = select i1 %66, double %63, double %65
-  %67 = getelementptr inbounds i8, ptr %.6143198, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.6143198, i64 40
   store double %.163, ptr %67, align 8
   br label %68
 
 68:                                               ; preds = %61, %.lr.ph203
-  %69 = getelementptr inbounds i8, ptr %.6129200, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.6129200, i64 32
   %70 = load double, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6136199, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %.6136199, i64 32
   %72 = load double, ptr %71, align 8
   %73 = fcmp olt double %70, %72
   %.164 = select i1 %73, double %70, double %72
-  %74 = getelementptr inbounds i8, ptr %.6143198, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.6143198, i64 32
   store double %.164, ptr %74, align 8
   br label %75
 
 75:                                               ; preds = %68, %.lr.ph203
-  %76 = getelementptr inbounds i8, ptr %.6129200, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.6129200, i64 24
   %77 = load double, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.6136199, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.6136199, i64 24
   %79 = load double, ptr %78, align 8
   %80 = fcmp olt double %77, %79
   %.165 = select i1 %80, double %77, double %79
-  %81 = getelementptr inbounds i8, ptr %.6143198, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.6143198, i64 24
   store double %.165, ptr %81, align 8
   br label %82
 
 82:                                               ; preds = %75, %.lr.ph203
-  %83 = getelementptr inbounds i8, ptr %.6129200, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.6129200, i64 16
   %84 = load double, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.6136199, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.6136199, i64 16
   %86 = load double, ptr %85, align 8
   %87 = fcmp olt double %84, %86
   %.166 = select i1 %87, double %84, double %86
-  %88 = getelementptr inbounds i8, ptr %.6143198, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.6143198, i64 16
   store double %.166, ptr %88, align 8
   br label %89
 
 89:                                               ; preds = %82, %.lr.ph203
-  %90 = getelementptr inbounds i8, ptr %.6129200, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.6129200, i64 8
   %91 = load double, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %.6136199, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6136199, i64 8
   %93 = load double, ptr %92, align 8
   %94 = fcmp olt double %91, %93
   %.167 = select i1 %94, double %91, double %93
-  %95 = getelementptr inbounds i8, ptr %.6143198, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.6143198, i64 8
   store double %.167, ptr %95, align 8
   br label %96
 
@@ -17541,9 +17541,9 @@ define internal void @ompi_op_avx_3buff_min_double_avx512(ptr nocapture noundef 
   store double %.168, ptr %.6143198, align 8
   %100 = sub nsw i32 %.6201, %46
   %101 = zext nneg i32 %46 to i64
-  %102 = getelementptr inbounds double, ptr %.6143198, i64 %101
-  %103 = getelementptr inbounds double, ptr %.6129200, i64 %101
-  %104 = getelementptr inbounds double, ptr %.6136199, i64 %101
+  %102 = getelementptr inbounds nuw double, ptr %.6143198, i64 %101
+  %103 = getelementptr inbounds nuw double, ptr %.6129200, i64 %101
+  %104 = getelementptr inbounds nuw double, ptr %.6136199, i64 %101
   %105 = icmp sgt i32 %100, 0
   br i1 %105, label %.lr.ph203, label %.loopexit, !llvm.loop !336
 
@@ -17573,11 +17573,11 @@ define internal void @ompi_op_avx_3buff_sum_int8_t_avx512(ptr noalias noundef %0
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <64 x i8>, ptr %.1134, align 1
   %13 = load <64 x i8>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = add <64 x i8> %13, %12
   store <64 x i8> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -64
   %19 = icmp samesign ugt i32 %.1122131, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !337
@@ -17610,11 +17610,11 @@ define internal void @ompi_op_avx_3buff_sum_int8_t_avx512(ptr noalias noundef %0
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <32 x i8>, ptr %.3141, align 1
   %26 = load <32 x i8>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = add <32 x i8> %26, %25
   store <32 x i8> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -32
   %32 = icmp samesign ugt i32 %.3124138, 63
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !338
@@ -17650,11 +17650,11 @@ define internal void @ompi_op_avx_3buff_sum_int8_t_avx512(ptr noalias noundef %0
   %.5126148 = phi i32 [ %45, %.lr.ph152 ], [ %.2123, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5151)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
-  %41 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %43 = add <16 x i8> %40, %39
   store <16 x i8> %43, ptr %.5119149, align 1
-  %44 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %45 = add nsw i32 %.5126148, -16
   %46 = icmp samesign ugt i32 %.5126148, 31
   br i1 %46, label %.lr.ph152, label %.loopexit128, !llvm.loop !339
@@ -17685,72 +17685,72 @@ define internal void @ompi_op_avx_3buff_sum_int8_t_avx512(ptr noalias noundef %0
   ]
 
 49:                                               ; preds = %.lr.ph162
-  %50 = getelementptr inbounds i8, ptr %.6160, i64 7
+  %50 = getelementptr inbounds nuw i8, ptr %.6160, i64 7
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %.6113159, i64 7
+  %52 = getelementptr inbounds nuw i8, ptr %.6113159, i64 7
   %53 = load i8, ptr %52, align 1
   %54 = add i8 %53, %51
-  %55 = getelementptr inbounds i8, ptr %.6120158, i64 7
+  %55 = getelementptr inbounds nuw i8, ptr %.6120158, i64 7
   store i8 %54, ptr %55, align 1
   br label %56
 
 56:                                               ; preds = %49, %.lr.ph162
-  %57 = getelementptr inbounds i8, ptr %.6160, i64 6
+  %57 = getelementptr inbounds nuw i8, ptr %.6160, i64 6
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6113159, i64 6
+  %59 = getelementptr inbounds nuw i8, ptr %.6113159, i64 6
   %60 = load i8, ptr %59, align 1
   %61 = add i8 %60, %58
-  %62 = getelementptr inbounds i8, ptr %.6120158, i64 6
+  %62 = getelementptr inbounds nuw i8, ptr %.6120158, i64 6
   store i8 %61, ptr %62, align 1
   br label %63
 
 63:                                               ; preds = %56, %.lr.ph162
-  %64 = getelementptr inbounds i8, ptr %.6160, i64 5
+  %64 = getelementptr inbounds nuw i8, ptr %.6160, i64 5
   %65 = load i8, ptr %64, align 1
-  %66 = getelementptr inbounds i8, ptr %.6113159, i64 5
+  %66 = getelementptr inbounds nuw i8, ptr %.6113159, i64 5
   %67 = load i8, ptr %66, align 1
   %68 = add i8 %67, %65
-  %69 = getelementptr inbounds i8, ptr %.6120158, i64 5
+  %69 = getelementptr inbounds nuw i8, ptr %.6120158, i64 5
   store i8 %68, ptr %69, align 1
   br label %70
 
 70:                                               ; preds = %63, %.lr.ph162
-  %71 = getelementptr inbounds i8, ptr %.6160, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.6160, i64 4
   %72 = load i8, ptr %71, align 1
-  %73 = getelementptr inbounds i8, ptr %.6113159, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %.6113159, i64 4
   %74 = load i8, ptr %73, align 1
   %75 = add i8 %74, %72
-  %76 = getelementptr inbounds i8, ptr %.6120158, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.6120158, i64 4
   store i8 %75, ptr %76, align 1
   br label %77
 
 77:                                               ; preds = %70, %.lr.ph162
-  %78 = getelementptr inbounds i8, ptr %.6160, i64 3
+  %78 = getelementptr inbounds nuw i8, ptr %.6160, i64 3
   %79 = load i8, ptr %78, align 1
-  %80 = getelementptr inbounds i8, ptr %.6113159, i64 3
+  %80 = getelementptr inbounds nuw i8, ptr %.6113159, i64 3
   %81 = load i8, ptr %80, align 1
   %82 = add i8 %81, %79
-  %83 = getelementptr inbounds i8, ptr %.6120158, i64 3
+  %83 = getelementptr inbounds nuw i8, ptr %.6120158, i64 3
   store i8 %82, ptr %83, align 1
   br label %84
 
 84:                                               ; preds = %77, %.lr.ph162
-  %85 = getelementptr inbounds i8, ptr %.6160, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %.6160, i64 2
   %86 = load i8, ptr %85, align 1
-  %87 = getelementptr inbounds i8, ptr %.6113159, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.6113159, i64 2
   %88 = load i8, ptr %87, align 1
   %89 = add i8 %88, %86
-  %90 = getelementptr inbounds i8, ptr %.6120158, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.6120158, i64 2
   store i8 %89, ptr %90, align 1
   br label %91
 
 91:                                               ; preds = %84, %.lr.ph162
-  %92 = getelementptr inbounds i8, ptr %.6160, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.6160, i64 1
   %93 = load i8, ptr %92, align 1
-  %94 = getelementptr inbounds i8, ptr %.6113159, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.6113159, i64 1
   %95 = load i8, ptr %94, align 1
   %96 = add i8 %95, %93
-  %97 = getelementptr inbounds i8, ptr %.6120158, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.6120158, i64 1
   store i8 %96, ptr %97, align 1
   br label %98
 
@@ -17761,9 +17761,9 @@ define internal void @ompi_op_avx_3buff_sum_int8_t_avx512(ptr noalias noundef %0
   store i8 %101, ptr %.6120158, align 1
   %102 = sub nsw i32 %.6127157, %48
   %103 = zext nneg i32 %48 to i64
-  %104 = getelementptr inbounds i8, ptr %.6120158, i64 %103
-  %105 = getelementptr inbounds i8, ptr %.6160, i64 %103
-  %106 = getelementptr inbounds i8, ptr %.6113159, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %.6120158, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr %.6160, i64 %103
+  %106 = getelementptr inbounds nuw i8, ptr %.6113159, i64 %103
   %107 = icmp sgt i32 %102, 0
   br i1 %107, label %.lr.ph162, label %.loopexit, !llvm.loop !340
 
@@ -17793,11 +17793,11 @@ define internal void @ompi_op_avx_3buff_sum_uint8_t_avx512(ptr noalias noundef %
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <64 x i8>, ptr %.1134, align 1
   %13 = load <64 x i8>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = add <64 x i8> %13, %12
   store <64 x i8> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -64
   %19 = icmp samesign ugt i32 %.1122131, 127
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !341
@@ -17830,11 +17830,11 @@ define internal void @ompi_op_avx_3buff_sum_uint8_t_avx512(ptr noalias noundef %
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <32 x i8>, ptr %.3141, align 1
   %26 = load <32 x i8>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = add <32 x i8> %26, %25
   store <32 x i8> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -32
   %32 = icmp samesign ugt i32 %.3124138, 63
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !342
@@ -17870,11 +17870,11 @@ define internal void @ompi_op_avx_3buff_sum_uint8_t_avx512(ptr noalias noundef %
   %.5126148 = phi i32 [ %45, %.lr.ph152 ], [ %.2123, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5151)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
-  %41 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %43 = add <16 x i8> %40, %39
   store <16 x i8> %43, ptr %.5119149, align 1
-  %44 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %45 = add nsw i32 %.5126148, -16
   %46 = icmp samesign ugt i32 %.5126148, 31
   br i1 %46, label %.lr.ph152, label %.loopexit128, !llvm.loop !343
@@ -17905,72 +17905,72 @@ define internal void @ompi_op_avx_3buff_sum_uint8_t_avx512(ptr noalias noundef %
   ]
 
 49:                                               ; preds = %.lr.ph162
-  %50 = getelementptr inbounds i8, ptr %.6160, i64 7
+  %50 = getelementptr inbounds nuw i8, ptr %.6160, i64 7
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %.6113159, i64 7
+  %52 = getelementptr inbounds nuw i8, ptr %.6113159, i64 7
   %53 = load i8, ptr %52, align 1
   %54 = add i8 %53, %51
-  %55 = getelementptr inbounds i8, ptr %.6120158, i64 7
+  %55 = getelementptr inbounds nuw i8, ptr %.6120158, i64 7
   store i8 %54, ptr %55, align 1
   br label %56
 
 56:                                               ; preds = %49, %.lr.ph162
-  %57 = getelementptr inbounds i8, ptr %.6160, i64 6
+  %57 = getelementptr inbounds nuw i8, ptr %.6160, i64 6
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.6113159, i64 6
+  %59 = getelementptr inbounds nuw i8, ptr %.6113159, i64 6
   %60 = load i8, ptr %59, align 1
   %61 = add i8 %60, %58
-  %62 = getelementptr inbounds i8, ptr %.6120158, i64 6
+  %62 = getelementptr inbounds nuw i8, ptr %.6120158, i64 6
   store i8 %61, ptr %62, align 1
   br label %63
 
 63:                                               ; preds = %56, %.lr.ph162
-  %64 = getelementptr inbounds i8, ptr %.6160, i64 5
+  %64 = getelementptr inbounds nuw i8, ptr %.6160, i64 5
   %65 = load i8, ptr %64, align 1
-  %66 = getelementptr inbounds i8, ptr %.6113159, i64 5
+  %66 = getelementptr inbounds nuw i8, ptr %.6113159, i64 5
   %67 = load i8, ptr %66, align 1
   %68 = add i8 %67, %65
-  %69 = getelementptr inbounds i8, ptr %.6120158, i64 5
+  %69 = getelementptr inbounds nuw i8, ptr %.6120158, i64 5
   store i8 %68, ptr %69, align 1
   br label %70
 
 70:                                               ; preds = %63, %.lr.ph162
-  %71 = getelementptr inbounds i8, ptr %.6160, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.6160, i64 4
   %72 = load i8, ptr %71, align 1
-  %73 = getelementptr inbounds i8, ptr %.6113159, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %.6113159, i64 4
   %74 = load i8, ptr %73, align 1
   %75 = add i8 %74, %72
-  %76 = getelementptr inbounds i8, ptr %.6120158, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %.6120158, i64 4
   store i8 %75, ptr %76, align 1
   br label %77
 
 77:                                               ; preds = %70, %.lr.ph162
-  %78 = getelementptr inbounds i8, ptr %.6160, i64 3
+  %78 = getelementptr inbounds nuw i8, ptr %.6160, i64 3
   %79 = load i8, ptr %78, align 1
-  %80 = getelementptr inbounds i8, ptr %.6113159, i64 3
+  %80 = getelementptr inbounds nuw i8, ptr %.6113159, i64 3
   %81 = load i8, ptr %80, align 1
   %82 = add i8 %81, %79
-  %83 = getelementptr inbounds i8, ptr %.6120158, i64 3
+  %83 = getelementptr inbounds nuw i8, ptr %.6120158, i64 3
   store i8 %82, ptr %83, align 1
   br label %84
 
 84:                                               ; preds = %77, %.lr.ph162
-  %85 = getelementptr inbounds i8, ptr %.6160, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %.6160, i64 2
   %86 = load i8, ptr %85, align 1
-  %87 = getelementptr inbounds i8, ptr %.6113159, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.6113159, i64 2
   %88 = load i8, ptr %87, align 1
   %89 = add i8 %88, %86
-  %90 = getelementptr inbounds i8, ptr %.6120158, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %.6120158, i64 2
   store i8 %89, ptr %90, align 1
   br label %91
 
 91:                                               ; preds = %84, %.lr.ph162
-  %92 = getelementptr inbounds i8, ptr %.6160, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.6160, i64 1
   %93 = load i8, ptr %92, align 1
-  %94 = getelementptr inbounds i8, ptr %.6113159, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.6113159, i64 1
   %95 = load i8, ptr %94, align 1
   %96 = add i8 %95, %93
-  %97 = getelementptr inbounds i8, ptr %.6120158, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %.6120158, i64 1
   store i8 %96, ptr %97, align 1
   br label %98
 
@@ -17981,9 +17981,9 @@ define internal void @ompi_op_avx_3buff_sum_uint8_t_avx512(ptr noalias noundef %
   store i8 %101, ptr %.6120158, align 1
   %102 = sub nsw i32 %.6127157, %48
   %103 = zext nneg i32 %48 to i64
-  %104 = getelementptr inbounds i8, ptr %.6120158, i64 %103
-  %105 = getelementptr inbounds i8, ptr %.6160, i64 %103
-  %106 = getelementptr inbounds i8, ptr %.6113159, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %.6120158, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr %.6160, i64 %103
+  %106 = getelementptr inbounds nuw i8, ptr %.6113159, i64 %103
   %107 = icmp sgt i32 %102, 0
   br i1 %107, label %.lr.ph162, label %.loopexit, !llvm.loop !344
 
@@ -18013,11 +18013,11 @@ define internal void @ompi_op_avx_3buff_sum_int16_t_avx512(ptr noalias noundef %
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <32 x i16>, ptr %.1134, align 1
   %13 = load <32 x i16>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = add <32 x i16> %13, %12
   store <32 x i16> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -32
   %19 = icmp samesign ugt i32 %.1122131, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !345
@@ -18050,11 +18050,11 @@ define internal void @ompi_op_avx_3buff_sum_int16_t_avx512(ptr noalias noundef %
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <16 x i16>, ptr %.3141, align 1
   %26 = load <16 x i16>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = add <16 x i16> %26, %25
   store <16 x i16> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -16
   %32 = icmp samesign ugt i32 %.3124138, 31
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !346
@@ -18090,13 +18090,13 @@ define internal void @ompi_op_avx_3buff_sum_int16_t_avx512(ptr noalias noundef %
   %.5126148 = phi i32 [ %47, %.lr.ph152 ], [ %.2123, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5151)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
-  %41 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %43 = bitcast <16 x i8> %39 to <8 x i16>
   %44 = bitcast <16 x i8> %40 to <8 x i16>
   %45 = add <8 x i16> %44, %43
   store <8 x i16> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -8
   %48 = icmp samesign ugt i32 %.5126148, 15
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !347
@@ -18127,72 +18127,72 @@ define internal void @ompi_op_avx_3buff_sum_int16_t_avx512(ptr noalias noundef %
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 14
   %53 = load i16, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 14
   %55 = load i16, ptr %54, align 2
   %56 = add i16 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 14
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 14
   store i16 %56, ptr %57, align 2
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 12
   %60 = load i16, ptr %59, align 2
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 12
   %62 = load i16, ptr %61, align 2
   %63 = add i16 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 12
   store i16 %63, ptr %64, align 2
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 10
   %67 = load i16, ptr %66, align 2
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 10
   %69 = load i16, ptr %68, align 2
   %70 = add i16 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 10
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 10
   store i16 %70, ptr %71, align 2
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %74 = load i16, ptr %73, align 2
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %76 = load i16, ptr %75, align 2
   %77 = add i16 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i16 %77, ptr %78, align 2
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 6
   %81 = load i16, ptr %80, align 2
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 6
   %83 = load i16, ptr %82, align 2
   %84 = add i16 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 6
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 6
   store i16 %84, ptr %85, align 2
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 4
   %88 = load i16, ptr %87, align 2
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 4
   %90 = load i16, ptr %89, align 2
   %91 = add i16 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 4
   store i16 %91, ptr %92, align 2
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 2
   %95 = load i16, ptr %94, align 2
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 2
   %97 = load i16, ptr %96, align 2
   %98 = add i16 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 2
   store i16 %98, ptr %99, align 2
   br label %100
 
@@ -18203,9 +18203,9 @@ define internal void @ompi_op_avx_3buff_sum_int16_t_avx512(ptr noalias noundef %
   store i16 %103, ptr %.6120158, align 2
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i16, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i16, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i16, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i16, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i16, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i16, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !348
 
@@ -18235,11 +18235,11 @@ define internal void @ompi_op_avx_3buff_sum_uint16_t_avx512(ptr noalias noundef 
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <32 x i16>, ptr %.1134, align 1
   %13 = load <32 x i16>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = add <32 x i16> %13, %12
   store <32 x i16> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -32
   %19 = icmp samesign ugt i32 %.1122131, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !349
@@ -18272,11 +18272,11 @@ define internal void @ompi_op_avx_3buff_sum_uint16_t_avx512(ptr noalias noundef 
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <16 x i16>, ptr %.3141, align 1
   %26 = load <16 x i16>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = add <16 x i16> %26, %25
   store <16 x i16> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -16
   %32 = icmp samesign ugt i32 %.3124138, 31
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !350
@@ -18312,13 +18312,13 @@ define internal void @ompi_op_avx_3buff_sum_uint16_t_avx512(ptr noalias noundef 
   %.5126148 = phi i32 [ %47, %.lr.ph152 ], [ %.2123, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5151)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
-  %41 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %43 = bitcast <16 x i8> %39 to <8 x i16>
   %44 = bitcast <16 x i8> %40 to <8 x i16>
   %45 = add <8 x i16> %44, %43
   store <8 x i16> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -8
   %48 = icmp samesign ugt i32 %.5126148, 15
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !351
@@ -18349,72 +18349,72 @@ define internal void @ompi_op_avx_3buff_sum_uint16_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 14
   %53 = load i16, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 14
   %55 = load i16, ptr %54, align 2
   %56 = add i16 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 14
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 14
   store i16 %56, ptr %57, align 2
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 12
   %60 = load i16, ptr %59, align 2
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 12
   %62 = load i16, ptr %61, align 2
   %63 = add i16 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 12
   store i16 %63, ptr %64, align 2
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 10
   %67 = load i16, ptr %66, align 2
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 10
   %69 = load i16, ptr %68, align 2
   %70 = add i16 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 10
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 10
   store i16 %70, ptr %71, align 2
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %74 = load i16, ptr %73, align 2
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %76 = load i16, ptr %75, align 2
   %77 = add i16 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i16 %77, ptr %78, align 2
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 6
   %81 = load i16, ptr %80, align 2
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 6
   %83 = load i16, ptr %82, align 2
   %84 = add i16 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 6
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 6
   store i16 %84, ptr %85, align 2
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 4
   %88 = load i16, ptr %87, align 2
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 4
   %90 = load i16, ptr %89, align 2
   %91 = add i16 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 4
   store i16 %91, ptr %92, align 2
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 2
   %95 = load i16, ptr %94, align 2
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 2
   %97 = load i16, ptr %96, align 2
   %98 = add i16 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 2
   store i16 %98, ptr %99, align 2
   br label %100
 
@@ -18425,9 +18425,9 @@ define internal void @ompi_op_avx_3buff_sum_uint16_t_avx512(ptr noalias noundef 
   store i16 %103, ptr %.6120158, align 2
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i16, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i16, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i16, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i16, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i16, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i16, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !352
 
@@ -18457,11 +18457,11 @@ define internal void @ompi_op_avx_3buff_sum_int32_t_avx512(ptr noalias noundef %
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <16 x i32>, ptr %.1134, align 1
   %13 = load <16 x i32>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = add <16 x i32> %13, %12
   store <16 x i32> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -16
   %19 = icmp samesign ugt i32 %.1122131, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !353
@@ -18494,11 +18494,11 @@ define internal void @ompi_op_avx_3buff_sum_int32_t_avx512(ptr noalias noundef %
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <8 x i32>, ptr %.3141, align 1
   %26 = load <8 x i32>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = add <8 x i32> %26, %25
   store <8 x i32> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -8
   %32 = icmp samesign ugt i32 %.3124138, 15
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !354
@@ -18534,13 +18534,13 @@ define internal void @ompi_op_avx_3buff_sum_int32_t_avx512(ptr noalias noundef %
   %.5126148 = phi i32 [ %47, %.lr.ph152 ], [ %.2123, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5151)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
-  %41 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %43 = bitcast <16 x i8> %39 to <4 x i32>
   %44 = bitcast <16 x i8> %40 to <4 x i32>
   %45 = add <4 x i32> %44, %43
   store <4 x i32> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -4
   %48 = icmp samesign ugt i32 %.5126148, 7
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !355
@@ -18571,72 +18571,72 @@ define internal void @ompi_op_avx_3buff_sum_int32_t_avx512(ptr noalias noundef %
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 28
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = add nsw i32 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 28
   store i32 %56, ptr %57, align 4
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 24
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 24
   %62 = load i32, ptr %61, align 4
   %63 = add nsw i32 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 24
   store i32 %63, ptr %64, align 4
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 20
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 20
   %69 = load i32, ptr %68, align 4
   %70 = add nsw i32 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 20
   store i32 %70, ptr %71, align 4
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 16
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 16
   %76 = load i32, ptr %75, align 4
   %77 = add nsw i32 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 16
   store i32 %77, ptr %78, align 4
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 12
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 12
   %83 = load i32, ptr %82, align 4
   %84 = add nsw i32 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 12
   store i32 %84, ptr %85, align 4
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %90 = load i32, ptr %89, align 4
   %91 = add nsw i32 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i32 %91, ptr %92, align 4
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 4
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = add nsw i32 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 4
   store i32 %98, ptr %99, align 4
   br label %100
 
@@ -18647,9 +18647,9 @@ define internal void @ompi_op_avx_3buff_sum_int32_t_avx512(ptr noalias noundef %
   store i32 %103, ptr %.6120158, align 4
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i32, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i32, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i32, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i32, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i32, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !356
 
@@ -18679,11 +18679,11 @@ define internal void @ompi_op_avx_3buff_sum_uint32_t_avx512(ptr noalias noundef 
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <16 x i32>, ptr %.1134, align 1
   %13 = load <16 x i32>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = add <16 x i32> %13, %12
   store <16 x i32> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -16
   %19 = icmp samesign ugt i32 %.1122131, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !357
@@ -18716,11 +18716,11 @@ define internal void @ompi_op_avx_3buff_sum_uint32_t_avx512(ptr noalias noundef 
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <8 x i32>, ptr %.3141, align 1
   %26 = load <8 x i32>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = add <8 x i32> %26, %25
   store <8 x i32> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -8
   %32 = icmp samesign ugt i32 %.3124138, 15
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !358
@@ -18756,13 +18756,13 @@ define internal void @ompi_op_avx_3buff_sum_uint32_t_avx512(ptr noalias noundef 
   %.5126148 = phi i32 [ %47, %.lr.ph152 ], [ %.2123, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5151)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
-  %41 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %43 = bitcast <16 x i8> %39 to <4 x i32>
   %44 = bitcast <16 x i8> %40 to <4 x i32>
   %45 = add <4 x i32> %44, %43
   store <4 x i32> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -4
   %48 = icmp samesign ugt i32 %.5126148, 7
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !359
@@ -18793,72 +18793,72 @@ define internal void @ompi_op_avx_3buff_sum_uint32_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 28
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = add i32 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 28
   store i32 %56, ptr %57, align 4
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 24
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 24
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 24
   store i32 %63, ptr %64, align 4
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 20
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 20
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 20
   store i32 %70, ptr %71, align 4
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 16
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 16
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 16
   store i32 %77, ptr %78, align 4
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 12
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 12
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 12
   store i32 %84, ptr %85, align 4
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %90 = load i32, ptr %89, align 4
   %91 = add i32 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i32 %91, ptr %92, align 4
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 4
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 4
   store i32 %98, ptr %99, align 4
   br label %100
 
@@ -18869,9 +18869,9 @@ define internal void @ompi_op_avx_3buff_sum_uint32_t_avx512(ptr noalias noundef 
   store i32 %103, ptr %.6120158, align 4
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i32, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i32, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i32, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i32, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i32, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !360
 
@@ -18901,11 +18901,11 @@ define internal void @ompi_op_avx_3buff_sum_int64_t_avx512(ptr noalias noundef %
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <8 x i64>, ptr %.1134, align 1
   %13 = load <8 x i64>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = add <8 x i64> %13, %12
   store <8 x i64> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -8
   %19 = icmp samesign ugt i32 %.1122131, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !361
@@ -18938,11 +18938,11 @@ define internal void @ompi_op_avx_3buff_sum_int64_t_avx512(ptr noalias noundef %
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <4 x i64>, ptr %.3141, align 1
   %26 = load <4 x i64>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = add <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -4
   %32 = icmp samesign ugt i32 %.3124138, 7
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !362
@@ -18980,11 +18980,11 @@ define internal void @ompi_op_avx_3buff_sum_int64_t_avx512(ptr noalias noundef %
   %40 = bitcast <16 x i8> %39 to <2 x i64>
   %41 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
   %42 = bitcast <16 x i8> %41 to <2 x i64>
-  %43 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %44 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %45 = add <2 x i64> %42, %40
   store <2 x i64> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -2
   %48 = icmp samesign ugt i32 %.5126148, 3
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !363
@@ -19015,72 +19015,72 @@ define internal void @ompi_op_avx_3buff_sum_int64_t_avx512(ptr noalias noundef %
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 56
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 56
   %55 = load i64, ptr %54, align 8
   %56 = add nsw i64 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 56
   store i64 %56, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 48
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 48
   %62 = load i64, ptr %61, align 8
   %63 = add nsw i64 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 48
   store i64 %63, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 40
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 40
   %69 = load i64, ptr %68, align 8
   %70 = add nsw i64 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 40
   store i64 %70, ptr %71, align 8
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 32
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 32
   %76 = load i64, ptr %75, align 8
   %77 = add nsw i64 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 32
   store i64 %77, ptr %78, align 8
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 24
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 24
   %83 = load i64, ptr %82, align 8
   %84 = add nsw i64 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 24
   store i64 %84, ptr %85, align 8
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 16
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 16
   %90 = load i64, ptr %89, align 8
   %91 = add nsw i64 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 16
   store i64 %91, ptr %92, align 8
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %97 = load i64, ptr %96, align 8
   %98 = add nsw i64 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i64 %98, ptr %99, align 8
   br label %100
 
@@ -19091,9 +19091,9 @@ define internal void @ompi_op_avx_3buff_sum_int64_t_avx512(ptr noalias noundef %
   store i64 %103, ptr %.6120158, align 8
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i64, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i64, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i64, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i64, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i64, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !364
 
@@ -19123,11 +19123,11 @@ define internal void @ompi_op_avx_3buff_sum_uint64_t_avx512(ptr noalias noundef 
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <8 x i64>, ptr %.1134, align 1
   %13 = load <8 x i64>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = add <8 x i64> %13, %12
   store <8 x i64> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -8
   %19 = icmp samesign ugt i32 %.1122131, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !365
@@ -19160,11 +19160,11 @@ define internal void @ompi_op_avx_3buff_sum_uint64_t_avx512(ptr noalias noundef 
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <4 x i64>, ptr %.3141, align 1
   %26 = load <4 x i64>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = add <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -4
   %32 = icmp samesign ugt i32 %.3124138, 7
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !366
@@ -19202,11 +19202,11 @@ define internal void @ompi_op_avx_3buff_sum_uint64_t_avx512(ptr noalias noundef 
   %40 = bitcast <16 x i8> %39 to <2 x i64>
   %41 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
   %42 = bitcast <16 x i8> %41 to <2 x i64>
-  %43 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %44 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %45 = add <2 x i64> %42, %40
   store <2 x i64> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -2
   %48 = icmp samesign ugt i32 %.5126148, 3
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !367
@@ -19237,72 +19237,72 @@ define internal void @ompi_op_avx_3buff_sum_uint64_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 56
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 56
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 56
   store i64 %56, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 48
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 48
   %62 = load i64, ptr %61, align 8
   %63 = add i64 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 48
   store i64 %63, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 40
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 40
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 40
   store i64 %70, ptr %71, align 8
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 32
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 32
   %76 = load i64, ptr %75, align 8
   %77 = add i64 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 32
   store i64 %77, ptr %78, align 8
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 24
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 24
   %83 = load i64, ptr %82, align 8
   %84 = add i64 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 24
   store i64 %84, ptr %85, align 8
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 16
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 16
   %90 = load i64, ptr %89, align 8
   %91 = add i64 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 16
   store i64 %91, ptr %92, align 8
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %97 = load i64, ptr %96, align 8
   %98 = add i64 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i64 %98, ptr %99, align 8
   br label %100
 
@@ -19313,9 +19313,9 @@ define internal void @ompi_op_avx_3buff_sum_uint64_t_avx512(ptr noalias noundef 
   store i64 %103, ptr %.6120158, align 8
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i64, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i64, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i64, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i64, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i64, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !368
 
@@ -19345,11 +19345,11 @@ define internal void @ompi_op_avx_3buff_add_float_avx512(ptr nocapture noundef r
   %.1122133 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader132 ]
   %11 = load <16 x float>, ptr %.1108135, align 1
   %12 = load <16 x float>, ptr %.1115134, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108135, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115134, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108135, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115134, i64 64
   %15 = fadd <16 x float> %11, %12
   store <16 x float> %15, ptr %.1122133, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122133, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122133, i64 64
   %17 = add nsw i32 %.1136, -16
   %18 = icmp samesign ugt i32 %.1136, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !369
@@ -19387,11 +19387,11 @@ define internal void @ompi_op_avx_3buff_add_float_avx512(ptr nocapture noundef r
   %.3124140 = phi ptr [ %29, %.lr.ph144 ], [ %.0121, %.preheader131 ]
   %24 = load <8 x float>, ptr %.3110142, align 1
   %25 = load <8 x float>, ptr %.3117141, align 1
-  %26 = getelementptr inbounds i8, ptr %.3110142, i64 32
-  %27 = getelementptr inbounds i8, ptr %.3117141, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3110142, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3117141, i64 32
   %28 = fadd <8 x float> %24, %25
   store <8 x float> %28, ptr %.3124140, align 1
-  %29 = getelementptr inbounds i8, ptr %.3124140, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.3124140, i64 32
   %30 = add nsw i32 %.3143, -8
   %31 = icmp samesign ugt i32 %.3143, 15
   br i1 %31, label %.lr.ph144, label %._crit_edge145, !llvm.loop !370
@@ -19427,11 +19427,11 @@ define internal void @ompi_op_avx_3buff_add_float_avx512(ptr nocapture noundef r
   %.5126150 = phi ptr [ %42, %.lr.ph154 ], [ %.2123, %33 ]
   %37 = load <4 x float>, ptr %.5112152, align 1
   %38 = load <4 x float>, ptr %.5119151, align 1
-  %39 = getelementptr inbounds i8, ptr %.5112152, i64 16
-  %40 = getelementptr inbounds i8, ptr %.5119151, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5112152, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5119151, i64 16
   %41 = fadd <4 x float> %37, %38
   store <4 x float> %41, ptr %.5126150, align 1
-  %42 = getelementptr inbounds i8, ptr %.5126150, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5126150, i64 16
   %43 = add nsw i32 %.5153, -4
   %44 = icmp samesign ugt i32 %.5153, 7
   br i1 %44, label %.lr.ph154, label %.loopexit130, !llvm.loop !371
@@ -19462,72 +19462,72 @@ define internal void @ompi_op_avx_3buff_add_float_avx512(ptr nocapture noundef r
   ]
 
 47:                                               ; preds = %.lr.ph164
-  %48 = getelementptr inbounds i8, ptr %.6113161, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %.6113161, i64 28
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %.6120160, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %.6120160, i64 28
   %51 = load float, ptr %50, align 4
   %52 = fadd float %49, %51
-  %53 = getelementptr inbounds i8, ptr %.6127159, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %.6127159, i64 28
   store float %52, ptr %53, align 4
   br label %54
 
 54:                                               ; preds = %47, %.lr.ph164
-  %55 = getelementptr inbounds i8, ptr %.6113161, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.6113161, i64 24
   %56 = load float, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.6120160, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.6120160, i64 24
   %58 = load float, ptr %57, align 4
   %59 = fadd float %56, %58
-  %60 = getelementptr inbounds i8, ptr %.6127159, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.6127159, i64 24
   store float %59, ptr %60, align 4
   br label %61
 
 61:                                               ; preds = %54, %.lr.ph164
-  %62 = getelementptr inbounds i8, ptr %.6113161, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %.6113161, i64 20
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.6120160, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %.6120160, i64 20
   %65 = load float, ptr %64, align 4
   %66 = fadd float %63, %65
-  %67 = getelementptr inbounds i8, ptr %.6127159, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %.6127159, i64 20
   store float %66, ptr %67, align 4
   br label %68
 
 68:                                               ; preds = %61, %.lr.ph164
-  %69 = getelementptr inbounds i8, ptr %.6113161, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.6113161, i64 16
   %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6120160, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.6120160, i64 16
   %72 = load float, ptr %71, align 4
   %73 = fadd float %70, %72
-  %74 = getelementptr inbounds i8, ptr %.6127159, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6127159, i64 16
   store float %73, ptr %74, align 4
   br label %75
 
 75:                                               ; preds = %68, %.lr.ph164
-  %76 = getelementptr inbounds i8, ptr %.6113161, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %.6113161, i64 12
   %77 = load float, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %.6120160, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %.6120160, i64 12
   %79 = load float, ptr %78, align 4
   %80 = fadd float %77, %79
-  %81 = getelementptr inbounds i8, ptr %.6127159, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %.6127159, i64 12
   store float %80, ptr %81, align 4
   br label %82
 
 82:                                               ; preds = %75, %.lr.ph164
-  %83 = getelementptr inbounds i8, ptr %.6113161, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.6113161, i64 8
   %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %.6120160, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.6120160, i64 8
   %86 = load float, ptr %85, align 4
   %87 = fadd float %84, %86
-  %88 = getelementptr inbounds i8, ptr %.6127159, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.6127159, i64 8
   store float %87, ptr %88, align 4
   br label %89
 
 89:                                               ; preds = %82, %.lr.ph164
-  %90 = getelementptr inbounds i8, ptr %.6113161, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.6113161, i64 4
   %91 = load float, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %.6120160, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6120160, i64 4
   %93 = load float, ptr %92, align 4
   %94 = fadd float %91, %93
-  %95 = getelementptr inbounds i8, ptr %.6127159, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %.6127159, i64 4
   store float %94, ptr %95, align 4
   br label %96
 
@@ -19538,9 +19538,9 @@ define internal void @ompi_op_avx_3buff_add_float_avx512(ptr nocapture noundef r
   store float %99, ptr %.6127159, align 4
   %100 = sub nsw i32 %.6162, %46
   %101 = zext nneg i32 %46 to i64
-  %102 = getelementptr inbounds float, ptr %.6127159, i64 %101
-  %103 = getelementptr inbounds float, ptr %.6113161, i64 %101
-  %104 = getelementptr inbounds float, ptr %.6120160, i64 %101
+  %102 = getelementptr inbounds nuw float, ptr %.6127159, i64 %101
+  %103 = getelementptr inbounds nuw float, ptr %.6113161, i64 %101
+  %104 = getelementptr inbounds nuw float, ptr %.6120160, i64 %101
   %105 = icmp sgt i32 %100, 0
   br i1 %105, label %.lr.ph164, label %.loopexit, !llvm.loop !372
 
@@ -19570,11 +19570,11 @@ define internal void @ompi_op_avx_3buff_add_double_avx512(ptr nocapture noundef 
   %.1122133 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader132 ]
   %11 = load <8 x double>, ptr %.1108135, align 1
   %12 = load <8 x double>, ptr %.1115134, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108135, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115134, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108135, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115134, i64 64
   %15 = fadd <8 x double> %11, %12
   store <8 x double> %15, ptr %.1122133, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122133, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122133, i64 64
   %17 = add nsw i32 %.1136, -8
   %18 = icmp samesign ugt i32 %.1136, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !373
@@ -19612,11 +19612,11 @@ define internal void @ompi_op_avx_3buff_add_double_avx512(ptr nocapture noundef 
   %.3124140 = phi ptr [ %29, %.lr.ph144 ], [ %.0121, %.preheader131 ]
   %24 = load <4 x double>, ptr %.3110142, align 1
   %25 = load <4 x double>, ptr %.3117141, align 1
-  %26 = getelementptr inbounds i8, ptr %.3110142, i64 32
-  %27 = getelementptr inbounds i8, ptr %.3117141, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3110142, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3117141, i64 32
   %28 = fadd <4 x double> %24, %25
   store <4 x double> %28, ptr %.3124140, align 1
-  %29 = getelementptr inbounds i8, ptr %.3124140, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.3124140, i64 32
   %30 = add nsw i32 %.3143, -4
   %31 = icmp samesign ugt i32 %.3143, 7
   br i1 %31, label %.lr.ph144, label %._crit_edge145, !llvm.loop !374
@@ -19652,11 +19652,11 @@ define internal void @ompi_op_avx_3buff_add_double_avx512(ptr nocapture noundef 
   %.5126150 = phi ptr [ %42, %.lr.ph154 ], [ %.2123, %33 ]
   %37 = load <2 x double>, ptr %.5112152, align 1
   %38 = load <2 x double>, ptr %.5119151, align 1
-  %39 = getelementptr inbounds i8, ptr %.5112152, i64 16
-  %40 = getelementptr inbounds i8, ptr %.5119151, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5112152, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5119151, i64 16
   %41 = fadd <2 x double> %37, %38
   store <2 x double> %41, ptr %.5126150, align 1
-  %42 = getelementptr inbounds i8, ptr %.5126150, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5126150, i64 16
   %43 = add nsw i32 %.5153, -2
   %44 = icmp samesign ugt i32 %.5153, 3
   br i1 %44, label %.lr.ph154, label %.loopexit130, !llvm.loop !375
@@ -19687,72 +19687,72 @@ define internal void @ompi_op_avx_3buff_add_double_avx512(ptr nocapture noundef 
   ]
 
 47:                                               ; preds = %.lr.ph164
-  %48 = getelementptr inbounds i8, ptr %.6113161, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %.6113161, i64 56
   %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.6120160, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.6120160, i64 56
   %51 = load double, ptr %50, align 8
   %52 = fadd double %49, %51
-  %53 = getelementptr inbounds i8, ptr %.6127159, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %.6127159, i64 56
   store double %52, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %47, %.lr.ph164
-  %55 = getelementptr inbounds i8, ptr %.6113161, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.6113161, i64 48
   %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.6120160, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.6120160, i64 48
   %58 = load double, ptr %57, align 8
   %59 = fadd double %56, %58
-  %60 = getelementptr inbounds i8, ptr %.6127159, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %.6127159, i64 48
   store double %59, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %54, %.lr.ph164
-  %62 = getelementptr inbounds i8, ptr %.6113161, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %.6113161, i64 40
   %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.6120160, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.6120160, i64 40
   %65 = load double, ptr %64, align 8
   %66 = fadd double %63, %65
-  %67 = getelementptr inbounds i8, ptr %.6127159, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.6127159, i64 40
   store double %66, ptr %67, align 8
   br label %68
 
 68:                                               ; preds = %61, %.lr.ph164
-  %69 = getelementptr inbounds i8, ptr %.6113161, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.6113161, i64 32
   %70 = load double, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6120160, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %.6120160, i64 32
   %72 = load double, ptr %71, align 8
   %73 = fadd double %70, %72
-  %74 = getelementptr inbounds i8, ptr %.6127159, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.6127159, i64 32
   store double %73, ptr %74, align 8
   br label %75
 
 75:                                               ; preds = %68, %.lr.ph164
-  %76 = getelementptr inbounds i8, ptr %.6113161, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.6113161, i64 24
   %77 = load double, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.6120160, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.6120160, i64 24
   %79 = load double, ptr %78, align 8
   %80 = fadd double %77, %79
-  %81 = getelementptr inbounds i8, ptr %.6127159, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.6127159, i64 24
   store double %80, ptr %81, align 8
   br label %82
 
 82:                                               ; preds = %75, %.lr.ph164
-  %83 = getelementptr inbounds i8, ptr %.6113161, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.6113161, i64 16
   %84 = load double, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.6120160, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.6120160, i64 16
   %86 = load double, ptr %85, align 8
   %87 = fadd double %84, %86
-  %88 = getelementptr inbounds i8, ptr %.6127159, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.6127159, i64 16
   store double %87, ptr %88, align 8
   br label %89
 
 89:                                               ; preds = %82, %.lr.ph164
-  %90 = getelementptr inbounds i8, ptr %.6113161, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.6113161, i64 8
   %91 = load double, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %.6120160, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6120160, i64 8
   %93 = load double, ptr %92, align 8
   %94 = fadd double %91, %93
-  %95 = getelementptr inbounds i8, ptr %.6127159, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.6127159, i64 8
   store double %94, ptr %95, align 8
   br label %96
 
@@ -19763,9 +19763,9 @@ define internal void @ompi_op_avx_3buff_add_double_avx512(ptr nocapture noundef 
   store double %99, ptr %.6127159, align 8
   %100 = sub nsw i32 %.6162, %46
   %101 = zext nneg i32 %46 to i64
-  %102 = getelementptr inbounds double, ptr %.6127159, i64 %101
-  %103 = getelementptr inbounds double, ptr %.6113161, i64 %101
-  %104 = getelementptr inbounds double, ptr %.6120160, i64 %101
+  %102 = getelementptr inbounds nuw double, ptr %.6127159, i64 %101
+  %103 = getelementptr inbounds nuw double, ptr %.6113161, i64 %101
+  %104 = getelementptr inbounds nuw double, ptr %.6120160, i64 %101
   %105 = icmp sgt i32 %100, 0
   br i1 %105, label %.lr.ph164, label %.loopexit, !llvm.loop !376
 
@@ -19795,11 +19795,11 @@ define internal void @ompi_op_avx_3buff_prod_int8_t_avx512(ptr noalias nocapture
   %.17577 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader ]
   %12 = load <32 x i8>, ptr %.180, align 1
   %13 = load <32 x i8>, ptr %.16979, align 1
-  %14 = getelementptr inbounds i8, ptr %.180, i64 32
-  %15 = getelementptr inbounds i8, ptr %.16979, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.180, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.16979, i64 32
   %16 = mul <32 x i8> %13, %12
   store <32 x i8> %16, ptr %.17278, align 1
-  %17 = getelementptr inbounds i8, ptr %.17278, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.17278, i64 32
   %18 = add nsw i32 %.17577, -32
   %19 = icmp samesign ugt i32 %.17577, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !377
@@ -19838,72 +19838,72 @@ define internal void @ompi_op_avx_3buff_prod_int8_t_avx512(ptr noalias nocapture
   ]
 
 24:                                               ; preds = %.lr.ph89
-  %25 = getelementptr inbounds i8, ptr %.287, i64 7
+  %25 = getelementptr inbounds nuw i8, ptr %.287, i64 7
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %.27086, i64 7
+  %27 = getelementptr inbounds nuw i8, ptr %.27086, i64 7
   %28 = load i8, ptr %27, align 1
   %29 = mul i8 %28, %26
-  %30 = getelementptr inbounds i8, ptr %.27385, i64 7
+  %30 = getelementptr inbounds nuw i8, ptr %.27385, i64 7
   store i8 %29, ptr %30, align 1
   br label %31
 
 31:                                               ; preds = %24, %.lr.ph89
-  %32 = getelementptr inbounds i8, ptr %.287, i64 6
+  %32 = getelementptr inbounds nuw i8, ptr %.287, i64 6
   %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %.27086, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %.27086, i64 6
   %35 = load i8, ptr %34, align 1
   %36 = mul i8 %35, %33
-  %37 = getelementptr inbounds i8, ptr %.27385, i64 6
+  %37 = getelementptr inbounds nuw i8, ptr %.27385, i64 6
   store i8 %36, ptr %37, align 1
   br label %38
 
 38:                                               ; preds = %31, %.lr.ph89
-  %39 = getelementptr inbounds i8, ptr %.287, i64 5
+  %39 = getelementptr inbounds nuw i8, ptr %.287, i64 5
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %.27086, i64 5
+  %41 = getelementptr inbounds nuw i8, ptr %.27086, i64 5
   %42 = load i8, ptr %41, align 1
   %43 = mul i8 %42, %40
-  %44 = getelementptr inbounds i8, ptr %.27385, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %.27385, i64 5
   store i8 %43, ptr %44, align 1
   br label %45
 
 45:                                               ; preds = %38, %.lr.ph89
-  %46 = getelementptr inbounds i8, ptr %.287, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.287, i64 4
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %.27086, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.27086, i64 4
   %49 = load i8, ptr %48, align 1
   %50 = mul i8 %49, %47
-  %51 = getelementptr inbounds i8, ptr %.27385, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.27385, i64 4
   store i8 %50, ptr %51, align 1
   br label %52
 
 52:                                               ; preds = %45, %.lr.ph89
-  %53 = getelementptr inbounds i8, ptr %.287, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %.287, i64 3
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %.27086, i64 3
+  %55 = getelementptr inbounds nuw i8, ptr %.27086, i64 3
   %56 = load i8, ptr %55, align 1
   %57 = mul i8 %56, %54
-  %58 = getelementptr inbounds i8, ptr %.27385, i64 3
+  %58 = getelementptr inbounds nuw i8, ptr %.27385, i64 3
   store i8 %57, ptr %58, align 1
   br label %59
 
 59:                                               ; preds = %52, %.lr.ph89
-  %60 = getelementptr inbounds i8, ptr %.287, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.287, i64 2
   %61 = load i8, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %.27086, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %.27086, i64 2
   %63 = load i8, ptr %62, align 1
   %64 = mul i8 %63, %61
-  %65 = getelementptr inbounds i8, ptr %.27385, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %.27385, i64 2
   store i8 %64, ptr %65, align 1
   br label %66
 
 66:                                               ; preds = %59, %.lr.ph89
-  %67 = getelementptr inbounds i8, ptr %.287, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.287, i64 1
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %.27086, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.27086, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = mul i8 %70, %68
-  %72 = getelementptr inbounds i8, ptr %.27385, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.27385, i64 1
   store i8 %71, ptr %72, align 1
   br label %73
 
@@ -19914,9 +19914,9 @@ define internal void @ompi_op_avx_3buff_prod_int8_t_avx512(ptr noalias nocapture
   store i8 %76, ptr %.27385, align 1
   %77 = sub nsw i32 %.27684, %23
   %78 = zext nneg i32 %23 to i64
-  %79 = getelementptr inbounds i8, ptr %.27385, i64 %78
-  %80 = getelementptr inbounds i8, ptr %.287, i64 %78
-  %81 = getelementptr inbounds i8, ptr %.27086, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %.27385, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %.287, i64 %78
+  %81 = getelementptr inbounds nuw i8, ptr %.27086, i64 %78
   %82 = icmp sgt i32 %77, 0
   br i1 %82, label %.lr.ph89, label %.loopexit, !llvm.loop !378
 
@@ -19946,11 +19946,11 @@ define internal void @ompi_op_avx_3buff_prod_uint8_t_avx512(ptr noalias nocaptur
   %.17577 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader ]
   %12 = load <32 x i8>, ptr %.180, align 1
   %13 = load <32 x i8>, ptr %.16979, align 1
-  %14 = getelementptr inbounds i8, ptr %.180, i64 32
-  %15 = getelementptr inbounds i8, ptr %.16979, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.180, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.16979, i64 32
   %16 = mul <32 x i8> %13, %12
   store <32 x i8> %16, ptr %.17278, align 1
-  %17 = getelementptr inbounds i8, ptr %.17278, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.17278, i64 32
   %18 = add nsw i32 %.17577, -32
   %19 = icmp samesign ugt i32 %.17577, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !379
@@ -19989,72 +19989,72 @@ define internal void @ompi_op_avx_3buff_prod_uint8_t_avx512(ptr noalias nocaptur
   ]
 
 24:                                               ; preds = %.lr.ph89
-  %25 = getelementptr inbounds i8, ptr %.287, i64 7
+  %25 = getelementptr inbounds nuw i8, ptr %.287, i64 7
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %.27086, i64 7
+  %27 = getelementptr inbounds nuw i8, ptr %.27086, i64 7
   %28 = load i8, ptr %27, align 1
   %29 = mul i8 %28, %26
-  %30 = getelementptr inbounds i8, ptr %.27385, i64 7
+  %30 = getelementptr inbounds nuw i8, ptr %.27385, i64 7
   store i8 %29, ptr %30, align 1
   br label %31
 
 31:                                               ; preds = %24, %.lr.ph89
-  %32 = getelementptr inbounds i8, ptr %.287, i64 6
+  %32 = getelementptr inbounds nuw i8, ptr %.287, i64 6
   %33 = load i8, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %.27086, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %.27086, i64 6
   %35 = load i8, ptr %34, align 1
   %36 = mul i8 %35, %33
-  %37 = getelementptr inbounds i8, ptr %.27385, i64 6
+  %37 = getelementptr inbounds nuw i8, ptr %.27385, i64 6
   store i8 %36, ptr %37, align 1
   br label %38
 
 38:                                               ; preds = %31, %.lr.ph89
-  %39 = getelementptr inbounds i8, ptr %.287, i64 5
+  %39 = getelementptr inbounds nuw i8, ptr %.287, i64 5
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %.27086, i64 5
+  %41 = getelementptr inbounds nuw i8, ptr %.27086, i64 5
   %42 = load i8, ptr %41, align 1
   %43 = mul i8 %42, %40
-  %44 = getelementptr inbounds i8, ptr %.27385, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %.27385, i64 5
   store i8 %43, ptr %44, align 1
   br label %45
 
 45:                                               ; preds = %38, %.lr.ph89
-  %46 = getelementptr inbounds i8, ptr %.287, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.287, i64 4
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds i8, ptr %.27086, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.27086, i64 4
   %49 = load i8, ptr %48, align 1
   %50 = mul i8 %49, %47
-  %51 = getelementptr inbounds i8, ptr %.27385, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %.27385, i64 4
   store i8 %50, ptr %51, align 1
   br label %52
 
 52:                                               ; preds = %45, %.lr.ph89
-  %53 = getelementptr inbounds i8, ptr %.287, i64 3
+  %53 = getelementptr inbounds nuw i8, ptr %.287, i64 3
   %54 = load i8, ptr %53, align 1
-  %55 = getelementptr inbounds i8, ptr %.27086, i64 3
+  %55 = getelementptr inbounds nuw i8, ptr %.27086, i64 3
   %56 = load i8, ptr %55, align 1
   %57 = mul i8 %56, %54
-  %58 = getelementptr inbounds i8, ptr %.27385, i64 3
+  %58 = getelementptr inbounds nuw i8, ptr %.27385, i64 3
   store i8 %57, ptr %58, align 1
   br label %59
 
 59:                                               ; preds = %52, %.lr.ph89
-  %60 = getelementptr inbounds i8, ptr %.287, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.287, i64 2
   %61 = load i8, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %.27086, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %.27086, i64 2
   %63 = load i8, ptr %62, align 1
   %64 = mul i8 %63, %61
-  %65 = getelementptr inbounds i8, ptr %.27385, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %.27385, i64 2
   store i8 %64, ptr %65, align 1
   br label %66
 
 66:                                               ; preds = %59, %.lr.ph89
-  %67 = getelementptr inbounds i8, ptr %.287, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.287, i64 1
   %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %.27086, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.27086, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = mul i8 %70, %68
-  %72 = getelementptr inbounds i8, ptr %.27385, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.27385, i64 1
   store i8 %71, ptr %72, align 1
   br label %73
 
@@ -20065,9 +20065,9 @@ define internal void @ompi_op_avx_3buff_prod_uint8_t_avx512(ptr noalias nocaptur
   store i8 %76, ptr %.27385, align 1
   %77 = sub nsw i32 %.27684, %23
   %78 = zext nneg i32 %23 to i64
-  %79 = getelementptr inbounds i8, ptr %.27385, i64 %78
-  %80 = getelementptr inbounds i8, ptr %.287, i64 %78
-  %81 = getelementptr inbounds i8, ptr %.27086, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %.27385, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %.287, i64 %78
+  %81 = getelementptr inbounds nuw i8, ptr %.27086, i64 %78
   %82 = icmp sgt i32 %77, 0
   br i1 %82, label %.lr.ph89, label %.loopexit, !llvm.loop !380
 
@@ -20097,11 +20097,11 @@ define internal void @ompi_op_avx_3buff_prod_int16_t_avx512(ptr noalias noundef 
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <32 x i16>, ptr %.1134, align 1
   %13 = load <32 x i16>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = mul <32 x i16> %13, %12
   store <32 x i16> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -32
   %19 = icmp samesign ugt i32 %.1122131, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !381
@@ -20134,11 +20134,11 @@ define internal void @ompi_op_avx_3buff_prod_int16_t_avx512(ptr noalias noundef 
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <16 x i16>, ptr %.3141, align 1
   %26 = load <16 x i16>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = mul <16 x i16> %26, %25
   store <16 x i16> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -16
   %32 = icmp samesign ugt i32 %.3124138, 31
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !382
@@ -20174,13 +20174,13 @@ define internal void @ompi_op_avx_3buff_prod_int16_t_avx512(ptr noalias noundef 
   %.5126148 = phi i32 [ %47, %.lr.ph152 ], [ %.2123, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5151)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
-  %41 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %43 = bitcast <16 x i8> %39 to <8 x i16>
   %44 = bitcast <16 x i8> %40 to <8 x i16>
   %45 = mul <8 x i16> %44, %43
   store <8 x i16> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -8
   %48 = icmp samesign ugt i32 %.5126148, 15
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !383
@@ -20211,72 +20211,72 @@ define internal void @ompi_op_avx_3buff_prod_int16_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 14
   %53 = load i16, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 14
   %55 = load i16, ptr %54, align 2
   %56 = mul i16 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 14
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 14
   store i16 %56, ptr %57, align 2
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 12
   %60 = load i16, ptr %59, align 2
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 12
   %62 = load i16, ptr %61, align 2
   %63 = mul i16 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 12
   store i16 %63, ptr %64, align 2
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 10
   %67 = load i16, ptr %66, align 2
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 10
   %69 = load i16, ptr %68, align 2
   %70 = mul i16 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 10
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 10
   store i16 %70, ptr %71, align 2
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %74 = load i16, ptr %73, align 2
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %76 = load i16, ptr %75, align 2
   %77 = mul i16 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i16 %77, ptr %78, align 2
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 6
   %81 = load i16, ptr %80, align 2
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 6
   %83 = load i16, ptr %82, align 2
   %84 = mul i16 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 6
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 6
   store i16 %84, ptr %85, align 2
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 4
   %88 = load i16, ptr %87, align 2
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 4
   %90 = load i16, ptr %89, align 2
   %91 = mul i16 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 4
   store i16 %91, ptr %92, align 2
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 2
   %95 = load i16, ptr %94, align 2
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 2
   %97 = load i16, ptr %96, align 2
   %98 = mul i16 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 2
   store i16 %98, ptr %99, align 2
   br label %100
 
@@ -20287,9 +20287,9 @@ define internal void @ompi_op_avx_3buff_prod_int16_t_avx512(ptr noalias noundef 
   store i16 %103, ptr %.6120158, align 2
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i16, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i16, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i16, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i16, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i16, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i16, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !384
 
@@ -20319,11 +20319,11 @@ define internal void @ompi_op_avx_3buff_prod_uint16_t_avx512(ptr noalias noundef
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <32 x i16>, ptr %.1134, align 1
   %13 = load <32 x i16>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = mul <32 x i16> %13, %12
   store <32 x i16> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -32
   %19 = icmp samesign ugt i32 %.1122131, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !385
@@ -20356,11 +20356,11 @@ define internal void @ompi_op_avx_3buff_prod_uint16_t_avx512(ptr noalias noundef
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <16 x i16>, ptr %.3141, align 1
   %26 = load <16 x i16>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = mul <16 x i16> %26, %25
   store <16 x i16> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -16
   %32 = icmp samesign ugt i32 %.3124138, 31
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !386
@@ -20396,13 +20396,13 @@ define internal void @ompi_op_avx_3buff_prod_uint16_t_avx512(ptr noalias noundef
   %.5126148 = phi i32 [ %47, %.lr.ph152 ], [ %.2123, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5151)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
-  %41 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %43 = bitcast <16 x i8> %39 to <8 x i16>
   %44 = bitcast <16 x i8> %40 to <8 x i16>
   %45 = mul <8 x i16> %44, %43
   store <8 x i16> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -8
   %48 = icmp samesign ugt i32 %.5126148, 15
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !387
@@ -20433,72 +20433,72 @@ define internal void @ompi_op_avx_3buff_prod_uint16_t_avx512(ptr noalias noundef
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 14
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 14
   %53 = load i16, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 14
   %55 = load i16, ptr %54, align 2
   %56 = mul i16 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 14
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 14
   store i16 %56, ptr %57, align 2
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 12
   %60 = load i16, ptr %59, align 2
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 12
   %62 = load i16, ptr %61, align 2
   %63 = mul i16 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 12
   store i16 %63, ptr %64, align 2
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 10
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 10
   %67 = load i16, ptr %66, align 2
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 10
   %69 = load i16, ptr %68, align 2
   %70 = mul i16 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 10
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 10
   store i16 %70, ptr %71, align 2
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %74 = load i16, ptr %73, align 2
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %76 = load i16, ptr %75, align 2
   %77 = mul i16 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i16 %77, ptr %78, align 2
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 6
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 6
   %81 = load i16, ptr %80, align 2
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 6
   %83 = load i16, ptr %82, align 2
   %84 = mul i16 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 6
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 6
   store i16 %84, ptr %85, align 2
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 4
   %88 = load i16, ptr %87, align 2
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 4
   %90 = load i16, ptr %89, align 2
   %91 = mul i16 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 4
   store i16 %91, ptr %92, align 2
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 2
   %95 = load i16, ptr %94, align 2
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 2
   %97 = load i16, ptr %96, align 2
   %98 = mul i16 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 2
   store i16 %98, ptr %99, align 2
   br label %100
 
@@ -20509,9 +20509,9 @@ define internal void @ompi_op_avx_3buff_prod_uint16_t_avx512(ptr noalias noundef
   store i16 %103, ptr %.6120158, align 2
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i16, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i16, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i16, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i16, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i16, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i16, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !388
 
@@ -20541,11 +20541,11 @@ define internal void @ompi_op_avx_3buff_prod_int32_t_avx512(ptr noalias noundef 
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <16 x i32>, ptr %.1134, align 1
   %13 = load <16 x i32>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = mul <16 x i32> %13, %12
   store <16 x i32> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -16
   %19 = icmp samesign ugt i32 %.1122131, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !389
@@ -20578,11 +20578,11 @@ define internal void @ompi_op_avx_3buff_prod_int32_t_avx512(ptr noalias noundef 
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <8 x i32>, ptr %.3141, align 1
   %26 = load <8 x i32>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = mul <8 x i32> %26, %25
   store <8 x i32> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -8
   %32 = icmp samesign ugt i32 %.3124138, 15
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !390
@@ -20618,13 +20618,13 @@ define internal void @ompi_op_avx_3buff_prod_int32_t_avx512(ptr noalias noundef 
   %.5126148 = phi i32 [ %47, %.lr.ph152 ], [ %.2123, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5151)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
-  %41 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %43 = bitcast <16 x i8> %39 to <4 x i32>
   %44 = bitcast <16 x i8> %40 to <4 x i32>
   %45 = mul <4 x i32> %44, %43
   store <4 x i32> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -4
   %48 = icmp samesign ugt i32 %.5126148, 7
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !391
@@ -20655,72 +20655,72 @@ define internal void @ompi_op_avx_3buff_prod_int32_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 28
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = mul nsw i32 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 28
   store i32 %56, ptr %57, align 4
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 24
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 24
   %62 = load i32, ptr %61, align 4
   %63 = mul nsw i32 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 24
   store i32 %63, ptr %64, align 4
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 20
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 20
   %69 = load i32, ptr %68, align 4
   %70 = mul nsw i32 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 20
   store i32 %70, ptr %71, align 4
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 16
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 16
   %76 = load i32, ptr %75, align 4
   %77 = mul nsw i32 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 16
   store i32 %77, ptr %78, align 4
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 12
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 12
   %83 = load i32, ptr %82, align 4
   %84 = mul nsw i32 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 12
   store i32 %84, ptr %85, align 4
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %90 = load i32, ptr %89, align 4
   %91 = mul nsw i32 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i32 %91, ptr %92, align 4
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 4
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = mul nsw i32 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 4
   store i32 %98, ptr %99, align 4
   br label %100
 
@@ -20731,9 +20731,9 @@ define internal void @ompi_op_avx_3buff_prod_int32_t_avx512(ptr noalias noundef 
   store i32 %103, ptr %.6120158, align 4
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i32, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i32, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i32, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i32, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i32, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !392
 
@@ -20763,11 +20763,11 @@ define internal void @ompi_op_avx_3buff_prod_uint32_t_avx512(ptr noalias noundef
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <16 x i32>, ptr %.1134, align 1
   %13 = load <16 x i32>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = mul <16 x i32> %13, %12
   store <16 x i32> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -16
   %19 = icmp samesign ugt i32 %.1122131, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !393
@@ -20800,11 +20800,11 @@ define internal void @ompi_op_avx_3buff_prod_uint32_t_avx512(ptr noalias noundef
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <8 x i32>, ptr %.3141, align 1
   %26 = load <8 x i32>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = mul <8 x i32> %26, %25
   store <8 x i32> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -8
   %32 = icmp samesign ugt i32 %.3124138, 15
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !394
@@ -20840,13 +20840,13 @@ define internal void @ompi_op_avx_3buff_prod_uint32_t_avx512(ptr noalias noundef
   %.5126148 = phi i32 [ %47, %.lr.ph152 ], [ %.2123, %34 ]
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5151)
   %40 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
-  %41 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %42 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %43 = bitcast <16 x i8> %39 to <4 x i32>
   %44 = bitcast <16 x i8> %40 to <4 x i32>
   %45 = mul <4 x i32> %44, %43
   store <4 x i32> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -4
   %48 = icmp samesign ugt i32 %.5126148, 7
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !395
@@ -20877,72 +20877,72 @@ define internal void @ompi_op_avx_3buff_prod_uint32_t_avx512(ptr noalias noundef
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 28
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = mul i32 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 28
   store i32 %56, ptr %57, align 4
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 24
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 24
   %62 = load i32, ptr %61, align 4
   %63 = mul i32 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 24
   store i32 %63, ptr %64, align 4
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 20
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 20
   %69 = load i32, ptr %68, align 4
   %70 = mul i32 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 20
   store i32 %70, ptr %71, align 4
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 16
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 16
   %76 = load i32, ptr %75, align 4
   %77 = mul i32 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 16
   store i32 %77, ptr %78, align 4
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 12
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 12
   %83 = load i32, ptr %82, align 4
   %84 = mul i32 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 12
   store i32 %84, ptr %85, align 4
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %88 = load i32, ptr %87, align 4
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %90 = load i32, ptr %89, align 4
   %91 = mul i32 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i32 %91, ptr %92, align 4
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 4
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = mul i32 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 4
   store i32 %98, ptr %99, align 4
   br label %100
 
@@ -20953,9 +20953,9 @@ define internal void @ompi_op_avx_3buff_prod_uint32_t_avx512(ptr noalias noundef
   store i32 %103, ptr %.6120158, align 4
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i32, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i32, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i32, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i32, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i32, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !396
 
@@ -20985,11 +20985,11 @@ define internal void @ompi_op_avx_3buff_prod_int64_t_avx512(ptr noalias noundef 
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <8 x i64>, ptr %.1134, align 1
   %13 = load <8 x i64>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = mul <8 x i64> %13, %12
   store <8 x i64> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -8
   %19 = icmp samesign ugt i32 %.1122131, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !397
@@ -21022,11 +21022,11 @@ define internal void @ompi_op_avx_3buff_prod_int64_t_avx512(ptr noalias noundef 
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <4 x i64>, ptr %.3141, align 1
   %26 = load <4 x i64>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = mul <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -4
   %32 = icmp samesign ugt i32 %.3124138, 7
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !398
@@ -21064,11 +21064,11 @@ define internal void @ompi_op_avx_3buff_prod_int64_t_avx512(ptr noalias noundef 
   %40 = bitcast <16 x i8> %39 to <2 x i64>
   %41 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
   %42 = bitcast <16 x i8> %41 to <2 x i64>
-  %43 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %44 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %45 = mul <2 x i64> %42, %40
   store <2 x i64> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -2
   %48 = icmp samesign ugt i32 %.5126148, 3
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !399
@@ -21099,72 +21099,72 @@ define internal void @ompi_op_avx_3buff_prod_int64_t_avx512(ptr noalias noundef 
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 56
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 56
   %55 = load i64, ptr %54, align 8
   %56 = mul nsw i64 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 56
   store i64 %56, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 48
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 48
   %62 = load i64, ptr %61, align 8
   %63 = mul nsw i64 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 48
   store i64 %63, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 40
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 40
   %69 = load i64, ptr %68, align 8
   %70 = mul nsw i64 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 40
   store i64 %70, ptr %71, align 8
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 32
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 32
   %76 = load i64, ptr %75, align 8
   %77 = mul nsw i64 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 32
   store i64 %77, ptr %78, align 8
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 24
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 24
   %83 = load i64, ptr %82, align 8
   %84 = mul nsw i64 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 24
   store i64 %84, ptr %85, align 8
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 16
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 16
   %90 = load i64, ptr %89, align 8
   %91 = mul nsw i64 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 16
   store i64 %91, ptr %92, align 8
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %97 = load i64, ptr %96, align 8
   %98 = mul nsw i64 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i64 %98, ptr %99, align 8
   br label %100
 
@@ -21175,9 +21175,9 @@ define internal void @ompi_op_avx_3buff_prod_int64_t_avx512(ptr noalias noundef 
   store i64 %103, ptr %.6120158, align 8
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i64, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i64, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i64, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i64, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i64, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !400
 
@@ -21207,11 +21207,11 @@ define internal void @ompi_op_avx_3buff_prod_uint64_t_avx512(ptr noalias noundef
   %.1122131 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader130 ]
   %12 = load <8 x i64>, ptr %.1134, align 1
   %13 = load <8 x i64>, ptr %.1108133, align 1
-  %14 = getelementptr inbounds i8, ptr %.1134, i64 64
-  %15 = getelementptr inbounds i8, ptr %.1108133, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1134, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.1108133, i64 64
   %16 = mul <8 x i64> %13, %12
   store <8 x i64> %16, ptr %.1115132, align 1
-  %17 = getelementptr inbounds i8, ptr %.1115132, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.1115132, i64 64
   %18 = add nsw i32 %.1122131, -8
   %19 = icmp samesign ugt i32 %.1122131, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !401
@@ -21244,11 +21244,11 @@ define internal void @ompi_op_avx_3buff_prod_uint64_t_avx512(ptr noalias noundef
   %.3124138 = phi i32 [ %31, %.lr.ph142 ], [ %.0121, %.preheader129 ]
   %25 = load <4 x i64>, ptr %.3141, align 1
   %26 = load <4 x i64>, ptr %.3110140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3110140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3110140, i64 32
   %29 = mul <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3117139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3117139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3117139, i64 32
   %31 = add nsw i32 %.3124138, -4
   %32 = icmp samesign ugt i32 %.3124138, 7
   br i1 %32, label %.lr.ph142, label %._crit_edge143, !llvm.loop !402
@@ -21286,11 +21286,11 @@ define internal void @ompi_op_avx_3buff_prod_uint64_t_avx512(ptr noalias noundef
   %40 = bitcast <16 x i8> %39 to <2 x i64>
   %41 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112150)
   %42 = bitcast <16 x i8> %41 to <2 x i64>
-  %43 = getelementptr inbounds i8, ptr %.5151, i64 16
-  %44 = getelementptr inbounds i8, ptr %.5112150, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5151, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.5112150, i64 16
   %45 = mul <2 x i64> %42, %40
   store <2 x i64> %45, ptr %.5119149, align 1
-  %46 = getelementptr inbounds i8, ptr %.5119149, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.5119149, i64 16
   %47 = add nsw i32 %.5126148, -2
   %48 = icmp samesign ugt i32 %.5126148, 3
   br i1 %48, label %.lr.ph152, label %.loopexit128, !llvm.loop !403
@@ -21321,72 +21321,72 @@ define internal void @ompi_op_avx_3buff_prod_uint64_t_avx512(ptr noalias noundef
   ]
 
 51:                                               ; preds = %.lr.ph162
-  %52 = getelementptr inbounds i8, ptr %.6160, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.6160, i64 56
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.6113159, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6113159, i64 56
   %55 = load i64, ptr %54, align 8
   %56 = mul i64 %55, %53
-  %57 = getelementptr inbounds i8, ptr %.6120158, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %.6120158, i64 56
   store i64 %56, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph162
-  %59 = getelementptr inbounds i8, ptr %.6160, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %.6160, i64 48
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.6113159, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %.6113159, i64 48
   %62 = load i64, ptr %61, align 8
   %63 = mul i64 %62, %60
-  %64 = getelementptr inbounds i8, ptr %.6120158, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %.6120158, i64 48
   store i64 %63, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %58, %.lr.ph162
-  %66 = getelementptr inbounds i8, ptr %.6160, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %.6160, i64 40
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %.6113159, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6113159, i64 40
   %69 = load i64, ptr %68, align 8
   %70 = mul i64 %69, %67
-  %71 = getelementptr inbounds i8, ptr %.6120158, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %.6120158, i64 40
   store i64 %70, ptr %71, align 8
   br label %72
 
 72:                                               ; preds = %65, %.lr.ph162
-  %73 = getelementptr inbounds i8, ptr %.6160, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %.6160, i64 32
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.6113159, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.6113159, i64 32
   %76 = load i64, ptr %75, align 8
   %77 = mul i64 %76, %74
-  %78 = getelementptr inbounds i8, ptr %.6120158, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.6120158, i64 32
   store i64 %77, ptr %78, align 8
   br label %79
 
 79:                                               ; preds = %72, %.lr.ph162
-  %80 = getelementptr inbounds i8, ptr %.6160, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.6160, i64 24
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.6113159, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.6113159, i64 24
   %83 = load i64, ptr %82, align 8
   %84 = mul i64 %83, %81
-  %85 = getelementptr inbounds i8, ptr %.6120158, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %.6120158, i64 24
   store i64 %84, ptr %85, align 8
   br label %86
 
 86:                                               ; preds = %79, %.lr.ph162
-  %87 = getelementptr inbounds i8, ptr %.6160, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.6160, i64 16
   %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %.6113159, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.6113159, i64 16
   %90 = load i64, ptr %89, align 8
   %91 = mul i64 %90, %88
-  %92 = getelementptr inbounds i8, ptr %.6120158, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.6120158, i64 16
   store i64 %91, ptr %92, align 8
   br label %93
 
 93:                                               ; preds = %86, %.lr.ph162
-  %94 = getelementptr inbounds i8, ptr %.6160, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.6160, i64 8
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %.6113159, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.6113159, i64 8
   %97 = load i64, ptr %96, align 8
   %98 = mul i64 %97, %95
-  %99 = getelementptr inbounds i8, ptr %.6120158, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.6120158, i64 8
   store i64 %98, ptr %99, align 8
   br label %100
 
@@ -21397,9 +21397,9 @@ define internal void @ompi_op_avx_3buff_prod_uint64_t_avx512(ptr noalias noundef
   store i64 %103, ptr %.6120158, align 8
   %104 = sub nsw i32 %.6127157, %50
   %105 = zext nneg i32 %50 to i64
-  %106 = getelementptr inbounds i64, ptr %.6120158, i64 %105
-  %107 = getelementptr inbounds i64, ptr %.6160, i64 %105
-  %108 = getelementptr inbounds i64, ptr %.6113159, i64 %105
+  %106 = getelementptr inbounds nuw i64, ptr %.6120158, i64 %105
+  %107 = getelementptr inbounds nuw i64, ptr %.6160, i64 %105
+  %108 = getelementptr inbounds nuw i64, ptr %.6113159, i64 %105
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph162, label %.loopexit, !llvm.loop !404
 
@@ -21429,11 +21429,11 @@ define internal void @ompi_op_avx_3buff_mul_float_avx512(ptr nocapture noundef r
   %.1122133 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader132 ]
   %11 = load <16 x float>, ptr %.1108135, align 1
   %12 = load <16 x float>, ptr %.1115134, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108135, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115134, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108135, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115134, i64 64
   %15 = fmul <16 x float> %11, %12
   store <16 x float> %15, ptr %.1122133, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122133, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122133, i64 64
   %17 = add nsw i32 %.1136, -16
   %18 = icmp samesign ugt i32 %.1136, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !405
@@ -21471,11 +21471,11 @@ define internal void @ompi_op_avx_3buff_mul_float_avx512(ptr nocapture noundef r
   %.3124140 = phi ptr [ %29, %.lr.ph144 ], [ %.0121, %.preheader131 ]
   %24 = load <8 x float>, ptr %.3110142, align 1
   %25 = load <8 x float>, ptr %.3117141, align 1
-  %26 = getelementptr inbounds i8, ptr %.3110142, i64 32
-  %27 = getelementptr inbounds i8, ptr %.3117141, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3110142, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3117141, i64 32
   %28 = fmul <8 x float> %24, %25
   store <8 x float> %28, ptr %.3124140, align 1
-  %29 = getelementptr inbounds i8, ptr %.3124140, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.3124140, i64 32
   %30 = add nsw i32 %.3143, -8
   %31 = icmp samesign ugt i32 %.3143, 15
   br i1 %31, label %.lr.ph144, label %._crit_edge145, !llvm.loop !406
@@ -21511,11 +21511,11 @@ define internal void @ompi_op_avx_3buff_mul_float_avx512(ptr nocapture noundef r
   %.5126150 = phi ptr [ %42, %.lr.ph154 ], [ %.2123, %33 ]
   %37 = load <4 x float>, ptr %.5112152, align 1
   %38 = load <4 x float>, ptr %.5119151, align 1
-  %39 = getelementptr inbounds i8, ptr %.5112152, i64 16
-  %40 = getelementptr inbounds i8, ptr %.5119151, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5112152, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5119151, i64 16
   %41 = fmul <4 x float> %37, %38
   store <4 x float> %41, ptr %.5126150, align 1
-  %42 = getelementptr inbounds i8, ptr %.5126150, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5126150, i64 16
   %43 = add nsw i32 %.5153, -4
   %44 = icmp samesign ugt i32 %.5153, 7
   br i1 %44, label %.lr.ph154, label %.loopexit130, !llvm.loop !407
@@ -21546,72 +21546,72 @@ define internal void @ompi_op_avx_3buff_mul_float_avx512(ptr nocapture noundef r
   ]
 
 47:                                               ; preds = %.lr.ph164
-  %48 = getelementptr inbounds i8, ptr %.6113161, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %.6113161, i64 28
   %49 = load float, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %.6120160, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %.6120160, i64 28
   %51 = load float, ptr %50, align 4
   %52 = fmul float %49, %51
-  %53 = getelementptr inbounds i8, ptr %.6127159, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %.6127159, i64 28
   store float %52, ptr %53, align 4
   br label %54
 
 54:                                               ; preds = %47, %.lr.ph164
-  %55 = getelementptr inbounds i8, ptr %.6113161, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.6113161, i64 24
   %56 = load float, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %.6120160, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.6120160, i64 24
   %58 = load float, ptr %57, align 4
   %59 = fmul float %56, %58
-  %60 = getelementptr inbounds i8, ptr %.6127159, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.6127159, i64 24
   store float %59, ptr %60, align 4
   br label %61
 
 61:                                               ; preds = %54, %.lr.ph164
-  %62 = getelementptr inbounds i8, ptr %.6113161, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %.6113161, i64 20
   %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %.6120160, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %.6120160, i64 20
   %65 = load float, ptr %64, align 4
   %66 = fmul float %63, %65
-  %67 = getelementptr inbounds i8, ptr %.6127159, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %.6127159, i64 20
   store float %66, ptr %67, align 4
   br label %68
 
 68:                                               ; preds = %61, %.lr.ph164
-  %69 = getelementptr inbounds i8, ptr %.6113161, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.6113161, i64 16
   %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.6120160, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.6120160, i64 16
   %72 = load float, ptr %71, align 4
   %73 = fmul float %70, %72
-  %74 = getelementptr inbounds i8, ptr %.6127159, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.6127159, i64 16
   store float %73, ptr %74, align 4
   br label %75
 
 75:                                               ; preds = %68, %.lr.ph164
-  %76 = getelementptr inbounds i8, ptr %.6113161, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %.6113161, i64 12
   %77 = load float, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %.6120160, i64 12
+  %78 = getelementptr inbounds nuw i8, ptr %.6120160, i64 12
   %79 = load float, ptr %78, align 4
   %80 = fmul float %77, %79
-  %81 = getelementptr inbounds i8, ptr %.6127159, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %.6127159, i64 12
   store float %80, ptr %81, align 4
   br label %82
 
 82:                                               ; preds = %75, %.lr.ph164
-  %83 = getelementptr inbounds i8, ptr %.6113161, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.6113161, i64 8
   %84 = load float, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %.6120160, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.6120160, i64 8
   %86 = load float, ptr %85, align 4
   %87 = fmul float %84, %86
-  %88 = getelementptr inbounds i8, ptr %.6127159, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.6127159, i64 8
   store float %87, ptr %88, align 4
   br label %89
 
 89:                                               ; preds = %82, %.lr.ph164
-  %90 = getelementptr inbounds i8, ptr %.6113161, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %.6113161, i64 4
   %91 = load float, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %.6120160, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.6120160, i64 4
   %93 = load float, ptr %92, align 4
   %94 = fmul float %91, %93
-  %95 = getelementptr inbounds i8, ptr %.6127159, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %.6127159, i64 4
   store float %94, ptr %95, align 4
   br label %96
 
@@ -21622,9 +21622,9 @@ define internal void @ompi_op_avx_3buff_mul_float_avx512(ptr nocapture noundef r
   store float %99, ptr %.6127159, align 4
   %100 = sub nsw i32 %.6162, %46
   %101 = zext nneg i32 %46 to i64
-  %102 = getelementptr inbounds float, ptr %.6127159, i64 %101
-  %103 = getelementptr inbounds float, ptr %.6113161, i64 %101
-  %104 = getelementptr inbounds float, ptr %.6120160, i64 %101
+  %102 = getelementptr inbounds nuw float, ptr %.6127159, i64 %101
+  %103 = getelementptr inbounds nuw float, ptr %.6113161, i64 %101
+  %104 = getelementptr inbounds nuw float, ptr %.6120160, i64 %101
   %105 = icmp sgt i32 %100, 0
   br i1 %105, label %.lr.ph164, label %.loopexit, !llvm.loop !408
 
@@ -21654,11 +21654,11 @@ define internal void @ompi_op_avx_3buff_mul_double_avx512(ptr nocapture noundef 
   %.1122133 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader132 ]
   %11 = load <8 x double>, ptr %.1108135, align 1
   %12 = load <8 x double>, ptr %.1115134, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108135, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115134, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108135, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115134, i64 64
   %15 = fmul <8 x double> %11, %12
   store <8 x double> %15, ptr %.1122133, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122133, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122133, i64 64
   %17 = add nsw i32 %.1136, -8
   %18 = icmp samesign ugt i32 %.1136, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !409
@@ -21696,11 +21696,11 @@ define internal void @ompi_op_avx_3buff_mul_double_avx512(ptr nocapture noundef 
   %.3124140 = phi ptr [ %29, %.lr.ph144 ], [ %.0121, %.preheader131 ]
   %24 = load <4 x double>, ptr %.3110142, align 1
   %25 = load <4 x double>, ptr %.3117141, align 1
-  %26 = getelementptr inbounds i8, ptr %.3110142, i64 32
-  %27 = getelementptr inbounds i8, ptr %.3117141, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.3110142, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3117141, i64 32
   %28 = fmul <4 x double> %24, %25
   store <4 x double> %28, ptr %.3124140, align 1
-  %29 = getelementptr inbounds i8, ptr %.3124140, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.3124140, i64 32
   %30 = add nsw i32 %.3143, -4
   %31 = icmp samesign ugt i32 %.3143, 7
   br i1 %31, label %.lr.ph144, label %._crit_edge145, !llvm.loop !410
@@ -21736,11 +21736,11 @@ define internal void @ompi_op_avx_3buff_mul_double_avx512(ptr nocapture noundef 
   %.5126150 = phi ptr [ %42, %.lr.ph154 ], [ %.2123, %33 ]
   %37 = load <2 x double>, ptr %.5112152, align 1
   %38 = load <2 x double>, ptr %.5119151, align 1
-  %39 = getelementptr inbounds i8, ptr %.5112152, i64 16
-  %40 = getelementptr inbounds i8, ptr %.5119151, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.5112152, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5119151, i64 16
   %41 = fmul <2 x double> %37, %38
   store <2 x double> %41, ptr %.5126150, align 1
-  %42 = getelementptr inbounds i8, ptr %.5126150, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.5126150, i64 16
   %43 = add nsw i32 %.5153, -2
   %44 = icmp samesign ugt i32 %.5153, 3
   br i1 %44, label %.lr.ph154, label %.loopexit130, !llvm.loop !411
@@ -21771,72 +21771,72 @@ define internal void @ompi_op_avx_3buff_mul_double_avx512(ptr nocapture noundef 
   ]
 
 47:                                               ; preds = %.lr.ph164
-  %48 = getelementptr inbounds i8, ptr %.6113161, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %.6113161, i64 56
   %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %.6120160, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.6120160, i64 56
   %51 = load double, ptr %50, align 8
   %52 = fmul double %49, %51
-  %53 = getelementptr inbounds i8, ptr %.6127159, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %.6127159, i64 56
   store double %52, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %47, %.lr.ph164
-  %55 = getelementptr inbounds i8, ptr %.6113161, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.6113161, i64 48
   %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %.6120160, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %.6120160, i64 48
   %58 = load double, ptr %57, align 8
   %59 = fmul double %56, %58
-  %60 = getelementptr inbounds i8, ptr %.6127159, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %.6127159, i64 48
   store double %59, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %54, %.lr.ph164
-  %62 = getelementptr inbounds i8, ptr %.6113161, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %.6113161, i64 40
   %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %.6120160, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.6120160, i64 40
   %65 = load double, ptr %64, align 8
   %66 = fmul double %63, %65
-  %67 = getelementptr inbounds i8, ptr %.6127159, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.6127159, i64 40
   store double %66, ptr %67, align 8
   br label %68
 
 68:                                               ; preds = %61, %.lr.ph164
-  %69 = getelementptr inbounds i8, ptr %.6113161, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.6113161, i64 32
   %70 = load double, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.6120160, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %.6120160, i64 32
   %72 = load double, ptr %71, align 8
   %73 = fmul double %70, %72
-  %74 = getelementptr inbounds i8, ptr %.6127159, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.6127159, i64 32
   store double %73, ptr %74, align 8
   br label %75
 
 75:                                               ; preds = %68, %.lr.ph164
-  %76 = getelementptr inbounds i8, ptr %.6113161, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %.6113161, i64 24
   %77 = load double, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.6120160, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.6120160, i64 24
   %79 = load double, ptr %78, align 8
   %80 = fmul double %77, %79
-  %81 = getelementptr inbounds i8, ptr %.6127159, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.6127159, i64 24
   store double %80, ptr %81, align 8
   br label %82
 
 82:                                               ; preds = %75, %.lr.ph164
-  %83 = getelementptr inbounds i8, ptr %.6113161, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.6113161, i64 16
   %84 = load double, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.6120160, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.6120160, i64 16
   %86 = load double, ptr %85, align 8
   %87 = fmul double %84, %86
-  %88 = getelementptr inbounds i8, ptr %.6127159, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %.6127159, i64 16
   store double %87, ptr %88, align 8
   br label %89
 
 89:                                               ; preds = %82, %.lr.ph164
-  %90 = getelementptr inbounds i8, ptr %.6113161, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.6113161, i64 8
   %91 = load double, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %.6120160, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.6120160, i64 8
   %93 = load double, ptr %92, align 8
   %94 = fmul double %91, %93
-  %95 = getelementptr inbounds i8, ptr %.6127159, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.6127159, i64 8
   store double %94, ptr %95, align 8
   br label %96
 
@@ -21847,9 +21847,9 @@ define internal void @ompi_op_avx_3buff_mul_double_avx512(ptr nocapture noundef 
   store double %99, ptr %.6127159, align 8
   %100 = sub nsw i32 %.6162, %46
   %101 = zext nneg i32 %46 to i64
-  %102 = getelementptr inbounds double, ptr %.6127159, i64 %101
-  %103 = getelementptr inbounds double, ptr %.6113161, i64 %101
-  %104 = getelementptr inbounds double, ptr %.6120160, i64 %101
+  %102 = getelementptr inbounds nuw double, ptr %.6127159, i64 %101
+  %103 = getelementptr inbounds nuw double, ptr %.6113161, i64 %101
+  %104 = getelementptr inbounds nuw double, ptr %.6120160, i64 %101
   %105 = icmp sgt i32 %100, 0
   br i1 %105, label %.lr.ph164, label %.loopexit, !llvm.loop !412
 
@@ -21879,11 +21879,11 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx512(ptr noundef %0, ptr no
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = and <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
   %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !413
@@ -21921,11 +21921,11 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx512(ptr noundef %0, ptr no
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = and <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
   %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !414
@@ -21961,11 +21961,11 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx512(ptr noundef %0, ptr no
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = and <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
   %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !415
@@ -21996,72 +21996,72 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx512(ptr noundef %0, ptr no
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 7
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 7
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 7
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 7
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 7
   store i8 %53, ptr %54, align 1
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %59 = load i8, ptr %58, align 1
   %60 = and i8 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i8 %60, ptr %61, align 1
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 5
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 5
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 5
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 5
   %66 = load i8, ptr %65, align 1
   %67 = and i8 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 5
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 5
   store i8 %67, ptr %68, align 1
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i8 %74, ptr %75, align 1
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 3
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 3
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 3
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 3
   %80 = load i8, ptr %79, align 1
   %81 = and i8 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 3
   store i8 %81, ptr %82, align 1
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %87 = load i8, ptr %86, align 1
   %88 = and i8 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i8 %88, ptr %89, align 1
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 1
   %92 = load i8, ptr %91, align 1
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = and i8 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 1
   store i8 %95, ptr %96, align 1
   br label %97
 
@@ -22072,9 +22072,9 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx512(ptr noundef %0, ptr no
   store i8 %100, ptr %.6127158, align 1
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i8, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i8, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i8, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !416
 
@@ -22104,11 +22104,11 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx512(ptr noundef %0, ptr n
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = and <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
   %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !417
@@ -22146,11 +22146,11 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx512(ptr noundef %0, ptr n
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = and <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
   %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !418
@@ -22186,11 +22186,11 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx512(ptr noundef %0, ptr n
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = and <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
   %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !419
@@ -22221,72 +22221,72 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 7
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 7
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 7
   %52 = load i8, ptr %51, align 1
   %53 = and i8 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 7
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 7
   store i8 %53, ptr %54, align 1
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %59 = load i8, ptr %58, align 1
   %60 = and i8 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i8 %60, ptr %61, align 1
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 5
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 5
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 5
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 5
   %66 = load i8, ptr %65, align 1
   %67 = and i8 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 5
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 5
   store i8 %67, ptr %68, align 1
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i8 %74, ptr %75, align 1
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 3
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 3
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 3
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 3
   %80 = load i8, ptr %79, align 1
   %81 = and i8 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 3
   store i8 %81, ptr %82, align 1
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %87 = load i8, ptr %86, align 1
   %88 = and i8 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i8 %88, ptr %89, align 1
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 1
   %92 = load i8, ptr %91, align 1
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = and i8 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 1
   store i8 %95, ptr %96, align 1
   br label %97
 
@@ -22297,9 +22297,9 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx512(ptr noundef %0, ptr n
   store i8 %100, ptr %.6127158, align 1
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i8, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i8, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i8, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !420
 
@@ -22329,11 +22329,11 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx512(ptr noundef %0, ptr n
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = and <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
   %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !421
@@ -22371,11 +22371,11 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx512(ptr noundef %0, ptr n
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = and <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
   %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !422
@@ -22411,11 +22411,11 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx512(ptr noundef %0, ptr n
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = and <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
   %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !423
@@ -22446,72 +22446,72 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 14
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 14
   store i16 %53, ptr %54, align 2
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %57 = load i16, ptr %56, align 2
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %59 = load i16, ptr %58, align 2
   %60 = and i16 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i16 %60, ptr %61, align 2
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 10
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 10
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 10
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 10
   store i16 %67, ptr %68, align 2
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %71 = load i16, ptr %70, align 2
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %73 = load i16, ptr %72, align 2
   %74 = and i16 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i16 %74, ptr %75, align 2
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %78 = load i16, ptr %77, align 2
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %80 = load i16, ptr %79, align 2
   %81 = and i16 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i16 %81, ptr %82, align 2
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %87 = load i16, ptr %86, align 2
   %88 = and i16 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i16 %88, ptr %89, align 2
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %92 = load i16, ptr %91, align 2
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %94 = load i16, ptr %93, align 2
   %95 = and i16 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i16 %95, ptr %96, align 2
   br label %97
 
@@ -22522,9 +22522,9 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx512(ptr noundef %0, ptr n
   store i16 %100, ptr %.6127158, align 2
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i16, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i16, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i16, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i16, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i16, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i16, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !424
 
@@ -22554,11 +22554,11 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx512(ptr noundef %0, ptr 
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = and <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
   %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !425
@@ -22596,11 +22596,11 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx512(ptr noundef %0, ptr 
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = and <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
   %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !426
@@ -22636,11 +22636,11 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx512(ptr noundef %0, ptr 
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = and <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
   %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !427
@@ -22671,72 +22671,72 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 14
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 14
   store i16 %53, ptr %54, align 2
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %57 = load i16, ptr %56, align 2
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %59 = load i16, ptr %58, align 2
   %60 = and i16 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i16 %60, ptr %61, align 2
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 10
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 10
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 10
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 10
   store i16 %67, ptr %68, align 2
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %71 = load i16, ptr %70, align 2
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %73 = load i16, ptr %72, align 2
   %74 = and i16 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i16 %74, ptr %75, align 2
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %78 = load i16, ptr %77, align 2
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %80 = load i16, ptr %79, align 2
   %81 = and i16 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i16 %81, ptr %82, align 2
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %87 = load i16, ptr %86, align 2
   %88 = and i16 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i16 %88, ptr %89, align 2
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %92 = load i16, ptr %91, align 2
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %94 = load i16, ptr %93, align 2
   %95 = and i16 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i16 %95, ptr %96, align 2
   br label %97
 
@@ -22747,9 +22747,9 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx512(ptr noundef %0, ptr 
   store i16 %100, ptr %.6127158, align 2
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i16, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i16, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i16, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i16, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i16, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i16, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !428
 
@@ -22779,11 +22779,11 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx512(ptr noundef %0, ptr n
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = and <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
   %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !429
@@ -22821,11 +22821,11 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx512(ptr noundef %0, ptr n
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = and <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
   %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !430
@@ -22861,11 +22861,11 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx512(ptr noundef %0, ptr n
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = and <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
   %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !431
@@ -22896,72 +22896,72 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 28
   store i32 %53, ptr %54, align 4
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i32 %60, ptr %61, align 4
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 20
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 20
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 20
   store i32 %67, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i32 %74, ptr %75, align 4
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i32 %81, ptr %82, align 4
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i32 %88, ptr %89, align 4
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i32 %95, ptr %96, align 4
   br label %97
 
@@ -22972,9 +22972,9 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx512(ptr noundef %0, ptr n
   store i32 %100, ptr %.6127158, align 4
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i32, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i32, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i32, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i32, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i32, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !432
 
@@ -23004,11 +23004,11 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx512(ptr noundef %0, ptr 
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = and <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
   %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !433
@@ -23046,11 +23046,11 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx512(ptr noundef %0, ptr 
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = and <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
   %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !434
@@ -23086,11 +23086,11 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx512(ptr noundef %0, ptr 
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = and <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
   %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !435
@@ -23121,72 +23121,72 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 28
   store i32 %53, ptr %54, align 4
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i32 %60, ptr %61, align 4
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 20
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 20
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 20
   store i32 %67, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i32 %74, ptr %75, align 4
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i32 %81, ptr %82, align 4
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i32 %88, ptr %89, align 4
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i32 %95, ptr %96, align 4
   br label %97
 
@@ -23197,9 +23197,9 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx512(ptr noundef %0, ptr 
   store i32 %100, ptr %.6127158, align 4
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i32, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i32, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i32, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i32, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i32, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !436
 
@@ -23229,11 +23229,11 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx512(ptr noundef %0, ptr n
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = and <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
   %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !437
@@ -23271,11 +23271,11 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx512(ptr noundef %0, ptr n
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = and <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
   %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !438
@@ -23311,11 +23311,11 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx512(ptr noundef %0, ptr n
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = and <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
   %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !439
@@ -23346,72 +23346,72 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 56
   store i64 %53, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 48
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 48
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 48
   store i64 %60, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 40
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 40
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 40
   store i64 %67, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 32
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 32
   %73 = load i64, ptr %72, align 8
   %74 = and i64 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 32
   store i64 %74, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %80 = load i64, ptr %79, align 8
   %81 = and i64 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i64 %81, ptr %82, align 8
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = and i64 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i64 %88, ptr %89, align 8
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i64 %95, ptr %96, align 8
   br label %97
 
@@ -23422,9 +23422,9 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx512(ptr noundef %0, ptr n
   store i64 %100, ptr %.6127158, align 8
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i64, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i64, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i64, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i64, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i64, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !440
 
@@ -23454,11 +23454,11 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx512(ptr noundef %0, ptr 
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = and <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
   %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !441
@@ -23496,11 +23496,11 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx512(ptr noundef %0, ptr 
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = and <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
   %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !442
@@ -23536,11 +23536,11 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx512(ptr noundef %0, ptr 
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = and <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
   %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !443
@@ -23571,72 +23571,72 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = and i64 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 56
   store i64 %53, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 48
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 48
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 48
   store i64 %60, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 40
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 40
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 40
   store i64 %67, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 32
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 32
   %73 = load i64, ptr %72, align 8
   %74 = and i64 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 32
   store i64 %74, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %80 = load i64, ptr %79, align 8
   %81 = and i64 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i64 %81, ptr %82, align 8
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = and i64 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i64 %88, ptr %89, align 8
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i64 %95, ptr %96, align 8
   br label %97
 
@@ -23647,9 +23647,9 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx512(ptr noundef %0, ptr 
   store i64 %100, ptr %.6127158, align 8
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i64, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i64, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i64, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i64, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i64, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !444
 
@@ -23679,11 +23679,11 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx512(ptr noundef %0, ptr nou
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = or <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
   %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !445
@@ -23721,11 +23721,11 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx512(ptr noundef %0, ptr nou
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = or <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
   %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !446
@@ -23761,11 +23761,11 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx512(ptr noundef %0, ptr nou
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = or <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
   %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !447
@@ -23796,72 +23796,72 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx512(ptr noundef %0, ptr nou
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 7
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 7
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 7
   %52 = load i8, ptr %51, align 1
   %53 = or i8 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 7
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 7
   store i8 %53, ptr %54, align 1
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %59 = load i8, ptr %58, align 1
   %60 = or i8 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i8 %60, ptr %61, align 1
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 5
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 5
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 5
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 5
   %66 = load i8, ptr %65, align 1
   %67 = or i8 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 5
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 5
   store i8 %67, ptr %68, align 1
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %73 = load i8, ptr %72, align 1
   %74 = or i8 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i8 %74, ptr %75, align 1
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 3
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 3
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 3
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 3
   %80 = load i8, ptr %79, align 1
   %81 = or i8 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 3
   store i8 %81, ptr %82, align 1
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %87 = load i8, ptr %86, align 1
   %88 = or i8 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i8 %88, ptr %89, align 1
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 1
   %92 = load i8, ptr %91, align 1
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = or i8 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 1
   store i8 %95, ptr %96, align 1
   br label %97
 
@@ -23872,9 +23872,9 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx512(ptr noundef %0, ptr nou
   store i8 %100, ptr %.6127158, align 1
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i8, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i8, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i8, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !448
 
@@ -23904,11 +23904,11 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx512(ptr noundef %0, ptr no
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = or <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
   %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !449
@@ -23946,11 +23946,11 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx512(ptr noundef %0, ptr no
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = or <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
   %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !450
@@ -23986,11 +23986,11 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx512(ptr noundef %0, ptr no
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = or <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
   %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !451
@@ -24021,72 +24021,72 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx512(ptr noundef %0, ptr no
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 7
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 7
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 7
   %52 = load i8, ptr %51, align 1
   %53 = or i8 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 7
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 7
   store i8 %53, ptr %54, align 1
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %59 = load i8, ptr %58, align 1
   %60 = or i8 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i8 %60, ptr %61, align 1
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 5
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 5
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 5
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 5
   %66 = load i8, ptr %65, align 1
   %67 = or i8 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 5
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 5
   store i8 %67, ptr %68, align 1
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %73 = load i8, ptr %72, align 1
   %74 = or i8 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i8 %74, ptr %75, align 1
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 3
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 3
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 3
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 3
   %80 = load i8, ptr %79, align 1
   %81 = or i8 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 3
   store i8 %81, ptr %82, align 1
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %87 = load i8, ptr %86, align 1
   %88 = or i8 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i8 %88, ptr %89, align 1
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 1
   %92 = load i8, ptr %91, align 1
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = or i8 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 1
   store i8 %95, ptr %96, align 1
   br label %97
 
@@ -24097,9 +24097,9 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx512(ptr noundef %0, ptr no
   store i8 %100, ptr %.6127158, align 1
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i8, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i8, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i8, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !452
 
@@ -24129,11 +24129,11 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx512(ptr noundef %0, ptr no
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = or <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
   %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !453
@@ -24171,11 +24171,11 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx512(ptr noundef %0, ptr no
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = or <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
   %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !454
@@ -24211,11 +24211,11 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx512(ptr noundef %0, ptr no
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = or <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
   %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !455
@@ -24246,72 +24246,72 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx512(ptr noundef %0, ptr no
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 14
   %52 = load i16, ptr %51, align 2
   %53 = or i16 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 14
   store i16 %53, ptr %54, align 2
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %57 = load i16, ptr %56, align 2
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %59 = load i16, ptr %58, align 2
   %60 = or i16 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i16 %60, ptr %61, align 2
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 10
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 10
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 10
   %66 = load i16, ptr %65, align 2
   %67 = or i16 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 10
   store i16 %67, ptr %68, align 2
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %71 = load i16, ptr %70, align 2
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %73 = load i16, ptr %72, align 2
   %74 = or i16 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i16 %74, ptr %75, align 2
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %78 = load i16, ptr %77, align 2
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %80 = load i16, ptr %79, align 2
   %81 = or i16 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i16 %81, ptr %82, align 2
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %87 = load i16, ptr %86, align 2
   %88 = or i16 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i16 %88, ptr %89, align 2
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %92 = load i16, ptr %91, align 2
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %94 = load i16, ptr %93, align 2
   %95 = or i16 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i16 %95, ptr %96, align 2
   br label %97
 
@@ -24322,9 +24322,9 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx512(ptr noundef %0, ptr no
   store i16 %100, ptr %.6127158, align 2
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i16, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i16, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i16, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i16, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i16, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i16, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !456
 
@@ -24354,11 +24354,11 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx512(ptr noundef %0, ptr n
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = or <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
   %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !457
@@ -24396,11 +24396,11 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx512(ptr noundef %0, ptr n
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = or <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
   %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !458
@@ -24436,11 +24436,11 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx512(ptr noundef %0, ptr n
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = or <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
   %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !459
@@ -24471,72 +24471,72 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 14
   %52 = load i16, ptr %51, align 2
   %53 = or i16 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 14
   store i16 %53, ptr %54, align 2
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %57 = load i16, ptr %56, align 2
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %59 = load i16, ptr %58, align 2
   %60 = or i16 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i16 %60, ptr %61, align 2
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 10
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 10
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 10
   %66 = load i16, ptr %65, align 2
   %67 = or i16 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 10
   store i16 %67, ptr %68, align 2
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %71 = load i16, ptr %70, align 2
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %73 = load i16, ptr %72, align 2
   %74 = or i16 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i16 %74, ptr %75, align 2
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %78 = load i16, ptr %77, align 2
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %80 = load i16, ptr %79, align 2
   %81 = or i16 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i16 %81, ptr %82, align 2
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %87 = load i16, ptr %86, align 2
   %88 = or i16 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i16 %88, ptr %89, align 2
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %92 = load i16, ptr %91, align 2
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %94 = load i16, ptr %93, align 2
   %95 = or i16 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i16 %95, ptr %96, align 2
   br label %97
 
@@ -24547,9 +24547,9 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx512(ptr noundef %0, ptr n
   store i16 %100, ptr %.6127158, align 2
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i16, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i16, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i16, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i16, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i16, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i16, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !460
 
@@ -24579,11 +24579,11 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx512(ptr noundef %0, ptr no
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = or <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
   %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !461
@@ -24621,11 +24621,11 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx512(ptr noundef %0, ptr no
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = or <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
   %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !462
@@ -24661,11 +24661,11 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx512(ptr noundef %0, ptr no
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = or <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
   %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !463
@@ -24696,72 +24696,72 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx512(ptr noundef %0, ptr no
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = or i32 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 28
   store i32 %53, ptr %54, align 4
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %59 = load i32, ptr %58, align 4
   %60 = or i32 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i32 %60, ptr %61, align 4
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 20
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 20
   %66 = load i32, ptr %65, align 4
   %67 = or i32 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 20
   store i32 %67, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %73 = load i32, ptr %72, align 4
   %74 = or i32 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i32 %74, ptr %75, align 4
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = or i32 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i32 %81, ptr %82, align 4
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %87 = load i32, ptr %86, align 4
   %88 = or i32 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i32 %88, ptr %89, align 4
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = or i32 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i32 %95, ptr %96, align 4
   br label %97
 
@@ -24772,9 +24772,9 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx512(ptr noundef %0, ptr no
   store i32 %100, ptr %.6127158, align 4
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i32, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i32, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i32, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i32, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i32, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !464
 
@@ -24804,11 +24804,11 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx512(ptr noundef %0, ptr n
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = or <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
   %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !465
@@ -24846,11 +24846,11 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx512(ptr noundef %0, ptr n
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = or <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
   %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !466
@@ -24886,11 +24886,11 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx512(ptr noundef %0, ptr n
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = or <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
   %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !467
@@ -24921,72 +24921,72 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = or i32 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 28
   store i32 %53, ptr %54, align 4
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %59 = load i32, ptr %58, align 4
   %60 = or i32 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i32 %60, ptr %61, align 4
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 20
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 20
   %66 = load i32, ptr %65, align 4
   %67 = or i32 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 20
   store i32 %67, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %73 = load i32, ptr %72, align 4
   %74 = or i32 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i32 %74, ptr %75, align 4
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = or i32 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i32 %81, ptr %82, align 4
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %87 = load i32, ptr %86, align 4
   %88 = or i32 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i32 %88, ptr %89, align 4
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = or i32 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i32 %95, ptr %96, align 4
   br label %97
 
@@ -24997,9 +24997,9 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx512(ptr noundef %0, ptr n
   store i32 %100, ptr %.6127158, align 4
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i32, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i32, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i32, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i32, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i32, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !468
 
@@ -25029,11 +25029,11 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx512(ptr noundef %0, ptr no
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = or <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
   %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !469
@@ -25071,11 +25071,11 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx512(ptr noundef %0, ptr no
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = or <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
   %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !470
@@ -25111,11 +25111,11 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx512(ptr noundef %0, ptr no
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = or <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
   %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !471
@@ -25146,72 +25146,72 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx512(ptr noundef %0, ptr no
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = or i64 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 56
   store i64 %53, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 48
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 48
   %59 = load i64, ptr %58, align 8
   %60 = or i64 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 48
   store i64 %60, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 40
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 40
   %66 = load i64, ptr %65, align 8
   %67 = or i64 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 40
   store i64 %67, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 32
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 32
   %73 = load i64, ptr %72, align 8
   %74 = or i64 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 32
   store i64 %74, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %80 = load i64, ptr %79, align 8
   %81 = or i64 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i64 %81, ptr %82, align 8
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = or i64 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i64 %88, ptr %89, align 8
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = or i64 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i64 %95, ptr %96, align 8
   br label %97
 
@@ -25222,9 +25222,9 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx512(ptr noundef %0, ptr no
   store i64 %100, ptr %.6127158, align 8
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i64, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i64, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i64, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i64, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i64, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !472
 
@@ -25254,11 +25254,11 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx512(ptr noundef %0, ptr n
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = or <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
   %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !473
@@ -25296,11 +25296,11 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx512(ptr noundef %0, ptr n
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = or <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
   %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !474
@@ -25336,11 +25336,11 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx512(ptr noundef %0, ptr n
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = or <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
   %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !475
@@ -25371,72 +25371,72 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = or i64 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 56
   store i64 %53, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 48
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 48
   %59 = load i64, ptr %58, align 8
   %60 = or i64 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 48
   store i64 %60, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 40
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 40
   %66 = load i64, ptr %65, align 8
   %67 = or i64 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 40
   store i64 %67, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 32
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 32
   %73 = load i64, ptr %72, align 8
   %74 = or i64 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 32
   store i64 %74, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %80 = load i64, ptr %79, align 8
   %81 = or i64 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i64 %81, ptr %82, align 8
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = or i64 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i64 %88, ptr %89, align 8
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = or i64 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i64 %95, ptr %96, align 8
   br label %97
 
@@ -25447,9 +25447,9 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx512(ptr noundef %0, ptr n
   store i64 %100, ptr %.6127158, align 8
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i64, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i64, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i64, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i64, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i64, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !476
 
@@ -25479,11 +25479,11 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx512(ptr noundef %0, ptr no
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = xor <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
   %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !477
@@ -25521,11 +25521,11 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx512(ptr noundef %0, ptr no
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = xor <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
   %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !478
@@ -25561,11 +25561,11 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx512(ptr noundef %0, ptr no
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = xor <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
   %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !479
@@ -25596,72 +25596,72 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx512(ptr noundef %0, ptr no
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 7
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 7
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 7
   %52 = load i8, ptr %51, align 1
   %53 = xor i8 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 7
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 7
   store i8 %53, ptr %54, align 1
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %59 = load i8, ptr %58, align 1
   %60 = xor i8 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i8 %60, ptr %61, align 1
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 5
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 5
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 5
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 5
   %66 = load i8, ptr %65, align 1
   %67 = xor i8 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 5
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 5
   store i8 %67, ptr %68, align 1
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %73 = load i8, ptr %72, align 1
   %74 = xor i8 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i8 %74, ptr %75, align 1
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 3
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 3
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 3
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 3
   %80 = load i8, ptr %79, align 1
   %81 = xor i8 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 3
   store i8 %81, ptr %82, align 1
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %87 = load i8, ptr %86, align 1
   %88 = xor i8 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i8 %88, ptr %89, align 1
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 1
   %92 = load i8, ptr %91, align 1
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = xor i8 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 1
   store i8 %95, ptr %96, align 1
   br label %97
 
@@ -25672,9 +25672,9 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx512(ptr noundef %0, ptr no
   store i8 %100, ptr %.6127158, align 1
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i8, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i8, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i8, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !480
 
@@ -25704,11 +25704,11 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx512(ptr noundef %0, ptr n
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = xor <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -64
   %18 = icmp samesign ugt i32 %.1135, 127
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !481
@@ -25746,11 +25746,11 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx512(ptr noundef %0, ptr n
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = xor <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -32
   %32 = icmp samesign ugt i32 %.3142, 63
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !482
@@ -25786,11 +25786,11 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx512(ptr noundef %0, ptr n
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = xor <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -16
   %45 = icmp samesign ugt i32 %.5152, 31
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !483
@@ -25821,72 +25821,72 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 7
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 7
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 7
   %52 = load i8, ptr %51, align 1
   %53 = xor i8 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 7
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 7
   store i8 %53, ptr %54, align 1
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %59 = load i8, ptr %58, align 1
   %60 = xor i8 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i8 %60, ptr %61, align 1
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 5
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 5
   %64 = load i8, ptr %63, align 1
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 5
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 5
   %66 = load i8, ptr %65, align 1
   %67 = xor i8 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 5
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 5
   store i8 %67, ptr %68, align 1
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %73 = load i8, ptr %72, align 1
   %74 = xor i8 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i8 %74, ptr %75, align 1
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 3
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 3
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 3
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 3
   %80 = load i8, ptr %79, align 1
   %81 = xor i8 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 3
   store i8 %81, ptr %82, align 1
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %87 = load i8, ptr %86, align 1
   %88 = xor i8 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i8 %88, ptr %89, align 1
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 1
   %92 = load i8, ptr %91, align 1
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 1
   %94 = load i8, ptr %93, align 1
   %95 = xor i8 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 1
   store i8 %95, ptr %96, align 1
   br label %97
 
@@ -25897,9 +25897,9 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx512(ptr noundef %0, ptr n
   store i8 %100, ptr %.6127158, align 1
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i8, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i8, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i8, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !484
 
@@ -25929,11 +25929,11 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx512(ptr noundef %0, ptr n
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = xor <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
   %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !485
@@ -25971,11 +25971,11 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx512(ptr noundef %0, ptr n
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = xor <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
   %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !486
@@ -26011,11 +26011,11 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx512(ptr noundef %0, ptr n
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = xor <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
   %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !487
@@ -26046,72 +26046,72 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 14
   %52 = load i16, ptr %51, align 2
   %53 = xor i16 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 14
   store i16 %53, ptr %54, align 2
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %57 = load i16, ptr %56, align 2
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %59 = load i16, ptr %58, align 2
   %60 = xor i16 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i16 %60, ptr %61, align 2
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 10
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 10
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 10
   %66 = load i16, ptr %65, align 2
   %67 = xor i16 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 10
   store i16 %67, ptr %68, align 2
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %71 = load i16, ptr %70, align 2
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %73 = load i16, ptr %72, align 2
   %74 = xor i16 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i16 %74, ptr %75, align 2
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %78 = load i16, ptr %77, align 2
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %80 = load i16, ptr %79, align 2
   %81 = xor i16 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i16 %81, ptr %82, align 2
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %87 = load i16, ptr %86, align 2
   %88 = xor i16 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i16 %88, ptr %89, align 2
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %92 = load i16, ptr %91, align 2
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %94 = load i16, ptr %93, align 2
   %95 = xor i16 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i16 %95, ptr %96, align 2
   br label %97
 
@@ -26122,9 +26122,9 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx512(ptr noundef %0, ptr n
   store i16 %100, ptr %.6127158, align 2
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i16, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i16, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i16, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i16, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i16, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i16, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !488
 
@@ -26154,11 +26154,11 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx512(ptr noundef %0, ptr 
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = xor <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -32
   %18 = icmp samesign ugt i32 %.1135, 63
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !489
@@ -26196,11 +26196,11 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx512(ptr noundef %0, ptr 
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = xor <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -16
   %32 = icmp samesign ugt i32 %.3142, 31
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !490
@@ -26236,11 +26236,11 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx512(ptr noundef %0, ptr 
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = xor <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -8
   %45 = icmp samesign ugt i32 %.5152, 15
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !491
@@ -26271,72 +26271,72 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 14
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 14
   %50 = load i16, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 14
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 14
   %52 = load i16, ptr %51, align 2
   %53 = xor i16 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 14
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 14
   store i16 %53, ptr %54, align 2
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %57 = load i16, ptr %56, align 2
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %59 = load i16, ptr %58, align 2
   %60 = xor i16 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i16 %60, ptr %61, align 2
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 10
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 10
   %64 = load i16, ptr %63, align 2
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 10
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 10
   %66 = load i16, ptr %65, align 2
   %67 = xor i16 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 10
   store i16 %67, ptr %68, align 2
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %71 = load i16, ptr %70, align 2
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %73 = load i16, ptr %72, align 2
   %74 = xor i16 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i16 %74, ptr %75, align 2
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 6
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 6
   %78 = load i16, ptr %77, align 2
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 6
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 6
   %80 = load i16, ptr %79, align 2
   %81 = xor i16 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 6
   store i16 %81, ptr %82, align 2
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %87 = load i16, ptr %86, align 2
   %88 = xor i16 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i16 %88, ptr %89, align 2
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 2
   %92 = load i16, ptr %91, align 2
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 2
   %94 = load i16, ptr %93, align 2
   %95 = xor i16 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 2
   store i16 %95, ptr %96, align 2
   br label %97
 
@@ -26347,9 +26347,9 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx512(ptr noundef %0, ptr 
   store i16 %100, ptr %.6127158, align 2
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i16, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i16, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i16, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i16, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i16, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i16, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !492
 
@@ -26379,11 +26379,11 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx512(ptr noundef %0, ptr n
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = xor <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
   %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !493
@@ -26421,11 +26421,11 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx512(ptr noundef %0, ptr n
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = xor <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
   %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !494
@@ -26461,11 +26461,11 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx512(ptr noundef %0, ptr n
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = xor <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
   %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !495
@@ -26496,72 +26496,72 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = xor i32 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 28
   store i32 %53, ptr %54, align 4
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %59 = load i32, ptr %58, align 4
   %60 = xor i32 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i32 %60, ptr %61, align 4
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 20
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 20
   %66 = load i32, ptr %65, align 4
   %67 = xor i32 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 20
   store i32 %67, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %73 = load i32, ptr %72, align 4
   %74 = xor i32 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i32 %74, ptr %75, align 4
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = xor i32 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i32 %81, ptr %82, align 4
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %87 = load i32, ptr %86, align 4
   %88 = xor i32 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i32 %88, ptr %89, align 4
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = xor i32 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i32 %95, ptr %96, align 4
   br label %97
 
@@ -26572,9 +26572,9 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx512(ptr noundef %0, ptr n
   store i32 %100, ptr %.6127158, align 4
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i32, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i32, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i32, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i32, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i32, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !496
 
@@ -26604,11 +26604,11 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx512(ptr noundef %0, ptr 
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = xor <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -16
   %18 = icmp samesign ugt i32 %.1135, 31
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !497
@@ -26646,11 +26646,11 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx512(ptr noundef %0, ptr 
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = xor <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -8
   %32 = icmp samesign ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !498
@@ -26686,11 +26686,11 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx512(ptr noundef %0, ptr 
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = xor <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -4
   %45 = icmp samesign ugt i32 %.5152, 7
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !499
@@ -26721,72 +26721,72 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 28
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = xor i32 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 28
   store i32 %53, ptr %54, align 4
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %59 = load i32, ptr %58, align 4
   %60 = xor i32 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i32 %60, ptr %61, align 4
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 20
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 20
   %66 = load i32, ptr %65, align 4
   %67 = xor i32 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 20
   store i32 %67, ptr %68, align 4
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %71 = load i32, ptr %70, align 4
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %73 = load i32, ptr %72, align 4
   %74 = xor i32 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i32 %74, ptr %75, align 4
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 12
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = xor i32 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 12
   store i32 %81, ptr %82, align 4
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %87 = load i32, ptr %86, align 4
   %88 = xor i32 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i32 %88, ptr %89, align 4
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 4
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = xor i32 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 4
   store i32 %95, ptr %96, align 4
   br label %97
 
@@ -26797,9 +26797,9 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx512(ptr noundef %0, ptr 
   store i32 %100, ptr %.6127158, align 4
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i32, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i32, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i32, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i32, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i32, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !500
 
@@ -26829,11 +26829,11 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx512(ptr noundef %0, ptr n
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = xor <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
   %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !501
@@ -26871,11 +26871,11 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx512(ptr noundef %0, ptr n
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = xor <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
   %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !502
@@ -26911,11 +26911,11 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx512(ptr noundef %0, ptr n
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = xor <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
   %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !503
@@ -26946,72 +26946,72 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx512(ptr noundef %0, ptr n
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = xor i64 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 56
   store i64 %53, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 48
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 48
   %59 = load i64, ptr %58, align 8
   %60 = xor i64 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 48
   store i64 %60, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 40
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 40
   %66 = load i64, ptr %65, align 8
   %67 = xor i64 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 40
   store i64 %67, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 32
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 32
   %73 = load i64, ptr %72, align 8
   %74 = xor i64 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 32
   store i64 %74, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %80 = load i64, ptr %79, align 8
   %81 = xor i64 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i64 %81, ptr %82, align 8
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = xor i64 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i64 %88, ptr %89, align 8
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = xor i64 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i64 %95, ptr %96, align 8
   br label %97
 
@@ -27022,9 +27022,9 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx512(ptr noundef %0, ptr n
   store i64 %100, ptr %.6127158, align 8
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i64, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i64, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i64, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i64, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i64, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !504
 
@@ -27054,11 +27054,11 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx512(ptr noundef %0, ptr 
   %.1122132 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader131 ]
   %11 = load <8 x i64>, ptr %.1108134, align 1
   %12 = load <8 x i64>, ptr %.1115133, align 1
-  %13 = getelementptr inbounds i8, ptr %.1108134, i64 64
-  %14 = getelementptr inbounds i8, ptr %.1115133, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.1108134, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.1115133, i64 64
   %15 = xor <8 x i64> %12, %11
   store <8 x i64> %15, ptr %.1122132, align 1
-  %16 = getelementptr inbounds i8, ptr %.1122132, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.1122132, i64 64
   %17 = add nsw i32 %.1135, -8
   %18 = icmp samesign ugt i32 %.1135, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !505
@@ -27096,11 +27096,11 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx512(ptr noundef %0, ptr 
   %.3124139 = phi ptr [ %30, %.lr.ph143 ], [ %.0121, %.preheader130 ]
   %25 = load <4 x i64>, ptr %.3110141, align 1
   %26 = load <4 x i64>, ptr %.3117140, align 1
-  %27 = getelementptr inbounds i8, ptr %.3110141, i64 32
-  %28 = getelementptr inbounds i8, ptr %.3117140, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.3110141, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.3117140, i64 32
   %29 = xor <4 x i64> %26, %25
   store <4 x i64> %29, ptr %.3124139, align 1
-  %30 = getelementptr inbounds i8, ptr %.3124139, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.3124139, i64 32
   %31 = add nsw i32 %.3142, -4
   %32 = icmp samesign ugt i32 %.3142, 7
   br i1 %32, label %.lr.ph143, label %._crit_edge144, !llvm.loop !506
@@ -27136,11 +27136,11 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx512(ptr noundef %0, ptr 
   %.5126149 = phi ptr [ %43, %.lr.ph153 ], [ %.2123, %34 ]
   %38 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5112151)
   %39 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.5119150)
-  %40 = getelementptr inbounds i8, ptr %.5112151, i64 16
-  %41 = getelementptr inbounds i8, ptr %.5119150, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.5112151, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.5119150, i64 16
   %42 = xor <16 x i8> %39, %38
   store <16 x i8> %42, ptr %.5126149, align 1
-  %43 = getelementptr inbounds i8, ptr %.5126149, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.5126149, i64 16
   %44 = add nsw i32 %.5152, -2
   %45 = icmp samesign ugt i32 %.5152, 3
   br i1 %45, label %.lr.ph153, label %.loopexit129, !llvm.loop !507
@@ -27171,72 +27171,72 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx512(ptr noundef %0, ptr 
   ]
 
 48:                                               ; preds = %.lr.ph163
-  %49 = getelementptr inbounds i8, ptr %.6113160, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.6113160, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.6120159, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.6120159, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = xor i64 %52, %50
-  %54 = getelementptr inbounds i8, ptr %.6127158, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.6127158, i64 56
   store i64 %53, ptr %54, align 8
   br label %55
 
 55:                                               ; preds = %48, %.lr.ph163
-  %56 = getelementptr inbounds i8, ptr %.6113160, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %.6113160, i64 48
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %.6120159, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.6120159, i64 48
   %59 = load i64, ptr %58, align 8
   %60 = xor i64 %59, %57
-  %61 = getelementptr inbounds i8, ptr %.6127158, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %.6127158, i64 48
   store i64 %60, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %55, %.lr.ph163
-  %63 = getelementptr inbounds i8, ptr %.6113160, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %.6113160, i64 40
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %.6120159, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %.6120159, i64 40
   %66 = load i64, ptr %65, align 8
   %67 = xor i64 %66, %64
-  %68 = getelementptr inbounds i8, ptr %.6127158, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %.6127158, i64 40
   store i64 %67, ptr %68, align 8
   br label %69
 
 69:                                               ; preds = %62, %.lr.ph163
-  %70 = getelementptr inbounds i8, ptr %.6113160, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.6113160, i64 32
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %.6120159, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.6120159, i64 32
   %73 = load i64, ptr %72, align 8
   %74 = xor i64 %73, %71
-  %75 = getelementptr inbounds i8, ptr %.6127158, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.6127158, i64 32
   store i64 %74, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %69, %.lr.ph163
-  %77 = getelementptr inbounds i8, ptr %.6113160, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.6113160, i64 24
   %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.6120159, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.6120159, i64 24
   %80 = load i64, ptr %79, align 8
   %81 = xor i64 %80, %78
-  %82 = getelementptr inbounds i8, ptr %.6127158, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.6127158, i64 24
   store i64 %81, ptr %82, align 8
   br label %83
 
 83:                                               ; preds = %76, %.lr.ph163
-  %84 = getelementptr inbounds i8, ptr %.6113160, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.6113160, i64 16
   %85 = load i64, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %.6120159, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.6120159, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = xor i64 %87, %85
-  %89 = getelementptr inbounds i8, ptr %.6127158, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.6127158, i64 16
   store i64 %88, ptr %89, align 8
   br label %90
 
 90:                                               ; preds = %83, %.lr.ph163
-  %91 = getelementptr inbounds i8, ptr %.6113160, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.6113160, i64 8
   %92 = load i64, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.6120159, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %.6120159, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = xor i64 %94, %92
-  %96 = getelementptr inbounds i8, ptr %.6127158, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.6127158, i64 8
   store i64 %95, ptr %96, align 8
   br label %97
 
@@ -27247,9 +27247,9 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx512(ptr noundef %0, ptr 
   store i64 %100, ptr %.6127158, align 8
   %101 = sub nsw i32 %.6161, %47
   %102 = zext nneg i32 %47 to i64
-  %103 = getelementptr inbounds i64, ptr %.6127158, i64 %102
-  %104 = getelementptr inbounds i64, ptr %.6113160, i64 %102
-  %105 = getelementptr inbounds i64, ptr %.6120159, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr %.6127158, i64 %102
+  %104 = getelementptr inbounds nuw i64, ptr %.6113160, i64 %102
+  %105 = getelementptr inbounds nuw i64, ptr %.6120159, i64 %102
   %106 = icmp sgt i32 %101, 0
   br i1 %106, label %.lr.ph163, label %.loopexit, !llvm.loop !508
 

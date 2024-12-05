@@ -76,7 +76,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i64 @ggml_backend_buft_get_alignment(ptr noundef %buft) local_unnamed_addr #0 {
 entry:
-  %get_alignment = getelementptr inbounds i8, ptr %buft, i64 8
+  %get_alignment = getelementptr inbounds nuw i8, ptr %buft, i64 8
   %0 = load ptr, ptr %get_alignment, align 8
   %call = tail call i64 %0(ptr noundef %buft) #20
   ret i64 %call
@@ -85,7 +85,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i64 @ggml_backend_buft_get_alloc_size(ptr noundef %buft, ptr noundef %tensor) local_unnamed_addr #0 {
 entry:
-  %get_alloc_size = getelementptr inbounds i8, ptr %buft, i64 16
+  %get_alloc_size = getelementptr inbounds nuw i8, ptr %buft, i64 16
   %0 = load ptr, ptr %get_alloc_size, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -108,7 +108,7 @@ declare i64 @ggml_nbytes(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @ggml_backend_buft_supports_backend(ptr noundef %buft, ptr noundef %backend) local_unnamed_addr #0 {
 entry:
-  %supports_backend = getelementptr inbounds i8, ptr %buft, i64 24
+  %supports_backend = getelementptr inbounds nuw i8, ptr %buft, i64 24
   %0 = load ptr, ptr %supports_backend, align 8
   %call = tail call zeroext i1 %0(ptr noundef %buft, ptr noundef %backend) #20
   ret i1 %call
@@ -118,7 +118,7 @@ entry:
 define noalias noundef ptr @ggml_backend_buffer_init(ptr noundef %buft, ptr nocapture noundef readonly byval(%struct.ggml_backend_buffer_i) align 8 %iface, ptr noundef %context, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #21
-  %get_base = getelementptr inbounds i8, ptr %iface, i64 8
+  %get_base = getelementptr inbounds nuw i8, ptr %iface, i64 8
   %0 = load ptr, ptr %get_base, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.then, label %do.end
@@ -134,11 +134,11 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef nonnull align 8 dereferenceable(56) %iface, i64 56, i1 false)
-  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 56
+  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 56
   store ptr %buft, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
-  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 64
+  %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 64
   store ptr %context, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 8
-  %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 72
+  %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 72
   store i64 %size, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 8
   ret ptr %call
 }
@@ -189,7 +189,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ggml_backend_buffer_get_size(ptr nocapture noundef readonly %buffer) local_unnamed_addr #7 {
 entry:
-  %size = getelementptr inbounds i8, ptr %buffer, i64 72
+  %size = getelementptr inbounds nuw i8, ptr %buffer, i64 72
   %0 = load i64, ptr %size, align 8
   ret i64 %0
 }
@@ -197,7 +197,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @ggml_backend_buffer_get_base(ptr noundef %buffer) local_unnamed_addr #0 {
 entry:
-  %get_base = getelementptr inbounds i8, ptr %buffer, i64 8
+  %get_base = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %0 = load ptr, ptr %get_base, align 8
   %call = tail call ptr %0(ptr noundef %buffer) #20
   %cmp.not = icmp eq ptr %call, null
@@ -219,7 +219,7 @@ do.end:                                           ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_buffer_init_tensor(ptr noundef %buffer, ptr noundef %tensor) local_unnamed_addr #0 {
 entry:
-  %init_tensor = getelementptr inbounds i8, ptr %buffer, i64 16
+  %init_tensor = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %0 = load ptr, ptr %init_tensor, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -235,9 +235,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define i64 @ggml_backend_buffer_get_alignment(ptr nocapture noundef readonly %buffer) local_unnamed_addr #0 {
 entry:
-  %buft.i = getelementptr inbounds i8, ptr %buffer, i64 56
+  %buft.i = getelementptr inbounds nuw i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %buft.i, align 8
-  %get_alignment.i = getelementptr inbounds i8, ptr %0, i64 8
+  %get_alignment.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %get_alignment.i, align 8
   %call.i = tail call i64 %1(ptr noundef %0) #20
   ret i64 %call.i
@@ -246,7 +246,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ggml_backend_buffer_type(ptr nocapture noundef readonly %buffer) local_unnamed_addr #7 {
 entry:
-  %buft = getelementptr inbounds i8, ptr %buffer, i64 56
+  %buft = getelementptr inbounds nuw i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %buft, align 8
   ret ptr %0
 }
@@ -254,9 +254,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i64 @ggml_backend_buffer_get_alloc_size(ptr nocapture noundef readonly %buffer, ptr noundef %tensor) local_unnamed_addr #0 {
 entry:
-  %buft.i = getelementptr inbounds i8, ptr %buffer, i64 56
+  %buft.i = getelementptr inbounds nuw i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %buft.i, align 8
-  %get_alloc_size.i = getelementptr inbounds i8, ptr %0, i64 16
+  %get_alloc_size.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %get_alloc_size.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -297,7 +297,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %free = getelementptr inbounds i8, ptr %backend, i64 8
+  %free = getelementptr inbounds nuw i8, ptr %backend, i64 8
   %0 = load ptr, ptr %free, align 8
   tail call void %0(ptr noundef nonnull %backend) #20
   br label %return
@@ -309,7 +309,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @ggml_backend_get_default_buffer_type(ptr noundef %backend) local_unnamed_addr #0 {
 entry:
-  %get_default_buffer_type = getelementptr inbounds i8, ptr %backend, i64 16
+  %get_default_buffer_type = getelementptr inbounds nuw i8, ptr %backend, i64 16
   %0 = load ptr, ptr %get_default_buffer_type, align 8
   %call = tail call ptr %0(ptr noundef %backend) #20
   ret ptr %call
@@ -318,7 +318,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @ggml_backend_alloc_buffer(ptr noundef %backend, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %get_default_buffer_type.i = getelementptr inbounds i8, ptr %backend, i64 16
+  %get_default_buffer_type.i = getelementptr inbounds nuw i8, ptr %backend, i64 16
   %0 = load ptr, ptr %get_default_buffer_type.i, align 8
   %call.i = tail call ptr %0(ptr noundef %backend) #20
   %1 = load ptr, ptr %call.i, align 8
@@ -329,10 +329,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i64 @ggml_backend_get_alignment(ptr noundef %backend) local_unnamed_addr #0 {
 entry:
-  %get_default_buffer_type.i = getelementptr inbounds i8, ptr %backend, i64 16
+  %get_default_buffer_type.i = getelementptr inbounds nuw i8, ptr %backend, i64 16
   %0 = load ptr, ptr %get_default_buffer_type.i, align 8
   %call.i = tail call ptr %0(ptr noundef %backend) #20
-  %get_alignment.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %get_alignment.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %get_alignment.i, align 8
   %call.i1 = tail call i64 %1(ptr noundef %call.i) #20
   ret i64 %call.i1
@@ -341,7 +341,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_tensor_set_async(ptr noundef %backend, ptr noundef %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %data1 = getelementptr inbounds i8, ptr %tensor, i64 280
+  %data1 = getelementptr inbounds nuw i8, ptr %tensor, i64 280
   %0 = load ptr, ptr %data1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.then, label %do.body3
@@ -371,7 +371,7 @@ if.then7:                                         ; preds = %do.body3
   unreachable
 
 do.end11:                                         ; preds = %do.body3
-  %set_tensor_async = getelementptr inbounds i8, ptr %backend, i64 24
+  %set_tensor_async = getelementptr inbounds nuw i8, ptr %backend, i64 24
   %5 = load ptr, ptr %set_tensor_async, align 8
   tail call void %5(ptr noundef %backend, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #20
   ret void
@@ -380,7 +380,7 @@ do.end11:                                         ; preds = %do.body3
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_tensor_get_async(ptr noundef %backend, ptr noundef %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %data1 = getelementptr inbounds i8, ptr %tensor, i64 280
+  %data1 = getelementptr inbounds nuw i8, ptr %tensor, i64 280
   %0 = load ptr, ptr %data1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.then, label %do.body3
@@ -410,7 +410,7 @@ if.then7:                                         ; preds = %do.body3
   unreachable
 
 do.end11:                                         ; preds = %do.body3
-  %get_tensor_async = getelementptr inbounds i8, ptr %backend, i64 32
+  %get_tensor_async = getelementptr inbounds nuw i8, ptr %backend, i64 32
   %5 = load ptr, ptr %get_tensor_async, align 8
   tail call void %5(ptr noundef %backend, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #20
   ret void
@@ -419,7 +419,7 @@ do.end11:                                         ; preds = %do.body3
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_tensor_set(ptr noundef %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %data1 = getelementptr inbounds i8, ptr %tensor, i64 280
+  %data1 = getelementptr inbounds nuw i8, ptr %tensor, i64 280
   %0 = load ptr, ptr %data1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.then, label %do.body3
@@ -434,7 +434,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.body3:                                         ; preds = %entry
-  %buffer = getelementptr inbounds i8, ptr %tensor, i64 8
+  %buffer = getelementptr inbounds nuw i8, ptr %tensor, i64 8
   %3 = load ptr, ptr %buffer, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %if.then6, label %do.body11
@@ -465,7 +465,7 @@ if.then15:                                        ; preds = %do.body11
 
 do.end19:                                         ; preds = %do.body11
   %8 = load ptr, ptr %buffer, align 8
-  %set_tensor = getelementptr inbounds i8, ptr %8, i64 24
+  %set_tensor = getelementptr inbounds nuw i8, ptr %8, i64 24
   %9 = load ptr, ptr %set_tensor, align 8
   tail call void %9(ptr noundef %8, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #20
   ret void
@@ -474,7 +474,7 @@ do.end19:                                         ; preds = %do.body11
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_tensor_get(ptr noundef %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %data1 = getelementptr inbounds i8, ptr %tensor, i64 280
+  %data1 = getelementptr inbounds nuw i8, ptr %tensor, i64 280
   %0 = load ptr, ptr %data1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.then, label %do.body3
@@ -489,7 +489,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.body3:                                         ; preds = %entry
-  %buffer = getelementptr inbounds i8, ptr %tensor, i64 8
+  %buffer = getelementptr inbounds nuw i8, ptr %tensor, i64 8
   %3 = load ptr, ptr %buffer, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %if.then6, label %do.body11
@@ -520,7 +520,7 @@ if.then15:                                        ; preds = %do.body11
 
 do.end19:                                         ; preds = %do.body11
   %8 = load ptr, ptr %buffer, align 8
-  %get_tensor = getelementptr inbounds i8, ptr %8, i64 32
+  %get_tensor = getelementptr inbounds nuw i8, ptr %8, i64 32
   %9 = load ptr, ptr %get_tensor, align 8
   tail call void %9(ptr noundef %8, ptr noundef nonnull %tensor, ptr noundef %data, i64 noundef %offset, i64 noundef %size) #20
   ret void
@@ -529,7 +529,7 @@ do.end19:                                         ; preds = %do.body11
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_synchronize(ptr noundef %backend) local_unnamed_addr #0 {
 entry:
-  %synchronize = getelementptr inbounds i8, ptr %backend, i64 56
+  %synchronize = getelementptr inbounds nuw i8, ptr %backend, i64 56
   %0 = load ptr, ptr %synchronize, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -545,7 +545,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define ptr @ggml_backend_graph_plan_create(ptr noundef %backend, ptr noundef %cgraph) local_unnamed_addr #0 {
 entry:
-  %graph_plan_create = getelementptr inbounds i8, ptr %backend, i64 64
+  %graph_plan_create = getelementptr inbounds nuw i8, ptr %backend, i64 64
   %0 = load ptr, ptr %graph_plan_create, align 8
   %call = tail call ptr %0(ptr noundef %backend, ptr noundef %cgraph) #20
   ret ptr %call
@@ -554,7 +554,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_graph_plan_free(ptr noundef %backend, ptr noundef %plan) local_unnamed_addr #0 {
 entry:
-  %graph_plan_free = getelementptr inbounds i8, ptr %backend, i64 72
+  %graph_plan_free = getelementptr inbounds nuw i8, ptr %backend, i64 72
   %0 = load ptr, ptr %graph_plan_free, align 8
   tail call void %0(ptr noundef %backend, ptr noundef %plan) #20
   ret void
@@ -563,10 +563,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_graph_plan_compute(ptr noundef %backend, ptr noundef %plan) local_unnamed_addr #0 {
 entry:
-  %graph_plan_compute = getelementptr inbounds i8, ptr %backend, i64 80
+  %graph_plan_compute = getelementptr inbounds nuw i8, ptr %backend, i64 80
   %0 = load ptr, ptr %graph_plan_compute, align 8
   tail call void %0(ptr noundef %backend, ptr noundef %plan) #20
-  %synchronize.i = getelementptr inbounds i8, ptr %backend, i64 56
+  %synchronize.i = getelementptr inbounds nuw i8, ptr %backend, i64 56
   %1 = load ptr, ptr %synchronize.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %ggml_backend_synchronize.exit, label %if.end.i
@@ -582,10 +582,10 @@ ggml_backend_synchronize.exit:                    ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_graph_compute(ptr noundef %backend, ptr noundef %cgraph) local_unnamed_addr #0 {
 entry:
-  %graph_compute = getelementptr inbounds i8, ptr %backend, i64 88
+  %graph_compute = getelementptr inbounds nuw i8, ptr %backend, i64 88
   %0 = load ptr, ptr %graph_compute, align 8
   tail call void %0(ptr noundef %backend, ptr noundef %cgraph) #20
-  %synchronize.i = getelementptr inbounds i8, ptr %backend, i64 56
+  %synchronize.i = getelementptr inbounds nuw i8, ptr %backend, i64 56
   %1 = load ptr, ptr %synchronize.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %ggml_backend_synchronize.exit, label %if.end.i
@@ -601,7 +601,7 @@ ggml_backend_synchronize.exit:                    ; preds = %entry, %if.end.i
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @ggml_backend_supports_op(ptr noundef %backend, ptr noundef %op) local_unnamed_addr #0 {
 entry:
-  %supports_op = getelementptr inbounds i8, ptr %backend, i64 96
+  %supports_op = getelementptr inbounds nuw i8, ptr %backend, i64 96
   %0 = load ptr, ptr %supports_op, align 8
   %call = tail call zeroext i1 %0(ptr noundef %backend, ptr noundef %op) #20
   ret i1 %call
@@ -616,10 +616,10 @@ entry:
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %if.then
 
 for.cond.preheader.i:                             ; preds = %entry
-  %ne.i = getelementptr inbounds i8, ptr %src, i64 16
-  %nb.i = getelementptr inbounds i8, ptr %src, i64 48
-  %ne3.i = getelementptr inbounds i8, ptr %dst, i64 16
-  %nb11.i = getelementptr inbounds i8, ptr %dst, i64 48
+  %ne.i = getelementptr inbounds nuw i8, ptr %src, i64 16
+  %nb.i = getelementptr inbounds nuw i8, ptr %src, i64 48
+  %ne3.i = getelementptr inbounds nuw i8, ptr %dst, i64 16
+  %nb11.i = getelementptr inbounds nuw i8, ptr %dst, i64 48
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end8.i
@@ -629,17 +629,17 @@ for.cond.i:                                       ; preds = %if.end8.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds [4 x i64], ptr %ne.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i64], ptr %ne.i, i64 0, i64 %indvars.iv.i
   %2 = load i64, ptr %arrayidx.i, align 8
-  %arrayidx5.i = getelementptr inbounds [4 x i64], ptr %ne3.i, i64 0, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [4 x i64], ptr %ne3.i, i64 0, i64 %indvars.iv.i
   %3 = load i64, ptr %arrayidx5.i, align 8
   %cmp6.not.i = icmp eq i64 %2, %3
   br i1 %cmp6.not.i, label %if.end8.i, label %if.then
 
 if.end8.i:                                        ; preds = %for.body.i
-  %arrayidx10.i = getelementptr inbounds [4 x i64], ptr %nb.i, i64 0, i64 %indvars.iv.i
+  %arrayidx10.i = getelementptr inbounds nuw [4 x i64], ptr %nb.i, i64 0, i64 %indvars.iv.i
   %4 = load i64, ptr %arrayidx10.i, align 8
-  %arrayidx13.i = getelementptr inbounds [4 x i64], ptr %nb11.i, i64 0, i64 %indvars.iv.i
+  %arrayidx13.i = getelementptr inbounds nuw [4 x i64], ptr %nb11.i, i64 0, i64 %indvars.iv.i
   %5 = load i64, ptr %arrayidx13.i, align 8
   %cmp14.not.i = icmp eq i64 %4, %5
   br i1 %cmp14.not.i, label %for.cond.i, label %if.then
@@ -658,9 +658,9 @@ do.end:                                           ; preds = %for.cond.i
   br i1 %cmp, label %if.end23, label %if.end4
 
 if.end4:                                          ; preds = %do.end
-  %buffer = getelementptr inbounds i8, ptr %dst, i64 8
+  %buffer = getelementptr inbounds nuw i8, ptr %dst, i64 8
   %8 = load ptr, ptr %buffer, align 8
-  %cpy_tensor_from = getelementptr inbounds i8, ptr %8, i64 40
+  %cpy_tensor_from = getelementptr inbounds nuw i8, ptr %8, i64 40
   %9 = load ptr, ptr %cpy_tensor_from, align 8
   %cmp5.not = icmp eq ptr %9, null
   br i1 %cmp5.not, label %if.else, label %if.then6
@@ -670,9 +670,9 @@ if.then6:                                         ; preds = %if.end4
   br label %if.end23
 
 if.else:                                          ; preds = %if.end4
-  %buffer11 = getelementptr inbounds i8, ptr %src, i64 8
+  %buffer11 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %10 = load ptr, ptr %buffer11, align 8
-  %cpy_tensor_to = getelementptr inbounds i8, ptr %10, i64 48
+  %cpy_tensor_to = getelementptr inbounds nuw i8, ptr %10, i64 48
   %11 = load ptr, ptr %cpy_tensor_to, align 8
   %cmp13.not = icmp eq ptr %11, null
   br i1 %cmp13.not, label %if.else19, label %if.then14
@@ -710,13 +710,13 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx, i8 0, i64 128, i1 false)
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 128
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 128
   store ptr %init_fn, ptr %.compoundliteral.sroa.2.0.arrayidx.sroa_idx, align 8
-  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 136
+  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 136
   store ptr %default_buffer_type, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx, align 8
-  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 144
+  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 144
   store ptr %user_data, ptr %.compoundliteral.sroa.4.0.arrayidx.sroa_idx, align 8
   %call9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %arrayidx, i64 noundef 128, ptr noundef nonnull @.str.17, ptr noundef %name) #20
   %3 = load i64, ptr @ggml_backend_registry_count, align 8
@@ -753,13 +753,13 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx.i.i, i8 0, i64 128, i1 false)
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 128
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 128
   store ptr @ggml_backend_reg_cpu_init, ptr %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 136
+  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 136
   store ptr @ggml_backend_cpu_buffer_type.ggml_backend_buffer_type_cpu, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 144
+  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 144
   store ptr null, ptr %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
   store i32 5591107, ptr %arrayidx.i.i, align 8
   %inc.i.i = add nuw nsw i64 %.pre, 1
@@ -793,13 +793,13 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 ggml_backend_registry_init.exit.thread:           ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx.i.i, i8 0, i64 128, i1 false)
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 128
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 128
   store ptr @ggml_backend_reg_cpu_init, ptr %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 136
+  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 136
   store ptr @ggml_backend_cpu_buffer_type.ggml_backend_buffer_type_cpu, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 144
+  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 144
   store ptr null, ptr %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
   store i32 5591107, ptr %arrayidx.i.i, align 8
   %inc.i.i = add nuw nsw i64 %.pre, 1
@@ -857,13 +857,13 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %0
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx.i.i, i8 0, i64 128, i1 false)
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 128
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 128
   store ptr @ggml_backend_reg_cpu_init, ptr %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 136
+  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 136
   store ptr @ggml_backend_cpu_buffer_type.ggml_backend_buffer_type_cpu, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 144
+  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 144
   store ptr null, ptr %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
   store i32 5591107, ptr %arrayidx.i.i, align 8
   %inc.i.i = add nuw nsw i64 %0, 1
@@ -886,7 +886,7 @@ if.else:                                          ; preds = %ggml_backend_regist
   %call3 = call ptr @strncpy(ptr noundef nonnull %backend_name, ptr noundef %backend_str, i64 noundef %sub.ptr.sub) #20
   %arrayidx = getelementptr inbounds [128 x i8], ptr %backend_name, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -940,13 +940,13 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx.i.i, i8 0, i64 128, i1 false)
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 128
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 128
   store ptr @ggml_backend_reg_cpu_init, ptr %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 136
+  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 136
   store ptr @ggml_backend_cpu_buffer_type.ggml_backend_buffer_type_cpu, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 144
+  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 144
   store ptr null, ptr %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
   store i32 5591107, ptr %arrayidx.i.i, align 8
   %inc.i.i = add nuw nsw i64 %.pre, 1
@@ -969,9 +969,9 @@ if.then:                                          ; preds = %ggml_backend_regist
 
 do.end:                                           ; preds = %ggml_backend_registry_init.exit
   %arrayidx = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %i
-  %init_fn = getelementptr inbounds i8, ptr %arrayidx, i64 128
+  %init_fn = getelementptr inbounds nuw i8, ptr %arrayidx, i64 128
   %5 = load ptr, ptr %init_fn, align 8
-  %user_data = getelementptr inbounds i8, ptr %arrayidx, i64 144
+  %user_data = getelementptr inbounds nuw i8, ptr %arrayidx, i64 144
   %6 = load ptr, ptr %user_data, align 8
   %call3 = tail call ptr %5(ptr noundef %params, ptr noundef %6) #20
   ret ptr %call3
@@ -999,13 +999,13 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx.i.i, i8 0, i64 128, i1 false)
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 128
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 128
   store ptr @ggml_backend_reg_cpu_init, ptr %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 136
+  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 136
   store ptr @ggml_backend_cpu_buffer_type.ggml_backend_buffer_type_cpu, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 144
+  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 144
   store ptr null, ptr %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
   store i32 5591107, ptr %arrayidx.i.i, align 8
   %inc.i.i = add nuw nsw i64 %.pre, 1
@@ -1053,13 +1053,13 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx.i.i, i8 0, i64 128, i1 false)
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 128
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 128
   store ptr @ggml_backend_reg_cpu_init, ptr %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 136
+  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 136
   store ptr @ggml_backend_cpu_buffer_type.ggml_backend_buffer_type_cpu, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 144
+  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 144
   store ptr null, ptr %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
   store i32 5591107, ptr %arrayidx.i.i, align 8
   %inc.i.i = add nuw nsw i64 %.pre, 1
@@ -1108,13 +1108,13 @@ if.then.i.i:                                      ; preds = %if.end.i
   unreachable
 
 ggml_backend_register.exit.i:                     ; preds = %if.end.i
-  %arrayidx.i.i = getelementptr inbounds [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x %struct.ggml_backend_reg], ptr @ggml_backend_registry, i64 0, i64 %.pre
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx.i.i, i8 0, i64 128, i1 false)
-  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 128
+  %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 128
   store ptr @ggml_backend_reg_cpu_init, ptr %.compoundliteral.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 136
+  %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 136
   store ptr @ggml_backend_cpu_buffer_type.ggml_backend_buffer_type_cpu, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, align 8
-  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 144
+  %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 144
   store ptr null, ptr %.compoundliteral.sroa.4.0.arrayidx.sroa_idx.i.i, align 8
   store i32 5591107, ptr %arrayidx.i.i, align 8
   %inc.i.i = add nuw nsw i64 %.pre, 1
@@ -1169,15 +1169,15 @@ if.then:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #21
   store ptr @ggml_backend_cpu_buffer_free_buffer, ptr %call.i, align 8
-  %cpu_backend_buffer_i.sroa.4.0.call.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 8
+  %cpu_backend_buffer_i.sroa.4.0.call.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @ggml_backend_cpu_buffer_get_base, ptr %cpu_backend_buffer_i.sroa.4.0.call.i.sroa_idx, align 8
-  %cpu_backend_buffer_i.sroa.5.0.call.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 16
+  %cpu_backend_buffer_i.sroa.5.0.call.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cpu_backend_buffer_i.sroa.5.0.call.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @cpu_backend_buffer_i, i64 16), i64 40, i1 false)
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store ptr %buft, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 64
+  %.compoundliteral.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   store ptr %call, ptr %.compoundliteral.sroa.3.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 72
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   store i64 %add, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   ret ptr %call.i
 }
@@ -1201,11 +1201,11 @@ define noalias noundef ptr @ggml_backend_cpu_init() local_unnamed_addr #12 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #21
   store i32 4, ptr %call, align 8
-  %work_data = getelementptr inbounds i8, ptr %call, i64 8
+  %work_data = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call1 = tail call noalias dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %work_data, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call1, ptr noundef nonnull align 8 dereferenceable(104) @cpu_backend_i, i64 104, i1 false)
-  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call1, i64 104
+  %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call1, i64 104
   store ptr %call, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
   ret ptr %call1
 }
@@ -1241,7 +1241,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %context = getelementptr inbounds i8, ptr %backend_cpu, i64 104
+  %context = getelementptr inbounds nuw i8, ptr %backend_cpu, i64 104
   %3 = load ptr, ptr %context, align 8
   store i32 %n_threads, ptr %3, align 8
   ret void
@@ -1252,15 +1252,15 @@ define noalias noundef ptr @ggml_backend_cpu_buffer_from_ptr(ptr noundef %ptr, i
 entry:
   %call.i = tail call noalias dereferenceable_or_null(80) ptr @malloc(i64 noundef 80) #21
   store ptr null, ptr %call.i, align 8
-  %cpu_backend_buffer_i_from_ptr.sroa.4.0.call.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 8
+  %cpu_backend_buffer_i_from_ptr.sroa.4.0.call.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @ggml_backend_cpu_buffer_get_base, ptr %cpu_backend_buffer_i_from_ptr.sroa.4.0.call.i.sroa_idx, align 8
-  %cpu_backend_buffer_i_from_ptr.sroa.5.0.call.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 16
+  %cpu_backend_buffer_i_from_ptr.sroa.5.0.call.i.sroa_idx = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cpu_backend_buffer_i_from_ptr.sroa.5.0.call.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds (i8, ptr @cpu_backend_buffer_i_from_ptr, i64 16), i64 40, i1 false)
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store ptr @ggml_backend_cpu_buffer_type.ggml_backend_buffer_type_cpu, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 64
+  %.compoundliteral.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   store ptr %ptr, ptr %.compoundliteral.sroa.3.0..sroa_idx.i, align 8
-  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 72
+  %.compoundliteral.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   store i64 %size, ptr %.compoundliteral.sroa.4.0..sroa_idx.i, align 8
   ret ptr %call.i
 }
@@ -1288,28 +1288,28 @@ do.end:                                           ; preds = %entry
 
 for.end:                                          ; preds = %do.end
   %call8 = tail call ptr @ggml_gallocr_new() #20
-  %galloc = getelementptr inbounds i8, ptr %calloc, i64 72
+  %galloc = getelementptr inbounds nuw i8, ptr %calloc, i64 72
   store ptr %call8, ptr %galloc, align 8
   br label %for.end20
 
 for.body12.lr.ph:                                 ; preds = %do.end
-  %backends5 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %backends5 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   %2 = zext nneg i32 %n_backends to i64
   %3 = shl nuw nsw i64 %2, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %backends5, ptr align 8 %backends, i64 %3, i1 false)
   %call822 = tail call ptr @ggml_gallocr_new() #20
-  %galloc23 = getelementptr inbounds i8, ptr %calloc, i64 72
+  %galloc23 = getelementptr inbounds nuw i8, ptr %calloc, i64 72
   store ptr %call822, ptr %galloc23, align 8
-  %tallocs = getelementptr inbounds i8, ptr %calloc, i64 40
+  %tallocs = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   %wide.trip.count = zext nneg i32 %n_backends to i64
   br label %for.body12
 
 for.body12:                                       ; preds = %for.body12.lr.ph, %for.body12
   %indvars.iv = phi i64 [ 0, %for.body12.lr.ph ], [ %indvars.iv.next, %for.body12 ]
-  %arrayidx14 = getelementptr inbounds ptr, ptr %backends, i64 %indvars.iv
+  %arrayidx14 = getelementptr inbounds nuw ptr, ptr %backends, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx14, align 8
   %call15 = tail call ptr @ggml_tallocr_new_measure_from_backend(ptr noundef %4) #20
-  %arrayidx17 = getelementptr inbounds [4 x ptr], ptr %tallocs, i64 0, i64 %indvars.iv
+  %arrayidx17 = getelementptr inbounds nuw [4 x ptr], ptr %tallocs, i64 0, i64 %indvars.iv
   store ptr %call15, ptr %arrayidx17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1335,12 +1335,12 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp110, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %tallocs = getelementptr inbounds i8, ptr %sched, i64 40
+  %tallocs = getelementptr inbounds nuw i8, ptr %sched, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr %tallocs, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr %tallocs, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   tail call void @ggml_tallocr_free(ptr noundef %1) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1350,16 +1350,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %galloc = getelementptr inbounds i8, ptr %sched, i64 72
+  %galloc = getelementptr inbounds nuw i8, ptr %sched, i64 72
   %4 = load ptr, ptr %galloc, align 8
   tail call void @ggml_gallocr_free(ptr noundef %4) #20
-  %keys = getelementptr inbounds i8, ptr %sched, i64 88
+  %keys = getelementptr inbounds nuw i8, ptr %sched, i64 88
   %5 = load ptr, ptr %keys, align 8
   tail call void @free(ptr noundef %5) #20
-  %node_talloc = getelementptr inbounds i8, ptr %sched, i64 96
+  %node_talloc = getelementptr inbounds nuw i8, ptr %sched, i64 96
   %6 = load ptr, ptr %node_talloc, align 16
   tail call void @free(ptr noundef %6) #20
-  %node_copies = getelementptr inbounds i8, ptr %sched, i64 104
+  %node_copies = getelementptr inbounds nuw i8, ptr %sched, i64 104
   %7 = load ptr, ptr %node_copies, align 8
   tail call void @free(ptr noundef %7) #20
   tail call void @free(ptr noundef nonnull %sched) #20
@@ -1376,26 +1376,26 @@ declare void @ggml_gallocr_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_sched_init_measure(ptr noundef initializes((80, 112), (59512, 59516)) %sched, ptr noundef %measure_graph) local_unnamed_addr #0 {
 entry:
-  %visited_hash_table = getelementptr inbounds i8, ptr %measure_graph, i64 40
+  %visited_hash_table = getelementptr inbounds nuw i8, ptr %measure_graph, i64 40
   %0 = load i64, ptr %visited_hash_table, align 8
   %add = add i64 %0, 4096
-  %hash_set = getelementptr inbounds i8, ptr %sched, i64 80
+  %hash_set = getelementptr inbounds nuw i8, ptr %sched, i64 80
   store i64 %add, ptr %hash_set, align 16
   %mul = shl i64 %add, 3
   %call = tail call noalias ptr @malloc(i64 noundef %mul) #21
-  %keys = getelementptr inbounds i8, ptr %sched, i64 88
+  %keys = getelementptr inbounds nuw i8, ptr %sched, i64 88
   store ptr %call, ptr %keys, align 8
   %call4 = tail call noalias ptr @malloc(i64 noundef %mul) #21
-  %node_talloc = getelementptr inbounds i8, ptr %sched, i64 96
+  %node_talloc = getelementptr inbounds nuw i8, ptr %sched, i64 96
   store ptr %call4, ptr %node_talloc, align 16
   %mul5 = shl i64 %add, 5
   %call6 = tail call noalias ptr @malloc(i64 noundef %mul5) #21
-  %node_copies = getelementptr inbounds i8, ptr %sched, i64 104
+  %node_copies = getelementptr inbounds nuw i8, ptr %sched, i64 104
   store ptr %call6, ptr %node_copies, align 8
   tail call fastcc void @sched_split_graph(ptr noundef %sched, ptr noundef %measure_graph)
-  %galloc.i = getelementptr inbounds i8, ptr %sched, i64 72
+  %galloc.i = getelementptr inbounds nuw i8, ptr %sched, i64 72
   %1 = load ptr, ptr %galloc.i, align 8
-  %graph.i = getelementptr inbounds i8, ptr %sched, i64 112
+  %graph.i = getelementptr inbounds nuw i8, ptr %sched, i64 112
   %2 = load ptr, ptr %graph.i, align 16
   %3 = load ptr, ptr %node_talloc, align 16
   %4 = load i64, ptr %hash_set, align 16
@@ -1406,18 +1406,18 @@ entry:
   br i1 %cmp21, label %for.body.lr.ph, label %sched_reset.exit
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tallocs = getelementptr inbounds i8, ptr %sched, i64 40
-  %backends = getelementptr inbounds i8, ptr %sched, i64 8
+  %tallocs = getelementptr inbounds nuw i8, ptr %sched, i64 40
+  %backends = getelementptr inbounds nuw i8, ptr %sched, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr %tallocs, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr %tallocs, i64 0, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
   %call8 = tail call i64 @ggml_tallocr_max_size(ptr noundef %7) #20
   %8 = load ptr, ptr %arrayidx, align 8
   tail call void @ggml_tallocr_free(ptr noundef %8) #20
-  %arrayidx13 = getelementptr inbounds [4 x ptr], ptr %backends, i64 0, i64 %indvars.iv
+  %arrayidx13 = getelementptr inbounds nuw [4 x ptr], ptr %backends, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx13, align 8
   %call14 = tail call ptr @ggml_tallocr_new_from_backend(ptr noundef %9, i64 noundef %call8) #20
   store ptr %call14, ptr %arrayidx, align 8
@@ -1432,12 +1432,12 @@ for.end:                                          ; preds = %for.body
   br i1 %12, label %for.body.lr.ph.i, label %sched_reset.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %tallocs.i = getelementptr inbounds i8, ptr %sched, i64 40
+  %tallocs.i = getelementptr inbounds nuw i8, ptr %sched, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [4 x ptr], ptr %tallocs.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x ptr], ptr %tallocs.i, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %arrayidx.i, align 8
   tail call void @ggml_tallocr_reset(ptr noundef %13) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1455,28 +1455,28 @@ define internal fastcc void @sched_split_graph(ptr noundef initializes((59512, 5
 entry:
   %params = alloca %struct.ggml_init_params, align 8
   %tmp = alloca %struct.ggml_cgraph, align 8
-  %hash_set = getelementptr inbounds i8, ptr %sched, i64 80
+  %hash_set = getelementptr inbounds nuw i8, ptr %sched, i64 80
   %0 = load i64, ptr %hash_set, align 16
-  %keys = getelementptr inbounds i8, ptr %sched, i64 88
+  %keys = getelementptr inbounds nuw i8, ptr %sched, i64 88
   %1 = load ptr, ptr %keys, align 8
   %mul = shl i64 %0, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %mul, i1 false)
-  %node_talloc = getelementptr inbounds i8, ptr %sched, i64 96
+  %node_talloc = getelementptr inbounds nuw i8, ptr %sched, i64 96
   %2 = load ptr, ptr %node_talloc, align 16
   tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %mul, i1 false)
-  %node_copies = getelementptr inbounds i8, ptr %sched, i64 104
+  %node_copies = getelementptr inbounds nuw i8, ptr %sched, i64 104
   %3 = load ptr, ptr %node_copies, align 8
   %mul3 = shl i64 %0, 5
   tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %mul3, i1 false)
-  %n_splits = getelementptr inbounds i8, ptr %sched, i64 59512
+  %n_splits = getelementptr inbounds nuw i8, ptr %sched, i64 59512
   store i32 0, ptr %n_splits, align 8
   store i64 1507408, ptr %params, align 8
-  %mem_buffer = getelementptr inbounds i8, ptr %params, i64 8
-  %context_buffer = getelementptr inbounds i8, ptr %sched, i64 59536
+  %mem_buffer = getelementptr inbounds nuw i8, ptr %params, i64 8
+  %context_buffer = getelementptr inbounds nuw i8, ptr %sched, i64 59536
   store ptr %context_buffer, ptr %mem_buffer, align 8
-  %no_alloc = getelementptr inbounds i8, ptr %params, i64 16
+  %no_alloc = getelementptr inbounds nuw i8, ptr %params, i64 16
   store i8 1, ptr %no_alloc, align 8
-  %ctx = getelementptr inbounds i8, ptr %sched, i64 59520
+  %ctx = getelementptr inbounds nuw i8, ptr %sched, i64 59520
   %4 = load ptr, ptr %ctx, align 16
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1488,33 +1488,33 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %call = tail call ptr @ggml_init(ptr noundef nonnull byval(%struct.ggml_init_params) align 8 %params) #20
   store ptr %call, ptr %ctx, align 16
-  %n_leafs = getelementptr inbounds i8, ptr %graph, i64 8
+  %n_leafs = getelementptr inbounds nuw i8, ptr %graph, i64 8
   %5 = load i32, ptr %n_leafs, align 8
   %cmp6438 = icmp sgt i32 %5, 0
   br i1 %cmp6438, label %for.body.lr.ph, label %for.cond31.preheader
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %leafs = getelementptr inbounds i8, ptr %graph, i64 32
-  %backends.i = getelementptr inbounds i8, ptr %sched, i64 8
-  %tallocs.i = getelementptr inbounds i8, ptr %sched, i64 40
+  %leafs = getelementptr inbounds nuw i8, ptr %graph, i64 32
+  %backends.i = getelementptr inbounds nuw i8, ptr %sched, i64 8
+  %tallocs.i = getelementptr inbounds nuw i8, ptr %sched, i64 40
   br label %for.body
 
 for.cond31.preheader:                             ; preds = %for.inc, %if.end
-  %n_nodes = getelementptr inbounds i8, ptr %graph, i64 4
+  %n_nodes = getelementptr inbounds nuw i8, ptr %graph, i64 4
   %6 = load i32, ptr %n_nodes, align 4
   %cmp32440 = icmp sgt i32 %6, 0
   br i1 %cmp32440, label %for.body33.lr.ph, label %for.end170
 
 for.body33.lr.ph:                                 ; preds = %for.cond31.preheader
-  %nodes = getelementptr inbounds i8, ptr %graph, i64 16
-  %backends.i.i243 = getelementptr inbounds i8, ptr %sched, i64 8
-  %tallocs.i264 = getelementptr inbounds i8, ptr %sched, i64 40
+  %nodes = getelementptr inbounds nuw i8, ptr %graph, i64 16
+  %backends.i.i243 = getelementptr inbounds nuw i8, ptr %sched, i64 8
+  %tallocs.i264 = getelementptr inbounds nuw i8, ptr %sched, i64 40
   br label %for.body33
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %7 = load ptr, ptr %leafs, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx, align 8
   %9 = load ptr, ptr %node_talloc, align 16
   %10 = load i64, ptr %hash_set, align 16
@@ -1526,7 +1526,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp11.not, label %if.end13, label %for.inc
 
 if.end13:                                         ; preds = %for.body
-  %buffer = getelementptr inbounds i8, ptr %8, i64 8
+  %buffer = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %buffer, align 8
   %cmp.i = icmp eq ptr %13, null
   br i1 %cmp.i, label %land.lhs.true, label %for.cond.preheader.i
@@ -1537,7 +1537,7 @@ for.cond.preheader.i:                             ; preds = %if.end13
   br i1 %cmp17.i, label %for.body.lr.ph.i, label %do.body.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %buft.i = getelementptr inbounds i8, ptr %13, i64 56
+  %buft.i = getelementptr inbounds nuw i8, ptr %13, i64 56
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -1550,9 +1550,9 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %17 = load ptr, ptr %buft.i, align 8
-  %arrayidx.i = getelementptr inbounds [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i
   %18 = load ptr, ptr %arrayidx.i, align 8
-  %supports_backend.i.i = getelementptr inbounds i8, ptr %17, i64 24
+  %supports_backend.i.i = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %supports_backend.i.i, align 8
   %call.i.i = tail call zeroext i1 %19(ptr noundef %17, ptr noundef %18) #20
   br i1 %call.i.i, label %get_buffer_backend.exit, label %for.cond.i
@@ -1567,19 +1567,19 @@ do.body.i:                                        ; preds = %for.cond.preheader.
   unreachable
 
 get_buffer_backend.exit:                          ; preds = %for.body.i
-  %arrayidx.i.le = getelementptr inbounds [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.le = getelementptr inbounds nuw [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i
   %22 = load ptr, ptr %arrayidx.i.le, align 8
   %cmp15 = icmp eq ptr %22, null
   br i1 %cmp15, label %land.lhs.true, label %if.then23
 
 land.lhs.true:                                    ; preds = %if.end13, %get_buffer_backend.exit
-  %view_src = getelementptr inbounds i8, ptr %8, i64 264
+  %view_src = getelementptr inbounds nuw i8, ptr %8, i64 264
   %23 = load ptr, ptr %view_src, align 8
   %cmp16.not = icmp eq ptr %23, null
   br i1 %cmp16.not, label %for.inc, label %if.then17
 
 if.then17:                                        ; preds = %land.lhs.true
-  %buffer19 = getelementptr inbounds i8, ptr %23, i64 8
+  %buffer19 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %24 = load ptr, ptr %buffer19, align 8
   %cmp.i221 = icmp eq ptr %24, null
   br i1 %cmp.i221, label %for.inc, label %for.cond.preheader.i222
@@ -1590,7 +1590,7 @@ for.cond.preheader.i222:                          ; preds = %if.then17
   br i1 %cmp17.i223, label %for.body.lr.ph.i227, label %do.body.i224
 
 for.body.lr.ph.i227:                              ; preds = %for.cond.preheader.i222
-  %buft.i228 = getelementptr inbounds i8, ptr %24, i64 56
+  %buft.i228 = getelementptr inbounds nuw i8, ptr %24, i64 56
   br label %for.body.i230
 
 for.cond.i235:                                    ; preds = %for.body.i230
@@ -1603,9 +1603,9 @@ for.cond.i235:                                    ; preds = %for.body.i230
 for.body.i230:                                    ; preds = %for.cond.i235, %for.body.lr.ph.i227
   %indvars.iv.i231 = phi i64 [ 0, %for.body.lr.ph.i227 ], [ %indvars.iv.next.i236, %for.cond.i235 ]
   %28 = load ptr, ptr %buft.i228, align 8
-  %arrayidx.i232 = getelementptr inbounds [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i231
+  %arrayidx.i232 = getelementptr inbounds nuw [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i231
   %29 = load ptr, ptr %arrayidx.i232, align 8
-  %supports_backend.i.i233 = getelementptr inbounds i8, ptr %28, i64 24
+  %supports_backend.i.i233 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %supports_backend.i.i233, align 8
   %call.i.i234 = tail call zeroext i1 %30(ptr noundef %28, ptr noundef %29) #20
   br i1 %call.i.i234, label %if.end21, label %for.cond.i235
@@ -1620,7 +1620,7 @@ do.body.i224:                                     ; preds = %for.cond.preheader.
   unreachable
 
 if.end21:                                         ; preds = %for.body.i230
-  %arrayidx.i232.le = getelementptr inbounds [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i231
+  %arrayidx.i232.le = getelementptr inbounds nuw [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i231
   %33 = load ptr, ptr %arrayidx.i232.le, align 8
   %cmp22.not = icmp eq ptr %33, null
   br i1 %cmp22.not, label %for.inc, label %if.then23
@@ -1637,7 +1637,7 @@ for.body.preheader.i.i:                           ; preds = %if.then23
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i.i
   %35 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp1.i.i = icmp eq ptr %35, %leaf_backend.0393
   br i1 %cmp1.i.i, label %return.loopexit.split.loop.exit9.i.i, label %for.inc.i.i
@@ -1676,14 +1676,14 @@ for.cond56.preheader:                             ; preds = %for.inc52
   br i1 %cmp58446, label %for.body59.lr.ph, label %for.end170
 
 for.body59.lr.ph:                                 ; preds = %for.cond56.preheader
-  %nodes61 = getelementptr inbounds i8, ptr %graph, i64 16
-  %tallocs.i278 = getelementptr inbounds i8, ptr %sched, i64 40
+  %nodes61 = getelementptr inbounds nuw i8, ptr %graph, i64 16
+  %tallocs.i278 = getelementptr inbounds nuw i8, ptr %sched, i64 40
   br label %for.body59
 
 for.body33:                                       ; preds = %for.body33.lr.ph, %for.inc52
   %indvars.iv497 = phi i64 [ 0, %for.body33.lr.ph ], [ %indvars.iv.next498, %for.inc52 ]
   %43 = load ptr, ptr %nodes, align 8
-  %arrayidx35 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv497
+  %arrayidx35 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv497
   %44 = load ptr, ptr %arrayidx35, align 8
   %45 = load ptr, ptr %node_talloc, align 16
   %46 = load i64, ptr %hash_set, align 16
@@ -1695,7 +1695,7 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   br i1 %cmp40.not, label %if.end42, label %for.inc52
 
 if.end42:                                         ; preds = %for.body33
-  %buffer.i = getelementptr inbounds i8, ptr %44, i64 8
+  %buffer.i = getelementptr inbounds nuw i8, ptr %44, i64 8
   %49 = load ptr, ptr %buffer.i, align 8
   %cmp.i.i = icmp eq ptr %49, null
   br i1 %cmp.i.i, label %if.end.i, label %for.cond.preheader.i.i
@@ -1706,7 +1706,7 @@ for.cond.preheader.i.i:                           ; preds = %if.end42
   br i1 %cmp17.i.i, label %for.body.lr.ph.i.i, label %do.body.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %buft.i.i = getelementptr inbounds i8, ptr %49, i64 56
+  %buft.i.i = getelementptr inbounds nuw i8, ptr %49, i64 56
   br label %for.body.i.i244
 
 for.cond.i.i:                                     ; preds = %for.body.i.i244
@@ -1719,9 +1719,9 @@ for.cond.i.i:                                     ; preds = %for.body.i.i244
 for.body.i.i244:                                  ; preds = %for.cond.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i245 = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i247, %for.cond.i.i ]
   %53 = load ptr, ptr %buft.i.i, align 8
-  %arrayidx.i.i246 = getelementptr inbounds [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i.i245
+  %arrayidx.i.i246 = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i.i245
   %54 = load ptr, ptr %arrayidx.i.i246, align 8
-  %supports_backend.i.i.i = getelementptr inbounds i8, ptr %53, i64 24
+  %supports_backend.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %supports_backend.i.i.i, align 8
   %call.i.i.i = tail call zeroext i1 %55(ptr noundef %53, ptr noundef %54) #20
   br i1 %call.i.i.i, label %get_buffer_backend.exit.i, label %for.cond.i.i
@@ -1736,19 +1736,19 @@ do.body.i.i:                                      ; preds = %for.cond.preheader.
   unreachable
 
 get_buffer_backend.exit.i:                        ; preds = %for.body.i.i244
-  %arrayidx.i.i246.le = getelementptr inbounds [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i.i245
+  %arrayidx.i.i246.le = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i.i245
   %58 = load ptr, ptr %arrayidx.i.i246.le, align 8
   %cmp.not.i = icmp eq ptr %58, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then45
 
 if.end.i:                                         ; preds = %get_buffer_backend.exit.i, %if.end42
-  %view_src.i = getelementptr inbounds i8, ptr %44, i64 264
+  %view_src.i = getelementptr inbounds nuw i8, ptr %44, i64 264
   %59 = load ptr, ptr %view_src.i, align 8
   %cmp1.not.i = icmp eq ptr %59, null
   br i1 %cmp1.not.i, label %if.end10.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %buffer3.i = getelementptr inbounds i8, ptr %59, i64 8
+  %buffer3.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   %60 = load ptr, ptr %buffer3.i, align 8
   %cmp.i20.i = icmp eq ptr %60, null
   br i1 %cmp.i20.i, label %if.end10.i, label %for.cond.preheader.i21.i
@@ -1759,7 +1759,7 @@ for.cond.preheader.i21.i:                         ; preds = %land.lhs.true.i
   br i1 %cmp17.i22.i, label %for.body.lr.ph.i26.i, label %do.body.i23.i
 
 for.body.lr.ph.i26.i:                             ; preds = %for.cond.preheader.i21.i
-  %buft.i27.i = getelementptr inbounds i8, ptr %60, i64 56
+  %buft.i27.i = getelementptr inbounds nuw i8, ptr %60, i64 56
   br label %for.body.i29.i
 
 for.cond.i34.i:                                   ; preds = %for.body.i29.i
@@ -1772,9 +1772,9 @@ for.cond.i34.i:                                   ; preds = %for.body.i29.i
 for.body.i29.i:                                   ; preds = %for.cond.i34.i, %for.body.lr.ph.i26.i
   %indvars.iv.i30.i = phi i64 [ 0, %for.body.lr.ph.i26.i ], [ %indvars.iv.next.i35.i, %for.cond.i34.i ]
   %64 = load ptr, ptr %buft.i27.i, align 8
-  %arrayidx.i31.i = getelementptr inbounds [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i30.i
+  %arrayidx.i31.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i30.i
   %65 = load ptr, ptr %arrayidx.i31.i, align 8
-  %supports_backend.i.i32.i = getelementptr inbounds i8, ptr %64, i64 24
+  %supports_backend.i.i32.i = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %supports_backend.i.i32.i, align 8
   %call.i.i33.i = tail call zeroext i1 %66(ptr noundef %64, ptr noundef %65) #20
   br i1 %call.i.i33.i, label %get_buffer_backend.exit40.i, label %for.cond.i34.i
@@ -1789,14 +1789,14 @@ do.body.i23.i:                                    ; preds = %for.cond.preheader.
   unreachable
 
 get_buffer_backend.exit40.i:                      ; preds = %for.body.i29.i
-  %arrayidx.i31.i.le = getelementptr inbounds [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i30.i
+  %arrayidx.i31.i.le = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i30.i
   %69 = load ptr, ptr %arrayidx.i31.i.le, align 8
   %cmp5.not.i = icmp eq ptr %69, null
   br i1 %cmp5.not.i, label %if.end10.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %get_buffer_backend.exit40.i
   %70 = load ptr, ptr %view_src.i, align 8
-  %buffer8.i = getelementptr inbounds i8, ptr %70, i64 8
+  %buffer8.i = getelementptr inbounds nuw i8, ptr %70, i64 8
   %71 = load ptr, ptr %buffer8.i, align 8
   %cmp.i41.i = icmp eq ptr %71, null
   br i1 %cmp.i41.i, label %for.inc52, label %for.cond.preheader.i42.i
@@ -1807,7 +1807,7 @@ for.cond.preheader.i42.i:                         ; preds = %if.then6.i
   br i1 %cmp17.i43.i, label %for.body.lr.ph.i47.i, label %do.body.i44.i
 
 for.body.lr.ph.i47.i:                             ; preds = %for.cond.preheader.i42.i
-  %buft.i48.i = getelementptr inbounds i8, ptr %71, i64 56
+  %buft.i48.i = getelementptr inbounds nuw i8, ptr %71, i64 56
   br label %for.body.i50.i
 
 for.cond.i55.i:                                   ; preds = %for.body.i50.i
@@ -1820,15 +1820,15 @@ for.cond.i55.i:                                   ; preds = %for.body.i50.i
 for.body.i50.i:                                   ; preds = %for.cond.i55.i, %for.body.lr.ph.i47.i
   %indvars.iv.i51.i = phi i64 [ 0, %for.body.lr.ph.i47.i ], [ %indvars.iv.next.i56.i, %for.cond.i55.i ]
   %75 = load ptr, ptr %buft.i48.i, align 8
-  %arrayidx.i52.i = getelementptr inbounds [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i51.i
+  %arrayidx.i52.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i51.i
   %76 = load ptr, ptr %arrayidx.i52.i, align 8
-  %supports_backend.i.i53.i = getelementptr inbounds i8, ptr %75, i64 24
+  %supports_backend.i.i53.i = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load ptr, ptr %supports_backend.i.i53.i, align 8
   %call.i.i54.i = tail call zeroext i1 %77(ptr noundef %75, ptr noundef %76) #20
   br i1 %call.i.i54.i, label %if.then2.i58.i, label %for.cond.i55.i
 
 if.then2.i58.i:                                   ; preds = %for.body.i50.i
-  %arrayidx.i52.i.le = getelementptr inbounds [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i51.i
+  %arrayidx.i52.i.le = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i51.i
   %78 = load ptr, ptr %arrayidx.i52.i.le, align 8
   br label %sched_backend_from_cur.exit
 
@@ -1842,7 +1842,7 @@ do.body.i44.i:                                    ; preds = %for.cond.preheader.
   unreachable
 
 if.end10.i:                                       ; preds = %get_buffer_backend.exit40.i, %land.lhs.true.i, %if.end.i
-  %src12.i = getelementptr inbounds i8, ptr %44, i64 160
+  %src12.i = getelementptr inbounds nuw i8, ptr %44, i64 160
   br label %for.body.i250
 
 for.body.i250:                                    ; preds = %for.inc.i, %if.end10.i
@@ -1850,13 +1850,13 @@ for.body.i250:                                    ; preds = %for.inc.i, %if.end1
   %cur_backend.0107.i = phi ptr [ null, %if.end10.i ], [ %cur_backend.1.i, %for.inc.i ]
   %cur_prio.0106.i = phi i32 [ 2147483647, %if.end10.i ], [ %cur_prio.1.i, %for.inc.i ]
   %cur_size.0105.i = phi i64 [ 0, %if.end10.i ], [ %cur_size.1.i, %for.inc.i ]
-  %arrayidx.i252 = getelementptr inbounds [10 x ptr], ptr %src12.i, i64 0, i64 %indvars.iv.i251
+  %arrayidx.i252 = getelementptr inbounds nuw [10 x ptr], ptr %src12.i, i64 0, i64 %indvars.iv.i251
   %81 = load ptr, ptr %arrayidx.i252, align 8
   %cmp13.i = icmp eq ptr %81, null
   br i1 %cmp13.i, label %sched_backend_from_cur.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %for.body.i250
-  %buffer16.i = getelementptr inbounds i8, ptr %81, i64 8
+  %buffer16.i = getelementptr inbounds nuw i8, ptr %81, i64 8
   %82 = load ptr, ptr %buffer16.i, align 8
   %cmp.i62.i = icmp eq ptr %82, null
   br i1 %cmp.i62.i, label %for.inc.i, label %for.cond.preheader.i63.i
@@ -1867,7 +1867,7 @@ for.cond.preheader.i63.i:                         ; preds = %if.end15.i
   br i1 %cmp17.i64.i, label %for.body.lr.ph.i68.i, label %do.body.i65.i
 
 for.body.lr.ph.i68.i:                             ; preds = %for.cond.preheader.i63.i
-  %buft.i69.i = getelementptr inbounds i8, ptr %82, i64 56
+  %buft.i69.i = getelementptr inbounds nuw i8, ptr %82, i64 56
   br label %for.body.i71.i
 
 for.cond.i76.i:                                   ; preds = %for.body.i71.i
@@ -1880,9 +1880,9 @@ for.cond.i76.i:                                   ; preds = %for.body.i71.i
 for.body.i71.i:                                   ; preds = %for.cond.i76.i, %for.body.lr.ph.i68.i
   %indvars.iv.i72.i = phi i64 [ 0, %for.body.lr.ph.i68.i ], [ %indvars.iv.next.i77.i, %for.cond.i76.i ]
   %86 = load ptr, ptr %buft.i69.i, align 8
-  %arrayidx.i73.i = getelementptr inbounds [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i72.i
+  %arrayidx.i73.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i72.i
   %87 = load ptr, ptr %arrayidx.i73.i, align 8
-  %supports_backend.i.i74.i = getelementptr inbounds i8, ptr %86, i64 24
+  %supports_backend.i.i74.i = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load ptr, ptr %supports_backend.i.i74.i, align 8
   %call.i.i75.i = tail call zeroext i1 %88(ptr noundef %86, ptr noundef %87) #20
   br i1 %call.i.i75.i, label %get_buffer_backend.exit82.i, label %for.cond.i76.i
@@ -1897,7 +1897,7 @@ do.body.i65.i:                                    ; preds = %for.cond.preheader.
   unreachable
 
 get_buffer_backend.exit82.i:                      ; preds = %for.body.i71.i
-  %arrayidx.i73.i.le = getelementptr inbounds [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i72.i
+  %arrayidx.i73.i.le = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i72.i
   %91 = load ptr, ptr %arrayidx.i73.i.le, align 8
   %cmp18.not.i = icmp eq ptr %91, null
   br i1 %cmp18.not.i, label %for.inc.i, label %if.then19.i
@@ -1913,7 +1913,7 @@ for.body.preheader.i.i255:                        ; preds = %if.then19.i
 
 for.body.i85.i:                                   ; preds = %for.inc.i.i257, %for.body.preheader.i.i255
   %indvars.iv.i86.i = phi i64 [ 0, %for.body.preheader.i.i255 ], [ %indvars.iv.next.i89.i, %for.inc.i.i257 ]
-  %arrayidx.i87.i = getelementptr inbounds [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i86.i
+  %arrayidx.i87.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i86.i
   %93 = load ptr, ptr %arrayidx.i87.i, align 8
   %cmp1.i88.i = icmp eq ptr %93, %91
   br i1 %cmp1.i88.i, label %return.loopexit.split.loop.exit9.i.i259, label %for.inc.i.i257
@@ -1963,7 +1963,7 @@ for.body.preheader.i.i266:                        ; preds = %if.then45
 
 for.body.i.i268:                                  ; preds = %for.inc.i.i272, %for.body.preheader.i.i266
   %indvars.iv.i.i269 = phi i64 [ 0, %for.body.preheader.i.i266 ], [ %indvars.iv.next.i.i273, %for.inc.i.i272 ]
-  %arrayidx.i.i270 = getelementptr inbounds [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i.i269
+  %arrayidx.i.i270 = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i243, i64 0, i64 %indvars.iv.i.i269
   %96 = load ptr, ptr %arrayidx.i.i270, align 8
   %cmp1.i.i271 = icmp eq ptr %96, %retval.0.i249399
   br i1 %cmp1.i.i271, label %return.loopexit.split.loop.exit9.i.i275, label %for.inc.i.i272
@@ -2002,13 +2002,13 @@ for.cond108.preheader:                            ; preds = %for.inc104
   br i1 %cmp110449, label %for.body111.lr.ph, label %for.end170
 
 for.body111.lr.ph:                                ; preds = %for.cond108.preheader
-  %nodes113 = getelementptr inbounds i8, ptr %graph, i64 16
+  %nodes113 = getelementptr inbounds nuw i8, ptr %graph, i64 16
   br label %for.body111
 
 for.body59:                                       ; preds = %for.body59.lr.ph, %for.inc104
   %indvars.iv503 = phi i64 [ 0, %for.body59.lr.ph ], [ %indvars.iv.next504, %for.inc104 ]
   %104 = load ptr, ptr %nodes61, align 8
-  %arrayidx63 = getelementptr inbounds ptr, ptr %104, i64 %indvars.iv503
+  %arrayidx63 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv503
   %105 = load ptr, ptr %arrayidx63, align 8
   %106 = load ptr, ptr %node_talloc, align 16
   %107 = load i64, ptr %hash_set, align 16
@@ -2020,7 +2020,7 @@ for.body59:                                       ; preds = %for.body59.lr.ph, %
   br i1 %cmp68, label %for.cond70.preheader, label %for.inc104
 
 for.cond70.preheader:                             ; preds = %for.body59
-  %src73 = getelementptr inbounds i8, ptr %105, i64 160
+  %src73 = getelementptr inbounds nuw i8, ptr %105, i64 160
   br label %for.body72
 
 for.body72:                                       ; preds = %for.cond70.preheader, %for.inc93
@@ -2028,7 +2028,7 @@ for.body72:                                       ; preds = %for.cond70.preheade
   %node_allocr.0445 = phi ptr [ null, %for.cond70.preheader ], [ %node_allocr.1, %for.inc93 ]
   %cur_prio.0444 = phi i32 [ 2147483647, %for.cond70.preheader ], [ %cur_prio.1, %for.inc93 ]
   %cur_size.0443 = phi i64 [ 0, %for.cond70.preheader ], [ %cur_size.1, %for.inc93 ]
-  %arrayidx75 = getelementptr inbounds [10 x ptr], ptr %src73, i64 0, i64 %indvars.iv500
+  %arrayidx75 = getelementptr inbounds nuw [10 x ptr], ptr %src73, i64 0, i64 %indvars.iv500
   %110 = load ptr, ptr %arrayidx75, align 8
   %cmp76 = icmp eq ptr %110, null
   br i1 %cmp76, label %for.end95, label %if.end78
@@ -2054,7 +2054,7 @@ for.body.preheader.i:                             ; preds = %if.then84
 
 for.body.i280:                                    ; preds = %for.inc.i284, %for.body.preheader.i
   %indvars.iv.i281 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i285, %for.inc.i284 ]
-  %arrayidx.i282 = getelementptr inbounds [4 x ptr], ptr %tallocs.i278, i64 0, i64 %indvars.iv.i281
+  %arrayidx.i282 = getelementptr inbounds nuw [4 x ptr], ptr %tallocs.i278, i64 0, i64 %indvars.iv.i281
   %116 = load ptr, ptr %arrayidx.i282, align 8
   %cmp1.i283 = icmp eq ptr %116, %114
   br i1 %cmp1.i283, label %return.loopexit.split.loop.exit9.i, label %for.inc.i284
@@ -2113,7 +2113,7 @@ for.cond151.preheader:                            ; preds = %for.inc147
   br i1 %cmp153451, label %for.body154.lr.ph, label %for.end170
 
 for.body154.lr.ph:                                ; preds = %for.cond151.preheader
-  %nodes156 = getelementptr inbounds i8, ptr %graph, i64 16
+  %nodes156 = getelementptr inbounds nuw i8, ptr %graph, i64 16
   %123 = load ptr, ptr %nodes156, align 8
   %wide.trip.count = zext nneg i32 %138 to i64
   br label %for.body154
@@ -2121,7 +2121,7 @@ for.body154.lr.ph:                                ; preds = %for.cond151.prehead
 for.body111:                                      ; preds = %for.body111.lr.ph, %for.inc147
   %indvars.iv510 = phi i64 [ 0, %for.body111.lr.ph ], [ %indvars.iv.next511, %for.inc147 ]
   %124 = load ptr, ptr %nodes113, align 8
-  %arrayidx115 = getelementptr inbounds ptr, ptr %124, i64 %indvars.iv510
+  %arrayidx115 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv510
   %125 = load ptr, ptr %arrayidx115, align 8
   %126 = load ptr, ptr %node_talloc, align 16
   %127 = load i64, ptr %hash_set, align 16
@@ -2129,12 +2129,12 @@ for.body111:                                      ; preds = %for.body111.lr.ph, 
   %call119 = tail call i64 @ggml_hash_find_or_insert(i64 %127, ptr %128, ptr noundef %125) #20
   %arrayidx120 = getelementptr inbounds ptr, ptr %126, i64 %call119
   %129 = load ptr, ptr %arrayidx120, align 8
-  %src126 = getelementptr inbounds i8, ptr %125, i64 160
+  %src126 = getelementptr inbounds nuw i8, ptr %125, i64 160
   br label %for.body124
 
 for.body124:                                      ; preds = %for.body111, %for.inc144
   %indvars.iv506 = phi i64 [ 0, %for.body111 ], [ %indvars.iv.next507, %for.inc144 ]
-  %arrayidx128 = getelementptr inbounds [10 x ptr], ptr %src126, i64 0, i64 %indvars.iv506
+  %arrayidx128 = getelementptr inbounds nuw [10 x ptr], ptr %src126, i64 0, i64 %indvars.iv506
   %130 = load ptr, ptr %arrayidx128, align 8
   %cmp129 = icmp eq ptr %130, null
   br i1 %cmp129, label %for.inc147, label %if.end131
@@ -2177,9 +2177,9 @@ for.cond151:                                      ; preds = %for.body154
 
 for.body154:                                      ; preds = %for.body154.lr.ph, %for.cond151
   %indvars.iv513 = phi i64 [ 0, %for.body154.lr.ph ], [ %indvars.iv.next514, %for.cond151 ]
-  %arrayidx158 = getelementptr inbounds ptr, ptr %123, i64 %indvars.iv513
+  %arrayidx158 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv513
   %140 = load ptr, ptr %arrayidx158, align 8
-  %view_src159 = getelementptr inbounds i8, ptr %140, i64 264
+  %view_src159 = getelementptr inbounds nuw i8, ptr %140, i64 264
   %141 = load ptr, ptr %view_src159, align 8
   %cmp160 = icmp eq ptr %141, null
   br i1 %cmp160, label %if.then161, label %for.cond151
@@ -2191,18 +2191,18 @@ if.then161:                                       ; preds = %for.body154
   %call164 = tail call i64 @ggml_hash_find_or_insert(i64 %143, ptr %144, ptr noundef nonnull %140) #20
   %arrayidx165 = getelementptr inbounds ptr, ptr %142, i64 %call164
   %145 = load ptr, ptr %arrayidx165, align 8
-  %splits = getelementptr inbounds i8, ptr %sched, i64 120
+  %splits = getelementptr inbounds nuw i8, ptr %sched, i64 120
   store ptr %145, ptr %splits, align 8
   br label %for.end170
 
 for.end170:                                       ; preds = %for.cond151, %for.cond31.preheader, %for.cond56.preheader, %for.cond108.preheader, %for.cond151.preheader, %if.then161
-  %splits171 = getelementptr inbounds i8, ptr %sched, i64 120
-  %i_start = getelementptr inbounds i8, ptr %sched, i64 128
+  %splits171 = getelementptr inbounds nuw i8, ptr %sched, i64 120
+  %i_start = getelementptr inbounds nuw i8, ptr %sched, i64 128
   store i32 0, ptr %i_start, align 8
-  %inputs = getelementptr inbounds i8, ptr %sched, i64 136
+  %inputs = getelementptr inbounds nuw i8, ptr %sched, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %inputs, i8 0, i64 132, i1 false)
   %146 = load ptr, ptr %splits171, align 8
-  %tallocs.i287 = getelementptr inbounds i8, ptr %sched, i64 40
+  %tallocs.i287 = getelementptr inbounds nuw i8, ptr %sched, i64 40
   %147 = load i32, ptr %sched, align 16
   %cmp5.i288 = icmp sgt i32 %147, 0
   br i1 %cmp5.i288, label %for.body.preheader.i290, label %sched_allocr_prio.exit300
@@ -2213,7 +2213,7 @@ for.body.preheader.i290:                          ; preds = %for.end170
 
 for.body.i292:                                    ; preds = %for.inc.i296, %for.body.preheader.i290
   %indvars.iv.i293 = phi i64 [ 0, %for.body.preheader.i290 ], [ %indvars.iv.next.i297, %for.inc.i296 ]
-  %arrayidx.i294 = getelementptr inbounds [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i293
+  %arrayidx.i294 = getelementptr inbounds nuw [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i293
   %148 = load ptr, ptr %arrayidx.i294, align 8
   %cmp1.i295 = icmp eq ptr %148, %146
   br i1 %cmp1.i295, label %return.loopexit.split.loop.exit9.i299, label %for.inc.i296
@@ -2236,8 +2236,8 @@ sched_allocr_prio.exit300:                        ; preds = %for.inc.i296, %for.
   br i1 %cmp185454, label %for.body187.lr.ph, label %for.end308
 
 for.body187.lr.ph:                                ; preds = %sched_allocr_prio.exit300
-  %nodes189 = getelementptr inbounds i8, ptr %graph, i64 16
-  %backends.i328 = getelementptr inbounds i8, ptr %sched, i64 8
+  %nodes189 = getelementptr inbounds nuw i8, ptr %graph, i64 16
+  %backends.i328 = getelementptr inbounds nuw i8, ptr %sched, i64 8
   br label %for.body187
 
 for.body187:                                      ; preds = %for.body187.lr.ph, %for.inc306
@@ -2247,9 +2247,9 @@ for.body187:                                      ; preds = %for.body187.lr.ph, 
   %cur_allocr.0457 = phi ptr [ %146, %for.body187.lr.ph ], [ %cur_allocr.1, %for.inc306 ]
   %cur_backend_id.0456 = phi i64 [ %retval.0.i289, %for.body187.lr.ph ], [ %cur_backend_id.1, %for.inc306 ]
   %152 = load ptr, ptr %nodes189, align 8
-  %arrayidx191 = getelementptr inbounds ptr, ptr %152, i64 %indvars.iv521
+  %arrayidx191 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv521
   %153 = load ptr, ptr %arrayidx191, align 8
-  %op = getelementptr inbounds i8, ptr %153, i64 80
+  %op = getelementptr inbounds nuw i8, ptr %153, i64 80
   %154 = load i32, ptr %op, align 8
   %155 = add i32 %154, -30
   %switch.selectcmp.i = icmp ult i32 %155, 4
@@ -2288,9 +2288,9 @@ do.end:                                           ; preds = %if.then202
   %idxprom214 = sext i32 %inc206 to i64
   %arrayidx215 = getelementptr inbounds [256 x %struct.ggml_backend_sched_split], ptr %splits171, i64 0, i64 %idxprom214
   store ptr %159, ptr %arrayidx215, align 8
-  %i_start220 = getelementptr inbounds i8, ptr %arrayidx215, i64 8
+  %i_start220 = getelementptr inbounds nuw i8, ptr %arrayidx215, i64 8
   store i32 %160, ptr %i_start220, align 8
-  %inputs228 = getelementptr inbounds i8, ptr %arrayidx215, i64 16
+  %inputs228 = getelementptr inbounds nuw i8, ptr %arrayidx215, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %inputs228, i8 0, i64 132, i1 false)
   %163 = load i32, ptr %sched, align 16
   %cmp5.i302 = icmp sgt i32 %163, 0
@@ -2302,7 +2302,7 @@ for.body.preheader.i304:                          ; preds = %do.end
 
 for.body.i306:                                    ; preds = %for.inc.i310, %for.body.preheader.i304
   %indvars.iv.i307 = phi i64 [ 0, %for.body.preheader.i304 ], [ %indvars.iv.next.i311, %for.inc.i310 ]
-  %arrayidx.i308 = getelementptr inbounds [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i307
+  %arrayidx.i308 = getelementptr inbounds nuw [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i307
   %164 = load ptr, ptr %arrayidx.i308, align 8
   %cmp1.i309 = icmp eq ptr %164, %159
   br i1 %cmp1.i309, label %return.loopexit.split.loop.exit9.i313, label %for.inc.i310
@@ -2322,16 +2322,16 @@ if.end232:                                        ; preds = %for.inc.i310, %if.e
   %cur_backend_id.2 = phi i64 [ %165, %return.loopexit.split.loop.exit9.i313 ], [ 2147483647, %do.end ], [ %cur_backend_id.0456, %if.end194 ], [ 2147483647, %for.inc.i310 ]
   %cur_allocr.2 = phi ptr [ %159, %return.loopexit.split.loop.exit9.i313 ], [ %159, %do.end ], [ %cur_allocr.0457, %if.end194 ], [ %159, %for.inc.i310 ]
   %cur_split.2 = phi i32 [ %inc206, %return.loopexit.split.loop.exit9.i313 ], [ %inc206, %do.end ], [ %cur_split.0458, %if.end194 ], [ %inc206, %for.inc.i310 ]
-  %src239 = getelementptr inbounds i8, ptr %153, i64 160
+  %src239 = getelementptr inbounds nuw i8, ptr %153, i64 160
   %arrayidx257 = getelementptr inbounds [256 x %struct.ggml_backend_sched_split], ptr %splits171, i64 0, i64 %idxprom256.pre-phi
-  %n_inputs258 = getelementptr inbounds i8, ptr %arrayidx257, i64 144
-  %inputs271 = getelementptr inbounds i8, ptr %arrayidx257, i64 16
+  %n_inputs258 = getelementptr inbounds nuw i8, ptr %arrayidx257, i64 144
+  %inputs271 = getelementptr inbounds nuw i8, ptr %arrayidx257, i64 16
   %cmp.i320 = icmp eq ptr %cur_allocr.2, null
   br label %for.body237
 
 for.body237:                                      ; preds = %if.end232, %for.inc303
   %indvars.iv517 = phi i64 [ 0, %if.end232 ], [ %indvars.iv.next518, %for.inc303 ]
-  %arrayidx241 = getelementptr inbounds [10 x ptr], ptr %src239, i64 0, i64 %indvars.iv517
+  %arrayidx241 = getelementptr inbounds nuw [10 x ptr], ptr %src239, i64 0, i64 %indvars.iv517
   %166 = load ptr, ptr %arrayidx241, align 8
   %cmp242 = icmp eq ptr %166, null
   br i1 %cmp242, label %for.inc306.loopexit, label %if.end245
@@ -2378,15 +2378,15 @@ do.end267:                                        ; preds = %if.then253
 if.then281:                                       ; preds = %do.end267
   %178 = load ptr, ptr %ctx, align 16
   %call.i = tail call ptr @ggml_dup_tensor(ptr noundef %178, ptr noundef nonnull %166) #20
-  %nb.i = getelementptr inbounds i8, ptr %166, i64 48
-  %nb1.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %nb.i = getelementptr inbounds nuw i8, ptr %166, i64 48
+  %nb1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   br label %for.body.i315
 
 for.body.i315:                                    ; preds = %for.body.i315, %if.then281
   %indvars.iv.i316 = phi i64 [ 0, %if.then281 ], [ %indvars.iv.next.i318, %for.body.i315 ]
-  %arrayidx.i317 = getelementptr inbounds [4 x i64], ptr %nb.i, i64 0, i64 %indvars.iv.i316
+  %arrayidx.i317 = getelementptr inbounds nuw [4 x i64], ptr %nb.i, i64 0, i64 %indvars.iv.i316
   %179 = load i64, ptr %arrayidx.i317, align 8
-  %arrayidx3.i = getelementptr inbounds [4 x i64], ptr %nb1.i, i64 0, i64 %indvars.iv.i316
+  %arrayidx3.i = getelementptr inbounds nuw [4 x i64], ptr %nb1.i, i64 0, i64 %indvars.iv.i316
   store i64 %179, ptr %arrayidx3.i, align 8
   %indvars.iv.next.i318 = add nuw nsw i64 %indvars.iv.i316, 1
   %exitcond.not.i319 = icmp eq i64 %indvars.iv.next.i318, 4
@@ -2413,14 +2413,14 @@ for.cond.i323:                                    ; preds = %for.cond.i323, %for
   %indvars.iv.i324 = phi i64 [ %indvars.iv.next.i327, %for.cond.i323 ], [ 0, %for.cond.preheader.i321 ]
   %cmp1.i325 = icmp slt i64 %indvars.iv.i324, %185
   tail call void @llvm.assume(i1 %cmp1.i325)
-  %arrayidx.i326 = getelementptr inbounds [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i324
+  %arrayidx.i326 = getelementptr inbounds nuw [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i324
   %186 = load ptr, ptr %arrayidx.i326, align 8
   %cmp2.i = icmp eq ptr %186, %cur_allocr.2
   %indvars.iv.next.i327 = add nuw nsw i64 %indvars.iv.i324, 1
   br i1 %cmp2.i, label %get_allocr_backend.exit, label %for.cond.i323, !llvm.loop !23
 
 get_allocr_backend.exit:                          ; preds = %for.cond.i323
-  %arrayidx5.i = getelementptr inbounds [4 x ptr], ptr %backends.i328, i64 0, i64 %indvars.iv.i324
+  %arrayidx5.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i328, i64 0, i64 %indvars.iv.i324
   %187 = load ptr, ptr %arrayidx5.i, align 8
   %cmp.i330 = icmp eq ptr %187, null
   br i1 %cmp.i330, label %ggml_backend_name.exit, label %if.end.i331
@@ -2432,7 +2432,7 @@ if.end.i331:                                      ; preds = %get_allocr_backend.
 
 ggml_backend_name.exit:                           ; preds = %ggml_dup_tensor_layout.exit, %get_allocr_backend.exit, %if.end.i331
   %retval.0.i333 = phi ptr [ %call.i332, %if.end.i331 ], [ @.str.5, %get_allocr_backend.exit ], [ @.str.5, %ggml_dup_tensor_layout.exit ]
-  %name = getelementptr inbounds i8, ptr %166, i64 288
+  %name = getelementptr inbounds nuw i8, ptr %166, i64 288
   %call294 = tail call ptr (ptr, ptr, ...) @ggml_format_name(ptr noundef %call.i, ptr noundef nonnull @.str.38, ptr noundef %retval.0.i333, ptr noundef nonnull %name) #20
   %.pre = load ptr, ptr %node_copies, align 8
   %arrayidx298.phi.trans.insert = getelementptr inbounds [4 x ptr], ptr %.pre, i64 %call275, i64 %cur_backend_id.2
@@ -2478,14 +2478,14 @@ for.end308:                                       ; preds = %for.inc306, %sched_
   br i1 %cmp318462, label %for.body320.lr.ph, label %for.end378
 
 for.body320.lr.ph:                                ; preds = %for.end308
-  %nodes322 = getelementptr inbounds i8, ptr %graph, i64 16
-  %backends.i344 = getelementptr inbounds i8, ptr %sched, i64 8
+  %nodes322 = getelementptr inbounds nuw i8, ptr %graph, i64 16
+  %backends.i344 = getelementptr inbounds nuw i8, ptr %sched, i64 8
   br label %for.body320
 
 for.body320:                                      ; preds = %for.body320.lr.ph, %for.inc376
   %indvars.iv532 = phi i64 [ 0, %for.body320.lr.ph ], [ %indvars.iv.next533, %for.inc376 ]
   %194 = load ptr, ptr %nodes322, align 8
-  %arrayidx324 = getelementptr inbounds ptr, ptr %194, i64 %indvars.iv532
+  %arrayidx324 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv532
   %195 = load ptr, ptr %arrayidx324, align 8
   %196 = load ptr, ptr %node_talloc, align 16
   %197 = load i64, ptr %hash_set, align 16
@@ -2494,23 +2494,23 @@ for.body320:                                      ; preds = %for.body320.lr.ph, 
   %arrayidx329 = getelementptr inbounds ptr, ptr %196, i64 %call328
   %199 = load ptr, ptr %arrayidx329, align 8
   %cmp330 = icmp eq ptr %199, null
-  %name333 = getelementptr inbounds i8, ptr %195, i64 288
+  %name333 = getelementptr inbounds nuw i8, ptr %195, i64 288
   br i1 %cmp330, label %for.body341.us.preheader, label %for.body341.preheader
 
 for.body341.preheader:                            ; preds = %for.body320
-  %src343 = getelementptr inbounds i8, ptr %195, i64 160
+  %src343 = getelementptr inbounds nuw i8, ptr %195, i64 160
   br label %for.body341
 
 for.body341.us.preheader:                         ; preds = %for.body320
   %200 = load ptr, ptr @stderr, align 8
   %call335 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull @.str.39, ptr noundef nonnull %name333) #22
-  %src343552 = getelementptr inbounds i8, ptr %195, i64 160
-  %name358553 = getelementptr inbounds i8, ptr %195, i64 288
+  %src343552 = getelementptr inbounds nuw i8, ptr %195, i64 160
+  %name358553 = getelementptr inbounds nuw i8, ptr %195, i64 288
   br label %for.body341.us
 
 for.body341.us:                                   ; preds = %for.body341.us.preheader, %for.inc373.us
   %indvars.iv528 = phi i64 [ 0, %for.body341.us.preheader ], [ %indvars.iv.next529, %for.inc373.us ]
-  %arrayidx345.us = getelementptr inbounds [10 x ptr], ptr %src343552, i64 0, i64 %indvars.iv528
+  %arrayidx345.us = getelementptr inbounds nuw [10 x ptr], ptr %src343552, i64 0, i64 %indvars.iv528
   %201 = load ptr, ptr %arrayidx345.us, align 8
   %cmp346.us = icmp eq ptr %201, null
   br i1 %cmp346.us, label %for.inc376, label %if.end349.us
@@ -2527,7 +2527,7 @@ if.end349.us:                                     ; preds = %for.body341.us
 
 for.cond.preheader.i354.us:                       ; preds = %if.end349.us
   %206 = load ptr, ptr @stderr, align 8
-  %name362.us = getelementptr inbounds i8, ptr %201, i64 288
+  %name362.us = getelementptr inbounds nuw i8, ptr %201, i64 288
   %207 = load i32, ptr %sched, align 16
   %208 = sext i32 %207 to i64
   br label %for.cond.i356.us
@@ -2536,14 +2536,14 @@ for.cond.i356.us:                                 ; preds = %for.cond.i356.us, %
   %indvars.iv.i357.us = phi i64 [ %indvars.iv.next.i361.us, %for.cond.i356.us ], [ 0, %for.cond.preheader.i354.us ]
   %cmp1.i358.us = icmp slt i64 %indvars.iv.i357.us, %208
   tail call void @llvm.assume(i1 %cmp1.i358.us)
-  %arrayidx.i359.us = getelementptr inbounds [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i357.us
+  %arrayidx.i359.us = getelementptr inbounds nuw [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i357.us
   %209 = load ptr, ptr %arrayidx.i359.us, align 8
   %cmp2.i360.us = icmp eq ptr %209, %205
   %indvars.iv.next.i361.us = add nuw nsw i64 %indvars.iv.i357.us, 1
   br i1 %cmp2.i360.us, label %get_allocr_backend.exit366.us, label %for.cond.i356.us, !llvm.loop !23
 
 get_allocr_backend.exit366.us:                    ; preds = %for.cond.i356.us
-  %arrayidx5.i364.us = getelementptr inbounds [4 x ptr], ptr %backends.i344, i64 0, i64 %indvars.iv.i357.us
+  %arrayidx5.i364.us = getelementptr inbounds nuw [4 x ptr], ptr %backends.i344, i64 0, i64 %indvars.iv.i357.us
   %210 = load ptr, ptr %arrayidx5.i364.us, align 8
   %cmp.i367.us = icmp eq ptr %210, null
   br i1 %cmp.i367.us, label %cond.end369.us, label %if.end.i368.us
@@ -2566,7 +2566,7 @@ for.inc373.us:                                    ; preds = %cond.end369.us, %if
 
 for.body341:                                      ; preds = %for.body341.preheader, %for.inc373
   %indvars.iv524 = phi i64 [ 0, %for.body341.preheader ], [ %indvars.iv.next525, %for.inc373 ]
-  %arrayidx345 = getelementptr inbounds [10 x ptr], ptr %src343, i64 0, i64 %indvars.iv524
+  %arrayidx345 = getelementptr inbounds nuw [10 x ptr], ptr %src343, i64 0, i64 %indvars.iv524
   %213 = load ptr, ptr %arrayidx345, align 8
   %cmp346 = icmp eq ptr %213, null
   br i1 %cmp346, label %for.inc376, label %if.end349
@@ -2591,14 +2591,14 @@ for.cond.i337:                                    ; preds = %for.cond.i337, %if.
   %indvars.iv.i338 = phi i64 [ %indvars.iv.next.i342, %for.cond.i337 ], [ 0, %if.then357 ]
   %cmp1.i339 = icmp slt i64 %indvars.iv.i338, %220
   tail call void @llvm.assume(i1 %cmp1.i339)
-  %arrayidx.i340 = getelementptr inbounds [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i338
+  %arrayidx.i340 = getelementptr inbounds nuw [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i338
   %221 = load ptr, ptr %arrayidx.i340, align 8
   %cmp2.i341 = icmp eq ptr %221, %199
   %indvars.iv.next.i342 = add nuw nsw i64 %indvars.iv.i338, 1
   br i1 %cmp2.i341, label %get_allocr_backend.exit347, label %for.cond.i337, !llvm.loop !23
 
 get_allocr_backend.exit347:                       ; preds = %for.cond.i337
-  %arrayidx5.i345 = getelementptr inbounds [4 x ptr], ptr %backends.i344, i64 0, i64 %indvars.iv.i338
+  %arrayidx5.i345 = getelementptr inbounds nuw [4 x ptr], ptr %backends.i344, i64 0, i64 %indvars.iv.i338
   %222 = load ptr, ptr %arrayidx5.i345, align 8
   %cmp.i348 = icmp eq ptr %222, null
   br i1 %cmp.i348, label %cond.end, label %if.end.i349
@@ -2610,7 +2610,7 @@ if.end.i349:                                      ; preds = %get_allocr_backend.
 
 cond.end:                                         ; preds = %if.end.i349, %get_allocr_backend.exit347
   %cond = phi ptr [ %call.i350, %if.end.i349 ], [ @.str.5, %get_allocr_backend.exit347 ]
-  %name362 = getelementptr inbounds i8, ptr %213, i64 288
+  %name362 = getelementptr inbounds nuw i8, ptr %213, i64 288
   %tobool364.not = icmp eq ptr %217, null
   br i1 %tobool364.not, label %cond.end369, label %for.cond.preheader.i354
 
@@ -2623,14 +2623,14 @@ for.cond.i356:                                    ; preds = %for.cond.i356, %for
   %indvars.iv.i357 = phi i64 [ %indvars.iv.next.i361, %for.cond.i356 ], [ 0, %for.cond.preheader.i354 ]
   %cmp1.i358 = icmp slt i64 %indvars.iv.i357, %225
   tail call void @llvm.assume(i1 %cmp1.i358)
-  %arrayidx.i359 = getelementptr inbounds [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i357
+  %arrayidx.i359 = getelementptr inbounds nuw [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i357
   %226 = load ptr, ptr %arrayidx.i359, align 8
   %cmp2.i360 = icmp eq ptr %226, %217
   %indvars.iv.next.i361 = add nuw nsw i64 %indvars.iv.i357, 1
   br i1 %cmp2.i360, label %get_allocr_backend.exit366, label %for.cond.i356, !llvm.loop !23
 
 get_allocr_backend.exit366:                       ; preds = %for.cond.i356
-  %arrayidx5.i364 = getelementptr inbounds [4 x ptr], ptr %backends.i344, i64 0, i64 %indvars.iv.i357
+  %arrayidx5.i364 = getelementptr inbounds nuw [4 x ptr], ptr %backends.i344, i64 0, i64 %indvars.iv.i357
   %227 = load ptr, ptr %arrayidx5.i364, align 8
   %cmp.i367 = icmp eq ptr %227, null
   br i1 %cmp.i367, label %cond.end369, label %if.end.i368
@@ -2675,33 +2675,33 @@ for.end378:                                       ; preds = %for.end378.loopexit
   br i1 %cmp389469, label %for.body391.lr.ph, label %for.end445
 
 for.body391.lr.ph:                                ; preds = %for.end378
-  %nodes417 = getelementptr inbounds i8, ptr %call385, i64 16
-  %n_nodes418 = getelementptr inbounds i8, ptr %call385, i64 4
-  %nodes432 = getelementptr inbounds i8, ptr %graph, i64 16
+  %nodes417 = getelementptr inbounds nuw i8, ptr %call385, i64 16
+  %n_nodes418 = getelementptr inbounds nuw i8, ptr %call385, i64 4
+  %nodes432 = getelementptr inbounds nuw i8, ptr %graph, i64 16
   br label %for.body391
 
 for.body391:                                      ; preds = %for.body391.lr.ph, %for.inc443
   %indvars.iv541 = phi i64 [ 0, %for.body391.lr.ph ], [ %indvars.iv.next542, %for.inc443 ]
-  %arrayidx394 = getelementptr inbounds [256 x %struct.ggml_backend_sched_split], ptr %splits171, i64 0, i64 %indvars.iv541
-  %graph395 = getelementptr inbounds i8, ptr %arrayidx394, i64 152
-  %i_start396 = getelementptr inbounds i8, ptr %arrayidx394, i64 8
+  %arrayidx394 = getelementptr inbounds nuw [256 x %struct.ggml_backend_sched_split], ptr %splits171, i64 0, i64 %indvars.iv541
+  %graph395 = getelementptr inbounds nuw i8, ptr %arrayidx394, i64 152
+  %i_start396 = getelementptr inbounds nuw i8, ptr %arrayidx394, i64 8
   %235 = load i32, ptr %i_start396, align 8
-  %i_end397 = getelementptr inbounds i8, ptr %arrayidx394, i64 12
+  %i_end397 = getelementptr inbounds nuw i8, ptr %arrayidx394, i64 12
   %236 = load i32, ptr %i_end397, align 4
   call void @ggml_graph_view(ptr nonnull sret(%struct.ggml_cgraph) align 8 %tmp, ptr noundef %graph, i32 noundef %235, i32 noundef %236) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %graph395, ptr noundef nonnull align 8 dereferenceable(80) %tmp, i64 80, i1 false)
-  %n_inputs400 = getelementptr inbounds i8, ptr %arrayidx394, i64 144
+  %n_inputs400 = getelementptr inbounds nuw i8, ptr %arrayidx394, i64 144
   %237 = load i32, ptr %n_inputs400, align 8
   %cmp401465 = icmp sgt i32 %237, 0
   br i1 %cmp401465, label %for.body403.lr.ph, label %for.end424
 
 for.body403.lr.ph:                                ; preds = %for.body391
-  %inputs404 = getelementptr inbounds i8, ptr %arrayidx394, i64 16
+  %inputs404 = getelementptr inbounds nuw i8, ptr %arrayidx394, i64 16
   br label %for.body403
 
 for.body403:                                      ; preds = %for.body403.lr.ph, %sched_allocr_prio.exit385
   %indvars.iv535 = phi i64 [ 0, %for.body403.lr.ph ], [ %indvars.iv.next536, %sched_allocr_prio.exit385 ]
-  %arrayidx406 = getelementptr inbounds [16 x ptr], ptr %inputs404, i64 0, i64 %indvars.iv535
+  %arrayidx406 = getelementptr inbounds nuw [16 x ptr], ptr %inputs404, i64 0, i64 %indvars.iv535
   %238 = load ptr, ptr %arrayidx406, align 8
   %239 = load ptr, ptr %node_copies, align 8
   %240 = load i64, ptr %hash_set, align 16
@@ -2718,7 +2718,7 @@ for.body.preheader.i375:                          ; preds = %for.body403
 
 for.body.i377:                                    ; preds = %for.inc.i381, %for.body.preheader.i375
   %indvars.iv.i378 = phi i64 [ 0, %for.body.preheader.i375 ], [ %indvars.iv.next.i382, %for.inc.i381 ]
-  %arrayidx.i379 = getelementptr inbounds [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i378
+  %arrayidx.i379 = getelementptr inbounds nuw [4 x ptr], ptr %tallocs.i287, i64 0, i64 %indvars.iv.i378
   %244 = load ptr, ptr %arrayidx.i379, align 8
   %cmp1.i380 = icmp eq ptr %244, %242
   br i1 %cmp1.i380, label %return.loopexit.split.loop.exit9.i384, label %for.inc.i381
@@ -2737,7 +2737,7 @@ sched_allocr_prio.exit385:                        ; preds = %for.inc.i381, %for.
   %retval.0.i374 = phi i64 [ 2147483647, %for.body403 ], [ %245, %return.loopexit.split.loop.exit9.i384 ], [ 2147483647, %for.inc.i381 ]
   %arrayidx414 = getelementptr inbounds [4 x ptr], ptr %239, i64 %call409, i64 %retval.0.i374
   %246 = load ptr, ptr %arrayidx414, align 8
-  %src415 = getelementptr inbounds i8, ptr %246, i64 160
+  %src415 = getelementptr inbounds nuw i8, ptr %246, i64 160
   store ptr %238, ptr %src415, align 8
   %247 = load ptr, ptr %nodes417, align 8
   %248 = load i32, ptr %n_nodes418, align 4
@@ -2788,7 +2788,7 @@ for.inc443:                                       ; preds = %for.body431, %for.e
   br i1 %cmp389, label %for.body391, label %for.end445, !llvm.loop !30
 
 for.end445:                                       ; preds = %for.inc443, %for.end378
-  %graph446 = getelementptr inbounds i8, ptr %sched, i64 112
+  %graph446 = getelementptr inbounds nuw i8, ptr %sched, i64 112
   store ptr %call385, ptr %graph446, align 16
   ret void
 }
@@ -2802,9 +2802,9 @@ define void @ggml_backend_sched_graph_compute(ptr noundef %sched, ptr noundef %g
 entry:
   %copy_us.i = alloca [4 x i64], align 16
   %compute_us.i = alloca [4 x i64], align 16
-  %hash_set = getelementptr inbounds i8, ptr %sched, i64 80
+  %hash_set = getelementptr inbounds nuw i8, ptr %sched, i64 80
   %0 = load i64, ptr %hash_set, align 16
-  %visited_hash_table = getelementptr inbounds i8, ptr %graph, i64 40
+  %visited_hash_table = getelementptr inbounds nuw i8, ptr %graph, i64 40
   %1 = load i64, ptr %visited_hash_table, align 8
   %add = add i64 %1, 4096
   %cmp.not = icmp ult i64 %0, %add
@@ -2821,35 +2821,35 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call fastcc void @sched_split_graph(ptr noundef nonnull %sched, ptr noundef nonnull %graph)
-  %galloc.i = getelementptr inbounds i8, ptr %sched, i64 72
+  %galloc.i = getelementptr inbounds nuw i8, ptr %sched, i64 72
   %4 = load ptr, ptr %galloc.i, align 8
-  %graph.i = getelementptr inbounds i8, ptr %sched, i64 112
+  %graph.i = getelementptr inbounds nuw i8, ptr %sched, i64 112
   %5 = load ptr, ptr %graph.i, align 16
-  %node_talloc.i = getelementptr inbounds i8, ptr %sched, i64 96
+  %node_talloc.i = getelementptr inbounds nuw i8, ptr %sched, i64 96
   %6 = load ptr, ptr %node_talloc.i, align 16
   %7 = load i64, ptr %hash_set, align 16
-  %8 = getelementptr inbounds i8, ptr %sched, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %sched, i64 88
   %9 = load ptr, ptr %8, align 8
   tail call void @ggml_gallocr_alloc_graph_n(ptr noundef %4, ptr noundef %5, i64 %7, ptr %9, ptr noundef %6) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %copy_us.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %compute_us.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %copy_us.i, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %compute_us.i, i8 0, i64 32, i1 false)
-  %splits1.i = getelementptr inbounds i8, ptr %sched, i64 120
-  %n_splits.i = getelementptr inbounds i8, ptr %sched, i64 59512
+  %splits1.i = getelementptr inbounds nuw i8, ptr %sched, i64 120
+  %n_splits.i = getelementptr inbounds nuw i8, ptr %sched, i64 59512
   %10 = load i32, ptr %n_splits.i, align 8
   %cmp59.i = icmp sgt i32 %10, 0
   br i1 %cmp59.i, label %for.body.lr.ph.i, label %sched_compute_splits.exit
 
 for.body.lr.ph.i:                                 ; preds = %do.end
-  %tallocs.i.i = getelementptr inbounds i8, ptr %sched, i64 40
-  %backends.i.i = getelementptr inbounds i8, ptr %sched, i64 8
-  %node_copies.i = getelementptr inbounds i8, ptr %sched, i64 104
+  %tallocs.i.i = getelementptr inbounds nuw i8, ptr %sched, i64 40
+  %backends.i.i = getelementptr inbounds nuw i8, ptr %sched, i64 8
+  %node_copies.i = getelementptr inbounds nuw i8, ptr %sched, i64 104
   br label %for.body.i
 
 for.body.i:                                       ; preds = %ggml_backend_graph_compute.exit.i, %for.body.lr.ph.i
   %indvars.iv74.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next75.i, %ggml_backend_graph_compute.exit.i ]
-  %arrayidx.i = getelementptr inbounds %struct.ggml_backend_sched_split, ptr %splits1.i, i64 %indvars.iv74.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.ggml_backend_sched_split, ptr %splits1.i, i64 %indvars.iv74.i
   %11 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i.i = icmp eq ptr %11, null
   %.pre.i = load i32, ptr %sched, align 16
@@ -2863,14 +2863,14 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %for.
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i.i ], [ 0, %for.cond.preheader.i.i ]
   %cmp1.i.i = icmp slt i64 %indvars.iv.i.i, %12
   tail call void @llvm.assume(i1 %cmp1.i.i)
-  %arrayidx.i.i = getelementptr inbounds [4 x ptr], ptr %tallocs.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x ptr], ptr %tallocs.i.i, i64 0, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp2.i.i = icmp eq ptr %13, %11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   br i1 %cmp2.i.i, label %if.then3.i.i, label %for.cond.i.i, !llvm.loop !23
 
 if.then3.i.i:                                     ; preds = %for.cond.i.i
-  %arrayidx5.i.i = getelementptr inbounds [4 x ptr], ptr %backends.i.i, i64 0, i64 %indvars.iv.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i, i64 0, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %arrayidx5.i.i, align 8
   br label %get_allocr_backend.exit.i
 
@@ -2885,7 +2885,7 @@ for.body.preheader.i.i:                           ; preds = %get_allocr_backend.
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i27.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i30.i, %for.inc.i.i ]
-  %arrayidx.i28.i = getelementptr inbounds [4 x ptr], ptr %backends.i.i, i64 0, i64 %indvars.iv.i27.i
+  %arrayidx.i28.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i, i64 0, i64 %indvars.iv.i27.i
   %15 = load ptr, ptr %arrayidx.i28.i, align 8
   %cmp1.i29.i = icmp eq ptr %15, %retval.0.i.i
   br i1 %cmp1.i29.i, label %return.loopexit.split.loop.exit9.i.i, label %for.inc.i.i
@@ -2903,18 +2903,18 @@ return.loopexit.split.loop.exit9.i.i:             ; preds = %for.body.i.i
 sched_backend_prio.exit.i:                        ; preds = %for.inc.i.i, %return.loopexit.split.loop.exit9.i.i, %get_allocr_backend.exit.i
   %retval.0.i26.i = phi i64 [ 2147483647, %get_allocr_backend.exit.i ], [ %16, %return.loopexit.split.loop.exit9.i.i ], [ 2147483647, %for.inc.i.i ]
   %call3.i = tail call i64 @ggml_time_us() #20
-  %n_inputs.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 144
+  %n_inputs.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 144
   %17 = load i32, ptr %n_inputs.i, align 8
   %cmp557.i = icmp sgt i32 %17, 0
   br i1 %cmp557.i, label %for.body6.lr.ph.i, label %for.end.i
 
 for.body6.lr.ph.i:                                ; preds = %sched_backend_prio.exit.i
-  %inputs.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %inputs.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   br label %for.body6.i
 
 for.body6.i:                                      ; preds = %ggml_backend_tensor_copy.exit.i, %for.body6.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body6.lr.ph.i ], [ %indvars.iv.next.i, %ggml_backend_tensor_copy.exit.i ]
-  %arrayidx8.i = getelementptr inbounds [16 x ptr], ptr %inputs.i, i64 0, i64 %indvars.iv.i
+  %arrayidx8.i = getelementptr inbounds nuw [16 x ptr], ptr %inputs.i, i64 0, i64 %indvars.iv.i
   %18 = load ptr, ptr %arrayidx8.i, align 8
   %19 = load ptr, ptr %node_copies.i, align 8
   %20 = load i64, ptr %hash_set, align 16
@@ -2930,7 +2930,7 @@ for.body.preheader.i34.i:                         ; preds = %for.body6.i
 
 for.body.i36.i:                                   ; preds = %for.inc.i40.i, %for.body.preheader.i34.i
   %indvars.iv.i37.i = phi i64 [ 0, %for.body.preheader.i34.i ], [ %indvars.iv.next.i41.i, %for.inc.i40.i ]
-  %arrayidx.i38.i = getelementptr inbounds [4 x ptr], ptr %backends.i.i, i64 0, i64 %indvars.iv.i37.i
+  %arrayidx.i38.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i.i, i64 0, i64 %indvars.iv.i37.i
   %23 = load ptr, ptr %arrayidx.i38.i, align 8
   %cmp1.i39.i = icmp eq ptr %23, %retval.0.i.i
   br i1 %cmp1.i39.i, label %return.loopexit.split.loop.exit9.i43.i, label %for.inc.i40.i
@@ -2949,39 +2949,39 @@ sched_backend_prio.exit44.i:                      ; preds = %for.inc.i40.i, %ret
   %retval.0.i33.i = phi i64 [ 2147483647, %for.body6.i ], [ %24, %return.loopexit.split.loop.exit9.i43.i ], [ 2147483647, %for.inc.i40.i ]
   %arrayidx13.i = getelementptr inbounds [4 x ptr], ptr %19, i64 %call9.i, i64 %retval.0.i33.i
   %25 = load ptr, ptr %arrayidx13.i, align 8
-  %buffer.i = getelementptr inbounds i8, ptr %18, i64 8
+  %buffer.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = load ptr, ptr %buffer.i, align 8
   %cmp14.i = icmp eq ptr %26, null
   br i1 %cmp14.i, label %if.then.i, label %if.end21.i
 
 if.then.i:                                        ; preds = %sched_backend_prio.exit44.i
-  %view_src.i = getelementptr inbounds i8, ptr %18, i64 264
+  %view_src.i = getelementptr inbounds nuw i8, ptr %18, i64 264
   %27 = load ptr, ptr %view_src.i, align 8
   %cmp15.i = icmp eq ptr %27, null
   br i1 %cmp15.i, label %if.then16.i, label %if.end.i
 
 if.then16.i:                                      ; preds = %if.then.i
   %28 = load ptr, ptr @stderr, align 8
-  %name.i = getelementptr inbounds i8, ptr %18, i64 288
+  %name.i = getelementptr inbounds nuw i8, ptr %18, i64 288
   %call18.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.42, ptr noundef nonnull %name.i) #22
   tail call void @exit(i32 noundef 1) #25
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i
-  %buffer20.i = getelementptr inbounds i8, ptr %27, i64 8
+  %buffer20.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %buffer20.i, align 8
   tail call void @ggml_backend_view_init(ptr noundef %29, ptr noundef nonnull %18)
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end.i, %sched_backend_prio.exit44.i
-  %buffer22.i = getelementptr inbounds i8, ptr %25, i64 8
+  %buffer22.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = load ptr, ptr %buffer22.i, align 8
   %cmp23.i = icmp eq ptr %30, null
   br i1 %cmp23.i, label %if.then24.i, label %if.end28.i
 
 if.then24.i:                                      ; preds = %if.end21.i
   %31 = load ptr, ptr @stderr, align 8
-  %name25.i = getelementptr inbounds i8, ptr %25, i64 288
+  %name25.i = getelementptr inbounds nuw i8, ptr %25, i64 288
   %call27.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.43, ptr noundef nonnull %name25.i) #22
   tail call void @exit(i32 noundef 1) #25
   unreachable
@@ -2993,10 +2993,10 @@ if.end28.i:                                       ; preds = %if.end21.i
   br i1 %cmp.not.i.i.i, label %for.cond.preheader.i.i.i, label %if.then.i.i
 
 for.cond.preheader.i.i.i:                         ; preds = %if.end28.i
-  %ne.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
-  %nb.i.i.i = getelementptr inbounds i8, ptr %18, i64 48
-  %ne3.i.i.i = getelementptr inbounds i8, ptr %25, i64 16
-  %nb11.i.i.i = getelementptr inbounds i8, ptr %25, i64 48
+  %ne.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %nb.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %ne3.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %nb11.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 48
   br label %for.body.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %if.end8.i.i.i
@@ -3006,17 +3006,17 @@ for.cond.i.i.i:                                   ; preds = %if.end8.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %for.cond.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.cond.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.cond.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds [4 x i64], ptr %ne.i.i.i, i64 0, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %ne.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   %34 = load i64, ptr %arrayidx.i.i.i, align 8
-  %arrayidx5.i.i.i = getelementptr inbounds [4 x i64], ptr %ne3.i.i.i, i64 0, i64 %indvars.iv.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %ne3.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   %35 = load i64, ptr %arrayidx5.i.i.i, align 8
   %cmp6.not.i.i.i = icmp eq i64 %34, %35
   br i1 %cmp6.not.i.i.i, label %if.end8.i.i.i, label %if.then.i.i
 
 if.end8.i.i.i:                                    ; preds = %for.body.i.i.i
-  %arrayidx10.i.i.i = getelementptr inbounds [4 x i64], ptr %nb.i.i.i, i64 0, i64 %indvars.iv.i.i.i
+  %arrayidx10.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %nb.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   %36 = load i64, ptr %arrayidx10.i.i.i, align 8
-  %arrayidx13.i.i.i = getelementptr inbounds [4 x i64], ptr %nb11.i.i.i, i64 0, i64 %indvars.iv.i.i.i
+  %arrayidx13.i.i.i = getelementptr inbounds nuw [4 x i64], ptr %nb11.i.i.i, i64 0, i64 %indvars.iv.i.i.i
   %37 = load i64, ptr %arrayidx13.i.i.i, align 8
   %cmp14.not.i.i.i = icmp eq i64 %36, %37
   br i1 %cmp14.not.i.i.i, label %for.cond.i.i.i, label %if.then.i.i
@@ -3035,7 +3035,7 @@ do.end.i.i:                                       ; preds = %for.cond.i.i.i
   br i1 %cmp.i45.i, label %ggml_backend_tensor_copy.exit.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %do.end.i.i
-  %cpy_tensor_from.i.i = getelementptr inbounds i8, ptr %30, i64 40
+  %cpy_tensor_from.i.i = getelementptr inbounds nuw i8, ptr %30, i64 40
   %40 = load ptr, ptr %cpy_tensor_from.i.i, align 8
   %cmp5.not.i.i = icmp eq ptr %40, null
   br i1 %cmp5.not.i.i, label %if.else.i.i, label %if.then6.i.i
@@ -3046,7 +3046,7 @@ if.then6.i.i:                                     ; preds = %if.end4.i.i
 
 if.else.i.i:                                      ; preds = %if.end4.i.i
   %41 = load ptr, ptr %buffer.i, align 8
-  %cpy_tensor_to.i.i = getelementptr inbounds i8, ptr %41, i64 48
+  %cpy_tensor_to.i.i = getelementptr inbounds nuw i8, ptr %41, i64 48
   %42 = load ptr, ptr %cpy_tensor_to.i.i, align 8
   %cmp13.not.i.i = icmp eq ptr %42, null
   br i1 %cmp13.not.i.i, label %if.else19.i.i, label %if.then14.i.i
@@ -3078,11 +3078,11 @@ for.end.i:                                        ; preds = %ggml_backend_tensor
   %add.i = add i64 %sub.i, %45
   store i64 %add.i, ptr %arrayidx31.i, align 8
   %call32.i = tail call i64 @ggml_time_us() #20
-  %graph.i7 = getelementptr inbounds i8, ptr %arrayidx.i, i64 152
-  %graph_compute.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
+  %graph.i7 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 152
+  %graph_compute.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
   %46 = load ptr, ptr %graph_compute.i.i, align 8
   tail call void %46(ptr noundef %retval.0.i.i, ptr noundef nonnull %graph.i7) #20
-  %synchronize.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 56
+  %synchronize.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 56
   %47 = load ptr, ptr %synchronize.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %47, null
   br i1 %cmp.i.i.i, label %ggml_backend_graph_compute.exit.i, label %if.end.i.i.i
@@ -3112,12 +3112,12 @@ sched_compute_splits.exit:                        ; preds = %ggml_backend_graph_
   br i1 %cmp4.i, label %for.body.lr.ph.i9, label %sched_reset.exit
 
 for.body.lr.ph.i9:                                ; preds = %sched_compute_splits.exit
-  %tallocs.i = getelementptr inbounds i8, ptr %sched, i64 40
+  %tallocs.i = getelementptr inbounds nuw i8, ptr %sched, i64 40
   br label %for.body.i10
 
 for.body.i10:                                     ; preds = %for.body.i10, %for.body.lr.ph.i9
   %indvars.iv.i11 = phi i64 [ 0, %for.body.lr.ph.i9 ], [ %indvars.iv.next.i13, %for.body.i10 ]
-  %arrayidx.i12 = getelementptr inbounds [4 x ptr], ptr %tallocs.i, i64 0, i64 %indvars.iv.i11
+  %arrayidx.i12 = getelementptr inbounds nuw [4 x ptr], ptr %tallocs.i, i64 0, i64 %indvars.iv.i11
   %52 = load ptr, ptr %arrayidx.i12, align 8
   tail call void @ggml_tallocr_reset(ptr noundef %52) #20
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i11, 1
@@ -3133,7 +3133,7 @@ sched_reset.exit:                                 ; preds = %for.body.i10, %sche
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define ptr @ggml_backend_sched_get_tallocr(ptr nocapture noundef readonly %sched, ptr noundef readnone %backend) local_unnamed_addr #13 {
 entry:
-  %backends.i = getelementptr inbounds i8, ptr %sched, i64 8
+  %backends.i = getelementptr inbounds nuw i8, ptr %sched, i64 8
   %0 = load i32, ptr %sched, align 16
   %cmp5.i = icmp sgt i32 %0, 0
   br i1 %cmp5.i, label %for.body.preheader.i, label %sched_backend_prio.exit
@@ -3144,7 +3144,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %cmp1.i = icmp eq ptr %1, %backend
   br i1 %cmp1.i, label %return.loopexit.split.loop.exit9.i, label %for.inc.i
@@ -3161,7 +3161,7 @@ return.loopexit.split.loop.exit9.i:               ; preds = %for.body.i
 
 sched_backend_prio.exit:                          ; preds = %for.inc.i, %entry, %return.loopexit.split.loop.exit9.i
   %retval.0.i = phi i64 [ 2147483647, %entry ], [ %2, %return.loopexit.split.loop.exit9.i ], [ 2147483647, %for.inc.i ]
-  %tallocs = getelementptr inbounds i8, ptr %sched, i64 40
+  %tallocs = getelementptr inbounds nuw i8, ptr %sched, i64 40
   %arrayidx = getelementptr inbounds [4 x ptr], ptr %tallocs, i64 0, i64 %retval.0.i
   %3 = load ptr, ptr %arrayidx, align 8
   ret ptr %3
@@ -3170,7 +3170,7 @@ sched_backend_prio.exit:                          ; preds = %for.inc.i, %entry, 
 ; Function Attrs: nounwind uwtable
 define ptr @ggml_backend_sched_get_buffer(ptr nocapture noundef readonly %sched, ptr noundef readnone %backend) local_unnamed_addr #0 {
 entry:
-  %backends.i = getelementptr inbounds i8, ptr %sched, i64 8
+  %backends.i = getelementptr inbounds nuw i8, ptr %sched, i64 8
   %0 = load i32, ptr %sched, align 16
   %cmp5.i = icmp sgt i32 %0, 0
   br i1 %cmp5.i, label %for.body.preheader.i, label %sched_backend_prio.exit
@@ -3181,7 +3181,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %cmp1.i = icmp eq ptr %1, %backend
   br i1 %cmp1.i, label %return.loopexit.split.loop.exit9.i, label %for.inc.i
@@ -3198,7 +3198,7 @@ return.loopexit.split.loop.exit9.i:               ; preds = %for.body.i
 
 sched_backend_prio.exit:                          ; preds = %for.inc.i, %entry, %return.loopexit.split.loop.exit9.i
   %retval.0.i = phi i64 [ 2147483647, %entry ], [ %2, %return.loopexit.split.loop.exit9.i ], [ 2147483647, %for.inc.i ]
-  %tallocs = getelementptr inbounds i8, ptr %sched, i64 40
+  %tallocs = getelementptr inbounds nuw i8, ptr %sched, i64 40
   %arrayidx = getelementptr inbounds [4 x ptr], ptr %tallocs, i64 0, i64 %retval.0.i
   %3 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call ptr @ggml_tallocr_get_buffer(ptr noundef %3) #20
@@ -3210,7 +3210,7 @@ declare ptr @ggml_tallocr_get_buffer(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_sched_set_node_backend(ptr nocapture noundef readonly %sched, ptr noundef %node, ptr noundef readnone %backend) local_unnamed_addr #0 {
 entry:
-  %backends.i = getelementptr inbounds i8, ptr %sched, i64 8
+  %backends.i = getelementptr inbounds nuw i8, ptr %sched, i64 8
   %0 = load i32, ptr %sched, align 16
   %cmp5.i = icmp sgt i32 %0, 0
   br i1 %cmp5.i, label %for.body.preheader.i, label %if.then
@@ -3221,7 +3221,7 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x ptr], ptr %backends.i, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %cmp1.i = icmp eq ptr %1, %backend
   br i1 %cmp1.i, label %sched_backend_prio.exit, label %for.inc.i
@@ -3246,15 +3246,15 @@ if.then:                                          ; preds = %for.inc.i, %entry, 
   unreachable
 
 do.end:                                           ; preds = %sched_backend_prio.exit
-  %tallocs = getelementptr inbounds i8, ptr %sched, i64 40
+  %tallocs = getelementptr inbounds nuw i8, ptr %sched, i64 40
   %idxprom = and i64 %indvars.iv.i, 4294967295
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr %tallocs, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr %tallocs, i64 0, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %node_talloc = getelementptr inbounds i8, ptr %sched, i64 96
+  %node_talloc = getelementptr inbounds nuw i8, ptr %sched, i64 96
   %6 = load ptr, ptr %node_talloc, align 16
-  %hash_set = getelementptr inbounds i8, ptr %sched, i64 80
+  %hash_set = getelementptr inbounds nuw i8, ptr %sched, i64 80
   %7 = load i64, ptr %hash_set, align 16
-  %8 = getelementptr inbounds i8, ptr %sched, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %sched, i64 88
   %9 = load ptr, ptr %8, align 8
   %call4 = tail call i64 @ggml_hash_find_or_insert(i64 %7, ptr %9, ptr noundef %node) #20
   %arrayidx5 = getelementptr inbounds ptr, ptr %6, i64 %call4
@@ -3267,7 +3267,7 @@ declare i64 @ggml_hash_find_or_insert(i64, ptr, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_view_init(ptr noundef %buffer, ptr noundef %tensor) local_unnamed_addr #0 {
 entry:
-  %buffer1 = getelementptr inbounds i8, ptr %tensor, i64 8
+  %buffer1 = getelementptr inbounds nuw i8, ptr %tensor, i64 8
   %0 = load ptr, ptr %buffer1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.body3, label %if.then
@@ -3282,7 +3282,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.body3:                                         ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %tensor, i64 280
+  %data = getelementptr inbounds nuw i8, ptr %tensor, i64 280
   %3 = load ptr, ptr %data, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %do.body10, label %if.then5
@@ -3297,7 +3297,7 @@ if.then5:                                         ; preds = %do.body3
   unreachable
 
 do.body10:                                        ; preds = %do.body3
-  %view_src = getelementptr inbounds i8, ptr %tensor, i64 264
+  %view_src = getelementptr inbounds nuw i8, ptr %tensor, i64 264
   %6 = load ptr, ptr %view_src, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %if.then12, label %do.body17
@@ -3312,7 +3312,7 @@ if.then12:                                        ; preds = %do.body10
   unreachable
 
 do.body17:                                        ; preds = %do.body10
-  %buffer19 = getelementptr inbounds i8, ptr %6, i64 8
+  %buffer19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %buffer19, align 8
   %cmp20.not = icmp eq ptr %9, null
   br i1 %cmp20.not, label %if.then21, label %do.body26
@@ -3327,7 +3327,7 @@ if.then21:                                        ; preds = %do.body17
   unreachable
 
 do.body26:                                        ; preds = %do.body17
-  %data28 = getelementptr inbounds i8, ptr %6, i64 280
+  %data28 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %12 = load ptr, ptr %data28, align 8
   %cmp29.not = icmp eq ptr %12, null
   br i1 %cmp29.not, label %if.then30, label %do.end34
@@ -3344,15 +3344,15 @@ if.then30:                                        ; preds = %do.body26
 do.end34:                                         ; preds = %do.body26
   store ptr %buffer, ptr %buffer1, align 8
   %15 = load ptr, ptr %data28, align 8
-  %view_offs = getelementptr inbounds i8, ptr %tensor, i64 272
+  %view_offs = getelementptr inbounds nuw i8, ptr %tensor, i64 272
   %16 = load i64, ptr %view_offs, align 8
   %add.ptr = getelementptr inbounds i8, ptr %15, i64 %16
   store ptr %add.ptr, ptr %data, align 8
-  %backend = getelementptr inbounds i8, ptr %6, i64 4
+  %backend = getelementptr inbounds nuw i8, ptr %6, i64 4
   %17 = load i32, ptr %backend, align 4
-  %backend40 = getelementptr inbounds i8, ptr %tensor, i64 4
+  %backend40 = getelementptr inbounds nuw i8, ptr %tensor, i64 4
   store i32 %17, ptr %backend40, align 4
-  %init_tensor.i = getelementptr inbounds i8, ptr %buffer, i64 16
+  %init_tensor.i = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %18 = load ptr, ptr %init_tensor.i, align 8
   %tobool.not.i = icmp eq ptr %18, null
   br i1 %tobool.not.i, label %ggml_backend_buffer_init_tensor.exit, label %if.then.i
@@ -3368,7 +3368,7 @@ ggml_backend_buffer_init_tensor.exit:             ; preds = %do.end34, %if.then.
 ; Function Attrs: nounwind uwtable
 define void @ggml_backend_tensor_alloc(ptr noundef %buffer, ptr noundef %tensor, ptr noundef %addr) local_unnamed_addr #0 {
 entry:
-  %buffer1 = getelementptr inbounds i8, ptr %tensor, i64 8
+  %buffer1 = getelementptr inbounds nuw i8, ptr %tensor, i64 8
   %0 = load ptr, ptr %buffer1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.body3, label %if.then
@@ -3383,7 +3383,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.body3:                                         ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %tensor, i64 280
+  %data = getelementptr inbounds nuw i8, ptr %tensor, i64 280
   %3 = load ptr, ptr %data, align 8
   %cmp4 = icmp eq ptr %3, null
   br i1 %cmp4, label %do.body10, label %if.then5
@@ -3398,7 +3398,7 @@ if.then5:                                         ; preds = %do.body3
   unreachable
 
 do.body10:                                        ; preds = %do.body3
-  %view_src = getelementptr inbounds i8, ptr %tensor, i64 264
+  %view_src = getelementptr inbounds nuw i8, ptr %tensor, i64 264
   %6 = load ptr, ptr %view_src, align 8
   %cmp11 = icmp eq ptr %6, null
   br i1 %cmp11, label %do.body17, label %if.then12
@@ -3413,7 +3413,7 @@ if.then12:                                        ; preds = %do.body10
   unreachable
 
 do.body17:                                        ; preds = %do.body10
-  %get_base.i = getelementptr inbounds i8, ptr %buffer, i64 8
+  %get_base.i = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %9 = load ptr, ptr %get_base.i, align 8
   %call.i = tail call ptr %9(ptr noundef %buffer) #20
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -3442,9 +3442,9 @@ if.then20:                                        ; preds = %ggml_backend_buffer
   unreachable
 
 do.body25:                                        ; preds = %ggml_backend_buffer_get_base.exit
-  %buft.i.i = getelementptr inbounds i8, ptr %buffer, i64 56
+  %buft.i.i = getelementptr inbounds nuw i8, ptr %buffer, i64 56
   %14 = load ptr, ptr %buft.i.i, align 8
-  %get_alloc_size.i.i = getelementptr inbounds i8, ptr %14, i64 16
+  %get_alloc_size.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load ptr, ptr %get_alloc_size.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -3475,7 +3475,7 @@ if.then.i17:                                      ; preds = %ggml_backend_buffer
 
 ggml_backend_buffer_get_base.exit20:              ; preds = %ggml_backend_buffer_get_alloc_size.exit
   %add.ptr = getelementptr inbounds i8, ptr %addr, i64 %retval.0.i.i
-  %size.i = getelementptr inbounds i8, ptr %buffer, i64 72
+  %size.i = getelementptr inbounds nuw i8, ptr %buffer, i64 72
   %19 = load i64, ptr %size.i, align 8
   %add.ptr29 = getelementptr inbounds i8, ptr %call.i15, i64 %19
   %cmp30.not = icmp ugt ptr %add.ptr, %add.ptr29
@@ -3493,7 +3493,7 @@ if.then31:                                        ; preds = %ggml_backend_buffer
 do.end35:                                         ; preds = %ggml_backend_buffer_get_base.exit20
   store ptr %buffer, ptr %buffer1, align 8
   store ptr %addr, ptr %data, align 8
-  %init_tensor.i = getelementptr inbounds i8, ptr %buffer, i64 16
+  %init_tensor.i = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %22 = load ptr, ptr %init_tensor.i, align 8
   %tobool.not.i = icmp eq ptr %22, null
   br i1 %tobool.not.i, label %ggml_backend_buffer_init_tensor.exit, label %if.then.i21
@@ -3510,7 +3510,7 @@ ggml_backend_buffer_init_tensor.exit:             ; preds = %do.end35, %if.then.
 define void @ggml_backend_graph_copy(ptr noalias nocapture writeonly sret(%struct.ggml_backend_graph_copy) align 8 %agg.result, ptr noundef %backend, ptr nocapture noundef readonly %graph) local_unnamed_addr #0 {
 entry:
   %params = alloca %struct.ggml_init_params, align 8
-  %visited_hash_table = getelementptr inbounds i8, ptr %graph, i64 40
+  %visited_hash_table = getelementptr inbounds nuw i8, ptr %graph, i64 40
   %0 = load i64, ptr %visited_hash_table, align 8
   %mul = shl i64 %0, 3
   %call = tail call noalias ptr @calloc(i64 noundef %mul, i64 noundef 1) #26
@@ -3523,25 +3523,25 @@ entry:
   %call14 = tail call i64 @ggml_graph_overhead_custom(i64 noundef %conv, i1 noundef zeroext false) #20
   %add = add i64 %call14, %mul12
   store i64 %add, ptr %params, align 8
-  %mem_buffer = getelementptr inbounds i8, ptr %params, i64 8
+  %mem_buffer = getelementptr inbounds nuw i8, ptr %params, i64 8
   store ptr null, ptr %mem_buffer, align 8
-  %no_alloc = getelementptr inbounds i8, ptr %params, i64 16
+  %no_alloc = getelementptr inbounds nuw i8, ptr %params, i64 16
   store i8 1, ptr %no_alloc, align 8
   %call15 = tail call ptr @ggml_init(ptr noundef nonnull byval(%struct.ggml_init_params) align 8 %params) #20
   %call16 = tail call ptr @ggml_init(ptr noundef nonnull byval(%struct.ggml_init_params) align 8 %params) #20
-  %n_nodes = getelementptr inbounds i8, ptr %graph, i64 4
+  %n_nodes = getelementptr inbounds nuw i8, ptr %graph, i64 4
   %2 = load i32, ptr %n_nodes, align 4
   %cmp36 = icmp sgt i32 %2, 0
   br i1 %cmp36, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %nodes = getelementptr inbounds i8, ptr %graph, i64 16
+  %nodes = getelementptr inbounds nuw i8, ptr %graph, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %3 = load ptr, ptr %nodes, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   %call18 = tail call fastcc ptr @graph_dup_tensor(i64 %0, ptr %call, ptr noundef %call6, ptr noundef %call15, ptr noundef %call16, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3557,13 +3557,13 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp2338, label %for.body25.lr.ph, label %for.end32
 
 for.body25.lr.ph:                                 ; preds = %for.end
-  %nodes27 = getelementptr inbounds i8, ptr %graph, i64 16
+  %nodes27 = getelementptr inbounds nuw i8, ptr %graph, i64 16
   br label %for.body25
 
 for.body25:                                       ; preds = %for.body25.lr.ph, %for.body25
   %indvars.iv44 = phi i64 [ 0, %for.body25.lr.ph ], [ %indvars.iv.next45, %for.body25 ]
   %8 = load ptr, ptr %nodes27, align 8
-  %arrayidx29 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv44
+  %arrayidx29 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv44
   %9 = load ptr, ptr %arrayidx29, align 8
   tail call fastcc void @graph_init_tensor(i64 %0, ptr %call, ptr noundef %call6, ptr noundef %call9, ptr noundef %9)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
@@ -3581,20 +3581,20 @@ for.end32:                                        ; preds = %for.body25, %for.en
   br i1 %cmp3940, label %for.body41.lr.ph, label %for.end53
 
 for.body41.lr.ph:                                 ; preds = %for.end32
-  %nodes43 = getelementptr inbounds i8, ptr %graph, i64 16
-  %nodes48 = getelementptr inbounds i8, ptr %call35, i64 16
+  %nodes43 = getelementptr inbounds nuw i8, ptr %graph, i64 16
+  %nodes48 = getelementptr inbounds nuw i8, ptr %call35, i64 16
   br label %for.body41
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %for.body41
   %indvars.iv47 = phi i64 [ 0, %for.body41.lr.ph ], [ %indvars.iv.next48, %for.body41 ]
   %14 = load ptr, ptr %nodes43, align 8
-  %arrayidx45 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv47
+  %arrayidx45 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv47
   %15 = load ptr, ptr %arrayidx45, align 8
   %call46 = tail call i64 @ggml_hash_find(i64 %0, ptr %call, ptr noundef %15) #20
   %arrayidx47 = getelementptr inbounds ptr, ptr %call6, i64 %call46
   %16 = load ptr, ptr %arrayidx47, align 8
   %17 = load ptr, ptr %nodes48, align 8
-  %arrayidx50 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv47
+  %arrayidx50 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv47
   store ptr %16, ptr %arrayidx50, align 8
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %18 = load i32, ptr %n_nodes, align 4
@@ -3604,17 +3604,17 @@ for.body41:                                       ; preds = %for.body41.lr.ph, %
 
 for.end53:                                        ; preds = %for.body41, %for.end32
   %.lcssa = phi i32 [ %13, %for.end32 ], [ %18, %for.body41 ]
-  %n_nodes55 = getelementptr inbounds i8, ptr %call35, i64 4
+  %n_nodes55 = getelementptr inbounds nuw i8, ptr %call35, i64 4
   store i32 %.lcssa, ptr %n_nodes55, align 4
   tail call void @free(ptr noundef %call) #20
   tail call void @free(ptr noundef %call6) #20
   tail call void @free(ptr noundef %call9) #20
   store ptr %call19, ptr %agg.result, align 8
-  %ctx_allocated58 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %ctx_allocated58 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call15, ptr %ctx_allocated58, align 8
-  %ctx_unallocated59 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ctx_unallocated59 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %call16, ptr %ctx_unallocated59, align 8
-  %graph60 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %graph60 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %call35, ptr %graph60, align 8
   ret void
 }
@@ -3644,7 +3644,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.body2:                                         ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %src, i64 280
+  %data = getelementptr inbounds nuw i8, ptr %src, i64 280
   %2 = load ptr, ptr %data, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.then3, label %do.end7
@@ -3675,7 +3675,7 @@ if.end12:                                         ; preds = %do.end7
   br i1 %tobool14.not, label %cond.false, label %land.lhs.true15
 
 land.lhs.true15:                                  ; preds = %if.end12
-  %view_src = getelementptr inbounds i8, ptr %src, i64 264
+  %view_src = getelementptr inbounds nuw i8, ptr %src, i64 264
   %7 = load ptr, ptr %view_src, align 8
   %tobool16.not = icmp eq ptr %7, null
   br i1 %tobool16.not, label %cond.end, label %cond.false
@@ -3686,60 +3686,60 @@ cond.false:                                       ; preds = %land.lhs.true15, %i
 cond.end:                                         ; preds = %land.lhs.true15, %cond.false
   %cond = phi ptr [ %ctx_unallocated, %cond.false ], [ %ctx_allocated, %land.lhs.true15 ]
   %call.i = tail call ptr @ggml_dup_tensor(ptr noundef %cond, ptr noundef nonnull %src) #20
-  %nb.i = getelementptr inbounds i8, ptr %src, i64 48
-  %nb1.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %nb.i = getelementptr inbounds nuw i8, ptr %src, i64 48
+  %nb1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %cond.end
   %indvars.iv.i = phi i64 [ 0, %cond.end ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [4 x i64], ptr %nb.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i64], ptr %nb.i, i64 0, i64 %indvars.iv.i
   %8 = load i64, ptr %arrayidx.i, align 8
-  %arrayidx3.i = getelementptr inbounds [4 x i64], ptr %nb1.i, i64 0, i64 %indvars.iv.i
+  %arrayidx3.i = getelementptr inbounds nuw [4 x i64], ptr %nb1.i, i64 0, i64 %indvars.iv.i
   store i64 %8, ptr %arrayidx3.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %ggml_dup_tensor_layout.exit, label %for.body.i, !llvm.loop !22
 
 ggml_dup_tensor_layout.exit:                      ; preds = %for.body.i
-  %view_src18 = getelementptr inbounds i8, ptr %src, i64 264
+  %view_src18 = getelementptr inbounds nuw i8, ptr %src, i64 264
   %9 = load ptr, ptr %view_src18, align 8
   %cmp19.not = icmp eq ptr %9, null
   br i1 %cmp19.not, label %if.end25, label %if.then20
 
 if.then20:                                        ; preds = %ggml_dup_tensor_layout.exit
   %call22 = tail call fastcc ptr @graph_dup_tensor(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef %node_copies, ptr noundef %ctx_allocated, ptr noundef %ctx_unallocated, ptr noundef nonnull %9)
-  %view_src23 = getelementptr inbounds i8, ptr %call.i, i64 264
+  %view_src23 = getelementptr inbounds nuw i8, ptr %call.i, i64 264
   store ptr %call22, ptr %view_src23, align 8
-  %view_offs = getelementptr inbounds i8, ptr %src, i64 272
+  %view_offs = getelementptr inbounds nuw i8, ptr %src, i64 272
   %10 = load i64, ptr %view_offs, align 8
-  %view_offs24 = getelementptr inbounds i8, ptr %call.i, i64 272
+  %view_offs24 = getelementptr inbounds nuw i8, ptr %call.i, i64 272
   store i64 %10, ptr %view_offs24, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then20, %ggml_dup_tensor_layout.exit
-  %op = getelementptr inbounds i8, ptr %src, i64 80
+  %op = getelementptr inbounds nuw i8, ptr %src, i64 80
   %11 = load i32, ptr %op, align 8
-  %op26 = getelementptr inbounds i8, ptr %call.i, i64 80
+  %op26 = getelementptr inbounds nuw i8, ptr %call.i, i64 80
   store i32 %11, ptr %op26, align 8
-  %op_params = getelementptr inbounds i8, ptr %call.i, i64 84
-  %op_params27 = getelementptr inbounds i8, ptr %src, i64 84
+  %op_params = getelementptr inbounds nuw i8, ptr %call.i, i64 84
+  %op_params27 = getelementptr inbounds nuw i8, ptr %src, i64 84
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %op_params, ptr noundef nonnull align 4 dereferenceable(64) %op_params27, i64 64, i1 false)
-  %name = getelementptr inbounds i8, ptr %src, i64 288
+  %name = getelementptr inbounds nuw i8, ptr %src, i64 288
   %call30 = tail call ptr @ggml_set_name(ptr noundef nonnull %call.i, ptr noundef nonnull %name) #20
-  %src32 = getelementptr inbounds i8, ptr %src, i64 160
-  %src38 = getelementptr inbounds i8, ptr %call.i, i64 160
+  %src32 = getelementptr inbounds nuw i8, ptr %src, i64 160
+  %src38 = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   br label %for.body
 
 for.body:                                         ; preds = %if.end25, %if.end36
   %indvars.iv = phi i64 [ 0, %if.end25 ], [ %indvars.iv.next, %if.end36 ]
-  %arrayidx33 = getelementptr inbounds [10 x ptr], ptr %src32, i64 0, i64 %indvars.iv
+  %arrayidx33 = getelementptr inbounds nuw [10 x ptr], ptr %src32, i64 0, i64 %indvars.iv
   %12 = load ptr, ptr %arrayidx33, align 8
   %cmp34 = icmp eq ptr %12, null
   br i1 %cmp34, label %for.end, label %if.end36
 
 if.end36:                                         ; preds = %for.body
   %call37 = tail call fastcc ptr @graph_dup_tensor(i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef %node_copies, ptr noundef %ctx_allocated, ptr noundef %ctx_unallocated, ptr noundef nonnull %12)
-  %arrayidx40 = getelementptr inbounds [10 x ptr], ptr %src38, i64 0, i64 %indvars.iv
+  %arrayidx40 = getelementptr inbounds nuw [10 x ptr], ptr %src38, i64 0, i64 %indvars.iv
   store ptr %call37, ptr %arrayidx40, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -3770,13 +3770,13 @@ if.end:                                           ; preds = %entry
   store i8 1, ptr %arrayidx, align 1
   %arrayidx2 = getelementptr inbounds ptr, ptr %node_copies, i64 %call
   %1 = load ptr, ptr %arrayidx2, align 8
-  %view_src = getelementptr inbounds i8, ptr %1, i64 264
+  %view_src = getelementptr inbounds nuw i8, ptr %1, i64 264
   %2 = load ptr, ptr %view_src, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %buffer = getelementptr inbounds i8, ptr %2, i64 8
+  %buffer = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %buffer, align 8
   tail call void @ggml_backend_view_init(ptr noundef %3, ptr noundef nonnull %1)
   br label %if.end5
@@ -3786,12 +3786,12 @@ if.else:                                          ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.else, %if.then3
-  %src7 = getelementptr inbounds i8, ptr %src, i64 160
+  %src7 = getelementptr inbounds nuw i8, ptr %src, i64 160
   br label %for.body
 
 for.body:                                         ; preds = %if.end5, %if.end11
   %indvars.iv = phi i64 [ 0, %if.end5 ], [ %indvars.iv.next, %if.end11 ]
-  %arrayidx8 = getelementptr inbounds [10 x ptr], ptr %src7, i64 0, i64 %indvars.iv
+  %arrayidx8 = getelementptr inbounds nuw [10 x ptr], ptr %src7, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx8, align 8
   %cmp9 = icmp eq ptr %4, null
   br i1 %cmp9, label %for.end, label %if.end11
@@ -3831,10 +3831,10 @@ if.end5.i:                                        ; preds = %if.then2.i, %if.end
   br label %ggml_backend_buffer_free.exit
 
 ggml_backend_buffer_free.exit:                    ; preds = %entry, %if.end5.i
-  %ctx_allocated = getelementptr inbounds i8, ptr %copy, i64 8
+  %ctx_allocated = getelementptr inbounds nuw i8, ptr %copy, i64 8
   %2 = load ptr, ptr %ctx_allocated, align 8
   tail call void @ggml_free(ptr noundef %2) #20
-  %ctx_unallocated = getelementptr inbounds i8, ptr %copy, i64 16
+  %ctx_unallocated = getelementptr inbounds nuw i8, ptr %copy, i64 16
   %3 = load ptr, ptr %ctx_unallocated, align 8
   tail call void @ggml_free(ptr noundef %3) #20
   ret void
@@ -3849,29 +3849,29 @@ entry:
   %g1v = alloca %struct.ggml_cgraph, align 8
   %g2v = alloca %struct.ggml_cgraph, align 8
   call void @ggml_backend_graph_copy(ptr nonnull sret(%struct.ggml_backend_graph_copy) align 8 %copy, ptr noundef %backend2, ptr noundef %graph)
-  %graph1 = getelementptr inbounds i8, ptr %copy, i64 24
+  %graph1 = getelementptr inbounds nuw i8, ptr %copy, i64 24
   %0 = load ptr, ptr %graph1, align 8
-  %n_nodes = getelementptr inbounds i8, ptr %graph, i64 4
+  %n_nodes = getelementptr inbounds nuw i8, ptr %graph, i64 4
   %1 = load i32, ptr %n_nodes, align 4
   %cmp23 = icmp sgt i32 %1, 0
   br i1 %cmp23, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %nodes = getelementptr inbounds i8, ptr %graph, i64 16
-  %nodes2 = getelementptr inbounds i8, ptr %0, i64 16
-  %graph_compute.i = getelementptr inbounds i8, ptr %backend1, i64 88
-  %synchronize.i.i = getelementptr inbounds i8, ptr %backend1, i64 56
-  %graph_compute.i15 = getelementptr inbounds i8, ptr %backend2, i64 88
-  %synchronize.i.i16 = getelementptr inbounds i8, ptr %backend2, i64 56
+  %nodes = getelementptr inbounds nuw i8, ptr %graph, i64 16
+  %nodes2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %graph_compute.i = getelementptr inbounds nuw i8, ptr %backend1, i64 88
+  %synchronize.i.i = getelementptr inbounds nuw i8, ptr %backend1, i64 56
+  %graph_compute.i15 = getelementptr inbounds nuw i8, ptr %backend2, i64 88
+  %synchronize.i.i16 = getelementptr inbounds nuw i8, ptr %backend2, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %2 = load ptr, ptr %nodes, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load ptr, ptr %nodes2, align 8
-  %arrayidx4 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
@@ -3900,7 +3900,7 @@ if.end.i.i18:                                     ; preds = %ggml_backend_graph_
   br label %ggml_backend_graph_compute.exit19
 
 ggml_backend_graph_compute.exit19:                ; preds = %ggml_backend_graph_compute.exit, %if.end.i.i18
-  %op = getelementptr inbounds i8, ptr %3, i64 80
+  %op = getelementptr inbounds nuw i8, ptr %3, i64 80
   %11 = load i32, ptr %op, align 8
   %12 = add i32 %11, -30
   %switch.selectcmp.i = icmp ult i32 %12, 4
@@ -3918,9 +3918,9 @@ for.inc:                                          ; preds = %if.end, %ggml_backe
 
 for.end:                                          ; preds = %for.inc, %if.end, %entry
   %copy20.sroa.0.0.copyload = load ptr, ptr %copy, align 8
-  %copy20.sroa.4.0.copy.sroa_idx = getelementptr inbounds i8, ptr %copy, i64 8
+  %copy20.sroa.4.0.copy.sroa_idx = getelementptr inbounds nuw i8, ptr %copy, i64 8
   %copy20.sroa.4.0.copyload = load ptr, ptr %copy20.sroa.4.0.copy.sroa_idx, align 8
-  %copy20.sroa.5.0.copy.sroa_idx = getelementptr inbounds i8, ptr %copy, i64 16
+  %copy20.sroa.5.0.copy.sroa_idx = getelementptr inbounds nuw i8, ptr %copy, i64 16
   %copy20.sroa.5.0.copyload = load ptr, ptr %copy20.sroa.5.0.copy.sroa_idx, align 8
   %cmp.i.i21 = icmp eq ptr %copy20.sroa.0.0.copyload, null
   br i1 %cmp.i.i21, label %ggml_backend_graph_copy_free.exit, label %if.end.i.i22
@@ -3951,11 +3951,11 @@ define internal noalias noundef ptr @ggml_backend_reg_cpu_init(ptr nocapture rea
 entry:
   %call.i = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #21
   store i32 4, ptr %call.i, align 8
-  %work_data.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %work_data.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %call1.i = tail call noalias noundef dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %work_data.i, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call1.i, ptr noundef nonnull align 8 dereferenceable(104) @cpu_backend_i, i64 104, i1 false)
-  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %call1.i, i64 104
+  %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 104
   store ptr %call.i, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
   ret ptr %call1.i
 }
@@ -3963,7 +3963,7 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @ggml_backend_cpu_buffer_free_buffer(ptr nocapture noundef readonly %buffer) #15 {
 entry:
-  %context = getelementptr inbounds i8, ptr %buffer, i64 64
+  %context = getelementptr inbounds nuw i8, ptr %buffer, i64 64
   %0 = load ptr, ptr %context, align 8
   tail call void @free(ptr noundef %0) #20
   ret void
@@ -3972,7 +3972,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal ptr @ggml_backend_cpu_buffer_get_base(ptr nocapture noundef readonly %buffer) #7 {
 entry:
-  %context = getelementptr inbounds i8, ptr %buffer, i64 64
+  %context = getelementptr inbounds nuw i8, ptr %buffer, i64 64
   %0 = load ptr, ptr %context, align 8
   ret ptr %0
 }
@@ -3995,7 +3995,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.body3:                                         ; preds = %entry
-  %data4 = getelementptr inbounds i8, ptr %tensor, i64 280
+  %data4 = getelementptr inbounds nuw i8, ptr %tensor, i64 280
   %2 = load ptr, ptr %data4, align 8
   %cmp5.not = icmp eq ptr %2, null
   br i1 %cmp5.not, label %if.then7, label %do.end11
@@ -4033,7 +4033,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.body3:                                         ; preds = %entry
-  %data4 = getelementptr inbounds i8, ptr %tensor, i64 280
+  %data4 = getelementptr inbounds nuw i8, ptr %tensor, i64 280
   %2 = load ptr, ptr %data4, align 8
   %cmp5.not = icmp eq ptr %2, null
   br i1 %cmp5.not, label %if.then7, label %do.end11
@@ -4056,7 +4056,7 @@ do.end11:                                         ; preds = %do.body3
 ; Function Attrs: nounwind uwtable
 define internal void @ggml_backend_cpu_buffer_cpy_tensor_from(ptr nocapture readnone %buffer, ptr noundef %src, ptr nocapture noundef readonly %dst) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %dst, i64 280
+  %data = getelementptr inbounds nuw i8, ptr %dst, i64 280
   %0 = load ptr, ptr %data, align 8
   %call = tail call i64 @ggml_nbytes(ptr noundef %src) #20
   tail call void @ggml_backend_tensor_get(ptr noundef %src, ptr noundef %0, i64 noundef 0, i64 noundef %call)
@@ -4066,7 +4066,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @ggml_backend_cpu_buffer_cpy_tensor_to(ptr nocapture readnone %buffer, ptr noundef %src, ptr noundef %dst) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %src, i64 280
+  %data = getelementptr inbounds nuw i8, ptr %src, i64 280
   %0 = load ptr, ptr %data, align 8
   %call = tail call i64 @ggml_nbytes(ptr noundef %src) #20
   tail call void @ggml_backend_tensor_set(ptr noundef %dst, ptr noundef %0, i64 noundef 0, i64 noundef %call)
@@ -4076,9 +4076,9 @@ entry:
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @ggml_backend_cpu_free(ptr nocapture noundef %backend) #15 {
 entry:
-  %context = getelementptr inbounds i8, ptr %backend, i64 104
+  %context = getelementptr inbounds nuw i8, ptr %backend, i64 104
   %0 = load ptr, ptr %context, align 8
-  %work_data = getelementptr inbounds i8, ptr %0, i64 8
+  %work_data = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %work_data, align 8
   tail call void @free(ptr noundef %1) #20
   tail call void @free(ptr noundef %0) #20
@@ -4096,13 +4096,13 @@ entry:
 define internal noalias noundef ptr @ggml_backend_cpu_graph_plan_create(ptr nocapture noundef readonly %backend, ptr noundef %cgraph) #0 {
 entry:
   %tmp = alloca %struct.ggml_cplan, align 8
-  %context = getelementptr inbounds i8, ptr %backend, i64 104
+  %context = getelementptr inbounds nuw i8, ptr %backend, i64 104
   %0 = load ptr, ptr %context, align 8
   %call = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #21
   %1 = load i32, ptr %0, align 8
   call void @ggml_graph_plan(ptr nonnull sret(%struct.ggml_cplan) align 8 %tmp, ptr noundef %cgraph, i32 noundef %1) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %call, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %cgraph1 = getelementptr inbounds i8, ptr %call, i64 40
+  %cgraph1 = getelementptr inbounds nuw i8, ptr %call, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %cgraph1, ptr noundef nonnull align 8 dereferenceable(80) %cgraph, i64 80, i1 false)
   %2 = load i64, ptr %call, align 8
   %cmp.not = icmp eq i64 %2, 0
@@ -4110,7 +4110,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call5 = call noalias ptr @malloc(i64 noundef %2) #21
-  %work_data = getelementptr inbounds i8, ptr %call, i64 8
+  %work_data = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call5, ptr %work_data, align 8
   br label %if.end
 
@@ -4121,7 +4121,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @ggml_backend_cpu_graph_plan_free(ptr nocapture readnone %backend, ptr nocapture noundef %plan) #15 {
 entry:
-  %work_data = getelementptr inbounds i8, ptr %plan, i64 8
+  %work_data = getelementptr inbounds nuw i8, ptr %plan, i64 8
   %0 = load ptr, ptr %work_data, align 8
   tail call void @free(ptr noundef %0) #20
   tail call void @free(ptr noundef %plan) #20
@@ -4131,7 +4131,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @ggml_backend_cpu_graph_plan_compute(ptr nocapture readnone %backend, ptr noundef %plan) #0 {
 entry:
-  %cgraph = getelementptr inbounds i8, ptr %plan, i64 40
+  %cgraph = getelementptr inbounds nuw i8, ptr %plan, i64 40
   %call = tail call i32 @ggml_graph_compute(ptr noundef nonnull %cgraph, ptr noundef %plan) #20
   ret void
 }
@@ -4140,15 +4140,15 @@ entry:
 define internal void @ggml_backend_cpu_graph_compute(ptr nocapture noundef readonly %backend, ptr noundef %cgraph) #0 {
 entry:
   %cplan = alloca %struct.ggml_cplan, align 8
-  %context = getelementptr inbounds i8, ptr %backend, i64 104
+  %context = getelementptr inbounds nuw i8, ptr %backend, i64 104
   %0 = load ptr, ptr %context, align 8
   %1 = load i32, ptr %0, align 8
   call void @ggml_graph_plan(ptr nonnull sret(%struct.ggml_cplan) align 8 %cplan, ptr noundef %cgraph, i32 noundef %1) #20
-  %work_size = getelementptr inbounds i8, ptr %0, i64 16
+  %work_size = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %work_size, align 8
   %3 = load i64, ptr %cplan, align 8
   %cmp = icmp ult i64 %2, %3
-  %work_data = getelementptr inbounds i8, ptr %0, i64 8
+  %work_data = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %work_data, align 8
   br i1 %cmp, label %if.then, label %if.end
 
@@ -4161,7 +4161,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry, %if.then
   %6 = phi ptr [ %call, %if.then ], [ %4, %entry ]
-  %work_data7 = getelementptr inbounds i8, ptr %cplan, i64 8
+  %work_data7 = getelementptr inbounds nuw i8, ptr %cplan, i64 8
   store ptr %6, ptr %work_data7, align 8
   %call8 = call i32 @ggml_graph_compute(ptr noundef %cgraph, ptr noundef nonnull %cplan) #20
   ret void

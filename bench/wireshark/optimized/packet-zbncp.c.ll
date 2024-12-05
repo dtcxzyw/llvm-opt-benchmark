@@ -1608,7 +1608,7 @@ define internal i32 @dissect_zbncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %28 = zext i8 %24 to i32
   %29 = and i32 %28, 1
   %.not37.i = icmp eq i32 %29, 0
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %.str.1097..str.1096.i = select i1 %.not37.i, ptr @.str.1097, ptr @.str.1096
   %.str.1096..str.1097.i = select i1 %.not37.i, ptr @.str.1096, ptr @.str.1097
@@ -1640,7 +1640,7 @@ dissect_zbncp_dump_info.exit:                     ; preds = %6, %13, %36
   br i1 %.not32.i.i, label %41, label %dissect_zbncp_packet.exit
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   tail call void @col_set_str(ptr noundef %43, i32 noundef 34, ptr noundef nonnull @.str.632) #4
   %44 = load i32, ptr @zbncp_frame, align 4
@@ -1734,16 +1734,16 @@ dissect_zbncp_body.exit.i:                        ; preds = %96, %92, %75
   %103 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #5
   %104 = add i64 %103, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr align 1 %99, i64 %104, i1 false)
-  %105 = getelementptr inbounds i8, ptr %1, i64 20
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %1, i64 208
-  %108 = getelementptr inbounds i8, ptr %1, i64 232
-  %109 = getelementptr inbounds i8, ptr %1, i64 280
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %110 = load i32, ptr %109, align 8
   %111 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %110) #4
-  %112 = getelementptr inbounds i8, ptr %1, i64 284
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %113 = load i32, ptr %112, align 4
-  %114 = getelementptr inbounds i8, ptr %1, i64 288
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %115 = load i32, ptr %114, align 8
   %116 = tail call nonnull ptr @conversation_new(i32 noundef %106, ptr noundef nonnull %107, ptr noundef nonnull %108, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef 0) #4
   %117 = load i32, ptr @zbncp_frame, align 4
@@ -1766,16 +1766,16 @@ dissect_zbncp_body.exit.i:                        ; preds = %96, %92, %75
   br label %dissect_zbncp_fragmentation_body.exit.i
 
 dissect_zbncp_fragmentation_body.exit.i:          ; preds = %123, %120
-  %126 = getelementptr inbounds i8, ptr %1, i64 20
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %1, i64 208
-  %129 = getelementptr inbounds i8, ptr %1, i64 232
-  %130 = getelementptr inbounds i8, ptr %1, i64 280
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %131 = load i32, ptr %130, align 8
   %132 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %131) #4
-  %133 = getelementptr inbounds i8, ptr %1, i64 284
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds i8, ptr %1, i64 288
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %136 = load i32, ptr %135, align 8
   %137 = tail call ptr @find_conversation(i32 noundef %127, ptr noundef nonnull %128, ptr noundef nonnull %129, i32 noundef %132, i32 noundef %134, i32 noundef %136, i32 noundef 0) #4
   %.not48.i = icmp eq ptr %137, null
@@ -4827,7 +4827,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 1836:                                             ; preds = %1829
   %1837 = load i32, ptr @hf_zbncp_data_hl_status_generic, align 4
   %1838 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1837, ptr noundef %0, i32 noundef %1833, i32 noundef 1, i32 noundef 0) #4
-  %1839 = getelementptr inbounds i8, ptr %1, i64 8
+  %1839 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1840 = load ptr, ptr %1839, align 8
   %1841 = tail call ptr @val_to_str_const(i32 noundef %1835, ptr noundef nonnull @zbncp_hl_status_generic, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1840, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %1841) #4
@@ -4836,7 +4836,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 1842:                                             ; preds = %1829
   %1843 = load i32, ptr @hf_zbncp_data_hl_status_mac, align 4
   %1844 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1843, ptr noundef %0, i32 noundef %1833, i32 noundef 1, i32 noundef 0) #4
-  %1845 = getelementptr inbounds i8, ptr %1, i64 8
+  %1845 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1846 = load ptr, ptr %1845, align 8
   %1847 = tail call ptr @val_to_str_const(i32 noundef %1835, ptr noundef nonnull @zb_mac_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1846, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %1847) #4
@@ -4845,7 +4845,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 1848:                                             ; preds = %1829
   %1849 = load i32, ptr @hf_zbncp_data_hl_status_nwk, align 4
   %1850 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1849, ptr noundef %0, i32 noundef %1833, i32 noundef 1, i32 noundef 0) #4
-  %1851 = getelementptr inbounds i8, ptr %1, i64 8
+  %1851 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1852 = load ptr, ptr %1851, align 8
   %1853 = tail call ptr @val_to_str_const(i32 noundef %1835, ptr noundef nonnull @zb_nwk_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1852, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %1853) #4
@@ -4858,7 +4858,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 1855:                                             ; preds = %1829
   %1856 = load i32, ptr @hf_zbncp_data_hl_status_cbke, align 4
   %1857 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1856, ptr noundef %0, i32 noundef %1833, i32 noundef 1, i32 noundef 0) #4
-  %1858 = getelementptr inbounds i8, ptr %1, i64 8
+  %1858 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1859 = load ptr, ptr %1858, align 8
   %1860 = tail call ptr @val_to_str_const(i32 noundef %1835, ptr noundef nonnull @zb_cbke_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1859, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %1860) #4
@@ -4867,7 +4867,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 1861:                                             ; preds = %1829
   %1862 = load i32, ptr @hf_zbncp_data_hl_status, align 4
   %1863 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %1862, ptr noundef %0, i32 noundef %1833, i32 noundef 1, i32 noundef 0) #4
-  %1864 = getelementptr inbounds i8, ptr %1, i64 8
+  %1864 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1865 = load ptr, ptr %1864, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1865, i32 noundef 25, ptr noundef nonnull @.str.1111, i32 noundef %1835) #4
   br label %1866
@@ -5403,7 +5403,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 2204:                                             ; preds = %2197
   %2205 = load i32, ptr @hf_zbncp_data_hl_status_generic, align 4
   %2206 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2205, ptr noundef %0, i32 noundef %2201, i32 noundef 1, i32 noundef 0) #4
-  %2207 = getelementptr inbounds i8, ptr %1, i64 8
+  %2207 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2208 = load ptr, ptr %2207, align 8
   %2209 = tail call ptr @val_to_str_const(i32 noundef %2203, ptr noundef nonnull @zbncp_hl_status_generic, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2208, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %2209) #4
@@ -5412,7 +5412,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 2210:                                             ; preds = %2197
   %2211 = load i32, ptr @hf_zbncp_data_hl_status_mac, align 4
   %2212 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2211, ptr noundef %0, i32 noundef %2201, i32 noundef 1, i32 noundef 0) #4
-  %2213 = getelementptr inbounds i8, ptr %1, i64 8
+  %2213 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2214 = load ptr, ptr %2213, align 8
   %2215 = tail call ptr @val_to_str_const(i32 noundef %2203, ptr noundef nonnull @zb_mac_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2214, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %2215) #4
@@ -5421,7 +5421,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 2216:                                             ; preds = %2197
   %2217 = load i32, ptr @hf_zbncp_data_hl_status_nwk, align 4
   %2218 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2217, ptr noundef %0, i32 noundef %2201, i32 noundef 1, i32 noundef 0) #4
-  %2219 = getelementptr inbounds i8, ptr %1, i64 8
+  %2219 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2220 = load ptr, ptr %2219, align 8
   %2221 = tail call ptr @val_to_str_const(i32 noundef %2203, ptr noundef nonnull @zb_nwk_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2220, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %2221) #4
@@ -5434,7 +5434,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 2223:                                             ; preds = %2197
   %2224 = load i32, ptr @hf_zbncp_data_hl_status_cbke, align 4
   %2225 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2224, ptr noundef %0, i32 noundef %2201, i32 noundef 1, i32 noundef 0) #4
-  %2226 = getelementptr inbounds i8, ptr %1, i64 8
+  %2226 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2227 = load ptr, ptr %2226, align 8
   %2228 = tail call ptr @val_to_str_const(i32 noundef %2203, ptr noundef nonnull @zb_cbke_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2227, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %2228) #4
@@ -5443,7 +5443,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 2229:                                             ; preds = %2197
   %2230 = load i32, ptr @hf_zbncp_data_hl_status, align 4
   %2231 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2230, ptr noundef %0, i32 noundef %2201, i32 noundef 1, i32 noundef 0) #4
-  %2232 = getelementptr inbounds i8, ptr %1, i64 8
+  %2232 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2233 = load ptr, ptr %2232, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2233, i32 noundef 25, ptr noundef nonnull @.str.1111, i32 noundef %2203) #4
   br label %2234
@@ -5486,7 +5486,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 2251:                                             ; preds = %2244
   %2252 = load i32, ptr @hf_zbncp_data_hl_status_generic, align 4
   %2253 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2252, ptr noundef %0, i32 noundef %2248, i32 noundef 1, i32 noundef 0) #4
-  %2254 = getelementptr inbounds i8, ptr %1, i64 8
+  %2254 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2255 = load ptr, ptr %2254, align 8
   %2256 = tail call ptr @val_to_str_const(i32 noundef %2250, ptr noundef nonnull @zbncp_hl_status_generic, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2255, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %2256) #4
@@ -5495,7 +5495,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 2257:                                             ; preds = %2244
   %2258 = load i32, ptr @hf_zbncp_data_hl_status_mac, align 4
   %2259 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2258, ptr noundef %0, i32 noundef %2248, i32 noundef 1, i32 noundef 0) #4
-  %2260 = getelementptr inbounds i8, ptr %1, i64 8
+  %2260 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2261 = load ptr, ptr %2260, align 8
   %2262 = tail call ptr @val_to_str_const(i32 noundef %2250, ptr noundef nonnull @zb_mac_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2261, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %2262) #4
@@ -5504,7 +5504,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 2263:                                             ; preds = %2244
   %2264 = load i32, ptr @hf_zbncp_data_hl_status_nwk, align 4
   %2265 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2264, ptr noundef %0, i32 noundef %2248, i32 noundef 1, i32 noundef 0) #4
-  %2266 = getelementptr inbounds i8, ptr %1, i64 8
+  %2266 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2267 = load ptr, ptr %2266, align 8
   %2268 = tail call ptr @val_to_str_const(i32 noundef %2250, ptr noundef nonnull @zb_nwk_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2267, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %2268) #4
@@ -5517,7 +5517,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 2270:                                             ; preds = %2244
   %2271 = load i32, ptr @hf_zbncp_data_hl_status_cbke, align 4
   %2272 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2271, ptr noundef %0, i32 noundef %2248, i32 noundef 1, i32 noundef 0) #4
-  %2273 = getelementptr inbounds i8, ptr %1, i64 8
+  %2273 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2274 = load ptr, ptr %2273, align 8
   %2275 = tail call ptr @val_to_str_const(i32 noundef %2250, ptr noundef nonnull @zb_cbke_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2274, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %2275) #4
@@ -5526,7 +5526,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
 2276:                                             ; preds = %2244
   %2277 = load i32, ptr @hf_zbncp_data_hl_status, align 4
   %2278 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2277, ptr noundef %0, i32 noundef %2248, i32 noundef 1, i32 noundef 0) #4
-  %2279 = getelementptr inbounds i8, ptr %1, i64 8
+  %2279 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2280 = load ptr, ptr %2279, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %2280, i32 noundef 25, ptr noundef nonnull @.str.1111, i32 noundef %2250) #4
   br label %2281
@@ -6154,7 +6154,7 @@ define internal fastcc noundef i32 @dissect_zbncp_status(ptr noundef %0, ptr nou
 11:                                               ; preds = %4
   %12 = load i32, ptr @hf_zbncp_data_hl_status_generic, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @zbncp_hl_status_generic, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %16) #4
@@ -6163,7 +6163,7 @@ define internal fastcc noundef i32 @dissect_zbncp_status(ptr noundef %0, ptr nou
 17:                                               ; preds = %4
   %18 = load i32, ptr @hf_zbncp_data_hl_status_mac, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #4
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @zb_mac_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %22) #4
@@ -6172,7 +6172,7 @@ define internal fastcc noundef i32 @dissect_zbncp_status(ptr noundef %0, ptr nou
 23:                                               ; preds = %4
   %24 = load i32, ptr @hf_zbncp_data_hl_status_nwk, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #4
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @zb_nwk_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %28) #4
@@ -6185,7 +6185,7 @@ define internal fastcc noundef i32 @dissect_zbncp_status(ptr noundef %0, ptr nou
 30:                                               ; preds = %4
   %31 = load i32, ptr @hf_zbncp_data_hl_status_cbke, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #4
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @zb_cbke_state, ptr noundef nonnull @.str.1110) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.1109, ptr noundef %35) #4
@@ -6194,7 +6194,7 @@ define internal fastcc noundef i32 @dissect_zbncp_status(ptr noundef %0, ptr nou
 36:                                               ; preds = %4
   %37 = load i32, ptr @hf_zbncp_data_hl_status, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef 0) #4
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %40, i32 noundef 25, ptr noundef nonnull @.str.1111, i32 noundef %10) #4
   br label %41

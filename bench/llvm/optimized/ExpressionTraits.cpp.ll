@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZN5clang12getTraitNameENS_15ExpressionTraitE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [2 x ptr], ptr @_ZL20ExpressionTraitNames, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [2 x ptr], ptr @_ZL20ExpressionTraitNames, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -21,7 +21,7 @@ define dso_local noundef ptr @_ZN5clang12getTraitNameENS_15ExpressionTraitE(i32 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef ptr @_ZN5clang16getTraitSpellingENS_15ExpressionTraitE(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds [2 x ptr], ptr @_ZL24ExpressionTraitSpellings, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [2 x ptr], ptr @_ZL24ExpressionTraitSpellings, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }

@@ -86,7 +86,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
 
 26:                                               ; preds = %22
   store ptr %2, ptr %23, align 16
-  %27 = getelementptr inbounds i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %3, ptr %27, align 8
   br label %28
 
@@ -104,7 +104,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 9
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = tail call ptr @acpi_ut_create_internal_object_dbg(ptr noundef nonnull @_acpi_module_name, i32 noundef 126, i32 noundef 4, i32 noundef %38) #5
@@ -121,7 +121,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
 
 46:                                               ; preds = %41, %32
   %47 = phi ptr [ %33, %32 ], [ %39, %41 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   br label %49
 
 49:                                               ; preds = %.loopexit11, %46
@@ -140,7 +140,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
   br i1 %59, label %.loopexit11, label %.preheader9
 
 60:                                               ; preds = %.preheader9
-  %61 = getelementptr inbounds i8, ptr %65, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %62 = getelementptr [2 x ptr], ptr %61, i64 0, i64 %51
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
@@ -148,7 +148,7 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
 
 .preheader9:                                      ; preds = %56, %60
   %65 = phi ptr [ %63, %60 ], [ %58, %56 ]
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, %2
   br i1 %68, label %.loopexit, label %60
@@ -162,15 +162,15 @@ define dso_local i32 @acpi_install_notify_handler(ptr noundef %0, i32 noundef %1
   br i1 %71, label %.loopexit, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %0, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %70, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store i32 %1, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %70, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 32
   store ptr %2, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %70, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 40
   store ptr %3, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %70, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 48
   br label %78
 
 78:                                               ; preds = %89, %72
@@ -295,7 +295,7 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %32, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   br label %36
 
 36:                                               ; preds = %73, %34
@@ -319,20 +319,20 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
   br i1 %49, label %.loopexit7, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %48, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %2
   br i1 %53, label %.loopexit10, label %.preheader8
 
 54:                                               ; preds = %.preheader8
-  %55 = getelementptr inbounds i8, ptr %61, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, %2
   br i1 %57, label %.loopexit10, label %.preheader8, !llvm.loop !12
 
 .preheader8:                                      ; preds = %50, %54
   %58 = phi ptr [ %61, %54 ], [ %48, %50 ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = getelementptr [2 x ptr], ptr %59, i64 0, i64 %38
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
@@ -342,10 +342,10 @@ define dso_local i32 @acpi_remove_notify_handler(ptr noundef %0, i32 noundef %1,
   %63 = phi ptr [ %48, %50 ], [ %61, %54 ]
   %64 = phi ptr [ null, %50 ], [ %58, %54 ]
   %65 = icmp eq ptr %64, null
-  %66 = getelementptr inbounds i8, ptr %63, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %67 = getelementptr [2 x ptr], ptr %66, i64 0, i64 %38
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %64, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %70 = getelementptr [2 x ptr], ptr %69, i64 0, i64 %38
   %71 = select i1 %65, ptr %47, ptr %70
   store ptr %68, ptr %71, align 8
@@ -390,9 +390,9 @@ define dso_local i32 @acpi_install_sci_handler(ptr noundef %0, ptr noundef %1) #
   br i1 %12, label %35, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %1, ptr %15, align 8
   %16 = call i32 @acpi_ut_acquire_mutex(i32 noundef 3) #5
   %17 = icmp eq i32 %16, 0
@@ -410,7 +410,7 @@ define dso_local i32 @acpi_install_sci_handler(ptr noundef %0, ptr noundef %1) #
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %0
   br i1 %28, label %.loopexit, label %21, !llvm.loop !16
@@ -467,7 +467,7 @@ define dso_local i32 @acpi_remove_sci_handler(ptr noundef readnone %0) #0 align 
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %0
   br i1 %17, label %18, label %9, !llvm.loop !17
@@ -546,7 +546,7 @@ define dso_local i32 @acpi_install_fixed_event_handler(i32 noundef %0, ptr nound
 
 13:                                               ; preds = %8
   store ptr %1, ptr %10, align 16
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %14, align 8
   %15 = tail call i32 @acpi_clear_event(i32 noundef %0) #5
   %16 = icmp eq i32 %15, 0
@@ -663,7 +663,7 @@ define internal fastcc i32 @acpi_ev_install_gpe_handler(ptr noundef %0, i32 noun
   br i1 %27, label %63, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i8, ptr %29, align 8
   %31 = and i8 %30, 7
   switch i8 %31, label %32 [
@@ -673,13 +673,13 @@ define internal fastcc i32 @acpi_ev_install_gpe_handler(ptr noundef %0, i32 noun
 
 32:                                               ; preds = %28
   store ptr %4, ptr %21, align 8
-  %33 = getelementptr inbounds i8, ptr %21, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %5, ptr %33, align 8
   %34 = load ptr, ptr %26, align 8
-  %35 = getelementptr inbounds i8, ptr %21, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %34, ptr %35, align 8
   %36 = and i8 %30, 15
-  %37 = getelementptr inbounds i8, ptr %21, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i8 %36, ptr %37, align 8
   switch i8 %31, label %50 [
     i8 1, label %38
@@ -687,13 +687,13 @@ define internal fastcc i32 @acpi_ev_install_gpe_handler(ptr noundef %0, i32 noun
   ]
 
 38:                                               ; preds = %32, %32
-  %39 = getelementptr inbounds i8, ptr %26, i64 18
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 18
   %40 = load i8, ptr %39, align 2
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %50, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %21, i64 25
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 25
   store i8 1, ptr %43, align 1
   %44 = call i32 @acpi_ev_remove_gpe_reference(ptr noundef nonnull %26) #5
   %45 = load i8, ptr %29, align 8
@@ -763,7 +763,7 @@ define dso_local i32 @acpi_remove_gpe_handler(ptr noundef %0, i32 noundef %1, pt
   br i1 %12, label %52, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = and i8 %15, 7
   switch i8 %16, label %52 [
@@ -779,12 +779,12 @@ define dso_local i32 @acpi_remove_gpe_handler(ptr noundef %0, i32 noundef %1, pt
 
 21:                                               ; preds = %17
   store ptr null, ptr %11, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %11, align 8
   %24 = and i8 %15, -16
   store i8 %24, ptr %14, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %26 = load i8, ptr %25, align 8
   %27 = or i8 %26, %24
   store i8 %27, ptr %14, align 8
@@ -796,14 +796,14 @@ define dso_local i32 @acpi_remove_gpe_handler(ptr noundef %0, i32 noundef %1, pt
   ]
 
 30:                                               ; preds = %21, %21
-  %31 = getelementptr inbounds i8, ptr %18, i64 25
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 25
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %48, label %34
 
 34:                                               ; preds = %30
   %35 = tail call i32 @acpi_ev_add_gpe_reference(ptr noundef nonnull %11, i8 noundef zeroext 0) #5
-  %36 = getelementptr inbounds i8, ptr %11, i64 18
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 18
   %37 = load i8, ptr %36, align 2
   %38 = icmp eq i8 %37, 1
   br i1 %38, label %39, label %48

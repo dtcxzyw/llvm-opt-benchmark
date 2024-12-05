@@ -148,14 +148,14 @@ define i32 @ompi_coll_base_barrier_intra_recursivedoubling(ptr noundef %0, ptr n
   br i1 %.not19.i, label %ompi_coll_base_sendrecv_zero.exit.thread, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %29, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %32 = load i32, ptr %31, align 8
   %.off.i = add i32 %32, -75
   %switch.i = icmp ult i32 %.off.i, 3
   br i1 %switch.i, label %33, label %41
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %29, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 128
   %35 = load ptr, ptr %34, align 8
   %.not.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i, label %ompi_request_cancel.exit.i, label %36
@@ -172,7 +172,7 @@ ompi_request_cancel.exit.i:                       ; preds = %36, %33
   br label %ompi_coll_base_sendrecv_zero.exit.thread
 
 41:                                               ; preds = %30
-  %42 = getelementptr inbounds i8, ptr %29, i64 120
+  %42 = getelementptr inbounds nuw i8, ptr %29, i64 120
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 %43(ptr noundef nonnull %5) #4
   br label %ompi_coll_base_sendrecv_zero.exit.thread
@@ -245,14 +245,14 @@ ompi_coll_base_sendrecv_zero.exit:                ; preds = %25
   br i1 %.not19.i68, label %ompi_coll_base_sendrecv_zero.exit77.thread, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %68, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %71 = load i32, ptr %70, align 8
   %.off.i69 = add i32 %71, -75
   %switch.i70 = icmp ult i32 %.off.i69, 3
   br i1 %switch.i70, label %72, label %80
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %68, i64 128
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 128
   %74 = load ptr, ptr %73, align 8
   %.not.i.i72 = icmp eq ptr %74, null
   br i1 %.not.i.i72, label %ompi_request_cancel.exit.i73, label %75
@@ -269,7 +269,7 @@ ompi_request_cancel.exit.i73:                     ; preds = %75, %72
   br label %ompi_coll_base_sendrecv_zero.exit77.thread
 
 80:                                               ; preds = %69
-  %81 = getelementptr inbounds i8, ptr %68, i64 120
+  %81 = getelementptr inbounds nuw i8, ptr %68, i64 120
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 %82(ptr noundef nonnull %3) #4
   br label %ompi_coll_base_sendrecv_zero.exit77.thread
@@ -356,14 +356,14 @@ define i32 @ompi_coll_base_barrier_intra_bruck(ptr noundef %0, ptr nocapture nou
   br i1 %.not19.i, label %ompi_coll_base_sendrecv_zero.exit.thread, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %26, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %29 = load i32, ptr %28, align 8
   %.off.i = add i32 %29, -75
   %switch.i = icmp ult i32 %.off.i, 3
   br i1 %switch.i, label %30, label %38
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %26, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %ompi_request_cancel.exit.i, label %33
@@ -380,7 +380,7 @@ ompi_request_cancel.exit.i:                       ; preds = %33, %30
   br label %ompi_coll_base_sendrecv_zero.exit.thread
 
 38:                                               ; preds = %27
-  %39 = getelementptr inbounds i8, ptr %26, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 %40(ptr noundef nonnull %3) #4
   br label %ompi_coll_base_sendrecv_zero.exit.thread
@@ -448,14 +448,14 @@ define i32 @ompi_coll_base_barrier_intra_two_procs(ptr noundef %0, ptr nocapture
   br i1 %.not19.i, label %ompi_coll_base_sendrecv_zero.exit, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %20, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %23 = load i32, ptr %22, align 8
   %.off.i = add i32 %23, -75
   %switch.i = icmp ult i32 %.off.i, 3
   br i1 %switch.i, label %24, label %32
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %20, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %26 = load ptr, ptr %25, align 8
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %ompi_request_cancel.exit.i, label %27
@@ -472,7 +472,7 @@ ompi_request_cancel.exit.i:                       ; preds = %27, %24
   br label %ompi_coll_base_sendrecv_zero.exit
 
 32:                                               ; preds = %21
-  %33 = getelementptr inbounds i8, ptr %20, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 %34(ptr noundef nonnull %3) #4
   br label %ompi_coll_base_sendrecv_zero.exit
@@ -518,7 +518,7 @@ define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapt
   br label %.thread
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %1, i64 584
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @ompi_coll_base_comm_get_reqs(ptr noundef %17, i32 noundef %.val.val) #4
   %19 = icmp eq ptr %18, null
@@ -540,7 +540,7 @@ define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
-  %23 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %24 = tail call i32 %22(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef -1, i32 noundef -16, ptr noundef %0, ptr noundef nonnull %23) #4
   %.not60 = icmp eq i32 %24, 0
   br i1 %.not60, label %21, label %.loopexit71
@@ -549,7 +549,7 @@ define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapt
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %26 = add nsw i32 %.val.val, -1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %18, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %29 = tail call i32 %25(i64 noundef %27, ptr noundef nonnull %28, ptr noundef null) #4
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %.preheader69, label %.loopexit71
@@ -584,13 +584,13 @@ define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapt
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %42
   %indvars.iv84 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next85, %42 ]
-  %36 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv84
+  %36 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv84
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, @ompi_request_null
   br i1 %38, label %42, label %39
 
 39:                                               ; preds = %.lr.ph78
-  %40 = getelementptr inbounds i8, ptr %37, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %41 = load i32, ptr %40, align 8
   switch i32 %41, label %.loopexit [
     i32 19, label %42
@@ -614,20 +614,20 @@ define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapt
 
 .lr.ph.i:                                         ; preds = %60, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %60 ]
-  %44 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %45, @ompi_request_null
   br i1 %.not.i, label %60, label %46
 
 46:                                               ; preds = %.lr.ph.i
-  %47 = getelementptr inbounds i8, ptr %45, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 72
   %48 = load i32, ptr %47, align 8
   %.off.i = add i32 %48, -75
   %switch.i = icmp ult i32 %.off.i, 3
   br i1 %switch.i, label %49, label %56
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %45, i64 128
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 128
   %51 = load ptr, ptr %50, align 8
   %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %ompi_request_cancel.exit.i, label %52
@@ -642,7 +642,7 @@ ompi_request_cancel.exit.i:                       ; preds = %52, %49
   br label %60
 
 56:                                               ; preds = %46
-  %57 = getelementptr inbounds i8, ptr %45, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 120
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 %58(ptr noundef nonnull %44) #4
   br label %60

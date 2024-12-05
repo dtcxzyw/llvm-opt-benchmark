@@ -39,13 +39,13 @@ define ptr @fmtquote(ptr noundef readonly %0, ptr noundef readonly %1, ptr nound
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 39
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %1, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %26 = load i8, ptr %25, align 1
   %.fr142 = freeze i8 %26
   %27 = icmp eq i8 %.fr142, 0
@@ -69,8 +69,8 @@ define ptr @fmtquote(ptr noundef readonly %0, ptr noundef readonly %1, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.173110 = phi ptr [ %29, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %.181109 = phi ptr [ %30, %.lr.ph ], [ %16, %.lr.ph.preheader ]
-  %29 = getelementptr inbounds i8, ptr %.173110, i64 1
-  %30 = getelementptr inbounds i8, ptr %.181109, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.173110, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.181109, i64 1
   %31 = load i8, ptr %29, align 1
   store i8 %31, ptr %30, align 1
   %.not96 = icmp eq i8 %31, 0
@@ -91,7 +91,7 @@ define ptr @fmtquote(ptr noundef readonly %0, ptr noundef readonly %1, ptr nound
   %.078113.us = phi i32 [ %.179.us, %gv_isspace.exit104.us ], [ 0, %.lr.ph115 ]
   %.2112.us = phi ptr [ %71, %gv_isspace.exit104.us ], [ %.080, %.lr.ph115 ]
   %.083111.us = phi ptr [ %33, %gv_isspace.exit104.us ], [ %0, %.lr.ph115 ]
-  %33 = getelementptr inbounds i8, ptr %.083111.us, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.083111.us, i64 1
   %34 = load i8, ptr %.083111.us, align 1
   %35 = zext i8 %34 to i32
   %36 = icmp ult i8 %34, 32
@@ -115,7 +115,7 @@ define ptr @fmtquote(ptr noundef readonly %0, ptr noundef readonly %1, ptr nound
   br i1 %.not.us, label %47, label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.2112.us, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.2112.us, i64 1
   store i8 92, ptr %.2112.us, align 1
   br label %gv_isspace.exit104.us
 
@@ -131,7 +131,7 @@ define ptr @fmtquote(ptr noundef readonly %0, ptr noundef readonly %1, ptr nound
   br label %gv_isspace.exit104.us
 
 51:                                               ; preds = %38, %.lr.ph115.split.us
-  %52 = getelementptr inbounds i8, ptr %.2112.us, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.2112.us, i64 1
   store i8 92, ptr %.2112.us, align 1
   switch i8 %34, label %61 [
     i8 7, label %60
@@ -172,12 +172,12 @@ define ptr @fmtquote(ptr noundef readonly %0, ptr noundef readonly %1, ptr nound
 61:                                               ; preds = %51
   %62 = lshr i8 %34, 6
   %63 = or disjoint i8 %62, 48
-  %64 = getelementptr inbounds i8, ptr %.2112.us, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %.2112.us, i64 2
   store i8 %63, ptr %52, align 1
   %65 = lshr i8 %34, 3
   %66 = and i8 %65, 7
   %67 = or disjoint i8 %66, 48
-  %68 = getelementptr inbounds i8, ptr %.2112.us, i64 3
+  %68 = getelementptr inbounds nuw i8, ptr %.2112.us, i64 3
   store i8 %67, ptr %64, align 1
   %69 = and i8 %34, 7
   %70 = or disjoint i8 %69, 48
@@ -188,7 +188,7 @@ gv_isspace.exit104.us:                            ; preds = %50, %61, %60, %59, 
   %.179.us = phi i32 [ 1, %61 ], [ 1, %51 ], [ 1, %53 ], [ 1, %54 ], [ 1, %55 ], [ 1, %56 ], [ 1, %57 ], [ 1, %58 ], [ 1, %59 ], [ 1, %60 ], [ 1, %45 ], [ %.078113.us, %47 ], [ 0, %50 ]
   %.177.us = phi i32 [ %.076114.us, %61 ], [ %.076114.us, %51 ], [ %.076114.us, %53 ], [ %.076114.us, %54 ], [ %.076114.us, %55 ], [ %.076114.us, %56 ], [ %.076114.us, %57 ], [ %.076114.us, %58 ], [ %.076114.us, %59 ], [ %.076114.us, %60 ], [ %.076114.us, %45 ], [ %.076114.us, %47 ], [ %spec.select126, %50 ]
   %.0.us = phi i8 [ %70, %61 ], [ %34, %51 ], [ 69, %53 ], [ 118, %54 ], [ 116, %55 ], [ 114, %56 ], [ 110, %57 ], [ 102, %58 ], [ 98, %59 ], [ 97, %60 ], [ %34, %45 ], [ %34, %47 ], [ %34, %50 ]
-  %71 = getelementptr inbounds i8, ptr %.3.us, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.3.us, i64 1
   store i8 %.0.us, ptr %.3.us, align 1
   %72 = icmp ult ptr %33, %5
   br i1 %72, label %.lr.ph115.split.us, label %._crit_edge
@@ -198,7 +198,7 @@ gv_isspace.exit104.us:                            ; preds = %50, %61, %60, %59, 
   %.078113 = phi i32 [ %.179, %gv_isspace.exit104 ], [ 0, %.lr.ph115 ]
   %.2112 = phi ptr [ %118, %gv_isspace.exit104 ], [ %.080, %.lr.ph115 ]
   %.083111 = phi ptr [ %73, %gv_isspace.exit104 ], [ %0, %.lr.ph115 ]
-  %73 = getelementptr inbounds i8, ptr %.083111, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.083111, i64 1
   %74 = load i8, ptr %.083111, align 1
   %75 = zext i8 %74 to i32
   %76 = icmp ult i8 %74, 32
@@ -214,7 +214,7 @@ gv_isspace.exit104.us:                            ; preds = %50, %61, %60, %59, 
   br i1 %or.cond.not, label %102, label %82
 
 82:                                               ; preds = %78, %.lr.ph115.split
-  %83 = getelementptr inbounds i8, ptr %.2112, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.2112, i64 1
   store i8 92, ptr %.2112, align 1
   switch i8 %74, label %92 [
     i8 7, label %84
@@ -255,12 +255,12 @@ gv_isspace.exit104.us:                            ; preds = %50, %61, %60, %59, 
 92:                                               ; preds = %82
   %93 = lshr i8 %74, 6
   %94 = or disjoint i8 %93, 48
-  %95 = getelementptr inbounds i8, ptr %.2112, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %.2112, i64 2
   store i8 %94, ptr %83, align 1
   %96 = lshr i8 %74, 3
   %97 = and i8 %96, 7
   %98 = or disjoint i8 %97, 48
-  %99 = getelementptr inbounds i8, ptr %.2112, i64 3
+  %99 = getelementptr inbounds nuw i8, ptr %.2112, i64 3
   store i8 %98, ptr %95, align 1
   %100 = and i8 %74, 7
   %101 = or disjoint i8 %100, 48
@@ -275,7 +275,7 @@ gv_isspace.exit104.us:                            ; preds = %50, %61, %60, %59, 
   br i1 %.not, label %107, label %105
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %.2112, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %.2112, i64 1
   store i8 92, ptr %.2112, align 1
   br label %gv_isspace.exit104
 
@@ -322,7 +322,7 @@ gv_isspace.exit104:                               ; preds = %110, %gv_isspace.ex
   %.179 = phi i32 [ 1, %92 ], [ 1, %82 ], [ 1, %91 ], [ 1, %90 ], [ 1, %89 ], [ 1, %88 ], [ 1, %87 ], [ 1, %86 ], [ 1, %85 ], [ 1, %84 ], [ 1, %105 ], [ %.078113, %107 ], [ 0, %111 ], [ 0, %115 ], [ 0, %gv_isspace.exit104.thread ], [ 0, %113 ], [ 0, %gv_isspace.exit ], [ 0, %110 ]
   %.177 = phi i32 [ %.076114, %92 ], [ %.076114, %82 ], [ %.076114, %91 ], [ %.076114, %90 ], [ %.076114, %89 ], [ %.076114, %88 ], [ %.076114, %87 ], [ %.076114, %86 ], [ %.076114, %85 ], [ %.076114, %84 ], [ %.076114, %105 ], [ %.076114, %107 ], [ 0, %111 ], [ 0, %115 ], [ 1, %gv_isspace.exit104.thread ], [ 1, %113 ], [ 1, %gv_isspace.exit ], [ 1, %110 ]
   %.0 = phi i8 [ %101, %92 ], [ %74, %82 ], [ 69, %91 ], [ 118, %90 ], [ 116, %89 ], [ 114, %88 ], [ 110, %87 ], [ 102, %86 ], [ 98, %85 ], [ 97, %84 ], [ %74, %105 ], [ %74, %107 ], [ %74, %111 ], [ 35, %115 ], [ 35, %gv_isspace.exit104.thread ], [ 35, %113 ], [ %74, %gv_isspace.exit ], [ 32, %110 ]
-  %118 = getelementptr inbounds i8, ptr %.3, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   store i8 %.0, ptr %.3, align 1
   %119 = icmp ult ptr %73, %5
   br i1 %119, label %.lr.ph115.split, label %._crit_edge
@@ -340,7 +340,7 @@ gv_isspace.exit104:                               ; preds = %110, %gv_isspace.ex
   %123 = add nuw nsw i32 %.074, %122
   %narrow = select i1 %121, i32 0, i32 %123
   %.171.idx = zext i32 %narrow to i64
-  %.171 = getelementptr inbounds i8, ptr %16, i64 %.171.idx
+  %.171 = getelementptr inbounds nuw i8, ptr %16, i64 %.171.idx
   %124 = icmp ne i32 %.076.lcssa, 0
   %or.cond5 = select i1 %121, i1 true, i1 %124
   %or.cond = select i1 %.not95, i1 %or.cond5, i1 false
@@ -355,8 +355,8 @@ gv_isspace.exit104:                               ; preds = %110, %gv_isspace.ex
 .lr.ph124:                                        ; preds = %.preheader, %.lr.ph124
   %.5123 = phi ptr [ %127, %.lr.ph124 ], [ %.2.lcssa, %.preheader ]
   %.082122 = phi ptr [ %126, %.lr.ph124 ], [ %2, %.preheader ]
-  %126 = getelementptr inbounds i8, ptr %.082122, i64 1
-  %127 = getelementptr inbounds i8, ptr %.5123, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %.082122, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %.5123, i64 1
   %128 = load i8, ptr %126, align 1
   store i8 %128, ptr %127, align 1
   %.not99 = icmp eq i8 %128, 0

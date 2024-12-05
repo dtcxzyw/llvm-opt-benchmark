@@ -22,7 +22,7 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr nocapture 
   %17 = sub nsw i64 %14, %5
   %18 = icmp slt i64 %17, 0
   %19 = getelementptr inbounds double, ptr %2, i64 %14
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = getelementptr inbounds double, ptr %20, i64 %12
   %22 = add nsw i64 %14, 1
   %23 = mul nsw i64 %22, %3
@@ -44,17 +44,17 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr nocapture 
   %37 = load double, ptr %33, align 8, !tbaa !3
   %38 = load double, ptr %32, align 8, !tbaa !3
   %39 = icmp sgt i64 %34, 0
-  %40 = getelementptr inbounds i8, ptr %33, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %41 = getelementptr inbounds double, ptr %33, i64 %3
   %42 = select i1 %39, ptr %40, ptr %41
-  %43 = getelementptr inbounds i8, ptr %32, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %44 = getelementptr inbounds double, ptr %32, i64 %3
   %45 = icmp slt i64 %34, 0
   %46 = select i1 %45, ptr %44, ptr %43
   store double %37, ptr %36, align 8, !tbaa !3
-  %47 = getelementptr inbounds i8, ptr %36, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store double %38, ptr %47, align 8, !tbaa !3
-  %48 = getelementptr inbounds i8, ptr %36, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %49 = add nsw i64 %34, -1
   %50 = add nsw i64 %35, -1
   %51 = icmp samesign ugt i64 %35, 1
@@ -94,11 +94,11 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr nocapture 
   %75 = phi ptr [ %81, %71 ], [ %55, %61 ]
   %76 = load double, ptr %72, align 8, !tbaa !3
   %77 = icmp sgt i64 %73, 0
-  %78 = getelementptr inbounds i8, ptr %72, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %79 = getelementptr inbounds double, ptr %72, i64 %3
   %80 = select i1 %77, ptr %78, ptr %79
   store double %76, ptr %75, align 8, !tbaa !3
-  %81 = getelementptr inbounds i8, ptr %75, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %82 = add nsw i64 %73, -1
   %83 = add nsw i64 %74, -1
   %84 = icmp samesign ugt i64 %74, 1

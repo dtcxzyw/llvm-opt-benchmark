@@ -93,7 +93,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %data_ = getelementptr inbounds i8, ptr %this, i64 104
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rv.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
@@ -114,8 +114,8 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %idx.ext8.i.i.i, i32 1
-  %loadQuantum_ = getelementptr inbounds i8, ptr %this, i64 152
+  %second.i = getelementptr inbounds nuw %"struct.std::pair", ptr %2, i64 %idx.ext8.i.i.i, i32 1
+  %loadQuantum_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %4 = load i32, ptr %loadQuantum_, align 8
   %5 = load i64, ptr %second.i, align 8
   %add.i = add i64 %5, %bytes
@@ -124,7 +124,7 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %numReferences.i = getelementptr inbounds i8, ptr %second.i, i64 16
+  %numReferences.i = getelementptr inbounds nuw i8, ptr %second.i, i64 16
   %6 = load i32, ptr %numReferences.i, align 8
   %inc.i = add nsw i32 %6, 1
   store i32 %inc.i, ptr %numReferences.i, align 8
@@ -136,7 +136,7 @@ if.else.i:                                        ; preds = %invoke.cont
   %add.i.i = add i64 %bytes, %conv.i.i
   %conv1.i.i = sext i32 %4 to i64
   %div.i = udiv i64 %add.i.i, %conv1.i.i
-  %numReferences2.i = getelementptr inbounds i8, ptr %second.i, i64 16
+  %numReferences2.i = getelementptr inbounds nuw i8, ptr %second.i, i64 16
   %7 = load i32, ptr %numReferences2.i, align 8
   %8 = trunc i64 %div.i to i32
   %conv5.i = add i32 %7, %8
@@ -144,7 +144,7 @@ if.else.i:                                        ; preds = %invoke.cont
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %if.else.i, %if.then.i
-  %sum_ = getelementptr inbounds i8, ptr %this, i64 128
+  %sum_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %9 = load i32, ptr %loadQuantum_, align 8
   %10 = load i64, ptr %sum_, align 8
   %add.i3 = add i64 %10, %bytes
@@ -153,7 +153,7 @@ invoke.cont4:                                     ; preds = %if.else.i, %if.then
   br i1 %tobool.not.i4, label %if.then.i13, label %if.else.i5
 
 if.then.i13:                                      ; preds = %invoke.cont4
-  %numReferences.i14 = getelementptr inbounds i8, ptr %this, i64 144
+  %numReferences.i14 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %11 = load i32, ptr %numReferences.i14, align 8
   %inc.i15 = add nsw i32 %11, 1
   store i32 %inc.i15, ptr %numReferences.i14, align 8
@@ -165,7 +165,7 @@ if.else.i5:                                       ; preds = %invoke.cont4
   %add.i.i8 = add i64 %bytes, %conv.i.i7
   %conv1.i.i9 = sext i32 %9 to i64
   %div.i10 = udiv i64 %add.i.i8, %conv1.i.i9
-  %numReferences2.i11 = getelementptr inbounds i8, ptr %this, i64 144
+  %numReferences2.i11 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %12 = load i32, ptr %numReferences2.i11, align 8
   %13 = trunc i64 %div.i10 to i32
   %conv5.i12 = add i32 %12, %13
@@ -205,7 +205,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %data_ = getelementptr inbounds i8, ptr %this, i64 104
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %rv.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
@@ -226,20 +226,20 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp2.i.i)
-  %second.i = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %idx.ext8.i.i.i, i32 1
-  %readBytes.i = getelementptr inbounds i8, ptr %second.i, i64 8
+  %second.i = getelementptr inbounds nuw %"struct.std::pair", ptr %2, i64 %idx.ext8.i.i.i, i32 1
+  %readBytes.i = getelementptr inbounds nuw i8, ptr %second.i, i64 8
   %4 = load i64, ptr %readBytes.i, align 8
   %add.i = add i64 %4, %bytes
   store i64 %add.i, ptr %readBytes.i, align 8
-  %numReads.i = getelementptr inbounds i8, ptr %second.i, i64 20
+  %numReads.i = getelementptr inbounds nuw i8, ptr %second.i, i64 20
   %5 = load i32, ptr %numReads.i, align 4
   %inc.i = add nsw i32 %5, 1
   store i32 %inc.i, ptr %numReads.i, align 4
-  %readBytes.i3 = getelementptr inbounds i8, ptr %this, i64 136
+  %readBytes.i3 = getelementptr inbounds nuw i8, ptr %this, i64 136
   %6 = load i64, ptr %readBytes.i3, align 8
   %add.i4 = add i64 %6, %bytes
   store i64 %add.i4, ptr %readBytes.i3, align 8
-  %numReads.i5 = getelementptr inbounds i8, ptr %this, i64 148
+  %numReads.i5 = getelementptr inbounds nuw i8, ptr %this, i64 148
   %7 = load i32, ptr %numReads.i5, align 4
   %inc.i6 = add nsw i32 %7, 1
   store i32 %inc.i6, ptr %numReads.i5, align 4
@@ -258,12 +258,12 @@ define void @_ZNK8facebook5velox5cache11ScanTracker8toStringB5cxx11Ev(ptr noalia
 entry:
   %out = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out)
-  %add.ptr = getelementptr inbounds i8, ptr %out, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 16
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %entry
-  %id_ = getelementptr inbounds i8, ptr %this, i64 40
+  %id_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(32) %id_)
           to label %invoke.cont2 unwind label %lpad.loopexit.split-lp
 
@@ -272,8 +272,8 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp
 
 invoke.cont8:                                     ; preds = %invoke.cont2
-  %data_ = getelementptr inbounds i8, ptr %this, i64 104
-  %sizeAndPackedBegin_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 124
+  %data_ = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %sizeAndPackedBegin_.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   %0 = load i32, ptr %sizeAndPackedBegin_.i.i.i.i, align 4
   %cmp.not.i.i.i = icmp eq i32 %0, 0
   %1 = load ptr, ptr %data_, align 8
@@ -281,7 +281,7 @@ invoke.cont8:                                     ; preds = %invoke.cont2
 
 for.body.preheader:                               ; preds = %invoke.cont8
   %conv.i.i.i = zext i32 %0 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %conv.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %conv.i.i.i
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
@@ -389,7 +389,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache10TrackingIdENS6_12TrackingDataEvvvSt17integral_constantIbLb1EEEEE19tryEmplaceValueImplIS7_JRKSt21piecewise_construct_tSt5tupleIJRKS7_EESH_IJEEEEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIjEEEEbESM_ImmERKT_DpOT0_(ptr noalias sret(%"struct.std::pair.9") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %hp.coerce0, i64 %hp.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %key, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(1) %args3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sizeAndPackedBegin_.i = getelementptr inbounds i8, ptr %this, i64 20
+  %sizeAndPackedBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %sizeAndPackedBegin_.i, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end9, label %if.then
@@ -397,10 +397,10 @@ entry:
 if.then:                                          ; preds = %entry
   %mul.i = shl i64 %hp.coerce1, 1
   %add.i24 = or disjoint i64 %mul.i, 1
-  %chunkMask_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %chunkMask_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %chunkMask_.i, align 8
   %conv.i = zext i32 %1 to i64
-  %chunks_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %chunks_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %chunks_.i, align 8
   %conv.i25 = trunc i64 %hp.coerce1 to i8
   %vecinit.i.i = insertelement <16 x i8> poison, i8 %conv.i25, i64 0
@@ -413,13 +413,13 @@ for.body.i:                                       ; preds = %if.then, %if.end20.
   %index.i.056 = phi i64 [ %hp.coerce0, %if.then ], [ %add.i, %if.end20.i ]
   %tries.i.055 = phi i64 [ 0, %if.then ], [ %inc.i, %if.end20.i ]
   %and.i = and i64 %index.i.056, %conv.i
-  %add.ptr.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and.i
   %5 = load <16 x i8>, ptr %add.ptr.i, align 16
   %cmp.i.i = icmp eq <16 x i8> %5, %vecinit15.i.i
   %6 = bitcast <16 x i1> %cmp.i.i to i16
   %7 = and i16 %6, 4095
   %and.i26 = zext nneg i16 %7 to i32
-  %rawItems_.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
+  %rawItems_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %8 = extractelement <16 x i8> %5, i64 15
   br label %while.cond.i
 
@@ -433,10 +433,10 @@ while.body.i:                                     ; preds = %while.cond.i
   %sub.i = add nsw i32 %hits.i.sroa.0.0, -1
   %and.i28 = and i32 %sub.i, %hits.i.sroa.0.0
   %conv9.i = zext nneg i32 %9 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i
   %10 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %idxprom.i = zext i32 %10 to i64
-  %arrayidx.i = getelementptr inbounds %"struct.std::pair", ptr %3, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %idxprom.i
   %11 = load i32, ptr %arrayidx.i, align 4
   %cmp.i.i.i = icmp eq i32 %4, %11
   br i1 %cmp.i.i.i, label %if.then8, label %while.cond.i, !llvm.loop !17
@@ -452,18 +452,18 @@ if.end20.i:                                       ; preds = %while.end.i
   br i1 %exitcond.not, label %if.end9, label %for.body.i, !llvm.loop !19
 
 if.then8:                                         ; preds = %while.body.i
-  %arrayidx.i.i.i.i.le = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i
+  %arrayidx.i.i.i.i.le = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i, i64 0, i64 %conv9.i
   br label %return
 
 if.end9:                                          ; preds = %if.end20.i, %while.end.i, %entry
   tail call void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache10TrackingIdENS6_12TrackingDataEvvvSt17integral_constantIbLb1EEEEE16reserveForInsertEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef 1)
-  %chunks_ = getelementptr inbounds i8, ptr %this, i64 8
+  %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %12 = load ptr, ptr %chunks_, align 8
-  %chunkMask_ = getelementptr inbounds i8, ptr %this, i64 16
+  %chunkMask_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %13 = load i32, ptr %chunkMask_, align 8
   %conv = zext i32 %13 to i64
   %and = and i64 %hp.coerce0, %conv
-  %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %12, i64 %and
+  %add.ptr = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %12, i64 %and
   %14 = load <16 x i8>, ptr %add.ptr, align 16
   %15 = icmp slt <16 x i8> %14, zeroinitializer
   %16 = bitcast <16 x i1> %15 to i16
@@ -481,7 +481,7 @@ do.body:                                          ; preds = %_ZN5folly3f146detai
   %19 = phi ptr [ %12, %if.then12 ], [ %22, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit ]
   %chunk.1 = phi ptr [ %add.ptr, %if.then12 ], [ %add.ptr19, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then12 ], [ %add, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit ]
-  %outboundOverflowCount_.i34 = getelementptr inbounds i8, ptr %chunk.1, i64 15
+  %outboundOverflowCount_.i34 = getelementptr inbounds nuw i8, ptr %chunk.1, i64 15
   %20 = load i8, ptr %outboundOverflowCount_.i34, align 1
   %cmp.not.i = icmp eq i8 %20, -1
   br i1 %cmp.not.i, label %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit, label %if.then.i
@@ -499,7 +499,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit: ; preds = %d
   %add = add i64 %add.i33, %index.0
   %conv17 = zext i32 %21 to i64
   %and18 = and i64 %add, %conv17
-  %add.ptr19 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %22, i64 %and18
+  %add.ptr19 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %22, i64 %and18
   %23 = load <16 x i8>, ptr %add.ptr19, align 16
   %24 = icmp slt <16 x i8> %23, zeroinitializer
   %25 = bitcast <16 x i1> %24 to i16
@@ -509,7 +509,7 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit: ; preds = %d
 
 do.end:                                           ; preds = %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit
   %27 = extractelement <16 x i8> %23, i64 14
-  %control_.i = getelementptr inbounds i8, ptr %add.ptr19, i64 14
+  %control_.i = getelementptr inbounds nuw i8, ptr %add.ptr19, i64 14
   %add.i38 = add i8 %27, 16
   store i8 %add.i38, ptr %control_.i, align 2
   br label %if.end24
@@ -520,7 +520,7 @@ if.end24:                                         ; preds = %do.end, %if.end9
   %firstEmpty.sroa.0.0.in = xor i16 %firstEmpty.sroa.0.0.in.in, 4095
   %28 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true)
   %conv26 = zext nneg i16 %28 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [14 x i8], ptr %chunk.0, i64 0, i64 %conv26
+  %arrayidx.i.i.i = getelementptr inbounds nuw [14 x i8], ptr %chunk.0, i64 0, i64 %conv26
   %29 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i40 = icmp eq i8 %29, 0
   br i1 %cmp.i40, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit, label %if.then.i41
@@ -532,18 +532,18 @@ if.then.i41:                                      ; preds = %if.end24
 _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %if.end24
   %conv4.i = trunc i64 %hp.coerce1 to i8
   store i8 %conv4.i, ptr %arrayidx.i.i.i, align 1
-  %rawItems_.i.i.i42 = getelementptr inbounds i8, ptr %chunk.0, i64 16
-  %arrayidx.i.i.i.i.i43 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i42, i64 0, i64 %conv26
+  %rawItems_.i.i.i42 = getelementptr inbounds nuw i8, ptr %chunk.0, i64 16
+  %arrayidx.i.i.i.i.i43 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i42, i64 0, i64 %conv26
   %30 = load i32, ptr %sizeAndPackedBegin_.i, align 4
   store i32 %30, ptr %arrayidx.i.i.i.i.i43, align 4
   %31 = load ptr, ptr %this, align 8, !nonnull !10, !noundef !10
   %idxprom.i.i = zext i32 %30 to i64
-  %arrayidx.i.i = getelementptr inbounds %"struct.std::pair", ptr %31, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %31, i64 %idxprom.i.i
   %32 = load i64, ptr %args1, align 8
   %33 = inttoptr i64 %32 to ptr
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %arrayidx.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %second.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %second.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %35 = load i32, ptr %sizeAndPackedBegin_.i, align 4
   %inc.i.i = add i32 %35, 1
@@ -555,9 +555,9 @@ return:                                           ; preds = %_ZN5folly3f146detai
   %conv26.sink = phi i64 [ %conv26, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ], [ %conv9.i, %if.then8 ]
   %.sink = phi i8 [ 1, %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit ], [ 0, %if.then8 ]
   store ptr %arrayidx.i.i.i.i.i43.sink, ptr %agg.result, align 8
-  %iter.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %iter.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %conv26.sink, ptr %iter.sroa.3.0.agg.result.sroa_idx, align 8
-  %second.i.i45 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %second.i.i45 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i8 %.sink, ptr %second.i.i45, align 8
   ret void
 }
@@ -568,16 +568,16 @@ declare i64 @llvm.x86.sse42.crc32.64.64(i64, i64) #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache10TrackingIdENS6_12TrackingDataEvvvSt17integral_constantIbLb1EEEEE16reserveForInsertEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %incoming) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sizeAndPackedBegin_.i = getelementptr inbounds i8, ptr %this, i64 20
+  %sizeAndPackedBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %sizeAndPackedBegin_.i, align 4
   %conv = zext i32 %0 to i64
   %add = add i64 %incoming, %conv
-  %chunkMask_ = getelementptr inbounds i8, ptr %this, i64 16
+  %chunkMask_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %chunkMask_, align 8
   %add2 = add i32 %1, 1
-  %chunks_ = getelementptr inbounds i8, ptr %this, i64 8
+  %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %chunks_, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 12
   %v.0.copyload.i = load i16, ptr %arrayidx.i.i.i, align 1
   %conv.i = zext i16 %v.0.copyload.i to i64
   %conv4 = zext i32 %add2 to i64
@@ -668,7 +668,7 @@ entry:
   %stackBuf = alloca %"struct.std::array.22", align 1
   store i64 %origSize, ptr %origSize.addr, align 8
   store i64 %origChunkCount, ptr %origChunkCount.addr, align 8
-  %chunks_ = getelementptr inbounds i8, ptr %this, i64 8
+  %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %chunks_, align 8
   store ptr %0, ptr %origChunks, align 8
   %sub.i = add i64 %origChunkCount, -1
@@ -735,41 +735,41 @@ for.body.i:                                       ; preds = %_ZN5folly3f146detai
   br i1 %exitcond.not.i, label %_ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache10TrackingIdENS6_12TrackingDataEvvvSt17integral_constantIbLb1EEEEE16initializeChunksEPhmm.exit, label %for.body.i, !llvm.loop !21
 
 _ZN5folly3f146detail8F14TableINS1_21VectorContainerPolicyIN8facebook5velox5cache10TrackingIdENS6_12TrackingDataEvvvSt17integral_constantIbLb1EEEEE16initializeChunksEPhmm.exit: ; preds = %for.body.i, %_ZN5folly3f146detail21VectorContainerPolicyIN8facebook5velox5cache10TrackingIdENS5_12TrackingDataEvvvSt17integral_constantIbLb1EEE12beforeRehashEmmmmRPh.exit
-  %control_.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i7.i, i64 14
+  %control_.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 14
   %2 = load i8, ptr %control_.i.i, align 2
   %cmp.i.i = icmp eq i8 %2, 0
   tail call void @llvm.assume(i1 %cmp.i.i)
   %conv.i.i.i = trunc i64 %newCapacityScale to i16
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i7.i, i64 12
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 12
   store i16 %conv.i.i.i, ptr %arrayidx.i.i.i.i.i, align 1
   store ptr %call5.i.i2.i.i7.i, ptr %chunks_, align 8
   %3 = trunc i64 %newChunkCount to i32
   %conv = add i32 %3, -1
-  %chunkMask_ = getelementptr inbounds i8, ptr %this, i64 16
+  %chunkMask_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %conv, ptr %chunkMask_, align 8
   store i8 0, ptr %success, align 1
   store i8 0, ptr %SCOPE_EXIT_STATE3, align 8, !alias.scope !22
-  %function_.i.i.i = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 8
+  %function_.i.i.i = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 8
   store ptr %success, ptr %function_.i.i.i, align 8
-  %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 16
+  %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 16
   store ptr %origCapacity, ptr %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 24
+  %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 24
   store ptr %origChunks, ptr %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 32
+  %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 32
   store ptr %origAllocSize, ptr %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.5.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 40
+  %ref.tmp.sroa.5.0.function_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 40
   store ptr %rawAllocation, ptr %ref.tmp.sroa.5.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.6.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 48
+  %ref.tmp.sroa.6.0.function_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 48
   store ptr %newAllocSize, ptr %ref.tmp.sroa.6.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.7.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 56
+  %ref.tmp.sroa.7.0.function_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 56
   store ptr %this, ptr %ref.tmp.sroa.7.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.8.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 64
+  %ref.tmp.sroa.8.0.function_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 64
   store ptr %origChunkCount.addr, ptr %ref.tmp.sroa.8.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.9.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 72
+  %ref.tmp.sroa.9.0.function_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 72
   store ptr %undoState, ptr %ref.tmp.sroa.9.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.10.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 80
+  %ref.tmp.sroa.10.0.function_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 80
   store ptr %origSize.addr, ptr %ref.tmp.sroa.10.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.11.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 88
+  %ref.tmp.sroa.11.0.function_.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %SCOPE_EXIT_STATE3, i64 88
   store ptr %newCapacity, ptr %ref.tmp.sroa.11.0.function_.i.i.i.sroa_idx, align 8
   br i1 %cmp.not.i, label %if.end81, label %if.else
 
@@ -778,8 +778,8 @@ if.else:                                          ; preds = %_ZN5folly3f146detai
   br i1 %or.cond, label %while.cond.preheader, label %if.else23
 
 while.cond.preheader:                             ; preds = %if.else
-  %rawItems_.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i7.i, i64 16
-  %rawItems_.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %rawItems_.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i, i64 16
+  %rawItems_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end
@@ -881,10 +881,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %piter.sroa.0.1 = lshr i32 %piter.sroa.0.0125, %add5.i.pn
   %piter.sroa.5.1 = add i32 %piter.sroa.5.1.in, 1
   %conv49 = zext i32 %piter.sroa.5.1.in to i64
-  %arrayidx.i.i.i.i51 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i50, i64 0, i64 %conv49
+  %arrayidx.i.i.i.i51 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i50, i64 0, i64 %conv49
   %14 = load i32, ptr %arrayidx.i.i.i.i51, align 4
   %idxprom.i = zext i32 %14 to i64
-  %arrayidx.i52 = getelementptr inbounds %"struct.std::pair", ptr %12, i64 %idxprom.i
+  %arrayidx.i52 = getelementptr inbounds nuw %"struct.std::pair", ptr %12, i64 %idxprom.i
   call void @llvm.prefetch.p0(ptr %arrayidx.i52, i32 0, i32 3, i32 1)
   %cmp.i42.not = icmp eq i32 %piter.sroa.0.1, 0
   br i1 %cmp.i42.not, label %while.body55, label %for.body
@@ -904,17 +904,17 @@ while.body55:                                     ; preds = %for.body, %invoke.c
   %iter.sroa.5.1 = add i32 %iter.sroa.5.1.in, 1
   %iter.sroa.0.1 = lshr i32 %iter.sroa.0.0127, %add5.i66.pn
   %conv59 = zext i32 %iter.sroa.5.1.in to i64
-  %arrayidx.i.i.i.i71 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i50, i64 0, i64 %conv59
+  %arrayidx.i.i.i.i71 = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i50, i64 0, i64 %conv59
   %16 = load ptr, ptr %this, align 8
   %17 = load i32, ptr %arrayidx.i.i.i.i71, align 4
   %idxprom.i72 = zext i32 %17 to i64
-  %arrayidx.i73 = getelementptr inbounds %"struct.std::pair", ptr %16, i64 %idxprom.i72
+  %arrayidx.i73 = getelementptr inbounds nuw %"struct.std::pair", ptr %16, i64 %idxprom.i72
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i73, align 4
   %conv.i.i.i.i.i = sext i32 %agg.tmp.sroa.0.0.copyload.i.i to i64
   %18 = call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %conv.i.i.i.i.i)
   %shr.i74 = lshr i64 %18, 24
   %or.i = or i64 %shr.i74, 128
-  %arrayidx.i.i.i76 = getelementptr inbounds [14 x i8], ptr %srcChunk37.0133, i64 0, i64 %conv59
+  %arrayidx.i.i.i76 = getelementptr inbounds nuw [14 x i8], ptr %srcChunk37.0133, i64 0, i64 %conv59
   %19 = load i8, ptr %arrayidx.i.i.i76, align 1
   %conv.i77 = zext i8 %19 to i64
   %cmp69 = icmp eq i64 %or.i, %conv.i77
@@ -932,8 +932,8 @@ do.end72:                                         ; preds = %while.body55
   %conv14.i = zext i32 %20 to i64
   %and15.i = and i64 %add.i75, %conv14.i
   %21 = load ptr, ptr %chunks_, align 8
-  %add.ptr16.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %21, i64 %and15.i
-  %arrayidx17.i = getelementptr inbounds i8, ptr %fullness.0, i64 %and15.i
+  %add.ptr16.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %21, i64 %and15.i
+  %arrayidx17.i = getelementptr inbounds nuw i8, ptr %fullness.0, i64 %and15.i
   %22 = load i8, ptr %arrayidx17.i, align 1
   %cmp18.i = icmp ult i8 %22, 12
   br i1 %cmp18.i, label %while.end.i, label %if.end.i
@@ -943,7 +943,7 @@ if.end.i:                                         ; preds = %do.end72, %_ZN5foll
   %24 = phi i32 [ %27, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ], [ %20, %do.end72 ]
   %add.ptr20.i = phi ptr [ %add.ptr.i83, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ], [ %add.ptr16.i, %do.end72 ]
   %and19.i = phi i64 [ %and.i82, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ], [ %and15.i, %do.end72 ]
-  %outboundOverflowCount_.i.i = getelementptr inbounds i8, ptr %add.ptr20.i, i64 15
+  %outboundOverflowCount_.i.i = getelementptr inbounds nuw i8, ptr %add.ptr20.i, i64 15
   %25 = load i8, ptr %outboundOverflowCount_.i.i, align 1
   %cmp.not.i.i = icmp eq i8 %25, -1
   br i1 %cmp.not.i.i, label %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i, label %if.then.i.i
@@ -961,8 +961,8 @@ _ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i: ; preds = 
   %add.i80 = add nuw nsw i64 %add.i.i79, %and19.i
   %conv.i81 = zext i32 %27 to i64
   %and.i82 = and i64 %add.i80, %conv.i81
-  %add.ptr.i83 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %26, i64 %and.i82
-  %arrayidx.i84 = getelementptr inbounds i8, ptr %fullness.0, i64 %and.i82
+  %add.ptr.i83 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %26, i64 %and.i82
+  %arrayidx.i84 = getelementptr inbounds nuw i8, ptr %fullness.0, i64 %and.i82
   %28 = load i8, ptr %arrayidx.i84, align 1
   %cmp.i85 = icmp ult i8 %28, 12
   br i1 %cmp.i85, label %while.end.i, label %if.end.i, !llvm.loop !27
@@ -972,11 +972,11 @@ while.end.i:                                      ; preds = %_ZN5folly3f146detai
   %hostedOp.0.lcssa.i = phi i8 [ 0, %do.end72 ], [ 16, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ]
   %add.ptr.lcssa.i = phi ptr [ %add.ptr16.i, %do.end72 ], [ %add.ptr.i83, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ]
   %.lcssa.i = phi i8 [ %22, %do.end72 ], [ %28, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i ]
-  %arrayidx.le.i = getelementptr inbounds i8, ptr %fullness.0, i64 %and.lcssa.i
+  %arrayidx.le.i = getelementptr inbounds nuw i8, ptr %fullness.0, i64 %and.lcssa.i
   %inc.i86 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %inc.i86, ptr %arrayidx.le.i, align 1
   %conv6.i = zext nneg i8 %.lcssa.i to i64
-  %arrayidx.i.i.i.i87 = getelementptr inbounds [14 x i8], ptr %add.ptr.lcssa.i, i64 0, i64 %conv6.i
+  %arrayidx.i.i.i.i87 = getelementptr inbounds nuw [14 x i8], ptr %add.ptr.lcssa.i, i64 0, i64 %conv6.i
   %29 = load i8, ptr %arrayidx.i.i.i.i87, align 1
   %cmp.i.i88 = icmp eq i8 %29, 0
   br i1 %cmp.i.i88, label %invoke.cont73, label %if.then.i12.i
@@ -988,12 +988,12 @@ if.then.i12.i:                                    ; preds = %while.end.i
 invoke.cont73:                                    ; preds = %while.end.i
   %conv4.i.i = trunc nuw i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i87, align 1
-  %control_.i.i89 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
+  %control_.i.i89 = getelementptr inbounds nuw i8, ptr %add.ptr.lcssa.i, i64 14
   %30 = load i8, ptr %control_.i.i89, align 2
   %add.i13.i = add i8 %30, %hostedOp.0.lcssa.i
   store i8 %add.i13.i, ptr %control_.i.i89, align 2
-  %rawItems_.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 16
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv6.i
+  %rawItems_.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.lcssa.i, i64 16
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv6.i
   %31 = load i32, ptr %arrayidx.i.i.i.i71, align 4
   store i32 %31, ptr %arrayidx.i.i.i.i.i.i, align 4
   %cmp.i54.not = icmp eq i32 %iter.sroa.0.1, 0
@@ -1035,13 +1035,13 @@ if.else.i.i.i:                                    ; preds = %if.then.i98
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx, align 8
   %43 = load ptr, ptr %42, align 8
-  %chunks_.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
+  %chunks_.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %43, ptr %chunks_.i.i.i, align 8
   %44 = load ptr, ptr %ref.tmp.sroa.8.0.function_.i.i.i.sroa_idx, align 8
   %45 = load i64, ptr %44, align 8
   %46 = trunc i64 %45 to i32
   %conv.i.i.i100 = add i32 %46, -1
-  %chunkMask_.i.i.i = getelementptr inbounds i8, ptr %33, i64 16
+  %chunkMask_.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 %conv.i.i.i100, ptr %chunkMask_.i.i.i, align 8
   call void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE2EE5checkEv() #19
   %.pre1.i.i.i = load i8, ptr %34, align 1
@@ -1132,8 +1132,8 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %function_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = getelementptr inbounds i8, ptr %this, i64 56
+  %function_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %function_.i, align 8
   %4 = load i8, ptr %3, align 1
@@ -1141,33 +1141,33 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %5 = getelementptr inbounds i8, ptr %this, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   %cmp.not.i.i = icmp eq i64 %7, 0
   br i1 %cmp.not.i.i, label %if.end3.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
-  %8 = getelementptr inbounds i8, ptr %this, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   br label %if.end3.i.i
 
 if.else.i.i:                                      ; preds = %if.then
-  %11 = getelementptr inbounds i8, ptr %this, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %this, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %chunks_.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %chunks_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %16, ptr %chunks_.i.i, align 8
-  %17 = getelementptr inbounds i8, ptr %this, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
   %conv.i.i = add i32 %20, -1
-  %chunkMask_.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %chunkMask_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %conv.i.i, ptr %chunkMask_.i.i, align 8
   tail call void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE2EE5checkEv() #19
   %.pre.i.i = load ptr, ptr %function_.i, align 8
@@ -1177,11 +1177,11 @@ if.else.i.i:                                      ; preds = %if.then
 if.end3.i.i:                                      ; preds = %if.else.i.i, %if.then2.i.i, %if.then.i.i
   %21 = phi i8 [ %4, %if.then2.i.i ], [ %4, %if.then.i.i ], [ %.pre1.i.i, %if.else.i.i ]
   %finishedRawAllocation.0.i.i = phi ptr [ %10, %if.then2.i.i ], [ null, %if.then.i.i ], [ %13, %if.else.i.i ]
-  %22 = getelementptr inbounds i8, ptr %this, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
   %tobool4.i.i = trunc i8 %21 to i1
-  %25 = getelementptr inbounds i8, ptr %this, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %this, i64 80
   %26 = load ptr, ptr %25, align 8
   %27 = load i64, ptr %26, align 8
   br i1 %tobool4.i.i, label %if.end.i.i.i, label %if.then.i.i.i

@@ -50,7 +50,7 @@ define hidden void @do_export_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   call void (ptr, ...) @failure_alert_box(ptr noundef nonnull @.str.2, ptr noundef %18) #2
   %19 = load ptr, ptr %8, align 8

@@ -42,38 +42,38 @@ define hidden void @_ZN17MetaspaceCounters31initialize_performance_countersEv() 
 8:                                                ; preds = %5
   call void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceCombinedStats) align 8 %1) #5
   %9 = load ptr, ptr @_ZL26g_meta_space_perf_counters, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load ptr, ptr %12, align 8
   store i64 %11, ptr %13, align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26g_meta_space_perf_counters, i64 16), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26g_meta_space_perf_counters, i64 16), align 8
   %15 = load i64, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = load ptr, ptr %16, align 8
   store i64 %15, ptr %17, align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26g_meta_space_perf_counters, i64 8), align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26g_meta_space_perf_counters, i64 8), align 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %22 = load ptr, ptr %21, align 8
   store i64 %20, ptr %22, align 8
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0) #5
   %23 = load ptr, ptr @_ZL27g_class_space_perf_counters, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %27 = load ptr, ptr %26, align 8
   store i64 %25, ptr %27, align 8
-  %28 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL27g_class_space_perf_counters, i64 16), align 8
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_class_space_perf_counters, i64 16), align 8
   %29 = load i64, ptr %2, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %31 = load ptr, ptr %30, align 8
   store i64 %29, ptr %31, align 8
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL27g_class_space_perf_counters, i64 8), align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_class_space_perf_counters, i64 8), align 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %36 = load ptr, ptr %35, align 8
   store i64 %34, ptr %36, align 8
   br label %_ZN17MetaspaceCounters27update_performance_countersEv.exit
@@ -94,15 +94,15 @@ define linkonce_odr hidden void @_ZN21MetaspacePerfCounters10initializeEPKc(ptr 
   %4 = load ptr, ptr %3, align 8
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 800
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 800
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %1, ptr noundef nonnull @.str.7) #5
   %18 = call noundef ptr @_ZN15PerfDataManager20create_long_constantE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %17, i32 noundef 2, i64 noundef 0, ptr noundef %4) #5
@@ -111,11 +111,11 @@ define linkonce_odr hidden void @_ZN21MetaspacePerfCounters10initializeEPKc(ptr 
   store ptr %20, ptr %0, align 8
   %21 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %1, ptr noundef nonnull @.str.9) #5
   %22 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %21, i32 noundef 2, i64 noundef 0, ptr noundef %4) #5
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %23, align 8
   %24 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %1, ptr noundef nonnull @.str.10) #5
   %25 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %24, i32 noundef 2, i64 noundef 0, ptr noundef %4) #5
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %25, ptr %26, align 8
   %27 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %27, null
@@ -153,38 +153,38 @@ define hidden void @_ZN17MetaspaceCounters27update_performance_countersEv() loca
 5:                                                ; preds = %0
   call void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceCombinedStats) align 8 %1) #5
   %6 = load ptr, ptr @_ZL26g_meta_space_perf_counters, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load ptr, ptr %9, align 8
   store i64 %8, ptr %10, align 8
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26g_meta_space_perf_counters, i64 16), align 8
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26g_meta_space_perf_counters, i64 16), align 8
   %12 = load i64, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %14 = load ptr, ptr %13, align 8
   store i64 %12, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL26g_meta_space_perf_counters, i64 8), align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL26g_meta_space_perf_counters, i64 8), align 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %19 = load ptr, ptr %18, align 8
   store i64 %17, ptr %19, align 8
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0) #5
   %20 = load ptr, ptr @_ZL27g_class_space_perf_counters, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %24 = load ptr, ptr %23, align 8
   store i64 %22, ptr %24, align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL27g_class_space_perf_counters, i64 16), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_class_space_perf_counters, i64 16), align 8
   %26 = load i64, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %28 = load ptr, ptr %27, align 8
   store i64 %26, ptr %28, align 8
-  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL27g_class_space_perf_counters, i64 8), align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL27g_class_space_perf_counters, i64 8), align 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %33 = load ptr, ptr %32, align 8
   store i64 %31, ptr %33, align 8
   br label %34

@@ -12,11 +12,11 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZNK9VMStorage8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %0, align 4
   %4 = sext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i8 %3, 3
   %8 = select i1 %7, ptr @.str.4, ptr @.str.5
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = zext i16 %10 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, i32 noundef %4, i32 noundef %6, ptr noundef nonnull %8, i32 noundef %11) #2

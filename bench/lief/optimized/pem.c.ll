@@ -48,31 +48,31 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 32
   %spec.select.idx = zext i1 %20 to i64
-  %spec.select = getelementptr inbounds i8, ptr %18, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %18, i64 %spec.select.idx
   %21 = load i8, ptr %spec.select, align 1
   %22 = icmp eq i8 %21, 13
   %.1125.idx = zext i1 %22 to i64
-  %.1125 = getelementptr inbounds i8, ptr %spec.select, i64 %.1125.idx
+  %.1125 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %.1125.idx
   %23 = load i8, ptr %.1125, align 1
   %24 = icmp eq i8 %23, 10
   br i1 %24, label %25, label %159
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %.1125, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.1125, i64 1
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %28 = getelementptr inbounds i8, ptr %15, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 32
   %spec.select153.idx = zext i1 %30 to i64
-  %spec.select153 = getelementptr inbounds i8, ptr %28, i64 %spec.select153.idx
+  %spec.select153 = getelementptr inbounds nuw i8, ptr %28, i64 %spec.select153.idx
   %31 = load i8, ptr %spec.select153, align 1
   %32 = icmp eq i8 %31, 13
   %.1121.idx = zext i1 %32 to i64
-  %.1121 = getelementptr inbounds i8, ptr %spec.select153, i64 %.1121.idx
+  %.1121 = getelementptr inbounds nuw i8, ptr %spec.select153, i64 %.1121.idx
   %33 = load i8, ptr %.1121, align 1
   %34 = icmp eq i8 %33, 10
   %.2122.idx = zext i1 %34 to i64
-  %.2122 = getelementptr inbounds i8, ptr %.1121, i64 %.2122.idx
+  %.2122 = getelementptr inbounds nuw i8, ptr %.1121, i64 %.2122.idx
   %35 = ptrtoint ptr %.2122 to i64
   %36 = ptrtoint ptr %3 to i64
   %37 = sub i64 %35, %36
@@ -89,17 +89,17 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %43, label %44, label %110
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %.1125, i64 23
+  %45 = getelementptr inbounds nuw i8, ptr %.1125, i64 23
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 13
-  %48 = getelementptr inbounds i8, ptr %.1125, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.1125, i64 24
   %spec.select154 = select i1 %47, ptr %48, ptr %45
   %49 = load i8, ptr %spec.select154, align 1
   %50 = icmp eq i8 %49, 10
   br i1 %50, label %51, label %159
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %spec.select154, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %spec.select154, i64 1
   %53 = ptrtoint ptr %52 to i64
   %54 = sub i64 %38, %53
   %55 = icmp sgt i64 %54, 22
@@ -111,7 +111,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %57, label %58, label %.thread
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %spec.select154, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %spec.select154, i64 24
   %60 = ptrtoint ptr %59 to i64
   %61 = sub i64 %38, %60
   %62 = icmp slt i64 %61, 16
@@ -123,7 +123,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %.not142, label %65, label %159
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %spec.select154, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %spec.select154, i64 40
   br label %79
 
 67:                                               ; preds = %51
@@ -136,7 +136,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %69, label %70, label %79
 
 70:                                               ; preds = %.thread
-  %71 = getelementptr inbounds i8, ptr %spec.select154, i64 19
+  %71 = getelementptr inbounds nuw i8, ptr %spec.select154, i64 19
   %72 = ptrtoint ptr %71 to i64
   %73 = sub i64 %38, %72
   %74 = icmp slt i64 %73, 16
@@ -148,7 +148,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %.not141, label %77, label %159
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %spec.select154, i64 35
+  %78 = getelementptr inbounds nuw i8, ptr %spec.select154, i64 35
   br label %79
 
 79:                                               ; preds = %67, %.thread, %77, %65
@@ -186,7 +186,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
 
 94:                                               ; preds = %92, %90, %88
   %.3 = phi i32 [ 5, %88 ], [ 6, %90 ], [ 7, %92 ]
-  %95 = getelementptr inbounds i8, ptr %.4, i64 22
+  %95 = getelementptr inbounds nuw i8, ptr %.4, i64 22
   %96 = ptrtoint ptr %95 to i64
   %97 = sub i64 %38, %96
   %98 = icmp slt i64 %97, 32
@@ -198,7 +198,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %.not147, label %.thread156, label %159
 
 .thread156:                                       ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %.4, i64 54
+  %101 = getelementptr inbounds nuw i8, ptr %.4, i64 54
   br label %103
 
 102:                                              ; preds = %84, %79
@@ -210,13 +210,13 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   %104 = load i8, ptr %.5159, align 1
   %105 = icmp eq i8 %104, 13
   %spec.select155.idx = zext i1 %105 to i64
-  %spec.select155 = getelementptr inbounds i8, ptr %.5159, i64 %spec.select155.idx
+  %spec.select155 = getelementptr inbounds nuw i8, ptr %.5159, i64 %spec.select155.idx
   %106 = load i8, ptr %spec.select155, align 1
   %107 = icmp eq i8 %106, 10
   br i1 %107, label %108, label %159
 
 108:                                              ; preds = %103
-  %109 = getelementptr inbounds i8, ptr %spec.select155, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %spec.select155, i64 1
   br label %110
 
 110:                                              ; preds = %108, %42, %25
@@ -322,7 +322,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %.not152, label %151, label %155
 
 151:                                              ; preds = %149
-  %152 = getelementptr inbounds i8, ptr %118, i64 1
+  %152 = getelementptr inbounds nuw i8, ptr %118, i64 1
   %153 = load i8, ptr %152, align 1
   %154 = icmp ugt i8 %153, -125
   br i1 %154, label %155, label %156
@@ -335,7 +335,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
 156:                                              ; preds = %._crit_edge, %151
   %157 = phi i64 [ %.pre, %._crit_edge ], [ %147, %151 ]
   store ptr %118, ptr %0, align 8
-  %158 = getelementptr inbounds i8, ptr %0, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %157, ptr %158, align 8
   br label %159
 
@@ -383,13 +383,13 @@ define internal fastcc range(i32 -4608, 1) i32 @pem_get_iv(ptr nocapture noundef
   %17 = xor i64 %16, 4
   %18 = shl nuw nsw i64 %14, %17
   %19 = lshr i64 %.02432, 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = trunc i64 %18 to i8
   %23 = or i8 %21, %22
   store i8 %23, ptr %20, align 1
   %24 = add nuw nsw i64 %.02432, 1
-  %25 = getelementptr inbounds i8, ptr %.02531, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.02531, i64 1
   %exitcond.not = icmp eq i64 %24, %4
   br i1 %exitcond.not, label %26, label %5, !llvm.loop !4
 
@@ -492,7 +492,7 @@ define hidden void @mbedtls_pem_free(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef %5) #12
   %6 = load ptr, ptr %0, align 8
@@ -500,7 +500,7 @@ define hidden void @mbedtls_pem_free(ptr noundef %0) local_unnamed_addr #2 {
   br label %7
 
 7:                                                ; preds = %3, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %9) #12
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 24) #12
@@ -561,9 +561,9 @@ define hidden i32 @mbedtls_pem_write_buffer(ptr nocapture noundef readonly %0, p
   %32 = call i64 @llvm.umin.i64(i64 %31, i64 64)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.056, ptr noundef nonnull align 1 dereferenceable(1) %.04355, i64 %32, i1 false)
   %33 = sub i64 %31, %32
-  %34 = getelementptr inbounds i8, ptr %.056, i64 %32
-  %35 = getelementptr inbounds i8, ptr %.04355, i64 %32
-  %36 = getelementptr inbounds i8, ptr %34, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.056, i64 %32
+  %35 = getelementptr inbounds nuw i8, ptr %.04355, i64 %32
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 10, ptr %34, align 1
   %.not53 = icmp eq i64 %33, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -574,7 +574,7 @@ define hidden i32 @mbedtls_pem_write_buffer(ptr nocapture noundef readonly %0, p
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.lcssa, ptr align 1 %1, i64 %37, i1 false)
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %39 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store i8 0, ptr %39, align 1
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %4 to i64
@@ -658,7 +658,7 @@ define internal fastcc i32 @pem_pbkdf1(ptr nocapture noundef nonnull writeonly %
 
 28:                                               ; preds = %26
   %spec.select = add nsw i64 %1, -16
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 16 %7, i64 %spec.select, i1 false)
   br label %30
 

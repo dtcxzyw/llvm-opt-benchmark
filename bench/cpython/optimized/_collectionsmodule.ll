@@ -1027,7 +1027,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %defdict_type = getelementptr inbounds i8, ptr %mod.val, i64 8
+  %defdict_type = getelementptr inbounds nuw i8, ptr %mod.val, i64 8
   %2 = load ptr, ptr %defdict_type, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -1038,7 +1038,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %dequeiter_type = getelementptr inbounds i8, ptr %mod.val, i64 16
+  %dequeiter_type = getelementptr inbounds nuw i8, ptr %mod.val, i64 16
   %3 = load ptr, ptr %dequeiter_type, align 8
   %tobool18.not = icmp eq ptr %3, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -1049,7 +1049,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %dequereviter_type = getelementptr inbounds i8, ptr %mod.val, i64 24
+  %dequereviter_type = getelementptr inbounds nuw i8, ptr %mod.val, i64 24
   %4 = load ptr, ptr %dequereviter_type, align 8
   %tobool29.not = icmp eq ptr %4, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -1060,7 +1060,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %tuplegetter_type = getelementptr inbounds i8, ptr %mod.val, i64 32
+  %tuplegetter_type = getelementptr inbounds nuw i8, ptr %mod.val, i64 32
   %5 = load ptr, ptr %tuplegetter_type, align 8
   %tobool40.not = icmp eq ptr %5, null
   br i1 %tobool40.not, label %do.end49, label %if.then41
@@ -1105,7 +1105,7 @@ if.then1.i62:                                     ; preds = %if.end.i59
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i59, %if.then1.i62, %if.then, %entry
-  %defdict_type = getelementptr inbounds i8, ptr %mod.val, i64 8
+  %defdict_type = getelementptr inbounds nuw i8, ptr %mod.val, i64 8
   %4 = load ptr, ptr %defdict_type, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -1128,7 +1128,7 @@ if.then1.i53:                                     ; preds = %if.end.i50
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i50, %if.then1.i53, %if.then5, %do.body1
-  %dequeiter_type = getelementptr inbounds i8, ptr %mod.val, i64 16
+  %dequeiter_type = getelementptr inbounds nuw i8, ptr %mod.val, i64 16
   %7 = load ptr, ptr %dequeiter_type, align 8
   %cmp11.not = icmp eq ptr %7, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -1151,7 +1151,7 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i41, %if.then1.i44, %if.then12, %do.body8
-  %dequereviter_type = getelementptr inbounds i8, ptr %mod.val, i64 24
+  %dequereviter_type = getelementptr inbounds nuw i8, ptr %mod.val, i64 24
   %10 = load ptr, ptr %dequereviter_type, align 8
   %cmp18.not = icmp eq ptr %10, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -1174,7 +1174,7 @@ if.then1.i35:                                     ; preds = %if.end.i32
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i32, %if.then1.i35, %if.then19, %do.body15
-  %tuplegetter_type = getelementptr inbounds i8, ptr %mod.val, i64 32
+  %tuplegetter_type = getelementptr inbounds nuw i8, ptr %mod.val, i64 32
   %13 = load ptr, ptr %tuplegetter_type, align 8
   %cmp25.not = icmp eq ptr %13, null
   br i1 %cmp25.not, label %do.end28, label %if.then26
@@ -1266,7 +1266,7 @@ if.end21.i:                                       ; preds = %while.body.preheade
   br i1 %cmp.i62.not.i, label %lor.lhs.false.i, label %if.then26.i
 
 lor.lhs.false.i:                                  ; preds = %if.end21.i
-  %hash24.i = getelementptr inbounds i8, ptr %call186.i, i64 24
+  %hash24.i = getelementptr inbounds nuw i8, ptr %call186.i, i64 24
   %6 = load i64, ptr %hash24.i, align 8
   %cmp25.i = icmp eq i64 %6, -1
   br i1 %cmp25.i, label %if.then26.i, label %if.end31.i
@@ -1551,7 +1551,7 @@ if.end:                                           ; preds = %entry
 
 do.body8:                                         ; preds = %if.end
   %call9 = tail call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef nonnull %module, ptr noundef nonnull @defdict_spec, ptr noundef nonnull @PyDict_Type) #9
-  %defdict_type = getelementptr inbounds i8, ptr %module.val, i64 8
+  %defdict_type = getelementptr inbounds nuw i8, ptr %module.val, i64 8
   store ptr %call9, ptr %defdict_type, align 8
   %cmp11 = icmp eq ptr %call9, null
   br i1 %cmp11, label %return, label %if.end13
@@ -1563,7 +1563,7 @@ if.end13:                                         ; preds = %do.body8
 
 do.body20:                                        ; preds = %if.end13
   %call21 = tail call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef nonnull %module, ptr noundef nonnull @dequeiter_spec, ptr noundef null) #9
-  %dequeiter_type = getelementptr inbounds i8, ptr %module.val, i64 16
+  %dequeiter_type = getelementptr inbounds nuw i8, ptr %module.val, i64 16
   store ptr %call21, ptr %dequeiter_type, align 8
   %cmp23 = icmp eq ptr %call21, null
   br i1 %cmp23, label %return, label %if.end25
@@ -1575,7 +1575,7 @@ if.end25:                                         ; preds = %do.body20
 
 do.body32:                                        ; preds = %if.end25
   %call33 = tail call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef nonnull %module, ptr noundef nonnull @dequereviter_spec, ptr noundef null) #9
-  %dequereviter_type = getelementptr inbounds i8, ptr %module.val, i64 24
+  %dequereviter_type = getelementptr inbounds nuw i8, ptr %module.val, i64 24
   store ptr %call33, ptr %dequereviter_type, align 8
   %cmp35 = icmp eq ptr %call33, null
   br i1 %cmp35, label %return, label %if.end37
@@ -1587,7 +1587,7 @@ if.end37:                                         ; preds = %do.body32
 
 do.body44:                                        ; preds = %if.end37
   %call45 = tail call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef nonnull %module, ptr noundef nonnull @tuplegetter_spec, ptr noundef null) #9
-  %tuplegetter_type = getelementptr inbounds i8, ptr %module.val, i64 32
+  %tuplegetter_type = getelementptr inbounds nuw i8, ptr %module.val, i64 32
   store ptr %call45, ptr %tuplegetter_type, align 8
   %cmp47 = icmp eq ptr %call45, null
   br i1 %cmp47, label %return, label %if.end49
@@ -1617,7 +1617,7 @@ entry:
   %0 = getelementptr i8, ptr %deque, i64 8
   %deque.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %deque) #9
-  %weakreflist = getelementptr inbounds i8, ptr %deque, i64 208
+  %weakreflist = getelementptr inbounds nuw i8, ptr %deque, i64 208
   %1 = load ptr, ptr %weakreflist, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1627,7 +1627,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %2 = load ptr, ptr %leftblock, align 8
   %cmp1.not = icmp eq ptr %2, null
   br i1 %cmp1.not, label %if.end5, label %if.then2
@@ -1635,13 +1635,13 @@ if.end:                                           ; preds = %if.then, %entry
 if.then2:                                         ; preds = %if.end
   %call3 = tail call i32 @deque_clear(ptr noundef nonnull %deque)
   %3 = load ptr, ptr %leftblock, align 8
-  %numfreeblocks.i = getelementptr inbounds i8, ptr %deque, i64 72
+  %numfreeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 72
   %4 = load i64, ptr %numfreeblocks.i, align 8
   %cmp.i18 = icmp slt i64 %4, 16
   br i1 %cmp.i18, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then2
-  %freeblocks.i = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
   %arrayidx.i = getelementptr [16 x ptr], ptr %freeblocks.i, i64 0, i64 %4
   store ptr %3, ptr %arrayidx.i, align 8
   %5 = load i64, ptr %numfreeblocks.i, align 8
@@ -1654,14 +1654,14 @@ if.else.i:                                        ; preds = %if.then2
   br label %if.end5
 
 if.end5:                                          ; preds = %if.else.i, %if.then.i, %if.end
-  %numfreeblocks = getelementptr inbounds i8, ptr %deque, i64 72
+  %numfreeblocks = getelementptr inbounds nuw i8, ptr %deque, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %leftblock, i8 0, i64 16, i1 false)
   %6 = load i64, ptr %numfreeblocks, align 8
   %cmp720 = icmp sgt i64 %6, 0
   br i1 %cmp720, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end5
-  %freeblocks = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks = getelementptr inbounds nuw i8, ptr %deque, i64 80
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1675,7 +1675,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body, %if.end5
-  %tp_free = getelementptr inbounds i8, ptr %deque.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %deque.val, i64 320
   %9 = load ptr, ptr %tp_free, align 8
   tail call void %9(ptr noundef nonnull %deque) #9
   %10 = load i64, ptr %deque.val, align 8
@@ -1722,7 +1722,7 @@ if.then7:                                         ; preds = %if.end4
   br label %return
 
 if.end8:                                          ; preds = %if.end4
-  %maxlen = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %0 = load i64, ptr %maxlen, align 8
   %cmp9 = icmp sgt i64 %0, -1
   %1 = getelementptr i8, ptr %deque, i64 8
@@ -1780,10 +1780,10 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.end, label %return
 
 do.end:                                           ; preds = %entry, %if.then
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %1 = load i64, ptr %leftindex, align 8
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
-  %rightblock = getelementptr inbounds i8, ptr %deque, i64 32
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
+  %rightblock = getelementptr inbounds nuw i8, ptr %deque, i64 32
   %b.032 = load ptr, ptr %leftblock, align 8
   %2 = load ptr, ptr %rightblock, align 8
   %cmp.not33 = icmp eq ptr %b.032, %2
@@ -1797,7 +1797,7 @@ for.cond6.preheader:                              ; preds = %do.end, %for.end
   br i1 %cmp730, label %for.body8.lr.ph, label %for.end
 
 for.body8.lr.ph:                                  ; preds = %for.cond6.preheader
-  %data = getelementptr inbounds i8, ptr %b.035, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %b.035, i64 8
   br label %for.body8
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %for.inc
@@ -1823,7 +1823,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond6.preheader
   %5 = phi ptr [ %.pre, %for.end.loopexit ], [ %3, %for.cond6.preheader ]
-  %rightlink = getelementptr inbounds i8, ptr %b.035, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %b.035, i64 520
   %b.0 = load ptr, ptr %rightlink, align 8
   %cmp.not = icmp eq ptr %b.0, %5
   br i1 %cmp.not, label %for.end20, label %for.cond6.preheader, !llvm.loop !8
@@ -1831,13 +1831,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
 for.end20:                                        ; preds = %for.end, %do.end
   %indexlo.0.lcssa = phi i64 [ %1, %do.end ], [ 0, %for.end ]
   %b.0.lcssa = phi ptr [ %b.032, %do.end ], [ %b.0, %for.end ]
-  %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
+  %rightindex = getelementptr inbounds nuw i8, ptr %deque, i64 48
   %6 = load i64, ptr %rightindex, align 8
   %cmp22.not37 = icmp sgt i64 %indexlo.0.lcssa, %6
   br i1 %cmp22.not37, label %return, label %for.body23.lr.ph
 
 for.body23.lr.ph:                                 ; preds = %for.end20
-  %data24 = getelementptr inbounds i8, ptr %b.0.lcssa, i64 8
+  %data24 = getelementptr inbounds nuw i8, ptr %b.0.lcssa, i64 8
   br label %for.body23
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.inc36
@@ -1871,7 +1871,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %numfreeblocks.i = getelementptr inbounds i8, ptr %deque, i64 72
+  %numfreeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 72
   %1 = load i64, ptr %numfreeblocks.i, align 8
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %if.end.i43, label %newblock.exit
@@ -1892,7 +1892,7 @@ newblock.exit.thread:                             ; preds = %if.end.i43
 newblock.exit:                                    ; preds = %if.end
   %dec.i42 = add i64 %1, -1
   store i64 %dec.i42, ptr %numfreeblocks.i, align 8
-  %freeblocks.i = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
   %arrayidx.i = getelementptr [16 x ptr], ptr %freeblocks.i, i64 0, i64 %dec.i42
   %2 = load ptr, ptr %arrayidx.i, align 8
   %cmp2 = icmp eq ptr %2, null
@@ -1905,38 +1905,38 @@ if.then3:                                         ; preds = %newblock.exit.threa
   br i1 %tobool.not75, label %return, label %if.end.i60.lr.ph
 
 if.end.i60.lr.ph:                                 ; preds = %if.then3
-  %rightblock.i = getelementptr inbounds i8, ptr %deque, i64 32
-  %rightindex.i = getelementptr inbounds i8, ptr %deque, i64 48
-  %state.i = getelementptr inbounds i8, ptr %deque, i64 56
-  %freeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 80
-  %leftindex.i = getelementptr inbounds i8, ptr %deque, i64 40
+  %rightblock.i = getelementptr inbounds nuw i8, ptr %deque, i64 32
+  %rightindex.i = getelementptr inbounds nuw i8, ptr %deque, i64 48
+  %state.i = getelementptr inbounds nuw i8, ptr %deque, i64 56
+  %freeblocks.i.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
+  %leftindex.i = getelementptr inbounds nuw i8, ptr %deque, i64 40
   br label %if.end.i60
 
 if.end4:                                          ; preds = %if.end.i43.if.end4_crit_edge, %newblock.exit
   %deque.val40 = phi i64 [ %deque.val, %newblock.exit ], [ %deque.val40.pre, %if.end.i43.if.end4_crit_edge ]
   %retval.0.i73 = phi ptr [ %2, %newblock.exit ], [ %call.i, %if.end.i43.if.end4_crit_edge ]
-  %leftblock6 = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock6 = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %3 = load ptr, ptr %leftblock6, align 8
-  %leftindex7 = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex7 = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %4 = load i64, ptr %leftindex7, align 8
   store i64 0, ptr %0, align 8
   store ptr %retval.0.i73, ptr %leftblock6, align 8
-  %rightblock = getelementptr inbounds i8, ptr %deque, i64 32
+  %rightblock = getelementptr inbounds nuw i8, ptr %deque, i64 32
   store ptr %retval.0.i73, ptr %rightblock, align 8
   store i64 32, ptr %leftindex7, align 8
-  %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
+  %rightindex = getelementptr inbounds nuw i8, ptr %deque, i64 48
   store i64 31, ptr %rightindex, align 8
-  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %5 = load i64, ptr %state, align 8
   %inc = add i64 %5, 1
   store i64 %inc, ptr %state, align 8
   %sub = sub i64 64, %4
   %cond = tail call i64 @llvm.smin.i64(i64 %sub, i64 %deque.val40)
-  %data = getelementptr inbounds i8, ptr %3, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %3, i64 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %4
   %add.ptr = getelementptr ptr, ptr %arrayidx, i64 %cond
   %sub12 = sub i64 %deque.val40, %cond
-  %freeblocks.i48 = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks.i48 = getelementptr inbounds nuw i8, ptr %deque, i64 80
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %if.end4
@@ -1952,10 +1952,10 @@ if.then14:                                        ; preds = %while.body
   br i1 %cmp15, label %while.end, label %if.end17
 
 if.end17:                                         ; preds = %if.then14
-  %rightlink = getelementptr inbounds i8, ptr %leftblock.0, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %leftblock.0, i64 520
   %6 = load ptr, ptr %rightlink, align 8
   %cond22 = tail call i64 @llvm.smin.i64(i64 %n.0, i64 64)
-  %data23 = getelementptr inbounds i8, ptr %6, i64 8
+  %data23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %add.ptr24 = getelementptr ptr, ptr %data23, i64 %cond22
   %sub25 = sub i64 %n.0, %cond22
   %7 = load i64, ptr %numfreeblocks.i, align 8
@@ -2019,7 +2019,7 @@ if.else.i52:                                      ; preds = %while.end
 if.end.i60:                                       ; preds = %if.end.i60.lr.ph, %Py_DECREF.exit
   %deque.val4176 = phi i64 [ %deque.val4174, %if.end.i60.lr.ph ], [ %deque.val41, %Py_DECREF.exit ]
   %14 = load ptr, ptr %rightblock.i, align 8
-  %data.i = getelementptr inbounds i8, ptr %14, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load i64, ptr %rightindex.i, align 8
   %arrayidx.i61 = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %15
   %16 = load ptr, ptr %arrayidx.i61, align 8
@@ -2391,20 +2391,20 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %deque.val13, ptr noundef nonnull @_collectionsmodule) #9
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %dequeiter_type = getelementptr inbounds i8, ptr %call.val.i, i64 16
+  %dequeiter_type = getelementptr inbounds nuw i8, ptr %call.val.i, i64 16
   %2 = load ptr, ptr %dequeiter_type, align 8
   %call2 = tail call ptr @_PyObject_GC_New(ptr noundef %2) #9
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %3 = load ptr, ptr %leftblock, align 8
-  %b = getelementptr inbounds i8, ptr %call2, i64 16
+  %b = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr %3, ptr %b, align 8
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %4 = load i64, ptr %leftindex, align 8
-  %index = getelementptr inbounds i8, ptr %call2, i64 24
+  %index = getelementptr inbounds nuw i8, ptr %call2, i64 24
   store i64 %4, ptr %index, align 8
   %5 = load i32, ptr %deque, align 8
   %add.i.i = add i32 %5, 1
@@ -2416,15 +2416,15 @@ if.end.i.i:                                       ; preds = %if.end
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end, %if.end.i.i
-  %deque4 = getelementptr inbounds i8, ptr %call2, i64 32
+  %deque4 = getelementptr inbounds nuw i8, ptr %call2, i64 32
   store ptr %deque, ptr %deque4, align 8
-  %state5 = getelementptr inbounds i8, ptr %deque, i64 56
+  %state5 = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %6 = load i64, ptr %state5, align 8
-  %state6 = getelementptr inbounds i8, ptr %call2, i64 40
+  %state6 = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store i64 %6, ptr %state6, align 8
   %7 = getelementptr i8, ptr %deque, i64 16
   %deque.val = load i64, ptr %7, align 8
-  %counter = getelementptr inbounds i8, ptr %call2, i64 48
+  %counter = getelementptr inbounds nuw i8, ptr %call2, i64 48
   store i64 %deque.val, ptr %counter, align 8
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call2) #9
   br label %return
@@ -2456,7 +2456,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp3, label %if.end, label %if.end29
 
 if.end:                                           ; preds = %if.then
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   %1 = load ptr, ptr %ob_item, align 8
   store ptr %1, ptr %iterable, align 8
   %cmp6.not = icmp eq i64 %args.val, 1
@@ -2505,7 +2505,7 @@ if.then27:                                        ; preds = %land.lhs.true21, %i
 
 if.end29:                                         ; preds = %if.end, %if.then, %if.end25, %if.end14
   %maxlen.0 = phi i64 [ %call19, %if.end25 ], [ -1, %if.end14 ], [ -1, %if.then ], [ -1, %if.end ]
-  %maxlen30 = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen30 = getelementptr inbounds nuw i8, ptr %deque, i64 64
   store i64 %maxlen.0, ptr %maxlen30, align 8
   %5 = getelementptr i8, ptr %deque, i64 16
   %deque.val = load i64, ptr %5, align 8
@@ -2552,14 +2552,14 @@ declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @deque_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
 entry:
-  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc = getelementptr inbounds nuw i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
   %call = tail call ptr %0(ptr noundef %type, i64 noundef 0) #9
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %numfreeblocks.i = getelementptr inbounds i8, ptr %call, i64 72
+  %numfreeblocks.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   %1 = load i64, ptr %numfreeblocks.i, align 8
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %if.end.i19, label %newblock.exit
@@ -2576,7 +2576,7 @@ newblock.exit.thread:                             ; preds = %if.end.i19
 newblock.exit:                                    ; preds = %if.end
   %dec.i18 = add i64 %1, -1
   store i64 %dec.i18, ptr %numfreeblocks.i, align 8
-  %freeblocks.i = getelementptr inbounds i8, ptr %call, i64 80
+  %freeblocks.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   %arrayidx.i = getelementptr [16 x ptr], ptr %freeblocks.i, i64 0, i64 %dec.i18
   %2 = load ptr, ptr %arrayidx.i, align 8
   %cmp2 = icmp eq ptr %2, null
@@ -2600,22 +2600,22 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end4:                                          ; preds = %if.end.i19, %newblock.exit
   %retval.0.i25 = phi ptr [ %2, %newblock.exit ], [ %call.i, %if.end.i19 ]
-  %ob_size.i = getelementptr inbounds i8, ptr %call, i64 16
+  %ob_size.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 0, ptr %ob_size.i, align 8
-  %leftblock = getelementptr inbounds i8, ptr %call, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr %retval.0.i25, ptr %leftblock, align 8
-  %rightblock = getelementptr inbounds i8, ptr %call, i64 32
+  %rightblock = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %retval.0.i25, ptr %rightblock, align 8
-  %leftindex = getelementptr inbounds i8, ptr %call, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %call, i64 40
   store i64 32, ptr %leftindex, align 8
-  %rightindex = getelementptr inbounds i8, ptr %call, i64 48
+  %rightindex = getelementptr inbounds nuw i8, ptr %call, i64 48
   store i64 31, ptr %rightindex, align 8
-  %state = getelementptr inbounds i8, ptr %call, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %call, i64 56
   store i64 0, ptr %state, align 8
-  %maxlen = getelementptr inbounds i8, ptr %call, i64 64
+  %maxlen = getelementptr inbounds nuw i8, ptr %call, i64 64
   store i64 -1, ptr %maxlen, align 8
   store i64 0, ptr %numfreeblocks.i, align 8
-  %weakreflist = getelementptr inbounds i8, ptr %call, i64 208
+  %weakreflist = getelementptr inbounds nuw i8, ptr %call, i64 208
   store ptr null, ptr %weakreflist, align 8
   br label %return
 
@@ -2655,7 +2655,7 @@ if.then4:                                         ; preds = %if.then
   %3 = load ptr, ptr @PyExc_TypeError, align 8
   %4 = getelementptr i8, ptr %other, i64 8
   %other.val = load ptr, ptr %4, align 8
-  %tp_name = getelementptr inbounds i8, ptr %other.val, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %other.val, i64 24
   %5 = load ptr, ptr %tp_name, align 8
   %call6 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.43, ptr noundef %5) #9
   br label %return
@@ -2759,7 +2759,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp4, label %if.end28.sink.split, label %if.else6
 
 if.else6:                                         ; preds = %if.else
-  %leftindex7 = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex7 = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %2 = load i64, ptr %leftindex7, align 8
   %add = add i64 %2, %i
   %div23 = lshr i64 %add, 6
@@ -2769,7 +2769,7 @@ if.else6:                                         ; preds = %if.else
   br i1 %cmp9, label %if.then10, label %if.else13
 
 if.then10:                                        ; preds = %if.else6
-  %leftblock11 = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock11 = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %b.129 = load ptr, ptr %leftblock11, align 8
   %cmp1230.not = icmp ult i64 %add, 64
   br i1 %cmp1230.not, label %if.end28, label %while.body
@@ -2778,7 +2778,7 @@ while.body:                                       ; preds = %if.then10, %while.b
   %b.132 = phi ptr [ %b.1, %while.body ], [ %b.129, %if.then10 ]
   %n.031 = phi i64 [ %dec, %while.body ], [ %div23, %if.then10 ]
   %dec = add nsw i64 %n.031, -1
-  %rightlink = getelementptr inbounds i8, ptr %b.132, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %b.132, i64 520
   %b.1 = load ptr, ptr %rightlink, align 8
   %cmp12 = icmp samesign ugt i64 %n.031, 1
   br i1 %cmp12, label %while.body, label %if.end28, !llvm.loop !11
@@ -2787,7 +2787,7 @@ if.else13:                                        ; preds = %if.else6
   %sub17 = add i64 %sub, %2
   %div1824 = lshr i64 %sub17, 6
   %sub19 = sub nsw i64 %div1824, %div23
-  %rightblock20 = getelementptr inbounds i8, ptr %deque, i64 32
+  %rightblock20 = getelementptr inbounds nuw i8, ptr %deque, i64 32
   br label %while.cond21
 
 while.cond21:                                     ; preds = %while.cond21, %if.else13
@@ -2801,16 +2801,16 @@ while.cond21:                                     ; preds = %while.cond21, %if.e
 if.end28.sink.split:                              ; preds = %if.else, %if.end
   %.sink35 = phi i64 [ 40, %if.end ], [ 48, %if.else ]
   %.sink = phi i64 [ 24, %if.end ], [ 32, %if.else ]
-  %rightindex = getelementptr inbounds i8, ptr %deque, i64 %.sink35
+  %rightindex = getelementptr inbounds nuw i8, ptr %deque, i64 %.sink35
   %3 = load i64, ptr %rightindex, align 8
-  %rightblock = getelementptr inbounds i8, ptr %deque, i64 %.sink
+  %rightblock = getelementptr inbounds nuw i8, ptr %deque, i64 %.sink
   %4 = load ptr, ptr %rightblock, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %while.cond21, %while.body, %if.end28.sink.split, %if.then10
   %b.0 = phi ptr [ %b.129, %if.then10 ], [ %4, %if.end28.sink.split ], [ %b.1, %while.body ], [ %b.2, %while.cond21 ]
   %i.addr.0 = phi i64 [ %rem, %if.then10 ], [ %3, %if.end28.sink.split ], [ %rem, %while.body ], [ %rem, %while.cond21 ]
-  %data = getelementptr inbounds i8, ptr %b.0, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %b.0, i64 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %i.addr.0
   %5 = load ptr, ptr %arrayidx, align 8
   %6 = load i32, ptr %5, align 8
@@ -2851,7 +2851,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %2 = load i64, ptr %leftindex, align 8
   %add5 = add i64 %2, %i
   %div22 = lshr i64 %add5, 6
@@ -2860,7 +2860,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %b.027 = load ptr, ptr %leftblock, align 8
   %cmp828.not = icmp ult i64 %add5, 64
   br i1 %cmp828.not, label %do.body, label %while.body
@@ -2869,7 +2869,7 @@ while.body:                                       ; preds = %if.then7, %while.bo
   %b.030 = phi ptr [ %b.0, %while.body ], [ %b.027, %if.then7 ]
   %n.029 = phi i64 [ %dec, %while.body ], [ %div22, %if.then7 ]
   %dec = add nsw i64 %n.029, -1
-  %rightlink = getelementptr inbounds i8, ptr %b.030, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %b.030, i64 520
   %b.0 = load ptr, ptr %rightlink, align 8
   %cmp8 = icmp samesign ugt i64 %n.029, 1
   br i1 %cmp8, label %while.body, label %do.body, !llvm.loop !13
@@ -2879,7 +2879,7 @@ if.else:                                          ; preds = %if.end4
   %sub = add i64 %add11, %2
   %div1223 = lshr i64 %sub, 6
   %sub13 = sub nsw i64 %div1223, %div22
-  %rightblock = getelementptr inbounds i8, ptr %deque, i64 32
+  %rightblock = getelementptr inbounds nuw i8, ptr %deque, i64 32
   br label %while.cond14
 
 while.cond14:                                     ; preds = %while.cond14, %if.else
@@ -2892,7 +2892,7 @@ while.cond14:                                     ; preds = %while.cond14, %if.e
 
 do.body:                                          ; preds = %while.body, %while.cond14, %if.then7
   %b.2 = phi ptr [ %b.027, %if.then7 ], [ %b.1, %while.cond14 ], [ %b.0, %while.body ]
-  %data = getelementptr inbounds i8, ptr %b.2, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %b.2, i64 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %rem
   %3 = load ptr, ptr %arrayidx, align 8
   %4 = load i32, ptr %v, align 8
@@ -2931,16 +2931,16 @@ define internal i32 @deque_contains(ptr nocapture noundef readonly %deque, ptr n
 entry:
   %0 = getelementptr i8, ptr %deque, i64 16
   %deque.val = load i64, ptr %0, align 8
-  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %1 = load i64, ptr %state, align 8
   %dec12 = add i64 %deque.val, -1
   %cmp113 = icmp sgt i64 %dec12, -1
   br i1 %cmp113, label %while.body.preheader, label %return
 
 while.body.preheader:                             ; preds = %entry
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %2 = load i64, ptr %leftindex, align 8
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %3 = load ptr, ptr %leftblock, align 8
   br label %while.body
 
@@ -2948,7 +2948,7 @@ while.body:                                       ; preds = %while.body.preheade
   %dec16 = phi i64 [ %dec, %if.end10 ], [ %dec12, %while.body.preheader ]
   %b.015 = phi ptr [ %b.1, %if.end10 ], [ %3, %while.body.preheader ]
   %index.014 = phi i64 [ %index.1, %if.end10 ], [ %2, %while.body.preheader ]
-  %data = getelementptr inbounds i8, ptr %b.015, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %b.015, i64 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %index.014
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load i32, ptr %4, align 8
@@ -2997,7 +2997,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end7
-  %rightlink = getelementptr inbounds i8, ptr %b.015, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %b.015, i64 520
   %10 = load ptr, ptr %rightlink, align 8
   br label %if.end10
 
@@ -3091,17 +3091,17 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp8, label %if.then9, label %if.end48
 
 if.then9:                                         ; preds = %if.end7
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %3 = load ptr, ptr %leftblock, align 8
-  %data = getelementptr inbounds i8, ptr %3, i64 8
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %4 = load i64, ptr %leftindex, align 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %4
   %5 = load ptr, ptr %arrayidx, align 8
-  %maxlen = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %6 = load i64, ptr %maxlen, align 8
   %n.addr.0 = tail call i64 @llvm.umin.i64(i64 %6, i64 %n)
-  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %7 = load i64, ptr %state, align 8
   %inc = add i64 %7, 1
   store i64 %inc, ptr %state, align 8
@@ -3110,10 +3110,10 @@ if.then9:                                         ; preds = %if.end7
   br i1 %cmp16102, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then9
-  %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
-  %numfreeblocks.i = getelementptr inbounds i8, ptr %deque, i64 72
-  %freeblocks.i = getelementptr inbounds i8, ptr %deque, i64 80
-  %rightblock = getelementptr inbounds i8, ptr %deque, i64 32
+  %rightindex = getelementptr inbounds nuw i8, ptr %deque, i64 48
+  %numfreeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 72
+  %freeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
+  %rightblock = getelementptr inbounds nuw i8, ptr %deque, i64 32
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %_Py_NewRef.exit83, %if.end27
@@ -3158,7 +3158,7 @@ if.end23:                                         ; preds = %if.end.i79, %newblo
   %retval.0.i94 = phi ptr [ %10, %newblock.exit ], [ %call.i, %if.end.i79 ]
   %11 = load ptr, ptr %rightblock, align 8
   store ptr %11, ptr %retval.0.i94, align 8
-  %rightlink = getelementptr inbounds i8, ptr %11, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %11, i64 520
   store ptr %retval.0.i94, ptr %rightlink, align 8
   store ptr %retval.0.i94, ptr %rightblock, align 8
   store i64 -1, ptr %rightindex, align 8
@@ -3192,7 +3192,7 @@ if.end.i.i82:                                     ; preds = %while.body
 _Py_NewRef.exit83:                                ; preds = %while.body, %if.end.i.i82
   %15 = phi i64 [ %inc39, %while.body ], [ %.pre, %if.end.i.i82 ]
   %16 = load ptr, ptr %rightblock, align 8
-  %data42 = getelementptr inbounds i8, ptr %16, i64 8
+  %data42 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %arrayidx44 = getelementptr [64 x ptr], ptr %data42, i64 0, i64 %15
   store ptr %5, ptr %arrayidx44, align 8
   %tobool.not = icmp eq i64 %dec, 0
@@ -3230,7 +3230,7 @@ if.end52:                                         ; preds = %if.end48
   br i1 %cmp54, label %return, label %if.end56
 
 if.end56:                                         ; preds = %if.end52
-  %maxlen57 = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen57 = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %19 = load i64, ptr %maxlen57, align 8
   %cmp58 = icmp sgt i64 %19, -1
   %mul = mul i64 %deque.val, %n
@@ -3358,10 +3358,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %rightblock = getelementptr inbounds i8, ptr %deque, i64 32
+  %rightblock = getelementptr inbounds nuw i8, ptr %deque, i64 32
   %2 = load ptr, ptr %rightblock, align 8
-  %data = getelementptr inbounds i8, ptr %2, i64 8
-  %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
+  %data = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %rightindex = getelementptr inbounds nuw i8, ptr %deque, i64 48
   %3 = load i64, ptr %rightindex, align 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %3
   %4 = load ptr, ptr %arrayidx, align 8
@@ -3369,7 +3369,7 @@ if.end:                                           ; preds = %entry
   store i64 %dec, ptr %rightindex, align 8
   %sub = add i64 %deque.val17, -1
   store i64 %sub, ptr %0, align 8
-  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %5 = load i64, ptr %state, align 8
   %inc = add i64 %5, 1
   store i64 %inc, ptr %state, align 8
@@ -3382,13 +3382,13 @@ if.then5:                                         ; preds = %if.end
 
 if.then7:                                         ; preds = %if.then5
   %6 = load ptr, ptr %2, align 8
-  %numfreeblocks.i = getelementptr inbounds i8, ptr %deque, i64 72
+  %numfreeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 72
   %7 = load i64, ptr %numfreeblocks.i, align 8
   %cmp.i = icmp slt i64 %7, 16
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then7
-  %freeblocks.i = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
   %arrayidx.i = getelementptr [16 x ptr], ptr %freeblocks.i, i64 0, i64 %7
   store ptr %2, ptr %arrayidx.i, align 8
   %8 = load i64, ptr %numfreeblocks.i, align 8
@@ -3406,7 +3406,7 @@ freeblock.exit:                                   ; preds = %if.then.i, %if.else
   br label %return
 
 if.else:                                          ; preds = %if.then5
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   store i64 32, ptr %leftindex, align 8
   store i64 31, ptr %rightindex, align 8
   br label %return
@@ -3435,7 +3435,7 @@ declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @deque_get_maxlen(ptr nocapture noundef readonly %deque, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %maxlen = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %0 = load i64, ptr %maxlen, align 8
   %cmp = icmp slt i64 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -3461,7 +3461,7 @@ declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @deque_extend(ptr noundef %deque, ptr noundef %iterable) #0 {
 entry:
-  %maxlen1 = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen1 = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %0 = load i64, ptr %maxlen1, align 8
   %cmp = icmp eq ptr %deque, %iterable
   br i1 %cmp, label %if.then, label %if.end5
@@ -3508,16 +3508,16 @@ if.end13:                                         ; preds = %if.end9
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end13
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   store i64 1, ptr %leftindex, align 8
-  %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
+  %rightindex = getelementptr inbounds nuw i8, ptr %deque, i64 48
   store i64 0, ptr %rightindex, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.end13
   %4 = getelementptr i8, ptr %call6, i64 8
   %call6.val = load ptr, ptr %4, align 8
-  %tp_iternext = getelementptr inbounds i8, ptr %call6.val, i64 224
+  %tp_iternext = getelementptr inbounds nuw i8, ptr %call6.val, i64 224
   %5 = load ptr, ptr %tp_iternext, align 8
   br label %while.cond
 
@@ -3617,7 +3617,7 @@ define internal fastcc noundef ptr @consume_iterator(ptr noundef nonnull %it) un
 entry:
   %0 = getelementptr i8, ptr %it, i64 8
   %it.val = load ptr, ptr %0, align 8
-  %tp_iternext = getelementptr inbounds i8, ptr %it.val, i64 224
+  %tp_iternext = getelementptr inbounds nuw i8, ptr %it.val, i64 224
   %1 = load ptr, ptr %tp_iternext, align 8
   %call15 = tail call ptr %1(ptr noundef nonnull %it) #9
   %cmp.not6 = icmp eq ptr %call15, null
@@ -3697,19 +3697,19 @@ finalize_iterator.exit:                           ; preds = %if.else.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @deque_append_internal(ptr nocapture noundef %deque, ptr noundef %item, i64 noundef %maxlen) unnamed_addr #0 {
 entry:
-  %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
+  %rightindex = getelementptr inbounds nuw i8, ptr %deque, i64 48
   %0 = load i64, ptr %rightindex, align 8
   %cmp = icmp eq i64 %0, 63
   br i1 %cmp, label %if.then, label %entry.if.end6_crit_edge
 
 entry.if.end6_crit_edge:                          ; preds = %entry
-  %rightblock9.phi.trans.insert = getelementptr inbounds i8, ptr %deque, i64 32
+  %rightblock9.phi.trans.insert = getelementptr inbounds nuw i8, ptr %deque, i64 32
   %.pre = load ptr, ptr %rightblock9.phi.trans.insert, align 8
   %1 = add i64 %0, 1
   br label %if.end6
 
 if.then:                                          ; preds = %entry
-  %numfreeblocks.i = getelementptr inbounds i8, ptr %deque, i64 72
+  %numfreeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 72
   %2 = load i64, ptr %numfreeblocks.i, align 8
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %if.end.i21, label %newblock.exit
@@ -3726,7 +3726,7 @@ newblock.exit.thread:                             ; preds = %if.end.i21
 newblock.exit:                                    ; preds = %if.then
   %dec.i20 = add i64 %2, -1
   store i64 %dec.i20, ptr %numfreeblocks.i, align 8
-  %freeblocks.i = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
   %arrayidx.i = getelementptr [16 x ptr], ptr %freeblocks.i, i64 0, i64 %dec.i20
   %3 = load ptr, ptr %arrayidx.i, align 8
   %cmp1 = icmp eq ptr %3, null
@@ -3734,10 +3734,10 @@ newblock.exit:                                    ; preds = %if.then
 
 if.end:                                           ; preds = %if.end.i21, %newblock.exit
   %retval.0.i33 = phi ptr [ %3, %newblock.exit ], [ %call.i, %if.end.i21 ]
-  %rightblock = getelementptr inbounds i8, ptr %deque, i64 32
+  %rightblock = getelementptr inbounds nuw i8, ptr %deque, i64 32
   %4 = load ptr, ptr %rightblock, align 8
   store ptr %4, ptr %retval.0.i33, align 8
-  %rightlink = getelementptr inbounds i8, ptr %4, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %4, i64 520
   store ptr %retval.0.i33, ptr %rightlink, align 8
   store ptr %retval.0.i33, ptr %rightblock, align 8
   br label %if.end6
@@ -3750,7 +3750,7 @@ if.end6:                                          ; preds = %entry.if.end6_crit_
   %add = add i64 %deque.val19, 1
   store i64 %add, ptr %6, align 8
   store i64 %inc, ptr %rightindex, align 8
-  %data = getelementptr inbounds i8, ptr %5, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %5, i64 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %inc
   store ptr %item, ptr %arrayidx, align 8
   %deque.val = load i64, ptr %6, align 8
@@ -3758,10 +3758,10 @@ if.end6:                                          ; preds = %entry.if.end6_crit_
   br i1 %cmp12, label %if.end.i23, label %if.else
 
 if.end.i23:                                       ; preds = %if.end6
-  %leftblock.i = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock.i = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %7 = load ptr, ptr %leftblock.i, align 8
-  %data.i = getelementptr inbounds i8, ptr %7, i64 8
-  %leftindex.i = getelementptr inbounds i8, ptr %deque, i64 40
+  %data.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %leftindex.i = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %8 = load i64, ptr %leftindex.i, align 8
   %arrayidx.i24 = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %8
   %9 = load ptr, ptr %arrayidx.i24, align 8
@@ -3769,7 +3769,7 @@ if.end.i23:                                       ; preds = %if.end6
   store i64 %inc.i, ptr %leftindex.i, align 8
   %sub.i = add i64 %deque.val, -1
   store i64 %sub.i, ptr %6, align 8
-  %state.i = getelementptr inbounds i8, ptr %deque, i64 56
+  %state.i = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %10 = load i64, ptr %state.i, align 8
   %inc3.i = add i64 %10, 1
   store i64 %inc3.i, ptr %state.i, align 8
@@ -3781,15 +3781,15 @@ if.then6.i:                                       ; preds = %if.end.i23
   br i1 %tobool.not.i26, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then6.i
-  %rightlink.i = getelementptr inbounds i8, ptr %7, i64 520
+  %rightlink.i = getelementptr inbounds nuw i8, ptr %7, i64 520
   %11 = load ptr, ptr %rightlink.i, align 8
-  %numfreeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 72
+  %numfreeblocks.i.i = getelementptr inbounds nuw i8, ptr %deque, i64 72
   %12 = load i64, ptr %numfreeblocks.i.i, align 8
   %cmp.i.i = icmp slt i64 %12, 16
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then8.i
-  %freeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks.i.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
   %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %12
   store ptr %7, ptr %arrayidx.i.i, align 8
   %13 = load i64, ptr %numfreeblocks.i.i, align 8
@@ -3828,7 +3828,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.else:                                          ; preds = %if.end6
-  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %16 = load i64, ptr %state, align 8
   %inc15 = add i64 %16, 1
   store i64 %inc15, ptr %state, align 8
@@ -3853,10 +3853,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %2 = load ptr, ptr %leftblock, align 8
-  %data = getelementptr inbounds i8, ptr %2, i64 8
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %3 = load i64, ptr %leftindex, align 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %3
   %4 = load ptr, ptr %arrayidx, align 8
@@ -3864,7 +3864,7 @@ if.end:                                           ; preds = %entry
   store i64 %inc, ptr %leftindex, align 8
   %sub = add i64 %deque.val17, -1
   store i64 %sub, ptr %0, align 8
-  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %5 = load i64, ptr %state, align 8
   %inc3 = add i64 %5, 1
   store i64 %inc3, ptr %state, align 8
@@ -3876,15 +3876,15 @@ if.then6:                                         ; preds = %if.end
   br i1 %tobool.not, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.then6
-  %rightlink = getelementptr inbounds i8, ptr %2, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %2, i64 520
   %6 = load ptr, ptr %rightlink, align 8
-  %numfreeblocks.i = getelementptr inbounds i8, ptr %deque, i64 72
+  %numfreeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 72
   %7 = load i64, ptr %numfreeblocks.i, align 8
   %cmp.i = icmp slt i64 %7, 16
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then8
-  %freeblocks.i = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
   %arrayidx.i = getelementptr [16 x ptr], ptr %freeblocks.i, i64 0, i64 %7
   store ptr %2, ptr %arrayidx.i, align 8
   %8 = load i64, ptr %numfreeblocks.i, align 8
@@ -3903,7 +3903,7 @@ freeblock.exit:                                   ; preds = %if.then.i, %if.else
 
 if.else:                                          ; preds = %if.then6
   store i64 32, ptr %leftindex, align 8
-  %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
+  %rightindex = getelementptr inbounds nuw i8, ptr %deque, i64 48
   store i64 31, ptr %rightindex, align 8
   br label %return
 
@@ -3927,7 +3927,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
-  %maxlen = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %1 = load i64, ptr %maxlen, align 8
   %call1 = tail call fastcc i32 @deque_append_internal(ptr noundef %deque, ptr noundef nonnull %item, i64 noundef %1)
   %cmp = icmp slt i32 %call1, 0
@@ -3975,14 +3975,14 @@ entry:
   br i1 %cmp.i38.not, label %if.then, label %if.end16
 
 if.then:                                          ; preds = %entry
-  %tp_alloc.i = getelementptr inbounds i8, ptr %2, i64 304
+  %tp_alloc.i = getelementptr inbounds nuw i8, ptr %2, i64 304
   %3 = load ptr, ptr %tp_alloc.i, align 8
   %call.i39 = tail call ptr %3(ptr noundef %2, i64 noundef 0) #9
   %cmp.i40 = icmp eq ptr %call.i39, null
   br i1 %cmp.i40, label %return, label %if.end.i41
 
 if.end.i41:                                       ; preds = %if.then
-  %numfreeblocks.i.i = getelementptr inbounds i8, ptr %call.i39, i64 72
+  %numfreeblocks.i.i = getelementptr inbounds nuw i8, ptr %call.i39, i64 72
   %4 = load i64, ptr %numfreeblocks.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i, label %if.end.i19.i, label %newblock.exit.i
@@ -3999,7 +3999,7 @@ newblock.exit.thread.i:                           ; preds = %if.end.i19.i
 newblock.exit.i:                                  ; preds = %if.end.i41
   %dec.i18.i = add i64 %4, -1
   store i64 %dec.i18.i, ptr %numfreeblocks.i.i, align 8
-  %freeblocks.i.i = getelementptr inbounds i8, ptr %call.i39, i64 80
+  %freeblocks.i.i = getelementptr inbounds nuw i8, ptr %call.i39, i64 80
   %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %dec.i18.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp2.i = icmp eq ptr %5, null
@@ -4019,24 +4019,24 @@ if.end.i.i:                                       ; preds = %if.then3.i
 
 if.end:                                           ; preds = %newblock.exit.i, %if.end.i19.i
   %retval.0.i25.i = phi ptr [ %5, %newblock.exit.i ], [ %call.i.i, %if.end.i19.i ]
-  %ob_size.i.i = getelementptr inbounds i8, ptr %call.i39, i64 16
+  %ob_size.i.i = getelementptr inbounds nuw i8, ptr %call.i39, i64 16
   store i64 0, ptr %ob_size.i.i, align 8
-  %leftblock.i = getelementptr inbounds i8, ptr %call.i39, i64 24
+  %leftblock.i = getelementptr inbounds nuw i8, ptr %call.i39, i64 24
   store ptr %retval.0.i25.i, ptr %leftblock.i, align 8
-  %rightblock.i = getelementptr inbounds i8, ptr %call.i39, i64 32
+  %rightblock.i = getelementptr inbounds nuw i8, ptr %call.i39, i64 32
   store ptr %retval.0.i25.i, ptr %rightblock.i, align 8
-  %leftindex.i = getelementptr inbounds i8, ptr %call.i39, i64 40
+  %leftindex.i = getelementptr inbounds nuw i8, ptr %call.i39, i64 40
   store i64 32, ptr %leftindex.i, align 8
-  %rightindex.i = getelementptr inbounds i8, ptr %call.i39, i64 48
+  %rightindex.i = getelementptr inbounds nuw i8, ptr %call.i39, i64 48
   store i64 31, ptr %rightindex.i, align 8
-  %state.i = getelementptr inbounds i8, ptr %call.i39, i64 56
+  %state.i = getelementptr inbounds nuw i8, ptr %call.i39, i64 56
   store i64 0, ptr %state.i, align 8
-  %maxlen.i = getelementptr inbounds i8, ptr %call.i39, i64 64
+  %maxlen.i = getelementptr inbounds nuw i8, ptr %call.i39, i64 64
   store i64 -1, ptr %maxlen.i, align 8
   store i64 0, ptr %numfreeblocks.i.i, align 8
-  %weakreflist.i = getelementptr inbounds i8, ptr %call.i39, i64 208
+  %weakreflist.i = getelementptr inbounds nuw i8, ptr %call.i39, i64 208
   store ptr null, ptr %weakreflist.i, align 8
-  %maxlen = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %8 = load i64, ptr %maxlen, align 8
   store i64 %8, ptr %maxlen.i, align 8
   %9 = getelementptr i8, ptr %deque, i64 16
@@ -4045,10 +4045,10 @@ if.end:                                           ; preds = %newblock.exit.i, %i
   br i1 %cmp8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.end
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %10 = load ptr, ptr %leftblock, align 8
-  %data = getelementptr inbounds i8, ptr %10, i64 8
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %11 = load i64, ptr %leftindex, align 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %11
   %12 = load ptr, ptr %arrayidx, align 8
@@ -4099,7 +4099,7 @@ if.end.i40:                                       ; preds = %if.end15
   br i1 %cmp.i42, label %return.sink.split, label %return
 
 if.end16:                                         ; preds = %entry
-  %maxlen17 = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen17 = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %19 = load i64, ptr %maxlen17, align 8
   %cmp18 = icmp slt i64 %19, 0
   br i1 %cmp18, label %if.then19, label %if.else22
@@ -4132,10 +4132,10 @@ PyObject_TypeCheck.exit:                          ; preds = %land.lhs.true
 if.then31:                                        ; preds = %PyObject_TypeCheck.exit
   %22 = load ptr, ptr @PyExc_TypeError, align 8
   %deque.val32 = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds i8, ptr %deque.val32, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %deque.val32, i64 24
   %23 = load ptr, ptr %tp_name, align 8
   %result.0.val = load ptr, ptr %21, align 8
-  %tp_name34 = getelementptr inbounds i8, ptr %result.0.val, i64 24
+  %tp_name34 = getelementptr inbounds nuw i8, ptr %result.0.val, i64 24
   %24 = load ptr, ptr %tp_name34, align 8
   %call35 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %22, ptr noundef nonnull @.str.33, ptr noundef %23, ptr noundef %24) #9
   %25 = load i64, ptr %result.0, align 8
@@ -4165,16 +4165,16 @@ define internal ptr @deque_count(ptr nocapture noundef readonly %deque, ptr noun
 entry:
   %0 = getelementptr i8, ptr %deque, i64 16
   %deque.val = load i64, ptr %0, align 8
-  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %1 = load i64, ptr %state, align 8
   %dec15 = add i64 %deque.val, -1
   %cmp116 = icmp sgt i64 %dec15, -1
   br i1 %cmp116, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %entry
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %2 = load i64, ptr %leftindex, align 8
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %3 = load ptr, ptr %leftblock, align 8
   br label %while.body
 
@@ -4183,7 +4183,7 @@ while.body:                                       ; preds = %while.body.preheade
   %b.019 = phi ptr [ %b.1, %if.end13 ], [ %3, %while.body.preheader ]
   %index.018 = phi i64 [ %index.1, %if.end13 ], [ %2, %while.body.preheader ]
   %count.017 = phi i64 [ %add, %if.end13 ], [ 0, %while.body.preheader ]
-  %data = getelementptr inbounds i8, ptr %b.019, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %b.019, i64 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %index.018
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load i32, ptr %4, align 8
@@ -4234,7 +4234,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp10, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end9
-  %rightlink = getelementptr inbounds i8, ptr %b.019, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %b.019, i64 520
   %10 = load ptr, ptr %rightlink, align 8
   br label %if.end13
 
@@ -4258,7 +4258,7 @@ return:                                           ; preds = %Py_DECREF.exit, %wh
 ; Function Attrs: nounwind uwtable
 define internal ptr @deque_extendleft(ptr noundef %deque, ptr noundef %iterable) #0 {
 entry:
-  %maxlen1 = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen1 = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %0 = load i64, ptr %maxlen1, align 8
   %cmp = icmp eq ptr %deque, %iterable
   br i1 %cmp, label %if.then, label %if.end5
@@ -4305,16 +4305,16 @@ if.end13:                                         ; preds = %if.end9
   br i1 %cmp15, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end13
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   store i64 63, ptr %leftindex, align 8
-  %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
+  %rightindex = getelementptr inbounds nuw i8, ptr %deque, i64 48
   store i64 62, ptr %rightindex, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %if.end13
   %4 = getelementptr i8, ptr %call6, i64 8
   %call6.val = load ptr, ptr %4, align 8
-  %tp_iternext = getelementptr inbounds i8, ptr %call6.val, i64 224
+  %tp_iternext = getelementptr inbounds nuw i8, ptr %call6.val, i64 224
   %5 = load ptr, ptr %tp_iternext, align 8
   br label %while.cond
 
@@ -4419,11 +4419,11 @@ entry:
   %0 = getelementptr i8, ptr %deque, i64 16
   %deque.val26 = load i64, ptr %0, align 8
   store i64 %deque.val26, ptr %stop, align 8
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %1 = load ptr, ptr %leftblock, align 8
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %2 = load i64, ptr %leftindex, align 8
-  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %3 = load i64, ptr %state, align 8
   %call1 = call i32 (ptr, i64, ptr, ...) @_PyArg_ParseStack(ptr noundef %args, i64 noundef %nargs, ptr noundef nonnull @.str.35, ptr noundef nonnull %v, ptr noundef nonnull @_PyEval_SliceIndexNotNone, ptr noundef nonnull %start, ptr noundef nonnull @_PyEval_SliceIndexNotNone, ptr noundef nonnull %stop) #9
   %tobool.not = icmp eq i32 %call1, 0
@@ -4486,7 +4486,7 @@ for.cond27.preheader:                             ; preds = %for.body, %if.end24
 for.body:                                         ; preds = %if.end24, %for.body
   %i.032 = phi i64 [ %add26, %for.body ], [ 0, %if.end24 ]
   %b.031 = phi ptr [ %10, %for.body ], [ %1, %if.end24 ]
-  %rightlink = getelementptr inbounds i8, ptr %b.031, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %b.031, i64 520
   %10 = load ptr, ptr %rightlink, align 8
   %add26 = add nuw nsw i64 %i.032, 64
   %cmp25 = icmp slt i64 %add26, %sub
@@ -4501,7 +4501,7 @@ for.body29:                                       ; preds = %for.cond27.preheade
   br i1 %cmp30, label %if.then31, label %for.inc34
 
 if.then31:                                        ; preds = %for.body29
-  %rightlink32 = getelementptr inbounds i8, ptr %b.136, i64 520
+  %rightlink32 = getelementptr inbounds nuw i8, ptr %b.136, i64 520
   %11 = load ptr, ptr %rightlink32, align 8
   br label %for.inc34
 
@@ -4522,7 +4522,7 @@ for.end36:                                        ; preds = %for.inc34, %for.con
   br i1 %cmp3843, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %for.end36
-  %data57 = getelementptr inbounds i8, ptr %b.1.lcssa, i64 8
+  %data57 = getelementptr inbounds nuw i8, ptr %b.1.lcssa, i64 8
   %arrayidx58 = getelementptr [64 x ptr], ptr %data57, i64 0, i64 %index.0.lcssa
   %12 = load ptr, ptr %arrayidx58, align 8
   %13 = load ptr, ptr %v, align 8
@@ -4532,7 +4532,7 @@ while.body.preheader:                             ; preds = %for.end36
 
 while.body:                                       ; preds = %if.end57
   %dec = add nsw i64 %dec4761, -1
-  %data = getelementptr inbounds i8, ptr %b.4, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %b.4, i64 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %index.3
   %14 = load ptr, ptr %arrayidx, align 8
   %15 = load ptr, ptr %v, align 8
@@ -4571,7 +4571,7 @@ if.end52:                                         ; preds = %if.end48
   br i1 %cmp54, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.end52
-  %rightlink56 = getelementptr inbounds i8, ptr %b.34563, i64 520
+  %rightlink56 = getelementptr inbounds nuw i8, ptr %b.34563, i64 520
   %19 = load ptr, ptr %rightlink56, align 8
   br label %if.end57
 
@@ -4604,7 +4604,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %maxlen = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %1 = load i64, ptr %maxlen, align 8
   %deque.val = load i64, ptr %0, align 8
   %cmp = icmp eq i64 %1, %deque.val
@@ -4745,7 +4745,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %maxlen = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %2 = load i64, ptr %maxlen, align 8
   %cmp5 = icmp slt i64 %2, 0
   %3 = getelementptr i8, ptr %deque, i64 8
@@ -4770,15 +4770,15 @@ define internal ptr @deque_remove(ptr nocapture noundef %deque, ptr noundef %val
 entry:
   %0 = getelementptr i8, ptr %deque, i64 16
   %deque.val = load i64, ptr %0, align 8
-  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %1 = load i64, ptr %state, align 8
   %cmp120 = icmp sgt i64 %deque.val, 0
   br i1 %cmp120, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %2 = load i64, ptr %leftindex, align 8
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %3 = load ptr, ptr %leftblock, align 8
   br label %for.body
 
@@ -4786,7 +4786,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %b.023 = phi ptr [ %b.1, %for.inc ], [ %3, %for.body.preheader ]
   %i.022 = phi i64 [ %inc15, %for.inc ], [ 0, %for.body.preheader ]
   %index.021 = phi i64 [ %index.1, %for.inc ], [ %2, %for.body.preheader ]
-  %data = getelementptr inbounds i8, ptr %b.023, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %b.023, i64 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %index.021
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load i32, ptr %4, align 8
@@ -4839,7 +4839,7 @@ if.end11:                                         ; preds = %if.end8
   br i1 %cmp12, label %if.then13, label %for.inc
 
 if.then13:                                        ; preds = %if.end11
-  %rightlink = getelementptr inbounds i8, ptr %b.023, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %b.023, i64 520
   %10 = load ptr, ptr %rightlink, align 8
   br label %for.inc
 
@@ -4879,20 +4879,20 @@ entry:
   %call.i = tail call ptr @PyType_GetModuleByDef(ptr noundef %deque.val13, ptr noundef nonnull @_collectionsmodule) #9
   %1 = getelementptr i8, ptr %call.i, i64 32
   %call.val.i = load ptr, ptr %1, align 8
-  %dequereviter_type = getelementptr inbounds i8, ptr %call.val.i, i64 24
+  %dequereviter_type = getelementptr inbounds nuw i8, ptr %call.val.i, i64 24
   %2 = load ptr, ptr %dequereviter_type, align 8
   %call2 = tail call ptr @_PyObject_GC_New(ptr noundef %2) #9
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rightblock = getelementptr inbounds i8, ptr %deque, i64 32
+  %rightblock = getelementptr inbounds nuw i8, ptr %deque, i64 32
   %3 = load ptr, ptr %rightblock, align 8
-  %b = getelementptr inbounds i8, ptr %call2, i64 16
+  %b = getelementptr inbounds nuw i8, ptr %call2, i64 16
   store ptr %3, ptr %b, align 8
-  %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
+  %rightindex = getelementptr inbounds nuw i8, ptr %deque, i64 48
   %4 = load i64, ptr %rightindex, align 8
-  %index = getelementptr inbounds i8, ptr %call2, i64 24
+  %index = getelementptr inbounds nuw i8, ptr %call2, i64 24
   store i64 %4, ptr %index, align 8
   %5 = load i32, ptr %deque, align 8
   %add.i.i = add i32 %5, 1
@@ -4904,15 +4904,15 @@ if.end.i.i:                                       ; preds = %if.end
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end, %if.end.i.i
-  %deque4 = getelementptr inbounds i8, ptr %call2, i64 32
+  %deque4 = getelementptr inbounds nuw i8, ptr %call2, i64 32
   store ptr %deque, ptr %deque4, align 8
-  %state5 = getelementptr inbounds i8, ptr %deque, i64 56
+  %state5 = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %6 = load i64, ptr %state5, align 8
-  %state6 = getelementptr inbounds i8, ptr %call2, i64 40
+  %state6 = getelementptr inbounds nuw i8, ptr %call2, i64 40
   store i64 %6, ptr %state6, align 8
   %7 = getelementptr i8, ptr %deque, i64 16
   %deque.val = load i64, ptr %7, align 8
-  %counter = getelementptr inbounds i8, ptr %call2, i64 48
+  %counter = getelementptr inbounds nuw i8, ptr %call2, i64 48
   store i64 %deque.val, ptr %counter, align 8
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call2) #9
   br label %return
@@ -4931,13 +4931,13 @@ entry:
   br i1 %cmp16, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %entry
-  %rightindex4 = getelementptr inbounds i8, ptr %deque, i64 48
+  %rightindex4 = getelementptr inbounds nuw i8, ptr %deque, i64 48
   %1 = load i64, ptr %rightindex4, align 8
-  %leftindex3 = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex3 = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %2 = load i64, ptr %leftindex3, align 8
-  %rightblock2 = getelementptr inbounds i8, ptr %deque, i64 32
+  %rightblock2 = getelementptr inbounds nuw i8, ptr %deque, i64 32
   %3 = load ptr, ptr %rightblock2, align 8
-  %leftblock1 = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock1 = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %4 = load ptr, ptr %leftblock1, align 8
   br label %while.body
 
@@ -4948,10 +4948,10 @@ while.body:                                       ; preds = %while.body.preheade
   %leftindex.018 = phi i64 [ %leftindex.1, %if.end15 ], [ %2, %while.body.preheader ]
   %rightblock.017 = phi ptr [ %rightblock.1, %if.end15 ], [ %3, %while.body.preheader ]
   %dec21 = add nsw i64 %dec21.in, -1
-  %data = getelementptr inbounds i8, ptr %leftblock.020, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %leftblock.020, i64 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %leftindex.018
   %5 = load ptr, ptr %arrayidx, align 8
-  %data5 = getelementptr inbounds i8, ptr %rightblock.017, i64 8
+  %data5 = getelementptr inbounds nuw i8, ptr %rightblock.017, i64 8
   %arrayidx6 = getelementptr [64 x ptr], ptr %data5, i64 0, i64 %rightindex.019
   %6 = load ptr, ptr %arrayidx6, align 8
   store ptr %6, ptr %arrayidx, align 8
@@ -4961,7 +4961,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %rightlink = getelementptr inbounds i8, ptr %leftblock.020, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %leftblock.020, i64 520
   %7 = load ptr, ptr %rightlink, align 8
   br label %if.end
 
@@ -5052,7 +5052,7 @@ entry:
   %deque.val5 = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %deque.val5, i64 32
   %call.val = load i64, ptr %1, align 8
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %2 = load i64, ptr %leftindex, align 8
   %3 = getelementptr i8, ptr %deque, i64 16
   %deque.val = load i64, ptr %3, align 8
@@ -5070,19 +5070,19 @@ declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @deque_appendleft_internal(ptr nocapture noundef %deque, ptr noundef %item) unnamed_addr #0 {
 entry:
-  %leftindex = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %0 = load i64, ptr %leftindex, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %entry.if.end6_crit_edge
 
 entry.if.end6_crit_edge:                          ; preds = %entry
-  %leftblock9.phi.trans.insert = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock9.phi.trans.insert = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %.pre = load ptr, ptr %leftblock9.phi.trans.insert, align 8
   %1 = add i64 %0, -1
   br label %if.end6
 
 if.then:                                          ; preds = %entry
-  %numfreeblocks.i = getelementptr inbounds i8, ptr %deque, i64 72
+  %numfreeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 72
   %2 = load i64, ptr %numfreeblocks.i, align 8
   %tobool.not.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i, label %if.end.i22, label %newblock.exit
@@ -5099,7 +5099,7 @@ newblock.exit.thread:                             ; preds = %if.end.i22
 newblock.exit:                                    ; preds = %if.then
   %dec.i21 = add i64 %2, -1
   store i64 %dec.i21, ptr %numfreeblocks.i, align 8
-  %freeblocks.i = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
   %arrayidx.i = getelementptr [16 x ptr], ptr %freeblocks.i, i64 0, i64 %dec.i21
   %3 = load ptr, ptr %arrayidx.i, align 8
   %cmp1 = icmp eq ptr %3, null
@@ -5107,9 +5107,9 @@ newblock.exit:                                    ; preds = %if.then
 
 if.end:                                           ; preds = %if.end.i22, %newblock.exit
   %retval.0.i35 = phi ptr [ %3, %newblock.exit ], [ %call.i, %if.end.i22 ]
-  %leftblock = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %4 = load ptr, ptr %leftblock, align 8
-  %rightlink = getelementptr inbounds i8, ptr %retval.0.i35, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %retval.0.i35, i64 520
   store ptr %4, ptr %rightlink, align 8
   store ptr %retval.0.i35, ptr %4, align 8
   store ptr %retval.0.i35, ptr %leftblock, align 8
@@ -5123,20 +5123,20 @@ if.end6:                                          ; preds = %entry.if.end6_crit_
   %add = add i64 %deque.val20, 1
   store i64 %add, ptr %6, align 8
   store i64 %dec, ptr %leftindex, align 8
-  %data = getelementptr inbounds i8, ptr %5, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %5, i64 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %dec
   store ptr %item, ptr %arrayidx, align 8
-  %maxlen11 = getelementptr inbounds i8, ptr %deque, i64 64
+  %maxlen11 = getelementptr inbounds nuw i8, ptr %deque, i64 64
   %7 = load i64, ptr %maxlen11, align 8
   %deque.val = load i64, ptr %6, align 8
   %cmp13 = icmp ult i64 %7, %deque.val
   br i1 %cmp13, label %if.end.i24, label %if.else
 
 if.end.i24:                                       ; preds = %if.end6
-  %rightblock.i = getelementptr inbounds i8, ptr %deque, i64 32
+  %rightblock.i = getelementptr inbounds nuw i8, ptr %deque, i64 32
   %8 = load ptr, ptr %rightblock.i, align 8
-  %data.i = getelementptr inbounds i8, ptr %8, i64 8
-  %rightindex.i = getelementptr inbounds i8, ptr %deque, i64 48
+  %data.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %rightindex.i = getelementptr inbounds nuw i8, ptr %deque, i64 48
   %9 = load i64, ptr %rightindex.i, align 8
   %arrayidx.i25 = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %9
   %10 = load ptr, ptr %arrayidx.i25, align 8
@@ -5144,7 +5144,7 @@ if.end.i24:                                       ; preds = %if.end6
   store i64 %dec.i26, ptr %rightindex.i, align 8
   %sub.i = add i64 %deque.val, -1
   store i64 %sub.i, ptr %6, align 8
-  %state.i = getelementptr inbounds i8, ptr %deque, i64 56
+  %state.i = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %11 = load i64, ptr %state.i, align 8
   %inc.i = add i64 %11, 1
   store i64 %inc.i, ptr %state.i, align 8
@@ -5157,13 +5157,13 @@ if.then5.i:                                       ; preds = %if.end.i24
 
 if.then7.i:                                       ; preds = %if.then5.i
   %12 = load ptr, ptr %8, align 8
-  %numfreeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 72
+  %numfreeblocks.i.i = getelementptr inbounds nuw i8, ptr %deque, i64 72
   %13 = load i64, ptr %numfreeblocks.i.i, align 8
   %cmp.i.i = icmp slt i64 %13, 16
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then7.i
-  %freeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks.i.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
   %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %13
   store ptr %8, ptr %arrayidx.i.i, align 8
   %14 = load i64, ptr %numfreeblocks.i.i, align 8
@@ -5205,7 +5205,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.else:                                          ; preds = %if.end6
-  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %17 = load i64, ptr %state, align 8
   %inc = add i64 %17, 1
   store i64 %inc, ptr %state, align 8
@@ -5229,13 +5229,13 @@ declare i32 @_PyEval_SliceIndexNotNone(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @_deque_rotate(ptr nocapture noundef %deque, i64 noundef %n) unnamed_addr #0 {
 entry:
-  %leftblock1 = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock1 = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %0 = load ptr, ptr %leftblock1, align 8
-  %rightblock2 = getelementptr inbounds i8, ptr %deque, i64 32
+  %rightblock2 = getelementptr inbounds nuw i8, ptr %deque, i64 32
   %1 = load ptr, ptr %rightblock2, align 8
-  %leftindex3 = getelementptr inbounds i8, ptr %deque, i64 40
+  %leftindex3 = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %2 = load i64, ptr %leftindex3, align 8
-  %rightindex4 = getelementptr inbounds i8, ptr %deque, i64 48
+  %rightindex4 = getelementptr inbounds nuw i8, ptr %deque, i64 48
   %3 = load i64, ptr %rightindex4, align 8
   %4 = getelementptr i8, ptr %deque, i64 16
   %deque.val = load i64, ptr %4, align 8
@@ -5267,7 +5267,7 @@ if.else:                                          ; preds = %if.then7
 
 if.end16:                                         ; preds = %if.else, %if.end, %if.then9
   %n.addr.0 = phi i64 [ %sub10, %if.then9 ], [ %n, %if.end ], [ %spec.select, %if.else ]
-  %state = getelementptr inbounds i8, ptr %deque, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %5 = load i64, ptr %state, align 8
   %inc = add i64 %5, 1
   store i64 %inc, ptr %state, align 8
@@ -5275,8 +5275,8 @@ if.end16:                                         ; preds = %if.else, %if.end, %
   br i1 %cmp17150, label %while.body.lr.ph, label %while.cond47.preheader
 
 while.body.lr.ph:                                 ; preds = %if.end16
-  %numfreeblocks.i = getelementptr inbounds i8, ptr %deque, i64 72
-  %freeblocks.i = getelementptr inbounds i8, ptr %deque, i64 80
+  %numfreeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 72
+  %freeblocks.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
   br label %while.body
 
 while.cond47.preheader:                           ; preds = %if.end46, %if.end16
@@ -5290,8 +5290,8 @@ while.cond47.preheader:                           ; preds = %if.end46, %if.end16
   br i1 %cmp48164, label %while.body49.lr.ph, label %done
 
 while.body49.lr.ph:                               ; preds = %while.cond47.preheader
-  %numfreeblocks.i87 = getelementptr inbounds i8, ptr %deque, i64 72
-  %freeblocks.i91 = getelementptr inbounds i8, ptr %deque, i64 80
+  %numfreeblocks.i87 = getelementptr inbounds nuw i8, ptr %deque, i64 72
+  %freeblocks.i91 = getelementptr inbounds nuw i8, ptr %deque, i64 80
   br label %while.body49
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end46
@@ -5332,7 +5332,7 @@ newblock.exit:                                    ; preds = %if.then21
 
 if.end26:                                         ; preds = %if.end.i, %newblock.exit, %if.then19
   %b.2 = phi ptr [ %7, %newblock.exit ], [ %b.0151, %if.then19 ], [ %call.i, %if.end.i ]
-  %rightlink = getelementptr inbounds i8, ptr %b.2, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %b.2, i64 520
   store ptr %leftblock.0152, ptr %rightlink, align 8
   store ptr %b.2, ptr %leftblock.0152, align 8
   br label %if.end27
@@ -5346,10 +5346,10 @@ if.end27:                                         ; preds = %if.end26, %while.bo
   %m.1 = tail call i64 @llvm.smin.i64(i64 %spec.select85, i64 %leftindex.1)
   %sub36 = sub i64 %rightindex.0156, %m.1
   %sub37 = sub i64 %leftindex.1, %m.1
-  %data = getelementptr inbounds i8, ptr %rightblock.0153, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %rightblock.0153, i64 8
   %add38 = add i64 %sub36, 1
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %add38
-  %data39 = getelementptr inbounds i8, ptr %leftblock.1, i64 8
+  %data39 = getelementptr inbounds nuw i8, ptr %leftblock.1, i64 8
   %arrayidx40 = getelementptr [64 x ptr], ptr %data39, i64 0, i64 %sub37
   br label %do.body
 
@@ -5420,7 +5420,7 @@ newblock.exit99:                                  ; preds = %if.then53
 if.end58:                                         ; preds = %if.end.i94, %newblock.exit99, %if.then51
   %b.7 = phi ptr [ %11, %newblock.exit99 ], [ %b.5165, %if.then51 ], [ %call.i95, %if.end.i94 ]
   store ptr %rightblock.3168, ptr %b.7, align 8
-  %rightlink60 = getelementptr inbounds i8, ptr %rightblock.3168, i64 520
+  %rightlink60 = getelementptr inbounds nuw i8, ptr %rightblock.3168, i64 520
   store ptr %b.7, ptr %rightlink60, align 8
   br label %if.end61
 
@@ -5433,9 +5433,9 @@ if.end61:                                         ; preds = %if.end58, %while.bo
   %spec.select86 = tail call i64 @llvm.smin.i64(i64 %sub66, i64 %sub65)
   %sub71 = sub i64 63, %rightindex.4
   %m64.1 = tail call i64 @llvm.smin.i64(i64 %spec.select86, i64 %sub71)
-  %data76 = getelementptr inbounds i8, ptr %leftblock.3166, i64 8
+  %data76 = getelementptr inbounds nuw i8, ptr %leftblock.3166, i64 8
   %arrayidx77 = getelementptr [64 x ptr], ptr %data76, i64 0, i64 %leftindex.3169
-  %data78 = getelementptr inbounds i8, ptr %rightblock.4, i64 8
+  %data78 = getelementptr inbounds nuw i8, ptr %rightblock.4, i64 8
   %add79 = add i64 %rightindex.4, 1
   %arrayidx80 = getelementptr [64 x ptr], ptr %data78, i64 0, i64 %add79
   %add82 = add i64 %m64.1, %rightindex.4
@@ -5460,7 +5460,7 @@ do.end90:                                         ; preds = %do.body84
   br i1 %cmp91, label %if.then92, label %if.end94
 
 if.then92:                                        ; preds = %do.end90
-  %rightlink93 = getelementptr inbounds i8, ptr %leftblock.3166, i64 520
+  %rightlink93 = getelementptr inbounds nuw i8, ptr %leftblock.3166, i64 520
   %13 = load ptr, ptr %rightlink93, align 8
   br label %if.end94
 
@@ -5481,13 +5481,13 @@ done:                                             ; preds = %if.end94, %while.co
   br i1 %cmp96.not, label %if.end98, label %if.then97
 
 if.then97:                                        ; preds = %done
-  %numfreeblocks.i100 = getelementptr inbounds i8, ptr %deque, i64 72
+  %numfreeblocks.i100 = getelementptr inbounds nuw i8, ptr %deque, i64 72
   %14 = load i64, ptr %numfreeblocks.i100, align 8
   %cmp.i = icmp slt i64 %14, 16
   br i1 %cmp.i, label %if.then.i102, label %if.else.i
 
 if.then.i102:                                     ; preds = %if.then97
-  %freeblocks.i103 = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks.i103 = getelementptr inbounds nuw i8, ptr %deque, i64 80
   %arrayidx.i104 = getelementptr [16 x ptr], ptr %freeblocks.i103, i64 0, i64 %14
   store ptr %b.5.lcssa, ptr %arrayidx.i104, align 8
   %15 = load i64, ptr %numfreeblocks.i100, align 8
@@ -5540,10 +5540,10 @@ if.then.i:                                        ; preds = %if.end
   br label %deque_popleft.exit
 
 if.end.i7:                                        ; preds = %if.end
-  %leftblock.i = getelementptr inbounds i8, ptr %deque, i64 24
+  %leftblock.i = getelementptr inbounds nuw i8, ptr %deque, i64 24
   %2 = load ptr, ptr %leftblock.i, align 8
-  %data.i = getelementptr inbounds i8, ptr %2, i64 8
-  %leftindex.i = getelementptr inbounds i8, ptr %deque, i64 40
+  %data.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %leftindex.i = getelementptr inbounds nuw i8, ptr %deque, i64 40
   %3 = load i64, ptr %leftindex.i, align 8
   %arrayidx.i = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %3
   %4 = load ptr, ptr %arrayidx.i, align 8
@@ -5551,7 +5551,7 @@ if.end.i7:                                        ; preds = %if.end
   store i64 %inc.i, ptr %leftindex.i, align 8
   %sub.i = add i64 %deque.val17.i, -1
   store i64 %sub.i, ptr %0, align 8
-  %state.i = getelementptr inbounds i8, ptr %deque, i64 56
+  %state.i = getelementptr inbounds nuw i8, ptr %deque, i64 56
   %5 = load i64, ptr %state.i, align 8
   %inc3.i = add i64 %5, 1
   store i64 %inc3.i, ptr %state.i, align 8
@@ -5563,15 +5563,15 @@ if.then6.i:                                       ; preds = %if.end.i7
   br i1 %tobool.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then6.i
-  %rightlink.i = getelementptr inbounds i8, ptr %2, i64 520
+  %rightlink.i = getelementptr inbounds nuw i8, ptr %2, i64 520
   %6 = load ptr, ptr %rightlink.i, align 8
-  %numfreeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 72
+  %numfreeblocks.i.i = getelementptr inbounds nuw i8, ptr %deque, i64 72
   %7 = load i64, ptr %numfreeblocks.i.i, align 8
   %cmp.i.i = icmp slt i64 %7, 16
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then8.i
-  %freeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 80
+  %freeblocks.i.i = getelementptr inbounds nuw i8, ptr %deque, i64 80
   %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %7
   store ptr %2, ptr %arrayidx.i.i, align 8
   %8 = load i64, ptr %numfreeblocks.i.i, align 8
@@ -5590,7 +5590,7 @@ freeblock.exit.i:                                 ; preds = %if.else.i.i, %if.th
 
 if.else.i:                                        ; preds = %if.then6.i
   store i64 32, ptr %leftindex.i, align 8
-  %rightindex.i = getelementptr inbounds i8, ptr %deque, i64 48
+  %rightindex.i = getelementptr inbounds nuw i8, ptr %deque, i64 48
   store i64 31, ptr %rightindex.i, align 8
   br label %deque_popleft.exit
 
@@ -5629,7 +5629,7 @@ entry:
   %0 = getelementptr i8, ptr %dd, i64 8
   %dd.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %dd) #9
-  %default_factory = getelementptr inbounds i8, ptr %dd, i64 48
+  %default_factory = getelementptr inbounds nuw i8, ptr %dd, i64 48
   %1 = load ptr, ptr %default_factory, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -5682,7 +5682,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %default_factory = getelementptr inbounds i8, ptr %dd, i64 48
+  %default_factory = getelementptr inbounds nuw i8, ptr %dd, i64 48
   %1 = load ptr, ptr %default_factory, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then2, label %if.else
@@ -5806,7 +5806,7 @@ if.end:                                           ; preds = %if.then, %entry
   %mod.0 = phi ptr [ %call3, %if.then ], [ %call1, %entry ]
   %2 = getelementptr i8, ptr %mod.0, i64 32
   %mod.0.val = load ptr, ptr %2, align 8
-  %defdict_type = getelementptr inbounds i8, ptr %mod.0.val, i64 8
+  %defdict_type = getelementptr inbounds nuw i8, ptr %mod.0.val, i64 8
   %3 = load ptr, ptr %defdict_type, align 8
   %left.val16 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %left.val16, %3
@@ -5882,7 +5882,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %default_factory = getelementptr inbounds i8, ptr %self, i64 48
+  %default_factory = getelementptr inbounds nuw i8, ptr %self, i64 48
   %1 = load ptr, ptr %default_factory, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -5905,7 +5905,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal i32 @defdict_tp_clear(ptr noundef %dd) #0 {
 entry:
-  %default_factory = getelementptr inbounds i8, ptr %dd, i64 48
+  %default_factory = getelementptr inbounds nuw i8, ptr %dd, i64 48
   %0 = load ptr, ptr %default_factory, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -5936,7 +5936,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @defdict_init(ptr noundef %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
-  %default_factory = getelementptr inbounds i8, ptr %self, i64 48
+  %default_factory = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load ptr, ptr %default_factory, align 8
   %cmp = icmp eq ptr %args, null
   br i1 %cmp, label %if.end12.thread, label %lor.lhs.false
@@ -5957,7 +5957,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br i1 %cmp4, label %if.then5, label %if.end12.thread27
 
 if.then5:                                         ; preds = %if.else
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   %5 = load ptr, ptr %ob_item, align 8
   %call6 = tail call i32 @PyCallable_Check(ptr noundef %5) #9
   %tobool7 = icmp eq i32 %call6, 0
@@ -6052,7 +6052,7 @@ declare i32 @PyDict_Update(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @defdict_missing(ptr noundef %dd, ptr noundef %key) #0 {
 entry:
-  %default_factory = getelementptr inbounds i8, ptr %dd, i64 48
+  %default_factory = getelementptr inbounds nuw i8, ptr %dd, i64 48
   %0 = load ptr, ptr %default_factory, align 8
   %cmp = icmp eq ptr %0, null
   %cmp1 = icmp eq ptr %0, @_Py_NoneStruct
@@ -6090,7 +6090,7 @@ if.end3:                                          ; preds = %entry
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.end3
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i.i, i64 56
   %9 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %0, i64 %9
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
@@ -6155,7 +6155,7 @@ entry:
 define internal ptr @defdict_reduce(ptr noundef %dd, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %self.addr.i = alloca ptr, align 8
-  %default_factory = getelementptr inbounds i8, ptr %dd, i64 48
+  %default_factory = getelementptr inbounds nuw i8, ptr %dd, i64 48
   %0 = load ptr, ptr %default_factory, align 8
   %cmp = icmp eq ptr %0, null
   %cmp2 = icmp eq ptr %0, @_Py_NoneStruct
@@ -6310,7 +6310,7 @@ entry:
   %0 = getelementptr i8, ptr %dio, i64 8
   %dio.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %dio) #9
-  %deque.i = getelementptr inbounds i8, ptr %dio, i64 32
+  %deque.i = getelementptr inbounds nuw i8, ptr %dio, i64 32
   %1 = load ptr, ptr %deque.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %dequeiter_clear.exit, label %if.then.i
@@ -6367,7 +6367,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %deque = getelementptr inbounds i8, ptr %dio, i64 32
+  %deque = getelementptr inbounds nuw i8, ptr %dio, i64 32
   %1 = load ptr, ptr %deque, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -6388,7 +6388,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @dequeiter_clear(ptr nocapture noundef %dio) #0 {
 entry:
-  %deque = getelementptr inbounds i8, ptr %dio, i64 32
+  %deque = getelementptr inbounds nuw i8, ptr %dio, i64 32
   %0 = load ptr, ptr %deque, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -6419,14 +6419,14 @@ declare ptr @PyObject_SelfIter(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @dequeiter_next(ptr nocapture noundef %it) #0 {
 entry:
-  %deque = getelementptr inbounds i8, ptr %it, i64 32
+  %deque = getelementptr inbounds nuw i8, ptr %it, i64 32
   %0 = load ptr, ptr %deque, align 8
-  %state = getelementptr inbounds i8, ptr %0, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load i64, ptr %state, align 8
-  %state1 = getelementptr inbounds i8, ptr %it, i64 40
+  %state1 = getelementptr inbounds nuw i8, ptr %it, i64 40
   %2 = load i64, ptr %state1, align 8
   %cmp.not = icmp eq i64 %1, %2
-  %counter2 = getelementptr inbounds i8, ptr %it, i64 48
+  %counter2 = getelementptr inbounds nuw i8, ptr %it, i64 48
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -6441,10 +6441,10 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %b = getelementptr inbounds i8, ptr %it, i64 16
+  %b = getelementptr inbounds nuw i8, ptr %it, i64 16
   %5 = load ptr, ptr %b, align 8
-  %data = getelementptr inbounds i8, ptr %5, i64 8
-  %index = getelementptr inbounds i8, ptr %it, i64 24
+  %data = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %index = getelementptr inbounds nuw i8, ptr %it, i64 24
   %6 = load i64, ptr %index, align 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %6
   %7 = load ptr, ptr %arrayidx, align 8
@@ -6458,7 +6458,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %or.cond, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end5
-  %rightlink = getelementptr inbounds i8, ptr %5, i64 520
+  %rightlink = getelementptr inbounds nuw i8, ptr %5, i64 520
   %8 = load ptr, ptr %rightlink, align 8
   store ptr %8, ptr %b, align 8
   store i64 0, ptr %index, align 8
@@ -6501,20 +6501,20 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %deque.val13.i, ptr noundef nonnull @_collectionsmodule) #9
   %5 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %5, align 8
-  %dequeiter_type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 16
+  %dequeiter_type.i = getelementptr inbounds nuw i8, ptr %call.val.i.i, i64 16
   %6 = load ptr, ptr %dequeiter_type.i, align 8
   %call2.i = call ptr @_PyObject_GC_New(ptr noundef %6) #9
   %cmp.i11 = icmp eq ptr %call2.i, null
   br i1 %cmp.i11, label %return, label %if.end.i12
 
 if.end.i12:                                       ; preds = %if.end
-  %leftblock.i = getelementptr inbounds i8, ptr %3, i64 24
+  %leftblock.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %leftblock.i, align 8
-  %b.i = getelementptr inbounds i8, ptr %call2.i, i64 16
+  %b.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 16
   store ptr %7, ptr %b.i, align 8
-  %leftindex.i = getelementptr inbounds i8, ptr %3, i64 40
+  %leftindex.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load i64, ptr %leftindex.i, align 8
-  %index.i = getelementptr inbounds i8, ptr %call2.i, i64 24
+  %index.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 24
   store i64 %8, ptr %index.i, align 8
   %9 = load i32, ptr %3, align 8
   %add.i.i.i = add i32 %9, 1
@@ -6526,15 +6526,15 @@ if.end.i.i.i:                                     ; preds = %if.end.i12
   br label %deque_iter.exit
 
 deque_iter.exit:                                  ; preds = %if.end.i12, %if.end.i.i.i
-  %deque4.i = getelementptr inbounds i8, ptr %call2.i, i64 32
+  %deque4.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 32
   store ptr %3, ptr %deque4.i, align 8
-  %state5.i = getelementptr inbounds i8, ptr %3, i64 56
+  %state5.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   %10 = load i64, ptr %state5.i, align 8
-  %state6.i = getelementptr inbounds i8, ptr %call2.i, i64 40
+  %state6.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 40
   store i64 %10, ptr %state6.i, align 8
   %11 = getelementptr i8, ptr %3, i64 16
   %deque.val.i = load i64, ptr %11, align 8
-  %counter.i = getelementptr inbounds i8, ptr %call2.i, i64 48
+  %counter.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 48
   store i64 %deque.val.i, ptr %counter.i, align 8
   call void @PyObject_GC_Track(ptr noundef nonnull %call2.i) #9
   %12 = load i64, ptr %index, align 8
@@ -6544,7 +6544,7 @@ deque_iter.exit:                                  ; preds = %if.end.i12, %if.end
 for.body:                                         ; preds = %deque_iter.exit, %for.inc
   %i.024 = phi i64 [ %inc, %for.inc ], [ 0, %deque_iter.exit ]
   %13 = load ptr, ptr %deque4.i, align 8
-  %state.i = getelementptr inbounds i8, ptr %13, i64 56
+  %state.i = getelementptr inbounds nuw i8, ptr %13, i64 56
   %14 = load i64, ptr %state.i, align 8
   %15 = load i64, ptr %state6.i, align 8
   %cmp.not.i = icmp eq i64 %14, %15
@@ -6557,7 +6557,7 @@ if.end.i13:                                       ; preds = %for.body
 
 if.end5.i:                                        ; preds = %if.end.i13
   %17 = load ptr, ptr %b.i, align 8
-  %data.i = getelementptr inbounds i8, ptr %17, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %18 = load i64, ptr %index.i, align 8
   %arrayidx.i = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %18
   %19 = load ptr, ptr %arrayidx.i, align 8
@@ -6571,7 +6571,7 @@ if.end5.i:                                        ; preds = %if.end.i13
   br i1 %or.cond.i, label %if.then12.i, label %if.end16.i
 
 if.then12.i:                                      ; preds = %if.end5.i
-  %rightlink.i = getelementptr inbounds i8, ptr %17, i64 520
+  %rightlink.i = getelementptr inbounds nuw i8, ptr %17, i64 520
   %20 = load ptr, ptr %rightlink.i, align 8
   store ptr %20, ptr %b.i, align 8
   store i64 0, ptr %index.i, align 8
@@ -6641,7 +6641,7 @@ return:                                           ; preds = %for.inc, %if.end.i1
 ; Function Attrs: nounwind uwtable
 define internal ptr @dequeiter_len(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %counter = getelementptr inbounds i8, ptr %it, i64 48
+  %counter = getelementptr inbounds nuw i8, ptr %it, i64 48
   %0 = load i64, ptr %counter, align 8
   %call = tail call ptr @PyLong_FromSsize_t(i64 noundef %0) #9
   ret ptr %call
@@ -6652,11 +6652,11 @@ define internal ptr @dequeiter_reduce(ptr nocapture noundef readonly %it, ptr no
 entry:
   %0 = getelementptr i8, ptr %it, i64 8
   %it.val = load ptr, ptr %0, align 8
-  %deque = getelementptr inbounds i8, ptr %it, i64 32
+  %deque = getelementptr inbounds nuw i8, ptr %it, i64 32
   %1 = load ptr, ptr %deque, align 8
   %2 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %2, align 8
-  %counter = getelementptr inbounds i8, ptr %it, i64 48
+  %counter = getelementptr inbounds nuw i8, ptr %it, i64 48
   %3 = load i64, ptr %counter, align 8
   %sub = sub i64 %.val, %3
   %call3 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef %it.val, ptr noundef %1, i64 noundef %sub) #9
@@ -6668,17 +6668,17 @@ declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal ptr @dequereviter_next(ptr nocapture noundef %it) #0 {
 entry:
-  %counter = getelementptr inbounds i8, ptr %it, i64 48
+  %counter = getelementptr inbounds nuw i8, ptr %it, i64 48
   %0 = load i64, ptr %counter, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %deque = getelementptr inbounds i8, ptr %it, i64 32
+  %deque = getelementptr inbounds nuw i8, ptr %it, i64 32
   %1 = load ptr, ptr %deque, align 8
-  %state = getelementptr inbounds i8, ptr %1, i64 56
+  %state = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load i64, ptr %state, align 8
-  %state1 = getelementptr inbounds i8, ptr %it, i64 40
+  %state1 = getelementptr inbounds nuw i8, ptr %it, i64 40
   %3 = load i64, ptr %state1, align 8
   %cmp2.not = icmp eq i64 %2, %3
   br i1 %cmp2.not, label %if.end5, label %if.then3
@@ -6690,10 +6690,10 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %b = getelementptr inbounds i8, ptr %it, i64 16
+  %b = getelementptr inbounds nuw i8, ptr %it, i64 16
   %5 = load ptr, ptr %b, align 8
-  %data = getelementptr inbounds i8, ptr %5, i64 8
-  %index = getelementptr inbounds i8, ptr %it, i64 24
+  %data = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %index = getelementptr inbounds nuw i8, ptr %it, i64 24
   %6 = load i64, ptr %index, align 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %6
   %7 = load ptr, ptr %arrayidx, align 8
@@ -6749,20 +6749,20 @@ if.end:                                           ; preds = %entry
   %call.i.i = call ptr @PyType_GetModuleByDef(ptr noundef %deque.val13.i, ptr noundef nonnull @_collectionsmodule) #9
   %5 = getelementptr i8, ptr %call.i.i, i64 32
   %call.val.i.i = load ptr, ptr %5, align 8
-  %dequereviter_type.i = getelementptr inbounds i8, ptr %call.val.i.i, i64 24
+  %dequereviter_type.i = getelementptr inbounds nuw i8, ptr %call.val.i.i, i64 24
   %6 = load ptr, ptr %dequereviter_type.i, align 8
   %call2.i = call ptr @_PyObject_GC_New(ptr noundef %6) #9
   %cmp.i11 = icmp eq ptr %call2.i, null
   br i1 %cmp.i11, label %return, label %if.end.i12
 
 if.end.i12:                                       ; preds = %if.end
-  %rightblock.i = getelementptr inbounds i8, ptr %3, i64 32
+  %rightblock.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %rightblock.i, align 8
-  %b.i = getelementptr inbounds i8, ptr %call2.i, i64 16
+  %b.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 16
   store ptr %7, ptr %b.i, align 8
-  %rightindex.i = getelementptr inbounds i8, ptr %3, i64 48
+  %rightindex.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load i64, ptr %rightindex.i, align 8
-  %index.i = getelementptr inbounds i8, ptr %call2.i, i64 24
+  %index.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 24
   store i64 %8, ptr %index.i, align 8
   %9 = load i32, ptr %3, align 8
   %add.i.i.i = add i32 %9, 1
@@ -6774,15 +6774,15 @@ if.end.i.i.i:                                     ; preds = %if.end.i12
   br label %deque_reviter.exit
 
 deque_reviter.exit:                               ; preds = %if.end.i12, %if.end.i.i.i
-  %deque4.i = getelementptr inbounds i8, ptr %call2.i, i64 32
+  %deque4.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 32
   store ptr %3, ptr %deque4.i, align 8
-  %state5.i = getelementptr inbounds i8, ptr %3, i64 56
+  %state5.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   %10 = load i64, ptr %state5.i, align 8
-  %state6.i = getelementptr inbounds i8, ptr %call2.i, i64 40
+  %state6.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 40
   store i64 %10, ptr %state6.i, align 8
   %11 = getelementptr i8, ptr %3, i64 16
   %deque.val.i = load i64, ptr %11, align 8
-  %counter.i = getelementptr inbounds i8, ptr %call2.i, i64 48
+  %counter.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 48
   store i64 %deque.val.i, ptr %counter.i, align 8
   call void @PyObject_GC_Track(ptr noundef nonnull %call2.i) #9
   %12 = load i64, ptr %index, align 8
@@ -6797,7 +6797,7 @@ for.body:                                         ; preds = %deque_reviter.exit,
 
 if.end.i15:                                       ; preds = %for.body
   %14 = load ptr, ptr %deque4.i, align 8
-  %state.i = getelementptr inbounds i8, ptr %14, i64 56
+  %state.i = getelementptr inbounds nuw i8, ptr %14, i64 56
   %15 = load i64, ptr %state.i, align 8
   %16 = load i64, ptr %state6.i, align 8
   %cmp2.not.i = icmp eq i64 %15, %16
@@ -6805,7 +6805,7 @@ if.end.i15:                                       ; preds = %for.body
 
 if.end5.i:                                        ; preds = %if.end.i15
   %17 = load ptr, ptr %b.i, align 8
-  %data.i = getelementptr inbounds i8, ptr %17, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %18 = load i64, ptr %index.i, align 8
   %arrayidx.i = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %18
   %19 = load ptr, ptr %arrayidx.i, align 8
@@ -6891,7 +6891,7 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #9
-  %doc.i = getelementptr inbounds i8, ptr %self, i64 24
+  %doc.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %1 = load ptr, ptr %doc.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %tuplegetter_clear.exit, label %if.then.i
@@ -6914,7 +6914,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %tuplegetter_clear.exit
 
 tuplegetter_clear.exit:                           ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %self.val, i64 320
   %4 = load ptr, ptr %tp_free, align 8
   tail call void %4(ptr noundef nonnull %self) #9
   %5 = load i64, ptr %self.val, align 8
@@ -6942,9 +6942,9 @@ entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %call1 = tail call ptr @_PyType_Name(ptr noundef %self.val) #9
-  %index = getelementptr inbounds i8, ptr %self, i64 16
+  %index = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load i64, ptr %index, align 8
-  %doc = getelementptr inbounds i8, ptr %self, i64 24
+  %doc = getelementptr inbounds nuw i8, ptr %self, i64 24
   %2 = load ptr, ptr %doc, align 8
   %call2 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.59, ptr noundef %call1, i64 noundef %1, ptr noundef %2) #9
   ret ptr %call2
@@ -6964,7 +6964,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %doc = getelementptr inbounds i8, ptr %self, i64 24
+  %doc = getelementptr inbounds nuw i8, ptr %self, i64 24
   %1 = load ptr, ptr %doc, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -6985,7 +6985,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @tuplegetter_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %doc = getelementptr inbounds i8, ptr %self, i64 24
+  %doc = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %doc, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -7014,7 +7014,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @tuplegetter_descr_get(ptr noundef %self, ptr noundef readonly %obj, ptr nocapture readnone %type) #0 {
 entry:
-  %index1 = getelementptr inbounds i8, ptr %self, i64 16
+  %index1 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %index1, align 8
   %cmp = icmp eq ptr %obj, null
   br i1 %cmp, label %if.then, label %if.end
@@ -7054,7 +7054,7 @@ if.end.i.i14:                                     ; preds = %if.then6
 
 if.end8:                                          ; preds = %if.then4
   %6 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds i8, ptr %obj.val11, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %obj.val11, i64 24
   %7 = load ptr, ptr %tp_name, align 8
   %call10 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.62, i64 noundef %0, ptr noundef %7) #9
   br label %return
@@ -7071,7 +7071,7 @@ if.then15:                                        ; preds = %if.end11
   br label %return
 
 if.end16:                                         ; preds = %if.end11
-  %ob_item = getelementptr inbounds i8, ptr %obj, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %0
   %10 = load ptr, ptr %arrayidx, align 8
   %11 = load i32, ptr %10, align 8
@@ -7105,15 +7105,15 @@ entry:
   %type.val = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %type.val, i64 32
   %type.val.val = load ptr, ptr %1, align 8
-  %tuplegetter_type = getelementptr inbounds i8, ptr %type.val.val, i64 32
+  %tuplegetter_type = getelementptr inbounds nuw i8, ptr %type.val.val, i64 32
   %2 = load ptr, ptr %tuplegetter_type, align 8
   %cmp = icmp eq ptr %type, %2
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %tp_init = getelementptr inbounds i8, ptr %type, i64 296
+  %tp_init = getelementptr inbounds nuw i8, ptr %type, i64 296
   %3 = load ptr, ptr %tp_init, align 8
-  %tp_init1 = getelementptr inbounds i8, ptr %2, i64 296
+  %tp_init1 = getelementptr inbounds nuw i8, ptr %2, i64 296
   %4 = load ptr, ptr %tp_init1, align 8
   %cmp2 = icmp ne ptr %3, %4
   %cmp3 = icmp eq ptr %kwargs, null
@@ -7141,7 +7141,7 @@ lor.lhs.false11:                                  ; preds = %if.end
   br i1 %tobool14.not, label %exit, label %if.end16
 
 if.end16:                                         ; preds = %if.end, %lor.lhs.false11
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   %6 = load ptr, ptr %ob_item, align 8
   %call17 = tail call ptr @_PyNumber_Index(ptr noundef %6) #9
   %cmp18.not = icmp eq ptr %call17, null
@@ -7171,14 +7171,14 @@ if.end21:                                         ; preds = %if.end.i, %if.then1
 if.end21.split:                                   ; preds = %if.end21
   %arrayidx2915 = getelementptr i8, ptr %args, i64 32
   %9 = load ptr, ptr %arrayidx2915, align 8
-  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc.i = getelementptr inbounds nuw i8, ptr %type, i64 304
   %10 = load ptr, ptr %tp_alloc.i, align 8
   %call.i = tail call ptr %10(ptr noundef nonnull %type, i64 noundef 0) #9
   %cmp.i21 = icmp eq ptr %call.i, null
   br i1 %cmp.i21, label %exit, label %if.end.i22
 
 if.end.i22:                                       ; preds = %if.end21.split
-  %index1.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %index1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %call20, ptr %index1.i, align 8
   %11 = load i32, ptr %9, align 8
   %add.i.i.i = add i32 %11, 1
@@ -7197,14 +7197,14 @@ land.lhs.true23:                                  ; preds = %if.end16, %if.end21
 land.lhs.true23.split:                            ; preds = %land.lhs.true23
   %arrayidx2917 = getelementptr i8, ptr %args, i64 32
   %12 = load ptr, ptr %arrayidx2917, align 8
-  %tp_alloc.i23 = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc.i23 = getelementptr inbounds nuw i8, ptr %type, i64 304
   %13 = load ptr, ptr %tp_alloc.i23, align 8
   %call.i24 = tail call ptr %13(ptr noundef nonnull %type, i64 noundef 0) #9
   %cmp.i25 = icmp eq ptr %call.i24, null
   br i1 %cmp.i25, label %exit, label %if.end.i26
 
 if.end.i26:                                       ; preds = %land.lhs.true23.split
-  %index1.i27 = getelementptr inbounds i8, ptr %call.i24, i64 16
+  %index1.i27 = getelementptr inbounds nuw i8, ptr %call.i24, i64 16
   store i64 -1, ptr %index1.i27, align 8
   %14 = load i32, ptr %12, align 8
   %add.i.i.i28 = add i32 %14, 1
@@ -7218,7 +7218,7 @@ if.end.i.i.i30:                                   ; preds = %if.end.i26
 exit.sink.split:                                  ; preds = %if.end.i26, %if.end.i.i.i30, %if.end.i22, %if.end.i.i.i
   %call.i24.sink = phi ptr [ %call.i, %if.end.i.i.i ], [ %call.i, %if.end.i22 ], [ %call.i24, %if.end.i.i.i30 ], [ %call.i24, %if.end.i26 ]
   %.sink = phi ptr [ %9, %if.end.i.i.i ], [ %9, %if.end.i22 ], [ %12, %if.end.i.i.i30 ], [ %12, %if.end.i26 ]
-  %doc3.i32 = getelementptr inbounds i8, ptr %call.i24.sink, i64 24
+  %doc3.i32 = getelementptr inbounds nuw i8, ptr %call.i24.sink, i64 24
   store ptr %.sink, ptr %doc3.i32, align 8
   br label %exit
 
@@ -7232,9 +7232,9 @@ define internal ptr @tuplegetter_reduce(ptr nocapture noundef readonly %self, pt
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %index = getelementptr inbounds i8, ptr %self, i64 16
+  %index = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load i64, ptr %index, align 8
-  %doc = getelementptr inbounds i8, ptr %self, i64 24
+  %doc = getelementptr inbounds nuw i8, ptr %self, i64 24
   %2 = load ptr, ptr %doc, align 8
   %call1 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.60, ptr noundef %self.val, i64 noundef %1, ptr noundef %2) #9
   ret ptr %call1

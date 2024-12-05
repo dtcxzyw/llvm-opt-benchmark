@@ -20,11 +20,11 @@ define i64 @softfloat_roundMToI64(i1 noundef zeroext %0, ptr nocapture noundef r
   %9 = icmp eq i32 %8, %7
   %10 = icmp ne i32 %5, 0
   %11 = select i1 %9, i1 %10, i1 false
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
   %15 = shl nuw i64 %14, 32
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
   %19 = or disjoint i64 %15, %18
@@ -32,11 +32,11 @@ define i64 @softfloat_roundMToI64(i1 noundef zeroext %0, ptr nocapture noundef r
 
 20:                                               ; preds = %4, %4
   %21 = icmp slt i32 %5, 0
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %25 = shl nuw i64 %24, 32
-  %26 = getelementptr inbounds i8, ptr %1, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = or disjoint i64 %25, %28

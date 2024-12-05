@@ -16,7 +16,7 @@ define noundef i32 @mca_coll_self_init_query(i1 noundef zeroext %0, i1 noundef z
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @mca_coll_self_comm_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -50,9 +50,9 @@ define noundef ptr @mca_coll_self_comm_query(ptr nocapture noundef readonly %0, 
 
 18:                                               ; preds = %17
   store ptr @mca_coll_self_module_t_class, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store volatile i32 1, ptr %19, align 8
-  %20 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_coll_self_module_t_class, i64 40), align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_self_module_t_class, i64 40), align 8
   %21 = load ptr, ptr %20, align 8
   %.not6.i.i = icmp eq ptr %21, null
   br i1 %.not6.i.i, label %opal_obj_new.exit.thread25, label %.lr.ph.i.i
@@ -61,47 +61,47 @@ define noundef ptr @mca_coll_self_comm_query(ptr nocapture noundef readonly %0, 
   %22 = phi ptr [ %24, %.lr.ph.i.i ], [ %21, %18 ]
   %.07.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %20, %18 ]
   tail call void %22(ptr noundef nonnull %13) #5
-  %23 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %opal_obj_new.exit.thread25, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_new.exit.thread25:                       ; preds = %.lr.ph.i.i, %18
-  %25 = getelementptr inbounds i8, ptr %13, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr @mca_coll_self_module_enable, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr @mca_coll_self_allgather_intra, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr @mca_coll_self_allgatherv_intra, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %13, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr @mca_coll_self_allreduce_intra, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %13, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr @mca_coll_self_alltoall_intra, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %13, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr @mca_coll_self_alltoallv_intra, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %13, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr @mca_coll_self_alltoallw_intra, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %13, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr @mca_coll_self_barrier_intra, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %13, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store ptr @mca_coll_self_bcast_intra, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %13, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store ptr @mca_coll_self_exscan_intra, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %13, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store ptr @mca_coll_self_gather_intra, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %13, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store ptr @mca_coll_self_gatherv_intra, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %13, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 112
   store ptr @mca_coll_self_reduce_intra, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %13, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 120
   store ptr @mca_coll_self_reduce_scatter_intra, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %13, i64 136
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 136
   store ptr @mca_coll_self_scan_intra, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %13, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 144
   store ptr @mca_coll_self_scatter_intra, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %13, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 152
   store ptr @mca_coll_self_scatterv_intra, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %13, i64 576
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 576
   store ptr @mca_coll_base_reduce_local, ptr %42, align 8
   br label %opal_obj_new.exit.thread
 

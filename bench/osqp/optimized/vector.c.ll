@@ -5,9 +5,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i64 0, 2) i64 @OSQPVectorf_is_eq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %5, %7
   br i1 %.not, label %.preheader, label %.loopexit
@@ -24,9 +24,9 @@ define range(i64 0, 2) i64 @OSQPVectorf_is_eq(ptr nocapture noundef readonly %0,
 11:                                               ; preds = %.lr.ph, %11
   %.024 = phi i64 [ 1, %.lr.ph ], [ %.1, %11 ]
   %.01923 = phi i64 [ 0, %.lr.ph ], [ %21, %11 ]
-  %12 = getelementptr inbounds double, ptr %9, i64 %.01923
+  %12 = getelementptr inbounds nuw double, ptr %9, i64 %.01923
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds double, ptr %10, i64 %.01923
+  %14 = getelementptr inbounds nuw double, ptr %10, i64 %.01923
   %15 = load double, ptr %14, align 8
   %16 = fsub double %13, %15
   %17 = fcmp olt double %16, 0.000000e+00
@@ -50,7 +50,7 @@ define noalias noundef ptr @OSQPVectorf_new(ptr nocapture noundef readonly %0, i
   br i1 %.not.i, label %OSQPVectorf_from_raw.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %5, align 8
   %.not11.i = icmp eq i64 %1, 0
   br i1 %.not11.i, label %OSQPVectorf_malloc.exit.thread9, label %6
@@ -76,9 +76,9 @@ OSQPVectorf_malloc.exit:                          ; preds = %6
 
 .lr.ph.i:                                         ; preds = %OSQPVectorf_malloc.exit, %.lr.ph.i
   %.08.i = phi i64 [ %14, %.lr.ph.i ], [ 0, %OSQPVectorf_malloc.exit ]
-  %11 = getelementptr inbounds double, ptr %0, i64 %.08.i
+  %11 = getelementptr inbounds nuw double, ptr %0, i64 %.08.i
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds double, ptr %8, i64 %.08.i
+  %13 = getelementptr inbounds nuw double, ptr %8, i64 %.08.i
   store double %12, ptr %13, align 8
   %14 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %14, %1
@@ -96,7 +96,7 @@ define noalias noundef ptr @OSQPVectorf_malloc(i64 noundef %0) local_unnamed_add
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %0, ptr %4, align 8
   %.not11 = icmp eq i64 %0, 0
   br i1 %.not11, label %9, label %5
@@ -123,7 +123,7 @@ define noalias noundef ptr @OSQPVectorf_malloc(i64 noundef %0) local_unnamed_add
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_from_raw(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = icmp sgt i64 %4, 0
@@ -131,9 +131,9 @@ define void @OSQPVectorf_from_raw(ptr nocapture noundef readonly %0, ptr nocaptu
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds double, ptr %1, i64 %.08
+  %7 = getelementptr inbounds nuw double, ptr %1, i64 %.08
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds double, ptr %5, i64 %.08
+  %9 = getelementptr inbounds nuw double, ptr %5, i64 %.08
   store double %8, ptr %9, align 8
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
@@ -150,7 +150,7 @@ define noalias noundef ptr @OSQPVectori_new(ptr nocapture noundef readonly %0, i
   br i1 %.not.i, label %OSQPVectori_from_raw.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %5, align 8
   %.not11.i = icmp eq i64 %1, 0
   br i1 %.not11.i, label %OSQPVectori_malloc.exit.thread9, label %6
@@ -176,9 +176,9 @@ OSQPVectori_malloc.exit:                          ; preds = %6
 
 .lr.ph.i:                                         ; preds = %OSQPVectori_malloc.exit, %.lr.ph.i
   %.08.i = phi i64 [ %14, %.lr.ph.i ], [ 0, %OSQPVectori_malloc.exit ]
-  %11 = getelementptr inbounds i64, ptr %0, i64 %.08.i
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %.08.i
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i64, ptr %8, i64 %.08.i
+  %13 = getelementptr inbounds nuw i64, ptr %8, i64 %.08.i
   store i64 %12, ptr %13, align 8
   %14 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %14, %1
@@ -196,7 +196,7 @@ define noalias noundef ptr @OSQPVectori_malloc(i64 noundef %0) local_unnamed_add
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %0, ptr %4, align 8
   %.not11 = icmp eq i64 %0, 0
   br i1 %.not11, label %9, label %5
@@ -223,7 +223,7 @@ define noalias noundef ptr @OSQPVectori_malloc(i64 noundef %0) local_unnamed_add
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectori_from_raw(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = icmp sgt i64 %4, 0
@@ -231,9 +231,9 @@ define void @OSQPVectori_from_raw(ptr nocapture noundef readonly %0, ptr nocaptu
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds i64, ptr %1, i64 %.08
+  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.08
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i64, ptr %5, i64 %.08
+  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %.08
   store i64 %8, ptr %9, align 8
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
@@ -256,7 +256,7 @@ define noalias noundef ptr @OSQPVectorf_calloc(i64 noundef %0) local_unnamed_add
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %0, ptr %4, align 8
   %.not11 = icmp eq i64 %0, 0
   br i1 %.not11, label %8, label %5
@@ -290,7 +290,7 @@ define noalias noundef ptr @OSQPVectori_calloc(i64 noundef %0) local_unnamed_add
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %0, ptr %4, align 8
   %.not11 = icmp eq i64 %0, 0
   br i1 %.not11, label %8, label %5
@@ -316,14 +316,14 @@ define noalias noundef ptr @OSQPVectori_calloc(i64 noundef %0) local_unnamed_add
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @OSQPVectorf_copy_new(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %OSQPVectorf_copy.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %3, ptr %6, align 8
   %.not11.i = icmp eq i64 %3, 0
   br i1 %.not11.i, label %OSQPVectorf_malloc.exit.thread, label %7
@@ -350,9 +350,9 @@ OSQPVectorf_malloc.exit:                          ; preds = %7
 
 .lr.ph.i.i:                                       ; preds = %OSQPVectorf_malloc.exit, %.lr.ph.i.i
   %.08.i.i = phi i64 [ %16, %.lr.ph.i.i ], [ 0, %OSQPVectorf_malloc.exit ]
-  %13 = getelementptr inbounds double, ptr %11, i64 %.08.i.i
+  %13 = getelementptr inbounds nuw double, ptr %11, i64 %.08.i.i
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds double, ptr %9, i64 %.08.i.i
+  %15 = getelementptr inbounds nuw double, ptr %9, i64 %.08.i.i
   store double %14, ptr %15, align 8
   %16 = add nuw nsw i64 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %16, %3
@@ -366,7 +366,7 @@ OSQPVectorf_copy.exit:                            ; preds = %.lr.ph.i.i, %OSQPVe
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = icmp sgt i64 %5, 0
@@ -374,9 +374,9 @@ define void @OSQPVectorf_copy(ptr nocapture noundef readonly %0, ptr nocapture n
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %.08.i = phi i64 [ %11, %.lr.ph.i ], [ 0, %2 ]
-  %8 = getelementptr inbounds double, ptr %3, i64 %.08.i
+  %8 = getelementptr inbounds nuw double, ptr %3, i64 %.08.i
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds double, ptr %6, i64 %.08.i
+  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.08.i
   store double %9, ptr %10, align 8
   %11 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %11, %5
@@ -423,7 +423,7 @@ define void @OSQPVectorf_subvector_assign(ptr nocapture noundef readonly %0, ptr
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.08 = phi i64 [ %13, %.lr.ph ], [ 0, %5 ]
-  %7 = getelementptr inbounds double, ptr %1, i64 %.08
+  %7 = getelementptr inbounds nuw double, ptr %1, i64 %.08
   %8 = load double, ptr %7, align 8
   %9 = fmul double %4, %8
   %10 = load ptr, ptr %0, align 8
@@ -459,7 +459,7 @@ define void @OSQPVectorf_subvector_assign_scalar(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @OSQPVectorf_subvector_byrows(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -471,7 +471,7 @@ define noalias noundef ptr @OSQPVectorf_subvector_byrows(ptr nocapture noundef r
 7:                                                ; preds = %.lr.ph, %7
   %.02030 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %7 ]
   %.02229 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
-  %8 = getelementptr inbounds i64, ptr %6, i64 %.02229
+  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %.02229
   %9 = load i64, ptr %8, align 8
   %.not26 = icmp ne i64 %9, 0
   %10 = zext i1 %.not26 to i64
@@ -487,7 +487,7 @@ define noalias noundef ptr @OSQPVectorf_subvector_byrows(ptr nocapture noundef r
   br i1 %.not.i, label %OSQPVectorf_malloc.exit.thread, label %13
 
 13:                                               ; preds = %._crit_edge
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %.020.lcssa, ptr %14, align 8
   %.not11.i = icmp eq i64 %.020.lcssa, 0
   br i1 %.not11.i, label %19, label %15
@@ -518,14 +518,14 @@ OSQPVectorf_malloc.exit:                          ; preds = %15, %19
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %30
   %.032 = phi i64 [ %.1, %30 ], [ 0, %.lr.ph33.preheader ]
   %.12331 = phi i64 [ %31, %30 ], [ 0, %.lr.ph33.preheader ]
-  %22 = getelementptr inbounds i64, ptr %21, i64 %.12331
+  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %.12331
   %23 = load i64, ptr %22, align 8
   %.not25 = icmp eq i64 %23, 0
   br i1 %.not25, label %30, label %24
 
 24:                                               ; preds = %.lr.ph33
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds double, ptr %25, i64 %.12331
+  %26 = getelementptr inbounds nuw double, ptr %25, i64 %.12331
   %27 = load double, ptr %26, align 8
   %28 = getelementptr inbounds double, ptr %20, i64 %.032
   store double %27, ptr %28, align 8
@@ -545,9 +545,9 @@ OSQPVectorf_malloc.exit.thread:                   ; preds = %30, %OSQPVectorf_ma
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @OSQPVectorf_concat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add nsw i64 %6, %4
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
@@ -555,7 +555,7 @@ define noalias noundef ptr @OSQPVectorf_concat(ptr nocapture noundef readonly %0
   br i1 %.not.i, label %OSQPVectorf_malloc.exit.thread, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %7, ptr %10, align 8
   %.not11.i = icmp eq i64 %7, 0
   br i1 %.not11.i, label %15, label %11
@@ -596,9 +596,9 @@ OSQPVectorf_malloc.exit:                          ; preds = %11, %15
 
 19:                                               ; preds = %.lr.ph, %19
   %.01924 = phi i64 [ 0, %.lr.ph ], [ %23, %19 ]
-  %20 = getelementptr inbounds double, ptr %.pre, i64 %.01924
+  %20 = getelementptr inbounds nuw double, ptr %.pre, i64 %.01924
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds double, ptr %16, i64 %.01924
+  %22 = getelementptr inbounds nuw double, ptr %16, i64 %.01924
   store double %21, ptr %22, align 8
   %23 = add nuw nsw i64 %.01924, 1
   %24 = icmp slt i64 %23, %4
@@ -606,7 +606,7 @@ OSQPVectorf_malloc.exit:                          ; preds = %11, %15
 
 25:                                               ; preds = %.lr.ph26, %25
   %.025 = phi i64 [ 0, %.lr.ph26 ], [ %28, %25 ]
-  %26 = getelementptr inbounds double, ptr %.pre27, i64 %.025
+  %26 = getelementptr inbounds nuw double, ptr %.pre27, i64 %.025
   %27 = load double, ptr %26, align 8
   %gep = getelementptr double, ptr %invariant.gep, i64 %.025
   store double %27, ptr %gep, align 8
@@ -626,7 +626,7 @@ define noalias noundef ptr @OSQPVectorf_view(ptr nocapture noundef readonly %0, 
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds double, ptr %7, i64 %1
@@ -639,7 +639,7 @@ define noalias noundef ptr @OSQPVectorf_view(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @OSQPVectorf_view_update(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #11 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds double, ptr %6, i64 %2
@@ -655,7 +655,7 @@ define void @OSQPVectorf_view_free(ptr nocapture noundef %0) local_unnamed_addr 
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define double @OSQPVectorf_norm_2(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = icmp sgt i64 %3, 0
@@ -664,7 +664,7 @@ define double @OSQPVectorf_norm_2(ptr nocapture noundef readonly %0) local_unnam
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.012 = phi double [ %8, %.lr.ph ], [ 0.000000e+00, %1 ]
   %.01011 = phi i64 [ %9, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr inbounds double, ptr %4, i64 %.01011
+  %6 = getelementptr inbounds nuw double, ptr %4, i64 %.01011
   %7 = load double, ptr %6, align 8
   %8 = tail call double @llvm.fmuladd.f64(double %7, double %7, double %.012)
   %9 = add nuw nsw i64 %.01011, 1
@@ -685,14 +685,14 @@ declare double @sqrt(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @OSQPVectorf_length(ptr nocapture noundef readonly %0) local_unnamed_addr #16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @OSQPVectori_length(ptr nocapture noundef readonly %0) local_unnamed_addr #16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -705,7 +705,7 @@ define ptr @OSQPVectorf_data(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_to_raw(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = icmp sgt i64 %4, 0
@@ -713,9 +713,9 @@ define void @OSQPVectorf_to_raw(ptr nocapture noundef writeonly %0, ptr nocaptur
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds double, ptr %5, i64 %.08
+  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.08
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds double, ptr %0, i64 %.08
+  %9 = getelementptr inbounds nuw double, ptr %0, i64 %.08
   store double %8, ptr %9, align 8
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
@@ -727,7 +727,7 @@ define void @OSQPVectorf_to_raw(ptr nocapture noundef writeonly %0, ptr nocaptur
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectori_to_raw(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #17 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = icmp sgt i64 %4, 0
@@ -735,9 +735,9 @@ define void @OSQPVectori_to_raw(ptr nocapture noundef writeonly %0, ptr nocaptur
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds i64, ptr %5, i64 %.08
+  %7 = getelementptr inbounds nuw i64, ptr %5, i64 %.08
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i64, ptr %0, i64 %.08
+  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %.08
   store i64 %8, ptr %9, align 8
   %10 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %10, %4
@@ -749,7 +749,7 @@ define void @OSQPVectori_to_raw(ptr nocapture noundef writeonly %0, ptr nocaptur
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_set_scalar(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = icmp sgt i64 %4, 0
@@ -757,7 +757,7 @@ define void @OSQPVectorf_set_scalar(ptr nocapture noundef readonly %0, double no
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi i64 [ %8, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds double, ptr %5, i64 %.07
+  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.07
   store double %1, ptr %7, align 8
   %8 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %8, %4
@@ -769,7 +769,7 @@ define void @OSQPVectorf_set_scalar(ptr nocapture noundef readonly %0, double no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_set_scalar_conditional(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #7 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %1, align 8
@@ -778,19 +778,19 @@ define void @OSQPVectorf_set_scalar_conditional(ptr nocapture noundef readonly %
 
 .lr.ph:                                           ; preds = %5, %21
   %.019 = phi i64 [ %22, %21 ], [ 0, %5 ]
-  %11 = getelementptr inbounds i64, ptr %9, i64 %.019
+  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %.019
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds double, ptr %8, i64 %.019
+  %15 = getelementptr inbounds nuw double, ptr %8, i64 %.019
   store double %3, ptr %15, align 8
   br label %21
 
 16:                                               ; preds = %.lr.ph
   %17 = icmp sgt i64 %12, 0
-  %18 = getelementptr inbounds double, ptr %8, i64 %.019
+  %18 = getelementptr inbounds nuw double, ptr %8, i64 %.019
   br i1 %17, label %19, label %20
 
 19:                                               ; preds = %16
@@ -812,7 +812,7 @@ define void @OSQPVectorf_set_scalar_conditional(ptr nocapture noundef readonly %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_mult_scalar(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = icmp sgt i64 %4, 0
@@ -820,7 +820,7 @@ define void @OSQPVectorf_mult_scalar(ptr nocapture noundef readonly %0, double n
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds double, ptr %5, i64 %.07
+  %7 = getelementptr inbounds nuw double, ptr %5, i64 %.07
   %8 = load double, ptr %7, align 8
   %9 = fmul double %1, %8
   store double %9, ptr %7, align 8
@@ -834,7 +834,7 @@ define void @OSQPVectorf_mult_scalar(ptr nocapture noundef readonly %0, double n
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_plus(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %2, align 8
@@ -851,9 +851,9 @@ define void @OSQPVectorf_plus(ptr noundef readonly %0, ptr noundef readonly %1, 
 
 .lr.ph25:                                         ; preds = %.preheader, %.lr.ph25
   %.024 = phi i64 [ %16, %.lr.ph25 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds double, ptr %7, i64 %.024
+  %11 = getelementptr inbounds nuw double, ptr %7, i64 %.024
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds double, ptr %8, i64 %.024
+  %13 = getelementptr inbounds nuw double, ptr %8, i64 %.024
   %14 = load double, ptr %13, align 8
   %15 = fadd double %12, %14
   store double %15, ptr %13, align 8
@@ -863,12 +863,12 @@ define void @OSQPVectorf_plus(ptr noundef readonly %0, ptr noundef readonly %1, 
 
 .lr.ph:                                           ; preds = %.preheader21, %.lr.ph
   %.123 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader21 ]
-  %17 = getelementptr inbounds double, ptr %6, i64 %.123
+  %17 = getelementptr inbounds nuw double, ptr %6, i64 %.123
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds double, ptr %7, i64 %.123
+  %19 = getelementptr inbounds nuw double, ptr %7, i64 %.123
   %20 = load double, ptr %19, align 8
   %21 = fadd double %18, %20
-  %22 = getelementptr inbounds double, ptr %8, i64 %.123
+  %22 = getelementptr inbounds nuw double, ptr %8, i64 %.123
   store double %21, ptr %22, align 8
   %23 = add nuw nsw i64 %.123, 1
   %exitcond.not = icmp eq i64 %23, %5
@@ -880,7 +880,7 @@ define void @OSQPVectorf_plus(ptr noundef readonly %0, ptr noundef readonly %1, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_minus(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %2, align 8
@@ -897,9 +897,9 @@ define void @OSQPVectorf_minus(ptr noundef readonly %0, ptr noundef readonly %1,
 
 .lr.ph25:                                         ; preds = %.preheader, %.lr.ph25
   %.024 = phi i64 [ %16, %.lr.ph25 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds double, ptr %7, i64 %.024
+  %11 = getelementptr inbounds nuw double, ptr %7, i64 %.024
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds double, ptr %8, i64 %.024
+  %13 = getelementptr inbounds nuw double, ptr %8, i64 %.024
   %14 = load double, ptr %13, align 8
   %15 = fsub double %14, %12
   store double %15, ptr %13, align 8
@@ -909,12 +909,12 @@ define void @OSQPVectorf_minus(ptr noundef readonly %0, ptr noundef readonly %1,
 
 .lr.ph:                                           ; preds = %.preheader21, %.lr.ph
   %.123 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader21 ]
-  %17 = getelementptr inbounds double, ptr %6, i64 %.123
+  %17 = getelementptr inbounds nuw double, ptr %6, i64 %.123
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds double, ptr %7, i64 %.123
+  %19 = getelementptr inbounds nuw double, ptr %7, i64 %.123
   %20 = load double, ptr %19, align 8
   %21 = fsub double %18, %20
-  %22 = getelementptr inbounds double, ptr %8, i64 %.123
+  %22 = getelementptr inbounds nuw double, ptr %8, i64 %.123
   store double %21, ptr %22, align 8
   %23 = add nuw nsw i64 %.123, 1
   %exitcond.not = icmp eq i64 %23, %5
@@ -926,7 +926,7 @@ define void @OSQPVectorf_minus(ptr noundef readonly %0, ptr noundef readonly %1,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_add_scaled(ptr noundef readonly %0, double noundef %1, ptr noundef readonly %2, double noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #7 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
   %9 = load ptr, ptr %4, align 8
@@ -945,9 +945,9 @@ define void @OSQPVectorf_add_scaled(ptr noundef readonly %0, double noundef %1, 
 
 .lr.ph30:                                         ; preds = %.preheader, %.lr.ph30
   %.029 = phi i64 [ %19, %.lr.ph30 ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds double, ptr %9, i64 %.029
+  %14 = getelementptr inbounds nuw double, ptr %9, i64 %.029
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds double, ptr %10, i64 %.029
+  %16 = getelementptr inbounds nuw double, ptr %10, i64 %.029
   %17 = load double, ptr %16, align 8
   %18 = tail call double @llvm.fmuladd.f64(double %3, double %15, double %17)
   store double %18, ptr %16, align 8
@@ -957,13 +957,13 @@ define void @OSQPVectorf_add_scaled(ptr noundef readonly %0, double noundef %1, 
 
 .lr.ph:                                           ; preds = %.preheader26, %.lr.ph
   %.128 = phi i64 [ %27, %.lr.ph ], [ 0, %.preheader26 ]
-  %20 = getelementptr inbounds double, ptr %8, i64 %.128
+  %20 = getelementptr inbounds nuw double, ptr %8, i64 %.128
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds double, ptr %9, i64 %.128
+  %22 = getelementptr inbounds nuw double, ptr %9, i64 %.128
   %23 = load double, ptr %22, align 8
   %24 = fmul double %3, %23
   %25 = tail call double @llvm.fmuladd.f64(double %1, double %21, double %24)
-  %26 = getelementptr inbounds double, ptr %10, i64 %.128
+  %26 = getelementptr inbounds nuw double, ptr %10, i64 %.128
   store double %25, ptr %26, align 8
   %27 = add nuw nsw i64 %.128, 1
   %exitcond.not = icmp eq i64 %27, %7
@@ -975,7 +975,7 @@ define void @OSQPVectorf_add_scaled(ptr noundef readonly %0, double noundef %1, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_add_scaled3(ptr noundef readonly %0, double noundef %1, ptr noundef readonly %2, double noundef %3, ptr nocapture noundef readonly %4, double noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #7 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %11 = load ptr, ptr %4, align 8
@@ -995,13 +995,13 @@ define void @OSQPVectorf_add_scaled3(ptr noundef readonly %0, double noundef %1,
 
 .lr.ph37:                                         ; preds = %.preheader, %.lr.ph37
   %.036 = phi i64 [ %26, %.lr.ph37 ], [ 0, %.preheader ]
-  %17 = getelementptr inbounds double, ptr %11, i64 %.036
+  %17 = getelementptr inbounds nuw double, ptr %11, i64 %.036
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds double, ptr %12, i64 %.036
+  %19 = getelementptr inbounds nuw double, ptr %12, i64 %.036
   %20 = load double, ptr %19, align 8
   %21 = fmul double %5, %20
   %22 = tail call double @llvm.fmuladd.f64(double %3, double %18, double %21)
-  %23 = getelementptr inbounds double, ptr %13, i64 %.036
+  %23 = getelementptr inbounds nuw double, ptr %13, i64 %.036
   %24 = load double, ptr %23, align 8
   %25 = fadd double %24, %22
   store double %25, ptr %23, align 8
@@ -1011,16 +1011,16 @@ define void @OSQPVectorf_add_scaled3(ptr noundef readonly %0, double noundef %1,
 
 .lr.ph:                                           ; preds = %.preheader33, %.lr.ph
   %.135 = phi i64 [ %37, %.lr.ph ], [ 0, %.preheader33 ]
-  %27 = getelementptr inbounds double, ptr %10, i64 %.135
+  %27 = getelementptr inbounds nuw double, ptr %10, i64 %.135
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %11, i64 %.135
+  %29 = getelementptr inbounds nuw double, ptr %11, i64 %.135
   %30 = load double, ptr %29, align 8
   %31 = fmul double %3, %30
   %32 = tail call double @llvm.fmuladd.f64(double %1, double %28, double %31)
-  %33 = getelementptr inbounds double, ptr %12, i64 %.135
+  %33 = getelementptr inbounds nuw double, ptr %12, i64 %.135
   %34 = load double, ptr %33, align 8
   %35 = tail call double @llvm.fmuladd.f64(double %5, double %34, double %32)
-  %36 = getelementptr inbounds double, ptr %13, i64 %.135
+  %36 = getelementptr inbounds nuw double, ptr %13, i64 %.135
   store double %35, ptr %36, align 8
   %37 = add nuw nsw i64 %.135, 1
   %exitcond.not = icmp eq i64 %37, %9
@@ -1032,7 +1032,7 @@ define void @OSQPVectorf_add_scaled3(ptr noundef readonly %0, double noundef %1,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @OSQPVectorf_norm_inf(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = icmp sgt i64 %3, 0
@@ -1041,7 +1041,7 @@ define double @OSQPVectorf_norm_inf(ptr nocapture noundef readonly %0) local_unn
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.019 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
   %.01418 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %1 ]
-  %6 = getelementptr inbounds double, ptr %4, i64 %.019
+  %6 = getelementptr inbounds nuw double, ptr %4, i64 %.019
   %7 = load double, ptr %6, align 8
   %8 = fcmp olt double %7, 0.000000e+00
   %9 = fneg double %7
@@ -1059,7 +1059,7 @@ define double @OSQPVectorf_norm_inf(ptr nocapture noundef readonly %0) local_unn
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @OSQPVectorf_scaled_norm_inf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %0, align 8
@@ -1069,9 +1069,9 @@ define double @OSQPVectorf_scaled_norm_inf(ptr nocapture noundef readonly %0, pt
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.026 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %2 ]
   %.02125 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds double, ptr %6, i64 %.02125
+  %8 = getelementptr inbounds nuw double, ptr %6, i64 %.02125
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds double, ptr %5, i64 %.02125
+  %10 = getelementptr inbounds nuw double, ptr %5, i64 %.02125
   %11 = load double, ptr %10, align 8
   %12 = fmul double %9, %11
   %13 = fcmp olt double %12, 0.000000e+00
@@ -1090,7 +1090,7 @@ define double @OSQPVectorf_scaled_norm_inf(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @OSQPVectorf_norm_inf_diff(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %1, align 8
@@ -1100,9 +1100,9 @@ define double @OSQPVectorf_norm_inf_diff(ptr nocapture noundef readonly %0, ptr 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.026 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %2 ]
   %.02125 = phi i64 [ %17, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds double, ptr %5, i64 %.02125
+  %8 = getelementptr inbounds nuw double, ptr %5, i64 %.02125
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds double, ptr %6, i64 %.02125
+  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.02125
   %11 = load double, ptr %10, align 8
   %12 = fsub double %9, %11
   %13 = fcmp olt double %12, 0.000000e+00
@@ -1121,7 +1121,7 @@ define double @OSQPVectorf_norm_inf_diff(ptr nocapture noundef readonly %0, ptr 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @OSQPVectorf_dot_prod(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %1, align 8
@@ -1131,9 +1131,9 @@ define double @OSQPVectorf_dot_prod(ptr nocapture noundef readonly %0, ptr nocap
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.013 = phi double [ %12, %.lr.ph ], [ 0.000000e+00, %2 ]
   %.01112 = phi i64 [ %13, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds double, ptr %5, i64 %.01112
+  %8 = getelementptr inbounds nuw double, ptr %5, i64 %.01112
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds double, ptr %6, i64 %.01112
+  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.01112
   %11 = load double, ptr %10, align 8
   %12 = tail call double @llvm.fmuladd.f64(double %9, double %11, double %.013)
   %13 = add nuw nsw i64 %.01112, 1
@@ -1147,7 +1147,7 @@ define double @OSQPVectorf_dot_prod(ptr nocapture noundef readonly %0, ptr nocap
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @OSQPVectorf_dot_prod_signed(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %1, align 8
@@ -1166,9 +1166,9 @@ define double @OSQPVectorf_dot_prod_signed(ptr nocapture noundef readonly %0, pt
 .lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
   %.038 = phi double [ %15, %.lr.ph39 ], [ 0.000000e+00, %.preheader ]
   %.02737 = phi i64 [ %16, %.lr.ph39 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds double, ptr %6, i64 %.02737
+  %9 = getelementptr inbounds nuw double, ptr %6, i64 %.02737
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds double, ptr %7, i64 %.02737
+  %11 = getelementptr inbounds nuw double, ptr %7, i64 %.02737
   %12 = load double, ptr %11, align 8
   %13 = fcmp ogt double %12, 0.000000e+00
   %14 = select i1 %13, double %12, double 0.000000e+00
@@ -1180,9 +1180,9 @@ define double @OSQPVectorf_dot_prod_signed(ptr nocapture noundef readonly %0, pt
 .lr.ph:                                           ; preds = %.preheader33, %.lr.ph
   %.236 = phi double [ %23, %.lr.ph ], [ 0.000000e+00, %.preheader33 ]
   %.12835 = phi i64 [ %24, %.lr.ph ], [ 0, %.preheader33 ]
-  %17 = getelementptr inbounds double, ptr %6, i64 %.12835
+  %17 = getelementptr inbounds nuw double, ptr %6, i64 %.12835
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds double, ptr %7, i64 %.12835
+  %19 = getelementptr inbounds nuw double, ptr %7, i64 %.12835
   %20 = load double, ptr %19, align 8
   %21 = fcmp olt double %20, 0.000000e+00
   %22 = select i1 %21, double %20, double 0.000000e+00
@@ -1197,9 +1197,9 @@ define double @OSQPVectorf_dot_prod_signed(ptr nocapture noundef readonly %0, pt
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
   %.013.i = phi double [ %30, %.lr.ph.i ], [ 0.000000e+00, %25 ]
   %.01112.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %25 ]
-  %26 = getelementptr inbounds double, ptr %6, i64 %.01112.i
+  %26 = getelementptr inbounds nuw double, ptr %6, i64 %.01112.i
   %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds double, ptr %7, i64 %.01112.i
+  %28 = getelementptr inbounds nuw double, ptr %7, i64 %.01112.i
   %29 = load double, ptr %28, align 8
   %30 = tail call double @llvm.fmuladd.f64(double %27, double %29, double %.013.i)
   %31 = add nuw nsw i64 %.01112.i, 1
@@ -1213,7 +1213,7 @@ OSQPVectorf_dot_prod.exit:                        ; preds = %.lr.ph, %.lr.ph39, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_ew_prod(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %2, align 8
@@ -1230,9 +1230,9 @@ define void @OSQPVectorf_ew_prod(ptr noundef readonly %0, ptr noundef readonly %
 
 .lr.ph25:                                         ; preds = %.preheader, %.lr.ph25
   %.024 = phi i64 [ %16, %.lr.ph25 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds double, ptr %7, i64 %.024
+  %11 = getelementptr inbounds nuw double, ptr %7, i64 %.024
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds double, ptr %8, i64 %.024
+  %13 = getelementptr inbounds nuw double, ptr %8, i64 %.024
   %14 = load double, ptr %13, align 8
   %15 = fmul double %12, %14
   store double %15, ptr %13, align 8
@@ -1242,12 +1242,12 @@ define void @OSQPVectorf_ew_prod(ptr noundef readonly %0, ptr noundef readonly %
 
 .lr.ph:                                           ; preds = %.preheader21, %.lr.ph
   %.123 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader21 ]
-  %17 = getelementptr inbounds double, ptr %6, i64 %.123
+  %17 = getelementptr inbounds nuw double, ptr %6, i64 %.123
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds double, ptr %7, i64 %.123
+  %19 = getelementptr inbounds nuw double, ptr %7, i64 %.123
   %20 = load double, ptr %19, align 8
   %21 = fmul double %18, %20
-  %22 = getelementptr inbounds double, ptr %8, i64 %.123
+  %22 = getelementptr inbounds nuw double, ptr %8, i64 %.123
   store double %21, ptr %22, align 8
   %23 = add nuw nsw i64 %.123, 1
   %exitcond.not = icmp eq i64 %23, %5
@@ -1259,7 +1259,7 @@ define void @OSQPVectorf_ew_prod(ptr noundef readonly %0, ptr noundef readonly %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i64 0, 2) i64 @OSQPVectorf_all_leq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %1, align 8
@@ -1273,9 +1273,9 @@ define range(i64 0, 2) i64 @OSQPVectorf_all_leq(ptr nocapture noundef readonly %
 
 .lr.ph:                                           ; preds = %2, %8
   %.01011 = phi i64 [ %9, %8 ], [ 0, %2 ]
-  %10 = getelementptr inbounds double, ptr %5, i64 %.01011
+  %10 = getelementptr inbounds nuw double, ptr %5, i64 %.01011
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds double, ptr %6, i64 %.01011
+  %12 = getelementptr inbounds nuw double, ptr %6, i64 %.01011
   %13 = load double, ptr %12, align 8
   %14 = fcmp ogt double %11, %13
   br i1 %14, label %._crit_edge, label %8
@@ -1287,7 +1287,7 @@ define range(i64 0, 2) i64 @OSQPVectorf_all_leq(ptr nocapture noundef readonly %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_ew_bound_vec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #7 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %1, align 8
@@ -1298,17 +1298,17 @@ define void @OSQPVectorf_ew_bound_vec(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.035 = phi i64 [ %22, %.lr.ph ], [ 0, %4 ]
-  %12 = getelementptr inbounds double, ptr %8, i64 %.035
+  %12 = getelementptr inbounds nuw double, ptr %8, i64 %.035
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds double, ptr %9, i64 %.035
+  %14 = getelementptr inbounds nuw double, ptr %9, i64 %.035
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %13, %15
   %. = select i1 %16, double %13, double %15
-  %17 = getelementptr inbounds double, ptr %10, i64 %.035
+  %17 = getelementptr inbounds nuw double, ptr %10, i64 %.035
   %18 = load double, ptr %17, align 8
   %19 = fcmp olt double %., %18
   %20 = select i1 %19, double %., double %18
-  %21 = getelementptr inbounds double, ptr %7, i64 %.035
+  %21 = getelementptr inbounds nuw double, ptr %7, i64 %.035
   store double %20, ptr %21, align 8
   %22 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %22, %6
@@ -1320,7 +1320,7 @@ define void @OSQPVectorf_ew_bound_vec(ptr nocapture noundef readonly %0, ptr noc
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_project_polar_reccone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, double noundef %3) local_unnamed_addr #7 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %1, align 8
@@ -1334,16 +1334,16 @@ define void @OSQPVectorf_project_polar_reccone(ptr nocapture noundef readonly %0
 
 12:                                               ; preds = %.lr.ph, %32
   %.032 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
-  %13 = getelementptr inbounds double, ptr %9, i64 %.032
+  %13 = getelementptr inbounds nuw double, ptr %9, i64 %.032
   %14 = load double, ptr %13, align 8
   %15 = fcmp ogt double %14, %3
-  %16 = getelementptr inbounds double, ptr %8, i64 %.032
+  %16 = getelementptr inbounds nuw double, ptr %8, i64 %.032
   %17 = load double, ptr %16, align 8
   %18 = fcmp olt double %17, %11
   br i1 %15, label %19, label %26
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds double, ptr %7, i64 %.032
+  %20 = getelementptr inbounds nuw double, ptr %7, i64 %.032
   br i1 %18, label %21, label %22
 
 21:                                               ; preds = %19
@@ -1361,7 +1361,7 @@ define void @OSQPVectorf_project_polar_reccone(ptr nocapture noundef readonly %0
   br i1 %18, label %27, label %32
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds double, ptr %7, i64 %.032
+  %28 = getelementptr inbounds nuw double, ptr %7, i64 %.032
   %29 = load double, ptr %28, align 8
   %30 = fcmp ogt double %29, 0.000000e+00
   %31 = select i1 %30, double %29, double 0.000000e+00
@@ -1379,7 +1379,7 @@ define void @OSQPVectorf_project_polar_reccone(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i64 0, 2) i64 @OSQPVectorf_in_reccone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, double noundef %3, double noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %1, align 8
@@ -1394,25 +1394,25 @@ define range(i64 0, 2) i64 @OSQPVectorf_in_reccone(ptr nocapture noundef readonl
 
 14:                                               ; preds = %.lr.ph, %30
   %.01920 = phi i64 [ 0, %.lr.ph ], [ %31, %30 ]
-  %15 = getelementptr inbounds double, ptr %10, i64 %.01920
+  %15 = getelementptr inbounds nuw double, ptr %10, i64 %.01920
   %16 = load double, ptr %15, align 8
   %17 = fcmp olt double %16, %3
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds double, ptr %8, i64 %.01920
+  %19 = getelementptr inbounds nuw double, ptr %8, i64 %.01920
   %20 = load double, ptr %19, align 8
   %21 = fcmp ogt double %20, %4
   br i1 %21, label %._crit_edge, label %22
 
 22:                                               ; preds = %18, %14
-  %23 = getelementptr inbounds double, ptr %9, i64 %.01920
+  %23 = getelementptr inbounds nuw double, ptr %9, i64 %.01920
   %24 = load double, ptr %23, align 8
   %25 = fcmp ogt double %24, %12
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds double, ptr %8, i64 %.01920
+  %27 = getelementptr inbounds nuw double, ptr %8, i64 %.01920
   %28 = load double, ptr %27, align 8
   %29 = fcmp olt double %28, %13
   br i1 %29, label %._crit_edge, label %30
@@ -1429,7 +1429,7 @@ define range(i64 0, 2) i64 @OSQPVectorf_in_reccone(ptr nocapture noundef readonl
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define double @OSQPVectorf_norm_1(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = icmp sgt i64 %3, 0
@@ -1438,7 +1438,7 @@ define double @OSQPVectorf_norm_1(ptr nocapture noundef readonly %0) local_unnam
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.118 = phi double [ %11, %.lr.ph ], [ 0.000000e+00, %1 ]
   %.01317 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr inbounds double, ptr %4, i64 %.01317
+  %6 = getelementptr inbounds nuw double, ptr %4, i64 %.01317
   %7 = load double, ptr %6, align 8
   %8 = fcmp olt double %7, 0.000000e+00
   %9 = fneg double %7
@@ -1455,7 +1455,7 @@ define double @OSQPVectorf_norm_1(ptr nocapture noundef readonly %0) local_unnam
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_ew_reciprocal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %0, align 8
@@ -1464,10 +1464,10 @@ define void @OSQPVectorf_ew_reciprocal(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi i64 [ %12, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds double, ptr %5, i64 %.09
+  %8 = getelementptr inbounds nuw double, ptr %5, i64 %.09
   %9 = load double, ptr %8, align 8
   %10 = fdiv double 1.000000e+00, %9
-  %11 = getelementptr inbounds double, ptr %6, i64 %.09
+  %11 = getelementptr inbounds nuw double, ptr %6, i64 %.09
   store double %10, ptr %11, align 8
   %12 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %12, %4
@@ -1479,7 +1479,7 @@ define void @OSQPVectorf_ew_reciprocal(ptr nocapture noundef readonly %0, ptr no
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define void @OSQPVectorf_ew_sqrt(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = icmp sgt i64 %3, 0
@@ -1487,7 +1487,7 @@ define void @OSQPVectorf_ew_sqrt(ptr nocapture noundef readonly %0) local_unname
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.08 = phi i64 [ %9, %.lr.ph ], [ 0, %1 ]
-  %6 = getelementptr inbounds double, ptr %4, i64 %.08
+  %6 = getelementptr inbounds nuw double, ptr %4, i64 %.08
   %7 = load double, ptr %6, align 8
   %8 = tail call double @sqrt(double noundef %7) #19
   store double %8, ptr %6, align 8
@@ -1501,7 +1501,7 @@ define void @OSQPVectorf_ew_sqrt(ptr nocapture noundef readonly %0) local_unname
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_ew_max_vec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %2, align 8
@@ -1511,13 +1511,13 @@ define void @OSQPVectorf_ew_max_vec(ptr nocapture noundef readonly %0, ptr nocap
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.018 = phi i64 [ %16, %.lr.ph ], [ 0, %3 ]
-  %10 = getelementptr inbounds double, ptr %6, i64 %.018
+  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.018
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds double, ptr %7, i64 %.018
+  %12 = getelementptr inbounds nuw double, ptr %7, i64 %.018
   %13 = load double, ptr %12, align 8
   %14 = fcmp ogt double %11, %13
   %. = select i1 %14, double %11, double %13
-  %15 = getelementptr inbounds double, ptr %8, i64 %.018
+  %15 = getelementptr inbounds nuw double, ptr %8, i64 %.018
   store double %., ptr %15, align 8
   %16 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %16, %5
@@ -1529,7 +1529,7 @@ define void @OSQPVectorf_ew_max_vec(ptr nocapture noundef readonly %0, ptr nocap
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_ew_min_vec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %2, align 8
@@ -1539,13 +1539,13 @@ define void @OSQPVectorf_ew_min_vec(ptr nocapture noundef readonly %0, ptr nocap
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.018 = phi i64 [ %16, %.lr.ph ], [ 0, %3 ]
-  %10 = getelementptr inbounds double, ptr %6, i64 %.018
+  %10 = getelementptr inbounds nuw double, ptr %6, i64 %.018
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds double, ptr %7, i64 %.018
+  %12 = getelementptr inbounds nuw double, ptr %7, i64 %.018
   %13 = load double, ptr %12, align 8
   %14 = fcmp olt double %11, %13
   %. = select i1 %14, double %11, double %13
-  %15 = getelementptr inbounds double, ptr %8, i64 %.018
+  %15 = getelementptr inbounds nuw double, ptr %8, i64 %.018
   store double %., ptr %15, align 8
   %16 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %16, %5
@@ -1557,7 +1557,7 @@ define void @OSQPVectorf_ew_min_vec(ptr nocapture noundef readonly %0, ptr nocap
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, double noundef %3, double noundef %4) local_unnamed_addr #7 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %1, align 8
@@ -1572,12 +1572,12 @@ define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr nocapture noundef rea
 13:                                               ; preds = %.lr.ph, %13
   %.032 = phi i64 [ 0, %.lr.ph ], [ %25, %13 ]
   %.03031 = phi i1 [ false, %.lr.ph ], [ %narrow, %13 ]
-  %14 = getelementptr inbounds i64, ptr %8, i64 %.032
+  %14 = getelementptr inbounds nuw i64, ptr %8, i64 %.032
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds double, ptr %9, i64 %.032
+  %16 = getelementptr inbounds nuw double, ptr %9, i64 %.032
   %17 = load double, ptr %16, align 8
   %18 = fcmp olt double %17, %12
-  %19 = getelementptr inbounds double, ptr %10, i64 %.032
+  %19 = getelementptr inbounds nuw double, ptr %10, i64 %.032
   %20 = load double, ptr %19, align 8
   %21 = fcmp ogt double %20, %4
   %or.cond = select i1 %18, i1 %21, i1 false
@@ -1603,7 +1603,7 @@ define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr nocapture noundef rea
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_set_scalar_if_lt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3) local_unnamed_addr #7 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %1, align 8
@@ -1612,11 +1612,11 @@ define void @OSQPVectorf_set_scalar_if_lt(ptr nocapture noundef readonly %0, ptr
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.014 = phi i64 [ %14, %.lr.ph ], [ 0, %4 ]
-  %10 = getelementptr inbounds double, ptr %8, i64 %.014
+  %10 = getelementptr inbounds nuw double, ptr %8, i64 %.014
   %11 = load double, ptr %10, align 8
   %12 = fcmp olt double %11, %2
   %. = select i1 %12, double %3, double %11
-  %13 = getelementptr inbounds double, ptr %7, i64 %.014
+  %13 = getelementptr inbounds nuw double, ptr %7, i64 %.014
   store double %., ptr %13, align 8
   %14 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %14, %6
@@ -1628,7 +1628,7 @@ define void @OSQPVectorf_set_scalar_if_lt(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectorf_set_scalar_if_gt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, double noundef %2, double noundef %3) local_unnamed_addr #7 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %1, align 8
@@ -1637,11 +1637,11 @@ define void @OSQPVectorf_set_scalar_if_gt(ptr nocapture noundef readonly %0, ptr
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.014 = phi i64 [ %14, %.lr.ph ], [ 0, %4 ]
-  %10 = getelementptr inbounds double, ptr %8, i64 %.014
+  %10 = getelementptr inbounds nuw double, ptr %8, i64 %.014
   %11 = load double, ptr %10, align 8
   %12 = fcmp ogt double %11, %2
   %. = select i1 %12, double %3, double %11
-  %13 = getelementptr inbounds double, ptr %7, i64 %.014
+  %13 = getelementptr inbounds nuw double, ptr %7, i64 %.014
   store double %., ptr %13, align 8
   %14 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %14, %6

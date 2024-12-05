@@ -260,10 +260,10 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
   br i1 %87, label %._crit_edge203, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge198
-  %88 = getelementptr inbounds i8, ptr %83, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %.not182 = icmp eq ptr %2, null
   %.not184 = icmp eq ptr %0, null
-  %89 = getelementptr inbounds i8, ptr %81, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %wide.trip.count252 = zext nneg i32 %.0154.lcssa to i64
   br label %90
 
@@ -333,13 +333,13 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
   br i1 %114, label %.lr.ph209, label %._crit_edge210
 
 .lr.ph209:                                        ; preds = %._crit_edge203
-  %115 = getelementptr inbounds i8, ptr %83, i64 8
-  %116 = getelementptr inbounds i8, ptr %84, i64 8
-  %117 = getelementptr inbounds i8, ptr %82, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %118 = icmp ne ptr %.0148, null
   %.not170 = icmp eq ptr %2, null
   %.not172 = icmp eq ptr %0, null
-  %119 = getelementptr inbounds i8, ptr %81, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %wide.trip.count257 = zext nneg i32 %.0150.lcssa to i64
   br label %120
 
@@ -699,7 +699,7 @@ dequoteAclUserName.exit367.thread:                ; preds = %.loopexit.i363, %.p
   br i1 %or.cond, label %48, label %53
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %6, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %50 = load i64, ptr %49, align 8
   %.not.i = icmp eq i64 %50, 0
   br i1 %.not.i, label %52, label %51
@@ -714,7 +714,7 @@ dequoteAclUserName.exit367.thread:                ; preds = %.loopexit.i363, %.p
   br i1 %.not7.i, label %AddAcl.exit, label %AddAcl.exit.sink.split
 
 53:                                               ; preds = %43
-  %54 = getelementptr inbounds i8, ptr %5, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %55 = load i64, ptr %54, align 8
   %.not.i368 = icmp eq i64 %55, 0
   br i1 %.not.i368, label %57, label %56
@@ -888,7 +888,7 @@ AddAcl.exit:                                      ; preds = %AddAcl.exit.sink.sp
   br i1 %or.cond15, label %114, label %120
 
 114:                                              ; preds = %109
-  %115 = getelementptr inbounds i8, ptr %6, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %116 = load i64, ptr %115, align 8
   %.not.i371 = icmp eq i64 %116, 0
   br i1 %.not.i371, label %118, label %117
@@ -907,7 +907,7 @@ AddAcl.exit:                                      ; preds = %AddAcl.exit.sink.sp
   br i1 %.5281, label %AddAcl.exit373.thread9, label %dequoteAclUserName.exit.thread
 
 120:                                              ; preds = %109
-  %121 = getelementptr inbounds i8, ptr %5, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %122 = load i64, ptr %121, align 8
   %.not.i374 = icmp eq i64 %122, 0
   br i1 %.not.i374, label %124, label %123
@@ -1741,7 +1741,7 @@ declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @AddAcl(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %7, label %6

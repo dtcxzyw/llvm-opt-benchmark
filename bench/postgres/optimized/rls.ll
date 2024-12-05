@@ -30,16 +30,16 @@ define dso_local range(i32 0, 3) i32 @check_enable_rls(i32 noundef %0, i32 nound
   br i1 %.not22, label %43, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 22
   %16 = load i8, ptr %15, align 2
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 123
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 123
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
-  %22 = getelementptr inbounds i8, ptr %18, i64 124
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 124
   %23 = load i8, ptr %22, align 4
   %24 = trunc i8 %23 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %11) #4
@@ -114,7 +114,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @row_security_active(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @GetUserId() #4
@@ -128,16 +128,16 @@ define dso_local range(i64 0, 2) i64 @row_security_active(ptr nocapture noundef 
   br i1 %.not22.i, label %check_enable_rls.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 123
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 123
   %18 = load i8, ptr %17, align 1
   %19 = trunc i8 %18 to i1
-  %20 = getelementptr inbounds i8, ptr %16, i64 124
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 124
   %21 = load i8, ptr %20, align 4
   %22 = trunc i8 %21 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %9) #4
@@ -168,7 +168,7 @@ check_enable_rls.exit:                            ; preds = %1, %7, %10, %23, %2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @row_security_active_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #4
@@ -186,16 +186,16 @@ define dso_local range(i64 0, 2) i64 @row_security_active_name(ptr nocapture nou
   br i1 %.not22.i, label %check_enable_rls.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 22
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 22
   %18 = load i8, ptr %17, align 2
   %19 = zext i8 %18 to i64
   %20 = getelementptr i8, ptr %16, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 123
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 123
   %22 = load i8, ptr %21, align 1
   %23 = trunc i8 %22 to i1
-  %24 = getelementptr inbounds i8, ptr %20, i64 124
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 124
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %13) #4

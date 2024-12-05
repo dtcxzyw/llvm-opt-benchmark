@@ -123,7 +123,7 @@ define internal fastcc ptr @file_or_stream(ptr noundef nonnull %0, ptr noundef %
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 280
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 129
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #12
@@ -154,7 +154,7 @@ define internal fastcc ptr @file_or_stream(ptr noundef nonnull %0, ptr noundef %
   br i1 %.not, label %23, label %45
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = call i32 @access(ptr noundef nonnull readonly %1, i32 noundef 2) #11
   %27 = icmp eq i32 %26, 0
@@ -197,7 +197,7 @@ define internal fastcc ptr @file_or_stream(ptr noundef nonnull %0, ptr noundef %
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 68
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %50 = load i32, ptr %49, align 4
   %51 = and i32 %50, 512
   %.not81 = icmp eq i32 %51, 0
@@ -221,7 +221,7 @@ define internal fastcc ptr @file_or_stream(ptr noundef nonnull %0, ptr noundef %
   br label %unreadable_info.exit
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %12, i64 %56
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 %56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(129) %61, i8 0, i64 129, i1 false)
   %62 = call i32 @file_buffer(ptr noundef nonnull %0, ptr noundef %.174, ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %12, i64 noundef %56) #11
   %63 = icmp ne i32 %62, -1
@@ -317,14 +317,14 @@ define hidden ptr @magic_error(ptr noundef readonly %0) local_unnamed_addr #2 {
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -339,14 +339,14 @@ define hidden i32 @magic_errno(ptr noundef readonly %0) local_unnamed_addr #2 {
   br i1 %2, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i32, ptr %8, align 8
   br label %10
 
@@ -361,7 +361,7 @@ define hidden i32 @magic_getflags(ptr noundef readonly %0) local_unnamed_addr #2
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4
   br label %6
 
@@ -376,7 +376,7 @@ define hidden range(i32 -1, 1) i32 @magic_setflags(ptr noundef writeonly %0, i32
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 68
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %1, ptr %5, align 4
   br label %6
 
@@ -411,60 +411,60 @@ define hidden range(i32 -1, 1) i32 @magic_setparam(ptr noundef writeonly %0, i32
 6:                                                ; preds = %5
   %7 = load i64, ptr %2, align 8
   %8 = trunc i64 %7 to i16
-  %9 = getelementptr inbounds i8, ptr %0, i64 264
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i16 %8, ptr %9, align 8
   br label %41
 
 10:                                               ; preds = %5
   %11 = load i64, ptr %2, align 8
   %12 = trunc i64 %11 to i16
-  %13 = getelementptr inbounds i8, ptr %0, i64 266
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 266
   store i16 %12, ptr %13, align 2
   br label %41
 
 14:                                               ; preds = %5
   %15 = load i64, ptr %2, align 8
   %16 = trunc i64 %15 to i16
-  %17 = getelementptr inbounds i8, ptr %0, i64 270
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 270
   store i16 %16, ptr %17, align 2
   br label %41
 
 18:                                               ; preds = %5
   %19 = load i64, ptr %2, align 8
   %20 = trunc i64 %19 to i16
-  %21 = getelementptr inbounds i8, ptr %0, i64 268
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 268
   store i16 %20, ptr %21, align 4
   br label %41
 
 22:                                               ; preds = %5
   %23 = load i64, ptr %2, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i64 %23, ptr %24, align 8
   br label %41
 
 25:                                               ; preds = %5
   %26 = load i64, ptr %2, align 8
   %27 = trunc i64 %26 to i16
-  %28 = getelementptr inbounds i8, ptr %0, i64 272
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i16 %27, ptr %28, align 8
   br label %41
 
 29:                                               ; preds = %5
   %30 = load i64, ptr %2, align 8
   %31 = trunc i64 %30 to i16
-  %32 = getelementptr inbounds i8, ptr %0, i64 274
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 274
   store i16 %31, ptr %32, align 2
   br label %41
 
 33:                                               ; preds = %5
   %34 = load i64, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 280
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i64 %34, ptr %35, align 8
   br label %41
 
 36:                                               ; preds = %5
   %37 = load i64, ptr %2, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 288
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 %37, ptr %38, align 8
   br label %41
 
@@ -500,61 +500,61 @@ define hidden range(i32 -1, 1) i32 @magic_getparam(ptr noundef readonly %0, i32 
   ]
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 264
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %8 = load i16, ptr %7, align 8
   %9 = zext i16 %8 to i64
   store i64 %9, ptr %2, align 8
   br label %41
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 266
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 266
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i64
   store i64 %13, ptr %2, align 8
   br label %41
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 270
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 270
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i64
   store i64 %17, ptr %2, align 8
   br label %41
 
 18:                                               ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %0, i64 268
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %20 = load i16, ptr %19, align 4
   %21 = zext i16 %20 to i64
   store i64 %21, ptr %2, align 8
   br label %41
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 296
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %2, align 8
   br label %41
 
 25:                                               ; preds = %5
-  %26 = getelementptr inbounds i8, ptr %0, i64 272
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %27 = load i16, ptr %26, align 8
   %28 = zext i16 %27 to i64
   store i64 %28, ptr %2, align 8
   br label %41
 
 29:                                               ; preds = %5
-  %30 = getelementptr inbounds i8, ptr %0, i64 274
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 274
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i64
   store i64 %32, ptr %2, align 8
   br label %41
 
 33:                                               ; preds = %5
-  %34 = getelementptr inbounds i8, ptr %0, i64 280
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %35 = load i64, ptr %34, align 8
   store i64 %35, ptr %2, align 8
   br label %41
 
 36:                                               ; preds = %5
-  %37 = getelementptr inbounds i8, ptr %0, i64 288
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %38 = load i64, ptr %37, align 8
   store i64 %38, ptr %2, align 8
   br label %41

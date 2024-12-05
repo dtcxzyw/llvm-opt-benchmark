@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18G1CardSetAllocatorC2EPKcPK21G1CardSetAllocOptionsPN16G1MonotonicArena15SegmentFreeListE(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN16G1MonotonicArenaC1EPKNS_12AllocOptionsEPNS_15SegmentFreeListE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %2, ptr noundef %3) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN17FreeListAllocatorC1EPKcP14FreeListConfig(ptr noundef nonnull align 8 dereferenceable(568) %5, ptr noundef %1, ptr noundef nonnull %0) #4
   %6 = tail call noundef i32 @_ZNK16G1MonotonicArena9slot_sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4
   ret void
@@ -38,7 +38,7 @@ declare noundef i32 @_ZNK16G1MonotonicArena9slot_sizeEv(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18G1CardSetAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN17FreeListAllocator5resetEv(ptr noundef nonnull align 8 dereferenceable(568) %2) #4
   tail call void @_ZN16G1MonotonicArena8drop_allEv(ptr noundef nonnull align 8 dereferenceable(640) %0) #4
   tail call void @_ZN17FreeListAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %2) #4
@@ -48,7 +48,7 @@ define hidden void @_ZN18G1CardSetAllocatorD2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18G1CardSetAllocator8drop_allEv(ptr noundef nonnull align 8 dereferenceable(640) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN17FreeListAllocator5resetEv(ptr noundef nonnull align 8 dereferenceable(568) %2) #4
   tail call void @_ZN16G1MonotonicArena8drop_allEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4
   ret void
@@ -62,7 +62,7 @@ declare void @_ZN16G1MonotonicArenaD1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18G1CardSetAllocator4freeEPv(ptr noundef nonnull align 8 dereferenceable(640) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN17FreeListAllocator7releaseEPv(ptr noundef nonnull align 8 dereferenceable(568) %3, ptr noundef %1) #4
   ret void
 }
@@ -79,7 +79,7 @@ define hidden noundef range(i64 640, 141733921376) i64 @_ZNK18G1CardSetAllocator
   %3 = zext i32 %2 to i64
   %4 = shl nuw nsw i64 %3, 5
   %5 = add nuw nsw i64 %4, 640
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load volatile i32, ptr %6, align 8
   %8 = tail call noundef i32 @_ZNK16G1MonotonicArena9slot_sizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4
   %9 = mul i32 %8, %7
@@ -96,12 +96,12 @@ define hidden noundef i32 @_ZNK18G1CardSetAllocator12num_segmentsEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i64 0, 4294967296) i64 @_ZNK18G1CardSetAllocator15unused_mem_sizeEv(ptr noundef nonnull align 8 dereferenceable(640) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load volatile i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 68
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load volatile i32, ptr %4, align 4
   %6 = sub i32 %3, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = tail call noundef i64 @_ZNK17FreeListAllocator10free_countEv(ptr noundef nonnull align 8 dereferenceable(568) %7) #4
   %9 = trunc i64 %8 to i32
   %10 = add i32 %6, %9
@@ -118,26 +118,26 @@ declare noundef i32 @_ZNK16G1MonotonicArena12num_segmentsEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1CardSetMemoryManagerC2EP22G1CardSetConfigurationP24G1MonotonicArenaFreePool(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 2560, i8 noundef zeroext 5, i32 noundef 0) #4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %8
 
 8:                                                ; preds = %3, %8
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %class.G1CardSetAllocator, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %class.G1CardSetAllocator, ptr %9, i64 %indvars.iv
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = tail call noundef ptr @_ZN22G1CardSetConfiguration24mem_object_type_name_strEj(i32 noundef %11) #4
   %13 = load ptr, ptr %4, align 8
   %14 = tail call noundef ptr @_ZN22G1CardSetConfiguration24mem_object_alloc_optionsEj(ptr noundef nonnull align 8 dereferenceable(56) %13, i32 noundef %11) #4
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds %"class.G1MonotonicArena::SegmentFreeList", ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %"class.G1MonotonicArena::SegmentFreeList", ptr %15, i64 %indvars.iv
   tail call void @_ZN16G1MonotonicArenaC1EPKNS_12AllocOptionsEPNS_15SegmentFreeListE(ptr noundef nonnull align 8 dereferenceable(640) %10, ptr noundef %14, ptr noundef %16) #4
-  %17 = getelementptr inbounds i8, ptr %10, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 72
   tail call void @_ZN17FreeListAllocatorC1EPKcP14FreeListConfig(ptr noundef nonnull align 8 dereferenceable(568) %17, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(640) %10) #4
   %18 = tail call noundef i32 @_ZNK16G1MonotonicArena9slot_sizeEv(ptr noundef nonnull align 8 dereferenceable(640) %10) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -162,14 +162,14 @@ declare noundef ptr @_ZN22G1CardSetConfiguration24mem_object_alloc_optionsEj(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1CardSetMemoryManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %class.G1CardSetAllocator, ptr %4, i64 %indvars.iv
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %5 = getelementptr inbounds nuw %class.G1CardSetAllocator, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call void @_ZN17FreeListAllocator5resetEv(ptr noundef nonnull align 8 dereferenceable(568) %6) #4
   tail call void @_ZN16G1MonotonicArena8drop_allEv(ptr noundef nonnull align 8 dereferenceable(640) %5) #4
   tail call void @_ZN17FreeListAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %6) #4
@@ -189,14 +189,14 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1CardSetMemoryManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %3, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %class.G1CardSetAllocator, ptr %4, i64 %indvars.iv.i
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %5 = getelementptr inbounds nuw %class.G1CardSetAllocator, ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call void @_ZN17FreeListAllocator5resetEv(ptr noundef nonnull align 8 dereferenceable(568) %6) #4
   tail call void @_ZN16G1MonotonicArena8drop_allEv(ptr noundef nonnull align 8 dereferenceable(640) %5) #4
   tail call void @_ZN17FreeListAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %6) #4
@@ -214,24 +214,24 @@ _ZN22G1CardSetMemoryManagerD2Ev.exit:             ; preds = %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1CardSetMemoryManager4freeEjPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds %class.G1CardSetAllocator, ptr %5, i64 %6, i32 1
+  %7 = getelementptr inbounds nuw %class.G1CardSetAllocator, ptr %5, i64 %6, i32 1
   tail call void @_ZN17FreeListAllocator7releaseEPv(ptr noundef nonnull align 8 dereferenceable(568) %7, ptr noundef %2) #4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22G1CardSetMemoryManager5flushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %class.G1CardSetAllocator, ptr %4, i64 %indvars.iv
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %5 = getelementptr inbounds nuw %class.G1CardSetAllocator, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call void @_ZN17FreeListAllocator5resetEv(ptr noundef nonnull align 8 dereferenceable(568) %6) #4
   tail call void @_ZN16G1MonotonicArena8drop_allEv(ptr noundef nonnull align 8 dereferenceable(640) %5) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -244,18 +244,18 @@ define hidden void @_ZN22G1CardSetMemoryManager5flushEv(ptr nocapture noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK22G1CardSetMemoryManager8mem_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.056 = phi i64 [ 0, %1 ], [ %16, %3 ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %class.G1CardSetAllocator, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw %class.G1CardSetAllocator, ptr %4, i64 %indvars.iv
   %6 = tail call noundef i32 @_ZNK16G1MonotonicArena12num_segmentsEv(ptr noundef nonnull align 8 dereferenceable(640) %5) #4
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 5
-  %9 = getelementptr inbounds i8, ptr %5, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %10 = load volatile i32, ptr %9, align 4
   %11 = tail call noundef i32 @_ZNK16G1MonotonicArena9slot_sizeEv(ptr noundef nonnull align 8 dereferenceable(640) %5) #4
   %12 = mul i32 %11, %10
@@ -274,20 +274,20 @@ define hidden noundef i64 @_ZNK22G1CardSetMemoryManager8mem_sizeEv(ptr nocapture
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK22G1CardSetMemoryManager15unused_mem_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.056 = phi i64 [ 0, %1 ], [ %18, %3 ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %class.G1CardSetAllocator, ptr %4, i64 %indvars.iv
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %5 = getelementptr inbounds nuw %class.G1CardSetAllocator, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load volatile i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %9 = load volatile i32, ptr %8, align 4
   %10 = sub i32 %7, %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %12 = tail call noundef i64 @_ZNK17FreeListAllocator10free_countEv(ptr noundef nonnull align 8 dereferenceable(568) %11) #4
   %13 = trunc i64 %12 to i32
   %14 = add i32 %10, %13
@@ -306,33 +306,33 @@ define hidden noundef i64 @_ZNK22G1CardSetMemoryManager15unused_mem_sizeEv(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK22G1CardSetMemoryManager12memory_statsEv(ptr dead_on_unwind noalias nonnull writable sret(%class.G1MonotonicArenaMemoryStats) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN27G1MonotonicArenaMemoryStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #4
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %5
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %class.G1CardSetAllocator, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw %class.G1CardSetAllocator, ptr %6, i64 %indvars.iv
   %8 = tail call noundef i32 @_ZNK16G1MonotonicArena12num_segmentsEv(ptr noundef nonnull align 8 dereferenceable(640) %7) #4
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 5
   %11 = add nuw nsw i64 %10, 640
-  %12 = getelementptr inbounds i8, ptr %7, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %13 = load volatile i32, ptr %12, align 4
   %14 = tail call noundef i32 @_ZNK16G1MonotonicArena9slot_sizeEv(ptr noundef nonnull align 8 dereferenceable(640) %7) #4
   %15 = mul i32 %14, %13
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds [4 x i64], ptr %0, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %11, %18
   %20 = add i64 %19, %16
   store i64 %20, ptr %17, align 8
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds %class.G1CardSetAllocator, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %class.G1CardSetAllocator, ptr %21, i64 %indvars.iv
   %23 = tail call noundef i32 @_ZNK16G1MonotonicArena12num_segmentsEv(ptr noundef nonnull align 8 dereferenceable(640) %22) #4
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i64], ptr %4, i64 0, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %24
   store i64 %27, ptr %25, align 8

@@ -41,11 +41,11 @@ define void @_Z15output_env_initPP16gmx_output_env_tRKN3gmx15IProgramContextENS2
 8:                                                ; preds = %6
   %9 = zext i1 %3 to i8
   store ptr %1, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 12
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
-  %13 = getelementptr inbounds i8, ptr %7, i64 20
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %14, align 8
   store ptr %7, ptr %0, align 8
   store i32 %2, ptr %10, align 8
@@ -143,15 +143,15 @@ define void @_Z23output_env_init_defaultPP16gmx_output_env_t(ptr nocapture nound
 
 5:                                                ; preds = %3
   store ptr %4, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i8 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 0, ptr %10, align 8
   store ptr %2, ptr %0, align 8
   ret void
@@ -219,14 +219,14 @@ define void @_Z15output_env_doneP16gmx_output_env_t(ptr noundef %0) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_Z24output_env_get_verbosityPK16gmx_output_env_t(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_Z38output_env_get_trajectory_io_verbosityPK16gmx_output_env_t(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
@@ -234,7 +234,7 @@ define noundef i32 @_Z38output_env_get_trajectory_io_verbosityPK16gmx_output_env
 ; Function Attrs: mustprogress uwtable
 define void @_Z24output_env_get_time_unitB5cxx11PK16gmx_output_env_t(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [6 x ptr], ptr @_ZL15c_timeUnitNames, i64 0, i64 %6
@@ -393,7 +393,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z25output_env_get_time_labelB5cxx11PK16gmx_output_env_t(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [6 x ptr], ptr @_ZL15c_timeUnitNames, i64 0, i64 %5
@@ -406,7 +406,7 @@ declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z26output_env_get_xvgr_tlabelB5cxx11PK16gmx_output_env_t(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [6 x ptr], ptr @_ZL22c_timeUnitNamesForXvgr, i64 0, i64 %5
@@ -417,7 +417,7 @@ define void @_Z26output_env_get_xvgr_tlabelB5cxx11PK16gmx_output_env_t(ptr dead_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_Z26output_env_get_time_factorPK16gmx_output_env_t(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [6 x float], ptr @_ZL23c_picosecondsInTimeUnit, i64 0, i64 %4
@@ -427,7 +427,7 @@ define noundef float @_Z26output_env_get_time_factorPK16gmx_output_env_t(ptr noc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_Z29output_env_get_time_invfactorPK16gmx_output_env_t(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [6 x float], ptr @_ZL24c_timeUnitsInPicoseconds, i64 0, i64 %4
@@ -437,7 +437,7 @@ define noundef float @_Z29output_env_get_time_invfactorPK16gmx_output_env_t(ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #10 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [6 x float], ptr @_ZL23c_picosecondsInTimeUnit, i64 0, i64 %5
@@ -448,7 +448,7 @@ define noundef float @_Z20output_env_conv_timePK16gmx_output_env_tf(ptr nocaptur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_Z21output_env_conv_timesPK16gmx_output_env_tiPf(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #13 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [6 x float], ptr @_ZL23c_picosecondsInTimeUnit, i64 0, i64 %6
@@ -464,7 +464,7 @@ define void @_Z21output_env_conv_timesPK16gmx_output_env_tiPf(ptr nocapture noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %12 = load float, ptr %11, align 4
   %13 = fmul float %8, %12
   store float %13, ptr %11, align 4
@@ -478,7 +478,7 @@ define void @_Z21output_env_conv_timesPK16gmx_output_env_tiPf(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_Z19output_env_get_viewPK16gmx_output_env_t(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -486,7 +486,7 @@ define noundef zeroext i1 @_Z19output_env_get_viewPK16gmx_output_env_t(ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_Z25output_env_get_xvg_formatPK16gmx_output_env_t(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
@@ -495,7 +495,7 @@ define noundef i32 @_Z25output_env_get_xvg_formatPK16gmx_output_env_t(ptr nocapt
 define noundef ptr @_Z35output_env_get_program_display_namePK16gmx_output_env_t(ptr nocapture noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %7 unwind label %8

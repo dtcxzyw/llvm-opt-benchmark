@@ -62,9 +62,9 @@ define hidden void @_ZN22SerialBlockOffsetTableC2E9MemRegionm(ptr noundef nonnul
   %5 = alloca %class.ThreadCritical, align 1
   %6 = alloca %class.ReservedSpace, align 8
   store ptr %1, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.3.0..sroa_idx, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN12VirtualSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #11
   %8 = load i32, ptr @_ZN9CardTable19_card_size_in_wordsE, align 4
   %9 = zext i32 %8 to i64
@@ -112,10 +112,10 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %14, %19
   %27 = lshr i64 %24, %26
   %28 = sub i64 0, %27
   %29 = getelementptr inbounds i8, ptr %23, i64 %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %29, ptr %30, align 8
   call void @_ZN22SerialBlockOffsetTable6resizeEm(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %3)
-  %31 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_10ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %31 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_10ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not2 = icmp eq ptr %31, null
   br i1 %.not2, label %33, label %32
 
@@ -124,14 +124,14 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %14, %19
   br label %33
 
 33:                                               ; preds = %22, %32
-  %34 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_10ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_10ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not3 = icmp eq ptr %34, null
   br i1 %.not3, label %42, label %35
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %6, align 8
   %37 = ptrtoint ptr %36 to i64
-  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 %39
   %41 = ptrtoint ptr %40 to i64
@@ -139,14 +139,14 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %14, %19
   br label %42
 
 42:                                               ; preds = %33, %35
-  %43 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_10ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_10ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not4 = icmp eq ptr %43, null
   br i1 %.not4, label %50, label %44
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %7, align 8
   %46 = ptrtoint ptr %45 to i64
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_10ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.6, i64 noundef %46, i64 noundef %49)
@@ -170,7 +170,7 @@ define hidden void @_ZN22SerialBlockOffsetTable6resizeEm(ptr noundef nonnull ali
   %4 = zext i32 %3 to i64
   %5 = udiv i64 %1, %4
   %6 = tail call noundef i64 @_ZN13ReservedSpace24allocation_align_size_upEm(i64 noundef %5) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = tail call noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %7) #11
   %9 = icmp ugt i64 %6, %8
   br i1 %9, label %10, label %15
@@ -230,7 +230,7 @@ define hidden void @_ZN22SerialBlockOffsetTable21update_for_block_workEPP12HeapW
   %8 = add i64 %7, %5
   %9 = xor i64 %7, -1
   %10 = and i64 %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
   %14 = zext nneg i32 %13 to i64
@@ -261,7 +261,7 @@ define hidden void @_ZN22SerialBlockOffsetTable21update_for_block_workEPP12HeapW
   br i1 %exitcond.not, label %.loopexit, label %28
 
 28:                                               ; preds = %27
-  %.0 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = shl nuw nsw i64 %indvars.iv.next, 2
   %30 = shl nuw nsw i64 1, %29
@@ -285,7 +285,7 @@ define hidden void @_ZN22SerialBlockOffsetTable21update_for_block_workEPP12HeapW
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZNK22SerialBlockOffsetTable30block_start_reaching_into_cardEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %1 to i64
   %6 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4

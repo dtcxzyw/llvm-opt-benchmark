@@ -29,7 +29,7 @@ define noundef i32 @mca_sharedfp_sm_component_init_query(i1 noundef zeroext %0, 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @mca_sharedfp_sm_component_file_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 248
   %.val = load ptr, ptr %6, align 8
@@ -41,7 +41,7 @@ define noundef ptr @mca_sharedfp_sm_component_file_query(ptr nocapture noundef r
 
 .lr.ph:                                           ; preds = %2
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %wide.trip.count = zext nneg i32 %.val.val to i64
   br label %12
 
@@ -53,7 +53,7 @@ define noundef ptr @mca_sharedfp_sm_component_file_query(ptr nocapture noundef r
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, 1
@@ -67,14 +67,14 @@ define noundef ptr @mca_sharedfp_sm_component_file_query(ptr nocapture noundef r
   %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %20, %21
   %22 = tail call ptr @ompi_proc_for_name(i64 %.sroa.0.0.insert.insert.i.i.i.i) #6
   %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %25 = ptrtoint ptr %22 to i64
   %26 = cmpxchg volatile ptr %24, i64 %16, i64 %25 acquire monotonic, align 8
   %27 = extractvalue { i64, i1 } %26, 1
   br i1 %27, label %28, label %ompi_group_peer_lookup.exit
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load i8, ptr @opal_uses_threads, align 1
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %34
@@ -92,7 +92,7 @@ define noundef ptr @mca_sharedfp_sm_component_file_query(ptr nocapture noundef r
 
 ompi_group_peer_lookup.exit:                      ; preds = %12, %18, %32, %34
   %.0.i.i.i = phi ptr [ %15, %12 ], [ %22, %34 ], [ %22, %32 ], [ %22, %18 ]
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   %39 = load i16, ptr %38, align 4
   %40 = and i16 %39, 12
   %or.cond.not = icmp eq i16 %40, 12
@@ -106,13 +106,13 @@ ompi_group_peer_lookup.exit:                      ; preds = %12, %18, %32, %34
 44:                                               ; preds = %41
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %46 = tail call ptr @ompi_comm_print_cid(ptr noundef %5) #6
-  %47 = getelementptr inbounds i8, ptr %5, i64 160
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %48 = load ptr, ptr %47, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %45, ptr noundef nonnull @.str, ptr noundef %46, ptr noundef %48) #6
   br label %72
 
 ._crit_edge:                                      ; preds = %11, %2
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noalias ptr @opal_basename(ptr noundef %50) #6
   %52 = getelementptr i8, ptr %5, i64 220

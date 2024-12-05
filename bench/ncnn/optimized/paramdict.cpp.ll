@@ -42,7 +42,7 @@ define hidden void @_ZN4ncnn9ParamDictC2Ev(ptr nocapture noundef nonnull align 8
 
 3:                                                ; preds = %3, %1
   %.idx.i = phi i64 [ 0, %1 ], [ %.add.i, %3 ]
-  %.ptr.i = getelementptr inbounds i8, ptr %2, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
   %4 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 72
@@ -61,10 +61,10 @@ _ZN4ncnn16ParamDictPrivateC2Ev.exit:              ; preds = %3
 9:                                                ; preds = %29, %_ZN4ncnn16ParamDictPrivateC2Ev.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN4ncnn16ParamDictPrivateC2Ev.exit ], [ %indvars.iv.next.i, %29 ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds [32 x %struct.anon], ptr %10, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [32 x %struct.anon], ptr %10, i64 0, i64 %indvars.iv.i
   store i32 0, ptr %11, align 8
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds [32 x %struct.anon], ptr %12, i64 0, i64 %indvars.iv.i, i32 2
+  %13 = getelementptr inbounds nuw [32 x %struct.anon], ptr %12, i64 0, i64 %indvars.iv.i, i32 2
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not52.i = icmp eq ptr %15, null
@@ -84,7 +84,7 @@ _ZN4ncnn16ParamDictPrivateC2Ev.exit:              ; preds = %3
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %22)
   br label %29
@@ -127,10 +127,10 @@ define hidden void @_ZN4ncnn9ParamDict5clearEv(ptr nocapture noundef nonnull rea
 3:                                                ; preds = %1, %23
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %23 ]
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds [32 x %struct.anon], ptr %4, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [32 x %struct.anon], ptr %4, i64 0, i64 %indvars.iv
   store i32 0, ptr %5, align 8
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds [32 x %struct.anon], ptr %6, i64 0, i64 %indvars.iv, i32 2
+  %7 = getelementptr inbounds nuw [32 x %struct.anon], ptr %6, i64 0, i64 %indvars.iv, i32 2
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not52 = icmp eq ptr %9, null
@@ -150,7 +150,7 @@ define hidden void @_ZN4ncnn9ParamDict5clearEv(ptr nocapture noundef nonnull rea
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %16)
   br label %23
@@ -186,7 +186,7 @@ define hidden void @_ZN4ncnn9ParamDictD2Ev(ptr nocapture noundef nonnull align 8
   br i1 %4, label %32, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 2560
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 2560
   br label %7
 
 7:                                                ; preds = %_ZN4ncnn16ParamDictPrivateUt_D2Ev.exit.i, %5
@@ -212,7 +212,7 @@ define hidden void @_ZN4ncnn9ParamDictD2Ev(ptr nocapture noundef nonnull align 8
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %19)
           to label %_ZN4ncnn16ParamDictPrivateUt_D2Ev.exit.i unwind label %26
@@ -258,7 +258,7 @@ define hidden void @_ZN4ncnn9ParamDictD0Ev(ptr noundef nonnull align 8 dereferen
   br i1 %4, label %_ZN4ncnn9ParamDictD2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 2560
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 2560
   br label %7
 
 7:                                                ; preds = %_ZN4ncnn16ParamDictPrivateUt_D2Ev.exit.i.i, %5
@@ -284,7 +284,7 @@ define hidden void @_ZN4ncnn9ParamDictD0Ev(ptr noundef nonnull align 8 dereferen
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %19)
           to label %_ZN4ncnn16ParamDictPrivateUt_D2Ev.exit.i.i unwind label %26
@@ -330,7 +330,7 @@ define hidden void @_ZN4ncnn9ParamDictC2ERKS0_(ptr nocapture noundef nonnull ali
 
 4:                                                ; preds = %4, %2
   %.idx.i = phi i64 [ 0, %2 ], [ %.add.i, %4 ]
-  %.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %5 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 72
@@ -350,10 +350,10 @@ _ZN4ncnn16ParamDictPrivateC2Ev.exit:              ; preds = %4
 11:                                               ; preds = %_ZN4ncnn16ParamDictPrivateC2Ev.exit, %80
   %indvars.iv = phi i64 [ 0, %_ZN4ncnn16ParamDictPrivateC2Ev.exit ], [ %indvars.iv.next, %80 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds [32 x %struct.anon], ptr %12, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x %struct.anon], ptr %12, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds [32 x %struct.anon], ptr %15, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [32 x %struct.anon], ptr %15, i64 0, i64 %indvars.iv
   store i32 %14, ptr %16, align 8
   %17 = add i32 %14, -1
   %or.cond3 = icmp ult i32 %17, 3
@@ -361,17 +361,17 @@ _ZN4ncnn16ParamDictPrivateC2Ev.exit:              ; preds = %4
   br i1 %or.cond3, label %19, label %24
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds [32 x %struct.anon], ptr %18, i64 0, i64 %indvars.iv, i32 1
+  %20 = getelementptr inbounds nuw [32 x %struct.anon], ptr %18, i64 0, i64 %indvars.iv, i32 1
   %21 = load i32, ptr %20, align 4
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds [32 x %struct.anon], ptr %22, i64 0, i64 %indvars.iv, i32 1
+  %23 = getelementptr inbounds nuw [32 x %struct.anon], ptr %22, i64 0, i64 %indvars.iv, i32 1
   store i32 %21, ptr %23, align 4
   br label %80
 
 24:                                               ; preds = %11
-  %25 = getelementptr inbounds [32 x %struct.anon], ptr %18, i64 0, i64 %indvars.iv, i32 2
+  %25 = getelementptr inbounds nuw [32 x %struct.anon], ptr %18, i64 0, i64 %indvars.iv, i32 2
   %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds [32 x %struct.anon], ptr %26, i64 0, i64 %indvars.iv, i32 2
+  %27 = getelementptr inbounds nuw [32 x %struct.anon], ptr %26, i64 0, i64 %indvars.iv, i32 2
   %28 = icmp eq ptr %26, %18
   br i1 %28, label %80, label %29
 
@@ -405,7 +405,7 @@ _ZN4ncnn16ParamDictPrivateC2Ev.exit:              ; preds = %4
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %42, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %43)
   br label %50
@@ -486,10 +486,10 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ncnn9ParamDic
 6:                                                ; preds = %.preheader, %75
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %75 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds [32 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [32 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds [32 x %struct.anon], ptr %10, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [32 x %struct.anon], ptr %10, i64 0, i64 %indvars.iv
   store i32 %9, ptr %11, align 8
   %12 = add i32 %9, -1
   %or.cond3 = icmp ult i32 %12, 3
@@ -497,17 +497,17 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ncnn9ParamDic
   br i1 %or.cond3, label %14, label %19
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds [32 x %struct.anon], ptr %13, i64 0, i64 %indvars.iv, i32 1
+  %15 = getelementptr inbounds nuw [32 x %struct.anon], ptr %13, i64 0, i64 %indvars.iv, i32 1
   %16 = load i32, ptr %15, align 4
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds [32 x %struct.anon], ptr %17, i64 0, i64 %indvars.iv, i32 1
+  %18 = getelementptr inbounds nuw [32 x %struct.anon], ptr %17, i64 0, i64 %indvars.iv, i32 1
   store i32 %16, ptr %18, align 4
   br label %75
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds [32 x %struct.anon], ptr %13, i64 0, i64 %indvars.iv, i32 2
+  %20 = getelementptr inbounds nuw [32 x %struct.anon], ptr %13, i64 0, i64 %indvars.iv, i32 2
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds [32 x %struct.anon], ptr %21, i64 0, i64 %indvars.iv, i32 2
+  %22 = getelementptr inbounds nuw [32 x %struct.anon], ptr %21, i64 0, i64 %indvars.iv, i32 2
   %23 = icmp eq ptr %21, %13
   br i1 %23, label %75, label %24
 
@@ -541,7 +541,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ncnn9ParamDic
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef %38)
   br label %45
@@ -790,7 +790,7 @@ define hidden void @_ZN4ncnn9ParamDict3setEiRKNS_3MatE(ptr nocapture noundef non
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %25)
   br label %32
@@ -865,10 +865,10 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9ParamDict10load_paramERKNS_
 8:                                                ; preds = %28, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %28 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds [32 x %struct.anon], ptr %9, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [32 x %struct.anon], ptr %9, i64 0, i64 %indvars.iv.i
   store i32 0, ptr %10, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds [32 x %struct.anon], ptr %11, i64 0, i64 %indvars.iv.i, i32 2
+  %12 = getelementptr inbounds nuw [32 x %struct.anon], ptr %11, i64 0, i64 %indvars.iv.i, i32 2
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not52.i = icmp eq ptr %14, null
@@ -888,7 +888,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9ParamDict10load_paramERKNS_
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %21)
   br label %28
@@ -914,15 +914,15 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9ParamDict10load_paramERKNS_
 _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %28
   store i32 0, ptr %3, align 4
   %31 = load ptr, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = call noundef i32 %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, ptr noundef nonnull %3)
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %.lr.ph130, label %.loopexit109
 
 .lr.ph130:                                        ; preds = %_ZN4ncnn9ParamDict5clearEv.exit
-  %36 = getelementptr inbounds i8, ptr %6, i64 1
-  %37 = getelementptr inbounds i8, ptr %5, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 1
   br label %38
 
 38:                                               ; preds = %.lr.ph130, %.loopexit
@@ -949,7 +949,7 @@ _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %28
 49:                                               ; preds = %41
   store i32 0, ptr %4, align 4
   %50 = load ptr, ptr %1, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = call noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3, ptr noundef nonnull %4)
   %.not29 = icmp eq i32 %53, 1
@@ -974,7 +974,7 @@ _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %28
 .lr.ph:                                           ; preds = %57, %148
   %indvars.iv = phi i64 [ %indvars.iv.next, %148 ], [ 0, %57 ]
   %65 = load ptr, ptr %1, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef i32 %67(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %5)
   %.not30 = icmp eq i32 %68, 1
@@ -992,7 +992,7 @@ _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %28
 
 .preheader:                                       ; preds = %.lr.ph, %72
   %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %72 ], [ 0, %.lr.ph ]
-  %73 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.i36
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i36
   %74 = load i8, ptr %73, align 1
   switch i8 %74, label %75 [
     i8 0, label %137
@@ -1035,7 +1035,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit:                ; preds = %75, %.preheader
   %.15267.i = phi ptr [ %91, %.lr.ph.i ], [ %.051.i, %86 ]
   %89 = mul i32 %.05068.i, 10
   %90 = add i32 %89, %isdigittmp69.i
-  %91 = getelementptr inbounds i8, ptr %.15267.i, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.15267.i, i64 1
   %92 = load i8, ptr %91, align 1
   %93 = sext i8 %92 to i32
   %isdigittmp.i = add nsw i32 %93, -48
@@ -1054,7 +1054,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit:                ; preds = %75, %.preheader
   br i1 %95, label %.preheader64.i, label %109
 
 .preheader64.i:                                   ; preds = %._crit_edge.i
-  %.372.i = getelementptr inbounds i8, ptr %.152.lcssa.i, i64 1
+  %.372.i = getelementptr inbounds nuw i8, ptr %.152.lcssa.i, i64 1
   %96 = load i8, ptr %.372.i, align 1
   %97 = sext i8 %96 to i32
   %isdigittmp5773.i = add nsw i32 %97, -48
@@ -1069,7 +1069,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit:                ; preds = %75, %.preheader
   %98 = mul i32 %.04876.i, 10
   %99 = add i32 %98, %isdigittmp5778.i
   %100 = mul i32 %.04975.i, 10
-  %.3.i = getelementptr inbounds i8, ptr %.377.i, i64 1
+  %.3.i = getelementptr inbounds nuw i8, ptr %.377.i, i64 1
   %101 = load i8, ptr %.3.i, align 1
   %102 = sext i8 %101 to i32
   %isdigittmp57.i = add nsw i32 %102, -48
@@ -1099,7 +1099,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit:                ; preds = %75, %.preheader
   ]
 
 111:                                              ; preds = %109, %109
-  %112 = getelementptr inbounds i8, ptr %.253.i, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %.253.i, i64 1
   %113 = load i8, ptr %112, align 1
   %.not59.i = icmp eq i8 %113, 45
   switch i8 %113, label %116 [
@@ -1108,7 +1108,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit:                ; preds = %75, %.preheader
   ]
 
 114:                                              ; preds = %111, %111
-  %115 = getelementptr inbounds i8, ptr %.253.i, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %.253.i, i64 2
   %.pre113.i = load i8, ptr %115, align 1
   br label %116
 
@@ -1130,7 +1130,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit:                ; preds = %75, %.preheader
   %.586.i = phi ptr [ %122, %.lr.ph90.i ], [ %.4.i, %116 ]
   %120 = mul i32 %.04487.i, 10
   %121 = add i32 %120, %isdigittmp6088.i
-  %122 = getelementptr inbounds i8, ptr %.586.i, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %.586.i, i64 1
   %123 = load i8, ptr %122, align 1
   %124 = sext i8 %123 to i32
   %isdigittmp60.i = add nsw i32 %124, -48
@@ -1172,7 +1172,7 @@ _ZN4ncnnL13vstr_to_floatEPKc.exit:                ; preds = %109, %._crit_edge10
   %133 = fptrunc double %.147.i to float
   %134 = fneg fast float %133
   %135 = select fast i1 %.not.i, float %134, float %133
-  %136 = getelementptr inbounds float, ptr %83, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv
   store float %135, ptr %136, align 4
   br label %148
 
@@ -1182,7 +1182,7 @@ _ZN4ncnnL13vstr_to_floatEPKc.exit:                ; preds = %109, %._crit_edge10
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds [32 x %struct.anon], ptr %138, i64 0, i64 %140, i32 2
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i32, ptr %142, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv
   %144 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.3, ptr noundef %143) #16
   %.not31 = icmp eq i32 %144, 1
   br i1 %.not31, label %148, label %145
@@ -1207,7 +1207,7 @@ _ZN4ncnnL13vstr_to_floatEPKc.exit:                ; preds = %109, %._crit_edge10
 
 .thread105:                                       ; preds = %.thread
   %157 = load ptr, ptr %1, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = load ptr, ptr %158, align 8
   %160 = call noundef i32 %159(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.8, ptr noundef nonnull %6)
   %.not = icmp eq i32 %160, 1
@@ -1225,7 +1225,7 @@ _ZN4ncnnL13vstr_to_floatEPKc.exit:                ; preds = %109, %._crit_edge10
 
 .preheader108:                                    ; preds = %.thread105, %164
   %indvars.iv.i39 = phi i64 [ %indvars.iv.next.i42, %164 ], [ 0, %.thread105 ]
-  %165 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i39
+  %165 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i39
   %166 = load i8, ptr %165, align 1
   switch i8 %166, label %167 [
     i8 0, label %227
@@ -1263,7 +1263,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit44:              ; preds = %167, %.preheader108
   %.15267.i100 = phi ptr [ %178, %.lr.ph.i97 ], [ %.051.i46, %173 ]
   %176 = mul i32 %.05068.i99, 10
   %177 = add i32 %176, %isdigittmp69.i98
-  %178 = getelementptr inbounds i8, ptr %.15267.i100, i64 1
+  %178 = getelementptr inbounds nuw i8, ptr %.15267.i100, i64 1
   %179 = load i8, ptr %178, align 1
   %180 = sext i8 %179 to i32
   %isdigittmp.i101 = add nsw i32 %180, -48
@@ -1282,7 +1282,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit44:              ; preds = %167, %.preheader108
   br i1 %182, label %.preheader64.i82, label %196
 
 .preheader64.i82:                                 ; preds = %._crit_edge.i49
-  %.372.i83 = getelementptr inbounds i8, ptr %.152.lcssa.i50, i64 1
+  %.372.i83 = getelementptr inbounds nuw i8, ptr %.152.lcssa.i50, i64 1
   %183 = load i8, ptr %.372.i83, align 1
   %184 = sext i8 %183 to i32
   %isdigittmp5773.i84 = add nsw i32 %184, -48
@@ -1297,7 +1297,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit44:              ; preds = %167, %.preheader108
   %185 = mul i32 %.04876.i91, 10
   %186 = add i32 %185, %isdigittmp5778.i89
   %187 = mul i32 %.04975.i92, 10
-  %.3.i93 = getelementptr inbounds i8, ptr %.377.i90, i64 1
+  %.3.i93 = getelementptr inbounds nuw i8, ptr %.377.i90, i64 1
   %188 = load i8, ptr %.3.i93, align 1
   %189 = sext i8 %188 to i32
   %isdigittmp57.i94 = add nsw i32 %189, -48
@@ -1327,7 +1327,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit44:              ; preds = %167, %.preheader108
   ]
 
 198:                                              ; preds = %196, %196
-  %199 = getelementptr inbounds i8, ptr %.253.i53, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %.253.i53, i64 1
   %200 = load i8, ptr %199, align 1
   %.not59.i55 = icmp eq i8 %200, 45
   switch i8 %200, label %203 [
@@ -1336,7 +1336,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit44:              ; preds = %167, %.preheader108
   ]
 
 201:                                              ; preds = %198, %198
-  %202 = getelementptr inbounds i8, ptr %.253.i53, i64 2
+  %202 = getelementptr inbounds nuw i8, ptr %.253.i53, i64 2
   %.pre113.i56 = load i8, ptr %202, align 1
   br label %203
 
@@ -1358,7 +1358,7 @@ _ZN4ncnnL13vstr_is_floatEPKc.exit44:              ; preds = %167, %.preheader108
   %.586.i67 = phi ptr [ %209, %.lr.ph90.i64 ], [ %.4.i57, %203 ]
   %207 = mul i32 %.04487.i66, 10
   %208 = add i32 %207, %isdigittmp6088.i65
-  %209 = getelementptr inbounds i8, ptr %.586.i67, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %.586.i67, i64 1
   %210 = load i8, ptr %209, align 1
   %211 = sext i8 %210 to i32
   %isdigittmp60.i68 = add nsw i32 %211, -48
@@ -1432,7 +1432,7 @@ _ZN4ncnnL13vstr_to_floatEPKc.exit104:             ; preds = %196, %._crit_edge10
 
 .loopexit:                                        ; preds = %148, %57, %236
   %242 = load ptr, ptr %1, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %244 = load ptr, ptr %243, align 8
   %245 = call noundef i32 %244(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, ptr noundef nonnull %3)
   %246 = icmp eq i32 %245, 1
@@ -1466,10 +1466,10 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9ParamDict14load_param_binER
 6:                                                ; preds = %26, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %26 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds [32 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [32 x %struct.anon], ptr %7, i64 0, i64 %indvars.iv.i
   store i32 0, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds [32 x %struct.anon], ptr %9, i64 0, i64 %indvars.iv.i, i32 2
+  %10 = getelementptr inbounds nuw [32 x %struct.anon], ptr %9, i64 0, i64 %indvars.iv.i, i32 2
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not52.i = icmp eq ptr %12, null
@@ -1489,7 +1489,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9ParamDict14load_param_binER
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %19)
   br label %26
@@ -1515,7 +1515,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn9ParamDict14load_param_binER
 _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %26
   store i32 0, ptr %3, align 4
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, i64 noundef 4)
   %.not = icmp eq i64 %32, 4
@@ -1554,7 +1554,7 @@ _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %26
 47:                                               ; preds = %39
   store i32 0, ptr %4, align 4
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = call noundef i64 %50(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %4, i64 noundef 4)
   %.not29 = icmp eq i64 %51, 4
@@ -1581,7 +1581,7 @@ _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %26
   %67 = sext i32 %66 to i64
   %68 = shl nsw i64 %67, 2
   %69 = load ptr, ptr %1, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = call noundef i64 %71(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %65, i64 noundef %68)
   %73 = load i32, ptr %4, align 4
@@ -1600,7 +1600,7 @@ _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %26
   %80 = sext i32 %36 to i64
   %81 = getelementptr inbounds [32 x %struct.anon], ptr %79, i64 0, i64 %80, i32 1
   %82 = load ptr, ptr %1, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = call noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %81, i64 noundef 4)
   %.not28 = icmp eq i64 %85, 4
@@ -1619,7 +1619,7 @@ _ZN4ncnn9ParamDict5clearEv.exit:                  ; preds = %26
   %93 = getelementptr inbounds [32 x %struct.anon], ptr %90, i64 0, i64 %92
   store i32 %.sink, ptr %93, align 8
   %94 = load ptr, ptr %1, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load ptr, ptr %95, align 8
   %97 = call noundef i64 %96(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %3, i64 noundef 4)
   %.not31 = icmp eq i64 %97, 4

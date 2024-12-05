@@ -223,13 +223,13 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr nocapture noundef readon
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %11 = getelementptr inbounds i8, ptr %1, i64 384
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   %14 = load i32, ptr @hf_nbifom_param_id_ul, align 4
   %15 = load i32, ptr @hf_nbifom_param_id_dl, align 4
   %16 = select i1 %13, i32 %14, i32 %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_append_sep_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.79) #3
   %19 = load i32, ptr @proto_nbifom, align 4

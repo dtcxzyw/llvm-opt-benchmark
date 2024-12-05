@@ -36,13 +36,13 @@ define dso_local void @SetRelationRuleStatus(i32 noundef %0, i1 noundef zeroext 
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %18 = load i8, ptr %17, align 4
   %19 = trunc i8 %18 to i1
   %20 = xor i1 %1, %19
@@ -50,7 +50,7 @@ define dso_local void @SetRelationRuleStatus(i32 noundef %0, i1 noundef zeroext 
 
 21:                                               ; preds = %10
   store i8 %3, ptr %17, align 4
-  %22 = getelementptr inbounds i8, ptr %6, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
   tail call void @CatalogTupleUpdate(ptr noundef %4, ptr noundef nonnull %22, ptr noundef nonnull %6) #4
   br label %24
 
@@ -104,9 +104,9 @@ define dso_local i32 @get_rewrite_oid(i32 noundef %0, ptr noundef %1, i1 noundef
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 22
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 22
   %17 = load i8, ptr %16, align 2
   %18 = zext i8 %17 to i64
   %19 = getelementptr i8, ptr %15, i64 %18

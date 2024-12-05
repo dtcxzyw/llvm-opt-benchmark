@@ -86,7 +86,7 @@ catch:                                            ; preds = %lpad2
   %5 = extractvalue { ptr, i32 } %2, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #11
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %7 = load ptr, ptr %vfn, align 8
   %call7 = invoke noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %invoke.cont6 unwind label %lpad5
@@ -276,7 +276,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
   %5 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #11
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %6 = load ptr, ptr %vfn, align 8
   %call13 = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %invoke.cont12 unwind label %lpad11
@@ -398,7 +398,7 @@ invoke.cont4:                                     ; preds = %if.end
 
 .noexc:                                           ; preds = %invoke.cont4
   store ptr getelementptr inbounds (i8, ptr @_ZTV19Z3_param_descrs_ref, i64 16), ptr %call5, align 8
-  %m_descrs.i = getelementptr inbounds i8, ptr %call5, i64 24
+  %m_descrs.i = getelementptr inbounds nuw i8, ptr %call5, i64 24
   invoke void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i)
           to label %invoke.cont8 unwind label %lpad1
 
@@ -505,7 +505,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #11
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   %call15 = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont14 unwind label %lpad13
@@ -528,7 +528,7 @@ invoke.cont5:                                     ; preds = %if.end
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %m_manager.i = getelementptr inbounds i8, ptr %call6, i64 120
+  %m_manager.i = getelementptr inbounds nuw i8, ptr %call6, i64 120
   store ptr null, ptr %m_manager.i, align 8
   br i1 %tobool.i, label %if.then10, label %return
 
@@ -602,11 +602,11 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.i, label %invoke.cont2, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %m_encoding.i.i.i = getelementptr inbounds i8, ptr %c, i64 88
+  %m_encoding.i.i.i = getelementptr inbounds nuw i8, ptr %c, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_encoding.i.i.i) #11
-  %m_trace_file_name.i.i.i = getelementptr inbounds i8, ptr %c, i64 40
+  %m_trace_file_name.i.i.i = getelementptr inbounds nuw i8, ptr %c, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_trace_file_name.i.i.i) #11
-  %m_dot_proof_file.i.i.i = getelementptr inbounds i8, ptr %c, i64 8
+  %m_dot_proof_file.i.i.i = getelementptr inbounds nuw i8, ptr %c, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_dot_proof_file.i.i.i) #11
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %c)
           to label %invoke.cont2 unwind label %lpad
@@ -657,7 +657,7 @@ catch:                                            ; preds = %lpad2
   %5 = extractvalue { ptr, i32 } %2, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #11
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %7 = load ptr, ptr %vfn, align 8
   %call6 = invoke noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %invoke.cont5 unwind label %lpad4
@@ -758,9 +758,9 @@ invoke.cont15:                                    ; preds = %catch
   br label %try.cont
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
+  %m_error_code.i = getelementptr inbounds nuw i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8
-  %m_params.i = getelementptr inbounds i8, ptr %c, i64 96
+  %m_params.i = getelementptr inbounds nuw i8, ptr %c, i64 96
   invoke void @_ZN14context_params11updt_paramsEv(ptr noundef nonnull align 8 dereferenceable(120) %m_params.i)
           to label %invoke.cont9 unwind label %lpad1
 
@@ -806,7 +806,7 @@ declare void @_ZN12param_descrsC1Ev(ptr noundef nonnull align 8 dereferenceable(
 define linkonce_odr hidden void @_ZN19Z3_param_descrs_refD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19Z3_param_descrs_ref, i64 16), ptr %this, align 8
-  %m_descrs = getelementptr inbounds i8, ptr %this, i64 24
+  %m_descrs = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN12param_descrsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs) #11
   ret void
 }
@@ -815,7 +815,7 @@ entry:
 define linkonce_odr hidden void @_ZN19Z3_param_descrs_refD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19Z3_param_descrs_ref, i64 16), ptr %this, align 8
-  %m_descrs.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_descrs.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @_ZN12param_descrsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_descrs.i) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void

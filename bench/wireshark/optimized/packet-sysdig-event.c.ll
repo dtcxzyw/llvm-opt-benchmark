@@ -1344,12 +1344,12 @@ define internal i32 @dissect_sysdig_event(ptr noundef %0, ptr noundef %1, ptr no
   %7 = alloca i32, align 4
   %8 = alloca %struct.except_stacknode, align 8
   %9 = alloca %struct.except_catch, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %13 = load i16, ptr %12, align 8
   %14 = zext i16 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %11, i64 76
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 76
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 4321
   %18 = select i1 %17, i32 0, i32 -2147483648
@@ -1371,7 +1371,7 @@ define internal i32 @dissect_sysdig_event(ptr noundef %0, ptr noundef %1, ptr no
 27:                                               ; preds = %21
   %28 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @event_type_vals, ptr noundef nonnull @.str.875) #4
   store i64 0, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   call void @col_clear(ptr noundef %30, i32 noundef 25) #4
   %31 = load ptr, ptr %29, align 8
@@ -1388,7 +1388,7 @@ define internal i32 @dissect_sysdig_event(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %36, label %37, label %.critedge
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %.0102136, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.0102136, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.preheader, label %.critedge
@@ -1401,7 +1401,7 @@ define internal i32 @dissect_sysdig_event(ptr noundef %0, ptr noundef %1, ptr no
   %.0103134 = phi i32 [ %72, %70 ], [ 0, %.lr.ph.preheader ]
   %.0104132 = phi i32 [ %71, %70 ], [ %41, %.lr.ph.preheader ]
   %.0105131 = phi ptr [ %.1, %70 ], [ %34, %.lr.ph.preheader ]
-  %42 = getelementptr inbounds i8, ptr %.0105131, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.0105131, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not122 = icmp eq ptr %43, null
   br i1 %.not122, label %.critedge, label %44
@@ -1418,7 +1418,7 @@ define internal i32 @dissect_sysdig_event(ptr noundef %0, ptr noundef %1, ptr no
   %51 = load ptr, ptr %29, align 8
   %52 = load ptr, ptr %42, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %51, i32 noundef 25, ptr noundef nonnull @.str.876, ptr noundef %52) #4
-  %53 = getelementptr inbounds i8, ptr %.0105131, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.0105131, i64 16
   %54 = load i32, ptr %53, align 8
   switch i32 %54, label %68 [
     i32 26, label %55
@@ -1475,22 +1475,22 @@ format_param_str.exit:                            ; preds = %55, %60
   %80 = call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %79) #4
   %81 = load i32, ptr @hf_se_cpu_id, align 4
   %82 = load ptr, ptr %10, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 112
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 112
   %84 = load i16, ptr %83, align 8
   %85 = zext i16 %84 to i32
   %86 = call ptr @proto_tree_add_uint(ptr noundef %80, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %85) #4
   %87 = load i32, ptr @hf_se_thread_id, align 4
   %88 = load ptr, ptr %10, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 88
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 88
   %90 = load i64, ptr %89, align 8
   %91 = call ptr @proto_tree_add_uint64(ptr noundef %80, i32 noundef %87, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %90) #4
   %92 = load i32, ptr @hf_se_event_length, align 4
   %93 = load ptr, ptr %10, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 96
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 96
   %95 = load i32, ptr %94, align 8
   %96 = call ptr @proto_tree_add_uint(ptr noundef %80, i32 noundef %92, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %95) #4
   %97 = load ptr, ptr %10, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 108
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 108
   %99 = load i32, ptr %98, align 4
   %.not113 = icmp eq i32 %99, 0
   br i1 %.not113, label %103, label %100
@@ -1506,7 +1506,7 @@ format_param_str.exit:                            ; preds = %55, %60
   %106 = load i32, ptr @ett_sysdig_syscall, align 4
   %107 = call ptr @proto_item_add_subtree(ptr noundef %105, i32 noundef %106) #4
   %108 = load ptr, ptr %10, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 108
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 108
   %110 = load i32, ptr %109, align 4
   %.not114 = icmp eq i32 %110, 0
   br i1 %.not114, label %dissect_event_params.exit, label %.preheader.preheader
@@ -1530,7 +1530,7 @@ format_param_str.exit:                            ; preds = %55, %60
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
   %.lcssa151 = phi ptr [ @generic_e_indexes, %.preheader.preheader ], [ %113, %.preheader ]
-  %117 = getelementptr inbounds i8, ptr %108, i64 72
+  %117 = getelementptr inbounds nuw i8, ptr %108, i64 72
   %118 = load i32, ptr %117, align 8
   switch i32 %118, label %.preheader.i [
     i32 545, label %119
@@ -1648,7 +1648,7 @@ dissect_header_lens_v1.exit.i:                    ; preds = %._crit_edge.loopexi
   br i1 %.not79.i, label %dissect_event_params.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %170
-  %172 = getelementptr inbounds i8, ptr %5, i64 4
+  %172 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %173
 
 173:                                              ; preds = %212, %.lr.ph.i
@@ -1751,7 +1751,7 @@ dissect_event_params.exit:                        ; preds = %.lr.ph154, %212, %1
   %224 = call i32 @call_dissector_with_data(ptr noundef nonnull %220, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5) #4
   %225 = load i32, ptr %5, align 8
   %226 = icmp sgt i32 %225, 0
-  %227 = getelementptr inbounds i8, ptr %5, i64 4
+  %227 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %228 = load i32, ptr %227, align 4
   %229 = icmp ne i32 %228, 0
   %or.cond4 = select i1 %226, i1 %229, i1 false
@@ -1768,10 +1768,10 @@ dissect_event_params.exit:                        ; preds = %.lr.ph154, %212, %1
   %236 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %234, i32 noundef %235) #4
   store volatile i32 0, ptr %7, align 4
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @dissect_sysdig_event.catch_spec, i64 noundef 1) #4
-  %237 = getelementptr inbounds i8, ptr %9, i64 48
+  %237 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %238 = call i32 @_setjmp(ptr noundef nonnull %237) #5
   %.not117 = icmp eq i32 %238, 0
-  %239 = getelementptr inbounds i8, ptr %9, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not117, ptr null, ptr %239
   store volatile ptr %.sink, ptr %6, align 8
   %.0..0..0..0. = load volatile i32, ptr %7, align 4
@@ -1815,28 +1815,28 @@ dissect_event_params.exit:                        ; preds = %.lr.ph154, %212, %1
 
 254:                                              ; preds = %253
   %.0..0..0..0.13 = load volatile ptr, ptr %6, align 8
-  %255 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %256 = load volatile i64, ptr %255, align 8
   %257 = icmp eq i64 %256, 3
   br i1 %257, label %270, label %258
 
 258:                                              ; preds = %254
   %.0..0..0..0.14 = load volatile ptr, ptr %6, align 8
-  %259 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %259 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %260 = load volatile i64, ptr %259, align 8
   %261 = icmp eq i64 %260, 2
   br i1 %261, label %270, label %262
 
 262:                                              ; preds = %258
   %.0..0..0..0.15 = load volatile ptr, ptr %6, align 8
-  %263 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %264 = load volatile i64, ptr %263, align 8
   %265 = icmp eq i64 %264, 7
   br i1 %265, label %270, label %266
 
 266:                                              ; preds = %262
   %.0..0..0..0.16 = load volatile ptr, ptr %6, align 8
-  %267 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 8
   %268 = load volatile i64, ptr %267, align 8
   %269 = icmp eq i64 %268, 9
   br i1 %269, label %270, label %272
@@ -1864,7 +1864,7 @@ dissect_event_params.exit:                        ; preds = %.lr.ph154, %212, %1
   unreachable
 
 276:                                              ; preds = %274, %272
-  %277 = getelementptr inbounds i8, ptr %9, i64 40
+  %277 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %278 = load volatile ptr, ptr %277, align 8
   call void @except_free(ptr noundef %278) #4
   %279 = call ptr @except_pop() #4

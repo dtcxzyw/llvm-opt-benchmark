@@ -12,15 +12,15 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ttm_sys_man_init(ptr noundef initializes((25, 26), (48, 56)) %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 25
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 1, ptr %3, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr @ttm_sys_manager_func, ptr %4, align 8
-  tail call void @ttm_resource_manager_init(ptr noundef %2, ptr noundef %0, i64 noundef 0) #3
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  tail call void @ttm_resource_manager_init(ptr noundef nonnull %2, ptr noundef %0, i64 noundef 0) #3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %7
 
 7:                                                ; preds = %13, %1

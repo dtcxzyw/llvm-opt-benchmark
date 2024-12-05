@@ -32,7 +32,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr nocapture noun
   ]
 
 5:                                                ; preds = %3, %3, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 480
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 %2, ptr %6, align 4
   %7 = zext nneg i32 %4 to i64
   br label %11
@@ -203,7 +203,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr nocapture noun
   %141 = zext i32 %140 to i64
   %142 = getelementptr [60 x i32], ptr %0, i64 0, i64 %141
   %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %0, i64 240
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 %143, ptr %144, align 4
   %145 = add i32 %2, 25
   %146 = zext i32 %145 to i64
@@ -395,7 +395,7 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr nocapture noun
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
 define dso_local void @aes_encrypt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 480
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %6 = load i32, ptr %5, align 4
   %7 = lshr i32 %6, 2
   %8 = load i32, ptr %0, align 4
@@ -914,9 +914,9 @@ define dso_local void @aes_encrypt(ptr nocapture noundef readonly %0, ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
 define dso_local void @aes_decrypt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 240
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = getelementptr i8, ptr %0, i64 256
-  %6 = getelementptr inbounds i8, ptr %0, i64 480
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %7, 2
   %9 = load i32, ptr %4, align 4

@@ -104,8 +104,8 @@ define internal void @gem_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.CADENCE_GEM) #9
   %call.i6 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #9
-  %regs_ro.i = getelementptr inbounds i8, ptr %call.i, i64 13580
-  %0 = getelementptr inbounds i8, ptr %call.i, i64 13584
+  %regs_ro.i = getelementptr inbounds nuw i8, ptr %call.i, i64 13580
+  %0 = getelementptr inbounds nuw i8, ptr %call.i, i64 13584
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %0, i8 0, i64 2044, i1 false)
   store i32 -524288, ptr %regs_ro.i, align 4
   %arrayidx4.i = getelementptr i8, ptr %call.i, i64 13588
@@ -126,13 +126,13 @@ entry:
   store i32 -1, ptr %arrayidx18.i, align 4
   %arrayidx20.i = getelementptr i8, ptr %call.i, i64 13832
   store i32 -1, ptr %arrayidx20.i, align 4
-  %num_priority_queues.i = getelementptr inbounds i8, ptr %call.i, i64 9472
+  %num_priority_queues.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9472
   %1 = load i8, ptr %num_priority_queues.i, align 16
   %cmp43.not.i = icmp eq i8 %1, 0
   br i1 %cmp43.not.i, label %for.end.thread.i, label %for.body.preheader.i
 
 for.end.thread.i:                                 ; preds = %entry
-  %regs_rtc67.i = getelementptr inbounds i8, ptr %call.i, i64 15628
+  %regs_rtc67.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15628
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %regs_rtc67.i, i8 0, i64 2048, i1 false)
   %arrayidx3868.i = getelementptr i8, ptr %call.i, i64 15664
   store i32 -1, ptr %arrayidx3868.i, align 4
@@ -161,7 +161,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i
-  %regs_rtc.i = getelementptr inbounds i8, ptr %call.i, i64 15628
+  %regs_rtc.i = getelementptr inbounds nuw i8, ptr %call.i, i64 15628
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %regs_rtc.i, i8 0, i64 2048, i1 false)
   %arrayidx38.i = getelementptr i8, ptr %call.i, i64 15664
   store i32 -1, ptr %arrayidx38.i, align 4
@@ -177,14 +177,14 @@ for.body44.i:                                     ; preds = %for.body44.i, %for.
   br i1 %exitcond59.not.i, label %for.end51.i, label %for.body44.i, !llvm.loop !7
 
 for.end51.i:                                      ; preds = %for.body44.i, %for.end.thread.i
-  %regs_w1c.i = getelementptr inbounds i8, ptr %call.i, i64 17676
+  %regs_w1c.i = getelementptr inbounds nuw i8, ptr %call.i, i64 17676
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %regs_w1c.i, i8 0, i64 2048, i1 false)
   %arrayidx54.i = getelementptr i8, ptr %call.i, i64 17696
   store i32 503, ptr %arrayidx54.i, align 4
   %arrayidx56.i = getelementptr i8, ptr %call.i, i64 17708
   store i32 15, ptr %arrayidx56.i, align 4
-  %regs_wo.i = getelementptr inbounds i8, ptr %call.i, i64 11532
-  %7 = getelementptr inbounds i8, ptr %call.i, i64 11536
+  %regs_wo.i = getelementptr inbounds nuw i8, ptr %call.i, i64 11532
+  %7 = getelementptr inbounds nuw i8, ptr %call.i, i64 11536
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %7, i8 0, i64 2044, i1 false)
   store i32 474720, ptr %regs_wo.i, align 4
   %arrayidx61.i = getelementptr i8, ptr %call.i, i64 11572
@@ -210,7 +210,7 @@ for.body69.i:                                     ; preds = %for.body69.i, %for.
   br i1 %exitcond66.not.i, label %gem_init_register_masks.exit, label %for.body69.i, !llvm.loop !8
 
 gem_init_register_masks.exit:                     ; preds = %for.body69.i, %for.end51.i
-  %iomem = getelementptr inbounds i8, ptr %call.i, i64 816
+  %iomem = getelementptr inbounds nuw i8, ptr %call.i, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef nonnull %call.i, ptr noundef nonnull @gem_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.2, i64 noundef 2048) #9
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #9
   tail call void @sysbus_init_mmio(ptr noundef %call.i7, ptr noundef nonnull %iomem) #9
@@ -221,12 +221,12 @@ gem_init_register_masks.exit:                     ; preds = %for.body69.i, %for.
 define internal void @gem_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
-  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @gem_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @gem_properties) #9
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_cadence_gem, ptr %vmsd, align 8
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @gem_reset, ptr %reset, align 8
   ret void
 }
@@ -244,26 +244,26 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 define internal range(i64 0, 4294967296) i64 @gem_read(ptr nocapture noundef %opaque, i64 noundef %offset, i32 %size) #0 {
 entry:
   %shr = lshr i64 %offset, 2
-  %regs = getelementptr inbounds i8, ptr %opaque, i64 9484
+  %regs = getelementptr inbounds nuw i8, ptr %opaque, i64 9484
   %arrayidx = getelementptr [512 x i32], ptr %regs, i64 0, i64 %shr
   %0 = load i32, ptr %arrayidx, align 4
-  %regs_rtc = getelementptr inbounds i8, ptr %opaque, i64 15628
+  %regs_rtc = getelementptr inbounds nuw i8, ptr %opaque, i64 15628
   %arrayidx4 = getelementptr [512 x i32], ptr %regs_rtc, i64 0, i64 %shr
   %1 = load i32, ptr %arrayidx4, align 4
   %not = xor i32 %1, -1
   %and = and i32 %0, %not
   store i32 %and, ptr %arrayidx, align 4
-  %regs_wo = getelementptr inbounds i8, ptr %opaque, i64 11532
+  %regs_wo = getelementptr inbounds nuw i8, ptr %opaque, i64 11532
   %arrayidx7 = getelementptr [512 x i32], ptr %regs_wo, i64 0, i64 %shr
   %2 = load i32, ptr %arrayidx7, align 4
-  %irq.i = getelementptr inbounds i8, ptr %opaque, i64 9408
+  %irq.i = getelementptr inbounds nuw i8, ptr %opaque, i64 9408
   %3 = load ptr, ptr %irq.i, align 16
   %arrayidx1.i = getelementptr i8, ptr %opaque, i64 9520
   %4 = load i32, ptr %arrayidx1.i, align 4
   %tobool.i = icmp ne i32 %4, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
   tail call void @qemu_set_irq(ptr noundef %3, i32 noundef %lnot.ext.i) #9
-  %num_priority_queues.i = getelementptr inbounds i8, ptr %opaque, i64 9472
+  %num_priority_queues.i = getelementptr inbounds nuw i8, ptr %opaque, i64 9472
   %5 = load i8, ptr %num_priority_queues.i, align 16
   %cmp9.i = icmp ugt i8 %5, 1
   br i1 %cmp9.i, label %for.body.i, label %gem_update_int_status.exit
@@ -295,14 +295,14 @@ gem_update_int_status.exit:                       ; preds = %for.body.i, %entry
 define internal void @gem_write(ptr noundef %opaque, i64 noundef %offset, i64 noundef %val, i32 %size) #0 {
 entry:
   %shr = lshr i64 %offset, 2
-  %regs_ro = getelementptr inbounds i8, ptr %opaque, i64 13580
+  %regs_ro = getelementptr inbounds nuw i8, ptr %opaque, i64 13580
   %arrayidx = getelementptr [512 x i32], ptr %regs_ro, i64 0, i64 %shr
   %0 = load i32, ptr %arrayidx, align 4
   %not = xor i32 %0, -1
-  %regs = getelementptr inbounds i8, ptr %opaque, i64 9484
+  %regs = getelementptr inbounds nuw i8, ptr %opaque, i64 9484
   %arrayidx1 = getelementptr [512 x i32], ptr %regs, i64 0, i64 %shr
   %1 = load i32, ptr %arrayidx1, align 4
-  %regs_w1c = getelementptr inbounds i8, ptr %opaque, i64 17676
+  %regs_w1c = getelementptr inbounds nuw i8, ptr %opaque, i64 17676
   %arrayidx4 = getelementptr [512 x i32], ptr %regs_w1c, i64 0, i64 %shr
   %2 = load i32, ptr %arrayidx4, align 4
   %or = or i32 %2, %0
@@ -370,7 +370,7 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool.not, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %sw.bb
-  %num_priority_queues = getelementptr inbounds i8, ptr %opaque, i64 9472
+  %num_priority_queues = getelementptr inbounds nuw i8, ptr %opaque, i64 9472
   %9 = load i8, ptr %num_priority_queues, align 16
   %cmp178.not = icmp eq i8 %9, 0
   br i1 %cmp178.not, label %if.end, label %for.body
@@ -399,14 +399,14 @@ if.end33:                                         ; preds = %if.then32, %if.end
   br i1 %tobool36.not, label %for.cond38.preheader, label %if.end49
 
 for.cond38.preheader:                             ; preds = %if.end33
-  %num_priority_queues39 = getelementptr inbounds i8, ptr %opaque, i64 9472
+  %num_priority_queues39 = getelementptr inbounds nuw i8, ptr %opaque, i64 9472
   %13 = load i8, ptr %num_priority_queues39, align 16
   %cmp41180.not = icmp eq i8 %13, 0
   br i1 %cmp41180.not, label %if.end49, label %for.body43.lr.ph
 
 for.body43.lr.ph:                                 ; preds = %for.cond38.preheader
   %arrayidx.i.i = getelementptr i8, ptr %opaque, i64 9512
-  %tx_desc_addr = getelementptr inbounds i8, ptr %opaque, i64 19824
+  %tx_desc_addr = getelementptr inbounds nuw i8, ptr %opaque, i64 19824
   %wide.trip.count = zext i8 %13 to i64
   br label %for.body43
 
@@ -443,19 +443,19 @@ gem_get_tx_queue_base_addr.exit:                  ; preds = %for.body43, %sw.bb1
   br i1 %exitcond.not, label %if.end49, label %for.body43, !llvm.loop !11
 
 if.end49:                                         ; preds = %gem_get_tx_queue_base_addr.exit, %for.cond38.preheader, %if.end33
-  %nic = getelementptr inbounds i8, ptr %opaque, i64 1184
+  %nic = getelementptr inbounds nuw i8, ptr %opaque, i64 1184
   %16 = load ptr, ptr %nic, align 16
   %call50 = tail call ptr @qemu_get_queue(ptr noundef %16) #9
   %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %call50) #9
-  %regs.i = getelementptr inbounds i8, ptr %call.i, i64 9484
+  %regs.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9484
   %17 = load i32, ptr %regs.i, align 4
   %18 = and i32 %17, 4
   %tobool.not.i = icmp eq i32 %18, 0
   br i1 %tobool.not.i, label %if.then.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end49
-  %rx_desc.i = getelementptr inbounds i8, ptr %call.i, i64 52624
-  %num_priority_queues.i = getelementptr inbounds i8, ptr %call.i, i64 9472
+  %rx_desc.i = getelementptr inbounds nuw i8, ptr %call.i, i64 52624
+  %num_priority_queues.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9472
   %19 = load i8, ptr %num_priority_queues.i, align 16
   %conv6.i = zext i8 %19 to i32
   %cmp714.not.i = icmp eq i8 %19, 0
@@ -466,7 +466,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
   br label %for.body.i
 
 if.then.i:                                        ; preds = %if.end49
-  %can_rx_state.i = getelementptr inbounds i8, ptr %call.i, i64 19856
+  %can_rx_state.i = getelementptr inbounds nuw i8, ptr %call.i, i64 19856
   %20 = load i8, ptr %can_rx_state.i, align 16
   %cmp.not.i = icmp eq i8 %20, 1
   br i1 %cmp.not.i, label %do.end120, label %if.then3.i
@@ -498,7 +498,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br i1 %cmp17.i, label %if.then19.i, label %if.end29.i
 
 if.then19.i:                                      ; preds = %for.inc.i, %for.end.i
-  %can_rx_state20.i = getelementptr inbounds i8, ptr %call.i, i64 19856
+  %can_rx_state20.i = getelementptr inbounds nuw i8, ptr %call.i, i64 19856
   %22 = load i8, ptr %can_rx_state20.i, align 16
   %cmp22.not.i = icmp eq i8 %22, 2
   br i1 %cmp22.not.i, label %do.end120, label %if.then24.i
@@ -508,7 +508,7 @@ if.then24.i:                                      ; preds = %if.then19.i
   br label %do.end120
 
 if.end29.i:                                       ; preds = %for.end.i
-  %can_rx_state30.i = getelementptr inbounds i8, ptr %call.i, i64 19856
+  %can_rx_state30.i = getelementptr inbounds nuw i8, ptr %call.i, i64 19856
   %23 = load i8, ptr %can_rx_state30.i, align 16
   %cmp32.not.i = icmp eq i8 %23, 0
   br i1 %cmp32.not.i, label %if.then52, label %if.then34.i
@@ -524,14 +524,14 @@ if.then52:                                        ; preds = %if.then34.i, %if.en
   br label %do.end120
 
 sw.bb56:                                          ; preds = %entry
-  %irq.i = getelementptr inbounds i8, ptr %opaque, i64 9408
+  %irq.i = getelementptr inbounds nuw i8, ptr %opaque, i64 9408
   %25 = load ptr, ptr %irq.i, align 16
   %arrayidx1.i = getelementptr i8, ptr %opaque, i64 9520
   %26 = load i32, ptr %arrayidx1.i, align 4
   %tobool.i = icmp ne i32 %26, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
   tail call void @qemu_set_irq(ptr noundef %25, i32 noundef %lnot.ext.i) #9
-  %num_priority_queues.i76 = getelementptr inbounds i8, ptr %opaque, i64 9472
+  %num_priority_queues.i76 = getelementptr inbounds nuw i8, ptr %opaque, i64 9472
   %27 = load i8, ptr %num_priority_queues.i76, align 16
   %cmp9.i = icmp ugt i8 %27, 1
   br i1 %cmp9.i, label %for.body.i78, label %do.end120
@@ -553,38 +553,38 @@ for.body.i78:                                     ; preds = %sw.bb56, %for.body.
   br i1 %cmp.i, label %for.body.i78, label %do.end120, !llvm.loop !9
 
 sw.bb57:                                          ; preds = %entry
-  %rx_desc_addr = getelementptr inbounds i8, ptr %opaque, i64 19792
+  %rx_desc_addr = getelementptr inbounds nuw i8, ptr %opaque, i64 19792
   store i32 %4, ptr %rx_desc_addr, align 16
   br label %do.end120
 
 sw.bb60:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  %rx_desc_addr62 = getelementptr inbounds i8, ptr %opaque, i64 19792
+  %rx_desc_addr62 = getelementptr inbounds nuw i8, ptr %opaque, i64 19792
   %add = add nsw i64 %shr, -287
   %arrayidx63 = getelementptr [8 x i32], ptr %rx_desc_addr62, i64 0, i64 %add
   store i32 %4, ptr %arrayidx63, align 4
   br label %do.end120
 
 sw.bb64:                                          ; preds = %entry
-  %tx_desc_addr66 = getelementptr inbounds i8, ptr %opaque, i64 19824
+  %tx_desc_addr66 = getelementptr inbounds nuw i8, ptr %opaque, i64 19824
   store i32 %4, ptr %tx_desc_addr66, align 16
   br label %do.end120
 
 sw.bb68:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  %tx_desc_addr70 = getelementptr inbounds i8, ptr %opaque, i64 19824
+  %tx_desc_addr70 = getelementptr inbounds nuw i8, ptr %opaque, i64 19824
   %add72 = add nsw i64 %shr, -271
   %arrayidx73 = getelementptr [8 x i32], ptr %tx_desc_addr70, i64 0, i64 %add72
   store i32 %4, ptr %arrayidx73, align 4
   br label %do.end120
 
 sw.bb74:                                          ; preds = %entry
-  %irq.i81 = getelementptr inbounds i8, ptr %opaque, i64 9408
+  %irq.i81 = getelementptr inbounds nuw i8, ptr %opaque, i64 9408
   %33 = load ptr, ptr %irq.i81, align 16
   %arrayidx1.i83 = getelementptr i8, ptr %opaque, i64 9520
   %34 = load i32, ptr %arrayidx1.i83, align 4
   %tobool.i84 = icmp ne i32 %34, 0
   %lnot.ext.i85 = zext i1 %tobool.i84 to i32
   tail call void @qemu_set_irq(ptr noundef %33, i32 noundef %lnot.ext.i85) #9
-  %num_priority_queues.i86 = getelementptr inbounds i8, ptr %opaque, i64 9472
+  %num_priority_queues.i86 = getelementptr inbounds nuw i8, ptr %opaque, i64 9472
   %35 = load i8, ptr %num_priority_queues.i86, align 16
   %cmp9.i87 = icmp ugt i8 %35, 1
   br i1 %cmp9.i87, label %for.body.i89, label %do.end120
@@ -611,14 +611,14 @@ sw.bb75:                                          ; preds = %entry
   %42 = xor i32 %4, -1
   %conv81 = and i32 %41, %42
   store i32 %conv81, ptr %arrayidx78, align 4
-  %irq.i98 = getelementptr inbounds i8, ptr %opaque, i64 9408
+  %irq.i98 = getelementptr inbounds nuw i8, ptr %opaque, i64 9408
   %43 = load ptr, ptr %irq.i98, align 16
   %arrayidx1.i100 = getelementptr i8, ptr %opaque, i64 9520
   %44 = load i32, ptr %arrayidx1.i100, align 4
   %tobool.i101 = icmp ne i32 %44, 0
   %lnot.ext.i102 = zext i1 %tobool.i101 to i32
   tail call void @qemu_set_irq(ptr noundef %43, i32 noundef %lnot.ext.i102) #9
-  %num_priority_queues.i103 = getelementptr inbounds i8, ptr %opaque, i64 9472
+  %num_priority_queues.i103 = getelementptr inbounds nuw i8, ptr %opaque, i64 9472
   %45 = load i8, ptr %num_priority_queues.i103, align 16
   %cmp9.i104 = icmp ugt i8 %45, 1
   br i1 %cmp9.i104, label %for.body.i106, label %do.end120
@@ -652,14 +652,14 @@ sw.bb87:                                          ; preds = %entry, %entry, %ent
   %52 = xor i32 %4, -1
   %conv95 = and i32 %51, %52
   store i32 %conv95, ptr %arrayidx92, align 4
-  %irq.i115 = getelementptr inbounds i8, ptr %opaque, i64 9408
+  %irq.i115 = getelementptr inbounds nuw i8, ptr %opaque, i64 9408
   %53 = load ptr, ptr %irq.i115, align 16
   %arrayidx1.i117 = getelementptr i8, ptr %opaque, i64 9520
   %54 = load i32, ptr %arrayidx1.i117, align 4
   %tobool.i118 = icmp ne i32 %54, 0
   %lnot.ext.i119 = zext i1 %tobool.i118 to i32
   tail call void @qemu_set_irq(ptr noundef %53, i32 noundef %lnot.ext.i119) #9
-  %num_priority_queues.i120 = getelementptr inbounds i8, ptr %opaque, i64 9472
+  %num_priority_queues.i120 = getelementptr inbounds nuw i8, ptr %opaque, i64 9472
   %55 = load i8, ptr %num_priority_queues.i120, align 16
   %cmp9.i121 = icmp ugt i8 %55, 1
   br i1 %cmp9.i121, label %for.body.i123, label %do.end120
@@ -685,14 +685,14 @@ sw.bb96:                                          ; preds = %entry
   %61 = load i32, ptr %arrayidx98, align 4
   %conv101 = or i32 %61, %4
   store i32 %conv101, ptr %arrayidx98, align 4
-  %irq.i132 = getelementptr inbounds i8, ptr %opaque, i64 9408
+  %irq.i132 = getelementptr inbounds nuw i8, ptr %opaque, i64 9408
   %62 = load ptr, ptr %irq.i132, align 16
   %arrayidx1.i134 = getelementptr i8, ptr %opaque, i64 9520
   %63 = load i32, ptr %arrayidx1.i134, align 4
   %tobool.i135 = icmp ne i32 %63, 0
   %lnot.ext.i136 = zext i1 %tobool.i135 to i32
   tail call void @qemu_set_irq(ptr noundef %62, i32 noundef %lnot.ext.i136) #9
-  %num_priority_queues.i137 = getelementptr inbounds i8, ptr %opaque, i64 9472
+  %num_priority_queues.i137 = getelementptr inbounds nuw i8, ptr %opaque, i64 9472
   %64 = load i8, ptr %num_priority_queues.i137, align 16
   %cmp9.i138 = icmp ugt i8 %64, 1
   br i1 %cmp9.i138, label %for.body.i140, label %do.end120
@@ -719,14 +719,14 @@ sw.bb102:                                         ; preds = %entry, %entry, %ent
   %70 = load i32, ptr %arrayidx106, align 4
   %conv109 = or i32 %70, %4
   store i32 %conv109, ptr %arrayidx106, align 4
-  %irq.i149 = getelementptr inbounds i8, ptr %opaque, i64 9408
+  %irq.i149 = getelementptr inbounds nuw i8, ptr %opaque, i64 9408
   %71 = load ptr, ptr %irq.i149, align 16
   %arrayidx1.i151 = getelementptr i8, ptr %opaque, i64 9520
   %72 = load i32, ptr %arrayidx1.i151, align 4
   %tobool.i152 = icmp ne i32 %72, 0
   %lnot.ext.i153 = zext i1 %tobool.i152 to i32
   tail call void @qemu_set_irq(ptr noundef %71, i32 noundef %lnot.ext.i153) #9
-  %num_priority_queues.i154 = getelementptr inbounds i8, ptr %opaque, i64 9472
+  %num_priority_queues.i154 = getelementptr inbounds nuw i8, ptr %opaque, i64 9472
   %73 = load i8, ptr %num_priority_queues.i154, align 16
   %cmp9.i155 = icmp ugt i8 %73, 1
   br i1 %cmp9.i155, label %for.body.i157, label %do.end120
@@ -748,7 +748,7 @@ for.body.i157:                                    ; preds = %sw.bb102, %for.body
   br i1 %cmp.i164, label %for.body.i157, label %do.end120, !llvm.loop !9
 
 sw.bb110:                                         ; preds = %entry, %entry, %entry, %entry
-  %sar_active = getelementptr inbounds i8, ptr %opaque, i64 52816
+  %sar_active = getelementptr inbounds nuw i8, ptr %opaque, i64 52816
   %sub111 = add nsw i64 %shr, -34
   %div70 = lshr i64 %sub111, 1
   %arrayidx112 = getelementptr [4 x i8], ptr %sar_active, i64 0, i64 %div70
@@ -756,7 +756,7 @@ sw.bb110:                                         ; preds = %entry, %entry, %ent
   br label %do.end120
 
 sw.bb113:                                         ; preds = %entry, %entry, %entry, %entry
-  %sar_active114 = getelementptr inbounds i8, ptr %opaque, i64 52816
+  %sar_active114 = getelementptr inbounds nuw i8, ptr %opaque, i64 52816
   %sub115 = add nsw i64 %shr, -35
   %div11669 = lshr i64 %sub115, 1
   %arrayidx117 = getelementptr [4 x i8], ptr %sar_active114, i64 0, i64 %div11669
@@ -768,7 +768,7 @@ sw.bb118:                                         ; preds = %entry
   %79 = load i32, ptr %arrayidx.i, align 4
   %shr.i.i = lshr i32 %79, 23
   %and.i.i = and i32 %shr.i.i, 31
-  %phy_addr1.i = getelementptr inbounds i8, ptr %opaque, i64 19724
+  %phy_addr1.i = getelementptr inbounds nuw i8, ptr %opaque, i64 19724
   %80 = load i8, ptr %phy_addr1.i, align 4
   %conv.i = zext i8 %80 to i32
   %cmp.not.i166 = icmp eq i32 %and.i.i, %conv.i
@@ -796,7 +796,7 @@ if.end10.i:                                       ; preds = %sw.bb118
   ]
 
 sw.bb.i:                                          ; preds = %if.end10.i
-  %phy_regs.i.i = getelementptr inbounds i8, ptr %opaque, i64 19726
+  %phy_regs.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 19726
   %idxprom.i.i = zext nneg i32 %and.i17.i to i64
   %arrayidx.i.i169 = getelementptr [32 x i16], ptr %phy_regs.i.i, i64 0, i64 %idxprom.i.i
   %83 = load i16, ptr %arrayidx.i.i169, align 2
@@ -816,8 +816,8 @@ sw.bb.i.i168:                                     ; preds = %sw.bb23.i
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb.i.i168
-  %phy_regs.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 19726
-  %84 = getelementptr inbounds i8, ptr %opaque, i64 19748
+  %phy_regs.i.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 19726
+  %84 = getelementptr inbounds nuw i8, ptr %opaque, i64 19748
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %84, i8 0, i64 42, i1 false)
   store i16 4416, ptr %phy_regs.i.i.i, align 2
   %arrayidx4.i.i.i = getelementptr i8, ptr %opaque, i64 19728
@@ -854,10 +854,10 @@ if.then.i.i:                                      ; preds = %sw.bb.i.i168
   store i16 10, ptr %arrayidx34.i.i.i, align 2
   %arrayidx36.i.i.i = getelementptr i8, ptr %opaque, i64 19780
   store i16 -31605, ptr %arrayidx36.i.i.i, align 2
-  %nic.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 1184
+  %nic.i.i.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1184
   %85 = load ptr, ptr %nic.i.i.i.i, align 16
   %call.i.i.i.i = tail call ptr @qemu_get_queue(ptr noundef %85) #9
-  %link_down.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
+  %link_down.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i, i64 8
   %86 = load i32, ptr %link_down.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq i32 %86, 0
   %87 = load i16, ptr %arrayidx4.i.i.i, align 2
@@ -889,7 +889,7 @@ if.then7.i.i:                                     ; preds = %if.end.i.i
 
 if.end13.i.i:                                     ; preds = %if.then7.i.i, %if.end.i.i
   %val.addr.2.i.i = phi i16 [ %and9.i.i, %if.then7.i.i ], [ %val.addr.1.i.i, %if.end.i.i ]
-  %phy_loop21.i.i = getelementptr inbounds i8, ptr %opaque, i64 19790
+  %phy_loop21.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 19790
   %95 = lshr i16 %val.addr.2.i.i, 14
   %96 = trunc nuw nsw i16 %95 to i8
   store i8 %96, ptr %phy_loop21.i.i, align 2
@@ -897,7 +897,7 @@ if.end13.i.i:                                     ; preds = %if.then7.i.i, %if.e
 
 gem_phy_write.exit.i:                             ; preds = %if.end13.i.i, %sw.bb23.i
   %val.addr.0.i.i = phi i16 [ %conv24.i, %sw.bb23.i ], [ %val.addr.2.i.i, %if.end13.i.i ]
-  %phy_regs23.i.i = getelementptr inbounds i8, ptr %opaque, i64 19726
+  %phy_regs23.i.i = getelementptr inbounds nuw i8, ptr %opaque, i64 19726
   %idxprom.i22.i = zext nneg i32 %and.i17.i to i64
   %arrayidx24.i.i = getelementptr [32 x i16], ptr %phy_regs23.i.i, i64 0, i64 %idxprom.i22.i
   store i16 %val.addr.0.i.i, ptr %arrayidx24.i.i, align 2
@@ -929,19 +929,19 @@ gem_get_rx_desc_addr.exit:                        ; preds = %entry, %if.then.i.i
   %spec.select.i = phi i32 [ 4, %if.then.i.i ], [ 2, %entry ]
   %desc_addr.0.i.i = phi i64 [ %3, %if.then.i.i ], [ 0, %entry ]
   %idxprom6.i.i = sext i32 %q to i64
-  %rx_desc = getelementptr inbounds i8, ptr %s, i64 52624
+  %rx_desc = getelementptr inbounds nuw i8, ptr %s, i64 52624
   %arrayidx = getelementptr [8 x [6 x i32]], ptr %rx_desc, i64 0, i64 %idxprom6.i.i
   %and.i = lshr i32 %0, 27
   %4 = and i32 %and.i, 2
   %ret.1.i = add nuw nsw i32 %spec.select.i, %4
   %5 = shl nuw nsw i32 %ret.1.i, 2
   %mul = zext nneg i32 %5 to i64
-  %rx_desc_addr.i.i = getelementptr inbounds i8, ptr %s, i64 19792
+  %rx_desc_addr.i.i = getelementptr inbounds nuw i8, ptr %s, i64 19792
   %arrayidx9.i.i = getelementptr [8 x i32], ptr %rx_desc_addr.i.i, i64 0, i64 %idxprom6.i.i
   %cond10.i.i = load i32, ptr %arrayidx9.i.i, align 4
   %conv11.i.i = zext i32 %cond10.i.i to i64
   %or.i.i = or disjoint i64 %desc_addr.0.i.i, %conv11.i.i
-  %dma_as = getelementptr inbounds i8, ptr %s, i64 1096
+  %dma_as = getelementptr inbounds nuw i8, ptr %s, i64 1096
   %call13.i = tail call i32 @address_space_read_full(ptr noundef nonnull %dma_as, i64 noundef %or.i.i, i32 1, ptr noundef %arrayidx, i64 noundef %mul) #9
   %arrayidx.val = load i32, ptr %arrayidx, align 4
   %and.i40 = and i32 %arrayidx.val, 1
@@ -968,7 +968,7 @@ if.then.i:                                        ; preds = %do.end37
   br label %gem_set_isr.exit
 
 if.else.i42:                                      ; preds = %do.end37
-  %regs3.i = getelementptr inbounds i8, ptr %s, i64 9484
+  %regs3.i = getelementptr inbounds nuw i8, ptr %s, i64 9484
   %sub.i = add nsw i32 %q, 399
   %idxprom.i = sext i32 %sub.i to i64
   %arrayidx4.i = getelementptr [512 x i32], ptr %regs3.i, i64 0, i64 %idxprom.i
@@ -987,13 +987,13 @@ if.else.i42:                                      ; preds = %do.end37
 
 gem_set_isr.exit:                                 ; preds = %if.then.i, %if.else.i42
   %11 = phi i32 [ %or.i, %if.then.i ], [ %.pre, %if.else.i42 ]
-  %irq.i = getelementptr inbounds i8, ptr %s, i64 9408
+  %irq.i = getelementptr inbounds nuw i8, ptr %s, i64 9408
   %12 = load ptr, ptr %irq.i, align 16
-  %regs.i = getelementptr inbounds i8, ptr %s, i64 9484
+  %regs.i = getelementptr inbounds nuw i8, ptr %s, i64 9484
   %tobool.i = icmp ne i32 %11, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
   tail call void @qemu_set_irq(ptr noundef %12, i32 noundef %lnot.ext.i) #9
-  %num_priority_queues.i = getelementptr inbounds i8, ptr %s, i64 9472
+  %num_priority_queues.i = getelementptr inbounds nuw i8, ptr %s, i64 9472
   %13 = load i8, ptr %num_priority_queues.i, align 16
   %cmp9.i = icmp ugt i8 %13, 1
   br i1 %cmp9.i, label %for.body.i, label %if.end
@@ -1025,15 +1025,15 @@ entry:
   %addr1.i342 = alloca i64, align 8
   %desc = alloca [6 x i32], align 16
   %desc_first = alloca [6 x i32], align 16
-  %regs = getelementptr inbounds i8, ptr %s, i64 9484
+  %regs = getelementptr inbounds nuw i8, ptr %s, i64 9484
   %0 = load i32, ptr %regs, align 4
   %1 = and i32 %0, 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %for.end, label %do.end
 
 do.end:                                           ; preds = %entry
-  %tx_packet = getelementptr inbounds i8, ptr %s, i64 19857
-  %num_priority_queues = getelementptr inbounds i8, ptr %s, i64 9472
+  %tx_packet = getelementptr inbounds nuw i8, ptr %s, i64 19857
+  %num_priority_queues = getelementptr inbounds nuw i8, ptr %s, i64 9472
   %2 = load i8, ptr %num_priority_queues, align 16
   %cmp576.not = icmp eq i8 %2, 0
   br i1 %cmp576.not, label %for.end, label %for.body.lr.ph
@@ -1041,28 +1041,28 @@ do.end:                                           ; preds = %entry
 for.body.lr.ph:                                   ; preds = %do.end
   %arrayidx.i.i = getelementptr i8, ptr %s, i64 9500
   %arrayidx3.i.i = getelementptr i8, ptr %s, i64 10708
-  %tx_desc_addr.i.i = getelementptr inbounds i8, ptr %s, i64 19824
-  %dma_as = getelementptr inbounds i8, ptr %s, i64 1096
-  %current_map.i = getelementptr inbounds i8, ptr %s, i64 1128
-  %3 = getelementptr inbounds i8, ptr %desc, i64 4
-  %4 = getelementptr inbounds i8, ptr %desc, i64 8
+  %tx_desc_addr.i.i = getelementptr inbounds nuw i8, ptr %s, i64 19824
+  %dma_as = getelementptr inbounds nuw i8, ptr %s, i64 1096
+  %current_map.i = getelementptr inbounds nuw i8, ptr %s, i64 1128
+  %3 = getelementptr inbounds nuw i8, ptr %desc, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %desc, i64 8
   %arrayidx.i = getelementptr i8, ptr %s, i64 9488
   %arrayidx2.i = getelementptr i8, ptr %s, i64 9556
-  %jumbo_max_len.i = getelementptr inbounds i8, ptr %s, i64 9480
+  %jumbo_max_len.i = getelementptr inbounds nuw i8, ptr %s, i64 9480
   %sub.ptr.rhs.cast = ptrtoint ptr %tx_packet to i64
-  %arrayidx.i332 = getelementptr inbounds i8, ptr %desc_first, i64 4
+  %arrayidx.i332 = getelementptr inbounds nuw i8, ptr %desc_first, i64 4
   %arrayidx.i.i336 = getelementptr i8, ptr %s, i64 9512
   %arrayidx227 = getelementptr i8, ptr %s, i64 9504
   %arrayidx.i357 = getelementptr i8, ptr %s, i64 9532
   %arrayidx2.i360 = getelementptr i8, ptr %s, i64 9520
-  %irq.i = getelementptr inbounds i8, ptr %s, i64 9408
+  %irq.i = getelementptr inbounds nuw i8, ptr %s, i64 9408
   %arrayidx.i367 = getelementptr i8, ptr %s, i64 9740
   %arrayidx2.i370 = getelementptr i8, ptr %s, i64 9744
   %arrayidx12.i = getelementptr i8, ptr %s, i64 9748
   %arrayidx14.i = getelementptr i8, ptr %s, i64 9752
   %arrayidx21.i = getelementptr i8, ptr %s, i64 9756
-  %phy_loop = getelementptr inbounds i8, ptr %s, i64 19790
-  %nic = getelementptr inbounds i8, ptr %s, i64 1184
+  %phy_loop = getelementptr inbounds nuw i8, ptr %s, i64 19790
+  %nic = getelementptr inbounds nuw i8, ptr %s, i64 1184
   %5 = zext i8 %2 to i64
   br label %for.body
 
@@ -1280,7 +1280,7 @@ gem_get_tx_desc_addr.exit298:                     ; preds = %if.then136, %if.the
   %bf.set142 = and i32 %.compoundliteral139.sroa.0.1551, -67108864
   %bf.clear144 = or disjoint i32 %bf.set142, 1
   %call.i.i299 = call ptr @get_ptr_rcu_reader() #9
-  %depth.i.i300 = getelementptr inbounds i8, ptr %call.i.i299, i64 12
+  %depth.i.i300 = getelementptr inbounds nuw i8, ptr %call.i.i299, i64 12
   %40 = load i32, ptr %depth.i.i300, align 4
   %inc.i.i301 = add i32 %40, 1
   store i32 %inc.i.i301, ptr %depth.i.i300, align 4
@@ -1316,19 +1316,19 @@ land.lhs.true6.i315:                              ; preds = %land.lhs.true.i360
   br i1 %call7.i316, label %lor.rhs.i309, label %if.then6.i362
 
 lor.rhs.i309:                                     ; preds = %land.lhs.true6.i315, %land.lhs.true.i360
-  %rom_device.i.i310 = getelementptr inbounds i8, ptr %call4.i355, i64 45
+  %rom_device.i.i310 = getelementptr inbounds nuw i8, ptr %call4.i355, i64 45
   %46 = load i8, ptr %rom_device.i.i310, align 1
   %tobool.i7.i311 = trunc i8 %46 to i1
   br i1 %tobool.i7.i311, label %memory_access_is_direct.exit317, label %if.else.i357
 
 memory_access_is_direct.exit317:                  ; preds = %lor.rhs.i309
-  %romd_mode.i.i313 = getelementptr inbounds i8, ptr %call4.i355, i64 40
+  %romd_mode.i.i313 = getelementptr inbounds nuw i8, ptr %call4.i355, i64 40
   %47 = load i8, ptr %romd_mode.i.i313, align 8
   %tobool1.i.i314 = trunc i8 %47 to i1
   br i1 %tobool1.i.i314, label %if.then6.i362, label %if.else.i357
 
 if.then6.i362:                                    ; preds = %land.lhs.true6.i315, %memory_access_is_direct.exit317
-  %ram_block.i363 = getelementptr inbounds i8, ptr %call4.i355, i64 56
+  %ram_block.i363 = getelementptr inbounds nuw i8, ptr %call4.i355, i64 56
   %48 = load ptr, ptr %ram_block.i363, align 8
   %49 = load i64, ptr %addr1.i342, align 8
   %call7.i364 = call ptr @qemu_map_ram_ptr(ptr noundef %48, i64 noundef %49) #9
@@ -1343,7 +1343,7 @@ if.else.i357:                                     ; preds = %lor.rhs.i309, %memo
 
 if.then.i.i319:                                   ; preds = %if.then6.i362, %if.else.i357
   %call.i.i.i.i320 = call ptr @get_ptr_rcu_reader() #9
-  %depth.i.i.i.i321 = getelementptr inbounds i8, ptr %call.i.i.i.i320, i64 12
+  %depth.i.i.i.i321 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i320, i64 12
   %52 = load i32, ptr %depth.i.i.i.i321, align 4
   %cmp.not.i.i.i.i322 = icmp eq i32 %52, 0
   br i1 %cmp.not.i.i.i.i322, label %if.else.i.i.i.i330, label %if.end.i.i.i.i323
@@ -1362,7 +1362,7 @@ while.end.i.i.i.i326:                             ; preds = %if.end.i.i.i.i323
   store atomic i64 0, ptr %call.i.i.i.i320 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
   fence seq_cst
-  %waiting.i.i.i.i327 = getelementptr inbounds i8, ptr %call.i.i.i.i320, i64 8
+  %waiting.i.i.i.i327 = getelementptr inbounds nuw i8, ptr %call.i.i.i.i320, i64 8
   %53 = load atomic i8, ptr %waiting.i.i.i.i327 monotonic, align 8
   %tobool.i.i.i.i328 = trunc i8 %53 to i1
   br i1 %tobool.i.i.i.i328, label %while.end21.i.i.i.i329, label %glib_autoptr_cleanup_RCUReadAuto.exit331
@@ -1721,15 +1721,15 @@ for.end:                                          ; preds = %for.inc, %while.bod
 define internal noundef zeroext i1 @gem_can_receive(ptr noundef %nc) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #9
-  %regs = getelementptr inbounds i8, ptr %call, i64 9484
+  %regs = getelementptr inbounds nuw i8, ptr %call, i64 9484
   %0 = load i32, ptr %regs, align 4
   %1 = and i32 %0, 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %rx_desc = getelementptr inbounds i8, ptr %call, i64 52624
-  %num_priority_queues = getelementptr inbounds i8, ptr %call, i64 9472
+  %rx_desc = getelementptr inbounds nuw i8, ptr %call, i64 52624
+  %num_priority_queues = getelementptr inbounds nuw i8, ptr %call, i64 9472
   %2 = load i8, ptr %num_priority_queues, align 16
   %conv6 = zext i8 %2 to i32
   %cmp714.not = icmp eq i8 %2, 0
@@ -1740,7 +1740,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   br label %for.body
 
 if.then:                                          ; preds = %entry
-  %can_rx_state = getelementptr inbounds i8, ptr %call, i64 19856
+  %can_rx_state = getelementptr inbounds nuw i8, ptr %call, i64 19856
   %3 = load i8, ptr %can_rx_state, align 16
   %cmp.not = icmp eq i8 %3, 1
   br i1 %cmp.not, label %return, label %if.then3
@@ -1772,7 +1772,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp17, label %if.then19, label %if.end29
 
 if.then19:                                        ; preds = %for.inc, %for.end
-  %can_rx_state20 = getelementptr inbounds i8, ptr %call, i64 19856
+  %can_rx_state20 = getelementptr inbounds nuw i8, ptr %call, i64 19856
   %5 = load i8, ptr %can_rx_state20, align 16
   %cmp22.not = icmp eq i8 %5, 2
   br i1 %cmp22.not, label %return, label %if.then24
@@ -1782,7 +1782,7 @@ if.then24:                                        ; preds = %if.then19
   br label %return
 
 if.end29:                                         ; preds = %for.end
-  %can_rx_state30 = getelementptr inbounds i8, ptr %call, i64 19856
+  %can_rx_state30 = getelementptr inbounds nuw i8, ptr %call, i64 19856
   %6 = load i8, ptr %can_rx_state30, align 16
   %cmp32.not = icmp eq i8 %6, 0
   br i1 %cmp32.not, label %return, label %if.then34
@@ -1839,8 +1839,8 @@ declare ptr @qemu_get_nic_opaque(ptr noundef) local_unnamed_addr #1
 define internal void @gem_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.CADENCE_GEM) #9
-  %dma_as = getelementptr inbounds i8, ptr %call.i, i64 1096
-  %dma_mr = getelementptr inbounds i8, ptr %call.i, i64 1088
+  %dma_as = getelementptr inbounds nuw i8, ptr %call.i, i64 1096
+  %dma_mr = getelementptr inbounds nuw i8, ptr %call.i, i64 1088
   %0 = load ptr, ptr %dma_mr, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -1852,7 +1852,7 @@ cond.false:                                       ; preds = %entry
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi ptr [ %call2, %cond.false ], [ %0, %entry ]
   tail call void @address_space_init(ptr noundef nonnull %dma_as, ptr noundef %cond, ptr noundef nonnull @.str.16) #9
-  %num_priority_queues = getelementptr inbounds i8, ptr %call.i, i64 9472
+  %num_priority_queues = getelementptr inbounds nuw i8, ptr %call.i, i64 9472
   %1 = load i8, ptr %num_priority_queues, align 16
   %2 = add i8 %1, -9
   %or.cond = icmp ult i8 %2, -8
@@ -1864,7 +1864,7 @@ if.then:                                          ; preds = %cond.end
   br label %if.end37
 
 if.else:                                          ; preds = %cond.end
-  %num_type1_screeners = getelementptr inbounds i8, ptr %call.i, i64 9473
+  %num_type1_screeners = getelementptr inbounds nuw i8, ptr %call.i, i64 9473
   %3 = load i8, ptr %num_type1_screeners, align 1
   %cmp11 = icmp ugt i8 %3, 16
   br i1 %cmp11, label %if.then13, label %if.else16
@@ -1875,13 +1875,13 @@ if.then13:                                        ; preds = %if.else
   br label %if.end37
 
 if.else16:                                        ; preds = %if.else
-  %num_type2_screeners = getelementptr inbounds i8, ptr %call.i, i64 9474
+  %num_type2_screeners = getelementptr inbounds nuw i8, ptr %call.i, i64 9474
   %4 = load i8, ptr %num_type2_screeners, align 2
   %cmp18 = icmp ugt i8 %4, 16
   br i1 %cmp18, label %if.then20, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else16
-  %irq = getelementptr inbounds i8, ptr %call.i, i64 9408
+  %irq = getelementptr inbounds nuw i8, ptr %call.i, i64 9408
   br label %for.body
 
 if.then20:                                        ; preds = %if.else16
@@ -1901,16 +1901,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp27, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body
-  %conf = getelementptr inbounds i8, ptr %call.i, i64 1192
+  %conf = getelementptr inbounds nuw i8, ptr %call.i, i64 1192
   tail call void @qemu_macaddr_default_if_unset(ptr noundef nonnull %conf) #9
   %call31 = tail call ptr @object_get_typename(ptr noundef %dev) #9
-  %id = getelementptr inbounds i8, ptr %dev, i64 40
+  %id = getelementptr inbounds nuw i8, ptr %dev, i64 40
   %7 = load ptr, ptr %id, align 8
-  %mem_reentrancy_guard = getelementptr inbounds i8, ptr %dev, i64 152
+  %mem_reentrancy_guard = getelementptr inbounds nuw i8, ptr %dev, i64 152
   %call32 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_gem_info, ptr noundef nonnull %conf, ptr noundef %call31, ptr noundef %7, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef nonnull %call.i) #9
-  %nic = getelementptr inbounds i8, ptr %call.i, i64 1184
+  %nic = getelementptr inbounds nuw i8, ptr %call.i, i64 1184
   store ptr %call32, ptr %nic, align 16
-  %jumbo_max_len = getelementptr inbounds i8, ptr %call.i, i64 9480
+  %jumbo_max_len = getelementptr inbounds nuw i8, ptr %call.i, i64 9480
   %8 = load i16, ptr %jumbo_max_len, align 8
   %cmp34 = icmp ugt i16 %8, 16383
   br i1 %cmp34, label %if.then36, label %if.end37
@@ -1929,7 +1929,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @gem_reset(ptr noundef %d) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.CADENCE_GEM) #9
-  %regs = getelementptr inbounds i8, ptr %call.i, i64 9484
+  %regs = getelementptr inbounds nuw i8, ptr %call.i, i64 9484
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2048) %regs, i8 0, i64 2048, i1 false)
   %arrayidx2 = getelementptr i8, ptr %call.i, i64 9488
   store i32 524288, ptr %arrayidx2, align 4
@@ -1945,13 +1945,13 @@ entry:
   store i32 1023, ptr %arrayidx12, align 4
   %arrayidx14 = getelementptr i8, ptr %call.i, i64 9552
   store i32 1023, ptr %arrayidx14, align 4
-  %revision = getelementptr inbounds i8, ptr %call.i, i64 9476
+  %revision = getelementptr inbounds nuw i8, ptr %call.i, i64 9476
   %0 = load i32, ptr %revision, align 4
   %arrayidx16 = getelementptr i8, ptr %call.i, i64 9736
   store i32 %0, ptr %arrayidx16, align 4
   %arrayidx18 = getelementptr i8, ptr %call.i, i64 10124
   store i32 47186193, ptr %arrayidx18, align 4
-  %jumbo_max_len = getelementptr inbounds i8, ptr %call.i, i64 9480
+  %jumbo_max_len = getelementptr inbounds nuw i8, ptr %call.i, i64 9480
   %1 = load i16, ptr %jumbo_max_len, align 8
   %conv = zext i16 %1 to i32
   %or = or disjoint i32 %conv, 716242944
@@ -1965,7 +1965,7 @@ entry:
   store i32 3302, ptr %arrayidx26, align 4
   %arrayidx30 = getelementptr i8, ptr %call.i, i64 9556
   store i32 %conv, ptr %arrayidx30, align 4
-  %num_priority_queues = getelementptr inbounds i8, ptr %call.i, i64 9472
+  %num_priority_queues = getelementptr inbounds nuw i8, ptr %call.i, i64 9472
   %2 = load i8, ptr %num_priority_queues, align 16
   %cmp = icmp ugt i8 %2, 1
   br i1 %cmp, label %if.then, label %if.end
@@ -1982,7 +1982,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %conf = getelementptr inbounds i8, ptr %call.i, i64 1192
+  %conf = getelementptr inbounds nuw i8, ptr %call.i, i64 1192
   %3 = load i32, ptr %conf, align 1
   %arrayidx57 = getelementptr i8, ptr %call.i, i64 9620
   store i32 %3, ptr %arrayidx57, align 4
@@ -1991,10 +1991,10 @@ if.end:                                           ; preds = %if.then, %entry
   %5 = zext i16 %4 to i32
   %arrayidx65 = getelementptr i8, ptr %call.i, i64 9624
   store i32 %5, ptr %arrayidx65, align 4
-  %sar_active = getelementptr inbounds i8, ptr %call.i, i64 52816
+  %sar_active = getelementptr inbounds nuw i8, ptr %call.i, i64 52816
   store i32 0, ptr %sar_active, align 1
-  %phy_regs.i = getelementptr inbounds i8, ptr %call.i, i64 19726
-  %6 = getelementptr inbounds i8, ptr %call.i, i64 19748
+  %phy_regs.i = getelementptr inbounds nuw i8, ptr %call.i, i64 19726
+  %6 = getelementptr inbounds nuw i8, ptr %call.i, i64 19748
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %6, i8 0, i64 42, i1 false)
   store i16 4416, ptr %phy_regs.i, align 2
   %arrayidx4.i = getelementptr i8, ptr %call.i, i64 19728
@@ -2031,10 +2031,10 @@ if.end:                                           ; preds = %if.then, %entry
   store i16 10, ptr %arrayidx34.i, align 2
   %arrayidx36.i = getelementptr i8, ptr %call.i, i64 19780
   store i16 -31605, ptr %arrayidx36.i, align 2
-  %nic.i.i = getelementptr inbounds i8, ptr %call.i, i64 1184
+  %nic.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1184
   %7 = load ptr, ptr %nic.i.i, align 16
   %call.i.i = tail call ptr @qemu_get_queue(ptr noundef %7) #9
-  %link_down.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %link_down.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %8 = load i32, ptr %link_down.i.i, align 8
   %tobool.not.i.i = icmp eq i32 %8, 0
   %9 = load i16, ptr %arrayidx4.i, align 2
@@ -2047,7 +2047,7 @@ if.end:                                           ; preds = %if.then, %entry
   %11 = load i16, ptr %arrayidx12.i.i, align 2
   %12 = or i16 %11, %.sink6.i.i
   store i16 %12, ptr %arrayidx12.i.i, align 2
-  %irq.i = getelementptr inbounds i8, ptr %call.i, i64 9408
+  %irq.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9408
   %13 = load ptr, ptr %irq.i, align 16
   %arrayidx1.i = getelementptr i8, ptr %call.i, i64 9520
   %14 = load i32, ptr %arrayidx1.i, align 4
@@ -2226,7 +2226,7 @@ if.then31.i:                                      ; preds = %calc_mac_hash.exit.
 
 if.end34.i:                                       ; preds = %calc_mac_hash.exit.i, %land.lhs.true18.i, %land.lhs.true.i
   %arrayidx36.i = getelementptr i8, ptr %call, i64 9620
-  %sar_active.i = getelementptr inbounds i8, ptr %call, i64 52816
+  %sar_active.i = getelementptr inbounds nuw i8, ptr %call, i64 52816
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end34.i
@@ -2296,7 +2296,7 @@ if.then36:                                        ; preds = %if.end16
 if.else:                                          ; preds = %if.end16
   %spec.store.select1 = tail call i64 @llvm.umin.i64(i64 %spec.store.select2, i64 16379)
   %conv41 = trunc nuw nsw i64 %spec.store.select1 to i32
-  %rx_packet = getelementptr inbounds i8, ptr %call, i64 36240
+  %rx_packet = getelementptr inbounds nuw i8, ptr %call, i64 36240
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %rx_packet, ptr noundef nonnull align 1 dereferenceable(1) %buf, i64 %spec.store.select1, i1 false)
   %add.ptr = getelementptr i8, ptr %rx_packet, i64 %spec.store.select1
   %sub = xor i64 %spec.store.select1, 16383
@@ -2312,13 +2312,13 @@ do.end:                                           ; preds = %if.else, %if.then36
   %rxbuf_ptr.0 = phi ptr [ %buf, %if.then36 ], [ %rx_packet, %if.else ]
   %bytes_to_copy.0 = phi i32 [ %conv23, %if.then36 ], [ %add, %if.else ]
   %size.addr.0 = phi i64 [ %spec.store.select2, %if.then36 ], [ %add57, %if.else ]
-  %num_type1_screeners.i = getelementptr inbounds i8, ptr %call, i64 9473
+  %num_type1_screeners.i = getelementptr inbounds nuw i8, ptr %call, i64 9473
   %26 = load i8, ptr %num_type1_screeners.i, align 1
   %cmp91.not.i = icmp eq i8 %26, 0
   br i1 %cmp91.not.i, label %for.cond31.preheader.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %do.end
-  %regs.i = getelementptr inbounds i8, ptr %call, i64 9484
+  %regs.i = getelementptr inbounds nuw i8, ptr %call, i64 9484
   %arrayidx2.i = getelementptr i8, ptr %rxbuf_ptr.0, i64 36
   %arrayidx4.i = getelementptr i8, ptr %rxbuf_ptr.0, i64 37
   %arrayidx16.i = getelementptr i8, ptr %rxbuf_ptr.0, i64 15
@@ -2331,13 +2331,13 @@ for.cond.i:                                       ; preds = %if.end24.i
   br i1 %exitcond.not.i, label %for.cond31.preheader.i, label %for.body.i136, !llvm.loop !21
 
 for.cond31.preheader.i:                           ; preds = %for.cond.i, %do.end
-  %num_type2_screeners.i = getelementptr inbounds i8, ptr %call, i64 9474
+  %num_type2_screeners.i = getelementptr inbounds nuw i8, ptr %call, i64 9474
   %27 = load i8, ptr %num_type2_screeners.i, align 2
   %cmp3397.not.i = icmp eq i8 %27, 0
   br i1 %cmp3397.not.i, label %get_queue_from_screen.exit, label %for.body35.lr.ph.i
 
 for.body35.lr.ph.i:                               ; preds = %for.cond31.preheader.i
-  %regs36.i = getelementptr inbounds i8, ptr %call, i64 9484
+  %regs36.i = getelementptr inbounds nuw i8, ptr %call, i64 9484
   %arrayidx43.i = getelementptr i8, ptr %rxbuf_ptr.0, i64 12
   %arrayidx46.i = getelementptr i8, ptr %rxbuf_ptr.0, i64 13
   br label %for.body35.i
@@ -2566,7 +2566,7 @@ get_queue_from_screen.exit:                       ; preds = %for.cond31.i, %for.
 if.then.i144:                                     ; preds = %get_queue_from_screen.exit
   %arrayidx2.i145 = getelementptr i8, ptr %call, i64 9556
   %59 = load i32, ptr %arrayidx2.i145, align 4
-  %jumbo_max_len.i = getelementptr inbounds i8, ptr %call, i64 9480
+  %jumbo_max_len.i = getelementptr inbounds nuw i8, ptr %call, i64 9480
   %60 = load i16, ptr %jumbo_max_len.i, align 8
   %conv.i = zext i16 %60 to i32
   %cmp.i = icmp ugt i32 %59, %conv.i
@@ -2603,8 +2603,8 @@ while.cond.preheader.while.end_crit_edge:         ; preds = %while.cond.preheade
   br label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %dma_as = getelementptr inbounds i8, ptr %call, i64 1096
-  %rx_desc = getelementptr inbounds i8, ptr %call, i64 52624
+  %dma_as = getelementptr inbounds nuw i8, ptr %call, i64 1096
+  %rx_desc = getelementptr inbounds nuw i8, ptr %call, i64 52624
   %idxprom = zext nneg i32 %retval.0.i140 to i64
   %arrayidx80 = getelementptr [8 x [6 x i32]], ptr %rx_desc, i64 0, i64 %idxprom
   %arrayidx2.i174 = getelementptr i8, ptr %arrayidx80, i64 8
@@ -2614,10 +2614,10 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %shl57.i.i = shl i32 %retval.0.i256, 25
   %and6.i.i = and i32 %shl57.i.i, 100663296
   %arrayidx3.i.i = getelementptr i8, ptr %call, i64 10720
-  %rx_desc_addr.i.i = getelementptr inbounds i8, ptr %call, i64 19792
+  %rx_desc_addr.i.i = getelementptr inbounds nuw i8, ptr %call, i64 19792
   %arrayidx9.i.i = getelementptr [8 x i32], ptr %rx_desc_addr.i.i, i64 0, i64 %idxprom
   %trunc.i201 = trunc nuw nsw i32 %retval.0.i140 to i16
-  %regs2.i.i = getelementptr inbounds i8, ptr %call, i64 9484
+  %regs2.i.i = getelementptr inbounds nuw i8, ptr %call, i64 9484
   %sub.i.i = add nuw nsw i32 %retval.0.i140, 287
   %idxprom5.i.i = zext nneg i32 %sub.i.i to i64
   %arrayidx6.i.i = getelementptr [512 x i32], ptr %regs2.i.i, i64 0, i64 %idxprom5.i.i
@@ -2652,7 +2652,7 @@ if.then.i154:                                     ; preds = %do.end72
   br label %return
 
 if.else.i151:                                     ; preds = %do.end72
-  %regs3.i = getelementptr inbounds i8, ptr %call, i64 9484
+  %regs3.i = getelementptr inbounds nuw i8, ptr %call, i64 9484
   %sub.i = add nuw nsw i32 %retval.0.i140, 399
   %idxprom.i = zext nneg i32 %sub.i to i64
   %arrayidx4.i152 = getelementptr [512 x i32], ptr %regs3.i, i64 0, i64 %idxprom.i
@@ -2672,15 +2672,15 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %rxbuf_ptr.1277 = phi ptr [ %rxbuf_ptr.0, %while.body.lr.ph ], [ %add.ptr128, %if.end248 ]
   %68 = phi i32 [ 16384, %while.body.lr.ph ], [ 0, %if.end248 ]
   %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #9
-  %regs.i159 = getelementptr inbounds i8, ptr %call.i, i64 9484
+  %regs.i159 = getelementptr inbounds nuw i8, ptr %call.i, i64 9484
   %69 = load i32, ptr %regs.i159, align 4
   %70 = and i32 %69, 4
   %tobool.not.i160 = icmp eq i32 %70, 0
   br i1 %tobool.not.i160, label %if.then.i168, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.body
-  %rx_desc.i = getelementptr inbounds i8, ptr %call.i, i64 52624
-  %num_priority_queues.i = getelementptr inbounds i8, ptr %call.i, i64 9472
+  %rx_desc.i = getelementptr inbounds nuw i8, ptr %call.i, i64 52624
+  %num_priority_queues.i = getelementptr inbounds nuw i8, ptr %call.i, i64 9472
   %71 = load i8, ptr %num_priority_queues.i, align 16
   %conv6.i = zext i8 %71 to i32
   %cmp714.not.i = icmp eq i8 %71, 0
@@ -2691,7 +2691,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
   br label %for.body.i162
 
 if.then.i168:                                     ; preds = %while.body
-  %can_rx_state.i = getelementptr inbounds i8, ptr %call.i, i64 19856
+  %can_rx_state.i = getelementptr inbounds nuw i8, ptr %call.i, i64 19856
   %72 = load i8, ptr %can_rx_state.i, align 16
   %cmp.not.i169 = icmp eq i8 %72, 1
   br i1 %cmp.not.i169, label %return, label %if.then3.i170
@@ -2723,7 +2723,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br i1 %cmp17.i, label %if.then19.i, label %if.end29.i
 
 if.then19.i:                                      ; preds = %for.end.i, %for.inc.i164
-  %can_rx_state20.i = getelementptr inbounds i8, ptr %call.i, i64 19856
+  %can_rx_state20.i = getelementptr inbounds nuw i8, ptr %call.i, i64 19856
   %74 = load i8, ptr %can_rx_state20.i, align 16
   %cmp22.not.i = icmp eq i8 %74, 2
   br i1 %cmp22.not.i, label %return, label %if.then24.i
@@ -2733,7 +2733,7 @@ if.then24.i:                                      ; preds = %if.then19.i
   br label %return
 
 if.end29.i:                                       ; preds = %for.end.i
-  %can_rx_state30.i = getelementptr inbounds i8, ptr %call.i, i64 19856
+  %can_rx_state30.i = getelementptr inbounds nuw i8, ptr %call.i, i64 19856
   %75 = load i8, ptr %can_rx_state30.i, align 16
   %cmp32.not.i = icmp eq i8 %75, 0
   br i1 %cmp32.not.i, label %do.end79, label %if.then34.i
@@ -2973,7 +2973,7 @@ if.then.i239:                                     ; preds = %gem_receive_updates
   br label %gem_set_isr.exit245
 
 if.else.i227:                                     ; preds = %gem_receive_updatestats.exit
-  %regs3.i228 = getelementptr inbounds i8, ptr %call, i64 9484
+  %regs3.i228 = getelementptr inbounds nuw i8, ptr %call, i64 9484
   %sub.i229 = add nuw nsw i32 %retval.0.i140, 399
   %idxprom.i230 = zext nneg i32 %sub.i229 to i64
   %arrayidx4.i231 = getelementptr [512 x i32], ptr %regs3.i228, i64 0, i64 %idxprom.i230
@@ -2992,13 +2992,13 @@ if.else.i227:                                     ; preds = %gem_receive_updates
 
 gem_set_isr.exit245:                              ; preds = %if.then.i239, %if.else.i227
   %103 = phi i32 [ %or.i244, %if.then.i239 ], [ %.pre, %if.else.i227 ]
-  %irq.i = getelementptr inbounds i8, ptr %call, i64 9408
+  %irq.i = getelementptr inbounds nuw i8, ptr %call, i64 9408
   %104 = load ptr, ptr %irq.i, align 16
-  %regs.i246 = getelementptr inbounds i8, ptr %call, i64 9484
+  %regs.i246 = getelementptr inbounds nuw i8, ptr %call, i64 9484
   %tobool.i = icmp ne i32 %103, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
   tail call void @qemu_set_irq(ptr noundef %104, i32 noundef %lnot.ext.i) #9
-  %num_priority_queues.i247 = getelementptr inbounds i8, ptr %call, i64 9472
+  %num_priority_queues.i247 = getelementptr inbounds nuw i8, ptr %call, i64 9472
   %105 = load i8, ptr %num_priority_queues.i247, align 16
   %cmp9.i248 = icmp ugt i8 %105, 1
   br i1 %cmp9.i248, label %for.body.i250, label %return
@@ -3028,10 +3028,10 @@ return:                                           ; preds = %for.inc.i, %for.bod
 define internal void @gem_set_link(ptr noundef %nc) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #9
-  %nic.i = getelementptr inbounds i8, ptr %call, i64 1184
+  %nic.i = getelementptr inbounds nuw i8, ptr %call, i64 1184
   %0 = load ptr, ptr %nic.i, align 16
   %call.i = tail call ptr @qemu_get_queue(ptr noundef %0) #9
-  %link_down.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %link_down.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %1 = load i32, ptr %link_down.i, align 8
   %tobool.not.i = icmp eq i32 %1, 0
   %arrayidx7.i = getelementptr i8, ptr %call, i64 19728
@@ -3045,15 +3045,15 @@ entry:
   %4 = load i16, ptr %arrayidx12.i, align 2
   %5 = or i16 %4, %.sink6.i
   store i16 %5, ptr %arrayidx12.i, align 2
-  %irq.i = getelementptr inbounds i8, ptr %call, i64 9408
+  %irq.i = getelementptr inbounds nuw i8, ptr %call, i64 9408
   %6 = load ptr, ptr %irq.i, align 16
-  %regs.i = getelementptr inbounds i8, ptr %call, i64 9484
+  %regs.i = getelementptr inbounds nuw i8, ptr %call, i64 9484
   %arrayidx1.i = getelementptr i8, ptr %call, i64 9520
   %7 = load i32, ptr %arrayidx1.i, align 4
   %tobool.i = icmp ne i32 %7, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
   tail call void @qemu_set_irq(ptr noundef %6, i32 noundef %lnot.ext.i) #9
-  %num_priority_queues.i = getelementptr inbounds i8, ptr %call, i64 9472
+  %num_priority_queues.i = getelementptr inbounds nuw i8, ptr %call, i64 9472
   %8 = load i8, ptr %num_priority_queues.i, align 16
   %cmp9.i = icmp ugt i8 %8, 1
   br i1 %cmp9.i, label %for.body.i, label %gem_update_int_status.exit

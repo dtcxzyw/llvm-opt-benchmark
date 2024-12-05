@@ -31,11 +31,11 @@ $_ZTIN9grpc_core10RefCountedINS_11ThreadQuotaENS_19PolymorphicRefCountENS_11Unre
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN9grpc_core11ThreadQuotaC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %refs_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11ThreadQuotaE, i64 16), ptr %this, align 8
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
-  %max_ = getelementptr inbounds i8, ptr %this, i64 32
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %max_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu_, i8 0, i64 16, i1 false)
   store i64 -1, ptr %max_, align 8
   ret void
@@ -47,7 +47,7 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN9grpc_core11ThreadQuotaD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11ThreadQuotaE, i64 16), ptr %this, align 8
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #10
   ret void
 }
@@ -69,9 +69,9 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core11ThreadQuota6SetMaxEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %new_max) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %max_ = getelementptr inbounds i8, ptr %this, i64 32
+  %max_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %new_max, ptr %max_, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -90,12 +90,12 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN9grpc_core11ThreadQuota7ReserveEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %num_threads) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %allocated_ = getelementptr inbounds i8, ptr %this, i64 24
+  %allocated_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %allocated_, align 8
   %add = add i64 %0, %num_threads
-  %max_ = getelementptr inbounds i8, ptr %this, i64 32
+  %max_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i64, ptr %max_, align 8
   %cmp = icmp ule i64 %add, %1
   br i1 %cmp, label %if.end, label %cleanup
@@ -122,9 +122,9 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %cleanup
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core11ThreadQuota7ReleaseEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %num_threads) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
+  %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %allocated_ = getelementptr inbounds i8, ptr %this, i64 24
+  %allocated_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %allocated_, align 8
   %cmp.not = icmp ugt i64 %num_threads, %0
   br i1 %cmp.not, label %if.then, label %do.end

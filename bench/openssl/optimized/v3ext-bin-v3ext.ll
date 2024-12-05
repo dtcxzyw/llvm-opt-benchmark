@@ -515,8 +515,8 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool5.not, label %end, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %arrayidx = getelementptr inbounds [18 x %struct.ip_ranges_st], ptr @ranges, i64 0, i64 %i.027
-  %ip18 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw [18 x %struct.ip_ranges_st], ptr @ranges, i64 0, i64 %i.027
+  %ip18 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %ip18, align 8
   %call9 = tail call ptr @a2i_IPADDRESS(ptr noundef %0) #5
   %call10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 193, ptr noundef nonnull @.str.58, ptr noundef %call9) #5
@@ -534,7 +534,7 @@ if.end13:                                         ; preds = %if.end7
   br i1 %tobool22.not, label %end, label %if.end24
 
 if.end24:                                         ; preds = %if.end13
-  %ip226 = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %ip226 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %ip226, align 16
   %call27 = tail call ptr @a2i_IPADDRESS(ptr noundef %2) #5
   %call28 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 198, ptr noundef nonnull @.str.60, ptr noundef %call27) #5
@@ -549,9 +549,9 @@ if.end31:                                         ; preds = %if.end24
   br i1 %tobool35.not, label %end, label %if.end37
 
 if.end37:                                         ; preds = %if.end31
-  %data = getelementptr inbounds i8, ptr %call9, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call9, i64 8
   %5 = load ptr, ptr %data, align 8
-  %data38 = getelementptr inbounds i8, ptr %call27, i64 8
+  %data38 = getelementptr inbounds nuw i8, ptr %call27, i64 8
   %6 = load ptr, ptr %data38, align 8
   %7 = load i32, ptr %call9, align 8
   %conv40 = sext i32 %7 to i64
@@ -582,7 +582,7 @@ if.end59:                                         ; preds = %if.end49
   br i1 %tobool64.not, label %end, label %if.end66
 
 if.end66:                                         ; preds = %if.end59
-  %rorp = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %rorp = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %11 = load i32, ptr %rorp, align 8
   %call1.i = tail call i32 @OPENSSL_sk_num(ptr noundef %call) #5
   %call2.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 151, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str.84, i32 noundef %call1.i, i32 noundef 1) #5
@@ -596,7 +596,7 @@ if.end.i:                                         ; preds = %if.end66
   br i1 %tobool6.not.i, label %end, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
-  %ipAddressChoice.i = getelementptr inbounds i8, ptr %call4.i, i64 8
+  %ipAddressChoice.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 8
   %12 = load ptr, ptr %ipAddressChoice.i, align 8
   %13 = load i32, ptr %12, align 8
   %call10.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 158, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i32 noundef %13, i32 noundef 1) #5
@@ -605,7 +605,7 @@ if.end8.i:                                        ; preds = %if.end.i
 
 if.end13.i:                                       ; preds = %if.end8.i
   %14 = load ptr, ptr %ipAddressChoice.i, align 8
-  %u.i = getelementptr inbounds i8, ptr %14, i64 8
+  %u.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %u.i, align 8
   %call16.i = tail call i32 @OPENSSL_sk_num(ptr noundef %15) #5
   %call17.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 161, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.84, i32 noundef %call16.i, i32 noundef 1) #5
@@ -614,7 +614,7 @@ if.end13.i:                                       ; preds = %if.end8.i
 
 if.end20.i:                                       ; preds = %if.end13.i
   %16 = load ptr, ptr %ipAddressChoice.i, align 8
-  %u22.i = getelementptr inbounds i8, ptr %16, i64 8
+  %u22.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load ptr, ptr %u22.i, align 8
   %call24.i = tail call ptr @OPENSSL_sk_value(ptr noundef %17, i32 noundef 0) #5
   %call25.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 165, ptr noundef nonnull @.str.89, ptr noundef %call24.i) #5
@@ -656,7 +656,7 @@ entry:
 for.body:                                         ; preds = %entry, %if.end43
   %i.016 = phi i64 [ 0, %entry ], [ %inc, %if.end43 ]
   %testresult.015 = phi i32 [ 1, %entry ], [ %testresult.1, %if.end43 ]
-  %arrayidx = getelementptr inbounds [26 x %struct.extvalues_st], ptr @extvalues, i64 0, i64 %i.016
+  %arrayidx = getelementptr inbounds nuw [26 x %struct.extvalues_st], ptr @extvalues, i64 0, i64 %i.016
   %0 = load ptr, ptr %arrayidx, align 16
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %conv = trunc i64 %call to i32
@@ -685,7 +685,7 @@ if.end10:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end10
   call void @X509V3_set_ctx(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #5
   call void @X509V3_set_nconf(ptr noundef nonnull %ctx, ptr noundef %call5) #5
-  %pass = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %pass = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load i32, ptr %pass, align 8
   %tobool17.not = icmp eq i32 %1, 0
   br i1 %tobool17.not, label %if.else28, label %if.then18
@@ -755,9 +755,9 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool9.not, label %end, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
-  %data = getelementptr inbounds i8, ptr %call2, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call2, i64 8
   %0 = load ptr, ptr %data, align 8
-  %data12 = getelementptr inbounds i8, ptr %call7, i64 8
+  %data12 = getelementptr inbounds nuw i8, ptr %call7, i64 8
   %1 = load ptr, ptr %data12, align 8
   %call13 = tail call i32 @X509v3_addr_add_range(ptr noundef %call, i32 noundef 1, ptr noundef null, ptr noundef %0, ptr noundef %1) #5
   %cmp = icmp ne i32 %call13, 0
@@ -776,22 +776,22 @@ if.end17:                                         ; preds = %if.end11
 
 if.end24:                                         ; preds = %if.end17
   store i8 0, ptr %key, align 1
-  %arrayidx28 = getelementptr inbounds i8, ptr %key, i64 1
+  %arrayidx28 = getelementptr inbounds nuw i8, ptr %key, i64 1
   store i8 1, ptr %arrayidx28, align 1
-  %arrayidx29 = getelementptr inbounds i8, ptr %key, i64 2
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %key, i64 2
   store i8 13, ptr %arrayidx29, align 1
-  %arrayidx30 = getelementptr inbounds i8, ptr %key, i64 3
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %key, i64 3
   store i8 14, ptr %arrayidx30, align 1
-  %arrayidx31 = getelementptr inbounds i8, ptr %key, i64 4
+  %arrayidx31 = getelementptr inbounds nuw i8, ptr %key, i64 4
   store i8 10, ptr %arrayidx31, align 1
-  %arrayidx32 = getelementptr inbounds i8, ptr %key, i64 5
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %key, i64 5
   store i8 13, ptr %arrayidx32, align 1
   %call33 = tail call ptr @IPAddressFamily_new() #5
   %cmp34 = icmp eq ptr %call33, null
   br i1 %cmp34, label %end, label %if.end37
 
 if.end37:                                         ; preds = %if.end24
-  %ipAddressChoice = getelementptr inbounds i8, ptr %call33, i64 8
+  %ipAddressChoice = getelementptr inbounds nuw i8, ptr %call33, i64 8
   %2 = load ptr, ptr %ipAddressChoice, align 8
   %cmp38 = icmp eq ptr %2, null
   br i1 %cmp38, label %land.lhs.true, label %if.end45
@@ -843,7 +843,7 @@ if.end72:                                         ; preds = %if.end65
   br i1 %cmp84, label %end, label %if.end87
 
 if.end87:                                         ; preds = %if.end72
-  %ipAddressChoice88 = getelementptr inbounds i8, ptr %call83, i64 8
+  %ipAddressChoice88 = getelementptr inbounds nuw i8, ptr %call83, i64 8
   %5 = load ptr, ptr %ipAddressChoice88, align 8
   %cmp89 = icmp eq ptr %5, null
   br i1 %cmp89, label %land.lhs.true91, label %if.end97
@@ -916,28 +916,28 @@ for.cond:                                         ; preds = %lor.lhs.false19
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
   %call = tail call ptr @OPENSSL_sk_new_null() #5
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr %addr, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr %addr, i64 0, i64 %indvars.iv
   store ptr %call, ptr %arrayidx, align 8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 425, ptr noundef nonnull @.str.126, ptr noundef %call) #5
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %arrayidx3 = getelementptr inbounds [18 x %struct.ip_ranges_st], ptr @ranges, i64 0, i64 %indvars.iv
-  %ip14 = getelementptr inbounds i8, ptr %arrayidx3, i64 8
+  %arrayidx3 = getelementptr inbounds nuw [18 x %struct.ip_ranges_st], ptr @ranges, i64 0, i64 %indvars.iv
+  %ip14 = getelementptr inbounds nuw i8, ptr %arrayidx3, i64 8
   %0 = load ptr, ptr %ip14, align 8
   %call5 = tail call ptr @a2i_IPADDRESS(ptr noundef %0) #5
-  %arrayidx7 = getelementptr inbounds [3 x ptr], ptr %ip1, i64 0, i64 %indvars.iv
+  %arrayidx7 = getelementptr inbounds nuw [3 x ptr], ptr %ip1, i64 0, i64 %indvars.iv
   store ptr %call5, ptr %arrayidx7, align 8
   %call8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 426, ptr noundef nonnull @.str.127, ptr noundef %call5) #5
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %end, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false
-  %ip213 = getelementptr inbounds i8, ptr %arrayidx3, i64 16
+  %ip213 = getelementptr inbounds nuw i8, ptr %arrayidx3, i64 16
   %1 = load ptr, ptr %ip213, align 16
   %call14 = tail call ptr @a2i_IPADDRESS(ptr noundef %1) #5
-  %arrayidx16 = getelementptr inbounds [3 x ptr], ptr %ip2, i64 0, i64 %indvars.iv
+  %arrayidx16 = getelementptr inbounds nuw [3 x ptr], ptr %ip2, i64 0, i64 %indvars.iv
   store ptr %call14, ptr %arrayidx16, align 8
   %call17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 427, ptr noundef nonnull @.str.128, ptr noundef %call14) #5
   %tobool18.not = icmp eq i32 %call17, 0
@@ -945,9 +945,9 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false10
   %2 = load i32, ptr %arrayidx3, align 16
-  %data = getelementptr inbounds i8, ptr %call5, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %3 = load ptr, ptr %data, align 8
-  %data28 = getelementptr inbounds i8, ptr %call14, i64 8
+  %data28 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %4 = load ptr, ptr %data28, align 8
   %call29 = tail call i32 @X509v3_addr_add_range(ptr noundef %call, i32 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef %4) #5
   %cmp30 = icmp ne i32 %call29, 0
@@ -996,7 +996,7 @@ land.lhs.true55:                                  ; preds = %land.lhs.true48
   br i1 %tobool62.not, label %end, label %land.lhs.true63
 
 land.lhs.true63:                                  ; preds = %land.lhs.true55
-  %arrayidx65 = getelementptr inbounds i8, ptr %addr, i64 8
+  %arrayidx65 = getelementptr inbounds nuw i8, ptr %addr, i64 8
   %6 = load ptr, ptr %arrayidx65, align 8
   %call66 = tail call i32 @X509v3_addr_subset(ptr noundef %5, ptr noundef %6) #5
   %cmp67 = icmp ne i32 %call66, 0
@@ -1006,7 +1006,7 @@ land.lhs.true63:                                  ; preds = %land.lhs.true55
   br i1 %tobool70.not, label %end, label %land.lhs.true71
 
 land.lhs.true71:                                  ; preds = %land.lhs.true63
-  %arrayidx73 = getelementptr inbounds i8, ptr %addr, i64 16
+  %arrayidx73 = getelementptr inbounds nuw i8, ptr %addr, i64 16
   %7 = load ptr, ptr %arrayidx73, align 16
   %call74 = tail call i32 @X509v3_addr_subset(ptr noundef %5, ptr noundef %7) #5
   %cmp75 = icmp ne i32 %call74, 0
@@ -1064,13 +1064,13 @@ end:                                              ; preds = %for.body, %lor.lhs.
 
 for.body121:                                      ; preds = %end, %for.body121
   %indvars.iv22 = phi i64 [ 0, %end ], [ %indvars.iv.next23, %for.body121 ]
-  %arrayidx123 = getelementptr inbounds [3 x ptr], ptr %addr, i64 0, i64 %indvars.iv22
+  %arrayidx123 = getelementptr inbounds nuw [3 x ptr], ptr %addr, i64 0, i64 %indvars.iv22
   %9 = load ptr, ptr %arrayidx123, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %9, ptr noundef nonnull @IPAddressFamily_free) #5
-  %arrayidx127 = getelementptr inbounds [3 x ptr], ptr %ip1, i64 0, i64 %indvars.iv22
+  %arrayidx127 = getelementptr inbounds nuw [3 x ptr], ptr %ip1, i64 0, i64 %indvars.iv22
   %10 = load ptr, ptr %arrayidx127, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %10) #5
-  %arrayidx129 = getelementptr inbounds [3 x ptr], ptr %ip2, i64 0, i64 %indvars.iv22
+  %arrayidx129 = getelementptr inbounds nuw [3 x ptr], ptr %ip2, i64 0, i64 %indvars.iv22
   %11 = load ptr, ptr %arrayidx129, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %11) #5
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1

@@ -51,9 +51,9 @@ define ptr @Java_java_util_prefs_FileSystemPreferences_lockFile0(ptr noundef %0,
   br i1 %.not, label %44, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 0, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = icmp ne i8 %4, 1
   %. = zext i1 %12 to i16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -77,7 +77,7 @@ define ptr @Java_java_util_prefs_FileSystemPreferences_lockFile0(ptr noundef %0,
 23:                                               ; preds = %17, %13
   %.sink = phi i32 [ %21, %17 ], [ %16, %13 ]
   %.025 = phi i32 [ %19, %17 ], [ %14, %13 ]
-  %24 = getelementptr inbounds i8, ptr %6, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.sink, ptr %24, align 4
   %25 = icmp slt i32 %.025, 0
   br i1 %25, label %26, label %27
@@ -106,7 +106,7 @@ define ptr @Java_java_util_prefs_FileSystemPreferences_lockFile0(ptr noundef %0,
 35:                                               ; preds = %32, %34, %26
   call void @JNU_ReleaseStringPlatformChars(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %8) #7
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1432
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1432
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr %38(ptr noundef nonnull %0, i32 noundef 2) #7
   %.not28 = icmp eq ptr %39, null
@@ -114,7 +114,7 @@ define ptr @Java_java_util_prefs_FileSystemPreferences_lockFile0(ptr noundef %0,
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1688
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1688
   %43 = load ptr, ptr %42, align 8
   call void %43(ptr noundef nonnull %0, ptr noundef nonnull %39, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %6) #7
   br label %44
@@ -140,9 +140,9 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @Java_java_util_prefs_FileSystemPreferences_unlockFile0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.flock, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 0, ptr %5, align 2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i16 2, ptr %4, align 8
   %7 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %2, i32 noundef 6, ptr noundef nonnull %4) #7

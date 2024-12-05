@@ -646,7 +646,7 @@ define internal i32 @dissect_bpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 73:                                               ; preds = %4
   %74 = zext nneg i8 %71 to i32
-  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load ptr, ptr %75, align 8
   tail call void @col_set_str(ptr noundef %76, i32 noundef 34, ptr noundef nonnull @.str.309) #6
   %77 = load ptr, ptr %75, align 8
@@ -738,80 +738,80 @@ define internal i32 @dissect_bpv6(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 0, ptr %68, align 4
   %142 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %141) #6
   %143 = zext i16 %142 to i32
-  %144 = getelementptr inbounds i8, ptr %68, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 %143, ptr %144, align 4
-  %145 = getelementptr inbounds i8, ptr %68, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 %141, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %68, i64 12
+  %146 = getelementptr inbounds nuw i8, ptr %68, i64 12
   store i32 2, ptr %146, align 4
   %147 = load i32, ptr @hf_bundle_dest_scheme_offset_u16, align 4
   %148 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %147, ptr noundef %0, i32 noundef %141, i32 noundef 2, i32 noundef 0) #6
   %149 = add i32 %125, 6
   %150 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %149) #6
   %151 = zext i16 %150 to i32
-  %152 = getelementptr inbounds i8, ptr %68, i64 52
+  %152 = getelementptr inbounds nuw i8, ptr %68, i64 52
   store i32 %151, ptr %152, align 4
-  %153 = getelementptr inbounds i8, ptr %68, i64 56
+  %153 = getelementptr inbounds nuw i8, ptr %68, i64 56
   store i32 2, ptr %153, align 4
   %154 = load i32, ptr @hf_bundle_dest_ssp_offset_u16, align 4
   %155 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %154, ptr noundef %0, i32 noundef %149, i32 noundef 2, i32 noundef 0) #6
   %156 = add i32 %125, 8
   %157 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %156) #6
   %158 = zext i16 %157 to i32
-  %159 = getelementptr inbounds i8, ptr %68, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i32 %158, ptr %159, align 4
-  %160 = getelementptr inbounds i8, ptr %68, i64 20
+  %160 = getelementptr inbounds nuw i8, ptr %68, i64 20
   store i32 %156, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %68, i64 24
+  %161 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store i32 2, ptr %161, align 4
   %162 = load i32, ptr @hf_bundle_source_scheme_offset_u16, align 4
   %163 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %162, ptr noundef %0, i32 noundef %156, i32 noundef 2, i32 noundef 0) #6
   %164 = add i32 %125, 10
   %165 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %164) #6
   %166 = zext i16 %165 to i32
-  %167 = getelementptr inbounds i8, ptr %68, i64 60
+  %167 = getelementptr inbounds nuw i8, ptr %68, i64 60
   store i32 %166, ptr %167, align 4
-  %168 = getelementptr inbounds i8, ptr %68, i64 64
+  %168 = getelementptr inbounds nuw i8, ptr %68, i64 64
   store i32 2, ptr %168, align 4
   %169 = load i32, ptr @hf_bundle_source_ssp_offset_u16, align 4
   %170 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %169, ptr noundef %0, i32 noundef %164, i32 noundef 2, i32 noundef 0) #6
   %171 = add i32 %125, 12
   %172 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %171) #6
   %173 = zext i16 %172 to i32
-  %174 = getelementptr inbounds i8, ptr %68, i64 28
+  %174 = getelementptr inbounds nuw i8, ptr %68, i64 28
   store i32 %173, ptr %174, align 4
-  %175 = getelementptr inbounds i8, ptr %68, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store i32 %171, ptr %175, align 4
-  %176 = getelementptr inbounds i8, ptr %68, i64 36
+  %176 = getelementptr inbounds nuw i8, ptr %68, i64 36
   store i32 2, ptr %176, align 4
   %177 = load i32, ptr @hf_bundle_report_scheme_offset_u16, align 4
   %178 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %177, ptr noundef %0, i32 noundef %171, i32 noundef 2, i32 noundef 0) #6
   %179 = add i32 %125, 14
   %180 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %179) #6
   %181 = zext i16 %180 to i32
-  %182 = getelementptr inbounds i8, ptr %68, i64 68
+  %182 = getelementptr inbounds nuw i8, ptr %68, i64 68
   store i32 %181, ptr %182, align 4
-  %183 = getelementptr inbounds i8, ptr %68, i64 72
+  %183 = getelementptr inbounds nuw i8, ptr %68, i64 72
   store i32 2, ptr %183, align 4
   %184 = load i32, ptr @hf_bundle_report_ssp_offset_u16, align 4
   %185 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %184, ptr noundef %0, i32 noundef %179, i32 noundef 2, i32 noundef 0) #6
   %186 = add i32 %125, 16
   %187 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %186) #6
   %188 = zext i16 %187 to i32
-  %189 = getelementptr inbounds i8, ptr %68, i64 40
+  %189 = getelementptr inbounds nuw i8, ptr %68, i64 40
   store i32 %188, ptr %189, align 4
-  %190 = getelementptr inbounds i8, ptr %68, i64 44
+  %190 = getelementptr inbounds nuw i8, ptr %68, i64 44
   store i32 %186, ptr %190, align 4
-  %191 = getelementptr inbounds i8, ptr %68, i64 48
+  %191 = getelementptr inbounds nuw i8, ptr %68, i64 48
   store i32 2, ptr %191, align 4
   %192 = load i32, ptr @hf_bundle_cust_scheme_offset_u16, align 4
   %193 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %192, ptr noundef %0, i32 noundef %186, i32 noundef 2, i32 noundef 0) #6
   %194 = add i32 %125, 18
   %195 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %194) #6
   %196 = zext i16 %195 to i32
-  %197 = getelementptr inbounds i8, ptr %68, i64 76
+  %197 = getelementptr inbounds nuw i8, ptr %68, i64 76
   store i32 %196, ptr %197, align 4
-  %198 = getelementptr inbounds i8, ptr %68, i64 80
+  %198 = getelementptr inbounds nuw i8, ptr %68, i64 80
   store i32 2, ptr %198, align 4
   %199 = load i32, ptr @hf_bundle_cust_ssp_offset_u16, align 4
   %200 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %199, ptr noundef %0, i32 noundef %194, i32 noundef 2, i32 noundef 0) #6
@@ -971,11 +971,11 @@ dissect_version_4_primary_header.exit:            ; preds = %133, %219, %222
 evaluate_sdnv.exit199.i:                          ; preds = %287, %286, %277
   %289 = phi i32 [ 2147483647, %286 ], [ %288, %287 ], [ -1, %277 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62)
-  %290 = getelementptr inbounds i8, ptr %65, i64 4
+  %290 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 %289, ptr %290, align 4
-  %291 = getelementptr inbounds i8, ptr %65, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 %280, ptr %291, align 4
-  %292 = getelementptr inbounds i8, ptr %65, i64 12
+  %292 = getelementptr inbounds nuw i8, ptr %65, i64 12
   store i32 %281, ptr %292, align 4
   %293 = load i32, ptr @hf_bundle_dest_scheme_offset_i32, align 4
   %294 = call ptr @proto_tree_add_int(ptr noundef %83, i32 noundef %293, ptr noundef %0, i32 noundef %280, i32 noundef %281, i32 noundef %289) #6
@@ -1002,9 +1002,9 @@ evaluate_sdnv.exit199.i:                          ; preds = %287, %286, %277
 evaluate_sdnv.exit201.i:                          ; preds = %302, %301, %evaluate_sdnv.exit199.i
   %304 = phi i32 [ 2147483647, %301 ], [ %303, %302 ], [ -1, %evaluate_sdnv.exit199.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61)
-  %305 = getelementptr inbounds i8, ptr %65, i64 52
+  %305 = getelementptr inbounds nuw i8, ptr %65, i64 52
   store i32 %304, ptr %305, align 4
-  %306 = getelementptr inbounds i8, ptr %65, i64 56
+  %306 = getelementptr inbounds nuw i8, ptr %65, i64 56
   store i32 %296, ptr %306, align 4
   store i32 %304, ptr @dst_ssp, align 4
   %307 = load i32, ptr @hf_bundle_dest_ssp_offset_i32, align 4
@@ -1032,11 +1032,11 @@ evaluate_sdnv.exit201.i:                          ; preds = %302, %301, %evaluat
 evaluate_sdnv.exit203.i:                          ; preds = %316, %315, %evaluate_sdnv.exit201.i
   %318 = phi i32 [ 2147483647, %315 ], [ %317, %316 ], [ -1, %evaluate_sdnv.exit201.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60)
-  %319 = getelementptr inbounds i8, ptr %65, i64 16
+  %319 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i32 %318, ptr %319, align 4
-  %320 = getelementptr inbounds i8, ptr %65, i64 20
+  %320 = getelementptr inbounds nuw i8, ptr %65, i64 20
   store i32 %309, ptr %320, align 4
-  %321 = getelementptr inbounds i8, ptr %65, i64 24
+  %321 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i32 %310, ptr %321, align 4
   %322 = load i32, ptr @hf_bundle_source_scheme_offset_i32, align 4
   %323 = call ptr @proto_tree_add_int(ptr noundef %83, i32 noundef %322, ptr noundef %0, i32 noundef %309, i32 noundef %310, i32 noundef %318) #6
@@ -1063,9 +1063,9 @@ evaluate_sdnv.exit203.i:                          ; preds = %316, %315, %evaluat
 evaluate_sdnv.exit205.i:                          ; preds = %331, %330, %evaluate_sdnv.exit203.i
   %333 = phi i32 [ 2147483647, %330 ], [ %332, %331 ], [ -1, %evaluate_sdnv.exit203.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59)
-  %334 = getelementptr inbounds i8, ptr %65, i64 60
+  %334 = getelementptr inbounds nuw i8, ptr %65, i64 60
   store i32 %333, ptr %334, align 4
-  %335 = getelementptr inbounds i8, ptr %65, i64 64
+  %335 = getelementptr inbounds nuw i8, ptr %65, i64 64
   store i32 %325, ptr %335, align 4
   store i32 %333, ptr @src_ssp, align 4
   %336 = load i32, ptr @hf_bundle_source_ssp_offset_i32, align 4
@@ -1093,11 +1093,11 @@ evaluate_sdnv.exit205.i:                          ; preds = %331, %330, %evaluat
 evaluate_sdnv.exit207.i:                          ; preds = %345, %344, %evaluate_sdnv.exit205.i
   %347 = phi i32 [ 2147483647, %344 ], [ %346, %345 ], [ -1, %evaluate_sdnv.exit205.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
-  %348 = getelementptr inbounds i8, ptr %65, i64 28
+  %348 = getelementptr inbounds nuw i8, ptr %65, i64 28
   store i32 %347, ptr %348, align 4
-  %349 = getelementptr inbounds i8, ptr %65, i64 32
+  %349 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store i32 %338, ptr %349, align 4
-  %350 = getelementptr inbounds i8, ptr %65, i64 36
+  %350 = getelementptr inbounds nuw i8, ptr %65, i64 36
   store i32 %339, ptr %350, align 4
   %351 = load i32, ptr @hf_bundle_report_scheme_offset_i32, align 4
   %352 = call ptr @proto_tree_add_int(ptr noundef %83, i32 noundef %351, ptr noundef %0, i32 noundef %338, i32 noundef %339, i32 noundef %347) #6
@@ -1124,9 +1124,9 @@ evaluate_sdnv.exit207.i:                          ; preds = %345, %344, %evaluat
 evaluate_sdnv.exit209.i:                          ; preds = %360, %359, %evaluate_sdnv.exit207.i
   %362 = phi i32 [ 2147483647, %359 ], [ %361, %360 ], [ -1, %evaluate_sdnv.exit207.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
-  %363 = getelementptr inbounds i8, ptr %65, i64 68
+  %363 = getelementptr inbounds nuw i8, ptr %65, i64 68
   store i32 %362, ptr %363, align 4
-  %364 = getelementptr inbounds i8, ptr %65, i64 72
+  %364 = getelementptr inbounds nuw i8, ptr %65, i64 72
   store i32 %354, ptr %364, align 4
   %365 = load i32, ptr @hf_bundle_report_ssp_offset_i32, align 4
   %366 = call ptr @proto_tree_add_int(ptr noundef %83, i32 noundef %365, ptr noundef %0, i32 noundef %353, i32 noundef %354, i32 noundef %362) #6
@@ -1153,11 +1153,11 @@ evaluate_sdnv.exit209.i:                          ; preds = %360, %359, %evaluat
 evaluate_sdnv.exit211.i:                          ; preds = %374, %373, %evaluate_sdnv.exit209.i
   %376 = phi i32 [ 2147483647, %373 ], [ %375, %374 ], [ -1, %evaluate_sdnv.exit209.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56)
-  %377 = getelementptr inbounds i8, ptr %65, i64 40
+  %377 = getelementptr inbounds nuw i8, ptr %65, i64 40
   store i32 %376, ptr %377, align 4
-  %378 = getelementptr inbounds i8, ptr %65, i64 44
+  %378 = getelementptr inbounds nuw i8, ptr %65, i64 44
   store i32 %367, ptr %378, align 4
-  %379 = getelementptr inbounds i8, ptr %65, i64 48
+  %379 = getelementptr inbounds nuw i8, ptr %65, i64 48
   store i32 %368, ptr %379, align 4
   %380 = load i32, ptr @hf_bundle_cust_scheme_offset_i32, align 4
   %381 = call ptr @proto_tree_add_int(ptr noundef %83, i32 noundef %380, ptr noundef %0, i32 noundef %367, i32 noundef %368, i32 noundef %376) #6
@@ -1184,9 +1184,9 @@ evaluate_sdnv.exit211.i:                          ; preds = %374, %373, %evaluat
 evaluate_sdnv.exit213.i:                          ; preds = %389, %388, %evaluate_sdnv.exit211.i
   %391 = phi i32 [ 2147483647, %388 ], [ %390, %389 ], [ -1, %evaluate_sdnv.exit211.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55)
-  %392 = getelementptr inbounds i8, ptr %65, i64 76
+  %392 = getelementptr inbounds nuw i8, ptr %65, i64 76
   store i32 %391, ptr %392, align 4
-  %393 = getelementptr inbounds i8, ptr %65, i64 80
+  %393 = getelementptr inbounds nuw i8, ptr %65, i64 80
   store i32 %383, ptr %393, align 4
   %394 = load i32, ptr @hf_bundle_cust_ssp_offset_i32, align 4
   %395 = call ptr @proto_tree_add_int(ptr noundef %83, i32 noundef %394, ptr noundef %0, i32 noundef %382, i32 noundef %383, i32 noundef %391) #6
@@ -1245,7 +1245,7 @@ add_sdnv_time_to_tree.exit.thread.i:              ; preds = %evaluate_sdnv.exit2
   %.0.i.ph.i.i = phi i64 [ %414, %412 ], [ -1200798849, %411 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52)
   store i64 %.0.i.ph.i.i, ptr %53, align 8
-  %416 = getelementptr inbounds i8, ptr %53, i64 8
+  %416 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i32 0, ptr %416, align 8
   %417 = call ptr @proto_tree_add_time(ptr noundef %83, i32 noundef %405, ptr noundef %0, i32 noundef %396, i32 noundef %406, ptr noundef nonnull %53) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53)
@@ -1470,11 +1470,11 @@ dissect_version_5_and_6_primary_header.exit:      ; preds = %233, %272, %add_sdn
 521:                                              ; preds = %517
   %522 = load ptr, ptr %69, align 8
   call void @proto_item_set_len(ptr noundef %522, i32 noundef %.050) #6
-  %523 = getelementptr inbounds i8, ptr %1, i64 408
+  %523 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %524 = and i8 %.066, 2
   %.not98.i = icmp eq i8 %524, 0
-  %525 = getelementptr inbounds i8, ptr %38, i64 8
-  %526 = getelementptr inbounds i8, ptr %43, i64 8
+  %525 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %526 = getelementptr inbounds nuw i8, ptr %43, i64 8
   br label %527
 
 527:                                              ; preds = %521, %1336
@@ -3181,10 +3181,10 @@ define internal i32 @dissect_bundle(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %36
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @wscbor_chunk_read(ptr noundef %12, ptr noundef %0, ptr noundef nonnull %5) #6
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 4
   br i1 %16, label %17, label %36
@@ -3192,7 +3192,7 @@ define internal i32 @dissect_bundle(ptr noundef %0, ptr noundef %1, ptr noundef 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %11, align 8
   %19 = call ptr @wscbor_chunk_read(ptr noundef %18, ptr noundef %0, ptr noundef nonnull %5) #6
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 4
   br i1 %22, label %23, label %36
@@ -3200,13 +3200,13 @@ define internal i32 @dissect_bundle(ptr noundef %0, ptr noundef %1, ptr noundef 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %11, align 8
   %25 = call ptr @wscbor_chunk_read(ptr noundef %24, ptr noundef %0, ptr noundef nonnull %5) #6
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %36
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %25, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %31, 7
   br i1 %32, label %33, label %36
@@ -3273,7 +3273,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull readonly %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %6, i32 noundef range(i32 -1, -2147483648) %7, i32 noundef range(i32 -1, -2147483648) %8) unnamed_addr #0 {
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @col_get_text(ptr noundef %11, i32 noundef 25) #6
   %13 = load i32, ptr %4, align 4
@@ -3284,13 +3284,13 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
   br i1 %17, label %18, label %198
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %38
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %4, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %38
@@ -3299,11 +3299,11 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
   %27 = load i32, ptr @hf_bundle_dest_scheme, align 4
   %28 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %27, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.319) #6
   %29 = load i32, ptr @hf_bundle_dest_ssp, align 4
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %4, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %4, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, %33
   %37 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %29, ptr noundef %2, i32 noundef %31, i32 noundef %36, ptr noundef nonnull @.str.320) #6
@@ -3313,17 +3313,17 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
   %39 = load i32, ptr @hf_bundle_dest_scheme, align 4
   %40 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %39, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.322) #6
   %41 = load i32, ptr @hf_bundle_dest_ssp, align 4
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %4, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %4, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 408
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %19, align 4
-  %52 = getelementptr inbounds i8, ptr %4, i64 52
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %53 = load i32, ptr %52, align 4
   %54 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %50, ptr noundef nonnull @.str.323, i32 noundef %51, i32 noundef %53) #6
   %55 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %41, ptr noundef %2, i32 noundef %43, i32 noundef %48, ptr noundef %54) #6
@@ -3335,13 +3335,13 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
 
 60:                                               ; preds = %38, %26
   %.0 = phi ptr [ @.str.321, %26 ], [ %59, %38 ]
-  %61 = getelementptr inbounds i8, ptr %4, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %80
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %4, i64 60
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %80
@@ -3350,11 +3350,11 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
   %69 = load i32, ptr @hf_bundle_source_scheme, align 4
   %70 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %69, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.319) #6
   %71 = load i32, ptr @hf_bundle_source_ssp, align 4
-  %72 = getelementptr inbounds i8, ptr %4, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %4, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %4, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, %75
   %79 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %71, ptr noundef %2, i32 noundef %73, i32 noundef %78, ptr noundef nonnull @.str.320) #6
@@ -3364,17 +3364,17 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
   %81 = load i32, ptr @hf_bundle_source_scheme, align 4
   %82 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %81, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.322) #6
   %83 = load i32, ptr @hf_bundle_source_ssp, align 4
-  %84 = getelementptr inbounds i8, ptr %4, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %4, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %4, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %89 = load i32, ptr %88, align 4
   %90 = add i32 %89, %87
-  %91 = getelementptr inbounds i8, ptr %0, i64 408
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %92 = load ptr, ptr %91, align 8
   %93 = load i32, ptr %61, align 4
-  %94 = getelementptr inbounds i8, ptr %4, i64 60
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %95 = load i32, ptr %94, align 4
   %96 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %92, ptr noundef nonnull @.str.323, i32 noundef %93, i32 noundef %95) #6
   %97 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %83, ptr noundef %2, i32 noundef %85, i32 noundef %90, ptr noundef %96) #6
@@ -3386,13 +3386,13 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
 
 102:                                              ; preds = %80, %68
   %.0191 = phi ptr [ @.str.321, %68 ], [ %101, %80 ]
-  %103 = getelementptr inbounds i8, ptr %4, i64 28
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %104 = load i32, ptr %103, align 4
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %122
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds i8, ptr %4, i64 68
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %108 = load i32, ptr %107, align 4
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %122
@@ -3401,11 +3401,11 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
   %111 = load i32, ptr @hf_bundle_report_scheme, align 4
   %112 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %111, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.319) #6
   %113 = load i32, ptr @hf_bundle_report_ssp, align 4
-  %114 = getelementptr inbounds i8, ptr %4, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %115 = load i32, ptr %114, align 4
-  %116 = getelementptr inbounds i8, ptr %4, i64 36
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %117 = load i32, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %4, i64 72
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %119 = load i32, ptr %118, align 4
   %120 = add i32 %119, %117
   %121 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %113, ptr noundef %2, i32 noundef %115, i32 noundef %120, ptr noundef nonnull @.str.320) #6
@@ -3415,30 +3415,30 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
   %123 = load i32, ptr @hf_bundle_report_scheme, align 4
   %124 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %123, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.322) #6
   %125 = load i32, ptr @hf_bundle_report_ssp, align 4
-  %126 = getelementptr inbounds i8, ptr %4, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %4, i64 36
+  %128 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %129 = load i32, ptr %128, align 4
-  %130 = getelementptr inbounds i8, ptr %4, i64 72
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %131 = load i32, ptr %130, align 4
   %132 = add i32 %131, %129
-  %133 = getelementptr inbounds i8, ptr %0, i64 408
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %134 = load ptr, ptr %133, align 8
   %135 = load i32, ptr %103, align 4
-  %136 = getelementptr inbounds i8, ptr %4, i64 68
+  %136 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %137 = load i32, ptr %136, align 4
   %138 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %134, ptr noundef nonnull @.str.323, i32 noundef %135, i32 noundef %137) #6
   %139 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %125, ptr noundef %2, i32 noundef %127, i32 noundef %132, ptr noundef %138) #6
   br label %140
 
 140:                                              ; preds = %122, %110
-  %141 = getelementptr inbounds i8, ptr %4, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %142 = load i32, ptr %141, align 4
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %160
 
 144:                                              ; preds = %140
-  %145 = getelementptr inbounds i8, ptr %4, i64 76
+  %145 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %148, label %160
@@ -3447,11 +3447,11 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
   %149 = load i32, ptr @hf_bundle_custodian_scheme, align 4
   %150 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %149, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.319) #6
   %151 = load i32, ptr @hf_bundle_custodian_ssp, align 4
-  %152 = getelementptr inbounds i8, ptr %4, i64 44
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %153 = load i32, ptr %152, align 4
-  %154 = getelementptr inbounds i8, ptr %4, i64 48
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %155 = load i32, ptr %154, align 4
-  %156 = getelementptr inbounds i8, ptr %4, i64 80
+  %156 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %157 = load i32, ptr %156, align 4
   %158 = add i32 %157, %155
   %159 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %151, ptr noundef %2, i32 noundef %153, i32 noundef %158, ptr noundef nonnull @.str.320) #6
@@ -3461,17 +3461,17 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
   %161 = load i32, ptr @hf_bundle_custodian_scheme, align 4
   %162 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %161, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.322) #6
   %163 = load i32, ptr @hf_bundle_custodian_ssp, align 4
-  %164 = getelementptr inbounds i8, ptr %4, i64 44
+  %164 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds i8, ptr %4, i64 48
+  %166 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %167 = load i32, ptr %166, align 4
-  %168 = getelementptr inbounds i8, ptr %4, i64 80
+  %168 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %169 = load i32, ptr %168, align 4
   %170 = add i32 %169, %167
-  %171 = getelementptr inbounds i8, ptr %0, i64 408
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %172 = load ptr, ptr %171, align 8
   %173 = load i32, ptr %141, align 4
-  %174 = getelementptr inbounds i8, ptr %4, i64 76
+  %174 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %175 = load i32, ptr %174, align 4
   %176 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %172, ptr noundef nonnull @.str.323, i32 noundef %173, i32 noundef %175) #6
   %177 = tail call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %163, ptr noundef %2, i32 noundef %165, i32 noundef %170, ptr noundef %176) #6
@@ -3510,52 +3510,52 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
 190:                                              ; preds = %183, %185, %187
   %191 = load ptr, ptr %10, align 8
   tail call void @col_set_fence(ptr noundef %191, i32 noundef 25) #6
-  %192 = getelementptr inbounds i8, ptr %0, i64 408
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %193 = load ptr, ptr %192, align 8
   %194 = load i32, ptr %141, align 4
-  %195 = getelementptr inbounds i8, ptr %4, i64 76
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %196 = load i32, ptr %195, align 4
   %197 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %193, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.322, i32 noundef %194, i32 noundef %196) #6
   br label %277
 
 198:                                              ; preds = %9
   %199 = load i32, ptr @hf_bundle_dest_scheme, align 4
-  %200 = getelementptr inbounds i8, ptr %4, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %201 = load i32, ptr %200, align 4
   %202 = add i32 %201, %3
   %203 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %199, ptr noundef %2, i32 noundef %202, i32 noundef -1, i32 noundef 0) #6
   %204 = load i32, ptr @hf_bundle_dest_ssp, align 4
-  %205 = getelementptr inbounds i8, ptr %4, i64 52
+  %205 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %206 = load i32, ptr %205, align 4
   %207 = add i32 %206, %3
   %208 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %204, ptr noundef %2, i32 noundef %207, i32 noundef -1, i32 noundef 0) #6
   %209 = load i32, ptr @hf_bundle_source_scheme, align 4
-  %210 = getelementptr inbounds i8, ptr %4, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %211 = load i32, ptr %210, align 4
   %212 = add i32 %211, %3
   %213 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %209, ptr noundef %2, i32 noundef %212, i32 noundef -1, i32 noundef 0) #6
   %214 = load i32, ptr @hf_bundle_source_ssp, align 4
-  %215 = getelementptr inbounds i8, ptr %4, i64 60
+  %215 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %216 = load i32, ptr %215, align 4
   %217 = add i32 %216, %3
   %218 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %214, ptr noundef %2, i32 noundef %217, i32 noundef -1, i32 noundef 0) #6
   %219 = load i32, ptr @hf_bundle_report_scheme, align 4
-  %220 = getelementptr inbounds i8, ptr %4, i64 28
+  %220 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %221 = load i32, ptr %220, align 4
   %222 = add i32 %221, %3
   %223 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %219, ptr noundef %2, i32 noundef %222, i32 noundef -1, i32 noundef 0) #6
   %224 = load i32, ptr @hf_bundle_report_ssp, align 4
-  %225 = getelementptr inbounds i8, ptr %4, i64 68
+  %225 = getelementptr inbounds nuw i8, ptr %4, i64 68
   %226 = load i32, ptr %225, align 4
   %227 = add i32 %226, %3
   %228 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %224, ptr noundef %2, i32 noundef %227, i32 noundef -1, i32 noundef 0) #6
   %229 = load i32, ptr @hf_bundle_custodian_scheme, align 4
-  %230 = getelementptr inbounds i8, ptr %4, i64 40
+  %230 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %231 = load i32, ptr %230, align 4
   %232 = add i32 %231, %3
   %233 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %229, ptr noundef %2, i32 noundef %232, i32 noundef -1, i32 noundef 0) #6
   %234 = load i32, ptr @hf_bundle_custodian_ssp, align 4
-  %235 = getelementptr inbounds i8, ptr %4, i64 76
+  %235 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %236 = load i32, ptr %235, align 4
   %237 = add i32 %236, %3
   %238 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %234, ptr noundef %2, i32 noundef %237, i32 noundef -1, i32 noundef 0) #6
@@ -3580,7 +3580,7 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
   %246 = load ptr, ptr %10, align 8
   tail call void @col_clear(ptr noundef %246, i32 noundef 25) #6
   %247 = load ptr, ptr %10, align 8
-  %248 = getelementptr inbounds i8, ptr %0, i64 408
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %249 = load ptr, ptr %248, align 8
   %250 = load i32, ptr %210, align 4
   %251 = add i32 %250, %3
@@ -3603,7 +3603,7 @@ define internal fastcc i32 @dissect_dictionary(ptr noundef %0, ptr noundef %1, p
 265:                                              ; preds = %245, %243
   %266 = load ptr, ptr %10, align 8
   tail call void @col_set_fence(ptr noundef %266, i32 noundef 25) #6
-  %267 = getelementptr inbounds i8, ptr %0, i64 408
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %268 = load ptr, ptr %267, align 8
   %269 = load i32, ptr %230, align 4
   %270 = add i32 %269, %3
@@ -3784,7 +3784,7 @@ evaluate_sdnv.exit14:                             ; preds = %17
 27:                                               ; preds = %24, %25
   %.0.i13.ph = phi i32 [ %26, %25 ], [ 2147483647, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.0.i13.ph, ptr %28, align 8
   %29 = add i32 %19, %8
   %30 = call ptr @proto_tree_add_time(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef %2, i32 noundef %29, ptr noundef nonnull %7) #6

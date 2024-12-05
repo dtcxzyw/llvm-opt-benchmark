@@ -37,9 +37,9 @@ define i64 @Java_jdk_internal_platform_CgroupMetrics_getTotalSwapSize0(ptr nocap
   %3 = alloca %struct.sysinfo, align 8
   %4 = call i32 @sysinfo(ptr noundef nonnull %3) #3
   %5 = icmp slt i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = mul i64 %7, %10

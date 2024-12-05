@@ -19,8 +19,8 @@ define ptr @stpncpy(ptr noundef writeonly %0, ptr nocapture noundef readonly %1,
   br i1 %.not12, label %.critedge.loopexit, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.01115, i64 1
-  %9 = getelementptr inbounds i8, ptr %.016, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.01115, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %.not = icmp eq ptr %9, %5
   br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !6
 

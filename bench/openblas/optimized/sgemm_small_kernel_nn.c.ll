@@ -1405,7 +1405,7 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br label %1006
 
 1006:                                             ; preds = %1004, %935
-  %1007 = getelementptr inbounds float, ptr %897, i64 %936
+  %1007 = getelementptr inbounds nuw float, ptr %897, i64 %936
   store <8 x float> %984, ptr %1007, align 1, !tbaa !3
   br label %1008
 

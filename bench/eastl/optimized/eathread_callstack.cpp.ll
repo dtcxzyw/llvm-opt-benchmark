@@ -49,7 +49,7 @@ if.then:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.then
   %conv1 = sext i32 %call to i64
   %dec = add nsw i64 %conv1, -1
-  %add.ptr = getelementptr inbounds i8, ptr %pReturnAddressArray, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %pReturnAddressArray, i64 8
   %mul = shl nsw i64 %dec, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %pReturnAddressArray, ptr nonnull align 8 %add.ptr, i64 %mul, i1 false)
   br label %if.end4
@@ -67,17 +67,17 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA6Thread19GetCallstackContextERNS0_16CallstackContextEPKNS0_7ContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((24, 48)) %context, ptr nocapture noundef readonly %pContext) local_unnamed_addr #6 {
 entry:
-  %Rip = getelementptr inbounds i8, ptr %pContext, i64 248
+  %Rip = getelementptr inbounds nuw i8, ptr %pContext, i64 248
   %0 = load i64, ptr %Rip, align 8
-  %mRIP = getelementptr inbounds i8, ptr %context, i64 24
+  %mRIP = getelementptr inbounds nuw i8, ptr %context, i64 24
   store i64 %0, ptr %mRIP, align 8
-  %Rsp = getelementptr inbounds i8, ptr %pContext, i64 152
+  %Rsp = getelementptr inbounds nuw i8, ptr %pContext, i64 152
   %1 = load i64, ptr %Rsp, align 8
-  %mRSP = getelementptr inbounds i8, ptr %context, i64 32
+  %mRSP = getelementptr inbounds nuw i8, ptr %context, i64 32
   store i64 %1, ptr %mRSP, align 8
-  %Rbp = getelementptr inbounds i8, ptr %pContext, i64 160
+  %Rbp = getelementptr inbounds nuw i8, ptr %pContext, i64 160
   %2 = load i64, ptr %Rbp, align 16
-  %mRBP = getelementptr inbounds i8, ptr %context, i64 40
+  %mRBP = getelementptr inbounds nuw i8, ptr %context, i64 40
   store i64 %2, ptr %mRBP, align 8
   ret void
 }

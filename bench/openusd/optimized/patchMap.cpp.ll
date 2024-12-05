@@ -170,7 +170,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE6resizeEm
 
 switch.lookup:                                    ; preds = %.lr.ph39
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far8PatchMap17initializeHandlesERKNS1_10PatchTableE, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw [10 x i64], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far8PatchMap17initializeHandlesERKNS1_10PatchTableE, i64 0, i64 %34
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -197,7 +197,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = trunc i64 %42 to i32
   store i32 %44, ptr %43, align 4
-  %45 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %.fca.0.extract, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %.fca.0.extract, i64 %indvars.iv
   %46 = load i64, ptr %45, align 4
   %47 = trunc i64 %46 to i32
   %48 = and i32 %47, 268435455
@@ -280,8 +280,8 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allo
   %.012.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i ], [ %37, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i ], [ %26, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i.i, i64 16, i1 false), !alias.scope !8
-  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i, i64 16
-  %39 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %38, %33
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
@@ -297,13 +297,13 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE13_M_deal
   store ptr %37, ptr %18, align 8
   %41 = getelementptr inbounds i8, ptr %37, i64 %35
   store ptr %41, ptr %32, align 8
-  %42 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %37, i64 %20
+  %42 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %37, i64 %20
   store ptr %42, ptr %24, align 8
-  %.pre128 = ptrtoint ptr %37 to i64
+  %.pre127 = ptrtoint ptr %37 to i64
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE7reserveEm.exit
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE7reserveEm.exit: ; preds = %23, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE13_M_deallocateEPS4_m.exit.i
-  %.pre-phi = phi i64 [ %.pre128, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ %28, %23 ]
+  %.pre-phi = phi i64 [ %.pre127, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ %28, %23 ]
   %43 = phi ptr [ %37, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ %26, %23 ]
   %44 = phi ptr [ %41, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE13_M_deallocateEPS4_m.exit.i ], [ %33, %23 ]
   %45 = sext i32 %8 to i64
@@ -335,23 +335,23 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE7reserveEm.exit:
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: ; preds = %51, %53, %55, %57
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %59 = icmp sgt i32 %17, 0
-  br i1 %59, label %.lr.ph120, label %._crit_edge
+  br i1 %59, label %.lr.ph119, label %._crit_edge
 
-.lr.ph120:                                        ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit
+.lr.ph119:                                        ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %wide.trip.count = and i64 %16, 2147483647
   br label %61
 
-61:                                               ; preds = %.lr.ph120, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit ]
+61:                                               ; preds = %.lr.ph119, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit ]
   %62 = load ptr, ptr %58, align 8
-  %63 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %62, i64 %indvars.iv
   %64 = load i64, ptr %63, align 4
   %65 = lshr i64 %64, 32
   %66 = trunc nuw i64 %65 to i32
   %67 = and i32 %66, 15
   %68 = and i64 %64, 68719476736
-  %.not102 = icmp eq i64 %68, 0
+  %.not101 = icmp eq i64 %68, 0
   %.lobit = lshr exact i64 %68, 36
   %69 = trunc nuw nsw i64 %.lobit to i32
   %70 = load i32, ptr %60, align 4
@@ -376,7 +376,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
 
 84:                                               ; preds = %84, %80
   %indvars.iv.i.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i.i, %84 ]
-  %85 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %78, i64 0, i64 %indvars.iv.i.i
+  %85 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %78, i64 0, i64 %indvars.iv.i.i
   store i32 %83, ptr %85, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -390,12 +390,12 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
   %sum.shift.i1.i.i = lshr i64 %71, 44
   %90 = trunc nuw nsw i64 %sum.shift.i1.i.i to i32
   %91 = and i32 %90, 1023
-  br i1 %88, label %151, label %92
+  br i1 %88, label %149, label %92
 
 92:                                               ; preds = %86
-  %93 = select i1 %.not102, i32 1, i32 2
-  %.not107 = icmp samesign ugt i32 %93, %67
-  br i1 %.not107, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %.lr.ph
+  %93 = select i1 %.not101, i32 1, i32 2
+  %.not106 = icmp samesign ugt i32 %93, %67
+  br i1 %.not106, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %92
   %94 = trunc nuw nsw i64 %indvars.iv to i32
@@ -404,18 +404,18 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
   br label %97
 
 97:                                               ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit
-  %.039109 = phi ptr [ %78, %.lr.ph ], [ %.0.i, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit ]
-  %.040108 = phi i32 [ %93, %.lr.ph ], [ %150, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit ]
-  %98 = sub nuw nsw i32 %67, %.040108
+  %.039108 = phi ptr [ %78, %.lr.ph ], [ %.0.i, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit ]
+  %.040107 = phi i32 [ %93, %.lr.ph ], [ %148, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit ]
+  %98 = sub nuw nsw i32 %67, %.040107
   %99 = lshr i32 %89, %98
   %100 = and i32 %99, 1
   %101 = lshr i32 %91, %98
   %102 = shl nuw nsw i32 %101, 1
   %103 = and i32 %102, 2
   %104 = or disjoint i32 %103, %100
-  %105 = icmp eq i32 %.040108, %67
+  %105 = icmp eq i32 %.040107, %67
   %106 = zext nneg i32 %104 to i64
-  %107 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %.039109, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %.039108, i64 0, i64 %106
   br i1 %105, label %108, label %109
 
 108:                                              ; preds = %97
@@ -432,7 +432,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
 113:                                              ; preds = %109
   %114 = lshr i32 %110, 2
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %112, i64 %115
+  %116 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %112, i64 %115
   br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit
 
 117:                                              ; preds = %109
@@ -449,7 +449,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
 125:                                              ; preds = %117
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %118, i8 0, i64 16, i1 false)
   %126 = load ptr, ptr %46, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr %127, ptr %46, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i
 
@@ -467,339 +467,327 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenE
   %132 = icmp ult i64 %131, %122
   %133 = tail call i64 @llvm.umin.i64(i64 %131, i64 576460752303423487)
   %134 = select i1 %132, i64 576460752303423487, i64 %133
-  %.not.i.i.i.i.i45 = icmp eq i64 %134, 0
-  br i1 %.not.i.i.i.i.i45, label %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i, label %135
-
-135:                                              ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %136 = shl nuw nsw i64 %134, 4
-  %137 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %136) #14
-  br label %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i
-
-_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %135, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %138 = phi ptr [ %137, %135 ], [ null, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
-  %139 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %138, i64 %122
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %139, i8 0, i64 16, i1 false)
+  %.not.i.i.i.i.i45 = icmp ne i64 %134, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i.i45)
+  %135 = shl nuw nsw i64 %134, 4
+  %136 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %135) #14
+  %137 = getelementptr inbounds i8, ptr %136, i64 %121
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %137, i8 0, i64 16, i1 false)
   %.not10.i.i.i.i.i.i.i.i = icmp eq ptr %112, %118
   br i1 %.not10.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i.i = phi ptr [ %141, %.lr.ph.i.i.i.i.i.i.i.i ], [ %138, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i ]
-  %.0911.i.i.i.i.i.i.i.i = phi ptr [ %140, %.lr.ph.i.i.i.i.i.i.i.i ], [ %112, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i ]
+.lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i.i.i = phi ptr [ %139, %.lr.ph.i.i.i.i.i.i.i.i ], [ %136, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.0911.i.i.i.i.i.i.i.i = phi ptr [ %138, %.lr.ph.i.i.i.i.i.i.i.i ], [ %112, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !14
-  %140 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i.i.i, i64 16
-  %141 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %140, %118
+  %138 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i.i, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %138, %118
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !12
 
-_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %138, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i ], [ %141, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %142 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 16
+_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i
+  %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %136, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %139, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %140 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i, i64 16
   %.not.i23.i.i.i.i = icmp eq ptr %112, null
-  br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i, label %143
+  br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i, label %141
 
-143:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
+141:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %112, i64 noundef %121) #12
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i
 
-_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %143, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
-  store ptr %138, ptr %18, align 8
-  store ptr %142, ptr %46, align 8
-  %144 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %138, i64 %134
-  store ptr %144, ptr %24, align 8
+_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %141, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
+  store ptr %136, ptr %18, align 8
+  store ptr %140, ptr %46, align 8
+  %142 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %136, i64 %134
+  store ptr %142, ptr %24, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i, %125
-  %145 = shl i32 %123, 2
-  %146 = or disjoint i32 %145, 1
-  store i32 %146, ptr %107, align 4
+  %143 = shl i32 %123, 2
+  %144 = or disjoint i32 %143, 1
+  store i32 %144, ptr %107, align 4
   %sext.i = shl i64 %121, 28
-  %147 = load ptr, ptr %18, align 8
-  %148 = ashr exact i64 %sext.i, 28
-  %149 = getelementptr inbounds i8, ptr %147, i64 %148
+  %145 = load ptr, ptr %18, align 8
+  %146 = ashr exact i64 %sext.i, 28
+  %147 = getelementptr inbounds i8, ptr %145, i64 %146
   br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit
 
 _ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit: ; preds = %108, %113, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i
-  %.0.i = phi ptr [ %.039109, %108 ], [ %116, %113 ], [ %149, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i ]
-  %150 = add nuw nsw i32 %.040108, 1
-  %exitcond.not = icmp eq i32 %.040108, %67
+  %.0.i = phi ptr [ %.039108, %108 ], [ %116, %113 ], [ %147, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i ]
+  %148 = add nuw nsw i32 %.040107, 1
+  %exitcond.not = icmp eq i32 %.040107, %67
   br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %97, !llvm.loop !18
 
-151:                                              ; preds = %86
-  %152 = add nuw nsw i32 %91, %89
-  %153 = lshr i64 %71, 32
-  %154 = trunc nuw i64 %153 to i32
-  %155 = and i32 %154, 15
-  %.highbits.i.i = lshr i32 %152, %155
+149:                                              ; preds = %86
+  %150 = add nuw nsw i32 %91, %89
+  %151 = lshr i64 %71, 32
+  %152 = trunc nuw i64 %151 to i32
+  %153 = and i32 %152, 15
+  %.highbits.i.i = lshr i32 %150, %153
   %.not.i46 = icmp eq i32 %.highbits.i.i, 0
-  %156 = shl i64 %71, 27
-  %sext.i.i.i = ashr i64 %156, 63
+  %154 = shl i64 %71, 27
+  %sext.i.i.i = ashr i64 %154, 63
   %.neg.i.i.i = trunc nsw i64 %sext.i.i.i to i32
-  %157 = add nsw i32 %155, %.neg.i.i.i
-  %158 = shl nuw nsw i32 1, %157
-  %159 = uitofp nneg i32 %158 to float
-  %160 = fdiv float 1.000000e+00, %159
-  %161 = fpext float %160 to double
-  br i1 %.not.i46, label %170, label %162
+  %155 = add nsw i32 %153, %.neg.i.i.i
+  %156 = shl nuw nsw i32 1, %155
+  %157 = uitofp nneg i32 %156 to float
+  %158 = fdiv float 1.000000e+00, %157
+  %159 = fpext float %158 to double
+  br i1 %.not.i46, label %168, label %160
 
-162:                                              ; preds = %151
-  %163 = shl nuw nsw i32 1, %155
-  %164 = sub nsw i32 %163, %89
-  %165 = sitofp i32 %164 to double
-  %166 = fadd double %165, -2.500000e-01
-  %167 = sub nsw i32 %163, %91
-  %168 = sitofp i32 %167 to double
-  %169 = fadd double %168, -2.500000e-01
+160:                                              ; preds = %149
+  %161 = shl nuw nsw i32 1, %153
+  %162 = sub nsw i32 %161, %89
+  %163 = sitofp i32 %162 to double
+  %164 = fadd double %163, -2.500000e-01
+  %165 = sub nsw i32 %161, %91
+  %166 = sitofp i32 %165 to double
+  %167 = fadd double %166, -2.500000e-01
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit
 
-170:                                              ; preds = %151
-  %171 = trunc nuw nsw i64 %sum.shift.i.i.i to i16
-  %172 = uitofp nneg i16 %171 to double
-  %173 = fadd double %172, 2.500000e-01
-  %174 = trunc i64 %sum.shift.i1.i.i to i16
-  %175 = and i16 %174, 1023
-  %176 = uitofp nneg i16 %175 to double
-  %177 = fadd double %176, 2.500000e-01
+168:                                              ; preds = %149
+  %169 = trunc nuw nsw i64 %sum.shift.i.i.i to i16
+  %170 = uitofp nneg i16 %169 to double
+  %171 = fadd double %170, 2.500000e-01
+  %172 = trunc i64 %sum.shift.i1.i.i to i16
+  %173 = and i16 %172, 1023
+  %174 = uitofp nneg i16 %173 to double
+  %175 = fadd double %174, 2.500000e-01
   br label %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit
 
-_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit: ; preds = %162, %170
-  %.pn = phi double [ %173, %170 ], [ %166, %162 ]
-  %.sink.i = phi double [ %177, %170 ], [ %169, %162 ]
-  %178 = select i1 %.not102, i32 1, i32 2
-  %.not43110 = icmp samesign ugt i32 %178, %67
-  br i1 %.not43110, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %.lr.ph117
+_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit: ; preds = %160, %168
+  %.pn = phi double [ %171, %168 ], [ %164, %160 ]
+  %.sink.i = phi double [ %175, %168 ], [ %167, %160 ]
+  %176 = select i1 %.not101, i32 1, i32 2
+  %.not43109 = icmp samesign ugt i32 %176, %67
+  br i1 %.not43109, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %.lr.ph116
 
-.lr.ph117:                                        ; preds = %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit
-  %179 = fmul double %.sink.i, %161
-  %.1101 = fmul double %.pn, %161
-  %180 = trunc nuw nsw i64 %indvars.iv to i32
-  %181 = shl i32 %180, 2
-  %182 = or disjoint i32 %181, 3
-  br label %183
+.lr.ph116:                                        ; preds = %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit
+  %177 = fmul double %.sink.i, %159
+  %.1100 = fmul double %.pn, %159
+  %178 = trunc nuw nsw i64 %indvars.iv to i32
+  %179 = shl i32 %178, 2
+  %180 = or disjoint i32 %179, 3
+  br label %181
 
-183:                                              ; preds = %.lr.ph117, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66
-  %.038116 = phi i32 [ %178, %.lr.ph117 ], [ %252, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66 ]
-  %.1115 = phi ptr [ %78, %.lr.ph117 ], [ %.0.i49, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66 ]
-  %.095114 = phi i1 [ false, %.lr.ph117 ], [ %.196, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66 ]
-  %.097113 = phi double [ 5.000000e-01, %.lr.ph117 ], [ %253, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66 ]
-  %.098112 = phi double [ %179, %.lr.ph117 ], [ %.199, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66 ]
-  %.0100111 = phi double [ %.1101, %.lr.ph117 ], [ %.2, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66 ]
-  br i1 %.095114, label %196, label %184
+181:                                              ; preds = %.lr.ph116, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65
+  %.038115 = phi i32 [ %176, %.lr.ph116 ], [ %248, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65 ]
+  %.1114 = phi ptr [ %78, %.lr.ph116 ], [ %.0.i49, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65 ]
+  %.094113 = phi i1 [ false, %.lr.ph116 ], [ %.195, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65 ]
+  %.096112 = phi double [ 5.000000e-01, %.lr.ph116 ], [ %249, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65 ]
+  %.097111 = phi double [ %177, %.lr.ph116 ], [ %.198, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65 ]
+  %.099110 = phi double [ %.1100, %.lr.ph116 ], [ %.2, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65 ]
+  br i1 %.094113, label %194, label %182
 
-184:                                              ; preds = %183
-  %185 = fcmp ult double %.0100111, %.097113
-  br i1 %185, label %188, label %186
+182:                                              ; preds = %181
+  %183 = fcmp ult double %.099110, %.096112
+  br i1 %183, label %186, label %184
 
-186:                                              ; preds = %184
-  %187 = fsub double %.0100111, %.097113
+184:                                              ; preds = %182
+  %185 = fsub double %.099110, %.096112
   br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
-188:                                              ; preds = %184
-  %189 = fcmp ult double %.098112, %.097113
-  br i1 %189, label %192, label %190
+186:                                              ; preds = %182
+  %187 = fcmp ult double %.097111, %.096112
+  br i1 %187, label %190, label %188
 
-190:                                              ; preds = %188
-  %191 = fsub double %.098112, %.097113
+188:                                              ; preds = %186
+  %189 = fsub double %.097111, %.096112
   br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
-192:                                              ; preds = %188
-  %193 = fadd double %.0100111, %.098112
-  %194 = fcmp ult double %193, %.097113
-  br i1 %194, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit, label %195
+190:                                              ; preds = %186
+  %191 = fadd double %.099110, %.097111
+  %192 = fcmp ult double %191, %.096112
+  br i1 %192, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit, label %193
 
-195:                                              ; preds = %192
+193:                                              ; preds = %190
   br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
-196:                                              ; preds = %183
-  %197 = fcmp olt double %.0100111, %.097113
-  br i1 %197, label %198, label %200
+194:                                              ; preds = %181
+  %195 = fcmp olt double %.099110, %.096112
+  br i1 %195, label %196, label %198
 
-198:                                              ; preds = %196
-  %199 = fsub double %.098112, %.097113
+196:                                              ; preds = %194
+  %197 = fsub double %.097111, %.096112
   br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
-200:                                              ; preds = %196
-  %201 = fcmp olt double %.098112, %.097113
-  %202 = fsub double %.0100111, %.097113
-  br i1 %201, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit, label %203
+198:                                              ; preds = %194
+  %199 = fcmp olt double %.097111, %.096112
+  %200 = fsub double %.099110, %.096112
+  br i1 %199, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit, label %201
 
-203:                                              ; preds = %200
-  %204 = fsub double %.098112, %.097113
-  %205 = fadd double %204, %202
-  %206 = fcmp olt double %205, %.097113
-  br i1 %206, label %207, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
+201:                                              ; preds = %198
+  %202 = fsub double %.097111, %.096112
+  %203 = fadd double %202, %200
+  %204 = fcmp olt double %203, %.096112
+  br i1 %204, label %205, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
-207:                                              ; preds = %203
+205:                                              ; preds = %201
   br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
 
-_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit: ; preds = %186, %190, %192, %195, %198, %200, %203, %207
-  %.2 = phi double [ %.0100111, %198 ], [ %202, %200 ], [ %202, %207 ], [ %202, %203 ], [ %.0100111, %192 ], [ %.0100111, %195 ], [ %.0100111, %190 ], [ %187, %186 ]
-  %.199 = phi double [ %199, %198 ], [ %.098112, %200 ], [ %204, %207 ], [ %204, %203 ], [ %.098112, %192 ], [ %.098112, %195 ], [ %191, %190 ], [ %.098112, %186 ]
-  %.196 = phi i1 [ true, %198 ], [ true, %200 ], [ false, %207 ], [ true, %203 ], [ false, %192 ], [ true, %195 ], [ false, %190 ], [ false, %186 ]
-  %.0.i47 = phi i64 [ 1, %198 ], [ 2, %200 ], [ 3, %207 ], [ 0, %203 ], [ 0, %192 ], [ 3, %195 ], [ 2, %190 ], [ 1, %186 ]
-  %208 = icmp eq i32 %.038116, %67
-  %209 = getelementptr inbounds [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %.1115, i64 0, i64 %.0.i47
-  br i1 %208, label %210, label %211
+_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit: ; preds = %184, %188, %190, %193, %196, %198, %201, %205
+  %.2 = phi double [ %.099110, %196 ], [ %200, %198 ], [ %200, %205 ], [ %200, %201 ], [ %.099110, %190 ], [ %.099110, %193 ], [ %.099110, %188 ], [ %185, %184 ]
+  %.198 = phi double [ %197, %196 ], [ %.097111, %198 ], [ %202, %205 ], [ %202, %201 ], [ %.097111, %190 ], [ %.097111, %193 ], [ %189, %188 ], [ %.097111, %184 ]
+  %.195 = phi i1 [ true, %196 ], [ true, %198 ], [ false, %205 ], [ true, %201 ], [ false, %190 ], [ true, %193 ], [ false, %188 ], [ false, %184 ]
+  %.0.i47 = phi i64 [ 1, %196 ], [ 2, %198 ], [ 3, %205 ], [ 0, %201 ], [ 0, %190 ], [ 3, %193 ], [ 2, %188 ], [ 1, %184 ]
+  %206 = icmp eq i32 %.038115, %67
+  %207 = getelementptr inbounds nuw [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"], ptr %.1114, i64 0, i64 %.0.i47
+  br i1 %206, label %208, label %209
 
-210:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
-  store i32 %182, ptr %209, align 4
-  br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66
+208:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
+  store i32 %180, ptr %207, align 4
+  br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65
 
-211:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
-  %212 = load i32, ptr %209, align 4
-  %213 = and i32 %212, 1
-  %.not.i48 = icmp eq i32 %213, 0
-  %214 = load ptr, ptr %18, align 8
-  br i1 %.not.i48, label %219, label %215
+209:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
+  %210 = load i32, ptr %207, align 4
+  %211 = and i32 %210, 1
+  %.not.i48 = icmp eq i32 %211, 0
+  %212 = load ptr, ptr %18, align 8
+  br i1 %.not.i48, label %217, label %213
 
-215:                                              ; preds = %211
-  %216 = lshr i32 %212, 2
-  %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %214, i64 %217
-  br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66
+213:                                              ; preds = %209
+  %214 = lshr i32 %210, 2
+  %215 = zext nneg i32 %214 to i64
+  %216 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %212, i64 %215
+  br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65
 
-219:                                              ; preds = %211
-  %220 = load ptr, ptr %46, align 8
-  %221 = ptrtoint ptr %220 to i64
-  %222 = ptrtoint ptr %214 to i64
-  %223 = sub i64 %221, %222
-  %224 = ashr exact i64 %223, 4
-  %225 = trunc i64 %224 to i32
-  %226 = load ptr, ptr %24, align 8
-  %.not.i.i.i50 = icmp eq ptr %220, %226
-  br i1 %.not.i.i.i50, label %230, label %227
+217:                                              ; preds = %209
+  %218 = load ptr, ptr %46, align 8
+  %219 = ptrtoint ptr %218 to i64
+  %220 = ptrtoint ptr %212 to i64
+  %221 = sub i64 %219, %220
+  %222 = ashr exact i64 %221, 4
+  %223 = trunc i64 %222 to i32
+  %224 = load ptr, ptr %24, align 8
+  %.not.i.i.i50 = icmp eq ptr %218, %224
+  br i1 %.not.i.i.i50, label %228, label %225
 
-227:                                              ; preds = %219
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %220, i8 0, i64 16, i1 false)
-  %228 = load ptr, ptr %46, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 16
-  store ptr %229, ptr %46, align 8
+225:                                              ; preds = %217
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %218, i8 0, i64 16, i1 false)
+  %226 = load ptr, ptr %46, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 16
+  store ptr %227, ptr %46, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i51
 
-230:                                              ; preds = %219
-  %231 = icmp eq i64 %223, 9223372036854775792
-  br i1 %231, label %232, label %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53
+228:                                              ; preds = %217
+  %229 = icmp eq i64 %221, 9223372036854775792
+  br i1 %229, label %230, label %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53
 
-232:                                              ; preds = %230
+230:                                              ; preds = %228
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #13
   unreachable
 
-_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53: ; preds = %230
-  %.sroa.speculated.i.i.i.i.i54 = tail call i64 @llvm.umax.i64(i64 %224, i64 1)
-  %233 = add nsw i64 %.sroa.speculated.i.i.i.i.i54, %224
-  %234 = icmp ult i64 %233, %224
-  %235 = tail call i64 @llvm.umin.i64(i64 %233, i64 576460752303423487)
-  %236 = select i1 %234, i64 576460752303423487, i64 %235
-  %.not.i.i.i.i.i55 = icmp eq i64 %236, 0
-  br i1 %.not.i.i.i.i.i55, label %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i56, label %237
+_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53: ; preds = %228
+  %.sroa.speculated.i.i.i.i.i54 = tail call i64 @llvm.umax.i64(i64 %222, i64 1)
+  %231 = add nsw i64 %.sroa.speculated.i.i.i.i.i54, %222
+  %232 = icmp ult i64 %231, %222
+  %233 = tail call i64 @llvm.umin.i64(i64 %231, i64 576460752303423487)
+  %234 = select i1 %232, i64 576460752303423487, i64 %233
+  %.not.i.i.i.i.i55 = icmp ne i64 %234, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i.i55)
+  %235 = shl nuw nsw i64 %234, 4
+  %236 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %235) #14
+  %237 = getelementptr inbounds i8, ptr %236, i64 %221
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %237, i8 0, i64 16, i1 false)
+  %.not10.i.i.i.i.i.i.i.i56 = icmp eq ptr %212, %218
+  br i1 %.not10.i.i.i.i.i.i.i.i56, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i61, label %.lr.ph.i.i.i.i.i.i.i.i57
 
-237:                                              ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53
-  %238 = shl nuw nsw i64 %236, 4
-  %239 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %238) #14
-  br label %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i56
+.lr.ph.i.i.i.i.i.i.i.i57:                         ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53, %.lr.ph.i.i.i.i.i.i.i.i57
+  %.012.i.i.i.i.i.i.i.i58 = phi ptr [ %239, %.lr.ph.i.i.i.i.i.i.i.i57 ], [ %236, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53 ]
+  %.0911.i.i.i.i.i.i.i.i59 = phi ptr [ %238, %.lr.ph.i.i.i.i.i.i.i.i57 ], [ %212, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i.i.i.i.i58, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i.i.i.i.i59, i64 16, i1 false), !alias.scope !19
+  %238 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i.i59, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i58, i64 16
+  %.not.i.i.i.i.i.i.i.i60 = icmp eq ptr %238, %218
+  br i1 %.not.i.i.i.i.i.i.i.i60, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i61, label %.lr.ph.i.i.i.i.i.i.i.i57, !llvm.loop !12
 
-_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i56: ; preds = %237, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53
-  %240 = phi ptr [ %239, %237 ], [ null, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53 ]
-  %241 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %240, i64 %224
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %241, i8 0, i64 16, i1 false)
-  %.not10.i.i.i.i.i.i.i.i57 = icmp eq ptr %214, %220
-  br i1 %.not10.i.i.i.i.i.i.i.i57, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i62, label %.lr.ph.i.i.i.i.i.i.i.i58
+_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i61: ; preds = %.lr.ph.i.i.i.i.i.i.i.i57, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53
+  %.0.lcssa.i.i.i.i.i.i.i.i62 = phi ptr [ %236, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53 ], [ %239, %.lr.ph.i.i.i.i.i.i.i.i57 ]
+  %240 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i62, i64 16
+  %.not.i23.i.i.i.i63 = icmp eq ptr %212, null
+  br i1 %.not.i23.i.i.i.i63, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i64, label %241
 
-.lr.ph.i.i.i.i.i.i.i.i58:                         ; preds = %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i56, %.lr.ph.i.i.i.i.i.i.i.i58
-  %.012.i.i.i.i.i.i.i.i59 = phi ptr [ %243, %.lr.ph.i.i.i.i.i.i.i.i58 ], [ %240, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i56 ]
-  %.0911.i.i.i.i.i.i.i.i60 = phi ptr [ %242, %.lr.ph.i.i.i.i.i.i.i.i58 ], [ %214, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i56 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i.i.i.i.i59, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i.i.i.i.i60, i64 16, i1 false), !alias.scope !19
-  %242 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i.i.i60, i64 16
-  %243 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i.i.i59, i64 16
-  %.not.i.i.i.i.i.i.i.i61 = icmp eq ptr %242, %220
-  br i1 %.not.i.i.i.i.i.i.i.i61, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i62, label %.lr.ph.i.i.i.i.i.i.i.i58, !llvm.loop !12
+241:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i61
+  tail call void @_ZdlPvm(ptr noundef nonnull %212, i64 noundef %221) #12
+  br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i64
 
-_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i62: ; preds = %.lr.ph.i.i.i.i.i.i.i.i58, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i56
-  %.0.lcssa.i.i.i.i.i.i.i.i63 = phi ptr [ %240, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i.i.i.i56 ], [ %243, %.lr.ph.i.i.i.i.i.i.i.i58 ]
-  %244 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i63, i64 16
-  %.not.i23.i.i.i.i64 = icmp eq ptr %214, null
-  br i1 %.not.i23.i.i.i.i64, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i65, label %245
-
-245:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i62
-  tail call void @_ZdlPvm(ptr noundef nonnull %214, i64 noundef %223) #12
-  br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i65
-
-_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i65: ; preds = %245, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i62
-  store ptr %240, ptr %18, align 8
-  store ptr %244, ptr %46, align 8
-  %246 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %240, i64 %236
-  store ptr %246, ptr %24, align 8
+_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i64: ; preds = %241, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i61
+  store ptr %236, ptr %18, align 8
+  store ptr %240, ptr %46, align 8
+  %242 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %236, i64 %234
+  store ptr %242, ptr %24, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i51
 
-_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i51: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i65, %227
-  %247 = shl i32 %225, 2
-  %248 = or disjoint i32 %247, 1
-  store i32 %248, ptr %209, align 4
-  %sext.i52 = shl i64 %223, 28
-  %249 = load ptr, ptr %18, align 8
-  %250 = ashr exact i64 %sext.i52, 28
-  %251 = getelementptr inbounds i8, ptr %249, i64 %250
-  br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66
+_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i51: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i64, %225
+  %243 = shl i32 %223, 2
+  %244 = or disjoint i32 %243, 1
+  store i32 %244, ptr %207, align 4
+  %sext.i52 = shl i64 %221, 28
+  %245 = load ptr, ptr %18, align 8
+  %246 = ashr exact i64 %sext.i52, 28
+  %247 = getelementptr inbounds i8, ptr %245, i64 %246
+  br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65
 
-_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66: ; preds = %210, %215, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i51
-  %.0.i49 = phi ptr [ %.1115, %210 ], [ %218, %215 ], [ %251, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i51 ]
-  %252 = add nuw nsw i32 %.038116, 1
-  %253 = fmul double %.097113, 5.000000e-01
-  %exitcond125.not = icmp eq i32 %.038116, %67
-  br i1 %exitcond125.not, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %183, !llvm.loop !23
+_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65: ; preds = %208, %213, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i51
+  %.0.i49 = phi ptr [ %.1114, %208 ], [ %216, %213 ], [ %247, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i51 ]
+  %248 = add nuw nsw i32 %.038115, 1
+  %249 = fmul double %.096112, 5.000000e-01
+  %exitcond124.not = icmp eq i32 %.038115, %67
+  br i1 %exitcond124.not, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %181, !llvm.loop !23
 
-_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit66, %84, %92, %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit
+_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65, %84, %92, %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond127.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond127.not, label %._crit_edge, label %61, !llvm.loop !24
+  %exitcond126.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond126.not, label %._crit_edge, label %61, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit
-  %254 = load ptr, ptr %46, align 8
-  %255 = load ptr, ptr %18, align 8
-  %256 = ptrtoint ptr %254 to i64
-  %257 = ptrtoint ptr %255 to i64
-  %258 = sub i64 %256, %257
-  %.not.i.i.i.i = icmp eq ptr %254, %255
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit, label %259
+  %250 = load ptr, ptr %46, align 8
+  %251 = load ptr, ptr %18, align 8
+  %252 = ptrtoint ptr %250 to i64
+  %253 = ptrtoint ptr %251 to i64
+  %254 = sub i64 %252, %253
+  %.not.i.i.i.i = icmp eq ptr %250, %251
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit, label %255
 
-259:                                              ; preds = %._crit_edge
-  %260 = icmp ugt i64 %258, 9223372036854775792
-  br i1 %260, label %.noexc.i.i, label %261
+255:                                              ; preds = %._crit_edge
+  %256 = icmp ugt i64 %254, 9223372036854775792
+  br i1 %256, label %.noexc.i.i, label %257
 
-.noexc.i.i:                                       ; preds = %259
+.noexc.i.i:                                       ; preds = %255
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #13
   unreachable
 
-261:                                              ; preds = %259
-  %262 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %258) #14
-  br label %.lr.ph.i.i.i.i.i67
+257:                                              ; preds = %255
+  %258 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %254) #14
+  br label %.lr.ph.i.i.i.i.i66
 
-.lr.ph.i.i.i.i.i67:                               ; preds = %261, %.lr.ph.i.i.i.i.i67
-  %.09.i.i.i.i.i = phi ptr [ %264, %.lr.ph.i.i.i.i.i67 ], [ %262, %261 ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %263, %.lr.ph.i.i.i.i.i67 ], [ %255, %261 ]
+.lr.ph.i.i.i.i.i66:                               ; preds = %257, %.lr.ph.i.i.i.i.i66
+  %.09.i.i.i.i.i = phi ptr [ %260, %.lr.ph.i.i.i.i.i66 ], [ %258, %257 ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %259, %.lr.ph.i.i.i.i.i66 ], [ %251, %257 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.09.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.04.08.i.i.i.i.i, i64 16, i1 false)
-  %263 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
-  %264 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i68 = icmp eq ptr %263, %254
-  br i1 %.not.i.i.i.i.i68, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit, label %.lr.ph.i.i.i.i.i67, !llvm.loop !25
+  %259 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i67 = icmp eq ptr %259, %250
+  br i1 %.not.i.i.i.i.i67, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit, label %.lr.ph.i.i.i.i.i66, !llvm.loop !25
 
-_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit: ; preds = %.lr.ph.i.i.i.i.i67, %._crit_edge
-  %265 = phi ptr [ null, %._crit_edge ], [ %262, %.lr.ph.i.i.i.i.i67 ]
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %._crit_edge ], [ %264, %.lr.ph.i.i.i.i.i67 ]
-  %266 = getelementptr inbounds i8, ptr %265, i64 %258
-  %267 = load ptr, ptr %24, align 8
-  store ptr %265, ptr %18, align 8
+_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit: ; preds = %.lr.ph.i.i.i.i.i66, %._crit_edge
+  %261 = phi ptr [ null, %._crit_edge ], [ %258, %.lr.ph.i.i.i.i.i66 ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %._crit_edge ], [ %260, %.lr.ph.i.i.i.i.i66 ]
+  %262 = getelementptr inbounds i8, ptr %261, i64 %254
+  %263 = load ptr, ptr %24, align 8
+  store ptr %261, ptr %18, align 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %46, align 8
-  store ptr %266, ptr %24, align 8
-  %.not.i.i.i69 = icmp eq ptr %255, null
-  br i1 %.not.i.i.i69, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit, label %268
+  store ptr %262, ptr %24, align 8
+  %.not.i.i.i68 = icmp eq ptr %251, null
+  br i1 %.not.i.i.i68, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit, label %264
 
-268:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit
-  %269 = ptrtoint ptr %267 to i64
-  %270 = sub i64 %269, %257
-  tail call void @_ZdlPvm(ptr noundef nonnull %255, i64 noundef %270) #12
+264:                                              ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit
+  %265 = ptrtoint ptr %263 to i64
+  %266 = sub i64 %265, %253
+  tail call void @_ZdlPvm(ptr noundef nonnull %251, i64 noundef %266) #12
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit, %268
+_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit, %264
   ret void
 }
 
@@ -845,7 +833,7 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11Pat
 
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false)
-  %20 = getelementptr inbounds i8, ptr %5, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %21 = icmp eq i64 %1, 1
   br i1 %21, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleEmS4_ET_S6_T0_RSaIT1_E.exit, label %22
 
@@ -856,7 +844,7 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11Pat
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %22
   %.06.i.i.i.i.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %22 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
-  %24 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i.i = icmp eq ptr %24, %23
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleEmS4_ET_S6_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !26
 
@@ -885,14 +873,14 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE12_M_che
   br i1 %33, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleEmS4_ET_S6_T0_RSaIT1_E.exit34, label %34
 
 34:                                               ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE12_M_check_lenEmPKc.exit
-  %35 = getelementptr inbounds i8, ptr %32, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %36 = getelementptr %"class.OpenSubdiv::v3_6_0::Far::PatchTable::PatchHandle", ptr %32, i64 %1
   br label %.lr.ph.i.i.i.i.i.i.i30
 
 .lr.ph.i.i.i.i.i.i.i30:                           ; preds = %.lr.ph.i.i.i.i.i.i.i30, %34
   %.06.i.i.i.i.i.i.i31 = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i30 ], [ %35, %34 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i31, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false)
-  %37 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i31, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i31, i64 12
   %.not.i.i.i.i.i.i.i32 = icmp eq ptr %37, %36
   br i1 %.not.i.i.i.i.i.i.i32, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleEmS4_ET_S6_T0_RSaIT1_E.exit34, label %.lr.ph.i.i.i.i.i.i.i30, !llvm.loop !26
 
@@ -917,7 +905,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE13
   store ptr %31, ptr %0, align 8
   %42 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::PatchTable::PatchHandle", ptr %32, i64 %1
   store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::PatchTable::PatchHandle", ptr %31, i64 %29
+  %43 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::PatchHandle", ptr %31, i64 %29
   store ptr %43, ptr %11, align 8
   br label %44
 
@@ -997,8 +985,8 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenE
   %.012.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %26, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i, i64 16, i1 false), !alias.scope !27
-  %29 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
-  %30 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %29, %5
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
@@ -1015,7 +1003,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE13_M_deal
   store ptr %26, ptr %0, align 8
   %33 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %27, i64 %1
   store ptr %33, ptr %4, align 8
-  %34 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %26, i64 %24
   store ptr %34, ptr %11, align 8
   br label %35
 

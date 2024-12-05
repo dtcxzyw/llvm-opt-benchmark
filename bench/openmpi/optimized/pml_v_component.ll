@@ -186,9 +186,9 @@ define internal i32 @mca_pml_v_component_parasite_finalize() #0 {
 
 7:                                                ; preds = %6
   store ptr @mca_base_component_list_item_t_class, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store volatile i32 1, ptr %8, align 8
-  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_component_list_item_t_class, i64 40), align 8
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_base_component_list_item_t_class, i64 40), align 8
   %10 = load ptr, ptr %9, align 8
   %.not6.i.i = icmp eq ptr %10, null
   br i1 %.not6.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i
@@ -197,21 +197,21 @@ define internal i32 @mca_pml_v_component_parasite_finalize() #0 {
   %11 = phi ptr [ %13, %.lr.ph.i.i ], [ %10, %7 ]
   %.07.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %9, %7 ]
   tail call void %11(ptr noundef nonnull %2) #7
-  %12 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %opal_obj_new.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %6, %7
-  %14 = getelementptr inbounds i8, ptr %2, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr @mca_pml_v_component, ptr %14, align 8
   %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 112), align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store volatile ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store volatile ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 96), ptr %17, align 8
   %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 112), align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store volatile ptr %2, ptr %19, align 8
   store volatile ptr %2, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 112), align 8
   %20 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_pml_base_framework, i64 136), align 8

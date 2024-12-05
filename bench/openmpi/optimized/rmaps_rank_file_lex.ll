@@ -148,10 +148,10 @@ prte_rmaps_rank_file_ensure_buffer_stack.exit:    ; preds = %22, %23, %31
   unreachable
 
 36:                                               ; preds = %prte_rmaps_rank_file_ensure_buffer_stack.exit
-  %37 = getelementptr inbounds i8, ptr %34, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i32 16384, ptr %37, align 8
   %38 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #21
-  %39 = getelementptr inbounds i8, ptr %34, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %38, ptr %39, align 8
   %.not9.i58 = icmp eq ptr %38, null
   br i1 %.not9.i58, label %40, label %prte_rmaps_rank_file__create_buffer.exit
@@ -161,7 +161,7 @@ prte_rmaps_rank_file_ensure_buffer_stack.exit:    ; preds = %22, %23, %31
   unreachable
 
 prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %34, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i32 1, ptr %41, align 8
   tail call fastcc void @prte_rmaps_rank_file__init_buffer(ptr noundef nonnull %34, ptr noundef %33)
   %42 = load ptr, ptr @yy_buffer_stack, align 8
@@ -175,10 +175,10 @@ prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
   %47 = phi i64 [ %43, %prte_rmaps_rank_file__create_buffer.exit ], [ %16, %15 ]
   %48 = phi ptr [ %42, %prte_rmaps_rank_file__create_buffer.exit ], [ %14, %15 ]
   %49 = getelementptr inbounds ptr, ptr %48, i64 %47
-  %50 = getelementptr inbounds i8, ptr %46, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %51 = load i32, ptr %50, align 4
   store i32 %51, ptr @yy_n_chars, align 4
-  %52 = getelementptr inbounds i8, ptr %46, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr @yy_c_buf_p, align 8
   store ptr %53, ptr @prte_rmaps_rank_file_text, align 8
@@ -214,7 +214,7 @@ prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
   %.1 = phi i32 [ %.034, %.backedge ], [ %98, %._crit_edge ]
   %62 = load i8, ptr %.142, align 1
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds [256 x i8], ptr @yy_ec, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [256 x i8], ptr @yy_ec, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = sext i32 %.1 to i64
   %67 = getelementptr inbounds [127 x i16], ptr @yy_accept, i64 0, i64 %66
@@ -249,7 +249,7 @@ prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %.lr.ph
-  %85 = getelementptr inbounds [30 x i8], ptr @yy_meta, i64 0, i64 %79
+  %85 = getelementptr inbounds nuw [30 x i8], ptr @yy_meta, i64 0, i64 %79
   %86 = load i8, ptr %85, align 1
   br label %87
 
@@ -271,7 +271,7 @@ prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
   %96 = getelementptr inbounds [419 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
   %97 = load i16, ptr %96, align 2
   %98 = sext i16 %97 to i32
-  %99 = getelementptr inbounds i8, ptr %.142, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %.142, i64 1
   %100 = sext i16 %97 to i64
   %101 = getelementptr inbounds [143 x i16], ptr @yy_base, i64 0, i64 %100
   %102 = load i16, ptr %101, align 2
@@ -479,7 +479,7 @@ prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
   %180 = load i64, ptr @yy_buffer_stack_top, align 8
   %181 = getelementptr inbounds ptr, ptr %179, i64 %180
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 56
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 56
   %184 = load i32, ptr %183, align 8
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %186, label %._crit_edge224
@@ -489,13 +489,13 @@ prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
   br label %192
 
 186:                                              ; preds = %176
-  %187 = getelementptr inbounds i8, ptr %182, i64 28
+  %187 = getelementptr inbounds nuw i8, ptr %182, i64 28
   %188 = load i32, ptr %187, align 4
   store i32 %188, ptr @yy_n_chars, align 4
   %189 = load ptr, ptr @prte_rmaps_rank_file_in, align 8
   store ptr %189, ptr %182, align 8
   %190 = load ptr, ptr %181, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 56
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 56
   store i32 1, ptr %191, align 8
   %.pre223 = load ptr, ptr %181, align 8
   br label %192
@@ -504,7 +504,7 @@ prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
   %193 = phi i32 [ %188, %186 ], [ %.pre225, %._crit_edge224 ]
   %194 = phi ptr [ %.pre223, %186 ], [ %182, %._crit_edge224 ]
   %195 = load ptr, ptr @yy_c_buf_p, align 8
-  %196 = getelementptr inbounds i8, ptr %194, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %197 = load ptr, ptr %196, align 8
   %198 = sext i32 %193 to i64
   %199 = getelementptr inbounds i8, ptr %197, i64 %198
@@ -534,7 +534,7 @@ prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
 
 211:                                              ; preds = %.lr.ph25.i
   %212 = zext i8 %210 to i64
-  %213 = getelementptr inbounds [256 x i8], ptr @yy_ec, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw [256 x i8], ptr @yy_ec, i64 0, i64 %212
   %214 = load i8, ptr %213, align 1
   br label %215
 
@@ -573,7 +573,7 @@ prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
   br i1 %234, label %235, label %238
 
 235:                                              ; preds = %.lr.ph.i
-  %236 = getelementptr inbounds [30 x i8], ptr @yy_meta, i64 0, i64 %230
+  %236 = getelementptr inbounds nuw [30 x i8], ptr @yy_meta, i64 0, i64 %230
   %237 = load i8, ptr %236, align 1
   br label %238
 
@@ -595,7 +595,7 @@ prte_rmaps_rank_file__create_buffer.exit:         ; preds = %36
   %247 = getelementptr inbounds [419 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i
   %248 = load i16, ptr %247, align 2
   %249 = sext i16 %248 to i32
-  %250 = getelementptr inbounds i8, ptr %.01523.i, i64 1
+  %250 = getelementptr inbounds nuw i8, ptr %.01523.i, i64 1
   %exitcond.not.i = icmp eq ptr %250, %207
   br i1 %exitcond.not.i, label %yy_get_previous_state.exit, label %.lr.ph25.i, !llvm.loop !8
 
@@ -648,7 +648,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
 
 276:                                              ; preds = %yy_try_NUL_trans.exit
   %277 = sext i16 %274 to i32
-  %278 = getelementptr inbounds i8, ptr %207, i64 1
+  %278 = getelementptr inbounds nuw i8, ptr %207, i64 1
   store ptr %278, ptr @yy_c_buf_p, align 8
   br label %.backedge.backedge
 
@@ -663,7 +663,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   unreachable
 
 284:                                              ; preds = %279
-  %285 = getelementptr inbounds i8, ptr %194, i64 52
+  %285 = getelementptr inbounds nuw i8, ptr %194, i64 52
   %286 = load i32, ptr %285, align 4
   %287 = icmp eq i32 %286, 0
   %288 = ptrtoint ptr %195 to i64
@@ -686,9 +686,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %.05185.i = phi ptr [ %300, %.lr.ph.i66 ], [ %197, %293 ]
   %.05284.i = phi ptr [ %298, %.lr.ph.i66 ], [ %280, %293 ]
   %.05383.i = phi i32 [ %301, %.lr.ph.i66 ], [ 0, %293 ]
-  %298 = getelementptr inbounds i8, ptr %.05284.i, i64 1
+  %298 = getelementptr inbounds nuw i8, ptr %.05284.i, i64 1
   %299 = load i8, ptr %.05284.i, align 1
-  %300 = getelementptr inbounds i8, ptr %.05185.i, i64 1
+  %300 = getelementptr inbounds nuw i8, ptr %.05185.i, i64 1
   store i8 %299, ptr %.05185.i, align 1
   %301 = add nuw nsw i32 %.05383.i, 1
   %exitcond.not.i67 = icmp eq i32 %301, %296
@@ -700,7 +700,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
 
 ._crit_edge.i64:                                  ; preds = %._crit_edge.loopexit.i, %293
   %302 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %194, %293 ]
-  %303 = getelementptr inbounds i8, ptr %302, i64 56
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 56
   %304 = load i32, ptr %303, align 8
   %305 = icmp eq i32 %304, 2
   br i1 %305, label %.thread77.i, label %306
@@ -711,7 +711,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
 
 306:                                              ; preds = %._crit_edge.i64
   %307 = xor i32 %296, -1
-  %.pn.in86.i = getelementptr inbounds i8, ptr %302, i64 24
+  %.pn.in86.i = getelementptr inbounds nuw i8, ptr %302, i64 24
   %.pn87.i = load i32, ptr %.pn.in86.i, align 8
   %.05488.i = add i32 %.pn87.i, %307
   %308 = icmp slt i32 %.05488.i, 1
@@ -721,12 +721,12 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %309 = phi i32 [ %.pn.i, %328 ], [ %.pn87.i, %306 ]
   %310 = phi ptr [ %331, %328 ], [ %302, %306 ]
   %311 = phi ptr [ %330, %328 ], [ %195, %306 ]
-  %312 = getelementptr inbounds i8, ptr %310, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %313 = load ptr, ptr %312, align 8
   %314 = ptrtoint ptr %311 to i64
   %315 = ptrtoint ptr %313 to i64
   %316 = sub i64 %314, %315
-  %317 = getelementptr inbounds i8, ptr %310, i64 32
+  %317 = getelementptr inbounds nuw i8, ptr %310, i64 32
   %318 = load i32, ptr %317, align 8
   %.not67.i = icmp eq i32 %318, 0
   br i1 %.not67.i, label %.thread.i, label %319
@@ -736,7 +736,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   br label %.loopexit79.i
 
 319:                                              ; preds = %.lr.ph90.i
-  %320 = getelementptr inbounds i8, ptr %310, i64 24
+  %320 = getelementptr inbounds nuw i8, ptr %310, i64 24
   %321 = icmp slt i32 %309, 1
   %322 = shl nuw nsw i32 %309, 1
   %.nonneg.i = sub i32 0, %309
@@ -761,7 +761,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %330 = getelementptr inbounds i8, ptr %327, i64 %329
   store ptr %330, ptr @yy_c_buf_p, align 8
   %331 = load ptr, ptr %181, align 8
-  %.pn.in.i = getelementptr inbounds i8, ptr %331, i64 24
+  %.pn.in.i = getelementptr inbounds nuw i8, ptr %331, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.054.i = add i32 %.pn.i, %307
   %332 = icmp slt i32 %.054.i, 1
@@ -771,7 +771,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %333 = phi ptr [ %302, %306 ], [ %331, %328 ]
   %.054.lcssa.i = phi i32 [ %.05488.i, %306 ], [ %.054.i, %328 ]
   %334 = tail call i32 @llvm.umin.i32(i32 %.054.lcssa.i, i32 8192)
-  %335 = getelementptr inbounds i8, ptr %333, i64 36
+  %335 = getelementptr inbounds nuw i8, ptr %333, i64 36
   %336 = load i32, ptr %335, align 4
   %.not.i65 = icmp eq i32 %336, 0
   br i1 %.not.i65, label %368, label %.preheader.i
@@ -797,10 +797,10 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %344 = load i64, ptr @yy_buffer_stack_top, align 8
   %345 = getelementptr inbounds ptr, ptr %343, i64 %344
   %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %346, i64 8
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %348 = load ptr, ptr %347, align 8
   %349 = getelementptr inbounds i8, ptr %348, i64 %337
-  %350 = getelementptr inbounds i8, ptr %349, i64 %indvars.iv.i
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 %indvars.iv.i
   store i8 %342, ptr %350, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond101.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -822,16 +822,16 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %353 = load i64, ptr @yy_buffer_stack_top, align 8
   %354 = getelementptr inbounds ptr, ptr %352, i64 %353
   %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 8
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
   %357 = load ptr, ptr %356, align 8
   %358 = getelementptr inbounds i8, ptr %357, i64 %337
   %359 = add nuw nsw i32 %.048.lcssa.i, 1
   %360 = zext nneg i32 %.048.lcssa.i to i64
-  %361 = getelementptr inbounds i8, ptr %358, i64 %360
+  %361 = getelementptr inbounds nuw i8, ptr %358, i64 %360
   store i8 10, ptr %361, align 1
   store i32 %359, ptr @yy_n_chars, align 4
   %362 = load ptr, ptr %354, align 8
-  %363 = getelementptr inbounds i8, ptr %362, i64 28
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 28
   store i32 %359, ptr %363, align 4
   br label %427
 
@@ -855,7 +855,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %373 = load i64, ptr @yy_buffer_stack_top, align 8
   %374 = getelementptr inbounds ptr, ptr %372, i64 %373
   %375 = load ptr, ptr %374, align 8
-  %376 = getelementptr inbounds i8, ptr %375, i64 8
+  %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %377 = load ptr, ptr %376, align 8
   %378 = getelementptr inbounds i8, ptr %377, i64 %370
   %379 = load ptr, ptr @prte_rmaps_rank_file_in, align 8
@@ -895,7 +895,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %395 = load i64, ptr @yy_buffer_stack_top, align 8
   %396 = getelementptr inbounds ptr, ptr %394, i64 %395
   %397 = load ptr, ptr %396, align 8
-  %398 = getelementptr inbounds i8, ptr %397, i64 8
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
   %399 = load ptr, ptr %398, align 8
   %400 = getelementptr inbounds i8, ptr %399, i64 %370
   %401 = load ptr, ptr @prte_rmaps_rank_file_in, align 8
@@ -911,7 +911,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %406 = load i64, ptr @yy_buffer_stack_top, align 8
   %407 = getelementptr inbounds ptr, ptr %405, i64 %406
   %408 = load ptr, ptr %407, align 8
-  %409 = getelementptr inbounds i8, ptr %408, i64 28
+  %409 = getelementptr inbounds nuw i8, ptr %408, i64 28
   store i32 %.pr.ph.i, ptr %409, align 4
   br label %427
 
@@ -921,7 +921,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %411 = load i64, ptr @yy_buffer_stack_top, align 8
   %412 = getelementptr inbounds ptr, ptr %410, i64 %411
   %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds i8, ptr %413, i64 28
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 28
   store i32 %.048.lcssa.i, ptr %414, align 4
   %415 = icmp eq i32 %.048.lcssa.i, 0
   br i1 %415, label %417, label %427
@@ -930,7 +930,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %.sink121.i = phi ptr [ %388, %.loopexit.thread107.i ], [ %302, %.thread77.i ]
   %.ph.i = phi i64 [ %386, %.loopexit.thread107.i ], [ %180, %.thread77.i ]
   %.ph120.i = phi ptr [ %385, %.loopexit.thread107.i ], [ %179, %.thread77.i ]
-  %416 = getelementptr inbounds i8, ptr %.sink121.i, i64 28
+  %416 = getelementptr inbounds nuw i8, ptr %.sink121.i, i64 28
   store i32 0, ptr %416, align 4
   br label %417
 
@@ -951,7 +951,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
 423:                                              ; preds = %417
   %424 = getelementptr inbounds ptr, ptr %419, i64 %418
   %425 = load ptr, ptr %424, align 8
-  %426 = getelementptr inbounds i8, ptr %425, i64 56
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 56
   store i32 2, ptr %426, align 8
   br label %427
 
@@ -963,7 +963,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
   %431 = add nsw i32 %430, %296
   %432 = getelementptr inbounds ptr, ptr %429, i64 %428
   %433 = load ptr, ptr %432, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 24
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 24
   %435 = load i32, ptr %434, align 8
   %436 = icmp sgt i32 %431, %435
   br i1 %436, label %437, label %yy_get_next_buffer.exit
@@ -971,15 +971,15 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
 437:                                              ; preds = %427
   %438 = ashr i32 %430, 1
   %439 = add nsw i32 %431, %438
-  %440 = getelementptr inbounds i8, ptr %433, i64 8
+  %440 = getelementptr inbounds nuw i8, ptr %433, i64 8
   %441 = load ptr, ptr %440, align 8
   %442 = sext i32 %439 to i64
   %443 = tail call noalias noundef ptr @realloc(ptr noundef %441, i64 noundef %442) #23
   %444 = load ptr, ptr %432, align 8
-  %445 = getelementptr inbounds i8, ptr %444, i64 8
+  %445 = getelementptr inbounds nuw i8, ptr %444, i64 8
   store ptr %443, ptr %445, align 8
   %446 = load ptr, ptr %432, align 8
-  %447 = getelementptr inbounds i8, ptr %446, i64 8
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 8
   %448 = load ptr, ptr %447, align 8
   %.not71.i = icmp eq ptr %448, null
   br i1 %.not71.i, label %449, label %450
@@ -990,7 +990,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
 
 450:                                              ; preds = %437
   %451 = add nsw i32 %439, -2
-  %452 = getelementptr inbounds i8, ptr %446, i64 24
+  %452 = getelementptr inbounds nuw i8, ptr %446, i64 24
   store i32 %451, ptr %452, align 8
   %.pre105.i = load ptr, ptr %432, align 8
   br label %yy_get_next_buffer.exit
@@ -998,19 +998,19 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i61, %255
 yy_get_next_buffer.exit:                          ; preds = %427, %450
   %453 = phi ptr [ %.pre105.i, %450 ], [ %433, %427 ]
   store i32 %431, ptr @yy_n_chars, align 4
-  %454 = getelementptr inbounds i8, ptr %453, i64 8
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
   %455 = load ptr, ptr %454, align 8
   %456 = sext i32 %431 to i64
   %457 = getelementptr inbounds i8, ptr %455, i64 %456
   store i8 0, ptr %457, align 1
   %458 = load ptr, ptr %432, align 8
-  %459 = getelementptr inbounds i8, ptr %458, i64 8
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %460 = load ptr, ptr %459, align 8
   %461 = getelementptr i8, ptr %460, i64 %456
   %462 = getelementptr i8, ptr %461, i64 1
   store i8 0, ptr %462, align 1
   %463 = load ptr, ptr %432, align 8
-  %464 = getelementptr inbounds i8, ptr %463, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 8
   %465 = load ptr, ptr %464, align 8
   store ptr %465, ptr @prte_rmaps_rank_file_text, align 8
   switch i32 %.055.i, label %default.unreachable235 [
@@ -1024,7 +1024,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread99_crit_edge: ; preds = %y
   %.pre227 = load i64, ptr @yy_buffer_stack_top, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre226, i64 %.pre227
   %.pre228 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert229 = getelementptr inbounds i8, ptr %.pre228, i64 8
+  %.phi.trans.insert229 = getelementptr inbounds nuw i8, ptr %.pre228, i64 8
   %.pre230 = load ptr, ptr %.phi.trans.insert229, align 8
   %.pre231 = load i32, ptr @yy_n_chars, align 4
   %.pre234 = sext i32 %.pre231 to i64
@@ -1068,7 +1068,7 @@ yy_get_next_buffer.exit.thread:                   ; preds = %290, %yy_get_next_b
 
 481:                                              ; preds = %.lr.ph25.i69
   %482 = zext i8 %480 to i64
-  %483 = getelementptr inbounds [256 x i8], ptr @yy_ec, i64 0, i64 %482
+  %483 = getelementptr inbounds nuw [256 x i8], ptr @yy_ec, i64 0, i64 %482
   %484 = load i8, ptr %483, align 1
   br label %485
 
@@ -1107,7 +1107,7 @@ yy_get_next_buffer.exit.thread:                   ; preds = %290, %yy_get_next_b
   br i1 %504, label %505, label %508
 
 505:                                              ; preds = %.lr.ph.i75
-  %506 = getelementptr inbounds [30 x i8], ptr @yy_meta, i64 0, i64 %500
+  %506 = getelementptr inbounds nuw [30 x i8], ptr @yy_meta, i64 0, i64 %500
   %507 = load i8, ptr %506, align 1
   br label %508
 
@@ -1129,7 +1129,7 @@ yy_get_next_buffer.exit.thread:                   ; preds = %290, %yy_get_next_b
   %517 = getelementptr inbounds [419 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i80
   %518 = load i16, ptr %517, align 2
   %519 = sext i16 %518 to i32
-  %520 = getelementptr inbounds i8, ptr %.01523.i70, i64 1
+  %520 = getelementptr inbounds nuw i8, ptr %.01523.i70, i64 1
   %exitcond.not.i81 = icmp eq ptr %520, %477
   br i1 %exitcond.not.i81, label %.backedge.backedge, label %.lr.ph25.i69, !llvm.loop !8
 
@@ -1158,7 +1158,7 @@ yy_get_next_buffer.exit.thread99:                 ; preds = %290, %yy_get_next_b
 
 527:                                              ; preds = %.lr.ph25.i84
   %528 = zext i8 %526 to i64
-  %529 = getelementptr inbounds [256 x i8], ptr @yy_ec, i64 0, i64 %528
+  %529 = getelementptr inbounds nuw [256 x i8], ptr @yy_ec, i64 0, i64 %528
   %530 = load i8, ptr %529, align 1
   br label %531
 
@@ -1197,7 +1197,7 @@ yy_get_next_buffer.exit.thread99:                 ; preds = %290, %yy_get_next_b
   br i1 %550, label %551, label %554
 
 551:                                              ; preds = %.lr.ph.i90
-  %552 = getelementptr inbounds [30 x i8], ptr @yy_meta, i64 0, i64 %546
+  %552 = getelementptr inbounds nuw [30 x i8], ptr @yy_meta, i64 0, i64 %546
   %553 = load i8, ptr %552, align 1
   br label %554
 
@@ -1219,7 +1219,7 @@ yy_get_next_buffer.exit.thread99:                 ; preds = %290, %yy_get_next_b
   %563 = getelementptr inbounds [419 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i95
   %564 = load i16, ptr %563, align 2
   %565 = sext i16 %564 to i32
-  %566 = getelementptr inbounds i8, ptr %.01523.i85, i64 1
+  %566 = getelementptr inbounds nuw i8, ptr %.01523.i85, i64 1
   %exitcond.not.i96 = icmp eq ptr %566, %523
   br i1 %exitcond.not.i96, label %.outer.backedge, label %.lr.ph25.i84, !llvm.loop !8
 
@@ -1249,12 +1249,12 @@ define nonnull ptr @prte_rmaps_rank_file__create_buffer(ptr noundef %0, i32 noun
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %1, ptr %6, align 8
   %7 = add nsw i32 %1, 2
   %8 = sext i32 %7 to i64
   %9 = tail call noalias noundef ptr @malloc(i64 noundef %8) #21
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %10, align 8
   %.not9 = icmp eq ptr %9, null
   br i1 %.not9, label %11, label %12
@@ -1264,7 +1264,7 @@ define nonnull ptr @prte_rmaps_rank_file__create_buffer(ptr noundef %0, i32 noun
   unreachable
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 1, ptr %13, align 8
   tail call fastcc void @prte_rmaps_rank_file__init_buffer(ptr noundef nonnull %3, ptr noundef %0)
   ret ptr %3
@@ -1346,10 +1346,10 @@ prte_rmaps_rank_file_ensure_buffer_stack.exit:    ; preds = %10, %11, %19
   unreachable
 
 24:                                               ; preds = %prte_rmaps_rank_file_ensure_buffer_stack.exit
-  %25 = getelementptr inbounds i8, ptr %22, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store i32 16384, ptr %25, align 8
   %26 = tail call noalias noundef dereferenceable_or_null(16386) ptr @malloc(i64 noundef 16386) #21
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %26, ptr %27, align 8
   %.not9.i5 = icmp eq ptr %26, null
   br i1 %.not9.i5, label %28, label %.thread6
@@ -1359,7 +1359,7 @@ prte_rmaps_rank_file_ensure_buffer_stack.exit:    ; preds = %10, %11, %19
   unreachable
 
 .thread6:                                         ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %22, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i32 1, ptr %29, align 8
   tail call fastcc void @prte_rmaps_rank_file__init_buffer(ptr noundef nonnull %22, ptr noundef %21)
   %30 = load ptr, ptr @yy_buffer_stack, align 8
@@ -1375,10 +1375,10 @@ prte_rmaps_rank_file_ensure_buffer_stack.exit:    ; preds = %10, %11, %19
   %36 = load i64, ptr @yy_buffer_stack_top, align 8
   %37 = getelementptr inbounds ptr, ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %40 = load i32, ptr %39, align 4
   store i32 %40, ptr @yy_n_chars, align 4
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr @yy_c_buf_p, align 8
   store ptr %42, ptr @prte_rmaps_rank_file_text, align 8
@@ -1407,27 +1407,27 @@ define internal fastcc void @prte_rmaps_rank_file__init_buffer(ptr noundef %0, p
   br i1 %.not.i, label %prte_rmaps_rank_file__flush_buffer.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   store i8 0, ptr %8, align 1
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 0, ptr %10, align 1
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %14, align 8
   %.not10.i = icmp eq ptr %.pr.pre, null
   br i1 %.not10.i, label %prte_rmaps_rank_file__flush_buffer.exit.thread, label %16
 
 prte_rmaps_rank_file__flush_buffer.exit.thread:   ; preds = %5
   store ptr %1, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %15, align 4
   br label %.thread
 
@@ -1439,10 +1439,10 @@ prte_rmaps_rank_file__flush_buffer.exit.thread:   ; preds = %5
   br i1 %20, label %21, label %prte_rmaps_rank_file__flush_buffer.exit.thread16
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %19, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr @yy_n_chars, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr @yy_c_buf_p, align 8
   store ptr %25, ptr @prte_rmaps_rank_file_text, align 8
@@ -1455,13 +1455,13 @@ prte_rmaps_rank_file__flush_buffer.exit.thread:   ; preds = %5
 
 prte_rmaps_rank_file__flush_buffer.exit.thread16: ; preds = %16, %21
   store ptr %1, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %29, align 4
   br label %31
 
 prte_rmaps_rank_file__flush_buffer.exit:          ; preds = %2
   store ptr %1, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 52
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %30, align 4
   %.not = icmp eq ptr %.pr.pre, null
   br i1 %.not, label %.thread, label %31
@@ -1474,9 +1474,9 @@ prte_rmaps_rank_file__flush_buffer.exit:          ; preds = %2
   br i1 %.not12, label %37, label %.thread
 
 .thread:                                          ; preds = %prte_rmaps_rank_file__flush_buffer.exit.thread, %prte_rmaps_rank_file__flush_buffer.exit, %31
-  %35 = getelementptr inbounds i8, ptr %0, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %36, align 8
   br label %37
 
@@ -1493,7 +1493,7 @@ prte_rmaps_rank_file__flush_buffer.exit:          ; preds = %2
 
 43:                                               ; preds = %37, %38
   %44 = phi i32 [ %42, %38 ], [ 0, %37 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 36
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %44, ptr %45, align 4
   store i32 %4, ptr %3, align 4
   ret void
@@ -1563,21 +1563,21 @@ define void @prte_rmaps_rank_file__switch_to_buffer(ptr noundef %0) local_unname
   %26 = load ptr, ptr @yy_c_buf_p, align 8
   store i8 %25, ptr %26, align 1
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %26, ptr %28, align 8
   %29 = load i32, ptr @yy_n_chars, align 4
   %30 = load ptr, ptr %20, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i32 %29, ptr %31, align 4
   br label %32
 
 32:                                               ; preds = %24, %23
   %33 = getelementptr inbounds ptr, ptr %19, i64 %18
   store ptr %0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %35 = load i32, ptr %34, align 4
   store i32 %35, ptr @yy_n_chars, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr @yy_c_buf_p, align 8
   store ptr %37, ptr @prte_rmaps_rank_file_text, align 8
@@ -1620,13 +1620,13 @@ define void @prte_rmaps_rank_file__delete_buffer(ptr noundef %0) local_unnamed_a
   br label %.thread
 
 .thread:                                          ; preds = %2, %9, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %.not7 = icmp eq i32 %11, 0
   br i1 %.not7, label %15, label %12
 
 12:                                               ; preds = %.thread
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #25
   br label %15
@@ -1651,20 +1651,20 @@ define void @prte_rmaps_rank_file__flush_buffer(ptr noundef %0) local_unnamed_ad
   br i1 %.not, label %.thread, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   store i8 0, ptr %5, align 1
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %7, align 1
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %11, align 8
   %12 = load ptr, ptr @yy_buffer_stack, align 8
   %.not10 = icmp eq ptr %12, null
@@ -1678,10 +1678,10 @@ define void @prte_rmaps_rank_file__flush_buffer(ptr noundef %0) local_unnamed_ad
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %16, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr @yy_n_chars, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr @yy_c_buf_p, align 8
   store ptr %22, ptr @prte_rmaps_rank_file_text, align 8
@@ -1760,11 +1760,11 @@ prte_rmaps_rank_file_ensure_buffer_stack.exit:    ; preds = %18, %9, %8
   %26 = load ptr, ptr @yy_c_buf_p, align 8
   store i8 %25, ptr %26, align 1
   %27 = load ptr, ptr %22, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %26, ptr %28, align 8
   %29 = load i32, ptr @yy_n_chars, align 4
   %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i32 %29, ptr %31, align 4
   %.pre = load ptr, ptr %22, align 8
   %32 = icmp eq ptr %.pre, null
@@ -1779,10 +1779,10 @@ prte_rmaps_rank_file_ensure_buffer_stack.exit:    ; preds = %18, %9, %8
   %35 = phi i64 [ %34, %33 ], [ %20, %24 ], [ %20, %prte_rmaps_rank_file_ensure_buffer_stack.exit ]
   %36 = getelementptr inbounds ptr, ptr %21, i64 %35
   store ptr %0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %38 = load i32, ptr %37, align 4
   store i32 %38, ptr @yy_n_chars, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr @yy_c_buf_p, align 8
   store ptr %40, ptr @prte_rmaps_rank_file_text, align 8
@@ -1812,13 +1812,13 @@ define void @prte_rmaps_rank_file_pop_buffer_state() local_unnamed_addr #6 {
 
 .thread.i:                                        ; preds = %2
   store ptr null, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   %.not7.i = icmp eq i32 %7, 0
   br i1 %.not7.i, label %prte_rmaps_rank_file__delete_buffer.exit, label %8
 
 8:                                                ; preds = %.thread.i
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #25
   br label %prte_rmaps_rank_file__delete_buffer.exit
@@ -1839,10 +1839,10 @@ prte_rmaps_rank_file__delete_buffer.exit:         ; preds = %.thread.i, %8
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds ptr, ptr %1, i64 %12
-  %15 = getelementptr inbounds i8, ptr %.pre, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %.pre, i64 28
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr @yy_n_chars, align 4
-  %17 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr @yy_c_buf_p, align 8
   store ptr %18, ptr @prte_rmaps_rank_file_text, align 8
@@ -1887,24 +1887,24 @@ define noundef ptr @prte_rmaps_rank_file__scan_buffer(ptr noundef %0, i64 nounde
 
 15:                                               ; preds = %12
   %16 = trunc i64 %5 to i32
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i32 0, ptr %20, align 8
   store ptr null, ptr %13, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 28
   store i32 %16, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %13, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 36
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %13, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 52
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %13, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store i32 0, ptr %25, align 8
   tail call void @prte_rmaps_rank_file__switch_to_buffer(ptr noundef nonnull %13)
   br label %26
@@ -1971,24 +1971,24 @@ define nonnull ptr @prte_rmaps_rank_file__scan_bytes(ptr nocapture noundef reado
   unreachable
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %17, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %5, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 0, ptr %24, align 8
   store ptr null, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 28
   store i32 %1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %17, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 36
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %17, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %17, i64 52
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 52
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %17, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 56
   store i32 0, ptr %29, align 8
   tail call void @prte_rmaps_rank_file__switch_to_buffer(ptr noundef nonnull %17)
   store i32 1, ptr %24, align 8
@@ -2074,13 +2074,13 @@ define noundef i32 @prte_rmaps_rank_file_lex_destroy() local_unnamed_addr #0 {
 .thread.i:                                        ; preds = %.lr.ph.preheader
   %2 = getelementptr inbounds ptr, ptr %.pr, i64 %.pre
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %.pre10, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %.pre10, i64 32
   %4 = load i32, ptr %3, align 8
   %.not7.i = icmp eq i32 %4, 0
   br i1 %.not7.i, label %prte_rmaps_rank_file_pop_buffer_state.exit, label %5
 
 5:                                                ; preds = %.thread.i
-  %6 = getelementptr inbounds i8, ptr %.pre10, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.pre10, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %7) #25
   %.pre11 = load ptr, ptr @yy_buffer_stack, align 8

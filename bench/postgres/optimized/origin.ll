@@ -87,9 +87,9 @@ define dso_local zeroext i16 @replorigin_by_name(ptr noundef %0, i1 noundef zero
   br i1 %.not, label %15, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 22
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 22
   %10 = load i8, ptr %9, align 2
   %11 = zext i8 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 %11
@@ -173,9 +173,9 @@ define dso_local zeroext range(i16 0, -1) i16 @replorigin_create(ptr noundef %0)
 16:                                               ; preds = %12
   store i16 0, ptr %4, align 2
   store i64 %indvars.iv, ptr %5, align 16
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr @heap_form_tuple(ptr noundef %19, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
   call void @CatalogTupleInsert(ptr noundef %8, ptr noundef %20) #10
@@ -280,7 +280,7 @@ define dso_local void @replorigin_drop_by_name(ptr noundef %0, i1 noundef zeroex
   br i1 %26, label %27, label %22
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %29 = load i32, ptr %28, align 8
   %.not.us.i = icmp eq i32 %29, 0
   br i1 %.not.us.i, label %.split.us.i, label %.split21.us.i
@@ -304,13 +304,13 @@ define dso_local void @replorigin_drop_by_name(ptr noundef %0, i1 noundef zeroex
   br i1 %36, label %37, label %32
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %34, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %39 = load i32, ptr %38, align 8
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %.split.us.i, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %34, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %42 = load ptr, ptr @MainLWLockArray, align 8
   %43 = getelementptr i8, ptr %42, i64 5120
   tail call void @LWLockRelease(ptr noundef %43) #10
@@ -340,7 +340,7 @@ define dso_local void @replorigin_drop_by_name(ptr noundef %0, i1 noundef zeroex
   call void @XLogRegisterData(ptr noundef nonnull %4, i32 noundef 2) #10
   %55 = call i64 @XLogInsert(i8 noundef zeroext 19, i8 noundef zeroext 16) #10
   store i16 0, ptr %.us-phi.i, align 8
-  %56 = getelementptr inbounds i8, ptr %.us-phi.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
   br label %replorigin_state_clear.exit
 
@@ -350,7 +350,7 @@ replorigin_state_clear.exit:                      ; preds = %40, %32, %22, %15, 
   call void @LWLockRelease(ptr noundef %58) #10
   %59 = call zeroext i1 @ConditionVariableCancelSleep() #10
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
-  %60 = getelementptr inbounds i8, ptr %9, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @CatalogTupleDelete(ptr noundef %5, ptr noundef nonnull %60) #10
   call void @ReleaseSysCache(ptr noundef nonnull %9) #10
   call void @CommandCounterIncrement() #10
@@ -377,13 +377,13 @@ define dso_local noundef zeroext i1 @replorigin_by_oid(i16 noundef zeroext %0, i
   br i1 %.not, label %6, label %15
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 22
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 22
   %10 = load i8, ptr %9, align 2
   %11 = zext i8 %10 to i64
   %12 = getelementptr i8, ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = tail call ptr @text_to_cstring(ptr noundef nonnull %13) #10
   store ptr %14, ptr %2, align 8
   tail call void @ReleaseSysCache(ptr noundef nonnull %5) #10
@@ -446,7 +446,7 @@ ReplicationOriginShmemSize.exit:                  ; preds = %0
   %8 = tail call i64 @add_size(i64 noundef %4, i64 noundef %7) #10
   %9 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.5, i64 noundef %8, ptr noundef nonnull %1) #10
   store ptr %9, ptr @replication_states_ctl, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr @replication_states, align 8
   %11 = load i8, ptr %1, align 1
   %12 = trunc i8 %11 to i1
@@ -610,7 +610,7 @@ define dso_local void @CheckPointReplicationOrigin() local_unnamed_addr #0 {
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre35 = load ptr, ptr @replication_states, align 8
   br label %43
 
@@ -626,14 +626,14 @@ define dso_local void @CheckPointReplicationOrigin() local_unnamed_addr #0 {
 
 50:                                               ; preds = %43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %51 = getelementptr inbounds i8, ptr %47, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %52 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %51, i32 noundef 1) #10
   %53 = load i16, ptr %47, align 8
   store i16 %53, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %47, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %55 = load i64, ptr %54, align 8
   store i64 %55, ptr %42, align 8
-  %56 = getelementptr inbounds i8, ptr %47, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %57 = load i64, ptr %56, align 8
   call void @LWLockRelease(ptr noundef nonnull %51) #10
   call void @XLogFlush(i64 noundef %57) #10
@@ -824,7 +824,7 @@ define dso_local void @StartupReplicationOrigin() local_unnamed_addr #0 {
   br i1 %36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %44
 
 38:                                               ; preds = %31
@@ -946,9 +946,9 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @replorigin_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, -16
   switch i8 %6, label %32 [
@@ -957,14 +957,14 @@ define dso_local void @replorigin_redo(ptr nocapture noundef readonly %0) local_
   ]
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i16, ptr %10, align 8
   %12 = load i64, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 10
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %16 = load i8, ptr %15, align 2
   %17 = trunc i8 %16 to i1
   tail call void @replorigin_advance(i16 noundef zeroext %11, i64 noundef %12, i64 noundef %14, i1 noundef zeroext %17, i1 noundef zeroext false)
@@ -976,7 +976,7 @@ define dso_local void @replorigin_redo(ptr nocapture noundef readonly %0) local_
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %3, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @replication_states, align 8
   %24 = load i16, ptr %22, align 2
@@ -997,7 +997,7 @@ define dso_local void @replorigin_redo(ptr nocapture noundef readonly %0) local_
 
 30:                                               ; preds = %26
   store i16 0, ptr %27, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   br label %.loopexit
 
@@ -1048,9 +1048,9 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   br i1 %.not, label %22, label %34
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %17, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %24 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 0) #10
-  %25 = getelementptr inbounds i8, ptr %17, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %26 = load i32, ptr %25, align 8
   %.not45 = icmp eq i32 %26, 0
   br i1 %.not45, label %.loopexit, label %27
@@ -1094,7 +1094,7 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   br i1 %35, label %44, label %47
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %.04053, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.04053, i64 40
   %46 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %45, i32 noundef 0) #10
   store i16 %0, ptr %.04053, align 8
   br label %47
@@ -1105,9 +1105,9 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
 
 48:                                               ; preds = %47
   store i64 %1, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 %0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 10
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 10
   store i8 %7, ptr %50, align 2
   tail call void @XLogBeginInsert() #10
   call void @XLogRegisterData(ptr noundef nonnull %6, i32 noundef 16) #10
@@ -1115,7 +1115,7 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   br label %52
 
 52:                                               ; preds = %48, %47
-  %53 = getelementptr inbounds i8, ptr %.142, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.142, i64 8
   br i1 %3, label %57, label %54
 
 54:                                               ; preds = %52
@@ -1138,18 +1138,18 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
   br i1 %.not4647, label %63, label %.thread48
 
 .thread48:                                        ; preds = %.thread49, %.thread
-  %58 = getelementptr inbounds i8, ptr %.142, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.142, i64 16
   %59 = load i64, ptr %58, align 8
   %60 = icmp ult i64 %59, %2
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %57, %.thread48
-  %62 = getelementptr inbounds i8, ptr %.142, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.142, i64 16
   store i64 %2, ptr %62, align 8
   br label %63
 
 63:                                               ; preds = %.thread49, %.thread, %61, %.thread48, %57
-  %64 = getelementptr inbounds i8, ptr %.142, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %.142, i64 40
   call void @LWLockRelease(ptr noundef nonnull %64) #10
   %65 = load ptr, ptr @MainLWLockArray, align 8
   %66 = getelementptr i8, ptr %65, i64 5120
@@ -1195,11 +1195,11 @@ define dso_local i64 @replorigin_get_progress(i16 noundef zeroext %0, i1 noundef
   br i1 %13, label %14, label %9
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %11, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %15, i32 noundef 1) #10
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %20 = load i64, ptr %19, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %15) #10
   br label %.loopexit
@@ -1274,7 +1274,7 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
   br i1 %.not28, label %24, label %36
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %18, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = icmp ne i32 %26, 0
   %28 = icmp eq i32 %1, 0
@@ -1338,12 +1338,12 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
 
 53:                                               ; preds = %50
   %54 = load i32, ptr @MyProcPid, align 4
-  %55 = getelementptr inbounds i8, ptr %51, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i32 %54, ptr %55, align 8
   br label %63
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %51, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %58 = load i32, ptr %57, align 8
   %.not29 = icmp eq i32 %58, %1
   br i1 %.not29, label %63, label %59
@@ -1361,7 +1361,7 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
   %65 = getelementptr i8, ptr %64, i64 5120
   tail call void @LWLockRelease(ptr noundef %65) #10
   %66 = load ptr, ptr @session_replication_state, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 28
   tail call void @ConditionVariableBroadcast(ptr noundef nonnull %67) #10
   ret void
 }
@@ -1379,7 +1379,7 @@ define internal void @ReplicationOriginExitCleanup(i32 %0, i64 %1) #0 {
   %7 = getelementptr i8, ptr %6, i64 5120
   %8 = tail call zeroext i1 @LWLockAcquire(ptr noundef %7, i32 noundef 0) #10
   %9 = load ptr, ptr @session_replication_state, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = load i32, ptr @MyProcPid, align 4
   %13 = icmp eq i32 %11, %12
@@ -1392,7 +1392,7 @@ define internal void @ReplicationOriginExitCleanup(i32 %0, i64 %1) #0 {
   br label %20
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %9, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 0, ptr %10, align 8
   store ptr null, ptr @session_replication_state, align 8
   %18 = load ptr, ptr @MainLWLockArray, align 8
@@ -1426,9 +1426,9 @@ define dso_local void @replorigin_session_reset() local_unnamed_addr #0 {
   %9 = getelementptr i8, ptr %8, i64 5120
   %10 = tail call zeroext i1 @LWLockAcquire(ptr noundef %9, i32 noundef 0) #10
   %11 = load ptr, ptr @session_replication_state, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store ptr null, ptr @session_replication_state, align 8
   %14 = load ptr, ptr @MainLWLockArray, align 8
   %15 = getelementptr i8, ptr %14, i64 5120
@@ -1440,10 +1440,10 @@ define dso_local void @replorigin_session_reset() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @replorigin_session_advance(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @session_replication_state, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 0) #10
   %6 = load ptr, ptr @session_replication_state, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %8, %1
   br i1 %9, label %10, label %11
@@ -1453,7 +1453,7 @@ define dso_local void @replorigin_session_advance(i64 noundef %0, i64 noundef %1
   br label %11
 
 11:                                               ; preds = %10, %2
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %13, %0
   br i1 %14, label %15, label %16
@@ -1463,7 +1463,7 @@ define dso_local void @replorigin_session_advance(i64 noundef %0, i64 noundef %1
   br label %16
 
 16:                                               ; preds = %15, %11
-  %17 = getelementptr inbounds i8, ptr %6, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
   tail call void @LWLockRelease(ptr noundef nonnull %17) #10
   ret void
 }
@@ -1471,14 +1471,14 @@ define dso_local void @replorigin_session_advance(i64 noundef %0, i64 noundef %1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @replorigin_session_get_progress(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @session_replication_state, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 1) #10
   %5 = load ptr, ptr @session_replication_state, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   tail call void @LWLockRelease(ptr noundef nonnull %10) #10
   %11 = icmp ne i64 %9, 0
   %or.cond = select i1 %0, i1 %11, i1 false
@@ -1506,7 +1506,7 @@ define dso_local range(i64 0, 65535) i64 @pg_replication_origin_create(ptr nocap
   unreachable
 
 replorigin_check_prerequisites.exit:              ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @text_to_cstring(ptr noundef %9) #10
@@ -1593,7 +1593,7 @@ define dso_local noundef i64 @pg_replication_origin_drop(ptr nocapture noundef r
   unreachable
 
 replorigin_check_prerequisites.exit:              ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @text_to_cstring(ptr noundef %9) #10
@@ -1616,7 +1616,7 @@ define dso_local range(i64 0, 65536) i64 @pg_replication_origin_oid(ptr nocaptur
   unreachable
 
 replorigin_check_prerequisites.exit:              ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call ptr @text_to_cstring(ptr noundef %9) #10
@@ -1631,9 +1631,9 @@ replorigin_by_name.exit.thread:                   ; preds = %replorigin_check_pr
   br label %24
 
 replorigin_by_name.exit:                          ; preds = %replorigin_check_prerequisites.exit
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 22
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 22
   %17 = load i8, ptr %16, align 2
   %18 = zext i8 %17 to i64
   %19 = getelementptr i8, ptr %15, i64 %18
@@ -1649,7 +1649,7 @@ replorigin_by_name.exit:                          ; preds = %replorigin_check_pr
   br label %26
 
 24:                                               ; preds = %replorigin_by_name.exit.thread, %replorigin_by_name.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %25, align 4
   br label %26
 
@@ -1661,7 +1661,7 @@ replorigin_by_name.exit:                          ; preds = %replorigin_check_pr
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_replication_origin_session_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   tail call fastcc void @replorigin_check_prerequisites(i1 noundef zeroext true, i1 noundef zeroext false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @text_to_cstring(ptr noundef %4) #10
@@ -1704,7 +1704,7 @@ replorigin_check_prerequisites.exit:              ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_replication_origin_session_progress(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   tail call fastcc void @replorigin_check_prerequisites(i1 noundef zeroext true, i1 noundef zeroext false)
   %4 = load ptr, ptr @session_replication_state, align 8
@@ -1721,14 +1721,14 @@ define dso_local i64 @pg_replication_origin_session_progress(ptr nocapture nound
 
 10:                                               ; preds = %1
   %11 = icmp ne i64 %3, 0
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %12, i32 noundef 1) #10
   %14 = load ptr, ptr @session_replication_state, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
   tail call void @LWLockRelease(ptr noundef nonnull %19) #10
   %20 = icmp ne i64 %18, 0
   %or.cond.i = select i1 %11, i1 %20, i1 false
@@ -1743,7 +1743,7 @@ replorigin_session_get_progress.exit:             ; preds = %10, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %replorigin_session_get_progress.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %24, align 4
   br label %25
 
@@ -1753,7 +1753,7 @@ replorigin_session_get_progress.exit:             ; preds = %10, %21
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_replication_origin_xact_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   tail call fastcc void @replorigin_check_prerequisites(i1 noundef zeroext true, i1 noundef zeroext false)
   %4 = load ptr, ptr @session_replication_state, align 8
@@ -1786,7 +1786,7 @@ define dso_local noundef i64 @pg_replication_origin_xact_reset(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_replication_origin_advance(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #10
@@ -1822,7 +1822,7 @@ define dso_local i64 @pg_replication_origin_progress(ptr nocapture noundef %0) l
   unreachable
 
 replorigin_check_prerequisites.exit:              ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @text_to_cstring(ptr noundef %10) #10
@@ -1855,11 +1855,11 @@ replorigin_check_prerequisites.exit:              ; preds = %1
   br i1 %26, label %27, label %22
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %24, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %29 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %28, i32 noundef 1) #10
-  %30 = getelementptr inbounds i8, ptr %24, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %24, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %33 = load i64, ptr %32, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %28) #10
   br label %.loopexit.i
@@ -1883,7 +1883,7 @@ replorigin_get_progress.exit:                     ; preds = %.loopexit.i, %37
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %replorigin_get_progress.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %40, align 4
   br label %41
 
@@ -1895,7 +1895,7 @@ replorigin_get_progress.exit:                     ; preds = %.loopexit.i, %37
 define dso_local noundef i64 @pg_show_replication_origin_status(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i64], align 16
   %3 = alloca [4 x i8], align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #10
   %6 = load ptr, ptr @MainLWLockArray, align 8
@@ -1906,14 +1906,14 @@ define dso_local noundef i64 @pg_show_replication_origin_status(ptr noundef %0) 
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 1
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
-  %14 = getelementptr inbounds i8, ptr %3, i64 2
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
-  %16 = getelementptr inbounds i8, ptr %3, i64 3
-  %17 = getelementptr inbounds i8, ptr %5, i64 40
-  %18 = getelementptr inbounds i8, ptr %5, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.pre18 = load ptr, ptr @replication_states, align 8
   br label %19
 
@@ -1940,13 +1940,13 @@ define dso_local noundef i64 @pg_show_replication_origin_status(ptr noundef %0) 
   br i1 %.not.i.not, label %replorigin_by_oid.exit, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %30, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 22
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 22
   %35 = load i8, ptr %34, align 2
   %36 = zext i8 %35 to i64
   %37 = getelementptr i8, ptr %33, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = call ptr @text_to_cstring(ptr noundef nonnull %38) #10
   call void @ReleaseSysCache(ptr noundef nonnull %30) #10
   %40 = call ptr @cstring_to_text(ptr noundef %39) #10
@@ -1956,13 +1956,13 @@ define dso_local noundef i64 @pg_show_replication_origin_status(ptr noundef %0) 
   br label %replorigin_by_oid.exit
 
 replorigin_by_oid.exit:                           ; preds = %25, %31
-  %42 = getelementptr inbounds i8, ptr %22, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %43 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %42, i32 noundef 1) #10
-  %44 = getelementptr inbounds i8, ptr %22, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %45 = load i64, ptr %44, align 8
   store i64 %45, ptr %13, align 16
   store i8 0, ptr %14, align 2
-  %46 = getelementptr inbounds i8, ptr %22, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %47 = load i64, ptr %46, align 8
   store i64 %47, ptr %15, align 8
   store i8 0, ptr %16, align 1

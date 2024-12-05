@@ -75,14 +75,14 @@ define dso_local void @tick_install_broadcast_device(ptr noundef %0, i32 noundef
   br i1 %10, label %43, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 60
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 90
   %15 = icmp eq i32 %14, 66
   br i1 %15, label %16, label %47
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load ptr, ptr %17, align 16
   %19 = and i32 %1, 63
   %20 = add nuw nsw i32 %19, 1
@@ -102,15 +102,15 @@ define dso_local void @tick_install_broadcast_device(ptr noundef %0, i32 noundef
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 160
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %34 = load i32, ptr %33, align 32
-  %35 = getelementptr inbounds i8, ptr %9, i64 160
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %36 = load i32, ptr %35, align 32
   %37 = icmp sgt i32 %34, %36
   br i1 %37, label %38, label %47
 
 38:                                               ; preds = %32, %30
-  %39 = getelementptr inbounds i8, ptr %0, i64 200
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %40 = load ptr, ptr %39, align 8
   %41 = tail call zeroext i1 @try_module_get(ptr noundef %40) #11
   br i1 %41, label %42, label %._crit_edge
@@ -150,15 +150,15 @@ define dso_local void @tick_install_broadcast_device(ptr noundef %0, i32 noundef
   br i1 %58, label %65, label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %0, i64 160
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %61 = load i32, ptr %60, align 32
-  %62 = getelementptr inbounds i8, ptr %3, i64 160
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %63 = load i32, ptr %62, align 32
   %64 = icmp sgt i32 %61, %63
   br i1 %64, label %65, label %91
 
 65:                                               ; preds = %59, %57
-  %66 = getelementptr inbounds i8, ptr %0, i64 200
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %67 = load ptr, ptr %66, align 8
   %68 = tail call zeroext i1 @try_module_get(ptr noundef %67) #11
   br i1 %68, label %69, label %91
@@ -298,7 +298,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 sect
 define dso_local range(i32 0, 2) i32 @tick_device_uses_broadcast(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr @tick_broadcast_device, align 8
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @tick_broadcast_lock) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 60
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 16
   %8 = icmp eq i32 %7, 0
@@ -306,7 +306,7 @@ define dso_local range(i32 0, 2) i32 @tick_device_uses_broadcast(ptr nocapture n
 
 9:                                                ; preds = %2
   store ptr @tick_handle_periodic, ptr %0, align 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 16
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %20
@@ -317,7 +317,7 @@ define dso_local range(i32 0, 2) i32 @tick_device_uses_broadcast(ptr nocapture n
 
 15:                                               ; preds = %13
   store i1 true, ptr @tick_device_setup_broadcast_func.__already_done, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %17) #12
   br label %19
@@ -356,7 +356,7 @@ define dso_local range(i32 0, 2) i32 @tick_device_uses_broadcast(ptr nocapture n
   br label %44
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %0, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load ptr, ptr %34, align 16
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %44
@@ -367,7 +367,7 @@ define dso_local range(i32 0, 2) i32 @tick_device_uses_broadcast(ptr nocapture n
 
 39:                                               ; preds = %37
   store i1 true, ptr @tick_device_setup_broadcast_func.__already_done, align 1
-  %40 = getelementptr inbounds i8, ptr %0, i64 152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %41) #12
   br label %43
@@ -415,7 +415,7 @@ define dso_local range(i32 0, 2) i32 @tick_device_uses_broadcast(ptr nocapture n
   br i1 %56, label %59, label %68
 
 59:                                               ; preds = %.thread2, %58
-  %60 = getelementptr inbounds i8, ptr %3, i64 60
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 128
   %63 = icmp eq i32 %62, 0
@@ -459,7 +459,7 @@ define internal fastcc void @tick_broadcast_setup_oneshot(ptr noundef %0, i1 nou
 
 10:                                               ; preds = %5
   store ptr @tick_handle_oneshot_broadcast, ptr %0, align 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 9223372036854775807, ptr %11, align 8
   br i1 %1, label %12, label %46
 
@@ -502,7 +502,7 @@ define internal fastcc void @tick_broadcast_setup_oneshot(ptr noundef %0, i1 nou
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %35, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 %18, ptr %38, align 8
   br label %39
 
@@ -513,7 +513,7 @@ define internal fastcc void @tick_broadcast_setup_oneshot(ptr noundef %0, i1 nou
   br i1 %42, label %.thread, label %20, !prof !11, !llvm.loop !12
 
 .thread:                                          ; preds = %20, %39, %25
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 3
   br i1 %45, label %79, label %46
@@ -525,7 +525,7 @@ define internal fastcc void @tick_broadcast_setup_oneshot(ptr noundef %0, i1 nou
   br i1 %49, label %79, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 3
   br i1 %53, label %55, label %54
@@ -544,14 +544,14 @@ define internal fastcc void @tick_broadcast_setup_oneshot(ptr noundef %0, i1 nou
   %62 = zext nneg i32 %61 to i64
   %63 = sub nsw i64 0, %62
   %64 = getelementptr i64, ptr %60, i64 %63
-  %65 = getelementptr inbounds i8, ptr %0, i64 60
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, 32
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %79, label %69
 
 69:                                               ; preds = %55
-  %70 = getelementptr inbounds i8, ptr %0, i64 176
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %71 = load ptr, ptr %70, align 16
   %72 = load i64, ptr %71, align 8
   %73 = load i64, ptr %64, align 8
@@ -560,7 +560,7 @@ define internal fastcc void @tick_broadcast_setup_oneshot(ptr noundef %0, i1 nou
 
 75:                                               ; preds = %69
   store ptr %64, ptr %70, align 16
-  %76 = getelementptr inbounds i8, ptr %0, i64 164
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %77 = load i32, ptr %76, align 4
   %78 = tail call i32 @irq_set_affinity(i32 noundef %77, ptr noundef %64) #11
   br label %79
@@ -607,7 +607,7 @@ define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
   br i1 %6, label %57, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %5, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 60
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 24
   %11 = icmp eq i32 %10, 8
@@ -640,7 +640,7 @@ define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
   br i1 %24, label %45, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %14, i64 60
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 128
   %29 = icmp eq i32 %28, 0
@@ -727,7 +727,7 @@ define internal void @tick_handle_periodic_broadcast(ptr noundef %0) #2 align 16
   %3 = inttoptr i64 %2 to ptr
   tail call void @_raw_spin_lock(ptr noundef nonnull @tick_broadcast_lock) #11
   %4 = load ptr, ptr @tick_broadcast_device, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %9
@@ -752,7 +752,7 @@ define internal void @tick_handle_periodic_broadcast(ptr noundef %0) #2 align 16
 18:                                               ; preds = %9
   %19 = load ptr, ptr @tick_broadcast_device, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tmpmask, i64 %14) #11, !srcloc !7
-  %20 = getelementptr inbounds i8, ptr %19, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 60
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 128
   %23 = icmp eq i32 %22, 0
@@ -772,19 +772,19 @@ define internal void @tick_handle_periodic_broadcast(ptr noundef %0) #2 align 16
   %33 = add i64 %32, ptrtoint (ptr @tick_cpu_device to i64)
   %34 = inttoptr i64 %33 to ptr
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 112
   %37 = load ptr, ptr %36, align 16
   tail call void %37(ptr noundef nonnull @tmpmask) #11
   br label %38
 
 38:                                               ; preds = %28, %24
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 3
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = add i64 %44, 1000000
   %46 = tail call i32 @clockevents_program_event(ptr noundef %0, i64 noundef %45, i1 noundef zeroext true) #11
@@ -956,7 +956,7 @@ define dso_local void @tick_check_oneshot_broadcast_this_cpu() local_unnamed_add
 6:                                                ; preds = %0
   %7 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !25
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %14
@@ -979,7 +979,7 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !27
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %26
@@ -1003,13 +1003,13 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
 18:                                               ; preds = %17
   tail call void @clockevents_switch_state(ptr noundef %5, i32 noundef 4) #11
   tail call void @clockevents_switch_state(ptr noundef nonnull %15, i32 noundef 3) #11
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = tail call i32 @clockevents_program_event(ptr noundef nonnull %15, i64 noundef %20, i1 noundef zeroext true) #11
   br label %121
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %15, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 3
   br i1 %25, label %121, label %26
@@ -1026,20 +1026,20 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
   br i1 %31, label %32, label %100
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %30, i64 60
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 60
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, 128
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %45, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %30, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 9223372036854775807
   br i1 %40, label %45, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %30, i64 168
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 168
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, %4
   br i1 %44, label %.thread7, label %45
@@ -1082,19 +1082,19 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
 
 64:                                               ; preds = %60
   %65 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !31
-  %66 = getelementptr inbounds i8, ptr %30, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %67 = load i64, ptr %66, align 8
   %68 = icmp eq i64 %67, 9223372036854775807
   br i1 %68, label %73, label %69
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %30, i64 168
+  %70 = getelementptr inbounds nuw i8, ptr %30, i64 168
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, %65
   br i1 %72, label %78, label %73
 
 73:                                               ; preds = %69, %64
-  %74 = getelementptr inbounds i8, ptr %5, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %75 = load i64, ptr %74, align 8
   %76 = icmp slt i64 %75, %67
   br i1 %76, label %78, label %77
@@ -1111,9 +1111,9 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
   br i1 %81, label %82, label %.thread7
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %5, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %30, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %86 = load i64, ptr %85, align 8
   %87 = icmp slt i64 %84, %86
   br i1 %87, label %88, label %.thread7
@@ -1131,7 +1131,7 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
   br i1 %94, label %.thread7, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %30, i64 168
+  %96 = getelementptr inbounds nuw i8, ptr %30, i64 168
   %97 = load i32, ptr %96, align 8
   %98 = icmp eq i32 %97, %4
   br i1 %98, label %99, label %.thread7
@@ -1157,7 +1157,7 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
   br i1 %108, label %109, label %.thread7
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %5, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %111 = load i64, ptr %110, align 8
   %112 = icmp eq i64 %111, 9223372036854775807
   br i1 %112, label %.thread7, label %113
@@ -1194,20 +1194,20 @@ define dso_local void @hotplug_cpu__broadcast_tick_pull(i32 noundef %0) local_un
   br i1 %4, label %20, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 128
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %20, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 9223372036854775807
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %3, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, %0
   br i1 %17, label %18, label %20
@@ -1231,7 +1231,7 @@ define dso_local zeroext i1 @tick_broadcast_oneshot_available() local_unnamed_ad
   br i1 %2, label %8, label %3
 
 3:                                                ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 2
   %7 = icmp ne i32 %6, 0
@@ -1296,7 +1296,7 @@ declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @tick_broadcast_set_event(ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 3
   br i1 %6, label %8, label %7
@@ -1315,14 +1315,14 @@ define internal fastcc void @tick_broadcast_set_event(ptr noundef %0, i32 nounde
   %15 = zext nneg i32 %14 to i64
   %16 = sub nsw i64 0, %15
   %17 = getelementptr i64, ptr %13, i64 %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 32
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %32, label %22
 
 22:                                               ; preds = %8
-  %23 = getelementptr inbounds i8, ptr %0, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %24 = load ptr, ptr %23, align 16
   %25 = load i64, ptr %24, align 8
   %26 = load i64, ptr %17, align 8
@@ -1331,7 +1331,7 @@ define internal fastcc void @tick_broadcast_set_event(ptr noundef %0, i32 nounde
 
 28:                                               ; preds = %22
   store ptr %17, ptr %23, align 16
-  %29 = getelementptr inbounds i8, ptr %0, i64 164
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @irq_set_affinity(i32 noundef %30, ptr noundef %17) #11
   br label %32
@@ -1352,7 +1352,7 @@ declare dso_local i32 @irq_set_affinity(i32 noundef, ptr noundef) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24, 32)) %0) #2 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @tick_broadcast_lock) #11
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 9223372036854775807, ptr %2, align 8
   store i64 0, ptr @tmpmask, align 8
   %3 = tail call i64 @ktime_get() #11
@@ -1382,7 +1382,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
   %20 = add i64 %19, ptrtoint (ptr @tick_cpu_device to i64)
   %21 = inttoptr i64 %20 to ptr
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = icmp sgt i64 %24, %3
   br i1 %25, label %27, label %26
@@ -1447,7 +1447,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
 57:                                               ; preds = %51
   %58 = load ptr, ptr @tick_broadcast_device, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tmpmask, i64 %53) #11, !srcloc !7
-  %59 = getelementptr inbounds i8, ptr %58, i64 60
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 60
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 128
   %62 = icmp eq i32 %61, 0
@@ -1467,7 +1467,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
   %72 = add i64 %71, ptrtoint (ptr @tick_cpu_device to i64)
   %73 = inttoptr i64 %72 to ptr
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 112
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 112
   %76 = load ptr, ptr %75, align 16
   tail call void %76(ptr noundef nonnull @tmpmask) #11
   br label %77
@@ -1477,7 +1477,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
   br i1 %78, label %104, label %79
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %0, i64 56
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, 3
   br i1 %82, label %84, label %83
@@ -1492,14 +1492,14 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
   %87 = add nuw nsw i32 %86, 1
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr [65 x [1 x i64]], ptr @cpu_bit_bitmap, i64 0, i64 %88
-  %90 = getelementptr inbounds i8, ptr %0, i64 60
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %91 = load i32, ptr %90, align 4
   %92 = and i32 %91, 32
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %104, label %94
 
 94:                                               ; preds = %84
-  %95 = getelementptr inbounds i8, ptr %0, i64 176
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %96 = load ptr, ptr %95, align 16
   %97 = load i64, ptr %96, align 8
   %98 = load i64, ptr %89, align 8
@@ -1508,7 +1508,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
 
 100:                                              ; preds = %94
   store ptr %89, ptr %95, align 16
-  %101 = getelementptr inbounds i8, ptr %0, i64 164
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %102 = load i32, ptr %101, align 4
   %103 = tail call i32 @irq_set_affinity(i32 noundef %102, ptr noundef %89) #11
   br label %104

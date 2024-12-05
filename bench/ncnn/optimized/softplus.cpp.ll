@@ -63,7 +63,7 @@ define hidden noundef i32 @_ZNK4ncnn8Softplus15forward_inplaceERNS_3MatERKNS_6Op
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
   %23 = load float, ptr %22, align 4
   %24 = tail call fast float @llvm.exp.f32(float %23)
   %25 = fadd fast float %24, 1.000000e+00

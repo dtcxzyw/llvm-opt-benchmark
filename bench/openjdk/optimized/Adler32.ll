@@ -19,7 +19,7 @@ declare i64 @adler32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define i32 @Java_java_util_zip_Adler32_updateBytes(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1776
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1776
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #2
   %.not = icmp eq ptr %10, null
@@ -32,7 +32,7 @@ define i32 @Java_java_util_zip_Adler32_updateBytes(ptr noundef %0, ptr nocapture
   %15 = tail call i64 @adler32(i64 noundef %12, ptr noundef nonnull %14, i32 noundef %5) #2
   %16 = trunc i64 %15 to i32
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1784
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1784
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %10, i32 noundef 0) #2
   br label %20

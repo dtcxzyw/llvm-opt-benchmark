@@ -35,7 +35,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN18cmCursesBoolWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   store ptr getelementptr inbounds (i8, ptr @_ZTV18cmCursesBoolWidget, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
   %7 = invoke noundef zeroext i1 @_ZN13cmCursesColor9HasColorsEv()
           to label %8 unwind label %16
@@ -44,7 +44,7 @@ define dso_local void @_ZN18cmCursesBoolWidgetC2Eiiii(ptr noundef nonnull align 
   br i1 %7, label %18, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = invoke i32 @set_field_fore(ptr noundef %11, i32 noundef 0)
           to label %13 unwind label %16
@@ -61,7 +61,7 @@ define dso_local void @_ZN18cmCursesBoolWidgetC2Eiiii(ptr noundef nonnull align 
   resume { ptr, i32 } %17
 
 18:                                               ; preds = %13, %8
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = invoke i32 @field_opts_off(ptr noundef %20, i32 noundef 512)
           to label %22 unwind label %16
@@ -115,7 +115,7 @@ define dso_local void @_ZN18cmCursesBoolWidget14SetValueAsBoolEb(ptr noundef non
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc10
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %14 unwind label %18
@@ -158,7 +158,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit15: ; preds = %.noexc12
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %27 unwind label %31
@@ -182,7 +182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit15: ; 
 
 .sink.split:                                      ; preds = %27, %14
   %.sink18 = phi i32 [ 512, %14 ], [ 256, %27 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @set_field_fore(ptr noundef %34, i32 noundef %.sink18)
   %36 = load ptr, ptr %33, align 8
@@ -212,7 +212,7 @@ define dso_local noundef zeroext i1 @_ZN18cmCursesBoolWidget11HandleInputERiP16c
   ]
 
 6:                                                ; preds = %4, %4, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str) #7
   %9 = icmp ne i32 %8, 0
   tail call void @_ZN18cmCursesBoolWidget14SetValueAsBoolEb(ptr noundef nonnull align 8 dereferenceable(60) %0, i1 noundef zeroext %9)
@@ -220,7 +220,7 @@ define dso_local noundef zeroext i1 @_ZN18cmCursesBoolWidget11HandleInputERiP16c
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %12 = load i16, ptr %11, align 4
   %13 = sext i16 %12 to i32
   %14 = add nsw i32 %13, 1
@@ -239,7 +239,7 @@ define dso_local noundef zeroext i1 @_ZN18cmCursesBoolWidget11HandleInputERiP16c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN18cmCursesBoolWidget14GetValueAsBoolEv(ptr noundef nonnull align 8 dereferenceable(60) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str) #7
   %4 = icmp eq i32 %3, 0
   ret i1 %4

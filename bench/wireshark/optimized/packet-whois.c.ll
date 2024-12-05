@@ -78,10 +78,10 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.18) #3
-  %9 = getelementptr inbounds i8, ptr %1, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %10 = load i32, ptr %9, align 8
   %.not104.not.not = icmp eq i32 %10, 43
   %11 = load ptr, ptr %7, align 8
@@ -103,7 +103,7 @@ define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %
 20:                                               ; preds = %16
   %21 = tail call ptr @wmem_file_scope() #3
   %22 = tail call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef %19, i32 noundef 0) #3
-  %23 = getelementptr inbounds i8, ptr %18, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %22, ptr %23, align 8
   br label %24
 
@@ -114,7 +114,7 @@ define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 26:                                               ; preds = %24, %4
   %.092 = phi ptr [ %18, %24 ], [ %14, %4 ]
-  %27 = getelementptr inbounds i8, ptr %.092, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.092, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not100 = icmp eq ptr %28, null
   br i1 %.not100, label %33, label %29
@@ -129,16 +129,16 @@ define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 33:                                               ; preds = %29, %26
   %34 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %35 = getelementptr inbounds i8, ptr %1, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 50
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 50
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 8
   %.not101 = icmp eq i16 %39, 0
   br i1 %.not101, label %40, label %68
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %1, i64 328
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %42 = load i16, ptr %41, align 8
   %.not102 = icmp eq i16 %42, 0
   br i1 %.not102, label %77, label %43
@@ -157,18 +157,18 @@ define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not108, label %52, label %49
 
 49:                                               ; preds = %46, %44
-  %50 = getelementptr inbounds i8, ptr %1, i64 336
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 332
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %51, align 4
   br label %154
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %1, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %54 = load i32, ptr %53, align 4
   store i32 %54, ptr %.092, align 8
-  %55 = getelementptr inbounds i8, ptr %.092, i64 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.092, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
   br label %.thread
 
@@ -177,22 +177,22 @@ define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not105, label %65, label %58
 
 58:                                               ; preds = %57
-  %59 = getelementptr inbounds i8, ptr %3, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %60 = load i16, ptr %59, align 4
   %61 = and i16 %60, 1
   %.not106 = icmp eq i16 %61, 0
   br i1 %.not106, label %62, label %.critedge
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %3, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %64 = load i32, ptr %63, align 4
   %.not107 = icmp eq i32 %64, 0
   br i1 %.not107, label %65, label %.critedge
 
 65:                                               ; preds = %62, %57
-  %66 = getelementptr inbounds i8, ptr %1, i64 336
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435454, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 332
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %67, align 4
   br label %154
 
@@ -205,11 +205,11 @@ define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %71, label %72, label %.thread
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %1, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %74 = load i32, ptr %73, align 4
   store i32 %74, ptr %.092, align 8
-  %75 = getelementptr inbounds i8, ptr %.092, i64 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %.092, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
   br label %.thread
 
@@ -217,13 +217,13 @@ define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not104.not.not, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %62, %58, %68, %77
-  %78 = getelementptr inbounds i8, ptr %.092, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.092, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %.thread
 
 81:                                               ; preds = %.critedge
-  %82 = getelementptr inbounds i8, ptr %1, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %83 = load i32, ptr %82, align 4
   store i32 %83, ptr %78, align 4
   br label %.thread
@@ -257,7 +257,7 @@ define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not116, label %proto_item_set_generated.exit, label %99
 
 99:                                               ; preds = %98
-  %100 = getelementptr inbounds i8, ptr %.092, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.092, i64 4
   %101 = load i32, ptr %100, align 4
   %.not117 = icmp eq i32 %101, 0
   br i1 %.not117, label %proto_item_set_generated.exit, label %102
@@ -269,13 +269,13 @@ define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i, label %proto_item_set_generated.exit, label %105
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %104, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %107 = load ptr, ptr %106, align 8
   %.not5.i = icmp eq ptr %107, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %108
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %107, i64 28
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 28
   %110 = load i32, ptr %109, align 4
   %111 = or i32 %110, 2
   store i32 %111, ptr %109, align 4
@@ -286,7 +286,7 @@ define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not111, label %proto_item_set_generated.exit, label %113
 
 113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %.092, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %.092, i64 4
   %115 = load i32, ptr %114, align 4
   %.not112 = icmp eq i32 %115, 0
   br i1 %.not112, label %proto_item_set_generated.exit, label %116
@@ -303,28 +303,28 @@ define internal i32 @dissect_whois(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i118, label %proto_item_set_generated.exit120, label %121
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %120, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %123 = load ptr, ptr %122, align 8
   %.not5.i119 = icmp eq ptr %123, null
   br i1 %.not5.i119, label %proto_item_set_generated.exit120, label %124
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %123, i64 28
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 28
   %126 = load i32, ptr %125, align 4
   %127 = or i32 %126, 2
   store i32 %127, ptr %125, align 4
   br label %proto_item_set_generated.exit120
 
 proto_item_set_generated.exit120:                 ; preds = %118, %121, %124
-  %128 = getelementptr inbounds i8, ptr %1, i64 20
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %129 = load i32, ptr %128, align 4
   %130 = load i32, ptr %114, align 4
   %131 = icmp eq i32 %129, %130
   br i1 %131, label %132, label %proto_item_set_generated.exit123
 
 132:                                              ; preds = %proto_item_set_generated.exit120
-  %133 = getelementptr inbounds i8, ptr %1, i64 24
-  %134 = getelementptr inbounds i8, ptr %.092, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %.092, i64 8
   call void @nstime_delta(ptr noundef nonnull %5, ptr noundef nonnull %133, ptr noundef nonnull %134) #3
   %135 = load i32, ptr @hf_whois_response_time, align 4
   %136 = call ptr @proto_tree_add_time(ptr noundef %88, i32 noundef %135, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #3
@@ -332,13 +332,13 @@ proto_item_set_generated.exit120:                 ; preds = %118, %121, %124
   br i1 %.not.i121, label %proto_item_set_generated.exit123, label %137
 
 137:                                              ; preds = %132
-  %138 = getelementptr inbounds i8, ptr %136, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %139 = load ptr, ptr %138, align 8
   %.not5.i122 = icmp eq ptr %139, null
   br i1 %.not5.i122, label %proto_item_set_generated.exit123, label %140
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %139, i64 28
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 28
   %142 = load i32, ptr %141, align 4
   %143 = or i32 %142, 2
   store i32 %143, ptr %141, align 4

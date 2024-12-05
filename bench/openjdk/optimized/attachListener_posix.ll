@@ -108,10 +108,10 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN19PosixAttachListener4initEv() lo
   br i1 %18, label %.critedge26, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %3, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %20, i8 0, i64 108, i1 false)
   store i16 1, ptr %3, align 2
-  %21 = getelementptr inbounds i8, ptr %3, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %22 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %2) #18
   %23 = call i32 @unlink(ptr noundef nonnull %2) #18
   %24 = call i32 @bind(i32 noundef %17, ptr noundef nonnull %3, i32 noundef 110) #18
@@ -262,7 +262,7 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
   %3 = alloca [3101 x i8], align 16
   %4 = alloca [32 x i8], align 16
   %5 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull %2, i64 noundef 8, ptr noundef nonnull @.str.5, i32 noundef 1) #18
-  %6 = getelementptr inbounds i8, ptr %3, i64 3100
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 3100
   br label %7
 
 7:                                                ; preds = %._crit_edge, %1
@@ -383,7 +383,7 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
   br i1 %58, label %59, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %3, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %_ZN16ArgumentIterator4nextEv.exit
 
 61:                                               ; preds = %51
@@ -391,7 +391,7 @@ define hidden noundef ptr @_ZN19PosixAttachListener12read_requestEi(i32 noundef 
   %strchr.i = getelementptr inbounds i8, ptr %3, i64 %strlen.i
   %62 = icmp ult ptr %strchr.i, %54
   %spec.select.idx.i = zext i1 %62 to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %strchr.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %strchr.i, i64 %spec.select.idx.i
   br label %_ZN16ArgumentIterator4nextEv.exit
 
 _ZN16ArgumentIterator4nextEv.exit:                ; preds = %59, %61
@@ -405,7 +405,7 @@ _ZN16ArgumentIterator4nextEv.exit:                ; preds = %59, %61
   %strchr.i58 = getelementptr inbounds i8, ptr %.sroa.0.1.ph, i64 %strlen.i57
   %65 = icmp ult ptr %strchr.i58, %54
   %spec.select.idx.i59 = zext i1 %65 to i64
-  %spec.select.i60 = getelementptr inbounds i8, ptr %strchr.i58, i64 %spec.select.idx.i59
+  %spec.select.i60 = getelementptr inbounds nuw i8, ptr %strchr.i58, i64 %spec.select.idx.i59
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.1.ph) #20
   %67 = icmp ugt i64 %66, 16
   br i1 %67, label %_ZN19PosixAttachListener11write_fullyEiPcm.exit, label %68
@@ -415,16 +415,16 @@ _ZN16ArgumentIterator4nextEv.exit:                ; preds = %59, %61
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15AttachOperation, i64 16), ptr %69, align 8
   %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.1.ph) #20
   %71 = call noundef i64 @llvm.umin.i64(i64 %70, i64 16)
-  %72 = getelementptr inbounds i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %72, ptr nonnull align 1 %.sroa.0.1.ph, i64 %71, i1 false)
-  %73 = getelementptr inbounds [17 x i8], ptr %72, i64 0, i64 %71
+  %73 = getelementptr inbounds nuw [17 x i8], ptr %72, i64 0, i64 %71
   store i8 0, ptr %73, align 1
-  %74 = getelementptr inbounds i8, ptr %69, i64 25
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 25
   br label %75
 
 75:                                               ; preds = %75, %68
   %indvars.iv.i.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i.i, %75 ]
-  %76 = getelementptr inbounds [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv.i.i
+  %76 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv.i.i
   store i8 0, ptr %76, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -432,7 +432,7 @@ _ZN16ArgumentIterator4nextEv.exit:                ; preds = %59, %61
 
 _ZN20PosixAttachOperationC2EPc.exit:              ; preds = %75
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV20PosixAttachOperation, i64 16), ptr %69, align 8
-  %77 = getelementptr inbounds i8, ptr %69, i64 3100
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 3100
   store i32 -1, ptr %77, align 4
   br label %78
 
@@ -446,8 +446,8 @@ _ZN20PosixAttachOperationC2EPc.exit:              ; preds = %75
 81:                                               ; preds = %78
   %82 = icmp ult ptr %.sroa.0.094, %54
   %spec.select.idx = zext i1 %82 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.sroa.0.094, i64 %spec.select.idx
-  %83 = getelementptr inbounds [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv
+  %spec.select = getelementptr inbounds nuw i8, ptr %.sroa.0.094, i64 %spec.select.idx
+  %83 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv
   store i8 0, ptr %83, align 1
   br label %91
 
@@ -465,10 +465,10 @@ _ZN15AttachOperation7set_argEiPc.exit:            ; preds = %84
   %strchr.i67 = getelementptr inbounds i8, ptr %.sroa.0.094, i64 %strlen.i66
   %88 = icmp ult ptr %strchr.i67, %54
   %spec.select.idx.i68 = zext i1 %88 to i64
-  %spec.select.i69 = getelementptr inbounds i8, ptr %strchr.i67, i64 %spec.select.idx.i68
-  %89 = getelementptr inbounds [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv
+  %spec.select.i69 = getelementptr inbounds nuw i8, ptr %strchr.i67, i64 %spec.select.idx.i68
+  %89 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 1 %.sroa.0.094, i64 %85, i1 false)
-  %90 = getelementptr inbounds [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv, i64 %85
+  %90 = getelementptr inbounds nuw [3 x [1025 x i8]], ptr %74, i64 0, i64 %indvars.iv, i64 %85
   store i8 0, ptr %90, align 1
   br label %91
 
@@ -537,8 +537,8 @@ define hidden noundef ptr @_ZN19PosixAttachListener7dequeueEv() local_unnamed_ad
   %2 = alloca i32, align 4
   %3 = alloca %struct.ucred, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %7
 
 7:                                                ; preds = %.backedge, %0
@@ -564,7 +564,7 @@ define hidden noundef ptr @_ZN19PosixAttachListener7dequeueEv() local_unnamed_ad
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %.critedge11
-  %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not12 = icmp eq ptr %19, null
   br i1 %.not12, label %.backedge, label %20
 
@@ -583,7 +583,7 @@ define hidden noundef ptr @_ZN19PosixAttachListener7dequeueEv() local_unnamed_ad
   br i1 %25, label %33, label %26
 
 26:                                               ; preds = %22
-  %27 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %27 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %.backedge, label %28
 
@@ -629,13 +629,13 @@ define hidden void @_ZN20PosixAttachOperation8completeEiP14bufferedStream(ptr no
   %4 = alloca [32 x i8], align 16
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 928
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %8 = getelementptr inbounds i8, ptr %6, i64 1092
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1092
   store volatile i32 10, ptr %8, align 4
   %9 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.6, i32 noundef %1) #18
-  %10 = getelementptr inbounds i8, ptr %0, i64 3100
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3100
   %11 = load i32, ptr %10, align 4
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
   br label %13
@@ -666,9 +666,9 @@ define hidden void @_ZN20PosixAttachOperation8completeEiP14bufferedStream(ptr no
 
 23:                                               ; preds = %22
   %24 = load i32, ptr %10, align 4
-  %25 = getelementptr inbounds i8, ptr %2, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %28 = load i64, ptr %27, align 8
   br label %29
 
@@ -708,7 +708,7 @@ _ZN19PosixAttachListener11write_fullyEiPcm.exit:  ; preds = %16, %_ZN19PosixAtta
   store volatile i32 6, ptr %8, align 4
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %43 = getelementptr inbounds i8, ptr %6, i64 1096
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 1096
   %44 = load volatile i64, ptr %43, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
   %45 = and i64 %44, 1
@@ -721,7 +721,7 @@ _ZN19PosixAttachListener11write_fullyEiPcm.exit:  ; preds = %16, %_ZN19PosixAtta
   br i1 %.not5.i.i, label %48, label %54
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %6, i64 1384
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 1384
   %50 = call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %49, i1 noundef zeroext false, i1 noundef zeroext false) #18
   br i1 %50, label %54, label %51
 
@@ -755,16 +755,16 @@ declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #3
 define hidden noundef ptr @_ZN14AttachListener7dequeueEv() local_unnamed_addr #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 928
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %4 = getelementptr inbounds i8, ptr %2, i64 1092
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1092
   store volatile i32 10, ptr %4, align 4
   %5 = tail call noundef ptr @_ZN19PosixAttachListener7dequeueEv()
   store volatile i32 6, ptr %4, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %6 = getelementptr inbounds i8, ptr %2, i64 1096
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %7 = load volatile i64, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
   %8 = and i64 %7, 1
@@ -777,7 +777,7 @@ define hidden noundef ptr @_ZN14AttachListener7dequeueEv() local_unnamed_addr #0
   br i1 %.not5.i.i, label %11, label %17
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %2, i64 1384
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   %13 = tail call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %12, i1 noundef zeroext false, i1 noundef zeroext false) #18
   br i1 %13, label %17, label %14
 
@@ -832,7 +832,7 @@ define hidden void @_ZN14AttachListener8vm_startEv() local_unnamed_addr #0 align
   br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %12
-  %16 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.critedge, label %17
 
@@ -851,16 +851,16 @@ declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture nounde
 define hidden noundef range(i32 -1, 1) i32 @_ZN14AttachListener7pd_initEv() local_unnamed_addr #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 928
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %4 = getelementptr inbounds i8, ptr %2, i64 1092
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1092
   store volatile i32 10, ptr %4, align 4
   %5 = tail call noundef i32 @_ZN19PosixAttachListener4initEv()
   store volatile i32 6, ptr %4, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %6 = getelementptr inbounds i8, ptr %2, i64 1096
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %7 = load volatile i64, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
   %8 = and i64 %7, 1
@@ -873,7 +873,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN14AttachListener7pd_initEv() loca
   br i1 %.not5.i.i, label %11, label %17
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %2, i64 1384
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 1384
   %13 = tail call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %12, i1 noundef zeroext false, i1 noundef zeroext false) #18
   br i1 %13, label %17, label %14
 
@@ -908,7 +908,7 @@ define hidden noundef zeroext i1 @_ZN14AttachListener17check_socket_fileEv() loc
   br i1 %3, label %4, label %39
 
 4:                                                ; preds = %0
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not5 = icmp eq ptr %5, null
   br i1 %.not5, label %7, label %6
 
@@ -941,10 +941,10 @@ define hidden noundef zeroext i1 @_ZN14AttachListener17check_socket_fileEv() loc
 _ZL16listener_cleanupv.exit:                      ; preds = %12, %15
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 928
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 928
   tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %20 = getelementptr inbounds i8, ptr %18, i64 1092
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 1092
   store volatile i32 10, ptr %20, align 4
   %21 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull @_ZN14AttachListener6_stateE) #18, !srcloc !20
   %.not6 = icmp eq i32 %21, 0
@@ -960,7 +960,7 @@ _ZL16listener_cleanupv.exit:                      ; preds = %12, %15
   store volatile i32 6, ptr %20, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
-  %23 = getelementptr inbounds i8, ptr %18, i64 1096
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 1096
   %24 = load volatile i64, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
   %25 = and i64 %24, 1
@@ -973,7 +973,7 @@ _ZL16listener_cleanupv.exit:                      ; preds = %12, %15
   br i1 %.not5.i.i, label %28, label %34
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %18, i64 1384
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 1384
   %30 = tail call noundef zeroext i1 @_ZN14HandshakeState13has_operationEbb(ptr noundef nonnull align 8 dereferenceable(131) %29, i1 noundef zeroext false, i1 noundef zeroext false) #18
   br i1 %30, label %34, label %31
 
@@ -1037,7 +1037,7 @@ define hidden noundef zeroext i1 @_ZN14AttachListener15is_init_triggerEv() local
   br i1 %17, label %11, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %14
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %20, label %19
 
@@ -1062,7 +1062,7 @@ define hidden noundef zeroext i1 @_ZN14AttachListener15is_init_triggerEv() local
   br i1 %29, label %24, label %.critedge2, !llvm.loop !23
 
 .critedge2:                                       ; preds = %27
-  %30 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %30 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not15 = icmp eq ptr %30, null
   br i1 %.not15, label %.critedge10.thread, label %31
 
@@ -1076,14 +1076,14 @@ define hidden noundef zeroext i1 @_ZN14AttachListener15is_init_triggerEv() local
   br i1 %32, label %33, label %.critedge10.thread
 
 33:                                               ; preds = %.critedge10
-  %34 = getelementptr inbounds i8, ptr %2, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = call noundef zeroext i1 @_ZN2os5Posix29matches_effective_uid_or_rootEj(i32 noundef %35) #18
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %33
   call void @_ZN14AttachListener4initEv() #18
-  %38 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not14 = icmp eq ptr %38, null
   br i1 %.not14, label %.critedge10.thread, label %39
 
@@ -1092,7 +1092,7 @@ define hidden noundef zeroext i1 @_ZN14AttachListener15is_init_triggerEv() local
   br label %.critedge10.thread
 
 40:                                               ; preds = %33
-  %41 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %41 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not13 = icmp eq ptr %41, null
   br i1 %.not13, label %.critedge10.thread, label %42
 

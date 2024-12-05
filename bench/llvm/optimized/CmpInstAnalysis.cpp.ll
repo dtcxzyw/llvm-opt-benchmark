@@ -339,7 +339,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i._crit_edge.i:        ; preds = %_ZN4llvm5APIntC2Ejm
   %63 = load ptr, ptr %7, align 8, !alias.scope !9
   %64 = lshr i32 %53, 6
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds i64, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw i64, ptr %63, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = or i64 %67, %56
   store i64 %68, ptr %66, align 8
@@ -429,7 +429,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i._crit_edge.i29:      ; preds = %_ZN4llvm5APIntC2Ejm
   %110 = load ptr, ptr %8, align 8, !alias.scope !16
   %111 = lshr i32 %100, 6
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds i64, ptr %110, i64 %112
+  %113 = getelementptr inbounds nuw i64, ptr %110, i64 %112
   %114 = load i64, ptr %113, align 8
   %115 = or i64 %114, %103
   store i64 %115, ptr %113, align 8
@@ -519,7 +519,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i._crit_edge.i39:      ; preds = %_ZN4llvm5APIntC2Ejm
   %157 = load ptr, ptr %9, align 8, !alias.scope !23
   %158 = lshr i32 %147, 6
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds i64, ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw i64, ptr %157, i64 %159
   %161 = load i64, ptr %160, align 8
   %162 = or i64 %161, %150
   store i64 %162, ptr %160, align 8
@@ -602,7 +602,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i._crit_edge.i49:      ; preds = %_ZN4llvm5APIntC2Ejm
   %199 = load ptr, ptr %10, align 8, !alias.scope !30
   %200 = lshr i32 %189, 6
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds i64, ptr %199, i64 %201
+  %202 = getelementptr inbounds nuw i64, ptr %199, i64 %201
   %203 = load i64, ptr %202, align 8
   %204 = or i64 %203, %192
   store i64 %204, ptr %202, align 8

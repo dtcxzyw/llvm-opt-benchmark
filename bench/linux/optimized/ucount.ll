@@ -67,19 +67,19 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @setup_userns_sysctls(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 376
-  tail call void @setup_sysctl_set(ptr noundef %2, ptr noundef nonnull @set_root, ptr noundef nonnull @set_is_seen) #11
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  tail call void @setup_sysctl_set(ptr noundef nonnull %2, ptr noundef nonnull @set_root, ptr noundef nonnull @set_is_seen) #11
   %3 = tail call dereferenceable_or_null(704) ptr @kmemdup(ptr noundef nonnull @user_table, i64 noundef 704, i32 noundef 3264) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %._crit_edge, label %5
 
 ._crit_edge:                                      ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 472
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 472
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %16
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 488
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 488
   br label %7
 
 7:                                                ; preds = %7, %5
@@ -92,8 +92,8 @@ define dso_local noundef zeroext i1 @setup_userns_sysctls(ptr noundef %0) local_
   br i1 %12, label %13, label %7, !llvm.loop !5
 
 13:                                               ; preds = %7
-  %14 = tail call ptr @__register_sysctl_table(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull %3, i64 noundef 11) #11
-  %15 = getelementptr inbounds i8, ptr %0, i64 472
+  %14 = tail call ptr @__register_sysctl_table(ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull %3, i64 noundef 11) #11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr %14, ptr %15, align 8
   br label %16
 
@@ -104,7 +104,7 @@ define dso_local noundef zeroext i1 @setup_userns_sysctls(ptr noundef %0) local_
 
 19:                                               ; preds = %16
   tail call void @kfree(ptr noundef %3) #11
-  tail call void @retire_sysctl_set(ptr noundef %2) #11
+  tail call void @retire_sysctl_set(ptr noundef nonnull %2) #11
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -141,13 +141,13 @@ declare dso_local void @retire_sysctl_set(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @retire_userns_sysctls(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 472
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void @unregister_sysctl_table(ptr noundef %3) #11
-  %6 = getelementptr inbounds i8, ptr %0, i64 376
-  tail call void @retire_sysctl_set(ptr noundef %6) #11
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  tail call void @retire_sysctl_set(ptr noundef nonnull %6) #11
   tail call void @kfree(ptr noundef %5) #11
   ret void
 }
@@ -158,8 +158,8 @@ declare dso_local void @unregister_sysctl_table(ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @get_ucounts(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
-  %4 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 1, ptr elementtype(i32) %3) #11, !srcloc !8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %4 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 1, ptr nonnull elementtype(i32) %3) #11, !srcloc !8
   %5 = icmp ult i8 %4, 2
   tail call void @llvm.assume(i1 %5)
   %6 = icmp eq i8 %4, 0
@@ -168,12 +168,12 @@ define dso_local noundef ptr @get_ucounts(ptr noundef %0) local_unnamed_addr #0 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store i64 0, ptr %2, align 8, !annotation !9
-  %8 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef %3, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %2) #11
+  %8 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef nonnull %3, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %2) #11
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %22, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %20, label %14
@@ -185,7 +185,7 @@ define dso_local noundef ptr @get_ucounts(ptr noundef %0) local_unnamed_addr #0 
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store volatile ptr %12, ptr %18, align 8
   br label %19
 
@@ -213,13 +213,13 @@ define dso_local void @put_ucounts(ptr noundef %0) local_unnamed_addr #0 align 1
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store i64 0, ptr %2, align 8, !annotation !9
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
-  %4 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef %3, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %2) #11
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %4 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef nonnull %3, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %2) #11
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %18, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %16, label %10
@@ -231,7 +231,7 @@ define dso_local void @put_ucounts(ptr noundef %0) local_unnamed_addr #0 align 1
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store volatile ptr %8, ptr %14, align 8
   br label %15
 
@@ -266,13 +266,13 @@ define dso_local ptr @alloc_ucounts(ptr noundef %0, i32 %1) local_unnamed_addr #
 
 .preheader12:                                     ; preds = %2, %20
   %12 = phi ptr [ %21, %20 ], [ %10, %2 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %.preheader12
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %0
   br i1 %19, label %.loopexit, label %20
@@ -290,11 +290,11 @@ define dso_local ptr @alloc_ucounts(ptr noundef %0, i32 %1) local_unnamed_addr #
   br i1 %25, label %69, label %26
 
 26:                                               ; preds = %.loopexit13
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i32 %1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store volatile i32 1, ptr %29, align 4
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @ucounts_lock) #11
   %30 = load ptr, ptr %9, align 8
@@ -307,13 +307,13 @@ define dso_local ptr @alloc_ucounts(ptr noundef %0, i32 %1) local_unnamed_addr #
 
 .preheader:                                       ; preds = %26, %40
   %32 = phi ptr [ %41, %40 ], [ %30, %26 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, %1
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %.preheader
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, %0
   br i1 %39, label %43, label %40
@@ -329,21 +329,21 @@ define dso_local ptr @alloc_ucounts(ptr noundef %0, i32 %1) local_unnamed_addr #
 
 44:                                               ; preds = %40
   store volatile ptr %30, ptr %24, align 8
-  %45 = getelementptr inbounds i8, ptr %30, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store volatile ptr %24, ptr %45, align 8
   br label %46
 
 46:                                               ; preds = %.thread11, %44
   store volatile ptr %24, ptr %9, align 8
-  %47 = getelementptr inbounds i8, ptr %24, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store volatile ptr %9, ptr %47, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @ucounts_lock) #11
   br label %69
 
 .loopexit:                                        ; preds = %16, %43
   %48 = phi ptr [ %32, %43 ], [ %12, %16 ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
-  %50 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %49, i32 1, ptr elementtype(i32) %49) #11, !srcloc !8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
+  %50 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %49, i32 1, ptr nonnull elementtype(i32) %49) #11, !srcloc !8
   %51 = icmp ult i8 %50, 2
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i8 %50, 0
@@ -353,12 +353,12 @@ define dso_local ptr @alloc_ucounts(ptr noundef %0, i32 %1) local_unnamed_addr #
 53:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store i64 0, ptr %3, align 8, !annotation !9
-  %54 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef %49, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %3) #11
+  %54 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef nonnull %49, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %3) #11
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %68, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %48, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %66, label %60
@@ -370,7 +370,7 @@ define dso_local ptr @alloc_ucounts(ptr noundef %0, i32 %1) local_unnamed_addr #
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %61, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store volatile ptr %58, ptr %64, align 8
   br label %65
 
@@ -409,12 +409,12 @@ define dso_local ptr @inc_ucount(ptr noundef %0, i32 %1, i32 noundef %2) local_u
 
 9:                                                ; preds = %30, %7
   %10 = phi ptr [ %5, %7 ], [ %32, %30 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 488
   %14 = getelementptr [10 x i64], ptr %13, i64 0, i64 %8
   %15 = load volatile i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = getelementptr [10 x %struct.atomic64_t], ptr %16, i64 0, i64 %8
   %18 = load volatile i64, ptr %17, align 8
   %19 = shl i64 %15, 32
@@ -437,19 +437,19 @@ define dso_local ptr @inc_ucount(ptr noundef %0, i32 %1, i32 noundef %2) local_u
   br i1 %29, label %30, label %21, !prof !11, !llvm.loop !13
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %12, i64 480
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 480
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.loopexit6, label %9, !llvm.loop !14
 
 .preheader:                                       ; preds = %24, %.preheader
   %34 = phi ptr [ %40, %.preheader ], [ %5, %24 ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = getelementptr [10 x %struct.atomic64_t], ptr %35, i64 0, i64 %8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %36, ptr elementtype(i64) %36) #11, !srcloc !15
-  %37 = getelementptr inbounds i8, ptr %34, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 480
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 480
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %10
   br i1 %41, label %.loopexit, label %.preheader, !llvm.loop !16
@@ -457,13 +457,13 @@ define dso_local ptr @inc_ucount(ptr noundef %0, i32 %1, i32 noundef %2) local_u
 .loopexit:                                        ; preds = %.preheader, %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   store i64 0, ptr %4, align 8, !annotation !9
-  %42 = getelementptr inbounds i8, ptr %5, i64 28
-  %43 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef %42, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %4) #11
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %43 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef nonnull %42, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %4) #11
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %57, label %45
 
 45:                                               ; preds = %.loopexit
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %55, label %49
@@ -475,7 +475,7 @@ define dso_local ptr @inc_ucount(ptr noundef %0, i32 %1, i32 noundef %2) local_u
   br i1 %51, label %54, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store volatile ptr %47, ptr %53, align 8
   br label %54
 
@@ -510,7 +510,7 @@ define dso_local void @dec_ucount(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 7:                                                ; preds = %.thread, %5
   %8 = phi ptr [ %0, %5 ], [ %27, %.thread ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = getelementptr [10 x %struct.atomic64_t], ptr %9, i64 0, i64 %6
   %11 = load volatile i64, ptr %10, align 8
   %12 = add i64 %11, -1
@@ -540,9 +540,9 @@ define dso_local void @dec_ucount(ptr noundef %0, i32 noundef %1) local_unnamed_
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
-  %24 = getelementptr inbounds i8, ptr %8, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 480
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 480
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %7, !llvm.loop !25
@@ -550,13 +550,13 @@ define dso_local void @dec_ucount(ptr noundef %0, i32 noundef %1) local_unnamed_
 .loopexit:                                        ; preds = %.thread, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store i64 0, ptr %3, align 8, !annotation !9
-  %29 = getelementptr inbounds i8, ptr %0, i64 28
-  %30 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef %29, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %3) #11
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %30 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef nonnull %29, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %3) #11
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %44, label %32
 
 32:                                               ; preds = %.loopexit
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %42, label %36
@@ -568,7 +568,7 @@ define dso_local void @dec_ucount(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %38, label %41, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store volatile ptr %34, ptr %40, align 8
   br label %41
 
@@ -600,7 +600,7 @@ define dso_local i64 @inc_rlimit_ucounts(ptr noundef %0, i32 noundef %1, i64 nou
   %8 = phi i64 [ 0, %5 ], [ %20, %7 ]
   %9 = phi i64 [ 9223372036854775807, %5 ], [ %25, %7 ]
   %10 = phi ptr [ %0, %5 ], [ %27, %7 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %12 = getelementptr [4 x %struct.atomic64_t], ptr %11, i64 0, i64 %6
   %13 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 %2, ptr elementtype(i64) %12) #11, !srcloc !26
   %14 = add i64 %13, %2
@@ -610,12 +610,12 @@ define dso_local i64 @inc_rlimit_ucounts(ptr noundef %0, i32 noundef %1, i64 nou
   %18 = icmp eq ptr %10, %0
   %19 = select i1 %18, i64 %14, i64 %8
   %20 = select i1 %17, i64 9223372036854775807, i64 %19
-  %21 = getelementptr inbounds i8, ptr %10, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 568
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 568
   %24 = getelementptr [4 x i64], ptr %23, i64 0, i64 %6
   %25 = load volatile i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 480
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 480
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %7, !llvm.loop !27
@@ -638,7 +638,7 @@ define dso_local zeroext i1 @dec_rlimit_ucounts(ptr noundef %0, i32 noundef %1, 
 8:                                                ; preds = %17, %5
   %9 = phi ptr [ %0, %5 ], [ %23, %17 ]
   %10 = phi i64 [ -1, %5 ], [ %19, %17 ]
-  %11 = getelementptr inbounds i8, ptr %9, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %12 = getelementptr [4 x %struct.atomic64_t], ptr %11, i64 0, i64 %6
   %13 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 %7, ptr elementtype(i64) %12) #11, !srcloc !26
   %14 = sub i64 %13, %2
@@ -654,9 +654,9 @@ define dso_local zeroext i1 @dec_rlimit_ucounts(ptr noundef %0, i32 noundef %1, 
 17:                                               ; preds = %16, %8
   %18 = icmp eq ptr %9, %0
   %19 = select i1 %18, i64 %14, i64 %10
-  %20 = getelementptr inbounds i8, ptr %9, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 480
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 480
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %8, !llvm.loop !31
@@ -688,7 +688,7 @@ define internal fastcc void @do_dec_rlimit_put_ucounts(ptr noundef %0, ptr nound
 
 8:                                                ; preds = %42, %6
   %9 = phi ptr [ %0, %6 ], [ %43, %42 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = getelementptr [4 x %struct.atomic64_t], ptr %10, i64 0, i64 %7
   %12 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %11, i64 -1, ptr elementtype(i64) %11) #11, !srcloc !26
   %13 = add i64 %12, -1
@@ -699,16 +699,16 @@ define internal fastcc void @do_dec_rlimit_put_ucounts(ptr noundef %0, ptr nound
   call void asm sideeffect "159: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 159b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 159) #11, !srcloc !32
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 299, i32 2307, i64 12) #11, !srcloc !33
   call void asm sideeffect "160: nop\0A\09.pushsection .discard.instr_end\0A\09.long 160b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 160) #11, !srcloc !34
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 480
   %18 = load ptr, ptr %17, align 8
   br label %42
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %9, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 480
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 480
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq i64 %13, 0
   br i1 %24, label %25, label %42
@@ -716,13 +716,13 @@ define internal fastcc void @do_dec_rlimit_put_ucounts(ptr noundef %0, ptr nound
 25:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   store i64 0, ptr %4, align 8, !annotation !9
-  %26 = getelementptr inbounds i8, ptr %9, i64 28
-  %27 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef %26, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %4) #11
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  %27 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef nonnull %26, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %4) #11
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %41, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %39, label %33
@@ -734,7 +734,7 @@ define internal fastcc void @do_dec_rlimit_put_ucounts(ptr noundef %0, ptr nound
   br i1 %35, label %38, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store volatile ptr %31, ptr %37, align 8
   br label %38
 
@@ -775,7 +775,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @inc_rlimit_get_ucounts(
   %8 = phi ptr [ %0, %5 ], [ %50, %47 ]
   %9 = phi i64 [ 0, %5 ], [ %20, %47 ]
   %10 = phi i64 [ 9223372036854775807, %5 ], [ %25, %47 ]
-  %11 = getelementptr inbounds i8, ptr %8, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %12 = getelementptr [4 x %struct.atomic64_t], ptr %11, i64 0, i64 %6
   %13 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %12, i64 1, ptr elementtype(i64) %12) #11, !srcloc !26
   %14 = add i64 %13, 1
@@ -787,17 +787,17 @@ define dso_local range(i64 0, -9223372036854775808) i64 @inc_rlimit_get_ucounts(
 18:                                               ; preds = %7
   %19 = icmp eq ptr %8, %0
   %20 = select i1 %19, i64 %14, i64 %9
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 568
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 568
   %24 = getelementptr [4 x i64], ptr %23, i64 0, i64 %6
   %25 = load volatile i64, ptr %24, align 8
   %26 = icmp eq i64 %13, 0
   br i1 %26, label %27, label %47
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %8, i64 28
-  %29 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, i32 1, ptr elementtype(i32) %28) #11, !srcloc !8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %29 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addl $2, $0\0A\09/* output condition code s*/\0A", "=*m,={@ccs},er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28, i32 1, ptr nonnull elementtype(i32) %28) #11, !srcloc !8
   %30 = icmp ult i8 %29, 2
   tail call void @llvm.assume(i1 %30)
   %31 = icmp eq i8 %29, 0
@@ -810,12 +810,12 @@ define dso_local range(i64 0, -9223372036854775808) i64 @inc_rlimit_get_ucounts(
 32:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store i64 0, ptr %3, align 8, !annotation !9
-  %33 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef %28, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %3) #11
+  %33 = call i32 @_atomic_dec_and_lock_irqsave(ptr noundef nonnull %28, ptr noundef nonnull @ucounts_lock, ptr noundef nonnull %3) #11
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %52, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %8, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %45, label %39
@@ -827,7 +827,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @inc_rlimit_get_ucounts(
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store volatile ptr %37, ptr %43, align 8
   br label %44
 
@@ -843,7 +843,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @inc_rlimit_get_ucounts(
 
 47:                                               ; preds = %._crit_edge, %18
   %48 = phi ptr [ %.pre, %._crit_edge ], [ %22, %18 ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 480
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 480
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.loopexit6, label %7, !llvm.loop !36
@@ -883,7 +883,7 @@ define dso_local noundef zeroext i1 @is_rlimit_overlimit(ptr noundef %0, i32 nou
 7:                                                ; preds = %15, %4
   %8 = phi i64 [ %5, %4 ], [ %20, %15 ]
   %9 = phi ptr [ %0, %4 ], [ %22, %15 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = getelementptr [4 x %struct.atomic64_t], ptr %10, i64 0, i64 %6
   %12 = load volatile i64, ptr %11, align 8
   %13 = icmp slt i64 %12, 0
@@ -892,12 +892,12 @@ define dso_local noundef zeroext i1 @is_rlimit_overlimit(ptr noundef %0, i32 nou
   br i1 %.not7, label %.loopexit, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 568
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 568
   %19 = getelementptr [4 x i64], ptr %18, i64 0, i64 %6
   %20 = load volatile i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 480
   %22 = load ptr, ptr %21, align 8
   %.not4 = icmp eq ptr %22, null
   br i1 %.not4, label %.loopexit, label %7, !llvm.loop !40
@@ -944,7 +944,7 @@ define internal noundef i32 @user_namespace_sysctl_init() #6 section ".init.text
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store volatile ptr @init_ucounts, ptr %19, align 8
   br label %20
 
@@ -956,13 +956,13 @@ define internal noundef i32 @user_namespace_sysctl_init() #6 section ".init.text
 
 21:                                               ; preds = %21, %20
   %22 = phi ptr [ @init_ucounts, %20 ], [ %30, %21 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 112
-  %24 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %23, i64 1, ptr elementtype(i64) %23) #11, !srcloc !26
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
+  %24 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %23, i64 1, ptr nonnull elementtype(i64) %23) #11, !srcloc !26
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 568
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 568
   %28 = load volatile i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 480
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %21, !llvm.loop !27
@@ -978,11 +978,11 @@ define internal nonnull ptr @set_lookup(ptr nocapture readnone %0) #3 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 512) i32 @set_permissions(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -376
   %6 = tail call zeroext i1 @ns_capable(ptr noundef %5, i32 noundef 24) #11
-  %7 = getelementptr inbounds i8, ptr %1, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %8 = load i16, ptr %7, align 4
   %9 = lshr i16 %8, 6
   %10 = and i16 %9, 7

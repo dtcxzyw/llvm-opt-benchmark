@@ -189,7 +189,7 @@ define internal i32 @dissect_rtps_virtual_transport(ptr noundef %0, ptr noundef 
   %20 = trunc nuw i16 %19 to i8
   store i8 %20, ptr %12, align 2
   %21 = trunc i16 %17 to i8
-  %22 = getelementptr inbounds i8, ptr %12, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 %21, ptr %22, align 1
   %23 = load i32, ptr @hf_rtpsvt_version, align 4
   %24 = zext nneg i16 %19 to i32
@@ -222,11 +222,11 @@ define internal i32 @dissect_rtps_virtual_transport(ptr noundef %0, ptr noundef 
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %42, ptr noundef %0, i32 noundef 3, i32 noundef -1, i32 noundef 0) #7
   %44 = load i32, ptr @ett_rtpsvt_information, align 4
   %45 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44) #7
-  %46 = getelementptr inbounds i8, ptr %12, i64 2
-  %47 = getelementptr inbounds i8, ptr %1, i64 288
-  %48 = getelementptr inbounds i8, ptr %1, i64 408
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 284
+  %46 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 284
   br label %51
 
 51:                                               ; preds = %dissect_parameter_transport_rtps_type.exit.i, %37
@@ -503,7 +503,7 @@ dissect_parameter_transport_rtps_type.exit.i:     ; preds = %184, %173, %168, %1
   br i1 %206, label %.preheader.i, label %dissect_rtps_virtual_transport_rtps_type.exit, !llvm.loop !6
 
 207:                                              ; preds = %.preheader.i
-  %208 = getelementptr inbounds i8, ptr %12, i64 4
+  %208 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i16 %199, ptr %208, align 2
   %209 = load i32, ptr @ett_rtpsvt_frame, align 4
   %210 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %0, i32 noundef %200, i32 noundef 0, i32 noundef %209, ptr noundef null, ptr noundef nonnull @.str.49) #7
@@ -533,7 +533,7 @@ dissect_parameter_transport_rtps_type.exit.i:     ; preds = %184, %173, %168, %1
 226:                                              ; preds = %223
   %227 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef 7, i32 noundef 0) #7
   %228 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef 15, i32 noundef 0) #7
-  %229 = getelementptr inbounds i8, ptr %1, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %230 = load ptr, ptr %229, align 8
   %.not.i = icmp eq ptr %230, null
   br i1 %.not.i, label %234, label %231

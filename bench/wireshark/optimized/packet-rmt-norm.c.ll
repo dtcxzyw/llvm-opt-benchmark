@@ -266,7 +266,7 @@ define internal i32 @dissect_norm(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %9 = alloca %struct.lct_data_exchange, align 4
   %10 = alloca %struct.lct_data_exchange, align 4
   %11 = alloca %struct.lct_data_exchange, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.109) #6
   %14 = load ptr, ptr %12, align 8
@@ -370,7 +370,7 @@ define internal i32 @dissect_norm(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 77:                                               ; preds = %73
   %78 = load i8, ptr %76, align 1
-  %79 = getelementptr inbounds i8, ptr %11, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i8 %78, ptr %79, align 4
   br label %dissect_norm_hdrext.exit.i
 
@@ -433,7 +433,7 @@ dissect_norm_hdrext.exit.i:                       ; preds = %77, %73
 
 120:                                              ; preds = %116
   %121 = load i8, ptr %119, align 1
-  %122 = getelementptr inbounds i8, ptr %10, i64 12
+  %122 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i8 %121, ptr %122, align 4
   br label %dissect_norm_hdrext.exit.i74
 
@@ -518,7 +518,7 @@ dissect_norm_hdrext.exit.i74:                     ; preds = %120, %116
 
 170:                                              ; preds = %166
   %171 = load i8, ptr %169, align 1
-  %172 = getelementptr inbounds i8, ptr %9, i64 12
+  %172 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i8 %171, ptr %172, align 4
   br label %dissect_norm_hdrext.exit.i.i
 
@@ -607,7 +607,7 @@ UnquantizeRtt.exit.i.i:                           ; preds = %206, %202
 
 231:                                              ; preds = %227
   %232 = load i8, ptr %230, align 1
-  %233 = getelementptr inbounds i8, ptr %8, i64 12
+  %233 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 %232, ptr %233, align 4
   br label %dissect_norm_hdrext.exit.i41.i
 
@@ -653,7 +653,7 @@ dissect_norm_hdrext.exit.i41.i:                   ; preds = %231, %227
 
 257:                                              ; preds = %253
   %258 = load i8, ptr %256, align 1
-  %259 = getelementptr inbounds i8, ptr %7, i64 12
+  %259 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 %258, ptr %259, align 4
   br label %dissect_norm_hdrext.exit.i47.i
 
@@ -732,7 +732,7 @@ dissect_norm_cmd_cc.exit.i:                       ; preds = %.lr.ph.i45.i, %.lr.
 
 306:                                              ; preds = %302
   %307 = load i8, ptr %305, align 1
-  %308 = getelementptr inbounds i8, ptr %6, i64 12
+  %308 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 %307, ptr %308, align 4
   br label %dissect_norm_hdrext.exit.i78
 
@@ -782,7 +782,7 @@ dissect_norm_hdrext.exit.i78:                     ; preds = %306, %302
 
 337:                                              ; preds = %333
   %338 = load i8, ptr %336, align 1
-  %339 = getelementptr inbounds i8, ptr %5, i64 12
+  %339 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %338, ptr %339, align 4
   br label %dissect_norm_hdrext.exit.i81
 

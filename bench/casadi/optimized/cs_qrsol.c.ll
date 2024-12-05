@@ -9,7 +9,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not, label %83, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, -1
   %8 = icmp ne ptr %2, null
@@ -17,9 +17,9 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %or.cond, label %9, label %83
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %.not90 = icmp slt i32 %13, %11
   br i1 %.not90, label %44, label %14
@@ -31,7 +31,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %20 = load i32, ptr %19, align 8
   br label %21
 
@@ -51,7 +51,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %16, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %31
 
@@ -59,7 +59,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %32 = load ptr, ptr %16, align 8
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds double, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
   %35 = load double, ptr %34, align 8
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = tail call i32 @cs_happly(ptr noundef %32, i32 noundef %36, double noundef %35, ptr noundef nonnull %23) #2
@@ -68,10 +68,10 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %31, %26
-  %38 = getelementptr inbounds i8, ptr %16, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @cs_usolve(ptr noundef %39, ptr noundef nonnull %23) #2
-  %41 = getelementptr inbounds i8, ptr %15, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @cs_ipvec(ptr noundef %42, ptr noundef nonnull %23, ptr noundef nonnull %2, i32 noundef %11) #2
   br label %78
@@ -84,7 +84,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %46, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %51 = load i32, ptr %50, align 8
   br label %52
 
@@ -100,17 +100,17 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %spec.select91, label %58, label %78
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %46, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 @cs_pvec(ptr noundef %60, ptr noundef nonnull %2, ptr noundef nonnull %54, i32 noundef %13) #2
-  %62 = getelementptr inbounds i8, ptr %47, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 @cs_utsolve(ptr noundef %63, ptr noundef nonnull %54) #2
   %65 = icmp sgt i32 %13, 0
   br i1 %65, label %.lr.ph95, label %._crit_edge96
 
 .lr.ph95:                                         ; preds = %58
-  %66 = getelementptr inbounds i8, ptr %47, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %67 = zext nneg i32 %13 to i64
   br label %68
 
@@ -119,7 +119,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   %indvars.iv.next99 = add nsw i64 %indvars.iv98, -1
   %69 = load ptr, ptr %47, align 8
   %70 = load ptr, ptr %66, align 8
-  %71 = getelementptr inbounds double, ptr %70, i64 %indvars.iv.next99
+  %71 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv.next99
   %72 = load double, ptr %71, align 8
   %73 = trunc nuw nsw i64 %indvars.iv.next99 to i32
   %74 = tail call i32 @cs_happly(ptr noundef %69, i32 noundef %73, double noundef %72, ptr noundef nonnull %54) #2

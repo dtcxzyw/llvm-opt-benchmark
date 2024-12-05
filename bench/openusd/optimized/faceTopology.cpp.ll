@@ -89,7 +89,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %5, i64 %indvars.iv.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %9 = load ptr, ptr %8, align 8
@@ -163,7 +163,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE8
 .lr.ph.i5:                                        ; preds = %41, %.lr.ph.i5
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i7, %.lr.ph.i5 ], [ 0, %41 ]
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %42, i64 %indvars.iv.i6
+  %43 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %42, i64 %indvars.iv.i6
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr %45, ptr %44, align 8
@@ -228,7 +228,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology8FinalizeEv(ptr nocapture n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = phi i32 [ %.promoted8, %.lr.ph ], [ %18, %9 ]
   %11 = phi i16 [ %.promoted, %.lr.ph ], [ %15, %9 ]
-  %12 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %6, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load i16, ptr %13, align 8, !noalias !8
   %15 = or i16 %11, %14
@@ -268,7 +268,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology23ResolveUnOrderedCornersEP
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.014 = phi ptr [ %1, %.lr.ph ], [ %23, %16 ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %13 = load i16, ptr %12, align 8, !noalias !12
   %14 = and i16 %13, 256
@@ -370,7 +370,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr12FaceTopology5printEPKi(ptr nocapture n
   %46 = trunc nuw nsw i64 %indvars.iv59 to i32
   %47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %46)
   %48 = load ptr, ptr %44, align 8
-  %49 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %48, i64 %indvars.iv59
+  %49 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Bfr::FaceVertex", ptr %48, i64 %indvars.iv59
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 2
   %51 = load i16, ptr %50, align 2
   %52 = sext i16 %51 to i32

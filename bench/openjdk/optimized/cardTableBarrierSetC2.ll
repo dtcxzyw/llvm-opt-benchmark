@@ -77,13 +77,13 @@ define hidden noundef ptr @_ZNK21CardTableBarrierSetC218byte_map_base_nodeEP8Gra
 
 4:                                                ; preds = %2
   %5 = tail call noundef ptr @_ZN10TypeRawPtr4makeEPh(ptr noundef nonnull %3) #4
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %7, ptr noundef %5) #4
   br label %13
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr @_ZN11PhaseValues7zeroconE9BasicType(ptr noundef nonnull align 8 dereferenceable(2400) %11, i8 noundef zeroext 12) #4
   br label %13
@@ -104,7 +104,7 @@ define hidden void @_ZNK21CardTableBarrierSetC212post_barrierEP8GraphKitP4NodeS3
   br i1 %.not, label %25, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 16
   %.not32 = icmp eq i32 %15, 0
@@ -112,7 +112,7 @@ define hidden void @_ZNK21CardTableBarrierSetC212post_barrierEP8GraphKitP4NodeS3
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(52) %7) #4
   %21 = load ptr, ptr @_ZN7TypePtr8NULL_PTRE, align 8
@@ -128,9 +128,9 @@ define hidden void @_ZNK21CardTableBarrierSetC212post_barrierEP8GraphKitP4NodeS3
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef ptr @_ZN8GraphKit21just_allocated_objectEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %1, ptr noundef %33) #4
@@ -140,22 +140,22 @@ define hidden void @_ZNK21CardTableBarrierSetC212post_barrierEP8GraphKitP4NodeS3
 36:                                               ; preds = %28, %25
   %spec.select = select i1 %9, ptr %5, ptr %4
   call void @_ZN8IdealKitC1EP8GraphKitbb(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext false) #4
-  %37 = getelementptr inbounds i8, ptr %11, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1808
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1808
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 128
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 728
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 728
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %51 to i64
   %55 = ptrtoint ptr %53 to i64
@@ -164,7 +164,7 @@ define hidden void @_ZNK21CardTableBarrierSetC212post_barrierEP8GraphKitP4NodeS3
   br i1 %.not.i.i.i.i, label %59, label %57
 
 57:                                               ; preds = %36
-  %58 = getelementptr inbounds i8, ptr %53, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 56
   store ptr %58, ptr %52, align 8
   br label %_ZN4NodenwEm.exit.i
 
@@ -185,19 +185,19 @@ _ZN4NodenwEm.exit.i:                              ; preds = %59, %57
 _ZN8IdealKit6CastPXEP4NodeS1_.exit:               ; preds = %_ZN4NodenwEm.exit.i, %62
   %63 = call noundef ptr @_ZN8IdealKit9transformEP4Node(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %.0.i.i.i.i) #4
   %64 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %65 = getelementptr inbounds i8, ptr %11, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %66, i32 noundef %64) #4
   %68 = load ptr, ptr %42, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1808
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1808
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 128
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 128
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 728
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 728
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %74, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %78 = load ptr, ptr %77, align 8
   %79 = ptrtoint ptr %76 to i64
   %80 = ptrtoint ptr %78 to i64
@@ -206,7 +206,7 @@ _ZN8IdealKit6CastPXEP4NodeS1_.exit:               ; preds = %_ZN4NodenwEm.exit.i
   br i1 %.not.i.i.i.i26, label %84, label %82
 
 82:                                               ; preds = %_ZN8IdealKit6CastPXEP4NodeS1_.exit
-  %83 = getelementptr inbounds i8, ptr %78, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 56
   store ptr %83, ptr %77, align 8
   br label %_ZN4NodenwEm.exit.i27
 
@@ -227,7 +227,7 @@ _ZN4NodenwEm.exit.i27:                            ; preds = %84, %82
 _ZN8IdealKit8URShiftXEP4NodeS1_.exit:             ; preds = %_ZN4NodenwEm.exit.i27, %87
   %88 = call noundef ptr @_ZN8IdealKit9transformEP4Node(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %.0.i.i.i.i28) #4
   %89 = load ptr, ptr %11, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 744
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 744
   %91 = load ptr, ptr %90, align 8
   %92 = call noundef ptr @_Z21ci_card_table_addressv() #4
   %.not.i = icmp eq ptr %92, null
@@ -235,13 +235,13 @@ _ZN8IdealKit8URShiftXEP4NodeS1_.exit:             ; preds = %_ZN4NodenwEm.exit.i
 
 93:                                               ; preds = %_ZN8IdealKit8URShiftXEP4NodeS1_.exit
   %94 = call noundef ptr @_ZN10TypeRawPtr4makeEPh(ptr noundef nonnull %92) #4
-  %95 = getelementptr inbounds i8, ptr %1, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %96 = load ptr, ptr %95, align 8
   %97 = call noundef ptr @_ZN11PhaseValues7makeconEPK4Type(ptr noundef nonnull align 8 dereferenceable(2400) %96, ptr noundef %94) #4
   br label %_ZNK21CardTableBarrierSetC218byte_map_base_nodeEP8GraphKit.exit
 
 98:                                               ; preds = %_ZN8IdealKit8URShiftXEP4NodeS1_.exit
-  %99 = getelementptr inbounds i8, ptr %1, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %100 = load ptr, ptr %99, align 8
   %101 = call noundef ptr @_ZN11PhaseValues7zeroconE9BasicType(ptr noundef nonnull align 8 dereferenceable(2400) %100, i8 noundef zeroext 12) #4
   br label %_ZNK21CardTableBarrierSetC218byte_map_base_nodeEP8GraphKit.exit
@@ -250,15 +250,15 @@ _ZNK21CardTableBarrierSetC218byte_map_base_nodeEP8GraphKit.exit: ; preds = %93, 
   %.0.i = phi ptr [ %97, %93 ], [ %101, %98 ]
   %102 = load ptr, ptr %65, align 8
   %103 = load ptr, ptr %42, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 1808
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 1808
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 128
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 128
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 728
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 728
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %109, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %113 = load ptr, ptr %112, align 8
   %114 = ptrtoint ptr %111 to i64
   %115 = ptrtoint ptr %113 to i64
@@ -267,7 +267,7 @@ _ZNK21CardTableBarrierSetC218byte_map_base_nodeEP8GraphKit.exit: ; preds = %93, 
   br i1 %.not.i.i.i.i29, label %119, label %117
 
 117:                                              ; preds = %_ZNK21CardTableBarrierSetC218byte_map_base_nodeEP8GraphKit.exit
-  %118 = getelementptr inbounds i8, ptr %113, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 56
   store ptr %118, ptr %112, align 8
   br label %_ZN4NodenwEm.exit.i30
 
@@ -283,7 +283,7 @@ _ZN4NodenwEm.exit.i30:                            ; preds = %119, %117
 122:                                              ; preds = %_ZN4NodenwEm.exit.i30
   call void @_ZN4NodeC2EPS_S0_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i31, ptr noundef null, ptr noundef %91, ptr noundef %.0.i, ptr noundef %88) #4
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV8AddPNode, i64 16), ptr %.0.i.i.i.i31, align 8
-  %123 = getelementptr inbounds i8, ptr %.0.i.i.i.i31, i64 44
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i31, i64 44
   store i32 512, ptr %123, align 4
   br label %_ZN8IdealKit4AddPEP4NodeS1_S1_.exit
 
@@ -299,7 +299,7 @@ _ZN8IdealKit4AddPEP4NodeS1_S1_.exit:              ; preds = %_ZN4NodenwEm.exit.i
 
 131:                                              ; preds = %_ZN8IdealKit4AddPEP4NodeS1_S1_.exit
   %132 = load ptr, ptr %37, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %134, align 8
   %136 = load ptr, ptr @_ZN7TypeInt4BYTEE, align 8
@@ -309,7 +309,7 @@ _ZN8IdealKit4AddPEP4NodeS1_S1_.exit:              ; preds = %_ZN4NodenwEm.exit.i
 
 138:                                              ; preds = %131, %_ZN8IdealKit4AddPEP4NodeS1_S1_.exit
   %139 = load ptr, ptr %37, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
   %143 = call noundef ptr @_ZN8IdealKit5storeEP4NodeS1_S1_9BasicTypeiN7MemNode6MemOrdEbb(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %142, ptr noundef %126, ptr noundef %128, i8 noundef zeroext 8, i32 noundef 3, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext false) #4
@@ -362,18 +362,18 @@ define hidden void @_ZNK21CardTableBarrierSetC25cloneEP8GraphKitP4NodeS3_S3_b(pt
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @_ZN10TypeRawPtr6BOTTOME, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr @_ZN7Compile15find_alias_typeEPK7TypePtrbP7ciField(ptr noundef nonnull align 8 dereferenceable(2316) %18, ptr noundef %11, i1 noundef zeroext false, ptr noundef null) #4
   %20 = load i32, ptr %19, align 8
   %21 = tail call noundef ptr @_ZN8GraphKit6memoryEj(ptr noundef nonnull align 8 dereferenceable(84) %1, i32 noundef %20) #4
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 360
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 360
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef %16, ptr noundef %21, ptr noundef %3, ptr noundef null, i32 noundef 3, ptr noundef null, i8 noundef zeroext 12, i1 noundef zeroext false) #4
   br label %.critedge
@@ -395,24 +395,24 @@ define hidden noundef zeroext i1 @_ZNK21CardTableBarrierSetC218is_gc_barrier_nod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK21CardTableBarrierSetC220eliminate_gc_barrierEP16PhaseMacroExpandP4Node(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
   %.014 = getelementptr inbounds i8, ptr %15, i64 -8
   %.not15 = icmp ult ptr %.014, %11
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %17
 
 17:                                               ; preds = %.lr.ph, %34
@@ -423,7 +423,7 @@ define hidden void @_ZNK21CardTableBarrierSetC220eliminate_gc_barrierEP16PhaseMa
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %18, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 44
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 63
   %25 = icmp eq i32 %24, 48
@@ -435,9 +435,9 @@ define hidden void @_ZNK21CardTableBarrierSetC220eliminate_gc_barrierEP16PhaseMa
   br label %34
 
 29:                                               ; preds = %21, %17
-  %30 = getelementptr inbounds i8, ptr %18, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   br label %34
 
@@ -445,7 +445,7 @@ define hidden void @_ZNK21CardTableBarrierSetC220eliminate_gc_barrierEP16PhaseMa
   %.sink17 = phi ptr [ %33, %29 ], [ %28, %26 ]
   %35 = load ptr, ptr %16, align 8
   tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %35, ptr noundef nonnull %18) #4
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull %18) #4
   tail call void @_ZN12PhaseIterGVN12subsume_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %35, ptr noundef nonnull %18, ptr noundef %.sink17) #4

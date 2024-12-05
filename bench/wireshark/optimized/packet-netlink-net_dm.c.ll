@@ -171,7 +171,7 @@ define internal i32 @dissect_netlink_net_dm(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.45) #3
   %10 = load ptr, ptr %8, align 8
@@ -189,7 +189,7 @@ define internal i32 @dissect_netlink_net_dm(ptr noundef %0, ptr noundef %1, ptr 
   %18 = load i32, ptr @ett_net_dm, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #3
   store ptr %1, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i16 0, ptr %20, align 8
   %21 = load i32, ptr @hf_net_dm_attrs, align 4
   %22 = load i32, ptr @ett_net_dm_attrs, align 4
@@ -270,14 +270,14 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
 
 13:                                               ; preds = %7
   %14 = load i32, ptr @hf_net_dm_alert_mode, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %14, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %16) #3
   br label %148
 
 18:                                               ; preds = %7
   %19 = load i32, ptr @hf_net_dm_pc, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %3, i32 noundef %19, ptr noundef %0, i32 noundef %5, i32 noundef 8, i32 noundef %21, ptr noundef nonnull %8) #3
   %23 = load i64, ptr %8, align 8
@@ -299,24 +299,24 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
   br label %148
 
 33:                                               ; preds = %7
-  %34 = getelementptr inbounds i8, ptr %2, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %5, i32 noundef %35) #3
   %37 = udiv i64 %36, 1000000000
   store i64 %37, ptr %9, align 8
   %38 = urem i64 %36, 1000000000
   %39 = trunc nuw nsw i64 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %9, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %39, ptr %40, align 8
   %41 = load i32, ptr @hf_net_dm_timestamp, align 4
   %42 = call ptr @proto_tree_add_time(ptr noundef %3, i32 noundef %41, ptr noundef %0, i32 noundef %5, i32 noundef 8, ptr noundef nonnull %9) #3
   br label %148
 
 43:                                               ; preds = %7
-  %44 = getelementptr inbounds i8, ptr %2, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %5, i32 noundef %45) #3
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 %46, ptr %47, align 8
   %48 = load i32, ptr @hf_net_dm_proto, align 4
   %49 = load i32, ptr %44, align 4
@@ -324,7 +324,7 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
   br label %148
 
 51:                                               ; preds = %7
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load i16, ptr %52, align 8
   %54 = load ptr, ptr @sll_ltype_table, align 8
   store ptr %54, ptr @dissect_net_dm_attrs.dissector_table, align 8
@@ -366,7 +366,7 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
 
 75:                                               ; preds = %7
   %76 = load i32, ptr @hf_net_dm_trunc_len, align 4
-  %77 = getelementptr inbounds i8, ptr %2, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %76, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %78, ptr noundef nonnull %10) #3
   %80 = load i32, ptr %10, align 4
@@ -375,7 +375,7 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
 
 81:                                               ; preds = %7
   %82 = load i32, ptr @hf_net_dm_orig_len, align 4
-  %83 = getelementptr inbounds i8, ptr %2, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %82, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %84, ptr noundef nonnull %10) #3
   %86 = load i32, ptr %10, align 4
@@ -384,7 +384,7 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
 
 87:                                               ; preds = %7
   %88 = load i32, ptr @hf_net_dm_queue_len, align 4
-  %89 = getelementptr inbounds i8, ptr %2, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %88, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %90, ptr noundef nonnull %10) #3
   %92 = load i32, ptr %10, align 4
@@ -405,7 +405,7 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
 
 101:                                              ; preds = %7
   %102 = load i32, ptr @hf_net_dm_origin, align 4
-  %103 = getelementptr inbounds i8, ptr %2, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %102, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %104) #3
   br label %148
@@ -440,7 +440,7 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
 
 124:                                              ; preds = %7
   %125 = load i32, ptr @hf_net_dm_hw_trap_count, align 4
-  %126 = getelementptr inbounds i8, ptr %2, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %125, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %127, ptr noundef nonnull %10) #3
   %129 = load i32, ptr %10, align 4
@@ -449,14 +449,14 @@ define internal i32 @dissect_net_dm_attrs(ptr noundef %0, ptr noundef %1, ptr no
 
 130:                                              ; preds = %7
   %131 = load i32, ptr @hf_net_dm_sw, align 4
-  %132 = getelementptr inbounds i8, ptr %2, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %131, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %133) #3
   br label %148
 
 135:                                              ; preds = %7
   %136 = load i32, ptr @hf_net_dm_hw, align 4
-  %137 = getelementptr inbounds i8, ptr %2, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %138 = load i32, ptr %137, align 4
   %139 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %136, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %138) #3
   br label %148
@@ -501,7 +501,7 @@ define internal range(i32 0, 2) i32 @dissect_net_dm_attrs_port(ptr noundef %0, p
 
 11:                                               ; preds = %7
   %12 = load i32, ptr @hf_net_dm_port_netdev_index, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %14, ptr noundef nonnull %9) #3
   %16 = load i32, ptr %9, align 4
@@ -543,7 +543,7 @@ define internal range(i32 0, 2) i32 @dissect_net_dm_attrs_stats(ptr noundef %0, 
 
 9:                                                ; preds = %7
   %10 = load i32, ptr @hf_net_dm_stats_dropped, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %12) #3
   br label %14

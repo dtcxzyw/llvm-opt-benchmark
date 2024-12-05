@@ -243,18 +243,18 @@ define internal noundef i32 @zm_startup_xmlwriter(i32 %0, i32 %1) #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %3, i8 0, i64 512, i1 false)
   %4 = load ptr, ptr @zend_string_init_interned, align 8
   %5 = tail call ptr %4(ptr noundef nonnull @.str.66, i64 noundef 9, i1 noundef zeroext true) #11
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 360
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 360
   store ptr @std_object_handlers, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 496
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store ptr @class_XMLWriter_methods, ptr %8, align 8
   %9 = call ptr @zend_register_internal_class_ex(ptr noundef nonnull %3, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3)
   store ptr %9, ptr @xmlwriter_class_entry_ce, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 384
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 384
   store ptr @xmlwriter_object_new, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 360
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 360
   store ptr @xmlwriter_object_handlers, ptr %11, align 8
   ret i32 0
 }
@@ -276,10 +276,10 @@ define internal void @zm_info_xmlwriter(ptr nocapture readnone %0) #0 {
 define hidden void @zif_xmlwriter_set_indent(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 8
   %11 = select i1 %10, ptr %5, ptr null
@@ -316,7 +316,7 @@ define hidden void @zif_xmlwriter_set_indent(ptr noundef %0, ptr nocapture nound
   %30 = call i32 @xmlTextWriterSetIndent(ptr noundef nonnull %22, i32 noundef %29) #11
   %31 = icmp eq i32 %30, 0
   %32 = select i1 %31, i32 3, i32 2
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %32, ptr %33, align 8
   br label %34
 
@@ -341,10 +341,10 @@ define hidden void @zif_xmlwriter_set_indent_string(ptr noundef %0, ptr nocaptur
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, ptr %6, ptr null
@@ -379,7 +379,7 @@ define hidden void @zif_xmlwriter_set_indent_string(ptr noundef %0, ptr nocaptur
   %29 = call i32 @xmlTextWriterSetIndentString(ptr noundef nonnull %23, ptr noundef %28) #11
   %.not14.i = icmp eq i32 %29, -1
   %30 = select i1 %.not14.i, i32 2, i32 3
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %30, ptr %31, align 8
   br label %php_xmlwriter_string_arg.exit
 
@@ -400,10 +400,10 @@ define hidden void @zif_xmlwriter_start_attribute(ptr noundef %0, ptr nocapture 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, ptr %6, ptr null
@@ -451,7 +451,7 @@ define hidden void @zif_xmlwriter_start_attribute(ptr noundef %0, ptr nocapture 
   %35 = call i32 @xmlTextWriterStartAttribute(ptr noundef nonnull %23, ptr noundef %30) #11
   %.not14.i = icmp eq i32 %35, -1
   %36 = select i1 %.not14.i, i32 2, i32 3
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %36, ptr %37, align 8
   br label %php_xmlwriter_string_arg.exit
 
@@ -468,10 +468,10 @@ declare i32 @xmlTextWriterStartAttribute(ptr noundef, ptr noundef) local_unnamed
 define hidden void @zif_xmlwriter_end_attribute(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -505,7 +505,7 @@ define hidden void @zif_xmlwriter_end_attribute(ptr noundef %0, ptr nocapture no
   %26 = call i32 @xmlTextWriterEndAttribute(ptr noundef nonnull %21) #11
   %.not9.i = icmp eq i32 %26, -1
   %27 = select i1 %.not9.i, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %php_xmlwriter_end.exit
 
@@ -525,10 +525,10 @@ define hidden void @zif_xmlwriter_start_attribute_ns(ptr noundef %0, ptr nocaptu
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 8
   %16 = select i1 %15, ptr %10, ptr null
@@ -579,7 +579,7 @@ define hidden void @zif_xmlwriter_start_attribute_ns(ptr noundef %0, ptr nocaptu
   %42 = call i32 @xmlTextWriterStartAttributeNS(ptr noundef nonnull %27, ptr noundef %39, ptr noundef %40, ptr noundef %41) #11
   %.not9 = icmp eq i32 %42, -1
   %43 = select i1 %.not9, i32 2, i32 3
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %43, ptr %44, align 8
   br label %45
 
@@ -600,10 +600,10 @@ define hidden void @zif_xmlwriter_write_attribute(ptr noundef %0, ptr nocapture 
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 8
   %14 = select i1 %13, ptr %8, ptr null
@@ -652,7 +652,7 @@ define hidden void @zif_xmlwriter_write_attribute(ptr noundef %0, ptr nocapture 
   %38 = call i32 @xmlTextWriterWriteAttribute(ptr noundef nonnull %25, ptr noundef %32, ptr noundef %37) #11
   %.not9 = icmp eq i32 %38, -1
   %39 = select i1 %.not9, i32 2, i32 3
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8
   br label %41
 
@@ -673,10 +673,10 @@ define hidden void @zif_xmlwriter_write_attribute_ns(ptr noundef %0, ptr nocaptu
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 8
   %18 = select i1 %17, ptr %12, ptr null
@@ -728,7 +728,7 @@ define hidden void @zif_xmlwriter_write_attribute_ns(ptr noundef %0, ptr nocaptu
   %45 = call i32 @xmlTextWriterWriteAttributeNS(ptr noundef nonnull %29, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44) #11
   %.not9 = icmp eq i32 %45, -1
   %46 = select i1 %.not9, i32 2, i32 3
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %46, ptr %47, align 8
   br label %48
 
@@ -746,10 +746,10 @@ define hidden void @zif_xmlwriter_start_element(ptr noundef %0, ptr nocapture no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, ptr %6, ptr null
@@ -797,7 +797,7 @@ define hidden void @zif_xmlwriter_start_element(ptr noundef %0, ptr nocapture no
   %35 = call i32 @xmlTextWriterStartElement(ptr noundef nonnull %23, ptr noundef %30) #11
   %.not14.i = icmp eq i32 %35, -1
   %36 = select i1 %.not14.i, i32 2, i32 3
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %36, ptr %37, align 8
   br label %php_xmlwriter_string_arg.exit
 
@@ -819,10 +819,10 @@ define hidden void @zif_xmlwriter_start_element_ns(ptr noundef %0, ptr nocapture
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 8
   %16 = select i1 %15, ptr %10, ptr null
@@ -873,7 +873,7 @@ define hidden void @zif_xmlwriter_start_element_ns(ptr noundef %0, ptr nocapture
   %42 = call i32 @xmlTextWriterStartElementNS(ptr noundef nonnull %27, ptr noundef %39, ptr noundef %40, ptr noundef %41) #11
   %.not9 = icmp eq i32 %42, -1
   %43 = select i1 %.not9, i32 2, i32 3
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %43, ptr %44, align 8
   br label %45
 
@@ -887,10 +887,10 @@ declare i32 @xmlTextWriterStartElementNS(ptr noundef, ptr noundef, ptr noundef, 
 define hidden void @zif_xmlwriter_end_element(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -924,7 +924,7 @@ define hidden void @zif_xmlwriter_end_element(ptr noundef %0, ptr nocapture noun
   %26 = call i32 @xmlTextWriterEndElement(ptr noundef nonnull %21) #11
   %.not9.i = icmp eq i32 %26, -1
   %27 = select i1 %.not9.i, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %php_xmlwriter_end.exit
 
@@ -939,10 +939,10 @@ declare i32 @xmlTextWriterEndElement(ptr noundef) local_unnamed_addr #2
 define hidden void @zif_xmlwriter_full_end_element(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -976,7 +976,7 @@ define hidden void @zif_xmlwriter_full_end_element(ptr noundef %0, ptr nocapture
   %26 = call i32 @xmlTextWriterFullEndElement(ptr noundef nonnull %21) #11
   %.not9.i = icmp eq i32 %26, -1
   %27 = select i1 %.not9.i, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %php_xmlwriter_end.exit
 
@@ -995,10 +995,10 @@ define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr nocapture no
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 8
   %14 = select i1 %13, ptr %8, ptr null
@@ -1054,7 +1054,7 @@ define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr nocapture no
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %43, align 8
   br label %51
 
@@ -1070,7 +1070,7 @@ define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr nocapture no
   %.0 = phi i32 [ %47, %46 ], [ %45, %44 ]
   %.not16 = icmp eq i32 %.0, -1
   %49 = select i1 %.not16, i32 2, i32 3
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %49, ptr %50, align 8
   br label %51
 
@@ -1092,10 +1092,10 @@ define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr nocapture
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 8
   %18 = select i1 %17, ptr %12, ptr null
@@ -1153,7 +1153,7 @@ define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr nocapture
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %49, align 8
   br label %57
 
@@ -1169,7 +1169,7 @@ define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr nocapture
   %.0 = phi i32 [ %53, %52 ], [ %51, %50 ]
   %.not16 = icmp eq i32 %.0, -1
   %55 = select i1 %.not16, i32 2, i32 3
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %55, ptr %56, align 8
   br label %57
 
@@ -1187,10 +1187,10 @@ define hidden void @zif_xmlwriter_start_pi(ptr noundef %0, ptr nocapture noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, ptr %6, ptr null
@@ -1238,7 +1238,7 @@ define hidden void @zif_xmlwriter_start_pi(ptr noundef %0, ptr nocapture noundef
   %35 = call i32 @xmlTextWriterStartPI(ptr noundef nonnull %23, ptr noundef %30) #11
   %.not14.i = icmp eq i32 %35, -1
   %36 = select i1 %.not14.i, i32 2, i32 3
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %36, ptr %37, align 8
   br label %php_xmlwriter_string_arg.exit
 
@@ -1255,10 +1255,10 @@ declare i32 @xmlTextWriterStartPI(ptr noundef, ptr noundef) local_unnamed_addr #
 define hidden void @zif_xmlwriter_end_pi(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -1292,7 +1292,7 @@ define hidden void @zif_xmlwriter_end_pi(ptr noundef %0, ptr nocapture noundef w
   %26 = call i32 @xmlTextWriterEndPI(ptr noundef nonnull %21) #11
   %.not9.i = icmp eq i32 %26, -1
   %27 = select i1 %.not9.i, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %php_xmlwriter_end.exit
 
@@ -1310,10 +1310,10 @@ define hidden void @zif_xmlwriter_write_pi(ptr noundef %0, ptr nocapture noundef
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 8
   %14 = select i1 %13, ptr %8, ptr null
@@ -1362,7 +1362,7 @@ define hidden void @zif_xmlwriter_write_pi(ptr noundef %0, ptr nocapture noundef
   %38 = call i32 @xmlTextWriterWritePI(ptr noundef nonnull %25, ptr noundef %32, ptr noundef %37) #11
   %.not9 = icmp eq i32 %38, -1
   %39 = select i1 %.not9, i32 2, i32 3
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8
   br label %41
 
@@ -1375,10 +1375,10 @@ declare i32 @xmlTextWriterWritePI(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_xmlwriter_start_cdata(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -1412,7 +1412,7 @@ define hidden void @zif_xmlwriter_start_cdata(ptr noundef %0, ptr nocapture noun
   %26 = call i32 @xmlTextWriterStartCDATA(ptr noundef nonnull %21) #11
   %.not8 = icmp eq i32 %26, -1
   %27 = select i1 %.not8, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %29
 
@@ -1426,10 +1426,10 @@ declare i32 @xmlTextWriterStartCDATA(ptr noundef) local_unnamed_addr #2
 define hidden void @zif_xmlwriter_end_cdata(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -1463,7 +1463,7 @@ define hidden void @zif_xmlwriter_end_cdata(ptr noundef %0, ptr nocapture nounde
   %26 = call i32 @xmlTextWriterEndCDATA(ptr noundef nonnull %21) #11
   %.not9.i = icmp eq i32 %26, -1
   %27 = select i1 %.not9.i, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %php_xmlwriter_end.exit
 
@@ -1482,10 +1482,10 @@ define hidden void @zif_xmlwriter_write_cdata(ptr noundef %0, ptr nocapture noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, ptr %6, ptr null
@@ -1520,7 +1520,7 @@ define hidden void @zif_xmlwriter_write_cdata(ptr noundef %0, ptr nocapture noun
   %29 = call i32 @xmlTextWriterWriteCDATA(ptr noundef nonnull %23, ptr noundef %28) #11
   %.not14.i = icmp eq i32 %29, -1
   %30 = select i1 %.not14.i, i32 2, i32 3
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %30, ptr %31, align 8
   br label %php_xmlwriter_string_arg.exit
 
@@ -1541,10 +1541,10 @@ define hidden void @zif_xmlwriter_write_raw(ptr noundef %0, ptr nocapture nounde
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, ptr %6, ptr null
@@ -1579,7 +1579,7 @@ define hidden void @zif_xmlwriter_write_raw(ptr noundef %0, ptr nocapture nounde
   %29 = call i32 @xmlTextWriterWriteRaw(ptr noundef nonnull %23, ptr noundef %28) #11
   %.not14.i = icmp eq i32 %29, -1
   %30 = select i1 %.not14.i, i32 2, i32 3
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %30, ptr %31, align 8
   br label %php_xmlwriter_string_arg.exit
 
@@ -1600,10 +1600,10 @@ define hidden void @zif_xmlwriter_text(ptr noundef %0, ptr nocapture noundef wri
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, ptr %6, ptr null
@@ -1638,7 +1638,7 @@ define hidden void @zif_xmlwriter_text(ptr noundef %0, ptr nocapture noundef wri
   %29 = call i32 @xmlTextWriterWriteString(ptr noundef nonnull %23, ptr noundef %28) #11
   %.not14.i = icmp eq i32 %29, -1
   %30 = select i1 %.not14.i, i32 2, i32 3
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %30, ptr %31, align 8
   br label %php_xmlwriter_string_arg.exit
 
@@ -1654,10 +1654,10 @@ declare i32 @xmlTextWriterWriteString(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_xmlwriter_start_comment(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -1691,7 +1691,7 @@ define hidden void @zif_xmlwriter_start_comment(ptr noundef %0, ptr nocapture no
   %26 = call i32 @xmlTextWriterStartComment(ptr noundef nonnull %21) #11
   %.not8 = icmp eq i32 %26, -1
   %27 = select i1 %.not8, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %29
 
@@ -1705,10 +1705,10 @@ declare i32 @xmlTextWriterStartComment(ptr noundef) local_unnamed_addr #2
 define hidden void @zif_xmlwriter_end_comment(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -1742,7 +1742,7 @@ define hidden void @zif_xmlwriter_end_comment(ptr noundef %0, ptr nocapture noun
   %26 = call i32 @xmlTextWriterEndComment(ptr noundef nonnull %21) #11
   %.not9.i = icmp eq i32 %26, -1
   %27 = select i1 %.not9.i, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %php_xmlwriter_end.exit
 
@@ -1761,10 +1761,10 @@ define hidden void @zif_xmlwriter_write_comment(ptr noundef %0, ptr nocapture no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, ptr %6, ptr null
@@ -1799,7 +1799,7 @@ define hidden void @zif_xmlwriter_write_comment(ptr noundef %0, ptr nocapture no
   %29 = call i32 @xmlTextWriterWriteComment(ptr noundef nonnull %23, ptr noundef %28) #11
   %.not14.i = icmp eq i32 %29, -1
   %30 = select i1 %.not14.i, i32 2, i32 3
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %30, ptr %31, align 8
   br label %php_xmlwriter_string_arg.exit
 
@@ -1824,10 +1824,10 @@ define hidden void @zif_xmlwriter_start_document(ptr noundef %0, ptr nocapture n
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 8
   %16 = select i1 %15, ptr %10, ptr null
@@ -1864,7 +1864,7 @@ define hidden void @zif_xmlwriter_start_document(ptr noundef %0, ptr nocapture n
   %35 = call i32 @xmlTextWriterStartDocument(ptr noundef nonnull %27, ptr noundef %32, ptr noundef %33, ptr noundef %34) #11
   %.not8 = icmp eq i32 %35, -1
   %36 = select i1 %.not8, i32 2, i32 3
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %36, ptr %37, align 8
   br label %38
 
@@ -1878,10 +1878,10 @@ declare i32 @xmlTextWriterStartDocument(ptr noundef, ptr noundef, ptr noundef, p
 define hidden void @zif_xmlwriter_end_document(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -1915,7 +1915,7 @@ define hidden void @zif_xmlwriter_end_document(ptr noundef %0, ptr nocapture nou
   %26 = call i32 @xmlTextWriterEndDocument(ptr noundef nonnull %21) #11
   %.not9.i = icmp eq i32 %26, -1
   %27 = select i1 %.not9.i, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %php_xmlwriter_end.exit
 
@@ -1937,10 +1937,10 @@ define hidden void @zif_xmlwriter_start_dtd(ptr noundef %0, ptr nocapture nounde
   %9 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, 8
   %16 = select i1 %15, ptr %10, ptr null
@@ -1977,7 +1977,7 @@ define hidden void @zif_xmlwriter_start_dtd(ptr noundef %0, ptr nocapture nounde
   %35 = call i32 @xmlTextWriterStartDTD(ptr noundef nonnull %27, ptr noundef %32, ptr noundef %33, ptr noundef %34) #11
   %.not8 = icmp eq i32 %35, -1
   %36 = select i1 %.not8, i32 2, i32 3
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %36, ptr %37, align 8
   br label %38
 
@@ -1991,10 +1991,10 @@ declare i32 @xmlTextWriterStartDTD(ptr noundef, ptr noundef, ptr noundef, ptr no
 define hidden void @zif_xmlwriter_end_dtd(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -2028,7 +2028,7 @@ define hidden void @zif_xmlwriter_end_dtd(ptr noundef %0, ptr nocapture noundef 
   %26 = call i32 @xmlTextWriterEndDTD(ptr noundef nonnull %21) #11
   %.not9.i = icmp eq i32 %26, -1
   %27 = select i1 %.not9.i, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %php_xmlwriter_end.exit
 
@@ -2053,10 +2053,10 @@ define hidden void @zif_xmlwriter_write_dtd(ptr noundef %0, ptr nocapture nounde
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 8
   %18 = select i1 %17, ptr %12, ptr null
@@ -2094,7 +2094,7 @@ define hidden void @zif_xmlwriter_write_dtd(ptr noundef %0, ptr nocapture nounde
   %38 = call i32 @xmlTextWriterWriteDTD(ptr noundef nonnull %29, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37) #11
   %.not8 = icmp eq i32 %38, -1
   %39 = select i1 %.not8, i32 2, i32 3
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8
   br label %41
 
@@ -2112,10 +2112,10 @@ define hidden void @zif_xmlwriter_start_dtd_element(ptr noundef %0, ptr nocaptur
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, ptr %6, ptr null
@@ -2163,7 +2163,7 @@ define hidden void @zif_xmlwriter_start_dtd_element(ptr noundef %0, ptr nocaptur
   %35 = call i32 @xmlTextWriterStartDTDElement(ptr noundef nonnull %23, ptr noundef %30) #11
   %.not14.i = icmp eq i32 %35, -1
   %36 = select i1 %.not14.i, i32 2, i32 3
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %36, ptr %37, align 8
   br label %php_xmlwriter_string_arg.exit
 
@@ -2180,10 +2180,10 @@ declare i32 @xmlTextWriterStartDTDElement(ptr noundef, ptr noundef) local_unname
 define hidden void @zif_xmlwriter_end_dtd_element(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -2217,7 +2217,7 @@ define hidden void @zif_xmlwriter_end_dtd_element(ptr noundef %0, ptr nocapture 
   %26 = call i32 @xmlTextWriterEndDTDElement(ptr noundef nonnull %21) #11
   %.not9.i = icmp eq i32 %26, -1
   %27 = select i1 %.not9.i, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %php_xmlwriter_end.exit
 
@@ -2235,10 +2235,10 @@ define hidden void @zif_xmlwriter_write_dtd_element(ptr noundef %0, ptr nocaptur
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 8
   %14 = select i1 %13, ptr %8, ptr null
@@ -2287,7 +2287,7 @@ define hidden void @zif_xmlwriter_write_dtd_element(ptr noundef %0, ptr nocaptur
   %38 = call i32 @xmlTextWriterWriteDTDElement(ptr noundef nonnull %25, ptr noundef %32, ptr noundef %37) #11
   %.not9 = icmp eq i32 %38, -1
   %39 = select i1 %.not9, i32 2, i32 3
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8
   br label %41
 
@@ -2305,10 +2305,10 @@ define hidden void @zif_xmlwriter_start_dtd_attlist(ptr noundef %0, ptr nocaptur
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, ptr %6, ptr null
@@ -2356,7 +2356,7 @@ define hidden void @zif_xmlwriter_start_dtd_attlist(ptr noundef %0, ptr nocaptur
   %35 = call i32 @xmlTextWriterStartDTDAttlist(ptr noundef nonnull %23, ptr noundef %30) #11
   %.not14.i = icmp eq i32 %35, -1
   %36 = select i1 %.not14.i, i32 2, i32 3
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %36, ptr %37, align 8
   br label %php_xmlwriter_string_arg.exit
 
@@ -2373,10 +2373,10 @@ declare i32 @xmlTextWriterStartDTDAttlist(ptr noundef, ptr noundef) local_unname
 define hidden void @zif_xmlwriter_end_dtd_attlist(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -2410,7 +2410,7 @@ define hidden void @zif_xmlwriter_end_dtd_attlist(ptr noundef %0, ptr nocapture 
   %26 = call i32 @xmlTextWriterEndDTDAttlist(ptr noundef nonnull %21) #11
   %.not9.i = icmp eq i32 %26, -1
   %27 = select i1 %.not9.i, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %php_xmlwriter_end.exit
 
@@ -2428,10 +2428,10 @@ define hidden void @zif_xmlwriter_write_dtd_attlist(ptr noundef %0, ptr nocaptur
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 8
   %14 = select i1 %13, ptr %8, ptr null
@@ -2480,7 +2480,7 @@ define hidden void @zif_xmlwriter_write_dtd_attlist(ptr noundef %0, ptr nocaptur
   %38 = call i32 @xmlTextWriterWriteDTDAttlist(ptr noundef nonnull %25, ptr noundef %32, ptr noundef %37) #11
   %.not9 = icmp eq i32 %38, -1
   %39 = select i1 %.not9, i32 2, i32 3
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %39, ptr %40, align 8
   br label %41
 
@@ -2496,10 +2496,10 @@ define hidden void @zif_xmlwriter_start_dtd_entity(ptr noundef %0, ptr nocapture
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 8
   %13 = select i1 %12, ptr %7, ptr null
@@ -2551,7 +2551,7 @@ define hidden void @zif_xmlwriter_start_dtd_entity(ptr noundef %0, ptr nocapture
   %40 = call i32 @xmlTextWriterStartDTDEntity(ptr noundef nonnull %24, i32 noundef %38, ptr noundef %39) #11
   %.not9 = icmp eq i32 %40, -1
   %41 = select i1 %.not9, i32 2, i32 3
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %41, ptr %42, align 8
   br label %43
 
@@ -2565,10 +2565,10 @@ declare i32 @xmlTextWriterStartDTDEntity(ptr noundef, i32 noundef, ptr noundef) 
 define hidden void @zif_xmlwriter_end_dtd_entity(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 8
   %10 = select i1 %9, ptr %4, ptr null
@@ -2602,7 +2602,7 @@ define hidden void @zif_xmlwriter_end_dtd_entity(ptr noundef %0, ptr nocapture n
   %26 = call i32 @xmlTextWriterEndDTDEntity(ptr noundef nonnull %21) #11
   %.not9.i = icmp eq i32 %26, -1
   %27 = select i1 %.not9.i, i32 2, i32 3
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %27, ptr %28, align 8
   br label %php_xmlwriter_end.exit
 
@@ -2631,10 +2631,10 @@ define hidden void @zif_xmlwriter_write_dtd_entity(ptr noundef %0, ptr nocapture
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
   store i8 0, ptr %10, align 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 8
   %21 = select i1 %20, ptr %15, ptr null
@@ -2690,7 +2690,7 @@ define hidden void @zif_xmlwriter_write_dtd_entity(ptr noundef %0, ptr nocapture
   %52 = call i32 @xmlTextWriterWriteDTDEntity(ptr noundef nonnull %32, i32 noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51) #11
   %.not9 = icmp eq i32 %52, -1
   %53 = select i1 %.not9, i32 2, i32 3
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %53, ptr %54, align 8
   br label %55
 
@@ -2707,11 +2707,11 @@ define hidden void @zif_xmlwriter_open_uri(ptr nocapture noundef readonly %0, pt
   %5 = alloca ptr, align 8
   %6 = alloca [4097 x i8], align 16
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %13 = load i32, ptr %12, align 4
   %14 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %13, ptr noundef nonnull @.str.20, ptr noundef nonnull %5, ptr noundef nonnull %7) #11
   %15 = icmp eq i32 %14, -1
@@ -2767,13 +2767,13 @@ define hidden void @zif_xmlwriter_open_uri(ptr nocapture noundef readonly %0, pt
   br i1 %40, label %41, label %47
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %30, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %_xmlwriter_get_valid_file_path.exit.thread.sink.split, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %30, i64 7
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 7
   br label %.thread.i
 
 47:                                               ; preds = %38
@@ -2782,13 +2782,13 @@ define hidden void @zif_xmlwriter_open_uri(ptr nocapture noundef readonly %0, pt
   br i1 %49, label %50, label %_xmlwriter_get_valid_file_path.exit
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %30, i64 17
+  %51 = getelementptr inbounds nuw i8, ptr %30, i64 17
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %_xmlwriter_get_valid_file_path.exit.thread.sink.split, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %30, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %30, i64 16
   br label %.thread.i
 
 .thread.i:                                        ; preds = %54, %45, %33
@@ -2839,7 +2839,7 @@ _xmlwriter_get_valid_file_path.exit:              ; preds = %47
 
 64:                                               ; preds = %_xmlwriter_get_valid_file_path.exit.thread, %_xmlwriter_get_valid_file_path.exit
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.22) #11
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %65, align 8
   br label %96
 
@@ -2850,7 +2850,7 @@ _xmlwriter_get_valid_file_path.exit:              ; preds = %47
   br i1 %.not31, label %68, label %70
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %69, align 8
   br label %96
 
@@ -2867,7 +2867,7 @@ _xmlwriter_get_valid_file_path.exit:              ; preds = %47
   br label %74
 
 74:                                               ; preds = %73, %71
-  %75 = getelementptr inbounds i8, ptr %.0, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not33 = icmp eq ptr %76, null
   br i1 %.not33, label %78, label %77
@@ -2879,15 +2879,15 @@ _xmlwriter_get_valid_file_path.exit:              ; preds = %47
 78:                                               ; preds = %77, %74
   store ptr %67, ptr %.0, align 8
   store ptr null, ptr %75, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %79, align 8
   br label %96
 
 80:                                               ; preds = %70
   %81 = load ptr, ptr @xmlwriter_class_entry_ce, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %81, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 28
   %85 = load i32, ptr %84, align 4
   %86 = lshr i32 %85, 11
   %.lobit.i = and i32 %86, 1
@@ -2898,14 +2898,14 @@ _xmlwriter_get_valid_file_path.exit:              ; preds = %47
   %91 = add nsw i64 %90, 72
   %92 = call noalias ptr @_emalloc(i64 noundef %91) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %92, i8 0, i64 16, i1 false)
-  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   call void @zend_object_std_init(ptr noundef nonnull %93, ptr noundef %81) #11
   call void @object_properties_init(ptr noundef nonnull %93, ptr noundef %81) #11
   store ptr %67, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr null, ptr %94, align 8
   store ptr %93, ptr %1, align 8
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 776, ptr %95, align 8
   br label %96
 
@@ -2925,9 +2925,9 @@ declare void @xmlBufferFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @xmlwriter_object_new(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 11
   %.lobit = and i32 %6, 1
@@ -2938,7 +2938,7 @@ define internal noundef nonnull ptr @xmlwriter_object_new(ptr noundef %0) #0 {
   %11 = add nsw i64 %10, 72
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @zend_object_std_init(ptr noundef nonnull %13, ptr noundef %0) #11
   tail call void @object_properties_init(ptr noundef nonnull %13, ptr noundef %0) #11
   ret ptr %13
@@ -2946,11 +2946,11 @@ define internal noundef nonnull ptr @xmlwriter_object_new(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_xmlwriter_open_memory(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.critedge, label %9
@@ -2978,7 +2978,7 @@ define hidden void @zif_xmlwriter_open_memory(ptr nocapture noundef readonly %0,
 
 18:                                               ; preds = %15
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.23) #11
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %19, align 8
   br label %50
 
@@ -2989,7 +2989,7 @@ define hidden void @zif_xmlwriter_open_memory(ptr nocapture noundef readonly %0,
 
 22:                                               ; preds = %20
   tail call void @xmlBufferFree(ptr noundef nonnull %16) #11
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %23, align 8
   br label %50
 
@@ -3006,7 +3006,7 @@ define hidden void @zif_xmlwriter_open_memory(ptr nocapture noundef readonly %0,
   br label %28
 
 28:                                               ; preds = %27, %25
-  %29 = getelementptr inbounds i8, ptr %.0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not36 = icmp eq ptr %30, null
   br i1 %.not36, label %32, label %31
@@ -3018,15 +3018,15 @@ define hidden void @zif_xmlwriter_open_memory(ptr nocapture noundef readonly %0,
 32:                                               ; preds = %31, %28
   store ptr %21, ptr %.0, align 8
   store ptr %16, ptr %29, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %33, align 8
   br label %50
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr @xmlwriter_class_entry_ce, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = lshr i32 %39, 11
   %.lobit.i = and i32 %40, 1
@@ -3037,14 +3037,14 @@ define hidden void @zif_xmlwriter_open_memory(ptr nocapture noundef readonly %0,
   %45 = add nsw i64 %44, 72
   %46 = tail call noalias ptr @_emalloc(i64 noundef %45) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   tail call void @zend_object_std_init(ptr noundef nonnull %47, ptr noundef %35) #11
   tail call void @object_properties_init(ptr noundef nonnull %47, ptr noundef %35) #11
   store ptr %21, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %16, ptr %48, align 8
   store ptr %47, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 776, ptr %49, align 8
   br label %50
 
@@ -3069,10 +3069,10 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture n
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   store i8 1, ptr %4, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   %12 = select i1 %11, ptr %6, ptr null
@@ -3113,7 +3113,7 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture n
 32:                                               ; preds = %27
   %33 = load ptr, ptr @zend_empty_string, align 8
   store ptr %33, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %34, align 8
   br label %55
 
@@ -3128,18 +3128,18 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture n
   %41 = add i64 %40, 32
   %42 = call noalias ptr @_emalloc(i64 noundef %41) #13
   store i32 1, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 22, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i64 %39, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %42, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr align 1 %38, i64 %39, i1 false)
   %47 = getelementptr inbounds [1 x i8], ptr %46, i64 0, i64 %39
   store i8 0, ptr %47, align 1
   store ptr %42, ptr %1, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %48, align 8
   %49 = load i8, ptr %4, align 1
   %50 = trunc i8 %49 to i1
@@ -3152,7 +3152,7 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr nocapture n
 52:                                               ; preds = %35
   %53 = sext i32 %36 to i64
   store i64 %53, ptr %1, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %54, align 8
   br label %55
 

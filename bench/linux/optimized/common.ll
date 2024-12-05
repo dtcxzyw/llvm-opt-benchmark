@@ -158,7 +158,7 @@ define dso_local i32 @raw_pci_write(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 16:                                               ; preds = %13, %6
   %17 = phi ptr [ %10, %6 ], [ %14, %13 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #10
   br label %21
@@ -170,10 +170,10 @@ define dso_local i32 @raw_pci_write(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @pci_read(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i32
   %12 = icmp eq i32 %8, 0
@@ -202,10 +202,10 @@ define internal i32 @pci_read(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @pci_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i32
   %12 = icmp eq i32 %8, 0
@@ -223,7 +223,7 @@ define internal i32 @pci_write(ptr nocapture noundef readonly %0, i32 noundef %1
 
 21:                                               ; preds = %18, %5
   %22 = phi ptr [ %15, %5 ], [ %19, %18 ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(i32 noundef %8, i32 noundef %11, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #10
   br label %26
@@ -245,7 +245,7 @@ declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @pci_read_bridge_bases(ptr noundef %0) #10
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %.loopexit4, label %5
@@ -290,7 +290,7 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
 
 .preheader.us:                                    ; preds = %.split, %.loopexit.us
   %24 = phi ptr [ %40, %.loopexit.us ], [ %3, %.split ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 920
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 920
   br label %26
 
 26:                                               ; preds = %37, %.preheader.us
@@ -301,13 +301,13 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %28, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i64 0, ptr %36, align 8
   store i64 0, ptr %32, align 8
   br label %37
@@ -324,7 +324,7 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
 
 .preheader:                                       ; preds = %.split, %67
   %42 = phi ptr [ %68, %67 ], [ %3, %.split ]
-  %43 = getelementptr inbounds i8, ptr %42, i64 920
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 920
   br label %44
 
 44:                                               ; preds = %.preheader, %55
@@ -335,13 +335,13 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %46, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %46, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i64 0, ptr %54, align 8
   store i64 0, ptr %50, align 8
   br label %55
@@ -416,7 +416,7 @@ define dso_local void @pcibios_scan_root(i32 noundef %0) local_unnamed_addr #4 a
   %2 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #10
   store ptr %2, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %3, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 40), align 8
   %5 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3520, i64 noundef 32) #11
@@ -429,7 +429,7 @@ define dso_local void @pcibios_scan_root(i32 noundef %0) local_unnamed_addr #4 a
 
 9:                                                ; preds = %1
   %10 = call i32 @x86_pci_root_bus_node(i32 noundef %0) #10
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %10, ptr %11, align 4
   call void @x86_pci_root_bus_resources(i32 noundef %0, ptr noundef nonnull %2) #10
   %12 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %0) #12
@@ -846,12 +846,12 @@ define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr nocapture
   br i1 %3, label %.loopexit3, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %0, i64 60
-  %8 = getelementptr inbounds i8, ptr %0, i64 62
-  %9 = getelementptr inbounds i8, ptr %0, i64 2040
-  %10 = getelementptr inbounds i8, ptr %0, i64 2048
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 62
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2040
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2048
   br label %11
 
 11:                                               ; preds = %63, %4
@@ -861,27 +861,27 @@ define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr nocapture
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 3
   br i1 %18, label %19, label %63
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 200
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 200
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %13, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, %24
   br i1 %27, label %28, label %63
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds i8, ptr %20, i64 216
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 216
   %30 = load i8, ptr %29, align 8
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %13, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, %31
   br i1 %34, label %35, label %63
@@ -891,7 +891,7 @@ define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr nocapture
   %37 = lshr i32 %36, 3
   %38 = and i32 %37, 31
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %13, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, %39
   br i1 %42, label %43, label %63
@@ -899,21 +899,21 @@ define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr nocapture
 43:                                               ; preds = %35
   %44 = and i32 %36, 7
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %13, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, %45
   br i1 %48, label %49, label %63
 
 49:                                               ; preds = %43
   %50 = load i16, ptr %7, align 4
-  %51 = getelementptr inbounds i8, ptr %13, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %52 = load i16, ptr %51, align 8
   %53 = icmp eq i16 %50, %52
   br i1 %53, label %54, label %63
 
 54:                                               ; preds = %49
   %55 = load i16, ptr %8, align 2
-  %56 = getelementptr inbounds i8, ptr %13, i64 18
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 18
   %57 = load i16, ptr %56, align 2
   %58 = icmp eq i16 %55, %57
   br i1 %58, label %59, label %63
@@ -921,7 +921,7 @@ define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr nocapture
 59:                                               ; preds = %54
   %60 = add i64 %12, 64
   store i64 %60, ptr %9, align 8
-  %61 = getelementptr inbounds i8, ptr %13, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %62 = load i64, ptr %61, align 8
   store i64 %62, ptr %10, align 8
   br label %63
@@ -933,14 +933,14 @@ define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr nocapture
   br i1 %65, label %.loopexit3, label %11, !llvm.loop !9
 
 .loopexit3:                                       ; preds = %63, %1
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 816
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 816
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   %71 = load ptr, ptr @x86_pci_msi_default_domain, align 8
   %72 = select i1 %70, ptr %71, ptr %69
-  %73 = getelementptr inbounds i8, ptr %0, i64 720
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store ptr %72, ptr %73, align 8
   br label %.loopexit
 
@@ -962,7 +962,7 @@ define dso_local i32 @pcibios_enable_device(ptr noundef %0, i32 noundef %1) loca
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1689
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %7 = load i40, ptr %6, align 1
   %8 = and i40 %7, 12288
   %9 = icmp eq i40 %8, 0
@@ -983,7 +983,7 @@ declare dso_local i32 @pci_enable_resources(ptr noundef, i32 noundef) local_unna
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcibios_disable_device(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1689
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %3 = load i40, ptr %2, align 1
   %4 = and i40 %3, 12288
   %5 = icmp ne i40 %4, 0
@@ -1002,14 +1002,14 @@ define dso_local void @pcibios_disable_device(ptr noundef %0) local_unnamed_addr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcibios_release_device(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1696
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #10, !srcloc !10
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1696
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 -1, ptr nonnull elementtype(i32) %2) #10, !srcloc !10
   %4 = add i32 %3, -1
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1689
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1689
   %8 = load i40, ptr %7, align 1
   %9 = and i40 %8, 12288
   %10 = icmp ne i40 %9, 0
@@ -1039,7 +1039,7 @@ define internal noundef i32 @can_skip_ioresource_align(ptr nocapture noundef rea
   %2 = load i32, ptr @pci_probe, align 4
   %3 = or i32 %2, 32768
   store i32 %3, ptr @pci_probe, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34, ptr noundef %5) #12
   ret i32 0
@@ -1053,7 +1053,7 @@ define internal noundef i32 @set_bf_sort(ptr nocapture noundef readonly %0) #1 s
 
 4:                                                ; preds = %1
   store i32 3, ptr @pci_bf_sort, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef %6) #12
   br label %8
@@ -1070,7 +1070,7 @@ define internal noundef i32 @find_sort_method(ptr noundef %0) #1 section ".init.
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef i32 @set_scan_all(ptr nocapture noundef readonly %0) #1 section ".init.text" align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.58, ptr noundef %3) #12
   %5 = load i32, ptr @pci_flags, align 4
@@ -1100,7 +1100,7 @@ define internal void @read_dmi_type_b1(ptr nocapture noundef readonly %0, ptr no
 
 13:                                               ; preds = %5
   store i32 3, ptr @pci_bf_sort, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.57, ptr noundef %15) #12
   br label %17

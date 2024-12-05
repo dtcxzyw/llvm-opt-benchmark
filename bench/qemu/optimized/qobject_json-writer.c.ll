@@ -34,13 +34,13 @@ entry:
   %frombool = zext i1 %pretty to i8
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #5
   store i8 %frombool, ptr %call, align 8
-  %need_comma = getelementptr inbounds i8, ptr %call, i64 1
+  %need_comma = getelementptr inbounds nuw i8, ptr %call, i64 1
   store i8 0, ptr %need_comma, align 1
   %call3 = tail call ptr @g_string_new(ptr noundef null) #6
-  %contents = getelementptr inbounds i8, ptr %call, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call3, ptr %contents, align 8
   %call4 = tail call ptr @g_byte_array_new() #6
-  %container_is_array = getelementptr inbounds i8, ptr %call, i64 16
+  %container_is_array = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call4, ptr %container_is_array, align 8
   ret ptr %call
 }
@@ -55,9 +55,9 @@ declare ptr @g_byte_array_new() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @json_writer_get(ptr nocapture noundef readonly %writer) local_unnamed_addr #0 {
 entry:
-  %container_is_array = getelementptr inbounds i8, ptr %writer, i64 16
+  %container_is_array = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %0 = load ptr, ptr %container_is_array, align 8
-  %len = getelementptr inbounds i8, ptr %0, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %len, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %do.end, label %if.else
@@ -67,7 +67,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %2 = load ptr, ptr %contents, align 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -79,10 +79,10 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @json_writer_get_and_free(ptr noundef %writer) local_unnamed_addr #0 {
 entry:
-  %contents1 = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents1 = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %contents1, align 8
   store ptr null, ptr %contents1, align 8
-  %container_is_array = getelementptr inbounds i8, ptr %writer, i64 16
+  %container_is_array = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %1 = load ptr, ptr %container_is_array, align 8
   %call = tail call ptr @g_byte_array_free(ptr noundef %1, i32 noundef 1) #6
   tail call void @g_free(ptr noundef %writer) #6
@@ -100,10 +100,10 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %contents1.i = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents1.i = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %contents1.i, align 8
   store ptr null, ptr %contents1.i, align 8
-  %container_is_array.i = getelementptr inbounds i8, ptr %writer, i64 16
+  %container_is_array.i = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %1 = load ptr, ptr %container_is_array.i, align 8
   %call.i = tail call ptr @g_byte_array_free(ptr noundef %1, i32 noundef 1) #6
   tail call void @g_free(ptr noundef nonnull %writer) #6
@@ -120,12 +120,12 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 define dso_local void @json_writer_start_object(ptr nocapture noundef %writer, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %contents, align 8
-  %len.i = getelementptr inbounds i8, ptr %0, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %len.i, align 8
   %add.i = add i64 %1, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %0, i64 16
+  %allocated_len.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -146,9 +146,9 @@ if.else.i:                                        ; preds = %entry
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else.i
-  %container_is_array.i = getelementptr inbounds i8, ptr %writer, i64 16
+  %container_is_array.i = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %6 = load ptr, ptr %container_is_array.i, align 8
-  %len.i3 = getelementptr inbounds i8, ptr %6, i64 8
+  %len.i3 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i32, ptr %len.i3, align 8
   %add.i4 = add i32 %7, 1
   %call.i5 = tail call ptr @g_byte_array_set_size(ptr noundef %6, i32 noundef %add.i4) #6
@@ -157,7 +157,7 @@ g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else
   %idxprom.i = zext i32 %7 to i64
   %arrayidx.i6 = getelementptr i8, ptr %9, i64 %idxprom.i
   store i8 0, ptr %arrayidx.i6, align 1
-  %need_comma.i = getelementptr inbounds i8, ptr %writer, i64 1
+  %need_comma.i = getelementptr inbounds nuw i8, ptr %writer, i64 1
   store i8 0, ptr %need_comma.i, align 1
   ret void
 }
@@ -165,18 +165,18 @@ g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @maybe_comma_name(ptr nocapture noundef %writer, ptr noundef %name) unnamed_addr #0 {
 entry:
-  %need_comma = getelementptr inbounds i8, ptr %writer, i64 1
+  %need_comma = getelementptr inbounds nuw i8, ptr %writer, i64 1
   %0 = load i8, ptr %need_comma, align 1
   %tobool = trunc i8 %0 to i1
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %1 = load ptr, ptr %contents, align 8
-  %len.i = getelementptr inbounds i8, ptr %1, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load i64, ptr %len.i, align 8
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %add.i = add i64 %2, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %1, i64 16
+  %allocated_len.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %3
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -203,19 +203,19 @@ g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else
   br i1 %tobool.i, label %if.then.i10, label %if.else.i9
 
 if.then.i10:                                      ; preds = %g_string_append_c_inline.exit
-  %container_is_array.i = getelementptr inbounds i8, ptr %writer, i64 16
+  %container_is_array.i = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %9 = load ptr, ptr %container_is_array.i, align 8
-  %len.i11 = getelementptr inbounds i8, ptr %9, i64 8
+  %len.i11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load i32, ptr %len.i11, align 8
   %mul.i = shl i32 %10, 2
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %8, ptr noundef nonnull @.str.9, i32 noundef %mul.i, ptr noundef nonnull @.str.10) #6
   br label %if.end5
 
 if.else.i9:                                       ; preds = %g_string_append_c_inline.exit
-  %len.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i64, ptr %len.i.i, align 8
   %add.i.i = add i64 %11, 1
-  %allocated_len.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %allocated_len.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load i64, ptr %allocated_len.i.i, align 8
   %cmp.i.i = icmp ult i64 %add.i.i, %12
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -245,9 +245,9 @@ if.then3:                                         ; preds = %if.else
   br i1 %tobool.i12, label %if.then.i13, label %if.end
 
 if.then.i13:                                      ; preds = %if.then3
-  %container_is_array.i15 = getelementptr inbounds i8, ptr %writer, i64 16
+  %container_is_array.i15 = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %17 = load ptr, ptr %container_is_array.i15, align 8
-  %len.i16 = getelementptr inbounds i8, ptr %17, i64 8
+  %len.i16 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %18 = load i32, ptr %len.i16, align 8
   %mul.i17 = shl i32 %18, 2
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, i32 noundef %mul.i17, ptr noundef nonnull @.str.10) #6
@@ -260,7 +260,7 @@ if.end:                                           ; preds = %if.then.i13, %if.th
 if.end5:                                          ; preds = %if.else.i.i, %if.then.i.i, %if.then.i10, %if.end
   %19 = getelementptr i8, ptr %writer, i64 16
   %writer.val = load ptr, ptr %19, align 8
-  %len.i18 = getelementptr inbounds i8, ptr %writer.val, i64 8
+  %len.i18 = getelementptr inbounds nuw i8, ptr %writer.val, i64 8
   %20 = load i32, ptr %len.i18, align 8
   %tobool.not.i = icmp eq i32 %20, 0
   br i1 %tobool.not.i, label %if.end10, label %in_object.exit
@@ -276,7 +276,7 @@ in_object.exit:                                   ; preds = %if.end5
 
 if.then7:                                         ; preds = %in_object.exit
   tail call fastcc void @quoted_str(ptr noundef nonnull %writer, ptr noundef %name)
-  %contents8 = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents8 = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %23 = load ptr, ptr %contents8, align 8
   %call9 = tail call ptr @g_string_append(ptr noundef %23, ptr noundef nonnull @.str.8) #6
   br label %if.end10
@@ -288,9 +288,9 @@ if.end10:                                         ; preds = %if.end5, %if.then7,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @json_writer_end_object(ptr nocapture noundef %writer) local_unnamed_addr #0 {
 entry:
-  %container_is_array.i = getelementptr inbounds i8, ptr %writer, i64 16
+  %container_is_array.i = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %0 = load ptr, ptr %container_is_array.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %0, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -314,29 +314,29 @@ if.else6.i:                                       ; preds = %if.end.i
 
 leave_container.exit:                             ; preds = %if.end.i
   %call.i = tail call ptr @g_byte_array_set_size(ptr noundef nonnull %0, i32 noundef %sub.i) #6
-  %need_comma.i = getelementptr inbounds i8, ptr %writer, i64 1
+  %need_comma.i = getelementptr inbounds nuw i8, ptr %writer, i64 1
   store i8 1, ptr %need_comma.i, align 1
   %4 = load i8, ptr %writer, align 8
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %if.then.i, label %pretty_newline.exit
 
 if.then.i:                                        ; preds = %leave_container.exit
-  %contents.i = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents.i = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %5 = load ptr, ptr %contents.i, align 8
   %6 = load ptr, ptr %container_is_array.i, align 8
-  %len.i5 = getelementptr inbounds i8, ptr %6, i64 8
+  %len.i5 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i32, ptr %len.i5, align 8
   %mul.i = shl i32 %7, 2
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %5, ptr noundef nonnull @.str.9, i32 noundef %mul.i, ptr noundef nonnull @.str.10) #6
   br label %pretty_newline.exit
 
 pretty_newline.exit:                              ; preds = %leave_container.exit, %if.then.i
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %8 = load ptr, ptr %contents, align 8
-  %len.i6 = getelementptr inbounds i8, ptr %8, i64 8
+  %len.i6 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i64, ptr %len.i6, align 8
   %add.i = add i64 %9, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %8, i64 16
+  %allocated_len.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %allocated_len.i, align 8
   %cmp.i7 = icmp ult i64 %add.i, %10
   br i1 %cmp.i7, label %if.then.i11, label %if.else.i8
@@ -364,12 +364,12 @@ g_string_append_c_inline.exit:                    ; preds = %if.then.i11, %if.el
 define dso_local void @json_writer_start_array(ptr nocapture noundef %writer, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %contents, align 8
-  %len.i = getelementptr inbounds i8, ptr %0, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %len.i, align 8
   %add.i = add i64 %1, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %0, i64 16
+  %allocated_len.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -390,9 +390,9 @@ if.else.i:                                        ; preds = %entry
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else.i
-  %container_is_array.i = getelementptr inbounds i8, ptr %writer, i64 16
+  %container_is_array.i = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %6 = load ptr, ptr %container_is_array.i, align 8
-  %len.i3 = getelementptr inbounds i8, ptr %6, i64 8
+  %len.i3 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i32, ptr %len.i3, align 8
   %add.i4 = add i32 %7, 1
   %call.i5 = tail call ptr @g_byte_array_set_size(ptr noundef %6, i32 noundef %add.i4) #6
@@ -401,7 +401,7 @@ g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else
   %idxprom.i = zext i32 %7 to i64
   %arrayidx.i6 = getelementptr i8, ptr %9, i64 %idxprom.i
   store i8 1, ptr %arrayidx.i6, align 1
-  %need_comma.i = getelementptr inbounds i8, ptr %writer, i64 1
+  %need_comma.i = getelementptr inbounds nuw i8, ptr %writer, i64 1
   store i8 0, ptr %need_comma.i, align 1
   ret void
 }
@@ -409,9 +409,9 @@ g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @json_writer_end_array(ptr nocapture noundef %writer) local_unnamed_addr #0 {
 entry:
-  %container_is_array.i = getelementptr inbounds i8, ptr %writer, i64 16
+  %container_is_array.i = getelementptr inbounds nuw i8, ptr %writer, i64 16
   %0 = load ptr, ptr %container_is_array.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %0, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %len.i, align 8
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.end.i
@@ -435,29 +435,29 @@ if.else6.i:                                       ; preds = %if.end.i
 
 leave_container.exit:                             ; preds = %if.end.i
   %call.i = tail call ptr @g_byte_array_set_size(ptr noundef nonnull %0, i32 noundef %sub.i) #6
-  %need_comma.i = getelementptr inbounds i8, ptr %writer, i64 1
+  %need_comma.i = getelementptr inbounds nuw i8, ptr %writer, i64 1
   store i8 1, ptr %need_comma.i, align 1
   %4 = load i8, ptr %writer, align 8
   %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %if.then.i, label %pretty_newline.exit
 
 if.then.i:                                        ; preds = %leave_container.exit
-  %contents.i = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents.i = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %5 = load ptr, ptr %contents.i, align 8
   %6 = load ptr, ptr %container_is_array.i, align 8
-  %len.i5 = getelementptr inbounds i8, ptr %6, i64 8
+  %len.i5 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load i32, ptr %len.i5, align 8
   %mul.i = shl i32 %7, 2
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %5, ptr noundef nonnull @.str.9, i32 noundef %mul.i, ptr noundef nonnull @.str.10) #6
   br label %pretty_newline.exit
 
 pretty_newline.exit:                              ; preds = %leave_container.exit, %if.then.i
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %8 = load ptr, ptr %contents, align 8
-  %len.i6 = getelementptr inbounds i8, ptr %8, i64 8
+  %len.i6 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load i64, ptr %len.i6, align 8
   %add.i = add i64 %9, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %8, i64 16
+  %allocated_len.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %allocated_len.i, align 8
   %cmp.i7 = icmp ult i64 %add.i, %10
   br i1 %cmp.i7, label %if.then.i11, label %if.else.i8
@@ -485,7 +485,7 @@ g_string_append_c_inline.exit:                    ; preds = %if.then.i11, %if.el
 define dso_local void @json_writer_bool(ptr nocapture noundef %writer, ptr noundef %name, i1 noundef zeroext %val) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %contents, align 8
   %cond = select i1 %val, ptr @.str.2, ptr @.str.3
   %call = tail call ptr @g_string_append(ptr noundef %0, ptr noundef nonnull %cond) #6
@@ -498,7 +498,7 @@ declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local void @json_writer_null(ptr nocapture noundef %writer, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %contents, align 8
   %call = tail call ptr @g_string_append(ptr noundef %0, ptr noundef nonnull @.str.4) #6
   ret void
@@ -508,7 +508,7 @@ entry:
 define dso_local void @json_writer_int64(ptr nocapture noundef %writer, ptr noundef %name, i64 noundef %val) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %contents, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %0, ptr noundef nonnull @.str.5, i64 noundef %val) #6
   ret void
@@ -520,7 +520,7 @@ declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unname
 define dso_local void @json_writer_uint64(ptr nocapture noundef %writer, ptr noundef %name, i64 noundef %val) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %contents, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef %val) #6
   ret void
@@ -530,7 +530,7 @@ entry:
 define dso_local void @json_writer_double(ptr nocapture noundef %writer, ptr noundef %name, double noundef %val) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @maybe_comma_name(ptr noundef %writer, ptr noundef %name)
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %contents, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %0, ptr noundef nonnull @.str.7, double noundef %val) #6
   ret void
@@ -548,12 +548,12 @@ entry:
 define internal fastcc void @quoted_str(ptr nocapture noundef readonly %writer, ptr noundef %str) unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
-  %contents = getelementptr inbounds i8, ptr %writer, i64 8
+  %contents = getelementptr inbounds nuw i8, ptr %writer, i64 8
   %0 = load ptr, ptr %contents, align 8
-  %len.i = getelementptr inbounds i8, ptr %0, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %len.i, align 8
   %add.i = add i64 %1, 1
-  %allocated_len.i = getelementptr inbounds i8, ptr %0, i64 16
+  %allocated_len.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -654,10 +654,10 @@ if.then29:                                        ; preds = %if.else
 
 if.else31:                                        ; preds = %if.else
   %conv = trunc nuw nsw i32 %spec.store.select to i8
-  %len.i21 = getelementptr inbounds i8, ptr %16, i64 8
+  %len.i21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load i64, ptr %len.i21, align 8
   %add.i22 = add i64 %17, 1
-  %allocated_len.i23 = getelementptr inbounds i8, ptr %16, i64 16
+  %allocated_len.i23 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %allocated_len.i23, align 8
   %cmp.i24 = icmp ult i64 %add.i22, %18
   br i1 %cmp.i24, label %if.then.i27, label %if.else.i25
@@ -685,10 +685,10 @@ for.inc:                                          ; preds = %if.else.i25, %if.th
 
 for.end:                                          ; preds = %for.inc, %g_string_append_c_inline.exit
   %24 = load ptr, ptr %contents, align 8
-  %len.i31 = getelementptr inbounds i8, ptr %24, i64 8
+  %len.i31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %25 = load i64, ptr %len.i31, align 8
   %add.i32 = add i64 %25, 1
-  %allocated_len.i33 = getelementptr inbounds i8, ptr %24, i64 16
+  %allocated_len.i33 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %allocated_len.i33, align 8
   %cmp.i34 = icmp ult i64 %add.i32, %26
   br i1 %cmp.i34, label %if.then.i37, label %if.else.i35

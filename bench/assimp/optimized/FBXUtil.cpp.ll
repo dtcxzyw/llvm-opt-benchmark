@@ -46,7 +46,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %t to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -95,7 +95,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #1 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
+  %_M_flags.i = getelementptr inbounds nuw i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8
@@ -147,7 +147,7 @@ define hidden void @_ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE(ptr n
 entry:
   %ref.tmp = alloca %"class.Assimp::Formatter::basic_formatter", align 8
   %ref.tmp20 = alloca %"class.Assimp::Formatter::basic_formatter", align 8
-  %column.i = getelementptr inbounds i8, ptr %tok, i64 32
+  %column.i = getelementptr inbounds nuw i8, ptr %tok, i64 32
   %0 = load i32, ptr %column.i, align 8
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then, label %if.end
@@ -158,14 +158,14 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %type.i = getelementptr inbounds i8, ptr %tok, i64 16
+  %type.i = getelementptr inbounds nuw i8, ptr %tok, i64 16
   %1 = load i32, ptr %type.i, align 8
   %2 = icmp ult i32 %1, 6
   br i1 %2, label %switch.lookup, label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit
 
 switch.lookup:                                    ; preds = %invoke.cont
   %3 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit
 
@@ -183,7 +183,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %4 = getelementptr inbounds i8, ptr %tok, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %tok, i64 24
   %5 = load i64, ptr %4, align 8
   %call.i11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(376) %ref.tmp, i64 noundef %5)
           to label %invoke.cont15 unwind label %lpad
@@ -207,14 +207,14 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %if.end
-  %type.i16 = getelementptr inbounds i8, ptr %tok, i64 16
+  %type.i16 = getelementptr inbounds nuw i8, ptr %tok, i64 16
   %7 = load i32, ptr %type.i16, align 8
   %8 = icmp ult i32 %7, 6
   br i1 %8, label %switch.lookup37, label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit24
 
 switch.lookup37:                                  ; preds = %invoke.cont22
   %9 = zext nneg i32 %7 to i64
-  %switch.gep38 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 0, i64 %9
+  %switch.gep38 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 0, i64 %9
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
   br label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit24
 
@@ -228,7 +228,7 @@ invoke.cont28:                                    ; preds = %_ZN6Assimp3FBX4Util
           to label %invoke.cont30 unwind label %lpad21
 
 invoke.cont30:                                    ; preds = %invoke.cont28
-  %10 = getelementptr inbounds i8, ptr %tok, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %tok, i64 24
   %11 = load i64, ptr %10, align 8
   %conv.i = trunc i64 %11 to i32
   %call.i28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(376) %ref.tmp20, i32 noundef %conv.i)
@@ -276,7 +276,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %idxprom = zext nneg i8 %ch to i64
-  %arrayidx = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp3FBX4UtilL17base64DecodeTableE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp3FBX4UtilL17base64DecodeTableE, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   br label %return
 
@@ -347,7 +347,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 
 _ZN6Assimp3FBX4Util12DecodeBase64Ec.exit:         ; preds = %for.body
   %idxprom.i = zext nneg i8 %3 to i64
-  %arrayidx.i = getelementptr inbounds [128 x i8], ptr @_ZN6Assimp3FBX4UtilL17base64DecodeTableE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp3FBX4UtilL17base64DecodeTableE, i64 0, i64 %idxprom.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %cmp15 = icmp eq i8 %4, -1
   br i1 %cmp15, label %return, label %if.end17
@@ -401,36 +401,36 @@ entry:
   %1 = lshr i8 %0, 2
   %2 = shl i8 %0, 4
   %3 = and i8 %2, 48
-  %arrayidx5 = getelementptr inbounds i8, ptr %bytes, i64 1
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %bytes, i64 1
   %4 = load i8, ptr %arrayidx5, align 1
   %5 = lshr i8 %4, 4
   %conv9 = or disjoint i8 %5, %3
   %6 = shl i8 %4, 2
   %7 = and i8 %6, 60
-  %arrayidx14 = getelementptr inbounds i8, ptr %bytes, i64 2
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %bytes, i64 2
   %8 = load i8, ptr %arrayidx14, align 1
   %9 = lshr i8 %8, 6
   %conv19 = or disjoint i8 %9, %7
   %10 = and i8 %8, 63
   %conv.i = zext nneg i8 %1 to i64
-  %arrayidx.i = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i
+  %arrayidx.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i
   %11 = load i8, ptr %arrayidx.i, align 1
   %call24 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %out_string, i64 noundef %string_pos)
   store i8 %11, ptr %call24, align 1
   %conv.i12 = zext nneg i8 %conv9 to i64
-  %arrayidx.i13 = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i12
+  %arrayidx.i13 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i12
   %12 = load i8, ptr %arrayidx.i13, align 1
   %add26 = add i64 %string_pos, 1
   %call27 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %out_string, i64 noundef %add26)
   store i8 %12, ptr %call27, align 1
   %conv.i14 = zext nneg i8 %conv19 to i64
-  %arrayidx.i15 = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i14
+  %arrayidx.i15 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i14
   %13 = load i8, ptr %arrayidx.i15, align 1
   %add29 = add i64 %string_pos, 2
   %call30 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %out_string, i64 noundef %add29)
   store i8 %13, ptr %call30, align 1
   %conv.i16 = zext nneg i8 %10 to i64
-  %arrayidx.i17 = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i16
+  %arrayidx.i17 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i16
   %14 = load i8, ptr %arrayidx.i17, align 1
   %add32 = add i64 %string_pos, 3
   %call33 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %out_string, i64 noundef %add32)
@@ -481,17 +481,17 @@ for.body:                                         ; preds = %invoke.cont, %for.i
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 %mul2
   %1 = load i8, ptr %arrayidx, align 1
   %2 = lshr i8 %1, 2
-  %arrayidx5.i = getelementptr inbounds i8, ptr %arrayidx, i64 1
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
   %3 = load i8, ptr %arrayidx5.i, align 1
   %4 = shl i8 %3, 2
   %5 = and i8 %4, 60
-  %arrayidx14.i = getelementptr inbounds i8, ptr %arrayidx, i64 2
+  %arrayidx14.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
   %6 = load i8, ptr %arrayidx14.i, align 1
   %7 = lshr i8 %6, 6
   %conv19.i = or disjoint i8 %7, %5
   %8 = and i8 %6, 63
   %conv.i.i = zext nneg i8 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
   %call24.i18 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %mul3)
           to label %call24.i.noexc unwind label %lpad4.loopexit.split-lp.loopexit
@@ -503,7 +503,7 @@ call24.i.noexc:                                   ; preds = %for.body
   %conv9.i = or disjoint i8 %10, %12
   store i8 %9, ptr %call24.i18, align 1
   %conv.i12.i = zext nneg i8 %conv9.i to i64
-  %arrayidx.i13.i = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i12.i
+  %arrayidx.i13.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i12.i
   %13 = load i8, ptr %arrayidx.i13.i, align 1
   %add26.i = or disjoint i64 %mul3, 1
   %call27.i19 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add26.i)
@@ -512,7 +512,7 @@ call24.i.noexc:                                   ; preds = %for.body
 call27.i.noexc:                                   ; preds = %call24.i.noexc
   store i8 %13, ptr %call27.i19, align 1
   %conv.i14.i = zext nneg i8 %conv19.i to i64
-  %arrayidx.i15.i = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i14.i
+  %arrayidx.i15.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i14.i
   %14 = load i8, ptr %arrayidx.i15.i, align 1
   %add29.i = or disjoint i64 %mul3, 2
   %call30.i20 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add29.i)
@@ -521,7 +521,7 @@ call27.i.noexc:                                   ; preds = %call24.i.noexc
 call30.i.noexc:                                   ; preds = %call27.i.noexc
   store i8 %14, ptr %call30.i20, align 1
   %conv.i16.i = zext nneg i8 %8 to i64
-  %arrayidx.i17.i = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i16.i
+  %arrayidx.i17.i = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i16.i
   %15 = load i8, ptr %arrayidx.i17.i, align 1
   %add32.i = or disjoint i64 %mul3, 3
   %call33.i21 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add32.i)
@@ -571,17 +571,17 @@ if.then:                                          ; preds = %for.inc, %invoke.co
   %sub13 = add nsw i64 %div, -4
   %finalBytes.sroa.0.0.finalBytes.sroa.0.0.finalBytes.sroa.0.0.finalBytes.sroa.0.0. = load i8, ptr %finalBytes.sroa.0, align 4
   %17 = lshr i8 %finalBytes.sroa.0.0.finalBytes.sroa.0.0.finalBytes.sroa.0.0.finalBytes.sroa.0.0., 2
-  %finalBytes.sroa.0.1.arrayidx5.i22.sroa_idx55 = getelementptr inbounds i8, ptr %finalBytes.sroa.0, i64 1
+  %finalBytes.sroa.0.1.arrayidx5.i22.sroa_idx55 = getelementptr inbounds nuw i8, ptr %finalBytes.sroa.0, i64 1
   %finalBytes.sroa.0.1.finalBytes.sroa.0.1.finalBytes.sroa.0.1.finalBytes.sroa.0.1. = load i8, ptr %finalBytes.sroa.0.1.arrayidx5.i22.sroa_idx55, align 1
   %18 = shl i8 %finalBytes.sroa.0.1.finalBytes.sroa.0.1.finalBytes.sroa.0.1.finalBytes.sroa.0.1., 2
   %19 = and i8 %18, 60
-  %finalBytes.sroa.0.2.arrayidx14.i24.sroa_idx56 = getelementptr inbounds i8, ptr %finalBytes.sroa.0, i64 2
+  %finalBytes.sroa.0.2.arrayidx14.i24.sroa_idx56 = getelementptr inbounds nuw i8, ptr %finalBytes.sroa.0, i64 2
   %finalBytes.sroa.0.2.finalBytes.sroa.0.2.finalBytes.sroa.0.2.finalBytes.sroa.0.2. = load i8, ptr %finalBytes.sroa.0.2.arrayidx14.i24.sroa_idx56, align 2
   %20 = lshr i8 %finalBytes.sroa.0.2.finalBytes.sroa.0.2.finalBytes.sroa.0.2.finalBytes.sroa.0.2., 6
   %conv19.i25 = or disjoint i8 %20, %19
   %21 = and i8 %finalBytes.sroa.0.2.finalBytes.sroa.0.2.finalBytes.sroa.0.2.finalBytes.sroa.0.2., 63
   %conv.i.i26 = zext nneg i8 %17 to i64
-  %arrayidx.i.i27 = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i.i26
+  %arrayidx.i.i27 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i.i26
   %22 = load i8, ptr %arrayidx.i.i27, align 1
   %call24.i38 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub13)
           to label %call24.i.noexc37 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
@@ -593,7 +593,7 @@ call24.i.noexc37:                                 ; preds = %if.then
   %conv9.i23 = or disjoint i8 %23, %25
   store i8 %22, ptr %call24.i38, align 1
   %conv.i12.i28 = zext nneg i8 %conv9.i23 to i64
-  %arrayidx.i13.i29 = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i12.i28
+  %arrayidx.i13.i29 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i12.i28
   %26 = load i8, ptr %arrayidx.i13.i29, align 1
   %add26.i30 = add nsw i64 %div, -3
   %call27.i40 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add26.i30)
@@ -602,7 +602,7 @@ call24.i.noexc37:                                 ; preds = %if.then
 call27.i.noexc39:                                 ; preds = %call24.i.noexc37
   store i8 %26, ptr %call27.i40, align 1
   %conv.i14.i31 = zext nneg i8 %conv19.i25 to i64
-  %arrayidx.i15.i32 = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i14.i31
+  %arrayidx.i15.i32 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i14.i31
   %27 = load i8, ptr %arrayidx.i15.i32, align 1
   %add29.i33 = add nsw i64 %div, -2
   %call30.i42 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add29.i33)
@@ -611,7 +611,7 @@ call27.i.noexc39:                                 ; preds = %call24.i.noexc37
 call30.i.noexc41:                                 ; preds = %call27.i.noexc39
   store i8 %27, ptr %call30.i42, align 1
   %conv.i16.i34 = zext nneg i8 %21 to i64
-  %arrayidx.i17.i35 = getelementptr inbounds [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i16.i34
+  %arrayidx.i17.i35 = getelementptr inbounds nuw [65 x i8], ptr @_ZN6Assimp3FBX4UtilL16to_base64_stringE, i64 0, i64 %conv.i16.i34
   %28 = load i8, ptr %arrayidx.i17.i35, align 1
   %add32.i36 = add nsw i64 %div, -1
   %call33.i43 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add32.i36)

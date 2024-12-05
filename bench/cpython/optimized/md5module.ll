@@ -229,7 +229,7 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %_md5_md5_impl.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end7.i
-  %ndim.i = getelementptr inbounds i8, ptr %buf.i, i64 36
+  %ndim.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 36
   %10 = load i32, ptr %ndim.i, align 4
   %cmp11.i = icmp sgt i32 %10, 1
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
@@ -256,13 +256,13 @@ if.then20.i:                                      ; preds = %if.then18.i
   br label %_md5_md5_impl.exit
 
 if.end22.i:                                       ; preds = %if.end14.i
-  %mutex.i.i = getelementptr inbounds i8, ptr %call.i13.i, i64 17
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i13.i, i64 17
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i13.i, i64 16
+  %use_mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i13.i, i64 16
   store i8 0, ptr %use_mutex.i.i, align 8
   call void @PyObject_GC_Track(ptr noundef nonnull %call.i13.i) #3
   %call23.i = call ptr @Hacl_Streaming_MD5_legacy_create_in() #3
-  %hash_state.i = getelementptr inbounds i8, ptr %call.i13.i, i64 24
+  %hash_state.i = getelementptr inbounds nuw i8, ptr %call.i13.i, i64 24
   store ptr %call23.i, ptr %hash_state.i, align 8
   %call24.i = call ptr @PyErr_Occurred() #3
   %tobool25.not.i = icmp eq ptr %call24.i, null
@@ -295,7 +295,7 @@ if.end30.i:                                       ; preds = %if.end22.i
   br i1 %tobool.not.i36, label %_md5_md5_impl.exit, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.end30.i
-  %len.i = getelementptr inbounds i8, ptr %buf.i, i64 16
+  %len.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
   %14 = load i64, ptr %len.i, align 8
   %cmp33.i = icmp sgt i64 %14, 2047
   br i1 %cmp33.i, label %if.then34.i, label %update.exit29.i
@@ -394,7 +394,7 @@ declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal void @MD5_dealloc(ptr noundef %ptr) #0 {
 entry:
-  %hash_state = getelementptr inbounds i8, ptr %ptr, i64 24
+  %hash_state = getelementptr inbounds nuw i8, ptr %ptr, i64 24
   %0 = load ptr, ptr %hash_state, align 8
   tail call void @Hacl_Streaming_MD5_legacy_free(ptr noundef %0) #3
   %1 = getelementptr i8, ptr %ptr, i64 8
@@ -466,18 +466,18 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 17
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 17
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %use_mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store i8 0, ptr %use_mutex.i.i, align 8
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call.i.i) #3
-  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 16
+  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load i8, ptr %use_mutex.i, align 8
   %tobool.i = trunc i8 %1 to i1
   br i1 %tobool.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %mutex.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end3.i, label %if.then.i.i
@@ -487,17 +487,17 @@ if.then.i.i:                                      ; preds = %if.then2.i
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then.i.i, %if.then2.i, %if.end.i
-  %hash_state.i = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %4 = load ptr, ptr %hash_state.i, align 8
   %call4.i = tail call ptr @Hacl_Streaming_MD5_legacy_copy(ptr noundef %4) #3
-  %hash_state5.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %hash_state5.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   store ptr %call4.i, ptr %hash_state5.i, align 8
   %5 = load i8, ptr %use_mutex.i, align 8
   %tobool7.i = trunc i8 %5 to i1
   br i1 %tobool7.i, label %if.then8.i, label %return
 
 if.then8.i:                                       ; preds = %if.end3.i
-  %mutex9.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex9.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %6 = cmpxchg ptr %mutex9.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 1
   br i1 %7, label %return, label %if.then.i6.i
@@ -516,13 +516,13 @@ define internal ptr @MD5Type_digest(ptr noundef %self, ptr nocapture readnone %_
 entry:
   %digest.i = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %digest.i)
-  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 16
+  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i8, ptr %use_mutex.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 1
   br i1 %2, label %if.end.i, label %if.then.i.i
@@ -532,7 +532,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %hash_state.i = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %3 = load ptr, ptr %hash_state.i, align 8
   call void @Hacl_Streaming_MD5_legacy_finish(ptr noundef %3, ptr noundef nonnull %digest.i) #3
   %4 = load i8, ptr %use_mutex.i, align 8
@@ -540,7 +540,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.i, label %if.then3.i, label %MD5Type_digest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex4.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %6 = extractvalue { i8, i1 } %5, 1
   br i1 %6, label %MD5Type_digest_impl.exit, label %if.then.i5.i
@@ -562,13 +562,13 @@ entry:
   %digest_hex.i = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %digest.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest_hex.i)
-  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 16
+  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i8, ptr %use_mutex.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 1
   br i1 %2, label %if.end.i, label %if.then.i.i
@@ -578,7 +578,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %hash_state.i = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %3 = load ptr, ptr %hash_state.i, align 8
   call void @Hacl_Streaming_MD5_legacy_finish(ptr noundef %3, ptr noundef nonnull %digest.i) #3
   %4 = load i8, ptr %use_mutex.i, align 8
@@ -586,7 +586,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.i, label %if.then3.i, label %for.body.i.preheader
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex4.i = getelementptr inbounds nuw i8, ptr %self, i64 17
   %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %6 = extractvalue { i8, i1 } %5, 1
   br i1 %6, label %for.body.i.preheader, label %if.then.i10.i
@@ -660,7 +660,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %ndim = getelementptr inbounds i8, ptr %buf, i64 36
+  %ndim = getelementptr inbounds nuw i8, ptr %buf, i64 36
   %5 = load i32, ptr %ndim, align 4
   %cmp9 = icmp sgt i32 %5, 1
   br i1 %cmp9, label %if.then10, label %do.end
@@ -672,10 +672,10 @@ if.then10:                                        ; preds = %if.end8
   br label %return
 
 do.end:                                           ; preds = %if.end8
-  %use_mutex = getelementptr inbounds i8, ptr %self, i64 16
+  %use_mutex = getelementptr inbounds nuw i8, ptr %self, i64 16
   %7 = load i8, ptr %use_mutex, align 8
   %tobool12 = trunc i8 %7 to i1
-  %len = getelementptr inbounds i8, ptr %buf, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %8 = load i64, ptr %len, align 8
   %cmp13 = icmp slt i64 %8, 2048
   %or.cond.not = select i1 %tobool12, i1 true, i1 %cmp13
@@ -691,7 +691,7 @@ if.end16:                                         ; preds = %do.end
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #3
-  %mutex = getelementptr inbounds i8, ptr %self, i64 17
+  %mutex = getelementptr inbounds nuw i8, ptr %self, i64 17
   %9 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %10 = extractvalue { i8, i1 } %9, 1
   br i1 %10, label %PyMutex_Lock.exit, label %if.then.i
@@ -701,7 +701,7 @@ if.then.i:                                        ; preds = %if.then19
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
-  %hash_state = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state = getelementptr inbounds nuw i8, ptr %self, i64 24
   %11 = load ptr, ptr %hash_state, align 8
   %12 = load ptr, ptr %buf, align 8
   %13 = load i64, ptr %len, align 8
@@ -735,7 +735,7 @@ PyMutex_Unlock.exit:                              ; preds = %update.exit, %if.th
   br label %if.end27
 
 if.else:                                          ; preds = %if.end16
-  %hash_state24 = getelementptr inbounds i8, ptr %self, i64 24
+  %hash_state24 = getelementptr inbounds nuw i8, ptr %self, i64 24
   %16 = load ptr, ptr %hash_state24, align 8
   %17 = load ptr, ptr %buf, align 8
   %cmp6.i11 = icmp sgt i64 %8, 4294967295

@@ -79,7 +79,7 @@ define hidden void @CreateExecutionEnvironment(ptr noundef %0, ptr noundef %1, p
 
 21:                                               ; preds = %8
   %22 = and i64 %18, 2147483647
-  %23 = getelementptr inbounds [4097 x i8], ptr %16, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [4097 x i8], ptr %16, i64 0, i64 %22
   store i8 0, ptr %23, align 1
   %24 = call ptr @JLI_StringDup(ptr noundef nonnull %16) #12
   %25 = icmp eq ptr %24, null
@@ -326,7 +326,7 @@ RequiresSetenv.exit:                              ; preds = %92, %86, %75, %80
   %108 = add i64 %104, %106
   %109 = add i64 %108, %107
   %110 = call ptr @JLI_MemAlloc(i64 noundef %109) #12
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %99, i32 noundef 47) #14
   %.not66 = icmp eq ptr %112, null
   br i1 %.not66, label %114, label %113
@@ -419,7 +419,7 @@ define hidden ptr @SetExecname(ptr nocapture noundef readonly %0) local_unnamed_
 
 6:                                                ; preds = %1
   %7 = and i64 %3, 2147483647
-  %8 = getelementptr inbounds [4097 x i8], ptr %2, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [4097 x i8], ptr %2, i64 0, i64 %7
   store i8 0, ptr %8, align 1
   %9 = call ptr @JLI_StringDup(ptr noundef nonnull %2) #12
   %10 = icmp eq ptr %9, null
@@ -548,14 +548,14 @@ define hidden zeroext range(i8 0, 2) i8 @LoadJavaVM(ptr noundef %0, ptr nocaptur
 
 9:                                                ; preds = %6
   %10 = tail call ptr @dlsym(ptr noundef nonnull %3, ptr noundef nonnull @.str.20) #12
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %10, ptr %11, align 8
   %12 = icmp eq ptr %10, null
   br i1 %12, label %.sink.split, label %13
 
 13:                                               ; preds = %9
   %14 = tail call ptr @dlsym(ptr noundef nonnull %3, ptr noundef nonnull @.str.21) #12
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
   br i1 %16, label %.sink.split, label %18

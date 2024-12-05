@@ -10,9 +10,9 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.08299 = phi i64 [ %12, %.lr.ph ], [ 0, %8 ]
-  %10 = getelementptr inbounds i64, ptr %5, i64 %.08299
+  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %.08299
   store i64 -1, ptr %10, align 8
-  %11 = getelementptr inbounds i64, ptr %6, i64 %.08299
+  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %.08299
   store i64 -1, ptr %11, align 8
   %12 = add nuw nsw i64 %.08299, 1
   %exitcond.not = icmp eq i64 %12, %0
@@ -46,13 +46,13 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
 
 .lr.ph109:                                        ; preds = %23, %45
   %.0108 = phi i64 [ %46, %45 ], [ 0, %23 ]
-  %25 = getelementptr inbounds i64, ptr %2, i64 %.0108
+  %25 = getelementptr inbounds nuw i64, ptr %2, i64 %.0108
   %26 = load i64, ptr %25, align 8
   %27 = icmp sgt i64 %26, 0
   br i1 %27, label %28, label %45
 
 28:                                               ; preds = %.lr.ph109
-  %29 = getelementptr inbounds i64, ptr %5, i64 %.0108
+  %29 = getelementptr inbounds nuw i64, ptr %5, i64 %.0108
   %30 = load i64, ptr %29, align 8
   %.not = icmp eq i64 %30, -1
   br i1 %.not, label %45, label %.preheader96
@@ -112,13 +112,13 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %57
   %.2113 = phi i64 [ %58, %57 ], [ 0, %.lr.ph114.preheader ]
   %.084112 = phi i64 [ %.185, %57 ], [ 0, %.lr.ph114.preheader ]
-  %48 = getelementptr inbounds i64, ptr %1, i64 %.2113
+  %48 = getelementptr inbounds nuw i64, ptr %1, i64 %.2113
   %49 = load i64, ptr %48, align 8
   %50 = icmp eq i64 %49, -1
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %.lr.ph114
-  %52 = getelementptr inbounds i64, ptr %2, i64 %.2113
+  %52 = getelementptr inbounds nuw i64, ptr %2, i64 %.2113
   %53 = load i64, ptr %52, align 8
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %55, label %57

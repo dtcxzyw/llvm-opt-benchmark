@@ -84,11 +84,11 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 define hidden void @_ZN12ciArrayKlassC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN7ciKlassC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1) #3
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV12ciArrayKlass, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 196
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 196
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %6, ptr %7, align 4
   ret void
 }
@@ -99,7 +99,7 @@ declare void @_ZN7ciKlassC2EP5Klass(ptr noundef nonnull align 8 dereferenceable(
 define hidden void @_ZN12ciArrayKlassC2EP8ciSymboli9BasicType(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 align 2 {
   tail call void @_ZN7ciKlassC2EP8ciSymbol9BasicType(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, i8 noundef zeroext %3) #3
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV12ciArrayKlass, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %2, ptr %5, align 4
   ret void
 }
@@ -109,13 +109,13 @@ declare void @_ZN7ciKlassC2EP8ciSymbol9BasicType(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN12ciArrayKlass12element_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = lshr i32 %8, 8
   %10 = trunc i32 %9 to i8
@@ -138,23 +138,23 @@ declare noundef ptr @_ZN15ciObjArrayKlass13element_klassEv(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN12ciArrayKlass17base_element_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
   br i1 %5, label %.sink.split, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
   br i1 %12, label %.sink.split, label %18
 
 .sink.split:                                      ; preds = %6, %1
   %.sink = phi ptr [ %0, %1 ], [ %8, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.sink, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.sink, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = lshr i32 %14, 8
   %16 = trunc i32 %15 to i8
@@ -169,16 +169,16 @@ define hidden noundef ptr @_ZN12ciArrayKlass17base_element_typeEv(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN12ciArrayKlass12is_leaf_typeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(44) %8) #3
   br label %13
@@ -190,7 +190,7 @@ define hidden noundef zeroext i1 @_ZN12ciArrayKlass12is_leaf_typeEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN12ciArrayKlass4makeEP6ciType(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, -2
   %or.cond.i.i.not = icmp eq i8 %4, 12
@@ -237,7 +237,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10ciMetadata11is_metadataEv(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6ciType12is_classlessEv(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, -2
   %or.cond.i.i = icmp ne i8 %4, 12

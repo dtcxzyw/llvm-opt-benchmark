@@ -19,7 +19,7 @@ define dso_local void @taskqueue_run(i32 noundef %0, ptr noundef %1) local_unnam
   %5 = shl nuw nsw i64 %4, 3
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 40, i1 false)
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %1, ptr %7, align 8
   %8 = call i32 @pthread_mutex_init(ptr noundef nonnull %3, ptr noundef null) #9
   %.not = icmp eq i32 %8, 0
@@ -40,7 +40,7 @@ define dso_local void @taskqueue_run(i32 noundef %0, ptr noundef %1) local_unnam
 
 .lr.ph:                                           ; preds = %.preheader16, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader16 ]
-  %12 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %13 = call i32 @pthread_create(ptr noundef %12, ptr noundef null, ptr noundef nonnull @taskqueue_thread, ptr noundef nonnull %3) #9
   %.not15 = icmp eq i32 %13, 0
   br i1 %.not15, label %11, label %14
@@ -56,7 +56,7 @@ define dso_local void @taskqueue_run(i32 noundef %0, ptr noundef %1) local_unnam
 
 .lr.ph19:                                         ; preds = %11, %15
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %15 ], [ 0, %11 ]
-  %16 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv21
+  %16 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv21
   %17 = load i64, ptr %16, align 8
   %18 = call i32 @pthread_join(i64 noundef %17, ptr noundef null) #9
   %.not14 = icmp eq i32 %18, 0
@@ -90,7 +90,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: noreturn nounwind uwtable
 define internal noundef ptr @taskqueue_thread(ptr noundef %0) #5 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not18 = icmp eq ptr %4, null
   br i1 %.not18, label %.thread, label %.lr.ph
@@ -105,12 +105,12 @@ define internal noundef ptr @taskqueue_thread(ptr noundef %0) #5 {
 8:                                                ; preds = %.lr.ph
   %9 = add i32 %7, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %10
   %12 = load ptr, ptr %11, align 8
   store i32 %9, ptr %6, align 4
   %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %14(ptr noundef %16) #9
   %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #9

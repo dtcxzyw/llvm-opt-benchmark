@@ -103,21 +103,21 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 define dso_local void @_ZNK4llvm3pdb17NativeTypePointer4dumpERNS_11raw_ostreamEiNS0_16PdbSymbolIdFieldES4_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @_ZNK4llvm3pdb15NativeRawSymbol4dumpERNS_11raw_ostreamEiNS0_16PdbSymbolIdFieldES4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1248
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1248
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %9, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit: ; preds = %5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1256
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1256
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %13, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %20
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread: ; preds = %5, %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 224
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 224
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -130,62 +130,62 @@ _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread: ; preds = %5, %
   %22 = load ptr, ptr %21, align 8
   tail call void @_ZN4llvm3pdb17dumpSymbolIdFieldERNS_11raw_ostreamENS_9StringRefEjiRKNS0_11IPDBSessionENS0_16PdbSymbolIdFieldES7_S7_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.1, i64 15, i32 noundef 0, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef 2, i32 noundef %3, i32 noundef %4) #8
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 592
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 592
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   %27 = load ptr, ptr %21, align 8
   tail call void @_ZN4llvm3pdb17dumpSymbolIdFieldERNS_11raw_ostreamENS_9StringRefEjiRKNS0_11IPDBSessionENS0_16PdbSymbolIdFieldES7_S7_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.2, i64 6, i32 noundef %26, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef 8, i32 noundef %3, i32 noundef %4) #8
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 752
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 752
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZN4llvm3pdb15dumpSymbolFieldImEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.3, i64 6, i64 noundef %31, i32 noundef %2)
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 824
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 824
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.4, i64 9, i1 noundef zeroext %35, i32 noundef %2)
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1248
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1248
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.5, i64 21, i1 noundef zeroext %39, i32 noundef %2)
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1256
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1256
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.6, i64 25, i1 noundef zeroext %43, i32 noundef %2)
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1272
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1272
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.7, i64 15, i1 noundef zeroext %47, i32 noundef %2)
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1288
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1288
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.8, i64 9, i1 noundef zeroext %51, i32 noundef %2)
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1296
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1296
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.9, i64 14, i1 noundef zeroext %55, i32 noundef %2)
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 1248
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1248
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %59, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit40.thread, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit40
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit40: ; preds = %20
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 1256
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1256
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %63, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit40.thread, label %81
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit40.thread: ; preds = %20, %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit40
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1336
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1336
   %66 = load ptr, ptr %65, align 8
   %67 = tail call noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %67, label %68, label %69
@@ -196,7 +196,7 @@ _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit40.thread: ; preds = %20
 
 69:                                               ; preds = %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit40.thread
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1200
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1200
   %72 = load ptr, ptr %71, align 8
   %73 = tail call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %73, label %74, label %75
@@ -207,7 +207,7 @@ _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit40.thread: ; preds = %20
 
 75:                                               ; preds = %69
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 1408
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1408
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %79, label %80, label %81
@@ -218,12 +218,12 @@ _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit40.thread: ; preds = %20
 
 81:                                               ; preds = %68, %75, %80, %74, %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit40
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 1368
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1368
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.13, i64 13, i1 noundef zeroext %85, i32 noundef %2)
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1416
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1416
   %88 = load ptr, ptr %87, align 8
   %89 = tail call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   tail call void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS_9StringRefET_i(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.14, i64 12, i1 noundef zeroext %89, i32 noundef %2)
@@ -235,14 +235,14 @@ declare void @_ZNK4llvm3pdb15NativeRawSymbol4dumpERNS_11raw_ostreamEiNS0_16PdbSy
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv(ptr noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1248
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1248
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1256
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1256
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br label %11
@@ -270,7 +270,7 @@ define linkonce_odr void @_ZN4llvm3pdb15dumpSymbolFieldImEEvRNS_11raw_ostreamENS
 13:                                               ; preds = %5
   store i8 10, ptr %9, align 1
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -320,7 +320,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %23, %25, %26
   %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i16 8250, ptr %29, align 1
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store ptr %41, ptr %39, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit8
 
@@ -346,7 +346,7 @@ define linkonce_odr void @_ZN4llvm3pdb15dumpSymbolFieldIbEEvRNS_11raw_ostreamENS
 13:                                               ; preds = %5
   store i8 10, ptr %9, align 1
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -396,7 +396,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %23, %25, %26
   %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i16 8250, ptr %29, align 1
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store ptr %41, ptr %39, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit8
 
@@ -423,7 +423,7 @@ define linkonce_odr void @_ZN4llvm3pdb15dumpSymbolFieldIiEEvRNS_11raw_ostreamENS
 13:                                               ; preds = %5
   store i8 10, ptr %9, align 1
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -473,7 +473,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %23, %25, %26
   %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i16 8250, ptr %29, align 1
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store ptr %41, ptr %39, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit8
 
@@ -487,14 +487,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %36, %38
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm3pdb17NativeTypePointer16getClassParentIdEv(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1248
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1248
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %5, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit: ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1256
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1256
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %9, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %15
@@ -543,7 +543,7 @@ define dso_local noundef range(i64 0, 256) i64 @_ZNK4llvm3pdb17NativeTypePointer
 switch.lookup:                                    ; preds = %11
   %16 = lshr exact i32 %14, 8
   %17 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table._ZNK4llvm3pdb17NativeTypePointer9getLengthEv, i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZNK4llvm3pdb17NativeTypePointer9getLengthEv, i64 0, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %18
 
@@ -687,14 +687,14 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer15isUnalign
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer19isSingleInheritanceEv(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1248
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1248
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %5, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit: ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1256
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1256
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %9, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %12
@@ -714,14 +714,14 @@ _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread: ; preds = %1, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer21isMultipleInheritanceEv(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1248
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1248
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %5, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit: ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1256
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1256
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %9, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %12
@@ -741,14 +741,14 @@ _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread: ; preds = %1, %
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm3pdb17NativeTypePointer20isVirtualInheritanceEv(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1248
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1248
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %5, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit
 
 _ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit: ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1256
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1256
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(52) %0) #8
   br i1 %9, label %_ZNK4llvm3pdb17NativeTypePointer15isMemberPointerEv.exit.thread, label %12

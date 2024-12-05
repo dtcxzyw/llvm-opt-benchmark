@@ -69,19 +69,19 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end.i
   %indvars.iv.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [20 x i8], ptr @seed, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [20 x i8], ptr @seed, i64 0, i64 %indvars.iv.i
   %3 = load i8, ptr %arrayidx.i, align 4
   %conv.i = zext i8 %3 to i32
   %4 = or disjoint i64 %indvars.iv.i, 1
-  %arrayidx6.i = getelementptr inbounds [20 x i8], ptr @seed, i64 0, i64 %4
+  %arrayidx6.i = getelementptr inbounds nuw [20 x i8], ptr @seed, i64 0, i64 %4
   %5 = load i8, ptr %arrayidx6.i, align 1
   %conv7.i = zext i8 %5 to i32
   %6 = or disjoint i64 %indvars.iv.i, 2
-  %arrayidx10.i = getelementptr inbounds [20 x i8], ptr @seed, i64 0, i64 %6
+  %arrayidx10.i = getelementptr inbounds nuw [20 x i8], ptr @seed, i64 0, i64 %6
   %7 = load i8, ptr %arrayidx10.i, align 2
   %conv11.i = zext i8 %7 to i32
   %8 = or disjoint i64 %indvars.iv.i, 3
-  %arrayidx14.i = getelementptr inbounds [20 x i8], ptr @seed, i64 0, i64 %8
+  %arrayidx14.i = getelementptr inbounds nuw [20 x i8], ptr @seed, i64 0, i64 %8
   %9 = load i8, ptr %arrayidx14.i, align 1
   %conv15.i = zext i8 %9 to i32
   %call16.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %conv.i, i32 noundef %conv7.i, i32 noundef %conv11.i, i32 noundef %conv15.i)
@@ -113,7 +113,7 @@ if.then26.i:                                      ; preds = %if.end23.i
   br label %test_generate.exit.thread
 
 if.end28.i:                                       ; preds = %if.end23.i
-  %q.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %q.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   %18 = load ptr, ptr %q.i, align 8
   %call29.i = call i64 @BN_bn2bin(ptr noundef %18, ptr noundef nonnull %buf.i) #7
   %19 = and i64 %call29.i, 4294967295
@@ -131,7 +131,7 @@ if.then39.i:                                      ; preds = %lor.lhs.false33.i, 
   br label %test_generate.exit.thread
 
 if.end41.i:                                       ; preds = %lor.lhs.false33.i
-  %p.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %p.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   %22 = load ptr, ptr %p.i, align 8
   %call43.i = call i64 @BN_bn2bin(ptr noundef %22, ptr noundef nonnull %buf.i) #7
   %23 = and i64 %call43.i, 4294967295
@@ -149,7 +149,7 @@ if.then53.i:                                      ; preds = %lor.lhs.false47.i, 
   br label %test_generate.exit.thread
 
 if.end55.i:                                       ; preds = %lor.lhs.false47.i
-  %g.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %g.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %26 = load ptr, ptr %g.i, align 8
   %call57.i = call i64 @BN_bn2bin(ptr noundef %26, ptr noundef nonnull %buf.i) #7
   %27 = and i64 %call57.i, 4294967295
@@ -255,19 +255,19 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_p, i64 noundef 64, ptr noundef null) #7
-  %p.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %p.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %call1.i, ptr %p.i, align 8
   %call2.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_q, i64 noundef 20, ptr noundef null) #7
-  %q.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %q.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %call2.i, ptr %q.i, align 8
   %call3.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_g, i64 noundef 64, ptr noundef null) #7
-  %g.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %g.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %call3.i, ptr %g.i, align 8
   %call4.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_y, i64 noundef 64, ptr noundef null) #7
-  %pub_key.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %pub_key.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %call4.i, ptr %pub_key.i, align 8
   %call5.i = tail call ptr @BN_bin2bn(ptr noundef nonnull @fips_x, i64 noundef 20, ptr noundef null) #7
-  %priv_key.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %priv_key.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %call5.i, ptr %priv_key.i, align 8
   %0 = load ptr, ptr %p.i, align 8
   %cmp.i = icmp eq ptr %0, null

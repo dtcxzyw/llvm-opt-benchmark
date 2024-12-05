@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @foreach_mountpoint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.enum_mountpoint_s, align 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8
   %5 = call i32 @foreach_inode(ptr noundef nonnull @mountpoint_filter, ptr noundef nonnull %3) #5
   ret i32 %5
@@ -24,20 +24,20 @@ declare i32 @foreach_inode(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @mountpoint_filter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
   %4 = alloca %struct.statfs, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 26
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 15
   %8 = icmp eq i16 %7, 3
   br i1 %8, label %9, label %40
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %40, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %14 = load ptr, ptr %13, align 8
   %.not22 = icmp eq ptr %14, null
   br i1 %.not22, label %40, label %15
@@ -45,7 +45,7 @@ define internal i32 @mountpoint_filter(ptr noundef %0, ptr noundef %1, ptr nocap
 15:                                               ; preds = %12
   %16 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 256)
   %17 = trunc i64 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 256)
   %20 = trunc i64 %19 to i32
   %21 = add i32 %17, 1
@@ -62,7 +62,7 @@ define internal i32 @mountpoint_filter(ptr noundef %0, ptr noundef %1, ptr nocap
   %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %26, i64 noundef %27, ptr noundef nonnull @.str, ptr noundef nonnull %18) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 152
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 152
   %31 = load ptr, ptr %30, align 8
   %32 = call i32 %31(ptr noundef nonnull %0, ptr noundef nonnull %4) #5
   %33 = icmp eq i32 %32, 0
@@ -70,7 +70,7 @@ define internal i32 @mountpoint_filter(ptr noundef %0, ptr noundef %1, ptr nocap
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 %35(ptr noundef %1, ptr noundef nonnull %4, ptr noundef %37) #5
   br label %39

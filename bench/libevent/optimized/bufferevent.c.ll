@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_suspend_read_(ptr noundef %bufev, i16 noundef zeroext %what) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end4, label %if.then
@@ -35,15 +35,15 @@ if.then:                                          ; preds = %entry
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then, %entry
-  %read_suspended = getelementptr inbounds i8, ptr %bufev, i64 388
+  %read_suspended = getelementptr inbounds nuw i8, ptr %bufev, i64 388
   %2 = load i16, ptr %read_suspended, align 4
   %tobool5.not = icmp eq i16 %2, 0
   br i1 %tobool5.not, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %do.end4
-  %be_ops = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %3 = load ptr, ptr %be_ops, align 8
-  %disable = getelementptr inbounds i8, ptr %3, i64 24
+  %disable = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %disable, align 8
   %call7 = tail call i32 %4(ptr noundef nonnull %bufev, i16 noundef signext 2) #7
   %.pre = load i16, ptr %read_suspended, align 4
@@ -69,7 +69,7 @@ do.end23:                                         ; preds = %if.then18, %if.end8
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_unsuspend_read_(ptr noundef %bufev, i16 noundef zeroext %what) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end4, label %if.then
@@ -81,7 +81,7 @@ if.then:                                          ; preds = %entry
 
 do.end4:                                          ; preds = %if.then, %entry
   %not = xor i16 %what, -1
-  %read_suspended = getelementptr inbounds i8, ptr %bufev, i64 388
+  %read_suspended = getelementptr inbounds nuw i8, ptr %bufev, i64 388
   %2 = load i16, ptr %read_suspended, align 4
   %and = and i16 %2, %not
   store i16 %and, ptr %read_suspended, align 4
@@ -89,16 +89,16 @@ do.end4:                                          ; preds = %if.then, %entry
   br i1 %tobool8.not, label %land.lhs.true, label %do.body15
 
 land.lhs.true:                                    ; preds = %do.end4
-  %enabled = getelementptr inbounds i8, ptr %bufev, i64 368
+  %enabled = getelementptr inbounds nuw i8, ptr %bufev, i64 368
   %3 = load i16, ptr %enabled, align 8
   %4 = and i16 %3, 2
   %tobool11.not = icmp eq i16 %4, 0
   br i1 %tobool11.not, label %do.body15, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true
-  %be_ops = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %5 = load ptr, ptr %be_ops, align 8
-  %enable = getelementptr inbounds i8, ptr %5, i64 16
+  %enable = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %enable, align 8
   %call13 = tail call i32 %6(ptr noundef nonnull %bufev, i16 noundef signext 2) #7
   br label %do.body15
@@ -120,7 +120,7 @@ do.end26:                                         ; preds = %if.then21, %do.body
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_suspend_write_(ptr noundef %bufev, i16 noundef zeroext %what) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end4, label %if.then
@@ -131,15 +131,15 @@ if.then:                                          ; preds = %entry
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then, %entry
-  %write_suspended = getelementptr inbounds i8, ptr %bufev, i64 390
+  %write_suspended = getelementptr inbounds nuw i8, ptr %bufev, i64 390
   %2 = load i16, ptr %write_suspended, align 2
   %tobool5.not = icmp eq i16 %2, 0
   br i1 %tobool5.not, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %do.end4
-  %be_ops = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %3 = load ptr, ptr %be_ops, align 8
-  %disable = getelementptr inbounds i8, ptr %3, i64 24
+  %disable = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %disable, align 8
   %call7 = tail call i32 %4(ptr noundef nonnull %bufev, i16 noundef signext 4) #7
   %.pre = load i16, ptr %write_suspended, align 2
@@ -165,7 +165,7 @@ do.end23:                                         ; preds = %if.then18, %if.end8
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_unsuspend_write_(ptr noundef %bufev, i16 noundef zeroext %what) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end4, label %if.then
@@ -177,7 +177,7 @@ if.then:                                          ; preds = %entry
 
 do.end4:                                          ; preds = %if.then, %entry
   %not = xor i16 %what, -1
-  %write_suspended = getelementptr inbounds i8, ptr %bufev, i64 390
+  %write_suspended = getelementptr inbounds nuw i8, ptr %bufev, i64 390
   %2 = load i16, ptr %write_suspended, align 2
   %and = and i16 %2, %not
   store i16 %and, ptr %write_suspended, align 2
@@ -185,16 +185,16 @@ do.end4:                                          ; preds = %if.then, %entry
   br i1 %tobool8.not, label %land.lhs.true, label %do.body15
 
 land.lhs.true:                                    ; preds = %do.end4
-  %enabled = getelementptr inbounds i8, ptr %bufev, i64 368
+  %enabled = getelementptr inbounds nuw i8, ptr %bufev, i64 368
   %3 = load i16, ptr %enabled, align 8
   %4 = and i16 %3, 4
   %tobool11.not = icmp eq i16 %4, 0
   br i1 %tobool11.not, label %do.body15, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true
-  %be_ops = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %5 = load ptr, ptr %be_ops, align 8
-  %enable = getelementptr inbounds i8, ptr %5, i64 16
+  %enable = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %enable, align 8
   %call13 = tail call i32 %6(ptr noundef nonnull %bufev, i16 noundef signext 4) #7
   br label %do.body15
@@ -216,13 +216,13 @@ do.end26:                                         ; preds = %if.then21, %do.body
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_run_readcb_(ptr noundef %bufev, i32 noundef %options) local_unnamed_addr #0 {
 entry:
-  %readcb = getelementptr inbounds i8, ptr %bufev, i64 304
+  %readcb = getelementptr inbounds nuw i8, ptr %bufev, i64 304
   %0 = load ptr, ptr %readcb, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end8, label %if.end
 
 if.end:                                           ; preds = %entry
-  %options1 = getelementptr inbounds i8, ptr %bufev, i64 440
+  %options1 = getelementptr inbounds nuw i8, ptr %bufev, i64 440
   %1 = load i32, ptr %options1, align 8
   %or = or i32 %1, %options
   %and = and i32 %or, 4
@@ -230,24 +230,24 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %readcb_pending = getelementptr inbounds i8, ptr %bufev, i64 384
+  %readcb_pending = getelementptr inbounds nuw i8, ptr %bufev, i64 384
   %bf.load = load i8, ptr %readcb_pending, align 8
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %readcb_pending, align 8
   %2 = load ptr, ptr %bufev, align 8
-  %deferred = getelementptr inbounds i8, ptr %bufev, i64 400
+  %deferred = getelementptr inbounds nuw i8, ptr %bufev, i64 400
   %call = tail call i32 @event_deferred_cb_schedule_(ptr noundef %2, ptr noundef nonnull %deferred) #7
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  %lock.i = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock.i = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %3 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %do.end4.thread.i, label %do.end4.i
 
 do.end4.thread.i:                                 ; preds = %if.then4
-  %refcnt6.i = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt6.i = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %4 = load i32, ptr %refcnt6.i, align 4
   %inc7.i = add nsw i32 %4, 1
   store i32 %inc7.i, ptr %refcnt6.i, align 4
@@ -257,7 +257,7 @@ do.end4.i:                                        ; preds = %if.then4
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %3) #7
   %.pr.i = load ptr, ptr %lock.i, align 8
-  %refcnt.i = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %6 = load i32, ptr %refcnt.i, align 4
   %inc.i = add nsw i32 %6, 1
   store i32 %inc.i, ptr %refcnt.i, align 4
@@ -270,23 +270,23 @@ if.then11.i:                                      ; preds = %do.end4.i
   br label %if.end8
 
 if.else:                                          ; preds = %if.end
-  %cbarg = getelementptr inbounds i8, ptr %bufev, i64 328
+  %cbarg = getelementptr inbounds nuw i8, ptr %bufev, i64 328
   %8 = load ptr, ptr %cbarg, align 8
   tail call void %0(ptr noundef nonnull %bufev, ptr noundef %8) #7
-  %high.i = getelementptr inbounds i8, ptr %bufev, i64 280
+  %high.i = getelementptr inbounds nuw i8, ptr %bufev, i64 280
   %9 = load i64, ptr %high.i, align 8
   %tobool.not.i10 = icmp eq i64 %9, 0
   br i1 %tobool.not.i10, label %if.end8, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %enabled.i = getelementptr inbounds i8, ptr %bufev, i64 368
+  %enabled.i = getelementptr inbounds nuw i8, ptr %bufev, i64 368
   %10 = load i16, ptr %enabled.i, align 8
   %11 = and i16 %10, 2
   %tobool1.not.i = icmp eq i16 %11, 0
   br i1 %tobool1.not.i, label %if.end8, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %input.i = getelementptr inbounds i8, ptr %bufev, i64 256
+  %input.i = getelementptr inbounds nuw i8, ptr %bufev, i64 256
   %12 = load ptr, ptr %input.i, align 8
   %call.i11 = tail call i64 @evbuffer_get_length(ptr noundef %12) #7
   %13 = load i64, ptr %high.i, align 8
@@ -294,7 +294,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %if.end8, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %lock.i.i = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock.i.i = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %14 = load ptr, ptr %lock.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %bufferevent_incref_and_lock_.exit.i, label %if.then.i.i
@@ -305,13 +305,13 @@ if.then.i.i:                                      ; preds = %if.end8.i
   br label %bufferevent_incref_and_lock_.exit.i
 
 bufferevent_incref_and_lock_.exit.i:              ; preds = %if.then.i.i, %if.end8.i
-  %refcnt.i.i = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt.i.i = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %16 = load i32, ptr %refcnt.i.i, align 4
   %inc.i.i = add nsw i32 %16, 1
   store i32 %inc.i.i, ptr %refcnt.i.i, align 4
   %17 = load ptr, ptr %input.i, align 8
   %call.i5.i = tail call i64 @evbuffer_get_length(ptr noundef %17) #7
-  %wm_read.i.i = getelementptr inbounds i8, ptr %bufev, i64 272
+  %wm_read.i.i = getelementptr inbounds nuw i8, ptr %bufev, i64 272
   %18 = load i64, ptr %wm_read.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %call.i5.i, %18
   br i1 %cmp.not.i.i, label %bufferevent_trigger.exit, label %if.then.i4.i
@@ -333,13 +333,13 @@ declare i32 @event_deferred_cb_schedule_(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_incref(ptr nocapture noundef %bufev) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end4.thread, label %do.end4
 
 do.end4.thread:                                   ; preds = %entry
-  %refcnt6 = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt6 = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %1 = load i32, ptr %refcnt6, align 4
   %inc7 = add nsw i32 %1, 1
   store i32 %inc7, ptr %refcnt6, align 4
@@ -349,7 +349,7 @@ do.end4:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock, align 8
-  %refcnt = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %3 = load i32, ptr %refcnt, align 4
   %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %refcnt, align 4
@@ -368,13 +368,13 @@ do.end16:                                         ; preds = %do.end4.thread, %if
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_run_writecb_(ptr noundef %bufev, i32 noundef %options) local_unnamed_addr #0 {
 entry:
-  %writecb = getelementptr inbounds i8, ptr %bufev, i64 312
+  %writecb = getelementptr inbounds nuw i8, ptr %bufev, i64 312
   %0 = load ptr, ptr %writecb, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end8, label %if.end
 
 if.end:                                           ; preds = %entry
-  %options1 = getelementptr inbounds i8, ptr %bufev, i64 440
+  %options1 = getelementptr inbounds nuw i8, ptr %bufev, i64 440
   %1 = load i32, ptr %options1, align 8
   %or = or i32 %1, %options
   %and = and i32 %or, 4
@@ -382,24 +382,24 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %writecb_pending = getelementptr inbounds i8, ptr %bufev, i64 384
+  %writecb_pending = getelementptr inbounds nuw i8, ptr %bufev, i64 384
   %bf.load = load i8, ptr %writecb_pending, align 8
   %bf.set = or i8 %bf.load, 4
   store i8 %bf.set, ptr %writecb_pending, align 8
   %2 = load ptr, ptr %bufev, align 8
-  %deferred = getelementptr inbounds i8, ptr %bufev, i64 400
+  %deferred = getelementptr inbounds nuw i8, ptr %bufev, i64 400
   %call = tail call i32 @event_deferred_cb_schedule_(ptr noundef %2, ptr noundef nonnull %deferred) #7
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  %lock.i = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock.i = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %3 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %do.end4.thread.i, label %do.end4.i
 
 do.end4.thread.i:                                 ; preds = %if.then4
-  %refcnt6.i = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt6.i = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %4 = load i32, ptr %refcnt6.i, align 4
   %inc7.i = add nsw i32 %4, 1
   store i32 %inc7.i, ptr %refcnt6.i, align 4
@@ -409,7 +409,7 @@ do.end4.i:                                        ; preds = %if.then4
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %5(i32 noundef 0, ptr noundef nonnull %3) #7
   %.pr.i = load ptr, ptr %lock.i, align 8
-  %refcnt.i = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %6 = load i32, ptr %refcnt.i, align 4
   %inc.i = add nsw i32 %6, 1
   store i32 %inc.i, ptr %refcnt.i, align 4
@@ -422,7 +422,7 @@ if.then11.i:                                      ; preds = %do.end4.i
   br label %if.end8
 
 if.else:                                          ; preds = %if.end
-  %cbarg = getelementptr inbounds i8, ptr %bufev, i64 328
+  %cbarg = getelementptr inbounds nuw i8, ptr %bufev, i64 328
   %8 = load ptr, ptr %cbarg, align 8
   tail call void %0(ptr noundef nonnull %bufev, ptr noundef %8) #7
   br label %if.end8
@@ -434,7 +434,7 @@ if.end8:                                          ; preds = %if.then11.i, %do.en
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_trigger(ptr noundef %bufev, i16 noundef signext %iotype, i32 noundef %options) local_unnamed_addr #0 {
 entry:
-  %lock.i = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock.i = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %bufferevent_incref_and_lock_.exit, label %if.then.i
@@ -445,7 +445,7 @@ if.then.i:                                        ; preds = %entry
   br label %bufferevent_incref_and_lock_.exit
 
 bufferevent_incref_and_lock_.exit:                ; preds = %entry, %if.then.i
-  %refcnt.i = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %2 = load i32, ptr %refcnt.i, align 4
   %inc.i = add nsw i32 %2, 1
   store i32 %inc.i, ptr %refcnt.i, align 4
@@ -459,10 +459,10 @@ land.lhs.true.i:                                  ; preds = %bufferevent_incref_
   br i1 %tobool2.not.i, label %lor.lhs.false.i, label %if.then.i4
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %input.i = getelementptr inbounds i8, ptr %bufev, i64 256
+  %input.i = getelementptr inbounds nuw i8, ptr %bufev, i64 256
   %4 = load ptr, ptr %input.i, align 8
   %call.i5 = tail call i64 @evbuffer_get_length(ptr noundef %4) #7
-  %wm_read.i = getelementptr inbounds i8, ptr %bufev, i64 272
+  %wm_read.i = getelementptr inbounds nuw i8, ptr %bufev, i64 272
   %5 = load i64, ptr %wm_read.i, align 8
   %cmp.not.i = icmp ult i64 %call.i5, %5
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i4
@@ -481,22 +481,22 @@ land.lhs.true7.i:                                 ; preds = %if.end.i
   br i1 %tobool9.not.i, label %lor.lhs.false10.i, label %if.then15.i
 
 lor.lhs.false10.i:                                ; preds = %land.lhs.true7.i
-  %output.i = getelementptr inbounds i8, ptr %bufev, i64 264
+  %output.i = getelementptr inbounds nuw i8, ptr %bufev, i64 264
   %7 = load ptr, ptr %output.i, align 8
   %call11.i = tail call i64 @evbuffer_get_length(ptr noundef %7) #7
-  %wm_write.i = getelementptr inbounds i8, ptr %bufev, i64 288
+  %wm_write.i = getelementptr inbounds nuw i8, ptr %bufev, i64 288
   %8 = load i64, ptr %wm_write.i, align 8
   %cmp13.not.i = icmp ugt i64 %call11.i, %8
   br i1 %cmp13.not.i, label %bufferevent_trigger_nolock_.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %lor.lhs.false10.i, %land.lhs.true7.i
-  %writecb.i = getelementptr inbounds i8, ptr %bufev, i64 312
+  %writecb.i = getelementptr inbounds nuw i8, ptr %bufev, i64 312
   %9 = load ptr, ptr %writecb.i, align 8
   %cmp.i = icmp eq ptr %9, null
   br i1 %cmp.i, label %bufferevent_trigger_nolock_.exit, label %if.end.i6
 
 if.end.i6:                                        ; preds = %if.then15.i
-  %options1.i = getelementptr inbounds i8, ptr %bufev, i64 440
+  %options1.i = getelementptr inbounds nuw i8, ptr %bufev, i64 440
   %10 = load i32, ptr %options1.i, align 8
   %or.i = or i32 %10, %options
   %and.i = and i32 %or.i, 4
@@ -504,12 +504,12 @@ if.end.i6:                                        ; preds = %if.then15.i
   br i1 %tobool.not.i7, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i6
-  %writecb_pending.i = getelementptr inbounds i8, ptr %bufev, i64 384
+  %writecb_pending.i = getelementptr inbounds nuw i8, ptr %bufev, i64 384
   %bf.load.i = load i8, ptr %writecb_pending.i, align 8
   %bf.set.i = or i8 %bf.load.i, 4
   store i8 %bf.set.i, ptr %writecb_pending.i, align 8
   %11 = load ptr, ptr %bufev, align 8
-  %deferred.i = getelementptr inbounds i8, ptr %bufev, i64 400
+  %deferred.i = getelementptr inbounds nuw i8, ptr %bufev, i64 400
   %call.i8 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %11, ptr noundef nonnull %deferred.i) #7
   %tobool3.not.i = icmp eq i32 %call.i8, 0
   br i1 %tobool3.not.i, label %bufferevent_trigger_nolock_.exit, label %if.then4.i
@@ -541,7 +541,7 @@ if.then11.i.i:                                    ; preds = %do.end4.i.i
   br label %bufferevent_trigger_nolock_.exit
 
 if.else.i:                                        ; preds = %if.end.i6
-  %cbarg.i = getelementptr inbounds i8, ptr %bufev, i64 328
+  %cbarg.i = getelementptr inbounds nuw i8, ptr %bufev, i64 328
   %17 = load ptr, ptr %cbarg.i, align 8
   tail call void %9(ptr noundef nonnull %bufev, ptr noundef %17) #7
   br label %bufferevent_trigger_nolock_.exit
@@ -554,7 +554,7 @@ bufferevent_trigger_nolock_.exit:                 ; preds = %if.else.i, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_incref_and_lock_(ptr nocapture noundef %bufev) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end4, label %if.then
@@ -565,7 +565,7 @@ if.then:                                          ; preds = %entry
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then, %entry
-  %refcnt = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %2 = load i32, ptr %refcnt, align 4
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %refcnt, align 4
@@ -576,7 +576,7 @@ do.end4:                                          ; preds = %if.then, %entry
 define dso_local range(i32 0, 2) i32 @bufferevent_decref_and_unlock_(ptr noundef %bufev) local_unnamed_addr #0 {
 entry:
   %cbs = alloca [16 x ptr], align 16
-  %refcnt = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %0 = load i32, ptr %refcnt, align 4
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %refcnt, align 4
@@ -584,7 +584,7 @@ entry:
   br i1 %tobool.not, label %if.end9, label %do.body1
 
 do.body1:                                         ; preds = %entry
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %1 = load ptr, ptr %lock, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %return, label %if.then5
@@ -595,9 +595,9 @@ if.then5:                                         ; preds = %do.body1
   br label %return
 
 if.end9:                                          ; preds = %entry
-  %be_ops = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %3 = load ptr, ptr %be_ops, align 8
-  %unlink = getelementptr inbounds i8, ptr %3, i64 32
+  %unlink = getelementptr inbounds nuw i8, ptr %3, i64 32
   %4 = load ptr, ptr %unlink, align 8
   %tobool10.not = icmp eq ptr %4, null
   br i1 %tobool10.not, label %if.end14, label %if.then11
@@ -607,40 +607,40 @@ if.then11:                                        ; preds = %if.end9
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then11, %if.end9
-  %ev_read = getelementptr inbounds i8, ptr %bufev, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bufev, i64 16
   store ptr %ev_read, ptr %cbs, align 16
-  %ev_write = getelementptr inbounds i8, ptr %bufev, i64 136
-  %arrayidx16 = getelementptr inbounds i8, ptr %cbs, i64 8
+  %ev_write = getelementptr inbounds nuw i8, ptr %bufev, i64 136
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %cbs, i64 8
   store ptr %ev_write, ptr %arrayidx16, align 8
-  %deferred = getelementptr inbounds i8, ptr %bufev, i64 400
-  %arrayidx17 = getelementptr inbounds i8, ptr %cbs, i64 16
+  %deferred = getelementptr inbounds nuw i8, ptr %bufev, i64 400
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %cbs, i64 16
   store ptr %deferred, ptr %arrayidx17, align 16
-  %rate_limiting = getelementptr inbounds i8, ptr %bufev, i64 472
+  %rate_limiting = getelementptr inbounds nuw i8, ptr %bufev, i64 472
   %5 = load ptr, ptr %rate_limiting, align 8
   %tobool18.not = icmp eq ptr %5, null
   br i1 %tobool18.not, label %if.end27, label %if.then19
 
 if.then19:                                        ; preds = %if.end14
-  %refill_bucket_event = getelementptr inbounds i8, ptr %5, i64 56
+  %refill_bucket_event = getelementptr inbounds nuw i8, ptr %5, i64 56
   %call21 = tail call i32 @event_initialized(ptr noundef nonnull %refill_bucket_event) #7
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end27, label %if.then23
 
 if.then23:                                        ; preds = %if.then19
-  %arrayidx25 = getelementptr inbounds i8, ptr %cbs, i64 24
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %cbs, i64 24
   store ptr %refill_bucket_event, ptr %arrayidx25, align 8
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then19, %if.then23, %if.end14
   %n_cbs.0 = phi i32 [ 4, %if.then23 ], [ 3, %if.then19 ], [ 3, %if.end14 ]
-  %input = getelementptr inbounds i8, ptr %bufev, i64 256
+  %input = getelementptr inbounds nuw i8, ptr %bufev, i64 256
   %6 = load ptr, ptr %input, align 8
   %idx.ext = zext nneg i32 %n_cbs.0 to i64
-  %add.ptr28 = getelementptr inbounds ptr, ptr %cbs, i64 %idx.ext
+  %add.ptr28 = getelementptr inbounds nuw ptr, ptr %cbs, i64 %idx.ext
   %sub = sub nuw nsw i32 16, %n_cbs.0
   %call29 = call i32 @evbuffer_get_callbacks_(ptr noundef %6, ptr noundef nonnull %add.ptr28, i32 noundef %sub) #7
   %add = add nsw i32 %call29, %n_cbs.0
-  %output = getelementptr inbounds i8, ptr %bufev, i64 264
+  %output = getelementptr inbounds nuw i8, ptr %bufev, i64 264
   %7 = load ptr, ptr %output, align 8
   %idx.ext31 = sext i32 %add to i64
   %add.ptr32 = getelementptr inbounds ptr, ptr %cbs, i64 %idx.ext31
@@ -649,7 +649,7 @@ if.end27:                                         ; preds = %if.then19, %if.then
   %add35 = add nsw i32 %call34, %add
   %8 = load ptr, ptr %bufev, align 8
   %call37 = call i32 @event_callback_finalize_many_(ptr noundef %8, i32 noundef %add35, ptr noundef nonnull %cbs, ptr noundef nonnull @bufferevent_finalize_cb_) #7
-  %lock42 = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock42 = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %9 = load ptr, ptr %lock42, align 8
   %tobool43.not = icmp eq ptr %9, null
   br i1 %tobool43.not, label %return, label %if.then44
@@ -667,13 +667,13 @@ return:                                           ; preds = %if.end27, %if.then4
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_run_eventcb_(ptr noundef %bufev, i16 noundef signext %what, i32 noundef %options) local_unnamed_addr #0 {
 entry:
-  %errorcb = getelementptr inbounds i8, ptr %bufev, i64 320
+  %errorcb = getelementptr inbounds nuw i8, ptr %bufev, i64 320
   %0 = load ptr, ptr %errorcb, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end12, label %if.end
 
 if.end:                                           ; preds = %entry
-  %options1 = getelementptr inbounds i8, ptr %bufev, i64 440
+  %options1 = getelementptr inbounds nuw i8, ptr %bufev, i64 440
   %1 = load i32, ptr %options1, align 8
   %or = or i32 %1, %options
   %and = and i32 %or, 4
@@ -681,28 +681,28 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %eventcb_pending = getelementptr inbounds i8, ptr %bufev, i64 386
+  %eventcb_pending = getelementptr inbounds nuw i8, ptr %bufev, i64 386
   %2 = load i16, ptr %eventcb_pending, align 2
   %or411 = or i16 %2, %what
   store i16 %or411, ptr %eventcb_pending, align 2
   %call = tail call ptr @__errno_location() #8
   %3 = load i32, ptr %call, align 4
-  %errno_pending = getelementptr inbounds i8, ptr %bufev, i64 392
+  %errno_pending = getelementptr inbounds nuw i8, ptr %bufev, i64 392
   store i32 %3, ptr %errno_pending, align 8
   %4 = load ptr, ptr %bufev, align 8
-  %deferred = getelementptr inbounds i8, ptr %bufev, i64 400
+  %deferred = getelementptr inbounds nuw i8, ptr %bufev, i64 400
   %call6 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %4, ptr noundef nonnull %deferred) #7
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.then2
-  %lock.i = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock.i = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %5 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %do.end4.thread.i, label %do.end4.i
 
 do.end4.thread.i:                                 ; preds = %if.then8
-  %refcnt6.i = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt6.i = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %6 = load i32, ptr %refcnt6.i, align 4
   %inc7.i = add nsw i32 %6, 1
   store i32 %inc7.i, ptr %refcnt6.i, align 4
@@ -712,7 +712,7 @@ do.end4.i:                                        ; preds = %if.then8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %7(i32 noundef 0, ptr noundef nonnull %5) #7
   %.pr.i = load ptr, ptr %lock.i, align 8
-  %refcnt.i = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %8 = load i32, ptr %refcnt.i, align 4
   %inc.i = add nsw i32 %8, 1
   store i32 %inc.i, ptr %refcnt.i, align 4
@@ -725,7 +725,7 @@ if.then11.i:                                      ; preds = %do.end4.i
   br label %if.end12
 
 if.else:                                          ; preds = %if.end
-  %cbarg = getelementptr inbounds i8, ptr %bufev, i64 328
+  %cbarg = getelementptr inbounds nuw i8, ptr %bufev, i64 328
   %10 = load ptr, ptr %cbarg, align 8
   tail call void %0(ptr noundef nonnull %bufev, i16 noundef signext %what, ptr noundef %10) #7
   br label %if.end12
@@ -740,7 +740,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_trigger_event(ptr noundef %bufev, i16 noundef signext %what, i32 noundef %options) local_unnamed_addr #0 {
 entry:
-  %lock.i = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock.i = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %bufferevent_incref_and_lock_.exit, label %if.then.i
@@ -751,17 +751,17 @@ if.then.i:                                        ; preds = %entry
   br label %bufferevent_incref_and_lock_.exit
 
 bufferevent_incref_and_lock_.exit:                ; preds = %entry, %if.then.i
-  %refcnt.i = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %2 = load i32, ptr %refcnt.i, align 4
   %inc.i = add nsw i32 %2, 1
   store i32 %inc.i, ptr %refcnt.i, align 4
-  %errorcb.i = getelementptr inbounds i8, ptr %bufev, i64 320
+  %errorcb.i = getelementptr inbounds nuw i8, ptr %bufev, i64 320
   %3 = load ptr, ptr %errorcb.i, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %bufferevent_run_eventcb_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %bufferevent_incref_and_lock_.exit
-  %options1.i = getelementptr inbounds i8, ptr %bufev, i64 440
+  %options1.i = getelementptr inbounds nuw i8, ptr %bufev, i64 440
   %4 = load i32, ptr %options1.i, align 8
   %or.i = or i32 %4, %options
   %and.i = and i32 %or.i, 4
@@ -769,16 +769,16 @@ if.end.i:                                         ; preds = %bufferevent_incref_
   br i1 %tobool.not.i3, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %eventcb_pending.i = getelementptr inbounds i8, ptr %bufev, i64 386
+  %eventcb_pending.i = getelementptr inbounds nuw i8, ptr %bufev, i64 386
   %5 = load i16, ptr %eventcb_pending.i, align 2
   %or411.i = or i16 %5, %what
   store i16 %or411.i, ptr %eventcb_pending.i, align 2
   %call.i4 = tail call ptr @__errno_location() #8
   %6 = load i32, ptr %call.i4, align 4
-  %errno_pending.i = getelementptr inbounds i8, ptr %bufev, i64 392
+  %errno_pending.i = getelementptr inbounds nuw i8, ptr %bufev, i64 392
   store i32 %6, ptr %errno_pending.i, align 8
   %7 = load ptr, ptr %bufev, align 8
-  %deferred.i = getelementptr inbounds i8, ptr %bufev, i64 400
+  %deferred.i = getelementptr inbounds nuw i8, ptr %bufev, i64 400
   %call6.i = tail call i32 @event_deferred_cb_schedule_(ptr noundef %7, ptr noundef nonnull %deferred.i) #7
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %bufferevent_run_eventcb_.exit, label %if.then8.i
@@ -810,7 +810,7 @@ if.then11.i.i:                                    ; preds = %do.end4.i.i
   br label %bufferevent_run_eventcb_.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %cbarg.i = getelementptr inbounds i8, ptr %bufev, i64 328
+  %cbarg.i = getelementptr inbounds nuw i8, ptr %bufev, i64 328
   %13 = load ptr, ptr %cbarg.i, align 8
   tail call void %3(ptr noundef nonnull %bufev, i16 noundef signext %what, ptr noundef %13) #7
   br label %bufferevent_run_eventcb_.exit
@@ -823,7 +823,7 @@ bufferevent_run_eventcb_.exit:                    ; preds = %bufferevent_incref_
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @bufferevent_init_common_(ptr noundef %bufev_private, ptr noundef %base, ptr noundef %ops, i32 noundef %options) local_unnamed_addr #0 {
 entry:
-  %input = getelementptr inbounds i8, ptr %bufev_private, i64 256
+  %input = getelementptr inbounds nuw i8, ptr %bufev_private, i64 256
   %0 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end3
@@ -835,7 +835,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.end48, label %if.end3
 
 if.end3:                                          ; preds = %if.then, %entry
-  %output = getelementptr inbounds i8, ptr %bufev_private, i64 264
+  %output = getelementptr inbounds nuw i8, ptr %bufev_private, i64 264
   %1 = load ptr, ptr %output, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.then5, label %if.end11
@@ -847,11 +847,11 @@ if.then5:                                         ; preds = %if.end3
   br i1 %cmp8, label %err, label %if.end11
 
 if.end11:                                         ; preds = %if.then5, %if.end3
-  %refcnt = getelementptr inbounds i8, ptr %bufev_private, i64 444
+  %refcnt = getelementptr inbounds nuw i8, ptr %bufev_private, i64 444
   store i32 1, ptr %refcnt, align 4
   store ptr %base, ptr %bufev_private, align 8
-  %timeout_read = getelementptr inbounds i8, ptr %bufev_private, i64 336
-  %be_ops = getelementptr inbounds i8, ptr %bufev_private, i64 8
+  %timeout_read = getelementptr inbounds nuw i8, ptr %bufev_private, i64 336
+  %be_ops = getelementptr inbounds nuw i8, ptr %bufev_private, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %timeout_read, i8 0, i64 32, i1 false)
   store ptr %ops, ptr %be_ops, align 8
   %call16 = tail call i32 @bufferevent_ratelim_init_(ptr noundef nonnull %bufev_private) #7
@@ -859,7 +859,7 @@ if.end11:                                         ; preds = %if.then5, %if.end3
   br i1 %tobool17.not, label %if.end19, label %err
 
 if.end19:                                         ; preds = %if.end11
-  %enabled = getelementptr inbounds i8, ptr %bufev_private, i64 368
+  %enabled = getelementptr inbounds nuw i8, ptr %bufev_private, i64 368
   store i16 4, ptr %enabled, align 8
   %and = and i32 %options, 2
   %tobool20.not = icmp eq i32 %and, 0
@@ -882,13 +882,13 @@ if.then29:                                        ; preds = %if.end26
 if.end30:                                         ; preds = %if.end26
   %and31 = and i32 %options, 8
   %tobool32.not = icmp eq i32 %and31, 0
-  %deferred35 = getelementptr inbounds i8, ptr %bufev_private, i64 400
+  %deferred35 = getelementptr inbounds nuw i8, ptr %bufev_private, i64 400
   %call36 = tail call i32 @event_base_get_npriorities(ptr noundef %base) #7
   %div37 = sdiv i32 %call36, 2
   %conv38 = trunc i32 %div37 to i8
   %bufferevent_run_deferred_callbacks_locked.bufferevent_run_deferred_callbacks_unlocked = select i1 %tobool32.not, ptr @bufferevent_run_deferred_callbacks_locked, ptr @bufferevent_run_deferred_callbacks_unlocked
   tail call void @event_deferred_cb_init_(ptr noundef nonnull %deferred35, i8 noundef zeroext %conv38, ptr noundef nonnull %bufferevent_run_deferred_callbacks_locked.bufferevent_run_deferred_callbacks_unlocked, ptr noundef nonnull %bufev_private) #7
-  %options40 = getelementptr inbounds i8, ptr %bufev_private, i64 440
+  %options40 = getelementptr inbounds nuw i8, ptr %bufev_private, i64 440
   store i32 %options, ptr %options40, align 8
   %2 = load ptr, ptr %input, align 8
   tail call void @evbuffer_set_parent_(ptr noundef %2, ptr noundef nonnull %bufev_private) #7
@@ -907,7 +907,7 @@ if.then45:                                        ; preds = %err
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then, %if.then45, %err
-  %output49 = getelementptr inbounds i8, ptr %bufev_private, i64 264
+  %output49 = getelementptr inbounds nuw i8, ptr %bufev_private, i64 264
   %4 = load ptr, ptr %output49, align 8
   %tobool50.not = icmp eq ptr %4, null
   br i1 %tobool50.not, label %return, label %if.then51
@@ -930,7 +930,7 @@ declare i32 @bufferevent_ratelim_init_(ptr noundef) local_unnamed_addr #1
 define dso_local range(i32 -1, 1) i32 @bufferevent_enable_locking_(ptr noundef %bufev, ptr noundef %lock) local_unnamed_addr #0 {
 entry:
   %d.i = alloca %union.bufferevent_ctrl_data, align 8
-  %lock1 = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock1 = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3.i, label %return
@@ -938,9 +938,9 @@ entry:
 do.end3.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i)
   store ptr null, ptr %d.i, align 8
-  %be_ops.i = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %1 = load ptr, ptr %be_ops.i, align 8
-  %ctrl.i = getelementptr inbounds i8, ptr %1, i64 64
+  %ctrl.i = getelementptr inbounds nuw i8, ptr %1, i64 64
   %2 = load ptr, ptr %ctrl.i, align 8
   %tobool4.not.i = icmp eq ptr %2, null
   br i1 %tobool4.not.i, label %.thread, label %do.body10.i
@@ -975,14 +975,14 @@ bufferevent_get_underlying.exit:                  ; preds = %do.body10.i
   br i1 %or.cond, label %land.lhs.true4, label %if.else
 
 land.lhs.true4:                                   ; preds = %5
-  %lock6 = getelementptr inbounds i8, ptr %6, i64 448
+  %lock6 = getelementptr inbounds nuw i8, ptr %6, i64 448
   %7 = load ptr, ptr %lock6, align 8
   %tobool7.not = icmp eq ptr %7, null
   br i1 %tobool7.not, label %if.then15, label %if.then8
 
 if.then8:                                         ; preds = %land.lhs.true4
   store ptr %7, ptr %lock1, align 8
-  %own_lock = getelementptr inbounds i8, ptr %bufev, i64 384
+  %own_lock = getelementptr inbounds nuw i8, ptr %bufev, i64 384
   %bf.load = load i8, ptr %own_lock, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %own_lock, align 8
@@ -1005,7 +1005,7 @@ cond.end:                                         ; preds = %if.then15
 
 if.end20:                                         ; preds = %cond.end
   store ptr %call17, ptr %lock1, align 8
-  %own_lock24 = getelementptr inbounds i8, ptr %bufev, i64 384
+  %own_lock24 = getelementptr inbounds nuw i8, ptr %bufev, i64 384
   %bf.load25 = load i8, ptr %own_lock24, align 8
   %bf.set27 = or i8 %bf.load25, 1
   store i8 %bf.set27, ptr %own_lock24, align 8
@@ -1015,7 +1015,7 @@ if.else28:                                        ; preds = %.thread, %if.else
   %10 = phi ptr [ null, %.thread ], [ %6, %if.else ]
   %tobool33839 = phi i1 [ false, %.thread ], [ %tobool3, %if.else ]
   store ptr %lock, ptr %lock1, align 8
-  %own_lock32 = getelementptr inbounds i8, ptr %bufev, i64 384
+  %own_lock32 = getelementptr inbounds nuw i8, ptr %bufev, i64 384
   %bf.load33 = load i8, ptr %own_lock32, align 8
   %bf.clear34 = and i8 %bf.load33, -2
   store i8 %bf.clear34, ptr %own_lock32, align 8
@@ -1025,16 +1025,16 @@ if.end37:                                         ; preds = %if.end20, %if.else2
   %tobool336 = phi i1 [ %tobool3, %if.then8 ], [ %tobool33839, %if.else28 ], [ %tobool337, %if.end20 ]
   %11 = phi ptr [ %6, %if.then8 ], [ %10, %if.else28 ], [ %8, %if.end20 ]
   %lock.addr.0 = phi ptr [ %7, %if.then8 ], [ %lock, %if.else28 ], [ %call17, %if.end20 ]
-  %input = getelementptr inbounds i8, ptr %bufev, i64 256
+  %input = getelementptr inbounds nuw i8, ptr %bufev, i64 256
   %12 = load ptr, ptr %input, align 8
   %call38 = call i32 @evbuffer_enable_locking(ptr noundef %12, ptr noundef nonnull %lock.addr.0) #7
-  %output = getelementptr inbounds i8, ptr %bufev, i64 264
+  %output = getelementptr inbounds nuw i8, ptr %bufev, i64 264
   %13 = load ptr, ptr %output, align 8
   %call39 = call i32 @evbuffer_enable_locking(ptr noundef %13, ptr noundef nonnull %lock.addr.0) #7
   br i1 %tobool336, label %land.lhs.true41, label %return
 
 land.lhs.true41:                                  ; preds = %if.end37
-  %lock43 = getelementptr inbounds i8, ptr %11, i64 448
+  %lock43 = getelementptr inbounds nuw i8, ptr %11, i64 448
   %14 = load ptr, ptr %lock43, align 8
   %tobool44.not = icmp eq ptr %14, null
   br i1 %tobool44.not, label %if.then45, label %return
@@ -1057,7 +1057,7 @@ declare i32 @event_base_get_npriorities(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @bufferevent_run_deferred_callbacks_unlocked(ptr nocapture readnone %cb, ptr noundef %arg) #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %arg, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %arg, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -1068,20 +1068,20 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  %eventcb_pending = getelementptr inbounds i8, ptr %arg, i64 386
+  %eventcb_pending = getelementptr inbounds nuw i8, ptr %arg, i64 386
   %2 = load i16, ptr %eventcb_pending, align 2
   %3 = and i16 %2, 128
   %tobool4.not = icmp eq i16 %3, 0
   br i1 %tobool4.not, label %if.end40, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.end3
-  %errorcb = getelementptr inbounds i8, ptr %arg, i64 320
+  %errorcb = getelementptr inbounds nuw i8, ptr %arg, i64 320
   %4 = load ptr, ptr %errorcb, align 8
   %tobool5.not = icmp eq ptr %4, null
   br i1 %tobool5.not, label %if.end40, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
-  %cbarg9 = getelementptr inbounds i8, ptr %arg, i64 328
+  %cbarg9 = getelementptr inbounds nuw i8, ptr %arg, i64 328
   %5 = load ptr, ptr %cbarg9, align 8
   %6 = and i16 %2, -129
   store i16 %6, ptr %eventcb_pending, align 2
@@ -1106,20 +1106,20 @@ if.then33:                                        ; preds = %do.end26
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then33, %do.end26, %land.lhs.true, %do.end3
-  %readcb_pending = getelementptr inbounds i8, ptr %arg, i64 384
+  %readcb_pending = getelementptr inbounds nuw i8, ptr %arg, i64 384
   %bf.load = load i8, ptr %readcb_pending, align 8
   %11 = and i8 %bf.load, 2
   %tobool41.not = icmp eq i8 %11, 0
   br i1 %tobool41.not, label %if.end78, label %land.lhs.true42
 
 land.lhs.true42:                                  ; preds = %if.end40
-  %readcb = getelementptr inbounds i8, ptr %arg, i64 304
+  %readcb = getelementptr inbounds nuw i8, ptr %arg, i64 304
   %12 = load ptr, ptr %readcb, align 8
   %tobool43.not = icmp eq ptr %12, null
   br i1 %tobool43.not, label %if.end78, label %if.then44
 
 if.then44:                                        ; preds = %land.lhs.true42
-  %cbarg48 = getelementptr inbounds i8, ptr %arg, i64 328
+  %cbarg48 = getelementptr inbounds nuw i8, ptr %arg, i64 328
   %13 = load ptr, ptr %cbarg48, align 8
   %bf.clear51 = and i8 %bf.load, -3
   store i8 %bf.clear51, ptr %readcb_pending, align 8
@@ -1144,20 +1144,20 @@ if.then71:                                        ; preds = %do.end64
   br label %do.end77
 
 do.end77:                                         ; preds = %do.end64, %if.then71
-  %high.i = getelementptr inbounds i8, ptr %arg, i64 280
+  %high.i = getelementptr inbounds nuw i8, ptr %arg, i64 280
   %18 = load i64, ptr %high.i, align 8
   %tobool.not.i = icmp eq i64 %18, 0
   br i1 %tobool.not.i, label %if.end78, label %if.end.i
 
 if.end.i:                                         ; preds = %do.end77
-  %enabled.i = getelementptr inbounds i8, ptr %arg, i64 368
+  %enabled.i = getelementptr inbounds nuw i8, ptr %arg, i64 368
   %19 = load i16, ptr %enabled.i, align 8
   %20 = and i16 %19, 2
   %tobool1.not.i = icmp eq i16 %20, 0
   br i1 %tobool1.not.i, label %if.end78, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %input.i = getelementptr inbounds i8, ptr %arg, i64 256
+  %input.i = getelementptr inbounds nuw i8, ptr %arg, i64 256
   %21 = load ptr, ptr %input.i, align 8
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %21) #7
   %22 = load i64, ptr %high.i, align 8
@@ -1175,13 +1175,13 @@ if.then.i.i.i:                                    ; preds = %if.end8.i
   br label %bufferevent_incref_and_lock_.exit.i.i
 
 bufferevent_incref_and_lock_.exit.i.i:            ; preds = %if.then.i.i.i, %if.end8.i
-  %refcnt.i.i.i = getelementptr inbounds i8, ptr %arg, i64 444
+  %refcnt.i.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 444
   %25 = load i32, ptr %refcnt.i.i.i, align 4
   %inc.i.i.i = add nsw i32 %25, 1
   store i32 %inc.i.i.i, ptr %refcnt.i.i.i, align 4
   %26 = load ptr, ptr %input.i, align 8
   %call.i5.i.i = tail call i64 @evbuffer_get_length(ptr noundef %26) #7
-  %wm_read.i.i.i = getelementptr inbounds i8, ptr %arg, i64 272
+  %wm_read.i.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 272
   %27 = load i64, ptr %wm_read.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %call.i5.i.i, %27
   br i1 %cmp.not.i.i.i, label %bufferevent_trigger.exit.i, label %if.then.i4.i.i
@@ -1201,13 +1201,13 @@ if.end78:                                         ; preds = %bufferevent_trigger
   br i1 %tobool83.not, label %if.end121, label %land.lhs.true84
 
 land.lhs.true84:                                  ; preds = %if.end78
-  %writecb = getelementptr inbounds i8, ptr %arg, i64 312
+  %writecb = getelementptr inbounds nuw i8, ptr %arg, i64 312
   %29 = load ptr, ptr %writecb, align 8
   %tobool85.not = icmp eq ptr %29, null
   br i1 %tobool85.not, label %if.end121, label %if.then86
 
 if.then86:                                        ; preds = %land.lhs.true84
-  %cbarg90 = getelementptr inbounds i8, ptr %arg, i64 328
+  %cbarg90 = getelementptr inbounds nuw i8, ptr %arg, i64 328
   %30 = load ptr, ptr %cbarg90, align 8
   %bf.clear93 = and i8 %bf.load79, -5
   store i8 %bf.clear93, ptr %readcb_pending, align 8
@@ -1237,15 +1237,15 @@ if.end121:                                        ; preds = %if.then114, %do.end
   br i1 %tobool124.not, label %if.end165, label %land.lhs.true125
 
 land.lhs.true125:                                 ; preds = %if.end121
-  %errorcb126 = getelementptr inbounds i8, ptr %arg, i64 320
+  %errorcb126 = getelementptr inbounds nuw i8, ptr %arg, i64 320
   %36 = load ptr, ptr %errorcb126, align 8
   %tobool127.not = icmp eq ptr %36, null
   br i1 %tobool127.not, label %if.end165, label %if.then128
 
 if.then128:                                       ; preds = %land.lhs.true125
-  %cbarg132 = getelementptr inbounds i8, ptr %arg, i64 328
+  %cbarg132 = getelementptr inbounds nuw i8, ptr %arg, i64 328
   %37 = load ptr, ptr %cbarg132, align 8
-  %errno_pending = getelementptr inbounds i8, ptr %arg, i64 392
+  %errno_pending = getelementptr inbounds nuw i8, ptr %arg, i64 392
   %38 = load i32, ptr %errno_pending, align 8
   store i16 0, ptr %eventcb_pending, align 2
   store i32 0, ptr %errno_pending, align 8
@@ -1279,7 +1279,7 @@ if.end165:                                        ; preds = %if.then158, %do.end
 ; Function Attrs: nounwind uwtable
 define internal void @bufferevent_run_deferred_callbacks_locked(ptr nocapture readnone %cb, ptr noundef %arg) #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %arg, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %arg, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -1290,14 +1290,14 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  %eventcb_pending = getelementptr inbounds i8, ptr %arg, i64 386
+  %eventcb_pending = getelementptr inbounds nuw i8, ptr %arg, i64 386
   %2 = load i16, ptr %eventcb_pending, align 2
   %3 = and i16 %2, 128
   %tobool4.not = icmp eq i16 %3, 0
   br i1 %tobool4.not, label %if.end12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.end3
-  %errorcb = getelementptr inbounds i8, ptr %arg, i64 320
+  %errorcb = getelementptr inbounds nuw i8, ptr %arg, i64 320
   %4 = load ptr, ptr %errorcb, align 8
   %tobool5.not = icmp eq ptr %4, null
   br i1 %tobool5.not, label %if.end12, label %if.then6
@@ -1305,20 +1305,20 @@ land.lhs.true:                                    ; preds = %do.end3
 if.then6:                                         ; preds = %land.lhs.true
   %5 = and i16 %2, -129
   store i16 %5, ptr %eventcb_pending, align 2
-  %cbarg = getelementptr inbounds i8, ptr %arg, i64 328
+  %cbarg = getelementptr inbounds nuw i8, ptr %arg, i64 328
   %6 = load ptr, ptr %cbarg, align 8
   tail call void %4(ptr noundef nonnull %arg, i16 noundef signext 128, ptr noundef %6) #7
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then6, %land.lhs.true, %do.end3
-  %readcb_pending = getelementptr inbounds i8, ptr %arg, i64 384
+  %readcb_pending = getelementptr inbounds nuw i8, ptr %arg, i64 384
   %bf.load = load i8, ptr %readcb_pending, align 8
   %7 = and i8 %bf.load, 2
   %tobool13.not = icmp eq i8 %7, 0
   br i1 %tobool13.not, label %if.end22, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %if.end12
-  %readcb = getelementptr inbounds i8, ptr %arg, i64 304
+  %readcb = getelementptr inbounds nuw i8, ptr %arg, i64 304
   %8 = load ptr, ptr %readcb, align 8
   %tobool15.not = icmp eq ptr %8, null
   br i1 %tobool15.not, label %if.end22, label %if.then16
@@ -1326,23 +1326,23 @@ land.lhs.true14:                                  ; preds = %if.end12
 if.then16:                                        ; preds = %land.lhs.true14
   %bf.clear19 = and i8 %bf.load, -3
   store i8 %bf.clear19, ptr %readcb_pending, align 8
-  %cbarg21 = getelementptr inbounds i8, ptr %arg, i64 328
+  %cbarg21 = getelementptr inbounds nuw i8, ptr %arg, i64 328
   %9 = load ptr, ptr %cbarg21, align 8
   tail call void %8(ptr noundef nonnull %arg, ptr noundef %9) #7
-  %high.i = getelementptr inbounds i8, ptr %arg, i64 280
+  %high.i = getelementptr inbounds nuw i8, ptr %arg, i64 280
   %10 = load i64, ptr %high.i, align 8
   %tobool.not.i = icmp eq i64 %10, 0
   br i1 %tobool.not.i, label %if.end22, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then16
-  %enabled.i = getelementptr inbounds i8, ptr %arg, i64 368
+  %enabled.i = getelementptr inbounds nuw i8, ptr %arg, i64 368
   %11 = load i16, ptr %enabled.i, align 8
   %12 = and i16 %11, 2
   %tobool1.not.i = icmp eq i16 %12, 0
   br i1 %tobool1.not.i, label %if.end22, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %input.i = getelementptr inbounds i8, ptr %arg, i64 256
+  %input.i = getelementptr inbounds nuw i8, ptr %arg, i64 256
   %13 = load ptr, ptr %input.i, align 8
   %call.i = tail call i64 @evbuffer_get_length(ptr noundef %13) #7
   %14 = load i64, ptr %high.i, align 8
@@ -1360,13 +1360,13 @@ if.then.i.i.i:                                    ; preds = %if.end8.i
   br label %bufferevent_incref_and_lock_.exit.i.i
 
 bufferevent_incref_and_lock_.exit.i.i:            ; preds = %if.then.i.i.i, %if.end8.i
-  %refcnt.i.i.i = getelementptr inbounds i8, ptr %arg, i64 444
+  %refcnt.i.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 444
   %17 = load i32, ptr %refcnt.i.i.i, align 4
   %inc.i.i.i = add nsw i32 %17, 1
   store i32 %inc.i.i.i, ptr %refcnt.i.i.i, align 4
   %18 = load ptr, ptr %input.i, align 8
   %call.i5.i.i = tail call i64 @evbuffer_get_length(ptr noundef %18) #7
-  %wm_read.i.i.i = getelementptr inbounds i8, ptr %arg, i64 272
+  %wm_read.i.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 272
   %19 = load i64, ptr %wm_read.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %call.i5.i.i, %19
   br i1 %cmp.not.i.i.i, label %bufferevent_trigger.exit.i, label %if.then.i4.i.i
@@ -1386,7 +1386,7 @@ if.end22:                                         ; preds = %bufferevent_trigger
   br i1 %tobool27.not, label %if.end37, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %if.end22
-  %writecb = getelementptr inbounds i8, ptr %arg, i64 312
+  %writecb = getelementptr inbounds nuw i8, ptr %arg, i64 312
   %21 = load ptr, ptr %writecb, align 8
   %tobool29.not = icmp eq ptr %21, null
   br i1 %tobool29.not, label %if.end37, label %if.then30
@@ -1394,7 +1394,7 @@ land.lhs.true28:                                  ; preds = %if.end22
 if.then30:                                        ; preds = %land.lhs.true28
   %bf.clear33 = and i8 %bf.load23, -5
   store i8 %bf.clear33, ptr %readcb_pending, align 8
-  %cbarg36 = getelementptr inbounds i8, ptr %arg, i64 328
+  %cbarg36 = getelementptr inbounds nuw i8, ptr %arg, i64 328
   %22 = load ptr, ptr %cbarg36, align 8
   tail call void %21(ptr noundef nonnull %arg, ptr noundef %22) #7
   br label %if.end37
@@ -1405,20 +1405,20 @@ if.end37:                                         ; preds = %if.then30, %land.lh
   br i1 %tobool40.not, label %if.end53, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.end37
-  %errorcb42 = getelementptr inbounds i8, ptr %arg, i64 320
+  %errorcb42 = getelementptr inbounds nuw i8, ptr %arg, i64 320
   %24 = load ptr, ptr %errorcb42, align 8
   %tobool43.not = icmp eq ptr %24, null
   br i1 %tobool43.not, label %if.end53, label %if.then44
 
 if.then44:                                        ; preds = %land.lhs.true41
-  %errno_pending = getelementptr inbounds i8, ptr %arg, i64 392
+  %errno_pending = getelementptr inbounds nuw i8, ptr %arg, i64 392
   %25 = load i32, ptr %errno_pending, align 8
   store i16 0, ptr %eventcb_pending, align 2
   store i32 0, ptr %errno_pending, align 8
   %call49 = tail call ptr @__errno_location() #8
   store i32 %25, ptr %call49, align 4
   %26 = load ptr, ptr %errorcb42, align 8
-  %cbarg52 = getelementptr inbounds i8, ptr %arg, i64 328
+  %cbarg52 = getelementptr inbounds nuw i8, ptr %arg, i64 328
   %27 = load ptr, ptr %cbarg52, align 8
   tail call void %26(ptr noundef nonnull %arg, i16 noundef signext %23, ptr noundef %27) #7
   br label %if.end53
@@ -1435,19 +1435,19 @@ declare void @evbuffer_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_setcb(ptr nocapture noundef initializes((304, 336)) %bufev, ptr noundef %readcb, ptr noundef %writecb, ptr noundef %eventcb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3.thread, label %do.end3
 
 do.end3.thread:                                   ; preds = %entry
-  %readcb49 = getelementptr inbounds i8, ptr %bufev, i64 304
+  %readcb49 = getelementptr inbounds nuw i8, ptr %bufev, i64 304
   store ptr %readcb, ptr %readcb49, align 8
-  %writecb510 = getelementptr inbounds i8, ptr %bufev, i64 312
+  %writecb510 = getelementptr inbounds nuw i8, ptr %bufev, i64 312
   store ptr %writecb, ptr %writecb510, align 8
-  %errorcb11 = getelementptr inbounds i8, ptr %bufev, i64 320
+  %errorcb11 = getelementptr inbounds nuw i8, ptr %bufev, i64 320
   store ptr %eventcb, ptr %errorcb11, align 8
-  %cbarg612 = getelementptr inbounds i8, ptr %bufev, i64 328
+  %cbarg612 = getelementptr inbounds nuw i8, ptr %bufev, i64 328
   store ptr %cbarg, ptr %cbarg612, align 8
   br label %do.end18
 
@@ -1455,13 +1455,13 @@ do.end3:                                          ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %1(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pre = load ptr, ptr %lock, align 8
-  %readcb4 = getelementptr inbounds i8, ptr %bufev, i64 304
+  %readcb4 = getelementptr inbounds nuw i8, ptr %bufev, i64 304
   store ptr %readcb, ptr %readcb4, align 8
-  %writecb5 = getelementptr inbounds i8, ptr %bufev, i64 312
+  %writecb5 = getelementptr inbounds nuw i8, ptr %bufev, i64 312
   store ptr %writecb, ptr %writecb5, align 8
-  %errorcb = getelementptr inbounds i8, ptr %bufev, i64 320
+  %errorcb = getelementptr inbounds nuw i8, ptr %bufev, i64 320
   store ptr %eventcb, ptr %errorcb, align 8
-  %cbarg6 = getelementptr inbounds i8, ptr %bufev, i64 328
+  %cbarg6 = getelementptr inbounds nuw i8, ptr %bufev, i64 328
   store ptr %cbarg, ptr %cbarg6, align 8
   %tobool12.not = icmp eq ptr %.pre, null
   br i1 %tobool12.not, label %do.end18, label %if.then13
@@ -1478,7 +1478,7 @@ do.end18:                                         ; preds = %do.end3.thread, %if
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_getcb(ptr nocapture noundef readonly %bufev, ptr noundef writeonly %readcb_ptr, ptr noundef writeonly %writecb_ptr, ptr noundef writeonly %eventcb_ptr, ptr noundef writeonly %cbarg_ptr) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -1493,7 +1493,7 @@ do.end3:                                          ; preds = %if.then, %entry
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %do.end3
-  %readcb = getelementptr inbounds i8, ptr %bufev, i64 304
+  %readcb = getelementptr inbounds nuw i8, ptr %bufev, i64 304
   %2 = load ptr, ptr %readcb, align 8
   store ptr %2, ptr %readcb_ptr, align 8
   br label %if.end6
@@ -1503,7 +1503,7 @@ if.end6:                                          ; preds = %if.then5, %do.end3
   br i1 %tobool7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %writecb = getelementptr inbounds i8, ptr %bufev, i64 312
+  %writecb = getelementptr inbounds nuw i8, ptr %bufev, i64 312
   %3 = load ptr, ptr %writecb, align 8
   store ptr %3, ptr %writecb_ptr, align 8
   br label %if.end9
@@ -1513,7 +1513,7 @@ if.end9:                                          ; preds = %if.then8, %if.end6
   br i1 %tobool10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %errorcb = getelementptr inbounds i8, ptr %bufev, i64 320
+  %errorcb = getelementptr inbounds nuw i8, ptr %bufev, i64 320
   %4 = load ptr, ptr %errorcb, align 8
   store ptr %4, ptr %eventcb_ptr, align 8
   br label %if.end12
@@ -1523,7 +1523,7 @@ if.end12:                                         ; preds = %if.then11, %if.end9
   br i1 %tobool13.not, label %do.body16, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %cbarg = getelementptr inbounds i8, ptr %bufev, i64 328
+  %cbarg = getelementptr inbounds nuw i8, ptr %bufev, i64 328
   %5 = load ptr, ptr %cbarg, align 8
   store ptr %5, ptr %cbarg_ptr, align 8
   br label %do.body16
@@ -1545,7 +1545,7 @@ do.end27:                                         ; preds = %if.then22, %do.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @bufferevent_get_input(ptr nocapture noundef readonly %bufev) local_unnamed_addr #3 {
 entry:
-  %input = getelementptr inbounds i8, ptr %bufev, i64 256
+  %input = getelementptr inbounds nuw i8, ptr %bufev, i64 256
   %0 = load ptr, ptr %input, align 8
   ret ptr %0
 }
@@ -1553,7 +1553,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @bufferevent_get_output(ptr nocapture noundef readonly %bufev) local_unnamed_addr #3 {
 entry:
-  %output = getelementptr inbounds i8, ptr %bufev, i64 264
+  %output = getelementptr inbounds nuw i8, ptr %bufev, i64 264
   %0 = load ptr, ptr %output, align 8
   ret ptr %0
 }
@@ -1568,7 +1568,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @bufferevent_get_priority(ptr noundef %bufev) local_unnamed_addr #0 {
 entry:
-  %ev_read = getelementptr inbounds i8, ptr %bufev, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bufev, i64 16
   %call = tail call i32 @event_initialized(ptr noundef nonnull %ev_read) #7
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1595,7 +1595,7 @@ declare i32 @event_get_priority(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @bufferevent_write(ptr nocapture noundef readonly %bufev, ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %output = getelementptr inbounds i8, ptr %bufev, i64 264
+  %output = getelementptr inbounds nuw i8, ptr %bufev, i64 264
   %0 = load ptr, ptr %output, align 8
   %call = tail call i32 @evbuffer_add(ptr noundef %0, ptr noundef %data, i64 noundef %size) #7
   %cmp = icmp eq i32 %call, -1
@@ -1608,7 +1608,7 @@ declare i32 @evbuffer_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @bufferevent_write_buffer(ptr nocapture noundef readonly %bufev, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
-  %output = getelementptr inbounds i8, ptr %bufev, i64 264
+  %output = getelementptr inbounds nuw i8, ptr %bufev, i64 264
   %0 = load ptr, ptr %output, align 8
   %call = tail call i32 @evbuffer_add_buffer(ptr noundef %0, ptr noundef %buf) #7
   %cmp = icmp eq i32 %call, -1
@@ -1621,7 +1621,7 @@ declare i32 @evbuffer_add_buffer(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -2147483648, 2147483648) i64 @bufferevent_read(ptr nocapture noundef readonly %bufev, ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %input = getelementptr inbounds i8, ptr %bufev, i64 256
+  %input = getelementptr inbounds nuw i8, ptr %bufev, i64 256
   %0 = load ptr, ptr %input, align 8
   %call = tail call i32 @evbuffer_remove(ptr noundef %0, ptr noundef %data, i64 noundef %size) #7
   %cmp = icmp eq i32 %call, -1
@@ -1635,7 +1635,7 @@ declare i32 @evbuffer_remove(ptr noundef, ptr noundef, i64 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @bufferevent_read_buffer(ptr nocapture noundef readonly %bufev, ptr noundef %buf) local_unnamed_addr #0 {
 entry:
-  %input = getelementptr inbounds i8, ptr %bufev, i64 256
+  %input = getelementptr inbounds nuw i8, ptr %bufev, i64 256
   %0 = load ptr, ptr %input, align 8
   %call = tail call i32 @evbuffer_add_buffer(ptr noundef %buf, ptr noundef %0) #7
   ret i32 %call
@@ -1644,7 +1644,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @bufferevent_enable(ptr noundef %bufev, i16 noundef signext %event) local_unnamed_addr #0 {
 entry:
-  %lock.i = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock.i = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %bufferevent_incref_and_lock_.exit, label %if.then.i
@@ -1655,22 +1655,22 @@ if.then.i:                                        ; preds = %entry
   br label %bufferevent_incref_and_lock_.exit
 
 bufferevent_incref_and_lock_.exit:                ; preds = %entry, %if.then.i
-  %refcnt.i = getelementptr inbounds i8, ptr %bufev, i64 444
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %bufev, i64 444
   %2 = load i32, ptr %refcnt.i, align 4
   %inc.i = add nsw i32 %2, 1
   store i32 %inc.i, ptr %refcnt.i, align 4
-  %read_suspended = getelementptr inbounds i8, ptr %bufev, i64 388
+  %read_suspended = getelementptr inbounds nuw i8, ptr %bufev, i64 388
   %3 = load i16, ptr %read_suspended, align 4
   %tobool.not = icmp eq i16 %3, 0
   %4 = and i16 %event, -3
   %spec.select = select i1 %tobool.not, i16 %event, i16 %4
-  %write_suspended = getelementptr inbounds i8, ptr %bufev, i64 390
+  %write_suspended = getelementptr inbounds nuw i8, ptr %bufev, i64 390
   %5 = load i16, ptr %write_suspended, align 2
   %tobool2.not = icmp eq i16 %5, 0
   %6 = and i16 %spec.select, -5
   %impl_events.1 = select i1 %tobool2.not, i16 %spec.select, i16 %6
   %conv8 = sext i16 %event to i32
-  %enabled = getelementptr inbounds i8, ptr %bufev, i64 368
+  %enabled = getelementptr inbounds nuw i8, ptr %bufev, i64 368
   %7 = load i16, ptr %enabled, align 8
   %or14 = or i16 %7, %event
   store i16 %or14, ptr %enabled, align 8
@@ -1678,9 +1678,9 @@ bufferevent_incref_and_lock_.exit:                ; preds = %entry, %if.then.i
   br i1 %tobool12.not, label %if.end22, label %if.end15
 
 if.end15:                                         ; preds = %bufferevent_incref_and_lock_.exit
-  %be_ops = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %8 = load ptr, ptr %be_ops, align 8
-  %enable = getelementptr inbounds i8, ptr %8, i64 16
+  %enable = getelementptr inbounds nuw i8, ptr %8, i64 16
   %9 = load ptr, ptr %enable, align 8
   %call = tail call i32 %9(ptr noundef nonnull %bufev, i16 noundef signext %impl_events.1) #7
   %cmp = icmp slt i32 %call, 0
@@ -1705,7 +1705,7 @@ declare void @event_debugx_(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @bufferevent_set_timeouts(ptr noundef initializes((336, 368)) %bufev, ptr noundef readonly %tv_read, ptr noundef readonly %tv_write) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -1717,7 +1717,7 @@ if.then:                                          ; preds = %entry
 
 do.end3:                                          ; preds = %if.then, %entry
   %tobool4.not = icmp eq ptr %tv_read, null
-  %timeout_read6 = getelementptr inbounds i8, ptr %bufev, i64 336
+  %timeout_read6 = getelementptr inbounds nuw i8, ptr %bufev, i64 336
   br i1 %tobool4.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %do.end3
@@ -1730,7 +1730,7 @@ if.else:                                          ; preds = %do.end3
 
 if.end8:                                          ; preds = %if.else, %if.then5
   %tobool9.not = icmp eq ptr %tv_write, null
-  %timeout_write12 = getelementptr inbounds i8, ptr %bufev, i64 352
+  %timeout_write12 = getelementptr inbounds nuw i8, ptr %bufev, i64 352
   br i1 %tobool9.not, label %if.else11, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
@@ -1742,9 +1742,9 @@ if.else11:                                        ; preds = %if.end8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else11, %if.then10
-  %be_ops = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %2 = load ptr, ptr %be_ops, align 8
-  %adj_timeouts = getelementptr inbounds i8, ptr %2, i64 48
+  %adj_timeouts = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load ptr, ptr %adj_timeouts, align 8
   %tobool17.not = icmp eq ptr %3, null
   br i1 %tobool17.not, label %do.body23, label %if.then18
@@ -1798,7 +1798,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.then2, %if.end
   %ptv_write.0 = phi ptr [ %tv_write, %if.then2 ], [ null, %if.end ]
-  %lock.i = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock.i = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %do.end3.i, label %if.then.i
@@ -1810,7 +1810,7 @@ if.then.i:                                        ; preds = %if.end5
 
 do.end3.i:                                        ; preds = %if.then.i, %if.end5
   %tobool4.not.i = icmp eq ptr %ptv_read.0, null
-  %timeout_read6.i = getelementptr inbounds i8, ptr %bufev, i64 336
+  %timeout_read6.i = getelementptr inbounds nuw i8, ptr %bufev, i64 336
   br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %do.end3.i
@@ -1823,7 +1823,7 @@ if.else.i:                                        ; preds = %do.end3.i
 
 if.end8.i:                                        ; preds = %if.else.i, %if.then5.i
   %tobool9.not.i = icmp eq ptr %ptv_write.0, null
-  %timeout_write12.i = getelementptr inbounds i8, ptr %bufev, i64 352
+  %timeout_write12.i = getelementptr inbounds nuw i8, ptr %bufev, i64 352
   br i1 %tobool9.not.i, label %if.else11.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
@@ -1835,9 +1835,9 @@ if.else11.i:                                      ; preds = %if.end8.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.else11.i, %if.then10.i
-  %be_ops.i = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %2 = load ptr, ptr %be_ops.i, align 8
-  %adj_timeouts.i = getelementptr inbounds i8, ptr %2, i64 48
+  %adj_timeouts.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load ptr, ptr %adj_timeouts.i, align 8
   %tobool17.not.i = icmp eq ptr %3, null
   br i1 %tobool17.not.i, label %do.body23.i, label %if.then18.i
@@ -1866,7 +1866,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @bufferevent_disable_hard_(ptr noundef %bufev, i16 noundef signext %event) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end4, label %if.then
@@ -1878,17 +1878,17 @@ if.then:                                          ; preds = %entry
 
 do.end4:                                          ; preds = %if.then, %entry
   %2 = xor i16 %event, -1
-  %enabled = getelementptr inbounds i8, ptr %bufev, i64 368
+  %enabled = getelementptr inbounds nuw i8, ptr %bufev, i64 368
   %3 = load i16, ptr %enabled, align 8
   %and10 = and i16 %3, %2
   store i16 %and10, ptr %enabled, align 8
-  %connecting = getelementptr inbounds i8, ptr %bufev, i64 384
+  %connecting = getelementptr inbounds nuw i8, ptr %bufev, i64 384
   %bf.load = load i8, ptr %connecting, align 8
   %bf.clear = and i8 %bf.load, -9
   store i8 %bf.clear, ptr %connecting, align 8
-  %be_ops = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %4 = load ptr, ptr %be_ops, align 8
-  %disable = getelementptr inbounds i8, ptr %4, i64 24
+  %disable = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load ptr, ptr %disable, align 8
   %call7 = tail call i32 %5(ptr noundef nonnull %bufev, i16 noundef signext %event) #7
   %6 = load ptr, ptr %lock, align 8
@@ -1908,7 +1908,7 @@ do.end22:                                         ; preds = %if.then17, %do.end4
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @bufferevent_disable(ptr noundef %bufev, i16 noundef signext %event) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -1920,13 +1920,13 @@ if.then:                                          ; preds = %entry
 
 do.end3:                                          ; preds = %if.then, %entry
   %not = xor i16 %event, -1
-  %enabled = getelementptr inbounds i8, ptr %bufev, i64 368
+  %enabled = getelementptr inbounds nuw i8, ptr %bufev, i64 368
   %2 = load i16, ptr %enabled, align 8
   %and = and i16 %2, %not
   store i16 %and, ptr %enabled, align 8
-  %be_ops = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %3 = load ptr, ptr %be_ops, align 8
-  %disable = getelementptr inbounds i8, ptr %3, i64 24
+  %disable = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load ptr, ptr %disable, align 8
   %call6 = tail call i32 %4(ptr noundef nonnull %bufev, i16 noundef signext %event) #7
   %cmp = icmp slt i32 %call6, 0
@@ -1958,7 +1958,7 @@ do.end30:                                         ; preds = %if.then25, %do.body
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_setwatermark(ptr noundef %bufev, i16 noundef signext %events, i64 noundef %lowmark, i64 noundef %highmark) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end4, label %if.then
@@ -1974,9 +1974,9 @@ do.end4:                                          ; preds = %if.then, %entry
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %do.end4
-  %wm_write = getelementptr inbounds i8, ptr %bufev, i64 288
+  %wm_write = getelementptr inbounds nuw i8, ptr %bufev, i64 288
   store i64 %lowmark, ptr %wm_write, align 8
-  %high = getelementptr inbounds i8, ptr %bufev, i64 296
+  %high = getelementptr inbounds nuw i8, ptr %bufev, i64 296
   store i64 %highmark, ptr %high, align 8
   br label %if.end8
 
@@ -1986,12 +1986,12 @@ if.end8:                                          ; preds = %if.then6, %do.end4
   br i1 %tobool11.not, label %do.body48, label %if.then12
 
 if.then12:                                        ; preds = %if.end8
-  %wm_read = getelementptr inbounds i8, ptr %bufev, i64 272
+  %wm_read = getelementptr inbounds nuw i8, ptr %bufev, i64 272
   store i64 %lowmark, ptr %wm_read, align 8
-  %high15 = getelementptr inbounds i8, ptr %bufev, i64 280
+  %high15 = getelementptr inbounds nuw i8, ptr %bufev, i64 280
   store i64 %highmark, ptr %high15, align 8
   %tobool16.not = icmp eq i64 %highmark, 0
-  %read_watermarks_cb39 = getelementptr inbounds i8, ptr %bufev, i64 376
+  %read_watermarks_cb39 = getelementptr inbounds nuw i8, ptr %bufev, i64 376
   %4 = load ptr, ptr %read_watermarks_cb39, align 8
   %tobool40.not = icmp eq ptr %4, null
   br i1 %tobool16.not, label %if.else38, label %if.then17
@@ -2000,7 +2000,7 @@ if.then17:                                        ; preds = %if.then12
   br i1 %tobool40.not, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %if.then17
-  %input = getelementptr inbounds i8, ptr %bufev, i64 256
+  %input = getelementptr inbounds nuw i8, ptr %bufev, i64 256
   %5 = load ptr, ptr %input, align 8
   %call20 = tail call ptr @evbuffer_add_cb(ptr noundef %5, ptr noundef nonnull @bufferevent_inbuf_wm_cb, ptr noundef nonnull %bufev) #7
   store ptr %call20, ptr %read_watermarks_cb39, align 8
@@ -2008,7 +2008,7 @@ if.then19:                                        ; preds = %if.then17
 
 if.end22:                                         ; preds = %if.then19, %if.then17
   %6 = phi ptr [ %call20, %if.then19 ], [ %4, %if.then17 ]
-  %input23 = getelementptr inbounds i8, ptr %bufev, i64 256
+  %input23 = getelementptr inbounds nuw i8, ptr %bufev, i64 256
   %7 = load ptr, ptr %input23, align 8
   %call25 = tail call i32 @evbuffer_cb_set_flags(ptr noundef %7, ptr noundef %6, i32 noundef 3) #7
   %8 = load ptr, ptr %input23, align 8
@@ -2027,15 +2027,15 @@ if.then.i:                                        ; preds = %if.then30
   br label %do.end4.i
 
 do.end4.i:                                        ; preds = %if.then.i, %if.then30
-  %read_suspended.i = getelementptr inbounds i8, ptr %bufev, i64 388
+  %read_suspended.i = getelementptr inbounds nuw i8, ptr %bufev, i64 388
   %11 = load i16, ptr %read_suspended.i, align 4
   %tobool5.not.i = icmp eq i16 %11, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %do.end4.i
-  %be_ops.i = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %12 = load ptr, ptr %be_ops.i, align 8
-  %disable.i = getelementptr inbounds i8, ptr %12, i64 24
+  %disable.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %13 = load ptr, ptr %disable.i, align 8
   %call7.i = tail call i32 %13(ptr noundef nonnull %bufev, i16 noundef signext 2) #7
   %.pre.i = load i16, ptr %read_suspended.i, align 4
@@ -2066,7 +2066,7 @@ if.then.i32:                                      ; preds = %if.then35
   br label %do.end4.i34
 
 do.end4.i34:                                      ; preds = %if.then.i32, %if.then35
-  %read_suspended.i35 = getelementptr inbounds i8, ptr %bufev, i64 388
+  %read_suspended.i35 = getelementptr inbounds nuw i8, ptr %bufev, i64 388
   %19 = load i16, ptr %read_suspended.i35, align 4
   %and.i = and i16 %19, -2
   store i16 %and.i, ptr %read_suspended.i35, align 4
@@ -2074,16 +2074,16 @@ do.end4.i34:                                      ; preds = %if.then.i32, %if.th
   br i1 %tobool8.not.i, label %land.lhs.true.i, label %do.body15.i
 
 land.lhs.true.i:                                  ; preds = %do.end4.i34
-  %enabled.i = getelementptr inbounds i8, ptr %bufev, i64 368
+  %enabled.i = getelementptr inbounds nuw i8, ptr %bufev, i64 368
   %20 = load i16, ptr %enabled.i, align 8
   %21 = and i16 %20, 2
   %tobool11.not.i = icmp eq i16 %21, 0
   br i1 %tobool11.not.i, label %do.body15.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %land.lhs.true.i
-  %be_ops.i36 = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops.i36 = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %22 = load ptr, ptr %be_ops.i36, align 8
-  %enable.i = getelementptr inbounds i8, ptr %22, i64 16
+  %enable.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   %23 = load ptr, ptr %enable.i, align 8
   %call13.i = tail call i32 %23(ptr noundef nonnull %bufev, i16 noundef signext 2) #7
   br label %do.body15.i
@@ -2097,7 +2097,7 @@ if.else38:                                        ; preds = %if.then12
   br i1 %tobool40.not, label %if.end45, label %if.then41
 
 if.then41:                                        ; preds = %if.else38
-  %input42 = getelementptr inbounds i8, ptr %bufev, i64 256
+  %input42 = getelementptr inbounds nuw i8, ptr %bufev, i64 256
   %25 = load ptr, ptr %input42, align 8
   %call44 = tail call i32 @evbuffer_cb_clear_flags(ptr noundef %25, ptr noundef nonnull %4, i32 noundef 1) #7
   br label %if.end45
@@ -2113,7 +2113,7 @@ if.then.i39:                                      ; preds = %if.end45
   br label %do.end4.i41
 
 do.end4.i41:                                      ; preds = %if.then.i39, %if.end45
-  %read_suspended.i42 = getelementptr inbounds i8, ptr %bufev, i64 388
+  %read_suspended.i42 = getelementptr inbounds nuw i8, ptr %bufev, i64 388
   %28 = load i16, ptr %read_suspended.i42, align 4
   %and.i43 = and i16 %28, -2
   store i16 %and.i43, ptr %read_suspended.i42, align 4
@@ -2121,16 +2121,16 @@ do.end4.i41:                                      ; preds = %if.then.i39, %if.en
   br i1 %tobool8.not.i44, label %land.lhs.true.i49, label %do.body15.i45
 
 land.lhs.true.i49:                                ; preds = %do.end4.i41
-  %enabled.i50 = getelementptr inbounds i8, ptr %bufev, i64 368
+  %enabled.i50 = getelementptr inbounds nuw i8, ptr %bufev, i64 368
   %29 = load i16, ptr %enabled.i50, align 8
   %30 = and i16 %29, 2
   %tobool11.not.i51 = icmp eq i16 %30, 0
   br i1 %tobool11.not.i51, label %do.body15.i45, label %if.then12.i52
 
 if.then12.i52:                                    ; preds = %land.lhs.true.i49
-  %be_ops.i53 = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops.i53 = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %31 = load ptr, ptr %be_ops.i53, align 8
-  %enable.i54 = getelementptr inbounds i8, ptr %31, i64 16
+  %enable.i54 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %32 = load ptr, ptr %enable.i54, align 8
   %call13.i55 = tail call i32 %32(ptr noundef nonnull %bufev, i16 noundef signext 2) #7
   br label %do.body15.i45
@@ -2166,10 +2166,10 @@ declare ptr @evbuffer_add_cb(ptr noundef, ptr noundef, ptr noundef) local_unname
 define internal void @bufferevent_inbuf_wm_cb(ptr noundef %buf, ptr nocapture readnone %cbinfo, ptr noundef %arg) #0 {
 entry:
   %call = tail call i64 @evbuffer_get_length(ptr noundef %buf) #7
-  %high = getelementptr inbounds i8, ptr %arg, i64 280
+  %high = getelementptr inbounds nuw i8, ptr %arg, i64 280
   %0 = load i64, ptr %high, align 8
   %cmp.not = icmp ult i64 %call, %0
-  %lock.i3 = getelementptr inbounds i8, ptr %arg, i64 448
+  %lock.i3 = getelementptr inbounds nuw i8, ptr %arg, i64 448
   %1 = load ptr, ptr %lock.i3, align 8
   %tobool.not.i4 = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -2183,15 +2183,15 @@ if.then.i:                                        ; preds = %if.then
   br label %do.end4.i
 
 do.end4.i:                                        ; preds = %if.then.i, %if.then
-  %read_suspended.i = getelementptr inbounds i8, ptr %arg, i64 388
+  %read_suspended.i = getelementptr inbounds nuw i8, ptr %arg, i64 388
   %3 = load i16, ptr %read_suspended.i, align 4
   %tobool5.not.i = icmp eq i16 %3, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %do.end4.i
-  %be_ops.i = getelementptr inbounds i8, ptr %arg, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %4 = load ptr, ptr %be_ops.i, align 8
-  %disable.i = getelementptr inbounds i8, ptr %4, i64 24
+  %disable.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load ptr, ptr %disable.i, align 8
   %call7.i = tail call i32 %5(ptr noundef nonnull %arg, i16 noundef signext 2) #7
   %.pre.i = load i16, ptr %read_suspended.i, align 4
@@ -2214,7 +2214,7 @@ if.then.i5:                                       ; preds = %if.else
   br label %do.end4.i7
 
 do.end4.i7:                                       ; preds = %if.then.i5, %if.else
-  %read_suspended.i8 = getelementptr inbounds i8, ptr %arg, i64 388
+  %read_suspended.i8 = getelementptr inbounds nuw i8, ptr %arg, i64 388
   %9 = load i16, ptr %read_suspended.i8, align 4
   %and.i = and i16 %9, -2
   store i16 %and.i, ptr %read_suspended.i8, align 4
@@ -2222,16 +2222,16 @@ do.end4.i7:                                       ; preds = %if.then.i5, %if.els
   br i1 %tobool8.not.i, label %land.lhs.true.i, label %do.body15.i
 
 land.lhs.true.i:                                  ; preds = %do.end4.i7
-  %enabled.i = getelementptr inbounds i8, ptr %arg, i64 368
+  %enabled.i = getelementptr inbounds nuw i8, ptr %arg, i64 368
   %10 = load i16, ptr %enabled.i, align 8
   %11 = and i16 %10, 2
   %tobool11.not.i = icmp eq i16 %11, 0
   br i1 %tobool11.not.i, label %do.body15.i, label %if.then12.i
 
 if.then12.i:                                      ; preds = %land.lhs.true.i
-  %be_ops.i9 = getelementptr inbounds i8, ptr %arg, i64 8
+  %be_ops.i9 = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %12 = load ptr, ptr %be_ops.i9, align 8
-  %enable.i = getelementptr inbounds i8, ptr %12, i64 16
+  %enable.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %enable.i, align 8
   %call13.i = tail call i32 %13(ptr noundef nonnull %arg, i16 noundef signext 2) #7
   br label %do.body15.i
@@ -2266,7 +2266,7 @@ entry:
   ]
 
 do.body:                                          ; preds = %entry
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end5, label %if.then3
@@ -2281,7 +2281,7 @@ do.end5:                                          ; preds = %if.then3, %do.body
   br i1 %tobool6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %do.end5
-  %wm_write = getelementptr inbounds i8, ptr %bufev, i64 288
+  %wm_write = getelementptr inbounds nuw i8, ptr %bufev, i64 288
   %2 = load i64, ptr %wm_write, align 8
   store i64 %2, ptr %lowmark, align 8
   br label %if.end8
@@ -2291,7 +2291,7 @@ if.end8:                                          ; preds = %if.then7, %do.end5
   br i1 %tobool9.not, label %do.body13, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %high = getelementptr inbounds i8, ptr %bufev, i64 296
+  %high = getelementptr inbounds nuw i8, ptr %bufev, i64 296
   %3 = load i64, ptr %high, align 8
   store i64 %3, ptr %highmark, align 8
   br label %do.body13
@@ -2302,7 +2302,7 @@ do.body13:                                        ; preds = %if.end8, %if.then10
   br i1 %tobool18.not, label %return, label %return.sink.split
 
 do.body30:                                        ; preds = %entry
-  %lock34 = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock34 = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %5 = load ptr, ptr %lock34, align 8
   %tobool35.not = icmp eq ptr %5, null
   br i1 %tobool35.not, label %do.end41, label %if.then36
@@ -2317,7 +2317,7 @@ do.end41:                                         ; preds = %if.then36, %do.body
   br i1 %tobool42.not, label %if.end45, label %if.then43
 
 if.then43:                                        ; preds = %do.end41
-  %wm_read = getelementptr inbounds i8, ptr %bufev, i64 272
+  %wm_read = getelementptr inbounds nuw i8, ptr %bufev, i64 272
   %7 = load i64, ptr %wm_read, align 8
   store i64 %7, ptr %lowmark, align 8
   br label %if.end45
@@ -2327,7 +2327,7 @@ if.end45:                                         ; preds = %if.then43, %do.end4
   br i1 %tobool46.not, label %do.body51, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
-  %high49 = getelementptr inbounds i8, ptr %bufev, i64 280
+  %high49 = getelementptr inbounds nuw i8, ptr %bufev, i64 280
   %8 = load i64, ptr %high49, align 8
   store i64 %8, ptr %highmark, align 8
   br label %do.body51
@@ -2351,7 +2351,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @bufferevent_flush(ptr noundef %bufev, i16 noundef signext %iotype, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -2362,9 +2362,9 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  %be_ops = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %2 = load ptr, ptr %be_ops, align 8
-  %flush = getelementptr inbounds i8, ptr %2, i64 56
+  %flush = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %flush, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %do.body10, label %if.then5
@@ -2396,7 +2396,7 @@ declare i32 @event_callback_finalize_many_(ptr noundef, i32 noundef, ptr noundef
 define internal void @bufferevent_finalize_cb_(ptr nocapture readnone %evcb, ptr noundef %arg_) #0 {
 entry:
   %d.i = alloca %union.bufferevent_ctrl_data, align 8
-  %lock = getelementptr inbounds i8, ptr %arg_, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %arg_, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end4.thread, label %do.end4
@@ -2421,9 +2421,9 @@ if.then.i:                                        ; preds = %do.end4
   br label %do.end3.i
 
 do.end3.i:                                        ; preds = %do.end4.thread, %if.then.i, %do.end4
-  %be_ops.i = getelementptr inbounds i8, ptr %arg_, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %arg_, i64 8
   %3 = load ptr, ptr %be_ops.i, align 8
-  %ctrl.i = getelementptr inbounds i8, ptr %3, i64 64
+  %ctrl.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   %4 = load ptr, ptr %ctrl.i, align 8
   %tobool4.not.i = icmp eq ptr %4, null
   br i1 %tobool4.not.i, label %do.body10.i, label %if.then5.i
@@ -2449,7 +2449,7 @@ bufferevent_get_underlying.exit:                  ; preds = %do.body10.i, %if.th
   %cond.i = select i1 %res.0.i, ptr null, ptr %8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
   %9 = load ptr, ptr %be_ops.i, align 8
-  %destruct = getelementptr inbounds i8, ptr %9, i64 40
+  %destruct = getelementptr inbounds nuw i8, ptr %9, i64 40
   %10 = load ptr, ptr %destruct, align 8
   %tobool6.not = icmp eq ptr %10, null
   br i1 %tobool6.not, label %if.end10, label %if.then7
@@ -2459,19 +2459,19 @@ if.then7:                                         ; preds = %bufferevent_get_und
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %bufferevent_get_underlying.exit
-  %input = getelementptr inbounds i8, ptr %arg_, i64 256
+  %input = getelementptr inbounds nuw i8, ptr %arg_, i64 256
   %11 = load ptr, ptr %input, align 8
   call void @evbuffer_free(ptr noundef %11) #7
-  %output = getelementptr inbounds i8, ptr %arg_, i64 264
+  %output = getelementptr inbounds nuw i8, ptr %arg_, i64 264
   %12 = load ptr, ptr %output, align 8
   call void @evbuffer_free(ptr noundef %12) #7
-  %rate_limiting = getelementptr inbounds i8, ptr %arg_, i64 472
+  %rate_limiting = getelementptr inbounds nuw i8, ptr %arg_, i64 472
   %13 = load ptr, ptr %rate_limiting, align 8
   %tobool11.not = icmp eq ptr %13, null
   br i1 %tobool11.not, label %do.body21, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %group = getelementptr inbounds i8, ptr %13, i64 16
+  %group = getelementptr inbounds nuw i8, ptr %13, i64 16
   %14 = load ptr, ptr %group, align 8
   %tobool14.not = icmp eq ptr %14, null
   br i1 %tobool14.not, label %if.end17, label %if.then15
@@ -2498,7 +2498,7 @@ if.then27:                                        ; preds = %do.body21
   br label %do.end32
 
 do.end32:                                         ; preds = %if.then27, %do.body21
-  %own_lock = getelementptr inbounds i8, ptr %arg_, i64 384
+  %own_lock = getelementptr inbounds nuw i8, ptr %arg_, i64 384
   %bf.load = load i8, ptr %own_lock, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool33.not = icmp eq i8 %bf.clear, 0
@@ -2520,7 +2520,7 @@ if.then39:                                        ; preds = %land.lhs.true
 
 if.end42:                                         ; preds = %if.then39, %land.lhs.true, %do.body35, %do.end32
   %20 = load ptr, ptr %be_ops.i, align 8
-  %mem_offset = getelementptr inbounds i8, ptr %20, i64 8
+  %mem_offset = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load i64, ptr %mem_offset, align 8
   %idx.neg = sub i64 0, %21
   %add.ptr44 = getelementptr inbounds i8, ptr %arg_, i64 %idx.neg
@@ -2529,7 +2529,7 @@ if.end42:                                         ; preds = %if.then39, %land.lh
   br i1 %tobool45.not, label %if.end48, label %if.then46
 
 if.then46:                                        ; preds = %if.end42
-  %lock.i26 = getelementptr inbounds i8, ptr %cond.i, i64 448
+  %lock.i26 = getelementptr inbounds nuw i8, ptr %cond.i, i64 448
   %22 = load ptr, ptr %lock.i26, align 8
   %tobool.not.i27 = icmp eq ptr %22, null
   br i1 %tobool.not.i27, label %bufferevent_decref.exit, label %if.then.i28
@@ -2550,7 +2550,7 @@ if.end48:                                         ; preds = %bufferevent_decref.
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @bufferevent_decref(ptr noundef %bufev) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -2569,7 +2569,7 @@ do.end3:                                          ; preds = %if.then, %entry
 define dso_local void @bufferevent_free(ptr noundef initializes((304, 336)) %bufev) local_unnamed_addr #0 {
 entry:
   %d.i = alloca %union.bufferevent_ctrl_data, align 8
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3.thread.i, label %do.end3
@@ -2582,7 +2582,7 @@ do.end3:                                          ; preds = %entry
   br i1 %tobool.not.i, label %do.end3.thread.i, label %do.end3.i
 
 do.end3.thread.i:                                 ; preds = %entry, %do.end3
-  %readcb49.i = getelementptr inbounds i8, ptr %bufev, i64 304
+  %readcb49.i = getelementptr inbounds nuw i8, ptr %bufev, i64 304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %readcb49.i, i8 0, i64 32, i1 false)
   br label %bufferevent_setcb.exit.thread
 
@@ -2590,7 +2590,7 @@ do.end3.i:                                        ; preds = %do.end3
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %.pr) #7
   %.pre.i = load ptr, ptr %lock, align 8
-  %readcb4.i = getelementptr inbounds i8, ptr %bufev, i64 304
+  %readcb4.i = getelementptr inbounds nuw i8, ptr %bufev, i64 304
   %tobool12.not.i = icmp eq ptr %.pre.i, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %readcb4.i, i8 0, i64 32, i1 false)
   br i1 %tobool12.not.i, label %bufferevent_setcb.exit.thread, label %bufferevent_setcb.exit
@@ -2615,9 +2615,9 @@ if.then.i:                                        ; preds = %bufferevent_setcb.e
   br label %do.end3.i8
 
 do.end3.i8:                                       ; preds = %bufferevent_setcb.exit.thread, %if.then.i, %bufferevent_setcb.exit
-  %be_ops.i = getelementptr inbounds i8, ptr %bufev, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %bufev, i64 8
   %5 = load ptr, ptr %be_ops.i, align 8
-  %ctrl.i = getelementptr inbounds i8, ptr %5, i64 64
+  %ctrl.i = getelementptr inbounds nuw i8, ptr %5, i64 64
   %6 = load ptr, ptr %ctrl.i, align 8
   %tobool4.not.i = icmp eq ptr %6, null
   br i1 %tobool4.not.i, label %do.body10.i, label %if.then5.i
@@ -2647,7 +2647,7 @@ define dso_local ptr @bufferevent_get_underlying(ptr noundef %bev) local_unnamed
 entry:
   %d = alloca %union.bufferevent_ctrl_data, align 8
   store ptr null, ptr %d, align 8
-  %lock = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -2658,9 +2658,9 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  %be_ops = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %2 = load ptr, ptr %be_ops, align 8
-  %ctrl = getelementptr inbounds i8, ptr %2, i64 64
+  %ctrl = getelementptr inbounds nuw i8, ptr %2, i64 64
   %3 = load ptr, ptr %ctrl, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %do.body10, label %if.then5
@@ -2694,7 +2694,7 @@ define dso_local i32 @bufferevent_setfd(ptr noundef %bev, i32 noundef %fd) local
 entry:
   %d = alloca %union.bufferevent_ctrl_data, align 8
   store i32 %fd, ptr %d, align 8
-  %lock = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -2705,9 +2705,9 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  %be_ops = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %2 = load ptr, ptr %be_ops, align 8
-  %ctrl = getelementptr inbounds i8, ptr %2, i64 64
+  %ctrl = getelementptr inbounds nuw i8, ptr %2, i64 64
   %3 = load ptr, ptr %ctrl, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end9, label %if.then5
@@ -2746,7 +2746,7 @@ do.end29:                                         ; preds = %if.then24, %do.body
 define dso_local i32 @bufferevent_replacefd(ptr noundef %bev, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   %d = alloca %union.bufferevent_ctrl_data, align 8
-  %lock = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -2757,9 +2757,9 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  %be_ops = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %2 = load ptr, ptr %be_ops, align 8
-  %ctrl = getelementptr inbounds i8, ptr %2, i64 64
+  %ctrl = getelementptr inbounds nuw i8, ptr %2, i64 64
   %3 = load ptr, ptr %ctrl, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end21, label %if.then5
@@ -2782,7 +2782,7 @@ if.end14:                                         ; preds = %if.then10
 if.then16:                                        ; preds = %if.then10, %if.end14
   store i32 %fd, ptr %d, align 8
   %5 = load ptr, ptr %be_ops, align 8
-  %ctrl18 = getelementptr inbounds i8, ptr %5, i64 64
+  %ctrl18 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %6 = load ptr, ptr %ctrl18, align 8
   %call19 = call i32 %6(ptr noundef nonnull %bev, i32 noundef 0, ptr noundef nonnull %d) #7
   br label %if.end21
@@ -2821,7 +2821,7 @@ define dso_local i32 @bufferevent_getfd(ptr noundef %bev) local_unnamed_addr #0 
 entry:
   %d = alloca %union.bufferevent_ctrl_data, align 8
   store i32 -1, ptr %d, align 8
-  %lock = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -2832,9 +2832,9 @@ if.then:                                          ; preds = %entry
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then, %entry
-  %be_ops = getelementptr inbounds i8, ptr %bev, i64 8
+  %be_ops = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %2 = load ptr, ptr %be_ops, align 8
-  %ctrl = getelementptr inbounds i8, ptr %2, i64 64
+  %ctrl = getelementptr inbounds nuw i8, ptr %2, i64 64
   %3 = load ptr, ptr %ctrl, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.end9, label %if.then5
@@ -2875,13 +2875,13 @@ do.end29:                                         ; preds = %if.then24, %do.body
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @bufferevent_get_options_(ptr nocapture noundef readonly %bev) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end4.thread, label %do.end4
 
 do.end4.thread:                                   ; preds = %entry
-  %options56 = getelementptr inbounds i8, ptr %bev, i64 440
+  %options56 = getelementptr inbounds nuw i8, ptr %bev, i64 440
   %1 = load i32, ptr %options56, align 8
   br label %do.end17
 
@@ -2889,7 +2889,7 @@ do.end4:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock, align 8
-  %options5 = getelementptr inbounds i8, ptr %bev, i64 440
+  %options5 = getelementptr inbounds nuw i8, ptr %bev, i64 440
   %3 = load i32, ptr %options5, align 8
   %tobool11.not = icmp eq ptr %.pr, null
   br i1 %tobool11.not, label %do.end17, label %if.then12
@@ -2907,13 +2907,13 @@ do.end17:                                         ; preds = %do.end4.thread, %if
 ; Function Attrs: nounwind uwtable
 define dso_local signext i16 @bufferevent_get_enabled(ptr nocapture noundef readonly %bufev) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds i8, ptr %bufev, i64 448
+  %lock = getelementptr inbounds nuw i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3.thread, label %do.end3
 
 do.end3.thread:                                   ; preds = %entry
-  %enabled6 = getelementptr inbounds i8, ptr %bufev, i64 368
+  %enabled6 = getelementptr inbounds nuw i8, ptr %bufev, i64 368
   %1 = load i16, ptr %enabled6, align 8
   br label %do.end15
 
@@ -2921,7 +2921,7 @@ do.end3:                                          ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock, align 8
-  %enabled = getelementptr inbounds i8, ptr %bufev, i64 368
+  %enabled = getelementptr inbounds nuw i8, ptr %bufev, i64 368
   %3 = load i16, ptr %enabled, align 8
   %tobool9.not = icmp eq ptr %.pr, null
   br i1 %tobool9.not, label %do.end15, label %if.then10
@@ -2939,10 +2939,10 @@ do.end15:                                         ; preds = %do.end3.thread, %if
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_init_generic_timeout_cbs_(ptr noundef %bev) local_unnamed_addr #0 {
 entry:
-  %ev_read = getelementptr inbounds i8, ptr %bev, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev, i64 16
   %0 = load ptr, ptr %bev, align 8
   %call = tail call i32 @event_assign(ptr noundef nonnull %ev_read, ptr noundef %0, i32 noundef -1, i16 noundef signext 64, ptr noundef nonnull @bufferevent_generic_read_timeout_cb, ptr noundef nonnull %bev) #7
-  %ev_write = getelementptr inbounds i8, ptr %bev, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bev, i64 136
   %1 = load ptr, ptr %bev, align 8
   %call2 = tail call i32 @event_assign(ptr noundef nonnull %ev_write, ptr noundef %1, i32 noundef -1, i16 noundef signext 64, ptr noundef nonnull @bufferevent_generic_write_timeout_cb, ptr noundef nonnull %bev) #7
   ret void
@@ -2953,13 +2953,13 @@ declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef sig
 ; Function Attrs: nounwind uwtable
 define internal void @bufferevent_generic_read_timeout_cb(i32 %fd, i16 signext %event, ptr noundef %ctx) #0 {
 entry:
-  %lock.i = getelementptr inbounds i8, ptr %ctx, i64 448
+  %lock.i = getelementptr inbounds nuw i8, ptr %ctx, i64 448
   %0 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %bufferevent_incref_and_lock_.exit.thread, label %bufferevent_incref_and_lock_.exit
 
 bufferevent_incref_and_lock_.exit.thread:         ; preds = %entry
-  %refcnt.i13 = getelementptr inbounds i8, ptr %ctx, i64 444
+  %refcnt.i13 = getelementptr inbounds nuw i8, ptr %ctx, i64 444
   %1 = load i32, ptr %refcnt.i13, align 4
   %inc.i14 = add nsw i32 %1, 1
   store i32 %inc.i14, ptr %refcnt.i13, align 4
@@ -2969,7 +2969,7 @@ bufferevent_incref_and_lock_.exit:                ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock.i, align 8
-  %refcnt.i = getelementptr inbounds i8, ptr %ctx, i64 444
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %ctx, i64 444
   %3 = load i32, ptr %refcnt.i, align 4
   %inc.i = add nsw i32 %3, 1
   store i32 %inc.i, ptr %refcnt.i, align 4
@@ -2983,13 +2983,13 @@ if.then.i6:                                       ; preds = %bufferevent_incref_
 
 do.end3.i:                                        ; preds = %bufferevent_incref_and_lock_.exit.thread, %if.then.i6, %bufferevent_incref_and_lock_.exit
   %refcnt.i16 = phi ptr [ %refcnt.i13, %bufferevent_incref_and_lock_.exit.thread ], [ %refcnt.i, %if.then.i6 ], [ %refcnt.i, %bufferevent_incref_and_lock_.exit ]
-  %enabled.i = getelementptr inbounds i8, ptr %ctx, i64 368
+  %enabled.i = getelementptr inbounds nuw i8, ptr %ctx, i64 368
   %5 = load i16, ptr %enabled.i, align 8
   %and.i = and i16 %5, -3
   store i16 %and.i, ptr %enabled.i, align 8
-  %be_ops.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %6 = load ptr, ptr %be_ops.i, align 8
-  %disable.i = getelementptr inbounds i8, ptr %6, i64 24
+  %disable.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %7 = load ptr, ptr %disable.i, align 8
   %call6.i = tail call i32 %7(ptr noundef nonnull %ctx, i16 noundef signext 2) #7
   %cmp.i = icmp slt i32 %call6.i, 0
@@ -3013,29 +3013,29 @@ if.then25.i:                                      ; preds = %do.body19.i
   br label %bufferevent_disable.exit
 
 bufferevent_disable.exit:                         ; preds = %do.body19.i, %if.then25.i
-  %errorcb.i = getelementptr inbounds i8, ptr %ctx, i64 320
+  %errorcb.i = getelementptr inbounds nuw i8, ptr %ctx, i64 320
   %11 = load ptr, ptr %errorcb.i, align 8
   %cmp.i8 = icmp eq ptr %11, null
   br i1 %cmp.i8, label %bufferevent_run_eventcb_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %bufferevent_disable.exit
-  %options1.i = getelementptr inbounds i8, ptr %ctx, i64 440
+  %options1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 440
   %12 = load i32, ptr %options1.i, align 8
   %and.i9 = and i32 %12, 4
   %tobool.not.i10 = icmp eq i32 %and.i9, 0
   br i1 %tobool.not.i10, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %eventcb_pending.i = getelementptr inbounds i8, ptr %ctx, i64 386
+  %eventcb_pending.i = getelementptr inbounds nuw i8, ptr %ctx, i64 386
   %13 = load i16, ptr %eventcb_pending.i, align 2
   %or411.i = or i16 %13, 65
   store i16 %or411.i, ptr %eventcb_pending.i, align 2
   %call.i11 = tail call ptr @__errno_location() #8
   %14 = load i32, ptr %call.i11, align 4
-  %errno_pending.i = getelementptr inbounds i8, ptr %ctx, i64 392
+  %errno_pending.i = getelementptr inbounds nuw i8, ptr %ctx, i64 392
   store i32 %14, ptr %errno_pending.i, align 8
   %15 = load ptr, ptr %ctx, align 8
-  %deferred.i = getelementptr inbounds i8, ptr %ctx, i64 400
+  %deferred.i = getelementptr inbounds nuw i8, ptr %ctx, i64 400
   %call6.i12 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %15, ptr noundef nonnull %deferred.i) #7
   %tobool7.not.i = icmp eq i32 %call6.i12, 0
   br i1 %tobool7.not.i, label %bufferevent_run_eventcb_.exit, label %if.then8.i
@@ -3067,7 +3067,7 @@ if.then11.i.i:                                    ; preds = %do.end4.i.i
   br label %bufferevent_run_eventcb_.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %cbarg.i = getelementptr inbounds i8, ptr %ctx, i64 328
+  %cbarg.i = getelementptr inbounds nuw i8, ptr %ctx, i64 328
   %21 = load ptr, ptr %cbarg.i, align 8
   tail call void %11(ptr noundef nonnull %ctx, i16 noundef signext 65, ptr noundef %21) #7
   br label %bufferevent_run_eventcb_.exit
@@ -3080,13 +3080,13 @@ bufferevent_run_eventcb_.exit:                    ; preds = %bufferevent_disable
 ; Function Attrs: nounwind uwtable
 define internal void @bufferevent_generic_write_timeout_cb(i32 %fd, i16 signext %event, ptr noundef %ctx) #0 {
 entry:
-  %lock.i = getelementptr inbounds i8, ptr %ctx, i64 448
+  %lock.i = getelementptr inbounds nuw i8, ptr %ctx, i64 448
   %0 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %bufferevent_incref_and_lock_.exit.thread, label %bufferevent_incref_and_lock_.exit
 
 bufferevent_incref_and_lock_.exit.thread:         ; preds = %entry
-  %refcnt.i13 = getelementptr inbounds i8, ptr %ctx, i64 444
+  %refcnt.i13 = getelementptr inbounds nuw i8, ptr %ctx, i64 444
   %1 = load i32, ptr %refcnt.i13, align 4
   %inc.i14 = add nsw i32 %1, 1
   store i32 %inc.i14, ptr %refcnt.i13, align 4
@@ -3096,7 +3096,7 @@ bufferevent_incref_and_lock_.exit:                ; preds = %entry
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %call.i = tail call i32 %2(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pr = load ptr, ptr %lock.i, align 8
-  %refcnt.i = getelementptr inbounds i8, ptr %ctx, i64 444
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %ctx, i64 444
   %3 = load i32, ptr %refcnt.i, align 4
   %inc.i = add nsw i32 %3, 1
   store i32 %inc.i, ptr %refcnt.i, align 4
@@ -3110,13 +3110,13 @@ if.then.i6:                                       ; preds = %bufferevent_incref_
 
 do.end3.i:                                        ; preds = %bufferevent_incref_and_lock_.exit.thread, %if.then.i6, %bufferevent_incref_and_lock_.exit
   %refcnt.i16 = phi ptr [ %refcnt.i13, %bufferevent_incref_and_lock_.exit.thread ], [ %refcnt.i, %if.then.i6 ], [ %refcnt.i, %bufferevent_incref_and_lock_.exit ]
-  %enabled.i = getelementptr inbounds i8, ptr %ctx, i64 368
+  %enabled.i = getelementptr inbounds nuw i8, ptr %ctx, i64 368
   %5 = load i16, ptr %enabled.i, align 8
   %and.i = and i16 %5, -5
   store i16 %and.i, ptr %enabled.i, align 8
-  %be_ops.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %be_ops.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %6 = load ptr, ptr %be_ops.i, align 8
-  %disable.i = getelementptr inbounds i8, ptr %6, i64 24
+  %disable.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   %7 = load ptr, ptr %disable.i, align 8
   %call6.i = tail call i32 %7(ptr noundef nonnull %ctx, i16 noundef signext 4) #7
   %cmp.i = icmp slt i32 %call6.i, 0
@@ -3140,29 +3140,29 @@ if.then25.i:                                      ; preds = %do.body19.i
   br label %bufferevent_disable.exit
 
 bufferevent_disable.exit:                         ; preds = %do.body19.i, %if.then25.i
-  %errorcb.i = getelementptr inbounds i8, ptr %ctx, i64 320
+  %errorcb.i = getelementptr inbounds nuw i8, ptr %ctx, i64 320
   %11 = load ptr, ptr %errorcb.i, align 8
   %cmp.i8 = icmp eq ptr %11, null
   br i1 %cmp.i8, label %bufferevent_run_eventcb_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %bufferevent_disable.exit
-  %options1.i = getelementptr inbounds i8, ptr %ctx, i64 440
+  %options1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 440
   %12 = load i32, ptr %options1.i, align 8
   %and.i9 = and i32 %12, 4
   %tobool.not.i10 = icmp eq i32 %and.i9, 0
   br i1 %tobool.not.i10, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %eventcb_pending.i = getelementptr inbounds i8, ptr %ctx, i64 386
+  %eventcb_pending.i = getelementptr inbounds nuw i8, ptr %ctx, i64 386
   %13 = load i16, ptr %eventcb_pending.i, align 2
   %or411.i = or i16 %13, 66
   store i16 %or411.i, ptr %eventcb_pending.i, align 2
   %call.i11 = tail call ptr @__errno_location() #8
   %14 = load i32, ptr %call.i11, align 4
-  %errno_pending.i = getelementptr inbounds i8, ptr %ctx, i64 392
+  %errno_pending.i = getelementptr inbounds nuw i8, ptr %ctx, i64 392
   store i32 %14, ptr %errno_pending.i, align 8
   %15 = load ptr, ptr %ctx, align 8
-  %deferred.i = getelementptr inbounds i8, ptr %ctx, i64 400
+  %deferred.i = getelementptr inbounds nuw i8, ptr %ctx, i64 400
   %call6.i12 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %15, ptr noundef nonnull %deferred.i) #7
   %tobool7.not.i = icmp eq i32 %call6.i12, 0
   br i1 %tobool7.not.i, label %bufferevent_run_eventcb_.exit, label %if.then8.i
@@ -3194,7 +3194,7 @@ if.then11.i.i:                                    ; preds = %do.end4.i.i
   br label %bufferevent_run_eventcb_.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %cbarg.i = getelementptr inbounds i8, ptr %ctx, i64 328
+  %cbarg.i = getelementptr inbounds nuw i8, ptr %ctx, i64 328
   %21 = load ptr, ptr %cbarg.i, align 8
   tail call void %11(ptr noundef nonnull %ctx, i16 noundef signext 66, ptr noundef %21) #7
   br label %bufferevent_run_eventcb_.exit
@@ -3207,37 +3207,37 @@ bufferevent_run_eventcb_.exit:                    ; preds = %bufferevent_disable
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @bufferevent_generic_adj_timeouts_(ptr noundef %bev) local_unnamed_addr #0 {
 entry:
-  %enabled1 = getelementptr inbounds i8, ptr %bev, i64 368
+  %enabled1 = getelementptr inbounds nuw i8, ptr %bev, i64 368
   %0 = load i16, ptr %enabled1, align 8
   %1 = and i16 %0, 2
   %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %read_suspended = getelementptr inbounds i8, ptr %bev, i64 388
+  %read_suspended = getelementptr inbounds nuw i8, ptr %bev, i64 388
   %2 = load i16, ptr %read_suspended, align 4
   %tobool2.not = icmp eq i16 %2, 0
   br i1 %tobool2.not, label %land.lhs.true3, label %if.else
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %timeout_read = getelementptr inbounds i8, ptr %bev, i64 336
+  %timeout_read = getelementptr inbounds nuw i8, ptr %bev, i64 336
   %3 = load i64, ptr %timeout_read, align 8
   %tobool4.not = icmp eq i64 %3, 0
   br i1 %tobool4.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %land.lhs.true3
-  %tv_usec = getelementptr inbounds i8, ptr %bev, i64 344
+  %tv_usec = getelementptr inbounds nuw i8, ptr %bev, i64 344
   %4 = load i64, ptr %tv_usec, align 8
   %tobool6.not = icmp eq i64 %4, 0
   br i1 %tobool6.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %land.lhs.true3
-  %ev_read = getelementptr inbounds i8, ptr %bev, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev, i64 16
   %call = tail call i32 @event_add(ptr noundef nonnull %ev_read, ptr noundef nonnull %timeout_read) #7
   br label %if.end
 
 if.else:                                          ; preds = %lor.lhs.false, %land.lhs.true, %entry
-  %ev_read8 = getelementptr inbounds i8, ptr %bev, i64 16
+  %ev_read8 = getelementptr inbounds nuw i8, ptr %bev, i64 16
   %call9 = tail call i32 @event_del(ptr noundef nonnull %ev_read8) #7
   br label %if.end
 
@@ -3248,37 +3248,37 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %tobool12.not, label %if.else28, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %if.end
-  %write_suspended = getelementptr inbounds i8, ptr %bev, i64 390
+  %write_suspended = getelementptr inbounds nuw i8, ptr %bev, i64 390
   %6 = load i16, ptr %write_suspended, align 2
   %tobool14.not = icmp eq i16 %6, 0
   br i1 %tobool14.not, label %land.lhs.true15, label %if.else28
 
 land.lhs.true15:                                  ; preds = %land.lhs.true13
-  %timeout_write = getelementptr inbounds i8, ptr %bev, i64 352
+  %timeout_write = getelementptr inbounds nuw i8, ptr %bev, i64 352
   %7 = load i64, ptr %timeout_write, align 8
   %tobool17.not = icmp eq i64 %7, 0
   br i1 %tobool17.not, label %lor.lhs.false18, label %land.lhs.true22
 
 lor.lhs.false18:                                  ; preds = %land.lhs.true15
-  %tv_usec20 = getelementptr inbounds i8, ptr %bev, i64 360
+  %tv_usec20 = getelementptr inbounds nuw i8, ptr %bev, i64 360
   %8 = load i64, ptr %tv_usec20, align 8
   %tobool21.not = icmp eq i64 %8, 0
   br i1 %tobool21.not, label %if.else28, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %lor.lhs.false18, %land.lhs.true15
-  %output = getelementptr inbounds i8, ptr %bev, i64 264
+  %output = getelementptr inbounds nuw i8, ptr %bev, i64 264
   %9 = load ptr, ptr %output, align 8
   %call23 = tail call i64 @evbuffer_get_length(ptr noundef %9) #7
   %tobool24.not = icmp eq i64 %call23, 0
   br i1 %tobool24.not, label %if.else28, label %if.then25
 
 if.then25:                                        ; preds = %land.lhs.true22
-  %ev_write = getelementptr inbounds i8, ptr %bev, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bev, i64 136
   %call27 = tail call i32 @event_add(ptr noundef nonnull %ev_write, ptr noundef nonnull %timeout_write) #7
   br label %if.end31
 
 if.else28:                                        ; preds = %land.lhs.true22, %lor.lhs.false18, %land.lhs.true13, %if.end
-  %ev_write29 = getelementptr inbounds i8, ptr %bev, i64 136
+  %ev_write29 = getelementptr inbounds nuw i8, ptr %bev, i64 136
   %call30 = tail call i32 @event_del(ptr noundef nonnull %ev_write29) #7
   br label %if.end31
 
@@ -3298,19 +3298,19 @@ declare i32 @event_del(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @bufferevent_generic_adj_existing_timeouts_(ptr noundef %bev) local_unnamed_addr #0 {
 entry:
-  %ev_read = getelementptr inbounds i8, ptr %bev, i64 16
+  %ev_read = getelementptr inbounds nuw i8, ptr %bev, i64 16
   %call = tail call i32 @event_pending(ptr noundef nonnull %ev_read, i16 noundef signext 2, ptr noundef null) #7
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
-  %timeout_read = getelementptr inbounds i8, ptr %bev, i64 336
+  %timeout_read = getelementptr inbounds nuw i8, ptr %bev, i64 336
   %0 = load i64, ptr %timeout_read, align 8
   %tobool1.not = icmp eq i64 %0, 0
   br i1 %tobool1.not, label %lor.lhs.false, label %bufferevent_add_event_.exit
 
 lor.lhs.false:                                    ; preds = %if.then
-  %tv_usec = getelementptr inbounds i8, ptr %bev, i64 344
+  %tv_usec = getelementptr inbounds nuw i8, ptr %bev, i64 344
   %1 = load i64, ptr %tv_usec, align 8
   %tobool3.not = icmp eq i64 %1, 0
   br i1 %tobool3.not, label %if.else, label %bufferevent_add_event_.exit
@@ -3326,19 +3326,19 @@ if.else:                                          ; preds = %lor.lhs.false
 
 if.end12:                                         ; preds = %bufferevent_add_event_.exit, %if.else, %entry
   %r.0 = phi i32 [ 0, %if.else ], [ 0, %entry ], [ %call2.i.lobit, %bufferevent_add_event_.exit ]
-  %ev_write = getelementptr inbounds i8, ptr %bev, i64 136
+  %ev_write = getelementptr inbounds nuw i8, ptr %bev, i64 136
   %call13 = tail call i32 @event_pending(ptr noundef nonnull %ev_write, i16 noundef signext 4, ptr noundef null) #7
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.end33, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  %timeout_write = getelementptr inbounds i8, ptr %bev, i64 352
+  %timeout_write = getelementptr inbounds nuw i8, ptr %bev, i64 352
   %2 = load i64, ptr %timeout_write, align 8
   %tobool17.not = icmp eq i64 %2, 0
   br i1 %tobool17.not, label %lor.lhs.false18, label %bufferevent_add_event_.exit20
 
 lor.lhs.false18:                                  ; preds = %if.then15
-  %tv_usec20 = getelementptr inbounds i8, ptr %bev, i64 360
+  %tv_usec20 = getelementptr inbounds nuw i8, ptr %bev, i64 360
   %3 = load i64, ptr %tv_usec20, align 8
   %tobool21.not = icmp eq i64 %3, 0
   br i1 %tobool21.not, label %if.else29, label %bufferevent_add_event_.exit20
@@ -3368,7 +3368,7 @@ entry:
   br i1 %tobool.not, label %lor.lhs.false, label %if.else
 
 lor.lhs.false:                                    ; preds = %entry
-  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
+  %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   %1 = load i64, ptr %tv_usec, align 8
   %tobool1.not = icmp eq i64 %1, 0
   br i1 %tobool1.not, label %return, label %if.else
@@ -3387,7 +3387,7 @@ declare i32 @event_remove_timer(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @bufferevent_lock(ptr nocapture noundef %bev) local_unnamed_addr #0 {
 entry:
-  %lock.i = getelementptr inbounds i8, ptr %bev, i64 448
+  %lock.i = getelementptr inbounds nuw i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %bufferevent_incref_and_lock_.exit, label %if.then.i
@@ -3398,7 +3398,7 @@ if.then.i:                                        ; preds = %entry
   br label %bufferevent_incref_and_lock_.exit
 
 bufferevent_incref_and_lock_.exit:                ; preds = %entry, %if.then.i
-  %refcnt.i = getelementptr inbounds i8, ptr %bev, i64 444
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %bev, i64 444
   %2 = load i32, ptr %refcnt.i, align 4
   %inc.i = add nsw i32 %2, 1
   store i32 %inc.i, ptr %refcnt.i, align 4

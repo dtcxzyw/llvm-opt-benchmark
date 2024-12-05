@@ -111,10 +111,10 @@ declare dso_local i32 @__register_chrdev(i32 noundef, i32 noundef, i32 noundef, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @vcs_lseek(ptr noundef %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   tail call void @console_lock() #8
-  %6 = getelementptr inbounds i8, ptr %5, i64 76
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 63
   %9 = load volatile i32, ptr @ignore_console_lock_warning, align 4
@@ -175,9 +175,9 @@ define internal i64 @vcs_lseek(ptr noundef %0, i64 noundef %1, i32 noundef %2) #
   br label %43
 
 43:                                               ; preds = %42, %36, %28
-  %44 = getelementptr inbounds i8, ptr %25, i64 424
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 424
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %25, i64 420
+  %46 = getelementptr inbounds nuw i8, ptr %25, i64 420
   %47 = load i32, ptr %46, align 4
   %48 = mul i32 %47, %45
   br i1 %31, label %53, label %49
@@ -222,7 +222,7 @@ define internal i64 @vcs_lseek(ptr noundef %0, i64 noundef %1, i32 noundef %2) #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @__get_free_pages(i32 noundef 3264, i32 noundef 0) #8
   %8 = inttoptr i64 %7 to ptr
@@ -232,7 +232,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr nocapture n
 10:                                               ; preds = %4
   %11 = load i64, ptr %3, align 8
   tail call void @console_lock() #8
-  %12 = getelementptr inbounds i8, ptr %6, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 76
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 64
   %15 = icmp eq i32 %14, 0
@@ -251,7 +251,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr nocapture n
   br i1 %23, label %24, label %.thread32.thread
 
 24:                                               ; preds = %20, %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = icmp ne i64 %2, 0
   %28 = icmp ne ptr %26, null
@@ -259,7 +259,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr nocapture n
   br i1 %29, label %.thread59, label %31
 
 .thread59:                                        ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %26, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 28
   store i32 0, ptr %30, align 4
   br label %.lr.ph.preheader
 
@@ -330,9 +330,9 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr nocapture n
   br label %71
 
 71:                                               ; preds = %70, %64, %61
-  %72 = getelementptr inbounds i8, ptr %59, i64 424
+  %72 = getelementptr inbounds nuw i8, ptr %59, i64 424
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %59, i64 420
+  %74 = getelementptr inbounds nuw i8, ptr %59, i64 420
   %75 = load i32, ptr %74, align 4
   %76 = mul i32 %75, %73
   br i1 %17, label %81, label %77
@@ -619,9 +619,9 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_read(ptr nocapture n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca [4 x i8], align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 76
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 64
   %11 = icmp eq i32 %10, 0
@@ -689,9 +689,9 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr nocapture 
   br label %50
 
 50:                                               ; preds = %49, %43, %40
-  %51 = getelementptr inbounds i8, ptr %38, i64 424
+  %51 = getelementptr inbounds nuw i8, ptr %38, i64 424
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %38, i64 420
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 420
   %54 = load i32, ptr %53, align 4
   %55 = mul i32 %54, %52
   %56 = shl i32 %55, 1
@@ -716,7 +716,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr nocapture 
 67:                                               ; preds = %64
   %68 = sub nuw nsw i64 %65, %17
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 %2)
-  %70 = getelementptr inbounds i8, ptr %5, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %71 = getelementptr i8, ptr %14, i64 1
   %72 = icmp eq i64 %69, 0
   br i1 %72, label %.thread38, label %.lr.ph
@@ -819,9 +819,9 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr nocapture 
   br label %130
 
 130:                                              ; preds = %129, %123, %120
-  %131 = getelementptr inbounds i8, ptr %116, i64 424
+  %131 = getelementptr inbounds nuw i8, ptr %116, i64 424
   %132 = load i32, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %116, i64 420
+  %133 = getelementptr inbounds nuw i8, ptr %116, i64 420
   %134 = load i32, ptr %133, align 4
   %135 = mul i32 %134, %132
   %136 = shl i32 %135, 1
@@ -860,7 +860,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr nocapture 
 157:                                              ; preds = %155
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   store i32 0, ptr %5, align 4, !annotation !22
-  call void @getconsxy(ptr noundef nonnull %116, ptr noundef %70) #8
+  call void @getconsxy(ptr noundef nonnull %116, ptr noundef nonnull %70) #8
   %158 = icmp eq i32 %153, 0
   br i1 %158, label %175, label %159
 
@@ -890,7 +890,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr nocapture 
   br i1 %110, label %180, label %179
 
 179:                                              ; preds = %175
-  call void @putconsxy(ptr noundef nonnull %116, ptr noundef %70) #8
+  call void @putconsxy(ptr noundef nonnull %116, ptr noundef nonnull %70) #8
   br label %180
 
 180:                                              ; preds = %179, %175
@@ -1099,7 +1099,7 @@ define internal noundef range(i32 325, 350) i32 @vcs_poll(ptr noundef %0, ptr no
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = icmp eq ptr %1, null
   br i1 %7, label %11, label %8
 
@@ -1113,7 +1113,7 @@ define internal noundef range(i32 325, 350) i32 @vcs_poll(ptr noundef %0, ptr no
   br label %11
 
 11:                                               ; preds = %10, %8, %5
-  %12 = getelementptr inbounds i8, ptr %3, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %13 = load i32, ptr %12, align 4
   switch i32 %13, label %17 [
     i32 4, label %14
@@ -1137,7 +1137,7 @@ define internal noundef range(i32 325, 350) i32 @vcs_poll(ptr noundef %0, ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -95, 1) i32 @vcs_open(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 76
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 63
   %6 = and i32 %4, 192
@@ -1168,7 +1168,7 @@ define internal range(i32 -95, 1) i32 @vcs_open(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @vcs_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
@@ -1184,7 +1184,7 @@ define internal noundef i32 @vcs_release(ptr nocapture readnone %0, ptr nocaptur
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @vcs_fasync(i32 noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %12
@@ -1200,8 +1200,8 @@ define internal i32 @vcs_fasync(i32 noundef %0, ptr noundef %1, i32 noundef %2) 
 
 12:                                               ; preds = %9, %3
   %13 = phi ptr [ %5, %3 ], [ %10, %9 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
-  %15 = tail call i32 @fasync_helper(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %14) #8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %15 = tail call i32 @fasync_helper(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %14) #8
   br label %16
 
 16:                                               ; preds = %12, %9, %7
@@ -1262,7 +1262,7 @@ declare dso_local void @vcs_scr_writew(ptr noundef, i16 noundef zeroext, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @vcs_poll_data_get(ptr noundef %0) unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %28
@@ -1274,36 +1274,36 @@ define internal fastcc ptr @vcs_poll_data_get(ptr noundef %0) unnamed_addr #0 al
   br i1 %8, label %28, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 76
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 63
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
-  tail call void @__init_waitqueue_head(ptr noundef %16, ptr noundef nonnull @.str.11, ptr noundef nonnull @vcs_poll_data_get.__key) #8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  tail call void @__init_waitqueue_head(ptr noundef nonnull %16, ptr noundef nonnull @.str.11, ptr noundef nonnull @vcs_poll_data_get.__key) #8
   store ptr @vcs_notifier, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 4, ptr %17, align 4
   %18 = tail call i32 @register_vt_notifier(ptr noundef nonnull %7) #8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_raw_spin_lock(ptr noundef %21) #8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_raw_spin_lock(ptr noundef nonnull %21) #8
   %22 = load ptr, ptr %2, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread, label %24
 
 .thread:                                          ; preds = %20
   store ptr %7, ptr %2, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %21) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %21) #8
   br label %28
 
 24:                                               ; preds = %20
-  tail call void @_raw_spin_unlock(ptr noundef %21) #8
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %21) #8
   %25 = tail call i32 @unregister_vt_notifier(ptr noundef nonnull %7) #8
   br label %26
 
@@ -1323,7 +1323,7 @@ declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @vcs_notifier(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   switch i64 %1, label %24 [
     i64 4, label %8
@@ -1339,7 +1339,7 @@ define internal noundef range(i32 0, 2) i32 @vcs_notifier(ptr noundef %0, i64 no
   %11 = load i32, ptr @fg_console, align 4
   %12 = add i32 %6, -1
   %13 = select i1 %10, i32 %11, i32 %12
-  %14 = getelementptr inbounds i8, ptr %4, i64 416
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 416
   %15 = load i16, ptr %14, align 8
   %16 = zext i16 %15 to i32
   %17 = icmp eq i32 %13, %16
@@ -1347,12 +1347,12 @@ define internal noundef range(i32 0, 2) i32 @vcs_notifier(ptr noundef %0, i64 no
 
 18:                                               ; preds = %8
   %19 = trunc i64 %1 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = tail call i32 @__wake_up(ptr noundef %21, i32 noundef 1, i32 noundef 1, ptr noundef null) #8
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @kill_fasync(ptr noundef %23, i32 noundef 29, i32 noundef %9) #8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = tail call i32 @__wake_up(ptr noundef nonnull %21, i32 noundef 1, i32 noundef 1, ptr noundef null) #8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @kill_fasync(ptr noundef nonnull %23, i32 noundef 29, i32 noundef %9) #8
   br label %24
 
 24:                                               ; preds = %18, %8, %3

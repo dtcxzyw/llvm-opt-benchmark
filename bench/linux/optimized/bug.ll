@@ -32,17 +32,17 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @module_bug_finalize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef initializes((856, 860), (880, 888)) %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 880
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 880
   store ptr null, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 856
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 856
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 62
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = getelementptr %struct.elf64_shdr, ptr %1, i64 %8, i32 4
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr i8, ptr %0, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 60
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %13 = load i16, ptr %12, align 4
   %14 = icmp ugt i16 %13, 1
   br i1 %14, label %15, label %.loopexit
@@ -67,11 +67,11 @@ define dso_local void @module_bug_finalize(ptr nocapture noundef readonly %0, pt
   br i1 %27, label %28, label %17
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %22, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = inttoptr i64 %30 to ptr
   store ptr %31, ptr %4, align 16
-  %32 = getelementptr inbounds i8, ptr %22, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %33 = load i64, ptr %32, align 8
   %34 = udiv i64 %33, 12
   %35 = trunc i64 %34 to i32
@@ -79,14 +79,14 @@ define dso_local void @module_bug_finalize(ptr nocapture noundef readonly %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %28, %3
-  %36 = getelementptr inbounds i8, ptr %2, i64 864
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %37 = load ptr, ptr @module_bug_list, align 8
   store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 872
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 872
   store ptr @module_bug_list, ptr %38, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
   store volatile ptr %36, ptr @module_bug_list, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %36, ptr %39, align 8
   ret void
 }
@@ -96,11 +96,11 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
 define dso_local void @module_bug_cleanup(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 864
-  %3 = getelementptr inbounds i8, ptr %0, i64 872
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %3, align 8
@@ -109,12 +109,12 @@ define dso_local void @module_bug_cleanup(ptr nocapture noundef %0) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local void @bug_get_file_line(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %4, i64 %6
   store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i32
   store i32 %10, ptr %2, align 4
@@ -302,14 +302,14 @@ define dso_local noundef range(i32 0, 3) i32 @report_bug(i64 noundef %0, ptr nou
 
 56:                                               ; preds = %.loopexit7
   tail call void @disable_trace_on_warning() #9
-  %57 = getelementptr inbounds i8, ptr %54, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
   %60 = getelementptr i8, ptr %57, i64 %59
-  %61 = getelementptr inbounds i8, ptr %54, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %62 = load i16, ptr %61, align 4
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %54, i64 10
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 10
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i32
   %67 = and i32 %66, 1
@@ -411,7 +411,7 @@ define dso_local void @generic_bug_clear_once() local_unnamed_addr #0 align 16 {
 
 .preheader3:                                      ; preds = %.preheader5, %.preheader3
   %11 = phi ptr [ %15, %.preheader3 ], [ %5, %.preheader5 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 10
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, -5
   store i16 %14, ptr %12, align 2
@@ -444,7 +444,7 @@ define dso_local void @generic_bug_clear_once() local_unnamed_addr #0 align 16 {
 
 .preheader:                                       ; preds = %25, %.preheader
   %27 = phi ptr [ %31, %.preheader ], [ @__start___bug_table, %25 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 10
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 10
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, -5
   store i16 %30, ptr %28, align 2

@@ -25,18 +25,18 @@ define range(i32 -32767, 32769) i32 @nxsem_wait(ptr noundef %0) local_unnamed_ad
   %9 = add i16 %8, -1
   store volatile i16 %9, ptr %0, align 8
   call void @nxsem_add_holder(ptr noundef nonnull %0) #3
-  %10 = getelementptr inbounds i8, ptr %3, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store ptr null, ptr %10, align 16
   br label %35
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %13 = load i8, ptr %12, align 2
   %14 = and i8 %13, 3
   %15 = load volatile i16, ptr %0, align 8
   %16 = add i16 %15, -1
   store volatile i16 %16, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store ptr %0, ptr %17, align 16
   %18 = icmp eq i8 %14, 1
   br i1 %18, label %19, label %21
@@ -47,12 +47,12 @@ define range(i32 -32767, 32769) i32 @nxsem_wait(ptr noundef %0) local_unnamed_ad
   br label %21
 
 21:                                               ; preds = %19, %11
-  %22 = getelementptr inbounds i8, ptr %3, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 68
   store i16 0, ptr %22, align 4
   %23 = call zeroext i1 @nxsched_remove_readytorun(ptr noundef nonnull %3, i1 noundef zeroext true) #3
-  %24 = getelementptr inbounds i8, ptr %3, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 5, ptr %24, align 16
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = call zeroext i1 @nxsched_add_prioritized(ptr noundef nonnull %3, ptr noundef nonnull %25) #3
   br i1 %23, label %27, label %29
 

@@ -196,7 +196,7 @@ cond.false.i:                                     ; preds = %cond.false
 invoke.cont14:                                    ; preds = %.noexc, %cond.false
   %48 = phi ptr [ %47, %cond.false ], [ %.pre.i, %.noexc ]
   %vtable = load ptr, ptr %48, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 120
   %49 = load ptr, ptr %vfn, align 8
   %call17 = invoke noundef double %49(ptr noundef nonnull align 8 dereferenceable(144) %48)
           to label %cond.end unwind label %lpad10
@@ -218,7 +218,7 @@ cond.false.i43:                                   ; preds = %cond.end
 invoke.cont20:                                    ; preds = %.noexc45, %cond.end
   %51 = phi ptr [ %50, %cond.end ], [ %.pre.i44, %.noexc45 ]
   %vtable22 = load ptr, ptr %51, align 8, !tbaa !3
-  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 120
+  %vfn23 = getelementptr inbounds nuw i8, ptr %vtable22, i64 120
   %52 = load ptr, ptr %vfn23, align 8
   %call25 = invoke noundef double %52(ptr noundef nonnull align 8 dereferenceable(144) %51)
           to label %invoke.cont24 unwind label %lpad19
@@ -250,7 +250,7 @@ invoke.cont32:                                    ; preds = %invoke.cont24, %.no
   %54 = phi ptr [ %.pre.i49, %invoke.cont30 ], [ null, %.noexc55 ], [ %53, %invoke.cont24 ]
   %55 = phi ptr [ %.pre.i49, %invoke.cont30 ], [ %.pre.i54, %.noexc55 ], [ %53, %invoke.cont24 ]
   %vtable34 = load ptr, ptr %55, align 8, !tbaa !3
-  %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 120
+  %vfn35 = getelementptr inbounds nuw i8, ptr %vtable34, i64 120
   %56 = load ptr, ptr %vfn35, align 8
   %call37 = invoke noundef double %56(ptr noundef nonnull align 8 dereferenceable(144) %55)
           to label %invoke.cont40 unwind label %lpad29
@@ -266,7 +266,7 @@ invoke.cont41:                                    ; preds = %invoke.cont40, %if.
   %z.0.i.i = phi double [ %call.i.i59, %if.then.i.i ], [ %div.i.i58, %invoke.cont40 ]
   %57 = fadd double %z.0.i.i, 0.000000e+00
   %vtable43 = load ptr, ptr %54, align 8, !tbaa !3
-  %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 168
+  %vfn44 = getelementptr inbounds nuw i8, ptr %vtable43, i64 168
   %58 = load ptr, ptr %vfn44, align 8
   %call46 = invoke noundef double %58(ptr noundef nonnull align 8 dereferenceable(144) %54, double noundef 0.000000e+00, double noundef %call37, double noundef %div, double noundef %57)
           to label %invoke.cont45 unwind label %lpad39
@@ -290,7 +290,7 @@ cond.false.i63:                                   ; preds = %invoke.cont45
 invoke.cont52:                                    ; preds = %.noexc65, %invoke.cont45
   %60 = phi ptr [ %59, %invoke.cont45 ], [ %.pre.i64, %.noexc65 ]
   %vtable54 = load ptr, ptr %60, align 8, !tbaa !3
-  %vfn55 = getelementptr inbounds i8, ptr %vtable54, i64 120
+  %vfn55 = getelementptr inbounds nuw i8, ptr %vtable54, i64 120
   %61 = load ptr, ptr %vfn55, align 8
   %call57 = invoke noundef double %61(ptr noundef nonnull align 8 dereferenceable(144) %60)
           to label %invoke.cont56 unwind label %lpad51
@@ -322,7 +322,7 @@ invoke.cont64:                                    ; preds = %invoke.cont56, %.no
   %63 = phi ptr [ %.pre.i71, %invoke.cont62 ], [ null, %.noexc77 ], [ %62, %invoke.cont56 ]
   %64 = phi ptr [ %.pre.i71, %invoke.cont62 ], [ %.pre.i76, %.noexc77 ], [ %62, %invoke.cont56 ]
   %vtable66 = load ptr, ptr %64, align 8, !tbaa !3
-  %vfn67 = getelementptr inbounds i8, ptr %vtable66, i64 120
+  %vfn67 = getelementptr inbounds nuw i8, ptr %vtable66, i64 120
   %65 = load ptr, ptr %vfn67, align 8
   %call69 = invoke noundef double %65(ptr noundef nonnull align 8 dereferenceable(144) %64)
           to label %invoke.cont72 unwind label %lpad61
@@ -338,7 +338,7 @@ invoke.cont73:                                    ; preds = %invoke.cont72, %if.
   %z.0.i.i89 = phi double [ %call.i.i92, %if.then.i.i90 ], [ %div.i.i88, %invoke.cont72 ]
   %66 = fadd double %z.0.i.i89, 0.000000e+00
   %vtable75 = load ptr, ptr %63, align 8, !tbaa !3
-  %vfn76 = getelementptr inbounds i8, ptr %vtable75, i64 168
+  %vfn76 = getelementptr inbounds nuw i8, ptr %vtable75, i64 168
   %67 = load ptr, ptr %vfn76, align 8
   %call78 = invoke noundef double %67(ptr noundef nonnull align 8 dereferenceable(144) %63, double noundef 0.000000e+00, double noundef %call69, double noundef %div, double noundef %66)
           to label %invoke.cont77 unwind label %lpad71
@@ -427,7 +427,7 @@ invoke.cont99:                                    ; preds = %for.body94, %.noexc
   %80 = phi ptr [ %.pre.i98, %invoke.cont97 ], [ null, %.noexc104 ], [ %79, %for.body94 ]
   %81 = phi ptr [ %.pre.i98, %invoke.cont97 ], [ %.pre.i103, %.noexc104 ], [ %79, %for.body94 ]
   %vtable101 = load ptr, ptr %81, align 8, !tbaa !3
-  %vfn102 = getelementptr inbounds i8, ptr %vtable101, i64 120
+  %vfn102 = getelementptr inbounds nuw i8, ptr %vtable101, i64 120
   %82 = load ptr, ptr %vfn102, align 8
   %call104 = invoke noundef double %82(ptr noundef nonnull align 8 dereferenceable(144) %81)
           to label %invoke.cont107 unwind label %lpad96
@@ -463,7 +463,7 @@ invoke.cont108:                                   ; preds = %if.else.i.i111, %if
   %z.0.i.i116 = phi double [ %div.i.i115, %if.else.i.i111 ], [ %call.i.i119, %if.then.i.i117 ]
   %93 = fadd double %z.0.i.i116, 0.000000e+00
   %vtable110 = load ptr, ptr %80, align 8, !tbaa !3
-  %vfn111 = getelementptr inbounds i8, ptr %vtable110, i64 168
+  %vfn111 = getelementptr inbounds nuw i8, ptr %vtable110, i64 168
   %94 = load ptr, ptr %vfn111, align 8
   %call113 = invoke noundef double %94(ptr noundef nonnull align 8 dereferenceable(144) %80, double noundef 0.000000e+00, double noundef %call104, double noundef %div, double noundef %93)
           to label %invoke.cont112 unwind label %lpad106

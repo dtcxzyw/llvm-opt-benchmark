@@ -54,7 +54,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm17Bra
 17:                                               ; preds = %6
   store i16 9535, ptr %10, align 1
   %18 = load ptr, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store ptr %19, ptr %9, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -70,9 +70,9 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm17Bra
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJjjdEEE, i64 16), ptr %3, align 8, !alias.scope !4
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %26, ptr %28, align 8, !alias.scope !4
-  %29 = getelementptr inbounds i8, ptr %3, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 -2147483648, ptr %29, align 8, !alias.scope !4
-  %30 = getelementptr inbounds i8, ptr %3, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %4, ptr %30, align 4, !alias.scope !4
   %31 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %3) #7
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -234,9 +234,9 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJjjdEE7snprintE
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = load double, ptr %7, align 8
   %13 = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef %6, i32 noundef %9, i32 noundef %11, double noundef %12) #7

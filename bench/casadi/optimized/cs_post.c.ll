@@ -40,7 +40,7 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %31
   %indvars.iv = phi i64 [ %18, %.lr.ph58.preheader ], [ %indvars.iv.next, %31 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %19 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %31, label %22
@@ -49,7 +49,7 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   %23 = sext i32 %20 to i64
   %24 = getelementptr inbounds i32, ptr %6, i64 %23
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next
+  %26 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next
   store i32 %25, ptr %26, align 4
   %27 = load i32, ptr %19, align 4
   %28 = sext i32 %27 to i64
@@ -65,7 +65,7 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %38
   %indvars.iv64 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next65, %38 ]
   %.04659 = phi i32 [ 0, %.lr.ph61.preheader ], [ %.147, %38 ]
-  %33 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv64
+  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv64
   %34 = load i32, ptr %33, align 4
   %.not53 = icmp eq i32 %34, -1
   br i1 %.not53, label %35, label %38

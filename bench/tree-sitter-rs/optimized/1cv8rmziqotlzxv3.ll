@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.llvm.16574816117915424926"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
   %6 = icmp eq i64 %4, %5
@@ -40,7 +40,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.ll
 
 8:                                                ; preds = %7, %2
   %9 = phi i64 [ %.pre, %7 ], [ %4, %2 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i32, ptr %11, i64 %9
   store i32 %1, ptr %12, align 4
@@ -54,12 +54,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.ll
 define void @"_ZN77_$LT$tree_sitter_highlight..Highlighter$u20$as$u20$core..default..Default$GT$7default17hf17a62f33b497479E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, ptr }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %2 = tail call noundef nonnull ptr @_ZN11tree_sitter6Parser3new17h667018fdda0184baE(), !noalias !5
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %3, align 8, !alias.scope !5
   store i64 0, ptr %0, align 8, !alias.scope !5
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !5
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !5
   ret void
 }
@@ -67,25 +67,25 @@ define void @"_ZN77_$LT$tree_sitter_highlight..Highlighter$u20$as$u20$core..defa
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN21tree_sitter_highlight11Highlighter3new17hcc20723a1fa0746cE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, ptr }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #1 {
   %2 = tail call noundef nonnull ptr @_ZN11tree_sitter6Parser3new17h667018fdda0184baE()
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %2, ptr %3, align 8
   store i64 0, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN21tree_sitter_highlight11Highlighter6parser17he2aaf07566e8cdc0E(ptr noalias noundef readnone align 8 dereferenceable(32) %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i64 } @_ZN21tree_sitter_highlight22HighlightConfiguration5names17hd0caa0ec6af82781E(ptr noalias noundef readonly align 8 dereferenceable(352) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = tail call { ptr, i64 } @_ZN11tree_sitter5Query13capture_names17hec32939f859f506cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %2)
   ret { ptr, i64 } %3
 }
@@ -96,7 +96,7 @@ define void @_ZN21tree_sitter_highlight22HighlightConfiguration27nonconformant_c
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca { { { ptr, ptr }, ptr } }, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %18
@@ -128,7 +128,7 @@ define void @_ZN21tree_sitter_highlight22HighlightConfiguration27nonconformant_c
 
 18:                                               ; preds = %3, %"_ZN89_$LT$tree_sitter_highlight..STANDARD_CAPTURE_NAMES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h01dde2e238d6f6d4E.exit"
   %.0 = phi ptr [ %15, %"_ZN89_$LT$tree_sitter_highlight..STANDARD_CAPTURE_NAMES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h01dde2e238d6f6d4E.exit" ], [ %2, %3 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %20 = call { ptr, i64 } @_ZN11tree_sitter5Query13capture_names17hec32939f859f506cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %19)
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = extractvalue { ptr, i64 } %20, 1
@@ -136,9 +136,9 @@ define void @_ZN21tree_sitter_highlight22HighlightConfiguration27nonconformant_c
   %24 = icmp ne ptr %21, null
   call void @llvm.assume(i1 %24)
   store ptr %21, ptr %7, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.0, ptr %.sroa.5.0..sroa_idx, align 8
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h391773b272f87a91E.llvm.23857589297000235"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
   ret void
@@ -163,9 +163,9 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   call void @_ZN11tree_sitter4Node4walk17h5476a56a99ff6109E(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr, [2 x i32] }, {} }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   store i64 0, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %16, align 8
   %17 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, i64, i64 }, ptr %1, i64 %2
   %18 = icmp eq i64 %2, 0
@@ -211,22 +211,22 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 
 .lr.ph224:                                        ; preds = %14
   %21 = getelementptr inbounds { { [4 x i32], ptr, ptr }, {} }, ptr %3, i64 %4
-  %22 = getelementptr inbounds i8, ptr %1, i64 48
-  %.sroa.063.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.063.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
-  %.sroa.063.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
-  %.sroa.063.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
-  %.sroa.063.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 40
-  %.sroa.063.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 48
-  %.sroa.063.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 80
-  %23 = getelementptr inbounds i8, ptr %8, i64 64
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
-  %.sroa.6.i.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.6.i.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 40
-  %.sroa.6.i.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.sroa.063.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.063.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.063.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sroa.063.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sroa.063.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %.sroa.063.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %.sroa.063.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.6.i.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.6.i.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sroa.6.i.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sroa.6.i.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %.sroa.6.i.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
   br label %26
 
 25:                                               ; preds = %20
@@ -246,7 +246,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   %.sroa.10.0217 = phi i64 [ undef, %.lr.ph224 ], [ %.us-phi195, %.split.us ]
   %.sroa.11.0216 = phi i64 [ undef, %.lr.ph224 ], [ %.us-phi194, %.split.us ]
   %.sroa.12.0215 = phi i64 [ undef, %.lr.ph224 ], [ %.us-phi193, %.split.us ]
-  %27 = getelementptr inbounds i8, ptr %.sroa.061.0221, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.061.0221, i64 32
   %28 = invoke { i64, i64 } @_ZN11tree_sitter5Point3new17hf3edc6e56e969b79E(i64 noundef 0, i64 noundef 0)
           to label %30 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -313,7 +313,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   %.0.ph = phi i64 [ %.us-phi204, %.loopexit ], [ %31, %43 ]
   %.sroa.036.0.ph = phi i64 [ %.us-phi200, %.loopexit ], [ %.fca.0.extract, %43 ]
   %.sroa.337.0.ph = phi i64 [ %.us-phi199, %.loopexit ], [ %.fca.1.extract, %43 ]
-  %46 = getelementptr inbounds i8, ptr %.1.ph, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 32
   %47 = load ptr, ptr %.sroa.063.sroa.8.0..sroa_idx, align 8, !alias.scope !13, !noalias !16, !noundef !4
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.outer.split.us, label %.outer.split
@@ -493,7 +493,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   %.sroa.1193.0211 = phi i64 [ %.sroa.1193.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ], [ %.us-phi205, %.preheader ]
   %.sroa.590.0210 = phi i64 [ %.sroa.590.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ], [ %.us-phi207, %.preheader ]
   %.sroa.089.0209 = phi i64 [ %.sroa.089.1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53" ], [ %.us-phi206, %.preheader ]
-  %74 = getelementptr inbounds i8, ptr %.2213, i64 40
+  %74 = getelementptr inbounds nuw i8, ptr %.2213, i64 40
   %75 = load i64, ptr %74, align 8, !noundef !4
   %76 = icmp ugt i64 %75, %.sroa.1193.0211
   br i1 %76, label %77, label %79
@@ -517,7 +517,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 
 81:                                               ; preds = %77
   %82 = load i64, ptr %.2213, align 8, !noundef !4
-  %83 = getelementptr inbounds i8, ptr %.2213, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.2213, i64 8
   %84 = load i64, ptr %83, align 8, !noundef !4
   br label %85
 
@@ -555,15 +555,15 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   %97 = load ptr, ptr %15, align 8, !alias.scope !53, !noalias !56, !nonnull !4, !noundef !4
   %98 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, i64, i64 }, ptr %97, i64 %96
   store i64 %.sroa.089.2, ptr %98, align 8
-  %.sroa.590.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 8
+  %.sroa.590.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 %.sroa.590.2, ptr %.sroa.590.0..sroa_idx, align 8
-  %.sroa.991.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 16
+  %.sroa.991.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 16
   store i64 %.us-phi202, ptr %.sroa.991.0..sroa_idx, align 8
-  %.sroa.1092.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 24
+  %.sroa.1092.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 24
   store i64 %.us-phi201, ptr %.sroa.1092.0..sroa_idx, align 8
-  %.sroa.1193.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 32
+  %.sroa.1193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 32
   store i64 %.sroa.1193.2, ptr %.sroa.1193.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 40
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 40
   store i64 %.us-phi203, ptr %.sroa.18.0..sroa_idx, align 8
   %99 = load i64, ptr %16, align 8, !alias.scope !53, !noalias !56, !noundef !4
   %100 = add i64 %99, 1
@@ -571,9 +571,9 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   br label %.loopexit
 
 101:                                              ; preds = %89
-  %102 = getelementptr inbounds i8, ptr %.2213, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.2213, i64 16
   %103 = load i64, ptr %102, align 8, !noundef !4
-  %104 = getelementptr inbounds i8, ptr %.2213, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %.2213, i64 24
   %105 = load i64, ptr %104, align 8, !noundef !4
   %106 = load i64, ptr %16, align 8, !alias.scope !58, !noalias !61, !noundef !4
   %107 = load i64, ptr %10, align 8, !alias.scope !58, !noalias !61, !noundef !4
@@ -590,9 +590,9 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 
 110:                                              ; preds = %89, %116
   %111 = phi i64 [ %75, %89 ], [ %.pre270, %116 ]
-  %112 = getelementptr inbounds i8, ptr %.2213, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %.2213, i64 16
   %113 = load i64, ptr %112, align 8, !noundef !4
-  %114 = getelementptr inbounds i8, ptr %.2213, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %.2213, i64 24
   %115 = load i64, ptr %114, align 8, !noundef !4
   br label %79
 
@@ -601,15 +601,15 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   %118 = load ptr, ptr %15, align 8, !alias.scope !58, !noalias !61, !nonnull !4, !noundef !4
   %119 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, i64, i64 }, ptr %118, i64 %117
   store i64 %.sroa.089.2, ptr %119, align 8
-  %.sroa.484.0..sroa_idx = getelementptr inbounds i8, ptr %119, i64 8
+  %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 %.sroa.590.2, ptr %.sroa.484.0..sroa_idx, align 8
-  %.sroa.585.0..sroa_idx = getelementptr inbounds i8, ptr %119, i64 16
+  %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 16
   store i64 %103, ptr %.sroa.585.0..sroa_idx, align 8
-  %.sroa.686.0..sroa_idx = getelementptr inbounds i8, ptr %119, i64 24
+  %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 24
   store i64 %105, ptr %.sroa.686.0..sroa_idx, align 8
-  %.sroa.787.0..sroa_idx = getelementptr inbounds i8, ptr %119, i64 32
+  %.sroa.787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 32
   store i64 %.sroa.1193.2, ptr %.sroa.787.0..sroa_idx, align 8
-  %.sroa.888.0..sroa_idx = getelementptr inbounds i8, ptr %119, i64 40
+  %.sroa.888.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 40
   store i64 %75, ptr %.sroa.888.0..sroa_idx, align 8
   %120 = load i64, ptr %16, align 8, !alias.scope !58, !noalias !61, !noundef !4
   %121 = add i64 %120, 1
@@ -618,8 +618,8 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
   br label %110
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8c6a4649f1d27f17E.exit53": ; preds = %79
-  %122 = getelementptr inbounds i8, ptr %.sroa.0.2212, i64 48
-  %123 = getelementptr inbounds i8, ptr %.sroa.0.2212, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.0.2212, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.0.2212, i64 32
   %124 = load i64, ptr %123, align 8, !noundef !4
   %.not49 = icmp ugt i64 %124, %.us-phi203
   br i1 %.not49, label %.loopexit, label %.lr.ph
@@ -647,7 +647,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer16intersect_ranges17h
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c13cf48d9E(ptr noalias nocapture noundef writeonly sret({ [8 x i8], i8, [15 x i8] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(240) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.4.i = alloca [6 x i64], align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 232
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = sub i64 0, %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
@@ -656,31 +656,31 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   br i1 %7, label %8, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.4.i), !noalias !68
   call void @"_ZN98_$LT$tree_sitter..QueryCaptures$LT$T$C$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70eb965db15d035fE"(ptr noalias nocapture noundef nonnull sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %.sroa.4.i, ptr noalias noundef nonnull align 8 dereferenceable(80) %9), !noalias !63
   store i64 1, ptr %1, align 8, !alias.scope !63, !noalias !66
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.i, i64 48, i1 false), !noalias !66
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.4.i), !noalias !68
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit": ; preds = %2, %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !noundef !4
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i64, ptr %13, align 8, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = icmp ult i64 %14, %16
   br i1 %17, label %.thread44, label %26, !prof !69
 
 18:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
-  %19 = getelementptr inbounds i8, ptr %1, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %20 = load i64, ptr %19, align 8, !noundef !4
   %.not.not = icmp eq i64 %20, 0
   br i1 %.not.not, label %.thread39, label %27
@@ -689,7 +689,7 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   %21 = load ptr, ptr %10, align 8, !nonnull !4, !align !11, !noundef !4
   %22 = getelementptr inbounds [0 x { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }], ptr %21, i64 0, i64 %14
   %23 = tail call noundef i64 @_ZN11tree_sitter4Node10start_byte17h7b19fd76ffed13b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %22)
-  %24 = getelementptr inbounds i8, ptr %1, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %25 = load i64, ptr %24, align 8, !noundef !4
   %.not.not46 = icmp eq i64 %25, 0
   br i1 %.not.not46, label %.thread41, label %35
@@ -699,20 +699,20 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   unreachable
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %1, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %29 = load ptr, ptr %28, align 8, !nonnull !4
   %30 = add i64 %20, -1
   %31 = getelementptr inbounds [0 x i64], ptr %29, i64 0, i64 %30
   %32 = load i64, ptr %31, align 8, !noundef !4
   store i64 %32, ptr %0, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %.sroa.420.0..sroa_idx, align 8
-  %.sroa.522.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %5, ptr %.sroa.522.0..sroa_idx, align 8
   br label %34
 
 .thread39:                                        ; preds = %18
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 2, ptr %33, align 8
   br label %34
 
@@ -721,21 +721,21 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
 
 .thread41:                                        ; preds = %.thread44
   store i64 %23, ptr %0, align 8
-  %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %.sroa.416.0..sroa_idx, align 8
-  %.sroa.518.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %5, ptr %.sroa.518.0..sroa_idx, align 8
   br label %34
 
 35:                                               ; preds = %.thread44
-  %36 = getelementptr inbounds i8, ptr %1, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %37 = load ptr, ptr %36, align 8, !nonnull !4
   %38 = add i64 %25, -1
   %39 = getelementptr inbounds [0 x i64], ptr %37, i64 0, i64 %38
   %40 = load i64, ptr %39, align 8, !noundef !4
   %41 = icmp ult i64 %23, %40
-  %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.510.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %35
@@ -767,9 +767,9 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer3new17h8e082e91e73d5bbaE(pt
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
   store i64 %5, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %8, align 8
   %9 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf93239e67a443189E"(i64 noundef 1000, i1 noundef zeroext false)
           to label %12 unwind label %10
@@ -783,13 +783,13 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer3new17h8e082e91e73d5bbaE(pt
 12:                                               ; preds = %1
   %13 = extractvalue { i64, ptr } %9, 0
   %14 = extractvalue { i64, ptr } %9, 1
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %16 = getelementptr inbounds i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %13, ptr %16, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %14, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 56
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   store i64 0, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -837,15 +837,15 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer3new17h8e082e91e73d5bbaE(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN21tree_sitter_highlight12HtmlRenderer29set_carriage_return_highlight17h0a85fa94717ae560E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) initializes((0, 16)) %0, i64 noundef %1, i64 %2) unnamed_addr #3 {
   store i64 %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN21tree_sitter_highlight12HtmlRenderer5reset17hdac89b5d336b67b7E(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !alias.scope !73, !noundef !4
   %5 = icmp ugt i64 %4, 10240
   br i1 %5, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h332c4e395c9a24ffE.exit.i", label %_ZN21tree_sitter_highlight16shrink_and_clear17h3da781cb84f18834E.exit
@@ -878,8 +878,8 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer5reset17hdac89b5d336b67b7E(
 
 _ZN21tree_sitter_highlight16shrink_and_clear17h3da781cb84f18834E.exit: ; preds = %1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h332c4e395c9a24ffE.exit.i", %8
   store i64 0, ptr %3, align 8, !alias.scope !73
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i64, ptr %16, align 8, !alias.scope !82, !noundef !4
   %18 = icmp ugt i64 %17, 1000
   %.pre3 = load i64, ptr %15, align 8, !alias.scope !85
@@ -927,7 +927,7 @@ _ZN21tree_sitter_highlight16shrink_and_clear17h18666b936662a449E.exit: ; preds =
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdf63d8ee2d79b5a3E.llvm.16574816117915424926.exit": ; preds = %_ZN21tree_sitter_highlight16shrink_and_clear17h18666b936662a449E.exit, %29
   %30 = phi i64 [ %.pre.i, %29 ], [ 0, %_ZN21tree_sitter_highlight16shrink_and_clear17h18666b936662a449E.exit ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8, !alias.scope !85, !nonnull !4, !noundef !4
   %33 = getelementptr inbounds i32, ptr %32, i64 %30
   store i32 0, ptr %33, align 4
@@ -939,25 +939,25 @@ _ZN21tree_sitter_highlight16shrink_and_clear17h18666b936662a449E.exit: ; preds =
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN21tree_sitter_highlight12HtmlRenderer5lines17h6d4f3d3333986b11E(ptr noalias nocapture noundef writeonly sret({ { { ptr, ptr }, i64 }, ptr }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = getelementptr inbounds i32, ptr %4, i64 %6
   store ptr %4, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN21tree_sitter_highlight12HtmlRenderer13end_highlight17h7450f674b0b93beeE(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !alias.scope !91, !noundef !4
   %5 = load i64, ptr %2, align 8, !alias.scope !91, !noundef !4
   %6 = sub i64 %5, %4
@@ -971,7 +971,7 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer13end_highlight17h7450f674b
 
 "_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hc5b1c702ac4dd55aE.exit": ; preds = %1, %8
   %9 = phi i64 [ %4, %1 ], [ %.pre.i, %8 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !alias.scope !96, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %12, ptr noundef nonnull align 1 dereferenceable(7) @anon.7846843607c3237cb579c64a79ba54af.17.llvm.16574816117915424926, i64 7, i1 false)
@@ -1018,26 +1018,26 @@ define { ptr, i64 } @_ZN21tree_sitter_highlight12HtmlRenderer8add_text11html_esc
 define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] }, { ptr, i64 }, i8, [7 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(352) %1, ptr noalias noundef readonly align 1 %2, i64 %3, ptr noalias noundef readonly align 8 dereferenceable(104) %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %5, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7) unnamed_addr #1 {
   %.sroa.3 = alloca [4 x i64], align 8
   %9 = alloca { i64, [2 x i64] }, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 76
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 84
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %13 = load i32, ptr %12, align 4
   %14 = load ptr, ptr %5, align 8, !nonnull !4, !align !11, !noundef !4
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !4
   %17 = getelementptr inbounds { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }, ptr %14, i64 %16
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load i32, ptr %19, align 8, !range !97, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %1, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %22 = load i32, ptr %21, align 8, !range !97, !noundef !4
   %.not.not = icmp eq i32 %20, 0
   %.not57.not = icmp eq i32 %22, 0
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br i1 %.not.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1046,8 +1046,8 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %30
   %.sroa.029.0103.us = phi i64 [ %.sroa.029.2.us, %30 ], [ 0, %.lr.ph.split.us ]
   %.sroa.0.099.us = phi ptr [ %25, %30 ], [ %14, %.lr.ph.split.us ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.0.099.us, i64 40
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.099.us, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.099.us, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.099.us, i64 32
   %27 = load i32, ptr %26, align 8, !noundef !4
   %28 = icmp eq i32 %27, %11
   br i1 %28, label %29, label %30
@@ -1069,8 +1069,8 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   %.sroa.11.0101.us110 = phi i64 [ %.sroa.11.3.us115, %40 ], [ undef, %.lr.ph.split ]
   %.sroa.516.0100.us111 = phi i64 [ %.sroa.516.1.us114, %40 ], [ undef, %.lr.ph.split ]
   %.sroa.0.099.us112 = phi ptr [ %32, %40 ], [ %14, %.lr.ph.split ]
-  %32 = getelementptr inbounds i8, ptr %.sroa.0.099.us112, i64 40
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.099.us112, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.099.us112, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.099.us112, i64 32
   %34 = load i32, ptr %33, align 8, !noundef !4
   %35 = icmp eq i32 %34, %13
   br i1 %35, label %36, label %40
@@ -1098,7 +1098,7 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   %.sroa.11.0.lcssa = phi i64 [ undef, %8 ], [ undef, %.lr.ph.split.us ], [ undef, %30 ], [ %.sroa.11.3.us115, %40 ], [ %.sroa.11.3, %88 ]
   %.sroa.05.0.lcssa = phi ptr [ null, %8 ], [ null, %.lr.ph.split.us ], [ null, %30 ], [ %.sroa.05.3.us116, %40 ], [ %.sroa.05.3, %88 ]
   %.sroa.029.0.lcssa = phi i64 [ 0, %8 ], [ 0, %.lr.ph.split.us ], [ %.sroa.029.2.us, %30 ], [ 0, %40 ], [ %.sroa.029.2, %88 ]
-  %42 = getelementptr inbounds i8, ptr %5, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %43 = load i64, ptr %42, align 8, !noundef !4
   %44 = tail call { ptr, i64 } @_ZN11tree_sitter5Query17property_settings17hebe827cc356ef0f4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %4, i64 noundef %43)
   %45 = extractvalue { ptr, i64 } %44, 0
@@ -1110,9 +1110,9 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   br i1 %49, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.lr.ph"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.lr.ph": ; preds = %._crit_edge
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load ptr, ptr %50, align 8, !nonnull !4
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load i64, ptr %52, align 8
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit"
 
@@ -1122,8 +1122,8 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   %.sroa.11.0101 = phi i64 [ %.sroa.11.3, %88 ], [ undef, %.lr.ph.split ]
   %.sroa.516.0100 = phi i64 [ %.sroa.516.1, %88 ], [ undef, %.lr.ph.split ]
   %.sroa.0.099 = phi ptr [ %54, %88 ], [ %14, %.lr.ph.split ]
-  %54 = getelementptr inbounds i8, ptr %.sroa.0.099, i64 40
-  %55 = getelementptr inbounds i8, ptr %.sroa.0.099, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.099, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.099, i64 32
   %56 = load i32, ptr %55, align 8, !noundef !4
   %57 = icmp eq i32 %56, %13
   br i1 %57, label %81, label %85
@@ -1134,10 +1134,10 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   %.sroa.05.1129 = phi ptr [ %.sroa.05.0.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.lr.ph" ], [ %.sroa.05.2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77.thread" ]
   %.sroa.11.1128 = phi i64 [ %.sroa.11.0.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.lr.ph" ], [ %.sroa.11.2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77.thread" ]
   %.sroa.078.0127 = phi ptr [ %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.lr.ph" ], [ %58, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77.thread" ]
-  %58 = getelementptr inbounds i8, ptr %.sroa.078.0127, i64 48
-  %59 = getelementptr inbounds i8, ptr %.sroa.078.0127, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.078.0127, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.078.0127, i64 16
   %60 = load ptr, ptr %59, align 8, !nonnull !4, !align !98, !noundef !4
-  %61 = getelementptr inbounds i8, ptr %.sroa.078.0127, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.078.0127, i64 24
   %62 = load i64, ptr %61, align 8, !noundef !4
   %63 = add i64 %62, -14
   %64 = tail call i64 @llvm.fshl.i64(i64 %63, i64 %63, i64 63)
@@ -1156,14 +1156,14 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   %.sroa.11.1.lcssa = phi i64 [ %.sroa.11.0.lcssa, %._crit_edge ], [ %.sroa.11.2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.thread.loopexit" ]
   %.sroa.05.1.lcssa = phi ptr [ %.sroa.05.0.lcssa, %._crit_edge ], [ %.sroa.05.2, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.thread.loopexit" ]
   %.0.lcssa = phi i8 [ 0, %._crit_edge ], [ %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.thread.loopexit" ]
-  %66 = getelementptr inbounds i8, ptr %0, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.sroa.05.1.lcssa, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sroa.11.1.lcssa, ptr %67, align 8
   store i64 %.sroa.029.0.lcssa, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.3, i64 32, i1 false)
-  %68 = getelementptr inbounds i8, ptr %0, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %.0.lcssa, ptr %68, align 8
   ret void
 
@@ -1210,7 +1210,7 @@ define void @_ZN21tree_sitter_highlight19injection_for_match17he9a09c7c5997cc6bE
   br i1 %74, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit.thread.loopexit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65b45891d316af6bE.exit"
 
 75:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit"
-  %76 = getelementptr inbounds i8, ptr %.sroa.078.0127, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.078.0127, i64 32
   %77 = load ptr, ptr %76, align 8, !noundef !4
   %78 = icmp eq ptr %77, null
   br i1 %78, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit77.thread", label %79

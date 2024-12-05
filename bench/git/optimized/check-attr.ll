@@ -73,7 +73,7 @@ if.end:                                           ; preds = %if.then, %entry
   %0 = load ptr, ptr @the_repository, align 8
   tail call void @prepare_repo_settings(ptr noundef %0) #9
   %1 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds i8, ptr %1, i64 168
+  %command_requires_full_index = getelementptr inbounds nuw i8, ptr %1, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
   %call2 = tail call i32 @repo_read_index(ptr noundef %1) #9
   %cmp = icmp slt i32 %call2, 0
@@ -103,20 +103,20 @@ for.body.preheader:                               ; preds = %if.end7
 for.body:                                         ; preds = %for.body.preheader, %for.body.tail
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body.tail ]
   %doubledash.038 = phi i32 [ -1, %for.body.preheader ], [ %tobool11.not, %for.body.tail ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, 45
   br i1 %.not, label %sub_1, label %for.body.tail
 
 sub_1:                                            ; preds = %for.body
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %7 = load i8, ptr %6, align 1
   %.not44 = icmp eq i8 %7, 45
   br i1 %.not44, label %sub_2, label %for.body.tail
 
 sub_2:                                            ; preds = %sub_1
-  %8 = getelementptr inbounds i8, ptr %4, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   %11 = trunc nuw nsw i64 %indvars.iv to i32
@@ -217,14 +217,14 @@ for.body51.preheader:                             ; preds = %if.end45
 
 for.body51:                                       ; preds = %for.body51.preheader, %if.end61
   %indvars.iv48 = phi i64 [ 0, %for.body51.preheader ], [ %indvars.iv.next49, %if.end61 ]
-  %arrayidx53 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv48
+  %arrayidx53 = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv48
   %19 = load ptr, ptr %arrayidx53, align 8
   %call54 = tail call ptr @git_attr(ptr noundef %19) #9
   %tobool55.not = icmp eq ptr %call54, null
   br i1 %tobool55.not, label %if.then56, label %if.end61
 
 if.then56:                                        ; preds = %for.body51
-  %arrayidx53.le = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv48
+  %arrayidx53.le = getelementptr inbounds nuw ptr, ptr %argv, i64 %indvars.iv48
   %20 = load ptr, ptr %arrayidx53.le, align 8
   %call59 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef %20) #9
   br label %return
@@ -283,9 +283,9 @@ if.then75:                                        ; preds = %if.end73
   br i1 %cmp.not2.i, label %check_attr_stdin_paths.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then75
-  %buf2.i = getelementptr inbounds i8, ptr %buf.i, i64 16
-  %len2.i.i = getelementptr inbounds i8, ptr %unquoted.i, i64 8
-  %buf.i.i = getelementptr inbounds i8, ptr %unquoted.i, i64 16
+  %buf2.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %unquoted.i, i64 8
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %unquoted.i, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end9.i, %while.body.lr.ph.i
@@ -441,14 +441,14 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %cmp13.i, label %for.body.lr.ph.i, label %output_attr.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end
-  %items.i = getelementptr inbounds i8, ptr %check, i64 8
+  %items.i = getelementptr inbounds nuw i8, ptr %check, i64 8
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %2 = load ptr, ptr %items.i, align 8
-  %value1.i = getelementptr inbounds %struct.attr_check_item, ptr %2, i64 %indvars.iv.i, i32 1
+  %value1.i = getelementptr inbounds nuw %struct.attr_check_item, ptr %2, i64 %indvars.iv.i, i32 1
   %3 = load ptr, ptr %value1.i, align 8
   %cmp2.i = icmp eq ptr %3, @git_attr__true
   br i1 %cmp2.i, label %if.end9.i, label %if.else.i
@@ -469,7 +469,7 @@ if.end9.i:                                        ; preds = %if.else5.i, %if.els
   br i1 %tobool.not.i, label %if.else15.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end9.i
-  %arrayidx13.i = getelementptr inbounds %struct.attr_check_item, ptr %2, i64 %indvars.iv.i
+  %arrayidx13.i = getelementptr inbounds nuw %struct.attr_check_item, ptr %2, i64 %indvars.iv.i
   %5 = load ptr, ptr %arrayidx13.i, align 8
   %call.i = tail call ptr @git_attr_name(ptr noundef %5) #9
   %call14.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef %file, i32 noundef 0, ptr noundef %call.i, i32 noundef 0, ptr noundef nonnull %value.0.i, i32 noundef 0)
@@ -479,7 +479,7 @@ if.else15.i:                                      ; preds = %if.end9.i
   %6 = load ptr, ptr @stdout, align 8
   %call16.i = tail call i64 @quote_c_style(ptr noundef %file, ptr noundef null, ptr noundef %6, i32 noundef 0) #9
   %7 = load ptr, ptr %items.i, align 8
-  %arrayidx19.i = getelementptr inbounds %struct.attr_check_item, ptr %7, i64 %indvars.iv.i
+  %arrayidx19.i = getelementptr inbounds nuw %struct.attr_check_item, ptr %7, i64 %indvars.iv.i
   %8 = load ptr, ptr %arrayidx19.i, align 8
   %call21.i = tail call ptr @git_attr_name(ptr noundef %8) #9
   %call22.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %call21.i, ptr noundef nonnull %value.0.i)

@@ -43,9 +43,9 @@ _ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.exit": ; preds = %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i, %1
-  %.0.i.i2.i = phi ptr [ %4, %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit5__KEY17hbb852b38e5a63c29E, i64 4), %1 ]
+  %.0.i.i2.i = phi ptr [ %4, %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit5__KEY17hbb852b38e5a63c29E, i64 4), %1 ]
   %7 = load i32, ptr %.0.i.i2.i, align 4, !noundef !10
-  %8 = getelementptr inbounds i8, ptr %.0.i.i2.i, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i, i64 4
   %9 = load i32, ptr %8, align 4, !noundef !10
   %10 = shl i32 %7, 17
   %11 = xor i32 %10, %7

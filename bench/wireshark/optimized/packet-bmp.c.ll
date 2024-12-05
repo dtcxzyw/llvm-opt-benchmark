@@ -601,7 +601,7 @@ define internal i32 @dissect_bmp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef nonnull @.str.233) #5
   %25 = load ptr, ptr %23, align 8
@@ -620,7 +620,7 @@ define internal i32 @dissect_bmp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %4
   %34 = zext nneg i8 %26 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.dissect_bmp_pdu, i64 0, i64 %34
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dissect_bmp_pdu, i64 0, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %35
 
@@ -701,7 +701,7 @@ switch.lookup:                                    ; preds = %4
   %84 = call ptr @proto_tree_add_bitmask(ptr noundef %76, ptr noundef %0, i32 noundef 7, i32 noundef %82, i32 noundef %83, ptr noundef nonnull %dissect_bmp_peer_header.peer_flags_loc_rib.dissect_bmp_peer_header.peer_flags.i, i32 noundef 0) #5
   %85 = load i32, ptr @hf_peer_distinguisher, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %85, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #5
-  %87 = getelementptr inbounds i8, ptr %1, i64 408
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %88 = load ptr, ptr %87, align 8
   %89 = call ptr @decode_bgp_rd(ptr noundef %88, ptr noundef %0, i32 noundef 8) #5
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %86, ptr noundef nonnull @.str.302, ptr noundef %89) #5
@@ -1124,7 +1124,7 @@ dissect_bmp_peer_down_notification.exit.i:        ; preds = %.thread.i, %295
 
 switch.lookup59:                                  ; preds = %.lr.ph.i104.i
   %341 = zext nneg i32 %339 to i64
-  %switch.gep60 = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_bmp_pdu.3, i64 0, i64 %341
+  %switch.gep60 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bmp_pdu.3, i64 0, i64 %341
   %switch.load61 = load ptr, ptr %switch.gep60, align 8
   %342 = load i32, ptr %switch.load61, align 4
   %343 = load i32, ptr %15, align 4
@@ -1213,7 +1213,7 @@ dissect_bmp_peer_header.exit:                     ; preds = %136, %.preheader.i,
   br i1 %.not4243.i, label %dissect_bmp_route_policy.exit, label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %384
-  %391 = getelementptr inbounds i8, ptr %1, i64 408
+  %391 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %392
 
 392:                                              ; preds = %dissect_bmp_route_policy_event.exit.i, %.lr.ph.i54

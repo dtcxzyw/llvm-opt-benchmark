@@ -17,7 +17,7 @@ define hidden i32 @mbedtls_psa_aead_encrypt(ptr nocapture noundef readonly %0, p
   br i1 %.not, label %16, label %42
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %14, i64 7
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 7
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
   %20 = add i64 %9, %19
@@ -34,12 +34,12 @@ define hidden i32 @mbedtls_psa_aead_encrypt(ptr nocapture noundef readonly %0, p
   ]
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %14, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %27 = call i32 @mbedtls_ccm_encrypt_and_tag(ptr noundef nonnull %26, i64 noundef %9, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %10, ptr noundef %23, i64 noundef %19) #3
   br label %35
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %14, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %30 = call i32 @mbedtls_gcm_crypt_and_tag(ptr noundef nonnull %29, i32 noundef 1, i64 noundef %9, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %10, i64 noundef %19, ptr noundef %23) #3
   br label %35
 
@@ -48,7 +48,7 @@ define hidden i32 @mbedtls_psa_aead_encrypt(ptr nocapture noundef readonly %0, p
   br i1 %.not39, label %32, label %.thread
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %14, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %34 = call i32 @mbedtls_chachapoly_encrypt_and_tag(ptr noundef nonnull %33, i64 noundef %9, ptr noundef %4, ptr noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %10, ptr noundef %23) #3
   br label %35
 
@@ -75,18 +75,18 @@ define hidden i32 @mbedtls_psa_aead_encrypt(ptr nocapture noundef readonly %0, p
   ]
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %14, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @mbedtls_ccm_free(ptr noundef nonnull %44) #3
   br label %mbedtls_psa_aead_abort.exit
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %14, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @mbedtls_gcm_free(ptr noundef nonnull %46) #3
   br label %mbedtls_psa_aead_abort.exit
 
 .thread:                                          ; preds = %31, %42
   %.03641 = phi i32 [ %.036.ph, %42 ], [ -134, %31 ]
-  %47 = getelementptr inbounds i8, ptr %14, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @mbedtls_chachapoly_free(ptr noundef nonnull %47) #3
   br label %mbedtls_psa_aead_abort.exit
 
@@ -101,7 +101,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
   %9 = load i16, ptr %1, align 8
@@ -125,7 +125,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
   br i1 %.not55, label %17, label %62
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @mbedtls_ccm_init(ptr noundef nonnull %18) #3
   %19 = load i32, ptr %5, align 4
   %20 = zext i16 %7 to i32
@@ -142,7 +142,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
   br i1 %.not53, label %26, label %62
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @mbedtls_gcm_init(ptr noundef nonnull %27) #3
   %28 = load i32, ptr %5, align 4
   %29 = zext i16 %7 to i32
@@ -157,7 +157,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
   br i1 %.not, label %33, label %62
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @mbedtls_chachapoly_init(ptr noundef nonnull %34) #3
   %35 = call i32 @mbedtls_chachapoly_setkey(ptr noundef nonnull %34, ptr noundef %2) #3
   %36 = call i32 @mbedtls_to_psa_error(i32 noundef %35) #3
@@ -191,12 +191,12 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
   br i1 %51, label %62, label %.thread66
 
 .thread66:                                        ; preds = %.thread
-  %52 = getelementptr inbounds i8, ptr %0, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %38, ptr %52, align 4
   br label %._crit_edge
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %0, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %38, ptr %54, align 4
   br i1 %41, label %55, label %._crit_edge
 
@@ -222,7 +222,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, ptr nocapture noundef
 
 59:                                               ; preds = %._crit_edge, %.thread72, %.thread68
   %60 = phi i8 [ 0, %.thread68 ], [ %58, %.thread72 ], [ %57, %._crit_edge ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 7
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 %60, ptr %61, align 1
   br label %62
 
@@ -249,22 +249,22 @@ define hidden noundef i32 @mbedtls_psa_aead_abort(ptr noundef %0) local_unnamed_
   ]
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_ccm_free(ptr noundef nonnull %4) #3
   br label %9
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_gcm_free(ptr noundef nonnull %6) #3
   br label %9
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_chachapoly_free(ptr noundef nonnull %8) #3
   br label %9
 
 9:                                                ; preds = %7, %5, %3, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %11 = load i8, ptr %10, align 2
   %12 = and i8 %11, -2
   store i8 %12, ptr %10, align 2
@@ -280,7 +280,7 @@ define hidden i32 @mbedtls_psa_aead_decrypt(ptr nocapture noundef readonly %0, p
   br i1 %.not, label %16, label %psa_aead_unpadded_locate_tag.exit.thread
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %14, i64 7
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 7
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
   %20 = icmp ult i64 %9, %19
@@ -301,12 +301,12 @@ define hidden i32 @mbedtls_psa_aead_decrypt(ptr nocapture noundef readonly %0, p
   ]
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %14, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %29 = call i32 @mbedtls_ccm_auth_decrypt(ptr noundef nonnull %28, i64 noundef %22, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %10, ptr noundef %25, i64 noundef %19) #3
   br label %37
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %14, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %32 = call i32 @mbedtls_gcm_auth_decrypt(ptr noundef nonnull %31, i64 noundef %22, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %25, i64 noundef %19, ptr noundef %8, ptr noundef %10) #3
   br label %37
 
@@ -315,7 +315,7 @@ define hidden i32 @mbedtls_psa_aead_decrypt(ptr nocapture noundef readonly %0, p
   br i1 %.not41, label %34, label %.thread
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %14, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %36 = call i32 @mbedtls_chachapoly_auth_decrypt(ptr noundef nonnull %35, i64 noundef %22, ptr noundef %4, ptr noundef %6, i64 noundef %7, ptr noundef %25, ptr noundef %8, ptr noundef %10) #3
   br label %37
 
@@ -342,18 +342,18 @@ psa_aead_unpadded_locate_tag.exit.thread:         ; preds = %21, %16, %37, %40, 
   ]
 
 44:                                               ; preds = %psa_aead_unpadded_locate_tag.exit.thread
-  %45 = getelementptr inbounds i8, ptr %14, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @mbedtls_ccm_free(ptr noundef nonnull %45) #3
   br label %mbedtls_psa_aead_abort.exit
 
 46:                                               ; preds = %psa_aead_unpadded_locate_tag.exit.thread
-  %47 = getelementptr inbounds i8, ptr %14, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @mbedtls_gcm_free(ptr noundef nonnull %47) #3
   br label %mbedtls_psa_aead_abort.exit
 
 .thread:                                          ; preds = %33, %psa_aead_unpadded_locate_tag.exit.thread
   %.049 = phi i32 [ %.0.ph, %psa_aead_unpadded_locate_tag.exit.thread ], [ -134, %33 ]
-  %48 = getelementptr inbounds i8, ptr %14, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @mbedtls_chachapoly_free(ptr noundef nonnull %48) #3
   br label %mbedtls_psa_aead_abort.exit
 
@@ -363,7 +363,7 @@ mbedtls_psa_aead_abort.exit:                      ; preds = %psa_aead_unpadded_l
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %mbedtls_psa_aead_abort.exit
-  %51 = getelementptr inbounds i8, ptr %14, i64 7
+  %51 = getelementptr inbounds nuw i8, ptr %14, i64 7
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
   %54 = sub i64 %9, %53
@@ -388,7 +388,7 @@ define hidden i32 @mbedtls_psa_aead_encrypt_setup(ptr noundef %0, ptr nocapture 
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %10 = load i8, ptr %9, align 2
   %11 = or i8 %10, 1
   store i8 %11, ptr %9, align 2
@@ -405,7 +405,7 @@ define hidden i32 @mbedtls_psa_aead_decrypt_setup(ptr noundef %0, ptr nocapture 
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %10 = load i8, ptr %9, align 2
   %11 = and i8 %10, -2
   store i8 %11, ptr %9, align 2
@@ -425,8 +425,8 @@ define hidden i32 @mbedtls_psa_aead_set_nonce(ptr noundef %0, ptr noundef %1, i6
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %8 = load i8, ptr %7, align 2
   %9 = and i8 %8, 1
   %10 = zext nneg i8 %9 to i32
@@ -434,8 +434,8 @@ define hidden i32 @mbedtls_psa_aead_set_nonce(ptr noundef %0, ptr noundef %1, i6
   br label %.sink.split
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %15 = load i8, ptr %14, align 2
   %16 = and i8 %15, 1
   %17 = zext nneg i8 %16 to i32
@@ -447,8 +447,8 @@ define hidden i32 @mbedtls_psa_aead_set_nonce(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not, label %20, label %29
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %23 = load i8, ptr %22, align 2
   %24 = and i8 %23, 1
   %25 = xor i8 %24, 1
@@ -479,8 +479,8 @@ define hidden i32 @mbedtls_psa_aead_set_lengths(ptr noundef %0, i64 noundef %1, 
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
   %11 = tail call i32 @mbedtls_ccm_set_lengths(ptr noundef nonnull %7, i64 noundef %1, i64 noundef %2, i64 noundef %10) #3
@@ -504,17 +504,17 @@ define hidden i32 @mbedtls_psa_aead_update_ad(ptr noundef %0, ptr noundef %1, i6
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call i32 @mbedtls_gcm_update_ad(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #3
   br label %.sink.split
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call i32 @mbedtls_ccm_update_ad(ptr noundef nonnull %9, ptr noundef %1, i64 noundef %2) #3
   br label %.sink.split
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = tail call i32 @mbedtls_chachapoly_update_aad(ptr noundef nonnull %12, ptr noundef %1, i64 noundef %2) #3
   br label %.sink.split
 
@@ -546,7 +546,7 @@ define hidden i32 @mbedtls_psa_aead_update(ptr noundef %0, ptr noundef %1, i64 n
   ]
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = call i32 @mbedtls_gcm_update(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %7) #3
   %12 = call i32 @mbedtls_to_psa_error(i32 noundef %11) #3
   br label %25
@@ -556,7 +556,7 @@ define hidden i32 @mbedtls_psa_aead_update(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %14, label %29, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = call i32 @mbedtls_ccm_update(ptr noundef nonnull %16, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %7) #3
   %18 = call i32 @mbedtls_to_psa_error(i32 noundef %17) #3
   br label %25
@@ -566,7 +566,7 @@ define hidden i32 @mbedtls_psa_aead_update(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %20, label %29, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = tail call i32 @mbedtls_chachapoly_update(ptr noundef nonnull %22, i64 noundef %2, ptr noundef %1, ptr noundef %3) #3
   %24 = tail call i32 @mbedtls_to_psa_error(i32 noundef %23) #3
   br label %25
@@ -594,7 +594,7 @@ declare i32 @mbedtls_chachapoly_update(ptr noundef, i64 noundef, ptr noundef, pt
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_psa_aead_finish(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %0, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
   %11 = icmp ult i64 %5, %10
@@ -609,12 +609,12 @@ define hidden i32 @mbedtls_psa_aead_finish(ptr noundef %0, ptr noundef %1, i64 n
   ]
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = tail call i32 @mbedtls_gcm_finish(ptr noundef nonnull %15, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %10) #3
   br label %25
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = tail call i32 @mbedtls_ccm_finish(ptr noundef nonnull %18, ptr noundef %4, i64 noundef %10) #3
   br label %25
 
@@ -623,7 +623,7 @@ define hidden i32 @mbedtls_psa_aead_finish(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = tail call i32 @mbedtls_chachapoly_finish(ptr noundef nonnull %23, ptr noundef %4) #3
   br label %25
 

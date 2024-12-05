@@ -28,7 +28,7 @@ define dso_local zeroext i1 @IsValidJsonNumber(ptr noundef %0, i32 noundef %1) l
   %10 = sext i1 %9 to i32
   %.sink = add nsw i32 %1, %10
   store ptr %.sink7, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %11, align 8
   %12 = call fastcc i32 @json_lex_number(ptr noundef nonnull %5, ptr noundef %.sink7, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %13 = load i8, ptr %3, align 1
@@ -52,7 +52,7 @@ define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr nocapture nound
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = trunc i64 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, %9
   br i1 %12, label %13, label %.critedge
@@ -249,9 +249,9 @@ define internal fastcc range(i32 0, 13) i32 @json_lex_number(ptr nocapture nound
   br label %86
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %0, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %84, ptr %85, align 8
   store ptr %.797.lcssa, ptr %83, align 8
   br i1 %.388.lcssa, label %87, label %86
@@ -271,7 +271,7 @@ define dso_local noundef ptr @makeJsonLexContextCstringLen(ptr noundef %0, ptr n
 
 7:                                                ; preds = %5
   %8 = tail call ptr @palloc0(i64 noundef 72) #9
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = or i32 %10, 1
   store i32 %11, ptr %9, align 8
@@ -283,24 +283,24 @@ define dso_local noundef ptr @makeJsonLexContextCstringLen(ptr noundef %0, ptr n
 
 13:                                               ; preds = %12, %7
   %.0 = phi ptr [ %8, %7 ], [ %0, %12 ]
-  %14 = getelementptr inbounds i8, ptr %.0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   store ptr %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %.0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store ptr %1, ptr %15, align 8
   store ptr %1, ptr %.0, align 8
-  %16 = getelementptr inbounds i8, ptr %.0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %.0, i64 52
   store i32 1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %.0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i32 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %.0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 12
   store i32 %3, ptr %18, align 4
   br i1 %4, label %19, label %25
 
 19:                                               ; preds = %13
   %20 = tail call ptr @makeStringInfo() #9
-  %21 = getelementptr inbounds i8, ptr %.0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 64
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.0, i64 48
   %23 = load i32, ptr %22, align 8
   %24 = or i32 %23, 2
   store i32 %24, ptr %22, align 8
@@ -319,14 +319,14 @@ declare ptr @makeStringInfo() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeJsonLexContext(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 2
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   tail call void @pfree(ptr noundef %8) #9
@@ -392,7 +392,7 @@ define dso_local i32 @pg_parse_json(ptr nocapture noundef %0, ptr nocapture noun
   br label %lex_expect.exit
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   %spec.select = select i1 %21, i32 8, i32 6
@@ -407,18 +407,18 @@ lex_expect.exit:                                  ; preds = %18, %16, %12, %2
 define dso_local range(i32 0, 19) i32 @json_lex(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = alloca [5 x i8], align 1
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %3, i64 %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ult ptr %9, %7
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 52
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %13
 
 13:                                               ; preds = %.lr.ph, %20
@@ -449,17 +449,17 @@ define dso_local range(i32 0, 19) i32 @json_lex(ptr nocapture noundef %0) local_
 
 ._crit_edge:                                      ; preds = %20, %1
   %.0107.lcssa = phi ptr [ %9, %1 ], [ %15, %20 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %23, align 8
   store ptr %.0107.lcssa, ptr %8, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 12, ptr %24, align 8
   br label %262
 
 25:                                               ; preds = %13
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.0107203, ptr %26, align 8
   %27 = load i8, ptr %.0107203, align 1
   switch i8 %27, label %.preheader [
@@ -488,62 +488,62 @@ define dso_local range(i32 0, 19) i32 @json_lex(ptr nocapture noundef %0) local_
   br i1 %28, label %.lr.ph205, label %.critedge4.thread
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %30, align 8
   %31 = getelementptr i8, ptr %.0107203, i64 1
   store ptr %31, ptr %8, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 3, ptr %32, align 8
   br label %262
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %34, align 8
   %35 = getelementptr i8, ptr %.0107203, i64 1
   store ptr %35, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 4, ptr %36, align 8
   br label %262
 
 37:                                               ; preds = %25
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %38, align 8
   %39 = getelementptr i8, ptr %.0107203, i64 1
   store ptr %39, ptr %8, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 5, ptr %40, align 8
   br label %262
 
 41:                                               ; preds = %25
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %42, align 8
   %43 = getelementptr i8, ptr %.0107203, i64 1
   store ptr %43, ptr %8, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 6, ptr %44, align 8
   br label %262
 
 45:                                               ; preds = %25
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %46, align 8
   %47 = getelementptr i8, ptr %.0107203, i64 1
   store ptr %47, ptr %8, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 7, ptr %48, align 8
   br label %262
 
 49:                                               ; preds = %25
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %50, align 8
   %51 = getelementptr i8, ptr %.0107203, i64 1
   store ptr %51, ptr %8, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 8, ptr %52, align 8
   br label %262
 
 53:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %2)
-  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %57, label %56
@@ -560,7 +560,7 @@ define dso_local range(i32 0, 19) i32 @json_lex(ptr nocapture noundef %0) local_
   br i1 %.not165278.i, label %.lr.ph282.i, label %json_lex_string.exit.thread
 
 .lr.ph282.i:                                      ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %0, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %61 = getelementptr i8, ptr %7, i64 -16
   br label %62
 
@@ -936,12 +936,12 @@ json_lex_string.exit.thread:                      ; preds = %65, %.backedge.i, %
 
 220:                                              ; preds = %217
   %221 = load ptr, ptr %8, align 8
-  %222 = getelementptr inbounds i8, ptr %0, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %221, ptr %222, align 8
   %223 = getelementptr i8, ptr %.0145279.i, i64 2
   store ptr %223, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %2)
-  %224 = getelementptr inbounds i8, ptr %0, i64 40
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %224, align 8
   br label %262
 
@@ -952,7 +952,7 @@ json_lex_string.exit.thread:                      ; preds = %65, %.backedge.i, %
   br i1 %.not118, label %228, label %262
 
 228:                                              ; preds = %225
-  %229 = getelementptr inbounds i8, ptr %0, i64 40
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 2, ptr %229, align 8
   br label %262
 
@@ -962,7 +962,7 @@ json_lex_string.exit.thread:                      ; preds = %65, %.backedge.i, %
   br i1 %.not117, label %232, label %262
 
 232:                                              ; preds = %230
-  %233 = getelementptr inbounds i8, ptr %0, i64 40
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 2, ptr %233, align 8
   br label %262
 
@@ -994,14 +994,14 @@ json_lex_string.exit.thread:                      ; preds = %65, %.backedge.i, %
   br i1 %242, label %.critedge4.thread, label %245
 
 .critedge4.thread:                                ; preds = %.preheader, %.critedge4
-  %243 = getelementptr inbounds i8, ptr %0, i64 32
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %243, align 8
   %244 = getelementptr i8, ptr %.0107203, i64 1
   store ptr %244, ptr %8, align 8
   br label %262
 
 245:                                              ; preds = %.critedge4
-  %246 = getelementptr inbounds i8, ptr %0, i64 32
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %246, align 8
   store ptr %.0.lcssa, ptr %8, align 8
   %247 = ptrtoint ptr %.0.lcssa to i64
@@ -1018,7 +1018,7 @@ json_lex_string.exit.thread:                      ; preds = %65, %.backedge.i, %
   br i1 %251, label %252, label %254
 
 252:                                              ; preds = %250
-  %253 = getelementptr inbounds i8, ptr %0, i64 40
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 9, ptr %253, align 8
   br label %262
 
@@ -1028,7 +1028,7 @@ json_lex_string.exit.thread:                      ; preds = %65, %.backedge.i, %
   br i1 %255, label %256, label %262
 
 256:                                              ; preds = %254
-  %257 = getelementptr inbounds i8, ptr %0, i64 40
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 11, ptr %257, align 8
   br label %262
 
@@ -1038,7 +1038,7 @@ json_lex_string.exit.thread:                      ; preds = %65, %.backedge.i, %
   br i1 %259, label %260, label %262
 
 260:                                              ; preds = %258
-  %261 = getelementptr inbounds i8, ptr %0, i64 40
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 10, ptr %261, align 8
   br label %262
 
@@ -1049,9 +1049,9 @@ json_lex_string.exit.thread:                      ; preds = %65, %.backedge.i, %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_object(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %7
@@ -1063,7 +1063,7 @@ define internal fastcc i32 @parse_object(ptr nocapture noundef %0, ptr nocapture
   br i1 %.not42, label %10, label %.critedge.thread
 
 10:                                               ; preds = %7, %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -1102,7 +1102,7 @@ define internal fastcc i32 @parse_object(ptr nocapture noundef %0, ptr nocapture
   br i1 %24, label %.lr.ph, label %.critedge.thread, !llvm.loop !17
 
 25:                                               ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   %29 = icmp eq i32 %.val49, 12
@@ -1111,7 +1111,7 @@ define internal fastcc i32 @parse_object(ptr nocapture noundef %0, ptr nocapture
   br label %.critedge.thread
 
 30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   %34 = icmp eq i32 %.val, 12
@@ -1147,9 +1147,9 @@ lex_expect.exit:                                  ; preds = %.lr.ph, %15
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_array(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %7
@@ -1161,7 +1161,7 @@ define internal fastcc i32 @parse_array(ptr nocapture noundef %0, ptr nocapture 
   br i1 %.not39, label %10, label %.critedge.thread
 
 10:                                               ; preds = %7, %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 4
@@ -1171,7 +1171,7 @@ define internal fastcc i32 @parse_array(ptr nocapture noundef %0, ptr nocapture 
   br i1 %15, label %lex_expect.exit, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = icmp eq i32 %.val.i, 12
@@ -1212,7 +1212,7 @@ lex_expect.exit:                                  ; preds = %10
   br i1 %31, label %.lr.ph, label %.critedge.thread, !llvm.loop !18
 
 32:                                               ; preds = %.lr.ph
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   %36 = icmp eq i32 %.val, 12
@@ -1248,7 +1248,7 @@ lex_expect.exit50:                                ; preds = %.lr.ph, %23
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_scalar(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 40
   %.val42 = load i32, ptr %5, align 8
@@ -1260,7 +1260,7 @@ define internal fastcc i32 @parse_scalar(ptr nocapture noundef %0, ptr nocapture
   br i1 %or.cond7, label %9, label %14
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %13 = icmp eq i32 %.val42, 12
@@ -1281,7 +1281,7 @@ define internal fastcc i32 @parse_scalar(ptr nocapture noundef %0, ptr nocapture
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %40, label %23
@@ -1292,9 +1292,9 @@ define internal fastcc i32 @parse_scalar(ptr nocapture noundef %0, ptr nocapture
   br label %40
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %28 to i64
   %32 = ptrtoint ptr %30 to i64
@@ -1330,19 +1330,19 @@ report_parse_error.exit:                          ; preds = %9, %40, %42, %16
 define dso_local i32 @json_count_array_elements(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.JsonLexContext, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 64, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
   store i32 %7, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.val.i = load i32, ptr %8, align 8
   %9 = icmp eq i32 %.val.i, 5
   br i1 %9, label %lex_expect.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   %14 = icmp eq i32 %.val.i, 12
@@ -1368,8 +1368,8 @@ thread-pre-split:                                 ; preds = %37
   %.val.i22 = phi i32 [ %.val.i22.pr, %thread-pre-split ], [ %.val, %16 ]
   %.1 = phi i32 [ %17, %thread-pre-split ], [ 0, %16 ]
   %17 = add i32 %.1, 1
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @nullSemAction, i64 56), align 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @nullSemAction, i64 64), align 8
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @nullSemAction, i64 56), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @nullSemAction, i64 64), align 8
   %20 = icmp eq i32 %.val.i22, 11
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %24, label %21
@@ -1426,7 +1426,7 @@ parse_array_element.exit:                         ; preds = %33, %32
   br i1 %.not20, label %thread-pre-split, label %lex_expect.exit.thread
 
 39:                                               ; preds = %parse_array_element.exit
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   %43 = icmp eq i32 %36, 12
@@ -1454,9 +1454,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_array_element(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 40
   %.val = load i32, ptr %7, align 8
@@ -1517,9 +1517,9 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @parse_object_field(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 40
   %.val55 = load i32, ptr %7, align 8
@@ -1527,7 +1527,7 @@ define internal fastcc i32 @parse_object_field(ptr nocapture noundef %0, ptr noc
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   %12 = icmp eq i32 %.val55, 12
@@ -1542,7 +1542,7 @@ define internal fastcc i32 @parse_object_field(ptr nocapture noundef %0, ptr noc
   br i1 %or.cond, label %16, label %22
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8
   %.not49 = icmp eq ptr %18, null
   br i1 %.not49, label %22, label %19
@@ -1564,7 +1564,7 @@ define internal fastcc i32 @parse_object_field(ptr nocapture noundef %0, ptr noc
   br i1 %25, label %lex_expect.exit, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   %30 = icmp eq i32 %.val.i, 12

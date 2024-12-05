@@ -28,20 +28,20 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @H5A__dense_btree2_name_store(ptr nocapture noundef writeonly initializes((0, 9), (12, 20)) %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i8, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %12, ptr %13, align 8
   ret i32 0
 }
@@ -49,9 +49,9 @@ define internal noundef i32 @H5A__dense_btree2_name_store(ptr nocapture noundef 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5A__dense_btree2_name_compare(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #1 {
   %4 = alloca %struct.H5A_fh_ud_cmp_t, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp ult i32 %6, %8
   br i1 %9, label %10, label %11
@@ -71,28 +71,28 @@ define internal range(i32 -1, 1) i32 @H5A__dense_btree2_name_compare(ptr nocaptu
 14:                                               ; preds = %11
   %15 = load ptr, ptr %0, align 8
   store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, 2
   %.not = icmp eq i8 %29, 0
   %.0.in.v = select i1 %.not, i64 8, i64 16
-  %.0.in = getelementptr inbounds i8, ptr %0, i64 %.0.in.v
+  %.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.v
   %.0 = load ptr, ptr %.0.in, align 8
   %30 = call i32 @H5HF_op(ptr noundef %.0, ptr noundef nonnull %1, ptr noundef nonnull @H5A__dense_fh_name_cmp, ptr noundef nonnull %4) #7
   %31 = icmp slt i32 %30, 0
@@ -118,46 +118,46 @@ define internal range(i32 -1, 1) i32 @H5A__dense_btree2_name_compare(ptr nocaptu
 define internal noundef i32 @H5A__dense_btree2_name_encode(ptr nocapture noundef writeonly initializes((0, 17)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %0, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %7, ptr %5, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = trunc i32 %10 to i8
   store i8 %11, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %13 = load i32, ptr %9, align 4
   %14 = lshr i32 %13, 8
   %15 = trunc i32 %14 to i8
   store i8 %15, ptr %12, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %17 = load i32, ptr %9, align 4
   %18 = lshr i32 %17, 16
   %19 = trunc i32 %18 to i8
   store i8 %19, ptr %16, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %9, align 4
   %22 = lshr i32 %21, 24
   %23 = trunc nuw i32 %22 to i8
   store i8 %23, ptr %20, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 13
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 13
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = trunc i32 %26 to i8
   store i8 %27, ptr %24, align 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 14
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %29 = load i32, ptr %25, align 8
   %30 = lshr i32 %29, 8
   %31 = trunc i32 %30 to i8
   store i8 %31, ptr %28, align 1
-  %32 = getelementptr inbounds i8, ptr %0, i64 15
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %33 = load i32, ptr %25, align 8
   %34 = lshr i32 %33, 16
   %35 = trunc i32 %34 to i8
   store i8 %35, ptr %32, align 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %25, align 8
   %38 = lshr i32 %37, 24
   %39 = trunc nuw i32 %38 to i8
@@ -169,51 +169,51 @@ define internal noundef i32 @H5A__dense_btree2_name_encode(ptr nocapture noundef
 define internal noundef i32 @H5A__dense_btree2_name_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9), (12, 20)) %1, ptr nocapture readnone %2) #0 {
   %4 = load i64, ptr %0, align 1
   store i64 %4, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %7 = load i8, ptr %5, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %7, ptr %8, align 8
   %9 = load i8, ptr %6, align 1
   %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 8
   %16 = or disjoint i32 %15, %10
   store i32 %16, ptr %11, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 11
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = shl nuw nsw i32 %19, 16
   %21 = or disjoint i32 %20, %16
   store i32 %21, ptr %11, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = shl nuw i32 %24, 24
   %26 = or disjoint i32 %25, %21
   store i32 %26, ptr %11, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 13
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 14
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = shl nuw nsw i32 %33, 8
   %35 = or disjoint i32 %34, %29
   store i32 %35, ptr %30, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 15
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 16
   %40 = or disjoint i32 %39, %35
   store i32 %40, ptr %30, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = shl nuw i32 %43, 24
@@ -225,12 +225,12 @@ define internal noundef i32 @H5A__dense_btree2_name_decode(ptr nocapture noundef
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5A__dense_btree2_name_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
   %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %6, i32 noundef %9, i32 noundef %11, i32 noundef %13) #7
   ret i32 0
@@ -238,25 +238,25 @@ define internal noundef i32 @H5A__dense_btree2_name_debug(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @H5A__dense_btree2_corder_store(ptr nocapture noundef writeonly initializes((0, 9), (12, 16)) %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i8, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %9, ptr %10, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @H5A__dense_btree2_corder_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %.sink = tail call i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
   store i32 %.sink, ptr %2, align 4
@@ -267,26 +267,26 @@ define internal noundef i32 @H5A__dense_btree2_corder_compare(ptr nocapture noun
 define internal noundef i32 @H5A__dense_btree2_corder_encode(ptr nocapture noundef writeonly initializes((0, 13)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 {
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %0, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
   store i8 %7, ptr %5, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = trunc i32 %10 to i8
   store i8 %11, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %13 = load i32, ptr %9, align 4
   %14 = lshr i32 %13, 8
   %15 = trunc i32 %14 to i8
   store i8 %15, ptr %12, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %17 = load i32, ptr %9, align 4
   %18 = lshr i32 %17, 16
   %19 = trunc i32 %18 to i8
   store i8 %19, ptr %16, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %9, align 4
   %22 = lshr i32 %21, 24
   %23 = trunc nuw i32 %22 to i8
@@ -298,28 +298,28 @@ define internal noundef i32 @H5A__dense_btree2_corder_encode(ptr nocapture nound
 define internal noundef i32 @H5A__dense_btree2_corder_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9), (12, 16)) %1, ptr nocapture readnone %2) #0 {
   %4 = load i64, ptr %0, align 1
   store i64 %4, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 9
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %7 = load i8, ptr %5, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %7, ptr %8, align 8
   %9 = load i8, ptr %6, align 1
   %10 = zext i8 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 8
   %16 = or disjoint i32 %15, %10
   store i32 %16, ptr %11, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 11
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 11
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = shl nuw nsw i32 %19, 16
   %21 = or disjoint i32 %20, %16
   store i32 %21, ptr %11, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = shl nuw i32 %24, 24
@@ -331,10 +331,10 @@ define internal noundef i32 @H5A__dense_btree2_corder_decode(ptr nocapture nound
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5A__dense_btree2_corder_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #2 {
   %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = zext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @.str.8, i64 noundef %6, i32 noundef %9, i32 noundef %11) #7
   ret i32 0
@@ -352,28 +352,28 @@ define internal range(i32 -1, 1) i32 @H5A__dense_fh_name_cmp(ptr noundef %0, i64
   br i1 %7, label %46, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %14) #8
-  %16 = getelementptr inbounds i8, ptr %2, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %15, ptr %16, align 8
   %17 = icmp eq i32 %15, 0
   br i1 %17, label %18, label %50
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %50, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i8, ptr %24, align 8
   %26 = and i8 %25, 2
   %.not23 = icmp eq i8 %26, 0
@@ -388,13 +388,13 @@ define internal range(i32 -1, 1) i32 @H5A__dense_fh_name_cmp(ptr noundef %0, i64
 
 31:                                               ; preds = %27, %21
   %32 = phi ptr [ %.pre, %27 ], [ %23, %21 ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = load ptr, ptr %11, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 72
   store i32 %34, ptr %36, align 8
   %37 = load ptr, ptr %19, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 %37(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef %39) #7
   %41 = icmp slt i32 %40, 0

@@ -53,7 +53,7 @@ define void @_ZNK16RichDynamicFloat17fillToXMLDocumentER12QDomDocumentb(ptr dead
 
 10:                                               ; preds = %4
   store ptr %9, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %12 = load float, ptr %11, align 8
   %13 = fpext float %12 to double
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, double noundef %13, i8 noundef signext 103, i32 noundef 6)
@@ -113,7 +113,7 @@ _ZN7QStringD2Ev.exit17:                           ; preds = %_ZN7QStringD2Ev.exi
 
 25:                                               ; preds = %_ZN7QStringD2Ev.exit17
   store ptr %24, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 60
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, double noundef %28, i8 noundef signext 103, i32 noundef 6)
@@ -221,8 +221,8 @@ define noundef nonnull ptr @_ZNK16RichDynamicFloat5cloneEv(ptr noundef nonnull a
 
 3:                                                ; preds = %1
   store ptr getelementptr inbounds (i8, ptr @_ZTV16RichDynamicFloat, i64 16), ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8
   store i64 %6, ptr %4, align 8
   ret ptr %2
@@ -248,7 +248,7 @@ define noundef zeroext i1 @_ZN16RichDynamicFloateqERK13RichParameter(ptr noundef
   br i1 %.not, label %20, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter4nameEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %7 = tail call noundef zeroext i1 @_ZeqRK7QStringS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
   br i1 %7, label %8, label %20
@@ -256,12 +256,12 @@ define noundef zeroext i1 @_ZN16RichDynamicFloateqERK13RichParameter(ptr noundef
 8:                                                ; preds = %4
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef float %12(ptr noundef nonnull align 8 dereferenceable(8) %9)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter5valueEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef float %17(ptr noundef nonnull align 8 dereferenceable(8) %14)
   %19 = fcmp oeq float %13, %18
@@ -286,9 +286,9 @@ define void @_ZN16RichDynamicFloatC2ERK7QStringfffS2_S2_bS2_(ptr noundef nonnull
   call void @_ZN10FloatValueC1Ef(ptr noundef nonnull align 8 dereferenceable(12) %10, float noundef %2)
   call void @_ZN13RichParameterC2ERK7QStringRK5ValueS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
   store ptr getelementptr inbounds (i8, ptr @_ZTV16RichDynamicFloat, i64 16), ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store float %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 60
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float %4, ptr %12, align 4
   ret void
 }

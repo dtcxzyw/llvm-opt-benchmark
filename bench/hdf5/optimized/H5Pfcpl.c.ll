@@ -942,7 +942,7 @@ define range(i32 -1, 1) i32 @H5Pset_istore_k(i64 noundef %0, i32 noundef %1) loc
   br label %.thread33
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %3, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %1, ptr %52, align 4
   %53 = call i32 @H5P_set(ptr noundef nonnull %38, ptr noundef nonnull @.str.19, ptr noundef nonnull %3) #6
   %54 = icmp slt i32 %53, 0
@@ -1032,7 +1032,7 @@ define range(i32 -1, 1) i32 @H5Pget_istore_k(i64 noundef %0, ptr noundef writeon
   br label %.thread28
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %3, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %42 = load i32, ptr %41, align 4
   store i32 %42, ptr %1, align 4
   br label %44
@@ -1313,9 +1313,9 @@ define range(i32 -1, 1) i32 @H5Pset_shared_mesg_index(i64 noundef %0, i32 nounde
 
 69:                                               ; preds = %62
   %70 = zext i32 %1 to i64
-  %71 = getelementptr inbounds [8 x i32], ptr %6, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %70
   store i32 %2, ptr %71, align 4
-  %72 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %70
   store i32 %3, ptr %72, align 4
   %73 = call i32 @H5P_set(ptr noundef nonnull %36, ptr noundef nonnull @.str.34, ptr noundef nonnull %6) #6
   %74 = icmp slt i32 %73, 0
@@ -1452,7 +1452,7 @@ define range(i32 -1, 1) i32 @H5Pget_shared_mesg_index(i64 noundef %0, i32 nounde
 
 64:                                               ; preds = %63
   %65 = zext i32 %1 to i64
-  %66 = getelementptr inbounds [8 x i32], ptr %6, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %65
   %67 = load i32, ptr %66, align 4
   store i32 %67, ptr %2, align 4
   br label %68
@@ -1463,7 +1463,7 @@ define range(i32 -1, 1) i32 @H5Pget_shared_mesg_index(i64 noundef %0, i32 nounde
 
 69:                                               ; preds = %68
   %70 = zext i32 %1 to i64
-  %71 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %70
   %72 = load i32, ptr %71, align 4
   store i32 %72, ptr %3, align 4
   br label %74
@@ -2111,7 +2111,7 @@ define internal noundef i32 @H5P__fcrt_btree_rank_enc(ptr nocapture noundef read
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %6, ptr %1, align 8
   store i8 4, ptr %4, align 1
   %.pre = load ptr, ptr %1, align 8
@@ -2125,30 +2125,30 @@ define internal noundef i32 @H5P__fcrt_btree_rank_enc(ptr nocapture noundef read
   %11 = trunc i32 %10 to i8
   store i8 %11, ptr %8, align 1
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %13, ptr %1, align 8
   %14 = load i32, ptr %.01921, align 4
   %15 = lshr i32 %14, 8
   %16 = trunc i32 %15 to i8
   store i8 %16, ptr %13, align 1
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %18, ptr %1, align 8
   %19 = load i32, ptr %.01921, align 4
   %20 = lshr i32 %19, 16
   %21 = trunc i32 %20 to i8
   store i8 %21, ptr %18, align 1
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %23, ptr %1, align 8
   %24 = load i32, ptr %.01921, align 4
   %25 = lshr i32 %24, 24
   %26 = trunc nuw i32 %25 to i8
   store i8 %26, ptr %23, align 1
   %27 = load ptr, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %28, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %.01921, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.01921, i64 4
   br i1 %9, label %7, label %.loopexit
 
 .loopexit:                                        ; preds = %7, %3
@@ -2161,7 +2161,7 @@ define internal noundef i32 @H5P__fcrt_btree_rank_enc(ptr nocapture noundef read
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5P__fcrt_btree_rank_dec(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %5, 4
@@ -2179,10 +2179,10 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_btree_rank_dec(ptr nocapture nou
   %indvars.iv = phi i64 [ 1, %.preheader ], [ 0, %2 ]
   %12 = load i8, ptr %10, align 1
   %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %13, ptr %14, align 4
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %16, ptr %0, align 8
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
@@ -2191,7 +2191,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_btree_rank_dec(ptr nocapture nou
   %21 = or i32 %19, %20
   store i32 %21, ptr %14, align 4
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %23, ptr %0, align 8
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
@@ -2200,7 +2200,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_btree_rank_dec(ptr nocapture nou
   %28 = or i32 %26, %27
   store i32 %28, ptr %14, align 4
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %30, ptr %0, align 8
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
@@ -2209,7 +2209,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_btree_rank_dec(ptr nocapture nou
   %35 = or i32 %33, %34
   store i32 %35, ptr %14, align 4
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %37, ptr %0, align 8
   br i1 %11, label %.preheader, label %.loopexit
 
@@ -2229,7 +2229,7 @@ define internal noundef i32 @H5P__fcrt_shmsg_index_types_enc(ptr nocapture nound
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %6, ptr %1, align 8
   store i8 4, ptr %4, align 1
   %.pre = load ptr, ptr %1, align 8
@@ -2243,30 +2243,30 @@ define internal noundef i32 @H5P__fcrt_shmsg_index_types_enc(ptr nocapture nound
   %10 = trunc i32 %9 to i8
   store i8 %10, ptr %8, align 1
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %1, align 8
   %13 = load i32, ptr %.01921, align 4
   %14 = lshr i32 %13, 8
   %15 = trunc i32 %14 to i8
   store i8 %15, ptr %12, align 1
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %17, ptr %1, align 8
   %18 = load i32, ptr %.01921, align 4
   %19 = lshr i32 %18, 16
   %20 = trunc i32 %19 to i8
   store i8 %20, ptr %17, align 1
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8
   %23 = load i32, ptr %.01921, align 4
   %24 = lshr i32 %23, 24
   %25 = trunc nuw i32 %24 to i8
   store i8 %25, ptr %22, align 1
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %27, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %.01921, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.01921, i64 4
   %29 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %29, 8
   br i1 %exitcond.not, label %.loopexit, label %7
@@ -2281,7 +2281,7 @@ define internal noundef i32 @H5P__fcrt_shmsg_index_types_enc(ptr nocapture nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_types_dec(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %5, 4
@@ -2298,10 +2298,10 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_types_dec(ptr nocapt
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %12, ptr %13, align 4
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %0, align 8
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
@@ -2310,7 +2310,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_types_dec(ptr nocapt
   %20 = or i32 %18, %19
   store i32 %20, ptr %13, align 4
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %0, align 8
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
@@ -2319,7 +2319,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_types_dec(ptr nocapt
   %27 = or i32 %25, %26
   store i32 %27, ptr %13, align 4
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %29, ptr %0, align 8
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
@@ -2328,7 +2328,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_types_dec(ptr nocapt
   %34 = or i32 %32, %33
   store i32 %34, ptr %13, align 4
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %36, ptr %0, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -2346,7 +2346,7 @@ define internal noundef i32 @H5P__fcrt_shmsg_index_minsize_enc(ptr nocapture nou
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %6, ptr %1, align 8
   store i8 4, ptr %4, align 1
   %.pre = load ptr, ptr %1, align 8
@@ -2360,30 +2360,30 @@ define internal noundef i32 @H5P__fcrt_shmsg_index_minsize_enc(ptr nocapture nou
   %10 = trunc i32 %9 to i8
   store i8 %10, ptr %8, align 1
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %1, align 8
   %13 = load i32, ptr %.01921, align 4
   %14 = lshr i32 %13, 8
   %15 = trunc i32 %14 to i8
   store i8 %15, ptr %12, align 1
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %17, ptr %1, align 8
   %18 = load i32, ptr %.01921, align 4
   %19 = lshr i32 %18, 16
   %20 = trunc i32 %19 to i8
   store i8 %20, ptr %17, align 1
   %21 = load ptr, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8
   %23 = load i32, ptr %.01921, align 4
   %24 = lshr i32 %23, 24
   %25 = trunc nuw i32 %24 to i8
   store i8 %25, ptr %22, align 1
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %27, ptr %1, align 8
-  %28 = getelementptr inbounds i8, ptr %.01921, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.01921, i64 4
   %29 = add nuw nsw i32 %.022, 1
   %exitcond.not = icmp eq i32 %29, 8
   br i1 %exitcond.not, label %.loopexit, label %7
@@ -2398,7 +2398,7 @@ define internal noundef i32 @H5P__fcrt_shmsg_index_minsize_enc(ptr nocapture nou
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_minsize_dec(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %5, 4
@@ -2415,10 +2415,10 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_minsize_dec(ptr noca
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
-  %13 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   store i32 %12, ptr %13, align 4
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %0, align 8
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
@@ -2427,7 +2427,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_minsize_dec(ptr noca
   %20 = or i32 %18, %19
   store i32 %20, ptr %13, align 4
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store ptr %22, ptr %0, align 8
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
@@ -2436,7 +2436,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_minsize_dec(ptr noca
   %27 = or i32 %25, %26
   store i32 %27, ptr %13, align 4
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %29, ptr %0, align 8
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
@@ -2445,7 +2445,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_minsize_dec(ptr noca
   %34 = or i32 %32, %33
   store i32 %34, ptr %13, align 4
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %36, ptr %0, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -2465,7 +2465,7 @@ define internal noundef i32 @H5P__fcrt_fspace_strategy_enc(ptr nocapture noundef
 5:                                                ; preds = %3
   %6 = load i32, ptr %0, align 4
   %7 = trunc i32 %6 to i8
-  %8 = getelementptr inbounds i8, ptr %4, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %8, ptr %1, align 8
   store i8 %7, ptr %4, align 1
   br label %9
@@ -2480,7 +2480,7 @@ define internal noundef i32 @H5P__fcrt_fspace_strategy_enc(ptr nocapture noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @H5P__fcrt_fspace_strategy_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #4 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %6 = zext i8 %5 to i32

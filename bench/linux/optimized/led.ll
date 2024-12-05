@@ -28,15 +28,15 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___ieee80211_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_led_assoc(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 5320
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5320
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 5072
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5072
   %8 = select i1 %1, i32 255, i32 0
-  tail call void @led_trigger_event(ptr noundef %7, i32 noundef %8) #5
+  tail call void @led_trigger_event(ptr noundef nonnull %7, i32 noundef %8) #5
   br label %9
 
 9:                                                ; preds = %6, %2
@@ -48,15 +48,15 @@ declare dso_local void @led_trigger_event(ptr noundef, i32 noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_led_radio(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 5324
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 5324
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 5152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   %8 = select i1 %1, i32 255, i32 0
-  tail call void @led_trigger_event(ptr noundef %7, i32 noundef %8) #5
+  tail call void @led_trigger_event(ptr noundef nonnull %7, i32 noundef %8) #5
   br label %9
 
 9:                                                ; preds = %6, %2
@@ -65,70 +65,70 @@ define dso_local void @ieee80211_led_radio(ptr noundef %0, i1 noundef zeroext %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_alloc_led_names(ptr nocapture noundef initializes((4912, 4920), (4992, 5000), (5072, 5080), (5152, 5160)) %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 456
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 456
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 376
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 376
   %9 = load ptr, ptr %8, align 8
   br label %10
 
 10:                                               ; preds = %7, %1
   %11 = phi ptr [ %9, %7 ], [ %5, %1 ]
   %12 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str, ptr noundef %11) #5
-  %13 = getelementptr inbounds i8, ptr %0, i64 4992
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4992
   store ptr %12, ptr %13, align 8
   %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 456
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 456
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %14, i64 376
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 376
   %20 = load ptr, ptr %19, align 8
   br label %21
 
 21:                                               ; preds = %18, %10
   %22 = phi ptr [ %20, %18 ], [ %16, %10 ]
   %23 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.1, ptr noundef %22) #5
-  %24 = getelementptr inbounds i8, ptr %0, i64 4912
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   store ptr %23, ptr %24, align 8
   %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 456
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 456
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %25, i64 376
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 376
   %31 = load ptr, ptr %30, align 8
   br label %32
 
 32:                                               ; preds = %29, %21
   %33 = phi ptr [ %31, %29 ], [ %27, %21 ]
   %34 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.2, ptr noundef %33) #5
-  %35 = getelementptr inbounds i8, ptr %0, i64 5072
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 5072
   store ptr %34, ptr %35, align 8
   %36 = load ptr, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 456
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 456
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %36, i64 376
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 376
   %42 = load ptr, ptr %41, align 8
   br label %43
 
 43:                                               ; preds = %40, %32
   %44 = phi ptr [ %42, %40 ], [ %38, %32 ]
   %45 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.3, ptr noundef %44) #5
-  %46 = getelementptr inbounds i8, ptr %0, i64 5152
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   store ptr %45, ptr %46, align 8
   ret void
 }
@@ -138,16 +138,16 @@ declare dso_local noalias ptr @kasprintf(i32 noundef, ptr noundef, ...) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_free_led_names(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4992
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4992
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #5
-  %4 = getelementptr inbounds i8, ptr %0, i64 4912
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %5 = load ptr, ptr %4, align 8
   tail call void @kfree(ptr noundef %5) #5
-  %6 = getelementptr inbounds i8, ptr %0, i64 5072
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 5072
   %7 = load ptr, ptr %6, align 8
   tail call void @kfree(ptr noundef %7) #5
-  %8 = getelementptr inbounds i8, ptr %0, i64 5152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   %9 = load ptr, ptr %8, align 8
   tail call void @kfree(ptr noundef %9) #5
   ret void
@@ -158,19 +158,19 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_led_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 5316
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5316
   store volatile i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4992
-  %4 = getelementptr inbounds i8, ptr %0, i64 5000
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4992
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   store ptr @ieee80211_rx_led_activate, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 5008
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5008
   store ptr @ieee80211_rx_led_deactivate, ptr %5, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %1
-  %9 = tail call i32 @led_trigger_register(ptr noundef %3) #5
+  %9 = tail call i32 @led_trigger_register(ptr noundef nonnull %3) #5
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %13, label %11
 
@@ -181,19 +181,19 @@ define dso_local void @ieee80211_led_init(ptr noundef %0) local_unnamed_addr #0 
   br label %13
 
 13:                                               ; preds = %11, %8, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 5312
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 5312
   store volatile i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 4912
-  %16 = getelementptr inbounds i8, ptr %0, i64 4920
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4912
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4920
   store ptr @ieee80211_tx_led_activate, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 4928
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4928
   store ptr @ieee80211_tx_led_deactivate, ptr %17, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %13
-  %21 = tail call i32 @led_trigger_register(ptr noundef %15) #5
+  %21 = tail call i32 @led_trigger_register(ptr noundef nonnull %15) #5
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %25, label %23
 
@@ -204,19 +204,19 @@ define dso_local void @ieee80211_led_init(ptr noundef %0) local_unnamed_addr #0 
   br label %25
 
 25:                                               ; preds = %23, %20, %13
-  %26 = getelementptr inbounds i8, ptr %0, i64 5320
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 5320
   store volatile i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 5072
-  %28 = getelementptr inbounds i8, ptr %0, i64 5080
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 5072
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 5080
   store ptr @ieee80211_assoc_led_activate, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 5088
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 5088
   store ptr @ieee80211_assoc_led_deactivate, ptr %29, align 8
   %30 = load ptr, ptr %27, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %25
-  %33 = tail call i32 @led_trigger_register(ptr noundef %27) #5
+  %33 = tail call i32 @led_trigger_register(ptr noundef nonnull %27) #5
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %37, label %35
 
@@ -227,19 +227,19 @@ define dso_local void @ieee80211_led_init(ptr noundef %0) local_unnamed_addr #0 
   br label %37
 
 37:                                               ; preds = %35, %32, %25
-  %38 = getelementptr inbounds i8, ptr %0, i64 5324
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 5324
   store volatile i32 0, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 5152
-  %40 = getelementptr inbounds i8, ptr %0, i64 5160
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 5152
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 5160
   store ptr @ieee80211_radio_led_activate, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 5168
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 5168
   store ptr @ieee80211_radio_led_deactivate, ptr %41, align 8
   %42 = load ptr, ptr %39, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %37
-  %45 = tail call i32 @led_trigger_register(ptr noundef %39) #5
+  %45 = tail call i32 @led_trigger_register(ptr noundef nonnull %39) #5
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %49, label %47
 
@@ -250,20 +250,20 @@ define dso_local void @ieee80211_led_init(ptr noundef %0) local_unnamed_addr #0 
   br label %49
 
 49:                                               ; preds = %47, %44, %37
-  %50 = getelementptr inbounds i8, ptr %0, i64 5328
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 5328
   store volatile i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 5336
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 5336
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %62, label %54
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %0, i64 5232
-  %56 = getelementptr inbounds i8, ptr %0, i64 5240
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 5232
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 5240
   store ptr @ieee80211_tpt_led_activate, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 5248
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 5248
   store ptr @ieee80211_tpt_led_deactivate, ptr %57, align 8
-  %58 = tail call i32 @led_trigger_register(ptr noundef %55) #5
+  %58 = tail call i32 @led_trigger_register(ptr noundef nonnull %55) #5
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %62, label %60
 
@@ -279,7 +279,7 @@ define dso_local void @ieee80211_led_init(ptr noundef %0) local_unnamed_addr #0 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ieee80211_rx_led_activate(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 324
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #5, !srcloc !5
@@ -288,7 +288,7 @@ define internal noundef i32 @ieee80211_rx_led_activate(ptr nocapture noundef rea
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ieee80211_rx_led_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 324
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #5, !srcloc !6
@@ -300,7 +300,7 @@ declare dso_local i32 @led_trigger_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ieee80211_tx_led_activate(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 400
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #5, !srcloc !5
@@ -309,7 +309,7 @@ define internal noundef i32 @ieee80211_tx_led_activate(ptr nocapture noundef rea
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ieee80211_tx_led_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 400
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #5, !srcloc !6
@@ -318,7 +318,7 @@ define internal void @ieee80211_tx_led_deactivate(ptr nocapture noundef readonly
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ieee80211_assoc_led_activate(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 248
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #5, !srcloc !5
@@ -327,7 +327,7 @@ define internal noundef i32 @ieee80211_assoc_led_activate(ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ieee80211_assoc_led_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 248
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #5, !srcloc !6
@@ -336,7 +336,7 @@ define internal void @ieee80211_assoc_led_deactivate(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ieee80211_radio_led_activate(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 172
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #5, !srcloc !5
@@ -345,7 +345,7 @@ define internal noundef i32 @ieee80211_radio_led_activate(ptr nocapture noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ieee80211_radio_led_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 172
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #5, !srcloc !6
@@ -354,7 +354,7 @@ define internal void @ieee80211_radio_led_deactivate(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ieee80211_tpt_led_activate(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 96
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #5, !srcloc !5
@@ -363,7 +363,7 @@ define internal noundef i32 @ieee80211_tpt_led_activate(ptr nocapture noundef re
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ieee80211_tpt_led_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 96
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, ptr elementtype(i32) %4) #5, !srcloc !6
@@ -372,54 +372,54 @@ define internal void @ieee80211_tpt_led_deactivate(ptr nocapture noundef readonl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_led_exit(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 5152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @led_trigger_unregister(ptr noundef %2) #5
+  tail call void @led_trigger_unregister(ptr noundef nonnull %2) #5
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 5072
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 5072
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6
-  tail call void @led_trigger_unregister(ptr noundef %7) #5
+  tail call void @led_trigger_unregister(ptr noundef nonnull %7) #5
   br label %11
 
 11:                                               ; preds = %10, %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 4912
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %11
-  tail call void @led_trigger_unregister(ptr noundef %12) #5
+  tail call void @led_trigger_unregister(ptr noundef nonnull %12) #5
   br label %16
 
 16:                                               ; preds = %15, %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 4992
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4992
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %16
-  tail call void @led_trigger_unregister(ptr noundef %17) #5
+  tail call void @led_trigger_unregister(ptr noundef nonnull %17) #5
   br label %21
 
 21:                                               ; preds = %20, %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 5336
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 5336
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 5232
-  tail call void @led_trigger_unregister(ptr noundef %26) #5
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 5232
+  tail call void @led_trigger_unregister(ptr noundef nonnull %26) #5
   %27 = load ptr, ptr %22, align 8
   tail call void @kfree(ptr noundef %27) #5
   br label %28
@@ -433,35 +433,35 @@ declare dso_local void @led_trigger_unregister(ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local ptr @__ieee80211_get_radio_led_name(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 5152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local ptr @__ieee80211_get_assoc_led_name(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 5072
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5072
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local ptr @__ieee80211_get_tx_led_name(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4912
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local ptr @__ieee80211_get_rx_led_name(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4992
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4992
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @__ieee80211_create_tpt_led_trigger(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 5336
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 5336
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8, !prof !7
@@ -479,33 +479,33 @@ define dso_local noundef ptr @__ieee80211_create_tpt_led_trigger(ptr noundef %0,
   br i1 %12, label %31, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 456
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 456
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 376
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 376
   %21 = load ptr, ptr %20, align 8
   br label %22
 
 22:                                               ; preds = %19, %13
   %23 = phi ptr [ %21, %19 ], [ %17, %13 ]
   %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 32, ptr noundef nonnull @.str.5, ptr noundef %23) #5
-  %25 = getelementptr inbounds i8, ptr %0, i64 5232
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 5232
   store ptr %11, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %2, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 %3, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %11, i64 124
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 124
   store i32 %1, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %11, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store ptr %0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %11, i64 48
-  tail call void @init_timer_key(ptr noundef %30, ptr noundef nonnull @tpt_trig_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #5
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  tail call void @init_timer_key(ptr noundef nonnull %30, ptr noundef nonnull @tpt_trig_timer, i32 noundef 0, ptr noundef null, ptr noundef null) #5
   store ptr %11, ptr %5, align 8
   br label %31
 
@@ -581,8 +581,8 @@ define internal void @tpt_trig_timer(ptr noundef %0) #0 align 16 {
 .loopexit:                                        ; preds = %25, %39
   %46 = phi i64 [ %45, %39 ], [ 1, %25 ]
   %47 = phi i64 [ %43, %39 ], [ 0, %25 ]
-  %48 = getelementptr inbounds i8, ptr %3, i64 5232
-  tail call void @led_trigger_blink(ptr noundef %48, i64 noundef %46, i64 noundef %47) #5
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 5232
+  tail call void @led_trigger_blink(ptr noundef nonnull %48, i64 noundef %46, i64 noundef %47) #5
   br label %49
 
 49:                                               ; preds = %.loopexit, %1
@@ -591,7 +591,7 @@ define internal void @tpt_trig_timer(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_mod_tpt_led_trig(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 5336
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5336
   %5 = load ptr, ptr %4, align 8
   %6 = and i32 %2, %1
   %7 = icmp eq i32 %6, 0
@@ -609,7 +609,7 @@ define dso_local void @ieee80211_mod_tpt_led_trig(ptr noundef %0, i32 noundef %1
 
 11:                                               ; preds = %9
   %12 = xor i32 %2, -1
-  %13 = getelementptr inbounds i8, ptr %5, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, %12
   %16 = or i32 %15, %1
@@ -619,7 +619,7 @@ define dso_local void @ieee80211_mod_tpt_led_trig(ptr noundef %0, i32 noundef %1
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %5, i64 124
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 124
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, %16
   %23 = icmp eq i32 %22, 0
@@ -627,22 +627,22 @@ define dso_local void @ieee80211_mod_tpt_led_trig(ptr noundef %0, i32 noundef %1
 
 24:                                               ; preds = %19, %11
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = load i8, ptr %26, align 8, !range !11, !noundef !12
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %90, label %29
 
 29:                                               ; preds = %24
   store i8 0, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 48
-  %31 = tail call i32 @timer_delete_sync(ptr noundef %30) #5
-  %32 = getelementptr inbounds i8, ptr %0, i64 5232
-  tail call void @led_trigger_event(ptr noundef %32, i32 noundef 0) #5
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %31 = tail call i32 @timer_delete_sync(ptr noundef nonnull %30) #5
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 5232
+  tail call void @led_trigger_event(ptr noundef nonnull %32, i32 noundef 0) #5
   br label %90
 
 33:                                               ; preds = %19
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %36 = load i8, ptr %35, align 8, !range !11, !noundef !12
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %38, label %90
@@ -656,13 +656,13 @@ define dso_local void @ieee80211_mod_tpt_led_trig(ptr noundef %0, i32 noundef %1
   %44 = getelementptr i8, ptr %34, i64 96
   store i64 %43, ptr %44, align 8
   store i8 1, ptr %35, align 8
-  %45 = getelementptr inbounds i8, ptr %34, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %46 = getelementptr i8, ptr %34, i64 88
   %47 = load ptr, ptr %46, align 8
   %48 = load volatile i64, ptr @jiffies, align 64
   %49 = add i64 %48, 1000
   %50 = tail call i64 @round_jiffies(i64 noundef %49) #5
-  %51 = tail call i32 @mod_timer(ptr noundef %45, i64 noundef %50) #5
+  %51 = tail call i32 @mod_timer(ptr noundef nonnull %45, i64 noundef %50) #5
   %52 = load i64, ptr %39, align 8
   %53 = load i64, ptr %41, align 8
   %54 = add i64 %53, %52
@@ -707,12 +707,12 @@ define dso_local void @ieee80211_mod_tpt_led_trig(ptr noundef %0, i32 noundef %1
 .loopexit.i:                                      ; preds = %62, %76
   %83 = phi i64 [ %82, %76 ], [ 1, %62 ]
   %84 = phi i64 [ %80, %76 ], [ 0, %62 ]
-  %85 = getelementptr inbounds i8, ptr %47, i64 5232
-  tail call void @led_trigger_blink(ptr noundef %85, i64 noundef %83, i64 noundef %84) #5
+  %85 = getelementptr inbounds nuw i8, ptr %47, i64 5232
+  tail call void @led_trigger_blink(ptr noundef nonnull %85, i64 noundef %83, i64 noundef %84) #5
   %86 = load volatile i64, ptr @jiffies, align 64
   %87 = add i64 %86, 1000
   %88 = tail call i64 @round_jiffies(i64 noundef %87) #5
-  %89 = tail call i32 @mod_timer(ptr noundef %45, i64 noundef %88) #5
+  %89 = tail call i32 @mod_timer(ptr noundef nonnull %45, i64 noundef %88) #5
   br label %90
 
 90:                                               ; preds = %.loopexit.i, %33, %29, %24, %9

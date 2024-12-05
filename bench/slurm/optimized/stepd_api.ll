@@ -127,7 +127,7 @@ define ptr @stepd_available(ptr noundef %0, ptr noundef %1) #0 {
 
 15:                                               ; preds = %13
   %16 = tail call ptr @slurm_conf_lock() #12
-  %17 = getelementptr inbounds i8, ptr %16, i64 1296
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1296
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @slurm_conf_expand_slurmd_path(ptr noundef %18, ptr noundef nonnull %.022, ptr noundef null) #12
   tail call void @slurm_conf_unlock() #12
@@ -164,7 +164,7 @@ _sockname_regex_init.exit.thread:                 ; preds = %20
   br label %59
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %5, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 61440
   %34 = icmp eq i32 %33, 16384
@@ -190,7 +190,7 @@ _sockname_regex_init.exit.thread:                 ; preds = %20
 
 .lr.ph:                                           ; preds = %.preheader, %56
   %43 = phi ptr [ %57, %56 ], [ %40, %.preheader ]
-  %44 = getelementptr inbounds i8, ptr %43, i64 19
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 19
   %45 = call fastcc i32 @_sockname_regex(ptr noundef %4, ptr noundef %44, ptr noundef %7)
   %.not28 = icmp eq i32 %45, 0
   br i1 %.not28, label %46, label %56
@@ -209,9 +209,9 @@ _sockname_regex_init.exit.thread:                 ; preds = %20
   %52 = call ptr @xstrdup(ptr noundef %.021) #12
   store ptr %52, ptr %51, align 8
   %53 = call ptr @xstrdup(ptr noundef nonnull %.022) #12
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %51, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %55, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false)
   call void @list_append(ptr noundef %21, ptr noundef nonnull %51) #12
   br label %56
@@ -263,7 +263,7 @@ define range(i32 -1, -2147483648) i32 @stepd_connect(ptr noundef %0, ptr noundef
 
 17:                                               ; preds = %15
   %18 = tail call ptr @slurm_conf_lock() #12
-  %19 = getelementptr inbounds i8, ptr %18, i64 1296
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1296
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @slurm_conf_expand_slurmd_path(ptr noundef %20, ptr noundef nonnull %.048, ptr noundef null) #12
   tail call void @slurm_conf_unlock() #12
@@ -276,11 +276,11 @@ define range(i32 -1, -2147483648) i32 @stepd_connect(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr null, ptr %7, align 8
   store ptr null, ptr %8, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load i32, ptr %23, align 4
   %25 = load i32, ptr %2, align 4
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @.str.29, ptr noundef %.045, ptr noundef nonnull %.048, i32 noundef %25, i32 noundef %24) #12
-  %26 = getelementptr inbounds i8, ptr %2, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %27 = load i32, ptr %26, align 4
   %.not.i = icmp eq i32 %27, -2
   br i1 %.not.i, label %29, label %28
@@ -313,7 +313,7 @@ define range(i32 -1, -2147483648) i32 @stepd_connect(ptr noundef %0, ptr noundef
   br label %_step_connect.exit.thread
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %6, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %43, i8 0, i64 108, i1 false)
   store i16 1, ptr %6, align 2
   %44 = load ptr, ptr %7, align 8
@@ -374,7 +374,7 @@ define range(i32 -1, -2147483648) i32 @stepd_connect(ptr noundef %0, ptr noundef
 
 75:                                               ; preds = %68
   %76 = call i32 @getuid() #12
-  %77 = getelementptr inbounds i8, ptr %5, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %78 = load i32, ptr %77, align 4
   %.not8.i.i = icmp eq i32 %76, %78
   br i1 %.not8.i.i, label %83, label %79
@@ -390,7 +390,7 @@ define range(i32 -1, -2147483648) i32 @stepd_connect(ptr noundef %0, ptr noundef
 
 83:                                               ; preds = %75
   %84 = call i64 @time(ptr noundef null) #12
-  %85 = getelementptr inbounds i8, ptr %5, i64 88
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %86 = load i64, ptr %85, align 8
   %87 = sub nsw i64 %84, %86
   %88 = icmp sgt i64 %87, 600
@@ -487,7 +487,7 @@ _step_connect.exit:                               ; preds = %42
   %.us-phi = phi i64 [ %107, %.lr.ph.split.us ], [ %114, %113 ]
   %.us-phi78 = phi i32 [ %108, %.lr.ph.split.us ], [ %115, %113 ]
   %120 = and i64 %.us-phi, 2147483647
-  %121 = getelementptr inbounds i8, ptr %.046.ph89, i64 %120
+  %121 = getelementptr inbounds nuw i8, ptr %.046.ph89, i64 %120
   %122 = sub nsw i32 %.047.ph87, %.us-phi78
   %123 = icmp sgt i32 %122, 0
   br i1 %123, label %124, label %.lr.ph91
@@ -536,7 +536,7 @@ _step_connect.exit:                               ; preds = %42
   %.us-phi97 = phi i64 [ %147, %.lr.ph121.preheader.preheader ], [ %147, %.lr.ph137.preheader ], [ %163, %.lr.ph121.preheader ], [ %155, %.lr.ph137 ]
   %.us-phi98 = phi i32 [ %148, %.lr.ph121.preheader.preheader ], [ %148, %.lr.ph137.preheader ], [ %164, %.lr.ph121.preheader ], [ %156, %.lr.ph137 ]
   %137 = and i64 %.us-phi97, 2147483647
-  %138 = getelementptr inbounds i8, ptr %.043.ph142, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %.043.ph142, i64 %137
   %139 = sub nsw i32 %.044.ph140, %.us-phi98
   %140 = icmp sgt i32 %139, 0
   br i1 %140, label %141, label %.outer._crit_edge
@@ -695,7 +695,7 @@ define i32 @stepd_get_uid(i32 noundef %0, i16 noundef zeroext %1) #0 {
   %.us-phi = phi i64 [ %7, %.lr.ph.split.us ], [ %14, %13 ]
   %.us-phi57 = phi i32 [ %8, %.lr.ph.split.us ], [ %15, %13 ]
   %20 = and i64 %.us-phi, 2147483647
-  %21 = getelementptr inbounds i8, ptr %.034.ph66, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.034.ph66, i64 %20
   %22 = sub nsw i32 %.033.ph68, %.us-phi57
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %.lr.ph70
@@ -744,7 +744,7 @@ define i32 @stepd_get_uid(i32 noundef %0, i16 noundef zeroext %1) #0 {
   %.us-phi76 = phi i64 [ %47, %.lr.ph100.preheader.preheader ], [ %47, %.lr.ph116.preheader ], [ %63, %.lr.ph100.preheader ], [ %55, %.lr.ph116 ]
   %.us-phi77 = phi i32 [ %48, %.lr.ph100.preheader.preheader ], [ %48, %.lr.ph116.preheader ], [ %64, %.lr.ph100.preheader ], [ %56, %.lr.ph116 ]
   %37 = and i64 %.us-phi76, 2147483647
-  %38 = getelementptr inbounds i8, ptr %.031.ph121, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %.031.ph121, i64 %37
   %39 = sub nsw i32 %.032.ph119, %.us-phi77
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %.loopexit
@@ -884,7 +884,7 @@ define i32 @stepd_add_extern_pid(i32 noundef %0, i16 zeroext %1, i32 noundef %2)
   %.us-phi = phi i64 [ %8, %.lr.ph.split.us ], [ %15, %14 ]
   %.us-phi79 = phi i32 [ %9, %.lr.ph.split.us ], [ %16, %14 ]
   %21 = and i64 %.us-phi, 2147483647
-  %22 = getelementptr inbounds i8, ptr %.047.ph88, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %.047.ph88, i64 %21
   %23 = sub nsw i32 %.044.ph90, %.us-phi79
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %.lr.ph92.split.us
@@ -914,7 +914,7 @@ define i32 @stepd_add_extern_pid(i32 noundef %0, i16 zeroext %1, i32 noundef %2)
   %.us-phi95 = phi i64 [ %41, %.lr.ph92.split.us ], [ %48, %47 ]
   %.us-phi96 = phi i32 [ %42, %.lr.ph92.split.us ], [ %49, %47 ]
   %32 = and i64 %.us-phi95, 2147483647
-  %33 = getelementptr inbounds i8, ptr %.045.ph108, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %.045.ph108, i64 %32
   %34 = sub nsw i32 %.046.ph106, %.us-phi96
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %36, label %.lr.ph110
@@ -989,7 +989,7 @@ define i32 @stepd_add_extern_pid(i32 noundef %0, i16 zeroext %1, i32 noundef %2)
   %.us-phi116 = phi i64 [ %70, %.lr.ph140.preheader.preheader ], [ %70, %.lr.ph156.preheader ], [ %86, %.lr.ph140.preheader ], [ %78, %.lr.ph156 ]
   %.us-phi117 = phi i32 [ %71, %.lr.ph140.preheader.preheader ], [ %71, %.lr.ph156.preheader ], [ %87, %.lr.ph140.preheader ], [ %79, %.lr.ph156 ]
   %60 = and i64 %.us-phi116, 2147483647
-  %61 = getelementptr inbounds i8, ptr %.042.ph161, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %.042.ph161, i64 %60
   %62 = sub nsw i32 %.043.ph159, %.us-phi117
   %63 = icmp sgt i32 %62, 0
   %64 = tail call i32 @get_log_level() #12
@@ -1139,7 +1139,7 @@ define i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext %1, ptr no
   %.us-phi = phi i64 [ %8, %.lr.ph.split.us ], [ %15, %14 ]
   %.us-phi130 = phi i32 [ %9, %.lr.ph.split.us ], [ %16, %14 ]
   %21 = and i64 %.us-phi, 2147483647
-  %22 = getelementptr inbounds i8, ptr %.074.ph139, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %.074.ph139, i64 %21
   %23 = sub nsw i32 %.071.ph141, %.us-phi130
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %.lr.ph143
@@ -1188,7 +1188,7 @@ define i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext %1, ptr no
   %.us-phi149 = phi i64 [ %48, %.lr.ph173.preheader.preheader ], [ %48, %.lr.ph189.preheader ], [ %64, %.lr.ph173.preheader ], [ %56, %.lr.ph189 ]
   %.us-phi150 = phi i32 [ %49, %.lr.ph173.preheader.preheader ], [ %49, %.lr.ph189.preheader ], [ %65, %.lr.ph173.preheader ], [ %57, %.lr.ph189 ]
   %38 = and i64 %.us-phi149, 2147483647
-  %39 = getelementptr inbounds i8, ptr %.075.ph194, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %.075.ph194, i64 %38
   %40 = sub nsw i32 %.076.ph192, %.us-phi150
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %.outer94._crit_edge
@@ -1373,7 +1373,7 @@ define i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext %1, ptr no
   %.us-phi203 = phi i64 [ %70, %.lr.ph228.preheader.preheader ], [ %70, %.lr.ph244.preheader ], [ %86, %.lr.ph228.preheader ], [ %78, %.lr.ph244 ]
   %.us-phi204 = phi i32 [ %71, %.lr.ph228.preheader.preheader ], [ %71, %.lr.ph244.preheader ], [ %87, %.lr.ph228.preheader ], [ %79, %.lr.ph244 ]
   %98 = and i64 %.us-phi203, 2147483647
-  %99 = getelementptr inbounds i8, ptr %.072.ph249, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %.072.ph249, i64 %98
   %100 = sub nsw i32 %.073.ph247, %.us-phi204
   %101 = icmp sgt i32 %100, 0
   br i1 %101, label %102, label %.outer92._crit_edge
@@ -1500,7 +1500,7 @@ define i32 @stepd_get_x11_display(i32 noundef %0, i16 noundef zeroext %1, ptr no
   %.us-phi257 = phi i64 [ %113, %.lr.ph282.preheader.preheader ], [ %113, %.lr.ph298.preheader ], [ %129, %.lr.ph282.preheader ], [ %121, %.lr.ph298 ]
   %.us-phi258 = phi i32 [ %114, %.lr.ph282.preheader.preheader ], [ %114, %.lr.ph298.preheader ], [ %130, %.lr.ph282.preheader ], [ %122, %.lr.ph298 ]
   %141 = and i64 %.us-phi257, 2147483647
-  %142 = getelementptr inbounds i8, ptr %.069.ph303, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr %.069.ph303, i64 %141
   %143 = sub nsw i32 %.070.ph301, %.us-phi258
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %145, label %.loopexit
@@ -1592,7 +1592,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi = phi i64 [ %15, %.lr.ph.split.us ], [ %22, %21 ]
   %.us-phi599 = phi i32 [ %16, %.lr.ph.split.us ], [ %23, %21 ]
   %28 = and i64 %.us-phi, 2147483647
-  %29 = getelementptr inbounds i8, ptr %.0311.ph608, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %.0311.ph608, i64 %28
   %30 = sub nsw i32 %.0308.ph610, %.us-phi599
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %32, label %.lr.ph612.split.us
@@ -1622,7 +1622,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi615 = phi i64 [ %48, %.lr.ph612.split.us ], [ %55, %54 ]
   %.us-phi616 = phi i32 [ %49, %.lr.ph612.split.us ], [ %56, %54 ]
   %39 = and i64 %.us-phi615, 2147483647
-  %40 = getelementptr inbounds i8, ptr %.0317.ph626, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %.0317.ph626, i64 %39
   %41 = sub nsw i32 %.0314.ph628, %.us-phi616
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %.lr.ph630.split.us
@@ -1678,7 +1678,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi633 = phi i64 [ %70, %.lr.ph630.split.us ], [ %77, %76 ]
   %.us-phi634 = phi i32 [ %71, %.lr.ph630.split.us ], [ %78, %76 ]
   %61 = and i64 %.us-phi633, 2147483647
-  %62 = getelementptr inbounds i8, ptr %.0323.ph644, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %.0323.ph644, i64 %61
   %63 = sub nsw i32 %.0320.ph646, %.us-phi634
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %65, label %.outer436._crit_edge
@@ -1777,7 +1777,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi651 = phi i64 [ %84, %.lr.ph648.split.us ], [ %91, %90 ]
   %.us-phi652 = phi i32 [ %85, %.lr.ph648.split.us ], [ %92, %90 ]
   %98 = and i64 %.us-phi651, 2147483647
-  %99 = getelementptr inbounds i8, ptr %.0329.ph662, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %.0329.ph662, i64 %98
   %100 = sub nsw i32 %.0326.ph664, %.us-phi652
   %101 = icmp sgt i32 %100, 0
   br i1 %101, label %102, label %.preheader431
@@ -1807,7 +1807,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi669 = phi i64 [ %118, %.lr.ph666.split.us ], [ %125, %124 ]
   %.us-phi670 = phi i32 [ %119, %.lr.ph666.split.us ], [ %126, %124 ]
   %109 = and i64 %.us-phi669, 2147483647
-  %110 = getelementptr inbounds i8, ptr %.0335.ph680, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %.0335.ph680, i64 %109
   %111 = sub nsw i32 %.0332.ph682, %.us-phi670
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %113, label %.lr.ph702.preheader
@@ -1863,7 +1863,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi687 = phi i64 [ %140, %.lr.ph684.split.us ], [ %147, %146 ]
   %.us-phi688 = phi i32 [ %141, %.lr.ph684.split.us ], [ %148, %146 ]
   %131 = and i64 %.us-phi687, 2147483647
-  %132 = getelementptr inbounds i8, ptr %.0341.ph698, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr %.0341.ph698, i64 %131
   %133 = sub nsw i32 %.0338.ph700, %.us-phi688
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %135, label %.lr.ph702.preheader
@@ -2004,7 +2004,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi709 = phi i64 [ %152, %.lr.ph733.preheader.preheader ], [ %152, %.lr.ph749.preheader ], [ %168, %.lr.ph733.preheader ], [ %160, %.lr.ph749 ]
   %.us-phi710 = phi i32 [ %153, %.lr.ph733.preheader.preheader ], [ %153, %.lr.ph749.preheader ], [ %169, %.lr.ph733.preheader ], [ %161, %.lr.ph749 ]
   %180 = and i64 %.us-phi709, 2147483647
-  %181 = getelementptr inbounds i8, ptr %.0342.ph754, i64 %180
+  %181 = getelementptr inbounds nuw i8, ptr %.0342.ph754, i64 %180
   %182 = sub nsw i32 %.0343.ph752, %.us-phi710
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %184, label %.outer428._crit_edge
@@ -2062,7 +2062,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi763 = phi i64 [ %209, %.lr.ph788.preheader.preheader ], [ %209, %.lr.ph804.preheader ], [ %225, %.lr.ph788.preheader ], [ %217, %.lr.ph804 ]
   %.us-phi764 = phi i32 [ %210, %.lr.ph788.preheader.preheader ], [ %210, %.lr.ph804.preheader ], [ %226, %.lr.ph788.preheader ], [ %218, %.lr.ph804 ]
   %199 = and i64 %.us-phi763, 2147483647
-  %200 = getelementptr inbounds i8, ptr %.0339.ph809, i64 %199
+  %200 = getelementptr inbounds nuw i8, ptr %.0339.ph809, i64 %199
   %201 = sub nsw i32 %.0340.ph807, %.us-phi764
   %202 = icmp sgt i32 %201, 0
   br i1 %202, label %203, label %.outer427._crit_edge
@@ -2255,7 +2255,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi817 = phi i64 [ %235, %.lr.ph842.preheader.preheader ], [ %235, %.lr.ph858.preheader ], [ %251, %.lr.ph842.preheader ], [ %243, %.lr.ph858 ]
   %.us-phi818 = phi i32 [ %236, %.lr.ph842.preheader.preheader ], [ %236, %.lr.ph858.preheader ], [ %252, %.lr.ph842.preheader ], [ %244, %.lr.ph858 ]
   %263 = and i64 %.us-phi817, 2147483647
-  %264 = getelementptr inbounds i8, ptr %.0336.ph863, i64 %263
+  %264 = getelementptr inbounds nuw i8, ptr %.0336.ph863, i64 %263
   %265 = sub nsw i32 %.0337.ph861, %.us-phi818
   %266 = icmp sgt i32 %265, 0
   br i1 %266, label %267, label %.lr.ph865.preheader
@@ -2304,7 +2304,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi872 = phi i64 [ %290, %.lr.ph897.preheader.preheader ], [ %290, %.lr.ph913.preheader ], [ %306, %.lr.ph897.preheader ], [ %298, %.lr.ph913 ]
   %.us-phi873 = phi i32 [ %291, %.lr.ph897.preheader.preheader ], [ %291, %.lr.ph913.preheader ], [ %307, %.lr.ph897.preheader ], [ %299, %.lr.ph913 ]
   %280 = and i64 %.us-phi872, 2147483647
-  %281 = getelementptr inbounds i8, ptr %.0333.ph918, i64 %280
+  %281 = getelementptr inbounds nuw i8, ptr %.0333.ph918, i64 %280
   %282 = sub nsw i32 %.0334.ph916, %.us-phi873
   %283 = icmp sgt i32 %282, 0
   br i1 %283, label %284, label %.outer424._crit_edge
@@ -2393,7 +2393,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %310 = add nsw i32 %309, 1
   %311 = sext i32 %310 to i64
   %312 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %311, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 785, ptr noundef nonnull @__func__.stepd_getpw) #12
-  %313 = getelementptr inbounds i8, ptr %.pre, i64 8
+  %313 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   store ptr %312, ptr %313, align 8
   %314 = icmp sgt i32 %309, 0
   br i1 %314, label %.lr.ph920, label %.outer422._crit_edge
@@ -2496,7 +2496,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi927 = phi i64 [ %317, %.lr.ph952.preheader.preheader ], [ %317, %.lr.ph968.preheader ], [ %333, %.lr.ph952.preheader ], [ %325, %.lr.ph968 ]
   %.us-phi928 = phi i32 [ %318, %.lr.ph952.preheader.preheader ], [ %318, %.lr.ph968.preheader ], [ %334, %.lr.ph952.preheader ], [ %326, %.lr.ph968 ]
   %345 = and i64 %.us-phi927, 2147483647
-  %346 = getelementptr inbounds i8, ptr %.0330.ph973, i64 %345
+  %346 = getelementptr inbounds nuw i8, ptr %.0330.ph973, i64 %345
   %347 = sub nsw i32 %.0331.ph971, %.us-phi928
   %348 = icmp sgt i32 %347, 0
   br i1 %348, label %349, label %.outer422._crit_edge
@@ -2515,7 +2515,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
 
 .outer422._crit_edge:                             ; preds = %.split926.us, %.outer424._crit_edge
   %353 = load ptr, ptr %12, align 8
-  %354 = getelementptr inbounds i8, ptr %353, i64 16
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 16
   br label %.lr.ph975
 
 .lr.ph975:                                        ; preds = %.lr.ph975.backedge, %.outer422._crit_edge
@@ -2616,7 +2616,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi982 = phi i64 [ %357, %.lr.ph1007.preheader.preheader ], [ %357, %.lr.ph1023.preheader ], [ %373, %.lr.ph1007.preheader ], [ %365, %.lr.ph1023 ]
   %.us-phi983 = phi i32 [ %358, %.lr.ph1007.preheader.preheader ], [ %358, %.lr.ph1023.preheader ], [ %374, %.lr.ph1007.preheader ], [ %366, %.lr.ph1023 ]
   %385 = and i64 %.us-phi982, 2147483647
-  %386 = getelementptr inbounds i8, ptr %.0327.ph1028, i64 %385
+  %386 = getelementptr inbounds nuw i8, ptr %.0327.ph1028, i64 %385
   %387 = sub nsw i32 %.0328.ph1026, %.us-phi983
   %388 = icmp sgt i32 %387, 0
   br i1 %388, label %389, label %.outer421._crit_edge
@@ -2634,7 +2634,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   br label %.lr.ph975, !llvm.loop !30
 
 .outer421._crit_edge:                             ; preds = %.split981.us
-  %393 = getelementptr inbounds i8, ptr %353, i64 20
+  %393 = getelementptr inbounds nuw i8, ptr %353, i64 20
   br label %.lr.ph1030
 
 .lr.ph1030:                                       ; preds = %.lr.ph1030.backedge, %.outer421._crit_edge
@@ -2735,7 +2735,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi1036 = phi i64 [ %396, %.lr.ph1061.preheader.preheader ], [ %396, %.lr.ph1077.preheader ], [ %412, %.lr.ph1061.preheader ], [ %404, %.lr.ph1077 ]
   %.us-phi1037 = phi i32 [ %397, %.lr.ph1061.preheader.preheader ], [ %397, %.lr.ph1077.preheader ], [ %413, %.lr.ph1061.preheader ], [ %405, %.lr.ph1077 ]
   %424 = and i64 %.us-phi1036, 2147483647
-  %425 = getelementptr inbounds i8, ptr %.0324.ph1082, i64 %424
+  %425 = getelementptr inbounds nuw i8, ptr %.0324.ph1082, i64 %424
   %426 = sub nsw i32 %.0325.ph1080, %.us-phi1037
   %427 = icmp sgt i32 %426, 0
   br i1 %427, label %428, label %.lr.ph1084
@@ -2784,7 +2784,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi1091 = phi i64 [ %451, %.lr.ph1116.preheader.preheader ], [ %451, %.lr.ph1132.preheader ], [ %467, %.lr.ph1116.preheader ], [ %459, %.lr.ph1132 ]
   %.us-phi1092 = phi i32 [ %452, %.lr.ph1116.preheader.preheader ], [ %452, %.lr.ph1132.preheader ], [ %468, %.lr.ph1116.preheader ], [ %460, %.lr.ph1132 ]
   %441 = and i64 %.us-phi1091, 2147483647
-  %442 = getelementptr inbounds i8, ptr %.0321.ph1137, i64 %441
+  %442 = getelementptr inbounds nuw i8, ptr %.0321.ph1137, i64 %441
   %443 = sub nsw i32 %.0322.ph1135, %.us-phi1092
   %444 = icmp sgt i32 %443, 0
   br i1 %444, label %445, label %.outer419._crit_edge
@@ -2872,7 +2872,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %471 = add nsw i32 %470, 1
   %472 = sext i32 %471 to i64
   %473 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %472, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 792, ptr noundef nonnull @__func__.stepd_getpw) #12
-  %474 = getelementptr inbounds i8, ptr %353, i64 24
+  %474 = getelementptr inbounds nuw i8, ptr %353, i64 24
   store ptr %473, ptr %474, align 8
   %475 = icmp sgt i32 %470, 0
   br i1 %475, label %.lr.ph1139, label %.lr.ph1193.preheader
@@ -2978,7 +2978,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi1145 = phi i64 [ %478, %.lr.ph1170.preheader.preheader ], [ %478, %.lr.ph1186.preheader ], [ %494, %.lr.ph1170.preheader ], [ %486, %.lr.ph1186 ]
   %.us-phi1146 = phi i32 [ %479, %.lr.ph1170.preheader.preheader ], [ %479, %.lr.ph1186.preheader ], [ %495, %.lr.ph1170.preheader ], [ %487, %.lr.ph1186 ]
   %506 = and i64 %.us-phi1145, 2147483647
-  %507 = getelementptr inbounds i8, ptr %.0318.ph1191, i64 %506
+  %507 = getelementptr inbounds nuw i8, ptr %.0318.ph1191, i64 %506
   %508 = sub nsw i32 %.0319.ph1189, %.us-phi1146
   %509 = icmp sgt i32 %508, 0
   br i1 %509, label %510, label %.lr.ph1193.preheader
@@ -3027,7 +3027,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi1200 = phi i64 [ %533, %.lr.ph1225.preheader.preheader ], [ %533, %.lr.ph1241.preheader ], [ %549, %.lr.ph1225.preheader ], [ %541, %.lr.ph1241 ]
   %.us-phi1201 = phi i32 [ %534, %.lr.ph1225.preheader.preheader ], [ %534, %.lr.ph1241.preheader ], [ %550, %.lr.ph1225.preheader ], [ %542, %.lr.ph1241 ]
   %523 = and i64 %.us-phi1200, 2147483647
-  %524 = getelementptr inbounds i8, ptr %.0315.ph1246, i64 %523
+  %524 = getelementptr inbounds nuw i8, ptr %.0315.ph1246, i64 %523
   %525 = sub nsw i32 %.0316.ph1244, %.us-phi1201
   %526 = icmp sgt i32 %525, 0
   br i1 %526, label %527, label %.outer416._crit_edge
@@ -3115,7 +3115,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %553 = add nsw i32 %552, 1
   %554 = sext i32 %553 to i64
   %555 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %554, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 796, ptr noundef nonnull @__func__.stepd_getpw) #12
-  %556 = getelementptr inbounds i8, ptr %353, i64 32
+  %556 = getelementptr inbounds nuw i8, ptr %353, i64 32
   store ptr %555, ptr %556, align 8
   %557 = icmp sgt i32 %552, 0
   br i1 %557, label %.lr.ph1248, label %.lr.ph1302.preheader
@@ -3221,7 +3221,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi1254 = phi i64 [ %560, %.lr.ph1279.preheader.preheader ], [ %560, %.lr.ph1295.preheader ], [ %576, %.lr.ph1279.preheader ], [ %568, %.lr.ph1295 ]
   %.us-phi1255 = phi i32 [ %561, %.lr.ph1279.preheader.preheader ], [ %561, %.lr.ph1295.preheader ], [ %577, %.lr.ph1279.preheader ], [ %569, %.lr.ph1295 ]
   %588 = and i64 %.us-phi1254, 2147483647
-  %589 = getelementptr inbounds i8, ptr %.0312.ph1300, i64 %588
+  %589 = getelementptr inbounds nuw i8, ptr %.0312.ph1300, i64 %588
   %590 = sub nsw i32 %.0313.ph1298, %.us-phi1255
   %591 = icmp sgt i32 %590, 0
   br i1 %591, label %592, label %.lr.ph1302.preheader
@@ -3270,7 +3270,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi1309 = phi i64 [ %615, %.lr.ph1334.preheader.preheader ], [ %615, %.lr.ph1350.preheader ], [ %631, %.lr.ph1334.preheader ], [ %623, %.lr.ph1350 ]
   %.us-phi1310 = phi i32 [ %616, %.lr.ph1334.preheader.preheader ], [ %616, %.lr.ph1350.preheader ], [ %632, %.lr.ph1334.preheader ], [ %624, %.lr.ph1350 ]
   %605 = and i64 %.us-phi1309, 2147483647
-  %606 = getelementptr inbounds i8, ptr %.0309.ph1355, i64 %605
+  %606 = getelementptr inbounds nuw i8, ptr %.0309.ph1355, i64 %605
   %607 = sub nsw i32 %.0310.ph1353, %.us-phi1310
   %608 = icmp sgt i32 %607, 0
   br i1 %608, label %609, label %.outer413._crit_edge
@@ -3359,7 +3359,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %635 = add nsw i32 %634, 1
   %636 = sext i32 %635 to i64
   %637 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %636, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 800, ptr noundef nonnull @__func__.stepd_getpw) #12
-  %638 = getelementptr inbounds i8, ptr %.pre1899, i64 40
+  %638 = getelementptr inbounds nuw i8, ptr %.pre1899, i64 40
   store ptr %637, ptr %638, align 8
   %639 = icmp sgt i32 %634, 0
   br i1 %639, label %.lr.ph1357, label %.outer._crit_edge
@@ -3462,7 +3462,7 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi1364 = phi i64 [ %642, %.lr.ph1389.preheader.preheader ], [ %642, %.lr.ph1405.preheader ], [ %658, %.lr.ph1389.preheader ], [ %650, %.lr.ph1405 ]
   %.us-phi1365 = phi i32 [ %643, %.lr.ph1389.preheader.preheader ], [ %643, %.lr.ph1405.preheader ], [ %659, %.lr.ph1389.preheader ], [ %651, %.lr.ph1405 ]
   %670 = and i64 %.us-phi1364, 2147483647
-  %671 = getelementptr inbounds i8, ptr %.0306.ph1410, i64 %670
+  %671 = getelementptr inbounds nuw i8, ptr %.0306.ph1410, i64 %670
   %672 = sub nsw i32 %.0307.ph1408, %.us-phi1365
   %673 = icmp sgt i32 %672, 0
   br i1 %673, label %674, label %.outer._crit_edge
@@ -3501,13 +3501,13 @@ define ptr @stepd_getpw(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
 
 685:                                              ; preds = %683
   tail call void @slurm_xfree(ptr noundef nonnull %684) #12
-  %686 = getelementptr inbounds i8, ptr %684, i64 8
+  %686 = getelementptr inbounds nuw i8, ptr %684, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %686) #12
-  %687 = getelementptr inbounds i8, ptr %684, i64 24
+  %687 = getelementptr inbounds nuw i8, ptr %684, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %687) #12
-  %688 = getelementptr inbounds i8, ptr %684, i64 32
+  %688 = getelementptr inbounds nuw i8, ptr %684, i64 32
   tail call void @slurm_xfree(ptr noundef nonnull %688) #12
-  %689 = getelementptr inbounds i8, ptr %684, i64 40
+  %689 = getelementptr inbounds nuw i8, ptr %684, i64 40
   tail call void @slurm_xfree(ptr noundef nonnull %689) #12
   call void @slurm_xfree(ptr noundef nonnull %6) #12
   br label %xfree_struct_passwd.exit
@@ -3530,13 +3530,13 @@ define void @xfree_struct_passwd(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   tail call void @slurm_xfree(ptr noundef nonnull %0) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %4) #12
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %5) #12
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @slurm_xfree(ptr noundef nonnull %6) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @slurm_xfree(ptr noundef nonnull %7) #12
   call void @slurm_xfree(ptr noundef nonnull %2) #12
   br label %8
@@ -3598,7 +3598,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi = phi i64 [ %12, %.lr.ph.split.us ], [ %19, %18 ]
   %.us-phi479 = phi i32 [ %13, %.lr.ph.split.us ], [ %20, %18 ]
   %25 = and i64 %.us-phi, 2147483647
-  %26 = getelementptr inbounds i8, ptr %.0247.ph488, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %.0247.ph488, i64 %25
   %27 = sub nsw i32 %.0244.ph490, %.us-phi479
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %29, label %.lr.ph492.split.us
@@ -3628,7 +3628,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi495 = phi i64 [ %45, %.lr.ph492.split.us ], [ %52, %51 ]
   %.us-phi496 = phi i32 [ %46, %.lr.ph492.split.us ], [ %53, %51 ]
   %36 = and i64 %.us-phi495, 2147483647
-  %37 = getelementptr inbounds i8, ptr %.0253.ph506, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %.0253.ph506, i64 %36
   %38 = sub nsw i32 %.0250.ph508, %.us-phi496
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %.lr.ph510.split.us
@@ -3684,7 +3684,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi513 = phi i64 [ %67, %.lr.ph510.split.us ], [ %74, %73 ]
   %.us-phi514 = phi i32 [ %68, %.lr.ph510.split.us ], [ %75, %73 ]
   %58 = and i64 %.us-phi513, 2147483647
-  %59 = getelementptr inbounds i8, ptr %.0260.ph524, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %.0260.ph524, i64 %58
   %60 = sub nsw i32 %.0256.ph526, %.us-phi514
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %62, label %.outer334._crit_edge
@@ -3783,7 +3783,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi531 = phi i64 [ %81, %.lr.ph528.split.us ], [ %88, %87 ]
   %.us-phi532 = phi i32 [ %82, %.lr.ph528.split.us ], [ %89, %87 ]
   %95 = and i64 %.us-phi531, 2147483647
-  %96 = getelementptr inbounds i8, ptr %.0266.ph542, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %.0266.ph542, i64 %95
   %97 = sub nsw i32 %.0263.ph544, %.us-phi532
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %99, label %.preheader329
@@ -3813,7 +3813,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi549 = phi i64 [ %115, %.lr.ph546.split.us ], [ %122, %121 ]
   %.us-phi550 = phi i32 [ %116, %.lr.ph546.split.us ], [ %123, %121 ]
   %106 = and i64 %.us-phi549, 2147483647
-  %107 = getelementptr inbounds i8, ptr %.0267.ph562, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %.0267.ph562, i64 %106
   %108 = sub nsw i32 %.0268.ph560, %.us-phi550
   %109 = icmp sgt i32 %108, 0
   br i1 %109, label %110, label %.lr.ph582.preheader
@@ -3869,7 +3869,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi567 = phi i64 [ %137, %.lr.ph564.split.us ], [ %144, %143 ]
   %.us-phi568 = phi i32 [ %138, %.lr.ph564.split.us ], [ %145, %143 ]
   %128 = and i64 %.us-phi567, 2147483647
-  %129 = getelementptr inbounds i8, ptr %.0264.ph580, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %.0264.ph580, i64 %128
   %130 = sub nsw i32 %.0265.ph578, %.us-phi568
   %131 = icmp sgt i32 %130, 0
   br i1 %131, label %132, label %.lr.ph582.preheader
@@ -4010,7 +4010,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi589 = phi i64 [ %149, %.lr.ph613.preheader.preheader ], [ %149, %.lr.ph629.preheader ], [ %165, %.lr.ph613.preheader ], [ %157, %.lr.ph629 ]
   %.us-phi590 = phi i32 [ %150, %.lr.ph613.preheader.preheader ], [ %150, %.lr.ph629.preheader ], [ %166, %.lr.ph613.preheader ], [ %158, %.lr.ph629 ]
   %177 = and i64 %.us-phi589, 2147483647
-  %178 = getelementptr inbounds i8, ptr %.0261.ph634, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr %.0261.ph634, i64 %177
   %179 = sub nsw i32 %.0262.ph632, %.us-phi590
   %180 = icmp sgt i32 %179, 0
   br i1 %180, label %181, label %.outer326._crit_edge
@@ -4046,7 +4046,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
 .lr.ph1052:                                       ; preds = %.lr.ph1052.preheader, %.outer._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph1052.preheader ], [ %indvars.iv.next, %.outer._crit_edge ]
   %191 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 854, ptr noundef nonnull @__func__.stepd_getgr) #12
-  %192 = getelementptr inbounds ptr, ptr %189, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv
   store ptr %191, ptr %192, align 8
   br label %.lr.ph636
 
@@ -4148,7 +4148,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi643 = phi i64 [ %195, %.lr.ph668.preheader.preheader ], [ %195, %.lr.ph684.preheader ], [ %211, %.lr.ph668.preheader ], [ %203, %.lr.ph684 ]
   %.us-phi644 = phi i32 [ %196, %.lr.ph668.preheader.preheader ], [ %196, %.lr.ph684.preheader ], [ %212, %.lr.ph668.preheader ], [ %204, %.lr.ph684 ]
   %223 = and i64 %.us-phi643, 2147483647
-  %224 = getelementptr inbounds i8, ptr %.0257.ph689, i64 %223
+  %224 = getelementptr inbounds nuw i8, ptr %.0257.ph689, i64 %223
   %225 = sub nsw i32 %.0258.ph687, %.us-phi644
   %226 = icmp sgt i32 %225, 0
   br i1 %226, label %227, label %.outer325._crit_edge
@@ -4281,7 +4281,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi698 = phi i64 [ %240, %.lr.ph728.preheader.preheader ], [ %240, %.lr.ph746.preheader ], [ %256, %.lr.ph728.preheader ], [ %248, %.lr.ph746 ]
   %.us-phi699 = phi i32 [ %241, %.lr.ph728.preheader.preheader ], [ %241, %.lr.ph746.preheader ], [ %257, %.lr.ph728.preheader ], [ %249, %.lr.ph746 ]
   %268 = and i64 %.us-phi698, 2147483647
-  %269 = getelementptr inbounds i8, ptr %.0254.ph753, i64 %268
+  %269 = getelementptr inbounds nuw i8, ptr %.0254.ph753, i64 %268
   %270 = sub nsw i32 %.0255.ph751, %.us-phi699
   %271 = icmp sgt i32 %270, 0
   br i1 %271, label %272, label %.lr.ph755.preheader
@@ -4330,7 +4330,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi762 = phi i64 [ %295, %.lr.ph787.preheader.preheader ], [ %295, %.lr.ph803.preheader ], [ %311, %.lr.ph787.preheader ], [ %303, %.lr.ph803 ]
   %.us-phi763 = phi i32 [ %296, %.lr.ph787.preheader.preheader ], [ %296, %.lr.ph803.preheader ], [ %312, %.lr.ph787.preheader ], [ %304, %.lr.ph803 ]
   %285 = and i64 %.us-phi762, 2147483647
-  %286 = getelementptr inbounds i8, ptr %.0251.ph808, i64 %285
+  %286 = getelementptr inbounds nuw i8, ptr %.0251.ph808, i64 %285
   %287 = sub nsw i32 %.0252.ph806, %.us-phi763
   %288 = icmp sgt i32 %287, 0
   br i1 %288, label %289, label %.outer323._crit_edge
@@ -4419,14 +4419,14 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.pre1473 = sext i32 %.pre1472 to i64
   %314 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %.pre1473, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 861, ptr noundef nonnull @__func__.stepd_getgr) #12
   %315 = load ptr, ptr %192, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store ptr %314, ptr %316, align 8
   %317 = icmp sgt i32 %.pre1454, 0
   br i1 %317, label %.lr.ph810.preheader, label %.outer322._crit_edge
 
 .lr.ph810.preheader:                              ; preds = %.outer323._crit_edge
   %318 = load ptr, ptr %192, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %320 = load ptr, ptr %319, align 8
   br label %.lr.ph810
 
@@ -4528,7 +4528,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi818 = phi i64 [ %323, %.lr.ph848.preheader.preheader ], [ %323, %.lr.ph866.preheader ], [ %339, %.lr.ph848.preheader ], [ %331, %.lr.ph866 ]
   %.us-phi819 = phi i32 [ %324, %.lr.ph848.preheader.preheader ], [ %324, %.lr.ph866.preheader ], [ %340, %.lr.ph848.preheader ], [ %332, %.lr.ph866 ]
   %351 = and i64 %.us-phi818, 2147483647
-  %352 = getelementptr inbounds i8, ptr %.0248.ph873, i64 %351
+  %352 = getelementptr inbounds nuw i8, ptr %.0248.ph873, i64 %351
   %353 = sub nsw i32 %.0249.ph871, %.us-phi819
   %354 = icmp sgt i32 %353, 0
   br i1 %354, label %355, label %.outer322._crit_edge
@@ -4547,7 +4547,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
 
 .outer322._crit_edge:                             ; preds = %.split817.us, %.outer323._crit_edge
   %359 = load ptr, ptr %192, align 8
-  %360 = getelementptr inbounds i8, ptr %359, i64 16
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 16
   br label %.lr.ph875
 
 .lr.ph875:                                        ; preds = %.lr.ph875.backedge, %.outer322._crit_edge
@@ -4648,7 +4648,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi882 = phi i64 [ %363, %.lr.ph907.preheader.preheader ], [ %363, %.lr.ph923.preheader ], [ %379, %.lr.ph907.preheader ], [ %371, %.lr.ph923 ]
   %.us-phi883 = phi i32 [ %364, %.lr.ph907.preheader.preheader ], [ %364, %.lr.ph923.preheader ], [ %380, %.lr.ph907.preheader ], [ %372, %.lr.ph923 ]
   %391 = and i64 %.us-phi882, 2147483647
-  %392 = getelementptr inbounds i8, ptr %.0245.ph928, i64 %391
+  %392 = getelementptr inbounds nuw i8, ptr %.0245.ph928, i64 %391
   %393 = sub nsw i32 %.0246.ph926, %.us-phi883
   %394 = icmp sgt i32 %393, 0
   br i1 %394, label %395, label %.outer321._crit_edge
@@ -4668,7 +4668,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
 .outer321._crit_edge:                             ; preds = %.split881.us
   %399 = tail call ptr @slurm_xcalloc(i64 noundef 2, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 872, ptr noundef nonnull @__func__.stepd_getgr) #12
   %400 = load ptr, ptr %192, align 8
-  %401 = getelementptr inbounds i8, ptr %400, i64 24
+  %401 = getelementptr inbounds nuw i8, ptr %400, i64 24
   store ptr %399, ptr %401, align 8
   br label %.lr.ph930
 
@@ -4770,7 +4770,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi937 = phi i64 [ %404, %.lr.ph962.preheader.preheader ], [ %404, %.lr.ph978.preheader ], [ %420, %.lr.ph962.preheader ], [ %412, %.lr.ph978 ]
   %.us-phi938 = phi i32 [ %405, %.lr.ph962.preheader.preheader ], [ %405, %.lr.ph978.preheader ], [ %421, %.lr.ph962.preheader ], [ %413, %.lr.ph978 ]
   %432 = and i64 %.us-phi937, 2147483647
-  %433 = getelementptr inbounds i8, ptr %.0242.ph983, i64 %432
+  %433 = getelementptr inbounds nuw i8, ptr %.0242.ph983, i64 %432
   %434 = sub nsw i32 %.0243.ph981, %.us-phi938
   %435 = icmp sgt i32 %434, 0
   br i1 %435, label %436, label %.outer320._crit_edge
@@ -4793,7 +4793,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %441 = sext i32 %440 to i64
   %442 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %441, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 874, ptr noundef nonnull @__func__.stepd_getgr) #12
   %443 = load ptr, ptr %192, align 8
-  %444 = getelementptr inbounds i8, ptr %443, i64 24
+  %444 = getelementptr inbounds nuw i8, ptr %443, i64 24
   %445 = load ptr, ptr %444, align 8
   store ptr %442, ptr %445, align 8
   %446 = icmp sgt i32 %.pre1467, 0
@@ -4801,7 +4801,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
 
 .lr.ph985.preheader:                              ; preds = %.outer320._crit_edge
   %447 = load ptr, ptr %192, align 8
-  %448 = getelementptr inbounds i8, ptr %447, i64 24
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 24
   %449 = load ptr, ptr %448, align 8
   %450 = load ptr, ptr %449, align 8
   br label %.lr.ph985
@@ -4904,7 +4904,7 @@ define ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2, i32 noun
   %.us-phi993 = phi i64 [ %453, %.lr.ph1023.preheader.preheader ], [ %453, %.lr.ph1041.preheader ], [ %469, %.lr.ph1023.preheader ], [ %461, %.lr.ph1041 ]
   %.us-phi994 = phi i32 [ %454, %.lr.ph1023.preheader.preheader ], [ %454, %.lr.ph1041.preheader ], [ %470, %.lr.ph1023.preheader ], [ %462, %.lr.ph1041 ]
   %481 = and i64 %.us-phi993, 2147483647
-  %482 = getelementptr inbounds i8, ptr %.0239.ph1048, i64 %481
+  %482 = getelementptr inbounds nuw i8, ptr %.0239.ph1048, i64 %481
   %483 = sub nsw i32 %.0240.ph1046, %.us-phi994
   %484 = icmp sgt i32 %483, 0
   br i1 %484, label %485, label %.outer._crit_edge
@@ -4961,20 +4961,20 @@ define void @xfree_struct_group_array(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph15 ], [ 0, %.lr.ph.split ]
   %4 = phi ptr [ %14, %.lr.ph15 ], [ %3, %.lr.ph.split ]
   tail call void @slurm_xfree(ptr noundef nonnull %4) #12
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %7) #12
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @slurm_xfree(ptr noundef %10) #12
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %12) #12
   tail call void @slurm_xfree(ptr noundef nonnull %5) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %.critedge, label %.lr.ph15
@@ -5037,7 +5037,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi = phi i64 [ %11, %.lr.ph.split.us ], [ %18, %17 ]
   %.us-phi455 = phi i32 [ %12, %.lr.ph.split.us ], [ %19, %17 ]
   %24 = and i64 %.us-phi, 2147483647
-  %25 = getelementptr inbounds i8, ptr %.0248.ph464, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %.0248.ph464, i64 %24
   %26 = sub nsw i32 %.0245.ph466, %.us-phi455
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %28, label %.lr.ph468.split.us
@@ -5067,7 +5067,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi471 = phi i64 [ %44, %.lr.ph468.split.us ], [ %51, %50 ]
   %.us-phi472 = phi i32 [ %45, %.lr.ph468.split.us ], [ %52, %50 ]
   %35 = and i64 %.us-phi471, 2147483647
-  %36 = getelementptr inbounds i8, ptr %.0255.ph482, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %.0255.ph482, i64 %35
   %37 = sub nsw i32 %.0251.ph484, %.us-phi472
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %39, label %.outer337._crit_edge
@@ -5166,7 +5166,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi489 = phi i64 [ %58, %.lr.ph486.split.us ], [ %65, %64 ]
   %.us-phi490 = phi i32 [ %59, %.lr.ph486.split.us ], [ %66, %64 ]
   %72 = and i64 %.us-phi489, 2147483647
-  %73 = getelementptr inbounds i8, ptr %.0261.ph500, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr %.0261.ph500, i64 %72
   %74 = sub nsw i32 %.0258.ph502, %.us-phi490
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %76, label %.preheader332
@@ -5196,7 +5196,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi507 = phi i64 [ %92, %.lr.ph504.split.us ], [ %99, %98 ]
   %.us-phi508 = phi i32 [ %93, %.lr.ph504.split.us ], [ %100, %98 ]
   %83 = and i64 %.us-phi507, 2147483647
-  %84 = getelementptr inbounds i8, ptr %.0267.ph518, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %.0267.ph518, i64 %83
   %85 = sub nsw i32 %.0264.ph520, %.us-phi508
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %87, label %.lr.ph540.preheader
@@ -5252,7 +5252,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi525 = phi i64 [ %114, %.lr.ph522.split.us ], [ %121, %120 ]
   %.us-phi526 = phi i32 [ %115, %.lr.ph522.split.us ], [ %122, %120 ]
   %105 = and i64 %.us-phi525, 2147483647
-  %106 = getelementptr inbounds i8, ptr %.0268.ph538, i64 %105
+  %106 = getelementptr inbounds nuw i8, ptr %.0268.ph538, i64 %105
   %107 = sub nsw i32 %.0269.ph536, %.us-phi526
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %109, label %.lr.ph540.preheader
@@ -5393,7 +5393,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi547 = phi i64 [ %126, %.lr.ph571.preheader.preheader ], [ %126, %.lr.ph587.preheader ], [ %142, %.lr.ph571.preheader ], [ %134, %.lr.ph587 ]
   %.us-phi548 = phi i32 [ %127, %.lr.ph571.preheader.preheader ], [ %127, %.lr.ph587.preheader ], [ %143, %.lr.ph571.preheader ], [ %135, %.lr.ph587 ]
   %154 = and i64 %.us-phi547, 2147483647
-  %155 = getelementptr inbounds i8, ptr %.0265.ph592, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr %.0265.ph592, i64 %154
   %156 = sub nsw i32 %.0266.ph590, %.us-phi548
   %157 = icmp sgt i32 %156, 0
   br i1 %157, label %158, label %.outer329._crit_edge
@@ -5517,7 +5517,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi601 = phi i64 [ %167, %.lr.ph626.preheader.preheader ], [ %167, %.lr.ph642.preheader ], [ %183, %.lr.ph626.preheader ], [ %175, %.lr.ph642 ]
   %.us-phi602 = phi i32 [ %168, %.lr.ph626.preheader.preheader ], [ %168, %.lr.ph642.preheader ], [ %184, %.lr.ph626.preheader ], [ %176, %.lr.ph642 ]
   %195 = and i64 %.us-phi601, 2147483647
-  %196 = getelementptr inbounds i8, ptr %.0262.ph647, i64 %195
+  %196 = getelementptr inbounds nuw i8, ptr %.0262.ph647, i64 %195
   %197 = sub nsw i32 %.0263.ph645, %.us-phi602
   %198 = icmp sgt i32 %197, 0
   br i1 %198, label %199, label %.outer328._crit_edge
@@ -5644,7 +5644,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi655 = phi i64 [ %210, %.lr.ph680.preheader.preheader ], [ %210, %.lr.ph696.preheader ], [ %226, %.lr.ph680.preheader ], [ %218, %.lr.ph696 ]
   %.us-phi656 = phi i32 [ %211, %.lr.ph680.preheader.preheader ], [ %211, %.lr.ph696.preheader ], [ %227, %.lr.ph680.preheader ], [ %219, %.lr.ph696 ]
   %238 = and i64 %.us-phi655, 2147483647
-  %239 = getelementptr inbounds i8, ptr %.0259.ph701, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr %.0259.ph701, i64 %238
   %240 = sub nsw i32 %.0260.ph699, %.us-phi656
   %241 = icmp sgt i32 %240, 0
   br i1 %241, label %242, label %.lr.ph703.preheader
@@ -5693,7 +5693,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi710 = phi i64 [ %265, %.lr.ph735.preheader.preheader ], [ %265, %.lr.ph751.preheader ], [ %281, %.lr.ph735.preheader ], [ %273, %.lr.ph751 ]
   %.us-phi711 = phi i32 [ %266, %.lr.ph735.preheader.preheader ], [ %266, %.lr.ph751.preheader ], [ %282, %.lr.ph735.preheader ], [ %274, %.lr.ph751 ]
   %255 = and i64 %.us-phi710, 2147483647
-  %256 = getelementptr inbounds i8, ptr %.0256.ph756, i64 %255
+  %256 = getelementptr inbounds nuw i8, ptr %.0256.ph756, i64 %255
   %257 = sub nsw i32 %.0257.ph754, %.us-phi711
   %258 = icmp sgt i32 %257, 0
   br i1 %258, label %259, label %.outer326._crit_edge
@@ -5781,7 +5781,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %284 = add nsw i32 %.pre, 1
   %285 = sext i32 %284 to i64
   %286 = tail call ptr @slurm_xcalloc(i64 noundef %285, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 930, ptr noundef nonnull @__func__.stepd_gethostbyname) #12
-  %287 = getelementptr inbounds i8, ptr %164, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store ptr %286, ptr %287, align 8
   %288 = icmp sgt i32 %.pre, 0
   br i1 %288, label %.preheader323.preheader, label %._crit_edge879
@@ -5892,7 +5892,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi765 = phi i64 [ %291, %.lr.ph790.preheader.preheader ], [ %291, %.lr.ph806.preheader ], [ %307, %.lr.ph790.preheader ], [ %299, %.lr.ph806 ]
   %.us-phi766 = phi i32 [ %292, %.lr.ph790.preheader.preheader ], [ %292, %.lr.ph806.preheader ], [ %308, %.lr.ph790.preheader ], [ %300, %.lr.ph806 ]
   %319 = and i64 %.us-phi765, 2147483647
-  %320 = getelementptr inbounds i8, ptr %.0252.ph811, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr %.0252.ph811, i64 %319
   %321 = sub nsw i32 %.0253.ph809, %.us-phi766
   %322 = icmp sgt i32 %321, 0
   br i1 %322, label %323, label %.outer324._crit_edge
@@ -5915,14 +5915,14 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %329 = sext i32 %328 to i64
   %330 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %329, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 933, ptr noundef nonnull @__func__.stepd_gethostbyname) #12
   %331 = load ptr, ptr %287, align 8
-  %332 = getelementptr inbounds ptr, ptr %331, i64 %indvars.iv
+  %332 = getelementptr inbounds nuw ptr, ptr %331, i64 %indvars.iv
   store ptr %330, ptr %332, align 8
   %333 = icmp sgt i32 %327, 0
   br i1 %333, label %.lr.ph813.preheader, label %.outer322._crit_edge
 
 .lr.ph813.preheader:                              ; preds = %.outer324._crit_edge
   %334 = load ptr, ptr %287, align 8
-  %335 = getelementptr inbounds ptr, ptr %334, i64 %indvars.iv
+  %335 = getelementptr inbounds nuw ptr, ptr %334, i64 %indvars.iv
   %336 = load ptr, ptr %335, align 8
   br label %.lr.ph813
 
@@ -6024,7 +6024,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi821 = phi i64 [ %339, %.lr.ph851.preheader.preheader ], [ %339, %.lr.ph869.preheader ], [ %355, %.lr.ph851.preheader ], [ %347, %.lr.ph869 ]
   %.us-phi822 = phi i32 [ %340, %.lr.ph851.preheader.preheader ], [ %340, %.lr.ph869.preheader ], [ %356, %.lr.ph851.preheader ], [ %348, %.lr.ph869 ]
   %367 = and i64 %.us-phi821, 2147483647
-  %368 = getelementptr inbounds i8, ptr %.0249.ph876, i64 %367
+  %368 = getelementptr inbounds nuw i8, ptr %.0249.ph876, i64 %367
   %369 = sub nsw i32 %.0250.ph874, %.us-phi822
   %370 = icmp sgt i32 %369, 0
   br i1 %370, label %371, label %.outer322._crit_edge
@@ -6047,7 +6047,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   br i1 %exitcond.not, label %._crit_edge879, label %.preheader323, !llvm.loop !64
 
 ._crit_edge879:                                   ; preds = %.outer322._crit_edge, %.outer326._crit_edge
-  %375 = getelementptr inbounds i8, ptr %164, i64 16
+  %375 = getelementptr inbounds nuw i8, ptr %164, i64 16
   br label %.lr.ph880
 
 .lr.ph880:                                        ; preds = %.lr.ph880.backedge, %._crit_edge879
@@ -6148,7 +6148,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi886 = phi i64 [ %378, %.lr.ph911.preheader.preheader ], [ %378, %.lr.ph927.preheader ], [ %394, %.lr.ph911.preheader ], [ %386, %.lr.ph927 ]
   %.us-phi887 = phi i32 [ %379, %.lr.ph911.preheader.preheader ], [ %379, %.lr.ph927.preheader ], [ %395, %.lr.ph911.preheader ], [ %387, %.lr.ph927 ]
   %406 = and i64 %.us-phi886, 2147483647
-  %407 = getelementptr inbounds i8, ptr %.0246.ph932, i64 %406
+  %407 = getelementptr inbounds nuw i8, ptr %.0246.ph932, i64 %406
   %408 = sub nsw i32 %.0247.ph930, %.us-phi887
   %409 = icmp sgt i32 %408, 0
   br i1 %409, label %410, label %.lr.ph934
@@ -6197,7 +6197,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi941 = phi i64 [ %433, %.lr.ph966.preheader.preheader ], [ %433, %.lr.ph982.preheader ], [ %449, %.lr.ph966.preheader ], [ %441, %.lr.ph982 ]
   %.us-phi942 = phi i32 [ %434, %.lr.ph966.preheader.preheader ], [ %434, %.lr.ph982.preheader ], [ %450, %.lr.ph966.preheader ], [ %442, %.lr.ph982 ]
   %423 = and i64 %.us-phi941, 2147483647
-  %424 = getelementptr inbounds i8, ptr %.0243.ph987, i64 %423
+  %424 = getelementptr inbounds nuw i8, ptr %.0243.ph987, i64 %423
   %425 = sub nsw i32 %.0244.ph985, %.us-phi942
   %426 = icmp sgt i32 %425, 0
   br i1 %426, label %427, label %.outer320._crit_edge
@@ -6282,10 +6282,10 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
 
 .outer320._crit_edge:                             ; preds = %.split940
   %452 = load i32, ptr %8, align 4
-  %453 = getelementptr inbounds i8, ptr %164, i64 20
+  %453 = getelementptr inbounds nuw i8, ptr %164, i64 20
   store i32 %452, ptr %453, align 4
   %454 = tail call ptr @slurm_xcalloc(i64 noundef 2, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 946, ptr noundef nonnull @__func__.stepd_gethostbyname) #12
-  %455 = getelementptr inbounds i8, ptr %164, i64 24
+  %455 = getelementptr inbounds nuw i8, ptr %164, i64 24
   store ptr %454, ptr %455, align 8
   %456 = sext i32 %452 to i64
   %457 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %456, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 947, ptr noundef nonnull @__func__.stepd_gethostbyname) #12
@@ -6397,7 +6397,7 @@ define ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 noundef %2, 
   %.us-phi996 = phi i64 [ %464, %.lr.ph1021.preheader.preheader ], [ %464, %.lr.ph1037.preheader ], [ %480, %.lr.ph1021.preheader ], [ %472, %.lr.ph1037 ]
   %.us-phi997 = phi i32 [ %465, %.lr.ph1021.preheader.preheader ], [ %465, %.lr.ph1037.preheader ], [ %481, %.lr.ph1021.preheader ], [ %473, %.lr.ph1037 ]
   %492 = and i64 %.us-phi996, 2147483647
-  %493 = getelementptr inbounds i8, ptr %.0240.ph1042, i64 %492
+  %493 = getelementptr inbounds nuw i8, ptr %.0240.ph1042, i64 %492
   %494 = sub nsw i32 %.0241.ph1040, %.us-phi997
   %495 = icmp sgt i32 %494, 0
   br i1 %495, label %496, label %.outer._crit_edge
@@ -6442,7 +6442,7 @@ define void @xfree_struct_hostent(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   tail call void @slurm_xfree(ptr noundef nonnull %0) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not610 = icmp eq ptr %5, null
   br i1 %.not610, label %.critedge, label %.lr.ph
@@ -6450,7 +6450,7 @@ define void @xfree_struct_hostent(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %3, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %3 ]
   %6 = phi ptr [ %10, %9 ], [ %5, %3 ]
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not7 = icmp eq ptr %8, null
   br i1 %.not7, label %.critedge, label %9
@@ -6464,7 +6464,7 @@ define void @xfree_struct_hostent(ptr noundef %0) #0 {
 
 .critedge:                                        ; preds = %.lr.ph, %9, %3
   tail call void @slurm_xfree(ptr noundef nonnull %4) #12
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not8 = icmp eq ptr %12, null
   br i1 %.not8, label %14, label %13
@@ -6538,7 +6538,7 @@ define i32 @stepd_get_namespace_fd(i32 noundef %0, i16 zeroext %1) #0 {
   %.us-phi = phi i64 [ %9, %.lr.ph.split.us ], [ %16, %15 ]
   %.us-phi56 = phi i32 [ %10, %.lr.ph.split.us ], [ %17, %15 ]
   %22 = and i64 %.us-phi, 2147483647
-  %23 = getelementptr inbounds i8, ptr %.034.ph65, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %.034.ph65, i64 %22
   %24 = sub nsw i32 %.033.ph67, %.us-phi56
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %.lr.ph69
@@ -6587,7 +6587,7 @@ define i32 @stepd_get_namespace_fd(i32 noundef %0, i16 zeroext %1) #0 {
   %.us-phi75 = phi i64 [ %49, %.lr.ph99.preheader.preheader ], [ %49, %.lr.ph115.preheader ], [ %65, %.lr.ph99.preheader ], [ %57, %.lr.ph115 ]
   %.us-phi76 = phi i32 [ %50, %.lr.ph99.preheader.preheader ], [ %50, %.lr.ph115.preheader ], [ %66, %.lr.ph99.preheader ], [ %58, %.lr.ph115 ]
   %39 = and i64 %.us-phi75, 2147483647
-  %40 = getelementptr inbounds i8, ptr %.031.ph120, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %.031.ph120, i64 %39
   %41 = sub nsw i32 %.032.ph118, %.us-phi76
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %.outer._crit_edge
@@ -6794,7 +6794,7 @@ define i32 @stepd_state(i32 noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   %.us-phi = phi i64 [ %6, %.lr.ph.split.us ], [ %13, %12 ]
   %.us-phi53 = phi i32 [ %7, %.lr.ph.split.us ], [ %14, %12 ]
   %19 = and i64 %.us-phi, 2147483647
-  %20 = getelementptr inbounds i8, ptr %.031.ph62, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %.031.ph62, i64 %19
   %21 = sub nsw i32 %.0.ph64, %.us-phi53
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %.lr.ph66
@@ -6843,7 +6843,7 @@ define i32 @stepd_state(i32 noundef %0, i16 noundef zeroext %1) local_unnamed_ad
   %.us-phi72 = phi i64 [ %46, %.lr.ph96.preheader.preheader ], [ %46, %.lr.ph112.preheader ], [ %62, %.lr.ph96.preheader ], [ %54, %.lr.ph112 ]
   %.us-phi73 = phi i32 [ %47, %.lr.ph96.preheader.preheader ], [ %47, %.lr.ph112.preheader ], [ %63, %.lr.ph96.preheader ], [ %55, %.lr.ph112 ]
   %36 = and i64 %.us-phi72, 2147483647
-  %37 = getelementptr inbounds i8, ptr %.029.ph117, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %.029.ph117, i64 %36
   %38 = sub nsw i32 %.030.ph115, %.us-phi73
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %.loopexit
@@ -6977,7 +6977,7 @@ define i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi = phi i64 [ %7, %.lr.ph.split.us ], [ %14, %13 ]
   %.us-phi131 = phi i32 [ %8, %.lr.ph.split.us ], [ %15, %13 ]
   %20 = and i64 %.us-phi, 2147483647
-  %21 = getelementptr inbounds i8, ptr %.076.ph140, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.076.ph140, i64 %20
   %22 = sub nsw i32 %.073.ph142, %.us-phi131
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %.outer101._crit_edge
@@ -7051,7 +7051,7 @@ define i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi147 = phi i64 [ %33, %.lr.ph144.split.us ], [ %40, %39 ]
   %.us-phi148 = phi i32 [ %34, %.lr.ph144.split.us ], [ %41, %39 ]
   %47 = and i64 %.us-phi147, 2147483647
-  %48 = getelementptr inbounds i8, ptr %.080.ph158, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %.080.ph158, i64 %47
   %49 = sub nsw i32 %.079.ph160, %.us-phi148
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %.preheader
@@ -7081,7 +7081,7 @@ define i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi165 = phi i64 [ %67, %.lr.ph162.split.us ], [ %75, %74 ]
   %.us-phi166 = phi i32 [ %68, %.lr.ph162.split.us ], [ %76, %74 ]
   %58 = and i64 %.us-phi165, 2147483647
-  %59 = getelementptr inbounds i8, ptr %.077.ph180, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %.077.ph180, i64 %58
   %60 = sub nsw i32 %.078.ph178, %.us-phi166
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %62, label %.lr.ph200.preheader
@@ -7168,7 +7168,7 @@ define i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi185 = phi i64 [ %80, %.lr.ph182.split.us ], [ %87, %86 ]
   %.us-phi186 = phi i32 [ %81, %.lr.ph182.split.us ], [ %88, %86 ]
   %93 = and i64 %.us-phi185, 2147483647
-  %94 = getelementptr inbounds i8, ptr %.074.ph198, i64 %93
+  %94 = getelementptr inbounds nuw i8, ptr %.074.ph198, i64 %93
   %95 = sub nsw i32 %.075.ph196, %.us-phi186
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %97, label %.lr.ph200.preheader
@@ -7283,7 +7283,7 @@ define i32 @stepd_notify_job(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi207 = phi i64 [ %103, %.lr.ph231.preheader.preheader ], [ %103, %.lr.ph247.preheader ], [ %119, %.lr.ph231.preheader ], [ %111, %.lr.ph247 ]
   %.us-phi208 = phi i32 [ %104, %.lr.ph231.preheader.preheader ], [ %104, %.lr.ph247.preheader ], [ %120, %.lr.ph231.preheader ], [ %112, %.lr.ph247 ]
   %131 = and i64 %.us-phi207, 2147483647
-  %132 = getelementptr inbounds i8, ptr %.071.ph252, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr %.071.ph252, i64 %131
   %133 = sub nsw i32 %.072.ph250, %.us-phi208
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %135, label %.outer._crit_edge
@@ -7368,7 +7368,7 @@ define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 n
   %.us-phi = phi i64 [ %15, %.lr.ph.split.us ], [ %22, %21 ]
   %.us-phi216 = phi i32 [ %16, %.lr.ph.split.us ], [ %23, %21 ]
   %28 = and i64 %.us-phi, 2147483647
-  %29 = getelementptr inbounds i8, ptr %.0119.ph225, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %.0119.ph225, i64 %28
   %30 = sub nsw i32 %.0116.ph227, %.us-phi216
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %32, label %.outer166._crit_edge
@@ -7428,7 +7428,7 @@ define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 n
   %.us-phi232 = phi i64 [ %38, %.lr.ph229.split.us ], [ %45, %44 ]
   %.us-phi233 = phi i32 [ %39, %.lr.ph229.split.us ], [ %46, %44 ]
   %51 = and i64 %.us-phi232, 2147483647
-  %52 = getelementptr inbounds i8, ptr %.0125.ph243, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %.0125.ph243, i64 %51
   %53 = sub nsw i32 %.0122.ph245, %.us-phi233
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %55, label %.lr.ph247.split.us
@@ -7458,7 +7458,7 @@ define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 n
   %.us-phi251 = phi i64 [ %71, %.lr.ph247.split.us ], [ %78, %77 ]
   %.us-phi252 = phi i32 [ %72, %.lr.ph247.split.us ], [ %79, %77 ]
   %62 = and i64 %.us-phi251, 2147483647
-  %63 = getelementptr inbounds i8, ptr %.0129.ph262, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %.0129.ph262, i64 %62
   %64 = sub nsw i32 %.0128.ph264, %.us-phi252
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %66, label %.outer163._crit_edge
@@ -7554,7 +7554,7 @@ define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 n
   %.us-phi270 = phi i64 [ %87, %.lr.ph266.split.us ], [ %94, %93 ]
   %.us-phi271 = phi i32 [ %88, %.lr.ph266.split.us ], [ %95, %93 ]
   %100 = and i64 %.us-phi270, 2147483647
-  %101 = getelementptr inbounds i8, ptr %.0126.ph283, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %.0126.ph283, i64 %100
   %102 = sub nsw i32 %.0127.ph281, %.us-phi271
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %104, label %.outer161._crit_edge
@@ -7617,7 +7617,7 @@ define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 n
   %.us-phi288 = phi i64 [ %110, %.lr.ph285.split.us ], [ %117, %116 ]
   %.us-phi289 = phi i32 [ %111, %.lr.ph285.split.us ], [ %118, %116 ]
   %123 = and i64 %.us-phi288, 2147483647
-  %124 = getelementptr inbounds i8, ptr %.0123.ph301, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr %.0123.ph301, i64 %123
   %125 = sub nsw i32 %.0124.ph299, %.us-phi289
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %127, label %.lr.ph303.split.us.preheader
@@ -7647,7 +7647,7 @@ define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 n
   %.us-phi306 = phi i64 [ %143, %.lr.ph303.split.us ], [ %150, %149 ]
   %.us-phi307 = phi i32 [ %144, %.lr.ph303.split.us ], [ %151, %149 ]
   %134 = and i64 %.us-phi306, 2147483647
-  %135 = getelementptr inbounds i8, ptr %.0120.ph319, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr %.0120.ph319, i64 %134
   %136 = sub nsw i32 %.0121.ph317, %.us-phi307
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %138, label %.lr.ph321
@@ -7727,7 +7727,7 @@ define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 n
   %.us-phi327 = phi i64 [ %175, %.lr.ph351.preheader.preheader ], [ %175, %.lr.ph367.preheader ], [ %191, %.lr.ph351.preheader ], [ %183, %.lr.ph367 ]
   %.us-phi328 = phi i32 [ %176, %.lr.ph351.preheader.preheader ], [ %176, %.lr.ph367.preheader ], [ %192, %.lr.ph351.preheader ], [ %184, %.lr.ph367 ]
   %165 = and i64 %.us-phi327, 2147483647
-  %166 = getelementptr inbounds i8, ptr %.0117.ph372, i64 %165
+  %166 = getelementptr inbounds nuw i8, ptr %.0117.ph372, i64 %165
   %167 = sub nsw i32 %.0118.ph370, %.us-phi328
   %168 = icmp sgt i32 %167, 0
   br i1 %168, label %169, label %.lr.ph374
@@ -7842,7 +7842,7 @@ define i32 @stepd_signal_container(i32 noundef %0, i16 noundef zeroext %1, i32 n
   %.us-phi381 = phi i64 [ %213, %.lr.ph406.preheader.preheader ], [ %213, %.lr.ph422.preheader ], [ %229, %.lr.ph406.preheader ], [ %221, %.lr.ph422 ]
   %.us-phi382 = phi i32 [ %214, %.lr.ph406.preheader.preheader ], [ %214, %.lr.ph422.preheader ], [ %230, %.lr.ph406.preheader ], [ %222, %.lr.ph422 ]
   %203 = and i64 %.us-phi381, 2147483647
-  %204 = getelementptr inbounds i8, ptr %.0114.ph427, i64 %203
+  %204 = getelementptr inbounds nuw i8, ptr %.0114.ph427, i64 %203
   %205 = sub nsw i32 %.0115.ph425, %.us-phi382
   %206 = icmp sgt i32 %205, 0
   br i1 %206, label %207, label %.outer._crit_edge
@@ -7997,7 +7997,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi = phi i64 [ %18, %.lr.ph.split.us ], [ %25, %24 ]
   %.us-phi392 = phi i32 [ %19, %.lr.ph.split.us ], [ %26, %24 ]
   %31 = and i64 %.us-phi, 2147483647
-  %32 = getelementptr inbounds i8, ptr %.0208.ph401, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %.0208.ph401, i64 %31
   %33 = sub nsw i32 %.0205.ph403, %.us-phi392
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %.lr.ph405.split.us
@@ -8027,7 +8027,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi408 = phi i64 [ %51, %.lr.ph405.split.us ], [ %58, %57 ]
   %.us-phi409 = phi i32 [ %52, %.lr.ph405.split.us ], [ %59, %57 ]
   %42 = and i64 %.us-phi408, 2147483647
-  %43 = getelementptr inbounds i8, ptr %.0214.ph419, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %.0214.ph419, i64 %42
   %44 = sub nsw i32 %.0211.ph421, %.us-phi409
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %.lr.ph423.split.us
@@ -8083,7 +8083,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi426 = phi i64 [ %73, %.lr.ph423.split.us ], [ %80, %79 ]
   %.us-phi427 = phi i32 [ %74, %.lr.ph423.split.us ], [ %81, %79 ]
   %64 = and i64 %.us-phi426, 2147483647
-  %65 = getelementptr inbounds i8, ptr %.0221.ph437, i64 %64
+  %65 = getelementptr inbounds nuw i8, ptr %.0221.ph437, i64 %64
   %66 = sub nsw i32 %.0218.ph439, %.us-phi427
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %68, label %.lr.ph441.split.us
@@ -8146,7 +8146,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi444 = phi i64 [ %96, %.lr.ph441.split.us ], [ %103, %102 ]
   %.us-phi445 = phi i32 [ %97, %.lr.ph441.split.us ], [ %104, %102 ]
   %87 = and i64 %.us-phi444, 2147483647
-  %88 = getelementptr inbounds i8, ptr %.0227.ph455, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %.0227.ph455, i64 %87
   %89 = sub nsw i32 %.0224.ph457, %.us-phi445
   %90 = icmp sgt i32 %89, 0
   br i1 %90, label %91, label %.preheader286
@@ -8202,7 +8202,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi462 = phi i64 [ %118, %.lr.ph459.split.us ], [ %125, %124 ]
   %.us-phi463 = phi i32 [ %119, %.lr.ph459.split.us ], [ %126, %124 ]
   %109 = and i64 %.us-phi462, 2147483647
-  %110 = getelementptr inbounds i8, ptr %.0228.ph475, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %.0228.ph475, i64 %109
   %111 = sub nsw i32 %.0229.ph473, %.us-phi463
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %113, label %.lr.ph477.split.us.preheader
@@ -8258,7 +8258,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi480 = phi i64 [ %140, %.lr.ph477.split.us ], [ %147, %146 ]
   %.us-phi481 = phi i32 [ %141, %.lr.ph477.split.us ], [ %148, %146 ]
   %131 = and i64 %.us-phi480, 2147483647
-  %132 = getelementptr inbounds i8, ptr %.0225.ph493, i64 %131
+  %132 = getelementptr inbounds nuw i8, ptr %.0225.ph493, i64 %131
   %133 = sub nsw i32 %.0226.ph491, %.us-phi481
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %135, label %.lr.ph495.split.us
@@ -8314,7 +8314,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi498 = phi i64 [ %162, %.lr.ph495.split.us ], [ %169, %168 ]
   %.us-phi499 = phi i32 [ %163, %.lr.ph495.split.us ], [ %170, %168 ]
   %153 = and i64 %.us-phi498, 2147483647
-  %154 = getelementptr inbounds i8, ptr %.0222.ph511, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr %.0222.ph511, i64 %153
   %155 = sub nsw i32 %.0223.ph509, %.us-phi499
   %156 = icmp sgt i32 %155, 0
   br i1 %156, label %157, label %.lr.ph513
@@ -8389,7 +8389,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi519 = phi i64 [ %191, %.lr.ph543.preheader.preheader ], [ %191, %.lr.ph559.preheader ], [ %207, %.lr.ph543.preheader ], [ %199, %.lr.ph559 ]
   %.us-phi520 = phi i32 [ %192, %.lr.ph543.preheader.preheader ], [ %192, %.lr.ph559.preheader ], [ %208, %.lr.ph543.preheader ], [ %200, %.lr.ph559 ]
   %181 = and i64 %.us-phi519, 2147483647
-  %182 = getelementptr inbounds i8, ptr %.0219.ph564, i64 %181
+  %182 = getelementptr inbounds nuw i8, ptr %.0219.ph564, i64 %181
   %183 = sub nsw i32 %.0220.ph562, %.us-phi520
   %184 = icmp sgt i32 %183, 0
   br i1 %184, label %185, label %.outer281._crit_edge
@@ -8575,7 +8575,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi573 = phi i64 [ %214, %.lr.ph598.preheader.preheader ], [ %214, %.lr.ph614.preheader ], [ %230, %.lr.ph598.preheader ], [ %222, %.lr.ph614 ]
   %.us-phi574 = phi i32 [ %215, %.lr.ph598.preheader.preheader ], [ %215, %.lr.ph614.preheader ], [ %231, %.lr.ph598.preheader ], [ %223, %.lr.ph614 ]
   %242 = and i64 %.us-phi573, 2147483647
-  %243 = getelementptr inbounds i8, ptr %.0215.ph619, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr %.0215.ph619, i64 %242
   %244 = sub nsw i32 %.0216.ph617, %.us-phi574
   %245 = icmp sgt i32 %244, 0
   br i1 %245, label %246, label %.outer279._crit_edge
@@ -8594,20 +8594,20 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
 
 .outer279._crit_edge:                             ; preds = %.split572.us
   %250 = load i32, ptr %14, align 4
-  %251 = getelementptr inbounds i8, ptr %7, i64 12
+  %251 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %250, ptr %251, align 4
   %252 = shl i32 %250, 2
   store i32 %252, ptr %15, align 4
   %253 = zext i32 %250 to i64
   %254 = tail call ptr @slurm_xcalloc(i64 noundef %253, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 430, ptr noundef nonnull @__func__.stepd_attach) #12
-  %255 = getelementptr inbounds i8, ptr %7, i64 24
+  %255 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %254, ptr %255, align 8
   %256 = icmp sgt i32 %252, 0
   br i1 %256, label %.lr.ph621, label %.outer277._crit_edge.thread
 
 .outer277._crit_edge.thread:                      ; preds = %.outer279._crit_edge
   %257 = tail call ptr @slurm_xcalloc(i64 noundef %253, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__func__.stepd_attach) #12
-  %258 = getelementptr inbounds i8, ptr %7, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %257, ptr %258, align 8
   br label %.outer276._crit_edge
 
@@ -8709,7 +8709,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi628 = phi i64 [ %261, %.lr.ph653.preheader.preheader ], [ %261, %.lr.ph669.preheader ], [ %277, %.lr.ph653.preheader ], [ %269, %.lr.ph669 ]
   %.us-phi629 = phi i32 [ %262, %.lr.ph653.preheader.preheader ], [ %262, %.lr.ph669.preheader ], [ %278, %.lr.ph653.preheader ], [ %270, %.lr.ph669 ]
   %289 = and i64 %.us-phi628, 2147483647
-  %290 = getelementptr inbounds i8, ptr %.0212.ph674, i64 %289
+  %290 = getelementptr inbounds nuw i8, ptr %.0212.ph674, i64 %289
   %291 = sub nsw i32 %.0213.ph672, %.us-phi629
   %292 = icmp sgt i32 %291, 0
   br i1 %292, label %293, label %.outer277._crit_edge
@@ -8728,7 +8728,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
 
 .outer277._crit_edge:                             ; preds = %.split627.us
   %297 = tail call ptr @slurm_xcalloc(i64 noundef %253, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__func__.stepd_attach) #12
-  %298 = getelementptr inbounds i8, ptr %7, i64 16
+  %298 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %297, ptr %298, align 8
   br label %.lr.ph676
 
@@ -8830,7 +8830,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi683 = phi i64 [ %301, %.lr.ph708.preheader.preheader ], [ %301, %.lr.ph724.preheader ], [ %317, %.lr.ph708.preheader ], [ %309, %.lr.ph724 ]
   %.us-phi684 = phi i32 [ %302, %.lr.ph708.preheader.preheader ], [ %302, %.lr.ph724.preheader ], [ %318, %.lr.ph708.preheader ], [ %310, %.lr.ph724 ]
   %329 = and i64 %.us-phi683, 2147483647
-  %330 = getelementptr inbounds i8, ptr %.0209.ph729, i64 %329
+  %330 = getelementptr inbounds nuw i8, ptr %.0209.ph729, i64 %329
   %331 = sub nsw i32 %.0210.ph727, %.us-phi684
   %332 = icmp sgt i32 %331, 0
   br i1 %332, label %333, label %.outer276._crit_edge
@@ -8849,7 +8849,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
 
 .outer276._crit_edge:                             ; preds = %.split682.us, %.outer277._crit_edge.thread
   %337 = tail call ptr @slurm_xcalloc(i64 noundef %253, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 436, ptr noundef nonnull @__func__.stepd_attach) #12
-  %338 = getelementptr inbounds i8, ptr %7, i64 32
+  %338 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %337, ptr %338, align 8
   %.not = icmp eq i32 %250, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -8956,7 +8956,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi738 = phi i64 [ %341, %.lr.ph763.preheader.preheader ], [ %341, %.lr.ph779.preheader ], [ %357, %.lr.ph763.preheader ], [ %349, %.lr.ph779 ]
   %.us-phi739 = phi i32 [ %342, %.lr.ph763.preheader.preheader ], [ %342, %.lr.ph779.preheader ], [ %358, %.lr.ph763.preheader ], [ %350, %.lr.ph779 ]
   %369 = and i64 %.us-phi738, 2147483647
-  %370 = getelementptr inbounds i8, ptr %.0206.ph784, i64 %369
+  %370 = getelementptr inbounds nuw i8, ptr %.0206.ph784, i64 %369
   %371 = sub nsw i32 %.0207.ph782, %.us-phi739
   %372 = icmp sgt i32 %371, 0
   br i1 %372, label %373, label %.outer275._crit_edge
@@ -8978,14 +8978,14 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %378 = sext i32 %377 to i64
   %379 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %378, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 439, ptr noundef nonnull @__func__.stepd_attach) #12
   %380 = load ptr, ptr %338, align 8
-  %381 = getelementptr inbounds ptr, ptr %380, i64 %indvars.iv
+  %381 = getelementptr inbounds nuw ptr, ptr %380, i64 %indvars.iv
   store ptr %379, ptr %381, align 8
   %382 = icmp sgt i32 %377, 0
   br i1 %382, label %.lr.ph786.preheader, label %.outer._crit_edge
 
 .lr.ph786.preheader:                              ; preds = %.outer275._crit_edge
   %383 = load ptr, ptr %338, align 8
-  %384 = getelementptr inbounds ptr, ptr %383, i64 %indvars.iv
+  %384 = getelementptr inbounds nuw ptr, ptr %383, i64 %indvars.iv
   %385 = load ptr, ptr %384, align 8
   br label %.lr.ph786
 
@@ -9087,7 +9087,7 @@ define i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi794 = phi i64 [ %388, %.lr.ph824.preheader.preheader ], [ %388, %.lr.ph842.preheader ], [ %404, %.lr.ph824.preheader ], [ %396, %.lr.ph842 ]
   %.us-phi795 = phi i32 [ %389, %.lr.ph824.preheader.preheader ], [ %389, %.lr.ph842.preheader ], [ %405, %.lr.ph824.preheader ], [ %397, %.lr.ph842 ]
   %416 = and i64 %.us-phi794, 2147483647
-  %417 = getelementptr inbounds i8, ptr %.0203.ph849, i64 %416
+  %417 = getelementptr inbounds nuw i8, ptr %.0203.ph849, i64 %416
   %418 = sub nsw i32 %.0204.ph847, %.us-phi795
   %419 = icmp sgt i32 %418, 0
   br i1 %419, label %420, label %.outer._crit_edge
@@ -9131,7 +9131,7 @@ define internal void @_free_step_loc_t(ptr noundef %0) #0 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not1 = icmp eq ptr %7, null
   br i1 %.not1, label %9, label %8
@@ -9169,11 +9169,11 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull
   br label %47
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
-  %13 = getelementptr inbounds i8, ptr %4, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = sub nsw i32 %14, %10
   %16 = sext i32 %15 to i64
@@ -9183,11 +9183,11 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull
   %19 = trunc i64 %18 to i32
   store i32 %19, ptr %2, align 4
   call void @slurm_xfree(ptr noundef nonnull %5) #12
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %21 = load i32, ptr %20, align 16
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %1, i64 %22
-  %24 = getelementptr inbounds i8, ptr %4, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = sub nsw i32 %25, %21
   %27 = sext i32 %26 to i64
@@ -9195,11 +9195,11 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull
   store ptr %28, ptr %5, align 8
   %29 = call i64 @strtoul(ptr nocapture noundef %28, ptr noundef null, i32 noundef 10) #12
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %30, ptr %31, align 4
   call void @slurm_xfree(ptr noundef nonnull %5) #12
-  %32 = getelementptr inbounds i8, ptr %4, i64 24
-  %33 = getelementptr inbounds i8, ptr %4, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = load i32, ptr %32, align 8
   %.not18 = icmp eq i32 %34, %35
@@ -9214,13 +9214,13 @@ define internal fastcc range(i32 -1, 1) i32 @_sockname_regex(ptr noundef nonnull
   store ptr %41, ptr %5, align 8
   %42 = call i64 @strtoul(ptr nocapture noundef %41, ptr noundef null, i32 noundef 10) #12
   %43 = trunc i64 %42 to i32
-  %44 = getelementptr inbounds i8, ptr %2, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %43, ptr %44, align 4
   call void @slurm_xfree(ptr noundef nonnull %5) #12
   br label %47
 
 45:                                               ; preds = %8
-  %46 = getelementptr inbounds i8, ptr %2, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 -2, ptr %46, align 4
   br label %47
 
@@ -9279,7 +9279,7 @@ _sockname_regex_init.exit:                        ; preds = %11, %13
   br label %71
 
 18:                                               ; preds = %_sockname_regex_init.exit
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 61440
   %22 = icmp eq i32 %21, 16384
@@ -9306,7 +9306,7 @@ _sockname_regex_init.exit:                        ; preds = %11, %13
 .lr.ph:                                           ; preds = %.preheader, %68
   %31 = phi ptr [ %69, %68 ], [ %28, %.preheader ]
   %.120 = phi i32 [ %.2, %68 ], [ 0, %.preheader ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 19
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 19
   %33 = call fastcc i32 @_sockname_regex(ptr noundef %4, ptr noundef %32, ptr noundef %6)
   %.not17 = icmp eq i32 %33, 0
   br i1 %.not17, label %34, label %68
@@ -9452,7 +9452,7 @@ define zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef zeroext %1
   %.us-phi = phi i64 [ %8, %.lr.ph.split.us ], [ %15, %14 ]
   %.us-phi74 = phi i32 [ %9, %.lr.ph.split.us ], [ %16, %14 ]
   %21 = and i64 %.us-phi, 2147483647
-  %22 = getelementptr inbounds i8, ptr %.047.ph83, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %.047.ph83, i64 %21
   %23 = sub nsw i32 %.044.ph85, %.us-phi74
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %.lr.ph87.split.us
@@ -9488,7 +9488,7 @@ define zeroext i1 @stepd_pid_in_container(i32 noundef %0, i16 noundef zeroext %1
   %.us-phi90 = phi i64 [ %44, %.lr.ph87.split.us ], [ %51, %50 ]
   %.us-phi91 = phi i32 [ %45, %.lr.ph87.split.us ], [ %52, %50 ]
   %35 = and i64 %.us-phi90, 2147483647
-  %36 = getelementptr inbounds i8, ptr %.045.ph103, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %.045.ph103, i64 %35
   %37 = sub nsw i32 %.046.ph101, %.us-phi91
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %39, label %.preheader
@@ -9633,7 +9633,7 @@ define i32 @stepd_daemon_pid(i32 noundef %0, i16 noundef zeroext %1) local_unnam
   %.us-phi = phi i64 [ %6, %.lr.ph.split.us ], [ %13, %12 ]
   %.us-phi55 = phi i32 [ %7, %.lr.ph.split.us ], [ %14, %12 ]
   %19 = and i64 %.us-phi, 2147483647
-  %20 = getelementptr inbounds i8, ptr %.033.ph64, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %.033.ph64, i64 %19
   %21 = sub nsw i32 %.032.ph66, %.us-phi55
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %.lr.ph68
@@ -9682,7 +9682,7 @@ define i32 @stepd_daemon_pid(i32 noundef %0, i16 noundef zeroext %1) local_unnam
   %.us-phi74 = phi i64 [ %46, %.lr.ph98.preheader.preheader ], [ %46, %.lr.ph114.preheader ], [ %62, %.lr.ph98.preheader ], [ %54, %.lr.ph114 ]
   %.us-phi75 = phi i32 [ %47, %.lr.ph98.preheader.preheader ], [ %47, %.lr.ph114.preheader ], [ %63, %.lr.ph98.preheader ], [ %55, %.lr.ph114 ]
   %36 = and i64 %.us-phi74, 2147483647
-  %37 = getelementptr inbounds i8, ptr %.030.ph119, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %.030.ph119, i64 %36
   %38 = sub nsw i32 %.031.ph117, %.us-phi75
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %.outer._crit_edge
@@ -9828,7 +9828,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   %.us-phi472 = phi i64 [ %12, %.lr.ph469.split.us ], [ %19, %18 ]
   %.us-phi473 = phi i32 [ %13, %.lr.ph469.split.us ], [ %20, %18 ]
   %25 = and i64 %.us-phi472, 2147483647
-  %26 = getelementptr inbounds i8, ptr %.0120.ph483, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %.0120.ph483, i64 %25
   %27 = sub nsw i32 %.0117.ph485, %.us-phi473
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %29, label %.loopexit
@@ -9877,7 +9877,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   %.us-phi366 = phi i64 [ %52, %.lr.ph391.preheader.preheader ], [ %52, %.lr.ph407.preheader ], [ %68, %.lr.ph391.preheader ], [ %60, %.lr.ph407 ]
   %.us-phi367 = phi i32 [ %53, %.lr.ph391.preheader.preheader ], [ %53, %.lr.ph407.preheader ], [ %69, %.lr.ph391.preheader ], [ %61, %.lr.ph407 ]
   %42 = and i64 %.us-phi366, 2147483647
-  %43 = getelementptr inbounds i8, ptr %.0126.ph410, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %.0126.ph410, i64 %42
   %44 = sub nsw i32 %.0123.ph412, %.us-phi367
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %.lr.ph414
@@ -9992,7 +9992,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   %.us-phi421 = phi i64 [ %90, %.lr.ph446.preheader.preheader ], [ %90, %.lr.ph462.preheader ], [ %106, %.lr.ph446.preheader ], [ %98, %.lr.ph462 ]
   %.us-phi422 = phi i32 [ %91, %.lr.ph446.preheader.preheader ], [ %91, %.lr.ph462.preheader ], [ %107, %.lr.ph446.preheader ], [ %99, %.lr.ph462 ]
   %80 = and i64 %.us-phi421, 2147483647
-  %81 = getelementptr inbounds i8, ptr %.0127.ph467, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %.0127.ph467, i64 %80
   %82 = sub nsw i32 %.0128.ph465, %.us-phi422
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %84, label %.loopexit.sink.split
@@ -10122,7 +10122,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   %.us-phi327 = phi i64 [ %114, %.lr.ph324.split.us ], [ %121, %120 ]
   %.us-phi328 = phi i32 [ %115, %.lr.ph324.split.us ], [ %122, %120 ]
   %127 = and i64 %.us-phi327, 2147483647
-  %128 = getelementptr inbounds i8, ptr %.0124.ph340, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr %.0124.ph340, i64 %127
   %129 = sub nsw i32 %.0125.ph338, %.us-phi328
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %131, label %.lr.ph342.split.us
@@ -10152,7 +10152,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   %.us-phi345 = phi i64 [ %147, %.lr.ph342.split.us ], [ %154, %153 ]
   %.us-phi346 = phi i32 [ %148, %.lr.ph342.split.us ], [ %155, %153 ]
   %138 = and i64 %.us-phi345, 2147483647
-  %139 = getelementptr inbounds i8, ptr %.0121.ph358, i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr %.0121.ph358, i64 %138
   %140 = sub nsw i32 %.0122.ph356, %.us-phi346
   %141 = icmp sgt i32 %140, 0
   br i1 %141, label %142, label %.loopexit
@@ -10227,7 +10227,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   %.us-phi224 = phi i64 [ %176, %.lr.ph248.preheader.preheader ], [ %176, %.lr.ph264.preheader ], [ %192, %.lr.ph248.preheader ], [ %184, %.lr.ph264 ]
   %.us-phi225 = phi i32 [ %177, %.lr.ph248.preheader.preheader ], [ %177, %.lr.ph264.preheader ], [ %193, %.lr.ph248.preheader ], [ %185, %.lr.ph264 ]
   %166 = and i64 %.us-phi224, 2147483647
-  %167 = getelementptr inbounds i8, ptr %.0118.ph268, i64 %166
+  %167 = getelementptr inbounds nuw i8, ptr %.0118.ph268, i64 %166
   %168 = sub nsw i32 %.0119.ph266, %.us-phi225
   %169 = icmp sgt i32 %168, 0
   br i1 %169, label %170, label %.lr.ph270
@@ -10342,7 +10342,7 @@ define i32 @stepd_suspend(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture 
   %.us-phi276 = phi i64 [ %214, %.lr.ph301.preheader.preheader ], [ %214, %.lr.ph317.preheader ], [ %230, %.lr.ph301.preheader ], [ %222, %.lr.ph317 ]
   %.us-phi277 = phi i32 [ %215, %.lr.ph301.preheader.preheader ], [ %215, %.lr.ph317.preheader ], [ %231, %.lr.ph301.preheader ], [ %223, %.lr.ph317 ]
   %204 = and i64 %.us-phi276, 2147483647
-  %205 = getelementptr inbounds i8, ptr %.0115.ph322, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %.0115.ph322, i64 %204
   %206 = sub nsw i32 %.0116.ph320, %.us-phi277
   %207 = icmp sgt i32 %206, 0
   br i1 %207, label %208, label %.loopexit.sink.split
@@ -10494,7 +10494,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi472 = phi i64 [ %12, %.lr.ph469.split.us ], [ %19, %18 ]
   %.us-phi473 = phi i32 [ %13, %.lr.ph469.split.us ], [ %20, %18 ]
   %25 = and i64 %.us-phi472, 2147483647
-  %26 = getelementptr inbounds i8, ptr %.0120.ph483, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %.0120.ph483, i64 %25
   %27 = sub nsw i32 %.0117.ph485, %.us-phi473
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %29, label %.loopexit
@@ -10543,7 +10543,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi366 = phi i64 [ %52, %.lr.ph391.preheader.preheader ], [ %52, %.lr.ph407.preheader ], [ %68, %.lr.ph391.preheader ], [ %60, %.lr.ph407 ]
   %.us-phi367 = phi i32 [ %53, %.lr.ph391.preheader.preheader ], [ %53, %.lr.ph407.preheader ], [ %69, %.lr.ph391.preheader ], [ %61, %.lr.ph407 ]
   %42 = and i64 %.us-phi366, 2147483647
-  %43 = getelementptr inbounds i8, ptr %.0126.ph410, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %.0126.ph410, i64 %42
   %44 = sub nsw i32 %.0123.ph412, %.us-phi367
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %.lr.ph414
@@ -10658,7 +10658,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi421 = phi i64 [ %90, %.lr.ph446.preheader.preheader ], [ %90, %.lr.ph462.preheader ], [ %106, %.lr.ph446.preheader ], [ %98, %.lr.ph462 ]
   %.us-phi422 = phi i32 [ %91, %.lr.ph446.preheader.preheader ], [ %91, %.lr.ph462.preheader ], [ %107, %.lr.ph446.preheader ], [ %99, %.lr.ph462 ]
   %80 = and i64 %.us-phi421, 2147483647
-  %81 = getelementptr inbounds i8, ptr %.0127.ph467, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %.0127.ph467, i64 %80
   %82 = sub nsw i32 %.0128.ph465, %.us-phi422
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %84, label %.loopexit.sink.split
@@ -10788,7 +10788,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi327 = phi i64 [ %114, %.lr.ph324.split.us ], [ %121, %120 ]
   %.us-phi328 = phi i32 [ %115, %.lr.ph324.split.us ], [ %122, %120 ]
   %127 = and i64 %.us-phi327, 2147483647
-  %128 = getelementptr inbounds i8, ptr %.0124.ph340, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr %.0124.ph340, i64 %127
   %129 = sub nsw i32 %.0125.ph338, %.us-phi328
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %131, label %.lr.ph342.split.us
@@ -10818,7 +10818,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi345 = phi i64 [ %147, %.lr.ph342.split.us ], [ %154, %153 ]
   %.us-phi346 = phi i32 [ %148, %.lr.ph342.split.us ], [ %155, %153 ]
   %138 = and i64 %.us-phi345, 2147483647
-  %139 = getelementptr inbounds i8, ptr %.0121.ph358, i64 %138
+  %139 = getelementptr inbounds nuw i8, ptr %.0121.ph358, i64 %138
   %140 = sub nsw i32 %.0122.ph356, %.us-phi346
   %141 = icmp sgt i32 %140, 0
   br i1 %141, label %142, label %.loopexit
@@ -10893,7 +10893,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi224 = phi i64 [ %176, %.lr.ph248.preheader.preheader ], [ %176, %.lr.ph264.preheader ], [ %192, %.lr.ph248.preheader ], [ %184, %.lr.ph264 ]
   %.us-phi225 = phi i32 [ %177, %.lr.ph248.preheader.preheader ], [ %177, %.lr.ph264.preheader ], [ %193, %.lr.ph248.preheader ], [ %185, %.lr.ph264 ]
   %166 = and i64 %.us-phi224, 2147483647
-  %167 = getelementptr inbounds i8, ptr %.0118.ph268, i64 %166
+  %167 = getelementptr inbounds nuw i8, ptr %.0118.ph268, i64 %166
   %168 = sub nsw i32 %.0119.ph266, %.us-phi225
   %169 = icmp sgt i32 %168, 0
   br i1 %169, label %170, label %.lr.ph270
@@ -11008,7 +11008,7 @@ define i32 @stepd_resume(i32 noundef %0, i16 noundef zeroext %1, ptr nocapture n
   %.us-phi276 = phi i64 [ %214, %.lr.ph301.preheader.preheader ], [ %214, %.lr.ph317.preheader ], [ %230, %.lr.ph301.preheader ], [ %222, %.lr.ph317 ]
   %.us-phi277 = phi i32 [ %215, %.lr.ph301.preheader.preheader ], [ %215, %.lr.ph317.preheader ], [ %231, %.lr.ph301.preheader ], [ %223, %.lr.ph317 ]
   %204 = and i64 %.us-phi276, 2147483647
-  %205 = getelementptr inbounds i8, ptr %.0115.ph322, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %.0115.ph322, i64 %204
   %206 = sub nsw i32 %.0116.ph320, %.us-phi277
   %207 = icmp sgt i32 %206, 0
   br i1 %207, label %208, label %.loopexit.sink.split
@@ -11155,7 +11155,7 @@ define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef r
   %.us-phi = phi i64 [ %9, %.lr.ph.split.us ], [ %16, %15 ]
   %.us-phi166 = phi i32 [ %10, %.lr.ph.split.us ], [ %17, %15 ]
   %22 = and i64 %.us-phi, 2147483647
-  %23 = getelementptr inbounds i8, ptr %.094.ph175, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %.094.ph175, i64 %22
   %24 = sub nsw i32 %.091.ph177, %.us-phi166
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %.outer126._crit_edge
@@ -11185,7 +11185,7 @@ define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef r
   br i1 %.not, label %.lr.ph216.split.us, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %2, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %7, align 4
   br label %.lr.ph179.split.us
@@ -11229,7 +11229,7 @@ define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef r
   %.us-phi183 = phi i64 [ %36, %.lr.ph179.split.us ], [ %43, %42 ]
   %.us-phi184 = phi i32 [ %37, %.lr.ph179.split.us ], [ %44, %42 ]
   %49 = and i64 %.us-phi183, 2147483647
-  %50 = getelementptr inbounds i8, ptr %.0100.ph194, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0100.ph194, i64 %49
   %51 = sub nsw i32 %.097.ph196, %.us-phi184
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %.outer125._crit_edge
@@ -11251,7 +11251,7 @@ define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef r
   br i1 %57, label %.lr.ph198.preheader, label %.lr.ph234.preheader
 
 .lr.ph198.preheader:                              ; preds = %.outer125._crit_edge
-  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8
   br label %.lr.ph198.split.us
 
@@ -11294,7 +11294,7 @@ define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef r
   %.us-phi201 = phi i64 [ %61, %.lr.ph198.split.us ], [ %68, %67 ]
   %.us-phi202 = phi i32 [ %62, %.lr.ph198.split.us ], [ %69, %67 ]
   %74 = and i64 %.us-phi201, 2147483647
-  %75 = getelementptr inbounds i8, ptr %.098.ph214, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %.098.ph214, i64 %74
   %76 = sub nsw i32 %.099.ph212, %.us-phi202
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %78, label %.lr.ph234.preheader
@@ -11324,7 +11324,7 @@ define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef r
   %.us-phi219 = phi i64 [ %94, %.lr.ph216.split.us ], [ %101, %100 ]
   %.us-phi220 = phi i32 [ %95, %.lr.ph216.split.us ], [ %102, %100 ]
   %85 = and i64 %.us-phi219, 2147483647
-  %86 = getelementptr inbounds i8, ptr %.095.ph232, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %.095.ph232, i64 %85
   %87 = sub nsw i32 %.096.ph230, %.us-phi220
   %88 = icmp sgt i32 %87, 0
   br i1 %88, label %89, label %.lr.ph234.preheader
@@ -11465,7 +11465,7 @@ define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef r
   %.us-phi240 = phi i64 [ %106, %.lr.ph264.preheader.preheader ], [ %106, %.lr.ph280.preheader ], [ %122, %.lr.ph264.preheader ], [ %114, %.lr.ph280 ]
   %.us-phi241 = phi i32 [ %107, %.lr.ph264.preheader.preheader ], [ %107, %.lr.ph280.preheader ], [ %123, %.lr.ph264.preheader ], [ %115, %.lr.ph280 ]
   %134 = and i64 %.us-phi240, 2147483647
-  %135 = getelementptr inbounds i8, ptr %.092.ph285, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr %.092.ph285, i64 %134
   %136 = sub nsw i32 %.093.ph283, %.us-phi241
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %138, label %.lr.ph287
@@ -11514,7 +11514,7 @@ define i32 @stepd_reconfig(i32 noundef %0, i16 noundef zeroext %1, ptr noundef r
   %.us-phi294 = phi i64 [ %161, %.lr.ph319.preheader.preheader ], [ %161, %.lr.ph335.preheader ], [ %177, %.lr.ph319.preheader ], [ %169, %.lr.ph335 ]
   %.us-phi295 = phi i32 [ %162, %.lr.ph319.preheader.preheader ], [ %162, %.lr.ph335.preheader ], [ %178, %.lr.ph319.preheader ], [ %170, %.lr.ph335 ]
   %151 = and i64 %.us-phi294, 2147483647
-  %152 = getelementptr inbounds i8, ptr %.089.ph340, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr %.089.ph340, i64 %151
   %153 = sub nsw i32 %.090.ph338, %.us-phi295
   %154 = icmp sgt i32 %153, 0
   br i1 %154, label %155, label %.outer._crit_edge
@@ -11657,7 +11657,7 @@ define i32 @stepd_terminate(i32 noundef %0, i16 noundef zeroext %1) local_unname
   %.us-phi = phi i64 [ %7, %.lr.ph.split.us ], [ %14, %13 ]
   %.us-phi91 = phi i32 [ %8, %.lr.ph.split.us ], [ %15, %13 ]
   %20 = and i64 %.us-phi, 2147483647
-  %21 = getelementptr inbounds i8, ptr %.054.ph100, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.054.ph100, i64 %20
   %22 = sub nsw i32 %.051.ph102, %.us-phi91
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %.lr.ph104
@@ -11706,7 +11706,7 @@ define i32 @stepd_terminate(i32 noundef %0, i16 noundef zeroext %1) local_unname
   %.us-phi110 = phi i64 [ %47, %.lr.ph134.preheader.preheader ], [ %47, %.lr.ph150.preheader ], [ %63, %.lr.ph134.preheader ], [ %55, %.lr.ph150 ]
   %.us-phi111 = phi i32 [ %48, %.lr.ph134.preheader.preheader ], [ %48, %.lr.ph150.preheader ], [ %64, %.lr.ph134.preheader ], [ %56, %.lr.ph150 ]
   %37 = and i64 %.us-phi110, 2147483647
-  %38 = getelementptr inbounds i8, ptr %.052.ph155, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %.052.ph155, i64 %37
   %39 = sub nsw i32 %.053.ph153, %.us-phi111
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %.lr.ph157
@@ -11821,7 +11821,7 @@ define i32 @stepd_terminate(i32 noundef %0, i16 noundef zeroext %1) local_unname
   %.us-phi163 = phi i64 [ %85, %.lr.ph188.preheader.preheader ], [ %85, %.lr.ph204.preheader ], [ %101, %.lr.ph188.preheader ], [ %93, %.lr.ph204 ]
   %.us-phi164 = phi i32 [ %86, %.lr.ph188.preheader.preheader ], [ %86, %.lr.ph204.preheader ], [ %102, %.lr.ph188.preheader ], [ %94, %.lr.ph204 ]
   %75 = and i64 %.us-phi163, 2147483647
-  %76 = getelementptr inbounds i8, ptr %.049.ph209, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %.049.ph209, i64 %75
   %77 = sub nsw i32 %.050.ph207, %.us-phi164
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %79, label %.outer._crit_edge
@@ -11931,9 +11931,9 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.23, ptr noundef nonnull %12, i32 noundef %13, i32 noundef %15) #12
   br label %16
@@ -11981,7 +11981,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi = phi i64 [ %19, %.lr.ph.split.us ], [ %26, %25 ]
   %.us-phi230 = phi i32 [ %20, %.lr.ph.split.us ], [ %27, %25 ]
   %32 = and i64 %.us-phi, 2147483647
-  %33 = getelementptr inbounds i8, ptr %.0134.ph239, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %.0134.ph239, i64 %32
   %34 = sub nsw i32 %.0131.ph241, %.us-phi230
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %36, label %.lr.ph243.split.us
@@ -12011,7 +12011,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi246 = phi i64 [ %52, %.lr.ph243.split.us ], [ %59, %58 ]
   %.us-phi247 = phi i32 [ %53, %.lr.ph243.split.us ], [ %60, %58 ]
   %43 = and i64 %.us-phi246, 2147483647
-  %44 = getelementptr inbounds i8, ptr %.0140.ph257, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %.0140.ph257, i64 %43
   %45 = sub nsw i32 %.0137.ph259, %.us-phi247
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %47, label %.outer178._crit_edge
@@ -12055,7 +12055,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   br i1 %61, label %56, label %.split245
 
 .outer178._crit_edge:                             ; preds = %.split245
-  %62 = getelementptr inbounds i8, ptr %2, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %.lr.ph261.split.us
 
 .lr.ph261.split.us:                               ; preds = %.lr.ph261.split.us.backedge, %.outer178._crit_edge
@@ -12097,7 +12097,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi265 = phi i64 [ %64, %.lr.ph261.split.us ], [ %71, %70 ]
   %.us-phi266 = phi i32 [ %65, %.lr.ph261.split.us ], [ %72, %70 ]
   %77 = and i64 %.us-phi265, 2147483647
-  %78 = getelementptr inbounds i8, ptr %.0141.ph278, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %.0141.ph278, i64 %77
   %79 = sub nsw i32 %.0142.ph276, %.us-phi266
   %80 = icmp sgt i32 %79, 0
   br i1 %80, label %81, label %.outer176._crit_edge
@@ -12115,7 +12115,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   br label %.lr.ph261.split.us, !llvm.loop !130
 
 .outer176._crit_edge:                             ; preds = %.split264.us
-  %85 = getelementptr inbounds i8, ptr %2, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 20
   br label %.lr.ph280.split.us
 
 .lr.ph280.split.us:                               ; preds = %.lr.ph280.split.us.backedge, %.outer176._crit_edge
@@ -12157,7 +12157,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi284 = phi i64 [ %87, %.lr.ph280.split.us ], [ %94, %93 ]
   %.us-phi285 = phi i32 [ %88, %.lr.ph280.split.us ], [ %95, %93 ]
   %100 = and i64 %.us-phi284, 2147483647
-  %101 = getelementptr inbounds i8, ptr %.0138.ph297, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %.0138.ph297, i64 %100
   %102 = sub nsw i32 %.0139.ph295, %.us-phi285
   %103 = icmp sgt i32 %102, 0
   br i1 %103, label %104, label %.outer175._crit_edge
@@ -12175,10 +12175,10 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   br label %.lr.ph280.split.us, !llvm.loop !131
 
 .outer175._crit_edge:                             ; preds = %.split283.us
-  %108 = getelementptr inbounds i8, ptr %2, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %109 = load ptr, ptr %108, align 8
   tail call void @jobacctinfo_pack(ptr noundef %109, i16 noundef zeroext %1, i16 noundef zeroext 0, ptr noundef %8) #12
-  %110 = getelementptr inbounds i8, ptr %8, i64 20
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %111 = load i32, ptr %110, align 4
   store i32 %111, ptr %7, align 4
   br label %.lr.ph299.split.us
@@ -12222,7 +12222,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi303 = phi i64 [ %113, %.lr.ph299.split.us ], [ %120, %119 ]
   %.us-phi304 = phi i32 [ %114, %.lr.ph299.split.us ], [ %121, %119 ]
   %126 = and i64 %.us-phi303, 2147483647
-  %127 = getelementptr inbounds i8, ptr %.0135.ph316, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr %.0135.ph316, i64 %126
   %128 = sub nsw i32 %.0136.ph314, %.us-phi304
   %129 = icmp sgt i32 %128, 0
   br i1 %129, label %130, label %.outer174._crit_edge
@@ -12244,7 +12244,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   br i1 %134, label %.lr.ph318.preheader, label %.outer173._crit_edge
 
 .lr.ph318.preheader:                              ; preds = %.outer174._crit_edge
-  %135 = getelementptr inbounds i8, ptr %8, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %136 = load ptr, ptr %135, align 8
   br label %.lr.ph318.split.us
 
@@ -12287,7 +12287,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi322 = phi i64 [ %138, %.lr.ph318.split.us ], [ %145, %144 ]
   %.us-phi323 = phi i32 [ %139, %.lr.ph318.split.us ], [ %146, %144 ]
   %151 = and i64 %.us-phi322, 2147483647
-  %152 = getelementptr inbounds i8, ptr %.0132.ph335, i64 %151
+  %152 = getelementptr inbounds nuw i8, ptr %.0132.ph335, i64 %151
   %153 = sub nsw i32 %.0133.ph333, %.us-phi323
   %154 = icmp sgt i32 %153, 0
   br i1 %154, label %155, label %.outer173._crit_edge
@@ -12413,7 +12413,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi343 = phi i64 [ %162, %.lr.ph367.preheader.preheader ], [ %162, %.lr.ph383.preheader ], [ %178, %.lr.ph367.preheader ], [ %170, %.lr.ph383 ]
   %.us-phi344 = phi i32 [ %163, %.lr.ph367.preheader.preheader ], [ %163, %.lr.ph383.preheader ], [ %179, %.lr.ph367.preheader ], [ %171, %.lr.ph383 ]
   %190 = and i64 %.us-phi343, 2147483647
-  %191 = getelementptr inbounds i8, ptr %.0129.ph388, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr %.0129.ph388, i64 %190
   %192 = sub nsw i32 %.0130.ph386, %.us-phi344
   %193 = icmp sgt i32 %192, 0
   br i1 %193, label %194, label %.lr.ph390
@@ -12462,7 +12462,7 @@ define i32 @stepd_completion(i32 noundef %0, i16 noundef zeroext %1, ptr noundef
   %.us-phi396 = phi i64 [ %217, %.lr.ph421.preheader.preheader ], [ %217, %.lr.ph437.preheader ], [ %233, %.lr.ph421.preheader ], [ %225, %.lr.ph437 ]
   %.us-phi397 = phi i32 [ %218, %.lr.ph421.preheader.preheader ], [ %218, %.lr.ph437.preheader ], [ %234, %.lr.ph421.preheader ], [ %226, %.lr.ph437 ]
   %207 = and i64 %.us-phi396, 2147483647
-  %208 = getelementptr inbounds i8, ptr %.0126.ph442, i64 %207
+  %208 = getelementptr inbounds nuw i8, ptr %.0126.ph442, i64 %207
   %209 = sub nsw i32 %.0127.ph440, %.us-phi397
   %210 = icmp sgt i32 %209, 0
   br i1 %210, label %211, label %.loopexit
@@ -12643,7 +12643,7 @@ define i32 @stepd_stat_jobacct(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %.us-phi = phi i64 [ %15, %.lr.ph.split.us ], [ %23, %21 ]
   %.us-phi66 = phi i32 [ %16, %.lr.ph.split.us ], [ %24, %21 ]
   %29 = and i64 %.us-phi, 2147483647
-  %30 = getelementptr inbounds i8, ptr %.042.ph77, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %.042.ph77, i64 %29
   %31 = sub nsw i32 %.043.ph75, %.us-phi66
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %33, label %.outer51._crit_edge
@@ -12772,7 +12772,7 @@ define i32 @stepd_stat_jobacct(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %.us-phi86 = phi i64 [ %45, %.lr.ph110.preheader.preheader ], [ %45, %.lr.ph126.preheader ], [ %63, %.lr.ph110.preheader ], [ %54, %.lr.ph126 ]
   %.us-phi87 = phi i32 [ %46, %.lr.ph110.preheader.preheader ], [ %46, %.lr.ph126.preheader ], [ %64, %.lr.ph110.preheader ], [ %55, %.lr.ph126 ]
   %75 = and i64 %.us-phi86, 2147483647
-  %76 = getelementptr inbounds i8, ptr %.039.ph131, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %.039.ph131, i64 %75
   %77 = sub nsw i32 %.040.ph129, %.us-phi87
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %79, label %.outer._crit_edge
@@ -12791,7 +12791,7 @@ define i32 @stepd_stat_jobacct(i32 noundef %0, i16 noundef zeroext %1, ptr nound
 
 .outer._crit_edge:                                ; preds = %.split85.us
   %83 = load i32, ptr %7, align 4
-  %84 = getelementptr inbounds i8, ptr %3, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %83, ptr %84, align 8
   br label %88
 
@@ -12864,7 +12864,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   %.us-phi = phi i64 [ %9, %.lr.ph.split.us ], [ %16, %15 ]
   %.us-phi240 = phi i32 [ %10, %.lr.ph.split.us ], [ %17, %15 ]
   %22 = and i64 %.us-phi, 2147483647
-  %23 = getelementptr inbounds i8, ptr %.0146.ph249, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %.0146.ph249, i64 %22
   %24 = sub nsw i32 %.0143.ph251, %.us-phi240
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %.lr.ph253
@@ -12913,7 +12913,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   %.us-phi259 = phi i64 [ %49, %.lr.ph283.preheader.preheader ], [ %49, %.lr.ph299.preheader ], [ %65, %.lr.ph283.preheader ], [ %57, %.lr.ph299 ]
   %.us-phi260 = phi i32 [ %50, %.lr.ph283.preheader.preheader ], [ %50, %.lr.ph299.preheader ], [ %66, %.lr.ph283.preheader ], [ %58, %.lr.ph299 ]
   %39 = and i64 %.us-phi259, 2147483647
-  %40 = getelementptr inbounds i8, ptr %.0152.ph302, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %.0152.ph302, i64 %39
   %41 = sub nsw i32 %.0149.ph304, %.us-phi260
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %.outer179._crit_edge
@@ -13006,7 +13006,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
 
 .lr.ph540:                                        ; preds = %.outer179._crit_edge, %.outer._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.outer._crit_edge ], [ 0, %.outer179._crit_edge ]
-  %71 = getelementptr inbounds %struct.slurmstepd_task_info_t, ptr %70, i64 %indvars.iv, i32 3
+  %71 = getelementptr inbounds nuw %struct.slurmstepd_task_info_t, ptr %70, i64 %indvars.iv, i32 3
   br label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %.lr.ph306.backedge, %.lr.ph540
@@ -13107,7 +13107,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   %.us-phi313 = phi i64 [ %74, %.lr.ph338.preheader.preheader ], [ %74, %.lr.ph354.preheader ], [ %90, %.lr.ph338.preheader ], [ %82, %.lr.ph354 ]
   %.us-phi314 = phi i32 [ %75, %.lr.ph338.preheader.preheader ], [ %75, %.lr.ph354.preheader ], [ %91, %.lr.ph338.preheader ], [ %83, %.lr.ph354 ]
   %102 = and i64 %.us-phi313, 2147483647
-  %103 = getelementptr inbounds i8, ptr %.0150.ph359, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %.0150.ph359, i64 %102
   %104 = sub nsw i32 %.0151.ph357, %.us-phi314
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %106, label %.outer178._crit_edge
@@ -13125,7 +13125,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   br label %.lr.ph306, !llvm.loop !140
 
 .outer178._crit_edge:                             ; preds = %.split312.us
-  %110 = getelementptr inbounds %struct.slurmstepd_task_info_t, ptr %70, i64 %indvars.iv, i32 2
+  %110 = getelementptr inbounds nuw %struct.slurmstepd_task_info_t, ptr %70, i64 %indvars.iv, i32 2
   br label %.lr.ph361
 
 .lr.ph361:                                        ; preds = %.lr.ph361.backedge, %.outer178._crit_edge
@@ -13226,7 +13226,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   %.us-phi368 = phi i64 [ %113, %.lr.ph393.preheader.preheader ], [ %113, %.lr.ph409.preheader ], [ %129, %.lr.ph393.preheader ], [ %121, %.lr.ph409 ]
   %.us-phi369 = phi i32 [ %114, %.lr.ph393.preheader.preheader ], [ %114, %.lr.ph409.preheader ], [ %130, %.lr.ph393.preheader ], [ %122, %.lr.ph409 ]
   %141 = and i64 %.us-phi368, 2147483647
-  %142 = getelementptr inbounds i8, ptr %.0147.ph414, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr %.0147.ph414, i64 %141
   %143 = sub nsw i32 %.0148.ph412, %.us-phi369
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %145, label %.outer177._crit_edge
@@ -13244,7 +13244,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   br label %.lr.ph361, !llvm.loop !141
 
 .outer177._crit_edge:                             ; preds = %.split367.us
-  %149 = getelementptr inbounds %struct.slurmstepd_task_info_t, ptr %70, i64 %indvars.iv, i32 4
+  %149 = getelementptr inbounds nuw %struct.slurmstepd_task_info_t, ptr %70, i64 %indvars.iv, i32 4
   br label %.lr.ph416
 
 .lr.ph416:                                        ; preds = %.lr.ph416.backedge, %.outer177._crit_edge
@@ -13345,7 +13345,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   %.us-phi423 = phi i64 [ %152, %.lr.ph448.preheader.preheader ], [ %152, %.lr.ph464.preheader ], [ %168, %.lr.ph448.preheader ], [ %160, %.lr.ph464 ]
   %.us-phi424 = phi i32 [ %153, %.lr.ph448.preheader.preheader ], [ %153, %.lr.ph464.preheader ], [ %169, %.lr.ph448.preheader ], [ %161, %.lr.ph464 ]
   %180 = and i64 %.us-phi423, 2147483647
-  %181 = getelementptr inbounds i8, ptr %.0144.ph469, i64 %180
+  %181 = getelementptr inbounds nuw i8, ptr %.0144.ph469, i64 %180
   %182 = sub nsw i32 %.0145.ph467, %.us-phi424
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %184, label %.outer176._crit_edge
@@ -13363,7 +13363,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   br label %.lr.ph416, !llvm.loop !142
 
 .outer176._crit_edge:                             ; preds = %.split422.us
-  %188 = getelementptr inbounds %struct.slurmstepd_task_info_t, ptr %70, i64 %indvars.iv, i32 1
+  %188 = getelementptr inbounds nuw %struct.slurmstepd_task_info_t, ptr %70, i64 %indvars.iv, i32 1
   %189 = tail call i64 @read(i32 noundef %0, ptr noundef nonnull %188, i64 noundef 1) #12
   %190 = trunc i64 %189 to i32
   %191 = icmp eq i32 %190, 0
@@ -13407,7 +13407,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   br label %246
 
 .outer175:                                        ; preds = %.lr.ph481
-  %207 = getelementptr inbounds %struct.slurmstepd_task_info_t, ptr %70, i64 %indvars.iv
+  %207 = getelementptr inbounds nuw %struct.slurmstepd_task_info_t, ptr %70, i64 %indvars.iv
   br label %.lr.ph483
 
 .lr.ph483:                                        ; preds = %.lr.ph483.backedge, %.outer175
@@ -13508,7 +13508,7 @@ define range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 noundef zeroext
   %.us-phi490 = phi i64 [ %210, %.lr.ph515.preheader.preheader ], [ %210, %.lr.ph531.preheader ], [ %226, %.lr.ph515.preheader ], [ %218, %.lr.ph531 ]
   %.us-phi491 = phi i32 [ %211, %.lr.ph515.preheader.preheader ], [ %211, %.lr.ph531.preheader ], [ %227, %.lr.ph515.preheader ], [ %219, %.lr.ph531 ]
   %238 = and i64 %.us-phi490, 2147483647
-  %239 = getelementptr inbounds i8, ptr %.0138.ph536, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr %.0138.ph536, i64 %238
   %240 = sub nsw i32 %.0139.ph534, %.us-phi491
   %241 = icmp sgt i32 %240, 0
   br i1 %241, label %242, label %.outer._crit_edge
@@ -13600,7 +13600,7 @@ define range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 noundef zeroext
   %.us-phi = phi i64 [ %9, %.lr.ph.split.us ], [ %16, %15 ]
   %.us-phi99 = phi i32 [ %10, %.lr.ph.split.us ], [ %17, %15 ]
   %22 = and i64 %.us-phi, 2147483647
-  %23 = getelementptr inbounds i8, ptr %.062.ph108, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %.062.ph108, i64 %22
   %24 = sub nsw i32 %.061.ph110, %.us-phi99
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %.lr.ph112
@@ -13649,7 +13649,7 @@ define range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 noundef zeroext
   %.us-phi118 = phi i64 [ %49, %.lr.ph142.preheader.preheader ], [ %49, %.lr.ph158.preheader ], [ %65, %.lr.ph142.preheader ], [ %57, %.lr.ph158 ]
   %.us-phi119 = phi i32 [ %50, %.lr.ph142.preheader.preheader ], [ %50, %.lr.ph158.preheader ], [ %66, %.lr.ph142.preheader ], [ %58, %.lr.ph158 ]
   %39 = and i64 %.us-phi118, 2147483647
-  %40 = getelementptr inbounds i8, ptr %.059.ph163, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %.059.ph163, i64 %39
   %41 = sub nsw i32 %.060.ph161, %.us-phi119
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %.outer73._crit_edge
@@ -13742,7 +13742,7 @@ define range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 noundef zeroext
 
 .lr.ph222:                                        ; preds = %.outer73._crit_edge, %.outer._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.outer._crit_edge ], [ 0, %.outer73._crit_edge ]
-  %71 = getelementptr inbounds i32, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
   br label %.lr.ph165
 
 .lr.ph165:                                        ; preds = %.lr.ph165.backedge, %.lr.ph222
@@ -13843,7 +13843,7 @@ define range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 noundef zeroext
   %.us-phi172 = phi i64 [ %74, %.lr.ph197.preheader.preheader ], [ %74, %.lr.ph213.preheader ], [ %90, %.lr.ph197.preheader ], [ %82, %.lr.ph213 ]
   %.us-phi173 = phi i32 [ %75, %.lr.ph197.preheader.preheader ], [ %75, %.lr.ph213.preheader ], [ %91, %.lr.ph197.preheader ], [ %83, %.lr.ph213 ]
   %102 = and i64 %.us-phi172, 2147483647
-  %103 = getelementptr inbounds i8, ptr %.056.ph218, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %.056.ph218, i64 %102
   %104 = sub nsw i32 %.057.ph216, %.us-phi173
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %106, label %.outer._crit_edge
@@ -13930,7 +13930,7 @@ define range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 noundef ze
   %.us-phi = phi i64 [ %7, %.lr.ph.split.us ], [ %14, %13 ]
   %.us-phi95 = phi i32 [ %8, %.lr.ph.split.us ], [ %15, %13 ]
   %20 = and i64 %.us-phi, 2147483647
-  %21 = getelementptr inbounds i8, ptr %.058.ph104, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.058.ph104, i64 %20
   %22 = sub nsw i32 %.055.ph106, %.us-phi95
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %.lr.ph108
@@ -13979,7 +13979,7 @@ define range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 noundef ze
   %.us-phi114 = phi i64 [ %47, %.lr.ph138.preheader.preheader ], [ %47, %.lr.ph154.preheader ], [ %63, %.lr.ph138.preheader ], [ %55, %.lr.ph154 ]
   %.us-phi115 = phi i32 [ %48, %.lr.ph138.preheader.preheader ], [ %48, %.lr.ph154.preheader ], [ %64, %.lr.ph138.preheader ], [ %56, %.lr.ph154 ]
   %37 = and i64 %.us-phi114, 2147483647
-  %38 = getelementptr inbounds i8, ptr %.056.ph159, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %.056.ph159, i64 %37
   %39 = sub nsw i32 %.057.ph157, %.us-phi115
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %.outer68._crit_edge
@@ -14063,7 +14063,7 @@ define range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 noundef ze
   br i1 %65, label %.split120, label %.lr.ph138.preheader
 
 .outer68._crit_edge:                              ; preds = %.split113
-  %66 = getelementptr inbounds i8, ptr %2, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.lr.ph161
 
 .lr.ph161:                                        ; preds = %.lr.ph161.backedge, %.outer68._crit_edge
@@ -14164,7 +14164,7 @@ define range(i32 -1, 1) i32 @stepd_get_mem_limits(i32 noundef %0, i16 noundef ze
   %.us-phi167 = phi i64 [ %69, %.lr.ph192.preheader.preheader ], [ %69, %.lr.ph208.preheader ], [ %85, %.lr.ph192.preheader ], [ %77, %.lr.ph208 ]
   %.us-phi168 = phi i32 [ %70, %.lr.ph192.preheader.preheader ], [ %70, %.lr.ph208.preheader ], [ %86, %.lr.ph192.preheader ], [ %78, %.lr.ph208 ]
   %97 = and i64 %.us-phi167, 2147483647
-  %98 = getelementptr inbounds i8, ptr %.053.ph213, i64 %97
+  %98 = getelementptr inbounds nuw i8, ptr %.053.ph213, i64 %97
   %99 = sub nsw i32 %.054.ph211, %.us-phi168
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %101, label %.loopexit
@@ -14237,7 +14237,7 @@ define i32 @stepd_get_nodeid(i32 noundef %0, i16 noundef zeroext %1) local_unnam
   %.us-phi = phi i64 [ %7, %.lr.ph.split.us ], [ %14, %13 ]
   %.us-phi57 = phi i32 [ %8, %.lr.ph.split.us ], [ %15, %13 ]
   %20 = and i64 %.us-phi, 2147483647
-  %21 = getelementptr inbounds i8, ptr %.034.ph66, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.034.ph66, i64 %20
   %22 = sub nsw i32 %.033.ph68, %.us-phi57
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %.lr.ph70
@@ -14286,7 +14286,7 @@ define i32 @stepd_get_nodeid(i32 noundef %0, i16 noundef zeroext %1) local_unnam
   %.us-phi76 = phi i64 [ %47, %.lr.ph100.preheader.preheader ], [ %47, %.lr.ph116.preheader ], [ %63, %.lr.ph100.preheader ], [ %55, %.lr.ph116 ]
   %.us-phi77 = phi i32 [ %48, %.lr.ph100.preheader.preheader ], [ %48, %.lr.ph116.preheader ], [ %64, %.lr.ph100.preheader ], [ %56, %.lr.ph116 ]
   %37 = and i64 %.us-phi76, 2147483647
-  %38 = getelementptr inbounds i8, ptr %.031.ph121, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %.031.ph121, i64 %37
   %39 = sub nsw i32 %.032.ph119, %.us-phi77
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %41, label %.loopexit

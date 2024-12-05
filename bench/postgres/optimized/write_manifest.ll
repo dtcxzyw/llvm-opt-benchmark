@@ -40,15 +40,15 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @create_manifest_writer(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @pg_malloc(i64 noundef 1080) #6
   %3 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %2, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %0) #6
-  %4 = getelementptr inbounds i8, ptr %2, i64 1024
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 1024
   store i32 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 1032
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 1032
   tail call void @initStringInfo(ptr noundef nonnull %5) #6
-  %6 = getelementptr inbounds i8, ptr %2, i64 1056
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 1056
   store i8 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1057
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1057
   store i8 1, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 1064
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1064
   %9 = tail call i32 @pg_checksum_init(ptr noundef nonnull %8, i32 noundef 3) #6
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.1) #6
   ret ptr %2
@@ -70,10 +70,10 @@ define dso_local void @add_file_to_manifest(ptr noundef %0, ptr noundef %1, i64 
   store i64 %3, ptr %8, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %10 = trunc i64 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 1056
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
-  %14 = getelementptr inbounds i8, ptr %0, i64 1032
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   br i1 %13, label %15, label %16
 
 15:                                               ; preds = %7
@@ -88,15 +88,15 @@ define dso_local void @add_file_to_manifest(ptr noundef %0, ptr noundef %1, i64 
 17:                                               ; preds = %16, %15
   %18 = tail call i32 @pg_encoding_verifymbstr(i32 noundef 6, ptr noundef %1, i32 noundef %10) #6
   %19 = icmp eq i32 %18, %10
-  %20 = getelementptr inbounds i8, ptr %0, i64 1032
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   br i1 %19, label %21, label %81
 
 21:                                               ; preds = %17
   tail call void @appendStringInfoString(ptr noundef nonnull %20, ptr noundef nonnull @.str.3) #6
-  %22 = getelementptr inbounds i8, ptr %0, i64 1040
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %23 = load i32, ptr %22, align 8
   %24 = add i32 %23, 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 1044
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1044
   %26 = load i32, ptr %25, align 4
   %.not.i = icmp slt i32 %24, %26
   br i1 %.not.i, label %28, label %27
@@ -236,7 +236,7 @@ define dso_local void @add_file_to_manifest(ptr noundef %0, ptr noundef %1, i64 
   tail call void @enlargeStringInfo(ptr noundef nonnull %20, i32 noundef %82) #6
   %sext = shl i64 %9, 32
   %83 = ashr exact i64 %sext, 32
-  %84 = getelementptr inbounds i8, ptr %0, i64 1040
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %85 = load i32, ptr %84, align 8
   %86 = getelementptr i8, ptr %1, i64 %83
   %87 = icmp ult ptr %1, %86
@@ -285,12 +285,12 @@ hex_encode.exit:                                  ; preds = %hex_encode.exit.loo
 escape_json.exit:                                 ; preds = %72, %71, %hex_encode.exit
   %.str.6.sink = phi ptr [ @.str.6, %hex_encode.exit ], [ @.str.4, %71 ], [ @.str.4, %72 ]
   tail call void @appendStringInfoString(ptr noundef nonnull %20, ptr noundef nonnull %.str.6.sink) #6
-  %109 = getelementptr inbounds i8, ptr %0, i64 1032
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %109, ptr noundef nonnull @.str.7, i64 noundef %2) #6
   tail call void @appendStringInfoString(ptr noundef nonnull %109, ptr noundef nonnull @.str.8) #6
   tail call void @enlargeStringInfo(ptr noundef nonnull %109, i32 noundef 128) #6
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 1040
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %112 = load i32, ptr %111, align 8
   %113 = sext i32 %112 to i64
   %114 = getelementptr i8, ptr %110, i64 %113
@@ -396,7 +396,7 @@ declare ptr @gmtime(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @flush_manifest(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1024
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %10
@@ -415,8 +415,8 @@ define internal fastcc void @flush_manifest(ptr noundef %0) unnamed_addr #0 {
 
 10:                                               ; preds = %5, %1
   %11 = phi i32 [ %7, %5 ], [ %3, %1 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 1032
-  %13 = getelementptr inbounds i8, ptr %0, i64 1040
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %38
@@ -446,13 +446,13 @@ define internal fastcc void @flush_manifest(ptr noundef %0) unnamed_addr #0 {
   unreachable
 
 27:                                               ; preds = %16
-  %28 = getelementptr inbounds i8, ptr %0, i64 1057
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1057
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 1064
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %33 = load ptr, ptr %12, align 8
   %34 = tail call i32 @pg_checksum_update(ptr noundef nonnull %32, ptr noundef %33, i64 noundef %19) #6
   %35 = icmp slt i32 %34, 0
@@ -476,7 +476,7 @@ declare ptr @pg_checksum_type_name(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 1032
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   tail call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.12) #6
   tail call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.13) #6
   %.not28 = icmp eq ptr %1, null
@@ -487,18 +487,18 @@ define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly %1
   %5 = icmp eq ptr %.029, %1
   %6 = select i1 %5, ptr @.str.15, ptr @.str.2
   %7 = load i32, ptr %.029, align 8
-  %8 = getelementptr inbounds i8, ptr %.029, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = lshr i64 %9, 32
   %11 = trunc nuw i64 %10 to i32
   %12 = trunc i64 %9 to i32
-  %13 = getelementptr inbounds i8, ptr %.029, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.029, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = lshr i64 %14, 32
   %16 = trunc nuw i64 %15 to i32
   %17 = trunc i64 %14 to i32
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, ptr noundef nonnull %6, i32 noundef %7, i32 noundef %11, i32 noundef %12, i32 noundef %16, i32 noundef %17) #6
-  %18 = getelementptr inbounds i8, ptr %.029, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.029, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -506,14 +506,14 @@ define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly %1
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.12) #6
   tail call fastcc void @flush_manifest(ptr noundef %0)
-  %20 = getelementptr inbounds i8, ptr %0, i64 1057
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1057
   store i8 0, ptr %20, align 1
   tail call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.16) #6
   tail call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef 130) #6
-  %21 = getelementptr inbounds i8, ptr %0, i64 1064
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %22 = call i32 @pg_checksum_final(ptr noundef nonnull %21, ptr noundef nonnull %3) #6
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %0, i64 1040
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr i8, ptr %3, i64 %23
   %27 = icmp ult ptr %3, %26
@@ -558,7 +558,7 @@ hex_encode.exit:                                  ; preds = %hex_encode.exit.loo
   store i32 %47, ptr %24, align 8
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.17) #6
   call fastcc void @flush_manifest(ptr noundef nonnull %0)
-  %48 = getelementptr inbounds i8, ptr %0, i64 1024
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %49 = load i32, ptr %48, align 8
   %50 = call i32 @close(i32 noundef %49) #6
   %.not27 = icmp eq i32 %50, 0

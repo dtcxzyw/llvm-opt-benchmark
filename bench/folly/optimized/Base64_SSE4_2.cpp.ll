@@ -34,8 +34,8 @@ invoke.cont5.i:                                   ; preds = %entry, %invoke.cont
   %7 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 -3, i8 -65>, <16 x i8> %sub.i.i)
   %add.i.i = add <16 x i8> %7, %6
   store <16 x i8> %add.i.i, ptr %o.addr.0.i7, align 1, !tbaa !7
-  %add.ptr.i = getelementptr inbounds i8, ptr %f.addr.0.i8, i64 12
-  %add.ptr6.i = getelementptr inbounds i8, ptr %o.addr.0.i7, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %f.addr.0.i8, i64 12
+  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %o.addr.0.i7, i64 16
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 15
@@ -52,9 +52,9 @@ while.body.i.i:                                   ; preds = %_ZN5folly6detail13b
   %f.addr.048.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %f.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ]
   %o.addr.047.i.i = phi ptr [ %add.ptr29.i.i, %while.body.i.i ], [ %o.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ]
   %8 = load i8, ptr %f.addr.048.i.i, align 1, !tbaa !7
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %f.addr.048.i.i, i64 1
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 1
   %9 = load i8, ptr %arrayidx1.i.i, align 1, !tbaa !7
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %f.addr.048.i.i, i64 2
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 2
   %10 = load i8, ptr %arrayidx2.i.i, align 1, !tbaa !7
   %shr.i.i = lshr i8 %8, 2
   %shl.i.i = shl i8 %8, 4
@@ -67,26 +67,26 @@ while.body.i.i:                                   ; preds = %_ZN5folly6detail13b
   %and13.i.i = or disjoint i8 %shl9.masked.i.i, %shr11.i.i
   %11 = and i8 %10, 63
   %idxprom.i.i = zext nneg i8 %shr.i.i to i64
-  %arrayidx18.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom.i.i
+  %arrayidx18.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom.i.i
   %12 = load i8, ptr %arrayidx18.i.i, align 1, !tbaa !7
   store i8 %12, ptr %o.addr.047.i.i, align 1, !tbaa !7
   %idxprom20.i.i = zext nneg i8 %and.i.i to i64
-  %arrayidx21.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom20.i.i
+  %arrayidx21.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom20.i.i
   %13 = load i8, ptr %arrayidx21.i.i, align 1, !tbaa !7
-  %arrayidx22.i.i = getelementptr inbounds i8, ptr %o.addr.047.i.i, i64 1
+  %arrayidx22.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 1
   store i8 %13, ptr %arrayidx22.i.i, align 1, !tbaa !7
   %idxprom23.i.i = zext nneg i8 %and13.i.i to i64
-  %arrayidx24.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom23.i.i
+  %arrayidx24.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom23.i.i
   %14 = load i8, ptr %arrayidx24.i.i, align 1, !tbaa !7
-  %arrayidx25.i.i = getelementptr inbounds i8, ptr %o.addr.047.i.i, i64 2
+  %arrayidx25.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 2
   store i8 %14, ptr %arrayidx25.i.i, align 1, !tbaa !7
   %idxprom26.i.i = zext nneg i8 %11 to i64
-  %arrayidx27.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom26.i.i
+  %arrayidx27.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom26.i.i
   %15 = load i8, ptr %arrayidx27.i.i, align 1, !tbaa !7
-  %arrayidx28.i.i = getelementptr inbounds i8, ptr %o.addr.047.i.i, i64 3
+  %arrayidx28.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 3
   store i8 %15, ptr %arrayidx28.i.i, align 1, !tbaa !7
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %f.addr.048.i.i, i64 3
-  %add.ptr29.i.i = getelementptr inbounds i8, ptr %o.addr.047.i.i, i64 4
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 3
+  %add.ptr29.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 4
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %cmp.i.i3 = icmp sgt i64 %sub.ptr.sub.i.i, 2
@@ -103,9 +103,9 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i
   %16 = load i8, ptr %f.addr.0.lcssa.i.i, align 1, !tbaa !7
   %shr.i.i.i = lshr i8 %16, 2
   %idxprom.i.i.i = zext nneg i8 %shr.i.i.i to i64
-  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom.i.i.i
+  %arrayidx2.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom.i.i.i
   %17 = load i8, ptr %arrayidx2.i.i.i, align 1, !tbaa !7
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %o.addr.0.lcssa.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 1
   store i8 %17, ptr %o.addr.0.lcssa.i.i, align 1, !tbaa !7
   %cmp3.i.i.i = icmp eq i64 %sub.ptr.sub.lcssa.i.i, 1
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end12.i.i.i
@@ -116,7 +116,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %cleanup.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end.i.i.i
-  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %f.addr.0.lcssa.i.i, i64 1
+  %arrayidx13.i.i.i = getelementptr inbounds nuw i8, ptr %f.addr.0.lcssa.i.i, i64 1
   %18 = load i8, ptr %arrayidx13.i.i.i, align 1, !tbaa !7
   %shl15.i.i.i = shl i8 %16, 4
   %shr17.i.i.i = lshr i8 %18, 4
@@ -125,7 +125,7 @@ if.end12.i.i.i:                                   ; preds = %if.end.i.i.i
   %shl21.i.i.i = shl i8 %18, 2
   %and22.i.i.i = and i8 %shl21.i.i.i, 60
   %idxprom27.i.i.i = zext nneg i8 %and22.i.i.i to i64
-  %arrayidx28.i.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom27.i.i.i
+  %arrayidx28.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom27.i.i.i
   %19 = load i8, ptr %arrayidx28.i.i.i, align 4, !tbaa !7
   br label %cleanup.i.i.i
 
@@ -133,14 +133,14 @@ cleanup.i.i.i:                                    ; preds = %if.end12.i.i.i, %if
   %idxprom7.pn.in.i.i.i = phi i8 [ %and.i.i.i, %if.then4.i.i.i ], [ %and18.i.i.i, %if.end12.i.i.i ]
   %.sink.i.i.i = phi i8 [ 61, %if.then4.i.i.i ], [ %19, %if.end12.i.i.i ]
   %idxprom7.pn.i.i.i = zext nneg i8 %idxprom7.pn.in.i.i.i to i64
-  %.sink48.in.i.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom7.pn.i.i.i
+  %.sink48.in.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL14kBase64CharsetE, i64 %idxprom7.pn.i.i.i
   %.sink48.i.i.i = load i8, ptr %.sink48.in.i.i.i, align 1, !tbaa !7
   store i8 %.sink48.i.i.i, ptr %incdec.ptr.i.i.i, align 1
-  %20 = getelementptr inbounds i8, ptr %o.addr.0.lcssa.i.i, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 2
   store i8 %.sink.i.i.i, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %o.addr.0.lcssa.i.i, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 3
   store i8 61, ptr %21, align 1
-  %retval.0.i.i.i = getelementptr inbounds i8, ptr %o.addr.0.lcssa.i.i, i64 4
+  %retval.0.i.i.i = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 4
   br label %_ZN5folly6detail13base64_detail18base64EncodeScalarEPKcS3_Pc.exit
 
 _ZN5folly6detail13base64_detail18base64EncodeScalarEPKcS3_Pc.exit: ; preds = %cleanup.i.i.i, %while.end.i.i
@@ -187,8 +187,8 @@ invoke.cont5.i:                                   ; preds = %entry, %invoke.cont
   %7 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -17, i8 32, i8 -3, i8 -65>, <16 x i8> %sub.i.i)
   %add.i.i = add <16 x i8> %7, %6
   store <16 x i8> %add.i.i, ptr %o.addr.0.i7, align 1, !tbaa !7
-  %add.ptr.i = getelementptr inbounds i8, ptr %f.addr.0.i8, i64 12
-  %add.ptr6.i = getelementptr inbounds i8, ptr %o.addr.0.i7, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %f.addr.0.i8, i64 12
+  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %o.addr.0.i7, i64 16
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 15
@@ -205,9 +205,9 @@ while.body.i.i:                                   ; preds = %_ZN5folly6detail13b
   %f.addr.048.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %f.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ]
   %o.addr.047.i.i = phi ptr [ %add.ptr29.i.i, %while.body.i.i ], [ %o.addr.0.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ]
   %8 = load i8, ptr %f.addr.048.i.i, align 1, !tbaa !7
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %f.addr.048.i.i, i64 1
+  %arrayidx1.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 1
   %9 = load i8, ptr %arrayidx1.i.i, align 1, !tbaa !7
-  %arrayidx2.i.i = getelementptr inbounds i8, ptr %f.addr.048.i.i, i64 2
+  %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 2
   %10 = load i8, ptr %arrayidx2.i.i, align 1, !tbaa !7
   %shr.i.i = lshr i8 %8, 2
   %shl.i.i = shl i8 %8, 4
@@ -220,26 +220,26 @@ while.body.i.i:                                   ; preds = %_ZN5folly6detail13b
   %and13.i.i = or disjoint i8 %shl9.masked.i.i, %shr11.i.i
   %11 = and i8 %10, 63
   %idxprom.i.i = zext nneg i8 %shr.i.i to i64
-  %arrayidx18.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom.i.i
+  %arrayidx18.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom.i.i
   %12 = load i8, ptr %arrayidx18.i.i, align 1, !tbaa !7
   store i8 %12, ptr %o.addr.047.i.i, align 1, !tbaa !7
   %idxprom20.i.i = zext nneg i8 %and.i.i to i64
-  %arrayidx21.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom20.i.i
+  %arrayidx21.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom20.i.i
   %13 = load i8, ptr %arrayidx21.i.i, align 1, !tbaa !7
-  %arrayidx22.i.i = getelementptr inbounds i8, ptr %o.addr.047.i.i, i64 1
+  %arrayidx22.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 1
   store i8 %13, ptr %arrayidx22.i.i, align 1, !tbaa !7
   %idxprom23.i.i = zext nneg i8 %and13.i.i to i64
-  %arrayidx24.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom23.i.i
+  %arrayidx24.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom23.i.i
   %14 = load i8, ptr %arrayidx24.i.i, align 1, !tbaa !7
-  %arrayidx25.i.i = getelementptr inbounds i8, ptr %o.addr.047.i.i, i64 2
+  %arrayidx25.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 2
   store i8 %14, ptr %arrayidx25.i.i, align 1, !tbaa !7
   %idxprom26.i.i = zext nneg i8 %11 to i64
-  %arrayidx27.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom26.i.i
+  %arrayidx27.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom26.i.i
   %15 = load i8, ptr %arrayidx27.i.i, align 1, !tbaa !7
-  %arrayidx28.i.i = getelementptr inbounds i8, ptr %o.addr.047.i.i, i64 3
+  %arrayidx28.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 3
   store i8 %15, ptr %arrayidx28.i.i, align 1, !tbaa !7
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %f.addr.048.i.i, i64 3
-  %add.ptr29.i.i = getelementptr inbounds i8, ptr %o.addr.047.i.i, i64 4
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %f.addr.048.i.i, i64 3
+  %add.ptr29.i.i = getelementptr inbounds nuw i8, ptr %o.addr.047.i.i, i64 4
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %cmp.i.i3 = icmp sgt i64 %sub.ptr.sub.i.i, 2
@@ -256,9 +256,9 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i
   %16 = load i8, ptr %f.addr.0.lcssa.i.i, align 1, !tbaa !7
   %shr.i.i.i = lshr i8 %16, 2
   %idxprom.i.i.i = zext nneg i8 %shr.i.i.i to i64
-  %arrayidx2.i.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom.i.i.i
+  %arrayidx2.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom.i.i.i
   %17 = load i8, ptr %arrayidx2.i.i.i, align 1, !tbaa !7
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %o.addr.0.lcssa.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 1
   store i8 %17, ptr %o.addr.0.lcssa.i.i, align 1, !tbaa !7
   %cmp3.i.i.i = icmp eq i64 %sub.ptr.sub.lcssa.i.i, 1
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %if.end10.i.i.i
@@ -269,7 +269,7 @@ if.then4.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %return.sink.split.i.i.i
 
 if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
-  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %f.addr.0.lcssa.i.i, i64 1
+  %arrayidx11.i.i.i = getelementptr inbounds nuw i8, ptr %f.addr.0.lcssa.i.i, i64 1
   %18 = load i8, ptr %arrayidx11.i.i.i, align 1, !tbaa !7
   %shl13.i.i.i = shl i8 %16, 4
   %shr15.i.i.i = lshr i8 %18, 4
@@ -278,9 +278,9 @@ if.end10.i.i.i:                                   ; preds = %if.end.i.i.i
   %shl19.i.i.i = shl i8 %18, 2
   %and20.i.i.i = and i8 %shl19.i.i.i, 60
   %idxprom22.i.i.i = zext nneg i8 %and16.i.i.i to i64
-  %arrayidx23.i.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom22.i.i.i
+  %arrayidx23.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom22.i.i.i
   %19 = load i8, ptr %arrayidx23.i.i.i, align 1, !tbaa !7
-  %incdec.ptr24.i.i.i = getelementptr inbounds i8, ptr %o.addr.0.lcssa.i.i, i64 2
+  %incdec.ptr24.i.i.i = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 2
   store i8 %19, ptr %incdec.ptr.i.i.i, align 1, !tbaa !7
   br label %return.sink.split.i.i.i
 
@@ -289,9 +289,9 @@ return.sink.split.i.i.i:                          ; preds = %if.end10.i.i.i, %if
   %.sink42.i.i.i = phi i64 [ 2, %if.then4.i.i.i ], [ 3, %if.end10.i.i.i ]
   %incdec.ptr.sink.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then4.i.i.i ], [ %incdec.ptr24.i.i.i, %if.end10.i.i.i ]
   %idxprom7.i.i.i = zext nneg i8 %and.sink.i.i.i to i64
-  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom7.i.i.i
+  %arrayidx8.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN5folly6detail13base64_detail9constantsL17kBase64URLCharsetE, i64 %idxprom7.i.i.i
   %20 = load i8, ptr %arrayidx8.i.i.i, align 4, !tbaa !7
-  %incdec.ptr9.i.i.i = getelementptr inbounds i8, ptr %o.addr.0.lcssa.i.i, i64 %.sink42.i.i.i
+  %incdec.ptr9.i.i.i = getelementptr inbounds nuw i8, ptr %o.addr.0.lcssa.i.i, i64 %.sink42.i.i.i
   store i8 %20, ptr %incdec.ptr.sink.i.i.i, align 1, !tbaa !7
   br label %_ZN5folly6detail13base64_detail21base64URLEncodeScalarEPKcS3_Pc.exit
 
@@ -332,8 +332,8 @@ invoke.cont7.i:                                   ; preds = %entry, %invoke.cont
   %12 = bitcast <4 x i32> %11 to <16 x i8>
   %13 = shufflevector <16 x i8> %12, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 2, i32 1, i32 0, i32 6, i32 5, i32 4, i32 10, i32 9, i32 8, i32 14, i32 13, i32 12, i32 16, i32 16, i32 16, i32 16>
   store <16 x i8> %13, ptr %o.addr.0.i6, align 1, !tbaa !7
-  %add.ptr.i = getelementptr inbounds i8, ptr %f.addr.0.i7, i64 16
-  %add.ptr8.i = getelementptr inbounds i8, ptr %o.addr.0.i6, i64 12
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %f.addr.0.i7, i64 16
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %o.addr.0.i6, i64 12
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp.i = icmp ugt i64 %sub.ptr.sub.i, 23

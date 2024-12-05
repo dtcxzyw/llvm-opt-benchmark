@@ -105,7 +105,7 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Emm(ptr dead_on_unwind noali
   %16 = tail call double @llvm.round.f64(double %15)
   %17 = fptoui double %16 to i32
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds [100 x [8 x i8]], ptr @_ZN4llvmL11heatPaletteE, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [100 x [8 x i8]], ptr @_ZN4llvmL11heatPaletteE, i64 0, i64 %18
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #8, !noalias !4
   %20 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %4) #8
@@ -131,7 +131,7 @@ define dso_local void @_ZN4llvm12getHeatColorB5cxx11Ed(ptr dead_on_unwind noalia
   %7 = tail call double @llvm.round.f64(double %6)
   %8 = fptoui double %7 to i32
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds [100 x [8 x i8]], ptr @_ZN4llvmL11heatPaletteE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [100 x [8 x i8]], ptr @_ZN4llvmL11heatPaletteE, i64 0, i64 %9
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #8
   %11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %3) #8

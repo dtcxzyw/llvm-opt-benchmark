@@ -231,7 +231,7 @@ define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly %
   %19 = getelementptr i8, ptr %0, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 15
-  %22 = getelementptr inbounds i8, ptr %2, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %21, ptr %22, align 1
   %.not8 = icmp eq i32 %1, 2
   br i1 %.not8, label %.thread5, label %23
@@ -239,7 +239,7 @@ define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly %
 23:                                               ; preds = %18
   %24 = getelementptr i8, ptr %0, i64 2
   %25 = load i8, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %2, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %25, ptr %26, align 1
   %27 = icmp samesign ugt i32 %1, 3
   br i1 %27, label %28, label %.thread5
@@ -247,7 +247,7 @@ define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly %
 28:                                               ; preds = %23
   %29 = getelementptr i8, ptr %0, i64 3
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %2, i64 3
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %30, ptr %31, align 1
   %32 = icmp samesign ugt i32 %1, 7
   br i1 %32, label %52, label %.thread5
@@ -260,7 +260,7 @@ define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly %
   %36 = getelementptr i8, ptr %0, i64 2
   %37 = load i8, ptr %36, align 1
   %38 = and i8 %37, 15
-  %39 = getelementptr inbounds i8, ptr %2, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %38, ptr %39, align 1
   %40 = icmp samesign ugt i32 %1, 7
   br i1 %40, label %41, label %.thread5
@@ -277,7 +277,7 @@ define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly %
 48:                                               ; preds = %41
   %49 = getelementptr i8, ptr %0, i64 12
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %2, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %50, ptr %51, align 1
   %.not = icmp eq i32 %46, 13
   br i1 %.not, label %.thread5, label %52
@@ -287,7 +287,7 @@ define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly %
   %54 = phi i64 [ 7, %28 ], [ 3, %48 ]
   %55 = getelementptr i8, ptr %0, i64 %53
   %56 = load i8, ptr %55, align 1
-  %57 = getelementptr inbounds i8, ptr %2, i64 %54
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 %54
   store i8 %56, ptr %57, align 1
   br label %.thread5
 

@@ -7,26 +7,26 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @uv_timer_init(ptr noundef %0, ptr noundef initializes((8, 20), (32, 48), (88, 92)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 13, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i32 8, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %9, ptr %10, align 8
   store ptr %7, ptr %9, align 8
   store ptr %7, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   ret i32 0
 }
@@ -34,7 +34,7 @@ define dso_local noundef i32 @uv_timer_init(ptr noundef %0, ptr noundef initiali
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.heap_node, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 3
   %9 = icmp ne i32 %8, 0
@@ -52,29 +52,29 @@ define dso_local range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %0, ptr nound
   br label %15
 
 15:                                               ; preds = %13, %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 544
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 544
   %19 = load i64, ptr %18, align 8
   %spec.store.select = tail call i64 @llvm.uadd.sat.i64(i64 %2, i64 %19)
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 128
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %spec.store.select, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 136
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %3, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 536
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 536
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, 1
   store i64 %25, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %24, ptr %26, align 8
   %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 520
-  %29 = getelementptr inbounds i8, ptr %0, i64 104
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
-  %31 = getelementptr inbounds i8, ptr %0, i64 120
-  %32 = getelementptr inbounds i8, ptr %27, i64 528
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 520
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %33 = load i32, ptr %32, align 8
   %34 = add i32 %33, 1
@@ -105,7 +105,7 @@ define dso_local range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %0, ptr nound
   %43 = shl i32 %.13013.i, 3
   %44 = and i32 %43, 8
   %.132.idx.i = zext nneg i32 %44 to i64
-  %.132.i = getelementptr inbounds i8, ptr %42, i64 %.132.idx.i
+  %.132.i = getelementptr inbounds nuw i8, ptr %42, i64 %.132.idx.i
   %45 = lshr i32 %.13013.i, 1
   %46 = add nsw i32 %.114.i, -1
   %.not.i = icmp eq i32 %46, 0
@@ -126,7 +126,7 @@ define dso_local range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %0, ptr nound
 .lr.ph20.i:                                       ; preds = %._crit_edge.i, %heap_node_swap.exit.i
   %51 = phi ptr [ %88, %heap_node_swap.exit.i ], [ %50, %._crit_edge.i ]
   %52 = load i64, ptr %21, align 8
-  %53 = getelementptr inbounds i8, ptr %51, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %54 = load i64, ptr %53, align 8
   %55 = icmp ult i64 %52, %54
   br i1 %55, label %timer_less_than.exit.thread3.i, label %56
@@ -137,7 +137,7 @@ define dso_local range(i32 -22, 1) i32 @uv_timer_start(ptr noundef %0, ptr nound
 
 timer_less_than.exit.i:                           ; preds = %56
   %58 = load i64, ptr %26, align 8
-  %59 = getelementptr inbounds i8, ptr %51, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %60 = load i64, ptr %59, align 8
   %.not6.i = icmp ult i64 %58, %60
   br i1 %.not6.i, label %timer_less_than.exit.thread3.i, label %heap_insert.exit
@@ -147,7 +147,7 @@ timer_less_than.exit.thread3.i:                   ; preds = %timer_less_than.exi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %61 = getelementptr inbounds i8, ptr %51, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %29, ptr %61, align 8
   %62 = load ptr, ptr %29, align 8
   %63 = icmp eq ptr %62, %29
@@ -168,7 +168,7 @@ timer_less_than.exit.thread3.i:                   ; preds = %timer_less_than.exi
   br i1 %.not.i.i, label %69, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %.0.i38.i, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i38.i, i64 16
   store ptr %29, ptr %68, align 8
   br label %69
 
@@ -178,18 +178,18 @@ timer_less_than.exit.thread3.i:                   ; preds = %timer_less_than.exi
   br i1 %.not36.i.i, label %73, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %70, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %51, ptr %72, align 8
   br label %73
 
 73:                                               ; preds = %71, %69
-  %74 = getelementptr inbounds i8, ptr %51, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not37.i.i = icmp eq ptr %75, null
   br i1 %.not37.i.i, label %78, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %75, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store ptr %51, ptr %77, align 8
   br label %78
 
@@ -212,7 +212,7 @@ timer_less_than.exit.thread3.i:                   ; preds = %timer_less_than.exi
   br label %heap_node_swap.exit.i
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %79, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %29, ptr %87, align 8
   br label %heap_node_swap.exit.i
 
@@ -237,7 +237,7 @@ heap_insert.exit:                                 ; preds = %56, %timer_less_tha
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %16, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load i32, ptr %96, align 8
   %98 = add i32 %97, 1
   store i32 %98, ptr %96, align 8
@@ -252,18 +252,18 @@ heap_insert.exit:                                 ; preds = %56, %timer_less_tha
 define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.heap_node, align 8
   %3 = alloca %struct.heap_node, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %164, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 520
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
-  %12 = getelementptr inbounds i8, ptr %9, i64 528
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 520
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 528
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %.lr.ph.i [
     i32 0, label %heap_remove.exit
@@ -290,7 +290,7 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
   %21 = shl i32 %.16727.i, 3
   %22 = and i32 %21, 8
   %.171.idx.i = zext nneg i32 %22 to i64
-  %.171.i = getelementptr inbounds i8, ptr %20, i64 %.171.idx.i
+  %.171.i = getelementptr inbounds nuw i8, ptr %20, i64 %.171.idx.i
   %23 = lshr i32 %.16727.i, 1
   %24 = add nsw i32 %.128.i, -1
   %.not.i = icmp eq i32 %24, 0
@@ -317,19 +317,19 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
 32:                                               ; preds = %._crit_edge.i
   %33 = load ptr, ptr %11, align 8
   store ptr %33, ptr %26, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %26, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %26, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %38, ptr %39, align 8
   %.not82.i = icmp eq ptr %33, null
   br i1 %.not82.i, label %42, label %40
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %33, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %26, ptr %41, align 8
   %.pre.i = load ptr, ptr %36, align 8
   br label %42
@@ -340,7 +340,7 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
   br i1 %.not83.i, label %46, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %26, ptr %45, align 8
   br label %46
 
@@ -363,13 +363,13 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
   br label %56
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %47, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %26, ptr %55, align 8
   br label %56
 
 56:                                               ; preds = %54, %53, %49
-  %57 = getelementptr inbounds i8, ptr %26, i64 24
-  %58 = getelementptr inbounds i8, ptr %26, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %26, i64 40
   br label %59
 
 59:                                               ; preds = %heap_node_swap.exit.i, %56
@@ -378,7 +378,7 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
   br i1 %.not84.i, label %timer_less_than.exit.thread.i, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %60, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %63 = load i64, ptr %62, align 8
   %64 = load i64, ptr %57, align 8
   %65 = icmp ult i64 %63, %64
@@ -389,7 +389,7 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
   br i1 %67, label %timer_less_than.exit.thread.i, label %timer_less_than.exit.i
 
 timer_less_than.exit.i:                           ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %60, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %69 = load i64, ptr %68, align 8
   %70 = load i64, ptr %58, align 8
   %.not16.i = icmp ult i64 %69, %70
@@ -405,9 +405,9 @@ timer_less_than.exit.thread.i:                    ; preds = %timer_less_than.exi
   br i1 %.not86.i, label %timer_less_than.exit92.thread.i, label %72
 
 72:                                               ; preds = %timer_less_than.exit.thread.i
-  %73 = getelementptr inbounds i8, ptr %71, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.068.i, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %.068.i, i64 24
   %76 = load i64, ptr %75, align 8
   %77 = icmp ult i64 %74, %76
   br i1 %77, label %timer_less_than.exit92.thread8.i, label %78
@@ -417,9 +417,9 @@ timer_less_than.exit.thread.i:                    ; preds = %timer_less_than.exi
   br i1 %79, label %timer_less_than.exit92.thread.i, label %timer_less_than.exit92.i
 
 timer_less_than.exit92.i:                         ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %71, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.068.i, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %.068.i, i64 40
   %83 = load i64, ptr %82, align 8
   %.not17.i = icmp ult i64 %81, %83
   br i1 %.not17.i, label %timer_less_than.exit92.thread8.i, label %timer_less_than.exit92.thread.i
@@ -449,12 +449,12 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
 
 89:                                               ; preds = %86
   store ptr %26, ptr %.169.i, align 8
-  %90 = getelementptr inbounds i8, ptr %.169.i, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.169.i, i64 8
   %.0.pr.i.i = load ptr, ptr %90, align 8
   br label %93
 
 91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %.169.i, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.169.i, i64 8
   store ptr %26, ptr %92, align 8
   br label %93
 
@@ -464,7 +464,7 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
   br i1 %.not.i.i, label %96, label %94
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %.0.i93.i, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i93.i, i64 16
   store ptr %.169.i, ptr %95, align 8
   br label %96
 
@@ -474,7 +474,7 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
   br i1 %.not36.i.i, label %100, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %97, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   store ptr %26, ptr %99, align 8
   br label %100
 
@@ -484,12 +484,12 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
   br i1 %.not37.i.i, label %104, label %102
 
 102:                                              ; preds = %100
-  %103 = getelementptr inbounds i8, ptr %101, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store ptr %26, ptr %103, align 8
   br label %104
 
 104:                                              ; preds = %102, %100
-  %105 = getelementptr inbounds i8, ptr %.169.i, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %.169.i, i64 16
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %109
@@ -508,7 +508,7 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
   br label %heap_node_swap.exit.i
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %106, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %.169.i, ptr %114, align 8
   br label %heap_node_swap.exit.i
 
@@ -519,7 +519,7 @@ heap_node_swap.exit.i:                            ; preds = %113, %112, %108
 .lr.ph32.i:                                       ; preds = %.preheader.i, %heap_node_swap.exit101.i
   %115 = phi ptr [ %152, %heap_node_swap.exit101.i ], [ %85, %.preheader.i ]
   %116 = load i64, ptr %57, align 8
-  %117 = getelementptr inbounds i8, ptr %115, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %118 = load i64, ptr %117, align 8
   %119 = icmp ult i64 %116, %118
   br i1 %119, label %timer_less_than.exit95.thread13.i, label %120
@@ -530,7 +530,7 @@ heap_node_swap.exit.i:                            ; preds = %113, %112, %108
 
 timer_less_than.exit95.i:                         ; preds = %120
   %122 = load i64, ptr %58, align 8
-  %123 = getelementptr inbounds i8, ptr %115, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %124 = load i64, ptr %123, align 8
   %.not18.i = icmp ult i64 %122, %124
   br i1 %.not18.i, label %timer_less_than.exit95.thread13.i, label %heap_remove.exit
@@ -540,7 +540,7 @@ timer_less_than.exit95.thread13.i:                ; preds = %timer_less_than.exi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %115, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %125 = getelementptr inbounds i8, ptr %115, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store ptr %26, ptr %125, align 8
   %126 = load ptr, ptr %26, align 8
   %127 = icmp eq ptr %126, %26
@@ -561,7 +561,7 @@ timer_less_than.exit95.thread13.i:                ; preds = %timer_less_than.exi
   br i1 %.not.i97.i, label %133, label %131
 
 131:                                              ; preds = %130
-  %132 = getelementptr inbounds i8, ptr %.0.i96.i, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %.0.i96.i, i64 16
   store ptr %26, ptr %132, align 8
   br label %133
 
@@ -571,18 +571,18 @@ timer_less_than.exit95.thread13.i:                ; preds = %timer_less_than.exi
   br i1 %.not36.i98.i, label %137, label %135
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %134, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store ptr %115, ptr %136, align 8
   br label %137
 
 137:                                              ; preds = %135, %133
-  %138 = getelementptr inbounds i8, ptr %115, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %139 = load ptr, ptr %138, align 8
   %.not37.i99.i = icmp eq ptr %139, null
   br i1 %.not37.i99.i, label %142, label %140
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %139, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 16
   store ptr %115, ptr %141, align 8
   br label %142
 
@@ -605,7 +605,7 @@ timer_less_than.exit95.thread13.i:                ; preds = %timer_less_than.exi
   br label %heap_node_swap.exit101.i
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %143, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr %26, ptr %151, align 8
   br label %heap_node_swap.exit101.i
 
@@ -630,7 +630,7 @@ heap_remove.exit:                                 ; preds = %120, %timer_less_th
 
 159:                                              ; preds = %156
   %160 = load ptr, ptr %8, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i32, ptr %161, align 8
   %163 = add i32 %162, -1
   store i32 %163, ptr %161, align 8
@@ -642,13 +642,13 @@ heap_remove.exit:                                 ; preds = %120, %timer_less_th
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local range(i32 -22, 1) i32 @uv_timer_again(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %13, label %8
@@ -667,25 +667,25 @@ define dso_local range(i32 -22, 1) i32 @uv_timer_again(ptr noundef %0) local_unn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @uv_timer_set_repeat(ptr nocapture noundef writeonly initializes((136, 144)) %0, i64 noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @uv_timer_get_repeat(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @uv_timer_get_due_in(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 544
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 544
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i64, ptr %6, align 8
   %.0 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %5)
   ret i64 %.0
@@ -693,15 +693,15 @@ define dso_local i64 @uv_timer_get_due_in(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 -1, -2147483648) i32 @uv__next_timeout(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 520
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %.val = load ptr, ptr %2, align 8
   %3 = icmp eq ptr %.val, null
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %.val, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 544
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %8 = load i64, ptr %7, align 8
   %.not = icmp ugt i64 %6, %8
   br i1 %.not, label %9, label %12
@@ -719,18 +719,18 @@ define dso_local range(i32 -1, -2147483648) i32 @uv__next_timeout(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__run_timers(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 520
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %.val9 = load ptr, ptr %2, align 8
   %3 = icmp eq ptr %.val9, null
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   br label %5
 
 5:                                                ; preds = %.lr.ph, %uv_timer_again.exit
   %.val10 = phi ptr [ %.val9, %.lr.ph ], [ %.val, %uv_timer_again.exit ]
-  %6 = getelementptr inbounds i8, ptr %.val10, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.val10, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = load i64, ptr %4, align 8
   %9 = icmp ugt i64 %7, %8
@@ -740,7 +740,7 @@ define dso_local void @uv__run_timers(ptr nocapture noundef readonly %0) local_u
   %11 = getelementptr inbounds i8, ptr %.val10, i64 -104
   %12 = tail call i32 @uv_timer_stop(ptr noundef nonnull %11)
   %13 = getelementptr inbounds i8, ptr %.val10, i64 -8
-  %14 = getelementptr inbounds i8, ptr %.val10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.val10, i64 32
   %15 = load i64, ptr %14, align 8
   %.not.i = icmp eq i64 %15, 0
   br i1 %.not.i, label %uv_timer_again.exit, label %16

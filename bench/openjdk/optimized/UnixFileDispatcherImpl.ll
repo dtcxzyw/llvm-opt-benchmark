@@ -224,7 +224,7 @@ define i64 @Java_sun_nio_ch_UnixFileDispatcherImpl_size0(ptr noundef %0, ptr noc
   br label %handle.exit
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 61440
   %18 = icmp eq i32 %17, 24576
@@ -250,7 +250,7 @@ define i64 @Java_sun_nio_ch_UnixFileDispatcherImpl_size0(ptr noundef %0, ptr noc
   br label %handle.exit
 
 29:                                               ; preds = %14
-  %30 = getelementptr inbounds i8, ptr %4, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %31 = load i64, ptr %30, align 8
   br label %handle.exit
 
@@ -269,13 +269,13 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
 define range(i32 -1, 3) i32 @Java_sun_nio_ch_UnixFileDispatcherImpl_lock0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i8 noundef zeroext %3, i64 noundef %4, i64 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca %struct.flock, align 8
   %9 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #6
-  %10 = getelementptr inbounds i8, ptr %8, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 0, ptr %10, align 2
   %11 = icmp eq i64 %5, 9223372036854775807
   %spec.select = select i1 %11, i64 0, i64 %5
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %spec.select, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %4, ptr %13, align 8
   %14 = icmp ne i8 %6, 1
   %. = zext i1 %14 to i16
@@ -325,13 +325,13 @@ declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_
 define void @Java_sun_nio_ch_UnixFileDispatcherImpl_release0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.flock, align 8
   %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #6
-  %8 = getelementptr inbounds i8, ptr %6, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 0, ptr %8, align 2
   %9 = icmp eq i64 %4, 9223372036854775807
   %spec.select = select i1 %9, i64 0, i64 %4
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %spec.select, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %3, ptr %11, align 8
   store i16 2, ptr %6, align 8
   %12 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %7, i32 noundef 6, ptr noundef nonnull %6) #6
@@ -381,10 +381,10 @@ define i64 @Java_sun_nio_ch_UnixFileDispatcherImpl_map0(ptr noundef %0, ptr noca
 
 switch.lookup:                                    ; preds = %7
   %10 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.Java_sun_nio_ch_UnixFileDispatcherImpl_map0, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table.Java_sun_nio_ch_UnixFileDispatcherImpl_map0, i64 0, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   %11 = zext nneg i32 %3 to i64
-  %switch.gep23 = getelementptr inbounds [3 x i32], ptr @switch.table.Java_sun_nio_ch_UnixFileDispatcherImpl_map0.1, i64 0, i64 %11
+  %switch.gep23 = getelementptr inbounds nuw [3 x i32], ptr @switch.table.Java_sun_nio_ch_UnixFileDispatcherImpl_map0.1, i64 0, i64 %11
   %switch.load24 = load i32, ptr %switch.gep23, align 4
   br label %.fold.split
 
@@ -493,7 +493,7 @@ define i32 @Java_sun_nio_ch_UnixFileDispatcherImpl_setDirect0(ptr noundef %0, pt
   br label %22
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
   br label %22

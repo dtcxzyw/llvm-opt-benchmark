@@ -40,7 +40,7 @@ declare void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(
 define hidden void @_ZN13GCLogPrecious12vwrite_innerE15LogTargetHandlePKcP13__va_list_tag(i32 %0, ptr %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.LogTargetHandle, align 8
   store i32 %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8
   %7 = load ptr, ptr @_ZN13GCLogPrecious5_tempE, align 8
   tail call void @_ZN12stringStream5resetEv(ptr noundef nonnull align 8 dereferenceable(129) %7) #4
@@ -48,11 +48,11 @@ define hidden void @_ZN13GCLogPrecious12vwrite_innerE15LogTargetHandlePKcP13__va
   tail call void @_ZN12outputStream6vprintEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %2, ptr noundef %3) #4
   %9 = load ptr, ptr @_ZN13GCLogPrecious6_linesE, align 8
   %10 = load ptr, ptr @_ZN13GCLogPrecious5_tempE, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.4, ptr noundef %12) #4
   %13 = load ptr, ptr @_ZN13GCLogPrecious5_tempE, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.5, ptr noundef %15)
   ret void
@@ -68,12 +68,12 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 define linkonce_odr hidden void @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ...) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds [6 x ptr], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [6 x ptr], ptr %7, i64 0, i64 %8
   %10 = load volatile ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
@@ -101,7 +101,7 @@ define hidden void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_t
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 %0, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %8, align 8
   %9 = load ptr, ptr @_ZN13GCLogPrecious5_tempE, align 8
   tail call void @_ZN12stringStream5resetEv(ptr noundef nonnull align 8 dereferenceable(129) %9) #4
@@ -109,11 +109,11 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %7
   tail call void @_ZN12outputStream6vprintEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %2, ptr noundef %3) #4
   %11 = load ptr, ptr @_ZN13GCLogPrecious6_linesE, align 8
   %12 = load ptr, ptr @_ZN13GCLogPrecious5_tempE, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull @.str.4, ptr noundef %14) #4
   %15 = load ptr, ptr @_ZN13GCLogPrecious5_tempE, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
   call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.5, ptr noundef %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -141,7 +141,7 @@ define hidden void @_ZN13GCLogPrecious16vwrite_and_debugE15LogTargetHandlePKcP13
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 %0, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %8, align 8
   %9 = load ptr, ptr @_ZN13GCLogPrecious5_tempE, align 8
   tail call void @_ZN12stringStream5resetEv(ptr noundef nonnull align 8 dereferenceable(129) %9) #4
@@ -149,11 +149,11 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %7
   tail call void @_ZN12outputStream6vprintEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %2, ptr noundef %3) #4
   %11 = load ptr, ptr @_ZN13GCLogPrecious6_linesE, align 8
   %12 = load ptr, ptr @_ZN13GCLogPrecious5_tempE, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull @.str.4, ptr noundef %14) #4
   %15 = load ptr, ptr @_ZN13GCLogPrecious5_tempE, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
   call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.5, ptr noundef %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -189,7 +189,7 @@ define hidden void @_ZN13GCLogPrecious14print_on_errorEP12outputStream(ptr nound
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @_ZN13GCLogPrecious6_linesE, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %15
@@ -199,7 +199,7 @@ define hidden void @_ZN13GCLogPrecious14print_on_errorEP12outputStream(ptr nound
   br label %18
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %10, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.5, ptr noundef %17) #4
   br label %18

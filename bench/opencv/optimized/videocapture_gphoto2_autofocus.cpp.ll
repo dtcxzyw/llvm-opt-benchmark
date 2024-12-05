@@ -100,7 +100,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Args_tD2Ev(ptr noundef nonnull align 8 dereferenceable(78) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   ret void
@@ -848,7 +848,7 @@ _ZL8showHelpPKcb.exit53:                          ; preds = %.noexc51
 
 .preheader149:                                    ; preds = %_ZL8showHelpPKcb.exit53, %.noexc54
   %241 = load ptr, ptr %28, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 104
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 104
   %243 = load ptr, ptr %242, align 8
   %244 = invoke noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(41) %28, i32 noundef 27, double noundef -3.276700e+04)
           to label %.noexc54 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -862,7 +862,7 @@ _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.i:   ; preds = %.noexc54, %.noexc56
   %245 = add nsw i32 %.01719.i, %.020.i
   %246 = sdiv i32 %245, 2
   %247 = load ptr, ptr %28, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 104
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 104
   %249 = load ptr, ptr %248, align 8
   %250 = invoke noundef zeroext i1 %249(ptr noundef nonnull align 8 dereferenceable(41) %28, i32 noundef 27, double noundef -1.024000e+03)
           to label %.noexc55 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -870,7 +870,7 @@ _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.i:   ; preds = %.noexc54, %.noexc56
 .noexc55:                                         ; preds = %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.i
   %251 = sitofp i32 %246 to double
   %252 = load ptr, ptr %28, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 104
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 104
   %254 = load ptr, ptr %253, align 8
   %255 = invoke noundef zeroext i1 %254(ptr noundef nonnull align 8 dereferenceable(41) %28, i32 noundef 27, double noundef %251)
           to label %.noexc56 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -884,7 +884,7 @@ _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.i:   ; preds = %.noexc54, %.noexc56
 
 258:                                              ; preds = %.noexc56
   %259 = load ptr, ptr %28, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 104
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 104
   %261 = load ptr, ptr %260, align 8
   %262 = invoke noundef zeroext i1 %261(ptr noundef nonnull align 8 dereferenceable(41) %28, i32 noundef 27, double noundef -3.276700e+04)
           to label %.noexc57 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -912,7 +912,7 @@ _ZL16findMinFocusStepRN2cv12VideoCaptureEji.exit: ; preds = %_ZL8showHelpPKcb.ex
 
 269:                                              ; preds = %.noexc61, %_ZL16findMinFocusStepRN2cv12VideoCaptureEji.exit
   %270 = load ptr, ptr %28, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 104
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 104
   %272 = load ptr, ptr %271, align 8
   %273 = invoke noundef zeroext i1 %272(ptr noundef nonnull align 8 dereferenceable(41) %28, i32 noundef 27, double noundef -3.276700e+04)
           to label %.noexc61 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -921,9 +921,9 @@ _ZL16findMinFocusStepRN2cv12VideoCaptureEji.exit: ; preds = %_ZL8showHelpPKcb.ex
   br i1 %273, label %269, label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader, !llvm.loop !5
 
 _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader: ; preds = %.noexc61
-  %274 = getelementptr inbounds i8, ptr %35, i64 16
-  %275 = getelementptr inbounds i8, ptr %35, i64 20
-  %276 = getelementptr inbounds i8, ptr %35, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  %276 = getelementptr inbounds nuw i8, ptr %35, i64 8
   br label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit
 
 _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit:     ; preds = %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74
@@ -1281,7 +1281,7 @@ _ZlsRSoR10FocusState.exit:                        ; preds = %.noexc71
 
 .preheader:                                       ; preds = %396, %.noexc73
   %406 = load ptr, ptr %28, align 8
-  %407 = getelementptr inbounds i8, ptr %406, i64 104
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 104
   %408 = load ptr, ptr %407, align 8
   %409 = invoke noundef zeroext i1 %408(ptr noundef nonnull align 8 dereferenceable(41) %28, i32 noundef 27, double noundef -3.276700e+04)
           to label %.noexc73 unwind label %.loopexit
@@ -1291,7 +1291,7 @@ _ZlsRSoR10FocusState.exit:                        ; preds = %.noexc71
 
 .preheader137:                                    ; preds = %396, %.noexc75
   %410 = load ptr, ptr %28, align 8
-  %411 = getelementptr inbounds i8, ptr %410, i64 104
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 104
   %412 = load ptr, ptr %411, align 8
   %413 = invoke noundef zeroext i1 %412(ptr noundef nonnull align 8 dereferenceable(41) %28, i32 noundef 27, double noundef 3.276700e+04)
           to label %.noexc75 unwind label %.loopexit.split-lp.loopexit
@@ -1475,20 +1475,20 @@ define internal fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnu
   %9 = alloca %"class.cv::MatIterator_", align 8
   %10 = alloca %"class.cv::MatIterator_", align 8
   %11 = alloca %"class.cv::MatIterator_", align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #12
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 0, ptr %17, align 4
   store i32 16842752, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %20, align 8
   store i32 33619968, ptr %4, align 8
   store ptr %2, ptr %19, align 8
@@ -1496,15 +1496,15 @@ define internal fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnu
           to label %21 unwind label %81
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %23, align 4
   store i32 16842752, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %26, align 8
   store i32 33619968, ptr %6, align 8
   store ptr %2, ptr %25, align 8
@@ -1512,15 +1512,15 @@ define internal fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnu
           to label %27 unwind label %83
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %29, align 4
   store i32 16842752, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %32, align 8
   store i32 33619968, ptr %8, align 8
   store ptr %2, ptr %31, align 8
@@ -1545,13 +1545,13 @@ define internal fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnu
 
 ._crit_edge37:                                    ; preds = %36
   %.pre = load ptr, ptr %10, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.pre38 = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert39 = getelementptr inbounds i8, ptr %10, i64 16
+  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.pre40 = load ptr, ptr %.phi.trans.insert39, align 8
-  %.phi.trans.insert41 = getelementptr inbounds i8, ptr %10, i64 24
+  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.pre42 = load ptr, ptr %.phi.trans.insert41, align 8
-  %.phi.trans.insert43 = getelementptr inbounds i8, ptr %10, i64 32
+  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8
   br label %37
 
@@ -1562,13 +1562,13 @@ define internal fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnu
   %40 = phi i64 [ %.pre38, %._crit_edge37 ], [ 0, %35 ]
   %.val30 = phi ptr [ %.pre, %._crit_edge37 ], [ null, %35 ]
   store ptr %.val30, ptr %9, align 8
-  %41 = getelementptr inbounds i8, ptr %9, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %9, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %.val1931, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %9, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %39, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %9, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %38, ptr %44, align 8
   %45 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
           to label %.noexc23 unwind label %.loopexit.split-lp
@@ -1596,17 +1596,17 @@ define internal fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnu
   br i1 %or.cond.i.i.i, label %_ZN2cv3Mat3endIhEENS_12MatIterator_IT_EEv.exit, label %52
 
 52:                                               ; preds = %.noexc25
-  %53 = getelementptr inbounds i8, ptr %11, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %54 = load i64, ptr %53, align 8, !alias.scope !12
   %55 = mul i64 %54, %48
-  %56 = getelementptr inbounds i8, ptr %11, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %57 = load ptr, ptr %56, align 8, !alias.scope !12
   %58 = getelementptr inbounds i8, ptr %57, i64 %55
   store ptr %58, ptr %56, align 8, !alias.scope !12
-  %59 = getelementptr inbounds i8, ptr %11, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %60 = load ptr, ptr %59, align 8, !alias.scope !12
   %61 = icmp uge ptr %58, %60
-  %62 = getelementptr inbounds i8, ptr %11, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %63 = load ptr, ptr %62, align 8, !alias.scope !12
   %.not.i.i.i = icmp ugt ptr %63, %58
   %or.cond9.i.i.i = select i1 %61, i1 %.not.i.i.i, i1 false
@@ -1623,7 +1623,7 @@ define internal fastcc noundef double @_ZL9rateFrameRN2cv3MatE(ptr noundef nonnu
 
 _ZN2cv3Mat3endIhEENS_12MatIterator_IT_EEv.exit:   ; preds = %._ZN2cv3Mat3endIhEENS_12MatIterator_IT_EEv.exit_crit_edge, %52, %.noexc25, %46
   %65 = phi ptr [ %.pre45, %._ZN2cv3Mat3endIhEENS_12MatIterator_IT_EEv.exit_crit_edge ], [ %49, %52 ], [ %49, %.noexc25 ], [ null, %46 ]
-  %66 = getelementptr inbounds i8, ptr %11, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %67 = load ptr, ptr %66, align 8
   %.not.i32 = icmp ne ptr %.val30, %65
   %68 = icmp ne ptr %.val1931, %67
@@ -1763,14 +1763,14 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   store ptr %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %7 to i64
   %13 = getelementptr i64, ptr %11, i64 %12
@@ -1781,9 +1781,9 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
 16:                                               ; preds = %9, %2
   %17 = phi i64 [ %15, %9 ], [ 0, %2 ]
   store i64 %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %21 = load i32, ptr %1, align 8
   %22 = and i32 %21, 16384
@@ -1824,7 +1824,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
 
 33:                                               ; preds = %23
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %19, align 8
   %37 = tail call noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %34)
@@ -1853,7 +1853,7 @@ define internal void @_GLOBAL__sub_I_videocapture_gphoto2_autofocus.cpp() #8 sec
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @GlobalArgs) #12
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @GlobalArgs, i64 32)) #12
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @GlobalArgs, i64 32)) #12
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6Args_tD2Ev, ptr nonnull @GlobalArgs, ptr nonnull @__dso_handle) #12
   ret void
 }

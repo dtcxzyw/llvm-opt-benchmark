@@ -24,14 +24,14 @@ define hidden void @_ZN7XThread10initializeEv() local_unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7XThread3_idE)
   store i64 %4, ptr %5, align 8
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(888) %2) #4
   %10 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7XThread6_is_vmE)
   %11 = zext i1 %9 to i8
   store i8 %11, ptr %10, align 1
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(888) %2) #4
   %16 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7XThread8_is_javaE)
@@ -52,20 +52,20 @@ define hidden noundef ptr @_ZN7XThread4nameEv() local_unnamed_addr #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(888) %2) #4
   %7 = load ptr, ptr %2, align 8
   br i1 %6, label %8, label %12
 
 8:                                                ; preds = %0
-  %9 = getelementptr inbounds i8, ptr %7, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(916) %2) #4
   br label %16
 
 12:                                               ; preds = %0
-  %13 = getelementptr inbounds i8, ptr %7, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(888) %2) #4
   %.str..str.4 = select i1 %15, ptr @.str, ptr @.str.4
@@ -95,14 +95,14 @@ define hidden void @_ZN7XThread10set_workerEv() local_unnamed_addr #0 align 2 {
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7XThread3_idE)
   store i64 %7, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(888) %6) #4
   %13 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7XThread6_is_vmE)
   %14 = zext i1 %12 to i8
   store i8 %14, ptr %13, align 1
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(888) %6) #4
   %19 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7XThread8_is_javaE)
@@ -163,14 +163,14 @@ define hidden void @_ZN7XThread13set_worker_idEj(i32 noundef %0) local_unnamed_a
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7XThread3_idE)
   store i64 %8, ptr %9, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(888) %7) #4
   %14 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7XThread6_is_vmE)
   %15 = zext i1 %13 to i8
   store i8 %15, ptr %14, align 1
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(888) %7) #4
   %20 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7XThread8_is_javaE)

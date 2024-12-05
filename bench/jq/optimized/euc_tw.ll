@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @euctw_mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds [256 x i32], ptr @EncLen_EUCTW, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EUCTW, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
@@ -52,7 +52,7 @@ define internal range(i32 -400, 5) i32 @euctw_code_to_mbclen(i32 noundef %0) #3 
 
 10:                                               ; preds = %5
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr inbounds [256 x i32], ptr @EncLen_EUCTW, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EUCTW, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %16, label %15
@@ -155,7 +155,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %9, label %10, label %._crit_edge
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %.02947, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.02947, i64 1
   %.not41 = icmp ult ptr %11, %1
   br i1 %.not41, label %12, label %._crit_edge
 
@@ -166,7 +166,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %or.cond, label %._crit_edge, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.02947, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.02947, i64 2
   %.not42 = icmp ult ptr %16, %1
   br i1 %.not42, label %17, label %._crit_edge
 
@@ -177,7 +177,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %or.cond44, label %._crit_edge, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.02947, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %.02947, i64 3
   %.not43 = icmp ult ptr %21, %1
   br i1 %.not43, label %22, label %._crit_edge
 
@@ -192,7 +192,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %.not, label %._crit_edge, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %.02947, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.02947, i64 1
   %.not40 = icmp ult ptr %27, %1
   br i1 %.not40, label %28, label %._crit_edge
 
@@ -204,7 +204,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
 
 31:                                               ; preds = %28, %22, %.lr.ph
   %.sink = phi i64 [ 1, %.lr.ph ], [ 4, %22 ], [ 2, %28 ]
-  %32 = getelementptr inbounds i8, ptr %.02947, i64 %.sink
+  %32 = getelementptr inbounds nuw i8, ptr %.02947, i64 %.sink
   %33 = icmp ult ptr %32, %1
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 

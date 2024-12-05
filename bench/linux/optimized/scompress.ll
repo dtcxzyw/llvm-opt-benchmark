@@ -49,10 +49,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_crypto_unreg
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_init_scomp_ops_async(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 -32
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call ptr @crypto_mod_get(ptr noundef %3) #4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %19, label %8
@@ -70,7 +70,7 @@ define dso_local i32 @crypto_init_scomp_ops_async(ptr nocapture noundef %0) loca
 
 14:                                               ; preds = %8
   store ptr %9, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @crypto_exit_scomp_ops_async, ptr %15, align 8
   store ptr @scomp_acomp_compress, ptr %4, align 8
   %16 = getelementptr i8, ptr %0, i64 -24
@@ -94,7 +94,7 @@ declare dso_local void @crypto_mod_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @crypto_exit_scomp_ops_async(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @crypto_destroy_tfm(ptr noundef %3, ptr noundef %3) #4
   tail call void @mutex_lock(ptr noundef nonnull @scomp_lock) #4
@@ -124,14 +124,14 @@ define internal void @crypto_exit_scomp_ops_async(ptr nocapture noundef readonly
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @scomp_scratch to i64)
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @vfree(ptr noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void @vfree(ptr noundef %25) #4
   %26 = add nuw nsw i64 %13, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %27 = and i64 %26, 127
   %28 = icmp samesign ugt i64 %27, 63
   br i1 %28, label %.thread, label %.preheader, !prof !6, !llvm.loop !7
@@ -158,11 +158,11 @@ declare dso_local void @sgl_free(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @crypto_acomp_scomp_alloc_ctx(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -32
   %9 = load ptr, ptr %8, align 8
@@ -175,7 +175,7 @@ define dso_local noundef ptr @crypto_acomp_scomp_alloc_ctx(ptr noundef %0) local
   br label %15
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %10, ptr %14, align 8
   br label %15
 
@@ -189,17 +189,17 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @crypto_acomp_scomp_free_ctx(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 -24
   %13 = load ptr, ptr %12, align 8
@@ -212,15 +212,15 @@ define dso_local void @crypto_acomp_scomp_free_ctx(ptr nocapture noundef readonl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_register_scomp(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @comp_prepare_alg(ptr noundef %2) #4
-  %3 = getelementptr inbounds i8, ptr %0, i64 344
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @comp_prepare_alg(ptr noundef nonnull %2) #4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr @crypto_scomp_type, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = or i32 %5, 11
   store i32 %6, ptr %4, align 8
-  %7 = tail call i32 @crypto_register_alg(ptr noundef %2) #4
+  %7 = tail call i32 @crypto_register_alg(ptr noundef nonnull %2) #4
   ret i32 %7
 }
 
@@ -232,8 +232,8 @@ declare dso_local i32 @crypto_register_alg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @crypto_unregister_scomp(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @crypto_unregister_alg(ptr noundef %2) #4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @crypto_unregister_alg(ptr noundef nonnull %2) #4
   ret void
 }
 
@@ -253,15 +253,15 @@ define dso_local i32 @crypto_register_scomps(ptr noundef %0, i32 noundef %1) #0 
   %indvars.iv = phi i32 [ %indvars.iv.next, %21 ], [ -1, %4 ]
   %7 = phi i64 [ %22, %21 ], [ 0, %4 ]
   %8 = getelementptr %struct.scomp_alg, ptr %0, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
-  tail call void @comp_prepare_alg(ptr noundef %9) #4
-  %10 = getelementptr inbounds i8, ptr %8, i64 344
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  tail call void @comp_prepare_alg(ptr noundef nonnull %9) #4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 344
   store ptr @crypto_scomp_type, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %12 = load i32, ptr %11, align 8
   %13 = or i32 %12, 11
   store i32 %13, ptr %11, align 8
-  %14 = tail call i32 @crypto_register_alg(ptr noundef %9) #4
+  %14 = tail call i32 @crypto_register_alg(ptr noundef nonnull %9) #4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %21, label %16
 
@@ -333,35 +333,35 @@ declare dso_local void @vfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @scomp_acomp_comp_decomp(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %62, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, -131073
   %15 = icmp ult i32 %14, -131072
   br i1 %15, label %62, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = icmp ne ptr %18, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 68
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 68
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %20 = icmp eq i32 %.pre, 0
   %or.cond = select i1 %19, i1 %20, i1 false
   br i1 %or.cond, label %62, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %22 = add i32 %.pre, -131073
   %23 = icmp ult i32 %22, -131072
   br i1 %23, label %24, label %25
@@ -375,7 +375,7 @@ define internal fastcc i32 @scomp_acomp_comp_decomp(ptr noundef %0, i32 noundef 
   %27 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @scomp_scratch) #5, !srcloc !13
   %28 = inttoptr i64 %27 to ptr
   tail call void @_raw_spin_lock(ptr noundef %28) #4
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %8, align 8
   %32 = load i32, ptr %12, align 8
@@ -383,15 +383,15 @@ define internal fastcc i32 @scomp_acomp_comp_decomp(ptr noundef %0, i32 noundef 
   %33 = icmp eq i32 %1, 0
   %34 = load ptr, ptr %29, align 8
   %35 = load i32, ptr %12, align 8
-  %36 = getelementptr inbounds i8, ptr %28, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = select i1 %33, i64 -8, i64 -16
   %42 = getelementptr i8, ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call i32 %43(ptr noundef %6, ptr noundef %34, i32 noundef %35, ptr noundef %37, ptr noundef %21, ptr noundef %38) #4
+  %44 = tail call i32 %43(ptr noundef %6, ptr noundef %34, i32 noundef %35, ptr noundef %37, ptr noundef nonnull %21, ptr noundef %38) #4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %60
 
@@ -488,7 +488,7 @@ define internal noundef range(i32 -12, 1) i32 @crypto_scomp_init_tfm(ptr nocaptu
   br label %38
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %23, ptr %26, align 8
   %27 = load i64, ptr %16, align 8
   %28 = add i64 %27, ptrtoint (ptr @numa_node to i64)
@@ -499,7 +499,7 @@ define internal noundef range(i32 -12, 1) i32 @crypto_scomp_init_tfm(ptr nocaptu
   br i1 %32, label %.preheader13, label %33
 
 33:                                               ; preds = %25
-  %34 = getelementptr inbounds i8, ptr %19, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %31, ptr %34, align 8
   %35 = add nuw nsw i64 %11, 1
   %36 = and i64 %35, 127
@@ -526,14 +526,14 @@ define internal noundef range(i32 -12, 1) i32 @crypto_scomp_init_tfm(ptr nocaptu
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, ptrtoint (ptr @scomp_scratch to i64)
   %53 = inttoptr i64 %52 to ptr
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   tail call void @vfree(ptr noundef %55) #4
-  %56 = getelementptr inbounds i8, ptr %53, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %57 = load ptr, ptr %56, align 8
   tail call void @vfree(ptr noundef %57) #4
   %58 = add nuw nsw i64 %45, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %59 = and i64 %58, 127
   %60 = icmp samesign ugt i64 %59, 63
   br i1 %60, label %.thread, label %38, !prof !6, !llvm.loop !7

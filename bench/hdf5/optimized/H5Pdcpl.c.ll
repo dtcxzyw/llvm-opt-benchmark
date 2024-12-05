@@ -287,9 +287,9 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_reg_prop(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5P_fill_value_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load i64, ptr %6, align 8
   %8 = icmp slt i64 %5, %7
   br i1 %8, label %46, label %9
@@ -299,10 +299,10 @@ define i32 @H5P_fill_value_cmp(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %10, label %46, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %14, label %17, label %18
@@ -319,10 +319,10 @@ define i32 @H5P_fill_value_cmp(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %.not43, label %.thread48, label %46
 
 .thread48:                                        ; preds = %17, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  %24 = getelementptr inbounds i8, ptr %1, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = load ptr, ptr %24, align 8
   %.not44 = icmp eq ptr %25, null
   br i1 %23, label %26, label %27
@@ -340,9 +340,9 @@ define i32 @H5P_fill_value_cmp(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %.not47, label %.thread50, label %46
 
 .thread50:                                        ; preds = %26, %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %34 = load i32, ptr %33, align 8
   %35 = icmp slt i32 %32, %34
   br i1 %35, label %46, label %36
@@ -352,9 +352,9 @@ define i32 @H5P_fill_value_cmp(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %37, label %46, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %0, i64 76
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 76
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %42 = load i32, ptr %41, align 4
   %43 = icmp slt i32 %40, %42
   br i1 %43, label %46, label %44
@@ -430,7 +430,7 @@ define range(i32 -1, 1) i32 @H5Pset_layout(i64 noundef %0, i32 noundef %1) local
 
 switch.lookup:                                    ; preds = %28
   %36 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.H5Pset_layout, i64 0, i64 %36
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.H5Pset_layout, i64 0, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   %37 = tail call fastcc i32 @H5P__set_layout(ptr noundef %30, ptr noundef nonnull %switch.load)
   %38 = icmp slt i32 %37, 0
@@ -512,9 +512,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__set_layout(ptr noundef nonnull
 
 switch.lookup:                                    ; preds = %20
   %27 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.H5Pset_alloc_time, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.H5Pset_alloc_time, i64 0, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
-  %28 = getelementptr inbounds i8, ptr %4, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %switch.load, ptr %28, align 8
   %29 = call i32 @H5P_poke(ptr noundef nonnull %0, ptr noundef nonnull @.str.62, ptr noundef nonnull %4) #11
   %30 = icmp slt i32 %29, 0
@@ -687,7 +687,7 @@ define range(i32 -1, 1) i32 @H5Pset_chunk(i64 noundef %0, i32 noundef %1, ptr no
 
 42:                                               ; preds = %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2256) %4, ptr noundef nonnull align 8 dereferenceable(2256) @H5D_def_layout_chunk_g, i64 2256, i1 false)
-  %43 = getelementptr inbounds i8, ptr %4, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %43, i8 0, i64 132, i1 false)
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %44
@@ -695,7 +695,7 @@ define range(i32 -1, 1) i32 @H5Pset_chunk(i64 noundef %0, i32 noundef %1, ptr no
 44:                                               ; preds = %42, %64
   %indvars.iv = phi i64 [ 0, %42 ], [ %indvars.iv.next, %64 ]
   %.03761 = phi i64 [ 1, %42 ], [ %58, %64 ]
-  %45 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %48, label %52
@@ -729,7 +729,7 @@ define range(i32 -1, 1) i32 @H5Pset_chunk(i64 noundef %0, i32 noundef %1, ptr no
 
 64:                                               ; preds = %57
   %65 = trunc nuw i64 %46 to i32
-  %66 = getelementptr inbounds [33 x i32], ptr %43, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [33 x i32], ptr %43, i64 0, i64 %indvars.iv
   store i32 %65, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -748,7 +748,7 @@ define range(i32 -1, 1) i32 @H5Pset_chunk(i64 noundef %0, i32 noundef %1, ptr no
   br label %.thread58
 
 75:                                               ; preds = %67
-  %76 = getelementptr inbounds i8, ptr %4, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %1, ptr %76, align 8
   %77 = call fastcc i32 @H5P__set_layout(ptr noundef %69, ptr noundef nonnull %4)
   %78 = icmp slt i32 %77, 0
@@ -852,7 +852,7 @@ define i32 @H5Pget_chunk(i64 noundef %0, i32 noundef %1, ptr noundef writeonly %
 
 46:                                               ; preds = %40
   %.not22 = icmp eq ptr %2, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %.not22, label %.loopexit, label %.preheader
 
@@ -862,16 +862,16 @@ define i32 @H5Pget_chunk(i64 noundef %0, i32 noundef %1, ptr noundef writeonly %
   br i1 %.not41, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %47 = getelementptr inbounds i8, ptr %4, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %wide.trip.count = zext i32 %invariant.umin to i64
   br label %48
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds [33 x i32], ptr %47, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [33 x i32], ptr %47, i64 0, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   store i64 %51, ptr %52, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1021,19 +1021,19 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
 
 .thread:                                          ; preds = %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2256) %6, ptr noundef nonnull align 8 dereferenceable(2256) @H5D_def_layout_virtual_g, i64 2256, i1 false)
-  %83 = getelementptr inbounds i8, ptr %6, i64 1936
-  %84 = getelementptr inbounds i8, ptr %6, i64 1952
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 1936
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 1952
   br label %91
 
 85:                                               ; preds = %73
-  %86 = getelementptr inbounds i8, ptr %6, i64 1944
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 1944
   %87 = load ptr, ptr %86, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 1936
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 1936
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert197 = getelementptr inbounds i8, ptr %6, i64 1952
+  %.phi.trans.insert197 = getelementptr inbounds nuw i8, ptr %6, i64 1952
   %.pre198 = load i64, ptr %.phi.trans.insert197, align 8
-  %88 = getelementptr inbounds i8, ptr %6, i64 1936
-  %89 = getelementptr inbounds i8, ptr %6, i64 1952
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 1936
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 1952
   %90 = icmp eq i64 %.pre, %.pre198
   br i1 %90, label %91, label %107
 
@@ -1056,7 +1056,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   br label %204
 
 105:                                              ; preds = %91
-  %106 = getelementptr inbounds i8, ptr %6, i64 1944
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 1944
   store ptr %99, ptr %106, align 8
   store i64 %97, ptr %92, align 8
   br label %107
@@ -1081,7 +1081,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
 
 119:                                              ; preds = %107
   %120 = call noalias ptr @H5MM_xstrdup(ptr noundef nonnull %2) #11
-  %121 = getelementptr inbounds i8, ptr %112, i64 64
+  %121 = getelementptr inbounds nuw i8, ptr %112, i64 64
   store ptr %120, ptr %121, align 8
   %122 = icmp eq ptr %120, null
   br i1 %122, label %123, label %127
@@ -1094,7 +1094,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
 
 127:                                              ; preds = %119
   %128 = call noalias ptr @H5MM_xstrdup(ptr noundef nonnull %3) #11
-  %129 = getelementptr inbounds i8, ptr %112, i64 72
+  %129 = getelementptr inbounds nuw i8, ptr %112, i64 72
   store ptr %128, ptr %129, align 8
   %130 = icmp eq ptr %128, null
   br i1 %130, label %131, label %135
@@ -1107,7 +1107,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
 
 135:                                              ; preds = %127
   %136 = call ptr @H5S_copy(ptr noundef nonnull %45, i1 noundef zeroext false, i1 noundef zeroext true) #11
-  %137 = getelementptr inbounds i8, ptr %112, i64 80
+  %137 = getelementptr inbounds nuw i8, ptr %112, i64 80
   store ptr %136, ptr %137, align 8
   %138 = icmp eq ptr %136, null
   br i1 %138, label %139, label %143
@@ -1120,9 +1120,9 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
 
 143:                                              ; preds = %135
   %144 = load ptr, ptr %121, align 8
-  %145 = getelementptr inbounds i8, ptr %112, i64 128
-  %146 = getelementptr inbounds i8, ptr %112, i64 136
-  %147 = getelementptr inbounds i8, ptr %112, i64 144
+  %145 = getelementptr inbounds nuw i8, ptr %112, i64 128
+  %146 = getelementptr inbounds nuw i8, ptr %112, i64 136
+  %147 = getelementptr inbounds nuw i8, ptr %112, i64 144
   %148 = call i32 @H5D_virtual_parse_source_name(ptr noundef %144, ptr noundef nonnull %145, ptr noundef nonnull %146, ptr noundef nonnull %147) #11
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %150, label %154
@@ -1135,9 +1135,9 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
 
 154:                                              ; preds = %143
   %155 = load ptr, ptr %129, align 8
-  %156 = getelementptr inbounds i8, ptr %112, i64 152
-  %157 = getelementptr inbounds i8, ptr %112, i64 160
-  %158 = getelementptr inbounds i8, ptr %112, i64 168
+  %156 = getelementptr inbounds nuw i8, ptr %112, i64 152
+  %157 = getelementptr inbounds nuw i8, ptr %112, i64 160
+  %158 = getelementptr inbounds nuw i8, ptr %112, i64 168
   %159 = call i32 @H5D_virtual_parse_source_name(ptr noundef %155, ptr noundef nonnull %156, ptr noundef nonnull %157, ptr noundef nonnull %158) #11
   %160 = icmp slt i32 %159, 0
   br i1 %160, label %161, label %165
@@ -1163,41 +1163,41 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %.not126 = icmp eq ptr %171, null
   %spec.select = select i1 %.not126, ptr %121, ptr %171
   %.sink = load ptr, ptr %spec.select, align 8
-  %172 = getelementptr inbounds i8, ptr %112, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr %.sink, ptr %172, align 8
   %173 = load ptr, ptr %156, align 8
   %.not127 = icmp eq ptr %173, null
   %. = select i1 %.not127, ptr %129, ptr %173
   %.sink218 = load ptr, ptr %., align 8
-  %174 = getelementptr inbounds i8, ptr %112, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %.sink218, ptr %174, align 8
   br label %175
 
 175:                                              ; preds = %.sink.split, %168, %165
   %176 = call i32 @H5S_get_select_unlim_dim(ptr noundef nonnull %45) #11
-  %177 = getelementptr inbounds i8, ptr %112, i64 176
+  %177 = getelementptr inbounds nuw i8, ptr %112, i64 176
   store i32 %176, ptr %177, align 8
   %178 = call i32 @H5S_get_select_unlim_dim(ptr noundef nonnull %38) #11
-  %179 = getelementptr inbounds i8, ptr %112, i64 180
+  %179 = getelementptr inbounds nuw i8, ptr %112, i64 180
   store i32 %178, ptr %179, align 4
   %180 = icmp slt i32 %178, 0
   br i1 %180, label %181, label %186
 
 181:                                              ; preds = %175
   %182 = load ptr, ptr %137, align 8
-  %183 = getelementptr inbounds i8, ptr %112, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %112, i64 24
   store ptr %182, ptr %183, align 8
   %184 = load ptr, ptr %112, align 8
-  %185 = getelementptr inbounds i8, ptr %112, i64 32
+  %185 = getelementptr inbounds nuw i8, ptr %112, i64 32
   store ptr %184, ptr %185, align 8
   br label %186
 
 186:                                              ; preds = %181, %175
-  %187 = getelementptr inbounds i8, ptr %112, i64 184
-  %188 = getelementptr inbounds i8, ptr %112, i64 216
+  %187 = getelementptr inbounds nuw i8, ptr %112, i64 184
+  %188 = getelementptr inbounds nuw i8, ptr %112, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %187, i8 -1, i64 32, i1 false)
   store i32 2, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %112, i64 220
+  %189 = getelementptr inbounds nuw i8, ptr %112, i64 220
   store i32 2, ptr %189, align 4
   %190 = call i32 @H5D_virtual_check_mapping_post(ptr noundef nonnull %112) #11
   %191 = icmp slt i32 %190, 0
@@ -1242,7 +1242,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   %211 = load i64, ptr @H5E_PLIST_g, align 8
   %212 = load i64, ptr @H5E_CANTSET_g, align 8
   %213 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5Pset_virtual, i32 noundef 2147, i64 noundef %211, i64 noundef %212, ptr noundef nonnull @.str.7) #11
-  %214 = getelementptr inbounds i8, ptr %6, i64 1944
+  %214 = getelementptr inbounds nuw i8, ptr %6, i64 1944
   %215 = load ptr, ptr %214, align 8
   %.not128 = icmp ne ptr %.0100.ph205, %215
   %.not129 = icmp eq ptr %.0112.ph204, null
@@ -1255,11 +1255,11 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
 216:                                              ; preds = %.thread148.thread, %.thread148
   %.0110157212 = phi i1 [ false, %.thread148.thread ], [ %.not128, %.thread148 ]
   %.0112.ph202211 = phi ptr [ %.0112.ph, %.thread148.thread ], [ %.0112.ph204, %.thread148 ]
-  %217 = getelementptr inbounds i8, ptr %.0112.ph202211, i64 64
+  %217 = getelementptr inbounds nuw i8, ptr %.0112.ph202211, i64 64
   %218 = load ptr, ptr %217, align 8
   %219 = call ptr @H5MM_xfree(ptr noundef %218) #11
   store ptr %219, ptr %217, align 8
-  %220 = getelementptr inbounds i8, ptr %.0112.ph202211, i64 72
+  %220 = getelementptr inbounds nuw i8, ptr %.0112.ph202211, i64 72
   %221 = load ptr, ptr %220, align 8
   %222 = call ptr @H5MM_xfree(ptr noundef %221) #11
   store ptr %222, ptr %220, align 8
@@ -1280,7 +1280,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
 
 231:                                              ; preds = %227, %224, %216
   store ptr null, ptr %.0112.ph202211, align 8
-  %232 = getelementptr inbounds i8, ptr %.0112.ph202211, i64 80
+  %232 = getelementptr inbounds nuw i8, ptr %.0112.ph202211, i64 80
   %233 = load ptr, ptr %232, align 8
   %.not131 = icmp eq ptr %233, null
   br i1 %.not131, label %241, label %234
@@ -1298,11 +1298,11 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
 
 241:                                              ; preds = %237, %234, %231
   store ptr null, ptr %232, align 8
-  %242 = getelementptr inbounds i8, ptr %.0112.ph202211, i64 128
+  %242 = getelementptr inbounds nuw i8, ptr %.0112.ph202211, i64 128
   %243 = load ptr, ptr %242, align 8
   %244 = call i32 @H5D_virtual_free_parsed_name(ptr noundef %243) #11
   store ptr null, ptr %242, align 8
-  %245 = getelementptr inbounds i8, ptr %.0112.ph202211, i64 152
+  %245 = getelementptr inbounds nuw i8, ptr %.0112.ph202211, i64 152
   %246 = load ptr, ptr %245, align 8
   %247 = call i32 @H5D_virtual_free_parsed_name(ptr noundef %246) #11
   store ptr null, ptr %245, align 8
@@ -1312,7 +1312,7 @@ define range(i32 -1, 1) i32 @H5Pset_virtual(i64 noundef %0, i64 noundef %1, ptr 
   br i1 %.not128, label %249, label %.thread181.thread
 
 249:                                              ; preds = %241, %248
-  %250 = getelementptr inbounds i8, ptr %6, i64 1944
+  %250 = getelementptr inbounds nuw i8, ptr %6, i64 1944
   %251 = load ptr, ptr %250, align 8
   %252 = call ptr @H5MM_xfree(ptr noundef %251) #11
   store ptr %252, ptr %250, align 8
@@ -1439,7 +1439,7 @@ define range(i32 -1, 1) i32 @H5Pget_virtual_count(i64 noundef %0, ptr noundef wr
   br label %.thread30
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %3, i64 1936
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 1936
   %48 = load i64, ptr %47, align 8
   store i64 %48, ptr %1, align 8
   br label %50
@@ -1529,7 +1529,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_virtual_vspace(i64 nounde
   br label %.thread60
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %3, i64 1936
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 1936
   %47 = load i64, ptr %46, align 8
   %.not29 = icmp ult i64 %1, %47
   br i1 %.not29, label %52, label %48
@@ -1541,7 +1541,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_virtual_vspace(i64 nounde
   br label %.thread60
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %3, i64 1944
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 1944
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %54, i64 %1
   %56 = load ptr, ptr %55, align 8
@@ -1667,7 +1667,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_virtual_srcspace(i64 noun
   br label %.thread76
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %3, i64 1936
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 1936
   %49 = load i64, ptr %48, align 8
   %.not45 = icmp ult i64 %1, %49
   br i1 %.not45, label %54, label %50
@@ -1679,22 +1679,22 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_virtual_srcspace(i64 noun
   br label %.thread76
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %3, i64 1944
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 1944
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %56, i64 %1
-  %58 = getelementptr inbounds i8, ptr %57, i64 216
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 216
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %99
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %57, i64 176
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 176
   %63 = load i32, ptr %62, align 8
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %99
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %57, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %67 = load ptr, ptr %66, align 8
   %68 = call i32 @H5S_get_simple_extent_ndims(ptr noundef %67) #11
   %69 = icmp slt i32 %68, 0
@@ -1730,7 +1730,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Pget_virtual_srcspace(i64 noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %84 = getelementptr inbounds [32 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv
   %85 = load i64, ptr %84, align 8
   %86 = add i64 %85, 1
   store i64 %86, ptr %84, align 8
@@ -1887,7 +1887,7 @@ define i64 @H5Pget_virtual_filename(i64 noundef %0, i64 noundef %1, ptr noundef 
   br label %.thread39
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %5, i64 1936
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 1936
   %49 = load i64, ptr %48, align 8
   %.not24 = icmp ult i64 %1, %49
   br i1 %.not24, label %54, label %50
@@ -1902,7 +1902,7 @@ define i64 @H5Pget_virtual_filename(i64 noundef %0, i64 noundef %1, ptr noundef 
   %55 = icmp ne ptr %2, null
   %56 = icmp ne i64 %3, 0
   %or.cond = and i1 %55, %56
-  %57 = getelementptr inbounds i8, ptr %5, i64 1944
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 1944
   %58 = load ptr, ptr %57, align 8
   br i1 %or.cond, label %59, label %._crit_edge
 
@@ -2006,7 +2006,7 @@ define i64 @H5Pget_virtual_dsetname(i64 noundef %0, i64 noundef %1, ptr noundef 
   br label %.thread39
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %5, i64 1936
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 1936
   %49 = load i64, ptr %48, align 8
   %.not24 = icmp ult i64 %1, %49
   br i1 %.not24, label %54, label %50
@@ -2021,7 +2021,7 @@ define i64 @H5Pget_virtual_dsetname(i64 noundef %0, i64 noundef %1, ptr noundef 
   %55 = icmp ne ptr %2, null
   %56 = icmp ne i64 %3, 0
   %or.cond = and i1 %55, %56
-  %57 = getelementptr inbounds i8, ptr %5, i64 1944
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 1944
   %58 = load ptr, ptr %57, align 8
   br i1 %or.cond, label %59, label %._crit_edge
 
@@ -2132,9 +2132,9 @@ define range(i32 -1, 1) i32 @H5Pset_chunk_opts(i64 noundef %0, i32 noundef %1) l
 51:                                               ; preds = %45
   %.lobit = lshr exact i32 %1, 1
   %spec.select = trunc nuw i32 %.lobit to i8
-  %52 = getelementptr inbounds i8, ptr %3, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 %spec.select, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %3, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = icmp ult i32 %54, 4
   br i1 %55, label %56, label %57
@@ -2243,7 +2243,7 @@ define range(i32 -1, 1) i32 @H5Pget_chunk_opts(i64 noundef %0, ptr noundef write
   br i1 %.not16, label %52, label %46
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %3, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %48 = load i8, ptr %47, align 4
   %49 = shl i8 %48, 1
   %50 = and i8 %49, 2
@@ -2350,13 +2350,13 @@ define range(i32 -1, 1) i32 @H5Pset_external(i64 noundef %0, ptr noundef %1, i64
   br label %.thread70
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %5, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %56 = load i64, ptr %55, align 8
   %.not51 = icmp eq i64 %56, 0
   br i1 %.not51, label %.loopexit, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %5, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr %struct.H5O_efl_entry_t, ptr %59, i64 %56
   %61 = getelementptr i8, ptr %60, i64 -8
@@ -2375,7 +2375,7 @@ define range(i32 -1, 1) i32 @H5Pset_external(i64 noundef %0, ptr noundef %1, i64
   br i1 %.not52.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %68
-  %69 = getelementptr inbounds i8, ptr %5, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %70 = load ptr, ptr %69, align 8
   br label %73
 
@@ -2400,19 +2400,19 @@ define range(i32 -1, 1) i32 @H5Pset_external(i64 noundef %0, ptr noundef %1, i64
   br label %.thread70
 
 .loopexit:                                        ; preds = %71, %54, %68
-  %81 = getelementptr inbounds i8, ptr %5, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %82 = load i64, ptr %81, align 8
   %.not53 = icmp ult i64 %56, %82
   br i1 %.not53, label %.loopexit._crit_edge, label %83
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.pre75 = load ptr, ptr %.phi.trans.insert, align 8
   br label %94
 
 83:                                               ; preds = %.loopexit
   %84 = add i64 %82, 16
-  %85 = getelementptr inbounds i8, ptr %5, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %86 = load ptr, ptr %85, align 8
   %87 = shl i64 %84, 5
   %88 = call ptr @H5MM_realloc(ptr noundef %86, i64 noundef %87) #11
@@ -2434,7 +2434,7 @@ define range(i32 -1, 1) i32 @H5Pset_external(i64 noundef %0, ptr noundef %1, i64
 94:                                               ; preds = %.loopexit._crit_edge, %93
   %95 = phi ptr [ %88, %93 ], [ %.pre75, %.loopexit._crit_edge ]
   %96 = phi i64 [ %.pre, %93 ], [ %56, %.loopexit._crit_edge ]
-  %97 = getelementptr inbounds i8, ptr %5, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %98 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %95, i64 %96
   store i64 0, ptr %98, align 8
   %99 = call noalias ptr @H5MM_xstrdup(ptr noundef nonnull %1) #11
@@ -2538,7 +2538,7 @@ define i32 @H5Pget_external_count(i64 noundef %0) local_unnamed_addr #0 {
   br label %.thread19
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = trunc i64 %41 to i32
   %43 = call i32 @H5CX_pop(i1 noundef zeroext true) #11
@@ -2611,7 +2611,7 @@ define range(i32 -1, 1) i32 @H5Pget_external(i64 noundef %0, i32 noundef %1, i64
 
 43:                                               ; preds = %36
   %44 = zext i32 %1 to i64
-  %45 = getelementptr inbounds i8, ptr %7, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %46 = load i64, ptr %45, align 8
   %.not = icmp ugt i64 %46, %44
   br i1 %.not, label %51, label %47
@@ -2629,9 +2629,9 @@ define range(i32 -1, 1) i32 @H5Pget_external(i64 noundef %0, i32 noundef %1, i64
   br i1 %or.cond, label %54, label %60
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %7, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %56, i64 %44, i32 1
+  %57 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %56, i64 %44, i32 1
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr @strncpy(ptr noundef nonnull %3, ptr noundef %58, i64 noundef %2) #11
   br label %60
@@ -2641,9 +2641,9 @@ define range(i32 -1, 1) i32 @H5Pget_external(i64 noundef %0, i32 noundef %1, i64
   br i1 %.not30, label %66, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %7, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %63, i64 %44, i32 2
+  %64 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %63, i64 %44, i32 2
   %65 = load i64, ptr %64, align 8
   store i64 %65, ptr %4, align 8
   br label %66
@@ -2653,9 +2653,9 @@ define range(i32 -1, 1) i32 @H5Pget_external(i64 noundef %0, i32 noundef %1, i64
   br i1 %.not31, label %73, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %7, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %69, i64 %44, i32 3
+  %70 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %69, i64 %44, i32 3
   %71 = load i64, ptr %70, align 8
   store i64 %71, ptr %5, align 8
   br label %73
@@ -2772,7 +2772,7 @@ define range(i32 -1, 1) i32 @H5Pset_szip(i64 noundef %0, i32 noundef %1, i32 nou
   %62 = and i32 %1, -156
   %63 = or disjoint i32 %62, 129
   store i32 %63, ptr %5, align 4
-  %64 = getelementptr inbounds i8, ptr %5, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %64, align 4
   %65 = call i32 @H5P_peek(ptr noundef nonnull %55, ptr noundef nonnull @.str.52, ptr noundef nonnull %4) #11
   %66 = icmp slt i32 %65, 0
@@ -3122,7 +3122,7 @@ define range(i32 -1, 1) i32 @H5Pset_scaleoffset(i64 noundef %0, i32 noundef %1, 
 
 51:                                               ; preds = %44
   store i32 %1, ptr %5, align 4
-  %52 = getelementptr inbounds i8, ptr %5, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %52, align 4
   %53 = call i32 @H5P_peek(ptr noundef nonnull %45, ptr noundef nonnull @.str.52, ptr noundef nonnull %4) #11
   %54 = icmp slt i32 %53, 0
@@ -3247,7 +3247,7 @@ define range(i32 -1, 1) i32 @H5Pset_fill_value(i64 noundef %0, i64 noundef %1, p
 
 49:                                               ; preds = %42
   %50 = call ptr @H5T_copy(ptr noundef nonnull %43, i32 noundef 0) #11
-  %51 = getelementptr inbounds i8, ptr %4, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %50, ptr %51, align 8
   %52 = icmp eq ptr %50, null
   br i1 %52, label %53, label %57
@@ -3260,10 +3260,10 @@ define range(i32 -1, 1) i32 @H5Pset_fill_value(i64 noundef %0, i64 noundef %1, p
 
 57:                                               ; preds = %49
   %58 = call i64 @H5T_get_size(ptr noundef nonnull %43) #11
-  %59 = getelementptr inbounds i8, ptr %4, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 %58, ptr %59, align 8
   %60 = call noalias ptr @malloc(i64 noundef %58) #13
-  %61 = getelementptr inbounds i8, ptr %4, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %60, ptr %61, align 8
   %62 = icmp eq ptr %60, null
   br i1 %62, label %63, label %67
@@ -3336,7 +3336,7 @@ define range(i32 -1, 1) i32 @H5Pset_fill_value(i64 noundef %0, i64 noundef %1, p
   br label %102
 
 100:                                              ; preds = %40
-  %101 = getelementptr inbounds i8, ptr %4, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 -1, ptr %101, align 8
   br label %102
 
@@ -3403,7 +3403,7 @@ define range(i32 -1, 1) i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, 
   br label %90
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %4, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %13 = load i64, ptr %12, align 8
   switch i64 %13, label %20 [
     i64 -1, label %14
@@ -3422,7 +3422,7 @@ define range(i32 -1, 1) i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, 
   br label %90
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %4, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @H5T_path_find(ptr noundef %22, ptr noundef %1) #11
   %24 = icmp eq ptr %23, null
@@ -3516,7 +3516,7 @@ define range(i32 -1, 1) i32 @H5P_get_fill_value(ptr noundef %0, ptr noundef %1, 
 76:                                               ; preds = %65, %67, %47, %49
   %.147 = phi ptr [ %2, %49 ], [ %2, %47 ], [ %59, %67 ], [ %59, %65 ]
   %.145 = phi ptr [ %51, %49 ], [ null, %47 ], [ %70, %67 ], [ null, %65 ]
-  %77 = getelementptr inbounds i8, ptr %4, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %21, align 8
   %80 = call i64 @H5T_get_size(ptr noundef %79) #11
@@ -3685,7 +3685,7 @@ define range(i32 -1, 1) i32 @H5Pget_fill_value(i64 noundef %0, i64 noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5P_is_fill_value_defined(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8
   switch i64 %4, label %13 [
     i64 -1, label %5
@@ -3693,7 +3693,7 @@ define range(i32 -1, 1) i32 @H5P_is_fill_value_defined(ptr nocapture noundef rea
   ]
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %.thread13
@@ -3703,7 +3703,7 @@ define range(i32 -1, 1) i32 @H5P_is_fill_value_defined(ptr nocapture noundef rea
   br label %22
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 8
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %12, label %.thread13
@@ -3717,7 +3717,7 @@ define range(i32 -1, 1) i32 @H5P_is_fill_value_defined(ptr nocapture noundef rea
   br i1 %14, label %15, label %.thread13
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load ptr, ptr %16, align 8
   %.not12 = icmp eq ptr %17, null
   br i1 %.not12, label %.thread13, label %18
@@ -3752,7 +3752,7 @@ define range(i32 -1, 1) i32 @H5P_fill_value_defined(ptr noundef %0, ptr nocaptur
   br label %H5P_is_fill_value_defined.exit.thread
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %3, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %12 = load i64, ptr %11, align 8
   switch i64 %12, label %21 [
     i64 -1, label %13
@@ -3760,7 +3760,7 @@ define range(i32 -1, 1) i32 @H5P_fill_value_defined(ptr noundef %0, ptr nocaptur
   ]
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %26
@@ -3770,7 +3770,7 @@ define range(i32 -1, 1) i32 @H5P_fill_value_defined(ptr noundef %0, ptr nocaptur
   br label %H5P_is_fill_value_defined.exit.thread
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %3, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %19 = load ptr, ptr %18, align 8
   %.not11.i = icmp eq ptr %19, null
   br i1 %.not11.i, label %20, label %26
@@ -3781,7 +3781,7 @@ define range(i32 -1, 1) i32 @H5P_fill_value_defined(ptr noundef %0, ptr nocaptur
 
 21:                                               ; preds = %10
   %22 = icmp slt i64 %12, 1
-  %23 = getelementptr inbounds i8, ptr %3, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %24 = load ptr, ptr %23, align 8
   %.not12.i = icmp eq ptr %24, null
   %or.cond = select i1 %22, i1 true, i1 %.not12.i
@@ -3963,7 +3963,7 @@ define range(i32 -1, 1) i32 @H5Pset_alloc_time(i64 noundef %0, i32 noundef %1) l
 
 switch.lookup:                                    ; preds = %48
   %55 = zext nneg i32 %49 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.H5Pset_alloc_time, i64 0, i64 %55
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.H5Pset_alloc_time, i64 0, i64 %55
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %56
 
@@ -3982,7 +3982,7 @@ switch.lookup:                                    ; preds = %48
   br label %.thread40
 
 63:                                               ; preds = %56
-  %64 = getelementptr inbounds i8, ptr %3, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 %.1, ptr %64, align 8
   %65 = call i32 @H5P_poke(ptr noundef nonnull %33, ptr noundef nonnull @.str.62, ptr noundef nonnull %3) #11
   %66 = icmp slt i32 %65, 0
@@ -4085,7 +4085,7 @@ define range(i32 -1, 1) i32 @H5Pget_alloc_time(i64 noundef %0, ptr noundef write
   br label %.thread28
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %3, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %42 = load i32, ptr %41, align 8
   store i32 %42, ptr %1, align 4
   br label %44
@@ -4174,7 +4174,7 @@ define range(i32 -1, 1) i32 @H5Pset_fill_time(i64 noundef %0, i32 noundef %1) lo
   br label %.thread33
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %3, i64 76
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 76
   store i32 %1, ptr %45, align 4
   %46 = call i32 @H5P_poke(ptr noundef nonnull %31, ptr noundef nonnull @.str.62, ptr noundef nonnull %3) #11
   %47 = icmp slt i32 %46, 0
@@ -4264,7 +4264,7 @@ define range(i32 -1, 1) i32 @H5Pget_fill_time(i64 noundef %0, ptr noundef writeo
   br label %.thread28
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %3, i64 76
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %42 = load i32, ptr %41, align 4
   store i32 %42, ptr %1, align 4
   br label %44
@@ -4518,7 +4518,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
 7:                                                ; preds = %3
   %8 = load i32, ptr %0, align 8
   %9 = trunc i32 %8 to i8
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %10, ptr %1, align 8
   store i8 %9, ptr %6, align 1
   %11 = load i64, ptr %2, align 8
@@ -4531,11 +4531,11 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
   ]
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = trunc i32 %16 to i8
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %19, ptr %1, align 8
   store i8 %17, ptr %18, align 1
   %20 = load i64, ptr %2, align 8
@@ -4546,39 +4546,39 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
   br i1 %.not121, label %.loopexit, label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %24
 
 24:                                               ; preds = %.lr.ph117, %24
   %.0103116 = phi i64 [ 0, %.lr.ph117 ], [ %48, %24 ]
-  %25 = getelementptr inbounds [33 x i32], ptr %23, i64 0, i64 %.0103116
+  %25 = getelementptr inbounds nuw [33 x i32], ptr %23, i64 0, i64 %.0103116
   %26 = load i32, ptr %25, align 4
   %27 = trunc i32 %26 to i8
   %28 = load ptr, ptr %1, align 8
   store i8 %27, ptr %28, align 1
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %30, ptr %1, align 8
   %31 = load i32, ptr %25, align 4
   %32 = lshr i32 %31, 8
   %33 = trunc i32 %32 to i8
   store i8 %33, ptr %30, align 1
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %35, ptr %1, align 8
   %36 = load i32, ptr %25, align 4
   %37 = lshr i32 %36, 16
   %38 = trunc i32 %37 to i8
   store i8 %38, ptr %35, align 1
   %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store ptr %40, ptr %1, align 8
   %41 = load i32, ptr %25, align 4
   %42 = lshr i32 %41, 24
   %43 = trunc nuw i32 %42 to i8
   store i8 %43, ptr %40, align 1
   %44 = load ptr, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %45, ptr %1, align 8
   %46 = load i64, ptr %2, align 8
   %47 = add i64 %46, 4
@@ -4590,7 +4590,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
   br i1 %51, label %24, label %.loopexit
 
 52:                                               ; preds = %7
-  %53 = getelementptr inbounds i8, ptr %0, i64 1936
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1936
   %54 = load i64, ptr %53, align 8
   %55 = load ptr, ptr %1, align 8
   br label %56
@@ -4600,7 +4600,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
   %.0100113 = phi i64 [ 0, %52 ], [ %59, %56 ]
   %.0102112 = phi i64 [ %54, %52 ], [ %60, %56 ]
   %57 = trunc i64 %.0102112 to i8
-  %58 = getelementptr inbounds i8, ptr %.0114, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.0114, i64 1
   store i8 %57, ptr %.0114, align 1
   %59 = add nuw nsw i64 %.0100113, 1
   %60 = lshr i64 %.0102112, 8
@@ -4609,7 +4609,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %1, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %63, ptr %1, align 8
   %64 = load i64, ptr %2, align 8
   %65 = add i64 %64, 8
@@ -4619,7 +4619,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
   br i1 %.not120, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %0, i64 1944
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   br label %68
 
 68:                                               ; preds = %.lr.ph, %120
@@ -4720,7 +4720,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
 134:                                              ; preds = %130
   %135 = add i64 %131, 2
   store i64 %135, ptr %2, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %137 = load i32, ptr %136, align 8
   %138 = zext i32 %137 to i64
   %139 = shl nuw nsw i64 %138, 2
@@ -4731,13 +4731,13 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
 141:                                              ; preds = %130
   %142 = add i64 %131, 9
   store i64 %142, ptr %2, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 1936
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 1936
   %144 = load i64, ptr %143, align 8
   %.not122 = icmp eq i64 %144, 0
   br i1 %.not122, label %.loopexit, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %0, i64 1944
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   br label %146
 
 146:                                              ; preds = %.lr.ph119, %182
@@ -4812,7 +4812,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_enc(ptr nocapture noundef
 define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct.H5O_layout_t, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %5, ptr %0, align 8
   %6 = load i8, ptr %4, align 1
   switch i8 %6, label %211 [
@@ -4826,7 +4826,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
   br label %.loopexit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %4, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %9, ptr %0, align 8
   %10 = load i8, ptr %5, align 1
   %11 = icmp eq i8 %10, 0
@@ -4835,9 +4835,9 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
 12:                                               ; preds = %8
   %13 = zext i8 %10 to i32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2256) %3, ptr noundef nonnull align 8 dereferenceable(2256) @H5D_def_layout_chunk_g, i64 2256, i1 false)
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %wide.trip.count = zext i8 %10 to i64
   br label %16
 
@@ -4846,34 +4846,34 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
   %17 = phi ptr [ %9, %12 ], [ %36, %16 ]
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds [33 x i32], ptr %15, i64 0, i64 %indvars.iv
-  %21 = getelementptr inbounds i8, ptr %17, i64 1
+  %20 = getelementptr inbounds nuw [33 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %21, ptr %0, align 8
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = shl nuw nsw i32 %23, 8
   %25 = or disjoint i32 %24, %19
-  %26 = getelementptr inbounds i8, ptr %17, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 2
   store ptr %26, ptr %0, align 8
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = shl nuw nsw i32 %28, 16
   %30 = or disjoint i32 %29, %25
-  %31 = getelementptr inbounds i8, ptr %17, i64 3
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 3
   store ptr %31, ptr %0, align 8
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = shl nuw i32 %33, 24
   %35 = or disjoint i32 %34, %30
   store i32 %35, ptr %20, align 4
-  %36 = getelementptr inbounds i8, ptr %17, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store ptr %36, ptr %0, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond118.not, label %.loopexit, label %16
 
 37:                                               ; preds = %2
-  %38 = getelementptr inbounds i8, ptr %4, i64 9
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 9
   br label %39
 
 39:                                               ; preds = %37, %39
@@ -4891,7 +4891,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
   br i1 %exitcond.not, label %47, label %39
 
 47:                                               ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %40, i64 7
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 7
   store ptr %48, ptr %0, align 8
   %49 = icmp eq i64 %45, 0
   br i1 %49, label %.loopexit, label %50
@@ -4900,7 +4900,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2256) %3, ptr noundef nonnull align 8 dereferenceable(2256) @H5D_def_layout_virtual_g, i64 2256, i1 false)
   %51 = mul i64 %45, 224
   %52 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %51) #14
-  %53 = getelementptr inbounds i8, ptr %3, i64 1944
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 1944
   store ptr %52, ptr %53, align 8
   %54 = icmp eq ptr %52, null
   br i1 %54, label %55, label %59
@@ -4912,9 +4912,9 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
   br label %215
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds i8, ptr %3, i64 1952
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 1952
   store i64 %45, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %3, i64 1936
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 1936
   store i64 %45, ptr %61, align 8
   br label %65
 
@@ -5010,11 +5010,11 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
   store i32 2, ptr %122, align 4
   %123 = load ptr, ptr %53, align 8
   %124 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %123, i64 %.0113
-  %125 = getelementptr inbounds i8, ptr %124, i64 64
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 64
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %124, i64 128
-  %128 = getelementptr inbounds i8, ptr %124, i64 136
-  %129 = getelementptr inbounds i8, ptr %124, i64 144
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 128
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 136
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 144
   %130 = call i32 @H5D_virtual_parse_source_name(ptr noundef %126, ptr noundef nonnull %127, ptr noundef nonnull %128, ptr noundef nonnull %129) #11
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %132, label %136
@@ -5028,11 +5028,11 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
 136:                                              ; preds = %120
   %137 = load ptr, ptr %53, align 8
   %138 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %137, i64 %.0113
-  %139 = getelementptr inbounds i8, ptr %138, i64 72
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 72
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %138, i64 152
-  %142 = getelementptr inbounds i8, ptr %138, i64 160
-  %143 = getelementptr inbounds i8, ptr %138, i64 168
+  %141 = getelementptr inbounds nuw i8, ptr %138, i64 152
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 160
+  %143 = getelementptr inbounds nuw i8, ptr %138, i64 168
   %144 = call i32 @H5D_virtual_parse_source_name(ptr noundef %140, ptr noundef nonnull %141, ptr noundef nonnull %142, ptr noundef nonnull %143) #11
   %145 = icmp slt i32 %144, 0
   br i1 %145, label %146, label %150
@@ -5046,35 +5046,35 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
 150:                                              ; preds = %136
   %151 = load ptr, ptr %53, align 8
   %152 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %151, i64 %.0113
-  %153 = getelementptr inbounds i8, ptr %152, i64 144
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 144
   %154 = load i64, ptr %153, align 8
   %155 = icmp eq i64 %154, 0
   br i1 %155, label %156, label %170
 
 156:                                              ; preds = %150
-  %157 = getelementptr inbounds i8, ptr %152, i64 168
+  %157 = getelementptr inbounds nuw i8, ptr %152, i64 168
   %158 = load i64, ptr %157, align 8
   %159 = icmp eq i64 %158, 0
   br i1 %159, label %.sink.split, label %170
 
 .sink.split:                                      ; preds = %156
-  %160 = getelementptr inbounds i8, ptr %152, i64 128
+  %160 = getelementptr inbounds nuw i8, ptr %152, i64 128
   %161 = load ptr, ptr %160, align 8
   %.not = icmp eq ptr %161, null
-  %162 = getelementptr inbounds i8, ptr %152, i64 64
+  %162 = getelementptr inbounds nuw i8, ptr %152, i64 64
   %spec.select = select i1 %.not, ptr %162, ptr %161
   %.sink = load ptr, ptr %spec.select, align 8
-  %163 = getelementptr inbounds i8, ptr %152, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %.sink, ptr %163, align 8
   %164 = load ptr, ptr %53, align 8
   %165 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %164, i64 %.0113
-  %166 = getelementptr inbounds i8, ptr %165, i64 152
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 152
   %167 = load ptr, ptr %166, align 8
   %.not109 = icmp eq ptr %167, null
-  %168 = getelementptr inbounds i8, ptr %165, i64 72
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 72
   %.sink121.in = select i1 %.not109, ptr %168, ptr %167
   %.sink121 = load ptr, ptr %.sink121.in, align 8
-  %169 = getelementptr inbounds i8, ptr %165, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store ptr %.sink121, ptr %169, align 8
   br label %170
 
@@ -5107,20 +5107,20 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_layout_dec(ptr noundef %0, ptr n
   store i64 -1, ptr %190, align 8
   %191 = load ptr, ptr %53, align 8
   %192 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %191, i64 %.0113
-  %193 = getelementptr inbounds i8, ptr %192, i64 180
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 180
   %194 = load i32, ptr %193, align 4
   %195 = icmp slt i32 %194, 0
   br i1 %195, label %196, label %204
 
 196:                                              ; preds = %170
-  %197 = getelementptr inbounds i8, ptr %192, i64 80
+  %197 = getelementptr inbounds nuw i8, ptr %192, i64 80
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %192, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %192, i64 24
   store ptr %198, ptr %199, align 8
   %200 = load ptr, ptr %53, align 8
   %201 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %200, i64 %.0113
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %201, i64 32
+  %203 = getelementptr inbounds nuw i8, ptr %201, i64 32
   store ptr %202, ptr %203, align 8
   br label %204
 
@@ -5208,9 +5208,9 @@ define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr nocapture noundef
   ]
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %12, %14
   br i1 %15, label %.loopexit, label %16
@@ -5220,13 +5220,13 @@ define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr nocapture noundef
   br i1 %17, label %.loopexit, label %.preheader82
 
 .preheader82:                                     ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = add i32 %12, -1
   %.not117 = icmp eq i32 %19, 0
   br i1 %.not117, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader82
-  %20 = getelementptr inbounds i8, ptr %1, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %wide.trip.count = zext i32 %19 to i64
   br label %22
 
@@ -5237,9 +5237,9 @@ define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr nocapture noundef
 
 22:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %23 = getelementptr inbounds [33 x i32], ptr %18, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [33 x i32], ptr %18, i64 0, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds [33 x i32], ptr %20, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [33 x i32], ptr %20, i64 0, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = icmp ult i32 %24, %26
   br i1 %27, label %.loopexit, label %28
@@ -5249,9 +5249,9 @@ define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr nocapture noundef
   br i1 %29, label %.loopexit, label %21
 
 30:                                               ; preds = %9
-  %31 = getelementptr inbounds i8, ptr %0, i64 1936
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1936
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 1936
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1936
   %34 = load i64, ptr %33, align 8
   %35 = icmp ult i64 %32, %34
   br i1 %35, label %.loopexit, label %36
@@ -5261,12 +5261,12 @@ define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr nocapture noundef
   br i1 %37, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 1944
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   %.not118 = icmp eq i64 %32, 0
   br i1 %.not118, label %.loopexit, label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %.preheader
-  %39 = getelementptr inbounds i8, ptr %1, i64 1944
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 1944
   br label %44
 
 40:                                               ; preds = %101
@@ -5309,11 +5309,11 @@ define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr nocapture noundef
 64:                                               ; preds = %63
   %65 = load ptr, ptr %38, align 8
   %66 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %65, i64 %.090
-  %67 = getelementptr inbounds i8, ptr %66, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %39, align 8
   %70 = getelementptr inbounds %struct.H5O_storage_virtual_ent_t, ptr %69, i64 %.090
-  %71 = getelementptr inbounds i8, ptr %70, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 64
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(1) %72) #12
   %74 = icmp slt i32 %73, 0
@@ -5324,9 +5324,9 @@ define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr nocapture noundef
   br i1 %.not78, label %76, label %.loopexit
 
 76:                                               ; preds = %75
-  %77 = getelementptr inbounds i8, ptr %66, i64 72
+  %77 = getelementptr inbounds nuw i8, ptr %66, i64 72
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %70, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %80 = load ptr, ptr %79, align 8
   %81 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %80) #12
   %82 = icmp slt i32 %81, 0
@@ -5337,9 +5337,9 @@ define internal range(i32 -1, 2) i32 @H5P__dcrt_layout_cmp(ptr nocapture noundef
   br i1 %.not79, label %84, label %.loopexit
 
 84:                                               ; preds = %83
-  %85 = getelementptr inbounds i8, ptr %66, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %66, i64 80
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %70, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %70, i64 80
   %88 = load ptr, ptr %87, align 8
   %89 = tail call i32 @H5S_extent_equal(ptr noundef %86, ptr noundef %88) #11
   %90 = icmp slt i32 %89, 0
@@ -5439,20 +5439,20 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr nocapture nou
   br i1 %.not, label %123, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
   %9 = trunc i32 %8 to i8
-  %10 = getelementptr inbounds i8, ptr %5, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %10, ptr %1, align 8
   store i8 %9, ptr %5, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 76
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %12 = load i32, ptr %11, align 4
   %13 = trunc i32 %12 to i8
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %15, ptr %1, align 8
   store i8 %13, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i64, ptr %16, align 8
   %18 = load ptr, ptr %1, align 8
   br label %19
@@ -5462,7 +5462,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr nocapture nou
   %.06181 = phi i64 [ 0, %6 ], [ %22, %19 ]
   %.06380 = phi i64 [ %17, %6 ], [ %23, %19 ]
   %20 = trunc i64 %.06380 to i8
-  %21 = getelementptr inbounds i8, ptr %.06082, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.06082, i64 1
   store i8 %20, ptr %.06082, align 1
   %22 = add nuw nsw i64 %.06181, 1
   %23 = ashr i64 %.06380, 8
@@ -5471,21 +5471,21 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr nocapture nou
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %26, ptr %1, align 8
   %27 = load i64, ptr %16, align 8
   %28 = icmp sgt i64 %27, 0
   br i1 %28, label %29, label %123
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load ptr, ptr %30, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %31, i64 %27, i1 false)
   %32 = load i64, ptr %16, align 8
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
   store ptr %34, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @H5T_encode(ptr noundef %36, ptr noundef null, ptr noundef nonnull %4) #11
   %38 = icmp slt i32 %37, 0
@@ -5514,14 +5514,14 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr nocapture nou
 
 49:                                               ; preds = %48
   %50 = lshr i64 %44, 56
-  %51 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %50
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = add nuw nsw i32 %53, 56
   br label %H5VM_limit_enc_size.exit
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %47
+  %56 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %47
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = add nuw nsw i32 %58, 48
@@ -5533,14 +5533,14 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr nocapture nou
 
 61:                                               ; preds = %60
   %62 = lshr i64 %44, 40
-  %63 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = add nuw nsw i32 %65, 40
   br label %H5VM_limit_enc_size.exit
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %45
+  %68 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %45
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = add nuw nsw i32 %70, 32
@@ -5557,14 +5557,14 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr nocapture nou
 
 75:                                               ; preds = %74
   %76 = lshr i64 %44, 24
-  %77 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
   %80 = add nuw nsw i32 %79, 24
   br label %H5VM_limit_enc_size.exit
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %73
+  %82 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %73
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   %85 = add nuw nsw i32 %84, 16
@@ -5576,14 +5576,14 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_enc(ptr nocapture nou
 
 87:                                               ; preds = %86
   %88 = lshr i64 %44, 8
-  %89 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = add nuw nsw i32 %91, 8
   br label %H5VM_limit_enc_size.exit
 
 93:                                               ; preds = %86
-  %94 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %44
+  %94 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %44
   %95 = load i8, ptr %94, align 1
   %96 = zext i8 %95 to i32
   br label %H5VM_limit_enc_size.exit
@@ -5594,7 +5594,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %49, %55, %61, %67, 
   %98 = add nuw nsw i32 %97, 1
   %99 = trunc nuw nsw i32 %98 to i8
   %100 = load ptr, ptr %1, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
   store ptr %101, ptr %1, align 8
   store i8 %99, ptr %100, align 1
   %102 = load ptr, ptr %1, align 8
@@ -5606,7 +5606,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %49, %55, %61, %67, 
   %.05884 = phi i64 [ 0, %H5VM_limit_enc_size.exit ], [ %107, %104 ]
   %.05983 = phi i64 [ %44, %H5VM_limit_enc_size.exit ], [ %108, %104 ]
   %105 = trunc i64 %.05983 to i8
-  %106 = getelementptr inbounds i8, ptr %.085, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %.085, i64 1
   store i8 %105, ptr %.085, align 1
   %107 = add nuw nsw i64 %.05884, 1
   %108 = lshr i64 %.05983, 8
@@ -5615,7 +5615,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %49, %55, %61, %67, 
 
 109:                                              ; preds = %104
   %110 = load ptr, ptr %1, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 %103
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %103
   store ptr %111, ptr %1, align 8
   %112 = load ptr, ptr %35, align 8
   %113 = call i32 @H5T_encode(ptr noundef %112, ptr noundef nonnull %111, ptr noundef nonnull %4) #11
@@ -5640,7 +5640,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %49, %55, %61, %67, 
   %124 = load i64, ptr %2, align 8
   %125 = add i64 %124, 10
   store i64 %125, ptr %2, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %127 = load i64, ptr %126, align 8
   %128 = icmp sgt i64 %127, 0
   br i1 %128, label %129, label %205
@@ -5657,7 +5657,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %49, %55, %61, %67, 
   br label %198
 
 133:                                              ; preds = %129
-  %134 = getelementptr inbounds i8, ptr %0, i64 48
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %135 = load ptr, ptr %134, align 8
   %136 = call i32 @H5T_encode(ptr noundef %135, ptr noundef null, ptr noundef nonnull %4) #11
   %137 = icmp slt i32 %136, 0
@@ -5686,14 +5686,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %49, %55, %61, %67, 
 
 148:                                              ; preds = %147
   %149 = lshr i64 %143, 56
-  %150 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %149
+  %150 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %149
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
   %153 = add nuw nsw i32 %152, 56
   br label %H5VM_limit_enc_size.exit79
 
 154:                                              ; preds = %147
-  %155 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %146
+  %155 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %146
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i32
   %158 = add nuw nsw i32 %157, 48
@@ -5705,14 +5705,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %49, %55, %61, %67, 
 
 160:                                              ; preds = %159
   %161 = lshr i64 %143, 40
-  %162 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %161
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i32
   %165 = add nuw nsw i32 %164, 40
   br label %H5VM_limit_enc_size.exit79
 
 166:                                              ; preds = %159
-  %167 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %144
+  %167 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %144
   %168 = load i8, ptr %167, align 1
   %169 = zext i8 %168 to i32
   %170 = add nuw nsw i32 %169, 32
@@ -5729,14 +5729,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %49, %55, %61, %67, 
 
 174:                                              ; preds = %173
   %175 = lshr i64 %143, 24
-  %176 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %175
   %177 = load i8, ptr %176, align 1
   %178 = zext i8 %177 to i32
   %179 = add nuw nsw i32 %178, 24
   br label %H5VM_limit_enc_size.exit79
 
 180:                                              ; preds = %173
-  %181 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %172
+  %181 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %172
   %182 = load i8, ptr %181, align 1
   %183 = zext i8 %182 to i32
   %184 = add nuw nsw i32 %183, 16
@@ -5748,14 +5748,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %49, %55, %61, %67, 
 
 186:                                              ; preds = %185
   %187 = lshr i64 %143, 8
-  %188 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %187
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i32
   %191 = add nuw nsw i32 %190, 8
   br label %H5VM_limit_enc_size.exit79
 
 192:                                              ; preds = %185
-  %193 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %143
+  %193 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %143
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
   br label %H5VM_limit_enc_size.exit79
@@ -5787,23 +5787,23 @@ H5VM_limit_enc_size.exit79:                       ; preds = %148, %154, %160, %1
 define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_dec(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 88)) %1) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) @H5D_def_fill_g, i64 88, i1 false)
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %6 = zext i8 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %9, ptr %0, align 8
   %10 = load i8, ptr %8, align 1
   %11 = zext i8 %10 to i32
-  %12 = getelementptr inbounds i8, ptr %1, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 76
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 0, ptr %13, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %15, ptr %0, align 8
   %.pre = load i64, ptr %13, align 8
   br label %16
@@ -5825,7 +5825,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_dec(ptr nocapture nou
 
 25:                                               ; preds = %16
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %27, ptr %0, align 8
   %28 = load i64, ptr %13, align 8
   %29 = icmp sgt i64 %28, 0
@@ -5833,7 +5833,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_dec(ptr nocapture nou
 
 30:                                               ; preds = %25
   %31 = tail call noalias ptr @malloc(i64 noundef %28) #13
-  %32 = getelementptr inbounds i8, ptr %1, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %31, ptr %32, align 8
   %33 = icmp eq ptr %31, null
   br i1 %33, label %34, label %38
@@ -5847,12 +5847,12 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_dec(ptr nocapture nou
 38:                                               ; preds = %30
   %39 = load ptr, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %39, i64 %28, i1 false)
-  %40 = getelementptr inbounds i8, ptr %39, i64 %28
-  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %28
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %41, ptr %0, align 8
   %42 = load i8, ptr %40, align 1
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
   %.not = icmp eq i8 %42, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -5873,10 +5873,10 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_dec(ptr nocapture nou
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   %52 = phi ptr [ %44, %38 ], [ %47, %.lr.ph ]
   %.042.lcssa = phi i64 [ 0, %38 ], [ %50, %.lr.ph ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 %43
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %43
   store ptr %53, ptr %0, align 8
   %54 = tail call ptr @H5T_decode(i64 noundef %.042.lcssa, ptr noundef %53) #11
-  %55 = getelementptr inbounds i8, ptr %1, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %54, ptr %55, align 8
   %56 = icmp eq ptr %54, null
   br i1 %56, label %57, label %61
@@ -6006,7 +6006,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_get(i64 %0, ptr no
 define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #8 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br i1 %.not, label %.loopexit, label %5
 
@@ -6026,14 +6026,14 @@ define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr nocapture noundef r
 
 10:                                               ; preds = %9
   %11 = lshr i64 %.pre, 56
-  %12 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %14, 56
   br label %H5VM_limit_enc_size.exit
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %8
+  %17 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = add nuw nsw i32 %19, 48
@@ -6045,14 +6045,14 @@ define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr nocapture noundef r
 
 22:                                               ; preds = %21
   %23 = lshr i64 %.pre, 40
-  %24 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %26, 40
   br label %H5VM_limit_enc_size.exit
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %6
+  %29 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %6
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %31, 32
@@ -6069,14 +6069,14 @@ define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr nocapture noundef r
 
 36:                                               ; preds = %35
   %37 = lshr i64 %.pre, 24
-  %38 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = add nuw nsw i32 %40, 24
   br label %H5VM_limit_enc_size.exit
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %34
+  %43 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %34
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
   %46 = add nuw nsw i32 %45, 16
@@ -6088,14 +6088,14 @@ define internal noundef i32 @H5P__dcrt_ext_file_list_enc(ptr nocapture noundef r
 
 48:                                               ; preds = %47
   %49 = lshr i64 %.pre, 8
-  %50 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = add nuw nsw i32 %52, 8
   br label %H5VM_limit_enc_size.exit
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %.pre
+  %55 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %.pre
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   br label %H5VM_limit_enc_size.exit
@@ -6105,7 +6105,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %10, %16, %22, %28, 
   %58 = lshr i32 %.0.i.i, 3
   %59 = add nuw nsw i32 %58, 1
   %60 = trunc nuw nsw i32 %59 to i8
-  %61 = getelementptr inbounds i8, ptr %4, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %61, ptr %1, align 8
   store i8 %60, ptr %4, align 1
   %62 = load ptr, ptr %1, align 8
@@ -6117,7 +6117,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %10, %16, %22, %28, 
   %.0101175 = phi i64 [ 0, %H5VM_limit_enc_size.exit ], [ %67, %64 ]
   %.0102174 = phi i64 [ %.pre, %H5VM_limit_enc_size.exit ], [ %68, %64 ]
   %65 = trunc i64 %.0102174 to i8
-  %66 = getelementptr inbounds i8, ptr %.0100176, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.0100176, i64 1
   store i8 %65, ptr %.0100176, align 1
   %67 = add nuw nsw i64 %.0101175, 1
   %68 = lshr i64 %.0102174, 8
@@ -6126,18 +6126,18 @@ H5VM_limit_enc_size.exit:                         ; preds = %10, %16, %22, %28, 
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %1, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 %63
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %63
   store ptr %71, ptr %1, align 8
   %72 = load i64, ptr %.phi.trans.insert, align 8
   %.not189 = icmp eq i64 %72, 0
   br i1 %.not189, label %.thread196, label %.lr.ph
 
 .thread196:                                       ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %344
 
 .lr.ph:                                           ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %0, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %75
 
 75:                                               ; preds = %.lr.ph, %288
@@ -6163,14 +6163,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %10, %16, %22, %28, 
 
 86:                                               ; preds = %85
   %87 = lshr i64 %81, 56
-  %88 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = add nuw nsw i32 %90, 56
   br label %H5VM_limit_enc_size.exit116
 
 92:                                               ; preds = %85
-  %93 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %84
+  %93 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %84
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = add nuw nsw i32 %95, 48
@@ -6182,14 +6182,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %10, %16, %22, %28, 
 
 98:                                               ; preds = %97
   %99 = lshr i64 %81, 40
-  %100 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %99
+  %100 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %99
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i32
   %103 = add nuw nsw i32 %102, 40
   br label %H5VM_limit_enc_size.exit116
 
 104:                                              ; preds = %97
-  %105 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %82
+  %105 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %82
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   %108 = add nuw nsw i32 %107, 32
@@ -6206,14 +6206,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %10, %16, %22, %28, 
 
 112:                                              ; preds = %111
   %113 = lshr i64 %81, 24
-  %114 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = add nuw nsw i32 %116, 24
   br label %H5VM_limit_enc_size.exit116
 
 118:                                              ; preds = %111
-  %119 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %110
+  %119 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %110
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i32
   %122 = add nuw nsw i32 %121, 16
@@ -6225,14 +6225,14 @@ H5VM_limit_enc_size.exit:                         ; preds = %10, %16, %22, %28, 
 
 124:                                              ; preds = %123
   %125 = lshr i64 %81, 8
-  %126 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %125
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i32
   %129 = add nuw nsw i32 %128, 8
   br label %H5VM_limit_enc_size.exit116
 
 130:                                              ; preds = %123
-  %131 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %81
+  %131 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %81
   %132 = load i8, ptr %131, align 1
   %133 = zext i8 %132 to i32
   br label %H5VM_limit_enc_size.exit116
@@ -6242,7 +6242,7 @@ H5VM_limit_enc_size.exit116:                      ; preds = %86, %92, %98, %104,
   %134 = lshr i32 %.0.i.i111, 3
   %135 = add nuw nsw i32 %134, 1
   %136 = trunc nuw nsw i32 %135 to i8
-  %137 = getelementptr inbounds i8, ptr %76, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %76, i64 1
   store ptr %137, ptr %1, align 8
   store i8 %136, ptr %76, align 1
   %138 = load ptr, ptr %1, align 8
@@ -6254,7 +6254,7 @@ H5VM_limit_enc_size.exit116:                      ; preds = %86, %92, %98, %104,
   %.098178 = phi i64 [ 0, %H5VM_limit_enc_size.exit116 ], [ %143, %140 ]
   %.099177 = phi i64 [ %81, %H5VM_limit_enc_size.exit116 ], [ %144, %140 ]
   %141 = trunc i64 %.099177 to i8
-  %142 = getelementptr inbounds i8, ptr %.097179, i64 1
+  %142 = getelementptr inbounds nuw i8, ptr %.097179, i64 1
   store i8 %141, ptr %.097179, align 1
   %143 = add nuw nsw i64 %.098178, 1
   %144 = lshr i64 %.099177, 8
@@ -6263,7 +6263,7 @@ H5VM_limit_enc_size.exit116:                      ; preds = %86, %92, %98, %104,
 
 145:                                              ; preds = %140
   %146 = load ptr, ptr %1, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 %139
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 %139
   store ptr %147, ptr %1, align 8
   %148 = load ptr, ptr %74, align 8
   %149 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %148, i64 %.0103186, i32 1
@@ -6290,14 +6290,14 @@ H5VM_limit_enc_size.exit116:                      ; preds = %86, %92, %98, %104,
 
 160:                                              ; preds = %159
   %161 = lshr i64 %155, 56
-  %162 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %161
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i32
   %165 = add nuw nsw i32 %164, 56
   br label %H5VM_limit_enc_size.exit125
 
 166:                                              ; preds = %159
-  %167 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %158
+  %167 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %158
   %168 = load i8, ptr %167, align 1
   %169 = zext i8 %168 to i32
   %170 = add nuw nsw i32 %169, 48
@@ -6309,14 +6309,14 @@ H5VM_limit_enc_size.exit116:                      ; preds = %86, %92, %98, %104,
 
 172:                                              ; preds = %171
   %173 = lshr i64 %155, 40
-  %174 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %173
+  %174 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %173
   %175 = load i8, ptr %174, align 1
   %176 = zext i8 %175 to i32
   %177 = add nuw nsw i32 %176, 40
   br label %H5VM_limit_enc_size.exit125
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %156
+  %179 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %156
   %180 = load i8, ptr %179, align 1
   %181 = zext i8 %180 to i32
   %182 = add nuw nsw i32 %181, 32
@@ -6333,14 +6333,14 @@ H5VM_limit_enc_size.exit116:                      ; preds = %86, %92, %98, %104,
 
 186:                                              ; preds = %185
   %187 = lshr i64 %155, 24
-  %188 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %187
+  %188 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %187
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i32
   %191 = add nuw nsw i32 %190, 24
   br label %H5VM_limit_enc_size.exit125
 
 192:                                              ; preds = %185
-  %193 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %184
+  %193 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %184
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
   %196 = add nuw nsw i32 %195, 16
@@ -6352,14 +6352,14 @@ H5VM_limit_enc_size.exit116:                      ; preds = %86, %92, %98, %104,
 
 198:                                              ; preds = %197
   %199 = lshr i64 %155, 8
-  %200 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %199
+  %200 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %199
   %201 = load i8, ptr %200, align 1
   %202 = zext i8 %201 to i32
   %203 = add nuw nsw i32 %202, 8
   br label %H5VM_limit_enc_size.exit125
 
 204:                                              ; preds = %197
-  %205 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %155
+  %205 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %155
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i32
   br label %H5VM_limit_enc_size.exit125
@@ -6369,7 +6369,7 @@ H5VM_limit_enc_size.exit125:                      ; preds = %160, %166, %172, %1
   %208 = lshr i32 %.0.i.i120, 3
   %209 = add nuw nsw i32 %208, 1
   %210 = trunc nuw nsw i32 %209 to i8
-  %211 = getelementptr inbounds i8, ptr %152, i64 1
+  %211 = getelementptr inbounds nuw i8, ptr %152, i64 1
   store ptr %211, ptr %1, align 8
   store i8 %210, ptr %152, align 1
   %212 = load ptr, ptr %1, align 8
@@ -6381,7 +6381,7 @@ H5VM_limit_enc_size.exit125:                      ; preds = %160, %166, %172, %1
   %.095181 = phi i64 [ 0, %H5VM_limit_enc_size.exit125 ], [ %217, %214 ]
   %.096180 = phi i64 [ %155, %H5VM_limit_enc_size.exit125 ], [ %218, %214 ]
   %215 = trunc i64 %.096180 to i8
-  %216 = getelementptr inbounds i8, ptr %.094182, i64 1
+  %216 = getelementptr inbounds nuw i8, ptr %.094182, i64 1
   store i8 %215, ptr %.094182, align 1
   %217 = add nuw nsw i64 %.095181, 1
   %218 = lshr i64 %.096180, 8
@@ -6390,7 +6390,7 @@ H5VM_limit_enc_size.exit125:                      ; preds = %160, %166, %172, %1
 
 219:                                              ; preds = %214
   %220 = load ptr, ptr %1, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 %213
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %213
   store ptr %221, ptr %1, align 8
   %222 = load ptr, ptr %74, align 8
   %223 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %222, i64 %.0103186, i32 3
@@ -6410,14 +6410,14 @@ H5VM_limit_enc_size.exit125:                      ; preds = %160, %166, %172, %1
 
 229:                                              ; preds = %228
   %230 = lshr i64 %224, 56
-  %231 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %230
+  %231 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %230
   %232 = load i8, ptr %231, align 1
   %233 = zext i8 %232 to i32
   %234 = add nuw nsw i32 %233, 56
   br label %H5VM_limit_enc_size.exit134
 
 235:                                              ; preds = %228
-  %236 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %227
+  %236 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %227
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i32
   %239 = add nuw nsw i32 %238, 48
@@ -6429,14 +6429,14 @@ H5VM_limit_enc_size.exit125:                      ; preds = %160, %166, %172, %1
 
 241:                                              ; preds = %240
   %242 = lshr i64 %224, 40
-  %243 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %242
+  %243 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %242
   %244 = load i8, ptr %243, align 1
   %245 = zext i8 %244 to i32
   %246 = add nuw nsw i32 %245, 40
   br label %H5VM_limit_enc_size.exit134
 
 247:                                              ; preds = %240
-  %248 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %225
+  %248 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %225
   %249 = load i8, ptr %248, align 1
   %250 = zext i8 %249 to i32
   %251 = add nuw nsw i32 %250, 32
@@ -6453,14 +6453,14 @@ H5VM_limit_enc_size.exit125:                      ; preds = %160, %166, %172, %1
 
 255:                                              ; preds = %254
   %256 = lshr i64 %224, 24
-  %257 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %256
+  %257 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %256
   %258 = load i8, ptr %257, align 1
   %259 = zext i8 %258 to i32
   %260 = add nuw nsw i32 %259, 24
   br label %H5VM_limit_enc_size.exit134
 
 261:                                              ; preds = %254
-  %262 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %253
+  %262 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %253
   %263 = load i8, ptr %262, align 1
   %264 = zext i8 %263 to i32
   %265 = add nuw nsw i32 %264, 16
@@ -6472,14 +6472,14 @@ H5VM_limit_enc_size.exit125:                      ; preds = %160, %166, %172, %1
 
 267:                                              ; preds = %266
   %268 = lshr i64 %224, 8
-  %269 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %268
+  %269 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %268
   %270 = load i8, ptr %269, align 1
   %271 = zext i8 %270 to i32
   %272 = add nuw nsw i32 %271, 8
   br label %H5VM_limit_enc_size.exit134
 
 273:                                              ; preds = %266
-  %274 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %224
+  %274 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %224
   %275 = load i8, ptr %274, align 1
   %276 = zext i8 %275 to i32
   br label %H5VM_limit_enc_size.exit134
@@ -6489,7 +6489,7 @@ H5VM_limit_enc_size.exit134:                      ; preds = %229, %235, %241, %2
   %277 = lshr i32 %.0.i.i129, 3
   %278 = add nuw nsw i32 %277, 1
   %279 = trunc nuw nsw i32 %278 to i8
-  %280 = getelementptr inbounds i8, ptr %221, i64 1
+  %280 = getelementptr inbounds nuw i8, ptr %221, i64 1
   store ptr %280, ptr %1, align 8
   store i8 %279, ptr %221, align 1
   %281 = load ptr, ptr %1, align 8
@@ -6501,7 +6501,7 @@ H5VM_limit_enc_size.exit134:                      ; preds = %229, %235, %241, %2
   %.092184 = phi i64 [ 0, %H5VM_limit_enc_size.exit134 ], [ %286, %283 ]
   %.093183 = phi i64 [ %224, %H5VM_limit_enc_size.exit134 ], [ %287, %283 ]
   %284 = trunc i64 %.093183 to i8
-  %285 = getelementptr inbounds i8, ptr %.0185, i64 1
+  %285 = getelementptr inbounds nuw i8, ptr %.0185, i64 1
   store i8 %284, ptr %.0185, align 1
   %286 = add nuw nsw i64 %.092184, 1
   %287 = lshr i64 %.093183, 8
@@ -6510,7 +6510,7 @@ H5VM_limit_enc_size.exit134:                      ; preds = %229, %235, %241, %2
 
 288:                                              ; preds = %283
   %289 = load ptr, ptr %1, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 %282
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 %282
   store ptr %290, ptr %1, align 8
   %291 = add nuw i64 %.0103186, 1
   %292 = load i64, ptr %.phi.trans.insert, align 8
@@ -6519,7 +6519,7 @@ H5VM_limit_enc_size.exit134:                      ; preds = %229, %235, %241, %2
 
 .loopexit:                                        ; preds = %288, %3
   %294 = phi i64 [ %.pre, %3 ], [ %292, %288 ]
-  %295 = getelementptr inbounds i8, ptr %0, i64 16
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %296 = lshr i64 %294, 32
   %.not.i.i135 = icmp ult i64 %294, 4294967296
   br i1 %.not.i.i135, label %323, label %297
@@ -6535,14 +6535,14 @@ H5VM_limit_enc_size.exit134:                      ; preds = %229, %235, %241, %2
 
 300:                                              ; preds = %299
   %301 = lshr i64 %294, 56
-  %302 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %301
+  %302 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %301
   %303 = load i8, ptr %302, align 1
   %304 = zext i8 %303 to i32
   %305 = add nuw nsw i32 %304, 56
   br label %H5VM_limit_enc_size.exit143
 
 306:                                              ; preds = %299
-  %307 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %298
+  %307 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %298
   %308 = load i8, ptr %307, align 1
   %309 = zext i8 %308 to i32
   %310 = add nuw nsw i32 %309, 48
@@ -6554,14 +6554,14 @@ H5VM_limit_enc_size.exit134:                      ; preds = %229, %235, %241, %2
 
 312:                                              ; preds = %311
   %313 = lshr i64 %294, 40
-  %314 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %313
+  %314 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %313
   %315 = load i8, ptr %314, align 1
   %316 = zext i8 %315 to i32
   %317 = add nuw nsw i32 %316, 40
   br label %H5VM_limit_enc_size.exit143
 
 318:                                              ; preds = %311
-  %319 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %296
+  %319 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %296
   %320 = load i8, ptr %319, align 1
   %321 = zext i8 %320 to i32
   %322 = add nuw nsw i32 %321, 32
@@ -6578,14 +6578,14 @@ H5VM_limit_enc_size.exit134:                      ; preds = %229, %235, %241, %2
 
 326:                                              ; preds = %325
   %327 = lshr i64 %294, 24
-  %328 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %327
+  %328 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %327
   %329 = load i8, ptr %328, align 1
   %330 = zext i8 %329 to i32
   %331 = add nuw nsw i32 %330, 24
   br label %H5VM_limit_enc_size.exit143
 
 332:                                              ; preds = %325
-  %333 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %324
+  %333 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %324
   %334 = load i8, ptr %333, align 1
   %335 = zext i8 %334 to i32
   %336 = add nuw nsw i32 %335, 16
@@ -6597,7 +6597,7 @@ H5VM_limit_enc_size.exit134:                      ; preds = %229, %235, %241, %2
 
 338:                                              ; preds = %337
   %339 = lshr i64 %294, 8
-  %340 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %339
+  %340 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %339
   %341 = load i8, ptr %340, align 1
   %342 = zext i8 %341 to i32
   %343 = add nuw nsw i32 %342, 8
@@ -6606,7 +6606,7 @@ H5VM_limit_enc_size.exit134:                      ; preds = %229, %235, %241, %2
 344:                                              ; preds = %.thread196, %337
   %345 = phi ptr [ %73, %.thread196 ], [ %295, %337 ]
   %346 = phi i64 [ 0, %.thread196 ], [ %294, %337 ]
-  %347 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %346
+  %347 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %346
   %348 = load i8, ptr %347, align 1
   %349 = zext i8 %348 to i32
   br label %H5VM_limit_enc_size.exit143
@@ -6625,7 +6625,7 @@ H5VM_limit_enc_size.exit143:                      ; preds = %300, %306, %312, %3
   br i1 %.not190, label %._crit_edge, label %.lr.ph188
 
 .lr.ph188:                                        ; preds = %H5VM_limit_enc_size.exit143
-  %357 = getelementptr inbounds i8, ptr %0, i64 24
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %358
 
 358:                                              ; preds = %.lr.ph188, %H5VM_limit_enc_size.exit170
@@ -6651,14 +6651,14 @@ H5VM_limit_enc_size.exit143:                      ; preds = %300, %306, %312, %3
 
 369:                                              ; preds = %368
   %370 = lshr i64 %364, 56
-  %371 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %370
+  %371 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %370
   %372 = load i8, ptr %371, align 1
   %373 = zext i8 %372 to i32
   %374 = add nuw nsw i32 %373, 56
   br label %H5VM_limit_enc_size.exit152
 
 375:                                              ; preds = %368
-  %376 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %367
+  %376 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %367
   %377 = load i8, ptr %376, align 1
   %378 = zext i8 %377 to i32
   %379 = add nuw nsw i32 %378, 48
@@ -6670,14 +6670,14 @@ H5VM_limit_enc_size.exit143:                      ; preds = %300, %306, %312, %3
 
 381:                                              ; preds = %380
   %382 = lshr i64 %364, 40
-  %383 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %382
+  %383 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %382
   %384 = load i8, ptr %383, align 1
   %385 = zext i8 %384 to i32
   %386 = add nuw nsw i32 %385, 40
   br label %H5VM_limit_enc_size.exit152
 
 387:                                              ; preds = %380
-  %388 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %365
+  %388 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %365
   %389 = load i8, ptr %388, align 1
   %390 = zext i8 %389 to i32
   %391 = add nuw nsw i32 %390, 32
@@ -6694,14 +6694,14 @@ H5VM_limit_enc_size.exit143:                      ; preds = %300, %306, %312, %3
 
 395:                                              ; preds = %394
   %396 = lshr i64 %364, 24
-  %397 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %396
+  %397 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %396
   %398 = load i8, ptr %397, align 1
   %399 = zext i8 %398 to i32
   %400 = add nuw nsw i32 %399, 24
   br label %H5VM_limit_enc_size.exit152
 
 401:                                              ; preds = %394
-  %402 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %393
+  %402 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %393
   %403 = load i8, ptr %402, align 1
   %404 = zext i8 %403 to i32
   %405 = add nuw nsw i32 %404, 16
@@ -6713,14 +6713,14 @@ H5VM_limit_enc_size.exit143:                      ; preds = %300, %306, %312, %3
 
 407:                                              ; preds = %406
   %408 = lshr i64 %364, 8
-  %409 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %408
+  %409 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %408
   %410 = load i8, ptr %409, align 1
   %411 = zext i8 %410 to i32
   %412 = add nuw nsw i32 %411, 8
   br label %H5VM_limit_enc_size.exit152
 
 413:                                              ; preds = %406
-  %414 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %364
+  %414 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %364
   %415 = load i8, ptr %414, align 1
   %416 = zext i8 %415 to i32
   br label %H5VM_limit_enc_size.exit152
@@ -6751,14 +6751,14 @@ H5VM_limit_enc_size.exit152:                      ; preds = %369, %375, %381, %3
 
 429:                                              ; preds = %428
   %430 = lshr i64 %424, 56
-  %431 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %430
+  %431 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %430
   %432 = load i8, ptr %431, align 1
   %433 = zext i8 %432 to i32
   %434 = add nuw nsw i32 %433, 56
   br label %H5VM_limit_enc_size.exit161
 
 435:                                              ; preds = %428
-  %436 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %427
+  %436 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %427
   %437 = load i8, ptr %436, align 1
   %438 = zext i8 %437 to i32
   %439 = add nuw nsw i32 %438, 48
@@ -6770,14 +6770,14 @@ H5VM_limit_enc_size.exit152:                      ; preds = %369, %375, %381, %3
 
 441:                                              ; preds = %440
   %442 = lshr i64 %424, 40
-  %443 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %442
+  %443 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %442
   %444 = load i8, ptr %443, align 1
   %445 = zext i8 %444 to i32
   %446 = add nuw nsw i32 %445, 40
   br label %H5VM_limit_enc_size.exit161
 
 447:                                              ; preds = %440
-  %448 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %425
+  %448 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %425
   %449 = load i8, ptr %448, align 1
   %450 = zext i8 %449 to i32
   %451 = add nuw nsw i32 %450, 32
@@ -6794,14 +6794,14 @@ H5VM_limit_enc_size.exit152:                      ; preds = %369, %375, %381, %3
 
 455:                                              ; preds = %454
   %456 = lshr i64 %424, 24
-  %457 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %456
+  %457 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %456
   %458 = load i8, ptr %457, align 1
   %459 = zext i8 %458 to i32
   %460 = add nuw nsw i32 %459, 24
   br label %H5VM_limit_enc_size.exit161
 
 461:                                              ; preds = %454
-  %462 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %453
+  %462 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %453
   %463 = load i8, ptr %462, align 1
   %464 = zext i8 %463 to i32
   %465 = add nuw nsw i32 %464, 16
@@ -6813,14 +6813,14 @@ H5VM_limit_enc_size.exit152:                      ; preds = %369, %375, %381, %3
 
 467:                                              ; preds = %466
   %468 = lshr i64 %424, 8
-  %469 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %468
+  %469 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %468
   %470 = load i8, ptr %469, align 1
   %471 = zext i8 %470 to i32
   %472 = add nuw nsw i32 %471, 8
   br label %H5VM_limit_enc_size.exit161
 
 473:                                              ; preds = %466
-  %474 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %424
+  %474 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %424
   %475 = load i8, ptr %474, align 1
   %476 = zext i8 %475 to i32
   br label %H5VM_limit_enc_size.exit161
@@ -6850,14 +6850,14 @@ H5VM_limit_enc_size.exit161:                      ; preds = %429, %435, %441, %4
 
 488:                                              ; preds = %487
   %489 = lshr i64 %483, 56
-  %490 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %489
+  %490 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %489
   %491 = load i8, ptr %490, align 1
   %492 = zext i8 %491 to i32
   %493 = add nuw nsw i32 %492, 56
   br label %H5VM_limit_enc_size.exit170
 
 494:                                              ; preds = %487
-  %495 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %486
+  %495 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %486
   %496 = load i8, ptr %495, align 1
   %497 = zext i8 %496 to i32
   %498 = add nuw nsw i32 %497, 48
@@ -6869,14 +6869,14 @@ H5VM_limit_enc_size.exit161:                      ; preds = %429, %435, %441, %4
 
 500:                                              ; preds = %499
   %501 = lshr i64 %483, 40
-  %502 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %501
+  %502 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %501
   %503 = load i8, ptr %502, align 1
   %504 = zext i8 %503 to i32
   %505 = add nuw nsw i32 %504, 40
   br label %H5VM_limit_enc_size.exit170
 
 506:                                              ; preds = %499
-  %507 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %484
+  %507 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %484
   %508 = load i8, ptr %507, align 1
   %509 = zext i8 %508 to i32
   %510 = add nuw nsw i32 %509, 32
@@ -6893,14 +6893,14 @@ H5VM_limit_enc_size.exit161:                      ; preds = %429, %435, %441, %4
 
 514:                                              ; preds = %513
   %515 = lshr i64 %483, 24
-  %516 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %515
+  %516 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %515
   %517 = load i8, ptr %516, align 1
   %518 = zext i8 %517 to i32
   %519 = add nuw nsw i32 %518, 24
   br label %H5VM_limit_enc_size.exit170
 
 520:                                              ; preds = %513
-  %521 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %512
+  %521 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %512
   %522 = load i8, ptr %521, align 1
   %523 = zext i8 %522 to i32
   %524 = add nuw nsw i32 %523, 16
@@ -6912,14 +6912,14 @@ H5VM_limit_enc_size.exit161:                      ; preds = %429, %435, %441, %4
 
 526:                                              ; preds = %525
   %527 = lshr i64 %483, 8
-  %528 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %527
+  %528 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %527
   %529 = load i8, ptr %528, align 1
   %530 = zext i8 %529 to i32
   %531 = add nuw nsw i32 %530, 8
   br label %H5VM_limit_enc_size.exit170
 
 532:                                              ; preds = %525
-  %533 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %483
+  %533 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %483
   %534 = load i8, ptr %533, align 1
   %535 = zext i8 %534 to i32
   br label %H5VM_limit_enc_size.exit170
@@ -6944,16 +6944,16 @@ H5VM_limit_enc_size.exit170:                      ; preds = %488, %494, %500, %5
 define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 32)) %1) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) @H5D_def_efl_g, i64 32, i1 false)
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
   %5 = load i8, ptr %3, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
   %.not112 = icmp eq i8 %5, 0
   br i1 %.not112, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %6
   store ptr %8, ptr %0, align 8
   br label %.loopexit
 
@@ -6972,15 +6972,15 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr nocapture 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %11, i64 %6
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %6
   store ptr %16, ptr %0, align 8
   %.not113 = icmp eq i64 %14, 0
   br i1 %.not113, label %.loopexit, label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %._crit_edge
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i64, ptr %17, align 8
   br label %20
 
@@ -7012,11 +7012,11 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr nocapture 
 
 33:                                               ; preds = %32, %20
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %35, ptr %0, align 8
   %36 = load i8, ptr %34, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
   %.not114 = icmp eq i8 %36, 0
   br i1 %.not114, label %._crit_edge92, label %.lr.ph91
 
@@ -7037,7 +7037,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr nocapture 
 ._crit_edge92:                                    ; preds = %.lr.ph91, %33
   %46 = phi ptr [ %38, %33 ], [ %41, %.lr.ph91 ]
   %.1.lcssa = phi i64 [ 0, %33 ], [ %44, %.lr.ph91 ]
-  %47 = getelementptr inbounds i8, ptr %46, i64 %37
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %37
   store ptr %47, ptr %0, align 8
   %48 = tail call noalias ptr @H5MM_xstrdup(ptr noundef %47) #11
   %49 = load ptr, ptr %19, align 8
@@ -7045,11 +7045,11 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr nocapture 
   store ptr %48, ptr %50, align 8
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 %.1.lcssa
-  %53 = getelementptr inbounds i8, ptr %52, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
   store ptr %53, ptr %0, align 8
   %54 = load i8, ptr %52, align 1
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds i8, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 %55
   %.not115 = icmp eq i8 %54, 0
   br i1 %.not115, label %._crit_edge99, label %.lr.ph98
 
@@ -7070,17 +7070,17 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr nocapture 
 ._crit_edge99:                                    ; preds = %.lr.ph98, %._crit_edge92
   %64 = phi ptr [ %56, %._crit_edge92 ], [ %59, %.lr.ph98 ]
   %.2.lcssa = phi i64 [ 0, %._crit_edge92 ], [ %62, %.lr.ph98 ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 %55
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %55
   store ptr %65, ptr %0, align 8
   %66 = load ptr, ptr %19, align 8
   %67 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %66, i64 %.075109, i32 2
   store i64 %.2.lcssa, ptr %67, align 8
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   store ptr %69, ptr %0, align 8
   %70 = load i8, ptr %68, align 1
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 %71
   %.not116 = icmp eq i8 %70, 0
   br i1 %.not116, label %._crit_edge106, label %.lr.ph105
 
@@ -7101,7 +7101,7 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr nocapture 
 ._crit_edge106:                                   ; preds = %.lr.ph105, %._crit_edge99
   %80 = phi ptr [ %72, %._crit_edge99 ], [ %75, %.lr.ph105 ]
   %.3.lcssa = phi i64 [ 0, %._crit_edge99 ], [ %78, %.lr.ph105 ]
-  %81 = getelementptr inbounds i8, ptr %80, i64 %71
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %71
   store ptr %81, ptr %0, align 8
   %82 = load ptr, ptr %19, align 8
   %83 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %82, i64 %.075109, i32 3
@@ -7162,9 +7162,9 @@ define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_copy(ptr nocapture
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i32 @H5P__dcrt_ext_file_list_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 %2) #9 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = icmp ult i64 %5, %7
   br i1 %8, label %.thread78, label %9
@@ -7174,9 +7174,9 @@ define internal i32 @H5P__dcrt_ext_file_list_cmp(ptr nocapture noundef readonly 
   br i1 %10, label %.thread78, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp ult i64 %13, %15
   br i1 %16, label %.thread78, label %17
@@ -7186,10 +7186,10 @@ define internal i32 @H5P__dcrt_ext_file_list_cmp(ptr nocapture noundef readonly 
   br i1 %18, label %.thread78, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8
   br i1 %22, label %25, label %26
 
@@ -7225,13 +7225,13 @@ define internal i32 @H5P__dcrt_ext_file_list_cmp(ptr nocapture noundef readonly 
   br i1 %37, label %.thread78, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %31, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %33, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not74 = icmp eq ptr %44, null
   br i1 %.not74, label %.thread79, label %.thread78
@@ -7248,9 +7248,9 @@ define internal i32 @H5P__dcrt_ext_file_list_cmp(ptr nocapture noundef readonly 
   br i1 %.not77, label %.thread79, label %.thread78
 
 .thread79:                                        ; preds = %42, %49
-  %51 = getelementptr inbounds i8, ptr %31, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %33, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = icmp slt i64 %52, %54
   br i1 %55, label %.thread78, label %56
@@ -7260,9 +7260,9 @@ define internal i32 @H5P__dcrt_ext_file_list_cmp(ptr nocapture noundef readonly 
   br i1 %57, label %.thread78, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %31, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %33, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = icmp ult i64 %60, %62
   br i1 %63, label %.thread78, label %64

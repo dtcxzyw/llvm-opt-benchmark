@@ -38,10 +38,10 @@ $_ZTIN3irr5scene22ISceneCollisionManagerE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3irr5scene22CSceneCollisionManagerC2EPNS0_13ISceneManagerEPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %smanager, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %1, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -49,15 +49,15 @@ entry:
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = load ptr, ptr %vtt, align 8
   store ptr %4, ptr %this, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %6 = load ptr, ptr %5, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %4, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %6, ptr %add.ptr, align 8, !tbaa !3
-  %SceneManager = getelementptr inbounds i8, ptr %this, i64 8
+  %SceneManager = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %smanager, ptr %SceneManager, align 8, !tbaa !6
-  %Driver = getelementptr inbounds i8, ptr %this, i64 16
+  %Driver = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !11
   %tobool.not = icmp eq ptr %driver, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -67,7 +67,7 @@ if.then:                                          ; preds = %entry
   %vbase.offset.ptr6 = getelementptr i8, ptr %vtable5, i64 -24
   %vbase.offset7 = load i64, ptr %vbase.offset.ptr6, align 8
   %add.ptr8 = getelementptr inbounds i8, ptr %driver, i64 %vbase.offset7
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %add.ptr8, i64 16
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %add.ptr8, i64 16
   %7 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !12
   %inc.i = add nsw i32 %7, 1
   store i32 %inc.i, ptr %ReferenceCounter.i, align 8, !tbaa !12
@@ -80,16 +80,16 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3irr5scene22CSceneCollisionManagerC1EPNS0_13ISceneManagerEPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 44)) %this, ptr noundef %smanager, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
-  %DebugName.i = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %DebugName.i, align 8, !tbaa !15
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 40
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !12
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %this, align 8, !tbaa !3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %0, align 8, !tbaa !3
-  %SceneManager = getelementptr inbounds i8, ptr %this, i64 8
+  %SceneManager = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %smanager, ptr %SceneManager, align 8, !tbaa !6
-  %Driver = getelementptr inbounds i8, ptr %this, i64 16
+  %Driver = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %driver, ptr %Driver, align 8, !tbaa !11
   %tobool.not = icmp eq ptr %driver, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -99,7 +99,7 @@ if.then:                                          ; preds = %entry
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %driver, i64 %vbase.offset
-  %ReferenceCounter.i5 = getelementptr inbounds i8, ptr %add.ptr4, i64 16
+  %ReferenceCounter.i5 = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 16
   %1 = load i32, ptr %ReferenceCounter.i5, align 8, !tbaa !12
   %inc.i = add nsw i32 %1, 1
   store i32 %inc.i, ptr %ReferenceCounter.i5, align 8, !tbaa !12
@@ -114,13 +114,13 @@ define void @_ZN3irr5scene22CSceneCollisionManagerD2Ev(ptr nocapture noundef non
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
-  %1 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %2 = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !3
-  %Driver = getelementptr inbounds i8, ptr %this, i64 16
+  %Driver = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %Driver, align 8, !tbaa !11
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -130,7 +130,7 @@ if.then:                                          ; preds = %entry
   %vbase.offset.ptr5 = getelementptr i8, ptr %vtable4, i64 -24
   %vbase.offset6 = load i64, ptr %vbase.offset.ptr5, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %3, i64 %vbase.offset6
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %add.ptr7, i64 16
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %add.ptr7, i64 16
   %4 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !12
   %dec.i = add nsw i32 %4, -1
   store i32 %dec.i, ptr %ReferenceCounter.i, align 8, !tbaa !12
@@ -139,7 +139,7 @@ if.then:                                          ; preds = %entry
 
 delete.notnull.i:                                 ; preds = %if.then
   %vtable.i = load ptr, ptr %add.ptr7, align 8, !tbaa !3
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr7) #11
   br label %if.end
@@ -152,9 +152,9 @@ if.end:                                           ; preds = %delete.notnull.i, %
 define void @_ZN3irr5scene22CSceneCollisionManagerD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (24, 32)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %this, align 8, !tbaa !3
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i, align 8, !tbaa !3
-  %Driver.i = getelementptr inbounds i8, ptr %this, i64 16
+  %Driver.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Driver.i, align 8, !tbaa !11
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN3irr5scene22CSceneCollisionManagerD2Ev.exit, label %if.then.i
@@ -164,7 +164,7 @@ if.then.i:                                        ; preds = %entry
   %vbase.offset.ptr5.i = getelementptr i8, ptr %vtable4.i, i64 -24
   %vbase.offset6.i = load i64, ptr %vbase.offset.ptr5.i, align 8
   %add.ptr7.i = getelementptr inbounds i8, ptr %0, i64 %vbase.offset6.i
-  %ReferenceCounter.i.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 16
+  %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 16
   %1 = load i32, ptr %ReferenceCounter.i.i, align 8, !tbaa !12
   %dec.i.i = add nsw i32 %1, -1
   store i32 %dec.i.i, ptr %ReferenceCounter.i.i, align 8, !tbaa !12
@@ -173,7 +173,7 @@ if.then.i:                                        ; preds = %entry
 
 delete.notnull.i.i:                               ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %add.ptr7.i, align 8, !tbaa !3
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr7.i) #11
   br label %_ZN3irr5scene22CSceneCollisionManagerD2Ev.exit
@@ -190,9 +190,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %3, align 8, !tbaa !3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i.i, align 8, !tbaa !3
-  %Driver.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %Driver.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %Driver.i.i, align 8, !tbaa !11
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZN3irr5scene22CSceneCollisionManagerD1Ev.exit, label %if.then.i.i
@@ -202,7 +202,7 @@ if.then.i.i:                                      ; preds = %entry
   %vbase.offset.ptr5.i.i = getelementptr i8, ptr %vtable4.i.i, i64 -24
   %vbase.offset6.i.i = load i64, ptr %vbase.offset.ptr5.i.i, align 8
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset6.i.i
-  %ReferenceCounter.i.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 16
+  %ReferenceCounter.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i.i, i64 16
   %5 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !12
   %dec.i.i.i = add nsw i32 %5, -1
   store i32 %dec.i.i.i, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !12
@@ -211,7 +211,7 @@ if.then.i.i:                                      ; preds = %entry
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %add.ptr7.i.i, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr7.i.i) #11
   br label %_ZN3irr5scene22CSceneCollisionManagerD1Ev.exit
@@ -224,9 +224,9 @@ _ZN3irr5scene22CSceneCollisionManagerD1Ev.exit:   ; preds = %delete.notnull.i.i.
 define void @_ZN3irr5scene22CSceneCollisionManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (24, 32)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %this, align 8, !tbaa !3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i.i, align 8, !tbaa !3
-  %Driver.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %Driver.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Driver.i.i, align 8, !tbaa !11
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3irr5scene22CSceneCollisionManagerD1Ev.exit, label %if.then.i.i
@@ -236,7 +236,7 @@ if.then.i.i:                                      ; preds = %entry
   %vbase.offset.ptr5.i.i = getelementptr i8, ptr %vtable4.i.i, i64 -24
   %vbase.offset6.i.i = load i64, ptr %vbase.offset.ptr5.i.i, align 8
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %0, i64 %vbase.offset6.i.i
-  %ReferenceCounter.i.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 16
+  %ReferenceCounter.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i.i, i64 16
   %1 = load i32, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !12
   %dec.i.i.i = add nsw i32 %1, -1
   store i32 %dec.i.i.i, ptr %ReferenceCounter.i.i.i, align 8, !tbaa !12
@@ -245,7 +245,7 @@ if.then.i.i:                                      ; preds = %entry
 
 delete.notnull.i.i.i:                             ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %add.ptr7.i.i, align 8, !tbaa !3
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr7.i.i) #11
   br label %_ZN3irr5scene22CSceneCollisionManagerD1Ev.exit
@@ -266,9 +266,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %3, align 8, !tbaa !3
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 72), ptr %add.ptr.i.i.i, align 8, !tbaa !3
-  %Driver.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %Driver.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %Driver.i.i.i, align 8, !tbaa !11
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZN3irr5scene22CSceneCollisionManagerD0Ev.exit, label %if.then.i.i.i
@@ -278,7 +278,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %vbase.offset.ptr5.i.i.i = getelementptr i8, ptr %vtable4.i.i.i, i64 -24
   %vbase.offset6.i.i.i = load i64, ptr %vbase.offset.ptr5.i.i.i, align 8
   %add.ptr7.i.i.i = getelementptr inbounds i8, ptr %4, i64 %vbase.offset6.i.i.i
-  %ReferenceCounter.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i.i, i64 16
+  %ReferenceCounter.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i.i.i, i64 16
   %5 = load i32, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !12
   %dec.i.i.i.i = add nsw i32 %5, -1
   store i32 %dec.i.i.i.i, ptr %ReferenceCounter.i.i.i.i, align 8, !tbaa !12
@@ -287,7 +287,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %add.ptr7.i.i.i, align 8, !tbaa !3
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr7.i.i.i) #11
   br label %_ZN3irr5scene22CSceneCollisionManagerD0Ev.exit
@@ -300,10 +300,10 @@ _ZN3irr5scene22CSceneCollisionManagerD0Ev.exit:   ; preds = %delete.notnull.i.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5scene22CSceneCollisionManager27getRayFromScreenCoordinatesERKNS_4core8vector2dIiEEPKNS0_16ICameraSceneNodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::line3d") align 4 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, ptr noundef %camera) unnamed_addr #4 align 2 {
 entry:
-  %Z.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %end.i = getelementptr inbounds i8, ptr %agg.result, i64 12
-  %Z.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 20
-  %SceneManager = getelementptr inbounds i8, ptr %this, i64 8
+  %Z.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %end.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
+  %Z.i3.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 20
+  %SceneManager = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %SceneManager, align 8, !tbaa !6
   %tobool.not = icmp eq ptr %0, null
@@ -315,7 +315,7 @@ if.end:                                           ; preds = %entry
 
 if.end5:                                          ; preds = %if.end
   %vtable = load ptr, ptr %0, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #11
   %tobool6.not = icmp eq ptr %call, null
@@ -324,13 +324,13 @@ if.end5:                                          ; preds = %if.end
 if.end8:                                          ; preds = %if.end5, %if.end
   %camera.addr.0212 = phi ptr [ %call, %if.end5 ], [ %camera, %if.end ]
   %vtable9 = load ptr, ptr %camera.addr.0212, align 8, !tbaa !3
-  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 432
+  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 432
   %2 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(233) %camera.addr.0212) #11
-  %planes.i = getelementptr inbounds i8, ptr %call11, i64 12
-  %arrayidx3.i = getelementptr inbounds i8, ptr %call11, i64 92
-  %arrayidx5.i = getelementptr inbounds i8, ptr %call11, i64 44
-  %Z.i.i.i = getelementptr inbounds i8, ptr %call11, i64 20
+  %planes.i = getelementptr inbounds nuw i8, ptr %call11, i64 12
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %call11, i64 92
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %call11, i64 44
+  %Z.i.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 20
   %3 = load float, ptr %Z.i.i.i, align 4, !tbaa !16
   %4 = load <2 x float>, ptr %planes.i, align 4, !tbaa !19
   %5 = extractelement <2 x float> %4, i64 1
@@ -340,7 +340,7 @@ if.end8:                                          ; preds = %if.end5, %if.end
   %mul4.i50.i.i = fmul float %5, %8
   %9 = extractelement <2 x float> %7, i64 0
   %10 = tail call float @llvm.fmuladd.f32(float %6, float %9, float %mul4.i50.i.i)
-  %Z5.i.i.i = getelementptr inbounds i8, ptr %call11, i64 100
+  %Z5.i.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 100
   %11 = load float, ptr %Z5.i.i.i, align 4, !tbaa !16
   %12 = tail call noundef float @llvm.fmuladd.f32(float %3, float %11, float %10)
   %13 = shufflevector <2 x float> %7, <2 x float> %4, <2 x i32> <i32 1, i32 3>
@@ -376,13 +376,13 @@ if.then.i:                                        ; preds = %if.end8
   %neg15.i.i.i = fmul float %9, %36
   %37 = tail call float @llvm.fmuladd.f32(float %6, float %8, float %neg15.i.i.i)
   %38 = load float, ptr %arrayidx5.i, align 4, !tbaa !20
-  %Y.i.i6.i = getelementptr inbounds i8, ptr %call11, i64 48
+  %Y.i.i6.i = getelementptr inbounds nuw i8, ptr %call11, i64 48
   %39 = load float, ptr %Y.i.i6.i, align 4, !tbaa !21
   %40 = extractelement <2 x float> %35, i64 1
   %mul4.i.i8.i = fmul float %40, %39
   %41 = extractelement <2 x float> %35, i64 0
   %42 = tail call float @llvm.fmuladd.f32(float %38, float %41, float %mul4.i.i8.i)
-  %Z.i.i9.i = getelementptr inbounds i8, ptr %call11, i64 52
+  %Z.i.i9.i = getelementptr inbounds nuw i8, ptr %call11, i64 52
   %43 = load float, ptr %Z.i.i9.i, align 4, !tbaa !16
   %44 = tail call noundef float @llvm.fmuladd.f32(float %43, float %37, float %42)
   %cmp.i11.i = fcmp une float %44, 0.000000e+00
@@ -392,7 +392,7 @@ if.end.i12.i:                                     ; preds = %if.then.i
   %div.i.i = fdiv double 1.000000e+00, %conv.i.i
   %45 = load <4 x float>, ptr %planes.i, align 4
   %46 = shufflevector <4 x float> %45, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %D8.i.i = getelementptr inbounds i8, ptr %call11, i64 104
+  %D8.i.i = getelementptr inbounds nuw i8, ptr %call11, i64 104
   %47 = load float, ptr %D8.i.i, align 4, !tbaa !22
   %48 = insertelement <2 x float> %46, float %47, i64 1
   %49 = fneg <2 x float> %48
@@ -411,7 +411,7 @@ if.end.i12.i:                                     ; preds = %if.then.i
   %shift.i = shufflevector <2 x float> %61, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %62 = fadd <2 x float> %61, %shift.i
   %add6.i.i.i = extractelement <2 x float> %62, i64 0
-  %D.i13.i = getelementptr inbounds i8, ptr %call11, i64 56
+  %D.i13.i = getelementptr inbounds nuw i8, ptr %call11, i64 56
   %63 = load float, ptr %D.i13.i, align 4, !tbaa !22
   %64 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> zeroinitializer
   %65 = fmul <2 x float> %4, %64
@@ -437,13 +437,13 @@ if.end.i12.i:                                     ; preds = %if.then.i
 if.then.i8:                                       ; preds = %if.then.i, %if.end.i12.i
   %retval.i.sroa.5.0.ph = phi float [ 0.000000e+00, %if.then.i ], [ %add6.i.i21.i, %if.end.i12.i ]
   %retval.i.sroa.0.0.ph = phi <2 x float> [ zeroinitializer, %if.then.i ], [ %76, %if.end.i12.i ]
-  %arrayidx5.i8357 = getelementptr inbounds i8, ptr %call11, i64 60
+  %arrayidx5.i8357 = getelementptr inbounds nuw i8, ptr %call11, i64 60
   %77 = load float, ptr %arrayidx5.i8357, align 4, !tbaa !20
-  %Y.i.i6.i10 = getelementptr inbounds i8, ptr %call11, i64 64
+  %Y.i.i6.i10 = getelementptr inbounds nuw i8, ptr %call11, i64 64
   %78 = load float, ptr %Y.i.i6.i10, align 4, !tbaa !21
   %mul4.i.i8.i11 = fmul float %40, %78
   %79 = tail call float @llvm.fmuladd.f32(float %77, float %41, float %mul4.i.i8.i11)
-  %Z.i.i9.i12 = getelementptr inbounds i8, ptr %call11, i64 68
+  %Z.i.i9.i12 = getelementptr inbounds nuw i8, ptr %call11, i64 68
   %80 = load float, ptr %Z.i.i9.i12, align 4, !tbaa !16
   %81 = tail call noundef float @llvm.fmuladd.f32(float %80, float %37, float %79)
   %cmp.i11.i13 = fcmp une float %81, 0.000000e+00
@@ -453,7 +453,7 @@ if.end.i12.i14:                                   ; preds = %if.then.i8
   %div.i.i15 = fdiv double 1.000000e+00, %conv.i.i
   %82 = load <4 x float>, ptr %planes.i, align 4
   %83 = shufflevector <4 x float> %82, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %D8.i.i16 = getelementptr inbounds i8, ptr %call11, i64 104
+  %D8.i.i16 = getelementptr inbounds nuw i8, ptr %call11, i64 104
   %84 = load float, ptr %D8.i.i16, align 4, !tbaa !22
   %85 = insertelement <2 x float> %83, float %84, i64 1
   %86 = fneg <2 x float> %85
@@ -472,7 +472,7 @@ if.end.i12.i14:                                   ; preds = %if.then.i8
   %shift.i17 = shufflevector <2 x float> %98, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %99 = fadd <2 x float> %98, %shift.i17
   %add6.i.i.i18 = extractelement <2 x float> %99, i64 0
-  %D.i13.i19 = getelementptr inbounds i8, ptr %call11, i64 72
+  %D.i13.i19 = getelementptr inbounds nuw i8, ptr %call11, i64 72
   %100 = load float, ptr %D.i13.i19, align 4, !tbaa !22
   %101 = shufflevector <2 x float> %96, <2 x float> poison, <2 x i32> zeroinitializer
   %102 = fmul <2 x float> %4, %101
@@ -501,13 +501,13 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   %retval.i78.sroa.5.0 = phi float [ %add6.i.i21.i25, %if.end.i12.i14 ], [ 0.000000e+00, %if.then.i8 ], [ 0.000000e+00, %if.end8 ]
   %retval.i78.sroa.0.0 = phi <2 x float> [ %113, %if.end.i12.i14 ], [ zeroinitializer, %if.then.i8 ], [ zeroinitializer, %if.end8 ]
   %114 = fsub <2 x float> %retval.i78.sroa.0.0, %retval.i.sroa.0.060
-  %arrayidx3.i95 = getelementptr inbounds i8, ptr %call11, i64 76
+  %arrayidx3.i95 = getelementptr inbounds nuw i8, ptr %call11, i64 76
   %115 = load <2 x float>, ptr %arrayidx3.i95, align 4, !tbaa !19
   %116 = extractelement <2 x float> %115, i64 1
   %mul4.i50.i.i29 = fmul float %5, %116
   %117 = extractelement <2 x float> %115, i64 0
   %118 = tail call float @llvm.fmuladd.f32(float %6, float %117, float %mul4.i50.i.i29)
-  %Z5.i.i.i30 = getelementptr inbounds i8, ptr %call11, i64 84
+  %Z5.i.i.i30 = getelementptr inbounds nuw i8, ptr %call11, i64 84
   %119 = load float, ptr %Z5.i.i.i30, align 4, !tbaa !16
   %120 = tail call noundef float @llvm.fmuladd.f32(float %3, float %119, float %118)
   %121 = shufflevector <2 x float> %115, <2 x float> %4, <2 x i32> <i32 1, i32 3>
@@ -543,13 +543,13 @@ if.then.i35:                                      ; preds = %_ZNK3irr4core7plane
   %neg15.i.i.i36 = fmul float %117, %144
   %145 = tail call float @llvm.fmuladd.f32(float %6, float %116, float %neg15.i.i.i36)
   %146 = load float, ptr %arrayidx5.i, align 4, !tbaa !20
-  %Y.i.i6.i37 = getelementptr inbounds i8, ptr %call11, i64 48
+  %Y.i.i6.i37 = getelementptr inbounds nuw i8, ptr %call11, i64 48
   %147 = load float, ptr %Y.i.i6.i37, align 4, !tbaa !21
   %148 = extractelement <2 x float> %143, i64 1
   %mul4.i.i8.i38 = fmul float %148, %147
   %149 = extractelement <2 x float> %143, i64 0
   %150 = tail call float @llvm.fmuladd.f32(float %146, float %149, float %mul4.i.i8.i38)
-  %Z.i.i9.i39 = getelementptr inbounds i8, ptr %call11, i64 52
+  %Z.i.i9.i39 = getelementptr inbounds nuw i8, ptr %call11, i64 52
   %151 = load float, ptr %Z.i.i9.i39, align 4, !tbaa !16
   %152 = tail call noundef float @llvm.fmuladd.f32(float %151, float %145, float %150)
   %cmp.i11.i40 = fcmp une float %152, 0.000000e+00
@@ -559,7 +559,7 @@ if.end.i12.i41:                                   ; preds = %if.then.i35
   %div.i.i42 = fdiv double 1.000000e+00, %conv.i.i32
   %153 = load <4 x float>, ptr %planes.i, align 4
   %154 = shufflevector <4 x float> %153, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %D8.i.i43 = getelementptr inbounds i8, ptr %call11, i64 88
+  %D8.i.i43 = getelementptr inbounds nuw i8, ptr %call11, i64 88
   %155 = load float, ptr %D8.i.i43, align 4, !tbaa !22
   %156 = insertelement <2 x float> %154, float %155, i64 1
   %157 = fneg <2 x float> %156
@@ -578,7 +578,7 @@ if.end.i12.i41:                                   ; preds = %if.then.i35
   %shift.i44 = shufflevector <2 x float> %169, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %170 = fadd <2 x float> %169, %shift.i44
   %add6.i.i.i45 = extractelement <2 x float> %170, i64 0
-  %D.i13.i46 = getelementptr inbounds i8, ptr %call11, i64 56
+  %D.i13.i46 = getelementptr inbounds nuw i8, ptr %call11, i64 56
   %171 = load float, ptr %D.i13.i46, align 4, !tbaa !22
   %172 = shufflevector <2 x float> %167, <2 x float> poison, <2 x i32> zeroinitializer
   %173 = fmul <2 x float> %4, %172
@@ -610,13 +610,13 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   %188 = insertelement <2 x float> poison, float %retval.i.sroa.5.058, i64 0
   %189 = shufflevector <2 x float> %188, <2 x float> poison, <2 x i32> zeroinitializer
   %190 = fsub <2 x float> %187, %189
-  %Driver = getelementptr inbounds i8, ptr %this, i64 16
+  %Driver = getelementptr inbounds nuw i8, ptr %this, i64 16
   %191 = load ptr, ptr %Driver, align 8, !tbaa !11
   %vtable22 = load ptr, ptr %191, align 8, !tbaa !3
-  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 336
+  %vfn23 = getelementptr inbounds nuw i8, ptr %vtable22, i64 336
   %192 = load ptr, ptr %vfn23, align 8
   %call24 = tail call noundef nonnull align 4 dereferenceable(16) ptr %192(ptr noundef nonnull align 8 dereferenceable(8) %191) #11
-  %LowerRightCorner.i = getelementptr inbounds i8, ptr %call24, i64 8
+  %LowerRightCorner.i = getelementptr inbounds nuw i8, ptr %call24, i64 8
   %193 = load <2 x i32>, ptr %LowerRightCorner.i, align 4, !tbaa !24
   %194 = load <2 x i32>, ptr %call24, align 4, !tbaa !24
   %195 = sub nsw <2 x i32> %193, %194
@@ -625,13 +625,13 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   %198 = uitofp <2 x i32> %195 to <2 x float>
   %199 = fdiv <2 x float> %197, %198
   %vtable33 = load ptr, ptr %camera.addr.0212, align 8, !tbaa !3
-  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 456
+  %vfn34 = getelementptr inbounds nuw i8, ptr %vtable33, i64 456
   %200 = load ptr, ptr %vfn34, align 8
   %call35 = tail call noundef zeroext i1 %200(ptr noundef nonnull align 8 dereferenceable(233) %camera.addr.0212) #11
   br i1 %call35, label %if.then36, label %if.else
 
 if.then36:                                        ; preds = %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit54
-  %Z.i124 = getelementptr inbounds i8, ptr %call11, i64 8
+  %Z.i124 = getelementptr inbounds nuw i8, ptr %call11, i64 8
   %201 = load float, ptr %Z.i124, align 4, !tbaa !16
   %202 = fadd <2 x float> %199, splat (float -5.000000e-01)
   %203 = fmul <2 x float> %190, %202

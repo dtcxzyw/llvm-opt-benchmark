@@ -44,20 +44,20 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
   br label %141
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %10, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
@@ -76,7 +76,7 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
   br label %141
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 156
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %27 = load i32, ptr %26, align 4
   %.not79 = icmp eq i32 %27, 0
   br i1 %.not79, label %28, label %29
@@ -86,7 +86,7 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
   br label %141
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 164
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %31 = load i32, ptr %30, align 4
   %.not80 = icmp eq i32 %31, 1
   br i1 %.not80, label %33, label %32
@@ -96,13 +96,13 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
   br label %141
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 1752
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %35 = load ptr, ptr %34, align 8
   %.not81 = icmp eq ptr %35, null
   br i1 %.not81, label %41, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 1760
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   %38 = load i32, ptr %37, align 8
   %.not82 = icmp eq i32 %38, 0
   br i1 %.not82, label %41, label %39
@@ -113,7 +113,7 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
 
 41:                                               ; preds = %39, %36, %33
   store ptr %1, ptr %34, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 1760
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1760
   store i32 0, ptr %42, align 8
   %43 = tail call i32 @SUNNonlinSolSetSysFn(ptr noundef nonnull %1, ptr noundef nonnull @idaNlsResidualSensSim) #2
   %.not83 = icmp eq i32 %43, 0
@@ -144,18 +144,18 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
   br label %141
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %0, i64 1832
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1832
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %86
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %0, i64 160
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %59 = load i32, ptr %58, align 8
   %60 = add nsw i32 %59, 1
   %61 = load ptr, ptr %0, align 8
   %62 = tail call ptr @N_VNewEmpty_SensWrapper(i32 noundef %60, ptr noundef %61) #2
-  %63 = getelementptr inbounds i8, ptr %0, i64 1784
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1784
   store ptr %62, ptr %63, align 8
   %64 = icmp eq ptr %62, null
   br i1 %64, label %65, label %66
@@ -169,7 +169,7 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
   %68 = add nsw i32 %67, 1
   %69 = load ptr, ptr %0, align 8
   %70 = tail call ptr @N_VNewEmpty_SensWrapper(i32 noundef %68, ptr noundef %69) #2
-  %71 = getelementptr inbounds i8, ptr %0, i64 1792
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   store ptr %70, ptr %71, align 8
   %72 = icmp eq ptr %70, null
   br i1 %72, label %73, label %75
@@ -185,7 +185,7 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
   %77 = add nsw i32 %76, 1
   %78 = load ptr, ptr %0, align 8
   %79 = tail call ptr @N_VNewEmpty_SensWrapper(i32 noundef %77, ptr noundef %78) #2
-  %80 = getelementptr inbounds i8, ptr %0, i64 1800
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   store ptr %79, ptr %80, align 8
   %81 = icmp eq ptr %79, null
   br i1 %81, label %82, label %85
@@ -203,64 +203,64 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
   br label %86
 
 86:                                               ; preds = %85, %53
-  %87 = getelementptr inbounds i8, ptr %0, i64 656
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 1784
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1784
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr %91, align 8
   store ptr %88, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 704
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 1792
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
   store ptr %94, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 632
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 1800
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr %103, align 8
   store ptr %100, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 160
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %106 = load i32, ptr %105, align 8
   %107 = icmp sgt i32 %106, 0
   br i1 %107, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %86
-  %108 = getelementptr inbounds i8, ptr %0, i64 928
-  %109 = getelementptr inbounds i8, ptr %0, i64 904
-  %110 = getelementptr inbounds i8, ptr %0, i64 896
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 896
   br label %111
 
 111:                                              ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
   %112 = load ptr, ptr %108, align 8
-  %113 = getelementptr inbounds ptr, ptr %112, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8
   %115 = load ptr, ptr %89, align 8
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %116, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %118 = getelementptr inbounds ptr, ptr %117, i64 %indvars.iv.next
+  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.next
   store ptr %114, ptr %118, align 8
   %119 = load ptr, ptr %109, align 8
-  %120 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %95, align 8
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds ptr, ptr %124, i64 %indvars.iv.next
+  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv.next
   store ptr %121, ptr %125, align 8
   %126 = load ptr, ptr %110, align 8
-  %127 = getelementptr inbounds ptr, ptr %126, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr %101, align 8
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds ptr, ptr %131, i64 %indvars.iv.next
+  %132 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv.next
   store ptr %128, ptr %132, align 8
   %133 = load i32, ptr %105, align 8
   %134 = sext i32 %133 to i64
@@ -268,7 +268,7 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
   br i1 %135, label %111, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %111, %86
-  %136 = getelementptr inbounds i8, ptr %0, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %137 = load ptr, ptr %136, align 8
   %.not86 = icmp eq ptr %137, null
   br i1 %.not86, label %138, label %139
@@ -278,7 +278,7 @@ define range(i32 -22, 1) i32 @IDASetNonlinearSolverSensSim(ptr noundef %0, ptr n
   br label %141
 
 139:                                              ; preds = %._crit_edge
-  %140 = getelementptr inbounds i8, ptr %0, i64 1840
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 1840
   store ptr %137, ptr %140, align 8
   br label %141
 
@@ -311,32 +311,32 @@ define internal range(i32 -41, 12) i32 @idaNlsResidualSensSim(ptr nocapture noun
   %10 = load ptr, ptr %1, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 656
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 656
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 640
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %16 = load ptr, ptr %15, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %14, double noundef 1.000000e+00, ptr noundef %9, ptr noundef %16) #2
-  %17 = getelementptr inbounds i8, ptr %2, i64 664
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 664
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 1288
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 648
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 648
   %22 = load ptr, ptr %21, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %18, double noundef %20, ptr noundef %9, ptr noundef %22) #2
-  %23 = getelementptr inbounds i8, ptr %2, i64 1840
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1840
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 1272
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 1272
   %26 = load double, ptr %25, align 8
   %27 = load ptr, ptr %15, align 8
   %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %24(double noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %12, ptr noundef %30) #2
-  %32 = getelementptr inbounds i8, ptr %2, i64 1472
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 1472
   %33 = load i64, ptr %32, align 8
   %34 = add nsw i64 %33, 1
   store i64 %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 696
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 696
   %36 = load ptr, ptr %35, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %12, ptr noundef %36) #2
   %37 = icmp slt i32 %31, 0
@@ -349,25 +349,25 @@ define internal range(i32 -41, 12) i32 @idaNlsResidualSensSim(ptr nocapture noun
 39:                                               ; preds = %38
   %40 = load ptr, ptr %0, align 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %1, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = getelementptr inbounds i8, ptr %2, i64 160
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %2, i64 928
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 928
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 912
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 912
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 @N_VLinearSumVectorArray(i32 noundef %47, double noundef 1.000000e+00, ptr noundef %49, double noundef 1.000000e+00, ptr noundef nonnull %42, ptr noundef %51) #2
   %53 = load i32, ptr %46, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 936
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 936
   %55 = load ptr, ptr %54, align 8
   %56 = load double, ptr %19, align 8
-  %57 = getelementptr inbounds i8, ptr %2, i64 920
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 920
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @N_VLinearSumVectorArray(i32 noundef %53, double noundef 1.000000e+00, ptr noundef %55, double noundef %56, ptr noundef nonnull %42, ptr noundef %58) #2
-  %60 = getelementptr inbounds i8, ptr %2, i64 168
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %46, align 8
   %63 = load double, ptr %25, align 8
@@ -375,16 +375,16 @@ define internal range(i32 -41, 12) i32 @idaNlsResidualSensSim(ptr nocapture noun
   %65 = load ptr, ptr %21, align 8
   %66 = load ptr, ptr %50, align 8
   %67 = load ptr, ptr %57, align 8
-  %68 = getelementptr inbounds i8, ptr %2, i64 176
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 952
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 952
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %2, i64 960
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 960
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %2, i64 968
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 968
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 %61(i32 noundef %62, double noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %12, ptr noundef %66, ptr noundef %67, ptr noundef nonnull %45, ptr noundef %69, ptr noundef %71, ptr noundef %73, ptr noundef %75) #2
-  %77 = getelementptr inbounds i8, ptr %2, i64 1488
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 1488
   %78 = load i64, ptr %77, align 8
   %79 = add nsw i64 %78, 1
   store i64 %79, ptr %77, align 8
@@ -422,19 +422,19 @@ define internal range(i32 -20, 903) i32 @idaNlsConvTestSensSim(ptr noundef %0, p
 13:                                               ; preds = %10
   %14 = load i32, ptr %7, align 4
   %15 = icmp eq i32 %14, 0
-  %16 = getelementptr inbounds i8, ptr %5, i64 1328
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 1328
   br i1 %15, label %17, label %22
 
 17:                                               ; preds = %13
   store double %11, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 1352
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 1352
   %19 = load double, ptr %18, align 8
   %20 = fmul double %19, 1.000000e-04
   %21 = fcmp ugt double %11, %20
   br i1 %21, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %17
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 1320
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 1320
   %.pre = load double, ptr %.phi.trans.insert, align 8
   br label %33
 
@@ -450,7 +450,7 @@ define internal range(i32 -20, 903) i32 @idaNlsConvTestSensSim(ptr noundef %0, p
 29:                                               ; preds = %22
   %30 = fsub double 1.000000e+00, %27
   %31 = fdiv double %27, %30
-  %32 = getelementptr inbounds i8, ptr %5, i64 1320
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 1320
   store double %31, ptr %32, align 8
   br label %33
 
@@ -482,25 +482,25 @@ define range(i32 -20, 1) i32 @IDAGetNonlinearSystemDataSens(ptr noundef readonly
   br label %26
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1272
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %13 = load double, ptr %12, align 8
   store double %13, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 928
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 936
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 912
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 920
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 1288
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %23 = load double, ptr %22, align 8
   store double %23, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %7, align 8
   br label %26
@@ -512,10 +512,10 @@ define range(i32 -20, 1) i32 @IDAGetNonlinearSystemDataSens(ptr noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -15, 1) i32 @idaNlsInitSensSim(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1856
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1856
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 1752
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %5 = load ptr, ptr %4, align 8
   %.idaNlsLSetupSensSim = select i1 %.not, ptr null, ptr @idaNlsLSetupSensSim
   %6 = tail call i32 @SUNNonlinSolSetLSetupFn(ptr noundef %5, ptr noundef %.idaNlsLSetupSensSim) #2
@@ -527,10 +527,10 @@ define range(i32 -15, 1) i32 @idaNlsInitSensSim(ptr noundef %0) local_unnamed_ad
   br label %20
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 1864
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   %10 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %10, null
-  %11 = getelementptr inbounds i8, ptr %0, i64 1752
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %12 = load ptr, ptr %11, align 8
   %.idaNlsLSolveSensSim = select i1 %.not15, ptr null, ptr @idaNlsLSolveSensSim
   %13 = tail call i32 @SUNNonlinSolSetLSolveFn(ptr noundef %12, ptr noundef %.idaNlsLSolveSensSim) #2
@@ -542,7 +542,7 @@ define range(i32 -15, 1) i32 @idaNlsInitSensSim(ptr noundef %0) local_unnamed_ad
   br label %20
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1752
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1752
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @SUNNonlinSolInitialize(ptr noundef %17) #2
   %.not17 = icmp eq i32 %18, 0
@@ -569,37 +569,37 @@ define internal range(i32 -20, 3) i32 @idaNlsLSetupSensSim(i32 %0, ptr nocapture
   br label %34
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 1608
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1608
   %8 = load i64, ptr %7, align 8
   %9 = add nsw i64 %8, 1
   store i64 %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 1904
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 1904
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 1856
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 1856
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 640
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 648
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 648
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 696
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 696
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 712
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 712
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 720
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 720
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 728
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 728
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %12(ptr noundef nonnull %2, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %20, ptr noundef %22, ptr noundef %24) #2
   store i32 1, ptr %1, align 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 1288
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 1288
   %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 1304
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 1304
   store double %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 1312
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 1312
   store double 1.000000e+00, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 1320
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 1320
   store double 2.000000e+01, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 1360
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 1360
   store double 2.000000e+01, ptr %31, align 8
   %32 = icmp slt i32 %25, 0
   br i1 %32, label %34, label %33
@@ -629,15 +629,15 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolveSensSim(ptr nocapture noundef
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 1864
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1864
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 632
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 632
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 640
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 648
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 696
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 696
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %10(ptr noundef nonnull %1, ptr noundef %8, ptr noundef %12, ptr noundef %14, ptr noundef %16, ptr noundef %18) #2
   %20 = icmp slt i32 %19, 0
@@ -650,14 +650,14 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolveSensSim(ptr nocapture noundef
 22:                                               ; preds = %21
   %23 = load ptr, ptr %0, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %27 = load i32, ptr %26, align 8
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %1, i64 896
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 896
   br label %34
 
 30:                                               ; preds = %46
@@ -670,10 +670,10 @@ define internal range(i32 -20, 4) i32 @idaNlsLSolveSensSim(ptr nocapture noundef
 34:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %29, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %13, align 8
   %42 = load ptr, ptr %15, align 8

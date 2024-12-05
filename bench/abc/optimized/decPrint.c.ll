@@ -27,7 +27,7 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %8 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %8, align 4
   %9 = tail call ptr @Abc_NodeGetFakeNames(i32 noundef %.val) #7
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   br label %12
 
@@ -48,7 +48,7 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03756 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %16 = getelementptr inbounds ptr, ptr %.036, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %.036, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #8
   %.fr63 = freeze i64 %18
@@ -91,7 +91,7 @@ define void @Dec_GraphPrint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %.not.i = icmp eq i32 %34, 0
   %35 = select i1 %.not.i, ptr @.str.10, ptr @.str.9
   %36 = zext nneg i32 %33 to i64
-  %37 = getelementptr inbounds ptr, ptr %.036, i64 %36
+  %37 = getelementptr inbounds nuw ptr, ptr %.036, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Dec_GraphPrintGetLeafName.Buffer, ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %35, ptr noundef %38) #7
   %fputs.i = tail call i32 @fputs(ptr nonnull @Dec_GraphPrintGetLeafName.Buffer, ptr %0)
@@ -139,13 +139,13 @@ define internal fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, 
   %10 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %10, align 8
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val, i64 %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, 1
   %16 = and i32 %15, 1073741823
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val, i64 %17
+  %18 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %17
   %19 = getelementptr i8, ptr %1, i64 4
   %.val108 = load i32, ptr %19, align 4
   %20 = ptrtoint ptr %2 to i64
@@ -180,17 +180,17 @@ define internal fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, 
   %36 = lshr i32 %35, 1
   %37 = and i32 %36, 1073741823
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val, i64 %38
-  %40 = getelementptr inbounds i8, ptr %12, i64 4
+  %39 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = lshr i32 %41, 1
   %43 = and i32 %42, 1073741823
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val, i64 %44
+  %45 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %44
   %46 = load i32, ptr %18, align 8
   %47 = lshr i32 %46, 1
   %48 = and i32 %47, 1073741823
-  %49 = getelementptr inbounds i8, ptr %18, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = lshr i32 %50, 1
   %52 = and i32 %51, 1073741823
@@ -217,7 +217,7 @@ common.ret:                                       ; preds = %25, %87, %79, %60
   %61 = load i32, ptr %5, align 4
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %5, align 4
-  %63 = getelementptr inbounds i8, ptr %39, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %64 = load i32, ptr %63, align 8
   %65 = lshr i32 %64, 15
   %66 = and i32 %65, 1
@@ -226,7 +226,7 @@ common.ret:                                       ; preds = %25, %87, %79, %60
   %68 = load i32, ptr %5, align 4
   %69 = add nsw i32 %68, 3
   store i32 %69, ptr %5, align 4
-  %70 = getelementptr inbounds i8, ptr %45, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = lshr i32 %71, 16
   %73 = and i32 %72, 1
@@ -277,13 +277,13 @@ define void @Dec_GraphPrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %11 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %11, align 8
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val, i64 %12
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = lshr i32 %15, 1
   %17 = and i32 %16, 1073741823
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val, i64 %18
+  %19 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %18
   %20 = getelementptr i8, ptr %1, i64 4
   %.val84 = load i32, ptr %20, align 4
   %21 = ptrtoint ptr %2 to i64
@@ -311,14 +311,14 @@ define void @Dec_GraphPrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %94
 
 36:                                               ; preds = %7
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 16384
   %.not75 = icmp eq i32 %39, 0
   br i1 %.not75, label %40, label %79
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %13, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 16384
   %.not76 = icmp eq i32 %43, 0
@@ -370,7 +370,7 @@ define void @Dec_GraphPrint2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %Dec_GraphPrintUpdatePos.exit
 
 Dec_GraphPrintUpdatePos.exit:                     ; preds = %55, %63
-  %64 = getelementptr inbounds i8, ptr %19, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %65 = load i32, ptr %64, align 8
   %66 = and i32 %65, 16384
   %.not79 = icmp eq i32 %66, 0

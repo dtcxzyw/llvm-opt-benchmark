@@ -56,11 +56,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @norwegian_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 4
   store i32 %5, ptr %8, align 4
@@ -101,7 +101,7 @@ define hidden range(i32 -2147483648, 2) i32 @norwegian_ISO_8859_1_stem(ptr nound
   br label %r_mark_regions.exit
 
 r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %29
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %30, align 8
   %31 = load i32, ptr %4, align 4
   store i32 %31, ptr %2, align 8
@@ -113,7 +113,7 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
 
 36:                                               ; preds = %r_mark_regions.exit
   store i32 %34, ptr %30, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %31, ptr %37, align 8
   %.not.i = icmp sgt i32 %31, %34
   br i1 %.not.i, label %38, label %.sink.split
@@ -143,7 +143,7 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
 
 51:                                               ; preds = %49
   %52 = load i32, ptr %2, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %52, ptr %53, align 4
   store i32 %3, ptr %30, align 8
   switch i32 %50, label %78 [
@@ -213,7 +213,7 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
 
 84:                                               ; preds = %78
   store i32 %82, ptr %30, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %79, ptr %85, align 8
   %86 = add i32 %79, -1
   %.not.i42 = icmp sgt i32 %86, %82
@@ -242,7 +242,7 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
 
 96:                                               ; preds = %93
   %97 = load i32, ptr %2, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %97, ptr %98, align 4
   store i32 %.pre52.pre54, ptr %30, align 8
   %99 = load i32, ptr %4, align 4
@@ -273,7 +273,7 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
 
 110:                                              ; preds = %104
   store i32 %108, ptr %30, align 8
-  %111 = getelementptr inbounds i8, ptr %0, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %105, ptr %111, align 8
   %112 = add i32 %105, -1
   %.not.i44 = icmp sgt i32 %112, %108
@@ -311,7 +311,7 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
 
 127:                                              ; preds = %124
   %128 = load i32, ptr %2, align 8
-  %129 = getelementptr inbounds i8, ptr %0, i64 20
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %128, ptr %129, align 4
   store i32 %.pre52, ptr %30, align 8
   %130 = tail call i32 @slice_del(ptr noundef nonnull %0) #2

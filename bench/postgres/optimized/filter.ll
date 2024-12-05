@@ -43,20 +43,20 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @filter_init(ptr noundef initializes((8, 28)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
 sub_0:
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @initStringInfo(ptr noundef nonnull %6) #8
   %7 = load i8, ptr %1, align 1
   %.not14 = icmp eq i8 %7, 45
   br i1 %.not14, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %8 = getelementptr inbounds i8, ptr %1, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %14, label %.tail.thread
@@ -95,7 +95,7 @@ define dso_local void @filter_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %13, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #8
   store ptr null, ptr %3, align 8
@@ -112,7 +112,7 @@ define dso_local void @filter_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not11, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %11) #8
   br label %12
@@ -153,13 +153,13 @@ define dso_local void @pg_log_filter_error(ptr nocapture noundef readonly %0, pt
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   br label %12
 
 12:                                               ; preds = %2, %9
   %13 = phi ptr [ %11, %9 ], [ @.str.17, %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.16, ptr noundef %13, i32 noundef %15, ptr noundef nonnull %4) #8
   ret void
@@ -171,13 +171,13 @@ declare i32 @pg_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) lo
 define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = tail call zeroext i1 @pg_get_line_buf(ptr noundef %6, ptr noundef nonnull %7) #8
   br i1 %8, label %9, label %177
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 8
@@ -234,7 +234,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nocapt
 
 .thread:                                          ; preds = %31
   tail call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   tail call void %40(i32 noundef 1) #8
   br label %55
@@ -268,7 +268,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nocapt
 55:                                               ; preds = %.thread, %41, %51
   %.1.i71118 = phi ptr [ %.015.i, %.thread ], [ %.2.i, %41 ], [ %.2.i, %51 ]
   tail call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.21)
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8
   tail call void %57(i32 noundef 1) #8
   br label %58
@@ -318,7 +318,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nocapt
 
 filter_get_keyword.exit51.thread:                 ; preds = %68
   tail call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.22)
-  %81 = getelementptr inbounds i8, ptr %0, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load ptr, ptr %81, align 8
   tail call void %82(i32 noundef 1) #8
   %83 = tail call fastcc zeroext i1 @get_object_type(ptr noundef null, i32 noundef 0, ptr noundef %3)
@@ -329,7 +329,7 @@ filter_get_keyword.exit51.thread:                 ; preds = %68
   %.1.i498186 = phi ptr [ %.2.i46, %.split ], [ %.015.i41, %filter_get_keyword.exit51.thread ]
   %.0.i508385 = phi ptr [ %.015.i41, %.split ], [ null, %filter_get_keyword.exit51.thread ]
   tail call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %.18088, ptr noundef %.0.i508385)
-  %85 = getelementptr inbounds i8, ptr %0, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %86 = load ptr, ptr %85, align 8
   tail call void %86(i32 noundef 1) #8
   br label %87
@@ -357,7 +357,7 @@ filter_get_keyword.exit51.thread:                 ; preds = %68
 
 98:                                               ; preds = %96
   call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.29)
-  %99 = getelementptr inbounds i8, ptr %0, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %100 = load ptr, ptr %99, align 8
   call void %100(i32 noundef 1) #8
   %.pre.pre.i = load i8, ptr %.034.i, align 1
@@ -365,8 +365,8 @@ filter_get_keyword.exit51.thread:                 ; preds = %68
 
 101:                                              ; preds = %98, %96
   %.pre.i = phi i8 [ %.pre.pre.i, %98 ], [ %90, %96 ]
-  %102 = getelementptr inbounds i8, ptr %0, i64 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %104
 
 .loopexit.i:                                      ; preds = %168
@@ -596,10 +596,10 @@ read_pattern.exit:                                ; preds = %104, %104
   br i1 %.not, label %185, label %180
 
 180:                                              ; preds = %177
-  %181 = getelementptr inbounds i8, ptr %0, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %182 = load ptr, ptr %181, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.24, ptr noundef %182) #8
-  %183 = getelementptr inbounds i8, ptr %0, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %184 = load ptr, ptr %183, align 8
   tail call void %184(i32 noundef 1) #8
   br label %185

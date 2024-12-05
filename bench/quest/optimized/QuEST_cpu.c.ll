@@ -57,13 +57,13 @@ define void @densmatr_oneQubitDegradeOffDiagonal(ptr noundef byval(%struct.Qureg
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   store double %2, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %5, align 8
   %11 = zext nneg i32 %1 to i64
   %12 = shl nuw i64 1, %11
   store i64 %12, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, %1
   %16 = zext nneg i32 %15 to i64
@@ -101,10 +101,10 @@ define internal void @densmatr_oneQubitDegradeOffDiagonal.omp_outlined(ptr noali
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
-  %21 = getelementptr inbounds i8, ptr %3, i64 32
-  %22 = getelementptr inbounds i8, ptr %3, i64 40
-  %23 = getelementptr inbounds i8, ptr %3, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %24
 
 24:                                               ; preds = %.lr.ph, %48
@@ -184,13 +184,13 @@ define void @densmatr_mixDephasing(ptr nocapture noundef readonly byval(%struct.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
   store double %10, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %5, align 8
   %13 = zext nneg i32 %1 to i64
   %14 = shl nuw i64 1, %13
   store i64 %14, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %1
   %18 = zext nneg i32 %17 to i64
@@ -220,13 +220,13 @@ define void @densmatr_mixTwoQubitDephasing(ptr noundef byval(%struct.Qureg) alig
   %12 = alloca i64, align 8
   %13 = fsub double 1.000000e+00, %3
   store double %13, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %6, align 8
   %16 = zext nneg i32 %1 to i64
   %17 = shl nuw i64 1, %16
   store i64 %17, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, %1
   %21 = zext nneg i32 %20 to i64
@@ -273,10 +273,10 @@ define internal void @densmatr_mixTwoQubitDephasing.omp_outlined(ptr noalias noc
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %3, i64 16
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
-  %25 = getelementptr inbounds i8, ptr %3, i64 40
-  %26 = getelementptr inbounds i8, ptr %3, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %27
 
 27:                                               ; preds = %.lr.ph, %57
@@ -346,13 +346,13 @@ define void @densmatr_mixDepolarisingLocal(ptr noundef byval(%struct.Qureg) alig
   store double %2, ptr %4, align 8
   %10 = fsub double 1.000000e+00, %2
   store double %10, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %6, align 8
   %13 = zext nneg i32 %1 to i64
   %14 = shl nuw i64 1, %13
   store i64 %14, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %1
   %18 = zext nneg i32 %17 to i64
@@ -390,10 +390,10 @@ define internal void @densmatr_mixDepolarisingLocal.omp_outlined(ptr noalias noc
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
-  %23 = getelementptr inbounds i8, ptr %3, i64 40
-  %24 = getelementptr inbounds i8, ptr %3, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %25
 
 25:                                               ; preds = %.lr.ph, %92
@@ -511,13 +511,13 @@ define void @densmatr_mixDampingLocal(ptr noundef byval(%struct.Qureg) align 8 %
   store double %11, ptr %5, align 8
   %12 = tail call double @sqrt(double noundef %11) #3
   store double %12, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %7, align 8
   %15 = zext nneg i32 %1 to i64
   %16 = shl nuw i64 1, %15
   store i64 %16, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, %1
   %20 = zext nneg i32 %19 to i64
@@ -558,10 +558,10 @@ define internal void @densmatr_mixDampingLocal.omp_outlined(ptr noalias nocaptur
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
-  %23 = getelementptr inbounds i8, ptr %3, i64 32
-  %24 = getelementptr inbounds i8, ptr %3, i64 40
-  %25 = getelementptr inbounds i8, ptr %3, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %26
 
 26:                                               ; preds = %.lr.ph, %67
@@ -663,13 +663,13 @@ define void @densmatr_mixDepolarisingDistributed(ptr noundef byval(%struct.Qureg
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store double %17, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %5, align 8
   %20 = zext nneg i32 %1 to i64
   %21 = shl nuw i64 1, %20
   store i64 %21, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, %1
   %25 = zext nneg i32 %24 to i64
@@ -684,14 +684,14 @@ define void @densmatr_mixDepolarisingDistributed(ptr noundef byval(%struct.Qureg
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = ashr i64 %29, 1
   store i64 %30, ptr %16, align 8
   store i64 %21, ptr %13, align 8
   %31 = shl i64 2, %20
   store i64 %31, ptr %12, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw i64 1, %34
@@ -728,13 +728,13 @@ define internal void @densmatr_mixDepolarisingDistributed.omp_outlined(ptr noali
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
-  %23 = getelementptr inbounds i8, ptr %8, i64 32
-  %24 = getelementptr inbounds i8, ptr %8, i64 4
-  %25 = getelementptr inbounds i8, ptr %8, i64 40
-  %26 = getelementptr inbounds i8, ptr %8, i64 56
-  %27 = getelementptr inbounds i8, ptr %8, i64 48
-  %28 = getelementptr inbounds i8, ptr %8, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 64
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29
@@ -839,13 +839,13 @@ define void @densmatr_mixDampingDistributed(ptr noundef byval(%struct.Qureg) ali
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr noundef nonnull align 8 dereferenceable(136) %0, i64 136, i1 false)
   store double %19, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %21 = load i64, ptr %20, align 8
   store i64 %21, ptr %5, align 8
   %22 = zext nneg i32 %1 to i64
   %23 = shl nuw i64 1, %22
   store i64 %23, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, %1
   %27 = zext nneg i32 %26 to i64
@@ -860,14 +860,14 @@ define void @densmatr_mixDampingDistributed(ptr noundef byval(%struct.Qureg) ali
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = ashr i64 %31, 1
   store i64 %32, ptr %17, align 8
   store i64 %23, ptr %14, align 8
   %33 = shl i64 2, %22
   store i64 %33, ptr %13, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = zext nneg i32 %35 to i64
   %37 = shl nuw i64 1, %36
@@ -904,13 +904,13 @@ define internal void @densmatr_mixDampingDistributed.omp_outlined(ptr noalias no
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %8, i64 16
-  %24 = getelementptr inbounds i8, ptr %8, i64 32
-  %25 = getelementptr inbounds i8, ptr %8, i64 4
-  %26 = getelementptr inbounds i8, ptr %8, i64 40
-  %27 = getelementptr inbounds i8, ptr %8, i64 48
-  %28 = getelementptr inbounds i8, ptr %8, i64 56
-  %29 = getelementptr inbounds i8, ptr %8, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 64
   br label %30
 
 30:                                               ; preds = %.lr.ph, %94
@@ -1013,12 +1013,12 @@ define void @densmatr_mixTwoQubitDepolarisingLocal(ptr noundef byval(%struct.Qur
   %10 = alloca i64, align 8
   store double %3, ptr %6, align 8
   store double %4, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %8, align 8
   %13 = zext nneg i32 %1 to i64
   %14 = shl nuw i64 1, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %1
   %18 = zext nneg i32 %17 to i64
@@ -1070,10 +1070,10 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
   br i1 %.not108, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
-  %29 = getelementptr inbounds i8, ptr %3, i64 32
-  %30 = getelementptr inbounds i8, ptr %3, i64 40
-  %31 = getelementptr inbounds i8, ptr %3, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %32
 
 32:                                               ; preds = %.lr.ph, %76
@@ -1164,10 +1164,10 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
   br i1 %.not104110, label %._crit_edge114, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %82
-  %87 = getelementptr inbounds i8, ptr %3, i64 16
-  %88 = getelementptr inbounds i8, ptr %3, i64 32
-  %89 = getelementptr inbounds i8, ptr %3, i64 40
-  %90 = getelementptr inbounds i8, ptr %3, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %91
 
 91:                                               ; preds = %.lr.ph113, %135
@@ -1258,10 +1258,10 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
   br i1 %.not105115, label %._crit_edge119, label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %3, i64 16
-  %147 = getelementptr inbounds i8, ptr %3, i64 32
-  %148 = getelementptr inbounds i8, ptr %3, i64 40
-  %149 = getelementptr inbounds i8, ptr %3, i64 48
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %150
 
 150:                                              ; preds = %.lr.ph118, %203
@@ -1352,12 +1352,12 @@ define void @densmatr_mixTwoQubitDepolarisingLocalPart1(ptr noundef byval(%struc
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   store double %3, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %6, align 8
   %11 = zext nneg i32 %1 to i64
   %12 = shl nuw i64 1, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, %1
   %16 = zext nneg i32 %15 to i64
@@ -1401,10 +1401,10 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocalPart1.omp_outlined(pt
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
-  %20 = getelementptr inbounds i8, ptr %3, i64 32
-  %21 = getelementptr inbounds i8, ptr %3, i64 40
-  %22 = getelementptr inbounds i8, ptr %3, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
   br label %23
 
 23:                                               ; preds = %.lr.ph, %67
@@ -1496,7 +1496,7 @@ define void @densmatr_mixTwoQubitDepolarisingDistributed(ptr noundef byval(%stru
   store i32 %2, ptr %7, align 4
   store double %3, ptr %8, align 8
   store double %4, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = ashr i64 %18, 2
   store i64 %19, ptr %16, align 8
@@ -1511,7 +1511,7 @@ define void @densmatr_mixTwoQubitDepolarisingDistributed(ptr noundef byval(%stru
   store i64 %25, ptr %12, align 8
   %26 = shl i64 2, %20
   store i64 %26, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw i64 1, %29
@@ -1548,13 +1548,13 @@ define internal void @densmatr_mixTwoQubitDepolarisingDistributed.omp_outlined(p
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %10, i64 16
-  %27 = getelementptr inbounds i8, ptr %10, i64 32
-  %28 = getelementptr inbounds i8, ptr %10, i64 4
-  %29 = getelementptr inbounds i8, ptr %10, i64 40
-  %30 = getelementptr inbounds i8, ptr %10, i64 56
-  %31 = getelementptr inbounds i8, ptr %10, i64 48
-  %32 = getelementptr inbounds i8, ptr %10, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 64
   br label %33
 
 33:                                               ; preds = %.lr.ph, %33
@@ -1662,7 +1662,7 @@ define void @densmatr_mixTwoQubitDepolarisingQ1LocalQ2DistributedPart3(ptr nound
   store i32 %2, ptr %7, align 4
   store double %3, ptr %8, align 8
   store double %4, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = ashr i64 %18, 2
   store i64 %19, ptr %16, align 8
@@ -1677,7 +1677,7 @@ define void @densmatr_mixTwoQubitDepolarisingQ1LocalQ2DistributedPart3(ptr nound
   store i64 %25, ptr %12, align 8
   %26 = shl i64 2, %20
   store i64 %26, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw i64 1, %29
@@ -1714,13 +1714,13 @@ define internal void @densmatr_mixTwoQubitDepolarisingQ1LocalQ2DistributedPart3.
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %10, i64 16
-  %27 = getelementptr inbounds i8, ptr %10, i64 32
-  %28 = getelementptr inbounds i8, ptr %10, i64 4
-  %29 = getelementptr inbounds i8, ptr %10, i64 40
-  %30 = getelementptr inbounds i8, ptr %10, i64 56
-  %31 = getelementptr inbounds i8, ptr %10, i64 48
-  %32 = getelementptr inbounds i8, ptr %10, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 64
   br label %33
 
 33:                                               ; preds = %.lr.ph, %33
@@ -1854,8 +1854,8 @@ define internal void @zeroSomeAmps.omp_outlined(ptr noalias nocapture noundef re
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %4, i64 40
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
@@ -1923,8 +1923,8 @@ define internal void @normaliseSomeAmps.omp_outlined(ptr noalias nocapture nound
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
-  %21 = getelementptr inbounds i8, ptr %4, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
@@ -2165,14 +2165,14 @@ define void @densmatr_collapseToKnownProbOutcome(ptr nocapture noundef readonly 
   %35 = alloca %struct.Qureg, align 8
   %36 = zext i32 %1 to i64
   %37 = shl nuw i64 1, %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, %1
   %41 = zext nneg i32 %40 to i64
   %42 = shl nuw i64 1, %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %44, %47
@@ -2368,14 +2368,14 @@ define double @densmatr_calcPurityLocal(ptr nocapture noundef readonly byval(%st
   %3 = alloca double, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %2, align 8
   store double 0.000000e+00, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @densmatr_calcPurityLocal.omp_outlined, ptr nonnull %2, ptr nonnull %3, ptr nonnull %4, ptr nonnull %5)
@@ -2487,19 +2487,19 @@ define void @densmatr_mixDensityMatrix(ptr nocapture noundef readonly byval(%str
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   store double %1, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %9, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_mixDensityMatrix.omp_outlined, ptr nonnull %9, ptr nonnull %5, ptr nonnull %4, ptr nonnull %6, ptr nonnull %7, ptr nonnull %8)
@@ -2587,19 +2587,19 @@ define double @densmatr_calcHilbertSchmidtDistanceSquaredLocal(ptr nocapture nou
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca double, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %7, align 8
   store double 0.000000e+00, ptr %8, align 8
@@ -2713,19 +2713,19 @@ define double @densmatr_calcInnerProductLocal(ptr nocapture noundef readonly byv
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca double, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %7, align 8
   store double 0.000000e+00, ptr %8, align 8
@@ -2839,27 +2839,27 @@ define double @densmatr_calcFidelityLocal(ptr nocapture noundef readonly byval(%
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca double, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
   store i32 %21, ptr %7, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = trunc i64 %23 to i32
   store i32 %24, ptr %8, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = mul i32 %26, %24
   store i32 %27, ptr %9, align 4
@@ -3037,19 +3037,19 @@ define { double, double } @statevec_calcInnerProductLocal(ptr nocapture noundef 
   %9 = alloca ptr, align 8
   store double 0.000000e+00, ptr %3, align 8
   store double 0.000000e+00, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %9, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_calcInnerProductLocal.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %7, ptr nonnull %8, ptr nonnull %9, ptr nonnull %3, ptr nonnull %4)
@@ -3129,7 +3129,7 @@ define internal void @statevec_calcInnerProductLocal.omp_outlined(ptr noalias no
 47:                                               ; preds = %._crit_edge, %9
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   store ptr %10, ptr %16, align 8
-  %48 = getelementptr inbounds i8, ptr %16, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %11, ptr %48, align 8
   %49 = call i32 @__kmpc_reduce_nowait(ptr nonnull @4, i32 %.pre, i32 2, i64 16, ptr nonnull %16, ptr nonnull @statevec_calcInnerProductLocal.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
   switch i32 %49, label %62 [
@@ -3164,9 +3164,9 @@ define internal void @statevec_calcInnerProductLocal.omp_outlined(ptr noalias no
 define internal void @statevec_calcInnerProductLocal.omp_outlined.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load double, ptr %4, align 8
   %10 = load double, ptr %3, align 8
@@ -3184,22 +3184,22 @@ define void @densmatr_initClassicalState(ptr nocapture noundef readonly byval(%s
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @densmatr_initClassicalState.omp_outlined, ptr nonnull %3, ptr nonnull %4, ptr nonnull %5)
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = zext nneg i32 %13 to i64
   %mulshl = shl i64 %1, %14
   %15 = add i64 %mulshl, %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   %19 = load i64, ptr %3, align 8
@@ -3276,20 +3276,20 @@ define void @densmatr_initPlusState(ptr nocapture noundef readonly byval(%struct
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = zext nneg i32 %7 to i64
   %9 = shl nuw i64 1, %8
   %10 = sitofp i64 %9 to double
   %11 = fdiv double 1.000000e+00, %10
   store double %11, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @densmatr_initPlusState.omp_outlined, ptr nonnull %5, ptr nonnull %3, ptr nonnull %2, ptr nonnull %4)
@@ -3353,27 +3353,27 @@ define void @densmatr_initPureStateLocal(ptr nocapture noundef readonly byval(%s
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = mul nsw i64 %14, %12
   store i64 %15, ptr %3, align 8
   store i64 %14, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %8, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %9, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @densmatr_initPureStateLocal.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %6, ptr nonnull %7, ptr nonnull %3, ptr nonnull %8, ptr nonnull %9)
@@ -3419,10 +3419,10 @@ define internal void @densmatr_initPureStateLocal.omp_outlined(ptr noalias nocap
   %26 = phi i64 [ %51, %.lr.ph ], [ %24, %.preheader ]
   %.037 = phi i64 [ %50, %.lr.ph ], [ 0, %.preheader ]
   %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds double, ptr %27, i64 %.037
+  %28 = getelementptr inbounds nuw double, ptr %27, i64 %.037
   %29 = load double, ptr %28, align 8
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds double, ptr %30, i64 %.037
+  %31 = getelementptr inbounds nuw double, ptr %30, i64 %.037
   %32 = load double, ptr %31, align 8
   %33 = load i64, ptr %6, align 8
   %34 = add nsw i64 %33, %.03539
@@ -3479,10 +3479,10 @@ define void @statevec_setAmps(ptr nocapture noundef readonly byval(%struct.Qureg
   %12 = alloca ptr, align 8
   store ptr %2, ptr %6, align 8
   store ptr %3, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = mul nsw i64 %17, %15
   %19 = sub nsw i64 %1, %18
@@ -3507,10 +3507,10 @@ define void @statevec_setAmps(ptr nocapture noundef readonly byval(%struct.Qureg
   br label %27
 
 27:                                               ; preds = %26, %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %12, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_setAmps.omp_outlined, ptr nonnull %8, ptr nonnull %9, ptr nonnull %11, ptr nonnull %6, ptr nonnull %10, ptr nonnull %12, ptr nonnull %7)
@@ -3583,41 +3583,41 @@ define internal void @statevec_setAmps.omp_outlined(ptr noalias nocapture nounde
 define void @statevec_createQureg(ptr noundef initializes((0, 4), (8, 12), (16, 56)) %0, i32 noundef %1, ptr noundef byval(%struct.QuESTEnv) align 8 %2) local_unnamed_addr #1 {
   %4 = zext nneg i32 %1 to i64
   %5 = shl nuw i64 1, %4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = sdiv i64 %5, %8
   tail call void @validateMemoryAllocationSize(i64 noundef %9, ptr noundef nonnull @__func__.statevec_createQureg) #3
   %10 = shl i64 %9, 3
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #22
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %12, align 8
   %13 = tail call noalias ptr @malloc(i64 noundef %10) #22
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %13, ptr %14, align 8
   %15 = icmp sgt i32 %7, 1
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %3
   %17 = tail call noalias ptr @malloc(i64 noundef %10) #22
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %17, ptr %18, align 8
   %19 = tail call noalias ptr @malloc(i64 noundef %10) #22
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %19, ptr %20, align 8
   br label %21
 
 21:                                               ; preds = %16, %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %5, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %24, align 8
   %25 = load i32, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %7, ptr %27, align 4
   store i32 0, ptr %0, align 8
   tail call void @validateQuregAllocation(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %2, ptr noundef nonnull @__func__.statevec_createQureg) #3
@@ -3633,22 +3633,22 @@ declare void @validateQuregAllocation(ptr noundef, ptr noundef byval(%struct.QuE
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @statevec_destroyQureg(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %1) local_unnamed_addr #10 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #3
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #3
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 1
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   tail call void @free(ptr noundef %12) #3
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
   tail call void @free(ptr noundef %14) #3
   br label %15
@@ -3672,22 +3672,22 @@ define void @statevec_applySubDiagonalOp(ptr nocapture noundef readonly byval(%s
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   store ptr %1, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %9, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %15, %26
@@ -3742,7 +3742,7 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nocap
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %.043 = phi i64 [ 0, %.lr.ph ], [ %39, %28 ]
-  %29 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = zext i32 %30 to i64
   %32 = shl nuw i64 1, %31
@@ -3802,22 +3802,22 @@ define void @agnostic_createDiagonalOp(ptr dead_on_unwind noalias writable sret(
   store i32 %1, ptr %0, align 8
   %4 = zext nneg i32 %1 to i64
   %5 = shl nuw i64 1, %4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
   %9 = sdiv i64 %5, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %10, align 8
   %11 = load i32, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %7, ptr %13, align 8
   %14 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 8) #23
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %14, ptr %15, align 8
   %16 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 8) #23
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %16, ptr %17, align 8
   tail call void @validateDiagonalOpAllocation(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %2, ptr noundef nonnull @__func__.agnostic_createDiagonalOp) #3
   ret void
@@ -3830,10 +3830,10 @@ declare void @validateDiagonalOpAllocation(ptr noundef, ptr noundef byval(%struc
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @agnostic_destroyDiagonalOp(ptr nocapture noundef readonly byval(%struct.DiagonalOp) align 8 %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #3
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #3
   ret void
@@ -3854,27 +3854,27 @@ define void @agnostic_initDiagonalOpFromPauliHamil(ptr nocapture noundef readonl
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = mul nsw i64 %15, %13
   store i64 %16, ptr %3, align 8
   store i64 %15, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr %7, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %8, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %9, align 8
   %27 = load ptr, ptr %1, align 8
@@ -3936,13 +3936,13 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   %indvars.iv58 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next59, %._crit_edge.us ]
   %.045.us = phi double [ 0.000000e+00, %.preheader.us.preheader ], [ %50, %._crit_edge.us ]
   %31 = mul nuw nsw i64 %indvars.iv58, %30
-  %32 = getelementptr inbounds i32, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %28, i64 %31
   br label %33
 
 33:                                               ; preds = %.preheader.us, %44
   %indvars.iv53 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next54, %44 ]
   %.03543.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %44 ]
-  %34 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv53
+  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv53
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 3
   br i1 %36, label %37, label %44
@@ -3969,7 +3969,7 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
 ._crit_edge.us:                                   ; preds = %44
   %45 = shl nuw nsw i32 %.1.us, 1
   %46 = sub nsw i32 1, %45
-  %47 = getelementptr inbounds double, ptr %29, i64 %indvars.iv58
+  %47 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv58
   %48 = load double, ptr %47, align 8
   %49 = sitofp i32 %46 to double
   %50 = call double @llvm.fmuladd.f64(double %48, double %49, double %.045.us)
@@ -3980,7 +3980,7 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %.045 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %53, %.preheader ]
-  %51 = getelementptr inbounds double, ptr %29, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv
   %52 = load double, ptr %51, align 8
   %53 = fadd double %52, %.045
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4011,28 +4011,28 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
 
 ; Function Attrs: nounwind uwtable
 define void @statevec_reportStateToScreen(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef byval(%struct.QuESTEnv) align 8 %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 6
   br i1 %6, label %.preheader, label %57
 
 .preheader:                                       ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph20, label %.loopexit
 
 .lr.ph20:                                         ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %.not.not = icmp eq i32 %2, 0
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %.fr27 = freeze i64 %13
   %14 = icmp sgt i64 %.fr27, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   br i1 %.not.not, label %.lr.ph20.split, label %.lr.ph20.split.us
 
@@ -4057,9 +4057,9 @@ define void @statevec_reportStateToScreen(ptr nocapture noundef readonly byval(%
 
 23:                                               ; preds = %.lr.ph.us.us, %23
   %.01118.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %29, %23 ]
-  %24 = getelementptr inbounds double, ptr %16, i64 %.01118.us.us
+  %24 = getelementptr inbounds nuw double, ptr %16, i64 %.01118.us.us
   %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds double, ptr %18, i64 %.01118.us.us
+  %26 = getelementptr inbounds nuw double, ptr %18, i64 %.01118.us.us
   %27 = load double, ptr %26, align 8
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %25, double noundef %27)
   %29 = add nuw nsw i64 %.01118.us.us, 1
@@ -4121,9 +4121,9 @@ define void @statevec_reportStateToScreen(ptr nocapture noundef readonly byval(%
 
 .lr.ph.us24:                                      ; preds = %.lr.ph.us24.preheader, %.lr.ph.us24
   %.01118.us23 = phi i64 [ %49, %.lr.ph.us24 ], [ 0, %.lr.ph.us24.preheader ]
-  %44 = getelementptr inbounds double, ptr %16, i64 %.01118.us23
+  %44 = getelementptr inbounds nuw double, ptr %16, i64 %.01118.us23
   %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds double, ptr %18, i64 %.01118.us23
+  %46 = getelementptr inbounds nuw double, ptr %18, i64 %.01118.us23
   %47 = load double, ptr %46, align 8
   %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %45, double noundef %47)
   %49 = add nuw nsw i64 %.01118.us23, 1
@@ -4177,13 +4177,13 @@ define void @statevec_initBlankState(ptr nocapture noundef readonly byval(%struc
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   store i64 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @statevec_initBlankState.omp_outlined, ptr nonnull %2, ptr nonnull %3, ptr nonnull %4)
@@ -4245,11 +4245,11 @@ define void @statevec_initZeroState(ptr nocapture noundef readonly byval(%struct
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.41.0.copyload = load ptr, ptr %.sroa.41.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   store i64 %.sroa.3.0.copyload, ptr %2, align 8
   store ptr %.sroa.41.0.copyload, ptr %3, align 8
@@ -4258,7 +4258,7 @@ define void @statevec_initZeroState(ptr nocapture noundef readonly byval(%struct
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %9
@@ -4278,10 +4278,10 @@ define void @statevec_initPlusState(ptr nocapture noundef readonly byval(%struct
   %3 = alloca double, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
   %11 = mul nsw i64 %7, %10
@@ -4289,10 +4289,10 @@ define void @statevec_initPlusState(ptr nocapture noundef readonly byval(%struct
   %13 = tail call double @sqrt(double noundef %12) #3
   %14 = fdiv double 1.000000e+00, %13
   store double %14, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @statevec_initPlusState.omp_outlined, ptr nonnull %2, ptr nonnull %4, ptr nonnull %3, ptr nonnull %5)
@@ -4352,17 +4352,17 @@ define void @statevec_initClassicalState(ptr nocapture noundef readonly byval(%s
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @statevec_initClassicalState.omp_outlined, ptr nonnull %3, ptr nonnull %4, ptr nonnull %5)
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
   %15 = load i64, ptr %3, align 8
@@ -4440,19 +4440,19 @@ define void @statevec_cloneQureg(ptr nocapture noundef readonly byval(%struct.Qu
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull @statevec_cloneQureg.omp_outlined, ptr nonnull %3, ptr nonnull %4, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
@@ -4518,16 +4518,16 @@ define void @statevec_initDebugState(ptr nocapture noundef readonly byval(%struc
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
   %15 = mul nsw i64 %7, %14
@@ -4604,7 +4604,7 @@ define void @statevec_compactUnitaryLocal(ptr nocapture noundef readonly byval(%
   %13 = alloca double, align 8
   %14 = alloca double, align 8
   %15 = alloca double, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = ashr i64 %17, 1
   store i64 %18, ptr %9, align 8
@@ -4613,10 +4613,10 @@ define void @statevec_compactUnitaryLocal(ptr nocapture noundef readonly byval(%
   store i64 %20, ptr %8, align 8
   %21 = shl i64 2, %19
   store i64 %21, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %11, align 8
   store double %3, ptr %12, align 8
@@ -4744,16 +4744,16 @@ define void @statevec_multiControlledTwoQubitUnitaryLocal(ptr nocapture noundef 
   store i64 %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = mul nsw i64 %21, %19
   store i64 %22, ptr %11, align 8
@@ -4789,37 +4789,37 @@ define internal void @statevec_multiControlledTwoQubitUnitaryLocal.omp_outlined(
   br i1 %.not107, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %9, i64 128
-  %23 = getelementptr inbounds i8, ptr %9, i64 8
-  %24 = getelementptr inbounds i8, ptr %9, i64 136
-  %25 = getelementptr inbounds i8, ptr %9, i64 16
-  %26 = getelementptr inbounds i8, ptr %9, i64 144
-  %27 = getelementptr inbounds i8, ptr %9, i64 24
-  %28 = getelementptr inbounds i8, ptr %9, i64 152
-  %29 = getelementptr inbounds i8, ptr %9, i64 32
-  %30 = getelementptr inbounds i8, ptr %9, i64 160
-  %31 = getelementptr inbounds i8, ptr %9, i64 40
-  %32 = getelementptr inbounds i8, ptr %9, i64 168
-  %33 = getelementptr inbounds i8, ptr %9, i64 48
-  %34 = getelementptr inbounds i8, ptr %9, i64 176
-  %35 = getelementptr inbounds i8, ptr %9, i64 56
-  %36 = getelementptr inbounds i8, ptr %9, i64 184
-  %37 = getelementptr inbounds i8, ptr %9, i64 64
-  %38 = getelementptr inbounds i8, ptr %9, i64 192
-  %39 = getelementptr inbounds i8, ptr %9, i64 72
-  %40 = getelementptr inbounds i8, ptr %9, i64 200
-  %41 = getelementptr inbounds i8, ptr %9, i64 80
-  %42 = getelementptr inbounds i8, ptr %9, i64 208
-  %43 = getelementptr inbounds i8, ptr %9, i64 88
-  %44 = getelementptr inbounds i8, ptr %9, i64 216
-  %45 = getelementptr inbounds i8, ptr %9, i64 96
-  %46 = getelementptr inbounds i8, ptr %9, i64 224
-  %47 = getelementptr inbounds i8, ptr %9, i64 104
-  %48 = getelementptr inbounds i8, ptr %9, i64 232
-  %49 = getelementptr inbounds i8, ptr %9, i64 112
-  %50 = getelementptr inbounds i8, ptr %9, i64 240
-  %51 = getelementptr inbounds i8, ptr %9, i64 120
-  %52 = getelementptr inbounds i8, ptr %9, i64 248
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 152
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 168
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 176
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 184
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 192
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 208
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 216
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 224
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 232
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 112
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 240
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 248
   br label %53
 
 53:                                               ; preds = %.lr.ph, %257
@@ -5082,13 +5082,13 @@ define void @statevec_multiControlledMultiQubitUnitaryLocal(ptr nocapture nounde
   store i64 %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = zext i32 %3 to i64
   %21 = ashr i64 %19, %20
@@ -5097,7 +5097,7 @@ define void @statevec_multiControlledMultiQubitUnitaryLocal(ptr nocapture nounde
   %23 = shl nuw i32 1, %22
   %24 = sext i32 %23 to i64
   store i64 %24, ptr %12, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
   %28 = mul nsw i64 %19, %27
@@ -5150,8 +5150,8 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   br i1 %.not98, label %._crit_edge100, label %.preheader82.lr.ph
 
 .preheader82.lr.ph:                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %15, i64 8
-  %32 = getelementptr inbounds i8, ptr %15, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %.preheader82
 
 .preheader82:                                     ; preds = %.preheader82.lr.ph, %.loopexit
@@ -5168,7 +5168,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.084 = phi i64 [ %.07199, %.lr.ph.preheader ], [ %43, %.lr.ph ]
-  %36 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %38 = zext nneg i32 %37 to i64
   %39 = shl nsw i64 -1, %38
@@ -5221,7 +5221,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   br i1 %.not80.us, label %64, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv107
+  %59 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv107
   %60 = load i32, ptr %59, align 4
   %61 = zext nneg i32 %60 to i64
   %62 = shl nuw i64 1, %61
@@ -5235,15 +5235,15 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   br i1 %exitcond111.not, label %._crit_edge89.us, label %55
 
 ._crit_edge89.us:                                 ; preds = %64
-  %65 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv112
+  %65 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv112
   store i64 %.1.us, ptr %65, align 8
   %66 = getelementptr inbounds double, ptr %53, i64 %.1.us
   %67 = load double, ptr %66, align 8
-  %68 = getelementptr inbounds double, ptr %22, i64 %indvars.iv112
+  %68 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv112
   store double %67, ptr %68, align 8
   %69 = getelementptr inbounds double, ptr %54, i64 %.1.us
   %70 = load double, ptr %69, align 8
-  %71 = getelementptr inbounds double, ptr %23, i64 %indvars.iv112
+  %71 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv112
   store double %70, ptr %71, align 8
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, %50
@@ -5258,11 +5258,11 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.preheader
   %indvars.iv103 = phi i64 [ 0, %.preheader.lr.ph.split ], [ %indvars.iv.next104, %.preheader ]
-  %76 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv103
+  %76 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv103
   store i64 %.0.lcssa, ptr %76, align 8
-  %77 = getelementptr inbounds double, ptr %22, i64 %indvars.iv103
+  %77 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv103
   store double %73, ptr %77, align 8
-  %78 = getelementptr inbounds double, ptr %23, i64 %indvars.iv103
+  %78 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv103
   store double %75, ptr %78, align 8
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, %50
@@ -5273,7 +5273,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %._crit_edge95
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge95 ], [ 0, %.lr.ph97.preheader ]
-  %79 = getelementptr inbounds i64, ptr %21, i64 %indvars.iv119
+  %79 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv119
   %80 = load i64, ptr %79, align 8
   %81 = load ptr, ptr %12, align 8
   %82 = getelementptr inbounds double, ptr %81, i64 %80
@@ -5288,18 +5288,18 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
 .lr.ph94:                                         ; preds = %.lr.ph97, %.lr.ph94
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph94 ], [ 0, %.lr.ph97 ]
   %87 = load ptr, ptr %31, align 8
-  %88 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv119
+  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv119
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds double, ptr %89, i64 %indvars.iv116
+  %90 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv116
   %91 = load double, ptr %90, align 8
   %92 = load ptr, ptr %32, align 8
-  %93 = getelementptr inbounds ptr, ptr %92, i64 %indvars.iv119
+  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv119
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds double, ptr %94, i64 %indvars.iv116
+  %95 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv116
   %96 = load double, ptr %95, align 8
-  %97 = getelementptr inbounds double, ptr %22, i64 %indvars.iv116
+  %97 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv116
   %98 = load double, ptr %97, align 8
-  %99 = getelementptr inbounds double, ptr %23, i64 %indvars.iv116
+  %99 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv116
   %100 = load double, ptr %99, align 8
   %101 = fneg double %96
   %102 = fmul double %100, %101
@@ -5353,7 +5353,7 @@ define void @statevec_unitaryLocal(ptr nocapture noundef readonly byval(%struct.
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = ashr i64 %10, 1
   store i64 %11, ptr %6, align 8
@@ -5362,10 +5362,10 @@ define void @statevec_unitaryLocal(ptr nocapture noundef readonly byval(%struct.
   store i64 %13, ptr %5, align 8
   %14 = shl i64 2, %12
   store i64 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @statevec_unitaryLocal.omp_outlined, ptr nonnull %6, ptr nonnull %5, ptr nonnull %4, ptr nonnull %7, ptr nonnull %8, ptr nonnull %2)
@@ -5398,13 +5398,13 @@ define internal void @statevec_unitaryLocal.omp_outlined(ptr noalias nocapture n
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %7, i64 32
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 40
-  %23 = getelementptr inbounds i8, ptr %7, i64 16
-  %24 = getelementptr inbounds i8, ptr %7, i64 48
-  %25 = getelementptr inbounds i8, ptr %7, i64 24
-  %26 = getelementptr inbounds i8, ptr %7, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 56
   br label %27
 
 27:                                               ; preds = %.lr.ph, %27
@@ -5498,7 +5498,7 @@ define void @statevec_compactUnitaryDistributed(ptr nocapture noundef readonly b
   %20 = alloca ptr, align 8
   %21 = alloca ptr, align 8
   %22 = alloca ptr, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %12, align 8
   store double %1, ptr %13, align 8
@@ -5605,7 +5605,7 @@ define void @statevec_unitaryDistributed(ptr nocapture noundef readonly byval(%s
   %20 = alloca ptr, align 8
   %21 = alloca ptr, align 8
   %22 = alloca ptr, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %12, align 8
   store double %1, ptr %13, align 8
@@ -5714,12 +5714,12 @@ define void @statevec_controlledCompactUnitaryLocal(ptr nocapture noundef readon
   %18 = alloca double, align 8
   %19 = alloca double, align 8
   store i32 %1, ptr %8, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = ashr i64 %21, 1
   store i64 %22, ptr %11, align 8
   store i64 %21, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
   store i64 %25, ptr %13, align 8
@@ -5728,10 +5728,10 @@ define void @statevec_controlledCompactUnitaryLocal(ptr nocapture noundef readon
   store i64 %27, ptr %10, align 8
   %28 = shl i64 2, %26
   store i64 %28, ptr %9, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %14, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %15, align 8
   store double %4, ptr %16, align 8
@@ -5879,12 +5879,12 @@ define void @statevec_multiControlledUnitaryLocal(ptr nocapture noundef readonly
   %14 = alloca ptr, align 8
   store i64 %2, ptr %6, align 8
   store i64 %3, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = ashr i64 %16, 1
   store i64 %17, ptr %10, align 8
   store i64 %16, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   store i64 %20, ptr %12, align 8
@@ -5893,10 +5893,10 @@ define void @statevec_multiControlledUnitaryLocal(ptr nocapture noundef readonly
   store i64 %22, ptr %9, align 8
   %23 = shl i64 2, %21
   store i64 %23, ptr %8, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %13, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %14, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 10, ptr nonnull @statevec_multiControlledUnitaryLocal.omp_outlined, ptr nonnull %10, ptr nonnull %9, ptr nonnull %8, ptr nonnull %6, ptr nonnull %12, ptr nonnull %11, ptr nonnull %7, ptr nonnull %13, ptr nonnull %14, ptr nonnull %4)
@@ -5929,13 +5929,13 @@ define internal void @statevec_multiControlledUnitaryLocal.omp_outlined(ptr noal
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %11, i64 32
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 40
-  %27 = getelementptr inbounds i8, ptr %11, i64 16
-  %28 = getelementptr inbounds i8, ptr %11, i64 48
-  %29 = getelementptr inbounds i8, ptr %11, i64 24
-  %30 = getelementptr inbounds i8, ptr %11, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 56
   br label %31
 
 31:                                               ; preds = %.lr.ph, %101
@@ -6044,12 +6044,12 @@ define void @statevec_controlledUnitaryLocal(ptr nocapture noundef readonly byva
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   store i32 %1, ptr %5, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = ashr i64 %14, 1
   store i64 %15, ptr %8, align 8
   store i64 %14, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   store i64 %18, ptr %10, align 8
@@ -6058,10 +6058,10 @@ define void @statevec_controlledUnitaryLocal(ptr nocapture noundef readonly byva
   store i64 %20, ptr %7, align 8
   %21 = shl i64 2, %19
   store i64 %21, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %11, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %12, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 9, ptr nonnull @statevec_controlledUnitaryLocal.omp_outlined, ptr nonnull %8, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %10, ptr nonnull %9, ptr nonnull %11, ptr nonnull %12, ptr nonnull %3)
@@ -6094,13 +6094,13 @@ define internal void @statevec_controlledUnitaryLocal.omp_outlined(ptr noalias n
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %10, i64 32
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 40
-  %26 = getelementptr inbounds i8, ptr %10, i64 16
-  %27 = getelementptr inbounds i8, ptr %10, i64 48
-  %28 = getelementptr inbounds i8, ptr %10, i64 24
-  %29 = getelementptr inbounds i8, ptr %10, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 56
   br label %30
 
 30:                                               ; preds = %.lr.ph, %101
@@ -6217,11 +6217,11 @@ define void @statevec_controlledCompactUnitaryDistributed(ptr nocapture noundef 
   %24 = alloca ptr, align 8
   %25 = alloca ptr, align 8
   store i32 %1, ptr %12, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr %13, align 8
   store i64 %27, ptr %14, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
   store i64 %30, ptr %15, align 8
@@ -6235,7 +6235,7 @@ define void @statevec_controlledCompactUnitaryDistributed(ptr nocapture noundef 
   store ptr %9, ptr %23, align 8
   %31 = load ptr, ptr %10, align 8
   store ptr %31, ptr %24, align 8
-  %32 = getelementptr inbounds i8, ptr %10, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %25, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 14, ptr nonnull @statevec_controlledCompactUnitaryDistributed.omp_outlined, ptr nonnull %13, ptr nonnull %12, ptr nonnull %15, ptr nonnull %14, ptr nonnull %20, ptr nonnull %21, ptr nonnull %22, ptr nonnull %23, ptr nonnull %24, ptr nonnull %16, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, ptr nonnull %25)
@@ -6355,11 +6355,11 @@ define void @statevec_controlledUnitaryDistributed(ptr nocapture noundef readonl
   %24 = alloca ptr, align 8
   %25 = alloca ptr, align 8
   store i32 %1, ptr %12, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr %13, align 8
   store i64 %27, ptr %14, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
   store i64 %30, ptr %15, align 8
@@ -6373,7 +6373,7 @@ define void @statevec_controlledUnitaryDistributed(ptr nocapture noundef readonl
   store ptr %9, ptr %23, align 8
   %31 = load ptr, ptr %10, align 8
   store ptr %31, ptr %24, align 8
-  %32 = getelementptr inbounds i8, ptr %10, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %25, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 14, ptr nonnull @statevec_controlledUnitaryDistributed.omp_outlined, ptr nonnull %13, ptr nonnull %12, ptr nonnull %15, ptr nonnull %14, ptr nonnull %20, ptr nonnull %21, ptr nonnull %22, ptr nonnull %23, ptr nonnull %24, ptr nonnull %16, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, ptr nonnull %25)
@@ -6495,11 +6495,11 @@ define void @statevec_multiControlledUnitaryDistributed(ptr nocapture noundef re
   %27 = alloca ptr, align 8
   store i64 %2, ptr %13, align 8
   store i64 %3, ptr %14, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %15, align 8
   store i64 %29, ptr %16, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
   store i64 %32, ptr %17, align 8
@@ -6511,12 +6511,12 @@ define void @statevec_multiControlledUnitaryDistributed(ptr nocapture noundef re
   store ptr %9, ptr %23, align 8
   %33 = load ptr, ptr %10, align 8
   store ptr %33, ptr %24, align 8
-  %34 = getelementptr inbounds i8, ptr %10, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %25, align 8
   %36 = load ptr, ptr %11, align 8
   store ptr %36, ptr %26, align 8
-  %37 = getelementptr inbounds i8, ptr %11, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %27, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 15, ptr nonnull @statevec_multiControlledUnitaryDistributed.omp_outlined, ptr nonnull %15, ptr nonnull %13, ptr nonnull %17, ptr nonnull %16, ptr nonnull %14, ptr nonnull %22, ptr nonnull %23, ptr nonnull %24, ptr nonnull %25, ptr nonnull %26, ptr nonnull %18, ptr nonnull %19, ptr nonnull %20, ptr nonnull %21, ptr nonnull %27)
@@ -6624,7 +6624,7 @@ define void @statevec_pauliXLocal(ptr nocapture noundef readonly byval(%struct.Q
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = ashr i64 %9, 1
   store i64 %10, ptr %5, align 8
@@ -6633,10 +6633,10 @@ define void @statevec_pauliXLocal(ptr nocapture noundef readonly byval(%struct.Q
   store i64 %12, ptr %4, align 8
   %13 = shl i64 2, %11
   store i64 %13, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull @statevec_pauliXLocal.omp_outlined, ptr nonnull %5, ptr nonnull %4, ptr nonnull %3, ptr nonnull %6, ptr nonnull %7)
@@ -6718,7 +6718,7 @@ define void @statevec_pauliXDistributed(ptr nocapture noundef readonly byval(%st
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %6, align 8
   store ptr %1, ptr %7, align 8
@@ -6793,12 +6793,12 @@ define void @statevec_controlledNotLocal(ptr nocapture noundef readonly byval(%s
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   store i32 %1, ptr %4, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = ashr i64 %13, 1
   store i64 %14, ptr %7, align 8
   store i64 %13, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   store i64 %17, ptr %9, align 8
@@ -6807,10 +6807,10 @@ define void @statevec_controlledNotLocal(ptr nocapture noundef readonly byval(%s
   store i64 %19, ptr %6, align 8
   %20 = shl i64 2, %18
   store i64 %20, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %11, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 8, ptr nonnull @statevec_controlledNotLocal.omp_outlined, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %4, ptr nonnull %9, ptr nonnull %8, ptr nonnull %10, ptr nonnull %11)
@@ -6915,11 +6915,11 @@ define void @statevec_controlledNotDistributed(ptr nocapture noundef readonly by
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   store i32 %1, ptr %7, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %8, align 8
   store i64 %16, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   store i64 %19, ptr %10, align 8
@@ -7013,16 +7013,16 @@ define void @statevec_multiControlledMultiQubitNotLocal(ptr nocapture noundef re
   %9 = alloca i64, align 8
   store i32 %1, ptr %4, align 4
   store i32 %2, ptr %5, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   %19 = mul nsw i64 %11, %18
@@ -7129,10 +7129,10 @@ define void @statevec_multiControlledMultiQubitNotDistributed(ptr nocapture noun
   %15 = alloca ptr, align 8
   store i32 %1, ptr %8, align 4
   store i32 %2, ptr %9, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   %21 = mul nsw i64 %17, %20
@@ -7228,7 +7228,7 @@ define void @statevec_pauliYLocal(ptr nocapture noundef readonly byval(%struct.Q
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   store i32 %2, ptr %4, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = ashr i64 %11, 1
   store i64 %12, ptr %7, align 8
@@ -7237,10 +7237,10 @@ define void @statevec_pauliYLocal(ptr nocapture noundef readonly byval(%struct.Q
   store i64 %14, ptr %6, align 8
   %15 = shl i64 2, %13
   store i64 %15, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %9, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @statevec_pauliYLocal.omp_outlined, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %8, ptr nonnull %9, ptr nonnull %4)
@@ -7341,7 +7341,7 @@ define void @statevec_pauliYDistributed(ptr nocapture noundef readonly byval(%st
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   store i32 %6, ptr %8, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %9, align 8
   store ptr %1, ptr %10, align 8
@@ -7433,12 +7433,12 @@ define void @statevec_controlledPauliYLocal(ptr nocapture noundef readonly byval
   %13 = alloca ptr, align 8
   store i32 %1, ptr %5, align 4
   store i32 %3, ptr %6, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = ashr i64 %15, 1
   store i64 %16, ptr %9, align 8
   store i64 %15, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   store i64 %19, ptr %11, align 8
@@ -7447,10 +7447,10 @@ define void @statevec_controlledPauliYLocal(ptr nocapture noundef readonly byval
   store i64 %21, ptr %8, align 8
   %22 = shl i64 2, %20
   store i64 %22, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %12, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %13, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 9, ptr nonnull @statevec_controlledPauliYLocal.omp_outlined, ptr nonnull %9, ptr nonnull %8, ptr nonnull %7, ptr nonnull %5, ptr nonnull %11, ptr nonnull %10, ptr nonnull %12, ptr nonnull %13, ptr nonnull %6)
@@ -7572,11 +7572,11 @@ define void @statevec_controlledPauliYDistributed(ptr nocapture noundef readonly
   %16 = alloca ptr, align 8
   store i32 %1, ptr %8, align 4
   store i32 %6, ptr %9, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %10, align 8
   store i64 %18, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
   store i64 %21, ptr %12, align 8
@@ -7675,7 +7675,7 @@ define void @statevec_hadamardLocal(ptr nocapture noundef readonly byval(%struct
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca double, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = ashr i64 %10, 1
   store i64 %11, ptr %5, align 8
@@ -7684,10 +7684,10 @@ define void @statevec_hadamardLocal(ptr nocapture noundef readonly byval(%struct
   store i64 %13, ptr %4, align 8
   %14 = shl i64 2, %12
   store i64 %14, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %7, align 8
   store double 0x3FE6A09E667F3BCC, ptr %8, align 8
@@ -7786,7 +7786,7 @@ define void @statevec_hadamardDistributed(ptr nocapture noundef readonly byval(%
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %9, align 8
   %.not = icmp eq i32 %7, 0
@@ -7883,18 +7883,18 @@ define void @statevec_phaseShiftByTerm(ptr nocapture noundef readonly byval(%str
   %11 = alloca double, align 8
   %12 = alloca double, align 8
   store i32 %1, ptr %5, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   store i64 %17, ptr %8, align 8
   store i64 %14, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %10, align 8
   store double %2, ptr %11, align 8
@@ -7994,18 +7994,18 @@ define void @statevec_controlledPhaseShift(ptr nocapture noundef readonly byval(
   %13 = alloca double, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
   store i64 %18, ptr %9, align 8
   store i64 %15, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %11, align 8
   %23 = tail call double @cos(double noundef %3) #3
@@ -8118,20 +8118,20 @@ define void @statevec_multiControlledPhaseShift(ptr nocapture noundef readonly b
   %10 = alloca ptr, align 8
   %11 = alloca double, align 8
   %12 = alloca double, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   store i64 %17, ptr %7, align 8
   %18 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #3
   store i64 %18, ptr %8, align 8
   store i64 %14, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %10, align 8
   %23 = tail call double @cos(double noundef %3) #3
@@ -8249,18 +8249,18 @@ define void @statevec_multiRotateZ(ptr nocapture noundef readonly byval(%struct.
   %10 = alloca double, align 8
   %11 = alloca double, align 8
   store i64 %1, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   store i64 %16, ptr %7, align 8
   store i64 %13, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %9, align 8
   %21 = fmul double %2, 5.000000e-01
@@ -8386,18 +8386,18 @@ define void @statevec_multiControlledMultiRotateZ(ptr nocapture noundef readonly
   %12 = alloca double, align 8
   store i64 %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = mul nsw i64 %17, %15
   store i64 %18, ptr %7, align 8
   store i64 %17, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %10, align 8
   %23 = fmul double %3, 5.000000e-01
@@ -8519,15 +8519,15 @@ define double @densmatr_findProbabilityOfZeroLocal(ptr nocapture noundef readonl
   %8 = alloca double, align 8
   %9 = alloca ptr, align 8
   store i32 %1, ptr %3, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw i64 1, %14
   %16 = add nuw nsw i64 %15, 1
   store i64 %16, ptr %4, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %25
@@ -8553,7 +8553,7 @@ define double @densmatr_findProbabilityOfZeroLocal(ptr nocapture noundef readonl
   %spec.select = add nsw i64 %27, %32
   store i64 %spec.select, ptr %7, align 8
   store double 0.000000e+00, ptr %8, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %9, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @densmatr_findProbabilityOfZeroLocal.omp_outlined, ptr nonnull %7, ptr nonnull %5, ptr nonnull %6, ptr nonnull %4, ptr nonnull %3, ptr nonnull %8, ptr nonnull %9)
@@ -8673,7 +8673,7 @@ define double @statevec_findProbabilityOfZeroLocal(ptr nocapture noundef readonl
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = ashr i64 %10, 1
   store i64 %11, ptr %6, align 8
@@ -8683,10 +8683,10 @@ define double @statevec_findProbabilityOfZeroLocal(ptr nocapture noundef readonl
   %14 = shl i64 2, %12
   store i64 %14, ptr %3, align 8
   store double 0.000000e+00, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @statevec_findProbabilityOfZeroLocal.omp_outlined, ptr nonnull %6, ptr nonnull %4, ptr nonnull %3, ptr nonnull %5, ptr nonnull %7, ptr nonnull %8)
@@ -8795,14 +8795,14 @@ define double @statevec_findProbabilityOfZeroDistributed(ptr nocapture noundef r
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %3, align 8
   store double 0.000000e+00, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @statevec_findProbabilityOfZeroDistributed.omp_outlined, ptr nonnull %3, ptr nonnull %2, ptr nonnull %4, ptr nonnull %5)
@@ -8916,18 +8916,18 @@ define void @statevec_calcProbOfAllOutcomesLocal(ptr noundef %0, ptr nocapture n
   %14 = sext i32 %13 to i64
   store i64 %14, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 2, ptr nonnull @statevec_calcProbOfAllOutcomesLocal.omp_outlined, ptr nonnull %8, ptr nonnull %5)
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   %20 = mul nsw i64 %16, %19
   store i64 %20, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %12, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_calcProbOfAllOutcomesLocal.omp_outlined.7, ptr nonnull %9, ptr nonnull %7, ptr nonnull %6, ptr nonnull %10, ptr nonnull %11, ptr nonnull %12, ptr nonnull %5)
@@ -9019,7 +9019,7 @@ define internal void @statevec_calcProbOfAllOutcomesLocal.omp_outlined.7(ptr noa
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.02931 = phi i64 [ 0, %.lr.ph ], [ %35, %26 ]
-  %27 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
   %30 = shl nuw i64 1, %29
@@ -9078,15 +9078,15 @@ define void @densmatr_calcProbOfAllOutcomesLocal(ptr noundef %0, ptr nocapture n
   %15 = sext i32 %14 to i64
   store i64 %15, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 2, ptr nonnull @densmatr_calcProbOfAllOutcomesLocal.omp_outlined, ptr nonnull %8, ptr nonnull %5)
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = shl nuw i64 1, %20
   %22 = add nuw nsw i64 %21, 1
   store i64 %22, ptr %9, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %26, label %31
@@ -9111,7 +9111,7 @@ define void @densmatr_calcProbOfAllOutcomesLocal(ptr noundef %0, ptr nocapture n
   %38 = zext i1 %.not to i64
   %spec.select = add nsw i64 %33, %38
   store i64 %spec.select, ptr %12, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %13, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 8, ptr nonnull @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8, ptr nonnull %12, ptr nonnull %10, ptr nonnull %11, ptr nonnull %9, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %13)
@@ -9206,7 +9206,7 @@ define internal void @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8(ptr noa
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.02830 = phi i64 [ 0, %.lr.ph ], [ %39, %30 ]
-  %31 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
   %34 = shl nuw i64 1, %33
@@ -9254,18 +9254,18 @@ define void @statevec_controlledPhaseFlip(ptr nocapture noundef readonly byval(%
   %10 = alloca ptr, align 8
   store i32 %1, ptr %4, align 4
   store i32 %2, ptr %5, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
   store i64 %15, ptr %8, align 8
   store i64 %12, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %10, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_controlledPhaseFlip.omp_outlined, ptr nonnull %6, ptr nonnull %4, ptr nonnull %8, ptr nonnull %7, ptr nonnull %5, ptr nonnull %9, ptr nonnull %10)
@@ -9357,20 +9357,20 @@ define void @statevec_multiControlledPhaseFlip(ptr nocapture noundef readonly by
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
   store i64 %14, ptr %6, align 8
   %15 = tail call i64 @getQubitBitMask(ptr noundef %1, i32 noundef %2) #3
   store i64 %15, ptr %7, align 8
   store i64 %11, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %9, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @statevec_multiControlledPhaseFlip.omp_outlined, ptr nonnull %4, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %8, ptr nonnull %9)
@@ -9453,7 +9453,7 @@ define void @statevec_collapseToKnownProbOutcomeLocal(ptr nocapture noundef read
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   store i32 %2, ptr %5, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = ashr i64 %13, 1
   store i64 %14, ptr %9, align 8
@@ -9465,10 +9465,10 @@ define void @statevec_collapseToKnownProbOutcomeLocal(ptr nocapture noundef read
   %18 = tail call double @sqrt(double noundef %3) #3
   %19 = fdiv double 1.000000e+00, %18
   store double %19, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %10, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %11, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_collapseToKnownProbOutcomeLocal.omp_outlined, ptr nonnull %5, ptr nonnull %9, ptr nonnull %7, ptr nonnull %6, ptr nonnull %10, ptr nonnull %8, ptr nonnull %11)
@@ -9622,16 +9622,16 @@ define void @statevec_collapseToKnownProbOutcomeDistributedRenorm(ptr nocapture 
   %5 = alloca double, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %4, align 8
   %10 = tail call double @sqrt(double noundef %2) #3
   %11 = fdiv double 1.000000e+00, %10
   store double %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @statevec_collapseToKnownProbOutcomeDistributedRenorm.omp_outlined, ptr nonnull %4, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
@@ -9696,13 +9696,13 @@ define void @statevec_collapseToOutcomeDistributedSetZero(ptr nocapture noundef 
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   store i64 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %4, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @statevec_collapseToOutcomeDistributedSetZero.omp_outlined, ptr nonnull %2, ptr nonnull %3, ptr nonnull %4)
@@ -9765,13 +9765,13 @@ define void @statevec_swapQubitAmpsLocal(ptr nocapture noundef readonly byval(%s
   %8 = alloca i64, align 8
   store i32 %1, ptr %4, align 4
   store i32 %2, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = ashr i64 %14, 2
   store i64 %15, ptr %8, align 8
@@ -9875,22 +9875,22 @@ define void @statevec_swapQubitAmpsDistributed(ptr nocapture noundef readonly by
   %13 = alloca i64, align 8
   store i32 %2, ptr %5, align 4
   store i32 %3, ptr %6, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %9, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %10, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %11, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %23, %26
@@ -9997,25 +9997,25 @@ define void @statevec_setWeightedQureg(double %0, double %1, ptr nocapture nound
   %20 = alloca double, align 8
   %21 = alloca double, align 8
   %22 = alloca double, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %10, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %11, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %12, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %13, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %14, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %15, align 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %16, align 8
   store double %0, ptr %17, align 8
@@ -10129,19 +10129,19 @@ define void @statevec_applyDiagonalOp(ptr nocapture noundef readonly byval(%stru
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull @statevec_applyDiagonalOp.omp_outlined, ptr nonnull %3, ptr nonnull %4, ptr nonnull %5, ptr nonnull %6, ptr nonnull %7)
@@ -10218,22 +10218,22 @@ define void @densmatr_applyDiagonalOpLocal(ptr nocapture noundef readonly byval(
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %3, align 8
   %11 = load i32, ptr %1, align 8
   %12 = shl nuw i32 1, %11
   store i32 %12, ptr %4, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_applyDiagonalOpLocal.omp_outlined, ptr nonnull %3, ptr nonnull %5, ptr nonnull %6, ptr nonnull %7, ptr nonnull %4, ptr nonnull %8)
@@ -10316,19 +10316,19 @@ define { double, double } @statevec_calcExpecDiagonalOpLocal(ptr nocapture nound
   %9 = alloca ptr, align 8
   store double 0.000000e+00, ptr %3, align 8
   store double 0.000000e+00, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %9, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_calcExpecDiagonalOpLocal.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %7, ptr nonnull %8, ptr nonnull %9, ptr nonnull %3, ptr nonnull %4)
@@ -10405,7 +10405,7 @@ define internal void @statevec_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
 44:                                               ; preds = %._crit_edge, %9
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   store ptr %10, ptr %16, align 8
-  %45 = getelementptr inbounds i8, ptr %16, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %11, ptr %45, align 8
   %46 = call i32 @__kmpc_reduce_nowait(ptr nonnull @4, i32 %.pre, i32 2, i64 16, ptr nonnull %16, ptr nonnull @statevec_calcExpecDiagonalOpLocal.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
   switch i32 %46, label %59 [
@@ -10440,9 +10440,9 @@ define internal void @statevec_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
 define internal void @statevec_calcExpecDiagonalOpLocal.omp_outlined.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load double, ptr %4, align 8
   %10 = load double, ptr %3, align 8
@@ -10466,25 +10466,25 @@ define { double, double } @densmatr_calcExpecDiagonalOpLocal(ptr nocapture nound
   %9 = alloca ptr, align 8
   %10 = alloca double, align 8
   %11 = alloca double, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw i64 1, %14
   %16 = add nuw nsw i64 %15, 1
   store i64 %16, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %27
 
 20:                                               ; preds = %2
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = mul nsw i64 %23, %21
   %25 = sdiv i64 %24, %16
@@ -10498,16 +10498,16 @@ define { double, double } @densmatr_calcExpecDiagonalOpLocal(ptr nocapture nound
   %31 = srem i64 %30, %28
   store i64 %31, ptr %4, align 8
   store i64 %28, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %6, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %7, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %8, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %9, align 8
   store double 0.000000e+00, ptr %10, align 8
@@ -10602,7 +10602,7 @@ define internal void @densmatr_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
 64:                                               ; preds = %._crit_edge, %11
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   store ptr %12, ptr %18, align 8
-  %65 = getelementptr inbounds i8, ptr %18, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %13, ptr %65, align 8
   %66 = call i32 @__kmpc_reduce_nowait(ptr nonnull @4, i32 %.pre, i32 2, i64 16, ptr nonnull %18, ptr nonnull @densmatr_calcExpecDiagonalOpLocal.omp_outlined.omp.reduction.reduction_func, ptr nonnull @.gomp_critical_user_.reduction.var)
   switch i32 %66, label %79 [
@@ -10637,9 +10637,9 @@ define internal void @densmatr_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
 define internal void @densmatr_calcExpecDiagonalOpLocal.omp_outlined.omp.reduction.reduction_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load double, ptr %4, align 8
   %10 = load double, ptr %3, align 8
@@ -10663,10 +10663,10 @@ define void @agnostic_setDiagonalOpElems(ptr nocapture noundef readonly byval(%s
   %12 = alloca ptr, align 8
   store ptr %2, ptr %6, align 8
   store ptr %3, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = mul nsw i64 %17, %15
   %19 = sub nsw i64 %1, %18
@@ -10691,10 +10691,10 @@ define void @agnostic_setDiagonalOpElems(ptr nocapture noundef readonly byval(%s
   br label %27
 
 27:                                               ; preds = %26, %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %11, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %12, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @agnostic_setDiagonalOpElems.omp_outlined, ptr nonnull %8, ptr nonnull %9, ptr nonnull %11, ptr nonnull %6, ptr nonnull %10, ptr nonnull %12, ptr nonnull %7)
@@ -10789,16 +10789,16 @@ define void @statevec_applyPhaseFuncOverrides(ptr nocapture noundef readonly byv
   store ptr %8, ptr %19, align 8
   store i32 %9, ptr %20, align 4
   store i32 %10, ptr %21, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load i32, ptr %26, align 8
   store i32 %27, ptr %22, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %23, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %24, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %25, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 14, ptr nonnull @statevec_applyPhaseFuncOverrides.omp_outlined, ptr nonnull %23, ptr nonnull %22, ptr nonnull %14, ptr nonnull %13, ptr nonnull %12, ptr nonnull %20, ptr nonnull %18, ptr nonnull %19, ptr nonnull %17, ptr nonnull %15, ptr nonnull %16, ptr nonnull %21, ptr nonnull %24, ptr nonnull %25)
@@ -10867,7 +10867,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
 40:                                               ; preds = %.lr.ph87, %40
   %indvars.iv105 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next106, %40 ]
   %.086 = phi i64 [ 0, %.lr.ph87 ], [ %49, %40 ]
-  %41 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv105
+  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv105
   %42 = load i32, ptr %41, align 4
   %43 = zext i32 %42 to i64
   %44 = shl nuw i64 1, %43
@@ -10884,7 +10884,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
 50:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %.283 = phi i64 [ 0, %.lr.ph ], [ %59, %50 ]
-  %51 = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4
   %53 = zext i32 %52 to i64
   %54 = shl nuw i64 1, %53
@@ -10939,7 +10939,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
 
 78:                                               ; preds = %.lr.ph91, %82
   %indvars.iv110 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next111, %82 ]
-  %79 = getelementptr inbounds i64, ptr %74, i64 %indvars.iv110
+  %79 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv110
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %.1, %80
   br i1 %81, label %83, label %82
@@ -10952,7 +10952,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
 83:                                               ; preds = %78
   %84 = load ptr, ptr %9, align 8
   %85 = and i64 %indvars.iv110, 4294967295
-  %86 = getelementptr inbounds double, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw double, ptr %84, i64 %85
   %87 = load double, ptr %86, align 8
   br label %.loopexit
 
@@ -10960,10 +10960,10 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   %indvars.iv115 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next116, %88 ]
   %.17292 = phi double [ 0.000000e+00, %.lr.ph94 ], [ %96, %88 ]
   %89 = load ptr, ptr %11, align 8
-  %90 = getelementptr inbounds double, ptr %89, i64 %indvars.iv115
+  %90 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv115
   %91 = load double, ptr %90, align 8
   %92 = load ptr, ptr %12, align 8
-  %93 = getelementptr inbounds double, ptr %92, i64 %indvars.iv115
+  %93 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv115
   %94 = load double, ptr %93, align 8
   %95 = call double @pow(double noundef %77, double noundef %94) #3
   %96 = call double @llvm.fmuladd.f64(double %91, double %95, double %.17292)
@@ -11041,16 +11041,16 @@ define void @statevec_applyMultiVarPhaseFuncOverrides(ptr nocapture noundef read
   store ptr %9, ptr %21, align 8
   store i32 %10, ptr %22, align 4
   store i32 %11, ptr %23, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load i32, ptr %28, align 8
   store i32 %29, ptr %24, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %25, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %26, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %27, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 15, ptr nonnull @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined, ptr nonnull %25, ptr nonnull %24, ptr nonnull %15, ptr nonnull %16, ptr nonnull %14, ptr nonnull %13, ptr nonnull %22, ptr nonnull %20, ptr nonnull %21, ptr nonnull %19, ptr nonnull %17, ptr nonnull %18, ptr nonnull %23, ptr nonnull %26, ptr nonnull %27)
@@ -11107,9 +11107,9 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 .preheader103.us:                                 ; preds = %.lr.ph122, %.loopexit.us
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %.loopexit.us ], [ 0, %.lr.ph122 ]
   %.087119.us = phi i32 [ %.188.lcssa.us, %.loopexit.us ], [ %37, %.lr.ph122 ]
-  %41 = getelementptr inbounds [100 x i64], ptr %18, i64 0, i64 %indvars.iv176
+  %41 = getelementptr inbounds nuw [100 x i64], ptr %18, i64 0, i64 %indvars.iv176
   store i64 0, ptr %41, align 8
-  %42 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv176
+  %42 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv176
   %43 = load i32, ptr %42, align 4
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph115.us, label %.loopexit.us
@@ -11152,9 +11152,9 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 .preheader104.us:                                 ; preds = %.lr.ph122, %89
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %89 ], [ 0, %.lr.ph122 ]
   %.087119.us126 = phi i32 [ %65, %89 ], [ 0, %.lr.ph122 ]
-  %58 = getelementptr inbounds [100 x i64], ptr %18, i64 0, i64 %indvars.iv162
+  %58 = getelementptr inbounds nuw [100 x i64], ptr %18, i64 0, i64 %indvars.iv162
   store i64 0, ptr %58, align 8
-  %59 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv162
+  %59 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv162
   %60 = load i32, ptr %59, align 4
   %61 = add i32 %60, -1
   %62 = icmp sgt i32 %60, 1
@@ -11244,7 +11244,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 .preheader102.us:                                 ; preds = %.preheader102.us.preheader, %109
   %indvars.iv189 = phi i64 [ 0, %.preheader102.us.preheader ], [ %indvars.iv.next190, %109 ]
   %103 = mul nuw nsw i64 %indvars.iv189, %102
-  %invariant.gep = getelementptr inbounds i64, ptr %101, i64 %103
+  %invariant.gep = getelementptr inbounds nuw i64, ptr %101, i64 %103
   br label %105
 
 104:                                              ; preds = %105
@@ -11254,9 +11254,9 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 
 105:                                              ; preds = %.preheader102.us, %104
   %indvars.iv184 = phi i64 [ 0, %.preheader102.us ], [ %indvars.iv.next185, %104 ]
-  %106 = getelementptr inbounds [100 x i64], ptr %18, i64 0, i64 %indvars.iv184
+  %106 = getelementptr inbounds nuw [100 x i64], ptr %18, i64 0, i64 %indvars.iv184
   %107 = load i64, ptr %106, align 8
-  %gep = getelementptr inbounds i64, ptr %invariant.gep, i64 %indvars.iv184
+  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv184
   %108 = load i64, ptr %gep, align 8
   %.not97.us = icmp eq i64 %107, %108
   br i1 %.not97.us, label %104, label %109
@@ -11277,7 +11277,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 .critedge:                                        ; preds = %.preheader106.thread, %.critedge.loopexit
   %.084.lcssa108 = phi i64 [ %110, %.critedge.loopexit ], [ 0, %.preheader106.thread ]
   %111 = load ptr, ptr %10, align 8
-  %112 = getelementptr inbounds double, ptr %111, i64 %.084.lcssa108
+  %112 = getelementptr inbounds nuw double, ptr %111, i64 %.084.lcssa108
   %113 = load double, ptr %112, align 8
   br label %.loopexit105
 
@@ -11287,13 +11287,13 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %indvars.iv197 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next198, %.critedge100 ]
   %.4141 = phi i32 [ 0, %.preheader.preheader ], [ %.5.lcssa, %.critedge100 ]
   %.192140 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %.293.lcssa, %.critedge100 ]
-  %116 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv197
+  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv197
   %117 = load i32, ptr %116, align 4
   %118 = icmp sgt i32 %117, 0
   br i1 %118, label %.lr.ph, label %.critedge100
 
 .lr.ph:                                           ; preds = %.preheader
-  %119 = getelementptr inbounds [100 x i64], ptr %18, i64 0, i64 %indvars.iv197
+  %119 = getelementptr inbounds nuw [100 x i64], ptr %18, i64 0, i64 %indvars.iv197
   %120 = load i64, ptr %119, align 8
   %121 = sitofp i64 %120 to double
   %122 = sext i32 %.4141 to i64
@@ -11314,7 +11314,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %indvars.iv.next195 = add nsw i64 %indvars.iv194, 1
   %132 = add nuw nsw i32 %.085137, 1
   %133 = load ptr, ptr %11, align 8
-  %134 = getelementptr inbounds i32, ptr %133, i64 %indvars.iv197
+  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv197
   %135 = load i32, ptr %134, align 4
   %136 = icmp slt i32 %132, %135
   br i1 %136, label %123, label %.critedge100.loopexit
@@ -11397,16 +11397,16 @@ define void @statevec_applyParamNamedPhaseFuncOverrides(ptr nocapture noundef re
   store ptr %9, ptr %20, align 8
   store i32 %10, ptr %21, align 4
   store i32 %11, ptr %22, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
   store i32 %28, ptr %23, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i64, ptr %29, align 8
   store i64 %30, ptr %24, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %25, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %26, align 8
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 14, ptr nonnull @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined, ptr nonnull %24, ptr nonnull %23, ptr nonnull %15, ptr nonnull %16, ptr nonnull %14, ptr nonnull %13, ptr nonnull %21, ptr nonnull %19, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %22, ptr nonnull %25, ptr nonnull %26)
@@ -11476,7 +11476,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %51
   %indvars.iv278 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next279, %51 ]
   %45 = mul nuw nsw i64 %indvars.iv278, %44
-  %invariant.gep325 = getelementptr inbounds i64, ptr %43, i64 %45
+  %invariant.gep325 = getelementptr inbounds nuw i64, ptr %43, i64 %45
   br label %47
 
 46:                                               ; preds = %47
@@ -11486,9 +11486,9 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 47:                                               ; preds = %.preheader.us, %46
   %indvars.iv273 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next274, %46 ]
-  %48 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv273
+  %48 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv273
   %49 = load i64, ptr %48, align 8
-  %gep326 = getelementptr inbounds i64, ptr %invariant.gep325, i64 %indvars.iv273
+  %gep326 = getelementptr inbounds nuw i64, ptr %invariant.gep325, i64 %indvars.iv273
   %50 = load i64, ptr %gep326, align 8
   %.not165.us = icmp eq i64 %49, %50
   br i1 %.not165.us, label %46, label %51
@@ -11501,7 +11501,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 52:                                               ; preds = %.lr.ph199, %.loopexit
   %indvars.iv268 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next269, %.loopexit ]
   %.0137196 = phi i32 [ 0, %.lr.ph199 ], [ %.3140, %.loopexit ]
-  %53 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv268
+  %53 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv268
   store i64 0, ptr %53, align 8
   switch i32 %36, label %.loopexit [
     i32 0, label %.preheader171
@@ -11509,7 +11509,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   ]
 
 .preheader172:                                    ; preds = %52
-  %54 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv268
+  %54 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv268
   %55 = load i32, ptr %54, align 4
   %56 = add i32 %55, -1
   %57 = icmp sgt i32 %55, 1
@@ -11521,7 +11521,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %74
 
 .preheader171:                                    ; preds = %52
-  %59 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv268
+  %59 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv268
   %60 = load i32, ptr %59, align 4
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %.lr.ph192, label %.loopexit
@@ -11619,7 +11619,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .critedge:                                        ; preds = %.preheader183.thread, %.critedge.loopexit
   %.0136.lcssa185 = phi i64 [ %103, %.critedge.loopexit ], [ 0, %.preheader183.thread ]
   %104 = load ptr, ptr %10, align 8
-  %105 = getelementptr inbounds double, ptr %104, i64 %.0136.lcssa185
+  %105 = getelementptr inbounds nuw double, ptr %104, i64 %.0136.lcssa185
   %106 = load double, ptr %105, align 8
   br label %232
 
@@ -11655,7 +11655,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 .lr.ph212:                                        ; preds = %.preheader179
   %109 = load ptr, ptr %12, align 8
-  %invariant.gep = getelementptr inbounds i8, ptr %109, i64 24
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %109, i64 24
   %110 = zext nneg i32 %34 to i64
   br label %186
 
@@ -11664,7 +11664,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 .lr.ph216:                                        ; preds = %.preheader177
   %111 = load ptr, ptr %12, align 8
-  %invariant.gep218 = getelementptr inbounds i8, ptr %111, i64 16
+  %invariant.gep218 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %112 = zext nneg i32 %34 to i64
   br label %173
 
@@ -11673,7 +11673,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 .lr.ph228:                                        ; preds = %.preheader175
   %113 = load ptr, ptr %12, align 8
-  %invariant.gep230 = getelementptr inbounds i8, ptr %113, i64 16
+  %invariant.gep230 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %wide.trip.count300 = zext nneg i32 %34 to i64
   br label %114
 
@@ -11687,10 +11687,10 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 114:                                              ; preds = %.lr.ph228, %114
   %indvars.iv297 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next298, %114 ]
   %.0145226 = phi double [ 0.000000e+00, %.lr.ph228 ], [ %120, %114 ]
-  %115 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv297
+  %115 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv297
   %116 = load i64, ptr %115, align 8
   %117 = sitofp i64 %116 to double
-  %gep231 = getelementptr inbounds double, ptr %invariant.gep230, i64 %indvars.iv297
+  %gep231 = getelementptr inbounds nuw double, ptr %invariant.gep230, i64 %indvars.iv297
   %118 = load double, ptr %gep231, align 8
   %119 = fsub double %117, %118
   %120 = call double @llvm.fmuladd.f64(double %119, double %119, double %.0145226)
@@ -11701,7 +11701,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .lr.ph234:                                        ; preds = %.lr.ph234.preheader, %.lr.ph234
   %indvars.iv302 = phi i64 [ 0, %.lr.ph234.preheader ], [ %indvars.iv.next303, %.lr.ph234 ]
   %.2147232 = phi double [ 0.000000e+00, %.lr.ph234.preheader ], [ %125, %.lr.ph234 ]
-  %121 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv302
+  %121 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv302
   %122 = load i64, ptr %121, align 8
   %123 = mul nsw i64 %122, %122
   %124 = uitofp nneg i64 %123 to double
@@ -11747,7 +11747,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br i1 %140, label %145, label %142
 
 142:                                              ; preds = %139
-  %143 = getelementptr inbounds i8, ptr %141, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %144 = load double, ptr %143, align 8
   br label %232
 
@@ -11766,7 +11766,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .lr.ph223:                                        ; preds = %.lr.ph223.preheader, %.lr.ph223
   %indvars.iv292 = phi i64 [ 0, %.lr.ph223.preheader ], [ %indvars.iv.next293, %.lr.ph223 ]
   %.0148220 = phi double [ 1.000000e+00, %.lr.ph223.preheader ], [ %152, %.lr.ph223 ]
-  %149 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv292
+  %149 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv292
   %150 = load i64, ptr %149, align 8
   %151 = sitofp i64 %150 to double
   %152 = fmul double %.0148220, %151
@@ -11808,7 +11808,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br i1 %165, label %167, label %170
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %166, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %169 = load double, ptr %168, align 8
   br label %232
 
@@ -11820,15 +11820,15 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 173:                                              ; preds = %.lr.ph216, %173
   %indvars.iv289 = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next290, %173 ]
   %.0149214 = phi double [ 0.000000e+00, %.lr.ph216 ], [ %184, %173 ]
-  %174 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv289
+  %174 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv289
   %175 = load i64, ptr %174, align 16
   %176 = or disjoint i64 %indvars.iv289, 1
-  %177 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %176
   %178 = load i64, ptr %177, align 8
   %179 = sub nsw i64 %175, %178
   %180 = sitofp i64 %179 to double
   %181 = lshr exact i64 %indvars.iv289, 1
-  %gep219 = getelementptr inbounds double, ptr %invariant.gep218, i64 %181
+  %gep219 = getelementptr inbounds nuw double, ptr %invariant.gep218, i64 %181
   %182 = load double, ptr %gep219, align 8
   %183 = fsub double %180, %182
   %184 = call double @llvm.fmuladd.f64(double %183, double %183, double %.0149214)
@@ -11840,16 +11840,16 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %indvars.iv286 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next287, %186 ]
   %.2151210 = phi double [ 0.000000e+00, %.lr.ph212 ], [ %199, %186 ]
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 2
-  %187 = getelementptr inbounds double, ptr %109, i64 %indvars.iv.next287
+  %187 = getelementptr inbounds nuw double, ptr %109, i64 %indvars.iv.next287
   %188 = load double, ptr %187, align 8
-  %189 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv286
+  %189 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv286
   %190 = load i64, ptr %189, align 16
   %191 = or disjoint i64 %indvars.iv286, 1
-  %192 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %191
   %193 = load i64, ptr %192, align 8
   %194 = sub nsw i64 %190, %193
   %195 = sitofp i64 %194 to double
-  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv286
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv286
   %196 = load double, ptr %gep, align 8
   %197 = fsub double %195, %196
   %198 = fmul double %188, %197
@@ -11861,9 +11861,9 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %indvars.iv283 = phi i64 [ 0, %.lr.ph208.preheader ], [ %indvars.iv.next284, %.lr.ph208 ]
   %.3152206 = phi double [ 0.000000e+00, %.lr.ph208.preheader ], [ %209, %.lr.ph208 ]
   %201 = or disjoint i64 %indvars.iv283, 1
-  %202 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %201
+  %202 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %201
   %203 = load i64, ptr %202, align 8
-  %204 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv283
+  %204 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv283
   %205 = load i64, ptr %204, align 16
   %206 = sub nsw i64 %203, %205
   %207 = mul nsw i64 %206, %206
@@ -11912,7 +11912,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 .thread:                                          ; preds = %.preheader179, %.preheader177, %223
   %225 = load ptr, ptr %12, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
   %227 = load double, ptr %226, align 8
   br label %232
 
@@ -11982,42 +11982,42 @@ define void @densmatr_setQuregToPauliHamil(ptr nocapture noundef readonly byval(
   %12 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   store i32 1, ptr %3, align 16
-  %13 = getelementptr inbounds i8, ptr %3, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 1, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %3, i64 60
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 -1, ptr %17, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  %18 = getelementptr inbounds i8, ptr %4, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 -1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 8
   store i32 %21, ptr %5, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %6, align 4
   %24 = load ptr, ptr %1, align 8
   store ptr %24, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %8, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %9, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %10, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i64, ptr %31, align 8
   store i64 %32, ptr %11, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
   %36 = mul nsw i64 %32, %35
@@ -12094,7 +12094,7 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias noc
   %43 = trunc i64 %42 to i32
   %44 = and i32 %43, 1
   %45 = add nuw nsw i64 %.05866.us, 1
-  %46 = getelementptr inbounds i32, ptr %36, i64 %.05866.us
+  %46 = getelementptr inbounds nuw i32, ptr %36, i64 %.05866.us
   %47 = load i32, ptr %46, align 4
   %48 = shl i32 %47, 2
   %49 = shl i32 %41, 1
@@ -12117,7 +12117,7 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias noc
   br i1 %exitcond87.not, label %._crit_edge.us, label %39
 
 ._crit_edge.us:                                   ; preds = %39
-  %64 = getelementptr inbounds double, ptr %37, i64 %.05771.us
+  %64 = getelementptr inbounds nuw double, ptr %37, i64 %.05771.us
   %65 = load double, ptr %64, align 8
   %66 = sitofp i32 %60 to double
   %67 = call double @llvm.fmuladd.f64(double %65, double %66, double %.05970.us)
@@ -12131,7 +12131,7 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias noc
   %.05771 = phi i64 [ %75, %.lr.ph73.split ], [ 0, %.lr.ph73 ]
   %.05970 = phi double [ %73, %.lr.ph73.split ], [ 0.000000e+00, %.lr.ph73 ]
   %.06169 = phi double [ %74, %.lr.ph73.split ], [ 0.000000e+00, %.lr.ph73 ]
-  %71 = getelementptr inbounds double, ptr %37, i64 %.05771
+  %71 = getelementptr inbounds nuw double, ptr %37, i64 %.05771
   %72 = load double, ptr %71, align 8
   %73 = fadd double %72, %.05970
   %74 = call double @llvm.fmuladd.f64(double %72, double 0.000000e+00, double %.06169)

@@ -60,7 +60,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %30 = lshr i16 %28, 8
   %spec.select.i = select i1 %29, i16 %30, i16 %28
   %31 = zext nneg i16 %spec.select.i to i64
-  %32 = getelementptr inbounds [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %31
   %33 = load i8, ptr %32, align 1
   %34 = select i1 %29, i8 -5, i8 3
   %35 = add i8 %34, %33
@@ -162,7 +162,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %.1.i = select i1 %81, i8 %82, i8 %spec.select12.i
   %84 = lshr i32 %.19.i, 24
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %85
   %87 = load i8, ptr %86, align 1
   %88 = add i8 %87, -1
   %89 = add i8 %88, %.1.i

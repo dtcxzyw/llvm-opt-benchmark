@@ -150,8 +150,8 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 .preheader11.split.us:                            ; preds = %.preheader11, %.preheader11.split.us
   %97 = phi i64 [ %102, %.preheader11.split.us ], [ 1, %.preheader11 ]
-  %98 = getelementptr inbounds double, ptr %22, i64 %97
-  %99 = getelementptr inbounds double, ptr %23, i64 %97
+  %98 = getelementptr inbounds nuw double, ptr %22, i64 %97
+  %99 = getelementptr inbounds nuw double, ptr %23, i64 %97
   call void @dlartg_(ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18) #4
   %100 = load double, ptr %18, align 8, !tbaa !7
   store double %100, ptr %98, align 8, !tbaa !7
@@ -165,7 +165,7 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %107 = load double, ptr %103, align 8, !tbaa !7
   %108 = fmul double %106, %107
   store double %108, ptr %103, align 8, !tbaa !7
-  %109 = getelementptr inbounds double, ptr %36, i64 %97
+  %109 = getelementptr inbounds nuw double, ptr %36, i64 %97
   store double %106, ptr %109, align 8, !tbaa !7
   %110 = load i32, ptr %2, align 4, !tbaa !3
   %111 = trunc i64 %97 to i32
@@ -178,8 +178,8 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 .preheader11.split:                               ; preds = %.preheader11, %.preheader11.split
   %116 = phi i64 [ %121, %.preheader11.split ], [ 1, %.preheader11 ]
-  %117 = getelementptr inbounds double, ptr %22, i64 %116
-  %118 = getelementptr inbounds double, ptr %23, i64 %116
+  %117 = getelementptr inbounds nuw double, ptr %22, i64 %116
+  %118 = getelementptr inbounds nuw double, ptr %23, i64 %116
   call void @dlartg_(ptr noundef nonnull %117, ptr noundef nonnull %118, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18) #4
   %119 = load double, ptr %18, align 8, !tbaa !7
   store double %119, ptr %117, align 8, !tbaa !7
@@ -255,8 +255,8 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %158 = phi i64 [ %163, %.preheader.split.us ], [ 1, %.preheader ]
-  %159 = getelementptr inbounds double, ptr %22, i64 %158
-  %160 = getelementptr inbounds double, ptr %23, i64 %158
+  %159 = getelementptr inbounds nuw double, ptr %22, i64 %158
+  %160 = getelementptr inbounds nuw double, ptr %23, i64 %158
   call void @dlartg_(ptr noundef nonnull %159, ptr noundef nonnull %160, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18) #4
   %161 = load double, ptr %18, align 8, !tbaa !7
   store double %161, ptr %159, align 8, !tbaa !7
@@ -270,7 +270,7 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %168 = load double, ptr %164, align 8, !tbaa !7
   %169 = fmul double %167, %168
   store double %169, ptr %164, align 8, !tbaa !7
-  %170 = getelementptr inbounds double, ptr %36, i64 %158
+  %170 = getelementptr inbounds nuw double, ptr %36, i64 %158
   store double %167, ptr %170, align 8, !tbaa !7
   %171 = load i32, ptr %2, align 4, !tbaa !3
   %172 = trunc i64 %158 to i32
@@ -283,8 +283,8 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %177 = phi i64 [ %182, %.preheader.split ], [ 1, %.preheader ]
-  %178 = getelementptr inbounds double, ptr %22, i64 %177
-  %179 = getelementptr inbounds double, ptr %23, i64 %177
+  %178 = getelementptr inbounds nuw double, ptr %22, i64 %177
+  %179 = getelementptr inbounds nuw double, ptr %23, i64 %177
   call void @dlartg_(ptr noundef nonnull %178, ptr noundef nonnull %179, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %18) #4
   %180 = load double, ptr %18, align 8, !tbaa !7
   store double %180, ptr %178, align 8, !tbaa !7
@@ -376,7 +376,7 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 236:                                              ; preds = %290, %229
   %237 = phi i64 [ 1, %229 ], [ %242, %290 ]
   %238 = phi i64 [ 2, %229 ], [ %292, %290 ]
-  %239 = getelementptr inbounds double, ptr %22, i64 %237
+  %239 = getelementptr inbounds nuw double, ptr %22, i64 %237
   %240 = load double, ptr %239, align 8, !tbaa !7
   %241 = load i32, ptr %2, align 4, !tbaa !3
   %242 = add nuw nsw i64 %237, 1
@@ -393,7 +393,7 @@ define void @dlasdq_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %249 = phi i64 [ %238, %246 ], [ %258, %248 ]
   %250 = phi double [ %240, %246 ], [ %257, %248 ]
   %251 = phi i32 [ %245, %246 ], [ %256, %248 ]
-  %252 = getelementptr inbounds double, ptr %22, i64 %249
+  %252 = getelementptr inbounds nuw double, ptr %22, i64 %249
   %253 = load double, ptr %252, align 8, !tbaa !7
   %254 = fcmp olt double %253, %250
   %255 = trunc i64 %249 to i32

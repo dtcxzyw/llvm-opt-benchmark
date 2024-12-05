@@ -26,24 +26,24 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %19 = alloca ptr, align 8
   %20 = alloca i32, align 4
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @PMPI_Comm_size(ptr noundef %22, ptr noundef nonnull %13) #3
   %24 = load ptr, ptr %21, align 8
   %25 = call i32 @PMPI_Comm_rank(ptr noundef %24, ptr noundef nonnull %14) #3
-  %26 = getelementptr inbounds i8, ptr %0, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %3, 26
   %.0400.in.v = select i1 %30, i64 12, i64 16
-  %.0400.in = getelementptr inbounds i8, ptr %27, i64 %.0400.in.v
+  %.0400.in = getelementptr inbounds nuw i8, ptr %27, i64 %.0400.in.v
   %.0400 = load i32, ptr %.0400.in, align 4
   %.not = icmp eq i32 %.0400, 2
   br i1 %.not, label %.loopexit512, label %31
 
 31:                                               ; preds = %9
-  %32 = getelementptr inbounds i8, ptr %10, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @ADIOI_Calc_bounds(ptr noundef nonnull %0, i32 noundef %2, ptr noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef nonnull %10, ptr noundef nonnull %32)
   %33 = load i32, ptr %13, align 4
   %34 = shl nsw i32 %33, 1
@@ -53,7 +53,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %38 = load ptr, ptr %21, align 8
   %39 = call i32 @PMPI_Allgather(ptr noundef nonnull %10, i32 noundef 2, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef %37, i32 noundef 2, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef %38) #3
   %40 = load i64, ptr %37, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = load i32, ptr %13, align 4
   %44 = icmp sgt i32 %43, 1
@@ -69,7 +69,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %.1390516 = phi i64 [ %42, %.lr.ph.preheader ], [ %58, %.lr.ph._crit_edge ]
   %.1393515 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2394, %.lr.ph._crit_edge ]
   %45 = shl nuw nsw i64 %indvars.iv, 1
-  %46 = getelementptr inbounds i64, ptr %37, i64 %45
+  %46 = getelementptr inbounds nuw i64, ptr %37, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr i8, ptr %46, i64 -8
   %49 = load i64, ptr %48, align 8
@@ -78,7 +78,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %50, label %52, label %.lr.ph._crit_edge
 
 52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds i64, ptr %37, i64 %51
+  %53 = getelementptr inbounds nuw i64, ptr %37, i64 %51
   %54 = load i64, ptr %53, align 8
   %.not439 = icmp sle i64 %47, %54
   %55 = zext i1 %.not439 to i32
@@ -88,7 +88,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %52
   %.2394 = phi i32 [ %spec.select, %52 ], [ %.1393515, %.lr.ph ]
   %..1388 = call i64 @llvm.smin.i64(i64 %47, i64 %.1388517)
-  %56 = getelementptr inbounds i64, ptr %37, i64 %51
+  %56 = getelementptr inbounds nuw i64, ptr %37, i64 %51
   %57 = load i64, ptr %56, align 8
   %58 = call i64 @llvm.smax.i64(i64 %57, i64 %.1390516)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -101,7 +101,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %.0389 = phi i64 [ 0, %9 ], [ %42, %31 ], [ %58, %.lr.ph._crit_edge ]
   %.0387 = phi i64 [ 0, %9 ], [ %40, %31 ], [ %..1388, %.lr.ph._crit_edge ]
   call void @ADIOI_Datatype_iscontig(ptr noundef %4, ptr noundef nonnull %12) #3
-  %59 = getelementptr inbounds i8, ptr %0, i64 120
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %60 = load ptr, ptr %59, align 8
   call void @ADIOI_Datatype_iscontig(ptr noundef %60, ptr noundef nonnull %11) #3
   %61 = or i32 %.0392, %.0400
@@ -111,7 +111,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 62:                                               ; preds = %.loopexit512
   %63 = load ptr, ptr %26, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 28
   %65 = load i32, ptr %64, align 4
   %.not422 = icmp eq i32 %65, 1
   br i1 %.not422, label %108, label %66
@@ -136,58 +136,58 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %74, label %75, label %90
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %0, i64 104
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 128
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %79 = load i64, ptr %78, align 8
   %80 = mul nsw i64 %79, %6
   %81 = add nsw i64 %80, %77
-  %82 = getelementptr inbounds i8, ptr %0, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %83 = load ptr, ptr %82, align 8
   br i1 %30, label %84, label %87
 
 84:                                               ; preds = %75
-  %85 = getelementptr inbounds i8, ptr %83, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 100, i64 noundef %81, ptr noundef %7, ptr noundef %8) #3
   br label %.loopexit506
 
 87:                                               ; preds = %75
-  %88 = getelementptr inbounds i8, ptr %83, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %89 = load ptr, ptr %88, align 8
   call void %89(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 100, i64 noundef %81, ptr noundef %7, ptr noundef %8) #3
   br label %.loopexit506
 
 90:                                               ; preds = %73
-  %91 = getelementptr inbounds i8, ptr %0, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %92 = load ptr, ptr %91, align 8
   br i1 %30, label %93, label %96
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %92, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %95 = load ptr, ptr %94, align 8
   call void %95(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 101, i64 noundef 0, ptr noundef %7, ptr noundef %8) #3
   br label %.loopexit506
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds i8, ptr %92, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %98 = load ptr, ptr %97, align 8
   call void %98(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 101, i64 noundef 0, ptr noundef %7, ptr noundef %8) #3
   br label %.loopexit506
 
 99:                                               ; preds = %68
-  %100 = getelementptr inbounds i8, ptr %0, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %101 = load ptr, ptr %100, align 8
   br i1 %30, label %102, label %105
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %101, i64 72
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 72
   %104 = load ptr, ptr %103, align 8
   call void %104(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #3
   br label %.loopexit506
 
 105:                                              ; preds = %99
-  %106 = getelementptr inbounds i8, ptr %101, i64 80
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 80
   %107 = load ptr, ptr %106, align 8
   call void %107(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #3
   br label %.loopexit506
@@ -199,13 +199,13 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %112 = sext i32 %2 to i64
   %113 = mul nsw i64 %111, %112
   %114 = load ptr, ptr %26, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 28
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 28
   %116 = load i32, ptr %115, align 4
   %.not423 = icmp eq i32 %116, 1
   br i1 %.not423, label %117, label %121
 
 117:                                              ; preds = %108
-  %118 = getelementptr inbounds i8, ptr %0, i64 248
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
   br i1 %120, label %121, label %122
@@ -227,7 +227,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %132 = sext i32 %131 to i64
   %133 = shl nsw i64 %132, 3
   %134 = call ptr @ADIOI_Calloc_fn(i64 noundef 1, i64 noundef %133, i32 noundef 197, ptr noundef nonnull @.str) #3
-  %135 = getelementptr inbounds i8, ptr %0, i64 76
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %136 = load i32, ptr %135, align 4
   %.not424 = icmp eq i32 %136, 0
   br i1 %.not424, label %142, label %137
@@ -258,7 +258,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 .lr.ph521:                                        ; preds = %.lr.ph521.preheader, %.lr.ph521
   %indvars.iv568 = phi i64 [ 0, %.lr.ph521.preheader ], [ %indvars.iv.next569, %.lr.ph521 ]
-  %149 = getelementptr inbounds ptr, ptr %146, i64 %indvars.iv568
+  %149 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv568
   store ptr @ompi_mpi_byte, ptr %149, align 8
   %indvars.iv.next569 = add nuw nsw i64 %indvars.iv568, 1
   %exitcond572.not = icmp eq i64 %indvars.iv.next569, %wide.trip.count571
@@ -281,7 +281,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 .preheader507:                                    ; preds = %.loopexit511
   %160 = load ptr, ptr %26, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 20
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 20
   %162 = load i32, ptr %161, align 4
   %163 = icmp sgt i32 %162, 0
   br i1 %163, label %.lr.ph527, label %.loopexit508
@@ -300,7 +300,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 .lr.ph524:                                        ; preds = %.lr.ph524.preheader, %.lr.ph524
   %indvars.iv573 = phi i64 [ 0, %.lr.ph524.preheader ], [ %indvars.iv.next574, %.lr.ph524 ]
   %.0401522 = phi i64 [ 0, %.lr.ph524.preheader ], [ %spec.select441, %.lr.ph524 ]
-  %169 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv573
+  %169 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv573
   %170 = load i64, ptr %169, align 8
   %171 = call i64 @llvm.smax.i64(i64 %170, i64 0)
   %spec.select441 = add nuw nsw i64 %171, %.0401522
@@ -312,7 +312,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %172 = phi i32 [ %189, %.lr.ph527 ], [ %162, %.preheader507 ]
   %173 = phi ptr [ %187, %.lr.ph527 ], [ %160, %.preheader507 ]
   %.3399526 = phi i32 [ %186, %.lr.ph527 ], [ 0, %.preheader507 ]
-  %174 = getelementptr inbounds i8, ptr %173, i64 88
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 88
   %175 = load ptr, ptr %174, align 8
   %176 = load i32, ptr %14, align 4
   %177 = add nsw i32 %176, %.3399526
@@ -326,7 +326,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %185 = call i32 @ADIOI_Build_client_pre_req(ptr noundef nonnull %0, i32 noundef %181, i32 noundef %178, ptr noundef %183, ptr noundef %184, i64 noundef 2097152, i32 noundef 65536) #3
   %186 = add nuw nsw i32 %.3399526, 1
   %187 = load ptr, ptr %26, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 20
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 20
   %189 = load i32, ptr %188, align 4
   %190 = icmp slt i32 %186, %189
   br i1 %190, label %.lr.ph527, label %.loopexit508, !llvm.loop !8
@@ -339,7 +339,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 192:                                              ; preds = %.loopexit508
   %193 = load ptr, ptr %26, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 24
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
   %195 = load i32, ptr %194, align 8
   %196 = sext i32 %195 to i64
   %197 = call ptr @ADIOI_Malloc_fn(i64 noundef %196, i32 noundef 255, ptr noundef nonnull @.str) #3
@@ -358,7 +358,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds i32, ptr %205, i64 %207
   %209 = load ptr, ptr %26, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 44
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 44
   %211 = load i32, ptr %210, align 4
   %212 = icmp eq i32 %211, 2
   br i1 %212, label %213, label %post_aggregator_comm.exit
@@ -382,7 +382,7 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.03235.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %220 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv.i
+  %220 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv.i
   %221 = load i64, ptr %220, align 8
   %222 = icmp sgt i64 %221, 0
   %223 = zext i1 %222 to i32
@@ -404,13 +404,13 @@ define void @ADIOI_IOStridedColl(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 .lr.ph41.split.us.i:                              ; preds = %239, %224
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %239 ], [ 0, %224 ]
   %.237.us.i = phi i32 [ %.3.us.i, %239 ], [ 0, %224 ]
-  %228 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv50.i
+  %228 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv50.i
   %229 = load i64, ptr %228, align 8
   %230 = icmp sgt i64 %229, 0
   br i1 %230, label %231, label %239
 
 231:                                              ; preds = %.lr.ph41.split.us.i
-  %232 = getelementptr inbounds ptr, ptr %146, i64 %indvars.iv50.i
+  %232 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv50.i
   %233 = load ptr, ptr %232, align 8
   %234 = sext i32 %.237.us.i to i64
   %235 = getelementptr inbounds ptr, ptr %227, i64 %234
@@ -448,18 +448,18 @@ post_aggregator_comm.exit:                        ; preds = %post_aggregator_com
   %.1483547 = phi i32 [ %.0482, %.lr.ph550 ], [ %.4486, %post_aggregator_comm.exit477 ]
   %.1491546 = phi ptr [ %.0490, %.lr.ph550 ], [ %.4494, %post_aggregator_comm.exit477 ]
   %244 = load ptr, ptr %26, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 44
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 44
   %246 = load i32, ptr %245, align 4
   %247 = icmp eq i32 %246, 2
   br i1 %247, label %248, label %346
 
 248:                                              ; preds = %243
-  %249 = getelementptr inbounds i8, ptr %244, i64 20
+  %249 = getelementptr inbounds nuw i8, ptr %244, i64 20
   %250 = load i32, ptr %249, align 4
   %251 = sext i32 %250 to i64
   %252 = call ptr @ADIOI_Calloc_fn(i64 noundef %251, i64 noundef 8, i32 noundef 293, ptr noundef nonnull @.str) #3
   %253 = load ptr, ptr %26, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 20
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 20
   %255 = load i32, ptr %254, align 4
   %256 = icmp sgt i32 %255, 0
   br i1 %256, label %.lr.ph529, label %._crit_edge
@@ -468,7 +468,7 @@ post_aggregator_comm.exit:                        ; preds = %post_aggregator_com
   %257 = phi i32 [ %288, %post_client_comm.exit ], [ %255, %248 ]
   %258 = phi ptr [ %286, %post_client_comm.exit ], [ %253, %248 ]
   %.4528 = phi i32 [ %285, %post_client_comm.exit ], [ 0, %248 ]
-  %259 = getelementptr inbounds i8, ptr %258, i64 88
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 88
   %260 = load ptr, ptr %259, align 8
   %261 = load i32, ptr %14, align 4
   %262 = add nsw i32 %261, %.4528
@@ -509,7 +509,7 @@ post_client_comm.exit:                            ; preds = %283, %281, %271, %.
   %.2 = phi i32 [ 0, %.lr.ph529 ], [ 1, %271 ], [ 1, %281 ], [ 1, %283 ]
   %285 = add nuw nsw i32 %.4528, 1
   %286 = load ptr, ptr %26, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 20
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 20
   %288 = load i32, ptr %287, align 4
   %289 = icmp slt i32 %285, %288
   br i1 %289, label %.lr.ph529, label %._crit_edge, !llvm.loop !11
@@ -557,7 +557,7 @@ post_client_comm.exit:                            ; preds = %283, %281, %271, %.
 .lr.ph.i447:                                      ; preds = %.lr.ph.i447, %.lr.ph.preheader.i445
   %indvars.iv.i448 = phi i64 [ 0, %.lr.ph.preheader.i445 ], [ %indvars.iv.next.i451, %.lr.ph.i447 ]
   %.03235.i449 = phi i32 [ 0, %.lr.ph.preheader.i445 ], [ %spec.select.i450, %.lr.ph.i447 ]
-  %307 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv.i448
+  %307 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv.i448
   %308 = load i64, ptr %307, align 8
   %309 = icmp sgt i64 %308, 0
   %310 = zext i1 %309 to i32
@@ -579,13 +579,13 @@ post_client_comm.exit:                            ; preds = %283, %281, %271, %.
 .lr.ph41.split.i:                                 ; preds = %326, %311
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %326 ], [ 0, %311 ]
   %.237.i = phi i32 [ %.3.i, %326 ], [ 0, %311 ]
-  %315 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv45.i
+  %315 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv45.i
   %316 = load i64, ptr %315, align 8
   %317 = icmp sgt i64 %316, 0
   br i1 %317, label %318, label %326
 
 318:                                              ; preds = %.lr.ph41.split.i
-  %319 = getelementptr inbounds ptr, ptr %146, i64 %indvars.iv45.i
+  %319 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv45.i
   %320 = load ptr, ptr %319, align 8
   %321 = sext i32 %.237.i to i64
   %322 = getelementptr inbounds ptr, ptr %314, i64 %321
@@ -720,13 +720,13 @@ post_aggregator_comm.exit457.thread:              ; preds = %301, %303, %._crit_
 .lr.ph532:                                        ; preds = %376, %389
   %382 = phi i32 [ %390, %389 ], [ %380, %376 ]
   %indvars.iv578 = phi i64 [ %indvars.iv.next579, %389 ], [ 0, %376 ]
-  %383 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv578
+  %383 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv578
   %384 = load i64, ptr %383, align 8
   %385 = icmp sgt i64 %384, 0
   br i1 %385, label %386, label %389
 
 386:                                              ; preds = %.lr.ph532
-  %387 = getelementptr inbounds ptr, ptr %146, i64 %indvars.iv578
+  %387 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv578
   %388 = call i32 @PMPI_Type_free(ptr noundef %387) #3
   %.pre597 = load i32, ptr %13, align 4
   br label %389
@@ -746,13 +746,13 @@ post_aggregator_comm.exit457.thread:              ; preds = %301, %303, %._crit_
 .lr.ph535:                                        ; preds = %.loopexit505, %402
   %395 = phi i32 [ %403, %402 ], [ %393, %.loopexit505 ]
   %indvars.iv581 = phi i64 [ %indvars.iv.next582, %402 ], [ 0, %.loopexit505 ]
-  %396 = getelementptr inbounds i64, ptr %154, i64 %indvars.iv581
+  %396 = getelementptr inbounds nuw i64, ptr %154, i64 %indvars.iv581
   %397 = load i64, ptr %396, align 8
   %398 = icmp sgt i64 %397, 0
   br i1 %398, label %399, label %402
 
 399:                                              ; preds = %.lr.ph535
-  %400 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv581
+  %400 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv581
   %401 = call i32 @PMPI_Type_free(ptr noundef %400) #3
   %.pre598 = load i32, ptr %13, align 4
   br label %402
@@ -772,7 +772,7 @@ post_aggregator_comm.exit457.thread:              ; preds = %301, %303, %._crit_
 
 .preheader:                                       ; preds = %._crit_edge536
   %407 = load ptr, ptr %26, align 8
-  %408 = getelementptr inbounds i8, ptr %407, i64 20
+  %408 = getelementptr inbounds nuw i8, ptr %407, i64 20
   %409 = load i32, ptr %408, align 4
   %410 = icmp sgt i32 %409, 0
   br i1 %410, label %.lr.ph544, label %.loopexit
@@ -790,7 +790,7 @@ post_aggregator_comm.exit457.thread:              ; preds = %301, %303, %._crit_
 .lr.ph541:                                        ; preds = %.lr.ph541.preheader, %.lr.ph541
   %indvars.iv584 = phi i64 [ 0, %.lr.ph541.preheader ], [ %indvars.iv.next585, %.lr.ph541 ]
   %.4405538 = phi i64 [ 0, %.lr.ph541.preheader ], [ %spec.select442, %.lr.ph541 ]
-  %415 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv584
+  %415 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv584
   %416 = load i64, ptr %415, align 8
   %417 = call i64 @llvm.smax.i64(i64 %416, i64 0)
   %spec.select442 = add nuw nsw i64 %417, %.4405538
@@ -802,7 +802,7 @@ post_aggregator_comm.exit457.thread:              ; preds = %301, %303, %._crit_
   %418 = phi i32 [ %435, %.lr.ph544 ], [ %409, %.preheader ]
   %419 = phi ptr [ %433, %.lr.ph544 ], [ %407, %.preheader ]
   %.8543 = phi i32 [ %432, %.lr.ph544 ], [ 0, %.preheader ]
-  %420 = getelementptr inbounds i8, ptr %419, i64 88
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 88
   %421 = load ptr, ptr %420, align 8
   %422 = load i32, ptr %14, align 4
   %423 = add nsw i32 %422, %.8543
@@ -816,7 +816,7 @@ post_aggregator_comm.exit457.thread:              ; preds = %301, %303, %._crit_
   %431 = call i32 @ADIOI_Build_client_pre_req(ptr noundef nonnull %0, i32 noundef %427, i32 noundef %424, ptr noundef %429, ptr noundef %430, i64 noundef 2097152, i32 noundef 65536) #3
   %432 = add nuw nsw i32 %.8543, 1
   %433 = load ptr, ptr %26, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 20
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 20
   %435 = load i32, ptr %434, align 4
   %436 = icmp slt i32 %432, %435
   br i1 %436, label %.lr.ph544, label %.loopexit, !llvm.loop !15
@@ -824,7 +824,7 @@ post_aggregator_comm.exit457.thread:              ; preds = %301, %303, %._crit_
 .loopexit:                                        ; preds = %.lr.ph541, %.lr.ph544, %411, %.preheader
   %.6407 = phi i64 [ %.3404548, %.preheader ], [ 0, %411 ], [ %.3404548, %.lr.ph544 ], [ %spec.select442, %.lr.ph541 ]
   %437 = load ptr, ptr %26, align 8
-  %438 = getelementptr inbounds i8, ptr %437, i64 44
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 44
   %439 = load i32, ptr %438, align 4
   %440 = icmp eq i32 %439, 2
   br i1 %440, label %441, label %post_aggregator_comm.exit477
@@ -848,7 +848,7 @@ post_aggregator_comm.exit457.thread:              ; preds = %301, %303, %._crit_
 .lr.ph.i461:                                      ; preds = %.lr.ph.i461, %.lr.ph.preheader.i459
   %indvars.iv.i462 = phi i64 [ 0, %.lr.ph.preheader.i459 ], [ %indvars.iv.next.i465, %.lr.ph.i461 ]
   %.03235.i463 = phi i32 [ 0, %.lr.ph.preheader.i459 ], [ %spec.select.i464, %.lr.ph.i461 ]
-  %448 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv.i462
+  %448 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv.i462
   %449 = load i64, ptr %448, align 8
   %450 = icmp sgt i64 %449, 0
   %451 = zext i1 %450 to i32
@@ -870,13 +870,13 @@ post_aggregator_comm.exit457.thread:              ; preds = %301, %303, %._crit_
 .lr.ph41.split.us.i470:                           ; preds = %467, %452
   %indvars.iv50.i471 = phi i64 [ %indvars.iv.next51.i474, %467 ], [ 0, %452 ]
   %.237.us.i472 = phi i32 [ %.3.us.i473, %467 ], [ 0, %452 ]
-  %456 = getelementptr inbounds i64, ptr %134, i64 %indvars.iv50.i471
+  %456 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv50.i471
   %457 = load i64, ptr %456, align 8
   %458 = icmp sgt i64 %457, 0
   br i1 %458, label %459, label %467
 
 459:                                              ; preds = %.lr.ph41.split.us.i470
-  %460 = getelementptr inbounds ptr, ptr %146, i64 %indvars.iv50.i471
+  %460 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv50.i471
   %461 = load ptr, ptr %460, align 8
   %462 = sext i32 %.237.us.i472 to i64
   %463 = getelementptr inbounds ptr, ptr %455, i64 %462
@@ -903,18 +903,18 @@ post_aggregator_comm.exit477:                     ; preds = %467, %._crit_edge.i
 ._crit_edge551:                                   ; preds = %post_aggregator_comm.exit477, %post_aggregator_comm.exit
   %.3404.lcssa = phi i64 [ %.2403, %post_aggregator_comm.exit ], [ %.6407, %post_aggregator_comm.exit477 ]
   %470 = load ptr, ptr %26, align 8
-  %471 = getelementptr inbounds i8, ptr %470, i64 28
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 28
   %472 = load i32, ptr %471, align 4
   %.not429 = icmp eq i32 %472, 1
   br i1 %.not429, label %480, label %473
 
 473:                                              ; preds = %._crit_edge551
-  %474 = getelementptr inbounds i8, ptr %0, i64 248
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %475 = load ptr, ptr %474, align 8
   %476 = call i32 @PMPI_Type_free(ptr noundef %475) #3
   %477 = load ptr, ptr %474, align 8
   call void @ADIOI_Free_fn(ptr noundef %477, i32 noundef 617, ptr noundef nonnull @.str) #3
-  %478 = getelementptr inbounds i8, ptr %0, i64 240
+  %478 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %479 = load ptr, ptr %478, align 8
   call void @ADIOI_Free_fn(ptr noundef %479, i32 noundef 618, ptr noundef nonnull @.str) #3
   br label %480
@@ -939,15 +939,15 @@ post_aggregator_comm.exit477:                     ; preds = %467, %._crit_edge.i
 
 .lr.ph555:                                        ; preds = %486, %.lr.ph555
   %indvars.iv589 = phi i64 [ %indvars.iv.next590, %.lr.ph555 ], [ 0, %486 ]
-  %489 = getelementptr inbounds ptr, ptr %146, i64 %indvars.iv589
+  %489 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv589
   %490 = call i32 @PMPI_Type_free(ptr noundef %489) #3
-  %491 = getelementptr inbounds %struct.view_state, ptr %.0386, i64 %indvars.iv589, i32 12
+  %491 = getelementptr inbounds nuw %struct.view_state, ptr %.0386, i64 %indvars.iv589, i32 12
   %492 = load ptr, ptr %491, align 8
-  %493 = getelementptr inbounds i8, ptr %492, i64 24
+  %493 = getelementptr inbounds nuw i8, ptr %492, i64 24
   %494 = load ptr, ptr %493, align 8
   call void @ADIOI_Free_fn(ptr noundef %494, i32 noundef 627, ptr noundef nonnull @.str) #3
   %495 = load ptr, ptr %491, align 8
-  %496 = getelementptr inbounds i8, ptr %495, i64 16
+  %496 = getelementptr inbounds nuw i8, ptr %495, i64 16
   %497 = load ptr, ptr %496, align 8
   call void @ADIOI_Free_fn(ptr noundef %497, i32 noundef 628, ptr noundef nonnull @.str) #3
   %498 = load ptr, ptr %491, align 8
@@ -971,13 +971,13 @@ post_aggregator_comm.exit477:                     ; preds = %467, %._crit_edge.i
 .lr.ph559:                                        ; preds = %502, %512
   %505 = phi i32 [ %513, %512 ], [ %503, %502 ]
   %indvars.iv592 = phi i64 [ %indvars.iv.next593, %512 ], [ 0, %502 ]
-  %506 = getelementptr inbounds i64, ptr %154, i64 %indvars.iv592
+  %506 = getelementptr inbounds nuw i64, ptr %154, i64 %indvars.iv592
   %507 = load i64, ptr %506, align 8
   %508 = icmp sgt i64 %507, 0
   br i1 %508, label %509, label %512
 
 509:                                              ; preds = %.lr.ph559
-  %510 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv592
+  %510 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv592
   %511 = call i32 @PMPI_Type_free(ptr noundef %510) #3
   %.pre599 = load i32, ptr %13, align 4
   br label %512
@@ -1000,7 +1000,7 @@ post_aggregator_comm.exit477:                     ; preds = %467, %._crit_edge.i
   call void @ADIOI_Free_fn(ptr noundef %205, i32 noundef 645, ptr noundef nonnull @.str) #3
   call void @ADIOI_Free_fn(ptr noundef %.0391, i32 noundef 646, ptr noundef nonnull @.str) #3
   %516 = call i32 @mca_io_romio_dist_MPIR_Status_set_bytes(ptr noundef %7, ptr noundef %4, i64 noundef %113) #3
-  %517 = getelementptr inbounds i8, ptr %0, i64 48
+  %517 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 -1, ptr %517, align 8
   br label %.loopexit506
 
@@ -1024,14 +1024,14 @@ define void @ADIOI_Calc_bounds(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %.not, label %.loopexit186, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load ptr, ptr %15, align 8
   call void @ADIOI_Datatype_iscontig(ptr noundef %16, ptr noundef nonnull %13) #3
   %17 = load ptr, ptr %15, align 8
   %18 = call i32 @PMPI_Type_size_x(ptr noundef %17, ptr noundef nonnull %8) #3
   %19 = load ptr, ptr %15, align 8
   %20 = call i32 @PMPI_Type_get_extent(ptr noundef %19, ptr noundef nonnull %11, ptr noundef nonnull %12) #3
-  %21 = getelementptr inbounds i8, ptr %0, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @PMPI_Type_size_x(ptr noundef %22, ptr noundef nonnull %10) #3
   %24 = call i32 @PMPI_Type_size_x(ptr noundef %2, ptr noundef nonnull %9) #3
@@ -1047,12 +1047,12 @@ define void @ADIOI_Calc_bounds(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i64, ptr %32, align 8
   br label %40
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %0, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %36 = load i64, ptr %35, align 8
   %37 = load i64, ptr %10, align 8
   %38 = mul nsw i64 %37, %4
@@ -1072,11 +1072,11 @@ define void @ADIOI_Calc_bounds(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %46, label %47, label %126
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 104
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %45, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %51, %54
@@ -1088,13 +1088,13 @@ define void @ADIOI_Calc_bounds(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %.not166, label %80, label %.preheader182
 
 .preheader182:                                    ; preds = %47
-  %59 = getelementptr inbounds i8, ptr %45, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = icmp sgt i64 %60, 0
   br i1 %61, label %.lr.ph208, label %.loopexit183
 
 .lr.ph208:                                        ; preds = %.preheader182
-  %62 = getelementptr inbounds i8, ptr %45, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %63 = load ptr, ptr %62, align 8
   br label %66
 
@@ -1106,11 +1106,11 @@ define void @ADIOI_Calc_bounds(ptr nocapture noundef readonly %0, i32 noundef %1
 66:                                               ; preds = %.lr.ph208, %64
   %.0140207 = phi i32 [ 0, %.lr.ph208 ], [ %70, %64 ]
   %.0143206 = phi i64 [ 0, %.lr.ph208 ], [ %65, %64 ]
-  %67 = getelementptr inbounds i64, ptr %63, i64 %.0143206
+  %67 = getelementptr inbounds nuw i64, ptr %63, i64 %.0143206
   %68 = load i64, ptr %67, align 8
   %69 = trunc i64 %68 to i32
   %70 = add i32 %.0140207, %69
-  %71 = getelementptr inbounds i64, ptr %53, i64 %.0143206
+  %71 = getelementptr inbounds nuw i64, ptr %53, i64 %.0143206
   %72 = load i64, ptr %71, align 8
   %73 = sub i64 %68, %54
   %74 = add i64 %73, %72
@@ -1141,7 +1141,7 @@ define void @ADIOI_Calc_bounds(ptr nocapture noundef readonly %0, i32 noundef %1
   %87 = add nsw i64 %86, %84
   %88 = srem i64 %.0148, %82
   %.not169 = icmp eq i64 %88, 0
-  %89 = getelementptr inbounds i8, ptr %45, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %90 = load i64, ptr %89, align 8
   br i1 %.not169, label %94, label %.preheader
 
@@ -1150,12 +1150,12 @@ define void @ADIOI_Calc_bounds(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %91, label %.lr.ph212, label %.loopexit
 
 .lr.ph212:                                        ; preds = %.preheader
-  %92 = getelementptr inbounds i8, ptr %45, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %93 = load ptr, ptr %92, align 8
   br label %109
 
 94:                                               ; preds = %80
-  %95 = getelementptr inbounds i8, ptr %45, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %smin235 = call i64 @llvm.smin.i64(i64 %90, i64 0)
   %96 = add i64 %smin235, -1
   %.pre237.pre = load ptr, ptr %95, align 8
@@ -1192,7 +1192,7 @@ split239:                                         ; preds = %99, %._crit_edge238
 109:                                              ; preds = %.lr.ph212, %123
   %.2142211 = phi i64 [ 0, %.lr.ph212 ], [ %113, %123 ]
   %.2145210 = phi i64 [ 0, %.lr.ph212 ], [ %124, %123 ]
-  %110 = getelementptr inbounds i64, ptr %93, i64 %.2145210
+  %110 = getelementptr inbounds nuw i64, ptr %93, i64 %.2145210
   %111 = load i64, ptr %110, align 8
   %sext171 = shl i64 %.2142211, 32
   %112 = ashr exact i64 %sext171, 32
@@ -1203,7 +1203,7 @@ split239:                                         ; preds = %99, %._crit_edge238
   br i1 %.not173, label %123, label %115
 
 115:                                              ; preds = %109
-  %116 = getelementptr inbounds i64, ptr %53, i64 %.2145210
+  %116 = getelementptr inbounds nuw i64, ptr %53, i64 %.2145210
   %117 = load i64, ptr %116, align 8
   %118 = add i64 %87, -1
   %119 = add i64 %118, %88
@@ -1223,7 +1223,7 @@ split239:                                         ; preds = %99, %._crit_edge238
   br label %.loopexit186
 
 126:                                              ; preds = %43
-  %127 = getelementptr inbounds i8, ptr %0, i64 104
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %128 = load i64, ptr %127, align 8
   %129 = load i64, ptr %10, align 8
   %130 = mul nsw i64 %129, %4
@@ -1233,20 +1233,20 @@ split239:                                         ; preds = %99, %._crit_edge238
   %134 = mul nsw i64 %133, %132
   %135 = add nsw i64 %134, %128
   %136 = srem i64 %130, %131
-  %137 = getelementptr inbounds i8, ptr %45, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %138 = load i64, ptr %137, align 8
   %139 = icmp sgt i64 %138, 0
   br i1 %139, label %.lr.ph, label %.loopexit187.thread
 
 .lr.ph:                                           ; preds = %126
-  %140 = getelementptr inbounds i8, ptr %45, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %141 = load ptr, ptr %140, align 8
   br label %142
 
 142:                                              ; preds = %.lr.ph, %163
   %.3202 = phi i64 [ 0, %.lr.ph ], [ %146, %163 ]
   %.3146201 = phi i64 [ 0, %.lr.ph ], [ %164, %163 ]
-  %143 = getelementptr inbounds i64, ptr %141, i64 %.3146201
+  %143 = getelementptr inbounds nuw i64, ptr %141, i64 %.3146201
   %144 = load i64, ptr %143, align 8
   %sext = shl i64 %.3202, 32
   %145 = ashr exact i64 %sext, 32
@@ -1258,13 +1258,13 @@ split239:                                         ; preds = %99, %._crit_edge238
 
 148:                                              ; preds = %142
   %149 = icmp eq i64 %147, %136
-  %150 = getelementptr inbounds i8, ptr %45, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i64, ptr %151, i64 %.3146201
+  %152 = getelementptr inbounds nuw i64, ptr %151, i64 %.3146201
   br i1 %149, label %153, label %157
 
 153:                                              ; preds = %148
-  %154 = getelementptr inbounds i8, ptr %152, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %155 = load i64, ptr %154, align 8
   %156 = add nsw i64 %155, %135
   br label %.loopexit187
@@ -1302,14 +1302,14 @@ split239:                                         ; preds = %99, %._crit_edge238
   br i1 %.not161243, label %.preheader184, label %.loopexit186
 
 .lr.ph205:                                        ; preds = %.loopexit187
-  %175 = getelementptr inbounds i8, ptr %45, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %176 = load ptr, ptr %175, align 8
   br label %193
 
 .preheader184:                                    ; preds = %.loopexit187.thread, %.loopexit187
   %177 = phi i64 [ %173, %.loopexit187.thread ], [ %168, %.loopexit187 ]
   %.2245 = phi i64 [ %135, %.loopexit187.thread ], [ %.2, %.loopexit187 ]
-  %178 = getelementptr inbounds i8, ptr %45, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %smin = call i64 @llvm.smin.i64(i64 %138, i64 0)
   %179 = add i64 %smin, -1
   %.pre.pre = load ptr, ptr %178, align 8
@@ -1335,7 +1335,7 @@ split239:                                         ; preds = %99, %._crit_edge238
 split:                                            ; preds = %182, %._crit_edge
   %185 = phi i64 [ %.pre236, %._crit_edge ], [ %184, %182 ]
   %.4147.lcssa = phi i64 [ %179, %._crit_edge ], [ %.4147, %182 ]
-  %186 = getelementptr inbounds i8, ptr %45, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %187 = load ptr, ptr %186, align 8
   %188 = getelementptr inbounds i64, ptr %187, i64 %.4147.lcssa
   %189 = load i64, ptr %188, align 8
@@ -1348,7 +1348,7 @@ split:                                            ; preds = %182, %._crit_edge
 193:                                              ; preds = %.lr.ph205, %209
   %.4204 = phi i64 [ 0, %.lr.ph205 ], [ %197, %209 ]
   %.5203 = phi i64 [ 0, %.lr.ph205 ], [ %210, %209 ]
-  %194 = getelementptr inbounds i64, ptr %176, i64 %.5203
+  %194 = getelementptr inbounds nuw i64, ptr %176, i64 %.5203
   %195 = load i64, ptr %194, align 8
   %sext163 = shl i64 %.4204, 32
   %196 = ashr exact i64 %sext163, 32
@@ -1359,9 +1359,9 @@ split:                                            ; preds = %182, %._crit_edge
   br i1 %.not165, label %209, label %199
 
 199:                                              ; preds = %193
-  %200 = getelementptr inbounds i8, ptr %45, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds i64, ptr %201, i64 %.5203
+  %202 = getelementptr inbounds nuw i64, ptr %201, i64 %.5203
   %203 = load i64, ptr %202, align 8
   %204 = add nsw i64 %169, -1
   %205 = add i64 %204, %168
@@ -1409,18 +1409,18 @@ declare i32 @ADIOI_Build_client_pre_req(ptr noundef, i32 noundef, i32 noundef, p
 define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.ompi_status_public_t, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 2
   br i1 %.not, label %37, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @PMPI_Alltoall(ptr noundef %2, i32 noundef 8, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %3, i32 noundef 8, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %16) #3
-  %18 = getelementptr inbounds i8, ptr %0, i64 76
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %19 = load i32, ptr %18, align 4
   %.not83 = icmp ne i32 %19, 0
   %20 = icmp sgt i32 %1, 0
@@ -1433,11 +1433,11 @@ define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
   %23 = icmp sgt i64 %22, 0
   %spec.select = zext i1 %23 to i32
-  %24 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 %spec.select, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1453,7 +1453,7 @@ define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0
 
 .lr.ph88:                                         ; preds = %.lr.ph88.preheader, %36
   %indvars.iv99 = phi i64 [ 0, %.lr.ph88.preheader ], [ %indvars.iv.next100, %36 ]
-  %25 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv99
+  %25 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv99
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, -1
   br i1 %27, label %28, label %31
@@ -1466,7 +1466,7 @@ define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0
 
 31:                                               ; preds = %.lr.ph88
   %32 = icmp sgt i64 %26, 0
-  %33 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv99
+  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv99
   br i1 %32, label %34, label %35
 
 34:                                               ; preds = %31
@@ -1483,43 +1483,43 @@ define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0
   br i1 %exitcond103.not, label %.loopexit84, label %.lr.ph88, !llvm.loop !26
 
 37:                                               ; preds = %7
-  %38 = getelementptr inbounds i8, ptr %11, i64 20
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
   %41 = shl nsw i64 %40, 3
   %42 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %41, i32 noundef 969, ptr noundef nonnull @.str) #3
   %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %45 = load i32, ptr %44, align 4
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %.lr.ph90, label %._crit_edge
 
 .lr.ph90:                                         ; preds = %37
-  %47 = getelementptr inbounds i8, ptr %0, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %48
 
 48:                                               ; preds = %.lr.ph90, %48
   %indvars.iv104 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next105, %48 ]
   %49 = phi ptr [ %43, %.lr.ph90 ], [ %59, %48 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 88
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv104
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv104
   %53 = load i32, ptr %52, align 4
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i64, ptr %3, i64 %54
   %56 = load ptr, ptr %47, align 8
-  %57 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv104
+  %57 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv104
   %58 = tail call i32 @PMPI_Irecv(ptr noundef %55, i32 noundef 8, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %53, i32 noundef 31, ptr noundef %56, ptr noundef %57) #3
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 20
   %61 = load i32, ptr %60, align 4
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next105, %62
   br i1 %63, label %48, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %48, %37
-  %64 = getelementptr inbounds i8, ptr %0, i64 76
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %65 = load i32, ptr %64, align 4
   %.not81 = icmp eq i32 %65, 0
   br i1 %.not81, label %.loopexit, label %66
@@ -1532,21 +1532,21 @@ define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0
   br i1 %70, label %.lr.ph93, label %.loopexit
 
 .lr.ph93:                                         ; preds = %66
-  %71 = getelementptr inbounds i8, ptr %0, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %wide.trip.count110 = zext nneg i32 %1 to i64
   br label %72
 
 72:                                               ; preds = %.lr.ph93, %72
   %indvars.iv107 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next108, %72 ]
-  %73 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv107
+  %73 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv107
   %74 = load ptr, ptr %71, align 8
-  %75 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv107
+  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv107
   %76 = trunc nuw nsw i64 %indvars.iv107 to i32
   %77 = tail call i32 @PMPI_Isend(ptr noundef %73, i32 noundef 8, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %76, i32 noundef 31, ptr noundef %74, ptr noundef %75) #3
   %78 = load i64, ptr %73, align 8
   %79 = icmp sgt i64 %78, 0
   %spec.select113 = zext i1 %79 to i32
-  %80 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv107
+  %80 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv107
   store i32 %spec.select113, ptr %80, align 4
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
@@ -1556,7 +1556,7 @@ define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0
   %.0 = phi ptr [ null, %._crit_edge ], [ %69, %66 ], [ %69, %72 ]
   store i32 0, ptr %6, align 4
   %81 = load ptr, ptr %10, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 20
   %83 = load i32, ptr %82, align 4
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %.lr.ph96, label %._crit_edge97
@@ -1566,7 +1566,7 @@ define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0
   %.494 = phi i32 [ %107, %106 ], [ 0, %.loopexit ]
   %86 = call i32 @PMPI_Waitany(i32 noundef %85, ptr noundef %42, ptr noundef nonnull %8, ptr noundef nonnull %9) #3
   %87 = load ptr, ptr %10, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 88
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 88
   %89 = load ptr, ptr %88, align 8
   %90 = load i32, ptr %8, align 4
   %91 = sext i32 %90 to i64
@@ -1600,7 +1600,7 @@ define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0
 106:                                              ; preds = %98, %105, %104
   %107 = add nuw nsw i32 %.494, 1
   %108 = load ptr, ptr %10, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 20
   %110 = load i32, ptr %109, align 4
   %111 = icmp slt i32 %107, %110
   br i1 %111, label %.lr.ph96, label %._crit_edge97, !llvm.loop !29
@@ -1636,41 +1636,41 @@ define void @ADIOI_IOFiletype(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %20 = load i64, ptr %14, align 8
   %21 = sdiv i64 %19, %20
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 136
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %30, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 60
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 60
   %38 = load i32, ptr %37, align 4
   store ptr %6, ptr %23, align 8
   store ptr @ompi_mpi_byte, ptr %25, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %40 = load i32, ptr %39, align 8
   store i32 %40, ptr %35, align 8
   %41 = load ptr, ptr %29, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 60
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 60
   store i32 %43, ptr %44, align 4
   %45 = load ptr, ptr %29, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %.not = icmp sgt i32 %47, %22
-  %48 = getelementptr inbounds i8, ptr %45, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %. = select i1 %.not, i32 2, i32 1
   store i32 %., ptr %48, align 8
   %49 = load ptr, ptr %29, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 52
   store i32 %., ptr %50, align 4
   call void @ADIOI_Datatype_iscontig(ptr noundef %6, ptr noundef nonnull %11) #3
   call void @ADIOI_Datatype_iscontig(ptr noundef %3, ptr noundef nonnull %12) #3
@@ -1690,7 +1690,7 @@ define void @ADIOI_IOFiletype(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %58 = icmp ne i32 %57, 0
   %or.cond = select i1 %56, i1 %58, i1 false
   %59 = icmp eq i32 %7, 26
-  %60 = getelementptr inbounds i8, ptr %0, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br i1 %or.cond, label %61, label %69
 
 61:                                               ; preds = %55
@@ -1699,13 +1699,13 @@ define void @ADIOI_IOFiletype(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %59, label %63, label %66
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %62, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %8, ptr noundef %9) #3
   br label %77
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds i8, ptr %62, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %68 = load ptr, ptr %67, align 8
   call void %68(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %8, ptr noundef %9) #3
   br label %77
@@ -1716,13 +1716,13 @@ define void @ADIOI_IOFiletype(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %59, label %71, label %74
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %70, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef 0, ptr noundef %8, ptr noundef %9) #3
   br label %77
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %70, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 80
   %76 = load ptr, ptr %75, align 8
   call void %76(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef 0, ptr noundef %8, ptr noundef %9) #3
   br label %77
@@ -1732,16 +1732,16 @@ define void @ADIOI_IOFiletype(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   store ptr %26, ptr %25, align 8
   store i64 %28, ptr %27, align 8
   %78 = load ptr, ptr %29, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   store i32 %32, ptr %79, align 8
   %80 = load ptr, ptr %29, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 52
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 52
   store i32 %34, ptr %81, align 4
   %82 = load ptr, ptr %29, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
   store i32 %36, ptr %83, align 8
   %84 = load ptr, ptr %29, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 60
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 60
   store i32 %38, ptr %85, align 4
   ret void
 }

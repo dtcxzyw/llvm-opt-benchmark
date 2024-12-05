@@ -11,7 +11,7 @@ define ptr @Java_sun_net_dns_ResolverConfigurationImpl_fallbackDomain0(ptr nound
   br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 1024
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1024
   store i8 0, ptr %7, align 16
   %8 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 46) #4
   %.not = icmp eq ptr %8, null
@@ -19,9 +19,9 @@ define ptr @Java_sun_net_dns_ResolverConfigurationImpl_fallbackDomain0(ptr nound
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1336
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1336
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %14 = call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %13) #3
   br label %15
 

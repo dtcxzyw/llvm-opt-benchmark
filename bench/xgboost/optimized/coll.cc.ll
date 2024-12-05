@@ -297,11 +297,11 @@ define void @_ZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanI
   store i8 %4, ptr %7, align 1
   store i32 %5, ptr %8, align 4
   store ptr %9, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %7, ptr %17, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #12
   %18 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
@@ -325,9 +325,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #12
   %21 = load i8, ptr %7, align 1
   store ptr %8, ptr %14, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %10, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %14, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %11, ptr %23, align 8
   invoke fastcc void @"_ZN7xgboost13DispatchDTypeIZNS_10collective4Coll9AllreduceERKNS1_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS1_2OpEE3$_0EEDaSA_T_"(ptr dead_on_unwind noalias writable align 8 %13, i8 noundef signext %21, ptr noundef nonnull byval(%class.anon.6) align 8 %14)
           to label %24 unwind label %33
@@ -345,7 +345,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %2, align 8, !noalias !7
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !noalias !7
   invoke void %30(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %2)
           to label %"_ZN7xgboost10collectivelsIZNS0_4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEE3$_3EENSt9enable_ifIXsr3stdE14is_invocable_vIT_EENS0_6ResultEE4typeEOSF_OSE_.exit" unwind label %35
@@ -626,26 +626,26 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
   ]
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %2, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %169 = load ptr, ptr %168, align 8, !noalias !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %142), !noalias !11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %143), !noalias !11
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8, !noalias !14
-  %172 = getelementptr inbounds i8, ptr %169, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %173 = load ptr, ptr %172, align 8, !noalias !14
   %174 = load i64, ptr %173, align 8, !noalias !14
   store i64 %174, ptr %142, align 8, !noalias !14
-  %175 = getelementptr inbounds i8, ptr %142, i64 8
-  %176 = getelementptr inbounds i8, ptr %173, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %177 = load ptr, ptr %176, align 8, !noalias !14
   store ptr %177, ptr %175, align 8, !noalias !14
-  %178 = getelementptr inbounds i8, ptr %143, i64 16
-  %179 = getelementptr inbounds i8, ptr %143, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %143, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %143, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %143, i8 0, i64 16, i1 false), !noalias !14
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E_fEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %179, align 8, !noalias !14
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E_fEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %178, align 8, !noalias !14
-  %180 = getelementptr inbounds i8, ptr %169, i64 24
+  %180 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %181 = load ptr, ptr %180, align 8, !noalias !14
   %182 = load i8, ptr %181, align 1, !noalias !14
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %171, ptr noundef nonnull %142, ptr noundef nonnull align 8 dereferenceable(32) %143, i8 noundef signext %182)
@@ -695,26 +695,26 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIfEEDaT_.exit"
 
 198:                                              ; preds = %164
-  %199 = getelementptr inbounds i8, ptr %2, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %200 = load ptr, ptr %199, align 8, !noalias !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %140), !noalias !11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %141), !noalias !11
-  %201 = getelementptr inbounds i8, ptr %200, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %202 = load ptr, ptr %201, align 8, !noalias !17
-  %203 = getelementptr inbounds i8, ptr %200, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %204 = load ptr, ptr %203, align 8, !noalias !17
   %205 = load i64, ptr %204, align 8, !noalias !17
   store i64 %205, ptr %140, align 8, !noalias !17
-  %206 = getelementptr inbounds i8, ptr %140, i64 8
-  %207 = getelementptr inbounds i8, ptr %204, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %208 = load ptr, ptr %207, align 8, !noalias !17
   store ptr %208, ptr %206, align 8, !noalias !17
-  %209 = getelementptr inbounds i8, ptr %141, i64 16
-  %210 = getelementptr inbounds i8, ptr %141, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %210 = getelementptr inbounds nuw i8, ptr %141, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %141, i8 0, i64 16, i1 false), !noalias !17
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E0_fEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %210, align 8, !noalias !17
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIfEEDaT_EUlSJ_T0_E0_fEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %209, align 8, !noalias !17
-  %211 = getelementptr inbounds i8, ptr %200, i64 24
+  %211 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %212 = load ptr, ptr %211, align 8, !noalias !17
   %213 = load i8, ptr %212, align 1, !noalias !17
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %202, ptr noundef nonnull %140, ptr noundef nonnull align 8 dereferenceable(32) %141, i8 noundef signext %213)
@@ -760,26 +760,26 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIfEEDaT_.exit"
 
 229:                                              ; preds = %164
-  %230 = getelementptr inbounds i8, ptr %2, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %231 = load ptr, ptr %230, align 8, !noalias !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %138), !noalias !11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %139), !noalias !11
-  %232 = getelementptr inbounds i8, ptr %231, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %233 = load ptr, ptr %232, align 8, !noalias !20
-  %234 = getelementptr inbounds i8, ptr %231, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %235 = load ptr, ptr %234, align 8, !noalias !20
   %236 = load i64, ptr %235, align 8, !noalias !20
   store i64 %236, ptr %138, align 8, !noalias !20
-  %237 = getelementptr inbounds i8, ptr %138, i64 8
-  %238 = getelementptr inbounds i8, ptr %235, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %239 = load ptr, ptr %238, align 8, !noalias !20
   store ptr %239, ptr %237, align 8, !noalias !20
-  %240 = getelementptr inbounds i8, ptr %139, i64 16
-  %241 = getelementptr inbounds i8, ptr %139, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %139, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %139, i8 0, i64 16, i1 false), !noalias !20
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %241, align 8, !noalias !20
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEfEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %240, align 8, !noalias !20
-  %242 = getelementptr inbounds i8, ptr %231, i64 24
+  %242 = getelementptr inbounds nuw i8, ptr %231, i64 24
   %243 = load ptr, ptr %242, align 8, !noalias !20
   %244 = load i8, ptr %243, align 1, !noalias !20
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %233, ptr noundef nonnull %138, ptr noundef nonnull align 8 dereferenceable(32) %139, i8 noundef signext %244)
@@ -825,7 +825,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIfEEDaT_.exit"
 
 260:                                              ; preds = %164
-  %261 = getelementptr inbounds i8, ptr %2, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %262 = load ptr, ptr %261, align 8, !noalias !11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %144, ptr noundef nonnull align 8 dereferenceable(32) %262), !noalias !11
   invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %144, ptr noundef nonnull @.str.2, i32 noundef 80)
@@ -842,7 +842,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   br label %common.resume
 
 266:                                              ; preds = %164
-  %267 = getelementptr inbounds i8, ptr %2, i64 16
+  %267 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %268 = load ptr, ptr %267, align 8, !noalias !11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %145, ptr noundef nonnull align 8 dereferenceable(32) %268), !noalias !11
   invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %145, ptr noundef nonnull @.str.2, i32 noundef 87)
@@ -859,7 +859,7 @@ common.resume:                                    ; preds = %162, %1851, %1854, 
   br label %common.resume
 
 272:                                              ; preds = %164
-  %273 = getelementptr inbounds i8, ptr %2, i64 16
+  %273 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %274 = load ptr, ptr %273, align 8, !noalias !11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef nonnull align 8 dereferenceable(32) %274), !noalias !11
   invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %146, ptr noundef nonnull @.str.2, i32 noundef 94)
@@ -945,26 +945,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   ]
 
 290:                                              ; preds = %287
-  %291 = getelementptr inbounds i8, ptr %2, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %292 = load ptr, ptr %291, align 8, !noalias !23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %131), !noalias !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %132), !noalias !23
-  %293 = getelementptr inbounds i8, ptr %292, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %294 = load ptr, ptr %293, align 8, !noalias !26
-  %295 = getelementptr inbounds i8, ptr %292, i64 16
+  %295 = getelementptr inbounds nuw i8, ptr %292, i64 16
   %296 = load ptr, ptr %295, align 8, !noalias !26
   %297 = load i64, ptr %296, align 8, !noalias !26
   store i64 %297, ptr %131, align 8, !noalias !26
-  %298 = getelementptr inbounds i8, ptr %131, i64 8
-  %299 = getelementptr inbounds i8, ptr %296, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %300 = load ptr, ptr %299, align 8, !noalias !26
   store ptr %300, ptr %298, align 8, !noalias !26
-  %301 = getelementptr inbounds i8, ptr %132, i64 16
-  %302 = getelementptr inbounds i8, ptr %132, i64 24
+  %301 = getelementptr inbounds nuw i8, ptr %132, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %132, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, i8 0, i64 16, i1 false), !noalias !26
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E_dEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %302, align 8, !noalias !26
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E_dEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %301, align 8, !noalias !26
-  %303 = getelementptr inbounds i8, ptr %292, i64 24
+  %303 = getelementptr inbounds nuw i8, ptr %292, i64 24
   %304 = load ptr, ptr %303, align 8, !noalias !26
   %305 = load i8, ptr %304, align 1, !noalias !26
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %294, ptr noundef nonnull %131, ptr noundef nonnull align 8 dereferenceable(32) %132, i8 noundef signext %305)
@@ -1010,26 +1010,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIdEEDaT_.exit"
 
 321:                                              ; preds = %287
-  %322 = getelementptr inbounds i8, ptr %2, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %323 = load ptr, ptr %322, align 8, !noalias !23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %129), !noalias !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %130), !noalias !23
-  %324 = getelementptr inbounds i8, ptr %323, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 8
   %325 = load ptr, ptr %324, align 8, !noalias !29
-  %326 = getelementptr inbounds i8, ptr %323, i64 16
+  %326 = getelementptr inbounds nuw i8, ptr %323, i64 16
   %327 = load ptr, ptr %326, align 8, !noalias !29
   %328 = load i64, ptr %327, align 8, !noalias !29
   store i64 %328, ptr %129, align 8, !noalias !29
-  %329 = getelementptr inbounds i8, ptr %129, i64 8
-  %330 = getelementptr inbounds i8, ptr %327, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %327, i64 8
   %331 = load ptr, ptr %330, align 8, !noalias !29
   store ptr %331, ptr %329, align 8, !noalias !29
-  %332 = getelementptr inbounds i8, ptr %130, i64 16
-  %333 = getelementptr inbounds i8, ptr %130, i64 24
+  %332 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %130, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %130, i8 0, i64 16, i1 false), !noalias !29
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E0_dEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %333, align 8, !noalias !29
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIdEEDaT_EUlSJ_T0_E0_dEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %332, align 8, !noalias !29
-  %334 = getelementptr inbounds i8, ptr %323, i64 24
+  %334 = getelementptr inbounds nuw i8, ptr %323, i64 24
   %335 = load ptr, ptr %334, align 8, !noalias !29
   %336 = load i8, ptr %335, align 1, !noalias !29
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %325, ptr noundef nonnull %129, ptr noundef nonnull align 8 dereferenceable(32) %130, i8 noundef signext %336)
@@ -1075,26 +1075,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIdEEDaT_.exit"
 
 352:                                              ; preds = %287
-  %353 = getelementptr inbounds i8, ptr %2, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %354 = load ptr, ptr %353, align 8, !noalias !23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %127), !noalias !23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %128), !noalias !23
-  %355 = getelementptr inbounds i8, ptr %354, i64 8
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 8
   %356 = load ptr, ptr %355, align 8, !noalias !32
-  %357 = getelementptr inbounds i8, ptr %354, i64 16
+  %357 = getelementptr inbounds nuw i8, ptr %354, i64 16
   %358 = load ptr, ptr %357, align 8, !noalias !32
   %359 = load i64, ptr %358, align 8, !noalias !32
   store i64 %359, ptr %127, align 8, !noalias !32
-  %360 = getelementptr inbounds i8, ptr %127, i64 8
-  %361 = getelementptr inbounds i8, ptr %358, i64 8
+  %360 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %361 = getelementptr inbounds nuw i8, ptr %358, i64 8
   %362 = load ptr, ptr %361, align 8, !noalias !32
   store ptr %362, ptr %360, align 8, !noalias !32
-  %363 = getelementptr inbounds i8, ptr %128, i64 16
-  %364 = getelementptr inbounds i8, ptr %128, i64 24
+  %363 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  %364 = getelementptr inbounds nuw i8, ptr %128, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 16, i1 false), !noalias !32
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %364, align 8, !noalias !32
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEdEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %363, align 8, !noalias !32
-  %365 = getelementptr inbounds i8, ptr %354, i64 24
+  %365 = getelementptr inbounds nuw i8, ptr %354, i64 24
   %366 = load ptr, ptr %365, align 8, !noalias !32
   %367 = load i8, ptr %366, align 1, !noalias !32
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %356, ptr noundef nonnull %127, ptr noundef nonnull align 8 dereferenceable(32) %128, i8 noundef signext %367)
@@ -1140,7 +1140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIdEEDaT_.exit"
 
 383:                                              ; preds = %287
-  %384 = getelementptr inbounds i8, ptr %2, i64 16
+  %384 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %385 = load ptr, ptr %384, align 8, !noalias !23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull align 8 dereferenceable(32) %385), !noalias !23
   invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %133, ptr noundef nonnull @.str.2, i32 noundef 80)
@@ -1157,7 +1157,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %common.resume
 
 389:                                              ; preds = %287
-  %390 = getelementptr inbounds i8, ptr %2, i64 16
+  %390 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %391 = load ptr, ptr %390, align 8, !noalias !23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(32) %391), !noalias !23
   invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %134, ptr noundef nonnull @.str.2, i32 noundef 87)
@@ -1174,7 +1174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %common.resume
 
 395:                                              ; preds = %287
-  %396 = getelementptr inbounds i8, ptr %2, i64 16
+  %396 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %397 = load ptr, ptr %396, align 8, !noalias !23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %397), !noalias !23
   invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %135, ptr noundef nonnull @.str.2, i32 noundef 94)
@@ -1260,26 +1260,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   ]
 
 413:                                              ; preds = %410
-  %414 = getelementptr inbounds i8, ptr %2, i64 8
+  %414 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %415 = load ptr, ptr %414, align 8, !noalias !35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %120), !noalias !35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %121), !noalias !35
-  %416 = getelementptr inbounds i8, ptr %415, i64 8
+  %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
   %417 = load ptr, ptr %416, align 8, !noalias !38
-  %418 = getelementptr inbounds i8, ptr %415, i64 16
+  %418 = getelementptr inbounds nuw i8, ptr %415, i64 16
   %419 = load ptr, ptr %418, align 8, !noalias !38
   %420 = load i64, ptr %419, align 8, !noalias !38
   store i64 %420, ptr %120, align 8, !noalias !38
-  %421 = getelementptr inbounds i8, ptr %120, i64 8
-  %422 = getelementptr inbounds i8, ptr %419, i64 8
+  %421 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %422 = getelementptr inbounds nuw i8, ptr %419, i64 8
   %423 = load ptr, ptr %422, align 8, !noalias !38
   store ptr %423, ptr %421, align 8, !noalias !38
-  %424 = getelementptr inbounds i8, ptr %121, i64 16
-  %425 = getelementptr inbounds i8, ptr %121, i64 24
+  %424 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %425 = getelementptr inbounds nuw i8, ptr %121, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 16, i1 false), !noalias !38
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E_eEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %425, align 8, !noalias !38
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E_eEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %424, align 8, !noalias !38
-  %426 = getelementptr inbounds i8, ptr %415, i64 24
+  %426 = getelementptr inbounds nuw i8, ptr %415, i64 24
   %427 = load ptr, ptr %426, align 8, !noalias !38
   %428 = load i8, ptr %427, align 1, !noalias !38
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %417, ptr noundef nonnull %120, ptr noundef nonnull align 8 dereferenceable(32) %121, i8 noundef signext %428)
@@ -1325,26 +1325,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIeEEDaT_.exit"
 
 444:                                              ; preds = %410
-  %445 = getelementptr inbounds i8, ptr %2, i64 8
+  %445 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %446 = load ptr, ptr %445, align 8, !noalias !35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %118), !noalias !35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %119), !noalias !35
-  %447 = getelementptr inbounds i8, ptr %446, i64 8
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 8
   %448 = load ptr, ptr %447, align 8, !noalias !41
-  %449 = getelementptr inbounds i8, ptr %446, i64 16
+  %449 = getelementptr inbounds nuw i8, ptr %446, i64 16
   %450 = load ptr, ptr %449, align 8, !noalias !41
   %451 = load i64, ptr %450, align 8, !noalias !41
   store i64 %451, ptr %118, align 8, !noalias !41
-  %452 = getelementptr inbounds i8, ptr %118, i64 8
-  %453 = getelementptr inbounds i8, ptr %450, i64 8
+  %452 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %453 = getelementptr inbounds nuw i8, ptr %450, i64 8
   %454 = load ptr, ptr %453, align 8, !noalias !41
   store ptr %454, ptr %452, align 8, !noalias !41
-  %455 = getelementptr inbounds i8, ptr %119, i64 16
-  %456 = getelementptr inbounds i8, ptr %119, i64 24
+  %455 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %456 = getelementptr inbounds nuw i8, ptr %119, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 16, i1 false), !noalias !41
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E0_eEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %456, align 8, !noalias !41
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIeEEDaT_EUlSJ_T0_E0_eEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %455, align 8, !noalias !41
-  %457 = getelementptr inbounds i8, ptr %446, i64 24
+  %457 = getelementptr inbounds nuw i8, ptr %446, i64 24
   %458 = load ptr, ptr %457, align 8, !noalias !41
   %459 = load i8, ptr %458, align 1, !noalias !41
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %448, ptr noundef nonnull %118, ptr noundef nonnull align 8 dereferenceable(32) %119, i8 noundef signext %459)
@@ -1390,26 +1390,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIeEEDaT_.exit"
 
 475:                                              ; preds = %410
-  %476 = getelementptr inbounds i8, ptr %2, i64 8
+  %476 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %477 = load ptr, ptr %476, align 8, !noalias !35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %116), !noalias !35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %117), !noalias !35
-  %478 = getelementptr inbounds i8, ptr %477, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 8
   %479 = load ptr, ptr %478, align 8, !noalias !44
-  %480 = getelementptr inbounds i8, ptr %477, i64 16
+  %480 = getelementptr inbounds nuw i8, ptr %477, i64 16
   %481 = load ptr, ptr %480, align 8, !noalias !44
   %482 = load i64, ptr %481, align 8, !noalias !44
   store i64 %482, ptr %116, align 8, !noalias !44
-  %483 = getelementptr inbounds i8, ptr %116, i64 8
-  %484 = getelementptr inbounds i8, ptr %481, i64 8
+  %483 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %481, i64 8
   %485 = load ptr, ptr %484, align 8, !noalias !44
   store ptr %485, ptr %483, align 8, !noalias !44
-  %486 = getelementptr inbounds i8, ptr %117, i64 16
-  %487 = getelementptr inbounds i8, ptr %117, i64 24
+  %486 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %487 = getelementptr inbounds nuw i8, ptr %117, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, i8 0, i64 16, i1 false), !noalias !44
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %487, align 8, !noalias !44
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEeEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %486, align 8, !noalias !44
-  %488 = getelementptr inbounds i8, ptr %477, i64 24
+  %488 = getelementptr inbounds nuw i8, ptr %477, i64 24
   %489 = load ptr, ptr %488, align 8, !noalias !44
   %490 = load i8, ptr %489, align 1, !noalias !44
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %479, ptr noundef nonnull %116, ptr noundef nonnull align 8 dereferenceable(32) %117, i8 noundef signext %490)
@@ -1455,7 +1455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br label %"_ZZN7xgboost10collective4Coll9AllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEENS_21ArrayInterfaceHandler4TypeENS0_2OpEENK3$_0clIeEEDaT_.exit"
 
 506:                                              ; preds = %410
-  %507 = getelementptr inbounds i8, ptr %2, i64 16
+  %507 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %508 = load ptr, ptr %507, align 8, !noalias !35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %122, ptr noundef nonnull align 8 dereferenceable(32) %508), !noalias !35
   invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %122, ptr noundef nonnull @.str.2, i32 noundef 80)
@@ -1472,7 +1472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br label %common.resume
 
 512:                                              ; preds = %410
-  %513 = getelementptr inbounds i8, ptr %2, i64 16
+  %513 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %514 = load ptr, ptr %513, align 8, !noalias !35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %123, ptr noundef nonnull align 8 dereferenceable(32) %514), !noalias !35
   invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %123, ptr noundef nonnull @.str.2, i32 noundef 87)
@@ -1489,7 +1489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i29: 
   br label %common.resume
 
 518:                                              ; preds = %410
-  %519 = getelementptr inbounds i8, ptr %2, i64 16
+  %519 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %520 = load ptr, ptr %519, align 8, !noalias !35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %520), !noalias !35
   invoke void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKci(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull %124, ptr noundef nonnull @.str.2, i32 noundef 94)
@@ -1559,7 +1559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 
 533:                                              ; preds = %3
   %.val = load ptr, ptr %2, align 8
-  %534 = getelementptr inbounds i8, ptr %2, i64 8
+  %534 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val2 = load ptr, ptr %534, align 8
   %.val.val = load i32, ptr %.val, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %114)
@@ -1576,22 +1576,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 535:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %112), !noalias !47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %113), !noalias !47
-  %536 = getelementptr inbounds i8, ptr %.val2, i64 8
+  %536 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
   %537 = load ptr, ptr %536, align 8, !noalias !50
-  %538 = getelementptr inbounds i8, ptr %.val2, i64 16
+  %538 = getelementptr inbounds nuw i8, ptr %.val2, i64 16
   %539 = load ptr, ptr %538, align 8, !noalias !50
   %540 = load i64, ptr %539, align 8, !noalias !50
   store i64 %540, ptr %112, align 8, !noalias !50
-  %541 = getelementptr inbounds i8, ptr %112, i64 8
-  %542 = getelementptr inbounds i8, ptr %539, i64 8
+  %541 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %542 = getelementptr inbounds nuw i8, ptr %539, i64 8
   %543 = load ptr, ptr %542, align 8, !noalias !50
   store ptr %543, ptr %541, align 8, !noalias !50
-  %544 = getelementptr inbounds i8, ptr %113, i64 16
-  %545 = getelementptr inbounds i8, ptr %113, i64 24
+  %544 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %545 = getelementptr inbounds nuw i8, ptr %113, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, i8 0, i64 16, i1 false), !noalias !50
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E_aEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %545, align 8, !noalias !50
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E_aEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %544, align 8, !noalias !50
-  %546 = getelementptr inbounds i8, ptr %.val2, i64 24
+  %546 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
   %547 = load ptr, ptr %546, align 8, !noalias !50
   %548 = load i8, ptr %547, align 1, !noalias !50
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %537, ptr noundef nonnull %112, ptr noundef nonnull align 8 dereferenceable(32) %113, i8 noundef signext %548)
@@ -1639,22 +1639,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 564:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %110), !noalias !47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %111), !noalias !47
-  %565 = getelementptr inbounds i8, ptr %.val2, i64 8
+  %565 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
   %566 = load ptr, ptr %565, align 8, !noalias !53
-  %567 = getelementptr inbounds i8, ptr %.val2, i64 16
+  %567 = getelementptr inbounds nuw i8, ptr %.val2, i64 16
   %568 = load ptr, ptr %567, align 8, !noalias !53
   %569 = load i64, ptr %568, align 8, !noalias !53
   store i64 %569, ptr %110, align 8, !noalias !53
-  %570 = getelementptr inbounds i8, ptr %110, i64 8
-  %571 = getelementptr inbounds i8, ptr %568, i64 8
+  %570 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %571 = getelementptr inbounds nuw i8, ptr %568, i64 8
   %572 = load ptr, ptr %571, align 8, !noalias !53
   store ptr %572, ptr %570, align 8, !noalias !53
-  %573 = getelementptr inbounds i8, ptr %111, i64 16
-  %574 = getelementptr inbounds i8, ptr %111, i64 24
+  %573 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %574 = getelementptr inbounds nuw i8, ptr %111, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, i8 0, i64 16, i1 false), !noalias !53
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E0_aEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %574, align 8, !noalias !53
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIaEEDaT_EUlSJ_T0_E0_aEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %573, align 8, !noalias !53
-  %575 = getelementptr inbounds i8, ptr %.val2, i64 24
+  %575 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
   %576 = load ptr, ptr %575, align 8, !noalias !53
   %577 = load i8, ptr %576, align 1, !noalias !53
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %566, ptr noundef nonnull %110, ptr noundef nonnull align 8 dereferenceable(32) %111, i8 noundef signext %577)
@@ -1702,22 +1702,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 593:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %108), !noalias !47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %109), !noalias !47
-  %594 = getelementptr inbounds i8, ptr %.val2, i64 8
+  %594 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
   %595 = load ptr, ptr %594, align 8, !noalias !56
-  %596 = getelementptr inbounds i8, ptr %.val2, i64 16
+  %596 = getelementptr inbounds nuw i8, ptr %.val2, i64 16
   %597 = load ptr, ptr %596, align 8, !noalias !56
   %598 = load i64, ptr %597, align 8, !noalias !56
   store i64 %598, ptr %108, align 8, !noalias !56
-  %599 = getelementptr inbounds i8, ptr %108, i64 8
-  %600 = getelementptr inbounds i8, ptr %597, i64 8
+  %599 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %600 = getelementptr inbounds nuw i8, ptr %597, i64 8
   %601 = load ptr, ptr %600, align 8, !noalias !56
   store ptr %601, ptr %599, align 8, !noalias !56
-  %602 = getelementptr inbounds i8, ptr %109, i64 16
-  %603 = getelementptr inbounds i8, ptr %109, i64 24
+  %602 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %603 = getelementptr inbounds nuw i8, ptr %109, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %109, i8 0, i64 16, i1 false), !noalias !56
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %603, align 8, !noalias !56
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %602, align 8, !noalias !56
-  %604 = getelementptr inbounds i8, ptr %.val2, i64 24
+  %604 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
   %605 = load ptr, ptr %604, align 8, !noalias !56
   %606 = load i8, ptr %605, align 1, !noalias !56
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %595, ptr noundef nonnull %108, ptr noundef nonnull align 8 dereferenceable(32) %109, i8 noundef signext %606)
@@ -1765,22 +1765,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 622:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %106), !noalias !47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %107), !noalias !47
-  %623 = getelementptr inbounds i8, ptr %.val2, i64 8
+  %623 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
   %624 = load ptr, ptr %623, align 8, !noalias !59
-  %625 = getelementptr inbounds i8, ptr %.val2, i64 16
+  %625 = getelementptr inbounds nuw i8, ptr %.val2, i64 16
   %626 = load ptr, ptr %625, align 8, !noalias !59
   %627 = load i64, ptr %626, align 8, !noalias !59
   store i64 %627, ptr %106, align 8, !noalias !59
-  %628 = getelementptr inbounds i8, ptr %106, i64 8
-  %629 = getelementptr inbounds i8, ptr %626, i64 8
+  %628 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %629 = getelementptr inbounds nuw i8, ptr %626, i64 8
   %630 = load ptr, ptr %629, align 8, !noalias !59
   store ptr %630, ptr %628, align 8, !noalias !59
-  %631 = getelementptr inbounds i8, ptr %107, i64 16
-  %632 = getelementptr inbounds i8, ptr %107, i64 24
+  %631 = getelementptr inbounds nuw i8, ptr %107, i64 16
+  %632 = getelementptr inbounds nuw i8, ptr %107, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %107, i8 0, i64 16, i1 false), !noalias !59
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %632, align 8, !noalias !59
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %631, align 8, !noalias !59
-  %633 = getelementptr inbounds i8, ptr %.val2, i64 24
+  %633 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
   %634 = load ptr, ptr %633, align 8, !noalias !59
   %635 = load i8, ptr %634, align 1, !noalias !59
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %624, ptr noundef nonnull %106, ptr noundef nonnull align 8 dereferenceable(32) %107, i8 noundef signext %635)
@@ -1828,22 +1828,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 651:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %104), !noalias !47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %105), !noalias !47
-  %652 = getelementptr inbounds i8, ptr %.val2, i64 8
+  %652 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
   %653 = load ptr, ptr %652, align 8, !noalias !62
-  %654 = getelementptr inbounds i8, ptr %.val2, i64 16
+  %654 = getelementptr inbounds nuw i8, ptr %.val2, i64 16
   %655 = load ptr, ptr %654, align 8, !noalias !62
   %656 = load i64, ptr %655, align 8, !noalias !62
   store i64 %656, ptr %104, align 8, !noalias !62
-  %657 = getelementptr inbounds i8, ptr %104, i64 8
-  %658 = getelementptr inbounds i8, ptr %655, i64 8
+  %657 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %658 = getelementptr inbounds nuw i8, ptr %655, i64 8
   %659 = load ptr, ptr %658, align 8, !noalias !62
   store ptr %659, ptr %657, align 8, !noalias !62
-  %660 = getelementptr inbounds i8, ptr %105, i64 16
-  %661 = getelementptr inbounds i8, ptr %105, i64 24
+  %660 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  %661 = getelementptr inbounds nuw i8, ptr %105, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, i8 0, i64 16, i1 false), !noalias !62
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %661, align 8, !noalias !62
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %660, align 8, !noalias !62
-  %662 = getelementptr inbounds i8, ptr %.val2, i64 24
+  %662 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
   %663 = load ptr, ptr %662, align 8, !noalias !62
   %664 = load i8, ptr %663, align 1, !noalias !62
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %653, ptr noundef nonnull %104, ptr noundef nonnull align 8 dereferenceable(32) %105, i8 noundef signext %664)
@@ -1891,22 +1891,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 680:                                              ; preds = %533
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %102), !noalias !47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %103), !noalias !47
-  %681 = getelementptr inbounds i8, ptr %.val2, i64 8
+  %681 = getelementptr inbounds nuw i8, ptr %.val2, i64 8
   %682 = load ptr, ptr %681, align 8, !noalias !65
-  %683 = getelementptr inbounds i8, ptr %.val2, i64 16
+  %683 = getelementptr inbounds nuw i8, ptr %.val2, i64 16
   %684 = load ptr, ptr %683, align 8, !noalias !65
   %685 = load i64, ptr %684, align 8, !noalias !65
   store i64 %685, ptr %102, align 8, !noalias !65
-  %686 = getelementptr inbounds i8, ptr %102, i64 8
-  %687 = getelementptr inbounds i8, ptr %684, i64 8
+  %686 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %687 = getelementptr inbounds nuw i8, ptr %684, i64 8
   %688 = load ptr, ptr %687, align 8, !noalias !65
   store ptr %688, ptr %686, align 8, !noalias !65
-  %689 = getelementptr inbounds i8, ptr %103, i64 16
-  %690 = getelementptr inbounds i8, ptr %103, i64 24
+  %689 = getelementptr inbounds nuw i8, ptr %103, i64 16
+  %690 = getelementptr inbounds nuw i8, ptr %103, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %103, i8 0, i64 16, i1 false), !noalias !65
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %690, align 8, !noalias !65
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEaEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %689, align 8, !noalias !65
-  %691 = getelementptr inbounds i8, ptr %.val2, i64 24
+  %691 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
   %692 = load ptr, ptr %691, align 8, !noalias !65
   %693 = load i8, ptr %692, align 1, !noalias !65
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %682, ptr noundef nonnull %102, ptr noundef nonnull align 8 dereferenceable(32) %103, i8 noundef signext %693)
@@ -2002,7 +2002,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 
 718:                                              ; preds = %3
   %.val3 = load ptr, ptr %2, align 8
-  %719 = getelementptr inbounds i8, ptr %2, i64 8
+  %719 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val4 = load ptr, ptr %719, align 8
   %.val3.val = load i32, ptr %.val3, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %100)
@@ -2019,22 +2019,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 720:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %98), !noalias !68
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %99), !noalias !68
-  %721 = getelementptr inbounds i8, ptr %.val4, i64 8
+  %721 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %722 = load ptr, ptr %721, align 8, !noalias !71
-  %723 = getelementptr inbounds i8, ptr %.val4, i64 16
+  %723 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
   %724 = load ptr, ptr %723, align 8, !noalias !71
   %725 = load i64, ptr %724, align 8, !noalias !71
   store i64 %725, ptr %98, align 8, !noalias !71
-  %726 = getelementptr inbounds i8, ptr %98, i64 8
-  %727 = getelementptr inbounds i8, ptr %724, i64 8
+  %726 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %727 = getelementptr inbounds nuw i8, ptr %724, i64 8
   %728 = load ptr, ptr %727, align 8, !noalias !71
   store ptr %728, ptr %726, align 8, !noalias !71
-  %729 = getelementptr inbounds i8, ptr %99, i64 16
-  %730 = getelementptr inbounds i8, ptr %99, i64 24
+  %729 = getelementptr inbounds nuw i8, ptr %99, i64 16
+  %730 = getelementptr inbounds nuw i8, ptr %99, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, i8 0, i64 16, i1 false), !noalias !71
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E_sEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %730, align 8, !noalias !71
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E_sEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %729, align 8, !noalias !71
-  %731 = getelementptr inbounds i8, ptr %.val4, i64 24
+  %731 = getelementptr inbounds nuw i8, ptr %.val4, i64 24
   %732 = load ptr, ptr %731, align 8, !noalias !71
   %733 = load i8, ptr %732, align 1, !noalias !71
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %722, ptr noundef nonnull %98, ptr noundef nonnull align 8 dereferenceable(32) %99, i8 noundef signext %733)
@@ -2082,22 +2082,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 749:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %96), !noalias !68
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %97), !noalias !68
-  %750 = getelementptr inbounds i8, ptr %.val4, i64 8
+  %750 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %751 = load ptr, ptr %750, align 8, !noalias !74
-  %752 = getelementptr inbounds i8, ptr %.val4, i64 16
+  %752 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
   %753 = load ptr, ptr %752, align 8, !noalias !74
   %754 = load i64, ptr %753, align 8, !noalias !74
   store i64 %754, ptr %96, align 8, !noalias !74
-  %755 = getelementptr inbounds i8, ptr %96, i64 8
-  %756 = getelementptr inbounds i8, ptr %753, i64 8
+  %755 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %756 = getelementptr inbounds nuw i8, ptr %753, i64 8
   %757 = load ptr, ptr %756, align 8, !noalias !74
   store ptr %757, ptr %755, align 8, !noalias !74
-  %758 = getelementptr inbounds i8, ptr %97, i64 16
-  %759 = getelementptr inbounds i8, ptr %97, i64 24
+  %758 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %759 = getelementptr inbounds nuw i8, ptr %97, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, i8 0, i64 16, i1 false), !noalias !74
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E0_sEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %759, align 8, !noalias !74
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIsEEDaT_EUlSJ_T0_E0_sEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %758, align 8, !noalias !74
-  %760 = getelementptr inbounds i8, ptr %.val4, i64 24
+  %760 = getelementptr inbounds nuw i8, ptr %.val4, i64 24
   %761 = load ptr, ptr %760, align 8, !noalias !74
   %762 = load i8, ptr %761, align 1, !noalias !74
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %751, ptr noundef nonnull %96, ptr noundef nonnull align 8 dereferenceable(32) %97, i8 noundef signext %762)
@@ -2145,22 +2145,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 778:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %94), !noalias !68
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %95), !noalias !68
-  %779 = getelementptr inbounds i8, ptr %.val4, i64 8
+  %779 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %780 = load ptr, ptr %779, align 8, !noalias !77
-  %781 = getelementptr inbounds i8, ptr %.val4, i64 16
+  %781 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
   %782 = load ptr, ptr %781, align 8, !noalias !77
   %783 = load i64, ptr %782, align 8, !noalias !77
   store i64 %783, ptr %94, align 8, !noalias !77
-  %784 = getelementptr inbounds i8, ptr %94, i64 8
-  %785 = getelementptr inbounds i8, ptr %782, i64 8
+  %784 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %785 = getelementptr inbounds nuw i8, ptr %782, i64 8
   %786 = load ptr, ptr %785, align 8, !noalias !77
   store ptr %786, ptr %784, align 8, !noalias !77
-  %787 = getelementptr inbounds i8, ptr %95, i64 16
-  %788 = getelementptr inbounds i8, ptr %95, i64 24
+  %787 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %788 = getelementptr inbounds nuw i8, ptr %95, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, i8 0, i64 16, i1 false), !noalias !77
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %788, align 8, !noalias !77
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %787, align 8, !noalias !77
-  %789 = getelementptr inbounds i8, ptr %.val4, i64 24
+  %789 = getelementptr inbounds nuw i8, ptr %.val4, i64 24
   %790 = load ptr, ptr %789, align 8, !noalias !77
   %791 = load i8, ptr %790, align 1, !noalias !77
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %780, ptr noundef nonnull %94, ptr noundef nonnull align 8 dereferenceable(32) %95, i8 noundef signext %791)
@@ -2208,22 +2208,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 807:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %92), !noalias !68
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %93), !noalias !68
-  %808 = getelementptr inbounds i8, ptr %.val4, i64 8
+  %808 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %809 = load ptr, ptr %808, align 8, !noalias !80
-  %810 = getelementptr inbounds i8, ptr %.val4, i64 16
+  %810 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
   %811 = load ptr, ptr %810, align 8, !noalias !80
   %812 = load i64, ptr %811, align 8, !noalias !80
   store i64 %812, ptr %92, align 8, !noalias !80
-  %813 = getelementptr inbounds i8, ptr %92, i64 8
-  %814 = getelementptr inbounds i8, ptr %811, i64 8
+  %813 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %814 = getelementptr inbounds nuw i8, ptr %811, i64 8
   %815 = load ptr, ptr %814, align 8, !noalias !80
   store ptr %815, ptr %813, align 8, !noalias !80
-  %816 = getelementptr inbounds i8, ptr %93, i64 16
-  %817 = getelementptr inbounds i8, ptr %93, i64 24
+  %816 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %817 = getelementptr inbounds nuw i8, ptr %93, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 0, i64 16, i1 false), !noalias !80
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %817, align 8, !noalias !80
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %816, align 8, !noalias !80
-  %818 = getelementptr inbounds i8, ptr %.val4, i64 24
+  %818 = getelementptr inbounds nuw i8, ptr %.val4, i64 24
   %819 = load ptr, ptr %818, align 8, !noalias !80
   %820 = load i8, ptr %819, align 1, !noalias !80
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %809, ptr noundef nonnull %92, ptr noundef nonnull align 8 dereferenceable(32) %93, i8 noundef signext %820)
@@ -2271,22 +2271,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 836:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %90), !noalias !68
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %91), !noalias !68
-  %837 = getelementptr inbounds i8, ptr %.val4, i64 8
+  %837 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %838 = load ptr, ptr %837, align 8, !noalias !83
-  %839 = getelementptr inbounds i8, ptr %.val4, i64 16
+  %839 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
   %840 = load ptr, ptr %839, align 8, !noalias !83
   %841 = load i64, ptr %840, align 8, !noalias !83
   store i64 %841, ptr %90, align 8, !noalias !83
-  %842 = getelementptr inbounds i8, ptr %90, i64 8
-  %843 = getelementptr inbounds i8, ptr %840, i64 8
+  %842 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %843 = getelementptr inbounds nuw i8, ptr %840, i64 8
   %844 = load ptr, ptr %843, align 8, !noalias !83
   store ptr %844, ptr %842, align 8, !noalias !83
-  %845 = getelementptr inbounds i8, ptr %91, i64 16
-  %846 = getelementptr inbounds i8, ptr %91, i64 24
+  %845 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %846 = getelementptr inbounds nuw i8, ptr %91, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 16, i1 false), !noalias !83
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %846, align 8, !noalias !83
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %845, align 8, !noalias !83
-  %847 = getelementptr inbounds i8, ptr %.val4, i64 24
+  %847 = getelementptr inbounds nuw i8, ptr %.val4, i64 24
   %848 = load ptr, ptr %847, align 8, !noalias !83
   %849 = load i8, ptr %848, align 1, !noalias !83
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %838, ptr noundef nonnull %90, ptr noundef nonnull align 8 dereferenceable(32) %91, i8 noundef signext %849)
@@ -2334,22 +2334,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i50: 
 865:                                              ; preds = %718
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %88), !noalias !68
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89), !noalias !68
-  %866 = getelementptr inbounds i8, ptr %.val4, i64 8
+  %866 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %867 = load ptr, ptr %866, align 8, !noalias !86
-  %868 = getelementptr inbounds i8, ptr %.val4, i64 16
+  %868 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
   %869 = load ptr, ptr %868, align 8, !noalias !86
   %870 = load i64, ptr %869, align 8, !noalias !86
   store i64 %870, ptr %88, align 8, !noalias !86
-  %871 = getelementptr inbounds i8, ptr %88, i64 8
-  %872 = getelementptr inbounds i8, ptr %869, i64 8
+  %871 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %872 = getelementptr inbounds nuw i8, ptr %869, i64 8
   %873 = load ptr, ptr %872, align 8, !noalias !86
   store ptr %873, ptr %871, align 8, !noalias !86
-  %874 = getelementptr inbounds i8, ptr %89, i64 16
-  %875 = getelementptr inbounds i8, ptr %89, i64 24
+  %874 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %875 = getelementptr inbounds nuw i8, ptr %89, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %89, i8 0, i64 16, i1 false), !noalias !86
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %875, align 8, !noalias !86
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEsEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %874, align 8, !noalias !86
-  %876 = getelementptr inbounds i8, ptr %.val4, i64 24
+  %876 = getelementptr inbounds nuw i8, ptr %.val4, i64 24
   %877 = load ptr, ptr %876, align 8, !noalias !86
   %878 = load i8, ptr %877, align 1, !noalias !86
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %867, ptr noundef nonnull %88, ptr noundef nonnull align 8 dereferenceable(32) %89, i8 noundef signext %878)
@@ -2445,7 +2445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 
 903:                                              ; preds = %3
   %.val5 = load ptr, ptr %2, align 8
-  %904 = getelementptr inbounds i8, ptr %2, i64 8
+  %904 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val6 = load ptr, ptr %904, align 8
   %.val5.val = load i32, ptr %.val5, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %86)
@@ -2462,22 +2462,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 905:                                              ; preds = %903
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %84), !noalias !89
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %85), !noalias !89
-  %906 = getelementptr inbounds i8, ptr %.val6, i64 8
+  %906 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
   %907 = load ptr, ptr %906, align 8, !noalias !92
-  %908 = getelementptr inbounds i8, ptr %.val6, i64 16
+  %908 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
   %909 = load ptr, ptr %908, align 8, !noalias !92
   %910 = load i64, ptr %909, align 8, !noalias !92
   store i64 %910, ptr %84, align 8, !noalias !92
-  %911 = getelementptr inbounds i8, ptr %84, i64 8
-  %912 = getelementptr inbounds i8, ptr %909, i64 8
+  %911 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %912 = getelementptr inbounds nuw i8, ptr %909, i64 8
   %913 = load ptr, ptr %912, align 8, !noalias !92
   store ptr %913, ptr %911, align 8, !noalias !92
-  %914 = getelementptr inbounds i8, ptr %85, i64 16
-  %915 = getelementptr inbounds i8, ptr %85, i64 24
+  %914 = getelementptr inbounds nuw i8, ptr %85, i64 16
+  %915 = getelementptr inbounds nuw i8, ptr %85, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %85, i8 0, i64 16, i1 false), !noalias !92
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E_iEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %915, align 8, !noalias !92
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E_iEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %914, align 8, !noalias !92
-  %916 = getelementptr inbounds i8, ptr %.val6, i64 24
+  %916 = getelementptr inbounds nuw i8, ptr %.val6, i64 24
   %917 = load ptr, ptr %916, align 8, !noalias !92
   %918 = load i8, ptr %917, align 1, !noalias !92
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %907, ptr noundef nonnull %84, ptr noundef nonnull align 8 dereferenceable(32) %85, i8 noundef signext %918)
@@ -2525,22 +2525,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 934:                                              ; preds = %903
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %82), !noalias !89
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %83), !noalias !89
-  %935 = getelementptr inbounds i8, ptr %.val6, i64 8
+  %935 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
   %936 = load ptr, ptr %935, align 8, !noalias !95
-  %937 = getelementptr inbounds i8, ptr %.val6, i64 16
+  %937 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
   %938 = load ptr, ptr %937, align 8, !noalias !95
   %939 = load i64, ptr %938, align 8, !noalias !95
   store i64 %939, ptr %82, align 8, !noalias !95
-  %940 = getelementptr inbounds i8, ptr %82, i64 8
-  %941 = getelementptr inbounds i8, ptr %938, i64 8
+  %940 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %941 = getelementptr inbounds nuw i8, ptr %938, i64 8
   %942 = load ptr, ptr %941, align 8, !noalias !95
   store ptr %942, ptr %940, align 8, !noalias !95
-  %943 = getelementptr inbounds i8, ptr %83, i64 16
-  %944 = getelementptr inbounds i8, ptr %83, i64 24
+  %943 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %944 = getelementptr inbounds nuw i8, ptr %83, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 16, i1 false), !noalias !95
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E0_iEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %944, align 8, !noalias !95
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIiEEDaT_EUlSJ_T0_E0_iEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %943, align 8, !noalias !95
-  %945 = getelementptr inbounds i8, ptr %.val6, i64 24
+  %945 = getelementptr inbounds nuw i8, ptr %.val6, i64 24
   %946 = load ptr, ptr %945, align 8, !noalias !95
   %947 = load i8, ptr %946, align 1, !noalias !95
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %936, ptr noundef nonnull %82, ptr noundef nonnull align 8 dereferenceable(32) %83, i8 noundef signext %947)
@@ -2588,22 +2588,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 963:                                              ; preds = %903
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80), !noalias !89
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81), !noalias !89
-  %964 = getelementptr inbounds i8, ptr %.val6, i64 8
+  %964 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
   %965 = load ptr, ptr %964, align 8, !noalias !98
-  %966 = getelementptr inbounds i8, ptr %.val6, i64 16
+  %966 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
   %967 = load ptr, ptr %966, align 8, !noalias !98
   %968 = load i64, ptr %967, align 8, !noalias !98
   store i64 %968, ptr %80, align 8, !noalias !98
-  %969 = getelementptr inbounds i8, ptr %80, i64 8
-  %970 = getelementptr inbounds i8, ptr %967, i64 8
+  %969 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %970 = getelementptr inbounds nuw i8, ptr %967, i64 8
   %971 = load ptr, ptr %970, align 8, !noalias !98
   store ptr %971, ptr %969, align 8, !noalias !98
-  %972 = getelementptr inbounds i8, ptr %81, i64 16
-  %973 = getelementptr inbounds i8, ptr %81, i64 24
+  %972 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %973 = getelementptr inbounds nuw i8, ptr %81, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, i8 0, i64 16, i1 false), !noalias !98
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %973, align 8, !noalias !98
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %972, align 8, !noalias !98
-  %974 = getelementptr inbounds i8, ptr %.val6, i64 24
+  %974 = getelementptr inbounds nuw i8, ptr %.val6, i64 24
   %975 = load ptr, ptr %974, align 8, !noalias !98
   %976 = load i8, ptr %975, align 1, !noalias !98
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %965, ptr noundef nonnull %80, ptr noundef nonnull align 8 dereferenceable(32) %81, i8 noundef signext %976)
@@ -2651,22 +2651,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 992:                                              ; preds = %903
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78), !noalias !89
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %79), !noalias !89
-  %993 = getelementptr inbounds i8, ptr %.val6, i64 8
+  %993 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
   %994 = load ptr, ptr %993, align 8, !noalias !101
-  %995 = getelementptr inbounds i8, ptr %.val6, i64 16
+  %995 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
   %996 = load ptr, ptr %995, align 8, !noalias !101
   %997 = load i64, ptr %996, align 8, !noalias !101
   store i64 %997, ptr %78, align 8, !noalias !101
-  %998 = getelementptr inbounds i8, ptr %78, i64 8
-  %999 = getelementptr inbounds i8, ptr %996, i64 8
+  %998 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %999 = getelementptr inbounds nuw i8, ptr %996, i64 8
   %1000 = load ptr, ptr %999, align 8, !noalias !101
   store ptr %1000, ptr %998, align 8, !noalias !101
-  %1001 = getelementptr inbounds i8, ptr %79, i64 16
-  %1002 = getelementptr inbounds i8, ptr %79, i64 24
+  %1001 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %1002 = getelementptr inbounds nuw i8, ptr %79, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, i8 0, i64 16, i1 false), !noalias !101
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1002, align 8, !noalias !101
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1001, align 8, !noalias !101
-  %1003 = getelementptr inbounds i8, ptr %.val6, i64 24
+  %1003 = getelementptr inbounds nuw i8, ptr %.val6, i64 24
   %1004 = load ptr, ptr %1003, align 8, !noalias !101
   %1005 = load i8, ptr %1004, align 1, !noalias !101
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %994, ptr noundef nonnull %78, ptr noundef nonnull align 8 dereferenceable(32) %79, i8 noundef signext %1005)
@@ -2714,22 +2714,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 1021:                                             ; preds = %903
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %76), !noalias !89
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77), !noalias !89
-  %1022 = getelementptr inbounds i8, ptr %.val6, i64 8
+  %1022 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
   %1023 = load ptr, ptr %1022, align 8, !noalias !104
-  %1024 = getelementptr inbounds i8, ptr %.val6, i64 16
+  %1024 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
   %1025 = load ptr, ptr %1024, align 8, !noalias !104
   %1026 = load i64, ptr %1025, align 8, !noalias !104
   store i64 %1026, ptr %76, align 8, !noalias !104
-  %1027 = getelementptr inbounds i8, ptr %76, i64 8
-  %1028 = getelementptr inbounds i8, ptr %1025, i64 8
+  %1027 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %1028 = getelementptr inbounds nuw i8, ptr %1025, i64 8
   %1029 = load ptr, ptr %1028, align 8, !noalias !104
   store ptr %1029, ptr %1027, align 8, !noalias !104
-  %1030 = getelementptr inbounds i8, ptr %77, i64 16
-  %1031 = getelementptr inbounds i8, ptr %77, i64 24
+  %1030 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %1031 = getelementptr inbounds nuw i8, ptr %77, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 0, i64 16, i1 false), !noalias !104
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1031, align 8, !noalias !104
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1030, align 8, !noalias !104
-  %1032 = getelementptr inbounds i8, ptr %.val6, i64 24
+  %1032 = getelementptr inbounds nuw i8, ptr %.val6, i64 24
   %1033 = load ptr, ptr %1032, align 8, !noalias !104
   %1034 = load i8, ptr %1033, align 1, !noalias !104
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1023, ptr noundef nonnull %76, ptr noundef nonnull align 8 dereferenceable(32) %77, i8 noundef signext %1034)
@@ -2777,22 +2777,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
 1050:                                             ; preds = %903
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74), !noalias !89
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %75), !noalias !89
-  %1051 = getelementptr inbounds i8, ptr %.val6, i64 8
+  %1051 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
   %1052 = load ptr, ptr %1051, align 8, !noalias !107
-  %1053 = getelementptr inbounds i8, ptr %.val6, i64 16
+  %1053 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
   %1054 = load ptr, ptr %1053, align 8, !noalias !107
   %1055 = load i64, ptr %1054, align 8, !noalias !107
   store i64 %1055, ptr %74, align 8, !noalias !107
-  %1056 = getelementptr inbounds i8, ptr %74, i64 8
-  %1057 = getelementptr inbounds i8, ptr %1054, i64 8
+  %1056 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %1057 = getelementptr inbounds nuw i8, ptr %1054, i64 8
   %1058 = load ptr, ptr %1057, align 8, !noalias !107
   store ptr %1058, ptr %1056, align 8, !noalias !107
-  %1059 = getelementptr inbounds i8, ptr %75, i64 16
-  %1060 = getelementptr inbounds i8, ptr %75, i64 24
+  %1059 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %1060 = getelementptr inbounds nuw i8, ptr %75, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 16, i1 false), !noalias !107
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1060, align 8, !noalias !107
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEiEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1059, align 8, !noalias !107
-  %1061 = getelementptr inbounds i8, ptr %.val6, i64 24
+  %1061 = getelementptr inbounds nuw i8, ptr %.val6, i64 24
   %1062 = load ptr, ptr %1061, align 8, !noalias !107
   %1063 = load i8, ptr %1062, align 1, !noalias !107
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1052, ptr noundef nonnull %74, ptr noundef nonnull align 8 dereferenceable(32) %75, i8 noundef signext %1063)
@@ -2888,7 +2888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 
 1088:                                             ; preds = %3
   %.val7 = load ptr, ptr %2, align 8
-  %1089 = getelementptr inbounds i8, ptr %2, i64 8
+  %1089 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val8 = load ptr, ptr %1089, align 8
   %.val7.val = load i32, ptr %.val7, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72)
@@ -2905,22 +2905,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 1090:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70), !noalias !110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71), !noalias !110
-  %1091 = getelementptr inbounds i8, ptr %.val8, i64 8
+  %1091 = getelementptr inbounds nuw i8, ptr %.val8, i64 8
   %1092 = load ptr, ptr %1091, align 8, !noalias !113
-  %1093 = getelementptr inbounds i8, ptr %.val8, i64 16
+  %1093 = getelementptr inbounds nuw i8, ptr %.val8, i64 16
   %1094 = load ptr, ptr %1093, align 8, !noalias !113
   %1095 = load i64, ptr %1094, align 8, !noalias !113
   store i64 %1095, ptr %70, align 8, !noalias !113
-  %1096 = getelementptr inbounds i8, ptr %70, i64 8
-  %1097 = getelementptr inbounds i8, ptr %1094, i64 8
+  %1096 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %1097 = getelementptr inbounds nuw i8, ptr %1094, i64 8
   %1098 = load ptr, ptr %1097, align 8, !noalias !113
   store ptr %1098, ptr %1096, align 8, !noalias !113
-  %1099 = getelementptr inbounds i8, ptr %71, i64 16
-  %1100 = getelementptr inbounds i8, ptr %71, i64 24
+  %1099 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %1100 = getelementptr inbounds nuw i8, ptr %71, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 0, i64 16, i1 false), !noalias !113
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E_lEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1100, align 8, !noalias !113
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E_lEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1099, align 8, !noalias !113
-  %1101 = getelementptr inbounds i8, ptr %.val8, i64 24
+  %1101 = getelementptr inbounds nuw i8, ptr %.val8, i64 24
   %1102 = load ptr, ptr %1101, align 8, !noalias !113
   %1103 = load i8, ptr %1102, align 1, !noalias !113
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1092, ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(32) %71, i8 noundef signext %1103)
@@ -2968,22 +2968,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 1119:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68), !noalias !110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69), !noalias !110
-  %1120 = getelementptr inbounds i8, ptr %.val8, i64 8
+  %1120 = getelementptr inbounds nuw i8, ptr %.val8, i64 8
   %1121 = load ptr, ptr %1120, align 8, !noalias !116
-  %1122 = getelementptr inbounds i8, ptr %.val8, i64 16
+  %1122 = getelementptr inbounds nuw i8, ptr %.val8, i64 16
   %1123 = load ptr, ptr %1122, align 8, !noalias !116
   %1124 = load i64, ptr %1123, align 8, !noalias !116
   store i64 %1124, ptr %68, align 8, !noalias !116
-  %1125 = getelementptr inbounds i8, ptr %68, i64 8
-  %1126 = getelementptr inbounds i8, ptr %1123, i64 8
+  %1125 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %1126 = getelementptr inbounds nuw i8, ptr %1123, i64 8
   %1127 = load ptr, ptr %1126, align 8, !noalias !116
   store ptr %1127, ptr %1125, align 8, !noalias !116
-  %1128 = getelementptr inbounds i8, ptr %69, i64 16
-  %1129 = getelementptr inbounds i8, ptr %69, i64 24
+  %1128 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %1129 = getelementptr inbounds nuw i8, ptr %69, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 16, i1 false), !noalias !116
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E0_lEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1129, align 8, !noalias !116
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIlEEDaT_EUlSJ_T0_E0_lEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1128, align 8, !noalias !116
-  %1130 = getelementptr inbounds i8, ptr %.val8, i64 24
+  %1130 = getelementptr inbounds nuw i8, ptr %.val8, i64 24
   %1131 = load ptr, ptr %1130, align 8, !noalias !116
   %1132 = load i8, ptr %1131, align 1, !noalias !116
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1121, ptr noundef nonnull %68, ptr noundef nonnull align 8 dereferenceable(32) %69, i8 noundef signext %1132)
@@ -3031,22 +3031,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 1148:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66), !noalias !110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67), !noalias !110
-  %1149 = getelementptr inbounds i8, ptr %.val8, i64 8
+  %1149 = getelementptr inbounds nuw i8, ptr %.val8, i64 8
   %1150 = load ptr, ptr %1149, align 8, !noalias !119
-  %1151 = getelementptr inbounds i8, ptr %.val8, i64 16
+  %1151 = getelementptr inbounds nuw i8, ptr %.val8, i64 16
   %1152 = load ptr, ptr %1151, align 8, !noalias !119
   %1153 = load i64, ptr %1152, align 8, !noalias !119
   store i64 %1153, ptr %66, align 8, !noalias !119
-  %1154 = getelementptr inbounds i8, ptr %66, i64 8
-  %1155 = getelementptr inbounds i8, ptr %1152, i64 8
+  %1154 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %1155 = getelementptr inbounds nuw i8, ptr %1152, i64 8
   %1156 = load ptr, ptr %1155, align 8, !noalias !119
   store ptr %1156, ptr %1154, align 8, !noalias !119
-  %1157 = getelementptr inbounds i8, ptr %67, i64 16
-  %1158 = getelementptr inbounds i8, ptr %67, i64 24
+  %1157 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %1158 = getelementptr inbounds nuw i8, ptr %67, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 16, i1 false), !noalias !119
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1158, align 8, !noalias !119
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1157, align 8, !noalias !119
-  %1159 = getelementptr inbounds i8, ptr %.val8, i64 24
+  %1159 = getelementptr inbounds nuw i8, ptr %.val8, i64 24
   %1160 = load ptr, ptr %1159, align 8, !noalias !119
   %1161 = load i8, ptr %1160, align 1, !noalias !119
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1150, ptr noundef nonnull %66, ptr noundef nonnull align 8 dereferenceable(32) %67, i8 noundef signext %1161)
@@ -3094,22 +3094,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 1177:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64), !noalias !110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65), !noalias !110
-  %1178 = getelementptr inbounds i8, ptr %.val8, i64 8
+  %1178 = getelementptr inbounds nuw i8, ptr %.val8, i64 8
   %1179 = load ptr, ptr %1178, align 8, !noalias !122
-  %1180 = getelementptr inbounds i8, ptr %.val8, i64 16
+  %1180 = getelementptr inbounds nuw i8, ptr %.val8, i64 16
   %1181 = load ptr, ptr %1180, align 8, !noalias !122
   %1182 = load i64, ptr %1181, align 8, !noalias !122
   store i64 %1182, ptr %64, align 8, !noalias !122
-  %1183 = getelementptr inbounds i8, ptr %64, i64 8
-  %1184 = getelementptr inbounds i8, ptr %1181, i64 8
+  %1183 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %1184 = getelementptr inbounds nuw i8, ptr %1181, i64 8
   %1185 = load ptr, ptr %1184, align 8, !noalias !122
   store ptr %1185, ptr %1183, align 8, !noalias !122
-  %1186 = getelementptr inbounds i8, ptr %65, i64 16
-  %1187 = getelementptr inbounds i8, ptr %65, i64 24
+  %1186 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %1187 = getelementptr inbounds nuw i8, ptr %65, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 16, i1 false), !noalias !122
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1187, align 8, !noalias !122
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1186, align 8, !noalias !122
-  %1188 = getelementptr inbounds i8, ptr %.val8, i64 24
+  %1188 = getelementptr inbounds nuw i8, ptr %.val8, i64 24
   %1189 = load ptr, ptr %1188, align 8, !noalias !122
   %1190 = load i8, ptr %1189, align 1, !noalias !122
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1179, ptr noundef nonnull %64, ptr noundef nonnull align 8 dereferenceable(32) %65, i8 noundef signext %1190)
@@ -3157,22 +3157,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 1206:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62), !noalias !110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63), !noalias !110
-  %1207 = getelementptr inbounds i8, ptr %.val8, i64 8
+  %1207 = getelementptr inbounds nuw i8, ptr %.val8, i64 8
   %1208 = load ptr, ptr %1207, align 8, !noalias !125
-  %1209 = getelementptr inbounds i8, ptr %.val8, i64 16
+  %1209 = getelementptr inbounds nuw i8, ptr %.val8, i64 16
   %1210 = load ptr, ptr %1209, align 8, !noalias !125
   %1211 = load i64, ptr %1210, align 8, !noalias !125
   store i64 %1211, ptr %62, align 8, !noalias !125
-  %1212 = getelementptr inbounds i8, ptr %62, i64 8
-  %1213 = getelementptr inbounds i8, ptr %1210, i64 8
+  %1212 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %1213 = getelementptr inbounds nuw i8, ptr %1210, i64 8
   %1214 = load ptr, ptr %1213, align 8, !noalias !125
   store ptr %1214, ptr %1212, align 8, !noalias !125
-  %1215 = getelementptr inbounds i8, ptr %63, i64 16
-  %1216 = getelementptr inbounds i8, ptr %63, i64 24
+  %1215 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %1216 = getelementptr inbounds nuw i8, ptr %63, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 16, i1 false), !noalias !125
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1216, align 8, !noalias !125
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1215, align 8, !noalias !125
-  %1217 = getelementptr inbounds i8, ptr %.val8, i64 24
+  %1217 = getelementptr inbounds nuw i8, ptr %.val8, i64 24
   %1218 = load ptr, ptr %1217, align 8, !noalias !125
   %1219 = load i8, ptr %1218, align 1, !noalias !125
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1208, ptr noundef nonnull %62, ptr noundef nonnull align 8 dereferenceable(32) %63, i8 noundef signext %1219)
@@ -3220,22 +3220,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i88: 
 1235:                                             ; preds = %1088
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60), !noalias !110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61), !noalias !110
-  %1236 = getelementptr inbounds i8, ptr %.val8, i64 8
+  %1236 = getelementptr inbounds nuw i8, ptr %.val8, i64 8
   %1237 = load ptr, ptr %1236, align 8, !noalias !128
-  %1238 = getelementptr inbounds i8, ptr %.val8, i64 16
+  %1238 = getelementptr inbounds nuw i8, ptr %.val8, i64 16
   %1239 = load ptr, ptr %1238, align 8, !noalias !128
   %1240 = load i64, ptr %1239, align 8, !noalias !128
   store i64 %1240, ptr %60, align 8, !noalias !128
-  %1241 = getelementptr inbounds i8, ptr %60, i64 8
-  %1242 = getelementptr inbounds i8, ptr %1239, i64 8
+  %1241 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %1242 = getelementptr inbounds nuw i8, ptr %1239, i64 8
   %1243 = load ptr, ptr %1242, align 8, !noalias !128
   store ptr %1243, ptr %1241, align 8, !noalias !128
-  %1244 = getelementptr inbounds i8, ptr %61, i64 16
-  %1245 = getelementptr inbounds i8, ptr %61, i64 24
+  %1244 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %1245 = getelementptr inbounds nuw i8, ptr %61, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 16, i1 false), !noalias !128
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1245, align 8, !noalias !128
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvElEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1244, align 8, !noalias !128
-  %1246 = getelementptr inbounds i8, ptr %.val8, i64 24
+  %1246 = getelementptr inbounds nuw i8, ptr %.val8, i64 24
   %1247 = load ptr, ptr %1246, align 8, !noalias !128
   %1248 = load i8, ptr %1247, align 1, !noalias !128
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1237, ptr noundef nonnull %60, ptr noundef nonnull align 8 dereferenceable(32) %61, i8 noundef signext %1248)
@@ -3331,7 +3331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 
 1273:                                             ; preds = %3
   %.val9 = load ptr, ptr %2, align 8
-  %1274 = getelementptr inbounds i8, ptr %2, i64 8
+  %1274 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val10 = load ptr, ptr %1274, align 8
   %.val9.val = load i32, ptr %.val9, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58)
@@ -3348,22 +3348,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 1275:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56), !noalias !131
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57), !noalias !131
-  %1276 = getelementptr inbounds i8, ptr %.val10, i64 8
+  %1276 = getelementptr inbounds nuw i8, ptr %.val10, i64 8
   %1277 = load ptr, ptr %1276, align 8, !noalias !134
-  %1278 = getelementptr inbounds i8, ptr %.val10, i64 16
+  %1278 = getelementptr inbounds nuw i8, ptr %.val10, i64 16
   %1279 = load ptr, ptr %1278, align 8, !noalias !134
   %1280 = load i64, ptr %1279, align 8, !noalias !134
   store i64 %1280, ptr %56, align 8, !noalias !134
-  %1281 = getelementptr inbounds i8, ptr %56, i64 8
-  %1282 = getelementptr inbounds i8, ptr %1279, i64 8
+  %1281 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %1282 = getelementptr inbounds nuw i8, ptr %1279, i64 8
   %1283 = load ptr, ptr %1282, align 8, !noalias !134
   store ptr %1283, ptr %1281, align 8, !noalias !134
-  %1284 = getelementptr inbounds i8, ptr %57, i64 16
-  %1285 = getelementptr inbounds i8, ptr %57, i64 24
+  %1284 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %1285 = getelementptr inbounds nuw i8, ptr %57, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 16, i1 false), !noalias !134
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E_hEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1285, align 8, !noalias !134
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E_hEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1284, align 8, !noalias !134
-  %1286 = getelementptr inbounds i8, ptr %.val10, i64 24
+  %1286 = getelementptr inbounds nuw i8, ptr %.val10, i64 24
   %1287 = load ptr, ptr %1286, align 8, !noalias !134
   %1288 = load i8, ptr %1287, align 1, !noalias !134
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1277, ptr noundef nonnull %56, ptr noundef nonnull align 8 dereferenceable(32) %57, i8 noundef signext %1288)
@@ -3411,22 +3411,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 1304:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54), !noalias !131
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55), !noalias !131
-  %1305 = getelementptr inbounds i8, ptr %.val10, i64 8
+  %1305 = getelementptr inbounds nuw i8, ptr %.val10, i64 8
   %1306 = load ptr, ptr %1305, align 8, !noalias !137
-  %1307 = getelementptr inbounds i8, ptr %.val10, i64 16
+  %1307 = getelementptr inbounds nuw i8, ptr %.val10, i64 16
   %1308 = load ptr, ptr %1307, align 8, !noalias !137
   %1309 = load i64, ptr %1308, align 8, !noalias !137
   store i64 %1309, ptr %54, align 8, !noalias !137
-  %1310 = getelementptr inbounds i8, ptr %54, i64 8
-  %1311 = getelementptr inbounds i8, ptr %1308, i64 8
+  %1310 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %1311 = getelementptr inbounds nuw i8, ptr %1308, i64 8
   %1312 = load ptr, ptr %1311, align 8, !noalias !137
   store ptr %1312, ptr %1310, align 8, !noalias !137
-  %1313 = getelementptr inbounds i8, ptr %55, i64 16
-  %1314 = getelementptr inbounds i8, ptr %55, i64 24
+  %1313 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %1314 = getelementptr inbounds nuw i8, ptr %55, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, i8 0, i64 16, i1 false), !noalias !137
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E0_hEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1314, align 8, !noalias !137
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIhEEDaT_EUlSJ_T0_E0_hEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1313, align 8, !noalias !137
-  %1315 = getelementptr inbounds i8, ptr %.val10, i64 24
+  %1315 = getelementptr inbounds nuw i8, ptr %.val10, i64 24
   %1316 = load ptr, ptr %1315, align 8, !noalias !137
   %1317 = load i8, ptr %1316, align 1, !noalias !137
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1306, ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(32) %55, i8 noundef signext %1317)
@@ -3474,22 +3474,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 1333:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52), !noalias !131
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53), !noalias !131
-  %1334 = getelementptr inbounds i8, ptr %.val10, i64 8
+  %1334 = getelementptr inbounds nuw i8, ptr %.val10, i64 8
   %1335 = load ptr, ptr %1334, align 8, !noalias !140
-  %1336 = getelementptr inbounds i8, ptr %.val10, i64 16
+  %1336 = getelementptr inbounds nuw i8, ptr %.val10, i64 16
   %1337 = load ptr, ptr %1336, align 8, !noalias !140
   %1338 = load i64, ptr %1337, align 8, !noalias !140
   store i64 %1338, ptr %52, align 8, !noalias !140
-  %1339 = getelementptr inbounds i8, ptr %52, i64 8
-  %1340 = getelementptr inbounds i8, ptr %1337, i64 8
+  %1339 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %1340 = getelementptr inbounds nuw i8, ptr %1337, i64 8
   %1341 = load ptr, ptr %1340, align 8, !noalias !140
   store ptr %1341, ptr %1339, align 8, !noalias !140
-  %1342 = getelementptr inbounds i8, ptr %53, i64 16
-  %1343 = getelementptr inbounds i8, ptr %53, i64 24
+  %1342 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %1343 = getelementptr inbounds nuw i8, ptr %53, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 16, i1 false), !noalias !140
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1343, align 8, !noalias !140
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1342, align 8, !noalias !140
-  %1344 = getelementptr inbounds i8, ptr %.val10, i64 24
+  %1344 = getelementptr inbounds nuw i8, ptr %.val10, i64 24
   %1345 = load ptr, ptr %1344, align 8, !noalias !140
   %1346 = load i8, ptr %1345, align 1, !noalias !140
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1335, ptr noundef nonnull %52, ptr noundef nonnull align 8 dereferenceable(32) %53, i8 noundef signext %1346)
@@ -3537,22 +3537,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 1362:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50), !noalias !131
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51), !noalias !131
-  %1363 = getelementptr inbounds i8, ptr %.val10, i64 8
+  %1363 = getelementptr inbounds nuw i8, ptr %.val10, i64 8
   %1364 = load ptr, ptr %1363, align 8, !noalias !143
-  %1365 = getelementptr inbounds i8, ptr %.val10, i64 16
+  %1365 = getelementptr inbounds nuw i8, ptr %.val10, i64 16
   %1366 = load ptr, ptr %1365, align 8, !noalias !143
   %1367 = load i64, ptr %1366, align 8, !noalias !143
   store i64 %1367, ptr %50, align 8, !noalias !143
-  %1368 = getelementptr inbounds i8, ptr %50, i64 8
-  %1369 = getelementptr inbounds i8, ptr %1366, i64 8
+  %1368 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %1369 = getelementptr inbounds nuw i8, ptr %1366, i64 8
   %1370 = load ptr, ptr %1369, align 8, !noalias !143
   store ptr %1370, ptr %1368, align 8, !noalias !143
-  %1371 = getelementptr inbounds i8, ptr %51, i64 16
-  %1372 = getelementptr inbounds i8, ptr %51, i64 24
+  %1371 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %1372 = getelementptr inbounds nuw i8, ptr %51, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 16, i1 false), !noalias !143
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1372, align 8, !noalias !143
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1371, align 8, !noalias !143
-  %1373 = getelementptr inbounds i8, ptr %.val10, i64 24
+  %1373 = getelementptr inbounds nuw i8, ptr %.val10, i64 24
   %1374 = load ptr, ptr %1373, align 8, !noalias !143
   %1375 = load i8, ptr %1374, align 1, !noalias !143
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1364, ptr noundef nonnull %50, ptr noundef nonnull align 8 dereferenceable(32) %51, i8 noundef signext %1375)
@@ -3600,22 +3600,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 1391:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48), !noalias !131
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49), !noalias !131
-  %1392 = getelementptr inbounds i8, ptr %.val10, i64 8
+  %1392 = getelementptr inbounds nuw i8, ptr %.val10, i64 8
   %1393 = load ptr, ptr %1392, align 8, !noalias !146
-  %1394 = getelementptr inbounds i8, ptr %.val10, i64 16
+  %1394 = getelementptr inbounds nuw i8, ptr %.val10, i64 16
   %1395 = load ptr, ptr %1394, align 8, !noalias !146
   %1396 = load i64, ptr %1395, align 8, !noalias !146
   store i64 %1396, ptr %48, align 8, !noalias !146
-  %1397 = getelementptr inbounds i8, ptr %48, i64 8
-  %1398 = getelementptr inbounds i8, ptr %1395, i64 8
+  %1397 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %1398 = getelementptr inbounds nuw i8, ptr %1395, i64 8
   %1399 = load ptr, ptr %1398, align 8, !noalias !146
   store ptr %1399, ptr %1397, align 8, !noalias !146
-  %1400 = getelementptr inbounds i8, ptr %49, i64 16
-  %1401 = getelementptr inbounds i8, ptr %49, i64 24
+  %1400 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %1401 = getelementptr inbounds nuw i8, ptr %49, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 16, i1 false), !noalias !146
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1401, align 8, !noalias !146
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1400, align 8, !noalias !146
-  %1402 = getelementptr inbounds i8, ptr %.val10, i64 24
+  %1402 = getelementptr inbounds nuw i8, ptr %.val10, i64 24
   %1403 = load ptr, ptr %1402, align 8, !noalias !146
   %1404 = load i8, ptr %1403, align 1, !noalias !146
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1393, ptr noundef nonnull %48, ptr noundef nonnull align 8 dereferenceable(32) %49, i8 noundef signext %1404)
@@ -3663,22 +3663,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i107:
 1420:                                             ; preds = %1273
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46), !noalias !131
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47), !noalias !131
-  %1421 = getelementptr inbounds i8, ptr %.val10, i64 8
+  %1421 = getelementptr inbounds nuw i8, ptr %.val10, i64 8
   %1422 = load ptr, ptr %1421, align 8, !noalias !149
-  %1423 = getelementptr inbounds i8, ptr %.val10, i64 16
+  %1423 = getelementptr inbounds nuw i8, ptr %.val10, i64 16
   %1424 = load ptr, ptr %1423, align 8, !noalias !149
   %1425 = load i64, ptr %1424, align 8, !noalias !149
   store i64 %1425, ptr %46, align 8, !noalias !149
-  %1426 = getelementptr inbounds i8, ptr %46, i64 8
-  %1427 = getelementptr inbounds i8, ptr %1424, i64 8
+  %1426 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %1427 = getelementptr inbounds nuw i8, ptr %1424, i64 8
   %1428 = load ptr, ptr %1427, align 8, !noalias !149
   store ptr %1428, ptr %1426, align 8, !noalias !149
-  %1429 = getelementptr inbounds i8, ptr %47, i64 16
-  %1430 = getelementptr inbounds i8, ptr %47, i64 24
+  %1429 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %1430 = getelementptr inbounds nuw i8, ptr %47, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 16, i1 false), !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1430, align 8, !noalias !149
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEhEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1429, align 8, !noalias !149
-  %1431 = getelementptr inbounds i8, ptr %.val10, i64 24
+  %1431 = getelementptr inbounds nuw i8, ptr %.val10, i64 24
   %1432 = load ptr, ptr %1431, align 8, !noalias !149
   %1433 = load i8, ptr %1432, align 1, !noalias !149
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1422, ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(32) %47, i8 noundef signext %1433)
@@ -3774,7 +3774,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 
 1458:                                             ; preds = %3
   %.val11 = load ptr, ptr %2, align 8
-  %1459 = getelementptr inbounds i8, ptr %2, i64 8
+  %1459 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val12 = load ptr, ptr %1459, align 8
   %.val11.val = load i32, ptr %.val11, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44)
@@ -3791,22 +3791,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 1460:                                             ; preds = %1458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42), !noalias !152
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43), !noalias !152
-  %1461 = getelementptr inbounds i8, ptr %.val12, i64 8
+  %1461 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
   %1462 = load ptr, ptr %1461, align 8, !noalias !155
-  %1463 = getelementptr inbounds i8, ptr %.val12, i64 16
+  %1463 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
   %1464 = load ptr, ptr %1463, align 8, !noalias !155
   %1465 = load i64, ptr %1464, align 8, !noalias !155
   store i64 %1465, ptr %42, align 8, !noalias !155
-  %1466 = getelementptr inbounds i8, ptr %42, i64 8
-  %1467 = getelementptr inbounds i8, ptr %1464, i64 8
+  %1466 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %1467 = getelementptr inbounds nuw i8, ptr %1464, i64 8
   %1468 = load ptr, ptr %1467, align 8, !noalias !155
   store ptr %1468, ptr %1466, align 8, !noalias !155
-  %1469 = getelementptr inbounds i8, ptr %43, i64 16
-  %1470 = getelementptr inbounds i8, ptr %43, i64 24
+  %1469 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %1470 = getelementptr inbounds nuw i8, ptr %43, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 16, i1 false), !noalias !155
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E_tEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1470, align 8, !noalias !155
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E_tEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1469, align 8, !noalias !155
-  %1471 = getelementptr inbounds i8, ptr %.val12, i64 24
+  %1471 = getelementptr inbounds nuw i8, ptr %.val12, i64 24
   %1472 = load ptr, ptr %1471, align 8, !noalias !155
   %1473 = load i8, ptr %1472, align 1, !noalias !155
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1462, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(32) %43, i8 noundef signext %1473)
@@ -3854,22 +3854,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 1489:                                             ; preds = %1458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40), !noalias !152
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41), !noalias !152
-  %1490 = getelementptr inbounds i8, ptr %.val12, i64 8
+  %1490 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
   %1491 = load ptr, ptr %1490, align 8, !noalias !158
-  %1492 = getelementptr inbounds i8, ptr %.val12, i64 16
+  %1492 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
   %1493 = load ptr, ptr %1492, align 8, !noalias !158
   %1494 = load i64, ptr %1493, align 8, !noalias !158
   store i64 %1494, ptr %40, align 8, !noalias !158
-  %1495 = getelementptr inbounds i8, ptr %40, i64 8
-  %1496 = getelementptr inbounds i8, ptr %1493, i64 8
+  %1495 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %1496 = getelementptr inbounds nuw i8, ptr %1493, i64 8
   %1497 = load ptr, ptr %1496, align 8, !noalias !158
   store ptr %1497, ptr %1495, align 8, !noalias !158
-  %1498 = getelementptr inbounds i8, ptr %41, i64 16
-  %1499 = getelementptr inbounds i8, ptr %41, i64 24
+  %1498 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %1499 = getelementptr inbounds nuw i8, ptr %41, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 16, i1 false), !noalias !158
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E0_tEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1499, align 8, !noalias !158
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clItEEDaT_EUlSJ_T0_E0_tEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1498, align 8, !noalias !158
-  %1500 = getelementptr inbounds i8, ptr %.val12, i64 24
+  %1500 = getelementptr inbounds nuw i8, ptr %.val12, i64 24
   %1501 = load ptr, ptr %1500, align 8, !noalias !158
   %1502 = load i8, ptr %1501, align 1, !noalias !158
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1491, ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(32) %41, i8 noundef signext %1502)
@@ -3917,22 +3917,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 1518:                                             ; preds = %1458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38), !noalias !152
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39), !noalias !152
-  %1519 = getelementptr inbounds i8, ptr %.val12, i64 8
+  %1519 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
   %1520 = load ptr, ptr %1519, align 8, !noalias !161
-  %1521 = getelementptr inbounds i8, ptr %.val12, i64 16
+  %1521 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
   %1522 = load ptr, ptr %1521, align 8, !noalias !161
   %1523 = load i64, ptr %1522, align 8, !noalias !161
   store i64 %1523, ptr %38, align 8, !noalias !161
-  %1524 = getelementptr inbounds i8, ptr %38, i64 8
-  %1525 = getelementptr inbounds i8, ptr %1522, i64 8
+  %1524 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %1525 = getelementptr inbounds nuw i8, ptr %1522, i64 8
   %1526 = load ptr, ptr %1525, align 8, !noalias !161
   store ptr %1526, ptr %1524, align 8, !noalias !161
-  %1527 = getelementptr inbounds i8, ptr %39, i64 16
-  %1528 = getelementptr inbounds i8, ptr %39, i64 24
+  %1527 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %1528 = getelementptr inbounds nuw i8, ptr %39, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 16, i1 false), !noalias !161
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1528, align 8, !noalias !161
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1527, align 8, !noalias !161
-  %1529 = getelementptr inbounds i8, ptr %.val12, i64 24
+  %1529 = getelementptr inbounds nuw i8, ptr %.val12, i64 24
   %1530 = load ptr, ptr %1529, align 8, !noalias !161
   %1531 = load i8, ptr %1530, align 1, !noalias !161
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1520, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(32) %39, i8 noundef signext %1531)
@@ -3980,22 +3980,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 1547:                                             ; preds = %1458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !152
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37), !noalias !152
-  %1548 = getelementptr inbounds i8, ptr %.val12, i64 8
+  %1548 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
   %1549 = load ptr, ptr %1548, align 8, !noalias !164
-  %1550 = getelementptr inbounds i8, ptr %.val12, i64 16
+  %1550 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
   %1551 = load ptr, ptr %1550, align 8, !noalias !164
   %1552 = load i64, ptr %1551, align 8, !noalias !164
   store i64 %1552, ptr %36, align 8, !noalias !164
-  %1553 = getelementptr inbounds i8, ptr %36, i64 8
-  %1554 = getelementptr inbounds i8, ptr %1551, i64 8
+  %1553 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %1554 = getelementptr inbounds nuw i8, ptr %1551, i64 8
   %1555 = load ptr, ptr %1554, align 8, !noalias !164
   store ptr %1555, ptr %1553, align 8, !noalias !164
-  %1556 = getelementptr inbounds i8, ptr %37, i64 16
-  %1557 = getelementptr inbounds i8, ptr %37, i64 24
+  %1556 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %1557 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 16, i1 false), !noalias !164
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1557, align 8, !noalias !164
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1556, align 8, !noalias !164
-  %1558 = getelementptr inbounds i8, ptr %.val12, i64 24
+  %1558 = getelementptr inbounds nuw i8, ptr %.val12, i64 24
   %1559 = load ptr, ptr %1558, align 8, !noalias !164
   %1560 = load i8, ptr %1559, align 1, !noalias !164
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1549, ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(32) %37, i8 noundef signext %1560)
@@ -4043,22 +4043,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 1576:                                             ; preds = %1458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34), !noalias !152
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35), !noalias !152
-  %1577 = getelementptr inbounds i8, ptr %.val12, i64 8
+  %1577 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
   %1578 = load ptr, ptr %1577, align 8, !noalias !167
-  %1579 = getelementptr inbounds i8, ptr %.val12, i64 16
+  %1579 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
   %1580 = load ptr, ptr %1579, align 8, !noalias !167
   %1581 = load i64, ptr %1580, align 8, !noalias !167
   store i64 %1581, ptr %34, align 8, !noalias !167
-  %1582 = getelementptr inbounds i8, ptr %34, i64 8
-  %1583 = getelementptr inbounds i8, ptr %1580, i64 8
+  %1582 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %1583 = getelementptr inbounds nuw i8, ptr %1580, i64 8
   %1584 = load ptr, ptr %1583, align 8, !noalias !167
   store ptr %1584, ptr %1582, align 8, !noalias !167
-  %1585 = getelementptr inbounds i8, ptr %35, i64 16
-  %1586 = getelementptr inbounds i8, ptr %35, i64 24
+  %1585 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %1586 = getelementptr inbounds nuw i8, ptr %35, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, i8 0, i64 16, i1 false), !noalias !167
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1586, align 8, !noalias !167
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1585, align 8, !noalias !167
-  %1587 = getelementptr inbounds i8, ptr %.val12, i64 24
+  %1587 = getelementptr inbounds nuw i8, ptr %.val12, i64 24
   %1588 = load ptr, ptr %1587, align 8, !noalias !167
   %1589 = load i8, ptr %1588, align 1, !noalias !167
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1578, ptr noundef nonnull %34, ptr noundef nonnull align 8 dereferenceable(32) %35, i8 noundef signext %1589)
@@ -4106,22 +4106,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i126:
 1605:                                             ; preds = %1458
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32), !noalias !152
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33), !noalias !152
-  %1606 = getelementptr inbounds i8, ptr %.val12, i64 8
+  %1606 = getelementptr inbounds nuw i8, ptr %.val12, i64 8
   %1607 = load ptr, ptr %1606, align 8, !noalias !170
-  %1608 = getelementptr inbounds i8, ptr %.val12, i64 16
+  %1608 = getelementptr inbounds nuw i8, ptr %.val12, i64 16
   %1609 = load ptr, ptr %1608, align 8, !noalias !170
   %1610 = load i64, ptr %1609, align 8, !noalias !170
   store i64 %1610, ptr %32, align 8, !noalias !170
-  %1611 = getelementptr inbounds i8, ptr %32, i64 8
-  %1612 = getelementptr inbounds i8, ptr %1609, i64 8
+  %1611 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %1612 = getelementptr inbounds nuw i8, ptr %1609, i64 8
   %1613 = load ptr, ptr %1612, align 8, !noalias !170
   store ptr %1613, ptr %1611, align 8, !noalias !170
-  %1614 = getelementptr inbounds i8, ptr %33, i64 16
-  %1615 = getelementptr inbounds i8, ptr %33, i64 24
+  %1614 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %1615 = getelementptr inbounds nuw i8, ptr %33, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 16, i1 false), !noalias !170
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1615, align 8, !noalias !170
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEtEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1614, align 8, !noalias !170
-  %1616 = getelementptr inbounds i8, ptr %.val12, i64 24
+  %1616 = getelementptr inbounds nuw i8, ptr %.val12, i64 24
   %1617 = load ptr, ptr %1616, align 8, !noalias !170
   %1618 = load i8, ptr %1617, align 1, !noalias !170
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1607, ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(32) %33, i8 noundef signext %1618)
@@ -4217,7 +4217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 
 1643:                                             ; preds = %3
   %.val13 = load ptr, ptr %2, align 8
-  %1644 = getelementptr inbounds i8, ptr %2, i64 8
+  %1644 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val14 = load ptr, ptr %1644, align 8
   %.val13.val = load i32, ptr %.val13, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
@@ -4234,22 +4234,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 1645:                                             ; preds = %1643
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !173
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29), !noalias !173
-  %1646 = getelementptr inbounds i8, ptr %.val14, i64 8
+  %1646 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
   %1647 = load ptr, ptr %1646, align 8, !noalias !176
-  %1648 = getelementptr inbounds i8, ptr %.val14, i64 16
+  %1648 = getelementptr inbounds nuw i8, ptr %.val14, i64 16
   %1649 = load ptr, ptr %1648, align 8, !noalias !176
   %1650 = load i64, ptr %1649, align 8, !noalias !176
   store i64 %1650, ptr %28, align 8, !noalias !176
-  %1651 = getelementptr inbounds i8, ptr %28, i64 8
-  %1652 = getelementptr inbounds i8, ptr %1649, i64 8
+  %1651 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %1652 = getelementptr inbounds nuw i8, ptr %1649, i64 8
   %1653 = load ptr, ptr %1652, align 8, !noalias !176
   store ptr %1653, ptr %1651, align 8, !noalias !176
-  %1654 = getelementptr inbounds i8, ptr %29, i64 16
-  %1655 = getelementptr inbounds i8, ptr %29, i64 24
+  %1654 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %1655 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 16, i1 false), !noalias !176
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E_jEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1655, align 8, !noalias !176
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E_jEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1654, align 8, !noalias !176
-  %1656 = getelementptr inbounds i8, ptr %.val14, i64 24
+  %1656 = getelementptr inbounds nuw i8, ptr %.val14, i64 24
   %1657 = load ptr, ptr %1656, align 8, !noalias !176
   %1658 = load i8, ptr %1657, align 1, !noalias !176
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1647, ptr noundef nonnull %28, ptr noundef nonnull align 8 dereferenceable(32) %29, i8 noundef signext %1658)
@@ -4297,22 +4297,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 1674:                                             ; preds = %1643
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !173
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %27), !noalias !173
-  %1675 = getelementptr inbounds i8, ptr %.val14, i64 8
+  %1675 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
   %1676 = load ptr, ptr %1675, align 8, !noalias !179
-  %1677 = getelementptr inbounds i8, ptr %.val14, i64 16
+  %1677 = getelementptr inbounds nuw i8, ptr %.val14, i64 16
   %1678 = load ptr, ptr %1677, align 8, !noalias !179
   %1679 = load i64, ptr %1678, align 8, !noalias !179
   store i64 %1679, ptr %26, align 8, !noalias !179
-  %1680 = getelementptr inbounds i8, ptr %26, i64 8
-  %1681 = getelementptr inbounds i8, ptr %1678, i64 8
+  %1680 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %1681 = getelementptr inbounds nuw i8, ptr %1678, i64 8
   %1682 = load ptr, ptr %1681, align 8, !noalias !179
   store ptr %1682, ptr %1680, align 8, !noalias !179
-  %1683 = getelementptr inbounds i8, ptr %27, i64 16
-  %1684 = getelementptr inbounds i8, ptr %27, i64 24
+  %1683 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %1684 = getelementptr inbounds nuw i8, ptr %27, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 16, i1 false), !noalias !179
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E0_jEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1684, align 8, !noalias !179
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clIjEEDaT_EUlSJ_T0_E0_jEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1683, align 8, !noalias !179
-  %1685 = getelementptr inbounds i8, ptr %.val14, i64 24
+  %1685 = getelementptr inbounds nuw i8, ptr %.val14, i64 24
   %1686 = load ptr, ptr %1685, align 8, !noalias !179
   %1687 = load i8, ptr %1686, align 1, !noalias !179
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1676, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(32) %27, i8 noundef signext %1687)
@@ -4360,22 +4360,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 1703:                                             ; preds = %1643
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !173
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25), !noalias !173
-  %1704 = getelementptr inbounds i8, ptr %.val14, i64 8
+  %1704 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
   %1705 = load ptr, ptr %1704, align 8, !noalias !182
-  %1706 = getelementptr inbounds i8, ptr %.val14, i64 16
+  %1706 = getelementptr inbounds nuw i8, ptr %.val14, i64 16
   %1707 = load ptr, ptr %1706, align 8, !noalias !182
   %1708 = load i64, ptr %1707, align 8, !noalias !182
   store i64 %1708, ptr %24, align 8, !noalias !182
-  %1709 = getelementptr inbounds i8, ptr %24, i64 8
-  %1710 = getelementptr inbounds i8, ptr %1707, i64 8
+  %1709 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %1710 = getelementptr inbounds nuw i8, ptr %1707, i64 8
   %1711 = load ptr, ptr %1710, align 8, !noalias !182
   store ptr %1711, ptr %1709, align 8, !noalias !182
-  %1712 = getelementptr inbounds i8, ptr %25, i64 16
-  %1713 = getelementptr inbounds i8, ptr %25, i64 24
+  %1712 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %1713 = getelementptr inbounds nuw i8, ptr %25, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 16, i1 false), !noalias !182
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1713, align 8, !noalias !182
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1712, align 8, !noalias !182
-  %1714 = getelementptr inbounds i8, ptr %.val14, i64 24
+  %1714 = getelementptr inbounds nuw i8, ptr %.val14, i64 24
   %1715 = load ptr, ptr %1714, align 8, !noalias !182
   %1716 = load i8, ptr %1715, align 1, !noalias !182
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1705, ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(32) %25, i8 noundef signext %1716)
@@ -4423,22 +4423,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 1732:                                             ; preds = %1643
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22), !noalias !173
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23), !noalias !173
-  %1733 = getelementptr inbounds i8, ptr %.val14, i64 8
+  %1733 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
   %1734 = load ptr, ptr %1733, align 8, !noalias !185
-  %1735 = getelementptr inbounds i8, ptr %.val14, i64 16
+  %1735 = getelementptr inbounds nuw i8, ptr %.val14, i64 16
   %1736 = load ptr, ptr %1735, align 8, !noalias !185
   %1737 = load i64, ptr %1736, align 8, !noalias !185
   store i64 %1737, ptr %22, align 8, !noalias !185
-  %1738 = getelementptr inbounds i8, ptr %22, i64 8
-  %1739 = getelementptr inbounds i8, ptr %1736, i64 8
+  %1738 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %1739 = getelementptr inbounds nuw i8, ptr %1736, i64 8
   %1740 = load ptr, ptr %1739, align 8, !noalias !185
   store ptr %1740, ptr %1738, align 8, !noalias !185
-  %1741 = getelementptr inbounds i8, ptr %23, i64 16
-  %1742 = getelementptr inbounds i8, ptr %23, i64 24
+  %1741 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %1742 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 16, i1 false), !noalias !185
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1742, align 8, !noalias !185
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1741, align 8, !noalias !185
-  %1743 = getelementptr inbounds i8, ptr %.val14, i64 24
+  %1743 = getelementptr inbounds nuw i8, ptr %.val14, i64 24
   %1744 = load ptr, ptr %1743, align 8, !noalias !185
   %1745 = load i8, ptr %1744, align 1, !noalias !185
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1734, ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(32) %23, i8 noundef signext %1745)
@@ -4486,22 +4486,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 1761:                                             ; preds = %1643
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20), !noalias !173
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21), !noalias !173
-  %1762 = getelementptr inbounds i8, ptr %.val14, i64 8
+  %1762 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
   %1763 = load ptr, ptr %1762, align 8, !noalias !188
-  %1764 = getelementptr inbounds i8, ptr %.val14, i64 16
+  %1764 = getelementptr inbounds nuw i8, ptr %.val14, i64 16
   %1765 = load ptr, ptr %1764, align 8, !noalias !188
   %1766 = load i64, ptr %1765, align 8, !noalias !188
   store i64 %1766, ptr %20, align 8, !noalias !188
-  %1767 = getelementptr inbounds i8, ptr %20, i64 8
-  %1768 = getelementptr inbounds i8, ptr %1765, i64 8
+  %1767 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %1768 = getelementptr inbounds nuw i8, ptr %1765, i64 8
   %1769 = load ptr, ptr %1768, align 8, !noalias !188
   store ptr %1769, ptr %1767, align 8, !noalias !188
-  %1770 = getelementptr inbounds i8, ptr %21, i64 16
-  %1771 = getelementptr inbounds i8, ptr %21, i64 24
+  %1770 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %1771 = getelementptr inbounds nuw i8, ptr %21, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 16, i1 false), !noalias !188
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1771, align 8, !noalias !188
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1770, align 8, !noalias !188
-  %1772 = getelementptr inbounds i8, ptr %.val14, i64 24
+  %1772 = getelementptr inbounds nuw i8, ptr %.val14, i64 24
   %1773 = load ptr, ptr %1772, align 8, !noalias !188
   %1774 = load i8, ptr %1773, align 1, !noalias !188
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1763, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %21, i8 noundef signext %1774)
@@ -4549,22 +4549,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i145:
 1790:                                             ; preds = %1643
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !173
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19), !noalias !173
-  %1791 = getelementptr inbounds i8, ptr %.val14, i64 8
+  %1791 = getelementptr inbounds nuw i8, ptr %.val14, i64 8
   %1792 = load ptr, ptr %1791, align 8, !noalias !191
-  %1793 = getelementptr inbounds i8, ptr %.val14, i64 16
+  %1793 = getelementptr inbounds nuw i8, ptr %.val14, i64 16
   %1794 = load ptr, ptr %1793, align 8, !noalias !191
   %1795 = load i64, ptr %1794, align 8, !noalias !191
   store i64 %1795, ptr %18, align 8, !noalias !191
-  %1796 = getelementptr inbounds i8, ptr %18, i64 8
-  %1797 = getelementptr inbounds i8, ptr %1794, i64 8
+  %1796 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %1797 = getelementptr inbounds nuw i8, ptr %1794, i64 8
   %1798 = load ptr, ptr %1797, align 8, !noalias !191
   store ptr %1798, ptr %1796, align 8, !noalias !191
-  %1799 = getelementptr inbounds i8, ptr %19, i64 16
-  %1800 = getelementptr inbounds i8, ptr %19, i64 24
+  %1799 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %1800 = getelementptr inbounds nuw i8, ptr %19, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 16, i1 false), !noalias !191
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1800, align 8, !noalias !191
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEjEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1799, align 8, !noalias !191
-  %1801 = getelementptr inbounds i8, ptr %.val14, i64 24
+  %1801 = getelementptr inbounds nuw i8, ptr %.val14, i64 24
   %1802 = load ptr, ptr %1801, align 8, !noalias !191
   %1803 = load i8, ptr %1802, align 1, !noalias !191
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1792, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %19, i8 noundef signext %1803)
@@ -4660,7 +4660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 
 1828:                                             ; preds = %3
   %.val15 = load ptr, ptr %2, align 8
-  %1829 = getelementptr inbounds i8, ptr %2, i64 8
+  %1829 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val16 = load ptr, ptr %1829, align 8
   %.val15.val = load i32, ptr %.val15, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
@@ -4677,22 +4677,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 1830:                                             ; preds = %1828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !194
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !194
-  %1831 = getelementptr inbounds i8, ptr %.val16, i64 8
+  %1831 = getelementptr inbounds nuw i8, ptr %.val16, i64 8
   %1832 = load ptr, ptr %1831, align 8, !noalias !197
-  %1833 = getelementptr inbounds i8, ptr %.val16, i64 16
+  %1833 = getelementptr inbounds nuw i8, ptr %.val16, i64 16
   %1834 = load ptr, ptr %1833, align 8, !noalias !197
   %1835 = load i64, ptr %1834, align 8, !noalias !197
   store i64 %1835, ptr %14, align 8, !noalias !197
-  %1836 = getelementptr inbounds i8, ptr %14, i64 8
-  %1837 = getelementptr inbounds i8, ptr %1834, i64 8
+  %1836 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %1837 = getelementptr inbounds nuw i8, ptr %1834, i64 8
   %1838 = load ptr, ptr %1837, align 8, !noalias !197
   store ptr %1838, ptr %1836, align 8, !noalias !197
-  %1839 = getelementptr inbounds i8, ptr %15, i64 16
-  %1840 = getelementptr inbounds i8, ptr %15, i64 24
+  %1839 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %1840 = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 16, i1 false), !noalias !197
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E_mEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1840, align 8, !noalias !197
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E_mEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1839, align 8, !noalias !197
-  %1841 = getelementptr inbounds i8, ptr %.val16, i64 24
+  %1841 = getelementptr inbounds nuw i8, ptr %.val16, i64 24
   %1842 = load ptr, ptr %1841, align 8, !noalias !197
   %1843 = load i8, ptr %1842, align 1, !noalias !197
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1832, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %15, i8 noundef signext %1843)
@@ -4740,22 +4740,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 1859:                                             ; preds = %1828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12), !noalias !194
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !194
-  %1860 = getelementptr inbounds i8, ptr %.val16, i64 8
+  %1860 = getelementptr inbounds nuw i8, ptr %.val16, i64 8
   %1861 = load ptr, ptr %1860, align 8, !noalias !200
-  %1862 = getelementptr inbounds i8, ptr %.val16, i64 16
+  %1862 = getelementptr inbounds nuw i8, ptr %.val16, i64 16
   %1863 = load ptr, ptr %1862, align 8, !noalias !200
   %1864 = load i64, ptr %1863, align 8, !noalias !200
   store i64 %1864, ptr %12, align 8, !noalias !200
-  %1865 = getelementptr inbounds i8, ptr %12, i64 8
-  %1866 = getelementptr inbounds i8, ptr %1863, i64 8
+  %1865 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %1866 = getelementptr inbounds nuw i8, ptr %1863, i64 8
   %1867 = load ptr, ptr %1866, align 8, !noalias !200
   store ptr %1867, ptr %1865, align 8, !noalias !200
-  %1868 = getelementptr inbounds i8, ptr %13, i64 16
-  %1869 = getelementptr inbounds i8, ptr %13, i64 24
+  %1868 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %1869 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 16, i1 false), !noalias !200
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E0_mEEDaSJ_SK_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1869, align 8, !noalias !200
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clIZZNS8_9AllreduceESB_S5_SD_SE_ENK3$_0clImEEDaT_EUlSJ_T0_E0_mEEDaSJ_SK_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %1868, align 8, !noalias !200
-  %1870 = getelementptr inbounds i8, ptr %.val16, i64 24
+  %1870 = getelementptr inbounds nuw i8, ptr %.val16, i64 24
   %1871 = load ptr, ptr %1870, align 8, !noalias !200
   %1872 = load i8, ptr %1871, align 1, !noalias !200
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1861, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %13, i8 noundef signext %1872)
@@ -4803,22 +4803,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 1888:                                             ; preds = %1828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !194
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !194
-  %1889 = getelementptr inbounds i8, ptr %.val16, i64 8
+  %1889 = getelementptr inbounds nuw i8, ptr %.val16, i64 8
   %1890 = load ptr, ptr %1889, align 8, !noalias !203
-  %1891 = getelementptr inbounds i8, ptr %.val16, i64 16
+  %1891 = getelementptr inbounds nuw i8, ptr %.val16, i64 16
   %1892 = load ptr, ptr %1891, align 8, !noalias !203
   %1893 = load i64, ptr %1892, align 8, !noalias !203
   store i64 %1893, ptr %10, align 8, !noalias !203
-  %1894 = getelementptr inbounds i8, ptr %10, i64 8
-  %1895 = getelementptr inbounds i8, ptr %1892, i64 8
+  %1894 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %1895 = getelementptr inbounds nuw i8, ptr %1892, i64 8
   %1896 = load ptr, ptr %1895, align 8, !noalias !203
   store ptr %1896, ptr %1894, align 8, !noalias !203
-  %1897 = getelementptr inbounds i8, ptr %11, i64 16
-  %1898 = getelementptr inbounds i8, ptr %11, i64 24
+  %1897 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %1898 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 16, i1 false), !noalias !203
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1898, align 8, !noalias !203
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt4plusIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1897, align 8, !noalias !203
-  %1899 = getelementptr inbounds i8, ptr %.val16, i64 24
+  %1899 = getelementptr inbounds nuw i8, ptr %.val16, i64 24
   %1900 = load ptr, ptr %1899, align 8, !noalias !203
   %1901 = load i8, ptr %1900, align 1, !noalias !203
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1890, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i8 noundef signext %1901)
@@ -4866,22 +4866,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 1917:                                             ; preds = %1828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !194
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !194
-  %1918 = getelementptr inbounds i8, ptr %.val16, i64 8
+  %1918 = getelementptr inbounds nuw i8, ptr %.val16, i64 8
   %1919 = load ptr, ptr %1918, align 8, !noalias !206
-  %1920 = getelementptr inbounds i8, ptr %.val16, i64 16
+  %1920 = getelementptr inbounds nuw i8, ptr %.val16, i64 16
   %1921 = load ptr, ptr %1920, align 8, !noalias !206
   %1922 = load i64, ptr %1921, align 8, !noalias !206
   store i64 %1922, ptr %8, align 8, !noalias !206
-  %1923 = getelementptr inbounds i8, ptr %8, i64 8
-  %1924 = getelementptr inbounds i8, ptr %1921, i64 8
+  %1923 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %1924 = getelementptr inbounds nuw i8, ptr %1921, i64 8
   %1925 = load ptr, ptr %1924, align 8, !noalias !206
   store ptr %1925, ptr %1923, align 8, !noalias !206
-  %1926 = getelementptr inbounds i8, ptr %9, i64 16
-  %1927 = getelementptr inbounds i8, ptr %9, i64 24
+  %1926 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %1927 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false), !noalias !206
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1927, align 8, !noalias !206
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_andIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1926, align 8, !noalias !206
-  %1928 = getelementptr inbounds i8, ptr %.val16, i64 24
+  %1928 = getelementptr inbounds nuw i8, ptr %.val16, i64 24
   %1929 = load ptr, ptr %1928, align 8, !noalias !206
   %1930 = load i8, ptr %1929, align 1, !noalias !206
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1919, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %9, i8 noundef signext %1930)
@@ -4929,22 +4929,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 1946:                                             ; preds = %1828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !194
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !194
-  %1947 = getelementptr inbounds i8, ptr %.val16, i64 8
+  %1947 = getelementptr inbounds nuw i8, ptr %.val16, i64 8
   %1948 = load ptr, ptr %1947, align 8, !noalias !209
-  %1949 = getelementptr inbounds i8, ptr %.val16, i64 16
+  %1949 = getelementptr inbounds nuw i8, ptr %.val16, i64 16
   %1950 = load ptr, ptr %1949, align 8, !noalias !209
   %1951 = load i64, ptr %1950, align 8, !noalias !209
   store i64 %1951, ptr %6, align 8, !noalias !209
-  %1952 = getelementptr inbounds i8, ptr %6, i64 8
-  %1953 = getelementptr inbounds i8, ptr %1950, i64 8
+  %1952 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %1953 = getelementptr inbounds nuw i8, ptr %1950, i64 8
   %1954 = load ptr, ptr %1953, align 8, !noalias !209
   store ptr %1954, ptr %1952, align 8, !noalias !209
-  %1955 = getelementptr inbounds i8, ptr %7, i64 16
-  %1956 = getelementptr inbounds i8, ptr %7, i64 24
+  %1955 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %1956 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 16, i1 false), !noalias !209
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1956, align 8, !noalias !209
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt6bit_orIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1955, align 8, !noalias !209
-  %1957 = getelementptr inbounds i8, ptr %.val16, i64 24
+  %1957 = getelementptr inbounds nuw i8, ptr %.val16, i64 24
   %1958 = load ptr, ptr %1957, align 8, !noalias !209
   %1959 = load i8, ptr %1958, align 1, !noalias !209
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1948, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i8 noundef signext %1959)
@@ -4992,22 +4992,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i164:
 1975:                                             ; preds = %1828
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !194
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !194
-  %1976 = getelementptr inbounds i8, ptr %.val16, i64 8
+  %1976 = getelementptr inbounds nuw i8, ptr %.val16, i64 8
   %1977 = load ptr, ptr %1976, align 8, !noalias !212
-  %1978 = getelementptr inbounds i8, ptr %.val16, i64 16
+  %1978 = getelementptr inbounds nuw i8, ptr %.val16, i64 16
   %1979 = load ptr, ptr %1978, align 8, !noalias !212
   %1980 = load i64, ptr %1979, align 8, !noalias !212
   store i64 %1980, ptr %4, align 8, !noalias !212
-  %1981 = getelementptr inbounds i8, ptr %4, i64 8
-  %1982 = getelementptr inbounds i8, ptr %1979, i64 8
+  %1981 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %1982 = getelementptr inbounds nuw i8, ptr %1979, i64 8
   %1983 = load ptr, ptr %1982, align 8, !noalias !212
   store ptr %1983, ptr %1981, align 8, !noalias !212
-  %1984 = getelementptr inbounds i8, ptr %5, i64 16
-  %1985 = getelementptr inbounds i8, ptr %5, i64 24
+  %1984 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %1985 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 16, i1 false), !noalias !212
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlS4_S5_E_E9_M_invokeERKSt9_Any_dataOS4_OS5_", ptr %1985, align 8, !noalias !212
   store ptr @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm18446744073709551615EEENS2_IaLm18446744073709551615EEEEZZNS0_10collective4Coll9AllreduceERKNS7_4CommES5_NS0_21ArrayInterfaceHandler4TypeENS7_2OpEENK3$_2clISt7bit_xorIvEmEEDaT_T0_EUlS4_S5_E_E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %1984, align 8, !noalias !212
-  %1986 = getelementptr inbounds i8, ptr %.val16, i64 24
+  %1986 = getelementptr inbounds nuw i8, ptr %.val16, i64 24
   %1987 = load ptr, ptr %1986, align 8, !noalias !212
   %1988 = load i8, ptr %1987, align 1, !noalias !212
   invoke void @_ZN7xgboost10collective8cpu_impl13RingAllreduceERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEERKSt8functionIFvNS6_IKaLm18446744073709551615EEES7_EENS_21ArrayInterfaceHandler4TypeE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1977, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef signext %1988)
@@ -5140,8 +5140,8 @@ define void @_ZN7xgboost10collective4Coll9BroadcastERKNS0_4CommENS_6common4SpanI
   %6 = alloca %"class.xgboost::common::Span", align 8
   %7 = load i64, ptr %3, align 8
   store i64 %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
   call void @_ZN7xgboost10collective8cpu_impl9BroadcastERKNS0_4CommENS_6common4SpanIaLm18446744073709551615EEEi(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %2, ptr noundef nonnull %6, i32 noundef %4)
@@ -5155,8 +5155,8 @@ define void @_ZN7xgboost10collective4Coll9AllgatherERKNS0_4CommENS_6common4SpanI
   %5 = alloca %"class.xgboost::common::Span", align 8
   %6 = load i64, ptr %3, align 8
   store i64 %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %7, align 8
   call void @_ZN7xgboost10collective13RingAllgatherIaEENS0_6ResultERKNS0_4CommENS_6common4SpanIT_Lm18446744073709551615EEE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %2, ptr noundef nonnull %5)
@@ -5172,13 +5172,13 @@ define linkonce_odr void @_ZN7xgboost10collective13RingAllgatherIaEENS0_6ResultE
   %8 = alloca %"class.std::shared_ptr.159", align 8
   %9 = alloca %"class.std::shared_ptr.159", align 8
   %10 = load i64, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %12, -1
   %13 = select i1 %.not.i, i32 1, i32 %12
   %14 = sext i32 %13 to i64
   %15 = udiv i64 %10, %14
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp ne ptr %17, null
   %19 = icmp eq i64 %10, 0
@@ -5190,7 +5190,7 @@ define linkonce_odr void @_ZN7xgboost10collective13RingAllgatherIaEENS0_6ResultE
   unreachable
 
 _ZN7xgboost6common9EraseTypeIaaEENS0_4SpanIT0_Lm18446744073709551615EEENS2_IT_Lm18446744073709551615EEE.exit: ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %23 = load i32, ptr %22, align 4
   %24 = add i32 %13, -1
   %25 = add i32 %24, %23
@@ -5199,30 +5199,30 @@ _ZN7xgboost6common9EraseTypeIaaEENS0_4SpanIT0_Lm18446744073709551615EEENS2_IT_Lm
   %28 = add i32 %27, %23
   %29 = srem i32 %28, %13
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.159") align 8 %4, ptr noundef nonnull align 8 dereferenceable(184) %1, i32 noundef %26)
   %33 = load ptr, ptr %1, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
   invoke void %35(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.159") align 8 %5, ptr noundef nonnull align 8 dereferenceable(184) %1, i32 noundef %29)
           to label %36 unwind label %135
 
 36:                                               ; preds = %_ZN7xgboost6common9EraseTypeIaaEENS0_4SpanIT0_Lm18446744073709551615EEENS2_IT_Lm18446744073709551615EEE.exit
   store i64 %10, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %17, ptr %37, align 8
   %38 = load ptr, ptr %4, align 8
   store ptr %38, ptr %8, align 8
-  %39 = getelementptr inbounds i8, ptr %8, i64 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
   %.not.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit, label %42
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %44, 0
   br i1 %.not.i.i.i.i, label %48, label %45
@@ -5240,15 +5240,15 @@ _ZN7xgboost6common9EraseTypeIaaEENS0_4SpanIT0_Lm18446744073709551615EEENS2_IT_Lm
 _ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit: ; preds = %36, %45, %48
   %50 = load ptr, ptr %5, align 8
   store ptr %50, ptr %9, align 8
-  %51 = getelementptr inbounds i8, ptr %9, i64 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %51, align 8
   %.not.i.i.i24 = icmp eq ptr %53, null
   br i1 %.not.i.i.i24, label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit26, label %54
 
 54:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit
-  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i25 = icmp eq i8 %56, 0
   br i1 %.not.i.i.i.i25, label %60, label %57
@@ -5273,7 +5273,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit26: ; preds = %_ZN
   br i1 %.not.i.i.i27, label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %63, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load atomic i64, ptr %65 acquire, align 8
   %67 = icmp eq i64 %66, 4294967297
   %68 = trunc i64 %66 to i32
@@ -5281,10 +5281,10 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit26: ; preds = %_ZN
 
 69:                                               ; preds = %64
   store i32 0, ptr %65, align 8
-  %70 = getelementptr inbounds i8, ptr %63, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i32 0, ptr %70, align 4
   %71 = load ptr, ptr %63, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(16) %63) #12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -5310,10 +5310,10 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit26: ; preds = %_ZN
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %63, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 8
   call void %85(ptr noundef nonnull align 8 dereferenceable(16) %63) #12
-  %86 = getelementptr inbounds i8, ptr %63, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %87 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %87, 0
   br i1 %.not.i.i.i.i.i.i, label %91, label %88
@@ -5335,7 +5335,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEEC2ERKS3_.exit26: ; preds = %_ZN
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %93, %69
   %95 = load ptr, ptr %63, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(16) %63) #12
   br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit
@@ -5346,7 +5346,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit: ; preds = %62, %80, 
   br i1 %.not.i.i.i29, label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit35, label %99
 
 99:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit
-  %100 = getelementptr inbounds i8, ptr %98, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %101 = load atomic i64, ptr %100 acquire, align 8
   %102 = icmp eq i64 %101, 4294967297
   %103 = trunc i64 %101 to i32
@@ -5354,10 +5354,10 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit: ; preds = %62, %80, 
 
 104:                                              ; preds = %99
   store i32 0, ptr %100, align 8
-  %105 = getelementptr inbounds i8, ptr %98, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %98, i64 12
   store i32 0, ptr %105, align 4
   %106 = load ptr, ptr %98, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = load ptr, ptr %107, align 8
   call void %108(ptr noundef nonnull align 8 dereferenceable(16) %98) #12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i34
@@ -5383,10 +5383,10 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit: ; preds = %62, %80, 
 
 117:                                              ; preds = %115
   %118 = load ptr, ptr %98, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(16) %98) #12
-  %121 = getelementptr inbounds i8, ptr %98, i64 12
+  %121 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %122 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i32 = icmp eq i8 %122, 0
   br i1 %.not.i.i.i.i.i.i32, label %126, label %123
@@ -5408,7 +5408,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit: ; preds = %62, %80, 
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i34: ; preds = %128, %104
   %130 = load ptr, ptr %98, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %132 = load ptr, ptr %131, align 8
   call void %132(ptr noundef nonnull align 8 dereferenceable(16) %98) #12
   br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit35
@@ -5437,7 +5437,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit35: ; preds = %_ZNSt10
 
 139:                                              ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit35
   %140 = load ptr, ptr %1, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = load ptr, ptr %141, align 8
   invoke void %142(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1)
           to label %145 unwind label %143
@@ -5465,7 +5465,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %.thread, %145, %_ZN
   br i1 %.not.i.i.i37, label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit43, label %147
 
 147:                                              ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit
-  %148 = getelementptr inbounds i8, ptr %146, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %149 = load atomic i64, ptr %148 acquire, align 8
   %150 = icmp eq i64 %149, 4294967297
   %151 = trunc i64 %149 to i32
@@ -5473,10 +5473,10 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %.thread, %145, %_ZN
 
 152:                                              ; preds = %147
   store i32 0, ptr %148, align 8
-  %153 = getelementptr inbounds i8, ptr %146, i64 12
+  %153 = getelementptr inbounds nuw i8, ptr %146, i64 12
   store i32 0, ptr %153, align 4
   %154 = load ptr, ptr %146, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %156 = load ptr, ptr %155, align 8
   call void %156(ptr noundef nonnull align 8 dereferenceable(16) %146) #12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i42
@@ -5502,10 +5502,10 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %.thread, %145, %_ZN
 
 165:                                              ; preds = %163
   %166 = load ptr, ptr %146, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %168 = load ptr, ptr %167, align 8
   call void %168(ptr noundef nonnull align 8 dereferenceable(16) %146) #12
-  %169 = getelementptr inbounds i8, ptr %146, i64 12
+  %169 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %170 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i40 = icmp eq i8 %170, 0
   br i1 %.not.i.i.i.i.i.i40, label %174, label %171
@@ -5527,7 +5527,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %.thread, %145, %_ZN
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i42: ; preds = %176, %152
   %178 = load ptr, ptr %146, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %180 = load ptr, ptr %179, align 8
   call void %180(ptr noundef nonnull align 8 dereferenceable(16) %146) #12
   br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit43
@@ -5538,7 +5538,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit43: ; preds = %_ZN7xgb
   br i1 %.not.i.i.i44, label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit50, label %182
 
 182:                                              ; preds = %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit43
-  %183 = getelementptr inbounds i8, ptr %181, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %184 = load atomic i64, ptr %183 acquire, align 8
   %185 = icmp eq i64 %184, 4294967297
   %186 = trunc i64 %184 to i32
@@ -5546,10 +5546,10 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit43: ; preds = %_ZN7xgb
 
 187:                                              ; preds = %182
   store i32 0, ptr %183, align 8
-  %188 = getelementptr inbounds i8, ptr %181, i64 12
+  %188 = getelementptr inbounds nuw i8, ptr %181, i64 12
   store i32 0, ptr %188, align 4
   %189 = load ptr, ptr %181, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %191 = load ptr, ptr %190, align 8
   call void %191(ptr noundef nonnull align 8 dereferenceable(16) %181) #12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i49
@@ -5575,10 +5575,10 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit43: ; preds = %_ZN7xgb
 
 200:                                              ; preds = %198
   %201 = load ptr, ptr %181, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %203 = load ptr, ptr %202, align 8
   call void %203(ptr noundef nonnull align 8 dereferenceable(16) %181) #12
-  %204 = getelementptr inbounds i8, ptr %181, i64 12
+  %204 = getelementptr inbounds nuw i8, ptr %181, i64 12
   %205 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i47 = icmp eq i8 %205, 0
   br i1 %.not.i.i.i.i.i.i47, label %209, label %206
@@ -5600,7 +5600,7 @@ _ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit43: ; preds = %_ZN7xgb
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i49: ; preds = %211, %187
   %213 = load ptr, ptr %181, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 24
   %215 = load ptr, ptr %214, align 8
   call void %215(ptr noundef nonnull align 8 dereferenceable(16) %181) #12
   br label %_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev.exit50
@@ -5632,18 +5632,18 @@ define void @_ZN7xgboost10collective4Coll10AllgatherVERKNS0_4CommENS_6common4Spa
   %17 = alloca %"class.std::allocator", align 1
   %18 = load i64, ptr %4, align 8
   store i64 %18, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
   %22 = load i64, ptr %5, align 8
   store i64 %22, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %10, i64 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %23, align 8
   call void @_ZN7xgboost10collective6detail16AllgatherVOffsetENS_6common4SpanIKlLm18446744073709551615EEENS3_IlLm18446744073709551615EEE(ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %26 = getelementptr inbounds i8, ptr %2, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %29 = load i64, ptr %5, align 8
@@ -5683,7 +5683,7 @@ _ZNK7xgboost6common4SpanIlLm18446744073709551615EEixEm.exit: ; preds = %8
 
 45:                                               ; preds = %43, %39
   %46 = phi i64 [ %44, %43 ], [ %35, %39 ]
-  %.in.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.in.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %47 = load ptr, ptr %.in.i, align 8, !noalias !218
   %48 = getelementptr inbounds i8, ptr %47, i64 %34
   %49 = icmp ne ptr %47, null
@@ -5696,7 +5696,7 @@ _ZNK7xgboost6common4SpanIlLm18446744073709551615EEixEm.exit: ; preds = %8
   unreachable
 
 _ZNK7xgboost6common4SpanIaLm18446744073709551615EE7subspanEmm.exit: ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %3, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not = icmp eq ptr %48, %54
   %55 = icmp eq i64 %35, 0
@@ -5716,17 +5716,17 @@ _ZSt6copy_nIPKamPaET1_T_T0_S3_.exit:              ; preds = %_ZSt8__copy_nIPKamP
 56:                                               ; preds = %_ZSt6copy_nIPKamPaET1_T_T0_S3_.exit
   %57 = load i64, ptr %4, align 8
   store i64 %57, ptr %11, align 8
-  %58 = getelementptr inbounds i8, ptr %11, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %59 = load ptr, ptr %20, align 8
   store ptr %59, ptr %58, align 8
   %60 = load i64, ptr %5, align 8
   store i64 %60, ptr %12, align 8
-  %61 = getelementptr inbounds i8, ptr %12, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %62 = load ptr, ptr %24, align 8
   store ptr %62, ptr %61, align 8
   %63 = load i64, ptr %6, align 8
   store i64 %63, ptr %13, align 8
-  %64 = getelementptr inbounds i8, ptr %13, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %65 = load ptr, ptr %.in.i, align 8
   store ptr %65, ptr %64, align 8
   call void @_ZN7xgboost10collective6detail14RingAllgatherVERKNS0_4CommENS_6common4SpanIKlLm18446744073709551615EEES8_NS6_IaLm18446744073709551615EEE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %2, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
@@ -5735,12 +5735,12 @@ _ZSt6copy_nIPKamPaET1_T_T0_S3_.exit:              ; preds = %_ZSt8__copy_nIPKamP
 66:                                               ; preds = %_ZSt6copy_nIPKamPaET1_T_T0_S3_.exit
   %67 = load i64, ptr %4, align 8
   store i64 %67, ptr %14, align 8
-  %68 = getelementptr inbounds i8, ptr %14, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %69 = load ptr, ptr %20, align 8
   store ptr %69, ptr %68, align 8
   %70 = load i64, ptr %6, align 8
   store i64 %70, ptr %15, align 8
-  %71 = getelementptr inbounds i8, ptr %15, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %72 = load ptr, ptr %.in.i, align 8
   store ptr %72, ptr %71, align 8
   call void @_ZN7xgboost10collective8cpu_impl19BroadcastAllgatherVERKNS0_4CommENS_6common4SpanIKlLm18446744073709551615EEENS6_IaLm18446744073709551615EEE(ptr dead_on_unwind writable sret(%"struct.xgboost::collective::Result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %2, ptr noundef nonnull %14, ptr noundef nonnull %15)
@@ -5799,7 +5799,7 @@ define linkonce_odr void @_ZN7xgboost10collective6detail16AllgatherVOffsetENS_6c
   %3 = alloca %"class.std::unique_ptr.16", align 8
   %4 = alloca i32, align 4
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %1, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %_ZSt6fill_nIPlmiET_S1_T0_RKT1_.exit.thread, label %_ZSt6fill_nIPlmiET_S1_T0_RKT1_.exit
@@ -5948,12 +5948,12 @@ define linkonce_odr void @_ZN7xgboost10collective4FailENSt7__cxx1112basic_string
 8:                                                ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #12, !noalias !221
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(32) %5) #12, !noalias !221
-  %9 = getelementptr inbounds i8, ptr %7, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 0, ptr %9, align 8, !noalias !221
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #28
   store ptr %11, ptr %10, align 8, !noalias !221
-  %12 = getelementptr inbounds i8, ptr %7, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %12, align 8, !noalias !221
   store ptr %7, ptr %0, align 8, !alias.scope !221
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #12, !noalias !221
@@ -6122,13 +6122,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost10collective4CollD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt23enable_shared_from_thisIN7xgboost10collective4CollEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %.not.i.i.i.i.i, label %10, label %7
@@ -6150,7 +6150,7 @@ define linkonce_odr void @_ZN7xgboost10collective4CollD2Ev(ptr noundef nonnull a
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   br label %_ZNSt23enable_shared_from_thisIN7xgboost10collective4CollEED2Ev.exit
@@ -6161,13 +6161,13 @@ _ZNSt23enable_shared_from_thisIN7xgboost10collective4CollEED2Ev.exit: ; preds = 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost10collective4CollD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN7xgboost10collective4CollD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %.not.i.i.i.i.i.i, label %10, label %7
@@ -6189,7 +6189,7 @@ define linkonce_odr void @_ZN7xgboost10collective4CollD0Ev(ptr noundef nonnull a
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   br label %_ZN7xgboost10collective4CollD2Ev.exit
@@ -6213,10 +6213,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -6339,9 +6339,9 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds float, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw float, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds float, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw float, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load float, ptr %48, align 4
   %50 = fcmp olt float %47, %49
   %.sroa.speculated.i.i.i.i.i = select i1 %50, float %49, float %47
@@ -6490,10 +6490,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -6616,9 +6616,9 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds float, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw float, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds float, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw float, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load float, ptr %48, align 4
   %50 = fcmp olt float %49, %47
   %.sroa.speculated.i.i.i.i.i = select i1 %50, float %49, float %47
@@ -6679,10 +6679,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -6805,8 +6805,8 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds float, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds float, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw float, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw float, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load float, ptr %46, align 4
   %49 = load float, ptr %47, align 4
   %50 = fadd float %48, %49
@@ -6867,10 +6867,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -6993,9 +6993,9 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds double, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw double, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load double, ptr %46, align 8
-  %48 = getelementptr inbounds double, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw double, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load double, ptr %48, align 8
   %50 = fcmp olt double %47, %49
   %.sroa.speculated.i.i.i.i.i = select i1 %50, double %49, double %47
@@ -7056,10 +7056,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -7182,9 +7182,9 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds double, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw double, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load double, ptr %46, align 8
-  %48 = getelementptr inbounds double, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw double, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load double, ptr %48, align 8
   %50 = fcmp olt double %49, %47
   %.sroa.speculated.i.i.i.i.i = select i1 %50, double %49, double %47
@@ -7245,10 +7245,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -7371,8 +7371,8 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds double, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds double, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw double, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw double, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load double, ptr %46, align 8
   %49 = load double, ptr %47, align 8
   %50 = fadd double %48, %49
@@ -7433,10 +7433,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -7559,9 +7559,9 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %52, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds x86_fp80, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw x86_fp80, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load x86_fp80, ptr %46, align 16
-  %48 = getelementptr inbounds x86_fp80, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw x86_fp80, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load x86_fp80, ptr %48, align 16
   %50 = fcmp olt x86_fp80 %47, %49
   %51 = select i1 %50, x86_fp80 %49, x86_fp80 %47
@@ -7622,10 +7622,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -7748,9 +7748,9 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %52, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds x86_fp80, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw x86_fp80, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load x86_fp80, ptr %46, align 16
-  %48 = getelementptr inbounds x86_fp80, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw x86_fp80, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load x86_fp80, ptr %48, align 16
   %50 = fcmp olt x86_fp80 %49, %47
   %51 = select i1 %50, x86_fp80 %49, x86_fp80 %47
@@ -7811,10 +7811,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -7937,8 +7937,8 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds x86_fp80, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds x86_fp80, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw x86_fp80, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw x86_fp80, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load x86_fp80, ptr %46, align 16
   %49 = load x86_fp80, ptr %47, align 16
   %50 = fadd x86_fp80 %48, %49
@@ -7999,10 +7999,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -8186,10 +8186,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -8373,10 +8373,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -8560,10 +8560,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -8747,10 +8747,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -8934,10 +8934,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -9121,10 +9121,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -9247,9 +9247,9 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i16, ptr %46, align 2
-  %48 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i16, ptr %48, align 2
   %.sroa.speculated.i.i.i.i.i = call noundef i16 @llvm.smax.i16(i16 %47, i16 %49)
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %48, align 2
@@ -9309,10 +9309,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -9435,9 +9435,9 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i16, ptr %46, align 2
-  %48 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i16, ptr %48, align 2
   %.sroa.speculated.i.i.i.i.i = call noundef i16 @llvm.smin.i16(i16 %49, i16 %47)
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %48, align 2
@@ -9497,10 +9497,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -9623,8 +9623,8 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i16, ptr %46, align 2
   %49 = load i16, ptr %47, align 2
   %50 = add i16 %49, %48
@@ -9685,10 +9685,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -9811,8 +9811,8 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i16, ptr %46, align 2
   %49 = load i16, ptr %47, align 2
   %50 = and i16 %49, %48
@@ -9873,10 +9873,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -9999,8 +9999,8 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i16, ptr %46, align 2
   %49 = load i16, ptr %47, align 2
   %50 = or i16 %49, %48
@@ -10061,10 +10061,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -10187,8 +10187,8 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i16, ptr %46, align 2
   %49 = load i16, ptr %47, align 2
   %50 = xor i16 %49, %48
@@ -10249,10 +10249,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -10375,9 +10375,9 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i32, ptr %48, align 4
   %.sroa.speculated.i.i.i.i.i = call noundef i32 @llvm.smax.i32(i32 %47, i32 %49)
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %48, align 4
@@ -10437,10 +10437,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -10563,9 +10563,9 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i32, ptr %48, align 4
   %.sroa.speculated.i.i.i.i.i = call noundef i32 @llvm.smin.i32(i32 %49, i32 %47)
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %48, align 4
@@ -10625,10 +10625,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -10751,8 +10751,8 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i32, ptr %46, align 4
   %49 = load i32, ptr %47, align 4
   %50 = add nsw i32 %49, %48
@@ -10813,10 +10813,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -10939,8 +10939,8 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i32, ptr %46, align 4
   %49 = load i32, ptr %47, align 4
   %50 = and i32 %49, %48
@@ -11001,10 +11001,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -11127,8 +11127,8 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i32, ptr %46, align 4
   %49 = load i32, ptr %47, align 4
   %50 = or i32 %49, %48
@@ -11189,10 +11189,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -11315,8 +11315,8 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i32, ptr %46, align 4
   %49 = load i32, ptr %47, align 4
   %50 = xor i32 %49, %48
@@ -11377,10 +11377,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -11503,9 +11503,9 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i64, ptr %48, align 8
   %.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.smax.i64(i64 %47, i64 %49)
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %48, align 8
@@ -11565,10 +11565,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -11691,9 +11691,9 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i64, ptr %48, align 8
   %.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.smin.i64(i64 %49, i64 %47)
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %48, align 8
@@ -11753,10 +11753,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -11879,8 +11879,8 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i64, ptr %46, align 8
   %49 = load i64, ptr %47, align 8
   %50 = add nsw i64 %49, %48
@@ -11941,10 +11941,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -12067,8 +12067,8 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i64, ptr %46, align 8
   %49 = load i64, ptr %47, align 8
   %50 = and i64 %49, %48
@@ -12129,10 +12129,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -12255,8 +12255,8 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i64, ptr %46, align 8
   %49 = load i64, ptr %47, align 8
   %50 = or i64 %49, %48
@@ -12317,10 +12317,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -12443,8 +12443,8 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i64, ptr %46, align 8
   %49 = load i64, ptr %47, align 8
   %50 = xor i64 %49, %48
@@ -12505,10 +12505,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -12692,10 +12692,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -12879,10 +12879,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13066,10 +13066,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13253,10 +13253,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13440,10 +13440,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13627,10 +13627,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13753,9 +13753,9 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i16, ptr %46, align 2
-  %48 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i16, ptr %48, align 2
   %.sroa.speculated.i.i.i.i.i = call noundef i16 @llvm.umax.i16(i16 %47, i16 %49)
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %48, align 2
@@ -13815,10 +13815,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13941,9 +13941,9 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i16, ptr %46, align 2
-  %48 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i16, ptr %48, align 2
   %.sroa.speculated.i.i.i.i.i = call noundef i16 @llvm.umin.i16(i16 %49, i16 %47)
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %48, align 2
@@ -14003,10 +14003,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -14129,8 +14129,8 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i16, ptr %46, align 2
   %49 = load i16, ptr %47, align 2
   %50 = add i16 %49, %48
@@ -14191,10 +14191,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -14317,8 +14317,8 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i16, ptr %46, align 2
   %49 = load i16, ptr %47, align 2
   %50 = and i16 %49, %48
@@ -14379,10 +14379,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -14505,8 +14505,8 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i16, ptr %46, align 2
   %49 = load i16, ptr %47, align 2
   %50 = or i16 %49, %48
@@ -14567,10 +14567,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -14693,8 +14693,8 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i16, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i16, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i16, ptr %46, align 2
   %49 = load i16, ptr %47, align 2
   %50 = xor i16 %49, %48
@@ -14755,10 +14755,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -14881,9 +14881,9 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i32, ptr %48, align 4
   %.sroa.speculated.i.i.i.i.i = call noundef i32 @llvm.umax.i32(i32 %47, i32 %49)
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %48, align 4
@@ -14943,10 +14943,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -15069,9 +15069,9 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i32, ptr %48, align 4
   %.sroa.speculated.i.i.i.i.i = call noundef i32 @llvm.umin.i32(i32 %49, i32 %47)
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %48, align 4
@@ -15131,10 +15131,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -15257,8 +15257,8 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i32, ptr %46, align 4
   %49 = load i32, ptr %47, align 4
   %50 = add i32 %49, %48
@@ -15319,10 +15319,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -15445,8 +15445,8 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i32, ptr %46, align 4
   %49 = load i32, ptr %47, align 4
   %50 = and i32 %49, %48
@@ -15507,10 +15507,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -15633,8 +15633,8 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i32, ptr %46, align 4
   %49 = load i32, ptr %47, align 4
   %50 = or i32 %49, %48
@@ -15695,10 +15695,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -15821,8 +15821,8 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i32, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i32, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i32, ptr %46, align 4
   %49 = load i32, ptr %47, align 4
   %50 = xor i32 %49, %48
@@ -15883,10 +15883,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -16009,9 +16009,9 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i64, ptr %48, align 8
   %.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umax.i64(i64 %47, i64 %49)
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %48, align 8
@@ -16071,10 +16071,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -16197,9 +16197,9 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %48 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %49 = load i64, ptr %48, align 8
   %.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %49, i64 %47)
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %48, align 8
@@ -16259,10 +16259,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -16385,8 +16385,8 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i64, ptr %46, align 8
   %49 = load i64, ptr %47, align 8
   %50 = add i64 %49, %48
@@ -16447,10 +16447,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -16573,8 +16573,8 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i64, ptr %46, align 8
   %49 = load i64, ptr %47, align 8
   %50 = and i64 %49, %48
@@ -16635,10 +16635,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -16761,8 +16761,8 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i64, ptr %46, align 8
   %49 = load i64, ptr %47, align 8
   %50 = or i64 %49, %48
@@ -16823,10 +16823,10 @@ define internal void @"_ZNSt17_Function_handlerIFvN7xgboost6common4SpanIKaLm1844
   %6 = alloca i64, align 8
   %7 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.val = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val3 = load ptr, ptr %8, align 8
   %.val4 = load i64, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -16949,8 +16949,8 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.01.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %46 = getelementptr inbounds i64, ptr %.val3, i64 %.01.i.i.i.i
-  %47 = getelementptr inbounds i64, ptr %.val5, i64 %.01.i.i.i.i
+  %46 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.01.i.i.i.i
+  %47 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.01.i.i.i.i
   %48 = load i64, ptr %46, align 8
   %49 = load i64, ptr %47, align 8
   %50 = xor i64 %49, %48
@@ -17006,7 +17006,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN7xgboost6common
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7xgboost10collective6detail10ResultImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN7xgboost10collective6detail10ResultImplESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i
@@ -17039,7 +17039,7 @@ define linkonce_odr { ptr, i64 } @_ZSt11partial_sumIN7xgboost6common6detail12Spa
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEdeEv.exit: ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %4, align 8
   %16 = icmp ult i64 %5, %15
   br i1 %16, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0EEdeEv.exit, label %17
@@ -17052,7 +17052,7 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0
   %18 = load ptr, ptr %14, align 8
   %19 = getelementptr inbounds i64, ptr %18, i64 %1
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i64, ptr %22, i64 %5
   store i64 %20, ptr %23, align 8
@@ -17277,9 +17277,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %18 = call i64 @time(ptr noundef null) #12
   store i64 %18, ptr %4, align 8
   %19 = call ptr @localtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #12
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %19, align 8
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(9) %6, i64 noundef 9, ptr noundef nonnull @.str.20, i32 noundef %21, i32 noundef %23, i32 noundef %24) #12
@@ -17956,13 +17956,13 @@ declare void @_ZN7xgboost10collective8cpu_impl13RingAllgatherERKNS0_4CommENS_6co
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -17970,10 +17970,10 @@ define linkonce_odr void @_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev(
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
@@ -17999,10 +17999,10 @@ define linkonce_odr void @_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev(
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i, label %31, label %28
@@ -18024,7 +18024,7 @@ define linkonce_odr void @_ZNSt10shared_ptrIN7xgboost10collective7ChannelEED2Ev(
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   br label %_ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit

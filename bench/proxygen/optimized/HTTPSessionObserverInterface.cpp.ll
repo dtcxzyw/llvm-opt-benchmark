@@ -46,7 +46,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit, label %if.else.i.i
@@ -64,7 +64,7 @@ _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212stead
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEvent7Builder10setHeadersERKNS_11HTTPHeadersE(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %headersIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKN8proxygen11HTTPHeadersEEEaSIRS4_EERS6_OT_.exit, label %if.else.i.i
@@ -74,7 +74,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalISt17reference_wrapperIKN8proxygen11HTTPHeadersEEEaSIRS4_EERS6_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKN8proxygen11HTTPHeadersEEEaSIRS4_EERS6_OT_.exit: ; preds = %entry, %if.else.i.i
-  %maybeHTTPHeadersRef = getelementptr inbounds i8, ptr %this, i64 16
+  %maybeHTTPHeadersRef = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = ptrtoint ptr %headersIn to i64
   store i64 %1, ptr %maybeHTTPHeadersRef, align 8
   ret ptr %this
@@ -92,7 +92,7 @@ define void @_ZN8proxygen28HTTPSessionObserverInterface19RequestStartedEventC2ER
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp4 = alloca ptr, align 8
-  %hasValue.i = getelementptr inbounds i8, ptr %builderFields, i64 8
+  %hasValue.i = getelementptr inbounds nuw i8, ptr %builderFields, i64 8
   %0 = load i8, ptr %hasValue.i, align 8
   %tobool.i = trunc i8 %0 to i1
   %cond.i = select i1 %tobool.i, ptr %builderFields, ptr null
@@ -101,9 +101,9 @@ entry:
   %1 = load ptr, ptr %call2, align 8
   %2 = load i64, ptr %1, align 8
   store i64 %2, ptr %this, align 8
-  %requestHeaders = getelementptr inbounds i8, ptr %this, i64 8
-  %maybeHTTPHeadersRef = getelementptr inbounds i8, ptr %builderFields, i64 16
-  %hasValue.i2 = getelementptr inbounds i8, ptr %builderFields, i64 24
+  %requestHeaders = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %maybeHTTPHeadersRef = getelementptr inbounds nuw i8, ptr %builderFields, i64 16
+  %hasValue.i2 = getelementptr inbounds nuw i8, ptr %builderFields, i64 24
   %3 = load i8, ptr %hasValue.i2, align 8
   %tobool.i3 = trunc i8 %3 to i1
   %cond.i4 = select i1 %tobool.i3, ptr %maybeHTTPHeadersRef, ptr null
@@ -209,7 +209,7 @@ eh.resume:                                        ; preds = %lpad, %cleanup.acti
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEvent7Builder21setPendingEgressBytesERKm(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %pendingEgressBytesIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit, label %if.else.i.i
@@ -227,7 +227,7 @@ _ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit: ; preds = %e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit, label %if.else.i.i
@@ -237,7 +237,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit: ; preds = %entry, %if.else.i.i
-  %maybeTimestampRef = getelementptr inbounds i8, ptr %this, i64 16
+  %maybeTimestampRef = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = ptrtoint ptr %timestampIn to i64
   store i64 %1, ptr %maybeTimestampRef, align 8
   ret ptr %this
@@ -255,7 +255,7 @@ define void @_ZN8proxygen28HTTPSessionObserverInterface13PreWriteEventC2ERNS1_13
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp4 = alloca ptr, align 8
-  %hasValue.i = getelementptr inbounds i8, ptr %builderFields, i64 8
+  %hasValue.i = getelementptr inbounds nuw i8, ptr %builderFields, i64 8
   %0 = load i8, ptr %hasValue.i, align 8
   %tobool.i = trunc i8 %0 to i1
   %cond.i = select i1 %tobool.i, ptr %builderFields, ptr null
@@ -264,9 +264,9 @@ entry:
   %1 = load ptr, ptr %call2, align 8
   %2 = load i64, ptr %1, align 8
   store i64 %2, ptr %this, align 8
-  %timestamp = getelementptr inbounds i8, ptr %this, i64 8
-  %maybeTimestampRef = getelementptr inbounds i8, ptr %builderFields, i64 16
-  %hasValue.i2 = getelementptr inbounds i8, ptr %builderFields, i64 24
+  %timestamp = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %maybeTimestampRef = getelementptr inbounds nuw i8, ptr %builderFields, i64 16
+  %hasValue.i2 = getelementptr inbounds nuw i8, ptr %builderFields, i64 24
   %3 = load i8, ptr %hasValue.i2, align 8
   %tobool.i3 = trunc i8 %3 to i1
   %cond.i4 = select i1 %tobool.i3, ptr %maybeTimestampRef, ptr null
@@ -373,7 +373,7 @@ eh.resume:                                        ; preds = %lpad, %cleanup.acti
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEvent7Builder5setIdERKm(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %IdIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit, label %if.else.i.i
@@ -391,7 +391,7 @@ _ZN5folly8OptionalISt17reference_wrapperIKmEEaSIRS2_EERS4_OT_.exit: ; preds = %e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEvent7Builder12setTimestampERKNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timestampIn) local_unnamed_addr #0 align 2 {
 entry:
-  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i, label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit, label %if.else.i.i
@@ -401,7 +401,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit
 
 _ZN5folly8OptionalISt17reference_wrapperIKNSt6chrono10time_pointINS2_3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEaSIRSB_EERSD_OT_.exit: ; preds = %entry, %if.else.i.i
-  %maybeTimestampRef = getelementptr inbounds i8, ptr %this, i64 16
+  %maybeTimestampRef = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = ptrtoint ptr %timestampIn to i64
   store i64 %1, ptr %maybeTimestampRef, align 8
   ret ptr %this
@@ -419,7 +419,7 @@ define void @_ZN8proxygen28HTTPSessionObserverInterface14PingReplyEventC2ERNS1_1
 entry:
   %ref.tmp = alloca ptr, align 8
   %ref.tmp4 = alloca ptr, align 8
-  %hasValue.i = getelementptr inbounds i8, ptr %builderFields, i64 8
+  %hasValue.i = getelementptr inbounds nuw i8, ptr %builderFields, i64 8
   %0 = load i8, ptr %hasValue.i, align 8
   %tobool.i = trunc i8 %0 to i1
   %cond.i = select i1 %tobool.i, ptr %builderFields, ptr null
@@ -428,9 +428,9 @@ entry:
   %1 = load ptr, ptr %call2, align 8
   %2 = load i64, ptr %1, align 8
   store i64 %2, ptr %this, align 8
-  %timestamp = getelementptr inbounds i8, ptr %this, i64 8
-  %maybeTimestampRef = getelementptr inbounds i8, ptr %builderFields, i64 16
-  %hasValue.i2 = getelementptr inbounds i8, ptr %builderFields, i64 24
+  %timestamp = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %maybeTimestampRef = getelementptr inbounds nuw i8, ptr %builderFields, i64 16
+  %hasValue.i2 = getelementptr inbounds nuw i8, ptr %builderFields, i64 24
   %3 = load i8, ptr %hasValue.i2, align 8
   %tobool.i3 = trunc i8 %3 to i1
   %cond.i4 = select i1 %tobool.i3, ptr %maybeTimestampRef, ptr null

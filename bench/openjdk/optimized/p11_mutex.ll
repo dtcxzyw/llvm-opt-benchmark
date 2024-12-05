@@ -49,11 +49,11 @@ define hidden noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1)
   br label %104
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %16 = icmp eq ptr %15, null
@@ -65,7 +65,7 @@ define hidden noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1)
 
 18:                                               ; preds = %9
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 752
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 752
   %21 = load ptr, ptr %20, align 8
   %22 = tail call ptr %21(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %23 = icmp eq ptr %22, null
@@ -77,14 +77,14 @@ define hidden noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1)
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 760
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 760
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %22) #7
   %.not = icmp ne ptr %29, null
   %30 = select i1 %.not, ptr @callJCreateMutex, ptr null
   store ptr %30, ptr %6, align 8
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 752
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 752
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #7
   %35 = icmp eq ptr %34, null
@@ -96,15 +96,15 @@ define hidden noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1)
 
 37:                                               ; preds = %25
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 760
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 760
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %34) #7
   %.not97 = icmp ne ptr %41, null
   %42 = select i1 %.not97, ptr @callJDestroyMutex, ptr null
-  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %42, ptr %43, align 8
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 752
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 752
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr %46(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #7
   %48 = icmp eq ptr %47, null
@@ -116,15 +116,15 @@ define hidden noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1)
 
 50:                                               ; preds = %37
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 760
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 760
   %53 = load ptr, ptr %52, align 8
   %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %47) #7
   %.not98 = icmp ne ptr %54, null
   %55 = select i1 %.not98, ptr @callJLockMutex, ptr null
-  %56 = getelementptr inbounds i8, ptr %6, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %55, ptr %56, align 8
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 752
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 752
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #7
   %61 = icmp eq ptr %60, null
@@ -136,12 +136,12 @@ define hidden noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1)
 
 63:                                               ; preds = %50
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 760
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 760
   %66 = load ptr, ptr %65, align 8
   %67 = tail call ptr %66(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %60) #7
   %.not99 = icmp ne ptr %67, null
   %68 = select i1 %.not99, ptr @callJUnlockMutex, ptr null
-  %69 = getelementptr inbounds i8, ptr %6, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %68, ptr %69, align 8
   %brmerge103 = select i1 %.not, i1 true, i1 %.not97
   %70 = select i1 %brmerge103, i1 true, i1 %.not98
@@ -150,7 +150,7 @@ define hidden noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1)
 
 71:                                               ; preds = %63
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 168
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 168
   %74 = load ptr, ptr %73, align 8
   %75 = tail call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %1) #7
   store ptr %75, ptr @jInitArgsObject, align 8
@@ -170,7 +170,7 @@ define hidden noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1)
 
 80:                                               ; preds = %63, %79
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 752
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 752
   %83 = load ptr, ptr %82, align 8
   %84 = tail call ptr %83(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #7
   %85 = icmp eq ptr %84, null
@@ -182,12 +182,12 @@ define hidden noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1)
 
 87:                                               ; preds = %80
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 808
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 808
   %90 = load ptr, ptr %89, align 8
   %91 = tail call i64 %90(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %84) #7
   store i64 %91, ptr %10, align 8
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 752
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 752
   %94 = load ptr, ptr %93, align 8
   %95 = tail call ptr %94(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #7
   %96 = icmp eq ptr %95, null
@@ -199,7 +199,7 @@ define hidden noundef ptr @makeCKInitArgsAdapter(ptr noundef %0, ptr noundef %1)
 
 98:                                               ; preds = %87
   %99 = load ptr, ptr %0, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 760
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 760
   %101 = load ptr, ptr %100, align 8
   %102 = tail call ptr %101(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %95) #7
   %103 = call ptr @jObjectToPrimitiveCKObjectPtr(ptr noundef nonnull %0, ptr noundef %102, ptr noundef nonnull %3) #7
@@ -228,7 +228,7 @@ define hidden i64 @callJCreateMutex(ptr nocapture noundef writeonly %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 65538) #7
   %10 = icmp eq i32 %9, -2
@@ -239,7 +239,7 @@ define hidden i64 @callJCreateMutex(ptr nocapture noundef writeonly %0) #0 {
 .sink.split:                                      ; preds = %5
   %11 = load ptr, ptr @jvm_j2pkcs11, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef null) #7
   br label %16
@@ -247,7 +247,7 @@ define hidden i64 @callJCreateMutex(ptr nocapture noundef writeonly %0) #0 {
 16:                                               ; preds = %5, %.sink.split
   %17 = load ptr, ptr %2, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr %20(ptr noundef nonnull %17, ptr noundef nonnull @.str.13) #7
   %22 = icmp eq ptr %21, null
@@ -256,7 +256,7 @@ define hidden i64 @callJCreateMutex(ptr nocapture noundef writeonly %0) #0 {
 23:                                               ; preds = %16
   %24 = load ptr, ptr %2, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr %27(ptr noundef nonnull %24, ptr noundef nonnull @.str) #7
   %29 = icmp eq ptr %28, null
@@ -265,7 +265,7 @@ define hidden i64 @callJCreateMutex(ptr nocapture noundef writeonly %0) #0 {
 30:                                               ; preds = %23
   %31 = load ptr, ptr %2, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 752
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 752
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr %34(ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %36 = icmp eq ptr %35, null
@@ -274,13 +274,13 @@ define hidden i64 @callJCreateMutex(ptr nocapture noundef writeonly %0) #0 {
 37:                                               ; preds = %30
   %38 = load ptr, ptr %2, align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 760
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 760
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @jInitArgsObject, align 8
   %43 = call ptr %41(ptr noundef nonnull %38, ptr noundef %42, ptr noundef nonnull %35) #7
   %44 = load ptr, ptr %2, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 264
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 264
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr %47(ptr noundef nonnull %44, ptr noundef nonnull %21, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #7
   %49 = icmp eq ptr %48, null
@@ -289,18 +289,18 @@ define hidden i64 @callJCreateMutex(ptr nocapture noundef writeonly %0) #0 {
 50:                                               ; preds = %37
   %51 = load ptr, ptr %2, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 272
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 272
   %54 = load ptr, ptr %53, align 8
   %55 = call ptr (ptr, ptr, ptr, ...) %54(ptr noundef nonnull %51, ptr noundef %43, ptr noundef nonnull %48) #7
   %56 = load ptr, ptr %2, align 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 168
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 168
   %59 = load ptr, ptr %58, align 8
   %60 = call ptr %59(ptr noundef nonnull %56, ptr noundef %55) #7
   store ptr %60, ptr %0, align 8
   %61 = load ptr, ptr %2, align 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 120
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 120
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr %64(ptr noundef nonnull %61) #7
   %.not = icmp eq ptr %65, null
@@ -309,7 +309,7 @@ define hidden i64 @callJCreateMutex(ptr nocapture noundef writeonly %0) #0 {
 66:                                               ; preds = %50
   %67 = load ptr, ptr %2, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = load ptr, ptr %69, align 8
   %71 = call ptr %70(ptr noundef nonnull %67, ptr noundef nonnull @.str.16) #7
   %72 = icmp eq ptr %71, null
@@ -318,7 +318,7 @@ define hidden i64 @callJCreateMutex(ptr nocapture noundef writeonly %0) #0 {
 73:                                               ; preds = %66
   %74 = load ptr, ptr %2, align 8
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 264
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 264
   %77 = load ptr, ptr %76, align 8
   %78 = call ptr %77(ptr noundef nonnull %74, ptr noundef nonnull %71, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #7
   %79 = icmp eq ptr %78, null
@@ -327,7 +327,7 @@ define hidden i64 @callJCreateMutex(ptr nocapture noundef writeonly %0) #0 {
 80:                                               ; preds = %73
   %81 = load ptr, ptr %2, align 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 416
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 416
   %84 = load ptr, ptr %83, align 8
   %85 = call i64 (ptr, ptr, ptr, ...) %84(ptr noundef nonnull %81, ptr noundef nonnull %65, ptr noundef nonnull %78) #7
   br label %86
@@ -339,7 +339,7 @@ define hidden i64 @callJCreateMutex(ptr nocapture noundef writeonly %0) #0 {
 87:                                               ; preds = %86
   %88 = load ptr, ptr @jvm_j2pkcs11, align 8
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8
   %92 = call i32 %91(ptr noundef nonnull %88) #7
   br label %93
@@ -358,7 +358,7 @@ define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 65538) #7
   %10 = icmp eq i32 %9, -2
@@ -369,7 +369,7 @@ define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
 .sink.split:                                      ; preds = %5
   %11 = load ptr, ptr @jvm_j2pkcs11, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef null) #7
   br label %16
@@ -377,7 +377,7 @@ define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
 16:                                               ; preds = %5, %.sink.split
   %17 = load ptr, ptr %2, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr %20(ptr noundef nonnull %17, ptr noundef nonnull @.str.19) #7
   %22 = icmp eq ptr %21, null
@@ -386,7 +386,7 @@ define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
 23:                                               ; preds = %16
   %24 = load ptr, ptr %2, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr %27(ptr noundef nonnull %24, ptr noundef nonnull @.str) #7
   %29 = icmp eq ptr %28, null
@@ -395,7 +395,7 @@ define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
 30:                                               ; preds = %23
   %31 = load ptr, ptr %2, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 752
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 752
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr %34(ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #7
   %36 = icmp eq ptr %35, null
@@ -404,13 +404,13 @@ define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
 37:                                               ; preds = %30
   %38 = load ptr, ptr %2, align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 760
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 760
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @jInitArgsObject, align 8
   %43 = call ptr %41(ptr noundef nonnull %38, ptr noundef %42, ptr noundef nonnull %35) #7
   %44 = load ptr, ptr %2, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 264
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 264
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr %47(ptr noundef nonnull %44, ptr noundef nonnull %21, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #7
   %49 = icmp eq ptr %48, null
@@ -419,17 +419,17 @@ define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
 50:                                               ; preds = %37
   %51 = load ptr, ptr %2, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 488
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 488
   %54 = load ptr, ptr %53, align 8
   call void (ptr, ptr, ptr, ...) %54(ptr noundef nonnull %51, ptr noundef %43, ptr noundef nonnull %48, ptr noundef %0) #7
   %55 = load ptr, ptr %2, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 176
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 176
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull %55, ptr noundef %0) #7
   %59 = load ptr, ptr %2, align 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 120
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 120
   %62 = load ptr, ptr %61, align 8
   %63 = call ptr %62(ptr noundef nonnull %59) #7
   %.not = icmp eq ptr %63, null
@@ -438,7 +438,7 @@ define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
 64:                                               ; preds = %50
   %65 = load ptr, ptr %2, align 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8
   %69 = call ptr %68(ptr noundef nonnull %65, ptr noundef nonnull @.str.16) #7
   %70 = icmp eq ptr %69, null
@@ -447,7 +447,7 @@ define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
 71:                                               ; preds = %64
   %72 = load ptr, ptr %2, align 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 264
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 264
   %75 = load ptr, ptr %74, align 8
   %76 = call ptr %75(ptr noundef nonnull %72, ptr noundef nonnull %69, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #7
   %77 = icmp eq ptr %76, null
@@ -456,7 +456,7 @@ define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
 78:                                               ; preds = %71
   %79 = load ptr, ptr %2, align 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 416
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 416
   %82 = load ptr, ptr %81, align 8
   %83 = call i64 (ptr, ptr, ptr, ...) %82(ptr noundef nonnull %79, ptr noundef nonnull %63, ptr noundef nonnull %76) #7
   br label %84
@@ -468,7 +468,7 @@ define hidden i64 @callJDestroyMutex(ptr noundef %0) #0 {
 85:                                               ; preds = %84
   %86 = load ptr, ptr @jvm_j2pkcs11, align 8
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %89 = load ptr, ptr %88, align 8
   %90 = call i32 %89(ptr noundef nonnull %86) #7
   br label %91
@@ -487,7 +487,7 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 65538) #7
   %10 = icmp eq i32 %9, -2
@@ -498,7 +498,7 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
 .sink.split:                                      ; preds = %5
   %11 = load ptr, ptr @jvm_j2pkcs11, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef null) #7
   br label %16
@@ -506,7 +506,7 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
 16:                                               ; preds = %5, %.sink.split
   %17 = load ptr, ptr %2, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr %20(ptr noundef nonnull %17, ptr noundef nonnull @.str.22) #7
   %22 = icmp eq ptr %21, null
@@ -515,7 +515,7 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
 23:                                               ; preds = %16
   %24 = load ptr, ptr %2, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr %27(ptr noundef nonnull %24, ptr noundef nonnull @.str) #7
   %29 = icmp eq ptr %28, null
@@ -524,7 +524,7 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
 30:                                               ; preds = %23
   %31 = load ptr, ptr %2, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 752
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 752
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr %34(ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #7
   %36 = icmp eq ptr %35, null
@@ -533,13 +533,13 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
 37:                                               ; preds = %30
   %38 = load ptr, ptr %2, align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 760
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 760
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @jInitArgsObject, align 8
   %43 = call ptr %41(ptr noundef nonnull %38, ptr noundef %42, ptr noundef nonnull %35) #7
   %44 = load ptr, ptr %2, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 264
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 264
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr %47(ptr noundef nonnull %44, ptr noundef nonnull %21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.21) #7
   %49 = icmp eq ptr %48, null
@@ -548,12 +548,12 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
 50:                                               ; preds = %37
   %51 = load ptr, ptr %2, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 488
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 488
   %54 = load ptr, ptr %53, align 8
   call void (ptr, ptr, ptr, ...) %54(ptr noundef nonnull %51, ptr noundef %43, ptr noundef nonnull %48, ptr noundef %0) #7
   %55 = load ptr, ptr %2, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 120
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr %58(ptr noundef nonnull %55) #7
   %.not = icmp eq ptr %59, null
@@ -562,7 +562,7 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
 60:                                               ; preds = %50
   %61 = load ptr, ptr %2, align 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr %64(ptr noundef nonnull %61, ptr noundef nonnull @.str.16) #7
   %66 = icmp eq ptr %65, null
@@ -571,7 +571,7 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
 67:                                               ; preds = %60
   %68 = load ptr, ptr %2, align 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 264
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 264
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr %71(ptr noundef nonnull %68, ptr noundef nonnull %65, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #7
   %73 = icmp eq ptr %72, null
@@ -580,7 +580,7 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
 74:                                               ; preds = %67
   %75 = load ptr, ptr %2, align 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 416
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 416
   %78 = load ptr, ptr %77, align 8
   %79 = call i64 (ptr, ptr, ptr, ...) %78(ptr noundef nonnull %75, ptr noundef nonnull %59, ptr noundef nonnull %72) #7
   br label %80
@@ -592,7 +592,7 @@ define hidden i64 @callJLockMutex(ptr noundef %0) #0 {
 81:                                               ; preds = %80
   %82 = load ptr, ptr @jvm_j2pkcs11, align 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load ptr, ptr %84, align 8
   %86 = call i32 %85(ptr noundef nonnull %82) #7
   br label %87
@@ -611,7 +611,7 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 65538) #7
   %10 = icmp eq i32 %9, -2
@@ -622,7 +622,7 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
 .sink.split:                                      ; preds = %5
   %11 = load ptr, ptr @jvm_j2pkcs11, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef null) #7
   br label %16
@@ -630,7 +630,7 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
 16:                                               ; preds = %5, %.sink.split
   %17 = load ptr, ptr %2, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr %20(ptr noundef nonnull %17, ptr noundef nonnull @.str.24) #7
   %22 = icmp eq ptr %21, null
@@ -639,7 +639,7 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
 23:                                               ; preds = %16
   %24 = load ptr, ptr %2, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr %27(ptr noundef nonnull %24, ptr noundef nonnull @.str) #7
   %29 = icmp eq ptr %28, null
@@ -648,7 +648,7 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
 30:                                               ; preds = %23
   %31 = load ptr, ptr %2, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 752
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 752
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr %34(ptr noundef nonnull %31, ptr noundef nonnull %28, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #7
   %36 = icmp eq ptr %35, null
@@ -657,13 +657,13 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
 37:                                               ; preds = %30
   %38 = load ptr, ptr %2, align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 760
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 760
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @jInitArgsObject, align 8
   %43 = call ptr %41(ptr noundef nonnull %38, ptr noundef %42, ptr noundef nonnull %35) #7
   %44 = load ptr, ptr %2, align 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 264
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 264
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr %47(ptr noundef nonnull %44, ptr noundef nonnull %21, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.21) #7
   %49 = icmp eq ptr %48, null
@@ -672,12 +672,12 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
 50:                                               ; preds = %37
   %51 = load ptr, ptr %2, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 488
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 488
   %54 = load ptr, ptr %53, align 8
   call void (ptr, ptr, ptr, ...) %54(ptr noundef nonnull %51, ptr noundef %43, ptr noundef nonnull %48, ptr noundef %0) #7
   %55 = load ptr, ptr %2, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 120
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr %58(ptr noundef nonnull %55) #7
   %.not = icmp eq ptr %59, null
@@ -686,7 +686,7 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
 60:                                               ; preds = %50
   %61 = load ptr, ptr %2, align 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr %64(ptr noundef nonnull %61, ptr noundef nonnull @.str.16) #7
   %66 = icmp eq ptr %65, null
@@ -695,7 +695,7 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
 67:                                               ; preds = %60
   %68 = load ptr, ptr %2, align 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 264
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 264
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr %71(ptr noundef nonnull %68, ptr noundef nonnull %65, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #7
   %73 = icmp eq ptr %72, null
@@ -704,7 +704,7 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
 74:                                               ; preds = %67
   %75 = load ptr, ptr %2, align 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 416
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 416
   %78 = load ptr, ptr %77, align 8
   %79 = call i64 (ptr, ptr, ptr, ...) %78(ptr noundef nonnull %75, ptr noundef nonnull %59, ptr noundef nonnull %72) #7
   br label %80
@@ -716,7 +716,7 @@ define hidden i64 @callJUnlockMutex(ptr noundef %0) #0 {
 81:                                               ; preds = %80
   %82 = load ptr, ptr @jvm_j2pkcs11, align 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load ptr, ptr %84, align 8
   %86 = call i32 %85(ptr noundef nonnull %82) #7
   br label %87

@@ -70,7 +70,7 @@ define dso_local noundef range(i32 -523, 1) i32 @nfs2_decode_dirent(ptr noundef 
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 1, ptr %16, align 4
   br label %.thread
 
@@ -82,8 +82,8 @@ define dso_local noundef range(i32 -523, 1) i32 @nfs2_decode_dirent(ptr noundef 
   %20 = tail call i32 @llvm.bswap.i32(i32 %19)
   %21 = zext i32 %20 to i64
   store i64 %21, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.thread, label %26, !prof !6
@@ -111,9 +111,9 @@ define dso_local noundef range(i32 -523, 1) i32 @nfs2_decode_dirent(ptr noundef 
   %38 = load i32, ptr %35, align 4
   %39 = tail call i32 @llvm.bswap.i32(i32 %38)
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 0, ptr %42, align 8
   br label %.thread
 
@@ -128,8 +128,8 @@ declare dso_local ptr @xdr_inline_decode(ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs2_xdr_enc_fhandle(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %5 = getelementptr inbounds i8, ptr %2, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %4, ptr noundef align 2 dereferenceable(32) %5, i64 32, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %4, ptr noundef nonnull align 2 dereferenceable(32) %5, i64 32, i1 false)
   ret void
 }
 
@@ -177,9 +177,9 @@ define internal i32 @nfs2_xdr_dec_attrstat(ptr nocapture readonly %0, ptr nounde
 define internal void @nfs2_xdr_enc_sattrargs(ptr nocapture readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %6 = getelementptr inbounds i8, ptr %4, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %5, ptr noundef align 2 dereferenceable(32) %6, i64 32, i1 false)
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %5, ptr noundef nonnull align 2 dereferenceable(32) %6, i64 32, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call fastcc void @encode_sattr(ptr noundef %1, ptr noundef %8)
   ret void
@@ -188,13 +188,13 @@ define internal void @nfs2_xdr_enc_sattrargs(ptr nocapture readonly %0, ptr noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs2_xdr_enc_diropargs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %10 = getelementptr inbounds i8, ptr %4, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %9, ptr noundef align 2 dereferenceable(32) %10, i64 32, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %9, ptr noundef nonnull align 2 dereferenceable(32) %10, i64 32, i1 false)
   %11 = icmp ugt i32 %8, 255
   br i1 %11, label %12, label %13, !prof !6
 
@@ -236,9 +236,9 @@ define internal i32 @nfs2_xdr_dec_diropres(ptr nocapture readonly %0, ptr nounde
 
 14:                                               ; preds = %.thread3
   store i16 32, ptr %11, align 2
-  %15 = getelementptr inbounds i8, ptr %11, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(32) %15, ptr noundef nonnull align 4 dereferenceable(32) %12, i64 32, i1 false)
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %15, ptr noundef nonnull align 4 dereferenceable(32) %12, i64 32, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc i32 @decode_fattr(ptr noundef %1, ptr noundef %17)
   br label %.thread5
@@ -267,13 +267,13 @@ define internal i32 @nfs2_xdr_dec_diropres(ptr nocapture readonly %0, ptr nounde
 define internal void @nfs2_xdr_enc_readlinkargs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %6 = getelementptr inbounds i8, ptr %4, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %5, ptr noundef align 2 dereferenceable(32) %6, i64 32, i1 false)
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %5, ptr noundef nonnull align 2 dereferenceable(32) %6, i64 32, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4
   tail call void @rpc_prepare_reply_pages(ptr noundef %0, ptr noundef %8, i32 noundef %10, i32 noundef %12, i32 noundef 2) #8
   ret void
@@ -303,9 +303,9 @@ define internal i32 @nfs2_xdr_dec_readlinkres(ptr nocapture readnone %0, ptr nou
 13:                                               ; preds = %.thread4
   %14 = load i32, ptr %11, align 4
   %15 = tail call i32 @llvm.bswap.i32(i32 %14)
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 52
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 52
   %19 = load i32, ptr %18, align 4
   %20 = icmp uge i32 %15, %19
   %21 = icmp ugt i32 %15, 1024
@@ -344,16 +344,16 @@ define internal i32 @nfs2_xdr_dec_readlinkres(ptr nocapture readnone %0, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs2_xdr_enc_readargs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %2, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %12 = getelementptr inbounds i8, ptr %10, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %11, ptr noundef align 2 dereferenceable(32) %12, i64 32, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %11, ptr noundef nonnull align 2 dereferenceable(32) %12, i64 32, i1 false)
   %13 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 12) #8
   %14 = tail call i32 @llvm.bswap.i32(i32 %6)
   %15 = getelementptr i8, ptr %13, i64 4
@@ -362,13 +362,13 @@ define internal void @nfs2_xdr_enc_readargs(ptr noundef %0, ptr noundef %1, ptr 
   %17 = getelementptr i8, ptr %13, i64 8
   store i32 %16, ptr %15, align 4
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 76
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %21 = load i32, ptr %20, align 4
   %22 = load i32, ptr %7, align 8
   tail call void @rpc_prepare_reply_pages(ptr noundef %0, ptr noundef %19, i32 noundef %21, i32 noundef %22, i32 noundef 19) #8
-  %23 = getelementptr inbounds i8, ptr %0, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %24 = load i32, ptr %23, align 8
   %25 = or i32 %24, 1
   store i32 %25, ptr %23, align 8
@@ -387,9 +387,9 @@ define internal i32 @nfs2_xdr_dec_readres(ptr nocapture readonly %0, ptr noundef
   br i1 %8, label %.thread6, label %14, !prof !8
 
 .thread6:                                         ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %2, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call fastcc i32 @decode_fattr(ptr noundef %1, ptr noundef %11)
   %13 = icmp eq i32 %12, 0
@@ -398,7 +398,7 @@ define internal i32 @nfs2_xdr_dec_readres(ptr nocapture readonly %0, ptr noundef
 14:                                               ; preds = %6
   %15 = tail call i32 @llvm.bswap.i32(i32 %7)
   tail call fastcc void @trace_nfs_xdr_status(ptr noundef %1, i32 noundef %15)
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %15, ptr %16, align 8
   br label %31
 
@@ -416,10 +416,10 @@ define internal i32 @nfs2_xdr_dec_readres(ptr nocapture readonly %0, ptr noundef
 
 25:                                               ; preds = %30, %20
   %26 = phi i32 [ %23, %30 ], [ %22, %20 ]
-  %27 = getelementptr inbounds i8, ptr %2, i64 60
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 0, ptr %27, align 4
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds i8, ptr %2, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %28, ptr %29, align 8
   br label %42
 
@@ -448,16 +448,16 @@ define internal i32 @nfs2_xdr_dec_readres(ptr nocapture readonly %0, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs2_xdr_enc_writeargs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %2, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %12 = getelementptr inbounds i8, ptr %10, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %11, ptr noundef align 2 dereferenceable(32) %12, i64 32, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %11, ptr noundef nonnull align 2 dereferenceable(32) %12, i64 32, i1 false)
   %13 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 16) #8
   %14 = tail call i32 @llvm.bswap.i32(i32 %6)
   %15 = getelementptr i8, ptr %13, i64 4
@@ -468,14 +468,14 @@ define internal void @nfs2_xdr_enc_writeargs(ptr nocapture readnone %0, ptr noun
   %18 = getelementptr i8, ptr %13, i64 12
   store i32 %17, ptr %16, align 4
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %22 = load i32, ptr %21, align 4
   tail call void @xdr_write_pages(ptr noundef %1, ptr noundef %20, i32 noundef %22, i32 noundef %8) #8
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load i32, ptr %25, align 8
   %27 = or i32 %26, 2
   store i32 %27, ptr %25, align 8
@@ -484,63 +484,63 @@ define internal void @nfs2_xdr_enc_writeargs(ptr nocapture readnone %0, ptr noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @nfs2_xdr_dec_writeres(ptr nocapture readonly %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 2, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %10 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %28, label %12, !prof !6
+  br i1 %11, label %29, label %12, !prof !6
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %10, align 4
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.thread, label %16, !prof !8
+  br i1 %14, label %.thread3, label %16, !prof !8
 
-.thread:                                          ; preds = %12
+.thread3:                                         ; preds = %12
   store i32 0, ptr %9, align 4
   %15 = tail call fastcc i32 @decode_fattr(ptr noundef %1, ptr noundef %8)
-  br label %28
+  br label %29
 
 16:                                               ; preds = %12
   %17 = tail call i32 @llvm.bswap.i32(i32 %13)
   tail call fastcc void @trace_nfs_xdr_status(ptr noundef %1, i32 noundef %17)
   store i32 %17, ptr %9, align 4
-  br label %.preheader
+  br label %18
 
-.preheader:                                       ; preds = %16, %.preheader
-  %18 = phi i64 [ %24, %.preheader ], [ 0, %16 ]
-  %19 = getelementptr [30 x %struct.anon.5], ptr @nfs_errtbl, i64 0, i64 %18
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp eq i32 %20, -1
-  %22 = icmp eq i32 %20, %17
-  %23 = or i1 %21, %22
-  %24 = add nuw nsw i64 %18, 1
-  br i1 %23, label %25, label %.preheader, !llvm.loop !9
+18:                                               ; preds = %16, %18
+  %19 = phi i64 [ %25, %18 ], [ 0, %16 ]
+  %20 = getelementptr [30 x %struct.anon.5], ptr @nfs_errtbl, i64 0, i64 %19
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp eq i32 %21, -1
+  %23 = icmp eq i32 %21, %17
+  %24 = or i1 %22, %23
+  %25 = add nuw nsw i64 %19, 1
+  br i1 %24, label %26, label %18, !llvm.loop !9
 
-25:                                               ; preds = %.preheader
-  %26 = getelementptr [30 x %struct.anon.5], ptr @nfs_errtbl, i64 0, i64 %18, i32 1
-  %27 = load i32, ptr %26, align 4
-  br label %28
+26:                                               ; preds = %18
+  %27 = getelementptr [30 x %struct.anon.5], ptr @nfs_errtbl, i64 0, i64 %19, i32 1
+  %28 = load i32, ptr %27, align 4
+  br label %29
 
-28:                                               ; preds = %3, %25, %.thread
-  %29 = phi i32 [ %27, %25 ], [ %15, %.thread ], [ -5, %3 ]
-  ret i32 %29
+29:                                               ; preds = %3, %26, %.thread3
+  %30 = phi i32 [ %28, %26 ], [ %15, %.thread3 ], [ -5, %3 ]
+  ret i32 %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs2_xdr_enc_createargs(ptr nocapture readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %10 = getelementptr inbounds i8, ptr %4, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %9, ptr noundef align 2 dereferenceable(32) %10, i64 32, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %9, ptr noundef nonnull align 2 dereferenceable(32) %10, i64 32, i1 false)
   %11 = icmp ugt i32 %8, 255
   br i1 %11, label %12, label %13, !prof !6
 
@@ -555,7 +555,7 @@ define internal void @nfs2_xdr_enc_createargs(ptr nocapture readonly %0, ptr nou
   %15 = zext i32 %14 to i64
   %16 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef %15) #8
   %17 = tail call ptr @xdr_encode_opaque(ptr noundef %16, ptr noundef %6, i32 noundef %8) #8
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call fastcc void @encode_sattr(ptr noundef %1, ptr noundef %19)
   ret void
@@ -563,15 +563,15 @@ define internal void @nfs2_xdr_enc_createargs(ptr nocapture readonly %0, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs2_xdr_enc_removeargs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %11 = getelementptr inbounds i8, ptr %5, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %10, ptr noundef align 2 dereferenceable(32) %11, i64 32, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %10, ptr noundef nonnull align 2 dereferenceable(32) %11, i64 32, i1 false)
   %12 = icmp ugt i32 %9, 255
   br i1 %12, label %13, label %14, !prof !6
 
@@ -627,19 +627,19 @@ define internal i32 @nfs2_xdr_dec_stat(ptr nocapture readnone %0, ptr noundef %1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs2_xdr_enc_renameargs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %15 = getelementptr inbounds i8, ptr %9, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %14, ptr noundef align 2 dereferenceable(32) %15, i64 32, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %14, ptr noundef nonnull align 2 dereferenceable(32) %15, i64 32, i1 false)
   %16 = icmp ugt i32 %13, 255
   br i1 %16, label %17, label %18, !prof !6
 
@@ -654,15 +654,15 @@ define internal void @nfs2_xdr_enc_renameargs(ptr nocapture readnone %0, ptr nou
   %20 = zext i32 %19 to i64
   %21 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef %20) #8
   %22 = tail call ptr @xdr_encode_opaque(ptr noundef %21, ptr noundef %11, i32 noundef %13) #8
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %30 = getelementptr inbounds i8, ptr %24, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %29, ptr noundef align 2 dereferenceable(32) %30, i64 32, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %29, ptr noundef nonnull align 2 dereferenceable(32) %30, i64 32, i1 false)
   %31 = icmp ugt i32 %28, 255
   br i1 %31, label %32, label %33, !prof !6
 
@@ -684,17 +684,17 @@ define internal void @nfs2_xdr_enc_renameargs(ptr nocapture readnone %0, ptr nou
 define internal void @nfs2_xdr_enc_linkargs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %6 = getelementptr inbounds i8, ptr %4, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %5, ptr noundef align 2 dereferenceable(32) %6, i64 32, i1 false)
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %5, ptr noundef nonnull align 2 dereferenceable(32) %6, i64 32, i1 false)
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %14 = getelementptr inbounds i8, ptr %8, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %13, ptr noundef align 2 dereferenceable(32) %14, i64 32, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %13, ptr noundef nonnull align 2 dereferenceable(32) %14, i64 32, i1 false)
   %15 = icmp ugt i32 %12, 255
   br i1 %15, label %16, label %17, !prof !6
 
@@ -715,13 +715,13 @@ define internal void @nfs2_xdr_enc_linkargs(ptr nocapture readnone %0, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfs2_xdr_enc_symlinkargs(ptr nocapture readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %10 = getelementptr inbounds i8, ptr %4, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %9, ptr noundef align 2 dereferenceable(32) %10, i64 32, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %9, ptr noundef nonnull align 2 dereferenceable(32) %10, i64 32, i1 false)
   %11 = icmp ugt i32 %8, 255
   br i1 %11, label %12, label %13, !prof !6
 
@@ -736,15 +736,15 @@ define internal void @nfs2_xdr_enc_symlinkargs(ptr nocapture readonly %0, ptr no
   %15 = zext i32 %14 to i64
   %16 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef %15) #8
   %17 = tail call ptr @xdr_encode_opaque(ptr noundef %16, ptr noundef %6, i32 noundef %8) #8
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 4) #8
   %23 = tail call i32 @llvm.bswap.i32(i32 %21)
   store i32 %23, ptr %22, align 4
   tail call void @xdr_write_pages(ptr noundef %1, ptr noundef %19, i32 noundef 0, i32 noundef %21) #8
-  %24 = getelementptr inbounds i8, ptr %2, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @encode_sattr(ptr noundef %1, ptr noundef %25)
   ret void
@@ -754,19 +754,19 @@ define internal void @nfs2_xdr_enc_symlinkargs(ptr nocapture readonly %0, ptr no
 define internal void @nfs2_xdr_enc_readdirargs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 32) #8
-  %6 = getelementptr inbounds i8, ptr %4, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %5, ptr noundef align 2 dereferenceable(32) %6, i64 32, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(32) %5, ptr noundef nonnull align 2 dereferenceable(32) %6, i64 32, i1 false)
   %7 = tail call ptr @xdr_reserve_space(ptr noundef %1, i64 noundef 8) #8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = tail call i32 @llvm.bswap.i32(i32 %9)
   %11 = getelementptr i8, ptr %7, i64 4
   store i32 %10, ptr %7, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = tail call i32 @llvm.bswap.i32(i32 %13)
   store i32 %14, ptr %11, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %12, align 4
   tail call void @rpc_prepare_reply_pages(ptr noundef %0, ptr noundef %16, i32 noundef 0, i32 noundef %17, i32 noundef 1) #8
@@ -790,9 +790,9 @@ define internal i32 @nfs2_xdr_dec_readdirres(ptr nocapture readnone %0, ptr noun
   br label %16
 
 .thread2:                                         ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 52
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 @xdr_read_pages(ptr noundef %1, i32 noundef %14) #8
   br label %27
@@ -846,21 +846,21 @@ define internal i32 @nfs2_xdr_dec_statfsres(ptr nocapture readnone %0, ptr nound
   %17 = getelementptr i8, ptr %11, i64 8
   %18 = load i32, ptr %14, align 4
   %19 = tail call i32 @llvm.bswap.i32(i32 %18)
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %19, ptr %20, align 4
   %21 = getelementptr i8, ptr %11, i64 12
   %22 = load i32, ptr %17, align 4
   %23 = tail call i32 @llvm.bswap.i32(i32 %22)
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %23, ptr %24, align 4
   %25 = getelementptr i8, ptr %11, i64 16
   %26 = load i32, ptr %21, align 4
   %27 = tail call i32 @llvm.bswap.i32(i32 %26)
-  %28 = getelementptr inbounds i8, ptr %2, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %27, ptr %28, align 4
   %29 = load i32, ptr %25, align 4
   %30 = tail call i32 @llvm.bswap.i32(i32 %29)
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %30, ptr %31, align 4
   br label %43
 
@@ -918,14 +918,14 @@ define internal fastcc noundef range(i32 -22, 1) i32 @decode_fattr(ptr noundef %
   %16 = load i32, ptr %14, align 4
   %17 = tail call i32 @llvm.bswap.i32(i32 %16)
   %18 = trunc i32 %17 to i16
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 %18, ptr %19, align 4
   %20 = getelementptr i8, ptr %3, i64 12
   %21 = load i32, ptr %15, align 4
   %22 = tail call i32 @llvm.bswap.i32(i32 %21)
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %25 = load i32, ptr %20, align 4
   %26 = tail call i32 @llvm.bswap.i32(i32 %25)
   store i32 %26, ptr %24, align 4
@@ -934,7 +934,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @decode_fattr(ptr noundef %
 
 28:                                               ; preds = %12
   %29 = getelementptr i8, ptr %3, i64 16
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i32, ptr %29, align 4
   %32 = tail call i32 @llvm.bswap.i32(i32 %31)
   store i32 %32, ptr %30, align 8
@@ -947,12 +947,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @decode_fattr(ptr noundef %
   %37 = load i32, ptr %35, align 4
   %38 = tail call i32 @llvm.bswap.i32(i32 %37)
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %39, ptr %40, align 8
   %41 = getelementptr i8, ptr %3, i64 28
   %42 = load i32, ptr %36, align 4
   %43 = tail call i32 @llvm.bswap.i32(i32 %42)
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %43, ptr %44, align 8
   %45 = getelementptr i8, ptr %3, i64 32
   %46 = load i32, ptr %41, align 4
@@ -964,7 +964,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @decode_fattr(ptr noundef %
   %52 = shl i32 %47, 12
   %53 = and i32 %52, -1048576
   %54 = or disjoint i32 %51, %53
-  %55 = getelementptr inbounds i8, ptr %1, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %54, ptr %55, align 4
   %56 = icmp eq i32 %13, 4
   %57 = icmp eq i32 %46, -1
@@ -982,23 +982,23 @@ define internal fastcc noundef range(i32 -22, 1) i32 @decode_fattr(ptr noundef %
   %63 = getelementptr i8, ptr %3, i64 36
   %64 = load i32, ptr %45, align 4
   %65 = tail call i32 @llvm.bswap.i32(i32 %64)
-  %66 = getelementptr inbounds i8, ptr %1, i64 36
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %65, ptr %66, align 4
   %67 = getelementptr i8, ptr %3, i64 40
   %68 = load i32, ptr %63, align 4
   %69 = tail call i32 @llvm.bswap.i32(i32 %68)
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %1, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i64 0, ptr %72, align 8
   %73 = getelementptr i8, ptr %3, i64 44
   %74 = load i32, ptr %67, align 4
   %75 = tail call i32 @llvm.bswap.i32(i32 %74)
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %1, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 72
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %79 = getelementptr i8, ptr %3, i64 48
   %80 = load i32, ptr %73, align 4
   %81 = tail call i32 @llvm.bswap.i32(i32 %80)
@@ -1009,9 +1009,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @decode_fattr(ptr noundef %
   %85 = tail call i32 @llvm.bswap.i32(i32 %84)
   %86 = zext i32 %85 to i64
   %87 = mul nuw nsw i64 %86, 1000
-  %88 = getelementptr inbounds i8, ptr %1, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i64 %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 88
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %90 = getelementptr i8, ptr %3, i64 56
   %91 = load i32, ptr %83, align 4
   %92 = tail call i32 @llvm.bswap.i32(i32 %91)
@@ -1022,9 +1022,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @decode_fattr(ptr noundef %
   %96 = tail call i32 @llvm.bswap.i32(i32 %95)
   %97 = zext i32 %96 to i64
   %98 = mul nuw nsw i64 %97, 1000
-  %99 = getelementptr inbounds i8, ptr %1, i64 96
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i64 %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 104
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %101 = getelementptr i8, ptr %3, i64 64
   %102 = load i32, ptr %94, align 4
   %103 = tail call i32 @llvm.bswap.i32(i32 %102)
@@ -1034,11 +1034,11 @@ define internal fastcc noundef range(i32 -22, 1) i32 @decode_fattr(ptr noundef %
   %106 = tail call i32 @llvm.bswap.i32(i32 %105)
   %107 = zext i32 %106 to i64
   %108 = mul nuw nsw i64 %107, 1000
-  %109 = getelementptr inbounds i8, ptr %1, i64 112
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i64 %108, ptr %109, align 8
   %110 = shl nuw nsw i64 %104, 30
   %111 = add nuw nsw i64 %108, %110
-  %112 = getelementptr inbounds i8, ptr %1, i64 120
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i64 %111, ptr %112, align 8
   br label %113
 
@@ -1069,7 +1069,7 @@ define internal fastcc void @trace_nfs_xdr_status(ptr noundef %0, i32 noundef %1
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @__SCT__tp_func_nfs_xdr_status(ptr noundef %14, ptr noundef %0, i32 noundef %1) #8
   br label %16
@@ -1113,7 +1113,7 @@ define internal fastcc void @encode_sattr(ptr noundef %0, ptr nocapture noundef 
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i32
   %11 = tail call i32 @llvm.bswap.i32(i32 %10)
@@ -1129,7 +1129,7 @@ define internal fastcc void @encode_sattr(ptr noundef %0, ptr nocapture noundef 
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, -1
   %22 = load i32, ptr @overflowuid, align 4
@@ -1147,7 +1147,7 @@ define internal fastcc void @encode_sattr(ptr noundef %0, ptr nocapture noundef 
   br i1 %30, label %38, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %1, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, -1
   %35 = load i32, ptr @overflowgid, align 4
@@ -1165,7 +1165,7 @@ define internal fastcc void @encode_sattr(ptr noundef %0, ptr nocapture noundef 
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %1, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = trunc i64 %46 to i32
   %48 = tail call i32 @llvm.bswap.i32(i32 %47)
@@ -1181,12 +1181,12 @@ define internal fastcc void @encode_sattr(ptr noundef %0, ptr nocapture noundef 
   br i1 %54, label %70, label %55
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %57 = load i64, ptr %56, align 8
   %58 = trunc i64 %57 to i32
   %59 = tail call i32 @llvm.bswap.i32(i32 %58)
   store i32 %59, ptr %51, align 4
-  %60 = getelementptr inbounds i8, ptr %1, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %67, label %63
@@ -1209,7 +1209,7 @@ define internal fastcc void @encode_sattr(ptr noundef %0, ptr nocapture noundef 
   br i1 %72, label %79, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %1, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %75 = load i64, ptr %74, align 8
   %76 = trunc i64 %75 to i32
   %77 = tail call i32 @llvm.bswap.i32(i32 %76)
@@ -1232,12 +1232,12 @@ define internal fastcc void @encode_sattr(ptr noundef %0, ptr nocapture noundef 
   br i1 %85, label %101, label %86
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %1, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %88 = load i64, ptr %87, align 8
   %89 = trunc i64 %88 to i32
   %90 = tail call i32 @llvm.bswap.i32(i32 %89)
   store i32 %90, ptr %82, align 4
-  %91 = getelementptr inbounds i8, ptr %1, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %92 = load i64, ptr %91, align 8
   %93 = icmp eq i64 %92, 0
   br i1 %93, label %98, label %94
@@ -1260,7 +1260,7 @@ define internal fastcc void @encode_sattr(ptr noundef %0, ptr nocapture noundef 
   br i1 %103, label %110, label %104
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %1, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %106 = load i64, ptr %105, align 8
   %107 = trunc i64 %106 to i32
   %108 = tail call i32 @llvm.bswap.i32(i32 %107)

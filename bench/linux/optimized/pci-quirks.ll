@@ -137,7 +137,7 @@ define internal fastcc void @usb_amd_find_chipset_info() unnamed_addr #0 align 1
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, -16
   switch i8 %12, label %.critedge [
@@ -155,7 +155,7 @@ define internal fastcc void @usb_amd_find_chipset_info() unnamed_addr #0 align 1
   br i1 %16, label %28, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %19 = load i8, ptr %18, align 8
   %20 = add i8 %19, -17
   %21 = icmp ult i8 %20, 4
@@ -178,7 +178,7 @@ define internal fastcc void @usb_amd_find_chipset_info() unnamed_addr #0 align 1
   br i1 %30, label %49, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %33 = load i8, ptr %32, align 8
   br label %.critedge
 
@@ -637,8 +637,8 @@ define dso_local void @usb_asmedia_modifyflowcontrol(ptr noundef %0) #0 align 16
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %10, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.usb_asmedia_wait_write) #9
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %10, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.usb_asmedia_wait_write) #9
   br label %42
 
 11:                                               ; preds = %4
@@ -653,8 +653,8 @@ define dso_local void @usb_asmedia_modifyflowcontrol(ptr noundef %0) #0 align 16
   br i1 %16, label %17, label %4, !llvm.loop !14
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %18, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.usb_asmedia_wait_write) #9
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %18, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.usb_asmedia_wait_write) #9
   br label %42
 
 19:                                               ; preds = %11
@@ -674,8 +674,8 @@ define dso_local void @usb_asmedia_modifyflowcontrol(ptr noundef %0) #0 align 16
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %29, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.usb_asmedia_wait_write) #9
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %29, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.usb_asmedia_wait_write) #9
   br label %43
 
 30:                                               ; preds = %23
@@ -690,8 +690,8 @@ define dso_local void @usb_asmedia_modifyflowcontrol(ptr noundef %0) #0 align 16
   br i1 %35, label %36, label %23, !llvm.loop !14
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %37, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.usb_asmedia_wait_write) #9
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %37, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.usb_asmedia_wait_write) #9
   br label %43
 
 38:                                               ; preds = %30
@@ -732,8 +732,8 @@ define dso_local void @uhci_reset_hc(ptr noundef %0, i64 noundef %1) #0 align 16
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %9, ptr noundef nonnull @.str) #9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %9, ptr noundef nonnull @.str) #9
   br label %10
 
 10:                                               ; preds = %8, %2
@@ -785,8 +785,8 @@ define dso_local noundef range(i32 0, 2) i32 @uhci_check_and_reset_hc(ptr nounde
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %._crit_edge
-  %23 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %23, ptr noundef nonnull @.str) #9
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %23, ptr noundef nonnull @.str) #9
   br label %24
 
 24:                                               ; preds = %22, %._crit_edge
@@ -805,13 +805,13 @@ define dso_local noundef range(i32 0, 2) i32 @uhci_check_and_reset_hc(ptr nounde
 define dso_local void @usb_enable_intel_xhci_ports(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #8
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 4173
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 66
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %8 = load i16, ptr %7, align 2
   %9 = icmp eq i16 %8, -28504
   br i1 %9, label %.loopexit, label %10
@@ -823,13 +823,13 @@ define dso_local void @usb_enable_intel_xhci_ports(ptr noundef %0) #0 align 16 {
 
 .preheader:                                       ; preds = %10, %21
   %13 = phi ptr [ %22, %21 ], [ %11, %10 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 68
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 787232
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %13, i64 60
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 60
   %19 = load i16, ptr %18, align 4
   %20 = icmp eq i16 %19, -32634
   br i1 %20, label %24, label %21
@@ -877,13 +877,13 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %9 = load i16, ptr %8, align 4
   %10 = icmp eq i16 %9, 6222
   br i1 %10, label %350, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 68
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, -787200
   %15 = tail call i32 @llvm.fshl.i32(i32 %14, i32 %14, i32 28)
@@ -896,8 +896,8 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %21, ptr noundef nonnull @.str.5) #9
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %21, ptr noundef nonnull @.str.5) #9
   br label %350
 
 22:                                               ; preds = %17
@@ -924,7 +924,7 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
   br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %0, i64 920
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 920
   br label %38
 
 35:                                               ; preds = %38
@@ -935,7 +935,7 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
 38:                                               ; preds = %35, %33
   %39 = phi i64 [ 0, %33 ], [ %36, %35 ]
   %40 = getelementptr [11 x %struct.resource], ptr %34, i64 0, i64 %39
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, 256
   %44 = icmp eq i64 %43, 0
@@ -951,7 +951,7 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
   br label %.critedge
 
 50:                                               ; preds = %22
-  %51 = getelementptr inbounds i8, ptr %0, i64 920
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %.critedge, label %54
@@ -979,7 +979,7 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %0, i64 62
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %69 = load i16, ptr %68, align 2
   %70 = icmp eq i16 %69, 21047
   br label %71
@@ -1017,9 +1017,9 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
   br i1 %89, label %.thread23, label %92
 
 .thread23:                                        ; preds = %85, %88
-  %90 = getelementptr inbounds i8, ptr %0, i64 184
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %91 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %73) #8, !srcloc !23
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %90, ptr noundef nonnull @.str.6, i32 noundef %91) #9
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %90, ptr noundef nonnull @.str.6, i32 noundef %91) #9
   br label %92
 
 92:                                               ; preds = %.thread23, %88, %71
@@ -1069,7 +1069,7 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
 114:                                              ; preds = %22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   store i32 0, ptr %5, align 4, !annotation !6
-  %115 = getelementptr inbounds i8, ptr %0, i64 920
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %116 = load i64, ptr %115, align 8
   %117 = icmp eq i64 %116, 0
   br i1 %117, label %214, label %118
@@ -1103,8 +1103,8 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
   br i1 %136, label %.loopexit28, label %137
 
 137:                                              ; preds = %128
-  %138 = getelementptr inbounds i8, ptr %0, i64 62
-  %139 = getelementptr inbounds i8, ptr %0, i64 184
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 62
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %140 = getelementptr i8, ptr %131, i64 64
   br label %141
 
@@ -1180,7 +1180,7 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
   br i1 %173, label %.thread66, label %.critedge78
 
 .critedge78:                                      ; preds = %.loopexit27.thread62
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %139, ptr noundef nonnull @.str.10, i32 noundef %167) #9
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %139, ptr noundef nonnull @.str.10, i32 noundef %167) #9
   %174 = add nuw nsw i32 %142, 2
   %175 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %174, i8 noundef zeroext 0) #8
   br label %.thread66
@@ -1214,7 +1214,7 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
 187:                                              ; preds = %186, %146
   %188 = phi i32 [ 0, %186 ], [ %148, %146 ]
   %189 = and i32 %188, 255
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %139, ptr noundef nonnull @.str.7, i32 noundef %189) #9
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %139, ptr noundef nonnull @.str.7, i32 noundef %189) #9
   br label %190
 
 190:                                              ; preds = %187, %185
@@ -1225,7 +1225,7 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
   br i1 %194, label %.loopexit28, label %141, !llvm.loop !29
 
 195:                                              ; preds = %141
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.8, ptr noundef %139, ptr noundef nonnull @.str.9) #9
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.8, ptr noundef nonnull %139, ptr noundef nonnull @.str.9) #9
   br label %.loopexit28
 
 .loopexit28:                                      ; preds = %190, %195, %128
@@ -1269,8 +1269,8 @@ define internal void @quirk_usb_early_handoff(ptr noundef %0) #0 align 16 {
   br label %.critedge
 
 thread-pre-split:                                 ; preds = %22
-  %215 = getelementptr inbounds i8, ptr %0, i64 920
-  %216 = getelementptr inbounds i8, ptr %0, i64 928
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 920
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %217 = load i64, ptr %216, align 8
   %218 = icmp eq i64 %217, 0
   %.pr = load i64, ptr %215, align 8
@@ -1342,8 +1342,8 @@ thread-pre-split:                                 ; preds = %22
   br i1 %262, label %263, label %265
 
 263:                                              ; preds = %259
-  %264 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %264, ptr noundef nonnull @.str.11) #9
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %264, ptr noundef nonnull @.str.11) #9
   br label %349
 
 265:                                              ; preds = %259
@@ -1356,13 +1356,13 @@ thread-pre-split:                                 ; preds = %22
   ]
 
 269:                                              ; preds = %265
-  %270 = getelementptr inbounds i8, ptr %0, i64 62
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %271 = load i16, ptr %270, align 2
   %272 = icmp eq i16 %271, -32191
   br i1 %272, label %277, label %280
 
 273:                                              ; preds = %265
-  %274 = getelementptr inbounds i8, ptr %0, i64 62
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %275 = load i16, ptr %274, align 2
   %276 = icmp eq i16 %275, 20
   br i1 %276, label %277, label %280
@@ -1408,8 +1408,8 @@ thread-pre-split:                                 ; preds = %22
   br i1 %297, label %.loopexit34.thread, label %298
 
 298:                                              ; preds = %.loopexit34
-  %299 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %299, ptr noundef nonnull @.str.12, i32 noundef %281) #9
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %299, ptr noundef nonnull @.str.12, i32 noundef %281) #9
   %300 = and i32 %281, -65537
   call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %300, ptr elementtype(i32) %266) #8, !srcloc !24
   br label %.loopexit34.thread
@@ -1464,8 +1464,8 @@ thread-pre-split:                                 ; preds = %22
 
 326:                                              ; preds = %.loopexit32
   %327 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %313) #8, !srcloc !23
-  %328 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %328, ptr noundef nonnull @.str.13, i32 noundef %327) #9
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %328, ptr noundef nonnull @.str.13, i32 noundef %327) #9
   br label %.loopexit32.thread
 
 .loopexit32.thread:                               ; preds = %319, %308, %326, %.loopexit32
@@ -1503,8 +1503,8 @@ thread-pre-split:                                 ; preds = %22
 
 346:                                              ; preds = %.loopexit30
   %347 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %313) #8, !srcloc !23
-  %348 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %348, ptr noundef nonnull @.str.14, i32 noundef 32000, i32 noundef %347) #9
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %348, ptr noundef nonnull @.str.14, i32 noundef 32000, i32 noundef %347) #9
   br label %349
 
 349:                                              ; preds = %346, %.loopexit30, %263

@@ -195,7 +195,7 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 140:                                              ; preds = %140, %138
   %141 = phi i64 [ 2, %138 ], [ %143, %140 ]
-  %142 = getelementptr inbounds i32, ptr %55, i64 %141
+  %142 = getelementptr inbounds nuw i32, ptr %55, i64 %141
   store i32 1, ptr %142, align 4, !tbaa !3
   %143 = add nuw nsw i64 %141, 1
   %144 = icmp eq i64 %143, %139
@@ -239,8 +239,8 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   br i1 %164, label %.thread24, label %167
 
 .thread24:                                        ; preds = %.loopexit33
-  %165 = getelementptr inbounds i8, ptr %12, i64 8
-  %166 = getelementptr inbounds i8, ptr %18, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %18, i64 4
   tail call void @dlamrg_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %165, ptr noundef nonnull @c__1, ptr noundef nonnull @c__1, ptr noundef nonnull %166) #5
   %.pre54 = add nsw i32 %70, 2
   br label %.loopexit32
@@ -254,12 +254,12 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 172:                                              ; preds = %172, %167
   %173 = phi i64 [ 2, %167 ], [ %186, %172 ]
-  %174 = getelementptr inbounds i32, ptr %54, i64 %173
+  %174 = getelementptr inbounds nuw i32, ptr %54, i64 %173
   %175 = load i32, ptr %174, align 4, !tbaa !3
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds double, ptr %32, i64 %176
   %178 = load double, ptr %177, align 8, !tbaa !7
-  %179 = getelementptr inbounds double, ptr %42, i64 %173
+  %179 = getelementptr inbounds nuw double, ptr %42, i64 %173
   store double %178, ptr %179, align 8, !tbaa !7
   %180 = getelementptr inbounds double, ptr %33, i64 %176
   %181 = load double, ptr %180, align 8, !tbaa !7
@@ -267,38 +267,38 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   store double %181, ptr %182, align 8, !tbaa !7
   %183 = getelementptr inbounds i32, ptr %55, i64 %176
   %184 = load i32, ptr %183, align 4, !tbaa !3
-  %185 = getelementptr inbounds i32, ptr %53, i64 %173
+  %185 = getelementptr inbounds nuw i32, ptr %53, i64 %173
   store i32 %184, ptr %185, align 4, !tbaa !3
   %186 = add nuw nsw i64 %173, 1
   %187 = icmp eq i64 %186, %170
   br i1 %187, label %188, label %172, !llvm.loop !16
 
 188:                                              ; preds = %172
-  %189 = getelementptr inbounds i8, ptr %12, i64 8
-  %190 = getelementptr inbounds i8, ptr %18, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %18, i64 4
   tail call void @dlamrg_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %189, ptr noundef nonnull @c__1, ptr noundef nonnull @c__1, ptr noundef nonnull %190) #5
   %invariant.op = add i32 %43, 1
   br label %191
 
 191:                                              ; preds = %191, %188
   %192 = phi i64 [ 2, %188 ], [ %207, %191 ]
-  %193 = getelementptr inbounds i32, ptr %52, i64 %192
+  %193 = getelementptr inbounds nuw i32, ptr %52, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !3
   %195 = add nsw i32 %194, 1
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds double, ptr %42, i64 %196
   %198 = load double, ptr %197, align 8, !tbaa !7
-  %199 = getelementptr inbounds double, ptr %32, i64 %192
+  %199 = getelementptr inbounds nuw double, ptr %32, i64 %192
   store double %198, ptr %199, align 8, !tbaa !7
   %.reass = add i32 %194, %invariant.op
   %200 = sext i32 %.reass to i64
   %201 = getelementptr inbounds double, ptr %46, i64 %200
   %202 = load double, ptr %201, align 8, !tbaa !7
-  %203 = getelementptr inbounds double, ptr %33, i64 %192
+  %203 = getelementptr inbounds nuw double, ptr %33, i64 %192
   store double %202, ptr %203, align 8, !tbaa !7
   %204 = getelementptr inbounds i32, ptr %53, i64 %196
   %205 = load i32, ptr %204, align 4, !tbaa !3
-  %206 = getelementptr inbounds i32, ptr %55, i64 %192
+  %206 = getelementptr inbounds nuw i32, ptr %55, i64 %192
   store i32 %205, ptr %206, align 4, !tbaa !3
   %207 = add nuw nsw i64 %192, 1
   %208 = icmp eq i64 %207, %170
@@ -334,7 +334,7 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 231:                                              ; preds = %.loopexit32
   %232 = zext nneg i32 %71 to i64
-  %233 = getelementptr inbounds i8, ptr %5, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %234 = load double, ptr %233, align 8, !tbaa !7
   %235 = fcmp oge double %234, 0.000000e+00
   %236 = fneg double %234
@@ -353,7 +353,7 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %243 = getelementptr inbounds i32, ptr %51, i64 %242
   %244 = trunc i64 %241 to i32
   store i32 %244, ptr %243, align 4, !tbaa !3
-  %245 = getelementptr inbounds i32, ptr %55, i64 %241
+  %245 = getelementptr inbounds nuw i32, ptr %55, i64 %241
   store i32 4, ptr %245, align 4, !tbaa !3
   %246 = icmp eq i64 %241, %232
   br i1 %246, label %.loopexit30, label %247
@@ -548,7 +548,7 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 376:                                              ; preds = %376, %373
   %377 = phi i64 [ 2, %373 ], [ %385, %376 ]
-  %378 = getelementptr inbounds i32, ptr %55, i64 %377
+  %378 = getelementptr inbounds nuw i32, ptr %55, i64 %377
   %379 = load i32, ptr %378, align 4, !tbaa !3
   %380 = add nsw i32 %379, -1
   %381 = sext i32 %380 to i64
@@ -562,19 +562,19 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .loopexit28.loopexit:                             ; preds = %376
   %.pre47 = load i32, ptr %25, align 16, !tbaa !3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %25, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.pre48 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !3
-  %.phi.trans.insert49 = getelementptr inbounds i8, ptr %25, i64 8
+  %.phi.trans.insert49 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.pre50 = load i32, ptr %.phi.trans.insert49, align 8, !tbaa !3
   %387 = add nsw i32 %.pre47, 2
   store i32 2, ptr %31, align 16, !tbaa !3
-  %388 = getelementptr inbounds i8, ptr %31, i64 4
+  %388 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %387, ptr %388, align 4, !tbaa !3
   %389 = add nsw i32 %.pre48, %387
-  %390 = getelementptr inbounds i8, ptr %31, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %389, ptr %390, align 8, !tbaa !3
   %391 = add nsw i32 %.pre50, %389
-  %392 = getelementptr inbounds i8, ptr %31, i64 12
+  %392 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 %391, ptr %392, align 4, !tbaa !3
   %393 = add nuw i32 %371, 1
   %394 = zext i32 %393 to i64
@@ -582,18 +582,18 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .thread25.critedge:                               ; preds = %.loopexit30
   store i32 2, ptr %31, align 16, !tbaa !3
-  %395 = getelementptr inbounds i8, ptr %31, i64 4
+  %395 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 2, ptr %395, align 4, !tbaa !3
-  %396 = getelementptr inbounds i8, ptr %31, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 2, ptr %396, align 8, !tbaa !3
-  %397 = getelementptr inbounds i8, ptr %31, i64 12
+  %397 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 2, ptr %397, align 4, !tbaa !3
   store i32 %371, ptr %24, align 4, !tbaa !3
   br label %.loopexit27
 
 398:                                              ; preds = %398, %.loopexit28.loopexit
   %399 = phi i64 [ 2, %.loopexit28.loopexit ], [ %413, %398 ]
-  %400 = getelementptr inbounds i32, ptr %51, i64 %399
+  %400 = getelementptr inbounds nuw i32, ptr %51, i64 %399
   %401 = load i32, ptr %400, align 4, !tbaa !3
   %402 = sext i32 %401 to i64
   %403 = getelementptr inbounds i32, ptr %55, i64 %402
@@ -623,14 +623,14 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 421:                                              ; preds = %421, %415
   %422 = phi i64 [ 2, %415 ], [ %452, %421 ]
-  %423 = getelementptr inbounds i32, ptr %51, i64 %422
+  %423 = getelementptr inbounds nuw i32, ptr %51, i64 %422
   %424 = load i32, ptr %423, align 4, !tbaa !3
   %425 = sext i32 %424 to i64
   %426 = getelementptr inbounds double, ptr %32, i64 %425
   %427 = load double, ptr %426, align 8, !tbaa !7
-  %428 = getelementptr inbounds double, ptr %42, i64 %422
+  %428 = getelementptr inbounds nuw double, ptr %42, i64 %422
   store double %427, ptr %428, align 8, !tbaa !7
-  %429 = getelementptr inbounds i32, ptr %53, i64 %422
+  %429 = getelementptr inbounds nuw i32, ptr %53, i64 %422
   %430 = load i32, ptr %429, align 4, !tbaa !3
   %431 = sext i32 %430 to i64
   %432 = getelementptr inbounds i32, ptr %51, i64 %431
@@ -729,7 +729,7 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %491 = sext i32 %43 to i64
   %492 = getelementptr double, ptr %46, i64 %491
   %493 = getelementptr i8, ptr %492, i64 16
-  %494 = getelementptr inbounds i8, ptr %5, i64 8
+  %494 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @dcopy_(ptr noundef nonnull %24, ptr noundef %493, ptr noundef nonnull @c__1, ptr noundef nonnull %494, ptr noundef nonnull @c__1) #5
   call void @dlaset_(ptr noundef nonnull @.str.2, ptr noundef nonnull %28, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b30, ptr noundef nonnull @c_b30, ptr noundef %13, ptr noundef nonnull %14) #5
   %495 = add nsw i32 %92, %43

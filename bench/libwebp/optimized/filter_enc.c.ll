@@ -28,7 +28,7 @@ define hidden range(i32 0, 256) i32 @VP8FilterStrengthFromDelta(i32 noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8InitFilter(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %.preheader
@@ -40,7 +40,7 @@ define hidden void @VP8InitFilter(ptr nocapture noundef readonly %0) local_unnam
 4:                                                ; preds = %.preheader, %4
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds [4 x [64 x double]], ptr %5, i64 0, i64 %indvars.iv12, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x [64 x double]], ptr %5, i64 0, i64 %indvars.iv12, i64 %indvars.iv
   store double 0.000000e+00, ptr %6, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -63,24 +63,24 @@ declare void @VP8SSIMDspInit() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8StoreFilterStats(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 4
   %7 = lshr i8 %6, 5
   %8 = and i8 %7, 3
-  %9 = getelementptr inbounds i8, ptr %3, i64 608
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 608
   %10 = zext nneg i8 %8 to i64
-  %11 = getelementptr inbounds [4 x %struct.VP8SegmentInfo], ptr %9, i64 0, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 684
+  %11 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %9, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 684
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %11, i64 680
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 680
   %15 = load i32, ptr %14, align 8
   %16 = sub nsw i32 0, %15
   %17 = icmp sgt i32 %15, 1
   %18 = select i1 %17, i32 4, i32 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 320
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   %22 = and i8 %6, 19
@@ -89,9 +89,9 @@ define hidden void @VP8StoreFilterStats(ptr nocapture noundef readonly %0) local
   br i1 %or.cond52, label %.loopexit, label %23
 
 23:                                               ; preds = %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   br label %.preheader28.i
 
@@ -101,10 +101,10 @@ define hidden void @VP8StoreFilterStats(ptr nocapture noundef readonly %0) local
   br label %32
 
 .preheader27.i:                                   ; preds = %37
-  %28 = getelementptr inbounds i8, ptr %25, i64 16
-  %29 = getelementptr inbounds i8, ptr %27, i64 16
-  %30 = getelementptr inbounds i8, ptr %25, i64 24
-  %31 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   br label %.preheader.i
 
 32:                                               ; preds = %32, %.preheader28.i
@@ -147,7 +147,7 @@ define hidden void @VP8StoreFilterStats(ptr nocapture noundef readonly %0) local
 
 GetMBSSIM.exit:                                   ; preds = %47
   %49 = load ptr, ptr %19, align 8
-  %50 = getelementptr inbounds [4 x [64 x double]], ptr %49, i64 0, i64 %10
+  %50 = getelementptr inbounds nuw [4 x [64 x double]], ptr %49, i64 0, i64 %10
   %51 = load double, ptr %50, align 8
   %52 = fadd double %45, %51
   store double %52, ptr %50, align 8
@@ -155,7 +155,7 @@ GetMBSSIM.exit:                                   ; preds = %47
   br i1 %.not3456, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %GetMBSSIM.exit
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %54
 
 54:                                               ; preds = %.lr.ph, %115
@@ -168,7 +168,7 @@ GetMBSSIM.exit:                                   ; preds = %47
 57:                                               ; preds = %54
   %58 = load ptr, ptr %2, align 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 36
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 36
   %61 = load i32, ptr %60, align 4
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %GetILevel.exit.i
@@ -189,7 +189,7 @@ GetILevel.exit.i:                                 ; preds = %63, %57
   %68 = load ptr, ptr %53, align 8
   %69 = load ptr, ptr %26, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %68, ptr noundef nonnull align 1 dereferenceable(512) %69, i64 512, i1 false)
-  %70 = getelementptr inbounds i8, ptr %58, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 1
   br i1 %72, label %73, label %76
@@ -202,8 +202,8 @@ GetILevel.exit.i:                                 ; preds = %63, %57
   br label %DoFilter.exit
 
 76:                                               ; preds = %GetILevel.exit.i
-  %77 = getelementptr inbounds i8, ptr %68, i64 24
-  %78 = getelementptr inbounds i8, ptr %68, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %79 = icmp samesign ugt i32 %55, 39
   %80 = icmp samesign ugt i32 %55, 14
   %81 = zext i1 %80 to i32
@@ -229,10 +229,10 @@ DoFilter.exit:                                    ; preds = %73, %76
   br label %93
 
 .preheader27.i43:                                 ; preds = %98
-  %89 = getelementptr inbounds i8, ptr %87, i64 16
-  %90 = getelementptr inbounds i8, ptr %88, i64 16
-  %91 = getelementptr inbounds i8, ptr %87, i64 24
-  %92 = getelementptr inbounds i8, ptr %88, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %88, i64 24
   br label %.preheader.i44
 
 93:                                               ; preds = %93, %.preheader28.i36
@@ -276,7 +276,7 @@ DoFilter.exit:                                    ; preds = %73, %76
 GetMBSSIM.exit51:                                 ; preds = %108
   %110 = load ptr, ptr %19, align 8
   %111 = zext nneg i32 %55 to i64
-  %112 = getelementptr inbounds [4 x [64 x double]], ptr %110, i64 0, i64 %10, i64 %111
+  %112 = getelementptr inbounds nuw [4 x [64 x double]], ptr %110, i64 0, i64 %10, i64 %111
   %113 = load double, ptr %112, align 8
   %114 = fadd double %106, %113
   store double %114, ptr %112, align 8
@@ -293,9 +293,9 @@ GetMBSSIM.exit51:                                 ; preds = %108
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 320
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %19, label %.preheader45
@@ -307,7 +307,7 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
 7:                                                ; preds = %.preheader45, %17
   %indvars.iv53 = phi i64 [ 0, %.preheader45 ], [ %indvars.iv.next54, %17 ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds [4 x [64 x double]], ptr %8, i64 0, i64 %indvars.iv53
+  %9 = getelementptr inbounds nuw [4 x [64 x double]], ptr %8, i64 0, i64 %indvars.iv53
   %10 = load double, ptr %9, align 8
   %11 = fmul double %10, 1.000010e+00
   br label %12
@@ -316,7 +316,7 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
   %indvars.iv = phi i64 [ 1, %7 ], [ %indvars.iv.next, %12 ]
   %.03647 = phi i32 [ 0, %7 ], [ %.1, %12 ]
   %.04046 = phi double [ %11, %7 ], [ %.141, %12 ]
-  %13 = getelementptr inbounds [4 x [64 x double]], ptr %8, i64 0, i64 %indvars.iv53, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x [64 x double]], ptr %8, i64 0, i64 %indvars.iv53, i64 %indvars.iv
   %14 = load double, ptr %13, align 8
   %15 = fcmp ogt double %14, %.04046
   %.141 = select i1 %15, double %14, double %.04046
@@ -336,14 +336,14 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
 
 19:                                               ; preds = %1
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load i32, ptr %21, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %3, i64 608
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 608
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre = load i32, ptr %25, align 8
   %26 = sext i32 %.pre to i64
   br label %27
@@ -351,10 +351,10 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
 27:                                               ; preds = %.preheader, %45
   %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %45 ]
   %.03850 = phi i32 [ 0, %.preheader ], [ %spec.select, %45 ]
-  %28 = getelementptr inbounds [4 x %struct.VP8SegmentInfo], ptr %24, i64 0, i64 %indvars.iv57
-  %29 = getelementptr inbounds i8, ptr %28, i64 688
+  %28 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %24, i64 0, i64 %indvars.iv57
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 688
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 226
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 226
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i32
   %34 = mul nsw i32 %30, %33
@@ -364,7 +364,7 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
   %38 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %26, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %28, i64 684
+  %41 = getelementptr inbounds nuw i8, ptr %28, i64 684
   %42 = load i32, ptr %41, align 4
   %43 = icmp slt i32 %42, %40
   br i1 %43, label %44, label %45
@@ -381,7 +381,7 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
   br i1 %exitcond60.not, label %47, label %27, !llvm.loop !14
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %3, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %spec.select, ptr %48, align 4
   br label %.loopexit
 

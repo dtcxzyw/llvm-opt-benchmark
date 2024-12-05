@@ -33,7 +33,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key = getelementptr inbounds i8, ptr %vpmacctx, i64 16
+  %key = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 16
   %0 = load ptr, ptr %key, align 8
   %cmp1 = icmp eq ptr %0, null
   %cmp2 = icmp eq ptr %vkey, null
@@ -62,7 +62,7 @@ if.end10:                                         ; preds = %if.then6
 
 if.end13:                                         ; preds = %if.end10, %if.end4
   %2 = phi ptr [ %vkey, %if.end10 ], [ %0, %if.end4 ]
-  %cipher = getelementptr inbounds i8, ptr %2, i64 32
+  %cipher = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3 = load ptr, ptr %cipher, align 8
   %cmp16.not = icmp eq ptr %3, null
   br i1 %cmp16.not, label %if.end22, label %if.then17
@@ -75,7 +75,7 @@ if.then17:                                        ; preds = %if.end13
 if.end22:                                         ; preds = %if.then17, %if.end13
   %4 = phi ptr [ %.pre, %if.then17 ], [ %2, %if.end13 ]
   %ciphername.0 = phi ptr [ %call21, %if.then17 ], [ null, %if.end13 ]
-  %engine25 = getelementptr inbounds i8, ptr %4, i64 48
+  %engine25 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %5 = load ptr, ptr %engine25, align 8
   %cmp26.not = icmp eq ptr %5, null
   br i1 %cmp26.not, label %if.end32, label %if.then27
@@ -88,9 +88,9 @@ if.then27:                                        ; preds = %if.end22
 if.end32:                                         ; preds = %if.then27, %if.end22
   %6 = phi ptr [ %.pre18, %if.then27 ], [ %4, %if.end22 ]
   %engine.0 = phi ptr [ %call31, %if.then27 ], [ null, %if.end22 ]
-  %macctx = getelementptr inbounds i8, ptr %vpmacctx, i64 24
+  %macctx = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 24
   %7 = load ptr, ptr %macctx, align 8
-  %properties = getelementptr inbounds i8, ptr %6, i64 56
+  %properties = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %properties, align 8
   %call34 = tail call i32 @ossl_prov_set_macctx(ptr noundef %7, ptr noundef null, ptr noundef %ciphername.0, ptr noundef %mdname, ptr noundef %engine.0, ptr noundef %8, ptr noundef null, i64 noundef 0) #3
   %tobool35.not = icmp eq i32 %call34, 0
@@ -99,9 +99,9 @@ if.end32:                                         ; preds = %if.then27, %if.end2
 if.end37:                                         ; preds = %if.end32
   %9 = load ptr, ptr %macctx, align 8
   %10 = load ptr, ptr %key, align 8
-  %priv_key = getelementptr inbounds i8, ptr %10, i64 16
+  %priv_key = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load ptr, ptr %priv_key, align 8
-  %priv_key_len = getelementptr inbounds i8, ptr %10, i64 24
+  %priv_key_len = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i64, ptr %priv_key_len, align 8
   %call41 = tail call i32 @EVP_MAC_init(ptr noundef %9, ptr noundef %11, i64 noundef %12, ptr noundef %params) #3
   %tobool42.not = icmp ne i32 %call41, 0
@@ -120,7 +120,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %macctx = getelementptr inbounds i8, ptr %vpmacctx, i64 24
+  %macctx = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 24
   %0 = load ptr, ptr %macctx, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
@@ -144,7 +144,7 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %entry
-  %macctx = getelementptr inbounds i8, ptr %vpmacctx, i64 24
+  %macctx = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 24
   %0 = load ptr, ptr %macctx, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %if.end
@@ -161,13 +161,13 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define internal void @mac_freectx(ptr noundef %vpmacctx) #0 {
 entry:
-  %propq = getelementptr inbounds i8, ptr %vpmacctx, i64 8
+  %propq = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 8
   %0 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 166) #3
-  %macctx = getelementptr inbounds i8, ptr %vpmacctx, i64 24
+  %macctx = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 24
   %1 = load ptr, ptr %macctx, align 8
   tail call void @EVP_MAC_CTX_free(ptr noundef %1) #3
-  %key = getelementptr inbounds i8, ptr %vpmacctx, i64 16
+  %key = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 16
   %2 = load ptr, ptr %key, align 8
   tail call void @ossl_mac_key_free(ptr noundef %2) #3
   tail call void @CRYPTO_free(ptr noundef %vpmacctx, ptr noundef nonnull @.str.1, i32 noundef 169) #3
@@ -189,10 +189,10 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %0 = load i64, ptr %vpmacctx, align 8
   store i64 %0, ptr %call1, align 8
-  %propq = getelementptr inbounds i8, ptr %call1, i64 8
-  %key = getelementptr inbounds i8, ptr %call1, i64 16
-  %macctx = getelementptr inbounds i8, ptr %call1, i64 24
-  %propq4 = getelementptr inbounds i8, ptr %vpmacctx, i64 8
+  %propq = getelementptr inbounds nuw i8, ptr %call1, i64 8
+  %key = getelementptr inbounds nuw i8, ptr %call1, i64 16
+  %macctx = getelementptr inbounds nuw i8, ptr %call1, i64 24
+  %propq4 = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %propq, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %propq4, align 8
   %cmp5.not = icmp eq ptr %1, null
@@ -206,7 +206,7 @@ land.lhs.true:                                    ; preds = %if.end3
 
 if.end11:                                         ; preds = %land.lhs.true, %if.end3
   %2 = phi ptr [ %call7, %land.lhs.true ], [ null, %if.end3 ]
-  %key12 = getelementptr inbounds i8, ptr %vpmacctx, i64 16
+  %key12 = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 16
   %3 = load ptr, ptr %key12, align 8
   %cmp13.not = icmp eq ptr %3, null
   br i1 %cmp13.not, label %if.end19, label %land.lhs.true14
@@ -223,7 +223,7 @@ land.lhs.true14.if.end19_crit_edge:               ; preds = %land.lhs.true14
 if.end19:                                         ; preds = %land.lhs.true14.if.end19_crit_edge, %if.end11
   %4 = phi ptr [ %.pre, %land.lhs.true14.if.end19_crit_edge ], [ null, %if.end11 ]
   store ptr %4, ptr %key, align 8
-  %macctx22 = getelementptr inbounds i8, ptr %vpmacctx, i64 24
+  %macctx22 = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 24
   %5 = load ptr, ptr %macctx22, align 8
   %cmp23.not = icmp eq ptr %5, null
   br i1 %cmp23.not, label %return, label %if.then24
@@ -252,7 +252,7 @@ return:                                           ; preds = %if.end19, %if.then2
 ; Function Attrs: nounwind uwtable
 define internal i32 @mac_set_ctx_params(ptr nocapture noundef readonly %vpmacctx, ptr noundef %params) #0 {
 entry:
-  %macctx = getelementptr inbounds i8, ptr %vpmacctx, i64 24
+  %macctx = getelementptr inbounds nuw i8, ptr %vpmacctx, i64 24
   %0 = load ptr, ptr %macctx, align 8
   %call = tail call i32 @EVP_MAC_CTX_set_params(ptr noundef %0, ptr noundef %params) #3
   ret i32 %call
@@ -371,7 +371,7 @@ if.end3:                                          ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.end3
   %call6 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str.1, i32 noundef 63) #3
-  %propq7 = getelementptr inbounds i8, ptr %call1, i64 8
+  %propq7 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %call6, ptr %propq7, align 8
   %cmp8 = icmp eq ptr %call6, null
   br i1 %cmp8, label %err, label %if.end10
@@ -383,14 +383,14 @@ if.end10:                                         ; preds = %land.lhs.true, %if.
 
 if.end15:                                         ; preds = %if.end10
   %call16 = tail call ptr @EVP_MAC_CTX_new(ptr noundef nonnull %call12) #3
-  %macctx = getelementptr inbounds i8, ptr %call1, i64 24
+  %macctx = getelementptr inbounds nuw i8, ptr %call1, i64 24
   store ptr %call16, ptr %macctx, align 8
   %cmp18 = icmp eq ptr %call16, null
   br i1 %cmp18, label %err, label %return.sink.split
 
 err:                                              ; preds = %if.end15, %if.end10, %land.lhs.true
   %mac.0 = phi ptr [ null, %land.lhs.true ], [ null, %if.end10 ], [ %call12, %if.end15 ]
-  %propq21 = getelementptr inbounds i8, ptr %call1, i64 8
+  %propq21 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %0 = load ptr, ptr %propq21, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 79) #3
   tail call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str.1, i32 noundef 80) #3

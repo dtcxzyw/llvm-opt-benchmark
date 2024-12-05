@@ -18,20 +18,20 @@ define internal void @bbstreamer_tar_parser_content(ptr noundef %0, ptr nocaptur
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  %8 = getelementptr inbounds i8, ptr %0, i64 2128
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = getelementptr inbounds i8, ptr %0, i64 1072
-  %14 = getelementptr inbounds i8, ptr %0, i64 2120
-  %15 = getelementptr inbounds i8, ptr %0, i64 1080
-  %16 = getelementptr inbounds i8, ptr %0, i64 1084
-  %17 = getelementptr inbounds i8, ptr %0, i64 1088
-  %18 = getelementptr inbounds i8, ptr %0, i64 1092
-  %19 = getelementptr inbounds i8, ptr %0, i64 1093
-  %20 = getelementptr inbounds i8, ptr %0, i64 1094
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1084
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1092
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1093
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1094
   br label %21
 
 21:                                               ; preds = %.lr.ph, %116
@@ -248,7 +248,7 @@ bbstreamer_buffer_until.exit43.thread:            ; preds = %bbstreamer_buffer_u
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_tar_parser_finalize(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %8 [
     i32 4, label %._crit_edge
@@ -256,12 +256,12 @@ define internal void @bbstreamer_tar_parser_finalize(ptr nocapture noundef reado
   ]
 
 ._crit_edge:                                      ; preds = %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %9
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %9
@@ -273,16 +273,16 @@ define internal void @bbstreamer_tar_parser_finalize(ptr nocapture noundef reado
 
 9:                                                ; preds = %._crit_edge, %4
   %10 = phi i32 [ %.pre, %._crit_edge ], [ %6, %4 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %12, align 8
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull %12, ptr noundef null, ptr noundef %14, i32 noundef %10, i32 noundef 4) #7
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull %17) #7
   ret void
@@ -290,13 +290,13 @@ define internal void @bbstreamer_tar_parser_finalize(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_tar_parser_free(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef %3) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull %5) #7
   ret void
@@ -311,17 +311,17 @@ define internal void @bbstreamer_tar_archiver_content(ptr nocapture noundef %0, 
   br i1 %or.cond, label %9, label %21
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %1, i64 1024
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1024
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 1032
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 1036
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1036
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 1040
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1040
   %17 = load i32, ptr %16, align 8
   %18 = tail call i64 @time(ptr noundef null) #7
   %19 = call i32 @tarCreateHeader(ptr noundef nonnull %6, ptr noundef %1, ptr noundef null, i64 noundef %11, i32 noundef %13, i32 noundef %15, i32 noundef %17, i64 noundef %18) #7
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %20, align 8
   br label %35
 
@@ -332,13 +332,13 @@ define internal void @bbstreamer_tar_archiver_content(ptr nocapture noundef %0, 
   ]
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %35
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 1024
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 1024
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 511
   %30 = and i64 %29, -512
@@ -357,7 +357,7 @@ define internal void @bbstreamer_tar_archiver_content(ptr nocapture noundef %0, 
 35:                                               ; preds = %22, %21, %26, %34, %9
   %.021 = phi i32 [ 512, %9 ], [ %32, %26 ], [ 1024, %34 ], [ %3, %21 ], [ %3, %22 ]
   %.0 = phi ptr [ %6, %9 ], [ %6, %26 ], [ %6, %34 ], [ %2, %21 ], [ %2, %22 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
@@ -367,10 +367,10 @@ define internal void @bbstreamer_tar_archiver_content(ptr nocapture noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_tar_archiver_finalize(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %3) #7
   ret void
@@ -378,10 +378,10 @@ define internal void @bbstreamer_tar_archiver_finalize(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_tar_archiver_free(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %3) #7
   tail call void @pfree(ptr noundef %0) #7
@@ -390,7 +390,7 @@ define internal void @bbstreamer_tar_archiver_free(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_tar_terminator_content(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
@@ -402,14 +402,14 @@ define internal void @bbstreamer_tar_terminator_content(ptr nocapture noundef re
 define internal void @bbstreamer_tar_terminator_finalize(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca [1024 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %2, i8 0, i64 1024, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %2, i32 noundef 1024, i32 noundef 0) #7
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr noundef nonnull %7) #7
   ret void
@@ -417,10 +417,10 @@ define internal void @bbstreamer_tar_terminator_finalize(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal void @bbstreamer_tar_terminator_free(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull %3) #7
   tail call void @pfree(ptr noundef %0) #7
@@ -431,11 +431,11 @@ define internal void @bbstreamer_tar_terminator_free(ptr noundef %0) #0 {
 define dso_local noundef ptr @bbstreamer_tar_parser_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc0(i64 noundef 2136) #7
   store ptr @bbstreamer_tar_parser_ops, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @initStringInfo(ptr noundef nonnull %4) #7
-  %5 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 1, ptr %5, align 8
   ret ptr %2
 }
@@ -448,7 +448,7 @@ declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 define dso_local noundef ptr @bbstreamer_tar_archiver_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc0(i64 noundef 48) #7
   store ptr @bbstreamer_tar_archiver_ops, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
   ret ptr %2
 }
@@ -457,7 +457,7 @@ define dso_local noundef ptr @bbstreamer_tar_archiver_new(ptr noundef %0) local_
 define dso_local noundef ptr @bbstreamer_tar_terminator_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc0(i64 noundef 40) #7
   store ptr @bbstreamer_tar_terminator_ops, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
   ret ptr %2
 }

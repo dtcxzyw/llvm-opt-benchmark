@@ -151,23 +151,23 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   store ptr %19, ptr %6, align 8
   call void @jpeg_CreateCompress(ptr noundef nonnull %6, i32 noundef 62, i64 noundef 520) #11
   %20 = call fastcc i32 @parse_switches(ptr noundef %6, i32 noundef %0, ptr noundef nonnull %1, i32 noundef 0)
-  %21 = getelementptr inbounds i8, ptr %8, i64 124
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 124
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 124
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 124
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   store i64 %27, ptr %30, align 8
   %.b = load i1, ptr @strict, align 4
   br i1 %.b, label %31, label %33
 
 31:                                               ; preds = %17
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @my_emit_message, ptr %32, align 8
   br label %33
 
@@ -303,7 +303,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   call void @start_progress_monitor(ptr noundef nonnull %6, ptr noundef nonnull %10) #11
   %.b60 = load i1, ptr @report, align 4
   %102 = zext i1 %.b60 to i32
-  %103 = getelementptr inbounds i8, ptr %10, i64 44
+  %103 = getelementptr inbounds nuw i8, ptr %10, i64 44
   store i32 %102, ptr %103, align 4
   br label %104
 
@@ -318,10 +318,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   call void @start_progress_monitor(ptr noundef nonnull %3, ptr noundef nonnull %9) #11
   %.b58 = load i1, ptr @report, align 4
   %108 = zext i1 %.b58 to i32
-  %109 = getelementptr inbounds i8, ptr %9, i64 44
+  %109 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %108, ptr %109, align 4
   %110 = load i32, ptr @max_scans, align 4
-  %111 = getelementptr inbounds i8, ptr %9, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 %110, ptr %111, align 8
   br label %112
 
@@ -362,11 +362,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 
 128:                                              ; preds = %124
   %129 = call i32 @jpeg_read_header(ptr noundef nonnull %4, i32 noundef 1) #11
-  %130 = getelementptr inbounds i8, ptr %4, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %131 = load i32, ptr %130, align 8
   store i32 %131, ptr getelementptr inbounds (i8, ptr @transformoption, i64 24), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @transformoption, i64 28), align 4
-  %132 = getelementptr inbounds i8, ptr %4, i64 52
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %133 = load i32, ptr %132, align 4
   store i32 %133, ptr getelementptr inbounds (i8, ptr @transformoption, i64 32), align 8
   store i32 1, ptr getelementptr inbounds (i8, ptr @transformoption, i64 36), align 4
@@ -500,15 +500,15 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   call void @free(ptr noundef %.042) #11
   %186 = load ptr, ptr @dropfilename, align 8
   %.not72 = icmp eq ptr %186, null
-  %187 = getelementptr inbounds i8, ptr %7, i64 128
+  %187 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %188 = load i64, ptr %187, align 8
   br i1 %.not72, label %197, label %189
 
 189:                                              ; preds = %185
-  %190 = getelementptr inbounds i8, ptr %5, i64 128
+  %190 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %191 = load i64, ptr %190, align 8
   %192 = add nsw i64 %191, %188
-  %193 = getelementptr inbounds i8, ptr %8, i64 128
+  %193 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %194 = load i64, ptr %193, align 8
   %195 = sub i64 0, %194
   %.not74 = icmp eq i64 %192, %195
@@ -517,7 +517,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   unreachable
 
 197:                                              ; preds = %185
-  %198 = getelementptr inbounds i8, ptr %8, i64 128
+  %198 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %199 = load i64, ptr %198, align 8
   %200 = sub i64 0, %199
   %.not73 = icmp eq i64 %188, %200
@@ -546,17 +546,17 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   store i32 1, ptr @copyoption, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @transformoption, i8 0, i64 24, i1 false)
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 124
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 124
   store i32 0, ptr %10, align 4
   %11 = icmp sgt i32 %1, 1
   br i1 %11, label %.lr.ph, label %.thread319
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 260
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 264
-  %15 = getelementptr inbounds i8, ptr %0, i64 284
-  %16 = getelementptr inbounds i8, ptr %0, i64 280
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 260
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 280
   br label %17
 
 17:                                               ; preds = %.lr.ph, %294
@@ -579,7 +579,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br label %294
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %20, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %27 = call i32 @keymatch(ptr noundef nonnull %26, ptr noundef nonnull @.str.11, i32 noundef 1) #11
   %.not136 = icmp eq i32 %27, 0
   br i1 %.not136, label %29, label %28
@@ -785,7 +785,7 @@ select_transform.exit:                            ; preds = %95, %95
 
 118:                                              ; preds = %109, %108
   %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 124
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 124
   %121 = load i32, ptr %120, align 4
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %120, align 4
@@ -920,7 +920,7 @@ select_transform.exit:                            ; preds = %95, %95
   %176 = phi i64 [ %.pre, %170 ], [ %174, %173 ]
   %177 = mul nsw i64 %176, 1000
   %178 = load ptr, ptr %13, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 88
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 88
   store i64 %177, ptr %179, align 8
   br label %294
 
@@ -1258,13 +1258,13 @@ define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #2 {
   br i1 %3, label %.sink.split, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 124
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 124
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %7, %1
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %8

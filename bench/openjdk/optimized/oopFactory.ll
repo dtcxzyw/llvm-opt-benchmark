@@ -39,56 +39,56 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory13new_boolArrayEiP10JavaThread(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 32), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 32), align 16
   %4 = tail call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %3, i32 noundef %0, i1 noundef zeroext true, ptr noundef %1) #4
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory13new_charArrayEiP10JavaThread(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 40), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 40), align 8
   %4 = tail call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %3, i32 noundef %0, i1 noundef zeroext true, ptr noundef %1) #4
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory14new_floatArrayEiP10JavaThread(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 48), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 48), align 16
   %4 = tail call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %3, i32 noundef %0, i1 noundef zeroext true, ptr noundef %1) #4
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory15new_doubleArrayEiP10JavaThread(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 56), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 56), align 8
   %4 = tail call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %3, i32 noundef %0, i1 noundef zeroext true, ptr noundef %1) #4
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory13new_byteArrayEiP10JavaThread(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 64), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 64), align 16
   %4 = tail call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %3, i32 noundef %0, i1 noundef zeroext true, ptr noundef %1) #4
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory14new_shortArrayEiP10JavaThread(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 72), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 72), align 8
   %4 = tail call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %3, i32 noundef %0, i1 noundef zeroext true, ptr noundef %1) #4
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory12new_intArrayEiP10JavaThread(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 80), align 16
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 80), align 16
   %4 = tail call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %3, i32 noundef %0, i1 noundef zeroext true, ptr noundef %1) #4
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory13new_longArrayEiP10JavaThread(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 88), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 88), align 8
   %4 = tail call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %3, i32 noundef %0, i1 noundef zeroext true, ptr noundef %1) #4
   ret ptr %4
 }
@@ -119,9 +119,9 @@ define hidden noundef ptr @_ZN10oopFactory13new_charArrayEPKcP10JavaThread(ptr n
 
 8:                                                ; preds = %2, %6
   %9 = phi i32 [ %7, %6 ], [ 0, %2 ]
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 40), align 8
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 40), align 8
   %11 = call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %10, i32 noundef %9, i1 noundef zeroext true, ptr noundef %1) #4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %14, label %23
@@ -150,7 +150,7 @@ declare void @_ZN4UTF818convert_to_unicodeItEEvPKcPT_i(ptr noundef, ptr noundef,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory13new_typeArrayE9BasicTypeiP10JavaThread(i8 noundef zeroext %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = zext i8 %0 to i64
-  %5 = getelementptr inbounds [12 x ptr], ptr @_ZN8Universe17_typeArrayKlassesE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN8Universe17_typeArrayKlassesE, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %6, i32 noundef %1, i1 noundef zeroext true, ptr noundef %2) #4
   ret ptr %7
@@ -158,7 +158,7 @@ define hidden noundef ptr @_ZN10oopFactory13new_typeArrayE9BasicTypeiP10JavaThre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory15new_symbolArrayEiP10JavaThread(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 88), align 8
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 88), align 8
   %4 = tail call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %3, i32 noundef %0, i1 noundef zeroext true, ptr noundef %1) #4
   ret ptr %4
 }
@@ -166,7 +166,7 @@ define hidden noundef ptr @_ZN10oopFactory15new_symbolArrayEiP10JavaThread(i32 n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory20new_typeArray_nozeroE9BasicTypeiP10JavaThread(i8 noundef zeroext %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = zext i8 %0 to i64
-  %5 = getelementptr inbounds [12 x ptr], ptr @_ZN8Universe17_typeArrayKlassesE, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [12 x ptr], ptr @_ZN8Universe17_typeArrayKlassesE, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr noundef nonnull align 8 dereferenceable(220) %6, i32 noundef %1, i1 noundef zeroext false, ptr noundef %2) #4
   ret ptr %7
@@ -176,7 +176,7 @@ declare noundef ptr @_ZN14TypeArrayKlass15allocate_commonEibP10JavaThread(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 4
   br i1 %6, label %7, label %9
@@ -200,7 +200,7 @@ declare noundef ptr @_ZN13InstanceKlass17allocate_objArrayEiiP10JavaThread(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN10oopFactory19new_objArray_handleEP5KlassiP10JavaThread(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 4
   br i1 %6, label %7, label %9
@@ -215,7 +215,7 @@ define hidden noundef ptr @_ZN10oopFactory19new_objArray_handleEP5KlassiP10JavaT
 
 _ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread.exit: ; preds = %7, %9
   %.0.i = phi ptr [ %8, %7 ], [ %10, %9 ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ne ptr %12, null
   %14 = icmp eq ptr %.0.i, null
@@ -223,11 +223,11 @@ _ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread.exit: ; preds = %7, %9
   br i1 %or.cond, label %_ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit, label %15
 
 15:                                               ; preds = %_ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread.exit
-  %16 = getelementptr inbounds i8, ptr %2, i64 808
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 808
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %19 to i64
   %23 = ptrtoint ptr %21 to i64
@@ -236,7 +236,7 @@ _ZN10oopFactory12new_objArrayEP5KlassiP10JavaThread.exit: ; preds = %7, %9
   br i1 %.not.i.i.i.i.i, label %27, label %25
 
 25:                                               ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %21, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %26, ptr %20, align 8
   br label %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
 

@@ -126,7 +126,7 @@ define void @dgetri_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %indvars.iv226 = phi i64 [ %55, %.lr.ph195 ], [ %indvars.iv.next227, %58 ]
   %gep252 = getelementptr double, ptr %invariant.gep251, i64 %indvars.iv226
   %59 = load double, ptr %gep252, align 8
-  %60 = getelementptr inbounds double, ptr %19, i64 %indvars.iv226
+  %60 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv226
   store double %59, ptr %60, align 8
   store double 0.000000e+00, ptr %gep252, align 8
   %indvars.iv.next227 = add nsw i64 %indvars.iv226, 1
@@ -266,7 +266,7 @@ define void @dgetri_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 109:                                              ; preds = %._crit_edge._crit_edge, %101
   %.pre-phi242 = phi i64 [ %.pre241, %._crit_edge._crit_edge ], [ %108, %101 ]
   %110 = zext nneg i32 %.1189 to i64
-  %111 = getelementptr inbounds double, ptr %19, i64 %110
+  %111 = getelementptr inbounds nuw double, ptr %19, i64 %110
   %gep188 = getelementptr double, ptr %invariant.gep, i64 %.pre-phi242
   call void @dtrsm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %14, ptr noundef nonnull %111, ptr noundef nonnull %11, ptr noundef %gep188, ptr noundef nonnull %2)
   %112 = sub nsw i32 %.1189, %.0147173
@@ -288,7 +288,7 @@ define void @dgetri_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
 .lr.ph211:                                        ; preds = %.lr.ph211.preheader, %125
   %indvars.iv234 = phi i64 [ %116, %.lr.ph211.preheader ], [ %indvars.iv.next235, %125 ]
   %indvars.iv.next235 = add nsw i64 %indvars.iv234, -1
-  %118 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv.next235
+  %118 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.next235
   %119 = load i32, ptr %118, align 4
   %120 = zext i32 %119 to i64
   %.not166 = icmp eq i64 %indvars.iv.next235, %120

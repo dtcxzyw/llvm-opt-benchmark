@@ -20,15 +20,15 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion16Power
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds [87 x %"struct.pxrInternal_v0_24__pxrReserved__::pxr_double_conversion::PowersOfTenCache::CachedPower"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion16PowersOfTenCacheL13kCachedPowersE, i64 0, i64 %13
   %.sroa.0.0.copyload = load i64, ptr %14, align 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.2.0.copyload = load i16, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 10
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 10
   %.sroa.3.0.copyload = load i16, ptr %.sroa.3.0..sroa_idx, align 2
   %15 = sext i16 %.sroa.3.0.copyload to i32
   store i32 %15, ptr %3, align 4
   %16 = sext i16 %.sroa.2.0.copyload to i32
   store i64 %.sroa.0.0.copyload, ptr %2, align 8
-  %.sroa.2.0..sroa_idx7 = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %16, ptr %.sroa.2.0..sroa_idx7, align 8
   ret void
 }
@@ -43,13 +43,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion16Power
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [87 x %"struct.pxrInternal_v0_24__pxrReserved__::pxr_double_conversion::PowersOfTenCache::CachedPower"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion16PowersOfTenCacheL13kCachedPowersE, i64 0, i64 %6
   %.sroa.0.0.copyload = load i64, ptr %7, align 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.2.0.copyload = load i16, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 10
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 10
   %.sroa.3.0.copyload = load i16, ptr %.sroa.3.0..sroa_idx, align 2
   %8 = sext i16 %.sroa.2.0.copyload to i32
   store i64 %.sroa.0.0.copyload, ptr %1, align 8
-  %.sroa.2.0..sroa_idx4 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %8, ptr %.sroa.2.0..sroa_idx4, align 8
   %9 = sext i16 %.sroa.3.0.copyload to i32
   store i32 %9, ptr %2, align 4

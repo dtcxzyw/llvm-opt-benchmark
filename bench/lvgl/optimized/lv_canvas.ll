@@ -214,20 +214,20 @@ default.unreachable:                              ; preds = %14
   br label %67
 
 53:                                               ; preds = %41
-  %54 = getelementptr inbounds i8, ptr %12, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i8 %.sroa.12.0.extract.trunc, ptr %54, align 1, !tbaa !16
-  %55 = getelementptr inbounds i8, ptr %12, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 %.sroa.8.0.extract.trunc, ptr %55, align 1, !tbaa !16
   store i8 %.sroa.0.0.extract.trunc, ptr %12, align 1, !tbaa !16
   br label %67
 
 56:                                               ; preds = %41
-  %57 = getelementptr inbounds i8, ptr %12, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i8 %.sroa.12.0.extract.trunc, ptr %57, align 1, !tbaa !16
-  %58 = getelementptr inbounds i8, ptr %12, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 %.sroa.8.0.extract.trunc, ptr %58, align 1, !tbaa !16
   store i8 %.sroa.0.0.extract.trunc, ptr %12, align 1, !tbaa !16
-  %59 = getelementptr inbounds i8, ptr %12, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %12, i64 3
   store i8 -1, ptr %59, align 1, !tbaa !16
   br label %67
 
@@ -311,11 +311,11 @@ define i32 @lv_canvas_get_px(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   br label %53
 
 14:                                               ; preds = %8, %8
-  %15 = getelementptr inbounds i8, ptr %9, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %16 = load i8, ptr %15, align 1, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %16, ptr %17, align 2, !tbaa !17
-  %18 = getelementptr inbounds i8, ptr %9, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %19, ptr %20, align 1, !tbaa !19
@@ -586,9 +586,9 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
   %indvars.iv219 = phi i64 [ %indvars.iv.next220, %.lr.ph171 ], [ 0, %.lr.ph174 ]
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv219
   store i8 %.sroa.097.0.extract.trunc, ptr %58, align 1, !tbaa !16
-  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   store i8 %.sroa.7.0.extract.trunc, ptr %59, align 1, !tbaa !16
-  %60 = getelementptr inbounds i8, ptr %58, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 2
   store i8 %.sroa.8.0.extract.trunc, ptr %60, align 1, !tbaa !16
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 3
   %61 = load i64, ptr %5, align 4
@@ -665,7 +665,7 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph161 ]
   %93 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %91, i64 %indvars.iv
   store i8 %86, ptr %93, align 1, !tbaa !16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %93, i64 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 1
   store i8 -1, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i64, ptr %5, align 4
@@ -760,27 +760,27 @@ define void @lv_canvas_init_layer(ptr noundef readonly %0, ptr noundef %1) local
   store i32 %21, ptr %22, align 8, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %23, align 8, !tbaa !31
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 12
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !31
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %13, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !31
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %16, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !31
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 0, ptr %24, align 4, !tbaa !31
-  %.sroa.6.0..sroa_idx3 = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %.sroa.6.0..sroa_idx3, align 4, !tbaa !31
-  %.sroa.7.0..sroa_idx7 = getelementptr inbounds i8, ptr %1, i64 36
+  %.sroa.7.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %13, ptr %.sroa.7.0..sroa_idx7, align 4, !tbaa !31
-  %.sroa.8.0..sroa_idx11 = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.8.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %16, ptr %.sroa.8.0..sroa_idx11, align 4, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 0, ptr %25, align 4, !tbaa !31
-  %.sroa.6.0..sroa_idx5 = getelementptr inbounds i8, ptr %1, i64 48
+  %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 0, ptr %.sroa.6.0..sroa_idx5, align 4, !tbaa !31
-  %.sroa.7.0..sroa_idx9 = getelementptr inbounds i8, ptr %1, i64 52
+  %.sroa.7.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %13, ptr %.sroa.7.0..sroa_idx9, align 4, !tbaa !31
-  %.sroa.8.0..sroa_idx13 = getelementptr inbounds i8, ptr %1, i64 56
+  %.sroa.8.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %16, ptr %.sroa.8.0..sroa_idx13, align 4, !tbaa !31
   br label %26
 

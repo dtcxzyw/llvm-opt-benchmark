@@ -44,15 +44,15 @@ declare void @_ZN22XNMethodTableIterationC1Ev(ptr noundef nonnull align 64 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17XSafeDeleteNoLockIA_18XNMethodTableEntryED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryED2Ev.exit, label %.loopexit.i.i.i.i
 
 .loopexit.i.i.i.i:                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   store i32 0, ptr %3, align 4
   %.not.i.i.i.i = icmp eq ptr %7, null
@@ -176,7 +176,7 @@ define hidden void @_ZN13XNMethodTable16unregister_entryEP18XNMethodTableEntrymP
   %18 = xor i32 %17, %16
   %19 = zext i32 %18 to i64
   %20 = and i64 %4, %19
-  %21 = getelementptr inbounds %class.XNMethodTableEntry, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw %class.XNMethodTableEntry, ptr %0, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 1
   %24 = icmp ne i64 %23, 0
@@ -214,7 +214,7 @@ define hidden void @_ZN13XNMethodTable16unregister_entryEP18XNMethodTableEntrymP
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13XNMethodTable7rebuildEm(i64 noundef %0) local_unnamed_addr #1 align 2 {
   %2 = alloca ptr, align 8
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_94ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %21, label %4
 
@@ -343,12 +343,12 @@ _ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit: ; preds
   br label %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i
 
 _ZN7XLockerI5XLockEC2EPS0_.exit.i.i:              ; preds = %74, %._crit_edge
-  %76 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
+  %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
   %.not.i.i = icmp ne i64 %76, 0
   br i1 %.not.i.i, label %77, label %79
 
 77:                                               ; preds = %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i
-  %78 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 16), ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %78 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 16), ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %79
 
 79:                                               ; preds = %77, %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i
@@ -591,7 +591,7 @@ define hidden void @_ZN13XNMethodTable18unregister_nmethodEP7nmethod(ptr noundef
   %18 = xor i32 %17, %16
   %19 = zext i32 %18 to i64
   %20 = and i64 %4, %19
-  %21 = getelementptr inbounds %class.XNMethodTableEntry, ptr %2, i64 %20
+  %21 = getelementptr inbounds nuw %class.XNMethodTableEntry, ptr %2, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = and i64 %22, 1
   %24 = icmp ne i64 %23, 0
@@ -648,16 +648,16 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %2
   br i1 %.not.i.i1, label %_ZN7XLockerI5XLockEC2EPS0_.exit.thread.i, label %6
 
 _ZN7XLockerI5XLockEC2EPS0_.exit.thread.i:         ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %4 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
   %5 = add i64 %4, 1
-  store i64 %5, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
+  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE22enable_deferred_deleteEv.exit
 
 6:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
-  %8 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
   %9 = add i64 %8, 1
-  store i64 %9, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
+  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #14
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE22enable_deferred_deleteEv.exit
 
@@ -698,19 +698,19 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %0, %2
   br label %_ZN7XLockerI5XLockEC2EPS0_.exit.i
 
 _ZN7XLockerI5XLockEC2EPS0_.exit.i:                ; preds = %4, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %6 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
   %7 = add i64 %6, -1
-  store i64 %7, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %_ZN7XLockerI5XLockEC2EPS0_.exit.i
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 24), align 8
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 24), align 8
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 16), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 16), align 8
-  %12 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 20), align 4
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 20), align 4
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 24), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 24), align 8
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 16), align 8
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 20), align 4
   %13 = icmp eq i32 %12, 0
   br label %14
 
@@ -734,7 +734,7 @@ _ZN7XLockerI5XLockED2Ev.exit.i:                   ; preds = %15, %14
 .lr.ph.i:                                         ; preds = %_ZN7XLockerI5XLockED2Ev.exit.i, %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i
   %.sroa.0.016.i = phi ptr [ %21, %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i ], [ %.sroa.9.0.i, %_ZN7XLockerI5XLockED2Ev.exit.i ]
   %20 = load ptr, ptr %.sroa.0.016.i, align 8
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.016.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 8
   %22 = icmp eq ptr %20, null
   br i1 %22, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE16immediate_deleteEPS0_.exit.i, label %23
 
@@ -826,13 +826,13 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %3, %5
   br i1 %6, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
   br label %38
 
@@ -853,7 +853,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP18XNMet
   br i1 %17, label %.lr.ph.i.i, label %.preheader15.i.i
 
 .lr.ph.i.i:                                       ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %23
 
 .preheader15.loopexit.i.i:                        ; preds = %23
@@ -872,9 +872,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP18XNMet
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -884,14 +884,14 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP18XNMet
   br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !12
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4growEi.exit, label %37
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4

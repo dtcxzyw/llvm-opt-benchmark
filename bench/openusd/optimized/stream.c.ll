@@ -753,7 +753,7 @@ avifROStreamReadBits.exit:                        ; preds = %38
   br label %174
 
 41:                                               ; preds = %avifROStreamReadBits.exit
-  %42 = getelementptr inbounds i8, ptr %3, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %43
 
 43:                                               ; preds = %74, %41
@@ -829,7 +829,7 @@ avifROStreamReadBits.exit27:                      ; preds = %74
   br label %174
 
 80:                                               ; preds = %avifROStreamReadBits.exit27
-  %81 = getelementptr inbounds i8, ptr %3, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %82
 
 82:                                               ; preds = %113, %80
@@ -905,7 +905,7 @@ avifROStreamReadBits.exit39:                      ; preds = %113
   br label %174
 
 119:                                              ; preds = %avifROStreamReadBits.exit39
-  %120 = getelementptr inbounds i8, ptr %3, i64 12
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %121
 
 121:                                              ; preds = %152, %119
@@ -982,7 +982,7 @@ avifROStreamReadBits.exit51:                      ; preds = %152
   br label %174
 
 160:                                              ; preds = %avifROStreamReadBits.exit51
-  %161 = getelementptr inbounds i8, ptr %3, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %162 = call i32 @avifROStreamReadBits(ptr noundef nonnull %0, ptr noundef nonnull %161, i64 noundef 8)
   %.not15 = icmp eq i32 %162, 0
   br i1 %.not15, label %174, label %163
@@ -1252,11 +1252,11 @@ avifROStreamRead.exit.thread:                     ; preds = %3
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %8
   %.sroa.0.0.copyload = load i8, ptr %16, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 1
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 1
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 2
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 2
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 3
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 3
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
   %17 = add i64 %8, 4
   store i64 %17, ptr %7, align 8
@@ -1504,7 +1504,7 @@ define hidden i32 @avifRWStreamWriteFullBox(ptr nocapture noundef %0, ptr nocapt
   %33 = load ptr, ptr %32, align 8
   %34 = load i64, ptr %22, align 8
   %35 = getelementptr inbounds i8, ptr %33, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %1, align 1
   store i32 %37, ptr %36, align 1
   br i1 %.not39, label %65, label %38
@@ -1600,7 +1600,7 @@ define hidden i32 @avifRWStreamWriteBox(ptr nocapture noundef %0, ptr nocapture 
   %27 = load ptr, ptr %26, align 8
   %28 = load i64, ptr %14, align 8
   %29 = getelementptr inbounds i8, ptr %27, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %1, align 1
   store i32 %31, ptr %30, align 1
   %32 = load i64, ptr %14, align 8

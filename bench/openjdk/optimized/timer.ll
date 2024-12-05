@@ -94,7 +94,7 @@ define hidden void @_ZN12elapsedTimer15add_nanosecondsEl(ptr nocapture noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12elapsedTimer5startEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %8, label %5
@@ -102,7 +102,7 @@ define hidden void @_ZN12elapsedTimer5startEv(ptr nocapture noundef nonnull alig
 5:                                                ; preds = %1
   store i8 1, ptr %2, align 8
   %6 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %7, align 8
   br label %8
 
@@ -114,14 +114,14 @@ declare noundef i64 @_ZN2os15elapsed_counterEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12elapsedTimer4stopEv(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
   %6 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %6, %8
   %10 = load i64, ptr %0, align 8
@@ -158,7 +158,7 @@ define hidden noundef i64 @_ZNK12elapsedTimer12millisecondsEv(ptr nocapture noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK12elapsedTimer12active_ticksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   %5 = load i64, ptr %0, align 8
@@ -167,7 +167,7 @@ define hidden noundef i64 @_ZNK12elapsedTimer12active_ticksEv(ptr nocapture noun
 6:                                                ; preds = %1
   %7 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #6
   %8 = add nsw i64 %7, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %8, %10
   br label %12

@@ -123,32 +123,32 @@ validate_zone.exit.thread:                        ; preds = %17, %1, %15, %valid
   br i1 %.not.i6, label %identify_system_timezone.exit, label %22
 
 22:                                               ; preds = %validate_zone.exit.thread
-  %23 = getelementptr inbounds i8, ptr %21, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %24 = load i32, ptr %23, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
-  %25 = getelementptr inbounds i8, ptr %4, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 15, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %24, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %4, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 -1, ptr %27, align 8
   %28 = call noundef i64 @mktime(ptr noundef nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   %29 = srem i64 %28, 604800
   %30 = sub nsw i64 %28, %29
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %7, align 8
   store i64 %30, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  %32 = getelementptr inbounds i8, ptr %3, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 15, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %3, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 6, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %24, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %3, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 -1, ptr %35, align 8
   %36 = call noundef i64 @mktime(ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
@@ -275,7 +275,7 @@ check_system_link_file.exit.i:                    ; preds = %69
   br i1 %.not31.i, label %113, label %87
 
 87:                                               ; preds = %.lr.ph53.i
-  %88 = getelementptr inbounds i8, ptr %86, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %89 = load i32, ptr %88, align 8
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %113, label %91
@@ -494,7 +494,7 @@ define internal fastcc void @scan_available_timezones(ptr noundef nonnull %0, pt
   %10 = getelementptr i8, ptr %0, i64 %9
   %sext52 = sub i64 4398046511104, %sext
   %11 = ashr exact i64 %sext52, 32
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %13
 
 13:                                               ; preds = %.lr.ph, %64
@@ -643,7 +643,7 @@ define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %
   br i1 %7, label %.preheader, label %compare_tm.exit.thread
 
 .preheader:                                       ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %1, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %compare_tm.exit.thread
@@ -669,65 +669,65 @@ define internal fastcc i32 @score_timezone(ptr noundef %0, ptr noundef nonnull %
   br i1 %.not.i, label %19, label %compare_tm.exit.thread.loopexit.split.loop.exit
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %15, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %13, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %23 = load i32, ptr %22, align 4
   %.not19.i = icmp eq i32 %21, %23
   br i1 %.not19.i, label %24, label %compare_tm.exit.thread.loopexit.split.loop.exit58
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %15, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %13, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %28 = load i32, ptr %27, align 8
   %.not20.i = icmp eq i32 %26, %28
   br i1 %.not20.i, label %29, label %compare_tm.exit.thread.loopexit.split.loop.exit60
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %15, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %13, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %33 = load i32, ptr %32, align 4
   %.not21.i = icmp eq i32 %31, %33
   br i1 %.not21.i, label %34, label %compare_tm.exit.thread.loopexit.split.loop.exit62
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %15, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %13, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %38 = load i32, ptr %37, align 8
   %.not22.i = icmp eq i32 %36, %38
   br i1 %.not22.i, label %39, label %compare_tm.exit.thread.loopexit.split.loop.exit64
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %15, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %13, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %43 = load i32, ptr %42, align 4
   %.not23.i = icmp eq i32 %41, %43
   br i1 %.not23.i, label %44, label %compare_tm.exit.thread.loopexit.split.loop.exit66
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %15, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %13, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %48 = load i32, ptr %47, align 8
   %.not24.i = icmp eq i32 %46, %48
   br i1 %.not24.i, label %49, label %compare_tm.exit.thread.loopexit.split.loop.exit68
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %15, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %13, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %53 = load i32, ptr %52, align 4
   %.not25.i = icmp eq i32 %51, %53
   br i1 %.not25.i, label %compare_tm.exit, label %compare_tm.exit.thread.loopexit.split.loop.exit70
 
 compare_tm.exit:                                  ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %15, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %13, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %57 = load i32, ptr %56, align 8
   %.not26.i = icmp eq i32 %55, %57
   br i1 %.not26.i, label %58, label %compare_tm.exit.thread.loopexit.split.loop.exit78
@@ -737,7 +737,7 @@ compare_tm.exit:                                  ; preds = %49
   br i1 %59, label %60, label %68
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %13, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %compare_tm.exit.thread, label %64

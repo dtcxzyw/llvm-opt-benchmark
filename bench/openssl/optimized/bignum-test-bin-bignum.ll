@@ -42,19 +42,19 @@ if.then:                                          ; preds = %entry
   %conv = zext i8 %0 to i64
   %mul = mul i64 %sub, %conv
   %div = udiv i64 %mul, 255
-  %incdec.ptr = getelementptr inbounds i8, ptr %buf, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 1
   %1 = load i8, ptr %incdec.ptr, align 1
   %conv7 = zext i8 %1 to i64
   %sub8 = sub i64 %sub, %div
   %mul9 = mul i64 %sub8, %conv7
   %div10 = udiv i64 %mul9, 255
-  %incdec.ptr11 = getelementptr inbounds i8, ptr %buf, i64 2
+  %incdec.ptr11 = getelementptr inbounds nuw i8, ptr %buf, i64 2
   %sub13 = sub i64 %sub8, %div10
   %2 = load i8, ptr %incdec.ptr11, align 1
   %conv15 = zext i8 %2 to i32
   %and = and i32 %conv15, 1
   %and18 = and i32 %conv15, 4
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %buf, i64 3
+  %incdec.ptr19 = getelementptr inbounds nuw i8, ptr %buf, i64 3
   %3 = trunc i64 %sub13 to i32
   br label %if.end
 
@@ -76,7 +76,7 @@ cond.false:                                       ; preds = %if.end
 
 cond.end:                                         ; preds = %if.end
   tail call void @BN_set_negative(ptr noundef %call, i32 noundef %s1.0) #5
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.0, i64 %l1.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf.addr.0, i64 %l1.0
   %conv24 = trunc i64 %l2.0 to i32
   %call25 = tail call ptr @BN_bin2bn(ptr noundef %add.ptr, i32 noundef %conv24, ptr noundef %call1) #5
   %cmp26 = icmp eq ptr %call25, %call1
@@ -87,7 +87,7 @@ cond.false29:                                     ; preds = %cond.end
   unreachable
 
 cond.end30:                                       ; preds = %cond.end
-  %add.ptr33 = getelementptr inbounds i8, ptr %add.ptr, i64 %l2.0
+  %add.ptr33 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %l2.0
   %call35 = tail call ptr @BN_bin2bn(ptr noundef %add.ptr33, i32 noundef %l3.0, ptr noundef %call2) #5
   %cmp36 = icmp eq ptr %call35, %call2
   br i1 %cmp36, label %cond.end40, label %cond.false39

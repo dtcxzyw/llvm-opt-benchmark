@@ -97,7 +97,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 15:                                               ; preds = %2
   %16 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.1) #7
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %20, label %19
@@ -109,7 +109,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 20:                                               ; preds = %15
   %21 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.2) #7
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @optparse(ptr noundef %23, i32 noundef 0, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef null) #7
   store ptr %24, ptr @clamdopts, align 8
@@ -118,7 +118,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 26:                                               ; preds = %20
   %27 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.2) #7
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef %29) #7
   tail call void @optfree(ptr noundef nonnull %12) #7
@@ -127,7 +127,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 31:                                               ; preds = %20
   %32 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.4) #7
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load i32, ptr %33, align 8
   %.not44 = icmp eq i32 %34, 0
   br i1 %.not44, label %36, label %35
@@ -139,7 +139,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 36:                                               ; preds = %35, %31
   %37 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.5) #7
-  %38 = getelementptr inbounds i8, ptr %37, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load i32, ptr %38, align 8
   %.not45 = icmp eq i32 %39, 0
   br i1 %.not45, label %41, label %40
@@ -150,7 +150,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 41:                                               ; preds = %40, %36
   %42 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.6) #7
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load i32, ptr %43, align 8
   %.not46 = icmp eq i32 %44, 0
   br i1 %.not46, label %46, label %45
@@ -161,7 +161,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 46:                                               ; preds = %45, %41
   %47 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.7) #7
-  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load i32, ptr %48, align 8
   %.not47 = icmp eq i32 %49, 0
   br i1 %.not47, label %52, label %50
@@ -176,14 +176,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 52:                                               ; preds = %46
   %53 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.8) #7
-  %54 = getelementptr inbounds i8, ptr %53, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load i32, ptr %54, align 8
   %.not48 = icmp eq i32 %55, 0
   br i1 %.not48, label %63, label %56
 
 56:                                               ; preds = %52
   %57 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.9) #7
-  %58 = getelementptr inbounds i8, ptr %57, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %59 = load i32, ptr %58, align 8
   %.not49 = icmp eq i32 %59, 0
   br i1 %.not49, label %60, label %63
@@ -202,7 +202,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 63:                                               ; preds = %56, %52
   %64 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.10) #7
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load i32, ptr %65, align 8
   %.not50 = icmp eq i32 %66, 0
   br i1 %.not50, label %68, label %67
@@ -213,13 +213,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 68:                                               ; preds = %67, %63
   %69 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.11) #7
-  %70 = getelementptr inbounds i8, ptr %69, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load i32, ptr %70, align 8
   %.not51 = icmp eq i32 %71, 0
   br i1 %.not51, label %78, label %72
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %69, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %74 = load ptr, ptr %73, align 8
   store ptr %74, ptr @logg_file, align 8
   %75 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.12) #7
@@ -240,7 +240,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 79:                                               ; preds = %72, %78
   %80 = tail call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.14) #7
-  %81 = getelementptr inbounds i8, ptr %80, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load i32, ptr %81, align 8
   %.not53 = icmp eq i32 %82, 0
   br i1 %.not53, label %86, label %83
@@ -268,10 +268,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   unreachable
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %10, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %91, i8 0, i64 144, i1 false)
   store ptr inttoptr (i64 1 to ptr), ptr %10, align 8
-  %92 = getelementptr inbounds i8, ptr %10, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %93 = call i32 @sigemptyset(ptr noundef nonnull %92) #7
   %94 = call i32 @sigaddset(ptr noundef nonnull %92, i32 noundef 13) #7
   %95 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %10, ptr noundef null) #7
@@ -282,7 +282,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %99 = load ptr, ptr @clamdopts, align 8
   call void @optfree(ptr noundef %99) #7
   %100 = call ptr @optget(ptr noundef nonnull %12, ptr noundef nonnull @.str.15) #7
-  %101 = getelementptr inbounds i8, ptr %100, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %102 = load i32, ptr %101, align 8
   %.not55 = icmp eq i32 %102, 0
   br i1 %.not55, label %103, label %151
@@ -295,9 +295,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %107 = load i64, ptr %5, align 8
   %108 = sub nsw i64 %106, %107
   %109 = trunc i64 %108 to i32
-  %110 = getelementptr inbounds i8, ptr %6, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %111 = load i64, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %5, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %113 = load i64, ptr %112, align 8
   %114 = sub nsw i64 %111, %113
   %115 = trunc i64 %114 to i32

@@ -404,7 +404,7 @@ ehcleanup65:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 switch.lookup:                                    ; preds = %do.end
   %46 = zext nneg i32 %name to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN8QuantLib11LatticeRule7getRuleENS0_4typeERSt6vectorIdSaIdEEi, i64 0, i64 %46
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8QuantLib11LatticeRule7getRuleENS0_4typeERSt6vectorIdSaIdEEi, i64 0, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   %47 = load ptr, ptr %Z, align 8, !tbaa !15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28800) %47, ptr noundef nonnull align 16 dereferenceable(28800) %switch.load, i64 28800, i1 false)
@@ -504,7 +504,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !18
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -517,7 +517,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !18
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i

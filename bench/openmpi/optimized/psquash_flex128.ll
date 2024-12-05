@@ -45,7 +45,7 @@ define internal noundef i32 @flex128_init() #0 {
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
+  %4 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %8
@@ -66,7 +66,7 @@ define internal void @flex128_finalize() #0 {
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
+  %4 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %3, i32 2
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %7, label %8
@@ -97,7 +97,7 @@ switch.hole_check:                                ; preds = %2
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %5 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.flex128_get_max_size, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.flex128_get_max_size, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %6
 
@@ -189,7 +189,7 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
   %masksel.i = select i1 %26, i8 -128, i8 0
   %.0.i = or disjoint i8 %24, %masksel.i
   %27 = add nuw nsw i64 %.015.i, 1
-  %28 = getelementptr inbounds i8, ptr %5, i64 %.015.i
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.i
   store i8 %.0.i, ptr %28, align 1
   %29 = icmp samesign ult i64 %.015.i, 7
   %30 = select i1 %26, i1 %29, i1 false
@@ -202,7 +202,7 @@ define internal range(i32 -27, 1) i32 @flex128_encode_int(i16 noundef zeroext %0
 
 34:                                               ; preds = %31
   %35 = trunc i64 %25 to i8
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %35, ptr %36, align 1
   br label %flex_pack_integer.exit
 
@@ -235,7 +235,7 @@ switch.hole_check:                                ; preds = %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %9 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table.flex128_decode_int, i64 0, i64 %9
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table.flex128_decode_int, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %2, i64 9)
   %10 = add nsw i64 %spec.store.select.i, -1

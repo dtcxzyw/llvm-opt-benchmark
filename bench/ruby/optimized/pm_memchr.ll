@@ -8,7 +8,7 @@ define hidden ptr @pm_memchr(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 
   br i1 %3, label %6, label %22
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   %10 = icmp sgt i32 %1, 63

@@ -143,7 +143,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not.i.not, label %9, label %175
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.57) #3
   %12 = load ptr, ptr %10, align 8
@@ -183,7 +183,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 35:                                               ; preds = %20
   %36 = load i32, ptr @hf_ath_ipv4, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef 29, i32 noundef 4, i32 noundef 0) #3
-  %38 = getelementptr inbounds i8, ptr %1, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @tvb_address_to_str(ptr noundef %39, ptr noundef %0, i32 noundef 2, i32 noundef 29) #3
   br label %49
@@ -191,7 +191,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 41:                                               ; preds = %20
   %42 = load i32, ptr @hf_ath_ipv6, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %42, ptr noundef %0, i32 noundef 29, i32 noundef 6, i32 noundef 0) #3
-  %44 = getelementptr inbounds i8, ptr %1, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = tail call ptr @tvb_address_to_str(ptr noundef %45, ptr noundef %0, i32 noundef 3, i32 noundef 29) #3
   br label %49
@@ -214,7 +214,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not222, label %62, label %58
 
 58:                                               ; preds = %49
-  %59 = getelementptr inbounds i8, ptr %1, i64 408
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %60 = load ptr, ptr %59, align 8
   %61 = call ptr @tvb_get_string_enc(ptr noundef %60, ptr noundef %0, i32 noundef %53, i32 noundef %57, i32 noundef 0) #3
   %.pre232 = load i32, ptr %5, align 4
@@ -235,7 +235,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not223, label %76, label %72
 
 72:                                               ; preds = %62
-  %73 = getelementptr inbounds i8, ptr %1, i64 408
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr @tvb_get_string_enc(ptr noundef %74, ptr noundef %0, i32 noundef %67, i32 noundef %71, i32 noundef 0) #3
   %.pre233 = load i32, ptr %6, align 4
@@ -274,7 +274,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 98:                                               ; preds = %79
   %99 = load i32, ptr @hf_ath_ipv4, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %99, ptr noundef %0, i32 noundef 35, i32 noundef 4, i32 noundef 0) #3
-  %101 = getelementptr inbounds i8, ptr %1, i64 408
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %102 = load ptr, ptr %101, align 8
   %103 = tail call ptr @tvb_address_to_str(ptr noundef %102, ptr noundef %0, i32 noundef 2, i32 noundef 35) #3
   br label %112
@@ -282,7 +282,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 104:                                              ; preds = %79
   %105 = load i32, ptr @hf_ath_ipv6, align 4
   %106 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %105, ptr noundef %0, i32 noundef 35, i32 noundef 6, i32 noundef 0) #3
-  %107 = getelementptr inbounds i8, ptr %1, i64 408
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %108 = load ptr, ptr %107, align 8
   %109 = tail call ptr @tvb_address_to_str(ptr noundef %108, ptr noundef %0, i32 noundef 3, i32 noundef 35) #3
   br label %112
@@ -305,7 +305,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not220, label %125, label %121
 
 121:                                              ; preds = %112
-  %122 = getelementptr inbounds i8, ptr %1, i64 408
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %123 = load ptr, ptr %122, align 8
   %124 = call ptr @tvb_get_string_enc(ptr noundef %123, ptr noundef %0, i32 noundef %116, i32 noundef %120, i32 noundef 0) #3
   %.pre = load i32, ptr %5, align 4
@@ -326,7 +326,7 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not221, label %139, label %135
 
 135:                                              ; preds = %125
-  %136 = getelementptr inbounds i8, ptr %1, i64 408
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %137 = load ptr, ptr %136, align 8
   %138 = call ptr @tvb_get_string_enc(ptr noundef %137, ptr noundef %0, i32 noundef %130, i32 noundef %134, i32 noundef 0) #3
   %.pre231 = load i32, ptr %6, align 4

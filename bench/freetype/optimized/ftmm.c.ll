@@ -16,16 +16,16 @@ define i32 @FT_Get_Multi_Master(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not.i, label %ft_face_get_mm_service.exit.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 256
   %.not24.i = icmp eq i64 %7, 0
   br i1 %.not24.i, label %ft_face_get_mm_service.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 240
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   %magicptr.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -34,10 +34,10 @@ define i32 @FT_Get_Multi_Master(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   ]
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
   %.not25.i = icmp eq ptr %18, null
   br i1 %.not25.i, label %21, label %19
@@ -52,7 +52,7 @@ define i32 @FT_Get_Multi_Master(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %.0.i = phi ptr [ %20, %19 ], [ null, %13 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %23 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %24 = getelementptr inbounds i8, ptr %22, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store ptr %23, ptr %24, align 8
   br label %.fold.split.i
 
@@ -85,16 +85,16 @@ define i32 @FT_Get_MM_Var(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %.not.i, label %ft_face_get_mm_service.exit.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 256
   %.not24.i = icmp eq i64 %7, 0
   br i1 %.not24.i, label %ft_face_get_mm_service.exit.thread, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 240
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   %magicptr.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -103,10 +103,10 @@ define i32 @FT_Get_MM_Var(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   ]
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
   %.not25.i = icmp eq ptr %18, null
   br i1 %.not25.i, label %21, label %19
@@ -121,7 +121,7 @@ define i32 @FT_Get_MM_Var(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   %.0.i = phi ptr [ %20, %19 ], [ null, %13 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %23 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %24 = getelementptr inbounds i8, ptr %22, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store ptr %23, ptr %24, align 8
   br label %.fold.split.i
 
@@ -131,7 +131,7 @@ define i32 @FT_Get_MM_Var(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %.not27.i, label %ft_face_get_mm_service.exit.thread, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %25 = getelementptr inbounds i8, ptr %.019.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.019.i, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not11 = icmp eq ptr %26, null
   br i1 %.not11, label %ft_face_get_mm_service.exit.thread, label %27
@@ -174,16 +174,16 @@ define i32 @FT_Set_MM_Design_Coordinates(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not.i, label %.thread33, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 256
   %.not24.i = icmp eq i64 %10, 0
   br i1 %.not24.i, label %.thread33, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %magicptr.i = ptrtoint ptr %15 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -192,10 +192,10 @@ define i32 @FT_Set_MM_Design_Coordinates(ptr noundef %0, i32 noundef %1, ptr nou
   ]
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not25.i = icmp eq ptr %21, null
   br i1 %.not25.i, label %24, label %22
@@ -210,7 +210,7 @@ define i32 @FT_Set_MM_Design_Coordinates(ptr noundef %0, i32 noundef %1, ptr nou
   %.0.i = phi ptr [ %23, %22 ], [ null, %16 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %26 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %27 = getelementptr inbounds i8, ptr %25, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store ptr %26, ptr %27, align 8
   br label %.fold.split.i
 
@@ -220,7 +220,7 @@ define i32 @FT_Set_MM_Design_Coordinates(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not27.i, label %.thread33, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %28 = getelementptr inbounds i8, ptr %.019.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not22 = icmp eq ptr %29, null
   br i1 %.not22, label %.thread33, label %30
@@ -236,13 +236,13 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   %masksel = select i1 %4, i64 0, i64 32768
   %storemerge = or disjoint i64 %34, %masksel
   store i64 %storemerge, ptr %8, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 224
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %36 = load ptr, ptr %35, align 8
   %.not26 = icmp eq ptr %36, null
   br i1 %.not26, label %.thread33, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 216
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %39 = load ptr, ptr %38, align 8
   tail call void %36(ptr noundef %39) #3
   store ptr null, ptr %38, align 8
@@ -265,16 +265,16 @@ define i32 @FT_Set_MM_WeightVector(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not.i, label %.thread33, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 256
   %.not24.i = icmp eq i64 %10, 0
   br i1 %.not24.i, label %.thread33, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %magicptr.i = ptrtoint ptr %15 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -283,10 +283,10 @@ define i32 @FT_Set_MM_WeightVector(ptr noundef %0, i32 noundef %1, ptr noundef %
   ]
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not25.i = icmp eq ptr %21, null
   br i1 %.not25.i, label %24, label %22
@@ -301,7 +301,7 @@ define i32 @FT_Set_MM_WeightVector(ptr noundef %0, i32 noundef %1, ptr noundef %
   %.0.i = phi ptr [ %23, %22 ], [ null, %16 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %26 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %27 = getelementptr inbounds i8, ptr %25, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store ptr %26, ptr %27, align 8
   br label %.fold.split.i
 
@@ -311,7 +311,7 @@ define i32 @FT_Set_MM_WeightVector(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not27.i, label %.thread33, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %28 = getelementptr inbounds i8, ptr %.019.i, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %.019.i, i64 72
   %29 = load ptr, ptr %28, align 8
   %.not22 = icmp eq ptr %29, null
   br i1 %.not22, label %.thread33, label %30
@@ -327,13 +327,13 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   %masksel = select i1 %4, i64 0, i64 32768
   %storemerge = or disjoint i64 %34, %masksel
   store i64 %storemerge, ptr %8, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 224
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %36 = load ptr, ptr %35, align 8
   %.not26 = icmp eq ptr %36, null
   br i1 %.not26, label %.thread33, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 216
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %39 = load ptr, ptr %38, align 8
   tail call void %36(ptr noundef %39) #3
   store ptr null, ptr %38, align 8
@@ -356,16 +356,16 @@ define i32 @FT_Get_MM_WeightVector(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not.i, label %ft_face_get_mm_service.exit.thread, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 256
   %.not24.i = icmp eq i64 %10, 0
   br i1 %.not24.i, label %ft_face_get_mm_service.exit.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %magicptr.i = ptrtoint ptr %15 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -374,10 +374,10 @@ define i32 @FT_Get_MM_WeightVector(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not25.i = icmp eq ptr %21, null
   br i1 %.not25.i, label %24, label %22
@@ -392,7 +392,7 @@ define i32 @FT_Get_MM_WeightVector(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0.i = phi ptr [ %23, %22 ], [ null, %16 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %26 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %27 = getelementptr inbounds i8, ptr %25, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store ptr %26, ptr %27, align 8
   br label %.fold.split.i
 
@@ -402,7 +402,7 @@ define i32 @FT_Get_MM_WeightVector(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not27.i, label %ft_face_get_mm_service.exit.thread, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %28 = getelementptr inbounds i8, ptr %.019.i, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %.019.i, i64 80
   %29 = load ptr, ptr %28, align 8
   %.not12 = icmp eq ptr %29, null
   br i1 %.not12, label %ft_face_get_mm_service.exit.thread, label %30
@@ -428,16 +428,16 @@ define range(i32 0, -1) i32 @FT_Set_Var_Design_Coordinates(ptr noundef %0, i32 n
   br i1 %.not.i, label %.critedge, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 256
   %.not24.i = icmp eq i64 %10, 0
   br i1 %.not24.i, label %.critedge, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %magicptr.i = ptrtoint ptr %15 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -446,10 +446,10 @@ define range(i32 0, -1) i32 @FT_Set_Var_Design_Coordinates(ptr noundef %0, i32 n
   ]
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not25.i = icmp eq ptr %21, null
   br i1 %.not25.i, label %24, label %22
@@ -464,7 +464,7 @@ define range(i32 0, -1) i32 @FT_Set_Var_Design_Coordinates(ptr noundef %0, i32 n
   %.0.i = phi ptr [ %23, %22 ], [ null, %16 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %26 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %27 = getelementptr inbounds i8, ptr %25, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store ptr %26, ptr %27, align 8
   br label %.fold.split.i
 
@@ -474,7 +474,7 @@ define range(i32 0, -1) i32 @FT_Set_Var_Design_Coordinates(ptr noundef %0, i32 n
   br i1 %.not27.i, label %.critedge, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %28 = getelementptr inbounds i8, ptr %.019.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.019.i, i64 40
   %29 = load ptr, ptr %28, align 8
   %.not38 = icmp eq ptr %29, null
   br i1 %.not38, label %.critedge, label %30
@@ -492,7 +492,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   %masksel = select i1 %4, i64 0, i64 32768
   %storemerge = or disjoint i64 %36, %masksel
   store i64 %storemerge, ptr %8, align 8
-  %37 = getelementptr inbounds i8, ptr %.019.i, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %.019.i, i64 88
   %38 = load ptr, ptr %37, align 8
   %.not40 = icmp eq ptr %38, null
   br i1 %.not40, label %42, label %39
@@ -524,7 +524,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
 
 45:                                               ; preds = %.thread71.thread91
   %46 = load ptr, ptr %12, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %48 = load ptr, ptr %47, align 8
   %magicptr.i48 = ptrtoint ptr %48 to i64
   switch i64 %magicptr.i48, label %ft_face_get_mvar_service.exit [
@@ -533,10 +533,10 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   ]
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 176
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = load ptr, ptr %53, align 8
   %.not25.i49 = icmp eq ptr %54, null
   br i1 %.not25.i49, label %57, label %55
@@ -551,7 +551,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   %.0.i51 = phi ptr [ %56, %55 ], [ null, %49 ]
   %.not26.i52 = icmp eq ptr %.0.i51, null
   %59 = select i1 %.not26.i52, ptr inttoptr (i64 -2 to ptr), ptr %.0.i51
-  %60 = getelementptr inbounds i8, ptr %58, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 72
   store ptr %59, ptr %60, align 8
   br label %ft_face_get_mvar_service.exit
 
@@ -561,7 +561,7 @@ ft_face_get_mvar_service.exit:                    ; preds = %45, %57
   br i1 %.not43, label %ft_face_get_mvar_service.exit.thread, label %61
 
 61:                                               ; preds = %ft_face_get_mvar_service.exit
-  %62 = getelementptr inbounds i8, ptr %.019.i53, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %.019.i53, i64 56
   %63 = load ptr, ptr %62, align 8
   %.not44 = icmp eq ptr %63, null
   br i1 %.not44, label %ft_face_get_mvar_service.exit.thread, label %64
@@ -571,13 +571,13 @@ ft_face_get_mvar_service.exit:                    ; preds = %45, %57
   br label %ft_face_get_mvar_service.exit.thread
 
 ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thread91, %64, %61, %ft_face_get_mvar_service.exit
-  %65 = getelementptr inbounds i8, ptr %0, i64 224
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %66 = load ptr, ptr %65, align 8
   %.not45 = icmp eq ptr %66, null
   br i1 %.not45, label %.critedge, label %67
 
 67:                                               ; preds = %ft_face_get_mvar_service.exit.thread
-  %68 = getelementptr inbounds i8, ptr %0, i64 216
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %69 = load ptr, ptr %68, align 8
   tail call void %66(ptr noundef %69) #3
   store ptr null, ptr %68, align 8
@@ -598,16 +598,16 @@ define i32 @FT_Get_Var_Design_Coordinates(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not.i, label %ft_face_get_mm_service.exit.thread, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 256
   %.not24.i = icmp eq i64 %8, 0
   br i1 %.not24.i, label %ft_face_get_mm_service.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %magicptr.i = ptrtoint ptr %13 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -616,10 +616,10 @@ define i32 @FT_Get_Var_Design_Coordinates(ptr noundef %0, i32 noundef %1, ptr no
   ]
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
   %.not25.i = icmp eq ptr %19, null
   br i1 %.not25.i, label %22, label %20
@@ -634,7 +634,7 @@ define i32 @FT_Get_Var_Design_Coordinates(ptr noundef %0, i32 noundef %1, ptr no
   %.0.i = phi ptr [ %21, %20 ], [ null, %14 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %24 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %25 = getelementptr inbounds i8, ptr %23, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr %24, ptr %25, align 8
   br label %.fold.split.i
 
@@ -644,7 +644,7 @@ define i32 @FT_Get_Var_Design_Coordinates(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %.not27.i, label %ft_face_get_mm_service.exit.thread, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %26 = getelementptr inbounds i8, ptr %.019.i, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %.019.i, i64 48
   %27 = load ptr, ptr %26, align 8
   %.not12 = icmp eq ptr %27, null
   br i1 %.not12, label %ft_face_get_mm_service.exit.thread, label %28
@@ -670,16 +670,16 @@ define range(i32 0, -1) i32 @FT_Set_MM_Blend_Coordinates(ptr noundef %0, i32 nou
   br i1 %.not.i, label %.critedge, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 256
   %.not24.i = icmp eq i64 %10, 0
   br i1 %.not24.i, label %.critedge, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %magicptr.i = ptrtoint ptr %15 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -688,10 +688,10 @@ define range(i32 0, -1) i32 @FT_Set_MM_Blend_Coordinates(ptr noundef %0, i32 nou
   ]
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not25.i = icmp eq ptr %21, null
   br i1 %.not25.i, label %24, label %22
@@ -706,7 +706,7 @@ define range(i32 0, -1) i32 @FT_Set_MM_Blend_Coordinates(ptr noundef %0, i32 nou
   %.0.i = phi ptr [ %23, %22 ], [ null, %16 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %26 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %27 = getelementptr inbounds i8, ptr %25, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store ptr %26, ptr %27, align 8
   br label %.fold.split.i
 
@@ -716,7 +716,7 @@ define range(i32 0, -1) i32 @FT_Set_MM_Blend_Coordinates(ptr noundef %0, i32 nou
   br i1 %.not27.i, label %.critedge, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %28 = getelementptr inbounds i8, ptr %.019.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not38 = icmp eq ptr %29, null
   br i1 %.not38, label %.critedge, label %30
@@ -734,7 +734,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   %masksel = select i1 %4, i64 0, i64 32768
   %storemerge = or disjoint i64 %36, %masksel
   store i64 %storemerge, ptr %8, align 8
-  %37 = getelementptr inbounds i8, ptr %.019.i, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %.019.i, i64 88
   %38 = load ptr, ptr %37, align 8
   %.not40 = icmp eq ptr %38, null
   br i1 %.not40, label %42, label %39
@@ -766,7 +766,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
 
 45:                                               ; preds = %.thread71.thread91
   %46 = load ptr, ptr %12, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %48 = load ptr, ptr %47, align 8
   %magicptr.i48 = ptrtoint ptr %48 to i64
   switch i64 %magicptr.i48, label %ft_face_get_mvar_service.exit [
@@ -775,10 +775,10 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   ]
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 176
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = load ptr, ptr %53, align 8
   %.not25.i49 = icmp eq ptr %54, null
   br i1 %.not25.i49, label %57, label %55
@@ -793,7 +793,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   %.0.i51 = phi ptr [ %56, %55 ], [ null, %49 ]
   %.not26.i52 = icmp eq ptr %.0.i51, null
   %59 = select i1 %.not26.i52, ptr inttoptr (i64 -2 to ptr), ptr %.0.i51
-  %60 = getelementptr inbounds i8, ptr %58, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 72
   store ptr %59, ptr %60, align 8
   br label %ft_face_get_mvar_service.exit
 
@@ -803,7 +803,7 @@ ft_face_get_mvar_service.exit:                    ; preds = %45, %57
   br i1 %.not43, label %ft_face_get_mvar_service.exit.thread, label %61
 
 61:                                               ; preds = %ft_face_get_mvar_service.exit
-  %62 = getelementptr inbounds i8, ptr %.019.i53, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %.019.i53, i64 56
   %63 = load ptr, ptr %62, align 8
   %.not44 = icmp eq ptr %63, null
   br i1 %.not44, label %ft_face_get_mvar_service.exit.thread, label %64
@@ -813,13 +813,13 @@ ft_face_get_mvar_service.exit:                    ; preds = %45, %57
   br label %ft_face_get_mvar_service.exit.thread
 
 ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thread91, %64, %61, %ft_face_get_mvar_service.exit
-  %65 = getelementptr inbounds i8, ptr %0, i64 224
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %66 = load ptr, ptr %65, align 8
   %.not45 = icmp eq ptr %66, null
   br i1 %.not45, label %.critedge, label %67
 
 67:                                               ; preds = %ft_face_get_mvar_service.exit.thread
-  %68 = getelementptr inbounds i8, ptr %0, i64 216
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %69 = load ptr, ptr %68, align 8
   tail call void %66(ptr noundef %69) #3
   store ptr null, ptr %68, align 8
@@ -842,16 +842,16 @@ define range(i32 0, -1) i32 @FT_Set_Var_Blend_Coordinates(ptr noundef %0, i32 no
   br i1 %.not.i, label %.critedge, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 256
   %.not24.i = icmp eq i64 %10, 0
   br i1 %.not24.i, label %.critedge, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 240
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %magicptr.i = ptrtoint ptr %15 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -860,10 +860,10 @@ define range(i32 0, -1) i32 @FT_Set_Var_Blend_Coordinates(ptr noundef %0, i32 no
   ]
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 176
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load ptr, ptr %20, align 8
   %.not25.i = icmp eq ptr %21, null
   br i1 %.not25.i, label %24, label %22
@@ -878,7 +878,7 @@ define range(i32 0, -1) i32 @FT_Set_Var_Blend_Coordinates(ptr noundef %0, i32 no
   %.0.i = phi ptr [ %23, %22 ], [ null, %16 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %26 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %27 = getelementptr inbounds i8, ptr %25, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store ptr %26, ptr %27, align 8
   br label %.fold.split.i
 
@@ -888,7 +888,7 @@ define range(i32 0, -1) i32 @FT_Set_Var_Blend_Coordinates(ptr noundef %0, i32 no
   br i1 %.not27.i, label %.critedge, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %28 = getelementptr inbounds i8, ptr %.019.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not38 = icmp eq ptr %29, null
   br i1 %.not38, label %.critedge, label %30
@@ -906,7 +906,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   %masksel = select i1 %4, i64 0, i64 32768
   %storemerge = or disjoint i64 %36, %masksel
   store i64 %storemerge, ptr %8, align 8
-  %37 = getelementptr inbounds i8, ptr %.019.i, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %.019.i, i64 88
   %38 = load ptr, ptr %37, align 8
   %.not40 = icmp eq ptr %38, null
   br i1 %.not40, label %42, label %39
@@ -938,7 +938,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
 
 45:                                               ; preds = %.thread71.thread91
   %46 = load ptr, ptr %12, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %48 = load ptr, ptr %47, align 8
   %magicptr.i48 = ptrtoint ptr %48 to i64
   switch i64 %magicptr.i48, label %ft_face_get_mvar_service.exit [
@@ -947,10 +947,10 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   ]
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 176
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = load ptr, ptr %53, align 8
   %.not25.i49 = icmp eq ptr %54, null
   br i1 %.not25.i49, label %57, label %55
@@ -965,7 +965,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   %.0.i51 = phi ptr [ %56, %55 ], [ null, %49 ]
   %.not26.i52 = icmp eq ptr %.0.i51, null
   %59 = select i1 %.not26.i52, ptr inttoptr (i64 -2 to ptr), ptr %.0.i51
-  %60 = getelementptr inbounds i8, ptr %58, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 72
   store ptr %59, ptr %60, align 8
   br label %ft_face_get_mvar_service.exit
 
@@ -975,7 +975,7 @@ ft_face_get_mvar_service.exit:                    ; preds = %45, %57
   br i1 %.not43, label %ft_face_get_mvar_service.exit.thread, label %61
 
 61:                                               ; preds = %ft_face_get_mvar_service.exit
-  %62 = getelementptr inbounds i8, ptr %.019.i53, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %.019.i53, i64 56
   %63 = load ptr, ptr %62, align 8
   %.not44 = icmp eq ptr %63, null
   br i1 %.not44, label %ft_face_get_mvar_service.exit.thread, label %64
@@ -985,13 +985,13 @@ ft_face_get_mvar_service.exit:                    ; preds = %45, %57
   br label %ft_face_get_mvar_service.exit.thread
 
 ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thread91, %64, %61, %ft_face_get_mvar_service.exit
-  %65 = getelementptr inbounds i8, ptr %0, i64 224
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %66 = load ptr, ptr %65, align 8
   %.not45 = icmp eq ptr %66, null
   br i1 %.not45, label %.critedge, label %67
 
 67:                                               ; preds = %ft_face_get_mvar_service.exit.thread
-  %68 = getelementptr inbounds i8, ptr %0, i64 216
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %69 = load ptr, ptr %68, align 8
   tail call void %66(ptr noundef %69) #3
   store ptr null, ptr %68, align 8
@@ -1012,16 +1012,16 @@ define i32 @FT_Get_MM_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not.i, label %ft_face_get_mm_service.exit.thread, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 256
   %.not24.i = icmp eq i64 %8, 0
   br i1 %.not24.i, label %ft_face_get_mm_service.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %magicptr.i = ptrtoint ptr %13 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -1030,10 +1030,10 @@ define i32 @FT_Get_MM_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr noun
   ]
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
   %.not25.i = icmp eq ptr %19, null
   br i1 %.not25.i, label %22, label %20
@@ -1048,7 +1048,7 @@ define i32 @FT_Get_MM_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr noun
   %.0.i = phi ptr [ %21, %20 ], [ null, %14 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %24 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %25 = getelementptr inbounds i8, ptr %23, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr %24, ptr %25, align 8
   br label %.fold.split.i
 
@@ -1058,7 +1058,7 @@ define i32 @FT_Get_MM_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %.not27.i, label %ft_face_get_mm_service.exit.thread, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %26 = getelementptr inbounds i8, ptr %.019.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not12 = icmp eq ptr %27, null
   br i1 %.not12, label %ft_face_get_mm_service.exit.thread, label %28
@@ -1082,16 +1082,16 @@ define i32 @FT_Get_Var_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not.i, label %ft_face_get_mm_service.exit.thread, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 256
   %.not24.i = icmp eq i64 %8, 0
   br i1 %.not24.i, label %ft_face_get_mm_service.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %magicptr.i = ptrtoint ptr %13 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -1100,10 +1100,10 @@ define i32 @FT_Get_Var_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr nou
   ]
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
   %.not25.i = icmp eq ptr %19, null
   br i1 %.not25.i, label %22, label %20
@@ -1118,7 +1118,7 @@ define i32 @FT_Get_Var_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr nou
   %.0.i = phi ptr [ %21, %20 ], [ null, %14 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %24 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %25 = getelementptr inbounds i8, ptr %23, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr %24, ptr %25, align 8
   br label %.fold.split.i
 
@@ -1128,7 +1128,7 @@ define i32 @FT_Get_Var_Blend_Coordinates(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not27.i, label %ft_face_get_mm_service.exit.thread, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %26 = getelementptr inbounds i8, ptr %.019.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not12 = icmp eq ptr %27, null
   br i1 %.not12, label %ft_face_get_mm_service.exit.thread, label %28
@@ -1155,9 +1155,9 @@ define range(i32 0, 7) i32 @FT_Get_Var_Axis_Flags(ptr noundef readonly %0, i32 n
   br i1 %.not, label %8, label %14
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds i16, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr %9, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   store i32 %13, ptr %2, align 4
@@ -1174,16 +1174,16 @@ define range(i32 0, -1) i32 @FT_Set_Named_Instance(ptr noundef %0, i32 noundef %
   br i1 %.not.i, label %.critedge, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 256
   %.not24.i = icmp eq i64 %6, 0
   br i1 %.not24.i, label %.critedge, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 240
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
   %magicptr.i = ptrtoint ptr %11 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -1192,10 +1192,10 @@ define range(i32 0, -1) i32 @FT_Set_Named_Instance(ptr noundef %0, i32 noundef %
   ]
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
   %.not25.i = icmp eq ptr %17, null
   br i1 %.not25.i, label %20, label %18
@@ -1210,7 +1210,7 @@ define range(i32 0, -1) i32 @FT_Set_Named_Instance(ptr noundef %0, i32 noundef %
   %.0.i = phi ptr [ %19, %18 ], [ null, %12 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %22 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %23 = getelementptr inbounds i8, ptr %21, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store ptr %22, ptr %23, align 8
   br label %.fold.split.i
 
@@ -1220,7 +1220,7 @@ define range(i32 0, -1) i32 @FT_Set_Named_Instance(ptr noundef %0, i32 noundef %
   br i1 %.not27.i, label %.critedge, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %24 = getelementptr inbounds i8, ptr %.019.i, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %.019.i, i64 56
   %25 = load ptr, ptr %24, align 8
   %.not34 = icmp eq ptr %25, null
   br i1 %.not34, label %.critedge, label %26
@@ -1238,12 +1238,12 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   store i64 %32, ptr %4, align 8
   %33 = shl i32 %1, 16
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 65535
   %38 = or disjoint i64 %37, %34
   store i64 %38, ptr %35, align 8
-  %39 = getelementptr inbounds i8, ptr %.019.i, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %.019.i, i64 88
   %40 = load ptr, ptr %39, align 8
   %.not35 = icmp eq ptr %40, null
   br i1 %.not35, label %45, label %41
@@ -1275,7 +1275,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
 
 48:                                               ; preds = %.thread66.thread86
   %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8
   %magicptr.i43 = ptrtoint ptr %51 to i64
   switch i64 %magicptr.i43, label %ft_face_get_mvar_service.exit [
@@ -1284,10 +1284,10 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   ]
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %0, i64 176
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
   %57 = load ptr, ptr %56, align 8
   %.not25.i44 = icmp eq ptr %57, null
   br i1 %.not25.i44, label %60, label %58
@@ -1302,7 +1302,7 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
   %.0.i46 = phi ptr [ %59, %58 ], [ null, %52 ]
   %.not26.i47 = icmp eq ptr %.0.i46, null
   %62 = select i1 %.not26.i47, ptr inttoptr (i64 -2 to ptr), ptr %.0.i46
-  %63 = getelementptr inbounds i8, ptr %61, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 72
   store ptr %62, ptr %63, align 8
   br label %ft_face_get_mvar_service.exit
 
@@ -1312,7 +1312,7 @@ ft_face_get_mvar_service.exit:                    ; preds = %48, %60
   br i1 %.not38, label %ft_face_get_mvar_service.exit.thread, label %64
 
 64:                                               ; preds = %ft_face_get_mvar_service.exit
-  %65 = getelementptr inbounds i8, ptr %.019.i48, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %.019.i48, i64 56
   %66 = load ptr, ptr %65, align 8
   %.not39 = icmp eq ptr %66, null
   br i1 %.not39, label %ft_face_get_mvar_service.exit.thread, label %67
@@ -1322,13 +1322,13 @@ ft_face_get_mvar_service.exit:                    ; preds = %48, %60
   br label %ft_face_get_mvar_service.exit.thread
 
 ft_face_get_mvar_service.exit.thread:             ; preds = %48, %.thread66.thread86, %67, %64, %ft_face_get_mvar_service.exit
-  %68 = getelementptr inbounds i8, ptr %0, i64 224
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %69 = load ptr, ptr %68, align 8
   %.not40 = icmp eq ptr %69, null
   br i1 %.not40, label %.critedge, label %70
 
 70:                                               ; preds = %ft_face_get_mvar_service.exit.thread
-  %71 = getelementptr inbounds i8, ptr %0, i64 216
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %72 = load ptr, ptr %71, align 8
   tail call void %69(ptr noundef %72) #3
   store ptr null, ptr %71, align 8
@@ -1345,16 +1345,16 @@ define i32 @FT_Get_Default_Named_Instance(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not.i, label %ft_face_get_mm_service.exit.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 256
   %.not24.i = icmp eq i64 %6, 0
   br i1 %.not24.i, label %ft_face_get_mm_service.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 240
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
   %magicptr.i = ptrtoint ptr %11 to i64
   switch i64 %magicptr.i, label %.fold.split.i [
@@ -1363,10 +1363,10 @@ define i32 @FT_Get_Default_Named_Instance(ptr noundef %0, ptr noundef %1) local_
   ]
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
   %.not25.i = icmp eq ptr %17, null
   br i1 %.not25.i, label %20, label %18
@@ -1381,7 +1381,7 @@ define i32 @FT_Get_Default_Named_Instance(ptr noundef %0, ptr noundef %1) local_
   %.0.i = phi ptr [ %19, %18 ], [ null, %12 ]
   %.not26.i = icmp eq ptr %.0.i, null
   %22 = select i1 %.not26.i, ptr inttoptr (i64 -2 to ptr), ptr %.0.i
-  %23 = getelementptr inbounds i8, ptr %21, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store ptr %22, ptr %23, align 8
   br label %.fold.split.i
 
@@ -1391,7 +1391,7 @@ define i32 @FT_Get_Default_Named_Instance(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not27.i, label %ft_face_get_mm_service.exit.thread, label %ft_face_get_mm_service.exit
 
 ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
-  %24 = getelementptr inbounds i8, ptr %.019.i, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.019.i, i64 64
   %25 = load ptr, ptr %24, align 8
   %.not6 = icmp eq ptr %25, null
   br i1 %.not6, label %ft_face_get_mm_service.exit.thread, label %26

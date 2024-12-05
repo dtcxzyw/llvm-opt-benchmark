@@ -34,15 +34,15 @@ declare i32 @ossl_vaes_vpclmulqdq_capable() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @vaes_gcm_setkey(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen) #0 {
 entry:
-  %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
-  %ks1 = getelementptr inbounds i8, ptr %ctx, i64 704
+  %gcm = getelementptr inbounds nuw i8, ptr %ctx, i64 248
+  %ks1 = getelementptr inbounds nuw i8, ptr %ctx, i64 704
   %keylen.tr = trunc i64 %keylen to i32
   %conv = shl i32 %keylen.tr, 3
   %call = tail call i32 @aesni_set_encrypt_key(ptr noundef %key, i32 noundef %conv, ptr noundef nonnull %ks1) #4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %gcm, i8 0, i64 448, i1 false)
-  %key2 = getelementptr inbounds i8, ptr %ctx, i64 640
+  %key2 = getelementptr inbounds nuw i8, ptr %ctx, i64 640
   store ptr %ks1, ptr %key2, align 8
-  %key_set = getelementptr inbounds i8, ptr %ctx, i64 84
+  %key_set = getelementptr inbounds nuw i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %key_set, align 4
   %bf.set = or i8 %bf.load, 4
   store i8 %bf.set, ptr %key_set, align 4
@@ -53,11 +53,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @vaes_gcm_setiv(ptr noundef initializes((248, 264), (296, 328), (624, 632)) %ctx, ptr noundef %iv, i64 noundef %ivlen) #0 {
 entry:
-  %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
-  %len = getelementptr inbounds i8, ptr %ctx, i64 296
-  %ares = getelementptr inbounds i8, ptr %ctx, i64 628
+  %gcm = getelementptr inbounds nuw i8, ptr %ctx, i64 248
+  %len = getelementptr inbounds nuw i8, ptr %ctx, i64 296
+  %ares = getelementptr inbounds nuw i8, ptr %ctx, i64 628
   store i32 0, ptr %ares, align 4
-  %mres = getelementptr inbounds i8, ptr %ctx, i64 624
+  %mres = getelementptr inbounds nuw i8, ptr %ctx, i64 624
   store i32 0, ptr %mres, align 8
   %cmp = icmp ugt i64 %ivlen, 2305843009213693952
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gcm, i8 0, i64 16, i1 false)
@@ -65,7 +65,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %key = getelementptr inbounds i8, ptr %ctx, i64 640
+  %key = getelementptr inbounds nuw i8, ptr %ctx, i64 640
   %0 = load ptr, ptr %key, align 8
   tail call void @ossl_aes_gcm_setiv_avx512(ptr noundef %0, ptr noundef nonnull %gcm, ptr noundef %iv, i64 noundef %ivlen) #4
   br label %return
@@ -78,9 +78,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %ctx, ptr noundef %aad, i64 noundef %aad_len) #0 {
 entry:
-  %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
-  %len = getelementptr inbounds i8, ptr %ctx, i64 296
-  %arrayidx2 = getelementptr inbounds i8, ptr %ctx, i64 304
+  %gcm = getelementptr inbounds nuw i8, ptr %ctx, i64 248
+  %len = getelementptr inbounds nuw i8, ptr %ctx, i64 296
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %ctx, i64 304
   %0 = load i64, ptr %arrayidx2, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -95,7 +95,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   store i64 %add, ptr %len, align 8
-  %ares9 = getelementptr inbounds i8, ptr %ctx, i64 628
+  %ares9 = getelementptr inbounds nuw i8, ptr %ctx, i64 628
   %2 = load i32, ptr %ares9, align 4
   %cmp10.not = icmp eq i32 %2, 0
   br i1 %cmp10.not, label %if.end24, label %while.cond.preheader
@@ -105,18 +105,18 @@ while.cond.preheader:                             ; preds = %if.end6
   br i1 %cmp1339.not, label %return.sink.split, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %Xi = getelementptr inbounds i8, ptr %ctx, i64 312
+  %Xi = getelementptr inbounds nuw i8, ptr %ctx, i64 312
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %ares.142 = phi i32 [ %2, %while.body.lr.ph ], [ %rem, %while.body ]
   %aad.addr.141 = phi ptr [ %aad, %while.body.lr.ph ], [ %incdec.ptr, %while.body ]
   %aad_len.addr.140 = phi i64 [ %aad_len, %while.body.lr.ph ], [ %dec, %while.body ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %aad.addr.141, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %aad.addr.141, i64 1
   %3 = load i8, ptr %aad.addr.141, align 1
   %sub = sub i32 15, %ares.142
   %idxprom = zext i32 %sub to i64
-  %arrayidx14 = getelementptr inbounds [16 x i8], ptr %Xi, i64 0, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds nuw [16 x i8], ptr %Xi, i64 0, i64 %idxprom
   %4 = load i8, ptr %arrayidx14, align 1
   %xor38 = xor i8 %4, %3
   store i8 %xor38, ptr %arrayidx14, align 1
@@ -135,7 +135,7 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp18, label %if.then20, label %return.sink.split
 
 if.then20:                                        ; preds = %while.end
-  %Xi21 = getelementptr inbounds i8, ptr %ctx, i64 312
+  %Xi21 = getelementptr inbounds nuw i8, ptr %ctx, i64 312
   tail call void @ossl_gcm_gmult_avx512(ptr noundef nonnull %Xi21, ptr noundef nonnull %gcm) #4
   br label %if.end24
 
@@ -159,7 +159,7 @@ if.end29:                                         ; preds = %if.then27, %if.end2
   br i1 %cmp30.not, label %return.sink.split, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  %Xi38 = getelementptr inbounds i8, ptr %ctx, i64 312
+  %Xi38 = getelementptr inbounds nuw i8, ptr %ctx, i64 312
   br label %for.body
 
 for.body:                                         ; preds = %if.then32, %for.body
@@ -192,8 +192,8 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @vaes_gcm_cipherupdate(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) #0 {
 entry:
-  %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
-  %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 304
+  %gcm = getelementptr inbounds nuw i8, ptr %ctx, i64 248
+  %arrayidx = getelementptr inbounds nuw i8, ptr %ctx, i64 304
   %0 = load i64, ptr %arrayidx, align 8
   %add = add i64 %0, %len
   %cmp = icmp ugt i64 %add, 68719476704
@@ -203,25 +203,25 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i64 %add, ptr %arrayidx, align 8
-  %ares = getelementptr inbounds i8, ptr %ctx, i64 628
+  %ares = getelementptr inbounds nuw i8, ptr %ctx, i64 628
   %1 = load i32, ptr %ares, align 4
   %cmp5.not = icmp eq i32 %1, 0
   br i1 %cmp5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %Xi = getelementptr inbounds i8, ptr %ctx, i64 312
+  %Xi = getelementptr inbounds nuw i8, ptr %ctx, i64 312
   tail call void @ossl_gcm_gmult_avx512(ptr noundef nonnull %Xi, ptr noundef nonnull %gcm) #4
   store i32 0, ptr %ares, align 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end
-  %enc = getelementptr inbounds i8, ptr %ctx, i64 84
+  %enc = getelementptr inbounds nuw i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %enc, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
-  %key10 = getelementptr inbounds i8, ptr %ctx, i64 640
+  %key10 = getelementptr inbounds nuw i8, ptr %ctx, i64 640
   %2 = load ptr, ptr %key10, align 8
-  %mres11 = getelementptr inbounds i8, ptr %ctx, i64 624
+  %mres11 = getelementptr inbounds nuw i8, ptr %ctx, i64 624
   br i1 %tobool.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end8
@@ -240,31 +240,31 @@ return:                                           ; preds = %if.then9, %if.else,
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @vaes_gcm_cipherfinal(ptr noundef %ctx, ptr noundef %tag) #0 {
 entry:
-  %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
-  %mres = getelementptr inbounds i8, ptr %ctx, i64 624
-  %ares = getelementptr inbounds i8, ptr %ctx, i64 628
+  %gcm = getelementptr inbounds nuw i8, ptr %ctx, i64 248
+  %mres = getelementptr inbounds nuw i8, ptr %ctx, i64 624
+  %ares = getelementptr inbounds nuw i8, ptr %ctx, i64 628
   %0 = load i32, ptr %ares, align 4
   %cmp.not = icmp eq i32 %0, 0
   %spec.select = select i1 %cmp.not, ptr %mres, ptr %ares
   %1 = load i32, ptr %spec.select, align 4
   tail call void @ossl_aes_gcm_finalize_avx512(ptr noundef nonnull %gcm, i32 noundef %1) #4
-  %enc = getelementptr inbounds i8, ptr %ctx, i64 84
+  %enc = getelementptr inbounds nuw i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %enc, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %entry
-  %taglen = getelementptr inbounds i8, ptr %ctx, i64 24
+  %taglen = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store i64 16, ptr %taglen, align 8
-  %Xi = getelementptr inbounds i8, ptr %ctx, i64 312
+  %Xi = getelementptr inbounds nuw i8, ptr %ctx, i64 312
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %tag, ptr noundef nonnull align 8 dereferenceable(16) %Xi, i64 16, i1 false)
   store i32 0, ptr %spec.select, align 4
   br label %return
 
 if.else:                                          ; preds = %entry
-  %Xi6 = getelementptr inbounds i8, ptr %ctx, i64 312
-  %taglen8 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %Xi6 = getelementptr inbounds nuw i8, ptr %ctx, i64 312
+  %taglen8 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %2 = load i64, ptr %taglen8, align 8
   %call = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %Xi6, ptr noundef %tag, i64 noundef %2) #4
   %tobool9.not = icmp eq i32 %call, 0
@@ -305,15 +305,15 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @aesni_gcm_initkey(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen) #0 {
 entry:
-  %ks1 = getelementptr inbounds i8, ptr %ctx, i64 704
+  %ks1 = getelementptr inbounds nuw i8, ptr %ctx, i64 704
   %keylen.tr = trunc i64 %keylen to i32
   %conv = shl i32 %keylen.tr, 3
   %call = tail call i32 @aesni_set_encrypt_key(ptr noundef %key, i32 noundef %conv, ptr noundef nonnull %ks1) #4
-  %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
+  %gcm = getelementptr inbounds nuw i8, ptr %ctx, i64 248
   tail call void @CRYPTO_gcm128_init(ptr noundef nonnull %gcm, ptr noundef nonnull %ks1, ptr noundef nonnull @aesni_encrypt) #4
-  %ctr = getelementptr inbounds i8, ptr %ctx, i64 696
+  %ctr = getelementptr inbounds nuw i8, ptr %ctx, i64 696
   store ptr @aesni_ctr32_encrypt_blocks, ptr %ctr, align 8
-  %key_set = getelementptr inbounds i8, ptr %ctx, i64 84
+  %key_set = getelementptr inbounds nuw i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %key_set, align 4
   %bf.set = or i8 %bf.load, 4
   store i8 %bf.set, ptr %key_set, align 4
@@ -327,11 +327,11 @@ declare i32 @ossl_gcm_aad_update(ptr noundef, ptr noundef, i64 noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @generic_aes_gcm_cipher_update(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) #0 {
 entry:
-  %enc = getelementptr inbounds i8, ptr %ctx, i64 84
+  %enc = getelementptr inbounds nuw i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %enc, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
-  %ctr39 = getelementptr inbounds i8, ptr %ctx, i64 696
+  %ctr39 = getelementptr inbounds nuw i8, ptr %ctx, i64 696
   %0 = load ptr, ptr %ctr39, align 8
   %cmp40.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else38, label %if.then
@@ -346,14 +346,14 @@ if.then1:                                         ; preds = %if.then
   br i1 %or.cond, label %land.lhs.true5, label %if.end22
 
 land.lhs.true5:                                   ; preds = %if.then1
-  %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
-  %ghash = getelementptr inbounds i8, ptr %ctx, i64 608
+  %gcm = getelementptr inbounds nuw i8, ptr %ctx, i64 248
+  %ghash = getelementptr inbounds nuw i8, ptr %ctx, i64 608
   %1 = load ptr, ptr %ghash, align 8
   %cmp6 = icmp eq ptr %1, @gcm_ghash_avx
   br i1 %cmp6, label %if.then7, label %if.end22
 
 if.then7:                                         ; preds = %land.lhs.true5
-  %mres = getelementptr inbounds i8, ptr %ctx, i64 624
+  %mres = getelementptr inbounds nuw i8, ptr %ctx, i64 624
   %2 = load i32, ptr %mres, align 8
   %sub = sub i32 0, %2
   %rem = and i32 %sub, 15
@@ -363,14 +363,14 @@ if.then7:                                         ; preds = %land.lhs.true5
   br i1 %tobool10.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then7
-  %add.ptr = getelementptr inbounds i8, ptr %in, i64 %conv
-  %add.ptr12 = getelementptr inbounds i8, ptr %out, i64 %conv
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in, i64 %conv
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %out, i64 %conv
   %sub13 = sub nuw i64 %len, %conv
-  %key = getelementptr inbounds i8, ptr %ctx, i64 640
+  %key = getelementptr inbounds nuw i8, ptr %ctx, i64 640
   %3 = load ptr, ptr %key, align 8
-  %Xi = getelementptr inbounds i8, ptr %ctx, i64 312
+  %Xi = getelementptr inbounds nuw i8, ptr %ctx, i64 312
   %call18 = tail call i64 @aesni_gcm_encrypt(ptr noundef %add.ptr, ptr noundef %add.ptr12, i64 noundef %sub13, ptr noundef %3, ptr noundef nonnull %gcm, ptr noundef nonnull %Xi) #4
-  %arrayidx = getelementptr inbounds i8, ptr %ctx, i64 304
+  %arrayidx = getelementptr inbounds nuw i8, ptr %ctx, i64 304
   %4 = load i64, ptr %arrayidx, align 8
   %add = add i64 %4, %call18
   store i64 %add, ptr %arrayidx, align 8
@@ -381,7 +381,7 @@ if.end:                                           ; preds = %if.then7
 if.end22:                                         ; preds = %if.end, %land.lhs.true5, %if.then1
   %5 = phi ptr [ %.pre, %if.end ], [ @aesni_ctr32_encrypt_blocks, %land.lhs.true5 ], [ %0, %if.then1 ]
   %bulk.0 = phi i64 [ %add21, %if.end ], [ 0, %land.lhs.true5 ], [ 0, %if.then1 ]
-  %gcm23 = getelementptr inbounds i8, ptr %ctx, i64 248
+  %gcm23 = getelementptr inbounds nuw i8, ptr %ctx, i64 248
   %add.ptr24 = getelementptr inbounds i8, ptr %in, i64 %bulk.0
   %add.ptr25 = getelementptr inbounds i8, ptr %out, i64 %bulk.0
   %sub26 = sub i64 %len, %bulk.0
@@ -390,7 +390,7 @@ if.end22:                                         ; preds = %if.end, %land.lhs.t
   br i1 %tobool29.not, label %if.end102, label %return
 
 if.else:                                          ; preds = %if.then
-  %gcm32 = getelementptr inbounds i8, ptr %ctx, i64 248
+  %gcm32 = getelementptr inbounds nuw i8, ptr %ctx, i64 248
   %call33 = tail call i32 @CRYPTO_gcm128_encrypt(ptr noundef nonnull %gcm32, ptr noundef %in, ptr noundef %out, i64 noundef %len) #4
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.end102, label %return
@@ -405,14 +405,14 @@ if.then42:                                        ; preds = %if.else38
   br i1 %or.cond63, label %land.lhs.true50, label %if.end85
 
 land.lhs.true50:                                  ; preds = %if.then42
-  %gcm51 = getelementptr inbounds i8, ptr %ctx, i64 248
-  %ghash53 = getelementptr inbounds i8, ptr %ctx, i64 608
+  %gcm51 = getelementptr inbounds nuw i8, ptr %ctx, i64 248
+  %ghash53 = getelementptr inbounds nuw i8, ptr %ctx, i64 608
   %6 = load ptr, ptr %ghash53, align 8
   %cmp54 = icmp eq ptr %6, @gcm_ghash_avx
   br i1 %cmp54, label %if.then56, label %if.end85
 
 if.then56:                                        ; preds = %land.lhs.true50
-  %mres59 = getelementptr inbounds i8, ptr %ctx, i64 624
+  %mres59 = getelementptr inbounds nuw i8, ptr %ctx, i64 624
   %7 = load i32, ptr %mres59, align 8
   %sub60 = sub i32 0, %7
   %rem61 = and i32 %sub60, 15
@@ -422,14 +422,14 @@ if.then56:                                        ; preds = %land.lhs.true50
   br i1 %tobool65.not, label %if.end67, label %return
 
 if.end67:                                         ; preds = %if.then56
-  %add.ptr68 = getelementptr inbounds i8, ptr %in, i64 %conv62
-  %add.ptr69 = getelementptr inbounds i8, ptr %out, i64 %conv62
+  %add.ptr68 = getelementptr inbounds nuw i8, ptr %in, i64 %conv62
+  %add.ptr69 = getelementptr inbounds nuw i8, ptr %out, i64 %conv62
   %sub70 = sub nuw i64 %len, %conv62
-  %key72 = getelementptr inbounds i8, ptr %ctx, i64 640
+  %key72 = getelementptr inbounds nuw i8, ptr %ctx, i64 640
   %8 = load ptr, ptr %key72, align 8
-  %Xi77 = getelementptr inbounds i8, ptr %ctx, i64 312
+  %Xi77 = getelementptr inbounds nuw i8, ptr %ctx, i64 312
   %call79 = tail call i64 @aesni_gcm_decrypt(ptr noundef %add.ptr68, ptr noundef %add.ptr69, i64 noundef %sub70, ptr noundef %8, ptr noundef nonnull %gcm51, ptr noundef nonnull %Xi77) #4
-  %arrayidx82 = getelementptr inbounds i8, ptr %ctx, i64 304
+  %arrayidx82 = getelementptr inbounds nuw i8, ptr %ctx, i64 304
   %9 = load i64, ptr %arrayidx82, align 8
   %add83 = add i64 %9, %call79
   store i64 %add83, ptr %arrayidx82, align 8
@@ -440,7 +440,7 @@ if.end67:                                         ; preds = %if.then56
 if.end85:                                         ; preds = %if.end67, %land.lhs.true50, %if.then42
   %10 = phi ptr [ %.pre64, %if.end67 ], [ @aesni_ctr32_encrypt_blocks, %land.lhs.true50 ], [ %0, %if.then42 ]
   %bulk43.0 = phi i64 [ %add84, %if.end67 ], [ 0, %land.lhs.true50 ], [ 0, %if.then42 ]
-  %gcm86 = getelementptr inbounds i8, ptr %ctx, i64 248
+  %gcm86 = getelementptr inbounds nuw i8, ptr %ctx, i64 248
   %add.ptr87 = getelementptr inbounds i8, ptr %in, i64 %bulk43.0
   %add.ptr88 = getelementptr inbounds i8, ptr %out, i64 %bulk43.0
   %sub89 = sub i64 %len, %bulk43.0
@@ -449,7 +449,7 @@ if.end85:                                         ; preds = %if.end67, %land.lhs
   br i1 %tobool92.not, label %if.end102, label %return
 
 if.else95:                                        ; preds = %if.else38
-  %gcm96 = getelementptr inbounds i8, ptr %ctx, i64 248
+  %gcm96 = getelementptr inbounds nuw i8, ptr %ctx, i64 248
   %call97 = tail call i32 @CRYPTO_gcm128_decrypt(ptr noundef nonnull %gcm96, ptr noundef %in, ptr noundef %out, i64 noundef %len) #4
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %if.end102, label %return
@@ -487,17 +487,17 @@ declare i32 @CRYPTO_gcm128_decrypt_ctr32(ptr noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @aes_gcm_initkey(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen) #0 {
 entry:
-  %ks1 = getelementptr inbounds i8, ptr %ctx, i64 704
+  %ks1 = getelementptr inbounds nuw i8, ptr %ctx, i64 704
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @OPENSSL_ia32cap_P, i64 4), align 4
   %and = and i32 %0, 512
   %tobool.not = icmp eq i32 %and, 0
   %keylen.tr = trunc i64 %keylen to i32
   %conv16 = shl i32 %keylen.tr, 3
   %call17 = tail call i32 @AES_set_encrypt_key(ptr noundef %key, i32 noundef %conv16, ptr noundef nonnull %ks1) #4
-  %gcm18 = getelementptr inbounds i8, ptr %ctx, i64 248
+  %gcm18 = getelementptr inbounds nuw i8, ptr %ctx, i64 248
   tail call void @CRYPTO_gcm128_init(ptr noundef nonnull %gcm18, ptr noundef nonnull %ks1, ptr noundef nonnull @AES_encrypt) #4
-  %ctr19 = getelementptr inbounds i8, ptr %ctx, i64 696
-  %key_set20 = getelementptr inbounds i8, ptr %ctx, i64 84
+  %ctr19 = getelementptr inbounds nuw i8, ptr %ctx, i64 696
+  %key_set20 = getelementptr inbounds nuw i8, ptr %ctx, i64 84
   %.ossl_bsaes_ctr32_encrypt_blocks = select i1 %tobool.not, ptr null, ptr @ossl_bsaes_ctr32_encrypt_blocks
   store ptr %.ossl_bsaes_ctr32_encrypt_blocks, ptr %ctr19, align 8
   %bf.load21 = load i8, ptr %key_set20, align 4

@@ -307,7 +307,7 @@ define hidden void @add_stringlist_item(ptr nocapture noundef %0, ptr noundef %1
   %3 = tail call ptr @pg_malloc(i64 noundef 16) #23
   %4 = tail call ptr @pg_strdup(ptr noundef %1) #23
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = icmp eq ptr %6, null
@@ -319,13 +319,13 @@ define hidden void @add_stringlist_item(ptr nocapture noundef %0, ptr noundef %1
 
 .preheader:                                       ; preds = %2, %.preheader
   %.0 = phi ptr [ %10, %.preheader ], [ %6, %2 ]
-  %9 = getelementptr inbounds i8, ptr %.0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %.preheader, !llvm.loop !4
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %.0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store ptr %3, ptr %12, align 8
   br label %13
 
@@ -565,7 +565,7 @@ add_stringlist_item.exit:                         ; preds = %add_stringlist_item
   %75 = call ptr @pg_malloc(i64 noundef 16) #23
   %76 = call ptr @pg_strdup(ptr noundef %74) #23
   store ptr %76, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %75, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr null, ptr %77, align 8
   %78 = load ptr, ptr @schedulelist, align 8
   %79 = icmp eq ptr %78, null
@@ -577,13 +577,13 @@ add_stringlist_item.exit:                         ; preds = %add_stringlist_item
 
 .preheader.i:                                     ; preds = %73, %.preheader.i
   %.0.i = phi ptr [ %82, %.preheader.i ], [ %78, %73 ]
-  %81 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not.i = icmp eq ptr %82, null
   br i1 %.not.i, label %83, label %.preheader.i, !llvm.loop !4
 
 83:                                               ; preds = %.preheader.i
-  %84 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %75, ptr %84, align 8
   br label %add_stringlist_item.exit.backedge
 
@@ -647,7 +647,7 @@ add_stringlist_item.exit:                         ; preds = %add_stringlist_item
   %110 = call ptr @pg_malloc(i64 noundef 16) #23
   %111 = call ptr @pg_strdup(ptr noundef %109) #23
   store ptr %111, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %110, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr null, ptr %112, align 8
   %113 = load ptr, ptr @temp_configs, align 8
   %114 = icmp eq ptr %113, null
@@ -659,13 +659,13 @@ add_stringlist_item.exit:                         ; preds = %add_stringlist_item
 
 .preheader.i136:                                  ; preds = %108, %.preheader.i136
   %.0.i137 = phi ptr [ %117, %.preheader.i136 ], [ %113, %108 ]
-  %116 = getelementptr inbounds i8, ptr %.0.i137, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 8
   %117 = load ptr, ptr %116, align 8
   %.not.i138 = icmp eq ptr %117, null
   br i1 %.not.i138, label %118, label %.preheader.i136, !llvm.loop !4
 
 118:                                              ; preds = %.preheader.i136
-  %119 = getelementptr inbounds i8, ptr %.0.i137, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.0.i137, i64 8
   store ptr %110, ptr %119, align 8
   br label %add_stringlist_item.exit.backedge
 
@@ -684,7 +684,7 @@ add_stringlist_item.exit:                         ; preds = %add_stringlist_item
   %126 = call ptr @pg_malloc(i64 noundef 16) #23
   %127 = call ptr @pg_strdup(ptr noundef %125) #23
   store ptr %127, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %126, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr null, ptr %128, align 8
   %129 = load ptr, ptr @loadextension, align 8
   %130 = icmp eq ptr %129, null
@@ -696,13 +696,13 @@ add_stringlist_item.exit:                         ; preds = %add_stringlist_item
 
 .preheader.i140:                                  ; preds = %124, %.preheader.i140
   %.0.i141 = phi ptr [ %133, %.preheader.i140 ], [ %129, %124 ]
-  %132 = getelementptr inbounds i8, ptr %.0.i141, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.0.i141, i64 8
   %133 = load ptr, ptr %132, align 8
   %.not.i142 = icmp eq ptr %133, null
   br i1 %.not.i142, label %134, label %.preheader.i140, !llvm.loop !4
 
 134:                                              ; preds = %.preheader.i140
-  %135 = getelementptr inbounds i8, ptr %.0.i141, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %.0.i141, i64 8
   store ptr %126, ptr %135, align 8
   br label %add_stringlist_item.exit.backedge
 
@@ -741,7 +741,7 @@ add_stringlist_item.exit.backedge:                ; preds = %134, %131, %118, %1
   %151 = call ptr @pg_malloc(i64 noundef 16) #23
   %152 = call ptr @pg_strdup(ptr noundef %150) #23
   store ptr %152, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %151, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr null, ptr %153, align 8
   %154 = load ptr, ptr @extra_tests, align 8
   %155 = icmp eq ptr %154, null
@@ -753,13 +753,13 @@ add_stringlist_item.exit.backedge:                ; preds = %134, %131, %118, %1
 
 .preheader.i144:                                  ; preds = %.lr.ph, %.preheader.i144
   %.0.i145 = phi ptr [ %158, %.preheader.i144 ], [ %154, %.lr.ph ]
-  %157 = getelementptr inbounds i8, ptr %.0.i145, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %.0.i145, i64 8
   %158 = load ptr, ptr %157, align 8
   %.not.i146 = icmp eq ptr %158, null
   br i1 %.not.i146, label %159, label %.preheader.i144, !llvm.loop !4
 
 159:                                              ; preds = %.preheader.i144
-  %160 = getelementptr inbounds i8, ptr %.0.i145, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %.0.i145, i64 8
   store ptr %151, ptr %160, align 8
   br label %add_stringlist_item.exit147
 
@@ -830,7 +830,7 @@ add_stringlist_item.exit147:                      ; preds = %156, %159
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %36)
   %188 = call i32 @stat(ptr noundef readonly %187, ptr noundef nonnull %36) #23
   %.not.i.i = icmp eq i32 %188, 0
-  %189 = getelementptr inbounds i8, ptr %36, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %190 = load i32, ptr %189, align 8
   %191 = and i32 %190, 61440
   %192 = icmp eq i32 %191, 16384
@@ -893,7 +893,7 @@ make_directory.exit.i:                            ; preds = %193, %178
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %35)
   %224 = call i32 @stat(ptr noundef nonnull readonly %37, ptr noundef nonnull %35) #23
   %.not.i3.i = icmp eq i32 %224, 0
-  %225 = getelementptr inbounds i8, ptr %35, i64 24
+  %225 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %226 = load i32, ptr %225, align 8
   %227 = and i32 %226, 61440
   %228 = icmp eq i32 %227, 16384
@@ -1208,13 +1208,13 @@ make_temp_sockdir.exit.i:                         ; preds = %296
   %388 = call ptr @pg_strdup(ptr noundef nonnull %32) #23
   store ptr %388, ptr %387, align 8
   %389 = call ptr @pg_strdup(ptr noundef %375) #23
-  %390 = getelementptr inbounds i8, ptr %387, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %387, i64 8
   store ptr %389, ptr %390, align 8
   %391 = call ptr @pg_strdup(ptr noundef %386) #23
-  %392 = getelementptr inbounds i8, ptr %387, i64 16
+  %392 = getelementptr inbounds nuw i8, ptr %387, i64 16
   store ptr %391, ptr %392, align 8
   %393 = load ptr, ptr @resultmap, align 8
-  %394 = getelementptr inbounds i8, ptr %387, i64 24
+  %394 = getelementptr inbounds nuw i8, ptr %387, i64 24
   store ptr %393, ptr %394, align 8
   store ptr %387, ptr @resultmap, align 8
   br label %395
@@ -1234,7 +1234,7 @@ initialize_environment.exit:                      ; preds = %351, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
   %398 = call i32 @getrlimit(i32 noundef 4, ptr noundef nonnull %31) #23
-  %399 = getelementptr inbounds i8, ptr %31, i64 8
+  %399 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %400 = load i64, ptr %399, align 8
   switch i64 %400, label %402 [
     i64 0, label %401
@@ -1265,7 +1265,7 @@ unlimit_core_size.exit:                           ; preds = %401, %402, %405
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %30)
   %409 = call i32 @stat(ptr noundef nonnull readonly %407, ptr noundef nonnull %30) #23
   %.not.i151 = icmp eq i32 %409, 0
-  %410 = getelementptr inbounds i8, ptr %30, i64 24
+  %410 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %411 = load i32, ptr %410, align 8
   %412 = and i32 %411, 61440
   %413 = icmp eq i32 %412, 16384
@@ -1302,7 +1302,7 @@ make_directory.exit:                              ; preds = %419
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %29)
   %429 = call i32 @stat(ptr noundef nonnull readonly %39, ptr noundef nonnull %29) #23
   %.not.i153 = icmp eq i32 %429, 0
-  %430 = getelementptr inbounds i8, ptr %29, i64 24
+  %430 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %431 = load i32, ptr %430, align 8
   %432 = and i32 %431, 61440
   %433 = icmp eq i32 %432, 16384
@@ -1460,7 +1460,7 @@ make_directory.exit155:                           ; preds = %434, %make_director
 
 ._crit_edge266:                                   ; preds = %.lr.ph265, %.preheader211
   %506 = call i32 @fclose(ptr noundef nonnull %497)
-  %507 = getelementptr inbounds i8, ptr %.0269, i64 8
+  %507 = getelementptr inbounds nuw i8, ptr %.0269, i64 8
   %.0 = load ptr, ptr %507, align 8
   %.not116 = icmp eq ptr %.0, null
   br i1 %.not116, label %._crit_edge272, label %.lr.ph271, !llvm.loop !11
@@ -1471,21 +1471,21 @@ make_directory.exit155:                           ; preds = %434, %make_director
   %510 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull @portstr, ptr noundef nonnull @.str.68, i32 noundef %509) #23
   store ptr @.str.12, ptr %41, align 16
   store ptr @.str.69, ptr %42, align 16
-  %511 = getelementptr inbounds i8, ptr %41, i64 8
+  %511 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @.str.22, ptr %511, align 8
-  %512 = getelementptr inbounds i8, ptr %42, i64 8
+  %512 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr @portstr, ptr %512, align 8
-  %513 = getelementptr inbounds i8, ptr %41, i64 16
+  %513 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr @.str.21, ptr %513, align 16
   %514 = load ptr, ptr @hostname, align 8
   %.not117 = icmp eq ptr %514, null
   %515 = load ptr, ptr @sockdir, align 8
   %516 = select i1 %.not117, ptr %515, ptr %514
-  %517 = getelementptr inbounds i8, ptr %42, i64 16
+  %517 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %516, ptr %517, align 16
-  %518 = getelementptr inbounds i8, ptr %41, i64 24
+  %518 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr null, ptr %518, align 8
-  %519 = getelementptr inbounds i8, ptr %42, i64 24
+  %519 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr null, ptr %519, align 8
   %520 = call i32 @PQpingParams(ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef 1) #23
   %521 = icmp eq i32 %520, 0
@@ -1663,7 +1663,7 @@ split:                                            ; preds = %527, %._crit_edge27
 drop_database_if_exists.exit:                     ; preds = %.lr.ph281
   call void @pfree(ptr noundef %589) #23
   call void @pfree(ptr noundef nonnull %582) #23
-  %591 = getelementptr inbounds i8, ptr %.1280, i64 8
+  %591 = getelementptr inbounds nuw i8, ptr %.1280, i64 8
   %.1 = load ptr, ptr %591, align 8
   %.not108 = icmp eq ptr %.1, null
   br i1 %.not108, label %.preheader209, label %.lr.ph281, !llvm.loop !13
@@ -1694,7 +1694,7 @@ drop_database_if_exists.exit:                     ; preds = %.lr.ph281
 drop_role_if_exists.exit:                         ; preds = %.lr.ph285
   call void @pfree(ptr noundef %600) #23
   call void @pfree(ptr noundef nonnull %593) #23
-  %602 = getelementptr inbounds i8, ptr %.2284, i64 8
+  %602 = getelementptr inbounds nuw i8, ptr %.2284, i64 8
   %.2 = load ptr, ptr %602, align 8
   %.not109 = icmp eq ptr %.2, null
   br i1 %.not109, label %.loopexit, label %.lr.ph285, !llvm.loop !14
@@ -1782,13 +1782,13 @@ psql_end_command.exit.i:                          ; preds = %612
 psql_end_command.exit26.i:                        ; preds = %.lr.ph.i
   call void @pfree(ptr noundef %626) #23
   call void @pfree(ptr noundef nonnull %618) #23
-  %628 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %628 = getelementptr inbounds nuw i8, ptr %.029.i, i64 8
   %.0.i161 = load ptr, ptr %628, align 8
   %.not22.i = icmp eq ptr %.0.i161, null
   br i1 %.not22.i, label %create_database.exit, label %.lr.ph.i, !llvm.loop !15
 
 create_database.exit:                             ; preds = %psql_end_command.exit26.i, %psql_end_command.exit.i
-  %629 = getelementptr inbounds i8, ptr %.3288, i64 8
+  %629 = getelementptr inbounds nuw i8, ptr %.3288, i64 8
   %.3 = load ptr, ptr %629, align 8
   %.not126 = icmp eq ptr %.3, null
   br i1 %.not126, label %.preheader207, label %.lr.ph289, !llvm.loop !16
@@ -1811,7 +1811,7 @@ create_database.exit:                             ; preds = %psql_end_command.ex
   %.010.i = phi ptr [ %638, %.lr.ph.i163 ], [ %631, %.lr.ph293 ]
   %636 = load ptr, ptr %.010.i, align 8
   call void (ptr, ptr, ...) @psql_add_command(ptr noundef %632, ptr noundef nonnull @.str.224, ptr noundef %636, ptr noundef %630)
-  %637 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %637 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %638 = load ptr, ptr %637, align 8
   %.not.i164 = icmp eq ptr %638, null
   br i1 %.not.i164, label %._crit_edge.i, label %.lr.ph.i163, !llvm.loop !17
@@ -1832,7 +1832,7 @@ create_database.exit:                             ; preds = %psql_end_command.ex
 create_role.exit:                                 ; preds = %._crit_edge.i
   call void @pfree(ptr noundef %642) #23
   call void @pfree(ptr noundef nonnull %632) #23
-  %644 = getelementptr inbounds i8, ptr %.4292, i64 8
+  %644 = getelementptr inbounds nuw i8, ptr %.4292, i64 8
   %.4 = load ptr, ptr %644, align 8
   %.not127 = icmp eq ptr %.4, null
   br i1 %.not127, label %.thread200, label %.lr.ph293, !llvm.loop !18
@@ -1843,13 +1843,13 @@ create_role.exit:                                 ; preds = %._crit_edge.i
   br i1 %.not128297, label %.preheader, label %.lr.ph299
 
 .lr.ph299:                                        ; preds = %.thread200
-  %645 = getelementptr inbounds i8, ptr %28, i64 6
-  %646 = getelementptr inbounds i8, ptr %19, i64 8
-  %647 = getelementptr inbounds i8, ptr %17, i64 8
-  %648 = getelementptr inbounds i8, ptr %15, i64 8
-  %649 = getelementptr inbounds i8, ptr %16, i64 8
+  %645 = getelementptr inbounds nuw i8, ptr %28, i64 6
+  %646 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %647 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %648 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %649 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.not153.i = icmp eq ptr %4, null
-  %650 = getelementptr inbounds i8, ptr %6, i64 8
+  %650 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %653
 
 .preheader:                                       ; preds = %run_schedule.exit, %.thread200
@@ -1858,8 +1858,8 @@ create_role.exit:                                 ; preds = %._crit_edge.i
   br i1 %.not129301, label %._crit_edge304, label %.lr.ph303
 
 .lr.ph303:                                        ; preds = %.preheader
-  %651 = getelementptr inbounds i8, ptr %11, i64 8
-  %652 = getelementptr inbounds i8, ptr %9, i64 8
+  %651 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %652 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.not28.i = icmp eq ptr %4, null
   br label %963
 
@@ -2340,18 +2340,18 @@ wait_for_tests.exit:                              ; preds = %..loopexit_crit_edg
 
 854:                                              ; preds = %.lr.ph185.split.us.i
   %855 = or i1 %.0126183.us.i, %852
-  %856 = getelementptr inbounds i8, ptr %.0129180.us.i, i64 8
+  %856 = getelementptr inbounds nuw i8, ptr %.0129180.us.i, i64 8
   %857 = load ptr, ptr %856, align 8
-  %858 = getelementptr inbounds i8, ptr %.0128181.us.i, i64 8
+  %858 = getelementptr inbounds nuw i8, ptr %.0128181.us.i, i64 8
   %859 = load ptr, ptr %858, align 8
   br i1 %853, label %865, label %871
 
 .thread.us.i:                                     ; preds = %.lr.ph185.split.us.i
   %860 = load ptr, ptr %.0127182.us.i, align 8
   call void (i32, ptr, ...) @emit_tap_output(i32 noundef 0, ptr noundef nonnull @.str.230, ptr noundef %860)
-  %861 = getelementptr inbounds i8, ptr %.0129180.us.i, i64 8
+  %861 = getelementptr inbounds nuw i8, ptr %.0129180.us.i, i64 8
   %862 = load ptr, ptr %861, align 8
-  %863 = getelementptr inbounds i8, ptr %.0128181.us.i, i64 8
+  %863 = getelementptr inbounds nuw i8, ptr %.0128181.us.i, i64 8
   %864 = load ptr, ptr %863, align 8
   br label %865
 
@@ -2359,7 +2359,7 @@ wait_for_tests.exit:                              ; preds = %..loopexit_crit_edg
   %866 = phi ptr [ %864, %.thread.us.i ], [ %859, %854 ]
   %867 = phi ptr [ %862, %.thread.us.i ], [ %857, %854 ]
   %868 = phi i1 [ true, %.thread.us.i ], [ %855, %854 ]
-  %869 = getelementptr inbounds i8, ptr %.0127182.us.i, i64 8
+  %869 = getelementptr inbounds nuw i8, ptr %.0127182.us.i, i64 8
   %870 = load ptr, ptr %869, align 8
   br label %871
 
@@ -2389,17 +2389,17 @@ wait_for_tests.exit:                              ; preds = %..loopexit_crit_edg
 .thread.i:                                        ; preds = %.lr.ph185.split.i
   %882 = load ptr, ptr %.0127182.i, align 8
   call void (i32, ptr, ...) @emit_tap_output(i32 noundef 0, ptr noundef nonnull @.str.230, ptr noundef %882)
-  %883 = getelementptr inbounds i8, ptr %.0129180.i, i64 8
+  %883 = getelementptr inbounds nuw i8, ptr %.0129180.i, i64 8
   %884 = load ptr, ptr %883, align 8
-  %885 = getelementptr inbounds i8, ptr %.0128181.i, i64 8
+  %885 = getelementptr inbounds nuw i8, ptr %.0128181.i, i64 8
   %886 = load ptr, ptr %885, align 8
   br label %893
 
 887:                                              ; preds = %.lr.ph185.split.i
   %888 = or i1 %.0126183.i, %880
-  %889 = getelementptr inbounds i8, ptr %.0129180.i, i64 8
+  %889 = getelementptr inbounds nuw i8, ptr %.0129180.i, i64 8
   %890 = load ptr, ptr %889, align 8
-  %891 = getelementptr inbounds i8, ptr %.0128181.i, i64 8
+  %891 = getelementptr inbounds nuw i8, ptr %.0128181.i, i64 8
   %892 = load ptr, ptr %891, align 8
   br i1 %881, label %893, label %899
 
@@ -2407,7 +2407,7 @@ wait_for_tests.exit:                              ; preds = %..loopexit_crit_edg
   %894 = phi ptr [ %886, %.thread.i ], [ %892, %887 ]
   %895 = phi ptr [ %884, %.thread.i ], [ %890, %887 ]
   %896 = phi i1 [ true, %.thread.i ], [ %888, %887 ]
-  %897 = getelementptr inbounds i8, ptr %.0127182.i, i64 8
+  %897 = getelementptr inbounds nuw i8, ptr %.0127182.i, i64 8
   %898 = load ptr, ptr %897, align 8
   br label %899
 
@@ -2563,7 +2563,7 @@ run_schedule.exit:                                ; preds = %.backedge.i, %.preh
   call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %28)
-  %962 = getelementptr inbounds i8, ptr %.5298, i64 8
+  %962 = getelementptr inbounds nuw i8, ptr %.5298, i64 8
   %.5 = load ptr, ptr %962, align 8
   %.not128 = icmp eq ptr %.5, null
   br i1 %.not128, label %.preheader, label %653, !llvm.loop !27
@@ -2651,18 +2651,18 @@ wait_for_tests.exit.i178:                         ; preds = %..loopexit_crit_edg
 
 997:                                              ; preds = %.lr.ph.split.us.i
   %998 = or i1 %.02443.us.i, %995
-  %999 = getelementptr inbounds i8, ptr %.045.us.i, i64 8
+  %999 = getelementptr inbounds nuw i8, ptr %.045.us.i, i64 8
   %1000 = load ptr, ptr %999, align 8
-  %1001 = getelementptr inbounds i8, ptr %.02344.us.i, i64 8
+  %1001 = getelementptr inbounds nuw i8, ptr %.02344.us.i, i64 8
   %1002 = load ptr, ptr %1001, align 8
   br i1 %996, label %1008, label %1014
 
 .thread.us.i190:                                  ; preds = %.lr.ph.split.us.i
   %1003 = load ptr, ptr %.02542.us.i, align 8
   call void (i32, ptr, ...) @emit_tap_output(i32 noundef 0, ptr noundef nonnull @.str.230, ptr noundef %1003)
-  %1004 = getelementptr inbounds i8, ptr %.045.us.i, i64 8
+  %1004 = getelementptr inbounds nuw i8, ptr %.045.us.i, i64 8
   %1005 = load ptr, ptr %1004, align 8
-  %1006 = getelementptr inbounds i8, ptr %.02344.us.i, i64 8
+  %1006 = getelementptr inbounds nuw i8, ptr %.02344.us.i, i64 8
   %1007 = load ptr, ptr %1006, align 8
   br label %1008
 
@@ -2670,7 +2670,7 @@ wait_for_tests.exit.i178:                         ; preds = %..loopexit_crit_edg
   %1009 = phi ptr [ %1007, %.thread.us.i190 ], [ %1002, %997 ]
   %1010 = phi ptr [ %1005, %.thread.us.i190 ], [ %1000, %997 ]
   %1011 = phi i1 [ true, %.thread.us.i190 ], [ %998, %997 ]
-  %1012 = getelementptr inbounds i8, ptr %.02542.us.i, i64 8
+  %1012 = getelementptr inbounds nuw i8, ptr %.02542.us.i, i64 8
   %1013 = load ptr, ptr %1012, align 8
   br label %1014
 
@@ -2699,17 +2699,17 @@ wait_for_tests.exit.i178:                         ; preds = %..loopexit_crit_edg
 .thread.i189:                                     ; preds = %.lr.ph.split.i
   %1024 = load ptr, ptr %.02542.i, align 8
   call void (i32, ptr, ...) @emit_tap_output(i32 noundef 0, ptr noundef nonnull @.str.230, ptr noundef %1024)
-  %1025 = getelementptr inbounds i8, ptr %.045.i, i64 8
+  %1025 = getelementptr inbounds nuw i8, ptr %.045.i, i64 8
   %1026 = load ptr, ptr %1025, align 8
-  %1027 = getelementptr inbounds i8, ptr %.02344.i, i64 8
+  %1027 = getelementptr inbounds nuw i8, ptr %.02344.i, i64 8
   %1028 = load ptr, ptr %1027, align 8
   br label %1035
 
 1029:                                             ; preds = %.lr.ph.split.i
   %1030 = or i1 %.02443.i, %1022
-  %1031 = getelementptr inbounds i8, ptr %.045.i, i64 8
+  %1031 = getelementptr inbounds nuw i8, ptr %.045.i, i64 8
   %1032 = load ptr, ptr %1031, align 8
-  %1033 = getelementptr inbounds i8, ptr %.02344.i, i64 8
+  %1033 = getelementptr inbounds nuw i8, ptr %.02344.i, i64 8
   %1034 = load ptr, ptr %1033, align 8
   br i1 %1023, label %1035, label %1041
 
@@ -2717,7 +2717,7 @@ wait_for_tests.exit.i178:                         ; preds = %..loopexit_crit_edg
   %1036 = phi ptr [ %1028, %.thread.i189 ], [ %1034, %1029 ]
   %1037 = phi ptr [ %1026, %.thread.i189 ], [ %1032, %1029 ]
   %1038 = phi i1 [ true, %.thread.i189 ], [ %1030, %1029 ]
-  %1039 = getelementptr inbounds i8, ptr %.02542.i, i64 8
+  %1039 = getelementptr inbounds nuw i8, ptr %.02542.i, i64 8
   %1040 = load ptr, ptr %1039, align 8
   br label %1041
 
@@ -2843,7 +2843,7 @@ run_single_test.exit:                             ; preds = %1063, %1069, %1071,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
-  %1092 = getelementptr inbounds i8, ptr %.6302, i64 8
+  %1092 = getelementptr inbounds nuw i8, ptr %.6302, i64 8
   %.6 = load ptr, ptr %1092, align 8
   %.not129 = icmp eq ptr %.6, null
   br i1 %.not129, label %._crit_edge304, label %963, !llvm.loop !29
@@ -3080,7 +3080,7 @@ define internal fastcc void @free_stringlist(ptr noundef %0) unnamed_addr #0 {
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
@@ -3115,7 +3115,7 @@ define internal fastcc void @split_to_stringlist(ptr noundef %0, ptr nocapture n
   %5 = tail call ptr @pg_malloc(i64 noundef 16) #23
   %6 = tail call ptr @pg_strdup(ptr noundef nonnull %.02) #23
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %1, align 8
   %9 = icmp eq ptr %8, null
@@ -3127,13 +3127,13 @@ define internal fastcc void @split_to_stringlist(ptr noundef %0, ptr nocapture n
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader.i
   %.0.i = phi ptr [ %12, %.preheader.i ], [ %8, %.lr.ph ]
-  %11 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %.preheader.i, !llvm.loop !4
 
 13:                                               ; preds = %.preheader.i
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %5, ptr %14, align 8
   br label %add_stringlist_item.exit
 
@@ -3544,7 +3544,7 @@ define internal fastcc void @wait_for_tests(ptr nocapture noundef %0, ptr nocapt
   br i1 %8, label %.lr.ph24, label %._crit_edge
 
 .lr.ph24:                                         ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.not = icmp eq ptr %3, null
   %wide.trip.count35 = zext nneg i32 %4 to i64
   br i1 %.not, label %.lr.ph24.split.us.split.us, label %.lr.ph24.split.us.split
@@ -3673,14 +3673,14 @@ define internal fastcc noundef zeroext i1 @results_differ(ptr nocapture noundef 
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds i8, ptr %.019.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %17) #27
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %get_expectfile.exit, label %20
 
 20:                                               ; preds = %15, %.lr.ph.i
-  %21 = getelementptr inbounds i8, ptr %.019.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
   %.0.i = load ptr, ptr %21, align 8
   %.not15.i = icmp eq ptr %.0.i, null
   br i1 %.not15.i, label %get_expectfile.exit.thread, label %.lr.ph.i, !llvm.loop !35
@@ -3690,7 +3690,7 @@ get_expectfile.exit.thread:                       ; preds = %20, %8, %3, %10
   br label %31
 
 get_expectfile.exit:                              ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %.019.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024) #23
   %.not = icmp eq ptr %24, null

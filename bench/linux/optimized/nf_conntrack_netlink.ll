@@ -169,7 +169,7 @@ define internal void @ctnetlink_net_pre_exit(ptr nocapture readnone %0) #2 align
 define internal i32 @ctnetlink_new_expect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #3 align 16 {
   %4 = alloca %struct.nf_conntrack_tuple, align 4
   %5 = alloca %struct.nf_conntrack_zone, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
@@ -213,9 +213,9 @@ define internal i32 @ctnetlink_new_expect(ptr nocapture noundef readonly %0, ptr
 
 31:                                               ; preds = %27
   call void @_raw_spin_unlock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #16
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 6
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 1024
   %37 = icmp eq i16 %36, 0
@@ -223,7 +223,7 @@ define internal i32 @ctnetlink_new_expect(ptr nocapture noundef readonly %0, ptr
 
 38:                                               ; preds = %31
   %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 52
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq ptr %33, null
   %43 = lshr i16 %35, 3
@@ -234,9 +234,9 @@ define internal i32 @ctnetlink_new_expect(ptr nocapture noundef readonly %0, ptr
   br label %75
 
 48:                                               ; preds = %27
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 6
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, 512
   %54 = icmp eq i16 %53, 0
@@ -249,8 +249,8 @@ define internal i32 @ctnetlink_new_expect(ptr nocapture noundef readonly %0, ptr
   br i1 %58, label %73, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %29, i64 128
-  %61 = call i32 @timer_delete(ptr noundef %60) #16
+  %60 = getelementptr inbounds nuw i8, ptr %29, i64 128
+  %61 = call i32 @timer_delete(ptr noundef nonnull %60) #16
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %73, label %63
 
@@ -263,9 +263,9 @@ define internal i32 @ctnetlink_new_expect(ptr nocapture noundef readonly %0, ptr
   %69 = mul i32 %68, 1000
   %70 = zext i32 %69 to i64
   %71 = add i64 %64, %70
-  %72 = getelementptr inbounds i8, ptr %29, i64 144
+  %72 = getelementptr inbounds nuw i8, ptr %29, i64 144
   store i64 %71, ptr %72, align 8
-  call void @add_timer(ptr noundef %60) #16
+  call void @add_timer(ptr noundef nonnull %60) #16
   br label %73
 
 73:                                               ; preds = %63, %59, %55, %48
@@ -289,16 +289,16 @@ define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr nocapture noundef 
   %8 = alloca %struct.nf_conntrack_tuple, align 4
   %9 = alloca %struct.nf_conntrack_zone, align 4
   %10 = alloca %struct.netlink_dump_control, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr %12, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %8, i8 0, i64 40, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
   store i32 0, ptr %9, align 4, !annotation !5
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 6
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 768
   %19 = icmp eq i16 %18, 0
@@ -312,7 +312,7 @@ define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr nocapture noundef 
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %15, i64 16
   %29 = load i8, ptr %28, align 2
@@ -322,13 +322,13 @@ define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr nocapture noundef 
   store i32 0, ptr %6, align 4, !annotation !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #16
   store ptr null, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @ctnetlink_exp_ct_dump_table, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @ctnetlink_exp_done, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 24
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
   %34 = call fastcc i32 @ctnetlink_parse_tuple_filter(ptr noundef %2, ptr noundef nonnull %5, i32 noundef 1, i8 noundef zeroext %29, ptr noundef null, i32 noundef 4095), !range !6
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.thread12, label %36
@@ -337,9 +337,9 @@ define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr nocapture noundef 
   %37 = getelementptr i8, ptr %2, i64 56
   %38 = load ptr, ptr %37, align 8
   store i16 0, ptr %6, align 4
-  %39 = getelementptr inbounds i8, ptr %6, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 0, ptr %39, align 2
-  %40 = getelementptr inbounds i8, ptr %6, i64 3
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 3, ptr %40, align 1
   %41 = icmp eq ptr %38, null
   br i1 %41, label %42, label %.thread12
@@ -350,7 +350,7 @@ define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr nocapture noundef 
   br i1 %44, label %.thread12, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %43, i64 55
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 55
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
   %49 = mul nsw i64 %48, -56
@@ -367,7 +367,7 @@ define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr nocapture noundef 
   br i1 %57, label %.thread, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %53, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %64, label %62, !prof !7
@@ -445,13 +445,13 @@ define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr nocapture noundef 
 91:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10) #16
   store ptr null, ptr %10, align 8
-  %92 = getelementptr inbounds i8, ptr %10, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @ctnetlink_exp_dump_table, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %10, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr @ctnetlink_exp_done, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %10, i64 24
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %94, i8 0, i64 32, i1 false)
+  %94 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, i8 0, i64 32, i1 false)
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 @__netlink_dump_start(ptr noundef %96, ptr noundef %0, ptr noundef %15, ptr noundef nonnull %10) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #16
@@ -461,9 +461,9 @@ define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr nocapture noundef 
   %99 = getelementptr i8, ptr %2, i64 56
   %100 = load ptr, ptr %99, align 8
   store i16 0, ptr %9, align 4
-  %101 = getelementptr inbounds i8, ptr %9, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i8 0, ptr %101, align 2
-  %102 = getelementptr inbounds i8, ptr %9, i64 3
+  %102 = getelementptr inbounds nuw i8, ptr %9, i64 3
   store i8 3, ptr %102, align 1
   %103 = icmp eq ptr %100, null
   br i1 %103, label %104, label %159
@@ -521,14 +521,14 @@ define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr nocapture noundef 
 
 nf_expect_get_id.exit:                            ; preds = %122, %128
   %129 = ptrtoint ptr %116 to i64
-  %130 = getelementptr inbounds i8, ptr %116, i64 112
+  %130 = getelementptr inbounds nuw i8, ptr %116, i64 112
   %131 = load ptr, ptr %130, align 8
   %132 = ptrtoint ptr %131 to i64
-  %133 = getelementptr inbounds i8, ptr %116, i64 120
+  %133 = getelementptr inbounds nuw i8, ptr %116, i64 120
   %134 = load ptr, ptr %133, align 8
   %135 = ptrtoint ptr %134 to i64
-  %136 = getelementptr inbounds i8, ptr %116, i64 32
-  %137 = call i64 @__siphash_unaligned(ptr noundef %136, i64 noundef 40, ptr noundef nonnull @nf_expect_get_id.exp_id_seed) #16
+  %136 = getelementptr inbounds nuw i8, ptr %116, i64 32
+  %137 = call i64 @__siphash_unaligned(ptr noundef nonnull %136, i64 noundef 40, ptr noundef nonnull @nf_expect_get_id.exp_id_seed) #16
   %138 = call i64 @siphash_4u64(i64 noundef %129, i64 noundef %132, i64 noundef %135, i64 noundef %137, ptr noundef nonnull @nf_expect_get_id.exp_id_seed) #16
   %139 = trunc i64 %138 to i32
   %140 = icmp eq i32 %124, %139
@@ -549,10 +549,10 @@ nf_expect_get_id.exit:                            ; preds = %122, %128
 
 146:                                              ; preds = %142
   call void @__rcu_read_lock() #16
-  %147 = getelementptr inbounds i8, ptr %0, i64 52
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %148 = load i32, ptr %147, align 4
   %149 = load ptr, ptr %14, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load i32, ptr %150, align 4
   %152 = call fastcc i32 @ctnetlink_exp_fill_info(ptr noundef nonnull %143, i32 noundef %148, i32 noundef %151, ptr noundef nonnull %116)
   call void @__rcu_read_unlock() #16
@@ -581,7 +581,7 @@ nf_expect_get_id.exit:                            ; preds = %122, %128
 define internal range(i32 -2147483648, 1) i32 @ctnetlink_del_expect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #3 align 16 {
   %4 = alloca %struct.nf_conntrack_tuple, align 4
   %5 = alloca %struct.nf_conntrack_zone, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
@@ -631,21 +631,21 @@ define internal range(i32 -2147483648, 1) i32 @ctnetlink_del_expect(ptr nocaptur
 
 35:                                               ; preds = %27, %23
   call void @_raw_spin_lock_bh(ptr noundef nonnull @nf_conntrack_expect_lock) #16
-  %36 = getelementptr inbounds i8, ptr %21, i64 128
-  %37 = call i32 @timer_delete(ptr noundef %36) #16
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 128
+  %37 = call i32 @timer_delete(ptr noundef nonnull %36) #16
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %53, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 52
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %51, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %43, i64 6
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 6
   %47 = load i16, ptr %46, align 2
   %48 = lshr i16 %47, 3
   %49 = and i16 %48, 1
@@ -672,15 +672,15 @@ define internal range(i32 -2147483648, 1) i32 @ctnetlink_del_expect(ptr nocaptur
 58:                                               ; preds = %54
   %59 = getelementptr i8, ptr %56, i64 4
   %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %1, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %72, label %66
 
 66:                                               ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %64, i64 6
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 6
   %68 = load i16, ptr %67, align 2
   %69 = lshr i16 %68, 3
   %70 = and i16 %69, 1
@@ -694,15 +694,15 @@ define internal range(i32 -2147483648, 1) i32 @ctnetlink_del_expect(ptr nocaptur
 
 74:                                               ; preds = %54
   %75 = load ptr, ptr %1, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 52
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %1, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %87, label %81
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %79, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 6
   %83 = load i16, ptr %82, align 2
   %84 = lshr i16 %83, 3
   %85 = and i16 %84, 1
@@ -724,9 +724,9 @@ define internal range(i32 -2147483648, 1) i32 @ctnetlink_del_expect(ptr nocaptur
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ctnetlink_stat_exp_cpu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 align 16 {
   %4 = alloca %struct.netlink_dump_control, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 768
   %10 = icmp eq i16 %9, 0
@@ -735,11 +735,11 @@ define internal i32 @ctnetlink_stat_exp_cpu(ptr noundef %0, ptr nocapture nounde
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #16
   store ptr null, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @ctnetlink_exp_stat_cpu_dump, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 @__netlink_dump_start(ptr noundef %15, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #16
@@ -792,7 +792,7 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
   br i1 %22, label %.thread33, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %21, i64 55
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 55
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i64
   %27 = mul nsw i64 %26, -56
@@ -840,7 +840,7 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
   br i1 %53, label %.thread31, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %49, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %60, label %58, !prof !7
@@ -871,7 +871,7 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
   %73 = getelementptr i8, ptr %68, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = call i32 @llvm.bswap.i32(i32 %74)
-  %76 = getelementptr inbounds i8, ptr %47, i64 128
+  %76 = getelementptr inbounds nuw i8, ptr %47, i64 128
   %77 = load i32, ptr %76, align 8
   %78 = icmp ugt i32 %75, %77
   br i1 %78, label %.thread31, label %79
@@ -897,7 +897,7 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
 
 92:                                               ; preds = %83, %87
   %.sink = phi i32 [ %91, %87 ], [ 0, %83 ]
-  %93 = getelementptr inbounds i8, ptr %81, i64 96
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 96
   store i32 %.sink, ptr %93, align 8
   %94 = getelementptr i8, ptr %2, i64 88
   %95 = load ptr, ptr %94, align 8
@@ -911,27 +911,27 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
   br i1 %100, label %.thread26, label %101
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %99, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %103 = load ptr, ptr %102, align 8
   br label %104
 
 104:                                              ; preds = %92, %101
   %.sink34 = phi ptr [ %103, %101 ], [ null, %92 ]
-  %105 = getelementptr inbounds i8, ptr %81, i64 104
+  %105 = getelementptr inbounds nuw i8, ptr %81, i64 104
   store ptr %.sink34, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %81, i64 100
+  %106 = getelementptr inbounds nuw i8, ptr %81, i64 100
   store i32 %80, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %81, i64 120
+  %107 = getelementptr inbounds nuw i8, ptr %81, i64 120
   store ptr %29, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %81, i64 112
+  %108 = getelementptr inbounds nuw i8, ptr %81, i64 112
   store ptr %47, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %81, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(40) %109, ptr noundef nonnull align 4 dereferenceable(40) %9, i64 40, i1 false)
-  %110 = getelementptr inbounds i8, ptr %81, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %110, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false)
-  %111 = getelementptr inbounds i8, ptr %10, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 4 dereferenceable(40) %9, i64 40, i1 false)
+  %110 = getelementptr inbounds nuw i8, ptr %81, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false)
+  %111 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %112 = load i16, ptr %111, align 4
-  %113 = getelementptr inbounds i8, ptr %81, i64 88
+  %113 = getelementptr inbounds nuw i8, ptr %81, i64 88
   store i16 %112, ptr %113, align 8
   %114 = getelementptr i8, ptr %2, i64 80
   %115 = load ptr, ptr %114, align 8
@@ -955,10 +955,10 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
   br i1 %126, label %.thread28, label %127
 
 127:                                              ; preds = %117
-  %128 = getelementptr inbounds i8, ptr %7, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = icmp ne ptr %129, null
-  %131 = getelementptr inbounds i8, ptr %7, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %132 = load ptr, ptr %131, align 16
   %133 = icmp ne ptr %132, null
   %134 = select i1 %130, i1 %133, i1 false
@@ -977,17 +977,17 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
   br label %.thread26
 
 139:                                              ; preds = %135
-  %140 = getelementptr inbounds i8, ptr %81, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %140, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
-  %141 = getelementptr inbounds i8, ptr %81, i64 184
-  %142 = getelementptr inbounds i8, ptr %8, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %81, i64 168
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %140, ptr noundef nonnull align 4 dereferenceable(16) %8, i64 16, i1 false)
+  %141 = getelementptr inbounds nuw i8, ptr %81, i64 184
+  %142 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %143 = load i16, ptr %142, align 4
   store i16 %143, ptr %141, align 8
   %144 = load ptr, ptr %128, align 8
   %145 = getelementptr i8, ptr %144, i64 4
   %146 = load i32, ptr %145, align 4
   %147 = call i32 @llvm.bswap.i32(i32 %146)
-  %148 = getelementptr inbounds i8, ptr %81, i64 188
+  %148 = getelementptr inbounds nuw i8, ptr %81, i64 188
   store i32 %147, ptr %148, align 4
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #16
@@ -1082,7 +1082,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
 
 24:                                               ; preds = %21
   %25 = zext nneg i8 %3 to i16
-  %26 = getelementptr inbounds i8, ptr %1, i64 18
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 18
   store i16 %25, ptr %26, align 2
   %27 = and i32 %5, 2
   %28 = icmp eq i32 %27, 0
@@ -1093,7 +1093,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   br i1 %32, label %87, label %33
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %11, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %151, label %37
@@ -1120,7 +1120,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   br i1 %30, label %54, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %10, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread, label %51
@@ -1135,7 +1135,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   br i1 %28, label %86, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %10, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %57 = load ptr, ptr %56, align 16
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.thread, label %59
@@ -1143,7 +1143,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
 59:                                               ; preds = %55
   %60 = getelementptr i8, ptr %57, i64 4
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %1, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %61, ptr %62, align 4
   br label %86
 
@@ -1151,7 +1151,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   br i1 %30, label %74, label %64
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %10, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread, label %68
@@ -1161,11 +1161,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !5
   %69 = call i32 @nla_memcpy(ptr noundef nonnull %9, ptr noundef nonnull %66, i32 noundef 16) #16
   %70 = load i64, ptr %9, align 8
-  %71 = getelementptr inbounds i8, ptr %9, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %72 = load i64, ptr %71, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   store i64 %70, ptr %1, align 4
-  %73 = getelementptr inbounds i8, ptr %1, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %72, ptr %73, align 4
   br label %74
 
@@ -1173,22 +1173,22 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   br i1 %28, label %86, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %10, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %77 = load ptr, ptr %76, align 16
   %78 = icmp eq ptr %77, null
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %1, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !5
   %81 = call i32 @nla_memcpy(ptr noundef nonnull %8, ptr noundef nonnull %77, i32 noundef 16) #16
   %82 = load i64, ptr %8, align 8
-  %83 = getelementptr inbounds i8, ptr %8, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %84 = load i64, ptr %83, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   store i64 %82, ptr %80, align 4
-  %85 = getelementptr inbounds i8, ptr %1, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i64 %84, ptr %85, align 4
   br label %86
 
@@ -1207,7 +1207,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   br i1 %89, label %128, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %11, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %92 = load ptr, ptr %91, align 16
   %93 = icmp eq ptr %92, null
   br i1 %93, label %151, label %94
@@ -1224,7 +1224,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   br i1 %100, label %.thread17, label %101
 
 101:                                              ; preds = %94
-  %102 = getelementptr inbounds i8, ptr %7, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %.thread17, label %105
@@ -1232,12 +1232,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
 105:                                              ; preds = %101
   %106 = getelementptr i8, ptr %103, i64 4
   %107 = load i8, ptr %106, align 1
-  %108 = getelementptr inbounds i8, ptr %1, i64 38
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 38
   store i8 %107, ptr %108, align 2
   call void @__rcu_read_lock() #16
   %109 = load i8, ptr %108, align 2
   %110 = call ptr @nf_ct_l4proto_find(i8 noundef zeroext %109) #16
-  %111 = getelementptr inbounds i8, ptr %110, i64 48
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 48
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
   br i1 %113, label %.thread18, label %114, !prof !11
@@ -1248,7 +1248,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   br label %131
 
 114:                                              ; preds = %105
-  %115 = getelementptr inbounds i8, ptr %110, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 56
   %116 = load ptr, ptr %115, align 8
   %117 = load i16, ptr %92, align 2
   %118 = add i16 %117, -4
@@ -1282,7 +1282,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
 131:                                              ; preds = %.thread18, %128, %125
   %132 = and i32 %5, 4
   %133 = icmp ne i32 %132, 0
-  %134 = getelementptr inbounds i8, ptr %11, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %135 = load ptr, ptr %134, align 8
   %136 = icmp ne ptr %135, null
   %137 = select i1 %133, i1 %136, i1 false
@@ -1298,15 +1298,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
   br i1 %142, label %143, label %151
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %4, i64 2
+  %144 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 0, ptr %144, align 2
-  %145 = getelementptr inbounds i8, ptr %4, i64 3
+  %145 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 3, ptr %145, align 1
   br label %151
 
 146:                                              ; preds = %131
   %147 = icmp eq i32 %2, 2
-  %148 = getelementptr inbounds i8, ptr %1, i64 39
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 39
   br i1 %147, label %149, label %150
 
 149:                                              ; preds = %146
@@ -1403,7 +1403,7 @@ define internal fastcc ptr @nfct_help(ptr %.176.val) unnamed_addr #7 align 16 {
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %.176.val, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.176.val, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %9, !prof !7
@@ -1448,16 +1448,16 @@ declare dso_local i32 @timer_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ctnetlink_exp_dump_table(ptr noundef %0, ptr nocapture noundef %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 16
   %10 = load i8, ptr %9, align 2
   tail call void @__rcu_read_lock() #16
-  %11 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %12 = getelementptr i8, ptr %1, i64 88
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
@@ -1489,15 +1489,15 @@ define internal i32 @ctnetlink_exp_dump_table(ptr noundef %0, ptr nocapture noun
   br i1 %20, label %37, label %33
 
 33:                                               ; preds = %.preheader4
-  %34 = getelementptr inbounds i8, ptr %32, i64 50
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 50
   %35 = load i16, ptr %34, align 2
   %36 = icmp eq i16 %35, %21
   br i1 %36, label %37, label %79
 
 37:                                               ; preds = %33, %.preheader4
-  %38 = getelementptr inbounds i8, ptr %32, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 120
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, %6
   br i1 %42, label %43, label %79
@@ -1517,17 +1517,17 @@ define internal i32 @ctnetlink_exp_dump_table(ptr noundef %0, ptr nocapture noun
 
 49:                                               ; preds = %48, %43
   %50 = load ptr, ptr %1, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 52
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 52
   %52 = load i32, ptr %51, align 4
   %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 4
   %56 = tail call fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef %52, i32 noundef %55, ptr noundef nonnull %32)
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %79
 
 58:                                               ; preds = %49
-  %59 = getelementptr inbounds i8, ptr %32, i64 92
+  %59 = getelementptr inbounds nuw i8, ptr %32, i64 92
   %60 = load volatile i32, ptr %59, align 4
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %.thread, label %.preheader
@@ -1535,7 +1535,7 @@ define internal i32 @ctnetlink_exp_dump_table(ptr noundef %0, ptr nocapture noun
 .preheader:                                       ; preds = %58, %67
   %62 = phi i32 [ %68, %67 ], [ %60, %58 ]
   %63 = add i32 %62, 1
-  %64 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %59, i32 %63, ptr elementtype(i32) %59, i32 %62) #16, !srcloc !12
+  %64 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %59, i32 %63, ptr nonnull elementtype(i32) %59, i32 %62) #16, !srcloc !12
   %65 = extractvalue { i8, i32 } %64, 0
   %66 = icmp ult i8 %65, 2
   tail call void @llvm.assume(i1 %66)
@@ -1555,7 +1555,7 @@ define internal i32 @ctnetlink_exp_dump_table(ptr noundef %0, ptr nocapture noun
   br i1 %73, label %75, label %74, !prof !7
 
 74:                                               ; preds = %.thread
-  tail call void @refcount_warn_saturate(ptr noundef %59, i32 noundef 0) #16
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %59, i32 noundef 0) #16
   br label %75
 
 75:                                               ; preds = %74, %.thread
@@ -1568,7 +1568,7 @@ define internal i32 @ctnetlink_exp_dump_table(ptr noundef %0, ptr nocapture noun
   br label %.loopexit5
 
 79:                                               ; preds = %75, %49, %46, %37, %33
-  %80 = getelementptr inbounds i8, ptr %32, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %81 = load volatile ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   %83 = getelementptr i8, ptr %81, i64 -16
@@ -1613,7 +1613,7 @@ define internal i32 @ctnetlink_exp_dump_table(ptr noundef %0, ptr nocapture noun
   br label %97
 
 97:                                               ; preds = %96, %.loopexit5
-  %98 = getelementptr inbounds i8, ptr %0, i64 112
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %99 = load i32, ptr %98, align 8
   ret i32 %99
 }
@@ -1660,14 +1660,14 @@ define internal fastcc i32 @nf_expect_get_id(ptr noundef nonnull %0) unnamed_add
 
 7:                                                ; preds = %6, %1
   %8 = ptrtoint ptr %0 to i64
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = call i64 @__siphash_unaligned(ptr noundef %15, i64 noundef 40, ptr noundef nonnull @nf_expect_get_id.exp_id_seed) #16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %16 = call i64 @__siphash_unaligned(ptr noundef nonnull %15, i64 noundef 40, ptr noundef nonnull @nf_expect_get_id.exp_id_seed) #16
   %17 = call i64 @siphash_4u64(i64 noundef %8, i64 noundef %11, i64 noundef %14, i64 noundef %16, ptr noundef nonnull @nf_expect_get_id.exp_id_seed) #16
   %18 = trunc i64 %17 to i32
   ret i32 %18
@@ -1685,18 +1685,18 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   %12 = alloca %struct.nf_conntrack_tuple, align 4
   %13 = icmp eq i32 %1, 0
   %14 = select i1 %13, i32 0, i32 2
-  %15 = getelementptr inbounds i8, ptr %3, i64 50
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 50
   %16 = load i16, ptr %15, align 2
   %17 = trunc i16 %16 to i8
-  %18 = getelementptr inbounds i8, ptr %0, i64 116
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %.thread13
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %0, i64 188
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %25 = load i32, ptr %24, align 8
   %26 = sub i32 %23, %25
   %27 = icmp slt i32 %26, 20
@@ -1714,9 +1714,9 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   store i8 0, ptr %33, align 1
   %34 = getelementptr i8, ptr %29, i64 18
   store i16 0, ptr %34, align 2
-  %35 = getelementptr inbounds i8, ptr %3, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 144
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %38 = load i64, ptr %37, align 8
   %39 = load volatile i64, ptr @jiffies, align 64
   %40 = sub i64 %38, %39
@@ -1724,7 +1724,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %12, i8 0, i64 40, i1 false)
   %42 = tail call i64 @llvm.smax.i64(i64 %41, i64 0)
-  %43 = getelementptr inbounds i8, ptr %0, i64 192
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %24, align 8
   %46 = zext i32 %45 to i64
@@ -1736,8 +1736,8 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   br i1 %51, label %262, label %52
 
 52:                                               ; preds = %31
-  %53 = getelementptr inbounds i8, ptr %3, i64 32
-  %54 = tail call fastcc i32 @ctnetlink_dump_tuples(ptr noundef %0, ptr noundef %53)
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %54 = tail call fastcc i32 @ctnetlink_dump_tuples(ptr noundef %0, ptr noundef nonnull %53)
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %262, label %56
 
@@ -1751,21 +1751,21 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   %63 = sub i64 %61, %62
   %64 = trunc i64 %63 to i16
   store i16 %64, ptr %47, align 2
-  %65 = getelementptr inbounds i8, ptr %3, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 72
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #16
-  %66 = getelementptr inbounds i8, ptr %11, i64 16
-  %67 = getelementptr inbounds i8, ptr %11, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %67, i8 -1, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef align 4 dereferenceable(16) %65, i64 16, i1 false)
-  %68 = getelementptr inbounds i8, ptr %3, i64 88
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %67, i8 -1, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %65, i64 16, i1 false)
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %69 = load i16, ptr %68, align 4
   store i16 %69, ptr %66, align 4
   %70 = load i16, ptr %15, align 2
-  %71 = getelementptr inbounds i8, ptr %11, i64 18
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 18
   store i16 %70, ptr %71, align 2
-  %72 = getelementptr inbounds i8, ptr %3, i64 70
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 70
   %73 = load i8, ptr %72, align 2
-  %74 = getelementptr inbounds i8, ptr %11, i64 38
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 38
   store i8 %73, ptr %74, align 2
   %75 = load ptr, ptr %43, align 8
   %76 = load i32, ptr %24, align 8
@@ -1806,7 +1806,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   br i1 %100, label %101, label %142
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %88, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %116, label %105, !prof !11
@@ -1869,8 +1869,8 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   br label %262
 
 144:                                              ; preds = %125
-  %145 = getelementptr inbounds i8, ptr %36, i64 32
-  %146 = call fastcc i32 @ctnetlink_dump_tuples(ptr noundef %0, ptr noundef %145)
+  %145 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %146 = call fastcc i32 @ctnetlink_dump_tuples(ptr noundef %0, ptr noundef nonnull %145)
   %147 = icmp slt i32 %146, 0
   br i1 %147, label %262, label %148
 
@@ -1884,7 +1884,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   %155 = sub i64 %153, %154
   %156 = trunc i64 %155 to i16
   store i16 %156, ptr %137, align 2
-  %157 = getelementptr inbounds i8, ptr %3, i64 168
+  %157 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %158 = load i64, ptr %157, align 8
   %159 = getelementptr i8, ptr %3, i64 176
   %160 = load i64, ptr %159, align 8
@@ -1893,7 +1893,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   br i1 %162, label %163, label %167
 
 163:                                              ; preds = %148
-  %164 = getelementptr inbounds i8, ptr %3, i64 184
+  %164 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %165 = load i16, ptr %164, align 8
   %166 = icmp eq i16 %165, 0
   br i1 %166, label %220, label %167
@@ -1910,7 +1910,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   br i1 %175, label %262, label %176
 
 176:                                              ; preds = %167
-  %177 = getelementptr inbounds i8, ptr %3, i64 188
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 188
   %178 = load i32, ptr %177, align 4
   %179 = call i32 @llvm.bswap.i32(i32 %178)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
@@ -1921,17 +1921,17 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   br i1 %181, label %182, label %262
 
 182:                                              ; preds = %176
-  %183 = getelementptr inbounds i8, ptr %36, i64 50
+  %183 = getelementptr inbounds nuw i8, ptr %36, i64 50
   %184 = load i16, ptr %183, align 2
-  %185 = getelementptr inbounds i8, ptr %12, i64 18
+  %185 = getelementptr inbounds nuw i8, ptr %12, i64 18
   store i16 %184, ptr %185, align 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef align 8 dereferenceable(16) %157, i64 16, i1 false)
-  %186 = getelementptr inbounds i8, ptr %36, i64 70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %157, i64 16, i1 false)
+  %186 = getelementptr inbounds nuw i8, ptr %36, i64 70
   %187 = load i8, ptr %186, align 2
-  %188 = getelementptr inbounds i8, ptr %12, i64 38
+  %188 = getelementptr inbounds nuw i8, ptr %12, i64 38
   store i8 %187, ptr %188, align 2
-  %189 = getelementptr inbounds i8, ptr %12, i64 16
-  %190 = getelementptr inbounds i8, ptr %3, i64 184
+  %189 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %191 = load i16, ptr %190, align 8
   store i16 %191, ptr %189, align 4
   %192 = load ptr, ptr %43, align 8
@@ -1990,7 +1990,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   br i1 %228, label %229, label %262
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds i8, ptr %3, i64 96
+  %230 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %231 = load i32, ptr %230, align 8
   %232 = call i32 @llvm.bswap.i32(i32 %231)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
@@ -2001,7 +2001,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   br i1 %234, label %235, label %262
 
 235:                                              ; preds = %229
-  %236 = getelementptr inbounds i8, ptr %3, i64 100
+  %236 = getelementptr inbounds nuw i8, ptr %3, i64 100
   %237 = load i32, ptr %236, align 4
   %238 = call i32 @llvm.bswap.i32(i32 %237)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
@@ -2024,20 +2024,20 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   br i1 %247, label %252, label %248
 
 248:                                              ; preds = %245
-  %249 = getelementptr inbounds i8, ptr %246, i64 16
-  %250 = call fastcc i32 @nla_put_string(ptr noundef %0, i32 noundef 6, ptr noundef %249)
+  %249 = getelementptr inbounds nuw i8, ptr %246, i64 16
+  %250 = call fastcc i32 @nla_put_string(ptr noundef %0, i32 noundef 6, ptr noundef nonnull %249)
   %251 = icmp eq i32 %250, 0
   br i1 %251, label %252, label %262
 
 252:                                              ; preds = %248, %245, %241
-  %253 = getelementptr inbounds i8, ptr %3, i64 104
+  %253 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %254 = load ptr, ptr %253, align 8
   %255 = call ptr @nf_ct_helper_expectfn_find_by_symbol(ptr noundef %254) #16
   %256 = icmp eq ptr %255, null
   br i1 %256, label %266, label %257
 
 257:                                              ; preds = %252
-  %258 = getelementptr inbounds i8, ptr %255, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %255, i64 16
   %259 = load ptr, ptr %258, align 8
   %260 = call fastcc i32 @nla_put_string(ptr noundef %0, i32 noundef 11, ptr noundef %259)
   %261 = icmp eq i32 %260, 0
@@ -2045,7 +2045,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
 
 262:                                              ; preds = %257, %248, %235, %229, %225, %220, %200, %182, %176, %167, %144, %143, %125, %52, %31
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #16
-  %263 = getelementptr inbounds i8, ptr %0, i64 200
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %264 = load ptr, ptr %263, align 8
   %265 = icmp ugt ptr %264, %29
   br i1 %265, label %277, label %278, !prof !11
@@ -2061,7 +2061,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
   %273 = sub i64 %271, %272
   %274 = trunc i64 %273 to i32
   store i32 %274, ptr %29, align 4
-  %275 = getelementptr inbounds i8, ptr %0, i64 112
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %276 = load i32, ptr %275, align 8
   br label %.thread13
 
@@ -2091,12 +2091,12 @@ declare dso_local i32 @nfnetlink_unicast(ptr noundef, ptr noundef, i32 noundef) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture noundef %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 176
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %23, label %11
@@ -2107,7 +2107,7 @@ define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture n
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %18, !prof !7
@@ -2123,7 +2123,7 @@ define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture n
 
 23:                                               ; preds = %20, %18, %11, %2
   %24 = phi ptr [ %19, %18 ], [ %22, %20 ], [ null, %11 ], [ null, %2 ]
-  %25 = getelementptr inbounds i8, ptr %1, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %28, label %133
@@ -2135,7 +2135,7 @@ define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture n
   %30 = getelementptr i8, ptr %1, i64 88
   %31 = load i64, ptr %30, align 8
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %24, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %34 = icmp eq i8 %.fr12, 0
   %35 = zext i8 %.fr12 to i16
   br i1 %34, label %.split8.us, label %.split8
@@ -2175,17 +2175,17 @@ define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture n
 
 48:                                               ; preds = %47, %.preheader6.us
   %49 = load ptr, ptr %1, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 52
   %51 = load i32, ptr %50, align 4
   %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i32, ptr %53, align 4
   %55 = tail call fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef %51, i32 noundef %54, ptr noundef nonnull %42)
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %76
 
 57:                                               ; preds = %48
-  %58 = getelementptr inbounds i8, ptr %42, i64 92
+  %58 = getelementptr inbounds nuw i8, ptr %42, i64 92
   %59 = load volatile i32, ptr %58, align 4
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %.thread.us.us, label %.preheader.us.us
@@ -2193,7 +2193,7 @@ define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture n
 .preheader.us.us:                                 ; preds = %57, %66
   %61 = phi i32 [ %67, %66 ], [ %59, %57 ]
   %62 = add i32 %61, 1
-  %63 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %58, i32 %62, ptr elementtype(i32) %58, i32 %61) #16, !srcloc !12
+  %63 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, i32 %62, ptr nonnull elementtype(i32) %58, i32 %61) #16, !srcloc !12
   %64 = extractvalue { i8, i32 } %63, 0
   %65 = icmp ult i8 %64, 2
   tail call void @llvm.assume(i1 %65)
@@ -2213,7 +2213,7 @@ define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture n
   br i1 %72, label %74, label %73, !prof !7
 
 73:                                               ; preds = %.thread.us.us
-  tail call void @refcount_warn_saturate(ptr noundef %58, i32 noundef 0) #16
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %58, i32 noundef 0) #16
   br label %74
 
 74:                                               ; preds = %73, %.thread.us.us
@@ -2233,7 +2233,7 @@ define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture n
 
 .preheader6:                                      ; preds = %.split8, %121
   %82 = phi ptr [ %122, %121 ], [ %80, %.split8 ]
-  %83 = getelementptr inbounds i8, ptr %82, i64 50
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 50
   %84 = load i16, ptr %83, align 2
   %85 = icmp eq i16 %84, %35
   br i1 %85, label %86, label %121
@@ -2253,17 +2253,17 @@ define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture n
 
 92:                                               ; preds = %91, %86
   %93 = load ptr, ptr %1, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 52
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 52
   %95 = load i32, ptr %94, align 4
   %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load i32, ptr %97, align 4
   %99 = tail call fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef %95, i32 noundef %98, ptr noundef nonnull %82)
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %101, label %121
 
 101:                                              ; preds = %92
-  %102 = getelementptr inbounds i8, ptr %82, i64 92
+  %102 = getelementptr inbounds nuw i8, ptr %82, i64 92
   %103 = load volatile i32, ptr %102, align 4
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %.thread, label %.preheader
@@ -2271,7 +2271,7 @@ define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture n
 .preheader:                                       ; preds = %101, %110
   %105 = phi i32 [ %111, %110 ], [ %103, %101 ]
   %106 = add i32 %105, 1
-  %107 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %102, i32 %106, ptr elementtype(i32) %102, i32 %105) #16, !srcloc !12
+  %107 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %102, i32 %106, ptr nonnull elementtype(i32) %102, i32 %105) #16, !srcloc !12
   %108 = extractvalue { i8, i32 } %107, 0
   %109 = icmp ult i8 %108, 2
   tail call void @llvm.assume(i1 %109)
@@ -2291,7 +2291,7 @@ define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture n
   br i1 %116, label %118, label %117, !prof !7
 
 117:                                              ; preds = %.thread
-  tail call void @refcount_warn_saturate(ptr noundef %102, i32 noundef 0) #16
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %102, i32 noundef 0) #16
   br label %118
 
 118:                                              ; preds = %117, %.thread
@@ -2336,7 +2336,7 @@ define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture n
   br label %130
 
 130:                                              ; preds = %129, %127
-  %131 = getelementptr inbounds i8, ptr %0, i64 112
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %132 = load i32, ptr %131, align 8
   br label %133
 
@@ -2393,12 +2393,12 @@ define internal fastcc i32 @ctnetlink_dump_tuples(ptr noundef %0, ptr noundef %1
   br i1 %5, label %6, label %40
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 38
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %8 = load i8, ptr %7, align 2
   %9 = tail call ptr @nf_ct_l4proto_find(i8 noundef zeroext %8) #16
-  %10 = getelementptr inbounds i8, ptr %0, i64 192
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = getelementptr i8, ptr %11, i64 %14
@@ -2418,7 +2418,7 @@ define internal fastcc i32 @ctnetlink_dump_tuples(ptr noundef %0, ptr noundef %1
   br i1 %23, label %24, label %40
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %9, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %30, label %28, !prof !11
@@ -2450,9 +2450,9 @@ define internal fastcc i32 @ctnetlink_dump_tuples(ptr noundef %0, ptr noundef %1
 define internal fastcc range(i32 -90, 1) i32 @ctnetlink_dump_tuples_ip(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = getelementptr i8, ptr %6, i64 %9
@@ -2463,7 +2463,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctnetlink_dump_tuples_ip(ptr nound
   br i1 %14, label %46, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 18
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %17 = load i16, ptr %16, align 2
   switch i16 %17, label %36 [
     i16 2, label %18
@@ -2480,7 +2480,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctnetlink_dump_tuples_ip(ptr nound
   br i1 %21, label %22, label %36
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %24 = load i32, ptr %23, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   store i32 %24, ptr %3, align 4
@@ -2496,8 +2496,8 @@ define internal fastcc range(i32 -90, 1) i32 @ctnetlink_dump_tuples_ip(ptr nound
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %1, i64 20
-  %33 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 16, ptr noundef %32) #16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %33 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 4, i32 noundef 16, ptr noundef nonnull %32) #16
   %34 = icmp eq i32 %33, 0
   %35 = select i1 %34, i32 0, i32 -90
   br label %36
@@ -2540,9 +2540,9 @@ declare dso_local void @nf_ct_expect_iterate_net(ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @expect_iter_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %20, label %8
@@ -2553,7 +2553,7 @@ define internal zeroext i1 @expect_iter_name(ptr nocapture noundef readonly %0, 
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %15, !prof !7
@@ -2574,8 +2574,8 @@ define internal zeroext i1 @expect_iter_name(ptr nocapture noundef readonly %0, 
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
-  %26 = tail call i32 @strcmp(ptr noundef %25, ptr noundef %1) #16
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef %1) #16
   %27 = icmp eq i32 %26, 0
   br label %28
 
@@ -2597,11 +2597,11 @@ define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr nocapture n
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = load i64, ptr %10, align 8
   %12 = load i32, ptr @nr_cpu_ids, align 4
   %13 = zext i32 %12 to i64
@@ -2614,14 +2614,14 @@ define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr nocapture n
   br i1 %17, label %18, label %.critedge7
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %9, i64 2440
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 116
-  %22 = getelementptr inbounds i8, ptr %0, i64 188
-  %23 = getelementptr inbounds i8, ptr %0, i64 184
-  %24 = getelementptr inbounds i8, ptr %0, i64 200
-  %25 = getelementptr inbounds i8, ptr %0, i64 192
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 2440
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %27
 
 27:                                               ; preds = %.critedge, %18
@@ -2642,10 +2642,10 @@ define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr nocapture n
   %39 = add i64 %38, %35
   %40 = inttoptr i64 %39 to ptr
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 52
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 52
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr %20, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %43, 0
   %48 = select i1 %47, i32 0, i32 2
@@ -2674,7 +2674,7 @@ define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr nocapture n
   store i8 0, ptr %63, align 1
   %64 = getelementptr i8, ptr %59, i64 18
   store i16 %50, ptr %64, align 2
-  %65 = getelementptr inbounds i8, ptr %40, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %66 = load i32, ptr %65, align 4
   %67 = call i32 @llvm.bswap.i32(i32 %66)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
@@ -2685,7 +2685,7 @@ define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr nocapture n
   br i1 %69, label %70, label %93
 
 70:                                               ; preds = %61
-  %71 = getelementptr inbounds i8, ptr %40, i64 36
+  %71 = getelementptr inbounds nuw i8, ptr %40, i64 36
   %72 = load i32, ptr %71, align 4
   %73 = call i32 @llvm.bswap.i32(i32 %72)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
@@ -2696,7 +2696,7 @@ define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr nocapture n
   br i1 %75, label %76, label %93
 
 76:                                               ; preds = %70
-  %77 = getelementptr inbounds i8, ptr %40, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %78 = load i32, ptr %77, align 4
   %79 = call i32 @llvm.bswap.i32(i32 %78)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
@@ -2751,7 +2751,7 @@ define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr nocapture n
   %106 = phi i32 [ %16, %15 ], [ %28, %97 ], [ %28, %33 ], [ %28, %53 ], [ %28, %58 ], [ %28, %82 ], [ %103, %.critedge ]
   %107 = sext i32 %106 to i64
   store i64 %107, ptr %10, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 112
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %109 = load i32, ptr %108, align 8
   br label %110
 
@@ -2773,7 +2773,7 @@ define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr noca
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !5
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
@@ -2823,9 +2823,9 @@ define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr noca
   br i1 %38, label %.thread, label %67
 
 .thread:                                          ; preds = %31, %34
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 6
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 6
   %42 = load i16, ptr %41, align 2
   %43 = and i16 %42, 1024
   %44 = icmp eq i16 %43, 0
@@ -2842,9 +2842,9 @@ define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr noca
   br i1 %50, label %.thread30, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %5, i64 38
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 38
   %53 = load i8, ptr %52, align 2
-  %54 = getelementptr inbounds i8, ptr %6, i64 38
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 38
   %55 = load i8, ptr %54, align 2
   %56 = icmp eq i8 %53, %55
   br i1 %56, label %57, label %.thread30
@@ -2861,21 +2861,21 @@ define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr noca
   br label %.thread30
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %59, i64 128
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 128
   %66 = load volatile i64, ptr %65, align 8
   call fastcc void @nf_ct_put(ptr noundef %59)
   br label %.thread30
 
 67:                                               ; preds = %34
-  %68 = getelementptr inbounds i8, ptr %37, i64 55
+  %68 = getelementptr inbounds nuw i8, ptr %37, i64 55
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i64
   %71 = mul nsw i64 %70, -56
   %72 = getelementptr i8, ptr %37, i64 %71
   %73 = getelementptr i8, ptr %72, i64 -16
-  %74 = getelementptr inbounds i8, ptr %1, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   %77 = load i16, ptr %76, align 2
   %78 = and i16 %77, 512
   %79 = icmp eq i16 %78, 0
@@ -2917,7 +2917,7 @@ define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr noca
   br i1 %102, label %112, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %98, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %109, label %107, !prof !7
@@ -2946,7 +2946,7 @@ define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr noca
   br i1 %120, label %.thread23, label %121
 
 121:                                              ; preds = %112
-  %122 = getelementptr inbounds i8, ptr %4, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
   br i1 %124, label %.thread23, label %125
@@ -2958,7 +2958,7 @@ define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr noca
 
 125:                                              ; preds = %121
   %126 = getelementptr i8, ptr %123, i64 4
-  %127 = getelementptr inbounds i8, ptr %4, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %128 = load ptr, ptr %127, align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
   %129 = getelementptr i8, ptr %72, i64 144
@@ -2977,8 +2977,8 @@ define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr noca
   br i1 %136, label %170, label %137
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %135, i64 16
-  %139 = call i32 @strcmp(ptr noundef %138, ptr noundef %126) #16
+  %138 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  %139 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %138, ptr noundef %126) #16
   %140 = icmp eq i32 %139, 0
   %141 = select i1 %140, i32 0, i32 -16
   br label %170
@@ -3026,7 +3026,7 @@ define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr noca
   br i1 %163, label %164, label %170
 
 164:                                              ; preds = %161
-  %165 = getelementptr inbounds i8, ptr %156, i64 112
+  %165 = getelementptr inbounds nuw i8, ptr %156, i64 112
   %166 = load ptr, ptr %165, align 8
   %167 = icmp eq ptr %166, null
   br i1 %167, label %170, label %168
@@ -3142,16 +3142,16 @@ define internal i32 @ctnetlink_get_conntrack(ptr noundef %0, ptr nocapture nound
   %4 = alloca %struct.nf_conntrack_tuple, align 4
   %5 = alloca %struct.nf_conntrack_zone, align 4
   %6 = alloca %struct.netlink_dump_control, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   store i32 50331648, ptr %5, align 4, !annotation !5
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 6
   %13 = load i16, ptr %12, align 2
   %14 = and i16 %13, 768
   %15 = icmp eq i16 %14, 0
@@ -3159,21 +3159,21 @@ define internal i32 @ctnetlink_get_conntrack(ptr noundef %0, ptr nocapture nound
 
 16:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #16
-  %17 = getelementptr inbounds i8, ptr %6, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 0, ptr %17, align 8, !annotation !5
   store ptr @ctnetlink_start, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @ctnetlink_dump_table, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @ctnetlink_done, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 40
-  %23 = getelementptr inbounds i8, ptr %6, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %22, align 8
   %26 = call i32 @__netlink_dump_start(ptr noundef %25, ptr noundef %0, ptr noundef %11, ptr noundef nonnull %6) #16
@@ -3211,7 +3211,7 @@ define internal i32 @ctnetlink_get_conntrack(ptr noundef %0, ptr nocapture nound
   br i1 %44, label %.thread, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %43, i64 55
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 55
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
   %49 = mul nsw i64 %48, -56
@@ -3244,12 +3244,12 @@ define internal i32 @ctnetlink_get_conntrack(ptr noundef %0, ptr nocapture nound
   br label %.thread
 
 63:                                               ; preds = %45
-  %64 = getelementptr inbounds i8, ptr %0, i64 52
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %65 = load i32, ptr %64, align 4
   %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %66, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %70 = load i16, ptr %69, align 4
   %71 = and i16 %70, 255
   %72 = zext nneg i16 %71 to i32
@@ -3301,7 +3301,7 @@ define internal i32 @ctnetlink_del_conntrack(ptr nocapture noundef readonly %0, 
   %4 = alloca %struct.nf_ct_iter_data, align 8
   %5 = alloca %struct.nf_conntrack_tuple, align 4
   %6 = alloca %struct.nf_conntrack_zone, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %8, align 2
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #16
@@ -3326,20 +3326,20 @@ define internal i32 @ctnetlink_del_conntrack(ptr nocapture noundef readonly %0, 
   br i1 %19, label %20, label %.split1
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %8, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
   %24 = select i1 %23, i8 0, i8 %9
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %20
-  %32 = getelementptr inbounds i8, ptr %29, i64 6
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 6
   %33 = load i16, ptr %32, align 2
   %34 = lshr i16 %33, 3
   %35 = and i16 %34, 1
@@ -3350,11 +3350,11 @@ define internal i32 @ctnetlink_del_conntrack(ptr nocapture noundef readonly %0, 
   %38 = phi i32 [ %36, %31 ], [ 0, %20 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
   store ptr %25, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %27, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %38, ptr %41, align 4
   %42 = icmp eq i8 %24, 0
   br i1 %42, label %43, label %54
@@ -3421,7 +3421,7 @@ define internal i32 @ctnetlink_del_conntrack(ptr nocapture noundef readonly %0, 
   br i1 %74, label %.thread, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %73, i64 55
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 55
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i64
   %79 = mul nsw i64 %78, -56
@@ -3462,15 +3462,15 @@ define internal i32 @ctnetlink_del_conntrack(ptr nocapture noundef readonly %0, 
   br label %.thread
 
 99:                                               ; preds = %85, %75
-  %100 = getelementptr inbounds i8, ptr %0, i64 52
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %101 = load i32, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %1, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %111, label %105
 
 105:                                              ; preds = %99
-  %106 = getelementptr inbounds i8, ptr %103, i64 6
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 6
   %107 = load i16, ptr %106, align 2
   %108 = lshr i16 %107, 3
   %109 = and i16 %108, 1
@@ -3511,9 +3511,9 @@ define internal i32 @ctnetlink_del_conntrack(ptr nocapture noundef readonly %0, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ctnetlink_stat_ct_cpu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 align 16 {
   %4 = alloca %struct.netlink_dump_control, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 768
   %10 = icmp eq i16 %9, 0
@@ -3522,11 +3522,11 @@ define internal i32 @ctnetlink_stat_ct_cpu(ptr noundef %0, ptr nocapture noundef
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #16
   store ptr null, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @ctnetlink_ct_stat_cpu_dump, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 @__netlink_dump_start(ptr noundef %15, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #16
@@ -3546,27 +3546,27 @@ define internal i32 @ctnetlink_stat_ct(ptr nocapture noundef readonly %0, ptr no
   br i1 %7, label %75, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 52
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq i32 %10, 0
   %20 = select i1 %19, i32 0, i32 2
-  %21 = getelementptr inbounds i8, ptr %6, i64 116
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 116
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %.thread4
 
 24:                                               ; preds = %8
-  %25 = getelementptr inbounds i8, ptr %6, i64 188
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 188
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %6, i64 184
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %28 = load i32, ptr %27, align 8
   %29 = sub i32 %26, %28
   %30 = icmp slt i32 %29, 20
@@ -3604,7 +3604,7 @@ define internal i32 @ctnetlink_stat_ct(ptr nocapture noundef readonly %0, ptr no
   br i1 %46, label %47, label %60
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %6, i64 192
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %27, align 8
   %51 = zext i32 %50 to i64
@@ -3614,13 +3614,13 @@ define internal i32 @ctnetlink_stat_ct(ptr nocapture noundef readonly %0, ptr no
   %55 = sub i64 %53, %54
   %56 = trunc i64 %55 to i32
   store i32 %56, ptr %32, align 4
-  %57 = getelementptr inbounds i8, ptr %6, i64 112
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %58 = load i32, ptr %57, align 8
   %59 = icmp slt i32 %58, 1
   br i1 %59, label %.thread4, label %71
 
 60:                                               ; preds = %42, %34
-  %61 = getelementptr inbounds i8, ptr %6, i64 200
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %62 = load ptr, ptr %61, align 8
   %63 = icmp ugt ptr %62, %32
   br i1 %63, label %64, label %65, !prof !11
@@ -3659,9 +3659,9 @@ define internal i32 @ctnetlink_stat_ct(ptr nocapture noundef readonly %0, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ctnetlink_get_ct_dying(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 align 16 {
   %4 = alloca %struct.netlink_dump_control, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 768
   %10 = icmp eq i16 %9, 0
@@ -3670,13 +3670,13 @@ define internal i32 @ctnetlink_get_ct_dying(ptr noundef %0, ptr nocapture nounde
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #16
   store ptr null, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @ctnetlink_dump_dying, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @ctnetlink_done_list, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @__netlink_dump_start(ptr noundef %16, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #16
@@ -3690,9 +3690,9 @@ define internal i32 @ctnetlink_get_ct_dying(ptr noundef %0, ptr nocapture nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ctnetlink_get_ct_unconfirmed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 align 16 {
   %4 = alloca %struct.netlink_dump_control, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 768
   %10 = icmp eq i16 %9, 0
@@ -3701,13 +3701,13 @@ define internal i32 @ctnetlink_get_ct_unconfirmed(ptr noundef %0, ptr nocapture 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #16
   store ptr null, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @ctnetlink_dump_unconfirmed, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @ctnetlink_done_list, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @__netlink_dump_start(ptr noundef %16, ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #16
@@ -3752,7 +3752,7 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %8, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread, label %31
@@ -3764,12 +3764,12 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
 
 31:                                               ; preds = %27
   %32 = getelementptr i8, ptr %29, i64 4
-  %33 = getelementptr inbounds i8, ptr %8, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %34 = load ptr, ptr %33, align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
-  %35 = getelementptr inbounds i8, ptr %10, i64 50
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 50
   %36 = load i16, ptr %35, align 2
-  %37 = getelementptr inbounds i8, ptr %10, i64 70
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 70
   %38 = load i8, ptr %37, align 2
   %39 = call ptr @__nf_conntrack_helper_find(ptr noundef %32, i16 noundef zeroext %36, i8 noundef zeroext %38) #16
   %40 = icmp eq ptr %39, null
@@ -3799,7 +3799,7 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   br i1 %52, label %.thread25, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %39, i64 112
+  %54 = getelementptr inbounds nuw i8, ptr %39, i64 112
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %59, label %57
@@ -3809,7 +3809,7 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   br label %59
 
 59:                                               ; preds = %53, %57
-  %60 = getelementptr inbounds i8, ptr %10, i64 128
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %61 = load i64, ptr %60, align 8
   %62 = or i64 %61, 8192
   store i64 %62, ptr %60, align 8
@@ -3842,9 +3842,9 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   br i1 %77, label %.thread25, label %.thread29
 
 .thread29:                                        ; preds = %67, %73
-  %78 = getelementptr inbounds i8, ptr %10, i64 136
+  %78 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 2434
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 2434
   %81 = load i8, ptr %80, align 2
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %85, label %83
@@ -3855,7 +3855,7 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
 
 85:                                               ; preds = %83, %.thread29
   %86 = call ptr @nf_ct_ext_add(ptr noundef %10, i32 noundef 2, i32 noundef 2080) #16
-  %87 = getelementptr inbounds i8, ptr %10, i64 128
+  %87 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %88 = load i64, ptr %87, align 8
   %89 = or i64 %88, 8
   store i64 %89, ptr %87, align 8
@@ -3876,13 +3876,13 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   %102 = trunc i64 %101 to i32
   %103 = trunc nuw nsw i64 %96 to i32
   %104 = add i32 %102, %103
-  %105 = getelementptr inbounds i8, ptr %10, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store volatile i32 %104, ptr %105, align 8
   br label %109
 
 106:                                              ; preds = %85
   %107 = trunc nuw nsw i64 %96 to i32
-  %108 = getelementptr inbounds i8, ptr %10, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %107, ptr %108, align 8
   br label %109
 
@@ -3918,8 +3918,8 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   br i1 %129, label %.thread25, label %130
 
 130:                                              ; preds = %127, %123
-  %131 = getelementptr inbounds i8, ptr %10, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(64) %131, i8 0, i64 64, i1 false)
+  %131 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %131, i8 0, i64 64, i1 false)
   %132 = getelementptr i8, ptr %2, i64 32
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
@@ -3941,10 +3941,10 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   br label %.thread25
 
 142:                                              ; preds = %135
-  %143 = getelementptr inbounds i8, ptr %10, i64 70
+  %143 = getelementptr inbounds nuw i8, ptr %10, i64 70
   %144 = load i8, ptr %143, align 2
   %145 = call ptr @nf_ct_l4proto_find(i8 noundef zeroext %144) #16
-  %146 = getelementptr inbounds i8, ptr %145, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load ptr, ptr %146, align 8
   %148 = icmp eq ptr %147, null
   br i1 %148, label %.thread31, label %149
@@ -3983,14 +3983,14 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   br label %.thread25
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds i8, ptr %160, i64 55
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 55
   %164 = load i8, ptr %163, align 1
   %165 = zext i8 %164 to i64
   %166 = mul nsw i64 %165, -56
   %167 = getelementptr i8, ptr %160, i64 %166
   %168 = getelementptr i8, ptr %167, i64 -16
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %87, i64 0) #16, !srcloc !25
-  %169 = getelementptr inbounds i8, ptr %10, i64 160
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %87, i64 0) #16, !srcloc !25
+  %169 = getelementptr inbounds nuw i8, ptr %10, i64 160
   store ptr %168, ptr %169, align 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #16
   br label %170
@@ -4005,7 +4005,7 @@ define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr nound
   br label %183
 
 174:                                              ; preds = %170
-  %175 = getelementptr inbounds i8, ptr %10, i64 160
+  %175 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %176 = load ptr, ptr %175, align 8
   %177 = icmp eq ptr %176, null
   br i1 %177, label %.thread25, label %178
@@ -4041,7 +4041,7 @@ declare dso_local ptr @nf_ct_helper_ext_add(ptr noundef, i32 noundef) local_unna
 define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 16 {
   %3 = alloca [4 x ptr], align 16
   %4 = alloca [4 x ptr], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8
@@ -4053,7 +4053,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(p
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %18, label %16, !prof !7
@@ -4073,8 +4073,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(p
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
-  tail call void @_raw_spin_lock_bh(ptr noundef %25) #16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  tail call void @_raw_spin_lock_bh(ptr noundef nonnull %25) #16
   %26 = getelementptr i8, ptr %1, i64 120
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
@@ -4092,7 +4092,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(p
   br i1 %35, label %.thread16, label %36
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread16, label %40
@@ -4102,7 +4102,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(p
   %42 = load i32, ptr %41, align 4
   %43 = call i32 @llvm.bswap.i32(i32 %42)
   store i32 %43, ptr %22, align 4
-  %44 = getelementptr inbounds i8, ptr %4, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %45 = load ptr, ptr %44, align 16
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread16, label %47
@@ -4111,9 +4111,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(p
   %48 = getelementptr i8, ptr %45, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = call i32 @llvm.bswap.i32(i32 %49)
-  %51 = getelementptr inbounds i8, ptr %22, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %50, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %4, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.thread16, label %55
@@ -4127,11 +4127,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(p
   %56 = getelementptr i8, ptr %53, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = call i32 @llvm.bswap.i32(i32 %57)
-  %59 = getelementptr inbounds i8, ptr %22, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %58, ptr %59, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
-  %60 = getelementptr inbounds i8, ptr %0, i64 128
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %60, i32 64, ptr elementtype(i8) %60) #16, !srcloc !26
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %60, i32 64, ptr nonnull elementtype(i8) %60) #16, !srcloc !26
   br label %61
 
 61:                                               ; preds = %55, %24
@@ -4153,7 +4153,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(p
   br i1 %72, label %.thread19, label %73
 
 73:                                               ; preds = %65
-  %74 = getelementptr inbounds i8, ptr %3, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.thread19, label %77
@@ -4163,7 +4163,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(p
   %79 = load i32, ptr %78, align 4
   %80 = call i32 @llvm.bswap.i32(i32 %79)
   store i32 %80, ptr %66, align 4
-  %81 = getelementptr inbounds i8, ptr %3, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %82 = load ptr, ptr %81, align 16
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.thread19, label %84
@@ -4174,7 +4174,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(p
   %87 = call i32 @llvm.bswap.i32(i32 %86)
   %88 = getelementptr i8, ptr %22, i64 16
   store i32 %87, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %3, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.thread19, label %92
@@ -4191,13 +4191,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(p
   %96 = getelementptr i8, ptr %22, i64 20
   store i32 %95, ptr %96, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
-  %97 = getelementptr inbounds i8, ptr %0, i64 128
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %97, i32 64, ptr elementtype(i8) %97) #16, !srcloc !26
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %97, i32 64, ptr nonnull elementtype(i8) %97) #16, !srcloc !26
   br label %98
 
 98:                                               ; preds = %.thread19, %.thread16, %92, %61
   %99 = phi i32 [ 0, %92 ], [ 0, %61 ], [ %.ph, %.thread16 ], [ %.ph18, %.thread19 ]
-  call void @_raw_spin_unlock_bh(ptr noundef %25) #16
+  call void @_raw_spin_unlock_bh(ptr noundef nonnull %25) #16
   br label %.thread
 
 .thread:                                          ; preds = %2, %8, %98, %21
@@ -4219,10 +4219,10 @@ define internal fastcc i32 @ctnetlink_change_protoinfo(ptr noundef %0, ptr %.32.
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 70
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 70
   %11 = load i8, ptr %10, align 2
   %12 = call ptr @nf_ct_l4proto_find(i8 noundef zeroext %11) #16
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %18, label %16
@@ -4273,7 +4273,7 @@ define internal fastcc i32 @ctnetlink_parse_nat_setup(ptr noundef %0, i32 nounde
 17:                                               ; preds = %13
   tail call void @__rcu_read_unlock() #16
   tail call void @nfnl_unlock(i8 noundef zeroext 1) #16
-  %18 = getelementptr inbounds i8, ptr %0, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
   %21 = tail call i32 (i1, ptr, ...) @__request_module(i1 noundef zeroext true, ptr noundef nonnull @.str.6, i32 noundef %20) #16
@@ -4308,9 +4308,9 @@ declare dso_local i32 @__nf_ct_change_timeout(ptr noundef, i64 noundef) local_un
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ctnetlink_start(ptr nocapture noundef %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 2
@@ -4364,17 +4364,17 @@ define internal i32 @ctnetlink_start(ptr nocapture noundef %0) #3 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef %1) #3 align 16 {
   %3 = alloca [8 x ptr], align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = select i1 %6, i32 0, i32 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !5
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = getelementptr i8, ptr %1, i64 88
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
@@ -4388,7 +4388,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
   br i1 %20, label %21, label %.loopexit31
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %23
 
 23:                                               ; preds = %.backedge, %21
@@ -4402,7 +4402,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
   %28 = sext i32 %27 to i64
   %29 = getelementptr [8 x ptr], ptr %3, i64 0, i64 %28
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load volatile i32, ptr %31, align 8
   %33 = load volatile i64, ptr @jiffies, align 64
   %34 = trunc i64 %33 to i32
@@ -4411,7 +4411,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %.preheader28
-  %38 = getelementptr inbounds i8, ptr %30, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %39 = load volatile i64, ptr %38, align 8
   %40 = and i64 %39, 8
   %41 = icmp eq i64 %40, 0
@@ -4476,7 +4476,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
 .preheader26:                                     ; preds = %65, %189
   %72 = phi ptr [ %191, %189 ], [ %68, %65 ]
   %73 = phi i32 [ %190, %189 ], [ 0, %65 ]
-  %74 = getelementptr inbounds i8, ptr %72, i64 55
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 55
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i64
   %77 = mul nsw i64 %76, -56
@@ -4575,30 +4575,30 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
   br i1 %132, label %133, label %189
 
 133:                                              ; preds = %128, %125
-  %134 = getelementptr inbounds i8, ptr %123, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %143, label %137
 
 137:                                              ; preds = %133
   %138 = getelementptr i8, ptr %78, i64 16
-  %139 = getelementptr inbounds i8, ptr %123, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %123, i64 12
   %140 = zext i8 %126 to i32
-  %141 = tail call fastcc i32 @ctnetlink_filter_match_tuple(ptr noundef %139, ptr noundef %138, i32 noundef %135, i32 noundef %140), !range !31
+  %141 = tail call fastcc i32 @ctnetlink_filter_match_tuple(ptr noundef nonnull %139, ptr noundef %138, i32 noundef %135, i32 noundef %140), !range !31
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %189, label %143
 
 143:                                              ; preds = %137, %133
-  %144 = getelementptr inbounds i8, ptr %123, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %153, label %147
 
 147:                                              ; preds = %143
   %148 = getelementptr i8, ptr %78, i64 72
-  %149 = getelementptr inbounds i8, ptr %123, i64 52
+  %149 = getelementptr inbounds nuw i8, ptr %123, i64 52
   %150 = zext i8 %126 to i32
-  %151 = tail call fastcc i32 @ctnetlink_filter_match_tuple(ptr noundef %149, ptr noundef %148, i32 noundef %145, i32 noundef %150), !range !31
+  %151 = tail call fastcc i32 @ctnetlink_filter_match_tuple(ptr noundef nonnull %149, ptr noundef %148, i32 noundef %145, i32 noundef %150), !range !31
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %189, label %153
 
@@ -4606,8 +4606,8 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
   %154 = getelementptr i8, ptr %78, i64 112
   %155 = load volatile i64, ptr %154, align 8
   %156 = trunc i64 %155 to i32
-  %157 = getelementptr inbounds i8, ptr %123, i64 104
-  %158 = getelementptr inbounds i8, ptr %123, i64 108
+  %157 = getelementptr inbounds nuw i8, ptr %123, i64 104
+  %158 = getelementptr inbounds nuw i8, ptr %123, i64 108
   %159 = load i32, ptr %158, align 4
   %160 = and i32 %159, %156
   %161 = load i32, ptr %157, align 4
@@ -4616,12 +4616,12 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
 
 163:                                              ; preds = %153, %122
   %164 = load ptr, ptr %1, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 52
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 52
   %166 = load i32, ptr %165, align 4
   %167 = load ptr, ptr %22, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load i32, ptr %168, align 4
-  %170 = getelementptr inbounds i8, ptr %167, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %171 = load i16, ptr %170, align 4
   %172 = and i16 %171, 255
   %173 = zext nneg i16 %172 to i32
@@ -4733,7 +4733,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
   %222 = sext i32 %221 to i64
   %223 = getelementptr [8 x ptr], ptr %3, i64 0, i64 %222
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load volatile i32, ptr %225, align 8
   %227 = load volatile i64, ptr @jiffies, align 64
   %228 = trunc i64 %227 to i32
@@ -4742,7 +4742,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
   br i1 %230, label %231, label %242
 
 231:                                              ; preds = %.preheader
-  %232 = getelementptr inbounds i8, ptr %224, i64 128
+  %232 = getelementptr inbounds nuw i8, ptr %224, i64 128
   %233 = load volatile i64, ptr %232, align 8
   %234 = and i64 %233, 8
   %235 = icmp eq i64 %234, 0
@@ -4785,7 +4785,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
   br i1 %251, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.thread24, %.thread22
-  %252 = getelementptr inbounds i8, ptr %0, i64 112
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %253 = load i32, ptr %252, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #16
   ret i32 %253
@@ -4818,7 +4818,7 @@ define internal noundef i32 @ctnetlink_done(ptr nocapture noundef readonly %0) #
   br label %.thread
 
 .thread:                                          ; preds = %9, %11, %12, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @kfree(ptr noundef %14) #16
   ret i32 0
@@ -4838,18 +4838,18 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
   %16 = icmp eq i32 %1, 0
   %17 = or i32 %5, 2
   %18 = select i1 %16, i32 %5, i32 %17
-  %19 = getelementptr inbounds i8, ptr %4, i64 50
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 50
   %20 = load i16, ptr %19, align 2
   %21 = trunc i16 %20 to i8
-  %22 = getelementptr inbounds i8, ptr %0, i64 116
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %.thread9
 
 25:                                               ; preds = %6
-  %26 = getelementptr inbounds i8, ptr %0, i64 188
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 184
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %29 = load i32, ptr %28, align 8
   %30 = sub i32 %27, %29
   %31 = icmp slt i32 %30, 20
@@ -4867,7 +4867,7 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
   store i8 0, ptr %37, align 1
   %38 = getelementptr i8, ptr %33, i64 18
   store i16 0, ptr %38, align 2
-  %39 = getelementptr inbounds i8, ptr %0, i64 192
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %28, align 8
   %42 = zext i32 %41 to i64
@@ -4879,8 +4879,8 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
   br i1 %47, label %257, label %48
 
 48:                                               ; preds = %35
-  %49 = getelementptr inbounds i8, ptr %4, i64 32
-  %50 = tail call fastcc i32 @ctnetlink_dump_tuples(ptr noundef %0, ptr noundef %49)
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %50 = tail call fastcc i32 @ctnetlink_dump_tuples(ptr noundef %0, ptr noundef nonnull %49)
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %257, label %52
 
@@ -4911,7 +4911,7 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
   %69 = sub i64 %67, %68
   %70 = trunc i64 %69 to i16
   store i16 %70, ptr %43, align 2
-  %71 = getelementptr inbounds i8, ptr %0, i64 112
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %72 = load ptr, ptr %39, align 8
   %73 = load i32, ptr %28, align 8
   %74 = zext i32 %73 to i64
@@ -4978,7 +4978,7 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
   br i1 %113, label %114, label %257
 
 114:                                              ; preds = %.thread10, %110, %99
-  %115 = getelementptr inbounds i8, ptr %4, i64 128
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %116 = load i64, ptr %115, align 8
   %117 = trunc i64 %116 to i32
   %118 = call i32 @llvm.bswap.i32(i32 %117)
@@ -4994,7 +4994,7 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
   store i32 0, ptr %10, align 4, !annotation !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
   store ptr null, ptr %11, align 8, !annotation !5
-  %122 = getelementptr inbounds i8, ptr %4, i64 168
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %123 = load i32, ptr %122, align 8
   %124 = call i32 @security_secid_to_secctx(i32 noundef %123, ptr noundef nonnull %11, ptr noundef nonnull %10) #16
   %125 = icmp eq i32 %124, 0
@@ -5074,10 +5074,10 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
   br i1 %174, label %257, label %175
 
 175:                                              ; preds = %166
-  %176 = getelementptr inbounds i8, ptr %4, i64 160
+  %176 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 32
-  %179 = call fastcc i32 @ctnetlink_dump_tuples(ptr noundef %0, ptr noundef %178)
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
+  %179 = call fastcc i32 @ctnetlink_dump_tuples(ptr noundef %0, ptr noundef nonnull %178)
   %180 = icmp slt i32 %179, 0
   br i1 %180, label %257, label %181
 
@@ -5103,7 +5103,7 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
   %195 = load volatile i64, ptr %115, align 8
   %196 = and i64 %195, 8
   %197 = icmp eq i64 %196, 0
-  %198 = getelementptr inbounds i8, ptr %4, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %197, label %205, label %199
 
 199:                                              ; preds = %194
@@ -5130,10 +5130,10 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
   br i1 %212, label %213, label %257
 
 213:                                              ; preds = %207
-  %214 = getelementptr inbounds i8, ptr %4, i64 70
+  %214 = getelementptr inbounds nuw i8, ptr %4, i64 70
   %215 = load i8, ptr %214, align 2
   %216 = call ptr @nf_ct_l4proto_find(i8 noundef zeroext %215) #16
-  %217 = getelementptr inbounds i8, ptr %216, i64 16
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
   %218 = load ptr, ptr %217, align 8
   %219 = icmp eq ptr %218, null
   br i1 %219, label %241, label %220
@@ -5191,7 +5191,7 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
   br label %.thread9
 
 257:                                              ; preds = %35, %48, %58, %62, %80, %87, %110, %114, %153, %157, %166, %175, %207, %220, %229, %241, %244
-  %258 = getelementptr inbounds i8, ptr %0, i64 200
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %259 = load ptr, ptr %258, align 8
   %260 = icmp ugt ptr %259, %33
   br i1 %260, label %261, label %262, !prof !11
@@ -5244,7 +5244,7 @@ define internal fastcc ptr @ctnetlink_alloc_filter(ptr nocapture noundef readonl
   br i1 %17, label %34, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %12, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %20 = getelementptr i8, ptr %16, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @llvm.bswap.i32(i32 %21)
@@ -5262,7 +5262,7 @@ define internal fastcc ptr @ctnetlink_alloc_filter(ptr nocapture noundef readonl
 
 30:                                               ; preds = %26, %18
   %31 = phi i32 [ %29, %26 ], [ %22, %18 ]
-  %32 = getelementptr inbounds i8, ptr %12, i64 108
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 108
   store i32 %31, ptr %32, align 4
   %33 = icmp eq i32 %31, 0
   br i1 %33, label %.thread, label %38
@@ -5280,11 +5280,11 @@ define internal fastcc ptr @ctnetlink_alloc_filter(ptr nocapture noundef readonl
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %12, i64 92
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 92
   store i16 0, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %12, i64 94
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 94
   store i8 0, ptr %44, align 2
-  %45 = getelementptr inbounds i8, ptr %12, i64 95
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 95
   store i8 3, ptr %45, align 1
   br label %.thread
 
@@ -5300,7 +5300,7 @@ define internal fastcc ptr @ctnetlink_alloc_filter(ptr nocapture noundef readonl
   br i1 %52, label %.thread, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %12, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %67, label %57
@@ -5312,15 +5312,15 @@ define internal fastcc ptr @ctnetlink_alloc_filter(ptr nocapture noundef readonl
   br i1 %60, label %.thread, label %61
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %12, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %63 = load i8, ptr %12, align 8
-  %64 = getelementptr inbounds i8, ptr %12, i64 92
-  %65 = tail call fastcc i32 @ctnetlink_parse_tuple_filter(ptr noundef %0, ptr noundef %62, i32 noundef 1, i8 noundef zeroext %63, ptr noundef %64, i32 noundef %55), !range !6
+  %64 = getelementptr inbounds nuw i8, ptr %12, i64 92
+  %65 = tail call fastcc i32 @ctnetlink_parse_tuple_filter(ptr noundef %0, ptr noundef nonnull %62, i32 noundef 1, i8 noundef zeroext %63, ptr noundef nonnull %64, i32 noundef %55), !range !6
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %.thread, label %67
 
 67:                                               ; preds = %61, %53
-  %68 = getelementptr inbounds i8, ptr %12, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %84, label %71
@@ -5332,10 +5332,10 @@ define internal fastcc ptr @ctnetlink_alloc_filter(ptr nocapture noundef readonl
   br i1 %74, label %.thread, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %12, i64 52
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 52
   %77 = load i8, ptr %12, align 8
-  %78 = getelementptr inbounds i8, ptr %12, i64 92
-  %79 = tail call fastcc i32 @ctnetlink_parse_tuple_filter(ptr noundef %0, ptr noundef %76, i32 noundef 2, i8 noundef zeroext %77, ptr noundef %78, i32 noundef %69), !range !6
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 92
+  %79 = tail call fastcc i32 @ctnetlink_parse_tuple_filter(ptr noundef %0, ptr noundef nonnull %76, i32 noundef 2, i8 noundef zeroext %77, ptr noundef nonnull %78, i32 noundef %69), !range !6
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %.thread, label %84
 
@@ -5355,7 +5355,7 @@ define internal fastcc ptr @ctnetlink_alloc_filter(ptr nocapture noundef readonl
 define internal fastcc i32 @ctnetlink_parse_filter(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 align 16 {
   %3 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i16, ptr %4, align 2
   %6 = icmp sgt i16 %5, -1
   br i1 %6, label %.thread, label %7
@@ -5375,7 +5375,7 @@ define internal fastcc i32 @ctnetlink_parse_filter(ptr noundef nonnull %0, ptr n
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %23, label %18
@@ -5383,13 +5383,13 @@ define internal fastcc i32 @ctnetlink_parse_filter(ptr noundef nonnull %0, ptr n
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %16, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %20, ptr %21, align 4
   %22 = icmp ult i32 %20, 4096
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %18, %14
-  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %25 = load ptr, ptr %24, align 16
   %26 = icmp eq ptr %25, null
   br i1 %26, label %32, label %27
@@ -5397,7 +5397,7 @@ define internal fastcc i32 @ctnetlink_parse_filter(ptr noundef nonnull %0, ptr n
 27:                                               ; preds = %23
   %28 = getelementptr i8, ptr %25, i64 4
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %29, ptr %30, align 4
   %31 = icmp ult i32 %29, 4096
   br i1 %31, label %32, label %33
@@ -5454,9 +5454,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple
   br i1 %14, label %35, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %17, %19
   br i1 %20, label %35, label %119
@@ -5477,9 +5477,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple
   br i1 %29, label %35, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 20
-  %32 = getelementptr inbounds i8, ptr %1, i64 20
-  %33 = tail call i32 @bcmp(ptr noundef dereferenceable(16) %31, ptr noundef dereferenceable(16) %32, i64 16)
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %31, ptr noundef nonnull dereferenceable(16) %32, i64 16)
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %119, label %35
 
@@ -5489,14 +5489,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple
   br i1 %37, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %35
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 38
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 38
   %.pre = load i8, ptr %.phi.trans.insert, align 2
   br label %44
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %0, i64 38
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %40 = load i8, ptr %39, align 2
-  %41 = getelementptr inbounds i8, ptr %1, i64 38
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %42 = load i8, ptr %41, align 2
   %43 = icmp eq i8 %40, %42
   br i1 %43, label %44, label %119
@@ -5516,9 +5516,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple
   br i1 %48, label %55, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load i16, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load i16, ptr %52, align 4
   %54 = icmp eq i16 %51, %53
   br i1 %54, label %55, label %119
@@ -5529,9 +5529,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple
   br i1 %57, label %118, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 36
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %60 = load i16, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 36
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %62 = load i16, ptr %61, align 4
   %63 = icmp eq i16 %60, %62
   br i1 %63, label %118, label %119
@@ -5542,9 +5542,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple
   br i1 %66, label %73, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %0, i64 36
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %69 = load i8, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %1, i64 36
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %71 = load i8, ptr %70, align 4
   %72 = icmp eq i8 %69, %71
   br i1 %72, label %73, label %119
@@ -5555,9 +5555,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple
   br i1 %75, label %82, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %0, i64 37
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %1, i64 37
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %80 = load i8, ptr %79, align 1
   %81 = icmp eq i8 %78, %80
   br i1 %81, label %82, label %119
@@ -5568,9 +5568,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple
   br i1 %84, label %118, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %0, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %87 = load i16, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %1, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %89 = load i16, ptr %88, align 4
   %90 = icmp eq i16 %87, %89
   br i1 %90, label %118, label %119
@@ -5581,9 +5581,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple
   br i1 %93, label %100, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %0, i64 36
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %96 = load i8, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %1, i64 36
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %98 = load i8, ptr %97, align 4
   %99 = icmp eq i8 %96, %98
   br i1 %99, label %100, label %119
@@ -5594,9 +5594,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple
   br i1 %102, label %109, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %0, i64 37
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %105 = load i8, ptr %104, align 1
-  %106 = getelementptr inbounds i8, ptr %1, i64 37
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %107 = load i8, ptr %106, align 1
   %108 = icmp eq i8 %105, %107
   br i1 %108, label %109, label %119
@@ -5607,9 +5607,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple
   br i1 %111, label %118, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %0, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %114 = load i16, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %1, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %116 = load i16, ptr %115, align 4
   %117 = icmp eq i16 %114, %116
   br i1 %117, label %118, label %119
@@ -5627,7 +5627,7 @@ declare dso_local void @__local_bh_enable_ip(i64 noundef, i32 noundef) local_unn
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -1, 1) i32 @ctnetlink_dump_extinfo(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #3 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread15, label %7
@@ -5639,7 +5639,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ctnetlink_dump_extinfo(ptr 
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %15, !prof !7
@@ -5679,7 +5679,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ctnetlink_dump_extinfo(ptr 
   br i1 %32, label %.thread13.thread17, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %.pr, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %39, label %37, !prof !7
@@ -5705,9 +5705,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ctnetlink_dump_extinfo(ptr 
   br i1 %47, label %81, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 192
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 184
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
   %54 = getelementptr i8, ptr %50, i64 %53
@@ -5718,16 +5718,16 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ctnetlink_dump_extinfo(ptr 
   br i1 %58, label %82, label %59
 
 59:                                               ; preds = %48
-  %60 = getelementptr inbounds i8, ptr %46, i64 16
-  %61 = tail call i64 @strlen(ptr noundef %60) #16
+  %60 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #16
   %62 = trunc i64 %61 to i32
   %63 = add i32 %62, 1
-  %64 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef %63, ptr noundef %60) #16
+  %64 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef %63, ptr noundef nonnull %60) #16
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %82
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i8, ptr %46, i64 120
+  %67 = getelementptr inbounds nuw i8, ptr %46, i64 120
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %72, label %70
@@ -5769,7 +5769,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ctnetlink_dump_extinfo(ptr 
   br i1 %87, label %.thread15, label %88
 
 88:                                               ; preds = %.thread13.thread17
-  %89 = getelementptr inbounds i8, ptr %84, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %90 = load i32, ptr %89, align 8
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %94, label %92, !prof !7
@@ -5785,7 +5785,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ctnetlink_dump_extinfo(ptr 
 
 97:                                               ; preds = %94, %92
   %98 = phi ptr [ %93, %92 ], [ %96, %94 ]
-  %99 = getelementptr inbounds i8, ptr %1, i64 128
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %100 = load i64, ptr %99, align 8
   %101 = and i64 %100, 64
   %102 = icmp ne i64 %101, 0
@@ -5794,8 +5794,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ctnetlink_dump_extinfo(ptr 
   br i1 %104, label %105, label %.thread15
 
 105:                                              ; preds = %97
-  %106 = getelementptr inbounds i8, ptr %1, i64 4
-  tail call void @_raw_spin_lock_bh(ptr noundef %106) #16
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  tail call void @_raw_spin_lock_bh(ptr noundef nonnull %106) #16
   %107 = tail call fastcc i32 @dump_ct_seq_adj(ptr noundef %0, ptr noundef nonnull %98, i32 noundef 15), !range !36
   %108 = icmp eq i32 %107, -1
   br i1 %108, label %114, label %109
@@ -5807,11 +5807,11 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ctnetlink_dump_extinfo(ptr 
   br i1 %112, label %114, label %113
 
 113:                                              ; preds = %109
-  tail call void @_raw_spin_unlock_bh(ptr noundef %106) #16
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %106) #16
   br label %.thread15
 
 114:                                              ; preds = %109, %105
-  tail call void @_raw_spin_unlock_bh(ptr noundef %106) #16
+  tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %106) #16
   br label %.thread15
 
 .thread15:                                        ; preds = %3, %.thread, %.thread13, %.thread13.thread17, %114, %113, %97, %82, %26, %23
@@ -5836,12 +5836,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @dump_counters(ptr noundef %
   %8 = icmp eq i32 %3, 3
   %9 = zext nneg i32 %2 to i64
   %10 = getelementptr %struct.nf_conn_counter, ptr %1, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br i1 %8, label %12, label %15
 
 12:                                               ; preds = %4
   %13 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, i64 0, ptr elementtype(i64) %10) #16, !srcloc !37
-  %14 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %11, i64 0, ptr elementtype(i64) %11) #16, !srcloc !37
+  %14 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %11, i64 0, ptr nonnull elementtype(i64) %11) #16, !srcloc !37
   br label %18
 
 15:                                               ; preds = %4
@@ -5853,9 +5853,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @dump_counters(ptr noundef %
   %19 = phi i64 [ %13, %12 ], [ %16, %15 ]
   %20 = phi i64 [ %14, %12 ], [ %17, %15 ]
   %21 = select i1 %7, i32 32777, i32 32778
-  %22 = getelementptr inbounds i8, ptr %0, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
   %27 = getelementptr i8, ptr %23, i64 %26
@@ -5912,9 +5912,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @dump_ct_seq_adj(ptr noundef
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = or disjoint i32 %2, 32768
-  %8 = getelementptr inbounds i8, ptr %0, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = getelementptr i8, ptr %9, i64 %12
@@ -5935,7 +5935,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @dump_ct_seq_adj(ptr noundef
   br i1 %22, label %23, label %44
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %1, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = call i32 @llvm.bswap.i32(i32 %25)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
@@ -5946,7 +5946,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @dump_ct_seq_adj(ptr noundef
   br i1 %28, label %29, label %44
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i32, ptr %30, align 4
   %32 = call i32 @llvm.bswap.i32(i32 %31)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
@@ -5987,46 +5987,46 @@ define internal noundef range(i32 0, 2) i32 @ctnetlink_flush_iterate(ptr noundef
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 50
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %9 = load i16, ptr %8, align 2
   %10 = zext i8 %5 to i16
   %11 = icmp eq i16 %9, %10
   br i1 %11, label %12, label %42
 
 12:                                               ; preds = %7, %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %22, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %19 = zext i8 %5 to i32
-  %20 = tail call fastcc i32 @ctnetlink_filter_match_tuple(ptr noundef %18, ptr noundef %17, i32 noundef %14, i32 noundef %19), !range !31
+  %20 = tail call fastcc i32 @ctnetlink_filter_match_tuple(ptr noundef nonnull %18, ptr noundef nonnull %17, i32 noundef %14, i32 noundef %19), !range !31
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %42, label %22
 
 22:                                               ; preds = %16, %12
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %0, i64 88
-  %28 = getelementptr inbounds i8, ptr %1, i64 52
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %29 = zext i8 %5 to i32
-  %30 = tail call fastcc i32 @ctnetlink_filter_match_tuple(ptr noundef %28, ptr noundef %27, i32 noundef %24, i32 noundef %29), !range !31
+  %30 = tail call fastcc i32 @ctnetlink_filter_match_tuple(ptr noundef nonnull %28, ptr noundef %27, i32 noundef %24, i32 noundef %29), !range !31
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %42, label %32
 
 32:                                               ; preds = %26, %22
-  %33 = getelementptr inbounds i8, ptr %0, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %34 = load volatile i64, ptr %33, align 8
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %1, i64 104
-  %37 = getelementptr inbounds i8, ptr %1, i64 108
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, %35
   %40 = load i32, ptr %36, align 4
@@ -6053,11 +6053,11 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load i64, ptr %17, align 8
   %19 = load i32, ptr @nr_cpu_ids, align 4
   %20 = zext i32 %19 to i64
@@ -6070,14 +6070,14 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   br i1 %24, label %25, label %.critedge7
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %16, i64 2440
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 116
-  %29 = getelementptr inbounds i8, ptr %0, i64 188
-  %30 = getelementptr inbounds i8, ptr %0, i64 184
-  %31 = getelementptr inbounds i8, ptr %0, i64 200
-  %32 = getelementptr inbounds i8, ptr %0, i64 192
-  %33 = getelementptr inbounds i8, ptr %0, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 2440
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %34
 
 34:                                               ; preds = %.critedge, %25
@@ -6098,10 +6098,10 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   %46 = add i64 %45, %42
   %47 = inttoptr i64 %46 to ptr
   %48 = load ptr, ptr %1, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 52
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %27, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 4
   %54 = trunc i32 %35 to i16
   %55 = icmp eq i32 %50, 0
@@ -6140,7 +6140,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   br i1 %75, label %76, label %141
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds i8, ptr %47, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = call i32 @llvm.bswap.i32(i32 %78)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #16
@@ -6151,7 +6151,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   br i1 %81, label %82, label %141
 
 82:                                               ; preds = %76
-  %83 = getelementptr inbounds i8, ptr %47, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %84 = load i32, ptr %83, align 4
   %85 = call i32 @llvm.bswap.i32(i32 %84)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16
@@ -6162,7 +6162,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   br i1 %87, label %88, label %141
 
 88:                                               ; preds = %82
-  %89 = getelementptr inbounds i8, ptr %47, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %90 = load i32, ptr %89, align 4
   %91 = call i32 @llvm.bswap.i32(i32 %90)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
@@ -6173,7 +6173,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   br i1 %93, label %94, label %141
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds i8, ptr %47, i64 20
+  %95 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %96 = load i32, ptr %95, align 4
   %97 = call i32 @llvm.bswap.i32(i32 %96)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
@@ -6184,7 +6184,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   br i1 %99, label %100, label %141
 
 100:                                              ; preds = %94
-  %101 = getelementptr inbounds i8, ptr %47, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %102 = load i32, ptr %101, align 4
   %103 = call i32 @llvm.bswap.i32(i32 %102)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
@@ -6195,7 +6195,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   br i1 %105, label %106, label %141
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %47, i64 28
+  %107 = getelementptr inbounds nuw i8, ptr %47, i64 28
   %108 = load i32, ptr %107, align 4
   %109 = call i32 @llvm.bswap.i32(i32 %108)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
@@ -6206,7 +6206,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   br i1 %111, label %112, label %141
 
 112:                                              ; preds = %106
-  %113 = getelementptr inbounds i8, ptr %47, i64 44
+  %113 = getelementptr inbounds nuw i8, ptr %47, i64 44
   %114 = load i32, ptr %113, align 4
   %115 = call i32 @llvm.bswap.i32(i32 %114)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
@@ -6217,7 +6217,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   br i1 %117, label %118, label %141
 
 118:                                              ; preds = %112
-  %119 = getelementptr inbounds i8, ptr %47, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %120 = load i32, ptr %119, align 4
   %121 = call i32 @llvm.bswap.i32(i32 %120)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
@@ -6228,7 +6228,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   br i1 %123, label %124, label %141
 
 124:                                              ; preds = %118
-  %125 = getelementptr inbounds i8, ptr %47, i64 48
+  %125 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %126 = load i32, ptr %125, align 4
   %127 = call i32 @llvm.bswap.i32(i32 %126)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
@@ -6283,7 +6283,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
   %154 = phi i32 [ %23, %22 ], [ %35, %145 ], [ %35, %40 ], [ %35, %60 ], [ %35, %65 ], [ %35, %130 ], [ %151, %.critedge ]
   %155 = sext i32 %154 to i64
   store i64 %155, ptr %17, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 112
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %157 = load i32, ptr %156, align 8
   br label %158
 
@@ -6297,13 +6297,13 @@ declare dso_local i32 @nf_conntrack_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ctnetlink_dump_dying(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 92
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %4 = load i8, ptr %3, align 4, !range !39, !noundef !40
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %8 = load ptr, ptr %7, align 8
   store ptr null, ptr %7, align 8
   store i8 1, ptr %3, align 4
@@ -6329,7 +6329,7 @@ define internal i32 @ctnetlink_dump_dying(ptr nocapture noundef readonly %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %13, %15, %16, %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load i32, ptr %17, align 8
   br label %19
 
@@ -6340,7 +6340,7 @@ define internal i32 @ctnetlink_dump_dying(ptr nocapture noundef readonly %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @ctnetlink_done_list(ptr nocapture noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %5

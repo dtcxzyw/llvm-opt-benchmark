@@ -162,7 +162,7 @@ define void @dsptrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   call void @dlarfg_(ptr noundef nonnull %9, ptr noundef %94, ptr noundef %95, ptr noundef nonnull @c__1, ptr noundef nonnull %10) #3
   %96 = load double, ptr %94, align 8, !tbaa !7
   %97 = zext nneg i32 %86 to i64
-  %98 = getelementptr inbounds double, ptr %14, i64 %97
+  %98 = getelementptr inbounds nuw double, ptr %14, i64 %97
   store double %96, ptr %98, align 8, !tbaa !7
   %99 = load double, ptr %10, align 8, !tbaa !7
   %100 = fcmp une double %99, 0.000000e+00
@@ -175,7 +175,7 @@ define void @dsptrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store i32 %103, ptr %9, align 4, !tbaa !3
   %104 = sext i32 %90 to i64
   %105 = getelementptr inbounds double, ptr %16, i64 %104
-  %106 = getelementptr inbounds double, ptr %13, i64 %97
+  %106 = getelementptr inbounds nuw double, ptr %13, i64 %97
   call void @dspmv_(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %105, ptr noundef nonnull %94, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b8, ptr noundef nonnull %106, ptr noundef nonnull @c__1) #3
   %107 = load i32, ptr %1, align 4, !tbaa !3
   %108 = sub nsw i32 %107, %86
@@ -201,9 +201,9 @@ define void @dsptrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 118:                                              ; preds = %101, %.preheader
   %119 = phi double [ %.pre2, %101 ], [ %99, %.preheader ]
   %120 = load double, ptr %93, align 8, !tbaa !7
-  %121 = getelementptr inbounds double, ptr %15, i64 %97
+  %121 = getelementptr inbounds nuw double, ptr %15, i64 %97
   store double %120, ptr %121, align 8, !tbaa !7
-  %122 = getelementptr inbounds double, ptr %13, i64 %97
+  %122 = getelementptr inbounds nuw double, ptr %13, i64 %97
   store double %119, ptr %122, align 8, !tbaa !7
   %123 = add nuw nsw i32 %86, 1
   %124 = icmp slt i32 %86, %35

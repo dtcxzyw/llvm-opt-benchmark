@@ -33,12 +33,12 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %.0.fr = freeze i64 %.0
   call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hb6afa60266f60ef5E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %7, ptr align 8 null, i64 %.0.fr)
   store ptr %1, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %18, align 8
   %19 = icmp eq i64 %.0.fr, 0
   %20 = add i64 %.0.fr, -1
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %19, label %.split.us, label %.split, !prof !3
 
 .split.us:                                        ; preds = %17
@@ -173,12 +173,12 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %.0.fr = freeze i64 %.0
   call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17he43f979cad09fdddE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %7, ptr align 8 null, i64 %.0.fr)
   store ptr %1, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %18, align 8
   %19 = icmp eq i64 %.0.fr, 0
   %20 = add i64 %.0.fr, -1
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %19, label %.split.us, label %.split, !prof !3
 
 .split.us:                                        ; preds = %17

@@ -191,7 +191,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_power_supply
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @power_supply_init_attrs(ptr nocapture noundef writeonly initializes((8, 16)) %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @power_supply_attr_groups, ptr %2, align 8
   br label %3
 
@@ -205,12 +205,12 @@ define dso_local void @power_supply_init_attrs(ptr nocapture noundef writeonly i
 8:                                                ; preds = %3
   %9 = trunc i64 %4 to i32
   %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.power_supply_init_attrs, i32 noundef %9) #8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
-  %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %11, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %9) #9
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %9) #9
   br label %.loopexit
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %15
 
 15:                                               ; preds = %15, %13
@@ -228,12 +228,12 @@ define dso_local void @power_supply_init_attrs(ptr nocapture noundef writeonly i
   br i1 %25, label %.loopexit, label %15, !llvm.loop !5
 
 .loopexit:                                        ; preds = %15, %8
-  %26 = getelementptr inbounds i8, ptr %5, i64 40
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr @power_supply_show_property, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %5, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr @power_supply_store_property, ptr %29, align 8
   %30 = getelementptr [77 x ptr], ptr @__power_supply_attrs, i64 0, i64 %4
   store ptr %26, ptr %30, align 8
@@ -257,7 +257,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %union.power_supply_propval, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %1, i64 -40
   %8 = ptrtoint ptr %7 to i64
@@ -271,7 +271,7 @@ define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, 
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %4, align 8
   br label %27
@@ -330,13 +330,13 @@ define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, 
 
 43:                                               ; preds = %42
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %.thread, label %48
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %44, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
   br label %50
 
 50:                                               ; preds = %50, %48
@@ -404,7 +404,7 @@ define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, 
 define internal i64 @power_supply_store_property(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca %union.power_supply_propval, align 8
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %1, i64 -40
   %10 = ptrtoint ptr %9 to i64
@@ -459,7 +459,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [10 x i64], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)
@@ -478,7 +478,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   br i1 %13, label %14, label %124
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %5, i64 910
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 910
   %16 = load i8, ptr %15, align 2, !range !11, !noundef !12
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %124
@@ -492,7 +492,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
 22:                                               ; preds = %18
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @power_supply_attrs, i64 5712), align 16
   %28 = icmp sgt i32 %27, 0
@@ -540,7 +540,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
 
 .thread:                                          ; preds = %39, %39, %47
   %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %.loopexit, label %.preheader
@@ -549,7 +549,7 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   %55 = add i32 %67, 1
   %56 = sext i32 %55 to i64
   %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i64, ptr %58, align 8
   %60 = icmp ugt i64 %59, %56
   br i1 %60, label %.preheader, label %.loopexit, !llvm.loop !13
@@ -560,28 +560,28 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
   br i1 %62, label %.thread17, label %63
 
 63:                                               ; preds = %.loopexit
-  %64 = getelementptr inbounds i8, ptr %5, i64 920
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 920
   br label %93
 
 .preheader:                                       ; preds = %.thread, %.thread19
   %65 = phi ptr [ %57, %.thread19 ], [ %51, %.thread ]
   %66 = phi i64 [ %56, %.thread19 ], [ 0, %.thread ]
   %67 = phi i32 [ %55, %.thread19 ], [ 0, %.thread ]
-  %68 = getelementptr inbounds i8, ptr %65, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr i32, ptr %69, i64 %66
   %71 = load i32, ptr %70, align 4
   %72 = zext i32 %71 to i64
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %72) #9, !srcloc !14
   %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i32, ptr %75, i64 %66
   %77 = load i32, ptr %76, align 4
   %78 = zext i32 %77 to i64
   %79 = getelementptr [76 x %struct.power_supply_attr], ptr @power_supply_attrs, i64 0, i64 %78
-  %80 = getelementptr inbounds i8, ptr %79, i64 40
-  %81 = call i64 @power_supply_show_property(ptr noundef %0, ptr noundef %80, ptr noundef nonnull %20)
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
+  %81 = call i64 @power_supply_show_property(ptr noundef %0, ptr noundef nonnull %80, ptr noundef nonnull %20)
   %82 = trunc i64 %81 to i32
   switch i32 %82, label %83 [
     i32 -19, label %.thread19
@@ -626,8 +626,8 @@ define dso_local i32 @power_supply_uevent(ptr noundef %0, ptr noundef %1) local_
 
 105:                                              ; preds = %102
   %106 = getelementptr [76 x %struct.power_supply_attr], ptr @power_supply_attrs, i64 0, i64 %98
-  %107 = getelementptr inbounds i8, ptr %106, i64 40
-  %108 = call i64 @power_supply_show_property(ptr noundef %0, ptr noundef %107, ptr noundef nonnull %20)
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
+  %108 = call i64 @power_supply_show_property(ptr noundef %0, ptr noundef nonnull %107, ptr noundef nonnull %20)
   %109 = trunc i64 %108 to i32
   switch i32 %109, label %110 [
     i32 -19, label %.thread22
@@ -768,7 +768,7 @@ declare dso_local i32 @__sysfs_match_string(ptr noundef, i64 noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext range(i16 0, 421) i16 @power_supply_attr_is_visible(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
   %7 = getelementptr [76 x %struct.power_supply_attr], ptr @power_supply_attrs, i64 0, i64 %6
@@ -782,13 +782,13 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_attr_is_visible(ptr 
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %12
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %13, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %.preheader
 
@@ -807,7 +807,7 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_attr_is_visible(ptr 
   br i1 %25, label %26, label %17
 
 26:                                               ; preds = %.preheader
-  %27 = getelementptr inbounds i8, ptr %13, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread, label %30
@@ -819,7 +819,7 @@ define internal zeroext range(i16 0, 421) i16 @power_supply_attr_is_visible(ptr 
   br label %.thread
 
 .loopexit:                                        ; preds = %17, %12
-  %34 = getelementptr inbounds i8, ptr %5, i64 920
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 920
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i1 @power_supply_battery_info_has_prop(ptr noundef %35, i32 noundef %2) #9
   %37 = select i1 %36, i16 292, i16 0

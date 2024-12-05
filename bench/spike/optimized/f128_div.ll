@@ -65,9 +65,9 @@ define { i64, i64 } @f128_div(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 31:                                               ; preds = %25
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %6, i64 noundef %13, i64 noundef %2) #3
   %.sroa.071.0.copyload = load i64, ptr %6, align 8
-  %.sroa.474.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.474.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.474.sroa.0.0.copyload = load i64, ptr %.sroa.474.0..sroa_idx, align 8
-  %.sroa.474.sroa.4.0..sroa.474.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.474.sroa.4.0..sroa.474.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.474.sroa.4.0.copyload = load i64, ptr %.sroa.474.sroa.4.0..sroa.474.0..sroa_idx.sroa_idx, align 8
   br label %32
 
@@ -86,9 +86,9 @@ define { i64, i64 } @f128_div(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 35:                                               ; preds = %33
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %7, i64 noundef %10, i64 noundef %0) #3
   %.sroa.071.0.copyload73 = load i64, ptr %7, align 8
-  %.sroa.474.0..sroa_idx75 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.474.0..sroa_idx75 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.474.sroa.0.0.copyload102 = load i64, ptr %.sroa.474.0..sroa_idx75, align 8
-  %.sroa.474.sroa.4.0..sroa.474.0..sroa_idx75.sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.474.sroa.4.0..sroa.474.0..sroa_idx75.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.474.sroa.4.0.copyload104 = load i64, ptr %.sroa.474.sroa.4.0..sroa.474.0..sroa_idx75.sroa_idx, align 8
   br label %36
 
@@ -167,7 +167,7 @@ softfloat_lt128.exit.thread:                      ; preds = %36, %softfloat_lt12
   %.0156 = phi i64 [ %76, %75 ], [ %59, %58 ]
   %.sroa.049.2 = phi i64 [ %77, %75 ], [ %70, %58 ]
   %.sroa.18.2 = phi i64 [ %81, %75 ], [ %74, %58 ]
-  %83 = getelementptr inbounds [3 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [3 x i64], ptr %5, i64 0, i64 %indvars.iv
   store i64 %.0156, ptr %83, align 8
   %84 = lshr i64 %.sroa.18.2, 19
   %85 = and i64 %84, 4294967295
@@ -244,11 +244,11 @@ softfloat_le128.exit.thread:                      ; preds = %117, %softfloat_le1
 129:                                              ; preds = %126, %90
   %.1 = phi i64 [ %88, %90 ], [ %spec.select, %126 ]
   %130 = shl i64 %.1, 60
-  %131 = getelementptr inbounds i8, ptr %5, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %132 = load i64, ptr %131, align 8
   %133 = lshr i64 %132, 10
   %134 = shl i64 %132, 54
-  %135 = getelementptr inbounds i8, ptr %5, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %136 = load i64, ptr %135, align 16
   %137 = shl i64 %136, 19
   %138 = load i64, ptr %5, align 16

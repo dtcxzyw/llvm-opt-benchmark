@@ -111,7 +111,7 @@ if.end19:                                         ; preds = %if.end12
 
 if.end26:                                         ; preds = %if.end19
   %call27 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef %base) #6
-  %base_read_only = getelementptr inbounds i8, ptr %call24, i64 564
+  %base_read_only = getelementptr inbounds nuw i8, ptr %call24, i64 564
   %frombool = zext i1 %call27 to i8
   store i8 %frombool, ptr %base_read_only, align 4
   br i1 %call27, label %if.then30, label %if.end36
@@ -131,16 +131,16 @@ if.end41:                                         ; preds = %if.end36
   br i1 %tobool42.not, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.end41
-  %implicit = getelementptr inbounds i8, ptr %call37, i64 8
+  %implicit = getelementptr inbounds nuw i8, ptr %call37, i64 8
   store i8 1, ptr %implicit, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then43, %if.end41
-  %never_freeze = getelementptr inbounds i8, ptr %call37, i64 17072
+  %never_freeze = getelementptr inbounds nuw i8, ptr %call37, i64 17072
   store i8 1, ptr %never_freeze, align 8
-  %total_sectors = getelementptr inbounds i8, ptr %top, i64 16888
+  %total_sectors = getelementptr inbounds nuw i8, ptr %top, i64 16888
   %2 = load i64, ptr %total_sectors, align 8
-  %total_sectors45 = getelementptr inbounds i8, ptr %call37, i64 16888
+  %total_sectors45 = getelementptr inbounds nuw i8, ptr %call37, i64 16888
   store i64 %2, ptr %total_sectors45, align 8
   %call46 = tail call i32 @bdrv_append(ptr noundef nonnull %call37, ptr noundef %top, ptr noundef %errp) #6
   tail call void @bdrv_unref(ptr noundef nonnull %call37) #6
@@ -148,11 +148,11 @@ if.end44:                                         ; preds = %if.then43, %if.end4
   br i1 %cmp47, label %fail, label %if.end50
 
 if.end50:                                         ; preds = %if.end44
-  %commit_top_bs51 = getelementptr inbounds i8, ptr %call24, i64 520
+  %commit_top_bs51 = getelementptr inbounds nuw i8, ptr %call24, i64 520
   store ptr %call37, ptr %commit_top_bs51, align 8
   tail call void @bdrv_graph_wrlock(ptr noundef nonnull %top) #6
   %call52 = tail call ptr @bdrv_find_overlay(ptr noundef nonnull %top, ptr noundef %base) #6
-  %base_overlay = getelementptr inbounds i8, ptr %call24, i64 552
+  %base_overlay = getelementptr inbounds nuw i8, ptr %call24, i64 552
   store ptr %call52, ptr %base_overlay, align 8
   %tobool54.not = icmp eq ptr %call52, null
   br i1 %tobool54.not, label %if.else56, label %if.end57
@@ -214,7 +214,7 @@ for.end:                                          ; preds = %bdrv_filter_or_cow_
   br i1 %cmp81, label %fail.sink.split, label %if.end84
 
 if.end84:                                         ; preds = %for.end
-  %chain_frozen = getelementptr inbounds i8, ptr %call24, i64 565
+  %chain_frozen = getelementptr inbounds nuw i8, ptr %call24, i64 565
   store i8 1, ptr %chain_frozen, align 1
   %call86 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call24, ptr noundef nonnull @.str.9, ptr noundef %base, i64 noundef 0, i64 noundef 15, ptr noundef %errp) #6
   tail call void @bdrv_graph_wrunlock(ptr noundef %top) #6
@@ -222,10 +222,10 @@ if.end84:                                         ; preds = %for.end
   br i1 %cmp87, label %fail, label %if.end90
 
 if.end90:                                         ; preds = %if.end84
-  %aio_context = getelementptr inbounds i8, ptr %call24, i64 112
+  %aio_context = getelementptr inbounds nuw i8, ptr %call24, i64 112
   %5 = load ptr, ptr %aio_context, align 8
   %call92 = tail call ptr @blk_new(ptr noundef %5, i64 noundef %spec.select, i64 noundef 5) #6
-  %base93 = getelementptr inbounds i8, ptr %call24, i64 536
+  %base93 = getelementptr inbounds nuw i8, ptr %call24, i64 536
   store ptr %call92, ptr %base93, align 8
   %call95 = tail call i32 @blk_insert_bs(ptr noundef %call92, ptr noundef %base, ptr noundef %errp) #6
   %cmp96 = icmp slt i32 %call95, 0
@@ -234,11 +234,11 @@ if.end90:                                         ; preds = %if.end84
 if.end99:                                         ; preds = %if.end90
   %6 = load ptr, ptr %base93, align 8
   tail call void @blk_set_disable_request_queuing(ptr noundef %6, i1 noundef zeroext true) #6
-  %base_bs = getelementptr inbounds i8, ptr %call24, i64 544
+  %base_bs = getelementptr inbounds nuw i8, ptr %call24, i64 544
   store ptr %base, ptr %base_bs, align 8
   %7 = load ptr, ptr %aio_context, align 8
   %call104 = tail call ptr @blk_new(ptr noundef %7, i64 noundef 0, i64 noundef 15) #6
-  %top105 = getelementptr inbounds i8, ptr %call24, i64 528
+  %top105 = getelementptr inbounds nuw i8, ptr %call24, i64 528
   store ptr %call104, ptr %top105, align 8
   %call107 = tail call i32 @blk_insert_bs(ptr noundef %call104, ptr noundef %top, ptr noundef %errp) #6
   %cmp108 = icmp slt i32 %call107, 0
@@ -248,9 +248,9 @@ if.end111:                                        ; preds = %if.end99
   %8 = load ptr, ptr %top105, align 8
   tail call void @blk_set_disable_request_queuing(ptr noundef %8, i1 noundef zeroext true) #6
   %call113 = tail call noalias ptr @g_strdup(ptr noundef %backing_file_str) #6
-  %backing_file_str114 = getelementptr inbounds i8, ptr %call24, i64 568
+  %backing_file_str114 = getelementptr inbounds nuw i8, ptr %call24, i64 568
   store ptr %call113, ptr %backing_file_str114, align 8
-  %on_error115 = getelementptr inbounds i8, ptr %call24, i64 560
+  %on_error115 = getelementptr inbounds nuw i8, ptr %call24, i64 560
   store i32 %on_error, ptr %on_error115, align 8
   tail call fastcc void @trace_commit_start(ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef %call24)
   tail call void @job_start(ptr noundef nonnull %call24) #6
@@ -262,7 +262,7 @@ fail.sink.split:                                  ; preds = %for.body, %for.end
 
 fail:                                             ; preds = %fail.sink.split, %if.end44, %if.end99, %if.end90, %if.end84, %if.end36, %if.then30
   %commit_top_bs.0 = phi ptr [ null, %if.then30 ], [ null, %if.end36 ], [ %call37, %if.end84 ], [ %call37, %if.end90 ], [ %call37, %if.end99 ], [ null, %if.end44 ], [ %call37, %fail.sink.split ]
-  %chain_frozen118 = getelementptr inbounds i8, ptr %call24, i64 565
+  %chain_frozen118 = getelementptr inbounds nuw i8, ptr %call24, i64 565
   %9 = load i8, ptr %chain_frozen118, align 1
   %tobool119 = trunc i8 %9 to i1
   br i1 %tobool119, label %if.then120, label %if.end121
@@ -274,7 +274,7 @@ if.then120:                                       ; preds = %fail
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then120, %fail
-  %base122 = getelementptr inbounds i8, ptr %call24, i64 536
+  %base122 = getelementptr inbounds nuw i8, ptr %call24, i64 536
   %10 = load ptr, ptr %base122, align 8
   %tobool123.not = icmp eq ptr %10, null
   br i1 %tobool123.not, label %if.end126, label %if.then124
@@ -284,7 +284,7 @@ if.then124:                                       ; preds = %if.end121
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then124, %if.end121
-  %top127 = getelementptr inbounds i8, ptr %call24, i64 528
+  %top127 = getelementptr inbounds nuw i8, ptr %call24, i64 528
   %11 = load ptr, ptr %top127, align 8
   %tobool128.not = icmp eq ptr %11, null
   br i1 %tobool128.not, label %if.end131, label %if.then129
@@ -393,7 +393,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #6
   %call10.i = tail call i32 @qemu_get_thread_id() #6
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5, ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef nonnull %s) #6
   br label %_nocheck__trace_commit_start.exit
@@ -426,7 +426,7 @@ define dso_local i32 @bdrv_commit(ptr noundef %bs) local_unnamed_addr #0 {
 entry:
   %n = alloca i64, align 8
   %local_err = alloca ptr, align 8
-  %drv1 = getelementptr inbounds i8, ptr %bs, i64 16
+  %drv1 = getelementptr inbounds nuw i8, ptr %bs, i64 16
   %0 = load ptr, ptr %drv1, align 8
   store ptr null, ptr %local_err, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -653,7 +653,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %n = alloca i64, align 8
   store i64 0, ptr %n, align 8
-  %top = getelementptr inbounds i8, ptr %job, i64 528
+  %top = getelementptr inbounds nuw i8, ptr %job, i64 528
   %0 = load ptr, ptr %top, align 8
   %call = tail call i64 @blk_co_getlength(ptr noundef %0) #6
   %cmp = icmp slt i64 %call, 0
@@ -665,7 +665,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @job_progress_set_remaining(ptr noundef nonnull %job, i64 noundef %call) #6
-  %base = getelementptr inbounds i8, ptr %job, i64 536
+  %base = getelementptr inbounds nuw i8, ptr %job, i64 536
   %1 = load ptr, ptr %base, align 8
   %call2 = tail call i64 @blk_co_getlength(ptr noundef %1) #6
   %cmp3 = icmp slt i64 %call2, 0
@@ -698,9 +698,9 @@ if.end15:                                         ; preds = %if.end7
 
 for.body.lr.ph:                                   ; preds = %if.end15.thread, %if.end15
   %call1754 = phi ptr [ %call1752, %if.end15.thread ], [ %call17, %if.end15 ]
-  %base_overlay = getelementptr inbounds i8, ptr %job, i64 552
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %on_error = getelementptr inbounds i8, ptr %job, i64 560
+  %base_overlay = getelementptr inbounds nuw i8, ptr %job, i64 552
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
+  %on_error = getelementptr inbounds nuw i8, ptr %job, i64 560
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -820,21 +820,21 @@ declare void @block_job_user_resume(ptr noundef) #1
 define internal i32 @commit_prepare(ptr nocapture noundef initializes((565, 566)) %job) #0 {
 entry:
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %commit_top_bs = getelementptr inbounds i8, ptr %job, i64 520
+  %commit_top_bs = getelementptr inbounds nuw i8, ptr %job, i64 520
   %0 = load ptr, ptr %commit_top_bs, align 8
-  %base_bs = getelementptr inbounds i8, ptr %job, i64 544
+  %base_bs = getelementptr inbounds nuw i8, ptr %job, i64 544
   %1 = load ptr, ptr %base_bs, align 8
   tail call void @bdrv_unfreeze_backing_chain(ptr noundef %0, ptr noundef %1) #6
-  %chain_frozen = getelementptr inbounds i8, ptr %job, i64 565
+  %chain_frozen = getelementptr inbounds nuw i8, ptr %job, i64 565
   store i8 0, ptr %chain_frozen, align 1
   tail call void @bdrv_graph_rdunlock_main_loop() #6
-  %base = getelementptr inbounds i8, ptr %job, i64 536
+  %base = getelementptr inbounds nuw i8, ptr %job, i64 536
   %2 = load ptr, ptr %base, align 8
   tail call void @blk_unref(ptr noundef %2) #6
   store ptr null, ptr %base, align 8
   %3 = load ptr, ptr %commit_top_bs, align 8
   %4 = load ptr, ptr %base_bs, align 8
-  %backing_file_str = getelementptr inbounds i8, ptr %job, i64 568
+  %backing_file_str = getelementptr inbounds nuw i8, ptr %job, i64 568
   %5 = load ptr, ptr %backing_file_str, align 8
   %call = tail call i32 @bdrv_drop_intermediate(ptr noundef %3, ptr noundef %4, ptr noundef %5) #6
   ret i32 %call
@@ -843,19 +843,19 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @commit_abort(ptr noundef %job) #0 {
 entry:
-  %top = getelementptr inbounds i8, ptr %job, i64 528
+  %top = getelementptr inbounds nuw i8, ptr %job, i64 528
   %0 = load ptr, ptr %top, align 8
   %call = tail call ptr @blk_bs(ptr noundef %0) #6
-  %chain_frozen = getelementptr inbounds i8, ptr %job, i64 565
+  %chain_frozen = getelementptr inbounds nuw i8, ptr %job, i64 565
   %1 = load i8, ptr %chain_frozen, align 1
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %commit_top_bs = getelementptr inbounds i8, ptr %job, i64 520
+  %commit_top_bs = getelementptr inbounds nuw i8, ptr %job, i64 520
   %2 = load ptr, ptr %commit_top_bs, align 8
-  %base_bs = getelementptr inbounds i8, ptr %job, i64 544
+  %base_bs = getelementptr inbounds nuw i8, ptr %job, i64 544
   %3 = load ptr, ptr %base_bs, align 8
   tail call void @bdrv_unfreeze_backing_chain(ptr noundef %2, ptr noundef %3) #6
   tail call void @bdrv_graph_rdunlock_main_loop() #6
@@ -863,10 +863,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @bdrv_ref(ptr noundef %call) #6
-  %commit_top_bs1 = getelementptr inbounds i8, ptr %job, i64 520
+  %commit_top_bs1 = getelementptr inbounds nuw i8, ptr %job, i64 520
   %4 = load ptr, ptr %commit_top_bs1, align 8
   tail call void @bdrv_ref(ptr noundef %4) #6
-  %base = getelementptr inbounds i8, ptr %job, i64 536
+  %base = getelementptr inbounds nuw i8, ptr %job, i64 536
   %5 = load ptr, ptr %base, align 8
   %tobool2.not = icmp eq ptr %5, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -879,7 +879,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
   tail call void @block_job_remove_all_bdrv(ptr noundef nonnull %job) #6
   tail call void @bdrv_graph_rdlock_main_loop() #6
   %6 = load ptr, ptr %commit_top_bs1, align 8
-  %backing = getelementptr inbounds i8, ptr %6, i64 16832
+  %backing = getelementptr inbounds nuw i8, ptr %6, i64 16832
   %7 = load ptr, ptr %backing, align 8
   %8 = load ptr, ptr %7, align 8
   tail call void @bdrv_graph_rdunlock_main_loop() #6
@@ -898,22 +898,22 @@ if.end5:                                          ; preds = %if.then3, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @commit_clean(ptr nocapture noundef readonly %job) #0 {
 entry:
-  %base_read_only = getelementptr inbounds i8, ptr %job, i64 564
+  %base_read_only = getelementptr inbounds nuw i8, ptr %job, i64 564
   %0 = load i8, ptr %base_read_only, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %base_bs = getelementptr inbounds i8, ptr %job, i64 544
+  %base_bs = getelementptr inbounds nuw i8, ptr %job, i64 544
   %1 = load ptr, ptr %base_bs, align 8
   %call = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %1, i1 noundef zeroext true, ptr noundef null) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %backing_file_str = getelementptr inbounds i8, ptr %job, i64 568
+  %backing_file_str = getelementptr inbounds nuw i8, ptr %job, i64 568
   %2 = load ptr, ptr %backing_file_str, align 8
   tail call void @g_free(ptr noundef %2) #6
-  %top = getelementptr inbounds i8, ptr %job, i64 528
+  %top = getelementptr inbounds nuw i8, ptr %job, i64 528
   %3 = load ptr, ptr %top, align 8
   tail call void @blk_unref(ptr noundef %3) #6
   ret void
@@ -965,11 +965,11 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_commit_top_refresh_filename(ptr noundef %bs) #0 {
 entry:
-  %exact_filename = getelementptr inbounds i8, ptr %bs, i64 12368
-  %backing = getelementptr inbounds i8, ptr %bs, i64 16832
+  %exact_filename = getelementptr inbounds nuw i8, ptr %bs, i64 12368
+  %backing = getelementptr inbounds nuw i8, ptr %bs, i64 16832
   %0 = load ptr, ptr %backing, align 8
   %1 = load ptr, ptr %0, align 8
-  %filename = getelementptr inbounds i8, ptr %1, i64 49
+  %filename = getelementptr inbounds nuw i8, ptr %1, i64 49
   tail call void @pstrcpy(ptr noundef nonnull %exact_filename, i32 noundef 4096, ptr noundef nonnull %filename) #6
   ret void
 }
@@ -985,7 +985,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @bdrv_commit_top_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %backing = getelementptr inbounds i8, ptr %bs, i64 16832
+  %backing = getelementptr inbounds nuw i8, ptr %bs, i64 16832
   %0 = load ptr, ptr %backing, align 8
   %call = tail call i32 @bdrv_co_preadv(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #6
   ret i32 %call

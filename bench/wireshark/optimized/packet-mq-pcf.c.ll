@@ -308,7 +308,7 @@ define hidden i32 @dissect_mqpcf_parm(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph770:                                        ; preds = %.loopexit
   %.not = icmp eq i32 %6, 0
-  %36 = getelementptr inbounds i8, ptr %1, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %37
 
 37:                                               ; preds = %.lr.ph770, %dissect_mqpcf_parm_int.exit
@@ -1066,7 +1066,7 @@ define internal range(i32 0, 2) i32 @dissect_mqpcf_heur(ptr noundef %0, ptr noun
   br i1 %8, label %9, label %81
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(9) @.str.124, i64 noundef 8) #9
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %19, label %13
@@ -1160,7 +1160,7 @@ dissect_mqpcf.exit:                               ; preds = %19, %26, %44
   br i1 %73, label %74, label %81
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %3, i64 104
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %76 = load i32, ptr %75, align 4
   %77 = and i32 %76, 15
   %78 = icmp eq i32 %77, 2

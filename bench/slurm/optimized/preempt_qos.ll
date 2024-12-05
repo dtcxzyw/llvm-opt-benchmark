@@ -39,13 +39,13 @@ define void @fini() local_unnamed_addr #2 {
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @preempt_p_job_preempt_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 760
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 760
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 760
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %8, null
   %12 = icmp ne ptr %10, null
@@ -53,15 +53,15 @@ define zeroext i1 @preempt_p_job_preempt_check(ptr nocapture noundef readonly %0
   br i1 %or.cond.i, label %13, label %preempt_p_preemptable.exit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %15, %17
   br i1 %18, label %19, label %32
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %10, i64 280
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 280
   %21 = load i16, ptr %20, align 8
   %22 = and i16 %21, 16384
   %.not19.i = icmp eq i16 %22, 0
@@ -74,15 +74,15 @@ define zeroext i1 @preempt_p_job_preempt_check(ptr nocapture noundef readonly %0
   br i1 %.not20.i, label %preempt_p_preemptable.exit, label %26
 
 26:                                               ; preds = %23, %19
-  %27 = getelementptr inbounds i8, ptr %6, i64 712
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 712
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 712
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 712
   %30 = load i32, ptr %29, align 8
   %31 = icmp ugt i32 %28, %30
   br label %preempt_p_preemptable.exit
 
 32:                                               ; preds = %13
-  %33 = getelementptr inbounds i8, ptr %10, i64 264
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 264
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %preempt_p_preemptable.exit, label %35
@@ -100,9 +100,9 @@ preempt_p_preemptable.exit:                       ; preds = %2, %23, %26, %32, %
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @preempt_p_preemptable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 760
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 760
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %4, null
   %8 = icmp ne ptr %6, null
@@ -110,15 +110,15 @@ define zeroext i1 @preempt_p_preemptable(ptr nocapture noundef readonly %0, ptr 
   br i1 %or.cond, label %9, label %34
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %11, %13
   br i1 %14, label %15, label %28
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %6, i64 280
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %17 = load i16, ptr %16, align 8
   %18 = and i16 %17, 16384
   %.not19 = icmp eq i16 %18, 0
@@ -131,15 +131,15 @@ define zeroext i1 @preempt_p_preemptable(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not20, label %34, label %22
 
 22:                                               ; preds = %19, %15
-  %23 = getelementptr inbounds i8, ptr %1, i64 712
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 712
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 712
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %26 = load i32, ptr %25, align 8
   %27 = icmp ugt i32 %24, %26
   br label %34
 
 28:                                               ; preds = %9
-  %29 = getelementptr inbounds i8, ptr %6, i64 264
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %34, label %31
@@ -180,7 +180,7 @@ define range(i32 -1, 1) i32 @preempt_p_get_data(ptr nocapture noundef readonly %
   br i1 %.not.i, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %.val, i64 280
+  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 280
   %12 = load i16, ptr %11, align 8
   %.not6.i = icmp eq i16 %12, 0
   br i1 %.not6.i, label %13, label %_job_preempt_mode.exit
@@ -196,13 +196,13 @@ _job_preempt_mode.exit:                           ; preds = %10, %13
   br label %32
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 760
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %18 = load ptr, ptr %17, align 8
   %.not.i10 = icmp eq ptr %18, null
   br i1 %.not.i10, label %_gen_job_prio.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 288
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 288
   %21 = load i32, ptr %20, align 8
   %22 = tail call i32 @llvm.umin.i32(i32 %21, i32 65535)
   %spec.select.i = shl nuw i32 %22, 16
@@ -210,7 +210,7 @@ _job_preempt_mode.exit:                           ; preds = %10, %13
 
 _gen_job_prio.exit:                               ; preds = %16, %19
   %.0.i11 = phi i32 [ 0, %16 ], [ %spec.select.i, %19 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 600
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %24 = load i32, ptr %23, align 8
   %.1.v.i = tail call i32 @llvm.umin.i32(i32 %24, i32 65535)
   %.1.i = or disjoint i32 %.1.v.i, %.0.i11
@@ -224,7 +224,7 @@ _gen_job_prio.exit:                               ; preds = %16, %19
   br i1 %.not.i12, label %_get_grace_time.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %.val9, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.val9, i64 16
   %29 = load i32, ptr %28, align 8
   br label %_get_grace_time.exit
 

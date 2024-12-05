@@ -26,17 +26,17 @@ $_ZN20cmCursesStringWidgetD0Ev = comdat any
 define dso_local void @_ZN20cmCursesStringWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(97) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
   store ptr getelementptr inbounds (i8, ptr @_ZTV20cmCursesStringWidget, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 60
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 3, ptr %8, align 8
   %9 = invoke noundef zeroext i1 @_ZN13cmCursesColor9HasColorsEv()
           to label %10 unwind label %15
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   br i1 %9, label %13, label %17
 
@@ -62,7 +62,7 @@ define dso_local void @_ZN20cmCursesStringWidgetC2Eiiii(ptr noundef nonnull alig
           to label %22 unwind label %15
 
 22:                                               ; preds = %.invoke
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = invoke i32 @field_opts_off(ptr noundef %24, i32 noundef 512)
           to label %26 unwind label %15
@@ -99,7 +99,7 @@ define dso_local void @_ZN20cmCursesStringWidget5OnTabEP16cmCursesMainFormP7_win
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN20cmCursesStringWidget8OnReturnEP16cmCursesMainFormP7_win_st(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %1, ptr nocapture readnone %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 60
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %14
@@ -108,13 +108,13 @@ define dso_local void @_ZN20cmCursesStringWidget8OnReturnEP16cmCursesMainFormP7_
   tail call void @_ZN12cmCursesForm10LogMessageEPKc(ptr noundef nonnull @.str)
   store i8 0, ptr %4, align 4
   tail call void @_ZN16cmCursesMainForm9PrintKeysEi(ptr noundef nonnull align 8 dereferenceable(297) %1, i32 noundef 0)
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @form_driver(ptr noundef %10, i32 noundef 516)
   %12 = tail call i32 @form_driver(ptr noundef %10, i32 noundef 517)
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 1, ptr %13, align 8
   br label %20
 
@@ -122,10 +122,10 @@ define dso_local void @_ZN20cmCursesStringWidget8OnReturnEP16cmCursesMainFormP7_
   tail call void @_ZN12cmCursesForm10LogMessageEPKc(ptr noundef nonnull @.str.1)
   store i8 1, ptr %4, align 4
   tail call void @_ZN16cmCursesMainForm9PrintKeysEi(ptr noundef nonnull align 8 dereferenceable(297) %1, i32 noundef 0)
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @field_buffer(ptr noundef %16, i32 noundef 0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef %17)
   br label %20
 
@@ -148,7 +148,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN20cmCursesStringWidget6OnTypeERiP16cmCursesMainFormP7_win_st(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %1, align 4
   %8 = tail call i32 @form_driver(ptr noundef %6, i32 noundef %7)
@@ -158,9 +158,9 @@ define dso_local void @_ZN20cmCursesStringWidget6OnTypeERiP16cmCursesMainFormP7_
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget11HandleInputERiP16cmCursesMainFormP7_win_st(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca [128 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %.lr.ph, label %11
@@ -174,12 +174,12 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget11HandleInputERiP1
   ]
 
 .lr.ph:                                           ; preds = %4, %11, %11, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %14, align 8
   %.not96 = icmp eq ptr %3, null
-  %15 = getelementptr inbounds i8, ptr %3, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %16
 
 16:                                               ; preds = %.lr.ph, %.backedge
@@ -192,10 +192,10 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget11HandleInputERiP1
   br i1 %.not89, label %.critedge, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i16, ptr %21, align 4
   %23 = icmp slt i16 %22, 5
-  %24 = getelementptr inbounds i8, ptr %19, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 6
   %25 = load i16, ptr %24, align 2
   %26 = icmp slt i16 %25, 64
   %27 = select i1 %26, i1 true, i1 %23
@@ -243,7 +243,7 @@ thread-pre-split:                                 ; preds = %33
 
 39:                                               ; preds = %36, %36, %37, %thread-pre-split, %thread-pre-split
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %2, ptr noundef %3)
   br label %86
@@ -288,7 +288,7 @@ thread-pre-split:                                 ; preds = %33
   store i8 0, ptr %8, align 4
   call void @_ZN16cmCursesMainForm9PrintKeysEi(ptr noundef nonnull align 8 dereferenceable(297) %2, i32 noundef 0)
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(32) %13)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
@@ -308,7 +308,7 @@ thread-pre-split:                                 ; preds = %33
 
 60:                                               ; preds = %43
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %2, ptr noundef %3)
   br label %86
@@ -350,7 +350,7 @@ thread-pre-split:                                 ; preds = %33
 
 82:                                               ; preds = %43
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 72
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 72
   %85 = load ptr, ptr %84, align 8
   call void %85(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull %2, ptr noundef %3)
   br label %86
@@ -389,7 +389,7 @@ declare i32 @wgetch(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN20cmCursesStringWidget9SetStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
@@ -406,7 +406,7 @@ declare i32 @set_current_field(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN20cmCursesStringWidget9GetStringEv(ptr noundef nonnull align 8 dereferenceable(97) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(97) %0)
   ret ptr %5
@@ -414,7 +414,7 @@ define dso_local noundef ptr @_ZN20cmCursesStringWidget9GetStringEv(ptr noundef 
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN20cmCursesStringWidget8GetValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @field_buffer(ptr noundef %3, i32 noundef 0)
   ret ptr %4
@@ -428,10 +428,10 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget9PrintKeysEv(ptr n
   br i1 %.not, label %.thread12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = sext i16 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %3, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %9 = load i16, ptr %8, align 2
   %10 = icmp slt i16 %9, 64
   %11 = icmp slt i16 %6, 5
@@ -439,7 +439,7 @@ define dso_local noundef zeroext i1 @_ZN20cmCursesStringWidget9PrintKeysEv(ptr n
   br i1 %or.cond, label %.thread12, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 60
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %14 = load i8, ptr %13, align 4
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %.thread12
@@ -480,7 +480,7 @@ declare i32 @printw(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20cmCursesStringWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #6 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV20cmCursesStringWidget, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
   tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #8
   ret void
@@ -489,7 +489,7 @@ define linkonce_odr dso_local void @_ZN20cmCursesStringWidgetD2Ev(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20cmCursesStringWidgetD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #6 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV20cmCursesStringWidget, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #8
   tail call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) #8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #9

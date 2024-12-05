@@ -138,7 +138,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_init(ptr noundef %0, ptr nocapture nou
 7:                                                ; preds = %2
   %8 = load i32, ptr %3, align 4
   store i32 %8, ptr @preCloseFD, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = call i32 @close(i32 noundef %10) #10
   call void @initInetAddressIDs(ptr noundef %0) #10
@@ -316,7 +316,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_bindx(ptr noundef %0, ptr nocapture no
   %.029 = phi ptr [ %22, %21 ], [ %12, %10 ]
   %.02328 = phi i32 [ %23, %21 ], [ 0, %10 ]
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1384
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1384
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %.02328) #10
   %19 = tail call i32 @NET_InetAddressToSockaddr(ptr noundef nonnull %0, ptr noundef %18, i32 noundef %4, ptr noundef nonnull %.029, ptr noundef null, i8 noundef zeroext %7) #10
@@ -328,7 +328,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_bindx(ptr noundef %0, ptr nocapture no
   br label %32
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.029, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %.029, i64 28
   %23 = add nuw nsw i32 %.02328, 1
   %exitcond.not = icmp eq i32 %23, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -469,7 +469,7 @@ define hidden void @initializeISA(ptr noundef %0) local_unnamed_addr #1 {
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #10
   %9 = icmp eq ptr %8, null
@@ -477,7 +477,7 @@ define hidden void @initializeISA(ptr noundef %0) local_unnamed_addr #1 {
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 264
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 264
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #10
   store ptr %14, ptr @isaCtrID, align 8
@@ -486,7 +486,7 @@ define hidden void @initializeISA(ptr noundef %0) local_unnamed_addr #1 {
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0, ptr noundef nonnull %8) #10
   store ptr %20, ptr @isaCls, align 8
@@ -495,7 +495,7 @@ define hidden void @initializeISA(ptr noundef %0) local_unnamed_addr #1 {
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 184
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0, ptr noundef nonnull %8) #10
   br label %26
@@ -519,7 +519,7 @@ define hidden ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef %1) l
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #10
   %14 = icmp eq ptr %13, null
@@ -527,7 +527,7 @@ define hidden ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef %1) l
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #10
   store ptr %19, ptr @isaCtrID, align 8
@@ -536,7 +536,7 @@ define hidden ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef %1) l
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr %24(ptr noundef nonnull %0, ptr noundef nonnull %13) #10
   store ptr %25, ptr @isaCls, align 8
@@ -545,7 +545,7 @@ define hidden ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef %1) l
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 184
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull %0, ptr noundef nonnull %13) #10
   br label %initializeISA.exit
@@ -558,7 +558,7 @@ initializeISA.exit:                               ; preds = %9, %15, %27
 32:                                               ; preds = %initializeISA.exit, %6
   %33 = phi ptr [ %.pr, %initializeISA.exit ], [ %7, %6 ]
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 224
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 224
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr @isaCtrID, align 8
   %38 = load i32, ptr %3, align 4
@@ -598,7 +598,7 @@ define ptr @Java_sun_nio_ch_sctp_SctpNet_getLocalAddresses0(ptr noundef %0, ptr 
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr %21(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #10
   %23 = icmp eq ptr %22, null
@@ -606,7 +606,7 @@ define ptr @Java_sun_nio_ch_sctp_SctpNet_getLocalAddresses0(ptr noundef %0, ptr 
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 264
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 264
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr %27(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #10
   store ptr %28, ptr @isaCtrID, align 8
@@ -615,7 +615,7 @@ define ptr @Java_sun_nio_ch_sctp_SctpNet_getLocalAddresses0(ptr noundef %0, ptr 
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 168
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 168
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr %33(ptr noundef nonnull %0, ptr noundef nonnull %22) #10
   store ptr %34, ptr @isaCls, align 8
@@ -624,7 +624,7 @@ define ptr @Java_sun_nio_ch_sctp_SctpNet_getLocalAddresses0(ptr noundef %0, ptr 
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 184
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 184
   %39 = load ptr, ptr %38, align 8
   call void %39(ptr noundef nonnull %0, ptr noundef nonnull %22) #10
   br label %initializeISA.exit
@@ -637,7 +637,7 @@ initializeISA.exit:                               ; preds = %18, %24, %36
 41:                                               ; preds = %initializeISA.exit, %15
   %42 = phi ptr [ %.pr, %initializeISA.exit ], [ %16, %15 ]
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1376
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1376
   %45 = load ptr, ptr %44, align 8
   %46 = call ptr %45(ptr noundef nonnull %0, i32 noundef %7, ptr noundef nonnull %42, ptr noundef null) #10
   %47 = icmp eq ptr %46, null
@@ -663,7 +663,7 @@ initializeISA.exit:                               ; preds = %18, %24, %36
 
 55:                                               ; preds = %.lr.ph
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 224
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 224
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @isaCls, align 8
   %60 = load ptr, ptr @isaCtrID, align 8
@@ -674,14 +674,14 @@ initializeISA.exit:                               ; preds = %18, %24, %36
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 1392
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1392
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull %0, ptr noundef nonnull %46, i32 noundef %.02530, ptr noundef nonnull %62) #10
   %68 = load ptr, ptr %4, align 8
   %69 = load i16, ptr %68, align 2
   %70 = icmp eq i16 %69, 2
   %storemerge.v = select i1 %70, i64 16, i64 28
-  %storemerge = getelementptr inbounds i8, ptr %68, i64 %storemerge.v
+  %storemerge = getelementptr inbounds nuw i8, ptr %68, i64 %storemerge.v
   store ptr %storemerge, ptr %4, align 8
   %71 = add nuw nsw i32 %.02530, 1
   %exitcond.not = icmp eq i32 %71, %7
@@ -723,7 +723,7 @@ define hidden ptr @getRemoteAddresses(ptr noundef %0, i32 noundef %1, i32 nounde
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr %21(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #10
   %23 = icmp eq ptr %22, null
@@ -731,7 +731,7 @@ define hidden ptr @getRemoteAddresses(ptr noundef %0, i32 noundef %1, i32 nounde
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 264
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 264
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr %27(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #10
   store ptr %28, ptr @isaCtrID, align 8
@@ -740,7 +740,7 @@ define hidden ptr @getRemoteAddresses(ptr noundef %0, i32 noundef %1, i32 nounde
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 168
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 168
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr %33(ptr noundef nonnull %0, ptr noundef nonnull %22) #10
   store ptr %34, ptr @isaCls, align 8
@@ -749,7 +749,7 @@ define hidden ptr @getRemoteAddresses(ptr noundef %0, i32 noundef %1, i32 nounde
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 184
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 184
   %39 = load ptr, ptr %38, align 8
   call void %39(ptr noundef nonnull %0, ptr noundef nonnull %22) #10
   br label %initializeISA.exit
@@ -762,7 +762,7 @@ initializeISA.exit:                               ; preds = %18, %24, %36
 41:                                               ; preds = %initializeISA.exit, %15
   %42 = phi ptr [ %.pr, %initializeISA.exit ], [ %16, %15 ]
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1376
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1376
   %45 = load ptr, ptr %44, align 8
   %46 = call ptr %45(ptr noundef nonnull %0, i32 noundef %7, ptr noundef nonnull %42, ptr noundef null) #10
   %47 = icmp eq ptr %46, null
@@ -788,7 +788,7 @@ initializeISA.exit:                               ; preds = %18, %24, %36
 
 55:                                               ; preds = %.lr.ph
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 224
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 224
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @isaCls, align 8
   %60 = load ptr, ptr @isaCtrID, align 8
@@ -799,14 +799,14 @@ initializeISA.exit:                               ; preds = %18, %24, %36
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 1392
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1392
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull %0, ptr noundef nonnull %46, i32 noundef %.02631, ptr noundef nonnull %62) #10
   %68 = load ptr, ptr %4, align 8
   %69 = load i16, ptr %68, align 2
   %70 = icmp eq i16 %69, 2
   %storemerge.v = select i1 %70, i64 16, i64 28
-  %storemerge = getelementptr inbounds i8, ptr %68, i64 %storemerge.v
+  %storemerge = getelementptr inbounds nuw i8, ptr %68, i64 %storemerge.v
   store ptr %storemerge, ptr %4, align 8
   %71 = add nuw nsw i32 %.02631, 1
   %exitcond.not = icmp eq i32 %71, %7
@@ -839,16 +839,16 @@ define hidden range(i32 -1, 1) i32 @mapSocketOption(i32 noundef %0, ptr nocaptur
 
 5:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds [7 x %struct.anon], ptr @mapSocketOption.opts, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [7 x %struct.anon], ptr @mapSocketOption.opts, i64 0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %4
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %1, align 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i32, ptr %12, align 4
   store i32 %13, ptr %2, align 4
   br label %.loopexit
@@ -872,7 +872,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_setIntOption0(ptr noundef %0, ptr noca
 
 9:                                                ; preds = %8, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %8 ]
-  %10 = getelementptr inbounds [7 x %struct.anon], ptr @mapSocketOption.opts, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [7 x %struct.anon], ptr @mapSocketOption.opts, i64 0, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %3, %11
   br i1 %12, label %14, label %8
@@ -882,16 +882,16 @@ define void @Java_sun_nio_ch_sctp_SctpNet_setIntOption0(ptr noundef %0, ptr noca
   br label %26
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %10, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %3, 7
   br i1 %19, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %14
   %20 = icmp sgt i32 %4, -1
-  %21 = getelementptr inbounds i8, ptr %7, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %. = zext i1 %20 to i32
   %.17 = select i1 %20, i32 %4, i32 0
   store i32 %., ptr %7, align 4
@@ -930,7 +930,7 @@ define i32 @Java_sun_nio_ch_sctp_SctpNet_getIntOption0(ptr noundef %0, ptr nocap
 
 9:                                                ; preds = %8, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %8 ]
-  %10 = getelementptr inbounds [7 x %struct.anon], ptr @mapSocketOption.opts, i64 0, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [7 x %struct.anon], ptr @mapSocketOption.opts, i64 0, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %3, %11
   br i1 %12, label %14, label %8
@@ -940,9 +940,9 @@ define i32 @Java_sun_nio_ch_sctp_SctpNet_getIntOption0(ptr noundef %0, ptr nocap
   br label %31
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %10, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %3, 7
   %. = select i1 %19, i32 8, i32 4
@@ -962,7 +962,7 @@ define i32 @Java_sun_nio_ch_sctp_SctpNet_getIntOption0(ptr noundef %0, ptr nocap
 24:                                               ; preds = %23
   %25 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %25, 0
-  %26 = getelementptr inbounds i8, ptr %6, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = select i1 %.not, i32 -1, i32 %27
   br label %31
@@ -993,7 +993,7 @@ define ptr @Java_sun_nio_ch_sctp_SctpNet_getPrimAddrOption0(ptr noundef %0, ptr 
   br label %13
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %12 = call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef nonnull %11)
   br label %13
 
@@ -1008,7 +1008,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_sctp_SctpNet_setPrimAddrOption0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.sctp_setprim, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = call i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %8, ptr noundef null, i8 noundef zeroext 1) #10
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %14
@@ -1030,7 +1030,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_setPrimAddrOption0(ptr noundef %0, ptr
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_sctp_SctpNet_setPeerPrimAddrOption0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = alloca %struct.sctp_setpeerprim, align 4
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = call i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %9, ptr noundef null, i8 noundef zeroext %6) #10
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %15
@@ -1064,16 +1064,16 @@ define void @Java_sun_nio_ch_sctp_SctpNet_getInitMsgOption0(ptr noundef %0, ptr 
   br label %21
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %5, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   store i32 %14, ptr %7, align 4
   %15 = load i16, ptr %5, align 2
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %7, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %16, ptr %17, align 4
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1688
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1688
   %20 = load ptr, ptr %19, align 8
   call void %20(ptr noundef nonnull %0, ptr noundef %3, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %7) #10
   br label %21
@@ -1086,13 +1086,13 @@ define void @Java_sun_nio_ch_sctp_SctpNet_getInitMsgOption0(ptr noundef %0, ptr 
 define void @Java_sun_nio_ch_sctp_SctpNet_setInitMsgOption0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.sctp_initmsg, align 2
   %7 = trunc i32 %3 to i16
-  %8 = getelementptr inbounds i8, ptr %6, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %7, ptr %8, align 2
   %9 = trunc i32 %4 to i16
   store i16 %9, ptr %6, align 2
-  %10 = getelementptr inbounds i8, ptr %6, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 0, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %6, i64 6
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 0, ptr %11, align 2
   %12 = call i32 @setsockopt(i32 noundef %2, i32 noundef 132, i32 noundef 2, ptr noundef nonnull %6, i32 noundef 8) #10
   %13 = icmp slt i32 %12, 0
@@ -1120,31 +1120,31 @@ define void @Java_sun_nio_ch_sctp_SctpNet_shutdown0(ptr noundef %0, ptr nocaptur
 
 11:                                               ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr %6, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %7, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %5, i64 40
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 132, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 1, ptr %17, align 4
   store i64 48, ptr %7, align 16
-  %18 = getelementptr inbounds i8, ptr %7, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %7, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 %3, ptr %20, align 4
   br label %21
 
 21:                                               ; preds = %19, %11
-  %22 = getelementptr inbounds i8, ptr %7, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i16 512, ptr %22, align 4
   store i64 48, ptr %15, align 8
   %23 = call i64 @sendmsg(i32 noundef %2, ptr noundef nonnull %5, i32 noundef 0) #10

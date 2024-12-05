@@ -39,14 +39,14 @@ define hidden noundef i64 @_ZN12CDSConstants14get_cds_offsetEPKc(ptr nocapture n
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds [12 x %struct.CDSConst], ptr @_ZN12CDSConstants7offsetsE, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [12 x %struct.CDSConst], ptr @_ZN12CDSConstants7offsetsE, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #2
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %2
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.loopexit
 
@@ -69,14 +69,14 @@ define hidden noundef i64 @_ZN12CDSConstants16get_cds_constantEPKc(ptr nocapture
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds [7 x %struct.CDSConst], ptr @_ZN12CDSConstants9constantsE, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [7 x %struct.CDSConst], ptr @_ZN12CDSConstants9constantsE, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #2
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %2
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   br label %.loopexit
 

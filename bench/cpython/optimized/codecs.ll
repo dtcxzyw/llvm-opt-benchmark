@@ -935,9 +935,9 @@ define dso_local i32 @PyCodec_Register(ptr noundef %search_function) local_unnam
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %codec_search_path = getelementptr inbounds i8, ptr %2, i64 1560
+  %codec_search_path = getelementptr inbounds nuw i8, ptr %2, i64 1560
   %3 = load ptr, ptr %codec_search_path, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -980,9 +980,9 @@ define internal fastcc range(i32 -1, 1) i32 @_PyCodecRegistry_Init() unnamed_add
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %codec_search_path = getelementptr inbounds i8, ptr %2, i64 1560
+  %codec_search_path = getelementptr inbounds nuw i8, ptr %2, i64 1560
   %3 = load ptr, ptr %codec_search_path, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.end, label %return
@@ -995,14 +995,14 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %call7 = tail call ptr @PyDict_New() #9
-  %codec_search_cache = getelementptr inbounds i8, ptr %2, i64 1568
+  %codec_search_cache = getelementptr inbounds nuw i8, ptr %2, i64 1568
   store ptr %call7, ptr %codec_search_cache, align 8
   %cmp9 = icmp eq ptr %call7, null
   br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end6
   %call12 = tail call ptr @PyDict_New() #9
-  %codec_error_registry = getelementptr inbounds i8, ptr %2, i64 1576
+  %codec_error_registry = getelementptr inbounds nuw i8, ptr %2, i64 1576
   store ptr %call12, ptr %codec_error_registry, align 8
   %cmp14 = icmp eq ptr %call12, null
   br i1 %cmp14, label %return, label %for.body
@@ -1015,7 +1015,7 @@ for.cond:                                         ; preds = %Py_DECREF.exit38
 for.body:                                         ; preds = %if.end11, %for.cond
   %i.021 = phi i64 [ %inc, %for.cond ], [ 0, %if.end11 ]
   %arrayidx = getelementptr [8 x %struct.anon.770], ptr @_PyCodecRegistry_Init.methods, i64 0, i64 %i.021
-  %def = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %def = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %call18 = tail call ptr @PyCMethod_New(ptr noundef nonnull %def, ptr noundef null, ptr noundef null, ptr noundef null) #9
   %tobool.not = icmp eq ptr %call18, null
   br i1 %tobool.not, label %return, label %if.end20
@@ -1023,9 +1023,9 @@ for.body:                                         ; preds = %if.end11, %for.cond
 if.end20:                                         ; preds = %for.body
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load ptr, ptr %0, align 8
-  %interp.i20 = getelementptr inbounds i8, ptr %5, i64 16
+  %interp.i20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %interp.i20, align 8
-  %codec_search_path.i = getelementptr inbounds i8, ptr %6, i64 1560
+  %codec_search_path.i = getelementptr inbounds nuw i8, ptr %6, i64 1560
   %7 = load ptr, ptr %codec_search_path.i, align 8
   %cmp.i18 = icmp eq ptr %7, null
   br i1 %cmp.i18, label %land.lhs.true.i, label %if.end.i19
@@ -1046,7 +1046,7 @@ if.then4.i:                                       ; preds = %if.end.i19
   br label %PyCodec_RegisterError.exit
 
 if.end5.i:                                        ; preds = %if.end.i19
-  %codec_error_registry.i = getelementptr inbounds i8, ptr %6, i64 1576
+  %codec_error_registry.i = getelementptr inbounds nuw i8, ptr %6, i64 1576
   %9 = load ptr, ptr %codec_error_registry.i, align 8
   %call6.i = tail call i32 @PyDict_SetItemString(ptr noundef %9, ptr noundef %4, ptr noundef nonnull %call18) #9
   %10 = icmp eq i32 %call6.i, 0
@@ -1094,7 +1094,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end29, %if.then1.i, %if.end.i
-  %codecs_initialized = getelementptr inbounds i8, ptr %2, i64 1584
+  %codecs_initialized = getelementptr inbounds nuw i8, ptr %2, i64 1584
   store i32 1, ptr %codecs_initialized, align 8
   br label %return
 
@@ -1116,9 +1116,9 @@ define dso_local i32 @PyCodec_Unregister(ptr noundef readnone %search_function) 
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %codec_search_path1 = getelementptr inbounds i8, ptr %2, i64 1560
+  %codec_search_path1 = getelementptr inbounds nuw i8, ptr %2, i64 1560
   %3 = load ptr, ptr %codec_search_path1, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %return, label %if.end
@@ -1130,7 +1130,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp312, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %ob_item = getelementptr inbounds i8, ptr %3, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %ob_item, align 8
   br label %for.body
 
@@ -1142,7 +1142,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp4, label %if.then5, label %for.inc
 
 if.then5:                                         ; preds = %for.body
-  %codec_search_cache = getelementptr inbounds i8, ptr %2, i64 1568
+  %codec_search_cache = getelementptr inbounds nuw i8, ptr %2, i64 1568
   %7 = load ptr, ptr %codec_search_cache, align 8
   %cmp6.not = icmp eq ptr %7, null
   br i1 %cmp6.not, label %if.end9, label %if.then7
@@ -1185,9 +1185,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %codec_search_path = getelementptr inbounds i8, ptr %2, i64 1560
+  %codec_search_path = getelementptr inbounds nuw i8, ptr %2, i64 1560
   %3 = load ptr, ptr %codec_search_path, align 8
   %cmp2 = icmp eq ptr %3, null
   br i1 %cmp2, label %land.lhs.true, label %if.end5
@@ -1241,7 +1241,7 @@ normalizestring.exit:                             ; preds = %if.then3.i, %if.end
 
 if.end9:                                          ; preds = %normalizestring.exit
   call void @PyUnicode_InternInPlace(ptr noundef nonnull %v) #9
-  %codec_search_cache = getelementptr inbounds i8, ptr %2, i64 1568
+  %codec_search_cache = getelementptr inbounds nuw i8, ptr %2, i64 1568
   %6 = load ptr, ptr %codec_search_cache, align 8
   %7 = load ptr, ptr %v, align 8
   %call10 = call i32 @PyDict_GetItemRef(ptr noundef %6, ptr noundef %7, ptr noundef nonnull %result) #9
@@ -1521,7 +1521,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.else
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds nuw i8, ptr %callable.val.i.i.i, i64 56
   %5 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call, i64 %5
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
@@ -1574,7 +1574,7 @@ entry:
   br i1 %cmp.i, label %codec_getitem.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %ob_item.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %0 = load ptr, ptr %ob_item.i, align 8
   %1 = load i64, ptr %call.i, align 8
   %2 = and i64 %1, 2147483648
@@ -1798,7 +1798,7 @@ entry:
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %ob_item.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %0 = load ptr, ptr %ob_item.i.i, align 8
   %1 = load i64, ptr %call.i.i, align 8
   %2 = and i64 %1, 2147483648
@@ -1854,7 +1854,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i18
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i18
-  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %ob_item.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %object, ptr %ob_item.i.i, align 8
   br i1 %cmp.not.i, label %if.end, label %if.then5.i
 
@@ -1901,7 +1901,7 @@ lor.lhs.false:                                    ; preds = %if.end4
   br i1 %cmp8.not, label %if.end10, label %if.then.i
 
 if.end10:                                         ; preds = %lor.lhs.false
-  %ob_item = getelementptr inbounds i8, ptr %call1, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %call1, i64 24
   %7 = load ptr, ptr %ob_item, align 8
   %8 = load i32, ptr %7, align 8
   %add.i.i = add i32 %8, 1
@@ -2081,7 +2081,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i18
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i18
-  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %ob_item.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %object, ptr %ob_item.i.i, align 8
   br i1 %cmp.not.i, label %if.end, label %if.then5.i
 
@@ -2137,7 +2137,7 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
   br label %if.then.i
 
 if.end10:                                         ; preds = %lor.lhs.false
-  %ob_item = getelementptr inbounds i8, ptr %call1, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %call1, i64 24
   %8 = load ptr, ptr %ob_item, align 8
   %9 = load i32, ptr %8, align 8
   %add.i.i = add i32 %9, 1
@@ -2357,7 +2357,7 @@ entry:
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %ob_item.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %0 = load ptr, ptr %ob_item.i.i, align 8
   %1 = load i32, ptr %0, align 8
   %add.i.i.i.i = add i32 %1, 1
@@ -2442,9 +2442,9 @@ define dso_local i32 @PyCodec_RegisterError(ptr noundef %name, ptr noundef %erro
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %codec_search_path = getelementptr inbounds i8, ptr %2, i64 1560
+  %codec_search_path = getelementptr inbounds nuw i8, ptr %2, i64 1560
   %3 = load ptr, ptr %codec_search_path, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -2465,7 +2465,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %codec_error_registry = getelementptr inbounds i8, ptr %2, i64 1576
+  %codec_error_registry = getelementptr inbounds nuw i8, ptr %2, i64 1576
   %5 = load ptr, ptr %codec_error_registry, align 8
   %call6 = tail call i32 @PyDict_SetItemString(ptr noundef %5, ptr noundef %name, ptr noundef %error) #9
   br label %return
@@ -2483,9 +2483,9 @@ entry:
   %handler = alloca ptr, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
+  %interp.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %codec_search_path = getelementptr inbounds i8, ptr %2, i64 1560
+  %codec_search_path = getelementptr inbounds nuw i8, ptr %2, i64 1560
   %3 = load ptr, ptr %codec_search_path, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -2498,7 +2498,7 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %cmp2 = icmp eq ptr %name, null
   %spec.store.select = select i1 %cmp2, ptr @.str.9, ptr %name
-  %codec_error_registry = getelementptr inbounds i8, ptr %2, i64 1576
+  %codec_error_registry = getelementptr inbounds nuw i8, ptr %2, i64 1576
   %4 = load ptr, ptr %codec_error_registry, align 8
   %call5 = call i32 @PyDict_GetItemStringRef(ptr noundef %4, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %handler) #9
   %cmp6 = icmp slt i32 %call5, 0
@@ -2848,7 +2848,7 @@ if.end13:                                         ; preds = %if.then12, %if.end1
   br i1 %cmp1491, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end13
-  %state.i = getelementptr inbounds i8, ptr %call8, i64 32
+  %state.i = getelementptr inbounds nuw i8, ptr %call8, i64 32
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.load.i.fr = freeze i32 %bf.load.i
   %bf.lshr.i = lshr i32 %bf.load.i.fr, 2
@@ -3031,7 +3031,7 @@ PyUnicode_DATA.exit:                              ; preds = %if.then.i46, %if.en
   br i1 %cmp5298, label %for.body53.lr.ph, label %for.end87
 
 for.body53.lr.ph:                                 ; preds = %PyUnicode_DATA.exit
-  %state.i50 = getelementptr inbounds i8, ptr %call8, i64 32
+  %state.i50 = getelementptr inbounds nuw i8, ptr %call8, i64 32
   %22 = getelementptr i8, ptr %call8, i64 56
   br label %for.body53
 
@@ -3235,7 +3235,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool9.not, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %ob_sval.i = getelementptr inbounds i8, ptr %call8, i64 32
+  %ob_sval.i = getelementptr inbounds nuw i8, ptr %call8, i64 32
   %2 = load i64, ptr %end, align 8
   %3 = load i64, ptr %start, align 8
   %sub = sub i64 %2, %3
@@ -3415,7 +3415,7 @@ if.end67:                                         ; preds = %if.then66, %if.end6
   br i1 %cmp69160, label %for.body71.lr.ph, label %for.end88
 
 for.body71.lr.ph:                                 ; preds = %if.end67
-  %state.i = getelementptr inbounds i8, ptr %object.0, i64 32
+  %state.i = getelementptr inbounds nuw i8, ptr %object.0, i64 32
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
@@ -3554,7 +3554,7 @@ PyUnicode_DATA.exit103:                           ; preds = %if.then.i96, %if.en
   br i1 %cmp97195, label %for.body99.lr.ph, label %for.end165
 
 for.body99.lr.ph:                                 ; preds = %PyUnicode_DATA.exit103
-  %state.i104 = getelementptr inbounds i8, ptr %object.0, i64 32
+  %state.i104 = getelementptr inbounds nuw i8, ptr %object.0, i64 32
   %47 = getelementptr i8, ptr %object.0, i64 56
   br label %for.body99
 
@@ -3823,7 +3823,7 @@ if.end14:                                         ; preds = %if.end11
   br i1 %cmp15101, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end14
-  %state.i = getelementptr inbounds i8, ptr %call8, i64 32
+  %state.i = getelementptr inbounds nuw i8, ptr %call8, i64 32
   %4 = getelementptr i8, ptr %call8, i64 56
   br label %for.body
 
@@ -3973,7 +3973,7 @@ PyUnicode_DATA.exit:                              ; preds = %if.then.i56, %if.en
   br i1 %cmp48107, label %for.body50.lr.ph, label %for.end125
 
 for.body50.lr.ph:                                 ; preds = %PyUnicode_DATA.exit
-  %state.i60 = getelementptr inbounds i8, ptr %call8, i64 32
+  %state.i60 = getelementptr inbounds nuw i8, ptr %call8, i64 32
   %21 = getelementptr i8, ptr %call8, i64 56
   br label %for.body50
 
@@ -4490,7 +4490,7 @@ if.end35.i:                                       ; preds = %if.end29.i
   br i1 %cmp37149.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end35.i
-  %state.i.i = getelementptr inbounds i8, ptr %call8.i, i64 32
+  %state.i.i = getelementptr inbounds nuw i8, ptr %call8.i, i64 32
   %19 = getelementptr i8, ptr %call8.i, i64 56
   br label %for.body.i
 
@@ -4753,7 +4753,7 @@ if.end102.i:                                      ; preds = %if.end98.i
   br i1 %tobool104.not.i, label %PyCodec_SurrogatePassErrors.exit, label %if.end106.i
 
 if.end106.i:                                      ; preds = %if.end102.i
-  %ob_sval.i.i = getelementptr inbounds i8, ptr %call103.i, i64 32
+  %ob_sval.i.i = getelementptr inbounds nuw i8, ptr %call103.i, i64 32
   %call108.i = call ptr @PyUnicodeDecodeError_GetEncoding(ptr noundef nonnull %exc) #9
   %tobool109.not.i = icmp eq ptr %call108.i, null
   br i1 %tobool109.not.i, label %if.then110.i, label %if.end111.i
@@ -5066,7 +5066,7 @@ if.end15.i:                                       ; preds = %if.end11.i
   br i1 %cmp64.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end15.i
-  %state.i.i = getelementptr inbounds i8, ptr %call8.i, i64 32
+  %state.i.i = getelementptr inbounds nuw i8, ptr %call8.i, i64 32
   %8 = getelementptr i8, ptr %call8.i, i64 56
   br label %for.body.i
 
@@ -5255,7 +5255,7 @@ if.end36.i:                                       ; preds = %if.end32.i
   br i1 %tobool38.not.i, label %PyCodec_SurrogateEscapeErrors.exit, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end36.i
-  %ob_sval.i.i = getelementptr inbounds i8, ptr %call37.i, i64 32
+  %ob_sval.i.i = getelementptr inbounds nuw i8, ptr %call37.i, i64 32
   %27 = load i64, ptr %end.i, align 8
   %28 = load i64, ptr %start.i, align 8
   %sub45.i = sub i64 %27, %28

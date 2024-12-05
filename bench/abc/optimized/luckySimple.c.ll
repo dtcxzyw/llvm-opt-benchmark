@@ -7,13 +7,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 1
   br i1 %4, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   br label %8
@@ -21,8 +21,8 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
 8:                                                ; preds = %.lr.ph, %63
   %.04955 = phi i32 [ %3, %.lr.ph ], [ %64, %63 ]
   %9 = zext nneg i32 %.04955 to i64
-  %10 = getelementptr inbounds %struct.varInfo, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %10 = getelementptr inbounds nuw %struct.varInfo, ptr %7, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %10, align 4
   %14 = add nsw i32 %13, %12
@@ -33,11 +33,11 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   br i1 %18, label %19, label %63
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %10, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %14, ptr %20, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds %struct.varInfo, ptr %22, i64 %9, i32 1
+  %23 = getelementptr inbounds nuw %struct.varInfo, ptr %22, i64 %9, i32 1
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i32, ptr %21, i64 %25
@@ -45,8 +45,8 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   store i32 %.04955, ptr %26, align 4
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds %struct.varInfo, ptr %29, i64 %9
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %30 = getelementptr inbounds nuw %struct.varInfo, ptr %29, i64 %9
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr %30, align 4
   %34 = sub nsw i32 %32, %33
@@ -54,8 +54,8 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   %36 = getelementptr inbounds i32, ptr %28, i64 %35
   store i32 %27, ptr %36, align 4
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds %struct.varInfo, ptr %37, i64 %9
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %38 = getelementptr inbounds nuw %struct.varInfo, ptr %37, i64 %9
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = load i32, ptr %38, align 4
   %42 = sub nsw i32 %40, %41
@@ -70,7 +70,7 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   %.04856 = phi i32 [ %52, %.lr.ph57 ], [ %45, %19 ]
   %47 = load ptr, ptr %0, align 8
   %48 = zext nneg i32 %.04856 to i64
-  %49 = getelementptr inbounds %struct.varInfo, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw %struct.varInfo, ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = sub nsw i32 0, %50
   store i32 %51, ptr %49, align 4
@@ -83,12 +83,12 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
   %55 = getelementptr inbounds %struct.varInfo, ptr %54, i64 %43, i32 1
   %56 = load i32, ptr %55, align 4
   %57 = add nsw i32 %56, -1
-  %58 = getelementptr inbounds i8, ptr %0, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %57, ptr %58, align 4
-  %59 = getelementptr inbounds %struct.varInfo, ptr %54, i64 %9, i32 1
+  %59 = getelementptr inbounds nuw %struct.varInfo, ptr %54, i64 %9, i32 1
   %60 = load i32, ptr %59, align 4
   %61 = add nsw i32 %60, -1
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %61, ptr %62, align 8
   br label %.loopexit
 
@@ -104,7 +104,7 @@ define range(i32 0, 2) i32 @nextSwap(ptr nocapture noundef %0) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define void @fillInSwapArray(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
   %5 = add nsw i32 %4, 2
@@ -125,12 +125,12 @@ define void @fillInSwapArray(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %13 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %indvars.iv.i, i32 1
+  %13 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %indvars.iv.i, i32 1
   %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %14, ptr %13, align 4
-  %15 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %indvars.iv.i
   store i32 -1, ptr %15, align 4
-  %16 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   store i32 %14, ptr %16, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -146,7 +146,7 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   br i1 %.not, label %.loopexit16, label %.lr.ph.i13.preheader.lr.ph
 
 .lr.ph.i13.preheader.lr.ph:                       ; preds = %setSwapInfoPtr.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = sext i32 %3 to i64
   br label %.lr.ph.i13.preheader
 
@@ -158,8 +158,8 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
 .lr.ph.i13:                                       ; preds = %.lr.ph.i13.preheader, %48
   %.04955.i = phi i32 [ %49, %48 ], [ %4, %.lr.ph.i13.preheader ]
   %23 = zext nneg i32 %.04955.i to i64
-  %24 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %24 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %24, align 4
   %28 = add nsw i32 %27, %26
@@ -170,10 +170,10 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
   br i1 %32, label %33, label %48
 
 33:                                               ; preds = %.lr.ph.i13
-  %34 = getelementptr inbounds i8, ptr %24, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %35 = getelementptr inbounds i32, ptr %10, i64 %29
   store i32 %28, ptr %34, align 4
-  %36 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %23, i32 1
+  %36 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %23, i32 1
   store i32 %.04955.i, ptr %35, align 4
   %37 = sext i32 %26 to i64
   %38 = getelementptr inbounds i32, ptr %10, i64 %37
@@ -187,7 +187,7 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
 .lr.ph57.i:                                       ; preds = %33, %.lr.ph57.i
   %.04856.i = phi i32 [ %46, %.lr.ph57.i ], [ %4, %33 ]
   %42 = zext nneg i32 %.04856.i to i64
-  %43 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %42
+  %43 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = sub nsw i32 0, %44
   store i32 %45, ptr %43, align 4
@@ -239,13 +239,13 @@ define range(i32 -2147483648, 2147483647) i32 @oneBitPosition(i32 noundef %0, i3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @fillInFlipArray(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %.not12 = icmp slt i32 %3, 1
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %5
 
 5:                                                ; preds = %.lr.ph, %oneBitPosition.exit
@@ -290,14 +290,14 @@ oneBitPosition.exit:                              ; preds = %.lr.ph.i, %14, %5
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @setPermInfoPtr(i32 noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #10
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 0, ptr %3, align 8
   store i32 %0, ptr %2, align 8
   %notmask = shl nsw i32 -1, %0
   %4 = xor i32 %notmask, -1
-  %5 = getelementptr inbounds i8, ptr %2, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %4, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %6, align 8
   %or.cond5.i = icmp ult i32 %0, 2
   br i1 %or.cond5.i, label %factorial.exit, label %tailrecurse.i
@@ -316,17 +316,17 @@ factorial.exit.loopexit:                          ; preds = %tailrecurse.i
 
 factorial.exit:                                   ; preds = %factorial.exit.loopexit, %1
   %accumulator.tr.lcssa.i = phi i32 [ 0, %1 ], [ %9, %factorial.exit.loopexit ]
-  %10 = getelementptr inbounds i8, ptr %2, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %accumulator.tr.lcssa.i, ptr %10, align 4
   %11 = zext nneg i32 %4 to i64
   %12 = shl nuw nsw i64 %11, 2
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   %15 = sext i32 %accumulator.tr.lcssa.i to i64
   %16 = shl nsw i64 %15, 2
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #10
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %17, ptr %18, align 8
   tail call void @fillInSwapArray(ptr noundef nonnull %2)
   %.not12.i = icmp eq i32 %0, 0
@@ -394,10 +394,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @freePermInfoPtr(ptr nocapture noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #11
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #11
   tail call void @free(ptr noundef %0) #11
@@ -415,13 +415,13 @@ define void @simpleMinimal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %7 = icmp eq i32 %6, -1
   %..i = select i1 %7, ptr %0, ptr %1
   tail call void @Kit_TruthCopy_64bit(ptr noundef %2, ptr noundef %..i, i32 noundef %4) #11
-  %8 = getelementptr inbounds i8, ptr %3, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = zext nneg i32 %9 to i64
   br label %13
 
@@ -429,11 +429,11 @@ define void @simpleMinimal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %minWord3.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next
   %16 = load i32, ptr %15, align 4
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %16) #11
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.next
   %19 = load i32, ptr %18, align 4
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %19) #11
   %20 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #11
@@ -463,14 +463,14 @@ minWord3.exit:                                    ; preds = %22, %26, %29
   br i1 %30, label %13, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %minWord3.exit, %5
-  %31 = getelementptr inbounds i8, ptr %3, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph69, label %._crit_edge70
 
 .lr.ph69:                                         ; preds = %._crit_edge
-  %34 = getelementptr inbounds i8, ptr %3, i64 24
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = zext nneg i32 %32 to i64
   br label %38
 
@@ -484,11 +484,11 @@ minWord3.exit:                                    ; preds = %22, %26, %29
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef 0) #11
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef 0) #11
   %39 = load ptr, ptr %34, align 8
-  %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv.next76
+  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.next76
   %41 = load i32, ptr %40, align 4
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %41) #11
   %42 = load ptr, ptr %34, align 8
-  %43 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv.next76
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.next76
   %44 = load i32, ptr %43, align 4
   tail call void @Kit_TruthChangePhase_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %44) #11
   %45 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #11
@@ -526,11 +526,11 @@ minWord3.exit61:                                  ; preds = %47, %51, %54
   %indvars.iv72 = phi i64 [ %57, %.lr.ph65.preheader ], [ %indvars.iv.next73, %minWord3.exit62 ]
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, -1
   %58 = load ptr, ptr %35, align 8
-  %59 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv.next73
+  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.next73
   %60 = load i32, ptr %59, align 4
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %4, i32 noundef %60) #11
   %61 = load ptr, ptr %35, align 8
-  %62 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv.next73
+  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.next73
   %63 = load i32, ptr %62, align 4
   tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %1, i32 noundef %4, i32 noundef %63) #11
   %64 = tail call i32 @memCompare(ptr noundef %0, ptr noundef %1, i32 noundef %4) #11
@@ -587,9 +587,9 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0153184 = phi i32 [ 0, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  %14 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   store i32 %.0153184, ptr %14, align 4
-  %15 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %.0153184
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -632,7 +632,7 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %30 = zext nneg i32 %4 to i64
   %31 = add nuw i32 %4, 1
   %wide.trip.count230 = zext i32 %31 to i64
-  %invariant.gep251 = getelementptr inbounds i32, ptr %28, i64 %30
+  %invariant.gep251 = getelementptr inbounds nuw i32, ptr %28, i64 %30
   br label %.lr.ph194
 
 .lr.ph189:                                        ; preds = %.lr.ph189.preheader, %.lr.ph189
@@ -642,10 +642,10 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds ptr, ptr %5, i64 %33
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %37, 1
-  %39 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv222
+  %39 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv222
   store i32 %38, ptr %39, align 4
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count225
@@ -670,10 +670,10 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds ptr, ptr %5, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 20
   %48 = load i32, ptr %47, align 4
   %49 = add nsw i32 %48, 1
-  %gep252 = getelementptr inbounds i32, ptr %invariant.gep251, i64 %indvars.iv227
+  %gep252 = getelementptr inbounds nuw i32, ptr %invariant.gep251, i64 %indvars.iv227
   store i32 %49, ptr %gep252, align 4
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count230
@@ -694,7 +694,7 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph203:                                        ; preds = %54, %minWord3.exit
   %indvars.iv235 = phi i64 [ %indvars.iv.next236, %minWord3.exit ], [ 1, %54 ]
-  %55 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv235
+  %55 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv235
   %56 = load i32, ptr %55, align 4
   %.not174 = icmp eq i32 %56, 0
   br i1 %.not174, label %minWord3.exit, label %57
@@ -715,13 +715,13 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds ptr, ptr %5, i64 %64
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv235
+  %67 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv235
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %75, label %70
 
 70:                                               ; preds = %._crit_edge248
-  %71 = getelementptr inbounds i8, ptr %66, i64 36
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 36
   %72 = load i32, ptr %71, align 4
   %73 = sub nsw i32 %72, %68
   %74 = sext i32 %73 to i64
@@ -731,7 +731,7 @@ define void @simpleMinimalGroups(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %76 = phi i64 [ %74, %70 ], [ 0, %._crit_edge248 ]
   %77 = getelementptr inbounds i32, ptr %12, i64 %61
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %66, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i32, ptr %80, i64 %76
   %82 = load i32, ptr %81, align 4
@@ -781,7 +781,7 @@ minWord3.exit:                                    ; preds = %minWord3.exit.sink.
 .lr.ph206:                                        ; preds = %minWord3.exit, %minWord3.exit176
   %indvars.iv240 = phi i64 [ %indvars.iv.next241, %minWord3.exit176 ], [ 1, %minWord3.exit ]
   %101 = add nuw nsw i64 %indvars.iv240, %10
-  %102 = getelementptr inbounds i32, ptr %27, i64 %101
+  %102 = getelementptr inbounds nuw i32, ptr %27, i64 %101
   %103 = load i32, ptr %102, align 4
   %.not173 = icmp eq i32 %103, 0
   br i1 %.not173, label %minWord3.exit176, label %104
@@ -797,15 +797,15 @@ minWord3.exit:                                    ; preds = %minWord3.exit.sink.
   %110 = sext i32 %107 to i64
   %111 = getelementptr inbounds ptr, ptr %5, i64 %110
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i32, ptr %26, i64 %101
+  %113 = getelementptr inbounds nuw i32, ptr %26, i64 %101
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %112, i64 20
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 20
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %114, %116
   br i1 %117, label %126, label %118
 
 118:                                              ; preds = %109
-  %119 = getelementptr inbounds i8, ptr %112, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %120 = load ptr, ptr %119, align 8
   %121 = xor i32 %114, -1
   %122 = add i32 %116, %121

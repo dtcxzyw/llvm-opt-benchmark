@@ -50,9 +50,9 @@ define hidden range(i32 0, 2) i32 @cmsDetectBlackPoint(ptr noundef %0, ptr nound
 
 17:                                               ; preds = %13
   store double 3.360000e-03, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 3.473100e-03, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 2.870000e-03, ptr %19, align 8
   br label %32
 
@@ -148,7 +148,7 @@ define internal fastcc range(i32 0, 2) i32 @BlackPointAsDarkerColorant(ptr nound
 30:                                               ; preds = %25
   %31 = load ptr, ptr %4, align 8
   call void @cmsDoTransform(ptr noundef nonnull %26, ptr noundef %31, ptr noundef nonnull %6, i32 noundef 1) #7
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %33 = load double, ptr %6, align 8
   %34 = fcmp ogt double %33, 5.000000e+01
@@ -204,18 +204,18 @@ define internal fastcc range(i32 0, 2) i32 @BlackPointUsingPerceptualBlack(ptr n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) @__const.CreateRoundtripXForm.States, i64 32, i1 false)
   store ptr %14, ptr %5, align 16
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %14, ptr %17, align 8
   store i32 1, ptr %6, align 16
-  %18 = getelementptr inbounds i8, ptr %6, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %20, align 4
   %21 = call ptr @cmsCreateExtendedTransform(ptr noundef %13, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef null, i32 noundef 0, i32 noundef 4849688, i32 noundef 4849688, i32 noundef 320) #7
   %22 = call i32 @cmsCloseProfile(ptr noundef %14) #7
@@ -242,7 +242,7 @@ define internal fastcc range(i32 0, 2) i32 @BlackPointUsingPerceptualBlack(ptr n
   br label %29
 
 29:                                               ; preds = %28, %25
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   call void @cmsDeleteTransform(ptr noundef nonnull %21) #7
   call void @cmsLab2XYZ(ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %8) #7
@@ -307,9 +307,9 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
 
 26:                                               ; preds = %22
   store double 3.360000e-03, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 3.473100e-03, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 2.870000e-03, ptr %28, align 8
   br label %119
 
@@ -355,10 +355,10 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   br i1 %42, label %119, label %.preheader135
 
 .preheader135:                                    ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %5, i64 8
-  %44 = getelementptr inbounds i8, ptr %7, i64 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 16
-  %46 = getelementptr inbounds i8, ptr %7, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %47
 
 47:                                               ; preds = %.preheader135, %47
@@ -382,24 +382,24 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   store double %61, ptr %46, align 8
   call void @cmsDoTransform(ptr noundef nonnull %phi.call, ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 1) #7
   %62 = load double, ptr %7, align 8
-  %63 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv
   store double %62, ptr %63, align 8
   %64 = load double, ptr %6, align 8
-  %65 = getelementptr inbounds [256 x double], ptr %9, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %indvars.iv
   store double %64, ptr %65, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %.preheader134.preheader, label %47, !llvm.loop !6
 
 .preheader134.preheader:                          ; preds = %47
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 2040
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 2040
   %.pre = load double, ptr %.phi.trans.insert, align 8
   br label %.preheader134
 
 .preheader134:                                    ; preds = %.preheader134.preheader, %.preheader134
   %66 = phi double [ %.pre, %.preheader134.preheader ], [ %., %.preheader134 ]
   %indvars.iv144 = phi i64 [ 254, %.preheader134.preheader ], [ %indvars.iv.next145, %.preheader134 ]
-  %67 = getelementptr inbounds [256 x double], ptr %9, i64 0, i64 %indvars.iv144
+  %67 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %indvars.iv144
   %68 = load double, ptr %67, align 8
   %69 = fcmp olt double %68, %66
   %. = select i1 %69, double %68, double %66
@@ -434,13 +434,13 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
 
 79:                                               ; preds = %.outer, %89
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %89 ], [ %indvars.iv147.ph, %.outer ]
-  %80 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %indvars.iv147
+  %80 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv147
   %81 = load double, ptr %80, align 8
   %82 = fcmp ugt double %81, %78
   br i1 %82, label %83, label %89
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds [256 x double], ptr %9, i64 0, i64 %indvars.iv147
+  %84 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %indvars.iv147
   %85 = load double, ptr %84, align 8
   %86 = fsub double %81, %85
   %87 = call double @llvm.fabs.f64(double %86)
@@ -470,11 +470,11 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
 
 .thread164:                                       ; preds = %.thread164.preheader, %.thread164
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.thread164 ], [ 0, %.thread164.preheader ]
-  %92 = getelementptr inbounds [256 x double], ptr %9, i64 0, i64 %indvars.iv151
+  %92 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %indvars.iv151
   %93 = load double, ptr %92, align 8
   %94 = fsub double %93, %72
   %95 = fdiv double %94, %77
-  %96 = getelementptr inbounds [256 x double], ptr %10, i64 0, i64 %indvars.iv151
+  %96 = getelementptr inbounds nuw [256 x double], ptr %10, i64 0, i64 %indvars.iv151
   store double %95, ptr %96, align 8
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next152, 256
@@ -488,7 +488,7 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
 98:                                               ; preds = %97, %110
   %indvars.iv155 = phi i64 [ 0, %97 ], [ %indvars.iv.next156, %110 ]
   %.0110141 = phi i32 [ 0, %97 ], [ %.1111, %110 ]
-  %99 = getelementptr inbounds [256 x double], ptr %10, i64 0, i64 %indvars.iv155
+  %99 = getelementptr inbounds nuw [256 x double], ptr %10, i64 0, i64 %indvars.iv155
   %100 = load double, ptr %99, align 8
   %101 = fcmp oge double %100, %.131
   %102 = fcmp olt double %100, %.132
@@ -496,7 +496,7 @@ define hidden range(i32 0, 2) i32 @cmsDetectDestinationBlackPoint(ptr noundef %0
   br i1 %or.cond133, label %103, label %110
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %indvars.iv155
+  %104 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv155
   %105 = load double, ptr %104, align 8
   %106 = sext i32 %.0110141 to i64
   %107 = getelementptr inbounds [256 x double], ptr %11, i64 0, i64 %106
@@ -554,18 +554,18 @@ define internal fastcc ptr @CreateRoundtripXForm(ptr noundef %0, i32 noundef %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) @__const.CreateRoundtripXForm.States, i64 32, i1 false)
   store ptr %8, ptr %5, align 16
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %0, ptr %10, align 16
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %8, ptr %11, align 8
   store i32 1, ptr %6, align 16
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 1, ptr %14, align 4
   %15 = call ptr @cmsCreateExtendedTransform(ptr noundef %7, i32 noundef 4, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef null, i32 noundef 0, i32 noundef 4849688, i32 noundef 4849688, i32 noundef 320) #7
   %16 = call i32 @cmsCloseProfile(ptr noundef %8) #7
@@ -605,9 +605,9 @@ define internal fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef r
   %.07180 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %18, %.preheader ]
   %.07279 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %19, %.preheader ]
   %.07378 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %21, %.preheader ]
-  %8 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %11 = load double, ptr %10, align 8
   %12 = fadd double %.06685, %9
   %13 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %.06784)
@@ -626,9 +626,9 @@ define internal fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef r
 22:                                               ; preds = %.preheader
   %23 = uitofp nneg i32 %0 to double
   call void @_cmsVEC3init(ptr noundef nonnull %4, double noundef %23, double noundef %12, double noundef %13) #7
-  %24 = getelementptr inbounds i8, ptr %4, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_cmsVEC3init(ptr noundef nonnull %24, double noundef %12, double noundef %13, double noundef %15) #7
-  %25 = getelementptr inbounds i8, ptr %4, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @_cmsVEC3init(ptr noundef nonnull %25, double noundef %13, double noundef %15, double noundef %17) #7
   call void @_cmsVEC3init(ptr noundef nonnull %5, double noundef %18, double noundef %19, double noundef %21) #7
   %26 = call i32 @_cmsMAT3solve(ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
@@ -636,9 +636,9 @@ define internal fastcc double @RootOfLeastSquaresFitQuadraticCurve(i32 noundef r
   br i1 %.not, label %60, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %6, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = load double, ptr %30, align 8
   %32 = load double, ptr %6, align 8
   %33 = call double @llvm.fabs.f64(double %29)

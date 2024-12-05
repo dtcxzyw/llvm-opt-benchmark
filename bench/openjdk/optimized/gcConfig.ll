@@ -88,7 +88,7 @@ define hidden noundef zeroext i1 @_ZN8GCConfig17is_no_gc_selectedEv() local_unna
 
 1:                                                ; preds = %1, %0
   %.0.idx5 = phi i64 [ 0, %0 ], [ %.0.add, %1 ]
-  %.0.ptr = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx5
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx5
   %2 = load ptr, ptr %.0.ptr, align 16
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -109,14 +109,14 @@ define hidden noundef zeroext i1 @_ZN8GCConfig26is_exactly_one_gc_selectedEv() l
 1:                                                ; preds = %0, %10
   %.0.idx13 = phi i64 [ 0, %0 ], [ %.0.add, %10 ]
   %.0912 = phi i32 [ 0, %0 ], [ %.1, %10 ]
-  %.0.ptr14 = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx13
+  %.0.ptr14 = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx13
   %2 = load ptr, ptr %.0.ptr14, align 16
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %.0.ptr14, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.0.ptr14, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %.0912
   %9 = icmp eq i32 %.0912, 0
@@ -146,7 +146,7 @@ define hidden noundef ptr @_ZN8GCConfig9select_gcEv() local_unnamed_addr #1 alig
 
 3:                                                ; preds = %3, %0
   %.0.idx5.i = phi i64 [ 0, %0 ], [ %.0.add.i, %3 ]
-  %.0.ptr.i = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx5.i
+  %.0.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx5.i
   %4 = load ptr, ptr %.0.ptr.i, align 16
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -189,7 +189,7 @@ _ZN8GCConfig23select_gc_ergonomicallyEv.exit.preheader: ; preds = %10, %12, %14,
 
 _ZN8GCConfig23select_gc_ergonomicallyEv.exit:     ; preds = %_ZN8GCConfig23select_gc_ergonomicallyEv.exit.preheader, %_ZN8GCConfig23select_gc_ergonomicallyEv.exit
   %.0.idx5.i5 = phi i64 [ %.0.add.i7, %_ZN8GCConfig23select_gc_ergonomicallyEv.exit ], [ 0, %_ZN8GCConfig23select_gc_ergonomicallyEv.exit.preheader ]
-  %.0.ptr.i6 = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx5.i5
+  %.0.ptr.i6 = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx5.i5
   %18 = load ptr, ptr %.0.ptr.i6, align 16
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
@@ -215,14 +215,14 @@ _ZN8GCConfig17is_no_gc_selectedEv.exit10:         ; preds = %_ZN8GCConfig23selec
 24:                                               ; preds = %.preheader25, %33
   %.0.idx13.i = phi i64 [ %.0.add.i11, %33 ], [ 0, %.preheader25 ]
   %.0912.i = phi i32 [ %.1.i, %33 ], [ 0, %.preheader25 ]
-  %.0.ptr14.i = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx13.i
+  %.0.ptr14.i = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx13.i
   %25 = load ptr, ptr %.0.ptr14.i, align 16
   %26 = load i8, ptr %25, align 1
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.0.ptr14.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, %.0912.i
   %32 = icmp eq i32 %.0912.i, 0
@@ -253,15 +253,15 @@ _ZN8GCConfig26is_exactly_one_gc_selectedEv.exit.thread: ; preds = %28, %_ZN8GCCo
 
 37:                                               ; preds = %.preheader, %35
   %.0.idx16 = phi i64 [ %.0.add, %35 ], [ 0, %.preheader ]
-  %.0.ptr17 = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx16
+  %.0.ptr17 = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx16
   %38 = load ptr, ptr %.0.ptr17, align 16
   %39 = load i8, ptr %38, align 1
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %35
 
 41:                                               ; preds = %37
-  %.0.ptr17.le = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx16
-  %42 = getelementptr inbounds i8, ptr %.0.ptr17.le, i64 16
+  %.0.ptr17.le = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx16
+  %42 = getelementptr inbounds nuw i8, ptr %.0.ptr17.le, i64 16
   %43 = load ptr, ptr %42, align 16
   ret ptr %43
 
@@ -290,17 +290,17 @@ define hidden noundef zeroext i1 @_ZN8GCConfig15is_gc_supportedEN13CollectedHeap
 
 2:                                                ; preds = %1, %13
   %.0.idx6 = phi i64 [ 0, %1 ], [ %.0.add, %13 ]
-  %.0.ptr7 = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx6
-  %3 = getelementptr inbounds i8, ptr %.0.ptr7, i64 8
+  %.0.ptr7 = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx6
+  %3 = getelementptr inbounds nuw i8, ptr %.0.ptr7, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %.0.ptr7, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.0.ptr7, i64 16
   %8 = load ptr, ptr %7, align 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %8) #7
   br i1 %12, label %15, label %13
@@ -321,8 +321,8 @@ define hidden noundef zeroext i1 @_ZN8GCConfig14is_gc_selectedEN13CollectedHeap4
 
 2:                                                ; preds = %1, %10
   %.0.idx6 = phi i64 [ 0, %1 ], [ %.0.add, %10 ]
-  %.0.ptr7 = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx6
-  %3 = getelementptr inbounds i8, ptr %.0.ptr7, i64 8
+  %.0.ptr7 = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx6
+  %3 = getelementptr inbounds nuw i8, ptr %.0.ptr7, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %6, label %10
@@ -357,14 +357,14 @@ define hidden noundef ptr @_ZN8GCConfig11hs_err_nameEv() local_unnamed_addr #3 a
 1:                                                ; preds = %10, %0
   %.0.idx13.i = phi i64 [ 0, %0 ], [ %.0.add.i, %10 ]
   %.0912.i = phi i32 [ 0, %0 ], [ %.1.i, %10 ]
-  %.0.ptr14.i = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx13.i
+  %.0.ptr14.i = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx13.i
   %2 = load ptr, ptr %.0.ptr14.i, align 16
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %.0.ptr14.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.0.ptr14.i, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %.0912.i
   %9 = icmp eq i32 %.0912.i, 0
@@ -388,15 +388,15 @@ _ZN8GCConfig26is_exactly_one_gc_selectedEv.exit:  ; preds = %10
 
 .preheader:                                       ; preds = %_ZN8GCConfig26is_exactly_one_gc_selectedEv.exit, %12
   %.0.idx9 = phi i64 [ %.0.add, %12 ], [ 0, %_ZN8GCConfig26is_exactly_one_gc_selectedEv.exit ]
-  %.0.ptr10 = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx9
+  %.0.ptr10 = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx9
   %14 = load ptr, ptr %.0.ptr10, align 16
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %12
 
 17:                                               ; preds = %.preheader
-  %.0.ptr10.le = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx9
-  %18 = getelementptr inbounds i8, ptr %.0.ptr10.le, i64 24
+  %.0.ptr10.le = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx9
+  %18 = getelementptr inbounds nuw i8, ptr %.0.ptr10.le, i64 24
   %19 = load ptr, ptr %18, align 8
   br label %_ZN8GCConfig26is_exactly_one_gc_selectedEv.exit.thread
 
@@ -416,14 +416,14 @@ define hidden noundef ptr @_ZN8GCConfig11hs_err_nameEN13CollectedHeap4NameE(i32 
 
 4:                                                ; preds = %1, %2
   %.0.idx7 = phi i64 [ 0, %1 ], [ %.0.add, %2 ]
-  %.0.ptr8 = getelementptr inbounds i8, ptr @_ZL11IncludedGCs, i64 %.0.idx7
-  %5 = getelementptr inbounds i8, ptr %.0.ptr8, i64 8
+  %.0.ptr8 = getelementptr inbounds nuw i8, ptr @_ZL11IncludedGCs, i64 %.0.idx7
+  %5 = getelementptr inbounds nuw i8, ptr %.0.ptr8, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %0
   br i1 %7, label %8, label %2
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %.0.ptr8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.0.ptr8, i64 24
   %10 = load ptr, ptr %9, align 8
   br label %.loopexit
 

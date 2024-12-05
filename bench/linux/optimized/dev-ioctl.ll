@@ -48,7 +48,7 @@ define dso_local i32 @autofs_dev_ioctl_init() local_unnamed_addr #0 section ".in
 3:                                                ; preds = %0
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 1320
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1320
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %7, ptr noundef nonnull @__func__.autofs_dev_ioctl_init) #12
   br label %9
@@ -111,7 +111,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr noc
   br i1 %17, label %18, label %.thread27
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = icmp ult i32 %20, 24
@@ -135,7 +135,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr noc
 
 31:                                               ; preds = %25
   %32 = load i32, ptr %19, align 8
-  %33 = getelementptr inbounds i8, ptr %26, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 %32, ptr %33, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
   %34 = load i32, ptr %26, align 8
@@ -143,7 +143,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr noc
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %26, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp ugt i32 %38, 1
   br i1 %39, label %40, label %50
@@ -151,9 +151,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr noc
 40:                                               ; preds = %36, %31
   %41 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11
   %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds i8, ptr %42, i64 1320
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1320
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %26, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, i32 noundef %44, ptr noundef nonnull @__func__.check_dev_ioctl_version, i32 noundef 1, i32 noundef 1, i32 noundef %34, i32 noundef %46, i32 noundef %1) #12
   store i32 1, ptr %26, align 8
@@ -165,36 +165,36 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr noc
 50:                                               ; preds = %36
   store i32 1, ptr %26, align 8
   store i32 1, ptr %37, align 4
-  %51 = getelementptr inbounds i8, ptr %26, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = icmp ugt i32 %52, 24
   br i1 %53, label %54, label %75
 
 54:                                               ; preds = %50
   %55 = zext i32 %52 to i64
-  %56 = getelementptr inbounds i8, ptr %26, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %57 = add nsw i64 %55, -24
-  %58 = call ptr @memchr(ptr noundef %56, i32 noundef 0, i64 noundef %57) #10
+  %58 = call ptr @memchr(ptr noundef nonnull %56, i32 noundef 0, i64 noundef %57) #10
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %54
   %61 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds i8, ptr %62, i64 1320
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1320
   %64 = load i32, ptr %63, align 8
   %65 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %64, ptr noundef nonnull @__func__.validate_dev_ioctl, i32 noundef %1) #12
   br label %.thread15
 
 66:                                               ; preds = %54
-  %67 = call ptr @strchr(ptr noundef %56, i32 noundef 47) #10
+  %67 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %56, i32 noundef 47) #10
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %.thread13
 
 69:                                               ; preds = %66
   %70 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %71 = inttoptr i64 %70 to ptr
-  %72 = getelementptr inbounds i8, ptr %71, i64 1320
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1320
   %73 = load i32, ptr %72, align 8
   %74 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %73, ptr noundef nonnull @__func__.validate_dev_ioctl, i32 noundef %1) #12
   br label %.thread15
@@ -223,7 +223,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr noc
   ]
 
 85:                                               ; preds = %.thread13
-  %86 = getelementptr inbounds i8, ptr %26, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %87 = load i32, ptr %86, align 4
   %88 = call ptr @fget(i32 noundef %87) #10
   %89 = icmp eq ptr %88, null
@@ -234,11 +234,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr noc
   br i1 %91, label %122, label %.thread15
 
 92:                                               ; preds = %85
-  %93 = getelementptr inbounds i8, ptr %88, i64 168
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 168
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, @autofs_fs_type
   br i1 %99, label %101, label %100
@@ -248,9 +248,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr noc
   br label %.thread15
 
 101:                                              ; preds = %92
-  %102 = getelementptr inbounds i8, ptr %96, i64 872
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 872
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 40
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, 1
   %107 = icmp eq i32 %106, 0
@@ -259,11 +259,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @autofs_dev_ioctl(ptr noc
 108:                                              ; preds = %101
   %109 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds i8, ptr %110, i64 1880
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1880
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr i8, ptr %112, i64 376
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %103, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %116 = load ptr, ptr %115, align 8
   %117 = icmp ne ptr %114, %116
   %118 = icmp ne i32 %6, 121
@@ -343,25 +343,25 @@ declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
 define internal noundef i32 @autofs_dev_ioctl_version(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #7 align 16 {
   store i32 1, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %4, align 4
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @autofs_dev_ioctl_protover(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((16, 20)) %2) #8 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %5, ptr %6, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @autofs_dev_ioctl_protosubver(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((16, 20)) %2) #8 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %5, ptr %6, align 8
   ret i32 0
 }
@@ -370,13 +370,13 @@ define internal noundef i32 @autofs_dev_ioctl_protosubver(ptr nocapture readnone
 define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #4 align 16 {
   %4 = alloca %struct.path, align 8
   %5 = alloca %struct.path, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.thread12, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 -1, ptr %10, align 4
   %11 = and i32 %7, 255
   %12 = lshr i32 %7, 12
@@ -390,11 +390,11 @@ define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr no
   br i1 %19, label %20, label %.thread12, !prof !9
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !6
-  %22 = call i32 @kern_path(ptr noundef %21, i32 noundef 128, ptr noundef nonnull %4) #10
+  %22 = call i32 @kern_path(ptr noundef nonnull %21, i32 noundef 128, ptr noundef nonnull %4) #10
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %.thread
 
@@ -403,7 +403,7 @@ define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr no
   br label %55
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %26
 
 26:                                               ; preds = %41, %24
@@ -414,15 +414,15 @@ define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr no
   br i1 %30, label %31, label %.thread9
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %27, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 112
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load i64, ptr %34, align 32
   %36 = icmp eq i64 %35, 391
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %33, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %39 = load i32, ptr %38, align 16
   %40 = icmp eq i32 %39, %17
   br i1 %40, label %44, label %41
@@ -444,7 +444,7 @@ define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr no
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   %45 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !5
   %46 = inttoptr i64 %45 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 1784
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1784
   %48 = load ptr, ptr %47, align 8
   %49 = call ptr @dentry_open(ptr noundef nonnull %5, i32 noundef 0, ptr noundef %48) #10
   call void @path_put(ptr noundef nonnull %5) #10
@@ -483,7 +483,7 @@ define internal range(i32 -2147483648, 1) i32 @autofs_dev_ioctl_openmount(ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @autofs_dev_ioctl_closemount(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 @close_fd(i32 noundef %5) #10
   ret i32 %6
@@ -491,7 +491,7 @@ define internal i32 @autofs_dev_ioctl_closemount(ptr nocapture readnone %0, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @autofs_dev_ioctl_ready(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = tail call i32 @autofs_wait_release(ptr noundef %1, i32 noundef %5, i32 noundef 0) #10
   ret i32 %6
@@ -499,9 +499,9 @@ define internal i32 @autofs_dev_ioctl_ready(ptr nocapture readnone %0, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @autofs_dev_ioctl_fail(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 0
   %9 = select i1 %8, i32 %7, i32 -2
@@ -511,15 +511,15 @@ define internal i32 @autofs_dev_ioctl_fail(ptr nocapture readnone %0, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %74, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
-  tail call void @mutex_lock(ptr noundef %8) #10
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  tail call void @mutex_lock(ptr noundef nonnull %8) #10
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 1
   %12 = icmp eq i32 %11, 0
@@ -533,7 +533,7 @@ define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr no
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %16, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
   %.idx = shl nuw nsw i64 %21, 4
@@ -544,13 +544,13 @@ define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr no
 
 25:                                               ; preds = %18, %13
   %26 = phi ptr [ %24, %18 ], [ null, %13 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %37, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %28, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
   %.idx4 = shl nuw nsw i64 %33, 4
@@ -565,7 +565,7 @@ define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr no
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %15, i64 1320
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 1320
   %42 = load i32, ptr %41, align 8
   %43 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, i32 noundef %42, ptr noundef nonnull @__func__.autofs_dev_ioctl_setpipefd) #12
   br label %69
@@ -576,14 +576,14 @@ define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr no
   br i1 %46, label %69, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %45, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 262144
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %68, label %52
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %45, i64 168
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 168
   %54 = load ptr, ptr %53, align 8
   %55 = load i16, ptr %54, align 8
   %56 = and i16 %55, -4096
@@ -591,16 +591,16 @@ define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr no
   br i1 %57, label %58, label %68
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %45, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %45, i64 72
   %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, -18433
   %62 = or disjoint i32 %61, 16384
   store i32 %62, ptr %59, align 8
   %63 = load ptr, ptr %27, align 8
   store ptr %16, ptr %27, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %5, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %45, ptr %65, align 8
   %66 = load i32, ptr %9, align 8
   %67 = and i32 %66, -2
@@ -619,7 +619,7 @@ define internal noundef range(i32 -32, 1) i32 @autofs_dev_ioctl_setpipefd(ptr no
 
 72:                                               ; preds = %69, %7
   %73 = phi i32 [ %70, %69 ], [ -16, %7 ]
-  tail call void @mutex_unlock(ptr noundef %8) #10
+  tail call void @mutex_unlock(ptr noundef nonnull %8) #10
   br label %74
 
 74:                                               ; preds = %72, %3
@@ -635,9 +635,9 @@ define internal noundef i32 @autofs_dev_ioctl_catatonic(ptr nocapture readnone %
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal noundef i32 @autofs_dev_ioctl_timeout(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #8 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = udiv i64 %7, 1000
   store i64 %8, ptr %4, align 8
@@ -651,18 +651,18 @@ define internal i32 @autofs_dev_ioctl_requester(ptr nocapture readnone %0, ptr n
   %4 = alloca %struct.path, align 8
   %5 = alloca %struct.path, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  %6 = getelementptr inbounds i8, ptr %1, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 -1, ptr %11, align 4
   store i32 -1, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !6
-  %13 = call i32 @kern_path(ptr noundef %12, i32 noundef 128, ptr noundef nonnull %4) #10
+  %13 = call i32 @kern_path(ptr noundef nonnull %12, i32 noundef 128, ptr noundef nonnull %4) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %.thread
 
@@ -671,7 +671,7 @@ define internal i32 @autofs_dev_ioctl_requester(ptr nocapture readnone %0, ptr n
   br label %55
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %17
 
 17:                                               ; preds = %32, %15
@@ -682,15 +682,15 @@ define internal i32 @autofs_dev_ioctl_requester(ptr nocapture readnone %0, ptr n
   br i1 %21, label %22, label %.thread4
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %18, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load i64, ptr %25, align 32
   %27 = icmp eq i64 %26, 391
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = load i32, ptr %29, align 16
   %31 = icmp eq i32 %30, %9
   br i1 %31, label %35, label %32
@@ -710,30 +710,30 @@ define internal i32 @autofs_dev_ioctl_requester(ptr nocapture readnone %0, ptr n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   call void @path_put(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %54, label %41
 
 41:                                               ; preds = %35
   %42 = call i32 @autofs_expire_wait(ptr noundef nonnull %5, i32 noundef 0) #10
-  %43 = getelementptr inbounds i8, ptr %1, i64 136
-  call void @_raw_spin_lock(ptr noundef %43) #10
-  %44 = getelementptr inbounds i8, ptr %39, i64 100
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  call void @_raw_spin_lock(ptr noundef nonnull %43) #10
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 100
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, -1
   %47 = load i32, ptr @overflowuid, align 4
   %48 = select i1 %46, i32 %47, i32 %45
   store i32 %48, ptr %10, align 8
-  %49 = getelementptr inbounds i8, ptr %39, i64 104
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 104
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, -1
   %52 = load i32, ptr @overflowgid, align 4
   %53 = select i1 %51, i32 %52, i32 %50
   store i32 %53, ptr %11, align 4
-  call void @_raw_spin_unlock(ptr noundef %43) #10
+  call void @_raw_spin_unlock(ptr noundef nonnull %43) #10
   br label %54
 
 54:                                               ; preds = %41, %35
@@ -748,11 +748,11 @@ define internal i32 @autofs_dev_ioctl_requester(ptr nocapture readnone %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @autofs_dev_ioctl_expire(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @autofs_do_expire_multi(ptr noundef %9, ptr noundef %7, ptr noundef %1, i32 noundef %5) #10
   ret i32 %10
@@ -760,9 +760,9 @@ define internal i32 @autofs_dev_ioctl_expire(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @autofs_dev_ioctl_askumount(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((16, 20)) %2) #4 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @may_umount(ptr noundef %6) #10
   %8 = icmp eq i32 %7, 0
@@ -783,17 +783,17 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   %6 = alloca %struct.path, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !6
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load i32, ptr %8, align 8
   store i32 0, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %10, align 4
   %11 = icmp eq ptr %0, null
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %2, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %16, label %72
@@ -803,18 +803,18 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = call i32 @kern_path(ptr noundef %7, i32 noundef 129, ptr noundef nonnull %6) #10
+  %19 = call i32 @kern_path(ptr noundef nonnull %7, i32 noundef 129, ptr noundef nonnull %6) #10
   br label %52
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !6
-  %21 = call i32 @kern_path(ptr noundef %7, i32 noundef 128, ptr noundef nonnull %5) #10
+  %21 = call i32 @kern_path(ptr noundef nonnull %7, i32 noundef 128, ptr noundef nonnull %5) #10
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %50
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %25
 
 25:                                               ; preds = %.critedge, %23
@@ -825,23 +825,23 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   br i1 %29, label %30, label %.loopexit
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %26, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load i64, ptr %33, align 32
   %35 = icmp eq i64 %34, 391
   br i1 %35, label %36, label %.critedge
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %26, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %38, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, %9
   %.not = icmp eq i32 %45, 0
@@ -873,11 +873,11 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   br i1 %54, label %55, label %121
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %6, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 112
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 112
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i32, ptr %60, align 16
   %62 = and i32 %61, 255
   %63 = lshr i32 %61, 12
@@ -892,13 +892,13 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   br i1 %71, label %.thread10.sink.split, label %.thread10
 
 72:                                               ; preds = %12
-  %73 = getelementptr inbounds i8, ptr %1, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !6
-  %77 = call i32 @kern_path(ptr noundef %7, i32 noundef 128, ptr noundef nonnull %4) #10
+  %77 = call i32 @kern_path(ptr noundef nonnull %7, i32 noundef 128, ptr noundef nonnull %4) #10
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %.thread
 
@@ -907,7 +907,7 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   br label %121
 
 79:                                               ; preds = %72
-  %80 = getelementptr inbounds i8, ptr %4, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %81
 
 81:                                               ; preds = %96, %79
@@ -918,15 +918,15 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   br i1 %85, label %86, label %.thread8
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %82, i64 112
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 112
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 96
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 96
   %90 = load i64, ptr %89, align 32
   %91 = icmp eq i64 %90, 391
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %86
-  %93 = getelementptr inbounds i8, ptr %88, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %94 = load i32, ptr %93, align 16
   %95 = icmp eq i32 %94, %76
   br i1 %95, label %99, label %96
@@ -959,9 +959,9 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   br i1 %109, label %.thread10, label %110
 
 110:                                              ; preds = %99
-  %111 = getelementptr inbounds i8, ptr %6, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 112
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 112
   %114 = load ptr, ptr %113, align 8
   br label %.thread10.sink.split
 
@@ -969,7 +969,7 @@ define internal i32 @autofs_dev_ioctl_ismountpoint(ptr noundef readnone %0, ptr 
   %.sink = phi ptr [ %114, %110 ], [ %59, %55 ]
   %.ph = phi i32 [ %106, %110 ], [ %68, %55 ]
   %.ph12 = phi i32 [ %107, %110 ], [ 1, %55 ]
-  %115 = getelementptr inbounds i8, ptr %.sink, i64 96
+  %115 = getelementptr inbounds nuw i8, ptr %.sink, i64 96
   %116 = load i64, ptr %115, align 32
   %117 = trunc i64 %116 to i32
   br label %.thread10

@@ -223,7 +223,7 @@ define internal noundef i64 @ossl_rsa_initialize(i32 noundef %0, ptr noundef %1,
 45:                                               ; preds = %41, %33
   %.sink = phi ptr [ %29, %33 ], [ %40, %41 ]
   %46 = inttoptr i64 %2 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store ptr %.sink, ptr %47, align 8
   ret i64 %2
 }
@@ -434,7 +434,7 @@ rb_num2int_inline.exit:                           ; preds = %30, %32
 
 35:                                               ; preds = %rbimpl_intern_const.exit31, %rbimpl_intern_const.exit, %rb_num2int_inline.exit
   %.0 = phi i32 [ %34, %rb_num2int_inline.exit ], [ -2, %rbimpl_intern_const.exit ], [ -1, %rbimpl_intern_const.exit31 ]
-  %36 = getelementptr inbounds i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = call ptr @ossl_evp_get_digestbyname(i64 noundef %37) #5
   %39 = call ptr @GetPrivPKeyPtr(i64 noundef %2) #5
@@ -478,7 +478,7 @@ rb_num2int_inline.exit:                           ; preds = %30, %32
   %61 = load i64, ptr %60, align 8, !noalias !9
   %62 = and i64 %61, 8192
   %.not.i.i = icmp eq i64 %62, 0
-  %63 = getelementptr inbounds i8, ptr %60, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %64
 
 64:                                               ; preds = %58
@@ -487,7 +487,7 @@ rb_num2int_inline.exit:                           ; preds = %30, %32
 
 RSTRING_PTR.exit:                                 ; preds = %58, %64
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %64 ], [ %63, %58 ]
-  %65 = getelementptr inbounds i8, ptr %60, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %66 = load i64, ptr %65, align 8
   %67 = call i32 @EVP_DigestSignUpdate(ptr noundef nonnull %46, ptr noundef %.sroa.2.0.i, i64 noundef %66) #5
   %.not24 = icmp eq i32 %67, 1
@@ -498,7 +498,7 @@ RSTRING_PTR.exit:                                 ; preds = %58, %64
   %70 = load i64, ptr %69, align 8, !noalias !12
   %71 = and i64 %70, 8192
   %.not.i.i33 = icmp eq i64 %71, 0
-  %72 = getelementptr inbounds i8, ptr %69, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
   br i1 %.not.i.i33, label %RSTRING_PTR.exit36, label %73
 
 73:                                               ; preds = %68
@@ -603,7 +603,7 @@ rb_num2int_inline.exit:                           ; preds = %30, %32
 
 35:                                               ; preds = %rbimpl_intern_const.exit33, %rbimpl_intern_const.exit, %rb_num2int_inline.exit
   %.018 = phi i32 [ %34, %rb_num2int_inline.exit ], [ -2, %rbimpl_intern_const.exit ], [ -1, %rbimpl_intern_const.exit33 ]
-  %36 = getelementptr inbounds i8, ptr %8, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = call ptr @ossl_evp_get_digestbyname(i64 noundef %37) #5
   %39 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #5
@@ -653,7 +653,7 @@ rb_num2int_inline.exit:                           ; preds = %30, %32
   %62 = load i64, ptr %61, align 8, !noalias !15
   %63 = and i64 %62, 8192
   %.not.i.i = icmp eq i64 %63, 0
-  %64 = getelementptr inbounds i8, ptr %61, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %65
 
 65:                                               ; preds = %59
@@ -662,7 +662,7 @@ rb_num2int_inline.exit:                           ; preds = %30, %32
 
 RSTRING_PTR.exit:                                 ; preds = %59, %65
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %65 ], [ %64, %59 ]
-  %66 = getelementptr inbounds i8, ptr %61, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %67 = load i64, ptr %66, align 8
   %68 = call i32 @EVP_DigestVerifyUpdate(ptr noundef nonnull %47, ptr noundef %.sroa.2.0.i, i64 noundef %67) #5
   %.not27 = icmp eq i32 %68, 1
@@ -674,7 +674,7 @@ RSTRING_PTR.exit:                                 ; preds = %59, %65
   %72 = load i64, ptr %71, align 8, !noalias !18
   %73 = and i64 %72, 8192
   %.not.i.i35 = icmp eq i64 %73, 0
-  %74 = getelementptr inbounds i8, ptr %71, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
   br i1 %.not.i.i35, label %RSTRING_PTR.exit38, label %75
 
 75:                                               ; preds = %69
@@ -683,7 +683,7 @@ RSTRING_PTR.exit:                                 ; preds = %59, %65
 
 RSTRING_PTR.exit38:                               ; preds = %69, %75
   %.sroa.2.0.i37 = phi ptr [ %.sroa.2.0.copyload.i36, %75 ], [ %74, %69 ]
-  %76 = getelementptr inbounds i8, ptr %71, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %77 = load i64, ptr %76, align 8
   %78 = call i32 @EVP_DigestVerifyFinal(ptr noundef nonnull %47, ptr noundef %.sroa.2.0.i37, i64 noundef %77) #5
   switch i32 %78, label %80 [

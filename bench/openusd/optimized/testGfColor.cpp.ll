@@ -95,11 +95,11 @@ $_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev = comdat any
 define dso_local noundef zeroext i1 @_Z13ColorApproxEqRK11GfColorTestS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %3, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.22.0.copyload.i = load float, ptr %.sroa.22.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.01.0.copyload.i6 = load <2 x float>, ptr %4, align 8
-  %.sroa.22.0..sroa_idx.i7 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.22.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.22.0.copyload.i8 = load float, ptr %.sroa.22.0..sroa_idx.i7, align 8
   %5 = fsub <2 x float> %.sroa.01.0.copyload.i, %.sroa.01.0.copyload.i6
   %6 = extractelement <2 x float> %5, i64 0
@@ -123,7 +123,7 @@ define dso_local noundef zeroext i1 @_Z15PointInTriangleRKN32pxrInternal_v0_24__
   %6 = load float, ptr %1, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %5, i64 0
   %7 = fsub float %.sroa.0.0.vec.extract.i, %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load float, ptr %8, align 4
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %5, i64 1
   %10 = fsub float %.sroa.0.4.vec.extract.i, %9
@@ -349,133 +349,133 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnon
   %170 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17GfColorSpaceNamesE seq_cst, align 8
   %171 = inttoptr i64 %170 to ptr
   %.not.i.i = icmp eq i64 %170, 0
-  %.sink1814.sroa.gep = getelementptr inbounds i8, ptr %48, i64 8
-  %.sink1814.sroa.gep1831 = getelementptr inbounds i8, ptr %47, i64 8
-  %.sink1814.sroa.gep1832 = getelementptr inbounds i8, ptr %46, i64 8
-  %.sink1814.sroa.gep1833 = getelementptr inbounds i8, ptr %45, i64 8
-  %.sink1814.sroa.gep1834 = getelementptr inbounds i8, ptr %44, i64 8
-  %.sink1814.sroa.gep1836 = getelementptr inbounds i8, ptr %48, i64 16
-  %.sink1814.sroa.gep1837 = getelementptr inbounds i8, ptr %47, i64 16
-  %.sink1814.sroa.gep1838 = getelementptr inbounds i8, ptr %46, i64 16
-  %.sink1814.sroa.gep1839 = getelementptr inbounds i8, ptr %45, i64 16
-  %.sink1814.sroa.gep1840 = getelementptr inbounds i8, ptr %44, i64 16
-  %.sink1814.sroa.gep1842 = getelementptr inbounds i8, ptr %48, i64 24
-  %.sink1814.sroa.gep1843 = getelementptr inbounds i8, ptr %47, i64 24
-  %.sink1814.sroa.gep1844 = getelementptr inbounds i8, ptr %46, i64 24
-  %.sink1814.sroa.gep1845 = getelementptr inbounds i8, ptr %45, i64 24
-  %.sink1814.sroa.gep1846 = getelementptr inbounds i8, ptr %44, i64 24
-  %.sink1814.sroa.gep1848 = getelementptr inbounds i8, ptr %48, i64 32
-  %.sink1814.sroa.gep1849 = getelementptr inbounds i8, ptr %47, i64 32
-  %.sink1814.sroa.gep1850 = getelementptr inbounds i8, ptr %46, i64 32
-  %.sink1814.sroa.gep1851 = getelementptr inbounds i8, ptr %45, i64 32
-  %.sink1814.sroa.gep1852 = getelementptr inbounds i8, ptr %44, i64 32
+  %.sink1814.sroa.gep = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %.sink1814.sroa.gep1831 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %.sink1814.sroa.gep1832 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %.sink1814.sroa.gep1833 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %.sink1814.sroa.gep1834 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %.sink1814.sroa.gep1836 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %.sink1814.sroa.gep1837 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %.sink1814.sroa.gep1838 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %.sink1814.sroa.gep1839 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %.sink1814.sroa.gep1840 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %.sink1814.sroa.gep1842 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %.sink1814.sroa.gep1843 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %.sink1814.sroa.gep1844 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %.sink1814.sroa.gep1845 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %.sink1814.sroa.gep1846 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %.sink1814.sroa.gep1848 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %.sink1814.sroa.gep1849 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %.sink1814.sroa.gep1850 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %.sink1814.sroa.gep1851 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %.sink1814.sroa.gep1852 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %.sink1814.sroa.gep1854 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %.sink1814.sroa.gep1855 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %.sink1814.sroa.gep1856 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %.sink1814.sroa.gep1857 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %.sink1814.sroa.gep1858 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %.sink1822.sroa.gep = getelementptr inbounds i8, ptr %27, i64 8
-  %.sink1822.sroa.gep1859 = getelementptr inbounds i8, ptr %26, i64 8
-  %.sink1822.sroa.gep1860 = getelementptr inbounds i8, ptr %25, i64 8
-  %.sink1822.sroa.gep1861 = getelementptr inbounds i8, ptr %24, i64 8
-  %.sink1822.sroa.gep1862 = getelementptr inbounds i8, ptr %23, i64 8
-  %.sink1822.sroa.gep1863 = getelementptr inbounds i8, ptr %28, i64 8
-  %.sink1822.sroa.gep1865 = getelementptr inbounds i8, ptr %27, i64 16
-  %.sink1822.sroa.gep1866 = getelementptr inbounds i8, ptr %26, i64 16
-  %.sink1822.sroa.gep1867 = getelementptr inbounds i8, ptr %25, i64 16
-  %.sink1822.sroa.gep1868 = getelementptr inbounds i8, ptr %24, i64 16
-  %.sink1822.sroa.gep1869 = getelementptr inbounds i8, ptr %23, i64 16
-  %.sink1822.sroa.gep1870 = getelementptr inbounds i8, ptr %28, i64 16
-  %.sink1822.sroa.gep1872 = getelementptr inbounds i8, ptr %27, i64 24
-  %.sink1822.sroa.gep1873 = getelementptr inbounds i8, ptr %26, i64 24
-  %.sink1822.sroa.gep1874 = getelementptr inbounds i8, ptr %25, i64 24
-  %.sink1822.sroa.gep1875 = getelementptr inbounds i8, ptr %24, i64 24
-  %.sink1822.sroa.gep1876 = getelementptr inbounds i8, ptr %23, i64 24
-  %.sink1822.sroa.gep1877 = getelementptr inbounds i8, ptr %28, i64 24
-  %.sink1822.sroa.gep1879 = getelementptr inbounds i8, ptr %27, i64 32
-  %.sink1822.sroa.gep1880 = getelementptr inbounds i8, ptr %26, i64 32
-  %.sink1822.sroa.gep1881 = getelementptr inbounds i8, ptr %25, i64 32
-  %.sink1822.sroa.gep1882 = getelementptr inbounds i8, ptr %24, i64 32
-  %.sink1822.sroa.gep1883 = getelementptr inbounds i8, ptr %23, i64 32
-  %.sink1822.sroa.gep1884 = getelementptr inbounds i8, ptr %28, i64 32
+  %.sink1822.sroa.gep = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %.sink1822.sroa.gep1859 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.sink1822.sroa.gep1860 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sink1822.sroa.gep1861 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sink1822.sroa.gep1862 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.sink1822.sroa.gep1863 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %.sink1822.sroa.gep1865 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %.sink1822.sroa.gep1866 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %.sink1822.sroa.gep1867 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %.sink1822.sroa.gep1868 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sink1822.sroa.gep1869 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %.sink1822.sroa.gep1870 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %.sink1822.sroa.gep1872 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %.sink1822.sroa.gep1873 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %.sink1822.sroa.gep1874 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %.sink1822.sroa.gep1875 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %.sink1822.sroa.gep1876 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %.sink1822.sroa.gep1877 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %.sink1822.sroa.gep1879 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %.sink1822.sroa.gep1880 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %.sink1822.sroa.gep1881 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %.sink1822.sroa.gep1882 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %.sink1822.sroa.gep1883 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %.sink1822.sroa.gep1884 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %.sink1822.sroa.gep1886 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %.sink1822.sroa.gep1887 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %.sink1822.sroa.gep1888 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %.sink1822.sroa.gep1889 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %.sink1822.sroa.gep1890 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %.sink1822.sroa.gep1891 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %.sink1830.sroa.gep = getelementptr inbounds i8, ptr %12, i64 8
-  %.sink1830.sroa.gep1892 = getelementptr inbounds i8, ptr %12, i64 8
-  %.sink1830.sroa.gep1893 = getelementptr inbounds i8, ptr %11, i64 8
-  %.sink1830.sroa.gep1894 = getelementptr inbounds i8, ptr %11, i64 8
-  %.sink1830.sroa.gep1895 = getelementptr inbounds i8, ptr %10, i64 8
-  %.sink1830.sroa.gep1896 = getelementptr inbounds i8, ptr %10, i64 8
-  %.sink1830.sroa.gep1897 = getelementptr inbounds i8, ptr %9, i64 8
-  %.sink1830.sroa.gep1898 = getelementptr inbounds i8, ptr %9, i64 8
-  %.sink1830.sroa.gep1899 = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink1830.sroa.gep1900 = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink1830.sroa.gep1901 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sink1830.sroa.gep1902 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sink1830.sroa.gep1903 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink1830.sroa.gep1904 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sink1830.sroa.gep1905 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink1830.sroa.gep1906 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink1830.sroa.gep1907 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink1830.sroa.gep1908 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sink1830.sroa.gep1910 = getelementptr inbounds i8, ptr %12, i64 16
-  %.sink1830.sroa.gep1911 = getelementptr inbounds i8, ptr %12, i64 16
-  %.sink1830.sroa.gep1912 = getelementptr inbounds i8, ptr %11, i64 16
-  %.sink1830.sroa.gep1913 = getelementptr inbounds i8, ptr %11, i64 16
-  %.sink1830.sroa.gep1914 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sink1830.sroa.gep1915 = getelementptr inbounds i8, ptr %10, i64 16
-  %.sink1830.sroa.gep1916 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sink1830.sroa.gep1917 = getelementptr inbounds i8, ptr %9, i64 16
-  %.sink1830.sroa.gep1918 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink1830.sroa.gep1919 = getelementptr inbounds i8, ptr %8, i64 16
-  %.sink1830.sroa.gep1920 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sink1830.sroa.gep1921 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sink1830.sroa.gep1922 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink1830.sroa.gep1923 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sink1830.sroa.gep1924 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink1830.sroa.gep1925 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sink1830.sroa.gep1926 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sink1830.sroa.gep1927 = getelementptr inbounds i8, ptr %4, i64 16
-  %.sink1830.sroa.gep1929 = getelementptr inbounds i8, ptr %12, i64 24
-  %.sink1830.sroa.gep1930 = getelementptr inbounds i8, ptr %12, i64 24
-  %.sink1830.sroa.gep1931 = getelementptr inbounds i8, ptr %11, i64 24
-  %.sink1830.sroa.gep1932 = getelementptr inbounds i8, ptr %11, i64 24
-  %.sink1830.sroa.gep1933 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sink1830.sroa.gep1934 = getelementptr inbounds i8, ptr %10, i64 24
-  %.sink1830.sroa.gep1935 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sink1830.sroa.gep1936 = getelementptr inbounds i8, ptr %9, i64 24
-  %.sink1830.sroa.gep1937 = getelementptr inbounds i8, ptr %8, i64 24
-  %.sink1830.sroa.gep1938 = getelementptr inbounds i8, ptr %8, i64 24
-  %.sink1830.sroa.gep1939 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sink1830.sroa.gep1940 = getelementptr inbounds i8, ptr %7, i64 24
-  %.sink1830.sroa.gep1941 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sink1830.sroa.gep1942 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sink1830.sroa.gep1943 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sink1830.sroa.gep1944 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sink1830.sroa.gep1945 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sink1830.sroa.gep1946 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sink1830.sroa.gep1948 = getelementptr inbounds i8, ptr %12, i64 32
-  %.sink1830.sroa.gep1949 = getelementptr inbounds i8, ptr %12, i64 32
-  %.sink1830.sroa.gep1950 = getelementptr inbounds i8, ptr %11, i64 32
-  %.sink1830.sroa.gep1951 = getelementptr inbounds i8, ptr %11, i64 32
-  %.sink1830.sroa.gep1952 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sink1830.sroa.gep1953 = getelementptr inbounds i8, ptr %10, i64 32
-  %.sink1830.sroa.gep1954 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sink1830.sroa.gep1955 = getelementptr inbounds i8, ptr %9, i64 32
-  %.sink1830.sroa.gep1956 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sink1830.sroa.gep1957 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sink1830.sroa.gep1958 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sink1830.sroa.gep1959 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sink1830.sroa.gep1960 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink1830.sroa.gep1961 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sink1830.sroa.gep1962 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sink1830.sroa.gep1963 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sink1830.sroa.gep1964 = getelementptr inbounds i8, ptr %4, i64 32
-  %.sink1830.sroa.gep1965 = getelementptr inbounds i8, ptr %4, i64 32
+  %.sink1830.sroa.gep = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink1830.sroa.gep1892 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink1830.sroa.gep1893 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink1830.sroa.gep1894 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink1830.sroa.gep1895 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink1830.sroa.gep1896 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink1830.sroa.gep1897 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink1830.sroa.gep1898 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink1830.sroa.gep1899 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink1830.sroa.gep1900 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink1830.sroa.gep1901 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink1830.sroa.gep1902 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink1830.sroa.gep1903 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink1830.sroa.gep1904 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink1830.sroa.gep1905 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink1830.sroa.gep1906 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink1830.sroa.gep1907 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink1830.sroa.gep1908 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink1830.sroa.gep1910 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink1830.sroa.gep1911 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink1830.sroa.gep1912 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink1830.sroa.gep1913 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink1830.sroa.gep1914 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink1830.sroa.gep1915 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink1830.sroa.gep1916 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink1830.sroa.gep1917 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink1830.sroa.gep1918 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink1830.sroa.gep1919 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink1830.sroa.gep1920 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink1830.sroa.gep1921 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink1830.sroa.gep1922 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink1830.sroa.gep1923 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink1830.sroa.gep1924 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink1830.sroa.gep1925 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink1830.sroa.gep1926 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink1830.sroa.gep1927 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sink1830.sroa.gep1929 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink1830.sroa.gep1930 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink1830.sroa.gep1931 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink1830.sroa.gep1932 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink1830.sroa.gep1933 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink1830.sroa.gep1934 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink1830.sroa.gep1935 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink1830.sroa.gep1936 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink1830.sroa.gep1937 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink1830.sroa.gep1938 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink1830.sroa.gep1939 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink1830.sroa.gep1940 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink1830.sroa.gep1941 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink1830.sroa.gep1942 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink1830.sroa.gep1943 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink1830.sroa.gep1944 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink1830.sroa.gep1945 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink1830.sroa.gep1946 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink1830.sroa.gep1948 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink1830.sroa.gep1949 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink1830.sroa.gep1950 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink1830.sroa.gep1951 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink1830.sroa.gep1952 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink1830.sroa.gep1953 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink1830.sroa.gep1954 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink1830.sroa.gep1955 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink1830.sroa.gep1956 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink1830.sroa.gep1957 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink1830.sroa.gep1958 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink1830.sroa.gep1959 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink1830.sroa.gep1960 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink1830.sroa.gep1961 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink1830.sroa.gep1962 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink1830.sroa.gep1963 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %.sink1830.sroa.gep1964 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sink1830.sroa.gep1965 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sink1830.sroa.gep1967 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.sink1830.sroa.gep1968 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %.sink1830.sroa.gep1969 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -801,9 +801,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33GfColorSpaceNames_Stat
 
 287:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33GfColorSpaceNames_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit174
   store float 5.000000e-01, ptr %69, align 4
-  %288 = getelementptr inbounds i8, ptr %69, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store float 2.500000e-01, ptr %288, align 4
-  %289 = getelementptr inbounds i8, ptr %69, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store float 1.250000e-01, ptr %289, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC1ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %68, ptr noundef nonnull align 4 dereferenceable(12) %69, ptr noundef nonnull align 8 dereferenceable(16) %62)
           to label %290 unwind label %4009
@@ -862,7 +862,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit:        ; preds = %_ZN11GfColorTestC2E
   %314 = getelementptr inbounds nuw i8, ptr %307, i64 12
   store i32 0, ptr %314, align 4
   %315 = load ptr, ptr %307, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 16
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 16
   %317 = load ptr, ptr %316, align 8
   call void %317(ptr noundef nonnull align 8 dereferenceable(16) %307) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
@@ -888,7 +888,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit:        ; preds = %_ZN11GfColorTestC2E
 
 326:                                              ; preds = %324
   %327 = load ptr, ptr %307, align 8
-  %328 = getelementptr inbounds i8, ptr %327, i64 16
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 16
   %329 = load ptr, ptr %328, align 8
   call void %329(ptr noundef nonnull align 8 dereferenceable(16) %307) #16
   %330 = getelementptr inbounds nuw i8, ptr %307, i64 12
@@ -913,7 +913,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit:        ; preds = %_ZN11GfColorTestC2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %337, %313
   %339 = load ptr, ptr %307, align 8
-  %340 = getelementptr inbounds i8, ptr %339, i64 24
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 24
   %341 = load ptr, ptr %340, align 8
   call void %341(ptr noundef nonnull align 8 dereferenceable(16) %307) #16
   br label %_ZN11GfColorTestD2Ev.exit
@@ -968,7 +968,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit182:     ; preds = %_ZN11GfColorTestC2E
   %364 = getelementptr inbounds nuw i8, ptr %357, i64 12
   store i32 0, ptr %364, align 4
   %365 = load ptr, ptr %357, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 16
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 16
   %367 = load ptr, ptr %366, align 8
   call void %367(ptr noundef nonnull align 8 dereferenceable(16) %357) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i188
@@ -994,7 +994,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit182:     ; preds = %_ZN11GfColorTestC2E
 
 376:                                              ; preds = %374
   %377 = load ptr, ptr %357, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 16
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 16
   %379 = load ptr, ptr %378, align 8
   call void %379(ptr noundef nonnull align 8 dereferenceable(16) %357) #16
   %380 = getelementptr inbounds nuw i8, ptr %357, i64 12
@@ -1019,16 +1019,16 @@ _ZNK11GfColorTest15GetChromaticityEv.exit182:     ; preds = %_ZN11GfColorTestC2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i188: ; preds = %387, %363
   %389 = load ptr, ptr %357, align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 24
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 24
   %391 = load ptr, ptr %390, align 8
   call void %391(ptr noundef nonnull align 8 dereferenceable(16) %357) #16
   br label %_ZN11GfColorTestD2Ev.exit189
 
 _ZN11GfColorTestD2Ev.exit189:                     ; preds = %_ZNK11GfColorTest15GetChromaticityEv.exit182, %374, %387, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i188
   store float 1.000000e+00, ptr %74, align 4
-  %392 = getelementptr inbounds i8, ptr %74, i64 4
+  %392 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store float 1.000000e+00, ptr %392, align 4
-  %393 = getelementptr inbounds i8, ptr %74, i64 8
+  %393 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store float 1.000000e+00, ptr %393, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %73, ptr noundef nonnull align 4 dereferenceable(12) %74, ptr noundef nonnull align 8 dereferenceable(16) %62)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit unwind label %.loopexit.split-lp
@@ -1055,7 +1055,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit192:     ; preds = %_ZN11GfColorTestC2E
   %403 = getelementptr inbounds nuw i8, ptr %396, i64 12
   store i32 0, ptr %403, align 4
   %404 = load ptr, ptr %396, align 8
-  %405 = getelementptr inbounds i8, ptr %404, i64 16
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 16
   %406 = load ptr, ptr %405, align 8
   call void %406(ptr noundef nonnull align 8 dereferenceable(16) %396) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i198
@@ -1081,7 +1081,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit192:     ; preds = %_ZN11GfColorTestC2E
 
 415:                                              ; preds = %413
   %416 = load ptr, ptr %396, align 8
-  %417 = getelementptr inbounds i8, ptr %416, i64 16
+  %417 = getelementptr inbounds nuw i8, ptr %416, i64 16
   %418 = load ptr, ptr %417, align 8
   call void %418(ptr noundef nonnull align 8 dereferenceable(16) %396) #16
   %419 = getelementptr inbounds nuw i8, ptr %396, i64 12
@@ -1106,7 +1106,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit192:     ; preds = %_ZN11GfColorTestC2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i198: ; preds = %426, %402
   %428 = load ptr, ptr %396, align 8
-  %429 = getelementptr inbounds i8, ptr %428, i64 24
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 24
   %430 = load ptr, ptr %429, align 8
   call void %430(ptr noundef nonnull align 8 dereferenceable(16) %396) #16
   br label %_ZN11GfColorTestD2Ev.exit199
@@ -1155,13 +1155,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit: ; preds = 
 
 446:                                              ; preds = %445
   store ptr @.str, ptr %59, align 8
-  %.sroa.21781.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 8
+  %.sroa.21781.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr @__func__.main, ptr %.sroa.21781.0..sroa_idx, align 8
-  %.sroa.31782.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 16
+  %.sroa.31782.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i64 109, ptr %.sroa.31782.0..sroa_idx, align 8
-  %.sroa.41783.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 24
+  %.sroa.41783.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41783.0..sroa_idx, align 8
-  %.sroa.51784.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 32
+  %.sroa.51784.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 32
   store i8 0, ptr %.sroa.51784.0..sroa_idx, align 8
   %447 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store i32 4, ptr %447, align 8
@@ -1189,7 +1189,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit: ; preds = 
   %456 = getelementptr inbounds nuw i8, ptr %449, i64 12
   store i32 0, ptr %456, align 4
   %457 = load ptr, ptr %449, align 8
-  %458 = getelementptr inbounds i8, ptr %457, i64 16
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 16
   %459 = load ptr, ptr %458, align 8
   call void %459(ptr noundef nonnull align 8 dereferenceable(16) %449) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -1215,7 +1215,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit: ; preds = 
 
 468:                                              ; preds = %466
   %469 = load ptr, ptr %449, align 8
-  %470 = getelementptr inbounds i8, ptr %469, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 16
   %471 = load ptr, ptr %470, align 8
   call void %471(ptr noundef nonnull align 8 dereferenceable(16) %449) #16
   %472 = getelementptr inbounds nuw i8, ptr %449, i64 12
@@ -1240,7 +1240,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit: ; preds = 
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %479, %455
   %481 = load ptr, ptr %449, align 8
-  %482 = getelementptr inbounds i8, ptr %481, i64 24
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 24
   %483 = load ptr, ptr %482, align 8
   call void %483(ptr noundef nonnull align 8 dereferenceable(16) %449) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit
@@ -1260,7 +1260,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.thread: ; preds = %_
   br label %488
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %78, i64 24
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 24
   %.sroa.22.0.copyload.i = load float, ptr %.sroa.22.0..sroa_idx.i, align 8
   %487 = fcmp oeq float %.sroa.22.0.copyload.i, 0.000000e+00
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %58)
@@ -1268,13 +1268,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit: ; preds = %_ZN32pxr
 
 488:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit
   store ptr @.str, ptr %58, align 8
-  %.sroa.21770.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 8
+  %.sroa.21770.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 8
   store ptr @__func__.main, ptr %.sroa.21770.0..sroa_idx, align 8
-  %.sroa.31771.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 16
+  %.sroa.31771.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i64 110, ptr %.sroa.31771.0..sroa_idx, align 8
-  %.sroa.41772.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 24
+  %.sroa.41772.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41772.0..sroa_idx, align 8
-  %.sroa.51773.0..sroa_idx = getelementptr inbounds i8, ptr %58, i64 32
+  %.sroa.51773.0..sroa_idx = getelementptr inbounds nuw i8, ptr %58, i64 32
   store i8 0, ptr %.sroa.51773.0..sroa_idx, align 8
   %489 = getelementptr inbounds nuw i8, ptr %58, i64 40
   store i32 4, ptr %489, align 8
@@ -1302,7 +1302,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit: ; preds = %_ZN32pxr
   %498 = getelementptr inbounds nuw i8, ptr %491, i64 12
   store i32 0, ptr %498, align 4
   %499 = load ptr, ptr %491, align 8
-  %500 = getelementptr inbounds i8, ptr %499, i64 16
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 16
   %501 = load ptr, ptr %500, align 8
   call void %501(ptr noundef nonnull align 8 dereferenceable(16) %491) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -1328,7 +1328,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit: ; preds = %_ZN32pxr
 
 510:                                              ; preds = %508
   %511 = load ptr, ptr %491, align 8
-  %512 = getelementptr inbounds i8, ptr %511, i64 16
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 16
   %513 = load ptr, ptr %512, align 8
   call void %513(ptr noundef nonnull align 8 dereferenceable(16) %491) #16
   %514 = getelementptr inbounds nuw i8, ptr %491, i64 12
@@ -1353,16 +1353,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit: ; preds = %_ZN32pxr
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %521, %497
   %523 = load ptr, ptr %491, align 8
-  %524 = getelementptr inbounds i8, ptr %523, i64 24
+  %524 = getelementptr inbounds nuw i8, ptr %523, i64 24
   %525 = load ptr, ptr %524, align 8
   call void %525(ptr noundef nonnull align 8 dereferenceable(16) %491) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit: ; preds = %490, %508, %521, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
   store float 5.000000e-01, ptr %81, align 4
-  %526 = getelementptr inbounds i8, ptr %81, i64 4
+  %526 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store float 5.000000e-01, ptr %526, align 4
-  %527 = getelementptr inbounds i8, ptr %81, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store float 5.000000e-01, ptr %527, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC1ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %80, ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull align 8 dereferenceable(16) %60)
           to label %528 unwind label %.loopexit.split-lp
@@ -1442,13 +1442,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit213: ; preds
 
 556:                                              ; preds = %555
   store ptr @.str, ptr %57, align 8
-  %.sroa.21764.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 8
+  %.sroa.21764.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr @__func__.main, ptr %.sroa.21764.0..sroa_idx, align 8
-  %.sroa.31765.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 16
+  %.sroa.31765.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 16
   store i64 116, ptr %.sroa.31765.0..sroa_idx, align 8
-  %.sroa.41766.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 24
+  %.sroa.41766.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41766.0..sroa_idx, align 8
-  %.sroa.51767.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 32
+  %.sroa.51767.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 32
   store i8 0, ptr %.sroa.51767.0..sroa_idx, align 8
   %557 = getelementptr inbounds nuw i8, ptr %57, i64 40
   store i32 4, ptr %557, align 8
@@ -1476,7 +1476,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit213: ; preds
   %566 = getelementptr inbounds nuw i8, ptr %559, i64 12
   store i32 0, ptr %566, align 4
   %567 = load ptr, ptr %559, align 8
-  %568 = getelementptr inbounds i8, ptr %567, i64 16
+  %568 = getelementptr inbounds nuw i8, ptr %567, i64 16
   %569 = load ptr, ptr %568, align 8
   call void %569(ptr noundef nonnull align 8 dereferenceable(16) %559) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i221
@@ -1502,7 +1502,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit213: ; preds
 
 578:                                              ; preds = %576
   %579 = load ptr, ptr %559, align 8
-  %580 = getelementptr inbounds i8, ptr %579, i64 16
+  %580 = getelementptr inbounds nuw i8, ptr %579, i64 16
   %581 = load ptr, ptr %580, align 8
   call void %581(ptr noundef nonnull align 8 dereferenceable(16) %559) #16
   %582 = getelementptr inbounds nuw i8, ptr %559, i64 12
@@ -1527,7 +1527,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit213: ; preds
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i221: ; preds = %589, %565
   %591 = load ptr, ptr %559, align 8
-  %592 = getelementptr inbounds i8, ptr %591, i64 24
+  %592 = getelementptr inbounds nuw i8, ptr %591, i64 24
   %593 = load ptr, ptr %592, align 8
   call void %593(ptr noundef nonnull align 8 dereferenceable(16) %559) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit222
@@ -1546,7 +1546,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228.thread: ; preds =
   br label %597
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit222
-  %.sroa.22.0..sroa_idx.i224 = getelementptr inbounds i8, ptr %82, i64 24
+  %.sroa.22.0..sroa_idx.i224 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %.sroa.22.0.copyload.i225 = load float, ptr %.sroa.22.0..sroa_idx.i224, align 8
   %596 = fcmp oeq float %.sroa.22.0.copyload.i225, 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %56)
@@ -1554,13 +1554,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228: ; preds = %_ZN32
 
 597:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228
   store ptr @.str, ptr %56, align 8
-  %.sroa.21753.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 8
+  %.sroa.21753.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr @__func__.main, ptr %.sroa.21753.0..sroa_idx, align 8
-  %.sroa.31754.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 16
+  %.sroa.31754.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i64 117, ptr %.sroa.31754.0..sroa_idx, align 8
-  %.sroa.41755.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 24
+  %.sroa.41755.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41755.0..sroa_idx, align 8
-  %.sroa.51756.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 32
+  %.sroa.51756.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 32
   store i8 0, ptr %.sroa.51756.0..sroa_idx, align 8
   %598 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store i32 4, ptr %598, align 8
@@ -1588,7 +1588,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228: ; preds = %_ZN32
   %607 = getelementptr inbounds nuw i8, ptr %600, i64 12
   store i32 0, ptr %607, align 4
   %608 = load ptr, ptr %600, align 8
-  %609 = getelementptr inbounds i8, ptr %608, i64 16
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 16
   %610 = load ptr, ptr %609, align 8
   call void %610(ptr noundef nonnull align 8 dereferenceable(16) %600) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i236
@@ -1614,7 +1614,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228: ; preds = %_ZN32
 
 619:                                              ; preds = %617
   %620 = load ptr, ptr %600, align 8
-  %621 = getelementptr inbounds i8, ptr %620, i64 16
+  %621 = getelementptr inbounds nuw i8, ptr %620, i64 16
   %622 = load ptr, ptr %621, align 8
   call void %622(ptr noundef nonnull align 8 dereferenceable(16) %600) #16
   %623 = getelementptr inbounds nuw i8, ptr %600, i64 12
@@ -1639,7 +1639,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit228: ; preds = %_ZN32
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i236: ; preds = %630, %606
   %632 = load ptr, ptr %600, align 8
-  %633 = getelementptr inbounds i8, ptr %632, i64 24
+  %633 = getelementptr inbounds nuw i8, ptr %632, i64 24
   %634 = load ptr, ptr %633, align 8
   call void %634(ptr noundef nonnull align 8 dereferenceable(16) %600) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit237
@@ -1661,7 +1661,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit237: ; preds = %599, %617,
   %642 = getelementptr inbounds nuw i8, ptr %635, i64 12
   store i32 0, ptr %642, align 4
   %643 = load ptr, ptr %635, align 8
-  %644 = getelementptr inbounds i8, ptr %643, i64 16
+  %644 = getelementptr inbounds nuw i8, ptr %643, i64 16
   %645 = load ptr, ptr %644, align 8
   call void %645(ptr noundef nonnull align 8 dereferenceable(16) %635) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i243
@@ -1687,7 +1687,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit237: ; preds = %599, %617,
 
 654:                                              ; preds = %652
   %655 = load ptr, ptr %635, align 8
-  %656 = getelementptr inbounds i8, ptr %655, i64 16
+  %656 = getelementptr inbounds nuw i8, ptr %655, i64 16
   %657 = load ptr, ptr %656, align 8
   call void %657(ptr noundef nonnull align 8 dereferenceable(16) %635) #16
   %658 = getelementptr inbounds nuw i8, ptr %635, i64 12
@@ -1712,7 +1712,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit237: ; preds = %599, %617,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i243: ; preds = %665, %641
   %667 = load ptr, ptr %635, align 8
-  %668 = getelementptr inbounds i8, ptr %667, i64 24
+  %668 = getelementptr inbounds nuw i8, ptr %667, i64 24
   %669 = load ptr, ptr %668, align 8
   call void %669(ptr noundef nonnull align 8 dereferenceable(16) %635) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit244
@@ -1758,13 +1758,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit247: ; preds
 
 685:                                              ; preds = %684
   store ptr @.str, ptr %55, align 8
-  %.sroa.21747.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 8
+  %.sroa.21747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr @__func__.main, ptr %.sroa.21747.0..sroa_idx, align 8
-  %.sroa.31748.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 16
+  %.sroa.31748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i64 122, ptr %.sroa.31748.0..sroa_idx, align 8
-  %.sroa.41749.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 24
+  %.sroa.41749.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41749.0..sroa_idx, align 8
-  %.sroa.51750.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 32
+  %.sroa.51750.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 32
   store i8 0, ptr %.sroa.51750.0..sroa_idx, align 8
   %686 = getelementptr inbounds nuw i8, ptr %55, i64 40
   store i32 4, ptr %686, align 8
@@ -1792,7 +1792,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit247: ; preds
   %695 = getelementptr inbounds nuw i8, ptr %688, i64 12
   store i32 0, ptr %695, align 4
   %696 = load ptr, ptr %688, align 8
-  %697 = getelementptr inbounds i8, ptr %696, i64 16
+  %697 = getelementptr inbounds nuw i8, ptr %696, i64 16
   %698 = load ptr, ptr %697, align 8
   call void %698(ptr noundef nonnull align 8 dereferenceable(16) %688) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i255
@@ -1818,7 +1818,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit247: ; preds
 
 707:                                              ; preds = %705
   %708 = load ptr, ptr %688, align 8
-  %709 = getelementptr inbounds i8, ptr %708, i64 16
+  %709 = getelementptr inbounds nuw i8, ptr %708, i64 16
   %710 = load ptr, ptr %709, align 8
   call void %710(ptr noundef nonnull align 8 dereferenceable(16) %688) #16
   %711 = getelementptr inbounds nuw i8, ptr %688, i64 12
@@ -1843,7 +1843,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit247: ; preds
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i255: ; preds = %718, %694
   %720 = load ptr, ptr %688, align 8
-  %721 = getelementptr inbounds i8, ptr %720, i64 24
+  %721 = getelementptr inbounds nuw i8, ptr %720, i64 24
   %722 = load ptr, ptr %721, align 8
   call void %722(ptr noundef nonnull align 8 dereferenceable(16) %688) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit256
@@ -1863,7 +1863,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262.thread: ; preds =
   br label %727
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit256
-  %.sroa.22.0..sroa_idx.i258 = getelementptr inbounds i8, ptr %84, i64 24
+  %.sroa.22.0..sroa_idx.i258 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %.sroa.22.0.copyload.i259 = load float, ptr %.sroa.22.0..sroa_idx.i258, align 8
   %726 = fcmp oeq float %.sroa.22.0.copyload.i259, 0.000000e+00
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %54)
@@ -1871,13 +1871,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262: ; preds = %_ZN32
 
 727:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262
   store ptr @.str, ptr %54, align 8
-  %.sroa.21736.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 8
+  %.sroa.21736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr @__func__.main, ptr %.sroa.21736.0..sroa_idx, align 8
-  %.sroa.31737.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 16
+  %.sroa.31737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i64 123, ptr %.sroa.31737.0..sroa_idx, align 8
-  %.sroa.41738.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 24
+  %.sroa.41738.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41738.0..sroa_idx, align 8
-  %.sroa.51739.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 32
+  %.sroa.51739.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 32
   store i8 0, ptr %.sroa.51739.0..sroa_idx, align 8
   %728 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i32 4, ptr %728, align 8
@@ -1905,7 +1905,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262: ; preds = %_ZN32
   %737 = getelementptr inbounds nuw i8, ptr %730, i64 12
   store i32 0, ptr %737, align 4
   %738 = load ptr, ptr %730, align 8
-  %739 = getelementptr inbounds i8, ptr %738, i64 16
+  %739 = getelementptr inbounds nuw i8, ptr %738, i64 16
   %740 = load ptr, ptr %739, align 8
   call void %740(ptr noundef nonnull align 8 dereferenceable(16) %730) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i270
@@ -1931,7 +1931,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262: ; preds = %_ZN32
 
 749:                                              ; preds = %747
   %750 = load ptr, ptr %730, align 8
-  %751 = getelementptr inbounds i8, ptr %750, i64 16
+  %751 = getelementptr inbounds nuw i8, ptr %750, i64 16
   %752 = load ptr, ptr %751, align 8
   call void %752(ptr noundef nonnull align 8 dereferenceable(16) %730) #16
   %753 = getelementptr inbounds nuw i8, ptr %730, i64 12
@@ -1956,16 +1956,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit262: ; preds = %_ZN32
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i270: ; preds = %760, %736
   %762 = load ptr, ptr %730, align 8
-  %763 = getelementptr inbounds i8, ptr %762, i64 24
+  %763 = getelementptr inbounds nuw i8, ptr %762, i64 24
   %764 = load ptr, ptr %763, align 8
   call void %764(ptr noundef nonnull align 8 dereferenceable(16) %730) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit271
 
 _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit271: ; preds = %729, %747, %760, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i270
   store float 5.000000e-01, ptr %87, align 4
-  %765 = getelementptr inbounds i8, ptr %87, i64 4
+  %765 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store float 5.000000e-01, ptr %765, align 4
-  %766 = getelementptr inbounds i8, ptr %87, i64 8
+  %766 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store float 5.000000e-01, ptr %766, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC1ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %86, ptr noundef nonnull align 4 dereferenceable(12) %87, ptr noundef nonnull align 8 dereferenceable(16) %60)
           to label %767 unwind label %.loopexit.split-lp
@@ -2007,13 +2007,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit274: ; preds
 
 782:                                              ; preds = %781
   store ptr @.str, ptr %53, align 8
-  %.sroa.21730.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 8
+  %.sroa.21730.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr @__func__.main, ptr %.sroa.21730.0..sroa_idx, align 8
-  %.sroa.31731.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 16
+  %.sroa.31731.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i64 128, ptr %.sroa.31731.0..sroa_idx, align 8
-  %.sroa.41732.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 24
+  %.sroa.41732.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41732.0..sroa_idx, align 8
-  %.sroa.51733.0..sroa_idx = getelementptr inbounds i8, ptr %53, i64 32
+  %.sroa.51733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 32
   store i8 0, ptr %.sroa.51733.0..sroa_idx, align 8
   %783 = getelementptr inbounds nuw i8, ptr %53, i64 40
   store i32 4, ptr %783, align 8
@@ -2041,7 +2041,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit274: ; preds
   %792 = getelementptr inbounds nuw i8, ptr %785, i64 12
   store i32 0, ptr %792, align 4
   %793 = load ptr, ptr %785, align 8
-  %794 = getelementptr inbounds i8, ptr %793, i64 16
+  %794 = getelementptr inbounds nuw i8, ptr %793, i64 16
   %795 = load ptr, ptr %794, align 8
   call void %795(ptr noundef nonnull align 8 dereferenceable(16) %785) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i282
@@ -2067,7 +2067,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit274: ; preds
 
 804:                                              ; preds = %802
   %805 = load ptr, ptr %785, align 8
-  %806 = getelementptr inbounds i8, ptr %805, i64 16
+  %806 = getelementptr inbounds nuw i8, ptr %805, i64 16
   %807 = load ptr, ptr %806, align 8
   call void %807(ptr noundef nonnull align 8 dereferenceable(16) %785) #16
   %808 = getelementptr inbounds nuw i8, ptr %785, i64 12
@@ -2092,7 +2092,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit274: ; preds
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i282: ; preds = %815, %791
   %817 = load ptr, ptr %785, align 8
-  %818 = getelementptr inbounds i8, ptr %817, i64 24
+  %818 = getelementptr inbounds nuw i8, ptr %817, i64 24
   %819 = load ptr, ptr %818, align 8
   call void %819(ptr noundef nonnull align 8 dereferenceable(16) %785) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit283
@@ -2112,7 +2112,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289.thread: ; preds =
   br label %824
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit283
-  %.sroa.22.0..sroa_idx.i285 = getelementptr inbounds i8, ptr %86, i64 24
+  %.sroa.22.0..sroa_idx.i285 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %.sroa.22.0.copyload.i286 = load float, ptr %.sroa.22.0..sroa_idx.i285, align 8
   %823 = fcmp oeq float %.sroa.22.0.copyload.i286, 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %52)
@@ -2120,13 +2120,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289: ; preds = %_ZN32
 
 824:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289
   store ptr @.str, ptr %52, align 8
-  %.sroa.21719.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 8
+  %.sroa.21719.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr @__func__.main, ptr %.sroa.21719.0..sroa_idx, align 8
-  %.sroa.31720.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 16
+  %.sroa.31720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i64 129, ptr %.sroa.31720.0..sroa_idx, align 8
-  %.sroa.41721.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 24
+  %.sroa.41721.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41721.0..sroa_idx, align 8
-  %.sroa.51722.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 32
+  %.sroa.51722.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 32
   store i8 0, ptr %.sroa.51722.0..sroa_idx, align 8
   %825 = getelementptr inbounds nuw i8, ptr %52, i64 40
   store i32 4, ptr %825, align 8
@@ -2154,7 +2154,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289: ; preds = %_ZN32
   %834 = getelementptr inbounds nuw i8, ptr %827, i64 12
   store i32 0, ptr %834, align 4
   %835 = load ptr, ptr %827, align 8
-  %836 = getelementptr inbounds i8, ptr %835, i64 16
+  %836 = getelementptr inbounds nuw i8, ptr %835, i64 16
   %837 = load ptr, ptr %836, align 8
   call void %837(ptr noundef nonnull align 8 dereferenceable(16) %827) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i297
@@ -2180,7 +2180,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289: ; preds = %_ZN32
 
 846:                                              ; preds = %844
   %847 = load ptr, ptr %827, align 8
-  %848 = getelementptr inbounds i8, ptr %847, i64 16
+  %848 = getelementptr inbounds nuw i8, ptr %847, i64 16
   %849 = load ptr, ptr %848, align 8
   call void %849(ptr noundef nonnull align 8 dereferenceable(16) %827) #16
   %850 = getelementptr inbounds nuw i8, ptr %827, i64 12
@@ -2205,7 +2205,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3feqERKS0_.exit289: ; preds = %_ZN32
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i297: ; preds = %857, %833
   %859 = load ptr, ptr %827, align 8
-  %860 = getelementptr inbounds i8, ptr %859, i64 24
+  %860 = getelementptr inbounds nuw i8, ptr %859, i64 24
   %861 = load ptr, ptr %860, align 8
   call void %861(ptr noundef nonnull align 8 dereferenceable(16) %827) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298
@@ -2220,11 +2220,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
 
 863:                                              ; preds = %862
   %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %305, align 8
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %68, i64 24
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %68, i64 24
   %.sroa.22.0.copyload.i.i = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %864 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %.sroa.01.0.copyload.i7.i = load <2 x float>, ptr %864, align 8
-  %.sroa.22.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %90, i64 24
+  %.sroa.22.0..sroa_idx.i8.i = getelementptr inbounds nuw i8, ptr %90, i64 24
   %.sroa.22.0.copyload.i9.i = load float, ptr %.sroa.22.0..sroa_idx.i8.i, align 8
   %865 = fsub <2 x float> %.sroa.01.0.copyload.i.i, %.sroa.01.0.copyload.i7.i
   %866 = extractelement <2 x float> %865, i64 0
@@ -2241,13 +2241,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
 
 875:                                              ; preds = %863
   store ptr @.str, ptr %51, align 8
-  %.sroa.21713.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 8
+  %.sroa.21713.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr @__func__.main, ptr %.sroa.21713.0..sroa_idx, align 8
-  %.sroa.31714.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 16
+  %.sroa.31714.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 16
   store i64 135, ptr %.sroa.31714.0..sroa_idx, align 8
-  %.sroa.41715.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 24
+  %.sroa.41715.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41715.0..sroa_idx, align 8
-  %.sroa.51716.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 32
+  %.sroa.51716.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i8 0, ptr %.sroa.51716.0..sroa_idx, align 8
   %876 = getelementptr inbounds nuw i8, ptr %51, i64 40
   store i32 4, ptr %876, align 8
@@ -2265,11 +2265,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
 878:                                              ; preds = %877
   %879 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %.sroa.01.0.copyload.i.i301 = load <2 x float>, ptr %879, align 8
-  %.sroa.22.0..sroa_idx.i.i302 = getelementptr inbounds i8, ptr %89, i64 24
+  %.sroa.22.0..sroa_idx.i.i302 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %.sroa.22.0.copyload.i.i303 = load float, ptr %.sroa.22.0..sroa_idx.i.i302, align 8
   %880 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %.sroa.01.0.copyload.i7.i304 = load <2 x float>, ptr %880, align 8
-  %.sroa.22.0..sroa_idx.i8.i305 = getelementptr inbounds i8, ptr %91, i64 24
+  %.sroa.22.0..sroa_idx.i8.i305 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %.sroa.22.0.copyload.i9.i306 = load float, ptr %.sroa.22.0..sroa_idx.i8.i305, align 8
   %881 = fsub <2 x float> %.sroa.01.0.copyload.i.i301, %.sroa.01.0.copyload.i7.i304
   %882 = extractelement <2 x float> %881, i64 0
@@ -2286,13 +2286,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
 
 891:                                              ; preds = %878
   store ptr @.str, ptr %50, align 8
-  %.sroa.21707.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 8
+  %.sroa.21707.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr @__func__.main, ptr %.sroa.21707.0..sroa_idx, align 8
-  %.sroa.31708.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 16
+  %.sroa.31708.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i64 137, ptr %.sroa.31708.0..sroa_idx, align 8
-  %.sroa.41709.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 24
+  %.sroa.41709.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41709.0..sroa_idx, align 8
-  %.sroa.51710.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 32
+  %.sroa.51710.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 32
   store i8 0, ptr %.sroa.51710.0..sroa_idx, align 8
   %892 = getelementptr inbounds nuw i8, ptr %50, i64 40
   store i32 4, ptr %892, align 8
@@ -2321,7 +2321,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
   %902 = getelementptr inbounds nuw i8, ptr %895, i64 12
   store i32 0, ptr %902, align 4
   %903 = load ptr, ptr %895, align 8
-  %904 = getelementptr inbounds i8, ptr %903, i64 16
+  %904 = getelementptr inbounds nuw i8, ptr %903, i64 16
   %905 = load ptr, ptr %904, align 8
   call void %905(ptr noundef nonnull align 8 dereferenceable(16) %895) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i318
@@ -2347,7 +2347,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
 
 914:                                              ; preds = %912
   %915 = load ptr, ptr %895, align 8
-  %916 = getelementptr inbounds i8, ptr %915, i64 16
+  %916 = getelementptr inbounds nuw i8, ptr %915, i64 16
   %917 = load ptr, ptr %916, align 8
   call void %917(ptr noundef nonnull align 8 dereferenceable(16) %895) #16
   %918 = getelementptr inbounds nuw i8, ptr %895, i64 12
@@ -2372,7 +2372,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit298: ; preds = %826, %844,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i318: ; preds = %925, %901
   %927 = load ptr, ptr %895, align 8
-  %928 = getelementptr inbounds i8, ptr %927, i64 24
+  %928 = getelementptr inbounds nuw i8, ptr %927, i64 24
   %929 = load ptr, ptr %928, align 8
   call void %929(ptr noundef nonnull align 8 dereferenceable(16) %895) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit319
@@ -2395,7 +2395,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit319: ; preds = %893, %912,
   %938 = getelementptr inbounds nuw i8, ptr %931, i64 12
   store i32 0, ptr %938, align 4
   %939 = load ptr, ptr %931, align 8
-  %940 = getelementptr inbounds i8, ptr %939, i64 16
+  %940 = getelementptr inbounds nuw i8, ptr %939, i64 16
   %941 = load ptr, ptr %940, align 8
   call void %941(ptr noundef nonnull align 8 dereferenceable(16) %931) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i325
@@ -2421,7 +2421,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit319: ; preds = %893, %912,
 
 950:                                              ; preds = %948
   %951 = load ptr, ptr %931, align 8
-  %952 = getelementptr inbounds i8, ptr %951, i64 16
+  %952 = getelementptr inbounds nuw i8, ptr %951, i64 16
   %953 = load ptr, ptr %952, align 8
   call void %953(ptr noundef nonnull align 8 dereferenceable(16) %931) #16
   %954 = getelementptr inbounds nuw i8, ptr %931, i64 12
@@ -2446,7 +2446,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit319: ; preds = %893, %912,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i325: ; preds = %961, %937
   %963 = load ptr, ptr %931, align 8
-  %964 = getelementptr inbounds i8, ptr %963, i64 24
+  %964 = getelementptr inbounds nuw i8, ptr %963, i64 24
   %965 = load ptr, ptr %964, align 8
   call void %965(ptr noundef nonnull align 8 dereferenceable(16) %931) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit326
@@ -2469,7 +2469,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit326: ; preds = %_ZN32pxrIn
   %974 = getelementptr inbounds nuw i8, ptr %967, i64 12
   store i32 0, ptr %974, align 4
   %975 = load ptr, ptr %967, align 8
-  %976 = getelementptr inbounds i8, ptr %975, i64 16
+  %976 = getelementptr inbounds nuw i8, ptr %975, i64 16
   %977 = load ptr, ptr %976, align 8
   call void %977(ptr noundef nonnull align 8 dereferenceable(16) %967) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i332
@@ -2495,7 +2495,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit326: ; preds = %_ZN32pxrIn
 
 986:                                              ; preds = %984
   %987 = load ptr, ptr %967, align 8
-  %988 = getelementptr inbounds i8, ptr %987, i64 16
+  %988 = getelementptr inbounds nuw i8, ptr %987, i64 16
   %989 = load ptr, ptr %988, align 8
   call void %989(ptr noundef nonnull align 8 dereferenceable(16) %967) #16
   %990 = getelementptr inbounds nuw i8, ptr %967, i64 12
@@ -2520,7 +2520,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit326: ; preds = %_ZN32pxrIn
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i332: ; preds = %997, %973
   %999 = load ptr, ptr %967, align 8
-  %1000 = getelementptr inbounds i8, ptr %999, i64 24
+  %1000 = getelementptr inbounds nuw i8, ptr %999, i64 24
   %1001 = load ptr, ptr %1000, align 8
   call void %1001(ptr noundef nonnull align 8 dereferenceable(16) %967) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit333
@@ -2538,7 +2538,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit333: ; preds = %_ZN32pxrIn
   %.sroa.22.0.copyload.i.i336 = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %1004 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %.sroa.01.0.copyload.i7.i337 = load <2 x float>, ptr %1004, align 8
-  %.sroa.22.0..sroa_idx.i8.i338 = getelementptr inbounds i8, ptr %93, i64 24
+  %.sroa.22.0..sroa_idx.i8.i338 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %.sroa.22.0.copyload.i9.i339 = load float, ptr %.sroa.22.0..sroa_idx.i8.i338, align 8
   %1005 = fsub <2 x float> %.sroa.01.0.copyload.i.i334, %.sroa.01.0.copyload.i7.i337
   %1006 = extractelement <2 x float> %1005, i64 0
@@ -2555,13 +2555,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit333: ; preds = %_ZN32pxrIn
 
 1015:                                             ; preds = %1003
   store ptr @.str, ptr %49, align 8
-  %.sroa.21701.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
+  %.sroa.21701.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr @__func__.main, ptr %.sroa.21701.0..sroa_idx, align 8
-  %.sroa.31702.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 16
+  %.sroa.31702.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i64 143, ptr %.sroa.31702.0..sroa_idx, align 8
-  %.sroa.41703.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 24
+  %.sroa.41703.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41703.0..sroa_idx, align 8
-  %.sroa.51704.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 32
+  %.sroa.51704.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 32
   store i8 0, ptr %.sroa.51704.0..sroa_idx, align 8
   %1016 = getelementptr inbounds nuw i8, ptr %49, i64 40
   store i32 4, ptr %1016, align 8
@@ -2590,7 +2590,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit333: ; preds = %_ZN32pxrIn
   %1026 = getelementptr inbounds nuw i8, ptr %1019, i64 12
   store i32 0, ptr %1026, align 4
   %1027 = load ptr, ptr %1019, align 8
-  %1028 = getelementptr inbounds i8, ptr %1027, i64 16
+  %1028 = getelementptr inbounds nuw i8, ptr %1027, i64 16
   %1029 = load ptr, ptr %1028, align 8
   call void %1029(ptr noundef nonnull align 8 dereferenceable(16) %1019) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i351
@@ -2616,7 +2616,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit333: ; preds = %_ZN32pxrIn
 
 1038:                                             ; preds = %1036
   %1039 = load ptr, ptr %1019, align 8
-  %1040 = getelementptr inbounds i8, ptr %1039, i64 16
+  %1040 = getelementptr inbounds nuw i8, ptr %1039, i64 16
   %1041 = load ptr, ptr %1040, align 8
   call void %1041(ptr noundef nonnull align 8 dereferenceable(16) %1019) #16
   %1042 = getelementptr inbounds nuw i8, ptr %1019, i64 12
@@ -2641,7 +2641,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit333: ; preds = %_ZN32pxrIn
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i351: ; preds = %1049, %1025
   %1051 = load ptr, ptr %1019, align 8
-  %1052 = getelementptr inbounds i8, ptr %1051, i64 24
+  %1052 = getelementptr inbounds nuw i8, ptr %1051, i64 24
   %1053 = load ptr, ptr %1052, align 8
   call void %1053(ptr noundef nonnull align 8 dereferenceable(16) %1019) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit352
@@ -2664,7 +2664,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit352: ; preds = %1017, %103
   %1062 = getelementptr inbounds nuw i8, ptr %1055, i64 12
   store i32 0, ptr %1062, align 4
   %1063 = load ptr, ptr %1055, align 8
-  %1064 = getelementptr inbounds i8, ptr %1063, i64 16
+  %1064 = getelementptr inbounds nuw i8, ptr %1063, i64 16
   %1065 = load ptr, ptr %1064, align 8
   call void %1065(ptr noundef nonnull align 8 dereferenceable(16) %1055) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i358
@@ -2690,7 +2690,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit352: ; preds = %1017, %103
 
 1074:                                             ; preds = %1072
   %1075 = load ptr, ptr %1055, align 8
-  %1076 = getelementptr inbounds i8, ptr %1075, i64 16
+  %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 16
   %1077 = load ptr, ptr %1076, align 8
   call void %1077(ptr noundef nonnull align 8 dereferenceable(16) %1055) #16
   %1078 = getelementptr inbounds nuw i8, ptr %1055, i64 12
@@ -2715,7 +2715,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit352: ; preds = %1017, %103
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i358: ; preds = %1085, %1061
   %1087 = load ptr, ptr %1055, align 8
-  %1088 = getelementptr inbounds i8, ptr %1087, i64 24
+  %1088 = getelementptr inbounds nuw i8, ptr %1087, i64 24
   %1089 = load ptr, ptr %1088, align 8
   call void %1089(ptr noundef nonnull align 8 dereferenceable(16) %1055) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit359
@@ -2856,7 +2856,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit372:     ; preds = %_ZNK11GfColorTest15
   %1145 = getelementptr inbounds nuw i8, ptr %1138, i64 12
   store i32 0, ptr %1145, align 4
   %1146 = load ptr, ptr %1138, align 8
-  %1147 = getelementptr inbounds i8, ptr %1146, i64 16
+  %1147 = getelementptr inbounds nuw i8, ptr %1146, i64 16
   %1148 = load ptr, ptr %1147, align 8
   call void %1148(ptr noundef nonnull align 8 dereferenceable(16) %1138) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i398
@@ -2882,7 +2882,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit372:     ; preds = %_ZNK11GfColorTest15
 
 1157:                                             ; preds = %1155
   %1158 = load ptr, ptr %1138, align 8
-  %1159 = getelementptr inbounds i8, ptr %1158, i64 16
+  %1159 = getelementptr inbounds nuw i8, ptr %1158, i64 16
   %1160 = load ptr, ptr %1159, align 8
   call void %1160(ptr noundef nonnull align 8 dereferenceable(16) %1138) #16
   %1161 = getelementptr inbounds nuw i8, ptr %1138, i64 12
@@ -2907,7 +2907,7 @@ _ZNK11GfColorTest15GetChromaticityEv.exit372:     ; preds = %_ZNK11GfColorTest15
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i398: ; preds = %1168, %1144
   %1170 = load ptr, ptr %1138, align 8
-  %1171 = getelementptr inbounds i8, ptr %1170, i64 24
+  %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 24
   %1172 = load ptr, ptr %1171, align 8
   call void %1172(ptr noundef nonnull align 8 dereferenceable(16) %1138) #16
   br label %_ZN11GfColorTestD2Ev.exit399
@@ -2930,7 +2930,7 @@ _ZN11GfColorTestD2Ev.exit399:                     ; preds = %1136, %1155, %1168,
   %1181 = getelementptr inbounds nuw i8, ptr %1174, i64 12
   store i32 0, ptr %1181, align 4
   %1182 = load ptr, ptr %1174, align 8
-  %1183 = getelementptr inbounds i8, ptr %1182, i64 16
+  %1183 = getelementptr inbounds nuw i8, ptr %1182, i64 16
   %1184 = load ptr, ptr %1183, align 8
   call void %1184(ptr noundef nonnull align 8 dereferenceable(16) %1174) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i405
@@ -2956,7 +2956,7 @@ _ZN11GfColorTestD2Ev.exit399:                     ; preds = %1136, %1155, %1168,
 
 1193:                                             ; preds = %1191
   %1194 = load ptr, ptr %1174, align 8
-  %1195 = getelementptr inbounds i8, ptr %1194, i64 16
+  %1195 = getelementptr inbounds nuw i8, ptr %1194, i64 16
   %1196 = load ptr, ptr %1195, align 8
   call void %1196(ptr noundef nonnull align 8 dereferenceable(16) %1174) #16
   %1197 = getelementptr inbounds nuw i8, ptr %1174, i64 12
@@ -2981,7 +2981,7 @@ _ZN11GfColorTestD2Ev.exit399:                     ; preds = %1136, %1155, %1168,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i405: ; preds = %1204, %1180
   %1206 = load ptr, ptr %1174, align 8
-  %1207 = getelementptr inbounds i8, ptr %1206, i64 24
+  %1207 = getelementptr inbounds nuw i8, ptr %1206, i64 24
   %1208 = load ptr, ptr %1207, align 8
   call void %1208(ptr noundef nonnull align 8 dereferenceable(16) %1174) #16
   br label %_ZN11GfColorTestD2Ev.exit406
@@ -3004,7 +3004,7 @@ _ZN11GfColorTestD2Ev.exit406:                     ; preds = %_ZN11GfColorTestD2E
   %1217 = getelementptr inbounds nuw i8, ptr %1210, i64 12
   store i32 0, ptr %1217, align 4
   %1218 = load ptr, ptr %1210, align 8
-  %1219 = getelementptr inbounds i8, ptr %1218, i64 16
+  %1219 = getelementptr inbounds nuw i8, ptr %1218, i64 16
   %1220 = load ptr, ptr %1219, align 8
   call void %1220(ptr noundef nonnull align 8 dereferenceable(16) %1210) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i412
@@ -3030,7 +3030,7 @@ _ZN11GfColorTestD2Ev.exit406:                     ; preds = %_ZN11GfColorTestD2E
 
 1229:                                             ; preds = %1227
   %1230 = load ptr, ptr %1210, align 8
-  %1231 = getelementptr inbounds i8, ptr %1230, i64 16
+  %1231 = getelementptr inbounds nuw i8, ptr %1230, i64 16
   %1232 = load ptr, ptr %1231, align 8
   call void %1232(ptr noundef nonnull align 8 dereferenceable(16) %1210) #16
   %1233 = getelementptr inbounds nuw i8, ptr %1210, i64 12
@@ -3055,7 +3055,7 @@ _ZN11GfColorTestD2Ev.exit406:                     ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i412: ; preds = %1240, %1216
   %1242 = load ptr, ptr %1210, align 8
-  %1243 = getelementptr inbounds i8, ptr %1242, i64 24
+  %1243 = getelementptr inbounds nuw i8, ptr %1242, i64 24
   %1244 = load ptr, ptr %1243, align 8
   call void %1244(ptr noundef nonnull align 8 dereferenceable(16) %1210) #16
   br label %_ZN11GfColorTestD2Ev.exit413
@@ -3078,7 +3078,7 @@ _ZN11GfColorTestD2Ev.exit413:                     ; preds = %_ZN11GfColorTestD2E
   %1253 = getelementptr inbounds nuw i8, ptr %1246, i64 12
   store i32 0, ptr %1253, align 4
   %1254 = load ptr, ptr %1246, align 8
-  %1255 = getelementptr inbounds i8, ptr %1254, i64 16
+  %1255 = getelementptr inbounds nuw i8, ptr %1254, i64 16
   %1256 = load ptr, ptr %1255, align 8
   call void %1256(ptr noundef nonnull align 8 dereferenceable(16) %1246) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i419
@@ -3104,7 +3104,7 @@ _ZN11GfColorTestD2Ev.exit413:                     ; preds = %_ZN11GfColorTestD2E
 
 1265:                                             ; preds = %1263
   %1266 = load ptr, ptr %1246, align 8
-  %1267 = getelementptr inbounds i8, ptr %1266, i64 16
+  %1267 = getelementptr inbounds nuw i8, ptr %1266, i64 16
   %1268 = load ptr, ptr %1267, align 8
   call void %1268(ptr noundef nonnull align 8 dereferenceable(16) %1246) #16
   %1269 = getelementptr inbounds nuw i8, ptr %1246, i64 12
@@ -3129,7 +3129,7 @@ _ZN11GfColorTestD2Ev.exit413:                     ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i419: ; preds = %1276, %1252
   %1278 = load ptr, ptr %1246, align 8
-  %1279 = getelementptr inbounds i8, ptr %1278, i64 24
+  %1279 = getelementptr inbounds nuw i8, ptr %1278, i64 24
   %1280 = load ptr, ptr %1279, align 8
   call void %1280(ptr noundef nonnull align 8 dereferenceable(16) %1246) #16
   br label %_ZN11GfColorTestD2Ev.exit420
@@ -3152,7 +3152,7 @@ _ZN11GfColorTestD2Ev.exit420:                     ; preds = %_ZN11GfColorTestD2E
   %1289 = getelementptr inbounds nuw i8, ptr %1282, i64 12
   store i32 0, ptr %1289, align 4
   %1290 = load ptr, ptr %1282, align 8
-  %1291 = getelementptr inbounds i8, ptr %1290, i64 16
+  %1291 = getelementptr inbounds nuw i8, ptr %1290, i64 16
   %1292 = load ptr, ptr %1291, align 8
   call void %1292(ptr noundef nonnull align 8 dereferenceable(16) %1282) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i426
@@ -3178,7 +3178,7 @@ _ZN11GfColorTestD2Ev.exit420:                     ; preds = %_ZN11GfColorTestD2E
 
 1301:                                             ; preds = %1299
   %1302 = load ptr, ptr %1282, align 8
-  %1303 = getelementptr inbounds i8, ptr %1302, i64 16
+  %1303 = getelementptr inbounds nuw i8, ptr %1302, i64 16
   %1304 = load ptr, ptr %1303, align 8
   call void %1304(ptr noundef nonnull align 8 dereferenceable(16) %1282) #16
   %1305 = getelementptr inbounds nuw i8, ptr %1282, i64 12
@@ -3203,7 +3203,7 @@ _ZN11GfColorTestD2Ev.exit420:                     ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i426: ; preds = %1312, %1288
   %1314 = load ptr, ptr %1282, align 8
-  %1315 = getelementptr inbounds i8, ptr %1314, i64 24
+  %1315 = getelementptr inbounds nuw i8, ptr %1314, i64 24
   %1316 = load ptr, ptr %1315, align 8
   call void %1316(ptr noundef nonnull align 8 dereferenceable(16) %1282) #16
   br label %_ZN11GfColorTestD2Ev.exit427
@@ -3215,10 +3215,10 @@ _ZN11GfColorTestD2Ev.exit427:                     ; preds = %_ZN11GfColorTestD2E
 1317:                                             ; preds = %_ZN11GfColorTestD2Ev.exit427
   %1318 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %.sroa.01.0.copyload.i.i430 = load <2 x float>, ptr %1318, align 8
-  %.sroa.22.0..sroa_idx.i.i431 = getelementptr inbounds i8, ptr %99, i64 24
+  %.sroa.22.0..sroa_idx.i.i431 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %.sroa.22.0.copyload.i.i432 = load float, ptr %.sroa.22.0..sroa_idx.i.i431, align 8
   %.sroa.01.0.copyload.i7.i433 = load <2 x float>, ptr %355, align 8
-  %.sroa.22.0..sroa_idx.i8.i434 = getelementptr inbounds i8, ptr %70, i64 24
+  %.sroa.22.0..sroa_idx.i8.i434 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %.sroa.22.0.copyload.i9.i435 = load float, ptr %.sroa.22.0..sroa_idx.i8.i434, align 8
   %1319 = fsub <2 x float> %.sroa.01.0.copyload.i.i430, %.sroa.01.0.copyload.i7.i433
   %1320 = extractelement <2 x float> %1319, i64 0
@@ -3235,13 +3235,13 @@ _ZN11GfColorTestD2Ev.exit427:                     ; preds = %_ZN11GfColorTestD2E
 
 1329:                                             ; preds = %1317
   store ptr @.str, ptr %43, align 8
-  %.sroa.21657.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 8
+  %.sroa.21657.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr @__func__.main, ptr %.sroa.21657.0..sroa_idx, align 8
-  %.sroa.31658.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 16
+  %.sroa.31658.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 169, ptr %.sroa.31658.0..sroa_idx, align 8
-  %.sroa.41659.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 24
+  %.sroa.41659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41659.0..sroa_idx, align 8
-  %.sroa.51660.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 32
+  %.sroa.51660.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
   store i8 0, ptr %.sroa.51660.0..sroa_idx, align 8
   %1330 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store i32 4, ptr %1330, align 8
@@ -3259,7 +3259,7 @@ _ZN11GfColorTestD2Ev.exit427:                     ; preds = %_ZN11GfColorTestD2E
 1332:                                             ; preds = %1331
   %1333 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %.sroa.01.0.copyload.i.i444 = load <2 x float>, ptr %1333, align 8
-  %.sroa.22.0..sroa_idx.i.i445 = getelementptr inbounds i8, ptr %100, i64 24
+  %.sroa.22.0..sroa_idx.i.i445 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %.sroa.22.0.copyload.i.i446 = load float, ptr %.sroa.22.0..sroa_idx.i.i445, align 8
   %.sroa.01.0.copyload.i7.i447 = load <2 x float>, ptr %305, align 8
   %.sroa.22.0.copyload.i9.i449 = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 8
@@ -3278,13 +3278,13 @@ _ZN11GfColorTestD2Ev.exit427:                     ; preds = %_ZN11GfColorTestD2E
 
 1344:                                             ; preds = %1332
   store ptr @.str, ptr %42, align 8
-  %.sroa.21651.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 8
+  %.sroa.21651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr @__func__.main, ptr %.sroa.21651.0..sroa_idx, align 8
-  %.sroa.31652.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 16
+  %.sroa.31652.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i64 171, ptr %.sroa.31652.0..sroa_idx, align 8
-  %.sroa.41653.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 24
+  %.sroa.41653.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41653.0..sroa_idx, align 8
-  %.sroa.51654.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 32
+  %.sroa.51654.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 32
   store i8 0, ptr %.sroa.51654.0..sroa_idx, align 8
   %1345 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 4, ptr %1345, align 8
@@ -3332,13 +3332,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit458: ; preds
 
 1361:                                             ; preds = %1360
   store ptr @.str, ptr %41, align 8
-  %.sroa.21645.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 8
+  %.sroa.21645.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @__func__.main, ptr %.sroa.21645.0..sroa_idx, align 8
-  %.sroa.31646.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 16
+  %.sroa.31646.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 174, ptr %.sroa.31646.0..sroa_idx, align 8
-  %.sroa.41647.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 24
+  %.sroa.41647.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41647.0..sroa_idx, align 8
-  %.sroa.51648.0..sroa_idx = getelementptr inbounds i8, ptr %41, i64 32
+  %.sroa.51648.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 32
   store i8 0, ptr %.sroa.51648.0..sroa_idx, align 8
   %1362 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store i32 4, ptr %1362, align 8
@@ -3366,7 +3366,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit458: ; preds
   %1371 = getelementptr inbounds nuw i8, ptr %1364, i64 12
   store i32 0, ptr %1371, align 4
   %1372 = load ptr, ptr %1364, align 8
-  %1373 = getelementptr inbounds i8, ptr %1372, i64 16
+  %1373 = getelementptr inbounds nuw i8, ptr %1372, i64 16
   %1374 = load ptr, ptr %1373, align 8
   call void %1374(ptr noundef nonnull align 8 dereferenceable(16) %1364) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i466
@@ -3392,7 +3392,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit458: ; preds
 
 1383:                                             ; preds = %1381
   %1384 = load ptr, ptr %1364, align 8
-  %1385 = getelementptr inbounds i8, ptr %1384, i64 16
+  %1385 = getelementptr inbounds nuw i8, ptr %1384, i64 16
   %1386 = load ptr, ptr %1385, align 8
   call void %1386(ptr noundef nonnull align 8 dereferenceable(16) %1364) #16
   %1387 = getelementptr inbounds nuw i8, ptr %1364, i64 12
@@ -3417,7 +3417,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit458: ; preds
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i466: ; preds = %1394, %1370
   %1396 = load ptr, ptr %1364, align 8
-  %1397 = getelementptr inbounds i8, ptr %1396, i64 24
+  %1397 = getelementptr inbounds nuw i8, ptr %1396, i64 24
   %1398 = load ptr, ptr %1397, align 8
   call void %1398(ptr noundef nonnull align 8 dereferenceable(16) %1364) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit467
@@ -3459,13 +3459,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit470: ; preds
 
 1413:                                             ; preds = %1412
   store ptr @.str, ptr %40, align 8
-  %.sroa.21639.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 8
+  %.sroa.21639.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr @__func__.main, ptr %.sroa.21639.0..sroa_idx, align 8
-  %.sroa.31640.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 16
+  %.sroa.31640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 176, ptr %.sroa.31640.0..sroa_idx, align 8
-  %.sroa.41641.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 24
+  %.sroa.41641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41641.0..sroa_idx, align 8
-  %.sroa.51642.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 32
+  %.sroa.51642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i8 0, ptr %.sroa.51642.0..sroa_idx, align 8
   %1414 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i32 4, ptr %1414, align 8
@@ -3493,7 +3493,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit470: ; preds
   %1423 = getelementptr inbounds nuw i8, ptr %1416, i64 12
   store i32 0, ptr %1423, align 4
   %1424 = load ptr, ptr %1416, align 8
-  %1425 = getelementptr inbounds i8, ptr %1424, i64 16
+  %1425 = getelementptr inbounds nuw i8, ptr %1424, i64 16
   %1426 = load ptr, ptr %1425, align 8
   call void %1426(ptr noundef nonnull align 8 dereferenceable(16) %1416) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i478
@@ -3519,7 +3519,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit470: ; preds
 
 1435:                                             ; preds = %1433
   %1436 = load ptr, ptr %1416, align 8
-  %1437 = getelementptr inbounds i8, ptr %1436, i64 16
+  %1437 = getelementptr inbounds nuw i8, ptr %1436, i64 16
   %1438 = load ptr, ptr %1437, align 8
   call void %1438(ptr noundef nonnull align 8 dereferenceable(16) %1416) #16
   %1439 = getelementptr inbounds nuw i8, ptr %1416, i64 12
@@ -3544,7 +3544,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit470: ; preds
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i478: ; preds = %1446, %1422
   %1448 = load ptr, ptr %1416, align 8
-  %1449 = getelementptr inbounds i8, ptr %1448, i64 24
+  %1449 = getelementptr inbounds nuw i8, ptr %1448, i64 24
   %1450 = load ptr, ptr %1449, align 8
   call void %1450(ptr noundef nonnull align 8 dereferenceable(16) %1416) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit479
@@ -3575,13 +3575,13 @@ _ZNK11GfColorTest15GetChromaticityEv.exit483:     ; preds = %_ZN11GfColorTestC2E
 
 1462:                                             ; preds = %1453
   store ptr @.str, ptr %39, align 8
-  %.sroa.21628.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.21628.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr @__func__.main, ptr %.sroa.21628.0..sroa_idx, align 8
-  %.sroa.31629.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 16
+  %.sroa.31629.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 180, ptr %.sroa.31629.0..sroa_idx, align 8
-  %.sroa.41630.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 24
+  %.sroa.41630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41630.0..sroa_idx, align 8
-  %.sroa.51631.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 32
+  %.sroa.51631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i8 0, ptr %.sroa.51631.0..sroa_idx, align 8
   %1463 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 4, ptr %1463, align 8
@@ -3614,13 +3614,13 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
 
 1475:                                             ; preds = %1466
   store ptr @.str, ptr %38, align 8
-  %.sroa.21621.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 8
+  %.sroa.21621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr @__func__.main, ptr %.sroa.21621.0..sroa_idx, align 8
-  %.sroa.31622.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 16
+  %.sroa.31622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 183, ptr %.sroa.31622.0..sroa_idx, align 8
-  %.sroa.41623.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 24
+  %.sroa.41623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41623.0..sroa_idx, align 8
-  %.sroa.51624.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 32
+  %.sroa.51624.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 32
   store i8 0, ptr %.sroa.51624.0..sroa_idx, align 8
   %1476 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i32 4, ptr %1476, align 8
@@ -3653,13 +3653,13 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
 
 1488:                                             ; preds = %1479
   store ptr @.str, ptr %37, align 8
-  %.sroa.21614.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
+  %.sroa.21614.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr @__func__.main, ptr %.sroa.21614.0..sroa_idx, align 8
-  %.sroa.31615.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 16
+  %.sroa.31615.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i64 186, ptr %.sroa.31615.0..sroa_idx, align 8
-  %.sroa.41616.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 24
+  %.sroa.41616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41616.0..sroa_idx, align 8
-  %.sroa.51617.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 32
+  %.sroa.51617.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 32
   store i8 0, ptr %.sroa.51617.0..sroa_idx, align 8
   %1489 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i32 4, ptr %1489, align 8
@@ -3692,13 +3692,13 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
 
 1501:                                             ; preds = %1492
   store ptr @.str, ptr %36, align 8
-  %.sroa.21607.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 8
+  %.sroa.21607.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr @__func__.main, ptr %.sroa.21607.0..sroa_idx, align 8
-  %.sroa.31608.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 16
+  %.sroa.31608.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i64 189, ptr %.sroa.31608.0..sroa_idx, align 8
-  %.sroa.41609.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 24
+  %.sroa.41609.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41609.0..sroa_idx, align 8
-  %.sroa.51610.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 32
+  %.sroa.51610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i8 0, ptr %.sroa.51610.0..sroa_idx, align 8
   %1502 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store i32 4, ptr %1502, align 8
@@ -3716,7 +3716,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
 1504:                                             ; preds = %1503
   %1505 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %.sroa.01.0.copyload.i.i516 = load <2 x float>, ptr %1505, align 8
-  %.sroa.22.0..sroa_idx.i.i517 = getelementptr inbounds i8, ptr %107, i64 24
+  %.sroa.22.0..sroa_idx.i.i517 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %.sroa.22.0.copyload.i.i518 = load float, ptr %.sroa.22.0..sroa_idx.i.i517, align 8
   %.sroa.01.0.copyload.i7.i519 = load <2 x float>, ptr %1333, align 8
   %.sroa.22.0.copyload.i9.i521 = load float, ptr %.sroa.22.0..sroa_idx.i.i445, align 8
@@ -3735,13 +3735,13 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
 
 1516:                                             ; preds = %1504
   store ptr @.str, ptr %35, align 8
-  %.sroa.21601.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
+  %.sroa.21601.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @__func__.main, ptr %.sroa.21601.0..sroa_idx, align 8
-  %.sroa.31602.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 16
+  %.sroa.31602.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 193, ptr %.sroa.31602.0..sroa_idx, align 8
-  %.sroa.41603.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 24
+  %.sroa.41603.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41603.0..sroa_idx, align 8
-  %.sroa.51604.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 32
+  %.sroa.51604.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i8 0, ptr %.sroa.51604.0..sroa_idx, align 8
   %1517 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 4, ptr %1517, align 8
@@ -3770,7 +3770,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
   %1527 = getelementptr inbounds nuw i8, ptr %1520, i64 12
   store i32 0, ptr %1527, align 4
   %1528 = load ptr, ptr %1520, align 8
-  %1529 = getelementptr inbounds i8, ptr %1528, i64 16
+  %1529 = getelementptr inbounds nuw i8, ptr %1528, i64 16
   %1530 = load ptr, ptr %1529, align 8
   call void %1530(ptr noundef nonnull align 8 dereferenceable(16) %1520) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i533
@@ -3796,7 +3796,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
 
 1539:                                             ; preds = %1537
   %1540 = load ptr, ptr %1520, align 8
-  %1541 = getelementptr inbounds i8, ptr %1540, i64 16
+  %1541 = getelementptr inbounds nuw i8, ptr %1540, i64 16
   %1542 = load ptr, ptr %1541, align 8
   call void %1542(ptr noundef nonnull align 8 dereferenceable(16) %1520) #16
   %1543 = getelementptr inbounds nuw i8, ptr %1520, i64 12
@@ -3821,7 +3821,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfColorERKNS0_12GfColor
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i533: ; preds = %1550, %1526
   %1552 = load ptr, ptr %1520, align 8
-  %1553 = getelementptr inbounds i8, ptr %1552, i64 24
+  %1553 = getelementptr inbounds nuw i8, ptr %1552, i64 24
   %1554 = load ptr, ptr %1553, align 8
   call void %1554(ptr noundef nonnull align 8 dereferenceable(16) %1520) #16
   br label %_ZN11GfColorTestD2Ev.exit534
@@ -3844,7 +3844,7 @@ _ZN11GfColorTestD2Ev.exit534:                     ; preds = %1518, %1537, %1550,
   %1563 = getelementptr inbounds nuw i8, ptr %1556, i64 12
   store i32 0, ptr %1563, align 4
   %1564 = load ptr, ptr %1556, align 8
-  %1565 = getelementptr inbounds i8, ptr %1564, i64 16
+  %1565 = getelementptr inbounds nuw i8, ptr %1564, i64 16
   %1566 = load ptr, ptr %1565, align 8
   call void %1566(ptr noundef nonnull align 8 dereferenceable(16) %1556) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i540
@@ -3870,7 +3870,7 @@ _ZN11GfColorTestD2Ev.exit534:                     ; preds = %1518, %1537, %1550,
 
 1575:                                             ; preds = %1573
   %1576 = load ptr, ptr %1556, align 8
-  %1577 = getelementptr inbounds i8, ptr %1576, i64 16
+  %1577 = getelementptr inbounds nuw i8, ptr %1576, i64 16
   %1578 = load ptr, ptr %1577, align 8
   call void %1578(ptr noundef nonnull align 8 dereferenceable(16) %1556) #16
   %1579 = getelementptr inbounds nuw i8, ptr %1556, i64 12
@@ -3895,7 +3895,7 @@ _ZN11GfColorTestD2Ev.exit534:                     ; preds = %1518, %1537, %1550,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i540: ; preds = %1586, %1562
   %1588 = load ptr, ptr %1556, align 8
-  %1589 = getelementptr inbounds i8, ptr %1588, i64 24
+  %1589 = getelementptr inbounds nuw i8, ptr %1588, i64 24
   %1590 = load ptr, ptr %1589, align 8
   call void %1590(ptr noundef nonnull align 8 dereferenceable(16) %1556) #16
   br label %_ZN11GfColorTestD2Ev.exit541
@@ -3918,7 +3918,7 @@ _ZN11GfColorTestD2Ev.exit541:                     ; preds = %_ZN11GfColorTestD2E
   %1599 = getelementptr inbounds nuw i8, ptr %1592, i64 12
   store i32 0, ptr %1599, align 4
   %1600 = load ptr, ptr %1592, align 8
-  %1601 = getelementptr inbounds i8, ptr %1600, i64 16
+  %1601 = getelementptr inbounds nuw i8, ptr %1600, i64 16
   %1602 = load ptr, ptr %1601, align 8
   call void %1602(ptr noundef nonnull align 8 dereferenceable(16) %1592) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i547
@@ -3944,7 +3944,7 @@ _ZN11GfColorTestD2Ev.exit541:                     ; preds = %_ZN11GfColorTestD2E
 
 1611:                                             ; preds = %1609
   %1612 = load ptr, ptr %1592, align 8
-  %1613 = getelementptr inbounds i8, ptr %1612, i64 16
+  %1613 = getelementptr inbounds nuw i8, ptr %1612, i64 16
   %1614 = load ptr, ptr %1613, align 8
   call void %1614(ptr noundef nonnull align 8 dereferenceable(16) %1592) #16
   %1615 = getelementptr inbounds nuw i8, ptr %1592, i64 12
@@ -3969,7 +3969,7 @@ _ZN11GfColorTestD2Ev.exit541:                     ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i547: ; preds = %1622, %1598
   %1624 = load ptr, ptr %1592, align 8
-  %1625 = getelementptr inbounds i8, ptr %1624, i64 24
+  %1625 = getelementptr inbounds nuw i8, ptr %1624, i64 24
   %1626 = load ptr, ptr %1625, align 8
   call void %1626(ptr noundef nonnull align 8 dereferenceable(16) %1592) #16
   br label %_ZN11GfColorTestD2Ev.exit548
@@ -3992,7 +3992,7 @@ _ZN11GfColorTestD2Ev.exit548:                     ; preds = %_ZN11GfColorTestD2E
   %1635 = getelementptr inbounds nuw i8, ptr %1628, i64 12
   store i32 0, ptr %1635, align 4
   %1636 = load ptr, ptr %1628, align 8
-  %1637 = getelementptr inbounds i8, ptr %1636, i64 16
+  %1637 = getelementptr inbounds nuw i8, ptr %1636, i64 16
   %1638 = load ptr, ptr %1637, align 8
   call void %1638(ptr noundef nonnull align 8 dereferenceable(16) %1628) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i554
@@ -4018,7 +4018,7 @@ _ZN11GfColorTestD2Ev.exit548:                     ; preds = %_ZN11GfColorTestD2E
 
 1647:                                             ; preds = %1645
   %1648 = load ptr, ptr %1628, align 8
-  %1649 = getelementptr inbounds i8, ptr %1648, i64 16
+  %1649 = getelementptr inbounds nuw i8, ptr %1648, i64 16
   %1650 = load ptr, ptr %1649, align 8
   call void %1650(ptr noundef nonnull align 8 dereferenceable(16) %1628) #16
   %1651 = getelementptr inbounds nuw i8, ptr %1628, i64 12
@@ -4043,7 +4043,7 @@ _ZN11GfColorTestD2Ev.exit548:                     ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i554: ; preds = %1658, %1634
   %1660 = load ptr, ptr %1628, align 8
-  %1661 = getelementptr inbounds i8, ptr %1660, i64 24
+  %1661 = getelementptr inbounds nuw i8, ptr %1660, i64 24
   %1662 = load ptr, ptr %1661, align 8
   call void %1662(ptr noundef nonnull align 8 dereferenceable(16) %1628) #16
   br label %_ZN11GfColorTestD2Ev.exit555
@@ -4066,7 +4066,7 @@ _ZN11GfColorTestD2Ev.exit555:                     ; preds = %_ZN11GfColorTestD2E
   %1671 = getelementptr inbounds nuw i8, ptr %1664, i64 12
   store i32 0, ptr %1671, align 4
   %1672 = load ptr, ptr %1664, align 8
-  %1673 = getelementptr inbounds i8, ptr %1672, i64 16
+  %1673 = getelementptr inbounds nuw i8, ptr %1672, i64 16
   %1674 = load ptr, ptr %1673, align 8
   call void %1674(ptr noundef nonnull align 8 dereferenceable(16) %1664) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i561
@@ -4092,7 +4092,7 @@ _ZN11GfColorTestD2Ev.exit555:                     ; preds = %_ZN11GfColorTestD2E
 
 1683:                                             ; preds = %1681
   %1684 = load ptr, ptr %1664, align 8
-  %1685 = getelementptr inbounds i8, ptr %1684, i64 16
+  %1685 = getelementptr inbounds nuw i8, ptr %1684, i64 16
   %1686 = load ptr, ptr %1685, align 8
   call void %1686(ptr noundef nonnull align 8 dereferenceable(16) %1664) #16
   %1687 = getelementptr inbounds nuw i8, ptr %1664, i64 12
@@ -4117,7 +4117,7 @@ _ZN11GfColorTestD2Ev.exit555:                     ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i561: ; preds = %1694, %1670
   %1696 = load ptr, ptr %1664, align 8
-  %1697 = getelementptr inbounds i8, ptr %1696, i64 24
+  %1697 = getelementptr inbounds nuw i8, ptr %1696, i64 24
   %1698 = load ptr, ptr %1697, align 8
   call void %1698(ptr noundef nonnull align 8 dereferenceable(16) %1664) #16
   br label %_ZN11GfColorTestD2Ev.exit562
@@ -4139,7 +4139,7 @@ _ZN11GfColorTestD2Ev.exit562:                     ; preds = %_ZN11GfColorTestD2E
   %1706 = getelementptr inbounds nuw i8, ptr %1699, i64 12
   store i32 0, ptr %1706, align 4
   %1707 = load ptr, ptr %1699, align 8
-  %1708 = getelementptr inbounds i8, ptr %1707, i64 16
+  %1708 = getelementptr inbounds nuw i8, ptr %1707, i64 16
   %1709 = load ptr, ptr %1708, align 8
   call void %1709(ptr noundef nonnull align 8 dereferenceable(16) %1699) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i568
@@ -4165,7 +4165,7 @@ _ZN11GfColorTestD2Ev.exit562:                     ; preds = %_ZN11GfColorTestD2E
 
 1718:                                             ; preds = %1716
   %1719 = load ptr, ptr %1699, align 8
-  %1720 = getelementptr inbounds i8, ptr %1719, i64 16
+  %1720 = getelementptr inbounds nuw i8, ptr %1719, i64 16
   %1721 = load ptr, ptr %1720, align 8
   call void %1721(ptr noundef nonnull align 8 dereferenceable(16) %1699) #16
   %1722 = getelementptr inbounds nuw i8, ptr %1699, i64 12
@@ -4190,7 +4190,7 @@ _ZN11GfColorTestD2Ev.exit562:                     ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i568: ; preds = %1729, %1705
   %1731 = load ptr, ptr %1699, align 8
-  %1732 = getelementptr inbounds i8, ptr %1731, i64 24
+  %1732 = getelementptr inbounds nuw i8, ptr %1731, i64 24
   %1733 = load ptr, ptr %1732, align 8
   call void %1733(ptr noundef nonnull align 8 dereferenceable(16) %1699) #16
   br label %_ZN11GfColorTestD2Ev.exit569
@@ -4212,7 +4212,7 @@ _ZN11GfColorTestD2Ev.exit569:                     ; preds = %_ZN11GfColorTestD2E
   %1741 = getelementptr inbounds nuw i8, ptr %1734, i64 12
   store i32 0, ptr %1741, align 4
   %1742 = load ptr, ptr %1734, align 8
-  %1743 = getelementptr inbounds i8, ptr %1742, i64 16
+  %1743 = getelementptr inbounds nuw i8, ptr %1742, i64 16
   %1744 = load ptr, ptr %1743, align 8
   call void %1744(ptr noundef nonnull align 8 dereferenceable(16) %1734) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i575
@@ -4238,7 +4238,7 @@ _ZN11GfColorTestD2Ev.exit569:                     ; preds = %_ZN11GfColorTestD2E
 
 1753:                                             ; preds = %1751
   %1754 = load ptr, ptr %1734, align 8
-  %1755 = getelementptr inbounds i8, ptr %1754, i64 16
+  %1755 = getelementptr inbounds nuw i8, ptr %1754, i64 16
   %1756 = load ptr, ptr %1755, align 8
   call void %1756(ptr noundef nonnull align 8 dereferenceable(16) %1734) #16
   %1757 = getelementptr inbounds nuw i8, ptr %1734, i64 12
@@ -4263,16 +4263,16 @@ _ZN11GfColorTestD2Ev.exit569:                     ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i575: ; preds = %1764, %1740
   %1766 = load ptr, ptr %1734, align 8
-  %1767 = getelementptr inbounds i8, ptr %1766, i64 24
+  %1767 = getelementptr inbounds nuw i8, ptr %1766, i64 24
   %1768 = load ptr, ptr %1767, align 8
   call void %1768(ptr noundef nonnull align 8 dereferenceable(16) %1734) #16
   br label %_ZN11GfColorTestD2Ev.exit576
 
 _ZN11GfColorTestD2Ev.exit576:                     ; preds = %_ZN11GfColorTestD2Ev.exit569, %1751, %1764, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i575
   store float 5.000000e-01, ptr %109, align 4
-  %1769 = getelementptr inbounds i8, ptr %109, i64 4
+  %1769 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store float 2.500000e-01, ptr %1769, align 4
-  %1770 = getelementptr inbounds i8, ptr %109, i64 8
+  %1770 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store float 1.250000e-01, ptr %1770, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC1ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %108, ptr noundef nonnull align 4 dereferenceable(12) %109, ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit579 unwind label %.loopexit.split-lp
@@ -4324,13 +4324,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit582: ; preds
 
 1789:                                             ; preds = %1788
   store ptr @.str, ptr %34, align 8
-  %.sroa.21595.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 8
+  %.sroa.21595.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr @__func__.main, ptr %.sroa.21595.0..sroa_idx, align 8
-  %.sroa.31596.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 16
+  %.sroa.31596.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 200, ptr %.sroa.31596.0..sroa_idx, align 8
-  %.sroa.41597.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 24
+  %.sroa.41597.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41597.0..sroa_idx, align 8
-  %.sroa.51598.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 32
+  %.sroa.51598.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i8 0, ptr %.sroa.51598.0..sroa_idx, align 8
   %1790 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store i32 4, ptr %1790, align 8
@@ -4358,7 +4358,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit582: ; preds
   %1799 = getelementptr inbounds nuw i8, ptr %1792, i64 12
   store i32 0, ptr %1799, align 4
   %1800 = load ptr, ptr %1792, align 8
-  %1801 = getelementptr inbounds i8, ptr %1800, i64 16
+  %1801 = getelementptr inbounds nuw i8, ptr %1800, i64 16
   %1802 = load ptr, ptr %1801, align 8
   call void %1802(ptr noundef nonnull align 8 dereferenceable(16) %1792) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i590
@@ -4384,7 +4384,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit582: ; preds
 
 1811:                                             ; preds = %1809
   %1812 = load ptr, ptr %1792, align 8
-  %1813 = getelementptr inbounds i8, ptr %1812, i64 16
+  %1813 = getelementptr inbounds nuw i8, ptr %1812, i64 16
   %1814 = load ptr, ptr %1813, align 8
   call void %1814(ptr noundef nonnull align 8 dereferenceable(16) %1792) #16
   %1815 = getelementptr inbounds nuw i8, ptr %1792, i64 12
@@ -4409,14 +4409,14 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit582: ; preds
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i590: ; preds = %1822, %1798
   %1824 = load ptr, ptr %1792, align 8
-  %1825 = getelementptr inbounds i8, ptr %1824, i64 24
+  %1825 = getelementptr inbounds nuw i8, ptr %1824, i64 24
   %1826 = load ptr, ptr %1825, align 8
   call void %1826(ptr noundef nonnull align 8 dereferenceable(16) %1792) #16
   br label %1827
 
 1827:                                             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i590, %1822, %1809, %1791
   %.sroa.01.0.copyload.i592 = load <2 x float>, ptr %1775, align 8
-  %.sroa.22.0..sroa_idx.i593 = getelementptr inbounds i8, ptr %110, i64 24
+  %.sroa.22.0..sroa_idx.i593 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %.sroa.22.0.copyload.i594 = load float, ptr %.sroa.22.0..sroa_idx.i593, align 8
   %.sroa.0.0.vec.extract.i.i597 = extractelement <2 x float> %.sroa.01.0.copyload.i592, i64 0
   %1828 = fadd float %.sroa.0.0.vec.extract.i.i597, -5.000000e-01
@@ -4433,13 +4433,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 1836:                                             ; preds = %1827
   store ptr @.str, ptr %33, align 8
-  %.sroa.21584.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.21584.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @__func__.main, ptr %.sroa.21584.0..sroa_idx, align 8
-  %.sroa.31585.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 16
+  %.sroa.31585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 201, ptr %.sroa.31585.0..sroa_idx, align 8
-  %.sroa.41586.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 24
+  %.sroa.41586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41586.0..sroa_idx, align 8
-  %.sroa.51587.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 32
+  %.sroa.51587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i8 0, ptr %.sroa.51587.0..sroa_idx, align 8
   %1837 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store i32 4, ptr %1837, align 8
@@ -4467,7 +4467,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %1846 = getelementptr inbounds nuw i8, ptr %1839, i64 12
   store i32 0, ptr %1846, align 4
   %1847 = load ptr, ptr %1839, align 8
-  %1848 = getelementptr inbounds i8, ptr %1847, i64 16
+  %1848 = getelementptr inbounds nuw i8, ptr %1847, i64 16
   %1849 = load ptr, ptr %1848, align 8
   call void %1849(ptr noundef nonnull align 8 dereferenceable(16) %1839) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i606
@@ -4493,7 +4493,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 1858:                                             ; preds = %1856
   %1859 = load ptr, ptr %1839, align 8
-  %1860 = getelementptr inbounds i8, ptr %1859, i64 16
+  %1860 = getelementptr inbounds nuw i8, ptr %1859, i64 16
   %1861 = load ptr, ptr %1860, align 8
   call void %1861(ptr noundef nonnull align 8 dereferenceable(16) %1839) #16
   %1862 = getelementptr inbounds nuw i8, ptr %1839, i64 12
@@ -4518,7 +4518,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i606: ; preds = %1869, %1845
   %1871 = load ptr, ptr %1839, align 8
-  %1872 = getelementptr inbounds i8, ptr %1871, i64 24
+  %1872 = getelementptr inbounds nuw i8, ptr %1871, i64 24
   %1873 = load ptr, ptr %1872, align 8
   call void %1873(ptr noundef nonnull align 8 dereferenceable(16) %1839) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit607
@@ -4540,7 +4540,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit607: ; preds = %1838
   %1881 = getelementptr inbounds nuw i8, ptr %1874, i64 12
   store i32 0, ptr %1881, align 4
   %1882 = load ptr, ptr %1874, align 8
-  %1883 = getelementptr inbounds i8, ptr %1882, i64 16
+  %1883 = getelementptr inbounds nuw i8, ptr %1882, i64 16
   %1884 = load ptr, ptr %1883, align 8
   call void %1884(ptr noundef nonnull align 8 dereferenceable(16) %1874) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i613
@@ -4566,7 +4566,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit607: ; preds = %1838
 
 1893:                                             ; preds = %1891
   %1894 = load ptr, ptr %1874, align 8
-  %1895 = getelementptr inbounds i8, ptr %1894, i64 16
+  %1895 = getelementptr inbounds nuw i8, ptr %1894, i64 16
   %1896 = load ptr, ptr %1895, align 8
   call void %1896(ptr noundef nonnull align 8 dereferenceable(16) %1874) #16
   %1897 = getelementptr inbounds nuw i8, ptr %1874, i64 12
@@ -4591,7 +4591,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit607: ; preds = %1838
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i613: ; preds = %1904, %1880
   %1906 = load ptr, ptr %1874, align 8
-  %1907 = getelementptr inbounds i8, ptr %1906, i64 24
+  %1907 = getelementptr inbounds nuw i8, ptr %1906, i64 24
   %1908 = load ptr, ptr %1907, align 8
   call void %1908(ptr noundef nonnull align 8 dereferenceable(16) %1874) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit614
@@ -4613,7 +4613,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit614: ; preds = %_ZN32pxrIn
   %1916 = getelementptr inbounds nuw i8, ptr %1909, i64 12
   store i32 0, ptr %1916, align 4
   %1917 = load ptr, ptr %1909, align 8
-  %1918 = getelementptr inbounds i8, ptr %1917, i64 16
+  %1918 = getelementptr inbounds nuw i8, ptr %1917, i64 16
   %1919 = load ptr, ptr %1918, align 8
   call void %1919(ptr noundef nonnull align 8 dereferenceable(16) %1909) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i620
@@ -4639,7 +4639,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit614: ; preds = %_ZN32pxrIn
 
 1928:                                             ; preds = %1926
   %1929 = load ptr, ptr %1909, align 8
-  %1930 = getelementptr inbounds i8, ptr %1929, i64 16
+  %1930 = getelementptr inbounds nuw i8, ptr %1929, i64 16
   %1931 = load ptr, ptr %1930, align 8
   call void %1931(ptr noundef nonnull align 8 dereferenceable(16) %1909) #16
   %1932 = getelementptr inbounds nuw i8, ptr %1909, i64 12
@@ -4664,16 +4664,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit614: ; preds = %_ZN32pxrIn
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i620: ; preds = %1939, %1915
   %1941 = load ptr, ptr %1909, align 8
-  %1942 = getelementptr inbounds i8, ptr %1941, i64 24
+  %1942 = getelementptr inbounds nuw i8, ptr %1941, i64 24
   %1943 = load ptr, ptr %1942, align 8
   call void %1943(ptr noundef nonnull align 8 dereferenceable(16) %1909) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit621
 
 _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit621: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit614, %1926, %1939, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i620
   store float 5.000000e-01, ptr %114, align 4
-  %1944 = getelementptr inbounds i8, ptr %114, i64 4
+  %1944 = getelementptr inbounds nuw i8, ptr %114, i64 4
   store float 2.500000e-01, ptr %1944, align 4
-  %1945 = getelementptr inbounds i8, ptr %114, i64 8
+  %1945 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store float 1.250000e-01, ptr %1945, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC1ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %113, ptr noundef nonnull align 4 dereferenceable(12) %114, ptr noundef nonnull align 8 dereferenceable(16) %60)
           to label %1946 unwind label %.loopexit.split-lp
@@ -4709,10 +4709,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit621: ; preds = %_ZN32pxrIn
   %1961 = getelementptr inbounds nuw i8, ptr %113, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1960, ptr noundef nonnull align 8 dereferenceable(12) %1961, i64 12, i1 false)
   %.sroa.01.0.copyload.i.i625 = load <2 x float>, ptr %1961, align 8
-  %.sroa.22.0..sroa_idx.i.i626 = getelementptr inbounds i8, ptr %113, i64 24
+  %.sroa.22.0..sroa_idx.i.i626 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %.sroa.22.0.copyload.i.i627 = load float, ptr %.sroa.22.0..sroa_idx.i.i626, align 8
   %.sroa.01.0.copyload.i7.i628 = load <2 x float>, ptr %1960, align 8
-  %.sroa.22.0..sroa_idx.i8.i629 = getelementptr inbounds i8, ptr %115, i64 24
+  %.sroa.22.0..sroa_idx.i8.i629 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %.sroa.22.0.copyload.i9.i630 = load float, ptr %.sroa.22.0..sroa_idx.i8.i629, align 8
   %1962 = fsub <2 x float> %.sroa.01.0.copyload.i.i625, %.sroa.01.0.copyload.i7.i628
   %1963 = extractelement <2 x float> %1962, i64 0
@@ -4729,13 +4729,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit621: ; preds = %_ZN32pxrIn
 
 1972:                                             ; preds = %1959
   store ptr @.str, ptr %32, align 8
-  %.sroa.21578.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
+  %.sroa.21578.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @__func__.main, ptr %.sroa.21578.0..sroa_idx, align 8
-  %.sroa.31579.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 16
+  %.sroa.31579.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i64 207, ptr %.sroa.31579.0..sroa_idx, align 8
-  %.sroa.41580.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 24
+  %.sroa.41580.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41580.0..sroa_idx, align 8
-  %.sroa.51581.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 32
+  %.sroa.51581.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i8 0, ptr %.sroa.51581.0..sroa_idx, align 8
   %1973 = getelementptr inbounds nuw i8, ptr %32, i64 40
   store i32 4, ptr %1973, align 8
@@ -4808,13 +4808,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit642: ; preds
 
 1999:                                             ; preds = %1998
   store ptr @.str, ptr %31, align 8
-  %.sroa.21572.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
+  %.sroa.21572.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr @__func__.main, ptr %.sroa.21572.0..sroa_idx, align 8
-  %.sroa.31573.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 16
+  %.sroa.31573.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 208, ptr %.sroa.31573.0..sroa_idx, align 8
-  %.sroa.41574.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 24
+  %.sroa.41574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41574.0..sroa_idx, align 8
-  %.sroa.51575.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 32
+  %.sroa.51575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i8 0, ptr %.sroa.51575.0..sroa_idx, align 8
   %2000 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store i32 4, ptr %2000, align 8
@@ -4842,7 +4842,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit642: ; preds
   %2009 = getelementptr inbounds nuw i8, ptr %2002, i64 12
   store i32 0, ptr %2009, align 4
   %2010 = load ptr, ptr %2002, align 8
-  %2011 = getelementptr inbounds i8, ptr %2010, i64 16
+  %2011 = getelementptr inbounds nuw i8, ptr %2010, i64 16
   %2012 = load ptr, ptr %2011, align 8
   call void %2012(ptr noundef nonnull align 8 dereferenceable(16) %2002) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i650
@@ -4868,7 +4868,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit642: ; preds
 
 2021:                                             ; preds = %2019
   %2022 = load ptr, ptr %2002, align 8
-  %2023 = getelementptr inbounds i8, ptr %2022, i64 16
+  %2023 = getelementptr inbounds nuw i8, ptr %2022, i64 16
   %2024 = load ptr, ptr %2023, align 8
   call void %2024(ptr noundef nonnull align 8 dereferenceable(16) %2002) #16
   %2025 = getelementptr inbounds nuw i8, ptr %2002, i64 12
@@ -4893,7 +4893,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit642: ; preds
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i650: ; preds = %2032, %2008
   %2034 = load ptr, ptr %2002, align 8
-  %2035 = getelementptr inbounds i8, ptr %2034, i64 24
+  %2035 = getelementptr inbounds nuw i8, ptr %2034, i64 24
   %2036 = load ptr, ptr %2035, align 8
   call void %2036(ptr noundef nonnull align 8 dereferenceable(16) %2002) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit651
@@ -4915,7 +4915,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit651: ; preds = %2001
   %2044 = getelementptr inbounds nuw i8, ptr %2037, i64 12
   store i32 0, ptr %2044, align 4
   %2045 = load ptr, ptr %2037, align 8
-  %2046 = getelementptr inbounds i8, ptr %2045, i64 16
+  %2046 = getelementptr inbounds nuw i8, ptr %2045, i64 16
   %2047 = load ptr, ptr %2046, align 8
   call void %2047(ptr noundef nonnull align 8 dereferenceable(16) %2037) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i657
@@ -4941,7 +4941,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit651: ; preds = %2001
 
 2056:                                             ; preds = %2054
   %2057 = load ptr, ptr %2037, align 8
-  %2058 = getelementptr inbounds i8, ptr %2057, i64 16
+  %2058 = getelementptr inbounds nuw i8, ptr %2057, i64 16
   %2059 = load ptr, ptr %2058, align 8
   call void %2059(ptr noundef nonnull align 8 dereferenceable(16) %2037) #16
   %2060 = getelementptr inbounds nuw i8, ptr %2037, i64 12
@@ -4966,25 +4966,25 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit651: ; preds = %2001
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i657: ; preds = %2067, %2043
   %2069 = load ptr, ptr %2037, align 8
-  %2070 = getelementptr inbounds i8, ptr %2069, i64 24
+  %2070 = getelementptr inbounds nuw i8, ptr %2069, i64 24
   %2071 = load ptr, ptr %2070, align 8
   call void %2071(ptr noundef nonnull align 8 dereferenceable(16) %2037) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit658
 
 _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit658: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit651, %2054, %2067, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i657
   store float 5.000000e-01, ptr %119, align 4
-  %2072 = getelementptr inbounds i8, ptr %119, i64 4
+  %2072 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store float 2.500000e-01, ptr %2072, align 4
-  %2073 = getelementptr inbounds i8, ptr %119, i64 8
+  %2073 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store float 1.250000e-01, ptr %2073, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC1ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %118, ptr noundef nonnull align 4 dereferenceable(12) %119, ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %2074 unwind label %4095
 
 2074:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit658
   store float 2.500000e-01, ptr %121, align 4
-  %2075 = getelementptr inbounds i8, ptr %121, i64 4
+  %2075 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store float 5.000000e-01, ptr %2075, align 4
-  %2076 = getelementptr inbounds i8, ptr %121, i64 8
+  %2076 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store float 1.250000e-01, ptr %2076, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC1ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %120, ptr noundef nonnull align 4 dereferenceable(12) %121, ptr noundef nonnull align 8 dereferenceable(16) %60)
           to label %2077 unwind label %4099
@@ -5013,7 +5013,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit658: ; preds = %_ZN3
   %2089 = getelementptr inbounds nuw i8, ptr %2082, i64 12
   store i32 0, ptr %2089, align 4
   %2090 = load ptr, ptr %2082, align 8
-  %2091 = getelementptr inbounds i8, ptr %2090, i64 16
+  %2091 = getelementptr inbounds nuw i8, ptr %2090, i64 16
   %2092 = load ptr, ptr %2091, align 8
   call void %2092(ptr noundef nonnull align 8 dereferenceable(16) %2082) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i664
@@ -5039,7 +5039,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit658: ; preds = %_ZN3
 
 2101:                                             ; preds = %2099
   %2102 = load ptr, ptr %2082, align 8
-  %2103 = getelementptr inbounds i8, ptr %2102, i64 16
+  %2103 = getelementptr inbounds nuw i8, ptr %2102, i64 16
   %2104 = load ptr, ptr %2103, align 8
   call void %2104(ptr noundef nonnull align 8 dereferenceable(16) %2082) #16
   %2105 = getelementptr inbounds nuw i8, ptr %2082, i64 12
@@ -5064,7 +5064,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit658: ; preds = %_ZN3
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i664: ; preds = %2112, %2088
   %2114 = load ptr, ptr %2082, align 8
-  %2115 = getelementptr inbounds i8, ptr %2114, i64 24
+  %2115 = getelementptr inbounds nuw i8, ptr %2114, i64 24
   %2116 = load ptr, ptr %2115, align 8
   call void %2116(ptr noundef nonnull align 8 dereferenceable(16) %2082) #16
   br label %2117
@@ -5074,7 +5074,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %2119 = getelementptr inbounds nuw i8, ptr %120, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2118, ptr noundef nonnull align 8 dereferenceable(12) %2119, i64 12, i1 false)
   %.sroa.01.0.copyload.i665 = load <2 x float>, ptr %2118, align 8
-  %.sroa.22.0..sroa_idx.i666 = getelementptr inbounds i8, ptr %118, i64 24
+  %.sroa.22.0..sroa_idx.i666 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %.sroa.22.0.copyload.i667 = load float, ptr %.sroa.22.0..sroa_idx.i666, align 8
   %.sroa.0.0.vec.extract.i.i673 = extractelement <2 x float> %.sroa.01.0.copyload.i665, i64 0
   %2120 = fadd float %.sroa.0.0.vec.extract.i.i673, -2.500000e-01
@@ -5091,13 +5091,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 2128:                                             ; preds = %2117
   store ptr @.str, ptr %30, align 8
-  %.sroa.21561.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 8
+  %.sroa.21561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr @__func__.main, ptr %.sroa.21561.0..sroa_idx, align 8
-  %.sroa.31562.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 16
+  %.sroa.31562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 214, ptr %.sroa.31562.0..sroa_idx, align 8
-  %.sroa.41563.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 24
+  %.sroa.41563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41563.0..sroa_idx, align 8
-  %.sroa.51564.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 32
+  %.sroa.51564.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i8 0, ptr %.sroa.51564.0..sroa_idx, align 8
   %2129 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i32 4, ptr %2129, align 8
@@ -5144,13 +5144,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit679: ; preds
 
 2144:                                             ; preds = %2143
   store ptr @.str, ptr %29, align 8
-  %.sroa.21555.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
+  %.sroa.21555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr @__func__.main, ptr %.sroa.21555.0..sroa_idx, align 8
-  %.sroa.31556.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 16
+  %.sroa.31556.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i64 215, ptr %.sroa.31556.0..sroa_idx, align 8
-  %.sroa.41557.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 24
+  %.sroa.41557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41557.0..sroa_idx, align 8
-  %.sroa.51558.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 32
+  %.sroa.51558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i8 0, ptr %.sroa.51558.0..sroa_idx, align 8
   %2145 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store i32 4, ptr %2145, align 8
@@ -5178,7 +5178,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit679: ; preds
   %2154 = getelementptr inbounds nuw i8, ptr %2147, i64 12
   store i32 0, ptr %2154, align 4
   %2155 = load ptr, ptr %2147, align 8
-  %2156 = getelementptr inbounds i8, ptr %2155, i64 16
+  %2156 = getelementptr inbounds nuw i8, ptr %2155, i64 16
   %2157 = load ptr, ptr %2156, align 8
   call void %2157(ptr noundef nonnull align 8 dereferenceable(16) %2147) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i687
@@ -5204,7 +5204,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit679: ; preds
 
 2166:                                             ; preds = %2164
   %2167 = load ptr, ptr %2147, align 8
-  %2168 = getelementptr inbounds i8, ptr %2167, i64 16
+  %2168 = getelementptr inbounds nuw i8, ptr %2167, i64 16
   %2169 = load ptr, ptr %2168, align 8
   call void %2169(ptr noundef nonnull align 8 dereferenceable(16) %2147) #16
   %2170 = getelementptr inbounds nuw i8, ptr %2147, i64 12
@@ -5229,7 +5229,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfColor13GetColorSpaceEv.exit679: ; preds
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i687: ; preds = %2177, %2153
   %2179 = load ptr, ptr %2147, align 8
-  %2180 = getelementptr inbounds i8, ptr %2179, i64 24
+  %2180 = getelementptr inbounds nuw i8, ptr %2179, i64 24
   %2181 = load ptr, ptr %2180, align 8
   call void %2181(ptr noundef nonnull align 8 dereferenceable(16) %2147) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit688
@@ -5251,7 +5251,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit688: ; preds = %2146
   %2189 = getelementptr inbounds nuw i8, ptr %2182, i64 12
   store i32 0, ptr %2189, align 4
   %2190 = load ptr, ptr %2182, align 8
-  %2191 = getelementptr inbounds i8, ptr %2190, i64 16
+  %2191 = getelementptr inbounds nuw i8, ptr %2190, i64 16
   %2192 = load ptr, ptr %2191, align 8
   call void %2192(ptr noundef nonnull align 8 dereferenceable(16) %2182) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i694
@@ -5277,7 +5277,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit688: ; preds = %2146
 
 2201:                                             ; preds = %2199
   %2202 = load ptr, ptr %2182, align 8
-  %2203 = getelementptr inbounds i8, ptr %2202, i64 16
+  %2203 = getelementptr inbounds nuw i8, ptr %2202, i64 16
   %2204 = load ptr, ptr %2203, align 8
   call void %2204(ptr noundef nonnull align 8 dereferenceable(16) %2182) #16
   %2205 = getelementptr inbounds nuw i8, ptr %2182, i64 12
@@ -5302,7 +5302,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit688: ; preds = %2146
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i694: ; preds = %2212, %2188
   %2214 = load ptr, ptr %2182, align 8
-  %2215 = getelementptr inbounds i8, ptr %2214, i64 24
+  %2215 = getelementptr inbounds nuw i8, ptr %2214, i64 24
   %2216 = load ptr, ptr %2215, align 8
   call void %2216(ptr noundef nonnull align 8 dereferenceable(16) %2182) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit695
@@ -5324,7 +5324,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit695: ; preds = %_ZN32pxrIn
   %2224 = getelementptr inbounds nuw i8, ptr %2217, i64 12
   store i32 0, ptr %2224, align 4
   %2225 = load ptr, ptr %2217, align 8
-  %2226 = getelementptr inbounds i8, ptr %2225, i64 16
+  %2226 = getelementptr inbounds nuw i8, ptr %2225, i64 16
   %2227 = load ptr, ptr %2226, align 8
   call void %2227(ptr noundef nonnull align 8 dereferenceable(16) %2217) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i701
@@ -5350,7 +5350,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit695: ; preds = %_ZN32pxrIn
 
 2236:                                             ; preds = %2234
   %2237 = load ptr, ptr %2217, align 8
-  %2238 = getelementptr inbounds i8, ptr %2237, i64 16
+  %2238 = getelementptr inbounds nuw i8, ptr %2237, i64 16
   %2239 = load ptr, ptr %2238, align 8
   call void %2239(ptr noundef nonnull align 8 dereferenceable(16) %2217) #16
   %2240 = getelementptr inbounds nuw i8, ptr %2217, i64 12
@@ -5375,7 +5375,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit695: ; preds = %_ZN32pxrIn
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i701: ; preds = %2247, %2223
   %2249 = load ptr, ptr %2217, align 8
-  %2250 = getelementptr inbounds i8, ptr %2249, i64 24
+  %2250 = getelementptr inbounds nuw i8, ptr %2249, i64 24
   %2251 = load ptr, ptr %2250, align 8
   call void %2251(ptr noundef nonnull align 8 dereferenceable(16) %2217) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit702
@@ -5397,7 +5397,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit702: ; preds = %_ZN32pxrIn
   %2259 = getelementptr inbounds nuw i8, ptr %2252, i64 12
   store i32 0, ptr %2259, align 4
   %2260 = load ptr, ptr %2252, align 8
-  %2261 = getelementptr inbounds i8, ptr %2260, i64 16
+  %2261 = getelementptr inbounds nuw i8, ptr %2260, i64 16
   %2262 = load ptr, ptr %2261, align 8
   call void %2262(ptr noundef nonnull align 8 dereferenceable(16) %2252) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i708
@@ -5423,7 +5423,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit702: ; preds = %_ZN32pxrIn
 
 2271:                                             ; preds = %2269
   %2272 = load ptr, ptr %2252, align 8
-  %2273 = getelementptr inbounds i8, ptr %2272, i64 16
+  %2273 = getelementptr inbounds nuw i8, ptr %2272, i64 16
   %2274 = load ptr, ptr %2273, align 8
   call void %2274(ptr noundef nonnull align 8 dereferenceable(16) %2252) #16
   %2275 = getelementptr inbounds nuw i8, ptr %2252, i64 12
@@ -5448,7 +5448,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit702: ; preds = %_ZN32pxrIn
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i708: ; preds = %2282, %2258
   %2284 = load ptr, ptr %2252, align 8
-  %2285 = getelementptr inbounds i8, ptr %2284, i64 24
+  %2285 = getelementptr inbounds nuw i8, ptr %2284, i64 24
   %2286 = load ptr, ptr %2285, align 8
   call void %2286(ptr noundef nonnull align 8 dereferenceable(16) %2252) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit709
@@ -5470,7 +5470,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit709: ; preds = %_ZN32pxrIn
   %2294 = getelementptr inbounds nuw i8, ptr %2287, i64 12
   store i32 0, ptr %2294, align 4
   %2295 = load ptr, ptr %2287, align 8
-  %2296 = getelementptr inbounds i8, ptr %2295, i64 16
+  %2296 = getelementptr inbounds nuw i8, ptr %2295, i64 16
   %2297 = load ptr, ptr %2296, align 8
   call void %2297(ptr noundef nonnull align 8 dereferenceable(16) %2287) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i715
@@ -5496,7 +5496,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit709: ; preds = %_ZN32pxrIn
 
 2306:                                             ; preds = %2304
   %2307 = load ptr, ptr %2287, align 8
-  %2308 = getelementptr inbounds i8, ptr %2307, i64 16
+  %2308 = getelementptr inbounds nuw i8, ptr %2307, i64 16
   %2309 = load ptr, ptr %2308, align 8
   call void %2309(ptr noundef nonnull align 8 dereferenceable(16) %2287) #16
   %2310 = getelementptr inbounds nuw i8, ptr %2287, i64 12
@@ -5521,7 +5521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit709: ; preds = %_ZN32pxrIn
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i715: ; preds = %2317, %2293
   %2319 = load ptr, ptr %2287, align 8
-  %2320 = getelementptr inbounds i8, ptr %2319, i64 24
+  %2320 = getelementptr inbounds nuw i8, ptr %2319, i64 24
   %2321 = load ptr, ptr %2320, align 8
   call void %2321(ptr noundef nonnull align 8 dereferenceable(16) %2287) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit716
@@ -5627,13 +5627,13 @@ _ZN11GfColorTestC2Ev.exit:                        ; preds = %2340
 
 2352:                                             ; preds = %2343
   store ptr @.str, ptr %22, align 8
-  %.sroa.21512.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
+  %.sroa.21512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @__func__.main, ptr %.sroa.21512.0..sroa_idx, align 8
-  %.sroa.31513.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 16
+  %.sroa.31513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 233, ptr %.sroa.31513.0..sroa_idx, align 8
-  %.sroa.41514.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 24
+  %.sroa.41514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41514.0..sroa_idx, align 8
-  %.sroa.51515.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 32
+  %.sroa.51515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i8 0, ptr %.sroa.51515.0..sroa_idx, align 8
   %2353 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i32 4, ptr %2353, align 8
@@ -5662,7 +5662,7 @@ _ZN11GfColorTestC2Ev.exit:                        ; preds = %2340
   %2363 = getelementptr inbounds nuw i8, ptr %2356, i64 12
   store i32 0, ptr %2363, align 4
   %2364 = load ptr, ptr %2356, align 8
-  %2365 = getelementptr inbounds i8, ptr %2364, i64 16
+  %2365 = getelementptr inbounds nuw i8, ptr %2364, i64 16
   %2366 = load ptr, ptr %2365, align 8
   call void %2366(ptr noundef nonnull align 8 dereferenceable(16) %2356) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i752
@@ -5688,7 +5688,7 @@ _ZN11GfColorTestC2Ev.exit:                        ; preds = %2340
 
 2375:                                             ; preds = %2373
   %2376 = load ptr, ptr %2356, align 8
-  %2377 = getelementptr inbounds i8, ptr %2376, i64 16
+  %2377 = getelementptr inbounds nuw i8, ptr %2376, i64 16
   %2378 = load ptr, ptr %2377, align 8
   call void %2378(ptr noundef nonnull align 8 dereferenceable(16) %2356) #16
   %2379 = getelementptr inbounds nuw i8, ptr %2356, i64 12
@@ -5713,7 +5713,7 @@ _ZN11GfColorTestC2Ev.exit:                        ; preds = %2340
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i752: ; preds = %2386, %2362
   %2388 = load ptr, ptr %2356, align 8
-  %2389 = getelementptr inbounds i8, ptr %2388, i64 24
+  %2389 = getelementptr inbounds nuw i8, ptr %2388, i64 24
   %2390 = load ptr, ptr %2389, align 8
   call void %2390(ptr noundef nonnull align 8 dereferenceable(16) %2356) #16
   br label %_ZN11GfColorTestD2Ev.exit753
@@ -5731,7 +5731,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit757 unwind label %4110
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit757: ; preds = %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit
-  %2391 = getelementptr inbounds i8, ptr %75, i64 8
+  %2391 = getelementptr inbounds nuw i8, ptr %75, i64 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColor20_SetFromChromaticityERKNS_7GfVec2fE(ptr noundef nonnull align 8 dereferenceable(28) %125, ptr noundef nonnull align 4 dereferenceable(8) %2391)
           to label %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit759 unwind label %4112
 
@@ -5740,15 +5740,15 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit761 unwind label %4112
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit761: ; preds = %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit759
-  %2392 = getelementptr inbounds i8, ptr %75, i64 16
+  %2392 = getelementptr inbounds nuw i8, ptr %75, i64 16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColor20_SetFromChromaticityERKNS_7GfVec2fE(ptr noundef nonnull align 8 dereferenceable(28) %126, ptr noundef nonnull align 4 dereferenceable(8) %2392)
           to label %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit763 unwind label %4114
 
 _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit763: ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit761
   store float 1.000000e+00, ptr %128, align 4
-  %2393 = getelementptr inbounds i8, ptr %128, i64 4
+  %2393 = getelementptr inbounds nuw i8, ptr %128, i64 4
   store float 0.000000e+00, ptr %2393, align 4
-  %2394 = getelementptr inbounds i8, ptr %128, i64 8
+  %2394 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store float 0.000000e+00, ptr %2394, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %127, ptr noundef nonnull align 4 dereferenceable(12) %128, ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %2395 unwind label %4114
@@ -5756,11 +5756,11 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 2395:                                             ; preds = %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit763
   %2396 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %.sroa.01.0.copyload.i.i766 = load <2 x float>, ptr %2396, align 8
-  %.sroa.22.0..sroa_idx.i.i767 = getelementptr inbounds i8, ptr %124, i64 24
+  %.sroa.22.0..sroa_idx.i.i767 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %.sroa.22.0.copyload.i.i768 = load float, ptr %.sroa.22.0..sroa_idx.i.i767, align 8
   %2397 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %.sroa.01.0.copyload.i7.i769 = load <2 x float>, ptr %2397, align 8
-  %.sroa.22.0..sroa_idx.i8.i770 = getelementptr inbounds i8, ptr %127, i64 24
+  %.sroa.22.0..sroa_idx.i8.i770 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %.sroa.22.0.copyload.i9.i771 = load float, ptr %.sroa.22.0..sroa_idx.i8.i770, align 8
   %2398 = fsub <2 x float> %.sroa.01.0.copyload.i.i766, %.sroa.01.0.copyload.i7.i769
   %2399 = extractelement <2 x float> %2398, i64 0
@@ -5777,13 +5777,13 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 
 2408:                                             ; preds = %2395
   store ptr @.str, ptr %21, align 8
-  %.sroa.21506.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.21506.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr @__func__.main, ptr %.sroa.21506.0..sroa_idx, align 8
-  %.sroa.31507.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 16
+  %.sroa.31507.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 243, ptr %.sroa.31507.0..sroa_idx, align 8
-  %.sroa.41508.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 24
+  %.sroa.41508.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41508.0..sroa_idx, align 8
-  %.sroa.51509.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 32
+  %.sroa.51509.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i8 0, ptr %.sroa.51509.0..sroa_idx, align 8
   %2409 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 4, ptr %2409, align 8
@@ -5812,7 +5812,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   %2419 = getelementptr inbounds nuw i8, ptr %2412, i64 12
   store i32 0, ptr %2419, align 4
   %2420 = load ptr, ptr %2412, align 8
-  %2421 = getelementptr inbounds i8, ptr %2420, i64 16
+  %2421 = getelementptr inbounds nuw i8, ptr %2420, i64 16
   %2422 = load ptr, ptr %2421, align 8
   call void %2422(ptr noundef nonnull align 8 dereferenceable(16) %2412) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i783
@@ -5838,7 +5838,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 
 2431:                                             ; preds = %2429
   %2432 = load ptr, ptr %2412, align 8
-  %2433 = getelementptr inbounds i8, ptr %2432, i64 16
+  %2433 = getelementptr inbounds nuw i8, ptr %2432, i64 16
   %2434 = load ptr, ptr %2433, align 8
   call void %2434(ptr noundef nonnull align 8 dereferenceable(16) %2412) #16
   %2435 = getelementptr inbounds nuw i8, ptr %2412, i64 12
@@ -5863,16 +5863,16 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i783: ; preds = %2442, %2418
   %2444 = load ptr, ptr %2412, align 8
-  %2445 = getelementptr inbounds i8, ptr %2444, i64 24
+  %2445 = getelementptr inbounds nuw i8, ptr %2444, i64 24
   %2446 = load ptr, ptr %2445, align 8
   call void %2446(ptr noundef nonnull align 8 dereferenceable(16) %2412) #16
   br label %_ZN11GfColorTestD2Ev.exit784
 
 _ZN11GfColorTestD2Ev.exit784:                     ; preds = %2410, %2429, %2442, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i783
   store float 0.000000e+00, ptr %130, align 4
-  %2447 = getelementptr inbounds i8, ptr %130, i64 4
+  %2447 = getelementptr inbounds nuw i8, ptr %130, i64 4
   store float 1.000000e+00, ptr %2447, align 4
-  %2448 = getelementptr inbounds i8, ptr %130, i64 8
+  %2448 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store float 0.000000e+00, ptr %2448, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %129, ptr noundef nonnull align 4 dereferenceable(12) %130, ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %2449 unwind label %4114
@@ -5880,11 +5880,11 @@ _ZN11GfColorTestD2Ev.exit784:                     ; preds = %2410, %2429, %2442,
 2449:                                             ; preds = %_ZN11GfColorTestD2Ev.exit784
   %2450 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %.sroa.01.0.copyload.i.i787 = load <2 x float>, ptr %2450, align 8
-  %.sroa.22.0..sroa_idx.i.i788 = getelementptr inbounds i8, ptr %125, i64 24
+  %.sroa.22.0..sroa_idx.i.i788 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %.sroa.22.0.copyload.i.i789 = load float, ptr %.sroa.22.0..sroa_idx.i.i788, align 8
   %2451 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %.sroa.01.0.copyload.i7.i790 = load <2 x float>, ptr %2451, align 8
-  %.sroa.22.0..sroa_idx.i8.i791 = getelementptr inbounds i8, ptr %129, i64 24
+  %.sroa.22.0..sroa_idx.i8.i791 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %.sroa.22.0.copyload.i9.i792 = load float, ptr %.sroa.22.0..sroa_idx.i8.i791, align 8
   %2452 = fsub <2 x float> %.sroa.01.0.copyload.i.i787, %.sroa.01.0.copyload.i7.i790
   %2453 = extractelement <2 x float> %2452, i64 0
@@ -5901,13 +5901,13 @@ _ZN11GfColorTestD2Ev.exit784:                     ; preds = %2410, %2429, %2442,
 
 2462:                                             ; preds = %2449
   store ptr @.str, ptr %20, align 8
-  %.sroa.21500.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.21500.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @__func__.main, ptr %.sroa.21500.0..sroa_idx, align 8
-  %.sroa.31501.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 16
+  %.sroa.31501.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 244, ptr %.sroa.31501.0..sroa_idx, align 8
-  %.sroa.41502.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 24
+  %.sroa.41502.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41502.0..sroa_idx, align 8
-  %.sroa.51503.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 32
+  %.sroa.51503.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i8 0, ptr %.sroa.51503.0..sroa_idx, align 8
   %2463 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i32 4, ptr %2463, align 8
@@ -5936,7 +5936,7 @@ _ZN11GfColorTestD2Ev.exit784:                     ; preds = %2410, %2429, %2442,
   %2473 = getelementptr inbounds nuw i8, ptr %2466, i64 12
   store i32 0, ptr %2473, align 4
   %2474 = load ptr, ptr %2466, align 8
-  %2475 = getelementptr inbounds i8, ptr %2474, i64 16
+  %2475 = getelementptr inbounds nuw i8, ptr %2474, i64 16
   %2476 = load ptr, ptr %2475, align 8
   call void %2476(ptr noundef nonnull align 8 dereferenceable(16) %2466) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i804
@@ -5962,7 +5962,7 @@ _ZN11GfColorTestD2Ev.exit784:                     ; preds = %2410, %2429, %2442,
 
 2485:                                             ; preds = %2483
   %2486 = load ptr, ptr %2466, align 8
-  %2487 = getelementptr inbounds i8, ptr %2486, i64 16
+  %2487 = getelementptr inbounds nuw i8, ptr %2486, i64 16
   %2488 = load ptr, ptr %2487, align 8
   call void %2488(ptr noundef nonnull align 8 dereferenceable(16) %2466) #16
   %2489 = getelementptr inbounds nuw i8, ptr %2466, i64 12
@@ -5987,16 +5987,16 @@ _ZN11GfColorTestD2Ev.exit784:                     ; preds = %2410, %2429, %2442,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i804: ; preds = %2496, %2472
   %2498 = load ptr, ptr %2466, align 8
-  %2499 = getelementptr inbounds i8, ptr %2498, i64 24
+  %2499 = getelementptr inbounds nuw i8, ptr %2498, i64 24
   %2500 = load ptr, ptr %2499, align 8
   call void %2500(ptr noundef nonnull align 8 dereferenceable(16) %2466) #16
   br label %_ZN11GfColorTestD2Ev.exit805
 
 _ZN11GfColorTestD2Ev.exit805:                     ; preds = %2464, %2483, %2496, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i804
   store float 0.000000e+00, ptr %132, align 4
-  %2501 = getelementptr inbounds i8, ptr %132, i64 4
+  %2501 = getelementptr inbounds nuw i8, ptr %132, i64 4
   store float 0.000000e+00, ptr %2501, align 4
-  %2502 = getelementptr inbounds i8, ptr %132, i64 8
+  %2502 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store float 1.000000e+00, ptr %2502, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %131, ptr noundef nonnull align 4 dereferenceable(12) %132, ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %2503 unwind label %4114
@@ -6004,11 +6004,11 @@ _ZN11GfColorTestD2Ev.exit805:                     ; preds = %2464, %2483, %2496,
 2503:                                             ; preds = %_ZN11GfColorTestD2Ev.exit805
   %2504 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %.sroa.01.0.copyload.i.i808 = load <2 x float>, ptr %2504, align 8
-  %.sroa.22.0..sroa_idx.i.i809 = getelementptr inbounds i8, ptr %126, i64 24
+  %.sroa.22.0..sroa_idx.i.i809 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %.sroa.22.0.copyload.i.i810 = load float, ptr %.sroa.22.0..sroa_idx.i.i809, align 8
   %2505 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %.sroa.01.0.copyload.i7.i811 = load <2 x float>, ptr %2505, align 8
-  %.sroa.22.0..sroa_idx.i8.i812 = getelementptr inbounds i8, ptr %131, i64 24
+  %.sroa.22.0..sroa_idx.i8.i812 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %.sroa.22.0.copyload.i9.i813 = load float, ptr %.sroa.22.0..sroa_idx.i8.i812, align 8
   %2506 = fsub <2 x float> %.sroa.01.0.copyload.i.i808, %.sroa.01.0.copyload.i7.i811
   %2507 = extractelement <2 x float> %2506, i64 0
@@ -6025,13 +6025,13 @@ _ZN11GfColorTestD2Ev.exit805:                     ; preds = %2464, %2483, %2496,
 
 2516:                                             ; preds = %2503
   store ptr @.str, ptr %19, align 8
-  %.sroa.21494.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.21494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @__func__.main, ptr %.sroa.21494.0..sroa_idx, align 8
-  %.sroa.31495.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 16
+  %.sroa.31495.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i64 245, ptr %.sroa.31495.0..sroa_idx, align 8
-  %.sroa.41496.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 24
+  %.sroa.41496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41496.0..sroa_idx, align 8
-  %.sroa.51497.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 32
+  %.sroa.51497.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i8 0, ptr %.sroa.51497.0..sroa_idx, align 8
   %2517 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 4, ptr %2517, align 8
@@ -6060,7 +6060,7 @@ _ZN11GfColorTestD2Ev.exit805:                     ; preds = %2464, %2483, %2496,
   %2527 = getelementptr inbounds nuw i8, ptr %2520, i64 12
   store i32 0, ptr %2527, align 4
   %2528 = load ptr, ptr %2520, align 8
-  %2529 = getelementptr inbounds i8, ptr %2528, i64 16
+  %2529 = getelementptr inbounds nuw i8, ptr %2528, i64 16
   %2530 = load ptr, ptr %2529, align 8
   call void %2530(ptr noundef nonnull align 8 dereferenceable(16) %2520) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i825
@@ -6086,7 +6086,7 @@ _ZN11GfColorTestD2Ev.exit805:                     ; preds = %2464, %2483, %2496,
 
 2539:                                             ; preds = %2537
   %2540 = load ptr, ptr %2520, align 8
-  %2541 = getelementptr inbounds i8, ptr %2540, i64 16
+  %2541 = getelementptr inbounds nuw i8, ptr %2540, i64 16
   %2542 = load ptr, ptr %2541, align 8
   call void %2542(ptr noundef nonnull align 8 dereferenceable(16) %2520) #16
   %2543 = getelementptr inbounds nuw i8, ptr %2520, i64 12
@@ -6111,7 +6111,7 @@ _ZN11GfColorTestD2Ev.exit805:                     ; preds = %2464, %2483, %2496,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i825: ; preds = %2550, %2526
   %2552 = load ptr, ptr %2520, align 8
-  %2553 = getelementptr inbounds i8, ptr %2552, i64 24
+  %2553 = getelementptr inbounds nuw i8, ptr %2552, i64 24
   %2554 = load ptr, ptr %2553, align 8
   call void %2554(ptr noundef nonnull align 8 dereferenceable(16) %2520) #16
   br label %_ZN11GfColorTestD2Ev.exit826
@@ -6129,7 +6129,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit832 unwind label %4122
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit832: ; preds = %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit830
-  %2555 = getelementptr inbounds i8, ptr %76, i64 8
+  %2555 = getelementptr inbounds nuw i8, ptr %76, i64 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColor20_SetFromChromaticityERKNS_7GfVec2fE(ptr noundef nonnull align 8 dereferenceable(28) %134, ptr noundef nonnull align 4 dereferenceable(8) %2555)
           to label %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit834 unwind label %4124
 
@@ -6138,15 +6138,15 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit836 unwind label %4124
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit836: ; preds = %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit834
-  %2556 = getelementptr inbounds i8, ptr %76, i64 16
+  %2556 = getelementptr inbounds nuw i8, ptr %76, i64 16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColor20_SetFromChromaticityERKNS_7GfVec2fE(ptr noundef nonnull align 8 dereferenceable(28) %135, ptr noundef nonnull align 4 dereferenceable(8) %2556)
           to label %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit838 unwind label %4126
 
 _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit838: ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit836
   store float 1.000000e+00, ptr %137, align 4
-  %2557 = getelementptr inbounds i8, ptr %137, i64 4
+  %2557 = getelementptr inbounds nuw i8, ptr %137, i64 4
   store float 0.000000e+00, ptr %2557, align 4
-  %2558 = getelementptr inbounds i8, ptr %137, i64 8
+  %2558 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store float 0.000000e+00, ptr %2558, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %136, ptr noundef nonnull align 4 dereferenceable(12) %137, ptr noundef nonnull align 8 dereferenceable(16) %66)
           to label %2559 unwind label %4126
@@ -6154,11 +6154,11 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 2559:                                             ; preds = %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit838
   %2560 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %.sroa.01.0.copyload.i.i841 = load <2 x float>, ptr %2560, align 8
-  %.sroa.22.0..sroa_idx.i.i842 = getelementptr inbounds i8, ptr %133, i64 24
+  %.sroa.22.0..sroa_idx.i.i842 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %.sroa.22.0.copyload.i.i843 = load float, ptr %.sroa.22.0..sroa_idx.i.i842, align 8
   %2561 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %.sroa.01.0.copyload.i7.i844 = load <2 x float>, ptr %2561, align 8
-  %.sroa.22.0..sroa_idx.i8.i845 = getelementptr inbounds i8, ptr %136, i64 24
+  %.sroa.22.0..sroa_idx.i8.i845 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %.sroa.22.0.copyload.i9.i846 = load float, ptr %.sroa.22.0..sroa_idx.i8.i845, align 8
   %2562 = fsub <2 x float> %.sroa.01.0.copyload.i.i841, %.sroa.01.0.copyload.i7.i844
   %2563 = extractelement <2 x float> %2562, i64 0
@@ -6175,13 +6175,13 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 
 2572:                                             ; preds = %2559
   store ptr @.str, ptr %18, align 8
-  %.sroa.21488.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
+  %.sroa.21488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @__func__.main, ptr %.sroa.21488.0..sroa_idx, align 8
-  %.sroa.31489.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.31489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 253, ptr %.sroa.31489.0..sroa_idx, align 8
-  %.sroa.41490.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 24
+  %.sroa.41490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41490.0..sroa_idx, align 8
-  %.sroa.51491.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
+  %.sroa.51491.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i8 0, ptr %.sroa.51491.0..sroa_idx, align 8
   %2573 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 4, ptr %2573, align 8
@@ -6210,7 +6210,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   %2583 = getelementptr inbounds nuw i8, ptr %2576, i64 12
   store i32 0, ptr %2583, align 4
   %2584 = load ptr, ptr %2576, align 8
-  %2585 = getelementptr inbounds i8, ptr %2584, i64 16
+  %2585 = getelementptr inbounds nuw i8, ptr %2584, i64 16
   %2586 = load ptr, ptr %2585, align 8
   call void %2586(ptr noundef nonnull align 8 dereferenceable(16) %2576) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i858
@@ -6236,7 +6236,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 
 2595:                                             ; preds = %2593
   %2596 = load ptr, ptr %2576, align 8
-  %2597 = getelementptr inbounds i8, ptr %2596, i64 16
+  %2597 = getelementptr inbounds nuw i8, ptr %2596, i64 16
   %2598 = load ptr, ptr %2597, align 8
   call void %2598(ptr noundef nonnull align 8 dereferenceable(16) %2576) #16
   %2599 = getelementptr inbounds nuw i8, ptr %2576, i64 12
@@ -6261,16 +6261,16 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i858: ; preds = %2606, %2582
   %2608 = load ptr, ptr %2576, align 8
-  %2609 = getelementptr inbounds i8, ptr %2608, i64 24
+  %2609 = getelementptr inbounds nuw i8, ptr %2608, i64 24
   %2610 = load ptr, ptr %2609, align 8
   call void %2610(ptr noundef nonnull align 8 dereferenceable(16) %2576) #16
   br label %_ZN11GfColorTestD2Ev.exit859
 
 _ZN11GfColorTestD2Ev.exit859:                     ; preds = %2574, %2593, %2606, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i858
   store float 0.000000e+00, ptr %139, align 4
-  %2611 = getelementptr inbounds i8, ptr %139, i64 4
+  %2611 = getelementptr inbounds nuw i8, ptr %139, i64 4
   store float 1.000000e+00, ptr %2611, align 4
-  %2612 = getelementptr inbounds i8, ptr %139, i64 8
+  %2612 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store float 0.000000e+00, ptr %2612, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %138, ptr noundef nonnull align 4 dereferenceable(12) %139, ptr noundef nonnull align 8 dereferenceable(16) %66)
           to label %2613 unwind label %4126
@@ -6278,11 +6278,11 @@ _ZN11GfColorTestD2Ev.exit859:                     ; preds = %2574, %2593, %2606,
 2613:                                             ; preds = %_ZN11GfColorTestD2Ev.exit859
   %2614 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %.sroa.01.0.copyload.i.i862 = load <2 x float>, ptr %2614, align 8
-  %.sroa.22.0..sroa_idx.i.i863 = getelementptr inbounds i8, ptr %134, i64 24
+  %.sroa.22.0..sroa_idx.i.i863 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %.sroa.22.0.copyload.i.i864 = load float, ptr %.sroa.22.0..sroa_idx.i.i863, align 8
   %2615 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %.sroa.01.0.copyload.i7.i865 = load <2 x float>, ptr %2615, align 8
-  %.sroa.22.0..sroa_idx.i8.i866 = getelementptr inbounds i8, ptr %138, i64 24
+  %.sroa.22.0..sroa_idx.i8.i866 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %.sroa.22.0.copyload.i9.i867 = load float, ptr %.sroa.22.0..sroa_idx.i8.i866, align 8
   %2616 = fsub <2 x float> %.sroa.01.0.copyload.i.i862, %.sroa.01.0.copyload.i7.i865
   %2617 = extractelement <2 x float> %2616, i64 0
@@ -6299,13 +6299,13 @@ _ZN11GfColorTestD2Ev.exit859:                     ; preds = %2574, %2593, %2606,
 
 2626:                                             ; preds = %2613
   store ptr @.str, ptr %17, align 8
-  %.sroa.21482.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
+  %.sroa.21482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @__func__.main, ptr %.sroa.21482.0..sroa_idx, align 8
-  %.sroa.31483.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
+  %.sroa.31483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 254, ptr %.sroa.31483.0..sroa_idx, align 8
-  %.sroa.41484.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 24
+  %.sroa.41484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41484.0..sroa_idx, align 8
-  %.sroa.51485.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 32
+  %.sroa.51485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i8 0, ptr %.sroa.51485.0..sroa_idx, align 8
   %2627 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 4, ptr %2627, align 8
@@ -6334,7 +6334,7 @@ _ZN11GfColorTestD2Ev.exit859:                     ; preds = %2574, %2593, %2606,
   %2637 = getelementptr inbounds nuw i8, ptr %2630, i64 12
   store i32 0, ptr %2637, align 4
   %2638 = load ptr, ptr %2630, align 8
-  %2639 = getelementptr inbounds i8, ptr %2638, i64 16
+  %2639 = getelementptr inbounds nuw i8, ptr %2638, i64 16
   %2640 = load ptr, ptr %2639, align 8
   call void %2640(ptr noundef nonnull align 8 dereferenceable(16) %2630) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i879
@@ -6360,7 +6360,7 @@ _ZN11GfColorTestD2Ev.exit859:                     ; preds = %2574, %2593, %2606,
 
 2649:                                             ; preds = %2647
   %2650 = load ptr, ptr %2630, align 8
-  %2651 = getelementptr inbounds i8, ptr %2650, i64 16
+  %2651 = getelementptr inbounds nuw i8, ptr %2650, i64 16
   %2652 = load ptr, ptr %2651, align 8
   call void %2652(ptr noundef nonnull align 8 dereferenceable(16) %2630) #16
   %2653 = getelementptr inbounds nuw i8, ptr %2630, i64 12
@@ -6385,16 +6385,16 @@ _ZN11GfColorTestD2Ev.exit859:                     ; preds = %2574, %2593, %2606,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i879: ; preds = %2660, %2636
   %2662 = load ptr, ptr %2630, align 8
-  %2663 = getelementptr inbounds i8, ptr %2662, i64 24
+  %2663 = getelementptr inbounds nuw i8, ptr %2662, i64 24
   %2664 = load ptr, ptr %2663, align 8
   call void %2664(ptr noundef nonnull align 8 dereferenceable(16) %2630) #16
   br label %_ZN11GfColorTestD2Ev.exit880
 
 _ZN11GfColorTestD2Ev.exit880:                     ; preds = %2628, %2647, %2660, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i879
   store float 0.000000e+00, ptr %141, align 4
-  %2665 = getelementptr inbounds i8, ptr %141, i64 4
+  %2665 = getelementptr inbounds nuw i8, ptr %141, i64 4
   store float 0.000000e+00, ptr %2665, align 4
-  %2666 = getelementptr inbounds i8, ptr %141, i64 8
+  %2666 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store float 1.000000e+00, ptr %2666, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %140, ptr noundef nonnull align 4 dereferenceable(12) %141, ptr noundef nonnull align 8 dereferenceable(16) %66)
           to label %2667 unwind label %4126
@@ -6402,11 +6402,11 @@ _ZN11GfColorTestD2Ev.exit880:                     ; preds = %2628, %2647, %2660,
 2667:                                             ; preds = %_ZN11GfColorTestD2Ev.exit880
   %2668 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %.sroa.01.0.copyload.i.i883 = load <2 x float>, ptr %2668, align 8
-  %.sroa.22.0..sroa_idx.i.i884 = getelementptr inbounds i8, ptr %135, i64 24
+  %.sroa.22.0..sroa_idx.i.i884 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %.sroa.22.0.copyload.i.i885 = load float, ptr %.sroa.22.0..sroa_idx.i.i884, align 8
   %2669 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %.sroa.01.0.copyload.i7.i886 = load <2 x float>, ptr %2669, align 8
-  %.sroa.22.0..sroa_idx.i8.i887 = getelementptr inbounds i8, ptr %140, i64 24
+  %.sroa.22.0..sroa_idx.i8.i887 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %.sroa.22.0.copyload.i9.i888 = load float, ptr %.sroa.22.0..sroa_idx.i8.i887, align 8
   %2670 = fsub <2 x float> %.sroa.01.0.copyload.i.i883, %.sroa.01.0.copyload.i7.i886
   %2671 = extractelement <2 x float> %2670, i64 0
@@ -6423,13 +6423,13 @@ _ZN11GfColorTestD2Ev.exit880:                     ; preds = %2628, %2647, %2660,
 
 2680:                                             ; preds = %2667
   store ptr @.str, ptr %16, align 8
-  %.sroa.21476.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 8
+  %.sroa.21476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @__func__.main, ptr %.sroa.21476.0..sroa_idx, align 8
-  %.sroa.31477.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.31477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 255, ptr %.sroa.31477.0..sroa_idx, align 8
-  %.sroa.41478.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
+  %.sroa.41478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41478.0..sroa_idx, align 8
-  %.sroa.51479.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 32
+  %.sroa.51479.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i8 0, ptr %.sroa.51479.0..sroa_idx, align 8
   %2681 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 4, ptr %2681, align 8
@@ -6458,7 +6458,7 @@ _ZN11GfColorTestD2Ev.exit880:                     ; preds = %2628, %2647, %2660,
   %2691 = getelementptr inbounds nuw i8, ptr %2684, i64 12
   store i32 0, ptr %2691, align 4
   %2692 = load ptr, ptr %2684, align 8
-  %2693 = getelementptr inbounds i8, ptr %2692, i64 16
+  %2693 = getelementptr inbounds nuw i8, ptr %2692, i64 16
   %2694 = load ptr, ptr %2693, align 8
   call void %2694(ptr noundef nonnull align 8 dereferenceable(16) %2684) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i900
@@ -6484,7 +6484,7 @@ _ZN11GfColorTestD2Ev.exit880:                     ; preds = %2628, %2647, %2660,
 
 2703:                                             ; preds = %2701
   %2704 = load ptr, ptr %2684, align 8
-  %2705 = getelementptr inbounds i8, ptr %2704, i64 16
+  %2705 = getelementptr inbounds nuw i8, ptr %2704, i64 16
   %2706 = load ptr, ptr %2705, align 8
   call void %2706(ptr noundef nonnull align 8 dereferenceable(16) %2684) #16
   %2707 = getelementptr inbounds nuw i8, ptr %2684, i64 12
@@ -6509,7 +6509,7 @@ _ZN11GfColorTestD2Ev.exit880:                     ; preds = %2628, %2647, %2660,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i900: ; preds = %2714, %2690
   %2716 = load ptr, ptr %2684, align 8
-  %2717 = getelementptr inbounds i8, ptr %2716, i64 24
+  %2717 = getelementptr inbounds nuw i8, ptr %2716, i64 24
   %2718 = load ptr, ptr %2717, align 8
   call void %2718(ptr noundef nonnull align 8 dereferenceable(16) %2684) #16
   br label %_ZN11GfColorTestD2Ev.exit901
@@ -6527,7 +6527,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit907 unwind label %4134
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit907: ; preds = %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit905
-  %2719 = getelementptr inbounds i8, ptr %77, i64 8
+  %2719 = getelementptr inbounds nuw i8, ptr %77, i64 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColor20_SetFromChromaticityERKNS_7GfVec2fE(ptr noundef nonnull align 8 dereferenceable(28) %143, ptr noundef nonnull align 4 dereferenceable(8) %2719)
           to label %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit909 unwind label %4136
 
@@ -6536,15 +6536,15 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit911 unwind label %4136
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit911: ; preds = %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit909
-  %2720 = getelementptr inbounds i8, ptr %77, i64 16
+  %2720 = getelementptr inbounds nuw i8, ptr %77, i64 16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColor20_SetFromChromaticityERKNS_7GfVec2fE(ptr noundef nonnull align 8 dereferenceable(28) %144, ptr noundef nonnull align 4 dereferenceable(8) %2720)
           to label %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit913 unwind label %4138
 
 _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit913: ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit911
   store float 1.000000e+00, ptr %146, align 4
-  %2721 = getelementptr inbounds i8, ptr %146, i64 4
+  %2721 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store float 0.000000e+00, ptr %2721, align 4
-  %2722 = getelementptr inbounds i8, ptr %146, i64 8
+  %2722 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store float 0.000000e+00, ptr %2722, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %145, ptr noundef nonnull align 4 dereferenceable(12) %146, ptr noundef nonnull align 8 dereferenceable(16) %62)
           to label %2723 unwind label %4138
@@ -6552,11 +6552,11 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 2723:                                             ; preds = %_ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVec2fE.exit913
   %2724 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %.sroa.01.0.copyload.i.i916 = load <2 x float>, ptr %2724, align 8
-  %.sroa.22.0..sroa_idx.i.i917 = getelementptr inbounds i8, ptr %142, i64 24
+  %.sroa.22.0..sroa_idx.i.i917 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %.sroa.22.0.copyload.i.i918 = load float, ptr %.sroa.22.0..sroa_idx.i.i917, align 8
   %2725 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %.sroa.01.0.copyload.i7.i919 = load <2 x float>, ptr %2725, align 8
-  %.sroa.22.0..sroa_idx.i8.i920 = getelementptr inbounds i8, ptr %145, i64 24
+  %.sroa.22.0..sroa_idx.i8.i920 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %.sroa.22.0.copyload.i9.i921 = load float, ptr %.sroa.22.0..sroa_idx.i8.i920, align 8
   %2726 = fsub <2 x float> %.sroa.01.0.copyload.i.i916, %.sroa.01.0.copyload.i7.i919
   %2727 = extractelement <2 x float> %2726, i64 0
@@ -6573,13 +6573,13 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 
 2736:                                             ; preds = %2723
   store ptr @.str, ptr %15, align 8
-  %.sroa.21470.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.21470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @__func__.main, ptr %.sroa.21470.0..sroa_idx, align 8
-  %.sroa.31471.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.31471.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 263, ptr %.sroa.31471.0..sroa_idx, align 8
-  %.sroa.41472.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.41472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41472.0..sroa_idx, align 8
-  %.sroa.51473.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 32
+  %.sroa.51473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 0, ptr %.sroa.51473.0..sroa_idx, align 8
   %2737 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 4, ptr %2737, align 8
@@ -6608,7 +6608,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
   %2747 = getelementptr inbounds nuw i8, ptr %2740, i64 12
   store i32 0, ptr %2747, align 4
   %2748 = load ptr, ptr %2740, align 8
-  %2749 = getelementptr inbounds i8, ptr %2748, i64 16
+  %2749 = getelementptr inbounds nuw i8, ptr %2748, i64 16
   %2750 = load ptr, ptr %2749, align 8
   call void %2750(ptr noundef nonnull align 8 dereferenceable(16) %2740) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i933
@@ -6634,7 +6634,7 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 
 2759:                                             ; preds = %2757
   %2760 = load ptr, ptr %2740, align 8
-  %2761 = getelementptr inbounds i8, ptr %2760, i64 16
+  %2761 = getelementptr inbounds nuw i8, ptr %2760, i64 16
   %2762 = load ptr, ptr %2761, align 8
   call void %2762(ptr noundef nonnull align 8 dereferenceable(16) %2740) #16
   %2763 = getelementptr inbounds nuw i8, ptr %2740, i64 12
@@ -6659,16 +6659,16 @@ _ZN11GfColorTest19SetFromChromaticityERKN32pxrInternal_v0_24__pxrReserved__7GfVe
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i933: ; preds = %2770, %2746
   %2772 = load ptr, ptr %2740, align 8
-  %2773 = getelementptr inbounds i8, ptr %2772, i64 24
+  %2773 = getelementptr inbounds nuw i8, ptr %2772, i64 24
   %2774 = load ptr, ptr %2773, align 8
   call void %2774(ptr noundef nonnull align 8 dereferenceable(16) %2740) #16
   br label %_ZN11GfColorTestD2Ev.exit934
 
 _ZN11GfColorTestD2Ev.exit934:                     ; preds = %2738, %2757, %2770, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i933
   store float 0.000000e+00, ptr %148, align 4
-  %2775 = getelementptr inbounds i8, ptr %148, i64 4
+  %2775 = getelementptr inbounds nuw i8, ptr %148, i64 4
   store float 1.000000e+00, ptr %2775, align 4
-  %2776 = getelementptr inbounds i8, ptr %148, i64 8
+  %2776 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store float 0.000000e+00, ptr %2776, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %147, ptr noundef nonnull align 4 dereferenceable(12) %148, ptr noundef nonnull align 8 dereferenceable(16) %62)
           to label %2777 unwind label %4138
@@ -6676,11 +6676,11 @@ _ZN11GfColorTestD2Ev.exit934:                     ; preds = %2738, %2757, %2770,
 2777:                                             ; preds = %_ZN11GfColorTestD2Ev.exit934
   %2778 = getelementptr inbounds nuw i8, ptr %143, i64 16
   %.sroa.01.0.copyload.i.i937 = load <2 x float>, ptr %2778, align 8
-  %.sroa.22.0..sroa_idx.i.i938 = getelementptr inbounds i8, ptr %143, i64 24
+  %.sroa.22.0..sroa_idx.i.i938 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %.sroa.22.0.copyload.i.i939 = load float, ptr %.sroa.22.0..sroa_idx.i.i938, align 8
   %2779 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %.sroa.01.0.copyload.i7.i940 = load <2 x float>, ptr %2779, align 8
-  %.sroa.22.0..sroa_idx.i8.i941 = getelementptr inbounds i8, ptr %147, i64 24
+  %.sroa.22.0..sroa_idx.i8.i941 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %.sroa.22.0.copyload.i9.i942 = load float, ptr %.sroa.22.0..sroa_idx.i8.i941, align 8
   %2780 = fsub <2 x float> %.sroa.01.0.copyload.i.i937, %.sroa.01.0.copyload.i7.i940
   %2781 = extractelement <2 x float> %2780, i64 0
@@ -6697,13 +6697,13 @@ _ZN11GfColorTestD2Ev.exit934:                     ; preds = %2738, %2757, %2770,
 
 2790:                                             ; preds = %2777
   store ptr @.str, ptr %14, align 8
-  %.sroa.21464.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.21464.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @__func__.main, ptr %.sroa.21464.0..sroa_idx, align 8
-  %.sroa.31465.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.31465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 264, ptr %.sroa.31465.0..sroa_idx, align 8
-  %.sroa.41466.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
+  %.sroa.41466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41466.0..sroa_idx, align 8
-  %.sroa.51467.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 32
+  %.sroa.51467.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i8 0, ptr %.sroa.51467.0..sroa_idx, align 8
   %2791 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 4, ptr %2791, align 8
@@ -6732,7 +6732,7 @@ _ZN11GfColorTestD2Ev.exit934:                     ; preds = %2738, %2757, %2770,
   %2801 = getelementptr inbounds nuw i8, ptr %2794, i64 12
   store i32 0, ptr %2801, align 4
   %2802 = load ptr, ptr %2794, align 8
-  %2803 = getelementptr inbounds i8, ptr %2802, i64 16
+  %2803 = getelementptr inbounds nuw i8, ptr %2802, i64 16
   %2804 = load ptr, ptr %2803, align 8
   call void %2804(ptr noundef nonnull align 8 dereferenceable(16) %2794) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i954
@@ -6758,7 +6758,7 @@ _ZN11GfColorTestD2Ev.exit934:                     ; preds = %2738, %2757, %2770,
 
 2813:                                             ; preds = %2811
   %2814 = load ptr, ptr %2794, align 8
-  %2815 = getelementptr inbounds i8, ptr %2814, i64 16
+  %2815 = getelementptr inbounds nuw i8, ptr %2814, i64 16
   %2816 = load ptr, ptr %2815, align 8
   call void %2816(ptr noundef nonnull align 8 dereferenceable(16) %2794) #16
   %2817 = getelementptr inbounds nuw i8, ptr %2794, i64 12
@@ -6783,16 +6783,16 @@ _ZN11GfColorTestD2Ev.exit934:                     ; preds = %2738, %2757, %2770,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i954: ; preds = %2824, %2800
   %2826 = load ptr, ptr %2794, align 8
-  %2827 = getelementptr inbounds i8, ptr %2826, i64 24
+  %2827 = getelementptr inbounds nuw i8, ptr %2826, i64 24
   %2828 = load ptr, ptr %2827, align 8
   call void %2828(ptr noundef nonnull align 8 dereferenceable(16) %2794) #16
   br label %_ZN11GfColorTestD2Ev.exit955
 
 _ZN11GfColorTestD2Ev.exit955:                     ; preds = %2792, %2811, %2824, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i954
   store float 0.000000e+00, ptr %150, align 4
-  %2829 = getelementptr inbounds i8, ptr %150, i64 4
+  %2829 = getelementptr inbounds nuw i8, ptr %150, i64 4
   store float 0.000000e+00, ptr %2829, align 4
-  %2830 = getelementptr inbounds i8, ptr %150, i64 8
+  %2830 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store float 1.000000e+00, ptr %2830, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %149, ptr noundef nonnull align 4 dereferenceable(12) %150, ptr noundef nonnull align 8 dereferenceable(16) %62)
           to label %2831 unwind label %4138
@@ -6800,11 +6800,11 @@ _ZN11GfColorTestD2Ev.exit955:                     ; preds = %2792, %2811, %2824,
 2831:                                             ; preds = %_ZN11GfColorTestD2Ev.exit955
   %2832 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %.sroa.01.0.copyload.i.i958 = load <2 x float>, ptr %2832, align 8
-  %.sroa.22.0..sroa_idx.i.i959 = getelementptr inbounds i8, ptr %144, i64 24
+  %.sroa.22.0..sroa_idx.i.i959 = getelementptr inbounds nuw i8, ptr %144, i64 24
   %.sroa.22.0.copyload.i.i960 = load float, ptr %.sroa.22.0..sroa_idx.i.i959, align 8
   %2833 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %.sroa.01.0.copyload.i7.i961 = load <2 x float>, ptr %2833, align 8
-  %.sroa.22.0..sroa_idx.i8.i962 = getelementptr inbounds i8, ptr %149, i64 24
+  %.sroa.22.0..sroa_idx.i8.i962 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %.sroa.22.0.copyload.i9.i963 = load float, ptr %.sroa.22.0..sroa_idx.i8.i962, align 8
   %2834 = fsub <2 x float> %.sroa.01.0.copyload.i.i958, %.sroa.01.0.copyload.i7.i961
   %2835 = extractelement <2 x float> %2834, i64 0
@@ -6821,13 +6821,13 @@ _ZN11GfColorTestD2Ev.exit955:                     ; preds = %2792, %2811, %2824,
 
 2844:                                             ; preds = %2831
   store ptr @.str, ptr %13, align 8
-  %.sroa.21458.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.21458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @__func__.main, ptr %.sroa.21458.0..sroa_idx, align 8
-  %.sroa.31459.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.31459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 265, ptr %.sroa.31459.0..sroa_idx, align 8
-  %.sroa.41460.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
+  %.sroa.41460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.41460.0..sroa_idx, align 8
-  %.sroa.51461.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 32
+  %.sroa.51461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 0, ptr %.sroa.51461.0..sroa_idx, align 8
   %2845 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 4, ptr %2845, align 8
@@ -6856,7 +6856,7 @@ _ZN11GfColorTestD2Ev.exit955:                     ; preds = %2792, %2811, %2824,
   %2855 = getelementptr inbounds nuw i8, ptr %2848, i64 12
   store i32 0, ptr %2855, align 4
   %2856 = load ptr, ptr %2848, align 8
-  %2857 = getelementptr inbounds i8, ptr %2856, i64 16
+  %2857 = getelementptr inbounds nuw i8, ptr %2856, i64 16
   %2858 = load ptr, ptr %2857, align 8
   call void %2858(ptr noundef nonnull align 8 dereferenceable(16) %2848) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i975
@@ -6882,7 +6882,7 @@ _ZN11GfColorTestD2Ev.exit955:                     ; preds = %2792, %2811, %2824,
 
 2867:                                             ; preds = %2865
   %2868 = load ptr, ptr %2848, align 8
-  %2869 = getelementptr inbounds i8, ptr %2868, i64 16
+  %2869 = getelementptr inbounds nuw i8, ptr %2868, i64 16
   %2870 = load ptr, ptr %2869, align 8
   call void %2870(ptr noundef nonnull align 8 dereferenceable(16) %2848) #16
   %2871 = getelementptr inbounds nuw i8, ptr %2848, i64 12
@@ -6907,7 +6907,7 @@ _ZN11GfColorTestD2Ev.exit955:                     ; preds = %2792, %2811, %2824,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i975: ; preds = %2878, %2854
   %2880 = load ptr, ptr %2848, align 8
-  %2881 = getelementptr inbounds i8, ptr %2880, i64 24
+  %2881 = getelementptr inbounds nuw i8, ptr %2880, i64 24
   %2882 = load ptr, ptr %2881, align 8
   call void %2882(ptr noundef nonnull align 8 dereferenceable(16) %2848) #16
   br label %_ZN11GfColorTestD2Ev.exit976
@@ -6930,7 +6930,7 @@ _ZN11GfColorTestD2Ev.exit976:                     ; preds = %2846, %2865, %2878,
   %2891 = getelementptr inbounds nuw i8, ptr %2884, i64 12
   store i32 0, ptr %2891, align 4
   %2892 = load ptr, ptr %2884, align 8
-  %2893 = getelementptr inbounds i8, ptr %2892, i64 16
+  %2893 = getelementptr inbounds nuw i8, ptr %2892, i64 16
   %2894 = load ptr, ptr %2893, align 8
   call void %2894(ptr noundef nonnull align 8 dereferenceable(16) %2884) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i982
@@ -6956,7 +6956,7 @@ _ZN11GfColorTestD2Ev.exit976:                     ; preds = %2846, %2865, %2878,
 
 2903:                                             ; preds = %2901
   %2904 = load ptr, ptr %2884, align 8
-  %2905 = getelementptr inbounds i8, ptr %2904, i64 16
+  %2905 = getelementptr inbounds nuw i8, ptr %2904, i64 16
   %2906 = load ptr, ptr %2905, align 8
   call void %2906(ptr noundef nonnull align 8 dereferenceable(16) %2884) #16
   %2907 = getelementptr inbounds nuw i8, ptr %2884, i64 12
@@ -6981,7 +6981,7 @@ _ZN11GfColorTestD2Ev.exit976:                     ; preds = %2846, %2865, %2878,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i982: ; preds = %2914, %2890
   %2916 = load ptr, ptr %2884, align 8
-  %2917 = getelementptr inbounds i8, ptr %2916, i64 24
+  %2917 = getelementptr inbounds nuw i8, ptr %2916, i64 24
   %2918 = load ptr, ptr %2917, align 8
   call void %2918(ptr noundef nonnull align 8 dereferenceable(16) %2884) #16
   br label %_ZN11GfColorTestD2Ev.exit983
@@ -7004,7 +7004,7 @@ _ZN11GfColorTestD2Ev.exit983:                     ; preds = %_ZN11GfColorTestD2E
   %2927 = getelementptr inbounds nuw i8, ptr %2920, i64 12
   store i32 0, ptr %2927, align 4
   %2928 = load ptr, ptr %2920, align 8
-  %2929 = getelementptr inbounds i8, ptr %2928, i64 16
+  %2929 = getelementptr inbounds nuw i8, ptr %2928, i64 16
   %2930 = load ptr, ptr %2929, align 8
   call void %2930(ptr noundef nonnull align 8 dereferenceable(16) %2920) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i989
@@ -7030,7 +7030,7 @@ _ZN11GfColorTestD2Ev.exit983:                     ; preds = %_ZN11GfColorTestD2E
 
 2939:                                             ; preds = %2937
   %2940 = load ptr, ptr %2920, align 8
-  %2941 = getelementptr inbounds i8, ptr %2940, i64 16
+  %2941 = getelementptr inbounds nuw i8, ptr %2940, i64 16
   %2942 = load ptr, ptr %2941, align 8
   call void %2942(ptr noundef nonnull align 8 dereferenceable(16) %2920) #16
   %2943 = getelementptr inbounds nuw i8, ptr %2920, i64 12
@@ -7055,7 +7055,7 @@ _ZN11GfColorTestD2Ev.exit983:                     ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i989: ; preds = %2950, %2926
   %2952 = load ptr, ptr %2920, align 8
-  %2953 = getelementptr inbounds i8, ptr %2952, i64 24
+  %2953 = getelementptr inbounds nuw i8, ptr %2952, i64 24
   %2954 = load ptr, ptr %2953, align 8
   call void %2954(ptr noundef nonnull align 8 dereferenceable(16) %2920) #16
   br label %_ZN11GfColorTestD2Ev.exit990
@@ -7078,7 +7078,7 @@ _ZN11GfColorTestD2Ev.exit990:                     ; preds = %_ZN11GfColorTestD2E
   %2963 = getelementptr inbounds nuw i8, ptr %2956, i64 12
   store i32 0, ptr %2963, align 4
   %2964 = load ptr, ptr %2956, align 8
-  %2965 = getelementptr inbounds i8, ptr %2964, i64 16
+  %2965 = getelementptr inbounds nuw i8, ptr %2964, i64 16
   %2966 = load ptr, ptr %2965, align 8
   call void %2966(ptr noundef nonnull align 8 dereferenceable(16) %2956) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i996
@@ -7104,7 +7104,7 @@ _ZN11GfColorTestD2Ev.exit990:                     ; preds = %_ZN11GfColorTestD2E
 
 2975:                                             ; preds = %2973
   %2976 = load ptr, ptr %2956, align 8
-  %2977 = getelementptr inbounds i8, ptr %2976, i64 16
+  %2977 = getelementptr inbounds nuw i8, ptr %2976, i64 16
   %2978 = load ptr, ptr %2977, align 8
   call void %2978(ptr noundef nonnull align 8 dereferenceable(16) %2956) #16
   %2979 = getelementptr inbounds nuw i8, ptr %2956, i64 12
@@ -7129,7 +7129,7 @@ _ZN11GfColorTestD2Ev.exit990:                     ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i996: ; preds = %2986, %2962
   %2988 = load ptr, ptr %2956, align 8
-  %2989 = getelementptr inbounds i8, ptr %2988, i64 24
+  %2989 = getelementptr inbounds nuw i8, ptr %2988, i64 24
   %2990 = load ptr, ptr %2989, align 8
   call void %2990(ptr noundef nonnull align 8 dereferenceable(16) %2956) #16
   br label %_ZN11GfColorTestD2Ev.exit997
@@ -7152,7 +7152,7 @@ _ZN11GfColorTestD2Ev.exit997:                     ; preds = %_ZN11GfColorTestD2E
   %2999 = getelementptr inbounds nuw i8, ptr %2992, i64 12
   store i32 0, ptr %2999, align 4
   %3000 = load ptr, ptr %2992, align 8
-  %3001 = getelementptr inbounds i8, ptr %3000, i64 16
+  %3001 = getelementptr inbounds nuw i8, ptr %3000, i64 16
   %3002 = load ptr, ptr %3001, align 8
   call void %3002(ptr noundef nonnull align 8 dereferenceable(16) %2992) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1003
@@ -7178,7 +7178,7 @@ _ZN11GfColorTestD2Ev.exit997:                     ; preds = %_ZN11GfColorTestD2E
 
 3011:                                             ; preds = %3009
   %3012 = load ptr, ptr %2992, align 8
-  %3013 = getelementptr inbounds i8, ptr %3012, i64 16
+  %3013 = getelementptr inbounds nuw i8, ptr %3012, i64 16
   %3014 = load ptr, ptr %3013, align 8
   call void %3014(ptr noundef nonnull align 8 dereferenceable(16) %2992) #16
   %3015 = getelementptr inbounds nuw i8, ptr %2992, i64 12
@@ -7203,7 +7203,7 @@ _ZN11GfColorTestD2Ev.exit997:                     ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1003: ; preds = %3022, %2998
   %3024 = load ptr, ptr %2992, align 8
-  %3025 = getelementptr inbounds i8, ptr %3024, i64 24
+  %3025 = getelementptr inbounds nuw i8, ptr %3024, i64 24
   %3026 = load ptr, ptr %3025, align 8
   call void %3026(ptr noundef nonnull align 8 dereferenceable(16) %2992) #16
   br label %_ZN11GfColorTestD2Ev.exit1004
@@ -7226,7 +7226,7 @@ _ZN11GfColorTestD2Ev.exit1004:                    ; preds = %_ZN11GfColorTestD2E
   %3035 = getelementptr inbounds nuw i8, ptr %3028, i64 12
   store i32 0, ptr %3035, align 4
   %3036 = load ptr, ptr %3028, align 8
-  %3037 = getelementptr inbounds i8, ptr %3036, i64 16
+  %3037 = getelementptr inbounds nuw i8, ptr %3036, i64 16
   %3038 = load ptr, ptr %3037, align 8
   call void %3038(ptr noundef nonnull align 8 dereferenceable(16) %3028) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1010
@@ -7252,7 +7252,7 @@ _ZN11GfColorTestD2Ev.exit1004:                    ; preds = %_ZN11GfColorTestD2E
 
 3047:                                             ; preds = %3045
   %3048 = load ptr, ptr %3028, align 8
-  %3049 = getelementptr inbounds i8, ptr %3048, i64 16
+  %3049 = getelementptr inbounds nuw i8, ptr %3048, i64 16
   %3050 = load ptr, ptr %3049, align 8
   call void %3050(ptr noundef nonnull align 8 dereferenceable(16) %3028) #16
   %3051 = getelementptr inbounds nuw i8, ptr %3028, i64 12
@@ -7277,7 +7277,7 @@ _ZN11GfColorTestD2Ev.exit1004:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1010: ; preds = %3058, %3034
   %3060 = load ptr, ptr %3028, align 8
-  %3061 = getelementptr inbounds i8, ptr %3060, i64 24
+  %3061 = getelementptr inbounds nuw i8, ptr %3060, i64 24
   %3062 = load ptr, ptr %3061, align 8
   call void %3062(ptr noundef nonnull align 8 dereferenceable(16) %3028) #16
   br label %_ZN11GfColorTestD2Ev.exit1011
@@ -7300,7 +7300,7 @@ _ZN11GfColorTestD2Ev.exit1011:                    ; preds = %_ZN11GfColorTestD2E
   %3071 = getelementptr inbounds nuw i8, ptr %3064, i64 12
   store i32 0, ptr %3071, align 4
   %3072 = load ptr, ptr %3064, align 8
-  %3073 = getelementptr inbounds i8, ptr %3072, i64 16
+  %3073 = getelementptr inbounds nuw i8, ptr %3072, i64 16
   %3074 = load ptr, ptr %3073, align 8
   call void %3074(ptr noundef nonnull align 8 dereferenceable(16) %3064) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1017
@@ -7326,7 +7326,7 @@ _ZN11GfColorTestD2Ev.exit1011:                    ; preds = %_ZN11GfColorTestD2E
 
 3083:                                             ; preds = %3081
   %3084 = load ptr, ptr %3064, align 8
-  %3085 = getelementptr inbounds i8, ptr %3084, i64 16
+  %3085 = getelementptr inbounds nuw i8, ptr %3084, i64 16
   %3086 = load ptr, ptr %3085, align 8
   call void %3086(ptr noundef nonnull align 8 dereferenceable(16) %3064) #16
   %3087 = getelementptr inbounds nuw i8, ptr %3064, i64 12
@@ -7351,7 +7351,7 @@ _ZN11GfColorTestD2Ev.exit1011:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1017: ; preds = %3094, %3070
   %3096 = load ptr, ptr %3064, align 8
-  %3097 = getelementptr inbounds i8, ptr %3096, i64 24
+  %3097 = getelementptr inbounds nuw i8, ptr %3096, i64 24
   %3098 = load ptr, ptr %3097, align 8
   call void %3098(ptr noundef nonnull align 8 dereferenceable(16) %3064) #16
   br label %_ZN11GfColorTestD2Ev.exit1018
@@ -7374,7 +7374,7 @@ _ZN11GfColorTestD2Ev.exit1018:                    ; preds = %_ZN11GfColorTestD2E
   %3107 = getelementptr inbounds nuw i8, ptr %3100, i64 12
   store i32 0, ptr %3107, align 4
   %3108 = load ptr, ptr %3100, align 8
-  %3109 = getelementptr inbounds i8, ptr %3108, i64 16
+  %3109 = getelementptr inbounds nuw i8, ptr %3108, i64 16
   %3110 = load ptr, ptr %3109, align 8
   call void %3110(ptr noundef nonnull align 8 dereferenceable(16) %3100) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1024
@@ -7400,7 +7400,7 @@ _ZN11GfColorTestD2Ev.exit1018:                    ; preds = %_ZN11GfColorTestD2E
 
 3119:                                             ; preds = %3117
   %3120 = load ptr, ptr %3100, align 8
-  %3121 = getelementptr inbounds i8, ptr %3120, i64 16
+  %3121 = getelementptr inbounds nuw i8, ptr %3120, i64 16
   %3122 = load ptr, ptr %3121, align 8
   call void %3122(ptr noundef nonnull align 8 dereferenceable(16) %3100) #16
   %3123 = getelementptr inbounds nuw i8, ptr %3100, i64 12
@@ -7425,7 +7425,7 @@ _ZN11GfColorTestD2Ev.exit1018:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1024: ; preds = %3130, %3106
   %3132 = load ptr, ptr %3100, align 8
-  %3133 = getelementptr inbounds i8, ptr %3132, i64 24
+  %3133 = getelementptr inbounds nuw i8, ptr %3132, i64 24
   %3134 = load ptr, ptr %3133, align 8
   call void %3134(ptr noundef nonnull align 8 dereferenceable(16) %3100) #16
   br label %_ZN11GfColorTestD2Ev.exit1025
@@ -7448,7 +7448,7 @@ _ZN11GfColorTestD2Ev.exit1025:                    ; preds = %_ZN11GfColorTestD2E
   %3143 = getelementptr inbounds nuw i8, ptr %3136, i64 12
   store i32 0, ptr %3143, align 4
   %3144 = load ptr, ptr %3136, align 8
-  %3145 = getelementptr inbounds i8, ptr %3144, i64 16
+  %3145 = getelementptr inbounds nuw i8, ptr %3144, i64 16
   %3146 = load ptr, ptr %3145, align 8
   call void %3146(ptr noundef nonnull align 8 dereferenceable(16) %3136) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1031
@@ -7474,7 +7474,7 @@ _ZN11GfColorTestD2Ev.exit1025:                    ; preds = %_ZN11GfColorTestD2E
 
 3155:                                             ; preds = %3153
   %3156 = load ptr, ptr %3136, align 8
-  %3157 = getelementptr inbounds i8, ptr %3156, i64 16
+  %3157 = getelementptr inbounds nuw i8, ptr %3156, i64 16
   %3158 = load ptr, ptr %3157, align 8
   call void %3158(ptr noundef nonnull align 8 dereferenceable(16) %3136) #16
   %3159 = getelementptr inbounds nuw i8, ptr %3136, i64 12
@@ -7499,7 +7499,7 @@ _ZN11GfColorTestD2Ev.exit1025:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1031: ; preds = %3166, %3142
   %3168 = load ptr, ptr %3136, align 8
-  %3169 = getelementptr inbounds i8, ptr %3168, i64 24
+  %3169 = getelementptr inbounds nuw i8, ptr %3168, i64 24
   %3170 = load ptr, ptr %3169, align 8
   call void %3170(ptr noundef nonnull align 8 dereferenceable(16) %3136) #16
   br label %_ZN11GfColorTestD2Ev.exit1032
@@ -7522,7 +7522,7 @@ _ZN11GfColorTestD2Ev.exit1032:                    ; preds = %_ZN11GfColorTestD2E
   %3179 = getelementptr inbounds nuw i8, ptr %3172, i64 12
   store i32 0, ptr %3179, align 4
   %3180 = load ptr, ptr %3172, align 8
-  %3181 = getelementptr inbounds i8, ptr %3180, i64 16
+  %3181 = getelementptr inbounds nuw i8, ptr %3180, i64 16
   %3182 = load ptr, ptr %3181, align 8
   call void %3182(ptr noundef nonnull align 8 dereferenceable(16) %3172) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1038
@@ -7548,7 +7548,7 @@ _ZN11GfColorTestD2Ev.exit1032:                    ; preds = %_ZN11GfColorTestD2E
 
 3191:                                             ; preds = %3189
   %3192 = load ptr, ptr %3172, align 8
-  %3193 = getelementptr inbounds i8, ptr %3192, i64 16
+  %3193 = getelementptr inbounds nuw i8, ptr %3192, i64 16
   %3194 = load ptr, ptr %3193, align 8
   call void %3194(ptr noundef nonnull align 8 dereferenceable(16) %3172) #16
   %3195 = getelementptr inbounds nuw i8, ptr %3172, i64 12
@@ -7573,88 +7573,88 @@ _ZN11GfColorTestD2Ev.exit1032:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1038: ; preds = %3202, %3178
   %3204 = load ptr, ptr %3172, align 8
-  %3205 = getelementptr inbounds i8, ptr %3204, i64 24
+  %3205 = getelementptr inbounds nuw i8, ptr %3204, i64 24
   %3206 = load ptr, ptr %3205, align 8
   call void %3206(ptr noundef nonnull align 8 dereferenceable(16) %3172) #16
   br label %_ZN11GfColorTestD2Ev.exit1039
 
 _ZN11GfColorTestD2Ev.exit1039:                    ; preds = %_ZN11GfColorTestD2Ev.exit1032, %3189, %3202, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1038
   store float 1.000000e+00, ptr %152, align 4
-  %3207 = getelementptr inbounds i8, ptr %152, i64 4
+  %3207 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store float 0.000000e+00, ptr %3207, align 4
-  %3208 = getelementptr inbounds i8, ptr %152, i64 8
+  %3208 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store float 0.000000e+00, ptr %3208, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %151, ptr noundef nonnull align 4 dereferenceable(12) %152, ptr noundef nonnull align 8 dereferenceable(16) %62)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1041 unwind label %.loopexit.split-lp
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1041: ; preds = %_ZN11GfColorTestD2Ev.exit1039
   store float 0.000000e+00, ptr %154, align 4
-  %3209 = getelementptr inbounds i8, ptr %154, i64 4
+  %3209 = getelementptr inbounds nuw i8, ptr %154, i64 4
   store float 1.000000e+00, ptr %3209, align 4
-  %3210 = getelementptr inbounds i8, ptr %154, i64 8
+  %3210 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store float 0.000000e+00, ptr %3210, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %153, ptr noundef nonnull align 4 dereferenceable(12) %154, ptr noundef nonnull align 8 dereferenceable(16) %62)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1043 unwind label %4155
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1043: ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1041
   store float 0.000000e+00, ptr %156, align 4
-  %3211 = getelementptr inbounds i8, ptr %156, i64 4
+  %3211 = getelementptr inbounds nuw i8, ptr %156, i64 4
   store float 0.000000e+00, ptr %3211, align 4
-  %3212 = getelementptr inbounds i8, ptr %156, i64 8
+  %3212 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store float 1.000000e+00, ptr %3212, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %155, ptr noundef nonnull align 4 dereferenceable(12) %156, ptr noundef nonnull align 8 dereferenceable(16) %62)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1045 unwind label %4157
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1045: ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1043
   store float 1.000000e+00, ptr %158, align 4
-  %3213 = getelementptr inbounds i8, ptr %158, i64 4
+  %3213 = getelementptr inbounds nuw i8, ptr %158, i64 4
   store float 0.000000e+00, ptr %3213, align 4
-  %3214 = getelementptr inbounds i8, ptr %158, i64 8
+  %3214 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store float 0.000000e+00, ptr %3214, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %157, ptr noundef nonnull align 4 dereferenceable(12) %158, ptr noundef nonnull align 8 dereferenceable(16) %66)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1047 unwind label %4159
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1047: ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1045
   store float 0.000000e+00, ptr %160, align 4
-  %3215 = getelementptr inbounds i8, ptr %160, i64 4
+  %3215 = getelementptr inbounds nuw i8, ptr %160, i64 4
   store float 1.000000e+00, ptr %3215, align 4
-  %3216 = getelementptr inbounds i8, ptr %160, i64 8
+  %3216 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store float 0.000000e+00, ptr %3216, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %159, ptr noundef nonnull align 4 dereferenceable(12) %160, ptr noundef nonnull align 8 dereferenceable(16) %66)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1049 unwind label %4161
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1049: ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1047
   store float 0.000000e+00, ptr %162, align 4
-  %3217 = getelementptr inbounds i8, ptr %162, i64 4
+  %3217 = getelementptr inbounds nuw i8, ptr %162, i64 4
   store float 0.000000e+00, ptr %3217, align 4
-  %3218 = getelementptr inbounds i8, ptr %162, i64 8
+  %3218 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store float 1.000000e+00, ptr %3218, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %161, ptr noundef nonnull align 4 dereferenceable(12) %162, ptr noundef nonnull align 8 dereferenceable(16) %66)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1051 unwind label %4163
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1051: ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1049
   store float 1.000000e+00, ptr %164, align 4
-  %3219 = getelementptr inbounds i8, ptr %164, i64 4
+  %3219 = getelementptr inbounds nuw i8, ptr %164, i64 4
   store float 0.000000e+00, ptr %3219, align 4
-  %3220 = getelementptr inbounds i8, ptr %164, i64 8
+  %3220 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store float 0.000000e+00, ptr %3220, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %163, ptr noundef nonnull align 4 dereferenceable(12) %164, ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1053 unwind label %4165
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1053: ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1051
   store float 0.000000e+00, ptr %166, align 4
-  %3221 = getelementptr inbounds i8, ptr %166, i64 4
+  %3221 = getelementptr inbounds nuw i8, ptr %166, i64 4
   store float 1.000000e+00, ptr %3221, align 4
-  %3222 = getelementptr inbounds i8, ptr %166, i64 8
+  %3222 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store float 0.000000e+00, ptr %3222, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %165, ptr noundef nonnull align 4 dereferenceable(12) %166, ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1055 unwind label %4167
 
 _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1055: ; preds = %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1053
   store float 0.000000e+00, ptr %168, align 4
-  %3223 = getelementptr inbounds i8, ptr %168, i64 4
+  %3223 = getelementptr inbounds nuw i8, ptr %168, i64 4
   store float 0.000000e+00, ptr %3223, align 4
-  %3224 = getelementptr inbounds i8, ptr %168, i64 8
+  %3224 = getelementptr inbounds nuw i8, ptr %168, i64 8
   store float 1.000000e+00, ptr %3224, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColorC2ERKNS_7GfVec3fERKNS_12GfColorSpaceE(ptr noundef nonnull align 8 dereferenceable(28) %167, ptr noundef nonnull align 4 dereferenceable(12) %168, ptr noundef nonnull align 8 dereferenceable(16) %64)
           to label %_ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__7GfVec3fERKNS0_12GfColorSpaceE.exit1057 unwind label %4169
@@ -8301,7 +8301,7 @@ _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1
   %3621 = getelementptr inbounds nuw i8, ptr %3614, i64 12
   store i32 0, ptr %3621, align 4
   %3622 = load ptr, ptr %3614, align 8
-  %3623 = getelementptr inbounds i8, ptr %3622, i64 16
+  %3623 = getelementptr inbounds nuw i8, ptr %3622, i64 16
   %3624 = load ptr, ptr %3623, align 8
   call void %3624(ptr noundef nonnull align 8 dereferenceable(16) %3614) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1219
@@ -8327,7 +8327,7 @@ _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1
 
 3633:                                             ; preds = %3631
   %3634 = load ptr, ptr %3614, align 8
-  %3635 = getelementptr inbounds i8, ptr %3634, i64 16
+  %3635 = getelementptr inbounds nuw i8, ptr %3634, i64 16
   %3636 = load ptr, ptr %3635, align 8
   call void %3636(ptr noundef nonnull align 8 dereferenceable(16) %3614) #16
   %3637 = getelementptr inbounds nuw i8, ptr %3614, i64 12
@@ -8352,7 +8352,7 @@ _Z15PointInTriangleRKN32pxrInternal_v0_24__pxrReserved__7GfVec2fES2_S2_S2_.exit1
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1219: ; preds = %3644, %3620
   %3646 = load ptr, ptr %3614, align 8
-  %3647 = getelementptr inbounds i8, ptr %3646, i64 24
+  %3647 = getelementptr inbounds nuw i8, ptr %3646, i64 24
   %3648 = load ptr, ptr %3647, align 8
   call void %3648(ptr noundef nonnull align 8 dereferenceable(16) %3614) #16
   br label %_ZN11GfColorTestD2Ev.exit1220
@@ -8375,7 +8375,7 @@ _ZN11GfColorTestD2Ev.exit1220:                    ; preds = %3612, %3631, %3644,
   %3657 = getelementptr inbounds nuw i8, ptr %3650, i64 12
   store i32 0, ptr %3657, align 4
   %3658 = load ptr, ptr %3650, align 8
-  %3659 = getelementptr inbounds i8, ptr %3658, i64 16
+  %3659 = getelementptr inbounds nuw i8, ptr %3658, i64 16
   %3660 = load ptr, ptr %3659, align 8
   call void %3660(ptr noundef nonnull align 8 dereferenceable(16) %3650) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1226
@@ -8401,7 +8401,7 @@ _ZN11GfColorTestD2Ev.exit1220:                    ; preds = %3612, %3631, %3644,
 
 3669:                                             ; preds = %3667
   %3670 = load ptr, ptr %3650, align 8
-  %3671 = getelementptr inbounds i8, ptr %3670, i64 16
+  %3671 = getelementptr inbounds nuw i8, ptr %3670, i64 16
   %3672 = load ptr, ptr %3671, align 8
   call void %3672(ptr noundef nonnull align 8 dereferenceable(16) %3650) #16
   %3673 = getelementptr inbounds nuw i8, ptr %3650, i64 12
@@ -8426,7 +8426,7 @@ _ZN11GfColorTestD2Ev.exit1220:                    ; preds = %3612, %3631, %3644,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1226: ; preds = %3680, %3656
   %3682 = load ptr, ptr %3650, align 8
-  %3683 = getelementptr inbounds i8, ptr %3682, i64 24
+  %3683 = getelementptr inbounds nuw i8, ptr %3682, i64 24
   %3684 = load ptr, ptr %3683, align 8
   call void %3684(ptr noundef nonnull align 8 dereferenceable(16) %3650) #16
   br label %_ZN11GfColorTestD2Ev.exit1227
@@ -8449,7 +8449,7 @@ _ZN11GfColorTestD2Ev.exit1227:                    ; preds = %_ZN11GfColorTestD2E
   %3693 = getelementptr inbounds nuw i8, ptr %3686, i64 12
   store i32 0, ptr %3693, align 4
   %3694 = load ptr, ptr %3686, align 8
-  %3695 = getelementptr inbounds i8, ptr %3694, i64 16
+  %3695 = getelementptr inbounds nuw i8, ptr %3694, i64 16
   %3696 = load ptr, ptr %3695, align 8
   call void %3696(ptr noundef nonnull align 8 dereferenceable(16) %3686) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1233
@@ -8475,7 +8475,7 @@ _ZN11GfColorTestD2Ev.exit1227:                    ; preds = %_ZN11GfColorTestD2E
 
 3705:                                             ; preds = %3703
   %3706 = load ptr, ptr %3686, align 8
-  %3707 = getelementptr inbounds i8, ptr %3706, i64 16
+  %3707 = getelementptr inbounds nuw i8, ptr %3706, i64 16
   %3708 = load ptr, ptr %3707, align 8
   call void %3708(ptr noundef nonnull align 8 dereferenceable(16) %3686) #16
   %3709 = getelementptr inbounds nuw i8, ptr %3686, i64 12
@@ -8500,7 +8500,7 @@ _ZN11GfColorTestD2Ev.exit1227:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1233: ; preds = %3716, %3692
   %3718 = load ptr, ptr %3686, align 8
-  %3719 = getelementptr inbounds i8, ptr %3718, i64 24
+  %3719 = getelementptr inbounds nuw i8, ptr %3718, i64 24
   %3720 = load ptr, ptr %3719, align 8
   call void %3720(ptr noundef nonnull align 8 dereferenceable(16) %3686) #16
   br label %_ZN11GfColorTestD2Ev.exit1234
@@ -8523,7 +8523,7 @@ _ZN11GfColorTestD2Ev.exit1234:                    ; preds = %_ZN11GfColorTestD2E
   %3729 = getelementptr inbounds nuw i8, ptr %3722, i64 12
   store i32 0, ptr %3729, align 4
   %3730 = load ptr, ptr %3722, align 8
-  %3731 = getelementptr inbounds i8, ptr %3730, i64 16
+  %3731 = getelementptr inbounds nuw i8, ptr %3730, i64 16
   %3732 = load ptr, ptr %3731, align 8
   call void %3732(ptr noundef nonnull align 8 dereferenceable(16) %3722) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1240
@@ -8549,7 +8549,7 @@ _ZN11GfColorTestD2Ev.exit1234:                    ; preds = %_ZN11GfColorTestD2E
 
 3741:                                             ; preds = %3739
   %3742 = load ptr, ptr %3722, align 8
-  %3743 = getelementptr inbounds i8, ptr %3742, i64 16
+  %3743 = getelementptr inbounds nuw i8, ptr %3742, i64 16
   %3744 = load ptr, ptr %3743, align 8
   call void %3744(ptr noundef nonnull align 8 dereferenceable(16) %3722) #16
   %3745 = getelementptr inbounds nuw i8, ptr %3722, i64 12
@@ -8574,7 +8574,7 @@ _ZN11GfColorTestD2Ev.exit1234:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1240: ; preds = %3752, %3728
   %3754 = load ptr, ptr %3722, align 8
-  %3755 = getelementptr inbounds i8, ptr %3754, i64 24
+  %3755 = getelementptr inbounds nuw i8, ptr %3754, i64 24
   %3756 = load ptr, ptr %3755, align 8
   call void %3756(ptr noundef nonnull align 8 dereferenceable(16) %3722) #16
   br label %_ZN11GfColorTestD2Ev.exit1241
@@ -8597,7 +8597,7 @@ _ZN11GfColorTestD2Ev.exit1241:                    ; preds = %_ZN11GfColorTestD2E
   %3765 = getelementptr inbounds nuw i8, ptr %3758, i64 12
   store i32 0, ptr %3765, align 4
   %3766 = load ptr, ptr %3758, align 8
-  %3767 = getelementptr inbounds i8, ptr %3766, i64 16
+  %3767 = getelementptr inbounds nuw i8, ptr %3766, i64 16
   %3768 = load ptr, ptr %3767, align 8
   call void %3768(ptr noundef nonnull align 8 dereferenceable(16) %3758) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1247
@@ -8623,7 +8623,7 @@ _ZN11GfColorTestD2Ev.exit1241:                    ; preds = %_ZN11GfColorTestD2E
 
 3777:                                             ; preds = %3775
   %3778 = load ptr, ptr %3758, align 8
-  %3779 = getelementptr inbounds i8, ptr %3778, i64 16
+  %3779 = getelementptr inbounds nuw i8, ptr %3778, i64 16
   %3780 = load ptr, ptr %3779, align 8
   call void %3780(ptr noundef nonnull align 8 dereferenceable(16) %3758) #16
   %3781 = getelementptr inbounds nuw i8, ptr %3758, i64 12
@@ -8648,7 +8648,7 @@ _ZN11GfColorTestD2Ev.exit1241:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1247: ; preds = %3788, %3764
   %3790 = load ptr, ptr %3758, align 8
-  %3791 = getelementptr inbounds i8, ptr %3790, i64 24
+  %3791 = getelementptr inbounds nuw i8, ptr %3790, i64 24
   %3792 = load ptr, ptr %3791, align 8
   call void %3792(ptr noundef nonnull align 8 dereferenceable(16) %3758) #16
   br label %_ZN11GfColorTestD2Ev.exit1248
@@ -8671,7 +8671,7 @@ _ZN11GfColorTestD2Ev.exit1248:                    ; preds = %_ZN11GfColorTestD2E
   %3801 = getelementptr inbounds nuw i8, ptr %3794, i64 12
   store i32 0, ptr %3801, align 4
   %3802 = load ptr, ptr %3794, align 8
-  %3803 = getelementptr inbounds i8, ptr %3802, i64 16
+  %3803 = getelementptr inbounds nuw i8, ptr %3802, i64 16
   %3804 = load ptr, ptr %3803, align 8
   call void %3804(ptr noundef nonnull align 8 dereferenceable(16) %3794) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1254
@@ -8697,7 +8697,7 @@ _ZN11GfColorTestD2Ev.exit1248:                    ; preds = %_ZN11GfColorTestD2E
 
 3813:                                             ; preds = %3811
   %3814 = load ptr, ptr %3794, align 8
-  %3815 = getelementptr inbounds i8, ptr %3814, i64 16
+  %3815 = getelementptr inbounds nuw i8, ptr %3814, i64 16
   %3816 = load ptr, ptr %3815, align 8
   call void %3816(ptr noundef nonnull align 8 dereferenceable(16) %3794) #16
   %3817 = getelementptr inbounds nuw i8, ptr %3794, i64 12
@@ -8722,7 +8722,7 @@ _ZN11GfColorTestD2Ev.exit1248:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1254: ; preds = %3824, %3800
   %3826 = load ptr, ptr %3794, align 8
-  %3827 = getelementptr inbounds i8, ptr %3826, i64 24
+  %3827 = getelementptr inbounds nuw i8, ptr %3826, i64 24
   %3828 = load ptr, ptr %3827, align 8
   call void %3828(ptr noundef nonnull align 8 dereferenceable(16) %3794) #16
   br label %_ZN11GfColorTestD2Ev.exit1255
@@ -8745,7 +8745,7 @@ _ZN11GfColorTestD2Ev.exit1255:                    ; preds = %_ZN11GfColorTestD2E
   %3837 = getelementptr inbounds nuw i8, ptr %3830, i64 12
   store i32 0, ptr %3837, align 4
   %3838 = load ptr, ptr %3830, align 8
-  %3839 = getelementptr inbounds i8, ptr %3838, i64 16
+  %3839 = getelementptr inbounds nuw i8, ptr %3838, i64 16
   %3840 = load ptr, ptr %3839, align 8
   call void %3840(ptr noundef nonnull align 8 dereferenceable(16) %3830) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1261
@@ -8771,7 +8771,7 @@ _ZN11GfColorTestD2Ev.exit1255:                    ; preds = %_ZN11GfColorTestD2E
 
 3849:                                             ; preds = %3847
   %3850 = load ptr, ptr %3830, align 8
-  %3851 = getelementptr inbounds i8, ptr %3850, i64 16
+  %3851 = getelementptr inbounds nuw i8, ptr %3850, i64 16
   %3852 = load ptr, ptr %3851, align 8
   call void %3852(ptr noundef nonnull align 8 dereferenceable(16) %3830) #16
   %3853 = getelementptr inbounds nuw i8, ptr %3830, i64 12
@@ -8796,7 +8796,7 @@ _ZN11GfColorTestD2Ev.exit1255:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1261: ; preds = %3860, %3836
   %3862 = load ptr, ptr %3830, align 8
-  %3863 = getelementptr inbounds i8, ptr %3862, i64 24
+  %3863 = getelementptr inbounds nuw i8, ptr %3862, i64 24
   %3864 = load ptr, ptr %3863, align 8
   call void %3864(ptr noundef nonnull align 8 dereferenceable(16) %3830) #16
   br label %_ZN11GfColorTestD2Ev.exit1262
@@ -8819,7 +8819,7 @@ _ZN11GfColorTestD2Ev.exit1262:                    ; preds = %_ZN11GfColorTestD2E
   %3873 = getelementptr inbounds nuw i8, ptr %3866, i64 12
   store i32 0, ptr %3873, align 4
   %3874 = load ptr, ptr %3866, align 8
-  %3875 = getelementptr inbounds i8, ptr %3874, i64 16
+  %3875 = getelementptr inbounds nuw i8, ptr %3874, i64 16
   %3876 = load ptr, ptr %3875, align 8
   call void %3876(ptr noundef nonnull align 8 dereferenceable(16) %3866) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1268
@@ -8845,7 +8845,7 @@ _ZN11GfColorTestD2Ev.exit1262:                    ; preds = %_ZN11GfColorTestD2E
 
 3885:                                             ; preds = %3883
   %3886 = load ptr, ptr %3866, align 8
-  %3887 = getelementptr inbounds i8, ptr %3886, i64 16
+  %3887 = getelementptr inbounds nuw i8, ptr %3886, i64 16
   %3888 = load ptr, ptr %3887, align 8
   call void %3888(ptr noundef nonnull align 8 dereferenceable(16) %3866) #16
   %3889 = getelementptr inbounds nuw i8, ptr %3866, i64 12
@@ -8870,7 +8870,7 @@ _ZN11GfColorTestD2Ev.exit1262:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1268: ; preds = %3896, %3872
   %3898 = load ptr, ptr %3866, align 8
-  %3899 = getelementptr inbounds i8, ptr %3898, i64 24
+  %3899 = getelementptr inbounds nuw i8, ptr %3898, i64 24
   %3900 = load ptr, ptr %3899, align 8
   call void %3900(ptr noundef nonnull align 8 dereferenceable(16) %3866) #16
   br label %_ZN11GfColorTestD2Ev.exit1269
@@ -8893,7 +8893,7 @@ _ZN11GfColorTestD2Ev.exit1269:                    ; preds = %_ZN11GfColorTestD2E
   %3909 = getelementptr inbounds nuw i8, ptr %3902, i64 12
   store i32 0, ptr %3909, align 4
   %3910 = load ptr, ptr %3902, align 8
-  %3911 = getelementptr inbounds i8, ptr %3910, i64 16
+  %3911 = getelementptr inbounds nuw i8, ptr %3910, i64 16
   %3912 = load ptr, ptr %3911, align 8
   call void %3912(ptr noundef nonnull align 8 dereferenceable(16) %3902) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1275
@@ -8919,7 +8919,7 @@ _ZN11GfColorTestD2Ev.exit1269:                    ; preds = %_ZN11GfColorTestD2E
 
 3921:                                             ; preds = %3919
   %3922 = load ptr, ptr %3902, align 8
-  %3923 = getelementptr inbounds i8, ptr %3922, i64 16
+  %3923 = getelementptr inbounds nuw i8, ptr %3922, i64 16
   %3924 = load ptr, ptr %3923, align 8
   call void %3924(ptr noundef nonnull align 8 dereferenceable(16) %3902) #16
   %3925 = getelementptr inbounds nuw i8, ptr %3902, i64 12
@@ -8944,7 +8944,7 @@ _ZN11GfColorTestD2Ev.exit1269:                    ; preds = %_ZN11GfColorTestD2E
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1275: ; preds = %3932, %3908
   %3934 = load ptr, ptr %3902, align 8
-  %3935 = getelementptr inbounds i8, ptr %3934, i64 24
+  %3935 = getelementptr inbounds nuw i8, ptr %3934, i64 24
   %3936 = load ptr, ptr %3935, align 8
   call void %3936(ptr noundef nonnull align 8 dereferenceable(16) %3902) #16
   br label %_ZN11GfColorTestD2Ev.exit1276
@@ -8972,9 +8972,9 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit1278
   %.lhs.trunc = add nsw i16 %3943, -1000
   %3944 = udiv i16 %.lhs.trunc, 1000
   %3945 = zext nneg i16 %3944 to i64
-  %3946 = getelementptr inbounds [15 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f"], ptr @__const.main.tableOfKnownValues, i64 0, i64 %3945
+  %3946 = getelementptr inbounds nuw [15 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f"], ptr @__const.main.tableOfKnownValues, i64 0, i64 %3945
   %3947 = load float, ptr %3946, align 8
-  %.sroa_idx = getelementptr inbounds i8, ptr %3946, i64 4
+  %.sroa_idx = getelementptr inbounds nuw i8, ptr %3946, i64 4
   %3948 = load float, ptr %.sroa_idx, align 4
   %.sroa.0.0.vec.extract.i.i1281 = extractelement <2 x float> %3941, i64 0
   %3949 = fsub float %.sroa.0.0.vec.extract.i.i1281, %3947
@@ -8989,13 +8989,13 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit1278
 
 3955:                                             ; preds = %3942
   store ptr @.str, ptr %3, align 8
-  %.sroa.2.0..sroa_idx1362 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx1362 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @__func__.main, ptr %.sroa.2.0..sroa_idx1362, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 357, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %3956 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %3956, align 8
@@ -9023,7 +9023,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit1278
   %3965 = getelementptr inbounds nuw i8, ptr %3958, i64 12
   store i32 0, ptr %3965, align 4
   %3966 = load ptr, ptr %3958, align 8
-  %3967 = getelementptr inbounds i8, ptr %3966, i64 16
+  %3967 = getelementptr inbounds nuw i8, ptr %3966, i64 16
   %3968 = load ptr, ptr %3967, align 8
   call void %3968(ptr noundef nonnull align 8 dereferenceable(16) %3958) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1290
@@ -9049,7 +9049,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit1278
 
 3977:                                             ; preds = %3975
   %3978 = load ptr, ptr %3958, align 8
-  %3979 = getelementptr inbounds i8, ptr %3978, i64 16
+  %3979 = getelementptr inbounds nuw i8, ptr %3978, i64 16
   %3980 = load ptr, ptr %3979, align 8
   call void %3980(ptr noundef nonnull align 8 dereferenceable(16) %3958) #16
   %3981 = getelementptr inbounds nuw i8, ptr %3958, i64 12
@@ -9074,7 +9074,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit1278
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i1290: ; preds = %3988, %3964
   %3990 = load ptr, ptr %3958, align 8
-  %3991 = getelementptr inbounds i8, ptr %3990, i64 24
+  %3991 = getelementptr inbounds nuw i8, ptr %3990, i64 24
   %3992 = load ptr, ptr %3991, align 8
   call void %3992(ptr noundef nonnull align 8 dereferenceable(16) %3958) #16
   br label %_ZN11GfColorTestD2Ev.exit1291
@@ -9719,7 +9719,7 @@ _ZN11GfColorTestD2Ev.exit1291:                    ; preds = %3957, %3975, %3988,
   %4190 = getelementptr inbounds nuw i8, ptr %4183, i64 12
   store i32 0, ptr %4190, align 4
   %4191 = load ptr, ptr %4183, align 8
-  %4192 = getelementptr inbounds i8, ptr %4191, i64 16
+  %4192 = getelementptr inbounds nuw i8, ptr %4191, i64 16
   %4193 = load ptr, ptr %4192, align 8
   call void %4193(ptr noundef nonnull align 8 dereferenceable(16) %4183) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i1297
@@ -9745,7 +9745,7 @@ _ZN11GfColorTestD2Ev.exit1291:                    ; preds = %3957, %3975, %3988,
 
 4202:                                             ; preds = %4200
   %4203 = load ptr, ptr %4183, align 8
-  %4204 = getelementptr inbounds i8, ptr %4203, i64 16
+  %4204 = getelementptr inbounds nuw i8, ptr %4203, i64 16
   %4205 = load ptr, ptr %4204, align 8
   call void %4205(ptr noundef nonnull align 8 dereferenceable(16) %4183) #16
   %4206 = getelementptr inbounds nuw i8, ptr %4183, i64 12
@@ -9770,7 +9770,7 @@ _ZN11GfColorTestD2Ev.exit1291:                    ; preds = %3957, %3975, %3988,
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i1297: ; preds = %4213, %4189
   %4215 = load ptr, ptr %4183, align 8
-  %4216 = getelementptr inbounds i8, ptr %4215, i64 24
+  %4216 = getelementptr inbounds nuw i8, ptr %4215, i64 24
   %4217 = load ptr, ptr %4216, align 8
   call void %4217(ptr noundef nonnull align 8 dereferenceable(16) %4183) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit1298
@@ -9792,7 +9792,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit1298: ; preds = %4182, %42
   %4225 = getelementptr inbounds nuw i8, ptr %4218, i64 12
   store i32 0, ptr %4225, align 4
   %4226 = load ptr, ptr %4218, align 8
-  %4227 = getelementptr inbounds i8, ptr %4226, i64 16
+  %4227 = getelementptr inbounds nuw i8, ptr %4226, i64 16
   %4228 = load ptr, ptr %4227, align 8
   call void %4228(ptr noundef nonnull align 8 dereferenceable(16) %4218) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i1304
@@ -9818,7 +9818,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit1298: ; preds = %4182, %42
 
 4237:                                             ; preds = %4235
   %4238 = load ptr, ptr %4218, align 8
-  %4239 = getelementptr inbounds i8, ptr %4238, i64 16
+  %4239 = getelementptr inbounds nuw i8, ptr %4238, i64 16
   %4240 = load ptr, ptr %4239, align 8
   call void %4240(ptr noundef nonnull align 8 dereferenceable(16) %4218) #16
   %4241 = getelementptr inbounds nuw i8, ptr %4218, i64 12
@@ -9843,7 +9843,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit1298: ; preds = %4182, %42
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i1304: ; preds = %4248, %4224
   %4250 = load ptr, ptr %4218, align 8
-  %4251 = getelementptr inbounds i8, ptr %4250, i64 24
+  %4251 = getelementptr inbounds nuw i8, ptr %4250, i64 24
   %4252 = load ptr, ptr %4251, align 8
   call void %4252(ptr noundef nonnull align 8 dereferenceable(16) %4218) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit1305
@@ -9866,7 +9866,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit1305: ; preds = %_ZN32pxrI
   %4261 = getelementptr inbounds nuw i8, ptr %4254, i64 12
   store i32 0, ptr %4261, align 4
   %4262 = load ptr, ptr %4254, align 8
-  %4263 = getelementptr inbounds i8, ptr %4262, i64 16
+  %4263 = getelementptr inbounds nuw i8, ptr %4262, i64 16
   %4264 = load ptr, ptr %4263, align 8
   call void %4264(ptr noundef nonnull align 8 dereferenceable(16) %4254) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1311
@@ -9892,7 +9892,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit1305: ; preds = %_ZN32pxrI
 
 4273:                                             ; preds = %4271
   %4274 = load ptr, ptr %4254, align 8
-  %4275 = getelementptr inbounds i8, ptr %4274, i64 16
+  %4275 = getelementptr inbounds nuw i8, ptr %4274, i64 16
   %4276 = load ptr, ptr %4275, align 8
   call void %4276(ptr noundef nonnull align 8 dereferenceable(16) %4254) #16
   %4277 = getelementptr inbounds nuw i8, ptr %4254, i64 12
@@ -9917,7 +9917,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit1305: ; preds = %_ZN32pxrI
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1311: ; preds = %4284, %4260
   %4286 = load ptr, ptr %4254, align 8
-  %4287 = getelementptr inbounds i8, ptr %4286, i64 24
+  %4287 = getelementptr inbounds nuw i8, ptr %4286, i64 24
   %4288 = load ptr, ptr %4287, align 8
   call void %4288(ptr noundef nonnull align 8 dereferenceable(16) %4254) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1312
@@ -9940,7 +9940,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1312: ; preds = %_ZN
   %4297 = getelementptr inbounds nuw i8, ptr %4290, i64 12
   store i32 0, ptr %4297, align 4
   %4298 = load ptr, ptr %4290, align 8
-  %4299 = getelementptr inbounds i8, ptr %4298, i64 16
+  %4299 = getelementptr inbounds nuw i8, ptr %4298, i64 16
   %4300 = load ptr, ptr %4299, align 8
   call void %4300(ptr noundef nonnull align 8 dereferenceable(16) %4290) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1318
@@ -9966,7 +9966,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1312: ; preds = %_ZN
 
 4309:                                             ; preds = %4307
   %4310 = load ptr, ptr %4290, align 8
-  %4311 = getelementptr inbounds i8, ptr %4310, i64 16
+  %4311 = getelementptr inbounds nuw i8, ptr %4310, i64 16
   %4312 = load ptr, ptr %4311, align 8
   call void %4312(ptr noundef nonnull align 8 dereferenceable(16) %4290) #16
   %4313 = getelementptr inbounds nuw i8, ptr %4290, i64 12
@@ -9991,7 +9991,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1312: ; preds = %_ZN
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1318: ; preds = %4320, %4296
   %4322 = load ptr, ptr %4290, align 8
-  %4323 = getelementptr inbounds i8, ptr %4322, i64 24
+  %4323 = getelementptr inbounds nuw i8, ptr %4322, i64 24
   %4324 = load ptr, ptr %4323, align 8
   call void %4324(ptr noundef nonnull align 8 dereferenceable(16) %4290) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1319
@@ -10014,7 +10014,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1319: ; preds = %_ZN
   %4333 = getelementptr inbounds nuw i8, ptr %4326, i64 12
   store i32 0, ptr %4333, align 4
   %4334 = load ptr, ptr %4326, align 8
-  %4335 = getelementptr inbounds i8, ptr %4334, i64 16
+  %4335 = getelementptr inbounds nuw i8, ptr %4334, i64 16
   %4336 = load ptr, ptr %4335, align 8
   call void %4336(ptr noundef nonnull align 8 dereferenceable(16) %4326) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1325
@@ -10040,7 +10040,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1319: ; preds = %_ZN
 
 4345:                                             ; preds = %4343
   %4346 = load ptr, ptr %4326, align 8
-  %4347 = getelementptr inbounds i8, ptr %4346, i64 16
+  %4347 = getelementptr inbounds nuw i8, ptr %4346, i64 16
   %4348 = load ptr, ptr %4347, align 8
   call void %4348(ptr noundef nonnull align 8 dereferenceable(16) %4326) #16
   %4349 = getelementptr inbounds nuw i8, ptr %4326, i64 12
@@ -10065,7 +10065,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1319: ; preds = %_ZN
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1325: ; preds = %4356, %4332
   %4358 = load ptr, ptr %4326, align 8
-  %4359 = getelementptr inbounds i8, ptr %4358, i64 24
+  %4359 = getelementptr inbounds nuw i8, ptr %4358, i64 24
   %4360 = load ptr, ptr %4359, align 8
   call void %4360(ptr noundef nonnull align 8 dereferenceable(16) %4326) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1326
@@ -10088,7 +10088,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1326: ; preds = %_ZN
   %4369 = getelementptr inbounds nuw i8, ptr %4362, i64 12
   store i32 0, ptr %4369, align 4
   %4370 = load ptr, ptr %4362, align 8
-  %4371 = getelementptr inbounds i8, ptr %4370, i64 16
+  %4371 = getelementptr inbounds nuw i8, ptr %4370, i64 16
   %4372 = load ptr, ptr %4371, align 8
   call void %4372(ptr noundef nonnull align 8 dereferenceable(16) %4362) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1332
@@ -10114,7 +10114,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1326: ; preds = %_ZN
 
 4381:                                             ; preds = %4379
   %4382 = load ptr, ptr %4362, align 8
-  %4383 = getelementptr inbounds i8, ptr %4382, i64 16
+  %4383 = getelementptr inbounds nuw i8, ptr %4382, i64 16
   %4384 = load ptr, ptr %4383, align 8
   call void %4384(ptr noundef nonnull align 8 dereferenceable(16) %4362) #16
   %4385 = getelementptr inbounds nuw i8, ptr %4362, i64 12
@@ -10139,7 +10139,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1326: ; preds = %_ZN
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1332: ; preds = %4392, %4368
   %4394 = load ptr, ptr %4362, align 8
-  %4395 = getelementptr inbounds i8, ptr %4394, i64 24
+  %4395 = getelementptr inbounds nuw i8, ptr %4394, i64 24
   %4396 = load ptr, ptr %4395, align 8
   call void %4396(ptr noundef nonnull align 8 dereferenceable(16) %4362) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1333
@@ -10162,7 +10162,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1333: ; preds = %_ZN
   %4405 = getelementptr inbounds nuw i8, ptr %4398, i64 12
   store i32 0, ptr %4405, align 4
   %4406 = load ptr, ptr %4398, align 8
-  %4407 = getelementptr inbounds i8, ptr %4406, i64 16
+  %4407 = getelementptr inbounds nuw i8, ptr %4406, i64 16
   %4408 = load ptr, ptr %4407, align 8
   call void %4408(ptr noundef nonnull align 8 dereferenceable(16) %4398) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1339
@@ -10188,7 +10188,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1333: ; preds = %_ZN
 
 4417:                                             ; preds = %4415
   %4418 = load ptr, ptr %4398, align 8
-  %4419 = getelementptr inbounds i8, ptr %4418, i64 16
+  %4419 = getelementptr inbounds nuw i8, ptr %4418, i64 16
   %4420 = load ptr, ptr %4419, align 8
   call void %4420(ptr noundef nonnull align 8 dereferenceable(16) %4398) #16
   %4421 = getelementptr inbounds nuw i8, ptr %4398, i64 12
@@ -10213,7 +10213,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1333: ; preds = %_ZN
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1339: ; preds = %4428, %4404
   %4430 = load ptr, ptr %4398, align 8
-  %4431 = getelementptr inbounds i8, ptr %4430, i64 24
+  %4431 = getelementptr inbounds nuw i8, ptr %4430, i64 24
   %4432 = load ptr, ptr %4431, align 8
   call void %4432(ptr noundef nonnull align 8 dereferenceable(16) %4398) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1340
@@ -10236,7 +10236,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1340: ; preds = %_ZN
   %4441 = getelementptr inbounds nuw i8, ptr %4434, i64 12
   store i32 0, ptr %4441, align 4
   %4442 = load ptr, ptr %4434, align 8
-  %4443 = getelementptr inbounds i8, ptr %4442, i64 16
+  %4443 = getelementptr inbounds nuw i8, ptr %4442, i64 16
   %4444 = load ptr, ptr %4443, align 8
   call void %4444(ptr noundef nonnull align 8 dereferenceable(16) %4434) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1346
@@ -10262,7 +10262,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1340: ; preds = %_ZN
 
 4453:                                             ; preds = %4451
   %4454 = load ptr, ptr %4434, align 8
-  %4455 = getelementptr inbounds i8, ptr %4454, i64 16
+  %4455 = getelementptr inbounds nuw i8, ptr %4454, i64 16
   %4456 = load ptr, ptr %4455, align 8
   call void %4456(ptr noundef nonnull align 8 dereferenceable(16) %4434) #16
   %4457 = getelementptr inbounds nuw i8, ptr %4434, i64 12
@@ -10287,7 +10287,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1340: ; preds = %_ZN
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1346: ; preds = %4464, %4440
   %4466 = load ptr, ptr %4434, align 8
-  %4467 = getelementptr inbounds i8, ptr %4466, i64 24
+  %4467 = getelementptr inbounds nuw i8, ptr %4466, i64 24
   %4468 = load ptr, ptr %4467, align 8
   call void %4468(ptr noundef nonnull align 8 dereferenceable(16) %4434) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1347
@@ -10310,7 +10310,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1347: ; preds = %_ZN
   %4477 = getelementptr inbounds nuw i8, ptr %4470, i64 12
   store i32 0, ptr %4477, align 4
   %4478 = load ptr, ptr %4470, align 8
-  %4479 = getelementptr inbounds i8, ptr %4478, i64 16
+  %4479 = getelementptr inbounds nuw i8, ptr %4478, i64 16
   %4480 = load ptr, ptr %4479, align 8
   call void %4480(ptr noundef nonnull align 8 dereferenceable(16) %4470) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1353
@@ -10336,7 +10336,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1347: ; preds = %_ZN
 
 4489:                                             ; preds = %4487
   %4490 = load ptr, ptr %4470, align 8
-  %4491 = getelementptr inbounds i8, ptr %4490, i64 16
+  %4491 = getelementptr inbounds nuw i8, ptr %4490, i64 16
   %4492 = load ptr, ptr %4491, align 8
   call void %4492(ptr noundef nonnull align 8 dereferenceable(16) %4470) #16
   %4493 = getelementptr inbounds nuw i8, ptr %4470, i64 12
@@ -10361,7 +10361,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1347: ; preds = %_ZN
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1353: ; preds = %4500, %4476
   %4502 = load ptr, ptr %4470, align 8
-  %4503 = getelementptr inbounds i8, ptr %4502, i64 24
+  %4503 = getelementptr inbounds nuw i8, ptr %4502, i64 24
   %4504 = load ptr, ptr %4503, align 8
   call void %4504(ptr noundef nonnull align 8 dereferenceable(16) %4470) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1354
@@ -10384,7 +10384,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1354: ; preds = %_ZN
   %4513 = getelementptr inbounds nuw i8, ptr %4506, i64 12
   store i32 0, ptr %4513, align 4
   %4514 = load ptr, ptr %4506, align 8
-  %4515 = getelementptr inbounds i8, ptr %4514, i64 16
+  %4515 = getelementptr inbounds nuw i8, ptr %4514, i64 16
   %4516 = load ptr, ptr %4515, align 8
   call void %4516(ptr noundef nonnull align 8 dereferenceable(16) %4506) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1360
@@ -10410,7 +10410,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1354: ; preds = %_ZN
 
 4525:                                             ; preds = %4523
   %4526 = load ptr, ptr %4506, align 8
-  %4527 = getelementptr inbounds i8, ptr %4526, i64 16
+  %4527 = getelementptr inbounds nuw i8, ptr %4526, i64 16
   %4528 = load ptr, ptr %4527, align 8
   call void %4528(ptr noundef nonnull align 8 dereferenceable(16) %4506) #16
   %4529 = getelementptr inbounds nuw i8, ptr %4506, i64 12
@@ -10435,7 +10435,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1354: ; preds = %_ZN
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1360: ; preds = %4536, %4512
   %4538 = load ptr, ptr %4506, align 8
-  %4539 = getelementptr inbounds i8, ptr %4538, i64 24
+  %4539 = getelementptr inbounds nuw i8, ptr %4538, i64 24
   %4540 = load ptr, ptr %4539, align 8
   call void %4540(ptr noundef nonnull align 8 dereferenceable(16) %4506) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit1361
@@ -10521,7 +10521,7 @@ define linkonce_odr dso_local void @_ZN11GfColorTestD2Ev(ptr noundef nonnull ali
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -10547,7 +10547,7 @@ define linkonce_odr dso_local void @_ZN11GfColorTestD2Ev(ptr noundef nonnull ali
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -10572,7 +10572,7 @@ define linkonce_odr dso_local void @_ZN11GfColorTestD2Ev(ptr noundef nonnull ali
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7GfColorD2Ev.exit
@@ -10604,7 +10604,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12GfCol
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -10630,7 +10630,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12GfCol
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -10655,7 +10655,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12GfCol
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12GfColorSpace5_DataEED2Ev.exit
@@ -10683,7 +10683,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColo
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -10709,7 +10709,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColo
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -10734,7 +10734,7 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7GfColo
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceD2Ev.exit

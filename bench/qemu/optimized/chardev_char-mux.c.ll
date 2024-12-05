@@ -50,13 +50,13 @@ entry:
   br i1 %.b, label %for.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %mux_cnt = getelementptr inbounds i8, ptr %call.i, i64 244
+  %mux_cnt = getelementptr inbounds nuw i8, ptr %call.i, i64 244
   %0 = load i32, ptr %mux_cnt, align 4
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %backends.i = getelementptr inbounds i8, ptr %call.i, i64 152
+  %backends.i = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %mux_chr_send_event.exit
@@ -68,13 +68,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %mu
   br i1 %tobool.not.i, label %mux_chr_send_event.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %chr_event.i = getelementptr inbounds i8, ptr %2, i64 8
+  %chr_event.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %chr_event.i, align 8
   %tobool1.not.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i, label %mux_chr_send_event.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %opaque.i = getelementptr inbounds i8, ptr %2, i64 40
+  %opaque.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %opaque.i, align 8
   tail call void %3(ptr noundef %4, i32 noundef %event) #10
   %.pre = load i32, ptr %mux_cnt, align 4
@@ -103,7 +103,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %mux_cnt = getelementptr inbounds i8, ptr %call.i, i64 244
+  %mux_cnt = getelementptr inbounds nuw i8, ptr %call.i, i64 244
   %0 = load i32, ptr %mux_cnt, align 4
   %cmp1 = icmp slt i32 %focus, %0
   br i1 %cmp1, label %if.end4, label %if.else3
@@ -113,13 +113,13 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %focus5 = getelementptr inbounds i8, ptr %call.i, i64 240
+  %focus5 = getelementptr inbounds nuw i8, ptr %call.i, i64 240
   %1 = load i32, ptr %focus5, align 8
   %cmp6.not = icmp eq i32 %1, -1
   br i1 %cmp6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %backends.i = getelementptr inbounds i8, ptr %call.i, i64 152
+  %backends.i = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %idxprom.i = sext i32 %1 to i64
   %arrayidx.i = getelementptr [4 x ptr], ptr %backends.i, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
@@ -127,24 +127,24 @@ if.then7:                                         ; preds = %if.end4
   br i1 %tobool.not.i, label %if.end9, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then7
-  %chr_event.i = getelementptr inbounds i8, ptr %2, i64 8
+  %chr_event.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %chr_event.i, align 8
   %tobool1.not.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i, label %if.end9, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %opaque.i = getelementptr inbounds i8, ptr %2, i64 40
+  %opaque.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %opaque.i, align 8
   tail call void %3(ptr noundef %4, i32 noundef 3) #10
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then.i, %land.lhs.true.i, %if.then7, %if.end4
   store i32 %focus, ptr %focus5, align 8
-  %backends = getelementptr inbounds i8, ptr %call.i, i64 152
+  %backends = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %idxprom = zext nneg i32 %focus to i64
   %arrayidx = getelementptr [4 x ptr], ptr %backends, i64 0, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %be = getelementptr inbounds i8, ptr %chr, i64 88
+  %be = getelementptr inbounds nuw i8, ptr %chr, i64 88
   store ptr %5, ptr %be, align 8
   %6 = load i32, ptr %focus5, align 8
   %idxprom.i13 = sext i32 %6 to i64
@@ -154,13 +154,13 @@ if.end9:                                          ; preds = %if.then.i, %land.lh
   br i1 %tobool.not.i15, label %mux_chr_send_event.exit21, label %land.lhs.true.i16
 
 land.lhs.true.i16:                                ; preds = %if.end9
-  %chr_event.i17 = getelementptr inbounds i8, ptr %7, i64 8
+  %chr_event.i17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %chr_event.i17, align 8
   %tobool1.not.i18 = icmp eq ptr %8, null
   br i1 %tobool1.not.i18, label %mux_chr_send_event.exit21, label %if.then.i19
 
 if.then.i19:                                      ; preds = %land.lhs.true.i16
-  %opaque.i20 = getelementptr inbounds i8, ptr %7, i64 40
+  %opaque.i20 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %opaque.i20, align 8
   tail call void %8(ptr noundef %9, i32 noundef 2) #10
   br label %mux_chr_send_event.exit21
@@ -195,7 +195,7 @@ declare ptr @get_chardevs_root() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @chardev_options_parsed_cb(ptr noundef %child, ptr nocapture readnone %opaque) #0 {
 entry:
-  %be_open = getelementptr inbounds i8, ptr %child, i64 116
+  %be_open = getelementptr inbounds nuw i8, ptr %child, i64 116
   %0 = load i32, ptr %be_open, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end
@@ -211,13 +211,13 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %.b.i.i, label %open_muxes.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then
-  %mux_cnt.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 244
+  %mux_cnt.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 244
   %1 = load i32, ptr %mux_cnt.i.i, align 4
   %cmp4.i.i = icmp sgt i32 %1, 0
   br i1 %cmp4.i.i, label %for.body.lr.ph.i.i, label %open_muxes.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %backends.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 152
+  %backends.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 152
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %mux_chr_send_event.exit.i.i, %for.body.lr.ph.i.i
@@ -229,13 +229,13 @@ for.body.i.i:                                     ; preds = %mux_chr_send_event.
   br i1 %tobool.not.i.i.i, label %mux_chr_send_event.exit.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.body.i.i
-  %chr_event.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %chr_event.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %chr_event.i.i.i, align 8
   %tobool1.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool1.not.i.i.i, label %mux_chr_send_event.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  %opaque.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %opaque.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %opaque.i.i.i, align 8
   tail call void %4(ptr noundef %5, i32 noundef 1) #10
   %.pre.i.i = load i32, ptr %mux_cnt.i.i, align 4
@@ -282,13 +282,13 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #3
 define internal void @char_mux_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
-  %mux_cnt = getelementptr inbounds i8, ptr %call.i, i64 244
+  %mux_cnt = getelementptr inbounds nuw i8, ptr %call.i, i64 244
   %0 = load i32, ptr %mux_cnt, align 4
   %cmp6 = icmp sgt i32 %0, 0
   br i1 %cmp6, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %backends = getelementptr inbounds i8, ptr %call.i, i64 152
+  %backends = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -312,7 +312,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %entry
-  %chr1 = getelementptr inbounds i8, ptr %call.i, i64 184
+  %chr1 = getelementptr inbounds nuw i8, ptr %call.i, i64 184
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr1, i1 noundef zeroext false) #10
   ret void
 }
@@ -321,19 +321,19 @@ for.end:                                          ; preds = %for.inc, %entry
 define internal void @char_mux_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #10
-  %parse = getelementptr inbounds i8, ptr %call.i, i64 104
+  %parse = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr @qemu_chr_parse_mux, ptr %parse, align 8
-  %open = getelementptr inbounds i8, ptr %call.i, i64 112
+  %open = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @qemu_chr_open_mux, ptr %open, align 8
-  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
+  %chr_write = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr @mux_chr_write, ptr %chr_write, align 8
-  %chr_accept_input = getelementptr inbounds i8, ptr %call.i, i64 200
+  %chr_accept_input = getelementptr inbounds nuw i8, ptr %call.i, i64 200
   store ptr @mux_chr_accept_input, ptr %chr_accept_input, align 8
-  %chr_add_watch = getelementptr inbounds i8, ptr %call.i, i64 136
+  %chr_add_watch = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @mux_chr_add_watch, ptr %chr_add_watch, align 8
-  %chr_be_event = getelementptr inbounds i8, ptr %call.i, i64 224
+  %chr_be_event = getelementptr inbounds nuw i8, ptr %call.i, i64 224
   store ptr @mux_chr_be_event, ptr %chr_be_event, align 8
-  %chr_update_read_handler = getelementptr inbounds i8, ptr %call.i, i64 144
+  %chr_update_read_handler = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @mux_chr_update_read_handlers, ptr %chr_update_read_handler, align 8
   ret void
 }
@@ -354,11 +354,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store i32 8, ptr %backend, align 8
   %call1 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #12
-  %u = getelementptr inbounds i8, ptr %backend, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %backend, i64 8
   store ptr %call1, ptr %u, align 8
   tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call1) #10
   %call3 = tail call noalias ptr @g_strdup(ptr noundef nonnull %call) #10
-  %chardev4 = getelementptr inbounds i8, ptr %call1, i64 16
+  %chardev4 = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store ptr %call3, ptr %chardev4, align 8
   br label %return
 
@@ -369,10 +369,10 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_chr_open_mux(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture noundef writeonly %be_opened, ptr noundef %errp) #0 {
 entry:
-  %u = getelementptr inbounds i8, ptr %backend, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
-  %chardev = getelementptr inbounds i8, ptr %0, i64 16
+  %chardev = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %chardev, align 8
   %call1 = tail call ptr @qemu_chr_find(ptr noundef %1) #10
   %cmp = icmp eq ptr %call1, null
@@ -384,13 +384,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %focus = getelementptr inbounds i8, ptr %call.i, i64 240
+  %focus = getelementptr inbounds nuw i8, ptr %call.i, i64 240
   store i32 -1, ptr %focus, align 8
   %.b = load i1, ptr @muxes_opened, align 1
   %not..b = xor i1 %.b, true
   %frombool = zext i1 %not..b to i8
   store i8 %frombool, ptr %be_opened, align 1
-  %chr3 = getelementptr inbounds i8, ptr %call.i, i64 184
+  %chr3 = getelementptr inbounds nuw i8, ptr %call.i, i64 184
   %call4 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr3, ptr noundef nonnull %call1, ptr noundef %errp) #10
   br label %return
 
@@ -403,7 +403,7 @@ define internal i32 @mux_chr_write(ptr noundef %chr, ptr noundef %buf, i32 nound
 entry:
   %buf1 = alloca [64 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
-  %timestamps = getelementptr inbounds i8, ptr %call.i, i64 416
+  %timestamps = getelementptr inbounds nuw i8, ptr %call.i, i64 416
   %0 = load i32, ptr %timestamps, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %for.cond.preheader
@@ -413,14 +413,14 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp23, label %for.body.lr.ph, label %if.end32
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %linestart = getelementptr inbounds i8, ptr %call.i, i64 420
-  %timestamps_start = getelementptr inbounds i8, ptr %call.i, i64 424
-  %chr16 = getelementptr inbounds i8, ptr %call.i, i64 184
+  %linestart = getelementptr inbounds nuw i8, ptr %call.i, i64 420
+  %timestamps_start = getelementptr inbounds nuw i8, ptr %call.i, i64 424
+  %chr16 = getelementptr inbounds nuw i8, ptr %call.i, i64 184
   %wide.trip.count = zext nneg i32 %len to i64
   br label %for.body
 
 if.then:                                          ; preds = %entry
-  %chr1 = getelementptr inbounds i8, ptr %call.i, i64 184
+  %chr1 = getelementptr inbounds nuw i8, ptr %call.i, i64 184
   %call2 = tail call i32 @qemu_chr_fe_write(ptr noundef nonnull %chr1, ptr noundef %buf, i32 noundef %len) #10
   br label %if.end32
 
@@ -486,24 +486,24 @@ if.end32:                                         ; preds = %for.inc, %for.cond.
 define internal void @mux_chr_accept_input(ptr noundef %chr) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
-  %focus = getelementptr inbounds i8, ptr %call.i, i64 240
+  %focus = getelementptr inbounds nuw i8, ptr %call.i, i64 240
   %0 = load i32, ptr %focus, align 8
-  %backends = getelementptr inbounds i8, ptr %call.i, i64 152
+  %backends = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr [4 x ptr], ptr %backends, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %prod = getelementptr inbounds i8, ptr %call.i, i64 384
+  %prod = getelementptr inbounds nuw i8, ptr %call.i, i64 384
   %arrayidx2 = getelementptr [4 x i32], ptr %prod, i64 0, i64 %idxprom
-  %chr_can_read = getelementptr inbounds i8, ptr %1, i64 16
-  %opaque = getelementptr inbounds i8, ptr %1, i64 40
+  %chr_can_read = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %opaque = getelementptr inbounds nuw i8, ptr %1, i64 40
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %land.lhs.true.lr.ph
 
 land.lhs.true.lr.ph:                              ; preds = %entry
-  %cons = getelementptr inbounds i8, ptr %call.i, i64 400
+  %cons = getelementptr inbounds nuw i8, ptr %call.i, i64 400
   %arrayidx4 = getelementptr [4 x i32], ptr %cons, i64 0, i64 %idxprom
-  %chr_read = getelementptr inbounds i8, ptr %1, i64 24
-  %buffer = getelementptr inbounds i8, ptr %call.i, i64 256
+  %chr_read = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %buffer = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   %2 = load i32, ptr %arrayidx2, align 4
   %3 = load i32, ptr %arrayidx4, align 4
   %cmp.not16 = icmp eq i32 %2, %3
@@ -543,11 +543,11 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 define internal ptr @mux_chr_add_watch(ptr noundef %s, i32 noundef %cond) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
-  %chr1 = getelementptr inbounds i8, ptr %call.i, i64 184
+  %chr1 = getelementptr inbounds nuw i8, ptr %call.i, i64 184
   %call2 = tail call ptr @qemu_chr_fe_get_driver(ptr noundef nonnull %chr1) #10
   %call.i3 = tail call ptr @object_get_class(ptr noundef %call2) #10
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i3, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_GET_CLASS) #10
-  %chr_add_watch = getelementptr inbounds i8, ptr %call1.i, i64 136
+  %chr_add_watch = getelementptr inbounds nuw i8, ptr %call1.i, i64 136
   %0 = load ptr, ptr %chr_add_watch, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -565,13 +565,13 @@ return:                                           ; preds = %entry, %if.end
 define internal void @mux_chr_be_event(ptr noundef %chr, i32 noundef %event) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
-  %focus = getelementptr inbounds i8, ptr %call.i, i64 240
+  %focus = getelementptr inbounds nuw i8, ptr %call.i, i64 240
   %0 = load i32, ptr %focus, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %backends.i = getelementptr inbounds i8, ptr %call.i, i64 152
+  %backends.i = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %idxprom.i = sext i32 %0 to i64
   %arrayidx.i = getelementptr [4 x ptr], ptr %backends.i, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
@@ -579,13 +579,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %chr_event.i = getelementptr inbounds i8, ptr %1, i64 8
+  %chr_event.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %chr_event.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %opaque.i = getelementptr inbounds i8, ptr %1, i64 40
+  %opaque.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load ptr, ptr %opaque.i, align 8
   tail call void %2(ptr noundef %3, i32 noundef %event) #10
   br label %if.end
@@ -598,8 +598,8 @@ if.end:                                           ; preds = %if.then.i, %land.lh
 define internal void @mux_chr_update_read_handlers(ptr noundef %chr) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
-  %chr1 = getelementptr inbounds i8, ptr %call.i, i64 184
-  %gcontext = getelementptr inbounds i8, ptr %chr, i64 136
+  %chr1 = getelementptr inbounds nuw i8, ptr %call.i, i64 184
+  %gcontext = getelementptr inbounds nuw i8, ptr %chr, i64 136
   %0 = load ptr, ptr %gcontext, align 8
   tail call void @qemu_chr_fe_set_handlers_full(ptr noundef nonnull %chr1, ptr noundef nonnull @mux_chr_can_read, ptr noundef nonnull @mux_chr_read, ptr noundef nonnull @mux_chr_event, ptr noundef null, ptr noundef %chr, ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false) #10
   ret void
@@ -644,16 +644,16 @@ declare void @qemu_chr_fe_set_handlers_full(ptr noundef, ptr noundef, ptr nounde
 define internal i32 @mux_chr_can_read(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
-  %focus = getelementptr inbounds i8, ptr %call.i, i64 240
+  %focus = getelementptr inbounds nuw i8, ptr %call.i, i64 240
   %0 = load i32, ptr %focus, align 8
-  %backends = getelementptr inbounds i8, ptr %call.i, i64 152
+  %backends = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr [4 x ptr], ptr %backends, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %prod = getelementptr inbounds i8, ptr %call.i, i64 384
+  %prod = getelementptr inbounds nuw i8, ptr %call.i, i64 384
   %arrayidx2 = getelementptr [4 x i32], ptr %prod, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx2, align 4
-  %cons = getelementptr inbounds i8, ptr %call.i, i64 400
+  %cons = getelementptr inbounds nuw i8, ptr %call.i, i64 400
   %arrayidx4 = getelementptr [4 x i32], ptr %cons, i64 0, i64 %idxprom
   %3 = load i32, ptr %arrayidx4, align 4
   %sub = sub i32 %2, %3
@@ -665,13 +665,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %chr_can_read = getelementptr inbounds i8, ptr %1, i64 16
+  %chr_can_read = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %chr_can_read, align 8
   %tobool5.not = icmp eq ptr %4, null
   br i1 %tobool5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %land.lhs.true
-  %opaque8 = getelementptr inbounds i8, ptr %1, i64 40
+  %opaque8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %opaque8, align 8
   %call9 = tail call i32 %4(ptr noundef %5) #10
   br label %return
@@ -688,31 +688,31 @@ entry:
   %cbuf.i.i = alloca [50 x i8], align 16
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV) #10
   %call.i25 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
-  %focus = getelementptr inbounds i8, ptr %call.i25, i64 240
+  %focus = getelementptr inbounds nuw i8, ptr %call.i25, i64 240
   %0 = load i32, ptr %focus, align 8
-  %backends = getelementptr inbounds i8, ptr %call.i25, i64 152
+  %backends = getelementptr inbounds nuw i8, ptr %call.i25, i64 152
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr [4 x ptr], ptr %backends, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 59, ptr noundef nonnull @__func__.MUX_CHARDEV) #10
-  %focus.i = getelementptr inbounds i8, ptr %call.i.i, i64 240
+  %focus.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 240
   %2 = load i32, ptr %focus.i, align 8
-  %backends.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
+  %backends.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 152
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr [4 x ptr], ptr %backends.i, i64 0, i64 %idxprom.i
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %prod.i = getelementptr inbounds i8, ptr %call.i.i, i64 384
+  %prod.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 384
   %arrayidx2.i = getelementptr [4 x i32], ptr %prod.i, i64 0, i64 %idxprom.i
-  %chr_can_read.i = getelementptr inbounds i8, ptr %3, i64 16
-  %opaque.i = getelementptr inbounds i8, ptr %3, i64 40
+  %chr_can_read.i = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %opaque.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %mux_chr_accept_input.exit, label %land.lhs.true.lr.ph.i
 
 land.lhs.true.lr.ph.i:                            ; preds = %entry
-  %cons.i = getelementptr inbounds i8, ptr %call.i.i, i64 400
+  %cons.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 400
   %arrayidx4.i = getelementptr [4 x i32], ptr %cons.i, i64 0, i64 %idxprom.i
-  %chr_read.i = getelementptr inbounds i8, ptr %3, i64 24
-  %buffer.i = getelementptr inbounds i8, ptr %call.i.i, i64 256
+  %chr_read.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %buffer.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 256
   %4 = load i32, ptr %arrayidx2.i, align 4
   %5 = load i32, ptr %arrayidx4.i, align 4
   %cmp.not16.i = icmp eq i32 %4, %5
@@ -749,21 +749,21 @@ mux_chr_accept_input.exit:                        ; preds = %land.lhs.true5.i, %
   br i1 %cmp30, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %mux_chr_accept_input.exit
-  %term_got_escape.i = getelementptr inbounds i8, ptr %call.i25, i64 248
-  %timestamps.i = getelementptr inbounds i8, ptr %call.i25, i64 416
-  %timestamps_start.i = getelementptr inbounds i8, ptr %call.i25, i64 424
-  %linestart.i = getelementptr inbounds i8, ptr %call.i25, i64 420
-  %mux_cnt.i = getelementptr inbounds i8, ptr %call.i25, i64 244
-  %13 = getelementptr inbounds i8, ptr %cbuf.i.i, i64 1
-  %prod = getelementptr inbounds i8, ptr %call.i25, i64 384
+  %term_got_escape.i = getelementptr inbounds nuw i8, ptr %call.i25, i64 248
+  %timestamps.i = getelementptr inbounds nuw i8, ptr %call.i25, i64 416
+  %timestamps_start.i = getelementptr inbounds nuw i8, ptr %call.i25, i64 424
+  %linestart.i = getelementptr inbounds nuw i8, ptr %call.i25, i64 420
+  %mux_cnt.i = getelementptr inbounds nuw i8, ptr %call.i25, i64 244
+  %13 = getelementptr inbounds nuw i8, ptr %cbuf.i.i, i64 1
+  %prod = getelementptr inbounds nuw i8, ptr %call.i25, i64 384
   %arrayidx6 = getelementptr [4 x i32], ptr %prod, i64 0, i64 %idxprom
-  %cons = getelementptr inbounds i8, ptr %call.i25, i64 400
+  %cons = getelementptr inbounds nuw i8, ptr %call.i25, i64 400
   %arrayidx8 = getelementptr [4 x i32], ptr %cons, i64 0, i64 %idxprom
   %tobool11 = icmp ne ptr %1, null
-  %chr_can_read = getelementptr inbounds i8, ptr %1, i64 16
-  %opaque16 = getelementptr inbounds i8, ptr %1, i64 40
-  %chr_read = getelementptr inbounds i8, ptr %1, i64 24
-  %buffer = getelementptr inbounds i8, ptr %call.i25, i64 256
+  %chr_can_read = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %opaque16 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %chr_read = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %buffer = getelementptr inbounds nuw i8, ptr %call.i25, i64 256
   %wide.trip.count = zext nneg i32 %size to i64
   br label %for.body
 
@@ -965,13 +965,13 @@ entry:
   br i1 %.b.i, label %mux_chr_send_all_event.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %mux_cnt.i = getelementptr inbounds i8, ptr %call.i.i, i64 244
+  %mux_cnt.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 244
   %0 = load i32, ptr %mux_cnt.i, align 4
   %cmp4.i = icmp sgt i32 %0, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %mux_chr_send_all_event.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %backends.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
+  %backends.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 152
   br label %for.body.i
 
 for.body.i:                                       ; preds = %mux_chr_send_event.exit.i, %for.body.lr.ph.i
@@ -983,13 +983,13 @@ for.body.i:                                       ; preds = %mux_chr_send_event.
   br i1 %tobool.not.i.i, label %mux_chr_send_event.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i
-  %chr_event.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %chr_event.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %chr_event.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i.i, label %mux_chr_send_event.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %opaque.i.i = getelementptr inbounds i8, ptr %2, i64 40
+  %opaque.i.i = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %opaque.i.i, align 8
   tail call void %3(ptr noundef %4, i32 noundef %event) #10
   %.pre.i = load i32, ptr %mux_cnt.i, align 4

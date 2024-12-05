@@ -42,7 +42,7 @@ entry:
 while.cond:                                       ; preds = %sw.epilog, %entry
   %p.0 = phi ptr [ %classes, %entry ], [ %incdec.ptr, %sw.epilog ]
   %flags.0 = phi i32 [ 0, %entry ], [ %or29, %sw.epilog ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 1
   %0 = load i8, ptr %p.0, align 1
   switch i8 %0, label %return.loopexit [
     i8 0, label %return
@@ -303,7 +303,7 @@ if.then4:                                         ; preds = %if.end
   %conv8 = sext i32 %call6 to i64
   %call9 = call ptr @sdscatlen(ptr noundef %call5, ptr noundef nonnull %buf, i64 noundef %conv8) #4
   %call10 = call ptr @sdscatlen(ptr noundef %call9, ptr noundef nonnull @.str.16, i64 noundef 3) #4
-  %ptr = getelementptr inbounds i8, ptr %key, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %key, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %call11 = call ptr @sdscatsds(ptr noundef %call10, ptr noundef %2) #4
   %call12 = call ptr @createObject(i32 noundef 0, ptr noundef %call11) #4
@@ -334,7 +334,7 @@ if.end24:                                         ; preds = %if.then20, %if.then
   %conv26 = sext i32 %len.1 to i64
   %call27 = call ptr @sdscatlen(ptr noundef %call18, ptr noundef nonnull %buf, i64 noundef %conv26) #4
   %call28 = call ptr @sdscatlen(ptr noundef %call27, ptr noundef nonnull @.str.16, i64 noundef 3) #4
-  %ptr29 = getelementptr inbounds i8, ptr %call1, i64 8
+  %ptr29 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   %4 = load ptr, ptr %ptr29, align 8
   %call30 = call ptr @sdscatsds(ptr noundef %call28, ptr noundef %4) #4
   %call31 = call ptr @createObject(i32 noundef 0, ptr noundef %call30) #4

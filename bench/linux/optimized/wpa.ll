@@ -10,22 +10,22 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
-  %4 = getelementptr inbounds i8, ptr %2, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %103, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %7, i64 544
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 544
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 1027074
   br i1 %12, label %13, label %103
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %15, 24
   br i1 %16, label %103, label %17
@@ -49,7 +49,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
   %29 = load i32, ptr %3, align 8
   %30 = and i32 %29, 67108864
   %31 = icmp eq i32 %30, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 72
   br i1 %31, label %32, label %.thread3, !prof !5
 
 .thread3:                                         ; preds = %24
@@ -67,9 +67,9 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 88
   %41 = load volatile i64, ptr %40, align 8
   %42 = and i64 %41, 274877906944
   %43 = icmp eq i64 %42, 0
@@ -77,7 +77,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
 
 44:                                               ; preds = %37, %34
   %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 552
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 552
   %47 = load i16, ptr %46, align 8
   %48 = and i16 %47, 260
   %49 = icmp eq i16 %48, 0
@@ -85,22 +85,22 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
 
 50:                                               ; preds = %.thread3, %44, %37, %32
   %51 = phi i32 [ 8, %44 ], [ 8, %37 ], [ 12, %32 ], [ 12, %.thread3 ]
-  %52 = getelementptr inbounds i8, ptr %2, i64 116
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 116
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %2, i64 188
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 188
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %2, i64 184
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %59 = load i32, ptr %58, align 8
   %60 = sub i32 %57, %59
   %61 = icmp slt i32 %60, %51
   br i1 %61, label %.thread, label %62
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %2, i64 192
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %5 to i64
   %66 = ptrtoint ptr %64 to i64
@@ -112,7 +112,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
 .thread:                                          ; preds = %50, %62, %55
   tail call void asm sideeffect "797: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 797b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 797) #10, !srcloc !7
   %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds i8, ptr %2, i64 192
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %72 = load ptr, ptr %71, align 8
   %73 = ptrtoint ptr %70 to i64
   %74 = ptrtoint ptr %72 to i64
@@ -123,9 +123,9 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
   br i1 %78, label %79, label %85
 
 79:                                               ; preds = %.thread
-  %80 = getelementptr inbounds i8, ptr %2, i64 188
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 188
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %2, i64 184
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %83 = load i32, ptr %82, align 8
   %84 = sub i32 %81, %83
   br label %85
@@ -142,7 +142,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_tx_h_michael_mic_add(ptr
 87:                                               ; preds = %62
   %88 = tail call ptr @skb_put(ptr noundef %2, i32 noundef 8) #10
   %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 552
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 552
   %91 = load i16, ptr %90, align 8
   %92 = and i16 %91, 256
   %93 = icmp eq i16 %92, 0
@@ -197,9 +197,9 @@ define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_ver
   %2 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   store i64 0, ptr %2, align 8, !annotation !12
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 76
@@ -207,7 +207,7 @@ define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_ver
   br i1 %9, label %10, label %124
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %4, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 24
   %14 = icmp eq i32 %13, 0
@@ -224,25 +224,25 @@ define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_ver
   br i1 %20, label %21, label %124
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %124, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 544
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 544
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 1027074
   br i1 %28, label %81, label %124
 
 29:                                               ; preds = %10
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %124, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %31, i64 544
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 544
   %35 = load i32, ptr %34, align 8
   %36 = icmp ne i32 %35, 1027074
   %37 = and i32 %12, 2
@@ -251,15 +251,15 @@ define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_ver
   br i1 %39, label %124, label %40
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 4056
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4056
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 3
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %31, i64 551
+  %47 = getelementptr inbounds nuw i8, ptr %31, i64 551
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %50, label %124
@@ -271,14 +271,14 @@ define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_ver
 
 53:                                               ; preds = %50
   %54 = tail call i32 @ieee80211_hdrlen(i16 noundef zeroext %7) #9
-  %55 = getelementptr inbounds i8, ptr %4, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %56 = load i32, ptr %55, align 8
   %57 = add i32 %54, 8
   %58 = icmp ult i32 %56, %57
   br i1 %58, label %124, label %59
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %4, i64 116
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 116
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %66, label %63
@@ -323,17 +323,17 @@ define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_ver
 
 81:                                               ; preds = %78, %25
   %82 = phi ptr [ %.pre9, %78 ], [ %23, %25 ]
-  %83 = getelementptr inbounds i8, ptr %0, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %84 = load i32, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 56
-  %86 = getelementptr inbounds i8, ptr %0, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64
   %.idx = mul nsw i64 %88, 28
   %89 = getelementptr i8, ptr %82, i64 92
   %90 = getelementptr i8, ptr %89, i64 %.idx
   store i32 %84, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %0, i64 84
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %92 = load i16, ptr %91, align 4
   %93 = load ptr, ptr %85, align 8
   %94 = load i32, ptr %86, align 8
@@ -347,7 +347,7 @@ define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_ver
 98:                                               ; preds = %._crit_edge7, %50
   %99 = phi ptr [ %31, %50 ], [ %.pre8, %._crit_edge7 ]
   %100 = phi ptr [ %6, %50 ], [ %69, %._crit_edge7 ]
-  %101 = getelementptr inbounds i8, ptr %99, i64 520
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 520
   %102 = load i32, ptr %101, align 8
   %103 = add i32 %102, 1
   store i32 %103, ptr %101, align 8
@@ -355,29 +355,29 @@ define dso_local noundef range(i32 1, 65569) i32 @ieee80211_rx_h_michael_mic_ver
 
 104:                                              ; preds = %98, %15
   %105 = phi ptr [ %6, %15 ], [ %100, %98 ]
-  %106 = getelementptr inbounds i8, ptr %0, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 1248
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 1248
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %105, i64 4
-  %111 = getelementptr inbounds i8, ptr %105, i64 10
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 10
   %112 = load i32, ptr %110, align 4
   %113 = and i32 %112, 1
   %114 = xor i32 %113, 1
-  %115 = getelementptr inbounds i8, ptr %0, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %116 = load ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %122, label %118
 
 118:                                              ; preds = %104
-  %119 = getelementptr inbounds i8, ptr %116, i64 551
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 551
   %120 = load i8, ptr %119, align 1
   %121 = sext i8 %120 to i32
   br label %122
 
 122:                                              ; preds = %118, %104
   %123 = phi i32 [ %121, %118 ], [ -1, %104 ]
-  call void @cfg80211_michael_mic_failure(ptr noundef %109, ptr noundef %111, i32 noundef %114, i32 noundef %123, ptr noundef null, i32 noundef 2080) #10
+  call void @cfg80211_michael_mic_failure(ptr noundef %109, ptr noundef nonnull %111, i32 noundef %114, i32 noundef %123, ptr noundef null, i32 noundef 2080) #10
   br label %124
 
 124:                                              ; preds = %122, %81, %63, %53, %46, %33, %29, %25, %21, %18, %1
@@ -395,25 +395,25 @@ declare dso_local void @cfg80211_michael_mic_failure(ptr noundef, ptr noundef, i
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_tkip_encrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @ieee80211_tx_set_protected(ptr noundef %0) #10
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %2, align 8
   %6 = icmp eq ptr %5, %2
   br i1 %6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.backedge
   %7 = phi ptr [ %72, %.backedge ], [ %5, %1 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i16, ptr %15, align 8
   %17 = and i16 %16, 34
   %18 = icmp eq i16 %17, 0
@@ -423,18 +423,18 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_tkip_encrypt(ptr 
   %20 = phi i32 [ 0, %14 ], [ 4, %.lr.ph ]
   %21 = load i16, ptr %9, align 2
   %22 = tail call i32 @ieee80211_hdrlen(i16 noundef zeroext %21) #9
-  %23 = getelementptr inbounds i8, ptr %7, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %24 = load i32, ptr %23, align 8
   %25 = sub i32 %24, %22
-  %26 = getelementptr inbounds i8, ptr %7, i64 116
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 116
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %7, i64 188
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 188
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %7, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %33 = load i32, ptr %32, align 8
   %34 = sub i32 %31, %33
   br label %35
@@ -445,7 +445,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_tkip_encrypt(ptr 
   br i1 %37, label %.critedge4, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %7, i64 192
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %9 to i64
   %42 = ptrtoint ptr %40 to i64
@@ -471,17 +471,17 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_tkip_encrypt(ptr 
   br i1 %52, label %58, label %53
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i8, ptr %51, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %55 = load i16, ptr %54, align 8
   %56 = and i16 %55, 32
   %57 = icmp eq i16 %56, 0
   br i1 %57, label %58, label %.backedge
 
 58:                                               ; preds = %53, %46
-  %59 = getelementptr inbounds i8, ptr %10, i64 536
-  %60 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %59, i64 1, ptr elementtype(i64) %59) #10, !srcloc !16
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 536
+  %60 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %59, i64 1, ptr nonnull elementtype(i64) %59) #10, !srcloc !16
   %61 = add i64 %60, 1
-  %62 = tail call ptr @ieee80211_tkip_add_iv(ptr noundef %50, ptr noundef %59, i64 noundef %61) #10
+  %62 = tail call ptr @ieee80211_tkip_add_iv(ptr noundef %50, ptr noundef nonnull %59, i64 noundef %61) #10
   %63 = load ptr, ptr %11, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %.backedge
@@ -489,9 +489,9 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_tkip_encrypt(ptr 
 65:                                               ; preds = %58
   %66 = tail call ptr @skb_put(ptr noundef %7, i32 noundef 4) #10
   %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 2440
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2440
   %69 = sext i32 %25 to i64
-  %70 = tail call i32 @ieee80211_tkip_encrypt_data(ptr noundef %68, ptr noundef %10, ptr noundef %7, ptr noundef %62, i64 noundef %69) #10
+  %70 = tail call i32 @ieee80211_tkip_encrypt_data(ptr noundef nonnull %68, ptr noundef %10, ptr noundef %7, ptr noundef %62, i64 noundef %69) #10
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %.loopexit, label %.backedge
 
@@ -510,11 +510,11 @@ declare dso_local void @ieee80211_tx_set_protected(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 1, 65571) i32 @ieee80211_crypto_tkip_decrypt(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = load i16, ptr %5, align 2
   %9 = tail call i32 @ieee80211_hdrlen(i16 noundef zeroext %8) #9
@@ -523,20 +523,20 @@ define dso_local noundef range(i32 1, 65571) i32 @ieee80211_crypto_tkip_decrypt(
   br i1 %11, label %12, label %60
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %60, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %3, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %18 = load i32, ptr %17, align 8
   %19 = sub i32 %18, %9
   %20 = icmp ult i32 %19, 12
   br i1 %20, label %60, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %3, i64 116
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 116
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %28, label %25
@@ -557,23 +557,23 @@ define dso_local noundef range(i32 1, 65571) i32 @ieee80211_crypto_tkip_decrypt(
   %.pre-phi = phi i32 [ %.pre3, %._crit_edge ], [ %19, %21 ]
   %29 = phi ptr [ %.pre2, %._crit_edge ], [ %14, %21 ]
   %30 = phi ptr [ %.pre, %._crit_edge ], [ %5, %21 ]
-  %31 = getelementptr inbounds i8, ptr %3, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %32 = load i32, ptr %31, align 8
   %33 = lshr i32 %32, 1
   %34 = and i32 %33, 1
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 3472
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 3472
   %38 = sext i32 %9 to i64
   %39 = getelementptr i8, ptr %30, i64 %38
   %40 = zext i32 %.pre-phi to i64
-  %41 = getelementptr inbounds i8, ptr %29, i64 2680
-  %42 = getelementptr inbounds i8, ptr %30, i64 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 2680
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
-  %46 = getelementptr inbounds i8, ptr %0, i64 84
-  %47 = tail call i32 @ieee80211_tkip_decrypt_data(ptr noundef %37, ptr noundef %7, ptr noundef %39, i64 noundef %40, ptr noundef %41, ptr noundef %42, i32 noundef %34, i32 noundef %44, ptr noundef %45, ptr noundef %46) #10
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %47 = tail call i32 @ieee80211_tkip_decrypt_data(ptr noundef nonnull %37, ptr noundef %7, ptr noundef %39, i64 noundef %40, ptr noundef nonnull %41, ptr noundef nonnull %42, i32 noundef %34, i32 noundef %44, ptr noundef nonnull %45, ptr noundef nonnull %46) #10
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %60
 
@@ -615,23 +615,23 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   %3 = alloca [32 x i8], align 16
   %4 = alloca [16 x i8], align 16
   tail call void @ieee80211_tx_set_protected(ptr noundef %0) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %3, i64 2
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 22
-  %10 = getelementptr inbounds i8, ptr %3, i64 23
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  %12 = getelementptr inbounds i8, ptr %3, i64 30
-  %13 = getelementptr inbounds i8, ptr %3, i64 31
-  %14 = getelementptr inbounds i8, ptr %4, i64 1
-  %15 = getelementptr inbounds i8, ptr %4, i64 2
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 9
-  %18 = getelementptr inbounds i8, ptr %4, i64 10
-  %19 = getelementptr inbounds i8, ptr %4, i64 11
-  %20 = getelementptr inbounds i8, ptr %4, i64 12
-  %21 = getelementptr inbounds i8, ptr %4, i64 13
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 22
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 23
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 30
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 31
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 13
   %22 = load ptr, ptr %5, align 8
   %23 = icmp eq ptr %22, %5
   br i1 %23, label %.loopexit, label %.lr.ph
@@ -643,20 +643,20 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
 
 .lr.ph:                                           ; preds = %2, %.backedge
   %24 = phi ptr [ %160, %.backedge ], [ %22, %2 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
-  %28 = getelementptr inbounds i8, ptr %24, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %44, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %33 = load i16, ptr %32, align 8
   %34 = zext i16 %33 to i32
   %35 = and i32 %34, 34
@@ -678,18 +678,18 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   %45 = phi i32 [ 0, %40 ], [ 0, %31 ], [ %1, %.lr.ph ]
   %46 = load i16, ptr %26, align 2
   %47 = call i32 @ieee80211_hdrlen(i16 noundef zeroext %46) #9
-  %48 = getelementptr inbounds i8, ptr %24, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %49 = load i32, ptr %48, align 8
   %50 = sub i32 %49, %47
-  %51 = getelementptr inbounds i8, ptr %24, i64 116
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 116
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %44
-  %55 = getelementptr inbounds i8, ptr %24, i64 188
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 188
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %24, i64 184
+  %57 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %58 = load i32, ptr %57, align 8
   %59 = sub i32 %56, %58
   br label %60
@@ -700,7 +700,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   br i1 %62, label %.critedge4, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %24, i64 192
+  %64 = getelementptr inbounds nuw i8, ptr %24, i64 192
   %65 = load ptr, ptr %64, align 8
   %66 = ptrtoint ptr %26 to i64
   %67 = ptrtoint ptr %65 to i64
@@ -727,7 +727,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   br i1 %76, label %82, label %77
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %75, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %79 = load i16, ptr %78, align 8
   %80 = and i16 %79, 32
   %81 = icmp eq i16 %80, 0
@@ -735,8 +735,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
 
 82:                                               ; preds = %77, %71
   %83 = getelementptr i8, ptr %72, i64 %74
-  %84 = getelementptr inbounds i8, ptr %27, i64 536
-  %85 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %84, i64 1, ptr elementtype(i64) %84) #10, !srcloc !16
+  %84 = getelementptr inbounds nuw i8, ptr %27, i64 536
+  %85 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %84, i64 1, ptr nonnull elementtype(i64) %84) #10, !srcloc !16
   %86 = add i64 %85, 1
   %87 = trunc i64 %86 to i8
   %88 = lshr i64 %86, 8
@@ -749,7 +749,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   %95 = trunc i64 %94 to i8
   %96 = lshr i64 %86, 40
   %97 = trunc i64 %96 to i8
-  %98 = getelementptr inbounds i8, ptr %27, i64 551
+  %98 = getelementptr inbounds nuw i8, ptr %27, i64 551
   %99 = load i8, ptr %98, align 1
   store i8 %87, ptr %83, align 1
   %100 = getelementptr i8, ptr %83, i64 1
@@ -790,7 +790,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
 
 125:                                              ; preds = %111
   %126 = select i1 %121, i64 30, i64 24
-  %127 = getelementptr inbounds i8, ptr %113, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 %126
   %128 = load i8, ptr %127, align 1
   %129 = and i8 %128, 15
   %130 = and i16 %119, 18427
@@ -804,9 +804,9 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   %136 = call i16 @llvm.bswap.i16(i16 %135)
   store i16 %136, ptr %3, align 16
   store i16 %133, ptr %7, align 2
-  %137 = getelementptr inbounds i8, ptr %113, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(18) %8, ptr noundef align 2 dereferenceable(18) %137, i64 18, i1 false)
-  %138 = getelementptr inbounds i8, ptr %113, i64 22
+  %137 = getelementptr inbounds nuw i8, ptr %113, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %8, ptr noundef nonnull align 2 dereferenceable(18) %137, i64 18, i1 false)
+  %138 = getelementptr inbounds nuw i8, ptr %113, i64 22
   %139 = load i8, ptr %138, align 2
   %140 = and i8 %139, 15
   store i8 %140, ptr %9, align 2
@@ -814,8 +814,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   br i1 %121, label %141, label %143
 
 141:                                              ; preds = %132
-  %142 = getelementptr inbounds i8, ptr %113, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %11, ptr noundef align 2 dereferenceable(6) %142, i64 6, i1 false)
+  %142 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %11, ptr noundef nonnull align 2 dereferenceable(6) %142, i64 6, i1 false)
   store i8 %134, ptr %12, align 2
   store i8 0, ptr %13, align 1
   br label %144
@@ -833,22 +833,22 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_ccmp_encrypt(ptr 
   %148 = select i1 %147, i8 16, i8 0
   %149 = or disjoint i8 %148, %134
   store i8 %149, ptr %14, align 1
-  %150 = getelementptr inbounds i8, ptr %113, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %15, ptr noundef align 2 dereferenceable(6) %150, i64 6, i1 false)
+  %150 = getelementptr inbounds nuw i8, ptr %113, i64 10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %15, ptr noundef nonnull align 2 dereferenceable(6) %150, i64 6, i1 false)
   store i8 %97, ptr %16, align 8
   store i8 %95, ptr %17, align 1
   store i8 %93, ptr %18, align 2
   store i8 %91, ptr %19, align 1
   store i8 %89, ptr %20, align 4
   store i8 %87, ptr %21, align 1
-  %151 = getelementptr inbounds i8, ptr %27, i64 152
+  %151 = getelementptr inbounds nuw i8, ptr %27, i64 152
   %152 = load ptr, ptr %151, align 8
   %153 = sext i32 %50 to i64
   %154 = call ptr @skb_put(ptr noundef %24, i32 noundef %1) #10
   %155 = load i16, ptr %3, align 16
   %156 = call i16 @llvm.bswap.i16(i16 %155)
   %157 = zext i16 %156 to i64
-  %158 = call i32 @aead_encrypt(ptr noundef %152, ptr noundef nonnull %4, ptr noundef %7, i64 noundef %157, ptr noundef %112, i64 noundef %153, ptr noundef %154) #10
+  %158 = call i32 @aead_encrypt(ptr noundef %152, ptr noundef nonnull %4, ptr noundef nonnull %7, i64 noundef %157, ptr noundef %112, i64 noundef %153, ptr noundef %154) #10
   %159 = icmp slt i32 %158, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
@@ -869,11 +869,11 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   %3 = alloca [6 x i8], align 1
   %4 = alloca [32 x i8], align 16
   %5 = alloca [16 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #10
   %12 = load i16, ptr %9, align 2
@@ -883,7 +883,7 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   br i1 %15, label %29, label %16
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %7, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %18, 25
   br i1 %19, label %209, label %20
@@ -917,7 +917,7 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   ]
 
 29:                                               ; preds = %26, %23, %20, %20, %2
-  %30 = getelementptr inbounds i8, ptr %7, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 2
   %33 = icmp eq i32 %32, 0
@@ -925,9 +925,9 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
 
 34:                                               ; preds = %29
   %35 = add i32 %13, 8
-  %36 = getelementptr inbounds i8, ptr %7, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %7, i64 116
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 116
   %39 = load i32, ptr %38, align 4
   %40 = sub i32 %37, %39
   %41 = icmp ult i32 %40, %35
@@ -955,7 +955,7 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   br label %60
 
 53:                                               ; preds = %29
-  %54 = getelementptr inbounds i8, ptr %7, i64 116
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 116
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %60, label %57
@@ -968,14 +968,14 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
 60:                                               ; preds = %57, %53, %48
   %61 = phi i32 [ %1, %57 ], [ %52, %48 ], [ %1, %53 ]
   %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 200
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 200
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %7, i64 112
+  %65 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %66 = load i32, ptr %65, align 8
   %67 = add i32 %13, %61
   %reass.sub = sub i32 %66, %67
   %68 = add i32 %reass.sub, -8
-  %69 = getelementptr inbounds i8, ptr %0, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   %72 = icmp slt i32 %68, 0
@@ -997,26 +997,26 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   store i8 %83, ptr %3, align 1
   %84 = getelementptr i8, ptr %81, i64 6
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %3, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %85, ptr %86, align 1
   %87 = getelementptr i8, ptr %81, i64 5
   %88 = load i8, ptr %87, align 1
-  %89 = getelementptr inbounds i8, ptr %3, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %88, ptr %89, align 1
   %90 = getelementptr i8, ptr %81, i64 4
   %91 = load i8, ptr %90, align 1
-  %92 = getelementptr inbounds i8, ptr %3, i64 3
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %91, ptr %92, align 1
   %93 = getelementptr i8, ptr %81, i64 1
   %94 = load i8, ptr %93, align 1
-  %95 = getelementptr inbounds i8, ptr %3, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 %94, ptr %95, align 1
   %96 = load i8, ptr %81, align 1
-  %97 = getelementptr inbounds i8, ptr %3, i64 5
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 %96, ptr %97, align 1
-  %98 = getelementptr inbounds i8, ptr %0, i64 72
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %11, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %101 = sext i32 %99 to i64
   %102 = getelementptr [17 x [6 x i8]], ptr %100, i64 0, i64 %101
   %103 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %3, ptr noundef dereferenceable(6) %102, i64 noundef 6)
@@ -1030,7 +1030,7 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %105, %78
-  %110 = getelementptr inbounds i8, ptr %11, i64 160
+  %110 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %111 = load i32, ptr %110, align 8
   %112 = add i32 %111, 1
   store i32 %112, ptr %110, align 8
@@ -1043,7 +1043,7 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
 
 116:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
-  %117 = getelementptr inbounds i8, ptr %4, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %117, i8 0, i64 16, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !12
@@ -1062,7 +1062,7 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
 
 129:                                              ; preds = %116
   %130 = select i1 %125, i64 30, i64 24
-  %131 = getelementptr inbounds i8, ptr %79, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr %79, i64 %130
   %132 = load i8, ptr %131, align 1
   %133 = and i8 %132, 15
   %134 = and i16 %123, 18427
@@ -1075,27 +1075,27 @@ define dso_local noundef range(i32 1, 65573) i32 @ieee80211_crypto_ccmp_decrypt(
   %139 = phi i16 [ %135, %129 ], [ %126, %116 ]
   %140 = tail call i16 @llvm.bswap.i16(i16 %139)
   store i16 %140, ptr %4, align 16
-  %141 = getelementptr inbounds i8, ptr %4, i64 2
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %137, ptr %141, align 2
-  %142 = getelementptr inbounds i8, ptr %4, i64 4
-  %143 = getelementptr inbounds i8, ptr %79, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(18) %142, ptr noundef readonly align 2 dereferenceable(18) %143, i64 18, i1 false)
-  %144 = getelementptr inbounds i8, ptr %79, i64 22
+  %142 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %142, ptr noundef nonnull readonly align 2 dereferenceable(18) %143, i64 18, i1 false)
+  %144 = getelementptr inbounds nuw i8, ptr %79, i64 22
   %145 = load i8, ptr %144, align 2
   %146 = and i8 %145, 15
-  %147 = getelementptr inbounds i8, ptr %4, i64 22
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 22
   store i8 %146, ptr %147, align 2
-  %148 = getelementptr inbounds i8, ptr %4, i64 23
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 23
   store i8 0, ptr %148, align 1
-  %149 = getelementptr inbounds i8, ptr %4, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %125, label %150, label %154
 
 150:                                              ; preds = %136
-  %151 = getelementptr inbounds i8, ptr %79, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %149, ptr noundef readonly align 2 dereferenceable(6) %151, i64 6, i1 false)
-  %152 = getelementptr inbounds i8, ptr %4, i64 30
+  %151 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %149, ptr noundef nonnull readonly align 2 dereferenceable(6) %151, i64 6, i1 false)
+  %152 = getelementptr inbounds nuw i8, ptr %4, i64 30
   store i8 %138, ptr %152, align 2
-  %153 = getelementptr inbounds i8, ptr %4, i64 31
+  %153 = getelementptr inbounds nuw i8, ptr %4, i64 31
   store i8 0, ptr %153, align 1
   br label %ccmp_special_blocks.exit
 
@@ -1108,14 +1108,14 @@ ccmp_special_blocks.exit:                         ; preds = %150, %154
   store i8 1, ptr %5, align 16
   %155 = select i1 %120, i8 16, i8 0
   %156 = or disjoint i8 %155, %138
-  %157 = getelementptr inbounds i8, ptr %5, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %156, ptr %157, align 1
-  %158 = getelementptr inbounds i8, ptr %5, i64 2
-  %159 = getelementptr inbounds i8, ptr %79, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %158, ptr noundef readonly align 2 dereferenceable(6) %159, i64 6, i1 false)
-  %160 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %160, ptr noundef nonnull readonly align 1 dereferenceable(6) %3, i64 6, i1 false)
-  %161 = getelementptr inbounds i8, ptr %11, i64 152
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %159 = getelementptr inbounds nuw i8, ptr %79, i64 10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %158, ptr noundef nonnull readonly align 2 dereferenceable(6) %159, i64 6, i1 false)
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %160, ptr noundef nonnull readonly align 1 dereferenceable(6) %3, i64 6, i1 false)
+  %161 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr i8, ptr %81, i64 8
   %164 = zext nneg i32 %68 to i64
@@ -1125,7 +1125,7 @@ ccmp_special_blocks.exit:                         ; preds = %150, %154
   %168 = sub nsw i64 0, %167
   %169 = getelementptr i8, ptr %166, i64 %168
   %170 = zext nneg i16 %139 to i64
-  %171 = call i32 @aead_decrypt(ptr noundef %162, ptr noundef nonnull %5, ptr noundef %141, i64 noundef %170, ptr noundef %163, i64 noundef %164, ptr noundef %169) #10
+  %171 = call i32 @aead_decrypt(ptr noundef %162, ptr noundef nonnull %5, ptr noundef nonnull %141, i64 noundef %170, ptr noundef %163, i64 noundef %164, ptr noundef %169) #10
   %172 = icmp eq i32 %171, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #10
@@ -1139,15 +1139,15 @@ ccmp_special_blocks.exit:                         ; preds = %150, %154
   br i1 %176, label %177, label %182
 
 177:                                              ; preds = %173
-  %178 = getelementptr inbounds i8, ptr %64, i64 22
+  %178 = getelementptr inbounds nuw i8, ptr %64, i64 22
   %179 = load i16, ptr %178, align 2
   %180 = and i16 %179, 15
   %181 = icmp eq i16 %180, 0
   br i1 %181, label %.thread, label %182, !prof !5
 
 182:                                              ; preds = %177, %173
-  %183 = getelementptr inbounds i8, ptr %0, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %183, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %183, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %177, %182, %74
@@ -1157,7 +1157,7 @@ ccmp_special_blocks.exit:                         ; preds = %150, %154
   br i1 %186, label %187, label %204
 
 187:                                              ; preds = %.thread
-  %188 = getelementptr inbounds i8, ptr %7, i64 116
+  %188 = getelementptr inbounds nuw i8, ptr %7, i64 116
   %189 = load i32, ptr %188, align 4
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %194, label %191
@@ -1170,13 +1170,13 @@ ccmp_special_blocks.exit:                         ; preds = %150, %154
 194:                                              ; preds = %187
   store i32 %185, ptr %65, align 8
   %195 = load ptr, ptr %8, align 8
-  %196 = getelementptr inbounds i8, ptr %7, i64 192
+  %196 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %197 = load ptr, ptr %196, align 8
   %198 = ptrtoint ptr %195 to i64
   %199 = ptrtoint ptr %197 to i64
   %200 = sub i64 %198, %199
   %201 = trunc i64 %200 to i32
-  %202 = getelementptr inbounds i8, ptr %7, i64 184
+  %202 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %203 = add i32 %185, %201
   store i32 %203, ptr %202, align 8
   br label %204
@@ -1206,24 +1206,24 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   %2 = alloca [32 x i8], align 16
   %3 = alloca [16 x i8], align 16
   tail call void @ieee80211_tx_set_protected(ptr noundef %0) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
-  %6 = getelementptr inbounds i8, ptr %3, i64 6
-  %7 = getelementptr inbounds i8, ptr %3, i64 7
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 9
-  %10 = getelementptr inbounds i8, ptr %3, i64 10
-  %11 = getelementptr inbounds i8, ptr %3, i64 11
-  %12 = getelementptr inbounds i8, ptr %3, i64 13
-  %13 = getelementptr inbounds i8, ptr %3, i64 14
-  %14 = getelementptr inbounds i8, ptr %3, i64 15
-  %15 = getelementptr inbounds i8, ptr %2, i64 2
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 22
-  %18 = getelementptr inbounds i8, ptr %2, i64 23
-  %19 = getelementptr inbounds i8, ptr %2, i64 24
-  %20 = getelementptr inbounds i8, ptr %2, i64 30
-  %21 = getelementptr inbounds i8, ptr %2, i64 31
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 11
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 13
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 14
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 22
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 23
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 30
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 31
   %22 = load ptr, ptr %4, align 8
   %23 = icmp eq ptr %22, %4
   br i1 %23, label %.loopexit, label %.lr.ph
@@ -1235,20 +1235,20 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
 
 .lr.ph:                                           ; preds = %1, %.backedge
   %24 = phi ptr [ %170, %.backedge ], [ %22, %1 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 200
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
-  %28 = getelementptr inbounds i8, ptr %24, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %44, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %33 = load i16, ptr %32, align 8
   %34 = zext i16 %33 to i32
   %35 = and i32 %34, 34
@@ -1270,18 +1270,18 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   %45 = phi i32 [ 0, %40 ], [ 0, %31 ], [ 16, %.lr.ph ]
   %46 = load i16, ptr %26, align 2
   %47 = call i32 @ieee80211_hdrlen(i16 noundef zeroext %46) #9
-  %48 = getelementptr inbounds i8, ptr %24, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %49 = load i32, ptr %48, align 8
   %50 = sub i32 %49, %47
-  %51 = getelementptr inbounds i8, ptr %24, i64 116
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 116
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %44
-  %55 = getelementptr inbounds i8, ptr %24, i64 188
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 188
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %24, i64 184
+  %57 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %58 = load i32, ptr %57, align 8
   %59 = sub i32 %56, %58
   br label %60
@@ -1292,7 +1292,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   br i1 %62, label %.critedge4, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %24, i64 192
+  %64 = getelementptr inbounds nuw i8, ptr %24, i64 192
   %65 = load ptr, ptr %64, align 8
   %66 = ptrtoint ptr %26 to i64
   %67 = ptrtoint ptr %65 to i64
@@ -1315,7 +1315,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   %74 = sext i32 %47 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %72, ptr align 1 %73, i64 %74, i1 false)
   %75 = load ptr, ptr %64, align 8
-  %76 = getelementptr inbounds i8, ptr %24, i64 180
+  %76 = getelementptr inbounds nuw i8, ptr %24, i64 180
   %77 = load i16, ptr %76, align 4
   %78 = zext i16 %77 to i64
   %79 = getelementptr i8, ptr %75, i64 %78
@@ -1335,7 +1335,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   br i1 %91, label %97, label %92
 
 92:                                               ; preds = %71
-  %93 = getelementptr inbounds i8, ptr %90, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %94 = load i16, ptr %93, align 8
   %95 = and i16 %94, 32
   %96 = icmp eq i16 %95, 0
@@ -1343,8 +1343,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
 
 97:                                               ; preds = %92, %71
   %98 = getelementptr i8, ptr %72, i64 %74
-  %99 = getelementptr inbounds i8, ptr %27, i64 536
-  %100 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %99, i64 1, ptr elementtype(i64) %99) #10, !srcloc !16
+  %99 = getelementptr inbounds nuw i8, ptr %27, i64 536
+  %100 = call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %99, i64 1, ptr nonnull elementtype(i64) %99) #10, !srcloc !16
   %101 = add i64 %100, 1
   %102 = trunc i64 %101 to i8
   %103 = lshr i64 %101, 8
@@ -1357,7 +1357,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   %110 = trunc i64 %109 to i8
   %111 = lshr i64 %101, 40
   %112 = trunc i64 %111 to i8
-  %113 = getelementptr inbounds i8, ptr %27, i64 551
+  %113 = getelementptr inbounds nuw i8, ptr %27, i64 551
   %114 = load i8, ptr %113, align 1
   store i8 %102, ptr %98, align 1
   %115 = getelementptr i8, ptr %98, i64 1
@@ -1383,8 +1383,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
 126:                                              ; preds = %97
   %127 = getelementptr i8, ptr %98, i64 8
   %128 = load ptr, ptr %25, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %3, ptr noundef align 2 dereferenceable(6) %129, i64 6, i1 false)
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %129, i64 6, i1 false)
   store i8 %112, ptr %6, align 2
   store i8 %110, ptr %7, align 1
   store i8 %108, ptr %8, align 8
@@ -1409,7 +1409,7 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
 
 141:                                              ; preds = %126
   %142 = select i1 %137, i64 30, i64 24
-  %143 = getelementptr inbounds i8, ptr %128, i64 %142
+  %143 = getelementptr inbounds nuw i8, ptr %128, i64 %142
   %144 = load i8, ptr %143, align 1
   %145 = and i8 %144, 15
   %146 = and i16 %135, 18427
@@ -1423,9 +1423,9 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   %152 = call i16 @llvm.bswap.i16(i16 %151)
   store i16 %152, ptr %2, align 16
   store i16 %149, ptr %15, align 2
-  %153 = getelementptr inbounds i8, ptr %128, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(18) %16, ptr noundef align 2 dereferenceable(18) %153, i64 18, i1 false)
-  %154 = getelementptr inbounds i8, ptr %128, i64 22
+  %153 = getelementptr inbounds nuw i8, ptr %128, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %16, ptr noundef nonnull align 2 dereferenceable(18) %153, i64 18, i1 false)
+  %154 = getelementptr inbounds nuw i8, ptr %128, i64 22
   %155 = load i8, ptr %154, align 2
   %156 = and i8 %155, 15
   store i8 %156, ptr %17, align 2
@@ -1433,8 +1433,8 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   br i1 %137, label %157, label %159
 
 157:                                              ; preds = %148
-  %158 = getelementptr inbounds i8, ptr %128, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %19, ptr noundef align 2 dereferenceable(6) %158, i64 6, i1 false)
+  %158 = getelementptr inbounds nuw i8, ptr %128, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %19, ptr noundef nonnull align 2 dereferenceable(6) %158, i64 6, i1 false)
   store i8 %150, ptr %20, align 2
   store i8 0, ptr %21, align 1
   br label %160
@@ -1445,14 +1445,14 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_gcmp_encrypt(ptr 
   br label %160
 
 160:                                              ; preds = %159, %157
-  %161 = getelementptr inbounds i8, ptr %27, i64 152
+  %161 = getelementptr inbounds nuw i8, ptr %27, i64 152
   %162 = load ptr, ptr %161, align 8
   %163 = sext i32 %50 to i64
   %164 = call ptr @skb_put(ptr noundef %24, i32 noundef 16) #10
   %165 = load i16, ptr %2, align 16
   %166 = call i16 @llvm.bswap.i16(i16 %165)
   %167 = zext i16 %166 to i64
-  %168 = call i32 @aead_encrypt(ptr noundef %162, ptr noundef nonnull %3, ptr noundef %15, i64 noundef %167, ptr noundef %127, i64 noundef %163, ptr noundef %164) #10
+  %168 = call i32 @aead_encrypt(ptr noundef %162, ptr noundef nonnull %3, ptr noundef nonnull %15, i64 noundef %167, ptr noundef %127, i64 noundef %163, ptr noundef %164) #10
   %169 = icmp slt i32 %168, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
@@ -1473,11 +1473,11 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   %2 = alloca [6 x i8], align 1
   %3 = alloca [32 x i8], align 16
   %4 = alloca [16 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %2) #10
   %11 = load i16, ptr %8, align 2
@@ -1487,7 +1487,7 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   br i1 %14, label %28, label %15
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %6, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %17 = load i32, ptr %16, align 8
   %18 = icmp ult i32 %17, 25
   br i1 %18, label %205, label %19
@@ -1521,7 +1521,7 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   ]
 
 28:                                               ; preds = %25, %22, %19, %19, %1
-  %29 = getelementptr inbounds i8, ptr %6, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 2
   %32 = icmp eq i32 %31, 0
@@ -1529,9 +1529,9 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
 
 33:                                               ; preds = %28
   %34 = add i32 %12, 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 116
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 116
   %38 = load i32, ptr %37, align 4
   %39 = sub i32 %36, %38
   %40 = icmp ult i32 %39, %34
@@ -1559,7 +1559,7 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   br label %59
 
 52:                                               ; preds = %28
-  %53 = getelementptr inbounds i8, ptr %6, i64 116
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 116
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %59, label %56
@@ -1572,14 +1572,14 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
 59:                                               ; preds = %56, %52, %47
   %60 = phi i32 [ 16, %56 ], [ %51, %47 ], [ 16, %52 ]
   %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 200
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 200
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %6, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %65 = load i32, ptr %64, align 8
   %66 = add i32 %12, %60
   %reass.sub = sub i32 %65, %66
   %67 = add i32 %reass.sub, -8
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   %71 = icmp slt i32 %67, 0
@@ -1601,26 +1601,26 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   store i8 %82, ptr %2, align 1
   %83 = getelementptr i8, ptr %80, i64 6
   %84 = load i8, ptr %83, align 1
-  %85 = getelementptr inbounds i8, ptr %2, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %84, ptr %85, align 1
   %86 = getelementptr i8, ptr %80, i64 5
   %87 = load i8, ptr %86, align 1
-  %88 = getelementptr inbounds i8, ptr %2, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %87, ptr %88, align 1
   %89 = getelementptr i8, ptr %80, i64 4
   %90 = load i8, ptr %89, align 1
-  %91 = getelementptr inbounds i8, ptr %2, i64 3
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %90, ptr %91, align 1
   %92 = getelementptr i8, ptr %80, i64 1
   %93 = load i8, ptr %92, align 1
-  %94 = getelementptr inbounds i8, ptr %2, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 %93, ptr %94, align 1
   %95 = load i8, ptr %80, align 1
-  %96 = getelementptr inbounds i8, ptr %2, i64 5
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 %95, ptr %96, align 1
-  %97 = getelementptr inbounds i8, ptr %0, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %98 = load i32, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %10, i64 48
+  %99 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %100 = sext i32 %98 to i64
   %101 = getelementptr [17 x [6 x i8]], ptr %99, i64 0, i64 %100
   %102 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %2, ptr noundef dereferenceable(6) %101, i64 noundef 6)
@@ -1634,7 +1634,7 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %104, %77
-  %109 = getelementptr inbounds i8, ptr %10, i64 160
+  %109 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %110 = load i32, ptr %109, align 8
   %111 = add i32 %110, 1
   store i32 %111, ptr %109, align 8
@@ -1647,18 +1647,18 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
 
 115:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #10
-  %116 = getelementptr inbounds i8, ptr %3, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %116, i8 0, i64 16, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
-  %117 = getelementptr inbounds i8, ptr %78, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef align 2 dereferenceable(6) %117, i64 6, i1 false)
-  %118 = getelementptr inbounds i8, ptr %4, i64 6
-  %119 = getelementptr inbounds i8, ptr %4, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %78, i64 10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %117, i64 6, i1 false)
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %119 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i16 0, ptr %119, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(6) %118, ptr noundef nonnull readonly align 1 dereferenceable(6) %2, i64 6, i1 false)
-  %120 = getelementptr inbounds i8, ptr %4, i64 14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %118, ptr noundef nonnull readonly align 1 dereferenceable(6) %2, i64 6, i1 false)
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 14
   store i8 0, ptr %120, align 2
-  %121 = getelementptr inbounds i8, ptr %4, i64 15
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 1, ptr %121, align 1
   %122 = load i16, ptr %78, align 2
   %123 = and i16 %122, 12
@@ -1675,7 +1675,7 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
 
 133:                                              ; preds = %115
   %134 = select i1 %129, i64 30, i64 24
-  %135 = getelementptr inbounds i8, ptr %78, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr %78, i64 %134
   %136 = load i8, ptr %135, align 1
   %137 = and i8 %136, 15
   %138 = and i16 %127, 18427
@@ -1688,27 +1688,27 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   %143 = phi i16 [ %139, %133 ], [ %130, %115 ]
   %144 = tail call i16 @llvm.bswap.i16(i16 %143)
   store i16 %144, ptr %3, align 16
-  %145 = getelementptr inbounds i8, ptr %3, i64 2
+  %145 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %141, ptr %145, align 2
-  %146 = getelementptr inbounds i8, ptr %3, i64 4
-  %147 = getelementptr inbounds i8, ptr %78, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(18) %146, ptr noundef align 2 dereferenceable(18) %147, i64 18, i1 false)
-  %148 = getelementptr inbounds i8, ptr %78, i64 22
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %146, ptr noundef nonnull align 2 dereferenceable(18) %147, i64 18, i1 false)
+  %148 = getelementptr inbounds nuw i8, ptr %78, i64 22
   %149 = load i8, ptr %148, align 2
   %150 = and i8 %149, 15
-  %151 = getelementptr inbounds i8, ptr %3, i64 22
+  %151 = getelementptr inbounds nuw i8, ptr %3, i64 22
   store i8 %150, ptr %151, align 2
-  %152 = getelementptr inbounds i8, ptr %3, i64 23
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 23
   store i8 0, ptr %152, align 1
-  %153 = getelementptr inbounds i8, ptr %3, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %129, label %154, label %158
 
 154:                                              ; preds = %140
-  %155 = getelementptr inbounds i8, ptr %78, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %153, ptr noundef align 2 dereferenceable(6) %155, i64 6, i1 false)
-  %156 = getelementptr inbounds i8, ptr %3, i64 30
+  %155 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %153, ptr noundef nonnull align 2 dereferenceable(6) %155, i64 6, i1 false)
+  %156 = getelementptr inbounds nuw i8, ptr %3, i64 30
   store i8 %142, ptr %156, align 2
-  %157 = getelementptr inbounds i8, ptr %3, i64 31
+  %157 = getelementptr inbounds nuw i8, ptr %3, i64 31
   store i8 0, ptr %157, align 1
   br label %gcmp_special_blocks.exit
 
@@ -1718,7 +1718,7 @@ define dso_local noundef range(i32 1, 65575) i32 @ieee80211_crypto_gcmp_decrypt(
   br label %gcmp_special_blocks.exit
 
 gcmp_special_blocks.exit:                         ; preds = %154, %158
-  %159 = getelementptr inbounds i8, ptr %10, i64 152
+  %159 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr i8, ptr %80, i64 8
   %162 = zext nneg i32 %67 to i64
@@ -1726,7 +1726,7 @@ gcmp_special_blocks.exit:                         ; preds = %154, %158
   %164 = getelementptr i8, ptr %78, i64 %163
   %165 = getelementptr i8, ptr %164, i64 -16
   %166 = zext nneg i16 %143 to i64
-  %167 = call i32 @aead_decrypt(ptr noundef %160, ptr noundef nonnull %4, ptr noundef %145, i64 noundef %166, ptr noundef %161, i64 noundef %162, ptr noundef %165) #10
+  %167 = call i32 @aead_decrypt(ptr noundef %160, ptr noundef nonnull %4, ptr noundef nonnull %145, i64 noundef %166, ptr noundef %161, i64 noundef %162, ptr noundef %165) #10
   %168 = icmp eq i32 %167, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
@@ -1740,15 +1740,15 @@ gcmp_special_blocks.exit:                         ; preds = %154, %158
   br i1 %172, label %173, label %178
 
 173:                                              ; preds = %169
-  %174 = getelementptr inbounds i8, ptr %63, i64 22
+  %174 = getelementptr inbounds nuw i8, ptr %63, i64 22
   %175 = load i16, ptr %174, align 2
   %176 = and i16 %175, 15
   %177 = icmp eq i16 %176, 0
   br i1 %177, label %.thread, label %178, !prof !5
 
 178:                                              ; preds = %173, %169
-  %179 = getelementptr inbounds i8, ptr %0, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %179, ptr noundef nonnull align 1 dereferenceable(6) %2, i64 6, i1 false)
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %179, ptr noundef nonnull align 1 dereferenceable(6) %2, i64 6, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %173, %178, %73
@@ -1758,7 +1758,7 @@ gcmp_special_blocks.exit:                         ; preds = %154, %158
   br i1 %182, label %183, label %200
 
 183:                                              ; preds = %.thread
-  %184 = getelementptr inbounds i8, ptr %6, i64 116
+  %184 = getelementptr inbounds nuw i8, ptr %6, i64 116
   %185 = load i32, ptr %184, align 4
   %186 = icmp eq i32 %185, 0
   br i1 %186, label %190, label %187
@@ -1771,13 +1771,13 @@ gcmp_special_blocks.exit:                         ; preds = %154, %158
 190:                                              ; preds = %183
   store i32 %181, ptr %64, align 8
   %191 = load ptr, ptr %7, align 8
-  %192 = getelementptr inbounds i8, ptr %6, i64 192
+  %192 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %193 = load ptr, ptr %192, align 8
   %194 = ptrtoint ptr %191 to i64
   %195 = ptrtoint ptr %193 to i64
   %196 = sub i64 %194, %195
   %197 = trunc i64 %196 to i32
-  %198 = getelementptr inbounds i8, ptr %6, i64 184
+  %198 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %199 = add i32 %181, %197
   store i32 %199, ptr %198, align 8
   br label %200
@@ -1799,10 +1799,10 @@ gcmp_special_blocks.exit:                         ; preds = %154, %158
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %9, label %8, !prof !5
@@ -1814,32 +1814,32 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_encrypt(
   br label %78
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %10
   %13 = select i1 %12, ptr null, ptr %11
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %22, label %17
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %4, i64 552
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 552
   %19 = load i16, ptr %18, align 8
   %20 = and i16 %19, 1024
   %21 = icmp eq i16 %20, 0
   br i1 %21, label %78, label %22
 
 22:                                               ; preds = %17, %9
-  %23 = getelementptr inbounds i8, ptr %13, i64 116
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 116
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %13, i64 188
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 188
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %13, i64 184
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 184
   %30 = load i32, ptr %29, align 8
   %31 = sub i32 %28, %30
   %32 = icmp ult i32 %31, 18
@@ -1854,17 +1854,17 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_encrypt(
 34:                                               ; preds = %26
   %35 = tail call ptr @skb_put(ptr noundef %13, i32 noundef 18) #10
   store i8 76, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 16, ptr %36, align 1
-  %37 = getelementptr inbounds i8, ptr %4, i64 536
-  %38 = getelementptr inbounds i8, ptr %4, i64 551
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 536
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 551
   %39 = load i8, ptr %38, align 1
   %40 = sext i8 %39 to i16
-  %41 = getelementptr inbounds i8, ptr %35, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 2
   store i16 %40, ptr %41, align 1
-  %42 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %37, i64 1, ptr elementtype(i64) %37) #10, !srcloc !16
+  %42 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %37, i64 1, ptr nonnull elementtype(i64) %37) #10, !srcloc !16
   %43 = add i64 %42, 1
-  %44 = getelementptr inbounds i8, ptr %35, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %45 = trunc i64 %43 to i8
   %46 = getelementptr i8, ptr %35, i64 5
   store i8 %45, ptr %44, align 1
@@ -1892,23 +1892,23 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_encrypt(
   br i1 %62, label %63, label %78
 
 63:                                               ; preds = %34
-  %64 = getelementptr inbounds i8, ptr %13, i64 200
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 200
   %65 = load ptr, ptr %64, align 8
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, -14337
   store i16 %67, ptr %2, align 16
-  %68 = getelementptr inbounds i8, ptr %2, i64 2
-  %69 = getelementptr inbounds i8, ptr %65, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(18) %68, ptr noundef align 2 dereferenceable(18) %69, i64 18, i1 false)
-  %70 = getelementptr inbounds i8, ptr %4, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %68, ptr noundef nonnull align 2 dereferenceable(18) %69, i64 18, i1 false)
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %65, i64 24
-  %73 = getelementptr inbounds i8, ptr %13, i64 112
+  %73 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %74 = load i32, ptr %73, align 8
   %75 = add i32 %74, -24
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %35, i64 10
-  call void @ieee80211_aes_cmac(ptr noundef %71, ptr noundef nonnull %2, ptr noundef %72, i64 noundef %76, ptr noundef %77) #10
+  %77 = getelementptr inbounds nuw i8, ptr %35, i64 10
+  call void @ieee80211_aes_cmac(ptr noundef %71, ptr noundef nonnull %2, ptr noundef %72, i64 noundef %76, ptr noundef nonnull %77) #10
   br label %78
 
 78:                                               ; preds = %63, %34, %33, %17, %8
@@ -1923,10 +1923,10 @@ declare dso_local void @ieee80211_aes_cmac(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_256_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %9, label %8, !prof !5
@@ -1938,25 +1938,25 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_256_encr
   br label %70
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %10
   %13 = select i1 %12, ptr null, ptr %11
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %70
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %13, i64 116
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 116
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %13, i64 188
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 188
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %13, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 184
   %25 = load i32, ptr %24, align 8
   %26 = sub i32 %23, %25
   %27 = icmp ult i32 %26, 26
@@ -1971,17 +1971,17 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_256_encr
 29:                                               ; preds = %21
   %30 = tail call ptr @skb_put(ptr noundef %13, i32 noundef 26) #10
   store i8 76, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store i8 24, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %4, i64 536
-  %33 = getelementptr inbounds i8, ptr %4, i64 551
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 536
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 551
   %34 = load i8, ptr %33, align 1
   %35 = sext i8 %34 to i16
-  %36 = getelementptr inbounds i8, ptr %30, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store i16 %35, ptr %36, align 1
-  %37 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %32, i64 1, ptr elementtype(i64) %32) #10, !srcloc !16
+  %37 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %32, i64 1, ptr nonnull elementtype(i64) %32) #10, !srcloc !16
   %38 = add i64 %37, 1
-  %39 = getelementptr inbounds i8, ptr %30, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %40 = trunc i64 %38 to i8
   %41 = getelementptr i8, ptr %30, i64 5
   store i8 %40, ptr %39, align 1
@@ -2004,23 +2004,23 @@ define dso_local noundef range(i32 0, 2) i32 @ieee80211_crypto_aes_cmac_256_encr
   %54 = lshr i64 %38, 40
   %55 = trunc i64 %54 to i8
   store i8 %55, ptr %53, align 1
-  %56 = getelementptr inbounds i8, ptr %13, i64 200
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 200
   %57 = load ptr, ptr %56, align 8
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, -14337
   store i16 %59, ptr %2, align 16
-  %60 = getelementptr inbounds i8, ptr %2, i64 2
-  %61 = getelementptr inbounds i8, ptr %57, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(18) %60, ptr noundef align 2 dereferenceable(18) %61, i64 18, i1 false)
-  %62 = getelementptr inbounds i8, ptr %4, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %60, ptr noundef nonnull align 2 dereferenceable(18) %61, i64 18, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %57, i64 24
-  %65 = getelementptr inbounds i8, ptr %13, i64 112
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %66 = load i32, ptr %65, align 8
   %67 = add i32 %66, -24
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %30, i64 10
-  call void @ieee80211_aes_cmac_256(ptr noundef %63, ptr noundef nonnull %2, ptr noundef %64, i64 noundef %68, ptr noundef %69) #10
+  %69 = getelementptr inbounds nuw i8, ptr %30, i64 10
+  call void @ieee80211_aes_cmac_256(ptr noundef %63, ptr noundef nonnull %2, ptr noundef %64, i64 noundef %68, ptr noundef nonnull %69) #10
   br label %70
 
 70:                                               ; preds = %29, %28, %9, %8
@@ -2037,16 +2037,16 @@ define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decr
   %2 = alloca [20 x i8], align 16
   %3 = alloca [8 x i8], align 8
   %4 = alloca [6 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   store i64 0, ptr %3, align 8, !annotation !12
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4) #10
-  %9 = getelementptr inbounds i8, ptr %6, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %10 = load ptr, ptr %9, align 8
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 12
@@ -2054,7 +2054,7 @@ define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decr
   br i1 %13, label %14, label %77
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %6, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %16 = load i32, ptr %15, align 8
   %17 = icmp ult i32 %16, 42
   br i1 %17, label %77, label %18
@@ -2077,40 +2077,40 @@ define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decr
   %29 = getelementptr i8, ptr %20, i64 -14
   %30 = getelementptr i8, ptr %20, i64 -9
   %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %4, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %31, ptr %4, align 1
   %33 = getelementptr i8, ptr %20, i64 -10
   %34 = load i8, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %4, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %34, ptr %32, align 1
   %36 = getelementptr i8, ptr %20, i64 -11
   %37 = load i8, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %4, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %37, ptr %35, align 1
   %39 = getelementptr i8, ptr %20, i64 -12
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %4, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %40, ptr %38, align 1
   %42 = getelementptr i8, ptr %20, i64 -13
   %43 = load i8, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %4, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 %43, ptr %41, align 1
   %45 = load i8, ptr %29, align 1
   store i8 %45, ptr %44, align 1
-  %46 = getelementptr inbounds i8, ptr %8, i64 48
-  %47 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %4, ptr noundef dereferenceable(6) %46, i64 noundef 6)
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %47 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %4, ptr noundef nonnull dereferenceable(6) %46, i64 noundef 6)
   %48 = icmp slt i32 %47, 1
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %28
-  %50 = getelementptr inbounds i8, ptr %8, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 8
   br label %77
 
 53:                                               ; preds = %28
-  %54 = getelementptr inbounds i8, ptr %6, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 2
   %57 = icmp eq i32 %56, 0
@@ -2119,10 +2119,10 @@ define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decr
 58:                                               ; preds = %53
   %59 = and i16 %11, -14349
   store i16 %59, ptr %2, align 16
-  %60 = getelementptr inbounds i8, ptr %2, i64 2
-  %61 = getelementptr inbounds i8, ptr %10, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(18) %60, ptr noundef align 2 dereferenceable(18) %61, i64 18, i1 false)
-  %62 = getelementptr inbounds i8, ptr %8, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %60, ptr noundef nonnull align 2 dereferenceable(18) %61, i64 18, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %10, i64 24
   %65 = add i32 %16, -24
@@ -2134,14 +2134,14 @@ define dso_local noundef range(i32 1, 65576) i32 @ieee80211_crypto_aes_cmac_decr
   br i1 %69, label %74, label %70
 
 70:                                               ; preds = %58
-  %71 = getelementptr inbounds i8, ptr %8, i64 68
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 68
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4
   br label %77
 
 74:                                               ; preds = %58, %53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %46, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %46, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
   %75 = load i32, ptr %15, align 8
   %76 = add i32 %75, -18
   call void @skb_trim(ptr noundef %6, i32 noundef %76) #10
@@ -2160,16 +2160,16 @@ define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_
   %2 = alloca [20 x i8], align 16
   %3 = alloca [16 x i8], align 16
   %4 = alloca [6 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4) #10
-  %9 = getelementptr inbounds i8, ptr %6, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %10 = load ptr, ptr %9, align 8
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 12
@@ -2177,7 +2177,7 @@ define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_
   br i1 %13, label %14, label %77
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %6, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %16 = load i32, ptr %15, align 8
   %17 = icmp ult i32 %16, 50
   br i1 %17, label %77, label %18
@@ -2200,40 +2200,40 @@ define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_
   %29 = getelementptr i8, ptr %20, i64 -22
   %30 = getelementptr i8, ptr %20, i64 -17
   %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %4, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %31, ptr %4, align 1
   %33 = getelementptr i8, ptr %20, i64 -18
   %34 = load i8, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %4, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 %34, ptr %32, align 1
   %36 = getelementptr i8, ptr %20, i64 -19
   %37 = load i8, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %4, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 %37, ptr %35, align 1
   %39 = getelementptr i8, ptr %20, i64 -20
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %4, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 %40, ptr %38, align 1
   %42 = getelementptr i8, ptr %20, i64 -21
   %43 = load i8, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %4, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store i8 %43, ptr %41, align 1
   %45 = load i8, ptr %29, align 1
   store i8 %45, ptr %44, align 1
-  %46 = getelementptr inbounds i8, ptr %8, i64 48
-  %47 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %4, ptr noundef dereferenceable(6) %46, i64 noundef 6)
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %47 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %4, ptr noundef nonnull dereferenceable(6) %46, i64 noundef 6)
   %48 = icmp slt i32 %47, 1
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %28
-  %50 = getelementptr inbounds i8, ptr %8, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 8
   br label %77
 
 53:                                               ; preds = %28
-  %54 = getelementptr inbounds i8, ptr %6, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 2
   %57 = icmp eq i32 %56, 0
@@ -2242,10 +2242,10 @@ define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_
 58:                                               ; preds = %53
   %59 = and i16 %11, -14349
   store i16 %59, ptr %2, align 16
-  %60 = getelementptr inbounds i8, ptr %2, i64 2
-  %61 = getelementptr inbounds i8, ptr %10, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(18) %60, ptr noundef align 2 dereferenceable(18) %61, i64 18, i1 false)
-  %62 = getelementptr inbounds i8, ptr %8, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %60, ptr noundef nonnull align 2 dereferenceable(18) %61, i64 18, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %10, i64 24
   %65 = add i32 %16, -24
@@ -2257,14 +2257,14 @@ define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_
   br i1 %69, label %74, label %70
 
 70:                                               ; preds = %58
-  %71 = getelementptr inbounds i8, ptr %8, i64 68
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 68
   %72 = load i32, ptr %71, align 4
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4
   br label %77
 
 74:                                               ; preds = %58, %53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %46, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %46, ptr noundef nonnull align 1 dereferenceable(6) %4, i64 6, i1 false)
   %75 = load i32, ptr %15, align 8
   %76 = add i32 %75, -26
   call void @skb_trim(ptr noundef %6, i32 noundef %76) #10
@@ -2282,11 +2282,11 @@ define dso_local noundef range(i32 1, 65577) i32 @ieee80211_crypto_aes_cmac_256_
 define dso_local range(i32 0, 2) i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca [12 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %10, label %9, !prof !5
@@ -2298,25 +2298,25 @@ define dso_local range(i32 0, 2) i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noun
   br label %80
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %11
   %14 = select i1 %13, ptr null, ptr %12
-  %15 = getelementptr inbounds i8, ptr %14, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %80
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %14, i64 116
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 116
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %14, i64 188
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 188
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %14, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %26 = load i32, ptr %25, align 8
   %27 = sub i32 %24, %26
   %28 = icmp ult i32 %27, 26
@@ -2331,17 +2331,17 @@ define dso_local range(i32 0, 2) i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noun
 30:                                               ; preds = %22
   %31 = tail call ptr @skb_put(ptr noundef %14, i32 noundef 26) #10
   store i8 76, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %31, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store i8 24, ptr %32, align 1
-  %33 = getelementptr inbounds i8, ptr %5, i64 536
-  %34 = getelementptr inbounds i8, ptr %5, i64 551
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 536
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 551
   %35 = load i8, ptr %34, align 1
   %36 = sext i8 %35 to i16
-  %37 = getelementptr inbounds i8, ptr %31, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 2
   store i16 %36, ptr %37, align 1
-  %38 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %33, i64 1, ptr elementtype(i64) %33) #10, !srcloc !16
+  %38 = tail call i64 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %33, i64 1, ptr nonnull elementtype(i64) %33) #10, !srcloc !16
   %39 = add i64 %38, 1
-  %40 = getelementptr inbounds i8, ptr %31, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %41 = trunc i64 %39 to i8
   %42 = getelementptr i8, ptr %31, i64 5
   store i8 %41, ptr %40, align 1
@@ -2364,37 +2364,37 @@ define dso_local range(i32 0, 2) i32 @ieee80211_crypto_aes_gmac_encrypt(ptr noun
   %55 = lshr i64 %39, 40
   %56 = trunc i64 %55 to i8
   store i8 %56, ptr %54, align 1
-  %57 = getelementptr inbounds i8, ptr %14, i64 200
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 200
   %58 = load ptr, ptr %57, align 8
   %59 = load i16, ptr %58, align 2
   %60 = and i16 %59, -14337
   store i16 %60, ptr %2, align 16
-  %61 = getelementptr inbounds i8, ptr %2, i64 2
-  %62 = getelementptr inbounds i8, ptr %58, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(18) %61, ptr noundef align 2 dereferenceable(18) %62, i64 18, i1 false)
-  %63 = getelementptr inbounds i8, ptr %58, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %3, ptr noundef align 2 dereferenceable(6) %63, i64 6, i1 false)
-  %64 = getelementptr inbounds i8, ptr %3, i64 6
-  %65 = getelementptr inbounds i8, ptr %3, i64 7
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %61, ptr noundef nonnull align 2 dereferenceable(18) %62, i64 18, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %3, ptr noundef nonnull align 2 dereferenceable(6) %63, i64 6, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 7
   store i8 %56, ptr %64, align 1
-  %66 = getelementptr inbounds i8, ptr %3, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %53, ptr %65, align 1
-  %67 = getelementptr inbounds i8, ptr %3, i64 9
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 %50, ptr %66, align 1
-  %68 = getelementptr inbounds i8, ptr %3, i64 10
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 10
   store i8 %47, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %3, i64 11
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 11
   store i8 %44, ptr %68, align 1
   store i8 %41, ptr %69, align 1
-  %70 = getelementptr inbounds i8, ptr %5, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %58, i64 24
-  %73 = getelementptr inbounds i8, ptr %14, i64 112
+  %73 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %74 = load i32, ptr %73, align 8
   %75 = add i32 %74, -24
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %31, i64 10
-  %78 = call i32 @ieee80211_aes_gmac(ptr noundef %71, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %72, i64 noundef %76, ptr noundef %77) #10
+  %77 = getelementptr inbounds nuw i8, ptr %31, i64 10
+  %78 = call i32 @ieee80211_aes_gmac(ptr noundef %71, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %72, i64 noundef %76, ptr noundef nonnull %77) #10
   %79 = lshr i32 %78, 31
   br label %80
 
@@ -2413,16 +2413,16 @@ define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decr
   %2 = alloca [20 x i8], align 16
   %3 = alloca [6 x i8], align 1
   %4 = alloca [12 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %2, i8 0, i64 20, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !12
-  %9 = getelementptr inbounds i8, ptr %6, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %10 = load ptr, ptr %9, align 8
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 12
@@ -2430,7 +2430,7 @@ define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decr
   br i1 %13, label %14, label %89
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %6, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %16 = load i32, ptr %15, align 8
   %17 = icmp ult i32 %16, 50
   br i1 %17, label %89, label %18
@@ -2453,40 +2453,40 @@ define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decr
   %29 = getelementptr i8, ptr %20, i64 -22
   %30 = getelementptr i8, ptr %20, i64 -17
   %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %3, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %31, ptr %3, align 1
   %33 = getelementptr i8, ptr %20, i64 -18
   %34 = load i8, ptr %33, align 1
-  %35 = getelementptr inbounds i8, ptr %3, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %34, ptr %32, align 1
   %36 = getelementptr i8, ptr %20, i64 -19
   %37 = load i8, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %3, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 %37, ptr %35, align 1
   %39 = getelementptr i8, ptr %20, i64 -20
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds i8, ptr %3, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 %40, ptr %38, align 1
   %42 = getelementptr i8, ptr %20, i64 -21
   %43 = load i8, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %3, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 %43, ptr %41, align 1
   %45 = load i8, ptr %29, align 1
   store i8 %45, ptr %44, align 1
-  %46 = getelementptr inbounds i8, ptr %8, i64 48
-  %47 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %3, ptr noundef dereferenceable(6) %46, i64 noundef 6)
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %47 = call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %3, ptr noundef nonnull dereferenceable(6) %46, i64 noundef 6)
   %48 = icmp slt i32 %47, 1
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %28
-  %50 = getelementptr inbounds i8, ptr %8, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 8
   br label %89
 
 53:                                               ; preds = %28
-  %54 = getelementptr inbounds i8, ptr %6, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 2
   %57 = icmp eq i32 %56, 0
@@ -2495,20 +2495,20 @@ define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decr
 58:                                               ; preds = %53
   %59 = and i16 %11, -14349
   store i16 %59, ptr %2, align 16
-  %60 = getelementptr inbounds i8, ptr %2, i64 2
-  %61 = getelementptr inbounds i8, ptr %10, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(18) %60, ptr noundef align 2 dereferenceable(18) %61, i64 18, i1 false)
-  %62 = getelementptr inbounds i8, ptr %10, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef align 2 dereferenceable(6) %62, i64 6, i1 false)
-  %63 = getelementptr inbounds i8, ptr %4, i64 6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %63, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %60, ptr noundef nonnull align 2 dereferenceable(18) %61, i64 18, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef nonnull align 2 dereferenceable(6) %62, i64 6, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %63, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
   %64 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %65 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %64, i32 noundef 2080, i64 noundef 16) #11
   %66 = icmp eq ptr %65, null
   br i1 %66, label %89, label %67
 
 67:                                               ; preds = %58
-  %68 = getelementptr inbounds i8, ptr %8, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %9, align 8
   %71 = getelementptr i8, ptr %70, i64 24
@@ -2526,7 +2526,7 @@ define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decr
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %77, %67
-  %82 = getelementptr inbounds i8, ptr %8, i64 68
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 68
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
@@ -2538,7 +2538,7 @@ define dso_local noundef range(i32 1, 65578) i32 @ieee80211_crypto_aes_gmac_decr
   br label %86
 
 86:                                               ; preds = %85, %53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %46, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %46, ptr noundef nonnull align 1 dereferenceable(6) %3, i64 6, i1 false)
   %87 = load i32, ptr %15, align 8
   %88 = add i32 %87, -26
   call void @skb_trim(ptr noundef %6, i32 noundef %88) #10

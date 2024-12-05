@@ -99,16 +99,16 @@ define dso_local noundef range(i32 -16, 1) i32 @register_mem_pfn_is_ram(ptr noun
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid optsize
 define dso_local void @kclist_add(ptr noundef initializes((16, 36)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 section ".init.text" align 16 {
   %5 = ptrtoint ptr %1 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %3, ptr %8, align 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @kclist_head, i64 8), align 8
   store ptr %0, ptr getelementptr inbounds (i8, ptr @kclist_head, i64 8), align 8
   store ptr @kclist_head, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
   store volatile ptr %0, ptr %9, align 8
   ret void
@@ -209,11 +209,11 @@ define internal fastcc void @kcore_update_ram() unnamed_addr #5 align 16 {
   %2 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #15
   store ptr %1, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %1, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
   store ptr %2, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %4, align 8
   call void @down_write(ptr noundef nonnull @kclist_lock) #15
   %5 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @kcore_need_update, i32 0, ptr nonnull elementtype(i32) @kcore_need_update) #15, !srcloc !7
@@ -237,9 +237,9 @@ define internal fastcc void @kcore_update_ram() unnamed_addr #5 align 16 {
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 13096
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 13096
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 13112
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 13112
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %20
   %24 = call i64 @llvm.umax.i64(i64 %14, i64 %23)
@@ -275,7 +275,7 @@ define internal fastcc void @kcore_update_ram() unnamed_addr #5 align 16 {
 42:                                               ; preds = %39
   %43 = load ptr, ptr %4, align 8
   %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds i8, ptr %40, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %43, ptr %45, align 8
   store ptr %40, ptr %43, align 8
   store ptr %2, ptr %44, align 8
@@ -290,20 +290,20 @@ define internal fastcc void @kcore_update_ram() unnamed_addr #5 align 16 {
 .preheader13:                                     ; preds = %46, %61
   %49 = phi ptr [ %50, %61 ], [ %47, %46 ]
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, -2
   %54 = icmp eq i32 %53, 2
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %.preheader13
-  %56 = getelementptr inbounds i8, ptr %49, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %50, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %57, ptr %58, align 8
   store volatile ptr %50, ptr %57, align 8
   %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %49, ptr %60, align 8
   store ptr %59, ptr %49, align 8
   store ptr %2, ptr %56, align 8
@@ -322,7 +322,7 @@ define internal fastcc void @kcore_update_ram() unnamed_addr #5 align 16 {
 65:                                               ; preds = %.loopexit14
   %66 = load ptr, ptr getelementptr inbounds (i8, ptr @kclist_head, i64 8), align 8
   %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds i8, ptr %63, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %66, ptr %68, align 8
   store ptr %63, ptr %66, align 8
   store ptr @kclist_head, ptr %67, align 8
@@ -338,9 +338,9 @@ define internal fastcc void @kcore_update_ram() unnamed_addr #5 align 16 {
   %72 = phi i32 [ %85, %81 ], [ 1, %69 ]
   %73 = phi ptr [ %86, %81 ], [ %70, %69 ]
   %74 = phi i64 [ %84, %81 ], [ 0, %69 ]
-  %75 = getelementptr inbounds i8, ptr %73, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %73, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, %76
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #15
@@ -379,7 +379,7 @@ define internal fastcc void @kcore_update_ram() unnamed_addr #5 align 16 {
   %104 = and i64 %103, -4096
   %105 = add i64 %104, %94
   %106 = load ptr, ptr @proc_root_kcore, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 112
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 112
   store i64 %105, ptr %107, align 8
   br label %108
 
@@ -392,9 +392,9 @@ define internal fastcc void @kcore_update_ram() unnamed_addr #5 align 16 {
 .preheader:                                       ; preds = %108, %.preheader
   %111 = phi ptr [ %112, %.preheader ], [ %109, %108 ]
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %111, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %112, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr %114, ptr %115, align 8
   store volatile ptr %112, ptr %114, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %111, align 8
@@ -422,7 +422,7 @@ define internal i32 @open_kcore(ptr noundef %0, ptr nocapture noundef writeonly 
 7:                                                ; preds = %5
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 96), align 16
   %9 = tail call noalias align 8 dereferenceable_or_null(4096) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 3264, i64 noundef 4096) #19
-  %10 = getelementptr inbounds i8, ptr %1, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %28, label %12
@@ -437,22 +437,22 @@ define internal i32 @open_kcore(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %16
 
 16:                                               ; preds = %15, %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load i64, ptr %17, align 8
   %19 = load ptr, ptr @proc_root_kcore, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %18, %21
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 160
-  tail call void @down_write(ptr noundef %24) #15
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void @down_write(ptr noundef nonnull %24) #15
   %25 = load ptr, ptr @proc_root_kcore, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr %17, align 8
-  tail call void @up_write(ptr noundef %24) #15
+  tail call void @up_write(ptr noundef nonnull %24) #15
   br label %28
 
 28:                                               ; preds = %23, %16, %7, %5, %2
@@ -465,10 +465,10 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   %3 = alloca %struct.elf64_hdr, align 8
   %4 = alloca %struct.elf_prpsinfo, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 200
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   tail call void @down_read(ptr noundef nonnull @kclist_lock) #15
   tail call void @page_offline_freeze() #15
@@ -521,45 +521,45 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
 42:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #15
   store i8 127, ptr %3, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 69, ptr %43, align 1
-  %44 = getelementptr inbounds i8, ptr %3, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 76, ptr %44, align 2
-  %45 = getelementptr inbounds i8, ptr %3, i64 3
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 3
   store i8 70, ptr %45, align 1
-  %46 = getelementptr inbounds i8, ptr %3, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 2, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %3, i64 5
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 5
   store i8 1, ptr %47, align 1
-  %48 = getelementptr inbounds i8, ptr %3, i64 6
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 1, ptr %48, align 2
-  %49 = getelementptr inbounds i8, ptr %3, i64 7
-  call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(9) %49, i8 0, i64 9, i1 false)
-  %50 = getelementptr inbounds i8, ptr %3, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %49, i8 0, i64 9, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i16 4, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %3, i64 18
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 18
   store i16 62, ptr %51, align 2
-  %52 = getelementptr inbounds i8, ptr %3, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 1, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %3, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %3, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 64, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %3, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %3, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 52
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i16 64, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %3, i64 54
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 54
   store i16 56, ptr %58, align 2
-  %59 = getelementptr inbounds i8, ptr %3, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i16 %24, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %3, i64 58
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 58
   store i16 0, ptr %60, align 2
-  %61 = getelementptr inbounds i8, ptr %3, i64 60
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i16 0, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %3, i64 62
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 62
   store i16 0, ptr %62, align 2
   %63 = sub nuw nsw i64 64, %.pre
   %64 = tail call i64 @llvm.umin.i64(i64 %10, i64 %63)
@@ -594,9 +594,9 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
 
 80:                                               ; preds = %77
   store i32 4, ptr %78, align 8
-  %81 = getelementptr inbounds i8, ptr %78, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 %38, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %78, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 32
   store i64 %34, ptr %82, align 8
   %83 = load ptr, ptr @kclist_head, align 8
   %84 = icmp eq ptr %83, @kclist_head
@@ -609,7 +609,7 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   store i32 1, ptr %87, align 8
   %88 = getelementptr i8, ptr %86, i64 60
   store i32 7, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %85, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %90 = load i64, ptr %89, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #15
           to label %92 [label %92, label %91], !srcloc !6
@@ -626,7 +626,7 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   %97 = load i64, ptr %89, align 8
   %98 = getelementptr i8, ptr %86, i64 72
   store i64 %97, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %85, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %100 = load i32, ptr %99, align 8
   switch i32 %100, label %113 [
     i32 2, label %101
@@ -653,7 +653,7 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   %114 = phi i64 [ %112, %109 ], [ %108, %101 ], [ -1, %92 ]
   %115 = getelementptr i8, ptr %86, i64 80
   store i64 %114, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %85, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %117 = load i64, ptr %116, align 8
   %118 = getelementptr i8, ptr %86, i64 96
   store i64 %117, ptr %118, align 8
@@ -708,18 +708,18 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
 144:                                              ; preds = %.thread42
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) @__const.read_kcore_iter.prpsinfo, i64 136, i1 false)
-  %145 = getelementptr inbounds i8, ptr %4, i64 56
+  %145 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %146 = load ptr, ptr @saved_command_line, align 8
-  %147 = call i64 @strscpy(ptr noundef %145, ptr noundef %146, i64 noundef 80) #15
+  %147 = call i64 @strscpy(ptr noundef nonnull %145, ptr noundef %146, i64 noundef 80) #15
   %148 = call noalias align 8 ptr @__kmalloc(i64 noundef %34, i32 noundef 3520) #20
   %149 = icmp eq ptr %148, null
   br i1 %149, label %.thread45, label %150
 
 150:                                              ; preds = %144
   store i32 5, ptr %148, align 8
-  %151 = getelementptr inbounds i8, ptr %148, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 4
   store i32 336, ptr %151, align 4
-  %152 = getelementptr inbounds i8, ptr %148, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 8
   store i32 1, ptr %152, align 8
   %153 = getelementptr i8, ptr %148, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(5) %153, ptr noundef nonnull align 1 dereferenceable(5) @.str.3, i64 5, i1 false)
@@ -758,9 +758,9 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   %175 = getelementptr i8, ptr %148, i64 %170
   store i32 11, ptr %175, align 4
   %176 = trunc i64 %174 to i32
-  %177 = getelementptr inbounds i8, ptr %175, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 4
   store i32 %176, ptr %177, align 4
-  %178 = getelementptr inbounds i8, ptr %175, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store i32 0, ptr %178, align 4
   %179 = getelementptr i8, ptr %175, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(11) %179, ptr noundef nonnull align 1 dereferenceable(11) @.str.4, i64 11, i1 false)
@@ -838,13 +838,13 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   br i1 %216, label %226, label %217
 
 217:                                              ; preds = %.lr.ph
-  %218 = getelementptr inbounds i8, ptr %212, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %219 = load i64, ptr %218, align 8
   %220 = icmp ult i64 %214, %219
   br i1 %220, label %226, label %221
 
 221:                                              ; preds = %217
-  %222 = getelementptr inbounds i8, ptr %212, i64 24
+  %222 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %223 = load i64, ptr %222, align 8
   %224 = add i64 %223, %219
   %225 = icmp ult i64 %214, %224
@@ -857,13 +857,13 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
 
 .preheader:                                       ; preds = %226, %238
   %229 = phi ptr [ %239, %238 ], [ %227, %226 ]
-  %230 = getelementptr inbounds i8, ptr %229, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
   %231 = load i64, ptr %230, align 8
   %232 = icmp ult i64 %214, %231
   br i1 %232, label %238, label %233
 
 233:                                              ; preds = %.preheader
-  %234 = getelementptr inbounds i8, ptr %229, i64 24
+  %234 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %235 = load i64, ptr %234, align 8
   %236 = add i64 %235, %231
   %237 = icmp ult i64 %214, %236
@@ -897,7 +897,7 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   br i1 %251, label %.thread46, label %.thread39
 
 252:                                              ; preds = %247
-  %253 = getelementptr inbounds i8, ptr %241, i64 32
+  %253 = getelementptr inbounds nuw i8, ptr %241, i64 32
   %254 = load i32, ptr %253, align 8
   switch i32 %254, label %390 [
     i32 1, label %255
@@ -1015,12 +1015,12 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   br i1 %319, label %320, label %329
 
 320:                                              ; preds = %317
-  %321 = getelementptr inbounds i8, ptr %304, i64 8
+  %321 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %322 = load volatile ptr, ptr %321, align 8
-  %323 = getelementptr inbounds i8, ptr %322, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 16
   %324 = lshr i64 %280, 21
   %325 = and i64 %324, 63
-  %326 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %323, i64 %325) #15, !srcloc !29
+  %326 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %323, i64 %325) #15, !srcloc !29
   %327 = icmp ult i8 %326, 2
   call void @llvm.assume(i1 %327)
   %328 = zext nneg i8 %326 to i32
@@ -1057,7 +1057,7 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   br i1 %347, label %.thread48, label %348
 
 348:                                              ; preds = %340
-  %349 = getelementptr inbounds i8, ptr %345, i64 48
+  %349 = getelementptr inbounds nuw i8, ptr %345, i64 48
   %350 = load i32, ptr %349, align 16
   %351 = and i32 %350, -268435200
   %352 = icmp eq i32 %351, -268435456
@@ -1069,7 +1069,7 @@ define internal i64 @read_kcore_iter(ptr nocapture noundef %0, ptr noundef %1) #
   br i1 %355, label %373, label %356
 
 356:                                              ; preds = %353
-  %357 = getelementptr inbounds i8, ptr %345, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %345, i64 8
   %358 = load volatile i64, ptr %357, align 8
   %359 = and i64 %358, 1
   %360 = icmp eq i64 %359, 0
@@ -1168,7 +1168,7 @@ declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @release_kcore(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   tail call void @kfree(ptr noundef %4) #15
   ret i32 0
@@ -1334,12 +1334,12 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
   br i1 %43, label %44, label %53
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %28, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %46 = load volatile ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = lshr i64 %0, 9
   %49 = and i64 %48, 63
-  %50 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %47, i64 %49) #15, !srcloc !29
+  %50 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %47, i64 %49) #15, !srcloc !29
   %51 = icmp ult i8 %50, 2
   tail call void @llvm.assume(i1 %51)
   %52 = zext nneg i8 %50 to i32
@@ -1385,10 +1385,10 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
   %76 = shl i64 %75, 6
   %77 = load i64, ptr @page_offset_base, align 8
   %78 = add i64 %76, %77
-  %79 = getelementptr inbounds i8, ptr %70, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i64 %78, ptr %79, align 8
   %80 = shl i64 %1, 12
-  %81 = getelementptr inbounds i8, ptr %70, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store i64 %80, ptr %81, align 8
   %82 = tail call zeroext i1 @__virt_addr_valid(i64 noundef %78) #15
   br i1 %82, label %83, label %157
@@ -1418,13 +1418,13 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
   br label %95
 
 95:                                               ; preds = %94, %91, %87
-  %96 = getelementptr inbounds i8, ptr %70, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %70, i64 32
   store i32 2, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %2, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %98 = load ptr, ptr %97, align 8
   store ptr %70, ptr %97, align 8
   store ptr %2, ptr %70, align 8
-  %99 = getelementptr inbounds i8, ptr %70, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store ptr %98, ptr %99, align 8
   store volatile ptr %70, ptr %98, align 8
   %100 = load i64, ptr %79, align 8
@@ -1454,15 +1454,15 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
 .preheader:                                       ; preds = %95, %136
   %122 = phi ptr [ %138, %136 ], [ %120, %95 ]
   %123 = phi i64 [ %137, %136 ], [ %119, %95 ]
-  %124 = getelementptr inbounds i8, ptr %122, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %125 = load i32, ptr %124, align 8
   %126 = icmp eq i32 %125, 3
   br i1 %126, label %127, label %136
 
 127:                                              ; preds = %.preheader
-  %128 = getelementptr inbounds i8, ptr %122, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %129 = load i64, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %122, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %131 = load i64, ptr %130, align 8
   %132 = add i64 %131, %129
   %133 = icmp ult i64 %115, %132
@@ -1488,17 +1488,17 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
   br i1 %145, label %153, label %146
 
 146:                                              ; preds = %142
-  %147 = getelementptr inbounds i8, ptr %144, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 16
   store i64 %115, ptr %147, align 8
   %148 = sub i64 %140, %115
-  %149 = getelementptr inbounds i8, ptr %144, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %144, i64 24
   store i64 %148, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %144, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %144, i64 32
   store i32 3, ptr %150, align 8
   %151 = load ptr, ptr %97, align 8
   store ptr %144, ptr %97, align 8
   store ptr %2, ptr %144, align 8
-  %152 = getelementptr inbounds i8, ptr %144, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store ptr %151, ptr %152, align 8
   store volatile ptr %144, ptr %151, align 8
   br label %.thread
@@ -1506,7 +1506,7 @@ define internal noundef range(i32 -12, 2) i32 @kclist_add_private(i64 noundef %0
 153:                                              ; preds = %142
   %154 = load ptr, ptr %99, align 8
   %155 = load ptr, ptr %70, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store ptr %154, ptr %156, align 8
   store volatile ptr %155, ptr %154, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %70, align 8

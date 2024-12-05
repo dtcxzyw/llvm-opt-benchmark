@@ -94,9 +94,9 @@ define void @dtrevc3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, 
   store i32 0, ptr %14, align 4, !tbaa !3
   store i32 1, ptr %17, align 4, !tbaa !3
   store ptr %0, ptr %16, align 16, !tbaa !7
-  %62 = getelementptr inbounds i8, ptr %17, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 1, ptr %62, align 4, !tbaa !3
-  %63 = getelementptr inbounds i8, ptr %16, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %63, align 8, !tbaa !7
   %64 = load i32, ptr @c__2, align 4, !tbaa !3
   %65 = icmp sgt i32 %64, 0
@@ -118,7 +118,7 @@ define void @dtrevc3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, 
   %72 = phi i64 [ %95, %.loopexit121 ], [ 0, %15 ]
   %73 = phi ptr [ %94, %.loopexit121 ], [ %22, %15 ]
   %74 = phi i32 [ %78, %.loopexit121 ], [ 2, %15 ]
-  %75 = getelementptr inbounds [2 x i32], ptr %17, i64 0, i64 %72
+  %75 = getelementptr inbounds nuw [2 x i32], ptr %17, i64 0, i64 %72
   %76 = load i32, ptr %75, align 4, !tbaa !3
   %77 = call i32 @llvm.smin.i32(i32 %76, i32 %74)
   %78 = sub nsw i32 %74, %77
@@ -126,19 +126,19 @@ define void @dtrevc3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, 
   br i1 %79, label %80, label %.loopexit121
 
 80:                                               ; preds = %.preheader122
-  %81 = getelementptr inbounds [2 x ptr], ptr %16, i64 0, i64 %72
+  %81 = getelementptr inbounds nuw [2 x ptr], ptr %16, i64 0, i64 %72
   %82 = load ptr, ptr %81, align 8, !tbaa !7
-  %83 = add nsw i32 %77, -1
-  %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr i8, ptr %73, i64 %84
+  %83 = zext nneg i32 %77 to i64
+  %84 = getelementptr i8, ptr %73, i64 %83
+  %85 = getelementptr i8, ptr %84, i64 -1
   br label %86
 
 86:                                               ; preds = %86, %80
   %87 = phi ptr [ %91, %86 ], [ %73, %80 ]
   %88 = phi ptr [ %89, %86 ], [ %82, %80 ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 1
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
   %90 = load i8, ptr %88, align 1, !tbaa !9
-  %91 = getelementptr inbounds i8, ptr %87, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store i8 %90, ptr %87, align 1, !tbaa !9
   %92 = icmp eq ptr %87, %85
   br i1 %92, label %.loopexit121.loopexit, label %86, !llvm.loop !10
@@ -236,7 +236,7 @@ define void @dtrevc3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, 
   br i1 %149, label %152, label %150
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds i32, ptr %37, i64 %147
+  %151 = getelementptr inbounds nuw i32, ptr %37, i64 %147
   store i32 0, ptr %151, align 4, !tbaa !3
   br label %183
 
@@ -252,7 +252,7 @@ define void @dtrevc3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, 
   %158 = getelementptr double, ptr %gep, i64 %157
   %159 = load double, ptr %158, align 8, !tbaa !14
   %160 = fcmp oeq double %159, 0.000000e+00
-  %161 = getelementptr inbounds i32, ptr %37, i64 %147
+  %161 = getelementptr inbounds nuw i32, ptr %37, i64 %147
   %162 = load i32, ptr %161, align 4, !tbaa !3
   %163 = icmp eq i32 %162, 0
   br i1 %160, label %164, label %168
@@ -387,7 +387,7 @@ define void @dtrevc3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, 
 
 232:                                              ; preds = %248, %228
   %233 = phi i64 [ 2, %228 ], [ %249, %248 ]
-  %234 = getelementptr inbounds double, ptr %50, i64 %233
+  %234 = getelementptr inbounds nuw double, ptr %50, i64 %233
   store double 0.000000e+00, ptr %234, align 8, !tbaa !14
   %235 = mul nsw i64 %233, %229
   %236 = getelementptr double, ptr %41, i64 %235
@@ -435,9 +435,9 @@ define void @dtrevc3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, 
   %261 = icmp eq i32 %61, 0
   %262 = add i32 %38, 1
   %263 = getelementptr i8, ptr %41, i64 8
-  %264 = getelementptr inbounds i8, ptr %28, i64 16
-  %265 = getelementptr inbounds i8, ptr %28, i64 8
-  %266 = getelementptr inbounds i8, ptr %28, i64 24
+  %264 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %267 = icmp eq i32 %216, 1
   %268 = icmp sgt i32 %216, 1
   %269 = add nsw i32 %216, 1
@@ -478,7 +478,7 @@ define void @dtrevc3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, 
 
 .thread71:                                        ; preds = %.thread70, %289
   %291 = phi i64 [ %290, %289 ], [ 1, %.thread70 ]
-  %292 = getelementptr inbounds i32, ptr %37, i64 %291
+  %292 = getelementptr inbounds nuw i32, ptr %37, i64 %291
   %293 = load i32, ptr %292, align 4, !tbaa !3
   %294 = icmp eq i32 %293, 0
   br i1 %294, label %1130, label %.thread72
@@ -1734,9 +1734,9 @@ thread-pre-split81:                               ; preds = %748, %758
 1140:                                             ; preds = %1136
   %1141 = icmp eq i32 %61, 0
   %1142 = add i32 %38, 1
-  %1143 = getelementptr inbounds i8, ptr %28, i64 16
-  %1144 = getelementptr inbounds i8, ptr %28, i64 8
-  %1145 = getelementptr inbounds i8, ptr %28, i64 24
+  %1143 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %1144 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %1145 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %1146 = icmp eq i32 %216, 1
   %1147 = icmp sgt i32 %216, 1
   %1148 = add nsw i32 %216, -1

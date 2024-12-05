@@ -83,37 +83,37 @@ $_ZN9LogPrefixILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13LogFileOutputC2EPKc(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 9)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV9LogOutput, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %4, i64 noundef 0) #13
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 3076, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 156
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i8 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 157
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 157
   store i8 0, ptr %7, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, i8 0, i64 104, i1 false)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV13LogFileOutput, i64 16), ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 264
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %10 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 17) #13
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 272
-  %12 = getelementptr inbounds i8, ptr %0, i64 292
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 292
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, i8 0, i64 20, i1 false)
   store i32 5, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 300
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 1, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i64 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 312
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i64 20971520, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 320
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @_ZN14PosixSemaphoreC1Ej(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 1) #13
-  %18 = getelementptr inbounds i8, ptr %1, i64 5
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %19 = tail call noundef ptr @_ZN13LogFileOutput14make_file_nameEPKcS1_S1_(ptr nonnull align 8 poison, ptr noundef nonnull %18, ptr noundef nonnull @_ZN13LogFileOutput8_pid_strE, ptr noundef nonnull @_ZN13LogFileOutput18_vm_start_time_strE)
   store ptr %19, ptr %11, align 8
   ret void
@@ -232,7 +232,7 @@ define hidden noundef ptr @_ZN13LogFileOutput14make_file_nameEPKcS1_S1_(ptr noca
   br i1 %brmerge, label %52, label %.tail70.us.us
 
 .tail70.us.us:                                    ; preds = %.lr.ph.split.us.split.us.us
-  %49 = getelementptr inbounds i8, ptr %46, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 116
   br i1 %51, label %.outer78.us, label %52
@@ -261,19 +261,19 @@ define hidden noundef ptr @_ZN13LogFileOutput14make_file_nameEPKcS1_S1_(ptr noca
   br i1 %59, label %.tail70.us129.us.us, label %.tail74.us.us151.us.thread
 
 .tail70.us129.us.us:                              ; preds = %.lr.ph.split.us145.us180
-  %60 = getelementptr inbounds i8, ptr %57, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 116
   br i1 %62, label %.outer78.us, label %sub_176.us.us149.us
 
 sub_176.us.us149.us:                              ; preds = %.tail70.us129.us.us
-  %63 = getelementptr inbounds i8, ptr %57, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %64 = load i8, ptr %63, align 1
   %.not204 = icmp eq i8 %64, 104
   br i1 %.not204, label %.tail74.us.us151.us, label %.tail74.us.us151.us.thread
 
 .tail74.us.us151.us:                              ; preds = %sub_176.us.us149.us
-  %65 = getelementptr inbounds i8, ptr %57, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 110
   br i1 %67, label %.split137.us.split.us152.us, label %.tail74.us.us151.us.thread
@@ -315,13 +315,13 @@ sub_176.us.us149.us:                              ; preds = %.tail70.us129.us.us
   br i1 %80, label %sub_176.us.us.us.us.us, label %.tail74.us.us.us.us.us.thread
 
 sub_176.us.us.us.us.us:                           ; preds = %.lr.ph.split.us145.us.us
-  %81 = getelementptr inbounds i8, ptr %78, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 1
   %82 = load i8, ptr %81, align 1
   %.not206 = icmp eq i8 %82, 104
   br i1 %.not206, label %.tail74.us.us.us.us.us, label %.tail74.us.us.us.us.us.thread
 
 .tail74.us.us.us.us.us:                           ; preds = %sub_176.us.us.us.us.us
-  %83 = getelementptr inbounds i8, ptr %78, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 2
   %84 = load i8, ptr %83, align 1
   %85 = icmp eq i8 %84, 110
   br i1 %85, label %.split137.us.split.us.us.us.us, label %.tail74.us.us.us.us.us.thread
@@ -367,7 +367,7 @@ sub_176.us.us.us.us.us:                           ; preds = %.lr.ph.split.us145.
   br i1 %98, label %.tail.us, label %106
 
 .tail.us:                                         ; preds = %.lr.ph.split.us.split
-  %99 = getelementptr inbounds i8, ptr %96, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 112
   br i1 %101, label %.outer, label %102
@@ -376,7 +376,7 @@ sub_176.us.us.us.us.us:                           ; preds = %.lr.ph.split.us145.
   br i1 %.not68, label %106, label %.tail70.us
 
 .tail70.us:                                       ; preds = %102
-  %103 = getelementptr inbounds i8, ptr %96, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, 116
   br i1 %105, label %.outer78, label %106
@@ -398,7 +398,7 @@ sub_176.us.us.us.us.us:                           ; preds = %.lr.ph.split.us145.
   br i1 %113, label %.tail, label %.tail74.thread
 
 .tail:                                            ; preds = %.lr.ph.split
-  %114 = getelementptr inbounds i8, ptr %111, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 1
   %115 = load i8, ptr %114, align 1
   %116 = icmp eq i8 %115, 112
   br i1 %116, label %.outer, label %123
@@ -419,7 +419,7 @@ sub_176.us.us.us.us.us:                           ; preds = %.lr.ph.split.us145.
   br i1 %.not68, label %sub_176, label %.tail70
 
 .tail70:                                          ; preds = %123
-  %124 = getelementptr inbounds i8, ptr %111, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %111, i64 1
   %125 = load i8, ptr %124, align 1
   %126 = icmp eq i8 %125, 116
   br i1 %126, label %.outer78, label %sub_176
@@ -437,13 +437,13 @@ sub_176.us.us.us.us.us:                           ; preds = %.lr.ph.split.us145.
   br i1 %132, label %.lr.ph.lr.ph, label %.outer83._crit_edge, !llvm.loop !6
 
 sub_176:                                          ; preds = %123, %.tail70
-  %133 = getelementptr inbounds i8, ptr %111, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %111, i64 1
   %134 = load i8, ptr %133, align 1
   %.not199 = icmp eq i8 %134, 104
   br i1 %.not199, label %.tail74, label %.tail74.thread
 
 .tail74:                                          ; preds = %sub_176
-  %135 = getelementptr inbounds i8, ptr %111, i64 2
+  %135 = getelementptr inbounds nuw i8, ptr %111, i64 2
   %136 = load i8, ptr %135, align 1
   %137 = icmp eq i8 %136, 110
   br i1 %137, label %.split137, label %.tail74.thread
@@ -477,11 +477,11 @@ sub_176:                                          ; preds = %123, %.tail70
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN13LogFileOutput17cur_log_file_nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %char0 = load i8, ptr %3, align 1
   %4 = icmp eq i8 %char0, 0
-  %5 = getelementptr inbounds i8, ptr %0, i64 272
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %6 = load ptr, ptr %5, align 8
   %.0 = select i1 %4, ptr %6, ptr %3
   ret ptr %.0
@@ -515,7 +515,7 @@ declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13LogFileOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV13LogFileOutput, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %4
@@ -531,7 +531,7 @@ define hidden void @_ZN13LogFileOutputD2Ev(ptr noundef nonnull align 8 dereferen
   %9 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
   %10 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %11 = select i1 %8, ptr %9, ptr %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @__errno_location() #15
   %15 = load i32, ptr %14, align 4
@@ -540,19 +540,19 @@ define hidden void @_ZN13LogFileOutputD2Ev(ptr noundef nonnull align 8 dereferen
   br label %18
 
 18:                                               ; preds = %4, %6, %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 280
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %20) #13
-  %21 = getelementptr inbounds i8, ptr %0, i64 272
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %22 = load ptr, ptr %21, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %22) #13
-  %23 = getelementptr inbounds i8, ptr %0, i64 264
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %24 = load ptr, ptr %23, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %24) #13
-  %25 = getelementptr inbounds i8, ptr %0, i64 328
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @_ZN14PosixSemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #13
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV9LogOutput, i64 16), ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %26) #13
   ret void
 }
@@ -619,9 +619,9 @@ _ZL11parse_valuePKc.exit:                         ; preds = %15
 
 21:                                               ; preds = %_ZL11parse_valuePKc.exit
   %22 = trunc nuw nsw i64 %12 to i32
-  %23 = getelementptr inbounds i8, ptr %0, i64 292
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 300
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i8 0, ptr %24, align 4
   br label %34
 
@@ -640,7 +640,7 @@ _ZL11parse_valuePKc.exit:                         ; preds = %15
 
 31:                                               ; preds = %28
   %32 = load i64, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 312
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i64 %32, ptr %33, align 8
   br label %34
 
@@ -668,13 +668,13 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   br i1 %8, label %9, label %129
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 272
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 @_ZN2os11file_existsEPKc(ptr noundef %11) #13
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 300
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %15 = load i8, ptr %14, align 4
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %26
@@ -684,7 +684,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
   %19 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %18, ptr noundef nonnull %7) #13
   %.not.i = icmp eq i32 %19, 0
-  %20 = getelementptr inbounds i8, ptr %7, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 61440
   %23 = icmp eq i32 %22, 4096
@@ -693,12 +693,12 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   br i1 %.0.i, label %24, label %26
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 292
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 0, ptr %25, align 4
   br label %26
 
 26:                                               ; preds = %24, %17, %13, %9
-  %27 = getelementptr inbounds i8, ptr %0, i64 292
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %28 = load i32, ptr %27, align 4
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %42, label %29
@@ -708,17 +708,17 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   %31 = icmp ult i32 %28, 101
   %32 = select i1 %31, i32 2, i32 3
   %33 = select i1 %30, i32 1, i32 %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 296
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store i32 %33, ptr %34, align 8
   %35 = load ptr, ptr %10, align 8
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #14
   %narrow = add nuw nsw i32 %33, 2
   %37 = zext nneg i32 %narrow to i64
   %38 = add i64 %36, %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 304
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i64 %38, ptr %39, align 8
   %40 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %38, i8 noundef zeroext 17, i32 noundef 0) #13
-  %41 = getelementptr inbounds i8, ptr %0, i64 280
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %40, ptr %41, align 8
   store i8 0, ptr %40, align 1
   %.pre19.pre = load i32, ptr %27, align 4
@@ -726,13 +726,13 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
 
 42:                                               ; preds = %29, %26
   %.pre19 = phi i32 [ %.pre19.pre, %29 ], [ 0, %26 ]
-  %43 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not16 = icmp eq ptr %43, null
   br i1 %.not16, label %49, label %44
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %10, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 312
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %47 = load i64, ptr %46, align 8
   %48 = lshr i64 %47, 10
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef %45, i32 noundef %.pre19, i64 noundef %48)
@@ -750,7 +750,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
   %53 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %52, ptr noundef nonnull %6) #13
   %.not.i11 = icmp eq i32 %53, 0
-  %54 = getelementptr inbounds i8, ptr %6, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 61440
   %57 = icmp eq i32 %56, 32768
@@ -764,7 +764,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   br label %129
 
 60:                                               ; preds = %51
-  %61 = getelementptr inbounds i8, ptr %0, i64 296
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %62 = load i32, ptr %61, align 8
   %63 = load i32, ptr %27, align 4
   %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #14
@@ -777,7 +777,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   br i1 %.not.i13, label %_ZL16next_file_numberPKcjjP12outputStream.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %60
-  %70 = getelementptr inbounds i8, ptr %5, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %71
 
 71:                                               ; preds = %88, %.lr.ph.i
@@ -829,13 +829,13 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
   %.128.i = phi i32 [ -1, %79 ], [ 0, %60 ], [ %.02630.i, %80 ], [ %.2.i, %88 ]
   call void @_Z8FreeHeapPv(ptr noundef %69) #13
   call void @_Z8FreeHeapPv(ptr noundef %68) #13
-  %90 = getelementptr inbounds i8, ptr %0, i64 288
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 %.128.i, ptr %90, align 8
   %91 = icmp eq i32 %.128.i, -1
   br i1 %91, label %129, label %92
 
 92:                                               ; preds = %_ZL16next_file_numberPKcjjP12outputStream.exit
-  %93 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %93 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not17 = icmp eq ptr %93, null
   br i1 %.not17, label %97, label %94
 
@@ -858,7 +858,7 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
 102:                                              ; preds = %49, %97
   %103 = load ptr, ptr %10, align 8
   %104 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %103, ptr noundef nonnull @.str.4) #13
-  %105 = getelementptr inbounds i8, ptr %0, i64 160
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %104, ptr %105, align 8
   %106 = icmp eq ptr %104, null
   br i1 %106, label %107, label %112
@@ -881,7 +881,7 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   %117 = call noundef i32 @_ZN2os4statEPKcP4stat(ptr noundef %116, ptr noundef nonnull %4) #13
   %.not.i14 = icmp eq i32 %117, 0
-  %118 = getelementptr inbounds i8, ptr %4, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %119 = load i32, ptr %118, align 8
   %120 = and i32 %119, 61440
   %121 = icmp eq i32 %120, 32768
@@ -890,7 +890,7 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
   br i1 %.0.i15, label %122, label %129
 
 122:                                              ; preds = %115
-  %123 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %123 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not18 = icmp eq ptr %123, null
   br i1 %.not18, label %125, label %124
 
@@ -926,15 +926,15 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13LogFileOutput7archiveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %3, i64 noundef %5, ptr noundef nonnull @.str.20, ptr noundef %7, i32 noundef %9, i32 noundef %11) #13
   %13 = load ptr, ptr %2, align 8
@@ -971,9 +971,9 @@ declare noundef i32 @_ZN2os10get_filenoEP8_IO_FILE(ptr noundef) local_unnamed_ad
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN13LogFileOutput14write_blockingERK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN13LogFileOutput13should_rotateEv.exit.thread, label %8
@@ -987,18 +987,18 @@ define hidden noundef i32 @_ZN13LogFileOutput14write_blockingERK14LogDecorations
 
 13:                                               ; preds = %8
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 320
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %14
   %18 = freeze i64 %17
   store i64 %18, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 292
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %20 = load i32, ptr %19, align 4
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %_ZN13LogFileOutput13should_rotateEv.exit.thread, label %21
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 312
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, -1
   %or.cond = icmp ult i64 %24, %18
@@ -1020,7 +1020,7 @@ declare noundef zeroext i1 @_ZN19LogFileStreamOutput5flushEv(ptr noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13LogFileOutput6rotateEv(ptr nocapture noundef nonnull align 8 dereferenceable(360) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @fclose(ptr noundef %3)
   %.not = icmp eq i32 %4, 0
@@ -1032,7 +1032,7 @@ define hidden void @_ZN13LogFileOutput6rotateEv(ptr nocapture noundef nonnull al
   %8 = load ptr, ptr @_ZN13defaultStream14_output_streamE, align 8
   %9 = load ptr, ptr @_ZN13defaultStream13_error_streamE, align 8
   %10 = select i1 %7, ptr %8, ptr %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 272
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @__errno_location() #15
   %14 = load i32, ptr %13, align 4
@@ -1042,7 +1042,7 @@ define hidden void @_ZN13LogFileOutput6rotateEv(ptr nocapture noundef nonnull al
 
 17:                                               ; preds = %5, %1
   tail call void @_ZN13LogFileOutput7archiveEv(ptr noundef nonnull align 8 dereferenceable(360) %0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 272
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %19, ptr noundef nonnull @.str.4) #13
   store ptr %20, ptr %2, align 8
@@ -1063,12 +1063,12 @@ define hidden void @_ZN13LogFileOutput6rotateEv(ptr nocapture noundef nonnull al
   br label %41
 
 33:                                               ; preds = %17
-  %34 = getelementptr inbounds i8, ptr %0, i64 320
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i64 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 288
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 292
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %37, %39
   %spec.store.select.i = select i1 %40, i32 0, i32 %37
@@ -1081,7 +1081,7 @@ define hidden void @_ZN13LogFileOutput6rotateEv(ptr nocapture noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN13LogFileOutput5writeERK14LogDecorationsPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %15, label %7
@@ -1097,7 +1097,7 @@ define hidden noundef i32 @_ZN13LogFileOutput5writeERK14LogDecorationsPKc(ptr no
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) #13
   br label %15
@@ -1113,7 +1113,7 @@ declare void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputRK14LogDecoratio
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN13LogFileOutput5writeEN16LogMessageBuffer8IteratorE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef readonly byval(%"class.LogMessageBuffer::Iterator") align 8 %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %26, label %6
@@ -1128,7 +1128,7 @@ define hidden noundef i32 @_ZN13LogFileOutput5writeEN16LogMessageBuffer8Iterator
   br label %26
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 328
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
   %11 = tail call noundef i32 @_ZN19LogFileStreamOutput5writeEN16LogMessageBuffer8IteratorE(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef nonnull byval(%"class.LogMessageBuffer::Iterator") align 8 %1) #13
   %12 = icmp sgt i32 %11, 0
@@ -1136,18 +1136,18 @@ define hidden noundef i32 @_ZN13LogFileOutput5writeEN16LogMessageBuffer8Iterator
 
 13:                                               ; preds = %9
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 320
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %14
   %18 = freeze i64 %17
   store i64 %18, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 292
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %20 = load i32, ptr %19, align 4
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %_ZN13LogFileOutput13should_rotateEv.exit.thread, label %21
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 312
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, -1
   %or.cond = icmp ult i64 %24, %18
@@ -1178,13 +1178,13 @@ declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13LogFileOutput12force_rotateEv(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 292
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 328
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @_ZN14PosixSemaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
   tail call void @_ZN13LogFileOutput6rotateEv(ptr noundef nonnull align 8 dereferenceable(360) %0)
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 1) #13
@@ -1205,9 +1205,9 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13LogFileOutput8describeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN19LogFileStreamOutput8describeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) #13
-  %3 = getelementptr inbounds i8, ptr %0, i64 292
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load i64, ptr %5, align 8
   %7 = icmp ugt i64 %6, 107374182399
   br i1 %7, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %8
@@ -1247,7 +1247,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK13LogFileOutput4nameEv(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 264
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }

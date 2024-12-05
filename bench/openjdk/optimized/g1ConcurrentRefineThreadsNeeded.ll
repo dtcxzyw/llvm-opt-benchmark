@@ -11,9 +11,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN31G1ConcurrentRefineThreadsNeededC2EP8G1Policyd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0, ptr noundef %1, double noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)
   ret void
 }
@@ -21,7 +21,7 @@ define hidden void @_ZN31G1ConcurrentRefineThreadsNeededC2EP8G1Policyd(ptr nocap
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN31G1ConcurrentRefineThreadsNeeded6updateEjmmm(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((16, 36)) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef double @_ZNK11G1Analytics21predict_alloc_rate_msEv(ptr noundef nonnull align 8 dereferenceable(2048) %8) #6
   %10 = load i64, ptr @_ZN12G1HeapRegion10GrainBytesE, align 8
@@ -39,9 +39,9 @@ define hidden void @_ZN31G1ConcurrentRefineThreadsNeeded6updateEjmmm(ptr nocaptu
 
 19:                                               ; preds = %5, %14
   %.sink = phi double [ %18, %14 ], [ 0.000000e+00, %5 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sink, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load double, ptr %21, align 8
   %23 = fcmp ogt double %.sink, %22
   br i1 %23, label %24, label %29
@@ -57,7 +57,7 @@ define hidden void @_ZN31G1ConcurrentRefineThreadsNeeded6updateEjmmm(ptr nocaptu
   %30 = phi double [ %26, %24 ], [ %.sink, %19 ]
   %.025 = phi i64 [ %28, %24 ], [ 0, %19 ]
   %31 = add i64 %.025, %3
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %31, ptr %32, align 8
   %.not = icmp ugt i64 %31, %4
   br i1 %.not, label %33, label %58
@@ -104,7 +104,7 @@ define hidden void @_ZN31G1ConcurrentRefineThreadsNeeded6updateEjmmm(ptr nocaptu
 
 58:                                               ; preds = %38, %29, %54, %36
   %.sink30 = phi i32 [ %57, %54 ], [ %37, %36 ], [ 0, %29 ], [ 1, %38 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %.sink30, ptr %59, align 8
   ret void
 }

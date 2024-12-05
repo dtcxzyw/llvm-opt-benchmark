@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef range(i32 0, 7) i32 @_ZNK16G1CollectorState19young_gc_pause_typeEb(ptr noundef nonnull align 1 dereferenceable(7) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load volatile i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %8
@@ -17,7 +17,7 @@ define hidden noundef range(i32 0, 7) i32 @_ZNK16G1CollectorState19young_gc_paus
   br label %19
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %19, label %12
@@ -25,7 +25,7 @@ define hidden noundef range(i32 0, 7) i32 @_ZNK16G1CollectorState19young_gc_paus
 12:                                               ; preds = %8
   %13 = load i8, ptr %0, align 1
   %14 = trunc i8 %13 to i1
-  %15 = getelementptr inbounds i8, ptr %0, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   %18 = select i1 %14, i1 true, i1 %17

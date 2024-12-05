@@ -72,11 +72,11 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %20 = tail call i32 @Ptngc_comp_huff_buflen(i32 noundef %19) #9
   %21 = sext i32 %20 to i64
   %22 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %21, ptr noundef nonnull @.str, i32 noundef 125) #9
-  %23 = getelementptr inbounds i8, ptr %18, i64 2400000
-  %24 = getelementptr inbounds i8, ptr %18, i64 4800000
-  %25 = getelementptr inbounds i8, ptr %18, i64 7200000
-  %26 = getelementptr inbounds i8, ptr %18, i64 9600000
-  %27 = getelementptr inbounds i8, ptr %18, i64 12000000
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 2400000
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 4800000
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 7200000
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 9600000
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 12000000
   %28 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 1800000, ptr noundef nonnull @.str, i32 noundef 134) #9
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %32, label %29
@@ -91,15 +91,15 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   store i8 %33, ptr %2, align 1
   %34 = lshr i32 %1, 8
   %35 = trunc i32 %34 to i8
-  %36 = getelementptr inbounds i8, ptr %2, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %35, ptr %36, align 1
   %37 = lshr i32 %1, 16
   %38 = trunc i32 %37 to i8
-  %39 = getelementptr inbounds i8, ptr %2, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %38, ptr %39, align 1
   %40 = lshr i32 %1, 24
   %41 = trunc nuw i32 %40 to i8
-  %42 = getelementptr inbounds i8, ptr %2, i64 3
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %41, ptr %42, align 1
   %.not225276 = icmp eq i32 %1, 0
   br i1 %.not225276, label %._crit_edge282, label %.lr.ph281
@@ -230,7 +230,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %112 = getelementptr inbounds i8, ptr %28, i64 %111
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i32
-  %115 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
   store i32 %114, ptr %115, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = icmp samesign ult i64 %indvars.iv.next, %108
@@ -311,7 +311,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %154 = load ptr, ptr @stderr, align 8
   %155 = trunc nuw nsw i64 %indvars.iv287 to i32
   %156 = call ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %155) #9
-  %157 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %indvars.iv287
+  %157 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv287
   %158 = load i32, ptr %157, align 4
   %159 = load i32, ptr %8, align 4
   %160 = sub nsw i32 %158, %159
@@ -425,7 +425,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %229 = load ptr, ptr @stderr, align 8
   %230 = trunc nuw nsw i64 %indvars.iv290 to i32
   %231 = call ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %230) #9
-  %232 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %indvars.iv290
+  %232 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv290
   %233 = load i32, ptr %232, align 4
   %234 = load i32, ptr %8, align 4
   %235 = sub nsw i32 %233, %234
@@ -497,7 +497,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
 .lr.ph268:                                        ; preds = %.lr.ph268.preheader, %.lr.ph268
   %indvars.iv296 = phi i64 [ %272, %.lr.ph268.preheader ], [ %indvars.iv.next297, %.lr.ph268 ]
   %indvars.iv294 = phi i64 [ 0, %.lr.ph268.preheader ], [ %indvars.iv.next295, %.lr.ph268 ]
-  %273 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv294
+  %273 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv294
   %274 = load i32, ptr %273, align 4
   %275 = trunc i32 %274 to i8
   %276 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv296
@@ -546,7 +546,7 @@ define internal fastcc void @bwlzh_compress_gen(ptr noundef %0, i32 noundef %1, 
   %293 = load ptr, ptr @stderr, align 8
   %294 = trunc nuw nsw i64 %indvars.iv302 to i32
   %295 = call ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %294) #9
-  %296 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %indvars.iv302
+  %296 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv302
   %297 = load i32, ptr %296, align 4
   %298 = load i32, ptr %8, align 4
   %299 = sub nsw i32 %297, %298
@@ -664,11 +664,11 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %10 = tail call i32 @Ptngc_comp_huff_buflen(i32 noundef %9) #9
   %11 = sext i32 %10 to i64
   %12 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef %11, ptr noundef nonnull @.str, i32 noundef 582) #9
-  %13 = getelementptr inbounds i8, ptr %8, i64 2400000
-  %14 = getelementptr inbounds i8, ptr %8, i64 4800000
-  %15 = getelementptr inbounds i8, ptr %8, i64 7200000
-  %16 = getelementptr inbounds i8, ptr %8, i64 9600000
-  %17 = getelementptr inbounds i8, ptr %8, i64 12000000
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 2400000
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 4800000
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 7200000
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 9600000
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 12000000
   %18 = tail call ptr @Ptngc_warnmalloc_x(i64 noundef 1800000, ptr noundef nonnull @.str, i32 noundef 591) #9
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %22, label %19
@@ -692,7 +692,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 .lr.ph285:                                        ; preds = %.preheader
   %invariant.gep = getelementptr i8, ptr %0, i64 1
   %invariant.gep262 = getelementptr i8, ptr %0, i64 5
-  %invariant.gep307 = getelementptr i8, ptr %0, i64 5
+  %invariant.gep309 = getelementptr i8, ptr %0, i64 5
   br label %29
 
 24:                                               ; preds = %22
@@ -701,7 +701,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   tail call void @exit(i32 noundef 1) #12
   unreachable
 
-27:                                               ; preds = %281
+27:                                               ; preds = %279
   %28 = add nsw i32 %43, %.0231279
   %.not251 = icmp eq i32 %44, 0
   br i1 %.not251, label %._crit_edge286, label %29, !llvm.loop !12
@@ -790,19 +790,19 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %90 = call ptr @Ptngc_warnrealloc_x(ptr noundef %.0225282, i64 noundef %89, ptr noundef nonnull @.str, i32 noundef 649) #9
   %91 = mul nsw i32 %43, 3
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds i32, ptr %90, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %90, i64 %92
   %94 = mul nsw i32 %43, 6
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds i32, ptr %90, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %90, i64 %95
   %97 = mul i32 %43, 9
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds i32, ptr %90, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr %90, i64 %98
   %100 = mul nsw i32 %43, 12
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds i32, ptr %90, i64 %101
+  %102 = getelementptr inbounds nuw i32, ptr %90, i64 %101
   %103 = mul nsw i32 %43, 15
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds i32, ptr %90, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr %90, i64 %104
   %106 = call ptr @Ptngc_warnrealloc_x(ptr noundef %.0232278, i64 noundef %98, ptr noundef nonnull @.str, i32 noundef 658) #9
   br label %107
 
@@ -921,8 +921,8 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 
 186:                                              ; preds = %181
   %187 = sext i32 %163 to i64
-  %gep308 = getelementptr i8, ptr %invariant.gep307, i64 %187
-  %188 = load i8, ptr %gep308, align 1
+  %gep310 = getelementptr i8, ptr %invariant.gep309, i64 %187
+  %188 = load i8, ptr %gep310, align 1
   %189 = zext i8 %188 to i32
   %190 = getelementptr i8, ptr %166, i64 6
   %191 = load i8, ptr %190, align 1
@@ -978,7 +978,7 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
   %223 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv291
   %224 = load i16, ptr %223, align 1
   %225 = zext i16 %224 to i32
-  %226 = getelementptr inbounds i32, ptr %.1241, i64 %indvars.iv
+  %226 = getelementptr inbounds nuw i32, ptr %.1241, i64 %indvars.iv
   store i32 %225, ptr %226, align 4
   %indvars.iv.next292 = add nsw i64 %indvars.iv291, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1054,16 +1054,16 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 
 .lr.ph261:                                        ; preds = %265
   %266 = mul nuw nsw i64 %indvars.iv301, %112
+  %invariant.gep307 = getelementptr inbounds nuw i8, ptr %.1233, i64 %266
   br label %267
 
 267:                                              ; preds = %.lr.ph261, %267
   %indvars.iv296 = phi i64 [ 0, %.lr.ph261 ], [ %indvars.iv.next297, %267 ]
-  %268 = getelementptr inbounds i32, ptr %.1228, i64 %indvars.iv296
+  %268 = getelementptr inbounds nuw i32, ptr %.1228, i64 %indvars.iv296
   %269 = load i32, ptr %268, align 4
   %270 = trunc i32 %269 to i8
-  %271 = add nuw nsw i64 %indvars.iv296, %266
-  %272 = getelementptr inbounds i8, ptr %.1233, i64 %271
-  store i8 %270, ptr %272, align 1
+  %gep308 = getelementptr inbounds nuw i8, ptr %invariant.gep307, i64 %indvars.iv296
+  store i8 %270, ptr %gep308, align 1
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
   br i1 %exitcond300.not, label %._crit_edge, label %267, !llvm.loop !14
@@ -1071,38 +1071,38 @@ define internal fastcc void @bwlzh_decompress_gen(ptr noundef %0, i32 noundef %1
 ._crit_edge:                                      ; preds = %267, %265
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %exitcond304.not = icmp eq i64 %indvars.iv.next302, 3
-  br i1 %exitcond304.not, label %273, label %113, !llvm.loop !15
+  br i1 %exitcond304.not, label %271, label %113, !llvm.loop !15
 
-273:                                              ; preds = %._crit_edge
-  br i1 %.not, label %.thread255, label %274
+271:                                              ; preds = %._crit_edge
+  br i1 %.not, label %.thread255, label %272
 
-.thread255:                                       ; preds = %273
+.thread255:                                       ; preds = %271
   call void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef %.1233, i32 noundef %61, ptr noundef %.1224) #9
   call void @Ptngc_comp_from_bwt(ptr noundef %.1224, i32 noundef %61, i32 noundef %78, ptr noundef %.1) #9
-  br label %281
+  br label %279
 
-274:                                              ; preds = %273
+272:                                              ; preds = %271
+  %273 = load ptr, ptr @stderr, align 8
+  %274 = call i64 @fwrite(ptr nonnull @.str.28, i64 13, i64 1, ptr %273) #11
+  call void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef %.1233, i32 noundef %61, ptr noundef %.1224) #9
   %275 = load ptr, ptr @stderr, align 8
-  %276 = call i64 @fwrite(ptr nonnull @.str.28, i64 13, i64 1, ptr %275) #11
-  call void @Ptngc_comp_conv_from_mtf_partial3(ptr noundef %.1233, i32 noundef %61, ptr noundef %.1224) #9
-  %277 = load ptr, ptr @stderr, align 8
-  %278 = call i64 @fwrite(ptr nonnull @.str.29, i64 13, i64 1, ptr %277) #11
+  %276 = call i64 @fwrite(ptr nonnull @.str.29, i64 13, i64 1, ptr %275) #11
   call void @Ptngc_comp_from_bwt(ptr noundef %.1224, i32 noundef %61, i32 noundef %78, ptr noundef %.1) #9
-  %279 = load ptr, ptr @stderr, align 8
-  %280 = call i64 @fwrite(ptr nonnull @.str.30, i64 28, i64 1, ptr %279) #11
-  br label %281
+  %277 = load ptr, ptr @stderr, align 8
+  %278 = call i64 @fwrite(ptr nonnull @.str.30, i64 28, i64 1, ptr %277) #11
+  br label %279
 
-281:                                              ; preds = %.thread255, %274
-  %282 = sext i32 %.0231279 to i64
-  %283 = getelementptr inbounds i32, ptr %2, i64 %282
-  call void @Ptngc_comp_conv_from_vals16(ptr noundef %.1, i32 noundef %61, ptr noundef %283, ptr noundef nonnull %5) #9
-  %284 = load i32, ptr %5, align 4
-  %.not252 = icmp eq i32 %284, %43
-  br i1 %.not252, label %27, label %285
+279:                                              ; preds = %.thread255, %272
+  %280 = sext i32 %.0231279 to i64
+  %281 = getelementptr inbounds i32, ptr %2, i64 %280
+  call void @Ptngc_comp_conv_from_vals16(ptr noundef %.1, i32 noundef %61, ptr noundef %281, ptr noundef nonnull %5) #9
+  %282 = load i32, ptr %5, align 4
+  %.not252 = icmp eq i32 %282, %43
+  br i1 %.not252, label %27, label %283
 
-285:                                              ; preds = %281
-  %286 = load ptr, ptr @stderr, align 8
-  %287 = call i64 @fwrite(ptr nonnull @.str.31, i64 65, i64 1, ptr %286) #11
+283:                                              ; preds = %279
+  %284 = load ptr, ptr @stderr, align 8
+  %285 = call i64 @fwrite(ptr nonnull @.str.31, i64 65, i64 1, ptr %284) #11
   call void @exit(i32 noundef 1) #12
   unreachable
 

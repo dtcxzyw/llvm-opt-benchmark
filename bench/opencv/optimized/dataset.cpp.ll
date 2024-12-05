@@ -10,8 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset8getTrainEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -20,7 +20,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset8
   %10 = sdiv exact i64 %9, 24
   %11 = trunc i64 %10 to i32
   %.not = icmp slt i32 %1, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds %"class.std::vector.0", ptr %6, i64 %13
   %.0 = select i1 %.not, ptr %14, ptr %12
@@ -29,8 +29,8 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset7getTestEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -39,7 +39,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset7
   %10 = sdiv exact i64 %9, 24
   %11 = trunc i64 %10 to i32
   %.not = icmp slt i32 %1, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds %"class.std::vector.0", ptr %6, i64 %13
   %.0 = select i1 %.not, ptr %14, ptr %12
@@ -48,8 +48,8 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset13getValidationEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -58,7 +58,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset1
   %10 = sdiv exact i64 %9, 24
   %11 = trunc i64 %10 to i32
   %.not = icmp slt i32 %1, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds %"class.std::vector.0", ptr %6, i64 %13
   %.0 = select i1 %.not, ptr %14, ptr %12
@@ -67,8 +67,8 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8datasets7Dataset1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK2cv8datasets7Dataset12getNumSplitsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %4 to i64

@@ -904,12 +904,12 @@ define hidden void @proto_register_h460() local_unnamed_addr #0 {
   %2 = load i32, ptr @proto_h460, align 4
   %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.386, ptr noundef nonnull @dissect_h460_name, i32 noundef %2) #4
   store ptr %3, ptr @h460_name_handle, align 8
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @h460_feature_tab, i64 8), align 8
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @h460_feature_tab, i64 8), align 8
   %.not23 = icmp eq ptr %4, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %44
-  %5 = phi ptr [ %46, %44 ], [ getelementptr inbounds (i8, ptr @h460_feature_tab, i64 8), %0 ]
+  %5 = phi ptr [ %46, %44 ], [ getelementptr inbounds nuw (i8, ptr @h460_feature_tab, i64 8), %0 ]
   %.024 = phi ptr [ %45, %44 ], [ @h460_feature_tab, %0 ]
   %6 = load i32, ptr %.024, align 8
   %7 = and i32 %6, 1
@@ -920,7 +920,7 @@ define hidden void @proto_register_h460() local_unnamed_addr #0 {
   %9 = tail call ptr @wmem_epan_scope() #4
   %10 = load ptr, ptr %5, align 8
   %11 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %9, ptr noundef nonnull @.str.387, ptr noundef %10) #4
-  %12 = getelementptr inbounds i8, ptr %.024, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %.024, i64 32
   store ptr %11, ptr %12, align 8
   %.pre = load i32, ptr %.024, align 8
   br label %13
@@ -935,7 +935,7 @@ define hidden void @proto_register_h460() local_unnamed_addr #0 {
   %17 = tail call ptr @wmem_epan_scope() #4
   %18 = load ptr, ptr %5, align 8
   %19 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %17, ptr noundef nonnull @.str.388, ptr noundef %18) #4
-  %20 = getelementptr inbounds i8, ptr %.024, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.024, i64 40
   store ptr %19, ptr %20, align 8
   %.pre25 = load i32, ptr %.024, align 8
   br label %21
@@ -950,7 +950,7 @@ define hidden void @proto_register_h460() local_unnamed_addr #0 {
   %25 = tail call ptr @wmem_epan_scope() #4
   %26 = load ptr, ptr %5, align 8
   %27 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef nonnull @.str.389, ptr noundef %26) #4
-  %28 = getelementptr inbounds i8, ptr %.024, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.024, i64 48
   store ptr %27, ptr %28, align 8
   %.pre26 = load i32, ptr %.024, align 8
   br label %29
@@ -965,12 +965,12 @@ define hidden void @proto_register_h460() local_unnamed_addr #0 {
   %33 = tail call ptr @wmem_epan_scope() #4
   %34 = load ptr, ptr %5, align 8
   %35 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %33, ptr noundef nonnull @.str.390, ptr noundef %34) #4
-  %36 = getelementptr inbounds i8, ptr %.024, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %.024, i64 56
   store ptr %35, ptr %36, align 8
   br label %37
 
 37:                                               ; preds = %32, %29
-  %38 = getelementptr inbounds i8, ptr %.024, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.024, i64 24
   %39 = load ptr, ptr %38, align 8
   %.not22 = icmp eq ptr %39, null
   br i1 %.not22, label %44, label %40
@@ -978,7 +978,7 @@ define hidden void @proto_register_h460() local_unnamed_addr #0 {
 40:                                               ; preds = %37
   %41 = load i32, ptr @proto_h460, align 4
   %42 = tail call ptr @create_dissector_handle(ptr noundef nonnull %39, i32 noundef %41) #4
-  %43 = getelementptr inbounds i8, ptr %.024, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %.024, i64 64
   store ptr %42, ptr %43, align 8
   br label %44
 
@@ -1020,15 +1020,15 @@ define internal noundef i32 @dissect_h460_name(ptr nocapture readnone %0, ptr no
   br i1 %.not16, label %47, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 296
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %12 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @h460_feature_tab, i64 8), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @h460_feature_tab, i64 8), align 8
   %.not32.i = icmp eq ptr %13, null
   br i1 %.not32.i, label %find_ftr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %33
   %.033.i = phi ptr [ %34, %33 ], [ @h460_feature_tab, %10 ]
-  %14 = getelementptr inbounds i8, ptr %.033.i, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %.033.i, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not24.i = icmp eq ptr %15, null
   br i1 %.not24.i, label %18, label %16
@@ -1039,7 +1039,7 @@ define internal noundef i32 @dissect_h460_name(ptr nocapture readnone %0, ptr no
   br i1 %.not25.i, label %37, label %18
 
 18:                                               ; preds = %16, %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %.033.i, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %.033.i, i64 40
   %20 = load ptr, ptr %19, align 8
   %.not26.i = icmp eq ptr %20, null
   br i1 %.not26.i, label %23, label %21
@@ -1050,7 +1050,7 @@ define internal noundef i32 @dissect_h460_name(ptr nocapture readnone %0, ptr no
   br i1 %.not27.i, label %37, label %23
 
 23:                                               ; preds = %21, %18
-  %24 = getelementptr inbounds i8, ptr %.033.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.033.i, i64 48
   %25 = load ptr, ptr %24, align 8
   %.not28.i = icmp eq ptr %25, null
   br i1 %.not28.i, label %28, label %26
@@ -1061,7 +1061,7 @@ define internal noundef i32 @dissect_h460_name(ptr nocapture readnone %0, ptr no
   br i1 %.not29.i, label %37, label %28
 
 28:                                               ; preds = %26, %23
-  %29 = getelementptr inbounds i8, ptr %.033.i, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %.033.i, i64 56
   %30 = load ptr, ptr %29, align 8
   %.not30.i = icmp eq ptr %30, null
   br i1 %.not30.i, label %33, label %31
@@ -1079,9 +1079,9 @@ define internal noundef i32 @dissect_h460_name(ptr nocapture readnone %0, ptr no
   br i1 %.not.i, label %find_ftr.exit, label %.lr.ph.i, !llvm.loop !6
 
 37:                                               ; preds = %31, %26, %21, %16
-  %38 = getelementptr inbounds i8, ptr %7, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.033.i, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.033.i, i64 16
   %41 = load ptr, ptr %40, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.408, ptr noundef %41) #4
   %42 = tail call ptr @proto_tree_get_parent(ptr noundef nonnull %2) #4
@@ -1091,7 +1091,7 @@ define internal noundef i32 @dissect_h460_name(ptr nocapture readnone %0, ptr no
   br label %47
 
 find_ftr.exit:                                    ; preds = %33, %10
-  %45 = getelementptr inbounds i8, ptr %7, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %46 = load ptr, ptr %45, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %46, ptr noundef nonnull @.str.410, ptr noundef %12) #4
   br label %47
@@ -1114,13 +1114,13 @@ define hidden void @proto_reg_handoff_h460() local_unnamed_addr #0 {
   %3 = load i32, ptr @proto_h460, align 4
   %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.392, i32 noundef %3) #4
   store ptr %4, ptr @h225_ras_handle, align 8
-  %5 = load ptr, ptr getelementptr inbounds (i8, ptr @h460_feature_tab, i64 8), align 8
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @h460_feature_tab, i64 8), align 8
   %.not41 = icmp eq ptr %5, null
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %43
   %.042 = phi ptr [ %44, %43 ], [ @h460_feature_tab, %0 ]
-  %6 = getelementptr inbounds i8, ptr %.042, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.042, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not32 = icmp eq ptr %7, null
   br i1 %.not32, label %10, label %8
@@ -1131,7 +1131,7 @@ define hidden void @proto_reg_handoff_h460() local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %8, %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.042, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.042, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not33 = icmp eq ptr %12, null
   br i1 %.not33, label %15, label %13
@@ -1142,7 +1142,7 @@ define hidden void @proto_reg_handoff_h460() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %13, %10
-  %16 = getelementptr inbounds i8, ptr %.042, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %.042, i64 48
   %17 = load ptr, ptr %16, align 8
   %.not34 = icmp eq ptr %17, null
   br i1 %.not34, label %20, label %18
@@ -1153,7 +1153,7 @@ define hidden void @proto_reg_handoff_h460() local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %18, %15
-  %21 = getelementptr inbounds i8, ptr %.042, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %.042, i64 56
   %22 = load ptr, ptr %21, align 8
   %.not35 = icmp eq ptr %22, null
   br i1 %.not35, label %25, label %23
@@ -1164,7 +1164,7 @@ define hidden void @proto_reg_handoff_h460() local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %23, %20
-  %26 = getelementptr inbounds i8, ptr %.042, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.042, i64 64
   %27 = load ptr, ptr %26, align 8
   %.not36 = icmp eq ptr %27, null
   br i1 %.not36, label %43, label %28

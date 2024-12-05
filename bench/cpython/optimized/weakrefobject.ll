@@ -921,7 +921,7 @@ while.body:                                       ; preds = %entry, %while.body
   %count.05 = phi i64 [ %inc, %while.body ], [ 0, %entry ]
   %head.addr.04 = phi ptr [ %0, %while.body ], [ %head, %entry ]
   %inc = add i64 %count.05, 1
-  %wr_next = getelementptr inbounds i8, ptr %head.addr.04, i64 48
+  %wr_next = getelementptr inbounds nuw i8, ptr %head.addr.04, i64 48
   %0 = load ptr, ptr %wr_next, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !5
@@ -934,7 +934,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyWeakref_ClearRef(ptr noundef %self) local_unnamed_addr #1 {
 entry:
-  %wr_callback = getelementptr inbounds i8, ptr %self, i64 24
+  %wr_callback = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %wr_callback, align 8
   store ptr null, ptr %wr_callback, align 8
   tail call fastcc void @clear_weakref(ptr noundef %self)
@@ -945,9 +945,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @clear_weakref(ptr noundef %self) unnamed_addr #1 {
 entry:
-  %wr_callback = getelementptr inbounds i8, ptr %self, i64 24
+  %wr_callback = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %wr_callback, align 8
-  %wr_object = getelementptr inbounds i8, ptr %self, i64 16
+  %wr_object = getelementptr inbounds nuw i8, ptr %self, i64 16
   %1 = load ptr, ptr %wr_object, align 8
   %cmp.not = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %cmp.not, label %if.end20, label %if.then
@@ -962,7 +962,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i.not.i, label %if.end.i22, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %tp_flags.i = getelementptr inbounds i8, ptr %1, i64 168
+  %tp_flags.i = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load i64, ptr %tp_flags.i, align 8
   %and.i = and i64 %4, 2
   %tobool1.not.i = icmp eq i64 %and.i, 0
@@ -971,14 +971,14 @@ land.lhs.true.i:                                  ; preds = %if.then
 if.then.i:                                        ; preds = %land.lhs.true.i
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %6 = load ptr, ptr %5, align 8
-  %interp.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %interp.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %interp.i.i, align 8
   %call3.i = tail call ptr @_PyStaticType_GetState(ptr noundef %7, ptr noundef nonnull %1) #7
-  %tp_weaklist.i.i = getelementptr inbounds i8, ptr %call3.i, i64 32
+  %tp_weaklist.i.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 32
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit
 
 if.end.i22:                                       ; preds = %land.lhs.true.i, %if.then
-  %tp_weaklistoffset.i = getelementptr inbounds i8, ptr %op.val5.i, i64 208
+  %tp_weaklistoffset.i = getelementptr inbounds nuw i8, ptr %op.val5.i, i64 208
   %8 = load i64, ptr %tp_weaklistoffset.i, align 8
   %add.ptr.i = getelementptr i8, ptr %1, i64 %8
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit
@@ -990,22 +990,22 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit:              ; preds = %if.then.i, %if.end.
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit
-  %wr_next = getelementptr inbounds i8, ptr %self, i64 48
+  %wr_next = getelementptr inbounds nuw i8, ptr %self, i64 48
   %10 = load ptr, ptr %wr_next, align 8
   store ptr %10, ptr %retval.0.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %_PyObject_GET_WEAKREFS_LISTPTR.exit
   store ptr @_Py_NoneStruct, ptr %wr_object, align 8
-  %wr_prev = getelementptr inbounds i8, ptr %self, i64 40
+  %wr_prev = getelementptr inbounds nuw i8, ptr %self, i64 40
   %11 = load ptr, ptr %wr_prev, align 8
   %cmp5.not = icmp eq ptr %11, null
-  %wr_next11.phi.trans.insert = getelementptr inbounds i8, ptr %self, i64 48
+  %wr_next11.phi.trans.insert = getelementptr inbounds nuw i8, ptr %self, i64 48
   %.pre = load ptr, ptr %wr_next11.phi.trans.insert, align 8
   br i1 %cmp5.not, label %if.end10, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %wr_next9 = getelementptr inbounds i8, ptr %11, i64 48
+  %wr_next9 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %.pre, ptr %wr_next9, align 8
   br label %if.end10
 
@@ -1015,7 +1015,7 @@ if.end10:                                         ; preds = %if.end, %if.then6
 
 if.then13:                                        ; preds = %if.end10
   %12 = load ptr, ptr %wr_prev, align 8
-  %wr_prev16 = getelementptr inbounds i8, ptr %.pre, i64 40
+  %wr_prev16 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   store ptr %12, ptr %wr_prev16, align 8
   br label %if.end17
 
@@ -1058,7 +1058,7 @@ entry:
   tail call fastcc void @clear_weakref(ptr noundef %self)
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
+  %tp_free = getelementptr inbounds nuw i8, ptr %self.val, i64 320
   %1 = load ptr, ptr %tp_free, align 8
   tail call void %1(ptr noundef %self) #7
   ret void
@@ -1108,7 +1108,7 @@ lor.lhs.false:                                    ; preds = %if.end
 if.then6:                                         ; preds = %lor.lhs.false, %if.end
   %5 = getelementptr i8, ptr %self.val, i64 8
   %call.val = load ptr, ptr %5, align 8
-  %tp_name = getelementptr inbounds i8, ptr %call.val, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %call.val, i64 24
   %6 = load ptr, ptr %tp_name, align 8
   %call8 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.7, ptr noundef nonnull %self, ptr noundef %6, ptr noundef nonnull %self.val) #7
   br label %if.end12
@@ -1116,7 +1116,7 @@ if.then6:                                         ; preds = %lor.lhs.false, %if.
 if.else:                                          ; preds = %lor.lhs.false
   %7 = getelementptr i8, ptr %self.val, i64 8
   %call.val15 = load ptr, ptr %7, align 8
-  %tp_name10 = getelementptr inbounds i8, ptr %call.val15, i64 24
+  %tp_name10 = getelementptr inbounds nuw i8, ptr %call.val15, i64 24
   %8 = load ptr, ptr %tp_name10, align 8
   %call11 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.8, ptr noundef nonnull %self, ptr noundef %8, ptr noundef nonnull %self.val, ptr noundef nonnull %call2) #7
   br label %if.end12
@@ -1165,7 +1165,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 ; Function Attrs: nounwind uwtable
 define internal i64 @weakref_hash(ptr nocapture noundef %self) #1 {
 entry:
-  %hash = getelementptr inbounds i8, ptr %self, i64 32
+  %hash = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load i64, ptr %hash, align 8
   %cmp.not = icmp eq i64 %0, -1
   br i1 %cmp.not, label %if.end, label %return
@@ -1228,7 +1228,7 @@ declare ptr @PyVectorcall_Call(ptr noundef, ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @gc_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #1 {
 entry:
-  %wr_callback = getelementptr inbounds i8, ptr %self, i64 24
+  %wr_callback = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %wr_callback, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -1467,7 +1467,7 @@ if.then:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.then
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds i8, ptr %.val, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %4 = load ptr, ptr %tp_name, align 8
   %call6 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef %4) #7
   br label %return
@@ -1491,7 +1491,7 @@ if.end8:                                          ; preds = %if.then7, %if.end
   br i1 %cmp.i.i.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end8
-  %tp_flags.i = getelementptr inbounds i8, ptr %0, i64 168
+  %tp_flags.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load i64, ptr %tp_flags.i, align 8
   %and.i = and i64 %7, 2
   %tobool1.not.i = icmp eq i64 %and.i, 0
@@ -1500,14 +1500,14 @@ land.lhs.true.i:                                  ; preds = %if.end8
 if.then.i:                                        ; preds = %land.lhs.true.i
   %8 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %9 = load ptr, ptr %8, align 8
-  %interp.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %interp.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %10 = load ptr, ptr %interp.i.i, align 8
   %call3.i = call ptr @_PyStaticType_GetState(ptr noundef %10, ptr noundef nonnull %0) #7
-  %tp_weaklist.i.i = getelementptr inbounds i8, ptr %call3.i, i64 32
+  %tp_weaklist.i.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 32
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.end8
-  %tp_weaklistoffset.i = getelementptr inbounds i8, ptr %op.val5.i, i64 208
+  %tp_weaklistoffset.i = getelementptr inbounds nuw i8, ptr %op.val5.i, i64 208
   %11 = load i64, ptr %tp_weaklistoffset.i, align 8
   %add.ptr.i = getelementptr i8, ptr %0, i64 %11
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit
@@ -1519,7 +1519,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit:              ; preds = %if.then.i, %if.end.
   br i1 %cmp.not.i, label %get_basic_refs.exit.thread, label %land.lhs.true.i16
 
 land.lhs.true.i16:                                ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit
-  %wr_callback.i = getelementptr inbounds i8, ptr %12, i64 24
+  %wr_callback.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %13 = load ptr, ptr %wr_callback.i, align 8
   %cmp1.i = icmp eq ptr %13, null
   br i1 %cmp1.i, label %if.then.i17, label %get_basic_refs.exit.thread
@@ -1551,7 +1551,7 @@ if.end.i.i:                                       ; preds = %if.then14
 
 if.end17:                                         ; preds = %get_basic_refs.exit.thread, %if.then.i17
   %cmp1165 = phi i1 [ %cmp1161, %get_basic_refs.exit.thread ], [ %cmp11, %if.then.i17 ]
-  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc = getelementptr inbounds nuw i8, ptr %type, i64 304
   %17 = load ptr, ptr %tp_alloc, align 8
   %call18 = call ptr %17(ptr noundef %type, i64 noundef 0) #7
   %cmp19.not = icmp eq ptr %call18, null
@@ -1560,11 +1560,11 @@ if.end17:                                         ; preds = %get_basic_refs.exit
 if.then20:                                        ; preds = %if.end17
   %18 = load ptr, ptr %ob, align 8
   %19 = load ptr, ptr %callback, align 8
-  %hash.i = getelementptr inbounds i8, ptr %call18, i64 32
+  %hash.i = getelementptr inbounds nuw i8, ptr %call18, i64 32
   store i64 -1, ptr %hash.i, align 8
-  %wr_object.i = getelementptr inbounds i8, ptr %call18, i64 16
+  %wr_object.i = getelementptr inbounds nuw i8, ptr %call18, i64 16
   store ptr %18, ptr %wr_object.i, align 8
-  %wr_prev.i = getelementptr inbounds i8, ptr %call18, i64 40
+  %wr_prev.i = getelementptr inbounds nuw i8, ptr %call18, i64 40
   %cmp.not.i.i.i = icmp eq ptr %19, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wr_prev.i, i8 0, i64 16, i1 false)
   br i1 %cmp.not.i.i.i, label %init_weakref.exit, label %if.then.i.i.i
@@ -1576,9 +1576,9 @@ if.then.i.i.i:                                    ; preds = %if.then20
   br i1 %cmp.i.i.i.i, label %init_weakref.exit.thread, label %if.end.i.i.i.i
 
 init_weakref.exit.thread:                         ; preds = %if.then.i.i.i
-  %wr_callback.i1976 = getelementptr inbounds i8, ptr %call18, i64 24
+  %wr_callback.i1976 = getelementptr inbounds nuw i8, ptr %call18, i64 24
   store ptr %19, ptr %wr_callback.i1976, align 8
-  %vectorcall.i77 = getelementptr inbounds i8, ptr %call18, i64 56
+  %vectorcall.i77 = getelementptr inbounds nuw i8, ptr %call18, i64 56
   store ptr @weakref_vectorcall, ptr %vectorcall.i77, align 8
   br label %if.else
 
@@ -1590,9 +1590,9 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 init_weakref.exit:                                ; preds = %if.then20, %if.end.i.i.i.i
   %cmp21 = phi i1 [ true, %if.then20 ], [ %21, %if.end.i.i.i.i ]
-  %wr_callback.i19 = getelementptr inbounds i8, ptr %call18, i64 24
+  %wr_callback.i19 = getelementptr inbounds nuw i8, ptr %call18, i64 24
   store ptr %19, ptr %wr_callback.i19, align 8
-  %vectorcall.i = getelementptr inbounds i8, ptr %call18, i64 56
+  %vectorcall.i = getelementptr inbounds nuw i8, ptr %call18, i64 56
   store ptr @weakref_vectorcall, ptr %vectorcall.i, align 8
   %or.cond1 = and i1 %cmp1165, %cmp21
   br i1 %or.cond1, label %if.then24, label %if.else
@@ -1600,13 +1600,13 @@ init_weakref.exit:                                ; preds = %if.then20, %if.end.
 if.then24:                                        ; preds = %init_weakref.exit
   %22 = load ptr, ptr %retval.0.i, align 8
   store ptr null, ptr %wr_prev.i, align 8
-  %wr_next.i21 = getelementptr inbounds i8, ptr %call18, i64 48
+  %wr_next.i21 = getelementptr inbounds nuw i8, ptr %call18, i64 48
   store ptr %22, ptr %wr_next.i21, align 8
   %cmp.not.i22 = icmp eq ptr %22, null
   br i1 %cmp.not.i22, label %insert_head.exit, label %if.then.i23
 
 if.then.i23:                                      ; preds = %if.then24
-  %wr_prev1.i = getelementptr inbounds i8, ptr %22, i64 40
+  %wr_prev1.i = getelementptr inbounds nuw i8, ptr %22, i64 40
   store ptr %call18, ptr %wr_prev1.i, align 8
   br label %insert_head.exit
 
@@ -1620,7 +1620,7 @@ if.else:                                          ; preds = %init_weakref.exit.t
   br i1 %cmp.not.i25, label %if.then27.thread, label %land.lhs.true.i26
 
 land.lhs.true.i26:                                ; preds = %if.else
-  %wr_callback.i27 = getelementptr inbounds i8, ptr %23, i64 24
+  %wr_callback.i27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %24 = load ptr, ptr %wr_callback.i27, align 8
   %cmp1.i28 = icmp eq ptr %24, null
   br i1 %cmp1.i28, label %if.then.i29, label %get_basic_refs.exit45
@@ -1632,13 +1632,13 @@ if.then.i29:                                      ; preds = %land.lhs.true.i26
   br i1 %cmp.i.not.i31, label %if.end.i39, label %land.lhs.true7.i32
 
 if.end.i39:                                       ; preds = %if.then.i29
-  %wr_next.i40 = getelementptr inbounds i8, ptr %23, i64 48
+  %wr_next.i40 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %26 = load ptr, ptr %wr_next.i40, align 8
   %cmp3.not.i41 = icmp eq ptr %26, null
   br i1 %cmp3.not.i41, label %get_basic_refs.exit45, label %land.lhs.true4.i42
 
 land.lhs.true4.i42:                               ; preds = %if.end.i39
-  %wr_callback5.phi.trans.insert.i43 = getelementptr inbounds i8, ptr %26, i64 24
+  %wr_callback5.phi.trans.insert.i43 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %.pre.i44 = load ptr, ptr %wr_callback5.phi.trans.insert.i43, align 8
   %27 = icmp eq ptr %.pre.i44, null
   br i1 %27, label %land.lhs.true4.i42.land.lhs.true7.i32_crit_edge, label %get_basic_refs.exit45
@@ -1672,9 +1672,9 @@ if.then27.thread:                                 ; preds = %if.else
 
 if.then27:                                        ; preds = %get_basic_refs.exit45
   store ptr null, ptr %wr_prev.i, align 8
-  %wr_next.i47 = getelementptr inbounds i8, ptr %call18, i64 48
+  %wr_next.i47 = getelementptr inbounds nuw i8, ptr %call18, i64 48
   store ptr %23, ptr %wr_next.i47, align 8
-  %wr_prev1.i50 = getelementptr inbounds i8, ptr %23, i64 40
+  %wr_prev1.i50 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store ptr %call18, ptr %wr_prev1.i50, align 8
   br label %insert_head.exit52
 
@@ -1684,15 +1684,15 @@ insert_head.exit52:                               ; preds = %if.then27.thread, %
 
 if.else28:                                        ; preds = %get_basic_refs.exit45
   store ptr %cond, ptr %wr_prev.i, align 8
-  %wr_next.i54 = getelementptr inbounds i8, ptr %cond, i64 48
+  %wr_next.i54 = getelementptr inbounds nuw i8, ptr %cond, i64 48
   %28 = load ptr, ptr %wr_next.i54, align 8
-  %wr_next1.i = getelementptr inbounds i8, ptr %call18, i64 48
+  %wr_next1.i = getelementptr inbounds nuw i8, ptr %call18, i64 48
   store ptr %28, ptr %wr_next1.i, align 8
   %cmp.not.i55 = icmp eq ptr %28, null
   br i1 %cmp.not.i55, label %insert_after.exit, label %if.then.i56
 
 if.then.i56:                                      ; preds = %if.else28
-  %wr_prev4.i = getelementptr inbounds i8, ptr %28, i64 40
+  %wr_prev4.i = getelementptr inbounds nuw i8, ptr %28, i64 40
   store ptr %call18, ptr %wr_prev4.i, align 8
   br label %insert_after.exit
 
@@ -1711,7 +1711,7 @@ declare void @PyObject_GC_Del(ptr noundef) #2
 define internal void @proxy_dealloc(ptr noundef %self) #1 {
 entry:
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #7
-  %wr_callback = getelementptr inbounds i8, ptr %self, i64 24
+  %wr_callback = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %wr_callback, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1748,7 +1748,7 @@ if.end.i.i.i:                                     ; preds = %entry
 _PyWeakref_GET_REF.exit:                          ; preds = %entry, %if.end.i.i.i
   %2 = getelementptr i8, ptr %proxy.val, i64 8
   %call.val = load ptr, ptr %2, align 8
-  %tp_name = getelementptr inbounds i8, ptr %call.val, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %call.val, i64 24
   %3 = load ptr, ptr %tp_name, align 8
   %call2 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.17, ptr noundef nonnull %proxy, ptr noundef %3, ptr noundef nonnull %proxy.val) #7
   %4 = load i64, ptr %proxy.val, align 8
@@ -2236,7 +2236,7 @@ if.then3:                                         ; preds = %if.end
   %3 = load ptr, ptr @PyExc_TypeError, align 8
   %4 = getelementptr i8, ptr %proxy.val, i64 8
   %call.val = load ptr, ptr %4, align 8
-  %tp_name = getelementptr inbounds i8, ptr %call.val, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %call.val, i64 24
   %5 = load ptr, ptr %tp_name, align 8
   %call5 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef %5) #7
   %6 = load i64, ptr %proxy.val, align 8
@@ -2487,7 +2487,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds i8, ptr %ob.val, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %ob.val, i64 24
   %3 = load ptr, ptr %tp_name, align 8
   %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef %3) #7
   br label %return
@@ -2500,7 +2500,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.not.i, label %if.end.i25, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %tp_flags.i = getelementptr inbounds i8, ptr %ob, i64 168
+  %tp_flags.i = getelementptr inbounds nuw i8, ptr %ob, i64 168
   %5 = load i64, ptr %tp_flags.i, align 8
   %and.i = and i64 %5, 2
   %tobool1.not.i = icmp eq i64 %and.i, 0
@@ -2509,10 +2509,10 @@ land.lhs.true.i:                                  ; preds = %if.end
 if.then.i:                                        ; preds = %land.lhs.true.i
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %7 = load ptr, ptr %6, align 8
-  %interp.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %interp.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %interp.i.i, align 8
   %call3.i = tail call ptr @_PyStaticType_GetState(ptr noundef %8, ptr noundef nonnull %ob) #7
-  %tp_weaklist.i.i = getelementptr inbounds i8, ptr %call3.i, i64 32
+  %tp_weaklist.i.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 32
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit
 
 if.end.i25:                                       ; preds = %land.lhs.true.i, %if.end
@@ -2526,7 +2526,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit:              ; preds = %if.then.i, %if.end.
   br i1 %cmp.not.i, label %get_basic_refs.exit.thread, label %land.lhs.true.i26
 
 land.lhs.true.i26:                                ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit
-  %wr_callback.i = getelementptr inbounds i8, ptr %9, i64 24
+  %wr_callback.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %10 = load ptr, ptr %wr_callback.i, align 8
   %cmp1.i = icmp eq ptr %10, null
   br i1 %cmp1.i, label %get_basic_refs.exit, label %get_basic_refs.exit.thread
@@ -2567,11 +2567,11 @@ if.else:                                          ; preds = %get_basic_refs.exit
   br i1 %tobool.not.i, label %return, label %if.then.i29
 
 if.then.i29:                                      ; preds = %if.else
-  %hash.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %hash.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 -1, ptr %hash.i.i, align 8
-  %wr_object.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %wr_object.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %ob, ptr %wr_object.i.i, align 8
-  %wr_prev.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %wr_prev.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wr_prev.i.i, i8 0, i64 16, i1 false)
   br i1 %cmp781, label %if.then.i.i.i.i, label %if.then14
 
@@ -2586,9 +2586,9 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   br label %if.then14
 
 if.then14:                                        ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.then.i29
-  %wr_callback.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %wr_callback.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %spec.store.select80, ptr %wr_callback.i.i, align 8
-  %vectorcall.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %vectorcall.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store ptr @weakref_vectorcall, ptr %vectorcall.i.i, align 8
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call.i) #7
   %14 = load ptr, ptr %retval.0.i, align 8
@@ -2596,7 +2596,7 @@ if.then14:                                        ; preds = %if.end.i.i.i.i.i, %
   br i1 %cmp.not.i31, label %get_basic_refs.exit51, label %land.lhs.true.i32
 
 land.lhs.true.i32:                                ; preds = %if.then14
-  %wr_callback.i33 = getelementptr inbounds i8, ptr %14, i64 24
+  %wr_callback.i33 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %15 = load ptr, ptr %wr_callback.i33, align 8
   %cmp1.i34 = icmp eq ptr %15, null
   br i1 %cmp1.i34, label %if.then.i35, label %get_basic_refs.exit51
@@ -2608,13 +2608,13 @@ if.then.i35:                                      ; preds = %land.lhs.true.i32
   br i1 %cmp.i.not.i37, label %if.end.i45, label %land.lhs.true7.i38
 
 if.end.i45:                                       ; preds = %if.then.i35
-  %wr_next.i46 = getelementptr inbounds i8, ptr %14, i64 48
+  %wr_next.i46 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %17 = load ptr, ptr %wr_next.i46, align 8
   %cmp3.not.i47 = icmp eq ptr %17, null
   br i1 %cmp3.not.i47, label %get_basic_refs.exit51, label %land.lhs.true4.i48
 
 land.lhs.true4.i48:                               ; preds = %if.end.i45
-  %wr_callback5.phi.trans.insert.i49 = getelementptr inbounds i8, ptr %17, i64 24
+  %wr_callback5.phi.trans.insert.i49 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %.pre.i50 = load ptr, ptr %wr_callback5.phi.trans.insert.i49, align 8
   %18 = icmp eq ptr %.pre.i50, null
   br i1 %18, label %land.lhs.true4.i48.land.lhs.true7.i38_crit_edge, label %get_basic_refs.exit51
@@ -2645,12 +2645,12 @@ if.then16:                                        ; preds = %get_basic_refs.exit
 
 if.then18:                                        ; preds = %if.then16
   store ptr null, ptr %wr_prev.i.i, align 8
-  %wr_next.i52 = getelementptr inbounds i8, ptr %call.i, i64 48
+  %wr_next.i52 = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr %14, ptr %wr_next.i52, align 8
   br i1 %cmp.not.i31, label %insert_head.exit, label %if.then.i54
 
 if.then.i54:                                      ; preds = %if.then18
-  %wr_prev1.i = getelementptr inbounds i8, ptr %14, i64 40
+  %wr_prev1.i = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %call.i, ptr %wr_prev1.i, align 8
   br label %insert_head.exit
 
@@ -2692,12 +2692,12 @@ if.else22:                                        ; preds = %get_basic_refs.exit
 
 if.then25:                                        ; preds = %if.else22
   store ptr null, ptr %wr_prev.i.i, align 8
-  %wr_next.i57 = getelementptr inbounds i8, ptr %call.i, i64 48
+  %wr_next.i57 = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr %14, ptr %wr_next.i57, align 8
   br i1 %cmp.not.i31, label %insert_head.exit62, label %if.then.i59
 
 if.then.i59:                                      ; preds = %if.then25
-  %wr_prev1.i60 = getelementptr inbounds i8, ptr %14, i64 40
+  %wr_prev1.i60 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %call.i, ptr %wr_prev1.i60, align 8
   br label %insert_head.exit62
 
@@ -2707,15 +2707,15 @@ insert_head.exit62:                               ; preds = %if.then25, %if.then
 
 if.else26:                                        ; preds = %if.else22
   store ptr %cond, ptr %wr_prev.i.i, align 8
-  %wr_next.i64 = getelementptr inbounds i8, ptr %cond, i64 48
+  %wr_next.i64 = getelementptr inbounds nuw i8, ptr %cond, i64 48
   %22 = load ptr, ptr %wr_next.i64, align 8
-  %wr_next1.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %wr_next1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr %22, ptr %wr_next1.i, align 8
   %cmp.not.i65 = icmp eq ptr %22, null
   br i1 %cmp.not.i65, label %insert_after.exit, label %if.then.i66
 
 if.then.i66:                                      ; preds = %if.else26
-  %wr_prev4.i = getelementptr inbounds i8, ptr %22, i64 40
+  %wr_prev4.i = getelementptr inbounds nuw i8, ptr %22, i64 40
   store ptr %call.i, ptr %wr_prev4.i, align 8
   br label %insert_after.exit
 
@@ -2742,7 +2742,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds i8, ptr %ob.val24, i64 24
+  %tp_name = getelementptr inbounds nuw i8, ptr %ob.val24, i64 24
   %3 = load ptr, ptr %tp_name, align 8
   %call3 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef %3) #7
   br label %return
@@ -2755,7 +2755,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.not.i, label %if.end.i26, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %tp_flags.i = getelementptr inbounds i8, ptr %ob, i64 168
+  %tp_flags.i = getelementptr inbounds nuw i8, ptr %ob, i64 168
   %5 = load i64, ptr %tp_flags.i, align 8
   %and.i = and i64 %5, 2
   %tobool1.not.i = icmp eq i64 %and.i, 0
@@ -2764,10 +2764,10 @@ land.lhs.true.i:                                  ; preds = %if.end
 if.then.i:                                        ; preds = %land.lhs.true.i
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %7 = load ptr, ptr %6, align 8
-  %interp.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %interp.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %interp.i.i, align 8
   %call3.i = tail call ptr @_PyStaticType_GetState(ptr noundef %8, ptr noundef nonnull %ob) #7
-  %tp_weaklist.i.i = getelementptr inbounds i8, ptr %call3.i, i64 32
+  %tp_weaklist.i.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 32
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit
 
 if.end.i26:                                       ; preds = %land.lhs.true.i, %if.end
@@ -2781,7 +2781,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit:              ; preds = %if.then.i, %if.end.
   br i1 %cmp.not.i, label %get_basic_refs.exit.thread, label %land.lhs.true.i27
 
 land.lhs.true.i27:                                ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit
-  %wr_callback.i = getelementptr inbounds i8, ptr %9, i64 24
+  %wr_callback.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %10 = load ptr, ptr %wr_callback.i, align 8
   %cmp1.i = icmp eq ptr %10, null
   br i1 %cmp1.i, label %if.then.i28, label %get_basic_refs.exit.thread
@@ -2793,13 +2793,13 @@ if.then.i28:                                      ; preds = %land.lhs.true.i27
   br i1 %cmp.i.not.i, label %if.end.i29, label %get_basic_refs.exit
 
 if.end.i29:                                       ; preds = %if.then.i28
-  %wr_next.i = getelementptr inbounds i8, ptr %9, i64 48
+  %wr_next.i = getelementptr inbounds nuw i8, ptr %9, i64 48
   %12 = load ptr, ptr %wr_next.i, align 8
   %cmp3.not.i = icmp eq ptr %12, null
   br i1 %cmp3.not.i, label %get_basic_refs.exit.thread, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %if.end.i29
-  %wr_callback5.phi.trans.insert.i = getelementptr inbounds i8, ptr %12, i64 24
+  %wr_callback5.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.pre.i = load ptr, ptr %wr_callback5.phi.trans.insert.i, align 8
   %13 = icmp eq ptr %.pre.i, null
   br i1 %13, label %land.lhs.true4.i.land.lhs.true7.i_crit_edge, label %get_basic_refs.exit.thread
@@ -2846,11 +2846,11 @@ if.else:                                          ; preds = %get_basic_refs.exit
   br i1 %tobool.not.i, label %return, label %if.then.i30
 
 if.then.i30:                                      ; preds = %if.else
-  %hash.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %hash.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store i64 -1, ptr %hash.i.i, align 8
-  %wr_object.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %wr_object.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %ob, ptr %wr_object.i.i, align 8
-  %wr_prev.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %wr_prev.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wr_prev.i.i, i8 0, i64 16, i1 false)
   br i1 %cmp779, label %if.then.i.i.i.i, label %if.then14
 
@@ -2865,22 +2865,22 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   br label %if.then14
 
 if.then14:                                        ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.then.i30
-  %wr_callback.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %wr_callback.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %spec.store.select78, ptr %wr_callback.i.i, align 8
-  %vectorcall.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %vectorcall.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   store ptr @weakref_vectorcall, ptr %vectorcall.i.i, align 8
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call.i) #7
   %call15 = tail call i32 @PyCallable_Check(ptr noundef nonnull %ob) #7
   %tobool16.not = icmp eq i32 %call15, 0
   %spec.select = select i1 %tobool16.not, ptr @_PyWeakref_ProxyType, ptr @_PyWeakref_CallableProxyType
-  %16 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %spec.select, ptr %16, align 8
   %17 = load ptr, ptr %retval.0.i, align 8
   %cmp.not.i33 = icmp eq ptr %17, null
   br i1 %cmp.not.i33, label %get_basic_refs.exit53, label %land.lhs.true.i34
 
 land.lhs.true.i34:                                ; preds = %if.then14
-  %wr_callback.i35 = getelementptr inbounds i8, ptr %17, i64 24
+  %wr_callback.i35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %18 = load ptr, ptr %wr_callback.i35, align 8
   %cmp1.i36 = icmp eq ptr %18, null
   br i1 %cmp1.i36, label %if.then.i37, label %get_basic_refs.exit53
@@ -2892,13 +2892,13 @@ if.then.i37:                                      ; preds = %land.lhs.true.i34
   br i1 %cmp.i.not.i39, label %if.end.i47, label %land.lhs.true7.i40
 
 if.end.i47:                                       ; preds = %if.then.i37
-  %wr_next.i48 = getelementptr inbounds i8, ptr %17, i64 48
+  %wr_next.i48 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %20 = load ptr, ptr %wr_next.i48, align 8
   %cmp3.not.i49 = icmp eq ptr %20, null
   br i1 %cmp3.not.i49, label %get_basic_refs.exit53, label %land.lhs.true4.i50
 
 land.lhs.true4.i50:                               ; preds = %if.end.i47
-  %wr_callback5.phi.trans.insert.i51 = getelementptr inbounds i8, ptr %20, i64 24
+  %wr_callback5.phi.trans.insert.i51 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %.pre.i52 = load ptr, ptr %wr_callback5.phi.trans.insert.i51, align 8
   %21 = icmp eq ptr %.pre.i52, null
   br i1 %21, label %land.lhs.true4.i50.land.lhs.true7.i40_crit_edge, label %get_basic_refs.exit53
@@ -2964,12 +2964,12 @@ if.end28:                                         ; preds = %if.then21, %if.else
 
 if.then30:                                        ; preds = %if.end28
   store ptr null, ptr %wr_prev.i.i, align 8
-  %wr_next.i54 = getelementptr inbounds i8, ptr %call.i, i64 48
+  %wr_next.i54 = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr %17, ptr %wr_next.i54, align 8
   br i1 %cmp.not.i33, label %insert_head.exit, label %if.then.i56
 
 if.then.i56:                                      ; preds = %if.then30
-  %wr_prev1.i = getelementptr inbounds i8, ptr %17, i64 40
+  %wr_prev1.i = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %call.i, ptr %wr_prev1.i, align 8
   br label %insert_head.exit
 
@@ -2979,15 +2979,15 @@ insert_head.exit:                                 ; preds = %if.then30, %if.then
 
 if.else31:                                        ; preds = %if.end28
   store ptr %prev.0, ptr %wr_prev.i.i, align 8
-  %wr_next.i59 = getelementptr inbounds i8, ptr %prev.0, i64 48
+  %wr_next.i59 = getelementptr inbounds nuw i8, ptr %prev.0, i64 48
   %25 = load ptr, ptr %wr_next.i59, align 8
-  %wr_next1.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %wr_next1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   store ptr %25, ptr %wr_next1.i, align 8
   %cmp.not.i60 = icmp eq ptr %25, null
   br i1 %cmp.not.i60, label %insert_after.exit, label %if.then.i61
 
 if.then.i61:                                      ; preds = %if.else31
-  %wr_prev4.i = getelementptr inbounds i8, ptr %25, i64 40
+  %wr_prev4.i = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %call.i, ptr %wr_prev4.i, align 8
   br label %insert_after.exit
 
@@ -3176,7 +3176,7 @@ if.end:                                           ; preds = %lor.lhs.false2
   br i1 %cmp.i.i.not.i, label %if.end.i54, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %tp_flags.i = getelementptr inbounds i8, ptr %object, i64 168
+  %tp_flags.i = getelementptr inbounds nuw i8, ptr %object, i64 168
   %3 = load i64, ptr %tp_flags.i, align 8
   %and.i = and i64 %3, 2
   %tobool1.not.i = icmp eq i64 %and.i, 0
@@ -3185,10 +3185,10 @@ land.lhs.true.i:                                  ; preds = %if.end
 if.then.i:                                        ; preds = %land.lhs.true.i
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %5 = load ptr, ptr %4, align 8
-  %interp.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %interp.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %interp.i.i, align 8
   %call3.i = tail call ptr @_PyStaticType_GetState(ptr noundef %6, ptr noundef nonnull %object) #7
-  %tp_weaklist.i.i = getelementptr inbounds i8, ptr %call3.i, i64 32
+  %tp_weaklist.i.i = getelementptr inbounds nuw i8, ptr %call3.i, i64 32
   br label %_PyObject_GET_WEAKREFS_LISTPTR.exit
 
 if.end.i54:                                       ; preds = %land.lhs.true.i, %if.end
@@ -3202,7 +3202,7 @@ _PyObject_GET_WEAKREFS_LISTPTR.exit:              ; preds = %if.then.i, %if.end.
   br i1 %cmp6.not, label %if.end63, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_PyObject_GET_WEAKREFS_LISTPTR.exit
-  %wr_callback = getelementptr inbounds i8, ptr %7, i64 24
+  %wr_callback = getelementptr inbounds nuw i8, ptr %7, i64 24
   %8 = load ptr, ptr %wr_callback, align 8
   %cmp7 = icmp eq ptr %8, null
   br i1 %cmp7, label %if.then8, label %while.body.i.preheader
@@ -3214,7 +3214,7 @@ if.then8:                                         ; preds = %land.lhs.true
   br i1 %cmp9.not, label %if.end63, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %if.then8
-  %wr_callback11 = getelementptr inbounds i8, ptr %9, i64 24
+  %wr_callback11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %10 = load ptr, ptr %wr_callback11, align 8
   %cmp12 = icmp eq ptr %10, null
   br i1 %cmp12, label %if.end15, label %while.body.i.preheader
@@ -3234,7 +3234,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %count.05.i = phi i64 [ 0, %while.body.i.preheader ], [ %inc.i, %while.body.i ]
   %head.addr.04.i = phi ptr [ %.pr73, %while.body.i.preheader ], [ %11, %while.body.i ]
   %inc.i = add i64 %count.05.i, 1
-  %wr_next.i = getelementptr inbounds i8, ptr %head.addr.04.i, i64 48
+  %wr_next.i = getelementptr inbounds nuw i8, ptr %head.addr.04.i, i64 48
   %11 = load ptr, ptr %wr_next.i, align 8
   %cmp.not.i = icmp eq ptr %11, null
   %indvars.iv.next = add i64 %indvars.iv, 1
@@ -3246,7 +3246,7 @@ _PyWeakref_GetWeakrefCount.exit:                  ; preds = %while.body.i
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %_PyWeakref_GetWeakrefCount.exit
-  %wr_callback22 = getelementptr inbounds i8, ptr %.pr73, i64 24
+  %wr_callback22 = getelementptr inbounds nuw i8, ptr %.pr73, i64 24
   %12 = load ptr, ptr %wr_callback22, align 8
   store ptr null, ptr %wr_callback22, align 8
   tail call fastcc void @clear_weakref(ptr noundef nonnull %.pr73)
@@ -3285,7 +3285,7 @@ for.cond.preheader:                               ; preds = %if.else
   br i1 %cmp3563, label %for.body.lr.ph, label %for.end61
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %ob_item.i = getelementptr inbounds i8, ptr %call31, i64 24
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call31, i64 24
   br label %for.body
 
 if.then33:                                        ; preds = %if.else
@@ -3293,13 +3293,13 @@ if.then33:                                        ; preds = %if.else
   br label %if.end63
 
 for.body49.lr.ph:                                 ; preds = %if.end45
-  %ob_item = getelementptr inbounds i8, ptr %call31, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %call31, i64 24
   br label %for.body49
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end45
   %current.065 = phi ptr [ %.pr73, %for.body.lr.ph ], [ %15, %if.end45 ]
   %i.064 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end45 ]
-  %wr_next = getelementptr inbounds i8, ptr %current.065, i64 48
+  %wr_next = getelementptr inbounds nuw i8, ptr %current.065, i64 48
   %15 = load ptr, ptr %wr_next, align 8
   %current.0.val = load i64, ptr %current.065, align 8
   %cmp37 = icmp sgt i64 %current.0.val, 0
@@ -3320,14 +3320,14 @@ _Py_NewRef.exit:                                  ; preds = %if.then38, %if.end.
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %mul39
   store ptr %current.065, ptr %arrayidx.i, align 8
   %add = or disjoint i64 %mul39, 1
-  %wr_callback42 = getelementptr inbounds i8, ptr %current.065, i64 24
+  %wr_callback42 = getelementptr inbounds nuw i8, ptr %current.065, i64 24
   %17 = load ptr, ptr %wr_callback42, align 8
   %arrayidx.i56 = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %add
   store ptr %17, ptr %arrayidx.i56, align 8
   br label %if.end45
 
 if.else43:                                        ; preds = %for.body
-  %wr_callback44 = getelementptr inbounds i8, ptr %current.065, i64 24
+  %wr_callback44 = getelementptr inbounds nuw i8, ptr %current.065, i64 24
   %18 = load ptr, ptr %wr_callback44, align 8
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, 2147483648
@@ -3345,7 +3345,7 @@ if.then1.i70:                                     ; preds = %if.end.i67
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end.i67, %if.then1.i70, %if.else43, %_Py_NewRef.exit
-  %wr_callback46 = getelementptr inbounds i8, ptr %current.065, i64 24
+  %wr_callback46 = getelementptr inbounds nuw i8, ptr %current.065, i64 24
   store ptr null, ptr %wr_callback46, align 8
   tail call fastcc void @clear_weakref(ptr noundef nonnull %current.065)
   %inc = add nuw nsw i64 %i.064, 1
@@ -3461,7 +3461,7 @@ declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #2
 define hidden void @_PyStaticType_ClearWeakRefs(ptr noundef %interp, ptr noundef %type) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @_PyStaticType_GetState(ptr noundef %interp, ptr noundef %type) #7
-  %tp_weaklist.i = getelementptr inbounds i8, ptr %call, i64 32
+  %tp_weaklist.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   %0 = load ptr, ptr %tp_weaklist.i, align 8
   %cmp.not2 = icmp eq ptr %0, null
   br i1 %cmp.not2, label %while.end, label %while.body

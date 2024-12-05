@@ -823,7 +823,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
 .lr.ph:                                           ; preds = %5
   %8 = icmp ne ptr %4, null
   %.not = icmp eq ptr %4, null
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = icmp samesign ult i32 %3, 4
   br i1 %10, label %._crit_edge, label %.lr.ph769
 
@@ -1859,7 +1859,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not727, label %.thread, label %672
 
 672:                                              ; preds = %669
-  %673 = getelementptr inbounds i8, ptr %671, i64 16
+  %673 = getelementptr inbounds nuw i8, ptr %671, i64 16
   %674 = load i32, ptr %673, align 8
   switch i32 %674, label %699 [
     i32 4, label %675
@@ -1869,7 +1869,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   ]
 
 675:                                              ; preds = %672
-  %676 = getelementptr inbounds i8, ptr %671, i64 24
+  %676 = getelementptr inbounds nuw i8, ptr %671, i64 24
   %677 = load ptr, ptr %676, align 8
   %.not730 = icmp eq ptr %677, null
   %678 = select i1 %.not730, ptr @.str.9, ptr @.str.8
@@ -1879,7 +1879,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %699
 
 682:                                              ; preds = %672
-  %683 = getelementptr inbounds i8, ptr %671, i64 24
+  %683 = getelementptr inbounds nuw i8, ptr %671, i64 24
   %684 = load ptr, ptr %683, align 8
   %.not729 = icmp eq ptr %684, null
   %685 = select i1 %.not729, ptr @.str.11, ptr @.str.10
@@ -1889,7 +1889,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %699
 
 689:                                              ; preds = %672
-  %690 = getelementptr inbounds i8, ptr %671, i64 24
+  %690 = getelementptr inbounds nuw i8, ptr %671, i64 24
   %691 = load ptr, ptr %690, align 8
   %.not728 = icmp eq ptr %691, null
   %692 = select i1 %.not728, ptr @.str.13, ptr @.str.12
@@ -1907,7 +1907,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   %.0695.ph = phi i32 [ %681, %675 ], [ %688, %682 ], [ %694, %689 ], [ -1, %695 ], [ -1, %672 ]
   %.0694.ph = phi ptr [ null, %675 ], [ null, %682 ], [ null, %689 ], [ %698, %695 ], [ null, %672 ]
   %.0.ph = phi ptr [ %678, %675 ], [ %685, %682 ], [ %692, %689 ], [ @.str.14, %695 ], [ null, %672 ]
-  %700 = getelementptr inbounds i8, ptr %671, i64 24
+  %700 = getelementptr inbounds nuw i8, ptr %671, i64 24
   %701 = load ptr, ptr %700, align 8
   %.not731 = icmp eq ptr %701, null
   br i1 %.not731, label %705, label %702
@@ -2039,7 +2039,7 @@ define internal noundef i32 @dissect_wps(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not40, label %14, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_append_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.506) #3
   br label %14

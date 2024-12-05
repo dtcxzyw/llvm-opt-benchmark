@@ -266,11 +266,11 @@ declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr 
 define internal i64 @strscan_s_allocate(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 72, ptr noundef nonnull @strscanner_type) #7
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br i1 %.not.i, label %8, label %RTYPEDDATA_GET_DATA.exit
 
 8:                                                ; preds = %1
@@ -282,11 +282,11 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %1, %8
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, -2
   store i64 %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   tail call void @onig_region_init(ptr noundef nonnull %13) #7
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 4, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 4, ptr %15, align 8
   ret i64 %2
 }
@@ -332,27 +332,27 @@ rbimpl_intern_const.exit:                         ; preds = %rbimpl_intern_const
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %rbimpl_intern_const.exit
-  %20 = getelementptr inbounds i8, ptr %8, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 0, ptr %20, align 8
   br label %28
 
 21:                                               ; preds = %rbimpl_intern_const.exit
   %22 = and i64 %17, -5
   %23 = icmp ne i64 %22, 0
-  %24 = getelementptr inbounds i8, ptr %8, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %25 = zext i1 %23 to i8
   store i8 %25, ptr %24, align 8
   br label %28
 
 26:                                               ; preds = %3
-  %27 = getelementptr inbounds i8, ptr %8, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 0, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %19, %21, %26
   %29 = call i64 @rb_string_value(ptr noundef nonnull %4) #7
   %30 = load i64, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %30, ptr %31, align 8
   ret i64 %2
 }
@@ -370,20 +370,20 @@ define internal noundef i64 @strscan_init_copy(i64 noundef returned %0, i64 noun
 7:                                                ; preds = %2
   %8 = load i64, ptr %6, align 8
   store i64 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
-  %19 = getelementptr inbounds i8, ptr %6, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %20 = tail call i32 @rb_reg_region_copy(ptr noundef nonnull %18, ptr noundef nonnull %19) #7
   %.not15 = icmp eq i32 %20, 0
   br i1 %.not15, label %22, label %21
@@ -415,7 +415,7 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strscan_reset(i64 noundef returned %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -426,7 +426,7 @@ define internal noundef i64 @strscan_reset(i64 noundef returned %0) #0 {
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %9, align 8
   %10 = load i64, ptr %2, align 8
   %11 = and i64 %10, -2
@@ -437,7 +437,7 @@ define internal noundef i64 @strscan_reset(i64 noundef returned %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strscan_terminate(i64 noundef returned %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -449,9 +449,9 @@ define internal noundef i64 @strscan_terminate(i64 noundef returned %0) #0 {
 
 8:                                                ; preds = %1
   %9 = inttoptr i64 %4 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %11, ptr %12, align 8
   %13 = load i64, ptr %2, align 8
   %14 = and i64 %13, -2
@@ -463,7 +463,7 @@ define internal noundef i64 @strscan_terminate(i64 noundef returned %0) #0 {
 define internal noundef i64 @strscan_clear(i64 noundef returned %0) #0 {
   tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.64) #7
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %strscan_terminate.exit
@@ -475,9 +475,9 @@ define internal noundef i64 @strscan_clear(i64 noundef returned %0) #0 {
 
 strscan_terminate.exit:                           ; preds = %1
   %8 = inttoptr i64 %4 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %10, ptr %11, align 8
   %12 = load i64, ptr %2, align 8
   %13 = and i64 %12, -2
@@ -488,7 +488,7 @@ strscan_terminate.exit:                           ; preds = %1
 ; Function Attrs: nounwind uwtable
 define internal range(i64 5, 4) i64 @strscan_get_string(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -509,9 +509,9 @@ define internal i64 @strscan_set_string(i64 noundef %0, i64 noundef %1) #0 {
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
   %5 = call i64 @rb_string_value(ptr noundef nonnull %3) #7
   %6 = load i64, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %8, align 8
   %9 = load i64, ptr %4, align 8
   %10 = and i64 %9, -2
@@ -524,7 +524,7 @@ define internal noundef i64 @strscan_concat(i64 noundef returned %0, i64 noundef
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 4
   br i1 %7, label %8, label %10
@@ -545,7 +545,7 @@ define internal noundef i64 @strscan_concat(i64 noundef returned %0, i64 noundef
 ; Function Attrs: nounwind uwtable
 define internal range(i64 1, 0) i64 @strscan_get_pos(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -556,7 +556,7 @@ define internal range(i64 1, 0) i64 @strscan_get_pos(i64 noundef %0) #0 {
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = shl i64 %10, 1
   %12 = or disjoint i64 %11, 1
@@ -566,7 +566,7 @@ define internal range(i64 1, 0) i64 @strscan_get_pos(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i64 @strscan_set_pos(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 4
   br i1 %6, label %7, label %9
@@ -600,7 +600,7 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
 17:                                               ; preds = %rb_num2int_inline.exit
   %18 = load i64, ptr %4, align 8
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = add nsw i64 %21, %15
   br label %23
@@ -618,7 +618,7 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
 27:                                               ; preds = %23
   %28 = load i64, ptr %4, align 8
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = icmp sgt i64 %.0, %31
   br i1 %32, label %33, label %35
@@ -629,7 +629,7 @@ rb_num2int_inline.exit:                           ; preds = %11, %13
   unreachable
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %3, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.0, ptr %36, align 8
   %37 = add nuw i64 %.0, 4611686018427387904
   %or.cond.i = icmp sgt i64 %37, -1
@@ -652,7 +652,7 @@ rb_long2num_inline.exit:                          ; preds = %38, %41
 ; Function Attrs: nounwind uwtable
 define internal i64 @strscan_get_charpos(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -667,7 +667,7 @@ define internal i64 @strscan_get_charpos(i64 noundef %0) #0 {
   %10 = load i64, ptr %9, align 8, !noalias !9
   %11 = and i64 %10, 8192
   %.not.i.i = icmp eq i64 %11, 0
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit8, label %13
 
 13:                                               ; preds = %8
@@ -676,7 +676,7 @@ define internal i64 @strscan_get_charpos(i64 noundef %0) #0 {
 
 RSTRING_PTR.exit8:                                ; preds = %8, %13
   %.sroa.2.0.i7 = phi ptr [ %.sroa.2.0.copyload.i, %13 ], [ %12, %8 ]
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %.sroa.2.0.i7, i64 %15
   %17 = tail call ptr @rb_enc_get(i64 noundef %4) #7
@@ -774,7 +774,7 @@ define internal i64 @strscan_search_full(i64 noundef %0, i64 noundef %1, i64 nou
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strscan_getch(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -788,10 +788,10 @@ define internal noundef i64 @strscan_getch(i64 noundef %0) #0 {
   %9 = load i64, ptr %2, align 8
   %10 = and i64 %9, -2
   store i64 %10, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %4 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %.not = icmp slt i64 %12, %15
   br i1 %.not, label %16, label %extract_range.exit
@@ -800,7 +800,7 @@ define internal noundef i64 @strscan_getch(i64 noundef %0) #0 {
   %17 = load i64, ptr %13, align 8, !noalias !12
   %18 = and i64 %17, 8192
   %.not.i.i = icmp eq i64 %18, 0
-  %19 = getelementptr inbounds i8, ptr %13, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit27, label %20
 
 20:                                               ; preds = %16
@@ -816,21 +816,21 @@ RSTRING_PTR.exit27:                               ; preds = %16, %20
   %25 = sext i32 %24 to i64
   %26 = load i64, ptr %3, align 8
   %27 = inttoptr i64 %26 to ptr
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = load i64, ptr %11, align 8
   %31 = sub nsw i64 %29, %30
   %32 = tail call noundef i64 @llvm.smin.i64(i64 %25, i64 %31)
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %30, ptr %33, align 8
   %34 = add nsw i64 %32, %30
   store i64 %34, ptr %11, align 8
   %35 = load i64, ptr %2, align 8
   %36 = or i64 %35, 1
   store i64 %36, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @onig_region_clear(ptr noundef nonnull %37) #7
-  %38 = getelementptr inbounds i8, ptr %2, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
   br i1 %40, label %41, label %45
@@ -852,7 +852,7 @@ adjust_registers_to_matched.exit:                 ; preds = %41, %45
   %.sink.i = phi i32 [ 0, %45 ], [ %43, %41 ]
   %49 = trunc i64 %.sink9.i to i32
   %50 = tail call i32 @onig_region_set(ptr noundef nonnull %37, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %49) #7
-  %51 = getelementptr inbounds i8, ptr %2, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = load i64, ptr %52, align 8
   %54 = load i8, ptr %38, align 8
@@ -860,7 +860,7 @@ adjust_registers_to_matched.exit:                 ; preds = %41, %45
   br i1 %55, label %adjust_register_position.exit.thread, label %59
 
 adjust_register_position.exit.thread:             ; preds = %adjust_registers_to_matched.exit
-  %56 = getelementptr inbounds i8, ptr %2, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %57 = load ptr, ptr %56, align 8
   %58 = load i64, ptr %57, align 8
   br label %adjust_register_position.exit29
@@ -868,7 +868,7 @@ adjust_register_position.exit.thread:             ; preds = %adjust_registers_to
 59:                                               ; preds = %adjust_registers_to_matched.exit
   %60 = load i64, ptr %33, align 8
   %61 = add nsw i64 %60, %53
-  %62 = getelementptr inbounds i8, ptr %2, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %63 = load ptr, ptr %62, align 8
   %64 = load i64, ptr %63, align 8
   %65 = add nsw i64 %64, %60
@@ -879,7 +879,7 @@ adjust_register_position.exit29:                  ; preds = %adjust_register_pos
   %.0.i28 = phi i64 [ %65, %59 ], [ %58, %adjust_register_position.exit.thread ]
   %66 = load i64, ptr %3, align 8
   %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load i64, ptr %68, align 8
   %70 = icmp sgt i64 %.0.i33, %69
   br i1 %70, label %extract_range.exit, label %71
@@ -889,7 +889,7 @@ adjust_register_position.exit29:                  ; preds = %adjust_register_pos
   %73 = load i64, ptr %67, align 8, !noalias !15
   %74 = and i64 %73, 8192
   %.not.i.i.i = icmp eq i64 %74, 0
-  %75 = getelementptr inbounds i8, ptr %67, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %76
 
 76:                                               ; preds = %71
@@ -913,7 +913,7 @@ extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i,
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strscan_get_byte(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -927,24 +927,24 @@ define internal noundef i64 @strscan_get_byte(i64 noundef %0) #0 {
   %9 = load i64, ptr %2, align 8
   %10 = and i64 %9, -2
   store i64 %10, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %4 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %.not = icmp slt i64 %12, %15
   br i1 %.not, label %16, label %extract_range.exit
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %12, ptr %17, align 8
   %18 = add nsw i64 %12, 1
   store i64 %18, ptr %11, align 8
   %19 = or i64 %9, 1
   store i64 %19, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @onig_region_clear(ptr noundef nonnull %20) #7
-  %21 = getelementptr inbounds i8, ptr %2, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %28
@@ -966,7 +966,7 @@ adjust_registers_to_matched.exit:                 ; preds = %24, %28
   %.sink.i = phi i32 [ 0, %28 ], [ %26, %24 ]
   %32 = trunc i64 %.sink9.i to i32
   %33 = tail call i32 @onig_region_set(ptr noundef nonnull %20, i32 noundef 0, i32 noundef %.sink.i, i32 noundef %32) #7
-  %34 = getelementptr inbounds i8, ptr %2, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = load i64, ptr %35, align 8
   %37 = load i8, ptr %21, align 8
@@ -974,7 +974,7 @@ adjust_registers_to_matched.exit:                 ; preds = %24, %28
   br i1 %38, label %adjust_register_position.exit.thread, label %42
 
 adjust_register_position.exit.thread:             ; preds = %adjust_registers_to_matched.exit
-  %39 = getelementptr inbounds i8, ptr %2, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = load i64, ptr %40, align 8
   br label %adjust_register_position.exit17
@@ -982,7 +982,7 @@ adjust_register_position.exit.thread:             ; preds = %adjust_registers_to
 42:                                               ; preds = %adjust_registers_to_matched.exit
   %43 = load i64, ptr %17, align 8
   %44 = add nsw i64 %43, %36
-  %45 = getelementptr inbounds i8, ptr %2, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %46 = load ptr, ptr %45, align 8
   %47 = load i64, ptr %46, align 8
   %48 = add nsw i64 %47, %43
@@ -993,7 +993,7 @@ adjust_register_position.exit17:                  ; preds = %adjust_register_pos
   %.0.i16 = phi i64 [ %48, %42 ], [ %41, %adjust_register_position.exit.thread ]
   %49 = load i64, ptr %3, align 8
   %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i64, ptr %51, align 8
   %53 = icmp sgt i64 %.0.i20, %52
   br i1 %53, label %extract_range.exit, label %54
@@ -1003,7 +1003,7 @@ adjust_register_position.exit17:                  ; preds = %adjust_register_pos
   %56 = load i64, ptr %50, align 8, !noalias !18
   %57 = and i64 %56, 8192
   %.not.i.i.i = icmp eq i64 %57, 0
-  %58 = getelementptr inbounds i8, ptr %50, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %59
 
 59:                                               ; preds = %54
@@ -1034,7 +1034,7 @@ define internal noundef i64 @strscan_getbyte(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i64 1, 512) i64 @strscan_scan_byte(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1048,10 +1048,10 @@ define internal range(i64 1, 512) i64 @strscan_scan_byte(i64 noundef %0) #0 {
   %9 = load i64, ptr %2, align 8
   %10 = and i64 %9, -2
   store i64 %10, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %4 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %.not = icmp slt i64 %12, %15
   br i1 %.not, label %16, label %43
@@ -1060,7 +1060,7 @@ define internal range(i64 1, 512) i64 @strscan_scan_byte(i64 noundef %0) #0 {
   %17 = load i64, ptr %13, align 8, !noalias !21
   %18 = and i64 %17, 8192
   %.not.i.i = icmp eq i64 %18, 0
-  %19 = getelementptr inbounds i8, ptr %13, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %20
 
 20:                                               ; preds = %16
@@ -1074,15 +1074,15 @@ RSTRING_PTR.exit:                                 ; preds = %16, %20
   %23 = zext i8 %22 to i64
   %24 = shl nuw nsw i64 %23, 1
   %25 = or disjoint i64 %24, 1
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %12, ptr %26, align 8
   %27 = add nsw i64 %12, 1
   store i64 %27, ptr %11, align 8
   %28 = or i64 %9, 1
   store i64 %28, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
   tail call void @onig_region_clear(ptr noundef nonnull %29) #7
-  %30 = getelementptr inbounds i8, ptr %2, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %37
@@ -1114,7 +1114,7 @@ adjust_registers_to_matched.exit:                 ; preds = %33, %37
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strscan_peek(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 4
   br i1 %6, label %7, label %9
@@ -1141,10 +1141,10 @@ define internal noundef i64 @strscan_peek(i64 noundef %0, i64 noundef %1) #0 {
 rb_num2long_inline.exit:                          ; preds = %11, %13
   %15 = phi i64 [ %5, %11 ], [ %.pre, %13 ]
   %.0.i = phi i64 [ %12, %11 ], [ %14, %13 ]
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = inttoptr i64 %15 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8
   %.not = icmp slt i64 %17, %20
   br i1 %.not, label %23, label %21
@@ -1159,7 +1159,7 @@ rb_num2long_inline.exit:                          ; preds = %11, %13
   %26 = load i64, ptr %18, align 8, !noalias !24
   %27 = and i64 %26, 8192
   %.not.i.i.i = icmp eq i64 %27, 0
-  %28 = getelementptr inbounds i8, ptr %18, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 24
   br i1 %.not.i.i.i, label %extract_beg_len.exit, label %29
 
 29:                                               ; preds = %23
@@ -1182,7 +1182,7 @@ extract_beg_len.exit:                             ; preds = %23, %29
 ; Function Attrs: nounwind uwtable
 define internal range(i64 1, 512) i64 @strscan_peek_byte(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1193,10 +1193,10 @@ define internal range(i64 1, 512) i64 @strscan_peek_byte(i64 noundef %0) #0 {
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %4 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %.not = icmp slt i64 %10, %13
   br i1 %.not, label %14, label %24
@@ -1205,7 +1205,7 @@ define internal range(i64 1, 512) i64 @strscan_peek_byte(i64 noundef %0) #0 {
   %15 = load i64, ptr %11, align 8, !noalias !27
   %16 = and i64 %15, 8192
   %.not.i.i = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %11, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %18
 
 18:                                               ; preds = %14
@@ -1236,7 +1236,7 @@ define internal noundef i64 @strscan_peep(i64 noundef %0, i64 noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strscan_unscan(i64 noundef returned %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1258,9 +1258,9 @@ define internal noundef i64 @strscan_unscan(i64 noundef returned %0) #0 {
   unreachable
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %15, ptr %16, align 8
   %17 = and i64 %9, -2
   store i64 %17, ptr %2, align 8
@@ -1270,7 +1270,7 @@ define internal noundef i64 @strscan_unscan(i64 noundef returned %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @strscan_bol_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %RSTRING_PTR.exit12
@@ -1285,10 +1285,10 @@ RSTRING_PTR.exit12:                               ; preds = %1
   %9 = load i64, ptr %8, align 8, !noalias !30
   %10 = and i64 %9, 8192
   %.not.i.i = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp sgt i64 %13, %15
   br i1 %16, label %26, label %17
@@ -1323,7 +1323,7 @@ declare void @rb_alias(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @strscan_eos_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1334,10 +1334,10 @@ define internal range(i64 0, 21) i64 @strscan_eos_p(i64 noundef %0) #0 {
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %4 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %.not = icmp slt i64 %10, %13
   %14 = select i1 %.not, i64 0, i64 20
@@ -1348,7 +1348,7 @@ define internal range(i64 0, 21) i64 @strscan_eos_p(i64 noundef %0) #0 {
 define internal range(i64 0, 21) i64 @strscan_empty_p(i64 noundef %0) #0 {
   tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.70) #7
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %strscan_eos_p.exit
@@ -1359,10 +1359,10 @@ define internal range(i64 0, 21) i64 @strscan_empty_p(i64 noundef %0) #0 {
   unreachable
 
 strscan_eos_p.exit:                               ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %4 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8
   %.not.i = icmp slt i64 %9, %12
   %13 = select i1 %.not.i, i64 0, i64 20
@@ -1372,7 +1372,7 @@ strscan_eos_p.exit:                               ; preds = %1
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @strscan_rest_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1383,10 +1383,10 @@ define internal range(i64 0, 21) i64 @strscan_rest_p(i64 noundef %0) #0 {
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %4 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %.not = icmp slt i64 %10, %13
   %14 = select i1 %.not, i64 20, i64 0
@@ -1396,7 +1396,7 @@ define internal range(i64 0, 21) i64 @strscan_rest_p(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @strscan_matched_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1417,7 +1417,7 @@ define internal range(i64 0, 21) i64 @strscan_matched_p(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strscan_matched(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1434,25 +1434,25 @@ define internal noundef i64 @strscan_matched(i64 noundef %0) #0 {
   br i1 %.not, label %extract_range.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %adjust_register_position.exit.thread, label %21
 
 adjust_register_position.exit.thread:             ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %2, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = load i64, ptr %19, align 8
   br label %adjust_register_position.exit9
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = add nsw i64 %23, %14
-  %25 = getelementptr inbounds i8, ptr %2, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %26 = load ptr, ptr %25, align 8
   %27 = load i64, ptr %26, align 8
   %28 = add nsw i64 %27, %23
@@ -1462,7 +1462,7 @@ adjust_register_position.exit9:                   ; preds = %adjust_register_pos
   %.0.i12 = phi i64 [ %24, %21 ], [ %14, %adjust_register_position.exit.thread ]
   %.0.i8 = phi i64 [ %28, %21 ], [ %20, %adjust_register_position.exit.thread ]
   %29 = inttoptr i64 %4 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = icmp sgt i64 %.0.i12, %31
   br i1 %32, label %extract_range.exit, label %33
@@ -1472,7 +1472,7 @@ adjust_register_position.exit9:                   ; preds = %adjust_register_pos
   %35 = load i64, ptr %29, align 8, !noalias !33
   %36 = and i64 %35, 8192
   %.not.i.i.i = icmp eq i64 %36, 0
-  %37 = getelementptr inbounds i8, ptr %29, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %38
 
 38:                                               ; preds = %33
@@ -1496,7 +1496,7 @@ extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i,
 ; Function Attrs: nounwind uwtable
 define internal i64 @strscan_matched_size(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1513,10 +1513,10 @@ define internal i64 @strscan_matched_size(i64 noundef %0) #0 {
   br i1 %.not, label %rb_long2num_inline.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %16, align 8
   %18 = sub nsw i64 %14, %17
@@ -1541,7 +1541,7 @@ rb_long2num_inline.exit:                          ; preds = %23, %20, %8
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strscan_aref(i64 noundef %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 4
   br i1 %6, label %7, label %9
@@ -1594,7 +1594,7 @@ rb_type.exit.thread41:                            ; preds = %19, %rb_type.exit
 
 26:                                               ; preds = %rb_type.exit.thread41, %rb_type.exit
   %.030 = phi i64 [ %1, %rb_type.exit ], [ %25, %rb_type.exit.thread41 ]
-  %27 = getelementptr inbounds i8, ptr %3, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, -5
   %.not49 = icmp eq i64 %29, 0
@@ -1605,7 +1605,7 @@ rb_type.exit.thread41:                            ; preds = %19, %rb_type.exit
   %32 = load i64, ptr %31, align 8, !noalias !36
   %33 = and i64 %32, 8192
   %.not.i33 = icmp eq i64 %33, 0
-  %34 = getelementptr inbounds i8, ptr %31, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   br i1 %.not.i33, label %rbimpl_rstring_getmem.exit, label %35
 
 35:                                               ; preds = %30
@@ -1614,13 +1614,13 @@ rb_type.exit.thread41:                            ; preds = %19, %rb_type.exit
 
 rbimpl_rstring_getmem.exit:                       ; preds = %30, %35
   %.sroa.3.0 = phi ptr [ %.sroa.3.0.copyload, %35 ], [ %34, %30 ]
-  %.sroa.1.0.in = getelementptr inbounds i8, ptr %31, i64 16
+  %.sroa.1.0.in = getelementptr inbounds nuw i8, ptr %31, i64 16
   %.sroa.1.0 = load i64, ptr %.sroa.1.0.in, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %37 = getelementptr inbounds i8, ptr %.sroa.3.0, i64 %.sroa.1.0
   %38 = tail call ptr @rb_enc_get(i64 noundef %.030) #7
   %39 = inttoptr i64 %28 to ptr
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @onig_name_to_backref_number(ptr noundef %41, ptr noundef %.sroa.3.0, ptr noundef %37, ptr noundef nonnull %36) #7
   %43 = icmp sgt i32 %42, 0
@@ -1655,7 +1655,7 @@ rb_num2long_inline.exit:                          ; preds = %51, %49
   br i1 %53, label %54, label %.thread
 
 54:                                               ; preds = %rb_num2long_inline.exit
-  %55 = getelementptr inbounds i8, ptr %3, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
   %58 = add nsw i64 %.029, %57
@@ -1664,40 +1664,40 @@ rb_num2long_inline.exit:                          ; preds = %51, %49
 
 .thread:                                          ; preds = %rb_num2long_inline.exit.thread, %rb_num2long_inline.exit, %54
   %.145 = phi i64 [ %58, %54 ], [ %47, %rb_num2long_inline.exit.thread ], [ %.029, %rb_num2long_inline.exit ]
-  %60 = getelementptr inbounds i8, ptr %3, i64 36
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %61 = load i32, ptr %60, align 4
   %62 = sext i32 %61 to i64
   %.not32 = icmp slt i64 %.145, %62
   br i1 %.not32, label %63, label %extract_range.exit
 
 63:                                               ; preds = %.thread
-  %64 = getelementptr inbounds i8, ptr %3, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i64, ptr %65, i64 %.145
+  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %.145
   %67 = load i64, ptr %66, align 8
   %68 = icmp eq i64 %67, -1
   br i1 %68, label %extract_range.exit, label %69
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %3, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %71 = load i8, ptr %70, align 8
   %72 = trunc i8 %71 to i1
   br i1 %72, label %adjust_register_position.exit.thread, label %77
 
 adjust_register_position.exit.thread:             ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %3, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i64, ptr %74, i64 %.145
+  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %.145
   %76 = load i64, ptr %75, align 8
   br label %adjust_register_position.exit38
 
 77:                                               ; preds = %69
-  %78 = getelementptr inbounds i8, ptr %3, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %79 = load i64, ptr %78, align 8
   %80 = add nsw i64 %79, %67
-  %81 = getelementptr inbounds i8, ptr %3, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i64, ptr %82, i64 %.145
+  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %.145
   %84 = load i64, ptr %83, align 8
   %85 = add nsw i64 %79, %84
   br label %adjust_register_position.exit38
@@ -1707,7 +1707,7 @@ adjust_register_position.exit38:                  ; preds = %adjust_register_pos
   %.0.i37 = phi i64 [ %85, %77 ], [ %76, %adjust_register_position.exit.thread ]
   %86 = load i64, ptr %4, align 8
   %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i64, ptr %88, align 8
   %90 = icmp sgt i64 %.0.i3647, %89
   br i1 %90, label %extract_range.exit, label %91
@@ -1717,7 +1717,7 @@ adjust_register_position.exit38:                  ; preds = %adjust_register_pos
   %93 = load i64, ptr %87, align 8, !noalias !39
   %94 = and i64 %93, 8192
   %.not.i.i.i = icmp eq i64 %94, 0
-  %95 = getelementptr inbounds i8, ptr %87, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %96
 
 96:                                               ; preds = %91
@@ -1741,7 +1741,7 @@ extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i,
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strscan_pre_match(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1758,16 +1758,16 @@ define internal noundef i64 @strscan_pre_match(i64 noundef %0) #0 {
   br i1 %.not, label %extract_range.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %adjust_register_position.exit, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = add nsw i64 %20, %14
   br label %adjust_register_position.exit
@@ -1775,7 +1775,7 @@ define internal noundef i64 @strscan_pre_match(i64 noundef %0) #0 {
 adjust_register_position.exit:                    ; preds = %11, %18
   %.0.i = phi i64 [ %21, %18 ], [ %14, %11 ]
   %22 = inttoptr i64 %4 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = icmp slt i64 %24, 0
   br i1 %25, label %extract_range.exit, label %26
@@ -1785,7 +1785,7 @@ adjust_register_position.exit:                    ; preds = %11, %18
   %28 = load i64, ptr %22, align 8, !noalias !42
   %29 = and i64 %28, 8192
   %.not.i.i.i = icmp eq i64 %29, 0
-  %30 = getelementptr inbounds i8, ptr %22, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %31
 
 31:                                               ; preds = %26
@@ -1807,7 +1807,7 @@ extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i,
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strscan_post_match(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1824,16 +1824,16 @@ define internal noundef i64 @strscan_post_match(i64 noundef %0) #0 {
   br i1 %.not, label %extract_range.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
   br i1 %17, label %adjust_register_position.exit, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8
   %21 = add nsw i64 %20, %14
   br label %adjust_register_position.exit
@@ -1841,7 +1841,7 @@ define internal noundef i64 @strscan_post_match(i64 noundef %0) #0 {
 adjust_register_position.exit:                    ; preds = %11, %18
   %.0.i = phi i64 [ %21, %18 ], [ %14, %11 ]
   %22 = inttoptr i64 %4 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = icmp sgt i64 %.0.i, %24
   br i1 %25, label %extract_range.exit, label %26
@@ -1850,7 +1850,7 @@ adjust_register_position.exit:                    ; preds = %11, %18
   %27 = load i64, ptr %22, align 8, !noalias !45
   %28 = and i64 %27, 8192
   %.not.i.i.i = icmp eq i64 %28, 0
-  %29 = getelementptr inbounds i8, ptr %22, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %30
 
 30:                                               ; preds = %26
@@ -1874,7 +1874,7 @@ extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i,
 ; Function Attrs: nounwind uwtable
 define internal range(i64 1, 0) i64 @strscan_size(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1891,7 +1891,7 @@ define internal range(i64 1, 0) i64 @strscan_size(i64 noundef %0) #0 {
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = shl nsw i64 %14, 1
@@ -1906,7 +1906,7 @@ define internal range(i64 1, 0) i64 @strscan_size(i64 noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i64 @strscan_captures(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -1923,7 +1923,7 @@ define internal i64 @strscan_captures(i64 noundef %0) #0 {
   br i1 %.not, label %.loopexit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %2, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = tail call i64 @rb_ary_new_capa(i64 noundef %14) #7
@@ -1931,17 +1931,17 @@ define internal i64 @strscan_captures(i64 noundef %0) #0 {
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %2, i64 40
-  %18 = getelementptr inbounds i8, ptr %2, i64 64
-  %19 = getelementptr inbounds i8, ptr %2, i64 16
-  %20 = getelementptr inbounds i8, ptr %2, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %21
 
 21:                                               ; preds = %.lr.ph, %extract_range.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %extract_range.exit ]
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr inbounds i64, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, -1
   br i1 %25, label %extract_range.exit, label %26
@@ -1953,7 +1953,7 @@ define internal i64 @strscan_captures(i64 noundef %0) #0 {
 
 adjust_register_position.exit.thread:             ; preds = %26
   %29 = load ptr, ptr %20, align 8
-  %30 = getelementptr inbounds i64, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   br label %adjust_register_position.exit24
 
@@ -1961,7 +1961,7 @@ adjust_register_position.exit.thread:             ; preds = %26
   %33 = load i64, ptr %19, align 8
   %34 = add nsw i64 %33, %24
   %35 = load ptr, ptr %20, align 8
-  %36 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8
   %38 = add nsw i64 %33, %37
   br label %adjust_register_position.exit24
@@ -1971,7 +1971,7 @@ adjust_register_position.exit24:                  ; preds = %adjust_register_pos
   %.0.i23 = phi i64 [ %38, %32 ], [ %31, %adjust_register_position.exit.thread ]
   %39 = load i64, ptr %3, align 8
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = icmp sgt i64 %.0.i27, %42
   br i1 %43, label %extract_range.exit, label %44
@@ -1981,7 +1981,7 @@ adjust_register_position.exit24:                  ; preds = %adjust_register_pos
   %46 = load i64, ptr %40, align 8, !noalias !48
   %47 = and i64 %46, 8192
   %.not.i.i.i = icmp eq i64 %47, 0
-  %48 = getelementptr inbounds i8, ptr %40, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %49
 
 49:                                               ; preds = %44
@@ -2012,7 +2012,7 @@ extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i,
 ; Function Attrs: nounwind uwtable
 define internal i64 @strscan_values_at(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @strscanner_type) #7
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 4
   br i1 %7, label %8, label %10
@@ -2036,7 +2036,7 @@ define internal i64 @strscan_values_at(i32 noundef %0, ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %.01213 = phi i64 [ %21, %.lr.ph ], [ 0, %13 ]
-  %17 = getelementptr inbounds i64, ptr %1, i64 %.01213
+  %17 = getelementptr inbounds nuw i64, ptr %1, i64 %.01213
   %18 = load i64, ptr %17, align 8
   %19 = tail call i64 @strscan_aref(i64 noundef %2, i64 noundef %18)
   %20 = tail call i64 @rb_ary_push(i64 noundef %15, i64 noundef %19) #7
@@ -2052,7 +2052,7 @@ define internal i64 @strscan_values_at(i32 noundef %0, ptr nocapture noundef rea
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @strscan_rest(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -2063,10 +2063,10 @@ define internal noundef i64 @strscan_rest(i64 noundef %0) #0 {
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %4 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %.not = icmp slt i64 %10, %13
   br i1 %.not, label %16, label %14
@@ -2079,7 +2079,7 @@ define internal noundef i64 @strscan_rest(i64 noundef %0) #0 {
   %17 = load i64, ptr %11, align 8, !noalias !53
   %18 = and i64 %17, 8192
   %.not.i.i.i = icmp eq i64 %18, 0
-  %19 = getelementptr inbounds i8, ptr %11, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br i1 %.not.i.i.i, label %extract_range.exit, label %20
 
 20:                                               ; preds = %16
@@ -2103,7 +2103,7 @@ extract_range.exit:                               ; preds = %16, %20
 ; Function Attrs: nounwind uwtable
 define internal range(i64 1, 0) i64 @strscan_rest_size(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %8
@@ -2114,10 +2114,10 @@ define internal range(i64 1, 0) i64 @strscan_rest_size(i64 noundef %0) #0 {
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %4 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %.not = icmp slt i64 %10, %13
   %14 = sub nsw i64 %13, %10
@@ -2131,7 +2131,7 @@ define internal range(i64 1, 0) i64 @strscan_rest_size(i64 noundef %0) #0 {
 define internal range(i64 1, 0) i64 @strscan_restsize(i64 noundef %0) #0 {
   tail call void (ptr, ...) @rb_warning(ptr noundef nonnull @.str.72) #7
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %strscan_rest_size.exit
@@ -2142,10 +2142,10 @@ define internal range(i64 1, 0) i64 @strscan_restsize(i64 noundef %0) #0 {
   unreachable
 
 strscan_rest_size.exit:                           ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %4 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8
   %.not.i = icmp slt i64 %9, %12
   %13 = sub nsw i64 %12, %9
@@ -2158,7 +2158,7 @@ strscan_rest_size.exit:                           ; preds = %1
 ; Function Attrs: nounwind uwtable
 define internal i64 @strscan_inspect(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %6, label %9
@@ -2169,10 +2169,10 @@ define internal i64 @strscan_inspect(i64 noundef %0) #0 {
   br label %89
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %4 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8
   %.not = icmp slt i64 %11, %14
   br i1 %.not, label %18, label %15
@@ -2191,7 +2191,7 @@ define internal i64 @strscan_inspect(i64 noundef %0) #0 {
   %22 = load i64, ptr %12, align 8, !noalias !56
   %23 = and i64 %22, 8192
   %.not.i.i.i = icmp eq i64 %23, 0
-  %24 = getelementptr inbounds i8, ptr %12, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br i1 %21, label %25, label %29
 
 25:                                               ; preds = %20
@@ -2226,7 +2226,7 @@ inspect2.exit:                                    ; preds = %RSTRING_PTR.exit.i,
   %34 = load i64, ptr %10, align 8
   %35 = load i64, ptr %3, align 8
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.75, i64 noundef %33, i64 noundef %34, i64 noundef %38, i64 noundef %32) #7
   br label %89
@@ -2252,7 +2252,7 @@ inspect2.exit:                                    ; preds = %RSTRING_PTR.exit.i,
   %50 = load i64, ptr %49, align 8, !noalias !57
   %51 = and i64 %50, 8192
   %.not.i.i.i28 = icmp eq i64 %51, 0
-  %52 = getelementptr inbounds i8, ptr %49, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
   br i1 %.not.i.i.i28, label %inspect1.exit, label %53
 
 53:                                               ; preds = %47
@@ -2270,7 +2270,7 @@ inspect1.exit:                                    ; preds = %47, %53
   %.val25 = load i64, ptr %3, align 8
   %.val26 = load i64, ptr %10, align 8
   %60 = inttoptr i64 %.val25 to ptr
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i64, ptr %61, align 8
   %.not.i32 = icmp slt i64 %.val26, %62
   br i1 %.not.i32, label %65, label %63
@@ -2285,7 +2285,7 @@ inspect1.exit:                                    ; preds = %47, %53
   %68 = load i64, ptr %60, align 8, !noalias !56
   %69 = and i64 %68, 8192
   %.not.i.i.i34 = icmp eq i64 %69, 0
-  %70 = getelementptr inbounds i8, ptr %60, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 24
   br i1 %67, label %71, label %76
 
 71:                                               ; preds = %65
@@ -2326,7 +2326,7 @@ inspect2.exit42:                                  ; preds = %63, %80
   %83 = load i64, ptr %10, align 8
   %84 = load i64, ptr %3, align 8
   %85 = inttoptr i64 %84 to ptr
-  %86 = getelementptr inbounds i8, ptr %85, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.76, i64 noundef %82, i64 noundef %83, i64 noundef %87, i64 noundef %59, i64 noundef %.0.i33) #7
   br label %89
@@ -2339,7 +2339,7 @@ inspect2.exit42:                                  ; preds = %63, %80
 ; Function Attrs: nounwind uwtable
 define internal range(i64 0, 21) i64 @strscan_fixed_anchor_p(i64 noundef %0) #0 {
   %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %3 = getelementptr inbounds i8, ptr %2, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   %6 = select i1 %5, i64 20, i64 0
@@ -2350,7 +2350,7 @@ define internal range(i64 0, 21) i64 @strscan_fixed_anchor_p(i64 noundef %0) #0 
 define internal i64 @strscan_named_captures(i64 noundef %0) #0 {
   %2 = alloca %struct.named_captures_data, align 8
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 4
   br i1 %6, label %7, label %9
@@ -2363,16 +2363,16 @@ define internal i64 @strscan_named_captures(i64 noundef %0) #0 {
 9:                                                ; preds = %1
   store i64 %0, ptr %2, align 8
   %10 = tail call i64 @rb_hash_new() #7
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 4
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %9
   %16 = inttoptr i64 %13 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @onig_foreach_name(ptr noundef %18, ptr noundef nonnull @named_captures_iter, ptr noundef nonnull %2) #7
   %.pre = load i64, ptr %11, align 8
@@ -2391,10 +2391,10 @@ declare void @onig_region_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @strscan_mark(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   tail call void @rb_gc_mark(i64 noundef %3) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
   tail call void @rb_gc_mark(i64 noundef %5) #7
   ret void
@@ -2402,7 +2402,7 @@ define internal void @strscan_mark(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @strscan_free(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @onig_region_free(ptr noundef nonnull %2, i32 noundef 0) #7
   tail call void @ruby_xfree(ptr noundef %0) #7
   ret void
@@ -2410,7 +2410,7 @@ define internal void @strscan_free(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @strscan_memsize(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = tail call i64 @onig_region_memsize(ptr noundef nonnull %2) #7
   %4 = add i64 %3, 48
   ret i64 %4
@@ -2499,7 +2499,7 @@ define internal fastcc i64 @strscan_do_scan(i64 noundef %0, i64 noundef %1, i32 
 
 Check_Type.exit:                                  ; preds = %19, %.critedge, %12
   %23 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @strscanner_type) #7
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 4
   br i1 %26, label %27, label %29
@@ -2514,9 +2514,9 @@ Check_Type.exit:                                  ; preds = %19, %.critedge, %12
   %31 = and i64 %30, -2
   store i64 %31, ptr %23, align 8
   %32 = inttoptr i64 %25 to ptr
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %23, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = icmp slt i64 %34, %36
   br i1 %37, label %extract_beg_len.exit, label %38
@@ -2537,10 +2537,10 @@ Check_Type.exit:                                  ; preds = %19, %.critedge, %12
   br i1 %48, label %49, label %.critedge72
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %23, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store i64 %39, ptr %50, align 8
   %51 = select i1 %.not, ptr @strscan_search, ptr @strscan_match
-  %52 = getelementptr inbounds i8, ptr %23, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %53 = call i64 @rb_reg_onig_match(i64 noundef %39, i64 noundef %25, ptr noundef nonnull %51, ptr noundef nonnull %23, ptr noundef nonnull %52) #7
   %54 = icmp eq i64 %53, -1
   br i1 %54, label %extract_beg_len.exit, label %set_registers.exit
@@ -2549,13 +2549,13 @@ Check_Type.exit:                                  ; preds = %19, %.critedge, %12
   %55 = call ptr @rb_enc_check(i64 noundef %25, i64 noundef %39) #7
   %56 = load i64, ptr %24, align 8
   %57 = inttoptr i64 %56 to ptr
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i64, ptr %58, align 8
   %60 = load i64, ptr %35, align 8
   %61 = sub nsw i64 %59, %60
   %62 = load i64, ptr %6, align 8
   %63 = inttoptr i64 %62 to ptr
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i64, ptr %64, align 8
   %66 = icmp slt i64 %61, %65
   br i1 %66, label %extract_beg_len.exit, label %67
@@ -2564,7 +2564,7 @@ Check_Type.exit:                                  ; preds = %19, %.critedge, %12
   %68 = load i64, ptr %57, align 8, !noalias !60
   %69 = and i64 %68, 8192
   %.not.i.i = icmp eq i64 %69, 0
-  %70 = getelementptr inbounds i8, ptr %57, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %57, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %71
 
 71:                                               ; preds = %67
@@ -2577,7 +2577,7 @@ RSTRING_PTR.exit:                                 ; preds = %67, %71
   %73 = load i64, ptr %63, align 8, !noalias !63
   %74 = and i64 %73, 8192
   %.not.i.i73 = icmp eq i64 %74, 0
-  %75 = getelementptr inbounds i8, ptr %63, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 24
   br i1 %.not.i.i73, label %RSTRING_PTR.exit76, label %76
 
 76:                                               ; preds = %RSTRING_PTR.exit
@@ -2591,21 +2591,21 @@ RSTRING_PTR.exit76:                               ; preds = %RSTRING_PTR.exit, %
   br i1 %.not67, label %77, label %extract_beg_len.exit
 
 77:                                               ; preds = %RSTRING_PTR.exit76
-  %78 = getelementptr inbounds i8, ptr %23, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %23, i64 32
   call void @onig_region_clear(ptr noundef nonnull %78) #7
   %79 = call i32 @onig_region_set(ptr noundef nonnull %78, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
   %.not.i77 = icmp eq i32 %79, 0
   br i1 %.not.i77, label %80, label %set_registers.exit
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %23, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %82 = load i8, ptr %81, align 8
   %83 = trunc i8 %82 to i1
   br i1 %83, label %84, label %.sink.split.i
 
 84:                                               ; preds = %80
   %85 = load i64, ptr %35, align 8
-  %86 = getelementptr inbounds i8, ptr %23, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %87 = load ptr, ptr %86, align 8
   store i64 %85, ptr %87, align 8
   %88 = add i64 %85, %65
@@ -2613,7 +2613,7 @@ RSTRING_PTR.exit76:                               ; preds = %RSTRING_PTR.exit, %
 
 .sink.split.i:                                    ; preds = %84, %80
   %.sink.i = phi i64 [ %88, %84 ], [ %65, %80 ]
-  %89 = getelementptr inbounds i8, ptr %23, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %90 = load ptr, ptr %89, align 8
   store i64 %.sink.i, ptr %90, align 8
   br label %set_registers.exit
@@ -2623,21 +2623,21 @@ set_registers.exit:                               ; preds = %.sink.split.i, %77,
   %92 = or i64 %91, 1
   store i64 %92, ptr %23, align 8
   %93 = load i64, ptr %35, align 8
-  %94 = getelementptr inbounds i8, ptr %23, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 %93, ptr %94, align 8
   %.not68 = icmp eq i32 %2, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %23, i64 64
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %23, i64 64
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   br i1 %.not68, label %set_registers.exit._crit_edge, label %succ.exit
 
 set_registers.exit._crit_edge:                    ; preds = %set_registers.exit
-  %.phi.trans.insert80 = getelementptr inbounds i8, ptr %23, i64 48
+  %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %.pre81 = load ptr, ptr %.phi.trans.insert80, align 8
   br label %last_match_length.exit
 
 succ.exit:                                        ; preds = %set_registers.exit
   %95 = trunc i8 %.pre to i1
-  %96 = getelementptr inbounds i8, ptr %23, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %97 = load ptr, ptr %96, align 8
   %98 = load i64, ptr %97, align 8
   %99 = select i1 %95, i64 0, i64 %93
@@ -2657,7 +2657,7 @@ last_match_length.exit:                           ; preds = %set_registers.exit.
 104:                                              ; preds = %last_match_length.exit
   %105 = load i64, ptr %24, align 8
   %106 = inttoptr i64 %105 to ptr
-  %107 = getelementptr inbounds i8, ptr %106, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = load i64, ptr %107, align 8
   %109 = icmp sgt i64 %93, %108
   br i1 %109, label %extract_beg_len.exit, label %110
@@ -2668,7 +2668,7 @@ last_match_length.exit:                           ; preds = %set_registers.exit.
   %113 = load i64, ptr %106, align 8, !noalias !66
   %114 = and i64 %113, 8192
   %.not.i.i.i = icmp eq i64 %114, 0
-  %115 = getelementptr inbounds i8, ptr %106, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %106, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %116
 
 116:                                              ; preds = %110
@@ -2697,16 +2697,16 @@ declare i64 @rb_reg_onig_match(i64 noundef, i64 noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @strscan_match(ptr noundef %0, i64 %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = load i64, ptr %10, align 8, !noalias !56
   %12 = and i64 %11, 8192
   %.not.i.i.i = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %7, label %14, label %15
 
 14:                                               ; preds = %4
@@ -2720,14 +2720,14 @@ match_target.exit.thread16:                       ; preds = %14
   br i1 %.not.i.i.i, label %match_target.exit.thread19, label %match_target.exit
 
 match_target.exit.thread19:                       ; preds = %15
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %13, i64 %17
   br label %RSTRING_PTR.exit13
 
 match_target.exit:                                ; preds = %15
   %.sroa.2.0.copyload.i6.i = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i6.i, i64 %20
   br label %RSTRING_PTR.exit13
@@ -2735,10 +2735,10 @@ match_target.exit:                                ; preds = %15
 RSTRING_PTR.exit13:                               ; preds = %match_target.exit.thread16, %match_target.exit, %14, %match_target.exit.thread19
   %.sink = phi ptr [ %13, %match_target.exit.thread19 ], [ %13, %14 ], [ %.sroa.2.0.copyload.i.i, %match_target.exit.thread16 ], [ %.sroa.2.0.copyload.i6.i, %match_target.exit ]
   %.0.i1523 = phi ptr [ %18, %match_target.exit.thread19 ], [ %13, %14 ], [ %.sroa.2.0.copyload.i.i, %match_target.exit.thread16 ], [ %21, %match_target.exit ]
-  %22 = getelementptr inbounds i8, ptr %10, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %.sink, i64 %23
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %.sink, i64 %26
   %28 = tail call i64 @onig_match(ptr noundef %0, ptr noundef %.0.i1523, ptr noundef %24, ptr noundef %27, ptr noundef %2, i32 noundef 0) #7
@@ -2747,29 +2747,29 @@ RSTRING_PTR.exit13:                               ; preds = %match_target.exit.t
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @strscan_search(ptr noundef %0, i64 %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = load i64, ptr %10, align 8, !noalias !56
   %12 = and i64 %11, 8192
   %.not.i.i.i = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %7, label %14, label %15
 
 14:                                               ; preds = %4
   br i1 %.not.i.i.i, label %.RSTRING_PTR.exit17.thread_crit_edge, label %match_target.exit.thread24
 
 .RSTRING_PTR.exit17.thread_crit_edge:             ; preds = %14
-  %.phi.trans.insert36 = getelementptr inbounds i8, ptr %3, i64 24
+  %.phi.trans.insert36 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre37 = load i64, ptr %.phi.trans.insert36, align 8
   br label %RSTRING_PTR.exit17.thread
 
 match_target.exit.thread24:                       ; preds = %14
   %.sroa.2.0.copyload.i.i = load ptr, ptr %13, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %27
 
@@ -2777,14 +2777,14 @@ match_target.exit.thread24:                       ; preds = %14
   br i1 %.not.i.i.i, label %match_target.exit.thread27, label %match_target.exit
 
 match_target.exit.thread27:                       ; preds = %15
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %13, i64 %17
   br label %RSTRING_PTR.exit17.thread
 
 match_target.exit:                                ; preds = %15
   %.sroa.2.0.copyload.i6.i = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i6.i, i64 %20
   br label %27
@@ -2792,7 +2792,7 @@ match_target.exit:                                ; preds = %15
 RSTRING_PTR.exit17.thread:                        ; preds = %.RSTRING_PTR.exit17.thread_crit_edge, %match_target.exit.thread27
   %22 = phi i64 [ %17, %match_target.exit.thread27 ], [ %.pre37, %.RSTRING_PTR.exit17.thread_crit_edge ]
   %.0.i23.ph = phi ptr [ %18, %match_target.exit.thread27 ], [ %13, %.RSTRING_PTR.exit17.thread_crit_edge ]
-  %23 = getelementptr inbounds i8, ptr %10, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %13, i64 %24
   %26 = getelementptr inbounds i8, ptr %13, i64 %22
@@ -2802,7 +2802,7 @@ RSTRING_PTR.exit17.thread:                        ; preds = %.RSTRING_PTR.exit17
   %28 = phi i64 [ %.pre, %match_target.exit.thread24 ], [ %20, %match_target.exit ]
   %.sroa.2.0.copyload.i19 = phi ptr [ %.sroa.2.0.copyload.i.i, %match_target.exit.thread24 ], [ %.sroa.2.0.copyload.i6.i, %match_target.exit ]
   %.0.i26 = phi ptr [ %.sroa.2.0.copyload.i.i, %match_target.exit.thread24 ], [ %21, %match_target.exit ]
-  %29 = getelementptr inbounds i8, ptr %10, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i19, i64 %30
   %32 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i19, i64 %28
@@ -2897,7 +2897,7 @@ define internal noundef i32 @named_captures_iter(ptr noundef %0, ptr noundef %1,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = load i64, ptr %5, align 8
-  %13 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 1
@@ -2909,7 +2909,7 @@ define internal noundef i32 @named_captures_iter(ptr noundef %0, ptr noundef %1,
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.012.lcssa = phi i64 [ 4, %6 ], [ %18, %.lr.ph ]
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = tail call i64 @rb_hash_aset(i64 noundef %20, i64 noundef %10, i64 noundef %.012.lcssa) #7
   ret i32 0

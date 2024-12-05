@@ -32,7 +32,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %err.i, label %err.thread.i
 
 err.thread.i:                                     ; preds = %if.end
-  %data.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %0 = load ptr, ptr %data.i, align 8
   store ptr %0, ptr %p.i, align 8
   %conv.i = zext nneg i32 %call.i to i64
@@ -80,7 +80,7 @@ entry:
   br i1 %cmp, label %err, label %err.thread
 
 err.thread:                                       ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %.pre, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %p, align 8
   %conv = zext nneg i32 %call to i64
@@ -117,11 +117,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @ERR_clear_error() #4
-  %data = getelementptr inbounds i8, ptr %call, i64 8
-  %slen = getelementptr inbounds i8, ptr %c, i64 32
-  %tag = getelementptr inbounds i8, ptr %c, i64 20
-  %xclass = getelementptr inbounds i8, ptr %c, i64 24
-  %inf = getelementptr inbounds i8, ptr %c, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %slen = getelementptr inbounds nuw i8, ptr %c, i64 32
+  %tag = getelementptr inbounds nuw i8, ptr %c, i64 20
+  %xclass = getelementptr inbounds nuw i8, ptr %c, i64 24
+  %inf = getelementptr inbounds nuw i8, ptr %c, i64 16
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.outer.backedge, %if.end
@@ -369,7 +369,7 @@ entry:
   br i1 %cmp, label %err, label %err.thread
 
 err.thread:                                       ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %.pre, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %0 = load ptr, ptr %data, align 8
   store ptr %0, ptr %p, align 8
   %conv = zext nneg i32 %call to i64
@@ -417,7 +417,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %err.i, label %err.thread.i
 
 err.thread.i:                                     ; preds = %if.end
-  %data.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %0 = load ptr, ptr %data.i, align 8
   store ptr %0, ptr %p.i, align 8
   %conv.i = zext nneg i32 %call.i to i64

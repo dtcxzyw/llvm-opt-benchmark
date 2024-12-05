@@ -295,7 +295,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %48 = load i32, ptr %3, align 8
   %49 = add i32 %48, %46
   store i32 %49, ptr %3, align 8
-  %50 = getelementptr inbounds i8, ptr %3, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 1, ptr %50, align 4
   %51 = call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %3, i32 noundef 0, ptr noundef null) #15
   br label %52
@@ -365,24 +365,24 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not48, label %83, label %106
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %6, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %84, align 8
   store i32 463606195, ptr %7, align 8
-  %85 = getelementptr inbounds i8, ptr %7, i64 4
-  %86 = getelementptr inbounds i8, ptr %7, i64 8
-  %87 = getelementptr inbounds i8, ptr %7, i64 16
-  %88 = getelementptr inbounds i8, ptr %7, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %85, align 4
   %89 = load ptr, ptr @data_parser, align 8
   store ptr %89, ptr %88, align 8
   %90 = load ptr, ptr @mime_type, align 8
   %91 = call ptr @data_parser_cli_meta(i32 noundef 2, ptr noundef nonnull %1, ptr noundef %90, ptr noundef %89) #15
   store ptr %91, ptr %6, align 8
-  %92 = getelementptr inbounds i8, ptr %6, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %93 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_error) #15
   store ptr %93, ptr %92, align 8
   store ptr %93, ptr %86, align 8
-  %94 = getelementptr inbounds i8, ptr %6, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %95 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #15
   store ptr %95, ptr %94, align 8
   store ptr %95, ptr %87, align 8
@@ -768,7 +768,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 24:                                               ; preds = %20
   %25 = add nsw i32 %0, -1
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = tail call i32 @sacctmgr_dump_cluster(i32 noundef %25, ptr noundef nonnull %26) #15
   br label %252
 
@@ -811,7 +811,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 46:                                               ; preds = %42
   %47 = add nsw i32 %0, -1
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @load_sacctmgr_cfg_file(i32 noundef %47, ptr noundef nonnull %48) #15
   br label %252
 
@@ -908,7 +908,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 99:                                               ; preds = %95, %91
   %100 = add nsw i32 %0, -1
-  %101 = getelementptr inbounds i8, ptr %1, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_add_it(i32 noundef %100, ptr noundef nonnull %101)
   br label %252
 
@@ -920,7 +920,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 106:                                              ; preds = %102
   %107 = add nsw i32 %0, -1
-  %108 = getelementptr inbounds i8, ptr %1, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_archive_it(i32 noundef %107, ptr noundef nonnull %108)
   br label %252
 
@@ -931,7 +931,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %1, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_clear_it(ptr noundef nonnull %114)
   br label %252
 
@@ -949,7 +949,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 123:                                              ; preds = %119, %115
   %124 = add nsw i32 %0, -1
-  %125 = getelementptr inbounds i8, ptr %1, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_show_it(i32 noundef %124, ptr noundef nonnull %125)
   br label %252
 
@@ -967,7 +967,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 132:                                              ; preds = %129, %126
   %133 = add nsw i32 %0, -1
-  %134 = getelementptr inbounds i8, ptr %1, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_modify_it(i32 noundef %133, ptr noundef nonnull %134)
   br label %252
 
@@ -985,7 +985,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 
 143:                                              ; preds = %139, %135
   %144 = add nsw i32 %0, -1
-  %145 = getelementptr inbounds i8, ptr %1, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call fastcc void @_delete_it(i32 noundef %144, ptr noundef nonnull %145)
   br label %252
 
@@ -1068,10 +1068,10 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   %184 = load ptr, ptr @stderr, align 8
   %185 = load ptr, ptr %1, align 8
   %186 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.49, ptr noundef %185) #19
-  %187 = getelementptr inbounds i8, ptr %1, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = tail call i64 @parse_time(ptr noundef %188, i32 noundef 1) #15
-  %190 = getelementptr inbounds i8, ptr %1, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %191 = load ptr, ptr %190, align 8
   %192 = tail call i64 @parse_time(ptr noundef %191, i32 noundef 1) #15
   br label %204
@@ -1081,14 +1081,14 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
   br i1 %.not134, label %.thread148, label %194
 
 194:                                              ; preds = %193
-  %195 = getelementptr inbounds i8, ptr %1, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %196 = load ptr, ptr %195, align 8
   %197 = tail call i64 @parse_time(ptr noundef %196, i32 noundef 1) #15
   %198 = icmp samesign ugt i32 %0, 2
   br i1 %198, label %199, label %.thread148
 
 199:                                              ; preds = %194
-  %200 = getelementptr inbounds i8, ptr %1, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %201 = load ptr, ptr %200, align 8
   %202 = tail call i64 @parse_time(ptr noundef %201, i32 noundef 1) #15
   %203 = icmp eq i32 %0, 4
@@ -1097,7 +1097,7 @@ define internal fastcc void @_process_command(i32 noundef %0, ptr noundef %1) un
 204:                                              ; preds = %.thread153, %199
   %205 = phi i64 [ %192, %.thread153 ], [ %202, %199 ]
   %206 = phi i64 [ %189, %.thread153 ], [ %197, %199 ]
-  %207 = getelementptr inbounds i8, ptr %1, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %208 = load ptr, ptr %207, align 8
   %209 = tail call i32 @atoi(ptr nocapture noundef %208) #21
   %210 = trunc i32 %209 to i16
@@ -1293,7 +1293,7 @@ define internal fastcc void @_add_it(i32 noundef range(i32 0, 2147483647) %0, pt
 
 27:                                               ; preds = %22, %13
   %28 = add nsw i32 %0, -1
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = tail call i32 @sacctmgr_add_account(i32 noundef %28, ptr noundef nonnull %29) #15
   br label %85
 
@@ -1307,7 +1307,7 @@ define internal fastcc void @_add_it(i32 noundef range(i32 0, 2147483647) %0, pt
 
 36:                                               ; preds = %31
   %37 = add nsw i32 %0, -1
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = tail call i32 @sacctmgr_add_cluster(i32 noundef %37, ptr noundef nonnull %38) #15
   br label %85
 
@@ -1319,7 +1319,7 @@ define internal fastcc void @_add_it(i32 noundef range(i32 0, 2147483647) %0, pt
 
 43:                                               ; preds = %40
   %44 = add nsw i32 %0, -1
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = tail call i32 @sacctmgr_add_coord(i32 noundef %44, ptr noundef nonnull %45) #15
   br label %85
 
@@ -1331,7 +1331,7 @@ define internal fastcc void @_add_it(i32 noundef range(i32 0, 2147483647) %0, pt
 
 50:                                               ; preds = %47
   %51 = add nsw i32 %0, -1
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = tail call i32 @sacctmgr_add_federation(i32 noundef %51, ptr noundef nonnull %52) #15
   br label %85
 
@@ -1343,7 +1343,7 @@ define internal fastcc void @_add_it(i32 noundef range(i32 0, 2147483647) %0, pt
 
 57:                                               ; preds = %54
   %58 = add nsw i32 %0, -1
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = tail call i32 @sacctmgr_add_qos(i32 noundef %58, ptr noundef nonnull %59) #15
   br label %85
 
@@ -1355,7 +1355,7 @@ define internal fastcc void @_add_it(i32 noundef range(i32 0, 2147483647) %0, pt
 
 64:                                               ; preds = %61
   %65 = add nsw i32 %0, -1
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = tail call i32 @sacctmgr_add_res(i32 noundef %65, ptr noundef nonnull %66) #15
   br label %85
 
@@ -1367,7 +1367,7 @@ define internal fastcc void @_add_it(i32 noundef range(i32 0, 2147483647) %0, pt
 
 71:                                               ; preds = %68
   %72 = add nsw i32 %0, -1
-  %73 = getelementptr inbounds i8, ptr %1, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = tail call i32 @sacctmgr_add_user(i32 noundef %72, ptr noundef nonnull %73) #15
   br label %85
 
@@ -1438,7 +1438,7 @@ define internal fastcc void @_archive_it(i32 noundef range(i32 0, 2147483647) %0
 
 23:                                               ; preds = %13
   %24 = add nsw i32 %0, -1
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = tail call i32 @sacctmgr_archive_dump(i32 noundef %24, ptr noundef nonnull %25) #15
   br label %41
 
@@ -1450,7 +1450,7 @@ define internal fastcc void @_archive_it(i32 noundef range(i32 0, 2147483647) %0
 
 31:                                               ; preds = %27
   %32 = add nsw i32 %0, -1
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = tail call i32 @sacctmgr_archive_load(i32 noundef %32, ptr noundef nonnull %33) #15
   br label %41
 
@@ -1567,7 +1567,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 22:                                               ; preds = %17, %._crit_edge
   %23 = add nsw i32 %0, -1
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = tail call i32 @sacctmgr_list_account(i32 noundef %23, ptr noundef nonnull %24) #15
   br label %167
 
@@ -1579,7 +1579,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 30:                                               ; preds = %26
   %31 = add nsw i32 %0, -1
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = tail call i32 @sacctmgr_list_assoc(i32 noundef %31, ptr noundef nonnull %32) #15
   br label %167
 
@@ -1591,7 +1591,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 38:                                               ; preds = %34
   %39 = add nsw i32 %0, -1
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = tail call i32 @sacctmgr_list_cluster(i32 noundef %39, ptr noundef nonnull %40) #15
   br label %167
 
@@ -1615,7 +1615,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 54:                                               ; preds = %48
   %55 = add nsw i32 %0, -1
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = tail call i32 @sacctmgr_list_event(i32 noundef %55, ptr noundef nonnull %56) #15
   br label %167
 
@@ -1627,7 +1627,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 62:                                               ; preds = %58
   %63 = add nsw i32 %0, -1
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = tail call i32 @sacctmgr_list_federation(i32 noundef %63, ptr noundef nonnull %64) #15
   br label %167
 
@@ -1639,7 +1639,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 70:                                               ; preds = %66
   %71 = add nsw i32 %0, -1
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = tail call i32 @sacctmgr_list_instance(i32 noundef %71, ptr noundef nonnull %72) #15
   br label %167
 
@@ -1651,7 +1651,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 78:                                               ; preds = %74
   %79 = add nsw i32 %0, -1
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = tail call i32 @sacctmgr_list_problem(i32 noundef %79, ptr noundef nonnull %80) #15
   br label %167
 
@@ -1675,7 +1675,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 91:                                               ; preds = %88, %85, %82
   %92 = add nsw i32 %0, -1
-  %93 = getelementptr inbounds i8, ptr %1, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %94 = tail call i32 @sacctmgr_list_runaway_jobs(i32 noundef %92, ptr noundef nonnull %93) #15
   br label %167
 
@@ -1687,7 +1687,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 99:                                               ; preds = %95
   %100 = add nsw i32 %0, -1
-  %101 = getelementptr inbounds i8, ptr %1, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %102 = tail call i32 @sacctmgr_list_qos(i32 noundef %100, ptr noundef nonnull %101) #15
   br label %167
 
@@ -1699,7 +1699,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 106:                                              ; preds = %103
   %107 = add nsw i32 %0, -1
-  %108 = getelementptr inbounds i8, ptr %1, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %109 = tail call i32 @sacctmgr_list_res(i32 noundef %107, ptr noundef nonnull %108) #15
   br label %167
 
@@ -1717,7 +1717,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 116:                                              ; preds = %113, %110
   %117 = add nsw i32 %0, -1
-  %118 = getelementptr inbounds i8, ptr %1, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %119 = tail call i32 @sacctmgr_list_reservation(i32 noundef %117, ptr noundef nonnull %118) #15
   br label %167
 
@@ -1729,7 +1729,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 123:                                              ; preds = %120
   %124 = add nsw i32 %0, -1
-  %125 = getelementptr inbounds i8, ptr %1, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %126 = tail call i32 @sacctmgr_list_stats(i32 noundef %124, ptr noundef nonnull %125) #15
   br label %167
 
@@ -1747,7 +1747,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 133:                                              ; preds = %130, %127
   %134 = add nsw i32 %0, -1
-  %135 = getelementptr inbounds i8, ptr %1, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %136 = tail call i32 @sacctmgr_list_txn(i32 noundef %134, ptr noundef nonnull %135) #15
   br label %167
 
@@ -1759,7 +1759,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 141:                                              ; preds = %137
   %142 = add nsw i32 %0, -1
-  %143 = getelementptr inbounds i8, ptr %1, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %144 = tail call i32 @sacctmgr_list_user(i32 noundef %142, ptr noundef nonnull %143) #15
   br label %167
 
@@ -1771,7 +1771,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 149:                                              ; preds = %145
   %150 = add nsw i32 %0, -1
-  %151 = getelementptr inbounds i8, ptr %1, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %152 = tail call i32 @sacctmgr_list_wckey(i32 noundef %150, ptr noundef nonnull %151) #15
   br label %167
 
@@ -1783,7 +1783,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 157:                                              ; preds = %153
   %158 = add nsw i32 %0, -1
-  %159 = getelementptr inbounds i8, ptr %1, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %160 = tail call i32 @sacctmgr_list_tres(i32 noundef %158, ptr noundef nonnull %159) #15
   br label %167
 
@@ -1858,7 +1858,7 @@ define internal fastcc void @_modify_it(i32 noundef range(i32 0, 2147483647) %0,
 
 28:                                               ; preds = %23, %13
   %29 = add nsw i32 %0, -1
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = tail call i32 @sacctmgr_modify_account(i32 noundef %29, ptr noundef nonnull %30) #15
   br label %88
 
@@ -1872,7 +1872,7 @@ define internal fastcc void @_modify_it(i32 noundef range(i32 0, 2147483647) %0,
 
 38:                                               ; preds = %32
   %39 = add nsw i32 %0, -1
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = tail call i32 @sacctmgr_modify_cluster(i32 noundef %39, ptr noundef nonnull %40) #15
   br label %88
 
@@ -1884,7 +1884,7 @@ define internal fastcc void @_modify_it(i32 noundef range(i32 0, 2147483647) %0,
 
 46:                                               ; preds = %42
   %47 = add nsw i32 %0, -1
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = tail call i32 @sacctmgr_modify_federation(i32 noundef %47, ptr noundef nonnull %48) #15
   br label %88
 
@@ -1896,7 +1896,7 @@ define internal fastcc void @_modify_it(i32 noundef range(i32 0, 2147483647) %0,
 
 54:                                               ; preds = %50
   %55 = add nsw i32 %0, -1
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = tail call i32 @sacctmgr_modify_job(i32 noundef %55, ptr noundef nonnull %56) #15
   br label %88
 
@@ -1908,7 +1908,7 @@ define internal fastcc void @_modify_it(i32 noundef range(i32 0, 2147483647) %0,
 
 62:                                               ; preds = %58
   %63 = add nsw i32 %0, -1
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = tail call i32 @sacctmgr_modify_qos(i32 noundef %63, ptr noundef nonnull %64) #15
   br label %88
 
@@ -1920,7 +1920,7 @@ define internal fastcc void @_modify_it(i32 noundef range(i32 0, 2147483647) %0,
 
 70:                                               ; preds = %66
   %71 = add nsw i32 %0, -1
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = tail call i32 @sacctmgr_modify_res(i32 noundef %71, ptr noundef nonnull %72) #15
   br label %88
 
@@ -1932,7 +1932,7 @@ define internal fastcc void @_modify_it(i32 noundef range(i32 0, 2147483647) %0,
 
 78:                                               ; preds = %74
   %79 = add nsw i32 %0, -1
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = tail call i32 @sacctmgr_modify_user(i32 noundef %79, ptr noundef nonnull %80) #15
   br label %88
 
@@ -2007,7 +2007,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 0, 2147483647) %0,
 
 28:                                               ; preds = %23, %13
   %29 = add nsw i32 %0, -1
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = tail call i32 @sacctmgr_delete_account(i32 noundef %29, ptr noundef nonnull %30) #15
   br label %92
 
@@ -2021,7 +2021,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 0, 2147483647) %0,
 
 38:                                               ; preds = %32
   %39 = add nsw i32 %0, -1
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = tail call i32 @sacctmgr_delete_cluster(i32 noundef %39, ptr noundef nonnull %40) #15
   br label %92
 
@@ -2033,7 +2033,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 0, 2147483647) %0,
 
 46:                                               ; preds = %42
   %47 = add nsw i32 %0, -1
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = tail call i32 @sacctmgr_delete_coord(i32 noundef %47, ptr noundef nonnull %48) #15
   br label %92
 
@@ -2045,7 +2045,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 0, 2147483647) %0,
 
 54:                                               ; preds = %50
   %55 = add nsw i32 %0, -1
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = tail call i32 @sacctmgr_delete_federation(i32 noundef %55, ptr noundef nonnull %56) #15
   br label %92
 
@@ -2057,7 +2057,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 0, 2147483647) %0,
 
 62:                                               ; preds = %58
   %63 = add nsw i32 %0, -1
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = tail call i32 @sacctmgr_delete_qos(i32 noundef %63, ptr noundef nonnull %64) #15
   br label %92
 
@@ -2069,7 +2069,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 0, 2147483647) %0,
 
 70:                                               ; preds = %66
   %71 = add nsw i32 %0, -1
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = tail call i32 @sacctmgr_delete_res(i32 noundef %71, ptr noundef nonnull %72) #15
   br label %92
 
@@ -2081,7 +2081,7 @@ define internal fastcc void @_delete_it(i32 noundef range(i32 0, 2147483647) %0,
 
 78:                                               ; preds = %74
   %79 = add nsw i32 %0, -1
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = tail call i32 @sacctmgr_delete_user(i32 noundef %79, ptr noundef nonnull %80) #15
   br label %92
 

@@ -8,30 +8,30 @@ define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef wr
   %6 = load float, ptr %3, align 4
   %7 = load float, ptr %2, align 4
   %8 = fsub float %6, %7
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load float, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load float, ptr %11, align 4
   %13 = fsub float %10, %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load float, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load float, ptr %16, align 4
   %18 = fsub float %15, %17
   %19 = load float, ptr %4, align 4
   %20 = fsub float %19, %7
-  %21 = getelementptr inbounds i8, ptr %4, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %22 = load float, ptr %21, align 4
   %23 = fsub float %22, %12
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load float, ptr %24, align 4
   %26 = fsub float %25, %17
   %27 = load float, ptr %1, align 4
   %28 = fsub float %27, %7
-  %29 = getelementptr inbounds i8, ptr %1, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %30 = load float, ptr %29, align 4
   %31 = fsub float %30, %12
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load float, ptr %32, align 4
   %34 = fsub float %33, %17
   %35 = fmul float %13, %31
@@ -48,7 +48,7 @@ define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef wr
 43:                                               ; preds = %5
   store float %7, ptr %0, align 4
   %44 = load float, ptr %11, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %44, ptr %45, align 4
   %46 = load float, ptr %16, align 4
   br label %151
@@ -71,7 +71,7 @@ define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef wr
 59:                                               ; preds = %47
   store float %6, ptr %0, align 4
   %60 = load float, ptr %9, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %60, ptr %61, align 4
   %62 = load float, ptr %14, align 4
   br label %151
@@ -94,7 +94,7 @@ define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef wr
   store float %73, ptr %0, align 4
   %74 = load float, ptr %11, align 4
   %75 = tail call float @llvm.fmuladd.f32(float %72, float %13, float %74)
-  %76 = getelementptr inbounds i8, ptr %0, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %75, ptr %76, align 4
   %77 = load float, ptr %16, align 4
   %78 = tail call float @llvm.fmuladd.f32(float %72, float %18, float %77)
@@ -118,7 +118,7 @@ define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef wr
 91:                                               ; preds = %79
   store float %19, ptr %0, align 4
   %92 = load float, ptr %21, align 4
-  %93 = getelementptr inbounds i8, ptr %0, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %92, ptr %93, align 4
   %94 = load float, ptr %24, align 4
   br label %151
@@ -141,7 +141,7 @@ define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef wr
   store float %105, ptr %0, align 4
   %106 = load float, ptr %11, align 4
   %107 = tail call float @llvm.fmuladd.f32(float %104, float %23, float %106)
-  %108 = getelementptr inbounds i8, ptr %0, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %107, ptr %108, align 4
   %109 = load float, ptr %16, align 4
   %110 = tail call float @llvm.fmuladd.f32(float %104, float %26, float %109)
@@ -174,7 +174,7 @@ define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef wr
   %128 = load float, ptr %21, align 4
   %129 = fsub float %128, %127
   %130 = tail call float @llvm.fmuladd.f32(float %124, float %129, float %127)
-  %131 = getelementptr inbounds i8, ptr %0, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %130, ptr %131, align 4
   %132 = load float, ptr %14, align 4
   %133 = load float, ptr %24, align 4
@@ -194,7 +194,7 @@ define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef wr
   %144 = load float, ptr %11, align 4
   %145 = tail call float @llvm.fmuladd.f32(float %13, float %140, float %144)
   %146 = tail call float @llvm.fmuladd.f32(float %23, float %141, float %145)
-  %147 = getelementptr inbounds i8, ptr %0, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %146, ptr %147, align 4
   %148 = load float, ptr %16, align 4
   %149 = tail call float @llvm.fmuladd.f32(float %18, float %140, float %148)
@@ -203,7 +203,7 @@ define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef wr
 
 151:                                              ; preds = %136, %122, %102, %91, %70, %59, %43
   %.sink = phi float [ %150, %136 ], [ %135, %122 ], [ %110, %102 ], [ %94, %91 ], [ %78, %70 ], [ %62, %59 ], [ %46, %43 ]
-  %152 = getelementptr inbounds i8, ptr %0, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %.sink, ptr %152, align 4
   ret void
 }
@@ -220,9 +220,9 @@ define noundef zeroext i1 @_Z24dtIntersectSegmentPoly2DPKfS0_S0_iRfS1_RiS2_(ptr 
   %9 = load float, ptr %1, align 4
   %10 = load float, ptr %0, align 4
   %11 = fsub float %9, %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load float, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load float, ptr %14, align 4
   %16 = fsub float %13, %15
   %17 = icmp slt i32 %3, 1
@@ -236,17 +236,17 @@ define noundef zeroext i1 @_Z24dtIntersectSegmentPoly2DPKfS0_S0_iRfS1_RiS2_(ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
   %.03948 = phi i32 [ %18, %.lr.ph.preheader ], [ %63, %62 ]
-  %.idx = mul i64 %indvars.iv, 12
-  %19 = getelementptr inbounds i8, ptr %2, i64 %.idx
+  %.idx = mul nuw i64 %indvars.iv, 12
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   %20 = mul nsw i32 %.03948, 3
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds float, ptr %2, i64 %21
   %23 = load float, ptr %19, align 4
   %24 = load float, ptr %22, align 4
   %25 = fsub float %23, %24
-  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %27 = load float, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %29 = load float, ptr %28, align 4
   %30 = fsub float %27, %29
   %31 = load float, ptr %0, align 4
@@ -317,14 +317,14 @@ define noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr nocapture noundef 
   %5 = load float, ptr %2, align 4
   %6 = load float, ptr %1, align 4
   %7 = fsub float %5, %6
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load float, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load float, ptr %10, align 4
   %12 = fsub float %9, %11
   %13 = load float, ptr %0, align 4
   %14 = fsub float %13, %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load float, ptr %15, align 4
   %17 = fsub float %16, %11
   %18 = fmul float %12, %12
@@ -365,9 +365,9 @@ define noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr nocapture noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_Z16dtCalcPolyCenterPfPKtiPKf(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
   store float 0.000000e+00, ptr %0, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 0.000000e+00, ptr %6, align 4
   %7 = icmp sgt i32 %2, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -381,19 +381,19 @@ define void @_Z16dtCalcPolyCenterPfPKtiPKf(ptr nocapture noundef writeonly initi
   %9 = phi float [ 0.000000e+00, %.lr.ph ], [ %23, %8 ]
   %10 = phi float [ 0.000000e+00, %.lr.ph ], [ %20, %8 ]
   %11 = phi float [ 0.000000e+00, %.lr.ph ], [ %17, %8 ]
-  %12 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
   %.idx = mul nuw nsw i64 %14, 12
-  %15 = getelementptr inbounds i8, ptr %3, i64 %.idx
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   %16 = load float, ptr %15, align 4
   %17 = fadd float %16, %11
   store float %17, ptr %0, align 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %19 = load float, ptr %18, align 4
   %20 = fadd float %19, %10
   store float %20, ptr %5, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %22 = load float, ptr %21, align 4
   %23 = fadd float %22, %9
   store float %23, ptr %6, align 4
@@ -421,22 +421,22 @@ define noundef zeroext i1 @_Z28dtClosestHeightPointTrianglePKfS0_S0_S0_Rf(ptr no
   %6 = load float, ptr %3, align 4
   %7 = load float, ptr %1, align 4
   %8 = fsub float %6, %7
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %10 = load float, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load float, ptr %11, align 4
   %13 = fsub float %10, %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load float, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load float, ptr %16, align 4
   %18 = fsub float %15, %17
   %19 = load float, ptr %2, align 4
   %20 = fsub float %19, %7
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %22 = load float, ptr %21, align 4
   %23 = fsub float %22, %12
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load float, ptr %24, align 4
   %26 = fsub float %25, %17
   %27 = fneg float %20
@@ -447,7 +447,7 @@ define noundef zeroext i1 @_Z28dtClosestHeightPointTrianglePKfS0_S0_S0_Rf(ptr no
   br i1 %31, label %57, label %32
 
 32:                                               ; preds = %5
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load float, ptr %33, align 4
   %35 = fsub float %34, %17
   %36 = load float, ptr %0, align 4
@@ -493,7 +493,7 @@ define noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %3
   %5 = add nsw i32 %2, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load float, ptr %6, align 4
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %8
@@ -502,15 +502,15 @@ define noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr nocapture noundef rea
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.02124 = phi i32 [ %5, %.lr.ph ], [ %33, %32 ]
   %.02223 = phi i1 [ false, %.lr.ph ], [ %.1, %32 ]
-  %.idx = mul i64 %indvars.iv, 12
-  %9 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %.idx = mul nuw i64 %indvars.iv, 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %10 = mul nsw i32 %.02124, 3
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds float, ptr %1, i64 %11
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load float, ptr %13, align 4
   %15 = fcmp ogt float %14, %7
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load float, ptr %16, align 4
   %18 = fcmp ule float %17, %7
   %.not = xor i1 %15, %18
@@ -552,7 +552,7 @@ define noundef zeroext i1 @_Z24dtDistancePtPolyEdgesSqrPKfS0_iPfS1_(ptr nocaptur
 
 .lr.ph:                                           ; preds = %5
   %7 = add nsw i32 %2, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %9
 
@@ -560,16 +560,16 @@ define noundef zeroext i1 @_Z24dtDistancePtPolyEdgesSqrPKfS0_iPfS1_(ptr nocaptur
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit ]
   %.02831 = phi i32 [ %7, %.lr.ph ], [ %59, %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit ]
   %.02930 = phi i1 [ false, %.lr.ph ], [ %.1, %_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf.exit ]
-  %.idx = mul i64 %indvars.iv, 12
-  %10 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %.idx = mul nuw i64 %indvars.iv, 12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %11 = mul nsw i32 %.02831, 3
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %1, i64 %12
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load float, ptr %14, align 4
   %16 = load float, ptr %8, align 4
   %17 = fcmp ogt float %15, %16
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load float, ptr %18, align 4
   %20 = fcmp ule float %19, %16
   %.not = xor i1 %17, %20
@@ -652,12 +652,12 @@ define noundef zeroext i1 @_Z19dtOverlapPolyPoly2DPKfiS0_i(ptr nocapture noundef
 
 .lr.ph:                                           ; preds = %4
   %7 = load float, ptr %0, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load float, ptr %8, align 4
   %.not = icmp eq i32 %1, 1
   %wide.trip.count.i = zext nneg i32 %1 to i64
   %10 = load float, ptr %2, align 4
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load float, ptr %11, align 4
   %13 = icmp sgt i32 %3, 1
   %wide.trip.count.i46 = zext nneg i32 %3 to i64
@@ -669,11 +669,11 @@ define noundef zeroext i1 @_Z19dtOverlapPolyPoly2DPKfiS0_i(ptr nocapture noundef
   %14 = mul nsw i32 %.035111.us, 3
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds float, ptr %0, i64 %15
-  %.idx = mul i64 %indvars.iv, 12
-  %17 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %.idx = mul nuw i64 %indvars.iv, 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %21 = load float, ptr %20, align 4
   %22 = fsub float %19, %21
   %23 = load float, ptr %17, align 4
@@ -694,10 +694,10 @@ define noundef zeroext i1 @_Z19dtOverlapPolyPoly2DPKfiS0_i(ptr nocapture noundef
   %.097.us = phi float [ %28, %.lr.ph.preheader.i.us ], [ %40, %.lr.ph.i.us ]
   %.095.us = phi float [ %28, %.lr.ph.preheader.i.us ], [ %38, %.lr.ph.i.us ]
   %indvars.iv.i.us = phi i64 [ 1, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %.lr.ph.i.us ]
-  %.idx.i.us = mul i64 %indvars.iv.i.us, 12
-  %31 = getelementptr inbounds i8, ptr %0, i64 %.idx.i.us
+  %.idx.i.us = mul nuw i64 %indvars.iv.i.us, 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i.us
   %32 = load float, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load float, ptr %33, align 4
   %35 = fmul float %34, %26
   %36 = tail call noundef float @llvm.fmuladd.f32(float %22, float %32, float %35)
@@ -714,9 +714,9 @@ define noundef zeroext i1 @_Z19dtOverlapPolyPoly2DPKfiS0_i(ptr nocapture noundef
   %.099.us = phi float [ %48, %.lr.ph.i47.us ], [ %56, %_ZL11projectPolyPKfS0_iRfS1_.exit.loopexit.us ]
   %indvars.iv.i48.us = phi i64 [ %indvars.iv.next.i50.us, %.lr.ph.i47.us ], [ 1, %_ZL11projectPolyPKfS0_iRfS1_.exit.loopexit.us ]
   %.idx.i49.us = mul nuw nsw i64 %indvars.iv.i48.us, 12
-  %41 = getelementptr inbounds i8, ptr %2, i64 %.idx.i49.us
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i49.us
   %42 = load float, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load float, ptr %43, align 4
   %45 = fmul float %44, %26
   %46 = tail call noundef float @llvm.fmuladd.f32(float %22, float %42, float %45)
@@ -746,8 +746,8 @@ _ZL11projectPolyPKfS0_iRfS1_.exit.loopexit.us:    ; preds = %.lr.ph.i.us
 .lr.ph.split:                                     ; preds = %.lr.ph
   %57 = mul nuw nsw i32 %5, 3
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds float, ptr %0, i64 %58
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %59 = getelementptr inbounds nuw float, ptr %0, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load float, ptr %60, align 4
   %62 = fsub float %9, %61
   %63 = load float, ptr %59, align 4
@@ -766,9 +766,9 @@ _ZL11projectPolyPKfS0_iRfS1_.exit.us113:          ; preds = %.lr.ph.split
   %.099.us119 = phi float [ %68, %_ZL11projectPolyPKfS0_iRfS1_.exit.us113 ], [ %76, %.lr.ph.i47.us117 ]
   %indvars.iv.i48.us120 = phi i64 [ 1, %_ZL11projectPolyPKfS0_iRfS1_.exit.us113 ], [ %indvars.iv.next.i50.us122, %.lr.ph.i47.us117 ]
   %.idx.i49.us121 = mul nuw nsw i64 %indvars.iv.i48.us120, 12
-  %69 = getelementptr inbounds i8, ptr %2, i64 %.idx.i49.us121
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i49.us121
   %70 = load float, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load float, ptr %71, align 4
   %73 = fmul float %72, %65
   %74 = tail call noundef float @llvm.fmuladd.f32(float %62, float %70, float %73)
@@ -807,12 +807,12 @@ _ZL11projectPolyPKfS0_iRfS1_.exit:                ; preds = %.lr.ph.split
 .lr.ph134:                                        ; preds = %._crit_edge
   %92 = add nsw i32 %3, -1
   %93 = load float, ptr %0, align 4
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %95 = load float, ptr %94, align 4
   %96 = icmp sgt i32 %1, 1
   %wide.trip.count.i54 = zext nneg i32 %1 to i64
   %97 = load float, ptr %2, align 4
-  %98 = getelementptr inbounds i8, ptr %2, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %99 = load float, ptr %98, align 4
   %.not136 = icmp eq i32 %3, 1
   %wide.trip.count.i62 = zext nneg i32 %3 to i64
@@ -824,11 +824,11 @@ _ZL11projectPolyPKfS0_iRfS1_.exit:                ; preds = %.lr.ph.split
   %101 = mul nsw i32 %.033132, 3
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds float, ptr %2, i64 %102
-  %.idx163 = mul i64 %indvars.iv158, 12
-  %104 = getelementptr inbounds i8, ptr %2, i64 %.idx163
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %.idx163 = mul nuw i64 %indvars.iv158, 12
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx163
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load float, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %103, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %108 = load float, ptr %107, align 4
   %109 = fsub float %106, %108
   %110 = load float, ptr %104, align 4
@@ -844,9 +844,9 @@ _ZL11projectPolyPKfS0_iRfS1_.exit:                ; preds = %.lr.ph.split
   %.091 = phi float [ %125, %.lr.ph.i55 ], [ %115, %100 ]
   %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i58, %.lr.ph.i55 ], [ 1, %100 ]
   %.idx.i57 = mul nuw nsw i64 %indvars.iv.i56, 12
-  %116 = getelementptr inbounds i8, ptr %0, i64 %.idx.i57
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i57
   %117 = load float, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %116, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %119 = load float, ptr %118, align 4
   %120 = fmul float %119, %113
   %121 = tail call noundef float @llvm.fmuladd.f32(float %109, float %117, float %120)
@@ -869,10 +869,10 @@ _ZL11projectPolyPKfS0_iRfS1_.exit60:              ; preds = %.lr.ph.i55, %100
   %.089 = phi float [ %135, %.lr.ph.i63 ], [ %127, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ]
   %.088 = phi float [ %137, %.lr.ph.i63 ], [ %127, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ]
   %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i66, %.lr.ph.i63 ], [ 1, %_ZL11projectPolyPKfS0_iRfS1_.exit60 ]
-  %.idx.i65 = mul i64 %indvars.iv.i64, 12
-  %128 = getelementptr inbounds i8, ptr %2, i64 %.idx.i65
+  %.idx.i65 = mul nuw i64 %indvars.iv.i64, 12
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i65
   %129 = load float, ptr %128, align 4
-  %130 = getelementptr inbounds i8, ptr %128, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %131 = load float, ptr %130, align 4
   %132 = fmul float %131, %113
   %133 = tail call noundef float @llvm.fmuladd.f32(float %109, float %129, float %132)
@@ -913,7 +913,7 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr nocapture noundef read
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %10
 
@@ -926,23 +926,23 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr nocapture noundef read
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds float, ptr %0, i64 %14
   %16 = zext nneg i32 %12 to i64
-  %17 = getelementptr inbounds float, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw float, ptr %0, i64 %16
   %18 = load float, ptr %15, align 4
   %19 = load float, ptr %0, align 4
   %20 = fsub float %18, %19
-  %21 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %22 = load float, ptr %21, align 4
   %23 = load float, ptr %9, align 4
   %24 = fsub float %22, %23
   %25 = load float, ptr %17, align 4
   %26 = fsub float %25, %19
-  %27 = getelementptr inbounds i8, ptr %17, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %28 = load float, ptr %27, align 4
   %29 = fsub float %28, %23
   %30 = fneg float %29
   %31 = fmul float %20, %30
   %32 = tail call noundef float @llvm.fmuladd.f32(float %26, float %24, float %31)
-  %33 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   store float %32, ptr %33, align 4
   %34 = fcmp olt float %32, 0x3F50624DE0000000
   %35 = select i1 %34, float 0x3F50624DE0000000, float %32
@@ -960,7 +960,7 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr nocapture noundef read
 .lr.ph78:                                         ; preds = %._crit_edge, %48
   %indvars.iv84 = phi i64 [ 2, %._crit_edge ], [ %indvars.iv.next85, %48 ]
   %.06476 = phi float [ 0.000000e+00, %._crit_edge ], [ %42, %48 ]
-  %39 = getelementptr inbounds float, ptr %2, i64 %indvars.iv84
+  %39 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv84
   %40 = load float, ptr %39, align 4
   %41 = fcmp oge float %37, %.06476
   %42 = fadd float %.06476, %40
@@ -1000,27 +1000,27 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr nocapture noundef read
   %64 = load float, ptr %59, align 4
   %65 = tail call float @llvm.fmuladd.f32(float %53, float %64, float %63)
   store float %65, ptr %5, align 4
-  %66 = getelementptr inbounds i8, ptr %0, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %67 = load float, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %57, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %69 = load float, ptr %68, align 4
   %70 = fmul float %52, %69
   %71 = tail call float @llvm.fmuladd.f32(float %50, float %67, float %70)
-  %72 = getelementptr inbounds i8, ptr %59, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %73 = load float, ptr %72, align 4
   %74 = tail call float @llvm.fmuladd.f32(float %53, float %73, float %71)
-  %75 = getelementptr inbounds i8, ptr %5, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %74, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load float, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %57, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %79 = load float, ptr %78, align 4
   %80 = fmul float %52, %79
   %81 = tail call float @llvm.fmuladd.f32(float %50, float %77, float %80)
-  %82 = getelementptr inbounds i8, ptr %59, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %83 = load float, ptr %82, align 4
   %84 = tail call float @llvm.fmuladd.f32(float %53, float %83, float %81)
-  %85 = getelementptr inbounds i8, ptr %5, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %84, ptr %85, align 4
   ret void
 }
@@ -1030,17 +1030,17 @@ define noundef zeroext i1 @_Z19dtIntersectSegSeg2DPKfS0_S0_S0_RfS1_(ptr nocaptur
   %7 = load float, ptr %1, align 4
   %8 = load float, ptr %0, align 4
   %9 = fsub float %7, %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load float, ptr %12, align 4
   %14 = fsub float %11, %13
   %15 = load float, ptr %3, align 4
   %16 = load float, ptr %2, align 4
   %17 = fsub float %15, %16
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load float, ptr %20, align 4
   %22 = fsub float %19, %21
   %23 = fneg float %17

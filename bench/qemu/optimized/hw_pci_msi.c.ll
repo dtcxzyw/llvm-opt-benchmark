@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @msi_set_message(ptr nocapture noundef readonly %dev, i64 %msg.coerce0, i32 %msg.coerce1) local_unnamed_addr #0 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %1 = getelementptr i8, ptr %dev, i64 2160
   %dev.val = load i8, ptr %1, align 16
@@ -63,7 +63,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local { i64, i32 } @msi_get_message(ptr noundef %dev, i32 noundef %vector) local_unnamed_addr #1 {
 entry:
-  %msi_prepare_message = getelementptr inbounds i8, ptr %dev, i64 1304
+  %msi_prepare_message = getelementptr inbounds nuw i8, ptr %dev, i64 1304
   %0 = load ptr, ptr %msi_prepare_message, align 8
   %call = tail call { i64, i32 } %0(ptr noundef %dev, i32 noundef %vector) #7
   ret { i64, i32 } %call
@@ -79,7 +79,7 @@ entry:
   br i1 %tobool.i.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %2 = getelementptr i8, ptr %dev, i64 2160
   %dev.val = load i8, ptr %2, align 16
@@ -151,19 +151,19 @@ if.end11:                                         ; preds = %if.end7
 
 if.end29:                                         ; preds = %if.end11
   %conv30 = trunc i32 %call25 to i8
-  %msi_cap = getelementptr inbounds i8, ptr %dev, i64 2160
+  %msi_cap = getelementptr inbounds nuw i8, ptr %dev, i64 2160
   store i8 %conv30, ptr %msi_cap, align 16
-  %cap_present = getelementptr inbounds i8, ptr %dev, i64 1260
+  %cap_present = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %6 = load i32, ptr %cap_present, align 4
   %or31 = or i32 %6, 1
   store i32 %or31, ptr %cap_present, align 4
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %7 = load ptr, ptr %config, align 8
   %add.i = add i8 %conv30, 2
   %idx.ext = zext i8 %add.i to i64
   %add.ptr = getelementptr i8, ptr %7, i64 %idx.ext
   store i16 %flags.1, ptr %add.ptr, align 1
-  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
+  %wmask = getelementptr inbounds nuw i8, ptr %dev, i64 184
   %8 = load ptr, ptr %wmask, align 8
   %dev.val = load i8, ptr %msi_cap, align 16
   %add.i36 = add i8 %dev.val, 2
@@ -210,7 +210,7 @@ if.then58:                                        ; preds = %if.end50
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then58, %if.end50
-  %msi_prepare_message = getelementptr inbounds i8, ptr %dev, i64 1304
+  %msi_prepare_message = getelementptr inbounds nuw i8, ptr %dev, i64 1304
   store ptr @msi_prepare_message, ptr %msi_prepare_message, align 8
   br label %return
 
@@ -229,7 +229,7 @@ declare i32 @pci_add_capability(ptr noundef, i8 noundef zeroext, i8 noundef zero
 ; Function Attrs: nounwind sspstrong uwtable
 define internal { i64, i32 } @msi_prepare_message(ptr nocapture noundef readonly %dev, i32 noundef %vector) #1 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %1 = getelementptr i8, ptr %dev, i64 2160
   %dev.val = load i8, ptr %1, align 16
@@ -293,7 +293,7 @@ entry:
   br i1 %tobool.i.not, label %do.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %2 = getelementptr i8, ptr %dev, i64 2160
   %dev.val = load i8, ptr %2, align 16
@@ -310,7 +310,7 @@ if.end:                                           ; preds = %entry
   %5 = load i32, ptr %0, align 4
   %and = and i32 %5, -2
   store i32 %and, ptr %0, align 4
-  %msi_prepare_message = getelementptr inbounds i8, ptr %dev, i64 1304
+  %msi_prepare_message = getelementptr inbounds nuw i8, ptr %dev, i64 1304
   store ptr null, ptr %msi_prepare_message, align 8
   br label %do.end
 
@@ -330,7 +330,7 @@ entry:
   br i1 %tobool.i.not, label %do.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %1 = load ptr, ptr %config, align 8
   %2 = getelementptr i8, ptr %dev, i64 2160
   %dev.val21 = load i8, ptr %2, align 16
@@ -396,7 +396,7 @@ do.end:                                           ; preds = %if.then34, %if.end2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @msi_is_masked(ptr nocapture noundef readonly %dev, i32 noundef %vector) local_unnamed_addr #1 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %1 = getelementptr i8, ptr %dev, i64 2160
   %dev.val = load i8, ptr %1, align 16
@@ -461,7 +461,7 @@ if.then:                                          ; preds = %entry
   br label %if.end41
 
 if.end:                                           ; preds = %entry
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %1 = getelementptr i8, ptr %dev, i64 2160
   %dev.val = load i8, ptr %1, align 16
@@ -507,7 +507,7 @@ if.end41:                                         ; preds = %if.then32, %if.end,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msi_notify(ptr noundef %dev, i32 noundef %vector) local_unnamed_addr #1 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %1 = getelementptr i8, ptr %dev, i64 2160
   %dev.val = load i8, ptr %1, align 16
@@ -577,12 +577,12 @@ if.end12:                                         ; preds = %msi_is_masked.exit
   br label %return
 
 if.end20:                                         ; preds = %if.end8.i, %if.end.i, %msi_is_masked.exit
-  %msi_prepare_message.i = getelementptr inbounds i8, ptr %dev, i64 1304
+  %msi_prepare_message.i = getelementptr inbounds nuw i8, ptr %dev, i64 1304
   %5 = load ptr, ptr %msi_prepare_message.i, align 8
   %call.i = tail call { i64, i32 } %5(ptr noundef nonnull %dev, i32 noundef %vector) #7
   %6 = extractvalue { i64, i32 } %call.i, 0
   %7 = extractvalue { i64, i32 } %call.i, 1
-  %msi_trigger.i = getelementptr inbounds i8, ptr %dev, i64 1296
+  %msi_trigger.i = getelementptr inbounds nuw i8, ptr %dev, i64 1296
   %8 = load ptr, ptr %msi_trigger.i, align 16
   tail call void %8(ptr noundef nonnull %dev, i64 %6, i32 %7) #7
   br label %return
@@ -594,7 +594,7 @@ return:                                           ; preds = %if.end20, %if.end12
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msi_send_message(ptr noundef %dev, i64 %msg.coerce0, i32 %msg.coerce1) local_unnamed_addr #1 {
 entry:
-  %msi_trigger = getelementptr inbounds i8, ptr %dev, i64 1296
+  %msi_trigger = getelementptr inbounds nuw i8, ptr %dev, i64 1296
   %0 = load ptr, ptr %msi_trigger, align 16
   tail call void %0(ptr noundef %dev, i64 %msg.coerce0, i32 %msg.coerce1) #7
   ret void
@@ -603,7 +603,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @msi_write_config(ptr noundef %dev, i32 noundef %addr, i32 noundef %val, i32 noundef %len) local_unnamed_addr #1 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %1 = getelementptr i8, ptr %dev, i64 2160
   %dev.val44 = load i8, ptr %1, align 16
@@ -629,7 +629,7 @@ lor.lhs.false:                                    ; preds = %entry
   %3 = lshr i16 %add.ptr.val, 7
   %4 = and i16 %3, 3
   %5 = zext nneg i16 %4 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.msi_write_config, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.msi_write_config, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %add.i.i = add nsw i64 %conv8, -1
   %sub.i.i = add nsw i64 %add.i.i, %conv9
@@ -878,7 +878,7 @@ declare void @pci_device_deassert_intx(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 1, 129) i32 @msi_nr_vectors_allocated(ptr nocapture noundef readonly %dev) local_unnamed_addr #2 {
 entry:
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %1 = getelementptr i8, ptr %dev, i64 2160
   %dev.val = load i8, ptr %1, align 16

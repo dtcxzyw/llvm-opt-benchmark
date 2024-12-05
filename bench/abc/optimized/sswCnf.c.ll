@@ -7,44 +7,44 @@ target triple = "x86_64-pc-linux-gnu"
 define noalias noundef ptr @Ssw_SatStart(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %calloc = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
-  %3 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   store i32 %0, ptr %3, align 8
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #6
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 10000, ptr %4, align 8
   %calloc.i = tail call dereferenceable_or_null(40000) ptr @calloc(i64 1, i64 40000)
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %calloc.i, ptr %6, align 8
   store i32 10000, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %calloc, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store ptr %4, ptr %7, align 8
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #6
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %9, align 4
   store i32 100, ptr %8, align 8
   %10 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #6
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %calloc, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   store ptr %8, ptr %12, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #6
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %14, align 4
   store i32 100, ptr %13, align 8
   %15 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #6
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %calloc, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
   store ptr %13, ptr %17, align 8
   %18 = tail call ptr @sat_solver_new() #7
-  %19 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   store ptr %18, ptr %19, align 8
   tail call void @sat_solver_setnvars(ptr noundef %18, i32 noundef 1000) #7
-  %20 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   %.not = icmp eq i32 %0, 0
   %spec.store.select = select i1 %.not, i32 2, i32 3
   store i32 %spec.store.select, ptr %2, align 4
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %22 = call i32 @sat_solver_addclause(ptr noundef %18, ptr noundef nonnull %2, ptr noundef nonnull %21) #7
   store i32 2, ptr %20, align 8
   %.val = load ptr, ptr %6, align 8
@@ -63,7 +63,7 @@ declare i32 @sat_solver_addclause(ptr noundef, ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define void @Ssw_SatStop(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -73,9 +73,9 @@ define void @Ssw_SatStop(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %10
@@ -86,9 +86,9 @@ define void @Ssw_SatStop(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 Vec_IntFree.exit:                                 ; preds = %5, %10
   tail call void @free(ptr noundef nonnull %7) #7
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i9 = icmp eq ptr %14, null
   br i1 %.not.i9, label %Vec_PtrFree.exit, label %15
@@ -99,9 +99,9 @@ Vec_IntFree.exit:                                 ; preds = %5, %10
 
 Vec_PtrFree.exit:                                 ; preds = %Vec_IntFree.exit, %15
   tail call void @free(ptr noundef nonnull %12) #7
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i10 = icmp eq ptr %19, null
   br i1 %.not.i10, label %21, label %20
@@ -190,18 +190,18 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   %50 = shl nsw i32 %29, 1
   %51 = or disjoint i32 %43, %50
   %52 = xor i32 %51, 1
-  %53 = getelementptr inbounds i8, ptr %5, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %52, ptr %53, align 4
   %54 = shl nsw i32 %13, 1
-  %55 = getelementptr inbounds i8, ptr %5, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load i32, ptr %56, align 8
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %76, label %58
 
 58:                                               ; preds = %2
-  %59 = getelementptr inbounds i8, ptr %6, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = and i64 %60, 8
   %.not57 = icmp eq i64 %61, 0
@@ -214,7 +214,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
 63:                                               ; preds = %62, %58
   %64 = and i64 %41, -2
   %65 = inttoptr i64 %64 to ptr
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load i64, ptr %66, align 8
   %68 = and i64 %67, 8
   %.not58 = icmp eq i64 %68, 0
@@ -225,7 +225,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %70
 
 70:                                               ; preds = %69, %63
-  %71 = getelementptr inbounds i8, ptr %1, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %72 = load i64, ptr %71, align 8
   %73 = and i64 %72, 8
   %.not59 = icmp eq i64 %73, 0
@@ -237,9 +237,9 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %76
 
 76:                                               ; preds = %70, %74, %2
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %5, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %80 = call i32 @sat_solver_addclause(ptr noundef %78, ptr noundef nonnull %5, ptr noundef nonnull %79) #7
   store i32 %49, ptr %5, align 16
   store i32 %51, ptr %53, align 4
@@ -250,7 +250,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not60, label %102, label %83
 
 83:                                               ; preds = %76
-  %84 = getelementptr inbounds i8, ptr %6, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %85 = load i64, ptr %84, align 8
   %86 = and i64 %85, 8
   %.not61 = icmp eq i64 %86, 0
@@ -265,7 +265,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   %90 = ptrtoint ptr %89 to i64
   %91 = and i64 %90, -2
   %92 = inttoptr i64 %91 to ptr
-  %93 = getelementptr inbounds i8, ptr %92, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, 8
   %.not62 = icmp eq i64 %95, 0
@@ -276,7 +276,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %97
 
 97:                                               ; preds = %96, %88
-  %98 = getelementptr inbounds i8, ptr %1, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %99 = load i64, ptr %98, align 8
   %100 = and i64 %99, 8
   %.not63 = icmp eq i64 %100, 0
@@ -300,7 +300,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not64, label %128, label %109
 
 109:                                              ; preds = %102
-  %110 = getelementptr inbounds i8, ptr %6, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %111 = load i64, ptr %110, align 8
   %112 = and i64 %111, 8
   %.not65 = icmp eq i64 %112, 0
@@ -315,7 +315,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   %116 = ptrtoint ptr %115 to i64
   %117 = and i64 %116, -2
   %118 = inttoptr i64 %117 to ptr
-  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load i64, ptr %119, align 8
   %121 = and i64 %120, 8
   %.not66 = icmp eq i64 %121, 0
@@ -326,7 +326,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %123
 
 123:                                              ; preds = %122, %114
-  %124 = getelementptr inbounds i8, ptr %1, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %125 = load i64, ptr %124, align 8
   %126 = and i64 %125, 8
   %.not67 = icmp eq i64 %126, 0
@@ -347,7 +347,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %.not68, label %151, label %132
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %6, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %134 = load i64, ptr %133, align 8
   %135 = and i64 %134, 8
   %.not69 = icmp eq i64 %135, 0
@@ -362,7 +362,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   %139 = ptrtoint ptr %138 to i64
   %140 = and i64 %139, -2
   %141 = inttoptr i64 %140 to ptr
-  %142 = getelementptr inbounds i8, ptr %141, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
   %143 = load i64, ptr %142, align 8
   %144 = and i64 %143, 8
   %.not70 = icmp eq i64 %144, 0
@@ -373,7 +373,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %146
 
 146:                                              ; preds = %145, %137
-  %147 = getelementptr inbounds i8, ptr %1, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %148 = load i64, ptr %147, align 8
   %149 = and i64 %148, 8
   %.not71 = icmp eq i64 %149, 0
@@ -402,7 +402,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   %159 = ptrtoint ptr %158 to i64
   %160 = and i64 %159, -2
   %161 = inttoptr i64 %160 to ptr
-  %162 = getelementptr inbounds i8, ptr %161, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 24
   %163 = load i64, ptr %162, align 8
   %164 = and i64 %163, 8
   %.not73 = icmp eq i64 %164, 0
@@ -417,7 +417,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   %168 = ptrtoint ptr %167 to i64
   %169 = and i64 %168, -2
   %170 = inttoptr i64 %169 to ptr
-  %171 = getelementptr inbounds i8, ptr %170, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
   %172 = load i64, ptr %171, align 8
   %173 = and i64 %172, 8
   %.not74 = icmp eq i64 %173, 0
@@ -428,7 +428,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %175
 
 175:                                              ; preds = %174, %166
-  %176 = getelementptr inbounds i8, ptr %1, i64 24
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %177 = load i64, ptr %176, align 8
   %178 = and i64 %177, 8
   %.not75 = icmp eq i64 %178, 0
@@ -453,7 +453,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   %186 = ptrtoint ptr %185 to i64
   %187 = and i64 %186, -2
   %188 = inttoptr i64 %187 to ptr
-  %189 = getelementptr inbounds i8, ptr %188, i64 24
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
   %190 = load i64, ptr %189, align 8
   %191 = and i64 %190, 8
   %.not77 = icmp eq i64 %191, 0
@@ -468,7 +468,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   %195 = ptrtoint ptr %194 to i64
   %196 = and i64 %195, -2
   %197 = inttoptr i64 %196 to ptr
-  %198 = getelementptr inbounds i8, ptr %197, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %199 = load i64, ptr %198, align 8
   %200 = and i64 %199, 8
   %.not78 = icmp eq i64 %200, 0
@@ -479,7 +479,7 @@ define void @Ssw_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %202
 
 202:                                              ; preds = %201, %193
-  %203 = getelementptr inbounds i8, ptr %1, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %204 = load i64, ptr %203, align 8
   %205 = and i64 %204, 8
   %.not79 = icmp eq i64 %205, 0
@@ -515,11 +515,11 @@ define void @Ssw_AddClausesSuper(ptr nocapture noundef readonly %0, ptr nocaptur
   %10 = getelementptr i8, ptr %2, i64 8
   %11 = getelementptr i8, ptr %0, i64 32
   %12 = getelementptr i8, ptr %1, i64 36
-  %13 = getelementptr inbounds i8, ptr %8, i64 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %22
 
 .critedge.preheader:                              ; preds = %57
@@ -529,13 +529,13 @@ define void @Ssw_AddClausesSuper(ptr nocapture noundef readonly %0, ptr nocaptur
 .lr.ph85:                                         ; preds = %.critedge.preheader
   %19 = getelementptr i8, ptr %2, i64 8
   %20 = getelementptr i8, ptr %0, i64 32
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %62
 
 22:                                               ; preds = %.lr.ph, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.val76 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds ptr, ptr %.val76, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %.val76, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, -2
@@ -572,7 +572,7 @@ define void @Ssw_AddClausesSuper(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not63, label %57, label %46
 
 46:                                               ; preds = %22
-  %47 = getelementptr inbounds i8, ptr %27, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, 8
   %.not64 = icmp eq i64 %49, 0
@@ -606,7 +606,7 @@ define void @Ssw_AddClausesSuper(ptr nocapture noundef readonly %0, ptr nocaptur
 62:                                               ; preds = %.lr.ph85, %.critedge
   %indvars.iv87 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next88, %.critedge ]
   %.val77 = load ptr, ptr %19, align 8
-  %63 = getelementptr inbounds ptr, ptr %.val77, i64 %indvars.iv87
+  %63 = getelementptr inbounds nuw ptr, ptr %.val77, i64 %indvars.iv87
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = and i64 %65, -2
@@ -626,14 +626,14 @@ define void @Ssw_AddClausesSuper(ptr nocapture noundef readonly %0, ptr nocaptur
   %76 = shl nsw i32 %73, 1
   %77 = or disjoint i32 %76, %75
   %78 = xor i32 %77, 1
-  %79 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv87
+  %79 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv87
   store i32 %78, ptr %79, align 4
   %80 = load i32, ptr %21, align 8
   %.not61 = icmp eq i32 %80, 0
   br i1 %.not61, label %.critedge, label %81
 
 81:                                               ; preds = %62
-  %82 = getelementptr inbounds i8, ptr %67, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %83 = load i64, ptr %82, align 8
   %84 = and i64 %83, 8
   %.not62 = icmp eq i64 %84, 0
@@ -666,13 +666,13 @@ define void @Ssw_AddClausesSuper(ptr nocapture noundef readonly %0, ptr nocaptur
   %96 = sext i32 %.val73 to i64
   %97 = getelementptr inbounds i32, ptr %8, i64 %96
   store i32 %95, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %99 = load i32, ptr %98, align 8
   %.not = icmp eq i32 %99, 0
   br i1 %.not, label %106, label %100
 
 100:                                              ; preds = %.critedge2
-  %101 = getelementptr inbounds i8, ptr %1, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %102 = load i64, ptr %101, align 8
   %103 = and i64 %102, 8
   %.not58 = icmp eq i64 %103, 0
@@ -684,7 +684,7 @@ define void @Ssw_AddClausesSuper(ptr nocapture noundef readonly %0, ptr nocaptur
   br label %106
 
 106:                                              ; preds = %100, %104, %.critedge2
-  %107 = getelementptr inbounds i8, ptr %0, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds i32, ptr %8, i64 %6
   %110 = tail call i32 @sat_solver_addclause(ptr noundef %108, ptr noundef nonnull %8, ptr noundef %109) #7
@@ -775,13 +775,13 @@ declare i32 @Aig_ObjIsMuxType(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %9
@@ -793,7 +793,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.loopexit, label %8
@@ -804,7 +804,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
   br i1 %14, label %15, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %._crit_edge
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -813,7 +813,7 @@ define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr nou
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not9.i.i = icmp eq ptr %19, null
   br i1 %.not9.i.i, label %22, label %20
@@ -834,7 +834,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %22, %20
 
 25:                                               ; preds = %15
   %26 = shl nuw nsw i32 %4, 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not9.i10.i = icmp eq ptr %28, null
   %29 = zext nneg i32 %26 to i64
@@ -871,7 +871,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 ; Function Attrs: nounwind uwtable
 define void @Ssw_CollectSuper(ptr noundef %0, i32 noundef %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   tail call void @Ssw_CollectSuper_rec(ptr noundef %0, ptr noundef %2, i32 noundef 1, i32 noundef %1)
   ret void
@@ -903,16 +903,16 @@ define void @Ssw_ObjAddToFrontier(ptr nocapture noundef %0, ptr noundef %1, ptr 
   ]
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr %16, align 8
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %14
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %16, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -921,7 +921,7 @@ define void @Ssw_ObjAddToFrontier(ptr nocapture noundef %0, ptr noundef %1, ptr 
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %16, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not9.i.i = icmp eq ptr %25, null
   br i1 %.not9.i.i, label %28, label %26
@@ -942,7 +942,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %28, %26
 
 31:                                               ; preds = %21
   %32 = shl nuw nsw i32 %18, 1
-  %33 = getelementptr inbounds i8, ptr %16, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not9.i10.i = icmp eq ptr %34, null
   %35 = zext nneg i32 %32 to i64
@@ -974,7 +974,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %48
 
 48:                                               ; preds = %11, %Vec_PtrPush.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %49, align 8
@@ -987,7 +987,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %54 = sext i32 %.val21 to i64
   %55 = getelementptr inbounds i32, ptr %.val.i.i23, i64 %54
   store i32 %50, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = load i32, ptr %49, align 8
   %.fr = freeze i32 %58
@@ -1003,14 +1003,14 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %narrow.i, label %97, label %65
 
 65:                                               ; preds = %48
-  %66 = getelementptr inbounds i8, ptr %2, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %2, align 8
   %69 = icmp eq i32 %67, %68
   br i1 %69, label %70, label %.Vec_PtrGrow.exit11_crit_edge.i24
 
 .Vec_PtrGrow.exit11_crit_edge.i24:                ; preds = %65
-  %.phi.trans.insert.i25 = getelementptr inbounds i8, ptr %2, i64 8
+  %.phi.trans.insert.i25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i26 = load ptr, ptr %.phi.trans.insert.i25, align 8
   br label %Vec_PtrPush.exit30
 
@@ -1019,7 +1019,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %71, label %72, label %80
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %2, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not9.i.i28 = icmp eq ptr %74, null
   br i1 %.not9.i.i28, label %77, label %75
@@ -1040,7 +1040,7 @@ Vec_PtrGrow.exit.i29:                             ; preds = %77, %75
 
 80:                                               ; preds = %70
   %81 = shl nuw nsw i32 %67, 1
-  %82 = getelementptr inbounds i8, ptr %2, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %83 = load ptr, ptr %82, align 8
   %.not9.i10.i27 = icmp eq ptr %83, null
   %84 = zext nneg i32 %81 to i64
@@ -1093,11 +1093,11 @@ define void @Ssw_CnfNodeAddToSolver(ptr nocapture noundef %0, ptr noundef %1) lo
 
 10:                                               ; preds = %2
   %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #6
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4
   store i32 100, ptr %11, align 8
   %13 = tail call noalias dereferenceable_or_null(800) ptr @malloc(i64 noundef 800) #6
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8
   tail call void @Ssw_ObjAddToFrontier(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %11)
   %.val5471 = load i32, ptr %12, align 4
@@ -1105,18 +1105,18 @@ define void @Ssw_CnfNodeAddToSolver(ptr nocapture noundef %0, ptr noundef %1) lo
   br i1 %15, label %.lr.ph73, label %.critedge
 
 .lr.ph73:                                         ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %17
 
 17:                                               ; preds = %.lr.ph73, %87
   %indvars.iv79 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next80, %87 ]
   %.val57 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds ptr, ptr %.val57, i64 %indvars.iv79
+  %18 = getelementptr inbounds nuw ptr, ptr %.val57, i64 %indvars.iv79
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @Aig_ObjIsMuxType(ptr noundef %19) #7
   %.not50 = icmp eq i32 %20, 0
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 0, ptr %22, align 4
   br i1 %.not50, label %72, label %23
 
@@ -1178,7 +1178,7 @@ define void @Ssw_CnfNodeAddToSolver(ptr nocapture noundef %0, ptr noundef %1) lo
   %61 = phi ptr [ %68, %.lr.ph ], [ %58, %23 ]
   %62 = getelementptr i8, ptr %61, i64 8
   %.val56 = load ptr, ptr %62, align 8
-  %63 = getelementptr inbounds ptr, ptr %.val56, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw ptr, ptr %.val56, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = and i64 %65, -2
@@ -1209,7 +1209,7 @@ define void @Ssw_CnfNodeAddToSolver(ptr nocapture noundef %0, ptr noundef %1) lo
   %76 = phi ptr [ %83, %.lr.ph70 ], [ %73, %72 ]
   %77 = getelementptr i8, ptr %76, i64 8
   %.val55 = load ptr, ptr %77, align 8
-  %78 = getelementptr inbounds ptr, ptr %.val55, i64 %indvars.iv76
+  %78 = getelementptr inbounds nuw ptr, ptr %.val55, i64 %indvars.iv76
   %79 = load ptr, ptr %78, align 8
   %80 = ptrtoint ptr %79 to i64
   %81 = and i64 %80, -2
@@ -1269,12 +1269,12 @@ define range(i32 0, 2) i32 @Ssw_CnfGetNodeValue(ptr noundef %0, ptr nocapture no
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 328
   %.val21 = load ptr, ptr %14, align 8
   %15 = zext nneg i32 %9 to i64
-  %16 = getelementptr inbounds i32, ptr %.val21, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %.val21, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 1
   %19 = zext i1 %18 to i32
@@ -1319,7 +1319,7 @@ common.ret24:                                     ; preds = %20, %11, %23
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
   br i1 %.not, label %5, label %40
@@ -1335,7 +1335,7 @@ define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noun
   br i1 %.not.i, label %10, label %Vec_IntGrow.exit
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not9.i = icmp eq ptr %12, null
   %13 = sext i32 %1 to i64
@@ -1359,7 +1359,7 @@ define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noun
   br i1 %.not.i, label %22, label %Vec_IntGrow.exit
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not9.i21 = icmp eq ptr %24, null
   %25 = sext i32 %7 to i64
@@ -1390,7 +1390,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Vec_IntGrow.exit
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = sext i32 %33 to i64
   %wide.trip.count = sext i32 %1 to i64
   br label %37

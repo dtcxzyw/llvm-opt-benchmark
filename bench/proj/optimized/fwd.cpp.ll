@@ -18,23 +18,23 @@ define { double, double } @_Z6pj_fwd5PJ_LPP8PJconsts(double %0, double %1, ptr n
   %7 = alloca %union.PJ_COORD, align 8
   %8 = alloca %union.PJ_COORD, align 8
   %9 = alloca %union.PJ_COORD, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 16, i1 false)
   store double %0, ptr %4, align 8
-  %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %1, ptr %.sroa.222.0..sroa_idx, align 8
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   store i32 0, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 364
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 364
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, 0
-  %.sink.sroa.gep = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink.sroa.gep43 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sink.sroa.gep44 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sink.sroa.gep45 = getelementptr inbounds i8, ptr %9, i64 8
-  %.sink.sroa.gep46 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink.sroa.gep43 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink.sroa.gep44 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink.sroa.gep45 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink.sroa.gep46 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %.not, label %16, label %17
 
 16:                                               ; preds = %3
@@ -56,7 +56,7 @@ define { double, double } @_Z6pj_fwd5PJ_LPP8PJconsts(double %0, double %1, ptr n
   br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %2, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %25 = load ptr, ptr %24, align 8
   %.not37 = icmp eq ptr %25, null
   br i1 %.not37, label %30, label %26
@@ -70,7 +70,7 @@ define { double, double } @_Z6pj_fwd5PJ_LPP8PJconsts(double %0, double %1, ptr n
   br label %40
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %2, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %32 = load ptr, ptr %31, align 8
   %.not38 = icmp eq ptr %32, null
   br i1 %.not38, label %34, label %33
@@ -81,7 +81,7 @@ define { double, double } @_Z6pj_fwd5PJ_LPP8PJconsts(double %0, double %1, ptr n
   br label %thread-pre-split
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %2, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %36 = load ptr, ptr %35, align 8
   %.not39 = icmp eq ptr %36, null
   br i1 %.not39, label %38, label %37
@@ -109,7 +109,7 @@ thread-pre-split:                                 ; preds = %37, %33
   br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %2, i64 368
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 368
   %46 = load i32, ptr %45, align 8
   %.not40 = icmp eq i32 %46, 0
   br i1 %.not40, label %47, label %48
@@ -120,7 +120,7 @@ thread-pre-split:                                 ; preds = %37, %33
 
 48:                                               ; preds = %47, %44
   %.val = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %.val, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %50 = load i32, ptr %49, align 8, !noalias !4
   %.not.i = icmp eq i32 %50, 0
   br i1 %.not.i, label %52, label %51
@@ -167,10 +167,10 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load double, ptr %16, align 8
   %18 = fcmp oeq double %17, 0x7FF0000000000000
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load double, ptr %19, align 8
   %21 = fcmp oeq double %20, 0x7FF0000000000000
   %or.cond = select i1 %18, i1 true, i1 %21
@@ -182,13 +182,13 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br label %102
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load double, ptr %24, align 8
   %26 = fcmp oeq double %25, 0x7FF0000000000000
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 416
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %31, label %30
@@ -198,7 +198,7 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br label %31
 
 31:                                               ; preds = %30, %27, %23
-  %32 = getelementptr inbounds i8, ptr %0, i64 380
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 380
   %33 = load i32, ptr %32, align 4
   switch i32 %33, label %102 [
     i32 4, label %34
@@ -246,7 +246,7 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br label %50
 
 50:                                               ; preds = %.sink.split, %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 348
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %52 = load i32, ptr %51, align 4
   %.not75 = icmp eq i32 %52, 0
   br i1 %.not75, label %54, label %53
@@ -257,7 +257,7 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br label %54
 
 54:                                               ; preds = %53, %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 344
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %61
@@ -269,7 +269,7 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br label %61
 
 61:                                               ; preds = %58, %54
-  %62 = getelementptr inbounds i8, ptr %0, i64 424
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %63 = load ptr, ptr %62, align 8
   %.not76 = icmp eq ptr %63, null
   br i1 %.not76, label %65, label %64
@@ -279,10 +279,10 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br label %.sink.split86
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %0, i64 416
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %67 = load ptr, ptr %66, align 8
   %.not77 = icmp eq ptr %67, null
-  %68 = getelementptr inbounds i8, ptr %0, i64 408
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %69 = load ptr, ptr %68, align 8
   br i1 %.not77, label %70, label %._crit_edge
 
@@ -291,7 +291,7 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br i1 %.not78, label %79, label %71
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 400
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %73 = load ptr, ptr %72, align 8
   %.not79 = icmp eq ptr %73, null
   br i1 %.not79, label %79, label %._crit_edge
@@ -309,7 +309,7 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br label %76
 
 76:                                               ; preds = %75, %._crit_edge
-  %77 = getelementptr inbounds i8, ptr %0, i64 400
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %78 = load ptr, ptr %77, align 8
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %10, ptr noundef %78, i32 noundef -1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %1)
   br label %.sink.split86
@@ -325,7 +325,7 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br i1 %81, label %102, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %0, i64 432
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %84 = load ptr, ptr %83, align 8
   %.not81 = icmp eq ptr %84, null
   br i1 %.not81, label %86, label %85
@@ -338,10 +338,10 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
 
 86:                                               ; preds = %85, %82
   %87 = phi double [ %.pre85, %85 ], [ %80, %82 ]
-  %88 = getelementptr inbounds i8, ptr %0, i64 616
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %89 = load double, ptr %88, align 8
   %90 = fsub double %87, %89
-  %91 = getelementptr inbounds i8, ptr %0, i64 440
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %92 = load double, ptr %91, align 8
   %93 = fsub double %90, %92
   store double %93, ptr %1, align 8
@@ -355,7 +355,7 @@ define internal fastcc void @_ZL11fwd_prepareP8PJconstsR8PJ_COORD(ptr noundef %0
   br label %102
 
 98:                                               ; preds = %31
-  %99 = getelementptr inbounds i8, ptr %0, i64 416
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %100 = load ptr, ptr %99, align 8
   %.not74 = icmp eq ptr %100, null
   br i1 %.not74, label %102, label %101
@@ -377,7 +377,7 @@ declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #3
 define internal fastcc void @_ZL12fwd_finalizeP8PJconstsR8PJ_COORD(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = alloca %union.PJ_COORD, align 8
   %4 = alloca %union.PJ_COORD, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 384
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %78 [
     i32 3, label %7
@@ -388,49 +388,49 @@ define internal fastcc void @_ZL12fwd_finalizeP8PJconstsR8PJ_COORD(ptr nocapture
 
 ._crit_edge:                                      ; preds = %2
   %.pre = load double, ptr %1, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre44 = load double, ptr %.phi.trans.insert, align 8
   br label %35
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 356
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %9 = load i32, ptr %8, align 4
   %.not42 = icmp eq i32 %9, 0
   br i1 %.not42, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 400
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %12 = load ptr, ptr %11, align 8
   call void @proj_trans(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %3, ptr noundef %12, i32 noundef 1, ptr noundef nonnull byval(%union.PJ_COORD) align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   br label %13
 
 13:                                               ; preds = %10, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 504
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %15 = load double, ptr %14, align 8
   %16 = load double, ptr %1, align 8
   %17 = fmul double %15, %16
   store double %17, ptr %1, align 8
   %18 = load double, ptr %14, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load double, ptr %19, align 8
   %21 = fmul double %18, %20
   store double %21, ptr %19, align 8
   %22 = load double, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load double, ptr %23, align 8
   %25 = fmul double %22, %24
   store double %25, ptr %23, align 8
   br label %78
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 168
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %28 = load double, ptr %27, align 8
   %29 = load double, ptr %1, align 8
   %30 = fmul double %28, %29
   store double %30, ptr %1, align 8
   %31 = load double, ptr %27, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load double, ptr %32, align 8
   %34 = fmul double %31, %33
   store double %34, ptr %32, align 8
@@ -439,25 +439,25 @@ define internal fastcc void @_ZL12fwd_finalizeP8PJconstsR8PJ_COORD(ptr nocapture
 35:                                               ; preds = %._crit_edge, %26
   %36 = phi double [ %.pre44, %._crit_edge ], [ %34, %26 ]
   %37 = phi double [ %.pre, %._crit_edge ], [ %30, %26 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 504
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 456
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %41 = load double, ptr %40, align 8
   %42 = fadd double %37, %41
   %43 = fmul double %39, %42
   store double %43, ptr %1, align 8
   %44 = load double, ptr %38, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 464
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %47 = load double, ptr %46, align 8
   %48 = fadd double %36, %47
   %49 = fmul double %44, %48
   store double %49, ptr %45, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 520
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load double, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 472
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %55 = load double, ptr %54, align 8
   %56 = fadd double %53, %55
   %57 = fmul double %51, %56
@@ -465,16 +465,16 @@ define internal fastcc void @_ZL12fwd_finalizeP8PJconstsR8PJ_COORD(ptr nocapture
   br label %78
 
 58:                                               ; preds = %2
-  %59 = getelementptr inbounds i8, ptr %0, i64 520
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %60 = load double, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %62 = load double, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 472
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %64 = load double, ptr %63, align 8
   %65 = fadd double %62, %64
   %66 = fmul double %60, %65
   store double %66, ptr %61, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 632
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %68 = load i32, ptr %67, align 8
   %.not = icmp eq i32 %68, 0
   br i1 %.not, label %78, label %69
@@ -485,7 +485,7 @@ define internal fastcc void @_ZL12fwd_finalizeP8PJconstsR8PJ_COORD(ptr nocapture
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %0, i64 624
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %74 = load double, ptr %73, align 8
   %75 = fsub double %70, %74
   %76 = tail call noundef double @_Z6adjlond(double noundef %75)
@@ -494,7 +494,7 @@ define internal fastcc void @_ZL12fwd_finalizeP8PJconstsR8PJ_COORD(ptr nocapture
   br label %78
 
 78:                                               ; preds = %58, %72, %69, %35, %13, %2
-  %79 = getelementptr inbounds i8, ptr %0, i64 392
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %80 = load ptr, ptr %79, align 8
   %.not43 = icmp eq ptr %80, null
   br i1 %.not43, label %82, label %81
@@ -516,14 +516,14 @@ define hidden void @_Z8pj_fwd3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias noca
   %7 = alloca %union.PJ_COORD, align 8
   %8 = alloca %union.PJ_COORD, align 8
   %9 = alloca %union.PJ_COORD, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 8
   store i32 0, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 364
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 364
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %17
@@ -542,7 +542,7 @@ define hidden void @_Z8pj_fwd3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias noca
   br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %2, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %23 = load ptr, ptr %22, align 8
   %.not22 = icmp eq ptr %23, null
   br i1 %.not22, label %25, label %24
@@ -553,7 +553,7 @@ define hidden void @_Z8pj_fwd3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias noca
   br label %thread-pre-split
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %2, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %27 = load ptr, ptr %26, align 8
   %.not23 = icmp eq ptr %27, null
   br i1 %.not23, label %29, label %28
@@ -563,13 +563,13 @@ define hidden void @_Z8pj_fwd3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias noca
   br label %thread-pre-split
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %2, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %31 = load ptr, ptr %30, align 8
   %.not24 = icmp eq ptr %31, null
   br i1 %.not24, label %36, label %32
 
 32:                                               ; preds = %29
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %33 = tail call { double, double } %31(double %18, double %.sroa.2.0.copyload, ptr noundef nonnull %2)
   %34 = extractvalue { double, double } %33, 0
@@ -597,7 +597,7 @@ thread-pre-split:                                 ; preds = %24, %28
   br label %_ZL14error_or_coordP8PJconsts8PJ_COORDi.exit
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %2, i64 368
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 368
   %44 = load i32, ptr %43, align 8
   %.not25 = icmp eq i32 %44, 0
   br i1 %.not25, label %45, label %46
@@ -608,7 +608,7 @@ thread-pre-split:                                 ; preds = %24, %28
 
 46:                                               ; preds = %45, %42
   %.val = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds i8, ptr %.val, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %48 = load i32, ptr %47, align 8, !noalias !7
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %50, label %49
@@ -636,10 +636,10 @@ define hidden noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef no
   %6 = alloca %union.PJ_COORD, align 8
   %7 = alloca %union.PJ_COORD, align 8
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 0, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 364
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 364
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %14
@@ -659,7 +659,7 @@ define hidden noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef no
   br label %49
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %1, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %20 = load ptr, ptr %19, align 8
   %.not38 = icmp eq ptr %20, null
   br i1 %.not38, label %22, label %21
@@ -669,7 +669,7 @@ define hidden noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef no
   br label %thread-pre-split
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %24 = load ptr, ptr %23, align 8
   %.not39 = icmp eq ptr %24, null
   br i1 %.not39, label %26, label %25
@@ -680,13 +680,13 @@ define hidden noundef zeroext i1 @_Z8pj_fwd4dR8PJ_COORDP8PJconsts(ptr noundef no
   br label %thread-pre-split
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %28 = load ptr, ptr %27, align 8
   %.not40 = icmp eq ptr %28, null
   br i1 %.not40, label %33, label %29
 
 29:                                               ; preds = %26
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
   %30 = tail call { double, double } %28(double %15, double %.sroa.2.0.copyload, ptr noundef nonnull %1)
   %31 = extractvalue { double, double } %30, 0
@@ -716,7 +716,7 @@ thread-pre-split:                                 ; preds = %21, %25
   br label %49
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %1, i64 368
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %41 = load i32, ptr %40, align 8
   %.not41 = icmp eq i32 %41, 0
   br i1 %.not41, label %42, label %43
@@ -727,7 +727,7 @@ thread-pre-split:                                 ; preds = %21, %25
 
 43:                                               ; preds = %42, %39
   %44 = load ptr, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i32, ptr %45, align 8
   %.not42 = icmp eq i32 %46, 0
   br i1 %.not42, label %48, label %47

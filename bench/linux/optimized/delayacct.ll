@@ -161,7 +161,7 @@ define internal noundef i32 @kernel_delayacct_sysctls_init() #3 section ".init.t
 define dso_local void @__delayacct_tsk_init(ptr nocapture noundef writeonly initializes((2544, 2552)) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr @delayacct_cache, align 8
   %3 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %2, i32 noundef 3520) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 2544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   store ptr %3, ptr %4, align 16
   %5 = icmp eq ptr %3, null
   br i1 %5, label %7, label %6
@@ -182,9 +182,9 @@ define dso_local void @__delayacct_blkio_start() local_unnamed_addr #1 align 16 
   %1 = tail call i64 @local_clock() #6
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 2544
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2544
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %1, ptr %6, align 8
   ret void
 }
@@ -194,9 +194,9 @@ declare dso_local i64 @local_clock() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__delayacct_blkio_end(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2544
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %3 = load ptr, ptr %2, align 16
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = tail call i64 @local_clock() #6
   %6 = load i64, ptr %4, align 8
   %7 = sub i64 %5, %6
@@ -204,8 +204,8 @@ define dso_local void @__delayacct_blkio_end(ptr nocapture noundef readonly %0) 
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #6
   %13 = load i64, ptr %11, align 8
   %14 = add i64 %13, %7
@@ -222,11 +222,11 @@ define dso_local void @__delayacct_blkio_end(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @delayacct_add_tsk(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 1536
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1536
   %4 = load i64, ptr %3, align 64
-  %5 = getelementptr inbounds i8, ptr %1, i64 1544
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1544
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %6, %4
   %10 = add i64 %9, %8
@@ -235,158 +235,158 @@ define dso_local noundef i32 @delayacct_add_tsk(ptr nocapture noundef %0, ptr no
   store i64 %12, ptr %7, align 8
   %13 = load i64, ptr %3, align 64
   %14 = load i64, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 304
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %14, %13
   %18 = add i64 %17, %16
   %19 = icmp slt i64 %18, %16
   %20 = select i1 %19, i64 0, i64 %18
   store i64 %20, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 1080
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1080
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 1088
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1088
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 216
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %22
   store i64 %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, %24
   %33 = icmp slt i64 %32, %31
   %34 = select i1 %33, i64 0, i64 %32
   store i64 %34, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, %26
   %38 = icmp slt i64 %37, %36
   %39 = select i1 %38, i64 0, i64 %37
   store i64 %39, ptr %35, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 2544
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 2544
   %41 = load ptr, ptr %40, align 16
   %42 = icmp eq ptr %41, null
   br i1 %42, label %151, label %43
 
 43:                                               ; preds = %2
   %44 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %41) #6
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load i64, ptr %45, align 8
   %47 = load ptr, ptr %40, align 16
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, %46
   %51 = icmp ult i64 %50, %46
   %52 = select i1 %51, i64 0, i64 %50
   store i64 %52, ptr %45, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %54 = load i64, ptr %53, align 8
   %55 = load ptr, ptr %40, align 16
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, %54
   %59 = icmp ult i64 %58, %54
   %60 = select i1 %59, i64 0, i64 %58
   store i64 %60, ptr %53, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 320
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %62 = load i64, ptr %61, align 8
   %63 = load ptr, ptr %40, align 16
-  %64 = getelementptr inbounds i8, ptr %63, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, %62
   %67 = icmp ult i64 %66, %62
   %68 = select i1 %67, i64 0, i64 %66
   store i64 %68, ptr %61, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 336
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %70 = load i64, ptr %69, align 8
   %71 = load ptr, ptr %40, align 16
-  %72 = getelementptr inbounds i8, ptr %71, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 72
   %73 = load i64, ptr %72, align 8
   %74 = add i64 %73, %70
   %75 = icmp ult i64 %74, %70
   %76 = select i1 %75, i64 0, i64 %74
   store i64 %76, ptr %69, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 360
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %78 = load i64, ptr %77, align 8
   %79 = load ptr, ptr %40, align 16
-  %80 = getelementptr inbounds i8, ptr %79, i64 88
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 88
   %81 = load i64, ptr %80, align 8
   %82 = add i64 %81, %78
   %83 = icmp ult i64 %82, %78
   %84 = select i1 %83, i64 0, i64 %82
   store i64 %84, ptr %77, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 408
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %86 = load i64, ptr %85, align 8
   %87 = load ptr, ptr %40, align 16
-  %88 = getelementptr inbounds i8, ptr %87, i64 104
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 104
   %89 = load i64, ptr %88, align 8
   %90 = add i64 %89, %86
   %91 = icmp ult i64 %90, %86
   %92 = select i1 %91, i64 0, i64 %90
   store i64 %92, ptr %85, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 424
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %94 = load i64, ptr %93, align 8
   %95 = load ptr, ptr %40, align 16
-  %96 = getelementptr inbounds i8, ptr %95, i64 112
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 112
   %97 = load i64, ptr %96, align 8
   %98 = add i64 %97, %94
   %99 = icmp ult i64 %98, %94
   %100 = select i1 %99, i64 0, i64 %98
   store i64 %100, ptr %93, align 8
   %101 = load ptr, ptr %40, align 16
-  %102 = getelementptr inbounds i8, ptr %101, i64 40
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
   %103 = load i32, ptr %102, align 8
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr %0, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %106 = load i64, ptr %105, align 8
   %107 = add i64 %106, %104
   store i64 %107, ptr %105, align 8
   %108 = load ptr, ptr %40, align 16
-  %109 = getelementptr inbounds i8, ptr %108, i64 44
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 44
   %110 = load i32, ptr %109, align 4
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds i8, ptr %0, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %113 = load i64, ptr %112, align 8
   %114 = add i64 %113, %111
   store i64 %114, ptr %112, align 8
   %115 = load ptr, ptr %40, align 16
-  %116 = getelementptr inbounds i8, ptr %115, i64 120
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 120
   %117 = load i32, ptr %116, align 8
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds i8, ptr %0, i64 312
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %120 = load i64, ptr %119, align 8
   %121 = add i64 %120, %118
   store i64 %121, ptr %119, align 8
   %122 = load ptr, ptr %40, align 16
-  %123 = getelementptr inbounds i8, ptr %122, i64 124
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 124
   %124 = load i32, ptr %123, align 4
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds i8, ptr %0, i64 328
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %127 = load i64, ptr %126, align 8
   %128 = add i64 %127, %125
   store i64 %128, ptr %126, align 8
   %129 = load ptr, ptr %40, align 16
-  %130 = getelementptr inbounds i8, ptr %129, i64 128
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 128
   %131 = load i32, ptr %130, align 8
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds i8, ptr %0, i64 352
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %134 = load i64, ptr %133, align 8
   %135 = add i64 %134, %132
   store i64 %135, ptr %133, align 8
   %136 = load ptr, ptr %40, align 16
-  %137 = getelementptr inbounds i8, ptr %136, i64 132
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 132
   %138 = load i32, ptr %137, align 4
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds i8, ptr %0, i64 400
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %141 = load i64, ptr %140, align 8
   %142 = add i64 %141, %139
   store i64 %142, ptr %140, align 8
   %143 = load ptr, ptr %40, align 16
-  %144 = getelementptr inbounds i8, ptr %143, i64 136
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 136
   %145 = load i32, ptr %144, align 8
   %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds i8, ptr %0, i64 416
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %148 = load i64, ptr %147, align 8
   %149 = add i64 %148, %146
   store i64 %149, ptr %147, align 8
@@ -412,11 +412,11 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @__delayacct_blkio_ticks(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2544
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %3 = load ptr, ptr %2, align 16
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #6
   %5 = load ptr, ptr %2, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = tail call i64 @nsec_to_clock_t(i64 noundef %7) #6
   %9 = load ptr, ptr %2, align 16
@@ -432,9 +432,9 @@ define dso_local void @__delayacct_freepages_start() local_unnamed_addr #1 align
   %1 = tail call i64 @local_clock() #6
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 2544
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2544
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %1, ptr %6, align 8
   ret void
 }
@@ -443,9 +443,9 @@ define dso_local void @__delayacct_freepages_start() local_unnamed_addr #1 align
 define dso_local void @__delayacct_freepages_end() local_unnamed_addr #1 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 2544
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2544
   %4 = load ptr, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = tail call i64 @local_clock() #6
   %7 = load i64, ptr %5, align 8
   %8 = sub i64 %6, %7
@@ -453,8 +453,8 @@ define dso_local void @__delayacct_freepages_end() local_unnamed_addr #1 align 1
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %0
-  %11 = getelementptr inbounds i8, ptr %4, i64 120
-  %12 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #6
   %14 = load i64, ptr %12, align 8
   %15 = add i64 %14, %8
@@ -473,7 +473,7 @@ define dso_local void @__delayacct_freepages_end() local_unnamed_addr #1 align 1
 define dso_local void @__delayacct_thrashing_start(ptr nocapture noundef writeonly initializes((0, 1)) %0) local_unnamed_addr #1 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 1248
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1248
   %5 = load i16, ptr %4, align 32
   %6 = and i16 %5, 1024
   %7 = icmp eq i16 %6, 0
@@ -487,9 +487,9 @@ define dso_local void @__delayacct_thrashing_start(ptr nocapture noundef writeon
   %12 = or i16 %11, 1024
   store i16 %12, ptr %4, align 32
   %13 = tail call i64 @local_clock() #6
-  %14 = getelementptr inbounds i8, ptr %3, i64 2544
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 2544
   %15 = load ptr, ptr %14, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store i64 %13, ptr %16, align 8
   br label %17
 
@@ -506,13 +506,13 @@ define dso_local void @__delayacct_thrashing_end(ptr nocapture noundef readonly 
 4:                                                ; preds = %1
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 1248
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1248
   %8 = load i16, ptr %7, align 32
   %9 = and i16 %8, -1025
   store i16 %9, ptr %7, align 32
-  %10 = getelementptr inbounds i8, ptr %6, i64 2544
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 2544
   %11 = load ptr, ptr %10, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = tail call i64 @local_clock() #6
   %14 = load i64, ptr %12, align 8
   %15 = sub i64 %13, %14
@@ -520,8 +520,8 @@ define dso_local void @__delayacct_thrashing_end(ptr nocapture noundef readonly 
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %11, i64 124
-  %19 = getelementptr inbounds i8, ptr %11, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 124
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %11) #6
   %21 = load i64, ptr %19, align 8
   %22 = add i64 %21, %15
@@ -541,9 +541,9 @@ define dso_local void @__delayacct_swapin_start() local_unnamed_addr #1 align 16
   %1 = tail call i64 @local_clock() #6
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 2544
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2544
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %1, ptr %6, align 8
   ret void
 }
@@ -552,9 +552,9 @@ define dso_local void @__delayacct_swapin_start() local_unnamed_addr #1 align 16
 define dso_local void @__delayacct_swapin_end() local_unnamed_addr #1 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 2544
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2544
   %4 = load ptr, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = tail call i64 @local_clock() #6
   %7 = load i64, ptr %5, align 8
   %8 = sub i64 %6, %7
@@ -562,8 +562,8 @@ define dso_local void @__delayacct_swapin_end() local_unnamed_addr #1 align 16 {
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %0
-  %11 = getelementptr inbounds i8, ptr %4, i64 44
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #6
   %14 = load i64, ptr %12, align 8
   %15 = add i64 %14, %8
@@ -583,9 +583,9 @@ define dso_local void @__delayacct_compact_start() local_unnamed_addr #1 align 1
   %1 = tail call i64 @local_clock() #6
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 2544
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2544
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i64 %1, ptr %6, align 8
   ret void
 }
@@ -594,9 +594,9 @@ define dso_local void @__delayacct_compact_start() local_unnamed_addr #1 align 1
 define dso_local void @__delayacct_compact_end() local_unnamed_addr #1 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 2544
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2544
   %4 = load ptr, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = tail call i64 @local_clock() #6
   %7 = load i64, ptr %5, align 8
   %8 = sub i64 %6, %7
@@ -604,8 +604,8 @@ define dso_local void @__delayacct_compact_end() local_unnamed_addr #1 align 16 
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %0
-  %11 = getelementptr inbounds i8, ptr %4, i64 128
-  %12 = getelementptr inbounds i8, ptr %4, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #6
   %14 = load i64, ptr %12, align 8
   %15 = add i64 %14, %8
@@ -625,9 +625,9 @@ define dso_local void @__delayacct_wpcopy_start() local_unnamed_addr #1 align 16
   %1 = tail call i64 @local_clock() #6
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 2544
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2544
   %5 = load ptr, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 %1, ptr %6, align 8
   ret void
 }
@@ -636,9 +636,9 @@ define dso_local void @__delayacct_wpcopy_start() local_unnamed_addr #1 align 16
 define dso_local void @__delayacct_wpcopy_end() local_unnamed_addr #1 align 16 {
   %1 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !5
   %2 = inttoptr i64 %1 to ptr
-  %3 = getelementptr inbounds i8, ptr %2, i64 2544
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2544
   %4 = load ptr, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = tail call i64 @local_clock() #6
   %7 = load i64, ptr %5, align 8
   %8 = sub i64 %6, %7
@@ -646,8 +646,8 @@ define dso_local void @__delayacct_wpcopy_end() local_unnamed_addr #1 align 16 {
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %0
-  %11 = getelementptr inbounds i8, ptr %4, i64 132
-  %12 = getelementptr inbounds i8, ptr %4, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 132
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %13 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #6
   %14 = load i64, ptr %12, align 8
   %15 = add i64 %14, %8
@@ -664,17 +664,17 @@ define dso_local void @__delayacct_wpcopy_end() local_unnamed_addr #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__delayacct_irq(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2544
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2544
   %4 = load ptr, ptr %3, align 16
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #6
   %6 = zext i32 %1 to i64
   %7 = load ptr, ptr %3, align 16
-  %8 = getelementptr inbounds i8, ptr %7, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %6
   store i64 %10, ptr %8, align 8
   %11 = load ptr, ptr %3, align 16
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, 1
   store i32 %14, ptr %12, align 8
@@ -709,7 +709,7 @@ define internal i32 @sysctl_delayacct(ptr nocapture noundef readonly %0, i32 nou
 
 12:                                               ; preds = %10, %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef align 8 dereferenceable(64) %0, i64 64, i1 false)
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %13, align 8
   %14 = call i32 @proc_dointvec_minmax(ptr noundef nonnull %7, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #6
   %15 = icmp slt i32 %14, 0

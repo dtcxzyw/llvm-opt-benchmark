@@ -230,7 +230,7 @@ define internal i32 @dissect_rx(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not, label %261, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.92) #2
   %16 = load ptr, ptr %14, align 8
@@ -240,28 +240,28 @@ define internal i32 @dissect_rx(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %19 = load i32, ptr @ett_rx, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #2
   %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
-  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %21, ptr %22, align 4
   %23 = zext i32 %21 to i64
   store i64 %23, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %24, align 8
   %25 = load i32, ptr @hf_rx_epoch, align 4
   %26 = call ptr @proto_tree_add_time(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %6) #2
   %27 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #2
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %27, ptr %28, align 4
   %29 = load i32, ptr @hf_rx_cid, align 4
   %30 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %29, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #2
   %31 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #2
   %32 = load i32, ptr @hf_rx_callnumber, align 4
   %33 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %32, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %31) #2
-  %34 = getelementptr inbounds i8, ptr %5, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %31, ptr %34, align 4
   %35 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #2
   %36 = load i32, ptr @hf_rx_seq, align 4
   %37 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %36, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef %35) #2
-  %38 = getelementptr inbounds i8, ptr %5, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %35, ptr %38, align 4
   %39 = load i32, ptr @hf_rx_serial, align 4
   %40 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %39, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #2
@@ -271,7 +271,7 @@ define internal i32 @dissect_rx(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %44 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %42, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef %43) #2
   store i8 %41, ptr %5, align 4
   %45 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 21) #2
-  %46 = getelementptr inbounds i8, ptr %5, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %45, ptr %46, align 1
   %47 = load i32, ptr @hf_rx_flags, align 4
   %48 = load i32, ptr @ett_rx_flags, align 4
@@ -286,7 +286,7 @@ define internal i32 @dissect_rx(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %57 = load i32, ptr @hf_rx_serviceid, align 4
   %58 = zext i16 %56 to i32
   %59 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %57, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef %58) #2
-  %60 = getelementptr inbounds i8, ptr %5, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %56, ptr %60, align 2
   switch i8 %41, label %259 [
     i8 2, label %61
@@ -394,13 +394,13 @@ dissect_rx_acks.exit:                             ; preds = %._crit_edge.i, %111
   %120 = call ptr @val_to_str(i32 noundef %119, ptr noundef nonnull @rx_reason, ptr noundef nonnull @.str.123) #2
   %121 = zext i32 %35 to i64
   %122 = zext i32 %31 to i64
-  %123 = getelementptr inbounds i8, ptr %1, i64 408
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %1, i64 284
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %126 = load i32, ptr %125, align 4
   %127 = call ptr @udp_port_to_display(ptr noundef %124, i32 noundef %126) #2
   %128 = load ptr, ptr %123, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 288
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %130 = load i32, ptr %129, align 8
   %131 = call ptr @udp_port_to_display(ptr noundef %128, i32 noundef %130) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %118, i32 noundef 25, ptr noundef nonnull @.str.122, ptr noundef %120, i64 noundef %121, i64 noundef %122, ptr noundef %127, ptr noundef %131) #2
@@ -412,13 +412,13 @@ dissect_rx_acks.exit:                             ; preds = %._crit_edge.i, %111
   %134 = load ptr, ptr %14, align 8
   %135 = zext i32 %35 to i64
   %136 = zext i32 %31 to i64
-  %137 = getelementptr inbounds i8, ptr %1, i64 408
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %1, i64 284
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %140 = load i32, ptr %139, align 4
   %141 = call ptr @udp_port_to_display(ptr noundef %138, i32 noundef %140) #2
   %142 = load ptr, ptr %137, align 8
-  %143 = getelementptr inbounds i8, ptr %1, i64 288
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %144 = load i32, ptr %143, align 8
   %145 = call ptr @udp_port_to_display(ptr noundef %142, i32 noundef %144) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %134, i32 noundef 25, ptr noundef nonnull @.str.118, i64 noundef %135, i64 noundef %136, ptr noundef %141, ptr noundef %145) #2
@@ -430,13 +430,13 @@ dissect_rx_acks.exit:                             ; preds = %._crit_edge.i, %111
   %148 = load ptr, ptr %14, align 8
   %149 = zext i32 %35 to i64
   %150 = zext i32 %31 to i64
-  %151 = getelementptr inbounds i8, ptr %1, i64 408
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %1, i64 284
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %154 = load i32, ptr %153, align 4
   %155 = call ptr @udp_port_to_display(ptr noundef %152, i32 noundef %154) #2
   %156 = load ptr, ptr %151, align 8
-  %157 = getelementptr inbounds i8, ptr %1, i64 288
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %158 = load i32, ptr %157, align 8
   %159 = call ptr @udp_port_to_display(ptr noundef %156, i32 noundef %158) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %148, i32 noundef 25, ptr noundef nonnull @.str.121, ptr noundef nonnull %.str.119..str.120, i64 noundef %149, i64 noundef %150, ptr noundef %155, ptr noundef %159) #2
@@ -446,13 +446,13 @@ dissect_rx_acks.exit:                             ; preds = %._crit_edge.i, %111
   %161 = load ptr, ptr %14, align 8
   %162 = zext i32 %35 to i64
   %163 = zext i32 %31 to i64
-  %164 = getelementptr inbounds i8, ptr %1, i64 408
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %1, i64 284
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %167 = load i32, ptr %166, align 4
   %168 = call ptr @udp_port_to_display(ptr noundef %165, i32 noundef %167) #2
   %169 = load ptr, ptr %164, align 8
-  %170 = getelementptr inbounds i8, ptr %1, i64 288
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %171 = load i32, ptr %170, align 8
   %172 = call ptr @udp_port_to_display(ptr noundef %169, i32 noundef %171) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %161, i32 noundef 25, ptr noundef nonnull @.str.124, i64 noundef %162, i64 noundef %163, ptr noundef %168, ptr noundef %172) #2
@@ -482,13 +482,13 @@ dissect_rx_challenge.exit:                        ; preds = %160, %181
   %187 = load ptr, ptr %14, align 8
   %188 = zext i32 %35 to i64
   %189 = zext i32 %31 to i64
-  %190 = getelementptr inbounds i8, ptr %1, i64 408
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %1, i64 284
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %193 = load i32, ptr %192, align 4
   %194 = call ptr @udp_port_to_display(ptr noundef %191, i32 noundef %193) #2
   %195 = load ptr, ptr %190, align 8
-  %196 = getelementptr inbounds i8, ptr %1, i64 288
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %197 = load i32, ptr %196, align 8
   %198 = call ptr @udp_port_to_display(ptr noundef %195, i32 noundef %197) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %187, i32 noundef 25, ptr noundef nonnull @.str.125, i64 noundef %188, i64 noundef %189, ptr noundef %194, ptr noundef %198) #2
@@ -557,13 +557,13 @@ dissect_rx_response.exit:                         ; preds = %186, %dissect_rx_re
   %241 = load ptr, ptr %14, align 8
   %242 = zext i32 %35 to i64
   %243 = zext i32 %31 to i64
-  %244 = getelementptr inbounds i8, ptr %1, i64 408
+  %244 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %1, i64 284
+  %246 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %247 = load i32, ptr %246, align 4
   %248 = call ptr @udp_port_to_display(ptr noundef %245, i32 noundef %247) #2
   %249 = load ptr, ptr %244, align 8
-  %250 = getelementptr inbounds i8, ptr %1, i64 288
+  %250 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %251 = load i32, ptr %250, align 8
   %252 = call ptr @udp_port_to_display(ptr noundef %249, i32 noundef %251) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %241, i32 noundef 25, ptr noundef nonnull @.str.126, i64 noundef %242, i64 noundef %243, ptr noundef %248, ptr noundef %252) #2
